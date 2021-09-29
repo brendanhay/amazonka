@@ -114,6 +114,10 @@ data InstancePortInfo = InstancePortInfo'
     --     @icmp@ as the @protocol@, you must specify the ICMP type using the
     --     @fromPort@ parameter, and ICMP code using the @toPort@ parameter.
     protocol :: Prelude.Maybe NetworkProtocol,
+    -- | The location from which access is allowed. For example,
+    -- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
+    -- of IP addresses is allowed.
+    accessFrom :: Prelude.Maybe Prelude.Text,
     -- | The last port in a range of open ports on an instance.
     --
     -- Allowed ports:
@@ -130,11 +134,7 @@ data InstancePortInfo = InstancePortInfo'
     --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
     --     code). For more information, see
     --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | The location from which access is allowed. For example,
-    -- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
-    -- of IP addresses is allowed.
-    accessFrom :: Prelude.Maybe Prelude.Text
+    toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -230,6 +230,10 @@ data InstancePortInfo = InstancePortInfo'
 --     @icmp@ as the @protocol@, you must specify the ICMP type using the
 --     @fromPort@ parameter, and ICMP code using the @toPort@ parameter.
 --
+-- 'accessFrom', 'instancePortInfo_accessFrom' - The location from which access is allowed. For example,
+-- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
+-- of IP addresses is allowed.
+--
 -- 'toPort', 'instancePortInfo_toPort' - The last port in a range of open ports on an instance.
 --
 -- Allowed ports:
@@ -246,10 +250,6 @@ data InstancePortInfo = InstancePortInfo'
 --     @128@ as the @fromPort@ (ICMPv6 type), and @0@ as @toPort@ (ICMPv6
 --     code). For more information, see
 --     <https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6 Internet Control Message Protocol for IPv6>.
---
--- 'accessFrom', 'instancePortInfo_accessFrom' - The location from which access is allowed. For example,
--- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
--- of IP addresses is allowed.
 newInstancePortInfo ::
   InstancePortInfo
 newInstancePortInfo =
@@ -262,8 +262,8 @@ newInstancePortInfo =
       accessType = Prelude.Nothing,
       accessDirection = Prelude.Nothing,
       protocol = Prelude.Nothing,
-      toPort = Prelude.Nothing,
-      accessFrom = Prelude.Nothing
+      accessFrom = Prelude.Nothing,
+      toPort = Prelude.Nothing
     }
 
 -- | The first port in a range of open ports on an instance.
@@ -366,6 +366,12 @@ instancePortInfo_accessDirection = Lens.lens (\InstancePortInfo' {accessDirectio
 instancePortInfo_protocol :: Lens.Lens' InstancePortInfo (Prelude.Maybe NetworkProtocol)
 instancePortInfo_protocol = Lens.lens (\InstancePortInfo' {protocol} -> protocol) (\s@InstancePortInfo' {} a -> s {protocol = a} :: InstancePortInfo)
 
+-- | The location from which access is allowed. For example,
+-- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
+-- of IP addresses is allowed.
+instancePortInfo_accessFrom :: Lens.Lens' InstancePortInfo (Prelude.Maybe Prelude.Text)
+instancePortInfo_accessFrom = Lens.lens (\InstancePortInfo' {accessFrom} -> accessFrom) (\s@InstancePortInfo' {} a -> s {accessFrom = a} :: InstancePortInfo)
+
 -- | The last port in a range of open ports on an instance.
 --
 -- Allowed ports:
@@ -385,12 +391,6 @@ instancePortInfo_protocol = Lens.lens (\InstancePortInfo' {protocol} -> protocol
 instancePortInfo_toPort :: Lens.Lens' InstancePortInfo (Prelude.Maybe Prelude.Int)
 instancePortInfo_toPort = Lens.lens (\InstancePortInfo' {toPort} -> toPort) (\s@InstancePortInfo' {} a -> s {toPort = a} :: InstancePortInfo)
 
--- | The location from which access is allowed. For example,
--- @Anywhere (0.0.0.0\/0)@, or @Custom@ if a specific IP address or range
--- of IP addresses is allowed.
-instancePortInfo_accessFrom :: Lens.Lens' InstancePortInfo (Prelude.Maybe Prelude.Text)
-instancePortInfo_accessFrom = Lens.lens (\InstancePortInfo' {accessFrom} -> accessFrom) (\s@InstancePortInfo' {} a -> s {accessFrom = a} :: InstancePortInfo)
-
 instance Core.FromJSON InstancePortInfo where
   parseJSON =
     Core.withObject
@@ -407,8 +407,8 @@ instance Core.FromJSON InstancePortInfo where
             Prelude.<*> (x Core..:? "accessType")
             Prelude.<*> (x Core..:? "accessDirection")
             Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "toPort")
             Prelude.<*> (x Core..:? "accessFrom")
+            Prelude.<*> (x Core..:? "toPort")
       )
 
 instance Prelude.Hashable InstancePortInfo

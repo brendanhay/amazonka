@@ -89,6 +89,17 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
     childPolicy :: Prelude.Maybe ChildPolicy,
+    -- | A task priority that, if set, specifies the priority for a decision task
+    -- of this workflow execution. This overrides the defaultTaskPriority
+    -- specified when registering the workflow type. Valid values are integers
+    -- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
+    -- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
+    -- priority.
+    --
+    -- For more information about setting task priority, see
+    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+    -- in the /Amazon SWF Developer Guide/.
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The name of the task list to be used for decision tasks of the child
     -- workflow execution.
     --
@@ -102,17 +113,6 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- contain the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
-    -- | A task priority that, if set, specifies the priority for a decision task
-    -- of this workflow execution. This overrides the defaultTaskPriority
-    -- specified when registering the workflow type. Valid values are integers
-    -- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
-    -- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
-    -- priority.
-    --
-    -- For more information about setting task priority, see
-    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
-    -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The data attached to the event that can be used by the decider in
     -- subsequent workflow tasks. This data isn\'t sent to the child workflow
     -- execution.
@@ -195,6 +195,17 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
 --
+-- 'taskPriority', 'startChildWorkflowExecutionDecisionAttributes_taskPriority' - A task priority that, if set, specifies the priority for a decision task
+-- of this workflow execution. This overrides the defaultTaskPriority
+-- specified when registering the workflow type. Valid values are integers
+-- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
+-- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
+-- priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+--
 -- 'taskList', 'startChildWorkflowExecutionDecisionAttributes_taskList' - The name of the task list to be used for decision tasks of the child
 -- workflow execution.
 --
@@ -207,17 +218,6 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- contain the literal string @arn@.
---
--- 'taskPriority', 'startChildWorkflowExecutionDecisionAttributes_taskPriority' - A task priority that, if set, specifies the priority for a decision task
--- of this workflow execution. This overrides the defaultTaskPriority
--- specified when registering the workflow type. Valid values are integers
--- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
--- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
--- priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
 --
 -- 'control', 'startChildWorkflowExecutionDecisionAttributes_control' - The data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data isn\'t sent to the child workflow
@@ -277,9 +277,9 @@ newStartChildWorkflowExecutionDecisionAttributes
         lambdaRole = Prelude.Nothing,
         childPolicy =
           Prelude.Nothing,
-        taskList = Prelude.Nothing,
         taskPriority =
           Prelude.Nothing,
+        taskList = Prelude.Nothing,
         control = Prelude.Nothing,
         executionStartToCloseTimeout =
           Prelude.Nothing,
@@ -324,6 +324,19 @@ startChildWorkflowExecutionDecisionAttributes_lambdaRole = Lens.lens (\StartChil
 startChildWorkflowExecutionDecisionAttributes_childPolicy :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Prelude.Maybe ChildPolicy)
 startChildWorkflowExecutionDecisionAttributes_childPolicy = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {childPolicy} -> childPolicy) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {childPolicy = a} :: StartChildWorkflowExecutionDecisionAttributes)
 
+-- | A task priority that, if set, specifies the priority for a decision task
+-- of this workflow execution. This overrides the defaultTaskPriority
+-- specified when registering the workflow type. Valid values are integers
+-- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
+-- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
+-- priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+startChildWorkflowExecutionDecisionAttributes_taskPriority :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
+startChildWorkflowExecutionDecisionAttributes_taskPriority = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {taskPriority} -> taskPriority) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {taskPriority = a} :: StartChildWorkflowExecutionDecisionAttributes)
+
 -- | The name of the task list to be used for decision tasks of the child
 -- workflow execution.
 --
@@ -338,19 +351,6 @@ startChildWorkflowExecutionDecisionAttributes_childPolicy = Lens.lens (\StartChi
 -- contain the literal string @arn@.
 startChildWorkflowExecutionDecisionAttributes_taskList :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Prelude.Maybe TaskList)
 startChildWorkflowExecutionDecisionAttributes_taskList = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {taskList} -> taskList) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {taskList = a} :: StartChildWorkflowExecutionDecisionAttributes)
-
--- | A task priority that, if set, specifies the priority for a decision task
--- of this workflow execution. This overrides the defaultTaskPriority
--- specified when registering the workflow type. Valid values are integers
--- that range from Java\'s @Integer.MIN_VALUE@ (-2147483648) to
--- @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher
--- priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
-startChildWorkflowExecutionDecisionAttributes_taskPriority :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
-startChildWorkflowExecutionDecisionAttributes_taskPriority = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {taskPriority} -> taskPriority) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {taskPriority = a} :: StartChildWorkflowExecutionDecisionAttributes)
 
 -- | The data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data isn\'t sent to the child workflow
@@ -427,8 +427,8 @@ instance
             [ ("input" Core..=) Prelude.<$> input,
               ("lambdaRole" Core..=) Prelude.<$> lambdaRole,
               ("childPolicy" Core..=) Prelude.<$> childPolicy,
-              ("taskList" Core..=) Prelude.<$> taskList,
               ("taskPriority" Core..=) Prelude.<$> taskPriority,
+              ("taskList" Core..=) Prelude.<$> taskList,
               ("control" Core..=) Prelude.<$> control,
               ("executionStartToCloseTimeout" Core..=)
                 Prelude.<$> executionStartToCloseTimeout,

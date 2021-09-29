@@ -37,12 +37,12 @@ data MultiplexSummary = MultiplexSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
+    -- | The name of the multiplex.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of programs in the multiplex.
     programCount :: Prelude.Maybe Prelude.Int,
     -- | The current state of the multiplex.
     state :: Prelude.Maybe MultiplexState,
-    -- | The name of the multiplex.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
@@ -66,11 +66,11 @@ data MultiplexSummary = MultiplexSummary'
 --
 -- 'pipelinesRunningCount', 'multiplexSummary_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
+-- 'name', 'multiplexSummary_name' - The name of the multiplex.
+--
 -- 'programCount', 'multiplexSummary_programCount' - The number of programs in the multiplex.
 --
 -- 'state', 'multiplexSummary_state' - The current state of the multiplex.
---
--- 'name', 'multiplexSummary_name' - The name of the multiplex.
 --
 -- 'tags', 'multiplexSummary_tags' - A collection of key-value pairs.
 --
@@ -84,9 +84,9 @@ newMultiplexSummary =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
+      name = Prelude.Nothing,
       programCount = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       multiplexSettings = Prelude.Nothing
     }
@@ -107,6 +107,10 @@ multiplexSummary_id = Lens.lens (\MultiplexSummary' {id} -> id) (\s@MultiplexSum
 multiplexSummary_pipelinesRunningCount :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Int)
 multiplexSummary_pipelinesRunningCount = Lens.lens (\MultiplexSummary' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@MultiplexSummary' {} a -> s {pipelinesRunningCount = a} :: MultiplexSummary)
 
+-- | The name of the multiplex.
+multiplexSummary_name :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Text)
+multiplexSummary_name = Lens.lens (\MultiplexSummary' {name} -> name) (\s@MultiplexSummary' {} a -> s {name = a} :: MultiplexSummary)
+
 -- | The number of programs in the multiplex.
 multiplexSummary_programCount :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Int)
 multiplexSummary_programCount = Lens.lens (\MultiplexSummary' {programCount} -> programCount) (\s@MultiplexSummary' {} a -> s {programCount = a} :: MultiplexSummary)
@@ -114,10 +118,6 @@ multiplexSummary_programCount = Lens.lens (\MultiplexSummary' {programCount} -> 
 -- | The current state of the multiplex.
 multiplexSummary_state :: Lens.Lens' MultiplexSummary (Prelude.Maybe MultiplexState)
 multiplexSummary_state = Lens.lens (\MultiplexSummary' {state} -> state) (\s@MultiplexSummary' {} a -> s {state = a} :: MultiplexSummary)
-
--- | The name of the multiplex.
-multiplexSummary_name :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Text)
-multiplexSummary_name = Lens.lens (\MultiplexSummary' {name} -> name) (\s@MultiplexSummary' {} a -> s {name = a} :: MultiplexSummary)
 
 -- | A collection of key-value pairs.
 multiplexSummary_tags :: Lens.Lens' MultiplexSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -139,9 +139,9 @@ instance Core.FromJSON MultiplexSummary where
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "pipelinesRunningCount")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "programCount")
             Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "multiplexSettings")
       )

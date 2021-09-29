@@ -35,8 +35,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- For more information about these account limits, and other
 -- CloudFormation limits, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html AWS CloudFormation Limits>
--- in the /AWS CloudFormation User Guide/.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation Limits>
+-- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'

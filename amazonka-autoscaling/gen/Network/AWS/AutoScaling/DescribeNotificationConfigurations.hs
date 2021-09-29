@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the notification actions associated with the specified Auto
--- Scaling group.
+-- Gets information about the Amazon SNS notifications that are configured
+-- for one or more Auto Scaling groups.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations

@@ -30,34 +30,35 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReplicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
-  { -- | The private IP address of the replication instance.
-    replicationInstancePrivateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The VPC security group for the instance.
+  { -- | The VPC security group for the instance.
     vpcSecurityGroups :: Prelude.Maybe [VpcSecurityGroupMembership],
+    -- | The private IP address of the replication instance.
+    replicationInstancePrivateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The expiration date of the free replication instance that is part of the
     -- Free DMS program.
     freeUntil :: Prelude.Maybe Core.POSIX,
-    -- | The subnet group for the replication instance.
-    replicationSubnetGroup :: Prelude.Maybe ReplicationSubnetGroup,
     -- | The time the replication instance was created.
     instanceCreateTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
-    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
-    -- set to @true@.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
+    -- | The subnet group for the replication instance.
+    replicationSubnetGroup :: Prelude.Maybe ReplicationSubnetGroup,
     -- | Specifies the accessibility options for the replication instance. A
     -- value of @true@ represents an instance with a public IP address. A value
     -- of @false@ represents an instance with a private IP address. The default
     -- value is @true@.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | An AWS KMS key identifier that is used to encrypt the data on the
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
+    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+    -- set to @true@.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
+    -- | An KMS key identifier that is used to encrypt the data on the
     -- replication instance.
     --
-    -- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+    -- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
     -- uses your default encryption key.
     --
-    -- AWS KMS creates the default encryption key for your AWS account. Your
-    -- AWS account has a different default encryption key for each AWS Region.
+    -- KMS creates the default encryption key for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default
+    -- encryption key for each Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone for the instance.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -118,21 +119,21 @@ data ReplicationInstance = ReplicationInstance'
     replicationInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The pending modification values.
     pendingModifiedValues :: Prelude.Maybe ReplicationPendingModifiedValues,
-    -- | The public IP address of the replication instance.
-    replicationInstancePublicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The compute and memory capacity of the replication instance as defined
     -- for the specified replication instance class. It is a required
-    -- parameter, although a defualt value is pre-selected in the DMS console.
+    -- parameter, although a default value is pre-selected in the DMS console.
     --
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
     replicationInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The public IP address of the replication instance.
+    replicationInstancePublicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The DNS name servers supported for the replication instance to access
     -- your on-premise source or target database.
     dnsNameServers :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) that is allocated for the
     -- replication instance.
     allocatedStorage :: Prelude.Maybe Prelude.Int,
@@ -155,34 +156,35 @@ data ReplicationInstance = ReplicationInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationInstancePrivateIpAddress', 'replicationInstance_replicationInstancePrivateIpAddress' - The private IP address of the replication instance.
---
 -- 'vpcSecurityGroups', 'replicationInstance_vpcSecurityGroups' - The VPC security group for the instance.
+--
+-- 'replicationInstancePrivateIpAddress', 'replicationInstance_replicationInstancePrivateIpAddress' - The private IP address of the replication instance.
 --
 -- 'freeUntil', 'replicationInstance_freeUntil' - The expiration date of the free replication instance that is part of the
 -- Free DMS program.
 --
--- 'replicationSubnetGroup', 'replicationInstance_replicationSubnetGroup' - The subnet group for the replication instance.
---
 -- 'instanceCreateTime', 'replicationInstance_instanceCreateTime' - The time the replication instance was created.
 --
--- 'multiAZ', 'replicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
+-- 'replicationSubnetGroup', 'replicationInstance_replicationSubnetGroup' - The subnet group for the replication instance.
 --
 -- 'publiclyAccessible', 'replicationInstance_publiclyAccessible' - Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
 -- of @false@ represents an instance with a private IP address. The default
 -- value is @true@.
 --
--- 'kmsKeyId', 'replicationInstance_kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the
+-- 'multiAZ', 'replicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+--
+-- 'kmsKeyId', 'replicationInstance_kmsKeyId' - An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
 --
--- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+-- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
 -- uses your default encryption key.
 --
--- AWS KMS creates the default encryption key for your AWS account. Your
--- AWS account has a different default encryption key for each AWS Region.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Region.
 --
 -- 'availabilityZone', 'replicationInstance_availabilityZone' - The Availability Zone for the instance.
 --
@@ -243,20 +245,20 @@ data ReplicationInstance = ReplicationInstance'
 --
 -- 'pendingModifiedValues', 'replicationInstance_pendingModifiedValues' - The pending modification values.
 --
--- 'replicationInstancePublicIpAddress', 'replicationInstance_replicationInstancePublicIpAddress' - The public IP address of the replication instance.
---
 -- 'replicationInstanceClass', 'replicationInstance_replicationInstanceClass' - The compute and memory capacity of the replication instance as defined
 -- for the specified replication instance class. It is a required
--- parameter, although a defualt value is pre-selected in the DMS console.
+-- parameter, although a default value is pre-selected in the DMS console.
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 --
--- 'replicationInstanceArn', 'replicationInstance_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
+-- 'replicationInstancePublicIpAddress', 'replicationInstance_replicationInstancePublicIpAddress' - The public IP address of the replication instance.
 --
 -- 'dnsNameServers', 'replicationInstance_dnsNameServers' - The DNS name servers supported for the replication instance to access
 -- your on-premise source or target database.
+--
+-- 'replicationInstanceArn', 'replicationInstance_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 --
 -- 'allocatedStorage', 'replicationInstance_allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the
 -- replication instance.
@@ -272,14 +274,15 @@ newReplicationInstance ::
   ReplicationInstance
 newReplicationInstance =
   ReplicationInstance'
-    { replicationInstancePrivateIpAddress =
+    { vpcSecurityGroups =
         Prelude.Nothing,
-      vpcSecurityGroups = Prelude.Nothing,
+      replicationInstancePrivateIpAddress =
+        Prelude.Nothing,
       freeUntil = Prelude.Nothing,
-      replicationSubnetGroup = Prelude.Nothing,
       instanceCreateTime = Prelude.Nothing,
-      multiAZ = Prelude.Nothing,
+      replicationSubnetGroup = Prelude.Nothing,
       publiclyAccessible = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
@@ -289,10 +292,10 @@ newReplicationInstance =
       replicationInstanceStatus = Prelude.Nothing,
       replicationInstanceIdentifier = Prelude.Nothing,
       pendingModifiedValues = Prelude.Nothing,
-      replicationInstancePublicIpAddress = Prelude.Nothing,
       replicationInstanceClass = Prelude.Nothing,
-      replicationInstanceArn = Prelude.Nothing,
+      replicationInstancePublicIpAddress = Prelude.Nothing,
       dnsNameServers = Prelude.Nothing,
+      replicationInstanceArn = Prelude.Nothing,
       allocatedStorage = Prelude.Nothing,
       replicationInstancePublicIpAddresses =
         Prelude.Nothing,
@@ -300,32 +303,26 @@ newReplicationInstance =
       autoMinorVersionUpgrade = Prelude.Nothing
     }
 
--- | The private IP address of the replication instance.
-replicationInstance_replicationInstancePrivateIpAddress :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
-replicationInstance_replicationInstancePrivateIpAddress = Lens.lens (\ReplicationInstance' {replicationInstancePrivateIpAddress} -> replicationInstancePrivateIpAddress) (\s@ReplicationInstance' {} a -> s {replicationInstancePrivateIpAddress = a} :: ReplicationInstance)
-
 -- | The VPC security group for the instance.
 replicationInstance_vpcSecurityGroups :: Lens.Lens' ReplicationInstance (Prelude.Maybe [VpcSecurityGroupMembership])
 replicationInstance_vpcSecurityGroups = Lens.lens (\ReplicationInstance' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@ReplicationInstance' {} a -> s {vpcSecurityGroups = a} :: ReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The private IP address of the replication instance.
+replicationInstance_replicationInstancePrivateIpAddress :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
+replicationInstance_replicationInstancePrivateIpAddress = Lens.lens (\ReplicationInstance' {replicationInstancePrivateIpAddress} -> replicationInstancePrivateIpAddress) (\s@ReplicationInstance' {} a -> s {replicationInstancePrivateIpAddress = a} :: ReplicationInstance)
 
 -- | The expiration date of the free replication instance that is part of the
 -- Free DMS program.
 replicationInstance_freeUntil :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.UTCTime)
 replicationInstance_freeUntil = Lens.lens (\ReplicationInstance' {freeUntil} -> freeUntil) (\s@ReplicationInstance' {} a -> s {freeUntil = a} :: ReplicationInstance) Prelude.. Lens.mapping Core._Time
 
--- | The subnet group for the replication instance.
-replicationInstance_replicationSubnetGroup :: Lens.Lens' ReplicationInstance (Prelude.Maybe ReplicationSubnetGroup)
-replicationInstance_replicationSubnetGroup = Lens.lens (\ReplicationInstance' {replicationSubnetGroup} -> replicationSubnetGroup) (\s@ReplicationInstance' {} a -> s {replicationSubnetGroup = a} :: ReplicationInstance)
-
 -- | The time the replication instance was created.
 replicationInstance_instanceCreateTime :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.UTCTime)
 replicationInstance_instanceCreateTime = Lens.lens (\ReplicationInstance' {instanceCreateTime} -> instanceCreateTime) (\s@ReplicationInstance' {} a -> s {instanceCreateTime = a} :: ReplicationInstance) Prelude.. Lens.mapping Core._Time
 
--- | Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
-replicationInstance_multiAZ :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Bool)
-replicationInstance_multiAZ = Lens.lens (\ReplicationInstance' {multiAZ} -> multiAZ) (\s@ReplicationInstance' {} a -> s {multiAZ = a} :: ReplicationInstance)
+-- | The subnet group for the replication instance.
+replicationInstance_replicationSubnetGroup :: Lens.Lens' ReplicationInstance (Prelude.Maybe ReplicationSubnetGroup)
+replicationInstance_replicationSubnetGroup = Lens.lens (\ReplicationInstance' {replicationSubnetGroup} -> replicationSubnetGroup) (\s@ReplicationInstance' {} a -> s {replicationSubnetGroup = a} :: ReplicationInstance)
 
 -- | Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
@@ -334,14 +331,21 @@ replicationInstance_multiAZ = Lens.lens (\ReplicationInstance' {multiAZ} -> mult
 replicationInstance_publiclyAccessible :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Bool)
 replicationInstance_publiclyAccessible = Lens.lens (\ReplicationInstance' {publiclyAccessible} -> publiclyAccessible) (\s@ReplicationInstance' {} a -> s {publiclyAccessible = a} :: ReplicationInstance)
 
--- | An AWS KMS key identifier that is used to encrypt the data on the
+-- | Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+replicationInstance_multiAZ :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Bool)
+replicationInstance_multiAZ = Lens.lens (\ReplicationInstance' {multiAZ} -> multiAZ) (\s@ReplicationInstance' {} a -> s {multiAZ = a} :: ReplicationInstance)
+
+-- | An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
 --
--- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+-- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
 -- uses your default encryption key.
 --
--- AWS KMS creates the default encryption key for your AWS account. Your
--- AWS account has a different default encryption key for each AWS Region.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Region.
 replicationInstance_kmsKeyId :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
 replicationInstance_kmsKeyId = Lens.lens (\ReplicationInstance' {kmsKeyId} -> kmsKeyId) (\s@ReplicationInstance' {} a -> s {kmsKeyId = a} :: ReplicationInstance)
 
@@ -418,28 +422,28 @@ replicationInstance_replicationInstanceIdentifier = Lens.lens (\ReplicationInsta
 replicationInstance_pendingModifiedValues :: Lens.Lens' ReplicationInstance (Prelude.Maybe ReplicationPendingModifiedValues)
 replicationInstance_pendingModifiedValues = Lens.lens (\ReplicationInstance' {pendingModifiedValues} -> pendingModifiedValues) (\s@ReplicationInstance' {} a -> s {pendingModifiedValues = a} :: ReplicationInstance)
 
--- | The public IP address of the replication instance.
-replicationInstance_replicationInstancePublicIpAddress :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
-replicationInstance_replicationInstancePublicIpAddress = Lens.lens (\ReplicationInstance' {replicationInstancePublicIpAddress} -> replicationInstancePublicIpAddress) (\s@ReplicationInstance' {} a -> s {replicationInstancePublicIpAddress = a} :: ReplicationInstance)
-
 -- | The compute and memory capacity of the replication instance as defined
 -- for the specified replication instance class. It is a required
--- parameter, although a defualt value is pre-selected in the DMS console.
+-- parameter, although a default value is pre-selected in the DMS console.
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 replicationInstance_replicationInstanceClass :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
 replicationInstance_replicationInstanceClass = Lens.lens (\ReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@ReplicationInstance' {} a -> s {replicationInstanceClass = a} :: ReplicationInstance)
 
--- | The Amazon Resource Name (ARN) of the replication instance.
-replicationInstance_replicationInstanceArn :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
-replicationInstance_replicationInstanceArn = Lens.lens (\ReplicationInstance' {replicationInstanceArn} -> replicationInstanceArn) (\s@ReplicationInstance' {} a -> s {replicationInstanceArn = a} :: ReplicationInstance)
+-- | The public IP address of the replication instance.
+replicationInstance_replicationInstancePublicIpAddress :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
+replicationInstance_replicationInstancePublicIpAddress = Lens.lens (\ReplicationInstance' {replicationInstancePublicIpAddress} -> replicationInstancePublicIpAddress) (\s@ReplicationInstance' {} a -> s {replicationInstancePublicIpAddress = a} :: ReplicationInstance)
 
 -- | The DNS name servers supported for the replication instance to access
 -- your on-premise source or target database.
 replicationInstance_dnsNameServers :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
 replicationInstance_dnsNameServers = Lens.lens (\ReplicationInstance' {dnsNameServers} -> dnsNameServers) (\s@ReplicationInstance' {} a -> s {dnsNameServers = a} :: ReplicationInstance)
+
+-- | The Amazon Resource Name (ARN) of the replication instance.
+replicationInstance_replicationInstanceArn :: Lens.Lens' ReplicationInstance (Prelude.Maybe Prelude.Text)
+replicationInstance_replicationInstanceArn = Lens.lens (\ReplicationInstance' {replicationInstanceArn} -> replicationInstanceArn) (\s@ReplicationInstance' {} a -> s {replicationInstanceArn = a} :: ReplicationInstance)
 
 -- | The amount of storage (in gigabytes) that is allocated for the
 -- replication instance.
@@ -466,15 +470,15 @@ instance Core.FromJSON ReplicationInstance where
       "ReplicationInstance"
       ( \x ->
           ReplicationInstance'
-            Prelude.<$> (x Core..:? "ReplicationInstancePrivateIpAddress")
-            Prelude.<*> ( x Core..:? "VpcSecurityGroups"
+            Prelude.<$> ( x Core..:? "VpcSecurityGroups"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ReplicationInstancePrivateIpAddress")
             Prelude.<*> (x Core..:? "FreeUntil")
-            Prelude.<*> (x Core..:? "ReplicationSubnetGroup")
             Prelude.<*> (x Core..:? "InstanceCreateTime")
-            Prelude.<*> (x Core..:? "MultiAZ")
+            Prelude.<*> (x Core..:? "ReplicationSubnetGroup")
             Prelude.<*> (x Core..:? "PubliclyAccessible")
+            Prelude.<*> (x Core..:? "MultiAZ")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "EngineVersion")
@@ -485,10 +489,10 @@ instance Core.FromJSON ReplicationInstance where
             Prelude.<*> (x Core..:? "ReplicationInstanceStatus")
             Prelude.<*> (x Core..:? "ReplicationInstanceIdentifier")
             Prelude.<*> (x Core..:? "PendingModifiedValues")
-            Prelude.<*> (x Core..:? "ReplicationInstancePublicIpAddress")
             Prelude.<*> (x Core..:? "ReplicationInstanceClass")
-            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Core..:? "ReplicationInstancePublicIpAddress")
             Prelude.<*> (x Core..:? "DnsNameServers")
+            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
             Prelude.<*> (x Core..:? "AllocatedStorage")
             Prelude.<*> ( x Core..:? "ReplicationInstancePublicIpAddresses"
                             Core..!= Prelude.mempty

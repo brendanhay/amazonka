@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of the file shares for a specific file gateway, or the list
--- of file shares that belong to the calling user account. This operation
--- is only supported for file gateways.
+-- Gets a list of the file shares for a specific S3 File Gateway, or the
+-- list of file shares that belong to the calling user account. This
+-- operation is only supported for S3 File Gateways.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListFileShares
@@ -31,8 +31,8 @@ module Network.AWS.StorageGateway.ListFileShares
     newListFileShares,
 
     -- * Request Lenses
-    listFileShares_limit,
     listFileShares_gatewayARN,
+    listFileShares_limit,
     listFileShares_marker,
 
     -- * Destructuring the Response
@@ -58,13 +58,13 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-  { -- | The maximum number of file shares to return in the response. The value
-    -- must be an integer with a value greater than zero. Optional.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
+  { -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
     -- to list. If this field is not present, all file shares under your
     -- account are listed.
     gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of file shares to return in the response. The value
+    -- must be an integer with a value greater than zero. Optional.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Opaque pagination token returned from a previous ListFileShares
     -- operation. If present, @Marker@ specifies where to continue the list
     -- from after a previous call to ListFileShares. Optional.
@@ -80,12 +80,12 @@ data ListFileShares = ListFileShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listFileShares_limit' - The maximum number of file shares to return in the response. The value
--- must be an integer with a value greater than zero. Optional.
---
 -- 'gatewayARN', 'listFileShares_gatewayARN' - The Amazon Resource Name (ARN) of the gateway whose file shares you want
 -- to list. If this field is not present, all file shares under your
 -- account are listed.
+--
+-- 'limit', 'listFileShares_limit' - The maximum number of file shares to return in the response. The value
+-- must be an integer with a value greater than zero. Optional.
 --
 -- 'marker', 'listFileShares_marker' - Opaque pagination token returned from a previous ListFileShares
 -- operation. If present, @Marker@ specifies where to continue the list
@@ -94,21 +94,21 @@ newListFileShares ::
   ListFileShares
 newListFileShares =
   ListFileShares'
-    { limit = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+    { gatewayARN = Prelude.Nothing,
+      limit = Prelude.Nothing,
       marker = Prelude.Nothing
     }
-
--- | The maximum number of file shares to return in the response. The value
--- must be an integer with a value greater than zero. Optional.
-listFileShares_limit :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Natural)
-listFileShares_limit = Lens.lens (\ListFileShares' {limit} -> limit) (\s@ListFileShares' {} a -> s {limit = a} :: ListFileShares)
 
 -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
 -- to list. If this field is not present, all file shares under your
 -- account are listed.
 listFileShares_gatewayARN :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Text)
 listFileShares_gatewayARN = Lens.lens (\ListFileShares' {gatewayARN} -> gatewayARN) (\s@ListFileShares' {} a -> s {gatewayARN = a} :: ListFileShares)
+
+-- | The maximum number of file shares to return in the response. The value
+-- must be an integer with a value greater than zero. Optional.
+listFileShares_limit :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Natural)
+listFileShares_limit = Lens.lens (\ListFileShares' {limit} -> limit) (\s@ListFileShares' {} a -> s {limit = a} :: ListFileShares)
 
 -- | Opaque pagination token returned from a previous ListFileShares
 -- operation. If present, @Marker@ specifies where to continue the list
@@ -178,8 +178,8 @@ instance Core.ToJSON ListFileShares where
   toJSON ListFileShares' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
+          [ ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("Marker" Core..=) Prelude.<$> marker
           ]
       )
@@ -198,7 +198,7 @@ data ListFileSharesResponse = ListFileSharesResponse'
     -- subsequent request, use @NextMarker@ as the value for @Marker@ to
     -- retrieve the next set of file shares.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | An array of information about the file gateway\'s file shares.
+    -- | An array of information about the S3 File Gateway\'s file shares.
     fileShareInfoList :: Prelude.Maybe [FileShareInfo],
     -- | If the request includes @Marker@, the response returns that value in
     -- this field.
@@ -220,7 +220,7 @@ data ListFileSharesResponse = ListFileSharesResponse'
 -- subsequent request, use @NextMarker@ as the value for @Marker@ to
 -- retrieve the next set of file shares.
 --
--- 'fileShareInfoList', 'listFileSharesResponse_fileShareInfoList' - An array of information about the file gateway\'s file shares.
+-- 'fileShareInfoList', 'listFileSharesResponse_fileShareInfoList' - An array of information about the S3 File Gateway\'s file shares.
 --
 -- 'marker', 'listFileSharesResponse_marker' - If the request includes @Marker@, the response returns that value in
 -- this field.
@@ -245,7 +245,7 @@ newListFileSharesResponse pHttpStatus_ =
 listFileSharesResponse_nextMarker :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe Prelude.Text)
 listFileSharesResponse_nextMarker = Lens.lens (\ListFileSharesResponse' {nextMarker} -> nextMarker) (\s@ListFileSharesResponse' {} a -> s {nextMarker = a} :: ListFileSharesResponse)
 
--- | An array of information about the file gateway\'s file shares.
+-- | An array of information about the S3 File Gateway\'s file shares.
 listFileSharesResponse_fileShareInfoList :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe [FileShareInfo])
 listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
 

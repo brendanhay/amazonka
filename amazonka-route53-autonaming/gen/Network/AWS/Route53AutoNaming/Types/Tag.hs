@@ -23,15 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A custom key-value pair associated with a resource.
+-- | A custom key-value pair that\'s associated with a resource.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key identifier, or name, of the tag.
     key :: Prelude.Text,
-    -- | The string value associated with the key of the tag. You can set the
-    -- value of a tag to an empty string, but you can\'t set the value of a tag
-    -- to null.
+    -- | The string value that\'s associated with the key of the tag. You can set
+    -- the value of a tag to an empty string, but you can\'t set the value of a
+    -- tag to null.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +46,9 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - The key identifier, or name, of the tag.
 --
--- 'value', 'tag_value' - The string value associated with the key of the tag. You can set the
--- value of a tag to an empty string, but you can\'t set the value of a tag
--- to null.
+-- 'value', 'tag_value' - The string value that\'s associated with the key of the tag. You can set
+-- the value of a tag to an empty string, but you can\'t set the value of a
+-- tag to null.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -62,9 +62,9 @@ newTag pKey_ pValue_ =
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The string value associated with the key of the tag. You can set the
--- value of a tag to an empty string, but you can\'t set the value of a tag
--- to null.
+-- | The string value that\'s associated with the key of the tag. You can set
+-- the value of a tag to an empty string, but you can\'t set the value of a
+-- tag to null.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

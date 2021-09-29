@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOidcIdentityProviderConfig' smart constructor.
 data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
-  { -- | This is also known as /audience/. The ID of the client application that
-    -- makes authentication requests to the OIDC identity provider.
-    clientId :: Prelude.Maybe Prelude.Text,
-    -- | The prefix that is prepended to group claims to prevent clashes with
+  { -- | The prefix that is prepended to group claims to prevent clashes with
     -- existing names (such as @system:@ groups). For example, the
     -- value@ oidc:@ creates group names like @oidc:engineering@ and
     -- @oidc:infra@. The prefix can\'t contain @system:@
     groupsPrefix :: Prelude.Maybe Prelude.Text,
     -- | The status of the OIDC identity provider.
     status :: Prelude.Maybe ConfigStatus,
+    -- | This is also known as /audience/. The ID of the client application that
+    -- makes authentication requests to the OIDC identity provider.
+    clientId :: Prelude.Maybe Prelude.Text,
     -- | The JSON web token (JWT) claim that the provider uses to return your
     -- groups.
     groupsClaim :: Prelude.Maybe Prelude.Text,
@@ -57,11 +57,11 @@ data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
     -- | The prefix that is prepended to username claims to prevent clashes with
     -- existing names. The prefix can\'t contain @system:@
     usernamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the configuration.
+    identityProviderConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The URL of the OIDC identity provider that allows the API server to
     -- discover public signing keys for verifying tokens.
     issuerUrl :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the configuration.
-    identityProviderConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The cluster that the configuration is associated to.
     clusterName :: Prelude.Maybe Prelude.Text
   }
@@ -75,15 +75,15 @@ data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientId', 'oidcIdentityProviderConfig_clientId' - This is also known as /audience/. The ID of the client application that
--- makes authentication requests to the OIDC identity provider.
---
 -- 'groupsPrefix', 'oidcIdentityProviderConfig_groupsPrefix' - The prefix that is prepended to group claims to prevent clashes with
 -- existing names (such as @system:@ groups). For example, the
 -- value@ oidc:@ creates group names like @oidc:engineering@ and
 -- @oidc:infra@. The prefix can\'t contain @system:@
 --
 -- 'status', 'oidcIdentityProviderConfig_status' - The status of the OIDC identity provider.
+--
+-- 'clientId', 'oidcIdentityProviderConfig_clientId' - This is also known as /audience/. The ID of the client application that
+-- makes authentication requests to the OIDC identity provider.
 --
 -- 'groupsClaim', 'oidcIdentityProviderConfig_groupsClaim' - The JSON web token (JWT) claim that the provider uses to return your
 -- groups.
@@ -103,35 +103,30 @@ data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
 -- 'usernamePrefix', 'oidcIdentityProviderConfig_usernamePrefix' - The prefix that is prepended to username claims to prevent clashes with
 -- existing names. The prefix can\'t contain @system:@
 --
+-- 'identityProviderConfigArn', 'oidcIdentityProviderConfig_identityProviderConfigArn' - The ARN of the configuration.
+--
 -- 'issuerUrl', 'oidcIdentityProviderConfig_issuerUrl' - The URL of the OIDC identity provider that allows the API server to
 -- discover public signing keys for verifying tokens.
---
--- 'identityProviderConfigArn', 'oidcIdentityProviderConfig_identityProviderConfigArn' - The ARN of the configuration.
 --
 -- 'clusterName', 'oidcIdentityProviderConfig_clusterName' - The cluster that the configuration is associated to.
 newOidcIdentityProviderConfig ::
   OidcIdentityProviderConfig
 newOidcIdentityProviderConfig =
   OidcIdentityProviderConfig'
-    { clientId =
+    { groupsPrefix =
         Prelude.Nothing,
-      groupsPrefix = Prelude.Nothing,
       status = Prelude.Nothing,
+      clientId = Prelude.Nothing,
       groupsClaim = Prelude.Nothing,
       requiredClaims = Prelude.Nothing,
       identityProviderConfigName = Prelude.Nothing,
       usernameClaim = Prelude.Nothing,
       tags = Prelude.Nothing,
       usernamePrefix = Prelude.Nothing,
-      issuerUrl = Prelude.Nothing,
       identityProviderConfigArn = Prelude.Nothing,
+      issuerUrl = Prelude.Nothing,
       clusterName = Prelude.Nothing
     }
-
--- | This is also known as /audience/. The ID of the client application that
--- makes authentication requests to the OIDC identity provider.
-oidcIdentityProviderConfig_clientId :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
-oidcIdentityProviderConfig_clientId = Lens.lens (\OidcIdentityProviderConfig' {clientId} -> clientId) (\s@OidcIdentityProviderConfig' {} a -> s {clientId = a} :: OidcIdentityProviderConfig)
 
 -- | The prefix that is prepended to group claims to prevent clashes with
 -- existing names (such as @system:@ groups). For example, the
@@ -143,6 +138,11 @@ oidcIdentityProviderConfig_groupsPrefix = Lens.lens (\OidcIdentityProviderConfig
 -- | The status of the OIDC identity provider.
 oidcIdentityProviderConfig_status :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe ConfigStatus)
 oidcIdentityProviderConfig_status = Lens.lens (\OidcIdentityProviderConfig' {status} -> status) (\s@OidcIdentityProviderConfig' {} a -> s {status = a} :: OidcIdentityProviderConfig)
+
+-- | This is also known as /audience/. The ID of the client application that
+-- makes authentication requests to the OIDC identity provider.
+oidcIdentityProviderConfig_clientId :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
+oidcIdentityProviderConfig_clientId = Lens.lens (\OidcIdentityProviderConfig' {clientId} -> clientId) (\s@OidcIdentityProviderConfig' {} a -> s {clientId = a} :: OidcIdentityProviderConfig)
 
 -- | The JSON web token (JWT) claim that the provider uses to return your
 -- groups.
@@ -174,14 +174,14 @@ oidcIdentityProviderConfig_tags = Lens.lens (\OidcIdentityProviderConfig' {tags}
 oidcIdentityProviderConfig_usernamePrefix :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
 oidcIdentityProviderConfig_usernamePrefix = Lens.lens (\OidcIdentityProviderConfig' {usernamePrefix} -> usernamePrefix) (\s@OidcIdentityProviderConfig' {} a -> s {usernamePrefix = a} :: OidcIdentityProviderConfig)
 
+-- | The ARN of the configuration.
+oidcIdentityProviderConfig_identityProviderConfigArn :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
+oidcIdentityProviderConfig_identityProviderConfigArn = Lens.lens (\OidcIdentityProviderConfig' {identityProviderConfigArn} -> identityProviderConfigArn) (\s@OidcIdentityProviderConfig' {} a -> s {identityProviderConfigArn = a} :: OidcIdentityProviderConfig)
+
 -- | The URL of the OIDC identity provider that allows the API server to
 -- discover public signing keys for verifying tokens.
 oidcIdentityProviderConfig_issuerUrl :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
 oidcIdentityProviderConfig_issuerUrl = Lens.lens (\OidcIdentityProviderConfig' {issuerUrl} -> issuerUrl) (\s@OidcIdentityProviderConfig' {} a -> s {issuerUrl = a} :: OidcIdentityProviderConfig)
-
--- | The ARN of the configuration.
-oidcIdentityProviderConfig_identityProviderConfigArn :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
-oidcIdentityProviderConfig_identityProviderConfigArn = Lens.lens (\OidcIdentityProviderConfig' {identityProviderConfigArn} -> identityProviderConfigArn) (\s@OidcIdentityProviderConfig' {} a -> s {identityProviderConfigArn = a} :: OidcIdentityProviderConfig)
 
 -- | The cluster that the configuration is associated to.
 oidcIdentityProviderConfig_clusterName :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe Prelude.Text)
@@ -193,17 +193,17 @@ instance Core.FromJSON OidcIdentityProviderConfig where
       "OidcIdentityProviderConfig"
       ( \x ->
           OidcIdentityProviderConfig'
-            Prelude.<$> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "groupsPrefix")
+            Prelude.<$> (x Core..:? "groupsPrefix")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "clientId")
             Prelude.<*> (x Core..:? "groupsClaim")
             Prelude.<*> (x Core..:? "requiredClaims" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "identityProviderConfigName")
             Prelude.<*> (x Core..:? "usernameClaim")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "usernamePrefix")
-            Prelude.<*> (x Core..:? "issuerUrl")
             Prelude.<*> (x Core..:? "identityProviderConfigArn")
+            Prelude.<*> (x Core..:? "issuerUrl")
             Prelude.<*> (x Core..:? "clusterName")
       )
 

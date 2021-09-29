@@ -39,7 +39,9 @@ data EntityRecognizerFilter = EntityRecognizerFilter'
     -- | Filters the list of entities based on the time that the list was
     -- submitted for processing. Returns only jobs submitted after the
     -- specified time. Jobs are returned in ascending order, oldest to newest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX
+    submitTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | The name that you assigned the entity recognizer.
+    recognizerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,13 +62,16 @@ data EntityRecognizerFilter = EntityRecognizerFilter'
 -- 'submitTimeAfter', 'entityRecognizerFilter_submitTimeAfter' - Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted after the
 -- specified time. Jobs are returned in ascending order, oldest to newest.
+--
+-- 'recognizerName', 'entityRecognizerFilter_recognizerName' - The name that you assigned the entity recognizer.
 newEntityRecognizerFilter ::
   EntityRecognizerFilter
 newEntityRecognizerFilter =
   EntityRecognizerFilter'
     { status = Prelude.Nothing,
       submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing
+      submitTimeAfter = Prelude.Nothing,
+      recognizerName = Prelude.Nothing
     }
 
 -- | The status of an entity recognizer.
@@ -85,6 +90,10 @@ entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {s
 entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
 entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
 
+-- | The name that you assigned the entity recognizer.
+entityRecognizerFilter_recognizerName :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.Text)
+entityRecognizerFilter_recognizerName = Lens.lens (\EntityRecognizerFilter' {recognizerName} -> recognizerName) (\s@EntityRecognizerFilter' {} a -> s {recognizerName = a} :: EntityRecognizerFilter)
+
 instance Prelude.Hashable EntityRecognizerFilter
 
 instance Prelude.NFData EntityRecognizerFilter
@@ -97,6 +106,8 @@ instance Core.ToJSON EntityRecognizerFilter where
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
             ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter
+              Prelude.<$> submitTimeAfter,
+            ("RecognizerName" Core..=)
+              Prelude.<$> recognizerName
           ]
       )

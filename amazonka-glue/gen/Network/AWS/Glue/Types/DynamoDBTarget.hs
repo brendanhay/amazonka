@@ -35,10 +35,10 @@ data DynamoDBTarget = DynamoDBTarget'
     -- means to sample the records. If no value is specified, the value
     -- defaults to @true@.
     scanAll :: Prelude.Maybe Prelude.Bool,
-    -- | The percentage of the configured read capacity units to use by the AWS
-    -- Glue crawler. Read capacity units is a term defined by DynamoDB, and is
-    -- a numeric value that acts as rate limiter for the number of reads that
-    -- can be performed on that table per second.
+    -- | The percentage of the configured read capacity units to use by the Glue
+    -- crawler. Read capacity units is a term defined by DynamoDB, and is a
+    -- numeric value that acts as rate limiter for the number of reads that can
+    -- be performed on that table per second.
     --
     -- The valid values are null or a value between 0.1 to 1.5. A null value is
     -- used when user does not provide a value, and defaults to 0.5 of the
@@ -66,10 +66,10 @@ data DynamoDBTarget = DynamoDBTarget'
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
 --
--- 'scanRate', 'dynamoDBTarget_scanRate' - The percentage of the configured read capacity units to use by the AWS
--- Glue crawler. Read capacity units is a term defined by DynamoDB, and is
--- a numeric value that acts as rate limiter for the number of reads that
--- can be performed on that table per second.
+-- 'scanRate', 'dynamoDBTarget_scanRate' - The percentage of the configured read capacity units to use by the Glue
+-- crawler. Read capacity units is a term defined by DynamoDB, and is a
+-- numeric value that acts as rate limiter for the number of reads that can
+-- be performed on that table per second.
 --
 -- The valid values are null or a value between 0.1 to 1.5. A null value is
 -- used when user does not provide a value, and defaults to 0.5 of the
@@ -96,10 +96,10 @@ newDynamoDBTarget =
 dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Bool)
 dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@DynamoDBTarget' {} a -> s {scanAll = a} :: DynamoDBTarget)
 
--- | The percentage of the configured read capacity units to use by the AWS
--- Glue crawler. Read capacity units is a term defined by DynamoDB, and is
--- a numeric value that acts as rate limiter for the number of reads that
--- can be performed on that table per second.
+-- | The percentage of the configured read capacity units to use by the Glue
+-- crawler. Read capacity units is a term defined by DynamoDB, and is a
+-- numeric value that acts as rate limiter for the number of reads that can
+-- be performed on that table per second.
 --
 -- The valid values are null or a value between 0.1 to 1.5. A null value is
 -- used when user does not provide a value, and defaults to 0.5 of the

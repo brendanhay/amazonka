@@ -20,27 +20,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of aliases in the caller\'s AWS account and region. For more
--- information about aliases, see CreateAlias.
+-- Gets a list of aliases in the caller\'s Amazon Web Services account and
+-- region. For more information about aliases, see CreateAlias.
 --
 -- By default, the @ListAliases@ operation returns all aliases in the
 -- account and region. To get only the aliases associated with a particular
--- customer master key (CMK), use the @KeyId@ parameter.
+-- KMS key, use the @KeyId@ parameter.
 --
 -- The @ListAliases@ response can include aliases that you created and
--- associated with your customer managed CMKs, and aliases that AWS created
--- and associated with AWS managed CMKs in your account. You can recognize
--- AWS aliases because their names have the format @aws\/\<service-name>@,
--- such as @aws\/dynamodb@.
+-- associated with your customer managed keys, and aliases that Amazon Web
+-- Services created and associated with Amazon Web Services managed keys in
+-- your account. You can recognize Amazon Web Services aliases because
+-- their names have the format @aws\/\<service-name>@, such as
+-- @aws\/dynamodb@.
 --
 -- The response might also include aliases that have no @TargetKeyId@
--- field. These are predefined aliases that AWS has created but has not yet
--- associated with a CMK. Aliases that AWS creates in your account,
--- including predefined aliases, do not count against your
--- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit AWS KMS aliases quota>.
+-- field. These are predefined aliases that Amazon Web Services has created
+-- but has not yet associated with a KMS key. Aliases that Amazon Web
+-- Services creates in your account, including predefined aliases, do not
+-- count against your
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit KMS aliases quota>.
 --
 -- __Cross-account use__: No. @ListAliases@ does not return aliases in
--- other AWS accounts.
+-- other Amazon Web Services accounts.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ListAliases>
@@ -48,7 +50,7 @@
 --
 -- For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access Controlling access to aliases>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- __Related operations:__
 --
@@ -66,8 +68,8 @@ module Network.AWS.KMS.ListAliases
 
     -- * Request Lenses
     listAliases_limit,
-    listAliases_keyId,
     listAliases_marker,
+    listAliases_keyId,
 
     -- * Destructuring the Response
     ListAliasesResponse (..),
@@ -91,19 +93,23 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
   { -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, AWS KMS does not return more than the
-    -- specified number of items, but it might return fewer.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | Lists only aliases that are associated with the specified CMK. Enter a
-    -- CMK in your AWS account.
+    -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Lists only aliases that are associated with the specified KMS key. Enter
+    -- a KMS key in your Amazon Web Services account.
     --
     -- This parameter is optional. If you omit it, @ListAliases@ returns all
     -- aliases in the account and Region.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -112,12 +118,9 @@ data ListAliases = ListAliases'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter in a subsequent request after you receive a response
-    -- with truncated results. Set it to the value of @NextMarker@ from the
-    -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
+    keyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,19 +133,23 @@ data ListAliases = ListAliases'
 -- for backwards compatibility:
 --
 -- 'limit', 'listAliases_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
 --
--- 'keyId', 'listAliases_keyId' - Lists only aliases that are associated with the specified CMK. Enter a
--- CMK in your AWS account.
+-- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+--
+-- 'keyId', 'listAliases_keyId' - Lists only aliases that are associated with the specified KMS key. Enter
+-- a KMS key in your Amazon Web Services account.
 --
 -- This parameter is optional. If you omit it, @ListAliases@ returns all
 -- aliases in the account and Region.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -151,36 +158,39 @@ data ListAliases = ListAliases'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
---
--- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newListAliases ::
   ListAliases
 newListAliases =
   ListAliases'
     { limit = Prelude.Nothing,
-      keyId = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      keyId = Prelude.Nothing
     }
 
 -- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
 listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
 listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
--- | Lists only aliases that are associated with the specified CMK. Enter a
--- CMK in your AWS account.
+-- | Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
+
+-- | Lists only aliases that are associated with the specified KMS key. Enter
+-- a KMS key in your Amazon Web Services account.
 --
 -- This parameter is optional. If you omit it, @ListAliases@ returns all
 -- aliases in the account and Region.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -189,15 +199,10 @@ listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' 
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 listAliases_keyId :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_keyId = Lens.lens (\ListAliases' {keyId} -> keyId) (\s@ListAliases' {} a -> s {keyId = a} :: ListAliases)
-
--- | Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
 instance Core.AWSPager ListAliases where
   page rq rs
@@ -253,8 +258,8 @@ instance Core.ToJSON ListAliases where
     Core.object
       ( Prelude.catMaybes
           [ ("Limit" Core..=) Prelude.<$> limit,
-            ("KeyId" Core..=) Prelude.<$> keyId,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("KeyId" Core..=) Prelude.<$> keyId
           ]
       )
 

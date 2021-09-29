@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.ArchiveGroupSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.ArchiveCdnSettings
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import qualified Network.AWS.Prelude as Prelude
 
@@ -31,6 +32,8 @@ data ArchiveGroupSettings = ArchiveGroupSettings'
   { -- | Number of seconds to write to archive file before closing and starting a
     -- new one.
     rolloverInterval :: Prelude.Maybe Prelude.Natural,
+    -- | Parameters that control interactions with the CDN.
+    archiveCdnSettings :: Prelude.Maybe ArchiveCdnSettings,
     -- | A directory and base filename where archive files should be written.
     destination :: OutputLocationRef
   }
@@ -47,6 +50,8 @@ data ArchiveGroupSettings = ArchiveGroupSettings'
 -- 'rolloverInterval', 'archiveGroupSettings_rolloverInterval' - Number of seconds to write to archive file before closing and starting a
 -- new one.
 --
+-- 'archiveCdnSettings', 'archiveGroupSettings_archiveCdnSettings' - Parameters that control interactions with the CDN.
+--
 -- 'destination', 'archiveGroupSettings_destination' - A directory and base filename where archive files should be written.
 newArchiveGroupSettings ::
   -- | 'destination'
@@ -56,6 +61,7 @@ newArchiveGroupSettings pDestination_ =
   ArchiveGroupSettings'
     { rolloverInterval =
         Prelude.Nothing,
+      archiveCdnSettings = Prelude.Nothing,
       destination = pDestination_
     }
 
@@ -63,6 +69,10 @@ newArchiveGroupSettings pDestination_ =
 -- new one.
 archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe Prelude.Natural)
 archiveGroupSettings_rolloverInterval = Lens.lens (\ArchiveGroupSettings' {rolloverInterval} -> rolloverInterval) (\s@ArchiveGroupSettings' {} a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
+
+-- | Parameters that control interactions with the CDN.
+archiveGroupSettings_archiveCdnSettings :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe ArchiveCdnSettings)
+archiveGroupSettings_archiveCdnSettings = Lens.lens (\ArchiveGroupSettings' {archiveCdnSettings} -> archiveCdnSettings) (\s@ArchiveGroupSettings' {} a -> s {archiveCdnSettings = a} :: ArchiveGroupSettings)
 
 -- | A directory and base filename where archive files should be written.
 archiveGroupSettings_destination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
@@ -75,6 +85,7 @@ instance Core.FromJSON ArchiveGroupSettings where
       ( \x ->
           ArchiveGroupSettings'
             Prelude.<$> (x Core..:? "rolloverInterval")
+            Prelude.<*> (x Core..:? "archiveCdnSettings")
             Prelude.<*> (x Core..: "destination")
       )
 
@@ -88,6 +99,8 @@ instance Core.ToJSON ArchiveGroupSettings where
       ( Prelude.catMaybes
           [ ("rolloverInterval" Core..=)
               Prelude.<$> rolloverInterval,
+            ("archiveCdnSettings" Core..=)
+              Prelude.<$> archiveCdnSettings,
             Prelude.Just ("destination" Core..= destination)
           ]
       )

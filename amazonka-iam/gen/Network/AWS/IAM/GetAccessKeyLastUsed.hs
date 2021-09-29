@@ -22,8 +22,8 @@
 --
 -- Retrieves information about when the specified access key was last used.
 -- The information includes the date and time of last use, along with the
--- AWS service and Region that were specified in the last request made with
--- that key.
+-- Amazon Web Services service and Region that were specified in the last
+-- request made with that key.
 module Network.AWS.IAM.GetAccessKeyLastUsed
   ( -- * Creating a Request
     GetAccessKeyLastUsed (..),
@@ -130,7 +130,7 @@ instance Core.ToQuery GetAccessKeyLastUsed where
 --
 -- /See:/ 'newGetAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-  { -- | The name of the AWS IAM user that owns this access key.
+  { -- | The name of the IAM user that owns this access key.
     userName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the last time the access key was used.
     accessKeyLastUsed :: Prelude.Maybe AccessKeyLastUsed,
@@ -147,7 +147,7 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userName', 'getAccessKeyLastUsedResponse_userName' - The name of the AWS IAM user that owns this access key.
+-- 'userName', 'getAccessKeyLastUsedResponse_userName' - The name of the IAM user that owns this access key.
 --
 -- 'accessKeyLastUsed', 'getAccessKeyLastUsedResponse_accessKeyLastUsed' - Contains information about the last time the access key was used.
 --
@@ -164,7 +164,7 @@ newGetAccessKeyLastUsedResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the AWS IAM user that owns this access key.
+-- | The name of the IAM user that owns this access key.
 getAccessKeyLastUsedResponse_userName :: Lens.Lens' GetAccessKeyLastUsedResponse (Prelude.Maybe Prelude.Text)
 getAccessKeyLastUsedResponse_userName = Lens.lens (\GetAccessKeyLastUsedResponse' {userName} -> userName) (\s@GetAccessKeyLastUsedResponse' {} a -> s {userName = a} :: GetAccessKeyLastUsedResponse)
 

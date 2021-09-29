@@ -31,6 +31,7 @@ module Network.AWS.EKS.DeleteAddon
     newDeleteAddon,
 
     -- * Request Lenses
+    deleteAddon_preserve,
     deleteAddon_clusterName,
     deleteAddon_addonName,
 
@@ -53,7 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAddon' smart constructor.
 data DeleteAddon = DeleteAddon'
-  { -- | The name of the cluster to delete the add-on from.
+  { -- | Specifying this option preserves the add-on software on your cluster but
+    -- Amazon EKS stops managing any settings for the add-on. If an IAM account
+    -- is associated with the add-on, it is not removed.
+    preserve :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the cluster to delete the add-on from.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
@@ -70,6 +75,10 @@ data DeleteAddon = DeleteAddon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'preserve', 'deleteAddon_preserve' - Specifying this option preserves the add-on software on your cluster but
+-- Amazon EKS stops managing any settings for the add-on. If an IAM account
+-- is associated with the add-on, it is not removed.
+--
 -- 'clusterName', 'deleteAddon_clusterName' - The name of the cluster to delete the add-on from.
 --
 -- 'addonName', 'deleteAddon_addonName' - The name of the add-on. The name must match one of the names returned by
@@ -83,9 +92,16 @@ newDeleteAddon ::
   DeleteAddon
 newDeleteAddon pClusterName_ pAddonName_ =
   DeleteAddon'
-    { clusterName = pClusterName_,
+    { preserve = Prelude.Nothing,
+      clusterName = pClusterName_,
       addonName = pAddonName_
     }
+
+-- | Specifying this option preserves the add-on software on your cluster but
+-- Amazon EKS stops managing any settings for the add-on. If an IAM account
+-- is associated with the add-on, it is not removed.
+deleteAddon_preserve :: Lens.Lens' DeleteAddon (Prelude.Maybe Prelude.Bool)
+deleteAddon_preserve = Lens.lens (\DeleteAddon' {preserve} -> preserve) (\s@DeleteAddon' {} a -> s {preserve = a} :: DeleteAddon)
 
 -- | The name of the cluster to delete the add-on from.
 deleteAddon_clusterName :: Lens.Lens' DeleteAddon Prelude.Text
@@ -133,7 +149,8 @@ instance Core.ToPath DeleteAddon where
       ]
 
 instance Core.ToQuery DeleteAddon where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DeleteAddon' {..} =
+    Prelude.mconcat ["preserve" Core.=: preserve]
 
 -- | /See:/ 'newDeleteAddonResponse' smart constructor.
 data DeleteAddonResponse = DeleteAddonResponse'

@@ -34,10 +34,10 @@ data VpcIpv6CidrBlockAssociation = VpcIpv6CidrBlockAssociation'
     -- | The ID of the IPv6 address pool from which the IPv6 CIDR block is
     -- allocated.
     ipv6Pool :: Prelude.Maybe Prelude.Text,
-    -- | The association ID for the IPv6 CIDR block.
-    associationId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block.
     ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The association ID for the IPv6 CIDR block.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the unique set of Availability Zones, Local Zones, or
     -- Wavelength Zones from which AWS advertises IP addresses, for example,
     -- @us-east-1-wl1-bos-wlz-1@.
@@ -58,9 +58,9 @@ data VpcIpv6CidrBlockAssociation = VpcIpv6CidrBlockAssociation'
 -- 'ipv6Pool', 'vpcIpv6CidrBlockAssociation_ipv6Pool' - The ID of the IPv6 address pool from which the IPv6 CIDR block is
 -- allocated.
 --
--- 'associationId', 'vpcIpv6CidrBlockAssociation_associationId' - The association ID for the IPv6 CIDR block.
---
 -- 'ipv6CidrBlock', 'vpcIpv6CidrBlockAssociation_ipv6CidrBlock' - The IPv6 CIDR block.
+--
+-- 'associationId', 'vpcIpv6CidrBlockAssociation_associationId' - The association ID for the IPv6 CIDR block.
 --
 -- 'networkBorderGroup', 'vpcIpv6CidrBlockAssociation_networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or
 -- Wavelength Zones from which AWS advertises IP addresses, for example,
@@ -72,8 +72,8 @@ newVpcIpv6CidrBlockAssociation =
     { ipv6CidrBlockState =
         Prelude.Nothing,
       ipv6Pool = Prelude.Nothing,
-      associationId = Prelude.Nothing,
       ipv6CidrBlock = Prelude.Nothing,
+      associationId = Prelude.Nothing,
       networkBorderGroup = Prelude.Nothing
     }
 
@@ -86,13 +86,13 @@ vpcIpv6CidrBlockAssociation_ipv6CidrBlockState = Lens.lens (\VpcIpv6CidrBlockAss
 vpcIpv6CidrBlockAssociation_ipv6Pool :: Lens.Lens' VpcIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 vpcIpv6CidrBlockAssociation_ipv6Pool = Lens.lens (\VpcIpv6CidrBlockAssociation' {ipv6Pool} -> ipv6Pool) (\s@VpcIpv6CidrBlockAssociation' {} a -> s {ipv6Pool = a} :: VpcIpv6CidrBlockAssociation)
 
--- | The association ID for the IPv6 CIDR block.
-vpcIpv6CidrBlockAssociation_associationId :: Lens.Lens' VpcIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
-vpcIpv6CidrBlockAssociation_associationId = Lens.lens (\VpcIpv6CidrBlockAssociation' {associationId} -> associationId) (\s@VpcIpv6CidrBlockAssociation' {} a -> s {associationId = a} :: VpcIpv6CidrBlockAssociation)
-
 -- | The IPv6 CIDR block.
 vpcIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' VpcIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 vpcIpv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\VpcIpv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@VpcIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: VpcIpv6CidrBlockAssociation)
+
+-- | The association ID for the IPv6 CIDR block.
+vpcIpv6CidrBlockAssociation_associationId :: Lens.Lens' VpcIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
+vpcIpv6CidrBlockAssociation_associationId = Lens.lens (\VpcIpv6CidrBlockAssociation' {associationId} -> associationId) (\s@VpcIpv6CidrBlockAssociation' {} a -> s {associationId = a} :: VpcIpv6CidrBlockAssociation)
 
 -- | The name of the unique set of Availability Zones, Local Zones, or
 -- Wavelength Zones from which AWS advertises IP addresses, for example,
@@ -105,8 +105,8 @@ instance Core.FromXML VpcIpv6CidrBlockAssociation where
     VpcIpv6CidrBlockAssociation'
       Prelude.<$> (x Core..@? "ipv6CidrBlockState")
       Prelude.<*> (x Core..@? "ipv6Pool")
-      Prelude.<*> (x Core..@? "associationId")
       Prelude.<*> (x Core..@? "ipv6CidrBlock")
+      Prelude.<*> (x Core..@? "associationId")
       Prelude.<*> (x Core..@? "networkBorderGroup")
 
 instance Prelude.Hashable VpcIpv6CidrBlockAssociation

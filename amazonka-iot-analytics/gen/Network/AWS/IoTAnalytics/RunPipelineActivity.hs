@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newRunPipelineActivity' smart constructor.
 data RunPipelineActivity = RunPipelineActivity'
   { -- | The pipeline activity that is run. This must not be a channel activity
-    -- or a datastore activity because these activities are used in a pipeline
+    -- or a data store activity because these activities are used in a pipeline
     -- only to load the original message and to store the (possibly)
-    -- transformed message. If a lambda activity is specified, only
+    -- transformed message. If a Lambda activity is specified, only
     -- short-running Lambda functions (those with a timeout of less than 30
     -- seconds or less) can be used.
     pipelineActivity :: PipelineActivity,
@@ -72,9 +72,9 @@ data RunPipelineActivity = RunPipelineActivity'
 -- for backwards compatibility:
 --
 -- 'pipelineActivity', 'runPipelineActivity_pipelineActivity' - The pipeline activity that is run. This must not be a channel activity
--- or a datastore activity because these activities are used in a pipeline
+-- or a data store activity because these activities are used in a pipeline
 -- only to load the original message and to store the (possibly)
--- transformed message. If a lambda activity is specified, only
+-- transformed message. If a Lambda activity is specified, only
 -- short-running Lambda functions (those with a timeout of less than 30
 -- seconds or less) can be used.
 --
@@ -93,9 +93,9 @@ newRunPipelineActivity pPipelineActivity_ pPayloads_ =
     }
 
 -- | The pipeline activity that is run. This must not be a channel activity
--- or a datastore activity because these activities are used in a pipeline
+-- or a data store activity because these activities are used in a pipeline
 -- only to load the original message and to store the (possibly)
--- transformed message. If a lambda activity is specified, only
+-- transformed message. If a Lambda activity is specified, only
 -- short-running Lambda functions (those with a timeout of less than 30
 -- seconds or less) can be used.
 runPipelineActivity_pipelineActivity :: Lens.Lens' RunPipelineActivity PipelineActivity

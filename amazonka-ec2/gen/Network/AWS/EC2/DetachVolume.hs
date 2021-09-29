@@ -29,11 +29,12 @@
 -- instance, it can\'t be detached while the instance is running. To detach
 -- the root volume, stop the instance first.
 --
--- When a volume with an AWS Marketplace product code is detached from an
--- instance, the product code is no longer associated with the instance.
+-- When a volume with an Amazon Web Services Marketplace product code is
+-- detached from an instance, the product code is no longer associated with
+-- the instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS volume>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detach an Amazon EBS volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DetachVolume
   ( -- * Creating a Request

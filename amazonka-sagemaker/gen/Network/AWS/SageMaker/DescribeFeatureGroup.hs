@@ -169,8 +169,8 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
   { -- | The status of the feature group.
     featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
     -- | The configuration of the @OfflineStore@, inducing the S3 location of the
-    -- @OfflineStore@, AWS Glue or AWS Hive data catalogue configurations, and
-    -- the security configuration.
+    -- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+    -- data catalogue configurations, and the security configuration.
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
     -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
@@ -227,8 +227,8 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- 'featureGroupStatus', 'describeFeatureGroupResponse_featureGroupStatus' - The status of the feature group.
 --
 -- 'offlineStoreConfig', 'describeFeatureGroupResponse_offlineStoreConfig' - The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, AWS Glue or AWS Hive data catalogue configurations, and
--- the security configuration.
+-- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+-- data catalogue configurations, and the security configuration.
 --
 -- 'roleArn', 'describeFeatureGroupResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
 -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
@@ -324,8 +324,8 @@ describeFeatureGroupResponse_featureGroupStatus :: Lens.Lens' DescribeFeatureGro
 describeFeatureGroupResponse_featureGroupStatus = Lens.lens (\DescribeFeatureGroupResponse' {featureGroupStatus} -> featureGroupStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {featureGroupStatus = a} :: DescribeFeatureGroupResponse)
 
 -- | The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, AWS Glue or AWS Hive data catalogue configurations, and
--- the security configuration.
+-- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+-- data catalogue configurations, and the security configuration.
 describeFeatureGroupResponse_offlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OfflineStoreConfig)
 describeFeatureGroupResponse_offlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {offlineStoreConfig} -> offlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {offlineStoreConfig = a} :: DescribeFeatureGroupResponse)
 

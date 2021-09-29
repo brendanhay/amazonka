@@ -31,8 +31,8 @@ module Network.AWS.WorkDocs.DescribeActivities
     -- * Request Lenses
     describeActivities_resourceId,
     describeActivities_organizationId,
-    describeActivities_startTime,
     describeActivities_includeIndirectActivities,
+    describeActivities_startTime,
     describeActivities_endTime,
     describeActivities_userId,
     describeActivities_activityTypes,
@@ -65,15 +65,15 @@ data DescribeActivities = DescribeActivities'
     -- | The ID of the organization. This is a mandatory parameter when using
     -- administrative API (SigV4) requests.
     organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that determines the starting time of the activities. The
-    -- response includes the activities performed after the specified
-    -- timestamp.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | Includes indirect activities. An indirect activity results from a direct
     -- activity performed on a parent resource. For example, sharing a parent
     -- folder (the direct activity) shares all of the subfolders and documents
     -- within the parent folder (the indirect activity).
     includeIndirectActivities :: Prelude.Maybe Prelude.Bool,
+    -- | The timestamp that determines the starting time of the activities. The
+    -- response includes the activities performed after the specified
+    -- timestamp.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that determines the end time of the activities. The
     -- response includes the activities performed before the specified
     -- timestamp.
@@ -108,14 +108,14 @@ data DescribeActivities = DescribeActivities'
 -- 'organizationId', 'describeActivities_organizationId' - The ID of the organization. This is a mandatory parameter when using
 -- administrative API (SigV4) requests.
 --
--- 'startTime', 'describeActivities_startTime' - The timestamp that determines the starting time of the activities. The
--- response includes the activities performed after the specified
--- timestamp.
---
 -- 'includeIndirectActivities', 'describeActivities_includeIndirectActivities' - Includes indirect activities. An indirect activity results from a direct
 -- activity performed on a parent resource. For example, sharing a parent
 -- folder (the direct activity) shares all of the subfolders and documents
 -- within the parent folder (the indirect activity).
+--
+-- 'startTime', 'describeActivities_startTime' - The timestamp that determines the starting time of the activities. The
+-- response includes the activities performed after the specified
+-- timestamp.
 --
 -- 'endTime', 'describeActivities_endTime' - The timestamp that determines the end time of the activities. The
 -- response includes the activities performed before the specified
@@ -140,8 +140,8 @@ newDescribeActivities =
   DescribeActivities'
     { resourceId = Prelude.Nothing,
       organizationId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       includeIndirectActivities = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       userId = Prelude.Nothing,
       activityTypes = Prelude.Nothing,
@@ -159,18 +159,18 @@ describeActivities_resourceId = Lens.lens (\DescribeActivities' {resourceId} -> 
 describeActivities_organizationId :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
 describeActivities_organizationId = Lens.lens (\DescribeActivities' {organizationId} -> organizationId) (\s@DescribeActivities' {} a -> s {organizationId = a} :: DescribeActivities)
 
--- | The timestamp that determines the starting time of the activities. The
--- response includes the activities performed after the specified
--- timestamp.
-describeActivities_startTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
-describeActivities_startTime = Lens.lens (\DescribeActivities' {startTime} -> startTime) (\s@DescribeActivities' {} a -> s {startTime = a} :: DescribeActivities) Prelude.. Lens.mapping Core._Time
-
 -- | Includes indirect activities. An indirect activity results from a direct
 -- activity performed on a parent resource. For example, sharing a parent
 -- folder (the direct activity) shares all of the subfolders and documents
 -- within the parent folder (the indirect activity).
 describeActivities_includeIndirectActivities :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Bool)
 describeActivities_includeIndirectActivities = Lens.lens (\DescribeActivities' {includeIndirectActivities} -> includeIndirectActivities) (\s@DescribeActivities' {} a -> s {includeIndirectActivities = a} :: DescribeActivities)
+
+-- | The timestamp that determines the starting time of the activities. The
+-- response includes the activities performed after the specified
+-- timestamp.
+describeActivities_startTime :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.UTCTime)
+describeActivities_startTime = Lens.lens (\DescribeActivities' {startTime} -> startTime) (\s@DescribeActivities' {} a -> s {startTime = a} :: DescribeActivities) Prelude.. Lens.mapping Core._Time
 
 -- | The timestamp that determines the end time of the activities. The
 -- response includes the activities performed before the specified
@@ -258,9 +258,9 @@ instance Core.ToQuery DescribeActivities where
     Prelude.mconcat
       [ "resourceId" Core.=: resourceId,
         "organizationId" Core.=: organizationId,
-        "startTime" Core.=: startTime,
         "includeIndirectActivities"
           Core.=: includeIndirectActivities,
+        "startTime" Core.=: startTime,
         "endTime" Core.=: endTime,
         "userId" Core.=: userId,
         "activityTypes" Core.=: activityTypes,

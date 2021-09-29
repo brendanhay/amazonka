@@ -66,11 +66,11 @@ module Network.AWS.Budgets
     -- ** ResourceLockedException
     _ResourceLockedException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** InternalErrorException
     _InternalErrorException,
@@ -96,17 +96,17 @@ module Network.AWS.Budgets
     -- * Operations
     -- $operations
 
-    -- ** CreateBudgetAction
-    CreateBudgetAction (CreateBudgetAction'),
-    newCreateBudgetAction,
-    CreateBudgetActionResponse (CreateBudgetActionResponse'),
-    newCreateBudgetActionResponse,
-
     -- ** DescribeBudgetActionsForAccount (Paginated)
     DescribeBudgetActionsForAccount (DescribeBudgetActionsForAccount'),
     newDescribeBudgetActionsForAccount,
     DescribeBudgetActionsForAccountResponse (DescribeBudgetActionsForAccountResponse'),
     newDescribeBudgetActionsForAccountResponse,
+
+    -- ** CreateBudgetAction
+    CreateBudgetAction (CreateBudgetAction'),
+    newCreateBudgetAction,
+    CreateBudgetActionResponse (CreateBudgetActionResponse'),
+    newCreateBudgetActionResponse,
 
     -- ** ExecuteBudgetAction
     ExecuteBudgetAction (ExecuteBudgetAction'),
@@ -120,11 +120,11 @@ module Network.AWS.Budgets
     DescribeBudgetActionResponse (DescribeBudgetActionResponse'),
     newDescribeBudgetActionResponse,
 
-    -- ** DescribeBudgetActionHistories (Paginated)
-    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
-    newDescribeBudgetActionHistories,
-    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
-    newDescribeBudgetActionHistoriesResponse,
+    -- ** UpdateBudgetAction
+    UpdateBudgetAction (UpdateBudgetAction'),
+    newUpdateBudgetAction,
+    UpdateBudgetActionResponse (UpdateBudgetActionResponse'),
+    newUpdateBudgetActionResponse,
 
     -- ** DeleteBudgetAction
     DeleteBudgetAction (DeleteBudgetAction'),
@@ -132,11 +132,11 @@ module Network.AWS.Budgets
     DeleteBudgetActionResponse (DeleteBudgetActionResponse'),
     newDeleteBudgetActionResponse,
 
-    -- ** UpdateBudgetAction
-    UpdateBudgetAction (UpdateBudgetAction'),
-    newUpdateBudgetAction,
-    UpdateBudgetActionResponse (UpdateBudgetActionResponse'),
-    newUpdateBudgetActionResponse,
+    -- ** DescribeBudgetActionHistories (Paginated)
+    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
+    newDescribeBudgetActionHistories,
+    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
+    newDescribeBudgetActionHistoriesResponse,
 
     -- ** DescribeSubscribersForNotification (Paginated)
     DescribeSubscribersForNotification (DescribeSubscribersForNotification'),
@@ -150,6 +150,12 @@ module Network.AWS.Budgets
     UpdateBudgetResponse (UpdateBudgetResponse'),
     newUpdateBudgetResponse,
 
+    -- ** DeleteNotification
+    DeleteNotification (DeleteNotification'),
+    newDeleteNotification,
+    DeleteNotificationResponse (DeleteNotificationResponse'),
+    newDeleteNotificationResponse,
+
     -- ** DeleteBudget
     DeleteBudget (DeleteBudget'),
     newDeleteBudget,
@@ -162,11 +168,11 @@ module Network.AWS.Budgets
     UpdateNotificationResponse (UpdateNotificationResponse'),
     newUpdateNotificationResponse,
 
-    -- ** DeleteNotification
-    DeleteNotification (DeleteNotification'),
-    newDeleteNotification,
-    DeleteNotificationResponse (DeleteNotificationResponse'),
-    newDeleteNotificationResponse,
+    -- ** CreateBudget
+    CreateBudget (CreateBudget'),
+    newCreateBudget,
+    CreateBudgetResponse (CreateBudgetResponse'),
+    newCreateBudgetResponse,
 
     -- ** CreateNotification
     CreateNotification (CreateNotification'),
@@ -174,23 +180,17 @@ module Network.AWS.Budgets
     CreateNotificationResponse (CreateNotificationResponse'),
     newCreateNotificationResponse,
 
-    -- ** CreateBudget
-    CreateBudget (CreateBudget'),
-    newCreateBudget,
-    CreateBudgetResponse (CreateBudgetResponse'),
-    newCreateBudgetResponse,
-
     -- ** CreateSubscriber
     CreateSubscriber (CreateSubscriber'),
     newCreateSubscriber,
     CreateSubscriberResponse (CreateSubscriberResponse'),
     newCreateSubscriberResponse,
 
-    -- ** UpdateSubscriber
-    UpdateSubscriber (UpdateSubscriber'),
-    newUpdateSubscriber,
-    UpdateSubscriberResponse (UpdateSubscriberResponse'),
-    newUpdateSubscriberResponse,
+    -- ** DescribeBudgets (Paginated)
+    DescribeBudgets (DescribeBudgets'),
+    newDescribeBudgets,
+    DescribeBudgetsResponse (DescribeBudgetsResponse'),
+    newDescribeBudgetsResponse,
 
     -- ** DeleteSubscriber
     DeleteSubscriber (DeleteSubscriber'),
@@ -198,17 +198,17 @@ module Network.AWS.Budgets
     DeleteSubscriberResponse (DeleteSubscriberResponse'),
     newDeleteSubscriberResponse,
 
+    -- ** UpdateSubscriber
+    UpdateSubscriber (UpdateSubscriber'),
+    newUpdateSubscriber,
+    UpdateSubscriberResponse (UpdateSubscriberResponse'),
+    newUpdateSubscriberResponse,
+
     -- ** DescribeBudgetActionsForBudget (Paginated)
     DescribeBudgetActionsForBudget (DescribeBudgetActionsForBudget'),
     newDescribeBudgetActionsForBudget,
     DescribeBudgetActionsForBudgetResponse (DescribeBudgetActionsForBudgetResponse'),
     newDescribeBudgetActionsForBudgetResponse,
-
-    -- ** DescribeBudgets (Paginated)
-    DescribeBudgets (DescribeBudgets'),
-    newDescribeBudgets,
-    DescribeBudgetsResponse (DescribeBudgetsResponse'),
-    newDescribeBudgetsResponse,
 
     -- ** DescribeBudget
     DescribeBudget (DescribeBudget'),

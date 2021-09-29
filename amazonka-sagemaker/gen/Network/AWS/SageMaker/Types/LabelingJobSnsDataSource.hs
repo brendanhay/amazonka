@@ -30,9 +30,6 @@ data LabelingJobSnsDataSource = LabelingJobSnsDataSource'
   { -- | The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN
     -- of the input topic you will use to send new data objects to a streaming
     -- labeling job.
-    --
-    -- If you specify an input topic for @SnsTopicArn@ in @InputConfig@, you
-    -- must specify a value for @SnsTopicArn@ in @OutputConfig@.
     snsTopicArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +45,6 @@ data LabelingJobSnsDataSource = LabelingJobSnsDataSource'
 -- 'snsTopicArn', 'labelingJobSnsDataSource_snsTopicArn' - The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN
 -- of the input topic you will use to send new data objects to a streaming
 -- labeling job.
---
--- If you specify an input topic for @SnsTopicArn@ in @InputConfig@, you
--- must specify a value for @SnsTopicArn@ in @OutputConfig@.
 newLabelingJobSnsDataSource ::
   -- | 'snsTopicArn'
   Prelude.Text ->
@@ -64,9 +58,6 @@ newLabelingJobSnsDataSource pSnsTopicArn_ =
 -- | The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN
 -- of the input topic you will use to send new data objects to a streaming
 -- labeling job.
---
--- If you specify an input topic for @SnsTopicArn@ in @InputConfig@, you
--- must specify a value for @SnsTopicArn@ in @OutputConfig@.
 labelingJobSnsDataSource_snsTopicArn :: Lens.Lens' LabelingJobSnsDataSource Prelude.Text
 labelingJobSnsDataSource_snsTopicArn = Lens.lens (\LabelingJobSnsDataSource' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobSnsDataSource' {} a -> s {snsTopicArn = a} :: LabelingJobSnsDataSource)
 

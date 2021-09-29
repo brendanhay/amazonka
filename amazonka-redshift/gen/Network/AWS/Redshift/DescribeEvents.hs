@@ -38,8 +38,8 @@ module Network.AWS.Redshift.DescribeEvents
     describeEvents_endTime,
     describeEvents_sourceIdentifier,
     describeEvents_sourceType,
-    describeEvents_marker,
     describeEvents_maxRecords,
+    describeEvents_marker,
 
     -- * Destructuring the Response
     DescribeEventsResponse (..),
@@ -119,13 +119,6 @@ data DescribeEvents = DescribeEvents'
     -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
     --     snapshot identifier.
     sourceType :: Prelude.Maybe SourceType,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeEvents request exceed
-    -- the value specified in @MaxRecords@, AWS returns a value in the @Marker@
-    -- field of the response. You can retrieve the next set of response records
-    -- by providing the returned marker value in the @Marker@ parameter and
-    -- retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -135,7 +128,14 @@ data DescribeEvents = DescribeEvents'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeEvents request exceed
+    -- the value specified in @MaxRecords@, Amazon Web Services returns a value
+    -- in the @Marker@ field of the response. You can retrieve the next set of
+    -- response records by providing the returned marker value in the @Marker@
+    -- parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -203,13 +203,6 @@ data DescribeEvents = DescribeEvents'
 -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
 --     snapshot identifier.
 --
--- 'marker', 'describeEvents_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in @MaxRecords@, AWS returns a value in the @Marker@
--- field of the response. You can retrieve the next set of response records
--- by providing the returned marker value in the @Marker@ parameter and
--- retrying the request.
---
 -- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -219,6 +212,13 @@ data DescribeEvents = DescribeEvents'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeEvents_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEvents request exceed
+-- the value specified in @MaxRecords@, Amazon Web Services returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
 newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
@@ -228,8 +228,8 @@ newDescribeEvents =
       endTime = Prelude.Nothing,
       sourceIdentifier = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The number of minutes prior to the time of the request for which to
@@ -298,15 +298,6 @@ describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier}
 describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in @MaxRecords@, AWS returns a value in the @Marker@
--- field of the response. You can retrieve the next set of response records
--- by providing the returned marker value in the @Marker@ parameter and
--- retrying the request.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -318,6 +309,15 @@ describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@Desc
 -- Constraints: minimum 20, maximum 100.
 describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEvents request exceed
+-- the value specified in @MaxRecords@, Amazon Web Services returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -377,8 +377,8 @@ instance Core.ToQuery DescribeEvents where
         "EndTime" Core.=: endTime,
         "SourceIdentifier" Core.=: sourceIdentifier,
         "SourceType" Core.=: sourceType,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

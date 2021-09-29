@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
 
     -- * Request Lenses
     describeTransitGatewayPeeringAttachments_nextToken,
-    describeTransitGatewayPeeringAttachments_dryRun,
     describeTransitGatewayPeeringAttachments_maxResults,
+    describeTransitGatewayPeeringAttachments_dryRun,
     describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds,
     describeTransitGatewayPeeringAttachments_filters,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAttachments'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more IDs of the transit gateway peering attachments.
     transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters. The possible values are:
@@ -73,10 +73,10 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
     -- -   @transit-gateway-attachment-id@ - The ID of the transit gateway
     --     attachment.
     --
-    -- -   @local-owner-id@ - The ID of your AWS account.
+    -- -   @local-owner-id@ - The ID of your Amazon Web Services account.
     --
-    -- -   @remote-owner-id@ - The ID of the AWS account in the remote Region
-    --     that owns the transit gateway.
+    -- -   @remote-owner-id@ - The ID of the Amazon Web Services account in the
+    --     remote Region that owns the transit gateway.
     --
     -- -   @state@ - The state of the peering attachment. Valid values are
     --     @available@ | @deleted@ | @deleting@ | @failed@ | @failing@ |
@@ -108,14 +108,14 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
 --
 -- 'nextToken', 'describeTransitGatewayPeeringAttachments_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeTransitGatewayPeeringAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeTransitGatewayPeeringAttachments_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeTransitGatewayPeeringAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'transitGatewayAttachmentIds', 'describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds' - One or more IDs of the transit gateway peering attachments.
 --
@@ -124,10 +124,10 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
 -- -   @transit-gateway-attachment-id@ - The ID of the transit gateway
 --     attachment.
 --
--- -   @local-owner-id@ - The ID of your AWS account.
+-- -   @local-owner-id@ - The ID of your Amazon Web Services account.
 --
--- -   @remote-owner-id@ - The ID of the AWS account in the remote Region
---     that owns the transit gateway.
+-- -   @remote-owner-id@ - The ID of the Amazon Web Services account in the
+--     remote Region that owns the transit gateway.
 --
 -- -   @state@ - The state of the peering attachment. Valid values are
 --     @available@ | @deleted@ | @deleting@ | @failed@ | @failing@ |
@@ -151,8 +151,8 @@ newDescribeTransitGatewayPeeringAttachments =
   DescribeTransitGatewayPeeringAttachments'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       transitGatewayAttachmentIds =
         Prelude.Nothing,
       filters = Prelude.Nothing
@@ -162,18 +162,18 @@ newDescribeTransitGatewayPeeringAttachments =
 describeTransitGatewayPeeringAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Text)
 describeTransitGatewayPeeringAttachments_nextToken = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayPeeringAttachments)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeTransitGatewayPeeringAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Natural)
+describeTransitGatewayPeeringAttachments_maxResults = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayPeeringAttachments)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeTransitGatewayPeeringAttachments_dryRun :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Bool)
 describeTransitGatewayPeeringAttachments_dryRun = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {dryRun} -> dryRun) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {dryRun = a} :: DescribeTransitGatewayPeeringAttachments)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeTransitGatewayPeeringAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Natural)
-describeTransitGatewayPeeringAttachments_maxResults = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayPeeringAttachments)
 
 -- | One or more IDs of the transit gateway peering attachments.
 describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe [Prelude.Text])
@@ -184,10 +184,10 @@ describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds = Lens.lens
 -- -   @transit-gateway-attachment-id@ - The ID of the transit gateway
 --     attachment.
 --
--- -   @local-owner-id@ - The ID of your AWS account.
+-- -   @local-owner-id@ - The ID of your Amazon Web Services account.
 --
--- -   @remote-owner-id@ - The ID of the AWS account in the remote Region
---     that owns the transit gateway.
+-- -   @remote-owner-id@ - The ID of the Amazon Web Services account in the
+--     remote Region that owns the transit gateway.
 --
 -- -   @state@ - The state of the peering attachment. Valid values are
 --     @available@ | @deleted@ | @deleting@ | @failed@ | @failing@ |
@@ -287,8 +287,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds

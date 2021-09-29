@@ -32,7 +32,7 @@ data Column = Column'
     -- | The type of data. For more information about the supported data types,
     -- see
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
-    -- in the /AWS Glue Developer Guide/.
+    -- in the /Glue Developer Guide/.
     type' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data Column = Column'
 -- 'type'', 'column_type' - The type of data. For more information about the supported data types,
 -- see
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
--- in the /AWS Glue Developer Guide/.
+-- in the /Glue Developer Guide/.
 newColumn ::
   -- | 'name'
   Prelude.Text ->
@@ -67,7 +67,7 @@ column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = 
 -- | The type of data. For more information about the supported data types,
 -- see
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
--- in the /AWS Glue Developer Guide/.
+-- in the /Glue Developer Guide/.
 column_type :: Lens.Lens' Column Prelude.Text
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 

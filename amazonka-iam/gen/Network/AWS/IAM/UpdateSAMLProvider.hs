@@ -64,7 +64,7 @@ data UpdateSAMLProvider = UpdateSAMLProvider'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     sAMLProviderArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data UpdateSAMLProvider = UpdateSAMLProvider'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newUpdateSAMLProvider ::
   -- | 'sAMLMetadataDocument'
   Prelude.Text ->
@@ -117,7 +117,7 @@ updateSAMLProvider_sAMLMetadataDocument = Lens.lens (\UpdateSAMLProvider' {sAMLM
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 updateSAMLProvider_sAMLProviderArn :: Lens.Lens' UpdateSAMLProvider Prelude.Text
 updateSAMLProvider_sAMLProviderArn = Lens.lens (\UpdateSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@UpdateSAMLProvider' {} a -> s {sAMLProviderArn = a} :: UpdateSAMLProvider)
 

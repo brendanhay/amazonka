@@ -42,10 +42,10 @@ module Network.AWS.DynamoDBStreams.Types
     AttributeValue (..),
     newAttributeValue,
     attributeValue_bs,
-    attributeValue_bool,
     attributeValue_n,
-    attributeValue_s,
+    attributeValue_bool,
     attributeValue_null,
+    attributeValue_s,
     attributeValue_m,
     attributeValue_b,
     attributeValue_l,
@@ -68,8 +68,8 @@ module Network.AWS.DynamoDBStreams.Types
     Record (..),
     newRecord,
     record_userIdentity,
-    record_eventID,
     record_eventSource,
+    record_eventID,
     record_eventName,
     record_eventVersion,
     record_dynamodb,
@@ -116,8 +116,8 @@ module Network.AWS.DynamoDBStreams.Types
     streamRecord_keys,
     streamRecord_sizeBytes,
     streamRecord_newImage,
-    streamRecord_oldImage,
     streamRecord_approximateCreationDateTime,
+    streamRecord_oldImage,
   )
 where
 

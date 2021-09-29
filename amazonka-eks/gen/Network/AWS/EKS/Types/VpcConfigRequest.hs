@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVpcConfigRequest' smart constructor.
 data VpcConfigRequest = VpcConfigRequest'
   { -- | Specify one or more security groups for the cross-account elastic
-    -- network interfaces that Amazon EKS creates to use to allow communication
-    -- between your nodes and the Kubernetes control plane. If you don\'t
-    -- specify any security groups, then familiarize yourself with the
-    -- difference between Amazon EKS defaults for clusters deployed with
+    -- network interfaces that Amazon EKS creates to use that allow
+    -- communication between your nodes and the Kubernetes control plane. If
+    -- you don\'t specify any security groups, then familiarize yourself with
+    -- the difference between Amazon EKS defaults for clusters deployed with
     -- Kubernetes:
     --
     -- -   1.14 Amazon EKS platform version @eks.2@ and earlier
@@ -49,7 +49,7 @@ data VpcConfigRequest = VpcConfigRequest'
     -- the cluster VPC. The default value for this parameter is @true@, which
     -- enables public access for your Kubernetes API server. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
     -- in the //Amazon EKS User Guide// .
     endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
     -- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
@@ -61,21 +61,19 @@ data VpcConfigRequest = VpcConfigRequest'
     -- API requests from within your cluster\'s VPC use the private VPC
     -- endpoint. The default value for this parameter is @false@, which
     -- disables private access for your Kubernetes API server. If you disable
-    -- private access and you have nodes or AWS Fargate pods in the cluster,
-    -- then ensure that @publicAccessCidrs@ includes the necessary CIDR blocks
-    -- for communication with the nodes or Fargate pods. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+    -- private access and you have nodes or Fargate pods in the cluster, then
+    -- ensure that @publicAccessCidrs@ includes the necessary CIDR blocks for
+    -- communication with the nodes or Fargate pods. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
     -- in the //Amazon EKS User Guide// .
     endpointPrivateAccess :: Prelude.Maybe Prelude.Bool,
     -- | The CIDR blocks that are allowed access to your cluster\'s public
     -- Kubernetes API server endpoint. Communication to the endpoint from
     -- addresses outside of the CIDR blocks that you specify is denied. The
     -- default value is @0.0.0.0\/0@. If you\'ve disabled private endpoint
-    -- access and you have nodes or AWS Fargate pods in the cluster, then
-    -- ensure that you specify the necessary CIDR blocks. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+    -- access and you have nodes or Fargate pods in the cluster, then ensure
+    -- that you specify the necessary CIDR blocks. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
     -- in the //Amazon EKS User Guide// .
     publicAccessCidrs :: Prelude.Maybe [Prelude.Text]
   }
@@ -90,10 +88,10 @@ data VpcConfigRequest = VpcConfigRequest'
 -- for backwards compatibility:
 --
 -- 'securityGroupIds', 'vpcConfigRequest_securityGroupIds' - Specify one or more security groups for the cross-account elastic
--- network interfaces that Amazon EKS creates to use to allow communication
--- between your nodes and the Kubernetes control plane. If you don\'t
--- specify any security groups, then familiarize yourself with the
--- difference between Amazon EKS defaults for clusters deployed with
+-- network interfaces that Amazon EKS creates to use that allow
+-- communication between your nodes and the Kubernetes control plane. If
+-- you don\'t specify any security groups, then familiarize yourself with
+-- the difference between Amazon EKS defaults for clusters deployed with
 -- Kubernetes:
 --
 -- -   1.14 Amazon EKS platform version @eks.2@ and earlier
@@ -110,7 +108,7 @@ data VpcConfigRequest = VpcConfigRequest'
 -- the cluster VPC. The default value for this parameter is @true@, which
 -- enables public access for your Kubernetes API server. For more
 -- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 --
 -- 'subnetIds', 'vpcConfigRequest_subnetIds' - Specify subnets for your Amazon EKS nodes. Amazon EKS creates
@@ -122,21 +120,19 @@ data VpcConfigRequest = VpcConfigRequest'
 -- API requests from within your cluster\'s VPC use the private VPC
 -- endpoint. The default value for this parameter is @false@, which
 -- disables private access for your Kubernetes API server. If you disable
--- private access and you have nodes or AWS Fargate pods in the cluster,
--- then ensure that @publicAccessCidrs@ includes the necessary CIDR blocks
--- for communication with the nodes or Fargate pods. For more information,
--- see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- private access and you have nodes or Fargate pods in the cluster, then
+-- ensure that @publicAccessCidrs@ includes the necessary CIDR blocks for
+-- communication with the nodes or Fargate pods. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 --
 -- 'publicAccessCidrs', 'vpcConfigRequest_publicAccessCidrs' - The CIDR blocks that are allowed access to your cluster\'s public
 -- Kubernetes API server endpoint. Communication to the endpoint from
 -- addresses outside of the CIDR blocks that you specify is denied. The
 -- default value is @0.0.0.0\/0@. If you\'ve disabled private endpoint
--- access and you have nodes or AWS Fargate pods in the cluster, then
--- ensure that you specify the necessary CIDR blocks. For more information,
--- see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- access and you have nodes or Fargate pods in the cluster, then ensure
+-- that you specify the necessary CIDR blocks. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 newVpcConfigRequest ::
   VpcConfigRequest
@@ -151,10 +147,10 @@ newVpcConfigRequest =
     }
 
 -- | Specify one or more security groups for the cross-account elastic
--- network interfaces that Amazon EKS creates to use to allow communication
--- between your nodes and the Kubernetes control plane. If you don\'t
--- specify any security groups, then familiarize yourself with the
--- difference between Amazon EKS defaults for clusters deployed with
+-- network interfaces that Amazon EKS creates to use that allow
+-- communication between your nodes and the Kubernetes control plane. If
+-- you don\'t specify any security groups, then familiarize yourself with
+-- the difference between Amazon EKS defaults for clusters deployed with
 -- Kubernetes:
 --
 -- -   1.14 Amazon EKS platform version @eks.2@ and earlier
@@ -173,7 +169,7 @@ vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroup
 -- the cluster VPC. The default value for this parameter is @true@, which
 -- enables public access for your Kubernetes API server. For more
 -- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
 vpcConfigRequest_endpointPublicAccess = Lens.lens (\VpcConfigRequest' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigRequest' {} a -> s {endpointPublicAccess = a} :: VpcConfigRequest)
@@ -189,11 +185,10 @@ vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnet
 -- API requests from within your cluster\'s VPC use the private VPC
 -- endpoint. The default value for this parameter is @false@, which
 -- disables private access for your Kubernetes API server. If you disable
--- private access and you have nodes or AWS Fargate pods in the cluster,
--- then ensure that @publicAccessCidrs@ includes the necessary CIDR blocks
--- for communication with the nodes or Fargate pods. For more information,
--- see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- private access and you have nodes or Fargate pods in the cluster, then
+-- ensure that @publicAccessCidrs@ includes the necessary CIDR blocks for
+-- communication with the nodes or Fargate pods. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_endpointPrivateAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
 vpcConfigRequest_endpointPrivateAccess = Lens.lens (\VpcConfigRequest' {endpointPrivateAccess} -> endpointPrivateAccess) (\s@VpcConfigRequest' {} a -> s {endpointPrivateAccess = a} :: VpcConfigRequest)
@@ -202,10 +197,9 @@ vpcConfigRequest_endpointPrivateAccess = Lens.lens (\VpcConfigRequest' {endpoint
 -- Kubernetes API server endpoint. Communication to the endpoint from
 -- addresses outside of the CIDR blocks that you specify is denied. The
 -- default value is @0.0.0.0\/0@. If you\'ve disabled private endpoint
--- access and you have nodes or AWS Fargate pods in the cluster, then
--- ensure that you specify the necessary CIDR blocks. For more information,
--- see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- access and you have nodes or Fargate pods in the cluster, then ensure
+-- that you specify the necessary CIDR blocks. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_publicAccessCidrs :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
 vpcConfigRequest_publicAccessCidrs = Lens.lens (\VpcConfigRequest' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigRequest' {} a -> s {publicAccessCidrs = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce

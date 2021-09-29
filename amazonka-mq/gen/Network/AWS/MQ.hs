@@ -47,29 +47,29 @@ module Network.AWS.MQ
     -- * Operations
     -- $operations
 
-    -- ** CreateBroker
-    CreateBroker (CreateBroker'),
-    newCreateBroker,
-    CreateBrokerResponse (CreateBrokerResponse'),
-    newCreateBrokerResponse,
-
     -- ** DescribeBrokerInstanceOptions
     DescribeBrokerInstanceOptions (DescribeBrokerInstanceOptions'),
     newDescribeBrokerInstanceOptions,
     DescribeBrokerInstanceOptionsResponse (DescribeBrokerInstanceOptionsResponse'),
     newDescribeBrokerInstanceOptionsResponse,
 
-    -- ** UpdateConfiguration
-    UpdateConfiguration (UpdateConfiguration'),
-    newUpdateConfiguration,
-    UpdateConfigurationResponse (UpdateConfigurationResponse'),
-    newUpdateConfigurationResponse,
+    -- ** CreateBroker
+    CreateBroker (CreateBroker'),
+    newCreateBroker,
+    CreateBrokerResponse (CreateBrokerResponse'),
+    newCreateBrokerResponse,
 
     -- ** ListConfigurations
     ListConfigurations (ListConfigurations'),
     newListConfigurations,
     ListConfigurationsResponse (ListConfigurationsResponse'),
     newListConfigurationsResponse,
+
+    -- ** UpdateConfiguration
+    UpdateConfiguration (UpdateConfiguration'),
+    newUpdateConfiguration,
+    UpdateConfigurationResponse (UpdateConfigurationResponse'),
+    newUpdateConfigurationResponse,
 
     -- ** DescribeBroker
     DescribeBroker (DescribeBroker'),
@@ -101,6 +101,12 @@ module Network.AWS.MQ
     ListBrokersResponse (ListBrokersResponse'),
     newListBrokersResponse,
 
+    -- ** RebootBroker
+    RebootBroker (RebootBroker'),
+    newRebootBroker,
+    RebootBrokerResponse (RebootBrokerResponse'),
+    newRebootBrokerResponse,
+
     -- ** UpdateBroker
     UpdateBroker (UpdateBroker'),
     newUpdateBroker,
@@ -112,12 +118,6 @@ module Network.AWS.MQ
     newDeleteBroker,
     DeleteBrokerResponse (DeleteBrokerResponse'),
     newDeleteBrokerResponse,
-
-    -- ** RebootBroker
-    RebootBroker (RebootBroker'),
-    newRebootBroker,
-    RebootBrokerResponse (RebootBrokerResponse'),
-    newRebootBrokerResponse,
 
     -- ** ListConfigurationRevisions
     ListConfigurationRevisions (ListConfigurationRevisions'),
@@ -149,11 +149,11 @@ module Network.AWS.MQ
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
 
     -- ** ListUsers
     ListUsers (ListUsers'),
@@ -161,11 +161,11 @@ module Network.AWS.MQ
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
 
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** DescribeConfiguration
     DescribeConfiguration (DescribeConfiguration'),

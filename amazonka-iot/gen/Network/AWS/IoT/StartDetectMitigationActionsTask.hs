@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts a Device Defender ML Detect mitigation actions task.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StartDetectMitigationActionsTask>
+-- action.
 module Network.AWS.IoT.StartDetectMitigationActionsTask
   ( -- * Creating a Request
     StartDetectMitigationActionsTask (..),
@@ -69,8 +73,8 @@ data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
     actions :: Prelude.NonEmpty Prelude.Text,
     -- | Each mitigation action task must have a unique client request token. If
     -- you try to create a new task with the same token as a task that already
-    -- exists, an exception occurs. If you omit this value, AWS SDKs will
-    -- automatically generate a unique client request.
+    -- exists, an exception occurs. If you omit this value, Amazon Web Services
+    -- SDKs will automatically generate a unique client request.
     clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,8 +102,8 @@ data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
 --
 -- 'clientRequestToken', 'startDetectMitigationActionsTask_clientRequestToken' - Each mitigation action task must have a unique client request token. If
 -- you try to create a new task with the same token as a task that already
--- exists, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- exists, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 newStartDetectMitigationActionsTask ::
   -- | 'taskId'
   Prelude.Text ->
@@ -155,8 +159,8 @@ startDetectMitigationActionsTask_actions = Lens.lens (\StartDetectMitigationActi
 
 -- | Each mitigation action task must have a unique client request token. If
 -- you try to create a new task with the same token as a task that already
--- exists, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- exists, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 startDetectMitigationActionsTask_clientRequestToken :: Lens.Lens' StartDetectMitigationActionsTask Prelude.Text
 startDetectMitigationActionsTask_clientRequestToken = Lens.lens (\StartDetectMitigationActionsTask' {clientRequestToken} -> clientRequestToken) (\s@StartDetectMitigationActionsTask' {} a -> s {clientRequestToken = a} :: StartDetectMitigationActionsTask)
 

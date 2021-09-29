@@ -52,10 +52,10 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
     id :: Prelude.Text,
     -- | An identifier for the message.
     messageId :: Prelude.Text,
-    -- | An MD5 digest of the non-URL-encoded message attribute string. You can
-    -- use this attribute to verify that Amazon SQS received the message
-    -- correctly. Amazon SQS URL-decodes the message before creating the MD5
-    -- digest. For information about MD5, see
+    -- | An MD5 digest of the non-URL-encoded message body string. You can use
+    -- this attribute to verify that Amazon SQS received the message correctly.
+    -- Amazon SQS URL-decodes the message before creating the MD5 digest. For
+    -- information about MD5, see
     -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
     mD5OfMessageBody :: Prelude.Text
   }
@@ -93,10 +93,10 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 --
 -- 'messageId', 'sendMessageBatchResultEntry_messageId' - An identifier for the message.
 --
--- 'mD5OfMessageBody', 'sendMessageBatchResultEntry_mD5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can
--- use this attribute to verify that Amazon SQS received the message
--- correctly. Amazon SQS URL-decodes the message before creating the MD5
--- digest. For information about MD5, see
+-- 'mD5OfMessageBody', 'sendMessageBatchResultEntry_mD5OfMessageBody' - An MD5 digest of the non-URL-encoded message body string. You can use
+-- this attribute to verify that Amazon SQS received the message correctly.
+-- Amazon SQS URL-decodes the message before creating the MD5 digest. For
+-- information about MD5, see
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
 newSendMessageBatchResultEntry ::
   -- | 'id'
@@ -154,10 +154,10 @@ sendMessageBatchResultEntry_id = Lens.lens (\SendMessageBatchResultEntry' {id} -
 sendMessageBatchResultEntry_messageId :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_messageId = Lens.lens (\SendMessageBatchResultEntry' {messageId} -> messageId) (\s@SendMessageBatchResultEntry' {} a -> s {messageId = a} :: SendMessageBatchResultEntry)
 
--- | An MD5 digest of the non-URL-encoded message attribute string. You can
--- use this attribute to verify that Amazon SQS received the message
--- correctly. Amazon SQS URL-decodes the message before creating the MD5
--- digest. For information about MD5, see
+-- | An MD5 digest of the non-URL-encoded message body string. You can use
+-- this attribute to verify that Amazon SQS received the message correctly.
+-- Amazon SQS URL-decodes the message before creating the MD5 digest. For
+-- information about MD5, see
 -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
 sendMessageBatchResultEntry_mD5OfMessageBody :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
 sendMessageBatchResultEntry_mD5OfMessageBody = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageBody} -> mD5OfMessageBody) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageBody = a} :: SendMessageBatchResultEntry)

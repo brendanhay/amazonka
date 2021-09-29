@@ -39,26 +39,26 @@ import Test.Tasty
 --         , requestDeleteIdentities $
 --             newDeleteIdentities
 --
---         , requestMergeDeveloperIdentities $
---             newMergeDeveloperIdentities
+--         , requestGetPrincipalTagAttributeMap $
+--             newGetPrincipalTagAttributeMap
 --
 --         , requestCreateIdentityPool $
 --             newCreateIdentityPool
 --
---         , requestGetPrincipalTagAttributeMap $
---             newGetPrincipalTagAttributeMap
+--         , requestMergeDeveloperIdentities $
+--             newMergeDeveloperIdentities
 --
 --         , requestUpdateIdentityPool $
 --             newUpdateIdentityPool
+--
+--         , requestGetIdentityPoolRoles $
+--             newGetIdentityPoolRoles
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
 --         , requestDeleteIdentityPool $
 --             newDeleteIdentityPool
---
---         , requestGetIdentityPoolRoles $
---             newGetIdentityPoolRoles
 --
 --         , requestTagResource $
 --             newTagResource
@@ -75,6 +75,9 @@ import Test.Tasty
 --         , requestListIdentityPools $
 --             newListIdentityPools
 --
+--         , requestGetId $
+--             newGetId
+--
 --         , requestDescribeIdentity $
 --             newDescribeIdentity
 --
@@ -84,17 +87,14 @@ import Test.Tasty
 --         , requestUnlinkDeveloperIdentity $
 --             newUnlinkDeveloperIdentity
 --
---         , requestGetId $
---             newGetId
---
 --         , requestListIdentities $
 --             newListIdentities
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestSetPrincipalTagAttributeMap $
 --             newSetPrincipalTagAttributeMap
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --           ]
 
@@ -111,26 +111,26 @@ import Test.Tasty
 --         , responseDeleteIdentities $
 --             newDeleteIdentitiesResponse
 --
---         , responseMergeDeveloperIdentities $
---             newMergeDeveloperIdentitiesResponse
+--         , responseGetPrincipalTagAttributeMap $
+--             newGetPrincipalTagAttributeMapResponse
 --
 --         , responseCreateIdentityPool $
 --             newIdentityPool
 --
---         , responseGetPrincipalTagAttributeMap $
---             newGetPrincipalTagAttributeMapResponse
+--         , responseMergeDeveloperIdentities $
+--             newMergeDeveloperIdentitiesResponse
 --
 --         , responseUpdateIdentityPool $
 --             newIdentityPool
+--
+--         , responseGetIdentityPoolRoles $
+--             newGetIdentityPoolRolesResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
 --         , responseDeleteIdentityPool $
 --             newDeleteIdentityPoolResponse
---
---         , responseGetIdentityPoolRoles $
---             newGetIdentityPoolRolesResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -147,6 +147,9 @@ import Test.Tasty
 --         , responseListIdentityPools $
 --             newListIdentityPoolsResponse
 --
+--         , responseGetId $
+--             newGetIdResponse
+--
 --         , responseDescribeIdentity $
 --             newIdentityDescription
 --
@@ -156,17 +159,14 @@ import Test.Tasty
 --         , responseUnlinkDeveloperIdentity $
 --             newUnlinkDeveloperIdentityResponse
 --
---         , responseGetId $
---             newGetIdResponse
---
 --         , responseListIdentities $
 --             newListIdentitiesResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseSetPrincipalTagAttributeMap $
 --             newSetPrincipalTagAttributeMapResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --           ]
 --     ]
@@ -197,11 +197,11 @@ requestDeleteIdentities =
     "DeleteIdentities"
     "fixture/DeleteIdentities.yaml"
 
-requestMergeDeveloperIdentities :: MergeDeveloperIdentities -> TestTree
-requestMergeDeveloperIdentities =
+requestGetPrincipalTagAttributeMap :: GetPrincipalTagAttributeMap -> TestTree
+requestGetPrincipalTagAttributeMap =
   req
-    "MergeDeveloperIdentities"
-    "fixture/MergeDeveloperIdentities.yaml"
+    "GetPrincipalTagAttributeMap"
+    "fixture/GetPrincipalTagAttributeMap.yaml"
 
 requestCreateIdentityPool :: CreateIdentityPool -> TestTree
 requestCreateIdentityPool =
@@ -209,17 +209,23 @@ requestCreateIdentityPool =
     "CreateIdentityPool"
     "fixture/CreateIdentityPool.yaml"
 
-requestGetPrincipalTagAttributeMap :: GetPrincipalTagAttributeMap -> TestTree
-requestGetPrincipalTagAttributeMap =
+requestMergeDeveloperIdentities :: MergeDeveloperIdentities -> TestTree
+requestMergeDeveloperIdentities =
   req
-    "GetPrincipalTagAttributeMap"
-    "fixture/GetPrincipalTagAttributeMap.yaml"
+    "MergeDeveloperIdentities"
+    "fixture/MergeDeveloperIdentities.yaml"
 
 requestUpdateIdentityPool :: UpdateIdentityPool -> TestTree
 requestUpdateIdentityPool =
   req
     "UpdateIdentityPool"
     "fixture/UpdateIdentityPool.yaml"
+
+requestGetIdentityPoolRoles :: GetIdentityPoolRoles -> TestTree
+requestGetIdentityPoolRoles =
+  req
+    "GetIdentityPoolRoles"
+    "fixture/GetIdentityPoolRoles.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -232,12 +238,6 @@ requestDeleteIdentityPool =
   req
     "DeleteIdentityPool"
     "fixture/DeleteIdentityPool.yaml"
-
-requestGetIdentityPoolRoles :: GetIdentityPoolRoles -> TestTree
-requestGetIdentityPoolRoles =
-  req
-    "GetIdentityPoolRoles"
-    "fixture/GetIdentityPoolRoles.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -269,6 +269,12 @@ requestListIdentityPools =
     "ListIdentityPools"
     "fixture/ListIdentityPools.yaml"
 
+requestGetId :: GetId -> TestTree
+requestGetId =
+  req
+    "GetId"
+    "fixture/GetId.yaml"
+
 requestDescribeIdentity :: DescribeIdentity -> TestTree
 requestDescribeIdentity =
   req
@@ -287,29 +293,23 @@ requestUnlinkDeveloperIdentity =
     "UnlinkDeveloperIdentity"
     "fixture/UnlinkDeveloperIdentity.yaml"
 
-requestGetId :: GetId -> TestTree
-requestGetId =
-  req
-    "GetId"
-    "fixture/GetId.yaml"
-
 requestListIdentities :: ListIdentities -> TestTree
 requestListIdentities =
   req
     "ListIdentities"
     "fixture/ListIdentities.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestSetPrincipalTagAttributeMap :: SetPrincipalTagAttributeMap -> TestTree
 requestSetPrincipalTagAttributeMap =
   req
     "SetPrincipalTagAttributeMap"
     "fixture/SetPrincipalTagAttributeMap.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 -- Responses
 
@@ -345,13 +345,13 @@ responseDeleteIdentities =
     defaultService
     (Proxy :: Proxy DeleteIdentities)
 
-responseMergeDeveloperIdentities :: MergeDeveloperIdentitiesResponse -> TestTree
-responseMergeDeveloperIdentities =
+responseGetPrincipalTagAttributeMap :: GetPrincipalTagAttributeMapResponse -> TestTree
+responseGetPrincipalTagAttributeMap =
   res
-    "MergeDeveloperIdentitiesResponse"
-    "fixture/MergeDeveloperIdentitiesResponse.proto"
+    "GetPrincipalTagAttributeMapResponse"
+    "fixture/GetPrincipalTagAttributeMapResponse.proto"
     defaultService
-    (Proxy :: Proxy MergeDeveloperIdentities)
+    (Proxy :: Proxy GetPrincipalTagAttributeMap)
 
 responseCreateIdentityPool :: IdentityPool -> TestTree
 responseCreateIdentityPool =
@@ -361,13 +361,13 @@ responseCreateIdentityPool =
     defaultService
     (Proxy :: Proxy CreateIdentityPool)
 
-responseGetPrincipalTagAttributeMap :: GetPrincipalTagAttributeMapResponse -> TestTree
-responseGetPrincipalTagAttributeMap =
+responseMergeDeveloperIdentities :: MergeDeveloperIdentitiesResponse -> TestTree
+responseMergeDeveloperIdentities =
   res
-    "GetPrincipalTagAttributeMapResponse"
-    "fixture/GetPrincipalTagAttributeMapResponse.proto"
+    "MergeDeveloperIdentitiesResponse"
+    "fixture/MergeDeveloperIdentitiesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPrincipalTagAttributeMap)
+    (Proxy :: Proxy MergeDeveloperIdentities)
 
 responseUpdateIdentityPool :: IdentityPool -> TestTree
 responseUpdateIdentityPool =
@@ -376,6 +376,14 @@ responseUpdateIdentityPool =
     "fixture/UpdateIdentityPoolResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateIdentityPool)
+
+responseGetIdentityPoolRoles :: GetIdentityPoolRolesResponse -> TestTree
+responseGetIdentityPoolRoles =
+  res
+    "GetIdentityPoolRolesResponse"
+    "fixture/GetIdentityPoolRolesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityPoolRoles)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -392,14 +400,6 @@ responseDeleteIdentityPool =
     "fixture/DeleteIdentityPoolResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteIdentityPool)
-
-responseGetIdentityPoolRoles :: GetIdentityPoolRolesResponse -> TestTree
-responseGetIdentityPoolRoles =
-  res
-    "GetIdentityPoolRolesResponse"
-    "fixture/GetIdentityPoolRolesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetIdentityPoolRoles)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -441,6 +441,14 @@ responseListIdentityPools =
     defaultService
     (Proxy :: Proxy ListIdentityPools)
 
+responseGetId :: GetIdResponse -> TestTree
+responseGetId =
+  res
+    "GetIdResponse"
+    "fixture/GetIdResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetId)
+
 responseDescribeIdentity :: IdentityDescription -> TestTree
 responseDescribeIdentity =
   res
@@ -465,14 +473,6 @@ responseUnlinkDeveloperIdentity =
     defaultService
     (Proxy :: Proxy UnlinkDeveloperIdentity)
 
-responseGetId :: GetIdResponse -> TestTree
-responseGetId =
-  res
-    "GetIdResponse"
-    "fixture/GetIdResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetId)
-
 responseListIdentities :: ListIdentitiesResponse -> TestTree
 responseListIdentities =
   res
@@ -481,14 +481,6 @@ responseListIdentities =
     defaultService
     (Proxy :: Proxy ListIdentities)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
-
 responseSetPrincipalTagAttributeMap :: SetPrincipalTagAttributeMapResponse -> TestTree
 responseSetPrincipalTagAttributeMap =
   res
@@ -496,3 +488,11 @@ responseSetPrincipalTagAttributeMap =
     "fixture/SetPrincipalTagAttributeMapResponse.proto"
     defaultService
     (Proxy :: Proxy SetPrincipalTagAttributeMap)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)

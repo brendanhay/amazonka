@@ -61,7 +61,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketOwnershipControls' smart constructor.
 data GetBucketOwnershipControls = GetBucketOwnershipControls'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -79,7 +79,7 @@ data GetBucketOwnershipControls = GetBucketOwnershipControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketOwnershipControls_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -96,7 +96,7 @@ newGetBucketOwnershipControls pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' GetBucketOwnershipControls (Prelude.Maybe Prelude.Text)

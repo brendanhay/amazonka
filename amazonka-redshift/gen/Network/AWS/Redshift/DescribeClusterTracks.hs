@@ -30,8 +30,8 @@ module Network.AWS.Redshift.DescribeClusterTracks
 
     -- * Request Lenses
     describeClusterTracks_maintenanceTrackName,
-    describeClusterTracks_marker,
     describeClusterTracks_maxRecords,
+    describeClusterTracks_marker,
 
     -- * Destructuring the Response
     DescribeClusterTracksResponse (..),
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 data DescribeClusterTracks = DescribeClusterTracks'
   { -- | The name of the maintenance track.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | An integer value for the maximum number of maintenance tracks to return.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a @DescribeClusterTracks@
     -- request exceed the value specified in @MaxRecords@, Amazon Redshift
     -- returns a value in the @Marker@ field of the response. You can retrieve
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | An integer value for the maximum number of maintenance tracks to return.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,27 +77,31 @@ data DescribeClusterTracks = DescribeClusterTracks'
 --
 -- 'maintenanceTrackName', 'describeClusterTracks_maintenanceTrackName' - The name of the maintenance track.
 --
+-- 'maxRecords', 'describeClusterTracks_maxRecords' - An integer value for the maximum number of maintenance tracks to return.
+--
 -- 'marker', 'describeClusterTracks_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeClusterTracks@
 -- request exceed the value specified in @MaxRecords@, Amazon Redshift
 -- returns a value in the @Marker@ field of the response. You can retrieve
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
---
--- 'maxRecords', 'describeClusterTracks_maxRecords' - An integer value for the maximum number of maintenance tracks to return.
 newDescribeClusterTracks ::
   DescribeClusterTracks
 newDescribeClusterTracks =
   DescribeClusterTracks'
     { maintenanceTrackName =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The name of the maintenance track.
 describeClusterTracks_maintenanceTrackName :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Text)
 describeClusterTracks_maintenanceTrackName = Lens.lens (\DescribeClusterTracks' {maintenanceTrackName} -> maintenanceTrackName) (\s@DescribeClusterTracks' {} a -> s {maintenanceTrackName = a} :: DescribeClusterTracks)
+
+-- | An integer value for the maximum number of maintenance tracks to return.
+describeClusterTracks_maxRecords :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Int)
+describeClusterTracks_maxRecords = Lens.lens (\DescribeClusterTracks' {maxRecords} -> maxRecords) (\s@DescribeClusterTracks' {} a -> s {maxRecords = a} :: DescribeClusterTracks)
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeClusterTracks@
@@ -107,10 +111,6 @@ describeClusterTracks_maintenanceTrackName = Lens.lens (\DescribeClusterTracks' 
 -- in the @Marker@ parameter and retrying the request.
 describeClusterTracks_marker :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Text)
 describeClusterTracks_marker = Lens.lens (\DescribeClusterTracks' {marker} -> marker) (\s@DescribeClusterTracks' {} a -> s {marker = a} :: DescribeClusterTracks)
-
--- | An integer value for the maximum number of maintenance tracks to return.
-describeClusterTracks_maxRecords :: Lens.Lens' DescribeClusterTracks (Prelude.Maybe Prelude.Int)
-describeClusterTracks_maxRecords = Lens.lens (\DescribeClusterTracks' {maxRecords} -> maxRecords) (\s@DescribeClusterTracks' {} a -> s {maxRecords = a} :: DescribeClusterTracks)
 
 instance Core.AWSPager DescribeClusterTracks where
   page rq rs
@@ -170,8 +170,8 @@ instance Core.ToQuery DescribeClusterTracks where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "MaintenanceTrackName" Core.=: maintenanceTrackName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeClusterTracksResponse' smart constructor.

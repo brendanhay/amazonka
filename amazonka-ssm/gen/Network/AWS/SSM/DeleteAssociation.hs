@@ -20,10 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the specified Systems Manager document from the specified
--- instance.
+-- Disassociates the specified Amazon Web Services Systems Manager document
+-- (SSM document) from the specified instance. If you created the
+-- association by using the @Targets@ parameter, then you must delete the
+-- association by using the association ID.
 --
--- When you disassociate a document from an instance, it does not change
+-- When you disassociate a document from an instance, it doesn\'t change
 -- the configuration of the instance. To change the configuration state of
 -- an instance after you disassociate a document, you must create a new
 -- document with the desired configuration and associate it with the
@@ -56,9 +58,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { -- | The ID of the instance.
+  { -- | The instance ID.
+    --
+    -- @InstanceId@ has been deprecated. To specify an instance ID for an
+    -- association, use the @Targets@ parameter. Requests that include the
+    -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+    -- that use schema version 2.0 or later will fail. In addition, if you use
+    -- the parameter @InstanceId@, you can\'t use the parameters
+    -- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+    -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+    -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Systems Manager document.
+    -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
     -- | The association ID that you want to delete.
     associationId :: Prelude.Maybe Prelude.Text
@@ -73,9 +84,18 @@ data DeleteAssociation = DeleteAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteAssociation_instanceId' - The ID of the instance.
+-- 'instanceId', 'deleteAssociation_instanceId' - The instance ID.
 --
--- 'name', 'deleteAssociation_name' - The name of the Systems Manager document.
+-- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- association, use the @Targets@ parameter. Requests that include the
+-- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+-- that use schema version 2.0 or later will fail. In addition, if you use
+-- the parameter @InstanceId@, you can\'t use the parameters
+-- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+-- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+-- must use the @Targets@ parameter.
+--
+-- 'name', 'deleteAssociation_name' - The name of the SSM document.
 --
 -- 'associationId', 'deleteAssociation_associationId' - The association ID that you want to delete.
 newDeleteAssociation ::
@@ -87,11 +107,20 @@ newDeleteAssociation =
       associationId = Prelude.Nothing
     }
 
--- | The ID of the instance.
+-- | The instance ID.
+--
+-- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- association, use the @Targets@ parameter. Requests that include the
+-- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+-- that use schema version 2.0 or later will fail. In addition, if you use
+-- the parameter @InstanceId@, you can\'t use the parameters
+-- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+-- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+-- must use the @Targets@ parameter.
 deleteAssociation_instanceId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_instanceId = Lens.lens (\DeleteAssociation' {instanceId} -> instanceId) (\s@DeleteAssociation' {} a -> s {instanceId = a} :: DeleteAssociation)
 
--- | The name of the Systems Manager document.
+-- | The name of the SSM document.
 deleteAssociation_name :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@DeleteAssociation' {} a -> s {name = a} :: DeleteAssociation)
 

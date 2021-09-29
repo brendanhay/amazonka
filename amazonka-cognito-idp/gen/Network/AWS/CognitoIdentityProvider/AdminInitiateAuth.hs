@@ -22,6 +22,26 @@
 --
 -- Initiates the authentication flow, as an administrator.
 --
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
+--
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
   ( -- * Creating a Request
@@ -64,11 +84,11 @@ data AdminInitiateAuth = AdminInitiateAuth'
   { -- | A map of custom key-value pairs that you can provide as input for
     -- certain custom workflows that this action triggers.
     --
-    -- You create custom workflows by assigning AWS Lambda functions to user
-    -- pool triggers. When you use the AdminInitiateAuth API action, Amazon
-    -- Cognito invokes the AWS Lambda functions that are specified for various
-    -- triggers. The ClientMetadata value is passed as input to the functions
-    -- for only the following triggers:
+    -- You create custom workflows by assigning Lambda functions to user pool
+    -- triggers. When you use the AdminInitiateAuth API action, Amazon Cognito
+    -- invokes the Lambda functions that are specified for various triggers.
+    -- The ClientMetadata value is passed as input to the functions for only
+    -- the following triggers:
     --
     -- -   Pre signup
     --
@@ -80,7 +100,7 @@ data AdminInitiateAuth = AdminInitiateAuth'
     -- a JSON payload, which the function receives as input. This payload
     -- contains a @validationData@ attribute, which provides the data that you
     -- assigned to the ClientMetadata parameter in your AdminInitiateAuth
-    -- request. In your function code in AWS Lambda, you can process the
+    -- request. In your function code in Lambda, you can process the
     -- @validationData@ value to enhance your workflow for your specific needs.
     --
     -- When you use the AdminInitiateAuth API action, Amazon Cognito also
@@ -107,9 +127,9 @@ data AdminInitiateAuth = AdminInitiateAuth'
     -- ClientMetadata parameter:
     --
     -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to AWS Lambda triggers that are assigned to a user
-    --     pool to support custom workflows. If your user pool configuration
-    --     does not include triggers, the ClientMetadata parameter serves no
+    --     available only to Lambda triggers that are assigned to a user pool
+    --     to support custom workflows. If your user pool configuration does
+    --     not include triggers, the ClientMetadata parameter serves no
     --     purpose.
     --
     -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -200,11 +220,11 @@ data AdminInitiateAuth = AdminInitiateAuth'
 -- 'clientMetadata', 'adminInitiateAuth_clientMetadata' - A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the AdminInitiateAuth API action, Amazon
--- Cognito invokes the AWS Lambda functions that are specified for various
--- triggers. The ClientMetadata value is passed as input to the functions
--- for only the following triggers:
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the AdminInitiateAuth API action, Amazon Cognito
+-- invokes the Lambda functions that are specified for various triggers.
+-- The ClientMetadata value is passed as input to the functions for only
+-- the following triggers:
 --
 -- -   Pre signup
 --
@@ -216,7 +236,7 @@ data AdminInitiateAuth = AdminInitiateAuth'
 -- a JSON payload, which the function receives as input. This payload
 -- contains a @validationData@ attribute, which provides the data that you
 -- assigned to the ClientMetadata parameter in your AdminInitiateAuth
--- request. In your function code in AWS Lambda, you can process the
+-- request. In your function code in Lambda, you can process the
 -- @validationData@ value to enhance your workflow for your specific needs.
 --
 -- When you use the AdminInitiateAuth API action, Amazon Cognito also
@@ -243,9 +263,9 @@ data AdminInitiateAuth = AdminInitiateAuth'
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -347,11 +367,11 @@ newAdminInitiateAuth
 -- | A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the AdminInitiateAuth API action, Amazon
--- Cognito invokes the AWS Lambda functions that are specified for various
--- triggers. The ClientMetadata value is passed as input to the functions
--- for only the following triggers:
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the AdminInitiateAuth API action, Amazon Cognito
+-- invokes the Lambda functions that are specified for various triggers.
+-- The ClientMetadata value is passed as input to the functions for only
+-- the following triggers:
 --
 -- -   Pre signup
 --
@@ -363,7 +383,7 @@ newAdminInitiateAuth
 -- a JSON payload, which the function receives as input. This payload
 -- contains a @validationData@ attribute, which provides the data that you
 -- assigned to the ClientMetadata parameter in your AdminInitiateAuth
--- request. In your function code in AWS Lambda, you can process the
+-- request. In your function code in Lambda, you can process the
 -- @validationData@ value to enhance your workflow for your specific needs.
 --
 -- When you use the AdminInitiateAuth API action, Amazon Cognito also
@@ -390,9 +410,9 @@ newAdminInitiateAuth
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -587,9 +607,21 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
     --     with @USERNAME@ and @PASSWORD@ directly. An app client must be
     --     enabled to use this flow.
     --
-    -- -   @NEW_PASSWORD_REQUIRED@: For users which are required to change
-    --     their passwords after successful first login. This challenge should
-    --     be passed with @NEW_PASSWORD@ and any other required attributes.
+    -- -   @NEW_PASSWORD_REQUIRED@: For users who are required to change their
+    --     passwords after successful first login. This challenge should be
+    --     passed with @NEW_PASSWORD@ and any other required attributes.
+    --
+    -- -   @MFA_SETUP@: For users who are required to setup an MFA factor
+    --     before they can sign-in. The MFA types enabled for the user pool
+    --     will be listed in the challenge parameters @MFA_CAN_SETUP@ value.
+    --
+    --     To setup software token MFA, use the session returned here from
+    --     @InitiateAuth@ as an input to @AssociateSoftwareToken@, and use the
+    --     session returned by @VerifySoftwareToken@ as an input to
+    --     @RespondToAuthChallenge@ with challenge name @MFA_SETUP@ to complete
+    --     sign-in. To setup SMS MFA, users will need help from an
+    --     administrator to add a phone number to their account and then call
+    --     @InitiateAuth@ again to restart sign-in.
     challengeName :: Prelude.Maybe ChallengeNameType,
     -- | The challenge parameters. These are returned to you in the
     -- @AdminInitiateAuth@ response if you need to pass another challenge. The
@@ -664,9 +696,21 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 --     with @USERNAME@ and @PASSWORD@ directly. An app client must be
 --     enabled to use this flow.
 --
--- -   @NEW_PASSWORD_REQUIRED@: For users which are required to change
---     their passwords after successful first login. This challenge should
---     be passed with @NEW_PASSWORD@ and any other required attributes.
+-- -   @NEW_PASSWORD_REQUIRED@: For users who are required to change their
+--     passwords after successful first login. This challenge should be
+--     passed with @NEW_PASSWORD@ and any other required attributes.
+--
+-- -   @MFA_SETUP@: For users who are required to setup an MFA factor
+--     before they can sign-in. The MFA types enabled for the user pool
+--     will be listed in the challenge parameters @MFA_CAN_SETUP@ value.
+--
+--     To setup software token MFA, use the session returned here from
+--     @InitiateAuth@ as an input to @AssociateSoftwareToken@, and use the
+--     session returned by @VerifySoftwareToken@ as an input to
+--     @RespondToAuthChallenge@ with challenge name @MFA_SETUP@ to complete
+--     sign-in. To setup SMS MFA, users will need help from an
+--     administrator to add a phone number to their account and then call
+--     @InitiateAuth@ again to restart sign-in.
 --
 -- 'challengeParameters', 'adminInitiateAuthResponse_challengeParameters' - The challenge parameters. These are returned to you in the
 -- @AdminInitiateAuth@ response if you need to pass another challenge. The
@@ -745,9 +789,21 @@ adminInitiateAuthResponse_authenticationResult = Lens.lens (\AdminInitiateAuthRe
 --     with @USERNAME@ and @PASSWORD@ directly. An app client must be
 --     enabled to use this flow.
 --
--- -   @NEW_PASSWORD_REQUIRED@: For users which are required to change
---     their passwords after successful first login. This challenge should
---     be passed with @NEW_PASSWORD@ and any other required attributes.
+-- -   @NEW_PASSWORD_REQUIRED@: For users who are required to change their
+--     passwords after successful first login. This challenge should be
+--     passed with @NEW_PASSWORD@ and any other required attributes.
+--
+-- -   @MFA_SETUP@: For users who are required to setup an MFA factor
+--     before they can sign-in. The MFA types enabled for the user pool
+--     will be listed in the challenge parameters @MFA_CAN_SETUP@ value.
+--
+--     To setup software token MFA, use the session returned here from
+--     @InitiateAuth@ as an input to @AssociateSoftwareToken@, and use the
+--     session returned by @VerifySoftwareToken@ as an input to
+--     @RespondToAuthChallenge@ with challenge name @MFA_SETUP@ to complete
+--     sign-in. To setup SMS MFA, users will need help from an
+--     administrator to add a phone number to their account and then call
+--     @InitiateAuth@ again to restart sign-in.
 adminInitiateAuthResponse_challengeName :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe ChallengeNameType)
 adminInitiateAuthResponse_challengeName = Lens.lens (\AdminInitiateAuthResponse' {challengeName} -> challengeName) (\s@AdminInitiateAuthResponse' {} a -> s {challengeName = a} :: AdminInitiateAuthResponse)
 

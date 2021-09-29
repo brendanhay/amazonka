@@ -25,7 +25,7 @@ import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the static IP.
+-- | Describes a static IP.
 --
 -- /See:/ 'newStaticIp' smart constructor.
 data StaticIp = StaticIp'
@@ -36,17 +36,17 @@ data StaticIp = StaticIp'
     -- | The Amazon Resource Name (ARN) of the static IP (e.g.,
     -- @arn:aws:lightsail:us-east-2:123456789101:StaticIp\/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type (usually @StaticIp@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
-    -- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The resource type (usually @StaticIp@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The static IP address.
     ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
+    name :: Prelude.Maybe Prelude.Text,
     -- | The instance where the static IP is attached (e.g.,
     -- @Amazon_Linux-1GB-Ohio-1@).
     attachedTo :: Prelude.Maybe Prelude.Text,
@@ -70,16 +70,16 @@ data StaticIp = StaticIp'
 -- 'arn', 'staticIp_arn' - The Amazon Resource Name (ARN) of the static IP (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:StaticIp\/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@).
 --
--- 'resourceType', 'staticIp_resourceType' - The resource type (usually @StaticIp@).
---
 -- 'supportCode', 'staticIp_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
 --
--- 'name', 'staticIp_name' - The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
+-- 'resourceType', 'staticIp_resourceType' - The resource type (usually @StaticIp@).
 --
 -- 'ipAddress', 'staticIp_ipAddress' - The static IP address.
+--
+-- 'name', 'staticIp_name' - The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
 --
 -- 'attachedTo', 'staticIp_attachedTo' - The instance where the static IP is attached (e.g.,
 -- @Amazon_Linux-1GB-Ohio-1@).
@@ -92,10 +92,10 @@ newStaticIp =
     { isAttached = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
-      name = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       ipAddress = Prelude.Nothing,
+      name = Prelude.Nothing,
       attachedTo = Prelude.Nothing,
       location = Prelude.Nothing
     }
@@ -113,10 +113,6 @@ staticIp_createdAt = Lens.lens (\StaticIp' {createdAt} -> createdAt) (\s@StaticI
 staticIp_arn :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
 staticIp_arn = Lens.lens (\StaticIp' {arn} -> arn) (\s@StaticIp' {} a -> s {arn = a} :: StaticIp)
 
--- | The resource type (usually @StaticIp@).
-staticIp_resourceType :: Lens.Lens' StaticIp (Prelude.Maybe ResourceType)
-staticIp_resourceType = Lens.lens (\StaticIp' {resourceType} -> resourceType) (\s@StaticIp' {} a -> s {resourceType = a} :: StaticIp)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
@@ -124,13 +120,17 @@ staticIp_resourceType = Lens.lens (\StaticIp' {resourceType} -> resourceType) (\
 staticIp_supportCode :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
 staticIp_supportCode = Lens.lens (\StaticIp' {supportCode} -> supportCode) (\s@StaticIp' {} a -> s {supportCode = a} :: StaticIp)
 
--- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
-staticIp_name :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
-staticIp_name = Lens.lens (\StaticIp' {name} -> name) (\s@StaticIp' {} a -> s {name = a} :: StaticIp)
+-- | The resource type (usually @StaticIp@).
+staticIp_resourceType :: Lens.Lens' StaticIp (Prelude.Maybe ResourceType)
+staticIp_resourceType = Lens.lens (\StaticIp' {resourceType} -> resourceType) (\s@StaticIp' {} a -> s {resourceType = a} :: StaticIp)
 
 -- | The static IP address.
 staticIp_ipAddress :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
 staticIp_ipAddress = Lens.lens (\StaticIp' {ipAddress} -> ipAddress) (\s@StaticIp' {} a -> s {ipAddress = a} :: StaticIp)
+
+-- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@).
+staticIp_name :: Lens.Lens' StaticIp (Prelude.Maybe Prelude.Text)
+staticIp_name = Lens.lens (\StaticIp' {name} -> name) (\s@StaticIp' {} a -> s {name = a} :: StaticIp)
 
 -- | The instance where the static IP is attached (e.g.,
 -- @Amazon_Linux-1GB-Ohio-1@).
@@ -150,10 +150,10 @@ instance Core.FromJSON StaticIp where
             Prelude.<$> (x Core..:? "isAttached")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "attachedTo")
             Prelude.<*> (x Core..:? "location")
       )

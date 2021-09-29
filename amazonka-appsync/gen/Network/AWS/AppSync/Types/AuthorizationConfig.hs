@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAuthorizationConfig' smart constructor.
 data AuthorizationConfig = AuthorizationConfig'
-  { -- | The AWS IAM settings.
+  { -- | The Identity and Access Management settings.
     awsIamConfig :: Prelude.Maybe AwsIamConfig,
     -- | The authorization type required by the HTTP endpoint.
     --
@@ -47,7 +47,7 @@ data AuthorizationConfig = AuthorizationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsIamConfig', 'authorizationConfig_awsIamConfig' - The AWS IAM settings.
+-- 'awsIamConfig', 'authorizationConfig_awsIamConfig' - The Identity and Access Management settings.
 --
 -- 'authorizationType', 'authorizationConfig_authorizationType' - The authorization type required by the HTTP endpoint.
 --
@@ -63,7 +63,7 @@ newAuthorizationConfig pAuthorizationType_ =
       authorizationType = pAuthorizationType_
     }
 
--- | The AWS IAM settings.
+-- | The Identity and Access Management settings.
 authorizationConfig_awsIamConfig :: Lens.Lens' AuthorizationConfig (Prelude.Maybe AwsIamConfig)
 authorizationConfig_awsIamConfig = Lens.lens (\AuthorizationConfig' {awsIamConfig} -> awsIamConfig) (\s@AuthorizationConfig' {} a -> s {awsIamConfig = a} :: AuthorizationConfig)
 

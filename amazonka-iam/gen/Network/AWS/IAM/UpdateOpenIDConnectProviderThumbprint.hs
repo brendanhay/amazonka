@@ -28,15 +28,23 @@
 -- existing list of thumbprints. (The lists are not merged.)
 --
 -- Typically, you need to update a thumbprint only when the identity
--- provider\'s certificate changes, which occurs rarely. However, if the
+-- provider certificate changes, which occurs rarely. However, if the
 -- provider\'s certificate /does/ change, any attempt to assume an IAM role
 -- that specifies the OIDC provider as a principal fails until the
 -- certificate thumbprint is updated.
 --
--- Trust for the OIDC provider is derived from the provider\'s certificate
--- and is validated by the thumbprint. Therefore, it is best to limit
--- access to the @UpdateOpenIDConnectProviderThumbprint@ operation to
--- highly privileged users.
+-- Amazon Web Services secures communication with some OIDC identity
+-- providers (IdPs) through our library of trusted certificate authorities
+-- (CAs) instead of using a certificate thumbprint to verify your IdP
+-- server certificate. These OIDC IdPs include Google, and those that use
+-- an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
+-- cases, your legacy thumbprint remains in your configuration, but is no
+-- longer used for validation.
+--
+-- Trust for the OIDC provider is derived from the provider certificate and
+-- is validated by the thumbprint. Therefore, it is best to limit access to
+-- the @UpdateOpenIDConnectProviderThumbprint@ operation to highly
+-- privileged users.
 module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
   ( -- * Creating a Request
     UpdateOpenIDConnectProviderThumbprint (..),
@@ -67,7 +75,7 @@ data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbpri
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     openIDConnectProviderArn :: Prelude.Text,
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OpenID Connect provider. For more information, see
@@ -90,7 +98,7 @@ data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbpri
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'thumbprintList', 'updateOpenIDConnectProviderThumbprint_thumbprintList' - A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
@@ -113,7 +121,7 @@ newUpdateOpenIDConnectProviderThumbprint
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint Prelude.Text
 updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {openIDConnectProviderArn = a} :: UpdateOpenIDConnectProviderThumbprint)
 

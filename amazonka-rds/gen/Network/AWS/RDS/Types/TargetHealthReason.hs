@@ -22,6 +22,7 @@ module Network.AWS.RDS.Types.TargetHealthReason
       ( ..,
         TargetHealthReason_AUTH_FAILURE,
         TargetHealthReason_CONNECTION_FAILED,
+        TargetHealthReason_INVALID_REPLICATION_STATE,
         TargetHealthReason_PENDING_PROXY_CAPACITY,
         TargetHealthReason_UNREACHABLE
       ),
@@ -65,6 +66,9 @@ pattern TargetHealthReason_AUTH_FAILURE = TargetHealthReason' "AUTH_FAILURE"
 pattern TargetHealthReason_CONNECTION_FAILED :: TargetHealthReason
 pattern TargetHealthReason_CONNECTION_FAILED = TargetHealthReason' "CONNECTION_FAILED"
 
+pattern TargetHealthReason_INVALID_REPLICATION_STATE :: TargetHealthReason
+pattern TargetHealthReason_INVALID_REPLICATION_STATE = TargetHealthReason' "INVALID_REPLICATION_STATE"
+
 pattern TargetHealthReason_PENDING_PROXY_CAPACITY :: TargetHealthReason
 pattern TargetHealthReason_PENDING_PROXY_CAPACITY = TargetHealthReason' "PENDING_PROXY_CAPACITY"
 
@@ -74,6 +78,7 @@ pattern TargetHealthReason_UNREACHABLE = TargetHealthReason' "UNREACHABLE"
 {-# COMPLETE
   TargetHealthReason_AUTH_FAILURE,
   TargetHealthReason_CONNECTION_FAILED,
+  TargetHealthReason_INVALID_REPLICATION_STATE,
   TargetHealthReason_PENDING_PROXY_CAPACITY,
   TargetHealthReason_UNREACHABLE,
   TargetHealthReason'

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a machine learning algorithm that you can use in Amazon SageMaker
--- and list in the AWS Marketplace.
+-- and list in the Amazon Web Services Marketplace.
 module Network.AWS.SageMaker.CreateAlgorithm
   ( -- * Creating a Request
     CreateAlgorithm (..),
@@ -62,13 +62,13 @@ data CreateAlgorithm = CreateAlgorithm'
     -- one or more batch transform jobs that Amazon SageMaker runs to test the
     -- algorithm\'s inference code.
     validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
-    -- | Whether to certify the algorithm so that it can be listed in AWS
-    -- Marketplace.
+    -- | Whether to certify the algorithm so that it can be listed in Amazon Web
+    -- Services Marketplace.
     certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | Specifies details about inference jobs that the algorithm runs,
     -- including the following:
@@ -123,13 +123,13 @@ data CreateAlgorithm = CreateAlgorithm'
 -- one or more batch transform jobs that Amazon SageMaker runs to test the
 -- algorithm\'s inference code.
 --
--- 'certifyForMarketplace', 'createAlgorithm_certifyForMarketplace' - Whether to certify the algorithm so that it can be listed in AWS
--- Marketplace.
+-- 'certifyForMarketplace', 'createAlgorithm_certifyForMarketplace' - Whether to certify the algorithm so that it can be listed in Amazon Web
+-- Services Marketplace.
 --
--- 'tags', 'createAlgorithm_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createAlgorithm_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'inferenceSpecification', 'createAlgorithm_inferenceSpecification' - Specifies details about inference jobs that the algorithm runs,
 -- including the following:
@@ -196,15 +196,15 @@ createAlgorithm_algorithmDescription = Lens.lens (\CreateAlgorithm' {algorithmDe
 createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe AlgorithmValidationSpecification)
 createAlgorithm_validationSpecification = Lens.lens (\CreateAlgorithm' {validationSpecification} -> validationSpecification) (\s@CreateAlgorithm' {} a -> s {validationSpecification = a} :: CreateAlgorithm)
 
--- | Whether to certify the algorithm so that it can be listed in AWS
--- Marketplace.
+-- | Whether to certify the algorithm so that it can be listed in Amazon Web
+-- Services Marketplace.
 createAlgorithm_certifyForMarketplace :: Lens.Lens' CreateAlgorithm (Prelude.Maybe Prelude.Bool)
 createAlgorithm_certifyForMarketplace = Lens.lens (\CreateAlgorithm' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateAlgorithm' {} a -> s {certifyForMarketplace = a} :: CreateAlgorithm)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Prelude.Maybe [Tag])
 createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Prelude.. Lens.mapping Lens._Coerce
 

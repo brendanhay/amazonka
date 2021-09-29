@@ -30,9 +30,9 @@ module Network.AWS.SageMaker.ListContexts
 
     -- * Request Lenses
     listContexts_contextType,
-    listContexts_createdAfter,
-    listContexts_sortOrder,
     listContexts_nextToken,
+    listContexts_sortOrder,
+    listContexts_createdAfter,
     listContexts_createdBefore,
     listContexts_maxResults,
     listContexts_sourceUri,
@@ -60,14 +60,14 @@ import Network.AWS.SageMaker.Types
 data ListContexts = ListContexts'
   { -- | A filter that returns only contexts of the specified type.
     contextType :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only contexts created on or after the specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the previous call to @ListContexts@ didn\'t return the full set of
     -- contexts, the call returns a token for getting the next set of contexts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only contexts created on or after the specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only contexts created on or before the specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -91,13 +91,13 @@ data ListContexts = ListContexts'
 --
 -- 'contextType', 'listContexts_contextType' - A filter that returns only contexts of the specified type.
 --
--- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified
--- time.
+-- 'nextToken', 'listContexts_nextToken' - If the previous call to @ListContexts@ didn\'t return the full set of
+-- contexts, the call returns a token for getting the next set of contexts.
 --
 -- 'sortOrder', 'listContexts_sortOrder' - The sort order. The default value is @Descending@.
 --
--- 'nextToken', 'listContexts_nextToken' - If the previous call to @ListContexts@ didn\'t return the full set of
--- contexts, the call returns a token for getting the next set of contexts.
+-- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified
+-- time.
 --
 -- 'createdBefore', 'listContexts_createdBefore' - A filter that returns only contexts created on or before the specified
 -- time.
@@ -113,9 +113,9 @@ newListContexts ::
 newListContexts =
   ListContexts'
     { contextType = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sourceUri = Prelude.Nothing,
@@ -126,19 +126,19 @@ newListContexts =
 listContexts_contextType :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
 listContexts_contextType = Lens.lens (\ListContexts' {contextType} -> contextType) (\s@ListContexts' {} a -> s {contextType = a} :: ListContexts)
 
--- | A filter that returns only contexts created on or after the specified
--- time.
-listContexts_createdAfter :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.UTCTime)
-listContexts_createdAfter = Lens.lens (\ListContexts' {createdAfter} -> createdAfter) (\s@ListContexts' {} a -> s {createdAfter = a} :: ListContexts) Prelude.. Lens.mapping Core._Time
+-- | If the previous call to @ListContexts@ didn\'t return the full set of
+-- contexts, the call returns a token for getting the next set of contexts.
+listContexts_nextToken :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
+listContexts_nextToken = Lens.lens (\ListContexts' {nextToken} -> nextToken) (\s@ListContexts' {} a -> s {nextToken = a} :: ListContexts)
 
 -- | The sort order. The default value is @Descending@.
 listContexts_sortOrder :: Lens.Lens' ListContexts (Prelude.Maybe SortOrder)
 listContexts_sortOrder = Lens.lens (\ListContexts' {sortOrder} -> sortOrder) (\s@ListContexts' {} a -> s {sortOrder = a} :: ListContexts)
 
--- | If the previous call to @ListContexts@ didn\'t return the full set of
--- contexts, the call returns a token for getting the next set of contexts.
-listContexts_nextToken :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
-listContexts_nextToken = Lens.lens (\ListContexts' {nextToken} -> nextToken) (\s@ListContexts' {} a -> s {nextToken = a} :: ListContexts)
+-- | A filter that returns only contexts created on or after the specified
+-- time.
+listContexts_createdAfter :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.UTCTime)
+listContexts_createdAfter = Lens.lens (\ListContexts' {createdAfter} -> createdAfter) (\s@ListContexts' {} a -> s {createdAfter = a} :: ListContexts) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only contexts created on or before the specified
 -- time.
@@ -214,9 +214,9 @@ instance Core.ToJSON ListContexts where
     Core.object
       ( Prelude.catMaybes
           [ ("ContextType" Core..=) Prelude.<$> contextType,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SourceUri" Core..=) Prelude.<$> sourceUri,

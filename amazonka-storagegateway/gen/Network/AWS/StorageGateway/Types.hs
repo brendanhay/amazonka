@@ -33,6 +33,9 @@ module Network.AWS.StorageGateway.Types
     -- * FileShareType
     FileShareType (..),
 
+    -- * GatewayCapacity
+    GatewayCapacity (..),
+
     -- * HostEnvironment
     HostEnvironment (..),
 
@@ -85,9 +88,9 @@ module Network.AWS.StorageGateway.Types
     -- * CachediSCSIVolume
     CachediSCSIVolume (..),
     newCachediSCSIVolume,
+    cachediSCSIVolume_createdDate,
     cachediSCSIVolume_sourceSnapshotId,
     cachediSCSIVolume_volumeStatus,
-    cachediSCSIVolume_createdDate,
     cachediSCSIVolume_targetName,
     cachediSCSIVolume_volumeARN,
     cachediSCSIVolume_volumeId,
@@ -96,8 +99,8 @@ module Network.AWS.StorageGateway.Types
     cachediSCSIVolume_volumeUsedInBytes,
     cachediSCSIVolume_volumeSizeInBytes,
     cachediSCSIVolume_volumeType,
-    cachediSCSIVolume_volumeAttachmentStatus,
     cachediSCSIVolume_volumeProgress,
+    cachediSCSIVolume_volumeAttachmentStatus,
 
     -- * ChapInfo
     ChapInfo (..),
@@ -124,8 +127,13 @@ module Network.AWS.StorageGateway.Types
     disk_diskAttributeList,
     disk_diskPath,
     disk_diskId,
-    disk_diskAllocationType,
     disk_diskNode,
+    disk_diskAllocationType,
+
+    -- * EndpointNetworkConfiguration
+    EndpointNetworkConfiguration (..),
+    newEndpointNetworkConfiguration,
+    endpointNetworkConfiguration_ipAddresses,
 
     -- * FileShareInfo
     FileShareInfo (..),
@@ -136,11 +144,31 @@ module Network.AWS.StorageGateway.Types
     fileShareInfo_fileShareARN,
     fileShareInfo_gatewayARN,
 
+    -- * FileSystemAssociationInfo
+    FileSystemAssociationInfo (..),
+    newFileSystemAssociationInfo,
+    fileSystemAssociationInfo_fileSystemAssociationARN,
+    fileSystemAssociationInfo_locationARN,
+    fileSystemAssociationInfo_endpointNetworkConfiguration,
+    fileSystemAssociationInfo_auditDestinationARN,
+    fileSystemAssociationInfo_tags,
+    fileSystemAssociationInfo_fileSystemAssociationStatus,
+    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_gatewayARN,
+
+    -- * FileSystemAssociationSummary
+    FileSystemAssociationSummary (..),
+    newFileSystemAssociationSummary,
+    fileSystemAssociationSummary_fileSystemAssociationARN,
+    fileSystemAssociationSummary_fileSystemAssociationId,
+    fileSystemAssociationSummary_fileSystemAssociationStatus,
+    fileSystemAssociationSummary_gatewayARN,
+
     -- * GatewayInfo
     GatewayInfo (..),
     newGatewayInfo,
-    gatewayInfo_gatewayOperationalState,
     gatewayInfo_gatewayName,
+    gatewayInfo_gatewayOperationalState,
     gatewayInfo_gatewayType,
     gatewayInfo_ec2InstanceRegion,
     gatewayInfo_ec2InstanceId,
@@ -160,11 +188,13 @@ module Network.AWS.StorageGateway.Types
     newNFSFileShareInfo,
     nFSFileShareInfo_defaultStorageClass,
     nFSFileShareInfo_fileShareName,
-    nFSFileShareInfo_guessMIMETypeEnabled,
     nFSFileShareInfo_readOnly,
+    nFSFileShareInfo_bucketRegion,
+    nFSFileShareInfo_guessMIMETypeEnabled,
     nFSFileShareInfo_fileShareId,
     nFSFileShareInfo_kmsEncrypted,
     nFSFileShareInfo_locationARN,
+    nFSFileShareInfo_vPCEndpointDNSName,
     nFSFileShareInfo_squash,
     nFSFileShareInfo_notificationPolicy,
     nFSFileShareInfo_kmsKey,
@@ -172,13 +202,13 @@ module Network.AWS.StorageGateway.Types
     nFSFileShareInfo_role,
     nFSFileShareInfo_tags,
     nFSFileShareInfo_fileShareARN,
-    nFSFileShareInfo_cacheAttributes,
     nFSFileShareInfo_clientList,
     nFSFileShareInfo_objectACL,
+    nFSFileShareInfo_cacheAttributes,
     nFSFileShareInfo_nFSFileShareDefaults,
-    nFSFileShareInfo_path,
     nFSFileShareInfo_gatewayARN,
     nFSFileShareInfo_requesterPays,
+    nFSFileShareInfo_path,
 
     -- * NetworkInterface
     NetworkInterface (..),
@@ -201,38 +231,41 @@ module Network.AWS.StorageGateway.Types
     SMBFileShareInfo (..),
     newSMBFileShareInfo,
     sMBFileShareInfo_sMBACLEnabled,
-    sMBFileShareInfo_accessBasedEnumeration,
     sMBFileShareInfo_defaultStorageClass,
+    sMBFileShareInfo_accessBasedEnumeration,
     sMBFileShareInfo_fileShareName,
     sMBFileShareInfo_caseSensitivity,
-    sMBFileShareInfo_guessMIMETypeEnabled,
     sMBFileShareInfo_readOnly,
+    sMBFileShareInfo_bucketRegion,
+    sMBFileShareInfo_guessMIMETypeEnabled,
     sMBFileShareInfo_fileShareId,
     sMBFileShareInfo_kmsEncrypted,
-    sMBFileShareInfo_authentication,
     sMBFileShareInfo_locationARN,
-    sMBFileShareInfo_notificationPolicy,
+    sMBFileShareInfo_vPCEndpointDNSName,
+    sMBFileShareInfo_authentication,
     sMBFileShareInfo_validUserList,
+    sMBFileShareInfo_notificationPolicy,
     sMBFileShareInfo_kmsKey,
     sMBFileShareInfo_fileShareStatus,
-    sMBFileShareInfo_adminUserList,
     sMBFileShareInfo_auditDestinationARN,
+    sMBFileShareInfo_adminUserList,
     sMBFileShareInfo_role,
     sMBFileShareInfo_tags,
     sMBFileShareInfo_fileShareARN,
-    sMBFileShareInfo_cacheAttributes,
     sMBFileShareInfo_objectACL,
-    sMBFileShareInfo_path,
+    sMBFileShareInfo_cacheAttributes,
     sMBFileShareInfo_gatewayARN,
     sMBFileShareInfo_requesterPays,
+    sMBFileShareInfo_path,
+    sMBFileShareInfo_oplocksEnabled,
     sMBFileShareInfo_invalidUserList,
 
     -- * StorediSCSIVolume
     StorediSCSIVolume (..),
     newStorediSCSIVolume,
+    storediSCSIVolume_createdDate,
     storediSCSIVolume_sourceSnapshotId,
     storediSCSIVolume_volumeStatus,
-    storediSCSIVolume_createdDate,
     storediSCSIVolume_targetName,
     storediSCSIVolume_volumeARN,
     storediSCSIVolume_volumeId,
@@ -243,8 +276,8 @@ module Network.AWS.StorageGateway.Types
     storediSCSIVolume_volumeSizeInBytes,
     storediSCSIVolume_volumeDiskId,
     storediSCSIVolume_volumeType,
-    storediSCSIVolume_volumeAttachmentStatus,
     storediSCSIVolume_volumeProgress,
+    storediSCSIVolume_volumeAttachmentStatus,
 
     -- * Tag
     Tag (..),
@@ -256,8 +289,8 @@ module Network.AWS.StorageGateway.Types
     Tape (..),
     newTape,
     tape_poolEntryDate,
-    tape_tapeStatus,
     tape_tapeCreatedDate,
+    tape_tapeStatus,
     tape_poolId,
     tape_vTLDevice,
     tape_tapeARN,
@@ -273,8 +306,8 @@ module Network.AWS.StorageGateway.Types
     TapeArchive (..),
     newTapeArchive,
     tapeArchive_poolEntryDate,
-    tapeArchive_tapeStatus,
     tapeArchive_tapeCreatedDate,
+    tapeArchive_tapeStatus,
     tapeArchive_poolId,
     tapeArchive_completionTime,
     tapeArchive_retrievedTo,
@@ -323,23 +356,23 @@ module Network.AWS.StorageGateway.Types
     volumeInfo_volumeSizeInBytes,
     volumeInfo_volumeType,
     volumeInfo_gatewayARN,
-    volumeInfo_volumeAttachmentStatus,
     volumeInfo_gatewayId,
+    volumeInfo_volumeAttachmentStatus,
 
     -- * VolumeRecoveryPointInfo
     VolumeRecoveryPointInfo (..),
     newVolumeRecoveryPointInfo,
     volumeRecoveryPointInfo_volumeARN,
-    volumeRecoveryPointInfo_volumeSizeInBytes,
     volumeRecoveryPointInfo_volumeUsageInBytes,
+    volumeRecoveryPointInfo_volumeSizeInBytes,
     volumeRecoveryPointInfo_volumeRecoveryPointTime,
 
     -- * VolumeiSCSIAttributes
     VolumeiSCSIAttributes (..),
     newVolumeiSCSIAttributes,
     volumeiSCSIAttributes_chapEnabled,
-    volumeiSCSIAttributes_lunNumber,
     volumeiSCSIAttributes_targetARN,
+    volumeiSCSIAttributes_lunNumber,
     volumeiSCSIAttributes_networkInterfaceId,
     volumeiSCSIAttributes_networkInterfacePort,
   )
@@ -360,8 +393,12 @@ import Network.AWS.StorageGateway.Types.CaseSensitivity
 import Network.AWS.StorageGateway.Types.ChapInfo
 import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
 import Network.AWS.StorageGateway.Types.Disk
+import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
 import Network.AWS.StorageGateway.Types.FileShareInfo
 import Network.AWS.StorageGateway.Types.FileShareType
+import Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+import Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
+import Network.AWS.StorageGateway.Types.GatewayCapacity
 import Network.AWS.StorageGateway.Types.GatewayInfo
 import Network.AWS.StorageGateway.Types.HostEnvironment
 import Network.AWS.StorageGateway.Types.NFSFileShareDefaults

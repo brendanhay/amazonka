@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a list of AWS Batch jobs.
+-- Describes a list of Batch jobs.
 module Network.AWS.Batch.DescribeJobs
   ( -- * Creating a Request
     DescribeJobs (..),

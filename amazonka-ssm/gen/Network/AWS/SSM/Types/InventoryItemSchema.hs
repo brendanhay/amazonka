@@ -35,10 +35,10 @@ data InventoryItemSchema = InventoryItemSchema'
     -- purposes.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The name of the inventory type. Default inventory item type names start
-    -- with AWS. Custom inventory type names will start with Custom. Default
-    -- inventory item types include the following: AWS:AWSComponent,
-    -- AWS:Application, AWS:InstanceInformation, AWS:Network, and
-    -- AWS:WindowsUpdate.
+    -- with Amazon Web Services. Custom inventory type names will start with
+    -- Custom. Default inventory item types include the following:
+    -- @AWS:AWSComponent@, @AWS:Application@, @AWS:InstanceInformation@,
+    -- @AWS:Network@, and @AWS:WindowsUpdate@.
     typeName :: Prelude.Text,
     -- | The schema attributes for inventory. This contains data type and
     -- attribute name.
@@ -60,10 +60,10 @@ data InventoryItemSchema = InventoryItemSchema'
 -- purposes.
 --
 -- 'typeName', 'inventoryItemSchema_typeName' - The name of the inventory type. Default inventory item type names start
--- with AWS. Custom inventory type names will start with Custom. Default
--- inventory item types include the following: AWS:AWSComponent,
--- AWS:Application, AWS:InstanceInformation, AWS:Network, and
--- AWS:WindowsUpdate.
+-- with Amazon Web Services. Custom inventory type names will start with
+-- Custom. Default inventory item types include the following:
+-- @AWS:AWSComponent@, @AWS:Application@, @AWS:InstanceInformation@,
+-- @AWS:Network@, and @AWS:WindowsUpdate@.
 --
 -- 'attributes', 'inventoryItemSchema_attributes' - The schema attributes for inventory. This contains data type and
 -- attribute name.
@@ -91,10 +91,10 @@ inventoryItemSchema_displayName :: Lens.Lens' InventoryItemSchema (Prelude.Maybe
 inventoryItemSchema_displayName = Lens.lens (\InventoryItemSchema' {displayName} -> displayName) (\s@InventoryItemSchema' {} a -> s {displayName = a} :: InventoryItemSchema)
 
 -- | The name of the inventory type. Default inventory item type names start
--- with AWS. Custom inventory type names will start with Custom. Default
--- inventory item types include the following: AWS:AWSComponent,
--- AWS:Application, AWS:InstanceInformation, AWS:Network, and
--- AWS:WindowsUpdate.
+-- with Amazon Web Services. Custom inventory type names will start with
+-- Custom. Default inventory item types include the following:
+-- @AWS:AWSComponent@, @AWS:Application@, @AWS:InstanceInformation@,
+-- @AWS:Network@, and @AWS:WindowsUpdate@.
 inventoryItemSchema_typeName :: Lens.Lens' InventoryItemSchema Prelude.Text
 inventoryItemSchema_typeName = Lens.lens (\InventoryItemSchema' {typeName} -> typeName) (\s@InventoryItemSchema' {} a -> s {typeName = a} :: InventoryItemSchema)
 

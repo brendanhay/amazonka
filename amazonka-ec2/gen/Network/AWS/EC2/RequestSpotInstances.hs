@@ -35,15 +35,15 @@ module Network.AWS.EC2.RequestSpotInstances
     requestSpotInstances_dryRun,
     requestSpotInstances_validFrom,
     requestSpotInstances_spotPrice,
-    requestSpotInstances_blockDurationMinutes,
     requestSpotInstances_launchGroup,
+    requestSpotInstances_blockDurationMinutes,
     requestSpotInstances_instanceInterruptionBehavior,
     requestSpotInstances_validUntil,
     requestSpotInstances_launchSpecification,
-    requestSpotInstances_type,
     requestSpotInstances_availabilityZoneGroup,
-    requestSpotInstances_clientToken,
+    requestSpotInstances_type,
     requestSpotInstances_instanceCount,
+    requestSpotInstances_clientToken,
 
     -- * Destructuring the Response
     RequestSpotInstancesResponse (..),
@@ -90,28 +90,13 @@ data RequestSpotInstances = RequestSpotInstances'
     -- | The maximum price per hour that you are willing to pay for a Spot
     -- Instance. The default is the On-Demand price.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The required duration for the Spot Instances (also known as Spot
-    -- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
-    -- 240, 300, or 360).
-    --
-    -- The duration period starts as soon as your Spot Instance receives its
-    -- instance ID. At the end of the duration period, Amazon EC2 marks the
-    -- Spot Instance for termination and provides a Spot Instance termination
-    -- notice, which gives the instance a two-minute warning before it
-    -- terminates.
-    --
-    -- You can\'t specify an Availability Zone group or a launch group if you
-    -- specify a duration.
-    --
-    -- New accounts or accounts with no previous billing history with AWS are
-    -- not eligible for Spot Instances with a defined duration (also known as
-    -- Spot blocks).
-    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The instance launch group. Launch groups are Spot Instances that launch
     -- together and terminate together.
     --
     -- Default: Instances are launched and terminated individually
     launchGroup :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated.
+    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
@@ -129,10 +114,6 @@ data RequestSpotInstances = RequestSpotInstances'
     validUntil :: Prelude.Maybe Core.ISO8601,
     -- | The launch specification.
     launchSpecification :: Prelude.Maybe RequestSpotLaunchSpecification,
-    -- | The Spot Instance request type.
-    --
-    -- Default: @one-time@
-    type' :: Prelude.Maybe SpotInstanceType,
     -- | The user-specified name for a logical grouping of requests.
     --
     -- When you specify an Availability Zone group in a Spot Instance request,
@@ -155,15 +136,19 @@ data RequestSpotInstances = RequestSpotInstances'
     --
     -- Default: Instances are launched in any available Availability Zone.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
+    -- | The Spot Instance request type.
+    --
+    -- Default: @one-time@
+    type' :: Prelude.Maybe SpotInstanceType,
+    -- | The maximum number of Spot Instances to launch.
+    --
+    -- Default: 1
+    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of Spot Instances to launch.
-    --
-    -- Default: 1
-    instanceCount :: Prelude.Maybe Prelude.Int
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -199,27 +184,12 @@ data RequestSpotInstances = RequestSpotInstances'
 -- 'spotPrice', 'requestSpotInstances_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
 -- Instance. The default is the On-Demand price.
 --
--- 'blockDurationMinutes', 'requestSpotInstances_blockDurationMinutes' - The required duration for the Spot Instances (also known as Spot
--- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
--- 240, 300, or 360).
---
--- The duration period starts as soon as your Spot Instance receives its
--- instance ID. At the end of the duration period, Amazon EC2 marks the
--- Spot Instance for termination and provides a Spot Instance termination
--- notice, which gives the instance a two-minute warning before it
--- terminates.
---
--- You can\'t specify an Availability Zone group or a launch group if you
--- specify a duration.
---
--- New accounts or accounts with no previous billing history with AWS are
--- not eligible for Spot Instances with a defined duration (also known as
--- Spot blocks).
---
 -- 'launchGroup', 'requestSpotInstances_launchGroup' - The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
+--
+-- 'blockDurationMinutes', 'requestSpotInstances_blockDurationMinutes' - Deprecated.
 --
 -- 'instanceInterruptionBehavior', 'requestSpotInstances_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
@@ -237,10 +207,6 @@ data RequestSpotInstances = RequestSpotInstances'
 --     from the date the request was created.
 --
 -- 'launchSpecification', 'requestSpotInstances_launchSpecification' - The launch specification.
---
--- 'type'', 'requestSpotInstances_type' - The Spot Instance request type.
---
--- Default: @one-time@
 --
 -- 'availabilityZoneGroup', 'requestSpotInstances_availabilityZoneGroup' - The user-specified name for a logical grouping of requests.
 --
@@ -264,14 +230,18 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- Default: Instances are launched in any available Availability Zone.
 --
--- 'clientToken', 'requestSpotInstances_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- 'type'', 'requestSpotInstances_type' - The Spot Instance request type.
+--
+-- Default: @one-time@
 --
 -- 'instanceCount', 'requestSpotInstances_instanceCount' - The maximum number of Spot Instances to launch.
 --
 -- Default: 1
+--
+-- 'clientToken', 'requestSpotInstances_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 newRequestSpotInstances ::
   RequestSpotInstances
 newRequestSpotInstances =
@@ -281,15 +251,15 @@ newRequestSpotInstances =
       dryRun = Prelude.Nothing,
       validFrom = Prelude.Nothing,
       spotPrice = Prelude.Nothing,
-      blockDurationMinutes = Prelude.Nothing,
       launchGroup = Prelude.Nothing,
+      blockDurationMinutes = Prelude.Nothing,
       instanceInterruptionBehavior = Prelude.Nothing,
       validUntil = Prelude.Nothing,
       launchSpecification = Prelude.Nothing,
-      type' = Prelude.Nothing,
       availabilityZoneGroup = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      instanceCount = Prelude.Nothing
+      type' = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
 -- | The key-value pair for tagging the Spot Instance request on creation.
@@ -324,31 +294,16 @@ requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -
 requestSpotInstances_spotPrice :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_spotPrice = Lens.lens (\RequestSpotInstances' {spotPrice} -> spotPrice) (\s@RequestSpotInstances' {} a -> s {spotPrice = a} :: RequestSpotInstances)
 
--- | The required duration for the Spot Instances (also known as Spot
--- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
--- 240, 300, or 360).
---
--- The duration period starts as soon as your Spot Instance receives its
--- instance ID. At the end of the duration period, Amazon EC2 marks the
--- Spot Instance for termination and provides a Spot Instance termination
--- notice, which gives the instance a two-minute warning before it
--- terminates.
---
--- You can\'t specify an Availability Zone group or a launch group if you
--- specify a duration.
---
--- New accounts or accounts with no previous billing history with AWS are
--- not eligible for Spot Instances with a defined duration (also known as
--- Spot blocks).
-requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
-requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {blockDurationMinutes} -> blockDurationMinutes) (\s@RequestSpotInstances' {} a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
-
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
 requestSpotInstances_launchGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_launchGroup = Lens.lens (\RequestSpotInstances' {launchGroup} -> launchGroup) (\s@RequestSpotInstances' {} a -> s {launchGroup = a} :: RequestSpotInstances)
+
+-- | Deprecated.
+requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
+requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {blockDurationMinutes} -> blockDurationMinutes) (\s@RequestSpotInstances' {} a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
 
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
@@ -372,12 +327,6 @@ requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil}
 -- | The launch specification.
 requestSpotInstances_launchSpecification :: Lens.Lens' RequestSpotInstances (Prelude.Maybe RequestSpotLaunchSpecification)
 requestSpotInstances_launchSpecification = Lens.lens (\RequestSpotInstances' {launchSpecification} -> launchSpecification) (\s@RequestSpotInstances' {} a -> s {launchSpecification = a} :: RequestSpotInstances)
-
--- | The Spot Instance request type.
---
--- Default: @one-time@
-requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Prelude.Maybe SpotInstanceType)
-requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') (\s@RequestSpotInstances' {} a -> s {type' = a} :: RequestSpotInstances)
 
 -- | The user-specified name for a logical grouping of requests.
 --
@@ -403,18 +352,24 @@ requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') 
 requestSpotInstances_availabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_availabilityZoneGroup = Lens.lens (\RequestSpotInstances' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@RequestSpotInstances' {} a -> s {availabilityZoneGroup = a} :: RequestSpotInstances)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon EC2 User Guide for Linux Instances/.
-requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
-requestSpotInstances_clientToken = Lens.lens (\RequestSpotInstances' {clientToken} -> clientToken) (\s@RequestSpotInstances' {} a -> s {clientToken = a} :: RequestSpotInstances)
+-- | The Spot Instance request type.
+--
+-- Default: @one-time@
+requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Prelude.Maybe SpotInstanceType)
+requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') (\s@RequestSpotInstances' {} a -> s {type' = a} :: RequestSpotInstances)
 
 -- | The maximum number of Spot Instances to launch.
 --
 -- Default: 1
 requestSpotInstances_instanceCount :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
 requestSpotInstances_instanceCount = Lens.lens (\RequestSpotInstances' {instanceCount} -> instanceCount) (\s@RequestSpotInstances' {} a -> s {instanceCount = a} :: RequestSpotInstances)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
+requestSpotInstances_clientToken = Lens.lens (\RequestSpotInstances' {clientToken} -> clientToken) (\s@RequestSpotInstances' {} a -> s {clientToken = a} :: RequestSpotInstances)
 
 instance Core.AWSRequest RequestSpotInstances where
   type
@@ -456,17 +411,17 @@ instance Core.ToQuery RequestSpotInstances where
         "DryRun" Core.=: dryRun,
         "ValidFrom" Core.=: validFrom,
         "SpotPrice" Core.=: spotPrice,
-        "BlockDurationMinutes" Core.=: blockDurationMinutes,
         "LaunchGroup" Core.=: launchGroup,
+        "BlockDurationMinutes" Core.=: blockDurationMinutes,
         "InstanceInterruptionBehavior"
           Core.=: instanceInterruptionBehavior,
         "ValidUntil" Core.=: validUntil,
         "LaunchSpecification" Core.=: launchSpecification,
-        "Type" Core.=: type',
         "AvailabilityZoneGroup"
           Core.=: availabilityZoneGroup,
-        "ClientToken" Core.=: clientToken,
-        "InstanceCount" Core.=: instanceCount
+        "Type" Core.=: type',
+        "InstanceCount" Core.=: instanceCount,
+        "ClientToken" Core.=: clientToken
       ]
 
 -- | Contains the output of RequestSpotInstances.

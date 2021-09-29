@@ -33,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Update = Update'
   { -- | The current status of the update.
     status :: Prelude.Maybe UpdateStatus,
-    -- | The Unix epoch timestamp in seconds for when the update was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | A UUID that is used to track the update.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The Unix epoch timestamp in seconds for when the update was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | A key-value map that contains the parameters associated with the update.
     params :: Prelude.Maybe [UpdateParam],
     -- | Any errors associated with a @Failed@ update.
@@ -56,9 +56,9 @@ data Update = Update'
 --
 -- 'status', 'update_status' - The current status of the update.
 --
--- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.
---
 -- 'id', 'update_id' - A UUID that is used to track the update.
+--
+-- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.
 --
 -- 'params', 'update_params' - A key-value map that contains the parameters associated with the update.
 --
@@ -70,8 +70,8 @@ newUpdate ::
 newUpdate =
   Update'
     { status = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       params = Prelude.Nothing,
       errors = Prelude.Nothing,
       type' = Prelude.Nothing
@@ -81,13 +81,13 @@ newUpdate =
 update_status :: Lens.Lens' Update (Prelude.Maybe UpdateStatus)
 update_status = Lens.lens (\Update' {status} -> status) (\s@Update' {} a -> s {status = a} :: Update)
 
--- | The Unix epoch timestamp in seconds for when the update was created.
-update_createdAt :: Lens.Lens' Update (Prelude.Maybe Prelude.UTCTime)
-update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Prelude.. Lens.mapping Core._Time
-
 -- | A UUID that is used to track the update.
 update_id :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
 update_id = Lens.lens (\Update' {id} -> id) (\s@Update' {} a -> s {id = a} :: Update)
+
+-- | The Unix epoch timestamp in seconds for when the update was created.
+update_createdAt :: Lens.Lens' Update (Prelude.Maybe Prelude.UTCTime)
+update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} a -> s {createdAt = a} :: Update) Prelude.. Lens.mapping Core._Time
 
 -- | A key-value map that contains the parameters associated with the update.
 update_params :: Lens.Lens' Update (Prelude.Maybe [UpdateParam])
@@ -108,8 +108,8 @@ instance Core.FromJSON Update where
       ( \x ->
           Update'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "params" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "type")

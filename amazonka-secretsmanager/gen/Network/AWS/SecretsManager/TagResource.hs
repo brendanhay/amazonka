@@ -36,10 +36,10 @@
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Do not use the @aws:@ prefix in your tag names or values because AWS
---     reserves it for AWS use. You can\'t edit or delete tag names or
---     values with this prefix. Tags with this prefix do not count against
---     your tags per secret limit.
+-- -   Do not use the @aws:@ prefix in your tag names or values because
+--     Amazon Web Services reserves it for Amazon Web Services use. You
+--     can\'t edit or delete tag names or values with this prefix. Tags
+--     with this prefix do not count against your tags per secret limit.
 --
 -- -   If you use your tagging schema across multiple services and
 --     resources, remember other services might have restrictions on
@@ -118,8 +118,7 @@ data TagResource = TagResource'
     -- information on how to format a JSON parameter for the various command
     -- line tool environments, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
-    -- syntax:
+    -- in the /CLI User Guide/. For the CLI, you can also use the syntax:
     -- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
     tags :: [Tag]
   }
@@ -163,8 +162,7 @@ data TagResource = TagResource'
 -- information on how to format a JSON parameter for the various command
 -- line tool environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
--- syntax:
+-- in the /CLI User Guide/. For the CLI, you can also use the syntax:
 -- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
 newTagResource ::
   -- | 'secretId'
@@ -208,8 +206,7 @@ tagResource_secretId = Lens.lens (\TagResource' {secretId} -> secretId) (\s@TagR
 -- information on how to format a JSON parameter for the various command
 -- line tool environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
--- syntax:
+-- in the /CLI User Guide/. For the CLI, you can also use the syntax:
 -- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce

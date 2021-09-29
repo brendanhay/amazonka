@@ -77,10 +77,10 @@ data TagResource = TagResource'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,10 +119,10 @@ data TagResource = TagResource'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -161,10 +161,10 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 

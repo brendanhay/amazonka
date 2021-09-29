@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- View a summary of OpsItems based on specified filters and aggregators.
+-- View a summary of operations metadata (OpsData) based on specified
+-- filters and aggregators. OpsData can include information about Amazon
+-- Web Services Systems Manager OpsCenter operational workitems (OpsItems)
+-- as well as information about any Amazon Web Services resource or service
+-- configured to report OpsData to Amazon Web Services Systems Manager
+-- Explorer.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.GetOpsSummary
@@ -65,11 +70,11 @@ data GetOpsSummary = GetOpsSummary'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify the name of a resource data sync to get.
     syncName :: Prelude.Maybe Prelude.Text,
-    -- | The OpsItem data type to return.
+    -- | The OpsData data type to return.
     resultAttributes :: Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute),
-    -- | Optional filters used to scope down the returned OpsItems.
+    -- | Optional filters used to scope down the returned OpsData.
     filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
-    -- | Optional aggregators that return counts of OpsItems based on one or more
+    -- | Optional aggregators that return counts of OpsData based on one or more
     -- expressions.
     aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator)
   }
@@ -92,11 +97,11 @@ data GetOpsSummary = GetOpsSummary'
 --
 -- 'syncName', 'getOpsSummary_syncName' - Specify the name of a resource data sync to get.
 --
--- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsItem data type to return.
+-- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsData data type to return.
 --
--- 'filters', 'getOpsSummary_filters' - Optional filters used to scope down the returned OpsItems.
+-- 'filters', 'getOpsSummary_filters' - Optional filters used to scope down the returned OpsData.
 --
--- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsItems based on one or more
+-- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsData based on one or more
 -- expressions.
 newGetOpsSummary ::
   GetOpsSummary
@@ -125,15 +130,15 @@ getOpsSummary_maxResults = Lens.lens (\GetOpsSummary' {maxResults} -> maxResults
 getOpsSummary_syncName :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
 getOpsSummary_syncName = Lens.lens (\GetOpsSummary' {syncName} -> syncName) (\s@GetOpsSummary' {} a -> s {syncName = a} :: GetOpsSummary)
 
--- | The OpsItem data type to return.
+-- | The OpsData data type to return.
 getOpsSummary_resultAttributes :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute))
 getOpsSummary_resultAttributes = Lens.lens (\GetOpsSummary' {resultAttributes} -> resultAttributes) (\s@GetOpsSummary' {} a -> s {resultAttributes = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
 
--- | Optional filters used to scope down the returned OpsItems.
+-- | Optional filters used to scope down the returned OpsData.
 getOpsSummary_filters :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
 getOpsSummary_filters = Lens.lens (\GetOpsSummary' {filters} -> filters) (\s@GetOpsSummary' {} a -> s {filters = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
 
--- | Optional aggregators that return counts of OpsItems based on one or more
+-- | Optional aggregators that return counts of OpsData based on one or more
 -- expressions.
 getOpsSummary_aggregators :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
 getOpsSummary_aggregators = Lens.lens (\GetOpsSummary' {aggregators} -> aggregators) (\s@GetOpsSummary' {} a -> s {aggregators = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens._Coerce
@@ -213,7 +218,7 @@ data GetOpsSummaryResponse = GetOpsSummaryResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of aggregated and filtered OpsItems.
+    -- | The list of aggregated details and filtered OpsData.
     entities :: Prelude.Maybe [OpsEntity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -231,7 +236,7 @@ data GetOpsSummaryResponse = GetOpsSummaryResponse'
 -- 'nextToken', 'getOpsSummaryResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
 --
--- 'entities', 'getOpsSummaryResponse_entities' - The list of aggregated and filtered OpsItems.
+-- 'entities', 'getOpsSummaryResponse_entities' - The list of aggregated details and filtered OpsData.
 --
 -- 'httpStatus', 'getOpsSummaryResponse_httpStatus' - The response's http status code.
 newGetOpsSummaryResponse ::
@@ -250,7 +255,7 @@ newGetOpsSummaryResponse pHttpStatus_ =
 getOpsSummaryResponse_nextToken :: Lens.Lens' GetOpsSummaryResponse (Prelude.Maybe Prelude.Text)
 getOpsSummaryResponse_nextToken = Lens.lens (\GetOpsSummaryResponse' {nextToken} -> nextToken) (\s@GetOpsSummaryResponse' {} a -> s {nextToken = a} :: GetOpsSummaryResponse)
 
--- | The list of aggregated and filtered OpsItems.
+-- | The list of aggregated details and filtered OpsData.
 getOpsSummaryResponse_entities :: Lens.Lens' GetOpsSummaryResponse (Prelude.Maybe [OpsEntity])
 getOpsSummaryResponse_entities = Lens.lens (\GetOpsSummaryResponse' {entities} -> entities) (\s@GetOpsSummaryResponse' {} a -> s {entities = a} :: GetOpsSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 

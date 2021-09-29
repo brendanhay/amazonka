@@ -62,7 +62,7 @@ data CreatePipeline = CreatePipeline'
     -- | A list of @PipelineActivity@ objects. Activities perform transformations
     -- on your messages, such as removing, renaming or adding message
     -- attributes; filtering messages based on attribute values; invoking your
-    -- Lambda functions on messages for advanced processing; or performing
+    -- Lambda unctions on messages for advanced processing; or performing
     -- mathematical transformations to normalize device data.
     --
     -- The list can be 2-25 @PipelineActivity@ objects and must contain both a
@@ -89,7 +89,7 @@ data CreatePipeline = CreatePipeline'
 -- 'pipelineActivities', 'createPipeline_pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations
 -- on your messages, such as removing, renaming or adding message
 -- attributes; filtering messages based on attribute values; invoking your
--- Lambda functions on messages for advanced processing; or performing
+-- Lambda unctions on messages for advanced processing; or performing
 -- mathematical transformations to normalize device data.
 --
 -- The list can be 2-25 @PipelineActivity@ objects and must contain both a
@@ -122,7 +122,7 @@ createPipeline_pipelineName = Lens.lens (\CreatePipeline' {pipelineName} -> pipe
 -- | A list of @PipelineActivity@ objects. Activities perform transformations
 -- on your messages, such as removing, renaming or adding message
 -- attributes; filtering messages based on attribute values; invoking your
--- Lambda functions on messages for advanced processing; or performing
+-- Lambda unctions on messages for advanced processing; or performing
 -- mathematical transformations to normalize device data.
 --
 -- The list can be 2-25 @PipelineActivity@ objects and must contain both a

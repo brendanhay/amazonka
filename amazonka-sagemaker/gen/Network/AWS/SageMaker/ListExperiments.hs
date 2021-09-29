@@ -31,9 +31,9 @@ module Network.AWS.SageMaker.ListExperiments
     newListExperiments,
 
     -- * Request Lenses
-    listExperiments_createdAfter,
-    listExperiments_sortOrder,
     listExperiments_nextToken,
+    listExperiments_sortOrder,
+    listExperiments_createdAfter,
     listExperiments_createdBefore,
     listExperiments_maxResults,
     listExperiments_sortBy,
@@ -58,14 +58,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListExperiments' smart constructor.
 data ListExperiments = ListExperiments'
-  { -- | A filter that returns only experiments created after the specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous call to @ListExperiments@ didn\'t return the full set of
+  { -- | If the previous call to @ListExperiments@ didn\'t return the full set of
     -- experiments, the call returns a token for getting the next set of
     -- experiments.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only experiments created after the specified time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only experiments created before the specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -85,13 +85,13 @@ data ListExperiments = ListExperiments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listExperiments_createdAfter' - A filter that returns only experiments created after the specified time.
---
--- 'sortOrder', 'listExperiments_sortOrder' - The sort order. The default value is @Descending@.
---
 -- 'nextToken', 'listExperiments_nextToken' - If the previous call to @ListExperiments@ didn\'t return the full set of
 -- experiments, the call returns a token for getting the next set of
 -- experiments.
+--
+-- 'sortOrder', 'listExperiments_sortOrder' - The sort order. The default value is @Descending@.
+--
+-- 'createdAfter', 'listExperiments_createdAfter' - A filter that returns only experiments created after the specified time.
 --
 -- 'createdBefore', 'listExperiments_createdBefore' - A filter that returns only experiments created before the specified
 -- time.
@@ -104,27 +104,27 @@ newListExperiments ::
   ListExperiments
 newListExperiments =
   ListExperiments'
-    { createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
-
--- | A filter that returns only experiments created after the specified time.
-listExperiments_createdAfter :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.UTCTime)
-listExperiments_createdAfter = Lens.lens (\ListExperiments' {createdAfter} -> createdAfter) (\s@ListExperiments' {} a -> s {createdAfter = a} :: ListExperiments) Prelude.. Lens.mapping Core._Time
-
--- | The sort order. The default value is @Descending@.
-listExperiments_sortOrder :: Lens.Lens' ListExperiments (Prelude.Maybe SortOrder)
-listExperiments_sortOrder = Lens.lens (\ListExperiments' {sortOrder} -> sortOrder) (\s@ListExperiments' {} a -> s {sortOrder = a} :: ListExperiments)
 
 -- | If the previous call to @ListExperiments@ didn\'t return the full set of
 -- experiments, the call returns a token for getting the next set of
 -- experiments.
 listExperiments_nextToken :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.Text)
 listExperiments_nextToken = Lens.lens (\ListExperiments' {nextToken} -> nextToken) (\s@ListExperiments' {} a -> s {nextToken = a} :: ListExperiments)
+
+-- | The sort order. The default value is @Descending@.
+listExperiments_sortOrder :: Lens.Lens' ListExperiments (Prelude.Maybe SortOrder)
+listExperiments_sortOrder = Lens.lens (\ListExperiments' {sortOrder} -> sortOrder) (\s@ListExperiments' {} a -> s {sortOrder = a} :: ListExperiments)
+
+-- | A filter that returns only experiments created after the specified time.
+listExperiments_createdAfter :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.UTCTime)
+listExperiments_createdAfter = Lens.lens (\ListExperiments' {createdAfter} -> createdAfter) (\s@ListExperiments' {} a -> s {createdAfter = a} :: ListExperiments) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only experiments created before the specified
 -- time.
@@ -199,9 +199,9 @@ instance Core.ToJSON ListExperiments where
   toJSON ListExperiments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy

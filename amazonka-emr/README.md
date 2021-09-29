@@ -1,4 +1,4 @@
-# Amazon Elastic MapReduce SDK
+# Amazon EMR SDK
 
 * [Version](#version)
 * [Description](#description)

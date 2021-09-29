@@ -23,11 +23,11 @@
 -- A remediation exception is when a specific resource is no longer
 -- considered for auto-remediation. This API adds a new exception or
 -- updates an existing exception for a specific resource with a specific
--- AWS Config rule.
+-- Config rule.
 --
--- AWS Config generates a remediation exception when a problem occurs
--- executing a remediation action to a specific resource. Remediation
--- exceptions blocks auto-remediation until the exception is cleared.
+-- Config generates a remediation exception when a problem occurs executing
+-- a remediation action to a specific resource. Remediation exceptions
+-- blocks auto-remediation until the exception is cleared.
 module Network.AWS.Config.PutRemediationExceptions
   ( -- * Creating a Request
     PutRemediationExceptions (..),
@@ -62,12 +62,12 @@ data PutRemediationExceptions = PutRemediationExceptions'
     expirationTime :: Prelude.Maybe Core.POSIX,
     -- | The message contains an explanation of the exception.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Config rule for which you want to create remediation
+    -- | The name of the Config rule for which you want to create remediation
     -- exception.
     configRuleName :: Prelude.Text,
     -- | An exception list of resource exception keys to be processed with the
-    -- current request. AWS Config adds exception for each resource key. For
-    -- example, AWS Config adds 3 exceptions for 3 resource keys.
+    -- current request. Config adds exception for each resource key. For
+    -- example, Config adds 3 exceptions for 3 resource keys.
     resourceKeys :: Prelude.NonEmpty RemediationExceptionResourceKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,12 +84,12 @@ data PutRemediationExceptions = PutRemediationExceptions'
 --
 -- 'message', 'putRemediationExceptions_message' - The message contains an explanation of the exception.
 --
--- 'configRuleName', 'putRemediationExceptions_configRuleName' - The name of the AWS Config rule for which you want to create remediation
+-- 'configRuleName', 'putRemediationExceptions_configRuleName' - The name of the Config rule for which you want to create remediation
 -- exception.
 --
 -- 'resourceKeys', 'putRemediationExceptions_resourceKeys' - An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 newPutRemediationExceptions ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -115,14 +115,14 @@ putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' 
 putRemediationExceptions_message :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.Text)
 putRemediationExceptions_message = Lens.lens (\PutRemediationExceptions' {message} -> message) (\s@PutRemediationExceptions' {} a -> s {message = a} :: PutRemediationExceptions)
 
--- | The name of the AWS Config rule for which you want to create remediation
+-- | The name of the Config rule for which you want to create remediation
 -- exception.
 putRemediationExceptions_configRuleName :: Lens.Lens' PutRemediationExceptions Prelude.Text
 putRemediationExceptions_configRuleName = Lens.lens (\PutRemediationExceptions' {configRuleName} -> configRuleName) (\s@PutRemediationExceptions' {} a -> s {configRuleName = a} :: PutRemediationExceptions)
 
 -- | An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 putRemediationExceptions_resourceKeys :: Lens.Lens' PutRemediationExceptions (Prelude.NonEmpty RemediationExceptionResourceKey)
 putRemediationExceptions_resourceKeys = Lens.lens (\PutRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@PutRemediationExceptions' {} a -> s {resourceKeys = a} :: PutRemediationExceptions) Prelude.. Lens._Coerce
 

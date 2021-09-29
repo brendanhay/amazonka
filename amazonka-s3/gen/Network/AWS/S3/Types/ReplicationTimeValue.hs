@@ -31,7 +31,7 @@ import Network.AWS.S3.Internal
 data ReplicationTimeValue = ReplicationTimeValue'
   { -- | Contains an integer specifying time in minutes.
     --
-    -- Valid values: 15 minutes.
+    -- Valid value: 15
     minutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data ReplicationTimeValue = ReplicationTimeValue'
 --
 -- 'minutes', 'replicationTimeValue_minutes' - Contains an integer specifying time in minutes.
 --
--- Valid values: 15 minutes.
+-- Valid value: 15
 newReplicationTimeValue ::
   ReplicationTimeValue
 newReplicationTimeValue =
@@ -54,7 +54,7 @@ newReplicationTimeValue =
 
 -- | Contains an integer specifying time in minutes.
 --
--- Valid values: 15 minutes.
+-- Valid value: 15
 replicationTimeValue_minutes :: Lens.Lens' ReplicationTimeValue (Prelude.Maybe Prelude.Int)
 replicationTimeValue_minutes = Lens.lens (\ReplicationTimeValue' {minutes} -> minutes) (\s@ReplicationTimeValue' {} a -> s {minutes = a} :: ReplicationTimeValue)
 

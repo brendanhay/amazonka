@@ -24,26 +24,26 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.RecordType
 
--- | A complex type that contains information about the Route 53 DNS records
--- that you want AWS Cloud Map to create when you register an instance.
+-- | A complex type that contains information about the Route 53 DNS records
+-- that you want Cloud Map to create when you register an instance.
 --
 -- /See:/ 'newDnsRecord' smart constructor.
 data DnsRecord = DnsRecord'
-  { -- | The type of the resource, which indicates the type of value that
-    -- Route 53 returns in response to DNS queries. You can specify values for
-    -- @Type@ in the following combinations:
+  { -- | The type of the resource, which indicates the type of value that Route
+    -- 53 returns in response to DNS queries. You can specify values for @Type@
+    -- in the following combinations:
     --
-    -- -   @A@
+    -- -   __@A@__
     --
-    -- -   @AAAA@
+    -- -   __@AAAA@__
     --
-    -- -   @A@ and @AAAA@
+    -- -   __@A@__ and __@AAAA@__
     --
-    -- -   @SRV@
+    -- -   __@SRV@__
     --
-    -- -   @CNAME@
+    -- -   __@CNAME@__
     --
-    -- If you want AWS Cloud Map to create a Route 53 alias record when you
+    -- If you want Cloud Map to create a Route 53 alias record when you
     -- register an instance, specify @A@ or @AAAA@ for @Type@.
     --
     -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -52,86 +52,82 @@ data DnsRecord = DnsRecord'
     --
     -- The following values are supported:
     --
-    -- @A@ __@@__
+    -- [A]
+    --     Route 53 returns the IP address of the resource in IPv4 format, such
+    --     as 192.0.2.44.
     --
-    -- Route 53 returns the IP address of the resource in IPv4 format, such as
-    -- 192.0.2.44.
+    -- [AAAA]
+    --     Route 53 returns the IP address of the resource in IPv6 format, such
+    --     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
     --
-    -- @AAAA@ __@@__
+    -- [CNAME]
+    --     Route 53 returns the domain name of the resource, such as
+    --     www.example.com. Note the following:
     --
-    -- Route 53 returns the IP address of the resource in IPv6 format, such as
-    -- 2001:0db8:85a3:0000:0000:abcd:0001:2345.
+    --     -   You specify the domain name that you want to route traffic to
+    --         when you register an instance. For more information, see
+    --         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
+    --         in the topic
+    --         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
     --
-    -- @CNAME@ __@@__
+    --     -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
     --
-    -- Route 53 returns the domain name of the resource, such as
-    -- www.example.com. Note the following:
+    --     -   You can\'t specify both @CNAME@ for @Type@ and settings for
+    --         @HealthCheckConfig@. If you do, the request will fail with an
+    --         @InvalidInput@ error.
     --
-    -- -   You specify the domain name that you want to route traffic to when
-    --     you register an instance. For more information, see
-    --     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
-    --     in the topic
-    --     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
+    -- [SRV]
+    --     Route 53 returns the value for an @SRV@ record. The value for an
+    --     @SRV@ record uses the following values:
     --
-    -- -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
+    --     @priority weight port service-hostname@
     --
-    -- -   You can\'t specify both @CNAME@ for @Type@ and settings for
-    --     @HealthCheckConfig@. If you do, the request will fail with an
-    --     @InvalidInput@ error.
+    --     Note the following about the values:
     --
-    -- __SRV__
+    --     -   The values of @priority@ and @weight@ are both set to @1@ and
+    --         can\'t be changed.
     --
-    -- Route 53 returns the value for an @SRV@ record. The value for an @SRV@
-    -- record uses the following values:
+    --     -   The value of @port@ comes from the value that you specify for
+    --         the @AWS_INSTANCE_PORT@ attribute when you submit a
+    --         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
+    --         request.
     --
-    -- @priority weight port service-hostname@
+    --     -   The value of @service-hostname@ is a concatenation of the
+    --         following values:
     --
-    -- Note the following about the values:
+    --         -   The value that you specify for @InstanceId@ when you
+    --             register an instance.
     --
-    -- -   The values of @priority@ and @weight@ are both set to @1@ and can\'t
-    --     be changed.
+    --         -   The name of the service.
     --
-    -- -   The value of @port@ comes from the value that you specify for the
-    --     @AWS_INSTANCE_PORT@ attribute when you submit a
-    --     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
-    --     request.
+    --         -   The name of the namespace.
     --
-    -- -   The value of @service-hostname@ is a concatenation of the following
-    --     values:
+    --         For example, if the value of @InstanceId@ is @test@, the name of
+    --         the service is @backend@, and the name of the namespace is
+    --         @example.com@, the value of @service-hostname@ is the following:
     --
-    --     -   The value that you specify for @InstanceId@ when you register an
-    --         instance.
+    --         @test.backend.example.com@
     --
-    --     -   The name of the service.
+    --     If you specify settings for an @SRV@ record, note the following:
     --
-    --     -   The name of the namespace.
+    --     -   If you specify values for @AWS_INSTANCE_IPV4@,
+    --         @AWS_INSTANCE_IPV6@, or both in the @RegisterInstance@ request,
+    --         Cloud Map automatically creates @A@ and\/or @AAAA@ records that
+    --         have the same name as the value of @service-hostname@ in the
+    --         @SRV@ record. You can ignore these records.
     --
-    --     For example, if the value of @InstanceId@ is @test@, the name of the
-    --     service is @backend@, and the name of the namespace is
-    --     @example.com@, the value of @service-hostname@ is:
-    --
-    --     @test.backend.example.com@
-    --
-    -- If you specify settings for an @SRV@ record, note the following:
-    --
-    -- -   If you specify values for @AWS_INSTANCE_IPV4@, @AWS_INSTANCE_IPV6@,
-    --     or both in the @RegisterInstance@ request, AWS Cloud Map
-    --     automatically creates @A@ and\/or @AAAA@ records that have the same
-    --     name as the value of @service-hostname@ in the @SRV@ record. You can
-    --     ignore these records.
-    --
-    -- -   If you\'re using a system that requires a specific @SRV@ format,
-    --     such as HAProxy, see the
-    --     <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
-    --     element in the documentation about @CreateService@ for information
-    --     about how to specify the correct name format.
+    --     -   If you\'re using a system that requires a specific @SRV@ format,
+    --         such as HAProxy, see the
+    --         <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
+    --         element in the documentation about @CreateService@ for
+    --         information about how to specify the correct name format.
     type' :: RecordType,
     -- | The amount of time, in seconds, that you want DNS resolvers to cache the
     -- settings for this record.
     --
-    -- Alias records don\'t include a TTL because Route 53 uses the TTL for the
-    -- AWS resource that an alias record routes traffic to. If you include the
-    -- @AWS_ALIAS_DNS_NAME@ attribute when you submit a
+    -- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+    -- Amazon Web Services resource that an alias record routes traffic to. If
+    -- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
     -- request, the @TTL@ value is ignored. Always specify a TTL for the
     -- service; you can use a service to register instances that create either
@@ -148,21 +144,21 @@ data DnsRecord = DnsRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dnsRecord_type' - The type of the resource, which indicates the type of value that
--- Route 53 returns in response to DNS queries. You can specify values for
--- @Type@ in the following combinations:
+-- 'type'', 'dnsRecord_type' - The type of the resource, which indicates the type of value that Route
+-- 53 returns in response to DNS queries. You can specify values for @Type@
+-- in the following combinations:
 --
--- -   @A@
+-- -   __@A@__
 --
--- -   @AAAA@
+-- -   __@AAAA@__
 --
--- -   @A@ and @AAAA@
+-- -   __@A@__ and __@AAAA@__
 --
--- -   @SRV@
+-- -   __@SRV@__
 --
--- -   @CNAME@
+-- -   __@CNAME@__
 --
--- If you want AWS Cloud Map to create a Route 53 alias record when you
+-- If you want Cloud Map to create a Route 53 alias record when you
 -- register an instance, specify @A@ or @AAAA@ for @Type@.
 --
 -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -171,86 +167,82 @@ data DnsRecord = DnsRecord'
 --
 -- The following values are supported:
 --
--- @A@ __@@__
+-- [A]
+--     Route 53 returns the IP address of the resource in IPv4 format, such
+--     as 192.0.2.44.
 --
--- Route 53 returns the IP address of the resource in IPv4 format, such as
--- 192.0.2.44.
+-- [AAAA]
+--     Route 53 returns the IP address of the resource in IPv6 format, such
+--     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
 --
--- @AAAA@ __@@__
+-- [CNAME]
+--     Route 53 returns the domain name of the resource, such as
+--     www.example.com. Note the following:
 --
--- Route 53 returns the IP address of the resource in IPv6 format, such as
--- 2001:0db8:85a3:0000:0000:abcd:0001:2345.
+--     -   You specify the domain name that you want to route traffic to
+--         when you register an instance. For more information, see
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
+--         in the topic
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
 --
--- @CNAME@ __@@__
+--     -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
 --
--- Route 53 returns the domain name of the resource, such as
--- www.example.com. Note the following:
+--     -   You can\'t specify both @CNAME@ for @Type@ and settings for
+--         @HealthCheckConfig@. If you do, the request will fail with an
+--         @InvalidInput@ error.
 --
--- -   You specify the domain name that you want to route traffic to when
---     you register an instance. For more information, see
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
---     in the topic
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
+-- [SRV]
+--     Route 53 returns the value for an @SRV@ record. The value for an
+--     @SRV@ record uses the following values:
 --
--- -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
+--     @priority weight port service-hostname@
 --
--- -   You can\'t specify both @CNAME@ for @Type@ and settings for
---     @HealthCheckConfig@. If you do, the request will fail with an
---     @InvalidInput@ error.
+--     Note the following about the values:
 --
--- __SRV__
+--     -   The values of @priority@ and @weight@ are both set to @1@ and
+--         can\'t be changed.
 --
--- Route 53 returns the value for an @SRV@ record. The value for an @SRV@
--- record uses the following values:
+--     -   The value of @port@ comes from the value that you specify for
+--         the @AWS_INSTANCE_PORT@ attribute when you submit a
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
+--         request.
 --
--- @priority weight port service-hostname@
+--     -   The value of @service-hostname@ is a concatenation of the
+--         following values:
 --
--- Note the following about the values:
+--         -   The value that you specify for @InstanceId@ when you
+--             register an instance.
 --
--- -   The values of @priority@ and @weight@ are both set to @1@ and can\'t
---     be changed.
+--         -   The name of the service.
 --
--- -   The value of @port@ comes from the value that you specify for the
---     @AWS_INSTANCE_PORT@ attribute when you submit a
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
---     request.
+--         -   The name of the namespace.
 --
--- -   The value of @service-hostname@ is a concatenation of the following
---     values:
+--         For example, if the value of @InstanceId@ is @test@, the name of
+--         the service is @backend@, and the name of the namespace is
+--         @example.com@, the value of @service-hostname@ is the following:
 --
---     -   The value that you specify for @InstanceId@ when you register an
---         instance.
+--         @test.backend.example.com@
 --
---     -   The name of the service.
+--     If you specify settings for an @SRV@ record, note the following:
 --
---     -   The name of the namespace.
+--     -   If you specify values for @AWS_INSTANCE_IPV4@,
+--         @AWS_INSTANCE_IPV6@, or both in the @RegisterInstance@ request,
+--         Cloud Map automatically creates @A@ and\/or @AAAA@ records that
+--         have the same name as the value of @service-hostname@ in the
+--         @SRV@ record. You can ignore these records.
 --
---     For example, if the value of @InstanceId@ is @test@, the name of the
---     service is @backend@, and the name of the namespace is
---     @example.com@, the value of @service-hostname@ is:
---
---     @test.backend.example.com@
---
--- If you specify settings for an @SRV@ record, note the following:
---
--- -   If you specify values for @AWS_INSTANCE_IPV4@, @AWS_INSTANCE_IPV6@,
---     or both in the @RegisterInstance@ request, AWS Cloud Map
---     automatically creates @A@ and\/or @AAAA@ records that have the same
---     name as the value of @service-hostname@ in the @SRV@ record. You can
---     ignore these records.
---
--- -   If you\'re using a system that requires a specific @SRV@ format,
---     such as HAProxy, see the
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
---     element in the documentation about @CreateService@ for information
---     about how to specify the correct name format.
+--     -   If you\'re using a system that requires a specific @SRV@ format,
+--         such as HAProxy, see the
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
+--         element in the documentation about @CreateService@ for
+--         information about how to specify the correct name format.
 --
 -- 'ttl', 'dnsRecord_ttl' - The amount of time, in seconds, that you want DNS resolvers to cache the
 -- settings for this record.
 --
--- Alias records don\'t include a TTL because Route 53 uses the TTL for the
--- AWS resource that an alias record routes traffic to. If you include the
--- @AWS_ALIAS_DNS_NAME@ attribute when you submit a
+-- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+-- Amazon Web Services resource that an alias record routes traffic to. If
+-- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
 -- request, the @TTL@ value is ignored. Always specify a TTL for the
 -- service; you can use a service to register instances that create either
@@ -264,21 +256,21 @@ newDnsRecord ::
 newDnsRecord pType_ pTTL_ =
   DnsRecord' {type' = pType_, ttl = pTTL_}
 
--- | The type of the resource, which indicates the type of value that
--- Route 53 returns in response to DNS queries. You can specify values for
--- @Type@ in the following combinations:
+-- | The type of the resource, which indicates the type of value that Route
+-- 53 returns in response to DNS queries. You can specify values for @Type@
+-- in the following combinations:
 --
--- -   @A@
+-- -   __@A@__
 --
--- -   @AAAA@
+-- -   __@AAAA@__
 --
--- -   @A@ and @AAAA@
+-- -   __@A@__ and __@AAAA@__
 --
--- -   @SRV@
+-- -   __@SRV@__
 --
--- -   @CNAME@
+-- -   __@CNAME@__
 --
--- If you want AWS Cloud Map to create a Route 53 alias record when you
+-- If you want Cloud Map to create a Route 53 alias record when you
 -- register an instance, specify @A@ or @AAAA@ for @Type@.
 --
 -- You specify other settings, such as the IP address for @A@ and @AAAA@
@@ -287,88 +279,84 @@ newDnsRecord pType_ pTTL_ =
 --
 -- The following values are supported:
 --
--- @A@ __@@__
+-- [A]
+--     Route 53 returns the IP address of the resource in IPv4 format, such
+--     as 192.0.2.44.
 --
--- Route 53 returns the IP address of the resource in IPv4 format, such as
--- 192.0.2.44.
+-- [AAAA]
+--     Route 53 returns the IP address of the resource in IPv6 format, such
+--     as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
 --
--- @AAAA@ __@@__
+-- [CNAME]
+--     Route 53 returns the domain name of the resource, such as
+--     www.example.com. Note the following:
 --
--- Route 53 returns the IP address of the resource in IPv6 format, such as
--- 2001:0db8:85a3:0000:0000:abcd:0001:2345.
+--     -   You specify the domain name that you want to route traffic to
+--         when you register an instance. For more information, see
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
+--         in the topic
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
 --
--- @CNAME@ __@@__
+--     -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
 --
--- Route 53 returns the domain name of the resource, such as
--- www.example.com. Note the following:
+--     -   You can\'t specify both @CNAME@ for @Type@ and settings for
+--         @HealthCheckConfig@. If you do, the request will fail with an
+--         @InvalidInput@ error.
 --
--- -   You specify the domain name that you want to route traffic to when
---     you register an instance. For more information, see
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes Attributes>
---     in the topic
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>.
+-- [SRV]
+--     Route 53 returns the value for an @SRV@ record. The value for an
+--     @SRV@ record uses the following values:
 --
--- -   You must specify @WEIGHTED@ for the value of @RoutingPolicy@.
+--     @priority weight port service-hostname@
 --
--- -   You can\'t specify both @CNAME@ for @Type@ and settings for
---     @HealthCheckConfig@. If you do, the request will fail with an
---     @InvalidInput@ error.
+--     Note the following about the values:
 --
--- __SRV__
+--     -   The values of @priority@ and @weight@ are both set to @1@ and
+--         can\'t be changed.
 --
--- Route 53 returns the value for an @SRV@ record. The value for an @SRV@
--- record uses the following values:
+--     -   The value of @port@ comes from the value that you specify for
+--         the @AWS_INSTANCE_PORT@ attribute when you submit a
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
+--         request.
 --
--- @priority weight port service-hostname@
+--     -   The value of @service-hostname@ is a concatenation of the
+--         following values:
 --
--- Note the following about the values:
+--         -   The value that you specify for @InstanceId@ when you
+--             register an instance.
 --
--- -   The values of @priority@ and @weight@ are both set to @1@ and can\'t
---     be changed.
+--         -   The name of the service.
 --
--- -   The value of @port@ comes from the value that you specify for the
---     @AWS_INSTANCE_PORT@ attribute when you submit a
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
---     request.
+--         -   The name of the namespace.
 --
--- -   The value of @service-hostname@ is a concatenation of the following
---     values:
+--         For example, if the value of @InstanceId@ is @test@, the name of
+--         the service is @backend@, and the name of the namespace is
+--         @example.com@, the value of @service-hostname@ is the following:
 --
---     -   The value that you specify for @InstanceId@ when you register an
---         instance.
+--         @test.backend.example.com@
 --
---     -   The name of the service.
+--     If you specify settings for an @SRV@ record, note the following:
 --
---     -   The name of the namespace.
+--     -   If you specify values for @AWS_INSTANCE_IPV4@,
+--         @AWS_INSTANCE_IPV6@, or both in the @RegisterInstance@ request,
+--         Cloud Map automatically creates @A@ and\/or @AAAA@ records that
+--         have the same name as the value of @service-hostname@ in the
+--         @SRV@ record. You can ignore these records.
 --
---     For example, if the value of @InstanceId@ is @test@, the name of the
---     service is @backend@, and the name of the namespace is
---     @example.com@, the value of @service-hostname@ is:
---
---     @test.backend.example.com@
---
--- If you specify settings for an @SRV@ record, note the following:
---
--- -   If you specify values for @AWS_INSTANCE_IPV4@, @AWS_INSTANCE_IPV6@,
---     or both in the @RegisterInstance@ request, AWS Cloud Map
---     automatically creates @A@ and\/or @AAAA@ records that have the same
---     name as the value of @service-hostname@ in the @SRV@ record. You can
---     ignore these records.
---
--- -   If you\'re using a system that requires a specific @SRV@ format,
---     such as HAProxy, see the
---     <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
---     element in the documentation about @CreateService@ for information
---     about how to specify the correct name format.
+--     -   If you\'re using a system that requires a specific @SRV@ format,
+--         such as HAProxy, see the
+--         <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html#cloudmap-CreateService-request-Name Name>
+--         element in the documentation about @CreateService@ for
+--         information about how to specify the correct name format.
 dnsRecord_type :: Lens.Lens' DnsRecord RecordType
 dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a -> s {type' = a} :: DnsRecord)
 
 -- | The amount of time, in seconds, that you want DNS resolvers to cache the
 -- settings for this record.
 --
--- Alias records don\'t include a TTL because Route 53 uses the TTL for the
--- AWS resource that an alias record routes traffic to. If you include the
--- @AWS_ALIAS_DNS_NAME@ attribute when you submit a
+-- Alias records don\'t include a TTL because Route 53 uses the TTL for the
+-- Amazon Web Services resource that an alias record routes traffic to. If
+-- you include the @AWS_ALIAS_DNS_NAME@ attribute when you submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
 -- request, the @TTL@ value is ignored. Always specify a TTL for the
 -- service; you can use a service to register instances that create either

@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get information about a parameter by using the parameter name. Don\'t
--- confuse this API action with the GetParameters API action.
+-- Get information about a single parameter by specifying the parameter
+-- name.
+--
+-- To get information about more than one parameter at a time, use the
+-- GetParameters operation.
 module Network.AWS.SSM.GetParameter
   ( -- * Creating a Request
     GetParameter (..),
@@ -51,9 +54,12 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetParameter' smart constructor.
 data GetParameter = GetParameter'
   { -- | Return decrypted values for secure string parameters. This flag is
-    -- ignored for String and StringList parameter types.
+    -- ignored for @String@ and @StringList@ parameter types.
     withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The name of the parameter you want to query.
+    --
+    -- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+    -- parameter version, use @\"Name\": \"name:version\"@.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +73,12 @@ data GetParameter = GetParameter'
 -- for backwards compatibility:
 --
 -- 'withDecryption', 'getParameter_withDecryption' - Return decrypted values for secure string parameters. This flag is
--- ignored for String and StringList parameter types.
+-- ignored for @String@ and @StringList@ parameter types.
 --
 -- 'name', 'getParameter_name' - The name of the parameter you want to query.
+--
+-- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+-- parameter version, use @\"Name\": \"name:version\"@.
 newGetParameter ::
   -- | 'name'
   Prelude.Text ->
@@ -81,11 +90,14 @@ newGetParameter pName_ =
     }
 
 -- | Return decrypted values for secure string parameters. This flag is
--- ignored for String and StringList parameter types.
+-- ignored for @String@ and @StringList@ parameter types.
 getParameter_withDecryption :: Lens.Lens' GetParameter (Prelude.Maybe Prelude.Bool)
 getParameter_withDecryption = Lens.lens (\GetParameter' {withDecryption} -> withDecryption) (\s@GetParameter' {} a -> s {withDecryption = a} :: GetParameter)
 
 -- | The name of the parameter you want to query.
+--
+-- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+-- parameter version, use @\"Name\": \"name:version\"@.
 getParameter_name :: Lens.Lens' GetParameter Prelude.Text
 getParameter_name = Lens.lens (\GetParameter' {name} -> name) (\s@GetParameter' {} a -> s {name = a} :: GetParameter)
 
@@ -140,7 +152,7 @@ data GetParameterResponse = GetParameterResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameterResponse' with all optional fields omitted.

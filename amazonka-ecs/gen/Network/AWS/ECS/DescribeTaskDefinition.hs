@@ -178,10 +178,10 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The full task definition description.
     taskDefinition :: Prelude.Maybe TaskDefinition,
@@ -222,10 +222,10 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 --
 -- 'taskDefinition', 'describeTaskDefinitionResponse_taskDefinition' - The full task definition description.
 --
@@ -266,10 +266,10 @@ newDescribeTaskDefinitionResponse pHttpStatus_ =
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 describeTaskDefinitionResponse_tags :: Lens.Lens' DescribeTaskDefinitionResponse (Prelude.Maybe [Tag])
 describeTaskDefinitionResponse_tags = Lens.lens (\DescribeTaskDefinitionResponse' {tags} -> tags) (\s@DescribeTaskDefinitionResponse' {} a -> s {tags = a} :: DescribeTaskDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 

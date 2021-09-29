@@ -29,9 +29,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If
--- seconds the system will convert the GOP Size into a frame count at run
--- time.
+-- | Specify the units for GOP size (GopSize). If you don\'t specify a value
+-- here, by default the encoder measures GOP size in frames.
 newtype Mpeg2GopSizeUnits = Mpeg2GopSizeUnits'
   { fromMpeg2GopSizeUnits ::
       Core.Text

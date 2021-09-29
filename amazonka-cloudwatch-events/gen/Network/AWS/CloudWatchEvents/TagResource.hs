@@ -26,8 +26,8 @@
 -- permission to access or change only resources with certain tag values.
 -- In EventBridge, rules and event buses can be tagged.
 --
--- Tags don\'t have any semantic meaning to AWS and are interpreted
--- strictly as strings of characters.
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
 --
 -- You can use the @TagResource@ action with a resource that already has
 -- tags. If you specify a new tag key, this tag is appended to the list of

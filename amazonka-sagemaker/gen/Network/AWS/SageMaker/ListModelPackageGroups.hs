@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of the model groups in your AWS account.
+-- Gets a list of the model groups in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListModelPackageGroups
@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListModelPackageGroups
     newListModelPackageGroups,
 
     -- * Request Lenses
-    listModelPackageGroups_sortOrder,
     listModelPackageGroups_nextToken,
+    listModelPackageGroups_sortOrder,
     listModelPackageGroups_nameContains,
     listModelPackageGroups_maxResults,
     listModelPackageGroups_creationTimeBefore,
@@ -57,12 +57,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelPackageGroups' smart constructor.
 data ListModelPackageGroups = ListModelPackageGroups'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListModelPackageGroups@ request was
+  { -- | If the result of the previous @ListModelPackageGroups@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of model groups, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the model group name. This filter returns only model groups
     -- whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -87,11 +87,11 @@ data ListModelPackageGroups = ListModelPackageGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelPackageGroups_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listModelPackageGroups_nextToken' - If the result of the previous @ListModelPackageGroups@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of model groups, use the token in the next request.
+--
+-- 'sortOrder', 'listModelPackageGroups_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listModelPackageGroups_nameContains' - A string in the model group name. This filter returns only model groups
 -- whose name contains the specified string.
@@ -109,9 +109,9 @@ newListModelPackageGroups ::
   ListModelPackageGroups
 newListModelPackageGroups =
   ListModelPackageGroups'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -119,15 +119,15 @@ newListModelPackageGroups =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Ascending@.
-listModelPackageGroups_sortOrder :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe SortOrder)
-listModelPackageGroups_sortOrder = Lens.lens (\ListModelPackageGroups' {sortOrder} -> sortOrder) (\s@ListModelPackageGroups' {} a -> s {sortOrder = a} :: ListModelPackageGroups)
-
 -- | If the result of the previous @ListModelPackageGroups@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of model groups, use the token in the next request.
 listModelPackageGroups_nextToken :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.Text)
 listModelPackageGroups_nextToken = Lens.lens (\ListModelPackageGroups' {nextToken} -> nextToken) (\s@ListModelPackageGroups' {} a -> s {nextToken = a} :: ListModelPackageGroups)
+
+-- | The sort order for results. The default is @Ascending@.
+listModelPackageGroups_sortOrder :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe SortOrder)
+listModelPackageGroups_sortOrder = Lens.lens (\ListModelPackageGroups' {sortOrder} -> sortOrder) (\s@ListModelPackageGroups' {} a -> s {sortOrder = a} :: ListModelPackageGroups)
 
 -- | A string in the model group name. This filter returns only model groups
 -- whose name contains the specified string.
@@ -212,8 +212,8 @@ instance Core.ToJSON ListModelPackageGroups where
   toJSON ListModelPackageGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
@@ -237,7 +237,8 @@ data ListModelPackageGroupsResponse = ListModelPackageGroupsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of summaries of the model groups in your AWS account.
+    -- | A list of summaries of the model groups in your Amazon Web Services
+    -- account.
     modelPackageGroupSummaryList :: [ModelPackageGroupSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -255,7 +256,8 @@ data ListModelPackageGroupsResponse = ListModelPackageGroupsResponse'
 --
 -- 'httpStatus', 'listModelPackageGroupsResponse_httpStatus' - The response's http status code.
 --
--- 'modelPackageGroupSummaryList', 'listModelPackageGroupsResponse_modelPackageGroupSummaryList' - A list of summaries of the model groups in your AWS account.
+-- 'modelPackageGroupSummaryList', 'listModelPackageGroupsResponse_modelPackageGroupSummaryList' - A list of summaries of the model groups in your Amazon Web Services
+-- account.
 newListModelPackageGroupsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -278,7 +280,8 @@ listModelPackageGroupsResponse_nextToken = Lens.lens (\ListModelPackageGroupsRes
 listModelPackageGroupsResponse_httpStatus :: Lens.Lens' ListModelPackageGroupsResponse Prelude.Int
 listModelPackageGroupsResponse_httpStatus = Lens.lens (\ListModelPackageGroupsResponse' {httpStatus} -> httpStatus) (\s@ListModelPackageGroupsResponse' {} a -> s {httpStatus = a} :: ListModelPackageGroupsResponse)
 
--- | A list of summaries of the model groups in your AWS account.
+-- | A list of summaries of the model groups in your Amazon Web Services
+-- account.
 listModelPackageGroupsResponse_modelPackageGroupSummaryList :: Lens.Lens' ListModelPackageGroupsResponse [ModelPackageGroupSummary]
 listModelPackageGroupsResponse_modelPackageGroupSummaryList = Lens.lens (\ListModelPackageGroupsResponse' {modelPackageGroupSummaryList} -> modelPackageGroupSummaryList) (\s@ListModelPackageGroupsResponse' {} a -> s {modelPackageGroupSummaryList = a} :: ListModelPackageGroupsResponse) Prelude.. Lens._Coerce
 

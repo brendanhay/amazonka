@@ -25,6 +25,7 @@ module Network.AWS.CertificateManager.Types.KeyAlgorithm
         KeyAlgorithm_EC_secp521r1,
         KeyAlgorithm_RSA_1024,
         KeyAlgorithm_RSA_2048,
+        KeyAlgorithm_RSA_3072,
         KeyAlgorithm_RSA_4096
       ),
   )
@@ -76,6 +77,9 @@ pattern KeyAlgorithm_RSA_1024 = KeyAlgorithm' "RSA_1024"
 pattern KeyAlgorithm_RSA_2048 :: KeyAlgorithm
 pattern KeyAlgorithm_RSA_2048 = KeyAlgorithm' "RSA_2048"
 
+pattern KeyAlgorithm_RSA_3072 :: KeyAlgorithm
+pattern KeyAlgorithm_RSA_3072 = KeyAlgorithm' "RSA_3072"
+
 pattern KeyAlgorithm_RSA_4096 :: KeyAlgorithm
 pattern KeyAlgorithm_RSA_4096 = KeyAlgorithm' "RSA_4096"
 
@@ -85,6 +89,7 @@ pattern KeyAlgorithm_RSA_4096 = KeyAlgorithm' "RSA_4096"
   KeyAlgorithm_EC_secp521r1,
   KeyAlgorithm_RSA_1024,
   KeyAlgorithm_RSA_2048,
+  KeyAlgorithm_RSA_3072,
   KeyAlgorithm_RSA_4096,
   KeyAlgorithm'
   #-}

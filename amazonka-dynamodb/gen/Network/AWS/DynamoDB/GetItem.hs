@@ -35,8 +35,8 @@ module Network.AWS.DynamoDB.GetItem
 
     -- * Request Lenses
     getItem_projectionExpression,
-    getItem_consistentRead,
     getItem_expressionAttributeNames,
+    getItem_consistentRead,
     getItem_returnConsumedCapacity,
     getItem_attributesToGet,
     getItem_tableName,
@@ -76,10 +76,6 @@ data GetItem = GetItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     projectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | Determines the read consistency model: If set to @true@, then the
-    -- operation uses strongly consistent reads; otherwise, the operation uses
-    -- eventually consistent reads.
-    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -118,6 +114,10 @@ data GetItem = GetItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Determines the read consistency model: If set to @true@, then the
+    -- operation uses strongly consistent reads; otherwise, the operation uses
+    -- eventually consistent reads.
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
     -- information, see
@@ -157,10 +157,6 @@ data GetItem = GetItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'consistentRead', 'getItem_consistentRead' - Determines the read consistency model: If set to @true@, then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
---
 -- 'expressionAttributeNames', 'getItem_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
 --
@@ -199,6 +195,10 @@ data GetItem = GetItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'consistentRead', 'getItem_consistentRead' - Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
+--
 -- 'returnConsumedCapacity', 'getItem_returnConsumedCapacity' - Undocumented member.
 --
 -- 'attributesToGet', 'getItem_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
@@ -222,8 +222,8 @@ newGetItem ::
 newGetItem pTableName_ =
   GetItem'
     { projectionExpression = Prelude.Nothing,
-      consistentRead = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       returnConsumedCapacity = Prelude.Nothing,
       attributesToGet = Prelude.Nothing,
       tableName = pTableName_,
@@ -243,12 +243,6 @@ newGetItem pTableName_ =
 -- in the /Amazon DynamoDB Developer Guide/.
 getItem_projectionExpression :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Text)
 getItem_projectionExpression = Lens.lens (\GetItem' {projectionExpression} -> projectionExpression) (\s@GetItem' {} a -> s {projectionExpression = a} :: GetItem)
-
--- | Determines the read consistency model: If set to @true@, then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
-getItem_consistentRead :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Bool)
-getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead) (\s@GetItem' {} a -> s {consistentRead = a} :: GetItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -289,6 +283,12 @@ getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead
 -- in the /Amazon DynamoDB Developer Guide/.
 getItem_expressionAttributeNames :: Lens.Lens' GetItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getItem_expressionAttributeNames = Lens.lens (\GetItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@GetItem' {} a -> s {expressionAttributeNames = a} :: GetItem) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
+getItem_consistentRead :: Lens.Lens' GetItem (Prelude.Maybe Prelude.Bool)
+getItem_consistentRead = Lens.lens (\GetItem' {consistentRead} -> consistentRead) (\s@GetItem' {} a -> s {consistentRead = a} :: GetItem)
 
 -- | Undocumented member.
 getItem_returnConsumedCapacity :: Lens.Lens' GetItem (Prelude.Maybe ReturnConsumedCapacity)
@@ -350,10 +350,10 @@ instance Core.ToJSON GetItem where
       ( Prelude.catMaybes
           [ ("ProjectionExpression" Core..=)
               Prelude.<$> projectionExpression,
-            ("ConsistentRead" Core..=)
-              Prelude.<$> consistentRead,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
+            ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
             ("ReturnConsumedCapacity" Core..=)
               Prelude.<$> returnConsumedCapacity,
             ("AttributesToGet" Core..=)

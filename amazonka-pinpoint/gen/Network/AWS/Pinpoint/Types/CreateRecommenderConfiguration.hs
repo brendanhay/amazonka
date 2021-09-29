@@ -45,6 +45,11 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
     -- invoke for additional processing of recommendation data that\'s
     -- retrieved from the recommender model.
     recommendationTransformerUri :: Prelude.Maybe Prelude.Text,
+    -- | A custom name of the configuration for the recommender model. The name
+    -- must start with a letter or number and it can contain up to 128
+    -- characters. The characters can be letters, numbers, spaces, underscores
+    -- (_), or hyphens (-).
+    name :: Prelude.Maybe Prelude.Text,
     -- | A map of key-value pairs that defines 1-10 custom endpoint or user
     -- attributes, depending on the value for the RecommendationProviderIdType
     -- property. Each of these attributes temporarily stores a recommended item
@@ -70,11 +75,10 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
     -- function (RecommendationTransformerUri) to process recommendation data.
     -- Otherwise, don\'t include this object in your request.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A custom name of the configuration for the recommender model. The name
-    -- must start with a letter or number and it can contain up to 128
-    -- characters. The characters can be letters, numbers, spaces, underscores
-    -- (_), or hyphens (-).
-    name :: Prelude.Maybe Prelude.Text,
+    -- | A custom description of the configuration for the recommender model. The
+    -- description can contain up to 128 characters. The characters can be
+    -- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The number of recommended items to retrieve from the model for each
     -- endpoint or user, depending on the value for the
     -- RecommendationProviderIdType property. This number determines how many
@@ -86,10 +90,6 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
     -- (RecommendationTransformerUri) to perform additional processing of
     -- recommendation data.
     recommendationsPerMessage :: Prelude.Maybe Prelude.Int,
-    -- | A custom description of the configuration for the recommender model. The
-    -- description can contain up to 128 characters. The characters can be
-    -- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Pinpoint ID to associate with unique user IDs in the
     -- recommender model. This value enables the model to use attribute and
     -- event data that’s specific to a particular endpoint or user in an Amazon
@@ -142,6 +142,11 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
 -- invoke for additional processing of recommendation data that\'s
 -- retrieved from the recommender model.
 --
+-- 'name', 'createRecommenderConfiguration_name' - A custom name of the configuration for the recommender model. The name
+-- must start with a letter or number and it can contain up to 128
+-- characters. The characters can be letters, numbers, spaces, underscores
+-- (_), or hyphens (-).
+--
 -- 'attributes', 'createRecommenderConfiguration_attributes' - A map of key-value pairs that defines 1-10 custom endpoint or user
 -- attributes, depending on the value for the RecommendationProviderIdType
 -- property. Each of these attributes temporarily stores a recommended item
@@ -167,10 +172,9 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
 -- function (RecommendationTransformerUri) to process recommendation data.
 -- Otherwise, don\'t include this object in your request.
 --
--- 'name', 'createRecommenderConfiguration_name' - A custom name of the configuration for the recommender model. The name
--- must start with a letter or number and it can contain up to 128
--- characters. The characters can be letters, numbers, spaces, underscores
--- (_), or hyphens (-).
+-- 'description', 'createRecommenderConfiguration_description' - A custom description of the configuration for the recommender model. The
+-- description can contain up to 128 characters. The characters can be
+-- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
 --
 -- 'recommendationsPerMessage', 'createRecommenderConfiguration_recommendationsPerMessage' - The number of recommended items to retrieve from the model for each
 -- endpoint or user, depending on the value for the
@@ -182,10 +186,6 @@ data CreateRecommenderConfiguration = CreateRecommenderConfiguration'
 -- variables, you have to use an AWS Lambda function
 -- (RecommendationTransformerUri) to perform additional processing of
 -- recommendation data.
---
--- 'description', 'createRecommenderConfiguration_description' - A custom description of the configuration for the recommender model. The
--- description can contain up to 128 characters. The characters can be
--- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
 --
 -- 'recommendationProviderIdType', 'createRecommenderConfiguration_recommendationProviderIdType' - The type of Amazon Pinpoint ID to associate with unique user IDs in the
 -- recommender model. This value enables the model to use attribute and
@@ -224,10 +224,10 @@ newCreateRecommenderConfiguration
           Prelude.Nothing,
         recommendationTransformerUri =
           Prelude.Nothing,
-        attributes = Prelude.Nothing,
         name = Prelude.Nothing,
-        recommendationsPerMessage = Prelude.Nothing,
+        attributes = Prelude.Nothing,
         description = Prelude.Nothing,
+        recommendationsPerMessage = Prelude.Nothing,
         recommendationProviderIdType =
           Prelude.Nothing,
         recommendationProviderUri =
@@ -257,6 +257,13 @@ createRecommenderConfiguration_recommendationsDisplayName = Lens.lens (\CreateRe
 createRecommenderConfiguration_recommendationTransformerUri :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Text)
 createRecommenderConfiguration_recommendationTransformerUri = Lens.lens (\CreateRecommenderConfiguration' {recommendationTransformerUri} -> recommendationTransformerUri) (\s@CreateRecommenderConfiguration' {} a -> s {recommendationTransformerUri = a} :: CreateRecommenderConfiguration)
 
+-- | A custom name of the configuration for the recommender model. The name
+-- must start with a letter or number and it can contain up to 128
+-- characters. The characters can be letters, numbers, spaces, underscores
+-- (_), or hyphens (-).
+createRecommenderConfiguration_name :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Text)
+createRecommenderConfiguration_name = Lens.lens (\CreateRecommenderConfiguration' {name} -> name) (\s@CreateRecommenderConfiguration' {} a -> s {name = a} :: CreateRecommenderConfiguration)
+
 -- | A map of key-value pairs that defines 1-10 custom endpoint or user
 -- attributes, depending on the value for the RecommendationProviderIdType
 -- property. Each of these attributes temporarily stores a recommended item
@@ -284,12 +291,11 @@ createRecommenderConfiguration_recommendationTransformerUri = Lens.lens (\Create
 createRecommenderConfiguration_attributes :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRecommenderConfiguration_attributes = Lens.lens (\CreateRecommenderConfiguration' {attributes} -> attributes) (\s@CreateRecommenderConfiguration' {} a -> s {attributes = a} :: CreateRecommenderConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
--- | A custom name of the configuration for the recommender model. The name
--- must start with a letter or number and it can contain up to 128
--- characters. The characters can be letters, numbers, spaces, underscores
--- (_), or hyphens (-).
-createRecommenderConfiguration_name :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Text)
-createRecommenderConfiguration_name = Lens.lens (\CreateRecommenderConfiguration' {name} -> name) (\s@CreateRecommenderConfiguration' {} a -> s {name = a} :: CreateRecommenderConfiguration)
+-- | A custom description of the configuration for the recommender model. The
+-- description can contain up to 128 characters. The characters can be
+-- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
+createRecommenderConfiguration_description :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Text)
+createRecommenderConfiguration_description = Lens.lens (\CreateRecommenderConfiguration' {description} -> description) (\s@CreateRecommenderConfiguration' {} a -> s {description = a} :: CreateRecommenderConfiguration)
 
 -- | The number of recommended items to retrieve from the model for each
 -- endpoint or user, depending on the value for the
@@ -303,12 +309,6 @@ createRecommenderConfiguration_name = Lens.lens (\CreateRecommenderConfiguration
 -- recommendation data.
 createRecommenderConfiguration_recommendationsPerMessage :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Int)
 createRecommenderConfiguration_recommendationsPerMessage = Lens.lens (\CreateRecommenderConfiguration' {recommendationsPerMessage} -> recommendationsPerMessage) (\s@CreateRecommenderConfiguration' {} a -> s {recommendationsPerMessage = a} :: CreateRecommenderConfiguration)
-
--- | A custom description of the configuration for the recommender model. The
--- description can contain up to 128 characters. The characters can be
--- letters, numbers, spaces, or the following symbols: _ ; () , ‐.
-createRecommenderConfiguration_description :: Lens.Lens' CreateRecommenderConfiguration (Prelude.Maybe Prelude.Text)
-createRecommenderConfiguration_description = Lens.lens (\CreateRecommenderConfiguration' {description} -> description) (\s@CreateRecommenderConfiguration' {} a -> s {description = a} :: CreateRecommenderConfiguration)
 
 -- | The type of Amazon Pinpoint ID to associate with unique user IDs in the
 -- recommender model. This value enables the model to use attribute and
@@ -356,11 +356,11 @@ instance Core.ToJSON CreateRecommenderConfiguration where
               Prelude.<$> recommendationsDisplayName,
             ("RecommendationTransformerUri" Core..=)
               Prelude.<$> recommendationTransformerUri,
-            ("Attributes" Core..=) Prelude.<$> attributes,
             ("Name" Core..=) Prelude.<$> name,
+            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Description" Core..=) Prelude.<$> description,
             ("RecommendationsPerMessage" Core..=)
               Prelude.<$> recommendationsPerMessage,
-            ("Description" Core..=) Prelude.<$> description,
             ("RecommendationProviderIdType" Core..=)
               Prelude.<$> recommendationProviderIdType,
             Prelude.Just

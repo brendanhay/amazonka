@@ -25,10 +25,11 @@
 -- part of a key rotation workflow.
 --
 -- If the @UserName@ is not specified, the user name is determined
--- implicitly based on the AWS access key ID used to sign the request. This
--- operation works for access keys under the AWS account. Consequently, you
--- can use this operation to manage AWS account root user credentials even
--- if the AWS account has no associated users.
+-- implicitly based on the Amazon Web Services access key ID used to sign
+-- the request. This operation works for access keys under the Amazon Web
+-- Services account. Consequently, you can use this operation to manage
+-- Amazon Web Services account root user credentials even if the Amazon Web
+-- Services account has no associated users.
 --
 -- For information about rotating keys, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing keys and certificates>
@@ -72,8 +73,8 @@ data UpdateAccessKey = UpdateAccessKey'
     -- that can consist of any upper or lowercased letter or digit.
     accessKeyId :: Core.AccessKey,
     -- | The status you want to assign to the secret access key. @Active@ means
-    -- that the key can be used for programmatic calls to AWS, while @Inactive@
-    -- means that the key cannot be used.
+    -- that the key can be used for programmatic calls to Amazon Web Services,
+    -- while @Inactive@ means that the key cannot be used.
     status :: StatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,8 +101,8 @@ data UpdateAccessKey = UpdateAccessKey'
 -- that can consist of any upper or lowercased letter or digit.
 --
 -- 'status', 'updateAccessKey_status' - The status you want to assign to the secret access key. @Active@ means
--- that the key can be used for programmatic calls to AWS, while @Inactive@
--- means that the key cannot be used.
+-- that the key can be used for programmatic calls to Amazon Web Services,
+-- while @Inactive@ means that the key cannot be used.
 newUpdateAccessKey ::
   -- | 'accessKeyId'
   Core.AccessKey ->
@@ -133,8 +134,8 @@ updateAccessKey_accessKeyId :: Lens.Lens' UpdateAccessKey Core.AccessKey
 updateAccessKey_accessKeyId = Lens.lens (\UpdateAccessKey' {accessKeyId} -> accessKeyId) (\s@UpdateAccessKey' {} a -> s {accessKeyId = a} :: UpdateAccessKey)
 
 -- | The status you want to assign to the secret access key. @Active@ means
--- that the key can be used for programmatic calls to AWS, while @Inactive@
--- means that the key cannot be used.
+-- that the key can be used for programmatic calls to Amazon Web Services,
+-- while @Inactive@ means that the key cannot be used.
 updateAccessKey_status :: Lens.Lens' UpdateAccessKey StatusType
 updateAccessKey_status = Lens.lens (\UpdateAccessKey' {status} -> status) (\s@UpdateAccessKey' {} a -> s {status = a} :: UpdateAccessKey)
 

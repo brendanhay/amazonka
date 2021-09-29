@@ -39,13 +39,12 @@
 -- -   An Amazon Kinesis Firehose delivery stream that belongs to the same
 --     account as the subscription filter, for same-account delivery.
 --
--- -   An AWS Lambda function that belongs to the same account as the
+-- -   An Lambda function that belongs to the same account as the
 --     subscription filter, for same-account delivery.
 --
--- There can only be one subscription filter associated with a log group.
--- If you are updating an existing filter, you must specify the correct
--- name in @filterName@. Otherwise, the call fails because you cannot
--- associate a second filter with a log group.
+-- Each log group can have up to two subscription filters associated with
+-- it. If you are updating an existing filter, you must specify the correct
+-- name in @filterName@.
 --
 -- To perform a @PutSubscriptionFilter@ operation, you must also have the
 -- @iam:PassRole@ permission.
@@ -90,10 +89,8 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
     -- | A name for the subscription filter. If you are updating an existing
-    -- filter, you must specify the correct name in @filterName@. Otherwise,
-    -- the call fails because you cannot associate a second filter with a log
-    -- group. To find the name of the filter currently associated with a log
-    -- group, use
+    -- filter, you must specify the correct name in @filterName@. To find the
+    -- name of the filter currently associated with a log group, use
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters>.
     filterName :: Prelude.Text,
     -- | A filter pattern for subscribing to a filtered stream of log events.
@@ -107,11 +104,16 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
     -- -   A logical destination (specified using an ARN) belonging to a
     --     different account, for cross-account delivery.
     --
+    --     If you are setting up a cross-account subscription, the destination
+    --     must have an IAM policy associated with it that allows the sender to
+    --     send logs to the destination. For more information, see
+    --     <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html PutDestinationPolicy>.
+    --
     -- -   An Amazon Kinesis Firehose delivery stream belonging to the same
     --     account as the subscription filter, for same-account delivery.
     --
-    -- -   An AWS Lambda function belonging to the same account as the
-    --     subscription filter, for same-account delivery.
+    -- -   A Lambda function belonging to the same account as the subscription
+    --     filter, for same-account delivery.
     destinationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,10 +139,8 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 -- 'logGroupName', 'putSubscriptionFilter_logGroupName' - The name of the log group.
 --
 -- 'filterName', 'putSubscriptionFilter_filterName' - A name for the subscription filter. If you are updating an existing
--- filter, you must specify the correct name in @filterName@. Otherwise,
--- the call fails because you cannot associate a second filter with a log
--- group. To find the name of the filter currently associated with a log
--- group, use
+-- filter, you must specify the correct name in @filterName@. To find the
+-- name of the filter currently associated with a log group, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters>.
 --
 -- 'filterPattern', 'putSubscriptionFilter_filterPattern' - A filter pattern for subscribing to a filtered stream of log events.
@@ -154,11 +154,16 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 -- -   A logical destination (specified using an ARN) belonging to a
 --     different account, for cross-account delivery.
 --
+--     If you are setting up a cross-account subscription, the destination
+--     must have an IAM policy associated with it that allows the sender to
+--     send logs to the destination. For more information, see
+--     <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html PutDestinationPolicy>.
+--
 -- -   An Amazon Kinesis Firehose delivery stream belonging to the same
 --     account as the subscription filter, for same-account delivery.
 --
--- -   An AWS Lambda function belonging to the same account as the
---     subscription filter, for same-account delivery.
+-- -   A Lambda function belonging to the same account as the subscription
+--     filter, for same-account delivery.
 newPutSubscriptionFilter ::
   -- | 'logGroupName'
   Prelude.Text ->
@@ -202,10 +207,8 @@ putSubscriptionFilter_logGroupName :: Lens.Lens' PutSubscriptionFilter Prelude.T
 putSubscriptionFilter_logGroupName = Lens.lens (\PutSubscriptionFilter' {logGroupName} -> logGroupName) (\s@PutSubscriptionFilter' {} a -> s {logGroupName = a} :: PutSubscriptionFilter)
 
 -- | A name for the subscription filter. If you are updating an existing
--- filter, you must specify the correct name in @filterName@. Otherwise,
--- the call fails because you cannot associate a second filter with a log
--- group. To find the name of the filter currently associated with a log
--- group, use
+-- filter, you must specify the correct name in @filterName@. To find the
+-- name of the filter currently associated with a log group, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters>.
 putSubscriptionFilter_filterName :: Lens.Lens' PutSubscriptionFilter Prelude.Text
 putSubscriptionFilter_filterName = Lens.lens (\PutSubscriptionFilter' {filterName} -> filterName) (\s@PutSubscriptionFilter' {} a -> s {filterName = a} :: PutSubscriptionFilter)
@@ -223,11 +226,16 @@ putSubscriptionFilter_filterPattern = Lens.lens (\PutSubscriptionFilter' {filter
 -- -   A logical destination (specified using an ARN) belonging to a
 --     different account, for cross-account delivery.
 --
+--     If you are setting up a cross-account subscription, the destination
+--     must have an IAM policy associated with it that allows the sender to
+--     send logs to the destination. For more information, see
+--     <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html PutDestinationPolicy>.
+--
 -- -   An Amazon Kinesis Firehose delivery stream belonging to the same
 --     account as the subscription filter, for same-account delivery.
 --
--- -   An AWS Lambda function belonging to the same account as the
---     subscription filter, for same-account delivery.
+-- -   A Lambda function belonging to the same account as the subscription
+--     filter, for same-account delivery.
 putSubscriptionFilter_destinationArn :: Lens.Lens' PutSubscriptionFilter Prelude.Text
 putSubscriptionFilter_destinationArn = Lens.lens (\PutSubscriptionFilter' {destinationArn} -> destinationArn) (\s@PutSubscriptionFilter' {} a -> s {destinationArn = a} :: PutSubscriptionFilter)
 

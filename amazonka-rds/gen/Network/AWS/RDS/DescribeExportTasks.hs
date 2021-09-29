@@ -33,8 +33,8 @@ module Network.AWS.RDS.DescribeExportTasks
     describeExportTasks_filters,
     describeExportTasks_sourceArn,
     describeExportTasks_exportTaskIdentifier,
-    describeExportTasks_marker,
     describeExportTasks_maxRecords,
+    describeExportTasks_marker,
 
     -- * Destructuring the Response
     DescribeExportTasksResponse (..),
@@ -77,11 +77,6 @@ data DescribeExportTasks = DescribeExportTasks'
     sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot export task to be described.
     exportTaskIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeExportTasks@ request. If you specify this parameter, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified value, a pagination token called a
     -- marker is included in the response. You can use the marker in a later
@@ -90,7 +85,12 @@ data DescribeExportTasks = DescribeExportTasks'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeExportTasks@ request. If you specify this parameter, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by the @MaxRecords@ parameter.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,11 +123,6 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 -- 'exportTaskIdentifier', 'describeExportTasks_exportTaskIdentifier' - The identifier of the snapshot export task to be described.
 --
--- 'marker', 'describeExportTasks_marker' - An optional pagination token provided by a previous
--- @DescribeExportTasks@ request. If you specify this parameter, the
--- response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
---
 -- 'maxRecords', 'describeExportTasks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified value, a pagination token called a
 -- marker is included in the response. You can use the marker in a later
@@ -136,6 +131,11 @@ data DescribeExportTasks = DescribeExportTasks'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeExportTasks_marker' - An optional pagination token provided by a previous
+-- @DescribeExportTasks@ request. If you specify this parameter, the
+-- response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
 newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
@@ -143,8 +143,8 @@ newDescribeExportTasks =
     { filters = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
       exportTaskIdentifier = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Filters specify one or more snapshot exports to describe. The filters
@@ -174,13 +174,6 @@ describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> 
 describeExportTasks_exportTaskIdentifier :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_exportTaskIdentifier = Lens.lens (\DescribeExportTasks' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@DescribeExportTasks' {} a -> s {exportTaskIdentifier = a} :: DescribeExportTasks)
 
--- | An optional pagination token provided by a previous
--- @DescribeExportTasks@ request. If you specify this parameter, the
--- response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
-describeExportTasks_marker :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
-describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker) (\s@DescribeExportTasks' {} a -> s {marker = a} :: DescribeExportTasks)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified value, a pagination token called a
 -- marker is included in the response. You can use the marker in a later
@@ -191,6 +184,13 @@ describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker
 -- Constraints: Minimum 20, maximum 100.
 describeExportTasks_maxRecords :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Natural)
 describeExportTasks_maxRecords = Lens.lens (\DescribeExportTasks' {maxRecords} -> maxRecords) (\s@DescribeExportTasks' {} a -> s {maxRecords = a} :: DescribeExportTasks)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeExportTasks@ request. If you specify this parameter, the
+-- response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
+describeExportTasks_marker :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker) (\s@DescribeExportTasks' {} a -> s {marker = a} :: DescribeExportTasks)
 
 instance Core.AWSPager DescribeExportTasks where
   page rq rs
@@ -253,8 +253,8 @@ instance Core.ToQuery DescribeExportTasks where
             (Core.toQueryList "Filter" Prelude.<$> filters),
         "SourceArn" Core.=: sourceArn,
         "ExportTaskIdentifier" Core.=: exportTaskIdentifier,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.

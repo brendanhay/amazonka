@@ -23,6 +23,10 @@
 -- Cancels an audit that is in progress. The audit can be either scheduled
 -- or on demand. If the audit isn\'t in progress, an
 -- \"InvalidRequestException\" occurs.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CancelAuditTask>
+-- action.
 module Network.AWS.IoT.CancelAuditTask
   ( -- * Creating a Request
     CancelAuditTask (..),

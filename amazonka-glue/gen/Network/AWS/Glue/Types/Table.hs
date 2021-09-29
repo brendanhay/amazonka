@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Table = Table'
   { -- | If the table is a view, the original text of the view; otherwise @null@.
     viewOriginalText :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog in which the table resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
     tableType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Data Catalog in which the table resides.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A storage descriptor containing information about the physical storage
     -- of this table.
     storageDescriptor :: Prelude.Maybe StorageDescriptor,
@@ -54,6 +54,8 @@ data Table = Table'
     createTime :: Prelude.Maybe Core.POSIX,
     -- | The owner of the table.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | A description of the table.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of columns by which the table is partitioned. Only primitive
     -- types are supported as partition keys.
     --
@@ -63,14 +65,12 @@ data Table = Table'
     --
     -- @\"PartitionKeys\": []@
     partitionKeys :: Prelude.Maybe [Column],
-    -- | A description of the table.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The person or entity who created the table.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The last time that the table was accessed. This is usually taken from
     -- HDFS, and might not be reliable.
     lastAccessTime :: Prelude.Maybe Core.POSIX,
-    -- | The person or entity who created the table.
-    createdBy :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the table has been registered with AWS Lake Formation.
+    -- | Indicates whether the table has been registered with Lake Formation.
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
     -- | These key-value pairs define properties associated with the table.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -92,9 +92,9 @@ data Table = Table'
 --
 -- 'viewOriginalText', 'table_viewOriginalText' - If the table is a view, the original text of the view; otherwise @null@.
 --
--- 'catalogId', 'table_catalogId' - The ID of the Data Catalog in which the table resides.
---
 -- 'tableType', 'table_tableType' - The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+--
+-- 'catalogId', 'table_catalogId' - The ID of the Data Catalog in which the table resides.
 --
 -- 'storageDescriptor', 'table_storageDescriptor' - A storage descriptor containing information about the physical storage
 -- of this table.
@@ -114,6 +114,8 @@ data Table = Table'
 --
 -- 'owner', 'table_owner' - The owner of the table.
 --
+-- 'description', 'table_description' - A description of the table.
+--
 -- 'partitionKeys', 'table_partitionKeys' - A list of columns by which the table is partitioned. Only primitive
 -- types are supported as partition keys.
 --
@@ -123,14 +125,12 @@ data Table = Table'
 --
 -- @\"PartitionKeys\": []@
 --
--- 'description', 'table_description' - A description of the table.
+-- 'createdBy', 'table_createdBy' - The person or entity who created the table.
 --
 -- 'lastAccessTime', 'table_lastAccessTime' - The last time that the table was accessed. This is usually taken from
 -- HDFS, and might not be reliable.
 --
--- 'createdBy', 'table_createdBy' - The person or entity who created the table.
---
--- 'isRegisteredWithLakeFormation', 'table_isRegisteredWithLakeFormation' - Indicates whether the table has been registered with AWS Lake Formation.
+-- 'isRegisteredWithLakeFormation', 'table_isRegisteredWithLakeFormation' - Indicates whether the table has been registered with Lake Formation.
 --
 -- 'parameters', 'table_parameters' - These key-value pairs define properties associated with the table.
 --
@@ -145,8 +145,8 @@ newTable ::
 newTable pName_ =
   Table'
     { viewOriginalText = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       tableType = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       storageDescriptor = Prelude.Nothing,
       lastAnalyzedTime = Prelude.Nothing,
       viewExpandedText = Prelude.Nothing,
@@ -155,10 +155,10 @@ newTable pName_ =
       updateTime = Prelude.Nothing,
       createTime = Prelude.Nothing,
       owner = Prelude.Nothing,
-      partitionKeys = Prelude.Nothing,
       description = Prelude.Nothing,
-      lastAccessTime = Prelude.Nothing,
+      partitionKeys = Prelude.Nothing,
       createdBy = Prelude.Nothing,
+      lastAccessTime = Prelude.Nothing,
       isRegisteredWithLakeFormation = Prelude.Nothing,
       parameters = Prelude.Nothing,
       databaseName = Prelude.Nothing,
@@ -169,13 +169,13 @@ newTable pName_ =
 table_viewOriginalText :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_viewOriginalText = Lens.lens (\Table' {viewOriginalText} -> viewOriginalText) (\s@Table' {} a -> s {viewOriginalText = a} :: Table)
 
--- | The ID of the Data Catalog in which the table resides.
-table_catalogId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
-table_catalogId = Lens.lens (\Table' {catalogId} -> catalogId) (\s@Table' {} a -> s {catalogId = a} :: Table)
-
 -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
 table_tableType :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_tableType = Lens.lens (\Table' {tableType} -> tableType) (\s@Table' {} a -> s {tableType = a} :: Table)
+
+-- | The ID of the Data Catalog in which the table resides.
+table_catalogId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_catalogId = Lens.lens (\Table' {catalogId} -> catalogId) (\s@Table' {} a -> s {catalogId = a} :: Table)
 
 -- | A storage descriptor containing information about the physical storage
 -- of this table.
@@ -211,6 +211,10 @@ table_createTime = Lens.lens (\Table' {createTime} -> createTime) (\s@Table' {} 
 table_owner :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_owner = Lens.lens (\Table' {owner} -> owner) (\s@Table' {} a -> s {owner = a} :: Table)
 
+-- | A description of the table.
+table_description :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_description = Lens.lens (\Table' {description} -> description) (\s@Table' {} a -> s {description = a} :: Table)
+
 -- | A list of columns by which the table is partitioned. Only primitive
 -- types are supported as partition keys.
 --
@@ -222,20 +226,16 @@ table_owner = Lens.lens (\Table' {owner} -> owner) (\s@Table' {} a -> s {owner =
 table_partitionKeys :: Lens.Lens' Table (Prelude.Maybe [Column])
 table_partitionKeys = Lens.lens (\Table' {partitionKeys} -> partitionKeys) (\s@Table' {} a -> s {partitionKeys = a} :: Table) Prelude.. Lens.mapping Lens._Coerce
 
--- | A description of the table.
-table_description :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
-table_description = Lens.lens (\Table' {description} -> description) (\s@Table' {} a -> s {description = a} :: Table)
+-- | The person or entity who created the table.
+table_createdBy :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_createdBy = Lens.lens (\Table' {createdBy} -> createdBy) (\s@Table' {} a -> s {createdBy = a} :: Table)
 
 -- | The last time that the table was accessed. This is usually taken from
 -- HDFS, and might not be reliable.
 table_lastAccessTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
 table_lastAccessTime = Lens.lens (\Table' {lastAccessTime} -> lastAccessTime) (\s@Table' {} a -> s {lastAccessTime = a} :: Table) Prelude.. Lens.mapping Core._Time
 
--- | The person or entity who created the table.
-table_createdBy :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
-table_createdBy = Lens.lens (\Table' {createdBy} -> createdBy) (\s@Table' {} a -> s {createdBy = a} :: Table)
-
--- | Indicates whether the table has been registered with AWS Lake Formation.
+-- | Indicates whether the table has been registered with Lake Formation.
 table_isRegisteredWithLakeFormation :: Lens.Lens' Table (Prelude.Maybe Prelude.Bool)
 table_isRegisteredWithLakeFormation = Lens.lens (\Table' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@Table' {} a -> s {isRegisteredWithLakeFormation = a} :: Table)
 
@@ -259,8 +259,8 @@ instance Core.FromJSON Table where
       ( \x ->
           Table'
             Prelude.<$> (x Core..:? "ViewOriginalText")
-            Prelude.<*> (x Core..:? "CatalogId")
             Prelude.<*> (x Core..:? "TableType")
+            Prelude.<*> (x Core..:? "CatalogId")
             Prelude.<*> (x Core..:? "StorageDescriptor")
             Prelude.<*> (x Core..:? "LastAnalyzedTime")
             Prelude.<*> (x Core..:? "ViewExpandedText")
@@ -269,10 +269,10 @@ instance Core.FromJSON Table where
             Prelude.<*> (x Core..:? "UpdateTime")
             Prelude.<*> (x Core..:? "CreateTime")
             Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastAccessTime")
+            Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "LastAccessTime")
             Prelude.<*> (x Core..:? "IsRegisteredWithLakeFormation")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DatabaseName")

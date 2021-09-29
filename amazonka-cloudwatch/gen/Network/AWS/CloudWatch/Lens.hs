@@ -14,9 +14,6 @@
 module Network.AWS.CloudWatch.Lens
   ( -- * Operations
 
-    -- ** EnableAlarmActions
-    enableAlarmActions_alarmNames,
-
     -- ** GetMetricStatistics
     getMetricStatistics_unit,
     getMetricStatistics_statistics,
@@ -31,6 +28,15 @@ module Network.AWS.CloudWatch.Lens
     getMetricStatisticsResponse_label,
     getMetricStatisticsResponse_httpStatus,
 
+    -- ** EnableAlarmActions
+    enableAlarmActions_alarmNames,
+
+    -- ** GetMetricWidgetImage
+    getMetricWidgetImage_outputFormat,
+    getMetricWidgetImage_metricWidget,
+    getMetricWidgetImageResponse_metricWidgetImage,
+    getMetricWidgetImageResponse_httpStatus,
+
     -- ** PutInsightRule
     putInsightRule_ruleState,
     putInsightRule_tags,
@@ -38,14 +44,36 @@ module Network.AWS.CloudWatch.Lens
     putInsightRule_ruleDefinition,
     putInsightRuleResponse_httpStatus,
 
+    -- ** DeleteMetricStream
+    deleteMetricStream_name,
+    deleteMetricStreamResponse_httpStatus,
+
     -- ** DeleteAlarms
     deleteAlarms_alarmNames,
 
-    -- ** GetMetricWidgetImage
-    getMetricWidgetImage_outputFormat,
-    getMetricWidgetImage_metricWidget,
-    getMetricWidgetImageResponse_metricWidgetImage,
-    getMetricWidgetImageResponse_httpStatus,
+    -- ** PutMetricAlarm
+    putMetricAlarm_threshold,
+    putMetricAlarm_datapointsToAlarm,
+    putMetricAlarm_evaluateLowSampleCountPercentile,
+    putMetricAlarm_extendedStatistic,
+    putMetricAlarm_thresholdMetricId,
+    putMetricAlarm_alarmActions,
+    putMetricAlarm_unit,
+    putMetricAlarm_metricName,
+    putMetricAlarm_insufficientDataActions,
+    putMetricAlarm_treatMissingData,
+    putMetricAlarm_metrics,
+    putMetricAlarm_tags,
+    putMetricAlarm_oKActions,
+    putMetricAlarm_statistic,
+    putMetricAlarm_namespace,
+    putMetricAlarm_dimensions,
+    putMetricAlarm_actionsEnabled,
+    putMetricAlarm_period,
+    putMetricAlarm_alarmDescription,
+    putMetricAlarm_alarmName,
+    putMetricAlarm_evaluationPeriods,
+    putMetricAlarm_comparisonOperator,
 
     -- ** DescribeInsightRules
     describeInsightRules_nextToken,
@@ -54,34 +82,23 @@ module Network.AWS.CloudWatch.Lens
     describeInsightRulesResponse_insightRules,
     describeInsightRulesResponse_httpStatus,
 
-    -- ** PutMetricAlarm
-    putMetricAlarm_threshold,
-    putMetricAlarm_datapointsToAlarm,
-    putMetricAlarm_evaluateLowSampleCountPercentile,
-    putMetricAlarm_extendedStatistic,
-    putMetricAlarm_alarmActions,
-    putMetricAlarm_unit,
-    putMetricAlarm_thresholdMetricId,
-    putMetricAlarm_metricName,
-    putMetricAlarm_insufficientDataActions,
-    putMetricAlarm_treatMissingData,
-    putMetricAlarm_metrics,
-    putMetricAlarm_tags,
-    putMetricAlarm_oKActions,
-    putMetricAlarm_statistic,
-    putMetricAlarm_dimensions,
-    putMetricAlarm_namespace,
-    putMetricAlarm_actionsEnabled,
-    putMetricAlarm_alarmDescription,
-    putMetricAlarm_period,
-    putMetricAlarm_alarmName,
-    putMetricAlarm_evaluationPeriods,
-    putMetricAlarm_comparisonOperator,
+    -- ** StartMetricStreams
+    startMetricStreams_names,
+    startMetricStreamsResponse_httpStatus,
+
+    -- ** StopMetricStreams
+    stopMetricStreams_names,
+    stopMetricStreamsResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** GetInsightRuleReport
     getInsightRuleReport_orderBy,
@@ -99,40 +116,47 @@ module Network.AWS.CloudWatch.Lens
     getInsightRuleReportResponse_aggregationStatistic,
     getInsightRuleReportResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** DescribeAnomalyDetectors
     describeAnomalyDetectors_nextToken,
     describeAnomalyDetectors_maxResults,
     describeAnomalyDetectors_metricName,
-    describeAnomalyDetectors_dimensions,
     describeAnomalyDetectors_namespace,
+    describeAnomalyDetectors_dimensions,
     describeAnomalyDetectorsResponse_nextToken,
     describeAnomalyDetectorsResponse_anomalyDetectors,
     describeAnomalyDetectorsResponse_httpStatus,
 
+    -- ** PutMetricData
+    putMetricData_namespace,
+    putMetricData_metricData,
+
     -- ** ListMetrics
     listMetrics_nextToken,
     listMetrics_metricName,
-    listMetrics_dimensions,
     listMetrics_namespace,
+    listMetrics_dimensions,
     listMetrics_recentlyActive,
     listMetricsResponse_nextToken,
     listMetricsResponse_metrics,
     listMetricsResponse_httpStatus,
-
-    -- ** PutMetricData
-    putMetricData_namespace,
-    putMetricData_metricData,
 
     -- ** PutDashboard
     putDashboard_dashboardName,
     putDashboard_dashboardBody,
     putDashboardResponse_dashboardValidationMessages,
     putDashboardResponse_httpStatus,
+
+    -- ** DeleteInsightRules
+    deleteInsightRules_ruleNames,
+    deleteInsightRulesResponse_failures,
+    deleteInsightRulesResponse_httpStatus,
+
+    -- ** GetDashboard
+    getDashboard_dashboardName,
+    getDashboardResponse_dashboardBody,
+    getDashboardResponse_dashboardArn,
+    getDashboardResponse_dashboardName,
+    getDashboardResponse_httpStatus,
 
     -- ** DescribeAlarmsForMetric
     describeAlarmsForMetric_extendedStatistic,
@@ -145,6 +169,9 @@ module Network.AWS.CloudWatch.Lens
     describeAlarmsForMetricResponse_metricAlarms,
     describeAlarmsForMetricResponse_httpStatus,
 
+    -- ** DisableAlarmActions
+    disableAlarmActions_alarmNames,
+
     -- ** PutAnomalyDetector
     putAnomalyDetector_configuration,
     putAnomalyDetector_dimensions,
@@ -153,20 +180,10 @@ module Network.AWS.CloudWatch.Lens
     putAnomalyDetector_stat,
     putAnomalyDetectorResponse_httpStatus,
 
-    -- ** DeleteInsightRules
-    deleteInsightRules_ruleNames,
-    deleteInsightRulesResponse_failures,
-    deleteInsightRulesResponse_httpStatus,
-
-    -- ** DisableAlarmActions
-    disableAlarmActions_alarmNames,
-
-    -- ** GetDashboard
-    getDashboard_dashboardName,
-    getDashboardResponse_dashboardBody,
-    getDashboardResponse_dashboardArn,
-    getDashboardResponse_dashboardName,
-    getDashboardResponse_httpStatus,
+    -- ** DisableInsightRules
+    disableInsightRules_ruleNames,
+    disableInsightRulesResponse_failures,
+    disableInsightRulesResponse_httpStatus,
 
     -- ** PutCompositeAlarm
     putCompositeAlarm_alarmActions,
@@ -177,11 +194,6 @@ module Network.AWS.CloudWatch.Lens
     putCompositeAlarm_alarmDescription,
     putCompositeAlarm_alarmName,
     putCompositeAlarm_alarmRule,
-
-    -- ** DisableInsightRules
-    disableInsightRules_ruleNames,
-    disableInsightRulesResponse_failures,
-    disableInsightRulesResponse_httpStatus,
 
     -- ** DescribeAlarmHistory
     describeAlarmHistory_nextToken,
@@ -196,15 +208,47 @@ module Network.AWS.CloudWatch.Lens
     describeAlarmHistoryResponse_alarmHistoryItems,
     describeAlarmHistoryResponse_httpStatus,
 
-    -- ** DeleteDashboards
-    deleteDashboards_dashboardNames,
-    deleteDashboardsResponse_httpStatus,
+    -- ** PutMetricStream
+    putMetricStream_includeFilters,
+    putMetricStream_tags,
+    putMetricStream_excludeFilters,
+    putMetricStream_name,
+    putMetricStream_firehoseArn,
+    putMetricStream_roleArn,
+    putMetricStream_outputFormat,
+    putMetricStreamResponse_arn,
+    putMetricStreamResponse_httpStatus,
+
+    -- ** ListMetricStreams
+    listMetricStreams_nextToken,
+    listMetricStreams_maxResults,
+    listMetricStreamsResponse_nextToken,
+    listMetricStreamsResponse_entries,
+    listMetricStreamsResponse_httpStatus,
+
+    -- ** GetMetricStream
+    getMetricStream_name,
+    getMetricStreamResponse_includeFilters,
+    getMetricStreamResponse_firehoseArn,
+    getMetricStreamResponse_roleArn,
+    getMetricStreamResponse_arn,
+    getMetricStreamResponse_creationDate,
+    getMetricStreamResponse_name,
+    getMetricStreamResponse_lastUpdateDate,
+    getMetricStreamResponse_state,
+    getMetricStreamResponse_outputFormat,
+    getMetricStreamResponse_excludeFilters,
+    getMetricStreamResponse_httpStatus,
 
     -- ** SetAlarmState
     setAlarmState_stateReasonData,
     setAlarmState_alarmName,
     setAlarmState_stateValue,
     setAlarmState_stateReason,
+
+    -- ** DeleteDashboards
+    deleteDashboards_dashboardNames,
+    deleteDashboardsResponse_httpStatus,
 
     -- ** ListDashboards
     listDashboards_nextToken,
@@ -217,16 +261,21 @@ module Network.AWS.CloudWatch.Lens
     describeAlarms_nextToken,
     describeAlarms_alarmTypes,
     describeAlarms_alarmNames,
-    describeAlarms_stateValue,
     describeAlarms_alarmNamePrefix,
+    describeAlarms_stateValue,
     describeAlarms_actionPrefix,
     describeAlarms_childrenOfAlarmName,
     describeAlarms_parentsOfAlarmName,
     describeAlarms_maxRecords,
-    describeAlarmsResponse_nextToken,
     describeAlarmsResponse_metricAlarms,
+    describeAlarmsResponse_nextToken,
     describeAlarmsResponse_compositeAlarms,
     describeAlarmsResponse_httpStatus,
+
+    -- ** EnableInsightRules
+    enableInsightRules_ruleNames,
+    enableInsightRulesResponse_failures,
+    enableInsightRulesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceARN,
@@ -239,11 +288,6 @@ module Network.AWS.CloudWatch.Lens
     deleteAnomalyDetector_metricName,
     deleteAnomalyDetector_stat,
     deleteAnomalyDetectorResponse_httpStatus,
-
-    -- ** EnableInsightRules
-    enableInsightRules_ruleNames,
-    enableInsightRulesResponse_failures,
-    enableInsightRulesResponse_httpStatus,
 
     -- ** GetMetricData
     getMetricData_nextToken,
@@ -272,8 +316,8 @@ module Network.AWS.CloudWatch.Lens
     anomalyDetector_metricName,
     anomalyDetector_configuration,
     anomalyDetector_stateValue,
-    anomalyDetector_dimensions,
     anomalyDetector_namespace,
+    anomalyDetector_dimensions,
     anomalyDetector_stat,
 
     -- ** AnomalyDetectorConfiguration
@@ -281,15 +325,15 @@ module Network.AWS.CloudWatch.Lens
     anomalyDetectorConfiguration_excludedTimeRanges,
 
     -- ** CompositeAlarm
-    compositeAlarm_alarmArn,
     compositeAlarm_alarmActions,
+    compositeAlarm_alarmArn,
     compositeAlarm_stateReason,
     compositeAlarm_stateReasonData,
     compositeAlarm_insufficientDataActions,
     compositeAlarm_alarmRule,
-    compositeAlarm_stateUpdatedTimestamp,
-    compositeAlarm_stateValue,
     compositeAlarm_alarmName,
+    compositeAlarm_stateValue,
+    compositeAlarm_stateUpdatedTimestamp,
     compositeAlarm_oKActions,
     compositeAlarm_actionsEnabled,
     compositeAlarm_alarmConfigurationUpdatedTimestamp,
@@ -297,8 +341,8 @@ module Network.AWS.CloudWatch.Lens
 
     -- ** DashboardEntry
     dashboardEntry_dashboardArn,
-    dashboardEntry_lastModified,
     dashboardEntry_dashboardName,
+    dashboardEntry_lastModified,
     dashboardEntry_size,
 
     -- ** DashboardValidationMessage
@@ -357,8 +401,8 @@ module Network.AWS.CloudWatch.Lens
 
     -- ** Metric
     metric_metricName,
-    metric_dimensions,
     metric_namespace,
+    metric_dimensions,
 
     -- ** MetricAlarm
     metricAlarm_threshold,
@@ -366,30 +410,31 @@ module Network.AWS.CloudWatch.Lens
     metricAlarm_evaluateLowSampleCountPercentile,
     metricAlarm_comparisonOperator,
     metricAlarm_extendedStatistic,
-    metricAlarm_alarmArn,
+    metricAlarm_thresholdMetricId,
     metricAlarm_alarmActions,
     metricAlarm_unit,
-    metricAlarm_thresholdMetricId,
+    metricAlarm_alarmArn,
+    metricAlarm_metricName,
     metricAlarm_stateReason,
     metricAlarm_stateReasonData,
-    metricAlarm_metricName,
     metricAlarm_insufficientDataActions,
     metricAlarm_treatMissingData,
     metricAlarm_metrics,
-    metricAlarm_stateUpdatedTimestamp,
-    metricAlarm_stateValue,
     metricAlarm_alarmName,
+    metricAlarm_stateValue,
+    metricAlarm_stateUpdatedTimestamp,
     metricAlarm_oKActions,
     metricAlarm_statistic,
-    metricAlarm_dimensions,
     metricAlarm_namespace,
+    metricAlarm_dimensions,
     metricAlarm_evaluationPeriods,
     metricAlarm_actionsEnabled,
     metricAlarm_alarmConfigurationUpdatedTimestamp,
-    metricAlarm_alarmDescription,
     metricAlarm_period,
+    metricAlarm_alarmDescription,
 
     -- ** MetricDataQuery
+    metricDataQuery_accountId,
     metricDataQuery_metricStat,
     metricDataQuery_returnData,
     metricDataQuery_label,
@@ -410,8 +455,8 @@ module Network.AWS.CloudWatch.Lens
     metricDatum_unit,
     metricDatum_values,
     metricDatum_counts,
-    metricDatum_timestamp,
     metricDatum_statisticValues,
+    metricDatum_timestamp,
     metricDatum_value,
     metricDatum_dimensions,
     metricDatum_metricName,
@@ -421,6 +466,18 @@ module Network.AWS.CloudWatch.Lens
     metricStat_metric,
     metricStat_period,
     metricStat_stat,
+
+    -- ** MetricStreamEntry
+    metricStreamEntry_firehoseArn,
+    metricStreamEntry_arn,
+    metricStreamEntry_creationDate,
+    metricStreamEntry_name,
+    metricStreamEntry_lastUpdateDate,
+    metricStreamEntry_state,
+    metricStreamEntry_outputFormat,
+
+    -- ** MetricStreamFilter
+    metricStreamFilter_namespace,
 
     -- ** PartialFailure
     partialFailure_exceptionType,
@@ -448,6 +505,7 @@ import Network.AWS.CloudWatch.DeleteAlarms
 import Network.AWS.CloudWatch.DeleteAnomalyDetector
 import Network.AWS.CloudWatch.DeleteDashboards
 import Network.AWS.CloudWatch.DeleteInsightRules
+import Network.AWS.CloudWatch.DeleteMetricStream
 import Network.AWS.CloudWatch.DescribeAlarmHistory
 import Network.AWS.CloudWatch.DescribeAlarms
 import Network.AWS.CloudWatch.DescribeAlarmsForMetric
@@ -461,8 +519,10 @@ import Network.AWS.CloudWatch.GetDashboard
 import Network.AWS.CloudWatch.GetInsightRuleReport
 import Network.AWS.CloudWatch.GetMetricData
 import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.GetMetricStream
 import Network.AWS.CloudWatch.GetMetricWidgetImage
 import Network.AWS.CloudWatch.ListDashboards
+import Network.AWS.CloudWatch.ListMetricStreams
 import Network.AWS.CloudWatch.ListMetrics
 import Network.AWS.CloudWatch.ListTagsForResource
 import Network.AWS.CloudWatch.PutAnomalyDetector
@@ -471,7 +531,10 @@ import Network.AWS.CloudWatch.PutDashboard
 import Network.AWS.CloudWatch.PutInsightRule
 import Network.AWS.CloudWatch.PutMetricAlarm
 import Network.AWS.CloudWatch.PutMetricData
+import Network.AWS.CloudWatch.PutMetricStream
 import Network.AWS.CloudWatch.SetAlarmState
+import Network.AWS.CloudWatch.StartMetricStreams
+import Network.AWS.CloudWatch.StopMetricStreams
 import Network.AWS.CloudWatch.TagResource
 import Network.AWS.CloudWatch.Types.AlarmHistoryItem
 import Network.AWS.CloudWatch.Types.AnomalyDetector
@@ -494,6 +557,8 @@ import Network.AWS.CloudWatch.Types.MetricDataQuery
 import Network.AWS.CloudWatch.Types.MetricDataResult
 import Network.AWS.CloudWatch.Types.MetricDatum
 import Network.AWS.CloudWatch.Types.MetricStat
+import Network.AWS.CloudWatch.Types.MetricStreamEntry
+import Network.AWS.CloudWatch.Types.MetricStreamFilter
 import Network.AWS.CloudWatch.Types.PartialFailure
 import Network.AWS.CloudWatch.Types.Range
 import Network.AWS.CloudWatch.Types.StatisticSet

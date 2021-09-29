@@ -80,7 +80,7 @@ data CopySnapshot = CopySnapshot'
     --
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
     restoreDate :: Prelude.Maybe Prelude.Text,
     -- | The name of the source manual snapshot to copy.
     --
@@ -100,7 +100,7 @@ data CopySnapshot = CopySnapshot'
     --
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
     useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The name of the source instance or disk from which the source automatic
     -- snapshot was created.
@@ -109,7 +109,7 @@ data CopySnapshot = CopySnapshot'
     --
     -- -   Define this parameter only when copying an automatic snapshot as a
     --     manual snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
     sourceResourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the new manual snapshot to be created as a copy.
     targetSnapshotName :: Prelude.Text,
@@ -141,7 +141,7 @@ data CopySnapshot = CopySnapshot'
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'sourceSnapshotName', 'copySnapshot_sourceSnapshotName' - The name of the source manual snapshot to copy.
 --
@@ -161,7 +161,7 @@ data CopySnapshot = CopySnapshot'
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'sourceResourceName', 'copySnapshot_sourceResourceName' - The name of the source instance or disk from which the source automatic
 -- snapshot was created.
@@ -170,7 +170,7 @@ data CopySnapshot = CopySnapshot'
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'targetSnapshotName', 'copySnapshot_targetSnapshotName' - The name of the new manual snapshot to be created as a copy.
 --
@@ -206,7 +206,7 @@ newCopySnapshot pTargetSnapshotName_ pSourceRegion_ =
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 copySnapshot_restoreDate :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_restoreDate = Lens.lens (\CopySnapshot' {restoreDate} -> restoreDate) (\s@CopySnapshot' {} a -> s {restoreDate = a} :: CopySnapshot)
 
@@ -230,7 +230,7 @@ copySnapshot_sourceSnapshotName = Lens.lens (\CopySnapshot' {sourceSnapshotName}
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 copySnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
 copySnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CopySnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CopySnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CopySnapshot)
 
@@ -241,7 +241,7 @@ copySnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CopySnapshot' {useLat
 --
 -- -   Define this parameter only when copying an automatic snapshot as a
 --     manual snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Amazon Lightsail Developer Guide>.
 copySnapshot_sourceResourceName :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_sourceResourceName = Lens.lens (\CopySnapshot' {sourceResourceName} -> sourceResourceName) (\s@CopySnapshot' {} a -> s {sourceResourceName = a} :: CopySnapshot)
 

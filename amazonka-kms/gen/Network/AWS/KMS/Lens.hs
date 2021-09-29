@@ -14,22 +14,6 @@
 module Network.AWS.KMS.Lens
   ( -- * Operations
 
-    -- ** DisableKeyRotation
-    disableKeyRotation_keyId,
-
-    -- ** DeleteAlias
-    deleteAlias_aliasName,
-
-    -- ** ListGrants
-    listGrants_granteePrincipal,
-    listGrants_grantId,
-    listGrants_limit,
-    listGrants_marker,
-    listGrants_keyId,
-    listGrantsResponse_nextMarker,
-    listGrantsResponse_grants,
-    listGrantsResponse_truncated,
-
     -- ** Verify
     verify_grantTokens,
     verify_messageType,
@@ -41,6 +25,22 @@ module Network.AWS.KMS.Lens
     verifyResponse_signatureValid,
     verifyResponse_keyId,
     verifyResponse_httpStatus,
+
+    -- ** DisableKeyRotation
+    disableKeyRotation_keyId,
+
+    -- ** ListGrants
+    listGrants_granteePrincipal,
+    listGrants_grantId,
+    listGrants_limit,
+    listGrants_marker,
+    listGrants_keyId,
+    listGrantsResponse_nextMarker,
+    listGrantsResponse_grants,
+    listGrantsResponse_truncated,
+
+    -- ** DeleteAlias
+    deleteAlias_aliasName,
 
     -- ** CreateCustomKeyStore
     createCustomKeyStore_customKeyStoreName,
@@ -90,11 +90,26 @@ module Network.AWS.KMS.Lens
     listResourceTagsResponse_truncated,
     listResourceTagsResponse_httpStatus,
 
+    -- ** ReplicateKey
+    replicateKey_bypassPolicyLockoutSafetyCheck,
+    replicateKey_tags,
+    replicateKey_description,
+    replicateKey_policy,
+    replicateKey_keyId,
+    replicateKey_replicaRegion,
+    replicateKeyResponse_replicaTags,
+    replicateKeyResponse_replicaPolicy,
+    replicateKeyResponse_replicaKeyMetadata,
+    replicateKeyResponse_httpStatus,
+
     -- ** PutKeyPolicy
     putKeyPolicy_bypassPolicyLockoutSafetyCheck,
     putKeyPolicy_keyId,
     putKeyPolicy_policyName,
     putKeyPolicy_policy,
+
+    -- ** DisableKey
+    disableKey_keyId,
 
     -- ** ListKeyPolicies
     listKeyPolicies_limit,
@@ -105,9 +120,6 @@ module Network.AWS.KMS.Lens
     listKeyPoliciesResponse_truncated,
     listKeyPoliciesResponse_httpStatus,
 
-    -- ** DisableKey
-    disableKey_keyId,
-
     -- ** UntagResource
     untagResource_keyId,
     untagResource_tagKeys,
@@ -116,11 +128,9 @@ module Network.AWS.KMS.Lens
     disconnectCustomKeyStore_customKeyStoreId,
     disconnectCustomKeyStoreResponse_httpStatus,
 
-    -- ** GenerateRandom
-    generateRandom_customKeyStoreId,
-    generateRandom_numberOfBytes,
-    generateRandomResponse_plaintext,
-    generateRandomResponse_httpStatus,
+    -- ** TagResource
+    tagResource_keyId,
+    tagResource_tags,
 
     -- ** GetPublicKey
     getPublicKey_grantTokens,
@@ -128,10 +138,17 @@ module Network.AWS.KMS.Lens
     getPublicKeyResponse_signingAlgorithms,
     getPublicKeyResponse_publicKey,
     getPublicKeyResponse_encryptionAlgorithms,
-    getPublicKeyResponse_keyUsage,
-    getPublicKeyResponse_keyId,
+    getPublicKeyResponse_keySpec,
     getPublicKeyResponse_customerMasterKeySpec,
+    getPublicKeyResponse_keyId,
+    getPublicKeyResponse_keyUsage,
     getPublicKeyResponse_httpStatus,
+
+    -- ** GenerateRandom
+    generateRandom_customKeyStoreId,
+    generateRandom_numberOfBytes,
+    generateRandomResponse_plaintext,
+    generateRandomResponse_httpStatus,
 
     -- ** ReEncrypt
     reEncrypt_destinationEncryptionContext,
@@ -149,10 +166,6 @@ module Network.AWS.KMS.Lens
     reEncryptResponse_keyId,
     reEncryptResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_keyId,
-    tagResource_tags,
-
     -- ** ListRetirableGrants
     listRetirableGrants_limit,
     listRetirableGrants_marker,
@@ -165,6 +178,16 @@ module Network.AWS.KMS.Lens
     connectCustomKeyStore_customKeyStoreId,
     connectCustomKeyStoreResponse_httpStatus,
 
+    -- ** UpdatePrimaryRegion
+    updatePrimaryRegion_keyId,
+    updatePrimaryRegion_primaryRegion,
+
+    -- ** DescribeKey
+    describeKey_grantTokens,
+    describeKey_keyId,
+    describeKeyResponse_keyMetadata,
+    describeKeyResponse_httpStatus,
+
     -- ** GetParametersForImport
     getParametersForImport_keyId,
     getParametersForImport_wrappingAlgorithm,
@@ -175,16 +198,6 @@ module Network.AWS.KMS.Lens
     getParametersForImportResponse_keyId,
     getParametersForImportResponse_httpStatus,
 
-    -- ** DescribeKey
-    describeKey_grantTokens,
-    describeKey_keyId,
-    describeKeyResponse_keyMetadata,
-    describeKeyResponse_httpStatus,
-
-    -- ** DeleteCustomKeyStore
-    deleteCustomKeyStore_customKeyStoreId,
-    deleteCustomKeyStoreResponse_httpStatus,
-
     -- ** UpdateCustomKeyStore
     updateCustomKeyStore_keyStorePassword,
     updateCustomKeyStore_newCustomKeyStoreName,
@@ -192,15 +205,9 @@ module Network.AWS.KMS.Lens
     updateCustomKeyStore_customKeyStoreId,
     updateCustomKeyStoreResponse_httpStatus,
 
-    -- ** GenerateDataKeyWithoutPlaintext
-    generateDataKeyWithoutPlaintext_grantTokens,
-    generateDataKeyWithoutPlaintext_numberOfBytes,
-    generateDataKeyWithoutPlaintext_encryptionContext,
-    generateDataKeyWithoutPlaintext_keySpec,
-    generateDataKeyWithoutPlaintext_keyId,
-    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
-    generateDataKeyWithoutPlaintextResponse_keyId,
-    generateDataKeyWithoutPlaintextResponse_httpStatus,
+    -- ** DeleteCustomKeyStore
+    deleteCustomKeyStore_customKeyStoreId,
+    deleteCustomKeyStoreResponse_httpStatus,
 
     -- ** Encrypt
     encrypt_grantTokens,
@@ -213,30 +220,21 @@ module Network.AWS.KMS.Lens
     encryptResponse_keyId,
     encryptResponse_httpStatus,
 
+    -- ** GenerateDataKeyWithoutPlaintext
+    generateDataKeyWithoutPlaintext_grantTokens,
+    generateDataKeyWithoutPlaintext_numberOfBytes,
+    generateDataKeyWithoutPlaintext_encryptionContext,
+    generateDataKeyWithoutPlaintext_keySpec,
+    generateDataKeyWithoutPlaintext_keyId,
+    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
+    generateDataKeyWithoutPlaintextResponse_keyId,
+    generateDataKeyWithoutPlaintextResponse_httpStatus,
+
     -- ** GetKeyPolicy
     getKeyPolicy_keyId,
     getKeyPolicy_policyName,
     getKeyPolicyResponse_policy,
     getKeyPolicyResponse_httpStatus,
-
-    -- ** ListKeys
-    listKeys_limit,
-    listKeys_marker,
-    listKeysResponse_nextMarker,
-    listKeysResponse_keys,
-    listKeysResponse_truncated,
-    listKeysResponse_httpStatus,
-
-    -- ** RevokeGrant
-    revokeGrant_keyId,
-    revokeGrant_grantId,
-
-    -- ** ScheduleKeyDeletion
-    scheduleKeyDeletion_pendingWindowInDays,
-    scheduleKeyDeletion_keyId,
-    scheduleKeyDeletionResponse_deletionDate,
-    scheduleKeyDeletionResponse_keyId,
-    scheduleKeyDeletionResponse_httpStatus,
 
     -- ** EnableKey
     enableKey_keyId,
@@ -253,6 +251,27 @@ module Network.AWS.KMS.Lens
     generateDataKeyPairResponse_keyId,
     generateDataKeyPairResponse_httpStatus,
 
+    -- ** ListKeys
+    listKeys_limit,
+    listKeys_marker,
+    listKeysResponse_nextMarker,
+    listKeysResponse_keys,
+    listKeysResponse_truncated,
+    listKeysResponse_httpStatus,
+
+    -- ** RevokeGrant
+    revokeGrant_keyId,
+    revokeGrant_grantId,
+
+    -- ** ScheduleKeyDeletion
+    scheduleKeyDeletion_pendingWindowInDays,
+    scheduleKeyDeletion_keyId,
+    scheduleKeyDeletionResponse_pendingWindowInDays,
+    scheduleKeyDeletionResponse_keyState,
+    scheduleKeyDeletionResponse_deletionDate,
+    scheduleKeyDeletionResponse_keyId,
+    scheduleKeyDeletionResponse_httpStatus,
+
     -- ** RetireGrant
     retireGrant_grantToken,
     retireGrant_grantId,
@@ -260,13 +279,15 @@ module Network.AWS.KMS.Lens
 
     -- ** CreateKey
     createKey_origin,
+    createKey_multiRegion,
     createKey_customKeyStoreId,
     createKey_bypassPolicyLockoutSafetyCheck,
     createKey_tags,
     createKey_description,
     createKey_policy,
-    createKey_keyUsage,
+    createKey_keySpec,
     createKey_customerMasterKeySpec,
+    createKey_keyUsage,
     createKeyResponse_keyMetadata,
     createKeyResponse_httpStatus,
 
@@ -285,11 +306,6 @@ module Network.AWS.KMS.Lens
     updateKeyDescription_keyId,
     updateKeyDescription_description,
 
-    -- ** CancelKeyDeletion
-    cancelKeyDeletion_keyId,
-    cancelKeyDeletionResponse_keyId,
-    cancelKeyDeletionResponse_httpStatus,
-
     -- ** GenerateDataKeyPairWithoutPlaintext
     generateDataKeyPairWithoutPlaintext_grantTokens,
     generateDataKeyPairWithoutPlaintext_encryptionContext,
@@ -301,15 +317,10 @@ module Network.AWS.KMS.Lens
     generateDataKeyPairWithoutPlaintextResponse_keyId,
     generateDataKeyPairWithoutPlaintextResponse_httpStatus,
 
-    -- ** DescribeCustomKeyStores
-    describeCustomKeyStores_customKeyStoreName,
-    describeCustomKeyStores_customKeyStoreId,
-    describeCustomKeyStores_limit,
-    describeCustomKeyStores_marker,
-    describeCustomKeyStoresResponse_customKeyStores,
-    describeCustomKeyStoresResponse_nextMarker,
-    describeCustomKeyStoresResponse_truncated,
-    describeCustomKeyStoresResponse_httpStatus,
+    -- ** CancelKeyDeletion
+    cancelKeyDeletion_keyId,
+    cancelKeyDeletionResponse_keyId,
+    cancelKeyDeletionResponse_httpStatus,
 
     -- ** Decrypt
     decrypt_grantTokens,
@@ -322,21 +333,15 @@ module Network.AWS.KMS.Lens
     decryptResponse_keyId,
     decryptResponse_httpStatus,
 
-    -- ** CreateAlias
-    createAlias_aliasName,
-    createAlias_targetKeyId,
-
-    -- ** EnableKeyRotation
-    enableKeyRotation_keyId,
-
-    -- ** ListAliases
-    listAliases_limit,
-    listAliases_keyId,
-    listAliases_marker,
-    listAliasesResponse_nextMarker,
-    listAliasesResponse_aliases,
-    listAliasesResponse_truncated,
-    listAliasesResponse_httpStatus,
+    -- ** DescribeCustomKeyStores
+    describeCustomKeyStores_customKeyStoreName,
+    describeCustomKeyStores_customKeyStoreId,
+    describeCustomKeyStores_limit,
+    describeCustomKeyStores_marker,
+    describeCustomKeyStoresResponse_customKeyStores,
+    describeCustomKeyStoresResponse_nextMarker,
+    describeCustomKeyStoresResponse_truncated,
+    describeCustomKeyStoresResponse_httpStatus,
 
     -- ** CreateGrant
     createGrant_constraints,
@@ -350,21 +355,37 @@ module Network.AWS.KMS.Lens
     createGrantResponse_grantId,
     createGrantResponse_httpStatus,
 
+    -- ** EnableKeyRotation
+    enableKeyRotation_keyId,
+
+    -- ** ListAliases
+    listAliases_limit,
+    listAliases_marker,
+    listAliases_keyId,
+    listAliasesResponse_nextMarker,
+    listAliasesResponse_aliases,
+    listAliasesResponse_truncated,
+    listAliasesResponse_httpStatus,
+
+    -- ** CreateAlias
+    createAlias_aliasName,
+    createAlias_targetKeyId,
+
     -- * Types
 
     -- ** AliasListEntry
     aliasListEntry_lastUpdatedDate,
     aliasListEntry_creationDate,
     aliasListEntry_aliasName,
-    aliasListEntry_aliasArn,
     aliasListEntry_targetKeyId,
+    aliasListEntry_aliasArn,
 
     -- ** CustomKeyStoresListEntry
     customKeyStoresListEntry_customKeyStoreName,
     customKeyStoresListEntry_connectionState,
     customKeyStoresListEntry_customKeyStoreId,
-    customKeyStoresListEntry_cloudHsmClusterId,
     customKeyStoresListEntry_trustAnchorCertificate,
+    customKeyStoresListEntry_cloudHsmClusterId,
     customKeyStoresListEntry_creationDate,
     customKeyStoresListEntry_connectionErrorCode,
 
@@ -389,28 +410,41 @@ module Network.AWS.KMS.Lens
 
     -- ** KeyMetadata
     keyMetadata_signingAlgorithms,
-    keyMetadata_keyManager,
+    keyMetadata_pendingDeletionWindowInDays,
     keyMetadata_origin,
+    keyMetadata_keyManager,
     keyMetadata_aWSAccountId,
+    keyMetadata_multiRegion,
     keyMetadata_customKeyStoreId,
     keyMetadata_encryptionAlgorithms,
     keyMetadata_cloudHsmClusterId,
     keyMetadata_keyState,
     keyMetadata_arn,
+    keyMetadata_enabled,
     keyMetadata_creationDate,
     keyMetadata_validTo,
-    keyMetadata_enabled,
     keyMetadata_expirationModel,
+    keyMetadata_multiRegionConfiguration,
     keyMetadata_description,
     keyMetadata_deletionDate,
-    keyMetadata_keyUsage,
+    keyMetadata_keySpec,
     keyMetadata_customerMasterKeySpec,
+    keyMetadata_keyUsage,
     keyMetadata_keyId,
 
     -- ** ListGrantsResponse
     listGrantsResponse_nextMarker,
     listGrantsResponse_grants,
     listGrantsResponse_truncated,
+
+    -- ** MultiRegionConfiguration
+    multiRegionConfiguration_replicaKeys,
+    multiRegionConfiguration_multiRegionKeyType,
+    multiRegionConfiguration_primaryKey,
+
+    -- ** MultiRegionKey
+    multiRegionKey_arn,
+    multiRegionKey_region,
 
     -- ** Tag
     tag_tagKey,
@@ -454,6 +488,7 @@ import Network.AWS.KMS.ListResourceTags
 import Network.AWS.KMS.ListRetirableGrants
 import Network.AWS.KMS.PutKeyPolicy
 import Network.AWS.KMS.ReEncrypt
+import Network.AWS.KMS.ReplicateKey
 import Network.AWS.KMS.RetireGrant
 import Network.AWS.KMS.RevokeGrant
 import Network.AWS.KMS.ScheduleKeyDeletion
@@ -466,9 +501,12 @@ import Network.AWS.KMS.Types.GrantListEntry
 import Network.AWS.KMS.Types.KeyListEntry
 import Network.AWS.KMS.Types.KeyMetadata
 import Network.AWS.KMS.Types.ListGrantsResponse
+import Network.AWS.KMS.Types.MultiRegionConfiguration
+import Network.AWS.KMS.Types.MultiRegionKey
 import Network.AWS.KMS.Types.Tag
 import Network.AWS.KMS.UntagResource
 import Network.AWS.KMS.UpdateAlias
 import Network.AWS.KMS.UpdateCustomKeyStore
 import Network.AWS.KMS.UpdateKeyDescription
+import Network.AWS.KMS.UpdatePrimaryRegion
 import Network.AWS.KMS.Verify

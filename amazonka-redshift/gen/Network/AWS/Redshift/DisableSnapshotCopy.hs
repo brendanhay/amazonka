@@ -24,9 +24,9 @@
 -- region for a specified cluster.
 --
 -- If your cluster and its snapshots are encrypted using a customer master
--- key (CMK) from AWS KMS, use DeleteSnapshotCopyGrant to delete the grant
--- that grants Amazon Redshift permission to the CMK in the destination
--- region.
+-- key (CMK) from Key Management Service, use DeleteSnapshotCopyGrant to
+-- delete the grant that grants Amazon Redshift permission to the CMK in
+-- the destination region.
 module Network.AWS.Redshift.DisableSnapshotCopy
   ( -- * Creating a Request
     DisableSnapshotCopy (..),

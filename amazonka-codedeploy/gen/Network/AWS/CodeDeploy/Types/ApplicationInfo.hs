@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApplicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-  { -- | The application ID.
-    applicationId :: Prelude.Maybe Prelude.Text,
-    -- | True if the user has authenticated with GitHub for the specified
+  { -- | True if the user has authenticated with GitHub for the specified
     -- application. Otherwise, false.
     linkedToGitHub :: Prelude.Maybe Prelude.Bool,
+    -- | The application ID.
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The name for a connection to a GitHub account.
     gitHubAccountName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the application was created.
@@ -53,10 +53,10 @@ data ApplicationInfo = ApplicationInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'applicationInfo_applicationId' - The application ID.
---
 -- 'linkedToGitHub', 'applicationInfo_linkedToGitHub' - True if the user has authenticated with GitHub for the specified
 -- application. Otherwise, false.
+--
+-- 'applicationId', 'applicationInfo_applicationId' - The application ID.
 --
 -- 'gitHubAccountName', 'applicationInfo_gitHubAccountName' - The name for a connection to a GitHub account.
 --
@@ -70,22 +70,22 @@ newApplicationInfo ::
   ApplicationInfo
 newApplicationInfo =
   ApplicationInfo'
-    { applicationId = Prelude.Nothing,
-      linkedToGitHub = Prelude.Nothing,
+    { linkedToGitHub = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
       gitHubAccountName = Prelude.Nothing,
       createTime = Prelude.Nothing,
       applicationName = Prelude.Nothing,
       computePlatform = Prelude.Nothing
     }
 
--- | The application ID.
-applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
-applicationInfo_applicationId = Lens.lens (\ApplicationInfo' {applicationId} -> applicationId) (\s@ApplicationInfo' {} a -> s {applicationId = a} :: ApplicationInfo)
-
 -- | True if the user has authenticated with GitHub for the specified
 -- application. Otherwise, false.
 applicationInfo_linkedToGitHub :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Bool)
 applicationInfo_linkedToGitHub = Lens.lens (\ApplicationInfo' {linkedToGitHub} -> linkedToGitHub) (\s@ApplicationInfo' {} a -> s {linkedToGitHub = a} :: ApplicationInfo)
+
+-- | The application ID.
+applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
+applicationInfo_applicationId = Lens.lens (\ApplicationInfo' {applicationId} -> applicationId) (\s@ApplicationInfo' {} a -> s {applicationId = a} :: ApplicationInfo)
 
 -- | The name for a connection to a GitHub account.
 applicationInfo_gitHubAccountName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
@@ -110,8 +110,8 @@ instance Core.FromJSON ApplicationInfo where
       "ApplicationInfo"
       ( \x ->
           ApplicationInfo'
-            Prelude.<$> (x Core..:? "applicationId")
-            Prelude.<*> (x Core..:? "linkedToGitHub")
+            Prelude.<$> (x Core..:? "linkedToGitHub")
+            Prelude.<*> (x Core..:? "applicationId")
             Prelude.<*> (x Core..:? "gitHubAccountName")
             Prelude.<*> (x Core..:? "createTime")
             Prelude.<*> (x Core..:? "applicationName")

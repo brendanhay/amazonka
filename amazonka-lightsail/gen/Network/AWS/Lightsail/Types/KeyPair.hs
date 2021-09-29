@@ -26,7 +26,7 @@ import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the SSH key pair.
+-- | Describes an SSH key pair.
 --
 -- /See:/ 'newKeyPair' smart constructor.
 data KeyPair = KeyPair'
@@ -35,18 +35,18 @@ data KeyPair = KeyPair'
     -- | The Amazon Resource Name (ARN) of the key pair (e.g.,
     -- @arn:aws:lightsail:us-east-2:123456789101:KeyPair\/05859e3d-331d-48ba-9034-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type (usually @KeyPair@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The resource type (usually @KeyPair@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The friendly name of the SSH key pair.
     name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The RSA fingerprint of the key pair.
     fingerprint :: Prelude.Maybe Prelude.Text,
@@ -68,18 +68,18 @@ data KeyPair = KeyPair'
 -- 'arn', 'keyPair_arn' - The Amazon Resource Name (ARN) of the key pair (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:KeyPair\/05859e3d-331d-48ba-9034-12345EXAMPLE@).
 --
--- 'resourceType', 'keyPair_resourceType' - The resource type (usually @KeyPair@).
---
 -- 'supportCode', 'keyPair_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
 --
+-- 'resourceType', 'keyPair_resourceType' - The resource type (usually @KeyPair@).
+--
 -- 'name', 'keyPair_name' - The friendly name of the SSH key pair.
 --
 -- 'tags', 'keyPair_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'fingerprint', 'keyPair_fingerprint' - The RSA fingerprint of the key pair.
 --
@@ -90,8 +90,8 @@ newKeyPair =
   KeyPair'
     { createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       fingerprint = Prelude.Nothing,
@@ -107,10 +107,6 @@ keyPair_createdAt = Lens.lens (\KeyPair' {createdAt} -> createdAt) (\s@KeyPair' 
 keyPair_arn :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
 keyPair_arn = Lens.lens (\KeyPair' {arn} -> arn) (\s@KeyPair' {} a -> s {arn = a} :: KeyPair)
 
--- | The resource type (usually @KeyPair@).
-keyPair_resourceType :: Lens.Lens' KeyPair (Prelude.Maybe ResourceType)
-keyPair_resourceType = Lens.lens (\KeyPair' {resourceType} -> resourceType) (\s@KeyPair' {} a -> s {resourceType = a} :: KeyPair)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
@@ -118,13 +114,17 @@ keyPair_resourceType = Lens.lens (\KeyPair' {resourceType} -> resourceType) (\s@
 keyPair_supportCode :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
 keyPair_supportCode = Lens.lens (\KeyPair' {supportCode} -> supportCode) (\s@KeyPair' {} a -> s {supportCode = a} :: KeyPair)
 
+-- | The resource type (usually @KeyPair@).
+keyPair_resourceType :: Lens.Lens' KeyPair (Prelude.Maybe ResourceType)
+keyPair_resourceType = Lens.lens (\KeyPair' {resourceType} -> resourceType) (\s@KeyPair' {} a -> s {resourceType = a} :: KeyPair)
+
 -- | The friendly name of the SSH key pair.
 keyPair_name :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
 keyPair_name = Lens.lens (\KeyPair' {name} -> name) (\s@KeyPair' {} a -> s {name = a} :: KeyPair)
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 keyPair_tags :: Lens.Lens' KeyPair (Prelude.Maybe [Tag])
 keyPair_tags = Lens.lens (\KeyPair' {tags} -> tags) (\s@KeyPair' {} a -> s {tags = a} :: KeyPair) Prelude.. Lens.mapping Lens._Coerce
 
@@ -144,8 +144,8 @@ instance Core.FromJSON KeyPair where
           KeyPair'
             Prelude.<$> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fingerprint")

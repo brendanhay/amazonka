@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified AWS Direct Connect resource.
+-- Removes one or more tags from the specified Direct Connect resource.
 module Network.AWS.DirectConnect.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

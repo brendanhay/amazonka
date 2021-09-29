@@ -52,7 +52,7 @@ data RetryBuild = RetryBuild'
   { -- | A unique, case sensitive identifier you provide to ensure the
     -- idempotency of the @RetryBuild@ request. The token is included in the
     -- @RetryBuild@ request and is valid for five minutes. If you repeat the
-    -- @RetryBuild@ request with the same token, but change a parameter, AWS
+    -- @RetryBuild@ request with the same token, but change a parameter,
     -- CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the identifier of the build to restart.
@@ -71,7 +71,7 @@ data RetryBuild = RetryBuild'
 -- 'idempotencyToken', 'retryBuild_idempotencyToken' - A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the @RetryBuild@ request. The token is included in the
 -- @RetryBuild@ request and is valid for five minutes. If you repeat the
--- @RetryBuild@ request with the same token, but change a parameter, AWS
+-- @RetryBuild@ request with the same token, but change a parameter,
 -- CodeBuild returns a parameter mismatch error.
 --
 -- 'id', 'retryBuild_id' - Specifies the identifier of the build to restart.
@@ -86,7 +86,7 @@ newRetryBuild =
 -- | A unique, case sensitive identifier you provide to ensure the
 -- idempotency of the @RetryBuild@ request. The token is included in the
 -- @RetryBuild@ request and is valid for five minutes. If you repeat the
--- @RetryBuild@ request with the same token, but change a parameter, AWS
+-- @RetryBuild@ request with the same token, but change a parameter,
 -- CodeBuild returns a parameter mismatch error.
 retryBuild_idempotencyToken :: Lens.Lens' RetryBuild (Prelude.Maybe Prelude.Text)
 retryBuild_idempotencyToken = Lens.lens (\RetryBuild' {idempotencyToken} -> idempotencyToken) (\s@RetryBuild' {} a -> s {idempotencyToken = a} :: RetryBuild)

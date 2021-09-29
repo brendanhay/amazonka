@@ -42,12 +42,12 @@ data TestCase = TestCase'
     -- generates the prefix. The prefix depends on the framework used to
     -- generate the tests.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the test case.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time a test case expires. A test case expires 30 days after
     -- it is created. An expired test case is not available to view in
     -- CodeBuild.
     expired :: Prelude.Maybe Core.POSIX,
+    -- | The name of the test case.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of nanoseconds it took to run this test case.
     durationInNanoSeconds :: Prelude.Maybe Prelude.Integer
   }
@@ -75,11 +75,11 @@ data TestCase = TestCase'
 -- generates the prefix. The prefix depends on the framework used to
 -- generate the tests.
 --
--- 'name', 'testCase_name' - The name of the test case.
---
 -- 'expired', 'testCase_expired' - The date and time a test case expires. A test case expires 30 days after
 -- it is created. An expired test case is not available to view in
 -- CodeBuild.
+--
+-- 'name', 'testCase_name' - The name of the test case.
 --
 -- 'durationInNanoSeconds', 'testCase_durationInNanoSeconds' - The number of nanoseconds it took to run this test case.
 newTestCase ::
@@ -91,8 +91,8 @@ newTestCase =
       message = Prelude.Nothing,
       reportArn = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      name = Prelude.Nothing,
       expired = Prelude.Nothing,
+      name = Prelude.Nothing,
       durationInNanoSeconds = Prelude.Nothing
     }
 
@@ -120,15 +120,15 @@ testCase_reportArn = Lens.lens (\TestCase' {reportArn} -> reportArn) (\s@TestCas
 testCase_prefix :: Lens.Lens' TestCase (Prelude.Maybe Prelude.Text)
 testCase_prefix = Lens.lens (\TestCase' {prefix} -> prefix) (\s@TestCase' {} a -> s {prefix = a} :: TestCase)
 
--- | The name of the test case.
-testCase_name :: Lens.Lens' TestCase (Prelude.Maybe Prelude.Text)
-testCase_name = Lens.lens (\TestCase' {name} -> name) (\s@TestCase' {} a -> s {name = a} :: TestCase)
-
 -- | The date and time a test case expires. A test case expires 30 days after
 -- it is created. An expired test case is not available to view in
 -- CodeBuild.
 testCase_expired :: Lens.Lens' TestCase (Prelude.Maybe Prelude.UTCTime)
 testCase_expired = Lens.lens (\TestCase' {expired} -> expired) (\s@TestCase' {} a -> s {expired = a} :: TestCase) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the test case.
+testCase_name :: Lens.Lens' TestCase (Prelude.Maybe Prelude.Text)
+testCase_name = Lens.lens (\TestCase' {name} -> name) (\s@TestCase' {} a -> s {name = a} :: TestCase)
 
 -- | The number of nanoseconds it took to run this test case.
 testCase_durationInNanoSeconds :: Lens.Lens' TestCase (Prelude.Maybe Prelude.Integer)
@@ -145,8 +145,8 @@ instance Core.FromJSON TestCase where
             Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "reportArn")
             Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "expired")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "durationInNanoSeconds")
       )
 

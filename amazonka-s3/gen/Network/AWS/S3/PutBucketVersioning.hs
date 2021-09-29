@@ -84,7 +84,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -93,8 +93,9 @@ data PutBucketVersioning = PutBucketVersioning'
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
@@ -114,7 +115,7 @@ data PutBucketVersioning = PutBucketVersioning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -123,8 +124,9 @@ data PutBucketVersioning = PutBucketVersioning'
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -150,7 +152,7 @@ newPutBucketVersioning
         versioningConfiguration = pVersioningConfiguration_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
@@ -161,8 +163,9 @@ putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expe
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -> contentMD5) (\s@PutBucketVersioning' {} a -> s {contentMD5 = a} :: PutBucketVersioning)
 

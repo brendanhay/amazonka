@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates a Device Defender security profile behaviors specification.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ValidateSecurityProfileBehaviors>
+-- action.
 module Network.AWS.IoT.ValidateSecurityProfileBehaviors
   ( -- * Creating a Request
     ValidateSecurityProfileBehaviors (..),

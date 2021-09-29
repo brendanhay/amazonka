@@ -65,7 +65,7 @@ data RetrieveTapeArchive = RetrieveTapeArchive'
     tapeARN :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
     -- virtual tape to. Use the ListGateways operation to return a list of
-    -- gateways for your account and AWS Region.
+    -- gateways for your account and Region.
     --
     -- You retrieve archived virtual tapes to only one gateway and the gateway
     -- must be a tape gateway.
@@ -86,7 +86,7 @@ data RetrieveTapeArchive = RetrieveTapeArchive'
 --
 -- 'gatewayARN', 'retrieveTapeArchive_gatewayARN' - The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 -- virtual tape to. Use the ListGateways operation to return a list of
--- gateways for your account and AWS Region.
+-- gateways for your account and Region.
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
 -- must be a tape gateway.
@@ -109,7 +109,7 @@ retrieveTapeArchive_tapeARN = Lens.lens (\RetrieveTapeArchive' {tapeARN} -> tape
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 -- virtual tape to. Use the ListGateways operation to return a list of
--- gateways for your account and AWS Region.
+-- gateways for your account and Region.
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
 -- must be a tape gateway.

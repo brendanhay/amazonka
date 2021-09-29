@@ -41,25 +41,26 @@ module Network.AWS.Redshift.CreateCluster
     createCluster_hsmClientCertificateIdentifier,
     createCluster_encrypted,
     createCluster_allowVersionUpgrade,
-    createCluster_automatedSnapshotRetentionPeriod,
     createCluster_clusterParameterGroupName,
+    createCluster_automatedSnapshotRetentionPeriod,
     createCluster_availabilityZoneRelocation,
-    createCluster_snapshotScheduleIdentifier,
     createCluster_publiclyAccessible,
-    createCluster_vpcSecurityGroupIds,
     createCluster_clusterType,
-    createCluster_manualSnapshotRetentionPeriod,
+    createCluster_snapshotScheduleIdentifier,
+    createCluster_vpcSecurityGroupIds,
     createCluster_kmsKeyId,
+    createCluster_manualSnapshotRetentionPeriod,
     createCluster_availabilityZone,
     createCluster_preferredMaintenanceWindow,
     createCluster_tags,
-    createCluster_numberOfNodes,
-    createCluster_port,
     createCluster_dbName,
+    createCluster_port,
+    createCluster_numberOfNodes,
     createCluster_clusterVersion,
     createCluster_clusterSecurityGroups,
-    createCluster_maintenanceTrackName,
+    createCluster_aquaConfigurationStatus,
     createCluster_hsmConfigurationIdentifier,
+    createCluster_maintenanceTrackName,
     createCluster_iamRoles,
     createCluster_clusterIdentifier,
     createCluster_nodeType,
@@ -129,15 +130,6 @@ data CreateCluster = CreateCluster'
     --
     -- Default: @true@
     allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The number of days that automated snapshots are retained. If the value
-    -- is 0, automated snapshots are disabled. Even if automated snapshots are
-    -- disabled, you can still create manual snapshots when you want with
-    -- CreateClusterSnapshot.
-    --
-    -- Default: @1@
-    --
-    -- Constraints: Must be a value from 0 to 35.
-    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the parameter group to be associated with this cluster.
     --
     -- Default: The default Amazon Redshift cluster parameter group. For
@@ -152,18 +144,23 @@ data CreateCluster = CreateCluster'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The number of days that automated snapshots are retained. If the value
+    -- is 0, automated snapshots are disabled. Even if automated snapshots are
+    -- disabled, you can still create manual snapshots when you want with
+    -- CreateClusterSnapshot.
+    --
+    -- You can\'t disable automated snapshots for RA3 node types. Set the
+    -- automated retention period from 1-35 days.
+    --
+    -- Default: @1@
+    --
+    -- Constraints: Must be a value from 0 to 35.
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The option to enable relocation for an Amazon Redshift cluster between
     -- Availability Zones after the cluster is created.
     availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
-    -- | A unique identifier for the snapshot schedule.
-    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the cluster can be accessed from a public network.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | A list of Virtual Private Cloud (VPC) security groups to be associated
-    -- with the cluster.
-    --
-    -- Default: The default VPC security group is associated with the cluster.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The type of the cluster. When cluster type is specified as
     --
     -- -   @single-node@, the __NumberOfNodes__ parameter is not required.
@@ -174,15 +171,22 @@ data CreateCluster = CreateCluster'
     --
     -- Default: @multi-node@
     clusterType :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the snapshot schedule.
+    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A list of Virtual Private Cloud (VPC) security groups to be associated
+    -- with the cluster.
+    --
+    -- Default: The default VPC security group is associated with the cluster.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Key Management Service (KMS) key ID of the encryption key that you
+    -- want to use to encrypt data in the cluster.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot. If the value is
     -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
     -- the retention period of existing snapshots.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The AWS Key Management Service (KMS) key ID of the encryption key that
-    -- you want to use to encrypt data in the cluster.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
     -- provision the cluster. For example, if you have several EC2 instances
     -- running in a specific Availability Zone, then you might want the cluster
@@ -213,31 +217,6 @@ data CreateCluster = CreateCluster'
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
-    -- | The number of compute nodes in the cluster. This parameter is required
-    -- when the __ClusterType__ parameter is specified as @multi-node@.
-    --
-    -- For information about determining how many nodes you need, go to
-    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
-    -- in the /Amazon Redshift Cluster Management Guide/.
-    --
-    -- If you don\'t specify this parameter, you get a single-node cluster.
-    -- When requesting a multi-node cluster, you must specify the number of
-    -- nodes that you want in the cluster.
-    --
-    -- Default: @1@
-    --
-    -- Constraints: Value must be at least 1 and no more than 100.
-    numberOfNodes :: Prelude.Maybe Prelude.Int,
-    -- | The port number on which the cluster accepts incoming connections.
-    --
-    -- The cluster is accessible only via the JDBC and ODBC connection strings.
-    -- Part of the connection string requires the port on which the cluster
-    -- will listen for incoming connections.
-    --
-    -- Default: @5439@
-    --
-    -- Valid Values: @1150-65535@
-    port :: Prelude.Maybe Prelude.Int,
     -- | The name of the first database to be created when the cluster is
     -- created.
     --
@@ -260,6 +239,31 @@ data CreateCluster = CreateCluster'
     --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
     dbName :: Prelude.Maybe Prelude.Text,
+    -- | The port number on which the cluster accepts incoming connections.
+    --
+    -- The cluster is accessible only via the JDBC and ODBC connection strings.
+    -- Part of the connection string requires the port on which the cluster
+    -- will listen for incoming connections.
+    --
+    -- Default: @5439@
+    --
+    -- Valid Values: @1150-65535@
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The number of compute nodes in the cluster. This parameter is required
+    -- when the __ClusterType__ parameter is specified as @multi-node@.
+    --
+    -- For information about determining how many nodes you need, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+    -- in the /Amazon Redshift Cluster Management Guide/.
+    --
+    -- If you don\'t specify this parameter, you get a single-node cluster.
+    -- When requesting a multi-node cluster, you must specify the number of
+    -- nodes that you want in the cluster.
+    --
+    -- Default: @1@
+    --
+    -- Constraints: Value must be at least 1 and no more than 100.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The version of the Amazon Redshift engine software that you want to
     -- deploy on the cluster.
     --
@@ -273,18 +277,29 @@ data CreateCluster = CreateCluster'
     --
     -- Default: The default cluster security group for Amazon Redshift.
     clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter for the name of the maintenance track for the
-    -- cluster. If you don\'t provide a maintenance track name, the cluster is
-    -- assigned to the @current@ track.
-    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | The value represents how the cluster is configured to use AQUA (Advanced
+    -- Query Accelerator) when it is created. Possible values include the
+    -- following.
+    --
+    -- -   enabled - Use AQUA if it is available for the current Amazon Web
+    --     Services Region and Amazon Redshift node type.
+    --
+    -- -   disabled - Don\'t use AQUA.
+    --
+    -- -   auto - Amazon Redshift determines whether to use AQUA.
+    aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
     -- | Specifies the name of the HSM configuration that contains the
     -- information the Amazon Redshift cluster can use to retrieve and store
     -- keys in an HSM.
     hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A list of AWS Identity and Access Management (IAM) roles that can be
-    -- used by the cluster to access other AWS services. You must supply the
-    -- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
-    -- to 10 IAM roles in a single request.
+    -- | An optional parameter for the name of the maintenance track for the
+    -- cluster. If you don\'t provide a maintenance track name, the cluster is
+    -- assigned to the @current@ track.
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | A list of Identity and Access Management (IAM) roles that can be used by
+    -- the cluster to access other Amazon Web Services services. You must
+    -- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+    -- supply up to 10 IAM roles in a single request.
     --
     -- A cluster can have up to 10 IAM roles associated with it at any time.
     iamRoles :: Prelude.Maybe [Prelude.Text],
@@ -302,7 +317,8 @@ data CreateCluster = CreateCluster'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
-    -- -   Must be unique for all clusters within an AWS account.
+    -- -   Must be unique for all clusters within an Amazon Web Services
+    --     account.
     --
     -- Example: @myexamplecluster@
     clusterIdentifier :: Prelude.Text,
@@ -315,7 +331,7 @@ data CreateCluster = CreateCluster'
     -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
     -- @ra3.16xlarge@
     nodeType :: Prelude.Text,
-    -- | The user name associated with the master user account for the cluster
+    -- | The user name associated with the admin user account for the cluster
     -- that is being created.
     --
     -- Constraints:
@@ -329,8 +345,8 @@ data CreateCluster = CreateCluster'
     --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
     masterUsername :: Prelude.Text,
-    -- | The password associated with the master user account for the cluster
-    -- that is being created.
+    -- | The password associated with the admin user account for the cluster that
+    -- is being created.
     --
     -- Constraints:
     --
@@ -398,15 +414,6 @@ data CreateCluster = CreateCluster'
 --
 -- Default: @true@
 --
--- 'automatedSnapshotRetentionPeriod', 'createCluster_automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value
--- is 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
---
--- Default: @1@
---
--- Constraints: Must be a value from 0 to 35.
---
 -- 'clusterParameterGroupName', 'createCluster_clusterParameterGroupName' - The name of the parameter group to be associated with this cluster.
 --
 -- Default: The default Amazon Redshift cluster parameter group. For
@@ -421,17 +428,22 @@ data CreateCluster = CreateCluster'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
+-- 'automatedSnapshotRetentionPeriod', 'createCluster_automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- You can\'t disable automated snapshots for RA3 node types. Set the
+-- automated retention period from 1-35 days.
+--
+-- Default: @1@
+--
+-- Constraints: Must be a value from 0 to 35.
+--
 -- 'availabilityZoneRelocation', 'createCluster_availabilityZoneRelocation' - The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster is created.
 --
--- 'snapshotScheduleIdentifier', 'createCluster_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
---
 -- 'publiclyAccessible', 'createCluster_publiclyAccessible' - If @true@, the cluster can be accessed from a public network.
---
--- 'vpcSecurityGroupIds', 'createCluster_vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated
--- with the cluster.
---
--- Default: The default VPC security group is associated with the cluster.
 --
 -- 'clusterType', 'createCluster_clusterType' - The type of the cluster. When cluster type is specified as
 --
@@ -443,14 +455,21 @@ data CreateCluster = CreateCluster'
 --
 -- Default: @multi-node@
 --
+-- 'snapshotScheduleIdentifier', 'createCluster_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+--
+-- 'vpcSecurityGroupIds', 'createCluster_vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated
+-- with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+--
+-- 'kmsKeyId', 'createCluster_kmsKeyId' - The Key Management Service (KMS) key ID of the encryption key that you
+-- want to use to encrypt data in the cluster.
+--
 -- 'manualSnapshotRetentionPeriod', 'createCluster_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
 -- the retention period of existing snapshots.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
---
--- 'kmsKeyId', 'createCluster_kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster.
 --
 -- 'availabilityZone', 'createCluster_availabilityZone' - The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
 -- provision the cluster. For example, if you have several EC2 instances
@@ -482,31 +501,6 @@ data CreateCluster = CreateCluster'
 --
 -- 'tags', 'createCluster_tags' - A list of tag instances.
 --
--- 'numberOfNodes', 'createCluster_numberOfNodes' - The number of compute nodes in the cluster. This parameter is required
--- when the __ClusterType__ parameter is specified as @multi-node@.
---
--- For information about determining how many nodes you need, go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
--- in the /Amazon Redshift Cluster Management Guide/.
---
--- If you don\'t specify this parameter, you get a single-node cluster.
--- When requesting a multi-node cluster, you must specify the number of
--- nodes that you want in the cluster.
---
--- Default: @1@
---
--- Constraints: Value must be at least 1 and no more than 100.
---
--- 'port', 'createCluster_port' - The port number on which the cluster accepts incoming connections.
---
--- The cluster is accessible only via the JDBC and ODBC connection strings.
--- Part of the connection string requires the port on which the cluster
--- will listen for incoming connections.
---
--- Default: @5439@
---
--- Valid Values: @1150-65535@
---
 -- 'dbName', 'createCluster_dbName' - The name of the first database to be created when the cluster is
 -- created.
 --
@@ -529,6 +523,31 @@ data CreateCluster = CreateCluster'
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
 --
+-- 'port', 'createCluster_port' - The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings.
+-- Part of the connection string requires the port on which the cluster
+-- will listen for incoming connections.
+--
+-- Default: @5439@
+--
+-- Valid Values: @1150-65535@
+--
+-- 'numberOfNodes', 'createCluster_numberOfNodes' - The number of compute nodes in the cluster. This parameter is required
+-- when the __ClusterType__ parameter is specified as @multi-node@.
+--
+-- For information about determining how many nodes you need, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- If you don\'t specify this parameter, you get a single-node cluster.
+-- When requesting a multi-node cluster, you must specify the number of
+-- nodes that you want in the cluster.
+--
+-- Default: @1@
+--
+-- Constraints: Value must be at least 1 and no more than 100.
+--
 -- 'clusterVersion', 'createCluster_clusterVersion' - The version of the Amazon Redshift engine software that you want to
 -- deploy on the cluster.
 --
@@ -542,18 +561,29 @@ data CreateCluster = CreateCluster'
 --
 -- Default: The default cluster security group for Amazon Redshift.
 --
--- 'maintenanceTrackName', 'createCluster_maintenanceTrackName' - An optional parameter for the name of the maintenance track for the
--- cluster. If you don\'t provide a maintenance track name, the cluster is
--- assigned to the @current@ track.
+-- 'aquaConfigurationStatus', 'createCluster_aquaConfigurationStatus' - The value represents how the cluster is configured to use AQUA (Advanced
+-- Query Accelerator) when it is created. Possible values include the
+-- following.
+--
+-- -   enabled - Use AQUA if it is available for the current Amazon Web
+--     Services Region and Amazon Redshift node type.
+--
+-- -   disabled - Don\'t use AQUA.
+--
+-- -   auto - Amazon Redshift determines whether to use AQUA.
 --
 -- 'hsmConfigurationIdentifier', 'createCluster_hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
 --
--- 'iamRoles', 'createCluster_iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services. You must supply the
--- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
--- to 10 IAM roles in a single request.
+-- 'maintenanceTrackName', 'createCluster_maintenanceTrackName' - An optional parameter for the name of the maintenance track for the
+-- cluster. If you don\'t provide a maintenance track name, the cluster is
+-- assigned to the @current@ track.
+--
+-- 'iamRoles', 'createCluster_iamRoles' - A list of Identity and Access Management (IAM) roles that can be used by
+-- the cluster to access other Amazon Web Services services. You must
+-- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+-- supply up to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated with it at any time.
 --
@@ -571,7 +601,8 @@ data CreateCluster = CreateCluster'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 --
 -- Example: @myexamplecluster@
 --
@@ -584,7 +615,7 @@ data CreateCluster = CreateCluster'
 -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
 -- @ra3.16xlarge@
 --
--- 'masterUsername', 'createCluster_masterUsername' - The user name associated with the master user account for the cluster
+-- 'masterUsername', 'createCluster_masterUsername' - The user name associated with the admin user account for the cluster
 -- that is being created.
 --
 -- Constraints:
@@ -598,8 +629,8 @@ data CreateCluster = CreateCluster'
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
 --
--- 'masterUserPassword', 'createCluster_masterUserPassword' - The password associated with the master user account for the cluster
--- that is being created.
+-- 'masterUserPassword', 'createCluster_masterUserPassword' - The password associated with the admin user account for the cluster that
+-- is being created.
 --
 -- Constraints:
 --
@@ -637,25 +668,26 @@ newCreateCluster
         hsmClientCertificateIdentifier = Prelude.Nothing,
         encrypted = Prelude.Nothing,
         allowVersionUpgrade = Prelude.Nothing,
-        automatedSnapshotRetentionPeriod = Prelude.Nothing,
         clusterParameterGroupName = Prelude.Nothing,
+        automatedSnapshotRetentionPeriod = Prelude.Nothing,
         availabilityZoneRelocation = Prelude.Nothing,
-        snapshotScheduleIdentifier = Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
         clusterType = Prelude.Nothing,
-        manualSnapshotRetentionPeriod = Prelude.Nothing,
+        snapshotScheduleIdentifier = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        manualSnapshotRetentionPeriod = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
         tags = Prelude.Nothing,
-        numberOfNodes = Prelude.Nothing,
-        port = Prelude.Nothing,
         dbName = Prelude.Nothing,
+        port = Prelude.Nothing,
+        numberOfNodes = Prelude.Nothing,
         clusterVersion = Prelude.Nothing,
         clusterSecurityGroups = Prelude.Nothing,
-        maintenanceTrackName = Prelude.Nothing,
+        aquaConfigurationStatus = Prelude.Nothing,
         hsmConfigurationIdentifier = Prelude.Nothing,
+        maintenanceTrackName = Prelude.Nothing,
         iamRoles = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         nodeType = pNodeType_,
@@ -719,17 +751,6 @@ createCluster_encrypted = Lens.lens (\CreateCluster' {encrypted} -> encrypted) (
 createCluster_allowVersionUpgrade :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_allowVersionUpgrade = Lens.lens (\CreateCluster' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@CreateCluster' {} a -> s {allowVersionUpgrade = a} :: CreateCluster)
 
--- | The number of days that automated snapshots are retained. If the value
--- is 0, automated snapshots are disabled. Even if automated snapshots are
--- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
---
--- Default: @1@
---
--- Constraints: Must be a value from 0 to 35.
-createCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {automatedSnapshotRetentionPeriod = a} :: CreateCluster)
-
 -- | The name of the parameter group to be associated with this cluster.
 --
 -- Default: The default Amazon Redshift cluster parameter group. For
@@ -746,25 +767,28 @@ createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {aut
 createCluster_clusterParameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterParameterGroupName = Lens.lens (\CreateCluster' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@CreateCluster' {} a -> s {clusterParameterGroupName = a} :: CreateCluster)
 
+-- | The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- You can\'t disable automated snapshots for RA3 node types. Set the
+-- automated retention period from 1-35 days.
+--
+-- Default: @1@
+--
+-- Constraints: Must be a value from 0 to 35.
+createCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {automatedSnapshotRetentionPeriod = a} :: CreateCluster)
+
 -- | The option to enable relocation for an Amazon Redshift cluster between
 -- Availability Zones after the cluster is created.
 createCluster_availabilityZoneRelocation :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_availabilityZoneRelocation = Lens.lens (\CreateCluster' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@CreateCluster' {} a -> s {availabilityZoneRelocation = a} :: CreateCluster)
 
--- | A unique identifier for the snapshot schedule.
-createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_snapshotScheduleIdentifier = Lens.lens (\CreateCluster' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@CreateCluster' {} a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
-
 -- | If @true@, the cluster can be accessed from a public network.
 createCluster_publiclyAccessible :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
 createCluster_publiclyAccessible = Lens.lens (\CreateCluster' {publiclyAccessible} -> publiclyAccessible) (\s@CreateCluster' {} a -> s {publiclyAccessible = a} :: CreateCluster)
-
--- | A list of Virtual Private Cloud (VPC) security groups to be associated
--- with the cluster.
---
--- Default: The default VPC security group is associated with the cluster.
-createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
-createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -778,6 +802,22 @@ createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroup
 createCluster_clusterType :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterType = Lens.lens (\CreateCluster' {clusterType} -> clusterType) (\s@CreateCluster' {} a -> s {clusterType = a} :: CreateCluster)
 
+-- | A unique identifier for the snapshot schedule.
+createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_snapshotScheduleIdentifier = Lens.lens (\CreateCluster' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@CreateCluster' {} a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
+
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated
+-- with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Key Management Service (KMS) key ID of the encryption key that you
+-- want to use to encrypt data in the cluster.
+createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
+
 -- | The default number of days to retain a manual snapshot. If the value is
 -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
 -- the retention period of existing snapshots.
@@ -785,11 +825,6 @@ createCluster_clusterType = Lens.lens (\CreateCluster' {clusterType} -> clusterT
 -- The value must be either -1 or an integer between 1 and 3,653.
 createCluster_manualSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_manualSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {manualSnapshotRetentionPeriod = a} :: CreateCluster)
-
--- | The AWS Key Management Service (KMS) key ID of the encryption key that
--- you want to use to encrypt data in the cluster.
-createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
 
 -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
 -- provision the cluster. For example, if you have several EC2 instances
@@ -827,35 +862,6 @@ createCluster_preferredMaintenanceWindow = Lens.lens (\CreateCluster' {preferred
 createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
 createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
--- | The number of compute nodes in the cluster. This parameter is required
--- when the __ClusterType__ parameter is specified as @multi-node@.
---
--- For information about determining how many nodes you need, go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
--- in the /Amazon Redshift Cluster Management Guide/.
---
--- If you don\'t specify this parameter, you get a single-node cluster.
--- When requesting a multi-node cluster, you must specify the number of
--- nodes that you want in the cluster.
---
--- Default: @1@
---
--- Constraints: Value must be at least 1 and no more than 100.
-createCluster_numberOfNodes :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_numberOfNodes = Lens.lens (\CreateCluster' {numberOfNodes} -> numberOfNodes) (\s@CreateCluster' {} a -> s {numberOfNodes = a} :: CreateCluster)
-
--- | The port number on which the cluster accepts incoming connections.
---
--- The cluster is accessible only via the JDBC and ODBC connection strings.
--- Part of the connection string requires the port on which the cluster
--- will listen for incoming connections.
---
--- Default: @5439@
---
--- Valid Values: @1150-65535@
-createCluster_port :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluster' {} a -> s {port = a} :: CreateCluster)
-
 -- | The name of the first database to be created when the cluster is
 -- created.
 --
@@ -880,6 +886,35 @@ createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluste
 createCluster_dbName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_dbName = Lens.lens (\CreateCluster' {dbName} -> dbName) (\s@CreateCluster' {} a -> s {dbName = a} :: CreateCluster)
 
+-- | The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings.
+-- Part of the connection string requires the port on which the cluster
+-- will listen for incoming connections.
+--
+-- Default: @5439@
+--
+-- Valid Values: @1150-65535@
+createCluster_port :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluster' {} a -> s {port = a} :: CreateCluster)
+
+-- | The number of compute nodes in the cluster. This parameter is required
+-- when the __ClusterType__ parameter is specified as @multi-node@.
+--
+-- For information about determining how many nodes you need, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- If you don\'t specify this parameter, you get a single-node cluster.
+-- When requesting a multi-node cluster, you must specify the number of
+-- nodes that you want in the cluster.
+--
+-- Default: @1@
+--
+-- Constraints: Value must be at least 1 and no more than 100.
+createCluster_numberOfNodes :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_numberOfNodes = Lens.lens (\CreateCluster' {numberOfNodes} -> numberOfNodes) (\s@CreateCluster' {} a -> s {numberOfNodes = a} :: CreateCluster)
+
 -- | The version of the Amazon Redshift engine software that you want to
 -- deploy on the cluster.
 --
@@ -897,11 +932,18 @@ createCluster_clusterVersion = Lens.lens (\CreateCluster' {clusterVersion} -> cl
 createCluster_clusterSecurityGroups :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_clusterSecurityGroups = Lens.lens (\CreateCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@CreateCluster' {} a -> s {clusterSecurityGroups = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter for the name of the maintenance track for the
--- cluster. If you don\'t provide a maintenance track name, the cluster is
--- assigned to the @current@ track.
-createCluster_maintenanceTrackName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrackName} -> maintenanceTrackName) (\s@CreateCluster' {} a -> s {maintenanceTrackName = a} :: CreateCluster)
+-- | The value represents how the cluster is configured to use AQUA (Advanced
+-- Query Accelerator) when it is created. Possible values include the
+-- following.
+--
+-- -   enabled - Use AQUA if it is available for the current Amazon Web
+--     Services Region and Amazon Redshift node type.
+--
+-- -   disabled - Don\'t use AQUA.
+--
+-- -   auto - Amazon Redshift determines whether to use AQUA.
+createCluster_aquaConfigurationStatus :: Lens.Lens' CreateCluster (Prelude.Maybe AquaConfigurationStatus)
+createCluster_aquaConfigurationStatus = Lens.lens (\CreateCluster' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@CreateCluster' {} a -> s {aquaConfigurationStatus = a} :: CreateCluster)
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
@@ -909,10 +951,16 @@ createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrac
 createCluster_hsmConfigurationIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_hsmConfigurationIdentifier = Lens.lens (\CreateCluster' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@CreateCluster' {} a -> s {hsmConfigurationIdentifier = a} :: CreateCluster)
 
--- | A list of AWS Identity and Access Management (IAM) roles that can be
--- used by the cluster to access other AWS services. You must supply the
--- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
--- to 10 IAM roles in a single request.
+-- | An optional parameter for the name of the maintenance track for the
+-- cluster. If you don\'t provide a maintenance track name, the cluster is
+-- assigned to the @current@ track.
+createCluster_maintenanceTrackName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrackName} -> maintenanceTrackName) (\s@CreateCluster' {} a -> s {maintenanceTrackName = a} :: CreateCluster)
+
+-- | A list of Identity and Access Management (IAM) roles that can be used by
+-- the cluster to access other Amazon Web Services services. You must
+-- supply the IAM roles in their Amazon Resource Name (ARN) format. You can
+-- supply up to 10 IAM roles in a single request.
 --
 -- A cluster can have up to 10 IAM roles associated with it at any time.
 createCluster_iamRoles :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
@@ -932,7 +980,8 @@ createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 --
 -- Example: @myexamplecluster@
 createCluster_clusterIdentifier :: Lens.Lens' CreateCluster Prelude.Text
@@ -949,7 +998,7 @@ createCluster_clusterIdentifier = Lens.lens (\CreateCluster' {clusterIdentifier}
 createCluster_nodeType :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@CreateCluster' {} a -> s {nodeType = a} :: CreateCluster)
 
--- | The user name associated with the master user account for the cluster
+-- | The user name associated with the admin user account for the cluster
 -- that is being created.
 --
 -- Constraints:
@@ -965,8 +1014,8 @@ createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@
 createCluster_masterUsername :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_masterUsername = Lens.lens (\CreateCluster' {masterUsername} -> masterUsername) (\s@CreateCluster' {} a -> s {masterUsername = a} :: CreateCluster)
 
--- | The password associated with the master user account for the cluster
--- that is being created.
+-- | The password associated with the admin user account for the cluster that
+-- is being created.
 --
 -- Constraints:
 --
@@ -1023,42 +1072,44 @@ instance Core.ToQuery CreateCluster where
           Core.=: hsmClientCertificateIdentifier,
         "Encrypted" Core.=: encrypted,
         "AllowVersionUpgrade" Core.=: allowVersionUpgrade,
-        "AutomatedSnapshotRetentionPeriod"
-          Core.=: automatedSnapshotRetentionPeriod,
         "ClusterParameterGroupName"
           Core.=: clusterParameterGroupName,
+        "AutomatedSnapshotRetentionPeriod"
+          Core.=: automatedSnapshotRetentionPeriod,
         "AvailabilityZoneRelocation"
           Core.=: availabilityZoneRelocation,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
+        "ClusterType" Core.=: clusterType,
         "SnapshotScheduleIdentifier"
           Core.=: snapshotScheduleIdentifier,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "ClusterType" Core.=: clusterType,
+        "KmsKeyId" Core.=: kmsKeyId,
         "ManualSnapshotRetentionPeriod"
           Core.=: manualSnapshotRetentionPeriod,
-        "KmsKeyId" Core.=: kmsKeyId,
         "AvailabilityZone" Core.=: availabilityZone,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
-        "NumberOfNodes" Core.=: numberOfNodes,
-        "Port" Core.=: port,
         "DBName" Core.=: dbName,
+        "Port" Core.=: port,
+        "NumberOfNodes" Core.=: numberOfNodes,
         "ClusterVersion" Core.=: clusterVersion,
         "ClusterSecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "ClusterSecurityGroupName"
                 Prelude.<$> clusterSecurityGroups
             ),
-        "MaintenanceTrackName" Core.=: maintenanceTrackName,
+        "AquaConfigurationStatus"
+          Core.=: aquaConfigurationStatus,
         "HsmConfigurationIdentifier"
           Core.=: hsmConfigurationIdentifier,
+        "MaintenanceTrackName" Core.=: maintenanceTrackName,
         "IamRoles"
           Core.=: Core.toQuery
             (Core.toQueryList "IamRoleArn" Prelude.<$> iamRoles),

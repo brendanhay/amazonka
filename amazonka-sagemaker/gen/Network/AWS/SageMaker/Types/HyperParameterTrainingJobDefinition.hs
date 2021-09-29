@@ -29,6 +29,7 @@ import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
 import Network.AWS.SageMaker.Types.OutputDataConfig
 import Network.AWS.SageMaker.Types.ParameterRanges
 import Network.AWS.SageMaker.Types.ResourceConfig
+import Network.AWS.SageMaker.Types.RetryStrategy
 import Network.AWS.SageMaker.Types.StoppingCondition
 import Network.AWS.SageMaker.Types.VpcConfig
 
@@ -42,16 +43,15 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | An array of Channel objects that specify the input for the training jobs
-    -- that the tuning job launches.
-    inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
-    -- | A Boolean indicating whether managed spot training is enabled (@True@)
-    -- or not (@False@).
-    enableManagedSpotTraining :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the values of hyperparameters that do not change for the
     -- tuning job.
     staticHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    hyperParameterRanges :: Prelude.Maybe ParameterRanges,
+    -- | A Boolean indicating whether managed spot training is enabled (@True@)
+    -- or not (@False@).
+    enableManagedSpotTraining :: Prelude.Maybe Prelude.Bool,
+    -- | An array of Channel objects that specify the input for the training jobs
+    -- that the tuning job launches.
+    inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
     -- | Isolates the training container. No inbound or outbound network calls
     -- can be made, except for calls between peers within a training cluster
     -- for distributed training. If network isolation is used for training jobs
@@ -59,6 +59,7 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- customer data and model artifacts through the specified VPC, but the
     -- training container does not have network access.
     enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    hyperParameterRanges :: Prelude.Maybe ParameterRanges,
     -- | To encrypt all communications between ML compute instances in
     -- distributed training, choose @True@. Encryption provides greater
     -- security for distributed training, but training might take longer. How
@@ -67,6 +68,9 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- distributed training.
     enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
     checkpointConfig :: Prelude.Maybe CheckpointConfig,
+    -- | The number of times to retry the job when the job fails due to an
+    -- @InternalServerError@.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
     tuningObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
     -- | The job definition name.
     definitionName :: Prelude.Maybe Prelude.Text,
@@ -91,10 +95,9 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- than 1.
     resourceConfig :: ResourceConfig,
     -- | Specifies a limit to how long a model hyperparameter training job can
-    -- run. It also specifies how long you are willing to wait for a managed
-    -- spot training job to complete. When the job reaches the a limit, Amazon
-    -- SageMaker ends the training job. Use this API to cap model training
-    -- costs.
+    -- run. It also specifies how long a managed spot training job has to
+    -- complete. When the job reaches the time limit, Amazon SageMaker ends the
+    -- training job. Use this API to cap model training costs.
     stoppingCondition :: StoppingCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -113,16 +116,14 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 --
--- 'inputDataConfig', 'hyperParameterTrainingJobDefinition_inputDataConfig' - An array of Channel objects that specify the input for the training jobs
--- that the tuning job launches.
+-- 'staticHyperParameters', 'hyperParameterTrainingJobDefinition_staticHyperParameters' - Specifies the values of hyperparameters that do not change for the
+-- tuning job.
 --
 -- 'enableManagedSpotTraining', 'hyperParameterTrainingJobDefinition_enableManagedSpotTraining' - A Boolean indicating whether managed spot training is enabled (@True@)
 -- or not (@False@).
 --
--- 'staticHyperParameters', 'hyperParameterTrainingJobDefinition_staticHyperParameters' - Specifies the values of hyperparameters that do not change for the
--- tuning job.
---
--- 'hyperParameterRanges', 'hyperParameterTrainingJobDefinition_hyperParameterRanges' - Undocumented member.
+-- 'inputDataConfig', 'hyperParameterTrainingJobDefinition_inputDataConfig' - An array of Channel objects that specify the input for the training jobs
+-- that the tuning job launches.
 --
 -- 'enableNetworkIsolation', 'hyperParameterTrainingJobDefinition_enableNetworkIsolation' - Isolates the training container. No inbound or outbound network calls
 -- can be made, except for calls between peers within a training cluster
@@ -130,6 +131,8 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- that are configured to use a VPC, Amazon SageMaker downloads and uploads
 -- customer data and model artifacts through the specified VPC, but the
 -- training container does not have network access.
+--
+-- 'hyperParameterRanges', 'hyperParameterTrainingJobDefinition_hyperParameterRanges' - Undocumented member.
 --
 -- 'enableInterContainerTrafficEncryption', 'hyperParameterTrainingJobDefinition_enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in
 -- distributed training, choose @True@. Encryption provides greater
@@ -139,6 +142,9 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- distributed training.
 --
 -- 'checkpointConfig', 'hyperParameterTrainingJobDefinition_checkpointConfig' - Undocumented member.
+--
+-- 'retryStrategy', 'hyperParameterTrainingJobDefinition_retryStrategy' - The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
 --
 -- 'tuningObjective', 'hyperParameterTrainingJobDefinition_tuningObjective' - Undocumented member.
 --
@@ -165,10 +171,9 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- than 1.
 --
 -- 'stoppingCondition', 'hyperParameterTrainingJobDefinition_stoppingCondition' - Specifies a limit to how long a model hyperparameter training job can
--- run. It also specifies how long you are willing to wait for a managed
--- spot training job to complete. When the job reaches the a limit, Amazon
--- SageMaker ends the training job. Use this API to cap model training
--- costs.
+-- run. It also specifies how long a managed spot training job has to
+-- complete. When the job reaches the time limit, Amazon SageMaker ends the
+-- training job. Use this API to cap model training costs.
 newHyperParameterTrainingJobDefinition ::
   -- | 'algorithmSpecification'
   HyperParameterAlgorithmSpecification ->
@@ -190,17 +195,18 @@ newHyperParameterTrainingJobDefinition
     HyperParameterTrainingJobDefinition'
       { vpcConfig =
           Prelude.Nothing,
-        inputDataConfig = Prelude.Nothing,
-        enableManagedSpotTraining =
-          Prelude.Nothing,
         staticHyperParameters =
           Prelude.Nothing,
-        hyperParameterRanges = Prelude.Nothing,
+        enableManagedSpotTraining =
+          Prelude.Nothing,
+        inputDataConfig = Prelude.Nothing,
         enableNetworkIsolation =
           Prelude.Nothing,
+        hyperParameterRanges = Prelude.Nothing,
         enableInterContainerTrafficEncryption =
           Prelude.Nothing,
         checkpointConfig = Prelude.Nothing,
+        retryStrategy = Prelude.Nothing,
         tuningObjective = Prelude.Nothing,
         definitionName = Prelude.Nothing,
         algorithmSpecification =
@@ -220,24 +226,20 @@ newHyperParameterTrainingJobDefinition
 hyperParameterTrainingJobDefinition_vpcConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe VpcConfig)
 hyperParameterTrainingJobDefinition_vpcConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {vpcConfig} -> vpcConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {vpcConfig = a} :: HyperParameterTrainingJobDefinition)
 
--- | An array of Channel objects that specify the input for the training jobs
--- that the tuning job launches.
-hyperParameterTrainingJobDefinition_inputDataConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.NonEmpty Channel))
-hyperParameterTrainingJobDefinition_inputDataConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {inputDataConfig = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
+-- | Specifies the values of hyperparameters that do not change for the
+-- tuning job.
+hyperParameterTrainingJobDefinition_staticHyperParameters :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hyperParameterTrainingJobDefinition_staticHyperParameters = Lens.lens (\HyperParameterTrainingJobDefinition' {staticHyperParameters} -> staticHyperParameters) (\s@HyperParameterTrainingJobDefinition' {} a -> s {staticHyperParameters = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A Boolean indicating whether managed spot training is enabled (@True@)
 -- or not (@False@).
 hyperParameterTrainingJobDefinition_enableManagedSpotTraining :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe Prelude.Bool)
 hyperParameterTrainingJobDefinition_enableManagedSpotTraining = Lens.lens (\HyperParameterTrainingJobDefinition' {enableManagedSpotTraining} -> enableManagedSpotTraining) (\s@HyperParameterTrainingJobDefinition' {} a -> s {enableManagedSpotTraining = a} :: HyperParameterTrainingJobDefinition)
 
--- | Specifies the values of hyperparameters that do not change for the
--- tuning job.
-hyperParameterTrainingJobDefinition_staticHyperParameters :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hyperParameterTrainingJobDefinition_staticHyperParameters = Lens.lens (\HyperParameterTrainingJobDefinition' {staticHyperParameters} -> staticHyperParameters) (\s@HyperParameterTrainingJobDefinition' {} a -> s {staticHyperParameters = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-hyperParameterTrainingJobDefinition_hyperParameterRanges :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe ParameterRanges)
-hyperParameterTrainingJobDefinition_hyperParameterRanges = Lens.lens (\HyperParameterTrainingJobDefinition' {hyperParameterRanges} -> hyperParameterRanges) (\s@HyperParameterTrainingJobDefinition' {} a -> s {hyperParameterRanges = a} :: HyperParameterTrainingJobDefinition)
+-- | An array of Channel objects that specify the input for the training jobs
+-- that the tuning job launches.
+hyperParameterTrainingJobDefinition_inputDataConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.NonEmpty Channel))
+hyperParameterTrainingJobDefinition_inputDataConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {inputDataConfig = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Isolates the training container. No inbound or outbound network calls
 -- can be made, except for calls between peers within a training cluster
@@ -247,6 +249,10 @@ hyperParameterTrainingJobDefinition_hyperParameterRanges = Lens.lens (\HyperPara
 -- training container does not have network access.
 hyperParameterTrainingJobDefinition_enableNetworkIsolation :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe Prelude.Bool)
 hyperParameterTrainingJobDefinition_enableNetworkIsolation = Lens.lens (\HyperParameterTrainingJobDefinition' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@HyperParameterTrainingJobDefinition' {} a -> s {enableNetworkIsolation = a} :: HyperParameterTrainingJobDefinition)
+
+-- | Undocumented member.
+hyperParameterTrainingJobDefinition_hyperParameterRanges :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe ParameterRanges)
+hyperParameterTrainingJobDefinition_hyperParameterRanges = Lens.lens (\HyperParameterTrainingJobDefinition' {hyperParameterRanges} -> hyperParameterRanges) (\s@HyperParameterTrainingJobDefinition' {} a -> s {hyperParameterRanges = a} :: HyperParameterTrainingJobDefinition)
 
 -- | To encrypt all communications between ML compute instances in
 -- distributed training, choose @True@. Encryption provides greater
@@ -260,6 +266,11 @@ hyperParameterTrainingJobDefinition_enableInterContainerTrafficEncryption = Lens
 -- | Undocumented member.
 hyperParameterTrainingJobDefinition_checkpointConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe CheckpointConfig)
 hyperParameterTrainingJobDefinition_checkpointConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {checkpointConfig} -> checkpointConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {checkpointConfig = a} :: HyperParameterTrainingJobDefinition)
+
+-- | The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
+hyperParameterTrainingJobDefinition_retryStrategy :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe RetryStrategy)
+hyperParameterTrainingJobDefinition_retryStrategy = Lens.lens (\HyperParameterTrainingJobDefinition' {retryStrategy} -> retryStrategy) (\s@HyperParameterTrainingJobDefinition' {} a -> s {retryStrategy = a} :: HyperParameterTrainingJobDefinition)
 
 -- | Undocumented member.
 hyperParameterTrainingJobDefinition_tuningObjective :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe HyperParameterTuningJobObjective)
@@ -298,10 +309,9 @@ hyperParameterTrainingJobDefinition_resourceConfig :: Lens.Lens' HyperParameterT
 hyperParameterTrainingJobDefinition_resourceConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {resourceConfig} -> resourceConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {resourceConfig = a} :: HyperParameterTrainingJobDefinition)
 
 -- | Specifies a limit to how long a model hyperparameter training job can
--- run. It also specifies how long you are willing to wait for a managed
--- spot training job to complete. When the job reaches the a limit, Amazon
--- SageMaker ends the training job. Use this API to cap model training
--- costs.
+-- run. It also specifies how long a managed spot training job has to
+-- complete. When the job reaches the time limit, Amazon SageMaker ends the
+-- training job. Use this API to cap model training costs.
 hyperParameterTrainingJobDefinition_stoppingCondition :: Lens.Lens' HyperParameterTrainingJobDefinition StoppingCondition
 hyperParameterTrainingJobDefinition_stoppingCondition = Lens.lens (\HyperParameterTrainingJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@HyperParameterTrainingJobDefinition' {} a -> s {stoppingCondition = a} :: HyperParameterTrainingJobDefinition)
 
@@ -315,15 +325,16 @@ instance
       ( \x ->
           HyperParameterTrainingJobDefinition'
             Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
             Prelude.<*> ( x Core..:? "StaticHyperParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "HyperParameterRanges")
+            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
+            Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Core..:? "HyperParameterRanges")
             Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
             Prelude.<*> (x Core..:? "CheckpointConfig")
+            Prelude.<*> (x Core..:? "RetryStrategy")
             Prelude.<*> (x Core..:? "TuningObjective")
             Prelude.<*> (x Core..:? "DefinitionName")
             Prelude.<*> (x Core..: "AlgorithmSpecification")
@@ -349,20 +360,21 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("InputDataConfig" Core..=)
-              Prelude.<$> inputDataConfig,
-            ("EnableManagedSpotTraining" Core..=)
-              Prelude.<$> enableManagedSpotTraining,
             ("StaticHyperParameters" Core..=)
               Prelude.<$> staticHyperParameters,
-            ("HyperParameterRanges" Core..=)
-              Prelude.<$> hyperParameterRanges,
+            ("EnableManagedSpotTraining" Core..=)
+              Prelude.<$> enableManagedSpotTraining,
+            ("InputDataConfig" Core..=)
+              Prelude.<$> inputDataConfig,
             ("EnableNetworkIsolation" Core..=)
               Prelude.<$> enableNetworkIsolation,
+            ("HyperParameterRanges" Core..=)
+              Prelude.<$> hyperParameterRanges,
             ("EnableInterContainerTrafficEncryption" Core..=)
               Prelude.<$> enableInterContainerTrafficEncryption,
             ("CheckpointConfig" Core..=)
               Prelude.<$> checkpointConfig,
+            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
             ("TuningObjective" Core..=)
               Prelude.<$> tuningObjective,
             ("DefinitionName" Core..=)

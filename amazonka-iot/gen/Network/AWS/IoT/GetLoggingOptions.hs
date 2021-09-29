@@ -24,6 +24,10 @@
 --
 -- NOTE: use of this command is not recommended. Use @GetV2LoggingOptions@
 -- instead.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetLoggingOptions>
+-- action.
 module Network.AWS.IoT.GetLoggingOptions
   ( -- * Creating a Request
     GetLoggingOptions (..),

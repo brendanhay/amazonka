@@ -56,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data GetAnomalySubscriptions = GetAnomalySubscriptions'
   { -- | The number of entries a paginated response contains.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | A list of cost anomaly subscription ARNs.
     subscriptionArnList :: Prelude.Maybe [Prelude.Text],
@@ -77,9 +77,9 @@ data GetAnomalySubscriptions = GetAnomalySubscriptions'
 --
 -- 'maxResults', 'getAnomalySubscriptions_maxResults' - The number of entries a paginated response contains.
 --
--- 'nextPageToken', 'getAnomalySubscriptions_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomalySubscriptions_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'subscriptionArnList', 'getAnomalySubscriptions_subscriptionArnList' - A list of cost anomaly subscription ARNs.
 --
@@ -99,9 +99,9 @@ newGetAnomalySubscriptions =
 getAnomalySubscriptions_maxResults :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Int)
 getAnomalySubscriptions_maxResults = Lens.lens (\GetAnomalySubscriptions' {maxResults} -> maxResults) (\s@GetAnomalySubscriptions' {} a -> s {maxResults = a} :: GetAnomalySubscriptions)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomalySubscriptions_nextPageToken :: Lens.Lens' GetAnomalySubscriptions (Prelude.Maybe Prelude.Text)
 getAnomalySubscriptions_nextPageToken = Lens.lens (\GetAnomalySubscriptions' {nextPageToken} -> nextPageToken) (\s@GetAnomalySubscriptions' {} a -> s {nextPageToken = a} :: GetAnomalySubscriptions)
 
@@ -168,9 +168,9 @@ instance Core.ToQuery GetAnomalySubscriptions where
 
 -- | /See:/ 'newGetAnomalySubscriptionsResponse' smart constructor.
 data GetAnomalySubscriptionsResponse = GetAnomalySubscriptionsResponse'
-  { -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -188,9 +188,9 @@ data GetAnomalySubscriptionsResponse = GetAnomalySubscriptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getAnomalySubscriptionsResponse_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomalySubscriptionsResponse_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getAnomalySubscriptionsResponse_httpStatus' - The response's http status code.
 --
@@ -208,9 +208,9 @@ newGetAnomalySubscriptionsResponse pHttpStatus_ =
       anomalySubscriptions = Prelude.mempty
     }
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomalySubscriptionsResponse_nextPageToken :: Lens.Lens' GetAnomalySubscriptionsResponse (Prelude.Maybe Prelude.Text)
 getAnomalySubscriptionsResponse_nextPageToken = Lens.lens (\GetAnomalySubscriptionsResponse' {nextPageToken} -> nextPageToken) (\s@GetAnomalySubscriptionsResponse' {} a -> s {nextPageToken = a} :: GetAnomalySubscriptionsResponse)
 

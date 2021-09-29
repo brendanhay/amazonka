@@ -34,9 +34,9 @@ module Network.AWS.RDS.ModifyDBCluster
     newModifyDBCluster,
 
     -- * Request Lenses
-    modifyDBCluster_backupRetentionPeriod,
     modifyDBCluster_deletionProtection,
     modifyDBCluster_preferredBackupWindow,
+    modifyDBCluster_backupRetentionPeriod,
     modifyDBCluster_enableIAMDatabaseAuthentication,
     modifyDBCluster_dbInstanceParameterGroupName,
     modifyDBCluster_optionGroupName,
@@ -44,16 +44,16 @@ module Network.AWS.RDS.ModifyDBCluster
     modifyDBCluster_allowMajorVersionUpgrade,
     modifyDBCluster_scalingConfiguration,
     modifyDBCluster_masterUserPassword,
-    modifyDBCluster_vpcSecurityGroupIds,
     modifyDBCluster_enableHttpEndpoint,
+    modifyDBCluster_vpcSecurityGroupIds,
     modifyDBCluster_engineVersion,
-    modifyDBCluster_preferredMaintenanceWindow,
     modifyDBCluster_enableGlobalWriteForwarding,
+    modifyDBCluster_preferredMaintenanceWindow,
     modifyDBCluster_port,
     modifyDBCluster_domainIAMRoleName,
+    modifyDBCluster_copyTagsToSnapshot,
     modifyDBCluster_newDBClusterIdentifier,
     modifyDBCluster_cloudwatchLogsExportConfiguration,
-    modifyDBCluster_copyTagsToSnapshot,
     modifyDBCluster_backtrackWindow,
     modifyDBCluster_applyImmediately,
     modifyDBCluster_dbClusterParameterGroupName,
@@ -80,16 +80,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newModifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-  { -- | The number of days for which automated backups are retained. You must
-    -- specify a minimum value of 1.
-    --
-    -- Default: 1
-    --
-    -- Constraints:
-    --
-    -- -   Must be a value from 1 to 35
-    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether the DB cluster has deletion protection
+  { -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
@@ -98,8 +89,9 @@ data ModifyDBCluster = ModifyDBCluster'
     -- parameter.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region. To see the time blocks available, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+    -- block of time for each Amazon Web Services Region. To view the time
+    -- blocks available, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
     -- in the /Amazon Aurora User Guide./
     --
     -- Constraints:
@@ -112,9 +104,18 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to enable mapping of AWS Identity and
-    -- Access Management (IAM) accounts to database accounts. By default,
-    -- mapping is disabled.
+    -- | The number of days for which automated backups are retained. You must
+    -- specify a minimum value of 1.
+    --
+    -- Default: 1
+    --
+    -- Constraints:
+    --
+    -- -   Must be a value from 1 to 35
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -173,8 +174,6 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- Constraints: Must contain from 8 to 41 characters.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
-    -- | A list of VPC security groups that the DB cluster will belong to.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
     -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
     --
@@ -187,6 +186,8 @@ data ModifyDBCluster = ModifyDBCluster'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
     -- in the /Amazon Aurora User Guide/.
     enableHttpEndpoint :: Prelude.Maybe Prelude.Bool,
+    -- | A list of VPC security groups that the DB cluster will belong to.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The version number of the database engine to which you want to upgrade.
     -- Changing this parameter results in an outage. The change is applied
     -- during the next maintenance window unless @ApplyImmediately@ is enabled.
@@ -206,21 +207,6 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The weekly time range during which system maintenance can occur, in
-    -- Universal Coordinated Time (UTC).
-    --
-    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
-    --
-    -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region, occurring on a random day of the
-    -- week. To see the time blocks available, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
-    -- in the /Amazon Aurora User Guide./
-    --
-    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
-    --
-    -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable this DB cluster to forward
     -- write operations to the primary cluster of an Aurora global database
     -- (GlobalCluster). By default, write operations are not allowed on Aurora
@@ -234,6 +220,21 @@ data ModifyDBCluster = ModifyDBCluster'
     -- primary is demoted by the FailoverGlobalCluster API operation, but it
     -- does nothing until then.
     enableGlobalWriteForwarding :: Prelude.Maybe Prelude.Bool,
+    -- | The weekly time range during which system maintenance can occur, in
+    -- Universal Coordinated Time (UTC).
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week. To see the time blocks available, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    --
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The port number on which the DB cluster accepts connections.
     --
     -- Constraints: Value must be @1150-65535@
@@ -243,6 +244,9 @@ data ModifyDBCluster = ModifyDBCluster'
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
     domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to copy all tags from the DB cluster to
+    -- snapshots of the DB cluster. The default is not to copy them.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The new DB cluster identifier for the DB cluster when renaming a DB
     -- cluster. This value is stored as a lowercase string.
     --
@@ -259,9 +263,6 @@ data ModifyDBCluster = ModifyDBCluster'
     -- | The configuration setting for the log types to be enabled for export to
     -- CloudWatch Logs for a specific DB cluster.
     cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
-    -- | A value that indicates whether to copy all tags from the DB cluster to
-    -- snapshots of the DB cluster. The default is not to copy them.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The target backtrack window, in seconds. To disable backtracking, set
     -- this value to 0.
     --
@@ -310,15 +311,6 @@ data ModifyDBCluster = ModifyDBCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupRetentionPeriod', 'modifyDBCluster_backupRetentionPeriod' - The number of days for which automated backups are retained. You must
--- specify a minimum value of 1.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 1 to 35
---
 -- 'deletionProtection', 'modifyDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
@@ -328,8 +320,9 @@ data ModifyDBCluster = ModifyDBCluster'
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+-- block of time for each Amazon Web Services Region. To view the time
+-- blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
 -- in the /Amazon Aurora User Guide./
 --
 -- Constraints:
@@ -342,9 +335,18 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- -   Must be at least 30 minutes.
 --
--- 'enableIAMDatabaseAuthentication', 'modifyDBCluster_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- 'backupRetentionPeriod', 'modifyDBCluster_backupRetentionPeriod' - The number of days for which automated backups are retained. You must
+-- specify a minimum value of 1.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 1 to 35
+--
+-- 'enableIAMDatabaseAuthentication', 'modifyDBCluster_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -403,8 +405,6 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Constraints: Must contain from 8 to 41 characters.
 --
--- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
---
 -- 'enableHttpEndpoint', 'modifyDBCluster_enableHttpEndpoint' - A value that indicates whether to enable the HTTP endpoint for an Aurora
 -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
 --
@@ -416,6 +416,8 @@ data ModifyDBCluster = ModifyDBCluster'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
 -- in the /Amazon Aurora User Guide/.
+--
+-- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
 --
 -- 'engineVersion', 'modifyDBCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
 -- Changing this parameter results in an outage. The change is applied
@@ -436,21 +438,6 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
 --
--- 'preferredMaintenanceWindow', 'modifyDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
--- in the /Amazon Aurora User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- Constraints: Minimum 30-minute window.
---
 -- 'enableGlobalWriteForwarding', 'modifyDBCluster_enableGlobalWriteForwarding' - A value that indicates whether to enable this DB cluster to forward
 -- write operations to the primary cluster of an Aurora global database
 -- (GlobalCluster). By default, write operations are not allowed on Aurora
@@ -464,6 +451,21 @@ data ModifyDBCluster = ModifyDBCluster'
 -- primary is demoted by the FailoverGlobalCluster API operation, but it
 -- does nothing until then.
 --
+-- 'preferredMaintenanceWindow', 'modifyDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+--
 -- 'port', 'modifyDBCluster_port' - The port number on which the DB cluster accepts connections.
 --
 -- Constraints: Value must be @1150-65535@
@@ -472,6 +474,9 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- 'domainIAMRoleName', 'modifyDBCluster_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
+--
+-- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB cluster to
+-- snapshots of the DB cluster. The default is not to copy them.
 --
 -- 'newDBClusterIdentifier'', 'modifyDBCluster_newDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB
 -- cluster. This value is stored as a lowercase string.
@@ -488,9 +493,6 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- 'cloudwatchLogsExportConfiguration', 'modifyDBCluster_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
 -- CloudWatch Logs for a specific DB cluster.
---
--- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB cluster to
--- snapshots of the DB cluster. The default is not to copy them.
 --
 -- 'backtrackWindow', 'modifyDBCluster_backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set
 -- this value to 0.
@@ -534,10 +536,10 @@ newModifyDBCluster ::
   ModifyDBCluster
 newModifyDBCluster pDBClusterIdentifier_ =
   ModifyDBCluster'
-    { backupRetentionPeriod =
+    { deletionProtection =
         Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
+      backupRetentionPeriod = Prelude.Nothing,
       enableIAMDatabaseAuthentication = Prelude.Nothing,
       dbInstanceParameterGroupName = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
@@ -545,32 +547,21 @@ newModifyDBCluster pDBClusterIdentifier_ =
       allowMajorVersionUpgrade = Prelude.Nothing,
       scalingConfiguration = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
-      vpcSecurityGroupIds = Prelude.Nothing,
       enableHttpEndpoint = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
       enableGlobalWriteForwarding = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       port = Prelude.Nothing,
       domainIAMRoleName = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
       newDBClusterIdentifier' = Prelude.Nothing,
       cloudwatchLogsExportConfiguration = Prelude.Nothing,
-      copyTagsToSnapshot = Prelude.Nothing,
       backtrackWindow = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
       dbClusterParameterGroupName = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
-
--- | The number of days for which automated backups are retained. You must
--- specify a minimum value of 1.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 1 to 35
-modifyDBCluster_backupRetentionPeriod :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
-modifyDBCluster_backupRetentionPeriod = Lens.lens (\ModifyDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBCluster' {} a -> s {backupRetentionPeriod = a} :: ModifyDBCluster)
 
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
@@ -583,8 +574,9 @@ modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProte
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+-- block of time for each Amazon Web Services Region. To view the time
+-- blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
 -- in the /Amazon Aurora User Guide./
 --
 -- Constraints:
@@ -599,9 +591,20 @@ modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProte
 modifyDBCluster_preferredBackupWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_preferredBackupWindow = Lens.lens (\ModifyDBCluster' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBCluster' {} a -> s {preferredBackupWindow = a} :: ModifyDBCluster)
 
--- | A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- | The number of days for which automated backups are retained. You must
+-- specify a minimum value of 1.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 1 to 35
+modifyDBCluster_backupRetentionPeriod :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
+modifyDBCluster_backupRetentionPeriod = Lens.lens (\ModifyDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBCluster' {} a -> s {backupRetentionPeriod = a} :: ModifyDBCluster)
+
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -674,10 +677,6 @@ modifyDBCluster_scalingConfiguration = Lens.lens (\ModifyDBCluster' {scalingConf
 modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_masterUserPassword = Lens.lens (\ModifyDBCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBCluster' {} a -> s {masterUserPassword = a} :: ModifyDBCluster)
 
--- | A list of VPC security groups that the DB cluster will belong to.
-modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
-modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A value that indicates whether to enable the HTTP endpoint for an Aurora
 -- Serverless DB cluster. By default, the HTTP endpoint is disabled.
 --
@@ -691,6 +690,10 @@ modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityG
 -- in the /Amazon Aurora User Guide/.
 modifyDBCluster_enableHttpEndpoint :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableHttpEndpoint = Lens.lens (\ModifyDBCluster' {enableHttpEndpoint} -> enableHttpEndpoint) (\s@ModifyDBCluster' {} a -> s {enableHttpEndpoint = a} :: ModifyDBCluster)
+
+-- | A list of VPC security groups that the DB cluster will belong to.
+modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
+modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The version number of the database engine to which you want to upgrade.
 -- Changing this parameter results in an outage. The change is applied
@@ -713,23 +716,6 @@ modifyDBCluster_enableHttpEndpoint = Lens.lens (\ModifyDBCluster' {enableHttpEnd
 modifyDBCluster_engineVersion :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> engineVersion) (\s@ModifyDBCluster' {} a -> s {engineVersion = a} :: ModifyDBCluster)
 
--- | The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
--- in the /Amazon Aurora User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- Constraints: Minimum 30-minute window.
-modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
-
 -- | A value that indicates whether to enable this DB cluster to forward
 -- write operations to the primary cluster of an Aurora global database
 -- (GlobalCluster). By default, write operations are not allowed on Aurora
@@ -745,6 +731,23 @@ modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {prefe
 modifyDBCluster_enableGlobalWriteForwarding :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableGlobalWriteForwarding = Lens.lens (\ModifyDBCluster' {enableGlobalWriteForwarding} -> enableGlobalWriteForwarding) (\s@ModifyDBCluster' {} a -> s {enableGlobalWriteForwarding = a} :: ModifyDBCluster)
 
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
+
 -- | The port number on which the DB cluster accepts connections.
 --
 -- Constraints: Value must be @1150-65535@
@@ -757,6 +760,11 @@ modifyDBCluster_port = Lens.lens (\ModifyDBCluster' {port} -> port) (\s@ModifyDB
 -- Directory Service.
 modifyDBCluster_domainIAMRoleName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_domainIAMRoleName = Lens.lens (\ModifyDBCluster' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBCluster' {} a -> s {domainIAMRoleName = a} :: ModifyDBCluster)
+
+-- | A value that indicates whether to copy all tags from the DB cluster to
+-- snapshots of the DB cluster. The default is not to copy them.
+modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
 
 -- | The new DB cluster identifier for the DB cluster when renaming a DB
 -- cluster. This value is stored as a lowercase string.
@@ -777,11 +785,6 @@ modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClus
 -- CloudWatch Logs for a specific DB cluster.
 modifyDBCluster_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe CloudwatchLogsExportConfiguration)
 modifyDBCluster_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBCluster' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBCluster' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBCluster)
-
--- | A value that indicates whether to copy all tags from the DB cluster to
--- snapshots of the DB cluster. The default is not to copy them.
-modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
-modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
 
 -- | The target backtrack window, in seconds. To disable backtracking, set
 -- this value to 0.
@@ -859,11 +862,11 @@ instance Core.ToQuery ModifyDBCluster where
           Core.=: ("ModifyDBCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
         "DeletionProtection" Core.=: deletionProtection,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
         "DBInstanceParameterGroupName"
@@ -874,24 +877,24 @@ instance Core.ToQuery ModifyDBCluster where
           Core.=: allowMajorVersionUpgrade,
         "ScalingConfiguration" Core.=: scalingConfiguration,
         "MasterUserPassword" Core.=: masterUserPassword,
+        "EnableHttpEndpoint" Core.=: enableHttpEndpoint,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "EnableHttpEndpoint" Core.=: enableHttpEndpoint,
         "EngineVersion" Core.=: engineVersion,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
         "EnableGlobalWriteForwarding"
           Core.=: enableGlobalWriteForwarding,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
         "Port" Core.=: port,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "NewDBClusterIdentifier"
           Core.=: newDBClusterIdentifier',
         "CloudwatchLogsExportConfiguration"
           Core.=: cloudwatchLogsExportConfiguration,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "BacktrackWindow" Core.=: backtrackWindow,
         "ApplyImmediately" Core.=: applyImmediately,
         "DBClusterParameterGroupName"

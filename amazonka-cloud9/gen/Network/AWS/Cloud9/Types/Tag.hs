@@ -23,21 +23,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Metadata that is associated with AWS resources. In particular, a
--- name-value pair that can be associated with an AWS Cloud9 development
--- environment. There are two types of tags: /user tags/ and /system tags/.
--- A user tag is created by the user. A system tag is automatically created
--- by AWS services. A system tag is prefixed with \"aws:\" and cannot be
--- modified by the user.
+-- | Metadata that is associated with Amazon Web Services resources. In
+-- particular, a name-value pair that can be associated with an Cloud9
+-- development environment. There are two types of tags: /user tags/ and
+-- /system tags/. A user tag is created by the user. A system tag is
+-- automatically created by Amazon Web Services services. A system tag is
+-- prefixed with @\"aws:\"@ and cannot be modified by the user.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The __name__ part of a tag.
-    key :: Prelude.Text,
+    key :: Core.Sensitive Prelude.Text,
     -- | The __value__ part of a tag.
-    value :: Prelude.Text
+    value :: Core.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -57,15 +57,18 @@ newTag ::
   Prelude.Text ->
   Tag
 newTag pKey_ pValue_ =
-  Tag' {key = pKey_, value = pValue_}
+  Tag'
+    { key = Core._Sensitive Lens.# pKey_,
+      value = Core._Sensitive Lens.# pValue_
+    }
 
 -- | The __name__ part of a tag.
 tag_key :: Lens.Lens' Tag Prelude.Text
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Core._Sensitive
 
 -- | The __value__ part of a tag.
 tag_value :: Lens.Lens' Tag Prelude.Text
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Core._Sensitive
 
 instance Core.FromJSON Tag where
   parseJSON =

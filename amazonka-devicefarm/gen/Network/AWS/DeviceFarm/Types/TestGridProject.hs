@@ -20,6 +20,7 @@
 module Network.AWS.DeviceFarm.Types.TestGridProject where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.DeviceFarm.Types.TestGridVpcConfig
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -28,7 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
-  { -- | The ARN for the project.
+  { -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
+    -- | The ARN for the project.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A human-readable name for the project.
     name :: Prelude.Maybe Prelude.Text,
@@ -47,6 +50,8 @@ data TestGridProject = TestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'testGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'arn', 'testGridProject_arn' - The ARN for the project.
 --
 -- 'name', 'testGridProject_name' - A human-readable name for the project.
@@ -58,11 +63,16 @@ newTestGridProject ::
   TestGridProject
 newTestGridProject =
   TestGridProject'
-    { arn = Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
       description = Prelude.Nothing,
       created = Prelude.Nothing
     }
+
+-- | The VPC security groups and subnets that are attached to a project.
+testGridProject_vpcConfig :: Lens.Lens' TestGridProject (Prelude.Maybe TestGridVpcConfig)
+testGridProject_vpcConfig = Lens.lens (\TestGridProject' {vpcConfig} -> vpcConfig) (\s@TestGridProject' {} a -> s {vpcConfig = a} :: TestGridProject)
 
 -- | The ARN for the project.
 testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
@@ -86,7 +96,8 @@ instance Core.FromJSON TestGridProject where
       "TestGridProject"
       ( \x ->
           TestGridProject'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "vpcConfig")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "created")

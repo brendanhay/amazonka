@@ -21,21 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates a report that includes details about when an IAM resource
--- (user, group, role, or policy) was last used in an attempt to access AWS
--- services. Recent activity usually appears within four hours. IAM reports
--- activity for the last 365 days, or less if your Region began supporting
--- this feature within the last year. For more information, see
+-- (user, group, role, or policy) was last used in an attempt to access
+-- Amazon Web Services services. Recent activity usually appears within
+-- four hours. IAM reports activity for the last 365 days, or less if your
+-- Region began supporting this feature within the last year. For more
+-- information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>.
 --
--- The service last accessed data includes all attempts to access an AWS
--- API, not just the successful ones. This includes all attempts that were
--- made using the AWS Management Console, the AWS API through any of the
--- SDKs, or any of the command line tools. An unexpected entry in the
--- service last accessed data does not mean that your account has been
--- compromised, because the request might have been denied. Refer to your
--- CloudTrail logs as the authoritative source for information about all
--- API calls and whether they were successful or denied access. For more
--- information,
+-- The service last accessed data includes all attempts to access an Amazon
+-- Web Services API, not just the successful ones. This includes all
+-- attempts that were made using the Amazon Web Services Management
+-- Console, the Amazon Web Services API through any of the SDKs, or any of
+-- the command line tools. An unexpected entry in the service last accessed
+-- data does not mean that your account has been compromised, because the
+-- request might have been denied. Refer to your CloudTrail logs as the
+-- authoritative source for information about all API calls and whether
+-- they were successful or denied access. For more information,
 -- see <https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html Logging IAM events with CloudTrail>
 -- in the /IAM User Guide/.
 --
@@ -44,10 +45,10 @@
 -- details from your report:
 --
 -- -   GetServiceLastAccessedDetails – Use this operation for users,
---     groups, roles, or policies to list every AWS service that the
---     resource could access using permissions policies. For each service,
---     the response includes information about the most recent access
---     attempt.
+--     groups, roles, or policies to list every Amazon Web Services service
+--     that the resource could access using permissions policies. For each
+--     service, the response includes information about the most recent
+--     access attempt.
 --
 --     The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be
 --     used by the same role within a session, or by the same user when
@@ -55,8 +56,8 @@
 --
 -- -   GetServiceLastAccessedDetailsWithEntities – Use this operation for
 --     groups and policies to list information about the associated
---     entities (users or roles) that attempted to access a specific AWS
---     service.
+--     entities (users or roles) that attempted to access a specific Amazon
+--     Web Services service.
 --
 -- To check the status of the @GenerateServiceLastAccessedDetails@ request,
 -- use the @JobId@ parameter in the same operations and test the
@@ -68,10 +69,10 @@
 --
 -- Service last accessed data does not use other policy types when
 -- determining whether a resource could access a service. These other
--- policy types include resource-based policies, access control lists, AWS
--- Organizations policies, IAM permissions boundaries, and AWS STS assume
--- role policies. It only applies permissions policy logic. For more about
--- the evaluation of policy types, see
+-- policy types include resource-based policies, access control lists,
+-- Organizations policies, IAM permissions boundaries, and STS assume role
+-- policies. It only applies permissions policy logic. For more about the
+-- evaluation of policy types, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies>
 -- in the /IAM User Guide/.
 --
@@ -115,7 +116,7 @@ data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
     granularity :: Prelude.Maybe AccessAdvisorUsageGranularityType,
     -- | The ARN of the IAM resource (user, group, role, or managed policy) used
     -- to generate information about when the resource was last used in an
-    -- attempt to access an AWS service.
+    -- attempt to access an Amazon Web Services service.
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,7 +138,7 @@ data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
 --
 -- 'arn', 'generateServiceLastAccessedDetails_arn' - The ARN of the IAM resource (user, group, role, or managed policy) used
 -- to generate information about when the resource was last used in an
--- attempt to access an AWS service.
+-- attempt to access an Amazon Web Services service.
 newGenerateServiceLastAccessedDetails ::
   -- | 'arn'
   Prelude.Text ->
@@ -160,7 +161,7 @@ generateServiceLastAccessedDetails_granularity = Lens.lens (\GenerateServiceLast
 
 -- | The ARN of the IAM resource (user, group, role, or managed policy) used
 -- to generate information about when the resource was last used in an
--- attempt to access an AWS service.
+-- attempt to access an Amazon Web Services service.
 generateServiceLastAccessedDetails_arn :: Lens.Lens' GenerateServiceLastAccessedDetails Prelude.Text
 generateServiceLastAccessedDetails_arn = Lens.lens (\GenerateServiceLastAccessedDetails' {arn} -> arn) (\s@GenerateServiceLastAccessedDetails' {} a -> s {arn = a} :: GenerateServiceLastAccessedDetails)
 

@@ -21,6 +21,7 @@ module Network.AWS.EFS.Types.LifecyclePolicy where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.TransitionToIARules
+import Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -29,11 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLifecyclePolicy' smart constructor.
 data LifecyclePolicy = LifecyclePolicy'
-  { -- | A value that describes the period of time that a file is not accessed,
-    -- after which it transitions to the IA storage class. Metadata operations
-    -- such as listing the contents of a directory don\'t count as file access
-    -- events.
-    transitionToIA :: Prelude.Maybe TransitionToIARules
+  { -- | Describes the period of time that a file is not accessed, after which it
+    -- transitions to the IA storage class. Metadata operations such as listing
+    -- the contents of a directory don\'t count as file access events.
+    transitionToIA :: Prelude.Maybe TransitionToIARules,
+    -- | Describes the policy used to transition a file from infequent access
+    -- storage to primary storage.
+    transitionToPrimaryStorageClass :: Prelude.Maybe TransitionToPrimaryStorageClassRules
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,21 +48,30 @@ data LifecyclePolicy = LifecyclePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitionToIA', 'lifecyclePolicy_transitionToIA' - A value that describes the period of time that a file is not accessed,
--- after which it transitions to the IA storage class. Metadata operations
--- such as listing the contents of a directory don\'t count as file access
--- events.
+-- 'transitionToIA', 'lifecyclePolicy_transitionToIA' - Describes the period of time that a file is not accessed, after which it
+-- transitions to the IA storage class. Metadata operations such as listing
+-- the contents of a directory don\'t count as file access events.
+--
+-- 'transitionToPrimaryStorageClass', 'lifecyclePolicy_transitionToPrimaryStorageClass' - Describes the policy used to transition a file from infequent access
+-- storage to primary storage.
 newLifecyclePolicy ::
   LifecyclePolicy
 newLifecyclePolicy =
-  LifecyclePolicy' {transitionToIA = Prelude.Nothing}
+  LifecyclePolicy'
+    { transitionToIA = Prelude.Nothing,
+      transitionToPrimaryStorageClass = Prelude.Nothing
+    }
 
--- | A value that describes the period of time that a file is not accessed,
--- after which it transitions to the IA storage class. Metadata operations
--- such as listing the contents of a directory don\'t count as file access
--- events.
+-- | Describes the period of time that a file is not accessed, after which it
+-- transitions to the IA storage class. Metadata operations such as listing
+-- the contents of a directory don\'t count as file access events.
 lifecyclePolicy_transitionToIA :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToIARules)
 lifecyclePolicy_transitionToIA = Lens.lens (\LifecyclePolicy' {transitionToIA} -> transitionToIA) (\s@LifecyclePolicy' {} a -> s {transitionToIA = a} :: LifecyclePolicy)
+
+-- | Describes the policy used to transition a file from infequent access
+-- storage to primary storage.
+lifecyclePolicy_transitionToPrimaryStorageClass :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToPrimaryStorageClassRules)
+lifecyclePolicy_transitionToPrimaryStorageClass = Lens.lens (\LifecyclePolicy' {transitionToPrimaryStorageClass} -> transitionToPrimaryStorageClass) (\s@LifecyclePolicy' {} a -> s {transitionToPrimaryStorageClass = a} :: LifecyclePolicy)
 
 instance Core.FromJSON LifecyclePolicy where
   parseJSON =
@@ -68,6 +80,7 @@ instance Core.FromJSON LifecyclePolicy where
       ( \x ->
           LifecyclePolicy'
             Prelude.<$> (x Core..:? "TransitionToIA")
+            Prelude.<*> (x Core..:? "TransitionToPrimaryStorageClass")
       )
 
 instance Prelude.Hashable LifecyclePolicy
@@ -79,6 +92,8 @@ instance Core.ToJSON LifecyclePolicy where
     Core.object
       ( Prelude.catMaybes
           [ ("TransitionToIA" Core..=)
-              Prelude.<$> transitionToIA
+              Prelude.<$> transitionToIA,
+            ("TransitionToPrimaryStorageClass" Core..=)
+              Prelude.<$> transitionToPrimaryStorageClass
           ]
       )

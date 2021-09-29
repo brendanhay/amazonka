@@ -32,8 +32,8 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- * Request Lenses
     describePendingMaintenanceActions_resourceIdentifier,
     describePendingMaintenanceActions_filters,
-    describePendingMaintenanceActions_marker,
     describePendingMaintenanceActions_maxRecords,
+    describePendingMaintenanceActions_marker,
 
     -- * Destructuring the Response
     DescribePendingMaintenanceActionsResponse (..),
@@ -73,11 +73,6 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     --     ARNs. The results list will only include pending maintenance actions
     --     for the DB instances identified by these ARNs.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribePendingMaintenanceActions@ request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to a
-    -- number of records specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -86,7 +81,12 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribePendingMaintenanceActions@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to a
+    -- number of records specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,11 +114,6 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 --     ARNs. The results list will only include pending maintenance actions
 --     for the DB instances identified by these ARNs.
 --
--- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
---
 -- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -127,6 +122,11 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous
+-- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to a
+-- number of records specified by @MaxRecords@.
 newDescribePendingMaintenanceActions ::
   DescribePendingMaintenanceActions
 newDescribePendingMaintenanceActions =
@@ -134,8 +134,8 @@ newDescribePendingMaintenanceActions =
     { resourceIdentifier =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The ARN of a resource to return pending maintenance actions for.
@@ -158,13 +158,6 @@ describePendingMaintenanceActions_resourceIdentifier = Lens.lens (\DescribePendi
 describePendingMaintenanceActions_filters :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe [Filter])
 describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenanceActions' {filters} -> filters) (\s@DescribePendingMaintenanceActions' {} a -> s {filters = a} :: DescribePendingMaintenanceActions) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
-describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
-describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -175,6 +168,13 @@ describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanc
 -- Constraints: Minimum 20, maximum 100.
 describePendingMaintenanceActions_maxRecords :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Int)
 describePendingMaintenanceActions_maxRecords = Lens.lens (\DescribePendingMaintenanceActions' {maxRecords} -> maxRecords) (\s@DescribePendingMaintenanceActions' {} a -> s {maxRecords = a} :: DescribePendingMaintenanceActions)
+
+-- | An optional pagination token provided by a previous
+-- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to a
+-- number of records specified by @MaxRecords@.
+describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
+describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
 
 instance
   Core.AWSPager
@@ -261,8 +261,8 @@ instance
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Data returned from the __DescribePendingMaintenanceActions__ action.

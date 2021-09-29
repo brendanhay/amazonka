@@ -25,11 +25,12 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An organization conformance pack that has information about conformance
--- packs that AWS Config creates in member accounts.
+-- packs that Config creates in member accounts.
 --
 -- /See:/ 'newOrganizationConformancePack' smart constructor.
 data OrganizationConformancePack = OrganizationConformancePack'
-  { -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+  { -- | The name of the Amazon S3 bucket where Config stores conformance pack
+    -- templates.
     --
     -- This field is optional.
     deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
@@ -37,11 +38,11 @@ data OrganizationConformancePack = OrganizationConformancePack'
     --
     -- This field is optional.
     deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | A comma-separated list of accounts excluded from organization
     -- conformance pack.
     excludedAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | The name you assign to an organization conformance pack.
     organizationConformancePackName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of organization conformance pack.
@@ -59,7 +60,8 @@ data OrganizationConformancePack = OrganizationConformancePack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deliveryS3Bucket', 'organizationConformancePack_deliveryS3Bucket' - Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- 'deliveryS3Bucket', 'organizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
 --
@@ -67,10 +69,10 @@ data OrganizationConformancePack = OrganizationConformancePack'
 --
 -- This field is optional.
 --
+-- 'conformancePackInputParameters', 'organizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+--
 -- 'excludedAccounts', 'organizationConformancePack_excludedAccounts' - A comma-separated list of accounts excluded from organization
 -- conformance pack.
---
--- 'conformancePackInputParameters', 'organizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
 --
 -- 'organizationConformancePackName', 'organizationConformancePack_organizationConformancePackName' - The name you assign to an organization conformance pack.
 --
@@ -93,9 +95,9 @@ newOrganizationConformancePack
       { deliveryS3Bucket =
           Prelude.Nothing,
         deliveryS3KeyPrefix = Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
         conformancePackInputParameters =
           Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_,
         organizationConformancePackArn =
@@ -104,7 +106,8 @@ newOrganizationConformancePack
           Core._Time Lens.# pLastUpdateTime_
       }
 
--- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- | The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
 organizationConformancePack_deliveryS3Bucket :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe Prelude.Text)
@@ -116,14 +119,14 @@ organizationConformancePack_deliveryS3Bucket = Lens.lens (\OrganizationConforman
 organizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe Prelude.Text)
 organizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\OrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@OrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: OrganizationConformancePack)
 
+-- | A list of @ConformancePackInputParameter@ objects.
+organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
+organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A comma-separated list of accounts excluded from organization
 -- conformance pack.
 organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [Prelude.Text])
 organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of @ConformancePackInputParameter@ objects.
-organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
-organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name you assign to an organization conformance pack.
 organizationConformancePack_organizationConformancePackName :: Lens.Lens' OrganizationConformancePack Prelude.Text
@@ -145,10 +148,10 @@ instance Core.FromJSON OrganizationConformancePack where
           OrganizationConformancePack'
             Prelude.<$> (x Core..:? "DeliveryS3Bucket")
             Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
-            Prelude.<*> ( x Core..:? "ExcludedAccounts"
+            Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
+            Prelude.<*> ( x Core..:? "ExcludedAccounts"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..: "OrganizationConformancePackName")

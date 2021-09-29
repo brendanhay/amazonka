@@ -43,18 +43,18 @@ data OrganizationEventFilter = OrganizationEventFilter'
     endTime :: Prelude.Maybe DateTimeRange,
     -- | A list of event status codes.
     eventStatusCodes :: Prelude.Maybe (Prelude.NonEmpty EventStatusCode),
+    -- | A list of AWS Regions.
+    regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or
     -- EBS volumes (vol-426ab23e).
     entityValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of AWS Regions.
-    regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event type category codes (issue, scheduledChange, or
     -- accountNotification).
     eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory),
+    lastUpdatedTime :: Prelude.Maybe DateTimeRange,
     -- | A list of 12-digit AWS account numbers that contains the affected
     -- entities.
-    awsAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    lastUpdatedTime :: Prelude.Maybe DateTimeRange
+    awsAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,18 +79,18 @@ data OrganizationEventFilter = OrganizationEventFilter'
 --
 -- 'eventStatusCodes', 'organizationEventFilter_eventStatusCodes' - A list of event status codes.
 --
+-- 'regions', 'organizationEventFilter_regions' - A list of AWS Regions.
+--
 -- 'entityValues', 'organizationEventFilter_entityValues' - A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or
 -- EBS volumes (vol-426ab23e).
---
--- 'regions', 'organizationEventFilter_regions' - A list of AWS Regions.
 --
 -- 'eventTypeCategories', 'organizationEventFilter_eventTypeCategories' - A list of event type category codes (issue, scheduledChange, or
 -- accountNotification).
 --
+-- 'lastUpdatedTime', 'organizationEventFilter_lastUpdatedTime' - Undocumented member.
+--
 -- 'awsAccountIds', 'organizationEventFilter_awsAccountIds' - A list of 12-digit AWS account numbers that contains the affected
 -- entities.
---
--- 'lastUpdatedTime', 'organizationEventFilter_lastUpdatedTime' - Undocumented member.
 newOrganizationEventFilter ::
   OrganizationEventFilter
 newOrganizationEventFilter =
@@ -102,11 +102,11 @@ newOrganizationEventFilter =
       eventTypeCodes = Prelude.Nothing,
       endTime = Prelude.Nothing,
       eventStatusCodes = Prelude.Nothing,
-      entityValues = Prelude.Nothing,
       regions = Prelude.Nothing,
+      entityValues = Prelude.Nothing,
       eventTypeCategories = Prelude.Nothing,
-      awsAccountIds = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      awsAccountIds = Prelude.Nothing
     }
 
 -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
@@ -134,28 +134,28 @@ organizationEventFilter_endTime = Lens.lens (\OrganizationEventFilter' {endTime}
 organizationEventFilter_eventStatusCodes :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty EventStatusCode))
 organizationEventFilter_eventStatusCodes = Lens.lens (\OrganizationEventFilter' {eventStatusCodes} -> eventStatusCodes) (\s@OrganizationEventFilter' {} a -> s {eventStatusCodes = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A list of AWS Regions.
+organizationEventFilter_regions :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+organizationEventFilter_regions = Lens.lens (\OrganizationEventFilter' {regions} -> regions) (\s@OrganizationEventFilter' {} a -> s {regions = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or
 -- EBS volumes (vol-426ab23e).
 organizationEventFilter_entityValues :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_entityValues = Lens.lens (\OrganizationEventFilter' {entityValues} -> entityValues) (\s@OrganizationEventFilter' {} a -> s {entityValues = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of AWS Regions.
-organizationEventFilter_regions :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-organizationEventFilter_regions = Lens.lens (\OrganizationEventFilter' {regions} -> regions) (\s@OrganizationEventFilter' {} a -> s {regions = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of event type category codes (issue, scheduledChange, or
 -- accountNotification).
 organizationEventFilter_eventTypeCategories :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
 organizationEventFilter_eventTypeCategories = Lens.lens (\OrganizationEventFilter' {eventTypeCategories} -> eventTypeCategories) (\s@OrganizationEventFilter' {} a -> s {eventTypeCategories = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Undocumented member.
+organizationEventFilter_lastUpdatedTime :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe DateTimeRange)
+organizationEventFilter_lastUpdatedTime = Lens.lens (\OrganizationEventFilter' {lastUpdatedTime} -> lastUpdatedTime) (\s@OrganizationEventFilter' {} a -> s {lastUpdatedTime = a} :: OrganizationEventFilter)
+
 -- | A list of 12-digit AWS account numbers that contains the affected
 -- entities.
 organizationEventFilter_awsAccountIds :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_awsAccountIds = Lens.lens (\OrganizationEventFilter' {awsAccountIds} -> awsAccountIds) (\s@OrganizationEventFilter' {} a -> s {awsAccountIds = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-organizationEventFilter_lastUpdatedTime :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe DateTimeRange)
-organizationEventFilter_lastUpdatedTime = Lens.lens (\OrganizationEventFilter' {lastUpdatedTime} -> lastUpdatedTime) (\s@OrganizationEventFilter' {} a -> s {lastUpdatedTime = a} :: OrganizationEventFilter)
 
 instance Prelude.Hashable OrganizationEventFilter
 
@@ -173,12 +173,12 @@ instance Core.ToJSON OrganizationEventFilter where
             ("endTime" Core..=) Prelude.<$> endTime,
             ("eventStatusCodes" Core..=)
               Prelude.<$> eventStatusCodes,
-            ("entityValues" Core..=) Prelude.<$> entityValues,
             ("regions" Core..=) Prelude.<$> regions,
+            ("entityValues" Core..=) Prelude.<$> entityValues,
             ("eventTypeCategories" Core..=)
               Prelude.<$> eventTypeCategories,
-            ("awsAccountIds" Core..=) Prelude.<$> awsAccountIds,
             ("lastUpdatedTime" Core..=)
-              Prelude.<$> lastUpdatedTime
+              Prelude.<$> lastUpdatedTime,
+            ("awsAccountIds" Core..=) Prelude.<$> awsAccountIds
           ]
       )

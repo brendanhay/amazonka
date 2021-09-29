@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- If you create a new application in Application Manager, Systems Manager
--- calls this API action to specify information about the new application,
--- including the application type.
+-- If you create a new application in Application Manager, Amazon Web
+-- Services Systems Manager calls this API operation to specify information
+-- about the new application, including the application type.
 module Network.AWS.SSM.CreateOpsMetadata
   ( -- * Creating a Request
     CreateOpsMetadata (..),
@@ -30,6 +30,7 @@ module Network.AWS.SSM.CreateOpsMetadata
 
     -- * Request Lenses
     createOpsMetadata_metadata,
+    createOpsMetadata_tags,
     createOpsMetadata_resourceId,
 
     -- * Destructuring the Response
@@ -53,6 +54,17 @@ import Network.AWS.SSM.Types
 data CreateOpsMetadata = CreateOpsMetadata'
   { -- | Metadata for a new Application Manager application.
     metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
+    -- | Optional metadata that you assign to a resource. You can specify a
+    -- maximum of five tags for an OpsMetadata object. Tags enable you to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment. For example, you might want to tag an OpsMetadata object to
+    -- identify an environment or target Amazon Web Services Region. In this
+    -- case, you could specify the following key-value pairs:
+    --
+    -- -   @Key=Environment,Value=Production@
+    --
+    -- -   @Key=Region,Value=us-east-2@
+    tags :: Prelude.Maybe [Tag],
     -- | A resource ID for a new Application Manager application.
     resourceId :: Prelude.Text
   }
@@ -68,6 +80,17 @@ data CreateOpsMetadata = CreateOpsMetadata'
 --
 -- 'metadata', 'createOpsMetadata_metadata' - Metadata for a new Application Manager application.
 --
+-- 'tags', 'createOpsMetadata_tags' - Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for an OpsMetadata object. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an OpsMetadata object to
+-- identify an environment or target Amazon Web Services Region. In this
+-- case, you could specify the following key-value pairs:
+--
+-- -   @Key=Environment,Value=Production@
+--
+-- -   @Key=Region,Value=us-east-2@
+--
 -- 'resourceId', 'createOpsMetadata_resourceId' - A resource ID for a new Application Manager application.
 newCreateOpsMetadata ::
   -- | 'resourceId'
@@ -76,12 +99,26 @@ newCreateOpsMetadata ::
 newCreateOpsMetadata pResourceId_ =
   CreateOpsMetadata'
     { metadata = Prelude.Nothing,
+      tags = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Metadata for a new Application Manager application.
 createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
 createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for an OpsMetadata object. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an OpsMetadata object to
+-- identify an environment or target Amazon Web Services Region. In this
+-- case, you could specify the following key-value pairs:
+--
+-- -   @Key=Environment,Value=Production@
+--
+-- -   @Key=Region,Value=us-east-2@
+createOpsMetadata_tags :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe [Tag])
+createOpsMetadata_tags = Lens.lens (\CreateOpsMetadata' {tags} -> tags) (\s@CreateOpsMetadata' {} a -> s {tags = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A resource ID for a new Application Manager application.
 createOpsMetadata_resourceId :: Lens.Lens' CreateOpsMetadata Prelude.Text
@@ -124,6 +161,7 @@ instance Core.ToJSON CreateOpsMetadata where
     Core.object
       ( Prelude.catMaybes
           [ ("Metadata" Core..=) Prelude.<$> metadata,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )

@@ -39,14 +39,17 @@ data MySQLSettings = MySQLSettings'
     --
     -- Note: Do not enclose time zones in single quotes.
     serverTimezone :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a script to run immediately after DMS connects to the
+    -- endpoint. The migration task continues running regardless if the SQL
+    -- statement succeeds or fails.
+    --
+    -- For this parameter, provide the code of the script itself, not the name
+    -- of a file containing the script.
+    afterConnectScript :: Prelude.Maybe Prelude.Text,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
     -- details.
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a script to run immediately after AWS DMS connects to the
-    -- endpoint. The migration task continues running regardless if the SQL
-    -- statement succeeds or fails.
-    afterConnectScript :: Prelude.Maybe Prelude.Text,
     -- | Fully qualified domain name of the endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum size (in KB) of any .csv file used to transfer
@@ -61,18 +64,18 @@ data MySQLSettings = MySQLSettings'
     --
     -- Example: @eventsPollInterval=5;@
     --
-    -- In the example, AWS DMS checks for changes in the binary logs every five
+    -- In the example, DMS checks for changes in the binary logs every five
     -- seconds.
     eventsPollInterval :: Prelude.Maybe Prelude.Int,
     -- | Endpoint TCP port.
     port :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection user name.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the MySQL
-    -- endpoint.
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the MySQL endpoint.
     --
     -- You can specify one of two sets of values for these permissions. You can
     -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -80,8 +83,8 @@ data MySQLSettings = MySQLSettings'
     -- and @Port@. You can\'t specify both. For more information on creating
     -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
     -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Improves performance when loading data into the MySQL-compatible target
     -- database. Specifies how many threads to use to load the data into the
@@ -91,7 +94,18 @@ data MySQLSettings = MySQLSettings'
     --
     -- Example: @parallelLoadThreads=1@
     parallelLoadThreads :: Prelude.Maybe Prelude.Int,
-    -- | Database name for the endpoint.
+    -- | Adjusts the behavior of DMS when migrating from an SQL Server source
+    -- database that is hosted as part of an Always On availability group
+    -- cluster. If you need DMS to poll all the nodes in the Always On cluster
+    -- for transaction backups, set this attribute to @false@.
+    cleanSourceMetadataOnMismatch :: Prelude.Maybe Prelude.Bool,
+    -- | Database name for the endpoint. For a MySQL source or target endpoint,
+    -- don\'t explicitly specify the database using the @DatabaseName@ request
+    -- parameter on either the @CreateEndpoint@ or @ModifyEndpoint@ API call.
+    -- Specifying @DatabaseName@ when you create or modify a MySQL endpoint
+    -- replicates all the task tables to this single database. For MySQL
+    -- endpoints, you specify the database only when you specify the schema in
+    -- the table-mapping rules of the DMS task.
     databaseName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -115,13 +129,16 @@ data MySQLSettings = MySQLSettings'
 --
 -- Note: Do not enclose time zones in single quotes.
 --
+-- 'afterConnectScript', 'mySQLSettings_afterConnectScript' - Specifies a script to run immediately after DMS connects to the
+-- endpoint. The migration task continues running regardless if the SQL
+-- statement succeeds or fails.
+--
+-- For this parameter, provide the code of the script itself, not the name
+-- of a file containing the script.
+--
 -- 'secretsManagerSecretId', 'mySQLSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
 -- details.
---
--- 'afterConnectScript', 'mySQLSettings_afterConnectScript' - Specifies a script to run immediately after AWS DMS connects to the
--- endpoint. The migration task continues running regardless if the SQL
--- statement succeeds or fails.
 --
 -- 'serverName', 'mySQLSettings_serverName' - Fully qualified domain name of the endpoint.
 --
@@ -137,18 +154,18 @@ data MySQLSettings = MySQLSettings'
 --
 -- Example: @eventsPollInterval=5;@
 --
--- In the example, AWS DMS checks for changes in the binary logs every five
+-- In the example, DMS checks for changes in the binary logs every five
 -- seconds.
 --
 -- 'port', 'mySQLSettings_port' - Endpoint TCP port.
 --
 -- 'username', 'mySQLSettings_username' - Endpoint connection user name.
 --
--- 'secretsManagerAccessRoleArn', 'mySQLSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the MySQL
--- endpoint.
+-- 'secretsManagerAccessRoleArn', 'mySQLSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the MySQL endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -156,8 +173,8 @@ data MySQLSettings = MySQLSettings'
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
 -- 'parallelLoadThreads', 'mySQLSettings_parallelLoadThreads' - Improves performance when loading data into the MySQL-compatible target
 -- database. Specifies how many threads to use to load the data into the
@@ -167,15 +184,26 @@ data MySQLSettings = MySQLSettings'
 --
 -- Example: @parallelLoadThreads=1@
 --
--- 'databaseName', 'mySQLSettings_databaseName' - Database name for the endpoint.
+-- 'cleanSourceMetadataOnMismatch', 'mySQLSettings_cleanSourceMetadataOnMismatch' - Adjusts the behavior of DMS when migrating from an SQL Server source
+-- database that is hosted as part of an Always On availability group
+-- cluster. If you need DMS to poll all the nodes in the Always On cluster
+-- for transaction backups, set this attribute to @false@.
+--
+-- 'databaseName', 'mySQLSettings_databaseName' - Database name for the endpoint. For a MySQL source or target endpoint,
+-- don\'t explicitly specify the database using the @DatabaseName@ request
+-- parameter on either the @CreateEndpoint@ or @ModifyEndpoint@ API call.
+-- Specifying @DatabaseName@ when you create or modify a MySQL endpoint
+-- replicates all the task tables to this single database. For MySQL
+-- endpoints, you specify the database only when you specify the schema in
+-- the table-mapping rules of the DMS task.
 newMySQLSettings ::
   MySQLSettings
 newMySQLSettings =
   MySQLSettings'
     { targetDbType = Prelude.Nothing,
       serverTimezone = Prelude.Nothing,
-      secretsManagerSecretId = Prelude.Nothing,
       afterConnectScript = Prelude.Nothing,
+      secretsManagerSecretId = Prelude.Nothing,
       serverName = Prelude.Nothing,
       maxFileSize = Prelude.Nothing,
       password = Prelude.Nothing,
@@ -184,6 +212,7 @@ newMySQLSettings =
       username = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
       parallelLoadThreads = Prelude.Nothing,
+      cleanSourceMetadataOnMismatch = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
 
@@ -202,17 +231,20 @@ mySQLSettings_targetDbType = Lens.lens (\MySQLSettings' {targetDbType} -> target
 mySQLSettings_serverTimezone :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_serverTimezone = Lens.lens (\MySQLSettings' {serverTimezone} -> serverTimezone) (\s@MySQLSettings' {} a -> s {serverTimezone = a} :: MySQLSettings)
 
+-- | Specifies a script to run immediately after DMS connects to the
+-- endpoint. The migration task continues running regardless if the SQL
+-- statement succeeds or fails.
+--
+-- For this parameter, provide the code of the script itself, not the name
+-- of a file containing the script.
+mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
+mySQLSettings_afterConnectScript = Lens.lens (\MySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@MySQLSettings' {} a -> s {afterConnectScript = a} :: MySQLSettings)
+
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
 -- details.
 mySQLSettings_secretsManagerSecretId :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_secretsManagerSecretId = Lens.lens (\MySQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MySQLSettings' {} a -> s {secretsManagerSecretId = a} :: MySQLSettings)
-
--- | Specifies a script to run immediately after AWS DMS connects to the
--- endpoint. The migration task continues running regardless if the SQL
--- statement succeeds or fails.
-mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
-mySQLSettings_afterConnectScript = Lens.lens (\MySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@MySQLSettings' {} a -> s {afterConnectScript = a} :: MySQLSettings)
 
 -- | Fully qualified domain name of the endpoint.
 mySQLSettings_serverName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
@@ -234,7 +266,7 @@ mySQLSettings_password = Lens.lens (\MySQLSettings' {password} -> password) (\s@
 --
 -- Example: @eventsPollInterval=5;@
 --
--- In the example, AWS DMS checks for changes in the binary logs every five
+-- In the example, DMS checks for changes in the binary logs every five
 -- seconds.
 mySQLSettings_eventsPollInterval :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_eventsPollInterval = Lens.lens (\MySQLSettings' {eventsPollInterval} -> eventsPollInterval) (\s@MySQLSettings' {} a -> s {eventsPollInterval = a} :: MySQLSettings)
@@ -247,11 +279,11 @@ mySQLSettings_port = Lens.lens (\MySQLSettings' {port} -> port) (\s@MySQLSetting
 mySQLSettings_username :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_username = Lens.lens (\MySQLSettings' {username} -> username) (\s@MySQLSettings' {} a -> s {username = a} :: MySQLSettings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the MySQL
--- endpoint.
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the MySQL endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -259,8 +291,8 @@ mySQLSettings_username = Lens.lens (\MySQLSettings' {username} -> username) (\s@
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 mySQLSettings_secretsManagerAccessRoleArn :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MySQLSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MySQLSettings)
 
@@ -274,7 +306,20 @@ mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsM
 mySQLSettings_parallelLoadThreads :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
 mySQLSettings_parallelLoadThreads = Lens.lens (\MySQLSettings' {parallelLoadThreads} -> parallelLoadThreads) (\s@MySQLSettings' {} a -> s {parallelLoadThreads = a} :: MySQLSettings)
 
--- | Database name for the endpoint.
+-- | Adjusts the behavior of DMS when migrating from an SQL Server source
+-- database that is hosted as part of an Always On availability group
+-- cluster. If you need DMS to poll all the nodes in the Always On cluster
+-- for transaction backups, set this attribute to @false@.
+mySQLSettings_cleanSourceMetadataOnMismatch :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Bool)
+mySQLSettings_cleanSourceMetadataOnMismatch = Lens.lens (\MySQLSettings' {cleanSourceMetadataOnMismatch} -> cleanSourceMetadataOnMismatch) (\s@MySQLSettings' {} a -> s {cleanSourceMetadataOnMismatch = a} :: MySQLSettings)
+
+-- | Database name for the endpoint. For a MySQL source or target endpoint,
+-- don\'t explicitly specify the database using the @DatabaseName@ request
+-- parameter on either the @CreateEndpoint@ or @ModifyEndpoint@ API call.
+-- Specifying @DatabaseName@ when you create or modify a MySQL endpoint
+-- replicates all the task tables to this single database. For MySQL
+-- endpoints, you specify the database only when you specify the schema in
+-- the table-mapping rules of the DMS task.
 mySQLSettings_databaseName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_databaseName = Lens.lens (\MySQLSettings' {databaseName} -> databaseName) (\s@MySQLSettings' {} a -> s {databaseName = a} :: MySQLSettings)
 
@@ -286,8 +331,8 @@ instance Core.FromJSON MySQLSettings where
           MySQLSettings'
             Prelude.<$> (x Core..:? "TargetDbType")
             Prelude.<*> (x Core..:? "ServerTimezone")
-            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
             Prelude.<*> (x Core..:? "AfterConnectScript")
+            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
             Prelude.<*> (x Core..:? "ServerName")
             Prelude.<*> (x Core..:? "MaxFileSize")
             Prelude.<*> (x Core..:? "Password")
@@ -296,6 +341,7 @@ instance Core.FromJSON MySQLSettings where
             Prelude.<*> (x Core..:? "Username")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "ParallelLoadThreads")
+            Prelude.<*> (x Core..:? "CleanSourceMetadataOnMismatch")
             Prelude.<*> (x Core..:? "DatabaseName")
       )
 
@@ -310,10 +356,10 @@ instance Core.ToJSON MySQLSettings where
           [ ("TargetDbType" Core..=) Prelude.<$> targetDbType,
             ("ServerTimezone" Core..=)
               Prelude.<$> serverTimezone,
-            ("SecretsManagerSecretId" Core..=)
-              Prelude.<$> secretsManagerSecretId,
             ("AfterConnectScript" Core..=)
               Prelude.<$> afterConnectScript,
+            ("SecretsManagerSecretId" Core..=)
+              Prelude.<$> secretsManagerSecretId,
             ("ServerName" Core..=) Prelude.<$> serverName,
             ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
             ("Password" Core..=) Prelude.<$> password,
@@ -325,6 +371,8 @@ instance Core.ToJSON MySQLSettings where
               Prelude.<$> secretsManagerAccessRoleArn,
             ("ParallelLoadThreads" Core..=)
               Prelude.<$> parallelLoadThreads,
+            ("CleanSourceMetadataOnMismatch" Core..=)
+              Prelude.<$> cleanSourceMetadataOnMismatch,
             ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

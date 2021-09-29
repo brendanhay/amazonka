@@ -34,7 +34,7 @@
 --
 -- -   Check the AWS CloudTrail log for the @CreateAccountResult@ event.
 --     For information on using AWS CloudTrail with AWS Organizations, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
+--     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration Logging and monitoring in AWS Organizations>
 --     in the /AWS Organizations User Guide./
 --
 -- The user who calls the API to create an account must have the

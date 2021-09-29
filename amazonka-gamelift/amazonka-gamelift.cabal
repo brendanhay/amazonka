@@ -51,6 +51,7 @@ library
     Network.AWS.GameLift.CreateAlias
     Network.AWS.GameLift.CreateBuild
     Network.AWS.GameLift.CreateFleet
+    Network.AWS.GameLift.CreateFleetLocations
     Network.AWS.GameLift.CreateGameServerGroup
     Network.AWS.GameLift.CreateGameSession
     Network.AWS.GameLift.CreateGameSessionQueue
@@ -64,6 +65,7 @@ library
     Network.AWS.GameLift.DeleteAlias
     Network.AWS.GameLift.DeleteBuild
     Network.AWS.GameLift.DeleteFleet
+    Network.AWS.GameLift.DeleteFleetLocations
     Network.AWS.GameLift.DeleteGameServerGroup
     Network.AWS.GameLift.DeleteGameSessionQueue
     Network.AWS.GameLift.DeleteMatchmakingConfiguration
@@ -79,6 +81,9 @@ library
     Network.AWS.GameLift.DescribeFleetAttributes
     Network.AWS.GameLift.DescribeFleetCapacity
     Network.AWS.GameLift.DescribeFleetEvents
+    Network.AWS.GameLift.DescribeFleetLocationAttributes
+    Network.AWS.GameLift.DescribeFleetLocationCapacity
+    Network.AWS.GameLift.DescribeFleetLocationUtilization
     Network.AWS.GameLift.DescribeFleetPortSettings
     Network.AWS.GameLift.DescribeFleetUtilization
     Network.AWS.GameLift.DescribeGameServer
@@ -141,6 +146,7 @@ library
     Network.AWS.GameLift.Types.EC2InstanceType
     Network.AWS.GameLift.Types.Event
     Network.AWS.GameLift.Types.EventCode
+    Network.AWS.GameLift.Types.FilterConfiguration
     Network.AWS.GameLift.Types.FleetAction
     Network.AWS.GameLift.Types.FleetAttributes
     Network.AWS.GameLift.Types.FleetCapacity
@@ -179,6 +185,10 @@ library
     Network.AWS.GameLift.Types.IpPermission
     Network.AWS.GameLift.Types.IpProtocol
     Network.AWS.GameLift.Types.LaunchTemplateSpecification
+    Network.AWS.GameLift.Types.LocationAttributes
+    Network.AWS.GameLift.Types.LocationConfiguration
+    Network.AWS.GameLift.Types.LocationState
+    Network.AWS.GameLift.Types.LocationUpdateStatus
     Network.AWS.GameLift.Types.MatchedPlayerSession
     Network.AWS.GameLift.Types.MatchmakingConfiguration
     Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
@@ -194,6 +204,8 @@ library
     Network.AWS.GameLift.Types.PlayerSessionCreationPolicy
     Network.AWS.GameLift.Types.PlayerSessionStatus
     Network.AWS.GameLift.Types.PolicyType
+    Network.AWS.GameLift.Types.PriorityConfiguration
+    Network.AWS.GameLift.Types.PriorityType
     Network.AWS.GameLift.Types.ProtectionPolicy
     Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
     Network.AWS.GameLift.Types.RoutingStrategy

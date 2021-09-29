@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.Trigger where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Action
+import Network.AWS.Glue.Types.EventBatchingCondition
 import Network.AWS.Glue.Types.Predicate
 import Network.AWS.Glue.Types.TriggerState
 import Network.AWS.Glue.Types.TriggerType
@@ -37,14 +38,17 @@ data Trigger = Trigger'
     id :: Prelude.Maybe Prelude.Text,
     -- | The actions initiated by this trigger.
     actions :: Prelude.Maybe [Action],
-    -- | The current state of the trigger.
-    state :: Prelude.Maybe TriggerState,
     -- | The name of the trigger.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the trigger.
+    state :: Prelude.Maybe TriggerState,
     -- | The predicate of this trigger, which defines when it will fire.
     predicate :: Prelude.Maybe Predicate,
     -- | A description of this trigger.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Batch condition that must be met (specified number of events received or
+    -- batch time window expired) before EventBridge event trigger fires.
+    eventBatchingCondition :: Prelude.Maybe EventBatchingCondition,
     -- | The type of trigger that this is.
     type' :: Prelude.Maybe TriggerType,
     -- | A @cron@ expression used to specify the schedule (see
@@ -69,13 +73,16 @@ data Trigger = Trigger'
 --
 -- 'actions', 'trigger_actions' - The actions initiated by this trigger.
 --
--- 'state', 'trigger_state' - The current state of the trigger.
---
 -- 'name', 'trigger_name' - The name of the trigger.
+--
+-- 'state', 'trigger_state' - The current state of the trigger.
 --
 -- 'predicate', 'trigger_predicate' - The predicate of this trigger, which defines when it will fire.
 --
 -- 'description', 'trigger_description' - A description of this trigger.
+--
+-- 'eventBatchingCondition', 'trigger_eventBatchingCondition' - Batch condition that must be met (specified number of events received or
+-- batch time window expired) before EventBridge event trigger fires.
 --
 -- 'type'', 'trigger_type' - The type of trigger that this is.
 --
@@ -90,10 +97,11 @@ newTrigger =
     { workflowName = Prelude.Nothing,
       id = Prelude.Nothing,
       actions = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      state = Prelude.Nothing,
       predicate = Prelude.Nothing,
       description = Prelude.Nothing,
+      eventBatchingCondition = Prelude.Nothing,
       type' = Prelude.Nothing,
       schedule = Prelude.Nothing
     }
@@ -110,13 +118,13 @@ trigger_id = Lens.lens (\Trigger' {id} -> id) (\s@Trigger' {} a -> s {id = a} ::
 trigger_actions :: Lens.Lens' Trigger (Prelude.Maybe [Action])
 trigger_actions = Lens.lens (\Trigger' {actions} -> actions) (\s@Trigger' {} a -> s {actions = a} :: Trigger) Prelude.. Lens.mapping Lens._Coerce
 
--- | The current state of the trigger.
-trigger_state :: Lens.Lens' Trigger (Prelude.Maybe TriggerState)
-trigger_state = Lens.lens (\Trigger' {state} -> state) (\s@Trigger' {} a -> s {state = a} :: Trigger)
-
 -- | The name of the trigger.
 trigger_name :: Lens.Lens' Trigger (Prelude.Maybe Prelude.Text)
 trigger_name = Lens.lens (\Trigger' {name} -> name) (\s@Trigger' {} a -> s {name = a} :: Trigger)
+
+-- | The current state of the trigger.
+trigger_state :: Lens.Lens' Trigger (Prelude.Maybe TriggerState)
+trigger_state = Lens.lens (\Trigger' {state} -> state) (\s@Trigger' {} a -> s {state = a} :: Trigger)
 
 -- | The predicate of this trigger, which defines when it will fire.
 trigger_predicate :: Lens.Lens' Trigger (Prelude.Maybe Predicate)
@@ -125,6 +133,11 @@ trigger_predicate = Lens.lens (\Trigger' {predicate} -> predicate) (\s@Trigger' 
 -- | A description of this trigger.
 trigger_description :: Lens.Lens' Trigger (Prelude.Maybe Prelude.Text)
 trigger_description = Lens.lens (\Trigger' {description} -> description) (\s@Trigger' {} a -> s {description = a} :: Trigger)
+
+-- | Batch condition that must be met (specified number of events received or
+-- batch time window expired) before EventBridge event trigger fires.
+trigger_eventBatchingCondition :: Lens.Lens' Trigger (Prelude.Maybe EventBatchingCondition)
+trigger_eventBatchingCondition = Lens.lens (\Trigger' {eventBatchingCondition} -> eventBatchingCondition) (\s@Trigger' {} a -> s {eventBatchingCondition = a} :: Trigger)
 
 -- | The type of trigger that this is.
 trigger_type :: Lens.Lens' Trigger (Prelude.Maybe TriggerType)
@@ -146,10 +159,11 @@ instance Core.FromJSON Trigger where
             Prelude.<$> (x Core..:? "WorkflowName")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Predicate")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "EventBatchingCondition")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Schedule")
       )

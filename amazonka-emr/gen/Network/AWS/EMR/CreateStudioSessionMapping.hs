@@ -22,7 +22,10 @@
 --
 -- Maps a user or group to the Amazon EMR Studio specified by @StudioId@,
 -- and applies a session policy to refine Studio permissions for that user
--- or group.
+-- or group. Use @CreateStudioSessionMapping@ to assign users to a Studio
+-- when you use Amazon Web Services SSO authentication. For instructions on
+-- how to assign users to a Studio when you use IAM authentication, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups Assign a user or group to your EMR Studio>.
 module Network.AWS.EMR.CreateStudioSessionMapping
   ( -- * Creating a Request
     CreateStudioSessionMapping (..),
@@ -54,16 +57,16 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
-    -- @IdentityId@ must be specified.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified, but not both.
     identityName :: Prelude.Maybe Prelude.Text,
-    -- | The globally unique identifier (GUID) of the user or group from the AWS
-    -- SSO Identity Store. For more information, see
+    -- | The globally unique identifier (GUID) of the user or group from the
+    -- Amazon Web Services SSO Identity Store. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
-    -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
-    -- @IdentityId@ must be specified.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified, but not both.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio to which the user or group will be
     -- mapped.
@@ -72,8 +75,10 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- or a group.
     identityType :: IdentityType,
     -- | The Amazon Resource Name (ARN) for the session policy that will be
-    -- applied to the user or group. Session policies refine Studio user
-    -- permissions without the need to use multiple IAM user roles.
+    -- applied to the user or group. You should specify the ARN for the session
+    -- policy that you want to apply, not the ARN of your user role. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
     sessionPolicyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,16 +95,16 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
 --
--- 'identityId', 'createStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group from the AWS
--- SSO Identity Store. For more information, see
+-- 'identityId', 'createStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group from the
+-- Amazon Web Services SSO Identity Store. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
 --
 -- 'studioId', 'createStudioSessionMapping_studioId' - The ID of the Amazon EMR Studio to which the user or group will be
 -- mapped.
@@ -108,8 +113,10 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
 -- or a group.
 --
 -- 'sessionPolicyArn', 'createStudioSessionMapping_sessionPolicyArn' - The Amazon Resource Name (ARN) for the session policy that will be
--- applied to the user or group. Session policies refine Studio user
--- permissions without the need to use multiple IAM user roles.
+-- applied to the user or group. You should specify the ARN for the session
+-- policy that you want to apply, not the ARN of your user role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
 newCreateStudioSessionMapping ::
   -- | 'studioId'
   Prelude.Text ->
@@ -135,18 +142,18 @@ newCreateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
 createStudioSessionMapping_identityName :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping' {identityName} -> identityName) (\s@CreateStudioSessionMapping' {} a -> s {identityName = a} :: CreateStudioSessionMapping)
 
--- | The globally unique identifier (GUID) of the user or group from the AWS
--- SSO Identity Store. For more information, see
+-- | The globally unique identifier (GUID) of the user or group from the
+-- Amazon Web Services SSO Identity Store. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
 createStudioSessionMapping_identityId :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 createStudioSessionMapping_identityId = Lens.lens (\CreateStudioSessionMapping' {identityId} -> identityId) (\s@CreateStudioSessionMapping' {} a -> s {identityId = a} :: CreateStudioSessionMapping)
 
@@ -161,8 +168,10 @@ createStudioSessionMapping_identityType :: Lens.Lens' CreateStudioSessionMapping
 createStudioSessionMapping_identityType = Lens.lens (\CreateStudioSessionMapping' {identityType} -> identityType) (\s@CreateStudioSessionMapping' {} a -> s {identityType = a} :: CreateStudioSessionMapping)
 
 -- | The Amazon Resource Name (ARN) for the session policy that will be
--- applied to the user or group. Session policies refine Studio user
--- permissions without the need to use multiple IAM user roles.
+-- applied to the user or group. You should specify the ARN for the session
+-- policy that you want to apply, not the ARN of your user role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
 createStudioSessionMapping_sessionPolicyArn :: Lens.Lens' CreateStudioSessionMapping Prelude.Text
 createStudioSessionMapping_sessionPolicyArn = Lens.lens (\CreateStudioSessionMapping' {sessionPolicyArn} -> sessionPolicyArn) (\s@CreateStudioSessionMapping' {} a -> s {sessionPolicyArn = a} :: CreateStudioSessionMapping)
 

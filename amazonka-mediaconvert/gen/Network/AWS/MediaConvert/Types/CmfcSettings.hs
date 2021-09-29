@@ -22,16 +22,38 @@ module Network.AWS.MediaConvert.Types.CmfcSettings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CmfcAudioDuration
+import Network.AWS.MediaConvert.Types.CmfcAudioTrackType
+import Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
 import Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
 import Network.AWS.MediaConvert.Types.CmfcScte35Esam
 import Network.AWS.MediaConvert.Types.CmfcScte35Source
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for MP4 segments in CMAF
+-- | These settings relate to the fragmented MP4 container for the segments
+-- in your CMAF outputs.
 --
 -- /See:/ 'newCmfcSettings' smart constructor.
 data CmfcSettings = CmfcSettings'
-  { -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
+  { -- | List the audio rendition groups that you want included with this video
+    -- rendition. Use a comma-separated list. For example, say you want to
+    -- include the audio rendition groups that have the audio group IDs
+    -- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
+    -- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+    -- you include in your comma-separated list should all match values that
+    -- you specify in the setting Audio group ID (AudioGroupId) for audio
+    -- renditions in the same output group as this video rendition. Default
+    -- behavior: If you don\'t specify anything here and for Audio group ID,
+    -- MediaConvert puts each audio variant in its own audio rendition group
+    -- and associates it with every video variant. Each value in your list
+    -- appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the
+    -- value for the AUDIO attribute. To continue the previous example, say
+    -- that the file name for the child manifest for your video rendition is
+    -- \"amazing_video_1.m3u8\". Then, in your parent manifest, each value will
+    -- appear on separate lines, like this:
+    -- #EXT-X-STREAM-INF:AUDIO=\"audio_aac_1\"... amazing_video_1.m3u8
+    -- #EXT-X-STREAM-INF:AUDIO=\"audio_dolby\"... amazing_video_1.m3u8
+    audioRenditionSets :: Prelude.Maybe Prelude.Text,
+    -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
     -- manifest that lists only the I-frames for this rendition, in addition to
     -- your regular manifest for this rendition. You might use this manifest as
     -- part of a workflow that creates preview functions for your video.
@@ -39,6 +61,44 @@ data CmfcSettings = CmfcSettings'
     -- child manifest to the parent manifest. When you don\'t need the I-frame
     -- only child manifest, keep the default value Exclude (EXCLUDE).
     iFrameOnlyManifest :: Prelude.Maybe CmfcIFrameOnlyManifest,
+    -- | Specify whether to flag this audio track as descriptive video service
+    -- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+    -- MediaConvert includes the parameter
+    -- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+    -- EXT-X-MEDIA entry for this track. When you keep the default choice,
+    -- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+    -- flag can help with accessibility on Apple devices. For more information,
+    -- see the Apple documentation.
+    descriptiveVideoServiceFlag :: Prelude.Maybe CmfcDescriptiveVideoServiceFlag,
+    -- | Specify the audio rendition group for this audio rendition. Specify up
+    -- to one value for each audio output in your output group. This value
+    -- appears in your HLS parent manifest in the EXT-X-MEDIA tag of
+    -- TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you
+    -- specify \"audio_aac_1\" for Audio group ID, it appears in your manifest
+    -- like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=\"audio_aac_1\". Related
+    -- setting: To associate the rendition group that this audio track belongs
+    -- to with a video rendition, include the same value that you provide here
+    -- for that video output\'s setting Audio rendition sets
+    -- (audioRenditionSets).
+    audioGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Use this setting to control the values that MediaConvert puts in your
+    -- HLS parent playlist to control how the client player selects which audio
+    -- track to play. The other options for this setting determine the values
+    -- that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of
+    -- the EXT-X-MEDIA entry for the audio variant. For more information about
+    -- these attributes, see the Apple documentation article
+    -- https:\/\/developer.apple.com\/documentation\/http_live_streaming\/example_playlists_for_http_live_streaming\/adding_alternate_media_to_a_playlist.
+    -- Choose Alternate audio, auto select, default
+    -- (ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT) to set DEFAULT=YES and
+    -- AUTOSELECT=YES. Choose this value for only one variant in your output
+    -- group. Choose Alternate audio, auto select, not default
+    -- (ALTERNATE_AUDIO_AUTO_SELECT) to set DEFAULT=NO and AUTOSELECT=YES.
+    -- Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and
+    -- AUTOSELECT=NO. When you don\'t specify a value for this setting,
+    -- MediaConvert defaults to Alternate audio, auto select, default. When
+    -- there is more than one variant in your output group, you must explicitly
+    -- choose a value for this setting.
+    audioTrackType :: Prelude.Maybe CmfcAudioTrackType,
     -- | Specify this setting only when your output will be consumed by a
     -- downstream repackaging workflow that is sensitive to very small duration
     -- differences between video and audio. For this situation, choose Match
@@ -75,6 +135,25 @@ data CmfcSettings = CmfcSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'audioRenditionSets', 'cmfcSettings_audioRenditionSets' - List the audio rendition groups that you want included with this video
+-- rendition. Use a comma-separated list. For example, say you want to
+-- include the audio rendition groups that have the audio group IDs
+-- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
+-- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+-- you include in your comma-separated list should all match values that
+-- you specify in the setting Audio group ID (AudioGroupId) for audio
+-- renditions in the same output group as this video rendition. Default
+-- behavior: If you don\'t specify anything here and for Audio group ID,
+-- MediaConvert puts each audio variant in its own audio rendition group
+-- and associates it with every video variant. Each value in your list
+-- appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the
+-- value for the AUDIO attribute. To continue the previous example, say
+-- that the file name for the child manifest for your video rendition is
+-- \"amazing_video_1.m3u8\". Then, in your parent manifest, each value will
+-- appear on separate lines, like this:
+-- #EXT-X-STREAM-INF:AUDIO=\"audio_aac_1\"... amazing_video_1.m3u8
+-- #EXT-X-STREAM-INF:AUDIO=\"audio_dolby\"... amazing_video_1.m3u8
+--
 -- 'iFrameOnlyManifest', 'cmfcSettings_iFrameOnlyManifest' - Choose Include (INCLUDE) to have MediaConvert generate an HLS child
 -- manifest that lists only the I-frames for this rendition, in addition to
 -- your regular manifest for this rendition. You might use this manifest as
@@ -82,6 +161,44 @@ data CmfcSettings = CmfcSettings'
 -- MediaConvert adds both the I-frame only child manifest and the regular
 -- child manifest to the parent manifest. When you don\'t need the I-frame
 -- only child manifest, keep the default value Exclude (EXCLUDE).
+--
+-- 'descriptiveVideoServiceFlag', 'cmfcSettings_descriptiveVideoServiceFlag' - Specify whether to flag this audio track as descriptive video service
+-- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+-- MediaConvert includes the parameter
+-- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+-- EXT-X-MEDIA entry for this track. When you keep the default choice,
+-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+-- flag can help with accessibility on Apple devices. For more information,
+-- see the Apple documentation.
+--
+-- 'audioGroupId', 'cmfcSettings_audioGroupId' - Specify the audio rendition group for this audio rendition. Specify up
+-- to one value for each audio output in your output group. This value
+-- appears in your HLS parent manifest in the EXT-X-MEDIA tag of
+-- TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you
+-- specify \"audio_aac_1\" for Audio group ID, it appears in your manifest
+-- like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=\"audio_aac_1\". Related
+-- setting: To associate the rendition group that this audio track belongs
+-- to with a video rendition, include the same value that you provide here
+-- for that video output\'s setting Audio rendition sets
+-- (audioRenditionSets).
+--
+-- 'audioTrackType', 'cmfcSettings_audioTrackType' - Use this setting to control the values that MediaConvert puts in your
+-- HLS parent playlist to control how the client player selects which audio
+-- track to play. The other options for this setting determine the values
+-- that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of
+-- the EXT-X-MEDIA entry for the audio variant. For more information about
+-- these attributes, see the Apple documentation article
+-- https:\/\/developer.apple.com\/documentation\/http_live_streaming\/example_playlists_for_http_live_streaming\/adding_alternate_media_to_a_playlist.
+-- Choose Alternate audio, auto select, default
+-- (ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT) to set DEFAULT=YES and
+-- AUTOSELECT=YES. Choose this value for only one variant in your output
+-- group. Choose Alternate audio, auto select, not default
+-- (ALTERNATE_AUDIO_AUTO_SELECT) to set DEFAULT=NO and AUTOSELECT=YES.
+-- Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and
+-- AUTOSELECT=NO. When you don\'t specify a value for this setting,
+-- MediaConvert defaults to Alternate audio, auto select, default. When
+-- there is more than one variant in your output group, you must explicitly
+-- choose a value for this setting.
 --
 -- 'audioDuration', 'cmfcSettings_audioDuration' - Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -111,11 +228,36 @@ newCmfcSettings ::
   CmfcSettings
 newCmfcSettings =
   CmfcSettings'
-    { iFrameOnlyManifest = Prelude.Nothing,
+    { audioRenditionSets = Prelude.Nothing,
+      iFrameOnlyManifest = Prelude.Nothing,
+      descriptiveVideoServiceFlag = Prelude.Nothing,
+      audioGroupId = Prelude.Nothing,
+      audioTrackType = Prelude.Nothing,
       audioDuration = Prelude.Nothing,
       scte35Esam = Prelude.Nothing,
       scte35Source = Prelude.Nothing
     }
+
+-- | List the audio rendition groups that you want included with this video
+-- rendition. Use a comma-separated list. For example, say you want to
+-- include the audio rendition groups that have the audio group IDs
+-- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
+-- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+-- you include in your comma-separated list should all match values that
+-- you specify in the setting Audio group ID (AudioGroupId) for audio
+-- renditions in the same output group as this video rendition. Default
+-- behavior: If you don\'t specify anything here and for Audio group ID,
+-- MediaConvert puts each audio variant in its own audio rendition group
+-- and associates it with every video variant. Each value in your list
+-- appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the
+-- value for the AUDIO attribute. To continue the previous example, say
+-- that the file name for the child manifest for your video rendition is
+-- \"amazing_video_1.m3u8\". Then, in your parent manifest, each value will
+-- appear on separate lines, like this:
+-- #EXT-X-STREAM-INF:AUDIO=\"audio_aac_1\"... amazing_video_1.m3u8
+-- #EXT-X-STREAM-INF:AUDIO=\"audio_dolby\"... amazing_video_1.m3u8
+cmfcSettings_audioRenditionSets :: Lens.Lens' CmfcSettings (Prelude.Maybe Prelude.Text)
+cmfcSettings_audioRenditionSets = Lens.lens (\CmfcSettings' {audioRenditionSets} -> audioRenditionSets) (\s@CmfcSettings' {} a -> s {audioRenditionSets = a} :: CmfcSettings)
 
 -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
 -- manifest that lists only the I-frames for this rendition, in addition to
@@ -126,6 +268,50 @@ newCmfcSettings =
 -- only child manifest, keep the default value Exclude (EXCLUDE).
 cmfcSettings_iFrameOnlyManifest :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcIFrameOnlyManifest)
 cmfcSettings_iFrameOnlyManifest = Lens.lens (\CmfcSettings' {iFrameOnlyManifest} -> iFrameOnlyManifest) (\s@CmfcSettings' {} a -> s {iFrameOnlyManifest = a} :: CmfcSettings)
+
+-- | Specify whether to flag this audio track as descriptive video service
+-- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),
+-- MediaConvert includes the parameter
+-- CHARACTERISTICS=\"public.accessibility.describes-video\" in the
+-- EXT-X-MEDIA entry for this track. When you keep the default choice,
+-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS
+-- flag can help with accessibility on Apple devices. For more information,
+-- see the Apple documentation.
+cmfcSettings_descriptiveVideoServiceFlag :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcDescriptiveVideoServiceFlag)
+cmfcSettings_descriptiveVideoServiceFlag = Lens.lens (\CmfcSettings' {descriptiveVideoServiceFlag} -> descriptiveVideoServiceFlag) (\s@CmfcSettings' {} a -> s {descriptiveVideoServiceFlag = a} :: CmfcSettings)
+
+-- | Specify the audio rendition group for this audio rendition. Specify up
+-- to one value for each audio output in your output group. This value
+-- appears in your HLS parent manifest in the EXT-X-MEDIA tag of
+-- TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you
+-- specify \"audio_aac_1\" for Audio group ID, it appears in your manifest
+-- like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=\"audio_aac_1\". Related
+-- setting: To associate the rendition group that this audio track belongs
+-- to with a video rendition, include the same value that you provide here
+-- for that video output\'s setting Audio rendition sets
+-- (audioRenditionSets).
+cmfcSettings_audioGroupId :: Lens.Lens' CmfcSettings (Prelude.Maybe Prelude.Text)
+cmfcSettings_audioGroupId = Lens.lens (\CmfcSettings' {audioGroupId} -> audioGroupId) (\s@CmfcSettings' {} a -> s {audioGroupId = a} :: CmfcSettings)
+
+-- | Use this setting to control the values that MediaConvert puts in your
+-- HLS parent playlist to control how the client player selects which audio
+-- track to play. The other options for this setting determine the values
+-- that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of
+-- the EXT-X-MEDIA entry for the audio variant. For more information about
+-- these attributes, see the Apple documentation article
+-- https:\/\/developer.apple.com\/documentation\/http_live_streaming\/example_playlists_for_http_live_streaming\/adding_alternate_media_to_a_playlist.
+-- Choose Alternate audio, auto select, default
+-- (ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT) to set DEFAULT=YES and
+-- AUTOSELECT=YES. Choose this value for only one variant in your output
+-- group. Choose Alternate audio, auto select, not default
+-- (ALTERNATE_AUDIO_AUTO_SELECT) to set DEFAULT=NO and AUTOSELECT=YES.
+-- Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and
+-- AUTOSELECT=NO. When you don\'t specify a value for this setting,
+-- MediaConvert defaults to Alternate audio, auto select, default. When
+-- there is more than one variant in your output group, you must explicitly
+-- choose a value for this setting.
+cmfcSettings_audioTrackType :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcAudioTrackType)
+cmfcSettings_audioTrackType = Lens.lens (\CmfcSettings' {audioTrackType} -> audioTrackType) (\s@CmfcSettings' {} a -> s {audioTrackType = a} :: CmfcSettings)
 
 -- | Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -164,7 +350,11 @@ instance Core.FromJSON CmfcSettings where
       "CmfcSettings"
       ( \x ->
           CmfcSettings'
-            Prelude.<$> (x Core..:? "iFrameOnlyManifest")
+            Prelude.<$> (x Core..:? "audioRenditionSets")
+            Prelude.<*> (x Core..:? "iFrameOnlyManifest")
+            Prelude.<*> (x Core..:? "descriptiveVideoServiceFlag")
+            Prelude.<*> (x Core..:? "audioGroupId")
+            Prelude.<*> (x Core..:? "audioTrackType")
             Prelude.<*> (x Core..:? "audioDuration")
             Prelude.<*> (x Core..:? "scte35Esam")
             Prelude.<*> (x Core..:? "scte35Source")
@@ -178,8 +368,15 @@ instance Core.ToJSON CmfcSettings where
   toJSON CmfcSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("iFrameOnlyManifest" Core..=)
+          [ ("audioRenditionSets" Core..=)
+              Prelude.<$> audioRenditionSets,
+            ("iFrameOnlyManifest" Core..=)
               Prelude.<$> iFrameOnlyManifest,
+            ("descriptiveVideoServiceFlag" Core..=)
+              Prelude.<$> descriptiveVideoServiceFlag,
+            ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
+            ("audioTrackType" Core..=)
+              Prelude.<$> audioTrackType,
             ("audioDuration" Core..=) Prelude.<$> audioDuration,
             ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
             ("scte35Source" Core..=) Prelude.<$> scte35Source

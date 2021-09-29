@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeDBProxies
     -- * Request Lenses
     describeDBProxies_filters,
     describeDBProxies_dbProxyName,
-    describeDBProxies_marker,
     describeDBProxies_maxRecords,
+    describeDBProxies_marker,
 
     -- * Destructuring the Response
     DescribeDBProxiesResponse (..),
@@ -56,12 +56,10 @@ import qualified Network.AWS.Response as Response
 data DescribeDBProxies = DescribeDBProxies'
   { -- | This parameter is not currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | The name of the DB proxy.
+    -- | The name of the DB proxy. If you omit this parameter, the output
+    -- includes information about all DB proxies owned by your Amazon Web
+    -- Services account ID.
     dbProxyName :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -70,7 +68,11 @@ data DescribeDBProxies = DescribeDBProxies'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,11 +86,9 @@ data DescribeDBProxies = DescribeDBProxies'
 --
 -- 'filters', 'describeDBProxies_filters' - This parameter is not currently supported.
 --
--- 'dbProxyName', 'describeDBProxies_dbProxyName' - The name of the DB proxy.
---
--- 'marker', 'describeDBProxies_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- 'dbProxyName', 'describeDBProxies_dbProxyName' - The name of the DB proxy. If you omit this parameter, the output
+-- includes information about all DB proxies owned by your Amazon Web
+-- Services account ID.
 --
 -- 'maxRecords', 'describeDBProxies_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -98,29 +98,29 @@ data DescribeDBProxies = DescribeDBProxies'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBProxies_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeDBProxies ::
   DescribeDBProxies
 newDescribeDBProxies =
   DescribeDBProxies'
     { filters = Prelude.Nothing,
       dbProxyName = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | This parameter is not currently supported.
 describeDBProxies_filters :: Lens.Lens' DescribeDBProxies (Prelude.Maybe [Filter])
 describeDBProxies_filters = Lens.lens (\DescribeDBProxies' {filters} -> filters) (\s@DescribeDBProxies' {} a -> s {filters = a} :: DescribeDBProxies) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the DB proxy.
+-- | The name of the DB proxy. If you omit this parameter, the output
+-- includes information about all DB proxies owned by your Amazon Web
+-- Services account ID.
 describeDBProxies_dbProxyName :: Lens.Lens' DescribeDBProxies (Prelude.Maybe Prelude.Text)
 describeDBProxies_dbProxyName = Lens.lens (\DescribeDBProxies' {dbProxyName} -> dbProxyName) (\s@DescribeDBProxies' {} a -> s {dbProxyName = a} :: DescribeDBProxies)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeDBProxies_marker :: Lens.Lens' DescribeDBProxies (Prelude.Maybe Prelude.Text)
-describeDBProxies_marker = Lens.lens (\DescribeDBProxies' {marker} -> marker) (\s@DescribeDBProxies' {} a -> s {marker = a} :: DescribeDBProxies)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -132,6 +132,12 @@ describeDBProxies_marker = Lens.lens (\DescribeDBProxies' {marker} -> marker) (\
 -- Constraints: Minimum 20, maximum 100.
 describeDBProxies_maxRecords :: Lens.Lens' DescribeDBProxies (Prelude.Maybe Prelude.Natural)
 describeDBProxies_maxRecords = Lens.lens (\DescribeDBProxies' {maxRecords} -> maxRecords) (\s@DescribeDBProxies' {} a -> s {maxRecords = a} :: DescribeDBProxies)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeDBProxies_marker :: Lens.Lens' DescribeDBProxies (Prelude.Maybe Prelude.Text)
+describeDBProxies_marker = Lens.lens (\DescribeDBProxies' {marker} -> marker) (\s@DescribeDBProxies' {} a -> s {marker = a} :: DescribeDBProxies)
 
 instance Core.AWSPager DescribeDBProxies where
   page rq rs
@@ -192,8 +198,8 @@ instance Core.ToQuery DescribeDBProxies where
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
         "DBProxyName" Core.=: dbProxyName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeDBProxiesResponse' smart constructor.

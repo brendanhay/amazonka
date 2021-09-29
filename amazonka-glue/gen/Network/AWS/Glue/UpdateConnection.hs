@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
   { -- | The ID of the Data Catalog in which the connection resides. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection definition to update.
     name :: Prelude.Text,
@@ -68,7 +68,7 @@ data UpdateConnection = UpdateConnection'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'updateConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'name', 'updateConnection_name' - The name of the connection definition to update.
 --
@@ -87,7 +87,7 @@ newUpdateConnection pName_ pConnectionInput_ =
     }
 
 -- | The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 updateConnection_catalogId :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
 updateConnection_catalogId = Lens.lens (\UpdateConnection' {catalogId} -> catalogId) (\s@UpdateConnection' {} a -> s {catalogId = a} :: UpdateConnection)
 

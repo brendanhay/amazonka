@@ -32,8 +32,8 @@ module Network.AWS.OpsWorksCM.Lens
     deleteServerResponse_httpStatus,
 
     -- ** CreateServer
-    createServer_securityGroupIds,
     createServer_preferredBackupWindow,
+    createServer_securityGroupIds,
     createServer_disableAutomatedBackup,
     createServer_customPrivateKey,
     createServer_engineAttributes,
@@ -45,8 +45,8 @@ module Network.AWS.OpsWorksCM.Lens
     createServer_engineVersion,
     createServer_preferredMaintenanceWindow,
     createServer_tags,
-    createServer_backupRetentionCount,
     createServer_engineModel,
+    createServer_backupRetentionCount,
     createServer_customCertificate,
     createServer_engine,
     createServer_serverName,
@@ -56,9 +56,13 @@ module Network.AWS.OpsWorksCM.Lens
     createServerResponse_server,
     createServerResponse_httpStatus,
 
-    -- ** DescribeAccountAttributes
-    describeAccountAttributesResponse_attributes,
-    describeAccountAttributesResponse_httpStatus,
+    -- ** DescribeServers
+    describeServers_nextToken,
+    describeServers_maxResults,
+    describeServers_serverName,
+    describeServersResponse_nextToken,
+    describeServersResponse_servers,
+    describeServersResponse_httpStatus,
 
     -- ** ExportServerEngineAttribute
     exportServerEngineAttribute_inputAttributes,
@@ -68,18 +72,19 @@ module Network.AWS.OpsWorksCM.Lens
     exportServerEngineAttributeResponse_serverName,
     exportServerEngineAttributeResponse_httpStatus,
 
-    -- ** DescribeServers
-    describeServers_nextToken,
-    describeServers_maxResults,
-    describeServers_serverName,
-    describeServersResponse_nextToken,
-    describeServersResponse_servers,
-    describeServersResponse_httpStatus,
+    -- ** DescribeAccountAttributes
+    describeAccountAttributesResponse_attributes,
+    describeAccountAttributesResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** DescribeNodeAssociationStatus
     describeNodeAssociationStatus_nodeAssociationStatusToken,
@@ -88,18 +93,6 @@ module Network.AWS.OpsWorksCM.Lens
     describeNodeAssociationStatusResponse_httpStatus,
     describeNodeAssociationStatusResponse_nodeAssociationStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DisassociateNode
-    disassociateNode_engineAttributes,
-    disassociateNode_serverName,
-    disassociateNode_nodeName,
-    disassociateNodeResponse_nodeAssociationStatusToken,
-    disassociateNodeResponse_httpStatus,
-
     -- ** DescribeEvents
     describeEvents_nextToken,
     describeEvents_maxResults,
@@ -107,6 +100,13 @@ module Network.AWS.OpsWorksCM.Lens
     describeEventsResponse_nextToken,
     describeEventsResponse_serverEvents,
     describeEventsResponse_httpStatus,
+
+    -- ** DisassociateNode
+    disassociateNode_engineAttributes,
+    disassociateNode_serverName,
+    disassociateNode_nodeName,
+    disassociateNodeResponse_nodeAssociationStatusToken,
+    disassociateNodeResponse_httpStatus,
 
     -- ** CreateBackup
     createBackup_tags,
@@ -131,13 +131,6 @@ module Network.AWS.OpsWorksCM.Lens
     describeBackupsResponse_backups,
     describeBackupsResponse_httpStatus,
 
-    -- ** UpdateServerEngineAttributes
-    updateServerEngineAttributes_attributeValue,
-    updateServerEngineAttributes_serverName,
-    updateServerEngineAttributes_attributeName,
-    updateServerEngineAttributesResponse_server,
-    updateServerEngineAttributesResponse_httpStatus,
-
     -- ** StartMaintenance
     startMaintenance_engineAttributes,
     startMaintenance_serverName,
@@ -149,7 +142,15 @@ module Network.AWS.OpsWorksCM.Lens
     restoreServer_keyPair,
     restoreServer_backupId,
     restoreServer_serverName,
+    restoreServerResponse_server,
     restoreServerResponse_httpStatus,
+
+    -- ** UpdateServerEngineAttributes
+    updateServerEngineAttributes_attributeValue,
+    updateServerEngineAttributes_serverName,
+    updateServerEngineAttributes_attributeName,
+    updateServerEngineAttributesResponse_server,
+    updateServerEngineAttributesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
@@ -167,21 +168,21 @@ module Network.AWS.OpsWorksCM.Lens
     accountAttribute_maximum,
 
     -- ** Backup
-    backup_securityGroupIds,
     backup_instanceProfileArn,
     backup_preferredBackupWindow,
-    backup_status,
+    backup_securityGroupIds,
     backup_serviceRoleArn,
+    backup_status,
     backup_userArn,
     backup_instanceType,
     backup_backupType,
-    backup_backupId,
     backup_s3DataUrl,
     backup_backupArn,
-    backup_subnetIds,
-    backup_keyPair,
-    backup_s3DataSize,
+    backup_backupId,
     backup_createdAt,
+    backup_subnetIds,
+    backup_s3DataSize,
+    backup_keyPair,
     backup_serverName,
     backup_s3LogUrl,
     backup_engineVersion,
@@ -197,30 +198,30 @@ module Network.AWS.OpsWorksCM.Lens
     engineAttribute_value,
 
     -- ** Server
-    server_securityGroupIds,
     server_instanceProfileArn,
     server_preferredBackupWindow,
+    server_securityGroupIds,
+    server_serviceRoleArn,
     server_status,
     server_disableAutomatedBackup,
-    server_serviceRoleArn,
-    server_instanceType,
     server_engineAttributes,
+    server_instanceType,
     server_customDomain,
+    server_createdAt,
     server_subnetIds,
     server_keyPair,
-    server_createdAt,
-    server_serverName,
     server_associatePublicIpAddress,
+    server_serverName,
     server_engineVersion,
     server_preferredMaintenanceWindow,
-    server_backupRetentionCount,
-    server_maintenanceStatus,
     server_cloudFormationStackArn,
+    server_maintenanceStatus,
     server_engineModel,
+    server_backupRetentionCount,
     server_engine,
     server_endpoint,
-    server_serverArn,
     server_statusReason,
+    server_serverArn,
 
     -- ** ServerEvent
     serverEvent_logUrl,

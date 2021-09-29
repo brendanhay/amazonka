@@ -21,26 +21,26 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the specified version of the global endpoint token as the token
--- version used for the AWS account.
+-- version used for the Amazon Web Services account.
 --
--- By default, AWS Security Token Service (STS) is available as a global
+-- By default, Security Token Service (STS) is available as a global
 -- service, and all STS requests go to a single endpoint at
--- @https:\/\/sts.amazonaws.com@. AWS recommends using Regional STS
--- endpoints to reduce latency, build in redundancy, and increase session
--- token availability. For information about Regional endpoints for STS,
--- see
--- <https://docs.aws.amazon.com/general/latest/gr/sts.html AWS AWS Security Token Service endpoints and quotas>
--- in the /AWS General Reference/.
+-- @https:\/\/sts.amazonaws.com@. Amazon Web Services recommends using
+-- Regional STS endpoints to reduce latency, build in redundancy, and
+-- increase session token availability. For information about Regional
+-- endpoints for STS, see
+-- <https://docs.aws.amazon.com/general/latest/gr/sts.html Security Token Service endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
 --
 -- If you make an STS call to the global endpoint, the resulting session
 -- tokens might be valid in some Regions but not others. It depends on the
 -- version that is set in this operation. Version 1 tokens are valid only
--- in AWS Regions that are available by default. These tokens do not work
--- in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2
--- tokens are valid in all Regions. However, version 2 tokens are longer
--- and might affect systems where you temporarily store tokens. For
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an AWS region>
+-- in Amazon Web Services Regions that are available by default. These
+-- tokens do not work in manually enabled Regions, such as Asia Pacific
+-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version
+-- 2 tokens are longer and might affect systems where you temporarily store
+-- tokens. For information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region>
 -- in the /IAM User Guide/.
 --
 -- To view the current session token version, see the
@@ -70,13 +70,14 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newSetSecurityTokenServicePreferences' smart constructor.
 data SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
   { -- | The version of the global endpoint token. Version 1 tokens are valid
-    -- only in AWS Regions that are available by default. These tokens do not
-    -- work in manually enabled Regions, such as Asia Pacific (Hong Kong).
-    -- Version 2 tokens are valid in all Regions. However, version 2 tokens are
-    -- longer and might affect systems where you temporarily store tokens.
+    -- only in Amazon Web Services Regions that are available by default. These
+    -- tokens do not work in manually enabled Regions, such as Asia Pacific
+    -- (Hong Kong). Version 2 tokens are valid in all Regions. However, version
+    -- 2 tokens are longer and might affect systems where you temporarily store
+    -- tokens.
     --
     -- For information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an AWS region>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region>
     -- in the /IAM User Guide/.
     globalEndpointTokenVersion :: GlobalEndpointTokenVersion
   }
@@ -91,13 +92,14 @@ data SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
 -- for backwards compatibility:
 --
 -- 'globalEndpointTokenVersion', 'setSecurityTokenServicePreferences_globalEndpointTokenVersion' - The version of the global endpoint token. Version 1 tokens are valid
--- only in AWS Regions that are available by default. These tokens do not
--- work in manually enabled Regions, such as Asia Pacific (Hong Kong).
--- Version 2 tokens are valid in all Regions. However, version 2 tokens are
--- longer and might affect systems where you temporarily store tokens.
+-- only in Amazon Web Services Regions that are available by default. These
+-- tokens do not work in manually enabled Regions, such as Asia Pacific
+-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version
+-- 2 tokens are longer and might affect systems where you temporarily store
+-- tokens.
 --
 -- For information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an AWS region>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region>
 -- in the /IAM User Guide/.
 newSetSecurityTokenServicePreferences ::
   -- | 'globalEndpointTokenVersion'
@@ -111,13 +113,14 @@ newSetSecurityTokenServicePreferences
       }
 
 -- | The version of the global endpoint token. Version 1 tokens are valid
--- only in AWS Regions that are available by default. These tokens do not
--- work in manually enabled Regions, such as Asia Pacific (Hong Kong).
--- Version 2 tokens are valid in all Regions. However, version 2 tokens are
--- longer and might affect systems where you temporarily store tokens.
+-- only in Amazon Web Services Regions that are available by default. These
+-- tokens do not work in manually enabled Regions, such as Asia Pacific
+-- (Hong Kong). Version 2 tokens are valid in all Regions. However, version
+-- 2 tokens are longer and might affect systems where you temporarily store
+-- tokens.
 --
 -- For information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an AWS region>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Amazon Web Services Region>
 -- in the /IAM User Guide/.
 setSecurityTokenServicePreferences_globalEndpointTokenVersion :: Lens.Lens' SetSecurityTokenServicePreferences GlobalEndpointTokenVersion
 setSecurityTokenServicePreferences_globalEndpointTokenVersion = Lens.lens (\SetSecurityTokenServicePreferences' {globalEndpointTokenVersion} -> globalEndpointTokenVersion) (\s@SetSecurityTokenServicePreferences' {} a -> s {globalEndpointTokenVersion = a} :: SetSecurityTokenServicePreferences)

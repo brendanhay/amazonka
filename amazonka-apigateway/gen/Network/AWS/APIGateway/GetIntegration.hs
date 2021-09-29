@@ -37,20 +37,20 @@ module Network.AWS.APIGateway.GetIntegration
 
     -- * Response Lenses
     integration_httpMethod,
-    integration_passthroughBehavior,
     integration_contentHandling,
     integration_uri,
     integration_connectionType,
+    integration_passthroughBehavior,
     integration_connectionId,
-    integration_requestTemplates,
     integration_timeoutInMillis,
+    integration_requestTemplates,
     integration_cacheNamespace,
-    integration_cacheKeyParameters,
     integration_tlsConfig,
+    integration_cacheKeyParameters,
     integration_integrationResponses,
     integration_requestParameters,
-    integration_type,
     integration_credentials,
+    integration_type,
   )
 where
 

@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJourneyStateRequest' smart constructor.
 data JourneyStateRequest = JourneyStateRequest'
-  { -- | The status of the journey. Currently, the only supported value is
-    -- CANCELLED.
+  { -- | The status of the journey. Currently, Supported values are ACTIVE,
+    -- PAUSED, and CANCELLED
     --
     -- If you cancel a journey, Amazon Pinpoint continues to perform activities
     -- that are currently in progress, until those activities are complete.
@@ -41,6 +41,14 @@ data JourneyStateRequest = JourneyStateRequest'
     -- activities from the journey. In addition, Amazon Pinpoint stops
     -- evaluating the journey and doesn\'t perform any activities that haven\'t
     -- started.
+    --
+    -- When the journey is paused, Amazon Pinpoint continues to perform
+    -- activities that are currently in progress, until those activities are
+    -- complete. Endpoints will stop entering journeys when the journey is
+    -- paused and will resume entering the journey after the journey is
+    -- resumed. For wait activities, wait time is paused when the journey is
+    -- paused. Currently, PAUSED only supports journeys with a segment refresh
+    -- interval.
     state :: Prelude.Maybe State
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,8 +61,8 @@ data JourneyStateRequest = JourneyStateRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'journeyStateRequest_state' - The status of the journey. Currently, the only supported value is
--- CANCELLED.
+-- 'state', 'journeyStateRequest_state' - The status of the journey. Currently, Supported values are ACTIVE,
+-- PAUSED, and CANCELLED
 --
 -- If you cancel a journey, Amazon Pinpoint continues to perform activities
 -- that are currently in progress, until those activities are complete.
@@ -66,13 +74,21 @@ data JourneyStateRequest = JourneyStateRequest'
 -- activities from the journey. In addition, Amazon Pinpoint stops
 -- evaluating the journey and doesn\'t perform any activities that haven\'t
 -- started.
+--
+-- When the journey is paused, Amazon Pinpoint continues to perform
+-- activities that are currently in progress, until those activities are
+-- complete. Endpoints will stop entering journeys when the journey is
+-- paused and will resume entering the journey after the journey is
+-- resumed. For wait activities, wait time is paused when the journey is
+-- paused. Currently, PAUSED only supports journeys with a segment refresh
+-- interval.
 newJourneyStateRequest ::
   JourneyStateRequest
 newJourneyStateRequest =
   JourneyStateRequest' {state = Prelude.Nothing}
 
--- | The status of the journey. Currently, the only supported value is
--- CANCELLED.
+-- | The status of the journey. Currently, Supported values are ACTIVE,
+-- PAUSED, and CANCELLED
 --
 -- If you cancel a journey, Amazon Pinpoint continues to perform activities
 -- that are currently in progress, until those activities are complete.
@@ -84,6 +100,14 @@ newJourneyStateRequest =
 -- activities from the journey. In addition, Amazon Pinpoint stops
 -- evaluating the journey and doesn\'t perform any activities that haven\'t
 -- started.
+--
+-- When the journey is paused, Amazon Pinpoint continues to perform
+-- activities that are currently in progress, until those activities are
+-- complete. Endpoints will stop entering journeys when the journey is
+-- paused and will resume entering the journey after the journey is
+-- resumed. For wait activities, wait time is paused when the journey is
+-- paused. Currently, PAUSED only supports journeys with a segment refresh
+-- interval.
 journeyStateRequest_state :: Lens.Lens' JourneyStateRequest (Prelude.Maybe State)
 journeyStateRequest_state = Lens.lens (\JourneyStateRequest' {state} -> state) (\s@JourneyStateRequest' {} a -> s {state = a} :: JourneyStateRequest)
 

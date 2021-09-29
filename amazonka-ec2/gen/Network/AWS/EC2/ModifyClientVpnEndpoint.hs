@@ -68,7 +68,7 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the server certificate to be used. The server certificate
-    -- must be provisioned in AWS Certificate Manager (ACM).
+    -- must be provisioned in Certificate Manager (ACM).
     serverCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | Information about the client connection logging options.
     --
@@ -107,8 +107,8 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
     -- | Indicates whether the VPN is split-tunnel.
     --
     -- For information about split-tunnel VPN endpoints, see
-    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
-    -- in the /AWS Client VPN Administrator Guide/.
+    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+    -- in the /Client VPN Administrator Guide/.
     splitTunnel :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Client VPN endpoint to modify.
     clientVpnEndpointId :: Prelude.Text
@@ -131,7 +131,7 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'serverCertificateArn', 'modifyClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate to be used. The server certificate
--- must be provisioned in AWS Certificate Manager (ACM).
+-- must be provisioned in Certificate Manager (ACM).
 --
 -- 'connectionLogOptions', 'modifyClientVpnEndpoint_connectionLogOptions' - Information about the client connection logging options.
 --
@@ -170,8 +170,8 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 -- 'splitTunnel', 'modifyClientVpnEndpoint_splitTunnel' - Indicates whether the VPN is split-tunnel.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
 --
 -- 'clientVpnEndpointId', 'modifyClientVpnEndpoint_clientVpnEndpointId' - The ID of the Client VPN endpoint to modify.
 newModifyClientVpnEndpoint ::
@@ -207,7 +207,7 @@ modifyClientVpnEndpoint_dryRun :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Ma
 modifyClientVpnEndpoint_dryRun = Lens.lens (\ModifyClientVpnEndpoint' {dryRun} -> dryRun) (\s@ModifyClientVpnEndpoint' {} a -> s {dryRun = a} :: ModifyClientVpnEndpoint)
 
 -- | The ARN of the server certificate to be used. The server certificate
--- must be provisioned in AWS Certificate Manager (ACM).
+-- must be provisioned in Certificate Manager (ACM).
 modifyClientVpnEndpoint_serverCertificateArn :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 modifyClientVpnEndpoint_serverCertificateArn = Lens.lens (\ModifyClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ModifyClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ModifyClientVpnEndpoint)
 
@@ -262,8 +262,8 @@ modifyClientVpnEndpoint_selfServicePortal = Lens.lens (\ModifyClientVpnEndpoint'
 -- | Indicates whether the VPN is split-tunnel.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
 modifyClientVpnEndpoint_splitTunnel :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 modifyClientVpnEndpoint_splitTunnel = Lens.lens (\ModifyClientVpnEndpoint' {splitTunnel} -> splitTunnel) (\s@ModifyClientVpnEndpoint' {} a -> s {splitTunnel = a} :: ModifyClientVpnEndpoint)
 

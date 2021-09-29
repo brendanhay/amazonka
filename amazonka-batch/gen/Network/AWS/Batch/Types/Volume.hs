@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.Volume where
 
+import Network.AWS.Batch.Types.EFSVolumeConfiguration
 import Network.AWS.Batch.Types.Host
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -38,9 +39,13 @@ data Volume = Volume'
     -- your data volume. However, the data isn\'t guaranteed to persist after
     -- the containers associated with it stop running.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided.
-    host :: Prelude.Maybe Host
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
+    host :: Prelude.Maybe Host,
+    -- | This parameter is specified when you are using an Amazon Elastic File
+    -- System file system for job storage. Jobs that are running on Fargate
+    -- resources must specify a @platformVersion@ of at least @1.4.0@.
+    efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,14 +67,19 @@ data Volume = Volume'
 -- your data volume. However, the data isn\'t guaranteed to persist after
 -- the containers associated with it stop running.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
+--
+-- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File
+-- System file system for job storage. Jobs that are running on Fargate
+-- resources must specify a @platformVersion@ of at least @1.4.0@.
 newVolume ::
   Volume
 newVolume =
   Volume'
     { name = Prelude.Nothing,
-      host = Prelude.Nothing
+      host = Prelude.Nothing,
+      efsVolumeConfiguration = Prelude.Nothing
     }
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
@@ -84,10 +94,16 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 -- your data volume. However, the data isn\'t guaranteed to persist after
 -- the containers associated with it stop running.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 volume_host :: Lens.Lens' Volume (Prelude.Maybe Host)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
+
+-- | This parameter is specified when you are using an Amazon Elastic File
+-- System file system for job storage. Jobs that are running on Fargate
+-- resources must specify a @platformVersion@ of at least @1.4.0@.
+volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
+volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
 
 instance Core.FromJSON Volume where
   parseJSON =
@@ -95,7 +111,9 @@ instance Core.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "host")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "host")
+            Prelude.<*> (x Core..:? "efsVolumeConfiguration")
       )
 
 instance Prelude.Hashable Volume
@@ -107,6 +125,8 @@ instance Core.ToJSON Volume where
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
-            ("host" Core..=) Prelude.<$> host
+            ("host" Core..=) Prelude.<$> host,
+            ("efsVolumeConfiguration" Core..=)
+              Prelude.<$> efsVolumeConfiguration
           ]
       )

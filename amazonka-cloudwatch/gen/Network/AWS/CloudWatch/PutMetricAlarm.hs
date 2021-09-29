@@ -42,12 +42,35 @@
 -- -   The @iam:CreateServiceLinkedRole@ to create an alarm with Systems
 --     Manager OpsItem actions.
 --
--- The first time you create an alarm in the AWS Management Console, the
--- CLI, or by using the PutMetricAlarm API, CloudWatch creates the
--- necessary service-linked rolea for you. The service-linked roles are
--- called @AWSServiceRoleForCloudWatchEvents@ and
+-- The first time you create an alarm in the Management Console, the CLI,
+-- or by using the PutMetricAlarm API, CloudWatch creates the necessary
+-- service-linked role for you. The service-linked roles are called
+-- @AWSServiceRoleForCloudWatchEvents@ and
 -- @AWSServiceRoleForCloudWatchAlarms_ActionSSM@. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role AWS service-linked role>.
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Amazon Web Services service-linked role>.
+--
+-- __Cross-account alarms__
+--
+-- You can set an alarm on metrics in the current account, or in another
+-- account. To create a cross-account alarm that watches a metric in a
+-- different account, you must have completed the following pre-requisites:
+--
+-- -   The account where the metrics are located (the /sharing account/)
+--     must already have a sharing role named
+--     __CloudWatch-CrossAccountSharingRole__. If it does not already have
+--     this role, you must create it using the instructions in __Set up a
+--     sharing account__ in
+--     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region Cross-account cross-Region CloudWatch console>.
+--     The policy for that role must grant access to the ID of the account
+--     where you are creating the alarm.
+--
+-- -   The account where you are creating the alarm (the /monitoring
+--     account/) must already have a service-linked role named
+--     __AWSServiceRoleForCloudWatchCrossAccount__ to allow CloudWatch to
+--     assume the sharing role in the sharing account. If it does not, you
+--     must create it following the directions in __Set up a monitoring
+--     account__ in
+--     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region Cross-account cross-Region CloudWatch console>.
 module Network.AWS.CloudWatch.PutMetricAlarm
   ( -- * Creating a Request
     PutMetricAlarm (..),
@@ -58,9 +81,9 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     putMetricAlarm_datapointsToAlarm,
     putMetricAlarm_evaluateLowSampleCountPercentile,
     putMetricAlarm_extendedStatistic,
+    putMetricAlarm_thresholdMetricId,
     putMetricAlarm_alarmActions,
     putMetricAlarm_unit,
-    putMetricAlarm_thresholdMetricId,
     putMetricAlarm_metricName,
     putMetricAlarm_insufficientDataActions,
     putMetricAlarm_treatMissingData,
@@ -68,11 +91,11 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     putMetricAlarm_tags,
     putMetricAlarm_oKActions,
     putMetricAlarm_statistic,
-    putMetricAlarm_dimensions,
     putMetricAlarm_namespace,
+    putMetricAlarm_dimensions,
     putMetricAlarm_actionsEnabled,
-    putMetricAlarm_alarmDescription,
     putMetricAlarm_period,
+    putMetricAlarm_alarmDescription,
     putMetricAlarm_alarmName,
     putMetricAlarm_evaluationPeriods,
     putMetricAlarm_comparisonOperator,
@@ -117,6 +140,14 @@ data PutMetricAlarm = PutMetricAlarm'
     -- and specify a @MetricName@, you must specify either @Statistic@ or
     -- @ExtendedStatistic,@ but not both.
     extendedStatistic :: Prelude.Maybe Prelude.Text,
+    -- | If this is an alarm based on an anomaly detection model, make this value
+    -- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+    --
+    -- For an example of how to use this parameter, see the __Anomaly Detection
+    -- Model Alarm__ example on this page.
+    --
+    -- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+    thresholdMetricId :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the @ALARM@ state
     -- from any other state. Each action is specified as an Amazon Resource
     -- Name (ARN).
@@ -127,7 +158,8 @@ data PutMetricAlarm = PutMetricAlarm'
     -- @arn:aws:automate:region:ec2:reboot@ |
     -- @arn:aws:sns:region:account-id:sns-topic-name @ |
     -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
-    -- | @arn:aws:ssm:region:account-id:opsitem:severity @
+    -- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+    -- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
     --
     -- Valid Values (for use with IAM roles):
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
@@ -135,6 +167,8 @@ data PutMetricAlarm = PutMetricAlarm'
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
     -- |
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | The unit of measure for the statistic. For example, the units for the
     -- Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the
@@ -156,14 +190,6 @@ data PutMetricAlarm = PutMetricAlarm'
     -- incorrect unit that is not published for this metric. Doing so causes
     -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
     unit :: Prelude.Maybe StandardUnit,
-    -- | If this is an alarm based on an anomaly detection model, make this value
-    -- match the ID of the @ANOMALY_DETECTION_BAND@ function.
-    --
-    -- For an example of how to use this parameter, see the __Anomaly Detection
-    -- Model Alarm__ example on this page.
-    --
-    -- If your alarm uses this parameter, it cannot have Auto Scaling actions.
-    thresholdMetricId :: Prelude.Maybe Prelude.Text,
     -- | The name for the metric associated with the alarm. For each
     -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
     -- @Metrics@ array.
@@ -248,21 +274,21 @@ data PutMetricAlarm = PutMetricAlarm'
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
     -- |
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
     oKActions :: Prelude.Maybe [Prelude.Text],
     -- | The statistic for the metric specified in @MetricName@, other than
     -- percentile. For percentile statistics, use @ExtendedStatistic@. When you
     -- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
     -- either @Statistic@ or @ExtendedStatistic,@ but not both.
     statistic :: Prelude.Maybe Statistic,
-    -- | The dimensions for the metric specified in @MetricName@.
-    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace for the metric associated specified in @MetricName@.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The dimensions for the metric specified in @MetricName@.
+    dimensions :: Prelude.Maybe [Dimension],
     -- | Indicates whether actions should be executed during any changes to the
     -- alarm state. The default is @TRUE@.
     actionsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The description for the alarm.
-    alarmDescription :: Prelude.Maybe Prelude.Text,
     -- | The length, in seconds, used each time the metric specified in
     -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
     -- 60.
@@ -286,6 +312,8 @@ data PutMetricAlarm = PutMetricAlarm'
     -- day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than
     -- 86,400 seconds.
     period :: Prelude.Maybe Prelude.Natural,
+    -- | The description for the alarm.
+    alarmDescription :: Prelude.Maybe Prelude.Text,
     -- | The name for the alarm. This name must be unique within the Region.
     alarmName :: Prelude.Text,
     -- | The number of periods over which data is compared to the specified
@@ -342,6 +370,14 @@ data PutMetricAlarm = PutMetricAlarm'
 -- and specify a @MetricName@, you must specify either @Statistic@ or
 -- @ExtendedStatistic,@ but not both.
 --
+-- 'thresholdMetricId', 'putMetricAlarm_thresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value
+-- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+--
+-- For an example of how to use this parameter, see the __Anomaly Detection
+-- Model Alarm__ example on this page.
+--
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+--
 -- 'alarmActions', 'putMetricAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
 -- Name (ARN).
@@ -352,7 +388,8 @@ data PutMetricAlarm = PutMetricAlarm'
 -- @arn:aws:automate:region:ec2:reboot@ |
 -- @arn:aws:sns:region:account-id:sns-topic-name @ |
 -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @
+-- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+-- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
 --
 -- Valid Values (for use with IAM roles):
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
@@ -360,6 +397,8 @@ data PutMetricAlarm = PutMetricAlarm'
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
 -- |
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
 --
 -- 'unit', 'putMetricAlarm_unit' - The unit of measure for the statistic. For example, the units for the
 -- Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the
@@ -380,14 +419,6 @@ data PutMetricAlarm = PutMetricAlarm'
 -- We recommend omitting @Unit@ so that you don\'t inadvertently specify an
 -- incorrect unit that is not published for this metric. Doing so causes
 -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
---
--- 'thresholdMetricId', 'putMetricAlarm_thresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value
--- match the ID of the @ANOMALY_DETECTION_BAND@ function.
---
--- For an example of how to use this parameter, see the __Anomaly Detection
--- Model Alarm__ example on this page.
---
--- If your alarm uses this parameter, it cannot have Auto Scaling actions.
 --
 -- 'metricName', 'putMetricAlarm_metricName' - The name for the metric associated with the alarm. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -473,20 +504,20 @@ data PutMetricAlarm = PutMetricAlarm'
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
 -- |
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
 --
 -- 'statistic', 'putMetricAlarm_statistic' - The statistic for the metric specified in @MetricName@, other than
 -- percentile. For percentile statistics, use @ExtendedStatistic@. When you
 -- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
 -- either @Statistic@ or @ExtendedStatistic,@ but not both.
 --
--- 'dimensions', 'putMetricAlarm_dimensions' - The dimensions for the metric specified in @MetricName@.
---
 -- 'namespace', 'putMetricAlarm_namespace' - The namespace for the metric associated specified in @MetricName@.
+--
+-- 'dimensions', 'putMetricAlarm_dimensions' - The dimensions for the metric specified in @MetricName@.
 --
 -- 'actionsEnabled', 'putMetricAlarm_actionsEnabled' - Indicates whether actions should be executed during any changes to the
 -- alarm state. The default is @TRUE@.
---
--- 'alarmDescription', 'putMetricAlarm_alarmDescription' - The description for the alarm.
 --
 -- 'period', 'putMetricAlarm_period' - The length, in seconds, used each time the metric specified in
 -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -510,6 +541,8 @@ data PutMetricAlarm = PutMetricAlarm'
 -- An alarm\'s total current evaluation period can be no longer than one
 -- day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than
 -- 86,400 seconds.
+--
+-- 'alarmDescription', 'putMetricAlarm_alarmDescription' - The description for the alarm.
 --
 -- 'alarmName', 'putMetricAlarm_alarmName' - The name for the alarm. This name must be unique within the Region.
 --
@@ -547,9 +580,9 @@ newPutMetricAlarm
         datapointsToAlarm = Prelude.Nothing,
         evaluateLowSampleCountPercentile = Prelude.Nothing,
         extendedStatistic = Prelude.Nothing,
+        thresholdMetricId = Prelude.Nothing,
         alarmActions = Prelude.Nothing,
         unit = Prelude.Nothing,
-        thresholdMetricId = Prelude.Nothing,
         metricName = Prelude.Nothing,
         insufficientDataActions = Prelude.Nothing,
         treatMissingData = Prelude.Nothing,
@@ -557,11 +590,11 @@ newPutMetricAlarm
         tags = Prelude.Nothing,
         oKActions = Prelude.Nothing,
         statistic = Prelude.Nothing,
-        dimensions = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
         actionsEnabled = Prelude.Nothing,
-        alarmDescription = Prelude.Nothing,
         period = Prelude.Nothing,
+        alarmDescription = Prelude.Nothing,
         alarmName = pAlarmName_,
         evaluationPeriods = pEvaluationPeriods_,
         comparisonOperator = pComparisonOperator_
@@ -600,6 +633,16 @@ putMetricAlarm_evaluateLowSampleCountPercentile = Lens.lens (\PutMetricAlarm' {e
 putMetricAlarm_extendedStatistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
 putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatistic} -> extendedStatistic) (\s@PutMetricAlarm' {} a -> s {extendedStatistic = a} :: PutMetricAlarm)
 
+-- | If this is an alarm based on an anomaly detection model, make this value
+-- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+--
+-- For an example of how to use this parameter, see the __Anomaly Detection
+-- Model Alarm__ example on this page.
+--
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+putMetricAlarm_thresholdMetricId :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@PutMetricAlarm' {} a -> s {thresholdMetricId = a} :: PutMetricAlarm)
+
 -- | The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
 -- Name (ARN).
@@ -610,7 +653,8 @@ putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatisti
 -- @arn:aws:automate:region:ec2:reboot@ |
 -- @arn:aws:sns:region:account-id:sns-topic-name @ |
 -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @
+-- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+-- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
 --
 -- Valid Values (for use with IAM roles):
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
@@ -618,6 +662,8 @@ putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatisti
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
 -- |
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
 putMetricAlarm_alarmActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alarmActions) (\s@PutMetricAlarm' {} a -> s {alarmActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens._Coerce
 
@@ -642,16 +688,6 @@ putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alar
 -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
 putMetricAlarm_unit :: Lens.Lens' PutMetricAlarm (Prelude.Maybe StandardUnit)
 putMetricAlarm_unit = Lens.lens (\PutMetricAlarm' {unit} -> unit) (\s@PutMetricAlarm' {} a -> s {unit = a} :: PutMetricAlarm)
-
--- | If this is an alarm based on an anomaly detection model, make this value
--- match the ID of the @ANOMALY_DETECTION_BAND@ function.
---
--- For an example of how to use this parameter, see the __Anomaly Detection
--- Model Alarm__ example on this page.
---
--- If your alarm uses this parameter, it cannot have Auto Scaling actions.
-putMetricAlarm_thresholdMetricId :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@PutMetricAlarm' {} a -> s {thresholdMetricId = a} :: PutMetricAlarm)
 
 -- | The name for the metric associated with the alarm. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -747,6 +783,8 @@ putMetricAlarm_tags = Lens.lens (\PutMetricAlarm' {tags} -> tags) (\s@PutMetricA
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
 -- |
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
 putMetricAlarm_oKActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_oKActions = Lens.lens (\PutMetricAlarm' {oKActions} -> oKActions) (\s@PutMetricAlarm' {} a -> s {oKActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens._Coerce
 
@@ -757,22 +795,18 @@ putMetricAlarm_oKActions = Lens.lens (\PutMetricAlarm' {oKActions} -> oKActions)
 putMetricAlarm_statistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Statistic)
 putMetricAlarm_statistic = Lens.lens (\PutMetricAlarm' {statistic} -> statistic) (\s@PutMetricAlarm' {} a -> s {statistic = a} :: PutMetricAlarm)
 
--- | The dimensions for the metric specified in @MetricName@.
-putMetricAlarm_dimensions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Dimension])
-putMetricAlarm_dimensions = Lens.lens (\PutMetricAlarm' {dimensions} -> dimensions) (\s@PutMetricAlarm' {} a -> s {dimensions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The namespace for the metric associated specified in @MetricName@.
 putMetricAlarm_namespace :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
 putMetricAlarm_namespace = Lens.lens (\PutMetricAlarm' {namespace} -> namespace) (\s@PutMetricAlarm' {} a -> s {namespace = a} :: PutMetricAlarm)
+
+-- | The dimensions for the metric specified in @MetricName@.
+putMetricAlarm_dimensions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Dimension])
+putMetricAlarm_dimensions = Lens.lens (\PutMetricAlarm' {dimensions} -> dimensions) (\s@PutMetricAlarm' {} a -> s {dimensions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm state. The default is @TRUE@.
 putMetricAlarm_actionsEnabled :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Bool)
 putMetricAlarm_actionsEnabled = Lens.lens (\PutMetricAlarm' {actionsEnabled} -> actionsEnabled) (\s@PutMetricAlarm' {} a -> s {actionsEnabled = a} :: PutMetricAlarm)
-
--- | The description for the alarm.
-putMetricAlarm_alarmDescription :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription} -> alarmDescription) (\s@PutMetricAlarm' {} a -> s {alarmDescription = a} :: PutMetricAlarm)
 
 -- | The length, in seconds, used each time the metric specified in
 -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -798,6 +832,10 @@ putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription}
 -- 86,400 seconds.
 putMetricAlarm_period :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Natural)
 putMetricAlarm_period = Lens.lens (\PutMetricAlarm' {period} -> period) (\s@PutMetricAlarm' {} a -> s {period = a} :: PutMetricAlarm)
+
+-- | The description for the alarm.
+putMetricAlarm_alarmDescription :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription} -> alarmDescription) (\s@PutMetricAlarm' {} a -> s {alarmDescription = a} :: PutMetricAlarm)
 
 -- | The name for the alarm. This name must be unique within the Region.
 putMetricAlarm_alarmName :: Lens.Lens' PutMetricAlarm Prelude.Text
@@ -855,11 +893,11 @@ instance Core.ToQuery PutMetricAlarm where
         "EvaluateLowSampleCountPercentile"
           Core.=: evaluateLowSampleCountPercentile,
         "ExtendedStatistic" Core.=: extendedStatistic,
+        "ThresholdMetricId" Core.=: thresholdMetricId,
         "AlarmActions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> alarmActions),
         "Unit" Core.=: unit,
-        "ThresholdMetricId" Core.=: thresholdMetricId,
         "MetricName" Core.=: metricName,
         "InsufficientDataActions"
           Core.=: Core.toQuery
@@ -877,13 +915,13 @@ instance Core.ToQuery PutMetricAlarm where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> oKActions),
         "Statistic" Core.=: statistic,
+        "Namespace" Core.=: namespace,
         "Dimensions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Namespace" Core.=: namespace,
         "ActionsEnabled" Core.=: actionsEnabled,
-        "AlarmDescription" Core.=: alarmDescription,
         "Period" Core.=: period,
+        "AlarmDescription" Core.=: alarmDescription,
         "AlarmName" Core.=: alarmName,
         "EvaluationPeriods" Core.=: evaluationPeriods,
         "ComparisonOperator" Core.=: comparisonOperator

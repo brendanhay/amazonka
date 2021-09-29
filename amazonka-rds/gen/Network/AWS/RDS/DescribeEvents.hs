@@ -38,13 +38,13 @@ module Network.AWS.RDS.DescribeEvents
     -- * Request Lenses
     describeEvents_duration,
     describeEvents_startTime,
-    describeEvents_eventCategories,
     describeEvents_endTime,
+    describeEvents_eventCategories,
     describeEvents_sourceIdentifier,
     describeEvents_filters,
     describeEvents_sourceType,
-    describeEvents_marker,
     describeEvents_maxRecords,
+    describeEvents_marker,
 
     -- * Destructuring the Response
     DescribeEventsResponse (..),
@@ -78,15 +78,15 @@ data DescribeEvents = DescribeEvents'
     --
     -- Example: 2009-07-08T18:00Z
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | A list of event categories that trigger notifications for a event
-    -- notification subscription.
-    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format. For more information about ISO 8601, go to the
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: 2009-07-08T18:00Z
     endTime :: Prelude.Maybe Core.ISO8601,
+    -- | A list of event categories that trigger notifications for a event
+    -- notification subscription.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the event source for which events are returned. If not
     -- specified, then all sources are included in the response.
     --
@@ -120,10 +120,6 @@ data DescribeEvents = DescribeEvents'
     -- | The event source to retrieve events for. If no value is specified, all
     -- events are returned.
     sourceType :: Prelude.Maybe SourceType,
-    -- | An optional pagination token provided by a previous DescribeEvents
-    -- request. If this parameter is specified, the response includes only
-    -- records beyond the marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -132,7 +128,11 @@ data DescribeEvents = DescribeEvents'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous DescribeEvents
+    -- request. If this parameter is specified, the response includes only
+    -- records beyond the marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -154,14 +154,14 @@ data DescribeEvents = DescribeEvents'
 --
 -- Example: 2009-07-08T18:00Z
 --
--- 'eventCategories', 'describeEvents_eventCategories' - A list of event categories that trigger notifications for a event
--- notification subscription.
---
 -- 'endTime', 'describeEvents_endTime' - The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: 2009-07-08T18:00Z
+--
+-- 'eventCategories', 'describeEvents_eventCategories' - A list of event categories that trigger notifications for a event
+-- notification subscription.
 --
 -- 'sourceIdentifier', 'describeEvents_sourceIdentifier' - The identifier of the event source for which events are returned. If not
 -- specified, then all sources are included in the response.
@@ -196,10 +196,6 @@ data DescribeEvents = DescribeEvents'
 -- 'sourceType', 'describeEvents_sourceType' - The event source to retrieve events for. If no value is specified, all
 -- events are returned.
 --
--- 'marker', 'describeEvents_marker' - An optional pagination token provided by a previous DescribeEvents
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -208,19 +204,23 @@ data DescribeEvents = DescribeEvents'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeEvents_marker' - An optional pagination token provided by a previous DescribeEvents
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
 newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
   DescribeEvents'
     { duration = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      eventCategories = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
       sourceIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The number of minutes to retrieve events for.
@@ -237,11 +237,6 @@ describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
--- | A list of event categories that trigger notifications for a event
--- notification subscription.
-describeEvents_eventCategories :: Lens.Lens' DescribeEvents (Prelude.Maybe [Prelude.Text])
-describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -> eventCategories) (\s@DescribeEvents' {} a -> s {eventCategories = a} :: DescribeEvents) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
@@ -249,6 +244,11 @@ describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -
 -- Example: 2009-07-08T18:00Z
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+
+-- | A list of event categories that trigger notifications for a event
+-- notification subscription.
+describeEvents_eventCategories :: Lens.Lens' DescribeEvents (Prelude.Maybe [Prelude.Text])
+describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -> eventCategories) (\s@DescribeEvents' {} a -> s {eventCategories = a} :: DescribeEvents) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the event source for which events are returned. If not
 -- specified, then all sources are included in the response.
@@ -289,12 +289,6 @@ describeEvents_filters = Lens.lens (\DescribeEvents' {filters} -> filters) (\s@D
 describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
--- | An optional pagination token provided by a previous DescribeEvents
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -305,6 +299,12 @@ describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@Desc
 -- Constraints: Minimum 20, maximum 100.
 describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
+
+-- | An optional pagination token provided by a previous DescribeEvents
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -361,19 +361,19 @@ instance Core.ToQuery DescribeEvents where
           Core.=: ("2014-10-31" :: Prelude.ByteString),
         "Duration" Core.=: duration,
         "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
         "EventCategories"
           Core.=: Core.toQuery
             ( Core.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
-        "EndTime" Core.=: endTime,
         "SourceIdentifier" Core.=: sourceIdentifier,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
         "SourceType" Core.=: sourceType,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeEvents@

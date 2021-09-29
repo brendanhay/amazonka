@@ -38,24 +38,24 @@ data DomainStatus = DomainStatus'
     -- requests.
     searchInstanceCount :: Prelude.Maybe Prelude.Natural,
     limits :: Prelude.Maybe Limits,
-    -- | The service endpoint for requesting search results from a search domain.
-    searchService :: Prelude.Maybe ServiceEndpoint,
     -- | True if processing is being done to activate the current domain
     -- configuration.
     processing :: Prelude.Maybe Prelude.Bool,
+    -- | The service endpoint for requesting search results from a search domain.
+    searchService :: Prelude.Maybe ServiceEndpoint,
     -- | True if the search domain is created. It can take several minutes to
     -- initialize a domain when CreateDomain is called. Newly created search
     -- domains are returned from DescribeDomains with a false value for Created
     -- until domain creation is complete.
     created :: Prelude.Maybe Prelude.Bool,
+    -- | The service endpoint for updating documents in a search domain.
+    docService :: Prelude.Maybe ServiceEndpoint,
     -- | True if the search domain has been deleted. The system must clean up
     -- resources dedicated to the search domain when DeleteDomain is called.
     -- Newly deleted search domains are returned from DescribeDomains with a
     -- true value for IsDeleted for several minutes until resource cleanup is
     -- complete.
     deleted :: Prelude.Maybe Prelude.Bool,
-    -- | The service endpoint for updating documents in a search domain.
-    docService :: Prelude.Maybe ServiceEndpoint,
     domainId :: Prelude.Text,
     domainName :: Prelude.Text,
     -- | True if IndexDocuments needs to be called to activate the current domain
@@ -83,23 +83,23 @@ data DomainStatus = DomainStatus'
 --
 -- 'limits', 'domainStatus_limits' - Undocumented member.
 --
--- 'searchService', 'domainStatus_searchService' - The service endpoint for requesting search results from a search domain.
---
 -- 'processing', 'domainStatus_processing' - True if processing is being done to activate the current domain
 -- configuration.
+--
+-- 'searchService', 'domainStatus_searchService' - The service endpoint for requesting search results from a search domain.
 --
 -- 'created', 'domainStatus_created' - True if the search domain is created. It can take several minutes to
 -- initialize a domain when CreateDomain is called. Newly created search
 -- domains are returned from DescribeDomains with a false value for Created
 -- until domain creation is complete.
 --
+-- 'docService', 'domainStatus_docService' - The service endpoint for updating documents in a search domain.
+--
 -- 'deleted', 'domainStatus_deleted' - True if the search domain has been deleted. The system must clean up
 -- resources dedicated to the search domain when DeleteDomain is called.
 -- Newly deleted search domains are returned from DescribeDomains with a
 -- true value for IsDeleted for several minutes until resource cleanup is
 -- complete.
---
--- 'docService', 'domainStatus_docService' - The service endpoint for updating documents in a search domain.
 --
 -- 'domainId', 'domainStatus_domainId' - Undocumented member.
 --
@@ -125,11 +125,11 @@ newDomainStatus
         searchPartitionCount = Prelude.Nothing,
         searchInstanceCount = Prelude.Nothing,
         limits = Prelude.Nothing,
-        searchService = Prelude.Nothing,
         processing = Prelude.Nothing,
+        searchService = Prelude.Nothing,
         created = Prelude.Nothing,
-        deleted = Prelude.Nothing,
         docService = Prelude.Nothing,
+        deleted = Prelude.Nothing,
         domainId = pDomainId_,
         domainName = pDomainName_,
         requiresIndexDocuments = pRequiresIndexDocuments_
@@ -156,14 +156,14 @@ domainStatus_searchInstanceCount = Lens.lens (\DomainStatus' {searchInstanceCoun
 domainStatus_limits :: Lens.Lens' DomainStatus (Prelude.Maybe Limits)
 domainStatus_limits = Lens.lens (\DomainStatus' {limits} -> limits) (\s@DomainStatus' {} a -> s {limits = a} :: DomainStatus)
 
--- | The service endpoint for requesting search results from a search domain.
-domainStatus_searchService :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceEndpoint)
-domainStatus_searchService = Lens.lens (\DomainStatus' {searchService} -> searchService) (\s@DomainStatus' {} a -> s {searchService = a} :: DomainStatus)
-
 -- | True if processing is being done to activate the current domain
 -- configuration.
 domainStatus_processing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
 domainStatus_processing = Lens.lens (\DomainStatus' {processing} -> processing) (\s@DomainStatus' {} a -> s {processing = a} :: DomainStatus)
+
+-- | The service endpoint for requesting search results from a search domain.
+domainStatus_searchService :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceEndpoint)
+domainStatus_searchService = Lens.lens (\DomainStatus' {searchService} -> searchService) (\s@DomainStatus' {} a -> s {searchService = a} :: DomainStatus)
 
 -- | True if the search domain is created. It can take several minutes to
 -- initialize a domain when CreateDomain is called. Newly created search
@@ -172,6 +172,10 @@ domainStatus_processing = Lens.lens (\DomainStatus' {processing} -> processing) 
 domainStatus_created :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
 domainStatus_created = Lens.lens (\DomainStatus' {created} -> created) (\s@DomainStatus' {} a -> s {created = a} :: DomainStatus)
 
+-- | The service endpoint for updating documents in a search domain.
+domainStatus_docService :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceEndpoint)
+domainStatus_docService = Lens.lens (\DomainStatus' {docService} -> docService) (\s@DomainStatus' {} a -> s {docService = a} :: DomainStatus)
+
 -- | True if the search domain has been deleted. The system must clean up
 -- resources dedicated to the search domain when DeleteDomain is called.
 -- Newly deleted search domains are returned from DescribeDomains with a
@@ -179,10 +183,6 @@ domainStatus_created = Lens.lens (\DomainStatus' {created} -> created) (\s@Domai
 -- complete.
 domainStatus_deleted :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
 domainStatus_deleted = Lens.lens (\DomainStatus' {deleted} -> deleted) (\s@DomainStatus' {} a -> s {deleted = a} :: DomainStatus)
-
--- | The service endpoint for updating documents in a search domain.
-domainStatus_docService :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceEndpoint)
-domainStatus_docService = Lens.lens (\DomainStatus' {docService} -> docService) (\s@DomainStatus' {} a -> s {docService = a} :: DomainStatus)
 
 -- | Undocumented member.
 domainStatus_domainId :: Lens.Lens' DomainStatus Prelude.Text
@@ -205,11 +205,11 @@ instance Core.FromXML DomainStatus where
       Prelude.<*> (x Core..@? "SearchPartitionCount")
       Prelude.<*> (x Core..@? "SearchInstanceCount")
       Prelude.<*> (x Core..@? "Limits")
-      Prelude.<*> (x Core..@? "SearchService")
       Prelude.<*> (x Core..@? "Processing")
+      Prelude.<*> (x Core..@? "SearchService")
       Prelude.<*> (x Core..@? "Created")
-      Prelude.<*> (x Core..@? "Deleted")
       Prelude.<*> (x Core..@? "DocService")
+      Prelude.<*> (x Core..@? "Deleted")
       Prelude.<*> (x Core..@ "DomainId")
       Prelude.<*> (x Core..@ "DomainName")
       Prelude.<*> (x Core..@ "RequiresIndexDocuments")

@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBucket' smart constructor.
 data Bucket = Bucket'
-  { -- | The facet value being counted.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The number of hits that contain the facet value in the specified facet
+  { -- | The number of hits that contain the facet value in the specified facet
     -- field.
-    count :: Prelude.Maybe Prelude.Integer
+    count :: Prelude.Maybe Prelude.Integer,
+    -- | The facet value being counted.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data Bucket = Bucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'bucket_value' - The facet value being counted.
---
 -- 'count', 'bucket_count' - The number of hits that contain the facet value in the specified facet
 -- field.
+--
+-- 'value', 'bucket_value' - The facet value being counted.
 newBucket ::
   Bucket
 newBucket =
   Bucket'
-    { value = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The facet value being counted.
-bucket_value :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
-bucket_value = Lens.lens (\Bucket' {value} -> value) (\s@Bucket' {} a -> s {value = a} :: Bucket)
 
 -- | The number of hits that contain the facet value in the specified facet
 -- field.
 bucket_count :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Integer)
 bucket_count = Lens.lens (\Bucket' {count} -> count) (\s@Bucket' {} a -> s {count = a} :: Bucket)
+
+-- | The facet value being counted.
+bucket_value :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
+bucket_value = Lens.lens (\Bucket' {value} -> value) (\s@Bucket' {} a -> s {value = a} :: Bucket)
 
 instance Core.FromJSON Bucket where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON Bucket where
       "Bucket"
       ( \x ->
           Bucket'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Core..:? "count")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable Bucket

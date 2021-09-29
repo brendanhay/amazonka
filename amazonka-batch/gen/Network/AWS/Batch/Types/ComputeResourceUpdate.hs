@@ -26,7 +26,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | An object representing the attributes of a compute environment that can
 -- be updated. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- /See:/ 'newComputeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
@@ -39,29 +39,29 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources,
-    -- and shouldn\'t be specified.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources, and shouldn\'t be specified.
     minvCpus :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     --
     -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
-    -- allocation strategies, AWS Batch might need to go above @maxvCpus@ to
-    -- meet your capacity requirements. In this event, AWS Batch will never go
-    -- above @maxvCpus@ by more than a single instance (e.g., no more than a
-    -- single instance from among those specified in your compute environment).
+    -- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
+    -- your capacity requirements. In this event, Batch never exceeds
+    -- @maxvCpus@ by more than a single instance. That is, no more than a
+    -- single instance from among those specified in your compute environment.
     maxvCpus :: Prelude.Maybe Prelude.Int,
     -- | The desired number of Amazon EC2 vCPUS in the compute environment.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources,
-    -- and shouldn\'t be specified.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources, and shouldn\'t be specified.
     desiredvCpus :: Prelude.Maybe Prelude.Int,
-    -- | The VPC subnets that the compute resources are launched into. This
-    -- parameter is required for jobs running on Fargate compute resources,
-    -- where it can contain up to 16 subnets. For more information, see
+    -- | The VPC subnets where the compute resources are launched. Fargate
+    -- compute resources can contain up to 16 subnets. Providing an empty list
+    -- will be handled as if this parameter wasn\'t specified and no change is
+    -- made. This can\'t be specified for EC2 compute resources. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
-    -- in the /Amazon VPC User Guide/. This can\'t be specified for EC2 compute
-    -- resources. Providing an empty list will be handled as if this parameter
-    -- wasn\'t specified and no change is made.
+    -- in the /Amazon VPC User Guide/.
     subnets :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,29 +83,29 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources,
--- and shouldn\'t be specified.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
 --
 -- 'maxvCpus', 'computeResourceUpdate_maxvCpus' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- allocation strategies, AWS Batch might need to go above @maxvCpus@ to
--- meet your capacity requirements. In this event, AWS Batch will never go
--- above @maxvCpus@ by more than a single instance (e.g., no more than a
--- single instance from among those specified in your compute environment).
+-- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
+-- your capacity requirements. In this event, Batch never exceeds
+-- @maxvCpus@ by more than a single instance. That is, no more than a
+-- single instance from among those specified in your compute environment.
 --
 -- 'desiredvCpus', 'computeResourceUpdate_desiredvCpus' - The desired number of Amazon EC2 vCPUS in the compute environment.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources,
--- and shouldn\'t be specified.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
 --
--- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets that the compute resources are launched into. This
--- parameter is required for jobs running on Fargate compute resources,
--- where it can contain up to 16 subnets. For more information, see
+-- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/. This can\'t be specified for EC2 compute
--- resources. Providing an empty list will be handled as if this parameter
--- wasn\'t specified and no change is made.
+-- in the /Amazon VPC User Guide/.
 newComputeResourceUpdate ::
   ComputeResourceUpdate
 newComputeResourceUpdate =
@@ -129,35 +129,35 @@ computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {sec
 -- | The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources,
--- and shouldn\'t be specified.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
 computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -> minvCpus) (\s@ComputeResourceUpdate' {} a -> s {minvCpus = a} :: ComputeResourceUpdate)
 
 -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
 -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
--- allocation strategies, AWS Batch might need to go above @maxvCpus@ to
--- meet your capacity requirements. In this event, AWS Batch will never go
--- above @maxvCpus@ by more than a single instance (e.g., no more than a
--- single instance from among those specified in your compute environment).
+-- allocation strategies, Batch might need to exceed @maxvCpus@ to meet
+-- your capacity requirements. In this event, Batch never exceeds
+-- @maxvCpus@ by more than a single instance. That is, no more than a
+-- single instance from among those specified in your compute environment.
 computeResourceUpdate_maxvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -> maxvCpus) (\s@ComputeResourceUpdate' {} a -> s {maxvCpus = a} :: ComputeResourceUpdate)
 
 -- | The desired number of Amazon EC2 vCPUS in the compute environment.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources,
--- and shouldn\'t be specified.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
--- | The VPC subnets that the compute resources are launched into. This
--- parameter is required for jobs running on Fargate compute resources,
--- where it can contain up to 16 subnets. For more information, see
+-- | The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/. This can\'t be specified for EC2 compute
--- resources. Providing an empty list will be handled as if this parameter
--- wasn\'t specified and no change is made.
+-- in the /Amazon VPC User Guide/.
 computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
 computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens._Coerce
 

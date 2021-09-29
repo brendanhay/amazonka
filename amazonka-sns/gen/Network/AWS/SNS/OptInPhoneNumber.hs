@@ -52,7 +52,7 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'newOptInPhoneNumber' smart constructor.
 data OptInPhoneNumber = OptInPhoneNumber'
-  { -- | The phone number to opt in.
+  { -- | The phone number to opt in. Use E.164 format.
     phoneNumber :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data OptInPhoneNumber = OptInPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'optInPhoneNumber_phoneNumber' - The phone number to opt in.
+-- 'phoneNumber', 'optInPhoneNumber_phoneNumber' - The phone number to opt in. Use E.164 format.
 newOptInPhoneNumber ::
   -- | 'phoneNumber'
   Prelude.Text ->
@@ -73,7 +73,7 @@ newOptInPhoneNumber ::
 newOptInPhoneNumber pPhoneNumber_ =
   OptInPhoneNumber' {phoneNumber = pPhoneNumber_}
 
--- | The phone number to opt in.
+-- | The phone number to opt in. Use E.164 format.
 optInPhoneNumber_phoneNumber :: Lens.Lens' OptInPhoneNumber Prelude.Text
 optInPhoneNumber_phoneNumber = Lens.lens (\OptInPhoneNumber' {phoneNumber} -> phoneNumber) (\s@OptInPhoneNumber' {} a -> s {phoneNumber = a} :: OptInPhoneNumber)
 

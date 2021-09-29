@@ -39,7 +39,9 @@ data ObjectReference = ObjectReference'
     --     provided by Amazon Cloud Directory. When creating objects, the
     --     system will provide you with the identifier of the created object.
     --     An object’s identifier is immutable and no two objects will ever
-    --     share the same object identifier
+    --     share the same object identifier. To identify an object with
+    --     ObjectIdentifier, the ObjectIdentifier must be wrapped in double
+    --     quotes.
     --
     -- -   /\/some\/path/ - Identifies the object based on path
     --
@@ -68,7 +70,9 @@ data ObjectReference = ObjectReference'
 --     provided by Amazon Cloud Directory. When creating objects, the
 --     system will provide you with the identifier of the created object.
 --     An object’s identifier is immutable and no two objects will ever
---     share the same object identifier
+--     share the same object identifier. To identify an object with
+--     ObjectIdentifier, the ObjectIdentifier must be wrapped in double
+--     quotes.
 --
 -- -   /\/some\/path/ - Identifies the object based on path
 --
@@ -90,7 +94,9 @@ newObjectReference =
 --     provided by Amazon Cloud Directory. When creating objects, the
 --     system will provide you with the identifier of the created object.
 --     An object’s identifier is immutable and no two objects will ever
---     share the same object identifier
+--     share the same object identifier. To identify an object with
+--     ObjectIdentifier, the ObjectIdentifier must be wrapped in double
+--     quotes.
 --
 -- -   /\/some\/path/ - Identifies the object based on path
 --

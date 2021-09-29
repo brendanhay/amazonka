@@ -44,11 +44,11 @@ data Volume = Volume'
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | The RAID array ID.
     raidArrayId :: Prelude.Maybe Prelude.Text,
+    -- | The volume name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The volume Availability Zone. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The volume name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The volume mount point. For example, \"\/mnt\/disk1\".
     mountPoint :: Prelude.Maybe Prelude.Text,
     -- | The volume type. For more information, see
@@ -105,10 +105,10 @@ data Volume = Volume'
 --
 -- 'raidArrayId', 'volume_raidArrayId' - The RAID array ID.
 --
+-- 'name', 'volume_name' - The volume name.
+--
 -- 'availabilityZone', 'volume_availabilityZone' - The volume Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
---
--- 'name', 'volume_name' - The volume name.
 --
 -- 'mountPoint', 'volume_mountPoint' - The volume mount point. For example, \"\/mnt\/disk1\".
 --
@@ -148,8 +148,8 @@ newVolume =
       device = Prelude.Nothing,
       volumeId = Prelude.Nothing,
       raidArrayId = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
       name = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
       mountPoint = Prelude.Nothing,
       volumeType = Prelude.Nothing,
       region = Prelude.Nothing,
@@ -188,14 +188,14 @@ volume_volumeId = Lens.lens (\Volume' {volumeId} -> volumeId) (\s@Volume' {} a -
 volume_raidArrayId :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_raidArrayId = Lens.lens (\Volume' {raidArrayId} -> raidArrayId) (\s@Volume' {} a -> s {raidArrayId = a} :: Volume)
 
+-- | The volume name.
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
+
 -- | The volume Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 volume_availabilityZone :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_availabilityZone = Lens.lens (\Volume' {availabilityZone} -> availabilityZone) (\s@Volume' {} a -> s {availabilityZone = a} :: Volume)
-
--- | The volume name.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
-volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | The volume mount point. For example, \"\/mnt\/disk1\".
 volume_mountPoint :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
@@ -248,8 +248,8 @@ instance Core.FromJSON Volume where
             Prelude.<*> (x Core..:? "Device")
             Prelude.<*> (x Core..:? "VolumeId")
             Prelude.<*> (x Core..:? "RaidArrayId")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "MountPoint")
             Prelude.<*> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..:? "Region")

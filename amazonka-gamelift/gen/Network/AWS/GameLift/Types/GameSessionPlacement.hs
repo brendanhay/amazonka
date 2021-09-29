@@ -41,7 +41,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGameSessionPlacement' smart constructor.
 data GameSessionPlacement = GameSessionPlacement'
-  { -- | Set of custom properties for a game session, formatted as key:value
+  { -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process in the
     -- GameSession object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -80,18 +80,18 @@ data GameSessionPlacement = GameSessionPlacement'
     -- For more details on matchmaker data, see
     -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
     matchmakerData :: Prelude.Maybe Prelude.Text,
-    -- | Set of custom game session properties, formatted as a single string
+    -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
     gameSessionData :: Prelude.Maybe Prelude.Text,
-    -- | Time stamp indicating when this request was placed in the queue. Format
-    -- is a number expressed in Unix time as milliseconds (for example
-    -- \"1469498468.057\").
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | A unique identifier for the game session. This value is set once the new
     -- game session is placed (placement status is @FULFILLED@).
     gameSessionId :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this request was placed in the queue. Format
+    -- is a number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Identifier for the game session created by this placement request. This
     -- value is set once the new game session is placed (placement status is
     -- @FULFILLED@). This identifier is unique across all Regions. You can use
@@ -100,14 +100,14 @@ data GameSessionPlacement = GameSessionPlacement'
     -- | Time stamp indicating when this request was completed, canceled, or
     -- timed out.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | IP address of the instance that is running the game session. When
-    -- connecting to a Amazon GameLift game server, a client needs to reference
-    -- an IP address (or DNS name) and port number. This value is set once the
-    -- new game session is placed (placement status is @FULFILLED@).
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a game session. Session
     -- names do not need to be unique.
     gameSessionName :: Prelude.Maybe Prelude.Text,
+    -- | The IP address of the game session. To connect to a GameLift game
+    -- server, an app needs both the IP address and port number. This value is
+    -- set once the new game session is placed (placement status is
+    -- @FULFILLED@).
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a game session placement.
     placementId :: Prelude.Maybe Prelude.Text,
     -- | A collection of information on player sessions created in response to
@@ -118,12 +118,12 @@ data GameSessionPlacement = GameSessionPlacement'
     -- full player sessions by calling DescribePlayerSessions with the player
     -- session ID.
     placedPlayerSessions :: Prelude.Maybe [PlacedPlayerSession],
-    -- | Port number for the game session. To connect to a Amazon GameLift game
+    -- | The port number for the game session. To connect to a GameLift game
     -- server, an app needs both the IP address and port number. This value is
     -- set once the new game session is placed (placement status is
     -- @FULFILLED@).
     port :: Prelude.Maybe Prelude.Natural,
-    -- | DNS identifier assigned to the instance that is running the game
+    -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
     -- -   TLS-enabled fleets:
@@ -140,7 +140,7 @@ data GameSessionPlacement = GameSessionPlacement'
     -- request is running. This value is set once the new game session is
     -- placed (placement status is @FULFILLED@).
     gameSessionRegion :: Prelude.Maybe Prelude.Text,
-    -- | Set of values, expressed in milliseconds, indicating the amount of
+    -- | A set of values, expressed in milliseconds, that indicates the amount of
     -- latency that a player experiences when connected to AWS Regions.
     playerLatencies :: Prelude.Maybe [PlayerLatency]
   }
@@ -154,7 +154,7 @@ data GameSessionPlacement = GameSessionPlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameProperties', 'gameSessionPlacement_gameProperties' - Set of custom properties for a game session, formatted as key:value
+-- 'gameProperties', 'gameSessionPlacement_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -193,17 +193,17 @@ data GameSessionPlacement = GameSessionPlacement'
 -- For more details on matchmaker data, see
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
 --
--- 'gameSessionData', 'gameSessionPlacement_gameSessionData' - Set of custom game session properties, formatted as a single string
+-- 'gameSessionData', 'gameSessionPlacement_gameSessionData' - A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 --
--- 'startTime', 'gameSessionPlacement_startTime' - Time stamp indicating when this request was placed in the queue. Format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
---
 -- 'gameSessionId', 'gameSessionPlacement_gameSessionId' - A unique identifier for the game session. This value is set once the new
 -- game session is placed (placement status is @FULFILLED@).
+--
+-- 'startTime', 'gameSessionPlacement_startTime' - Time stamp indicating when this request was placed in the queue. Format
+-- is a number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 --
 -- 'gameSessionArn', 'gameSessionPlacement_gameSessionArn' - Identifier for the game session created by this placement request. This
 -- value is set once the new game session is placed (placement status is
@@ -213,13 +213,13 @@ data GameSessionPlacement = GameSessionPlacement'
 -- 'endTime', 'gameSessionPlacement_endTime' - Time stamp indicating when this request was completed, canceled, or
 -- timed out.
 --
--- 'ipAddress', 'gameSessionPlacement_ipAddress' - IP address of the instance that is running the game session. When
--- connecting to a Amazon GameLift game server, a client needs to reference
--- an IP address (or DNS name) and port number. This value is set once the
--- new game session is placed (placement status is @FULFILLED@).
---
 -- 'gameSessionName', 'gameSessionPlacement_gameSessionName' - A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
+--
+-- 'ipAddress', 'gameSessionPlacement_ipAddress' - The IP address of the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number. This value is
+-- set once the new game session is placed (placement status is
+-- @FULFILLED@).
 --
 -- 'placementId', 'gameSessionPlacement_placementId' - A unique identifier for a game session placement.
 --
@@ -231,12 +231,12 @@ data GameSessionPlacement = GameSessionPlacement'
 -- full player sessions by calling DescribePlayerSessions with the player
 -- session ID.
 --
--- 'port', 'gameSessionPlacement_port' - Port number for the game session. To connect to a Amazon GameLift game
+-- 'port', 'gameSessionPlacement_port' - The port number for the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number. This value is
 -- set once the new game session is placed (placement status is
 -- @FULFILLED@).
 --
--- 'dnsName', 'gameSessionPlacement_dnsName' - DNS identifier assigned to the instance that is running the game
+-- 'dnsName', 'gameSessionPlacement_dnsName' - The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
 --
 -- -   TLS-enabled fleets:
@@ -253,7 +253,7 @@ data GameSessionPlacement = GameSessionPlacement'
 -- request is running. This value is set once the new game session is
 -- placed (placement status is @FULFILLED@).
 --
--- 'playerLatencies', 'gameSessionPlacement_playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of
+-- 'playerLatencies', 'gameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions.
 newGameSessionPlacement ::
   GameSessionPlacement
@@ -266,12 +266,12 @@ newGameSessionPlacement =
       maximumPlayerSessionCount = Prelude.Nothing,
       matchmakerData = Prelude.Nothing,
       gameSessionData = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       gameSessionId = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       gameSessionArn = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
       gameSessionName = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       placementId = Prelude.Nothing,
       placedPlayerSessions = Prelude.Nothing,
       port = Prelude.Nothing,
@@ -280,7 +280,7 @@ newGameSessionPlacement =
       playerLatencies = Prelude.Nothing
     }
 
--- | Set of custom properties for a game session, formatted as key:value
+-- | A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -329,23 +329,23 @@ gameSessionPlacement_maximumPlayerSessionCount = Lens.lens (\GameSessionPlacemen
 gameSessionPlacement_matchmakerData :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_matchmakerData = Lens.lens (\GameSessionPlacement' {matchmakerData} -> matchmakerData) (\s@GameSessionPlacement' {} a -> s {matchmakerData = a} :: GameSessionPlacement)
 
--- | Set of custom game session properties, formatted as a single string
+-- | A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 gameSessionPlacement_gameSessionData :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_gameSessionData = Lens.lens (\GameSessionPlacement' {gameSessionData} -> gameSessionData) (\s@GameSessionPlacement' {} a -> s {gameSessionData = a} :: GameSessionPlacement)
 
--- | Time stamp indicating when this request was placed in the queue. Format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
-gameSessionPlacement_startTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.UTCTime)
-gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -> startTime) (\s@GameSessionPlacement' {} a -> s {startTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
-
 -- | A unique identifier for the game session. This value is set once the new
 -- game session is placed (placement status is @FULFILLED@).
 gameSessionPlacement_gameSessionId :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_gameSessionId = Lens.lens (\GameSessionPlacement' {gameSessionId} -> gameSessionId) (\s@GameSessionPlacement' {} a -> s {gameSessionId = a} :: GameSessionPlacement)
+
+-- | Time stamp indicating when this request was placed in the queue. Format
+-- is a number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+gameSessionPlacement_startTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.UTCTime)
+gameSessionPlacement_startTime = Lens.lens (\GameSessionPlacement' {startTime} -> startTime) (\s@GameSessionPlacement' {} a -> s {startTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
 
 -- | Identifier for the game session created by this placement request. This
 -- value is set once the new game session is placed (placement status is
@@ -359,17 +359,17 @@ gameSessionPlacement_gameSessionArn = Lens.lens (\GameSessionPlacement' {gameSes
 gameSessionPlacement_endTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.UTCTime)
 gameSessionPlacement_endTime = Lens.lens (\GameSessionPlacement' {endTime} -> endTime) (\s@GameSessionPlacement' {} a -> s {endTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
 
--- | IP address of the instance that is running the game session. When
--- connecting to a Amazon GameLift game server, a client needs to reference
--- an IP address (or DNS name) and port number. This value is set once the
--- new game session is placed (placement status is @FULFILLED@).
-gameSessionPlacement_ipAddress :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
-gameSessionPlacement_ipAddress = Lens.lens (\GameSessionPlacement' {ipAddress} -> ipAddress) (\s@GameSessionPlacement' {} a -> s {ipAddress = a} :: GameSessionPlacement)
-
 -- | A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
 gameSessionPlacement_gameSessionName :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_gameSessionName = Lens.lens (\GameSessionPlacement' {gameSessionName} -> gameSessionName) (\s@GameSessionPlacement' {} a -> s {gameSessionName = a} :: GameSessionPlacement)
+
+-- | The IP address of the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number. This value is
+-- set once the new game session is placed (placement status is
+-- @FULFILLED@).
+gameSessionPlacement_ipAddress :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
+gameSessionPlacement_ipAddress = Lens.lens (\GameSessionPlacement' {ipAddress} -> ipAddress) (\s@GameSessionPlacement' {} a -> s {ipAddress = a} :: GameSessionPlacement)
 
 -- | A unique identifier for a game session placement.
 gameSessionPlacement_placementId :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
@@ -385,14 +385,14 @@ gameSessionPlacement_placementId = Lens.lens (\GameSessionPlacement' {placementI
 gameSessionPlacement_placedPlayerSessions :: Lens.Lens' GameSessionPlacement (Prelude.Maybe [PlacedPlayerSession])
 gameSessionPlacement_placedPlayerSessions = Lens.lens (\GameSessionPlacement' {placedPlayerSessions} -> placedPlayerSessions) (\s@GameSessionPlacement' {} a -> s {placedPlayerSessions = a} :: GameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
--- | Port number for the game session. To connect to a Amazon GameLift game
+-- | The port number for the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number. This value is
 -- set once the new game session is placed (placement status is
 -- @FULFILLED@).
 gameSessionPlacement_port :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Natural)
 gameSessionPlacement_port = Lens.lens (\GameSessionPlacement' {port} -> port) (\s@GameSessionPlacement' {} a -> s {port = a} :: GameSessionPlacement)
 
--- | DNS identifier assigned to the instance that is running the game
+-- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
 --
 -- -   TLS-enabled fleets:
@@ -413,7 +413,7 @@ gameSessionPlacement_dnsName = Lens.lens (\GameSessionPlacement' {dnsName} -> dn
 gameSessionPlacement_gameSessionRegion :: Lens.Lens' GameSessionPlacement (Prelude.Maybe Prelude.Text)
 gameSessionPlacement_gameSessionRegion = Lens.lens (\GameSessionPlacement' {gameSessionRegion} -> gameSessionRegion) (\s@GameSessionPlacement' {} a -> s {gameSessionRegion = a} :: GameSessionPlacement)
 
--- | Set of values, expressed in milliseconds, indicating the amount of
+-- | A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions.
 gameSessionPlacement_playerLatencies :: Lens.Lens' GameSessionPlacement (Prelude.Maybe [PlayerLatency])
 gameSessionPlacement_playerLatencies = Lens.lens (\GameSessionPlacement' {playerLatencies} -> playerLatencies) (\s@GameSessionPlacement' {} a -> s {playerLatencies = a} :: GameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
@@ -430,12 +430,12 @@ instance Core.FromJSON GameSessionPlacement where
             Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
             Prelude.<*> (x Core..:? "MatchmakerData")
             Prelude.<*> (x Core..:? "GameSessionData")
-            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "GameSessionId")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "GameSessionArn")
             Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "GameSessionName")
+            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "PlacementId")
             Prelude.<*> ( x Core..:? "PlacedPlayerSessions"
                             Core..!= Prelude.mempty

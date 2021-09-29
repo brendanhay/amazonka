@@ -39,8 +39,8 @@ module Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
     newGetRelationalDatabaseLogEventsResponse,
 
     -- * Response Lenses
-    getRelationalDatabaseLogEventsResponse_nextBackwardToken,
     getRelationalDatabaseLogEventsResponse_nextForwardToken,
+    getRelationalDatabaseLogEventsResponse_nextBackwardToken,
     getRelationalDatabaseLogEventsResponse_resourceLogEvents,
     getRelationalDatabaseLogEventsResponse_httpStatus,
   )
@@ -241,8 +241,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextBackwardToken")
-            Prelude.<*> (x Core..?> "nextForwardToken")
+            Prelude.<$> (x Core..?> "nextForwardToken")
+            Prelude.<*> (x Core..?> "nextBackwardToken")
             Prelude.<*> ( x Core..?> "resourceLogEvents"
                             Core..!@ Prelude.mempty
                         )
@@ -300,12 +300,12 @@ instance Core.ToQuery GetRelationalDatabaseLogEvents where
 
 -- | /See:/ 'newGetRelationalDatabaseLogEventsResponse' smart constructor.
 data GetRelationalDatabaseLogEventsResponse = GetRelationalDatabaseLogEventsResponse'
-  { -- | A token used for advancing to the previous page of results from your get
-    -- relational database log events request.
-    nextBackwardToken :: Prelude.Maybe Prelude.Text,
-    -- | A token used for advancing to the next page of results from your get
+  { -- | A token used for advancing to the next page of results from your get
     -- relational database log events request.
     nextForwardToken :: Prelude.Maybe Prelude.Text,
+    -- | A token used for advancing to the previous page of results from your get
+    -- relational database log events request.
+    nextBackwardToken :: Prelude.Maybe Prelude.Text,
     -- | An object describing the result of your get relational database log
     -- events request.
     resourceLogEvents :: Prelude.Maybe [LogEvent],
@@ -322,10 +322,10 @@ data GetRelationalDatabaseLogEventsResponse = GetRelationalDatabaseLogEventsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextBackwardToken', 'getRelationalDatabaseLogEventsResponse_nextBackwardToken' - A token used for advancing to the previous page of results from your get
+-- 'nextForwardToken', 'getRelationalDatabaseLogEventsResponse_nextForwardToken' - A token used for advancing to the next page of results from your get
 -- relational database log events request.
 --
--- 'nextForwardToken', 'getRelationalDatabaseLogEventsResponse_nextForwardToken' - A token used for advancing to the next page of results from your get
+-- 'nextBackwardToken', 'getRelationalDatabaseLogEventsResponse_nextBackwardToken' - A token used for advancing to the previous page of results from your get
 -- relational database log events request.
 --
 -- 'resourceLogEvents', 'getRelationalDatabaseLogEventsResponse_resourceLogEvents' - An object describing the result of your get relational database log
@@ -339,22 +339,22 @@ newGetRelationalDatabaseLogEventsResponse ::
 newGetRelationalDatabaseLogEventsResponse
   pHttpStatus_ =
     GetRelationalDatabaseLogEventsResponse'
-      { nextBackwardToken =
+      { nextForwardToken =
           Prelude.Nothing,
-        nextForwardToken = Prelude.Nothing,
+        nextBackwardToken = Prelude.Nothing,
         resourceLogEvents = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A token used for advancing to the previous page of results from your get
--- relational database log events request.
-getRelationalDatabaseLogEventsResponse_nextBackwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe Prelude.Text)
-getRelationalDatabaseLogEventsResponse_nextBackwardToken = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {nextBackwardToken} -> nextBackwardToken) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {nextBackwardToken = a} :: GetRelationalDatabaseLogEventsResponse)
 
 -- | A token used for advancing to the next page of results from your get
 -- relational database log events request.
 getRelationalDatabaseLogEventsResponse_nextForwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseLogEventsResponse_nextForwardToken = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {nextForwardToken} -> nextForwardToken) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {nextForwardToken = a} :: GetRelationalDatabaseLogEventsResponse)
+
+-- | A token used for advancing to the previous page of results from your get
+-- relational database log events request.
+getRelationalDatabaseLogEventsResponse_nextBackwardToken :: Lens.Lens' GetRelationalDatabaseLogEventsResponse (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseLogEventsResponse_nextBackwardToken = Lens.lens (\GetRelationalDatabaseLogEventsResponse' {nextBackwardToken} -> nextBackwardToken) (\s@GetRelationalDatabaseLogEventsResponse' {} a -> s {nextBackwardToken = a} :: GetRelationalDatabaseLogEventsResponse)
 
 -- | An object describing the result of your get relational database log
 -- events request.

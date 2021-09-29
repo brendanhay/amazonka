@@ -33,6 +33,9 @@ data ResourceSpec = ResourceSpec'
     instanceType :: Prelude.Maybe AppInstanceType,
     -- | The ARN of the SageMaker image that the image version belongs to.
     sageMakerImageArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+    -- to the Resource.
+    lifecycleConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the image version created on the instance.
     sageMakerImageVersionArn :: Prelude.Maybe Prelude.Text
   }
@@ -50,6 +53,9 @@ data ResourceSpec = ResourceSpec'
 --
 -- 'sageMakerImageArn', 'resourceSpec_sageMakerImageArn' - The ARN of the SageMaker image that the image version belongs to.
 --
+-- 'lifecycleConfigArn', 'resourceSpec_lifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+-- to the Resource.
+--
 -- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.
 newResourceSpec ::
   ResourceSpec
@@ -57,6 +63,7 @@ newResourceSpec =
   ResourceSpec'
     { instanceType = Prelude.Nothing,
       sageMakerImageArn = Prelude.Nothing,
+      lifecycleConfigArn = Prelude.Nothing,
       sageMakerImageVersionArn = Prelude.Nothing
     }
 
@@ -67,6 +74,11 @@ resourceSpec_instanceType = Lens.lens (\ResourceSpec' {instanceType} -> instance
 -- | The ARN of the SageMaker image that the image version belongs to.
 resourceSpec_sageMakerImageArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
 resourceSpec_sageMakerImageArn = Lens.lens (\ResourceSpec' {sageMakerImageArn} -> sageMakerImageArn) (\s@ResourceSpec' {} a -> s {sageMakerImageArn = a} :: ResourceSpec)
+
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+-- to the Resource.
+resourceSpec_lifecycleConfigArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
+resourceSpec_lifecycleConfigArn = Lens.lens (\ResourceSpec' {lifecycleConfigArn} -> lifecycleConfigArn) (\s@ResourceSpec' {} a -> s {lifecycleConfigArn = a} :: ResourceSpec)
 
 -- | The ARN of the image version created on the instance.
 resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
@@ -80,6 +92,7 @@ instance Core.FromJSON ResourceSpec where
           ResourceSpec'
             Prelude.<$> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "SageMakerImageArn")
+            Prelude.<*> (x Core..:? "LifecycleConfigArn")
             Prelude.<*> (x Core..:? "SageMakerImageVersionArn")
       )
 
@@ -94,6 +107,8 @@ instance Core.ToJSON ResourceSpec where
           [ ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("SageMakerImageArn" Core..=)
               Prelude.<$> sageMakerImageArn,
+            ("LifecycleConfigArn" Core..=)
+              Prelude.<$> lifecycleConfigArn,
             ("SageMakerImageVersionArn" Core..=)
               Prelude.<$> sageMakerImageVersionArn
           ]

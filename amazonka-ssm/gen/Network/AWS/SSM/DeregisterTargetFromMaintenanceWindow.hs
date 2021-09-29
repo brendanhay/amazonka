@@ -52,7 +52,7 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeregisterTargetFromMaintenanceWindow' smart constructor.
 data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWindow'
   { -- | The system checks if the target is being referenced by a task. If the
-    -- target is being referenced, the system returns an error and does not
+    -- target is being referenced, the system returns an error and doesn\'t
     -- deregister the target from the maintenance window.
     safe :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the maintenance window the target should be removed from.
@@ -71,7 +71,7 @@ data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWind
 -- for backwards compatibility:
 --
 -- 'safe', 'deregisterTargetFromMaintenanceWindow_safe' - The system checks if the target is being referenced by a task. If the
--- target is being referenced, the system returns an error and does not
+-- target is being referenced, the system returns an error and doesn\'t
 -- deregister the target from the maintenance window.
 --
 -- 'windowId', 'deregisterTargetFromMaintenanceWindow_windowId' - The ID of the maintenance window the target should be removed from.
@@ -94,7 +94,7 @@ newDeregisterTargetFromMaintenanceWindow
       }
 
 -- | The system checks if the target is being referenced by a task. If the
--- target is being referenced, the system returns an error and does not
+-- target is being referenced, the system returns an error and doesn\'t
 -- deregister the target from the maintenance window.
 deregisterTargetFromMaintenanceWindow_safe :: Lens.Lens' DeregisterTargetFromMaintenanceWindow (Prelude.Maybe Prelude.Bool)
 deregisterTargetFromMaintenanceWindow_safe = Lens.lens (\DeregisterTargetFromMaintenanceWindow' {safe} -> safe) (\s@DeregisterTargetFromMaintenanceWindow' {} a -> s {safe = a} :: DeregisterTargetFromMaintenanceWindow)

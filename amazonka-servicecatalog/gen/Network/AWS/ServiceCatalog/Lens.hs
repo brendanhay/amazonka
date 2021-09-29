@@ -14,14 +14,15 @@
 module Network.AWS.ServiceCatalog.Lens
   ( -- * Operations
 
-    -- ** DescribePortfolio
-    describePortfolio_acceptLanguage,
-    describePortfolio_id,
-    describePortfolioResponse_tags,
-    describePortfolioResponse_budgets,
-    describePortfolioResponse_portfolioDetail,
-    describePortfolioResponse_tagOptions,
-    describePortfolioResponse_httpStatus,
+    -- ** ListOrganizationPortfolioAccess
+    listOrganizationPortfolioAccess_pageSize,
+    listOrganizationPortfolioAccess_pageToken,
+    listOrganizationPortfolioAccess_acceptLanguage,
+    listOrganizationPortfolioAccess_portfolioId,
+    listOrganizationPortfolioAccess_organizationNodeType,
+    listOrganizationPortfolioAccessResponse_organizationNodes,
+    listOrganizationPortfolioAccessResponse_nextPageToken,
+    listOrganizationPortfolioAccessResponse_httpStatus,
 
     -- ** ListAcceptedPortfolioShares
     listAcceptedPortfolioShares_portfolioShareType,
@@ -37,6 +38,31 @@ module Network.AWS.ServiceCatalog.Lens
     disassociateTagOptionFromResource_tagOptionId,
     disassociateTagOptionFromResourceResponse_httpStatus,
 
+    -- ** DescribePortfolio
+    describePortfolio_acceptLanguage,
+    describePortfolio_id,
+    describePortfolioResponse_tags,
+    describePortfolioResponse_budgets,
+    describePortfolioResponse_portfolioDetail,
+    describePortfolioResponse_tagOptions,
+    describePortfolioResponse_httpStatus,
+
+    -- ** ExecuteProvisionedProductServiceAction
+    executeProvisionedProductServiceAction_acceptLanguage,
+    executeProvisionedProductServiceAction_parameters,
+    executeProvisionedProductServiceAction_provisionedProductId,
+    executeProvisionedProductServiceAction_serviceActionId,
+    executeProvisionedProductServiceAction_executeToken,
+    executeProvisionedProductServiceActionResponse_recordDetail,
+    executeProvisionedProductServiceActionResponse_httpStatus,
+
+    -- ** ExecuteProvisionedProductPlan
+    executeProvisionedProductPlan_acceptLanguage,
+    executeProvisionedProductPlan_planId,
+    executeProvisionedProductPlan_idempotencyToken,
+    executeProvisionedProductPlanResponse_recordDetail,
+    executeProvisionedProductPlanResponse_httpStatus,
+
     -- ** ScanProvisionedProducts
     scanProvisionedProducts_pageSize,
     scanProvisionedProducts_pageToken,
@@ -47,37 +73,21 @@ module Network.AWS.ServiceCatalog.Lens
     scanProvisionedProductsResponse_httpStatus,
 
     -- ** AssociateProductWithPortfolio
-    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_acceptLanguage,
+    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_productId,
     associateProductWithPortfolio_portfolioId,
     associateProductWithPortfolioResponse_httpStatus,
 
-    -- ** ListOrganizationPortfolioAccess
-    listOrganizationPortfolioAccess_pageSize,
-    listOrganizationPortfolioAccess_pageToken,
-    listOrganizationPortfolioAccess_acceptLanguage,
-    listOrganizationPortfolioAccess_portfolioId,
-    listOrganizationPortfolioAccess_organizationNodeType,
-    listOrganizationPortfolioAccessResponse_organizationNodes,
-    listOrganizationPortfolioAccessResponse_nextPageToken,
-    listOrganizationPortfolioAccessResponse_httpStatus,
-
-    -- ** ExecuteProvisionedProductPlan
-    executeProvisionedProductPlan_acceptLanguage,
-    executeProvisionedProductPlan_planId,
-    executeProvisionedProductPlan_idempotencyToken,
-    executeProvisionedProductPlanResponse_recordDetail,
-    executeProvisionedProductPlanResponse_httpStatus,
-
-    -- ** ExecuteProvisionedProductServiceAction
-    executeProvisionedProductServiceAction_parameters,
-    executeProvisionedProductServiceAction_acceptLanguage,
-    executeProvisionedProductServiceAction_provisionedProductId,
-    executeProvisionedProductServiceAction_serviceActionId,
-    executeProvisionedProductServiceAction_executeToken,
-    executeProvisionedProductServiceActionResponse_recordDetail,
-    executeProvisionedProductServiceActionResponse_httpStatus,
+    -- ** UpdateConstraint
+    updateConstraint_description,
+    updateConstraint_acceptLanguage,
+    updateConstraint_parameters,
+    updateConstraint_id,
+    updateConstraintResponse_constraintParameters,
+    updateConstraintResponse_constraintDetail,
+    updateConstraintResponse_status,
+    updateConstraintResponse_httpStatus,
 
     -- ** ImportAsProvisionedProduct
     importAsProvisionedProduct_acceptLanguage,
@@ -88,16 +98,6 @@ module Network.AWS.ServiceCatalog.Lens
     importAsProvisionedProduct_idempotencyToken,
     importAsProvisionedProductResponse_recordDetail,
     importAsProvisionedProductResponse_httpStatus,
-
-    -- ** ListPortfolioAccess
-    listPortfolioAccess_pageSize,
-    listPortfolioAccess_pageToken,
-    listPortfolioAccess_organizationParentId,
-    listPortfolioAccess_acceptLanguage,
-    listPortfolioAccess_portfolioId,
-    listPortfolioAccessResponse_accountIds,
-    listPortfolioAccessResponse_nextPageToken,
-    listPortfolioAccessResponse_httpStatus,
 
     -- ** CreateProvisionedProductPlan
     createProvisionedProductPlan_notificationArns,
@@ -128,15 +128,37 @@ module Network.AWS.ServiceCatalog.Lens
     deleteConstraint_id,
     deleteConstraintResponse_httpStatus,
 
-    -- ** UpdateConstraint
-    updateConstraint_description,
-    updateConstraint_parameters,
-    updateConstraint_acceptLanguage,
-    updateConstraint_id,
-    updateConstraintResponse_constraintParameters,
-    updateConstraintResponse_status,
-    updateConstraintResponse_constraintDetail,
-    updateConstraintResponse_httpStatus,
+    -- ** ListPortfolioAccess
+    listPortfolioAccess_pageSize,
+    listPortfolioAccess_pageToken,
+    listPortfolioAccess_organizationParentId,
+    listPortfolioAccess_acceptLanguage,
+    listPortfolioAccess_portfolioId,
+    listPortfolioAccessResponse_accountIds,
+    listPortfolioAccessResponse_nextPageToken,
+    listPortfolioAccessResponse_httpStatus,
+
+    -- ** DeleteProvisionedProductPlan
+    deleteProvisionedProductPlan_ignoreErrors,
+    deleteProvisionedProductPlan_acceptLanguage,
+    deleteProvisionedProductPlan_planId,
+    deleteProvisionedProductPlanResponse_httpStatus,
+
+    -- ** AssociateBudgetWithResource
+    associateBudgetWithResource_budgetName,
+    associateBudgetWithResource_resourceId,
+    associateBudgetWithResourceResponse_httpStatus,
+
+    -- ** GetProvisionedProductOutputs
+    getProvisionedProductOutputs_provisionedProductName,
+    getProvisionedProductOutputs_pageSize,
+    getProvisionedProductOutputs_provisionedProductId,
+    getProvisionedProductOutputs_outputKeys,
+    getProvisionedProductOutputs_pageToken,
+    getProvisionedProductOutputs_acceptLanguage,
+    getProvisionedProductOutputsResponse_outputs,
+    getProvisionedProductOutputsResponse_nextPageToken,
+    getProvisionedProductOutputsResponse_httpStatus,
 
     -- ** ListResourcesForTagOption
     listResourcesForTagOption_pageSize,
@@ -146,37 +168,6 @@ module Network.AWS.ServiceCatalog.Lens
     listResourcesForTagOptionResponse_pageToken,
     listResourcesForTagOptionResponse_resourceDetails,
     listResourcesForTagOptionResponse_httpStatus,
-
-    -- ** DescribePortfolioShares
-    describePortfolioShares_pageSize,
-    describePortfolioShares_pageToken,
-    describePortfolioShares_portfolioId,
-    describePortfolioShares_type,
-    describePortfolioSharesResponse_nextPageToken,
-    describePortfolioSharesResponse_portfolioShareDetails,
-    describePortfolioSharesResponse_httpStatus,
-
-    -- ** GetProvisionedProductOutputs
-    getProvisionedProductOutputs_provisionedProductName,
-    getProvisionedProductOutputs_provisionedProductId,
-    getProvisionedProductOutputs_pageSize,
-    getProvisionedProductOutputs_outputKeys,
-    getProvisionedProductOutputs_pageToken,
-    getProvisionedProductOutputs_acceptLanguage,
-    getProvisionedProductOutputsResponse_outputs,
-    getProvisionedProductOutputsResponse_nextPageToken,
-    getProvisionedProductOutputsResponse_httpStatus,
-
-    -- ** AssociateBudgetWithResource
-    associateBudgetWithResource_budgetName,
-    associateBudgetWithResource_resourceId,
-    associateBudgetWithResourceResponse_httpStatus,
-
-    -- ** DeleteProvisionedProductPlan
-    deleteProvisionedProductPlan_ignoreErrors,
-    deleteProvisionedProductPlan_acceptLanguage,
-    deleteProvisionedProductPlan_planId,
-    deleteProvisionedProductPlanResponse_httpStatus,
 
     -- ** ListLaunchPaths
     listLaunchPaths_pageSize,
@@ -196,60 +187,18 @@ module Network.AWS.ServiceCatalog.Lens
     createConstraint_type,
     createConstraint_idempotencyToken,
     createConstraintResponse_constraintParameters,
-    createConstraintResponse_status,
     createConstraintResponse_constraintDetail,
+    createConstraintResponse_status,
     createConstraintResponse_httpStatus,
 
-    -- ** DescribePortfolioShareStatus
-    describePortfolioShareStatus_portfolioShareToken,
-    describePortfolioShareStatusResponse_shareDetails,
-    describePortfolioShareStatusResponse_status,
-    describePortfolioShareStatusResponse_portfolioId,
-    describePortfolioShareStatusResponse_portfolioShareToken,
-    describePortfolioShareStatusResponse_organizationNodeValue,
-    describePortfolioShareStatusResponse_httpStatus,
-
-    -- ** DeletePortfolioShare
-    deletePortfolioShare_accountId,
-    deletePortfolioShare_organizationNode,
-    deletePortfolioShare_acceptLanguage,
-    deletePortfolioShare_portfolioId,
-    deletePortfolioShareResponse_portfolioShareToken,
-    deletePortfolioShareResponse_httpStatus,
-
-    -- ** DescribeServiceAction
-    describeServiceAction_acceptLanguage,
-    describeServiceAction_id,
-    describeServiceActionResponse_serviceActionDetail,
-    describeServiceActionResponse_httpStatus,
-
-    -- ** UpdateProvisioningArtifact
-    updateProvisioningArtifact_guidance,
-    updateProvisioningArtifact_name,
-    updateProvisioningArtifact_active,
-    updateProvisioningArtifact_description,
-    updateProvisioningArtifact_acceptLanguage,
-    updateProvisioningArtifact_productId,
-    updateProvisioningArtifact_provisioningArtifactId,
-    updateProvisioningArtifactResponse_status,
-    updateProvisioningArtifactResponse_info,
-    updateProvisioningArtifactResponse_provisioningArtifactDetail,
-    updateProvisioningArtifactResponse_httpStatus,
-
-    -- ** ListStackInstancesForProvisionedProduct
-    listStackInstancesForProvisionedProduct_pageSize,
-    listStackInstancesForProvisionedProduct_pageToken,
-    listStackInstancesForProvisionedProduct_acceptLanguage,
-    listStackInstancesForProvisionedProduct_provisionedProductId,
-    listStackInstancesForProvisionedProductResponse_nextPageToken,
-    listStackInstancesForProvisionedProductResponse_stackInstances,
-    listStackInstancesForProvisionedProductResponse_httpStatus,
-
-    -- ** DeleteProvisioningArtifact
-    deleteProvisioningArtifact_acceptLanguage,
-    deleteProvisioningArtifact_productId,
-    deleteProvisioningArtifact_provisioningArtifactId,
-    deleteProvisioningArtifactResponse_httpStatus,
+    -- ** DescribePortfolioShares
+    describePortfolioShares_pageSize,
+    describePortfolioShares_pageToken,
+    describePortfolioShares_portfolioId,
+    describePortfolioShares_type,
+    describePortfolioSharesResponse_nextPageToken,
+    describePortfolioSharesResponse_portfolioShareDetails,
+    describePortfolioSharesResponse_httpStatus,
 
     -- ** DescribeProvisioningParameters
     describeProvisioningParameters_provisioningArtifactName,
@@ -267,12 +216,64 @@ module Network.AWS.ServiceCatalog.Lens
     describeProvisioningParametersResponse_tagOptions,
     describeProvisioningParametersResponse_httpStatus,
 
+    -- ** DeleteProvisioningArtifact
+    deleteProvisioningArtifact_acceptLanguage,
+    deleteProvisioningArtifact_productId,
+    deleteProvisioningArtifact_provisioningArtifactId,
+    deleteProvisioningArtifactResponse_httpStatus,
+
+    -- ** UpdateProvisioningArtifact
+    updateProvisioningArtifact_guidance,
+    updateProvisioningArtifact_name,
+    updateProvisioningArtifact_active,
+    updateProvisioningArtifact_description,
+    updateProvisioningArtifact_acceptLanguage,
+    updateProvisioningArtifact_productId,
+    updateProvisioningArtifact_provisioningArtifactId,
+    updateProvisioningArtifactResponse_status,
+    updateProvisioningArtifactResponse_info,
+    updateProvisioningArtifactResponse_provisioningArtifactDetail,
+    updateProvisioningArtifactResponse_httpStatus,
+
+    -- ** DescribeServiceAction
+    describeServiceAction_acceptLanguage,
+    describeServiceAction_id,
+    describeServiceActionResponse_serviceActionDetail,
+    describeServiceActionResponse_httpStatus,
+
+    -- ** ListServiceActionsForProvisioningArtifact
+    listServiceActionsForProvisioningArtifact_pageSize,
+    listServiceActionsForProvisioningArtifact_pageToken,
+    listServiceActionsForProvisioningArtifact_acceptLanguage,
+    listServiceActionsForProvisioningArtifact_productId,
+    listServiceActionsForProvisioningArtifact_provisioningArtifactId,
+    listServiceActionsForProvisioningArtifactResponse_nextPageToken,
+    listServiceActionsForProvisioningArtifactResponse_serviceActionSummaries,
+    listServiceActionsForProvisioningArtifactResponse_httpStatus,
+
+    -- ** DeletePortfolioShare
+    deletePortfolioShare_accountId,
+    deletePortfolioShare_organizationNode,
+    deletePortfolioShare_acceptLanguage,
+    deletePortfolioShare_portfolioId,
+    deletePortfolioShareResponse_portfolioShareToken,
+    deletePortfolioShareResponse_httpStatus,
+
     -- ** ListProvisioningArtifacts
     listProvisioningArtifacts_acceptLanguage,
     listProvisioningArtifacts_productId,
     listProvisioningArtifactsResponse_nextPageToken,
     listProvisioningArtifactsResponse_provisioningArtifactDetails,
     listProvisioningArtifactsResponse_httpStatus,
+
+    -- ** DescribePortfolioShareStatus
+    describePortfolioShareStatus_portfolioShareToken,
+    describePortfolioShareStatusResponse_shareDetails,
+    describePortfolioShareStatusResponse_status,
+    describePortfolioShareStatusResponse_portfolioId,
+    describePortfolioShareStatusResponse_portfolioShareToken,
+    describePortfolioShareStatusResponse_organizationNodeValue,
+    describePortfolioShareStatusResponse_httpStatus,
 
     -- ** DescribeProvisionedProduct
     describeProvisionedProduct_id,
@@ -281,16 +282,6 @@ module Network.AWS.ServiceCatalog.Lens
     describeProvisionedProductResponse_provisionedProductDetail,
     describeProvisionedProductResponse_cloudWatchDashboards,
     describeProvisionedProductResponse_httpStatus,
-
-    -- ** DescribeProduct
-    describeProduct_id,
-    describeProduct_name,
-    describeProduct_acceptLanguage,
-    describeProductResponse_provisioningArtifacts,
-    describeProductResponse_launchPaths,
-    describeProductResponse_productViewSummary,
-    describeProductResponse_budgets,
-    describeProductResponse_httpStatus,
 
     -- ** UpdatePortfolioShare
     updatePortfolioShare_shareTagOptions,
@@ -315,30 +306,24 @@ module Network.AWS.ServiceCatalog.Lens
     searchProvisionedProductsResponse_nextPageToken,
     searchProvisionedProductsResponse_httpStatus,
 
-    -- ** ListServiceActionsForProvisioningArtifact
-    listServiceActionsForProvisioningArtifact_pageSize,
-    listServiceActionsForProvisioningArtifact_pageToken,
-    listServiceActionsForProvisioningArtifact_acceptLanguage,
-    listServiceActionsForProvisioningArtifact_productId,
-    listServiceActionsForProvisioningArtifact_provisioningArtifactId,
-    listServiceActionsForProvisioningArtifactResponse_nextPageToken,
-    listServiceActionsForProvisioningArtifactResponse_serviceActionSummaries,
-    listServiceActionsForProvisioningArtifactResponse_httpStatus,
+    -- ** ListStackInstancesForProvisionedProduct
+    listStackInstancesForProvisionedProduct_pageSize,
+    listStackInstancesForProvisionedProduct_pageToken,
+    listStackInstancesForProvisionedProduct_acceptLanguage,
+    listStackInstancesForProvisionedProduct_provisionedProductId,
+    listStackInstancesForProvisionedProductResponse_nextPageToken,
+    listStackInstancesForProvisionedProductResponse_stackInstances,
+    listStackInstancesForProvisionedProductResponse_httpStatus,
 
-    -- ** CreateProvisioningArtifact
-    createProvisioningArtifact_acceptLanguage,
-    createProvisioningArtifact_productId,
-    createProvisioningArtifact_parameters,
-    createProvisioningArtifact_idempotencyToken,
-    createProvisioningArtifactResponse_status,
-    createProvisioningArtifactResponse_info,
-    createProvisioningArtifactResponse_provisioningArtifactDetail,
-    createProvisioningArtifactResponse_httpStatus,
-
-    -- ** DeletePortfolio
-    deletePortfolio_acceptLanguage,
-    deletePortfolio_id,
-    deletePortfolioResponse_httpStatus,
+    -- ** DescribeProduct
+    describeProduct_id,
+    describeProduct_name,
+    describeProduct_acceptLanguage,
+    describeProductResponse_provisioningArtifacts,
+    describeProductResponse_launchPaths,
+    describeProductResponse_productViewSummary,
+    describeProductResponse_budgets,
+    describeProductResponse_httpStatus,
 
     -- ** CreatePortfolioShare
     createPortfolioShare_shareTagOptions,
@@ -349,34 +334,15 @@ module Network.AWS.ServiceCatalog.Lens
     createPortfolioShareResponse_portfolioShareToken,
     createPortfolioShareResponse_httpStatus,
 
-    -- ** DisassociateBudgetFromResource
-    disassociateBudgetFromResource_budgetName,
-    disassociateBudgetFromResource_resourceId,
-    disassociateBudgetFromResourceResponse_httpStatus,
-
-    -- ** UpdatePortfolio
-    updatePortfolio_removeTags,
-    updatePortfolio_providerName,
-    updatePortfolio_addTags,
-    updatePortfolio_description,
-    updatePortfolio_displayName,
-    updatePortfolio_acceptLanguage,
-    updatePortfolio_id,
-    updatePortfolioResponse_tags,
-    updatePortfolioResponse_portfolioDetail,
-    updatePortfolioResponse_httpStatus,
-
-    -- ** ListPortfolios
-    listPortfolios_pageSize,
-    listPortfolios_pageToken,
-    listPortfolios_acceptLanguage,
-    listPortfoliosResponse_portfolioDetails,
-    listPortfoliosResponse_nextPageToken,
-    listPortfoliosResponse_httpStatus,
-
-    -- ** GetAWSOrganizationsAccessStatus
-    getAWSOrganizationsAccessStatusResponse_accessStatus,
-    getAWSOrganizationsAccessStatusResponse_httpStatus,
+    -- ** CreateProvisioningArtifact
+    createProvisioningArtifact_acceptLanguage,
+    createProvisioningArtifact_productId,
+    createProvisioningArtifact_parameters,
+    createProvisioningArtifact_idempotencyToken,
+    createProvisioningArtifactResponse_status,
+    createProvisioningArtifactResponse_info,
+    createProvisioningArtifactResponse_provisioningArtifactDetail,
+    createProvisioningArtifactResponse_httpStatus,
 
     -- ** SearchProductsAsAdmin
     searchProductsAsAdmin_sortOrder,
@@ -391,6 +357,52 @@ module Network.AWS.ServiceCatalog.Lens
     searchProductsAsAdminResponse_productViewDetails,
     searchProductsAsAdminResponse_httpStatus,
 
+    -- ** GetAWSOrganizationsAccessStatus
+    getAWSOrganizationsAccessStatusResponse_accessStatus,
+    getAWSOrganizationsAccessStatusResponse_httpStatus,
+
+    -- ** ListPortfolios
+    listPortfolios_pageSize,
+    listPortfolios_pageToken,
+    listPortfolios_acceptLanguage,
+    listPortfoliosResponse_portfolioDetails,
+    listPortfoliosResponse_nextPageToken,
+    listPortfoliosResponse_httpStatus,
+
+    -- ** DisassociateBudgetFromResource
+    disassociateBudgetFromResource_budgetName,
+    disassociateBudgetFromResource_resourceId,
+    disassociateBudgetFromResourceResponse_httpStatus,
+
+    -- ** DeletePortfolio
+    deletePortfolio_acceptLanguage,
+    deletePortfolio_id,
+    deletePortfolioResponse_httpStatus,
+
+    -- ** UpdatePortfolio
+    updatePortfolio_removeTags,
+    updatePortfolio_providerName,
+    updatePortfolio_addTags,
+    updatePortfolio_description,
+    updatePortfolio_displayName,
+    updatePortfolio_acceptLanguage,
+    updatePortfolio_id,
+    updatePortfolioResponse_tags,
+    updatePortfolioResponse_portfolioDetail,
+    updatePortfolioResponse_httpStatus,
+
+    -- ** DescribeConstraint
+    describeConstraint_acceptLanguage,
+    describeConstraint_id,
+    describeConstraintResponse_constraintParameters,
+    describeConstraintResponse_constraintDetail,
+    describeConstraintResponse_status,
+    describeConstraintResponse_httpStatus,
+
+    -- ** DeleteTagOption
+    deleteTagOption_id,
+    deleteTagOptionResponse_httpStatus,
+
     -- ** DescribeRecord
     describeRecord_pageSize,
     describeRecord_pageToken,
@@ -400,21 +412,6 @@ module Network.AWS.ServiceCatalog.Lens
     describeRecordResponse_recordOutputs,
     describeRecordResponse_nextPageToken,
     describeRecordResponse_httpStatus,
-
-    -- ** DescribeConstraint
-    describeConstraint_acceptLanguage,
-    describeConstraint_id,
-    describeConstraintResponse_constraintParameters,
-    describeConstraintResponse_status,
-    describeConstraintResponse_constraintDetail,
-    describeConstraintResponse_httpStatus,
-
-    -- ** EnableAWSOrganizationsAccess
-    enableAWSOrganizationsAccessResponse_httpStatus,
-
-    -- ** DeleteTagOption
-    deleteTagOption_id,
-    deleteTagOptionResponse_httpStatus,
 
     -- ** DisassociateServiceActionFromProvisioningArtifact
     disassociateServiceActionFromProvisioningArtifact_acceptLanguage,
@@ -430,15 +427,14 @@ module Network.AWS.ServiceCatalog.Lens
     updateTagOptionResponse_tagOptionDetail,
     updateTagOptionResponse_httpStatus,
 
-    -- ** ListConstraintsForPortfolio
-    listConstraintsForPortfolio_pageSize,
-    listConstraintsForPortfolio_pageToken,
-    listConstraintsForPortfolio_productId,
-    listConstraintsForPortfolio_acceptLanguage,
-    listConstraintsForPortfolio_portfolioId,
-    listConstraintsForPortfolioResponse_constraintDetails,
-    listConstraintsForPortfolioResponse_nextPageToken,
-    listConstraintsForPortfolioResponse_httpStatus,
+    -- ** EnableAWSOrganizationsAccess
+    enableAWSOrganizationsAccessResponse_httpStatus,
+
+    -- ** CreateTagOption
+    createTagOption_key,
+    createTagOption_value,
+    createTagOptionResponse_tagOptionDetail,
+    createTagOptionResponse_httpStatus,
 
     -- ** ListRecordHistory
     listRecordHistory_pageSize,
@@ -450,53 +446,15 @@ module Network.AWS.ServiceCatalog.Lens
     listRecordHistoryResponse_nextPageToken,
     listRecordHistoryResponse_httpStatus,
 
-    -- ** CreateTagOption
-    createTagOption_key,
-    createTagOption_value,
-    createTagOptionResponse_tagOptionDetail,
-    createTagOptionResponse_httpStatus,
-
-    -- ** UpdateProduct
-    updateProduct_distributor,
-    updateProduct_removeTags,
-    updateProduct_addTags,
-    updateProduct_name,
-    updateProduct_supportUrl,
-    updateProduct_supportDescription,
-    updateProduct_owner,
-    updateProduct_description,
-    updateProduct_supportEmail,
-    updateProduct_acceptLanguage,
-    updateProduct_id,
-    updateProductResponse_productViewDetail,
-    updateProductResponse_tags,
-    updateProductResponse_httpStatus,
-
-    -- ** UpdateServiceAction
-    updateServiceAction_name,
-    updateServiceAction_description,
-    updateServiceAction_definition,
-    updateServiceAction_acceptLanguage,
-    updateServiceAction_id,
-    updateServiceActionResponse_serviceActionDetail,
-    updateServiceActionResponse_httpStatus,
-
-    -- ** DescribeProvisioningArtifact
-    describeProvisioningArtifact_provisioningArtifactName,
-    describeProvisioningArtifact_provisioningArtifactId,
-    describeProvisioningArtifact_productName,
-    describeProvisioningArtifact_productId,
-    describeProvisioningArtifact_verbose,
-    describeProvisioningArtifact_acceptLanguage,
-    describeProvisioningArtifactResponse_status,
-    describeProvisioningArtifactResponse_info,
-    describeProvisioningArtifactResponse_provisioningArtifactDetail,
-    describeProvisioningArtifactResponse_httpStatus,
-
-    -- ** DeleteServiceAction
-    deleteServiceAction_acceptLanguage,
-    deleteServiceAction_id,
-    deleteServiceActionResponse_httpStatus,
+    -- ** ListConstraintsForPortfolio
+    listConstraintsForPortfolio_pageSize,
+    listConstraintsForPortfolio_pageToken,
+    listConstraintsForPortfolio_productId,
+    listConstraintsForPortfolio_acceptLanguage,
+    listConstraintsForPortfolio_portfolioId,
+    listConstraintsForPortfolioResponse_constraintDetails,
+    listConstraintsForPortfolioResponse_nextPageToken,
+    listConstraintsForPortfolioResponse_httpStatus,
 
     -- ** AssociateServiceActionWithProvisioningArtifact
     associateServiceActionWithProvisioningArtifact_acceptLanguage,
@@ -504,6 +462,11 @@ module Network.AWS.ServiceCatalog.Lens
     associateServiceActionWithProvisioningArtifact_provisioningArtifactId,
     associateServiceActionWithProvisioningArtifact_serviceActionId,
     associateServiceActionWithProvisioningArtifactResponse_httpStatus,
+
+    -- ** DeleteServiceAction
+    deleteServiceAction_acceptLanguage,
+    deleteServiceAction_id,
+    deleteServiceActionResponse_httpStatus,
 
     -- ** UpdateProvisionedProduct
     updateProvisionedProduct_provisionedProductName,
@@ -527,13 +490,42 @@ module Network.AWS.ServiceCatalog.Lens
     deleteProduct_id,
     deleteProductResponse_httpStatus,
 
-    -- ** DescribeCopyProductStatus
-    describeCopyProductStatus_acceptLanguage,
-    describeCopyProductStatus_copyProductToken,
-    describeCopyProductStatusResponse_statusDetail,
-    describeCopyProductStatusResponse_targetProductId,
-    describeCopyProductStatusResponse_copyProductStatus,
-    describeCopyProductStatusResponse_httpStatus,
+    -- ** UpdateServiceAction
+    updateServiceAction_name,
+    updateServiceAction_description,
+    updateServiceAction_definition,
+    updateServiceAction_acceptLanguage,
+    updateServiceAction_id,
+    updateServiceActionResponse_serviceActionDetail,
+    updateServiceActionResponse_httpStatus,
+
+    -- ** DescribeProvisioningArtifact
+    describeProvisioningArtifact_provisioningArtifactName,
+    describeProvisioningArtifact_provisioningArtifactId,
+    describeProvisioningArtifact_productName,
+    describeProvisioningArtifact_productId,
+    describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_verbose,
+    describeProvisioningArtifactResponse_status,
+    describeProvisioningArtifactResponse_info,
+    describeProvisioningArtifactResponse_provisioningArtifactDetail,
+    describeProvisioningArtifactResponse_httpStatus,
+
+    -- ** UpdateProduct
+    updateProduct_distributor,
+    updateProduct_removeTags,
+    updateProduct_addTags,
+    updateProduct_name,
+    updateProduct_supportUrl,
+    updateProduct_owner,
+    updateProduct_supportDescription,
+    updateProduct_description,
+    updateProduct_supportEmail,
+    updateProduct_acceptLanguage,
+    updateProduct_id,
+    updateProductResponse_productViewDetail,
+    updateProductResponse_tags,
+    updateProductResponse_httpStatus,
 
     -- ** CreateServiceAction
     createServiceAction_description,
@@ -544,6 +536,20 @@ module Network.AWS.ServiceCatalog.Lens
     createServiceAction_idempotencyToken,
     createServiceActionResponse_serviceActionDetail,
     createServiceActionResponse_httpStatus,
+
+    -- ** AcceptPortfolioShare
+    acceptPortfolioShare_portfolioShareType,
+    acceptPortfolioShare_acceptLanguage,
+    acceptPortfolioShare_portfolioId,
+    acceptPortfolioShareResponse_httpStatus,
+
+    -- ** DescribeCopyProductStatus
+    describeCopyProductStatus_acceptLanguage,
+    describeCopyProductStatus_copyProductToken,
+    describeCopyProductStatusResponse_statusDetail,
+    describeCopyProductStatusResponse_targetProductId,
+    describeCopyProductStatusResponse_copyProductStatus,
+    describeCopyProductStatusResponse_httpStatus,
 
     -- ** CreateProduct
     createProduct_distributor,
@@ -563,23 +569,17 @@ module Network.AWS.ServiceCatalog.Lens
     createProductResponse_tags,
     createProductResponse_httpStatus,
 
-    -- ** AcceptPortfolioShare
-    acceptPortfolioShare_portfolioShareType,
-    acceptPortfolioShare_acceptLanguage,
-    acceptPortfolioShare_portfolioId,
-    acceptPortfolioShareResponse_httpStatus,
+    -- ** BatchDisassociateServiceActionFromProvisioningArtifact
+    batchDisassociateServiceActionFromProvisioningArtifact_acceptLanguage,
+    batchDisassociateServiceActionFromProvisioningArtifact_serviceActionAssociations,
+    batchDisassociateServiceActionFromProvisioningArtifactResponse_failedServiceActionAssociations,
+    batchDisassociateServiceActionFromProvisioningArtifactResponse_httpStatus,
 
     -- ** DisassociatePrincipalFromPortfolio
     disassociatePrincipalFromPortfolio_acceptLanguage,
     disassociatePrincipalFromPortfolio_portfolioId,
     disassociatePrincipalFromPortfolio_principalARN,
     disassociatePrincipalFromPortfolioResponse_httpStatus,
-
-    -- ** BatchDisassociateServiceActionFromProvisioningArtifact
-    batchDisassociateServiceActionFromProvisioningArtifact_acceptLanguage,
-    batchDisassociateServiceActionFromProvisioningArtifact_serviceActionAssociations,
-    batchDisassociateServiceActionFromProvisioningArtifactResponse_failedServiceActionAssociations,
-    batchDisassociateServiceActionFromProvisioningArtifactResponse_httpStatus,
 
     -- ** ListProvisionedProductPlans
     listProvisionedProductPlans_provisionProductId,
@@ -590,12 +590,6 @@ module Network.AWS.ServiceCatalog.Lens
     listProvisionedProductPlansResponse_nextPageToken,
     listProvisionedProductPlansResponse_provisionedProductPlans,
     listProvisionedProductPlansResponse_httpStatus,
-
-    -- ** BatchAssociateServiceActionWithProvisioningArtifact
-    batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage,
-    batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations,
-    batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations,
-    batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus,
 
     -- ** SearchProducts
     searchProducts_sortOrder,
@@ -618,13 +612,6 @@ module Network.AWS.ServiceCatalog.Lens
     listProvisioningArtifactsForServiceActionResponse_nextPageToken,
     listProvisioningArtifactsForServiceActionResponse_httpStatus,
 
-    -- ** AssociatePrincipalWithPortfolio
-    associatePrincipalWithPortfolio_acceptLanguage,
-    associatePrincipalWithPortfolio_portfolioId,
-    associatePrincipalWithPortfolio_principalARN,
-    associatePrincipalWithPortfolio_principalType,
-    associatePrincipalWithPortfolioResponse_httpStatus,
-
     -- ** DescribeServiceActionExecutionParameters
     describeServiceActionExecutionParameters_acceptLanguage,
     describeServiceActionExecutionParameters_provisionedProductId,
@@ -632,16 +619,29 @@ module Network.AWS.ServiceCatalog.Lens
     describeServiceActionExecutionParametersResponse_serviceActionParameters,
     describeServiceActionExecutionParametersResponse_httpStatus,
 
+    -- ** BatchAssociateServiceActionWithProvisioningArtifact
+    batchAssociateServiceActionWithProvisioningArtifact_acceptLanguage,
+    batchAssociateServiceActionWithProvisioningArtifact_serviceActionAssociations,
+    batchAssociateServiceActionWithProvisioningArtifactResponse_failedServiceActionAssociations,
+    batchAssociateServiceActionWithProvisioningArtifactResponse_httpStatus,
+
     -- ** CopyProduct
-    copyProduct_targetProductName,
     copyProduct_copyOptions,
+    copyProduct_targetProductName,
     copyProduct_targetProductId,
-    copyProduct_sourceProvisioningArtifactIdentifiers,
     copyProduct_acceptLanguage,
+    copyProduct_sourceProvisioningArtifactIdentifiers,
     copyProduct_sourceProductArn,
     copyProduct_idempotencyToken,
     copyProductResponse_copyProductToken,
     copyProductResponse_httpStatus,
+
+    -- ** AssociatePrincipalWithPortfolio
+    associatePrincipalWithPortfolio_acceptLanguage,
+    associatePrincipalWithPortfolio_portfolioId,
+    associatePrincipalWithPortfolio_principalARN,
+    associatePrincipalWithPortfolio_principalType,
+    associatePrincipalWithPortfolioResponse_httpStatus,
 
     -- ** CreatePortfolio
     createPortfolio_tags,
@@ -654,6 +654,25 @@ module Network.AWS.ServiceCatalog.Lens
     createPortfolioResponse_portfolioDetail,
     createPortfolioResponse_httpStatus,
 
+    -- ** DescribeProductView
+    describeProductView_acceptLanguage,
+    describeProductView_id,
+    describeProductViewResponse_provisioningArtifacts,
+    describeProductViewResponse_productViewSummary,
+    describeProductViewResponse_httpStatus,
+
+    -- ** DescribeProductAsAdmin
+    describeProductAsAdmin_id,
+    describeProductAsAdmin_name,
+    describeProductAsAdmin_acceptLanguage,
+    describeProductAsAdmin_sourcePortfolioId,
+    describeProductAsAdminResponse_productViewDetail,
+    describeProductAsAdminResponse_tags,
+    describeProductAsAdminResponse_budgets,
+    describeProductAsAdminResponse_provisioningArtifactSummaries,
+    describeProductAsAdminResponse_tagOptions,
+    describeProductAsAdminResponse_httpStatus,
+
     -- ** UpdateProvisionedProductProperties
     updateProvisionedProductProperties_acceptLanguage,
     updateProvisionedProductProperties_provisionedProductId,
@@ -665,25 +684,6 @@ module Network.AWS.ServiceCatalog.Lens
     updateProvisionedProductPropertiesResponse_provisionedProductProperties,
     updateProvisionedProductPropertiesResponse_httpStatus,
 
-    -- ** DescribeProductView
-    describeProductView_acceptLanguage,
-    describeProductView_id,
-    describeProductViewResponse_provisioningArtifacts,
-    describeProductViewResponse_productViewSummary,
-    describeProductViewResponse_httpStatus,
-
-    -- ** DescribeProductAsAdmin
-    describeProductAsAdmin_id,
-    describeProductAsAdmin_name,
-    describeProductAsAdmin_sourcePortfolioId,
-    describeProductAsAdmin_acceptLanguage,
-    describeProductAsAdminResponse_productViewDetail,
-    describeProductAsAdminResponse_tags,
-    describeProductAsAdminResponse_budgets,
-    describeProductAsAdminResponse_provisioningArtifactSummaries,
-    describeProductAsAdminResponse_tagOptions,
-    describeProductAsAdminResponse_httpStatus,
-
     -- ** ListPortfoliosForProduct
     listPortfoliosForProduct_pageSize,
     listPortfoliosForProduct_pageToken,
@@ -693,12 +693,6 @@ module Network.AWS.ServiceCatalog.Lens
     listPortfoliosForProductResponse_nextPageToken,
     listPortfoliosForProductResponse_httpStatus,
 
-    -- ** RejectPortfolioShare
-    rejectPortfolioShare_portfolioShareType,
-    rejectPortfolioShare_acceptLanguage,
-    rejectPortfolioShare_portfolioId,
-    rejectPortfolioShareResponse_httpStatus,
-
     -- ** ListTagOptions
     listTagOptions_pageSize,
     listTagOptions_pageToken,
@@ -707,13 +701,25 @@ module Network.AWS.ServiceCatalog.Lens
     listTagOptionsResponse_tagOptionDetails,
     listTagOptionsResponse_httpStatus,
 
+    -- ** RejectPortfolioShare
+    rejectPortfolioShare_portfolioShareType,
+    rejectPortfolioShare_acceptLanguage,
+    rejectPortfolioShare_portfolioId,
+    rejectPortfolioShareResponse_httpStatus,
+
     -- ** AssociateTagOptionWithResource
     associateTagOptionWithResource_resourceId,
     associateTagOptionWithResource_tagOptionId,
     associateTagOptionWithResourceResponse_httpStatus,
 
-    -- ** DisableAWSOrganizationsAccess
-    disableAWSOrganizationsAccessResponse_httpStatus,
+    -- ** ListBudgetsForResource
+    listBudgetsForResource_pageSize,
+    listBudgetsForResource_pageToken,
+    listBudgetsForResource_acceptLanguage,
+    listBudgetsForResource_resourceId,
+    listBudgetsForResourceResponse_nextPageToken,
+    listBudgetsForResourceResponse_budgets,
+    listBudgetsForResourceResponse_httpStatus,
 
     -- ** DescribeProvisionedProductPlan
     describeProvisionedProductPlan_pageSize,
@@ -725,20 +731,24 @@ module Network.AWS.ServiceCatalog.Lens
     describeProvisionedProductPlanResponse_provisionedProductPlanDetails,
     describeProvisionedProductPlanResponse_httpStatus,
 
-    -- ** ListBudgetsForResource
-    listBudgetsForResource_pageSize,
-    listBudgetsForResource_pageToken,
-    listBudgetsForResource_acceptLanguage,
-    listBudgetsForResource_resourceId,
-    listBudgetsForResourceResponse_nextPageToken,
-    listBudgetsForResourceResponse_budgets,
-    listBudgetsForResourceResponse_httpStatus,
+    -- ** DisableAWSOrganizationsAccess
+    disableAWSOrganizationsAccessResponse_httpStatus,
 
     -- ** DisassociateProductFromPortfolio
     disassociateProductFromPortfolio_acceptLanguage,
     disassociateProductFromPortfolio_productId,
     disassociateProductFromPortfolio_portfolioId,
     disassociateProductFromPortfolioResponse_httpStatus,
+
+    -- ** TerminateProvisionedProduct
+    terminateProvisionedProduct_provisionedProductName,
+    terminateProvisionedProduct_provisionedProductId,
+    terminateProvisionedProduct_retainPhysicalResources,
+    terminateProvisionedProduct_ignoreErrors,
+    terminateProvisionedProduct_acceptLanguage,
+    terminateProvisionedProduct_terminateToken,
+    terminateProvisionedProductResponse_recordDetail,
+    terminateProvisionedProductResponse_httpStatus,
 
     -- ** ListPrincipalsForPortfolio
     listPrincipalsForPortfolio_pageSize,
@@ -765,16 +775,6 @@ module Network.AWS.ServiceCatalog.Lens
     provisionProduct_provisionToken,
     provisionProductResponse_recordDetail,
     provisionProductResponse_httpStatus,
-
-    -- ** TerminateProvisionedProduct
-    terminateProvisionedProduct_provisionedProductName,
-    terminateProvisionedProduct_provisionedProductId,
-    terminateProvisionedProduct_retainPhysicalResources,
-    terminateProvisionedProduct_ignoreErrors,
-    terminateProvisionedProduct_acceptLanguage,
-    terminateProvisionedProduct_terminateToken,
-    terminateProvisionedProductResponse_recordDetail,
-    terminateProvisionedProductResponse_httpStatus,
 
     -- ** ListServiceActions
     listServiceActions_pageSize,
@@ -815,8 +815,8 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** FailedServiceActionAssociation
     failedServiceActionAssociation_provisioningArtifactId,
-    failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_productId,
+    failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_errorMessage,
     failedServiceActionAssociation_errorCode,
 
@@ -855,8 +855,8 @@ module Network.AWS.ServiceCatalog.Lens
     -- ** PortfolioDetail
     portfolioDetail_providerName,
     portfolioDetail_id,
-    portfolioDetail_arn,
     portfolioDetail_createdTime,
+    portfolioDetail_arn,
     portfolioDetail_description,
     portfolioDetail_displayName,
 
@@ -884,20 +884,20 @@ module Network.AWS.ServiceCatalog.Lens
     productViewSummary_distributor,
     productViewSummary_id,
     productViewSummary_name,
-    productViewSummary_hasDefaultPath,
-    productViewSummary_shortDescription,
     productViewSummary_supportUrl,
-    productViewSummary_supportDescription,
+    productViewSummary_shortDescription,
+    productViewSummary_hasDefaultPath,
     productViewSummary_owner,
+    productViewSummary_supportDescription,
     productViewSummary_productId,
     productViewSummary_supportEmail,
     productViewSummary_type,
 
     -- ** ProvisionedProductAttribute
-    provisionedProductAttribute_statusMessage,
     provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
-    provisionedProductAttribute_idempotencyToken,
+    provisionedProductAttribute_statusMessage,
     provisionedProductAttribute_status,
+    provisionedProductAttribute_idempotencyToken,
     provisionedProductAttribute_userArn,
     provisionedProductAttribute_provisioningArtifactName,
     provisionedProductAttribute_arn,
@@ -909,16 +909,16 @@ module Network.AWS.ServiceCatalog.Lens
     provisionedProductAttribute_tags,
     provisionedProductAttribute_productId,
     provisionedProductAttribute_lastProvisioningRecordId,
-    provisionedProductAttribute_type,
     provisionedProductAttribute_physicalId,
-    provisionedProductAttribute_userArnSession,
+    provisionedProductAttribute_type,
     provisionedProductAttribute_lastRecordId,
+    provisionedProductAttribute_userArnSession,
 
     -- ** ProvisionedProductDetail
-    provisionedProductDetail_statusMessage,
     provisionedProductDetail_lastSuccessfulProvisioningRecordId,
-    provisionedProductDetail_idempotencyToken,
+    provisionedProductDetail_statusMessage,
     provisionedProductDetail_status,
+    provisionedProductDetail_idempotencyToken,
     provisionedProductDetail_arn,
     provisionedProductDetail_id,
     provisionedProductDetail_createdTime,
@@ -940,8 +940,8 @@ module Network.AWS.ServiceCatalog.Lens
     provisionedProductPlanDetails_provisioningArtifactId,
     provisionedProductPlanDetails_planName,
     provisionedProductPlanDetails_tags,
-    provisionedProductPlanDetails_planId,
     provisionedProductPlanDetails_productId,
+    provisionedProductPlanDetails_planId,
     provisionedProductPlanDetails_provisioningParameters,
     provisionedProductPlanDetails_planType,
     provisionedProductPlanDetails_pathId,
@@ -979,8 +979,8 @@ module Network.AWS.ServiceCatalog.Lens
     provisioningArtifactParameter_isNoEcho,
     provisioningArtifactParameter_parameterConstraints,
     provisioningArtifactParameter_parameterType,
-    provisioningArtifactParameter_parameterKey,
     provisioningArtifactParameter_description,
+    provisioningArtifactParameter_parameterKey,
     provisioningArtifactParameter_defaultValue,
 
     -- ** ProvisioningArtifactPreferences
@@ -1010,8 +1010,8 @@ module Network.AWS.ServiceCatalog.Lens
     provisioningParameter_value,
 
     -- ** ProvisioningPreferences
-    provisioningPreferences_stackSetFailureToleranceCount,
     provisioningPreferences_stackSetAccounts,
+    provisioningPreferences_stackSetFailureToleranceCount,
     provisioningPreferences_stackSetFailureTolerancePercentage,
     provisioningPreferences_stackSetRegions,
     provisioningPreferences_stackSetMaxConcurrencyCount,
@@ -1024,8 +1024,8 @@ module Network.AWS.ServiceCatalog.Lens
     recordDetail_recordErrors,
     recordDetail_provisionedProductId,
     recordDetail_provisionedProductType,
-    recordDetail_recordId,
     recordDetail_updatedTime,
+    recordDetail_recordId,
     recordDetail_createdTime,
     recordDetail_provisioningArtifactId,
     recordDetail_launchRoleArn,
@@ -1047,10 +1047,10 @@ module Network.AWS.ServiceCatalog.Lens
     recordTag_value,
 
     -- ** ResourceChange
-    resourceChange_physicalResourceId,
     resourceChange_resourceType,
-    resourceChange_scope,
+    resourceChange_physicalResourceId,
     resourceChange_details,
+    resourceChange_scope,
     resourceChange_logicalResourceId,
     resourceChange_action,
     resourceChange_replacement,
@@ -1062,8 +1062,8 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** ResourceDetail
     resourceDetail_id,
-    resourceDetail_arn,
     resourceDetail_createdTime,
+    resourceDetail_arn,
     resourceDetail_name,
     resourceDetail_description,
 
@@ -1082,8 +1082,8 @@ module Network.AWS.ServiceCatalog.Lens
     serviceActionDetail_definition,
 
     -- ** ServiceActionSummary
-    serviceActionSummary_id,
     serviceActionSummary_definitionType,
+    serviceActionSummary_id,
     serviceActionSummary_name,
     serviceActionSummary_description,
 
@@ -1123,8 +1123,8 @@ module Network.AWS.ServiceCatalog.Lens
 
     -- ** UpdateProvisioningPreferences
     updateProvisioningPreferences_stackSetOperationType,
-    updateProvisioningPreferences_stackSetFailureToleranceCount,
     updateProvisioningPreferences_stackSetAccounts,
+    updateProvisioningPreferences_stackSetFailureToleranceCount,
     updateProvisioningPreferences_stackSetFailureTolerancePercentage,
     updateProvisioningPreferences_stackSetRegions,
     updateProvisioningPreferences_stackSetMaxConcurrencyCount,

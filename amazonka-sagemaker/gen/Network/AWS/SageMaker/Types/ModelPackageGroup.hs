@@ -38,8 +38,8 @@ data ModelPackageGroup = ModelPackageGroup'
     modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of the tags associated with the model group. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference Guide/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The status of the model group. This can be one of the following values.
     --
@@ -77,8 +77,8 @@ data ModelPackageGroup = ModelPackageGroup'
 --
 -- 'tags', 'modelPackageGroup_tags' - A list of the tags associated with the model group. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'modelPackageGroupStatus', 'modelPackageGroup_modelPackageGroupStatus' - The status of the model group. This can be one of the following values.
 --
@@ -125,8 +125,8 @@ modelPackageGroup_modelPackageGroupDescription = Lens.lens (\ModelPackageGroup' 
 
 -- | A list of the tags associated with the model group. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 modelPackageGroup_tags :: Lens.Lens' ModelPackageGroup (Prelude.Maybe [Tag])
 modelPackageGroup_tags = Lens.lens (\ModelPackageGroup' {tags} -> tags) (\s@ModelPackageGroup' {} a -> s {tags = a} :: ModelPackageGroup) Prelude.. Lens.mapping Lens._Coerce
 

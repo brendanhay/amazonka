@@ -55,8 +55,8 @@ data CreateReturnShippingLabel = CreateReturnShippingLabel'
     -- moves to its destination while in transit. Regional shipping speeds are
     -- as follows:
     shippingOption :: Prelude.Maybe ShippingOption,
-    -- | The ID for a job that you want to create the return shipping label for.
-    -- For example @JID123e4567-e89b-12d3-a456-426655440000@.
+    -- | The ID for a job that you want to create the return shipping label for;
+    -- for example, @JID123e4567-e89b-12d3-a456-426655440000@.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +74,8 @@ data CreateReturnShippingLabel = CreateReturnShippingLabel'
 -- moves to its destination while in transit. Regional shipping speeds are
 -- as follows:
 --
--- 'jobId', 'createReturnShippingLabel_jobId' - The ID for a job that you want to create the return shipping label for.
--- For example @JID123e4567-e89b-12d3-a456-426655440000@.
+-- 'jobId', 'createReturnShippingLabel_jobId' - The ID for a job that you want to create the return shipping label for;
+-- for example, @JID123e4567-e89b-12d3-a456-426655440000@.
 newCreateReturnShippingLabel ::
   -- | 'jobId'
   Prelude.Text ->
@@ -94,8 +94,8 @@ newCreateReturnShippingLabel pJobId_ =
 createReturnShippingLabel_shippingOption :: Lens.Lens' CreateReturnShippingLabel (Prelude.Maybe ShippingOption)
 createReturnShippingLabel_shippingOption = Lens.lens (\CreateReturnShippingLabel' {shippingOption} -> shippingOption) (\s@CreateReturnShippingLabel' {} a -> s {shippingOption = a} :: CreateReturnShippingLabel)
 
--- | The ID for a job that you want to create the return shipping label for.
--- For example @JID123e4567-e89b-12d3-a456-426655440000@.
+-- | The ID for a job that you want to create the return shipping label for;
+-- for example, @JID123e4567-e89b-12d3-a456-426655440000@.
 createReturnShippingLabel_jobId :: Lens.Lens' CreateReturnShippingLabel Prelude.Text
 createReturnShippingLabel_jobId = Lens.lens (\CreateReturnShippingLabel' {jobId} -> jobId) (\s@CreateReturnShippingLabel' {} a -> s {jobId = a} :: CreateReturnShippingLabel)
 

@@ -69,8 +69,8 @@ data EnableFastSnapshotRestores = EnableFastSnapshotRestores'
     -- | One or more Availability Zones. For example, @us-east-2a@.
     availabilityZones :: [Prelude.Text],
     -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.
-    -- You can specify a snapshot that was shared with you from another AWS
-    -- account.
+    -- You can specify a snapshot that was shared with you from another Amazon
+    -- Web Services account.
     sourceSnapshotIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,8 +91,8 @@ data EnableFastSnapshotRestores = EnableFastSnapshotRestores'
 -- 'availabilityZones', 'enableFastSnapshotRestores_availabilityZones' - One or more Availability Zones. For example, @us-east-2a@.
 --
 -- 'sourceSnapshotIds', 'enableFastSnapshotRestores_sourceSnapshotIds' - The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.
--- You can specify a snapshot that was shared with you from another AWS
--- account.
+-- You can specify a snapshot that was shared with you from another Amazon
+-- Web Services account.
 newEnableFastSnapshotRestores ::
   EnableFastSnapshotRestores
 newEnableFastSnapshotRestores =
@@ -115,8 +115,8 @@ enableFastSnapshotRestores_availabilityZones :: Lens.Lens' EnableFastSnapshotRes
 enableFastSnapshotRestores_availabilityZones = Lens.lens (\EnableFastSnapshotRestores' {availabilityZones} -> availabilityZones) (\s@EnableFastSnapshotRestores' {} a -> s {availabilityZones = a} :: EnableFastSnapshotRestores) Prelude.. Lens._Coerce
 
 -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.
--- You can specify a snapshot that was shared with you from another AWS
--- account.
+-- You can specify a snapshot that was shared with you from another Amazon
+-- Web Services account.
 enableFastSnapshotRestores_sourceSnapshotIds :: Lens.Lens' EnableFastSnapshotRestores [Prelude.Text]
 enableFastSnapshotRestores_sourceSnapshotIds = Lens.lens (\EnableFastSnapshotRestores' {sourceSnapshotIds} -> sourceSnapshotIds) (\s@EnableFastSnapshotRestores' {} a -> s {sourceSnapshotIds = a} :: EnableFastSnapshotRestores) Prelude.. Lens._Coerce
 

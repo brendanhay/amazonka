@@ -11,13 +11,11 @@
 --
 -- Derived from API version @2018-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Firewall Manager
---
--- This is the /AWS Firewall Manager API Reference/. This guide is for
--- developers who need detailed information about the AWS Firewall Manager
--- API actions, data types, and errors. For detailed information about AWS
--- Firewall Manager features, see the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html AWS Firewall Manager Developer Guide>.
+-- This is the /Firewall Manager API Reference/. This guide is for
+-- developers who need detailed information about the Firewall Manager API
+-- actions, data types, and errors. For detailed information about Firewall
+-- Manager features, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html Firewall Manager Developer Guide>.
 --
 -- Some API actions require explicit resource permissions. For information,
 -- see the developer guide topic
@@ -71,17 +69,17 @@ module Network.AWS.FMS
     DeletePolicyResponse (DeletePolicyResponse'),
     newDeletePolicyResponse,
 
-    -- ** ListAppsLists
-    ListAppsLists (ListAppsLists'),
-    newListAppsLists,
-    ListAppsListsResponse (ListAppsListsResponse'),
-    newListAppsListsResponse,
-
     -- ** GetProtectionStatus
     GetProtectionStatus (GetProtectionStatus'),
     newGetProtectionStatus,
     GetProtectionStatusResponse (GetProtectionStatusResponse'),
     newGetProtectionStatusResponse,
+
+    -- ** ListAppsLists (Paginated)
+    ListAppsLists (ListAppsLists'),
+    newListAppsLists,
+    ListAppsListsResponse (ListAppsListsResponse'),
+    newListAppsListsResponse,
 
     -- ** PutAppsList
     PutAppsList (PutAppsList'),
@@ -89,17 +87,17 @@ module Network.AWS.FMS
     PutAppsListResponse (PutAppsListResponse'),
     newPutAppsListResponse,
 
-    -- ** ListProtocolsLists
-    ListProtocolsLists (ListProtocolsLists'),
-    newListProtocolsLists,
-    ListProtocolsListsResponse (ListProtocolsListsResponse'),
-    newListProtocolsListsResponse,
-
     -- ** GetAppsList
     GetAppsList (GetAppsList'),
     newGetAppsList,
     GetAppsListResponse (GetAppsListResponse'),
     newGetAppsListResponse,
+
+    -- ** ListProtocolsLists (Paginated)
+    ListProtocolsLists (ListProtocolsLists'),
+    newListProtocolsLists,
+    ListProtocolsListsResponse (ListProtocolsListsResponse'),
+    newListProtocolsListsResponse,
 
     -- ** PutProtocolsList
     PutProtocolsList (PutProtocolsList'),
@@ -155,17 +153,17 @@ module Network.AWS.FMS
     PutPolicyResponse (PutPolicyResponse'),
     newPutPolicyResponse,
 
-    -- ** DeleteAppsList
-    DeleteAppsList (DeleteAppsList'),
-    newDeleteAppsList,
-    DeleteAppsListResponse (DeleteAppsListResponse'),
-    newDeleteAppsListResponse,
-
     -- ** GetProtocolsList
     GetProtocolsList (GetProtocolsList'),
     newGetProtocolsList,
     GetProtocolsListResponse (GetProtocolsListResponse'),
     newGetProtocolsListResponse,
+
+    -- ** DeleteAppsList
+    DeleteAppsList (DeleteAppsList'),
+    newDeleteAppsList,
+    DeleteAppsListResponse (DeleteAppsListResponse'),
+    newDeleteAppsListResponse,
 
     -- ** GetPolicy
     GetPolicy (GetPolicy'),
@@ -197,17 +195,17 @@ module Network.AWS.FMS
     GetViolationDetailsResponse (GetViolationDetailsResponse'),
     newGetViolationDetailsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** GetComplianceDetail
     GetComplianceDetail (GetComplianceDetail'),
     newGetComplianceDetail,
     GetComplianceDetailResponse (GetComplianceDetailResponse'),
     newGetComplianceDetailResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 
@@ -220,6 +218,9 @@ module Network.AWS.FMS
     -- ** DependentServiceName
     DependentServiceName (..),
 
+    -- ** DestinationType
+    DestinationType (..),
+
     -- ** PolicyComplianceStatusType
     PolicyComplianceStatusType (..),
 
@@ -229,8 +230,15 @@ module Network.AWS.FMS
     -- ** SecurityServiceType
     SecurityServiceType (..),
 
+    -- ** TargetType
+    TargetType (..),
+
     -- ** ViolationReason
     ViolationReason (..),
+
+    -- ** ActionTarget
+    ActionTarget (ActionTarget'),
+    newActionTarget,
 
     -- ** App
     App (App'),
@@ -260,13 +268,73 @@ module Network.AWS.FMS
     ComplianceViolator (ComplianceViolator'),
     newComplianceViolator,
 
+    -- ** DnsDuplicateRuleGroupViolation
+    DnsDuplicateRuleGroupViolation (DnsDuplicateRuleGroupViolation'),
+    newDnsDuplicateRuleGroupViolation,
+
+    -- ** DnsRuleGroupLimitExceededViolation
+    DnsRuleGroupLimitExceededViolation (DnsRuleGroupLimitExceededViolation'),
+    newDnsRuleGroupLimitExceededViolation,
+
+    -- ** DnsRuleGroupPriorityConflictViolation
+    DnsRuleGroupPriorityConflictViolation (DnsRuleGroupPriorityConflictViolation'),
+    newDnsRuleGroupPriorityConflictViolation,
+
+    -- ** EC2AssociateRouteTableAction
+    EC2AssociateRouteTableAction (EC2AssociateRouteTableAction'),
+    newEC2AssociateRouteTableAction,
+
+    -- ** EC2CopyRouteTableAction
+    EC2CopyRouteTableAction (EC2CopyRouteTableAction'),
+    newEC2CopyRouteTableAction,
+
+    -- ** EC2CreateRouteAction
+    EC2CreateRouteAction (EC2CreateRouteAction'),
+    newEC2CreateRouteAction,
+
+    -- ** EC2CreateRouteTableAction
+    EC2CreateRouteTableAction (EC2CreateRouteTableAction'),
+    newEC2CreateRouteTableAction,
+
+    -- ** EC2DeleteRouteAction
+    EC2DeleteRouteAction (EC2DeleteRouteAction'),
+    newEC2DeleteRouteAction,
+
+    -- ** EC2ReplaceRouteAction
+    EC2ReplaceRouteAction (EC2ReplaceRouteAction'),
+    newEC2ReplaceRouteAction,
+
+    -- ** EC2ReplaceRouteTableAssociationAction
+    EC2ReplaceRouteTableAssociationAction (EC2ReplaceRouteTableAssociationAction'),
+    newEC2ReplaceRouteTableAssociationAction,
+
     -- ** EvaluationResult
     EvaluationResult (EvaluationResult'),
     newEvaluationResult,
 
+    -- ** ExpectedRoute
+    ExpectedRoute (ExpectedRoute'),
+    newExpectedRoute,
+
+    -- ** NetworkFirewallBlackHoleRouteDetectedViolation
+    NetworkFirewallBlackHoleRouteDetectedViolation (NetworkFirewallBlackHoleRouteDetectedViolation'),
+    newNetworkFirewallBlackHoleRouteDetectedViolation,
+
+    -- ** NetworkFirewallInternetTrafficNotInspectedViolation
+    NetworkFirewallInternetTrafficNotInspectedViolation (NetworkFirewallInternetTrafficNotInspectedViolation'),
+    newNetworkFirewallInternetTrafficNotInspectedViolation,
+
+    -- ** NetworkFirewallInvalidRouteConfigurationViolation
+    NetworkFirewallInvalidRouteConfigurationViolation (NetworkFirewallInvalidRouteConfigurationViolation'),
+    newNetworkFirewallInvalidRouteConfigurationViolation,
+
     -- ** NetworkFirewallMissingExpectedRTViolation
     NetworkFirewallMissingExpectedRTViolation (NetworkFirewallMissingExpectedRTViolation'),
     newNetworkFirewallMissingExpectedRTViolation,
+
+    -- ** NetworkFirewallMissingExpectedRoutesViolation
+    NetworkFirewallMissingExpectedRoutesViolation (NetworkFirewallMissingExpectedRoutesViolation'),
+    newNetworkFirewallMissingExpectedRoutesViolation,
 
     -- ** NetworkFirewallMissingFirewallViolation
     NetworkFirewallMissingFirewallViolation (NetworkFirewallMissingFirewallViolation'),
@@ -283,6 +351,14 @@ module Network.AWS.FMS
     -- ** NetworkFirewallPolicyModifiedViolation
     NetworkFirewallPolicyModifiedViolation (NetworkFirewallPolicyModifiedViolation'),
     newNetworkFirewallPolicyModifiedViolation,
+
+    -- ** NetworkFirewallUnexpectedFirewallRoutesViolation
+    NetworkFirewallUnexpectedFirewallRoutesViolation (NetworkFirewallUnexpectedFirewallRoutesViolation'),
+    newNetworkFirewallUnexpectedFirewallRoutesViolation,
+
+    -- ** NetworkFirewallUnexpectedGatewayRoutesViolation
+    NetworkFirewallUnexpectedGatewayRoutesViolation (NetworkFirewallUnexpectedGatewayRoutesViolation'),
+    newNetworkFirewallUnexpectedGatewayRoutesViolation,
 
     -- ** PartialMatch
     PartialMatch (PartialMatch'),
@@ -304,6 +380,14 @@ module Network.AWS.FMS
     PolicySummary (PolicySummary'),
     newPolicySummary,
 
+    -- ** PossibleRemediationAction
+    PossibleRemediationAction (PossibleRemediationAction'),
+    newPossibleRemediationAction,
+
+    -- ** PossibleRemediationActions
+    PossibleRemediationActions (PossibleRemediationActions'),
+    newPossibleRemediationActions,
+
     -- ** ProtocolsListData
     ProtocolsListData (ProtocolsListData'),
     newProtocolsListData,
@@ -312,6 +396,14 @@ module Network.AWS.FMS
     ProtocolsListDataSummary (ProtocolsListDataSummary'),
     newProtocolsListDataSummary,
 
+    -- ** RemediationAction
+    RemediationAction (RemediationAction'),
+    newRemediationAction,
+
+    -- ** RemediationActionWithOrder
+    RemediationActionWithOrder (RemediationActionWithOrder'),
+    newRemediationActionWithOrder,
+
     -- ** ResourceTag
     ResourceTag (ResourceTag'),
     newResourceTag,
@@ -319,6 +411,10 @@ module Network.AWS.FMS
     -- ** ResourceViolation
     ResourceViolation (ResourceViolation'),
     newResourceViolation,
+
+    -- ** Route
+    Route (Route'),
+    newRoute,
 
     -- ** SecurityGroupRemediationAction
     SecurityGroupRemediationAction (SecurityGroupRemediationAction'),

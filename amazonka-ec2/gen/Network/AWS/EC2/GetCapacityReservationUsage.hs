@@ -22,9 +22,9 @@
 --
 -- Gets usage information about a Capacity Reservation. If the Capacity
 -- Reservation is shared, it shows usage information for the Capacity
--- Reservation owner and each AWS account that is currently using the
--- shared capacity. If the Capacity Reservation is not shared, it shows
--- only the Capacity Reservation owner\'s usage.
+-- Reservation owner and each Amazon Web Services account that is currently
+-- using the shared capacity. If the Capacity Reservation is not shared, it
+-- shows only the Capacity Reservation owner\'s usage.
 module Network.AWS.EC2.GetCapacityReservationUsage
   ( -- * Creating a Request
     GetCapacityReservationUsage (..),
@@ -32,8 +32,8 @@ module Network.AWS.EC2.GetCapacityReservationUsage
 
     -- * Request Lenses
     getCapacityReservationUsage_nextToken,
-    getCapacityReservationUsage_dryRun,
     getCapacityReservationUsage_maxResults,
+    getCapacityReservationUsage_dryRun,
     getCapacityReservationUsage_capacityReservationId,
 
     -- * Destructuring the Response
@@ -63,11 +63,6 @@ import qualified Network.AWS.Response as Response
 data GetCapacityReservationUsage = GetCapacityReservationUsage'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -75,6 +70,11 @@ data GetCapacityReservationUsage = GetCapacityReservationUsage'
     --
     -- Valid range: Minimum value of 1. Maximum value of 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
   }
@@ -90,17 +90,17 @@ data GetCapacityReservationUsage = GetCapacityReservationUsage'
 --
 -- 'nextToken', 'getCapacityReservationUsage_nextToken' - The token to use to retrieve the next page of results.
 --
--- 'dryRun', 'getCapacityReservationUsage_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'getCapacityReservationUsage_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- Valid range: Minimum value of 1. Maximum value of 1000.
+--
+-- 'dryRun', 'getCapacityReservationUsage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'capacityReservationId', 'getCapacityReservationUsage_capacityReservationId' - The ID of the Capacity Reservation.
 newGetCapacityReservationUsage ::
@@ -112,8 +112,8 @@ newGetCapacityReservationUsage
     GetCapacityReservationUsage'
       { nextToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         capacityReservationId =
           pCapacityReservationId_
       }
@@ -121,13 +121,6 @@ newGetCapacityReservationUsage
 -- | The token to use to retrieve the next page of results.
 getCapacityReservationUsage_nextToken :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Text)
 getCapacityReservationUsage_nextToken = Lens.lens (\GetCapacityReservationUsage' {nextToken} -> nextToken) (\s@GetCapacityReservationUsage' {} a -> s {nextToken = a} :: GetCapacityReservationUsage)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getCapacityReservationUsage_dryRun :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Bool)
-getCapacityReservationUsage_dryRun = Lens.lens (\GetCapacityReservationUsage' {dryRun} -> dryRun) (\s@GetCapacityReservationUsage' {} a -> s {dryRun = a} :: GetCapacityReservationUsage)
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -137,6 +130,13 @@ getCapacityReservationUsage_dryRun = Lens.lens (\GetCapacityReservationUsage' {d
 -- Valid range: Minimum value of 1. Maximum value of 1000.
 getCapacityReservationUsage_maxResults :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Natural)
 getCapacityReservationUsage_maxResults = Lens.lens (\GetCapacityReservationUsage' {maxResults} -> maxResults) (\s@GetCapacityReservationUsage' {} a -> s {maxResults = a} :: GetCapacityReservationUsage)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getCapacityReservationUsage_dryRun :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Bool)
+getCapacityReservationUsage_dryRun = Lens.lens (\GetCapacityReservationUsage' {dryRun} -> dryRun) (\s@GetCapacityReservationUsage' {} a -> s {dryRun = a} :: GetCapacityReservationUsage)
 
 -- | The ID of the Capacity Reservation.
 getCapacityReservationUsage_capacityReservationId :: Lens.Lens' GetCapacityReservationUsage Prelude.Text
@@ -184,8 +184,8 @@ instance Core.ToQuery GetCapacityReservationUsage where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "CapacityReservationId"
           Core.=: capacityReservationId
       ]

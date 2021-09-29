@@ -22,16 +22,52 @@ module Network.AWS.SageMaker.Types.EdgeOutputConfig where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.SageMaker.Types.EdgePresetDeploymentType
 
 -- | The output configuration.
 --
 -- /See:/ 'newEdgeOutputConfig' smart constructor.
 data EdgeOutputConfig = EdgeOutputConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data on the storage volume after compilation job. If you
-    -- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
-    -- for Amazon S3 for your role\'s account.
+  { -- | The configuration used to create deployment artifacts. Specify
+    -- configuration options with a JSON string. The available configuration
+    -- options for each type are:
+    --
+    -- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If
+    --     not specified, the default name generated consists of
+    --     \"SagemakerEdgeManager\" and the name of your SageMaker Edge Manager
+    --     packaging job.
+    --
+    -- -   @ComponentDescription@ (optional) - Description of the component.
+    --
+    -- -   @ComponentVersion@ (optional) - The version of the component.
+    --
+    --     Amazon Web Services IoT Greengrass uses semantic versions for
+    --     components. Semantic versions follow a /major.minor.patch/ number
+    --     system. For example, version 1.0.0 represents the first major
+    --     release for a component. For more information, see the
+    --     <https://semver.org/ semantic version specification>.
+    --
+    -- -   @PlatformOS@ (optional) - The name of the operating system for the
+    --     platform. Supported platforms include Windows and Linux.
+    --
+    -- -   @PlatformArchitecture@ (optional) - The processor architecture for
+    --     the platform.
+    --
+    --     Supported architectures Windows include: Windows32_x86,
+    --     Windows64_x64.
+    --
+    --     Supported architectures for Linux include: Linux x86_64, Linux
+    --     ARMV8.
+    presetDeploymentConfig :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt data on the storage volume
+    -- after compilation job. If you don\'t provide a KMS key ID, Amazon
+    -- SageMaker uses the default KMS key for Amazon S3 for your role\'s
+    -- account.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The deployment type SageMaker Edge Manager will create. Currently only
+    -- supports Amazon Web Services IoT Greengrass Version 2 components.
+    presetDeploymentType :: Prelude.Maybe EdgePresetDeploymentType,
     -- | The Amazon Simple Storage (S3) bucker URI.
     s3OutputLocation :: Prelude.Text
   }
@@ -45,10 +81,45 @@ data EdgeOutputConfig = EdgeOutputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'edgeOutputConfig_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume after compilation job. If you
--- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
--- for Amazon S3 for your role\'s account.
+-- 'presetDeploymentConfig', 'edgeOutputConfig_presetDeploymentConfig' - The configuration used to create deployment artifacts. Specify
+-- configuration options with a JSON string. The available configuration
+-- options for each type are:
+--
+-- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If
+--     not specified, the default name generated consists of
+--     \"SagemakerEdgeManager\" and the name of your SageMaker Edge Manager
+--     packaging job.
+--
+-- -   @ComponentDescription@ (optional) - Description of the component.
+--
+-- -   @ComponentVersion@ (optional) - The version of the component.
+--
+--     Amazon Web Services IoT Greengrass uses semantic versions for
+--     components. Semantic versions follow a /major.minor.patch/ number
+--     system. For example, version 1.0.0 represents the first major
+--     release for a component. For more information, see the
+--     <https://semver.org/ semantic version specification>.
+--
+-- -   @PlatformOS@ (optional) - The name of the operating system for the
+--     platform. Supported platforms include Windows and Linux.
+--
+-- -   @PlatformArchitecture@ (optional) - The processor architecture for
+--     the platform.
+--
+--     Supported architectures Windows include: Windows32_x86,
+--     Windows64_x64.
+--
+--     Supported architectures for Linux include: Linux x86_64, Linux
+--     ARMV8.
+--
+-- 'kmsKeyId', 'edgeOutputConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- after compilation job. If you don\'t provide a KMS key ID, Amazon
+-- SageMaker uses the default KMS key for Amazon S3 for your role\'s
+-- account.
+--
+-- 'presetDeploymentType', 'edgeOutputConfig_presetDeploymentType' - The deployment type SageMaker Edge Manager will create. Currently only
+-- supports Amazon Web Services IoT Greengrass Version 2 components.
 --
 -- 's3OutputLocation', 'edgeOutputConfig_s3OutputLocation' - The Amazon Simple Storage (S3) bucker URI.
 newEdgeOutputConfig ::
@@ -57,16 +128,58 @@ newEdgeOutputConfig ::
   EdgeOutputConfig
 newEdgeOutputConfig pS3OutputLocation_ =
   EdgeOutputConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { presetDeploymentConfig =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      presetDeploymentType = Prelude.Nothing,
       s3OutputLocation = pS3OutputLocation_
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume after compilation job. If you
--- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
--- for Amazon S3 for your role\'s account.
+-- | The configuration used to create deployment artifacts. Specify
+-- configuration options with a JSON string. The available configuration
+-- options for each type are:
+--
+-- -   @ComponentName@ (optional) - Name of the GreenGrass V2 component. If
+--     not specified, the default name generated consists of
+--     \"SagemakerEdgeManager\" and the name of your SageMaker Edge Manager
+--     packaging job.
+--
+-- -   @ComponentDescription@ (optional) - Description of the component.
+--
+-- -   @ComponentVersion@ (optional) - The version of the component.
+--
+--     Amazon Web Services IoT Greengrass uses semantic versions for
+--     components. Semantic versions follow a /major.minor.patch/ number
+--     system. For example, version 1.0.0 represents the first major
+--     release for a component. For more information, see the
+--     <https://semver.org/ semantic version specification>.
+--
+-- -   @PlatformOS@ (optional) - The name of the operating system for the
+--     platform. Supported platforms include Windows and Linux.
+--
+-- -   @PlatformArchitecture@ (optional) - The processor architecture for
+--     the platform.
+--
+--     Supported architectures Windows include: Windows32_x86,
+--     Windows64_x64.
+--
+--     Supported architectures for Linux include: Linux x86_64, Linux
+--     ARMV8.
+edgeOutputConfig_presetDeploymentConfig :: Lens.Lens' EdgeOutputConfig (Prelude.Maybe Prelude.Text)
+edgeOutputConfig_presetDeploymentConfig = Lens.lens (\EdgeOutputConfig' {presetDeploymentConfig} -> presetDeploymentConfig) (\s@EdgeOutputConfig' {} a -> s {presetDeploymentConfig = a} :: EdgeOutputConfig)
+
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- after compilation job. If you don\'t provide a KMS key ID, Amazon
+-- SageMaker uses the default KMS key for Amazon S3 for your role\'s
+-- account.
 edgeOutputConfig_kmsKeyId :: Lens.Lens' EdgeOutputConfig (Prelude.Maybe Prelude.Text)
 edgeOutputConfig_kmsKeyId = Lens.lens (\EdgeOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@EdgeOutputConfig' {} a -> s {kmsKeyId = a} :: EdgeOutputConfig)
+
+-- | The deployment type SageMaker Edge Manager will create. Currently only
+-- supports Amazon Web Services IoT Greengrass Version 2 components.
+edgeOutputConfig_presetDeploymentType :: Lens.Lens' EdgeOutputConfig (Prelude.Maybe EdgePresetDeploymentType)
+edgeOutputConfig_presetDeploymentType = Lens.lens (\EdgeOutputConfig' {presetDeploymentType} -> presetDeploymentType) (\s@EdgeOutputConfig' {} a -> s {presetDeploymentType = a} :: EdgeOutputConfig)
 
 -- | The Amazon Simple Storage (S3) bucker URI.
 edgeOutputConfig_s3OutputLocation :: Lens.Lens' EdgeOutputConfig Prelude.Text
@@ -78,7 +191,9 @@ instance Core.FromJSON EdgeOutputConfig where
       "EdgeOutputConfig"
       ( \x ->
           EdgeOutputConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Core..:? "PresetDeploymentConfig")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "PresetDeploymentType")
             Prelude.<*> (x Core..: "S3OutputLocation")
       )
 
@@ -90,7 +205,11 @@ instance Core.ToJSON EdgeOutputConfig where
   toJSON EdgeOutputConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("PresetDeploymentConfig" Core..=)
+              Prelude.<$> presetDeploymentConfig,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("PresetDeploymentType" Core..=)
+              Prelude.<$> presetDeploymentType,
             Prelude.Just
               ("S3OutputLocation" Core..= s3OutputLocation)
           ]

@@ -17,29 +17,29 @@ module Network.AWS.WorkDocs.Types
     defaultService,
 
     -- * Errors
+    _CustomMetadataLimitExceededException,
     _IllegalUserStateException,
     _StorageLimitWillExceedException,
-    _CustomMetadataLimitExceededException,
-    _ConflictingOperationException,
     _DeactivatingLastSystemUserException,
-    _DraftUploadOutOfSyncException,
+    _ConflictingOperationException,
     _DocumentLockedForCommentsException,
     _EntityNotExistsException,
+    _DraftUploadOutOfSyncException,
     _UnauthorizedOperationException,
     _InvalidOperationException,
-    _StorageLimitExceededException,
     _ServiceUnavailableException,
-    _UnauthorizedResourceAccessException,
+    _StorageLimitExceededException,
     _RequestedEntityTooLargeException,
-    _ProhibitedStateException,
-    _EntityAlreadyExistsException,
+    _UnauthorizedResourceAccessException,
     _ConcurrentModificationException,
+    _EntityAlreadyExistsException,
+    _ProhibitedStateException,
     _ResourceAlreadyCheckedOutException,
-    _LimitExceededException,
     _InvalidPasswordException,
+    _LimitExceededException,
     _FailedDependencyException,
-    _InvalidCommentOperationException,
     _TooManySubscriptionsException,
+    _InvalidCommentOperationException,
     _TooManyLabelsException,
     _InvalidArgumentException,
 
@@ -163,8 +163,8 @@ module Network.AWS.WorkDocs.Types
     documentMetadata_parentFolderId,
     documentMetadata_creatorId,
     documentMetadata_createdTimestamp,
-    documentMetadata_id,
     documentMetadata_labels,
+    documentMetadata_id,
     documentMetadata_latestVersionMetadata,
     documentMetadata_resourceState,
 
@@ -175,12 +175,12 @@ module Network.AWS.WorkDocs.Types
     documentVersionMetadata_status,
     documentVersionMetadata_creatorId,
     documentVersionMetadata_contentType,
-    documentVersionMetadata_createdTimestamp,
     documentVersionMetadata_contentModifiedTimestamp,
+    documentVersionMetadata_createdTimestamp,
     documentVersionMetadata_id,
     documentVersionMetadata_source,
-    documentVersionMetadata_contentCreatedTimestamp,
     documentVersionMetadata_name,
+    documentVersionMetadata_contentCreatedTimestamp,
     documentVersionMetadata_signature,
     documentVersionMetadata_thumbnail,
     documentVersionMetadata_size,
@@ -193,12 +193,12 @@ module Network.AWS.WorkDocs.Types
     folderMetadata_latestVersionSize,
     folderMetadata_creatorId,
     folderMetadata_createdTimestamp,
-    folderMetadata_id,
     folderMetadata_labels,
+    folderMetadata_id,
     folderMetadata_name,
     folderMetadata_signature,
-    folderMetadata_resourceState,
     folderMetadata_size,
+    folderMetadata_resourceState,
 
     -- * GroupMetadata
     GroupMetadata (..),
@@ -236,10 +236,10 @@ module Network.AWS.WorkDocs.Types
     newResourceMetadata,
     resourceMetadata_originalName,
     resourceMetadata_id,
-    resourceMetadata_versionId,
     resourceMetadata_name,
-    resourceMetadata_parentId,
+    resourceMetadata_versionId,
     resourceMetadata_owner,
+    resourceMetadata_parentId,
     resourceMetadata_type,
 
     -- * ResourcePath
@@ -295,12 +295,12 @@ module Network.AWS.WorkDocs.Types
     user_modifiedTimestamp,
     user_status,
     user_organizationId,
-    user_createdTimestamp,
     user_timeZoneId,
+    user_createdTimestamp,
     user_surname,
     user_locale,
-    user_id,
     user_rootFolderId,
+    user_id,
     user_givenName,
     user_recycleBinFolderId,
     user_storage,
@@ -448,6 +448,15 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | The limit has been reached on the number of custom properties for the
+-- specified resource.
+_CustomMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomMetadataLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CustomMetadataLimitExceededException"
+    Prelude.. Core.hasStatus 429
+
 -- | The user is undergoing transfer of ownership.
 _IllegalUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IllegalUserStateException =
@@ -464,24 +473,6 @@ _StorageLimitWillExceedException =
     "StorageLimitWillExceedException"
     Prelude.. Core.hasStatus 413
 
--- | The limit has been reached on the number of custom properties for the
--- specified resource.
-_CustomMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomMetadataLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "CustomMetadataLimitExceededException"
-    Prelude.. Core.hasStatus 429
-
--- | Another operation is in progress on the resource that conflicts with the
--- current operation.
-_ConflictingOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictingOperationException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictingOperationException"
-    Prelude.. Core.hasStatus 409
-
 -- | The last user in the organization is being deactivated.
 _DeactivatingLastSystemUserException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DeactivatingLastSystemUserException =
@@ -490,14 +481,13 @@ _DeactivatingLastSystemUserException =
     "DeactivatingLastSystemUserException"
     Prelude.. Core.hasStatus 409
 
--- | This exception is thrown when a valid checkout ID is not presented on
--- document version upload calls for a document that has been checked out
--- from Web client.
-_DraftUploadOutOfSyncException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DraftUploadOutOfSyncException =
+-- | Another operation is in progress on the resource that conflicts with the
+-- current operation.
+_ConflictingOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictingOperationException =
   Core._MatchServiceError
     defaultService
-    "DraftUploadOutOfSyncException"
+    "ConflictingOperationException"
     Prelude.. Core.hasStatus 409
 
 -- | This exception is thrown when the document is locked for comments and
@@ -517,6 +507,16 @@ _EntityNotExistsException =
     "EntityNotExistsException"
     Prelude.. Core.hasStatus 404
 
+-- | This exception is thrown when a valid checkout ID is not presented on
+-- document version upload calls for a document that has been checked out
+-- from Web client.
+_DraftUploadOutOfSyncException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DraftUploadOutOfSyncException =
+  Core._MatchServiceError
+    defaultService
+    "DraftUploadOutOfSyncException"
+    Prelude.. Core.hasStatus 409
+
 -- | The operation is not permitted.
 _UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedOperationException =
@@ -533,14 +533,6 @@ _InvalidOperationException =
     "InvalidOperationException"
     Prelude.. Core.hasStatus 405
 
--- | The storage limit has been exceeded.
-_StorageLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StorageLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "StorageLimitExceededException"
-    Prelude.. Core.hasStatus 409
-
 -- | One or more of the dependencies is unavailable.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
@@ -549,13 +541,13 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | The caller does not have access to perform the action on the resource.
-_UnauthorizedResourceAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedResourceAccessException =
+-- | The storage limit has been exceeded.
+_StorageLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StorageLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedResourceAccessException"
-    Prelude.. Core.hasStatus 404
+    "StorageLimitExceededException"
+    Prelude.. Core.hasStatus 409
 
 -- | The response is too large to return. The request must include a filter
 -- to reduce the size of the response.
@@ -566,12 +558,20 @@ _RequestedEntityTooLargeException =
     "RequestedEntityTooLargeException"
     Prelude.. Core.hasStatus 413
 
--- | The specified document version is not in the INITIALIZED state.
-_ProhibitedStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProhibitedStateException =
+-- | The caller does not have access to perform the action on the resource.
+_UnauthorizedResourceAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedResourceAccessException =
   Core._MatchServiceError
     defaultService
-    "ProhibitedStateException"
+    "UnauthorizedResourceAccessException"
+    Prelude.. Core.hasStatus 404
+
+-- | The resource hierarchy is changing.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
     Prelude.. Core.hasStatus 409
 
 -- | The resource already exists.
@@ -582,12 +582,12 @@ _EntityAlreadyExistsException =
     "EntityAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
--- | The resource hierarchy is changing.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
+-- | The specified document version is not in the INITIALIZED state.
+_ProhibitedStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProhibitedStateException =
   Core._MatchServiceError
     defaultService
-    "ConcurrentModificationException"
+    "ProhibitedStateException"
     Prelude.. Core.hasStatus 409
 
 -- | The resource is already checked out.
@@ -598,6 +598,14 @@ _ResourceAlreadyCheckedOutException =
     "ResourceAlreadyCheckedOutException"
     Prelude.. Core.hasStatus 409
 
+-- | The password is invalid.
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPasswordException"
+    Prelude.. Core.hasStatus 401
+
 -- | The maximum of 100,000 folders under the parent folder has been
 -- exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -606,14 +614,6 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 409
-
--- | The password is invalid.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPasswordException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPasswordException"
-    Prelude.. Core.hasStatus 401
 
 -- | The AWS Directory Service cannot reach an on-premises instance. Or a
 -- dependency under the control of the organization is failing, such as a
@@ -625,14 +625,6 @@ _FailedDependencyException =
     "FailedDependencyException"
     Prelude.. Core.hasStatus 424
 
--- | The requested operation is not allowed on the specified comment object.
-_InvalidCommentOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCommentOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCommentOperationException"
-    Prelude.. Core.hasStatus 409
-
 -- | You\'ve reached the limit on the number of subscriptions for the
 -- WorkDocs instance.
 _TooManySubscriptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -641,6 +633,14 @@ _TooManySubscriptionsException =
     defaultService
     "TooManySubscriptionsException"
     Prelude.. Core.hasStatus 429
+
+-- | The requested operation is not allowed on the specified comment object.
+_InvalidCommentOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommentOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommentOperationException"
+    Prelude.. Core.hasStatus 409
 
 -- | The limit has been reached on the number of labels for the specified
 -- resource.

@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListAlgorithms
     newListAlgorithms,
 
     -- * Request Lenses
-    listAlgorithms_sortOrder,
     listAlgorithms_nextToken,
+    listAlgorithms_sortOrder,
     listAlgorithms_nameContains,
     listAlgorithms_maxResults,
     listAlgorithms_creationTimeBefore,
@@ -57,12 +57,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListAlgorithms' smart constructor.
 data ListAlgorithms = ListAlgorithms'
-  { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the response to a previous @ListAlgorithms@ request was truncated,
+  { -- | If the response to a previous @ListAlgorithms@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- algorithms, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the algorithm name. This filter returns only algorithms
     -- whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -88,11 +88,11 @@ data ListAlgorithms = ListAlgorithms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listAlgorithms_sortOrder' - The sort order for the results. The default is @Ascending@.
---
 -- 'nextToken', 'listAlgorithms_nextToken' - If the response to a previous @ListAlgorithms@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- algorithms, use the token in the next request.
+--
+-- 'sortOrder', 'listAlgorithms_sortOrder' - The sort order for the results. The default is @Ascending@.
 --
 -- 'nameContains', 'listAlgorithms_nameContains' - A string in the algorithm name. This filter returns only algorithms
 -- whose name contains the specified string.
@@ -111,8 +111,8 @@ newListAlgorithms ::
   ListAlgorithms
 newListAlgorithms =
   ListAlgorithms'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -120,15 +120,15 @@ newListAlgorithms =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for the results. The default is @Ascending@.
-listAlgorithms_sortOrder :: Lens.Lens' ListAlgorithms (Prelude.Maybe SortOrder)
-listAlgorithms_sortOrder = Lens.lens (\ListAlgorithms' {sortOrder} -> sortOrder) (\s@ListAlgorithms' {} a -> s {sortOrder = a} :: ListAlgorithms)
-
 -- | If the response to a previous @ListAlgorithms@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- algorithms, use the token in the next request.
 listAlgorithms_nextToken :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Text)
 listAlgorithms_nextToken = Lens.lens (\ListAlgorithms' {nextToken} -> nextToken) (\s@ListAlgorithms' {} a -> s {nextToken = a} :: ListAlgorithms)
+
+-- | The sort order for the results. The default is @Ascending@.
+listAlgorithms_sortOrder :: Lens.Lens' ListAlgorithms (Prelude.Maybe SortOrder)
+listAlgorithms_sortOrder = Lens.lens (\ListAlgorithms' {sortOrder} -> sortOrder) (\s@ListAlgorithms' {} a -> s {sortOrder = a} :: ListAlgorithms)
 
 -- | A string in the algorithm name. This filter returns only algorithms
 -- whose name contains the specified string.
@@ -211,8 +211,8 @@ instance Core.ToJSON ListAlgorithms where
   toJSON ListAlgorithms' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

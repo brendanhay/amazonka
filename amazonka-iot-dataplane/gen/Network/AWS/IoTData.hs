@@ -11,22 +11,23 @@
 --
 -- Derived from API version @2015-05-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT
+-- IoT data
 --
--- AWS IoT-Data enables secure, bi-directional communication between
+-- IoT data enables secure, bi-directional communication between
 -- Internet-connected things (such as sensors, actuators, embedded devices,
--- or smart appliances) and the AWS cloud. It implements a broker for
--- applications and things to publish messages over HTTP (Publish) and
--- retrieve, update, and delete shadows. A shadow is a persistent
--- representation of your things and their state in the AWS cloud.
+-- or smart appliances) and the Amazon Web Services cloud. It implements a
+-- broker for applications and things to publish messages over HTTP
+-- (Publish) and retrieve, update, and delete shadows. A shadow is a
+-- persistent representation of your things and their state in the Amazon
+-- Web Services cloud.
 --
--- Find the endpoint address for actions in the AWS IoT data plane by
--- running this CLI command:
+-- Find the endpoint address for actions in IoT data by running this CLI
+-- command:
 --
 -- @aws iot describe-endpoint --endpoint-type iot:Data-ATS@
 --
 -- The service name used by
--- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html AWS Signature Version 4>
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Amazon Web ServicesSignature Version 4>
 -- to sign requests is: /iotdevicegateway/.
 module Network.AWS.IoTData
   ( -- * Service Configuration
@@ -83,6 +84,12 @@ module Network.AWS.IoTData
     PublishResponse (PublishResponse'),
     newPublishResponse,
 
+    -- ** ListRetainedMessages (Paginated)
+    ListRetainedMessages (ListRetainedMessages'),
+    newListRetainedMessages,
+    ListRetainedMessagesResponse (ListRetainedMessagesResponse'),
+    newListRetainedMessagesResponse,
+
     -- ** ListNamedShadowsForThing
     ListNamedShadowsForThing (ListNamedShadowsForThing'),
     newListNamedShadowsForThing,
@@ -101,14 +108,26 @@ module Network.AWS.IoTData
     DeleteThingShadowResponse (DeleteThingShadowResponse'),
     newDeleteThingShadowResponse,
 
+    -- ** GetRetainedMessage
+    GetRetainedMessage (GetRetainedMessage'),
+    newGetRetainedMessage,
+    GetRetainedMessageResponse (GetRetainedMessageResponse'),
+    newGetRetainedMessageResponse,
+
     -- * Types
+
+    -- ** RetainedMessageSummary
+    RetainedMessageSummary (RetainedMessageSummary'),
+    newRetainedMessageSummary,
   )
 where
 
 import Network.AWS.IoTData.DeleteThingShadow
+import Network.AWS.IoTData.GetRetainedMessage
 import Network.AWS.IoTData.GetThingShadow
 import Network.AWS.IoTData.Lens
 import Network.AWS.IoTData.ListNamedShadowsForThing
+import Network.AWS.IoTData.ListRetainedMessages
 import Network.AWS.IoTData.Publish
 import Network.AWS.IoTData.Types
 import Network.AWS.IoTData.UpdateThingShadow

@@ -17,14 +17,14 @@ module Network.AWS.SecretsManager.Types
     defaultService,
 
     -- * Errors
-    _MalformedPolicyDocumentException,
     _EncryptionFailure,
+    _MalformedPolicyDocumentException,
     _PublicPolicyException,
     _DecryptionFailure,
-    _InvalidNextTokenException,
     _PreconditionNotMetException,
-    _InvalidRequestException,
+    _InvalidNextTokenException,
     _InvalidParameterException,
+    _InvalidRequestException,
     _LimitExceededException,
     _ResourceNotFoundException,
     _ResourceExistsException,
@@ -75,20 +75,21 @@ module Network.AWS.SecretsManager.Types
     secretListEntry_arn,
     secretListEntry_kmsKeyId,
     secretListEntry_name,
-    secretListEntry_lastChangedDate,
     secretListEntry_primaryRegion,
-    secretListEntry_rotationRules,
+    secretListEntry_lastChangedDate,
+    secretListEntry_deletedDate,
     secretListEntry_tags,
     secretListEntry_rotationEnabled,
-    secretListEntry_deletedDate,
-    secretListEntry_rotationLambdaARN,
+    secretListEntry_rotationRules,
     secretListEntry_description,
+    secretListEntry_rotationLambdaARN,
     secretListEntry_lastAccessedDate,
 
     -- * SecretVersionsListEntry
     SecretVersionsListEntry (..),
     newSecretVersionsListEntry,
     secretVersionsListEntry_createdDate,
+    secretVersionsListEntry_kmsKeyIds,
     secretVersionsListEntry_versionStages,
     secretVersionsListEntry_versionId,
     secretVersionsListEntry_lastAccessedDate,
@@ -195,13 +196,6 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You provided a resource-based policy with syntax errors.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedPolicyDocumentException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedPolicyDocumentException"
-
 -- | Secrets Manager can\'t encrypt the protected secret text using the
 -- provided KMS key. Check that the customer master key (CMK) is available,
 -- enabled, and not in an invalid state. For more information, see
@@ -211,6 +205,13 @@ _EncryptionFailure =
   Core._MatchServiceError
     defaultService
     "EncryptionFailure"
+
+-- | You provided a resource-based policy with syntax errors.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyDocumentException"
 
 -- | The BlockPublicPolicy parameter is set to true and the resource policy
 -- did not prevent broad access to the secret.
@@ -228,13 +229,6 @@ _DecryptionFailure =
     defaultService
     "DecryptionFailure"
 
--- | You provided an invalid @NextToken@ value.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
 -- | The request failed because you did not complete all the prerequisite
 -- steps.
 _PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -242,6 +236,20 @@ _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
     "PreconditionNotMetException"
+
+-- | You provided an invalid @NextToken@ value.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | You provided an invalid value for a parameter.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
 
 -- | You provided a parameter value that is not valid for the current state
 -- of the resource.
@@ -259,13 +267,6 @@ _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
-
--- | You provided an invalid value for a parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
 
 -- | The request failed because it would exceed one of the Secrets Manager
 -- internal limits.

@@ -31,8 +31,8 @@ module Network.AWS.DeviceFarm.UpdateDevicePool
     -- * Request Lenses
     updateDevicePool_clearMaxDevices,
     updateDevicePool_rules,
-    updateDevicePool_name,
     updateDevicePool_maxDevices,
+    updateDevicePool_name,
     updateDevicePool_description,
     updateDevicePool_arn,
 
@@ -70,8 +70,6 @@ data UpdateDevicePool = UpdateDevicePool'
     -- optional. If you update rules for your request, the update replaces the
     -- existing rules.
     rules :: Prelude.Maybe [Rule],
-    -- | A string that represents the name of the device pool to update.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The number of devices that Device Farm can add to your device pool.
     -- Device Farm adds devices that are available and that meet the criteria
     -- that you assign for the @rules@ parameter. Depending on how many devices
@@ -84,6 +82,8 @@ data UpdateDevicePool = UpdateDevicePool'
     -- If you use this parameter in your request, you cannot use the
     -- @clearMaxDevices@ parameter in the same request.
     maxDevices :: Prelude.Maybe Prelude.Int,
+    -- | A string that represents the name of the device pool to update.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A description of the device pool to update.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
@@ -112,8 +112,6 @@ data UpdateDevicePool = UpdateDevicePool'
 -- optional. If you update rules for your request, the update replaces the
 -- existing rules.
 --
--- 'name', 'updateDevicePool_name' - A string that represents the name of the device pool to update.
---
 -- 'maxDevices', 'updateDevicePool_maxDevices' - The number of devices that Device Farm can add to your device pool.
 -- Device Farm adds devices that are available and that meet the criteria
 -- that you assign for the @rules@ parameter. Depending on how many devices
@@ -125,6 +123,8 @@ data UpdateDevicePool = UpdateDevicePool'
 --
 -- If you use this parameter in your request, you cannot use the
 -- @clearMaxDevices@ parameter in the same request.
+--
+-- 'name', 'updateDevicePool_name' - A string that represents the name of the device pool to update.
 --
 -- 'description', 'updateDevicePool_description' - A description of the device pool to update.
 --
@@ -138,8 +138,8 @@ newUpdateDevicePool pArn_ =
     { clearMaxDevices =
         Prelude.Nothing,
       rules = Prelude.Nothing,
-      name = Prelude.Nothing,
       maxDevices = Prelude.Nothing,
+      name = Prelude.Nothing,
       description = Prelude.Nothing,
       arn = pArn_
     }
@@ -161,10 +161,6 @@ updateDevicePool_clearMaxDevices = Lens.lens (\UpdateDevicePool' {clearMaxDevice
 updateDevicePool_rules :: Lens.Lens' UpdateDevicePool (Prelude.Maybe [Rule])
 updateDevicePool_rules = Lens.lens (\UpdateDevicePool' {rules} -> rules) (\s@UpdateDevicePool' {} a -> s {rules = a} :: UpdateDevicePool) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string that represents the name of the device pool to update.
-updateDevicePool_name :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Text)
-updateDevicePool_name = Lens.lens (\UpdateDevicePool' {name} -> name) (\s@UpdateDevicePool' {} a -> s {name = a} :: UpdateDevicePool)
-
 -- | The number of devices that Device Farm can add to your device pool.
 -- Device Farm adds devices that are available and that meet the criteria
 -- that you assign for the @rules@ parameter. Depending on how many devices
@@ -178,6 +174,10 @@ updateDevicePool_name = Lens.lens (\UpdateDevicePool' {name} -> name) (\s@Update
 -- @clearMaxDevices@ parameter in the same request.
 updateDevicePool_maxDevices :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Int)
 updateDevicePool_maxDevices = Lens.lens (\UpdateDevicePool' {maxDevices} -> maxDevices) (\s@UpdateDevicePool' {} a -> s {maxDevices = a} :: UpdateDevicePool)
+
+-- | A string that represents the name of the device pool to update.
+updateDevicePool_name :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Text)
+updateDevicePool_name = Lens.lens (\UpdateDevicePool' {name} -> name) (\s@UpdateDevicePool' {} a -> s {name = a} :: UpdateDevicePool)
 
 -- | A description of the device pool to update.
 updateDevicePool_description :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Text)
@@ -226,8 +226,8 @@ instance Core.ToJSON UpdateDevicePool where
           [ ("clearMaxDevices" Core..=)
               Prelude.<$> clearMaxDevices,
             ("rules" Core..=) Prelude.<$> rules,
-            ("name" Core..=) Prelude.<$> name,
             ("maxDevices" Core..=) Prelude.<$> maxDevices,
+            ("name" Core..=) Prelude.<$> name,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("arn" Core..= arn)
           ]

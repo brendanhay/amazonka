@@ -64,7 +64,7 @@ data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus
     -- validates a deployment lifecycle event.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The result of a Lambda function that validates a deployment lifecycle
-    -- event (@Succeeded@ or @Failed@).
+    -- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
     status :: Prelude.Maybe LifecycleEventStatus,
     -- | The execution ID of a deployment\'s lifecycle hook. A deployment
     -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
@@ -84,7 +84,7 @@ data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus
 -- validates a deployment lifecycle event.
 --
 -- 'status', 'putLifecycleEventHookExecutionStatus_status' - The result of a Lambda function that validates a deployment lifecycle
--- event (@Succeeded@ or @Failed@).
+-- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
 --
 -- 'lifecycleEventHookExecutionId', 'putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId' - The execution ID of a deployment\'s lifecycle hook. A deployment
 -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
@@ -105,7 +105,7 @@ putLifecycleEventHookExecutionStatus_deploymentId :: Lens.Lens' PutLifecycleEven
 putLifecycleEventHookExecutionStatus_deploymentId = Lens.lens (\PutLifecycleEventHookExecutionStatus' {deploymentId} -> deploymentId) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {deploymentId = a} :: PutLifecycleEventHookExecutionStatus)
 
 -- | The result of a Lambda function that validates a deployment lifecycle
--- event (@Succeeded@ or @Failed@).
+-- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
 putLifecycleEventHookExecutionStatus_status :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe LifecycleEventStatus)
 putLifecycleEventHookExecutionStatus_status = Lens.lens (\PutLifecycleEventHookExecutionStatus' {status} -> status) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {status = a} :: PutLifecycleEventHookExecutionStatus)
 

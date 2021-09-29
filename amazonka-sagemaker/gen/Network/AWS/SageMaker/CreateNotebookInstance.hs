@@ -68,16 +68,17 @@ module Network.AWS.SageMaker.CreateNotebookInstance
 
     -- * Request Lenses
     createNotebookInstance_securityGroupIds,
-    createNotebookInstance_acceleratorTypes,
+    createNotebookInstance_platformIdentifier,
     createNotebookInstance_defaultCodeRepository,
+    createNotebookInstance_acceleratorTypes,
     createNotebookInstance_additionalCodeRepositories,
     createNotebookInstance_kmsKeyId,
     createNotebookInstance_volumeSizeInGB,
     createNotebookInstance_tags,
     createNotebookInstance_subnetId,
     createNotebookInstance_lifecycleConfigName,
-    createNotebookInstance_directInternetAccess,
     createNotebookInstance_rootAccess,
+    createNotebookInstance_directInternetAccess,
     createNotebookInstance_notebookInstanceName,
     createNotebookInstance_instanceType,
     createNotebookInstance_roleArn,
@@ -104,43 +105,45 @@ data CreateNotebookInstance = CreateNotebookInstance'
   { -- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
     -- must be for the same VPC as specified in the subnet.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of Elastic Inference (EI) instance types to associate with this
-    -- notebook instance. Currently, only one instance type can be associated
-    -- with a notebook instance. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-    acceleratorTypes :: Prelude.Maybe [NotebookInstanceAcceleratorType],
+    -- | The platform identifier of the notebook instance runtime environment.
+    platformIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A Git repository to associate with the notebook instance as its default
     -- code repository. This can be either the name of a Git repository stored
     -- as a resource in your account, or the URL of a Git repository in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
     defaultCodeRepository :: Prelude.Maybe Prelude.Text,
+    -- | A list of Elastic Inference (EI) instance types to associate with this
+    -- notebook instance. Currently, only one instance type can be associated
+    -- with a notebook instance. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+    acceleratorTypes :: Prelude.Maybe [NotebookInstanceAcceleratorType],
     -- | An array of up to three Git repositories to associate with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
-    -- Amazon SageMaker uses to encrypt data on the storage volume attached to
-    -- your notebook instance. The KMS key you provide must be enabled. For
-    -- information, see
+    -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+    -- Service key that Amazon SageMaker uses to encrypt data on the storage
+    -- volume attached to your notebook instance. The KMS key you provide must
+    -- be enabled. For information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The size, in GB, of the ML storage volume to attach to the notebook
     -- instance. The default value is 5 GB.
     volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the subnet in a VPC to which you would like to have a
     -- connectivity from your ML compute instance.
@@ -149,17 +152,6 @@ data CreateNotebookInstance = CreateNotebookInstance'
     -- instance. For information about lifestyle configurations, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
     lifecycleConfigName :: Prelude.Maybe Prelude.Text,
-    -- | Sets whether Amazon SageMaker provides internet access to the notebook
-    -- instance. If you set this to @Disabled@ this notebook instance will be
-    -- able to access resources only in your VPC, and will not be able to
-    -- connect to Amazon SageMaker training and endpoint services unless your
-    -- configure a NAT Gateway in your VPC.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
-    -- You can set the value of this parameter to @Disabled@ only if you set a
-    -- value for the @SubnetId@ parameter.
-    directInternetAccess :: Prelude.Maybe DirectInternetAccess,
     -- | Whether root access is enabled or disabled for users of the notebook
     -- instance. The default value is @Enabled@.
     --
@@ -168,16 +160,27 @@ data CreateNotebookInstance = CreateNotebookInstance'
     -- with a notebook instance always run with root access even if you disable
     -- root access for users.
     rootAccess :: Prelude.Maybe RootAccess,
+    -- | Sets whether Amazon SageMaker provides internet access to the notebook
+    -- instance. If you set this to @Disabled@ this notebook instance is able
+    -- to access resources only in your VPC, and is not be able to connect to
+    -- Amazon SageMaker training and endpoint services unless you configure a
+    -- NAT Gateway in your VPC.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
+    -- You can set the value of this parameter to @Disabled@ only if you set a
+    -- value for the @SubnetId@ parameter.
+    directInternetAccess :: Prelude.Maybe DirectInternetAccess,
     -- | The name of the new notebook instance.
     notebookInstanceName :: Prelude.Text,
     -- | The type of ML compute instance to launch for the notebook instance.
     instanceType :: InstanceType,
-    -- | When you send any requests to AWS resources from the notebook instance,
-    -- Amazon SageMaker assumes this role to perform tasks on your behalf. You
-    -- must grant this role necessary permissions so Amazon SageMaker can
-    -- perform these tasks. The policy must allow the Amazon SageMaker service
-    -- principal (sagemaker.amazonaws.com) permissions to assume this role. For
-    -- more information, see
+    -- | When you send any requests to Amazon Web Services resources from the
+    -- notebook instance, Amazon SageMaker assumes this role to perform tasks
+    -- on your behalf. You must grant this role necessary permissions so Amazon
+    -- SageMaker can perform these tasks. The policy must allow the Amazon
+    -- SageMaker service principal (sagemaker.amazonaws.com) permissions to
+    -- assume this role. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
     --
     -- To be able to pass this role to Amazon SageMaker, the caller of this API
@@ -197,43 +200,45 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- 'securityGroupIds', 'createNotebookInstance_securityGroupIds' - The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
 -- must be for the same VPC as specified in the subnet.
 --
--- 'acceleratorTypes', 'createNotebookInstance_acceleratorTypes' - A list of Elastic Inference (EI) instance types to associate with this
--- notebook instance. Currently, only one instance type can be associated
--- with a notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+-- 'platformIdentifier', 'createNotebookInstance_platformIdentifier' - The platform identifier of the notebook instance runtime environment.
 --
 -- 'defaultCodeRepository', 'createNotebookInstance_defaultCodeRepository' - A Git repository to associate with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
 --
+-- 'acceleratorTypes', 'createNotebookInstance_acceleratorTypes' - A list of Elastic Inference (EI) instance types to associate with this
+-- notebook instance. Currently, only one instance type can be associated
+-- with a notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+--
 -- 'additionalCodeRepositories', 'createNotebookInstance_additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
 --
--- 'kmsKeyId', 'createNotebookInstance_kmsKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that
--- Amazon SageMaker uses to encrypt data on the storage volume attached to
--- your notebook instance. The KMS key you provide must be enabled. For
--- information, see
+-- 'kmsKeyId', 'createNotebookInstance_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that Amazon SageMaker uses to encrypt data on the storage
+-- volume attached to your notebook instance. The KMS key you provide must
+-- be enabled. For information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'volumeSizeInGB', 'createNotebookInstance_volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook
 -- instance. The default value is 5 GB.
 --
--- 'tags', 'createNotebookInstance_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createNotebookInstance_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'subnetId', 'createNotebookInstance_subnetId' - The ID of the subnet in a VPC to which you would like to have a
 -- connectivity from your ML compute instance.
@@ -241,17 +246,6 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- 'lifecycleConfigName', 'createNotebookInstance_lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook
 -- instance. For information about lifestyle configurations, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
---
--- 'directInternetAccess', 'createNotebookInstance_directInternetAccess' - Sets whether Amazon SageMaker provides internet access to the notebook
--- instance. If you set this to @Disabled@ this notebook instance will be
--- able to access resources only in your VPC, and will not be able to
--- connect to Amazon SageMaker training and endpoint services unless your
--- configure a NAT Gateway in your VPC.
---
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
--- You can set the value of this parameter to @Disabled@ only if you set a
--- value for the @SubnetId@ parameter.
 --
 -- 'rootAccess', 'createNotebookInstance_rootAccess' - Whether root access is enabled or disabled for users of the notebook
 -- instance. The default value is @Enabled@.
@@ -261,16 +255,27 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- with a notebook instance always run with root access even if you disable
 -- root access for users.
 --
+-- 'directInternetAccess', 'createNotebookInstance_directInternetAccess' - Sets whether Amazon SageMaker provides internet access to the notebook
+-- instance. If you set this to @Disabled@ this notebook instance is able
+-- to access resources only in your VPC, and is not be able to connect to
+-- Amazon SageMaker training and endpoint services unless you configure a
+-- NAT Gateway in your VPC.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
+-- You can set the value of this parameter to @Disabled@ only if you set a
+-- value for the @SubnetId@ parameter.
+--
 -- 'notebookInstanceName', 'createNotebookInstance_notebookInstanceName' - The name of the new notebook instance.
 --
 -- 'instanceType', 'createNotebookInstance_instanceType' - The type of ML compute instance to launch for the notebook instance.
 --
--- 'roleArn', 'createNotebookInstance_roleArn' - When you send any requests to AWS resources from the notebook instance,
--- Amazon SageMaker assumes this role to perform tasks on your behalf. You
--- must grant this role necessary permissions so Amazon SageMaker can
--- perform these tasks. The policy must allow the Amazon SageMaker service
--- principal (sagemaker.amazonaws.com) permissions to assume this role. For
--- more information, see
+-- 'roleArn', 'createNotebookInstance_roleArn' - When you send any requests to Amazon Web Services resources from the
+-- notebook instance, Amazon SageMaker assumes this role to perform tasks
+-- on your behalf. You must grant this role necessary permissions so Amazon
+-- SageMaker can perform these tasks. The policy must allow the Amazon
+-- SageMaker service principal (sagemaker.amazonaws.com) permissions to
+-- assume this role. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
 --
 -- To be able to pass this role to Amazon SageMaker, the caller of this API
@@ -290,16 +295,17 @@ newCreateNotebookInstance
     CreateNotebookInstance'
       { securityGroupIds =
           Prelude.Nothing,
-        acceleratorTypes = Prelude.Nothing,
+        platformIdentifier = Prelude.Nothing,
         defaultCodeRepository = Prelude.Nothing,
+        acceleratorTypes = Prelude.Nothing,
         additionalCodeRepositories = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         volumeSizeInGB = Prelude.Nothing,
         tags = Prelude.Nothing,
         subnetId = Prelude.Nothing,
         lifecycleConfigName = Prelude.Nothing,
-        directInternetAccess = Prelude.Nothing,
         rootAccess = Prelude.Nothing,
+        directInternetAccess = Prelude.Nothing,
         notebookInstanceName = pNotebookInstanceName_,
         instanceType = pInstanceType_,
         roleArn = pRoleArn_
@@ -310,17 +316,14 @@ newCreateNotebookInstance
 createNotebookInstance_securityGroupIds :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
 createNotebookInstance_securityGroupIds = Lens.lens (\CreateNotebookInstance' {securityGroupIds} -> securityGroupIds) (\s@CreateNotebookInstance' {} a -> s {securityGroupIds = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of Elastic Inference (EI) instance types to associate with this
--- notebook instance. Currently, only one instance type can be associated
--- with a notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-createNotebookInstance_acceleratorTypes :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
-createNotebookInstance_acceleratorTypes = Lens.lens (\CreateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@CreateNotebookInstance' {} a -> s {acceleratorTypes = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | The platform identifier of the notebook instance runtime environment.
+createNotebookInstance_platformIdentifier :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
+createNotebookInstance_platformIdentifier = Lens.lens (\CreateNotebookInstance' {platformIdentifier} -> platformIdentifier) (\s@CreateNotebookInstance' {} a -> s {platformIdentifier = a} :: CreateNotebookInstance)
 
 -- | A Git repository to associate with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
@@ -328,10 +331,17 @@ createNotebookInstance_acceleratorTypes = Lens.lens (\CreateNotebookInstance' {a
 createNotebookInstance_defaultCodeRepository :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_defaultCodeRepository = Lens.lens (\CreateNotebookInstance' {defaultCodeRepository} -> defaultCodeRepository) (\s@CreateNotebookInstance' {} a -> s {defaultCodeRepository = a} :: CreateNotebookInstance)
 
+-- | A list of Elastic Inference (EI) instance types to associate with this
+-- notebook instance. Currently, only one instance type can be associated
+-- with a notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+createNotebookInstance_acceleratorTypes :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
+createNotebookInstance_acceleratorTypes = Lens.lens (\CreateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@CreateNotebookInstance' {} a -> s {acceleratorTypes = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
+
 -- | An array of up to three Git repositories to associate with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -339,12 +349,12 @@ createNotebookInstance_defaultCodeRepository = Lens.lens (\CreateNotebookInstanc
 createNotebookInstance_additionalCodeRepositories :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
 createNotebookInstance_additionalCodeRepositories = Lens.lens (\CreateNotebookInstance' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@CreateNotebookInstance' {} a -> s {additionalCodeRepositories = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
--- Amazon SageMaker uses to encrypt data on the storage volume attached to
--- your notebook instance. The KMS key you provide must be enabled. For
--- information, see
+-- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that Amazon SageMaker uses to encrypt data on the storage
+-- volume attached to your notebook instance. The KMS key you provide must
+-- be enabled. For information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 createNotebookInstance_kmsKeyId :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_kmsKeyId = Lens.lens (\CreateNotebookInstance' {kmsKeyId} -> kmsKeyId) (\s@CreateNotebookInstance' {} a -> s {kmsKeyId = a} :: CreateNotebookInstance)
 
@@ -353,10 +363,10 @@ createNotebookInstance_kmsKeyId = Lens.lens (\CreateNotebookInstance' {kmsKeyId}
 createNotebookInstance_volumeSizeInGB :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Natural)
 createNotebookInstance_volumeSizeInGB = Lens.lens (\CreateNotebookInstance' {volumeSizeInGB} -> volumeSizeInGB) (\s@CreateNotebookInstance' {} a -> s {volumeSizeInGB = a} :: CreateNotebookInstance)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createNotebookInstance_tags :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Tag])
 createNotebookInstance_tags = Lens.lens (\CreateNotebookInstance' {tags} -> tags) (\s@CreateNotebookInstance' {} a -> s {tags = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
 
@@ -371,19 +381,6 @@ createNotebookInstance_subnetId = Lens.lens (\CreateNotebookInstance' {subnetId}
 createNotebookInstance_lifecycleConfigName :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_lifecycleConfigName = Lens.lens (\CreateNotebookInstance' {lifecycleConfigName} -> lifecycleConfigName) (\s@CreateNotebookInstance' {} a -> s {lifecycleConfigName = a} :: CreateNotebookInstance)
 
--- | Sets whether Amazon SageMaker provides internet access to the notebook
--- instance. If you set this to @Disabled@ this notebook instance will be
--- able to access resources only in your VPC, and will not be able to
--- connect to Amazon SageMaker training and endpoint services unless your
--- configure a NAT Gateway in your VPC.
---
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
--- You can set the value of this parameter to @Disabled@ only if you set a
--- value for the @SubnetId@ parameter.
-createNotebookInstance_directInternetAccess :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe DirectInternetAccess)
-createNotebookInstance_directInternetAccess = Lens.lens (\CreateNotebookInstance' {directInternetAccess} -> directInternetAccess) (\s@CreateNotebookInstance' {} a -> s {directInternetAccess = a} :: CreateNotebookInstance)
-
 -- | Whether root access is enabled or disabled for users of the notebook
 -- instance. The default value is @Enabled@.
 --
@@ -394,6 +391,19 @@ createNotebookInstance_directInternetAccess = Lens.lens (\CreateNotebookInstance
 createNotebookInstance_rootAccess :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe RootAccess)
 createNotebookInstance_rootAccess = Lens.lens (\CreateNotebookInstance' {rootAccess} -> rootAccess) (\s@CreateNotebookInstance' {} a -> s {rootAccess = a} :: CreateNotebookInstance)
 
+-- | Sets whether Amazon SageMaker provides internet access to the notebook
+-- instance. If you set this to @Disabled@ this notebook instance is able
+-- to access resources only in your VPC, and is not be able to connect to
+-- Amazon SageMaker training and endpoint services unless you configure a
+-- NAT Gateway in your VPC.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
+-- You can set the value of this parameter to @Disabled@ only if you set a
+-- value for the @SubnetId@ parameter.
+createNotebookInstance_directInternetAccess :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe DirectInternetAccess)
+createNotebookInstance_directInternetAccess = Lens.lens (\CreateNotebookInstance' {directInternetAccess} -> directInternetAccess) (\s@CreateNotebookInstance' {} a -> s {directInternetAccess = a} :: CreateNotebookInstance)
+
 -- | The name of the new notebook instance.
 createNotebookInstance_notebookInstanceName :: Lens.Lens' CreateNotebookInstance Prelude.Text
 createNotebookInstance_notebookInstanceName = Lens.lens (\CreateNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@CreateNotebookInstance' {} a -> s {notebookInstanceName = a} :: CreateNotebookInstance)
@@ -402,12 +412,12 @@ createNotebookInstance_notebookInstanceName = Lens.lens (\CreateNotebookInstance
 createNotebookInstance_instanceType :: Lens.Lens' CreateNotebookInstance InstanceType
 createNotebookInstance_instanceType = Lens.lens (\CreateNotebookInstance' {instanceType} -> instanceType) (\s@CreateNotebookInstance' {} a -> s {instanceType = a} :: CreateNotebookInstance)
 
--- | When you send any requests to AWS resources from the notebook instance,
--- Amazon SageMaker assumes this role to perform tasks on your behalf. You
--- must grant this role necessary permissions so Amazon SageMaker can
--- perform these tasks. The policy must allow the Amazon SageMaker service
--- principal (sagemaker.amazonaws.com) permissions to assume this role. For
--- more information, see
+-- | When you send any requests to Amazon Web Services resources from the
+-- notebook instance, Amazon SageMaker assumes this role to perform tasks
+-- on your behalf. You must grant this role necessary permissions so Amazon
+-- SageMaker can perform these tasks. The policy must allow the Amazon
+-- SageMaker service principal (sagemaker.amazonaws.com) permissions to
+-- assume this role. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
 --
 -- To be able to pass this role to Amazon SageMaker, the caller of this API
@@ -453,10 +463,12 @@ instance Core.ToJSON CreateNotebookInstance where
       ( Prelude.catMaybes
           [ ("SecurityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
-            ("AcceleratorTypes" Core..=)
-              Prelude.<$> acceleratorTypes,
+            ("PlatformIdentifier" Core..=)
+              Prelude.<$> platformIdentifier,
             ("DefaultCodeRepository" Core..=)
               Prelude.<$> defaultCodeRepository,
+            ("AcceleratorTypes" Core..=)
+              Prelude.<$> acceleratorTypes,
             ("AdditionalCodeRepositories" Core..=)
               Prelude.<$> additionalCodeRepositories,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
@@ -466,9 +478,9 @@ instance Core.ToJSON CreateNotebookInstance where
             ("SubnetId" Core..=) Prelude.<$> subnetId,
             ("LifecycleConfigName" Core..=)
               Prelude.<$> lifecycleConfigName,
+            ("RootAccess" Core..=) Prelude.<$> rootAccess,
             ("DirectInternetAccess" Core..=)
               Prelude.<$> directInternetAccess,
-            ("RootAccess" Core..=) Prelude.<$> rootAccess,
             Prelude.Just
               ( "NotebookInstanceName"
                   Core..= notebookInstanceName

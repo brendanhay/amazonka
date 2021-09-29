@@ -106,10 +106,6 @@ data ReplicationTask = ReplicationTask'
     --     for the validity of primary key definitions and likely issues with
     --     database migration performance, among others.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The type of migration.
-    migrationType :: Prelude.Maybe MigrationTypeValue,
-    -- | The date the replication task was created.
-    replicationTaskCreationDate :: Prelude.Maybe Core.POSIX,
     -- | The reason the replication task was stopped. This response parameter can
     -- return one of the following values:
     --
@@ -126,6 +122,10 @@ data ReplicationTask = ReplicationTask'
     -- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
     --     specified server time.
     stopReason :: Prelude.Maybe Prelude.Text,
+    -- | The type of migration.
+    migrationType :: Prelude.Maybe MigrationTypeValue,
+    -- | The date the replication task was created.
+    replicationTaskCreationDate :: Prelude.Maybe Core.POSIX,
     -- | Indicates the last checkpoint that occurred during a change data capture
     -- (CDC) operation. You can provide this value to the @CdcStartPosition@
     -- parameter to start a CDC operation that begins at that checkpoint.
@@ -139,18 +139,18 @@ data ReplicationTask = ReplicationTask'
     -- | Supplemental information that the task requires to migrate the data for
     -- certain source and target endpoints. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
-    -- in the /AWS Database Migration Service User Guide./
+    -- in the /Database Migration Service User Guide./
     taskData :: Prelude.Maybe Prelude.Text,
     -- | The ARN that uniquely identifies the endpoint.
     targetEndpointArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | The settings for the replication task.
     replicationTaskSettings :: Prelude.Maybe Prelude.Text,
-    -- | The last error (failure) message generated for the replication task.
-    lastFailureMessage :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
     -- | Table mappings specified in the task.
     tableMappings :: Prelude.Maybe Prelude.Text,
+    -- | The last error (failure) message generated for the replication task.
+    lastFailureMessage :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
     sourceEndpointArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the replication instance.
@@ -279,10 +279,6 @@ data ReplicationTask = ReplicationTask'
 --     for the validity of primary key definitions and likely issues with
 --     database migration performance, among others.
 --
--- 'migrationType', 'replicationTask_migrationType' - The type of migration.
---
--- 'replicationTaskCreationDate', 'replicationTask_replicationTaskCreationDate' - The date the replication task was created.
---
 -- 'stopReason', 'replicationTask_stopReason' - The reason the replication task was stopped. This response parameter can
 -- return one of the following values:
 --
@@ -299,6 +295,10 @@ data ReplicationTask = ReplicationTask'
 -- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
 --     specified server time.
 --
+-- 'migrationType', 'replicationTask_migrationType' - The type of migration.
+--
+-- 'replicationTaskCreationDate', 'replicationTask_replicationTaskCreationDate' - The date the replication task was created.
+--
 -- 'recoveryCheckpoint', 'replicationTask_recoveryCheckpoint' - Indicates the last checkpoint that occurred during a change data capture
 -- (CDC) operation. You can provide this value to the @CdcStartPosition@
 -- parameter to start a CDC operation that begins at that checkpoint.
@@ -312,17 +312,17 @@ data ReplicationTask = ReplicationTask'
 -- 'taskData', 'replicationTask_taskData' - Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 --
 -- 'targetEndpointArn', 'replicationTask_targetEndpointArn' - The ARN that uniquely identifies the endpoint.
 --
--- 'replicationTaskArn', 'replicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
---
 -- 'replicationTaskSettings', 'replicationTask_replicationTaskSettings' - The settings for the replication task.
 --
--- 'lastFailureMessage', 'replicationTask_lastFailureMessage' - The last error (failure) message generated for the replication task.
+-- 'replicationTaskArn', 'replicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
 --
 -- 'tableMappings', 'replicationTask_tableMappings' - Table mappings specified in the task.
+--
+-- 'lastFailureMessage', 'replicationTask_lastFailureMessage' - The last error (failure) message generated for the replication task.
 --
 -- 'sourceEndpointArn', 'replicationTask_sourceEndpointArn' - The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
 --
@@ -369,17 +369,17 @@ newReplicationTask ::
 newReplicationTask =
   ReplicationTask'
     { status = Prelude.Nothing,
+      stopReason = Prelude.Nothing,
       migrationType = Prelude.Nothing,
       replicationTaskCreationDate = Prelude.Nothing,
-      stopReason = Prelude.Nothing,
       recoveryCheckpoint = Prelude.Nothing,
       targetReplicationInstanceArn = Prelude.Nothing,
       taskData = Prelude.Nothing,
       targetEndpointArn = Prelude.Nothing,
-      replicationTaskArn = Prelude.Nothing,
       replicationTaskSettings = Prelude.Nothing,
-      lastFailureMessage = Prelude.Nothing,
+      replicationTaskArn = Prelude.Nothing,
       tableMappings = Prelude.Nothing,
+      lastFailureMessage = Prelude.Nothing,
       sourceEndpointArn = Prelude.Nothing,
       replicationInstanceArn = Prelude.Nothing,
       replicationTaskStats = Prelude.Nothing,
@@ -467,14 +467,6 @@ newReplicationTask =
 replicationTask_status :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_status = Lens.lens (\ReplicationTask' {status} -> status) (\s@ReplicationTask' {} a -> s {status = a} :: ReplicationTask)
 
--- | The type of migration.
-replicationTask_migrationType :: Lens.Lens' ReplicationTask (Prelude.Maybe MigrationTypeValue)
-replicationTask_migrationType = Lens.lens (\ReplicationTask' {migrationType} -> migrationType) (\s@ReplicationTask' {} a -> s {migrationType = a} :: ReplicationTask)
-
--- | The date the replication task was created.
-replicationTask_replicationTaskCreationDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
-replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
-
 -- | The reason the replication task was stopped. This response parameter can
 -- return one of the following values:
 --
@@ -493,6 +485,14 @@ replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {repl
 replicationTask_stopReason :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_stopReason = Lens.lens (\ReplicationTask' {stopReason} -> stopReason) (\s@ReplicationTask' {} a -> s {stopReason = a} :: ReplicationTask)
 
+-- | The type of migration.
+replicationTask_migrationType :: Lens.Lens' ReplicationTask (Prelude.Maybe MigrationTypeValue)
+replicationTask_migrationType = Lens.lens (\ReplicationTask' {migrationType} -> migrationType) (\s@ReplicationTask' {} a -> s {migrationType = a} :: ReplicationTask)
+
+-- | The date the replication task was created.
+replicationTask_replicationTaskCreationDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
+replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
+
 -- | Indicates the last checkpoint that occurred during a change data capture
 -- (CDC) operation. You can provide this value to the @CdcStartPosition@
 -- parameter to start a CDC operation that begins at that checkpoint.
@@ -510,7 +510,7 @@ replicationTask_targetReplicationInstanceArn = Lens.lens (\ReplicationTask' {tar
 -- | Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 replicationTask_taskData :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_taskData = Lens.lens (\ReplicationTask' {taskData} -> taskData) (\s@ReplicationTask' {} a -> s {taskData = a} :: ReplicationTask)
 
@@ -518,21 +518,21 @@ replicationTask_taskData = Lens.lens (\ReplicationTask' {taskData} -> taskData) 
 replicationTask_targetEndpointArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_targetEndpointArn = Lens.lens (\ReplicationTask' {targetEndpointArn} -> targetEndpointArn) (\s@ReplicationTask' {} a -> s {targetEndpointArn = a} :: ReplicationTask)
 
--- | The Amazon Resource Name (ARN) of the replication task.
-replicationTask_replicationTaskArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_replicationTaskArn = Lens.lens (\ReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationTask' {} a -> s {replicationTaskArn = a} :: ReplicationTask)
-
 -- | The settings for the replication task.
 replicationTask_replicationTaskSettings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_replicationTaskSettings = Lens.lens (\ReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@ReplicationTask' {} a -> s {replicationTaskSettings = a} :: ReplicationTask)
 
--- | The last error (failure) message generated for the replication task.
-replicationTask_lastFailureMessage :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_lastFailureMessage = Lens.lens (\ReplicationTask' {lastFailureMessage} -> lastFailureMessage) (\s@ReplicationTask' {} a -> s {lastFailureMessage = a} :: ReplicationTask)
+-- | The Amazon Resource Name (ARN) of the replication task.
+replicationTask_replicationTaskArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_replicationTaskArn = Lens.lens (\ReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationTask' {} a -> s {replicationTaskArn = a} :: ReplicationTask)
 
 -- | Table mappings specified in the task.
 replicationTask_tableMappings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_tableMappings = Lens.lens (\ReplicationTask' {tableMappings} -> tableMappings) (\s@ReplicationTask' {} a -> s {tableMappings = a} :: ReplicationTask)
+
+-- | The last error (failure) message generated for the replication task.
+replicationTask_lastFailureMessage :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_lastFailureMessage = Lens.lens (\ReplicationTask' {lastFailureMessage} -> lastFailureMessage) (\s@ReplicationTask' {} a -> s {lastFailureMessage = a} :: ReplicationTask)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
 replicationTask_sourceEndpointArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
@@ -596,17 +596,17 @@ instance Core.FromJSON ReplicationTask where
       ( \x ->
           ReplicationTask'
             Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "StopReason")
             Prelude.<*> (x Core..:? "MigrationType")
             Prelude.<*> (x Core..:? "ReplicationTaskCreationDate")
-            Prelude.<*> (x Core..:? "StopReason")
             Prelude.<*> (x Core..:? "RecoveryCheckpoint")
             Prelude.<*> (x Core..:? "TargetReplicationInstanceArn")
             Prelude.<*> (x Core..:? "TaskData")
             Prelude.<*> (x Core..:? "TargetEndpointArn")
-            Prelude.<*> (x Core..:? "ReplicationTaskArn")
             Prelude.<*> (x Core..:? "ReplicationTaskSettings")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
+            Prelude.<*> (x Core..:? "ReplicationTaskArn")
             Prelude.<*> (x Core..:? "TableMappings")
+            Prelude.<*> (x Core..:? "LastFailureMessage")
             Prelude.<*> (x Core..:? "SourceEndpointArn")
             Prelude.<*> (x Core..:? "ReplicationInstanceArn")
             Prelude.<*> (x Core..:? "ReplicationTaskStats")

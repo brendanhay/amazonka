@@ -65,7 +65,7 @@ data ImportClientVpnClientCertificateRevocationList = ImportClientVpnClientCerti
     clientVpnEndpointId :: Prelude.Text,
     -- | The client certificate revocation list file. For more information, see
     -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List>
-    -- in the /AWS Client VPN Administrator Guide/.
+    -- in the /Client VPN Administrator Guide/.
     certificateRevocationList :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data ImportClientVpnClientCertificateRevocationList = ImportClientVpnClientCerti
 --
 -- 'certificateRevocationList', 'importClientVpnClientCertificateRevocationList_certificateRevocationList' - The client certificate revocation list file. For more information, see
 -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List>
--- in the /AWS Client VPN Administrator Guide/.
+-- in the /Client VPN Administrator Guide/.
 newImportClientVpnClientCertificateRevocationList ::
   -- | 'clientVpnEndpointId'
   Prelude.Text ->
@@ -121,7 +121,7 @@ importClientVpnClientCertificateRevocationList_clientVpnEndpointId = Lens.lens (
 
 -- | The client certificate revocation list file. For more information, see
 -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List>
--- in the /AWS Client VPN Administrator Guide/.
+-- in the /Client VPN Administrator Guide/.
 importClientVpnClientCertificateRevocationList_certificateRevocationList :: Lens.Lens' ImportClientVpnClientCertificateRevocationList Prelude.Text
 importClientVpnClientCertificateRevocationList_certificateRevocationList = Lens.lens (\ImportClientVpnClientCertificateRevocationList' {certificateRevocationList} -> certificateRevocationList) (\s@ImportClientVpnClientCertificateRevocationList' {} a -> s {certificateRevocationList = a} :: ImportClientVpnClientCertificateRevocationList)
 

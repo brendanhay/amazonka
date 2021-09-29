@@ -34,9 +34,9 @@ import qualified Network.AWS.Prelude as Prelude
 data StackSetOperation = StackSetOperation'
   { -- | The time at which the operation was initiated. Note that the creation
     -- times for the stack set operation might differ from the creation time of
-    -- the individual stacks themselves. This is because AWS CloudFormation
-    -- needs to perform preparatory work for the operation, such as dispatching
-    -- the work to the requested Regions, before actually creating the first
+    -- the individual stacks themselves. This is because CloudFormation needs
+    -- to perform preparatory work for the operation, such as dispatching the
+    -- work to the requested Regions, before actually creating the first
     -- stacks.
     creationTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The status of the operation.
@@ -47,14 +47,14 @@ data StackSetOperation = StackSetOperation'
     --     If the number of failed stacks within a Region exceeds the failure
     --     tolerance, the status of the operation in the Region is set to
     --     @FAILED@. This in turn sets the status of the operation as a whole
-    --     to @FAILED@, and AWS CloudFormation cancels the operation in any
+    --     to @FAILED@, and CloudFormation cancels the operation in any
     --     remaining Regions.
     --
     -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
     --     that require a sequence of operations, the operation is queued to be
     --     performed. For more information, see the
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
-    --     in the AWS CloudFormation User Guide.
+    --     in the CloudFormation User Guide.
     --
     -- -   @RUNNING@: The operation is currently being performed.
     --
@@ -78,12 +78,12 @@ data StackSetOperation = StackSetOperation'
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
     endTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | [Service-managed permissions] The AWS Organizations accounts affected by
-    -- the stack operation.
+    -- | [Service-managed permissions] The Organizations accounts affected by the
+    -- stack operation.
     deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The unique ID of a stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
-    -- | The preferences for how AWS CloudFormation performs this stack set
+    -- | The preferences for how CloudFormation performs this stack set
     -- operation.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | The Amazon Resource Number (ARN) of the IAM role used to perform this
@@ -93,7 +93,7 @@ data StackSetOperation = StackSetOperation'
     -- manage specific stack sets within the same administrator account. For
     -- more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Define Permissions for Multiple Administrators>
-    -- in the /AWS CloudFormation User Guide/.
+    -- in the /CloudFormation User Guide/.
     administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the drift status of the stack set. This
     -- includes information about drift operations currently being performed on
@@ -104,7 +104,7 @@ data StackSetOperation = StackSetOperation'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     stackSetDriftDetectionDetails :: Prelude.Maybe StackSetDriftDetectionDetails,
     -- | The ID of the stack set.
     stackSetId :: Prelude.Maybe Prelude.Text,
@@ -132,9 +132,9 @@ data StackSetOperation = StackSetOperation'
 --
 -- 'creationTimestamp', 'stackSetOperation_creationTimestamp' - The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
--- the individual stacks themselves. This is because AWS CloudFormation
--- needs to perform preparatory work for the operation, such as dispatching
--- the work to the requested Regions, before actually creating the first
+-- the individual stacks themselves. This is because CloudFormation needs
+-- to perform preparatory work for the operation, such as dispatching the
+-- work to the requested Regions, before actually creating the first
 -- stacks.
 --
 -- 'status', 'stackSetOperation_status' - The status of the operation.
@@ -145,14 +145,14 @@ data StackSetOperation = StackSetOperation'
 --     If the number of failed stacks within a Region exceeds the failure
 --     tolerance, the status of the operation in the Region is set to
 --     @FAILED@. This in turn sets the status of the operation as a whole
---     to @FAILED@, and AWS CloudFormation cancels the operation in any
+--     to @FAILED@, and CloudFormation cancels the operation in any
 --     remaining Regions.
 --
 -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
 --     that require a sequence of operations, the operation is queued to be
 --     performed. For more information, see the
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
@@ -176,12 +176,12 @@ data StackSetOperation = StackSetOperation'
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
 --
--- 'deploymentTargets', 'stackSetOperation_deploymentTargets' - [Service-managed permissions] The AWS Organizations accounts affected by
--- the stack operation.
+-- 'deploymentTargets', 'stackSetOperation_deploymentTargets' - [Service-managed permissions] The Organizations accounts affected by the
+-- stack operation.
 --
 -- 'operationId', 'stackSetOperation_operationId' - The unique ID of a stack set operation.
 --
--- 'operationPreferences', 'stackSetOperation_operationPreferences' - The preferences for how AWS CloudFormation performs this stack set
+-- 'operationPreferences', 'stackSetOperation_operationPreferences' - The preferences for how CloudFormation performs this stack set
 -- operation.
 --
 -- 'administrationRoleARN', 'stackSetOperation_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role used to perform this
@@ -191,7 +191,7 @@ data StackSetOperation = StackSetOperation'
 -- manage specific stack sets within the same administrator account. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Define Permissions for Multiple Administrators>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- 'stackSetDriftDetectionDetails', 'stackSetOperation_stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set. This
 -- includes information about drift operations currently being performed on
@@ -202,7 +202,7 @@ data StackSetOperation = StackSetOperation'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- 'stackSetId', 'stackSetOperation_stackSetId' - The ID of the stack set.
 --
@@ -237,9 +237,9 @@ newStackSetOperation =
 
 -- | The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
--- the individual stacks themselves. This is because AWS CloudFormation
--- needs to perform preparatory work for the operation, such as dispatching
--- the work to the requested Regions, before actually creating the first
+-- the individual stacks themselves. This is because CloudFormation needs
+-- to perform preparatory work for the operation, such as dispatching the
+-- work to the requested Regions, before actually creating the first
 -- stacks.
 stackSetOperation_creationTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
 stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperation' {} a -> s {creationTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
@@ -252,14 +252,14 @@ stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTi
 --     If the number of failed stacks within a Region exceeds the failure
 --     tolerance, the status of the operation in the Region is set to
 --     @FAILED@. This in turn sets the status of the operation as a whole
---     to @FAILED@, and AWS CloudFormation cancels the operation in any
+--     to @FAILED@, and CloudFormation cancels the operation in any
 --     remaining Regions.
 --
 -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
 --     that require a sequence of operations, the operation is queued to be
 --     performed. For more information, see the
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
@@ -289,8 +289,8 @@ stackSetOperation_executionRoleName = Lens.lens (\StackSetOperation' {executionR
 stackSetOperation_endTimestamp :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.UTCTime)
 stackSetOperation_endTimestamp = Lens.lens (\StackSetOperation' {endTimestamp} -> endTimestamp) (\s@StackSetOperation' {} a -> s {endTimestamp = a} :: StackSetOperation) Prelude.. Lens.mapping Core._Time
 
--- | [Service-managed permissions] The AWS Organizations accounts affected by
--- the stack operation.
+-- | [Service-managed permissions] The Organizations accounts affected by the
+-- stack operation.
 stackSetOperation_deploymentTargets :: Lens.Lens' StackSetOperation (Prelude.Maybe DeploymentTargets)
 stackSetOperation_deploymentTargets = Lens.lens (\StackSetOperation' {deploymentTargets} -> deploymentTargets) (\s@StackSetOperation' {} a -> s {deploymentTargets = a} :: StackSetOperation)
 
@@ -298,7 +298,7 @@ stackSetOperation_deploymentTargets = Lens.lens (\StackSetOperation' {deployment
 stackSetOperation_operationId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_operationId = Lens.lens (\StackSetOperation' {operationId} -> operationId) (\s@StackSetOperation' {} a -> s {operationId = a} :: StackSetOperation)
 
--- | The preferences for how AWS CloudFormation performs this stack set
+-- | The preferences for how CloudFormation performs this stack set
 -- operation.
 stackSetOperation_operationPreferences :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationPreferences)
 stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operationPreferences} -> operationPreferences) (\s@StackSetOperation' {} a -> s {operationPreferences = a} :: StackSetOperation)
@@ -310,7 +310,7 @@ stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operati
 -- manage specific stack sets within the same administrator account. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Define Permissions for Multiple Administrators>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 stackSetOperation_administrationRoleARN :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_administrationRoleARN = Lens.lens (\StackSetOperation' {administrationRoleARN} -> administrationRoleARN) (\s@StackSetOperation' {} a -> s {administrationRoleARN = a} :: StackSetOperation)
 
@@ -323,7 +323,7 @@ stackSetOperation_administrationRoleARN = Lens.lens (\StackSetOperation' {admini
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 stackSetOperation_stackSetDriftDetectionDetails :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSetOperation_stackSetDriftDetectionDetails = Lens.lens (\StackSetOperation' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSetOperation' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSetOperation)
 

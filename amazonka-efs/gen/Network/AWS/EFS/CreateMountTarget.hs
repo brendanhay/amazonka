@@ -28,22 +28,37 @@
 -- single mount target for a given file system. If you have multiple
 -- subnets in an Availability Zone, you create a mount target in one of the
 -- subnets. EC2 instances do not need to be in the same subnet as the mount
--- target in order to access their file system. For more information, see
+-- target in order to access their file system.
+--
+-- You can create only one mount target for an EFS file system using One
+-- Zone storage classes. You must create that mount target in the same
+-- Availability Zone in which the file system is located. Use the
+-- @AvailabilityZoneName@ and @AvailabiltyZoneId@ properties in the
+-- DescribeFileSystems response object to get this information. Use the
+-- @subnetId@ associated with the file system\'s Availability Zone when
+-- creating the mount target.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>.
 --
--- In the request, you also specify a file system ID for which you are
--- creating the mount target and the file system\'s lifecycle state must be
--- @available@. For more information, see DescribeFileSystems.
+-- To create a mount target for a file system, the file system\'s lifecycle
+-- state must be @available@. For more information, see
+-- DescribeFileSystems.
 --
--- In the request, you also provide a subnet ID, which determines the
--- following:
+-- In the request, provide the following:
 --
--- -   VPC in which Amazon EFS creates the mount target
+-- -   The file system ID for which you are creating the mount target.
 --
--- -   Availability Zone in which Amazon EFS creates the mount target
+-- -   A subnet ID, which determines the following:
 --
--- -   IP address range from which Amazon EFS selects the IP address of the
---     mount target (if you don\'t specify an IP address in the request)
+--     -   The VPC in which Amazon EFS creates the mount target
+--
+--     -   The Availability Zone in which Amazon EFS creates the mount
+--         target
+--
+--     -   The IP address range from which Amazon EFS selects the IP
+--         address of the mount target (if you don\'t specify an IP address
+--         in the request)
 --
 -- After creating the mount target, Amazon EFS returns a response that
 -- includes, a @MountTargetId@ and an @IpAddress@. You use this IP address
@@ -172,7 +187,9 @@ data CreateMountTarget = CreateMountTarget'
     ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the file system for which to create the mount target.
     fileSystemId :: Prelude.Text,
-    -- | The ID of the subnet to add the mount target in.
+    -- | The ID of the subnet to add the mount target in. For file systems that
+    -- use One Zone storage classes, use the subnet that is associated with the
+    -- file system\'s Availability Zone.
     subnetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -192,7 +209,9 @@ data CreateMountTarget = CreateMountTarget'
 --
 -- 'fileSystemId', 'createMountTarget_fileSystemId' - The ID of the file system for which to create the mount target.
 --
--- 'subnetId', 'createMountTarget_subnetId' - The ID of the subnet to add the mount target in.
+-- 'subnetId', 'createMountTarget_subnetId' - The ID of the subnet to add the mount target in. For file systems that
+-- use One Zone storage classes, use the subnet that is associated with the
+-- file system\'s Availability Zone.
 newCreateMountTarget ::
   -- | 'fileSystemId'
   Prelude.Text ->
@@ -221,7 +240,9 @@ createMountTarget_ipAddress = Lens.lens (\CreateMountTarget' {ipAddress} -> ipAd
 createMountTarget_fileSystemId :: Lens.Lens' CreateMountTarget Prelude.Text
 createMountTarget_fileSystemId = Lens.lens (\CreateMountTarget' {fileSystemId} -> fileSystemId) (\s@CreateMountTarget' {} a -> s {fileSystemId = a} :: CreateMountTarget)
 
--- | The ID of the subnet to add the mount target in.
+-- | The ID of the subnet to add the mount target in. For file systems that
+-- use One Zone storage classes, use the subnet that is associated with the
+-- file system\'s Availability Zone.
 createMountTarget_subnetId :: Lens.Lens' CreateMountTarget Prelude.Text
 createMountTarget_subnetId = Lens.lens (\CreateMountTarget' {subnetId} -> subnetId) (\s@CreateMountTarget' {} a -> s {subnetId = a} :: CreateMountTarget)
 

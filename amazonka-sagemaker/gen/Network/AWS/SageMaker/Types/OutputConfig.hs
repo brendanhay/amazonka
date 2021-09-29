@@ -41,6 +41,17 @@ data OutputConfig = OutputConfig'
     -- NVIDIA accelerators and highly recommended for CPU compilations. For any
     -- other cases, it is optional to specify @CompilerOptions.@
     --
+    -- -   @DTYPE@: Specifies the data type for the input. When compiling for
+    --     @ml_*@ (except for @ml_inf@) instances using PyTorch framework,
+    --     provide the data type (dtype) of the model\'s input. @\"float32\"@
+    --     is used if @\"DTYPE\"@ is not specified. Options for data type are:
+    --
+    --     -   float32: Use either @\"float\"@ or @\"float32\"@.
+    --
+    --     -   int64: Use either @\"int64\"@ or @\"long\"@.
+    --
+    --     For example, @{\"dtype\" : \"float32\"}@.
+    --
     -- -   @CPU@: Compilation for CPU supports the following compiler options.
     --
     --     -   @mcpu@: CPU micro-architecture. For example,
@@ -94,11 +105,32 @@ data OutputConfig = OutputConfig'
     --         inside input tar.gz file. For example,
     --         @{\"class_labels\": \"imagenet_labels_1000.txt\"}@. Labels
     --         inside the txt file should be separated by newlines.
+    --
+    -- -   @EIA@: Compilation for the Elastic Inference Accelerator supports
+    --     the following compiler options:
+    --
+    --     -   @precision_mode@: Specifies the precision of compiled artifacts.
+    --         Supported values are @\"FP16\"@ and @\"FP32\"@. Default is
+    --         @\"FP32\"@.
+    --
+    --     -   @signature_def_key@: Specifies the signature to use for models
+    --         in SavedModel format. Defaults is TensorFlow\'s default
+    --         signature def key.
+    --
+    --     -   @output_names@: Specifies a list of output tensor names for
+    --         models in FrozenGraph format. Set at most one API field, either:
+    --         @signature_def_key@ or @output_names@.
+    --
+    --     For example:
+    --     @{\"precision_mode\": \"FP32\", \"output_names\": [\"output:0\"]}@
     compilerOptions :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data on the storage volume after compilation job. If you
-    -- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
-    -- for Amazon S3 for your role\'s account
+    -- | The Amazon Web Services Key Management Service key (Amazon Web Services
+    -- KMS) that Amazon SageMaker uses to encrypt your output models with
+    -- Amazon S3 server-side encryption after compilation job. If you don\'t
+    -- provide a KMS key ID, Amazon SageMaker uses the default KMS key for
+    -- Amazon S3 for your role\'s account. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+    -- in the /Amazon Simple Storage Service Developer Guide./
     --
     -- The KmsKeyId can be any of the following formats:
     --
@@ -177,6 +209,17 @@ data OutputConfig = OutputConfig'
 -- NVIDIA accelerators and highly recommended for CPU compilations. For any
 -- other cases, it is optional to specify @CompilerOptions.@
 --
+-- -   @DTYPE@: Specifies the data type for the input. When compiling for
+--     @ml_*@ (except for @ml_inf@) instances using PyTorch framework,
+--     provide the data type (dtype) of the model\'s input. @\"float32\"@
+--     is used if @\"DTYPE\"@ is not specified. Options for data type are:
+--
+--     -   float32: Use either @\"float\"@ or @\"float32\"@.
+--
+--     -   int64: Use either @\"int64\"@ or @\"long\"@.
+--
+--     For example, @{\"dtype\" : \"float32\"}@.
+--
 -- -   @CPU@: Compilation for CPU supports the following compiler options.
 --
 --     -   @mcpu@: CPU micro-architecture. For example,
@@ -231,10 +274,31 @@ data OutputConfig = OutputConfig'
 --         @{\"class_labels\": \"imagenet_labels_1000.txt\"}@. Labels
 --         inside the txt file should be separated by newlines.
 --
--- 'kmsKeyId', 'outputConfig_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume after compilation job. If you
--- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
--- for Amazon S3 for your role\'s account
+-- -   @EIA@: Compilation for the Elastic Inference Accelerator supports
+--     the following compiler options:
+--
+--     -   @precision_mode@: Specifies the precision of compiled artifacts.
+--         Supported values are @\"FP16\"@ and @\"FP32\"@. Default is
+--         @\"FP32\"@.
+--
+--     -   @signature_def_key@: Specifies the signature to use for models
+--         in SavedModel format. Defaults is TensorFlow\'s default
+--         signature def key.
+--
+--     -   @output_names@: Specifies a list of output tensor names for
+--         models in FrozenGraph format. Set at most one API field, either:
+--         @signature_def_key@ or @output_names@.
+--
+--     For example:
+--     @{\"precision_mode\": \"FP32\", \"output_names\": [\"output:0\"]}@
+--
+-- 'kmsKeyId', 'outputConfig_kmsKeyId' - The Amazon Web Services Key Management Service key (Amazon Web Services
+-- KMS) that Amazon SageMaker uses to encrypt your output models with
+-- Amazon S3 server-side encryption after compilation job. If you don\'t
+-- provide a KMS key ID, Amazon SageMaker uses the default KMS key for
+-- Amazon S3 for your role\'s account. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+-- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KmsKeyId can be any of the following formats:
 --
@@ -314,6 +378,17 @@ newOutputConfig pS3OutputLocation_ =
 -- NVIDIA accelerators and highly recommended for CPU compilations. For any
 -- other cases, it is optional to specify @CompilerOptions.@
 --
+-- -   @DTYPE@: Specifies the data type for the input. When compiling for
+--     @ml_*@ (except for @ml_inf@) instances using PyTorch framework,
+--     provide the data type (dtype) of the model\'s input. @\"float32\"@
+--     is used if @\"DTYPE\"@ is not specified. Options for data type are:
+--
+--     -   float32: Use either @\"float\"@ or @\"float32\"@.
+--
+--     -   int64: Use either @\"int64\"@ or @\"long\"@.
+--
+--     For example, @{\"dtype\" : \"float32\"}@.
+--
 -- -   @CPU@: Compilation for CPU supports the following compiler options.
 --
 --     -   @mcpu@: CPU micro-architecture. For example,
@@ -367,13 +442,34 @@ newOutputConfig pS3OutputLocation_ =
 --         inside input tar.gz file. For example,
 --         @{\"class_labels\": \"imagenet_labels_1000.txt\"}@. Labels
 --         inside the txt file should be separated by newlines.
+--
+-- -   @EIA@: Compilation for the Elastic Inference Accelerator supports
+--     the following compiler options:
+--
+--     -   @precision_mode@: Specifies the precision of compiled artifacts.
+--         Supported values are @\"FP16\"@ and @\"FP32\"@. Default is
+--         @\"FP32\"@.
+--
+--     -   @signature_def_key@: Specifies the signature to use for models
+--         in SavedModel format. Defaults is TensorFlow\'s default
+--         signature def key.
+--
+--     -   @output_names@: Specifies a list of output tensor names for
+--         models in FrozenGraph format. Set at most one API field, either:
+--         @signature_def_key@ or @output_names@.
+--
+--     For example:
+--     @{\"precision_mode\": \"FP32\", \"output_names\": [\"output:0\"]}@
 outputConfig_compilerOptions :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
 outputConfig_compilerOptions = Lens.lens (\OutputConfig' {compilerOptions} -> compilerOptions) (\s@OutputConfig' {} a -> s {compilerOptions = a} :: OutputConfig)
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume after compilation job. If you
--- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
--- for Amazon S3 for your role\'s account
+-- | The Amazon Web Services Key Management Service key (Amazon Web Services
+-- KMS) that Amazon SageMaker uses to encrypt your output models with
+-- Amazon S3 server-side encryption after compilation job. If you don\'t
+-- provide a KMS key ID, Amazon SageMaker uses the default KMS key for
+-- Amazon S3 for your role\'s account. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+-- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KmsKeyId can be any of the following formats:
 --

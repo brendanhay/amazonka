@@ -27,6 +27,7 @@ module Network.AWS.DeviceFarm.UpdateTestGridProject
     newUpdateTestGridProject,
 
     -- * Request Lenses
+    updateTestGridProject_vpcConfig,
     updateTestGridProject_name,
     updateTestGridProject_description,
     updateTestGridProject_projectArn,
@@ -50,7 +51,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { -- | Human-readable name for the project.
+  { -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
+    -- | Human-readable name for the project.
     name :: Prelude.Maybe Prelude.Text,
     -- | Human-readable description for the project.
     description :: Prelude.Maybe Prelude.Text,
@@ -67,6 +70,8 @@ data UpdateTestGridProject = UpdateTestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'updateTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'name', 'updateTestGridProject_name' - Human-readable name for the project.
 --
 -- 'description', 'updateTestGridProject_description' - Human-readable description for the project.
@@ -78,10 +83,15 @@ newUpdateTestGridProject ::
   UpdateTestGridProject
 newUpdateTestGridProject pProjectArn_ =
   UpdateTestGridProject'
-    { name = Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      name = Prelude.Nothing,
       description = Prelude.Nothing,
       projectArn = pProjectArn_
     }
+
+-- | The VPC security groups and subnets that are attached to a project.
+updateTestGridProject_vpcConfig :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe TestGridVpcConfig)
+updateTestGridProject_vpcConfig = Lens.lens (\UpdateTestGridProject' {vpcConfig} -> vpcConfig) (\s@UpdateTestGridProject' {} a -> s {vpcConfig = a} :: UpdateTestGridProject)
 
 -- | Human-readable name for the project.
 updateTestGridProject_name :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
@@ -131,7 +141,8 @@ instance Core.ToJSON UpdateTestGridProject where
   toJSON UpdateTestGridProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
+          [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("name" Core..=) Prelude.<$> name,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("projectArn" Core..= projectArn)
           ]

@@ -29,8 +29,7 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newCopyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
   { -- | Returns the ETag of the new object. The ETag reflects only changes to
-    -- the contents of an object, not its metadata. The source and destination
-    -- ETag is identical for a successfully copied non-multipart object.
+    -- the contents of an object, not its metadata.
     eTag :: Prelude.Maybe ETag,
     -- | Creation date of the object.
     lastModified :: Prelude.Maybe Core.ISO8601
@@ -46,8 +45,7 @@ data CopyObjectResult = CopyObjectResult'
 -- for backwards compatibility:
 --
 -- 'eTag', 'copyObjectResult_eTag' - Returns the ETag of the new object. The ETag reflects only changes to
--- the contents of an object, not its metadata. The source and destination
--- ETag is identical for a successfully copied non-multipart object.
+-- the contents of an object, not its metadata.
 --
 -- 'lastModified', 'copyObjectResult_lastModified' - Creation date of the object.
 newCopyObjectResult ::
@@ -59,8 +57,7 @@ newCopyObjectResult =
     }
 
 -- | Returns the ETag of the new object. The ETag reflects only changes to
--- the contents of an object, not its metadata. The source and destination
--- ETag is identical for a successfully copied non-multipart object.
+-- the contents of an object, not its metadata.
 copyObjectResult_eTag :: Lens.Lens' CopyObjectResult (Prelude.Maybe ETag)
 copyObjectResult_eTag = Lens.lens (\CopyObjectResult' {eTag} -> eTag) (\s@CopyObjectResult' {} a -> s {eTag = a} :: CopyObjectResult)
 

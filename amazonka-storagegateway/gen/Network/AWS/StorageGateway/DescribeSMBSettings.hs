@@ -135,7 +135,7 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     -- -   @ClientSpecified@: If you use this option, requests are established
     --     based on what is negotiated by the client. This option is
     --     recommended when you want to maximize compatibility across different
-    --     clients in your environment.
+    --     clients in your environment. Only supported for S3 File Gateways.
     --
     -- -   @MandatorySigning@: If you use this option, file gateway only allows
     --     connections from SMBv2 or SMBv3 clients that have signing enabled.
@@ -149,11 +149,12 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     --     Windows 8, Windows Server 2012 or newer.
     sMBSecurityStrategy :: Prelude.Maybe SMBSecurityStrategy,
     -- | This value is @true@ if a password for the guest user @smbguest@ is set,
-    -- otherwise @false@.
+    -- otherwise @false@. Only supported for S3 File Gateways.
     --
     -- Valid Values: @true@ | @false@
     sMBGuestPasswordSet :: Prelude.Maybe Prelude.Bool,
-    -- | The shares on this gateway appear when listing shares.
+    -- | The shares on this gateway appear when listing shares. Only supported
+    -- for S3 File Gateways.
     fileSharesVisible :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that the gateway is joined to.
     domainName :: Prelude.Maybe Prelude.Text,
@@ -198,7 +199,7 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 -- -   @ClientSpecified@: If you use this option, requests are established
 --     based on what is negotiated by the client. This option is
 --     recommended when you want to maximize compatibility across different
---     clients in your environment.
+--     clients in your environment. Only supported for S3 File Gateways.
 --
 -- -   @MandatorySigning@: If you use this option, file gateway only allows
 --     connections from SMBv2 or SMBv3 clients that have signing enabled.
@@ -212,11 +213,12 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 --     Windows 8, Windows Server 2012 or newer.
 --
 -- 'sMBGuestPasswordSet', 'describeSMBSettingsResponse_sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set,
--- otherwise @false@.
+-- otherwise @false@. Only supported for S3 File Gateways.
 --
 -- Valid Values: @true@ | @false@
 --
--- 'fileSharesVisible', 'describeSMBSettingsResponse_fileSharesVisible' - The shares on this gateway appear when listing shares.
+-- 'fileSharesVisible', 'describeSMBSettingsResponse_fileSharesVisible' - The shares on this gateway appear when listing shares. Only supported
+-- for S3 File Gateways.
 --
 -- 'domainName', 'describeSMBSettingsResponse_domainName' - The name of the domain that the gateway is joined to.
 --
@@ -266,7 +268,7 @@ newDescribeSMBSettingsResponse pHttpStatus_ =
 -- -   @ClientSpecified@: If you use this option, requests are established
 --     based on what is negotiated by the client. This option is
 --     recommended when you want to maximize compatibility across different
---     clients in your environment.
+--     clients in your environment. Only supported for S3 File Gateways.
 --
 -- -   @MandatorySigning@: If you use this option, file gateway only allows
 --     connections from SMBv2 or SMBv3 clients that have signing enabled.
@@ -282,13 +284,14 @@ describeSMBSettingsResponse_sMBSecurityStrategy :: Lens.Lens' DescribeSMBSetting
 describeSMBSettingsResponse_sMBSecurityStrategy = Lens.lens (\DescribeSMBSettingsResponse' {sMBSecurityStrategy} -> sMBSecurityStrategy) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBSecurityStrategy = a} :: DescribeSMBSettingsResponse)
 
 -- | This value is @true@ if a password for the guest user @smbguest@ is set,
--- otherwise @false@.
+-- otherwise @false@. Only supported for S3 File Gateways.
 --
 -- Valid Values: @true@ | @false@
 describeSMBSettingsResponse_sMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
 describeSMBSettingsResponse_sMBGuestPasswordSet = Lens.lens (\DescribeSMBSettingsResponse' {sMBGuestPasswordSet} -> sMBGuestPasswordSet) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBGuestPasswordSet = a} :: DescribeSMBSettingsResponse)
 
--- | The shares on this gateway appear when listing shares.
+-- | The shares on this gateway appear when listing shares. Only supported
+-- for S3 File Gateways.
 describeSMBSettingsResponse_fileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
 describeSMBSettingsResponse_fileSharesVisible = Lens.lens (\DescribeSMBSettingsResponse' {fileSharesVisible} -> fileSharesVisible) (\s@DescribeSMBSettingsResponse' {} a -> s {fileSharesVisible = a} :: DescribeSMBSettingsResponse)
 

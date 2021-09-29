@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newTerminateJob' smart constructor.
 data TerminateJob = TerminateJob'
-  { -- | The AWS Batch job ID of the job to terminate.
+  { -- | The Batch job ID of the job to terminate.
     jobId :: Prelude.Text,
     -- | A message to attach to the job that explains the reason for canceling
     -- it. This message is returned by future DescribeJobs operations on the
-    -- job. This message is also recorded in the AWS Batch activity logs.
+    -- job. This message is also recorded in the Batch activity logs.
     reason :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,11 +70,11 @@ data TerminateJob = TerminateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'terminateJob_jobId' - The AWS Batch job ID of the job to terminate.
+-- 'jobId', 'terminateJob_jobId' - The Batch job ID of the job to terminate.
 --
 -- 'reason', 'terminateJob_reason' - A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
--- job. This message is also recorded in the AWS Batch activity logs.
+-- job. This message is also recorded in the Batch activity logs.
 newTerminateJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -84,13 +84,13 @@ newTerminateJob ::
 newTerminateJob pJobId_ pReason_ =
   TerminateJob' {jobId = pJobId_, reason = pReason_}
 
--- | The AWS Batch job ID of the job to terminate.
+-- | The Batch job ID of the job to terminate.
 terminateJob_jobId :: Lens.Lens' TerminateJob Prelude.Text
 terminateJob_jobId = Lens.lens (\TerminateJob' {jobId} -> jobId) (\s@TerminateJob' {} a -> s {jobId = a} :: TerminateJob)
 
 -- | A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
--- job. This message is also recorded in the AWS Batch activity logs.
+-- job. This message is also recorded in the Batch activity logs.
 terminateJob_reason :: Lens.Lens' TerminateJob Prelude.Text
 terminateJob_reason = Lens.lens (\TerminateJob' {reason} -> reason) (\s@TerminateJob' {} a -> s {reason = a} :: TerminateJob)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Increase the number of node groups in the Global Datastore
+-- Increase the number of node groups in the Global datastore
 module Network.AWS.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
   ( -- * Creating a Request
     IncreaseNodeGroupsInGlobalReplicationGroup (..),
@@ -51,11 +51,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newIncreaseNodeGroupsInGlobalReplicationGroup' smart constructor.
 data IncreaseNodeGroupsInGlobalReplicationGroup = IncreaseNodeGroupsInGlobalReplicationGroup'
-  { -- | Describes the replication group IDs, the AWS regions where they are
+  { -- | Describes the replication group IDs, the Amazon regions where they are
     -- stored and the shard configuration for each that comprise the Global
-    -- Datastore
+    -- datastore
     regionalConfigurations :: Prelude.Maybe [RegionalConfiguration],
-    -- | The name of the Global Datastore
+    -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | The number of node groups you wish to add
     nodeGroupCount :: Prelude.Int,
@@ -73,11 +73,11 @@ data IncreaseNodeGroupsInGlobalReplicationGroup = IncreaseNodeGroupsInGlobalRepl
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionalConfigurations', 'increaseNodeGroupsInGlobalReplicationGroup_regionalConfigurations' - Describes the replication group IDs, the AWS regions where they are
+-- 'regionalConfigurations', 'increaseNodeGroupsInGlobalReplicationGroup_regionalConfigurations' - Describes the replication group IDs, the Amazon regions where they are
 -- stored and the shard configuration for each that comprise the Global
--- Datastore
+-- datastore
 --
--- 'globalReplicationGroupId', 'increaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'increaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'nodeGroupCount', 'increaseNodeGroupsInGlobalReplicationGroup_nodeGroupCount' - The number of node groups you wish to add
 --
@@ -106,13 +106,13 @@ newIncreaseNodeGroupsInGlobalReplicationGroup
           pApplyImmediately_
       }
 
--- | Describes the replication group IDs, the AWS regions where they are
+-- | Describes the replication group IDs, the Amazon regions where they are
 -- stored and the shard configuration for each that comprise the Global
--- Datastore
+-- datastore
 increaseNodeGroupsInGlobalReplicationGroup_regionalConfigurations :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup (Prelude.Maybe [RegionalConfiguration])
 increaseNodeGroupsInGlobalReplicationGroup_regionalConfigurations = Lens.lens (\IncreaseNodeGroupsInGlobalReplicationGroup' {regionalConfigurations} -> regionalConfigurations) (\s@IncreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {regionalConfigurations = a} :: IncreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 increaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Prelude.Text
 increaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\IncreaseNodeGroupsInGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@IncreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
 

@@ -24,9 +24,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
--- | /Alias resource record sets only:/ Information about the AWS resource,
--- such as a CloudFront distribution or an Amazon S3 bucket, that you want
--- to route traffic to.
+-- | /Alias resource record sets only:/ Information about the Amazon Web
+-- Services resource, such as a CloudFront distribution or an Amazon S3
+-- bucket, that you want to route traffic to.
 --
 -- When creating resource record sets for a private hosted zone, note the
 -- following:
@@ -45,7 +45,7 @@ data AliasTarget = AliasTarget'
     --
     -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
     --     Specify the hosted zone ID for your API. You can get the applicable
-    --     value using the AWS CLI command
+    --     value using the CLI command
     --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
     --
     --     -   For regional APIs, specify the value of @regionalHostedZoneId@.
@@ -55,7 +55,7 @@ data AliasTarget = AliasTarget'
     --
     -- [Amazon Virtual Private Cloud interface VPC endpoint]
     --     Specify the hosted zone ID for your interface endpoint. You can get
-    --     the value of @HostedZoneId@ using the AWS CLI command
+    --     the value of @HostedZoneId@ using the CLI command
     --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
     --
     -- [CloudFront distribution]
@@ -68,7 +68,7 @@ data AliasTarget = AliasTarget'
     --     Specify the hosted zone ID for the region that you created the
     --     environment in. The environment must have a regionalized subdomain.
     --     For a list of regions and the corresponding hosted zone IDs, see
-    --     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html AWS Elastic Beanstalk endpoints and quotas>
+    --     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html Elastic Beanstalk endpoints and quotas>
     --     in the the /Amazon Web Services General Reference/.
     --
     -- [ELB load balancer]
@@ -82,10 +82,10 @@ data AliasTarget = AliasTarget'
     --         Application and Classic Load Balancers and for Network Load
     --         Balancers.
     --
-    --     -   __AWS Management Console__: Go to the Amazon EC2 page, choose
-    --         __Load Balancers__ in the navigation pane, select the load
-    --         balancer, and get the value of the __Hosted zone__ field on the
-    --         __Description__ tab.
+    --     -   __Amazon Web Services Management Console__: Go to the Amazon EC2
+    --         page, choose __Load Balancers__ in the navigation pane, select
+    --         the load balancer, and get the value of the __Hosted zone__
+    --         field on the __Description__ tab.
     --
     --     -   __Elastic Load Balancing API__: Use @DescribeLoadBalancers@ to
     --         get the applicable value. For more information, see the
@@ -99,7 +99,7 @@ data AliasTarget = AliasTarget'
     --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
     --             to get the value of @CanonicalHostedZoneId@.
     --
-    --     -   __AWS CLI__: Use @describe-load-balancers@ to get the applicable
+    --     -   __CLI__: Use @describe-load-balancers@ to get the applicable
     --         value. For more information, see the applicable guide:
     --
     --         -   Classic Load Balancers: Use
@@ -110,7 +110,7 @@ data AliasTarget = AliasTarget'
     --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
     --             to get the value of @CanonicalHostedZoneId@.
     --
-    -- [AWS Global Accelerator accelerator]
+    -- [Global Accelerator accelerator]
     --     Specify @Z2BJ6XQ5FK7U4H@.
     --
     -- [An Amazon S3 bucket configured as a static website]
@@ -129,7 +129,7 @@ data AliasTarget = AliasTarget'
     --
     -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
     --     Specify the applicable domain name for your API. You can get the
-    --     applicable value using the AWS CLI command
+    --     applicable value using the CLI command
     --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
     --
     --     -   For regional APIs, specify the value of @regionalDomainName@.
@@ -146,7 +146,7 @@ data AliasTarget = AliasTarget'
     --     @vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com@.
     --     For edge-optimized APIs, this is the domain name for the
     --     corresponding CloudFront distribution. You can get the value of
-    --     @DnsName@ using the AWS CLI command
+    --     @DnsName@ using the CLI command
     --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
     --
     -- [CloudFront distribution]
@@ -193,31 +193,31 @@ data AliasTarget = AliasTarget'
     --     can use the following methods to get the value of the CNAME
     --     attribute:
     --
-    --     -   /AWS Management Console/: For information about how to get the
-    --         value by using the console, see
-    --         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with AWS Elastic Beanstalk>
-    --         in the /AWS Elastic Beanstalk Developer Guide/.
+    --     -   /Amazon Web Services Management Console/: For information about
+    --         how to get the value by using the console, see
+    --         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with Elastic Beanstalk>
+    --         in the /Elastic Beanstalk Developer Guide/.
     --
     --     -   /Elastic Beanstalk API/: Use the @DescribeEnvironments@ action
     --         to get the value of the @CNAME@ attribute. For more information,
     --         see
     --         <https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html DescribeEnvironments>
-    --         in the /AWS Elastic Beanstalk API Reference/.
+    --         in the /Elastic Beanstalk API Reference/.
     --
-    --     -   /AWS CLI/: Use the @describe-environments@ command to get the
-    --         value of the @CNAME@ attribute. For more information, see
+    --     -   /CLI/: Use the @describe-environments@ command to get the value
+    --         of the @CNAME@ attribute. For more information, see
     --         <https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html describe-environments>
-    --         in the /AWS CLI Command Reference/.
+    --         in the /CLI Command Reference/.
     --
     -- [ELB load balancer]
     --     Specify the DNS name that is associated with the load balancer. Get
-    --     the DNS name by using the AWS Management Console, the ELB API, or
-    --     the AWS CLI.
+    --     the DNS name by using the Amazon Web Services Management Console,
+    --     the ELB API, or the CLI.
     --
-    --     -   __AWS Management Console__: Go to the EC2 page, choose __Load
-    --         Balancers__ in the navigation pane, choose the load balancer,
-    --         choose the __Description__ tab, and get the value of the __DNS
-    --         name__ field.
+    --     -   __Amazon Web Services Management Console__: Go to the EC2 page,
+    --         choose __Load Balancers__ in the navigation pane, choose the
+    --         load balancer, choose the __Description__ tab, and get the value
+    --         of the __DNS name__ field.
     --
     --         If you\'re routing traffic to a Classic Load Balancer, get the
     --         value that begins with __dualstack__. If you\'re routing traffic
@@ -234,7 +234,7 @@ data AliasTarget = AliasTarget'
     --         -   Application and Network Load Balancers:
     --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
     --
-    --     -   __AWS CLI__: Use @describe-load-balancers@ to get the value of
+    --     -   __CLI__: Use @describe-load-balancers@ to get the value of
     --         @DNSName@. For more information, see the applicable guide:
     --
     --         -   Classic Load Balancers:
@@ -243,13 +243,13 @@ data AliasTarget = AliasTarget'
     --         -   Application and Network Load Balancers:
     --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
     --
-    -- [AWS Global Accelerator accelerator]
+    -- [Global Accelerator accelerator]
     --     Specify the DNS name for your accelerator:
     --
     --     -   __Global Accelerator API:__ To get the DNS name, use
     --         <https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html DescribeAccelerator>.
     --
-    --     -   __AWS CLI:__ To get the DNS name, use
+    --     -   __CLI:__ To get the DNS name, use
     --         <https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html describe-accelerator>.
     --
     -- [Amazon S3 bucket that is configured as a static website]
@@ -277,8 +277,8 @@ data AliasTarget = AliasTarget'
     -- | /Applies only to alias, failover alias, geolocation alias, latency
     -- alias, and weighted alias resource record sets:/ When
     -- @EvaluateTargetHealth@ is @true@, an alias resource record set inherits
-    -- the health of the referenced AWS resource, such as an ELB load balancer
-    -- or another resource record set in the hosted zone.
+    -- the health of the referenced Amazon Web Services resource, such as an
+    -- ELB load balancer or another resource record set in the hosted zone.
     --
     -- Note the following:
     --
@@ -338,11 +338,11 @@ data AliasTarget = AliasTarget'
     --     to @true@ when the alias target is an S3 bucket.
     --
     -- [Other records in the same hosted zone]
-    --     If the AWS resource that you specify in @DNSName@ is a record or a
-    --     group of records (for example, a group of weighted records) but is
-    --     not another alias record, we recommend that you associate a health
-    --     check with all of the records in the alias target. For more
-    --     information, see
+    --     If the Amazon Web Services resource that you specify in @DNSName@ is
+    --     a record or a group of records (for example, a group of weighted
+    --     records) but is not another alias record, we recommend that you
+    --     associate a health check with all of the records in the alias
+    --     target. For more information, see
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting What Happens When You Omit Health Checks?>
     --     in the /Amazon Route 53 Developer Guide/.
     --
@@ -366,7 +366,7 @@ data AliasTarget = AliasTarget'
 --
 -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
 --     Specify the hosted zone ID for your API. You can get the applicable
---     value using the AWS CLI command
+--     value using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
 --
 --     -   For regional APIs, specify the value of @regionalHostedZoneId@.
@@ -376,7 +376,7 @@ data AliasTarget = AliasTarget'
 --
 -- [Amazon Virtual Private Cloud interface VPC endpoint]
 --     Specify the hosted zone ID for your interface endpoint. You can get
---     the value of @HostedZoneId@ using the AWS CLI command
+--     the value of @HostedZoneId@ using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
 --
 -- [CloudFront distribution]
@@ -389,7 +389,7 @@ data AliasTarget = AliasTarget'
 --     Specify the hosted zone ID for the region that you created the
 --     environment in. The environment must have a regionalized subdomain.
 --     For a list of regions and the corresponding hosted zone IDs, see
---     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html AWS Elastic Beanstalk endpoints and quotas>
+--     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html Elastic Beanstalk endpoints and quotas>
 --     in the the /Amazon Web Services General Reference/.
 --
 -- [ELB load balancer]
@@ -403,10 +403,10 @@ data AliasTarget = AliasTarget'
 --         Application and Classic Load Balancers and for Network Load
 --         Balancers.
 --
---     -   __AWS Management Console__: Go to the Amazon EC2 page, choose
---         __Load Balancers__ in the navigation pane, select the load
---         balancer, and get the value of the __Hosted zone__ field on the
---         __Description__ tab.
+--     -   __Amazon Web Services Management Console__: Go to the Amazon EC2
+--         page, choose __Load Balancers__ in the navigation pane, select
+--         the load balancer, and get the value of the __Hosted zone__
+--         field on the __Description__ tab.
 --
 --     -   __Elastic Load Balancing API__: Use @DescribeLoadBalancers@ to
 --         get the applicable value. For more information, see the
@@ -420,7 +420,7 @@ data AliasTarget = AliasTarget'
 --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
 --             to get the value of @CanonicalHostedZoneId@.
 --
---     -   __AWS CLI__: Use @describe-load-balancers@ to get the applicable
+--     -   __CLI__: Use @describe-load-balancers@ to get the applicable
 --         value. For more information, see the applicable guide:
 --
 --         -   Classic Load Balancers: Use
@@ -431,7 +431,7 @@ data AliasTarget = AliasTarget'
 --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
 --             to get the value of @CanonicalHostedZoneId@.
 --
--- [AWS Global Accelerator accelerator]
+-- [Global Accelerator accelerator]
 --     Specify @Z2BJ6XQ5FK7U4H@.
 --
 -- [An Amazon S3 bucket configured as a static website]
@@ -450,7 +450,7 @@ data AliasTarget = AliasTarget'
 --
 -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
 --     Specify the applicable domain name for your API. You can get the
---     applicable value using the AWS CLI command
+--     applicable value using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
 --
 --     -   For regional APIs, specify the value of @regionalDomainName@.
@@ -467,7 +467,7 @@ data AliasTarget = AliasTarget'
 --     @vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com@.
 --     For edge-optimized APIs, this is the domain name for the
 --     corresponding CloudFront distribution. You can get the value of
---     @DnsName@ using the AWS CLI command
+--     @DnsName@ using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
 --
 -- [CloudFront distribution]
@@ -514,31 +514,31 @@ data AliasTarget = AliasTarget'
 --     can use the following methods to get the value of the CNAME
 --     attribute:
 --
---     -   /AWS Management Console/: For information about how to get the
---         value by using the console, see
---         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with AWS Elastic Beanstalk>
---         in the /AWS Elastic Beanstalk Developer Guide/.
+--     -   /Amazon Web Services Management Console/: For information about
+--         how to get the value by using the console, see
+--         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with Elastic Beanstalk>
+--         in the /Elastic Beanstalk Developer Guide/.
 --
 --     -   /Elastic Beanstalk API/: Use the @DescribeEnvironments@ action
 --         to get the value of the @CNAME@ attribute. For more information,
 --         see
 --         <https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html DescribeEnvironments>
---         in the /AWS Elastic Beanstalk API Reference/.
+--         in the /Elastic Beanstalk API Reference/.
 --
---     -   /AWS CLI/: Use the @describe-environments@ command to get the
---         value of the @CNAME@ attribute. For more information, see
+--     -   /CLI/: Use the @describe-environments@ command to get the value
+--         of the @CNAME@ attribute. For more information, see
 --         <https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html describe-environments>
---         in the /AWS CLI Command Reference/.
+--         in the /CLI Command Reference/.
 --
 -- [ELB load balancer]
 --     Specify the DNS name that is associated with the load balancer. Get
---     the DNS name by using the AWS Management Console, the ELB API, or
---     the AWS CLI.
+--     the DNS name by using the Amazon Web Services Management Console,
+--     the ELB API, or the CLI.
 --
---     -   __AWS Management Console__: Go to the EC2 page, choose __Load
---         Balancers__ in the navigation pane, choose the load balancer,
---         choose the __Description__ tab, and get the value of the __DNS
---         name__ field.
+--     -   __Amazon Web Services Management Console__: Go to the EC2 page,
+--         choose __Load Balancers__ in the navigation pane, choose the
+--         load balancer, choose the __Description__ tab, and get the value
+--         of the __DNS name__ field.
 --
 --         If you\'re routing traffic to a Classic Load Balancer, get the
 --         value that begins with __dualstack__. If you\'re routing traffic
@@ -555,7 +555,7 @@ data AliasTarget = AliasTarget'
 --         -   Application and Network Load Balancers:
 --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
 --
---     -   __AWS CLI__: Use @describe-load-balancers@ to get the value of
+--     -   __CLI__: Use @describe-load-balancers@ to get the value of
 --         @DNSName@. For more information, see the applicable guide:
 --
 --         -   Classic Load Balancers:
@@ -564,13 +564,13 @@ data AliasTarget = AliasTarget'
 --         -   Application and Network Load Balancers:
 --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
 --
--- [AWS Global Accelerator accelerator]
+-- [Global Accelerator accelerator]
 --     Specify the DNS name for your accelerator:
 --
 --     -   __Global Accelerator API:__ To get the DNS name, use
 --         <https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html DescribeAccelerator>.
 --
---     -   __AWS CLI:__ To get the DNS name, use
+--     -   __CLI:__ To get the DNS name, use
 --         <https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html describe-accelerator>.
 --
 -- [Amazon S3 bucket that is configured as a static website]
@@ -598,8 +598,8 @@ data AliasTarget = AliasTarget'
 -- 'evaluateTargetHealth', 'aliasTarget_evaluateTargetHealth' - /Applies only to alias, failover alias, geolocation alias, latency
 -- alias, and weighted alias resource record sets:/ When
 -- @EvaluateTargetHealth@ is @true@, an alias resource record set inherits
--- the health of the referenced AWS resource, such as an ELB load balancer
--- or another resource record set in the hosted zone.
+-- the health of the referenced Amazon Web Services resource, such as an
+-- ELB load balancer or another resource record set in the hosted zone.
 --
 -- Note the following:
 --
@@ -659,11 +659,11 @@ data AliasTarget = AliasTarget'
 --     to @true@ when the alias target is an S3 bucket.
 --
 -- [Other records in the same hosted zone]
---     If the AWS resource that you specify in @DNSName@ is a record or a
---     group of records (for example, a group of weighted records) but is
---     not another alias record, we recommend that you associate a health
---     check with all of the records in the alias target. For more
---     information, see
+--     If the Amazon Web Services resource that you specify in @DNSName@ is
+--     a record or a group of records (for example, a group of weighted
+--     records) but is not another alias record, we recommend that you
+--     associate a health check with all of the records in the alias
+--     target. For more information, see
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting What Happens When You Omit Health Checks?>
 --     in the /Amazon Route 53 Developer Guide/.
 --
@@ -693,7 +693,7 @@ newAliasTarget
 --
 -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
 --     Specify the hosted zone ID for your API. You can get the applicable
---     value using the AWS CLI command
+--     value using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
 --
 --     -   For regional APIs, specify the value of @regionalHostedZoneId@.
@@ -703,7 +703,7 @@ newAliasTarget
 --
 -- [Amazon Virtual Private Cloud interface VPC endpoint]
 --     Specify the hosted zone ID for your interface endpoint. You can get
---     the value of @HostedZoneId@ using the AWS CLI command
+--     the value of @HostedZoneId@ using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
 --
 -- [CloudFront distribution]
@@ -716,7 +716,7 @@ newAliasTarget
 --     Specify the hosted zone ID for the region that you created the
 --     environment in. The environment must have a regionalized subdomain.
 --     For a list of regions and the corresponding hosted zone IDs, see
---     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html AWS Elastic Beanstalk endpoints and quotas>
+--     <https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html Elastic Beanstalk endpoints and quotas>
 --     in the the /Amazon Web Services General Reference/.
 --
 -- [ELB load balancer]
@@ -730,10 +730,10 @@ newAliasTarget
 --         Application and Classic Load Balancers and for Network Load
 --         Balancers.
 --
---     -   __AWS Management Console__: Go to the Amazon EC2 page, choose
---         __Load Balancers__ in the navigation pane, select the load
---         balancer, and get the value of the __Hosted zone__ field on the
---         __Description__ tab.
+--     -   __Amazon Web Services Management Console__: Go to the Amazon EC2
+--         page, choose __Load Balancers__ in the navigation pane, select
+--         the load balancer, and get the value of the __Hosted zone__
+--         field on the __Description__ tab.
 --
 --     -   __Elastic Load Balancing API__: Use @DescribeLoadBalancers@ to
 --         get the applicable value. For more information, see the
@@ -747,7 +747,7 @@ newAliasTarget
 --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
 --             to get the value of @CanonicalHostedZoneId@.
 --
---     -   __AWS CLI__: Use @describe-load-balancers@ to get the applicable
+--     -   __CLI__: Use @describe-load-balancers@ to get the applicable
 --         value. For more information, see the applicable guide:
 --
 --         -   Classic Load Balancers: Use
@@ -758,7 +758,7 @@ newAliasTarget
 --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
 --             to get the value of @CanonicalHostedZoneId@.
 --
--- [AWS Global Accelerator accelerator]
+-- [Global Accelerator accelerator]
 --     Specify @Z2BJ6XQ5FK7U4H@.
 --
 -- [An Amazon S3 bucket configured as a static website]
@@ -779,7 +779,7 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --
 -- [Amazon API Gateway custom regional APIs and edge-optimized APIs]
 --     Specify the applicable domain name for your API. You can get the
---     applicable value using the AWS CLI command
+--     applicable value using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html get-domain-names>:
 --
 --     -   For regional APIs, specify the value of @regionalDomainName@.
@@ -796,7 +796,7 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --     @vpce-123456789abcdef01-example-us-east-1a.elasticloadbalancing.us-east-1.vpce.amazonaws.com@.
 --     For edge-optimized APIs, this is the domain name for the
 --     corresponding CloudFront distribution. You can get the value of
---     @DnsName@ using the AWS CLI command
+--     @DnsName@ using the CLI command
 --     <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoints.html describe-vpc-endpoints>.
 --
 -- [CloudFront distribution]
@@ -843,31 +843,31 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --     can use the following methods to get the value of the CNAME
 --     attribute:
 --
---     -   /AWS Management Console/: For information about how to get the
---         value by using the console, see
---         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with AWS Elastic Beanstalk>
---         in the /AWS Elastic Beanstalk Developer Guide/.
+--     -   /Amazon Web Services Management Console/: For information about
+--         how to get the value by using the console, see
+--         <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html Using Custom Domains with Elastic Beanstalk>
+--         in the /Elastic Beanstalk Developer Guide/.
 --
 --     -   /Elastic Beanstalk API/: Use the @DescribeEnvironments@ action
 --         to get the value of the @CNAME@ attribute. For more information,
 --         see
 --         <https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html DescribeEnvironments>
---         in the /AWS Elastic Beanstalk API Reference/.
+--         in the /Elastic Beanstalk API Reference/.
 --
---     -   /AWS CLI/: Use the @describe-environments@ command to get the
---         value of the @CNAME@ attribute. For more information, see
+--     -   /CLI/: Use the @describe-environments@ command to get the value
+--         of the @CNAME@ attribute. For more information, see
 --         <https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html describe-environments>
---         in the /AWS CLI Command Reference/.
+--         in the /CLI Command Reference/.
 --
 -- [ELB load balancer]
 --     Specify the DNS name that is associated with the load balancer. Get
---     the DNS name by using the AWS Management Console, the ELB API, or
---     the AWS CLI.
+--     the DNS name by using the Amazon Web Services Management Console,
+--     the ELB API, or the CLI.
 --
---     -   __AWS Management Console__: Go to the EC2 page, choose __Load
---         Balancers__ in the navigation pane, choose the load balancer,
---         choose the __Description__ tab, and get the value of the __DNS
---         name__ field.
+--     -   __Amazon Web Services Management Console__: Go to the EC2 page,
+--         choose __Load Balancers__ in the navigation pane, choose the
+--         load balancer, choose the __Description__ tab, and get the value
+--         of the __DNS name__ field.
 --
 --         If you\'re routing traffic to a Classic Load Balancer, get the
 --         value that begins with __dualstack__. If you\'re routing traffic
@@ -884,7 +884,7 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --         -   Application and Network Load Balancers:
 --             <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>
 --
---     -   __AWS CLI__: Use @describe-load-balancers@ to get the value of
+--     -   __CLI__: Use @describe-load-balancers@ to get the value of
 --         @DNSName@. For more information, see the applicable guide:
 --
 --         -   Classic Load Balancers:
@@ -893,13 +893,13 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --         -   Application and Network Load Balancers:
 --             <http://docs.aws.amazon.com/cli/latest/reference/elbv2/describe-load-balancers.html describe-load-balancers>
 --
--- [AWS Global Accelerator accelerator]
+-- [Global Accelerator accelerator]
 --     Specify the DNS name for your accelerator:
 --
 --     -   __Global Accelerator API:__ To get the DNS name, use
 --         <https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html DescribeAccelerator>.
 --
---     -   __AWS CLI:__ To get the DNS name, use
+--     -   __CLI:__ To get the DNS name, use
 --         <https://docs.aws.amazon.com/cli/latest/reference/globalaccelerator/describe-accelerator.html describe-accelerator>.
 --
 -- [Amazon S3 bucket that is configured as a static website]
@@ -929,8 +929,8 @@ aliasTarget_dNSName = Lens.lens (\AliasTarget' {dNSName} -> dNSName) (\s@AliasTa
 -- | /Applies only to alias, failover alias, geolocation alias, latency
 -- alias, and weighted alias resource record sets:/ When
 -- @EvaluateTargetHealth@ is @true@, an alias resource record set inherits
--- the health of the referenced AWS resource, such as an ELB load balancer
--- or another resource record set in the hosted zone.
+-- the health of the referenced Amazon Web Services resource, such as an
+-- ELB load balancer or another resource record set in the hosted zone.
 --
 -- Note the following:
 --
@@ -990,11 +990,11 @@ aliasTarget_dNSName = Lens.lens (\AliasTarget' {dNSName} -> dNSName) (\s@AliasTa
 --     to @true@ when the alias target is an S3 bucket.
 --
 -- [Other records in the same hosted zone]
---     If the AWS resource that you specify in @DNSName@ is a record or a
---     group of records (for example, a group of weighted records) but is
---     not another alias record, we recommend that you associate a health
---     check with all of the records in the alias target. For more
---     information, see
+--     If the Amazon Web Services resource that you specify in @DNSName@ is
+--     a record or a group of records (for example, a group of weighted
+--     records) but is not another alias record, we recommend that you
+--     associate a health check with all of the records in the alias
+--     target. For more information, see
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting What Happens When You Omit Health Checks?>
 --     in the /Amazon Route 53 Developer Guide/.
 --

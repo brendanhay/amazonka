@@ -22,6 +22,7 @@ module Network.AWS.Rekognition.Types.VideoMetadata where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Rekognition.Types.VideoColorRange
 
 -- | Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -33,6 +34,9 @@ data VideoMetadata = VideoMetadata'
     codec :: Prelude.Maybe Prelude.Text,
     -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
     format :: Prelude.Maybe Prelude.Text,
+    -- | A description of the range of luminance values in a video, either
+    -- LIMITED (16 to 235) or FULL (0 to 255).
+    colorRange :: Prelude.Maybe VideoColorRange,
     -- | Vertical pixel dimension of the video.
     frameHeight :: Prelude.Maybe Prelude.Natural,
     -- | Number of frames per second in the video.
@@ -56,6 +60,9 @@ data VideoMetadata = VideoMetadata'
 --
 -- 'format', 'videoMetadata_format' - Format of the analyzed video. Possible values are MP4, MOV and AVI.
 --
+-- 'colorRange', 'videoMetadata_colorRange' - A description of the range of luminance values in a video, either
+-- LIMITED (16 to 235) or FULL (0 to 255).
+--
 -- 'frameHeight', 'videoMetadata_frameHeight' - Vertical pixel dimension of the video.
 --
 -- 'frameRate', 'videoMetadata_frameRate' - Number of frames per second in the video.
@@ -69,6 +76,7 @@ newVideoMetadata =
   VideoMetadata'
     { codec = Prelude.Nothing,
       format = Prelude.Nothing,
+      colorRange = Prelude.Nothing,
       frameHeight = Prelude.Nothing,
       frameRate = Prelude.Nothing,
       frameWidth = Prelude.Nothing,
@@ -82,6 +90,11 @@ videoMetadata_codec = Lens.lens (\VideoMetadata' {codec} -> codec) (\s@VideoMeta
 -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
 videoMetadata_format :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Text)
 videoMetadata_format = Lens.lens (\VideoMetadata' {format} -> format) (\s@VideoMetadata' {} a -> s {format = a} :: VideoMetadata)
+
+-- | A description of the range of luminance values in a video, either
+-- LIMITED (16 to 235) or FULL (0 to 255).
+videoMetadata_colorRange :: Lens.Lens' VideoMetadata (Prelude.Maybe VideoColorRange)
+videoMetadata_colorRange = Lens.lens (\VideoMetadata' {colorRange} -> colorRange) (\s@VideoMetadata' {} a -> s {colorRange = a} :: VideoMetadata)
 
 -- | Vertical pixel dimension of the video.
 videoMetadata_frameHeight :: Lens.Lens' VideoMetadata (Prelude.Maybe Prelude.Natural)
@@ -107,6 +120,7 @@ instance Core.FromJSON VideoMetadata where
           VideoMetadata'
             Prelude.<$> (x Core..:? "Codec")
             Prelude.<*> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "ColorRange")
             Prelude.<*> (x Core..:? "FrameHeight")
             Prelude.<*> (x Core..:? "FrameRate")
             Prelude.<*> (x Core..:? "FrameWidth")

@@ -54,7 +54,7 @@ data EnableClientAuthentication = EnableClientAuthentication'
     -- | The type of client authentication to enable. Currently only the value
     -- @SmartCard@ is supported. Smart card authentication in AD Connector
     -- requires that you enable Kerberos Constrained Delegation for the Service
-    -- User to the LDAP service in the on-premises AD.
+    -- User to the LDAP service in your self-managed AD.
     type' :: ClientAuthenticationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data EnableClientAuthentication = EnableClientAuthentication'
 -- 'type'', 'enableClientAuthentication_type' - The type of client authentication to enable. Currently only the value
 -- @SmartCard@ is supported. Smart card authentication in AD Connector
 -- requires that you enable Kerberos Constrained Delegation for the Service
--- User to the LDAP service in the on-premises AD.
+-- User to the LDAP service in your self-managed AD.
 newEnableClientAuthentication ::
   -- | 'directoryId'
   Prelude.Text ->
@@ -93,7 +93,7 @@ enableClientAuthentication_directoryId = Lens.lens (\EnableClientAuthentication'
 -- | The type of client authentication to enable. Currently only the value
 -- @SmartCard@ is supported. Smart card authentication in AD Connector
 -- requires that you enable Kerberos Constrained Delegation for the Service
--- User to the LDAP service in the on-premises AD.
+-- User to the LDAP service in your self-managed AD.
 enableClientAuthentication_type :: Lens.Lens' EnableClientAuthentication ClientAuthenticationType
 enableClientAuthentication_type = Lens.lens (\EnableClientAuthentication' {type'} -> type') (\s@EnableClientAuthentication' {} a -> s {type' = a} :: EnableClientAuthentication)
 

@@ -39,7 +39,7 @@ data UserGroup = UserGroup'
     engine :: Prelude.Maybe Prelude.Text,
     -- | The ID of the user group.
     userGroupId :: Prelude.Maybe Prelude.Text,
-    -- | A list of updates being applied to the user groups.
+    -- | A list of updates being applied to the user group.
     pendingChanges :: Prelude.Maybe UserGroupPendingChanges
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data UserGroup = UserGroup'
 --
 -- 'userGroupId', 'userGroup_userGroupId' - The ID of the user group.
 --
--- 'pendingChanges', 'userGroup_pendingChanges' - A list of updates being applied to the user groups.
+-- 'pendingChanges', 'userGroup_pendingChanges' - A list of updates being applied to the user group.
 newUserGroup ::
   UserGroup
 newUserGroup =
@@ -104,7 +104,7 @@ userGroup_engine = Lens.lens (\UserGroup' {engine} -> engine) (\s@UserGroup' {} 
 userGroup_userGroupId :: Lens.Lens' UserGroup (Prelude.Maybe Prelude.Text)
 userGroup_userGroupId = Lens.lens (\UserGroup' {userGroupId} -> userGroupId) (\s@UserGroup' {} a -> s {userGroupId = a} :: UserGroup)
 
--- | A list of updates being applied to the user groups.
+-- | A list of updates being applied to the user group.
 userGroup_pendingChanges :: Lens.Lens' UserGroup (Prelude.Maybe UserGroupPendingChanges)
 userGroup_pendingChanges = Lens.lens (\UserGroup' {pendingChanges} -> pendingChanges) (\s@UserGroup' {} a -> s {pendingChanges = a} :: UserGroup)
 

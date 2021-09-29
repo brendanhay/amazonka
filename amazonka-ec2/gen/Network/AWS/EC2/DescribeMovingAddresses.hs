@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeMovingAddresses
 
     -- * Request Lenses
     describeMovingAddresses_nextToken,
-    describeMovingAddresses_dryRun,
     describeMovingAddresses_maxResults,
+    describeMovingAddresses_dryRun,
     describeMovingAddresses_publicIps,
     describeMovingAddresses_filters,
 
@@ -60,11 +60,6 @@ import qualified Network.AWS.Response as Response
 data DescribeMovingAddresses = DescribeMovingAddresses'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results of the initial request can be seen by
     -- sending another request with the returned @NextToken@ value. This value
@@ -73,6 +68,11 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
     --
     -- Default: If no value is provided, the default is 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more Elastic IP addresses.
     publicIps :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
@@ -93,11 +93,6 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 --
 -- 'nextToken', 'describeMovingAddresses_nextToken' - The token for the next page of results.
 --
--- 'dryRun', 'describeMovingAddresses_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeMovingAddresses_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
 -- sending another request with the returned @NextToken@ value. This value
@@ -105,6 +100,11 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 -- this range, an error is returned.
 --
 -- Default: If no value is provided, the default is 1000.
+--
+-- 'dryRun', 'describeMovingAddresses_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'publicIps', 'describeMovingAddresses_publicIps' - One or more Elastic IP addresses.
 --
@@ -118,8 +118,8 @@ newDescribeMovingAddresses =
   DescribeMovingAddresses'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       publicIps = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -127,13 +127,6 @@ newDescribeMovingAddresses =
 -- | The token for the next page of results.
 describeMovingAddresses_nextToken :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Text)
 describeMovingAddresses_nextToken = Lens.lens (\DescribeMovingAddresses' {nextToken} -> nextToken) (\s@DescribeMovingAddresses' {} a -> s {nextToken = a} :: DescribeMovingAddresses)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeMovingAddresses_dryRun :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Bool)
-describeMovingAddresses_dryRun = Lens.lens (\DescribeMovingAddresses' {dryRun} -> dryRun) (\s@DescribeMovingAddresses' {} a -> s {dryRun = a} :: DescribeMovingAddresses)
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
@@ -144,6 +137,13 @@ describeMovingAddresses_dryRun = Lens.lens (\DescribeMovingAddresses' {dryRun} -
 -- Default: If no value is provided, the default is 1000.
 describeMovingAddresses_maxResults :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Natural)
 describeMovingAddresses_maxResults = Lens.lens (\DescribeMovingAddresses' {maxResults} -> maxResults) (\s@DescribeMovingAddresses' {} a -> s {maxResults = a} :: DescribeMovingAddresses)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeMovingAddresses_dryRun :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Bool)
+describeMovingAddresses_dryRun = Lens.lens (\DescribeMovingAddresses' {dryRun} -> dryRun) (\s@DescribeMovingAddresses' {} a -> s {dryRun = a} :: DescribeMovingAddresses)
 
 -- | One or more Elastic IP addresses.
 describeMovingAddresses_publicIps :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe [Prelude.Text])
@@ -213,8 +213,8 @@ instance Core.ToQuery DescribeMovingAddresses where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
         Core.toQuery

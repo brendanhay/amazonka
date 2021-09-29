@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the settings for a Global Datastore.
+-- Modifies the settings for a Global datastore.
 module Network.AWS.ElastiCache.ModifyGlobalReplicationGroup
   ( -- * Creating a Request
     ModifyGlobalReplicationGroup (..),
@@ -62,13 +62,13 @@ data ModifyGlobalReplicationGroup = ModifyGlobalReplicationGroup'
     -- datastore.
     cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The upgraded version of the cache engine to be run on the clusters in
-    -- the Global Datastore.
+    -- the Global datastore.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | A valid cache node type that you want to scale this Global Datastore to.
+    -- | A valid cache node type that you want to scale this Global datastore to.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | A description of the Global Datastore
+    -- | A description of the Global datastore
     globalReplicationGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Global Datastore
+    -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | This parameter causes the modifications in this request and any pending
     -- modifications to be applied, asynchronously and as soon as possible.
@@ -94,13 +94,13 @@ data ModifyGlobalReplicationGroup = ModifyGlobalReplicationGroup'
 -- datastore.
 --
 -- 'engineVersion', 'modifyGlobalReplicationGroup_engineVersion' - The upgraded version of the cache engine to be run on the clusters in
--- the Global Datastore.
+-- the Global datastore.
 --
--- 'cacheNodeType', 'modifyGlobalReplicationGroup_cacheNodeType' - A valid cache node type that you want to scale this Global Datastore to.
+-- 'cacheNodeType', 'modifyGlobalReplicationGroup_cacheNodeType' - A valid cache node type that you want to scale this Global datastore to.
 --
--- 'globalReplicationGroupDescription', 'modifyGlobalReplicationGroup_globalReplicationGroupDescription' - A description of the Global Datastore
+-- 'globalReplicationGroupDescription', 'modifyGlobalReplicationGroup_globalReplicationGroupDescription' - A description of the Global datastore
 --
--- 'globalReplicationGroupId', 'modifyGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'modifyGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'applyImmediately', 'modifyGlobalReplicationGroup_applyImmediately' - This parameter causes the modifications in this request and any pending
 -- modifications to be applied, asynchronously and as soon as possible.
@@ -140,19 +140,19 @@ modifyGlobalReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyGlobalR
 modifyGlobalReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyGlobalReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyGlobalReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyGlobalReplicationGroup)
 
 -- | The upgraded version of the cache engine to be run on the clusters in
--- the Global Datastore.
+-- the Global datastore.
 modifyGlobalReplicationGroup_engineVersion :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyGlobalReplicationGroup_engineVersion = Lens.lens (\ModifyGlobalReplicationGroup' {engineVersion} -> engineVersion) (\s@ModifyGlobalReplicationGroup' {} a -> s {engineVersion = a} :: ModifyGlobalReplicationGroup)
 
--- | A valid cache node type that you want to scale this Global Datastore to.
+-- | A valid cache node type that you want to scale this Global datastore to.
 modifyGlobalReplicationGroup_cacheNodeType :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyGlobalReplicationGroup_cacheNodeType = Lens.lens (\ModifyGlobalReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@ModifyGlobalReplicationGroup' {} a -> s {cacheNodeType = a} :: ModifyGlobalReplicationGroup)
 
--- | A description of the Global Datastore
+-- | A description of the Global datastore
 modifyGlobalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyGlobalReplicationGroup_globalReplicationGroupDescription = Lens.lens (\ModifyGlobalReplicationGroup' {globalReplicationGroupDescription} -> globalReplicationGroupDescription) (\s@ModifyGlobalReplicationGroup' {} a -> s {globalReplicationGroupDescription = a} :: ModifyGlobalReplicationGroup)
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 modifyGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' ModifyGlobalReplicationGroup Prelude.Text
 modifyGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\ModifyGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@ModifyGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: ModifyGlobalReplicationGroup)
 

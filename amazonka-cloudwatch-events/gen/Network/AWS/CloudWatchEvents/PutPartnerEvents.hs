@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This is used by SaaS partners to write events to a customer\'s partner
--- event bus. AWS customers do not use this operation.
+-- event bus. Amazon Web Services customers do not use this operation.
 module Network.AWS.CloudWatchEvents.PutPartnerEvents
   ( -- * Creating a Request
     PutPartnerEvents (..),

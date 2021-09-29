@@ -22,10 +22,15 @@ module Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
       ( ..,
         AutoMLJobSecondaryStatus_AnalyzingData,
         AutoMLJobSecondaryStatus_CandidateDefinitionsGenerated,
+        AutoMLJobSecondaryStatus_Completed,
+        AutoMLJobSecondaryStatus_DeployingModel,
+        AutoMLJobSecondaryStatus_ExplainabilityError,
         AutoMLJobSecondaryStatus_Failed,
         AutoMLJobSecondaryStatus_FeatureEngineering,
+        AutoMLJobSecondaryStatus_GeneratingExplainabilityReport,
         AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached,
         AutoMLJobSecondaryStatus_MaxCandidatesReached,
+        AutoMLJobSecondaryStatus_ModelDeploymentError,
         AutoMLJobSecondaryStatus_ModelTuning,
         AutoMLJobSecondaryStatus_Starting,
         AutoMLJobSecondaryStatus_Stopped,
@@ -71,17 +76,32 @@ pattern AutoMLJobSecondaryStatus_AnalyzingData = AutoMLJobSecondaryStatus' "Anal
 pattern AutoMLJobSecondaryStatus_CandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_CandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
 
+pattern AutoMLJobSecondaryStatus_Completed :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_Completed = AutoMLJobSecondaryStatus' "Completed"
+
+pattern AutoMLJobSecondaryStatus_DeployingModel :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_DeployingModel = AutoMLJobSecondaryStatus' "DeployingModel"
+
+pattern AutoMLJobSecondaryStatus_ExplainabilityError :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_ExplainabilityError = AutoMLJobSecondaryStatus' "ExplainabilityError"
+
 pattern AutoMLJobSecondaryStatus_Failed :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_Failed = AutoMLJobSecondaryStatus' "Failed"
 
 pattern AutoMLJobSecondaryStatus_FeatureEngineering :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_FeatureEngineering = AutoMLJobSecondaryStatus' "FeatureEngineering"
 
+pattern AutoMLJobSecondaryStatus_GeneratingExplainabilityReport :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_GeneratingExplainabilityReport = AutoMLJobSecondaryStatus' "GeneratingExplainabilityReport"
+
 pattern AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
 
 pattern AutoMLJobSecondaryStatus_MaxCandidatesReached :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_MaxCandidatesReached = AutoMLJobSecondaryStatus' "MaxCandidatesReached"
+
+pattern AutoMLJobSecondaryStatus_ModelDeploymentError :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_ModelDeploymentError = AutoMLJobSecondaryStatus' "ModelDeploymentError"
 
 pattern AutoMLJobSecondaryStatus_ModelTuning :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_ModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
@@ -98,10 +118,15 @@ pattern AutoMLJobSecondaryStatus_Stopping = AutoMLJobSecondaryStatus' "Stopping"
 {-# COMPLETE
   AutoMLJobSecondaryStatus_AnalyzingData,
   AutoMLJobSecondaryStatus_CandidateDefinitionsGenerated,
+  AutoMLJobSecondaryStatus_Completed,
+  AutoMLJobSecondaryStatus_DeployingModel,
+  AutoMLJobSecondaryStatus_ExplainabilityError,
   AutoMLJobSecondaryStatus_Failed,
   AutoMLJobSecondaryStatus_FeatureEngineering,
+  AutoMLJobSecondaryStatus_GeneratingExplainabilityReport,
   AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached,
   AutoMLJobSecondaryStatus_MaxCandidatesReached,
+  AutoMLJobSecondaryStatus_ModelDeploymentError,
   AutoMLJobSecondaryStatus_ModelTuning,
   AutoMLJobSecondaryStatus_Starting,
   AutoMLJobSecondaryStatus_Stopped,

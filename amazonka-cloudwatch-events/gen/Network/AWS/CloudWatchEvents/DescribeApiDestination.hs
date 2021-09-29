@@ -38,8 +38,8 @@ module Network.AWS.CloudWatchEvents.DescribeApiDestination
     describeApiDestinationResponse_creationTime,
     describeApiDestinationResponse_apiDestinationArn,
     describeApiDestinationResponse_invocationEndpoint,
-    describeApiDestinationResponse_apiDestinationState,
     describeApiDestinationResponse_connectionArn,
+    describeApiDestinationResponse_apiDestinationState,
     describeApiDestinationResponse_name,
     describeApiDestinationResponse_lastModifiedTime,
     describeApiDestinationResponse_description,
@@ -95,8 +95,8 @@ instance Core.AWSRequest DescribeApiDestination where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ApiDestinationArn")
             Prelude.<*> (x Core..?> "InvocationEndpoint")
-            Prelude.<*> (x Core..?> "ApiDestinationState")
             Prelude.<*> (x Core..?> "ConnectionArn")
+            Prelude.<*> (x Core..?> "ApiDestinationState")
             Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Description")
@@ -146,10 +146,10 @@ data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
     apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The URL to use to connect to the HTTP endpoint.
     invocationEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The state of the API destination retrieved.
-    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The ARN of the connection specified for the API destination retrieved.
     connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the API destination retrieved.
+    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The name of the API destination retrieved.
     name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the API destination was last modified.
@@ -185,9 +185,9 @@ data DescribeApiDestinationResponse = DescribeApiDestinationResponse'
 --
 -- 'invocationEndpoint', 'describeApiDestinationResponse_invocationEndpoint' - The URL to use to connect to the HTTP endpoint.
 --
--- 'apiDestinationState', 'describeApiDestinationResponse_apiDestinationState' - The state of the API destination retrieved.
---
 -- 'connectionArn', 'describeApiDestinationResponse_connectionArn' - The ARN of the connection specified for the API destination retrieved.
+--
+-- 'apiDestinationState', 'describeApiDestinationResponse_apiDestinationState' - The state of the API destination retrieved.
 --
 -- 'name', 'describeApiDestinationResponse_name' - The name of the API destination retrieved.
 --
@@ -215,8 +215,8 @@ newDescribeApiDestinationResponse pHttpStatus_ =
       creationTime = Prelude.Nothing,
       apiDestinationArn = Prelude.Nothing,
       invocationEndpoint = Prelude.Nothing,
-      apiDestinationState = Prelude.Nothing,
       connectionArn = Prelude.Nothing,
+      apiDestinationState = Prelude.Nothing,
       name = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -241,13 +241,13 @@ describeApiDestinationResponse_apiDestinationArn = Lens.lens (\DescribeApiDestin
 describeApiDestinationResponse_invocationEndpoint :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_invocationEndpoint = Lens.lens (\DescribeApiDestinationResponse' {invocationEndpoint} -> invocationEndpoint) (\s@DescribeApiDestinationResponse' {} a -> s {invocationEndpoint = a} :: DescribeApiDestinationResponse)
 
--- | The state of the API destination retrieved.
-describeApiDestinationResponse_apiDestinationState :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe ApiDestinationState)
-describeApiDestinationResponse_apiDestinationState = Lens.lens (\DescribeApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@DescribeApiDestinationResponse' {} a -> s {apiDestinationState = a} :: DescribeApiDestinationResponse)
-
 -- | The ARN of the connection specified for the API destination retrieved.
 describeApiDestinationResponse_connectionArn :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)
 describeApiDestinationResponse_connectionArn = Lens.lens (\DescribeApiDestinationResponse' {connectionArn} -> connectionArn) (\s@DescribeApiDestinationResponse' {} a -> s {connectionArn = a} :: DescribeApiDestinationResponse)
+
+-- | The state of the API destination retrieved.
+describeApiDestinationResponse_apiDestinationState :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe ApiDestinationState)
+describeApiDestinationResponse_apiDestinationState = Lens.lens (\DescribeApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@DescribeApiDestinationResponse' {} a -> s {apiDestinationState = a} :: DescribeApiDestinationResponse)
 
 -- | The name of the API destination retrieved.
 describeApiDestinationResponse_name :: Lens.Lens' DescribeApiDestinationResponse (Prelude.Maybe Prelude.Text)

@@ -28,7 +28,7 @@
 -- -   Cross-account permissions don\'t apply to this action. For more
 --     information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     in the /Amazon SQS Developer Guide/.
 --
 -- -   To remove the ability to change queue permissions, you must deny
 --     permission to the @AddPermission@, @RemovePermission@, and

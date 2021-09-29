@@ -14,35 +14,6 @@
 module Network.AWS.IAM.Lens
   ( -- * Operations
 
-    -- ** CreateVirtualMFADevice
-    createVirtualMFADevice_tags,
-    createVirtualMFADevice_path,
-    createVirtualMFADevice_virtualMFADeviceName,
-    createVirtualMFADeviceResponse_httpStatus,
-    createVirtualMFADeviceResponse_virtualMFADevice,
-
-    -- ** AttachRolePolicy
-    attachRolePolicy_roleName,
-    attachRolePolicy_policyArn,
-
-    -- ** DeleteSSHPublicKey
-    deleteSSHPublicKey_userName,
-    deleteSSHPublicKey_sSHPublicKeyId,
-
-    -- ** GetUser
-    getUser_userName,
-    getUserResponse_httpStatus,
-    getUserResponse_user,
-
-    -- ** UpdateSSHPublicKey
-    updateSSHPublicKey_userName,
-    updateSSHPublicKey_sSHPublicKeyId,
-    updateSSHPublicKey_status,
-
-    -- ** UntagOpenIDConnectProvider
-    untagOpenIDConnectProvider_openIDConnectProviderArn,
-    untagOpenIDConnectProvider_tagKeys,
-
     -- ** ListSigningCertificates
     listSigningCertificates_userName,
     listSigningCertificates_maxItems,
@@ -51,9 +22,6 @@ module Network.AWS.IAM.Lens
     listSigningCertificatesResponse_marker,
     listSigningCertificatesResponse_httpStatus,
     listSigningCertificatesResponse_certificates,
-
-    -- ** DeleteOpenIDConnectProvider
-    deleteOpenIDConnectProvider_openIDConnectProviderArn,
 
     -- ** ListRoleTags
     listRoleTags_maxItems,
@@ -64,31 +32,41 @@ module Network.AWS.IAM.Lens
     listRoleTagsResponse_httpStatus,
     listRoleTagsResponse_tags,
 
+    -- ** AttachRolePolicy
+    attachRolePolicy_roleName,
+    attachRolePolicy_policyArn,
+
+    -- ** DeleteOpenIDConnectProvider
+    deleteOpenIDConnectProvider_openIDConnectProviderArn,
+
+    -- ** GetUser
+    getUser_userName,
+    getUserResponse_httpStatus,
+    getUserResponse_user,
+
+    -- ** CreateVirtualMFADevice
+    createVirtualMFADevice_tags,
+    createVirtualMFADevice_path,
+    createVirtualMFADevice_virtualMFADeviceName,
+    createVirtualMFADeviceResponse_httpStatus,
+    createVirtualMFADeviceResponse_virtualMFADevice,
+
+    -- ** UpdateSSHPublicKey
+    updateSSHPublicKey_userName,
+    updateSSHPublicKey_sSHPublicKeyId,
+    updateSSHPublicKey_status,
+
+    -- ** UntagOpenIDConnectProvider
+    untagOpenIDConnectProvider_openIDConnectProviderArn,
+    untagOpenIDConnectProvider_tagKeys,
+
+    -- ** DeleteSSHPublicKey
+    deleteSSHPublicKey_userName,
+    deleteSSHPublicKey_sSHPublicKeyId,
+
     -- ** ListOpenIDConnectProviders
     listOpenIDConnectProvidersResponse_openIDConnectProviderList,
     listOpenIDConnectProvidersResponse_httpStatus,
-
-    -- ** CreatePolicy
-    createPolicy_tags,
-    createPolicy_description,
-    createPolicy_path,
-    createPolicy_policyName,
-    createPolicy_policyDocument,
-    createPolicyResponse_policy,
-    createPolicyResponse_httpStatus,
-
-    -- ** GetSAMLProvider
-    getSAMLProvider_sAMLProviderArn,
-    getSAMLProviderResponse_createDate,
-    getSAMLProviderResponse_validUntil,
-    getSAMLProviderResponse_tags,
-    getSAMLProviderResponse_sAMLMetadataDocument,
-    getSAMLProviderResponse_httpStatus,
-
-    -- ** GetContextKeysForPrincipalPolicy
-    getContextKeysForPrincipalPolicy_policyInputList,
-    getContextKeysForPrincipalPolicy_policySourceArn,
-    getContextKeysForPolicyResponse_contextKeyNames,
 
     -- ** ListEntitiesForPolicy
     listEntitiesForPolicy_entityFilter,
@@ -104,31 +82,20 @@ module Network.AWS.IAM.Lens
     listEntitiesForPolicyResponse_marker,
     listEntitiesForPolicyResponse_httpStatus,
 
-    -- ** ListGroupsForUser
-    listGroupsForUser_maxItems,
-    listGroupsForUser_marker,
-    listGroupsForUser_userName,
-    listGroupsForUserResponse_isTruncated,
-    listGroupsForUserResponse_marker,
-    listGroupsForUserResponse_httpStatus,
-    listGroupsForUserResponse_groups,
+    -- ** CreateServiceLinkedRole
+    createServiceLinkedRole_customSuffix,
+    createServiceLinkedRole_description,
+    createServiceLinkedRole_aWSServiceName,
+    createServiceLinkedRoleResponse_role,
+    createServiceLinkedRoleResponse_httpStatus,
 
-    -- ** SimulatePrincipalPolicy
-    simulatePrincipalPolicy_resourceOwner,
-    simulatePrincipalPolicy_contextEntries,
-    simulatePrincipalPolicy_resourcePolicy,
-    simulatePrincipalPolicy_resourceArns,
-    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
-    simulatePrincipalPolicy_policyInputList,
-    simulatePrincipalPolicy_resourceHandlingOption,
-    simulatePrincipalPolicy_callerArn,
-    simulatePrincipalPolicy_maxItems,
-    simulatePrincipalPolicy_marker,
-    simulatePrincipalPolicy_policySourceArn,
-    simulatePrincipalPolicy_actionNames,
-    simulatePolicyResponse_isTruncated,
-    simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
+    -- ** GetSAMLProvider
+    getSAMLProvider_sAMLProviderArn,
+    getSAMLProviderResponse_createDate,
+    getSAMLProviderResponse_validUntil,
+    getSAMLProviderResponse_sAMLMetadataDocument,
+    getSAMLProviderResponse_tags,
+    getSAMLProviderResponse_httpStatus,
 
     -- ** ListPolicies
     listPolicies_scope,
@@ -142,22 +109,62 @@ module Network.AWS.IAM.Lens
     listPoliciesResponse_marker,
     listPoliciesResponse_httpStatus,
 
-    -- ** CreateServiceLinkedRole
-    createServiceLinkedRole_customSuffix,
-    createServiceLinkedRole_description,
-    createServiceLinkedRole_aWSServiceName,
-    createServiceLinkedRoleResponse_role,
-    createServiceLinkedRoleResponse_httpStatus,
+    -- ** CreatePolicy
+    createPolicy_tags,
+    createPolicy_description,
+    createPolicy_path,
+    createPolicy_policyName,
+    createPolicy_policyDocument,
+    createPolicyResponse_policy,
+    createPolicyResponse_httpStatus,
 
-    -- ** UntagPolicy
-    untagPolicy_policyArn,
-    untagPolicy_tagKeys,
+    -- ** ListGroupsForUser
+    listGroupsForUser_maxItems,
+    listGroupsForUser_marker,
+    listGroupsForUser_userName,
+    listGroupsForUserResponse_isTruncated,
+    listGroupsForUserResponse_marker,
+    listGroupsForUserResponse_httpStatus,
+    listGroupsForUserResponse_groups,
+
+    -- ** GetContextKeysForPrincipalPolicy
+    getContextKeysForPrincipalPolicy_policyInputList,
+    getContextKeysForPrincipalPolicy_policySourceArn,
+    getContextKeysForPolicyResponse_contextKeyNames,
+
+    -- ** SimulatePrincipalPolicy
+    simulatePrincipalPolicy_resourceOwner,
+    simulatePrincipalPolicy_contextEntries,
+    simulatePrincipalPolicy_resourcePolicy,
+    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
+    simulatePrincipalPolicy_resourceArns,
+    simulatePrincipalPolicy_policyInputList,
+    simulatePrincipalPolicy_resourceHandlingOption,
+    simulatePrincipalPolicy_callerArn,
+    simulatePrincipalPolicy_maxItems,
+    simulatePrincipalPolicy_marker,
+    simulatePrincipalPolicy_policySourceArn,
+    simulatePrincipalPolicy_actionNames,
+    simulatePolicyResponse_isTruncated,
+    simulatePolicyResponse_evaluationResults,
+    simulatePolicyResponse_marker,
+
+    -- ** ListInstanceProfileTags
+    listInstanceProfileTags_maxItems,
+    listInstanceProfileTags_marker,
+    listInstanceProfileTags_instanceProfileName,
+    listInstanceProfileTagsResponse_isTruncated,
+    listInstanceProfileTagsResponse_marker,
+    listInstanceProfileTagsResponse_httpStatus,
+    listInstanceProfileTagsResponse_tags,
 
     -- ** DeletePolicy
     deletePolicy_policyArn,
 
-    -- ** DeleteServerCertificate
-    deleteServerCertificate_serverCertificateName,
+    -- ** UpdateServerCertificate
+    updateServerCertificate_newPath,
+    updateServerCertificate_newServerCertificateName,
+    updateServerCertificate_serverCertificateName,
 
     -- ** ListAttachedGroupPolicies
     listAttachedGroupPolicies_pathPrefix,
@@ -169,39 +176,17 @@ module Network.AWS.IAM.Lens
     listAttachedGroupPoliciesResponse_marker,
     listAttachedGroupPoliciesResponse_httpStatus,
 
-    -- ** ChangePassword
-    changePassword_oldPassword,
-    changePassword_newPassword,
-
-    -- ** ListMFADeviceTags
-    listMFADeviceTags_maxItems,
-    listMFADeviceTags_marker,
-    listMFADeviceTags_serialNumber,
-    listMFADeviceTagsResponse_isTruncated,
-    listMFADeviceTagsResponse_marker,
-    listMFADeviceTagsResponse_httpStatus,
-    listMFADeviceTagsResponse_tags,
+    -- ** UpdateAssumeRolePolicy
+    updateAssumeRolePolicy_roleName,
+    updateAssumeRolePolicy_policyDocument,
 
     -- ** UntagServerCertificate
     untagServerCertificate_serverCertificateName,
     untagServerCertificate_tagKeys,
 
-    -- ** UpdateAssumeRolePolicy
-    updateAssumeRolePolicy_roleName,
-    updateAssumeRolePolicy_policyDocument,
-
-    -- ** GetGroupPolicy
-    getGroupPolicy_groupName,
-    getGroupPolicy_policyName,
-    getGroupPolicyResponse_httpStatus,
-    getGroupPolicyResponse_groupName,
-    getGroupPolicyResponse_policyName,
-    getGroupPolicyResponse_policyDocument,
-
-    -- ** UpdateServerCertificate
-    updateServerCertificate_newPath,
-    updateServerCertificate_newServerCertificateName,
-    updateServerCertificate_serverCertificateName,
+    -- ** ChangePassword
+    changePassword_oldPassword,
+    changePassword_newPassword,
 
     -- ** ListServerCertificates
     listServerCertificates_pathPrefix,
@@ -212,52 +197,34 @@ module Network.AWS.IAM.Lens
     listServerCertificatesResponse_httpStatus,
     listServerCertificatesResponse_serverCertificateMetadataList,
 
-    -- ** ListInstanceProfileTags
-    listInstanceProfileTags_maxItems,
-    listInstanceProfileTags_marker,
-    listInstanceProfileTags_instanceProfileName,
-    listInstanceProfileTagsResponse_isTruncated,
-    listInstanceProfileTagsResponse_marker,
-    listInstanceProfileTagsResponse_httpStatus,
-    listInstanceProfileTagsResponse_tags,
+    -- ** GetGroupPolicy
+    getGroupPolicy_groupName,
+    getGroupPolicy_policyName,
+    getGroupPolicyResponse_httpStatus,
+    getGroupPolicyResponse_groupName,
+    getGroupPolicyResponse_policyName,
+    getGroupPolicyResponse_policyDocument,
 
-    -- ** DeleteGroupPolicy
-    deleteGroupPolicy_groupName,
-    deleteGroupPolicy_policyName,
+    -- ** DeleteServerCertificate
+    deleteServerCertificate_serverCertificateName,
 
-    -- ** CreateInstanceProfile
-    createInstanceProfile_tags,
-    createInstanceProfile_path,
-    createInstanceProfile_instanceProfileName,
-    createInstanceProfileResponse_httpStatus,
-    createInstanceProfileResponse_instanceProfile,
+    -- ** ListMFADeviceTags
+    listMFADeviceTags_maxItems,
+    listMFADeviceTags_marker,
+    listMFADeviceTags_serialNumber,
+    listMFADeviceTagsResponse_isTruncated,
+    listMFADeviceTagsResponse_marker,
+    listMFADeviceTagsResponse_httpStatus,
+    listMFADeviceTagsResponse_tags,
 
-    -- ** ListGroups
-    listGroups_pathPrefix,
-    listGroups_maxItems,
-    listGroups_marker,
-    listGroupsResponse_isTruncated,
-    listGroupsResponse_marker,
-    listGroupsResponse_httpStatus,
-    listGroupsResponse_groups,
+    -- ** UntagPolicy
+    untagPolicy_policyArn,
+    untagPolicy_tagKeys,
 
     -- ** GetLoginProfile
     getLoginProfile_userName,
     getLoginProfileResponse_httpStatus,
     getLoginProfileResponse_loginProfile,
-
-    -- ** TagRole
-    tagRole_roleName,
-    tagRole_tags,
-
-    -- ** RemoveRoleFromInstanceProfile
-    removeRoleFromInstanceProfile_instanceProfileName,
-    removeRoleFromInstanceProfile_roleName,
-
-    -- ** GenerateCredentialReport
-    generateCredentialReportResponse_state,
-    generateCredentialReportResponse_description,
-    generateCredentialReportResponse_httpStatus,
 
     -- ** CreatePolicyVersion
     createPolicyVersion_setAsDefault,
@@ -271,13 +238,42 @@ module Network.AWS.IAM.Lens
     getServerCertificateResponse_httpStatus,
     getServerCertificateResponse_serverCertificate,
 
+    -- ** ListGroups
+    listGroups_pathPrefix,
+    listGroups_maxItems,
+    listGroups_marker,
+    listGroupsResponse_isTruncated,
+    listGroupsResponse_marker,
+    listGroupsResponse_httpStatus,
+    listGroupsResponse_groups,
+
+    -- ** TagRole
+    tagRole_roleName,
+    tagRole_tags,
+
     -- ** RemoveUserFromGroup
     removeUserFromGroup_groupName,
     removeUserFromGroup_userName,
 
-    -- ** SetDefaultPolicyVersion
-    setDefaultPolicyVersion_policyArn,
-    setDefaultPolicyVersion_versionId,
+    -- ** DeleteGroupPolicy
+    deleteGroupPolicy_groupName,
+    deleteGroupPolicy_policyName,
+
+    -- ** CreateInstanceProfile
+    createInstanceProfile_tags,
+    createInstanceProfile_path,
+    createInstanceProfile_instanceProfileName,
+    createInstanceProfileResponse_httpStatus,
+    createInstanceProfileResponse_instanceProfile,
+
+    -- ** RemoveRoleFromInstanceProfile
+    removeRoleFromInstanceProfile_instanceProfileName,
+    removeRoleFromInstanceProfile_roleName,
+
+    -- ** GenerateCredentialReport
+    generateCredentialReportResponse_state,
+    generateCredentialReportResponse_description,
+    generateCredentialReportResponse_httpStatus,
 
     -- ** ResetServiceSpecificCredential
     resetServiceSpecificCredential_userName,
@@ -285,20 +281,19 @@ module Network.AWS.IAM.Lens
     resetServiceSpecificCredentialResponse_serviceSpecificCredential,
     resetServiceSpecificCredentialResponse_httpStatus,
 
+    -- ** DetachRolePolicy
+    detachRolePolicy_roleName,
+    detachRolePolicy_policyArn,
+
     -- ** GenerateServiceLastAccessedDetails
     generateServiceLastAccessedDetails_granularity,
     generateServiceLastAccessedDetails_arn,
     generateServiceLastAccessedDetailsResponse_jobId,
     generateServiceLastAccessedDetailsResponse_httpStatus,
 
-    -- ** ListPoliciesGrantingServiceAccess
-    listPoliciesGrantingServiceAccess_marker,
-    listPoliciesGrantingServiceAccess_arn,
-    listPoliciesGrantingServiceAccess_serviceNamespaces,
-    listPoliciesGrantingServiceAccessResponse_isTruncated,
-    listPoliciesGrantingServiceAccessResponse_marker,
-    listPoliciesGrantingServiceAccessResponse_httpStatus,
-    listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
+    -- ** SetDefaultPolicyVersion
+    setDefaultPolicyVersion_policyArn,
+    setDefaultPolicyVersion_versionId,
 
     -- ** UpdateRoleDescription
     updateRoleDescription_roleName,
@@ -317,20 +312,6 @@ module Network.AWS.IAM.Lens
     uploadServerCertificateResponse_tags,
     uploadServerCertificateResponse_httpStatus,
 
-    -- ** DetachRolePolicy
-    detachRolePolicy_roleName,
-    detachRolePolicy_policyArn,
-
-    -- ** EnableMFADevice
-    enableMFADevice_userName,
-    enableMFADevice_serialNumber,
-    enableMFADevice_authenticationCode1,
-    enableMFADevice_authenticationCode2,
-
-    -- ** ListSAMLProviders
-    listSAMLProvidersResponse_sAMLProviderList,
-    listSAMLProvidersResponse_httpStatus,
-
     -- ** ListPolicyTags
     listPolicyTags_maxItems,
     listPolicyTags_marker,
@@ -340,19 +321,30 @@ module Network.AWS.IAM.Lens
     listPolicyTagsResponse_httpStatus,
     listPolicyTagsResponse_tags,
 
+    -- ** ListSAMLProviders
+    listSAMLProvidersResponse_sAMLProviderList,
+    listSAMLProvidersResponse_httpStatus,
+
     -- ** CreateGroup
     createGroup_path,
     createGroup_groupName,
     createGroupResponse_httpStatus,
     createGroupResponse_group,
 
-    -- ** TagMFADevice
-    tagMFADevice_serialNumber,
-    tagMFADevice_tags,
+    -- ** EnableMFADevice
+    enableMFADevice_userName,
+    enableMFADevice_serialNumber,
+    enableMFADevice_authenticationCode1,
+    enableMFADevice_authenticationCode2,
 
-    -- ** TagInstanceProfile
-    tagInstanceProfile_instanceProfileName,
-    tagInstanceProfile_tags,
+    -- ** ListPoliciesGrantingServiceAccess
+    listPoliciesGrantingServiceAccess_marker,
+    listPoliciesGrantingServiceAccess_arn,
+    listPoliciesGrantingServiceAccess_serviceNamespaces,
+    listPoliciesGrantingServiceAccessResponse_isTruncated,
+    listPoliciesGrantingServiceAccessResponse_marker,
+    listPoliciesGrantingServiceAccessResponse_httpStatus,
+    listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
 
     -- ** GetOpenIDConnectProvider
     getOpenIDConnectProvider_openIDConnectProviderArn,
@@ -374,24 +366,27 @@ module Network.AWS.IAM.Lens
     createRoleResponse_httpStatus,
     createRoleResponse_role,
 
-    -- ** PutUserPermissionsBoundary
-    putUserPermissionsBoundary_userName,
-    putUserPermissionsBoundary_permissionsBoundary,
-
     -- ** DeleteUserPolicy
     deleteUserPolicy_userName,
     deleteUserPolicy_policyName,
 
-    -- ** DeleteRolePermissionsBoundary
-    deleteRolePermissionsBoundary_roleName,
+    -- ** TagInstanceProfile
+    tagInstanceProfile_instanceProfileName,
+    tagInstanceProfile_tags,
 
-    -- ** CreateUser
-    createUser_permissionsBoundary,
-    createUser_tags,
-    createUser_path,
-    createUser_userName,
-    createUserResponse_user,
-    createUserResponse_httpStatus,
+    -- ** PutUserPermissionsBoundary
+    putUserPermissionsBoundary_userName,
+    putUserPermissionsBoundary_permissionsBoundary,
+
+    -- ** TagMFADevice
+    tagMFADevice_serialNumber,
+    tagMFADevice_tags,
+
+    -- ** UploadSigningCertificate
+    uploadSigningCertificate_userName,
+    uploadSigningCertificate_certificateBody,
+    uploadSigningCertificateResponse_httpStatus,
+    uploadSigningCertificateResponse_certificate,
 
     -- ** ListOpenIDConnectProviderTags
     listOpenIDConnectProviderTags_maxItems,
@@ -411,37 +406,20 @@ module Network.AWS.IAM.Lens
     listRolesResponse_httpStatus,
     listRolesResponse_roles,
 
-    -- ** UploadSigningCertificate
-    uploadSigningCertificate_userName,
-    uploadSigningCertificate_certificateBody,
-    uploadSigningCertificateResponse_httpStatus,
-    uploadSigningCertificateResponse_certificate,
+    -- ** CreateUser
+    createUser_permissionsBoundary,
+    createUser_tags,
+    createUser_path,
+    createUser_userName,
+    createUserResponse_user,
+    createUserResponse_httpStatus,
 
     -- ** DeleteRolePolicy
     deleteRolePolicy_roleName,
     deleteRolePolicy_policyName,
 
-    -- ** ListAttachedRolePolicies
-    listAttachedRolePolicies_pathPrefix,
-    listAttachedRolePolicies_maxItems,
-    listAttachedRolePolicies_marker,
-    listAttachedRolePolicies_roleName,
-    listAttachedRolePoliciesResponse_isTruncated,
-    listAttachedRolePoliciesResponse_attachedPolicies,
-    listAttachedRolePoliciesResponse_marker,
-    listAttachedRolePoliciesResponse_httpStatus,
-
-    -- ** GetRolePolicy
-    getRolePolicy_roleName,
-    getRolePolicy_policyName,
-    getRolePolicyResponse_httpStatus,
-    getRolePolicyResponse_roleName,
-    getRolePolicyResponse_policyName,
-    getRolePolicyResponse_policyDocument,
-
-    -- ** DeleteAccessKey
-    deleteAccessKey_userName,
-    deleteAccessKey_accessKeyId,
+    -- ** DeleteRolePermissionsBoundary
+    deleteRolePermissionsBoundary_roleName,
 
     -- ** ListVirtualMFADevices
     listVirtualMFADevices_assignmentStatus,
@@ -460,13 +438,15 @@ module Network.AWS.IAM.Lens
     removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn,
     removeClientIDFromOpenIDConnectProvider_clientID,
 
-    -- ** DeleteVirtualMFADevice
-    deleteVirtualMFADevice_serialNumber,
-
-    -- ** UpdateAccessKey
-    updateAccessKey_userName,
-    updateAccessKey_accessKeyId,
-    updateAccessKey_status,
+    -- ** ListAttachedRolePolicies
+    listAttachedRolePolicies_pathPrefix,
+    listAttachedRolePolicies_maxItems,
+    listAttachedRolePolicies_marker,
+    listAttachedRolePolicies_roleName,
+    listAttachedRolePoliciesResponse_isTruncated,
+    listAttachedRolePoliciesResponse_attachedPolicies,
+    listAttachedRolePoliciesResponse_marker,
+    listAttachedRolePoliciesResponse_httpStatus,
 
     -- ** CreateServiceSpecificCredential
     createServiceSpecificCredential_userName,
@@ -474,45 +454,31 @@ module Network.AWS.IAM.Lens
     createServiceSpecificCredentialResponse_serviceSpecificCredential,
     createServiceSpecificCredentialResponse_httpStatus,
 
+    -- ** DeleteAccessKey
+    deleteAccessKey_userName,
+    deleteAccessKey_accessKeyId,
+
+    -- ** UpdateAccessKey
+    updateAccessKey_userName,
+    updateAccessKey_accessKeyId,
+    updateAccessKey_status,
+
+    -- ** GetRolePolicy
+    getRolePolicy_roleName,
+    getRolePolicy_policyName,
+    getRolePolicyResponse_httpStatus,
+    getRolePolicyResponse_roleName,
+    getRolePolicyResponse_policyName,
+    getRolePolicyResponse_policyDocument,
+
+    -- ** DeleteVirtualMFADevice
+    deleteVirtualMFADevice_serialNumber,
+
     -- ** ResyncMFADevice
     resyncMFADevice_userName,
     resyncMFADevice_serialNumber,
     resyncMFADevice_authenticationCode1,
     resyncMFADevice_authenticationCode2,
-
-    -- ** UpdateServiceSpecificCredential
-    updateServiceSpecificCredential_userName,
-    updateServiceSpecificCredential_serviceSpecificCredentialId,
-    updateServiceSpecificCredential_status,
-
-    -- ** GetUserPolicy
-    getUserPolicy_userName,
-    getUserPolicy_policyName,
-    getUserPolicyResponse_httpStatus,
-    getUserPolicyResponse_userName,
-    getUserPolicyResponse_policyName,
-    getUserPolicyResponse_policyDocument,
-
-    -- ** UpdateAccountPasswordPolicy
-    updateAccountPasswordPolicy_maxPasswordAge,
-    updateAccountPasswordPolicy_requireLowercaseCharacters,
-    updateAccountPasswordPolicy_minimumPasswordLength,
-    updateAccountPasswordPolicy_passwordReusePrevention,
-    updateAccountPasswordPolicy_requireUppercaseCharacters,
-    updateAccountPasswordPolicy_allowUsersToChangePassword,
-    updateAccountPasswordPolicy_hardExpiry,
-    updateAccountPasswordPolicy_requireSymbols,
-    updateAccountPasswordPolicy_requireNumbers,
-
-    -- ** ListServiceSpecificCredentials
-    listServiceSpecificCredentials_serviceName,
-    listServiceSpecificCredentials_userName,
-    listServiceSpecificCredentialsResponse_serviceSpecificCredentials,
-    listServiceSpecificCredentialsResponse_httpStatus,
-
-    -- ** DeleteSigningCertificate
-    deleteSigningCertificate_userName,
-    deleteSigningCertificate_certificateId,
 
     -- ** ListAttachedUserPolicies
     listAttachedUserPolicies_pathPrefix,
@@ -524,11 +490,6 @@ module Network.AWS.IAM.Lens
     listAttachedUserPoliciesResponse_marker,
     listAttachedUserPoliciesResponse_httpStatus,
 
-    -- ** UpdateSigningCertificate
-    updateSigningCertificate_userName,
-    updateSigningCertificate_certificateId,
-    updateSigningCertificate_status,
-
     -- ** ListSSHPublicKeys
     listSSHPublicKeys_userName,
     listSSHPublicKeys_maxItems,
@@ -538,41 +499,55 @@ module Network.AWS.IAM.Lens
     listSSHPublicKeysResponse_marker,
     listSSHPublicKeysResponse_httpStatus,
 
-    -- ** DeleteServiceSpecificCredential
-    deleteServiceSpecificCredential_userName,
-    deleteServiceSpecificCredential_serviceSpecificCredentialId,
+    -- ** UpdateAccountPasswordPolicy
+    updateAccountPasswordPolicy_requireLowercaseCharacters,
+    updateAccountPasswordPolicy_maxPasswordAge,
+    updateAccountPasswordPolicy_passwordReusePrevention,
+    updateAccountPasswordPolicy_minimumPasswordLength,
+    updateAccountPasswordPolicy_requireUppercaseCharacters,
+    updateAccountPasswordPolicy_allowUsersToChangePassword,
+    updateAccountPasswordPolicy_hardExpiry,
+    updateAccountPasswordPolicy_requireSymbols,
+    updateAccountPasswordPolicy_requireNumbers,
+
+    -- ** UpdateServiceSpecificCredential
+    updateServiceSpecificCredential_userName,
+    updateServiceSpecificCredential_serviceSpecificCredentialId,
+    updateServiceSpecificCredential_status,
+
+    -- ** UpdateSigningCertificate
+    updateSigningCertificate_userName,
+    updateSigningCertificate_certificateId,
+    updateSigningCertificate_status,
 
     -- ** CreateAccessKey
     createAccessKey_userName,
     createAccessKeyResponse_httpStatus,
     createAccessKeyResponse_accessKey,
 
+    -- ** ListServiceSpecificCredentials
+    listServiceSpecificCredentials_serviceName,
+    listServiceSpecificCredentials_userName,
+    listServiceSpecificCredentialsResponse_serviceSpecificCredentials,
+    listServiceSpecificCredentialsResponse_httpStatus,
+
+    -- ** DeleteSigningCertificate
+    deleteSigningCertificate_userName,
+    deleteSigningCertificate_certificateId,
+
+    -- ** GetUserPolicy
+    getUserPolicy_userName,
+    getUserPolicy_policyName,
+    getUserPolicyResponse_httpStatus,
+    getUserPolicyResponse_userName,
+    getUserPolicyResponse_policyName,
+    getUserPolicyResponse_policyDocument,
+
     -- ** DeleteAccountPasswordPolicy
 
-    -- ** GetOrganizationsAccessReport
-    getOrganizationsAccessReport_sortKey,
-    getOrganizationsAccessReport_maxItems,
-    getOrganizationsAccessReport_marker,
-    getOrganizationsAccessReport_jobId,
-    getOrganizationsAccessReportResponse_accessDetails,
-    getOrganizationsAccessReportResponse_isTruncated,
-    getOrganizationsAccessReportResponse_jobCompletionDate,
-    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
-    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
-    getOrganizationsAccessReportResponse_marker,
-    getOrganizationsAccessReportResponse_errorDetails,
-    getOrganizationsAccessReportResponse_httpStatus,
-    getOrganizationsAccessReportResponse_jobStatus,
-    getOrganizationsAccessReportResponse_jobCreationDate,
-
-    -- ** ListInstanceProfilesForRole
-    listInstanceProfilesForRole_maxItems,
-    listInstanceProfilesForRole_marker,
-    listInstanceProfilesForRole_roleName,
-    listInstanceProfilesForRoleResponse_isTruncated,
-    listInstanceProfilesForRoleResponse_marker,
-    listInstanceProfilesForRoleResponse_httpStatus,
-    listInstanceProfilesForRoleResponse_instanceProfiles,
+    -- ** DeleteServiceSpecificCredential
+    deleteServiceSpecificCredential_userName,
+    deleteServiceSpecificCredential_serviceSpecificCredentialId,
 
     -- ** GetPolicyVersion
     getPolicyVersion_policyArn,
@@ -591,14 +566,39 @@ module Network.AWS.IAM.Lens
     addRoleToInstanceProfile_instanceProfileName,
     addRoleToInstanceProfile_roleName,
 
-    -- ** GetInstanceProfile
-    getInstanceProfile_instanceProfileName,
-    getInstanceProfileResponse_httpStatus,
-    getInstanceProfileResponse_instanceProfile,
+    -- ** ListInstanceProfilesForRole
+    listInstanceProfilesForRole_maxItems,
+    listInstanceProfilesForRole_marker,
+    listInstanceProfilesForRole_roleName,
+    listInstanceProfilesForRoleResponse_isTruncated,
+    listInstanceProfilesForRoleResponse_marker,
+    listInstanceProfilesForRoleResponse_httpStatus,
+    listInstanceProfilesForRoleResponse_instanceProfiles,
 
     -- ** TagOpenIDConnectProvider
     tagOpenIDConnectProvider_openIDConnectProviderArn,
     tagOpenIDConnectProvider_tags,
+
+    -- ** GetOrganizationsAccessReport
+    getOrganizationsAccessReport_sortKey,
+    getOrganizationsAccessReport_maxItems,
+    getOrganizationsAccessReport_marker,
+    getOrganizationsAccessReport_jobId,
+    getOrganizationsAccessReportResponse_accessDetails,
+    getOrganizationsAccessReportResponse_isTruncated,
+    getOrganizationsAccessReportResponse_jobCompletionDate,
+    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
+    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
+    getOrganizationsAccessReportResponse_marker,
+    getOrganizationsAccessReportResponse_errorDetails,
+    getOrganizationsAccessReportResponse_httpStatus,
+    getOrganizationsAccessReportResponse_jobStatus,
+    getOrganizationsAccessReportResponse_jobCreationDate,
+
+    -- ** GetInstanceProfile
+    getInstanceProfile_instanceProfileName,
+    getInstanceProfileResponse_httpStatus,
+    getInstanceProfileResponse_instanceProfile,
 
     -- ** AddUserToGroup
     addUserToGroup_groupName,
@@ -608,10 +608,10 @@ module Network.AWS.IAM.Lens
     attachGroupPolicy_groupName,
     attachGroupPolicy_policyArn,
 
-    -- ** UpdateLoginProfile
-    updateLoginProfile_passwordResetRequired,
-    updateLoginProfile_password,
-    updateLoginProfile_userName,
+    -- ** DeleteServiceLinkedRole
+    deleteServiceLinkedRole_roleName,
+    deleteServiceLinkedRoleResponse_httpStatus,
+    deleteServiceLinkedRoleResponse_deletionTaskId,
 
     -- ** ListSAMLProviderTags
     listSAMLProviderTags_maxItems,
@@ -621,30 +621,6 @@ module Network.AWS.IAM.Lens
     listSAMLProviderTagsResponse_marker,
     listSAMLProviderTagsResponse_httpStatus,
     listSAMLProviderTagsResponse_tags,
-
-    -- ** GetGroup
-    getGroup_maxItems,
-    getGroup_marker,
-    getGroup_groupName,
-    getGroupResponse_isTruncated,
-    getGroupResponse_marker,
-    getGroupResponse_httpStatus,
-    getGroupResponse_group,
-    getGroupResponse_users,
-
-    -- ** DeleteLoginProfile
-    deleteLoginProfile_userName,
-
-    -- ** DeleteServiceLinkedRole
-    deleteServiceLinkedRole_roleName,
-    deleteServiceLinkedRoleResponse_httpStatus,
-    deleteServiceLinkedRoleResponse_deletionTaskId,
-
-    -- ** GenerateOrganizationsAccessReport
-    generateOrganizationsAccessReport_organizationsPolicyId,
-    generateOrganizationsAccessReport_entityPath,
-    generateOrganizationsAccessReportResponse_jobId,
-    generateOrganizationsAccessReportResponse_httpStatus,
 
     -- ** GetServiceLastAccessedDetailsWithEntities
     getServiceLastAccessedDetailsWithEntities_maxItems,
@@ -660,10 +636,42 @@ module Network.AWS.IAM.Lens
     getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate,
     getServiceLastAccessedDetailsWithEntitiesResponse_entityDetailsList,
 
+    -- ** UpdateLoginProfile
+    updateLoginProfile_passwordResetRequired,
+    updateLoginProfile_password,
+    updateLoginProfile_userName,
+
+    -- ** DeleteLoginProfile
+    deleteLoginProfile_userName,
+
+    -- ** GetGroup
+    getGroup_maxItems,
+    getGroup_marker,
+    getGroup_groupName,
+    getGroupResponse_isTruncated,
+    getGroupResponse_marker,
+    getGroupResponse_httpStatus,
+    getGroupResponse_group,
+    getGroupResponse_users,
+
+    -- ** GenerateOrganizationsAccessReport
+    generateOrganizationsAccessReport_organizationsPolicyId,
+    generateOrganizationsAccessReport_entityPath,
+    generateOrganizationsAccessReportResponse_jobId,
+    generateOrganizationsAccessReportResponse_httpStatus,
+
+    -- ** GetPolicy
+    getPolicy_policyArn,
+    getPolicyResponse_policy,
+    getPolicyResponse_httpStatus,
+
     -- ** PutGroupPolicy
     putGroupPolicy_groupName,
     putGroupPolicy_policyName,
     putGroupPolicy_policyDocument,
+
+    -- ** DeleteAccountAlias
+    deleteAccountAlias_accountAlias,
 
     -- ** GetServiceLastAccessedDetails
     getServiceLastAccessedDetails_maxItems,
@@ -679,40 +687,6 @@ module Network.AWS.IAM.Lens
     getServiceLastAccessedDetailsResponse_servicesLastAccessed,
     getServiceLastAccessedDetailsResponse_jobCompletionDate,
 
-    -- ** DeleteAccountAlias
-    deleteAccountAlias_accountAlias,
-
-    -- ** CreateSAMLProvider
-    createSAMLProvider_tags,
-    createSAMLProvider_sAMLMetadataDocument,
-    createSAMLProvider_name,
-    createSAMLProviderResponse_sAMLProviderArn,
-    createSAMLProviderResponse_tags,
-    createSAMLProviderResponse_httpStatus,
-
-    -- ** GetPolicy
-    getPolicy_policyArn,
-    getPolicyResponse_policy,
-    getPolicyResponse_httpStatus,
-
-    -- ** DetachUserPolicy
-    detachUserPolicy_userName,
-    detachUserPolicy_policyArn,
-
-    -- ** UpdateGroup
-    updateGroup_newGroupName,
-    updateGroup_newPath,
-    updateGroup_groupName,
-
-    -- ** DeleteGroup
-    deleteGroup_groupName,
-
-    -- ** GetServiceLinkedRoleDeletionStatus
-    getServiceLinkedRoleDeletionStatus_deletionTaskId,
-    getServiceLinkedRoleDeletionStatusResponse_reason,
-    getServiceLinkedRoleDeletionStatusResponse_httpStatus,
-    getServiceLinkedRoleDeletionStatusResponse_status,
-
     -- ** GetAccountAuthorizationDetails
     getAccountAuthorizationDetails_filter,
     getAccountAuthorizationDetails_maxItems,
@@ -725,40 +699,31 @@ module Network.AWS.IAM.Lens
     getAccountAuthorizationDetailsResponse_marker,
     getAccountAuthorizationDetailsResponse_httpStatus,
 
-    -- ** ListGroupPolicies
-    listGroupPolicies_maxItems,
-    listGroupPolicies_marker,
-    listGroupPolicies_groupName,
-    listGroupPoliciesResponse_isTruncated,
-    listGroupPoliciesResponse_marker,
-    listGroupPoliciesResponse_httpStatus,
-    listGroupPoliciesResponse_policyNames,
+    -- ** DeleteGroup
+    deleteGroup_groupName,
 
-    -- ** DeletePolicyVersion
-    deletePolicyVersion_policyArn,
-    deletePolicyVersion_versionId,
+    -- ** GetServiceLinkedRoleDeletionStatus
+    getServiceLinkedRoleDeletionStatus_deletionTaskId,
+    getServiceLinkedRoleDeletionStatusResponse_reason,
+    getServiceLinkedRoleDeletionStatusResponse_httpStatus,
+    getServiceLinkedRoleDeletionStatusResponse_status,
 
-    -- ** DeleteSAMLProvider
-    deleteSAMLProvider_sAMLProviderArn,
+    -- ** CreateSAMLProvider
+    createSAMLProvider_tags,
+    createSAMLProvider_sAMLMetadataDocument,
+    createSAMLProvider_name,
+    createSAMLProviderResponse_sAMLProviderArn,
+    createSAMLProviderResponse_tags,
+    createSAMLProviderResponse_httpStatus,
 
-    -- ** TagUser
-    tagUser_userName,
-    tagUser_tags,
+    -- ** DetachUserPolicy
+    detachUserPolicy_userName,
+    detachUserPolicy_policyArn,
 
-    -- ** ListInstanceProfiles
-    listInstanceProfiles_pathPrefix,
-    listInstanceProfiles_maxItems,
-    listInstanceProfiles_marker,
-    listInstanceProfilesResponse_isTruncated,
-    listInstanceProfilesResponse_marker,
-    listInstanceProfilesResponse_httpStatus,
-    listInstanceProfilesResponse_instanceProfiles,
-
-    -- ** GetCredentialReport
-    getCredentialReportResponse_reportFormat,
-    getCredentialReportResponse_generatedTime,
-    getCredentialReportResponse_content,
-    getCredentialReportResponse_httpStatus,
+    -- ** UpdateGroup
+    updateGroup_newGroupName,
+    updateGroup_newPath,
+    updateGroup_groupName,
 
     -- ** ListMFADevices
     listMFADevices_userName,
@@ -769,26 +734,41 @@ module Network.AWS.IAM.Lens
     listMFADevicesResponse_httpStatus,
     listMFADevicesResponse_mfaDevices,
 
-    -- ** UpdateSAMLProvider
-    updateSAMLProvider_sAMLMetadataDocument,
-    updateSAMLProvider_sAMLProviderArn,
-    updateSAMLProviderResponse_sAMLProviderArn,
-    updateSAMLProviderResponse_httpStatus,
+    -- ** ListServerCertificateTags
+    listServerCertificateTags_maxItems,
+    listServerCertificateTags_marker,
+    listServerCertificateTags_serverCertificateName,
+    listServerCertificateTagsResponse_isTruncated,
+    listServerCertificateTagsResponse_marker,
+    listServerCertificateTagsResponse_httpStatus,
+    listServerCertificateTagsResponse_tags,
 
-    -- ** UntagInstanceProfile
-    untagInstanceProfile_instanceProfileName,
-    untagInstanceProfile_tagKeys,
-
-    -- ** CreateAccountAlias
-    createAccountAlias_accountAlias,
-
-    -- ** UntagMFADevice
-    untagMFADevice_serialNumber,
-    untagMFADevice_tagKeys,
+    -- ** ListGroupPolicies
+    listGroupPolicies_maxItems,
+    listGroupPolicies_marker,
+    listGroupPolicies_groupName,
+    listGroupPoliciesResponse_isTruncated,
+    listGroupPoliciesResponse_marker,
+    listGroupPoliciesResponse_httpStatus,
+    listGroupPoliciesResponse_policyNames,
 
     -- ** UntagSAMLProvider
     untagSAMLProvider_sAMLProviderArn,
     untagSAMLProvider_tagKeys,
+
+    -- ** DeleteSAMLProvider
+    deleteSAMLProvider_sAMLProviderArn,
+
+    -- ** CreateAccountAlias
+    createAccountAlias_accountAlias,
+
+    -- ** TagUser
+    tagUser_userName,
+    tagUser_tags,
+
+    -- ** UntagInstanceProfile
+    untagInstanceProfile_instanceProfileName,
+    untagInstanceProfile_tagKeys,
 
     -- ** ListAccountAliases
     listAccountAliases_maxItems,
@@ -797,6 +777,42 @@ module Network.AWS.IAM.Lens
     listAccountAliasesResponse_marker,
     listAccountAliasesResponse_httpStatus,
     listAccountAliasesResponse_accountAliases,
+
+    -- ** UpdateSAMLProvider
+    updateSAMLProvider_sAMLMetadataDocument,
+    updateSAMLProvider_sAMLProviderArn,
+    updateSAMLProviderResponse_sAMLProviderArn,
+    updateSAMLProviderResponse_httpStatus,
+
+    -- ** ListInstanceProfiles
+    listInstanceProfiles_pathPrefix,
+    listInstanceProfiles_maxItems,
+    listInstanceProfiles_marker,
+    listInstanceProfilesResponse_isTruncated,
+    listInstanceProfilesResponse_marker,
+    listInstanceProfilesResponse_httpStatus,
+    listInstanceProfilesResponse_instanceProfiles,
+
+    -- ** DeleteInstanceProfile
+    deleteInstanceProfile_instanceProfileName,
+
+    -- ** GetAccountSummary
+    getAccountSummaryResponse_summaryMap,
+    getAccountSummaryResponse_httpStatus,
+
+    -- ** DeletePolicyVersion
+    deletePolicyVersion_policyArn,
+    deletePolicyVersion_versionId,
+
+    -- ** UntagMFADevice
+    untagMFADevice_serialNumber,
+    untagMFADevice_tagKeys,
+
+    -- ** GetCredentialReport
+    getCredentialReportResponse_reportFormat,
+    getCredentialReportResponse_generatedTime,
+    getCredentialReportResponse_content,
+    getCredentialReportResponse_httpStatus,
 
     -- ** ListPolicyVersions
     listPolicyVersions_maxItems,
@@ -807,21 +823,20 @@ module Network.AWS.IAM.Lens
     listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_httpStatus,
 
-    -- ** DeleteInstanceProfile
-    deleteInstanceProfile_instanceProfileName,
+    -- ** DeleteUserPermissionsBoundary
+    deleteUserPermissionsBoundary_userName,
 
-    -- ** GetAccountSummary
-    getAccountSummaryResponse_summaryMap,
-    getAccountSummaryResponse_httpStatus,
+    -- ** UntagUser
+    untagUser_userName,
+    untagUser_tagKeys,
 
-    -- ** ListServerCertificateTags
-    listServerCertificateTags_maxItems,
-    listServerCertificateTags_marker,
-    listServerCertificateTags_serverCertificateName,
-    listServerCertificateTagsResponse_isTruncated,
-    listServerCertificateTagsResponse_marker,
-    listServerCertificateTagsResponse_httpStatus,
-    listServerCertificateTagsResponse_tags,
+    -- ** DetachGroupPolicy
+    detachGroupPolicy_groupName,
+    detachGroupPolicy_policyArn,
+
+    -- ** AddClientIDToOpenIDConnectProvider
+    addClientIDToOpenIDConnectProvider_openIDConnectProviderArn,
+    addClientIDToOpenIDConnectProvider_clientID,
 
     -- ** GetSSHPublicKey
     getSSHPublicKey_userName,
@@ -830,26 +845,10 @@ module Network.AWS.IAM.Lens
     getSSHPublicKeyResponse_sSHPublicKey,
     getSSHPublicKeyResponse_httpStatus,
 
-    -- ** UpdateOpenIDConnectProviderThumbprint
-    updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn,
-    updateOpenIDConnectProviderThumbprint_thumbprintList,
-
-    -- ** GetAccessKeyLastUsed
-    getAccessKeyLastUsed_accessKeyId,
-    getAccessKeyLastUsedResponse_userName,
-    getAccessKeyLastUsedResponse_accessKeyLastUsed,
-    getAccessKeyLastUsedResponse_httpStatus,
-
-    -- ** TagSAMLProvider
-    tagSAMLProvider_sAMLProviderArn,
-    tagSAMLProvider_tags,
-
-    -- ** GetAccountPasswordPolicy
-    getAccountPasswordPolicyResponse_httpStatus,
-    getAccountPasswordPolicyResponse_passwordPolicy,
-
-    -- ** DeleteUser
-    deleteUser_userName,
+    -- ** UpdateUser
+    updateUser_newPath,
+    updateUser_newUserName,
+    updateUser_userName,
 
     -- ** ListUsers
     listUsers_pathPrefix,
@@ -860,11 +859,6 @@ module Network.AWS.IAM.Lens
     listUsersResponse_httpStatus,
     listUsersResponse_users,
 
-    -- ** UpdateUser
-    updateUser_newPath,
-    updateUser_newUserName,
-    updateUser_userName,
-
     -- ** ListRolePolicies
     listRolePolicies_maxItems,
     listRolePolicies_marker,
@@ -874,53 +868,41 @@ module Network.AWS.IAM.Lens
     listRolePoliciesResponse_httpStatus,
     listRolePoliciesResponse_policyNames,
 
-    -- ** AddClientIDToOpenIDConnectProvider
-    addClientIDToOpenIDConnectProvider_openIDConnectProviderArn,
-    addClientIDToOpenIDConnectProvider_clientID,
-
-    -- ** DeleteUserPermissionsBoundary
-    deleteUserPermissionsBoundary_userName,
-
     -- ** PutUserPolicy
     putUserPolicy_userName,
     putUserPolicy_policyName,
     putUserPolicy_policyDocument,
 
-    -- ** DetachGroupPolicy
-    detachGroupPolicy_groupName,
-    detachGroupPolicy_policyArn,
+    -- ** TagSAMLProvider
+    tagSAMLProvider_sAMLProviderArn,
+    tagSAMLProvider_tags,
 
-    -- ** UntagUser
-    untagUser_userName,
-    untagUser_tagKeys,
+    -- ** GetAccessKeyLastUsed
+    getAccessKeyLastUsed_accessKeyId,
+    getAccessKeyLastUsedResponse_userName,
+    getAccessKeyLastUsedResponse_accessKeyLastUsed,
+    getAccessKeyLastUsedResponse_httpStatus,
+
+    -- ** DeleteUser
+    deleteUser_userName,
+
+    -- ** GetAccountPasswordPolicy
+    getAccountPasswordPolicyResponse_httpStatus,
+    getAccountPasswordPolicyResponse_passwordPolicy,
+
+    -- ** UpdateOpenIDConnectProviderThumbprint
+    updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn,
+    updateOpenIDConnectProviderThumbprint_thumbprintList,
 
     -- ** GetContextKeysForCustomPolicy
     getContextKeysForCustomPolicy_policyInputList,
     getContextKeysForPolicyResponse_contextKeyNames,
 
-    -- ** PutRolePermissionsBoundary
-    putRolePermissionsBoundary_roleName,
-    putRolePermissionsBoundary_permissionsBoundary,
-
-    -- ** UntagRole
-    untagRole_roleName,
-    untagRole_tagKeys,
-
-    -- ** SimulateCustomPolicy
-    simulateCustomPolicy_resourceOwner,
-    simulateCustomPolicy_contextEntries,
-    simulateCustomPolicy_resourcePolicy,
-    simulateCustomPolicy_resourceArns,
-    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
-    simulateCustomPolicy_resourceHandlingOption,
-    simulateCustomPolicy_callerArn,
-    simulateCustomPolicy_maxItems,
-    simulateCustomPolicy_marker,
-    simulateCustomPolicy_policyInputList,
-    simulateCustomPolicy_actionNames,
-    simulatePolicyResponse_isTruncated,
-    simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
+    -- ** UpdateRole
+    updateRole_maxSessionDuration,
+    updateRole_description,
+    updateRole_roleName,
+    updateRoleResponse_httpStatus,
 
     -- ** UploadSSHPublicKey
     uploadSSHPublicKey_userName,
@@ -940,36 +922,38 @@ module Network.AWS.IAM.Lens
     listUserPoliciesResponse_httpStatus,
     listUserPoliciesResponse_policyNames,
 
+    -- ** SimulateCustomPolicy
+    simulateCustomPolicy_resourceOwner,
+    simulateCustomPolicy_contextEntries,
+    simulateCustomPolicy_resourcePolicy,
+    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
+    simulateCustomPolicy_resourceArns,
+    simulateCustomPolicy_resourceHandlingOption,
+    simulateCustomPolicy_callerArn,
+    simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_marker,
+    simulateCustomPolicy_policyInputList,
+    simulateCustomPolicy_actionNames,
+    simulatePolicyResponse_isTruncated,
+    simulatePolicyResponse_evaluationResults,
+    simulatePolicyResponse_marker,
+
     -- ** PutRolePolicy
     putRolePolicy_roleName,
     putRolePolicy_policyName,
     putRolePolicy_policyDocument,
 
-    -- ** UpdateRole
-    updateRole_maxSessionDuration,
-    updateRole_description,
-    updateRole_roleName,
-    updateRoleResponse_httpStatus,
+    -- ** PutRolePermissionsBoundary
+    putRolePermissionsBoundary_roleName,
+    putRolePermissionsBoundary_permissionsBoundary,
 
-    -- ** SetSecurityTokenServicePreferences
-    setSecurityTokenServicePreferences_globalEndpointTokenVersion,
-
-    -- ** AttachUserPolicy
-    attachUserPolicy_userName,
-    attachUserPolicy_policyArn,
+    -- ** UntagRole
+    untagRole_roleName,
+    untagRole_tagKeys,
 
     -- ** TagServerCertificate
     tagServerCertificate_serverCertificateName,
     tagServerCertificate_tags,
-
-    -- ** ListAccessKeys
-    listAccessKeys_userName,
-    listAccessKeys_maxItems,
-    listAccessKeys_marker,
-    listAccessKeysResponse_isTruncated,
-    listAccessKeysResponse_marker,
-    listAccessKeysResponse_httpStatus,
-    listAccessKeysResponse_accessKeyMetadata,
 
     -- ** CreateOpenIDConnectProvider
     createOpenIDConnectProvider_clientIDList,
@@ -980,9 +964,21 @@ module Network.AWS.IAM.Lens
     createOpenIDConnectProviderResponse_openIDConnectProviderArn,
     createOpenIDConnectProviderResponse_httpStatus,
 
-    -- ** DeactivateMFADevice
-    deactivateMFADevice_userName,
-    deactivateMFADevice_serialNumber,
+    -- ** ListAccessKeys
+    listAccessKeys_userName,
+    listAccessKeys_maxItems,
+    listAccessKeys_marker,
+    listAccessKeysResponse_isTruncated,
+    listAccessKeysResponse_marker,
+    listAccessKeysResponse_httpStatus,
+    listAccessKeysResponse_accessKeyMetadata,
+
+    -- ** SetSecurityTokenServicePreferences
+    setSecurityTokenServicePreferences_globalEndpointTokenVersion,
+
+    -- ** AttachUserPolicy
+    attachUserPolicy_userName,
+    attachUserPolicy_policyArn,
 
     -- ** ListUserTags
     listUserTags_maxItems,
@@ -993,6 +989,10 @@ module Network.AWS.IAM.Lens
     listUserTagsResponse_httpStatus,
     listUserTagsResponse_tags,
 
+    -- ** DeactivateMFADevice
+    deactivateMFADevice_userName,
+    deactivateMFADevice_serialNumber,
+
     -- ** GetRole
     getRole_roleName,
     getRoleResponse_httpStatus,
@@ -1002,8 +1002,8 @@ module Network.AWS.IAM.Lens
 
     -- ** AccessDetail
     accessDetail_totalAuthenticatedEntities,
-    accessDetail_entityPath,
     accessDetail_lastAuthenticatedTime,
+    accessDetail_entityPath,
     accessDetail_region,
     accessDetail_serviceName,
     accessDetail_serviceNamespace,
@@ -1023,8 +1023,8 @@ module Network.AWS.IAM.Lens
     -- ** AccessKeyMetadata
     accessKeyMetadata_status,
     accessKeyMetadata_createDate,
-    accessKeyMetadata_accessKeyId,
     accessKeyMetadata_userName,
+    accessKeyMetadata_accessKeyId,
 
     -- ** AttachedPermissionsBoundary
     attachedPermissionsBoundary_permissionsBoundaryArn,
@@ -1060,8 +1060,8 @@ module Network.AWS.IAM.Lens
 
     -- ** EvaluationResult
     evaluationResult_evalDecisionDetails,
-    evaluationResult_permissionsBoundaryDecisionDetail,
     evaluationResult_organizationsDecisionDetail,
+    evaluationResult_permissionsBoundaryDecisionDetail,
     evaluationResult_resourceSpecificResults,
     evaluationResult_matchedStatements,
     evaluationResult_evalResourceName,
@@ -1081,12 +1081,12 @@ module Network.AWS.IAM.Lens
 
     -- ** GroupDetail
     groupDetail_attachedManagedPolicies,
-    groupDetail_groupName,
     groupDetail_createDate,
+    groupDetail_groupName,
     groupDetail_arn,
     groupDetail_groupId,
-    groupDetail_groupPolicyList,
     groupDetail_path,
+    groupDetail_groupPolicyList,
 
     -- ** InstanceProfile
     instanceProfile_tags,
@@ -1121,9 +1121,9 @@ module Network.AWS.IAM.Lens
     managedPolicyDetail_defaultVersionId,
     managedPolicyDetail_description,
     managedPolicyDetail_policyVersionList,
+    managedPolicyDetail_updateDate,
     managedPolicyDetail_path,
     managedPolicyDetail_policyId,
-    managedPolicyDetail_updateDate,
 
     -- ** OpenIDConnectProviderListEntry
     openIDConnectProviderListEntry_arn,
@@ -1132,10 +1132,10 @@ module Network.AWS.IAM.Lens
     organizationsDecisionDetail_allowedByOrganizations,
 
     -- ** PasswordPolicy
-    passwordPolicy_maxPasswordAge,
     passwordPolicy_requireLowercaseCharacters,
-    passwordPolicy_minimumPasswordLength,
+    passwordPolicy_maxPasswordAge,
     passwordPolicy_passwordReusePrevention,
+    passwordPolicy_minimumPasswordLength,
     passwordPolicy_expirePasswords,
     passwordPolicy_requireUppercaseCharacters,
     passwordPolicy_allowUsersToChangePassword,
@@ -1156,9 +1156,9 @@ module Network.AWS.IAM.Lens
     policy_defaultVersionId,
     policy_tags,
     policy_description,
+    policy_updateDate,
     policy_path,
     policy_policyId,
-    policy_updateDate,
 
     -- ** PolicyDetail
     policyDetail_policyName,
@@ -1216,13 +1216,13 @@ module Network.AWS.IAM.Lens
 
     -- ** RoleDetail
     roleDetail_assumeRolePolicyDocument,
-    roleDetail_roleId,
     roleDetail_roleLastUsed,
+    roleDetail_roleId,
     roleDetail_attachedManagedPolicies,
     roleDetail_rolePolicyList,
     roleDetail_roleName,
-    roleDetail_permissionsBoundary,
     roleDetail_createDate,
+    roleDetail_permissionsBoundary,
     roleDetail_arn,
     roleDetail_tags,
     roleDetail_instanceProfileList,
@@ -1335,8 +1335,8 @@ module Network.AWS.IAM.Lens
 
     -- ** UserDetail
     userDetail_attachedManagedPolicies,
-    userDetail_permissionsBoundary,
     userDetail_createDate,
+    userDetail_permissionsBoundary,
     userDetail_arn,
     userDetail_groupList,
     userDetail_userId,

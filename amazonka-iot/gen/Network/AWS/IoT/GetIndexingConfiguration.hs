@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the indexing configuration.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetIndexingConfiguration>
+-- action.
 module Network.AWS.IoT.GetIndexingConfiguration
   ( -- * Creating a Request
     GetIndexingConfiguration (..),

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the stored queries for a single AWS account and a single AWS
--- Region. The default is 100.
+-- Lists the stored queries for a single Amazon Web Services account and a
+-- single Amazon Web Services Region. The default is 100.
 module Network.AWS.Config.ListStoredQueries
   ( -- * Creating a Request
     ListStoredQueries (..),

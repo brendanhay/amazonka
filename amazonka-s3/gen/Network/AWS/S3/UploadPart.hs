@@ -47,10 +47,10 @@
 -- checks the part data against the provided MD5 value. If they do not
 -- match, Amazon S3 returns an error.
 --
--- If the upload request is signed with Signature Version 4, then AWS S3
--- uses the @x-amz-content-sha256@ header as a checksum instead of
--- @Content-MD5@. For more information see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html Authenticating Requests: Using the Authorization Header (AWS Signature Version 4)>.
+-- If the upload request is signed with Signature Version 4, then Amazon
+-- Web Services S3 uses the @x-amz-content-sha256@ header as a checksum
+-- instead of @Content-MD5@. For more information see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html Authenticating Requests: Using the Authorization Header (Amazon Web Services Signature Version 4)>.
 --
 -- __Note:__ After you initiate multipart upload and upload one or more
 -- parts, you must either complete or abort multipart upload in order to
@@ -60,24 +60,24 @@
 --
 -- For more information on multipart uploads, go to
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html Multipart Upload Overview>
--- in the /Amazon Simple Storage Service Developer Guide/ .
+-- in the /Amazon S3 User Guide/ .
 --
 -- For information on the permissions required to use the multipart upload
 -- API, go to
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html Multipart Upload API and Permissions>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html Multipart Upload and Permissions>
+-- in the /Amazon S3 User Guide/.
 --
 -- You can optionally request server-side encryption where Amazon S3
 -- encrypts your data as it writes it to disks in its data centers and
 -- decrypts it for you when you access it. You have the option of providing
--- your own encryption key, or you can use the AWS managed encryption keys.
--- If you choose to provide your own encryption key, the request headers
--- you provide in the request must match the headers you used in the
--- request to initiate the upload by using
+-- your own encryption key, or you can use the Amazon Web Services managed
+-- encryption keys. If you choose to provide your own encryption key, the
+-- request headers you provide in the request must match the headers you
+-- used in the request to initiate the upload by using
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html CreateMultipartUpload>.
 -- For more information, go to
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Using Server-Side Encryption>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- Server-side encryption is supported by the S3 Multipart Upload actions.
 -- Unless you are using a customer-provided encryption key, you don\'t need
@@ -127,12 +127,12 @@ module Network.AWS.S3.UploadPart
 
     -- * Request Lenses
     uploadPart_expectedBucketOwner,
-    uploadPart_contentMD5,
     uploadPart_contentLength,
+    uploadPart_contentMD5,
     uploadPart_sSECustomerKeyMD5,
+    uploadPart_sSECustomerKey,
     uploadPart_sSECustomerAlgorithm,
     uploadPart_requestPayer,
-    uploadPart_sSECustomerKey,
     uploadPart_bucket,
     uploadPart_key,
     uploadPart_partNumber,
@@ -144,10 +144,10 @@ module Network.AWS.S3.UploadPart
     newUploadPartResponse,
 
     -- * Response Lenses
-    uploadPartResponse_eTag,
     uploadPartResponse_requestCharged,
-    uploadPartResponse_sSEKMSKeyId,
+    uploadPartResponse_eTag,
     uploadPartResponse_sSECustomerKeyMD5,
+    uploadPartResponse_sSEKMSKeyId,
     uploadPartResponse_bucketKeyEnabled,
     uploadPartResponse_serverSideEncryption,
     uploadPartResponse_sSECustomerAlgorithm,
@@ -164,25 +164,21 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newUploadPart' smart constructor.
 data UploadPart = UploadPart'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Size of the body in bytes. This parameter is useful when the size of the
+    -- body cannot be determined automatically.
+    contentLength :: Prelude.Maybe Prelude.Integer,
     -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter
     -- is auto-populated when using the command from the CLI. This parameter is
     -- required if object lock parameters are specified.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Size of the body in bytes. This parameter is useful when the size of the
-    -- body cannot be determined automatically.
-    contentLength :: Prelude.Maybe Prelude.Integer,
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the algorithm to use to when encrypting the object (for
-    -- example, AES256).
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the customer-provided encryption key for Amazon S3 to use in
     -- encrypting data. This value is used to store the object and then it is
     -- discarded; Amazon S3 does not store the encryption key. The key must be
@@ -191,26 +187,30 @@ data UploadPart = UploadPart'
     -- the same encryption key specified in the initiate multipart upload
     -- request.
     sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Specifies the algorithm to use to when encrypting the object (for
+    -- example, AES256).
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The name of the bucket to which the multipart upload was initiated.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     --
-    -- When using this API with Amazon S3 on Outposts, you must direct requests
-    -- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
-    -- form
+    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+    -- takes the form
     -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this operation using S3 on Outposts through the AWS SDKs, you
-    -- provide the Outposts bucket ARN in place of the bucket name. For more
-    -- information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action using S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- bucket name. For more information about S3 on Outposts ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the multipart upload was initiated.
     key :: ObjectKey,
@@ -232,25 +232,20 @@ data UploadPart = UploadPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'uploadPart_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'uploadPart_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'contentLength', 'uploadPart_contentLength' - Size of the body in bytes. This parameter is useful when the size of the
+-- body cannot be determined automatically.
 --
 -- 'contentMD5', 'uploadPart_contentMD5' - The base64-encoded 128-bit MD5 digest of the part data. This parameter
 -- is auto-populated when using the command from the CLI. This parameter is
 -- required if object lock parameters are specified.
 --
--- 'contentLength', 'uploadPart_contentLength' - Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
---
 -- 'sSECustomerKeyMD5', 'uploadPart_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
---
--- 'sSECustomerAlgorithm', 'uploadPart_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
---
--- 'requestPayer', 'uploadPart_requestPayer' - Undocumented member.
 --
 -- 'sSECustomerKey', 'uploadPart_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -260,26 +255,31 @@ data UploadPart = UploadPart'
 -- the same encryption key specified in the initiate multipart upload
 -- request.
 --
+-- 'sSECustomerAlgorithm', 'uploadPart_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+--
+-- 'requestPayer', 'uploadPart_requestPayer' - Undocumented member.
+--
 -- 'bucket', 'uploadPart_bucket' - The name of the bucket to which the multipart upload was initiated.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'uploadPart_key' - Object key for which the multipart upload was initiated.
 --
@@ -309,12 +309,12 @@ newUploadPart
   pBody_ =
     UploadPart'
       { expectedBucketOwner = Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
         contentLength = Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
         sSECustomerKeyMD5 = Prelude.Nothing,
+        sSECustomerKey = Prelude.Nothing,
         sSECustomerAlgorithm = Prelude.Nothing,
         requestPayer = Prelude.Nothing,
-        sSECustomerKey = Prelude.Nothing,
         bucket = pBucket_,
         key = pKey_,
         partNumber = pPartNumber_,
@@ -322,11 +322,16 @@ newUploadPart
         body = pBody_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 uploadPart_expectedBucketOwner :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
 uploadPart_expectedBucketOwner = Lens.lens (\UploadPart' {expectedBucketOwner} -> expectedBucketOwner) (\s@UploadPart' {} a -> s {expectedBucketOwner = a} :: UploadPart)
+
+-- | Size of the body in bytes. This parameter is useful when the size of the
+-- body cannot be determined automatically.
+uploadPart_contentLength :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Integer)
+uploadPart_contentLength = Lens.lens (\UploadPart' {contentLength} -> contentLength) (\s@UploadPart' {} a -> s {contentLength = a} :: UploadPart)
 
 -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter
 -- is auto-populated when using the command from the CLI. This parameter is
@@ -334,25 +339,11 @@ uploadPart_expectedBucketOwner = Lens.lens (\UploadPart' {expectedBucketOwner} -
 uploadPart_contentMD5 :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
 uploadPart_contentMD5 = Lens.lens (\UploadPart' {contentMD5} -> contentMD5) (\s@UploadPart' {} a -> s {contentMD5 = a} :: UploadPart)
 
--- | Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
-uploadPart_contentLength :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Integer)
-uploadPart_contentLength = Lens.lens (\UploadPart' {contentLength} -> contentLength) (\s@UploadPart' {} a -> s {contentLength = a} :: UploadPart)
-
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
 uploadPart_sSECustomerKeyMD5 :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
 uploadPart_sSECustomerKeyMD5 = Lens.lens (\UploadPart' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPart' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPart)
-
--- | Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
-uploadPart_sSECustomerAlgorithm :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
-uploadPart_sSECustomerAlgorithm = Lens.lens (\UploadPart' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPart' {} a -> s {sSECustomerAlgorithm = a} :: UploadPart)
-
--- | Undocumented member.
-uploadPart_requestPayer :: Lens.Lens' UploadPart (Prelude.Maybe RequestPayer)
-uploadPart_requestPayer = Lens.lens (\UploadPart' {requestPayer} -> requestPayer) (\s@UploadPart' {} a -> s {requestPayer = a} :: UploadPart)
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -364,26 +355,35 @@ uploadPart_requestPayer = Lens.lens (\UploadPart' {requestPayer} -> requestPayer
 uploadPart_sSECustomerKey :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
 uploadPart_sSECustomerKey = Lens.lens (\UploadPart' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPart' {} a -> s {sSECustomerKey = a} :: UploadPart) Prelude.. Lens.mapping Core._Sensitive
 
+-- | Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+uploadPart_sSECustomerAlgorithm :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
+uploadPart_sSECustomerAlgorithm = Lens.lens (\UploadPart' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPart' {} a -> s {sSECustomerAlgorithm = a} :: UploadPart)
+
+-- | Undocumented member.
+uploadPart_requestPayer :: Lens.Lens' UploadPart (Prelude.Maybe RequestPayer)
+uploadPart_requestPayer = Lens.lens (\UploadPart' {requestPayer} -> requestPayer) (\s@UploadPart' {} a -> s {requestPayer = a} :: UploadPart)
+
 -- | The name of the bucket to which the multipart upload was initiated.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 uploadPart_bucket :: Lens.Lens' UploadPart BucketName
 uploadPart_bucket = Lens.lens (\UploadPart' {bucket} -> bucket) (\s@UploadPart' {} a -> s {bucket = a} :: UploadPart)
 
@@ -411,13 +411,13 @@ instance Core.AWSRequest UploadPart where
     Response.receiveEmpty
       ( \s h x ->
           UploadPartResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
-                        )
+            Prelude.<$> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-customer-key-MD5"
+                        )
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
@@ -437,15 +437,15 @@ instance Core.ToHeaders UploadPart where
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5,
         "Content-Length" Core.=# contentLength,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-server-side-encryption-customer-key-MD5"
           Core.=# sSECustomerKeyMD5,
+        "x-amz-server-side-encryption-customer-key"
+          Core.=# sSECustomerKey,
         "x-amz-server-side-encryption-customer-algorithm"
           Core.=# sSECustomerAlgorithm,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath UploadPart where
@@ -462,19 +462,19 @@ instance Core.ToQuery UploadPart where
 
 -- | /See:/ 'newUploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-  { -- | Entity tag for the uploaded object.
+  { requestCharged :: Prelude.Maybe RequestCharged,
+    -- | Entity tag for the uploaded object.
     eTag :: Prelude.Maybe ETag,
-    requestCharged :: Prelude.Maybe RequestCharged,
-    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS)
-    -- symmetric customer managed customer master key (CMK) was used for the
-    -- object.
-    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | If server-side encryption with a customer-provided encryption key was
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | If present, specifies the ID of the Amazon Web Services Key Management
+    -- Service (Amazon Web Services KMS) symmetric customer managed key was
+    -- used for the object.
+    sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Indicates whether the multipart upload uses an S3 Bucket Key for
-    -- server-side encryption with AWS KMS (SSE-KMS).
+    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
@@ -496,20 +496,20 @@ data UploadPartResponse = UploadPartResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'uploadPartResponse_eTag' - Entity tag for the uploaded object.
---
 -- 'requestCharged', 'uploadPartResponse_requestCharged' - Undocumented member.
 --
--- 'sSEKMSKeyId', 'uploadPartResponse_sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS)
--- symmetric customer managed customer master key (CMK) was used for the
--- object.
+-- 'eTag', 'uploadPartResponse_eTag' - Entity tag for the uploaded object.
 --
 -- 'sSECustomerKeyMD5', 'uploadPartResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
 --
+-- 'sSEKMSKeyId', 'uploadPartResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key was
+-- used for the object.
+--
 -- 'bucketKeyEnabled', 'uploadPartResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with AWS KMS (SSE-KMS).
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 --
 -- 'serverSideEncryption', 'uploadPartResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
@@ -525,29 +525,24 @@ newUploadPartResponse ::
   UploadPartResponse
 newUploadPartResponse pHttpStatus_ =
   UploadPartResponse'
-    { eTag = Prelude.Nothing,
-      requestCharged = Prelude.Nothing,
-      sSEKMSKeyId = Prelude.Nothing,
+    { requestCharged =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       sSECustomerKeyMD5 = Prelude.Nothing,
+      sSEKMSKeyId = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
       serverSideEncryption = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Entity tag for the uploaded object.
-uploadPartResponse_eTag :: Lens.Lens' UploadPartResponse (Prelude.Maybe ETag)
-uploadPartResponse_eTag = Lens.lens (\UploadPartResponse' {eTag} -> eTag) (\s@UploadPartResponse' {} a -> s {eTag = a} :: UploadPartResponse)
-
 -- | Undocumented member.
 uploadPartResponse_requestCharged :: Lens.Lens' UploadPartResponse (Prelude.Maybe RequestCharged)
 uploadPartResponse_requestCharged = Lens.lens (\UploadPartResponse' {requestCharged} -> requestCharged) (\s@UploadPartResponse' {} a -> s {requestCharged = a} :: UploadPartResponse)
 
--- | If present, specifies the ID of the AWS Key Management Service (AWS KMS)
--- symmetric customer managed customer master key (CMK) was used for the
--- object.
-uploadPartResponse_sSEKMSKeyId :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
-uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartResponse) Prelude.. Lens.mapping Core._Sensitive
+-- | Entity tag for the uploaded object.
+uploadPartResponse_eTag :: Lens.Lens' UploadPartResponse (Prelude.Maybe ETag)
+uploadPartResponse_eTag = Lens.lens (\UploadPartResponse' {eTag} -> eTag) (\s@UploadPartResponse' {} a -> s {eTag = a} :: UploadPartResponse)
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round-trip
@@ -555,8 +550,14 @@ uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -
 uploadPartResponse_sSECustomerKeyMD5 :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
 uploadPartResponse_sSECustomerKeyMD5 = Lens.lens (\UploadPartResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPartResponse' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPartResponse)
 
+-- | If present, specifies the ID of the Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) symmetric customer managed key was
+-- used for the object.
+uploadPartResponse_sSEKMSKeyId :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
+uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartResponse) Prelude.. Lens.mapping Core._Sensitive
+
 -- | Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with AWS KMS (SSE-KMS).
+-- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 uploadPartResponse_bucketKeyEnabled :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Bool)
 uploadPartResponse_bucketKeyEnabled = Lens.lens (\UploadPartResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@UploadPartResponse' {} a -> s {bucketKeyEnabled = a} :: UploadPartResponse)
 

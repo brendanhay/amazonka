@@ -25,8 +25,8 @@ import Network.AWS.GameLift.Types.GameServerUtilizationStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | __This data type is used with the Amazon GameLift FleetIQ and game
--- server groups.__
+-- | __This data type is used with the GameLift FleetIQ and game server
+-- groups.__
 --
 -- Properties describing a game server that is running on an instance in a
 -- GameServerGroup.
@@ -35,17 +35,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- and deleted by calling @DeregisterGameServer@. A game server is claimed
 -- to host a game session by calling @ClaimGameServer@.
 --
--- -   RegisterGameServer
+-- __Related actions__
 --
--- -   ListGameServers
---
--- -   ClaimGameServer
---
--- -   DescribeGameServer
---
--- -   UpdateGameServer
---
--- -   DeregisterGameServer
+-- RegisterGameServer | ListGameServers | ClaimGameServer |
+-- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 --
 -- /See:/ 'newGameServer' smart constructor.
 data GameServer = GameServer'

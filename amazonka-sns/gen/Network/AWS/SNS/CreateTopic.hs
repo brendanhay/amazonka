@@ -23,10 +23,10 @@
 -- Creates a topic to which notifications can be published. Users can
 -- create at most 100,000 standard topics (at most 1,000 FIFO topics). For
 -- more information, see
--- <http://aws.amazon.com/sns/ https:\/\/aws.amazon.com\/sns>. This action
--- is idempotent, so if the requester already owns a topic with the
--- specified name, that topic\'s ARN is returned without creating a new
--- topic.
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html Creating an Amazon SNS topic>
+-- in the /Amazon SNS Developer Guide/. This action is idempotent, so if
+-- the requester already owns a topic with the specified name, that
+-- topic\'s ARN is returned without creating a new topic.
 module Network.AWS.SNS.CreateTopic
   ( -- * Creating a Request
     CreateTopic (..),
@@ -75,14 +75,15 @@ data CreateTopic = CreateTopic'
     --     default, only the topic owner can publish or subscribe to the topic.
     --
     -- The following attribute applies only to
-    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
     --
-    -- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
-    --     (CMK) for Amazon SNS or a custom CMK. For more information, see
+    -- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+    --     master key (CMK) for Amazon SNS or a custom CMK. For more
+    --     information, see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
     --     For more examples, see
     --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
-    --     in the /AWS Key Management Service API Reference/.
+    --     in the /Key Management Service API Reference/.
     --
     -- The following attributes apply only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -105,7 +106,7 @@ data CreateTopic = CreateTopic'
     --         message).
     --
     --         (Optional) To override the generated value, you can specify a
-    --         value for the the @MessageDeduplicationId@ parameter for the
+    --         value for the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The list of tags to add to a new topic.
@@ -150,14 +151,15 @@ data CreateTopic = CreateTopic'
 --     default, only the topic owner can publish or subscribe to the topic.
 --
 -- The following attribute applies only to
--- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
 --
--- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -180,7 +182,7 @@ data CreateTopic = CreateTopic'
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 --
 -- 'tags', 'createTopic_tags' - The list of tags to add to a new topic.
@@ -224,14 +226,15 @@ newCreateTopic pName_ =
 --     default, only the topic owner can publish or subscribe to the topic.
 --
 -- The following attribute applies only to
--- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
 --
--- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -254,7 +257,7 @@ newCreateTopic pName_ =
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 createTopic_attributes :: Lens.Lens' CreateTopic (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens._Coerce

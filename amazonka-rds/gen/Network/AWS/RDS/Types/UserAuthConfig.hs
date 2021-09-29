@@ -34,12 +34,12 @@ data UserAuthConfig = UserAuthConfig'
     -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
     -- secrets are stored within Amazon Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether to require or disallow AWS Identity and Access Management (IAM)
-    -- authentication for connections to the proxy.
-    iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The type of authentication that the proxy uses for connections from the
     -- proxy to the underlying database.
     authScheme :: Prelude.Maybe AuthScheme,
+    -- | Whether to require or disallow Amazon Web Services Identity and Access
+    -- Management (IAM) authentication for connections to the proxy.
+    iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The name of the database user to which the proxy connects.
     userName :: Prelude.Maybe Prelude.Text,
     -- | A user-specified description about the authentication used by a proxy to
@@ -60,11 +60,11 @@ data UserAuthConfig = UserAuthConfig'
 -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
 -- secrets are stored within Amazon Secrets Manager.
 --
--- 'iAMAuth', 'userAuthConfig_iAMAuth' - Whether to require or disallow AWS Identity and Access Management (IAM)
--- authentication for connections to the proxy.
---
 -- 'authScheme', 'userAuthConfig_authScheme' - The type of authentication that the proxy uses for connections from the
 -- proxy to the underlying database.
+--
+-- 'iAMAuth', 'userAuthConfig_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access
+-- Management (IAM) authentication for connections to the proxy.
 --
 -- 'userName', 'userAuthConfig_userName' - The name of the database user to which the proxy connects.
 --
@@ -75,8 +75,8 @@ newUserAuthConfig ::
 newUserAuthConfig =
   UserAuthConfig'
     { secretArn = Prelude.Nothing,
-      iAMAuth = Prelude.Nothing,
       authScheme = Prelude.Nothing,
+      iAMAuth = Prelude.Nothing,
       userName = Prelude.Nothing,
       description = Prelude.Nothing
     }
@@ -87,15 +87,15 @@ newUserAuthConfig =
 userAuthConfig_secretArn :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
 userAuthConfig_secretArn = Lens.lens (\UserAuthConfig' {secretArn} -> secretArn) (\s@UserAuthConfig' {} a -> s {secretArn = a} :: UserAuthConfig)
 
--- | Whether to require or disallow AWS Identity and Access Management (IAM)
--- authentication for connections to the proxy.
-userAuthConfig_iAMAuth :: Lens.Lens' UserAuthConfig (Prelude.Maybe IAMAuthMode)
-userAuthConfig_iAMAuth = Lens.lens (\UserAuthConfig' {iAMAuth} -> iAMAuth) (\s@UserAuthConfig' {} a -> s {iAMAuth = a} :: UserAuthConfig)
-
 -- | The type of authentication that the proxy uses for connections from the
 -- proxy to the underlying database.
 userAuthConfig_authScheme :: Lens.Lens' UserAuthConfig (Prelude.Maybe AuthScheme)
 userAuthConfig_authScheme = Lens.lens (\UserAuthConfig' {authScheme} -> authScheme) (\s@UserAuthConfig' {} a -> s {authScheme = a} :: UserAuthConfig)
+
+-- | Whether to require or disallow Amazon Web Services Identity and Access
+-- Management (IAM) authentication for connections to the proxy.
+userAuthConfig_iAMAuth :: Lens.Lens' UserAuthConfig (Prelude.Maybe IAMAuthMode)
+userAuthConfig_iAMAuth = Lens.lens (\UserAuthConfig' {iAMAuth} -> iAMAuth) (\s@UserAuthConfig' {} a -> s {iAMAuth = a} :: UserAuthConfig)
 
 -- | The name of the database user to which the proxy connects.
 userAuthConfig_userName :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
@@ -114,8 +114,8 @@ instance Core.ToQuery UserAuthConfig where
   toQuery UserAuthConfig' {..} =
     Prelude.mconcat
       [ "SecretArn" Core.=: secretArn,
-        "IAMAuth" Core.=: iAMAuth,
         "AuthScheme" Core.=: authScheme,
+        "IAMAuth" Core.=: iAMAuth,
         "UserName" Core.=: userName,
         "Description" Core.=: description
       ]

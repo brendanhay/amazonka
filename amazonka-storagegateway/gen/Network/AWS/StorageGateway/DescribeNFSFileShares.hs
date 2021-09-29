@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a description for one or more Network File System (NFS) file shares
--- from a file gateway. This operation is only supported for file gateways.
+-- from an S3 File Gateway. This operation is only supported for S3 File
+-- Gateways.
 module Network.AWS.StorageGateway.DescribeNFSFileShares
   ( -- * Creating a Request
     DescribeNFSFileShares (..),

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a conditional forwarder that has been set up for your AWS
--- directory.
+-- Updates a conditional forwarder that has been set up for your Amazon Web
+-- Services directory.
 module Network.AWS.DirectoryService.UpdateConditionalForwarder
   ( -- * Creating a Request
     UpdateConditionalForwarder (..),
@@ -52,8 +52,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateConditionalForwarder' smart constructor.
 data UpdateConditionalForwarder = UpdateConditionalForwarder'
-  { -- | The directory ID of the AWS directory for which to update the
-    -- conditional forwarder.
+  { -- | The directory ID of the Amazon Web Services directory for which to
+    -- update the conditional forwarder.
     directoryId :: Prelude.Text,
     -- | The fully qualified domain name (FQDN) of the remote domain with which
     -- you will set up a trust relationship.
@@ -72,8 +72,8 @@ data UpdateConditionalForwarder = UpdateConditionalForwarder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'updateConditionalForwarder_directoryId' - The directory ID of the AWS directory for which to update the
--- conditional forwarder.
+-- 'directoryId', 'updateConditionalForwarder_directoryId' - The directory ID of the Amazon Web Services directory for which to
+-- update the conditional forwarder.
 --
 -- 'remoteDomainName', 'updateConditionalForwarder_remoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which
 -- you will set up a trust relationship.
@@ -96,8 +96,8 @@ newUpdateConditionalForwarder
         dnsIpAddrs = Prelude.mempty
       }
 
--- | The directory ID of the AWS directory for which to update the
--- conditional forwarder.
+-- | The directory ID of the Amazon Web Services directory for which to
+-- update the conditional forwarder.
 updateConditionalForwarder_directoryId :: Lens.Lens' UpdateConditionalForwarder Prelude.Text
 updateConditionalForwarder_directoryId = Lens.lens (\UpdateConditionalForwarder' {directoryId} -> directoryId) (\s@UpdateConditionalForwarder' {} a -> s {directoryId = a} :: UpdateConditionalForwarder)
 

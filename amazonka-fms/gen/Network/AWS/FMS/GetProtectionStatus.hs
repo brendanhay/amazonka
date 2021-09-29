@@ -59,29 +59,29 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetProtectionStatus' smart constructor.
 data GetProtectionStatus = GetProtectionStatus'
   { -- | If you specify a value for @MaxResults@ and you have more objects than
-    -- the number that you specify for @MaxResults@, AWS Firewall Manager
-    -- returns a @NextToken@ value in the response, which you can use to
-    -- retrieve another group of objects. For the second and subsequent
-    -- @GetProtectionStatus@ requests, specify the value of @NextToken@ from
-    -- the previous response to get information about another batch of objects.
+    -- the number that you specify for @MaxResults@, Firewall Manager returns a
+    -- @NextToken@ value in the response, which you can use to retrieve another
+    -- group of objects. For the second and subsequent @GetProtectionStatus@
+    -- requests, specify the value of @NextToken@ from the previous response to
+    -- get information about another batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of objects that you want AWS Firewall Manager to
-    -- return for this request. If you have more objects than the number that
-    -- you specify for @MaxResults@, the response includes a @NextToken@ value
-    -- that you can use to get another batch of objects.
+    -- | Specifies the number of objects that you want Firewall Manager to return
+    -- for this request. If you have more objects than the number that you
+    -- specify for @MaxResults@, the response includes a @NextToken@ value that
+    -- you can use to get another batch of objects.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The start of the time period to query for the attacks. This is a
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
-    -- because the default used by AWS Firewall Manager is Unix time in
-    -- seconds. However, any valid @timestamp@ format is allowed.
+    -- because the default used by Firewall Manager is Unix time in seconds.
+    -- However, any valid @timestamp@ format is allowed.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The end of the time period to query for the attacks. This is a
     -- @timestamp@ type. The request syntax listing indicates a @number@ type
-    -- because the default used by AWS Firewall Manager is Unix time in
-    -- seconds. However, any valid @timestamp@ format is allowed.
+    -- because the default used by Firewall Manager is Unix time in seconds.
+    -- However, any valid @timestamp@ format is allowed.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS account that is in scope of the policy that you want to get the
-    -- details for.
+    -- | The Amazon Web Services account that is in scope of the policy that you
+    -- want to get the details for.
     memberAccountId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the policy for which you want to get the attack information.
     policyId :: Prelude.Text
@@ -97,29 +97,29 @@ data GetProtectionStatus = GetProtectionStatus'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'getProtectionStatus_nextToken' - If you specify a value for @MaxResults@ and you have more objects than
--- the number that you specify for @MaxResults@, AWS Firewall Manager
--- returns a @NextToken@ value in the response, which you can use to
--- retrieve another group of objects. For the second and subsequent
--- @GetProtectionStatus@ requests, specify the value of @NextToken@ from
--- the previous response to get information about another batch of objects.
+-- the number that you specify for @MaxResults@, Firewall Manager returns a
+-- @NextToken@ value in the response, which you can use to retrieve another
+-- group of objects. For the second and subsequent @GetProtectionStatus@
+-- requests, specify the value of @NextToken@ from the previous response to
+-- get information about another batch of objects.
 --
--- 'maxResults', 'getProtectionStatus_maxResults' - Specifies the number of objects that you want AWS Firewall Manager to
--- return for this request. If you have more objects than the number that
--- you specify for @MaxResults@, the response includes a @NextToken@ value
--- that you can use to get another batch of objects.
+-- 'maxResults', 'getProtectionStatus_maxResults' - Specifies the number of objects that you want Firewall Manager to return
+-- for this request. If you have more objects than the number that you
+-- specify for @MaxResults@, the response includes a @NextToken@ value that
+-- you can use to get another batch of objects.
 --
 -- 'startTime', 'getProtectionStatus_startTime' - The start of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
--- because the default used by AWS Firewall Manager is Unix time in
--- seconds. However, any valid @timestamp@ format is allowed.
+-- because the default used by Firewall Manager is Unix time in seconds.
+-- However, any valid @timestamp@ format is allowed.
 --
 -- 'endTime', 'getProtectionStatus_endTime' - The end of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
--- because the default used by AWS Firewall Manager is Unix time in
--- seconds. However, any valid @timestamp@ format is allowed.
+-- because the default used by Firewall Manager is Unix time in seconds.
+-- However, any valid @timestamp@ format is allowed.
 --
--- 'memberAccountId', 'getProtectionStatus_memberAccountId' - The AWS account that is in scope of the policy that you want to get the
--- details for.
+-- 'memberAccountId', 'getProtectionStatus_memberAccountId' - The Amazon Web Services account that is in scope of the policy that you
+-- want to get the details for.
 --
 -- 'policyId', 'getProtectionStatus_policyId' - The ID of the policy for which you want to get the attack information.
 newGetProtectionStatus ::
@@ -137,37 +137,37 @@ newGetProtectionStatus pPolicyId_ =
     }
 
 -- | If you specify a value for @MaxResults@ and you have more objects than
--- the number that you specify for @MaxResults@, AWS Firewall Manager
--- returns a @NextToken@ value in the response, which you can use to
--- retrieve another group of objects. For the second and subsequent
--- @GetProtectionStatus@ requests, specify the value of @NextToken@ from
--- the previous response to get information about another batch of objects.
+-- the number that you specify for @MaxResults@, Firewall Manager returns a
+-- @NextToken@ value in the response, which you can use to retrieve another
+-- group of objects. For the second and subsequent @GetProtectionStatus@
+-- requests, specify the value of @NextToken@ from the previous response to
+-- get information about another batch of objects.
 getProtectionStatus_nextToken :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Text)
 getProtectionStatus_nextToken = Lens.lens (\GetProtectionStatus' {nextToken} -> nextToken) (\s@GetProtectionStatus' {} a -> s {nextToken = a} :: GetProtectionStatus)
 
--- | Specifies the number of objects that you want AWS Firewall Manager to
--- return for this request. If you have more objects than the number that
--- you specify for @MaxResults@, the response includes a @NextToken@ value
--- that you can use to get another batch of objects.
+-- | Specifies the number of objects that you want Firewall Manager to return
+-- for this request. If you have more objects than the number that you
+-- specify for @MaxResults@, the response includes a @NextToken@ value that
+-- you can use to get another batch of objects.
 getProtectionStatus_maxResults :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Natural)
 getProtectionStatus_maxResults = Lens.lens (\GetProtectionStatus' {maxResults} -> maxResults) (\s@GetProtectionStatus' {} a -> s {maxResults = a} :: GetProtectionStatus)
 
 -- | The start of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
--- because the default used by AWS Firewall Manager is Unix time in
--- seconds. However, any valid @timestamp@ format is allowed.
+-- because the default used by Firewall Manager is Unix time in seconds.
+-- However, any valid @timestamp@ format is allowed.
 getProtectionStatus_startTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
 getProtectionStatus_startTime = Lens.lens (\GetProtectionStatus' {startTime} -> startTime) (\s@GetProtectionStatus' {} a -> s {startTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The end of the time period to query for the attacks. This is a
 -- @timestamp@ type. The request syntax listing indicates a @number@ type
--- because the default used by AWS Firewall Manager is Unix time in
--- seconds. However, any valid @timestamp@ format is allowed.
+-- because the default used by Firewall Manager is Unix time in seconds.
+-- However, any valid @timestamp@ format is allowed.
 getProtectionStatus_endTime :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.UTCTime)
 getProtectionStatus_endTime = Lens.lens (\GetProtectionStatus' {endTime} -> endTime) (\s@GetProtectionStatus' {} a -> s {endTime = a} :: GetProtectionStatus) Prelude.. Lens.mapping Core._Time
 
--- | The AWS account that is in scope of the policy that you want to get the
--- details for.
+-- | The Amazon Web Services account that is in scope of the policy that you
+-- want to get the details for.
 getProtectionStatus_memberAccountId :: Lens.Lens' GetProtectionStatus (Prelude.Maybe Prelude.Text)
 getProtectionStatus_memberAccountId = Lens.lens (\GetProtectionStatus' {memberAccountId} -> memberAccountId) (\s@GetProtectionStatus' {} a -> s {memberAccountId = a} :: GetProtectionStatus)
 
@@ -238,12 +238,13 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
     -- specify the @NextToken@ value from the response in the @NextToken@ value
     -- in the next request.
     --
-    -- AWS SDKs provide auto-pagination that identify @NextToken@ in a response
-    -- and make subsequent request calls automatically on your behalf. However,
-    -- this feature is not supported by @GetProtectionStatus@. You must submit
-    -- subsequent requests with @NextToken@ using your own processes.
+    -- Amazon Web Services SDKs provide auto-pagination that identify
+    -- @NextToken@ in a response and make subsequent request calls
+    -- automatically on your behalf. However, this feature is not supported by
+    -- @GetProtectionStatus@. You must submit subsequent requests with
+    -- @NextToken@ using your own processes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS Firewall administrator account for this policy.
+    -- | The ID of the Firewall Manager administrator account for this policy.
     adminAccountId :: Prelude.Maybe Prelude.Text,
     -- | Details about the attack, including the following:
     --
@@ -281,12 +282,13 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
 -- specify the @NextToken@ value from the response in the @NextToken@ value
 -- in the next request.
 --
--- AWS SDKs provide auto-pagination that identify @NextToken@ in a response
--- and make subsequent request calls automatically on your behalf. However,
--- this feature is not supported by @GetProtectionStatus@. You must submit
--- subsequent requests with @NextToken@ using your own processes.
+-- Amazon Web Services SDKs provide auto-pagination that identify
+-- @NextToken@ in a response and make subsequent request calls
+-- automatically on your behalf. However, this feature is not supported by
+-- @GetProtectionStatus@. You must submit subsequent requests with
+-- @NextToken@ using your own processes.
 --
--- 'adminAccountId', 'getProtectionStatusResponse_adminAccountId' - The ID of the AWS Firewall administrator account for this policy.
+-- 'adminAccountId', 'getProtectionStatusResponse_adminAccountId' - The ID of the Firewall Manager administrator account for this policy.
 --
 -- 'data'', 'getProtectionStatusResponse_data' - Details about the attack, including the following:
 --
@@ -326,14 +328,15 @@ newGetProtectionStatusResponse pHttpStatus_ =
 -- specify the @NextToken@ value from the response in the @NextToken@ value
 -- in the next request.
 --
--- AWS SDKs provide auto-pagination that identify @NextToken@ in a response
--- and make subsequent request calls automatically on your behalf. However,
--- this feature is not supported by @GetProtectionStatus@. You must submit
--- subsequent requests with @NextToken@ using your own processes.
+-- Amazon Web Services SDKs provide auto-pagination that identify
+-- @NextToken@ in a response and make subsequent request calls
+-- automatically on your behalf. However, this feature is not supported by
+-- @GetProtectionStatus@. You must submit subsequent requests with
+-- @NextToken@ using your own processes.
 getProtectionStatusResponse_nextToken :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe Prelude.Text)
 getProtectionStatusResponse_nextToken = Lens.lens (\GetProtectionStatusResponse' {nextToken} -> nextToken) (\s@GetProtectionStatusResponse' {} a -> s {nextToken = a} :: GetProtectionStatusResponse)
 
--- | The ID of the AWS Firewall administrator account for this policy.
+-- | The ID of the Firewall Manager administrator account for this policy.
 getProtectionStatusResponse_adminAccountId :: Lens.Lens' GetProtectionStatusResponse (Prelude.Maybe Prelude.Text)
 getProtectionStatusResponse_adminAccountId = Lens.lens (\GetProtectionStatusResponse' {adminAccountId} -> adminAccountId) (\s@GetProtectionStatusResponse' {} a -> s {adminAccountId = a} :: GetProtectionStatusResponse)
 

@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDimension' smart constructor.
 data Dimension = Dimension'
-  { -- | The name of the dimension. Dimension names cannot contain blank spaces
-    -- or non-ASCII characters.
+  { -- | The name of the dimension. Dimension names must contain only ASCII
+    -- characters and must include at least one non-whitespace character.
     name :: Prelude.Text,
-    -- | The value of the dimension. Dimension values cannot contain blank spaces
-    -- or non-ASCII characters.
+    -- | The value of the dimension. Dimension values must contain only ASCII
+    -- characters and must include at least one non-whitespace character.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,11 +48,11 @@ data Dimension = Dimension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'dimension_name' - The name of the dimension. Dimension names cannot contain blank spaces
--- or non-ASCII characters.
+-- 'name', 'dimension_name' - The name of the dimension. Dimension names must contain only ASCII
+-- characters and must include at least one non-whitespace character.
 --
--- 'value', 'dimension_value' - The value of the dimension. Dimension values cannot contain blank spaces
--- or non-ASCII characters.
+-- 'value', 'dimension_value' - The value of the dimension. Dimension values must contain only ASCII
+-- characters and must include at least one non-whitespace character.
 newDimension ::
   -- | 'name'
   Prelude.Text ->
@@ -62,13 +62,13 @@ newDimension ::
 newDimension pName_ pValue_ =
   Dimension' {name = pName_, value = pValue_}
 
--- | The name of the dimension. Dimension names cannot contain blank spaces
--- or non-ASCII characters.
+-- | The name of the dimension. Dimension names must contain only ASCII
+-- characters and must include at least one non-whitespace character.
 dimension_name :: Lens.Lens' Dimension Prelude.Text
 dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s {name = a} :: Dimension)
 
--- | The value of the dimension. Dimension values cannot contain blank spaces
--- or non-ASCII characters.
+-- | The value of the dimension. Dimension values must contain only ASCII
+-- characters and must include at least one non-whitespace character.
 dimension_value :: Lens.Lens' Dimension Prelude.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 

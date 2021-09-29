@@ -27,19 +27,19 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | For a resource with @Modify@ as the action, the @ResourceChange@
--- structure describes the changes AWS CloudFormation will make to that
+-- structure describes the changes CloudFormation will make to that
 -- resource.
 --
 -- /See:/ 'newResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { -- | Indicates whether AWS CloudFormation can determine the target value, and
+  { -- | Indicates whether CloudFormation can determine the target value, and
     -- whether the target value will change before you execute a change set.
     --
-    -- For @Static@ evaluations, AWS CloudFormation can determine that the
-    -- target value will change, and its value. For example, if you directly
-    -- modify the @InstanceType@ property of an EC2 instance, AWS
-    -- CloudFormation knows that this property value will change, and its
-    -- value, so this is a @Static@ evaluation.
+    -- For @Static@ evaluations, CloudFormation can determine that the target
+    -- value will change, and its value. For example, if you directly modify
+    -- the @InstanceType@ property of an EC2 instance, CloudFormation knows
+    -- that this property value will change, and its value, so this is a
+    -- @Static@ evaluation.
     --
     -- For @Dynamic@ evaluations, cannot determine the target value because it
     -- depends on the result of an intrinsic function, such as a @Ref@ or
@@ -70,10 +70,10 @@ data ResourceChangeDetail = ResourceChangeDetail'
     --
     -- -   @Automatic@ entities are @AWS::CloudFormation::Stack@ resource
     --     types, which are also known as nested stacks. If you made no changes
-    --     to the @AWS::CloudFormation::Stack@ resource, AWS CloudFormation
-    --     sets the @ChangeSource@ to @Automatic@ because the nested stack\'s
+    --     to the @AWS::CloudFormation::Stack@ resource, CloudFormation sets
+    --     the @ChangeSource@ to @Automatic@ because the nested stack\'s
     --     template might have changed. Changes to a nested stack\'s template
-    --     aren\'t visible to AWS CloudFormation until you run an update on the
+    --     aren\'t visible to CloudFormation until you run an update on the
     --     parent stack.
     changeSource :: Prelude.Maybe ChangeSource,
     -- | The identity of the entity that triggered this change. This entity is a
@@ -84,7 +84,7 @@ data ResourceChangeDetail = ResourceChangeDetail'
     -- If the @ChangeSource@ value is @DirectModification@, no value is given
     -- for @CausingEntity@.
     causingEntity :: Prelude.Maybe Prelude.Text,
-    -- | A @ResourceTargetDefinition@ structure that describes the field that AWS
+    -- | A @ResourceTargetDefinition@ structure that describes the field that
     -- CloudFormation will change and whether the resource will be recreated.
     target :: Prelude.Maybe ResourceTargetDefinition
   }
@@ -98,14 +98,14 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluation', 'resourceChangeDetail_evaluation' - Indicates whether AWS CloudFormation can determine the target value, and
+-- 'evaluation', 'resourceChangeDetail_evaluation' - Indicates whether CloudFormation can determine the target value, and
 -- whether the target value will change before you execute a change set.
 --
--- For @Static@ evaluations, AWS CloudFormation can determine that the
--- target value will change, and its value. For example, if you directly
--- modify the @InstanceType@ property of an EC2 instance, AWS
--- CloudFormation knows that this property value will change, and its
--- value, so this is a @Static@ evaluation.
+-- For @Static@ evaluations, CloudFormation can determine that the target
+-- value will change, and its value. For example, if you directly modify
+-- the @InstanceType@ property of an EC2 instance, CloudFormation knows
+-- that this property value will change, and its value, so this is a
+-- @Static@ evaluation.
 --
 -- For @Dynamic@ evaluations, cannot determine the target value because it
 -- depends on the result of an intrinsic function, such as a @Ref@ or
@@ -136,10 +136,10 @@ data ResourceChangeDetail = ResourceChangeDetail'
 --
 -- -   @Automatic@ entities are @AWS::CloudFormation::Stack@ resource
 --     types, which are also known as nested stacks. If you made no changes
---     to the @AWS::CloudFormation::Stack@ resource, AWS CloudFormation
---     sets the @ChangeSource@ to @Automatic@ because the nested stack\'s
+--     to the @AWS::CloudFormation::Stack@ resource, CloudFormation sets
+--     the @ChangeSource@ to @Automatic@ because the nested stack\'s
 --     template might have changed. Changes to a nested stack\'s template
---     aren\'t visible to AWS CloudFormation until you run an update on the
+--     aren\'t visible to CloudFormation until you run an update on the
 --     parent stack.
 --
 -- 'causingEntity', 'resourceChangeDetail_causingEntity' - The identity of the entity that triggered this change. This entity is a
@@ -150,7 +150,7 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- If the @ChangeSource@ value is @DirectModification@, no value is given
 -- for @CausingEntity@.
 --
--- 'target', 'resourceChangeDetail_target' - A @ResourceTargetDefinition@ structure that describes the field that AWS
+-- 'target', 'resourceChangeDetail_target' - A @ResourceTargetDefinition@ structure that describes the field that
 -- CloudFormation will change and whether the resource will be recreated.
 newResourceChangeDetail ::
   ResourceChangeDetail
@@ -162,14 +162,14 @@ newResourceChangeDetail =
       target = Prelude.Nothing
     }
 
--- | Indicates whether AWS CloudFormation can determine the target value, and
+-- | Indicates whether CloudFormation can determine the target value, and
 -- whether the target value will change before you execute a change set.
 --
--- For @Static@ evaluations, AWS CloudFormation can determine that the
--- target value will change, and its value. For example, if you directly
--- modify the @InstanceType@ property of an EC2 instance, AWS
--- CloudFormation knows that this property value will change, and its
--- value, so this is a @Static@ evaluation.
+-- For @Static@ evaluations, CloudFormation can determine that the target
+-- value will change, and its value. For example, if you directly modify
+-- the @InstanceType@ property of an EC2 instance, CloudFormation knows
+-- that this property value will change, and its value, so this is a
+-- @Static@ evaluation.
 --
 -- For @Dynamic@ evaluations, cannot determine the target value because it
 -- depends on the result of an intrinsic function, such as a @Ref@ or
@@ -202,10 +202,10 @@ resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation}
 --
 -- -   @Automatic@ entities are @AWS::CloudFormation::Stack@ resource
 --     types, which are also known as nested stacks. If you made no changes
---     to the @AWS::CloudFormation::Stack@ resource, AWS CloudFormation
---     sets the @ChangeSource@ to @Automatic@ because the nested stack\'s
+--     to the @AWS::CloudFormation::Stack@ resource, CloudFormation sets
+--     the @ChangeSource@ to @Automatic@ because the nested stack\'s
 --     template might have changed. Changes to a nested stack\'s template
---     aren\'t visible to AWS CloudFormation until you run an update on the
+--     aren\'t visible to CloudFormation until you run an update on the
 --     parent stack.
 resourceChangeDetail_changeSource :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ChangeSource)
 resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSource} -> changeSource) (\s@ResourceChangeDetail' {} a -> s {changeSource = a} :: ResourceChangeDetail)
@@ -220,7 +220,7 @@ resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSou
 resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
 resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
--- | A @ResourceTargetDefinition@ structure that describes the field that AWS
+-- | A @ResourceTargetDefinition@ structure that describes the field that
 -- CloudFormation will change and whether the resource will be recreated.
 resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
 resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)

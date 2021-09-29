@@ -44,8 +44,8 @@ module Network.AWS.APIGateway.GetUsage
     usage_startDate,
     usage_items,
     usage_position,
-    usage_usagePlanId,
     usage_endDate,
+    usage_usagePlanId,
   )
 where
 

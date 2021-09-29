@@ -32,10 +32,10 @@
 -- volume by providing its Amazon Resource Name (ARN). You must also
 -- provide a description for the snapshot. When the gateway takes a
 -- snapshot of the specified volume, the snapshot and its description
--- appear in the AWS Storage Gateway console. In response, the gateway
--- returns you a snapshot ID. You can use this snapshot ID to check the
--- snapshot progress or later use it when you want to create a volume from
--- a snapshot.
+-- appear in the Storage Gateway console. In response, the gateway returns
+-- you a snapshot ID. You can use this snapshot ID to check the snapshot
+-- progress or later use it when you want to create a volume from a
+-- snapshot.
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, see
@@ -88,7 +88,7 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
     volumeARN :: Prelude.Text,
     -- | Textual description of the snapshot that appears in the Amazon EC2
     -- console, Elastic Block Store snapshots panel in the __Description__
-    -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
+    -- field, and in the Storage Gateway snapshot __Details__ pane,
     -- __Description__ field.
     snapshotDescription :: Prelude.Text
   }
@@ -116,7 +116,7 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 --
 -- 'snapshotDescription', 'createSnapshotFromVolumeRecoveryPoint_snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
--- field, and in the AWS Storage Gateway snapshot __Details__ pane,
+-- field, and in the Storage Gateway snapshot __Details__ pane,
 -- __Description__ field.
 newCreateSnapshotFromVolumeRecoveryPoint ::
   -- | 'volumeARN'
@@ -153,7 +153,7 @@ createSnapshotFromVolumeRecoveryPoint_volumeARN = Lens.lens (\CreateSnapshotFrom
 
 -- | Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
--- field, and in the AWS Storage Gateway snapshot __Details__ pane,
+-- field, and in the Storage Gateway snapshot __Details__ pane,
 -- __Description__ field.
 createSnapshotFromVolumeRecoveryPoint_snapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Prelude.Text
 createSnapshotFromVolumeRecoveryPoint_snapshotDescription = Lens.lens (\CreateSnapshotFromVolumeRecoveryPoint' {snapshotDescription} -> snapshotDescription) (\s@CreateSnapshotFromVolumeRecoveryPoint' {} a -> s {snapshotDescription = a} :: CreateSnapshotFromVolumeRecoveryPoint)

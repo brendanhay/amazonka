@@ -33,8 +33,8 @@ module Network.AWS.SESv2.CreateConfigurationSet
 
     -- * Request Lenses
     createConfigurationSet_trackingOptions,
-    createConfigurationSet_deliveryOptions,
     createConfigurationSet_sendingOptions,
+    createConfigurationSet_deliveryOptions,
     createConfigurationSet_reputationOptions,
     createConfigurationSet_suppressionOptions,
     createConfigurationSet_tags,
@@ -63,12 +63,12 @@ data CreateConfigurationSet = CreateConfigurationSet'
   { -- | An object that defines the open and click tracking options for emails
     -- that you send using the configuration set.
     trackingOptions :: Prelude.Maybe TrackingOptions,
-    -- | An object that defines the dedicated IP pool that is used to send emails
-    -- that you send using the configuration set.
-    deliveryOptions :: Prelude.Maybe DeliveryOptions,
     -- | An object that defines whether or not Amazon SES can send email that you
     -- send using the configuration set.
     sendingOptions :: Prelude.Maybe SendingOptions,
+    -- | An object that defines the dedicated IP pool that is used to send emails
+    -- that you send using the configuration set.
+    deliveryOptions :: Prelude.Maybe DeliveryOptions,
     -- | An object that defines whether or not Amazon SES collects reputation
     -- metrics for the emails that you send that use the configuration set.
     reputationOptions :: Prelude.Maybe ReputationOptions,
@@ -92,11 +92,11 @@ data CreateConfigurationSet = CreateConfigurationSet'
 -- 'trackingOptions', 'createConfigurationSet_trackingOptions' - An object that defines the open and click tracking options for emails
 -- that you send using the configuration set.
 --
--- 'deliveryOptions', 'createConfigurationSet_deliveryOptions' - An object that defines the dedicated IP pool that is used to send emails
--- that you send using the configuration set.
---
 -- 'sendingOptions', 'createConfigurationSet_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
+--
+-- 'deliveryOptions', 'createConfigurationSet_deliveryOptions' - An object that defines the dedicated IP pool that is used to send emails
+-- that you send using the configuration set.
 --
 -- 'reputationOptions', 'createConfigurationSet_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
 -- metrics for the emails that you send that use the configuration set.
@@ -115,8 +115,8 @@ newCreateConfigurationSet pConfigurationSetName_ =
   CreateConfigurationSet'
     { trackingOptions =
         Prelude.Nothing,
-      deliveryOptions = Prelude.Nothing,
       sendingOptions = Prelude.Nothing,
+      deliveryOptions = Prelude.Nothing,
       reputationOptions = Prelude.Nothing,
       suppressionOptions = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -128,15 +128,15 @@ newCreateConfigurationSet pConfigurationSetName_ =
 createConfigurationSet_trackingOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe TrackingOptions)
 createConfigurationSet_trackingOptions = Lens.lens (\CreateConfigurationSet' {trackingOptions} -> trackingOptions) (\s@CreateConfigurationSet' {} a -> s {trackingOptions = a} :: CreateConfigurationSet)
 
--- | An object that defines the dedicated IP pool that is used to send emails
--- that you send using the configuration set.
-createConfigurationSet_deliveryOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe DeliveryOptions)
-createConfigurationSet_deliveryOptions = Lens.lens (\CreateConfigurationSet' {deliveryOptions} -> deliveryOptions) (\s@CreateConfigurationSet' {} a -> s {deliveryOptions = a} :: CreateConfigurationSet)
-
 -- | An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
 createConfigurationSet_sendingOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe SendingOptions)
 createConfigurationSet_sendingOptions = Lens.lens (\CreateConfigurationSet' {sendingOptions} -> sendingOptions) (\s@CreateConfigurationSet' {} a -> s {sendingOptions = a} :: CreateConfigurationSet)
+
+-- | An object that defines the dedicated IP pool that is used to send emails
+-- that you send using the configuration set.
+createConfigurationSet_deliveryOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe DeliveryOptions)
+createConfigurationSet_deliveryOptions = Lens.lens (\CreateConfigurationSet' {deliveryOptions} -> deliveryOptions) (\s@CreateConfigurationSet' {} a -> s {deliveryOptions = a} :: CreateConfigurationSet)
 
 -- | An object that defines whether or not Amazon SES collects reputation
 -- metrics for the emails that you send that use the configuration set.
@@ -189,10 +189,10 @@ instance Core.ToJSON CreateConfigurationSet where
       ( Prelude.catMaybes
           [ ("TrackingOptions" Core..=)
               Prelude.<$> trackingOptions,
-            ("DeliveryOptions" Core..=)
-              Prelude.<$> deliveryOptions,
             ("SendingOptions" Core..=)
               Prelude.<$> sendingOptions,
+            ("DeliveryOptions" Core..=)
+              Prelude.<$> deliveryOptions,
             ("ReputationOptions" Core..=)
               Prelude.<$> reputationOptions,
             ("SuppressionOptions" Core..=)

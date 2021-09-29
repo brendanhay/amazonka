@@ -24,9 +24,9 @@
 -- same key name already exists, then that tag is overwritten with the new
 -- value.
 --
--- For certificates in a Region supported by AWS Certificate Manager (ACM),
--- we recommend that you don\'t use IAM server certificates. Instead, use
--- ACM to provision, manage, and deploy your server certificates. For more
+-- For certificates in a Region supported by Certificate Manager (ACM), we
+-- recommend that you don\'t use IAM server certificates. Instead, use ACM
+-- to provision, manage, and deploy your server certificates. For more
 -- information about IAM server certificates,
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates>
 -- in the /IAM User Guide/.
@@ -48,7 +48,7 @@
 --     in the /IAM User Guide/.
 --
 -- -   __Cost allocation__ - Use tags to help track which individuals and
---     teams are using which AWS resources.
+--     teams are using which Amazon Web Services resources.
 --
 -- -   If any one of the tags is invalid or if you exceed the allowed
 --     maximum number of tags, then the entire request fails and the
@@ -56,9 +56,10 @@
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 --     in the /IAM User Guide/.
 --
--- -   AWS always interprets the tag @Value@ as a single string. If you
---     need to store an array, you can store comma-separated values in the
---     string. However, you must interpret the value in your code.
+-- -   Amazon Web Services always interprets the tag @Value@ as a single
+--     string. If you need to store an array, you can store comma-separated
+--     values in the string. However, you must interpret the value in your
+--     code.
 module Network.AWS.IAM.TagServerCertificate
   ( -- * Creating a Request
     TagServerCertificate (..),
@@ -85,10 +86,10 @@ import qualified Network.AWS.Response as Response
 data TagServerCertificate = TagServerCertificate'
   { -- | The name of the IAM server certificate to which you want to add tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     serverCertificateName :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM server certificate.
     -- Each tag consists of a key name and an associated value.
@@ -106,10 +107,10 @@ data TagServerCertificate = TagServerCertificate'
 --
 -- 'serverCertificateName', 'tagServerCertificate_serverCertificateName' - The name of the IAM server certificate to which you want to add tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tags', 'tagServerCertificate_tags' - The list of tags that you want to attach to the IAM server certificate.
 -- Each tag consists of a key name and an associated value.
@@ -126,10 +127,10 @@ newTagServerCertificate pServerCertificateName_ =
 
 -- | The name of the IAM server certificate to which you want to add tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 tagServerCertificate_serverCertificateName :: Lens.Lens' TagServerCertificate Prelude.Text
 tagServerCertificate_serverCertificateName = Lens.lens (\TagServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@TagServerCertificate' {} a -> s {serverCertificateName = a} :: TagServerCertificate)
 

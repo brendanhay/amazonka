@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of ledger summaries that are associated with the
--- current AWS account and Region.
+-- current account and Region.
 --
 -- This action returns a maximum of 100 items and is paginated so that you
 -- can retrieve all the items by calling @ListLedgers@ multiple times.
@@ -148,7 +148,7 @@ data ListLedgersResponse = ListLedgersResponse'
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListLedgers@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The array of ledger summaries that are associated with the current AWS
+    -- | The array of ledger summaries that are associated with the current
     -- account and Region.
     ledgers :: Prelude.Maybe [LedgerSummary],
     -- | The response's http status code.
@@ -173,7 +173,7 @@ data ListLedgersResponse = ListLedgersResponse'
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListLedgers@ call.
 --
--- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current AWS
+-- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
 -- account and Region.
 --
 -- 'httpStatus', 'listLedgersResponse_httpStatus' - The response's http status code.
@@ -199,7 +199,7 @@ newListLedgersResponse pHttpStatus_ =
 listLedgersResponse_nextToken :: Lens.Lens' ListLedgersResponse (Prelude.Maybe Prelude.Text)
 listLedgersResponse_nextToken = Lens.lens (\ListLedgersResponse' {nextToken} -> nextToken) (\s@ListLedgersResponse' {} a -> s {nextToken = a} :: ListLedgersResponse)
 
--- | The array of ledger summaries that are associated with the current AWS
+-- | The array of ledger summaries that are associated with the current
 -- account and Region.
 listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
 listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens._Coerce

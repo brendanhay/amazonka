@@ -54,6 +54,8 @@ library
     Network.AWS.Lightsail.AttachStaticIp
     Network.AWS.Lightsail.CloseInstancePublicPorts
     Network.AWS.Lightsail.CopySnapshot
+    Network.AWS.Lightsail.CreateBucket
+    Network.AWS.Lightsail.CreateBucketAccessKey
     Network.AWS.Lightsail.CreateCertificate
     Network.AWS.Lightsail.CreateCloudFormationStack
     Network.AWS.Lightsail.CreateContactMethod
@@ -77,6 +79,8 @@ library
     Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
     Network.AWS.Lightsail.DeleteAlarm
     Network.AWS.Lightsail.DeleteAutoSnapshot
+    Network.AWS.Lightsail.DeleteBucket
+    Network.AWS.Lightsail.DeleteBucketAccessKey
     Network.AWS.Lightsail.DeleteCertificate
     Network.AWS.Lightsail.DeleteContactMethod
     Network.AWS.Lightsail.DeleteContainerImage
@@ -106,6 +110,10 @@ library
     Network.AWS.Lightsail.GetAlarms
     Network.AWS.Lightsail.GetAutoSnapshots
     Network.AWS.Lightsail.GetBlueprints
+    Network.AWS.Lightsail.GetBucketAccessKeys
+    Network.AWS.Lightsail.GetBucketBundles
+    Network.AWS.Lightsail.GetBucketMetricData
+    Network.AWS.Lightsail.GetBuckets
     Network.AWS.Lightsail.GetBundles
     Network.AWS.Lightsail.GetCertificates
     Network.AWS.Lightsail.GetCloudFormationStackRecords
@@ -174,6 +182,7 @@ library
     Network.AWS.Lightsail.ResetDistributionCache
     Network.AWS.Lightsail.SendContactMethodVerification
     Network.AWS.Lightsail.SetIpAddressType
+    Network.AWS.Lightsail.SetResourceAccessForBucket
     Network.AWS.Lightsail.StartInstance
     Network.AWS.Lightsail.StartRelationalDatabase
     Network.AWS.Lightsail.StopInstance
@@ -182,6 +191,10 @@ library
     Network.AWS.Lightsail.TestAlarm
     Network.AWS.Lightsail.Types
     Network.AWS.Lightsail.Types.AccessDirection
+    Network.AWS.Lightsail.Types.AccessKey
+    Network.AWS.Lightsail.Types.AccessKeyLastUsed
+    Network.AWS.Lightsail.Types.AccessRules
+    Network.AWS.Lightsail.Types.AccessType
     Network.AWS.Lightsail.Types.AddOn
     Network.AWS.Lightsail.Types.AddOnRequest
     Network.AWS.Lightsail.Types.AddOnType
@@ -195,6 +208,10 @@ library
     Network.AWS.Lightsail.Types.BehaviorEnum
     Network.AWS.Lightsail.Types.Blueprint
     Network.AWS.Lightsail.Types.BlueprintType
+    Network.AWS.Lightsail.Types.Bucket
+    Network.AWS.Lightsail.Types.BucketBundle
+    Network.AWS.Lightsail.Types.BucketMetricName
+    Network.AWS.Lightsail.Types.BucketState
     Network.AWS.Lightsail.Types.Bundle
     Network.AWS.Lightsail.Types.CacheBehavior
     Network.AWS.Lightsail.Types.CacheBehaviorPerPath
@@ -225,6 +242,8 @@ library
     Network.AWS.Lightsail.Types.ContainerServiceProtocol
     Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin
     Network.AWS.Lightsail.Types.ContainerServiceState
+    Network.AWS.Lightsail.Types.ContainerServiceStateDetail
+    Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode
     Network.AWS.Lightsail.Types.CookieObject
     Network.AWS.Lightsail.Types.DestinationInfo
     Network.AWS.Lightsail.Types.Disk
@@ -320,14 +339,19 @@ library
     Network.AWS.Lightsail.Types.RelationalDatabaseSnapshot
     Network.AWS.Lightsail.Types.RenewalStatus
     Network.AWS.Lightsail.Types.RenewalSummary
+    Network.AWS.Lightsail.Types.ResourceBucketAccess
     Network.AWS.Lightsail.Types.ResourceLocation
+    Network.AWS.Lightsail.Types.ResourceReceivingAccess
     Network.AWS.Lightsail.Types.ResourceRecord
     Network.AWS.Lightsail.Types.ResourceType
     Network.AWS.Lightsail.Types.StaticIp
+    Network.AWS.Lightsail.Types.StatusType
     Network.AWS.Lightsail.Types.Tag
     Network.AWS.Lightsail.Types.TreatMissingData
     Network.AWS.Lightsail.UnpeerVpc
     Network.AWS.Lightsail.UntagResource
+    Network.AWS.Lightsail.UpdateBucket
+    Network.AWS.Lightsail.UpdateBucketBundle
     Network.AWS.Lightsail.UpdateContainerService
     Network.AWS.Lightsail.UpdateDistribution
     Network.AWS.Lightsail.UpdateDistributionBundle

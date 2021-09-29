@@ -39,7 +39,7 @@ data LifecycleRule = LifecycleRule'
     -- date, days and, whether the object has a delete marker.
     expiration :: Prelude.Maybe LifecycleExpiration,
     -- | Prefix identifying one or more objects to which the rule applies. This
-    -- is No longer used; use @Filter@ instead.
+    -- is no longer used; use @Filter@ instead.
     --
     -- Replacement must be made for object keys containing special characters
     -- (such as carriage returns) when using XML requests. For more
@@ -61,6 +61,10 @@ data LifecycleRule = LifecycleRule'
     -- class.
     transitions :: Prelude.Maybe [Transition],
     abortIncompleteMultipartUpload :: Prelude.Maybe AbortIncompleteMultipartUpload,
+    -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
+    -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
+    -- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+    -- a @Prefix@ element.
     filter' :: Prelude.Maybe LifecycleRuleFilter,
     -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
     -- the rule is not currently being applied.
@@ -80,7 +84,7 @@ data LifecycleRule = LifecycleRule'
 -- date, days and, whether the object has a delete marker.
 --
 -- 'prefix', 'lifecycleRule_prefix' - Prefix identifying one or more objects to which the rule applies. This
--- is No longer used; use @Filter@ instead.
+-- is no longer used; use @Filter@ instead.
 --
 -- Replacement must be made for object keys containing special characters
 -- (such as carriage returns) when using XML requests. For more
@@ -104,7 +108,10 @@ data LifecycleRule = LifecycleRule'
 --
 -- 'abortIncompleteMultipartUpload', 'lifecycleRule_abortIncompleteMultipartUpload' - Undocumented member.
 --
--- 'filter'', 'lifecycleRule_filter' - Undocumented member.
+-- 'filter'', 'lifecycleRule_filter' - The @Filter@ is used to identify objects that a Lifecycle Rule applies
+-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
+-- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+-- a @Prefix@ element.
 --
 -- 'status', 'lifecycleRule_status' - If \'Enabled\', the rule is currently being applied. If \'Disabled\',
 -- the rule is not currently being applied.
@@ -131,7 +138,7 @@ lifecycleRule_expiration :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleExp
 lifecycleRule_expiration = Lens.lens (\LifecycleRule' {expiration} -> expiration) (\s@LifecycleRule' {} a -> s {expiration = a} :: LifecycleRule)
 
 -- | Prefix identifying one or more objects to which the rule applies. This
--- is No longer used; use @Filter@ instead.
+-- is no longer used; use @Filter@ instead.
 --
 -- Replacement must be made for object keys containing special characters
 -- (such as carriage returns) when using XML requests. For more
@@ -167,7 +174,10 @@ lifecycleRule_transitions = Lens.lens (\LifecycleRule' {transitions} -> transiti
 lifecycleRule_abortIncompleteMultipartUpload :: Lens.Lens' LifecycleRule (Prelude.Maybe AbortIncompleteMultipartUpload)
 lifecycleRule_abortIncompleteMultipartUpload = Lens.lens (\LifecycleRule' {abortIncompleteMultipartUpload} -> abortIncompleteMultipartUpload) (\s@LifecycleRule' {} a -> s {abortIncompleteMultipartUpload = a} :: LifecycleRule)
 
--- | Undocumented member.
+-- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
+-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
+-- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+-- a @Prefix@ element.
 lifecycleRule_filter :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleRuleFilter)
 lifecycleRule_filter = Lens.lens (\LifecycleRule' {filter'} -> filter') (\s@LifecycleRule' {} a -> s {filter' = a} :: LifecycleRule)
 

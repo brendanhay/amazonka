@@ -65,6 +65,7 @@ library
     Network.AWS.Config.DeleteStoredQuery
     Network.AWS.Config.DeliverConfigSnapshot
     Network.AWS.Config.DescribeAggregateComplianceByConfigRules
+    Network.AWS.Config.DescribeAggregateComplianceByConformancePacks
     Network.AWS.Config.DescribeAggregationAuthorizations
     Network.AWS.Config.DescribeComplianceByConfigRule
     Network.AWS.Config.DescribeComplianceByResource
@@ -90,6 +91,7 @@ library
     Network.AWS.Config.DescribeRetentionConfigurations
     Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
     Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
+    Network.AWS.Config.GetAggregateConformancePackComplianceSummary
     Network.AWS.Config.GetAggregateDiscoveredResourceCounts
     Network.AWS.Config.GetAggregateResourceConfig
     Network.AWS.Config.GetComplianceDetailsByConfigRule
@@ -133,7 +135,14 @@ library
     Network.AWS.Config.Types
     Network.AWS.Config.Types.AccountAggregationSource
     Network.AWS.Config.Types.AggregateComplianceByConfigRule
+    Network.AWS.Config.Types.AggregateComplianceByConformancePack
     Network.AWS.Config.Types.AggregateComplianceCount
+    Network.AWS.Config.Types.AggregateConformancePackCompliance
+    Network.AWS.Config.Types.AggregateConformancePackComplianceCount
+    Network.AWS.Config.Types.AggregateConformancePackComplianceFilters
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummary
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryFilters
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey
     Network.AWS.Config.Types.AggregatedSourceStatus
     Network.AWS.Config.Types.AggregatedSourceStatusType
     Network.AWS.Config.Types.AggregatedSourceType

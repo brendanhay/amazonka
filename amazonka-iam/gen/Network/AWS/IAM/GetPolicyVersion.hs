@@ -76,7 +76,7 @@ data GetPolicyVersion = GetPolicyVersion'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text,
     -- | Identifies the policy version to retrieve.
     --
@@ -102,7 +102,7 @@ data GetPolicyVersion = GetPolicyVersion'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'versionId', 'getPolicyVersion_versionId' - Identifies the policy version to retrieve.
 --
@@ -128,7 +128,7 @@ newGetPolicyVersion pPolicyArn_ pVersionId_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 getPolicyVersion_policyArn :: Lens.Lens' GetPolicyVersion Prelude.Text
 getPolicyVersion_policyArn = Lens.lens (\GetPolicyVersion' {policyArn} -> policyArn) (\s@GetPolicyVersion' {} a -> s {policyArn = a} :: GetPolicyVersion)
 

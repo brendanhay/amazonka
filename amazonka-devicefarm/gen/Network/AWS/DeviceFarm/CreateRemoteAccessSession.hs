@@ -31,8 +31,8 @@ module Network.AWS.DeviceFarm.CreateRemoteAccessSession
     createRemoteAccessSession_interactionMode,
     createRemoteAccessSession_configuration,
     createRemoteAccessSession_name,
-    createRemoteAccessSession_instanceArn,
     createRemoteAccessSession_remoteRecordEnabled,
+    createRemoteAccessSession_instanceArn,
     createRemoteAccessSession_skipAppResign,
     createRemoteAccessSession_sshPublicKey,
     createRemoteAccessSession_remoteDebugEnabled,
@@ -87,11 +87,11 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
     configuration :: Prelude.Maybe CreateRemoteAccessSessionConfiguration,
     -- | The name of the remote access session to create.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to enable remote recording for the remote access session.
+    remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the device instance for which you want
     -- to create a remote access session.
     instanceArn :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to enable remote recording for the remote access session.
-    remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
@@ -158,10 +158,10 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 --
 -- 'name', 'createRemoteAccessSession_name' - The name of the remote access session to create.
 --
+-- 'remoteRecordEnabled', 'createRemoteAccessSession_remoteRecordEnabled' - Set to @true@ to enable remote recording for the remote access session.
+--
 -- 'instanceArn', 'createRemoteAccessSession_instanceArn' - The Amazon Resource Name (ARN) of the device instance for which you want
 -- to create a remote access session.
---
--- 'remoteRecordEnabled', 'createRemoteAccessSession_remoteRecordEnabled' - Set to @true@ to enable remote recording for the remote access session.
 --
 -- 'skipAppResign', 'createRemoteAccessSession_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
@@ -204,8 +204,8 @@ newCreateRemoteAccessSession pProjectArn_ pDeviceArn_ =
       interactionMode = Prelude.Nothing,
       configuration = Prelude.Nothing,
       name = Prelude.Nothing,
-      instanceArn = Prelude.Nothing,
       remoteRecordEnabled = Prelude.Nothing,
+      instanceArn = Prelude.Nothing,
       skipAppResign = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
       remoteDebugEnabled = Prelude.Nothing,
@@ -248,14 +248,14 @@ createRemoteAccessSession_configuration = Lens.lens (\CreateRemoteAccessSession'
 createRemoteAccessSession_name :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
 createRemoteAccessSession_name = Lens.lens (\CreateRemoteAccessSession' {name} -> name) (\s@CreateRemoteAccessSession' {} a -> s {name = a} :: CreateRemoteAccessSession)
 
+-- | Set to @true@ to enable remote recording for the remote access session.
+createRemoteAccessSession_remoteRecordEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
+createRemoteAccessSession_remoteRecordEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteRecordEnabled} -> remoteRecordEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordEnabled = a} :: CreateRemoteAccessSession)
+
 -- | The Amazon Resource Name (ARN) of the device instance for which you want
 -- to create a remote access session.
 createRemoteAccessSession_instanceArn :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
 createRemoteAccessSession_instanceArn = Lens.lens (\CreateRemoteAccessSession' {instanceArn} -> instanceArn) (\s@CreateRemoteAccessSession' {} a -> s {instanceArn = a} :: CreateRemoteAccessSession)
-
--- | Set to @true@ to enable remote recording for the remote access session.
-createRemoteAccessSession_remoteRecordEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
-createRemoteAccessSession_remoteRecordEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteRecordEnabled} -> remoteRecordEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordEnabled = a} :: CreateRemoteAccessSession)
 
 -- | When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
@@ -339,9 +339,9 @@ instance Core.ToJSON CreateRemoteAccessSession where
               Prelude.<$> interactionMode,
             ("configuration" Core..=) Prelude.<$> configuration,
             ("name" Core..=) Prelude.<$> name,
-            ("instanceArn" Core..=) Prelude.<$> instanceArn,
             ("remoteRecordEnabled" Core..=)
               Prelude.<$> remoteRecordEnabled,
+            ("instanceArn" Core..=) Prelude.<$> instanceArn,
             ("skipAppResign" Core..=) Prelude.<$> skipAppResign,
             ("sshPublicKey" Core..=) Prelude.<$> sshPublicKey,
             ("remoteDebugEnabled" Core..=)

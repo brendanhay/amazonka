@@ -32,23 +32,23 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDistribution' smart constructor.
 data Distribution = Distribution'
-  { -- | AWS services in China customers must file for an Internet Content
-    -- Provider (ICP) recordal if they want to serve content publicly on an
-    -- alternate domain name, also known as a CNAME, that they\'ve added to
-    -- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
-    -- associated with distributions.
+  { -- | Amazon Web Services services in China customers must file for an
+    -- Internet Content Provider (ICP) recordal if they want to serve content
+    -- publicly on an alternate domain name, also known as a CNAME, that
+    -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+    -- status for CNAMEs associated with distributions.
     --
     -- For more information about ICP recordals, see
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
-    -- in /Getting Started with AWS services in China/.
+    -- in /Getting Started with Amazon Web Services services in China/.
     aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
     -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
     --
     -- CloudFront automatically adds this field to the response if you’ve
     -- configured a cache behavior in this distribution to serve private
-    -- content using trusted signers. This field contains a list of AWS account
-    -- IDs and the active CloudFront key pairs in each account that CloudFront
-    -- can use to verify the signatures of signed URLs or signed cookies.
+    -- content using trusted signers. This field contains a list of account IDs
+    -- and the active CloudFront key pairs in each account that CloudFront can
+    -- use to verify the signatures of signed URLs or signed cookies.
     activeTrustedSigners :: Prelude.Maybe ActiveTrustedSigners,
     -- | CloudFront automatically adds this field to the response if you’ve
     -- configured a cache behavior in this distribution to serve private
@@ -60,7 +60,7 @@ data Distribution = Distribution'
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your AWS account ID.
+    -- @123456789012@ is your account ID.
     arn :: Prelude.Text,
     -- | This response element indicates the current status of the distribution.
     -- When the status is @Deployed@, the distribution\'s information is fully
@@ -88,23 +88,23 @@ data Distribution = Distribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - AWS services in China customers must file for an Internet Content
--- Provider (ICP) recordal if they want to serve content publicly on an
--- alternate domain name, also known as a CNAME, that they\'ve added to
--- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
--- associated with distributions.
+-- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
 --
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with AWS services in China/.
+-- in /Getting Started with Amazon Web Services services in China/.
 --
 -- 'activeTrustedSigners', 'distribution_activeTrustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
 -- CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of AWS account
--- IDs and the active CloudFront key pairs in each account that CloudFront
--- can use to verify the signatures of signed URLs or signed cookies.
+-- content using trusted signers. This field contains a list of account IDs
+-- and the active CloudFront key pairs in each account that CloudFront can
+-- use to verify the signatures of signed URLs or signed cookies.
 --
 -- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
@@ -116,7 +116,7 @@ data Distribution = Distribution'
 --
 -- 'arn', 'distribution_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your AWS account ID.
+-- @123456789012@ is your account ID.
 --
 -- 'status', 'distribution_status' - This response element indicates the current status of the distribution.
 -- When the status is @Deployed@, the distribution\'s information is fully
@@ -171,15 +171,15 @@ newDistribution
         distributionConfig = pDistributionConfig_
       }
 
--- | AWS services in China customers must file for an Internet Content
--- Provider (ICP) recordal if they want to serve content publicly on an
--- alternate domain name, also known as a CNAME, that they\'ve added to
--- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
--- associated with distributions.
+-- | Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
 --
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with AWS services in China/.
+-- in /Getting Started with Amazon Web Services services in China/.
 distribution_aliasICPRecordals :: Lens.Lens' Distribution (Prelude.Maybe [AliasICPRecordal])
 distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -> aliasICPRecordals) (\s@Distribution' {} a -> s {aliasICPRecordals = a} :: Distribution) Prelude.. Lens.mapping Lens._Coerce
 
@@ -187,9 +187,9 @@ distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -
 --
 -- CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of AWS account
--- IDs and the active CloudFront key pairs in each account that CloudFront
--- can use to verify the signatures of signed URLs or signed cookies.
+-- content using trusted signers. This field contains a list of account IDs
+-- and the active CloudFront key pairs in each account that CloudFront can
+-- use to verify the signatures of signed URLs or signed cookies.
 distribution_activeTrustedSigners :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedSigners)
 distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSigners} -> activeTrustedSigners) (\s@Distribution' {} a -> s {activeTrustedSigners = a} :: Distribution)
 
@@ -207,7 +207,7 @@ distribution_id = Lens.lens (\Distribution' {id} -> id) (\s@Distribution' {} a -
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your AWS account ID.
+-- @123456789012@ is your account ID.
 distribution_arn :: Lens.Lens' Distribution Prelude.Text
 distribution_arn = Lens.lens (\Distribution' {arn} -> arn) (\s@Distribution' {} a -> s {arn = a} :: Distribution)
 

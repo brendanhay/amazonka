@@ -31,6 +31,9 @@ data MergeHunk = MergeHunk'
   { -- | Information about the merge hunk in the source of a merge or pull
     -- request.
     source :: Prelude.Maybe MergeHunkDetail,
+    -- | Information about the merge hunk in the destination of a merge or pull
+    -- request.
+    destination :: Prelude.Maybe MergeHunkDetail,
     -- | A Boolean value indicating whether a combination of hunks contains a
     -- conflict. Conflicts occur when the same file or the same lines in a file
     -- were modified in both the source and destination of a merge or pull
@@ -38,9 +41,6 @@ data MergeHunk = MergeHunk'
     -- represents a conflict and one or more files contains a line conflict.
     -- File mode conflicts in a merge do not set this to true.
     isConflict :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the merge hunk in the destination of a merge or pull
-    -- request.
-    destination :: Prelude.Maybe MergeHunkDetail,
     -- | Information about the merge hunk in the base of a merge or pull request.
     base :: Prelude.Maybe MergeHunkDetail
   }
@@ -57,6 +57,9 @@ data MergeHunk = MergeHunk'
 -- 'source', 'mergeHunk_source' - Information about the merge hunk in the source of a merge or pull
 -- request.
 --
+-- 'destination', 'mergeHunk_destination' - Information about the merge hunk in the destination of a merge or pull
+-- request.
+--
 -- 'isConflict', 'mergeHunk_isConflict' - A Boolean value indicating whether a combination of hunks contains a
 -- conflict. Conflicts occur when the same file or the same lines in a file
 -- were modified in both the source and destination of a merge or pull
@@ -64,17 +67,14 @@ data MergeHunk = MergeHunk'
 -- represents a conflict and one or more files contains a line conflict.
 -- File mode conflicts in a merge do not set this to true.
 --
--- 'destination', 'mergeHunk_destination' - Information about the merge hunk in the destination of a merge or pull
--- request.
---
 -- 'base', 'mergeHunk_base' - Information about the merge hunk in the base of a merge or pull request.
 newMergeHunk ::
   MergeHunk
 newMergeHunk =
   MergeHunk'
     { source = Prelude.Nothing,
-      isConflict = Prelude.Nothing,
       destination = Prelude.Nothing,
+      isConflict = Prelude.Nothing,
       base = Prelude.Nothing
     }
 
@@ -82,6 +82,11 @@ newMergeHunk =
 -- request.
 mergeHunk_source :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_source = Lens.lens (\MergeHunk' {source} -> source) (\s@MergeHunk' {} a -> s {source = a} :: MergeHunk)
+
+-- | Information about the merge hunk in the destination of a merge or pull
+-- request.
+mergeHunk_destination :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
+mergeHunk_destination = Lens.lens (\MergeHunk' {destination} -> destination) (\s@MergeHunk' {} a -> s {destination = a} :: MergeHunk)
 
 -- | A Boolean value indicating whether a combination of hunks contains a
 -- conflict. Conflicts occur when the same file or the same lines in a file
@@ -91,11 +96,6 @@ mergeHunk_source = Lens.lens (\MergeHunk' {source} -> source) (\s@MergeHunk' {} 
 -- File mode conflicts in a merge do not set this to true.
 mergeHunk_isConflict :: Lens.Lens' MergeHunk (Prelude.Maybe Prelude.Bool)
 mergeHunk_isConflict = Lens.lens (\MergeHunk' {isConflict} -> isConflict) (\s@MergeHunk' {} a -> s {isConflict = a} :: MergeHunk)
-
--- | Information about the merge hunk in the destination of a merge or pull
--- request.
-mergeHunk_destination :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
-mergeHunk_destination = Lens.lens (\MergeHunk' {destination} -> destination) (\s@MergeHunk' {} a -> s {destination = a} :: MergeHunk)
 
 -- | Information about the merge hunk in the base of a merge or pull request.
 mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
@@ -108,8 +108,8 @@ instance Core.FromJSON MergeHunk where
       ( \x ->
           MergeHunk'
             Prelude.<$> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "isConflict")
             Prelude.<*> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "isConflict")
             Prelude.<*> (x Core..:? "base")
       )
 

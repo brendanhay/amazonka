@@ -22,6 +22,10 @@
 --
 -- Deletes the specified thing. Returns successfully with no error if the
 -- deletion is successful or you specify a thing that doesn\'t exist.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteThing>
+-- action.
 module Network.AWS.IoT.DeleteThing
   ( -- * Creating a Request
     DeleteThing (..),

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of the tags associated with an AWS Cloud9 development
+-- Gets a list of the tags associated with an Cloud9 development
 -- environment.
 module Network.AWS.Cloud9.ListTagsForResource
   ( -- * Creating a Request
@@ -49,8 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
-    -- to get the tags for.
+  { -- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+    -- get the tags for.
     resourceARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +63,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'listTagsForResource_resourceARN' - The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to get the tags for.
+-- 'resourceARN', 'listTagsForResource_resourceARN' - The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- get the tags for.
 newListTagsForResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -72,8 +72,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceARN_ =
   ListTagsForResource' {resourceARN = pResourceARN_}
 
--- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to get the tags for.
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- get the tags for.
 listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceARN = Lens.lens (\ListTagsForResource' {resourceARN} -> resourceARN) (\s@ListTagsForResource' {} a -> s {resourceARN = a} :: ListTagsForResource)
 
@@ -124,12 +124,12 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The list of tags associated with the AWS Cloud9 development environment.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The list of tags associated with the Cloud9 development environment.
+    tags :: Prelude.Maybe (Core.Sensitive [Core.Sensitive Tag]),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -139,7 +139,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - The list of tags associated with the AWS Cloud9 development environment.
+-- 'tags', 'listTagsForResourceResponse_tags' - The list of tags associated with the Cloud9 development environment.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -153,9 +153,9 @@ newListTagsForResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of tags associated with the AWS Cloud9 development environment.
+-- | The list of tags associated with the Cloud9 development environment.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int

@@ -34,7 +34,9 @@ data Parameter = Parameter'
     -- | The source of the parameter value, such as \"engine-default\" or
     -- \"user\".
     source :: Prelude.Maybe Prelude.Text,
-    -- | The value of the parameter.
+    -- | The value of the parameter. If @ParameterName@ is
+    -- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+    -- 8000 characters.
     parameterValue :: Prelude.Maybe Prelude.Text,
     -- | Specifies how to apply the WLM configuration parameter. Some properties
     -- can be applied dynamically, while other properties require that any
@@ -71,7 +73,9 @@ data Parameter = Parameter'
 -- 'source', 'parameter_source' - The source of the parameter value, such as \"engine-default\" or
 -- \"user\".
 --
--- 'parameterValue', 'parameter_parameterValue' - The value of the parameter.
+-- 'parameterValue', 'parameter_parameterValue' - The value of the parameter. If @ParameterName@ is
+-- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+-- 8000 characters.
 --
 -- 'applyType', 'parameter_applyType' - Specifies how to apply the WLM configuration parameter. Some properties
 -- can be applied dynamically, while other properties require that any
@@ -115,7 +119,9 @@ parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValue
 parameter_source :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_source = Lens.lens (\Parameter' {source} -> source) (\s@Parameter' {} a -> s {source = a} :: Parameter)
 
--- | The value of the parameter.
+-- | The value of the parameter. If @ParameterName@ is
+-- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+-- 8000 characters.
 parameter_parameterValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterValue) (\s@Parameter' {} a -> s {parameterValue = a} :: Parameter)
 

@@ -65,12 +65,12 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Each entry in the array is a structure containing:
     --
-    -- Key (string, between 1 and 128 characters)
+    -- -   Key. A string between 1 and 128 characters. Supported keys include
+    --     @ExecutedBefore@ and @ExecutedAfter@.
     --
-    -- Values (array of strings, each string is between 1 and 256 characters)
-    --
-    -- The supported Keys are ExecutedBefore and ExecutedAfter with the value
-    -- being a date\/time string such as 2016-11-04T05:00:00Z.
+    -- -   Values. An array of strings, each between 1 and 256 characters.
+    --     Supported values are date\/time strings in a valid ISO 8601
+    --     date\/time format, such as @2021-11-04T05:00:00Z@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window whose executions should be retrieved.
     windowId :: Prelude.Text
@@ -94,12 +94,12 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
 --
 -- 'filters', 'describeMaintenanceWindowExecutions_filters' - Each entry in the array is a structure containing:
 --
--- Key (string, between 1 and 128 characters)
+-- -   Key. A string between 1 and 128 characters. Supported keys include
+--     @ExecutedBefore@ and @ExecutedAfter@.
 --
--- Values (array of strings, each string is between 1 and 256 characters)
---
--- The supported Keys are ExecutedBefore and ExecutedAfter with the value
--- being a date\/time string such as 2016-11-04T05:00:00Z.
+-- -   Values. An array of strings, each between 1 and 256 characters.
+--     Supported values are date\/time strings in a valid ISO 8601
+--     date\/time format, such as @2021-11-04T05:00:00Z@.
 --
 -- 'windowId', 'describeMaintenanceWindowExecutions_windowId' - The ID of the maintenance window whose executions should be retrieved.
 newDescribeMaintenanceWindowExecutions ::
@@ -128,12 +128,12 @@ describeMaintenanceWindowExecutions_maxResults = Lens.lens (\DescribeMaintenance
 
 -- | Each entry in the array is a structure containing:
 --
--- Key (string, between 1 and 128 characters)
+-- -   Key. A string between 1 and 128 characters. Supported keys include
+--     @ExecutedBefore@ and @ExecutedAfter@.
 --
--- Values (array of strings, each string is between 1 and 256 characters)
---
--- The supported Keys are ExecutedBefore and ExecutedAfter with the value
--- being a date\/time string such as 2016-11-04T05:00:00Z.
+-- -   Values. An array of strings, each between 1 and 256 characters.
+--     Supported values are date\/time strings in a valid ISO 8601
+--     date\/time format, such as @2021-11-04T05:00:00Z@.
 describeMaintenanceWindowExecutions_filters :: Lens.Lens' DescribeMaintenanceWindowExecutions (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindowExecutions_filters = Lens.lens (\DescribeMaintenanceWindowExecutions' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutions' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutions) Prelude.. Lens.mapping Lens._Coerce
 

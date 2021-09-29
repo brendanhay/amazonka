@@ -29,7 +29,7 @@ import Network.AWS.S3.Types.Redirect
 -- | Specifies the redirect behavior and when a redirect is applied. For more
 -- information about routing rules, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects Configuring advanced conditional redirects>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newRoutingRule' smart constructor.
 data RoutingRule = RoutingRule'

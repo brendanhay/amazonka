@@ -29,7 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 data KernelSpec = KernelSpec'
   { -- | The display name of the kernel.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the kernel.
+    -- | The name of the Jupyter kernel in the image. This value is case
+    -- sensitive.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +45,8 @@ data KernelSpec = KernelSpec'
 --
 -- 'displayName', 'kernelSpec_displayName' - The display name of the kernel.
 --
--- 'name', 'kernelSpec_name' - The name of the kernel.
+-- 'name', 'kernelSpec_name' - The name of the Jupyter kernel in the image. This value is case
+-- sensitive.
 newKernelSpec ::
   -- | 'name'
   Prelude.Text ->
@@ -59,7 +61,8 @@ newKernelSpec pName_ =
 kernelSpec_displayName :: Lens.Lens' KernelSpec (Prelude.Maybe Prelude.Text)
 kernelSpec_displayName = Lens.lens (\KernelSpec' {displayName} -> displayName) (\s@KernelSpec' {} a -> s {displayName = a} :: KernelSpec)
 
--- | The name of the kernel.
+-- | The name of the Jupyter kernel in the image. This value is case
+-- sensitive.
 kernelSpec_name :: Lens.Lens' KernelSpec Prelude.Text
 kernelSpec_name = Lens.lens (\KernelSpec' {name} -> name) (\s@KernelSpec' {} a -> s {name = a} :: KernelSpec)
 

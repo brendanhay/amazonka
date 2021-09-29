@@ -14,14 +14,18 @@
 module Network.AWS.Greengrass.Lens
   ( -- * Operations
 
-    -- ** DeleteSubscriptionDefinition
-    deleteSubscriptionDefinition_subscriptionDefinitionId,
-    deleteSubscriptionDefinitionResponse_httpStatus,
+    -- ** DeleteCoreDefinition
+    deleteCoreDefinition_coreDefinitionId,
+    deleteCoreDefinitionResponse_httpStatus,
 
     -- ** UpdateCoreDefinition
     updateCoreDefinition_name,
     updateCoreDefinition_coreDefinitionId,
     updateCoreDefinitionResponse_httpStatus,
+
+    -- ** DeleteSubscriptionDefinition
+    deleteSubscriptionDefinition_subscriptionDefinitionId,
+    deleteSubscriptionDefinitionResponse_httpStatus,
 
     -- ** UpdateSubscriptionDefinition
     updateSubscriptionDefinition_name,
@@ -33,22 +37,18 @@ module Network.AWS.Greengrass.Lens
     associateServiceRoleToAccountResponse_associatedAt,
     associateServiceRoleToAccountResponse_httpStatus,
 
-    -- ** DeleteCoreDefinition
-    deleteCoreDefinition_coreDefinitionId,
-    deleteCoreDefinitionResponse_httpStatus,
-
-    -- ** AssociateRoleToGroup
-    associateRoleToGroup_groupId,
-    associateRoleToGroup_roleArn,
-    associateRoleToGroupResponse_associatedAt,
-    associateRoleToGroupResponse_httpStatus,
-
     -- ** GetGroupCertificateConfiguration
     getGroupCertificateConfiguration_groupId,
     getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds,
     getGroupCertificateConfigurationResponse_groupId,
     getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds,
     getGroupCertificateConfigurationResponse_httpStatus,
+
+    -- ** AssociateRoleToGroup
+    associateRoleToGroup_groupId,
+    associateRoleToGroup_roleArn,
+    associateRoleToGroupResponse_associatedAt,
+    associateRoleToGroupResponse_httpStatus,
 
     -- ** ListFunctionDefinitionVersions
     listFunctionDefinitionVersions_nextToken,
@@ -58,14 +58,9 @@ module Network.AWS.Greengrass.Lens
     listFunctionDefinitionVersionsResponse_versions,
     listFunctionDefinitionVersionsResponse_httpStatus,
 
-    -- ** StartBulkDeployment
-    startBulkDeployment_tags,
-    startBulkDeployment_amznClientToken,
-    startBulkDeployment_executionRoleArn,
-    startBulkDeployment_inputFileUri,
-    startBulkDeploymentResponse_bulkDeploymentId,
-    startBulkDeploymentResponse_bulkDeploymentArn,
-    startBulkDeploymentResponse_httpStatus,
+    -- ** StopBulkDeployment
+    stopBulkDeployment_bulkDeploymentId,
+    stopBulkDeploymentResponse_httpStatus,
 
     -- ** CreateFunctionDefinitionVersion
     createFunctionDefinitionVersion_functions,
@@ -78,6 +73,11 @@ module Network.AWS.Greengrass.Lens
     createFunctionDefinitionVersionResponse_version,
     createFunctionDefinitionVersionResponse_httpStatus,
 
+    -- ** UpdateThingRuntimeConfiguration
+    updateThingRuntimeConfiguration_telemetryConfiguration,
+    updateThingRuntimeConfiguration_thingName,
+    updateThingRuntimeConfigurationResponse_httpStatus,
+
     -- ** GetFunctionDefinition
     getFunctionDefinition_functionDefinitionId,
     getFunctionDefinitionResponse_creationTimestamp,
@@ -86,18 +86,38 @@ module Network.AWS.Greengrass.Lens
     getFunctionDefinitionResponse_arn,
     getFunctionDefinitionResponse_id,
     getFunctionDefinitionResponse_name,
-    getFunctionDefinitionResponse_lastUpdatedTimestamp,
     getFunctionDefinitionResponse_tags,
+    getFunctionDefinitionResponse_lastUpdatedTimestamp,
     getFunctionDefinitionResponse_httpStatus,
 
-    -- ** UpdateThingRuntimeConfiguration
-    updateThingRuntimeConfiguration_telemetryConfiguration,
-    updateThingRuntimeConfiguration_thingName,
-    updateThingRuntimeConfigurationResponse_httpStatus,
+    -- ** StartBulkDeployment
+    startBulkDeployment_tags,
+    startBulkDeployment_amznClientToken,
+    startBulkDeployment_executionRoleArn,
+    startBulkDeployment_inputFileUri,
+    startBulkDeploymentResponse_bulkDeploymentId,
+    startBulkDeploymentResponse_bulkDeploymentArn,
+    startBulkDeploymentResponse_httpStatus,
 
-    -- ** StopBulkDeployment
-    stopBulkDeployment_bulkDeploymentId,
-    stopBulkDeploymentResponse_httpStatus,
+    -- ** GetThingRuntimeConfiguration
+    getThingRuntimeConfiguration_thingName,
+    getThingRuntimeConfigurationResponse_runtimeConfiguration,
+    getThingRuntimeConfigurationResponse_httpStatus,
+
+    -- ** ListResourceDefinitions
+    listResourceDefinitions_nextToken,
+    listResourceDefinitions_maxResults,
+    listResourceDefinitionsResponse_nextToken,
+    listResourceDefinitionsResponse_definitions,
+    listResourceDefinitionsResponse_httpStatus,
+
+    -- ** ListDeviceDefinitionVersions
+    listDeviceDefinitionVersions_nextToken,
+    listDeviceDefinitionVersions_maxResults,
+    listDeviceDefinitionVersions_deviceDefinitionId,
+    listDeviceDefinitionVersionsResponse_nextToken,
+    listDeviceDefinitionVersionsResponse_versions,
+    listDeviceDefinitionVersionsResponse_httpStatus,
 
     -- ** ListGroups
     listGroups_nextToken,
@@ -110,42 +130,30 @@ module Network.AWS.Greengrass.Lens
     deleteResourceDefinition_resourceDefinitionId,
     deleteResourceDefinitionResponse_httpStatus,
 
-    -- ** GetThingRuntimeConfiguration
-    getThingRuntimeConfiguration_thingName,
-    getThingRuntimeConfigurationResponse_runtimeConfiguration,
-    getThingRuntimeConfigurationResponse_httpStatus,
-
-    -- ** ListDeviceDefinitionVersions
-    listDeviceDefinitionVersions_nextToken,
-    listDeviceDefinitionVersions_maxResults,
-    listDeviceDefinitionVersions_deviceDefinitionId,
-    listDeviceDefinitionVersionsResponse_nextToken,
-    listDeviceDefinitionVersionsResponse_versions,
-    listDeviceDefinitionVersionsResponse_httpStatus,
-
     -- ** UpdateResourceDefinition
     updateResourceDefinition_name,
     updateResourceDefinition_resourceDefinitionId,
     updateResourceDefinitionResponse_httpStatus,
 
-    -- ** ListResourceDefinitions
-    listResourceDefinitions_nextToken,
-    listResourceDefinitions_maxResults,
-    listResourceDefinitionsResponse_nextToken,
-    listResourceDefinitionsResponse_definitions,
-    listResourceDefinitionsResponse_httpStatus,
+    -- ** GetGroupVersion
+    getGroupVersion_groupVersionId,
+    getGroupVersion_groupId,
+    getGroupVersionResponse_creationTimestamp,
+    getGroupVersionResponse_arn,
+    getGroupVersionResponse_id,
+    getGroupVersionResponse_version,
+    getGroupVersionResponse_definition,
+    getGroupVersionResponse_httpStatus,
 
-    -- ** GetDeviceDefinition
-    getDeviceDefinition_deviceDefinitionId,
-    getDeviceDefinitionResponse_creationTimestamp,
-    getDeviceDefinitionResponse_latestVersionArn,
-    getDeviceDefinitionResponse_latestVersion,
-    getDeviceDefinitionResponse_arn,
-    getDeviceDefinitionResponse_id,
-    getDeviceDefinitionResponse_name,
-    getDeviceDefinitionResponse_lastUpdatedTimestamp,
-    getDeviceDefinitionResponse_tags,
-    getDeviceDefinitionResponse_httpStatus,
+    -- ** CreateDeviceDefinitionVersion
+    createDeviceDefinitionVersion_devices,
+    createDeviceDefinitionVersion_amznClientToken,
+    createDeviceDefinitionVersion_deviceDefinitionId,
+    createDeviceDefinitionVersionResponse_creationTimestamp,
+    createDeviceDefinitionVersionResponse_arn,
+    createDeviceDefinitionVersionResponse_id,
+    createDeviceDefinitionVersionResponse_version,
+    createDeviceDefinitionVersionResponse_httpStatus,
 
     -- ** CreateResourceDefinition
     createResourceDefinition_name,
@@ -161,45 +169,23 @@ module Network.AWS.Greengrass.Lens
     createResourceDefinitionResponse_lastUpdatedTimestamp,
     createResourceDefinitionResponse_httpStatus,
 
-    -- ** GetResourceDefinitionVersion
-    getResourceDefinitionVersion_resourceDefinitionVersionId,
-    getResourceDefinitionVersion_resourceDefinitionId,
-    getResourceDefinitionVersionResponse_creationTimestamp,
-    getResourceDefinitionVersionResponse_arn,
-    getResourceDefinitionVersionResponse_id,
-    getResourceDefinitionVersionResponse_version,
-    getResourceDefinitionVersionResponse_definition,
-    getResourceDefinitionVersionResponse_httpStatus,
-
-    -- ** CreateDeviceDefinitionVersion
-    createDeviceDefinitionVersion_devices,
-    createDeviceDefinitionVersion_amznClientToken,
-    createDeviceDefinitionVersion_deviceDefinitionId,
-    createDeviceDefinitionVersionResponse_creationTimestamp,
-    createDeviceDefinitionVersionResponse_arn,
-    createDeviceDefinitionVersionResponse_id,
-    createDeviceDefinitionVersionResponse_version,
-    createDeviceDefinitionVersionResponse_httpStatus,
-
-    -- ** GetGroupVersion
-    getGroupVersion_groupVersionId,
-    getGroupVersion_groupId,
-    getGroupVersionResponse_creationTimestamp,
-    getGroupVersionResponse_arn,
-    getGroupVersionResponse_id,
-    getGroupVersionResponse_version,
-    getGroupVersionResponse_definition,
-    getGroupVersionResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_tagKeys,
-    untagResource_resourceArn,
+    -- ** GetDeviceDefinition
+    getDeviceDefinition_deviceDefinitionId,
+    getDeviceDefinitionResponse_creationTimestamp,
+    getDeviceDefinitionResponse_latestVersionArn,
+    getDeviceDefinitionResponse_latestVersion,
+    getDeviceDefinitionResponse_arn,
+    getDeviceDefinitionResponse_id,
+    getDeviceDefinitionResponse_name,
+    getDeviceDefinitionResponse_tags,
+    getDeviceDefinitionResponse_lastUpdatedTimestamp,
+    getDeviceDefinitionResponse_httpStatus,
 
     -- ** CreateGroup
-    createGroup_name,
     createGroup_initialVersion,
     createGroup_tags,
     createGroup_amznClientToken,
+    createGroup_name,
     createGroupResponse_creationTimestamp,
     createGroupResponse_latestVersionArn,
     createGroupResponse_latestVersion,
@@ -217,26 +203,42 @@ module Network.AWS.Greengrass.Lens
     updateGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds,
     updateGroupCertificateConfigurationResponse_httpStatus,
 
+    -- ** UntagResource
+    untagResource_tagKeys,
+    untagResource_resourceArn,
+
+    -- ** GetResourceDefinitionVersion
+    getResourceDefinitionVersion_resourceDefinitionVersionId,
+    getResourceDefinitionVersion_resourceDefinitionId,
+    getResourceDefinitionVersionResponse_creationTimestamp,
+    getResourceDefinitionVersionResponse_arn,
+    getResourceDefinitionVersionResponse_id,
+    getResourceDefinitionVersionResponse_version,
+    getResourceDefinitionVersionResponse_definition,
+    getResourceDefinitionVersionResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_tags,
+    tagResource_resourceArn,
+
+    -- ** ListLoggerDefinitions
+    listLoggerDefinitions_nextToken,
+    listLoggerDefinitions_maxResults,
+    listLoggerDefinitionsResponse_nextToken,
+    listLoggerDefinitionsResponse_definitions,
+    listLoggerDefinitionsResponse_httpStatus,
+
     -- ** DeleteLoggerDefinition
     deleteLoggerDefinition_loggerDefinitionId,
     deleteLoggerDefinitionResponse_httpStatus,
 
-    -- ** ListBulkDeployments
-    listBulkDeployments_nextToken,
-    listBulkDeployments_maxResults,
-    listBulkDeploymentsResponse_nextToken,
-    listBulkDeploymentsResponse_bulkDeployments,
-    listBulkDeploymentsResponse_httpStatus,
-
-    -- ** CreateConnectorDefinitionVersion
-    createConnectorDefinitionVersion_connectors,
-    createConnectorDefinitionVersion_amznClientToken,
-    createConnectorDefinitionVersion_connectorDefinitionId,
-    createConnectorDefinitionVersionResponse_creationTimestamp,
-    createConnectorDefinitionVersionResponse_arn,
-    createConnectorDefinitionVersionResponse_id,
-    createConnectorDefinitionVersionResponse_version,
-    createConnectorDefinitionVersionResponse_httpStatus,
+    -- ** ListDeployments
+    listDeployments_nextToken,
+    listDeployments_maxResults,
+    listDeployments_groupId,
+    listDeploymentsResponse_nextToken,
+    listDeploymentsResponse_deployments,
+    listDeploymentsResponse_httpStatus,
 
     -- ** CreateSubscriptionDefinitionVersion
     createSubscriptionDefinitionVersion_subscriptions,
@@ -248,18 +250,6 @@ module Network.AWS.Greengrass.Lens
     createSubscriptionDefinitionVersionResponse_version,
     createSubscriptionDefinitionVersionResponse_httpStatus,
 
-    -- ** UpdateLoggerDefinition
-    updateLoggerDefinition_name,
-    updateLoggerDefinition_loggerDefinitionId,
-    updateLoggerDefinitionResponse_httpStatus,
-
-    -- ** ListLoggerDefinitions
-    listLoggerDefinitions_nextToken,
-    listLoggerDefinitions_maxResults,
-    listLoggerDefinitionsResponse_nextToken,
-    listLoggerDefinitionsResponse_definitions,
-    listLoggerDefinitionsResponse_httpStatus,
-
     -- ** CreateCoreDefinitionVersion
     createCoreDefinitionVersion_cores,
     createCoreDefinitionVersion_amznClientToken,
@@ -270,47 +260,27 @@ module Network.AWS.Greengrass.Lens
     createCoreDefinitionVersionResponse_version,
     createCoreDefinitionVersionResponse_httpStatus,
 
-    -- ** ListDeployments
-    listDeployments_nextToken,
-    listDeployments_maxResults,
-    listDeployments_groupId,
-    listDeploymentsResponse_nextToken,
-    listDeploymentsResponse_deployments,
-    listDeploymentsResponse_httpStatus,
+    -- ** CreateConnectorDefinitionVersion
+    createConnectorDefinitionVersion_connectors,
+    createConnectorDefinitionVersion_amznClientToken,
+    createConnectorDefinitionVersion_connectorDefinitionId,
+    createConnectorDefinitionVersionResponse_creationTimestamp,
+    createConnectorDefinitionVersionResponse_arn,
+    createConnectorDefinitionVersionResponse_id,
+    createConnectorDefinitionVersionResponse_version,
+    createConnectorDefinitionVersionResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_tags,
-    tagResource_resourceArn,
+    -- ** ListBulkDeployments
+    listBulkDeployments_nextToken,
+    listBulkDeployments_maxResults,
+    listBulkDeploymentsResponse_nextToken,
+    listBulkDeploymentsResponse_bulkDeployments,
+    listBulkDeploymentsResponse_httpStatus,
 
-    -- ** GetConnectivityInfo
-    getConnectivityInfo_thingName,
-    getConnectivityInfoResponse_message,
-    getConnectivityInfoResponse_connectivityInfo,
-    getConnectivityInfoResponse_httpStatus,
-
-    -- ** ListSubscriptionDefinitionVersions
-    listSubscriptionDefinitionVersions_nextToken,
-    listSubscriptionDefinitionVersions_maxResults,
-    listSubscriptionDefinitionVersions_subscriptionDefinitionId,
-    listSubscriptionDefinitionVersionsResponse_nextToken,
-    listSubscriptionDefinitionVersionsResponse_versions,
-    listSubscriptionDefinitionVersionsResponse_httpStatus,
-
-    -- ** ListCoreDefinitionVersions
-    listCoreDefinitionVersions_nextToken,
-    listCoreDefinitionVersions_maxResults,
-    listCoreDefinitionVersions_coreDefinitionId,
-    listCoreDefinitionVersionsResponse_nextToken,
-    listCoreDefinitionVersionsResponse_versions,
-    listCoreDefinitionVersionsResponse_httpStatus,
-
-    -- ** ListConnectorDefinitionVersions
-    listConnectorDefinitionVersions_nextToken,
-    listConnectorDefinitionVersions_maxResults,
-    listConnectorDefinitionVersions_connectorDefinitionId,
-    listConnectorDefinitionVersionsResponse_nextToken,
-    listConnectorDefinitionVersionsResponse_versions,
-    listConnectorDefinitionVersionsResponse_httpStatus,
+    -- ** UpdateLoggerDefinition
+    updateLoggerDefinition_name,
+    updateLoggerDefinition_loggerDefinitionId,
+    updateLoggerDefinitionResponse_httpStatus,
 
     -- ** CreateSoftwareUpdateJob
     createSoftwareUpdateJob_updateAgentLogLevel,
@@ -325,6 +295,42 @@ module Network.AWS.Greengrass.Lens
     createSoftwareUpdateJobResponse_platformSoftwareVersion,
     createSoftwareUpdateJobResponse_httpStatus,
 
+    -- ** ListSubscriptionDefinitionVersions
+    listSubscriptionDefinitionVersions_nextToken,
+    listSubscriptionDefinitionVersions_maxResults,
+    listSubscriptionDefinitionVersions_subscriptionDefinitionId,
+    listSubscriptionDefinitionVersionsResponse_nextToken,
+    listSubscriptionDefinitionVersionsResponse_versions,
+    listSubscriptionDefinitionVersionsResponse_httpStatus,
+
+    -- ** GetConnectivityInfo
+    getConnectivityInfo_thingName,
+    getConnectivityInfoResponse_message,
+    getConnectivityInfoResponse_connectivityInfo,
+    getConnectivityInfoResponse_httpStatus,
+
+    -- ** ListConnectorDefinitionVersions
+    listConnectorDefinitionVersions_nextToken,
+    listConnectorDefinitionVersions_maxResults,
+    listConnectorDefinitionVersions_connectorDefinitionId,
+    listConnectorDefinitionVersionsResponse_nextToken,
+    listConnectorDefinitionVersionsResponse_versions,
+    listConnectorDefinitionVersionsResponse_httpStatus,
+
+    -- ** ListCoreDefinitionVersions
+    listCoreDefinitionVersions_nextToken,
+    listCoreDefinitionVersions_maxResults,
+    listCoreDefinitionVersions_coreDefinitionId,
+    listCoreDefinitionVersionsResponse_nextToken,
+    listCoreDefinitionVersionsResponse_versions,
+    listCoreDefinitionVersionsResponse_httpStatus,
+
+    -- ** GetAssociatedRole
+    getAssociatedRole_groupId,
+    getAssociatedRoleResponse_roleArn,
+    getAssociatedRoleResponse_associatedAt,
+    getAssociatedRoleResponse_httpStatus,
+
     -- ** CreateCoreDefinition
     createCoreDefinition_name,
     createCoreDefinition_initialVersion,
@@ -338,26 +344,6 @@ module Network.AWS.Greengrass.Lens
     createCoreDefinitionResponse_name,
     createCoreDefinitionResponse_lastUpdatedTimestamp,
     createCoreDefinitionResponse_httpStatus,
-
-    -- ** CreateConnectorDefinition
-    createConnectorDefinition_name,
-    createConnectorDefinition_initialVersion,
-    createConnectorDefinition_tags,
-    createConnectorDefinition_amznClientToken,
-    createConnectorDefinitionResponse_creationTimestamp,
-    createConnectorDefinitionResponse_latestVersionArn,
-    createConnectorDefinitionResponse_latestVersion,
-    createConnectorDefinitionResponse_arn,
-    createConnectorDefinitionResponse_id,
-    createConnectorDefinitionResponse_name,
-    createConnectorDefinitionResponse_lastUpdatedTimestamp,
-    createConnectorDefinitionResponse_httpStatus,
-
-    -- ** GetAssociatedRole
-    getAssociatedRole_groupId,
-    getAssociatedRoleResponse_roleArn,
-    getAssociatedRoleResponse_associatedAt,
-    getAssociatedRoleResponse_httpStatus,
 
     -- ** UpdateConnectivityInfo
     updateConnectivityInfo_connectivityInfo,
@@ -380,17 +366,19 @@ module Network.AWS.Greengrass.Lens
     createSubscriptionDefinitionResponse_lastUpdatedTimestamp,
     createSubscriptionDefinitionResponse_httpStatus,
 
-    -- ** DisassociateRoleFromGroup
-    disassociateRoleFromGroup_groupId,
-    disassociateRoleFromGroupResponse_disassociatedAt,
-    disassociateRoleFromGroupResponse_httpStatus,
-
-    -- ** ListCoreDefinitions
-    listCoreDefinitions_nextToken,
-    listCoreDefinitions_maxResults,
-    listCoreDefinitionsResponse_nextToken,
-    listCoreDefinitionsResponse_definitions,
-    listCoreDefinitionsResponse_httpStatus,
+    -- ** CreateConnectorDefinition
+    createConnectorDefinition_name,
+    createConnectorDefinition_initialVersion,
+    createConnectorDefinition_tags,
+    createConnectorDefinition_amznClientToken,
+    createConnectorDefinitionResponse_creationTimestamp,
+    createConnectorDefinitionResponse_latestVersionArn,
+    createConnectorDefinitionResponse_latestVersion,
+    createConnectorDefinitionResponse_arn,
+    createConnectorDefinitionResponse_id,
+    createConnectorDefinitionResponse_name,
+    createConnectorDefinitionResponse_lastUpdatedTimestamp,
+    createConnectorDefinitionResponse_httpStatus,
 
     -- ** ListConnectorDefinitions
     listConnectorDefinitions_nextToken,
@@ -398,6 +386,22 @@ module Network.AWS.Greengrass.Lens
     listConnectorDefinitionsResponse_nextToken,
     listConnectorDefinitionsResponse_definitions,
     listConnectorDefinitionsResponse_httpStatus,
+
+    -- ** GetLoggerDefinition
+    getLoggerDefinition_loggerDefinitionId,
+    getLoggerDefinitionResponse_creationTimestamp,
+    getLoggerDefinitionResponse_latestVersionArn,
+    getLoggerDefinitionResponse_latestVersion,
+    getLoggerDefinitionResponse_arn,
+    getLoggerDefinitionResponse_id,
+    getLoggerDefinitionResponse_name,
+    getLoggerDefinitionResponse_tags,
+    getLoggerDefinitionResponse_lastUpdatedTimestamp,
+    getLoggerDefinitionResponse_httpStatus,
+
+    -- ** DeleteConnectorDefinition
+    deleteConnectorDefinition_connectorDefinitionId,
+    deleteConnectorDefinitionResponse_httpStatus,
 
     -- ** CreateGroupCertificateAuthority
     createGroupCertificateAuthority_amznClientToken,
@@ -410,26 +414,29 @@ module Network.AWS.Greengrass.Lens
     listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities,
     listGroupCertificateAuthoritiesResponse_httpStatus,
 
-    -- ** DeleteConnectorDefinition
-    deleteConnectorDefinition_connectorDefinitionId,
-    deleteConnectorDefinitionResponse_httpStatus,
+    -- ** DisassociateRoleFromGroup
+    disassociateRoleFromGroup_groupId,
+    disassociateRoleFromGroupResponse_disassociatedAt,
+    disassociateRoleFromGroupResponse_httpStatus,
 
-    -- ** GetLoggerDefinition
-    getLoggerDefinition_loggerDefinitionId,
-    getLoggerDefinitionResponse_creationTimestamp,
-    getLoggerDefinitionResponse_latestVersionArn,
-    getLoggerDefinitionResponse_latestVersion,
-    getLoggerDefinitionResponse_arn,
-    getLoggerDefinitionResponse_id,
-    getLoggerDefinitionResponse_name,
-    getLoggerDefinitionResponse_lastUpdatedTimestamp,
-    getLoggerDefinitionResponse_tags,
-    getLoggerDefinitionResponse_httpStatus,
+    -- ** ListCoreDefinitions
+    listCoreDefinitions_nextToken,
+    listCoreDefinitions_maxResults,
+    listCoreDefinitionsResponse_nextToken,
+    listCoreDefinitionsResponse_definitions,
+    listCoreDefinitionsResponse_httpStatus,
 
     -- ** UpdateConnectorDefinition
     updateConnectorDefinition_name,
     updateConnectorDefinition_connectorDefinitionId,
     updateConnectorDefinitionResponse_httpStatus,
+
+    -- ** ListSubscriptionDefinitions
+    listSubscriptionDefinitions_nextToken,
+    listSubscriptionDefinitions_maxResults,
+    listSubscriptionDefinitionsResponse_nextToken,
+    listSubscriptionDefinitionsResponse_definitions,
+    listSubscriptionDefinitionsResponse_httpStatus,
 
     -- ** CreateLoggerDefinitionVersion
     createLoggerDefinitionVersion_loggers,
@@ -449,12 +456,20 @@ module Network.AWS.Greengrass.Lens
     resetDeploymentsResponse_deploymentArn,
     resetDeploymentsResponse_httpStatus,
 
-    -- ** ListSubscriptionDefinitions
-    listSubscriptionDefinitions_nextToken,
-    listSubscriptionDefinitions_maxResults,
-    listSubscriptionDefinitionsResponse_nextToken,
-    listSubscriptionDefinitionsResponse_definitions,
-    listSubscriptionDefinitionsResponse_httpStatus,
+    -- ** DeleteDeviceDefinition
+    deleteDeviceDefinition_deviceDefinitionId,
+    deleteDeviceDefinitionResponse_httpStatus,
+
+    -- ** DisassociateServiceRoleFromAccount
+    disassociateServiceRoleFromAccountResponse_disassociatedAt,
+    disassociateServiceRoleFromAccountResponse_httpStatus,
+
+    -- ** ListDeviceDefinitions
+    listDeviceDefinitions_nextToken,
+    listDeviceDefinitions_maxResults,
+    listDeviceDefinitionsResponse_nextToken,
+    listDeviceDefinitionsResponse_definitions,
+    listDeviceDefinitionsResponse_httpStatus,
 
     -- ** ListGroupVersions
     listGroupVersions_nextToken,
@@ -464,25 +479,10 @@ module Network.AWS.Greengrass.Lens
     listGroupVersionsResponse_versions,
     listGroupVersionsResponse_httpStatus,
 
-    -- ** DeleteDeviceDefinition
-    deleteDeviceDefinition_deviceDefinitionId,
-    deleteDeviceDefinitionResponse_httpStatus,
-
     -- ** UpdateDeviceDefinition
     updateDeviceDefinition_name,
     updateDeviceDefinition_deviceDefinitionId,
     updateDeviceDefinitionResponse_httpStatus,
-
-    -- ** ListDeviceDefinitions
-    listDeviceDefinitions_nextToken,
-    listDeviceDefinitions_maxResults,
-    listDeviceDefinitionsResponse_nextToken,
-    listDeviceDefinitionsResponse_definitions,
-    listDeviceDefinitionsResponse_httpStatus,
-
-    -- ** DisassociateServiceRoleFromAccount
-    disassociateServiceRoleFromAccountResponse_disassociatedAt,
-    disassociateServiceRoleFromAccountResponse_httpStatus,
 
     -- ** ListResourceDefinitionVersions
     listResourceDefinitionVersions_nextToken,
@@ -491,30 +491,6 @@ module Network.AWS.Greengrass.Lens
     listResourceDefinitionVersionsResponse_nextToken,
     listResourceDefinitionVersionsResponse_versions,
     listResourceDefinitionVersionsResponse_httpStatus,
-
-    -- ** GetResourceDefinition
-    getResourceDefinition_resourceDefinitionId,
-    getResourceDefinitionResponse_creationTimestamp,
-    getResourceDefinitionResponse_latestVersionArn,
-    getResourceDefinitionResponse_latestVersion,
-    getResourceDefinitionResponse_arn,
-    getResourceDefinitionResponse_id,
-    getResourceDefinitionResponse_name,
-    getResourceDefinitionResponse_lastUpdatedTimestamp,
-    getResourceDefinitionResponse_tags,
-    getResourceDefinitionResponse_httpStatus,
-
-    -- ** GetGroup
-    getGroup_groupId,
-    getGroupResponse_creationTimestamp,
-    getGroupResponse_latestVersionArn,
-    getGroupResponse_latestVersion,
-    getGroupResponse_arn,
-    getGroupResponse_id,
-    getGroupResponse_name,
-    getGroupResponse_lastUpdatedTimestamp,
-    getGroupResponse_tags,
-    getGroupResponse_httpStatus,
 
     -- ** CreateDeviceDefinition
     createDeviceDefinition_name,
@@ -530,17 +506,17 @@ module Network.AWS.Greengrass.Lens
     createDeviceDefinitionResponse_lastUpdatedTimestamp,
     createDeviceDefinitionResponse_httpStatus,
 
-    -- ** GetDeviceDefinitionVersion
-    getDeviceDefinitionVersion_nextToken,
-    getDeviceDefinitionVersion_deviceDefinitionVersionId,
-    getDeviceDefinitionVersion_deviceDefinitionId,
-    getDeviceDefinitionVersionResponse_creationTimestamp,
-    getDeviceDefinitionVersionResponse_nextToken,
-    getDeviceDefinitionVersionResponse_arn,
-    getDeviceDefinitionVersionResponse_id,
-    getDeviceDefinitionVersionResponse_version,
-    getDeviceDefinitionVersionResponse_definition,
-    getDeviceDefinitionVersionResponse_httpStatus,
+    -- ** GetResourceDefinition
+    getResourceDefinition_resourceDefinitionId,
+    getResourceDefinitionResponse_creationTimestamp,
+    getResourceDefinitionResponse_latestVersionArn,
+    getResourceDefinitionResponse_latestVersion,
+    getResourceDefinitionResponse_arn,
+    getResourceDefinitionResponse_id,
+    getResourceDefinitionResponse_name,
+    getResourceDefinitionResponse_tags,
+    getResourceDefinitionResponse_lastUpdatedTimestamp,
+    getResourceDefinitionResponse_httpStatus,
 
     -- ** CreateResourceDefinitionVersion
     createResourceDefinitionVersion_resources,
@@ -553,9 +529,9 @@ module Network.AWS.Greengrass.Lens
     createResourceDefinitionVersionResponse_httpStatus,
 
     -- ** CreateGroupVersion
+    createGroupVersion_subscriptionDefinitionVersionArn,
     createGroupVersion_coreDefinitionVersionArn,
     createGroupVersion_connectorDefinitionVersionArn,
-    createGroupVersion_subscriptionDefinitionVersionArn,
     createGroupVersion_loggerDefinitionVersionArn,
     createGroupVersion_resourceDefinitionVersionArn,
     createGroupVersion_functionDefinitionVersionArn,
@@ -567,6 +543,50 @@ module Network.AWS.Greengrass.Lens
     createGroupVersionResponse_id,
     createGroupVersionResponse_version,
     createGroupVersionResponse_httpStatus,
+
+    -- ** GetDeviceDefinitionVersion
+    getDeviceDefinitionVersion_nextToken,
+    getDeviceDefinitionVersion_deviceDefinitionVersionId,
+    getDeviceDefinitionVersion_deviceDefinitionId,
+    getDeviceDefinitionVersionResponse_creationTimestamp,
+    getDeviceDefinitionVersionResponse_nextToken,
+    getDeviceDefinitionVersionResponse_arn,
+    getDeviceDefinitionVersionResponse_id,
+    getDeviceDefinitionVersionResponse_version,
+    getDeviceDefinitionVersionResponse_definition,
+    getDeviceDefinitionVersionResponse_httpStatus,
+
+    -- ** GetGroup
+    getGroup_groupId,
+    getGroupResponse_creationTimestamp,
+    getGroupResponse_latestVersionArn,
+    getGroupResponse_latestVersion,
+    getGroupResponse_arn,
+    getGroupResponse_id,
+    getGroupResponse_name,
+    getGroupResponse_tags,
+    getGroupResponse_lastUpdatedTimestamp,
+    getGroupResponse_httpStatus,
+
+    -- ** DeleteGroup
+    deleteGroup_groupId,
+    deleteGroupResponse_httpStatus,
+
+    -- ** ListFunctionDefinitions
+    listFunctionDefinitions_nextToken,
+    listFunctionDefinitions_maxResults,
+    listFunctionDefinitionsResponse_nextToken,
+    listFunctionDefinitionsResponse_definitions,
+    listFunctionDefinitionsResponse_httpStatus,
+
+    -- ** DeleteFunctionDefinition
+    deleteFunctionDefinition_functionDefinitionId,
+    deleteFunctionDefinitionResponse_httpStatus,
+
+    -- ** UpdateFunctionDefinition
+    updateFunctionDefinition_name,
+    updateFunctionDefinition_functionDefinitionId,
+    updateFunctionDefinitionResponse_httpStatus,
 
     -- ** ListBulkDeploymentDetailedReports
     listBulkDeploymentDetailedReports_nextToken,
@@ -581,25 +601,15 @@ module Network.AWS.Greengrass.Lens
     updateGroup_groupId,
     updateGroupResponse_httpStatus,
 
-    -- ** DeleteGroup
-    deleteGroup_groupId,
-    deleteGroupResponse_httpStatus,
-
-    -- ** DeleteFunctionDefinition
-    deleteFunctionDefinition_functionDefinitionId,
-    deleteFunctionDefinitionResponse_httpStatus,
-
-    -- ** UpdateFunctionDefinition
-    updateFunctionDefinition_name,
-    updateFunctionDefinition_functionDefinitionId,
-    updateFunctionDefinitionResponse_httpStatus,
-
-    -- ** ListFunctionDefinitions
-    listFunctionDefinitions_nextToken,
-    listFunctionDefinitions_maxResults,
-    listFunctionDefinitionsResponse_nextToken,
-    listFunctionDefinitionsResponse_definitions,
-    listFunctionDefinitionsResponse_httpStatus,
+    -- ** GetDeploymentStatus
+    getDeploymentStatus_groupId,
+    getDeploymentStatus_deploymentId,
+    getDeploymentStatusResponse_deploymentType,
+    getDeploymentStatusResponse_updatedAt,
+    getDeploymentStatusResponse_deploymentStatus,
+    getDeploymentStatusResponse_errorMessage,
+    getDeploymentStatusResponse_errorDetails,
+    getDeploymentStatusResponse_httpStatus,
 
     -- ** GetFunctionDefinitionVersion
     getFunctionDefinitionVersion_nextToken,
@@ -615,23 +625,13 @@ module Network.AWS.Greengrass.Lens
 
     -- ** GetBulkDeploymentStatus
     getBulkDeploymentStatus_bulkDeploymentId,
-    getBulkDeploymentStatusResponse_createdAt,
     getBulkDeploymentStatusResponse_bulkDeploymentStatus,
+    getBulkDeploymentStatusResponse_createdAt,
     getBulkDeploymentStatusResponse_tags,
     getBulkDeploymentStatusResponse_bulkDeploymentMetrics,
     getBulkDeploymentStatusResponse_errorMessage,
     getBulkDeploymentStatusResponse_errorDetails,
     getBulkDeploymentStatusResponse_httpStatus,
-
-    -- ** GetDeploymentStatus
-    getDeploymentStatus_groupId,
-    getDeploymentStatus_deploymentId,
-    getDeploymentStatusResponse_deploymentType,
-    getDeploymentStatusResponse_updatedAt,
-    getDeploymentStatusResponse_deploymentStatus,
-    getDeploymentStatusResponse_errorMessage,
-    getDeploymentStatusResponse_errorDetails,
-    getDeploymentStatusResponse_httpStatus,
 
     -- ** CreateFunctionDefinition
     createFunctionDefinition_name,
@@ -647,18 +647,6 @@ module Network.AWS.Greengrass.Lens
     createFunctionDefinitionResponse_lastUpdatedTimestamp,
     createFunctionDefinitionResponse_httpStatus,
 
-    -- ** GetSubscriptionDefinition
-    getSubscriptionDefinition_subscriptionDefinitionId,
-    getSubscriptionDefinitionResponse_creationTimestamp,
-    getSubscriptionDefinitionResponse_latestVersionArn,
-    getSubscriptionDefinitionResponse_latestVersion,
-    getSubscriptionDefinitionResponse_arn,
-    getSubscriptionDefinitionResponse_id,
-    getSubscriptionDefinitionResponse_name,
-    getSubscriptionDefinitionResponse_lastUpdatedTimestamp,
-    getSubscriptionDefinitionResponse_tags,
-    getSubscriptionDefinitionResponse_httpStatus,
-
     -- ** GetConnectorDefinition
     getConnectorDefinition_connectorDefinitionId,
     getConnectorDefinitionResponse_creationTimestamp,
@@ -667,9 +655,21 @@ module Network.AWS.Greengrass.Lens
     getConnectorDefinitionResponse_arn,
     getConnectorDefinitionResponse_id,
     getConnectorDefinitionResponse_name,
-    getConnectorDefinitionResponse_lastUpdatedTimestamp,
     getConnectorDefinitionResponse_tags,
+    getConnectorDefinitionResponse_lastUpdatedTimestamp,
     getConnectorDefinitionResponse_httpStatus,
+
+    -- ** GetSubscriptionDefinition
+    getSubscriptionDefinition_subscriptionDefinitionId,
+    getSubscriptionDefinitionResponse_creationTimestamp,
+    getSubscriptionDefinitionResponse_latestVersionArn,
+    getSubscriptionDefinitionResponse_latestVersion,
+    getSubscriptionDefinitionResponse_arn,
+    getSubscriptionDefinitionResponse_id,
+    getSubscriptionDefinitionResponse_name,
+    getSubscriptionDefinitionResponse_tags,
+    getSubscriptionDefinitionResponse_lastUpdatedTimestamp,
+    getSubscriptionDefinitionResponse_httpStatus,
 
     -- ** GetCoreDefinition
     getCoreDefinition_coreDefinitionId,
@@ -679,22 +679,24 @@ module Network.AWS.Greengrass.Lens
     getCoreDefinitionResponse_arn,
     getCoreDefinitionResponse_id,
     getCoreDefinitionResponse_name,
-    getCoreDefinitionResponse_lastUpdatedTimestamp,
     getCoreDefinitionResponse_tags,
+    getCoreDefinitionResponse_lastUpdatedTimestamp,
     getCoreDefinitionResponse_httpStatus,
-
-    -- ** GetGroupCertificateAuthority
-    getGroupCertificateAuthority_certificateAuthorityId,
-    getGroupCertificateAuthority_groupId,
-    getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn,
-    getGroupCertificateAuthorityResponse_pemEncodedCertificate,
-    getGroupCertificateAuthorityResponse_groupCertificateAuthorityId,
-    getGroupCertificateAuthorityResponse_httpStatus,
 
     -- ** GetServiceRoleForAccount
     getServiceRoleForAccountResponse_roleArn,
     getServiceRoleForAccountResponse_associatedAt,
     getServiceRoleForAccountResponse_httpStatus,
+
+    -- ** CreateDeployment
+    createDeployment_deploymentId,
+    createDeployment_groupVersionId,
+    createDeployment_amznClientToken,
+    createDeployment_groupId,
+    createDeployment_deploymentType,
+    createDeploymentResponse_deploymentId,
+    createDeploymentResponse_deploymentArn,
+    createDeploymentResponse_httpStatus,
 
     -- ** GetLoggerDefinitionVersion
     getLoggerDefinitionVersion_nextToken,
@@ -721,15 +723,33 @@ module Network.AWS.Greengrass.Lens
     createLoggerDefinitionResponse_lastUpdatedTimestamp,
     createLoggerDefinitionResponse_httpStatus,
 
-    -- ** CreateDeployment
-    createDeployment_deploymentId,
-    createDeployment_groupVersionId,
-    createDeployment_amznClientToken,
-    createDeployment_groupId,
-    createDeployment_deploymentType,
-    createDeploymentResponse_deploymentId,
-    createDeploymentResponse_deploymentArn,
-    createDeploymentResponse_httpStatus,
+    -- ** GetGroupCertificateAuthority
+    getGroupCertificateAuthority_certificateAuthorityId,
+    getGroupCertificateAuthority_groupId,
+    getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn,
+    getGroupCertificateAuthorityResponse_pemEncodedCertificate,
+    getGroupCertificateAuthorityResponse_groupCertificateAuthorityId,
+    getGroupCertificateAuthorityResponse_httpStatus,
+
+    -- ** GetConnectorDefinitionVersion
+    getConnectorDefinitionVersion_nextToken,
+    getConnectorDefinitionVersion_connectorDefinitionId,
+    getConnectorDefinitionVersion_connectorDefinitionVersionId,
+    getConnectorDefinitionVersionResponse_creationTimestamp,
+    getConnectorDefinitionVersionResponse_nextToken,
+    getConnectorDefinitionVersionResponse_arn,
+    getConnectorDefinitionVersionResponse_id,
+    getConnectorDefinitionVersionResponse_version,
+    getConnectorDefinitionVersionResponse_definition,
+    getConnectorDefinitionVersionResponse_httpStatus,
+
+    -- ** ListLoggerDefinitionVersions
+    listLoggerDefinitionVersions_nextToken,
+    listLoggerDefinitionVersions_maxResults,
+    listLoggerDefinitionVersions_loggerDefinitionId,
+    listLoggerDefinitionVersionsResponse_nextToken,
+    listLoggerDefinitionVersionsResponse_versions,
+    listLoggerDefinitionVersionsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -748,14 +768,6 @@ module Network.AWS.Greengrass.Lens
     getSubscriptionDefinitionVersionResponse_definition,
     getSubscriptionDefinitionVersionResponse_httpStatus,
 
-    -- ** ListLoggerDefinitionVersions
-    listLoggerDefinitionVersions_nextToken,
-    listLoggerDefinitionVersions_maxResults,
-    listLoggerDefinitionVersions_loggerDefinitionId,
-    listLoggerDefinitionVersionsResponse_nextToken,
-    listLoggerDefinitionVersionsResponse_versions,
-    listLoggerDefinitionVersionsResponse_httpStatus,
-
     -- ** GetCoreDefinitionVersion
     getCoreDefinitionVersion_coreDefinitionId,
     getCoreDefinitionVersion_coreDefinitionVersionId,
@@ -766,18 +778,6 @@ module Network.AWS.Greengrass.Lens
     getCoreDefinitionVersionResponse_version,
     getCoreDefinitionVersionResponse_definition,
     getCoreDefinitionVersionResponse_httpStatus,
-
-    -- ** GetConnectorDefinitionVersion
-    getConnectorDefinitionVersion_nextToken,
-    getConnectorDefinitionVersion_connectorDefinitionId,
-    getConnectorDefinitionVersion_connectorDefinitionVersionId,
-    getConnectorDefinitionVersionResponse_creationTimestamp,
-    getConnectorDefinitionVersionResponse_nextToken,
-    getConnectorDefinitionVersionResponse_arn,
-    getConnectorDefinitionVersionResponse_id,
-    getConnectorDefinitionVersionResponse_version,
-    getConnectorDefinitionVersionResponse_definition,
-    getConnectorDefinitionVersionResponse_httpStatus,
 
     -- * Types
 
@@ -794,16 +794,16 @@ module Network.AWS.Greengrass.Lens
     -- ** BulkDeploymentResult
     bulkDeploymentResult_deploymentId,
     bulkDeploymentResult_deploymentType,
-    bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_createdAt,
+    bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_deploymentArn,
     bulkDeploymentResult_errorMessage,
     bulkDeploymentResult_groupArn,
     bulkDeploymentResult_errorDetails,
 
     -- ** ConnectivityInfo
-    connectivityInfo_id,
     connectivityInfo_metadata,
+    connectivityInfo_id,
     connectivityInfo_portNumber,
     connectivityInfo_hostAddress,
 
@@ -860,12 +860,12 @@ module Network.AWS.Greengrass.Lens
     function_id,
 
     -- ** FunctionConfiguration
-    functionConfiguration_execArgs,
     functionConfiguration_memorySize,
+    functionConfiguration_execArgs,
     functionConfiguration_timeout,
     functionConfiguration_encodingType,
-    functionConfiguration_pinned,
     functionConfiguration_executable,
+    functionConfiguration_pinned,
     functionConfiguration_environment,
 
     -- ** FunctionConfigurationEnvironment
@@ -918,9 +918,9 @@ module Network.AWS.Greengrass.Lens
     groupOwnerSetting_autoAddGroupOwner,
 
     -- ** GroupVersion
+    groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_coreDefinitionVersionArn,
     groupVersion_connectorDefinitionVersionArn,
-    groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_loggerDefinitionVersionArn,
     groupVersion_resourceDefinitionVersionArn,
     groupVersion_functionDefinitionVersionArn,
@@ -950,8 +950,8 @@ module Network.AWS.Greengrass.Lens
     -- ** ResourceDataContainer
     resourceDataContainer_localVolumeResourceData,
     resourceDataContainer_localDeviceResourceData,
-    resourceDataContainer_sageMakerMachineLearningModelResourceData,
     resourceDataContainer_s3MachineLearningModelResourceData,
+    resourceDataContainer_sageMakerMachineLearningModelResourceData,
     resourceDataContainer_secretsManagerSecretResourceData,
 
     -- ** ResourceDefinitionVersion

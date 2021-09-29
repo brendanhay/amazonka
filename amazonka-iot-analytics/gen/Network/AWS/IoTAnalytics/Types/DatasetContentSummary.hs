@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatasetContentSummary' smart constructor.
 data DatasetContentSummary = DatasetContentSummary'
-  { -- | The status of the data set contents.
+  { -- | The status of the dataset contents.
     status :: Prelude.Maybe DatasetContentStatus,
     -- | The actual time the creation of the dataset contents was started.
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -49,7 +49,7 @@ data DatasetContentSummary = DatasetContentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'datasetContentSummary_status' - The status of the data set contents.
+-- 'status', 'datasetContentSummary_status' - The status of the dataset contents.
 --
 -- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.
 --
@@ -69,7 +69,7 @@ newDatasetContentSummary =
       version = Prelude.Nothing
     }
 
--- | The status of the data set contents.
+-- | The status of the dataset contents.
 datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
 datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 

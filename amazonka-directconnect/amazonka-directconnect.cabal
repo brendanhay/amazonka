@@ -53,6 +53,7 @@ library
     Network.AWS.DirectConnect.AllocateTransitVirtualInterface
     Network.AWS.DirectConnect.AssociateConnectionWithLag
     Network.AWS.DirectConnect.AssociateHostedConnection
+    Network.AWS.DirectConnect.AssociateMacSecKey
     Network.AWS.DirectConnect.AssociateVirtualInterface
     Network.AWS.DirectConnect.ConfirmConnection
     Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
@@ -90,6 +91,7 @@ library
     Network.AWS.DirectConnect.DescribeVirtualGateways
     Network.AWS.DirectConnect.DescribeVirtualInterfaces
     Network.AWS.DirectConnect.DisassociateConnectionFromLag
+    Network.AWS.DirectConnect.DisassociateMacSecKey
     Network.AWS.DirectConnect.Lens
     Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
     Network.AWS.DirectConnect.StartBgpFailoverTest
@@ -121,6 +123,7 @@ library
     Network.AWS.DirectConnect.Types.LagState
     Network.AWS.DirectConnect.Types.LoaContentType
     Network.AWS.DirectConnect.Types.Location
+    Network.AWS.DirectConnect.Types.MacSecKey
     Network.AWS.DirectConnect.Types.NewBGPPeer
     Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
     Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
@@ -136,6 +139,7 @@ library
     Network.AWS.DirectConnect.Types.VirtualInterfaceState
     Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
     Network.AWS.DirectConnect.UntagResource
+    Network.AWS.DirectConnect.UpdateConnection
     Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
     Network.AWS.DirectConnect.UpdateLag
     Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes

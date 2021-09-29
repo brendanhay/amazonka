@@ -73,6 +73,8 @@ library
     Network.AWS.Shield.ListProtectionGroups
     Network.AWS.Shield.ListProtections
     Network.AWS.Shield.ListResourcesInProtectionGroup
+    Network.AWS.Shield.ListTagsForResource
+    Network.AWS.Shield.TagResource
     Network.AWS.Shield.Types
     Network.AWS.Shield.Types.AttackDetail
     Network.AWS.Shield.Types.AttackLayer
@@ -105,8 +107,10 @@ library
     Network.AWS.Shield.Types.SubscriptionState
     Network.AWS.Shield.Types.SummarizedAttackVector
     Network.AWS.Shield.Types.SummarizedCounter
+    Network.AWS.Shield.Types.Tag
     Network.AWS.Shield.Types.TimeRange
     Network.AWS.Shield.Types.Unit
+    Network.AWS.Shield.UntagResource
     Network.AWS.Shield.UpdateEmergencyContactSettings
     Network.AWS.Shield.UpdateProtectionGroup
     Network.AWS.Shield.UpdateSubscription

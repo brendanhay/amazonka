@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceIdentifierSummary' smart constructor.
 data ResourceIdentifierSummary = ResourceIdentifierSummary'
-  { -- | The resource properties you can provide during the import to identify
+  { -- | The template resource type of the target resources, such as
+    -- @AWS::S3::Bucket@.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The resource properties you can provide during the import to identify
     -- your target resources. For example, @BucketName@ is a possible
     -- identifier property for @AWS::S3::Bucket@ resources.
     resourceIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | The template resource type of the target resources, such as
-    -- @AWS::S3::Bucket@.
-    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The logical IDs of the target resources of the specified @ResourceType@,
     -- as defined in the import template.
     logicalResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
@@ -51,12 +51,12 @@ data ResourceIdentifierSummary = ResourceIdentifierSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceType', 'resourceIdentifierSummary_resourceType' - The template resource type of the target resources, such as
+-- @AWS::S3::Bucket@.
+--
 -- 'resourceIdentifiers', 'resourceIdentifierSummary_resourceIdentifiers' - The resource properties you can provide during the import to identify
 -- your target resources. For example, @BucketName@ is a possible
 -- identifier property for @AWS::S3::Bucket@ resources.
---
--- 'resourceType', 'resourceIdentifierSummary_resourceType' - The template resource type of the target resources, such as
--- @AWS::S3::Bucket@.
 --
 -- 'logicalResourceIds', 'resourceIdentifierSummary_logicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@,
 -- as defined in the import template.
@@ -64,22 +64,22 @@ newResourceIdentifierSummary ::
   ResourceIdentifierSummary
 newResourceIdentifierSummary =
   ResourceIdentifierSummary'
-    { resourceIdentifiers =
+    { resourceType =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+      resourceIdentifiers = Prelude.Nothing,
       logicalResourceIds = Prelude.Nothing
     }
+
+-- | The template resource type of the target resources, such as
+-- @AWS::S3::Bucket@.
+resourceIdentifierSummary_resourceType :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe Prelude.Text)
+resourceIdentifierSummary_resourceType = Lens.lens (\ResourceIdentifierSummary' {resourceType} -> resourceType) (\s@ResourceIdentifierSummary' {} a -> s {resourceType = a} :: ResourceIdentifierSummary)
 
 -- | The resource properties you can provide during the import to identify
 -- your target resources. For example, @BucketName@ is a possible
 -- identifier property for @AWS::S3::Bucket@ resources.
 resourceIdentifierSummary_resourceIdentifiers :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe [Prelude.Text])
 resourceIdentifierSummary_resourceIdentifiers = Lens.lens (\ResourceIdentifierSummary' {resourceIdentifiers} -> resourceIdentifiers) (\s@ResourceIdentifierSummary' {} a -> s {resourceIdentifiers = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The template resource type of the target resources, such as
--- @AWS::S3::Bucket@.
-resourceIdentifierSummary_resourceType :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe Prelude.Text)
-resourceIdentifierSummary_resourceType = Lens.lens (\ResourceIdentifierSummary' {resourceType} -> resourceType) (\s@ResourceIdentifierSummary' {} a -> s {resourceType = a} :: ResourceIdentifierSummary)
 
 -- | The logical IDs of the target resources of the specified @ResourceType@,
 -- as defined in the import template.
@@ -89,11 +89,11 @@ resourceIdentifierSummary_logicalResourceIds = Lens.lens (\ResourceIdentifierSum
 instance Core.FromXML ResourceIdentifierSummary where
   parseXML x =
     ResourceIdentifierSummary'
-      Prelude.<$> ( x Core..@? "ResourceIdentifiers"
+      Prelude.<$> (x Core..@? "ResourceType")
+      Prelude.<*> ( x Core..@? "ResourceIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ResourceType")
       Prelude.<*> ( x Core..@? "LogicalResourceIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "member")

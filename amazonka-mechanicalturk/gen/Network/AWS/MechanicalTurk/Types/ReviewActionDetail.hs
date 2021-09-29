@@ -35,14 +35,14 @@ data ReviewActionDetail = ReviewActionDetail'
     status :: Prelude.Maybe ReviewActionStatus,
     -- | The specific HITId or AssignmentID targeted by the action.
     targetId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the outcome of the review.
+    result :: Prelude.Maybe Prelude.Text,
     -- | The nature of the action itself. The Review Policy is responsible for
     -- examining the HIT and Assignments, emitting results, and deciding which
     -- other actions will be necessary.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The type of object in TargetId.
     targetType :: Prelude.Maybe Prelude.Text,
-    -- | A description of the outcome of the review.
-    result :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the action.
     actionId :: Prelude.Maybe Prelude.Text,
     -- | The date when the action was completed.
@@ -65,13 +65,13 @@ data ReviewActionDetail = ReviewActionDetail'
 --
 -- 'targetId', 'reviewActionDetail_targetId' - The specific HITId or AssignmentID targeted by the action.
 --
+-- 'result', 'reviewActionDetail_result' - A description of the outcome of the review.
+--
 -- 'actionName', 'reviewActionDetail_actionName' - The nature of the action itself. The Review Policy is responsible for
 -- examining the HIT and Assignments, emitting results, and deciding which
 -- other actions will be necessary.
 --
 -- 'targetType', 'reviewActionDetail_targetType' - The type of object in TargetId.
---
--- 'result', 'reviewActionDetail_result' - A description of the outcome of the review.
 --
 -- 'actionId', 'reviewActionDetail_actionId' - The unique identifier for the action.
 --
@@ -84,9 +84,9 @@ newReviewActionDetail =
   ReviewActionDetail'
     { status = Prelude.Nothing,
       targetId = Prelude.Nothing,
+      result = Prelude.Nothing,
       actionName = Prelude.Nothing,
       targetType = Prelude.Nothing,
-      result = Prelude.Nothing,
       actionId = Prelude.Nothing,
       completeTime = Prelude.Nothing,
       errorCode = Prelude.Nothing
@@ -101,6 +101,10 @@ reviewActionDetail_status = Lens.lens (\ReviewActionDetail' {status} -> status) 
 reviewActionDetail_targetId :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
 reviewActionDetail_targetId = Lens.lens (\ReviewActionDetail' {targetId} -> targetId) (\s@ReviewActionDetail' {} a -> s {targetId = a} :: ReviewActionDetail)
 
+-- | A description of the outcome of the review.
+reviewActionDetail_result :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
+reviewActionDetail_result = Lens.lens (\ReviewActionDetail' {result} -> result) (\s@ReviewActionDetail' {} a -> s {result = a} :: ReviewActionDetail)
+
 -- | The nature of the action itself. The Review Policy is responsible for
 -- examining the HIT and Assignments, emitting results, and deciding which
 -- other actions will be necessary.
@@ -110,10 +114,6 @@ reviewActionDetail_actionName = Lens.lens (\ReviewActionDetail' {actionName} -> 
 -- | The type of object in TargetId.
 reviewActionDetail_targetType :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
 reviewActionDetail_targetType = Lens.lens (\ReviewActionDetail' {targetType} -> targetType) (\s@ReviewActionDetail' {} a -> s {targetType = a} :: ReviewActionDetail)
-
--- | A description of the outcome of the review.
-reviewActionDetail_result :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
-reviewActionDetail_result = Lens.lens (\ReviewActionDetail' {result} -> result) (\s@ReviewActionDetail' {} a -> s {result = a} :: ReviewActionDetail)
 
 -- | The unique identifier for the action.
 reviewActionDetail_actionId :: Lens.Lens' ReviewActionDetail (Prelude.Maybe Prelude.Text)
@@ -135,9 +135,9 @@ instance Core.FromJSON ReviewActionDetail where
           ReviewActionDetail'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "TargetId")
+            Prelude.<*> (x Core..:? "Result")
             Prelude.<*> (x Core..:? "ActionName")
             Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "Result")
             Prelude.<*> (x Core..:? "ActionId")
             Prelude.<*> (x Core..:? "CompleteTime")
             Prelude.<*> (x Core..:? "ErrorCode")

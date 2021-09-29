@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- have Unix file permissions assigned to them. Upon discovery in an S3
 -- bucket by Storage Gateway, the S3 objects that represent files and
 -- folders are assigned these default Unix permissions. This operation is
--- only supported for file gateways.
+-- only supported for S3 File Gateways.
 --
 -- /See:/ 'newNFSFileShareDefaults' smart constructor.
 data NFSFileShareDefaults = NFSFileShareDefaults'

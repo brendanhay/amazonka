@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueOutboundCallerConfig' smart constructor.
 data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text,
@@ -67,7 +68,8 @@ data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateQueueOutboundCallerConfig_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateQueueOutboundCallerConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'updateQueueOutboundCallerConfig_queueId' - The identifier for the queue.
 --
@@ -92,7 +94,8 @@ newUpdateQueueOutboundCallerConfig
           pOutboundCallerConfig_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateQueueOutboundCallerConfig_instanceId :: Lens.Lens' UpdateQueueOutboundCallerConfig Prelude.Text
 updateQueueOutboundCallerConfig_instanceId = Lens.lens (\UpdateQueueOutboundCallerConfig' {instanceId} -> instanceId) (\s@UpdateQueueOutboundCallerConfig' {} a -> s {instanceId = a} :: UpdateQueueOutboundCallerConfig)
 

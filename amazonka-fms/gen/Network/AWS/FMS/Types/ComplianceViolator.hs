@@ -31,7 +31,7 @@ data ComplianceViolator = ComplianceViolator'
   { -- | The resource ID.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource type. This is in the format shown in the
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
     -- For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@,
     -- @AWS::CloudFront::Distribution@, or
     -- @AWS::NetworkFirewall::FirewallPolicy@.
@@ -52,7 +52,7 @@ data ComplianceViolator = ComplianceViolator'
 -- 'resourceId', 'complianceViolator_resourceId' - The resource ID.
 --
 -- 'resourceType', 'complianceViolator_resourceType' - The resource type. This is in the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
 -- For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@,
 -- @AWS::CloudFront::Distribution@, or
 -- @AWS::NetworkFirewall::FirewallPolicy@.
@@ -72,7 +72,7 @@ complianceViolator_resourceId :: Lens.Lens' ComplianceViolator (Prelude.Maybe Pr
 complianceViolator_resourceId = Lens.lens (\ComplianceViolator' {resourceId} -> resourceId) (\s@ComplianceViolator' {} a -> s {resourceId = a} :: ComplianceViolator)
 
 -- | The resource type. This is in the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
 -- For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@,
 -- @AWS::CloudFront::Distribution@, or
 -- @AWS::NetworkFirewall::FirewallPolicy@.

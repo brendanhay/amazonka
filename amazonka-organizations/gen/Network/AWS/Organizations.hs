@@ -11,7 +11,75 @@
 --
 -- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Organizations
+-- AWS Organizations is a web service that enables you to consolidate your
+-- multiple AWS accounts into an /organization/ and centrally manage your
+-- accounts and their resources.
+--
+-- This guide provides descriptions of the Organizations operations. For
+-- more information about using this service, see the
+-- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html AWS Organizations User Guide>.
+--
+-- __Support and feedback for AWS Organizations__
+--
+-- We welcome your feedback. Send your comments to
+-- <mailto:feedback-awsorganizations@amazon.com feedback-awsorganizations\@amazon.com>
+-- or post your feedback and questions in the
+-- <http://forums.aws.amazon.com/forum.jspa?forumID=219 AWS Organizations support forum>.
+-- For more information about the AWS support forums, see
+-- <http://forums.aws.amazon.com/help.jspa Forums Help>.
+--
+-- __Endpoint to call When using the AWS CLI or the AWS SDK__
+--
+-- For the current release of Organizations, specify the @us-east-1@ region
+-- for all AWS API and AWS CLI calls made from the commercial AWS Regions
+-- outside of China. If calling from one of the AWS Regions in China, then
+-- specify @cn-northwest-1@. You can do this in the AWS CLI by using these
+-- parameters and commands:
+--
+-- -   Use the following parameter with each command to specify both the
+--     endpoint and its region:
+--
+--     @--endpoint-url https:\/\/organizations.us-east-1.amazonaws.com@
+--     /(from commercial AWS Regions outside of China)/
+--
+--     or
+--
+--     @--endpoint-url https:\/\/organizations.cn-northwest-1.amazonaws.com.cn@
+--     /(from AWS Regions in China)/
+--
+-- -   Use the default endpoint, but configure your default region with
+--     this command:
+--
+--     @aws configure set default.region us-east-1@ /(from commercial AWS
+--     Regions outside of China)/
+--
+--     or
+--
+--     @aws configure set default.region cn-northwest-1@ /(from AWS Regions
+--     in China)/
+--
+-- -   Use the following parameter with each command to specify the
+--     endpoint:
+--
+--     @--region us-east-1@ /(from commercial AWS Regions outside of
+--     China)/
+--
+--     or
+--
+--     @--region cn-northwest-1@ /(from AWS Regions in China)/
+--
+-- __Recording API Requests__
+--
+-- AWS Organizations supports AWS CloudTrail, a service that records AWS
+-- API calls for your AWS account and delivers log files to an Amazon S3
+-- bucket. By using information collected by AWS CloudTrail, you can
+-- determine which requests the Organizations service received, who made
+-- the request and when, and so on. For more about AWS Organizations and
+-- its support for AWS CloudTrail, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration Logging AWS Organizations Events with AWS CloudTrail>
+-- in the /AWS Organizations User Guide/. To learn more about AWS
+-- CloudTrail, including how to turn it on and find your log files, see the
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
 module Network.AWS.Organizations
   ( -- * Service Configuration
     defaultService,
@@ -22,14 +90,14 @@ module Network.AWS.Organizations
     -- ** OrganizationalUnitNotEmptyException
     _OrganizationalUnitNotEmptyException,
 
-    -- ** PolicyTypeNotEnabledException
-    _PolicyTypeNotEnabledException,
+    -- ** DuplicateHandshakeException
+    _DuplicateHandshakeException,
 
     -- ** MalformedPolicyDocumentException
     _MalformedPolicyDocumentException,
 
-    -- ** DuplicateHandshakeException
-    _DuplicateHandshakeException,
+    -- ** PolicyTypeNotEnabledException
+    _PolicyTypeNotEnabledException,
 
     -- ** OrganizationNotEmptyException
     _OrganizationNotEmptyException,
@@ -46,17 +114,17 @@ module Network.AWS.Organizations
     -- ** HandshakeAlreadyInStateException
     _HandshakeAlreadyInStateException,
 
+    -- ** HandshakeNotFoundException
+    _HandshakeNotFoundException,
+
     -- ** ConstraintViolationException
     _ConstraintViolationException,
-
-    -- ** AWSOrganizationsNotInUseException
-    _AWSOrganizationsNotInUseException,
 
     -- ** PolicyTypeNotAvailableForOrganizationException
     _PolicyTypeNotAvailableForOrganizationException,
 
-    -- ** HandshakeNotFoundException
-    _HandshakeNotFoundException,
+    -- ** AWSOrganizationsNotInUseException
+    _AWSOrganizationsNotInUseException,
 
     -- ** InvalidInputException
     _InvalidInputException,
@@ -67,23 +135,23 @@ module Network.AWS.Organizations
     -- ** DuplicatePolicyException
     _DuplicatePolicyException,
 
-    -- ** AlreadyInOrganizationException
-    _AlreadyInOrganizationException,
-
     -- ** CreateAccountStatusNotFoundException
     _CreateAccountStatusNotFoundException,
 
-    -- ** MasterCannotLeaveOrganizationException
-    _MasterCannotLeaveOrganizationException,
+    -- ** AlreadyInOrganizationException
+    _AlreadyInOrganizationException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** MasterCannotLeaveOrganizationException
+    _MasterCannotLeaveOrganizationException,
 
     -- ** PolicyNotFoundException
     _PolicyNotFoundException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** PolicyTypeAlreadyEnabledException
     _PolicyTypeAlreadyEnabledException,
@@ -103,11 +171,14 @@ module Network.AWS.Organizations
     -- ** UnsupportedAPIEndpointException
     _UnsupportedAPIEndpointException,
 
+    -- ** InvalidHandshakeTransitionException
+    _InvalidHandshakeTransitionException,
+
     -- ** ChildNotFoundException
     _ChildNotFoundException,
 
-    -- ** InvalidHandshakeTransitionException
-    _InvalidHandshakeTransitionException,
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
 
     -- ** FinalizingOrganizationException
     _FinalizingOrganizationException,
@@ -115,26 +186,20 @@ module Network.AWS.Organizations
     -- ** PolicyInUseException
     _PolicyInUseException,
 
-    -- ** AccountNotRegisteredException
-    _AccountNotRegisteredException,
-
-    -- ** PolicyChangesInProgressException
-    _PolicyChangesInProgressException,
+    -- ** PolicyNotAttachedException
+    _PolicyNotAttachedException,
 
     -- ** AccountAlreadyRegisteredException
     _AccountAlreadyRegisteredException,
 
-    -- ** PolicyNotAttachedException
-    _PolicyNotAttachedException,
-
     -- ** DuplicateOrganizationalUnitException
     _DuplicateOrganizationalUnitException,
 
+    -- ** PolicyChangesInProgressException
+    _PolicyChangesInProgressException,
+
     -- ** AccessDeniedForDependencyException
     _AccessDeniedForDependencyException,
-
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
 
     -- ** SourceParentNotFoundException
     _SourceParentNotFoundException,
@@ -142,14 +207,17 @@ module Network.AWS.Organizations
     -- ** AccountNotFoundException
     _AccountNotFoundException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
 
     -- ** ServiceException
     _ServiceException,
 
     -- ** RootNotFoundException
     _RootNotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -169,11 +237,11 @@ module Network.AWS.Organizations
     CreateOrganizationResponse (CreateOrganizationResponse'),
     newCreateOrganizationResponse,
 
-    -- ** CreatePolicy
-    CreatePolicy (CreatePolicy'),
-    newCreatePolicy,
-    CreatePolicyResponse (CreatePolicyResponse'),
-    newCreatePolicyResponse,
+    -- ** DescribeCreateAccountStatus
+    DescribeCreateAccountStatus (DescribeCreateAccountStatus'),
+    newDescribeCreateAccountStatus,
+    DescribeCreateAccountStatusResponse (DescribeCreateAccountStatusResponse'),
+    newDescribeCreateAccountStatusResponse,
 
     -- ** DisablePolicyType
     DisablePolicyType (DisablePolicyType'),
@@ -181,17 +249,17 @@ module Network.AWS.Organizations
     DisablePolicyTypeResponse (DisablePolicyTypeResponse'),
     newDisablePolicyTypeResponse,
 
-    -- ** DescribeCreateAccountStatus
-    DescribeCreateAccountStatus (DescribeCreateAccountStatus'),
-    newDescribeCreateAccountStatus,
-    DescribeCreateAccountStatusResponse (DescribeCreateAccountStatusResponse'),
-    newDescribeCreateAccountStatusResponse,
-
     -- ** ListPolicies (Paginated)
     ListPolicies (ListPolicies'),
     newListPolicies,
     ListPoliciesResponse (ListPoliciesResponse'),
     newListPoliciesResponse,
+
+    -- ** CreatePolicy
+    CreatePolicy (CreatePolicy'),
+    newCreatePolicy,
+    CreatePolicyResponse (CreatePolicyResponse'),
+    newCreatePolicyResponse,
 
     -- ** ListHandshakesForAccount (Paginated)
     ListHandshakesForAccount (ListHandshakesForAccount'),
@@ -199,11 +267,11 @@ module Network.AWS.Organizations
     ListHandshakesForAccountResponse (ListHandshakesForAccountResponse'),
     newListHandshakesForAccountResponse,
 
-    -- ** ListChildren (Paginated)
-    ListChildren (ListChildren'),
-    newListChildren,
-    ListChildrenResponse (ListChildrenResponse'),
-    newListChildrenResponse,
+    -- ** UpdatePolicy
+    UpdatePolicy (UpdatePolicy'),
+    newUpdatePolicy,
+    UpdatePolicyResponse (UpdatePolicyResponse'),
+    newUpdatePolicyResponse,
 
     -- ** DeletePolicy
     DeletePolicy (DeletePolicy'),
@@ -217,11 +285,11 @@ module Network.AWS.Organizations
     EnablePolicyTypeResponse (EnablePolicyTypeResponse'),
     newEnablePolicyTypeResponse,
 
-    -- ** UpdatePolicy
-    UpdatePolicy (UpdatePolicy'),
-    newUpdatePolicy,
-    UpdatePolicyResponse (UpdatePolicyResponse'),
-    newUpdatePolicyResponse,
+    -- ** ListChildren (Paginated)
+    ListChildren (ListChildren'),
+    newListChildren,
+    ListChildrenResponse (ListChildrenResponse'),
+    newListChildrenResponse,
 
     -- ** ListAWSServiceAccessForOrganization (Paginated)
     ListAWSServiceAccessForOrganization (ListAWSServiceAccessForOrganization'),
@@ -235,23 +303,17 @@ module Network.AWS.Organizations
     DescribeOrganizationResponse (DescribeOrganizationResponse'),
     newDescribeOrganizationResponse,
 
-    -- ** ListCreateAccountStatus (Paginated)
-    ListCreateAccountStatus (ListCreateAccountStatus'),
-    newListCreateAccountStatus,
-    ListCreateAccountStatusResponse (ListCreateAccountStatusResponse'),
-    newListCreateAccountStatusResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListAccounts (Paginated)
-    ListAccounts (ListAccounts'),
-    newListAccounts,
-    ListAccountsResponse (ListAccountsResponse'),
-    newListAccountsResponse,
+    -- ** ListCreateAccountStatus (Paginated)
+    ListCreateAccountStatus (ListCreateAccountStatus'),
+    newListCreateAccountStatus,
+    ListCreateAccountStatusResponse (ListCreateAccountStatusResponse'),
+    newListCreateAccountStatusResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -259,11 +321,11 @@ module Network.AWS.Organizations
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** EnableAWSServiceAccess
-    EnableAWSServiceAccess (EnableAWSServiceAccess'),
-    newEnableAWSServiceAccess,
-    EnableAWSServiceAccessResponse (EnableAWSServiceAccessResponse'),
-    newEnableAWSServiceAccessResponse,
+    -- ** ListAccounts (Paginated)
+    ListAccounts (ListAccounts'),
+    newListAccounts,
+    ListAccountsResponse (ListAccountsResponse'),
+    newListAccountsResponse,
 
     -- ** DescribeOrganizationalUnit
     DescribeOrganizationalUnit (DescribeOrganizationalUnit'),
@@ -277,11 +339,11 @@ module Network.AWS.Organizations
     ListDelegatedServicesForAccountResponse (ListDelegatedServicesForAccountResponse'),
     newListDelegatedServicesForAccountResponse,
 
-    -- ** RemoveAccountFromOrganization
-    RemoveAccountFromOrganization (RemoveAccountFromOrganization'),
-    newRemoveAccountFromOrganization,
-    RemoveAccountFromOrganizationResponse (RemoveAccountFromOrganizationResponse'),
-    newRemoveAccountFromOrganizationResponse,
+    -- ** EnableAWSServiceAccess
+    EnableAWSServiceAccess (EnableAWSServiceAccess'),
+    newEnableAWSServiceAccess,
+    EnableAWSServiceAccessResponse (EnableAWSServiceAccessResponse'),
+    newEnableAWSServiceAccessResponse,
 
     -- ** CreateGovCloudAccount
     CreateGovCloudAccount (CreateGovCloudAccount'),
@@ -295,6 +357,18 @@ module Network.AWS.Organizations
     DeleteOrganizationResponse (DeleteOrganizationResponse'),
     newDeleteOrganizationResponse,
 
+    -- ** RemoveAccountFromOrganization
+    RemoveAccountFromOrganization (RemoveAccountFromOrganization'),
+    newRemoveAccountFromOrganization,
+    RemoveAccountFromOrganizationResponse (RemoveAccountFromOrganizationResponse'),
+    newRemoveAccountFromOrganizationResponse,
+
+    -- ** AcceptHandshake
+    AcceptHandshake (AcceptHandshake'),
+    newAcceptHandshake,
+    AcceptHandshakeResponse (AcceptHandshakeResponse'),
+    newAcceptHandshakeResponse,
+
     -- ** ListRoots (Paginated)
     ListRoots (ListRoots'),
     newListRoots,
@@ -307,17 +381,17 @@ module Network.AWS.Organizations
     EnableAllFeaturesResponse (EnableAllFeaturesResponse'),
     newEnableAllFeaturesResponse,
 
-    -- ** AcceptHandshake
-    AcceptHandshake (AcceptHandshake'),
-    newAcceptHandshake,
-    AcceptHandshakeResponse (AcceptHandshakeResponse'),
-    newAcceptHandshakeResponse,
-
     -- ** DetachPolicy
     DetachPolicy (DetachPolicy'),
     newDetachPolicy,
     DetachPolicyResponse (DetachPolicyResponse'),
     newDetachPolicyResponse,
+
+    -- ** DescribeAccount
+    DescribeAccount (DescribeAccount'),
+    newDescribeAccount,
+    DescribeAccountResponse (DescribeAccountResponse'),
+    newDescribeAccountResponse,
 
     -- ** CreateOrganizationalUnit
     CreateOrganizationalUnit (CreateOrganizationalUnit'),
@@ -325,11 +399,23 @@ module Network.AWS.Organizations
     CreateOrganizationalUnitResponse (CreateOrganizationalUnitResponse'),
     newCreateOrganizationalUnitResponse,
 
-    -- ** DescribeAccount
-    DescribeAccount (DescribeAccount'),
-    newDescribeAccount,
-    DescribeAccountResponse (DescribeAccountResponse'),
-    newDescribeAccountResponse,
+    -- ** RegisterDelegatedAdministrator
+    RegisterDelegatedAdministrator (RegisterDelegatedAdministrator'),
+    newRegisterDelegatedAdministrator,
+    RegisterDelegatedAdministratorResponse (RegisterDelegatedAdministratorResponse'),
+    newRegisterDelegatedAdministratorResponse,
+
+    -- ** CancelHandshake
+    CancelHandshake (CancelHandshake'),
+    newCancelHandshake,
+    CancelHandshakeResponse (CancelHandshakeResponse'),
+    newCancelHandshakeResponse,
+
+    -- ** DeleteOrganizationalUnit
+    DeleteOrganizationalUnit (DeleteOrganizationalUnit'),
+    newDeleteOrganizationalUnit,
+    DeleteOrganizationalUnitResponse (DeleteOrganizationalUnitResponse'),
+    newDeleteOrganizationalUnitResponse,
 
     -- ** ListDelegatedAdministrators (Paginated)
     ListDelegatedAdministrators (ListDelegatedAdministrators'),
@@ -343,29 +429,11 @@ module Network.AWS.Organizations
     UpdateOrganizationalUnitResponse (UpdateOrganizationalUnitResponse'),
     newUpdateOrganizationalUnitResponse,
 
-    -- ** DeleteOrganizationalUnit
-    DeleteOrganizationalUnit (DeleteOrganizationalUnit'),
-    newDeleteOrganizationalUnit,
-    DeleteOrganizationalUnitResponse (DeleteOrganizationalUnitResponse'),
-    newDeleteOrganizationalUnitResponse,
-
-    -- ** CancelHandshake
-    CancelHandshake (CancelHandshake'),
-    newCancelHandshake,
-    CancelHandshakeResponse (CancelHandshakeResponse'),
-    newCancelHandshakeResponse,
-
-    -- ** RegisterDelegatedAdministrator
-    RegisterDelegatedAdministrator (RegisterDelegatedAdministrator'),
-    newRegisterDelegatedAdministrator,
-    RegisterDelegatedAdministratorResponse (RegisterDelegatedAdministratorResponse'),
-    newRegisterDelegatedAdministratorResponse,
-
-    -- ** ListHandshakesForOrganization (Paginated)
-    ListHandshakesForOrganization (ListHandshakesForOrganization'),
-    newListHandshakesForOrganization,
-    ListHandshakesForOrganizationResponse (ListHandshakesForOrganizationResponse'),
-    newListHandshakesForOrganizationResponse,
+    -- ** ListOrganizationalUnitsForParent (Paginated)
+    ListOrganizationalUnitsForParent (ListOrganizationalUnitsForParent'),
+    newListOrganizationalUnitsForParent,
+    ListOrganizationalUnitsForParentResponse (ListOrganizationalUnitsForParentResponse'),
+    newListOrganizationalUnitsForParentResponse,
 
     -- ** ListPoliciesForTarget (Paginated)
     ListPoliciesForTarget (ListPoliciesForTarget'),
@@ -373,17 +441,11 @@ module Network.AWS.Organizations
     ListPoliciesForTargetResponse (ListPoliciesForTargetResponse'),
     newListPoliciesForTargetResponse,
 
-    -- ** ListOrganizationalUnitsForParent (Paginated)
-    ListOrganizationalUnitsForParent (ListOrganizationalUnitsForParent'),
-    newListOrganizationalUnitsForParent,
-    ListOrganizationalUnitsForParentResponse (ListOrganizationalUnitsForParentResponse'),
-    newListOrganizationalUnitsForParentResponse,
-
-    -- ** ListTargetsForPolicy (Paginated)
-    ListTargetsForPolicy (ListTargetsForPolicy'),
-    newListTargetsForPolicy,
-    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
-    newListTargetsForPolicyResponse,
+    -- ** ListHandshakesForOrganization (Paginated)
+    ListHandshakesForOrganization (ListHandshakesForOrganization'),
+    newListHandshakesForOrganization,
+    ListHandshakesForOrganizationResponse (ListHandshakesForOrganizationResponse'),
+    newListHandshakesForOrganizationResponse,
 
     -- ** AttachPolicy
     AttachPolicy (AttachPolicy'),
@@ -397,23 +459,17 @@ module Network.AWS.Organizations
     DeclineHandshakeResponse (DeclineHandshakeResponse'),
     newDeclineHandshakeResponse,
 
+    -- ** ListTargetsForPolicy (Paginated)
+    ListTargetsForPolicy (ListTargetsForPolicy'),
+    newListTargetsForPolicy,
+    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
+    newListTargetsForPolicyResponse,
+
     -- ** DescribeEffectivePolicy
     DescribeEffectivePolicy (DescribeEffectivePolicy'),
     newDescribeEffectivePolicy,
     DescribeEffectivePolicyResponse (DescribeEffectivePolicyResponse'),
     newDescribeEffectivePolicyResponse,
-
-    -- ** DeregisterDelegatedAdministrator
-    DeregisterDelegatedAdministrator (DeregisterDelegatedAdministrator'),
-    newDeregisterDelegatedAdministrator,
-    DeregisterDelegatedAdministratorResponse (DeregisterDelegatedAdministratorResponse'),
-    newDeregisterDelegatedAdministratorResponse,
-
-    -- ** MoveAccount
-    MoveAccount (MoveAccount'),
-    newMoveAccount,
-    MoveAccountResponse (MoveAccountResponse'),
-    newMoveAccountResponse,
 
     -- ** InviteAccountToOrganization
     InviteAccountToOrganization (InviteAccountToOrganization'),
@@ -421,17 +477,35 @@ module Network.AWS.Organizations
     InviteAccountToOrganizationResponse (InviteAccountToOrganizationResponse'),
     newInviteAccountToOrganizationResponse,
 
+    -- ** DisableAWSServiceAccess
+    DisableAWSServiceAccess (DisableAWSServiceAccess'),
+    newDisableAWSServiceAccess,
+    DisableAWSServiceAccessResponse (DisableAWSServiceAccessResponse'),
+    newDisableAWSServiceAccessResponse,
+
+    -- ** MoveAccount
+    MoveAccount (MoveAccount'),
+    newMoveAccount,
+    MoveAccountResponse (MoveAccountResponse'),
+    newMoveAccountResponse,
+
     -- ** LeaveOrganization
     LeaveOrganization (LeaveOrganization'),
     newLeaveOrganization,
     LeaveOrganizationResponse (LeaveOrganizationResponse'),
     newLeaveOrganizationResponse,
 
-    -- ** DisableAWSServiceAccess
-    DisableAWSServiceAccess (DisableAWSServiceAccess'),
-    newDisableAWSServiceAccess,
-    DisableAWSServiceAccessResponse (DisableAWSServiceAccessResponse'),
-    newDisableAWSServiceAccessResponse,
+    -- ** DeregisterDelegatedAdministrator
+    DeregisterDelegatedAdministrator (DeregisterDelegatedAdministrator'),
+    newDeregisterDelegatedAdministrator,
+    DeregisterDelegatedAdministratorResponse (DeregisterDelegatedAdministratorResponse'),
+    newDeregisterDelegatedAdministratorResponse,
+
+    -- ** CreateAccount
+    CreateAccount (CreateAccount'),
+    newCreateAccount,
+    CreateAccountResponse (CreateAccountResponse'),
+    newCreateAccountResponse,
 
     -- ** ListParents (Paginated)
     ListParents (ListParents'),
@@ -445,23 +519,17 @@ module Network.AWS.Organizations
     DescribePolicyResponse (DescribePolicyResponse'),
     newDescribePolicyResponse,
 
-    -- ** CreateAccount
-    CreateAccount (CreateAccount'),
-    newCreateAccount,
-    CreateAccountResponse (CreateAccountResponse'),
-    newCreateAccountResponse,
+    -- ** DescribeHandshake
+    DescribeHandshake (DescribeHandshake'),
+    newDescribeHandshake,
+    DescribeHandshakeResponse (DescribeHandshakeResponse'),
+    newDescribeHandshakeResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
-
-    -- ** DescribeHandshake
-    DescribeHandshake (DescribeHandshake'),
-    newDescribeHandshake,
-    DescribeHandshakeResponse (DescribeHandshakeResponse'),
-    newDescribeHandshakeResponse,
 
     -- * Types
 

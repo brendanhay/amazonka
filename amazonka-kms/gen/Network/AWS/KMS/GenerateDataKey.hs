@@ -22,19 +22,19 @@
 --
 -- Generates a unique symmetric data key for client-side encryption. This
 -- operation returns a plaintext copy of the data key and a copy that is
--- encrypted under a customer master key (CMK) that you specify. You can
--- use the plaintext key to encrypt your data outside of AWS KMS and store
--- the encrypted data key with the encrypted data.
+-- encrypted under a KMS key that you specify. You can use the plaintext
+-- key to encrypt your data outside of KMS and store the encrypted data key
+-- with the encrypted data.
 --
 -- @GenerateDataKey@ returns a unique data key for each request. The bytes
--- in the plaintext key are not related to the caller or the CMK.
+-- in the plaintext key are not related to the caller or the KMS key.
 --
--- To generate a data key, specify the symmetric CMK that will be used to
--- encrypt the data key. You cannot use an asymmetric CMK to generate data
--- keys. To get the type of your CMK, use the DescribeKey operation. You
--- must also specify the length of the data key. Use either the @KeySpec@
--- or @NumberOfBytes@ parameters (but not both). For 128-bit and 256-bit
--- data keys, use the @KeySpec@ parameter.
+-- To generate a data key, specify the symmetric KMS key that will be used
+-- to encrypt the data key. You cannot use an asymmetric KMS key to
+-- generate data keys. To get the type of your KMS key, use the DescribeKey
+-- operation. You must also specify the length of the data key. Use either
+-- the @KeySpec@ or @NumberOfBytes@ parameters (but not both). For 128-bit
+-- and 256-bit data keys, use the @KeySpec@ parameter.
 --
 -- To get only an encrypted copy of the data key, use
 -- GenerateDataKeyWithoutPlaintext. To generate an asymmetric data key
@@ -49,47 +49,54 @@
 -- decrypt fails with an @InvalidCiphertextException@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- Applications in Amazon Web Services Nitro Enclaves can call this
+-- operation by using the
+-- <https://github.com/aws/aws-nitro-enclaves-sdk-c Amazon Web Services Nitro Enclaves Development Kit>.
+-- For information about the supporting parameters, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves use KMS>
+-- in the /Key Management Service Developer Guide/.
+--
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
 -- __How to use your data key__
 --
 -- We recommend that you use the following pattern to encrypt data locally
 -- in your application. You can write your own code or use a client-side
 -- encryption library, such as the
--- <https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/ AWS Encryption SDK>,
+-- <https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/ Amazon Web Services Encryption SDK>,
 -- the
 -- <https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/ Amazon DynamoDB Encryption Client>,
 -- or
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 client-side encryption>
 -- to do these tasks for you.
 --
--- To encrypt data outside of AWS KMS:
+-- To encrypt data outside of KMS:
 --
 -- 1.  Use the @GenerateDataKey@ operation to get a data key.
 --
 -- 2.  Use the plaintext data key (in the @Plaintext@ field of the
---     response) to encrypt your data outside of AWS KMS. Then erase the
+--     response) to encrypt your data outside of KMS. Then erase the
 --     plaintext data key from memory.
 --
 -- 3.  Store the encrypted data key (in the @CiphertextBlob@ field of the
 --     response) with the encrypted data.
 --
--- To decrypt data outside of AWS KMS:
+-- To decrypt data outside of KMS:
 --
 -- 1.  Use the Decrypt operation to decrypt the encrypted data key. The
 --     operation returns a plaintext copy of the data key.
 --
--- 2.  Use the plaintext data key to decrypt data outside of AWS KMS, then
+-- 2.  Use the plaintext data key to decrypt data outside of KMS, then
 --     erase the plaintext data key from memory.
 --
--- __Cross-account use__: Yes. To perform this operation with a CMK in a
--- different AWS account, specify the key ARN or alias ARN in the value of
--- the @KeyId@ parameter.
+-- __Cross-account use__: Yes. To perform this operation with a KMS key in
+-- a different Amazon Web Services account, specify the key ARN or alias
+-- ARN in the value of the @KeyId@ parameter.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GenerateDataKey>
@@ -141,9 +148,13 @@ import qualified Network.AWS.Response as Response
 data GenerateDataKey = GenerateDataKey'
   { -- | A list of grant tokens.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the length of the data key in bytes. For example, use the
     -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
@@ -160,12 +171,12 @@ data GenerateDataKey = GenerateDataKey'
     -- that represents additional authenticated data. When you use an
     -- encryption context to encrypt data, you must specify the same (an exact
     -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric CMK, but
-    -- it is highly recommended.
+    -- encryption context is optional when encrypting with a symmetric KMS key,
+    -- but it is highly recommended.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the length of the data key. Use @AES_128@ to generate a
     -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
@@ -173,12 +184,12 @@ data GenerateDataKey = GenerateDataKey'
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
     keySpec :: Prelude.Maybe DataKeySpec,
-    -- | Identifies the symmetric CMK that encrypts the data key.
+    -- | Identifies the symmetric KMS key that encrypts the data key.
     --
-    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
-    -- name, or alias ARN. When using an alias name, prefix it with
-    -- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
-    -- the key ARN or alias ARN.
+    -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+    -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+    -- key in a different Amazon Web Services account, you must use the key ARN
+    -- or alias ARN.
     --
     -- For example:
     --
@@ -191,8 +202,8 @@ data GenerateDataKey = GenerateDataKey'
     --
     -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
-    -- get the alias name and alias ARN, use ListAliases.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -207,9 +218,13 @@ data GenerateDataKey = GenerateDataKey'
 --
 -- 'grantTokens', 'generateDataKey_grantTokens' - A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'numberOfBytes', 'generateDataKey_numberOfBytes' - Specifies the length of the data key in bytes. For example, use the
 -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
@@ -226,12 +241,12 @@ data GenerateDataKey = GenerateDataKey'
 -- that represents additional authenticated data. When you use an
 -- encryption context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric CMK, but
--- it is highly recommended.
+-- encryption context is optional when encrypting with a symmetric KMS key,
+-- but it is highly recommended.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'keySpec', 'generateDataKey_keySpec' - Specifies the length of the data key. Use @AES_128@ to generate a
 -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
@@ -239,12 +254,12 @@ data GenerateDataKey = GenerateDataKey'
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
 --
--- 'keyId', 'generateDataKey_keyId' - Identifies the symmetric CMK that encrypts the data key.
+-- 'keyId', 'generateDataKey_keyId' - Identifies the symmetric KMS key that encrypts the data key.
 --
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
--- name, or alias ARN. When using an alias name, prefix it with
--- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
--- the key ARN or alias ARN.
+-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+-- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+-- key in a different Amazon Web Services account, you must use the key ARN
+-- or alias ARN.
 --
 -- For example:
 --
@@ -257,8 +272,8 @@ data GenerateDataKey = GenerateDataKey'
 --
 -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
--- get the alias name and alias ARN, use ListAliases.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 newGenerateDataKey ::
   -- | 'keyId'
   Prelude.Text ->
@@ -274,9 +289,13 @@ newGenerateDataKey pKeyId_ =
 
 -- | A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 generateDataKey_grantTokens :: Lens.Lens' GenerateDataKey (Prelude.Maybe [Prelude.Text])
 generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> grantTokens) (\s@GenerateDataKey' {} a -> s {grantTokens = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens._Coerce
 
@@ -297,12 +316,12 @@ generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> 
 -- that represents additional authenticated data. When you use an
 -- encryption context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric CMK, but
--- it is highly recommended.
+-- encryption context is optional when encrypting with a symmetric KMS key,
+-- but it is highly recommended.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens._Coerce
 
@@ -314,12 +333,12 @@ generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionCont
 generateDataKey_keySpec :: Lens.Lens' GenerateDataKey (Prelude.Maybe DataKeySpec)
 generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s@GenerateDataKey' {} a -> s {keySpec = a} :: GenerateDataKey)
 
--- | Identifies the symmetric CMK that encrypts the data key.
+-- | Identifies the symmetric KMS key that encrypts the data key.
 --
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
--- name, or alias ARN. When using an alias name, prefix it with
--- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
--- the key ARN or alias ARN.
+-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+-- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+-- key in a different Amazon Web Services account, you must use the key ARN
+-- or alias ARN.
 --
 -- For example:
 --
@@ -332,8 +351,8 @@ generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s
 --
 -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
--- get the alias name and alias ARN, use ListAliases.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 generateDataKey_keyId :: Lens.Lens' GenerateDataKey Prelude.Text
 generateDataKey_keyId = Lens.lens (\GenerateDataKey' {keyId} -> keyId) (\s@GenerateDataKey' {} a -> s {keyId = a} :: GenerateDataKey)
 
@@ -396,15 +415,16 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the CMK that encrypted the data key.
+    -- of the KMS key that encrypted the data key.
     keyId :: Prelude.Text,
-    -- | The plaintext data key. When you use the HTTP API or the AWS CLI, the
-    -- value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this
-    -- data key to encrypt your data outside of KMS. Then, remove it from
-    -- memory as soon as possible.
+    -- | The plaintext data key. When you use the HTTP API or the Amazon Web
+    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
+    -- Base64-encoded. Use this data key to encrypt your data outside of KMS.
+    -- Then, remove it from memory as soon as possible.
     plaintext :: Core.Sensitive Core.Base64,
-    -- | The encrypted copy of the data key. When you use the HTTP API or the AWS
-    -- CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+    -- | The encrypted copy of the data key. When you use the HTTP API or the
+    -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+    -- not Base64-encoded.
     ciphertextBlob :: Core.Base64
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -421,19 +441,20 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 --
 -- 'keyId', 'generateDataKeyResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK that encrypted the data key.
+-- of the KMS key that encrypted the data key.
 --
--- 'plaintext', 'generateDataKeyResponse_plaintext' - The plaintext data key. When you use the HTTP API or the AWS CLI, the
--- value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this
--- data key to encrypt your data outside of KMS. Then, remove it from
--- memory as soon as possible.--
+-- 'plaintext', 'generateDataKeyResponse_plaintext' - The plaintext data key. When you use the HTTP API or the Amazon Web
+-- Services CLI, the value is Base64-encoded. Otherwise, it is not
+-- Base64-encoded. Use this data key to encrypt your data outside of KMS.
+-- Then, remove it from memory as soon as possible.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'ciphertextBlob', 'generateDataKeyResponse_ciphertextBlob' - The encrypted copy of the data key. When you use the HTTP API or the AWS
--- CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- 'ciphertextBlob', 'generateDataKeyResponse_ciphertextBlob' - The encrypted copy of the data key. When you use the HTTP API or the
+-- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+-- not Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -469,14 +490,14 @@ generateDataKeyResponse_httpStatus = Lens.lens (\GenerateDataKeyResponse' {httpS
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK that encrypted the data key.
+-- of the KMS key that encrypted the data key.
 generateDataKeyResponse_keyId :: Lens.Lens' GenerateDataKeyResponse Prelude.Text
 generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> keyId) (\s@GenerateDataKeyResponse' {} a -> s {keyId = a} :: GenerateDataKeyResponse)
 
--- | The plaintext data key. When you use the HTTP API or the AWS CLI, the
--- value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this
--- data key to encrypt your data outside of KMS. Then, remove it from
--- memory as soon as possible.--
+-- | The plaintext data key. When you use the HTTP API or the Amazon Web
+-- Services CLI, the value is Base64-encoded. Otherwise, it is not
+-- Base64-encoded. Use this data key to encrypt your data outside of KMS.
+-- Then, remove it from memory as soon as possible.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -484,8 +505,9 @@ generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> 
 generateDataKeyResponse_plaintext :: Lens.Lens' GenerateDataKeyResponse Prelude.ByteString
 generateDataKeyResponse_plaintext = Lens.lens (\GenerateDataKeyResponse' {plaintext} -> plaintext) (\s@GenerateDataKeyResponse' {} a -> s {plaintext = a} :: GenerateDataKeyResponse) Prelude.. Core._Sensitive Prelude.. Core._Base64
 
--- | The encrypted copy of the data key. When you use the HTTP API or the AWS
--- CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- | The encrypted copy of the data key. When you use the HTTP API or the
+-- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+-- not Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

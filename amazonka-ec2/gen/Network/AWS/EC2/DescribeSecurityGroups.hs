@@ -24,9 +24,9 @@
 --
 -- A security group is for use with instances either in the EC2-Classic
 -- platform or in a specific VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 security groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/ and
--- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
+-- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security groups for your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -38,8 +38,8 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Request Lenses
     describeSecurityGroups_nextToken,
     describeSecurityGroups_groupIds,
-    describeSecurityGroups_dryRun,
     describeSecurityGroups_maxResults,
+    describeSecurityGroups_dryRun,
     describeSecurityGroups_groupNames,
     describeSecurityGroups_filters,
 
@@ -68,24 +68,24 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     -- | The IDs of the security groups. Required for security groups in a
     -- nondefault VPC.
     --
-    -- Default: Describes all your security groups.
+    -- Default: Describes all of your security groups.
     groupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another request with the returned
     -- @NextToken@ value. This value can be between 5 and 1000. If this
     -- parameter is not specified, then all results are returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-Classic and default VPC only] The names of the security groups. You
     -- can specify either the security group name or the security group ID. For
     -- security groups in a nondefault VPC, use the @group-name@ filter to
     -- describe security groups by name.
     --
-    -- Default: Describes all your security groups.
+    -- Default: Describes all of your security groups.
     groupNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters. If using multiple filters for rules, the results include
     -- security groups for which any combination of rules - not necessarily a
@@ -118,8 +118,8 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     -- -   @egress.ip-permission.to-port@ - For an outbound rule, the end of
     --     port range for the TCP and UDP protocols, or an ICMP code.
     --
-    -- -   @egress.ip-permission.user-id@ - The ID of an AWS account that has
-    --     been referenced in an outbound security group rule.
+    -- -   @egress.ip-permission.user-id@ - The ID of an Amazon Web Services
+    --     account that has been referenced in an outbound security group rule.
     --
     -- -   @group-id@ - The ID of the security group.
     --
@@ -150,10 +150,11 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     -- -   @ip-permission.to-port@ - For an inbound rule, the end of port range
     --     for the TCP and UDP protocols, or an ICMP code.
     --
-    -- -   @ip-permission.user-id@ - The ID of an AWS account that has been
-    --     referenced in an inbound security group rule.
+    -- -   @ip-permission.user-id@ - The ID of an Amazon Web Services account
+    --     that has been referenced in an inbound security group rule.
     --
-    -- -   @owner-id@ - The AWS account ID of the owner of the security group.
+    -- -   @owner-id@ - The Amazon Web Services account ID of the owner of the
+    --     security group.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
@@ -184,24 +185,24 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- 'groupIds', 'describeSecurityGroups_groupIds' - The IDs of the security groups. Required for security groups in a
 -- nondefault VPC.
 --
--- Default: Describes all your security groups.
---
--- 'dryRun', 'describeSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- Default: Describes all of your security groups.
 --
 -- 'maxResults', 'describeSecurityGroups_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned
 -- @NextToken@ value. This value can be between 5 and 1000. If this
 -- parameter is not specified, then all results are returned.
 --
+-- 'dryRun', 'describeSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'groupNames', 'describeSecurityGroups_groupNames' - [EC2-Classic and default VPC only] The names of the security groups. You
 -- can specify either the security group name or the security group ID. For
 -- security groups in a nondefault VPC, use the @group-name@ filter to
 -- describe security groups by name.
 --
--- Default: Describes all your security groups.
+-- Default: Describes all of your security groups.
 --
 -- 'filters', 'describeSecurityGroups_filters' - The filters. If using multiple filters for rules, the results include
 -- security groups for which any combination of rules - not necessarily a
@@ -234,8 +235,8 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- -   @egress.ip-permission.to-port@ - For an outbound rule, the end of
 --     port range for the TCP and UDP protocols, or an ICMP code.
 --
--- -   @egress.ip-permission.user-id@ - The ID of an AWS account that has
---     been referenced in an outbound security group rule.
+-- -   @egress.ip-permission.user-id@ - The ID of an Amazon Web Services
+--     account that has been referenced in an outbound security group rule.
 --
 -- -   @group-id@ - The ID of the security group.
 --
@@ -266,10 +267,11 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- -   @ip-permission.to-port@ - For an inbound rule, the end of port range
 --     for the TCP and UDP protocols, or an ICMP code.
 --
--- -   @ip-permission.user-id@ - The ID of an AWS account that has been
---     referenced in an inbound security group rule.
+-- -   @ip-permission.user-id@ - The ID of an Amazon Web Services account
+--     that has been referenced in an inbound security group rule.
 --
--- -   @owner-id@ - The AWS account ID of the owner of the security group.
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner of the
+--     security group.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -290,8 +292,8 @@ newDescribeSecurityGroups =
     { nextToken =
         Prelude.Nothing,
       groupIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       groupNames = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -303,16 +305,9 @@ describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToke
 -- | The IDs of the security groups. Required for security groups in a
 -- nondefault VPC.
 --
--- Default: Describes all your security groups.
+-- Default: Describes all of your security groups.
 describeSecurityGroups_groupIds :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
 describeSecurityGroups_groupIds = Lens.lens (\DescribeSecurityGroups' {groupIds} -> groupIds) (\s@DescribeSecurityGroups' {} a -> s {groupIds = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Bool)
-describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> dryRun) (\s@DescribeSecurityGroups' {} a -> s {dryRun = a} :: DescribeSecurityGroups)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned
@@ -321,12 +316,19 @@ describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> 
 describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Natural)
 describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResults} -> maxResults) (\s@DescribeSecurityGroups' {} a -> s {maxResults = a} :: DescribeSecurityGroups)
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Bool)
+describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> dryRun) (\s@DescribeSecurityGroups' {} a -> s {dryRun = a} :: DescribeSecurityGroups)
+
 -- | [EC2-Classic and default VPC only] The names of the security groups. You
 -- can specify either the security group name or the security group ID. For
 -- security groups in a nondefault VPC, use the @group-name@ filter to
 -- describe security groups by name.
 --
--- Default: Describes all your security groups.
+-- Default: Describes all of your security groups.
 describeSecurityGroups_groupNames :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
 describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNames} -> groupNames) (\s@DescribeSecurityGroups' {} a -> s {groupNames = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
 
@@ -361,8 +363,8 @@ describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNa
 -- -   @egress.ip-permission.to-port@ - For an outbound rule, the end of
 --     port range for the TCP and UDP protocols, or an ICMP code.
 --
--- -   @egress.ip-permission.user-id@ - The ID of an AWS account that has
---     been referenced in an outbound security group rule.
+-- -   @egress.ip-permission.user-id@ - The ID of an Amazon Web Services
+--     account that has been referenced in an outbound security group rule.
 --
 -- -   @group-id@ - The ID of the security group.
 --
@@ -393,10 +395,11 @@ describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNa
 -- -   @ip-permission.to-port@ - For an inbound rule, the end of port range
 --     for the TCP and UDP protocols, or an ICMP code.
 --
--- -   @ip-permission.user-id@ - The ID of an AWS account that has been
---     referenced in an inbound security group rule.
+-- -   @ip-permission.user-id@ - The ID of an Amazon Web Services account
+--     that has been referenced in an inbound security group rule.
 --
--- -   @owner-id@ - The AWS account ID of the owner of the security group.
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner of the
+--     security group.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -472,8 +475,8 @@ instance Core.ToQuery DescribeSecurityGroups where
         "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "GroupName"
               Prelude.<$> groupNames

@@ -214,8 +214,8 @@ instance Core.ToQuery DescribeTapes where
 data DescribeTapesResponse = DescribeTapesResponse'
   { -- | An array of virtual tape descriptions.
     tapes :: Prelude.Maybe [Tape],
-    -- | An opaque string which can be used as part of a subsequent DescribeTapes
-    -- call to retrieve the next page of results.
+    -- | An opaque string that can be used as part of a subsequent
+    -- @DescribeTapes@ call to retrieve the next page of results.
     --
     -- If a response does not contain a marker, then there are no more results
     -- to be retrieved.
@@ -235,8 +235,8 @@ data DescribeTapesResponse = DescribeTapesResponse'
 --
 -- 'tapes', 'describeTapesResponse_tapes' - An array of virtual tape descriptions.
 --
--- 'marker', 'describeTapesResponse_marker' - An opaque string which can be used as part of a subsequent DescribeTapes
--- call to retrieve the next page of results.
+-- 'marker', 'describeTapesResponse_marker' - An opaque string that can be used as part of a subsequent
+-- @DescribeTapes@ call to retrieve the next page of results.
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.
@@ -257,8 +257,8 @@ newDescribeTapesResponse pHttpStatus_ =
 describeTapesResponse_tapes :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe [Tape])
 describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An opaque string which can be used as part of a subsequent DescribeTapes
--- call to retrieve the next page of results.
+-- | An opaque string that can be used as part of a subsequent
+-- @DescribeTapes@ call to retrieve the next page of results.
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.

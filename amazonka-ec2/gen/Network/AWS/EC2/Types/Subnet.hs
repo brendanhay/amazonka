@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | The ID of the AWS account that owns the subnet.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The customer-owned IPv4 address pool associated with the subnet.
+  { -- | The customer-owned IPv4 address pool associated with the subnet.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the subnet.
-    subnetArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the subnet.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a network interface created in this subnet (including
     -- a network interface created by RunInstances) receives an IPv6 address.
     assignIpv6AddressOnCreation :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the subnet.
+    subnetArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether instances launched in this subnet receive a public
@@ -81,14 +81,14 @@ data Subnet = Subnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'subnet_ownerId' - The ID of the AWS account that owns the subnet.
---
 -- 'customerOwnedIpv4Pool', 'subnet_customerOwnedIpv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
 --
--- 'subnetArn', 'subnet_subnetArn' - The Amazon Resource Name (ARN) of the subnet.
+-- 'ownerId', 'subnet_ownerId' - The ID of the Amazon Web Services account that owns the subnet.
 --
 -- 'assignIpv6AddressOnCreation', 'subnet_assignIpv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including
 -- a network interface created by RunInstances) receives an IPv6 address.
+--
+-- 'subnetArn', 'subnet_subnetArn' - The Amazon Resource Name (ARN) of the subnet.
 --
 -- 'outpostArn', 'subnet_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.
 --
@@ -141,10 +141,10 @@ newSubnet
   pSubnetId_
   pVpcId_ =
     Subnet'
-      { ownerId = Prelude.Nothing,
-        customerOwnedIpv4Pool = Prelude.Nothing,
-        subnetArn = Prelude.Nothing,
+      { customerOwnedIpv4Pool = Prelude.Nothing,
+        ownerId = Prelude.Nothing,
         assignIpv6AddressOnCreation = Prelude.Nothing,
+        subnetArn = Prelude.Nothing,
         outpostArn = Prelude.Nothing,
         mapPublicIpOnLaunch = Prelude.Nothing,
         availabilityZoneId = Prelude.Nothing,
@@ -160,22 +160,22 @@ newSubnet
         vpcId = pVpcId_
       }
 
--- | The ID of the AWS account that owns the subnet.
-subnet_ownerId :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
-subnet_ownerId = Lens.lens (\Subnet' {ownerId} -> ownerId) (\s@Subnet' {} a -> s {ownerId = a} :: Subnet)
-
 -- | The customer-owned IPv4 address pool associated with the subnet.
 subnet_customerOwnedIpv4Pool :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_customerOwnedIpv4Pool = Lens.lens (\Subnet' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@Subnet' {} a -> s {customerOwnedIpv4Pool = a} :: Subnet)
 
--- | The Amazon Resource Name (ARN) of the subnet.
-subnet_subnetArn :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
-subnet_subnetArn = Lens.lens (\Subnet' {subnetArn} -> subnetArn) (\s@Subnet' {} a -> s {subnetArn = a} :: Subnet)
+-- | The ID of the Amazon Web Services account that owns the subnet.
+subnet_ownerId :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
+subnet_ownerId = Lens.lens (\Subnet' {ownerId} -> ownerId) (\s@Subnet' {} a -> s {ownerId = a} :: Subnet)
 
 -- | Indicates whether a network interface created in this subnet (including
 -- a network interface created by RunInstances) receives an IPv6 address.
 subnet_assignIpv6AddressOnCreation :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Bool)
 subnet_assignIpv6AddressOnCreation = Lens.lens (\Subnet' {assignIpv6AddressOnCreation} -> assignIpv6AddressOnCreation) (\s@Subnet' {} a -> s {assignIpv6AddressOnCreation = a} :: Subnet)
+
+-- | The Amazon Resource Name (ARN) of the subnet.
+subnet_subnetArn :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
+subnet_subnetArn = Lens.lens (\Subnet' {subnetArn} -> subnetArn) (\s@Subnet' {} a -> s {subnetArn = a} :: Subnet)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
 subnet_outpostArn :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
@@ -236,10 +236,10 @@ subnet_vpcId = Lens.lens (\Subnet' {vpcId} -> vpcId) (\s@Subnet' {} a -> s {vpcI
 instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "customerOwnedIpv4Pool")
-      Prelude.<*> (x Core..@? "subnetArn")
+      Prelude.<$> (x Core..@? "customerOwnedIpv4Pool")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "assignIpv6AddressOnCreation")
+      Prelude.<*> (x Core..@? "subnetArn")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "mapPublicIpOnLaunch")
       Prelude.<*> (x Core..@? "availabilityZoneId")

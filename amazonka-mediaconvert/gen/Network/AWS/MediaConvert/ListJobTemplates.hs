@@ -43,8 +43,8 @@ module Network.AWS.MediaConvert.ListJobTemplates
     newListJobTemplatesResponse,
 
     -- * Response Lenses
-    listJobTemplatesResponse_jobTemplates,
     listJobTemplatesResponse_nextToken,
+    listJobTemplatesResponse_jobTemplates,
     listJobTemplatesResponse_httpStatus,
   )
 where
@@ -171,8 +171,8 @@ instance Core.AWSRequest ListJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListJobTemplatesResponse'
-            Prelude.<$> (x Core..?> "jobTemplates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "jobTemplates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,10 +206,10 @@ instance Core.ToQuery ListJobTemplates where
 
 -- | /See:/ 'newListJobTemplatesResponse' smart constructor.
 data ListJobTemplatesResponse = ListJobTemplatesResponse'
-  { -- | List of Job templates.
-    jobTemplates :: Prelude.Maybe [JobTemplate],
-    -- | Use this string to request the next batch of job templates.
+  { -- | Use this string to request the next batch of job templates.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of Job templates.
+    jobTemplates :: Prelude.Maybe [JobTemplate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +223,9 @@ data ListJobTemplatesResponse = ListJobTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - List of Job templates.
---
 -- 'nextToken', 'listJobTemplatesResponse_nextToken' - Use this string to request the next batch of job templates.
+--
+-- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - List of Job templates.
 --
 -- 'httpStatus', 'listJobTemplatesResponse_httpStatus' - The response's http status code.
 newListJobTemplatesResponse ::
@@ -234,19 +234,19 @@ newListJobTemplatesResponse ::
   ListJobTemplatesResponse
 newListJobTemplatesResponse pHttpStatus_ =
   ListJobTemplatesResponse'
-    { jobTemplates =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      jobTemplates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of Job templates.
-listJobTemplatesResponse_jobTemplates :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe [JobTemplate])
-listJobTemplatesResponse_jobTemplates = Lens.lens (\ListJobTemplatesResponse' {jobTemplates} -> jobTemplates) (\s@ListJobTemplatesResponse' {} a -> s {jobTemplates = a} :: ListJobTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this string to request the next batch of job templates.
 listJobTemplatesResponse_nextToken :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe Prelude.Text)
 listJobTemplatesResponse_nextToken = Lens.lens (\ListJobTemplatesResponse' {nextToken} -> nextToken) (\s@ListJobTemplatesResponse' {} a -> s {nextToken = a} :: ListJobTemplatesResponse)
+
+-- | List of Job templates.
+listJobTemplatesResponse_jobTemplates :: Lens.Lens' ListJobTemplatesResponse (Prelude.Maybe [JobTemplate])
+listJobTemplatesResponse_jobTemplates = Lens.lens (\ListJobTemplatesResponse' {jobTemplates} -> jobTemplates) (\s@ListJobTemplatesResponse' {} a -> s {jobTemplates = a} :: ListJobTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listJobTemplatesResponse_httpStatus :: Lens.Lens' ListJobTemplatesResponse Prelude.Int

@@ -42,8 +42,8 @@ module Network.AWS.RDS.StartExportTask
 
     -- * Response Lenses
     exportTask_taskEndTime,
-    exportTask_iamRoleArn,
     exportTask_status,
+    exportTask_iamRoleArn,
     exportTask_totalExtractedDataInGB,
     exportTask_warningMessage,
     exportTask_snapshotTime,
@@ -100,11 +100,12 @@ data StartExportTask = StartExportTask'
     -- | The name of the IAM role to use for writing to the Amazon S3 bucket when
     -- exporting a snapshot.
     iamRoleArn :: Prelude.Text,
-    -- | The ID of the AWS KMS customer master key (CMK) to use to encrypt the
-    -- snapshot exported to Amazon S3. The AWS KMS key identifier is the key
-    -- ARN, key ID, alias ARN, or alias name for the AWS KMS customer master
-    -- key (CMK). The caller of this operation must be authorized to execute
-    -- the following operations. These can be set in the AWS KMS key policy:
+    -- | The ID of the Amazon Web Services KMS customer master key (CMK) to use
+    -- to encrypt the snapshot exported to Amazon S3. The Amazon Web Services
+    -- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+    -- the Amazon Web Services KMS customer master key (CMK). The caller of
+    -- this operation must be authorized to execute the following operations.
+    -- These can be set in the Amazon Web Services KMS key policy:
     --
     -- -   GrantOperation.Encrypt
     --
@@ -167,11 +168,12 @@ data StartExportTask = StartExportTask'
 -- 'iamRoleArn', 'startExportTask_iamRoleArn' - The name of the IAM role to use for writing to the Amazon S3 bucket when
 -- exporting a snapshot.
 --
--- 'kmsKeyId', 'startExportTask_kmsKeyId' - The ID of the AWS KMS customer master key (CMK) to use to encrypt the
--- snapshot exported to Amazon S3. The AWS KMS key identifier is the key
--- ARN, key ID, alias ARN, or alias name for the AWS KMS customer master
--- key (CMK). The caller of this operation must be authorized to execute
--- the following operations. These can be set in the AWS KMS key policy:
+-- 'kmsKeyId', 'startExportTask_kmsKeyId' - The ID of the Amazon Web Services KMS customer master key (CMK) to use
+-- to encrypt the snapshot exported to Amazon S3. The Amazon Web Services
+-- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+-- the Amazon Web Services KMS customer master key (CMK). The caller of
+-- this operation must be authorized to execute the following operations.
+-- These can be set in the Amazon Web Services KMS key policy:
 --
 -- -   GrantOperation.Encrypt
 --
@@ -262,11 +264,12 @@ startExportTask_s3BucketName = Lens.lens (\StartExportTask' {s3BucketName} -> s3
 startExportTask_iamRoleArn :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_iamRoleArn = Lens.lens (\StartExportTask' {iamRoleArn} -> iamRoleArn) (\s@StartExportTask' {} a -> s {iamRoleArn = a} :: StartExportTask)
 
--- | The ID of the AWS KMS customer master key (CMK) to use to encrypt the
--- snapshot exported to Amazon S3. The AWS KMS key identifier is the key
--- ARN, key ID, alias ARN, or alias name for the AWS KMS customer master
--- key (CMK). The caller of this operation must be authorized to execute
--- the following operations. These can be set in the AWS KMS key policy:
+-- | The ID of the Amazon Web Services KMS customer master key (CMK) to use
+-- to encrypt the snapshot exported to Amazon S3. The Amazon Web Services
+-- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+-- the Amazon Web Services KMS customer master key (CMK). The caller of
+-- this operation must be authorized to execute the following operations.
+-- These can be set in the Amazon Web Services KMS key policy:
 --
 -- -   GrantOperation.Encrypt
 --

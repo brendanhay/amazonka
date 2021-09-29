@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets status of a specified health check.
+--
+-- This API is intended for use during development to diagnose behavior. It
+-- doesn’t support production use-cases with high query rates that require
+-- immediate and actionable responses.
 module Network.AWS.Route53.GetHealthCheckStatus
   ( -- * Creating a Request
     GetHealthCheckStatus (..),

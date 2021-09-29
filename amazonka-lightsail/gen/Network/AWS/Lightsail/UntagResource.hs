@@ -26,7 +26,7 @@
 -- The @untag resource@ operation supports tag-based access control via
 -- request tags and resource tags applied to the resource identified by
 -- @resource name@. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

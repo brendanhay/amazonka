@@ -36,10 +36,10 @@ data AuthenticationResultType = AuthenticationResultType'
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The new device metadata from an authentication result.
     newDeviceMetadata' :: Prelude.Maybe NewDeviceMetadataType,
-    -- | The ID token.
-    idToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The refresh token.
-    refreshToken :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    refreshToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID token.
+    idToken :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,9 +59,9 @@ data AuthenticationResultType = AuthenticationResultType'
 --
 -- 'newDeviceMetadata'', 'authenticationResultType_newDeviceMetadata' - The new device metadata from an authentication result.
 --
--- 'idToken', 'authenticationResultType_idToken' - The ID token.
---
 -- 'refreshToken', 'authenticationResultType_refreshToken' - The refresh token.
+--
+-- 'idToken', 'authenticationResultType_idToken' - The ID token.
 newAuthenticationResultType ::
   AuthenticationResultType
 newAuthenticationResultType =
@@ -71,8 +71,8 @@ newAuthenticationResultType =
       tokenType = Prelude.Nothing,
       accessToken = Prelude.Nothing,
       newDeviceMetadata' = Prelude.Nothing,
-      idToken = Prelude.Nothing,
-      refreshToken = Prelude.Nothing
+      refreshToken = Prelude.Nothing,
+      idToken = Prelude.Nothing
     }
 
 -- | The expiration period of the authentication result in seconds.
@@ -91,13 +91,13 @@ authenticationResultType_accessToken = Lens.lens (\AuthenticationResultType' {ac
 authenticationResultType_newDeviceMetadata :: Lens.Lens' AuthenticationResultType (Prelude.Maybe NewDeviceMetadataType)
 authenticationResultType_newDeviceMetadata = Lens.lens (\AuthenticationResultType' {newDeviceMetadata'} -> newDeviceMetadata') (\s@AuthenticationResultType' {} a -> s {newDeviceMetadata' = a} :: AuthenticationResultType)
 
--- | The ID token.
-authenticationResultType_idToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
-authenticationResultType_idToken = Lens.lens (\AuthenticationResultType' {idToken} -> idToken) (\s@AuthenticationResultType' {} a -> s {idToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The refresh token.
 authenticationResultType_refreshToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
 authenticationResultType_refreshToken = Lens.lens (\AuthenticationResultType' {refreshToken} -> refreshToken) (\s@AuthenticationResultType' {} a -> s {refreshToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID token.
+authenticationResultType_idToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
+authenticationResultType_idToken = Lens.lens (\AuthenticationResultType' {idToken} -> idToken) (\s@AuthenticationResultType' {} a -> s {idToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON AuthenticationResultType where
   parseJSON =
@@ -109,8 +109,8 @@ instance Core.FromJSON AuthenticationResultType where
             Prelude.<*> (x Core..:? "TokenType")
             Prelude.<*> (x Core..:? "AccessToken")
             Prelude.<*> (x Core..:? "NewDeviceMetadata")
-            Prelude.<*> (x Core..:? "IdToken")
             Prelude.<*> (x Core..:? "RefreshToken")
+            Prelude.<*> (x Core..:? "IdToken")
       )
 
 instance Prelude.Hashable AuthenticationResultType

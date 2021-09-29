@@ -24,6 +24,7 @@ module Network.AWS.EKS.Types.ClusterStatus
         ClusterStatus_CREATING,
         ClusterStatus_DELETING,
         ClusterStatus_FAILED,
+        ClusterStatus_PENDING,
         ClusterStatus_UPDATING
       ),
   )
@@ -72,6 +73,9 @@ pattern ClusterStatus_DELETING = ClusterStatus' "DELETING"
 pattern ClusterStatus_FAILED :: ClusterStatus
 pattern ClusterStatus_FAILED = ClusterStatus' "FAILED"
 
+pattern ClusterStatus_PENDING :: ClusterStatus
+pattern ClusterStatus_PENDING = ClusterStatus' "PENDING"
+
 pattern ClusterStatus_UPDATING :: ClusterStatus
 pattern ClusterStatus_UPDATING = ClusterStatus' "UPDATING"
 
@@ -80,6 +84,7 @@ pattern ClusterStatus_UPDATING = ClusterStatus' "UPDATING"
   ClusterStatus_CREATING,
   ClusterStatus_DELETING,
   ClusterStatus_FAILED,
+  ClusterStatus_PENDING,
   ClusterStatus_UPDATING,
   ClusterStatus'
   #-}

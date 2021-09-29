@@ -40,8 +40,8 @@ module Network.AWS.Organizations.ListCreateAccountStatus
     newListCreateAccountStatus,
 
     -- * Request Lenses
-    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_states,
+    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_maxResults,
 
     -- * Destructuring the Response
@@ -64,16 +64,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCreateAccountStatus' smart constructor.
 data ListCreateAccountStatus = ListCreateAccountStatus'
-  { -- | The parameter for receiving additional results if you receive a
+  { -- | A list of one or more states that you want included in the response. If
+    -- this parameter isn\'t present, all requests are included in the
+    -- response.
+    states :: Prelude.Maybe [CreateAccountState],
+    -- | The parameter for receiving additional results if you receive a
     -- @NextToken@ response in a previous request. A @NextToken@ response
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of one or more states that you want included in the response. If
-    -- this parameter isn\'t present, all requests are included in the
-    -- response.
-    states :: Prelude.Maybe [CreateAccountState],
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -96,15 +96,15 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'states', 'listCreateAccountStatus_states' - A list of one or more states that you want included in the response. If
+-- this parameter isn\'t present, all requests are included in the
+-- response.
+--
 -- 'nextToken', 'listCreateAccountStatus_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
---
--- 'states', 'listCreateAccountStatus_states' - A list of one or more states that you want included in the response. If
--- this parameter isn\'t present, all requests are included in the
--- response.
 --
 -- 'maxResults', 'listCreateAccountStatus_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -120,11 +120,16 @@ newListCreateAccountStatus ::
   ListCreateAccountStatus
 newListCreateAccountStatus =
   ListCreateAccountStatus'
-    { nextToken =
-        Prelude.Nothing,
-      states = Prelude.Nothing,
+    { states = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | A list of one or more states that you want included in the response. If
+-- this parameter isn\'t present, all requests are included in the
+-- response.
+listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe [CreateAccountState])
+listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -133,12 +138,6 @@ newListCreateAccountStatus =
 -- output should continue from.
 listCreateAccountStatus_nextToken :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe Prelude.Text)
 listCreateAccountStatus_nextToken = Lens.lens (\ListCreateAccountStatus' {nextToken} -> nextToken) (\s@ListCreateAccountStatus' {} a -> s {nextToken = a} :: ListCreateAccountStatus)
-
--- | A list of one or more states that you want included in the response. If
--- this parameter isn\'t present, all requests are included in the
--- response.
-listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe [CreateAccountState])
-listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -214,8 +213,8 @@ instance Core.ToJSON ListCreateAccountStatus where
   toJSON ListCreateAccountStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("States" Core..=) Prelude.<$> states,
+          [ ("States" Core..=) Prelude.<$> states,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

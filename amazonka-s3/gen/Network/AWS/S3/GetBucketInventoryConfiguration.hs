@@ -27,9 +27,9 @@
 -- @s3:GetInventoryConfiguration@ action. The bucket owner has this
 -- permission by default and can grant this permission to others. For more
 -- information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- For information about the Amazon S3 inventory feature, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html Amazon S3 Inventory>.
@@ -71,7 +71,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketInventoryConfiguration' smart constructor.
 data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -91,7 +91,7 @@ data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketInventoryConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketInventoryConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -113,7 +113,7 @@ newGetBucketInventoryConfiguration pBucket_ pId_ =
       id = pId_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Prelude.Maybe Prelude.Text)

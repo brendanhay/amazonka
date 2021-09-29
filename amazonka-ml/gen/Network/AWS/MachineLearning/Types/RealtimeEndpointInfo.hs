@@ -38,16 +38,16 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     -- element can have one of the following values:
     --
     -- -   @NONE@ - Endpoint does not exist or was previously deleted.
+    --
     -- -   @READY@ - Endpoint is ready to be used for real-time predictions.
+    --
     -- -   @UPDATING@ - Updating\/creating the endpoint.
     endpointStatus :: Prelude.Maybe RealtimeEndpointStatus,
     -- | The URI that specifies where to send real-time prediction requests for
     -- the @MLModel@.
     --
-    -- Note
-    --
-    -- The application must wait until the real-time endpoint is ready before
-    -- using this URI.
+    -- __Note:__ The application must wait until the real-time endpoint is
+    -- ready before using this URI.
     endpointUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,16 +70,16 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
 -- element can have one of the following values:
 --
 -- -   @NONE@ - Endpoint does not exist or was previously deleted.
+--
 -- -   @READY@ - Endpoint is ready to be used for real-time predictions.
+--
 -- -   @UPDATING@ - Updating\/creating the endpoint.
 --
 -- 'endpointUrl', 'realtimeEndpointInfo_endpointUrl' - The URI that specifies where to send real-time prediction requests for
 -- the @MLModel@.
 --
--- Note
---
--- The application must wait until the real-time endpoint is ready before
--- using this URI.
+-- __Note:__ The application must wait until the real-time endpoint is
+-- ready before using this URI.
 newRealtimeEndpointInfo ::
   RealtimeEndpointInfo
 newRealtimeEndpointInfo =
@@ -104,7 +104,9 @@ realtimeEndpointInfo_peakRequestsPerSecond = Lens.lens (\RealtimeEndpointInfo' {
 -- element can have one of the following values:
 --
 -- -   @NONE@ - Endpoint does not exist or was previously deleted.
+--
 -- -   @READY@ - Endpoint is ready to be used for real-time predictions.
+--
 -- -   @UPDATING@ - Updating\/creating the endpoint.
 realtimeEndpointInfo_endpointStatus :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe RealtimeEndpointStatus)
 realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpointStatus} -> endpointStatus) (\s@RealtimeEndpointInfo' {} a -> s {endpointStatus = a} :: RealtimeEndpointInfo)
@@ -112,10 +114,8 @@ realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpoin
 -- | The URI that specifies where to send real-time prediction requests for
 -- the @MLModel@.
 --
--- Note
---
--- The application must wait until the real-time endpoint is ready before
--- using this URI.
+-- __Note:__ The application must wait until the real-time endpoint is
+-- ready before using this URI.
 realtimeEndpointInfo_endpointUrl :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.Text)
 realtimeEndpointInfo_endpointUrl = Lens.lens (\RealtimeEndpointInfo' {endpointUrl} -> endpointUrl) (\s@RealtimeEndpointInfo' {} a -> s {endpointUrl = a} :: RealtimeEndpointInfo)
 

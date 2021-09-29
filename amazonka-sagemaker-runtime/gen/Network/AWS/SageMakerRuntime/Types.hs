@@ -17,8 +17,8 @@ module Network.AWS.SageMakerRuntime.Types
     defaultService,
 
     -- * Errors
-    _ServiceUnavailable,
     _ModelError,
+    _ServiceUnavailable,
     _InternalFailure,
     _ValidationError,
   )
@@ -101,6 +101,13 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Model (owned by the customer in the container) returned 4xx or 5xx error
+-- code.
+_ModelError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ModelError =
+  Core._MatchServiceError defaultService "ModelError"
+    Prelude.. Core.hasStatus 424
+
 -- | The service is unavailable. Try your call again.
 _ServiceUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailable =
@@ -108,13 +115,6 @@ _ServiceUnavailable =
     defaultService
     "ServiceUnavailable"
     Prelude.. Core.hasStatus 503
-
--- | Model (owned by the customer in the container) returned 4xx or 5xx error
--- code.
-_ModelError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ModelError =
-  Core._MatchServiceError defaultService "ModelError"
-    Prelude.. Core.hasStatus 424
 
 -- | An internal failure occurred.
 _InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -43,6 +43,12 @@ data KeySigningKey = KeySigningKey'
     -- includes information about what the problem might be and steps that you
     -- can take to correct the issue.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The date when the key-signing key (KSK) was created.
+    createdDate :: Prelude.Maybe Core.ISO8601,
+    -- | A string used to represent the signing algorithm. This value must follow
+    -- the guidelines provided by
+    -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
+    signingAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
     -- | A string that represents the current key-signing key (KSK) status.
     --
     -- Status can have one of the following values:
@@ -68,30 +74,24 @@ data KeySigningKey = KeySigningKey'
     --     must correct the problem. For example, you may need to activate or
     --     deactivate the KSK.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The date when the key-signing key (KSK) was created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
-    -- | A string used to represent the signing algorithm. This value must follow
-    -- the guidelines provided by
-    -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-    signingAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
     -- | The public key, represented as a Base64 encoding, as required by
     -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
     publicKey :: Prelude.Maybe Prelude.Text,
-    -- | A string that represents a DNSKEY record.
-    dNSKEYRecord :: Prelude.Maybe Prelude.Text,
     -- | A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records
     -- are used to publish the public key that resolvers can use to verify
     -- DNSSEC signatures that are used to secure certain kinds of information
     -- provided by the DNS system.
     digestValue :: Prelude.Maybe Prelude.Text,
-    -- | A string used to represent the delegation signer digest algorithm. This
-    -- value must follow the guidelines provided by
-    -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-    digestAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
+    -- | A string that represents a DNSKEY record.
+    dNSKEYRecord :: Prelude.Maybe Prelude.Text,
     -- | A string used to identify a key-signing key (KSK). @Name@ can include
     -- numbers, letters, and underscores (_). @Name@ must be unique for each
     -- key-signing key in the same hosted zone.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A string used to represent the delegation signer digest algorithm. This
+    -- value must follow the guidelines provided by
+    -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
+    digestAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
     -- | An integer used to represent the signing algorithm. This value must
     -- follow the guidelines provided by
     -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
@@ -100,9 +100,8 @@ data KeySigningKey = KeySigningKey'
     -- (KSK), this value is always 257.
     flag :: Prelude.Maybe Prelude.Int,
     -- | The Amazon resource name (ARN) used to identify the customer managed
-    -- customer master key (CMK) in AWS Key Management Service (AWS KMS). The
-    -- @KmsArn@ must be unique for each key-signing key (KSK) in a single
-    -- hosted zone.
+    -- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
+    -- must be unique for each key-signing key (KSK) in a single hosted zone.
     --
     -- You must configure the CMK as follows:
     --
@@ -127,11 +126,11 @@ data KeySigningKey = KeySigningKey'
     --     The key policy must also include the Amazon Route 53 service in the
     --     principal for your account. Specify the following:
     --
-    --     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+    --     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
     --
-    -- For more information about working with the customer managed CMK in AWS
-    -- KMS, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+    -- For more information about working with the customer managed CMK in KMS,
+    -- see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
     kmsArn :: Prelude.Maybe Prelude.Text,
     -- | An integer used to identify the DNSSEC record for the domain name. The
     -- process used to calculate the value is described in
@@ -161,6 +160,12 @@ data KeySigningKey = KeySigningKey'
 -- includes information about what the problem might be and steps that you
 -- can take to correct the issue.
 --
+-- 'createdDate', 'keySigningKey_createdDate' - The date when the key-signing key (KSK) was created.
+--
+-- 'signingAlgorithmMnemonic', 'keySigningKey_signingAlgorithmMnemonic' - A string used to represent the signing algorithm. This value must follow
+-- the guidelines provided by
+-- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
+--
 -- 'status', 'keySigningKey_status' - A string that represents the current key-signing key (KSK) status.
 --
 -- Status can have one of the following values:
@@ -186,29 +191,23 @@ data KeySigningKey = KeySigningKey'
 --     must correct the problem. For example, you may need to activate or
 --     deactivate the KSK.
 --
--- 'createdDate', 'keySigningKey_createdDate' - The date when the key-signing key (KSK) was created.
---
--- 'signingAlgorithmMnemonic', 'keySigningKey_signingAlgorithmMnemonic' - A string used to represent the signing algorithm. This value must follow
--- the guidelines provided by
--- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
---
 -- 'publicKey', 'keySigningKey_publicKey' - The public key, represented as a Base64 encoding, as required by
 -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
---
--- 'dNSKEYRecord', 'keySigningKey_dNSKEYRecord' - A string that represents a DNSKEY record.
 --
 -- 'digestValue', 'keySigningKey_digestValue' - A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records
 -- are used to publish the public key that resolvers can use to verify
 -- DNSSEC signatures that are used to secure certain kinds of information
 -- provided by the DNS system.
 --
--- 'digestAlgorithmMnemonic', 'keySigningKey_digestAlgorithmMnemonic' - A string used to represent the delegation signer digest algorithm. This
--- value must follow the guidelines provided by
--- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
+-- 'dNSKEYRecord', 'keySigningKey_dNSKEYRecord' - A string that represents a DNSKEY record.
 --
 -- 'name', 'keySigningKey_name' - A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
 -- key-signing key in the same hosted zone.
+--
+-- 'digestAlgorithmMnemonic', 'keySigningKey_digestAlgorithmMnemonic' - A string used to represent the delegation signer digest algorithm. This
+-- value must follow the guidelines provided by
+-- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
 --
 -- 'signingAlgorithmType', 'keySigningKey_signingAlgorithmType' - An integer used to represent the signing algorithm. This value must
 -- follow the guidelines provided by
@@ -218,9 +217,8 @@ data KeySigningKey = KeySigningKey'
 -- (KSK), this value is always 257.
 --
 -- 'kmsArn', 'keySigningKey_kmsArn' - The Amazon resource name (ARN) used to identify the customer managed
--- customer master key (CMK) in AWS Key Management Service (AWS KMS). The
--- @KmsArn@ must be unique for each key-signing key (KSK) in a single
--- hosted zone.
+-- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
+-- must be unique for each key-signing key (KSK) in a single hosted zone.
 --
 -- You must configure the CMK as follows:
 --
@@ -245,11 +243,11 @@ data KeySigningKey = KeySigningKey'
 --     The key policy must also include the Amazon Route 53 service in the
 --     principal for your account. Specify the following:
 --
---     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+--     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with the customer managed CMK in AWS
--- KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+-- For more information about working with the customer managed CMK in KMS,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 --
 -- 'keyTag', 'keySigningKey_keyTag' - An integer used to identify the DNSSEC record for the domain name. The
 -- process used to calculate the value is described in
@@ -264,14 +262,14 @@ newKeySigningKey =
         Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
       createdDate = Prelude.Nothing,
       signingAlgorithmMnemonic = Prelude.Nothing,
+      status = Prelude.Nothing,
       publicKey = Prelude.Nothing,
-      dNSKEYRecord = Prelude.Nothing,
       digestValue = Prelude.Nothing,
-      digestAlgorithmMnemonic = Prelude.Nothing,
+      dNSKEYRecord = Prelude.Nothing,
       name = Prelude.Nothing,
+      digestAlgorithmMnemonic = Prelude.Nothing,
       signingAlgorithmType = Prelude.Nothing,
       flag = Prelude.Nothing,
       kmsArn = Prelude.Nothing,
@@ -295,6 +293,16 @@ keySigningKey_lastModifiedDate = Lens.lens (\KeySigningKey' {lastModifiedDate} -
 -- can take to correct the issue.
 keySigningKey_statusMessage :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_statusMessage = Lens.lens (\KeySigningKey' {statusMessage} -> statusMessage) (\s@KeySigningKey' {} a -> s {statusMessage = a} :: KeySigningKey)
+
+-- | The date when the key-signing key (KSK) was created.
+keySigningKey_createdDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
+keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Prelude.. Lens.mapping Core._Time
+
+-- | A string used to represent the signing algorithm. This value must follow
+-- the guidelines provided by
+-- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
+keySigningKey_signingAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_signingAlgorithmMnemonic = Lens.lens (\KeySigningKey' {signingAlgorithmMnemonic} -> signingAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {signingAlgorithmMnemonic = a} :: KeySigningKey)
 
 -- | A string that represents the current key-signing key (KSK) status.
 --
@@ -323,24 +331,10 @@ keySigningKey_statusMessage = Lens.lens (\KeySigningKey' {statusMessage} -> stat
 keySigningKey_status :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_status = Lens.lens (\KeySigningKey' {status} -> status) (\s@KeySigningKey' {} a -> s {status = a} :: KeySigningKey)
 
--- | The date when the key-signing key (KSK) was created.
-keySigningKey_createdDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
-keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Prelude.. Lens.mapping Core._Time
-
--- | A string used to represent the signing algorithm. This value must follow
--- the guidelines provided by
--- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-keySigningKey_signingAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
-keySigningKey_signingAlgorithmMnemonic = Lens.lens (\KeySigningKey' {signingAlgorithmMnemonic} -> signingAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {signingAlgorithmMnemonic = a} :: KeySigningKey)
-
 -- | The public key, represented as a Base64 encoding, as required by
 -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
 keySigningKey_publicKey :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_publicKey = Lens.lens (\KeySigningKey' {publicKey} -> publicKey) (\s@KeySigningKey' {} a -> s {publicKey = a} :: KeySigningKey)
-
--- | A string that represents a DNSKEY record.
-keySigningKey_dNSKEYRecord :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
-keySigningKey_dNSKEYRecord = Lens.lens (\KeySigningKey' {dNSKEYRecord} -> dNSKEYRecord) (\s@KeySigningKey' {} a -> s {dNSKEYRecord = a} :: KeySigningKey)
 
 -- | A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records
 -- are used to publish the public key that resolvers can use to verify
@@ -349,17 +343,21 @@ keySigningKey_dNSKEYRecord = Lens.lens (\KeySigningKey' {dNSKEYRecord} -> dNSKEY
 keySigningKey_digestValue :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_digestValue = Lens.lens (\KeySigningKey' {digestValue} -> digestValue) (\s@KeySigningKey' {} a -> s {digestValue = a} :: KeySigningKey)
 
--- | A string used to represent the delegation signer digest algorithm. This
--- value must follow the guidelines provided by
--- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-keySigningKey_digestAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
-keySigningKey_digestAlgorithmMnemonic = Lens.lens (\KeySigningKey' {digestAlgorithmMnemonic} -> digestAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {digestAlgorithmMnemonic = a} :: KeySigningKey)
+-- | A string that represents a DNSKEY record.
+keySigningKey_dNSKEYRecord :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_dNSKEYRecord = Lens.lens (\KeySigningKey' {dNSKEYRecord} -> dNSKEYRecord) (\s@KeySigningKey' {} a -> s {dNSKEYRecord = a} :: KeySigningKey)
 
 -- | A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
 -- key-signing key in the same hosted zone.
 keySigningKey_name :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_name = Lens.lens (\KeySigningKey' {name} -> name) (\s@KeySigningKey' {} a -> s {name = a} :: KeySigningKey)
+
+-- | A string used to represent the delegation signer digest algorithm. This
+-- value must follow the guidelines provided by
+-- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
+keySigningKey_digestAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_digestAlgorithmMnemonic = Lens.lens (\KeySigningKey' {digestAlgorithmMnemonic} -> digestAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {digestAlgorithmMnemonic = a} :: KeySigningKey)
 
 -- | An integer used to represent the signing algorithm. This value must
 -- follow the guidelines provided by
@@ -373,9 +371,8 @@ keySigningKey_flag :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Int)
 keySigningKey_flag = Lens.lens (\KeySigningKey' {flag} -> flag) (\s@KeySigningKey' {} a -> s {flag = a} :: KeySigningKey)
 
 -- | The Amazon resource name (ARN) used to identify the customer managed
--- customer master key (CMK) in AWS Key Management Service (AWS KMS). The
--- @KmsArn@ must be unique for each key-signing key (KSK) in a single
--- hosted zone.
+-- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
+-- must be unique for each key-signing key (KSK) in a single hosted zone.
 --
 -- You must configure the CMK as follows:
 --
@@ -400,11 +397,11 @@ keySigningKey_flag = Lens.lens (\KeySigningKey' {flag} -> flag) (\s@KeySigningKe
 --     The key policy must also include the Amazon Route 53 service in the
 --     principal for your account. Specify the following:
 --
---     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+--     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with the customer managed CMK in AWS
--- KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+-- For more information about working with the customer managed CMK in KMS,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 keySigningKey_kmsArn :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
 keySigningKey_kmsArn = Lens.lens (\KeySigningKey' {kmsArn} -> kmsArn) (\s@KeySigningKey' {} a -> s {kmsArn = a} :: KeySigningKey)
 
@@ -424,14 +421,14 @@ instance Core.FromXML KeySigningKey where
       Prelude.<$> (x Core..@? "DigestAlgorithmType")
       Prelude.<*> (x Core..@? "LastModifiedDate")
       Prelude.<*> (x Core..@? "StatusMessage")
-      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CreatedDate")
       Prelude.<*> (x Core..@? "SigningAlgorithmMnemonic")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "PublicKey")
-      Prelude.<*> (x Core..@? "DNSKEYRecord")
       Prelude.<*> (x Core..@? "DigestValue")
-      Prelude.<*> (x Core..@? "DigestAlgorithmMnemonic")
+      Prelude.<*> (x Core..@? "DNSKEYRecord")
       Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "DigestAlgorithmMnemonic")
       Prelude.<*> (x Core..@? "SigningAlgorithmType")
       Prelude.<*> (x Core..@? "Flag")
       Prelude.<*> (x Core..@? "KmsArn")

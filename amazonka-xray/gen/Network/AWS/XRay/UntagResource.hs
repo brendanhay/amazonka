@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an AWS X-Ray group or sampling rule. You cannot edit
--- or delete system tags (those with an @aws:@ prefix).
+-- Removes tags from an Amazon Web Services X-Ray group or sampling rule.
+-- You cannot edit or delete system tags (those with an @aws:@ prefix).
 module Network.AWS.XRay.UntagResource
   ( -- * Creating a Request
     UntagResource (..),

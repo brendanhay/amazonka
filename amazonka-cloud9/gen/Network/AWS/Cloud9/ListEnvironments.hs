@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of AWS Cloud9 development environment identifiers.
+-- Gets a list of Cloud9 development environment identifiers.
 --
 -- This operation returns paginated results.
 module Network.AWS.Cloud9.ListEnvironments

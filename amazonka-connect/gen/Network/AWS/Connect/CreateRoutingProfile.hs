@@ -60,7 +60,8 @@ data CreateRoutingProfile = CreateRoutingProfile'
     queueConfigs :: Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig),
     -- | One or more tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the routing profile. Must not be more than 127 characters.
     name :: Prelude.Text,
@@ -88,7 +89,8 @@ data CreateRoutingProfile = CreateRoutingProfile'
 --
 -- 'tags', 'createRoutingProfile_tags' - One or more tags.
 --
--- 'instanceId', 'createRoutingProfile_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'createRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'name', 'createRoutingProfile_name' - The name of the routing profile. Must not be more than 127 characters.
 --
@@ -134,7 +136,8 @@ createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConf
 createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 createRoutingProfile_instanceId :: Lens.Lens' CreateRoutingProfile Prelude.Text
 createRoutingProfile_instanceId = Lens.lens (\CreateRoutingProfile' {instanceId} -> instanceId) (\s@CreateRoutingProfile' {} a -> s {instanceId = a} :: CreateRoutingProfile)
 

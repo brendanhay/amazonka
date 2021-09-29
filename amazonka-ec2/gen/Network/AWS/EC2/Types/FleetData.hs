@@ -62,11 +62,17 @@ data FleetData = FleetData'
     -- | Information about the instances that were launched by the fleet. Valid
     -- only when __Type__ is set to @instant@.
     instances :: Prelude.Maybe [DescribeFleetsInstances],
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | The end date and time of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new instance
     -- requests are placed or able to fulfill the request. The default end date
     -- is 7 days from the current date.
     validUntil :: Prelude.Maybe Core.ISO8601,
+    -- | The creation date and time of the EC2 Fleet.
+    createTime :: Prelude.Maybe Core.ISO8601,
+    -- | The tags for an EC2 Fleet resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The progress of the EC2 Fleet. If there is an error, the status is
     -- @error@. After all requests are placed, the status is
     -- @pending_fulfillment@. If the size of the EC2 Fleet is equal to or
@@ -74,10 +80,6 @@ data FleetData = FleetData'
     -- of the EC2 Fleet is decreased, the status is @pending_termination@ while
     -- instances are terminating.
     activityStatus :: Prelude.Maybe FleetActivityStatus,
-    -- | The tags for an EC2 Fleet resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | The creation date and time of the EC2 Fleet.
-    createTime :: Prelude.Maybe Core.ISO8601,
     -- | Indicates whether running instances should be terminated if the target
     -- capacity of the EC2 Fleet is decreased below the current size of the EC2
     -- Fleet.
@@ -85,6 +87,14 @@ data FleetData = FleetData'
     -- | Information about the instances that could not be launched by the fleet.
     -- Valid only when __Type__ is set to @instant@.
     errors :: Prelude.Maybe [DescribeFleetError],
+    -- | The number of units to request. You can choose to set the target
+    -- capacity in terms of instances or a performance characteristic that is
+    -- important to your application workload, such as vCPUs, memory, or I\/O.
+    -- If the request type is @maintain@, you can specify a target capacity of
+    -- 0 and add capacity later.
+    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecification,
+    -- | The configuration of Spot Instances in an EC2 Fleet.
+    spotOptions :: Prelude.Maybe SpotOptions,
     -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the
     -- target capacity, or also attempts to @maintain@ it. If you request a
     -- certain target capacity, EC2 Fleet only places the required requests; it
@@ -94,26 +104,18 @@ data FleetData = FleetData'
     -- required requests to meet this target capacity. It also automatically
     -- replenishes any interrupted Spot Instances. Default: @maintain@.
     type' :: Prelude.Maybe FleetType,
-    -- | The configuration of Spot Instances in an EC2 Fleet.
-    spotOptions :: Prelude.Maybe SpotOptions,
-    -- | The number of units to request. You can choose to set the target
-    -- capacity in terms of instances or a performance characteristic that is
-    -- important to your application workload, such as vCPUs, memory, or I\/O.
-    -- If the request type is @maintain@, you can specify a target capacity of
-    -- 0 and add capacity later.
-    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecification,
     -- | The number of units fulfilled by this request compared to the set target
     -- capacity.
     fulfilledCapacity :: Prelude.Maybe Prelude.Double,
+    -- | Indicates whether running instances should be terminated when the EC2
+    -- Fleet expires.
+    terminateInstancesWithExpiration :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraints: Maximum 64 ASCII characters
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether running instances should be terminated when the EC2
-    -- Fleet expires.
-    terminateInstancesWithExpiration :: Prelude.Maybe Prelude.Bool
+    clientToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -148,10 +150,16 @@ data FleetData = FleetData'
 -- 'instances', 'fleetData_instances' - Information about the instances that were launched by the fleet. Valid
 -- only when __Type__ is set to @instant@.
 --
+-- 'context', 'fleetData_context' - Reserved.
+--
 -- 'validUntil', 'fleetData_validUntil' - The end date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new instance
 -- requests are placed or able to fulfill the request. The default end date
 -- is 7 days from the current date.
+--
+-- 'createTime', 'fleetData_createTime' - The creation date and time of the EC2 Fleet.
+--
+-- 'tags', 'fleetData_tags' - The tags for an EC2 Fleet resource.
 --
 -- 'activityStatus', 'fleetData_activityStatus' - The progress of the EC2 Fleet. If there is an error, the status is
 -- @error@. After all requests are placed, the status is
@@ -160,16 +168,20 @@ data FleetData = FleetData'
 -- of the EC2 Fleet is decreased, the status is @pending_termination@ while
 -- instances are terminating.
 --
--- 'tags', 'fleetData_tags' - The tags for an EC2 Fleet resource.
---
--- 'createTime', 'fleetData_createTime' - The creation date and time of the EC2 Fleet.
---
 -- 'excessCapacityTerminationPolicy', 'fleetData_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target
 -- capacity of the EC2 Fleet is decreased below the current size of the EC2
 -- Fleet.
 --
 -- 'errors', 'fleetData_errors' - Information about the instances that could not be launched by the fleet.
 -- Valid only when __Type__ is set to @instant@.
+--
+-- 'targetCapacitySpecification', 'fleetData_targetCapacitySpecification' - The number of units to request. You can choose to set the target
+-- capacity in terms of instances or a performance characteristic that is
+-- important to your application workload, such as vCPUs, memory, or I\/O.
+-- If the request type is @maintain@, you can specify a target capacity of
+-- 0 and add capacity later.
+--
+-- 'spotOptions', 'fleetData_spotOptions' - The configuration of Spot Instances in an EC2 Fleet.
 --
 -- 'type'', 'fleetData_type' - The type of request. Indicates whether the EC2 Fleet only @requests@ the
 -- target capacity, or also attempts to @maintain@ it. If you request a
@@ -180,25 +192,17 @@ data FleetData = FleetData'
 -- required requests to meet this target capacity. It also automatically
 -- replenishes any interrupted Spot Instances. Default: @maintain@.
 --
--- 'spotOptions', 'fleetData_spotOptions' - The configuration of Spot Instances in an EC2 Fleet.
---
--- 'targetCapacitySpecification', 'fleetData_targetCapacitySpecification' - The number of units to request. You can choose to set the target
--- capacity in terms of instances or a performance characteristic that is
--- important to your application workload, such as vCPUs, memory, or I\/O.
--- If the request type is @maintain@, you can specify a target capacity of
--- 0 and add capacity later.
---
 -- 'fulfilledCapacity', 'fleetData_fulfilledCapacity' - The number of units fulfilled by this request compared to the set target
 -- capacity.
+--
+-- 'terminateInstancesWithExpiration', 'fleetData_terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2
+-- Fleet expires.
 --
 -- 'clientToken', 'fleetData_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraints: Maximum 64 ASCII characters
---
--- 'terminateInstancesWithExpiration', 'fleetData_terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2
--- Fleet expires.
 newFleetData ::
   FleetData
 newFleetData =
@@ -211,18 +215,19 @@ newFleetData =
       validFrom = Prelude.Nothing,
       replaceUnhealthyInstances = Prelude.Nothing,
       instances = Prelude.Nothing,
+      context = Prelude.Nothing,
       validUntil = Prelude.Nothing,
-      activityStatus = Prelude.Nothing,
-      tags = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      activityStatus = Prelude.Nothing,
       excessCapacityTerminationPolicy = Prelude.Nothing,
       errors = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      spotOptions = Prelude.Nothing,
       targetCapacitySpecification = Prelude.Nothing,
+      spotOptions = Prelude.Nothing,
+      type' = Prelude.Nothing,
       fulfilledCapacity = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      terminateInstancesWithExpiration = Prelude.Nothing
+      terminateInstancesWithExpiration = Prelude.Nothing,
+      clientToken = Prelude.Nothing
     }
 
 -- | The launch template and overrides.
@@ -264,12 +269,24 @@ fleetData_replaceUnhealthyInstances = Lens.lens (\FleetData' {replaceUnhealthyIn
 fleetData_instances :: Lens.Lens' FleetData (Prelude.Maybe [DescribeFleetsInstances])
 fleetData_instances = Lens.lens (\FleetData' {instances} -> instances) (\s@FleetData' {} a -> s {instances = a} :: FleetData) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Reserved.
+fleetData_context :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Text)
+fleetData_context = Lens.lens (\FleetData' {context} -> context) (\s@FleetData' {} a -> s {context = a} :: FleetData)
+
 -- | The end date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new instance
 -- requests are placed or able to fulfill the request. The default end date
 -- is 7 days from the current date.
 fleetData_validUntil :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
 fleetData_validUntil = Lens.lens (\FleetData' {validUntil} -> validUntil) (\s@FleetData' {} a -> s {validUntil = a} :: FleetData) Prelude.. Lens.mapping Core._Time
+
+-- | The creation date and time of the EC2 Fleet.
+fleetData_createTime :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
+fleetData_createTime = Lens.lens (\FleetData' {createTime} -> createTime) (\s@FleetData' {} a -> s {createTime = a} :: FleetData) Prelude.. Lens.mapping Core._Time
+
+-- | The tags for an EC2 Fleet resource.
+fleetData_tags :: Lens.Lens' FleetData (Prelude.Maybe [Tag])
+fleetData_tags = Lens.lens (\FleetData' {tags} -> tags) (\s@FleetData' {} a -> s {tags = a} :: FleetData) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The progress of the EC2 Fleet. If there is an error, the status is
 -- @error@. After all requests are placed, the status is
@@ -279,14 +296,6 @@ fleetData_validUntil = Lens.lens (\FleetData' {validUntil} -> validUntil) (\s@Fl
 -- instances are terminating.
 fleetData_activityStatus :: Lens.Lens' FleetData (Prelude.Maybe FleetActivityStatus)
 fleetData_activityStatus = Lens.lens (\FleetData' {activityStatus} -> activityStatus) (\s@FleetData' {} a -> s {activityStatus = a} :: FleetData)
-
--- | The tags for an EC2 Fleet resource.
-fleetData_tags :: Lens.Lens' FleetData (Prelude.Maybe [Tag])
-fleetData_tags = Lens.lens (\FleetData' {tags} -> tags) (\s@FleetData' {} a -> s {tags = a} :: FleetData) Prelude.. Lens.mapping Lens._Coerce
-
--- | The creation date and time of the EC2 Fleet.
-fleetData_createTime :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
-fleetData_createTime = Lens.lens (\FleetData' {createTime} -> createTime) (\s@FleetData' {} a -> s {createTime = a} :: FleetData) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates whether running instances should be terminated if the target
 -- capacity of the EC2 Fleet is decreased below the current size of the EC2
@@ -299,6 +308,18 @@ fleetData_excessCapacityTerminationPolicy = Lens.lens (\FleetData' {excessCapaci
 fleetData_errors :: Lens.Lens' FleetData (Prelude.Maybe [DescribeFleetError])
 fleetData_errors = Lens.lens (\FleetData' {errors} -> errors) (\s@FleetData' {} a -> s {errors = a} :: FleetData) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of units to request. You can choose to set the target
+-- capacity in terms of instances or a performance characteristic that is
+-- important to your application workload, such as vCPUs, memory, or I\/O.
+-- If the request type is @maintain@, you can specify a target capacity of
+-- 0 and add capacity later.
+fleetData_targetCapacitySpecification :: Lens.Lens' FleetData (Prelude.Maybe TargetCapacitySpecification)
+fleetData_targetCapacitySpecification = Lens.lens (\FleetData' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@FleetData' {} a -> s {targetCapacitySpecification = a} :: FleetData)
+
+-- | The configuration of Spot Instances in an EC2 Fleet.
+fleetData_spotOptions :: Lens.Lens' FleetData (Prelude.Maybe SpotOptions)
+fleetData_spotOptions = Lens.lens (\FleetData' {spotOptions} -> spotOptions) (\s@FleetData' {} a -> s {spotOptions = a} :: FleetData)
+
 -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the
 -- target capacity, or also attempts to @maintain@ it. If you request a
 -- certain target capacity, EC2 Fleet only places the required requests; it
@@ -310,22 +331,15 @@ fleetData_errors = Lens.lens (\FleetData' {errors} -> errors) (\s@FleetData' {} 
 fleetData_type :: Lens.Lens' FleetData (Prelude.Maybe FleetType)
 fleetData_type = Lens.lens (\FleetData' {type'} -> type') (\s@FleetData' {} a -> s {type' = a} :: FleetData)
 
--- | The configuration of Spot Instances in an EC2 Fleet.
-fleetData_spotOptions :: Lens.Lens' FleetData (Prelude.Maybe SpotOptions)
-fleetData_spotOptions = Lens.lens (\FleetData' {spotOptions} -> spotOptions) (\s@FleetData' {} a -> s {spotOptions = a} :: FleetData)
-
--- | The number of units to request. You can choose to set the target
--- capacity in terms of instances or a performance characteristic that is
--- important to your application workload, such as vCPUs, memory, or I\/O.
--- If the request type is @maintain@, you can specify a target capacity of
--- 0 and add capacity later.
-fleetData_targetCapacitySpecification :: Lens.Lens' FleetData (Prelude.Maybe TargetCapacitySpecification)
-fleetData_targetCapacitySpecification = Lens.lens (\FleetData' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@FleetData' {} a -> s {targetCapacitySpecification = a} :: FleetData)
-
 -- | The number of units fulfilled by this request compared to the set target
 -- capacity.
 fleetData_fulfilledCapacity :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Double)
 fleetData_fulfilledCapacity = Lens.lens (\FleetData' {fulfilledCapacity} -> fulfilledCapacity) (\s@FleetData' {} a -> s {fulfilledCapacity = a} :: FleetData)
+
+-- | Indicates whether running instances should be terminated when the EC2
+-- Fleet expires.
+fleetData_terminateInstancesWithExpiration :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Bool)
+fleetData_terminateInstancesWithExpiration = Lens.lens (\FleetData' {terminateInstancesWithExpiration} -> terminateInstancesWithExpiration) (\s@FleetData' {} a -> s {terminateInstancesWithExpiration = a} :: FleetData)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -334,11 +348,6 @@ fleetData_fulfilledCapacity = Lens.lens (\FleetData' {fulfilledCapacity} -> fulf
 -- Constraints: Maximum 64 ASCII characters
 fleetData_clientToken :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Text)
 fleetData_clientToken = Lens.lens (\FleetData' {clientToken} -> clientToken) (\s@FleetData' {} a -> s {clientToken = a} :: FleetData)
-
--- | Indicates whether running instances should be terminated when the EC2
--- Fleet expires.
-fleetData_terminateInstancesWithExpiration :: Lens.Lens' FleetData (Prelude.Maybe Prelude.Bool)
-fleetData_terminateInstancesWithExpiration = Lens.lens (\FleetData' {terminateInstancesWithExpiration} -> terminateInstancesWithExpiration) (\s@FleetData' {} a -> s {terminateInstancesWithExpiration = a} :: FleetData)
 
 instance Core.FromXML FleetData where
   parseXML x =
@@ -357,22 +366,23 @@ instance Core.FromXML FleetData where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "context")
       Prelude.<*> (x Core..@? "validUntil")
-      Prelude.<*> (x Core..@? "activityStatus")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Core..@? "activityStatus")
       Prelude.<*> (x Core..@? "excessCapacityTerminationPolicy")
       Prelude.<*> ( x Core..@? "errorSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "spotOptions")
       Prelude.<*> (x Core..@? "targetCapacitySpecification")
+      Prelude.<*> (x Core..@? "spotOptions")
+      Prelude.<*> (x Core..@? "type")
       Prelude.<*> (x Core..@? "fulfilledCapacity")
-      Prelude.<*> (x Core..@? "clientToken")
       Prelude.<*> (x Core..@? "terminateInstancesWithExpiration")
+      Prelude.<*> (x Core..@? "clientToken")
 
 instance Prelude.Hashable FleetData
 

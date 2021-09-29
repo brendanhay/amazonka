@@ -24,17 +24,34 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Provided configuration information for the worker UI for a labeling job.
+-- Provide either @HumanTaskUiArn@ or @UiTemplateS3Uri@.
+--
+-- For named entity recognition, 3D point cloud and video frame labeling
+-- jobs, use @HumanTaskUiArn@.
+--
+-- For all other Ground Truth built-in task types and custom task types,
+-- use @UiTemplateS3Uri@ to specify the location of a worker task template
+-- in Amazon S3.
 --
 -- /See:/ 'newUiConfig' smart constructor.
 data UiConfig = UiConfig'
   { -- | The ARN of the worker task template used to render the worker UI and
     -- tools for labeling job tasks.
     --
-    -- Use this parameter when you are creating a labeling job for 3D point
-    -- cloud and video fram labeling jobs. Use your labeling job task type to
-    -- select one of the following ARNs and use it with this parameter when you
-    -- create a labeling job. Replace @aws-region@ with the AWS region you are
-    -- creating your labeling job in.
+    -- Use this parameter when you are creating a labeling job for named entity
+    -- recognition, 3D point cloud and video frame labeling jobs. Use your
+    -- labeling job task type to select one of the following ARNs and use it
+    -- with this parameter when you create a labeling job. Replace @aws-region@
+    -- with the Amazon Web Services Region you are creating your labeling job
+    -- in. For example, replace @aws-region@ with @us-west-1@ if you create a
+    -- labeling job in US West (N. California).
+    --
+    -- __Named Entity Recognition__
+    --
+    -- Use the following @HumanTaskUiArn@ for named entity recognition labeling
+    -- jobs:
+    --
+    -- @arn:aws:sagemaker:aws-region:394669845002:human-task-ui\/NamedEntityRecognition@
     --
     -- __3D Point Cloud HumanTaskUiArns__
     --
@@ -85,11 +102,20 @@ data UiConfig = UiConfig'
 -- 'humanTaskUiArn', 'uiConfig_humanTaskUiArn' - The ARN of the worker task template used to render the worker UI and
 -- tools for labeling job tasks.
 --
--- Use this parameter when you are creating a labeling job for 3D point
--- cloud and video fram labeling jobs. Use your labeling job task type to
--- select one of the following ARNs and use it with this parameter when you
--- create a labeling job. Replace @aws-region@ with the AWS region you are
--- creating your labeling job in.
+-- Use this parameter when you are creating a labeling job for named entity
+-- recognition, 3D point cloud and video frame labeling jobs. Use your
+-- labeling job task type to select one of the following ARNs and use it
+-- with this parameter when you create a labeling job. Replace @aws-region@
+-- with the Amazon Web Services Region you are creating your labeling job
+-- in. For example, replace @aws-region@ with @us-west-1@ if you create a
+-- labeling job in US West (N. California).
+--
+-- __Named Entity Recognition__
+--
+-- Use the following @HumanTaskUiArn@ for named entity recognition labeling
+-- jobs:
+--
+-- @arn:aws:sagemaker:aws-region:394669845002:human-task-ui\/NamedEntityRecognition@
 --
 -- __3D Point Cloud HumanTaskUiArns__
 --
@@ -136,11 +162,20 @@ newUiConfig =
 -- | The ARN of the worker task template used to render the worker UI and
 -- tools for labeling job tasks.
 --
--- Use this parameter when you are creating a labeling job for 3D point
--- cloud and video fram labeling jobs. Use your labeling job task type to
--- select one of the following ARNs and use it with this parameter when you
--- create a labeling job. Replace @aws-region@ with the AWS region you are
--- creating your labeling job in.
+-- Use this parameter when you are creating a labeling job for named entity
+-- recognition, 3D point cloud and video frame labeling jobs. Use your
+-- labeling job task type to select one of the following ARNs and use it
+-- with this parameter when you create a labeling job. Replace @aws-region@
+-- with the Amazon Web Services Region you are creating your labeling job
+-- in. For example, replace @aws-region@ with @us-west-1@ if you create a
+-- labeling job in US West (N. California).
+--
+-- __Named Entity Recognition__
+--
+-- Use the following @HumanTaskUiArn@ for named entity recognition labeling
+-- jobs:
+--
+-- @arn:aws:sagemaker:aws-region:394669845002:human-task-ui\/NamedEntityRecognition@
 --
 -- __3D Point Cloud HumanTaskUiArns__
 --

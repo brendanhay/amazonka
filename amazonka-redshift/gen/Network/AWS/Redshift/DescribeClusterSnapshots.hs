@@ -22,9 +22,9 @@
 --
 -- Returns one or more snapshot objects, which contain metadata about your
 -- cluster snapshots. By default, this operation returns information about
--- all snapshots of all clusters that are owned by you AWS customer
--- account. No information is returned for snapshots owned by inactive AWS
--- customer accounts.
+-- all snapshots of all clusters that are owned by your Amazon Web Services
+-- account. No information is returned for snapshots owned by inactive
+-- Amazon Web Services accounts.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all snapshots that match any combination of the
@@ -45,18 +45,18 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     newDescribeClusterSnapshots,
 
     -- * Request Lenses
-    describeClusterSnapshots_snapshotIdentifier,
     describeClusterSnapshots_sortingEntities,
+    describeClusterSnapshots_snapshotIdentifier,
     describeClusterSnapshots_tagKeys,
     describeClusterSnapshots_startTime,
     describeClusterSnapshots_endTime,
     describeClusterSnapshots_snapshotType,
     describeClusterSnapshots_clusterIdentifier,
     describeClusterSnapshots_ownerAccount,
-    describeClusterSnapshots_clusterExists,
     describeClusterSnapshots_tagValues,
-    describeClusterSnapshots_marker,
     describeClusterSnapshots_maxRecords,
+    describeClusterSnapshots_marker,
+    describeClusterSnapshots_clusterExists,
 
     -- * Destructuring the Response
     DescribeClusterSnapshotsResponse (..),
@@ -80,10 +80,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeClusterSnapshots' smart constructor.
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-  { -- | The snapshot identifier of the snapshot about which to return
+  { sortingEntities :: Prelude.Maybe [SnapshotSortingEntity],
+    -- | The snapshot identifier of the snapshot about which to return
     -- information.
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    sortingEntities :: Prelude.Maybe [SnapshotSortingEntity],
     -- | A tag key or keys for which you want to return all matching cluster
     -- snapshots that are associated with the specified key or keys. For
     -- example, suppose that you have snapshots that are tagged with keys
@@ -112,11 +112,35 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     snapshotType :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster which generated the requested snapshots.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The AWS customer account used to create or copy the snapshot. Use this
-    -- field to filter the results to snapshots owned by a particular account.
-    -- To describe snapshots you own, either specify your AWS customer account,
-    -- or do not specify the parameter.
+    -- | The Amazon Web Services account used to create or copy the snapshot. Use
+    -- this field to filter the results to snapshots owned by a particular
+    -- account. To describe snapshots you own, either specify your Amazon Web
+    -- Services account, or do not specify the parameter.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching cluster
+    -- snapshots that are associated with the specified tag value or values.
+    -- For example, suppose that you have snapshots that are tagged with values
+    -- called @admin@ and @test@. If you specify both of these tag values in
+    -- the request, Amazon Redshift returns a response with the snapshots that
+    -- have either or both of these tag values associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned marker value.
+    --
+    -- Default: @100@
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterSnapshots
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to return snapshots only for an existing
     -- cluster. You can perform table-level restore only by using a snapshot of
     -- an existing cluster, that is, a cluster that has not been deleted.
@@ -135,31 +159,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     --
     -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
     --     specified for an existing cluster, no snapshots are returned.
-    clusterExists :: Prelude.Maybe Prelude.Bool,
-    -- | A tag value or values for which you want to return all matching cluster
-    -- snapshots that are associated with the specified tag value or values.
-    -- For example, suppose that you have snapshots that are tagged with values
-    -- called @admin@ and @test@. If you specify both of these tag values in
-    -- the request, Amazon Redshift returns a response with the snapshots that
-    -- have either or both of these tag values associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusterSnapshots
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of response records to return in each call. If the
-    -- number of remaining response records exceeds the specified @MaxRecords@
-    -- value, a value is returned in a @marker@ field of the response. You can
-    -- retrieve the next set of records by retrying the command with the
-    -- returned marker value.
-    --
-    -- Default: @100@
-    --
-    -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    clusterExists :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -171,10 +171,10 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortingEntities', 'describeClusterSnapshots_sortingEntities' -
+--
 -- 'snapshotIdentifier', 'describeClusterSnapshots_snapshotIdentifier' - The snapshot identifier of the snapshot about which to return
 -- information.
---
--- 'sortingEntities', 'describeClusterSnapshots_sortingEntities' -
 --
 -- 'tagKeys', 'describeClusterSnapshots_tagKeys' - A tag key or keys for which you want to return all matching cluster
 -- snapshots that are associated with the specified key or keys. For
@@ -204,10 +204,34 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 --
 -- 'clusterIdentifier', 'describeClusterSnapshots_clusterIdentifier' - The identifier of the cluster which generated the requested snapshots.
 --
--- 'ownerAccount', 'describeClusterSnapshots_ownerAccount' - The AWS customer account used to create or copy the snapshot. Use this
--- field to filter the results to snapshots owned by a particular account.
--- To describe snapshots you own, either specify your AWS customer account,
--- or do not specify the parameter.
+-- 'ownerAccount', 'describeClusterSnapshots_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot. Use
+-- this field to filter the results to snapshots owned by a particular
+-- account. To describe snapshots you own, either specify your Amazon Web
+-- Services account, or do not specify the parameter.
+--
+-- 'tagValues', 'describeClusterSnapshots_tagValues' - A tag value or values for which you want to return all matching cluster
+-- snapshots that are associated with the specified tag value or values.
+-- For example, suppose that you have snapshots that are tagged with values
+-- called @admin@ and @test@. If you specify both of these tag values in
+-- the request, Amazon Redshift returns a response with the snapshots that
+-- have either or both of these tag values associated with them.
+--
+-- 'maxRecords', 'describeClusterSnapshots_maxRecords' - The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeClusterSnapshots_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSnapshots
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- 'clusterExists', 'describeClusterSnapshots_clusterExists' - A value that indicates whether to return snapshots only for an existing
 -- cluster. You can perform table-level restore only by using a snapshot of
@@ -227,57 +251,33 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 --
 -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
 --     specified for an existing cluster, no snapshots are returned.
---
--- 'tagValues', 'describeClusterSnapshots_tagValues' - A tag value or values for which you want to return all matching cluster
--- snapshots that are associated with the specified tag value or values.
--- For example, suppose that you have snapshots that are tagged with values
--- called @admin@ and @test@. If you specify both of these tag values in
--- the request, Amazon Redshift returns a response with the snapshots that
--- have either or both of these tag values associated with them.
---
--- 'marker', 'describeClusterSnapshots_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- 'maxRecords', 'describeClusterSnapshots_maxRecords' - The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: @100@
---
--- Constraints: minimum 20, maximum 100.
 newDescribeClusterSnapshots ::
   DescribeClusterSnapshots
 newDescribeClusterSnapshots =
   DescribeClusterSnapshots'
-    { snapshotIdentifier =
+    { sortingEntities =
         Prelude.Nothing,
-      sortingEntities = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
       tagKeys = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       snapshotType = Prelude.Nothing,
       clusterIdentifier = Prelude.Nothing,
       ownerAccount = Prelude.Nothing,
-      clusterExists = Prelude.Nothing,
       tagValues = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      clusterExists = Prelude.Nothing
     }
+
+-- |
+describeClusterSnapshots_sortingEntities :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [SnapshotSortingEntity])
+describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots' {sortingEntities} -> sortingEntities) (\s@DescribeClusterSnapshots' {} a -> s {sortingEntities = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The snapshot identifier of the snapshot about which to return
 -- information.
 describeClusterSnapshots_snapshotIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapshots' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {snapshotIdentifier = a} :: DescribeClusterSnapshots)
-
--- |
-describeClusterSnapshots_sortingEntities :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [SnapshotSortingEntity])
-describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots' {sortingEntities} -> sortingEntities) (\s@DescribeClusterSnapshots' {} a -> s {sortingEntities = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- snapshots that are associated with the specified key or keys. For
@@ -317,12 +317,42 @@ describeClusterSnapshots_snapshotType = Lens.lens (\DescribeClusterSnapshots' {s
 describeClusterSnapshots_clusterIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeClusterSnapshots_clusterIdentifier = Lens.lens (\DescribeClusterSnapshots' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {clusterIdentifier = a} :: DescribeClusterSnapshots)
 
--- | The AWS customer account used to create or copy the snapshot. Use this
--- field to filter the results to snapshots owned by a particular account.
--- To describe snapshots you own, either specify your AWS customer account,
--- or do not specify the parameter.
+-- | The Amazon Web Services account used to create or copy the snapshot. Use
+-- this field to filter the results to snapshots owned by a particular
+-- account. To describe snapshots you own, either specify your Amazon Web
+-- Services account, or do not specify the parameter.
 describeClusterSnapshots_ownerAccount :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeClusterSnapshots_ownerAccount = Lens.lens (\DescribeClusterSnapshots' {ownerAccount} -> ownerAccount) (\s@DescribeClusterSnapshots' {} a -> s {ownerAccount = a} :: DescribeClusterSnapshots)
+
+-- | A tag value or values for which you want to return all matching cluster
+-- snapshots that are associated with the specified tag value or values.
+-- For example, suppose that you have snapshots that are tagged with values
+-- called @admin@ and @test@. If you specify both of these tag values in
+-- the request, Amazon Redshift returns a response with the snapshots that
+-- have either or both of these tag values associated with them.
+describeClusterSnapshots_tagValues :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
+describeClusterSnapshots_tagValues = Lens.lens (\DescribeClusterSnapshots' {tagValues} -> tagValues) (\s@DescribeClusterSnapshots' {} a -> s {tagValues = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+describeClusterSnapshots_maxRecords :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Int)
+describeClusterSnapshots_maxRecords = Lens.lens (\DescribeClusterSnapshots' {maxRecords} -> maxRecords) (\s@DescribeClusterSnapshots' {} a -> s {maxRecords = a} :: DescribeClusterSnapshots)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSnapshots
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeClusterSnapshots_marker :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker} -> marker) (\s@DescribeClusterSnapshots' {} a -> s {marker = a} :: DescribeClusterSnapshots)
 
 -- | A value that indicates whether to return snapshots only for an existing
 -- cluster. You can perform table-level restore only by using a snapshot of
@@ -344,36 +374,6 @@ describeClusterSnapshots_ownerAccount = Lens.lens (\DescribeClusterSnapshots' {o
 --     specified for an existing cluster, no snapshots are returned.
 describeClusterSnapshots_clusterExists :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeClusterSnapshots_clusterExists = Lens.lens (\DescribeClusterSnapshots' {clusterExists} -> clusterExists) (\s@DescribeClusterSnapshots' {} a -> s {clusterExists = a} :: DescribeClusterSnapshots)
-
--- | A tag value or values for which you want to return all matching cluster
--- snapshots that are associated with the specified tag value or values.
--- For example, suppose that you have snapshots that are tagged with values
--- called @admin@ and @test@. If you specify both of these tag values in
--- the request, Amazon Redshift returns a response with the snapshots that
--- have either or both of these tag values associated with them.
-describeClusterSnapshots_tagValues :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
-describeClusterSnapshots_tagValues = Lens.lens (\DescribeClusterSnapshots' {tagValues} -> tagValues) (\s@DescribeClusterSnapshots' {} a -> s {tagValues = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeClusterSnapshots_marker :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker} -> marker) (\s@DescribeClusterSnapshots' {} a -> s {marker = a} :: DescribeClusterSnapshots)
-
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: @100@
---
--- Constraints: minimum 20, maximum 100.
-describeClusterSnapshots_maxRecords :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Int)
-describeClusterSnapshots_maxRecords = Lens.lens (\DescribeClusterSnapshots' {maxRecords} -> maxRecords) (\s@DescribeClusterSnapshots' {} a -> s {maxRecords = a} :: DescribeClusterSnapshots)
 
 instance Core.AWSPager DescribeClusterSnapshots where
   page rq rs
@@ -431,12 +431,12 @@ instance Core.ToQuery DescribeClusterSnapshots where
           Core.=: ("DescribeClusterSnapshots" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "SortingEntities"
           Core.=: Core.toQuery
             ( Core.toQueryList "SnapshotSortingEntity"
                 Prelude.<$> sortingEntities
             ),
+        "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
@@ -445,12 +445,12 @@ instance Core.ToQuery DescribeClusterSnapshots where
         "SnapshotType" Core.=: snapshotType,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "OwnerAccount" Core.=: ownerAccount,
-        "ClusterExists" Core.=: clusterExists,
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Core.=: maxRecords,
         "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "ClusterExists" Core.=: clusterExists
       ]
 
 -- | Contains the output from the DescribeClusterSnapshots action.

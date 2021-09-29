@@ -28,10 +28,11 @@
 -- parameters.
 --
 -- If the @UserName@ field is not specified, the user name is determined
--- implicitly based on the AWS access key ID used to sign the request for
--- this operation. This operation works for access keys under the AWS
--- account. Consequently, you can use this operation to manage AWS account
--- root user credentials even if the AWS account has no associated users.
+-- implicitly based on the Amazon Web Services access key ID used to sign
+-- the request for this operation. This operation works for access keys
+-- under the Amazon Web Services account. Consequently, you can use this
+-- operation to manage Amazon Web Services account root user credentials
+-- even if the Amazon Web Services account has no associated users.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates

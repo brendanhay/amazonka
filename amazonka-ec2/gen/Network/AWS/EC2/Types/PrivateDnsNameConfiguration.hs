@@ -32,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPrivateDnsNameConfiguration' smart constructor.
 data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'
-  { -- | The verification state of the VPC endpoint service.
+  { -- | The name of the record subdomain the service provider needs to create.
+    -- The service provider adds the @value@ text to the @name@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The verification state of the VPC endpoint service.
     --
     -- >Consumers of the endpoint service can use the private name only when
     -- the state is @verified@.
     state :: Prelude.Maybe DnsNameState,
-    -- | The name of the record subdomain the service provider needs to create.
-    -- The service provider adds the @value@ text to the @name@.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The value the service provider adds to the private DNS name domain
     -- record before verification.
     value :: Prelude.Maybe Prelude.Text,
@@ -56,13 +56,13 @@ data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'privateDnsNameConfiguration_name' - The name of the record subdomain the service provider needs to create.
+-- The service provider adds the @value@ text to the @name@.
+--
 -- 'state', 'privateDnsNameConfiguration_state' - The verification state of the VPC endpoint service.
 --
 -- >Consumers of the endpoint service can use the private name only when
 -- the state is @verified@.
---
--- 'name', 'privateDnsNameConfiguration_name' - The name of the record subdomain the service provider needs to create.
--- The service provider adds the @value@ text to the @name@.
 --
 -- 'value', 'privateDnsNameConfiguration_value' - The value the service provider adds to the private DNS name domain
 -- record before verification.
@@ -72,12 +72,17 @@ newPrivateDnsNameConfiguration ::
   PrivateDnsNameConfiguration
 newPrivateDnsNameConfiguration =
   PrivateDnsNameConfiguration'
-    { state =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      state = Prelude.Nothing,
       value = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | The name of the record subdomain the service provider needs to create.
+-- The service provider adds the @value@ text to the @name@.
+privateDnsNameConfiguration_name :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
+privateDnsNameConfiguration_name = Lens.lens (\PrivateDnsNameConfiguration' {name} -> name) (\s@PrivateDnsNameConfiguration' {} a -> s {name = a} :: PrivateDnsNameConfiguration)
 
 -- | The verification state of the VPC endpoint service.
 --
@@ -85,11 +90,6 @@ newPrivateDnsNameConfiguration =
 -- the state is @verified@.
 privateDnsNameConfiguration_state :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe DnsNameState)
 privateDnsNameConfiguration_state = Lens.lens (\PrivateDnsNameConfiguration' {state} -> state) (\s@PrivateDnsNameConfiguration' {} a -> s {state = a} :: PrivateDnsNameConfiguration)
-
--- | The name of the record subdomain the service provider needs to create.
--- The service provider adds the @value@ text to the @name@.
-privateDnsNameConfiguration_name :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
-privateDnsNameConfiguration_name = Lens.lens (\PrivateDnsNameConfiguration' {name} -> name) (\s@PrivateDnsNameConfiguration' {} a -> s {name = a} :: PrivateDnsNameConfiguration)
 
 -- | The value the service provider adds to the private DNS name domain
 -- record before verification.
@@ -103,8 +103,8 @@ privateDnsNameConfiguration_type = Lens.lens (\PrivateDnsNameConfiguration' {typ
 instance Core.FromXML PrivateDnsNameConfiguration where
   parseXML x =
     PrivateDnsNameConfiguration'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "value")
       Prelude.<*> (x Core..@? "type")
 

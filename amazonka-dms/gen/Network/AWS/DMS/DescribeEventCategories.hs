@@ -24,7 +24,7 @@
 -- specified source type. You can see a list of the event categories and
 -- source types in
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 module Network.AWS.DMS.DescribeEventCategories
   ( -- * Creating a Request
     DescribeEventCategories (..),
@@ -57,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data DescribeEventCategories = DescribeEventCategories'
   { -- | Filters applied to the event categories.
     filters :: Prelude.Maybe [Filter],
-    -- | The type of AWS DMS resource that generates events.
+    -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-task
     sourceType :: Prelude.Maybe Prelude.Text
@@ -74,7 +74,7 @@ data DescribeEventCategories = DescribeEventCategories'
 --
 -- 'filters', 'describeEventCategories_filters' - Filters applied to the event categories.
 --
--- 'sourceType', 'describeEventCategories_sourceType' - The type of AWS DMS resource that generates events.
+-- 'sourceType', 'describeEventCategories_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 newDescribeEventCategories ::
@@ -89,7 +89,7 @@ newDescribeEventCategories =
 describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
 describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens._Coerce
 
--- | The type of AWS DMS resource that generates events.
+-- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)

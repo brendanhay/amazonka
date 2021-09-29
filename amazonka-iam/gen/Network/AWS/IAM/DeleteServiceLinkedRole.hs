@@ -36,10 +36,11 @@
 -- resources from the linked service and then submit the deletion request
 -- again. Resources are specific to the service that is linked to the role.
 -- For more information about removing resources from a service, see the
--- <http://docs.aws.amazon.com/ AWS documentation> for your service.
+-- <http://docs.aws.amazon.com/ Amazon Web Services documentation> for your
+-- service.
 --
 -- For more information about service-linked roles, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Roles terms and concepts: AWS service-linked role>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Roles terms and concepts: Amazon Web Services service-linked role>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.DeleteServiceLinkedRole
   ( -- * Creating a Request

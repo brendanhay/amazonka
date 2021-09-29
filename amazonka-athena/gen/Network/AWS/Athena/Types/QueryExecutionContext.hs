@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryExecutionContext = QueryExecutionContext'
   { -- | The name of the data catalog used in the query execution.
     catalog :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database used in the query execution.
+    -- | The name of the database used in the query execution. The database must
+    -- exist in the catalog.
     database :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +46,8 @@ data QueryExecutionContext = QueryExecutionContext'
 --
 -- 'catalog', 'queryExecutionContext_catalog' - The name of the data catalog used in the query execution.
 --
--- 'database', 'queryExecutionContext_database' - The name of the database used in the query execution.
+-- 'database', 'queryExecutionContext_database' - The name of the database used in the query execution. The database must
+-- exist in the catalog.
 newQueryExecutionContext ::
   QueryExecutionContext
 newQueryExecutionContext =
@@ -58,7 +60,8 @@ newQueryExecutionContext =
 queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> catalog) (\s@QueryExecutionContext' {} a -> s {catalog = a} :: QueryExecutionContext)
 
--- | The name of the database used in the query execution.
+-- | The name of the database used in the query execution. The database must
+-- exist in the catalog.
 queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_database = Lens.lens (\QueryExecutionContext' {database} -> database) (\s@QueryExecutionContext' {} a -> s {database = a} :: QueryExecutionContext)
 

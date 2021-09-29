@@ -52,11 +52,13 @@ data ContinuousExportDescription = ContinuousExportDescription'
     -- | The name of the s3 bucket where the export data parquet files are
     -- stored.
     s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp that represents when this continuous export was stopped.
+    stopTime :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp representing when the continuous export was started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The type of data collector used to gather this data (currently only
     -- offered for AGENT).
     dataSource :: Prelude.Maybe DataSource,
-    -- | The timestamp representing when the continuous export was started.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | Contains information about any errors that have occurred. This data type
     -- can have the following values:
     --
@@ -98,8 +100,6 @@ data ContinuousExportDescription = ContinuousExportDescription'
     --     service. You must sign up before you can use Amazon S3. You can sign
     --     up at the following URL: <https://aws.amazon.com/s3>.
     statusDetail :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that represents when this continuous export was stopped.
-    stopTime :: Prelude.Maybe Core.POSIX,
     -- | An object which describes how the data is stored.
     --
     -- -   @databaseName@ - the name of the Glue database used to store the
@@ -141,10 +141,12 @@ data ContinuousExportDescription = ContinuousExportDescription'
 -- 's3Bucket', 'continuousExportDescription_s3Bucket' - The name of the s3 bucket where the export data parquet files are
 -- stored.
 --
--- 'dataSource', 'continuousExportDescription_dataSource' - The type of data collector used to gather this data (currently only
--- offered for AGENT).
+-- 'stopTime', 'continuousExportDescription_stopTime' - The timestamp that represents when this continuous export was stopped.
 --
 -- 'startTime', 'continuousExportDescription_startTime' - The timestamp representing when the continuous export was started.
+--
+-- 'dataSource', 'continuousExportDescription_dataSource' - The type of data collector used to gather this data (currently only
+-- offered for AGENT).
 --
 -- 'statusDetail', 'continuousExportDescription_statusDetail' - Contains information about any errors that have occurred. This data type
 -- can have the following values:
@@ -187,8 +189,6 @@ data ContinuousExportDescription = ContinuousExportDescription'
 --     service. You must sign up before you can use Amazon S3. You can sign
 --     up at the following URL: <https://aws.amazon.com/s3>.
 --
--- 'stopTime', 'continuousExportDescription_stopTime' - The timestamp that represents when this continuous export was stopped.
---
 -- 'schemaStorageConfig', 'continuousExportDescription_schemaStorageConfig' - An object which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
@@ -202,10 +202,10 @@ newContinuousExportDescription =
     { status =
         Prelude.Nothing,
       s3Bucket = Prelude.Nothing,
-      dataSource = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      statusDetail = Prelude.Nothing,
       stopTime = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
+      statusDetail = Prelude.Nothing,
       schemaStorageConfig = Prelude.Nothing,
       exportId = Prelude.Nothing
     }
@@ -237,14 +237,18 @@ continuousExportDescription_status = Lens.lens (\ContinuousExportDescription' {s
 continuousExportDescription_s3Bucket :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.Text)
 continuousExportDescription_s3Bucket = Lens.lens (\ContinuousExportDescription' {s3Bucket} -> s3Bucket) (\s@ContinuousExportDescription' {} a -> s {s3Bucket = a} :: ContinuousExportDescription)
 
--- | The type of data collector used to gather this data (currently only
--- offered for AGENT).
-continuousExportDescription_dataSource :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe DataSource)
-continuousExportDescription_dataSource = Lens.lens (\ContinuousExportDescription' {dataSource} -> dataSource) (\s@ContinuousExportDescription' {} a -> s {dataSource = a} :: ContinuousExportDescription)
+-- | The timestamp that represents when this continuous export was stopped.
+continuousExportDescription_stopTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
+continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The timestamp representing when the continuous export was started.
 continuousExportDescription_startTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
 continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription' {startTime} -> startTime) (\s@ContinuousExportDescription' {} a -> s {startTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The type of data collector used to gather this data (currently only
+-- offered for AGENT).
+continuousExportDescription_dataSource :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe DataSource)
+continuousExportDescription_dataSource = Lens.lens (\ContinuousExportDescription' {dataSource} -> dataSource) (\s@ContinuousExportDescription' {} a -> s {dataSource = a} :: ContinuousExportDescription)
 
 -- | Contains information about any errors that have occurred. This data type
 -- can have the following values:
@@ -289,10 +293,6 @@ continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription'
 continuousExportDescription_statusDetail :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.Text)
 continuousExportDescription_statusDetail = Lens.lens (\ContinuousExportDescription' {statusDetail} -> statusDetail) (\s@ContinuousExportDescription' {} a -> s {statusDetail = a} :: ContinuousExportDescription)
 
--- | The timestamp that represents when this continuous export was stopped.
-continuousExportDescription_stopTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
-continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
-
 -- | An object which describes how the data is stored.
 --
 -- -   @databaseName@ - the name of the Glue database used to store the
@@ -312,10 +312,10 @@ instance Core.FromJSON ContinuousExportDescription where
           ContinuousExportDescription'
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "statusDetail")
             Prelude.<*> (x Core..:? "stopTime")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "dataSource")
+            Prelude.<*> (x Core..:? "statusDetail")
             Prelude.<*> ( x Core..:? "schemaStorageConfig"
                             Core..!= Prelude.mempty
                         )

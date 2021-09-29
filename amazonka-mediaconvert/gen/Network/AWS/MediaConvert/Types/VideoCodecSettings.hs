@@ -32,6 +32,7 @@ import Network.AWS.MediaConvert.Types.Vc3Settings
 import Network.AWS.MediaConvert.Types.VideoCodec
 import Network.AWS.MediaConvert.Types.Vp8Settings
 import Network.AWS.MediaConvert.Types.Vp9Settings
+import Network.AWS.MediaConvert.Types.XavcSettings
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Video codec settings, (CodecSettings) under (VideoDescription), contains
@@ -42,13 +43,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE,
 -- FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings *
 -- MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8,
--- Vp8Settings * VP9, Vp9Settings
+-- Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
 --
 -- /See:/ 'newVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
   { -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
     -- to the value FRAME_CAPTURE.
     frameCaptureSettings :: Prelude.Maybe FrameCaptureSettings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
+    -- to the value XAVC.
+    xavcSettings :: Prelude.Maybe XavcSettings,
     -- | Specifies the video codec. This must be equal to one of the enum values
     -- defined by the object VideoCodec.
     codec :: Prelude.Maybe VideoCodec,
@@ -67,16 +71,16 @@ data VideoCodecSettings = VideoCodecSettings'
     -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
     -- to the value VP9.
     vp9Settings :: Prelude.Maybe Vp9Settings,
+    -- | Settings for H265 codec
+    h265Settings :: Prelude.Maybe H265Settings,
     -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
     -- to the value PRORES.
     proresSettings :: Prelude.Maybe ProresSettings,
-    -- | Settings for H265 codec
-    h265Settings :: Prelude.Maybe H265Settings,
-    -- | Required when you set your output video codec to AVC-Intra. For more
-    -- information about the AVC-I settings, see the relevant specification.
-    -- For detailed information about SD and HD in AVC-I, see
-    -- https:\/\/ieeexplore.ieee.org\/document\/7290936. For information about
-    -- 4K\/2K in AVC-I, see
+    -- | Required when you choose AVC-Intra for your output video codec. For more
+    -- information about the AVC-Intra settings, see the relevant
+    -- specification. For detailed information about SD and HD in AVC-Intra,
+    -- see https:\/\/ieeexplore.ieee.org\/document\/7290936. For information
+    -- about 4K\/2K in AVC-Intra, see
     -- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.
     avcIntraSettings :: Prelude.Maybe AvcIntraSettings,
     -- | Required when you set Codec, under VideoDescription>CodecSettings to the
@@ -96,6 +100,9 @@ data VideoCodecSettings = VideoCodecSettings'
 -- 'frameCaptureSettings', 'videoCodecSettings_frameCaptureSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value FRAME_CAPTURE.
 --
+-- 'xavcSettings', 'videoCodecSettings_xavcSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings)
+-- to the value XAVC.
+--
 -- 'codec', 'videoCodecSettings_codec' - Specifies the video codec. This must be equal to one of the enum values
 -- defined by the object VideoCodec.
 --
@@ -114,16 +121,16 @@ data VideoCodecSettings = VideoCodecSettings'
 -- 'vp9Settings', 'videoCodecSettings_vp9Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value VP9.
 --
+-- 'h265Settings', 'videoCodecSettings_h265Settings' - Settings for H265 codec
+--
 -- 'proresSettings', 'videoCodecSettings_proresSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value PRORES.
 --
--- 'h265Settings', 'videoCodecSettings_h265Settings' - Settings for H265 codec
---
--- 'avcIntraSettings', 'videoCodecSettings_avcIntraSettings' - Required when you set your output video codec to AVC-Intra. For more
--- information about the AVC-I settings, see the relevant specification.
--- For detailed information about SD and HD in AVC-I, see
--- https:\/\/ieeexplore.ieee.org\/document\/7290936. For information about
--- 4K\/2K in AVC-I, see
+-- 'avcIntraSettings', 'videoCodecSettings_avcIntraSettings' - Required when you choose AVC-Intra for your output video codec. For more
+-- information about the AVC-Intra settings, see the relevant
+-- specification. For detailed information about SD and HD in AVC-Intra,
+-- see https:\/\/ieeexplore.ieee.org\/document\/7290936. For information
+-- about 4K\/2K in AVC-Intra, see
 -- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.
 --
 -- 'av1Settings', 'videoCodecSettings_av1Settings' - Required when you set Codec, under VideoDescription>CodecSettings to the
@@ -134,14 +141,15 @@ newVideoCodecSettings =
   VideoCodecSettings'
     { frameCaptureSettings =
         Prelude.Nothing,
+      xavcSettings = Prelude.Nothing,
       codec = Prelude.Nothing,
       vc3Settings = Prelude.Nothing,
       vp8Settings = Prelude.Nothing,
       mpeg2Settings = Prelude.Nothing,
       h264Settings = Prelude.Nothing,
       vp9Settings = Prelude.Nothing,
-      proresSettings = Prelude.Nothing,
       h265Settings = Prelude.Nothing,
+      proresSettings = Prelude.Nothing,
       avcIntraSettings = Prelude.Nothing,
       av1Settings = Prelude.Nothing
     }
@@ -150,6 +158,11 @@ newVideoCodecSettings =
 -- to the value FRAME_CAPTURE.
 videoCodecSettings_frameCaptureSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe FrameCaptureSettings)
 videoCodecSettings_frameCaptureSettings = Lens.lens (\VideoCodecSettings' {frameCaptureSettings} -> frameCaptureSettings) (\s@VideoCodecSettings' {} a -> s {frameCaptureSettings = a} :: VideoCodecSettings)
+
+-- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
+-- to the value XAVC.
+videoCodecSettings_xavcSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe XavcSettings)
+videoCodecSettings_xavcSettings = Lens.lens (\VideoCodecSettings' {xavcSettings} -> xavcSettings) (\s@VideoCodecSettings' {} a -> s {xavcSettings = a} :: VideoCodecSettings)
 
 -- | Specifies the video codec. This must be equal to one of the enum values
 -- defined by the object VideoCodec.
@@ -181,20 +194,20 @@ videoCodecSettings_h264Settings = Lens.lens (\VideoCodecSettings' {h264Settings}
 videoCodecSettings_vp9Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe Vp9Settings)
 videoCodecSettings_vp9Settings = Lens.lens (\VideoCodecSettings' {vp9Settings} -> vp9Settings) (\s@VideoCodecSettings' {} a -> s {vp9Settings = a} :: VideoCodecSettings)
 
+-- | Settings for H265 codec
+videoCodecSettings_h265Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe H265Settings)
+videoCodecSettings_h265Settings = Lens.lens (\VideoCodecSettings' {h265Settings} -> h265Settings) (\s@VideoCodecSettings' {} a -> s {h265Settings = a} :: VideoCodecSettings)
+
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value PRORES.
 videoCodecSettings_proresSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe ProresSettings)
 videoCodecSettings_proresSettings = Lens.lens (\VideoCodecSettings' {proresSettings} -> proresSettings) (\s@VideoCodecSettings' {} a -> s {proresSettings = a} :: VideoCodecSettings)
 
--- | Settings for H265 codec
-videoCodecSettings_h265Settings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe H265Settings)
-videoCodecSettings_h265Settings = Lens.lens (\VideoCodecSettings' {h265Settings} -> h265Settings) (\s@VideoCodecSettings' {} a -> s {h265Settings = a} :: VideoCodecSettings)
-
--- | Required when you set your output video codec to AVC-Intra. For more
--- information about the AVC-I settings, see the relevant specification.
--- For detailed information about SD and HD in AVC-I, see
--- https:\/\/ieeexplore.ieee.org\/document\/7290936. For information about
--- 4K\/2K in AVC-I, see
+-- | Required when you choose AVC-Intra for your output video codec. For more
+-- information about the AVC-Intra settings, see the relevant
+-- specification. For detailed information about SD and HD in AVC-Intra,
+-- see https:\/\/ieeexplore.ieee.org\/document\/7290936. For information
+-- about 4K\/2K in AVC-Intra, see
 -- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.
 videoCodecSettings_avcIntraSettings :: Lens.Lens' VideoCodecSettings (Prelude.Maybe AvcIntraSettings)
 videoCodecSettings_avcIntraSettings = Lens.lens (\VideoCodecSettings' {avcIntraSettings} -> avcIntraSettings) (\s@VideoCodecSettings' {} a -> s {avcIntraSettings = a} :: VideoCodecSettings)
@@ -211,14 +224,15 @@ instance Core.FromJSON VideoCodecSettings where
       ( \x ->
           VideoCodecSettings'
             Prelude.<$> (x Core..:? "frameCaptureSettings")
+            Prelude.<*> (x Core..:? "xavcSettings")
             Prelude.<*> (x Core..:? "codec")
             Prelude.<*> (x Core..:? "vc3Settings")
             Prelude.<*> (x Core..:? "vp8Settings")
             Prelude.<*> (x Core..:? "mpeg2Settings")
             Prelude.<*> (x Core..:? "h264Settings")
             Prelude.<*> (x Core..:? "vp9Settings")
-            Prelude.<*> (x Core..:? "proresSettings")
             Prelude.<*> (x Core..:? "h265Settings")
+            Prelude.<*> (x Core..:? "proresSettings")
             Prelude.<*> (x Core..:? "avcIntraSettings")
             Prelude.<*> (x Core..:? "av1Settings")
       )
@@ -233,15 +247,16 @@ instance Core.ToJSON VideoCodecSettings where
       ( Prelude.catMaybes
           [ ("frameCaptureSettings" Core..=)
               Prelude.<$> frameCaptureSettings,
+            ("xavcSettings" Core..=) Prelude.<$> xavcSettings,
             ("codec" Core..=) Prelude.<$> codec,
             ("vc3Settings" Core..=) Prelude.<$> vc3Settings,
             ("vp8Settings" Core..=) Prelude.<$> vp8Settings,
             ("mpeg2Settings" Core..=) Prelude.<$> mpeg2Settings,
             ("h264Settings" Core..=) Prelude.<$> h264Settings,
             ("vp9Settings" Core..=) Prelude.<$> vp9Settings,
+            ("h265Settings" Core..=) Prelude.<$> h265Settings,
             ("proresSettings" Core..=)
               Prelude.<$> proresSettings,
-            ("h265Settings" Core..=) Prelude.<$> h265Settings,
             ("avcIntraSettings" Core..=)
               Prelude.<$> avcIntraSettings,
             ("av1Settings" Core..=) Prelude.<$> av1Settings

@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.ClusterField
   ( ClusterField
       ( ..,
         ClusterField_ATTACHMENTS,
+        ClusterField_CONFIGURATIONS,
         ClusterField_SETTINGS,
         ClusterField_STATISTICS,
         ClusterField_TAGS
@@ -62,6 +63,9 @@ newtype ClusterField = ClusterField'
 pattern ClusterField_ATTACHMENTS :: ClusterField
 pattern ClusterField_ATTACHMENTS = ClusterField' "ATTACHMENTS"
 
+pattern ClusterField_CONFIGURATIONS :: ClusterField
+pattern ClusterField_CONFIGURATIONS = ClusterField' "CONFIGURATIONS"
+
 pattern ClusterField_SETTINGS :: ClusterField
 pattern ClusterField_SETTINGS = ClusterField' "SETTINGS"
 
@@ -73,6 +77,7 @@ pattern ClusterField_TAGS = ClusterField' "TAGS"
 
 {-# COMPLETE
   ClusterField_ATTACHMENTS,
+  ClusterField_CONFIGURATIONS,
   ClusterField_SETTINGS,
   ClusterField_STATISTICS,
   ClusterField_TAGS,

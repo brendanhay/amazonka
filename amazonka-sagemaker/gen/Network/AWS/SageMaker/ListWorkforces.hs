@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this operation to list all private and vendor workforces in an AWS
--- Region. Note that you can only have one private workforce per AWS
--- Region.
+-- Use this operation to list all private and vendor workforces in an
+-- Amazon Web Services Region. Note that you can only have one private
+-- workforce per Amazon Web Services Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListWorkforces
@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.ListWorkforces
     newListWorkforces,
 
     -- * Request Lenses
-    listWorkforces_sortOrder,
     listWorkforces_nextToken,
+    listWorkforces_sortOrder,
     listWorkforces_nameContains,
     listWorkforces_maxResults,
     listWorkforces_sortBy,
@@ -57,10 +57,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListWorkforces' smart constructor.
 data ListWorkforces = ListWorkforces'
-  { -- | Sort workforces in ascending or descending order.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token to resume pagination.
+  { -- | A token to resume pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Sort workforces in ascending or descending order.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter you can use to search for workforces using part of the
     -- workforce name.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -79,9 +79,9 @@ data ListWorkforces = ListWorkforces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listWorkforces_sortOrder' - Sort workforces in ascending or descending order.
---
 -- 'nextToken', 'listWorkforces_nextToken' - A token to resume pagination.
+--
+-- 'sortOrder', 'listWorkforces_sortOrder' - Sort workforces in ascending or descending order.
 --
 -- 'nameContains', 'listWorkforces_nameContains' - A filter you can use to search for workforces using part of the
 -- workforce name.
@@ -93,20 +93,20 @@ newListWorkforces ::
   ListWorkforces
 newListWorkforces =
   ListWorkforces'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
 
--- | Sort workforces in ascending or descending order.
-listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Prelude.Maybe SortOrder)
-listWorkforces_sortOrder = Lens.lens (\ListWorkforces' {sortOrder} -> sortOrder) (\s@ListWorkforces' {} a -> s {sortOrder = a} :: ListWorkforces)
-
 -- | A token to resume pagination.
 listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
 listWorkforces_nextToken = Lens.lens (\ListWorkforces' {nextToken} -> nextToken) (\s@ListWorkforces' {} a -> s {nextToken = a} :: ListWorkforces)
+
+-- | Sort workforces in ascending or descending order.
+listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Prelude.Maybe SortOrder)
+listWorkforces_sortOrder = Lens.lens (\ListWorkforces' {sortOrder} -> sortOrder) (\s@ListWorkforces' {} a -> s {sortOrder = a} :: ListWorkforces)
 
 -- | A filter you can use to search for workforces using part of the
 -- workforce name.
@@ -174,8 +174,8 @@ instance Core.ToJSON ListWorkforces where
   toJSON ListWorkforces' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy

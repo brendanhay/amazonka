@@ -29,6 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ChannelMessages = ChannelMessages'
   { -- | Specifies one or more keys that identify the Amazon Simple Storage
     -- Service (Amazon S3) objects that save your channel messages.
+    --
+    -- You must use the full path for the key.
+    --
+    -- Example path:
+    -- @channel\/mychannel\/__dt=2020-02-29 00:00:00\/1582940490000_1582940520000_123456789012_mychannel_0_2118.0.json.gz@
     s3Paths :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,6 +48,11 @@ data ChannelMessages = ChannelMessages'
 --
 -- 's3Paths', 'channelMessages_s3Paths' - Specifies one or more keys that identify the Amazon Simple Storage
 -- Service (Amazon S3) objects that save your channel messages.
+--
+-- You must use the full path for the key.
+--
+-- Example path:
+-- @channel\/mychannel\/__dt=2020-02-29 00:00:00\/1582940490000_1582940520000_123456789012_mychannel_0_2118.0.json.gz@
 newChannelMessages ::
   ChannelMessages
 newChannelMessages =
@@ -50,6 +60,11 @@ newChannelMessages =
 
 -- | Specifies one or more keys that identify the Amazon Simple Storage
 -- Service (Amazon S3) objects that save your channel messages.
+--
+-- You must use the full path for the key.
+--
+-- Example path:
+-- @channel\/mychannel\/__dt=2020-02-29 00:00:00\/1582940490000_1582940520000_123456789012_mychannel_0_2118.0.json.gz@
 channelMessages_s3Paths :: Lens.Lens' ChannelMessages (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Prelude.. Lens.mapping Lens._Coerce
 

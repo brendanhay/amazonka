@@ -89,55 +89,67 @@ data Eac3Settings = Eac3Settings'
     -- (Eac3CodingMode). If you choose a different value for Coding mode, the
     -- service ignores Left total\/Right total surround (ltRtSurroundMixLevel).
     ltRtSurroundMixLevel :: Prelude.Maybe Prelude.Double,
+    -- | Activates a DC highpass filter for all input channels.
+    dcFilter :: Prelude.Maybe Eac3DcFilter,
     -- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
     -- Only valid with 3_2_LFE coding mode.
     lfeFilter :: Prelude.Maybe Eac3LfeFilter,
-    -- | Activates a DC highpass filter for all input channels.
-    dcFilter :: Prelude.Maybe Eac3DcFilter,
-    -- | This value is always 48000. It represents the sample rate in Hz.
-    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Choose how the service does stereo downmixing. This setting only applies
     -- if you keep the default value of 3\/2 - L, R, C, Ls, Rs
     -- (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you
     -- choose a different value for Coding mode, the service ignores Stereo
     -- downmix (Eac3StereoDownmix).
     stereoDownmix :: Prelude.Maybe Eac3StereoDownmix,
+    -- | This value is always 48000. It represents the sample rate in Hz.
+    sampleRate :: Prelude.Maybe Prelude.Natural,
+    -- | Choose the Dolby Digital dynamic range control (DRC) profile that
+    -- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+    -- for the RF operating mode. Related setting: When you use this setting,
+    -- MediaConvert ignores any value you provide for Dynamic range compression
+    -- profile (DynamicRangeCompressionProfile). For information about the
+    -- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+    -- Control chapter of the Dolby Metadata Guide at
+    -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
+    dynamicRangeCompressionRf :: Prelude.Maybe Eac3DynamicRangeCompressionRf,
+    -- | Controls the amount of phase-shift applied to the surround channels.
+    -- Only used for 3\/2 coding mode.
+    phaseControl :: Prelude.Maybe Eac3PhaseControl,
+    -- | When encoding 3\/2 audio, sets whether an extra center back surround
+    -- channel is matrix encoded into the left and right surround channels.
+    surroundExMode :: Prelude.Maybe Eac3SurroundExMode,
     -- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
     -- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
     -- (Annex E).
     bitstreamMode :: Prelude.Maybe Eac3BitstreamMode,
-    -- | When encoding 3\/2 audio, sets whether an extra center back surround
-    -- channel is matrix encoded into the left and right surround channels.
-    surroundExMode :: Prelude.Maybe Eac3SurroundExMode,
-    -- | Controls the amount of phase-shift applied to the surround channels.
-    -- Only used for 3\/2 coding mode.
-    phaseControl :: Prelude.Maybe Eac3PhaseControl,
-    -- | Specify how the service limits the audio dynamic range when compressing
-    -- the audio.
-    dynamicRangeCompressionRf :: Prelude.Maybe Eac3DynamicRangeCompressionRf,
+    -- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
+    -- channels. Only used for 3\/2 coding mode.
+    attenuationControl :: Prelude.Maybe Eac3AttenuationControl,
+    -- | Specify the average bitrate in bits per second. Valid bitrates depend on
+    -- the coding mode.
+    bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
+    -- into the two channels.
+    surroundMode :: Prelude.Maybe Eac3SurroundMode,
     -- | When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it
     -- is present on the input. this detection is dynamic over the life of the
     -- transcode. Inputs that alternate between DD+ and non-DD+ content will
     -- have a consistent DD+ output as the system alternates between
     -- passthrough and encoding.
     passthroughControl :: Prelude.Maybe Eac3PassthroughControl,
-    -- | Specify the average bitrate in bits per second. Valid bitrates depend on
-    -- the coding mode.
-    bitrate :: Prelude.Maybe Prelude.Natural,
-    -- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
-    -- channels. Only used for 3\/2 coding mode.
-    attenuationControl :: Prelude.Maybe Eac3AttenuationControl,
-    -- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
-    -- into the two channels.
-    surroundMode :: Prelude.Maybe Eac3SurroundMode,
+    -- | Choose the Dolby Digital dynamic range control (DRC) profile that
+    -- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+    -- for the line operating mode. Related setting: When you use this setting,
+    -- MediaConvert ignores any value you provide for Dynamic range compression
+    -- profile (DynamicRangeCompressionProfile). For information about the
+    -- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+    -- Control chapter of the Dolby Metadata Guide at
+    -- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
+    dynamicRangeCompressionLine :: Prelude.Maybe Eac3DynamicRangeCompressionLine,
     -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
     -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
     -- supplied from one of these streams, then the static metadata settings
     -- will be used.
-    metadataControl :: Prelude.Maybe Eac3MetadataControl,
-    -- | Specify the absolute peak level for a signal with dynamic range
-    -- compression.
-    dynamicRangeCompressionLine :: Prelude.Maybe Eac3DynamicRangeCompressionLine
+    metadataControl :: Prelude.Maybe Eac3MetadataControl
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -196,12 +208,10 @@ data Eac3Settings = Eac3Settings'
 -- (Eac3CodingMode). If you choose a different value for Coding mode, the
 -- service ignores Left total\/Right total surround (ltRtSurroundMixLevel).
 --
--- 'lfeFilter', 'eac3Settings_lfeFilter' - Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
--- Only valid with 3_2_LFE coding mode.
---
 -- 'dcFilter', 'eac3Settings_dcFilter' - Activates a DC highpass filter for all input channels.
 --
--- 'sampleRate', 'eac3Settings_sampleRate' - This value is always 48000. It represents the sample rate in Hz.
+-- 'lfeFilter', 'eac3Settings_lfeFilter' - Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+-- Only valid with 3_2_LFE coding mode.
 --
 -- 'stereoDownmix', 'eac3Settings_stereoDownmix' - Choose how the service does stereo downmixing. This setting only applies
 -- if you keep the default value of 3\/2 - L, R, C, Ls, Rs
@@ -209,18 +219,35 @@ data Eac3Settings = Eac3Settings'
 -- choose a different value for Coding mode, the service ignores Stereo
 -- downmix (Eac3StereoDownmix).
 --
--- 'bitstreamMode', 'eac3Settings_bitstreamMode' - Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
--- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
--- (Annex E).
+-- 'sampleRate', 'eac3Settings_sampleRate' - This value is always 48000. It represents the sample rate in Hz.
 --
--- 'surroundExMode', 'eac3Settings_surroundExMode' - When encoding 3\/2 audio, sets whether an extra center back surround
--- channel is matrix encoded into the left and right surround channels.
+-- 'dynamicRangeCompressionRf', 'eac3Settings_dynamicRangeCompressionRf' - Choose the Dolby Digital dynamic range control (DRC) profile that
+-- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+-- for the RF operating mode. Related setting: When you use this setting,
+-- MediaConvert ignores any value you provide for Dynamic range compression
+-- profile (DynamicRangeCompressionProfile). For information about the
+-- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+-- Control chapter of the Dolby Metadata Guide at
+-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
 --
 -- 'phaseControl', 'eac3Settings_phaseControl' - Controls the amount of phase-shift applied to the surround channels.
 -- Only used for 3\/2 coding mode.
 --
--- 'dynamicRangeCompressionRf', 'eac3Settings_dynamicRangeCompressionRf' - Specify how the service limits the audio dynamic range when compressing
--- the audio.
+-- 'surroundExMode', 'eac3Settings_surroundExMode' - When encoding 3\/2 audio, sets whether an extra center back surround
+-- channel is matrix encoded into the left and right surround channels.
+--
+-- 'bitstreamMode', 'eac3Settings_bitstreamMode' - Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
+-- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
+-- (Annex E).
+--
+-- 'attenuationControl', 'eac3Settings_attenuationControl' - If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
+-- channels. Only used for 3\/2 coding mode.
+--
+-- 'bitrate', 'eac3Settings_bitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on
+-- the coding mode.
+--
+-- 'surroundMode', 'eac3Settings_surroundMode' - When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
+-- into the two channels.
 --
 -- 'passthroughControl', 'eac3Settings_passthroughControl' - When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it
 -- is present on the input. this detection is dynamic over the life of the
@@ -228,22 +255,19 @@ data Eac3Settings = Eac3Settings'
 -- have a consistent DD+ output as the system alternates between
 -- passthrough and encoding.
 --
--- 'bitrate', 'eac3Settings_bitrate' - Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
---
--- 'attenuationControl', 'eac3Settings_attenuationControl' - If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
--- channels. Only used for 3\/2 coding mode.
---
--- 'surroundMode', 'eac3Settings_surroundMode' - When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
--- into the two channels.
+-- 'dynamicRangeCompressionLine', 'eac3Settings_dynamicRangeCompressionLine' - Choose the Dolby Digital dynamic range control (DRC) profile that
+-- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+-- for the line operating mode. Related setting: When you use this setting,
+-- MediaConvert ignores any value you provide for Dynamic range compression
+-- profile (DynamicRangeCompressionProfile). For information about the
+-- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+-- Control chapter of the Dolby Metadata Guide at
+-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
 --
 -- 'metadataControl', 'eac3Settings_metadataControl' - When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
 -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
 -- supplied from one of these streams, then the static metadata settings
 -- will be used.
---
--- 'dynamicRangeCompressionLine', 'eac3Settings_dynamicRangeCompressionLine' - Specify the absolute peak level for a signal with dynamic range
--- compression.
 newEac3Settings ::
   Eac3Settings
 newEac3Settings =
@@ -255,20 +279,20 @@ newEac3Settings =
       lfeControl = Prelude.Nothing,
       loRoSurroundMixLevel = Prelude.Nothing,
       ltRtSurroundMixLevel = Prelude.Nothing,
-      lfeFilter = Prelude.Nothing,
       dcFilter = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
+      lfeFilter = Prelude.Nothing,
       stereoDownmix = Prelude.Nothing,
-      bitstreamMode = Prelude.Nothing,
-      surroundExMode = Prelude.Nothing,
-      phaseControl = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
       dynamicRangeCompressionRf = Prelude.Nothing,
-      passthroughControl = Prelude.Nothing,
-      bitrate = Prelude.Nothing,
+      phaseControl = Prelude.Nothing,
+      surroundExMode = Prelude.Nothing,
+      bitstreamMode = Prelude.Nothing,
       attenuationControl = Prelude.Nothing,
+      bitrate = Prelude.Nothing,
       surroundMode = Prelude.Nothing,
-      metadataControl = Prelude.Nothing,
-      dynamicRangeCompressionLine = Prelude.Nothing
+      passthroughControl = Prelude.Nothing,
+      dynamicRangeCompressionLine = Prelude.Nothing,
+      metadataControl = Prelude.Nothing
     }
 
 -- | Specify a value for the following Dolby Digital Plus setting: Left
@@ -332,18 +356,14 @@ eac3Settings_loRoSurroundMixLevel = Lens.lens (\Eac3Settings' {loRoSurroundMixLe
 eac3Settings_ltRtSurroundMixLevel :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Double)
 eac3Settings_ltRtSurroundMixLevel = Lens.lens (\Eac3Settings' {ltRtSurroundMixLevel} -> ltRtSurroundMixLevel) (\s@Eac3Settings' {} a -> s {ltRtSurroundMixLevel = a} :: Eac3Settings)
 
--- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
--- Only valid with 3_2_LFE coding mode.
-eac3Settings_lfeFilter :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3LfeFilter)
-eac3Settings_lfeFilter = Lens.lens (\Eac3Settings' {lfeFilter} -> lfeFilter) (\s@Eac3Settings' {} a -> s {lfeFilter = a} :: Eac3Settings)
-
 -- | Activates a DC highpass filter for all input channels.
 eac3Settings_dcFilter :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DcFilter)
 eac3Settings_dcFilter = Lens.lens (\Eac3Settings' {dcFilter} -> dcFilter) (\s@Eac3Settings' {} a -> s {dcFilter = a} :: Eac3Settings)
 
--- | This value is always 48000. It represents the sample rate in Hz.
-eac3Settings_sampleRate :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Natural)
-eac3Settings_sampleRate = Lens.lens (\Eac3Settings' {sampleRate} -> sampleRate) (\s@Eac3Settings' {} a -> s {sampleRate = a} :: Eac3Settings)
+-- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+-- Only valid with 3_2_LFE coding mode.
+eac3Settings_lfeFilter :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3LfeFilter)
+eac3Settings_lfeFilter = Lens.lens (\Eac3Settings' {lfeFilter} -> lfeFilter) (\s@Eac3Settings' {} a -> s {lfeFilter = a} :: Eac3Settings)
 
 -- | Choose how the service does stereo downmixing. This setting only applies
 -- if you keep the default value of 3\/2 - L, R, C, Ls, Rs
@@ -353,26 +373,51 @@ eac3Settings_sampleRate = Lens.lens (\Eac3Settings' {sampleRate} -> sampleRate) 
 eac3Settings_stereoDownmix :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3StereoDownmix)
 eac3Settings_stereoDownmix = Lens.lens (\Eac3Settings' {stereoDownmix} -> stereoDownmix) (\s@Eac3Settings' {} a -> s {stereoDownmix = a} :: Eac3Settings)
 
--- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
--- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
--- (Annex E).
-eac3Settings_bitstreamMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3BitstreamMode)
-eac3Settings_bitstreamMode = Lens.lens (\Eac3Settings' {bitstreamMode} -> bitstreamMode) (\s@Eac3Settings' {} a -> s {bitstreamMode = a} :: Eac3Settings)
+-- | This value is always 48000. It represents the sample rate in Hz.
+eac3Settings_sampleRate :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Natural)
+eac3Settings_sampleRate = Lens.lens (\Eac3Settings' {sampleRate} -> sampleRate) (\s@Eac3Settings' {} a -> s {sampleRate = a} :: Eac3Settings)
 
--- | When encoding 3\/2 audio, sets whether an extra center back surround
--- channel is matrix encoded into the left and right surround channels.
-eac3Settings_surroundExMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3SurroundExMode)
-eac3Settings_surroundExMode = Lens.lens (\Eac3Settings' {surroundExMode} -> surroundExMode) (\s@Eac3Settings' {} a -> s {surroundExMode = a} :: Eac3Settings)
+-- | Choose the Dolby Digital dynamic range control (DRC) profile that
+-- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+-- for the RF operating mode. Related setting: When you use this setting,
+-- MediaConvert ignores any value you provide for Dynamic range compression
+-- profile (DynamicRangeCompressionProfile). For information about the
+-- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+-- Control chapter of the Dolby Metadata Guide at
+-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
+eac3Settings_dynamicRangeCompressionRf :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DynamicRangeCompressionRf)
+eac3Settings_dynamicRangeCompressionRf = Lens.lens (\Eac3Settings' {dynamicRangeCompressionRf} -> dynamicRangeCompressionRf) (\s@Eac3Settings' {} a -> s {dynamicRangeCompressionRf = a} :: Eac3Settings)
 
 -- | Controls the amount of phase-shift applied to the surround channels.
 -- Only used for 3\/2 coding mode.
 eac3Settings_phaseControl :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3PhaseControl)
 eac3Settings_phaseControl = Lens.lens (\Eac3Settings' {phaseControl} -> phaseControl) (\s@Eac3Settings' {} a -> s {phaseControl = a} :: Eac3Settings)
 
--- | Specify how the service limits the audio dynamic range when compressing
--- the audio.
-eac3Settings_dynamicRangeCompressionRf :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DynamicRangeCompressionRf)
-eac3Settings_dynamicRangeCompressionRf = Lens.lens (\Eac3Settings' {dynamicRangeCompressionRf} -> dynamicRangeCompressionRf) (\s@Eac3Settings' {} a -> s {dynamicRangeCompressionRf = a} :: Eac3Settings)
+-- | When encoding 3\/2 audio, sets whether an extra center back surround
+-- channel is matrix encoded into the left and right surround channels.
+eac3Settings_surroundExMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3SurroundExMode)
+eac3Settings_surroundExMode = Lens.lens (\Eac3Settings' {surroundExMode} -> surroundExMode) (\s@Eac3Settings' {} a -> s {surroundExMode = a} :: Eac3Settings)
+
+-- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits.
+-- For more information about the EAC3 bitstream mode, see ATSC A\/52-2012
+-- (Annex E).
+eac3Settings_bitstreamMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3BitstreamMode)
+eac3Settings_bitstreamMode = Lens.lens (\Eac3Settings' {bitstreamMode} -> bitstreamMode) (\s@Eac3Settings' {} a -> s {bitstreamMode = a} :: Eac3Settings)
+
+-- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
+-- channels. Only used for 3\/2 coding mode.
+eac3Settings_attenuationControl :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3AttenuationControl)
+eac3Settings_attenuationControl = Lens.lens (\Eac3Settings' {attenuationControl} -> attenuationControl) (\s@Eac3Settings' {} a -> s {attenuationControl = a} :: Eac3Settings)
+
+-- | Specify the average bitrate in bits per second. Valid bitrates depend on
+-- the coding mode.
+eac3Settings_bitrate :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Natural)
+eac3Settings_bitrate = Lens.lens (\Eac3Settings' {bitrate} -> bitrate) (\s@Eac3Settings' {} a -> s {bitrate = a} :: Eac3Settings)
+
+-- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
+-- into the two channels.
+eac3Settings_surroundMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3SurroundMode)
+eac3Settings_surroundMode = Lens.lens (\Eac3Settings' {surroundMode} -> surroundMode) (\s@Eac3Settings' {} a -> s {surroundMode = a} :: Eac3Settings)
 
 -- | When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it
 -- is present on the input. this detection is dynamic over the life of the
@@ -382,20 +427,16 @@ eac3Settings_dynamicRangeCompressionRf = Lens.lens (\Eac3Settings' {dynamicRange
 eac3Settings_passthroughControl :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3PassthroughControl)
 eac3Settings_passthroughControl = Lens.lens (\Eac3Settings' {passthroughControl} -> passthroughControl) (\s@Eac3Settings' {} a -> s {passthroughControl = a} :: Eac3Settings)
 
--- | Specify the average bitrate in bits per second. Valid bitrates depend on
--- the coding mode.
-eac3Settings_bitrate :: Lens.Lens' Eac3Settings (Prelude.Maybe Prelude.Natural)
-eac3Settings_bitrate = Lens.lens (\Eac3Settings' {bitrate} -> bitrate) (\s@Eac3Settings' {} a -> s {bitrate = a} :: Eac3Settings)
-
--- | If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround
--- channels. Only used for 3\/2 coding mode.
-eac3Settings_attenuationControl :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3AttenuationControl)
-eac3Settings_attenuationControl = Lens.lens (\Eac3Settings' {attenuationControl} -> attenuationControl) (\s@Eac3Settings' {} a -> s {attenuationControl = a} :: Eac3Settings)
-
--- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
--- into the two channels.
-eac3Settings_surroundMode :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3SurroundMode)
-eac3Settings_surroundMode = Lens.lens (\Eac3Settings' {surroundMode} -> surroundMode) (\s@Eac3Settings' {} a -> s {surroundMode = a} :: Eac3Settings)
+-- | Choose the Dolby Digital dynamic range control (DRC) profile that
+-- MediaConvert uses when encoding the metadata in the Dolby Digital stream
+-- for the line operating mode. Related setting: When you use this setting,
+-- MediaConvert ignores any value you provide for Dynamic range compression
+-- profile (DynamicRangeCompressionProfile). For information about the
+-- Dolby Digital DRC operating modes and profiles, see the Dynamic Range
+-- Control chapter of the Dolby Metadata Guide at
+-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
+eac3Settings_dynamicRangeCompressionLine :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DynamicRangeCompressionLine)
+eac3Settings_dynamicRangeCompressionLine = Lens.lens (\Eac3Settings' {dynamicRangeCompressionLine} -> dynamicRangeCompressionLine) (\s@Eac3Settings' {} a -> s {dynamicRangeCompressionLine = a} :: Eac3Settings)
 
 -- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,
 -- DD+, or DolbyE decoder that supplied this audio data. If audio was not
@@ -403,11 +444,6 @@ eac3Settings_surroundMode = Lens.lens (\Eac3Settings' {surroundMode} -> surround
 -- will be used.
 eac3Settings_metadataControl :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3MetadataControl)
 eac3Settings_metadataControl = Lens.lens (\Eac3Settings' {metadataControl} -> metadataControl) (\s@Eac3Settings' {} a -> s {metadataControl = a} :: Eac3Settings)
-
--- | Specify the absolute peak level for a signal with dynamic range
--- compression.
-eac3Settings_dynamicRangeCompressionLine :: Lens.Lens' Eac3Settings (Prelude.Maybe Eac3DynamicRangeCompressionLine)
-eac3Settings_dynamicRangeCompressionLine = Lens.lens (\Eac3Settings' {dynamicRangeCompressionLine} -> dynamicRangeCompressionLine) (\s@Eac3Settings' {} a -> s {dynamicRangeCompressionLine = a} :: Eac3Settings)
 
 instance Core.FromJSON Eac3Settings where
   parseJSON =
@@ -422,20 +458,20 @@ instance Core.FromJSON Eac3Settings where
             Prelude.<*> (x Core..:? "lfeControl")
             Prelude.<*> (x Core..:? "loRoSurroundMixLevel")
             Prelude.<*> (x Core..:? "ltRtSurroundMixLevel")
-            Prelude.<*> (x Core..:? "lfeFilter")
             Prelude.<*> (x Core..:? "dcFilter")
-            Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<*> (x Core..:? "lfeFilter")
             Prelude.<*> (x Core..:? "stereoDownmix")
-            Prelude.<*> (x Core..:? "bitstreamMode")
-            Prelude.<*> (x Core..:? "surroundExMode")
-            Prelude.<*> (x Core..:? "phaseControl")
+            Prelude.<*> (x Core..:? "sampleRate")
             Prelude.<*> (x Core..:? "dynamicRangeCompressionRf")
-            Prelude.<*> (x Core..:? "passthroughControl")
-            Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "phaseControl")
+            Prelude.<*> (x Core..:? "surroundExMode")
+            Prelude.<*> (x Core..:? "bitstreamMode")
             Prelude.<*> (x Core..:? "attenuationControl")
+            Prelude.<*> (x Core..:? "bitrate")
             Prelude.<*> (x Core..:? "surroundMode")
-            Prelude.<*> (x Core..:? "metadataControl")
+            Prelude.<*> (x Core..:? "passthroughControl")
             Prelude.<*> (x Core..:? "dynamicRangeCompressionLine")
+            Prelude.<*> (x Core..:? "metadataControl")
       )
 
 instance Prelude.Hashable Eac3Settings
@@ -457,25 +493,25 @@ instance Core.ToJSON Eac3Settings where
               Prelude.<$> loRoSurroundMixLevel,
             ("ltRtSurroundMixLevel" Core..=)
               Prelude.<$> ltRtSurroundMixLevel,
-            ("lfeFilter" Core..=) Prelude.<$> lfeFilter,
             ("dcFilter" Core..=) Prelude.<$> dcFilter,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
+            ("lfeFilter" Core..=) Prelude.<$> lfeFilter,
             ("stereoDownmix" Core..=) Prelude.<$> stereoDownmix,
-            ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
-            ("surroundExMode" Core..=)
-              Prelude.<$> surroundExMode,
-            ("phaseControl" Core..=) Prelude.<$> phaseControl,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate,
             ("dynamicRangeCompressionRf" Core..=)
               Prelude.<$> dynamicRangeCompressionRf,
-            ("passthroughControl" Core..=)
-              Prelude.<$> passthroughControl,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
+            ("phaseControl" Core..=) Prelude.<$> phaseControl,
+            ("surroundExMode" Core..=)
+              Prelude.<$> surroundExMode,
+            ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
             ("attenuationControl" Core..=)
               Prelude.<$> attenuationControl,
+            ("bitrate" Core..=) Prelude.<$> bitrate,
             ("surroundMode" Core..=) Prelude.<$> surroundMode,
-            ("metadataControl" Core..=)
-              Prelude.<$> metadataControl,
+            ("passthroughControl" Core..=)
+              Prelude.<$> passthroughControl,
             ("dynamicRangeCompressionLine" Core..=)
-              Prelude.<$> dynamicRangeCompressionLine
+              Prelude.<$> dynamicRangeCompressionLine,
+            ("metadataControl" Core..=)
+              Prelude.<$> metadataControl
           ]
       )

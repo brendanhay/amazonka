@@ -37,12 +37,12 @@ data FunctionConfiguration = FunctionConfiguration'
     syncConfig :: Prelude.Maybe SyncConfig,
     -- | The name of the @DataSource@.
     dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the @Function@ object.
+    functionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Function@ object.
     name :: Prelude.Maybe Prelude.Text,
     -- | A unique ID representing the @Function@ object.
     functionId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the @Function@ object.
-    functionArn :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ request mapping template. Functions support only the
@@ -68,11 +68,11 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'dataSourceName', 'functionConfiguration_dataSourceName' - The name of the @DataSource@.
 --
+-- 'functionArn', 'functionConfiguration_functionArn' - The ARN of the @Function@ object.
+--
 -- 'name', 'functionConfiguration_name' - The name of the @Function@ object.
 --
 -- 'functionId', 'functionConfiguration_functionId' - A unique ID representing the @Function@ object.
---
--- 'functionArn', 'functionConfiguration_functionArn' - The ARN of the @Function@ object.
 --
 -- 'description', 'functionConfiguration_description' - The @Function@ description.
 --
@@ -87,9 +87,9 @@ newFunctionConfiguration =
       functionVersion = Prelude.Nothing,
       syncConfig = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
+      functionArn = Prelude.Nothing,
       name = Prelude.Nothing,
       functionId = Prelude.Nothing,
-      functionArn = Prelude.Nothing,
       description = Prelude.Nothing,
       requestMappingTemplate = Prelude.Nothing
     }
@@ -111,6 +111,10 @@ functionConfiguration_syncConfig = Lens.lens (\FunctionConfiguration' {syncConfi
 functionConfiguration_dataSourceName :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_dataSourceName = Lens.lens (\FunctionConfiguration' {dataSourceName} -> dataSourceName) (\s@FunctionConfiguration' {} a -> s {dataSourceName = a} :: FunctionConfiguration)
 
+-- | The ARN of the @Function@ object.
+functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
+
 -- | The name of the @Function@ object.
 functionConfiguration_name :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_name = Lens.lens (\FunctionConfiguration' {name} -> name) (\s@FunctionConfiguration' {} a -> s {name = a} :: FunctionConfiguration)
@@ -118,10 +122,6 @@ functionConfiguration_name = Lens.lens (\FunctionConfiguration' {name} -> name) 
 -- | A unique ID representing the @Function@ object.
 functionConfiguration_functionId :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionId = Lens.lens (\FunctionConfiguration' {functionId} -> functionId) (\s@FunctionConfiguration' {} a -> s {functionId = a} :: FunctionConfiguration)
-
--- | The ARN of the @Function@ object.
-functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
 
 -- | The @Function@ description.
 functionConfiguration_description :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -142,9 +142,9 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "functionVersion")
             Prelude.<*> (x Core..:? "syncConfig")
             Prelude.<*> (x Core..:? "dataSourceName")
+            Prelude.<*> (x Core..:? "functionArn")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "functionId")
-            Prelude.<*> (x Core..:? "functionArn")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "requestMappingTemplate")
       )

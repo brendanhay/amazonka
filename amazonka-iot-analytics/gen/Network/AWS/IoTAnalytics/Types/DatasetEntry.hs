@@ -23,13 +23,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The reference to a data set entry.
+-- | The reference to a dataset entry.
 --
 -- /See:/ 'newDatasetEntry' smart constructor.
 data DatasetEntry = DatasetEntry'
-  { -- | The presigned URI of the data set item.
+  { -- | The presigned URI of the dataset item.
     dataURI :: Prelude.Maybe Prelude.Text,
-    -- | The name of the data set item.
+    -- | The name of the dataset item.
     entryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data DatasetEntry = DatasetEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataURI', 'datasetEntry_dataURI' - The presigned URI of the data set item.
+-- 'dataURI', 'datasetEntry_dataURI' - The presigned URI of the dataset item.
 --
--- 'entryName', 'datasetEntry_entryName' - The name of the data set item.
+-- 'entryName', 'datasetEntry_entryName' - The name of the dataset item.
 newDatasetEntry ::
   DatasetEntry
 newDatasetEntry =
@@ -53,11 +53,11 @@ newDatasetEntry =
       entryName = Prelude.Nothing
     }
 
--- | The presigned URI of the data set item.
+-- | The presigned URI of the dataset item.
 datasetEntry_dataURI :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_dataURI = Lens.lens (\DatasetEntry' {dataURI} -> dataURI) (\s@DatasetEntry' {} a -> s {dataURI = a} :: DatasetEntry)
 
--- | The name of the data set item.
+-- | The name of the dataset item.
 datasetEntry_entryName :: Lens.Lens' DatasetEntry (Prelude.Maybe Prelude.Text)
 datasetEntry_entryName = Lens.lens (\DatasetEntry' {entryName} -> entryName) (\s@DatasetEntry' {} a -> s {entryName = a} :: DatasetEntry)
 

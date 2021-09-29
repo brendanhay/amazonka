@@ -32,12 +32,10 @@ module Network.AWS.KinesisVideo.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** GetDataEndpoint
-    getDataEndpoint_streamARN,
-    getDataEndpoint_streamName,
-    getDataEndpoint_aPIName,
-    getDataEndpointResponse_dataEndpoint,
-    getDataEndpointResponse_httpStatus,
+    -- ** DeleteStream
+    deleteStream_currentVersion,
+    deleteStream_streamARN,
+    deleteStreamResponse_httpStatus,
 
     -- ** UpdateStream
     updateStream_deviceName,
@@ -47,17 +45,6 @@ module Network.AWS.KinesisVideo.Lens
     updateStream_currentVersion,
     updateStreamResponse_httpStatus,
 
-    -- ** DeleteStream
-    deleteStream_currentVersion,
-    deleteStream_streamARN,
-    deleteStreamResponse_httpStatus,
-
-    -- ** UntagStream
-    untagStream_streamARN,
-    untagStream_streamName,
-    untagStream_tagKeyList,
-    untagStreamResponse_httpStatus,
-
     -- ** UpdateDataRetention
     updateDataRetention_streamARN,
     updateDataRetention_streamName,
@@ -66,16 +53,29 @@ module Network.AWS.KinesisVideo.Lens
     updateDataRetention_dataRetentionChangeInHours,
     updateDataRetentionResponse_httpStatus,
 
-    -- ** UpdateSignalingChannel
-    updateSignalingChannel_singleMasterConfiguration,
-    updateSignalingChannel_channelARN,
-    updateSignalingChannel_currentVersion,
-    updateSignalingChannelResponse_httpStatus,
+    -- ** GetDataEndpoint
+    getDataEndpoint_streamARN,
+    getDataEndpoint_streamName,
+    getDataEndpoint_aPIName,
+    getDataEndpointResponse_dataEndpoint,
+    getDataEndpointResponse_httpStatus,
+
+    -- ** UntagStream
+    untagStream_streamARN,
+    untagStream_streamName,
+    untagStream_tagKeyList,
+    untagStreamResponse_httpStatus,
 
     -- ** DeleteSignalingChannel
     deleteSignalingChannel_currentVersion,
     deleteSignalingChannel_channelARN,
     deleteSignalingChannelResponse_httpStatus,
+
+    -- ** UpdateSignalingChannel
+    updateSignalingChannel_singleMasterConfiguration,
+    updateSignalingChannel_channelARN,
+    updateSignalingChannel_currentVersion,
+    updateSignalingChannelResponse_httpStatus,
 
     -- ** ListSignalingChannels
     listSignalingChannels_channelNameCondition,
@@ -105,17 +105,17 @@ module Network.AWS.KinesisVideo.Lens
     tagStream_tags,
     tagStreamResponse_httpStatus,
 
-    -- ** GetSignalingChannelEndpoint
-    getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration,
-    getSignalingChannelEndpoint_channelARN,
-    getSignalingChannelEndpointResponse_resourceEndpointList,
-    getSignalingChannelEndpointResponse_httpStatus,
-
     -- ** DescribeSignalingChannel
     describeSignalingChannel_channelName,
     describeSignalingChannel_channelARN,
     describeSignalingChannelResponse_channelInfo,
     describeSignalingChannelResponse_httpStatus,
+
+    -- ** GetSignalingChannelEndpoint
+    getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration,
+    getSignalingChannelEndpoint_channelARN,
+    getSignalingChannelEndpointResponse_resourceEndpointList,
+    getSignalingChannelEndpointResponse_httpStatus,
 
     -- ** CreateStream
     createStream_dataRetentionInHours,
@@ -145,8 +145,8 @@ module Network.AWS.KinesisVideo.Lens
     -- * Types
 
     -- ** ChannelInfo
-    channelInfo_channelName,
     channelInfo_creationTime,
+    channelInfo_channelName,
     channelInfo_singleMasterConfiguration,
     channelInfo_channelType,
     channelInfo_version,
@@ -169,8 +169,8 @@ module Network.AWS.KinesisVideo.Lens
     singleMasterConfiguration_messageTtlSeconds,
 
     -- ** StreamInfo
-    streamInfo_status,
     streamInfo_creationTime,
+    streamInfo_status,
     streamInfo_dataRetentionInHours,
     streamInfo_version,
     streamInfo_kmsKeyId,

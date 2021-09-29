@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSpotDatafeedSubscription' smart constructor.
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
-  { -- | The AWS account ID of the account.
+  { -- | The Amazon Web Services account ID of the account.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the data feed files.
     prefix :: Prelude.Maybe Prelude.Text,
@@ -52,7 +52,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'spotDatafeedSubscription_ownerId' - The AWS account ID of the account.
+-- 'ownerId', 'spotDatafeedSubscription_ownerId' - The Amazon Web Services account ID of the account.
 --
 -- 'prefix', 'spotDatafeedSubscription_prefix' - The prefix for the data feed files.
 --
@@ -74,7 +74,7 @@ newSpotDatafeedSubscription =
       bucket = Prelude.Nothing
     }
 
--- | The AWS account ID of the account.
+-- | The Amazon Web Services account ID of the account.
 spotDatafeedSubscription_ownerId :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
 spotDatafeedSubscription_ownerId = Lens.lens (\SpotDatafeedSubscription' {ownerId} -> ownerId) (\s@SpotDatafeedSubscription' {} a -> s {ownerId = a} :: SpotDatafeedSubscription)
 

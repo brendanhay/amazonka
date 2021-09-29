@@ -29,16 +29,16 @@ module Network.AWS.SageMaker.ListModelPackages
     newListModelPackages,
 
     -- * Request Lenses
-    listModelPackages_sortOrder,
     listModelPackages_nextToken,
+    listModelPackages_sortOrder,
     listModelPackages_nameContains,
     listModelPackages_maxResults,
     listModelPackages_creationTimeBefore,
     listModelPackages_modelApprovalStatus,
     listModelPackages_sortBy,
     listModelPackages_creationTimeAfter,
-    listModelPackages_modelPackageGroupName,
     listModelPackages_modelPackageType,
+    listModelPackages_modelPackageGroupName,
 
     -- * Destructuring the Response
     ListModelPackagesResponse (..),
@@ -60,12 +60,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelPackages' smart constructor.
 data ListModelPackages = ListModelPackages'
-  { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the response to a previous @ListModelPackages@ request was truncated,
+  { -- | If the response to a previous @ListModelPackages@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of model
     -- packages, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the model package name. This filter returns only model
     -- packages whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -83,9 +83,6 @@ data ListModelPackages = ListModelPackages'
     -- | A filter that returns only model packages created after the specified
     -- time (timestamp).
     creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns only model versions that belong to the specified
-    -- model group.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns onlyl the model packages of the specified type.
     -- This can be one of the following values.
     --
@@ -94,7 +91,10 @@ data ListModelPackages = ListModelPackages'
     -- -   @UNVERSIONED@ - List only unversioined models.
     --
     -- -   @BOTH@ - List both versioned and unversioned models.
-    modelPackageType :: Prelude.Maybe ModelPackageType
+    modelPackageType :: Prelude.Maybe ModelPackageType,
+    -- | A filter that returns only model versions that belong to the specified
+    -- model group.
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,11 +106,11 @@ data ListModelPackages = ListModelPackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelPackages_sortOrder' - The sort order for the results. The default is @Ascending@.
---
 -- 'nextToken', 'listModelPackages_nextToken' - If the response to a previous @ListModelPackages@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of model
 -- packages, use the token in the next request.
+--
+-- 'sortOrder', 'listModelPackages_sortOrder' - The sort order for the results. The default is @Ascending@.
 --
 -- 'nameContains', 'listModelPackages_nameContains' - A string in the model package name. This filter returns only model
 -- packages whose name contains the specified string.
@@ -129,9 +129,6 @@ data ListModelPackages = ListModelPackages'
 -- 'creationTimeAfter', 'listModelPackages_creationTimeAfter' - A filter that returns only model packages created after the specified
 -- time (timestamp).
 --
--- 'modelPackageGroupName', 'listModelPackages_modelPackageGroupName' - A filter that returns only model versions that belong to the specified
--- model group.
---
 -- 'modelPackageType', 'listModelPackages_modelPackageType' - A filter that returns onlyl the model packages of the specified type.
 -- This can be one of the following values.
 --
@@ -140,31 +137,34 @@ data ListModelPackages = ListModelPackages'
 -- -   @UNVERSIONED@ - List only unversioined models.
 --
 -- -   @BOTH@ - List both versioned and unversioned models.
+--
+-- 'modelPackageGroupName', 'listModelPackages_modelPackageGroupName' - A filter that returns only model versions that belong to the specified
+-- model group.
 newListModelPackages ::
   ListModelPackages
 newListModelPackages =
   ListModelPackages'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       modelApprovalStatus = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       creationTimeAfter = Prelude.Nothing,
-      modelPackageGroupName = Prelude.Nothing,
-      modelPackageType = Prelude.Nothing
+      modelPackageType = Prelude.Nothing,
+      modelPackageGroupName = Prelude.Nothing
     }
-
--- | The sort order for the results. The default is @Ascending@.
-listModelPackages_sortOrder :: Lens.Lens' ListModelPackages (Prelude.Maybe SortOrder)
-listModelPackages_sortOrder = Lens.lens (\ListModelPackages' {sortOrder} -> sortOrder) (\s@ListModelPackages' {} a -> s {sortOrder = a} :: ListModelPackages)
 
 -- | If the response to a previous @ListModelPackages@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of model
 -- packages, use the token in the next request.
 listModelPackages_nextToken :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
 listModelPackages_nextToken = Lens.lens (\ListModelPackages' {nextToken} -> nextToken) (\s@ListModelPackages' {} a -> s {nextToken = a} :: ListModelPackages)
+
+-- | The sort order for the results. The default is @Ascending@.
+listModelPackages_sortOrder :: Lens.Lens' ListModelPackages (Prelude.Maybe SortOrder)
+listModelPackages_sortOrder = Lens.lens (\ListModelPackages' {sortOrder} -> sortOrder) (\s@ListModelPackages' {} a -> s {sortOrder = a} :: ListModelPackages)
 
 -- | A string in the model package name. This filter returns only model
 -- packages whose name contains the specified string.
@@ -195,11 +195,6 @@ listModelPackages_sortBy = Lens.lens (\ListModelPackages' {sortBy} -> sortBy) (\
 listModelPackages_creationTimeAfter :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.UTCTime)
 listModelPackages_creationTimeAfter = Lens.lens (\ListModelPackages' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackages' {} a -> s {creationTimeAfter = a} :: ListModelPackages) Prelude.. Lens.mapping Core._Time
 
--- | A filter that returns only model versions that belong to the specified
--- model group.
-listModelPackages_modelPackageGroupName :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
-listModelPackages_modelPackageGroupName = Lens.lens (\ListModelPackages' {modelPackageGroupName} -> modelPackageGroupName) (\s@ListModelPackages' {} a -> s {modelPackageGroupName = a} :: ListModelPackages)
-
 -- | A filter that returns onlyl the model packages of the specified type.
 -- This can be one of the following values.
 --
@@ -210,6 +205,11 @@ listModelPackages_modelPackageGroupName = Lens.lens (\ListModelPackages' {modelP
 -- -   @BOTH@ - List both versioned and unversioned models.
 listModelPackages_modelPackageType :: Lens.Lens' ListModelPackages (Prelude.Maybe ModelPackageType)
 listModelPackages_modelPackageType = Lens.lens (\ListModelPackages' {modelPackageType} -> modelPackageType) (\s@ListModelPackages' {} a -> s {modelPackageType = a} :: ListModelPackages)
+
+-- | A filter that returns only model versions that belong to the specified
+-- model group.
+listModelPackages_modelPackageGroupName :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Text)
+listModelPackages_modelPackageGroupName = Lens.lens (\ListModelPackages' {modelPackageGroupName} -> modelPackageGroupName) (\s@ListModelPackages' {} a -> s {modelPackageGroupName = a} :: ListModelPackages)
 
 instance Core.AWSPager ListModelPackages where
   page rq rs
@@ -271,8 +271,8 @@ instance Core.ToJSON ListModelPackages where
   toJSON ListModelPackages' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
@@ -282,10 +282,10 @@ instance Core.ToJSON ListModelPackages where
             ("SortBy" Core..=) Prelude.<$> sortBy,
             ("CreationTimeAfter" Core..=)
               Prelude.<$> creationTimeAfter,
-            ("ModelPackageGroupName" Core..=)
-              Prelude.<$> modelPackageGroupName,
             ("ModelPackageType" Core..=)
-              Prelude.<$> modelPackageType
+              Prelude.<$> modelPackageType,
+            ("ModelPackageGroupName" Core..=)
+              Prelude.<$> modelPackageGroupName
           ]
       )
 

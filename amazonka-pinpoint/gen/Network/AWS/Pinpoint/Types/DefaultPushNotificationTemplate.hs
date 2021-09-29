@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDefaultPushNotificationTemplate' smart constructor.
 data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
-  { -- | The title to use in push notifications that are based on the message
+  { -- | The message body to use in push notifications that are based on the
+    -- message template.
+    body :: Prelude.Maybe Prelude.Text,
+    -- | The title to use in push notifications that are based on the message
     -- template. This title appears above the notification message on a
     -- recipient\'s device.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The message body to use in push notifications that are based on the
-    -- message template.
-    body :: Prelude.Maybe Prelude.Text,
     -- | The action to occur if a recipient taps a push notification that\'s
     -- based on the message template. Valid values are:
     --
@@ -50,6 +50,10 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
     action :: Prelude.Maybe Action,
+    -- | The URL to open in a recipient\'s default mobile browser, if a recipient
+    -- taps a push notification that\'s based on the message template and the
+    -- value of the Action property is URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The sound to play when a recipient receives a push notification that\'s
     -- based on the message template. You can use the default stream or specify
     -- the file name of a sound resource that\'s bundled in your app. On an
@@ -59,11 +63,7 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
     -- in your app\'s main bundle or the Library\/Sounds folder in your app\'s
     -- data container. If the sound file can\'t be found or you specify default
     -- for the value, the system plays the default alert sound.
-    sound :: Prelude.Maybe Prelude.Text,
-    -- | The URL to open in a recipient\'s default mobile browser, if a recipient
-    -- taps a push notification that\'s based on the message template and the
-    -- value of the Action property is URL.
-    url :: Prelude.Maybe Prelude.Text
+    sound :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,12 +75,12 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'body', 'defaultPushNotificationTemplate_body' - The message body to use in push notifications that are based on the
+-- message template.
+--
 -- 'title', 'defaultPushNotificationTemplate_title' - The title to use in push notifications that are based on the message
 -- template. This title appears above the notification message on a
 -- recipient\'s device.
---
--- 'body', 'defaultPushNotificationTemplate_body' - The message body to use in push notifications that are based on the
--- message template.
 --
 -- 'action', 'defaultPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s
 -- based on the message template. Valid values are:
@@ -95,6 +95,10 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
 --
+-- 'url', 'defaultPushNotificationTemplate_url' - The URL to open in a recipient\'s default mobile browser, if a recipient
+-- taps a push notification that\'s based on the message template and the
+-- value of the Action property is URL.
+--
 -- 'sound', 'defaultPushNotificationTemplate_sound' - The sound to play when a recipient receives a push notification that\'s
 -- based on the message template. You can use the default stream or specify
 -- the file name of a sound resource that\'s bundled in your app. On an
@@ -104,32 +108,28 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 -- in your app\'s main bundle or the Library\/Sounds folder in your app\'s
 -- data container. If the sound file can\'t be found or you specify default
 -- for the value, the system plays the default alert sound.
---
--- 'url', 'defaultPushNotificationTemplate_url' - The URL to open in a recipient\'s default mobile browser, if a recipient
--- taps a push notification that\'s based on the message template and the
--- value of the Action property is URL.
 newDefaultPushNotificationTemplate ::
   DefaultPushNotificationTemplate
 newDefaultPushNotificationTemplate =
   DefaultPushNotificationTemplate'
-    { title =
+    { body =
         Prelude.Nothing,
-      body = Prelude.Nothing,
+      title = Prelude.Nothing,
       action = Prelude.Nothing,
-      sound = Prelude.Nothing,
-      url = Prelude.Nothing
+      url = Prelude.Nothing,
+      sound = Prelude.Nothing
     }
+
+-- | The message body to use in push notifications that are based on the
+-- message template.
+defaultPushNotificationTemplate_body :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
+defaultPushNotificationTemplate_body = Lens.lens (\DefaultPushNotificationTemplate' {body} -> body) (\s@DefaultPushNotificationTemplate' {} a -> s {body = a} :: DefaultPushNotificationTemplate)
 
 -- | The title to use in push notifications that are based on the message
 -- template. This title appears above the notification message on a
 -- recipient\'s device.
 defaultPushNotificationTemplate_title :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
 defaultPushNotificationTemplate_title = Lens.lens (\DefaultPushNotificationTemplate' {title} -> title) (\s@DefaultPushNotificationTemplate' {} a -> s {title = a} :: DefaultPushNotificationTemplate)
-
--- | The message body to use in push notifications that are based on the
--- message template.
-defaultPushNotificationTemplate_body :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
-defaultPushNotificationTemplate_body = Lens.lens (\DefaultPushNotificationTemplate' {body} -> body) (\s@DefaultPushNotificationTemplate' {} a -> s {body = a} :: DefaultPushNotificationTemplate)
 
 -- | The action to occur if a recipient taps a push notification that\'s
 -- based on the message template. Valid values are:
@@ -146,6 +146,12 @@ defaultPushNotificationTemplate_body = Lens.lens (\DefaultPushNotificationTempla
 defaultPushNotificationTemplate_action :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Action)
 defaultPushNotificationTemplate_action = Lens.lens (\DefaultPushNotificationTemplate' {action} -> action) (\s@DefaultPushNotificationTemplate' {} a -> s {action = a} :: DefaultPushNotificationTemplate)
 
+-- | The URL to open in a recipient\'s default mobile browser, if a recipient
+-- taps a push notification that\'s based on the message template and the
+-- value of the Action property is URL.
+defaultPushNotificationTemplate_url :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
+defaultPushNotificationTemplate_url = Lens.lens (\DefaultPushNotificationTemplate' {url} -> url) (\s@DefaultPushNotificationTemplate' {} a -> s {url = a} :: DefaultPushNotificationTemplate)
+
 -- | The sound to play when a recipient receives a push notification that\'s
 -- based on the message template. You can use the default stream or specify
 -- the file name of a sound resource that\'s bundled in your app. On an
@@ -158,12 +164,6 @@ defaultPushNotificationTemplate_action = Lens.lens (\DefaultPushNotificationTemp
 defaultPushNotificationTemplate_sound :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
 defaultPushNotificationTemplate_sound = Lens.lens (\DefaultPushNotificationTemplate' {sound} -> sound) (\s@DefaultPushNotificationTemplate' {} a -> s {sound = a} :: DefaultPushNotificationTemplate)
 
--- | The URL to open in a recipient\'s default mobile browser, if a recipient
--- taps a push notification that\'s based on the message template and the
--- value of the Action property is URL.
-defaultPushNotificationTemplate_url :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
-defaultPushNotificationTemplate_url = Lens.lens (\DefaultPushNotificationTemplate' {url} -> url) (\s@DefaultPushNotificationTemplate' {} a -> s {url = a} :: DefaultPushNotificationTemplate)
-
 instance
   Core.FromJSON
     DefaultPushNotificationTemplate
@@ -173,11 +173,11 @@ instance
       "DefaultPushNotificationTemplate"
       ( \x ->
           DefaultPushNotificationTemplate'
-            Prelude.<$> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Body")
+            Prelude.<$> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "Sound")
             Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "Sound")
       )
 
 instance
@@ -192,10 +192,10 @@ instance Core.ToJSON DefaultPushNotificationTemplate where
   toJSON DefaultPushNotificationTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Title" Core..=) Prelude.<$> title,
-            ("Body" Core..=) Prelude.<$> body,
+          [ ("Body" Core..=) Prelude.<$> body,
+            ("Title" Core..=) Prelude.<$> title,
             ("Action" Core..=) Prelude.<$> action,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("Url" Core..=) Prelude.<$> url
+            ("Url" Core..=) Prelude.<$> url,
+            ("Sound" Core..=) Prelude.<$> sound
           ]
       )

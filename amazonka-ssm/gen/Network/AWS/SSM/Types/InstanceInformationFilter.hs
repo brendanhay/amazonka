@@ -28,10 +28,10 @@ import Network.AWS.SSM.Types.InstanceInformationFilterKey
 -- instances information by using tags. You specify tags by using a
 -- key-value mapping.
 --
--- Use this action instead of the
+-- Use this operation instead of the
 -- DescribeInstanceInformationRequest$InstanceInformationFilterList method.
--- The @InstanceInformationFilterList@ method is a legacy method and does
--- not support tags.
+-- The @InstanceInformationFilterList@ method is a legacy method and
+-- doesn\'t support tags.
 --
 -- /See:/ 'newInstanceInformationFilter' smart constructor.
 data InstanceInformationFilter = InstanceInformationFilter'

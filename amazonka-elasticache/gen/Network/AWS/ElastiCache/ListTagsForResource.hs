@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all cost allocation tags currently on the named resource. A
--- @cost allocation tag@ is a key-value pair where the key is
--- case-sensitive and the value is optional. You can use cost allocation
--- tags to categorize and track your AWS costs.
+-- Lists all tags currently on a named resource.
+--
+-- A tag is a key-value pair where the key and value are case-sensitive.
+-- You can use tags to categorize and track all your ElastiCache resources,
+-- with the exception of global replication group. When you add or remove
+-- tags on replication groups, those actions will be replicated to all
+-- nodes in the replication group. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html Resource-level permissions>.
 --
 -- If the cluster is not in the /available/ state, @ListTagsForResource@
 -- returns an error.
---
--- You can have a maximum of 50 cost allocation tags on an ElastiCache
--- resource. For more information, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html Monitoring Costs with Tags>.
 module Network.AWS.ElastiCache.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -65,7 +65,7 @@ data ListTagsForResource = ListTagsForResource'
     -- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
     --
     -- For more information about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     resourceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +84,7 @@ data ListTagsForResource = ListTagsForResource'
 -- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
 --
 -- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 newListTagsForResource ::
   -- | 'resourceName'
   Prelude.Text ->
@@ -98,7 +98,7 @@ newListTagsForResource pResourceName_ =
 -- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
 --
 -- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 listTagsForResource_resourceName :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceName = Lens.lens (\ListTagsForResource' {resourceName} -> resourceName) (\s@ListTagsForResource' {} a -> s {resourceName = a} :: ListTagsForResource)
 

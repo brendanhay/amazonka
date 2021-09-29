@@ -37,18 +37,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
 --     date.
+--
 -- -   @Status@ - Sets the search criteria to @DataSource@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @DataSource@
---     ____ @Name@.
+--     @Name@.
+--
 -- -   @DataUri@ - Sets the search criteria to the URI of data files used
 --     to create the @DataSource@. The URI can identify either a file or an
 --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @DataSource@ creation.
 --
--- Note
---
--- The variable names should match the variable names in the @DataSource@.
+-- __Note:__ The variable names should match the variable names in the
+-- @DataSource@.
 newtype DataSourceFilterVariable = DataSourceFilterVariable'
   { fromDataSourceFilterVariable ::
       Core.Text

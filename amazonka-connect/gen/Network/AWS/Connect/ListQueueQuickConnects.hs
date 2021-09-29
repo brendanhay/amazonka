@@ -63,7 +63,8 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -84,7 +85,8 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
 --
 -- 'maxResults', 'listQueueQuickConnects_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'listQueueQuickConnects_queueId' - The identifier for the queue.
 newListQueueQuickConnects ::
@@ -112,7 +114,8 @@ listQueueQuickConnects_nextToken = Lens.lens (\ListQueueQuickConnects' {nextToke
 listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Natural)
 listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResults} -> maxResults) (\s@ListQueueQuickConnects' {} a -> s {maxResults = a} :: ListQueueQuickConnects)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listQueueQuickConnects_instanceId :: Lens.Lens' ListQueueQuickConnects Prelude.Text
 listQueueQuickConnects_instanceId = Lens.lens (\ListQueueQuickConnects' {instanceId} -> instanceId) (\s@ListQueueQuickConnects' {} a -> s {instanceId = a} :: ListQueueQuickConnects)
 

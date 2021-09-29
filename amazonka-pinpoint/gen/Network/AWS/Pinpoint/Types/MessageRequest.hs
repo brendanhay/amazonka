@@ -47,6 +47,8 @@ data MessageRequest = MessageRequest'
     -- | The unique identifier for tracing the message. This identifier is
     -- visible to message recipients.
     traceId :: Prelude.Maybe Prelude.Text,
+    -- | The message template to use for the message.
+    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | A map of key-value pairs, where each key is an address and each value is
     -- an
     -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
@@ -56,8 +58,6 @@ data MessageRequest = MessageRequest'
     -- object to tailor the message for an address by specifying settings such
     -- as content overrides and message variables.
     addresses :: Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration),
-    -- | The message template to use for the message.
-    templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The settings and content for the default message and any default
     -- messages that you defined for specific channels.
     messageConfiguration :: DirectMessageConfiguration
@@ -88,6 +88,8 @@ data MessageRequest = MessageRequest'
 -- 'traceId', 'messageRequest_traceId' - The unique identifier for tracing the message. This identifier is
 -- visible to message recipients.
 --
+-- 'templateConfiguration', 'messageRequest_templateConfiguration' - The message template to use for the message.
+--
 -- 'addresses', 'messageRequest_addresses' - A map of key-value pairs, where each key is an address and each value is
 -- an
 -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
@@ -96,8 +98,6 @@ data MessageRequest = MessageRequest'
 -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
 -- object to tailor the message for an address by specifying settings such
 -- as content overrides and message variables.
---
--- 'templateConfiguration', 'messageRequest_templateConfiguration' - The message template to use for the message.
 --
 -- 'messageConfiguration', 'messageRequest_messageConfiguration' - The settings and content for the default message and any default
 -- messages that you defined for specific channels.
@@ -110,8 +110,8 @@ newMessageRequest pMessageConfiguration_ =
     { endpoints = Prelude.Nothing,
       context = Prelude.Nothing,
       traceId = Prelude.Nothing,
-      addresses = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
+      addresses = Prelude.Nothing,
       messageConfiguration = pMessageConfiguration_
     }
 
@@ -137,6 +137,10 @@ messageRequest_context = Lens.lens (\MessageRequest' {context} -> context) (\s@M
 messageRequest_traceId :: Lens.Lens' MessageRequest (Prelude.Maybe Prelude.Text)
 messageRequest_traceId = Lens.lens (\MessageRequest' {traceId} -> traceId) (\s@MessageRequest' {} a -> s {traceId = a} :: MessageRequest)
 
+-- | The message template to use for the message.
+messageRequest_templateConfiguration :: Lens.Lens' MessageRequest (Prelude.Maybe TemplateConfiguration)
+messageRequest_templateConfiguration = Lens.lens (\MessageRequest' {templateConfiguration} -> templateConfiguration) (\s@MessageRequest' {} a -> s {templateConfiguration = a} :: MessageRequest)
+
 -- | A map of key-value pairs, where each key is an address and each value is
 -- an
 -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration>
@@ -147,10 +151,6 @@ messageRequest_traceId = Lens.lens (\MessageRequest' {traceId} -> traceId) (\s@M
 -- as content overrides and message variables.
 messageRequest_addresses :: Lens.Lens' MessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text AddressConfiguration))
 messageRequest_addresses = Lens.lens (\MessageRequest' {addresses} -> addresses) (\s@MessageRequest' {} a -> s {addresses = a} :: MessageRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | The message template to use for the message.
-messageRequest_templateConfiguration :: Lens.Lens' MessageRequest (Prelude.Maybe TemplateConfiguration)
-messageRequest_templateConfiguration = Lens.lens (\MessageRequest' {templateConfiguration} -> templateConfiguration) (\s@MessageRequest' {} a -> s {templateConfiguration = a} :: MessageRequest)
 
 -- | The settings and content for the default message and any default
 -- messages that you defined for specific channels.
@@ -168,9 +168,9 @@ instance Core.ToJSON MessageRequest where
           [ ("Endpoints" Core..=) Prelude.<$> endpoints,
             ("Context" Core..=) Prelude.<$> context,
             ("TraceId" Core..=) Prelude.<$> traceId,
-            ("Addresses" Core..=) Prelude.<$> addresses,
             ("TemplateConfiguration" Core..=)
               Prelude.<$> templateConfiguration,
+            ("Addresses" Core..=) Prelude.<$> addresses,
             Prelude.Just
               ( "MessageConfiguration"
                   Core..= messageConfiguration

@@ -23,18 +23,17 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Configuration information for coordination with AWS Glue, a fully
--- managed extract, transform and load (ETL) service.
+-- | Configuration information for coordination with Glue, a fully managed
+-- extract, transform and load (ETL) service.
 --
 -- /See:/ 'newGlueConfiguration' smart constructor.
 data GlueConfiguration = GlueConfiguration'
-  { -- | The name of the table in your AWS Glue Data Catalog that is used to
-    -- perform the ETL operations. An AWS Glue Data Catalog table contains
-    -- partitioned data and descriptions of data sources and targets.
+  { -- | The name of the table in your Glue Data Catalog that is used to perform
+    -- the ETL operations. An Glue Data Catalog table contains partitioned data
+    -- and descriptions of data sources and targets.
     tableName :: Prelude.Text,
-    -- | The name of the database in your AWS Glue Data Catalog in which the
-    -- table is located. An AWS Glue Data Catalog database contains metadata
-    -- tables.
+    -- | The name of the database in your Glue Data Catalog in which the table is
+    -- located. An Glue Data Catalog database contains metadata tables.
     databaseName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,13 +46,12 @@ data GlueConfiguration = GlueConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'glueConfiguration_tableName' - The name of the table in your AWS Glue Data Catalog that is used to
--- perform the ETL operations. An AWS Glue Data Catalog table contains
--- partitioned data and descriptions of data sources and targets.
+-- 'tableName', 'glueConfiguration_tableName' - The name of the table in your Glue Data Catalog that is used to perform
+-- the ETL operations. An Glue Data Catalog table contains partitioned data
+-- and descriptions of data sources and targets.
 --
--- 'databaseName', 'glueConfiguration_databaseName' - The name of the database in your AWS Glue Data Catalog in which the
--- table is located. An AWS Glue Data Catalog database contains metadata
--- tables.
+-- 'databaseName', 'glueConfiguration_databaseName' - The name of the database in your Glue Data Catalog in which the table is
+-- located. An Glue Data Catalog database contains metadata tables.
 newGlueConfiguration ::
   -- | 'tableName'
   Prelude.Text ->
@@ -66,15 +64,14 @@ newGlueConfiguration pTableName_ pDatabaseName_ =
       databaseName = pDatabaseName_
     }
 
--- | The name of the table in your AWS Glue Data Catalog that is used to
--- perform the ETL operations. An AWS Glue Data Catalog table contains
--- partitioned data and descriptions of data sources and targets.
+-- | The name of the table in your Glue Data Catalog that is used to perform
+-- the ETL operations. An Glue Data Catalog table contains partitioned data
+-- and descriptions of data sources and targets.
 glueConfiguration_tableName :: Lens.Lens' GlueConfiguration Prelude.Text
 glueConfiguration_tableName = Lens.lens (\GlueConfiguration' {tableName} -> tableName) (\s@GlueConfiguration' {} a -> s {tableName = a} :: GlueConfiguration)
 
--- | The name of the database in your AWS Glue Data Catalog in which the
--- table is located. An AWS Glue Data Catalog database contains metadata
--- tables.
+-- | The name of the database in your Glue Data Catalog in which the table is
+-- located. An Glue Data Catalog database contains metadata tables.
 glueConfiguration_databaseName :: Lens.Lens' GlueConfiguration Prelude.Text
 glueConfiguration_databaseName = Lens.lens (\GlueConfiguration' {databaseName} -> databaseName) (\s@GlueConfiguration' {} a -> s {databaseName = a} :: GlueConfiguration)
 

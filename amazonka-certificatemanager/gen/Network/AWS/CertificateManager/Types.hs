@@ -26,12 +26,12 @@ module Network.AWS.CertificateManager.Types
     _ThrottlingException,
     _InvalidParameterException,
     _AccessDeniedException,
-    _ValidationException,
     _InvalidTagException,
+    _ValidationException,
     _RequestInProgressException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
 
     -- * CertificateStatus
@@ -88,19 +88,19 @@ module Network.AWS.CertificateManager.Types
     certificateDetail_certificateArn,
     certificateDetail_createdAt,
     certificateDetail_inUseBy,
-    certificateDetail_subjectAlternativeNames,
     certificateDetail_domainName,
+    certificateDetail_subjectAlternativeNames,
     certificateDetail_revocationReason,
-    certificateDetail_subject,
     certificateDetail_failureReason,
-    certificateDetail_keyUsages,
-    certificateDetail_revokedAt,
+    certificateDetail_subject,
     certificateDetail_notAfter,
-    certificateDetail_signatureAlgorithm,
+    certificateDetail_revokedAt,
+    certificateDetail_keyUsages,
     certificateDetail_issuer,
-    certificateDetail_type,
-    certificateDetail_keyAlgorithm,
+    certificateDetail_signatureAlgorithm,
     certificateDetail_issuedAt,
+    certificateDetail_keyAlgorithm,
+    certificateDetail_type,
     certificateDetail_renewalSummary,
 
     -- * CertificateOptions
@@ -118,8 +118,8 @@ module Network.AWS.CertificateManager.Types
     DomainValidation (..),
     newDomainValidation,
     domainValidation_resourceRecord,
-    domainValidation_validationEmails,
     domainValidation_validationMethod,
+    domainValidation_validationEmails,
     domainValidation_validationStatus,
     domainValidation_validationDomain,
     domainValidation_domainName,
@@ -344,13 +344,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | The supplied input failed to satisfy constraints of an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-
 -- | One or both of the values that make up the key-value pair is not valid.
 -- For example, you cannot specify a tag value that begins with @aws:@.
 _InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -358,6 +351,14 @@ _InvalidTagException =
   Core._MatchServiceError
     defaultService
     "InvalidTagException"
+
+-- | The supplied input failed to satisfy constraints of an Amazon Web
+-- Services service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
 
 -- | The certificate request is in process and the certificate in your
 -- account has not yet been issued.
@@ -367,21 +368,6 @@ _RequestInProgressException =
     defaultService
     "RequestInProgressException"
 
--- | The certificate is in use by another AWS service in the caller\'s
--- account. Remove the association and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | An ACM quota has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | You are trying to update a resource or configuration that is already
 -- being created or updated. Wait for the previous operation to finish and
 -- try again.
@@ -390,6 +376,21 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | An ACM quota has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The certificate is in use by another Amazon Web Services service in the
+-- caller\'s account. Remove the association and try again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- | The specified certificate cannot be found in the caller\'s account or
 -- the caller\'s account cannot be found.

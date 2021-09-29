@@ -22,6 +22,10 @@
 --
 -- Lists the things you have added to the given billing group.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingsInBillingGroup>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingsInBillingGroup
   ( -- * Creating a Request

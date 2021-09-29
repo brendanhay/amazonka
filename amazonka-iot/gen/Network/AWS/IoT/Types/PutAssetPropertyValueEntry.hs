@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPutAssetPropertyValueEntry' smart constructor.
 data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
-  { -- | Optional. A unique identifier for this entry that you can define to
-    -- better track which message caused an error in case of failure. Accepts
-    -- substitution templates. Defaults to a new UUID.
-    entryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the property alias associated with your asset property. You
+  { -- | The name of the property alias associated with your asset property. You
     -- must specify either a @propertyAlias@ or both an @aliasId@ and a
     -- @propertyId@. Accepts substitution templates.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS IoT SiteWise asset. You must specify either a
+    -- | Optional. A unique identifier for this entry that you can define to
+    -- better track which message caused an error in case of failure. Accepts
+    -- substitution templates. Defaults to a new UUID.
+    entryId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the IoT SiteWise asset. You must specify either a
     -- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts
     -- substitution templates.
     assetId :: Prelude.Maybe Prelude.Text,
@@ -58,15 +58,15 @@ data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entryId', 'putAssetPropertyValueEntry_entryId' - Optional. A unique identifier for this entry that you can define to
--- better track which message caused an error in case of failure. Accepts
--- substitution templates. Defaults to a new UUID.
---
 -- 'propertyAlias', 'putAssetPropertyValueEntry_propertyAlias' - The name of the property alias associated with your asset property. You
 -- must specify either a @propertyAlias@ or both an @aliasId@ and a
 -- @propertyId@. Accepts substitution templates.
 --
--- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the AWS IoT SiteWise asset. You must specify either a
+-- 'entryId', 'putAssetPropertyValueEntry_entryId' - Optional. A unique identifier for this entry that you can define to
+-- better track which message caused an error in case of failure. Accepts
+-- substitution templates. Defaults to a new UUID.
+--
+-- 'assetId', 'putAssetPropertyValueEntry_assetId' - The ID of the IoT SiteWise asset. You must specify either a
 -- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts
 -- substitution templates.
 --
@@ -82,20 +82,14 @@ newPutAssetPropertyValueEntry ::
   PutAssetPropertyValueEntry
 newPutAssetPropertyValueEntry pPropertyValues_ =
   PutAssetPropertyValueEntry'
-    { entryId =
+    { propertyAlias =
         Prelude.Nothing,
-      propertyAlias = Prelude.Nothing,
+      entryId = Prelude.Nothing,
       assetId = Prelude.Nothing,
       propertyId = Prelude.Nothing,
       propertyValues =
         Lens._Coerce Lens.# pPropertyValues_
     }
-
--- | Optional. A unique identifier for this entry that you can define to
--- better track which message caused an error in case of failure. Accepts
--- substitution templates. Defaults to a new UUID.
-putAssetPropertyValueEntry_entryId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
-putAssetPropertyValueEntry_entryId = Lens.lens (\PutAssetPropertyValueEntry' {entryId} -> entryId) (\s@PutAssetPropertyValueEntry' {} a -> s {entryId = a} :: PutAssetPropertyValueEntry)
 
 -- | The name of the property alias associated with your asset property. You
 -- must specify either a @propertyAlias@ or both an @aliasId@ and a
@@ -103,7 +97,13 @@ putAssetPropertyValueEntry_entryId = Lens.lens (\PutAssetPropertyValueEntry' {en
 putAssetPropertyValueEntry_propertyAlias :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
 putAssetPropertyValueEntry_propertyAlias = Lens.lens (\PutAssetPropertyValueEntry' {propertyAlias} -> propertyAlias) (\s@PutAssetPropertyValueEntry' {} a -> s {propertyAlias = a} :: PutAssetPropertyValueEntry)
 
--- | The ID of the AWS IoT SiteWise asset. You must specify either a
+-- | Optional. A unique identifier for this entry that you can define to
+-- better track which message caused an error in case of failure. Accepts
+-- substitution templates. Defaults to a new UUID.
+putAssetPropertyValueEntry_entryId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
+putAssetPropertyValueEntry_entryId = Lens.lens (\PutAssetPropertyValueEntry' {entryId} -> entryId) (\s@PutAssetPropertyValueEntry' {} a -> s {entryId = a} :: PutAssetPropertyValueEntry)
+
+-- | The ID of the IoT SiteWise asset. You must specify either a
 -- @propertyAlias@ or both an @aliasId@ and a @propertyId@. Accepts
 -- substitution templates.
 putAssetPropertyValueEntry_assetId :: Lens.Lens' PutAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
@@ -126,8 +126,8 @@ instance Core.FromJSON PutAssetPropertyValueEntry where
       "PutAssetPropertyValueEntry"
       ( \x ->
           PutAssetPropertyValueEntry'
-            Prelude.<$> (x Core..:? "entryId")
-            Prelude.<*> (x Core..:? "propertyAlias")
+            Prelude.<$> (x Core..:? "propertyAlias")
+            Prelude.<*> (x Core..:? "entryId")
             Prelude.<*> (x Core..:? "assetId")
             Prelude.<*> (x Core..:? "propertyId")
             Prelude.<*> (x Core..: "propertyValues")
@@ -141,8 +141,8 @@ instance Core.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("entryId" Core..=) Prelude.<$> entryId,
-            ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
+          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
+            ("entryId" Core..=) Prelude.<$> entryId,
             ("assetId" Core..=) Prelude.<$> assetId,
             ("propertyId" Core..=) Prelude.<$> propertyId,
             Prelude.Just

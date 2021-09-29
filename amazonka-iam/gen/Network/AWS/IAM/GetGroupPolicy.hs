@@ -186,9 +186,9 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
     -- | The policy document.
     --
     -- IAM stores policies in JSON format. However, resources that were created
-    -- using AWS CloudFormation templates can be formatted in YAML. AWS
-    -- CloudFormation always converts a YAML policy to JSON format before
-    -- submitting it to IAM.
+    -- using CloudFormation templates can be formatted in YAML. CloudFormation
+    -- always converts a YAML policy to JSON format before submitting it to
+    -- IAM.
     policyDocument :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -210,9 +210,9 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
 -- 'policyDocument', 'getGroupPolicyResponse_policyDocument' - The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 newGetGroupPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -250,9 +250,9 @@ getGroupPolicyResponse_policyName = Lens.lens (\GetGroupPolicyResponse' {policyN
 -- | The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 getGroupPolicyResponse_policyDocument :: Lens.Lens' GetGroupPolicyResponse Prelude.Text
 getGroupPolicyResponse_policyDocument = Lens.lens (\GetGroupPolicyResponse' {policyDocument} -> policyDocument) (\s@GetGroupPolicyResponse' {} a -> s {policyDocument = a} :: GetGroupPolicyResponse)
 

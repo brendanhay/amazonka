@@ -24,15 +24,18 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the information required for client programs to connect to
--- the configuration endpoint for a DAX cluster, or to an individual node
--- within the cluster.
+-- the endpoint for a DAX cluster.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | The DNS hostname of the endpoint.
     address :: Prelude.Maybe Prelude.Text,
     -- | The port number that applications should use to connect to the endpoint.
-    port :: Prelude.Maybe Prelude.Int
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The URL that applications should use to connect to the endpoint. The
+    -- default ports are 8111 for the \"dax\" protocol and 9111 for the
+    -- \"daxs\" protocol.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,12 +50,17 @@ data Endpoint = Endpoint'
 -- 'address', 'endpoint_address' - The DNS hostname of the endpoint.
 --
 -- 'port', 'endpoint_port' - The port number that applications should use to connect to the endpoint.
+--
+-- 'url', 'endpoint_url' - The URL that applications should use to connect to the endpoint. The
+-- default ports are 8111 for the \"dax\" protocol and 9111 for the
+-- \"daxs\" protocol.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
     { address = Prelude.Nothing,
-      port = Prelude.Nothing
+      port = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
 -- | The DNS hostname of the endpoint.
@@ -63,6 +71,12 @@ endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} 
 endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
 endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
+-- | The URL that applications should use to connect to the endpoint. The
+-- default ports are 8111 for the \"dax\" protocol and 9111 for the
+-- \"daxs\" protocol.
+endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
+
 instance Core.FromJSON Endpoint where
   parseJSON =
     Core.withObject
@@ -71,6 +85,7 @@ instance Core.FromJSON Endpoint where
           Endpoint'
             Prelude.<$> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "URL")
       )
 
 instance Prelude.Hashable Endpoint

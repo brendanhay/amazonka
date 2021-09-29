@@ -28,19 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- ID and player session ID. To retrieve full details on a player session,
 -- call DescribePlayerSessions with the player session ID.
 --
--- -   CreatePlayerSession
+-- __Related actions__
 --
--- -   CreatePlayerSessions
---
--- -   DescribePlayerSessions
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreatePlayerSession | CreatePlayerSessions | DescribePlayerSessions |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- /See:/ 'newPlacedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'

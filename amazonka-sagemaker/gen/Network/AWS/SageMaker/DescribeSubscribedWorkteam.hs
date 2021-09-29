@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a work team provided by a vendor. It returns
--- details about the subscription with a vendor in the AWS Marketplace.
+-- details about the subscription with a vendor in the Amazon Web Services
+-- Marketplace.
 module Network.AWS.SageMaker.DescribeSubscribedWorkteam
   ( -- * Creating a Request
     DescribeSubscribedWorkteam (..),

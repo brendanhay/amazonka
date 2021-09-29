@@ -50,7 +50,8 @@ data UpdateUserHierarchyGroupName = UpdateUserHierarchyGroupName'
     name :: Prelude.Text,
     -- | The identifier of the hierarchy group.
     hierarchyGroupId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +68,8 @@ data UpdateUserHierarchyGroupName = UpdateUserHierarchyGroupName'
 --
 -- 'hierarchyGroupId', 'updateUserHierarchyGroupName_hierarchyGroupId' - The identifier of the hierarchy group.
 --
--- 'instanceId', 'updateUserHierarchyGroupName_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateUserHierarchyGroupName_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newUpdateUserHierarchyGroupName ::
   -- | 'name'
   Prelude.Text ->
@@ -94,7 +96,8 @@ updateUserHierarchyGroupName_name = Lens.lens (\UpdateUserHierarchyGroupName' {n
 updateUserHierarchyGroupName_hierarchyGroupId :: Lens.Lens' UpdateUserHierarchyGroupName Prelude.Text
 updateUserHierarchyGroupName_hierarchyGroupId = Lens.lens (\UpdateUserHierarchyGroupName' {hierarchyGroupId} -> hierarchyGroupId) (\s@UpdateUserHierarchyGroupName' {} a -> s {hierarchyGroupId = a} :: UpdateUserHierarchyGroupName)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateUserHierarchyGroupName_instanceId :: Lens.Lens' UpdateUserHierarchyGroupName Prelude.Text
 updateUserHierarchyGroupName_instanceId = Lens.lens (\UpdateUserHierarchyGroupName' {instanceId} -> instanceId) (\s@UpdateUserHierarchyGroupName' {} a -> s {instanceId = a} :: UpdateUserHierarchyGroupName)
 

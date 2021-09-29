@@ -34,7 +34,7 @@ data Role = Role'
   { -- | The policy that grants an entity permission to assume the role.
     assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
     -- | The maximum session duration (in seconds) for the specified role. Anyone
-    -- who uses the AWS CLI, or API to assume the role can specify the duration
+    -- who uses the CLI, or API to assume the role can specify the duration
     -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
     -- CLI parameter.
     maxSessionDuration :: Prelude.Maybe Prelude.Natural,
@@ -94,7 +94,7 @@ data Role = Role'
 -- 'assumeRolePolicyDocument', 'role_assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
 -- 'maxSessionDuration', 'role_maxSessionDuration' - The maximum session duration (in seconds) for the specified role. Anyone
--- who uses the AWS CLI, or API to assume the role can specify the duration
+-- who uses the CLI, or API to assume the role can specify the duration
 -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
 -- CLI parameter.
 --
@@ -171,7 +171,7 @@ role_assumeRolePolicyDocument :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
 role_assumeRolePolicyDocument = Lens.lens (\Role' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@Role' {} a -> s {assumeRolePolicyDocument = a} :: Role)
 
 -- | The maximum session duration (in seconds) for the specified role. Anyone
--- who uses the AWS CLI, or API to assume the role can specify the duration
+-- who uses the CLI, or API to assume the role can specify the duration
 -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
 -- CLI parameter.
 role_maxSessionDuration :: Lens.Lens' Role (Prelude.Maybe Prelude.Natural)

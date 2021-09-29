@@ -32,10 +32,10 @@ data AggregationAuthorization = AggregationAuthorization'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The 12-digit account ID of the account authorized to aggregate data.
     authorizedAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The region authorized to collect aggregated data.
-    authorizedAwsRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the aggregation object.
-    aggregationAuthorizationArn :: Prelude.Maybe Prelude.Text
+    aggregationAuthorizationArn :: Prelude.Maybe Prelude.Text,
+    -- | The region authorized to collect aggregated data.
+    authorizedAwsRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,9 @@ data AggregationAuthorization = AggregationAuthorization'
 --
 -- 'authorizedAccountId', 'aggregationAuthorization_authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
 --
--- 'authorizedAwsRegion', 'aggregationAuthorization_authorizedAwsRegion' - The region authorized to collect aggregated data.
---
 -- 'aggregationAuthorizationArn', 'aggregationAuthorization_aggregationAuthorizationArn' - The Amazon Resource Name (ARN) of the aggregation object.
+--
+-- 'authorizedAwsRegion', 'aggregationAuthorization_authorizedAwsRegion' - The region authorized to collect aggregated data.
 newAggregationAuthorization ::
   AggregationAuthorization
 newAggregationAuthorization =
@@ -61,8 +61,8 @@ newAggregationAuthorization =
     { creationTime =
         Prelude.Nothing,
       authorizedAccountId = Prelude.Nothing,
-      authorizedAwsRegion = Prelude.Nothing,
-      aggregationAuthorizationArn = Prelude.Nothing
+      aggregationAuthorizationArn = Prelude.Nothing,
+      authorizedAwsRegion = Prelude.Nothing
     }
 
 -- | The time stamp when the aggregation authorization was created.
@@ -73,13 +73,13 @@ aggregationAuthorization_creationTime = Lens.lens (\AggregationAuthorization' {c
 aggregationAuthorization_authorizedAccountId :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
 aggregationAuthorization_authorizedAccountId = Lens.lens (\AggregationAuthorization' {authorizedAccountId} -> authorizedAccountId) (\s@AggregationAuthorization' {} a -> s {authorizedAccountId = a} :: AggregationAuthorization)
 
--- | The region authorized to collect aggregated data.
-aggregationAuthorization_authorizedAwsRegion :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
-aggregationAuthorization_authorizedAwsRegion = Lens.lens (\AggregationAuthorization' {authorizedAwsRegion} -> authorizedAwsRegion) (\s@AggregationAuthorization' {} a -> s {authorizedAwsRegion = a} :: AggregationAuthorization)
-
 -- | The Amazon Resource Name (ARN) of the aggregation object.
 aggregationAuthorization_aggregationAuthorizationArn :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
 aggregationAuthorization_aggregationAuthorizationArn = Lens.lens (\AggregationAuthorization' {aggregationAuthorizationArn} -> aggregationAuthorizationArn) (\s@AggregationAuthorization' {} a -> s {aggregationAuthorizationArn = a} :: AggregationAuthorization)
+
+-- | The region authorized to collect aggregated data.
+aggregationAuthorization_authorizedAwsRegion :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
+aggregationAuthorization_authorizedAwsRegion = Lens.lens (\AggregationAuthorization' {authorizedAwsRegion} -> authorizedAwsRegion) (\s@AggregationAuthorization' {} a -> s {authorizedAwsRegion = a} :: AggregationAuthorization)
 
 instance Core.FromJSON AggregationAuthorization where
   parseJSON =
@@ -89,8 +89,8 @@ instance Core.FromJSON AggregationAuthorization where
           AggregationAuthorization'
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "AuthorizedAccountId")
-            Prelude.<*> (x Core..:? "AuthorizedAwsRegion")
             Prelude.<*> (x Core..:? "AggregationAuthorizationArn")
+            Prelude.<*> (x Core..:? "AuthorizedAwsRegion")
       )
 
 instance Prelude.Hashable AggregationAuthorization

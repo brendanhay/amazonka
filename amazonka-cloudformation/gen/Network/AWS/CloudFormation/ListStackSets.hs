@@ -24,8 +24,9 @@
 -- the user.
 --
 -- -   [Self-managed permissions] If you set the @CallAs@ parameter to
---     @SELF@ while signed in to your AWS account, @ListStackSets@ returns
---     all self-managed stack sets in your AWS account.
+--     @SELF@ while signed in to your Amazon Web Services account,
+--     @ListStackSets@ returns all self-managed stack sets in your Amazon
+--     Web Services account.
 --
 -- -   [Service-managed permissions] If you set the @CallAs@ parameter to
 --     @SELF@ while signed in to the organization\'s management account,
@@ -95,10 +96,10 @@ data ListStackSets = ListStackSets'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,10 +139,10 @@ data ListStackSets = ListStackSets'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 newListStackSets ::
   ListStackSets
 newListStackSets =
@@ -185,10 +186,10 @@ listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 listStackSets_callAs :: Lens.Lens' ListStackSets (Prelude.Maybe CallAs)
 listStackSets_callAs = Lens.lens (\ListStackSets' {callAs} -> callAs) (\s@ListStackSets' {} a -> s {callAs = a} :: ListStackSets)
 

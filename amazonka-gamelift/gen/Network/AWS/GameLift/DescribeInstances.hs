@@ -21,13 +21,24 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a fleet\'s instances, including instance
--- IDs. Use this operation to get details on all instances in the fleet or
--- get details on one specific instance.
+-- IDs, connection data, and status.
 --
--- To get a specific instance, specify fleet ID and instance ID. To get all
--- instances in a fleet, specify a fleet ID only. Use the pagination
--- parameters to retrieve results as a set of sequential pages. If
--- successful, an Instance object is returned for each result.
+-- This operation can be used in the following ways:
+--
+-- -   To get information on all instances that are deployed to a fleet\'s
+--     home Region, provide the fleet ID.
+--
+-- -   To get information on all instances that are deployed to a fleet\'s
+--     remote location, provide the fleet ID and location name.
+--
+-- -   To get information on a specific instance in a fleet, provide the
+--     fleet ID and instance ID.
+--
+-- Use the pagination parameters to retrieve results as a set of sequential
+-- pages.
+--
+-- If successful, an @Instance@ object is returned for each requested
+-- instance. Instances are not returned in any particular order.
 --
 -- __Learn more__
 --
@@ -35,11 +46,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html Debug Fleet Issues>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   DescribeInstances
---
--- -   GetInstanceAccess
+-- DescribeInstances | GetInstanceAccess | DescribeEC2InstanceLimits |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeInstances
@@ -48,8 +58,9 @@ module Network.AWS.GameLift.DescribeInstances
     newDescribeInstances,
 
     -- * Request Lenses
-    describeInstances_nextToken,
     describeInstances_instanceId,
+    describeInstances_nextToken,
+    describeInstances_location,
     describeInstances_limit,
     describeInstances_fleetId,
 
@@ -75,17 +86,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { -- | Token that indicates the start of the next sequential page of results.
+  { -- | A unique identifier for an instance to retrieve. Specify an instance ID
+    -- or leave blank to retrieve all instances in the fleet.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for an instance to retrieve. Specify an instance ID
-    -- or leave blank to retrieve all instances in the fleet.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The name of a location to retrieve instance information for, in the form
+    -- of an AWS Region code such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for a fleet to retrieve instance information for.
+    -- | A unique identifier for the fleet to retrieve instance information for.
     -- You can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
@@ -99,17 +113,20 @@ data DescribeInstances = DescribeInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstances_nextToken' - Token that indicates the start of the next sequential page of results.
+-- 'instanceId', 'describeInstances_instanceId' - A unique identifier for an instance to retrieve. Specify an instance ID
+-- or leave blank to retrieve all instances in the fleet.
+--
+-- 'nextToken', 'describeInstances_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'instanceId', 'describeInstances_instanceId' - A unique identifier for an instance to retrieve. Specify an instance ID
--- or leave blank to retrieve all instances in the fleet.
+-- 'location', 'describeInstances_location' - The name of a location to retrieve instance information for, in the form
+-- of an AWS Region code such as @us-west-2@.
 --
 -- 'limit', 'describeInstances_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
--- 'fleetId', 'describeInstances_fleetId' - A unique identifier for a fleet to retrieve instance information for.
+-- 'fleetId', 'describeInstances_fleetId' - A unique identifier for the fleet to retrieve instance information for.
 -- You can use either the fleet ID or ARN value.
 newDescribeInstances ::
   -- | 'fleetId'
@@ -117,29 +134,35 @@ newDescribeInstances ::
   DescribeInstances
 newDescribeInstances pFleetId_ =
   DescribeInstances'
-    { nextToken = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      location = Prelude.Nothing,
       limit = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | Token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
-describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
 
 -- | A unique identifier for an instance to retrieve. Specify an instance ID
 -- or leave blank to retrieve all instances in the fleet.
 describeInstances_instanceId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_instanceId = Lens.lens (\DescribeInstances' {instanceId} -> instanceId) (\s@DescribeInstances' {} a -> s {instanceId = a} :: DescribeInstances)
 
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
+
+-- | The name of a location to retrieve instance information for, in the form
+-- of an AWS Region code such as @us-west-2@.
+describeInstances_location :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_location = Lens.lens (\DescribeInstances' {location} -> location) (\s@DescribeInstances' {} a -> s {location = a} :: DescribeInstances)
+
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 describeInstances_limit :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Natural)
 describeInstances_limit = Lens.lens (\DescribeInstances' {limit} -> limit) (\s@DescribeInstances' {} a -> s {limit = a} :: DescribeInstances)
 
--- | A unique identifier for a fleet to retrieve instance information for.
+-- | A unique identifier for the fleet to retrieve instance information for.
 -- You can use either the fleet ID or ARN value.
 describeInstances_fleetId :: Lens.Lens' DescribeInstances Prelude.Text
 describeInstances_fleetId = Lens.lens (\DescribeInstances' {fleetId} -> fleetId) (\s@DescribeInstances' {} a -> s {fleetId = a} :: DescribeInstances)
@@ -201,8 +224,9 @@ instance Core.ToJSON DescribeInstances where
   toJSON DescribeInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Location" Core..=) Prelude.<$> location,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
@@ -218,9 +242,9 @@ instance Core.ToQuery DescribeInstances where
 --
 -- /See:/ 'newDescribeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call
-    -- to this operation. If no token is returned, these results represent the
-    -- end of the list.
+  { -- | A token that indicates where to resume retrieving results on the next
+    -- call to this operation. If no token is returned, these results represent
+    -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of objects containing properties for each instance
     -- returned.
@@ -238,9 +262,9 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstancesResponse_nextToken' - Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- 'nextToken', 'describeInstancesResponse_nextToken' - A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 --
 -- 'instances', 'describeInstancesResponse_instances' - A collection of objects containing properties for each instance
 -- returned.
@@ -258,9 +282,9 @@ newDescribeInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- | A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 describeInstancesResponse_nextToken :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe Prelude.Text)
 describeInstancesResponse_nextToken = Lens.lens (\DescribeInstancesResponse' {nextToken} -> nextToken) (\s@DescribeInstancesResponse' {} a -> s {nextToken = a} :: DescribeInstancesResponse)
 

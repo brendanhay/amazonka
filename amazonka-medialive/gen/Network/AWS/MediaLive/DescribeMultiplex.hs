@@ -38,10 +38,10 @@ module Network.AWS.MediaLive.DescribeMultiplex
     describeMultiplexResponse_arn,
     describeMultiplexResponse_id,
     describeMultiplexResponse_pipelinesRunningCount,
-    describeMultiplexResponse_programCount,
-    describeMultiplexResponse_destinations,
-    describeMultiplexResponse_state,
     describeMultiplexResponse_name,
+    describeMultiplexResponse_destinations,
+    describeMultiplexResponse_programCount,
+    describeMultiplexResponse_state,
     describeMultiplexResponse_tags,
     describeMultiplexResponse_multiplexSettings,
     describeMultiplexResponse_httpStatus,
@@ -99,10 +99,10 @@ instance Core.AWSRequest DescribeMultiplex where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "programCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "multiplexSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,14 +143,14 @@ data DescribeMultiplexResponse = DescribeMultiplexResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of the multiplex output destinations.
-    destinations :: Prelude.Maybe [MultiplexOutputDestination],
-    -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of the multiplex output destinations.
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
+    -- | The number of programs in the multiplex.
+    programCount :: Prelude.Maybe Prelude.Int,
+    -- | The current state of the multiplex.
+    state :: Prelude.Maybe MultiplexState,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
@@ -176,13 +176,13 @@ data DescribeMultiplexResponse = DescribeMultiplexResponse'
 --
 -- 'pipelinesRunningCount', 'describeMultiplexResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
--- 'programCount', 'describeMultiplexResponse_programCount' - The number of programs in the multiplex.
+-- 'name', 'describeMultiplexResponse_name' - The name of the multiplex.
 --
 -- 'destinations', 'describeMultiplexResponse_destinations' - A list of the multiplex output destinations.
 --
--- 'state', 'describeMultiplexResponse_state' - The current state of the multiplex.
+-- 'programCount', 'describeMultiplexResponse_programCount' - The number of programs in the multiplex.
 --
--- 'name', 'describeMultiplexResponse_name' - The name of the multiplex.
+-- 'state', 'describeMultiplexResponse_state' - The current state of the multiplex.
 --
 -- 'tags', 'describeMultiplexResponse_tags' - A collection of key-value pairs.
 --
@@ -200,10 +200,10 @@ newDescribeMultiplexResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       multiplexSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -225,21 +225,21 @@ describeMultiplexResponse_id = Lens.lens (\DescribeMultiplexResponse' {id} -> id
 describeMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Int)
 describeMultiplexResponse_pipelinesRunningCount = Lens.lens (\DescribeMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DescribeMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: DescribeMultiplexResponse)
 
--- | The number of programs in the multiplex.
-describeMultiplexResponse_programCount :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Int)
-describeMultiplexResponse_programCount = Lens.lens (\DescribeMultiplexResponse' {programCount} -> programCount) (\s@DescribeMultiplexResponse' {} a -> s {programCount = a} :: DescribeMultiplexResponse)
+-- | The name of the multiplex.
+describeMultiplexResponse_name :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Text)
+describeMultiplexResponse_name = Lens.lens (\DescribeMultiplexResponse' {name} -> name) (\s@DescribeMultiplexResponse' {} a -> s {name = a} :: DescribeMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
 describeMultiplexResponse_destinations :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
 describeMultiplexResponse_destinations = Lens.lens (\DescribeMultiplexResponse' {destinations} -> destinations) (\s@DescribeMultiplexResponse' {} a -> s {destinations = a} :: DescribeMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of programs in the multiplex.
+describeMultiplexResponse_programCount :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Int)
+describeMultiplexResponse_programCount = Lens.lens (\DescribeMultiplexResponse' {programCount} -> programCount) (\s@DescribeMultiplexResponse' {} a -> s {programCount = a} :: DescribeMultiplexResponse)
+
 -- | The current state of the multiplex.
 describeMultiplexResponse_state :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe MultiplexState)
 describeMultiplexResponse_state = Lens.lens (\DescribeMultiplexResponse' {state} -> state) (\s@DescribeMultiplexResponse' {} a -> s {state = a} :: DescribeMultiplexResponse)
-
--- | The name of the multiplex.
-describeMultiplexResponse_name :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe Prelude.Text)
-describeMultiplexResponse_name = Lens.lens (\DescribeMultiplexResponse' {name} -> name) (\s@DescribeMultiplexResponse' {} a -> s {name = a} :: DescribeMultiplexResponse)
 
 -- | A collection of key-value pairs.
 describeMultiplexResponse_tags :: Lens.Lens' DescribeMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))

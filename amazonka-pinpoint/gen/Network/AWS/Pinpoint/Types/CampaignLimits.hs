@@ -47,7 +47,10 @@ data CampaignLimits = CampaignLimits'
     -- | The maximum amount of time, in seconds, that a campaign can attempt to
     -- deliver a message after the scheduled start time for the campaign. The
     -- minimum value is 60 seconds.
-    maximumDuration :: Prelude.Maybe Prelude.Int
+    maximumDuration :: Prelude.Maybe Prelude.Int,
+    -- | The maximum total number of messages that the campaign can send per user
+    -- session.
+    session :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +80,9 @@ data CampaignLimits = CampaignLimits'
 -- 'maximumDuration', 'campaignLimits_maximumDuration' - The maximum amount of time, in seconds, that a campaign can attempt to
 -- deliver a message after the scheduled start time for the campaign. The
 -- minimum value is 60 seconds.
+--
+-- 'session', 'campaignLimits_session' - The maximum total number of messages that the campaign can send per user
+-- session.
 newCampaignLimits ::
   CampaignLimits
 newCampaignLimits =
@@ -84,7 +90,8 @@ newCampaignLimits =
     { total = Prelude.Nothing,
       messagesPerSecond = Prelude.Nothing,
       daily = Prelude.Nothing,
-      maximumDuration = Prelude.Nothing
+      maximumDuration = Prelude.Nothing,
+      session = Prelude.Nothing
     }
 
 -- | The maximum number of messages that a campaign can send to a single
@@ -114,6 +121,11 @@ campaignLimits_daily = Lens.lens (\CampaignLimits' {daily} -> daily) (\s@Campaig
 campaignLimits_maximumDuration :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
 campaignLimits_maximumDuration = Lens.lens (\CampaignLimits' {maximumDuration} -> maximumDuration) (\s@CampaignLimits' {} a -> s {maximumDuration = a} :: CampaignLimits)
 
+-- | The maximum total number of messages that the campaign can send per user
+-- session.
+campaignLimits_session :: Lens.Lens' CampaignLimits (Prelude.Maybe Prelude.Int)
+campaignLimits_session = Lens.lens (\CampaignLimits' {session} -> session) (\s@CampaignLimits' {} a -> s {session = a} :: CampaignLimits)
+
 instance Core.FromJSON CampaignLimits where
   parseJSON =
     Core.withObject
@@ -124,6 +136,7 @@ instance Core.FromJSON CampaignLimits where
             Prelude.<*> (x Core..:? "MessagesPerSecond")
             Prelude.<*> (x Core..:? "Daily")
             Prelude.<*> (x Core..:? "MaximumDuration")
+            Prelude.<*> (x Core..:? "Session")
       )
 
 instance Prelude.Hashable CampaignLimits
@@ -139,6 +152,7 @@ instance Core.ToJSON CampaignLimits where
               Prelude.<$> messagesPerSecond,
             ("Daily" Core..=) Prelude.<$> daily,
             ("MaximumDuration" Core..=)
-              Prelude.<$> maximumDuration
+              Prelude.<$> maximumDuration,
+            ("Session" Core..=) Prelude.<$> session
           ]
       )

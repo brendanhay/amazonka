@@ -23,13 +23,17 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes an Elasticsearch data source configuration.
+-- | Describes an OpenSearch data source configuration.
+--
+-- As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch
+-- Service. This configuration is deprecated. For new data sources, use
+-- OpenSearchServiceDataSourceConfig to specify an OpenSearch data source.
 --
 -- /See:/ 'newElasticsearchDataSourceConfig' smart constructor.
 data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
   { -- | The endpoint.
     endpoint :: Prelude.Text,
-    -- | The AWS Region.
+    -- | The Amazon Web Services Region.
     awsRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +48,7 @@ data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
 --
 -- 'endpoint', 'elasticsearchDataSourceConfig_endpoint' - The endpoint.
 --
--- 'awsRegion', 'elasticsearchDataSourceConfig_awsRegion' - The AWS Region.
+-- 'awsRegion', 'elasticsearchDataSourceConfig_awsRegion' - The Amazon Web Services Region.
 newElasticsearchDataSourceConfig ::
   -- | 'endpoint'
   Prelude.Text ->
@@ -64,7 +68,7 @@ newElasticsearchDataSourceConfig
 elasticsearchDataSourceConfig_endpoint :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
 elasticsearchDataSourceConfig_endpoint = Lens.lens (\ElasticsearchDataSourceConfig' {endpoint} -> endpoint) (\s@ElasticsearchDataSourceConfig' {} a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
 
--- | The AWS Region.
+-- | The Amazon Web Services Region.
 elasticsearchDataSourceConfig_awsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
 elasticsearchDataSourceConfig_awsRegion = Lens.lens (\ElasticsearchDataSourceConfig' {awsRegion} -> awsRegion) (\s@ElasticsearchDataSourceConfig' {} a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
 

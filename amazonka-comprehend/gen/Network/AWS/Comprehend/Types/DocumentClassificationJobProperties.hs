@@ -51,6 +51,16 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the document classification job completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the document classification job. It is
+    -- a unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -102,6 +112,16 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
 --
 -- 'endTime', 'documentClassificationJobProperties_endTime' - The time that the document classification job completed.
 --
+-- 'jobArn', 'documentClassificationJobProperties_jobArn' - The Amazon Resource Name (ARN) of the document classification job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'volumeKmsKeyId', 'documentClassificationJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -134,6 +154,7 @@ newDocumentClassificationJobProperties =
       documentClassifierArn =
         Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
@@ -174,6 +195,18 @@ documentClassificationJobProperties_documentClassifierArn = Lens.lens (\Document
 -- | The time that the document classification job completed.
 documentClassificationJobProperties_endTime :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.UTCTime)
 documentClassificationJobProperties_endTime = Lens.lens (\DocumentClassificationJobProperties' {endTime} -> endTime) (\s@DocumentClassificationJobProperties' {} a -> s {endTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the document classification job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+documentClassificationJobProperties_jobArn :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.Text)
+documentClassificationJobProperties_jobArn = Lens.lens (\DocumentClassificationJobProperties' {jobArn} -> jobArn) (\s@DocumentClassificationJobProperties' {} a -> s {jobArn = a} :: DocumentClassificationJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -221,6 +254,7 @@ instance
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "DocumentClassifierArn")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "JobName")

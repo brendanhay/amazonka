@@ -22,7 +22,11 @@ module Network.AWS.Rekognition.Types.TechnicalCueType
       ( ..,
         TechnicalCueType_BlackFrames,
         TechnicalCueType_ColorBars,
-        TechnicalCueType_EndCredits
+        TechnicalCueType_Content,
+        TechnicalCueType_EndCredits,
+        TechnicalCueType_OpeningCredits,
+        TechnicalCueType_Slate,
+        TechnicalCueType_StudioLogo
       ),
   )
 where
@@ -64,12 +68,28 @@ pattern TechnicalCueType_BlackFrames = TechnicalCueType' "BlackFrames"
 pattern TechnicalCueType_ColorBars :: TechnicalCueType
 pattern TechnicalCueType_ColorBars = TechnicalCueType' "ColorBars"
 
+pattern TechnicalCueType_Content :: TechnicalCueType
+pattern TechnicalCueType_Content = TechnicalCueType' "Content"
+
 pattern TechnicalCueType_EndCredits :: TechnicalCueType
 pattern TechnicalCueType_EndCredits = TechnicalCueType' "EndCredits"
+
+pattern TechnicalCueType_OpeningCredits :: TechnicalCueType
+pattern TechnicalCueType_OpeningCredits = TechnicalCueType' "OpeningCredits"
+
+pattern TechnicalCueType_Slate :: TechnicalCueType
+pattern TechnicalCueType_Slate = TechnicalCueType' "Slate"
+
+pattern TechnicalCueType_StudioLogo :: TechnicalCueType
+pattern TechnicalCueType_StudioLogo = TechnicalCueType' "StudioLogo"
 
 {-# COMPLETE
   TechnicalCueType_BlackFrames,
   TechnicalCueType_ColorBars,
+  TechnicalCueType_Content,
   TechnicalCueType_EndCredits,
+  TechnicalCueType_OpeningCredits,
+  TechnicalCueType_Slate,
+  TechnicalCueType_StudioLogo,
   TechnicalCueType'
   #-}

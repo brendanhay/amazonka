@@ -30,8 +30,9 @@ import Network.AWS.SageMaker.Types.AthenaResultFormat
 -- /See:/ 'newAthenaDatasetDefinition' smart constructor.
 data AthenaDatasetDefinition = AthenaDatasetDefinition'
   { outputCompression :: Prelude.Maybe AthenaResultCompressionType,
-    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data generated from an Athena query execution.
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt data generated from an Athena
+    -- query execution.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     workGroup :: Prelude.Maybe Prelude.Text,
     catalog :: Prelude.Text,
@@ -53,8 +54,9 @@ data AthenaDatasetDefinition = AthenaDatasetDefinition'
 --
 -- 'outputCompression', 'athenaDatasetDefinition_outputCompression' - Undocumented member.
 --
--- 'kmsKeyId', 'athenaDatasetDefinition_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data generated from an Athena query execution.
+-- 'kmsKeyId', 'athenaDatasetDefinition_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data generated from an Athena
+-- query execution.
 --
 -- 'workGroup', 'athenaDatasetDefinition_workGroup' - Undocumented member.
 --
@@ -101,8 +103,9 @@ newAthenaDatasetDefinition
 athenaDatasetDefinition_outputCompression :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe AthenaResultCompressionType)
 athenaDatasetDefinition_outputCompression = Lens.lens (\AthenaDatasetDefinition' {outputCompression} -> outputCompression) (\s@AthenaDatasetDefinition' {} a -> s {outputCompression = a} :: AthenaDatasetDefinition)
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data generated from an Athena query execution.
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data generated from an Athena
+-- query execution.
 athenaDatasetDefinition_kmsKeyId :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
 athenaDatasetDefinition_kmsKeyId = Lens.lens (\AthenaDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@AthenaDatasetDefinition' {} a -> s {kmsKeyId = a} :: AthenaDatasetDefinition)
 

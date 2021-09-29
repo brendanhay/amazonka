@@ -24,10 +24,10 @@
 --
 -- The Amazon EKS control plane consists of control plane instances that
 -- run the Kubernetes software, such as @etcd@ and the API server. The
--- control plane runs in an account managed by AWS, and the Kubernetes API
--- is exposed via the Amazon EKS API server endpoint. Each Amazon EKS
--- cluster control plane is single-tenant and unique and runs on its own
--- set of Amazon EC2 instances.
+-- control plane runs in an account managed by Amazon Web Services, and the
+-- Kubernetes API is exposed via the Amazon EKS API server endpoint. Each
+-- Amazon EKS cluster control plane is single-tenant and unique and runs on
+-- its own set of Amazon EC2 instances.
 --
 -- The cluster control plane is provisioned across multiple Availability
 -- Zones and fronted by an Elastic Load Balancing Network Load Balancer.
@@ -36,9 +36,9 @@
 -- nodes (for example, to support @kubectl exec@, @logs@, and @proxy@ data
 -- flows).
 --
--- Amazon EKS nodes run in your AWS account and connect to your cluster\'s
--- control plane via the Kubernetes API server endpoint and a certificate
--- file that is created for your cluster.
+-- Amazon EKS nodes run in your Amazon Web Services account and connect to
+-- your cluster\'s control plane via the Kubernetes API server endpoint and
+-- a certificate file that is created for your cluster.
 --
 -- Cluster creation typically takes several minutes. After you create an
 -- Amazon EKS cluster, you must configure your Kubernetes tooling to
@@ -88,12 +88,12 @@ data CreateCluster = CreateCluster'
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster control plane logs>
     -- in the //Amazon EKS User Guide// .
     --
     -- CloudWatch Logs ingestion, archive storage, and data scanning rates
     -- apply to exported control plane logs. For more information, see
-    -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+    -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
     -- | The encryption configuration for the cluster.
     encryptionConfig :: Prelude.Maybe [EncryptionConfig],
@@ -110,8 +110,8 @@ data CreateCluster = CreateCluster'
     -- | The unique name to give to your cluster.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
-    -- for the Kubernetes control plane to make calls to AWS API operations on
-    -- your behalf. For more information, see
+    -- for the Kubernetes control plane to make calls to Amazon Web Services
+    -- API operations on your behalf. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
     -- in the //Amazon EKS User Guide// .
     roleArn :: Prelude.Text,
@@ -141,12 +141,12 @@ data CreateCluster = CreateCluster'
 -- 'logging', 'createCluster_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster control plane logs>
 -- in the //Amazon EKS User Guide// .
 --
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
--- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+-- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
 -- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
 --
@@ -163,8 +163,8 @@ data CreateCluster = CreateCluster'
 -- 'name', 'createCluster_name' - The unique name to give to your cluster.
 --
 -- 'roleArn', 'createCluster_roleArn' - The Amazon Resource Name (ARN) of the IAM role that provides permissions
--- for the Kubernetes control plane to make calls to AWS API operations on
--- your behalf. For more information, see
+-- for the Kubernetes control plane to make calls to Amazon Web Services
+-- API operations on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
 -- in the //Amazon EKS User Guide// .
 --
@@ -209,12 +209,12 @@ createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNe
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster control plane logs>
 -- in the //Amazon EKS User Guide// .
 --
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
--- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+-- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 createCluster_logging :: Lens.Lens' CreateCluster (Prelude.Maybe Logging)
 createCluster_logging = Lens.lens (\CreateCluster' {logging} -> logging) (\s@CreateCluster' {} a -> s {logging = a} :: CreateCluster)
 
@@ -243,8 +243,8 @@ createCluster_name :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_name = Lens.lens (\CreateCluster' {name} -> name) (\s@CreateCluster' {} a -> s {name = a} :: CreateCluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
--- for the Kubernetes control plane to make calls to AWS API operations on
--- your behalf. For more information, see
+-- for the Kubernetes control plane to make calls to Amazon Web Services
+-- API operations on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
 -- in the //Amazon EKS User Guide// .
 createCluster_roleArn :: Lens.Lens' CreateCluster Prelude.Text

@@ -31,8 +31,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
 
     -- * Request Lenses
     describeCacheParameters_source,
-    describeCacheParameters_marker,
     describeCacheParameters_maxRecords,
+    describeCacheParameters_marker,
     describeCacheParameters_cacheParameterGroupName,
 
     -- * Destructuring the Response
@@ -62,11 +62,6 @@ data DescribeCacheParameters = DescribeCacheParameters'
     --
     -- Valid values: @user@ | @system@ | @engine-default@
     source :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -75,6 +70,11 @@ data DescribeCacheParameters = DescribeCacheParameters'
     --
     -- Constraints: minimum 20; maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of a specific cache parameter group to return details for.
     cacheParameterGroupName :: Prelude.Text
   }
@@ -92,11 +92,6 @@ data DescribeCacheParameters = DescribeCacheParameters'
 --
 -- Valid values: @user@ | @system@ | @engine-default@
 --
--- 'marker', 'describeCacheParameters_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeCacheParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -104,6 +99,11 @@ data DescribeCacheParameters = DescribeCacheParameters'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeCacheParameters_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 --
 -- 'cacheParameterGroupName', 'describeCacheParameters_cacheParameterGroupName' - The name of a specific cache parameter group to return details for.
 newDescribeCacheParameters ::
@@ -113,8 +113,8 @@ newDescribeCacheParameters ::
 newDescribeCacheParameters pCacheParameterGroupName_ =
   DescribeCacheParameters'
     { source = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       cacheParameterGroupName =
         pCacheParameterGroupName_
     }
@@ -125,13 +125,6 @@ newDescribeCacheParameters pCacheParameterGroupName_ =
 describeCacheParameters_source :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Text)
 describeCacheParameters_source = Lens.lens (\DescribeCacheParameters' {source} -> source) (\s@DescribeCacheParameters' {} a -> s {source = a} :: DescribeCacheParameters)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeCacheParameters_marker :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Text)
-describeCacheParameters_marker = Lens.lens (\DescribeCacheParameters' {marker} -> marker) (\s@DescribeCacheParameters' {} a -> s {marker = a} :: DescribeCacheParameters)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -141,6 +134,13 @@ describeCacheParameters_marker = Lens.lens (\DescribeCacheParameters' {marker} -
 -- Constraints: minimum 20; maximum 100.
 describeCacheParameters_maxRecords :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Int)
 describeCacheParameters_maxRecords = Lens.lens (\DescribeCacheParameters' {maxRecords} -> maxRecords) (\s@DescribeCacheParameters' {} a -> s {maxRecords = a} :: DescribeCacheParameters)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheParameters_marker :: Lens.Lens' DescribeCacheParameters (Prelude.Maybe Prelude.Text)
+describeCacheParameters_marker = Lens.lens (\DescribeCacheParameters' {marker} -> marker) (\s@DescribeCacheParameters' {} a -> s {marker = a} :: DescribeCacheParameters)
 
 -- | The name of a specific cache parameter group to return details for.
 describeCacheParameters_cacheParameterGroupName :: Lens.Lens' DescribeCacheParameters Prelude.Text
@@ -208,8 +208,8 @@ instance Core.ToQuery DescribeCacheParameters where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "Source" Core.=: source,
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName
       ]

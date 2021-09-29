@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- in the grant only when the operation request includes the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context>.
 --
--- AWS KMS applies the grant constraints only to cryptographic operations
--- that support an encryption context, that is, all cryptographic
--- operations with a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks symmetric CMK>.
+-- KMS applies the grant constraints only to cryptographic operations that
+-- support an encryption context, that is, all cryptographic operations
+-- with a
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks symmetric KMS key>.
 -- Grant constraints are not applied to operations that do not support an
--- encryption context, such as cryptographic operations with asymmetric
--- CMKs and management operations, such as DescribeKey or RetireGrant.
+-- encryption context, such as cryptographic operations with asymmetric KMS
+-- keys and management operations, such as DescribeKey or RetireGrant.
 --
 -- In a cryptographic operation, the encryption context in the decryption
 -- operation must be an exact, case-sensitive match for the keys and values
@@ -50,7 +50,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- @kms:EncryptionContextKeys@ conditions in an IAM or key policy. For
 -- details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context kms:EncryptionContext:>
--- in the //AWS Key Management Service Developer Guide// .
+-- in the //Key Management Service Developer Guide// .
 --
 -- /See:/ 'newGrantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'

@@ -32,6 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- Amazon ML include the following:
 --
 -- -   @SGD@ - Stochastic Gradient Descent.
+--
 -- -   @RandomForest@ - Random forest of decision trees.
 newtype Algorithm = Algorithm'
   { fromAlgorithm ::

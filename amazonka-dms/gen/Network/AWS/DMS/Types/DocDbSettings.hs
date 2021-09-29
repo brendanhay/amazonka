@@ -34,11 +34,12 @@ data DocDbSettings = DocDbSettings'
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | The name of the server on the DocumentDB source endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS KMS key identifier that is used to encrypt the content on the
+    -- | The KMS key identifier that is used to encrypt the content on the
     -- replication instance. If you don\'t specify a value for the @KmsKeyId@
-    -- parameter, then AWS DMS uses your default encryption key. AWS KMS
-    -- creates the default encryption key for your AWS account. Your AWS
-    -- account has a different default encryption key for each AWS Region.
+    -- parameter, then DMS uses your default encryption key. KMS creates the
+    -- default encryption key for your Amazon Web Services account. Your Amazon
+    -- Web Services account has a different default encryption key for each
+    -- Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account you use to access the DocumentDB
     -- source endpoint.
@@ -47,11 +48,11 @@ data DocDbSettings = DocDbSettings'
     port :: Prelude.Maybe Prelude.Int,
     -- | The user name you use to access the DocumentDB source endpoint.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the
-    -- DocumentDB endpoint.
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the DocumentDB endpoint.
     --
     -- You can specify one of two sets of values for these permissions. You can
     -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -59,8 +60,8 @@ data DocDbSettings = DocDbSettings'
     -- and @Port@. You can\'t specify both. For more information on creating
     -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
     -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
     -- to @\"none\"@.
@@ -96,11 +97,12 @@ data DocDbSettings = DocDbSettings'
 --
 -- 'serverName', 'docDbSettings_serverName' - The name of the server on the DocumentDB source endpoint.
 --
--- 'kmsKeyId', 'docDbSettings_kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the
+-- 'kmsKeyId', 'docDbSettings_kmsKeyId' - The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
--- parameter, then AWS DMS uses your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS Region.
+-- parameter, then DMS uses your default encryption key. KMS creates the
+-- default encryption key for your Amazon Web Services account. Your Amazon
+-- Web Services account has a different default encryption key for each
+-- Amazon Web Services Region.
 --
 -- 'password', 'docDbSettings_password' - The password for the user account you use to access the DocumentDB
 -- source endpoint.
@@ -109,11 +111,11 @@ data DocDbSettings = DocDbSettings'
 --
 -- 'username', 'docDbSettings_username' - The user name you use to access the DocumentDB source endpoint.
 --
--- 'secretsManagerAccessRoleArn', 'docDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the
--- DocumentDB endpoint.
+-- 'secretsManagerAccessRoleArn', 'docDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the DocumentDB endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -121,8 +123,8 @@ data DocDbSettings = DocDbSettings'
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
 -- 'extractDocId', 'docDbSettings_extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set
 -- to @\"none\"@.
@@ -168,11 +170,12 @@ docDbSettings_secretsManagerSecretId = Lens.lens (\DocDbSettings' {secretsManage
 docDbSettings_serverName :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_serverName = Lens.lens (\DocDbSettings' {serverName} -> serverName) (\s@DocDbSettings' {} a -> s {serverName = a} :: DocDbSettings)
 
--- | The AWS KMS key identifier that is used to encrypt the content on the
+-- | The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
--- parameter, then AWS DMS uses your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS Region.
+-- parameter, then DMS uses your default encryption key. KMS creates the
+-- default encryption key for your Amazon Web Services account. Your Amazon
+-- Web Services account has a different default encryption key for each
+-- Amazon Web Services Region.
 docDbSettings_kmsKeyId :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_kmsKeyId = Lens.lens (\DocDbSettings' {kmsKeyId} -> kmsKeyId) (\s@DocDbSettings' {} a -> s {kmsKeyId = a} :: DocDbSettings)
 
@@ -189,11 +192,11 @@ docDbSettings_port = Lens.lens (\DocDbSettings' {port} -> port) (\s@DocDbSetting
 docDbSettings_username :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_username = Lens.lens (\DocDbSettings' {username} -> username) (\s@DocDbSettings' {} a -> s {username = a} :: DocDbSettings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the
--- DocumentDB endpoint.
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the DocumentDB endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -201,8 +204,8 @@ docDbSettings_username = Lens.lens (\DocDbSettings' {username} -> username) (\s@
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 docDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' DocDbSettings (Prelude.Maybe Prelude.Text)
 docDbSettings_secretsManagerAccessRoleArn = Lens.lens (\DocDbSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@DocDbSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: DocDbSettings)
 

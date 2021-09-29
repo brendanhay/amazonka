@@ -32,15 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogsLogStream' smart constructor.
 data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
-  { -- | Specifies the pattern for identifying the start of a log message.
-    multiLineStartPattern :: Prelude.Maybe Prelude.Text,
-    -- | Specifies where to start to read data (start_of_file or end_of_file).
+  { -- | Specifies where to start to read data (start_of_file or end_of_file).
     -- The default is start_of_file. This setting is only used if there is no
     -- state persisted for that log stream.
     initialPosition :: Prelude.Maybe CloudWatchLogsInitialPosition,
     -- | Specifies the max number of log events in a batch, up to 10000. The
     -- default value is 1000.
     batchCount :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the pattern for identifying the start of a log message.
+    multiLineStartPattern :: Prelude.Maybe Prelude.Text,
     -- | Specifies log files that you want to push to CloudWatch Logs.
     --
     -- @File@ can point to a specific file or multiple files (by using wild
@@ -97,14 +97,14 @@ data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiLineStartPattern', 'cloudWatchLogsLogStream_multiLineStartPattern' - Specifies the pattern for identifying the start of a log message.
---
 -- 'initialPosition', 'cloudWatchLogsLogStream_initialPosition' - Specifies where to start to read data (start_of_file or end_of_file).
 -- The default is start_of_file. This setting is only used if there is no
 -- state persisted for that log stream.
 --
 -- 'batchCount', 'cloudWatchLogsLogStream_batchCount' - Specifies the max number of log events in a batch, up to 10000. The
 -- default value is 1000.
+--
+-- 'multiLineStartPattern', 'cloudWatchLogsLogStream_multiLineStartPattern' - Specifies the pattern for identifying the start of a log message.
 --
 -- 'file', 'cloudWatchLogsLogStream_file' - Specifies log files that you want to push to CloudWatch Logs.
 --
@@ -154,10 +154,10 @@ newCloudWatchLogsLogStream ::
   CloudWatchLogsLogStream
 newCloudWatchLogsLogStream =
   CloudWatchLogsLogStream'
-    { multiLineStartPattern =
+    { initialPosition =
         Prelude.Nothing,
-      initialPosition = Prelude.Nothing,
       batchCount = Prelude.Nothing,
+      multiLineStartPattern = Prelude.Nothing,
       file = Prelude.Nothing,
       fileFingerprintLines = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
@@ -167,10 +167,6 @@ newCloudWatchLogsLogStream =
       timeZone = Prelude.Nothing,
       datetimeFormat = Prelude.Nothing
     }
-
--- | Specifies the pattern for identifying the start of a log message.
-cloudWatchLogsLogStream_multiLineStartPattern :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
-cloudWatchLogsLogStream_multiLineStartPattern = Lens.lens (\CloudWatchLogsLogStream' {multiLineStartPattern} -> multiLineStartPattern) (\s@CloudWatchLogsLogStream' {} a -> s {multiLineStartPattern = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies where to start to read data (start_of_file or end_of_file).
 -- The default is start_of_file. This setting is only used if there is no
@@ -182,6 +178,10 @@ cloudWatchLogsLogStream_initialPosition = Lens.lens (\CloudWatchLogsLogStream' {
 -- default value is 1000.
 cloudWatchLogsLogStream_batchCount :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Int)
 cloudWatchLogsLogStream_batchCount = Lens.lens (\CloudWatchLogsLogStream' {batchCount} -> batchCount) (\s@CloudWatchLogsLogStream' {} a -> s {batchCount = a} :: CloudWatchLogsLogStream)
+
+-- | Specifies the pattern for identifying the start of a log message.
+cloudWatchLogsLogStream_multiLineStartPattern :: Lens.Lens' CloudWatchLogsLogStream (Prelude.Maybe Prelude.Text)
+cloudWatchLogsLogStream_multiLineStartPattern = Lens.lens (\CloudWatchLogsLogStream' {multiLineStartPattern} -> multiLineStartPattern) (\s@CloudWatchLogsLogStream' {} a -> s {multiLineStartPattern = a} :: CloudWatchLogsLogStream)
 
 -- | Specifies log files that you want to push to CloudWatch Logs.
 --
@@ -250,9 +250,9 @@ instance Core.FromJSON CloudWatchLogsLogStream where
       "CloudWatchLogsLogStream"
       ( \x ->
           CloudWatchLogsLogStream'
-            Prelude.<$> (x Core..:? "MultiLineStartPattern")
-            Prelude.<*> (x Core..:? "InitialPosition")
+            Prelude.<$> (x Core..:? "InitialPosition")
             Prelude.<*> (x Core..:? "BatchCount")
+            Prelude.<*> (x Core..:? "MultiLineStartPattern")
             Prelude.<*> (x Core..:? "File")
             Prelude.<*> (x Core..:? "FileFingerprintLines")
             Prelude.<*> (x Core..:? "LogGroupName")
@@ -271,11 +271,11 @@ instance Core.ToJSON CloudWatchLogsLogStream where
   toJSON CloudWatchLogsLogStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MultiLineStartPattern" Core..=)
-              Prelude.<$> multiLineStartPattern,
-            ("InitialPosition" Core..=)
+          [ ("InitialPosition" Core..=)
               Prelude.<$> initialPosition,
             ("BatchCount" Core..=) Prelude.<$> batchCount,
+            ("MultiLineStartPattern" Core..=)
+              Prelude.<$> multiLineStartPattern,
             ("File" Core..=) Prelude.<$> file,
             ("FileFingerprintLines" Core..=)
               Prelude.<$> fileFingerprintLines,

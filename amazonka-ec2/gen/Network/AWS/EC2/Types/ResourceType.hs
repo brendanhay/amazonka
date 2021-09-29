@@ -20,6 +20,8 @@
 module Network.AWS.EC2.Types.ResourceType
   ( ResourceType
       ( ..,
+        ResourceType_Capacity_reservation,
+        ResourceType_Carrier_gateway,
         ResourceType_Client_vpn_endpoint,
         ResourceType_Customer_gateway,
         ResourceType_Dedicated_host,
@@ -36,19 +38,30 @@ module Network.AWS.EC2.Types.ResourceType
         ResourceType_Import_image_task,
         ResourceType_Import_snapshot_task,
         ResourceType_Instance,
+        ResourceType_Instance_event_window,
         ResourceType_Internet_gateway,
+        ResourceType_Ipv4pool_ec2,
+        ResourceType_Ipv6pool_ec2,
         ResourceType_Key_pair,
         ResourceType_Launch_template,
+        ResourceType_Local_gateway,
+        ResourceType_Local_gateway_route_table,
+        ResourceType_Local_gateway_route_table_virtual_interface_group_association,
         ResourceType_Local_gateway_route_table_vpc_association,
+        ResourceType_Local_gateway_virtual_interface,
+        ResourceType_Local_gateway_virtual_interface_group,
         ResourceType_Natgateway,
         ResourceType_Network_acl,
         ResourceType_Network_insights_analysis,
         ResourceType_Network_insights_path,
         ResourceType_Network_interface,
         ResourceType_Placement_group,
+        ResourceType_Prefix_list,
+        ResourceType_Replace_root_volume_task,
         ResourceType_Reserved_instances,
         ResourceType_Route_table,
         ResourceType_Security_group,
+        ResourceType_Security_group_rule,
         ResourceType_Snapshot,
         ResourceType_Spot_fleet_request,
         ResourceType_Spot_instances_request,
@@ -63,6 +76,8 @@ module Network.AWS.EC2.Types.ResourceType
         ResourceType_Transit_gateway_route_table,
         ResourceType_Volume,
         ResourceType_Vpc,
+        ResourceType_Vpc_endpoint,
+        ResourceType_Vpc_endpoint_service,
         ResourceType_Vpc_flow_log,
         ResourceType_Vpc_peering_connection,
         ResourceType_Vpn_connection,
@@ -102,6 +117,12 @@ newtype ResourceType = ResourceType'
       Core.FromXML,
       Core.ToXML
     )
+
+pattern ResourceType_Capacity_reservation :: ResourceType
+pattern ResourceType_Capacity_reservation = ResourceType' "capacity-reservation"
+
+pattern ResourceType_Carrier_gateway :: ResourceType
+pattern ResourceType_Carrier_gateway = ResourceType' "carrier-gateway"
 
 pattern ResourceType_Client_vpn_endpoint :: ResourceType
 pattern ResourceType_Client_vpn_endpoint = ResourceType' "client-vpn-endpoint"
@@ -151,8 +172,17 @@ pattern ResourceType_Import_snapshot_task = ResourceType' "import-snapshot-task"
 pattern ResourceType_Instance :: ResourceType
 pattern ResourceType_Instance = ResourceType' "instance"
 
+pattern ResourceType_Instance_event_window :: ResourceType
+pattern ResourceType_Instance_event_window = ResourceType' "instance-event-window"
+
 pattern ResourceType_Internet_gateway :: ResourceType
 pattern ResourceType_Internet_gateway = ResourceType' "internet-gateway"
+
+pattern ResourceType_Ipv4pool_ec2 :: ResourceType
+pattern ResourceType_Ipv4pool_ec2 = ResourceType' "ipv4pool-ec2"
+
+pattern ResourceType_Ipv6pool_ec2 :: ResourceType
+pattern ResourceType_Ipv6pool_ec2 = ResourceType' "ipv6pool-ec2"
 
 pattern ResourceType_Key_pair :: ResourceType
 pattern ResourceType_Key_pair = ResourceType' "key-pair"
@@ -160,8 +190,23 @@ pattern ResourceType_Key_pair = ResourceType' "key-pair"
 pattern ResourceType_Launch_template :: ResourceType
 pattern ResourceType_Launch_template = ResourceType' "launch-template"
 
+pattern ResourceType_Local_gateway :: ResourceType
+pattern ResourceType_Local_gateway = ResourceType' "local-gateway"
+
+pattern ResourceType_Local_gateway_route_table :: ResourceType
+pattern ResourceType_Local_gateway_route_table = ResourceType' "local-gateway-route-table"
+
+pattern ResourceType_Local_gateway_route_table_virtual_interface_group_association :: ResourceType
+pattern ResourceType_Local_gateway_route_table_virtual_interface_group_association = ResourceType' "local-gateway-route-table-virtual-interface-group-association"
+
 pattern ResourceType_Local_gateway_route_table_vpc_association :: ResourceType
 pattern ResourceType_Local_gateway_route_table_vpc_association = ResourceType' "local-gateway-route-table-vpc-association"
+
+pattern ResourceType_Local_gateway_virtual_interface :: ResourceType
+pattern ResourceType_Local_gateway_virtual_interface = ResourceType' "local-gateway-virtual-interface"
+
+pattern ResourceType_Local_gateway_virtual_interface_group :: ResourceType
+pattern ResourceType_Local_gateway_virtual_interface_group = ResourceType' "local-gateway-virtual-interface-group"
 
 pattern ResourceType_Natgateway :: ResourceType
 pattern ResourceType_Natgateway = ResourceType' "natgateway"
@@ -181,6 +226,12 @@ pattern ResourceType_Network_interface = ResourceType' "network-interface"
 pattern ResourceType_Placement_group :: ResourceType
 pattern ResourceType_Placement_group = ResourceType' "placement-group"
 
+pattern ResourceType_Prefix_list :: ResourceType
+pattern ResourceType_Prefix_list = ResourceType' "prefix-list"
+
+pattern ResourceType_Replace_root_volume_task :: ResourceType
+pattern ResourceType_Replace_root_volume_task = ResourceType' "replace-root-volume-task"
+
 pattern ResourceType_Reserved_instances :: ResourceType
 pattern ResourceType_Reserved_instances = ResourceType' "reserved-instances"
 
@@ -189,6 +240,9 @@ pattern ResourceType_Route_table = ResourceType' "route-table"
 
 pattern ResourceType_Security_group :: ResourceType
 pattern ResourceType_Security_group = ResourceType' "security-group"
+
+pattern ResourceType_Security_group_rule :: ResourceType
+pattern ResourceType_Security_group_rule = ResourceType' "security-group-rule"
 
 pattern ResourceType_Snapshot :: ResourceType
 pattern ResourceType_Snapshot = ResourceType' "snapshot"
@@ -232,6 +286,12 @@ pattern ResourceType_Volume = ResourceType' "volume"
 pattern ResourceType_Vpc :: ResourceType
 pattern ResourceType_Vpc = ResourceType' "vpc"
 
+pattern ResourceType_Vpc_endpoint :: ResourceType
+pattern ResourceType_Vpc_endpoint = ResourceType' "vpc-endpoint"
+
+pattern ResourceType_Vpc_endpoint_service :: ResourceType
+pattern ResourceType_Vpc_endpoint_service = ResourceType' "vpc-endpoint-service"
+
 pattern ResourceType_Vpc_flow_log :: ResourceType
 pattern ResourceType_Vpc_flow_log = ResourceType' "vpc-flow-log"
 
@@ -245,6 +305,8 @@ pattern ResourceType_Vpn_gateway :: ResourceType
 pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
 
 {-# COMPLETE
+  ResourceType_Capacity_reservation,
+  ResourceType_Carrier_gateway,
   ResourceType_Client_vpn_endpoint,
   ResourceType_Customer_gateway,
   ResourceType_Dedicated_host,
@@ -261,19 +323,30 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Import_image_task,
   ResourceType_Import_snapshot_task,
   ResourceType_Instance,
+  ResourceType_Instance_event_window,
   ResourceType_Internet_gateway,
+  ResourceType_Ipv4pool_ec2,
+  ResourceType_Ipv6pool_ec2,
   ResourceType_Key_pair,
   ResourceType_Launch_template,
+  ResourceType_Local_gateway,
+  ResourceType_Local_gateway_route_table,
+  ResourceType_Local_gateway_route_table_virtual_interface_group_association,
   ResourceType_Local_gateway_route_table_vpc_association,
+  ResourceType_Local_gateway_virtual_interface,
+  ResourceType_Local_gateway_virtual_interface_group,
   ResourceType_Natgateway,
   ResourceType_Network_acl,
   ResourceType_Network_insights_analysis,
   ResourceType_Network_insights_path,
   ResourceType_Network_interface,
   ResourceType_Placement_group,
+  ResourceType_Prefix_list,
+  ResourceType_Replace_root_volume_task,
   ResourceType_Reserved_instances,
   ResourceType_Route_table,
   ResourceType_Security_group,
+  ResourceType_Security_group_rule,
   ResourceType_Snapshot,
   ResourceType_Spot_fleet_request,
   ResourceType_Spot_instances_request,
@@ -288,6 +361,8 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Transit_gateway_route_table,
   ResourceType_Volume,
   ResourceType_Vpc,
+  ResourceType_Vpc_endpoint,
+  ResourceType_Vpc_endpoint_service,
   ResourceType_Vpc_flow_log,
   ResourceType_Vpc_peering_connection,
   ResourceType_Vpn_connection,

@@ -39,7 +39,7 @@ data CustomAvailabilityZone = CustomAvailabilityZone'
     -- | The name of the custom AZ.
     customAvailabilityZoneName :: Prelude.Maybe Prelude.Text,
     -- | Information about the virtual private network (VPN) between the VMware
-    -- vSphere cluster and the AWS website.
+    -- vSphere cluster and the Amazon Web Services website.
     vpnDetails :: Prelude.Maybe VpnDetails,
     -- | The status of the custom AZ.
     customAvailabilityZoneStatus :: Prelude.Maybe Prelude.Text
@@ -61,7 +61,7 @@ data CustomAvailabilityZone = CustomAvailabilityZone'
 -- 'customAvailabilityZoneName', 'customAvailabilityZone_customAvailabilityZoneName' - The name of the custom AZ.
 --
 -- 'vpnDetails', 'customAvailabilityZone_vpnDetails' - Information about the virtual private network (VPN) between the VMware
--- vSphere cluster and the AWS website.
+-- vSphere cluster and the Amazon Web Services website.
 --
 -- 'customAvailabilityZoneStatus', 'customAvailabilityZone_customAvailabilityZoneStatus' - The status of the custom AZ.
 newCustomAvailabilityZone ::
@@ -86,7 +86,7 @@ customAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CustomAvailabili
 customAvailabilityZone_customAvailabilityZoneName = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneName} -> customAvailabilityZoneName) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneName = a} :: CustomAvailabilityZone)
 
 -- | Information about the virtual private network (VPN) between the VMware
--- vSphere cluster and the AWS website.
+-- vSphere cluster and the Amazon Web Services website.
 customAvailabilityZone_vpnDetails :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe VpnDetails)
 customAvailabilityZone_vpnDetails = Lens.lens (\CustomAvailabilityZone' {vpnDetails} -> vpnDetails) (\s@CustomAvailabilityZone' {} a -> s {vpnDetails = a} :: CustomAvailabilityZone)
 

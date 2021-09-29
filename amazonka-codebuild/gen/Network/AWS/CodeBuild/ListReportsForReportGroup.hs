@@ -29,8 +29,8 @@ module Network.AWS.CodeBuild.ListReportsForReportGroup
     newListReportsForReportGroup,
 
     -- * Request Lenses
-    listReportsForReportGroup_sortOrder,
     listReportsForReportGroup_nextToken,
+    listReportsForReportGroup_sortOrder,
     listReportsForReportGroup_maxResults,
     listReportsForReportGroup_filter,
     listReportsForReportGroup_reportGroupArn,
@@ -55,10 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListReportsForReportGroup' smart constructor.
 data ListReportsForReportGroup = ListReportsForReportGroup'
-  { -- | Use to specify whether the results are returned in ascending or
-    -- descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, the maximum number of items that can be returned
+  { -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -66,6 +63,9 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use to specify whether the results are returned in ascending or
+    -- descending order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The maximum number of paginated reports in this report group returned
     -- per response. Use @nextToken@ to iterate pages in the list of returned
     -- @Report@ objects. The default value is 100.
@@ -85,9 +85,6 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listReportsForReportGroup_sortOrder' - Use to specify whether the results are returned in ascending or
--- descending order.
---
 -- 'nextToken', 'listReportsForReportGroup_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -95,6 +92,9 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
+--
+-- 'sortOrder', 'listReportsForReportGroup_sortOrder' - Use to specify whether the results are returned in ascending or
+-- descending order.
 --
 -- 'maxResults', 'listReportsForReportGroup_maxResults' - The maximum number of paginated reports in this report group returned
 -- per response. Use @nextToken@ to iterate pages in the list of returned
@@ -109,18 +109,13 @@ newListReportsForReportGroup ::
   ListReportsForReportGroup
 newListReportsForReportGroup pReportGroupArn_ =
   ListReportsForReportGroup'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
       reportGroupArn = pReportGroupArn_
     }
-
--- | Use to specify whether the results are returned in ascending or
--- descending order.
-listReportsForReportGroup_sortOrder :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe SortOrderType)
-listReportsForReportGroup_sortOrder = Lens.lens (\ListReportsForReportGroup' {sortOrder} -> sortOrder) (\s@ListReportsForReportGroup' {} a -> s {sortOrder = a} :: ListReportsForReportGroup)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -131,6 +126,11 @@ listReportsForReportGroup_sortOrder = Lens.lens (\ListReportsForReportGroup' {so
 -- no more next tokens are returned.
 listReportsForReportGroup_nextToken :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe Prelude.Text)
 listReportsForReportGroup_nextToken = Lens.lens (\ListReportsForReportGroup' {nextToken} -> nextToken) (\s@ListReportsForReportGroup' {} a -> s {nextToken = a} :: ListReportsForReportGroup)
+
+-- | Use to specify whether the results are returned in ascending or
+-- descending order.
+listReportsForReportGroup_sortOrder :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe SortOrderType)
+listReportsForReportGroup_sortOrder = Lens.lens (\ListReportsForReportGroup' {sortOrder} -> sortOrder) (\s@ListReportsForReportGroup' {} a -> s {sortOrder = a} :: ListReportsForReportGroup)
 
 -- | The maximum number of paginated reports in this report group returned
 -- per response. Use @nextToken@ to iterate pages in the list of returned
@@ -206,8 +206,8 @@ instance Core.ToJSON ListReportsForReportGroup where
   toJSON ListReportsForReportGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter',
             Prelude.Just

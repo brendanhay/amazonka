@@ -45,8 +45,8 @@ module Network.AWS.LexModels.PutSlotType
     putSlotType_enumerationValues,
     putSlotType_valueSelectionStrategy,
     putSlotType_parentSlotTypeSignature,
-    putSlotType_createVersion,
     putSlotType_description,
+    putSlotType_createVersion,
     putSlotType_checksum,
     putSlotType_name,
 
@@ -63,8 +63,8 @@ module Network.AWS.LexModels.PutSlotType
     putSlotTypeResponse_version,
     putSlotTypeResponse_name,
     putSlotTypeResponse_parentSlotTypeSignature,
-    putSlotTypeResponse_createVersion,
     putSlotTypeResponse_description,
+    putSlotTypeResponse_createVersion,
     putSlotTypeResponse_checksum,
     putSlotTypeResponse_httpStatus,
   )
@@ -117,12 +117,12 @@ data PutSlotType = PutSlotType'
     --
     -- Only @AMAZON.AlphaNumeric@ is supported.
     parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | A description of the slot type.
+    description :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@ a new numbered version of the slot type is created.
     -- This is the same as calling the @CreateSlotTypeVersion@ operation. If
     -- you do not specify @createVersion@, the default is @false@.
     createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | A description of the slot type.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Identifies a specific revision of the @$LATEST@ version.
     --
     -- When you create a new slot type, leave the @checksum@ field blank. If
@@ -194,11 +194,11 @@ data PutSlotType = PutSlotType'
 --
 -- Only @AMAZON.AlphaNumeric@ is supported.
 --
+-- 'description', 'putSlotType_description' - A description of the slot type.
+--
 -- 'createVersion', 'putSlotType_createVersion' - When set to @true@ a new numbered version of the slot type is created.
 -- This is the same as calling the @CreateSlotTypeVersion@ operation. If
 -- you do not specify @createVersion@, the default is @false@.
---
--- 'description', 'putSlotType_description' - A description of the slot type.
 --
 -- 'checksum', 'putSlotType_checksum' - Identifies a specific revision of the @$LATEST@ version.
 --
@@ -232,8 +232,8 @@ newPutSlotType pName_ =
       enumerationValues = Prelude.Nothing,
       valueSelectionStrategy = Prelude.Nothing,
       parentSlotTypeSignature = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
       checksum = Prelude.Nothing,
       name = pName_
     }
@@ -284,15 +284,15 @@ putSlotType_valueSelectionStrategy = Lens.lens (\PutSlotType' {valueSelectionStr
 putSlotType_parentSlotTypeSignature :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
 putSlotType_parentSlotTypeSignature = Lens.lens (\PutSlotType' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotType' {} a -> s {parentSlotTypeSignature = a} :: PutSlotType)
 
+-- | A description of the slot type.
+putSlotType_description :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
+putSlotType_description = Lens.lens (\PutSlotType' {description} -> description) (\s@PutSlotType' {} a -> s {description = a} :: PutSlotType)
+
 -- | When set to @true@ a new numbered version of the slot type is created.
 -- This is the same as calling the @CreateSlotTypeVersion@ operation. If
 -- you do not specify @createVersion@, the default is @false@.
 putSlotType_createVersion :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Bool)
 putSlotType_createVersion = Lens.lens (\PutSlotType' {createVersion} -> createVersion) (\s@PutSlotType' {} a -> s {createVersion = a} :: PutSlotType)
-
--- | A description of the slot type.
-putSlotType_description :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
-putSlotType_description = Lens.lens (\PutSlotType' {description} -> description) (\s@PutSlotType' {} a -> s {description = a} :: PutSlotType)
 
 -- | Identifies a specific revision of the @$LATEST@ version.
 --
@@ -339,8 +339,8 @@ instance Core.AWSRequest PutSlotType where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "parentSlotTypeSignature")
-            Prelude.<*> (x Core..?> "createVersion")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "createVersion")
             Prelude.<*> (x Core..?> "checksum")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -372,8 +372,8 @@ instance Core.ToJSON PutSlotType where
               Prelude.<$> valueSelectionStrategy,
             ("parentSlotTypeSignature" Core..=)
               Prelude.<$> parentSlotTypeSignature,
-            ("createVersion" Core..=) Prelude.<$> createVersion,
             ("description" Core..=) Prelude.<$> description,
+            ("createVersion" Core..=) Prelude.<$> createVersion,
             ("checksum" Core..=) Prelude.<$> checksum
           ]
       )
@@ -408,12 +408,12 @@ data PutSlotTypeResponse = PutSlotTypeResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The built-in slot type used as the parent of the slot type.
     parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | A description of the slot type.
+    description :: Prelude.Maybe Prelude.Text,
     -- | @True@ if a new version of the slot type was created. If the
     -- @createVersion@ field was not specified in the request, the
     -- @createVersion@ field is set to false in the response.
     createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | A description of the slot type.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Checksum of the @$LATEST@ version of the slot type.
     checksum :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -449,11 +449,11 @@ data PutSlotTypeResponse = PutSlotTypeResponse'
 --
 -- 'parentSlotTypeSignature', 'putSlotTypeResponse_parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type.
 --
+-- 'description', 'putSlotTypeResponse_description' - A description of the slot type.
+--
 -- 'createVersion', 'putSlotTypeResponse_createVersion' - @True@ if a new version of the slot type was created. If the
 -- @createVersion@ field was not specified in the request, the
 -- @createVersion@ field is set to false in the response.
---
--- 'description', 'putSlotTypeResponse_description' - A description of the slot type.
 --
 -- 'checksum', 'putSlotTypeResponse_checksum' - Checksum of the @$LATEST@ version of the slot type.
 --
@@ -473,8 +473,8 @@ newPutSlotTypeResponse pHttpStatus_ =
       version = Prelude.Nothing,
       name = Prelude.Nothing,
       parentSlotTypeSignature = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
       checksum = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -515,15 +515,15 @@ putSlotTypeResponse_name = Lens.lens (\PutSlotTypeResponse' {name} -> name) (\s@
 putSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
 putSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\PutSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: PutSlotTypeResponse)
 
+-- | A description of the slot type.
+putSlotTypeResponse_description :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
+putSlotTypeResponse_description = Lens.lens (\PutSlotTypeResponse' {description} -> description) (\s@PutSlotTypeResponse' {} a -> s {description = a} :: PutSlotTypeResponse)
+
 -- | @True@ if a new version of the slot type was created. If the
 -- @createVersion@ field was not specified in the request, the
 -- @createVersion@ field is set to false in the response.
 putSlotTypeResponse_createVersion :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Bool)
 putSlotTypeResponse_createVersion = Lens.lens (\PutSlotTypeResponse' {createVersion} -> createVersion) (\s@PutSlotTypeResponse' {} a -> s {createVersion = a} :: PutSlotTypeResponse)
-
--- | A description of the slot type.
-putSlotTypeResponse_description :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
-putSlotTypeResponse_description = Lens.lens (\PutSlotTypeResponse' {description} -> description) (\s@PutSlotTypeResponse' {} a -> s {description = a} :: PutSlotTypeResponse)
 
 -- | Checksum of the @$LATEST@ version of the slot type.
 putSlotTypeResponse_checksum :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)

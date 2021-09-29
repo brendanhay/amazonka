@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a job in an AWS Batch job queue. Jobs that are in the
--- @SUBMITTED@, @PENDING@, or @RUNNABLE@ state are canceled. Jobs that have
--- progressed to @STARTING@ or @RUNNING@ are not canceled (but the API
--- operation still succeeds, even if no job is canceled); these jobs must
--- be terminated with the TerminateJob operation.
+-- Cancels a job in an Batch job queue. Jobs that are in the @SUBMITTED@,
+-- @PENDING@, or @RUNNABLE@ state are canceled. Jobs that have progressed
+-- to @STARTING@ or @RUNNING@ aren\'t canceled, but the API operation still
+-- succeeds, even if no job is canceled. These jobs must be terminated with
+-- the TerminateJob operation.
 module Network.AWS.Batch.CancelJob
   ( -- * Creating a Request
     CancelJob (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { -- | The AWS Batch job ID of the job to cancel.
+  { -- | The Batch job ID of the job to cancel.
     jobId :: Prelude.Text,
     -- | A message to attach to the job that explains the reason for canceling
     -- it. This message is returned by future DescribeJobs operations on the
-    -- job. This message is also recorded in the AWS Batch activity logs.
+    -- job. This message is also recorded in the Batch activity logs.
     reason :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,11 +71,11 @@ data CancelJob = CancelJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'cancelJob_jobId' - The AWS Batch job ID of the job to cancel.
+-- 'jobId', 'cancelJob_jobId' - The Batch job ID of the job to cancel.
 --
 -- 'reason', 'cancelJob_reason' - A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
--- job. This message is also recorded in the AWS Batch activity logs.
+-- job. This message is also recorded in the Batch activity logs.
 newCancelJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -85,13 +85,13 @@ newCancelJob ::
 newCancelJob pJobId_ pReason_ =
   CancelJob' {jobId = pJobId_, reason = pReason_}
 
--- | The AWS Batch job ID of the job to cancel.
+-- | The Batch job ID of the job to cancel.
 cancelJob_jobId :: Lens.Lens' CancelJob Prelude.Text
 cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -> s {jobId = a} :: CancelJob)
 
 -- | A message to attach to the job that explains the reason for canceling
 -- it. This message is returned by future DescribeJobs operations on the
--- job. This message is also recorded in the AWS Batch activity logs.
+-- job. This message is also recorded in the Batch activity logs.
 cancelJob_reason :: Lens.Lens' CancelJob Prelude.Text
 cancelJob_reason = Lens.lens (\CancelJob' {reason} -> reason) (\s@CancelJob' {} a -> s {reason = a} :: CancelJob)
 

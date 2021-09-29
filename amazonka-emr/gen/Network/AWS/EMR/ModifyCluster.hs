@@ -51,7 +51,10 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
   { -- | The number of steps that can be executed concurrently. You can specify a
-    -- maximum of 256 steps.
+    -- minimum of 1 step and a maximum of 256 steps. We recommend that you do
+    -- not change this parameter while steps are running or the
+    -- @ActionOnFailure@ setting may not behave as expected. For more
+    -- information see Step$ActionOnFailure.
     stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier of the cluster.
     clusterId :: Prelude.Text
@@ -67,7 +70,10 @@ data ModifyCluster = ModifyCluster'
 -- for backwards compatibility:
 --
 -- 'stepConcurrencyLevel', 'modifyCluster_stepConcurrencyLevel' - The number of steps that can be executed concurrently. You can specify a
--- maximum of 256 steps.
+-- minimum of 1 step and a maximum of 256 steps. We recommend that you do
+-- not change this parameter while steps are running or the
+-- @ActionOnFailure@ setting may not behave as expected. For more
+-- information see Step$ActionOnFailure.
 --
 -- 'clusterId', 'modifyCluster_clusterId' - The unique identifier of the cluster.
 newModifyCluster ::
@@ -82,7 +88,10 @@ newModifyCluster pClusterId_ =
     }
 
 -- | The number of steps that can be executed concurrently. You can specify a
--- maximum of 256 steps.
+-- minimum of 1 step and a maximum of 256 steps. We recommend that you do
+-- not change this parameter while steps are running or the
+-- @ActionOnFailure@ setting may not behave as expected. For more
+-- information see Step$ActionOnFailure.
 modifyCluster_stepConcurrencyLevel :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Int)
 modifyCluster_stepConcurrencyLevel = Lens.lens (\ModifyCluster' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@ModifyCluster' {} a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
 

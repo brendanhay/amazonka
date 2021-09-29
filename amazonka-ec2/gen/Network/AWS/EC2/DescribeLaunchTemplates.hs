@@ -31,8 +31,8 @@ module Network.AWS.EC2.DescribeLaunchTemplates
     -- * Request Lenses
     describeLaunchTemplates_nextToken,
     describeLaunchTemplates_launchTemplateNames,
-    describeLaunchTemplates_dryRun,
     describeLaunchTemplates_maxResults,
+    describeLaunchTemplates_dryRun,
     describeLaunchTemplates_launchTemplateIds,
     describeLaunchTemplates_filters,
 
@@ -60,15 +60,15 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more launch template names.
     launchTemplateNames :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 1 and 200.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 1 and 200.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more launch template IDs.
     launchTemplateIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
@@ -102,14 +102,14 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
 --
 -- 'launchTemplateNames', 'describeLaunchTemplates_launchTemplateNames' - One or more launch template names.
 --
+-- 'maxResults', 'describeLaunchTemplates_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
+--
 -- 'dryRun', 'describeLaunchTemplates_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeLaunchTemplates_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200.
 --
 -- 'launchTemplateIds', 'describeLaunchTemplates_launchTemplateIds' - One or more launch template IDs.
 --
@@ -135,8 +135,8 @@ newDescribeLaunchTemplates =
     { nextToken =
         Prelude.Nothing,
       launchTemplateNames = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       launchTemplateIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -149,18 +149,18 @@ describeLaunchTemplates_nextToken = Lens.lens (\DescribeLaunchTemplates' {nextTo
 describeLaunchTemplates_launchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
 describeLaunchTemplates_launchTemplateNames = Lens.lens (\DescribeLaunchTemplates' {launchTemplateNames} -> launchTemplateNames) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateNames = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
+describeLaunchTemplates_maxResults :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Natural)
+describeLaunchTemplates_maxResults = Lens.lens (\DescribeLaunchTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchTemplates' {} a -> s {maxResults = a} :: DescribeLaunchTemplates)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeLaunchTemplates_dryRun :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Bool)
 describeLaunchTemplates_dryRun = Lens.lens (\DescribeLaunchTemplates' {dryRun} -> dryRun) (\s@DescribeLaunchTemplates' {} a -> s {dryRun = a} :: DescribeLaunchTemplates)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200.
-describeLaunchTemplates_maxResults :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Natural)
-describeLaunchTemplates_maxResults = Lens.lens (\DescribeLaunchTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchTemplates' {} a -> s {maxResults = a} :: DescribeLaunchTemplates)
 
 -- | One or more launch template IDs.
 describeLaunchTemplates_launchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
@@ -244,8 +244,8 @@ instance Core.ToQuery DescribeLaunchTemplates where
           ( Core.toQueryList "LaunchTemplateName"
               Prelude.<$> launchTemplateNames
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "LaunchTemplateId"
               Prelude.<$> launchTemplateIds

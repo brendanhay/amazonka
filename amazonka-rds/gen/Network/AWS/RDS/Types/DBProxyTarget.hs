@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.TargetHealth
+import Network.AWS.RDS.Types.TargetRole
 import Network.AWS.RDS.Types.TargetType
 
 -- | Contains the details for an RDS Proxy target. It represents an RDS DB
@@ -45,6 +46,9 @@ data DBProxyTarget = DBProxyTarget'
     -- | The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB
     -- cluster.
     targetArn :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the target of the proxy can be used for
+    -- read\/write or read-only operations.
+    role' :: Prelude.Maybe TargetRole,
     -- | The port that the RDS Proxy uses to connect to the target RDS DB
     -- instance or Aurora DB cluster.
     port :: Prelude.Maybe Prelude.Int,
@@ -77,6 +81,9 @@ data DBProxyTarget = DBProxyTarget'
 -- 'targetArn', 'dbProxyTarget_targetArn' - The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB
 -- cluster.
 --
+-- 'role'', 'dbProxyTarget_role' - A value that indicates whether the target of the proxy can be used for
+-- read\/write or read-only operations.
+--
 -- 'port', 'dbProxyTarget_port' - The port that the RDS Proxy uses to connect to the target RDS DB
 -- instance or Aurora DB cluster.
 --
@@ -93,6 +100,7 @@ newDBProxyTarget =
     { trackedClusterId = Prelude.Nothing,
       rdsResourceId = Prelude.Nothing,
       targetArn = Prelude.Nothing,
+      role' = Prelude.Nothing,
       port = Prelude.Nothing,
       endpoint = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -115,6 +123,11 @@ dbProxyTarget_rdsResourceId = Lens.lens (\DBProxyTarget' {rdsResourceId} -> rdsR
 -- cluster.
 dbProxyTarget_targetArn :: Lens.Lens' DBProxyTarget (Prelude.Maybe Prelude.Text)
 dbProxyTarget_targetArn = Lens.lens (\DBProxyTarget' {targetArn} -> targetArn) (\s@DBProxyTarget' {} a -> s {targetArn = a} :: DBProxyTarget)
+
+-- | A value that indicates whether the target of the proxy can be used for
+-- read\/write or read-only operations.
+dbProxyTarget_role :: Lens.Lens' DBProxyTarget (Prelude.Maybe TargetRole)
+dbProxyTarget_role = Lens.lens (\DBProxyTarget' {role'} -> role') (\s@DBProxyTarget' {} a -> s {role' = a} :: DBProxyTarget)
 
 -- | The port that the RDS Proxy uses to connect to the target RDS DB
 -- instance or Aurora DB cluster.
@@ -140,6 +153,7 @@ instance Core.FromXML DBProxyTarget where
       Prelude.<$> (x Core..@? "TrackedClusterId")
       Prelude.<*> (x Core..@? "RdsResourceId")
       Prelude.<*> (x Core..@? "TargetArn")
+      Prelude.<*> (x Core..@? "Role")
       Prelude.<*> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "Endpoint")
       Prelude.<*> (x Core..@? "Type")

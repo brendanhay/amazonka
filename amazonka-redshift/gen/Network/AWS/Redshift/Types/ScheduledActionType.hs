@@ -34,10 +34,10 @@ import Network.AWS.Redshift.Types.ResumeClusterMessage
 data ScheduledActionType = ScheduledActionType'
   { -- | An action that runs a @ResumeCluster@ API operation.
     resumeCluster :: Prelude.Maybe ResumeClusterMessage,
-    -- | An action that runs a @ResizeCluster@ API operation.
-    resizeCluster :: Prelude.Maybe ResizeClusterMessage,
     -- | An action that runs a @PauseCluster@ API operation.
-    pauseCluster :: Prelude.Maybe PauseClusterMessage
+    pauseCluster :: Prelude.Maybe PauseClusterMessage,
+    -- | An action that runs a @ResizeCluster@ API operation.
+    resizeCluster :: Prelude.Maybe ResizeClusterMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,37 +51,37 @@ data ScheduledActionType = ScheduledActionType'
 --
 -- 'resumeCluster', 'scheduledActionType_resumeCluster' - An action that runs a @ResumeCluster@ API operation.
 --
--- 'resizeCluster', 'scheduledActionType_resizeCluster' - An action that runs a @ResizeCluster@ API operation.
---
 -- 'pauseCluster', 'scheduledActionType_pauseCluster' - An action that runs a @PauseCluster@ API operation.
+--
+-- 'resizeCluster', 'scheduledActionType_resizeCluster' - An action that runs a @ResizeCluster@ API operation.
 newScheduledActionType ::
   ScheduledActionType
 newScheduledActionType =
   ScheduledActionType'
     { resumeCluster =
         Prelude.Nothing,
-      resizeCluster = Prelude.Nothing,
-      pauseCluster = Prelude.Nothing
+      pauseCluster = Prelude.Nothing,
+      resizeCluster = Prelude.Nothing
     }
 
 -- | An action that runs a @ResumeCluster@ API operation.
 scheduledActionType_resumeCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe ResumeClusterMessage)
 scheduledActionType_resumeCluster = Lens.lens (\ScheduledActionType' {resumeCluster} -> resumeCluster) (\s@ScheduledActionType' {} a -> s {resumeCluster = a} :: ScheduledActionType)
 
--- | An action that runs a @ResizeCluster@ API operation.
-scheduledActionType_resizeCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe ResizeClusterMessage)
-scheduledActionType_resizeCluster = Lens.lens (\ScheduledActionType' {resizeCluster} -> resizeCluster) (\s@ScheduledActionType' {} a -> s {resizeCluster = a} :: ScheduledActionType)
-
 -- | An action that runs a @PauseCluster@ API operation.
 scheduledActionType_pauseCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe PauseClusterMessage)
 scheduledActionType_pauseCluster = Lens.lens (\ScheduledActionType' {pauseCluster} -> pauseCluster) (\s@ScheduledActionType' {} a -> s {pauseCluster = a} :: ScheduledActionType)
+
+-- | An action that runs a @ResizeCluster@ API operation.
+scheduledActionType_resizeCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe ResizeClusterMessage)
+scheduledActionType_resizeCluster = Lens.lens (\ScheduledActionType' {resizeCluster} -> resizeCluster) (\s@ScheduledActionType' {} a -> s {resizeCluster = a} :: ScheduledActionType)
 
 instance Core.FromXML ScheduledActionType where
   parseXML x =
     ScheduledActionType'
       Prelude.<$> (x Core..@? "ResumeCluster")
-      Prelude.<*> (x Core..@? "ResizeCluster")
       Prelude.<*> (x Core..@? "PauseCluster")
+      Prelude.<*> (x Core..@? "ResizeCluster")
 
 instance Prelude.Hashable ScheduledActionType
 
@@ -91,6 +91,6 @@ instance Core.ToQuery ScheduledActionType where
   toQuery ScheduledActionType' {..} =
     Prelude.mconcat
       [ "ResumeCluster" Core.=: resumeCluster,
-        "ResizeCluster" Core.=: resizeCluster,
-        "PauseCluster" Core.=: pauseCluster
+        "PauseCluster" Core.=: pauseCluster,
+        "ResizeCluster" Core.=: resizeCluster
       ]

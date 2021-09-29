@@ -34,11 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDialogAction' smart constructor.
 data DialogAction = DialogAction'
-  { -- | The message that should be shown to the user. If you don\'t specify a
+  { -- | The name of the intent.
+    intentName :: Prelude.Maybe Prelude.Text,
+    -- | The message that should be shown to the user. If you don\'t specify a
     -- message, Amazon Lex will use the message configured for the intent.
     message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the intent.
-    intentName :: Prelude.Maybe Prelude.Text,
     -- | -   @PlainText@ - The message contains plain UTF-8 text.
     --
     -- -   @CustomPayload@ - The message is a custom format for the client.
@@ -95,10 +95,10 @@ data DialogAction = DialogAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'intentName', 'dialogAction_intentName' - The name of the intent.
+--
 -- 'message', 'dialogAction_message' - The message that should be shown to the user. If you don\'t specify a
 -- message, Amazon Lex will use the message configured for the intent.
---
--- 'intentName', 'dialogAction_intentName' - The name of the intent.
 --
 -- 'messageFormat', 'dialogAction_messageFormat' - -   @PlainText@ - The message contains plain UTF-8 text.
 --
@@ -150,8 +150,8 @@ newDialogAction ::
   DialogAction
 newDialogAction pType_ =
   DialogAction'
-    { message = Prelude.Nothing,
-      intentName = Prelude.Nothing,
+    { intentName = Prelude.Nothing,
+      message = Prelude.Nothing,
       messageFormat = Prelude.Nothing,
       fulfillmentState = Prelude.Nothing,
       slots = Prelude.Nothing,
@@ -159,14 +159,14 @@ newDialogAction pType_ =
       type' = pType_
     }
 
+-- | The name of the intent.
+dialogAction_intentName :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
+dialogAction_intentName = Lens.lens (\DialogAction' {intentName} -> intentName) (\s@DialogAction' {} a -> s {intentName = a} :: DialogAction)
+
 -- | The message that should be shown to the user. If you don\'t specify a
 -- message, Amazon Lex will use the message configured for the intent.
 dialogAction_message :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
 dialogAction_message = Lens.lens (\DialogAction' {message} -> message) (\s@DialogAction' {} a -> s {message = a} :: DialogAction) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of the intent.
-dialogAction_intentName :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
-dialogAction_intentName = Lens.lens (\DialogAction' {intentName} -> intentName) (\s@DialogAction' {} a -> s {intentName = a} :: DialogAction)
 
 -- | -   @PlainText@ - The message contains plain UTF-8 text.
 --
@@ -229,8 +229,8 @@ instance Core.FromJSON DialogAction where
       "DialogAction"
       ( \x ->
           DialogAction'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "intentName")
+            Prelude.<$> (x Core..:? "intentName")
+            Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "messageFormat")
             Prelude.<*> (x Core..:? "fulfillmentState")
             Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
@@ -246,8 +246,8 @@ instance Core.ToJSON DialogAction where
   toJSON DialogAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("message" Core..=) Prelude.<$> message,
-            ("intentName" Core..=) Prelude.<$> intentName,
+          [ ("intentName" Core..=) Prelude.<$> intentName,
+            ("message" Core..=) Prelude.<$> message,
             ("messageFormat" Core..=) Prelude.<$> messageFormat,
             ("fulfillmentState" Core..=)
               Prelude.<$> fulfillmentState,

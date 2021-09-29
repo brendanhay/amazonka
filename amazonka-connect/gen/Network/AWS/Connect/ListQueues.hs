@@ -23,6 +23,11 @@
 -- Provides information about the queues for the specified Amazon Connect
 -- instance.
 --
+-- If you do not specify a @QueueTypes@ parameter, both standard and agent
+-- queues are returned. This might cause an unexpected truncation of
+-- results if you have more than 1000 agents and you limit the number of
+-- results of the API call in code.
+--
 -- For more information about queues, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html Queues: Standard and Agent>
 -- in the /Amazon Connect Administrator Guide/.
@@ -67,7 +72,8 @@ data ListQueues = ListQueues'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of queue.
     queueTypes :: Prelude.Maybe [QueueType],
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +94,8 @@ data ListQueues = ListQueues'
 --
 -- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
 --
--- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListQueues ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -115,7 +122,8 @@ listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@
 listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
 listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listQueues_instanceId :: Lens.Lens' ListQueues Prelude.Text
 listQueues_instanceId = Lens.lens (\ListQueues' {instanceId} -> instanceId) (\s@ListQueues' {} a -> s {instanceId = a} :: ListQueues)
 

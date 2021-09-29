@@ -65,7 +65,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketVersioning' smart constructor.
 data GetBucketVersioning = GetBucketVersioning'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -82,7 +82,7 @@ data GetBucketVersioning = GetBucketVersioning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketVersioning_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -98,7 +98,7 @@ newGetBucketVersioning pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketVersioning_expectedBucketOwner :: Lens.Lens' GetBucketVersioning (Prelude.Maybe Prelude.Text)

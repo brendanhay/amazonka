@@ -23,23 +23,33 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DashAdditionalManifest
 import Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings
+import Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
 import Network.AWS.MediaConvert.Types.DashIsoHbbtvCompliance
+import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlay
+import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
 import Network.AWS.MediaConvert.Types.DashIsoMpdProfile
+import Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
 import Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+import Network.AWS.MediaConvert.Types.DashIsoSegmentLengthControl
 import Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
 import Network.AWS.MediaConvert.Types.DestinationSettings
 import qualified Network.AWS.Prelude as Prelude
 
--- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
--- to DASH_ISO_GROUP_SETTINGS.
+-- | Settings related to your DASH output package. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set Type, under
+-- OutputGroupSettings, to DASH_ISO_GROUP_SETTINGS.
 --
 -- /See:/ 'newDashIsoGroupSettings' smart constructor.
 data DashIsoGroupSettings = DashIsoGroupSettings'
-  { -- | Length of mpd segments to create (in seconds). Note that segments will
-    -- end on the next keyframe after this number of seconds, so actual segment
-    -- length may be longer. When Emit Single File is checked, the segmentation
-    -- is internal to a single output file and it does not cause the creation
-    -- of many output files as in other output types.
+  { -- | Specify the length, in whole seconds, of each segment. When you don\'t
+    -- specify a value, MediaConvert defaults to 30. Related settings: Use
+    -- Segment length control (SegmentLengthControl) to specify whether the
+    -- encoder enforces this value strictly. Use Segment control
+    -- (DashIsoSegmentControl) to specify whether MediaConvert creates separate
+    -- segment files or one content file that has metadata to mark the segment
+    -- boundaries.
     segmentLength :: Prelude.Maybe Prelude.Natural,
     -- | When set to SINGLE_FILE, a single output file is generated, which is
     -- internally segmented using the Fragment Length and Segment Length. When
@@ -56,12 +66,29 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
     -- top level BaseURL element. Can be used if streams are delivered from a
     -- different URL than the manifest file.
     baseUrl :: Prelude.Maybe Prelude.Text,
+    -- | Specify how you want MediaConvert to determine the segment length.
+    -- Choose Exact (EXACT) to have the encoder use the exact length that you
+    -- specify with the setting Segment length (SegmentLength). This might
+    -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+    -- the encoder round up the segment lengths to match the next GOP boundary.
+    segmentLengthControl :: Prelude.Maybe DashIsoSegmentLengthControl,
     -- | By default, the service creates one .mpd DASH manifest for each DASH ISO
     -- output group in your job. This default manifest references every output
     -- in the output group. To create additional DASH manifests that reference
     -- a subset of the outputs in the output group, specify a list of them
     -- here.
     additionalManifests :: Prelude.Maybe [DashAdditionalManifest],
+    -- | Specify whether MediaConvert generates images for trick play. Keep the
+    -- default value, None (NONE), to not generate any images. Choose Thumbnail
+    -- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+    -- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+    -- full-resolution images of single frames. MediaConvert adds an entry in
+    -- the .mpd manifest for each set of images that you generate. A common
+    -- application for these images is Roku trick mode. The thumbnails and
+    -- full-frame images that MediaConvert creates with this feature are
+    -- compatible with this Roku specification:
+    -- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
+    imageBasedTrickPlay :: Prelude.Maybe DashIsoImageBasedTrickPlay,
     -- | Specify whether your DASH profile is on-demand or main. When you choose
     -- Main profile (MAIN_PROFILE), the service signals
     -- urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When
@@ -70,13 +97,24 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
     -- On-demand, you must also set the output group setting Segment control
     -- (SegmentControl) to Single file (SINGLE_FILE).
     mpdProfile :: Prelude.Maybe DashIsoMpdProfile,
+    -- | Use this setting only when your output video stream has B-frames, which
+    -- causes the initial presentation time stamp (PTS) to be offset from the
+    -- initial decode time stamp (DTS). Specify how MediaConvert handles PTS
+    -- when writing time stamps in output DASH manifests. Choose Match initial
+    -- PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial
+    -- PTS as the first time stamp in the manifest. Choose Zero-based
+    -- (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video
+    -- stream and instead write the initial time stamp as zero in the manifest.
+    -- For outputs that don\'t have B-frames, the time stamps in your DASH
+    -- manifests start at zero regardless of your choice here.
+    ptsOffsetHandlingForBFrames :: Prelude.Maybe DashIsoPtsOffsetHandlingForBFrames,
     -- | DRM settings.
     encryption :: Prelude.Maybe DashIsoEncryptionSettings,
+    -- | Supports HbbTV specification as indicated
+    hbbtvCompliance :: Prelude.Maybe DashIsoHbbtvCompliance,
     -- | Minimum time of initially buffered media that is needed to ensure smooth
     -- playout.
     minBufferTime :: Prelude.Maybe Prelude.Natural,
-    -- | Supports HbbTV specification as indicated
-    hbbtvCompliance :: Prelude.Maybe DashIsoHbbtvCompliance,
     -- | Use Destination (Destination) to specify the S3 output location and the
     -- output filename base. Destination accepts format identifiers. If you do
     -- not specify the base filename in the URI, the service will use the
@@ -99,6 +137,17 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
     -- | Settings associated with the destination. Will vary based on the type of
     -- destination
     destinationSettings :: Prelude.Maybe DestinationSettings,
+    -- | Use this setting only when your audio codec is a Dolby one (AC3, EAC3,
+    -- or Atmos) and your downstream workflow requires that your DASH manifest
+    -- use the Dolby channel configuration tag, rather than the MPEG one. For
+    -- example, you might need to use this to make dynamic ad insertion work.
+    -- Specify which audio channel configuration scheme ID URI MediaConvert
+    -- writes in your DASH manifest. Keep the default value, MPEG channel
+    -- configuration (MPEG_CHANNEL_CONFIGURATION), to have MediaConvert write
+    -- this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose Dolby channel
+    -- configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write
+    -- this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+    audioChannelConfigSchemeIdUri :: Prelude.Maybe DashIsoGroupAudioChannelConfigSchemeIdUri,
     -- | If you get an HTTP error in the 400 range when you play back your DASH
     -- output, enable this setting and run your transcoding job again. When you
     -- enable this setting, the service writes precise segment durations in the
@@ -106,7 +155,10 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
     -- SegmentTimeline element, inside SegmentTemplate at the Representation
     -- level. When you don\'t enable this setting, the service writes
     -- approximate segment durations in your DASH manifest.
-    writeSegmentTimelineInRepresentation :: Prelude.Maybe DashIsoWriteSegmentTimelineInRepresentation
+    writeSegmentTimelineInRepresentation :: Prelude.Maybe DashIsoWriteSegmentTimelineInRepresentation,
+    -- | Tile and thumbnail settings applicable when imageBasedTrickPlay is
+    -- ADVANCED
+    imageBasedTrickPlaySettings :: Prelude.Maybe DashIsoImageBasedTrickPlaySettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,11 +170,13 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentLength', 'dashIsoGroupSettings_segmentLength' - Length of mpd segments to create (in seconds). Note that segments will
--- end on the next keyframe after this number of seconds, so actual segment
--- length may be longer. When Emit Single File is checked, the segmentation
--- is internal to a single output file and it does not cause the creation
--- of many output files as in other output types.
+-- 'segmentLength', 'dashIsoGroupSettings_segmentLength' - Specify the length, in whole seconds, of each segment. When you don\'t
+-- specify a value, MediaConvert defaults to 30. Related settings: Use
+-- Segment length control (SegmentLengthControl) to specify whether the
+-- encoder enforces this value strictly. Use Segment control
+-- (DashIsoSegmentControl) to specify whether MediaConvert creates separate
+-- segment files or one content file that has metadata to mark the segment
+-- boundaries.
 --
 -- 'segmentControl', 'dashIsoGroupSettings_segmentControl' - When set to SINGLE_FILE, a single output file is generated, which is
 -- internally segmented using the Fragment Length and Segment Length. When
@@ -139,11 +193,28 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- top level BaseURL element. Can be used if streams are delivered from a
 -- different URL than the manifest file.
 --
+-- 'segmentLengthControl', 'dashIsoGroupSettings_segmentLengthControl' - Specify how you want MediaConvert to determine the segment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Segment length (SegmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+--
 -- 'additionalManifests', 'dashIsoGroupSettings_additionalManifests' - By default, the service creates one .mpd DASH manifest for each DASH ISO
 -- output group in your job. This default manifest references every output
 -- in the output group. To create additional DASH manifests that reference
 -- a subset of the outputs in the output group, specify a list of them
 -- here.
+--
+-- 'imageBasedTrickPlay', 'dashIsoGroupSettings_imageBasedTrickPlay' - Specify whether MediaConvert generates images for trick play. Keep the
+-- default value, None (NONE), to not generate any images. Choose Thumbnail
+-- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+-- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+-- full-resolution images of single frames. MediaConvert adds an entry in
+-- the .mpd manifest for each set of images that you generate. A common
+-- application for these images is Roku trick mode. The thumbnails and
+-- full-frame images that MediaConvert creates with this feature are
+-- compatible with this Roku specification:
+-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
 --
 -- 'mpdProfile', 'dashIsoGroupSettings_mpdProfile' - Specify whether your DASH profile is on-demand or main. When you choose
 -- Main profile (MAIN_PROFILE), the service signals
@@ -153,12 +224,23 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- On-demand, you must also set the output group setting Segment control
 -- (SegmentControl) to Single file (SINGLE_FILE).
 --
+-- 'ptsOffsetHandlingForBFrames', 'dashIsoGroupSettings_ptsOffsetHandlingForBFrames' - Use this setting only when your output video stream has B-frames, which
+-- causes the initial presentation time stamp (PTS) to be offset from the
+-- initial decode time stamp (DTS). Specify how MediaConvert handles PTS
+-- when writing time stamps in output DASH manifests. Choose Match initial
+-- PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial
+-- PTS as the first time stamp in the manifest. Choose Zero-based
+-- (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video
+-- stream and instead write the initial time stamp as zero in the manifest.
+-- For outputs that don\'t have B-frames, the time stamps in your DASH
+-- manifests start at zero regardless of your choice here.
+--
 -- 'encryption', 'dashIsoGroupSettings_encryption' - DRM settings.
+--
+-- 'hbbtvCompliance', 'dashIsoGroupSettings_hbbtvCompliance' - Supports HbbTV specification as indicated
 --
 -- 'minBufferTime', 'dashIsoGroupSettings_minBufferTime' - Minimum time of initially buffered media that is needed to ensure smooth
 -- playout.
---
--- 'hbbtvCompliance', 'dashIsoGroupSettings_hbbtvCompliance' - Supports HbbTV specification as indicated
 --
 -- 'destination', 'dashIsoGroupSettings_destination' - Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
@@ -182,6 +264,17 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- 'destinationSettings', 'dashIsoGroupSettings_destinationSettings' - Settings associated with the destination. Will vary based on the type of
 -- destination
 --
+-- 'audioChannelConfigSchemeIdUri', 'dashIsoGroupSettings_audioChannelConfigSchemeIdUri' - Use this setting only when your audio codec is a Dolby one (AC3, EAC3,
+-- or Atmos) and your downstream workflow requires that your DASH manifest
+-- use the Dolby channel configuration tag, rather than the MPEG one. For
+-- example, you might need to use this to make dynamic ad insertion work.
+-- Specify which audio channel configuration scheme ID URI MediaConvert
+-- writes in your DASH manifest. Keep the default value, MPEG channel
+-- configuration (MPEG_CHANNEL_CONFIGURATION), to have MediaConvert write
+-- this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose Dolby channel
+-- configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write
+-- this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+--
 -- 'writeSegmentTimelineInRepresentation', 'dashIsoGroupSettings_writeSegmentTimelineInRepresentation' - If you get an HTTP error in the 400 range when you play back your DASH
 -- output, enable this setting and run your transcoding job again. When you
 -- enable this setting, the service writes precise segment durations in the
@@ -189,6 +282,9 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- SegmentTimeline element, inside SegmentTemplate at the Representation
 -- level. When you don\'t enable this setting, the service writes
 -- approximate segment durations in your DASH manifest.
+--
+-- 'imageBasedTrickPlaySettings', 'dashIsoGroupSettings_imageBasedTrickPlaySettings' - Tile and thumbnail settings applicable when imageBasedTrickPlay is
+-- ADVANCED
 newDashIsoGroupSettings ::
   DashIsoGroupSettings
 newDashIsoGroupSettings =
@@ -198,23 +294,30 @@ newDashIsoGroupSettings =
       segmentControl = Prelude.Nothing,
       fragmentLength = Prelude.Nothing,
       baseUrl = Prelude.Nothing,
+      segmentLengthControl = Prelude.Nothing,
       additionalManifests = Prelude.Nothing,
+      imageBasedTrickPlay = Prelude.Nothing,
       mpdProfile = Prelude.Nothing,
+      ptsOffsetHandlingForBFrames = Prelude.Nothing,
       encryption = Prelude.Nothing,
-      minBufferTime = Prelude.Nothing,
       hbbtvCompliance = Prelude.Nothing,
+      minBufferTime = Prelude.Nothing,
       destination = Prelude.Nothing,
       minFinalSegmentLength = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
+      audioChannelConfigSchemeIdUri = Prelude.Nothing,
       writeSegmentTimelineInRepresentation =
-        Prelude.Nothing
+        Prelude.Nothing,
+      imageBasedTrickPlaySettings = Prelude.Nothing
     }
 
--- | Length of mpd segments to create (in seconds). Note that segments will
--- end on the next keyframe after this number of seconds, so actual segment
--- length may be longer. When Emit Single File is checked, the segmentation
--- is internal to a single output file and it does not cause the creation
--- of many output files as in other output types.
+-- | Specify the length, in whole seconds, of each segment. When you don\'t
+-- specify a value, MediaConvert defaults to 30. Related settings: Use
+-- Segment length control (SegmentLengthControl) to specify whether the
+-- encoder enforces this value strictly. Use Segment control
+-- (DashIsoSegmentControl) to specify whether MediaConvert creates separate
+-- segment files or one content file that has metadata to mark the segment
+-- boundaries.
 dashIsoGroupSettings_segmentLength :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe Prelude.Natural)
 dashIsoGroupSettings_segmentLength = Lens.lens (\DashIsoGroupSettings' {segmentLength} -> segmentLength) (\s@DashIsoGroupSettings' {} a -> s {segmentLength = a} :: DashIsoGroupSettings)
 
@@ -239,6 +342,14 @@ dashIsoGroupSettings_fragmentLength = Lens.lens (\DashIsoGroupSettings' {fragmen
 dashIsoGroupSettings_baseUrl :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe Prelude.Text)
 dashIsoGroupSettings_baseUrl = Lens.lens (\DashIsoGroupSettings' {baseUrl} -> baseUrl) (\s@DashIsoGroupSettings' {} a -> s {baseUrl = a} :: DashIsoGroupSettings)
 
+-- | Specify how you want MediaConvert to determine the segment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Segment length (SegmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+dashIsoGroupSettings_segmentLengthControl :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoSegmentLengthControl)
+dashIsoGroupSettings_segmentLengthControl = Lens.lens (\DashIsoGroupSettings' {segmentLengthControl} -> segmentLengthControl) (\s@DashIsoGroupSettings' {} a -> s {segmentLengthControl = a} :: DashIsoGroupSettings)
+
 -- | By default, the service creates one .mpd DASH manifest for each DASH ISO
 -- output group in your job. This default manifest references every output
 -- in the output group. To create additional DASH manifests that reference
@@ -246,6 +357,19 @@ dashIsoGroupSettings_baseUrl = Lens.lens (\DashIsoGroupSettings' {baseUrl} -> ba
 -- here.
 dashIsoGroupSettings_additionalManifests :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe [DashAdditionalManifest])
 dashIsoGroupSettings_additionalManifests = Lens.lens (\DashIsoGroupSettings' {additionalManifests} -> additionalManifests) (\s@DashIsoGroupSettings' {} a -> s {additionalManifests = a} :: DashIsoGroupSettings) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specify whether MediaConvert generates images for trick play. Keep the
+-- default value, None (NONE), to not generate any images. Choose Thumbnail
+-- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+-- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+-- full-resolution images of single frames. MediaConvert adds an entry in
+-- the .mpd manifest for each set of images that you generate. A common
+-- application for these images is Roku trick mode. The thumbnails and
+-- full-frame images that MediaConvert creates with this feature are
+-- compatible with this Roku specification:
+-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
+dashIsoGroupSettings_imageBasedTrickPlay :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoImageBasedTrickPlay)
+dashIsoGroupSettings_imageBasedTrickPlay = Lens.lens (\DashIsoGroupSettings' {imageBasedTrickPlay} -> imageBasedTrickPlay) (\s@DashIsoGroupSettings' {} a -> s {imageBasedTrickPlay = a} :: DashIsoGroupSettings)
 
 -- | Specify whether your DASH profile is on-demand or main. When you choose
 -- Main profile (MAIN_PROFILE), the service signals
@@ -257,18 +381,31 @@ dashIsoGroupSettings_additionalManifests = Lens.lens (\DashIsoGroupSettings' {ad
 dashIsoGroupSettings_mpdProfile :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoMpdProfile)
 dashIsoGroupSettings_mpdProfile = Lens.lens (\DashIsoGroupSettings' {mpdProfile} -> mpdProfile) (\s@DashIsoGroupSettings' {} a -> s {mpdProfile = a} :: DashIsoGroupSettings)
 
+-- | Use this setting only when your output video stream has B-frames, which
+-- causes the initial presentation time stamp (PTS) to be offset from the
+-- initial decode time stamp (DTS). Specify how MediaConvert handles PTS
+-- when writing time stamps in output DASH manifests. Choose Match initial
+-- PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial
+-- PTS as the first time stamp in the manifest. Choose Zero-based
+-- (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video
+-- stream and instead write the initial time stamp as zero in the manifest.
+-- For outputs that don\'t have B-frames, the time stamps in your DASH
+-- manifests start at zero regardless of your choice here.
+dashIsoGroupSettings_ptsOffsetHandlingForBFrames :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoPtsOffsetHandlingForBFrames)
+dashIsoGroupSettings_ptsOffsetHandlingForBFrames = Lens.lens (\DashIsoGroupSettings' {ptsOffsetHandlingForBFrames} -> ptsOffsetHandlingForBFrames) (\s@DashIsoGroupSettings' {} a -> s {ptsOffsetHandlingForBFrames = a} :: DashIsoGroupSettings)
+
 -- | DRM settings.
 dashIsoGroupSettings_encryption :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoEncryptionSettings)
 dashIsoGroupSettings_encryption = Lens.lens (\DashIsoGroupSettings' {encryption} -> encryption) (\s@DashIsoGroupSettings' {} a -> s {encryption = a} :: DashIsoGroupSettings)
+
+-- | Supports HbbTV specification as indicated
+dashIsoGroupSettings_hbbtvCompliance :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoHbbtvCompliance)
+dashIsoGroupSettings_hbbtvCompliance = Lens.lens (\DashIsoGroupSettings' {hbbtvCompliance} -> hbbtvCompliance) (\s@DashIsoGroupSettings' {} a -> s {hbbtvCompliance = a} :: DashIsoGroupSettings)
 
 -- | Minimum time of initially buffered media that is needed to ensure smooth
 -- playout.
 dashIsoGroupSettings_minBufferTime :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe Prelude.Natural)
 dashIsoGroupSettings_minBufferTime = Lens.lens (\DashIsoGroupSettings' {minBufferTime} -> minBufferTime) (\s@DashIsoGroupSettings' {} a -> s {minBufferTime = a} :: DashIsoGroupSettings)
-
--- | Supports HbbTV specification as indicated
-dashIsoGroupSettings_hbbtvCompliance :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoHbbtvCompliance)
-dashIsoGroupSettings_hbbtvCompliance = Lens.lens (\DashIsoGroupSettings' {hbbtvCompliance} -> hbbtvCompliance) (\s@DashIsoGroupSettings' {} a -> s {hbbtvCompliance = a} :: DashIsoGroupSettings)
 
 -- | Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
@@ -298,6 +435,19 @@ dashIsoGroupSettings_minFinalSegmentLength = Lens.lens (\DashIsoGroupSettings' {
 dashIsoGroupSettings_destinationSettings :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DestinationSettings)
 dashIsoGroupSettings_destinationSettings = Lens.lens (\DashIsoGroupSettings' {destinationSettings} -> destinationSettings) (\s@DashIsoGroupSettings' {} a -> s {destinationSettings = a} :: DashIsoGroupSettings)
 
+-- | Use this setting only when your audio codec is a Dolby one (AC3, EAC3,
+-- or Atmos) and your downstream workflow requires that your DASH manifest
+-- use the Dolby channel configuration tag, rather than the MPEG one. For
+-- example, you might need to use this to make dynamic ad insertion work.
+-- Specify which audio channel configuration scheme ID URI MediaConvert
+-- writes in your DASH manifest. Keep the default value, MPEG channel
+-- configuration (MPEG_CHANNEL_CONFIGURATION), to have MediaConvert write
+-- this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose Dolby channel
+-- configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write
+-- this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+dashIsoGroupSettings_audioChannelConfigSchemeIdUri :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoGroupAudioChannelConfigSchemeIdUri)
+dashIsoGroupSettings_audioChannelConfigSchemeIdUri = Lens.lens (\DashIsoGroupSettings' {audioChannelConfigSchemeIdUri} -> audioChannelConfigSchemeIdUri) (\s@DashIsoGroupSettings' {} a -> s {audioChannelConfigSchemeIdUri = a} :: DashIsoGroupSettings)
+
 -- | If you get an HTTP error in the 400 range when you play back your DASH
 -- output, enable this setting and run your transcoding job again. When you
 -- enable this setting, the service writes precise segment durations in the
@@ -307,6 +457,11 @@ dashIsoGroupSettings_destinationSettings = Lens.lens (\DashIsoGroupSettings' {de
 -- approximate segment durations in your DASH manifest.
 dashIsoGroupSettings_writeSegmentTimelineInRepresentation :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoWriteSegmentTimelineInRepresentation)
 dashIsoGroupSettings_writeSegmentTimelineInRepresentation = Lens.lens (\DashIsoGroupSettings' {writeSegmentTimelineInRepresentation} -> writeSegmentTimelineInRepresentation) (\s@DashIsoGroupSettings' {} a -> s {writeSegmentTimelineInRepresentation = a} :: DashIsoGroupSettings)
+
+-- | Tile and thumbnail settings applicable when imageBasedTrickPlay is
+-- ADVANCED
+dashIsoGroupSettings_imageBasedTrickPlaySettings :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashIsoImageBasedTrickPlaySettings)
+dashIsoGroupSettings_imageBasedTrickPlaySettings = Lens.lens (\DashIsoGroupSettings' {imageBasedTrickPlaySettings} -> imageBasedTrickPlaySettings) (\s@DashIsoGroupSettings' {} a -> s {imageBasedTrickPlaySettings = a} :: DashIsoGroupSettings)
 
 instance Core.FromJSON DashIsoGroupSettings where
   parseJSON =
@@ -318,17 +473,22 @@ instance Core.FromJSON DashIsoGroupSettings where
             Prelude.<*> (x Core..:? "segmentControl")
             Prelude.<*> (x Core..:? "fragmentLength")
             Prelude.<*> (x Core..:? "baseUrl")
+            Prelude.<*> (x Core..:? "segmentLengthControl")
             Prelude.<*> ( x Core..:? "additionalManifests"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "imageBasedTrickPlay")
             Prelude.<*> (x Core..:? "mpdProfile")
+            Prelude.<*> (x Core..:? "ptsOffsetHandlingForBFrames")
             Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "minBufferTime")
             Prelude.<*> (x Core..:? "hbbtvCompliance")
+            Prelude.<*> (x Core..:? "minBufferTime")
             Prelude.<*> (x Core..:? "destination")
             Prelude.<*> (x Core..:? "minFinalSegmentLength")
             Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Core..:? "audioChannelConfigSchemeIdUri")
             Prelude.<*> (x Core..:? "writeSegmentTimelineInRepresentation")
+            Prelude.<*> (x Core..:? "imageBasedTrickPlaySettings")
       )
 
 instance Prelude.Hashable DashIsoGroupSettings
@@ -345,19 +505,29 @@ instance Core.ToJSON DashIsoGroupSettings where
             ("fragmentLength" Core..=)
               Prelude.<$> fragmentLength,
             ("baseUrl" Core..=) Prelude.<$> baseUrl,
+            ("segmentLengthControl" Core..=)
+              Prelude.<$> segmentLengthControl,
             ("additionalManifests" Core..=)
               Prelude.<$> additionalManifests,
+            ("imageBasedTrickPlay" Core..=)
+              Prelude.<$> imageBasedTrickPlay,
             ("mpdProfile" Core..=) Prelude.<$> mpdProfile,
+            ("ptsOffsetHandlingForBFrames" Core..=)
+              Prelude.<$> ptsOffsetHandlingForBFrames,
             ("encryption" Core..=) Prelude.<$> encryption,
-            ("minBufferTime" Core..=) Prelude.<$> minBufferTime,
             ("hbbtvCompliance" Core..=)
               Prelude.<$> hbbtvCompliance,
+            ("minBufferTime" Core..=) Prelude.<$> minBufferTime,
             ("destination" Core..=) Prelude.<$> destination,
             ("minFinalSegmentLength" Core..=)
               Prelude.<$> minFinalSegmentLength,
             ("destinationSettings" Core..=)
               Prelude.<$> destinationSettings,
+            ("audioChannelConfigSchemeIdUri" Core..=)
+              Prelude.<$> audioChannelConfigSchemeIdUri,
             ("writeSegmentTimelineInRepresentation" Core..=)
-              Prelude.<$> writeSegmentTimelineInRepresentation
+              Prelude.<$> writeSegmentTimelineInRepresentation,
+            ("imageBasedTrickPlaySettings" Core..=)
+              Prelude.<$> imageBasedTrickPlaySettings
           ]
       )

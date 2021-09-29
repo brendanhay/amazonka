@@ -27,17 +27,11 @@
 -- To get alias properties, specify the alias ID. If successful, the
 -- requested alias record is returned.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeAlias
   ( -- * Creating a Request
     DescribeAlias (..),

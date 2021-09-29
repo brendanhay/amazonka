@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Batch array job.
+-- | An object representing an Batch array job.
 --
 -- /See:/ 'newArrayProperties' smart constructor.
 data ArrayProperties = ArrayProperties'

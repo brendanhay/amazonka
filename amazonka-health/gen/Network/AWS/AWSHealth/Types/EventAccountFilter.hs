@@ -33,10 +33,13 @@ import qualified Network.AWS.Prelude as Prelude
 data EventAccountFilter = EventAccountFilter'
   { -- | The 12-digit AWS account numbers that contains the affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event. Format:
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
-    -- Example:
-    -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    -- | The unique identifier for the event. The event ARN has the
+    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- format.
+    --
+    -- For example, an event ARN might look like the following:
+    --
+    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     eventArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,10 +54,13 @@ data EventAccountFilter = EventAccountFilter'
 --
 -- 'awsAccountId', 'eventAccountFilter_awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
 --
--- 'eventArn', 'eventAccountFilter_eventArn' - The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- 'eventArn', 'eventAccountFilter_eventArn' - The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 newEventAccountFilter ::
   -- | 'eventArn'
   Prelude.Text ->
@@ -69,10 +75,13 @@ newEventAccountFilter pEventArn_ =
 eventAccountFilter_awsAccountId :: Lens.Lens' EventAccountFilter (Prelude.Maybe Prelude.Text)
 eventAccountFilter_awsAccountId = Lens.lens (\EventAccountFilter' {awsAccountId} -> awsAccountId) (\s@EventAccountFilter' {} a -> s {awsAccountId = a} :: EventAccountFilter)
 
--- | The unique identifier for the event. Format:
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
--- Example:
--- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- | The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 eventAccountFilter_eventArn :: Lens.Lens' EventAccountFilter Prelude.Text
 eventAccountFilter_eventArn = Lens.lens (\EventAccountFilter' {eventArn} -> eventArn) (\s@EventAccountFilter' {} a -> s {eventArn = a} :: EventAccountFilter)
 

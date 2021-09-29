@@ -155,8 +155,8 @@ instance Core.ToQuery DescribeAccountModifications where
 
 -- | /See:/ 'newDescribeAccountModificationsResponse' smart constructor.
 data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of modifications to the configuration of BYOL.
     accountModifications :: Prelude.Maybe [AccountModification],
@@ -173,8 +173,8 @@ data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAccountModificationsResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'describeAccountModificationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'accountModifications', 'describeAccountModificationsResponse_accountModifications' - The list of modifications to the configuration of BYOL.
 --
@@ -192,8 +192,8 @@ newDescribeAccountModificationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 describeAccountModificationsResponse_nextToken :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe Prelude.Text)
 describeAccountModificationsResponse_nextToken = Lens.lens (\DescribeAccountModificationsResponse' {nextToken} -> nextToken) (\s@DescribeAccountModificationsResponse' {} a -> s {nextToken = a} :: DescribeAccountModificationsResponse)
 

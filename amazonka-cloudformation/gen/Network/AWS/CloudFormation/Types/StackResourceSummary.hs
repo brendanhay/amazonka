@@ -48,8 +48,8 @@ data StackResourceSummary = StackResourceSummary'
     -- | The logical name of the resource specified in the template.
     logicalResourceId :: Prelude.Text,
     -- | Type of resource. (For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
-    -- in the AWS CloudFormation User Guide.)
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+    -- in the CloudFormation User Guide.)
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
     lastUpdatedTimestamp :: Core.ISO8601,
@@ -84,8 +84,8 @@ data StackResourceSummary = StackResourceSummary'
 -- 'logicalResourceId', 'stackResourceSummary_logicalResourceId' - The logical name of the resource specified in the template.
 --
 -- 'resourceType', 'stackResourceSummary_resourceType' - Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
 --
 -- 'lastUpdatedTimestamp', 'stackResourceSummary_lastUpdatedTimestamp' - Time the status was updated.
 --
@@ -146,8 +146,8 @@ stackResourceSummary_logicalResourceId :: Lens.Lens' StackResourceSummary Prelud
 stackResourceSummary_logicalResourceId = Lens.lens (\StackResourceSummary' {logicalResourceId} -> logicalResourceId) (\s@StackResourceSummary' {} a -> s {logicalResourceId = a} :: StackResourceSummary)
 
 -- | Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
 stackResourceSummary_resourceType :: Lens.Lens' StackResourceSummary Prelude.Text
 stackResourceSummary_resourceType = Lens.lens (\StackResourceSummary' {resourceType} -> resourceType) (\s@StackResourceSummary' {} a -> s {resourceType = a} :: StackResourceSummary)
 

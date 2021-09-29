@@ -78,10 +78,10 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
     -- capacity provider must already be created. New capacity providers can be
     -- created with the CreateCapacityProvider API operation.
     --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
+    -- To use a Fargate capacity provider, specify either the @FARGATE@ or
+    -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+    -- available to all accounts and only need to be associated with a cluster
+    -- to be used.
     capacityProviders :: [Prelude.Text],
     -- | The capacity provider strategy to use by default for the cluster.
     --
@@ -100,10 +100,10 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
     -- capacity provider must already be created. New capacity providers can be
     -- created with the CreateCapacityProvider API operation.
     --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
+    -- To use a Fargate capacity provider, specify either the @FARGATE@ or
+    -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+    -- available to all accounts and only need to be associated with a cluster
+    -- to be used.
     defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -127,10 +127,10 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- 'defaultCapacityProviderStrategy', 'putClusterCapacityProviders_defaultCapacityProviderStrategy' - The capacity provider strategy to use by default for the cluster.
 --
@@ -149,10 +149,10 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 newPutClusterCapacityProviders ::
   -- | 'cluster'
   Prelude.Text ->
@@ -178,10 +178,10 @@ putClusterCapacityProviders_cluster = Lens.lens (\PutClusterCapacityProviders' {
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 putClusterCapacityProviders_capacityProviders :: Lens.Lens' PutClusterCapacityProviders [Prelude.Text]
 putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityProviders' {capacityProviders} -> capacityProviders) (\s@PutClusterCapacityProviders' {} a -> s {capacityProviders = a} :: PutClusterCapacityProviders) Prelude.. Lens._Coerce
 
@@ -202,10 +202,10 @@ putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityPr
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 putClusterCapacityProviders_defaultCapacityProviderStrategy :: Lens.Lens' PutClusterCapacityProviders [CapacityProviderStrategyItem]
 putClusterCapacityProviders_defaultCapacityProviderStrategy = Lens.lens (\PutClusterCapacityProviders' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@PutClusterCapacityProviders' {} a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders) Prelude.. Lens._Coerce
 
@@ -263,7 +263,8 @@ instance Core.ToQuery PutClusterCapacityProviders where
 
 -- | /See:/ 'newPutClusterCapacityProvidersResponse' smart constructor.
 data PutClusterCapacityProvidersResponse = PutClusterCapacityProvidersResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { -- | Details about the cluster.
+    cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,7 +278,7 @@ data PutClusterCapacityProvidersResponse = PutClusterCapacityProvidersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cluster', 'putClusterCapacityProvidersResponse_cluster' - Undocumented member.
+-- 'cluster', 'putClusterCapacityProvidersResponse_cluster' - Details about the cluster.
 --
 -- 'httpStatus', 'putClusterCapacityProvidersResponse_httpStatus' - The response's http status code.
 newPutClusterCapacityProvidersResponse ::
@@ -291,7 +292,7 @@ newPutClusterCapacityProvidersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the cluster.
 putClusterCapacityProvidersResponse_cluster :: Lens.Lens' PutClusterCapacityProvidersResponse (Prelude.Maybe Cluster)
 putClusterCapacityProvidersResponse_cluster = Lens.lens (\PutClusterCapacityProvidersResponse' {cluster} -> cluster) (\s@PutClusterCapacityProvidersResponse' {} a -> s {cluster = a} :: PutClusterCapacityProvidersResponse)
 

@@ -35,30 +35,30 @@ data FpgaImage = FpgaImage'
   { -- | The alias of the AFI owner. Possible values include @self@, @amazon@,
     -- and @aws-marketplace@.
     ownerAlias :: Prelude.Maybe Prelude.Text,
-    -- | The version of the AWS Shell that was used to create the bitstream.
-    shellVersion :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID of the AFI owner.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the AWS Shell that was used to create the bitstream.
+    shellVersion :: Prelude.Maybe Prelude.Text,
     -- | The global FPGA image identifier (AGFI ID).
     fpgaImageGlobalId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether data retention support is enabled for the AFI.
     dataRetentionSupport :: Prelude.Maybe Prelude.Bool,
     -- | The product codes for the AFI.
     productCodes :: Prelude.Maybe [ProductCode],
-    -- | Information about the state of the AFI.
-    state :: Prelude.Maybe FpgaImageState,
-    -- | Information about the PCI bus.
-    pciId :: Prelude.Maybe PciId,
     -- | The name of the AFI.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Information about the PCI bus.
+    pciId :: Prelude.Maybe PciId,
+    -- | Information about the state of the AFI.
+    state :: Prelude.Maybe FpgaImageState,
     -- | The time of the most recent update to the AFI.
     updateTime :: Prelude.Maybe Core.ISO8601,
+    -- | The date and time the AFI was created.
+    createTime :: Prelude.Maybe Core.ISO8601,
     -- | Any tags assigned to the AFI.
     tags :: Prelude.Maybe [Tag],
     -- | Indicates whether the AFI is public.
     public :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time the AFI was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
     -- | The description of the AFI.
     description :: Prelude.Maybe Prelude.Text,
     -- | The FPGA image identifier (AFI ID).
@@ -77,9 +77,9 @@ data FpgaImage = FpgaImage'
 -- 'ownerAlias', 'fpgaImage_ownerAlias' - The alias of the AFI owner. Possible values include @self@, @amazon@,
 -- and @aws-marketplace@.
 --
--- 'shellVersion', 'fpgaImage_shellVersion' - The version of the AWS Shell that was used to create the bitstream.
---
 -- 'ownerId', 'fpgaImage_ownerId' - The AWS account ID of the AFI owner.
+--
+-- 'shellVersion', 'fpgaImage_shellVersion' - The version of the AWS Shell that was used to create the bitstream.
 --
 -- 'fpgaImageGlobalId', 'fpgaImage_fpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
 --
@@ -87,19 +87,19 @@ data FpgaImage = FpgaImage'
 --
 -- 'productCodes', 'fpgaImage_productCodes' - The product codes for the AFI.
 --
--- 'state', 'fpgaImage_state' - Information about the state of the AFI.
+-- 'name', 'fpgaImage_name' - The name of the AFI.
 --
 -- 'pciId', 'fpgaImage_pciId' - Information about the PCI bus.
 --
--- 'name', 'fpgaImage_name' - The name of the AFI.
+-- 'state', 'fpgaImage_state' - Information about the state of the AFI.
 --
 -- 'updateTime', 'fpgaImage_updateTime' - The time of the most recent update to the AFI.
+--
+-- 'createTime', 'fpgaImage_createTime' - The date and time the AFI was created.
 --
 -- 'tags', 'fpgaImage_tags' - Any tags assigned to the AFI.
 --
 -- 'public', 'fpgaImage_public' - Indicates whether the AFI is public.
---
--- 'createTime', 'fpgaImage_createTime' - The date and time the AFI was created.
 --
 -- 'description', 'fpgaImage_description' - The description of the AFI.
 --
@@ -109,18 +109,18 @@ newFpgaImage ::
 newFpgaImage =
   FpgaImage'
     { ownerAlias = Prelude.Nothing,
-      shellVersion = Prelude.Nothing,
       ownerId = Prelude.Nothing,
+      shellVersion = Prelude.Nothing,
       fpgaImageGlobalId = Prelude.Nothing,
       dataRetentionSupport = Prelude.Nothing,
       productCodes = Prelude.Nothing,
-      state = Prelude.Nothing,
-      pciId = Prelude.Nothing,
       name = Prelude.Nothing,
+      pciId = Prelude.Nothing,
+      state = Prelude.Nothing,
       updateTime = Prelude.Nothing,
+      createTime = Prelude.Nothing,
       tags = Prelude.Nothing,
       public = Prelude.Nothing,
-      createTime = Prelude.Nothing,
       description = Prelude.Nothing,
       fpgaImageId = Prelude.Nothing
     }
@@ -130,13 +130,13 @@ newFpgaImage =
 fpgaImage_ownerAlias :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
 fpgaImage_ownerAlias = Lens.lens (\FpgaImage' {ownerAlias} -> ownerAlias) (\s@FpgaImage' {} a -> s {ownerAlias = a} :: FpgaImage)
 
--- | The version of the AWS Shell that was used to create the bitstream.
-fpgaImage_shellVersion :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
-fpgaImage_shellVersion = Lens.lens (\FpgaImage' {shellVersion} -> shellVersion) (\s@FpgaImage' {} a -> s {shellVersion = a} :: FpgaImage)
-
 -- | The AWS account ID of the AFI owner.
 fpgaImage_ownerId :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
 fpgaImage_ownerId = Lens.lens (\FpgaImage' {ownerId} -> ownerId) (\s@FpgaImage' {} a -> s {ownerId = a} :: FpgaImage)
+
+-- | The version of the AWS Shell that was used to create the bitstream.
+fpgaImage_shellVersion :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
+fpgaImage_shellVersion = Lens.lens (\FpgaImage' {shellVersion} -> shellVersion) (\s@FpgaImage' {} a -> s {shellVersion = a} :: FpgaImage)
 
 -- | The global FPGA image identifier (AGFI ID).
 fpgaImage_fpgaImageGlobalId :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
@@ -150,21 +150,25 @@ fpgaImage_dataRetentionSupport = Lens.lens (\FpgaImage' {dataRetentionSupport} -
 fpgaImage_productCodes :: Lens.Lens' FpgaImage (Prelude.Maybe [ProductCode])
 fpgaImage_productCodes = Lens.lens (\FpgaImage' {productCodes} -> productCodes) (\s@FpgaImage' {} a -> s {productCodes = a} :: FpgaImage) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about the state of the AFI.
-fpgaImage_state :: Lens.Lens' FpgaImage (Prelude.Maybe FpgaImageState)
-fpgaImage_state = Lens.lens (\FpgaImage' {state} -> state) (\s@FpgaImage' {} a -> s {state = a} :: FpgaImage)
+-- | The name of the AFI.
+fpgaImage_name :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
+fpgaImage_name = Lens.lens (\FpgaImage' {name} -> name) (\s@FpgaImage' {} a -> s {name = a} :: FpgaImage)
 
 -- | Information about the PCI bus.
 fpgaImage_pciId :: Lens.Lens' FpgaImage (Prelude.Maybe PciId)
 fpgaImage_pciId = Lens.lens (\FpgaImage' {pciId} -> pciId) (\s@FpgaImage' {} a -> s {pciId = a} :: FpgaImage)
 
--- | The name of the AFI.
-fpgaImage_name :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
-fpgaImage_name = Lens.lens (\FpgaImage' {name} -> name) (\s@FpgaImage' {} a -> s {name = a} :: FpgaImage)
+-- | Information about the state of the AFI.
+fpgaImage_state :: Lens.Lens' FpgaImage (Prelude.Maybe FpgaImageState)
+fpgaImage_state = Lens.lens (\FpgaImage' {state} -> state) (\s@FpgaImage' {} a -> s {state = a} :: FpgaImage)
 
 -- | The time of the most recent update to the AFI.
 fpgaImage_updateTime :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.UTCTime)
 fpgaImage_updateTime = Lens.lens (\FpgaImage' {updateTime} -> updateTime) (\s@FpgaImage' {} a -> s {updateTime = a} :: FpgaImage) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time the AFI was created.
+fpgaImage_createTime :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.UTCTime)
+fpgaImage_createTime = Lens.lens (\FpgaImage' {createTime} -> createTime) (\s@FpgaImage' {} a -> s {createTime = a} :: FpgaImage) Prelude.. Lens.mapping Core._Time
 
 -- | Any tags assigned to the AFI.
 fpgaImage_tags :: Lens.Lens' FpgaImage (Prelude.Maybe [Tag])
@@ -173,10 +177,6 @@ fpgaImage_tags = Lens.lens (\FpgaImage' {tags} -> tags) (\s@FpgaImage' {} a -> s
 -- | Indicates whether the AFI is public.
 fpgaImage_public :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Bool)
 fpgaImage_public = Lens.lens (\FpgaImage' {public} -> public) (\s@FpgaImage' {} a -> s {public = a} :: FpgaImage)
-
--- | The date and time the AFI was created.
-fpgaImage_createTime :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.UTCTime)
-fpgaImage_createTime = Lens.lens (\FpgaImage' {createTime} -> createTime) (\s@FpgaImage' {} a -> s {createTime = a} :: FpgaImage) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the AFI.
 fpgaImage_description :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
@@ -190,22 +190,22 @@ instance Core.FromXML FpgaImage where
   parseXML x =
     FpgaImage'
       Prelude.<$> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "shellVersion")
       Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "shellVersion")
       Prelude.<*> (x Core..@? "fpgaImageGlobalId")
       Prelude.<*> (x Core..@? "dataRetentionSupport")
       Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "pciId")
       Prelude.<*> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "pciId")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "updateTime")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> ( x Core..@? "tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "public")
-      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "fpgaImageId")
 

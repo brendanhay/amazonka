@@ -30,10 +30,10 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'newHostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
-  { -- | Any comments that you want to include about the hosted zone.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether this is a private hosted zone.
-    privateZone :: Prelude.Maybe Prelude.Bool
+  { -- | A value that indicates whether this is a private hosted zone.
+    privateZone :: Prelude.Maybe Prelude.Bool,
+    -- | Any comments that you want to include about the hosted zone.
+    comment :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,30 +45,30 @@ data HostedZoneConfig = HostedZoneConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'hostedZoneConfig_comment' - Any comments that you want to include about the hosted zone.
---
 -- 'privateZone', 'hostedZoneConfig_privateZone' - A value that indicates whether this is a private hosted zone.
+--
+-- 'comment', 'hostedZoneConfig_comment' - Any comments that you want to include about the hosted zone.
 newHostedZoneConfig ::
   HostedZoneConfig
 newHostedZoneConfig =
   HostedZoneConfig'
-    { comment = Prelude.Nothing,
-      privateZone = Prelude.Nothing
+    { privateZone = Prelude.Nothing,
+      comment = Prelude.Nothing
     }
-
--- | Any comments that you want to include about the hosted zone.
-hostedZoneConfig_comment :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Text)
-hostedZoneConfig_comment = Lens.lens (\HostedZoneConfig' {comment} -> comment) (\s@HostedZoneConfig' {} a -> s {comment = a} :: HostedZoneConfig)
 
 -- | A value that indicates whether this is a private hosted zone.
 hostedZoneConfig_privateZone :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Bool)
 hostedZoneConfig_privateZone = Lens.lens (\HostedZoneConfig' {privateZone} -> privateZone) (\s@HostedZoneConfig' {} a -> s {privateZone = a} :: HostedZoneConfig)
 
+-- | Any comments that you want to include about the hosted zone.
+hostedZoneConfig_comment :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Text)
+hostedZoneConfig_comment = Lens.lens (\HostedZoneConfig' {comment} -> comment) (\s@HostedZoneConfig' {} a -> s {comment = a} :: HostedZoneConfig)
+
 instance Core.FromXML HostedZoneConfig where
   parseXML x =
     HostedZoneConfig'
-      Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "PrivateZone")
+      Prelude.<$> (x Core..@? "PrivateZone")
+      Prelude.<*> (x Core..@? "Comment")
 
 instance Prelude.Hashable HostedZoneConfig
 
@@ -77,6 +77,6 @@ instance Prelude.NFData HostedZoneConfig
 instance Core.ToXML HostedZoneConfig where
   toXML HostedZoneConfig' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
-        "PrivateZone" Core.@= privateZone
+      [ "PrivateZone" Core.@= privateZone,
+        "Comment" Core.@= comment
       ]

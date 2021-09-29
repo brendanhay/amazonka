@@ -31,34 +31,34 @@ import Network.AWS.RDS.Types.OptionVersion
 data OptionGroupOption = OptionGroupOption'
   { -- | The options that conflict with this option.
     optionsConflictsWith :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the engine that this option can be applied to.
+    engineName :: Prelude.Maybe Prelude.Text,
     -- | If true, you can only use this option with a DB instance that is in a
     -- VPC.
     vpcOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the engine that this option can be applied to.
-    engineName :: Prelude.Maybe Prelude.Text,
     -- | The versions that are available for the option.
     optionGroupOptionVersions :: Prelude.Maybe [OptionVersion],
-    -- | If the option requires a port, specifies the default port for the
-    -- option.
-    defaultPort :: Prelude.Maybe Prelude.Int,
+    -- | The option settings that are available (and the default value) for each
+    -- option in an option group.
+    optionGroupOptionSettings :: Prelude.Maybe [OptionGroupOptionSetting],
     -- | If true, you must enable the Auto Minor Version Upgrade setting for your
     -- DB instance before you can use this option. You can enable Auto Minor
     -- Version Upgrade when you first create your DB instance, or by modifying
     -- your DB instance later.
     requiresAutoMinorEngineVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The option settings that are available (and the default value) for each
-    -- option in an option group.
-    optionGroupOptionSettings :: Prelude.Maybe [OptionGroupOptionSetting],
-    -- | Indicates the major engine version that the option is available for.
-    majorEngineVersion :: Prelude.Maybe Prelude.Text,
+    -- | If the option requires a port, specifies the default port for the
+    -- option.
+    defaultPort :: Prelude.Maybe Prelude.Int,
     -- | The name of the option.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the major engine version that the option is available for.
+    majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The minimum required engine version for the option to be applied.
     minimumRequiredMinorEngineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The options that are prerequisites for this option.
-    optionsDependedOn :: Prelude.Maybe [Prelude.Text],
     -- | The description of the option.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The options that are prerequisites for this option.
+    optionsDependedOn :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether the option requires a port.
     portRequired :: Prelude.Maybe Prelude.Bool,
     -- | Persistent options can\'t be removed from an option group while DB
@@ -86,33 +86,33 @@ data OptionGroupOption = OptionGroupOption'
 --
 -- 'optionsConflictsWith', 'optionGroupOption_optionsConflictsWith' - The options that conflict with this option.
 --
+-- 'engineName', 'optionGroupOption_engineName' - The name of the engine that this option can be applied to.
+--
 -- 'vpcOnly', 'optionGroupOption_vpcOnly' - If true, you can only use this option with a DB instance that is in a
 -- VPC.
 --
--- 'engineName', 'optionGroupOption_engineName' - The name of the engine that this option can be applied to.
---
 -- 'optionGroupOptionVersions', 'optionGroupOption_optionGroupOptionVersions' - The versions that are available for the option.
 --
--- 'defaultPort', 'optionGroupOption_defaultPort' - If the option requires a port, specifies the default port for the
--- option.
+-- 'optionGroupOptionSettings', 'optionGroupOption_optionGroupOptionSettings' - The option settings that are available (and the default value) for each
+-- option in an option group.
 --
 -- 'requiresAutoMinorEngineVersionUpgrade', 'optionGroupOption_requiresAutoMinorEngineVersionUpgrade' - If true, you must enable the Auto Minor Version Upgrade setting for your
 -- DB instance before you can use this option. You can enable Auto Minor
 -- Version Upgrade when you first create your DB instance, or by modifying
 -- your DB instance later.
 --
--- 'optionGroupOptionSettings', 'optionGroupOption_optionGroupOptionSettings' - The option settings that are available (and the default value) for each
--- option in an option group.
---
--- 'majorEngineVersion', 'optionGroupOption_majorEngineVersion' - Indicates the major engine version that the option is available for.
+-- 'defaultPort', 'optionGroupOption_defaultPort' - If the option requires a port, specifies the default port for the
+-- option.
 --
 -- 'name', 'optionGroupOption_name' - The name of the option.
 --
+-- 'majorEngineVersion', 'optionGroupOption_majorEngineVersion' - Indicates the major engine version that the option is available for.
+--
 -- 'minimumRequiredMinorEngineVersion', 'optionGroupOption_minimumRequiredMinorEngineVersion' - The minimum required engine version for the option to be applied.
 --
--- 'optionsDependedOn', 'optionGroupOption_optionsDependedOn' - The options that are prerequisites for this option.
---
 -- 'description', 'optionGroupOption_description' - The description of the option.
+--
+-- 'optionsDependedOn', 'optionGroupOption_optionsDependedOn' - The options that are prerequisites for this option.
 --
 -- 'portRequired', 'optionGroupOption_portRequired' - Specifies whether the option requires a port.
 --
@@ -133,18 +133,18 @@ newOptionGroupOption =
   OptionGroupOption'
     { optionsConflictsWith =
         Prelude.Nothing,
-      vpcOnly = Prelude.Nothing,
       engineName = Prelude.Nothing,
+      vpcOnly = Prelude.Nothing,
       optionGroupOptionVersions = Prelude.Nothing,
-      defaultPort = Prelude.Nothing,
+      optionGroupOptionSettings = Prelude.Nothing,
       requiresAutoMinorEngineVersionUpgrade =
         Prelude.Nothing,
-      optionGroupOptionSettings = Prelude.Nothing,
-      majorEngineVersion = Prelude.Nothing,
+      defaultPort = Prelude.Nothing,
       name = Prelude.Nothing,
+      majorEngineVersion = Prelude.Nothing,
       minimumRequiredMinorEngineVersion = Prelude.Nothing,
-      optionsDependedOn = Prelude.Nothing,
       description = Prelude.Nothing,
+      optionsDependedOn = Prelude.Nothing,
       portRequired = Prelude.Nothing,
       persistent = Prelude.Nothing,
       permanent = Prelude.Nothing,
@@ -155,23 +155,23 @@ newOptionGroupOption =
 optionGroupOption_optionsConflictsWith :: Lens.Lens' OptionGroupOption (Prelude.Maybe [Prelude.Text])
 optionGroupOption_optionsConflictsWith = Lens.lens (\OptionGroupOption' {optionsConflictsWith} -> optionsConflictsWith) (\s@OptionGroupOption' {} a -> s {optionsConflictsWith = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The name of the engine that this option can be applied to.
+optionGroupOption_engineName :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
+optionGroupOption_engineName = Lens.lens (\OptionGroupOption' {engineName} -> engineName) (\s@OptionGroupOption' {} a -> s {engineName = a} :: OptionGroupOption)
+
 -- | If true, you can only use this option with a DB instance that is in a
 -- VPC.
 optionGroupOption_vpcOnly :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Bool)
 optionGroupOption_vpcOnly = Lens.lens (\OptionGroupOption' {vpcOnly} -> vpcOnly) (\s@OptionGroupOption' {} a -> s {vpcOnly = a} :: OptionGroupOption)
 
--- | The name of the engine that this option can be applied to.
-optionGroupOption_engineName :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
-optionGroupOption_engineName = Lens.lens (\OptionGroupOption' {engineName} -> engineName) (\s@OptionGroupOption' {} a -> s {engineName = a} :: OptionGroupOption)
-
 -- | The versions that are available for the option.
 optionGroupOption_optionGroupOptionVersions :: Lens.Lens' OptionGroupOption (Prelude.Maybe [OptionVersion])
 optionGroupOption_optionGroupOptionVersions = Lens.lens (\OptionGroupOption' {optionGroupOptionVersions} -> optionGroupOptionVersions) (\s@OptionGroupOption' {} a -> s {optionGroupOptionVersions = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
 
--- | If the option requires a port, specifies the default port for the
--- option.
-optionGroupOption_defaultPort :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Int)
-optionGroupOption_defaultPort = Lens.lens (\OptionGroupOption' {defaultPort} -> defaultPort) (\s@OptionGroupOption' {} a -> s {defaultPort = a} :: OptionGroupOption)
+-- | The option settings that are available (and the default value) for each
+-- option in an option group.
+optionGroupOption_optionGroupOptionSettings :: Lens.Lens' OptionGroupOption (Prelude.Maybe [OptionGroupOptionSetting])
+optionGroupOption_optionGroupOptionSettings = Lens.lens (\OptionGroupOption' {optionGroupOptionSettings} -> optionGroupOptionSettings) (\s@OptionGroupOption' {} a -> s {optionGroupOptionSettings = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If true, you must enable the Auto Minor Version Upgrade setting for your
 -- DB instance before you can use this option. You can enable Auto Minor
@@ -180,30 +180,30 @@ optionGroupOption_defaultPort = Lens.lens (\OptionGroupOption' {defaultPort} -> 
 optionGroupOption_requiresAutoMinorEngineVersionUpgrade :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Bool)
 optionGroupOption_requiresAutoMinorEngineVersionUpgrade = Lens.lens (\OptionGroupOption' {requiresAutoMinorEngineVersionUpgrade} -> requiresAutoMinorEngineVersionUpgrade) (\s@OptionGroupOption' {} a -> s {requiresAutoMinorEngineVersionUpgrade = a} :: OptionGroupOption)
 
--- | The option settings that are available (and the default value) for each
--- option in an option group.
-optionGroupOption_optionGroupOptionSettings :: Lens.Lens' OptionGroupOption (Prelude.Maybe [OptionGroupOptionSetting])
-optionGroupOption_optionGroupOptionSettings = Lens.lens (\OptionGroupOption' {optionGroupOptionSettings} -> optionGroupOptionSettings) (\s@OptionGroupOption' {} a -> s {optionGroupOptionSettings = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates the major engine version that the option is available for.
-optionGroupOption_majorEngineVersion :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
-optionGroupOption_majorEngineVersion = Lens.lens (\OptionGroupOption' {majorEngineVersion} -> majorEngineVersion) (\s@OptionGroupOption' {} a -> s {majorEngineVersion = a} :: OptionGroupOption)
+-- | If the option requires a port, specifies the default port for the
+-- option.
+optionGroupOption_defaultPort :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Int)
+optionGroupOption_defaultPort = Lens.lens (\OptionGroupOption' {defaultPort} -> defaultPort) (\s@OptionGroupOption' {} a -> s {defaultPort = a} :: OptionGroupOption)
 
 -- | The name of the option.
 optionGroupOption_name :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
 optionGroupOption_name = Lens.lens (\OptionGroupOption' {name} -> name) (\s@OptionGroupOption' {} a -> s {name = a} :: OptionGroupOption)
 
+-- | Indicates the major engine version that the option is available for.
+optionGroupOption_majorEngineVersion :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
+optionGroupOption_majorEngineVersion = Lens.lens (\OptionGroupOption' {majorEngineVersion} -> majorEngineVersion) (\s@OptionGroupOption' {} a -> s {majorEngineVersion = a} :: OptionGroupOption)
+
 -- | The minimum required engine version for the option to be applied.
 optionGroupOption_minimumRequiredMinorEngineVersion :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
 optionGroupOption_minimumRequiredMinorEngineVersion = Lens.lens (\OptionGroupOption' {minimumRequiredMinorEngineVersion} -> minimumRequiredMinorEngineVersion) (\s@OptionGroupOption' {} a -> s {minimumRequiredMinorEngineVersion = a} :: OptionGroupOption)
 
--- | The options that are prerequisites for this option.
-optionGroupOption_optionsDependedOn :: Lens.Lens' OptionGroupOption (Prelude.Maybe [Prelude.Text])
-optionGroupOption_optionsDependedOn = Lens.lens (\OptionGroupOption' {optionsDependedOn} -> optionsDependedOn) (\s@OptionGroupOption' {} a -> s {optionsDependedOn = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The description of the option.
 optionGroupOption_description :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Text)
 optionGroupOption_description = Lens.lens (\OptionGroupOption' {description} -> description) (\s@OptionGroupOption' {} a -> s {description = a} :: OptionGroupOption)
+
+-- | The options that are prerequisites for this option.
+optionGroupOption_optionsDependedOn :: Lens.Lens' OptionGroupOption (Prelude.Maybe [Prelude.Text])
+optionGroupOption_optionsDependedOn = Lens.lens (\OptionGroupOption' {optionsDependedOn} -> optionsDependedOn) (\s@OptionGroupOption' {} a -> s {optionsDependedOn = a} :: OptionGroupOption) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the option requires a port.
 optionGroupOption_portRequired :: Lens.Lens' OptionGroupOption (Prelude.Maybe Prelude.Bool)
@@ -234,27 +234,27 @@ instance Core.FromXML OptionGroupOption where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "OptionConflictName")
                   )
-      Prelude.<*> (x Core..@? "VpcOnly")
       Prelude.<*> (x Core..@? "EngineName")
+      Prelude.<*> (x Core..@? "VpcOnly")
       Prelude.<*> ( x Core..@? "OptionGroupOptionVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "OptionVersion")
                   )
-      Prelude.<*> (x Core..@? "DefaultPort")
-      Prelude.<*> (x Core..@? "RequiresAutoMinorEngineVersionUpgrade")
       Prelude.<*> ( x Core..@? "OptionGroupOptionSettings"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Core.parseXMLList "OptionGroupOptionSetting")
                   )
-      Prelude.<*> (x Core..@? "MajorEngineVersion")
+      Prelude.<*> (x Core..@? "RequiresAutoMinorEngineVersionUpgrade")
+      Prelude.<*> (x Core..@? "DefaultPort")
       Prelude.<*> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "MajorEngineVersion")
       Prelude.<*> (x Core..@? "MinimumRequiredMinorEngineVersion")
+      Prelude.<*> (x Core..@? "Description")
       Prelude.<*> ( x Core..@? "OptionsDependedOn"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "OptionName")
                   )
-      Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "PortRequired")
       Prelude.<*> (x Core..@? "Persistent")
       Prelude.<*> (x Core..@? "Permanent")

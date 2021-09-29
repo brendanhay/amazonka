@@ -26,7 +26,9 @@ import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
 import Network.AWS.MediaConvert.Types.DolbyVisionProfile
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for Dolby Vision
+-- | With AWS Elemental MediaConvert, you can create profile 5 Dolby Vision
+-- outputs from MXF and IMF sources that contain mastering information as
+-- frame-interleaved Dolby Vision metadata.
 --
 -- /See:/ 'newDolbyVision' smart constructor.
 data DolbyVision = DolbyVision'

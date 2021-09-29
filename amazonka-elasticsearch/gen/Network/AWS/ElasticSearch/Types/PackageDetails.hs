@@ -34,10 +34,10 @@ data PackageDetails = PackageDetails'
     -- | Current state of the package. Values are
     -- COPYING\/COPY_FAILED\/AVAILABLE\/DELETING\/DELETE_FAILED
     packageStatus :: Prelude.Maybe PackageStatus,
-    -- | User specified name of the package.
-    packageName :: Prelude.Maybe Prelude.Text,
     -- | Timestamp which tells creation date of the package.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | User specified name of the package.
+    packageName :: Prelude.Maybe Prelude.Text,
     -- | Internal ID of the package.
     packageID :: Prelude.Maybe Prelude.Text,
     -- | User-specified description of the package.
@@ -64,9 +64,9 @@ data PackageDetails = PackageDetails'
 -- 'packageStatus', 'packageDetails_packageStatus' - Current state of the package. Values are
 -- COPYING\/COPY_FAILED\/AVAILABLE\/DELETING\/DELETE_FAILED
 --
--- 'packageName', 'packageDetails_packageName' - User specified name of the package.
---
 -- 'createdAt', 'packageDetails_createdAt' - Timestamp which tells creation date of the package.
+--
+-- 'packageName', 'packageDetails_packageName' - User specified name of the package.
 --
 -- 'packageID', 'packageDetails_packageID' - Internal ID of the package.
 --
@@ -85,8 +85,8 @@ newPackageDetails =
     { availablePackageVersion =
         Prelude.Nothing,
       packageStatus = Prelude.Nothing,
-      packageName = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      packageName = Prelude.Nothing,
       packageID = Prelude.Nothing,
       packageDescription = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
@@ -103,13 +103,13 @@ packageDetails_availablePackageVersion = Lens.lens (\PackageDetails' {availableP
 packageDetails_packageStatus :: Lens.Lens' PackageDetails (Prelude.Maybe PackageStatus)
 packageDetails_packageStatus = Lens.lens (\PackageDetails' {packageStatus} -> packageStatus) (\s@PackageDetails' {} a -> s {packageStatus = a} :: PackageDetails)
 
--- | User specified name of the package.
-packageDetails_packageName :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
-packageDetails_packageName = Lens.lens (\PackageDetails' {packageName} -> packageName) (\s@PackageDetails' {} a -> s {packageName = a} :: PackageDetails)
-
 -- | Timestamp which tells creation date of the package.
 packageDetails_createdAt :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.UTCTime)
 packageDetails_createdAt = Lens.lens (\PackageDetails' {createdAt} -> createdAt) (\s@PackageDetails' {} a -> s {createdAt = a} :: PackageDetails) Prelude.. Lens.mapping Core._Time
+
+-- | User specified name of the package.
+packageDetails_packageName :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
+packageDetails_packageName = Lens.lens (\PackageDetails' {packageName} -> packageName) (\s@PackageDetails' {} a -> s {packageName = a} :: PackageDetails)
 
 -- | Internal ID of the package.
 packageDetails_packageID :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
@@ -140,8 +140,8 @@ instance Core.FromJSON PackageDetails where
           PackageDetails'
             Prelude.<$> (x Core..:? "AvailablePackageVersion")
             Prelude.<*> (x Core..:? "PackageStatus")
-            Prelude.<*> (x Core..:? "PackageName")
             Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "PackageName")
             Prelude.<*> (x Core..:? "PackageID")
             Prelude.<*> (x Core..:? "PackageDescription")
             Prelude.<*> (x Core..:? "LastUpdatedAt")

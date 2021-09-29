@@ -34,8 +34,8 @@ module Network.AWS.RDS.DescribeDBClusterEndpoints
     describeDBClusterEndpoints_dbClusterEndpointIdentifier,
     describeDBClusterEndpoints_dbClusterIdentifier,
     describeDBClusterEndpoints_filters,
-    describeDBClusterEndpoints_marker,
     describeDBClusterEndpoints_maxRecords,
+    describeDBClusterEndpoints_marker,
 
     -- * Destructuring the Response
     DescribeDBClusterEndpointsResponse (..),
@@ -75,11 +75,6 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
     -- @db-cluster-endpoint-status@ filter can be one or more of: @available@,
     -- @creating@, @deleting@, @inactive@, @modifying@.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -88,7 +83,12 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,11 +118,6 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 -- @db-cluster-endpoint-status@ filter can be one or more of: @available@,
 -- @creating@, @deleting@, @inactive@, @modifying@.
 --
--- 'marker', 'describeDBClusterEndpoints_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeDBClusterEndpoints_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -131,6 +126,11 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBClusterEndpoints_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 newDescribeDBClusterEndpoints ::
   DescribeDBClusterEndpoints
 newDescribeDBClusterEndpoints =
@@ -139,8 +139,8 @@ newDescribeDBClusterEndpoints =
         Prelude.Nothing,
       dbClusterIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The identifier of the endpoint to describe. This parameter is stored as
@@ -167,13 +167,6 @@ describeDBClusterEndpoints_dbClusterIdentifier = Lens.lens (\DescribeDBClusterEn
 describeDBClusterEndpoints_filters :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe [Filter])
 describeDBClusterEndpoints_filters = Lens.lens (\DescribeDBClusterEndpoints' {filters} -> filters) (\s@DescribeDBClusterEndpoints' {} a -> s {filters = a} :: DescribeDBClusterEndpoints) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBClusterEndpoints_marker :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
-describeDBClusterEndpoints_marker = Lens.lens (\DescribeDBClusterEndpoints' {marker} -> marker) (\s@DescribeDBClusterEndpoints' {} a -> s {marker = a} :: DescribeDBClusterEndpoints)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -184,6 +177,13 @@ describeDBClusterEndpoints_marker = Lens.lens (\DescribeDBClusterEndpoints' {mar
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusterEndpoints_maxRecords :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Int)
 describeDBClusterEndpoints_maxRecords = Lens.lens (\DescribeDBClusterEndpoints' {maxRecords} -> maxRecords) (\s@DescribeDBClusterEndpoints' {} a -> s {maxRecords = a} :: DescribeDBClusterEndpoints)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBClusterEndpoints_marker :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
+describeDBClusterEndpoints_marker = Lens.lens (\DescribeDBClusterEndpoints' {marker} -> marker) (\s@DescribeDBClusterEndpoints' {} a -> s {marker = a} :: DescribeDBClusterEndpoints)
 
 instance Core.AWSPager DescribeDBClusterEndpoints where
   page rq rs
@@ -248,8 +248,8 @@ instance Core.ToQuery DescribeDBClusterEndpoints where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeDBClusterEndpointsResponse' smart constructor.

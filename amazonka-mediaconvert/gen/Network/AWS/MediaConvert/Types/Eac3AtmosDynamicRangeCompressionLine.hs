@@ -33,8 +33,17 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specify the absolute peak level for a signal with dynamic range
--- compression.
+-- | Choose the Dolby dynamic range control (DRC) profile that MediaConvert
+-- uses when encoding the metadata in the Dolby stream for the line
+-- operating mode. Default value: Film light
+-- (ATMOS_STORAGE_DDP_COMPR_FILM_LIGHT) Related setting: To have
+-- MediaConvert use the value you specify here, keep the default value,
+-- Custom (SPECIFIED) for the setting Dynamic range control
+-- (DynamicRangeControl). Otherwise, MediaConvert ignores Dynamic range
+-- compression line (DynamicRangeCompressionLine). For information about
+-- the Dolby DRC operating modes and profiles, see the Dynamic Range
+-- Control chapter of the Dolby Metadata Guide at
+-- https:\/\/developer.dolby.com\/globalassets\/professional\/documents\/dolby-metadata-guide.pdf.
 newtype Eac3AtmosDynamicRangeCompressionLine = Eac3AtmosDynamicRangeCompressionLine'
   { fromEac3AtmosDynamicRangeCompressionLine ::
       Core.Text

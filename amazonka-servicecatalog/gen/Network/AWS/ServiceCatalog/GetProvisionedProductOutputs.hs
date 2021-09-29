@@ -30,8 +30,8 @@ module Network.AWS.ServiceCatalog.GetProvisionedProductOutputs
 
     -- * Request Lenses
     getProvisionedProductOutputs_provisionedProductName,
-    getProvisionedProductOutputs_provisionedProductId,
     getProvisionedProductOutputs_pageSize,
+    getProvisionedProductOutputs_provisionedProductId,
     getProvisionedProductOutputs_outputKeys,
     getProvisionedProductOutputs_pageToken,
     getProvisionedProductOutputs_acceptLanguage,
@@ -58,11 +58,11 @@ import Network.AWS.ServiceCatalog.Types
 data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
   { -- | The name of the provisioned product that you want the outputs from.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the provisioned product that you want the outputs
     -- from.
     provisionedProductId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The list of keys that the API should return with their values. If none
     -- are provided, the API will return all outputs of the provisioned
     -- product.
@@ -91,10 +91,10 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
 --
 -- 'provisionedProductName', 'getProvisionedProductOutputs_provisionedProductName' - The name of the provisioned product that you want the outputs from.
 --
+-- 'pageSize', 'getProvisionedProductOutputs_pageSize' - The maximum number of items to return with this call.
+--
 -- 'provisionedProductId', 'getProvisionedProductOutputs_provisionedProductId' - The identifier of the provisioned product that you want the outputs
 -- from.
---
--- 'pageSize', 'getProvisionedProductOutputs_pageSize' - The maximum number of items to return with this call.
 --
 -- 'outputKeys', 'getProvisionedProductOutputs_outputKeys' - The list of keys that the API should return with their values. If none
 -- are provided, the API will return all outputs of the provisioned
@@ -116,8 +116,8 @@ newGetProvisionedProductOutputs =
   GetProvisionedProductOutputs'
     { provisionedProductName =
         Prelude.Nothing,
-      provisionedProductId = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      provisionedProductId = Prelude.Nothing,
       outputKeys = Prelude.Nothing,
       pageToken = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing
@@ -127,14 +127,14 @@ newGetProvisionedProductOutputs =
 getProvisionedProductOutputs_provisionedProductName :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_provisionedProductName = Lens.lens (\GetProvisionedProductOutputs' {provisionedProductName} -> provisionedProductName) (\s@GetProvisionedProductOutputs' {} a -> s {provisionedProductName = a} :: GetProvisionedProductOutputs)
 
+-- | The maximum number of items to return with this call.
+getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Natural)
+getProvisionedProductOutputs_pageSize = Lens.lens (\GetProvisionedProductOutputs' {pageSize} -> pageSize) (\s@GetProvisionedProductOutputs' {} a -> s {pageSize = a} :: GetProvisionedProductOutputs)
+
 -- | The identifier of the provisioned product that you want the outputs
 -- from.
 getProvisionedProductOutputs_provisionedProductId :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_provisionedProductId = Lens.lens (\GetProvisionedProductOutputs' {provisionedProductId} -> provisionedProductId) (\s@GetProvisionedProductOutputs' {} a -> s {provisionedProductId = a} :: GetProvisionedProductOutputs)
-
--- | The maximum number of items to return with this call.
-getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Natural)
-getProvisionedProductOutputs_pageSize = Lens.lens (\GetProvisionedProductOutputs' {pageSize} -> pageSize) (\s@GetProvisionedProductOutputs' {} a -> s {pageSize = a} :: GetProvisionedProductOutputs)
 
 -- | The list of keys that the API should return with their values. If none
 -- are provided, the API will return all outputs of the provisioned
@@ -198,9 +198,9 @@ instance Core.ToJSON GetProvisionedProductOutputs where
       ( Prelude.catMaybes
           [ ("ProvisionedProductName" Core..=)
               Prelude.<$> provisionedProductName,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             ("ProvisionedProductId" Core..=)
               Prelude.<$> provisionedProductId,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
             ("OutputKeys" Core..=) Prelude.<$> outputKeys,
             ("PageToken" Core..=) Prelude.<$> pageToken,
             ("AcceptLanguage" Core..=)

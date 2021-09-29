@@ -185,7 +185,7 @@ instance Core.ToQuery GetInsightImpactGraph where
 data GetInsightImpactGraphResponse = GetInsightImpactGraphResponse'
   { -- | Pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS instrumented services related to the insight.
+    -- | The Amazon Web Services instrumented services related to the insight.
     services :: Prelude.Maybe [InsightImpactGraphService],
     -- | The time, in Unix seconds, at which the service graph ended.
     serviceGraphEndTime :: Prelude.Maybe Core.POSIX,
@@ -212,7 +212,7 @@ data GetInsightImpactGraphResponse = GetInsightImpactGraphResponse'
 --
 -- 'nextToken', 'getInsightImpactGraphResponse_nextToken' - Pagination token.
 --
--- 'services', 'getInsightImpactGraphResponse_services' - The AWS instrumented services related to the insight.
+-- 'services', 'getInsightImpactGraphResponse_services' - The Amazon Web Services instrumented services related to the insight.
 --
 -- 'serviceGraphEndTime', 'getInsightImpactGraphResponse_serviceGraphEndTime' - The time, in Unix seconds, at which the service graph ended.
 --
@@ -246,7 +246,7 @@ newGetInsightImpactGraphResponse pHttpStatus_ =
 getInsightImpactGraphResponse_nextToken :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe Prelude.Text)
 getInsightImpactGraphResponse_nextToken = Lens.lens (\GetInsightImpactGraphResponse' {nextToken} -> nextToken) (\s@GetInsightImpactGraphResponse' {} a -> s {nextToken = a} :: GetInsightImpactGraphResponse)
 
--- | The AWS instrumented services related to the insight.
+-- | The Amazon Web Services instrumented services related to the insight.
 getInsightImpactGraphResponse_services :: Lens.Lens' GetInsightImpactGraphResponse (Prelude.Maybe [InsightImpactGraphService])
 getInsightImpactGraphResponse_services = Lens.lens (\GetInsightImpactGraphResponse' {services} -> services) (\s@GetInsightImpactGraphResponse' {} a -> s {services = a} :: GetInsightImpactGraphResponse) Prelude.. Lens.mapping Lens._Coerce
 

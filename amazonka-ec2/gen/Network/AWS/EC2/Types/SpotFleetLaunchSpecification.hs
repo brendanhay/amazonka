@@ -42,8 +42,6 @@ import qualified Network.AWS.Prelude as Prelude
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
   { -- | The tags to apply during creation.
     tagSpecifications :: Prelude.Maybe [SpotFleetTagSpecification],
-    -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
     -- | Indicates whether the instances are optimized for EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -52,17 +50,19 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     --
     -- Default: @false@
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | The Base64-encoded user data that instances use when starting up.
-    userData :: Prelude.Maybe Prelude.Text,
     -- | The placement information.
     placement :: Prelude.Maybe SpotPlacement,
-    -- | Deprecated.
-    addressingType :: Prelude.Maybe Prelude.Text,
+    -- | The Base64-encoded user data that instances use when starting up.
+    userData :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The ID of the RAM disk. Some kernels require additional drivers at
     -- launch. Check the kernel requirements for information about whether you
     -- need to specify a RAM disk. To find kernel requirements, refer to the
-    -- AWS Resource Center and search for the kernel ID.
+    -- Amazon Web Services Resource Center and search for the kernel ID.
     ramdiskId :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated.
+    addressingType :: Prelude.Maybe Prelude.Text,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance. If this value is not specified, the default is the Spot price
     -- specified for the fleet. To determine the Spot price per unit hour,
@@ -91,8 +91,6 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the kernel.
     kernelId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the key pair.
-    keyName :: Prelude.Maybe Prelude.Text,
     -- | One or more network interfaces. If you specify a network interface, you
     -- must specify subnet IDs and security group IDs using the network
     -- interface.
@@ -101,6 +99,8 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     -- Adapter (EFA). To specify an EFA, you must use
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html LaunchTemplateConfig>.
     networkInterfaces :: Prelude.Maybe [InstanceNetworkInterfaceSpecification],
+    -- | The name of the key pair.
+    keyName :: Prelude.Maybe Prelude.Text,
     -- | The number of units provided by the specified instance type. These are
     -- the same units that you chose to set the target capacity in terms of
     -- instances, or a performance characteristic such as vCPUs, memory, or
@@ -123,8 +123,6 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- 'tagSpecifications', 'spotFleetLaunchSpecification_tagSpecifications' - The tags to apply during creation.
 --
--- 'instanceType', 'spotFleetLaunchSpecification_instanceType' - The instance type.
---
 -- 'ebsOptimized', 'spotFleetLaunchSpecification_ebsOptimized' - Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -133,16 +131,18 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- Default: @false@
 --
--- 'userData', 'spotFleetLaunchSpecification_userData' - The Base64-encoded user data that instances use when starting up.
---
 -- 'placement', 'spotFleetLaunchSpecification_placement' - The placement information.
 --
--- 'addressingType', 'spotFleetLaunchSpecification_addressingType' - Deprecated.
+-- 'userData', 'spotFleetLaunchSpecification_userData' - The Base64-encoded user data that instances use when starting up.
+--
+-- 'instanceType', 'spotFleetLaunchSpecification_instanceType' - The instance type.
 --
 -- 'ramdiskId', 'spotFleetLaunchSpecification_ramdiskId' - The ID of the RAM disk. Some kernels require additional drivers at
 -- launch. Check the kernel requirements for information about whether you
 -- need to specify a RAM disk. To find kernel requirements, refer to the
--- AWS Resource Center and search for the kernel ID.
+-- Amazon Web Services Resource Center and search for the kernel ID.
+--
+-- 'addressingType', 'spotFleetLaunchSpecification_addressingType' - Deprecated.
 --
 -- 'spotPrice', 'spotFleetLaunchSpecification_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. If this value is not specified, the default is the Spot price
@@ -172,8 +172,6 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- 'kernelId', 'spotFleetLaunchSpecification_kernelId' - The ID of the kernel.
 --
--- 'keyName', 'spotFleetLaunchSpecification_keyName' - The name of the key pair.
---
 -- 'networkInterfaces', 'spotFleetLaunchSpecification_networkInterfaces' - One or more network interfaces. If you specify a network interface, you
 -- must specify subnet IDs and security group IDs using the network
 -- interface.
@@ -181,6 +179,8 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 -- @SpotFleetLaunchSpecification@ currently does not support Elastic Fabric
 -- Adapter (EFA). To specify an EFA, you must use
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html LaunchTemplateConfig>.
+--
+-- 'keyName', 'spotFleetLaunchSpecification_keyName' - The name of the key pair.
 --
 -- 'weightedCapacity', 'spotFleetLaunchSpecification_weightedCapacity' - The number of units provided by the specified instance type. These are
 -- the same units that you chose to set the target capacity in terms of
@@ -196,12 +196,12 @@ newSpotFleetLaunchSpecification =
   SpotFleetLaunchSpecification'
     { tagSpecifications =
         Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
-      userData = Prelude.Nothing,
       placement = Prelude.Nothing,
-      addressingType = Prelude.Nothing,
+      userData = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
+      addressingType = Prelude.Nothing,
       spotPrice = Prelude.Nothing,
       imageId = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
@@ -210,18 +210,14 @@ newSpotFleetLaunchSpecification =
       blockDeviceMappings = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       kernelId = Prelude.Nothing,
-      keyName = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
+      keyName = Prelude.Nothing,
       weightedCapacity = Prelude.Nothing
     }
 
 -- | The tags to apply during creation.
 spotFleetLaunchSpecification_tagSpecifications :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe [SpotFleetTagSpecification])
 spotFleetLaunchSpecification_tagSpecifications = Lens.lens (\SpotFleetLaunchSpecification' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetLaunchSpecification' {} a -> s {tagSpecifications = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Lens._Coerce
-
--- | The instance type.
-spotFleetLaunchSpecification_instanceType :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe InstanceType)
-spotFleetLaunchSpecification_instanceType = Lens.lens (\SpotFleetLaunchSpecification' {instanceType} -> instanceType) (\s@SpotFleetLaunchSpecification' {} a -> s {instanceType = a} :: SpotFleetLaunchSpecification)
 
 -- | Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -233,24 +229,28 @@ spotFleetLaunchSpecification_instanceType = Lens.lens (\SpotFleetLaunchSpecifica
 spotFleetLaunchSpecification_ebsOptimized :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Bool)
 spotFleetLaunchSpecification_ebsOptimized = Lens.lens (\SpotFleetLaunchSpecification' {ebsOptimized} -> ebsOptimized) (\s@SpotFleetLaunchSpecification' {} a -> s {ebsOptimized = a} :: SpotFleetLaunchSpecification)
 
--- | The Base64-encoded user data that instances use when starting up.
-spotFleetLaunchSpecification_userData :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
-spotFleetLaunchSpecification_userData = Lens.lens (\SpotFleetLaunchSpecification' {userData} -> userData) (\s@SpotFleetLaunchSpecification' {} a -> s {userData = a} :: SpotFleetLaunchSpecification)
-
 -- | The placement information.
 spotFleetLaunchSpecification_placement :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe SpotPlacement)
 spotFleetLaunchSpecification_placement = Lens.lens (\SpotFleetLaunchSpecification' {placement} -> placement) (\s@SpotFleetLaunchSpecification' {} a -> s {placement = a} :: SpotFleetLaunchSpecification)
 
--- | Deprecated.
-spotFleetLaunchSpecification_addressingType :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
-spotFleetLaunchSpecification_addressingType = Lens.lens (\SpotFleetLaunchSpecification' {addressingType} -> addressingType) (\s@SpotFleetLaunchSpecification' {} a -> s {addressingType = a} :: SpotFleetLaunchSpecification)
+-- | The Base64-encoded user data that instances use when starting up.
+spotFleetLaunchSpecification_userData :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
+spotFleetLaunchSpecification_userData = Lens.lens (\SpotFleetLaunchSpecification' {userData} -> userData) (\s@SpotFleetLaunchSpecification' {} a -> s {userData = a} :: SpotFleetLaunchSpecification)
+
+-- | The instance type.
+spotFleetLaunchSpecification_instanceType :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe InstanceType)
+spotFleetLaunchSpecification_instanceType = Lens.lens (\SpotFleetLaunchSpecification' {instanceType} -> instanceType) (\s@SpotFleetLaunchSpecification' {} a -> s {instanceType = a} :: SpotFleetLaunchSpecification)
 
 -- | The ID of the RAM disk. Some kernels require additional drivers at
 -- launch. Check the kernel requirements for information about whether you
 -- need to specify a RAM disk. To find kernel requirements, refer to the
--- AWS Resource Center and search for the kernel ID.
+-- Amazon Web Services Resource Center and search for the kernel ID.
 spotFleetLaunchSpecification_ramdiskId :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
 spotFleetLaunchSpecification_ramdiskId = Lens.lens (\SpotFleetLaunchSpecification' {ramdiskId} -> ramdiskId) (\s@SpotFleetLaunchSpecification' {} a -> s {ramdiskId = a} :: SpotFleetLaunchSpecification)
+
+-- | Deprecated.
+spotFleetLaunchSpecification_addressingType :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
+spotFleetLaunchSpecification_addressingType = Lens.lens (\SpotFleetLaunchSpecification' {addressingType} -> addressingType) (\s@SpotFleetLaunchSpecification' {} a -> s {addressingType = a} :: SpotFleetLaunchSpecification)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. If this value is not specified, the default is the Spot price
@@ -296,10 +296,6 @@ spotFleetLaunchSpecification_subnetId = Lens.lens (\SpotFleetLaunchSpecification
 spotFleetLaunchSpecification_kernelId :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
 spotFleetLaunchSpecification_kernelId = Lens.lens (\SpotFleetLaunchSpecification' {kernelId} -> kernelId) (\s@SpotFleetLaunchSpecification' {} a -> s {kernelId = a} :: SpotFleetLaunchSpecification)
 
--- | The name of the key pair.
-spotFleetLaunchSpecification_keyName :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
-spotFleetLaunchSpecification_keyName = Lens.lens (\SpotFleetLaunchSpecification' {keyName} -> keyName) (\s@SpotFleetLaunchSpecification' {} a -> s {keyName = a} :: SpotFleetLaunchSpecification)
-
 -- | One or more network interfaces. If you specify a network interface, you
 -- must specify subnet IDs and security group IDs using the network
 -- interface.
@@ -309,6 +305,10 @@ spotFleetLaunchSpecification_keyName = Lens.lens (\SpotFleetLaunchSpecification'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html LaunchTemplateConfig>.
 spotFleetLaunchSpecification_networkInterfaces :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
 spotFleetLaunchSpecification_networkInterfaces = Lens.lens (\SpotFleetLaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@SpotFleetLaunchSpecification' {} a -> s {networkInterfaces = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the key pair.
+spotFleetLaunchSpecification_keyName :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
+spotFleetLaunchSpecification_keyName = Lens.lens (\SpotFleetLaunchSpecification' {keyName} -> keyName) (\s@SpotFleetLaunchSpecification' {} a -> s {keyName = a} :: SpotFleetLaunchSpecification)
 
 -- | The number of units provided by the specified instance type. These are
 -- the same units that you chose to set the target capacity in terms of
@@ -328,12 +328,12 @@ instance Core.FromXML SpotFleetLaunchSpecification where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "ebsOptimized")
-      Prelude.<*> (x Core..@? "userData")
       Prelude.<*> (x Core..@? "placement")
-      Prelude.<*> (x Core..@? "addressingType")
+      Prelude.<*> (x Core..@? "userData")
+      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "ramdiskId")
+      Prelude.<*> (x Core..@? "addressingType")
       Prelude.<*> (x Core..@? "spotPrice")
       Prelude.<*> (x Core..@? "imageId")
       Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
@@ -347,11 +347,11 @@ instance Core.FromXML SpotFleetLaunchSpecification where
                   )
       Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "keyName")
       Prelude.<*> ( x Core..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "keyName")
       Prelude.<*> (x Core..@? "weightedCapacity")
 
 instance
@@ -367,12 +367,12 @@ instance Core.ToQuery SpotFleetLaunchSpecification where
           ( Core.toQueryList "TagSpecificationSet"
               Prelude.<$> tagSpecifications
           ),
-        "InstanceType" Core.=: instanceType,
         "EbsOptimized" Core.=: ebsOptimized,
-        "UserData" Core.=: userData,
         "Placement" Core.=: placement,
-        "AddressingType" Core.=: addressingType,
+        "UserData" Core.=: userData,
+        "InstanceType" Core.=: instanceType,
         "RamdiskId" Core.=: ramdiskId,
+        "AddressingType" Core.=: addressingType,
         "SpotPrice" Core.=: spotPrice,
         "ImageId" Core.=: imageId,
         Core.toQuery
@@ -387,10 +387,10 @@ instance Core.ToQuery SpotFleetLaunchSpecification where
           ),
         "SubnetId" Core.=: subnetId,
         "KernelId" Core.=: kernelId,
-        "KeyName" Core.=: keyName,
         Core.toQuery
           ( Core.toQueryList "NetworkInterfaceSet"
               Prelude.<$> networkInterfaces
           ),
+        "KeyName" Core.=: keyName,
         "WeightedCapacity" Core.=: weightedCapacity
       ]

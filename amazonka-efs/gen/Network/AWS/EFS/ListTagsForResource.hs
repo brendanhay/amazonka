@@ -55,8 +55,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | You can use @NextToken@ in a subsequent request to fetch the next page
-    -- of access point descriptions if the response payload was paginated.
+  { -- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
+    -- next page of access point descriptions if the response payload was
+    -- paginated.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies the maximum number of tag objects to return in the
     -- response. The default value is 100.
@@ -76,8 +77,9 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - You can use @NextToken@ in a subsequent request to fetch the next page
--- of access point descriptions if the response payload was paginated.
+-- 'nextToken', 'listTagsForResource_nextToken' - (Optional) You can use @NextToken@ in a subsequent request to fetch the
+-- next page of access point descriptions if the response payload was
+-- paginated.
 --
 -- 'maxResults', 'listTagsForResource_maxResults' - (Optional) Specifies the maximum number of tag objects to return in the
 -- response. The default value is 100.
@@ -96,8 +98,9 @@ newListTagsForResource pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | You can use @NextToken@ in a subsequent request to fetch the next page
--- of access point descriptions if the response payload was paginated.
+-- | (Optional) You can use @NextToken@ in a subsequent request to fetch the
+-- next page of access point descriptions if the response payload was
+-- paginated.
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 

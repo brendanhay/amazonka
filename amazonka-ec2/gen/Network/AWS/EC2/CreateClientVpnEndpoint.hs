@@ -39,8 +39,8 @@ module Network.AWS.EC2.CreateClientVpnEndpoint
     createClientVpnEndpoint_description,
     createClientVpnEndpoint_vpcId,
     createClientVpnEndpoint_selfServicePortal,
-    createClientVpnEndpoint_clientToken,
     createClientVpnEndpoint_splitTunnel,
+    createClientVpnEndpoint_clientToken,
     createClientVpnEndpoint_clientCidrBlock,
     createClientVpnEndpoint_serverCertificateArn,
     createClientVpnEndpoint_authenticationOptions,
@@ -108,19 +108,18 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     --
     -- Default Value: @enabled@
     selfServicePortal :: Prelude.Maybe SelfServicePortal,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether split-tunnel is enabled on the AWS Client VPN
-    -- endpoint.
+    -- | Indicates whether split-tunnel is enabled on the Client VPN endpoint.
     --
     -- By default, split-tunnel on a VPN endpoint is disabled.
     --
     -- For information about split-tunnel VPN endpoints, see
-    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
-    -- in the /AWS Client VPN Administrator Guide/.
+    -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+    -- in the /Client VPN Administrator Guide/.
     splitTunnel :: Prelude.Maybe Prelude.Bool,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address range, in CIDR notation, from which to assign client IP
     -- addresses. The address range cannot overlap with the local CIDR of the
     -- VPC in which the associated subnet is located, or the routes that you
@@ -128,7 +127,7 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     -- endpoint has been created. The CIDR block should be \/22 or greater.
     clientCidrBlock :: Prelude.Text,
     -- | The ARN of the server certificate. For more information, see the
-    -- <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide>.
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
     serverCertificateArn :: Prelude.Text,
     -- | Information about the authentication method to be used to authenticate
     -- clients.
@@ -199,18 +198,17 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 --
 -- Default Value: @enabled@
 --
--- 'clientToken', 'createClientVpnEndpoint_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
---
--- 'splitTunnel', 'createClientVpnEndpoint_splitTunnel' - Indicates whether split-tunnel is enabled on the AWS Client VPN
--- endpoint.
+-- 'splitTunnel', 'createClientVpnEndpoint_splitTunnel' - Indicates whether split-tunnel is enabled on the Client VPN endpoint.
 --
 -- By default, split-tunnel on a VPN endpoint is disabled.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
+--
+-- 'clientToken', 'createClientVpnEndpoint_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'clientCidrBlock', 'createClientVpnEndpoint_clientCidrBlock' - The IPv4 address range, in CIDR notation, from which to assign client IP
 -- addresses. The address range cannot overlap with the local CIDR of the
@@ -219,7 +217,7 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 -- endpoint has been created. The CIDR block should be \/22 or greater.
 --
 -- 'serverCertificateArn', 'createClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate. For more information, see the
--- <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide>.
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
 --
 -- 'authenticationOptions', 'createClientVpnEndpoint_authenticationOptions' - Information about the authentication method to be used to authenticate
 -- clients.
@@ -261,8 +259,8 @@ newCreateClientVpnEndpoint
         description = Prelude.Nothing,
         vpcId = Prelude.Nothing,
         selfServicePortal = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         splitTunnel = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         clientCidrBlock = pClientCidrBlock_,
         serverCertificateArn = pServerCertificateArn_,
         authenticationOptions = Prelude.mempty,
@@ -330,22 +328,21 @@ createClientVpnEndpoint_vpcId = Lens.lens (\CreateClientVpnEndpoint' {vpcId} -> 
 createClientVpnEndpoint_selfServicePortal :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe SelfServicePortal)
 createClientVpnEndpoint_selfServicePortal = Lens.lens (\CreateClientVpnEndpoint' {selfServicePortal} -> selfServicePortal) (\s@CreateClientVpnEndpoint' {} a -> s {selfServicePortal = a} :: CreateClientVpnEndpoint)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createClientVpnEndpoint_clientToken :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Text)
-createClientVpnEndpoint_clientToken = Lens.lens (\CreateClientVpnEndpoint' {clientToken} -> clientToken) (\s@CreateClientVpnEndpoint' {} a -> s {clientToken = a} :: CreateClientVpnEndpoint)
-
--- | Indicates whether split-tunnel is enabled on the AWS Client VPN
--- endpoint.
+-- | Indicates whether split-tunnel is enabled on the Client VPN endpoint.
 --
 -- By default, split-tunnel on a VPN endpoint is disabled.
 --
 -- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint>
--- in the /AWS Client VPN Administrator Guide/.
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
 createClientVpnEndpoint_splitTunnel :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 createClientVpnEndpoint_splitTunnel = Lens.lens (\CreateClientVpnEndpoint' {splitTunnel} -> splitTunnel) (\s@CreateClientVpnEndpoint' {} a -> s {splitTunnel = a} :: CreateClientVpnEndpoint)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+createClientVpnEndpoint_clientToken :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Text)
+createClientVpnEndpoint_clientToken = Lens.lens (\CreateClientVpnEndpoint' {clientToken} -> clientToken) (\s@CreateClientVpnEndpoint' {} a -> s {clientToken = a} :: CreateClientVpnEndpoint)
 
 -- | The IPv4 address range, in CIDR notation, from which to assign client IP
 -- addresses. The address range cannot overlap with the local CIDR of the
@@ -356,7 +353,7 @@ createClientVpnEndpoint_clientCidrBlock :: Lens.Lens' CreateClientVpnEndpoint Pr
 createClientVpnEndpoint_clientCidrBlock = Lens.lens (\CreateClientVpnEndpoint' {clientCidrBlock} -> clientCidrBlock) (\s@CreateClientVpnEndpoint' {} a -> s {clientCidrBlock = a} :: CreateClientVpnEndpoint)
 
 -- | The ARN of the server certificate. For more information, see the
--- <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide>.
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
 createClientVpnEndpoint_serverCertificateArn :: Lens.Lens' CreateClientVpnEndpoint Prelude.Text
 createClientVpnEndpoint_serverCertificateArn = Lens.lens (\CreateClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@CreateClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: CreateClientVpnEndpoint)
 
@@ -432,8 +429,8 @@ instance Core.ToQuery CreateClientVpnEndpoint where
         "Description" Core.=: description,
         "VpcId" Core.=: vpcId,
         "SelfServicePortal" Core.=: selfServicePortal,
-        "ClientToken" Core.=: clientToken,
         "SplitTunnel" Core.=: splitTunnel,
+        "ClientToken" Core.=: clientToken,
         "ClientCidrBlock" Core.=: clientCidrBlock,
         "ServerCertificateArn" Core.=: serverCertificateArn,
         Core.toQueryList

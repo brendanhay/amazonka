@@ -30,8 +30,8 @@ module Network.AWS.XRay.GetTimeSeriesServiceStatistics
     newGetTimeSeriesServiceStatistics,
 
     -- * Request Lenses
-    getTimeSeriesServiceStatistics_nextToken,
     getTimeSeriesServiceStatistics_entitySelectorExpression,
+    getTimeSeriesServiceStatistics_nextToken,
     getTimeSeriesServiceStatistics_groupName,
     getTimeSeriesServiceStatistics_forecastStatistics,
     getTimeSeriesServiceStatistics_period,
@@ -60,12 +60,12 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newGetTimeSeriesServiceStatistics' smart constructor.
 data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter expression defining entities that will be aggregated for
+  { -- | A filter expression defining entities that will be aggregated for
     -- statistics. Supports ID, service, and edge functions. If no selector
     -- expression is specified, edge statistics are returned.
     entitySelectorExpression :: Prelude.Maybe Prelude.Text,
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The case-sensitive name of the group for which to pull statistics from.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The forecasted high and low fault count values. Forecast enabled
@@ -91,11 +91,11 @@ data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTimeSeriesServiceStatistics_nextToken' - Pagination token.
---
 -- 'entitySelectorExpression', 'getTimeSeriesServiceStatistics_entitySelectorExpression' - A filter expression defining entities that will be aggregated for
 -- statistics. Supports ID, service, and edge functions. If no selector
 -- expression is specified, edge statistics are returned.
+--
+-- 'nextToken', 'getTimeSeriesServiceStatistics_nextToken' - Pagination token.
 --
 -- 'groupName', 'getTimeSeriesServiceStatistics_groupName' - The case-sensitive name of the group for which to pull statistics from.
 --
@@ -120,9 +120,9 @@ newGetTimeSeriesServiceStatistics
   pStartTime_
   pEndTime_ =
     GetTimeSeriesServiceStatistics'
-      { nextToken =
+      { entitySelectorExpression =
           Prelude.Nothing,
-        entitySelectorExpression = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         groupName = Prelude.Nothing,
         forecastStatistics = Prelude.Nothing,
         period = Prelude.Nothing,
@@ -131,15 +131,15 @@ newGetTimeSeriesServiceStatistics
         endTime = Core._Time Lens.# pEndTime_
       }
 
--- | Pagination token.
-getTimeSeriesServiceStatistics_nextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
-getTimeSeriesServiceStatistics_nextToken = Lens.lens (\GetTimeSeriesServiceStatistics' {nextToken} -> nextToken) (\s@GetTimeSeriesServiceStatistics' {} a -> s {nextToken = a} :: GetTimeSeriesServiceStatistics)
-
 -- | A filter expression defining entities that will be aggregated for
 -- statistics. Supports ID, service, and edge functions. If no selector
 -- expression is specified, edge statistics are returned.
 getTimeSeriesServiceStatistics_entitySelectorExpression :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
 getTimeSeriesServiceStatistics_entitySelectorExpression = Lens.lens (\GetTimeSeriesServiceStatistics' {entitySelectorExpression} -> entitySelectorExpression) (\s@GetTimeSeriesServiceStatistics' {} a -> s {entitySelectorExpression = a} :: GetTimeSeriesServiceStatistics)
+
+-- | Pagination token.
+getTimeSeriesServiceStatistics_nextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
+getTimeSeriesServiceStatistics_nextToken = Lens.lens (\GetTimeSeriesServiceStatistics' {nextToken} -> nextToken) (\s@GetTimeSeriesServiceStatistics' {} a -> s {nextToken = a} :: GetTimeSeriesServiceStatistics)
 
 -- | The case-sensitive name of the group for which to pull statistics from.
 getTimeSeriesServiceStatistics_groupName :: Lens.Lens' GetTimeSeriesServiceStatistics (Prelude.Maybe Prelude.Text)
@@ -227,9 +227,9 @@ instance Core.ToJSON GetTimeSeriesServiceStatistics where
   toJSON GetTimeSeriesServiceStatistics' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EntitySelectorExpression" Core..=)
+          [ ("EntitySelectorExpression" Core..=)
               Prelude.<$> entitySelectorExpression,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("GroupName" Core..=) Prelude.<$> groupName,
             ("ForecastStatistics" Core..=)
               Prelude.<$> forecastStatistics,

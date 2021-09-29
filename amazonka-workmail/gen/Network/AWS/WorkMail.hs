@@ -47,32 +47,32 @@ module Network.AWS.WorkMail
     -- * Errors
     -- $errors
 
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
-
     -- ** OrganizationNotFoundException
     _OrganizationNotFoundException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
 
     -- ** ReservedNameException
     _ReservedNameException,
 
-    -- ** MailDomainStateException
-    _MailDomainStateException,
+    -- ** NameAvailabilityException
+    _NameAvailabilityException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** NameAvailabilityException
-    _NameAvailabilityException,
+    -- ** MailDomainStateException
+    _MailDomainStateException,
 
     -- ** InvalidConfigurationException
     _InvalidConfigurationException,
 
-    -- ** OrganizationStateException
-    _OrganizationStateException,
-
     -- ** EntityStateException
     _EntityStateException,
+
+    -- ** OrganizationStateException
+    _OrganizationStateException,
 
     -- ** DirectoryInUseException
     _DirectoryInUseException,
@@ -86,14 +86,14 @@ module Network.AWS.WorkMail
     -- ** DirectoryUnavailableException
     _DirectoryUnavailableException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** InvalidPasswordException
     _InvalidPasswordException,
 
     -- ** EmailAddressInUseException
     _EmailAddressInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -113,11 +113,11 @@ module Network.AWS.WorkMail
     -- * Operations
     -- $operations
 
-    -- ** CreateOrganization
-    CreateOrganization (CreateOrganization'),
-    newCreateOrganization,
-    CreateOrganizationResponse (CreateOrganizationResponse'),
-    newCreateOrganizationResponse,
+    -- ** DescribeResource
+    DescribeResource (DescribeResource'),
+    newDescribeResource,
+    DescribeResourceResponse (DescribeResourceResponse'),
+    newDescribeResourceResponse,
 
     -- ** DeleteAlias
     DeleteAlias (DeleteAlias'),
@@ -125,29 +125,29 @@ module Network.AWS.WorkMail
     DeleteAliasResponse (DeleteAliasResponse'),
     newDeleteAliasResponse,
 
+    -- ** CreateOrganization
+    CreateOrganization (CreateOrganization'),
+    newCreateOrganization,
+    CreateOrganizationResponse (CreateOrganizationResponse'),
+    newCreateOrganizationResponse,
+
     -- ** StartMailboxExportJob
     StartMailboxExportJob (StartMailboxExportJob'),
     newStartMailboxExportJob,
     StartMailboxExportJobResponse (StartMailboxExportJobResponse'),
     newStartMailboxExportJobResponse,
 
-    -- ** DescribeResource
-    DescribeResource (DescribeResource'),
-    newDescribeResource,
-    DescribeResourceResponse (DescribeResourceResponse'),
-    newDescribeResourceResponse,
+    -- ** DeleteAccessControlRule
+    DeleteAccessControlRule (DeleteAccessControlRule'),
+    newDeleteAccessControlRule,
+    DeleteAccessControlRuleResponse (DeleteAccessControlRuleResponse'),
+    newDeleteAccessControlRuleResponse,
 
     -- ** ListResourceDelegates (Paginated)
     ListResourceDelegates (ListResourceDelegates'),
     newListResourceDelegates,
     ListResourceDelegatesResponse (ListResourceDelegatesResponse'),
     newListResourceDelegatesResponse,
-
-    -- ** DeleteAccessControlRule
-    DeleteAccessControlRule (DeleteAccessControlRule'),
-    newDeleteAccessControlRule,
-    DeleteAccessControlRuleResponse (DeleteAccessControlRuleResponse'),
-    newDeleteAccessControlRuleResponse,
 
     -- ** DisassociateDelegateFromResource
     DisassociateDelegateFromResource (DisassociateDelegateFromResource'),
@@ -167,6 +167,12 @@ module Network.AWS.WorkMail
     ListGroupsResponse (ListGroupsResponse'),
     newListGroupsResponse,
 
+    -- ** CreateResource
+    CreateResource (CreateResource'),
+    newCreateResource,
+    CreateResourceResponse (CreateResourceResponse'),
+    newCreateResourceResponse,
+
     -- ** ListMailboxExportJobs
     ListMailboxExportJobs (ListMailboxExportJobs'),
     newListMailboxExportJobs,
@@ -179,23 +185,11 @@ module Network.AWS.WorkMail
     DescribeOrganizationResponse (DescribeOrganizationResponse'),
     newDescribeOrganizationResponse,
 
-    -- ** CreateResource
-    CreateResource (CreateResource'),
-    newCreateResource,
-    CreateResourceResponse (CreateResourceResponse'),
-    newCreateResourceResponse,
-
     -- ** UpdateResource
     UpdateResource (UpdateResource'),
     newUpdateResource,
     UpdateResourceResponse (UpdateResourceResponse'),
     newUpdateResourceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
 
     -- ** DeleteResource
     DeleteResource (DeleteResource'),
@@ -203,11 +197,23 @@ module Network.AWS.WorkMail
     DeleteResourceResponse (DeleteResourceResponse'),
     newDeleteResourceResponse,
 
+    -- ** ListMobileDeviceAccessRules
+    ListMobileDeviceAccessRules (ListMobileDeviceAccessRules'),
+    newListMobileDeviceAccessRules,
+    ListMobileDeviceAccessRulesResponse (ListMobileDeviceAccessRulesResponse'),
+    newListMobileDeviceAccessRulesResponse,
+
     -- ** CreateGroup
     CreateGroup (CreateGroup'),
     newCreateGroup,
     CreateGroupResponse (CreateGroupResponse'),
     newCreateGroupResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -221,17 +227,17 @@ module Network.AWS.WorkMail
     AssociateMemberToGroupResponse (AssociateMemberToGroupResponse'),
     newAssociateMemberToGroupResponse,
 
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
     -- ** PutRetentionPolicy
     PutRetentionPolicy (PutRetentionPolicy'),
     newPutRetentionPolicy,
     PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
     newPutRetentionPolicyResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
     -- ** PutMailboxPermissions
     PutMailboxPermissions (PutMailboxPermissions'),
@@ -239,11 +245,11 @@ module Network.AWS.WorkMail
     PutMailboxPermissionsResponse (PutMailboxPermissionsResponse'),
     newPutMailboxPermissionsResponse,
 
-    -- ** AssociateDelegateToResource
-    AssociateDelegateToResource (AssociateDelegateToResource'),
-    newAssociateDelegateToResource,
-    AssociateDelegateToResourceResponse (AssociateDelegateToResourceResponse'),
-    newAssociateDelegateToResourceResponse,
+    -- ** GetMobileDeviceAccessEffect
+    GetMobileDeviceAccessEffect (GetMobileDeviceAccessEffect'),
+    newGetMobileDeviceAccessEffect,
+    GetMobileDeviceAccessEffectResponse (GetMobileDeviceAccessEffectResponse'),
+    newGetMobileDeviceAccessEffectResponse,
 
     -- ** RegisterToWorkMail
     RegisterToWorkMail (RegisterToWorkMail'),
@@ -262,6 +268,12 @@ module Network.AWS.WorkMail
     newDescribeMailboxExportJob,
     DescribeMailboxExportJobResponse (DescribeMailboxExportJobResponse'),
     newDescribeMailboxExportJobResponse,
+
+    -- ** AssociateDelegateToResource
+    AssociateDelegateToResource (AssociateDelegateToResource'),
+    newAssociateDelegateToResource,
+    AssociateDelegateToResourceResponse (AssociateDelegateToResourceResponse'),
+    newAssociateDelegateToResourceResponse,
 
     -- ** ListOrganizations (Paginated)
     ListOrganizations (ListOrganizations'),
@@ -299,17 +311,11 @@ module Network.AWS.WorkMail
     CancelMailboxExportJobResponse (CancelMailboxExportJobResponse'),
     newCancelMailboxExportJobResponse,
 
-    -- ** DeregisterFromWorkMail
-    DeregisterFromWorkMail (DeregisterFromWorkMail'),
-    newDeregisterFromWorkMail,
-    DeregisterFromWorkMailResponse (DeregisterFromWorkMailResponse'),
-    newDeregisterFromWorkMailResponse,
-
-    -- ** ListGroupMembers (Paginated)
-    ListGroupMembers (ListGroupMembers'),
-    newListGroupMembers,
-    ListGroupMembersResponse (ListGroupMembersResponse'),
-    newListGroupMembersResponse,
+    -- ** CreateMobileDeviceAccessRule
+    CreateMobileDeviceAccessRule (CreateMobileDeviceAccessRule'),
+    newCreateMobileDeviceAccessRule,
+    CreateMobileDeviceAccessRuleResponse (CreateMobileDeviceAccessRuleResponse'),
+    newCreateMobileDeviceAccessRuleResponse,
 
     -- ** DeleteGroup
     DeleteGroup (DeleteGroup'),
@@ -317,17 +323,23 @@ module Network.AWS.WorkMail
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
 
+    -- ** ListGroupMembers (Paginated)
+    ListGroupMembers (ListGroupMembers'),
+    newListGroupMembers,
+    ListGroupMembersResponse (ListGroupMembersResponse'),
+    newListGroupMembersResponse,
+
     -- ** ListMailboxPermissions (Paginated)
     ListMailboxPermissions (ListMailboxPermissions'),
     newListMailboxPermissions,
     ListMailboxPermissionsResponse (ListMailboxPermissionsResponse'),
     newListMailboxPermissionsResponse,
 
-    -- ** DisassociateMemberFromGroup
-    DisassociateMemberFromGroup (DisassociateMemberFromGroup'),
-    newDisassociateMemberFromGroup,
-    DisassociateMemberFromGroupResponse (DisassociateMemberFromGroupResponse'),
-    newDisassociateMemberFromGroupResponse,
+    -- ** DeregisterFromWorkMail
+    DeregisterFromWorkMail (DeregisterFromWorkMail'),
+    newDeregisterFromWorkMail,
+    DeregisterFromWorkMailResponse (DeregisterFromWorkMailResponse'),
+    newDeregisterFromWorkMailResponse,
 
     -- ** UpdateMailboxQuota
     UpdateMailboxQuota (UpdateMailboxQuota'),
@@ -335,23 +347,29 @@ module Network.AWS.WorkMail
     UpdateMailboxQuotaResponse (UpdateMailboxQuotaResponse'),
     newUpdateMailboxQuotaResponse,
 
+    -- ** UpdateMobileDeviceAccessRule
+    UpdateMobileDeviceAccessRule (UpdateMobileDeviceAccessRule'),
+    newUpdateMobileDeviceAccessRule,
+    UpdateMobileDeviceAccessRuleResponse (UpdateMobileDeviceAccessRuleResponse'),
+    newUpdateMobileDeviceAccessRuleResponse,
+
+    -- ** DeleteMobileDeviceAccessRule
+    DeleteMobileDeviceAccessRule (DeleteMobileDeviceAccessRule'),
+    newDeleteMobileDeviceAccessRule,
+    DeleteMobileDeviceAccessRuleResponse (DeleteMobileDeviceAccessRuleResponse'),
+    newDeleteMobileDeviceAccessRuleResponse,
+
+    -- ** DisassociateMemberFromGroup
+    DisassociateMemberFromGroup (DisassociateMemberFromGroup'),
+    newDisassociateMemberFromGroup,
+    DisassociateMemberFromGroupResponse (DisassociateMemberFromGroupResponse'),
+    newDisassociateMemberFromGroupResponse,
+
     -- ** ListResources (Paginated)
     ListResources (ListResources'),
     newListResources,
     ListResourcesResponse (ListResourcesResponse'),
     newListResourcesResponse,
-
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
-
-    -- ** ListUsers (Paginated)
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
 
     -- ** GetMailboxDetails
     GetMailboxDetails (GetMailboxDetails'),
@@ -359,17 +377,41 @@ module Network.AWS.WorkMail
     GetMailboxDetailsResponse (GetMailboxDetailsResponse'),
     newGetMailboxDetailsResponse,
 
-    -- ** DeleteMailboxPermissions
-    DeleteMailboxPermissions (DeleteMailboxPermissions'),
-    newDeleteMailboxPermissions,
-    DeleteMailboxPermissionsResponse (DeleteMailboxPermissionsResponse'),
-    newDeleteMailboxPermissionsResponse,
+    -- ** ListUsers (Paginated)
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** DeleteRetentionPolicy
     DeleteRetentionPolicy (DeleteRetentionPolicy'),
     newDeleteRetentionPolicy,
     DeleteRetentionPolicyResponse (DeleteRetentionPolicyResponse'),
     newDeleteRetentionPolicyResponse,
+
+    -- ** DeleteMailboxPermissions
+    DeleteMailboxPermissions (DeleteMailboxPermissions'),
+    newDeleteMailboxPermissions,
+    DeleteMailboxPermissionsResponse (DeleteMailboxPermissionsResponse'),
+    newDeleteMailboxPermissionsResponse,
+
+    -- ** ResetPassword
+    ResetPassword (ResetPassword'),
+    newResetPassword,
+    ResetPasswordResponse (ResetPasswordResponse'),
+    newResetPasswordResponse,
+
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
 
     -- ** DescribeGroup
     DescribeGroup (DescribeGroup'),
@@ -383,29 +425,17 @@ module Network.AWS.WorkMail
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
-
     -- ** GetAccessControlEffect
     GetAccessControlEffect (GetAccessControlEffect'),
     newGetAccessControlEffect,
     GetAccessControlEffectResponse (GetAccessControlEffectResponse'),
     newGetAccessControlEffectResponse,
 
-    -- ** ListAliases (Paginated)
-    ListAliases (ListAliases'),
-    newListAliases,
-    ListAliasesResponse (ListAliasesResponse'),
-    newListAliasesResponse,
-
-    -- ** ResetPassword
-    ResetPassword (ResetPassword'),
-    newResetPassword,
-    ResetPasswordResponse (ResetPasswordResponse'),
-    newResetPasswordResponse,
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
 
     -- * Types
 
@@ -423,6 +453,9 @@ module Network.AWS.WorkMail
 
     -- ** MemberType
     MemberType (..),
+
+    -- ** MobileDeviceAccessRuleEffect
+    MobileDeviceAccessRuleEffect (..),
 
     -- ** PermissionType
     PermissionType (..),
@@ -468,6 +501,14 @@ module Network.AWS.WorkMail
     Member (Member'),
     newMember,
 
+    -- ** MobileDeviceAccessMatchedRule
+    MobileDeviceAccessMatchedRule (MobileDeviceAccessMatchedRule'),
+    newMobileDeviceAccessMatchedRule,
+
+    -- ** MobileDeviceAccessRule
+    MobileDeviceAccessRule (MobileDeviceAccessRule'),
+    newMobileDeviceAccessRule,
+
     -- ** OrganizationSummary
     OrganizationSummary (OrganizationSummary'),
     newOrganizationSummary,
@@ -495,6 +536,7 @@ import Network.AWS.WorkMail.AssociateMemberToGroup
 import Network.AWS.WorkMail.CancelMailboxExportJob
 import Network.AWS.WorkMail.CreateAlias
 import Network.AWS.WorkMail.CreateGroup
+import Network.AWS.WorkMail.CreateMobileDeviceAccessRule
 import Network.AWS.WorkMail.CreateOrganization
 import Network.AWS.WorkMail.CreateResource
 import Network.AWS.WorkMail.CreateUser
@@ -502,6 +544,7 @@ import Network.AWS.WorkMail.DeleteAccessControlRule
 import Network.AWS.WorkMail.DeleteAlias
 import Network.AWS.WorkMail.DeleteGroup
 import Network.AWS.WorkMail.DeleteMailboxPermissions
+import Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
 import Network.AWS.WorkMail.DeleteOrganization
 import Network.AWS.WorkMail.DeleteResource
 import Network.AWS.WorkMail.DeleteRetentionPolicy
@@ -517,6 +560,7 @@ import Network.AWS.WorkMail.DisassociateMemberFromGroup
 import Network.AWS.WorkMail.GetAccessControlEffect
 import Network.AWS.WorkMail.GetDefaultRetentionPolicy
 import Network.AWS.WorkMail.GetMailboxDetails
+import Network.AWS.WorkMail.GetMobileDeviceAccessEffect
 import Network.AWS.WorkMail.Lens
 import Network.AWS.WorkMail.ListAccessControlRules
 import Network.AWS.WorkMail.ListAliases
@@ -524,6 +568,7 @@ import Network.AWS.WorkMail.ListGroupMembers
 import Network.AWS.WorkMail.ListGroups
 import Network.AWS.WorkMail.ListMailboxExportJobs
 import Network.AWS.WorkMail.ListMailboxPermissions
+import Network.AWS.WorkMail.ListMobileDeviceAccessRules
 import Network.AWS.WorkMail.ListOrganizations
 import Network.AWS.WorkMail.ListResourceDelegates
 import Network.AWS.WorkMail.ListResources
@@ -539,6 +584,7 @@ import Network.AWS.WorkMail.TagResource
 import Network.AWS.WorkMail.Types
 import Network.AWS.WorkMail.UntagResource
 import Network.AWS.WorkMail.UpdateMailboxQuota
+import Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
 import Network.AWS.WorkMail.UpdatePrimaryEmailAddress
 import Network.AWS.WorkMail.UpdateResource
 import Network.AWS.WorkMail.Waiters

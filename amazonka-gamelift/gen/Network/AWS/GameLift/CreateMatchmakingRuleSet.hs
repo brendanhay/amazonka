@@ -36,29 +36,19 @@
 --
 -- __Learn more__
 --
--- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a Rule Set>
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a rule set>
 --
--- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a Matchmaker>
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a matchmaker>
 --
 -- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html Matchmaking with FlexMatch>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreateMatchmakingRuleSet
   ( -- * Creating a Request
     CreateMatchmakingRuleSet (..),
@@ -100,7 +90,7 @@ data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
     tags :: Prelude.Maybe [Tag],
-    -- | A unique identifier for a matchmaking rule set. A matchmaking
+    -- | A unique identifier for the matchmaking rule set. A matchmaking
     -- configuration identifies the rule set it uses by this name value. Note
     -- that the rule set name is different from the optional @name@ field in
     -- the rule set body.
@@ -129,7 +119,7 @@ data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
 --
--- 'name', 'createMatchmakingRuleSet_name' - A unique identifier for a matchmaking rule set. A matchmaking
+-- 'name', 'createMatchmakingRuleSet_name' - A unique identifier for the matchmaking rule set. A matchmaking
 -- configuration identifies the rule set it uses by this name value. Note
 -- that the rule set name is different from the optional @name@ field in
 -- the rule set body.
@@ -161,7 +151,7 @@ newCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
 createMatchmakingRuleSet_tags :: Lens.Lens' CreateMatchmakingRuleSet (Prelude.Maybe [Tag])
 createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Lens._Coerce
 
--- | A unique identifier for a matchmaking rule set. A matchmaking
+-- | A unique identifier for the matchmaking rule set. A matchmaking
 -- configuration identifies the rule set it uses by this name value. Note
 -- that the rule set name is different from the optional @name@ field in
 -- the rule set body.

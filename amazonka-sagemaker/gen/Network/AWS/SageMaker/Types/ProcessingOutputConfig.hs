@@ -28,10 +28,10 @@ import Network.AWS.SageMaker.Types.ProcessingOutput
 --
 -- /See:/ 'newProcessingOutputConfig' smart constructor.
 data ProcessingOutputConfig = ProcessingOutputConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS
-    -- key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
-    -- @KmsKeyId@ is applied to all outputs.
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt the processing job output.
+    -- @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS
+    -- key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | An array of outputs configuring the data to upload from the processing
     -- container.
@@ -47,10 +47,10 @@ data ProcessingOutputConfig = ProcessingOutputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'processingOutputConfig_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS
--- key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
--- @KmsKeyId@ is applied to all outputs.
+-- 'kmsKeyId', 'processingOutputConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the processing job output.
+-- @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS
+-- key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
 --
 -- 'outputs', 'processingOutputConfig_outputs' - An array of outputs configuring the data to upload from the processing
 -- container.
@@ -62,10 +62,10 @@ newProcessingOutputConfig =
       outputs = Prelude.mempty
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS
--- key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
--- @KmsKeyId@ is applied to all outputs.
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the processing job output.
+-- @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS
+-- key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
 processingOutputConfig_kmsKeyId :: Lens.Lens' ProcessingOutputConfig (Prelude.Maybe Prelude.Text)
 processingOutputConfig_kmsKeyId = Lens.lens (\ProcessingOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@ProcessingOutputConfig' {} a -> s {kmsKeyId = a} :: ProcessingOutputConfig)
 

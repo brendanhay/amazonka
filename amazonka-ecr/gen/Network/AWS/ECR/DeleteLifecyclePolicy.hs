@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLifecyclePolicy' smart constructor.
 data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
     repositoryName :: Prelude.Text
@@ -69,9 +69,9 @@ data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'deleteLifecyclePolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'deleteLifecyclePolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'repositoryName', 'deleteLifecyclePolicy_repositoryName' - The name of the repository.
 newDeleteLifecyclePolicy ::
@@ -85,9 +85,9 @@ newDeleteLifecyclePolicy pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 deleteLifecyclePolicy_registryId :: Lens.Lens' DeleteLifecyclePolicy (Prelude.Maybe Prelude.Text)
 deleteLifecyclePolicy_registryId = Lens.lens (\DeleteLifecyclePolicy' {registryId} -> registryId) (\s@DeleteLifecyclePolicy' {} a -> s {registryId = a} :: DeleteLifecyclePolicy)
 

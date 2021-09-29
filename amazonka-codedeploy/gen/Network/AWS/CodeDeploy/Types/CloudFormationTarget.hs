@@ -31,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudFormationTarget' smart constructor.
 data CloudFormationTarget = CloudFormationTarget'
-  { -- | The unique ID of an AWS CloudFormation blue\/green deployment.
+  { -- | The unique ID of a deployment target that has a type
+    -- of @CloudFormationTarget@.
+    targetId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of an AWS CloudFormation blue\/green deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status of an AWS CloudFormation blue\/green deployment\'s target
     -- application.
     status :: Prelude.Maybe TargetStatus,
-    -- | The unique ID of a deployment target that has a type
-    -- of @CloudFormationTarget@.
-    targetId :: Prelude.Maybe Prelude.Text,
     -- | The percentage of production traffic that the target version of an AWS
     -- CloudFormation blue\/green deployment receives.
     targetVersionWeight :: Prelude.Maybe Prelude.Double,
@@ -61,13 +61,13 @@ data CloudFormationTarget = CloudFormationTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetId', 'cloudFormationTarget_targetId' - The unique ID of a deployment target that has a type
+-- of @CloudFormationTarget@.
+--
 -- 'deploymentId', 'cloudFormationTarget_deploymentId' - The unique ID of an AWS CloudFormation blue\/green deployment.
 --
 -- 'status', 'cloudFormationTarget_status' - The status of an AWS CloudFormation blue\/green deployment\'s target
 -- application.
---
--- 'targetId', 'cloudFormationTarget_targetId' - The unique ID of a deployment target that has a type
--- of @CloudFormationTarget@.
 --
 -- 'targetVersionWeight', 'cloudFormationTarget_targetVersionWeight' - The percentage of production traffic that the target version of an AWS
 -- CloudFormation blue\/green deployment receives.
@@ -83,15 +83,19 @@ newCloudFormationTarget ::
   CloudFormationTarget
 newCloudFormationTarget =
   CloudFormationTarget'
-    { deploymentId =
-        Prelude.Nothing,
+    { targetId = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       status = Prelude.Nothing,
-      targetId = Prelude.Nothing,
       targetVersionWeight = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       lifecycleEvents = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing
     }
+
+-- | The unique ID of a deployment target that has a type
+-- of @CloudFormationTarget@.
+cloudFormationTarget_targetId :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
+cloudFormationTarget_targetId = Lens.lens (\CloudFormationTarget' {targetId} -> targetId) (\s@CloudFormationTarget' {} a -> s {targetId = a} :: CloudFormationTarget)
 
 -- | The unique ID of an AWS CloudFormation blue\/green deployment.
 cloudFormationTarget_deploymentId :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
@@ -101,11 +105,6 @@ cloudFormationTarget_deploymentId = Lens.lens (\CloudFormationTarget' {deploymen
 -- application.
 cloudFormationTarget_status :: Lens.Lens' CloudFormationTarget (Prelude.Maybe TargetStatus)
 cloudFormationTarget_status = Lens.lens (\CloudFormationTarget' {status} -> status) (\s@CloudFormationTarget' {} a -> s {status = a} :: CloudFormationTarget)
-
--- | The unique ID of a deployment target that has a type
--- of @CloudFormationTarget@.
-cloudFormationTarget_targetId :: Lens.Lens' CloudFormationTarget (Prelude.Maybe Prelude.Text)
-cloudFormationTarget_targetId = Lens.lens (\CloudFormationTarget' {targetId} -> targetId) (\s@CloudFormationTarget' {} a -> s {targetId = a} :: CloudFormationTarget)
 
 -- | The percentage of production traffic that the target version of an AWS
 -- CloudFormation blue\/green deployment receives.
@@ -132,9 +131,9 @@ instance Core.FromJSON CloudFormationTarget where
       "CloudFormationTarget"
       ( \x ->
           CloudFormationTarget'
-            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<$> (x Core..:? "targetId")
+            Prelude.<*> (x Core..:? "deploymentId")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targetId")
             Prelude.<*> (x Core..:? "targetVersionWeight")
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> ( x Core..:? "lifecycleEvents"

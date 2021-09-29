@@ -25,11 +25,11 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Advanced event selectors let you create fine-grained selectors for the
--- following AWS CloudTrail event record ﬁelds. They help you control costs
--- by logging only those events that are important to you. For more
+-- following CloudTrail event record ﬁelds. They help you control costs by
+-- logging only those events that are important to you. For more
 -- information about advanced event selectors, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 --
 -- -   @readOnly@
 --

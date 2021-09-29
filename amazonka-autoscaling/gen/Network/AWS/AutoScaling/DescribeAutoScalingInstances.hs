@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling instances.
+-- Gets information about the Auto Scaling instances in the account and
+-- Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
@@ -53,9 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-  { -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
-    -- omit this parameter, all Auto Scaling instances are described. If you
-    -- specify an ID that does not exist, it is ignored with no error.
+  { -- | The IDs of the instances. If you omit this parameter, all Auto Scaling
+    -- instances are described. If you specify an ID that does not exist, it is
+    -- ignored with no error.
+    --
+    -- Array Members: Maximum number of 50 items.
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
@@ -74,9 +77,11 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
--- omit this parameter, all Auto Scaling instances are described. If you
--- specify an ID that does not exist, it is ignored with no error.
+-- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. If you omit this parameter, all Auto Scaling
+-- instances are described. If you specify an ID that does not exist, it is
+-- ignored with no error.
+--
+-- Array Members: Maximum number of 50 items.
 --
 -- 'nextToken', 'describeAutoScalingInstances_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -93,9 +98,11 @@ newDescribeAutoScalingInstances =
       maxRecords = Prelude.Nothing
     }
 
--- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
--- omit this parameter, all Auto Scaling instances are described. If you
--- specify an ID that does not exist, it is ignored with no error.
+-- | The IDs of the instances. If you omit this parameter, all Auto Scaling
+-- instances are described. If you specify an ID that does not exist, it is
+-- ignored with no error.
+--
+-- Array Members: Maximum number of 50 items.
 describeAutoScalingInstances_instanceIds :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe [Prelude.Text])
 describeAutoScalingInstances_instanceIds = Lens.lens (\DescribeAutoScalingInstances' {instanceIds} -> instanceIds) (\s@DescribeAutoScalingInstances' {} a -> s {instanceIds = a} :: DescribeAutoScalingInstances) Prelude.. Lens.mapping Lens._Coerce
 

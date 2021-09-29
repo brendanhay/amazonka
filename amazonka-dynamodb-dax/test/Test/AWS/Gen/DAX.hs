@@ -30,26 +30,26 @@ import Test.Tasty
 --         [ requestDescribeParameters $
 --             newDescribeParameters
 --
---         , requestDescribeDefaultParameters $
---             newDescribeDefaultParameters
---
 --         , requestDescribeClusters $
 --             newDescribeClusters
+--
+--         , requestDescribeDefaultParameters $
+--             newDescribeDefaultParameters
 --
 --         , requestCreateCluster $
 --             newCreateCluster
 --
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestDecreaseReplicationFactor $
 --             newDecreaseReplicationFactor
 --
---         , requestDescribeParameterGroups $
---             newDescribeParameterGroups
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestDescribeParameterGroups $
+--             newDescribeParameterGroups
 --
 --         , requestIncreaseReplicationFactor $
 --             newIncreaseReplicationFactor
@@ -57,23 +57,23 @@ import Test.Tasty
 --         , requestDescribeEvents $
 --             newDescribeEvents
 --
---         , requestDeleteParameterGroup $
---             newDeleteParameterGroup
---
 --         , requestUpdateParameterGroup $
 --             newUpdateParameterGroup
+--
+--         , requestDeleteParameterGroup $
+--             newDeleteParameterGroup
 --
 --         , requestRebootNode $
 --             newRebootNode
 --
---         , requestDeleteCluster $
---             newDeleteCluster
+--         , requestListTags $
+--             newListTags
 --
 --         , requestUpdateCluster $
 --             newUpdateCluster
 --
---         , requestListTags $
---             newListTags
+--         , requestDeleteCluster $
+--             newDeleteCluster
 --
 --         , requestCreateSubnetGroup $
 --             newCreateSubnetGroup
@@ -96,26 +96,26 @@ import Test.Tasty
 --         [ responseDescribeParameters $
 --             newDescribeParametersResponse
 --
---         , responseDescribeDefaultParameters $
---             newDescribeDefaultParametersResponse
---
 --         , responseDescribeClusters $
 --             newDescribeClustersResponse
+--
+--         , responseDescribeDefaultParameters $
+--             newDescribeDefaultParametersResponse
 --
 --         , responseCreateCluster $
 --             newCreateClusterResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseDecreaseReplicationFactor $
 --             newDecreaseReplicationFactorResponse
 --
---         , responseDescribeParameterGroups $
---             newDescribeParameterGroupsResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseDescribeParameterGroups $
+--             newDescribeParameterGroupsResponse
 --
 --         , responseIncreaseReplicationFactor $
 --             newIncreaseReplicationFactorResponse
@@ -123,23 +123,23 @@ import Test.Tasty
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
 --
---         , responseDeleteParameterGroup $
---             newDeleteParameterGroupResponse
---
 --         , responseUpdateParameterGroup $
 --             newUpdateParameterGroupResponse
+--
+--         , responseDeleteParameterGroup $
+--             newDeleteParameterGroupResponse
 --
 --         , responseRebootNode $
 --             newRebootNodeResponse
 --
---         , responseDeleteCluster $
---             newDeleteClusterResponse
+--         , responseListTags $
+--             newListTagsResponse
 --
 --         , responseUpdateCluster $
 --             newUpdateClusterResponse
 --
---         , responseListTags $
---             newListTagsResponse
+--         , responseDeleteCluster $
+--             newDeleteClusterResponse
 --
 --         , responseCreateSubnetGroup $
 --             newCreateSubnetGroupResponse
@@ -167,17 +167,17 @@ requestDescribeParameters =
     "DescribeParameters"
     "fixture/DescribeParameters.yaml"
 
-requestDescribeDefaultParameters :: DescribeDefaultParameters -> TestTree
-requestDescribeDefaultParameters =
-  req
-    "DescribeDefaultParameters"
-    "fixture/DescribeDefaultParameters.yaml"
-
 requestDescribeClusters :: DescribeClusters -> TestTree
 requestDescribeClusters =
   req
     "DescribeClusters"
     "fixture/DescribeClusters.yaml"
+
+requestDescribeDefaultParameters :: DescribeDefaultParameters -> TestTree
+requestDescribeDefaultParameters =
+  req
+    "DescribeDefaultParameters"
+    "fixture/DescribeDefaultParameters.yaml"
 
 requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster =
@@ -185,29 +185,29 @@ requestCreateCluster =
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestDecreaseReplicationFactor :: DecreaseReplicationFactor -> TestTree
 requestDecreaseReplicationFactor =
   req
     "DecreaseReplicationFactor"
     "fixture/DecreaseReplicationFactor.yaml"
 
-requestDescribeParameterGroups :: DescribeParameterGroups -> TestTree
-requestDescribeParameterGroups =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "DescribeParameterGroups"
-    "fixture/DescribeParameterGroups.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestDescribeParameterGroups :: DescribeParameterGroups -> TestTree
+requestDescribeParameterGroups =
+  req
+    "DescribeParameterGroups"
+    "fixture/DescribeParameterGroups.yaml"
 
 requestIncreaseReplicationFactor :: IncreaseReplicationFactor -> TestTree
 requestIncreaseReplicationFactor =
@@ -221,17 +221,17 @@ requestDescribeEvents =
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
 
-requestDeleteParameterGroup :: DeleteParameterGroup -> TestTree
-requestDeleteParameterGroup =
-  req
-    "DeleteParameterGroup"
-    "fixture/DeleteParameterGroup.yaml"
-
 requestUpdateParameterGroup :: UpdateParameterGroup -> TestTree
 requestUpdateParameterGroup =
   req
     "UpdateParameterGroup"
     "fixture/UpdateParameterGroup.yaml"
+
+requestDeleteParameterGroup :: DeleteParameterGroup -> TestTree
+requestDeleteParameterGroup =
+  req
+    "DeleteParameterGroup"
+    "fixture/DeleteParameterGroup.yaml"
 
 requestRebootNode :: RebootNode -> TestTree
 requestRebootNode =
@@ -239,11 +239,11 @@ requestRebootNode =
     "RebootNode"
     "fixture/RebootNode.yaml"
 
-requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
+requestListTags :: ListTags -> TestTree
+requestListTags =
   req
-    "DeleteCluster"
-    "fixture/DeleteCluster.yaml"
+    "ListTags"
+    "fixture/ListTags.yaml"
 
 requestUpdateCluster :: UpdateCluster -> TestTree
 requestUpdateCluster =
@@ -251,11 +251,11 @@ requestUpdateCluster =
     "UpdateCluster"
     "fixture/UpdateCluster.yaml"
 
-requestListTags :: ListTags -> TestTree
-requestListTags =
+requestDeleteCluster :: DeleteCluster -> TestTree
+requestDeleteCluster =
   req
-    "ListTags"
-    "fixture/ListTags.yaml"
+    "DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
 requestCreateSubnetGroup :: CreateSubnetGroup -> TestTree
 requestCreateSubnetGroup =
@@ -297,14 +297,6 @@ responseDescribeParameters =
     defaultService
     (Proxy :: Proxy DescribeParameters)
 
-responseDescribeDefaultParameters :: DescribeDefaultParametersResponse -> TestTree
-responseDescribeDefaultParameters =
-  res
-    "DescribeDefaultParametersResponse"
-    "fixture/DescribeDefaultParametersResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDefaultParameters)
-
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
 responseDescribeClusters =
   res
@@ -312,6 +304,14 @@ responseDescribeClusters =
     "fixture/DescribeClustersResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeClusters)
+
+responseDescribeDefaultParameters :: DescribeDefaultParametersResponse -> TestTree
+responseDescribeDefaultParameters =
+  res
+    "DescribeDefaultParametersResponse"
+    "fixture/DescribeDefaultParametersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDefaultParameters)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -321,14 +321,6 @@ responseCreateCluster =
     defaultService
     (Proxy :: Proxy CreateCluster)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
 responseDecreaseReplicationFactor :: DecreaseReplicationFactorResponse -> TestTree
 responseDecreaseReplicationFactor =
   res
@@ -337,13 +329,13 @@ responseDecreaseReplicationFactor =
     defaultService
     (Proxy :: Proxy DecreaseReplicationFactor)
 
-responseDescribeParameterGroups :: DescribeParameterGroupsResponse -> TestTree
-responseDescribeParameterGroups =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "DescribeParameterGroupsResponse"
-    "fixture/DescribeParameterGroupsResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeParameterGroups)
+    (Proxy :: Proxy UntagResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -352,6 +344,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy TagResource)
+
+responseDescribeParameterGroups :: DescribeParameterGroupsResponse -> TestTree
+responseDescribeParameterGroups =
+  res
+    "DescribeParameterGroupsResponse"
+    "fixture/DescribeParameterGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeParameterGroups)
 
 responseIncreaseReplicationFactor :: IncreaseReplicationFactorResponse -> TestTree
 responseIncreaseReplicationFactor =
@@ -369,14 +369,6 @@ responseDescribeEvents =
     defaultService
     (Proxy :: Proxy DescribeEvents)
 
-responseDeleteParameterGroup :: DeleteParameterGroupResponse -> TestTree
-responseDeleteParameterGroup =
-  res
-    "DeleteParameterGroupResponse"
-    "fixture/DeleteParameterGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteParameterGroup)
-
 responseUpdateParameterGroup :: UpdateParameterGroupResponse -> TestTree
 responseUpdateParameterGroup =
   res
@@ -384,6 +376,14 @@ responseUpdateParameterGroup =
     "fixture/UpdateParameterGroupResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateParameterGroup)
+
+responseDeleteParameterGroup :: DeleteParameterGroupResponse -> TestTree
+responseDeleteParameterGroup =
+  res
+    "DeleteParameterGroupResponse"
+    "fixture/DeleteParameterGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteParameterGroup)
 
 responseRebootNode :: RebootNodeResponse -> TestTree
 responseRebootNode =
@@ -393,13 +393,13 @@ responseRebootNode =
     defaultService
     (Proxy :: Proxy RebootNode)
 
-responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
   res
-    "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse.proto"
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCluster)
+    (Proxy :: Proxy ListTags)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster =
@@ -409,13 +409,13 @@ responseUpdateCluster =
     defaultService
     (Proxy :: Proxy UpdateCluster)
 
-responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
+responseDeleteCluster :: DeleteClusterResponse -> TestTree
+responseDeleteCluster =
   res
-    "ListTagsResponse"
-    "fixture/ListTagsResponse.proto"
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy :: Proxy DeleteCluster)
 
 responseCreateSubnetGroup :: CreateSubnetGroupResponse -> TestTree
 responseCreateSubnetGroup =

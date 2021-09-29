@@ -21,34 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the location of stored game session logs for a specified game
--- session. When a game session is terminated, Amazon GameLift
--- automatically stores the logs in Amazon S3 and retains them for 14 days.
--- Use this URL to download the logs.
+-- session. When a game session is terminated, GameLift automatically
+-- stores the logs in Amazon S3 and retains them for 14 days. Use this URL
+-- to download the logs.
 --
 -- See the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits>
 -- page for maximum log file sizes. Log files that exceed this limit are
 -- not saved.
 --
--- -   CreateGameSession
+-- __Related actions__
 --
--- -   DescribeGameSessions
---
--- -   DescribeGameSessionDetails
---
--- -   SearchGameSessions
---
--- -   UpdateGameSession
---
--- -   GetGameSessionLogUrl
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
+-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.GetGameSessionLogUrl
   ( -- * Creating a Request
     GetGameSessionLogUrl (..),

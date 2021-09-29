@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListHumanTaskUis
     newListHumanTaskUis,
 
     -- * Request Lenses
-    listHumanTaskUis_sortOrder,
     listHumanTaskUis_nextToken,
+    listHumanTaskUis_sortOrder,
     listHumanTaskUis_maxResults,
     listHumanTaskUis_creationTimeBefore,
     listHumanTaskUis_creationTimeAfter,
@@ -56,11 +56,11 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListHumanTaskUis' smart constructor.
 data ListHumanTaskUis = ListHumanTaskUis'
-  { -- | An optional value that specifies whether you want the results sorted in
+  { -- | A token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional value that specifies whether you want the results sorted in
     -- @Ascending@ or @Descending@ order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of items to return. If the total number of available
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ will be provided in the output that you can use to resume
@@ -83,10 +83,10 @@ data ListHumanTaskUis = ListHumanTaskUis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listHumanTaskUis_nextToken' - A token to resume pagination.
+--
 -- 'sortOrder', 'listHumanTaskUis_sortOrder' - An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
---
--- 'nextToken', 'listHumanTaskUis_nextToken' - A token to resume pagination.
 --
 -- 'maxResults', 'listHumanTaskUis_maxResults' - The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
@@ -102,21 +102,21 @@ newListHumanTaskUis ::
   ListHumanTaskUis
 newListHumanTaskUis =
   ListHumanTaskUis'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       creationTimeAfter = Prelude.Nothing
     }
 
+-- | A token to resume pagination.
+listHumanTaskUis_nextToken :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Text)
+listHumanTaskUis_nextToken = Lens.lens (\ListHumanTaskUis' {nextToken} -> nextToken) (\s@ListHumanTaskUis' {} a -> s {nextToken = a} :: ListHumanTaskUis)
+
 -- | An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
 listHumanTaskUis_sortOrder :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe SortOrder)
 listHumanTaskUis_sortOrder = Lens.lens (\ListHumanTaskUis' {sortOrder} -> sortOrder) (\s@ListHumanTaskUis' {} a -> s {sortOrder = a} :: ListHumanTaskUis)
-
--- | A token to resume pagination.
-listHumanTaskUis_nextToken :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Text)
-listHumanTaskUis_nextToken = Lens.lens (\ListHumanTaskUis' {nextToken} -> nextToken) (\s@ListHumanTaskUis' {} a -> s {nextToken = a} :: ListHumanTaskUis)
 
 -- | The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
@@ -193,8 +193,8 @@ instance Core.ToJSON ListHumanTaskUis where
   toJSON ListHumanTaskUis' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,

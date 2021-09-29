@@ -28,16 +28,16 @@
 -- Use this API to deploy models using Amazon SageMaker hosting services.
 --
 -- For an example that calls this method when deploying a model to Amazon
--- SageMaker hosting services, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto Deploy the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).>
+-- SageMaker hosting services, see the
+-- <https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb Create Endpoint example notebook.>
 --
 -- You must not delete an @EndpointConfig@ that is in use by an endpoint
 -- that is live or while the @UpdateEndpoint@ or @CreateEndpoint@
 -- operations are being performed on the endpoint. To update an endpoint,
 -- you must create a new @EndpointConfig@.
 --
--- The endpoint name must be unique within an AWS Region in your AWS
--- account.
+-- The endpoint name must be unique within an Amazon Web Services Region in
+-- your Amazon Web Services account.
 --
 -- When it receives the request, Amazon SageMaker creates the endpoint,
 -- launches the resources (ML compute instances), and deploys the model(s)
@@ -63,13 +63,14 @@
 -- API.
 --
 -- If any of the models hosted at this endpoint get model data from an
--- Amazon S3 location, Amazon SageMaker uses AWS Security Token Service to
--- download model artifacts from the S3 path you provided. AWS STS is
--- activated in your IAM user account by default. If you previously
--- deactivated AWS STS for a region, you need to reactivate AWS STS for
--- that region. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
--- in the /AWS Identity and Access Management User Guide/.
+-- Amazon S3 location, Amazon SageMaker uses Amazon Web Services Security
+-- Token Service to download model artifacts from the S3 path you provided.
+-- Amazon Web Services STS is activated in your IAM user account by
+-- default. If you previously deactivated Amazon Web Services STS for a
+-- region, you need to reactivate Amazon Web Services STS for that region.
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
+-- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
 -- To add the IAM role policies for using this API operation, go to the
 -- <https://console.aws.amazon.com/iam/ IAM console>, and choose Roles in
@@ -125,14 +126,15 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the endpoint.The name must be unique within an AWS Region in
-    -- your AWS account. The name is case-insensitive in @CreateEndpoint@, but
-    -- the case is preserved and must be matched in .
+    -- | The name of the endpoint.The name must be unique within an Amazon Web
+    -- Services Region in your Amazon Web Services account. The name is
+    -- case-insensitive in @CreateEndpoint@, but the case is preserved and must
+    -- be matched in .
     endpointName :: Prelude.Text,
     -- | The name of an endpoint configuration. For more information, see
     -- CreateEndpointConfig.
@@ -148,14 +150,15 @@ data CreateEndpoint = CreateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEndpoint_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createEndpoint_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
--- 'endpointName', 'createEndpoint_endpointName' - The name of the endpoint.The name must be unique within an AWS Region in
--- your AWS account. The name is case-insensitive in @CreateEndpoint@, but
--- the case is preserved and must be matched in .
+-- 'endpointName', 'createEndpoint_endpointName' - The name of the endpoint.The name must be unique within an Amazon Web
+-- Services Region in your Amazon Web Services account. The name is
+-- case-insensitive in @CreateEndpoint@, but the case is preserved and must
+-- be matched in .
 --
 -- 'endpointConfigName', 'createEndpoint_endpointConfigName' - The name of an endpoint configuration. For more information, see
 -- CreateEndpointConfig.
@@ -172,16 +175,17 @@ newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
       endpointConfigName = pEndpointConfigName_
     }
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
 createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the endpoint.The name must be unique within an AWS Region in
--- your AWS account. The name is case-insensitive in @CreateEndpoint@, but
--- the case is preserved and must be matched in .
+-- | The name of the endpoint.The name must be unique within an Amazon Web
+-- Services Region in your Amazon Web Services account. The name is
+-- case-insensitive in @CreateEndpoint@, but the case is preserved and must
+-- be matched in .
 createEndpoint_endpointName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointName = Lens.lens (\CreateEndpoint' {endpointName} -> endpointName) (\s@CreateEndpoint' {} a -> s {endpointName = a} :: CreateEndpoint)
 

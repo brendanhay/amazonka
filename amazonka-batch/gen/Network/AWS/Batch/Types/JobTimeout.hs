@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newJobTimeout' smart constructor.
 data JobTimeout = JobTimeout'
   { -- | The time duration in seconds (measured from the job attempt\'s
-    -- @startedAt@ timestamp) after which AWS Batch terminates your jobs if
-    -- they have not finished. The minimum value for the timeout is 60 seconds.
+    -- @startedAt@ timestamp) after which Batch terminates your jobs if they
+    -- have not finished. The minimum value for the timeout is 60 seconds.
     attemptDurationSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data JobTimeout = JobTimeout'
 -- for backwards compatibility:
 --
 -- 'attemptDurationSeconds', 'jobTimeout_attemptDurationSeconds' - The time duration in seconds (measured from the job attempt\'s
--- @startedAt@ timestamp) after which AWS Batch terminates your jobs if
--- they have not finished. The minimum value for the timeout is 60 seconds.
+-- @startedAt@ timestamp) after which Batch terminates your jobs if they
+-- have not finished. The minimum value for the timeout is 60 seconds.
 newJobTimeout ::
   JobTimeout
 newJobTimeout =
@@ -54,8 +54,8 @@ newJobTimeout =
     }
 
 -- | The time duration in seconds (measured from the job attempt\'s
--- @startedAt@ timestamp) after which AWS Batch terminates your jobs if
--- they have not finished. The minimum value for the timeout is 60 seconds.
+-- @startedAt@ timestamp) after which Batch terminates your jobs if they
+-- have not finished. The minimum value for the timeout is 60 seconds.
 jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Prelude.Maybe Prelude.Int)
 jobTimeout_attemptDurationSeconds = Lens.lens (\JobTimeout' {attemptDurationSeconds} -> attemptDurationSeconds) (\s@JobTimeout' {} a -> s {attemptDurationSeconds = a} :: JobTimeout)
 

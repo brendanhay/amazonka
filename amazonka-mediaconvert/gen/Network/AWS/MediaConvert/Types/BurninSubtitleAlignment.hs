@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
   ( BurninSubtitleAlignment
       ( ..,
+        BurninSubtitleAlignment_AUTO,
         BurninSubtitleAlignment_CENTERED,
         BurninSubtitleAlignment_LEFT
       ),
@@ -66,6 +67,9 @@ newtype BurninSubtitleAlignment = BurninSubtitleAlignment'
       Core.ToXML
     )
 
+pattern BurninSubtitleAlignment_AUTO :: BurninSubtitleAlignment
+pattern BurninSubtitleAlignment_AUTO = BurninSubtitleAlignment' "AUTO"
+
 pattern BurninSubtitleAlignment_CENTERED :: BurninSubtitleAlignment
 pattern BurninSubtitleAlignment_CENTERED = BurninSubtitleAlignment' "CENTERED"
 
@@ -73,6 +77,7 @@ pattern BurninSubtitleAlignment_LEFT :: BurninSubtitleAlignment
 pattern BurninSubtitleAlignment_LEFT = BurninSubtitleAlignment' "LEFT"
 
 {-# COMPLETE
+  BurninSubtitleAlignment_AUTO,
   BurninSubtitleAlignment_CENTERED,
   BurninSubtitleAlignment_LEFT,
   BurninSubtitleAlignment'

@@ -41,8 +41,8 @@ module Network.AWS.EC2.GetReservedInstancesExchangeQuote
 
     -- * Response Lenses
     getReservedInstancesExchangeQuoteResponse_isValidExchange,
-    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup,
     getReservedInstancesExchangeQuoteResponse_paymentDue,
+    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup,
     getReservedInstancesExchangeQuoteResponse_currencyCode,
     getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup,
     getReservedInstancesExchangeQuoteResponse_validationFailureReason,
@@ -133,8 +133,8 @@ instance
       ( \s h x ->
           GetReservedInstancesExchangeQuoteResponse'
             Prelude.<$> (x Core..@? "isValidExchange")
-              Prelude.<*> (x Core..@? "reservedInstanceValueRollup")
               Prelude.<*> (x Core..@? "paymentDue")
+              Prelude.<*> (x Core..@? "reservedInstanceValueRollup")
               Prelude.<*> (x Core..@? "currencyCode")
               Prelude.<*> (x Core..@? "targetConfigurationValueRollup")
               Prelude.<*> (x Core..@? "validationFailureReason")
@@ -199,10 +199,10 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
   { -- | If @true@, the exchange is valid. If @false@, the exchange cannot be
     -- completed.
     isValidExchange :: Prelude.Maybe Prelude.Bool,
-    -- | The cost associated with the Reserved Instance.
-    reservedInstanceValueRollup :: Prelude.Maybe ReservationValue,
     -- | The total true upfront charge for the exchange.
     paymentDue :: Prelude.Maybe Prelude.Text,
+    -- | The cost associated with the Reserved Instance.
+    reservedInstanceValueRollup :: Prelude.Maybe ReservationValue,
     -- | The currency of the transaction.
     currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The cost associated with the Reserved Instance.
@@ -231,9 +231,9 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
 -- 'isValidExchange', 'getReservedInstancesExchangeQuoteResponse_isValidExchange' - If @true@, the exchange is valid. If @false@, the exchange cannot be
 -- completed.
 --
--- 'reservedInstanceValueRollup', 'getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup' - The cost associated with the Reserved Instance.
---
 -- 'paymentDue', 'getReservedInstancesExchangeQuoteResponse_paymentDue' - The total true upfront charge for the exchange.
+--
+-- 'reservedInstanceValueRollup', 'getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup' - The cost associated with the Reserved Instance.
 --
 -- 'currencyCode', 'getReservedInstancesExchangeQuoteResponse_currencyCode' - The currency of the transaction.
 --
@@ -257,9 +257,9 @@ newGetReservedInstancesExchangeQuoteResponse
     GetReservedInstancesExchangeQuoteResponse'
       { isValidExchange =
           Prelude.Nothing,
+        paymentDue = Prelude.Nothing,
         reservedInstanceValueRollup =
           Prelude.Nothing,
-        paymentDue = Prelude.Nothing,
         currencyCode = Prelude.Nothing,
         targetConfigurationValueRollup =
           Prelude.Nothing,
@@ -279,13 +279,13 @@ newGetReservedInstancesExchangeQuoteResponse
 getReservedInstancesExchangeQuoteResponse_isValidExchange :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.Bool)
 getReservedInstancesExchangeQuoteResponse_isValidExchange = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {isValidExchange} -> isValidExchange) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {isValidExchange = a} :: GetReservedInstancesExchangeQuoteResponse)
 
--- | The cost associated with the Reserved Instance.
-getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe ReservationValue)
-getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {reservedInstanceValueRollup} -> reservedInstanceValueRollup) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {reservedInstanceValueRollup = a} :: GetReservedInstancesExchangeQuoteResponse)
-
 -- | The total true upfront charge for the exchange.
 getReservedInstancesExchangeQuoteResponse_paymentDue :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.Text)
 getReservedInstancesExchangeQuoteResponse_paymentDue = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {paymentDue} -> paymentDue) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {paymentDue = a} :: GetReservedInstancesExchangeQuoteResponse)
+
+-- | The cost associated with the Reserved Instance.
+getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe ReservationValue)
+getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {reservedInstanceValueRollup} -> reservedInstanceValueRollup) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {reservedInstanceValueRollup = a} :: GetReservedInstancesExchangeQuoteResponse)
 
 -- | The currency of the transaction.
 getReservedInstancesExchangeQuoteResponse_currencyCode :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.Text)

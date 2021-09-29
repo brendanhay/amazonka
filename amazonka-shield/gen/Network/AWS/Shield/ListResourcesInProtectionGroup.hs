@@ -193,7 +193,7 @@ instance Core.ToQuery ListResourcesInProtectionGroup where
 -- | /See:/ 'newListResourcesInProtectionGroupResponse' smart constructor.
 data ListResourcesInProtectionGroupResponse = ListResourcesInProtectionGroupResponse'
   { -- | If you specify a value for @MaxResults@ and you have more resources in
-    -- the protection group than the value of MaxResults, AWS Shield Advanced
+    -- the protection group than the value of MaxResults, Shield Advanced
     -- returns this token that you can use in your next request, to get the
     -- next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -214,7 +214,7 @@ data ListResourcesInProtectionGroupResponse = ListResourcesInProtectionGroupResp
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listResourcesInProtectionGroupResponse_nextToken' - If you specify a value for @MaxResults@ and you have more resources in
--- the protection group than the value of MaxResults, AWS Shield Advanced
+-- the protection group than the value of MaxResults, Shield Advanced
 -- returns this token that you can use in your next request, to get the
 -- next batch of objects.
 --
@@ -236,7 +236,7 @@ newListResourcesInProtectionGroupResponse
       }
 
 -- | If you specify a value for @MaxResults@ and you have more resources in
--- the protection group than the value of MaxResults, AWS Shield Advanced
+-- the protection group than the value of MaxResults, Shield Advanced
 -- returns this token that you can use in your next request, to get the
 -- next batch of objects.
 listResourcesInProtectionGroupResponse_nextToken :: Lens.Lens' ListResourcesInProtectionGroupResponse (Prelude.Maybe Prelude.Text)

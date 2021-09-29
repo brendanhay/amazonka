@@ -34,6 +34,8 @@ import Network.AWS.S3.Types.Tag
 data MetricsAndOperator = MetricsAndOperator'
   { -- | The prefix used when evaluating an AND predicate.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | The access point ARN used when evaluating an AND predicate.
+    accessPointArn :: Prelude.Maybe Prelude.Text,
     -- | The list of tags used when evaluating an AND predicate.
     tags :: Prelude.Maybe [Tag]
   }
@@ -49,18 +51,25 @@ data MetricsAndOperator = MetricsAndOperator'
 --
 -- 'prefix', 'metricsAndOperator_prefix' - The prefix used when evaluating an AND predicate.
 --
+-- 'accessPointArn', 'metricsAndOperator_accessPointArn' - The access point ARN used when evaluating an AND predicate.
+--
 -- 'tags', 'metricsAndOperator_tags' - The list of tags used when evaluating an AND predicate.
 newMetricsAndOperator ::
   MetricsAndOperator
 newMetricsAndOperator =
   MetricsAndOperator'
     { prefix = Prelude.Nothing,
+      accessPointArn = Prelude.Nothing,
       tags = Prelude.Nothing
     }
 
 -- | The prefix used when evaluating an AND predicate.
 metricsAndOperator_prefix :: Lens.Lens' MetricsAndOperator (Prelude.Maybe Prelude.Text)
 metricsAndOperator_prefix = Lens.lens (\MetricsAndOperator' {prefix} -> prefix) (\s@MetricsAndOperator' {} a -> s {prefix = a} :: MetricsAndOperator)
+
+-- | The access point ARN used when evaluating an AND predicate.
+metricsAndOperator_accessPointArn :: Lens.Lens' MetricsAndOperator (Prelude.Maybe Prelude.Text)
+metricsAndOperator_accessPointArn = Lens.lens (\MetricsAndOperator' {accessPointArn} -> accessPointArn) (\s@MetricsAndOperator' {} a -> s {accessPointArn = a} :: MetricsAndOperator)
 
 -- | The list of tags used when evaluating an AND predicate.
 metricsAndOperator_tags :: Lens.Lens' MetricsAndOperator (Prelude.Maybe [Tag])
@@ -70,6 +79,7 @@ instance Core.FromXML MetricsAndOperator where
   parseXML x =
     MetricsAndOperator'
       Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "AccessPointArn")
       Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
@@ -82,6 +92,7 @@ instance Core.ToXML MetricsAndOperator where
   toXML MetricsAndOperator' {..} =
     Prelude.mconcat
       [ "Prefix" Core.@= prefix,
+        "AccessPointArn" Core.@= accessPointArn,
         "Tag"
           Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags)
       ]

@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a non-overlapping region of a table\'s partitions, allowing
--- multiple requests to be executed in parallel.
+-- multiple requests to be run in parallel.
 --
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'

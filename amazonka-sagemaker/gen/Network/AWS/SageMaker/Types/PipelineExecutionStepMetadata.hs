@@ -22,28 +22,43 @@ module Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.SageMaker.Types.CallbackStepMetadata
 import Network.AWS.SageMaker.Types.ConditionStepMetadata
+import Network.AWS.SageMaker.Types.LambdaStepMetadata
 import Network.AWS.SageMaker.Types.ModelStepMetadata
 import Network.AWS.SageMaker.Types.ProcessingJobStepMetadata
 import Network.AWS.SageMaker.Types.RegisterModelStepMetadata
 import Network.AWS.SageMaker.Types.TrainingJobStepMetadata
 import Network.AWS.SageMaker.Types.TransformJobStepMetadata
+import Network.AWS.SageMaker.Types.TuningJobStepMetaData
 
 -- | Metadata for a step execution.
 --
 -- /See:/ 'newPipelineExecutionStepMetadata' smart constructor.
 data PipelineExecutionStepMetadata = PipelineExecutionStepMetadata'
-  { -- | Metadata for the Model step.
+  { -- | The Amazon Resource Name (ARN) of the model that was created by this
+    -- step execution.
     model :: Prelude.Maybe ModelStepMetadata,
     -- | The Amazon Resource Name (ARN) of the processing job that was run by
     -- this step execution.
     processingJob :: Prelude.Maybe ProcessingJobStepMetadata,
-    -- | If this is a Condition step metadata object, details on the condition.
+    -- | The outcome of the condition evaluation that was run by this step
+    -- execution.
     condition :: Prelude.Maybe ConditionStepMetadata,
+    -- | The Amazon Resource Name (ARN) of the tuning job that was run by this
+    -- step execution.
+    tuningJob :: Prelude.Maybe TuningJobStepMetaData,
+    -- | The Amazon Resource Name (ARN) of the Lambda function that was run by
+    -- this step execution and a list of output parameters.
+    lambda :: Prelude.Maybe LambdaStepMetadata,
     -- | The Amazon Resource Name (ARN) of the training job that was run by this
     -- step execution.
     trainingJob :: Prelude.Maybe TrainingJobStepMetadata,
-    -- | Metadata for the RegisterModel step.
+    -- | The URL of the Amazon SQS queue used by this step execution, the
+    -- pipeline generated token, and a list of output parameters.
+    callback :: Prelude.Maybe CallbackStepMetadata,
+    -- | The Amazon Resource Name (ARN) of the model package the model was
+    -- registered to by this step execution.
     registerModel :: Prelude.Maybe RegisterModelStepMetadata,
     -- | The Amazon Resource Name (ARN) of the transform job that was run by this
     -- step execution.
@@ -59,17 +74,29 @@ data PipelineExecutionStepMetadata = PipelineExecutionStepMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'model', 'pipelineExecutionStepMetadata_model' - Metadata for the Model step.
+-- 'model', 'pipelineExecutionStepMetadata_model' - The Amazon Resource Name (ARN) of the model that was created by this
+-- step execution.
 --
 -- 'processingJob', 'pipelineExecutionStepMetadata_processingJob' - The Amazon Resource Name (ARN) of the processing job that was run by
 -- this step execution.
 --
--- 'condition', 'pipelineExecutionStepMetadata_condition' - If this is a Condition step metadata object, details on the condition.
+-- 'condition', 'pipelineExecutionStepMetadata_condition' - The outcome of the condition evaluation that was run by this step
+-- execution.
+--
+-- 'tuningJob', 'pipelineExecutionStepMetadata_tuningJob' - The Amazon Resource Name (ARN) of the tuning job that was run by this
+-- step execution.
+--
+-- 'lambda', 'pipelineExecutionStepMetadata_lambda' - The Amazon Resource Name (ARN) of the Lambda function that was run by
+-- this step execution and a list of output parameters.
 --
 -- 'trainingJob', 'pipelineExecutionStepMetadata_trainingJob' - The Amazon Resource Name (ARN) of the training job that was run by this
 -- step execution.
 --
--- 'registerModel', 'pipelineExecutionStepMetadata_registerModel' - Metadata for the RegisterModel step.
+-- 'callback', 'pipelineExecutionStepMetadata_callback' - The URL of the Amazon SQS queue used by this step execution, the
+-- pipeline generated token, and a list of output parameters.
+--
+-- 'registerModel', 'pipelineExecutionStepMetadata_registerModel' - The Amazon Resource Name (ARN) of the model package the model was
+-- registered to by this step execution.
 --
 -- 'transformJob', 'pipelineExecutionStepMetadata_transformJob' - The Amazon Resource Name (ARN) of the transform job that was run by this
 -- step execution.
@@ -81,12 +108,16 @@ newPipelineExecutionStepMetadata =
         Prelude.Nothing,
       processingJob = Prelude.Nothing,
       condition = Prelude.Nothing,
+      tuningJob = Prelude.Nothing,
+      lambda = Prelude.Nothing,
       trainingJob = Prelude.Nothing,
+      callback = Prelude.Nothing,
       registerModel = Prelude.Nothing,
       transformJob = Prelude.Nothing
     }
 
--- | Metadata for the Model step.
+-- | The Amazon Resource Name (ARN) of the model that was created by this
+-- step execution.
 pipelineExecutionStepMetadata_model :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe ModelStepMetadata)
 pipelineExecutionStepMetadata_model = Lens.lens (\PipelineExecutionStepMetadata' {model} -> model) (\s@PipelineExecutionStepMetadata' {} a -> s {model = a} :: PipelineExecutionStepMetadata)
 
@@ -95,16 +126,33 @@ pipelineExecutionStepMetadata_model = Lens.lens (\PipelineExecutionStepMetadata'
 pipelineExecutionStepMetadata_processingJob :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe ProcessingJobStepMetadata)
 pipelineExecutionStepMetadata_processingJob = Lens.lens (\PipelineExecutionStepMetadata' {processingJob} -> processingJob) (\s@PipelineExecutionStepMetadata' {} a -> s {processingJob = a} :: PipelineExecutionStepMetadata)
 
--- | If this is a Condition step metadata object, details on the condition.
+-- | The outcome of the condition evaluation that was run by this step
+-- execution.
 pipelineExecutionStepMetadata_condition :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe ConditionStepMetadata)
 pipelineExecutionStepMetadata_condition = Lens.lens (\PipelineExecutionStepMetadata' {condition} -> condition) (\s@PipelineExecutionStepMetadata' {} a -> s {condition = a} :: PipelineExecutionStepMetadata)
+
+-- | The Amazon Resource Name (ARN) of the tuning job that was run by this
+-- step execution.
+pipelineExecutionStepMetadata_tuningJob :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe TuningJobStepMetaData)
+pipelineExecutionStepMetadata_tuningJob = Lens.lens (\PipelineExecutionStepMetadata' {tuningJob} -> tuningJob) (\s@PipelineExecutionStepMetadata' {} a -> s {tuningJob = a} :: PipelineExecutionStepMetadata)
+
+-- | The Amazon Resource Name (ARN) of the Lambda function that was run by
+-- this step execution and a list of output parameters.
+pipelineExecutionStepMetadata_lambda :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe LambdaStepMetadata)
+pipelineExecutionStepMetadata_lambda = Lens.lens (\PipelineExecutionStepMetadata' {lambda} -> lambda) (\s@PipelineExecutionStepMetadata' {} a -> s {lambda = a} :: PipelineExecutionStepMetadata)
 
 -- | The Amazon Resource Name (ARN) of the training job that was run by this
 -- step execution.
 pipelineExecutionStepMetadata_trainingJob :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe TrainingJobStepMetadata)
 pipelineExecutionStepMetadata_trainingJob = Lens.lens (\PipelineExecutionStepMetadata' {trainingJob} -> trainingJob) (\s@PipelineExecutionStepMetadata' {} a -> s {trainingJob = a} :: PipelineExecutionStepMetadata)
 
--- | Metadata for the RegisterModel step.
+-- | The URL of the Amazon SQS queue used by this step execution, the
+-- pipeline generated token, and a list of output parameters.
+pipelineExecutionStepMetadata_callback :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe CallbackStepMetadata)
+pipelineExecutionStepMetadata_callback = Lens.lens (\PipelineExecutionStepMetadata' {callback} -> callback) (\s@PipelineExecutionStepMetadata' {} a -> s {callback = a} :: PipelineExecutionStepMetadata)
+
+-- | The Amazon Resource Name (ARN) of the model package the model was
+-- registered to by this step execution.
 pipelineExecutionStepMetadata_registerModel :: Lens.Lens' PipelineExecutionStepMetadata (Prelude.Maybe RegisterModelStepMetadata)
 pipelineExecutionStepMetadata_registerModel = Lens.lens (\PipelineExecutionStepMetadata' {registerModel} -> registerModel) (\s@PipelineExecutionStepMetadata' {} a -> s {registerModel = a} :: PipelineExecutionStepMetadata)
 
@@ -122,7 +170,10 @@ instance Core.FromJSON PipelineExecutionStepMetadata where
             Prelude.<$> (x Core..:? "Model")
             Prelude.<*> (x Core..:? "ProcessingJob")
             Prelude.<*> (x Core..:? "Condition")
+            Prelude.<*> (x Core..:? "TuningJob")
+            Prelude.<*> (x Core..:? "Lambda")
             Prelude.<*> (x Core..:? "TrainingJob")
+            Prelude.<*> (x Core..:? "Callback")
             Prelude.<*> (x Core..:? "RegisterModel")
             Prelude.<*> (x Core..:? "TransformJob")
       )

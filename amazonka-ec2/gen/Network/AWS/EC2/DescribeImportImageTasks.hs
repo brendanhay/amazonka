@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeImportImageTasks
 
     -- * Request Lenses
     describeImportImageTasks_nextToken,
-    describeImportImageTasks_dryRun,
     describeImportImageTasks_importTaskIds,
     describeImportImageTasks_maxResults,
+    describeImportImageTasks_dryRun,
     describeImportImageTasks_filters,
 
     -- * Destructuring the Response
@@ -58,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data DescribeImportImageTasks = DescribeImportImageTasks'
   { -- | A token that indicates the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the import image tasks.
+    importTaskIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the import image tasks.
-    importTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Filter tasks using the @task-state@ filter and one of the following
     -- values: @active@, @completed@, @deleting@, or @deleted@.
     filters :: Prelude.Maybe [Filter]
@@ -83,14 +83,14 @@ data DescribeImportImageTasks = DescribeImportImageTasks'
 --
 -- 'nextToken', 'describeImportImageTasks_nextToken' - A token that indicates the next page of results.
 --
+-- 'importTaskIds', 'describeImportImageTasks_importTaskIds' - The IDs of the import image tasks.
+--
+-- 'maxResults', 'describeImportImageTasks_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'dryRun', 'describeImportImageTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'importTaskIds', 'describeImportImageTasks_importTaskIds' - The IDs of the import image tasks.
---
--- 'maxResults', 'describeImportImageTasks_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'filters', 'describeImportImageTasks_filters' - Filter tasks using the @task-state@ filter and one of the following
 -- values: @active@, @completed@, @deleting@, or @deleted@.
@@ -100,22 +100,15 @@ newDescribeImportImageTasks =
   DescribeImportImageTasks'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       importTaskIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
 -- | A token that indicates the next page of results.
 describeImportImageTasks_nextToken :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Text)
 describeImportImageTasks_nextToken = Lens.lens (\DescribeImportImageTasks' {nextToken} -> nextToken) (\s@DescribeImportImageTasks' {} a -> s {nextToken = a} :: DescribeImportImageTasks)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeImportImageTasks_dryRun :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Bool)
-describeImportImageTasks_dryRun = Lens.lens (\DescribeImportImageTasks' {dryRun} -> dryRun) (\s@DescribeImportImageTasks' {} a -> s {dryRun = a} :: DescribeImportImageTasks)
 
 -- | The IDs of the import image tasks.
 describeImportImageTasks_importTaskIds :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Prelude.Text])
@@ -124,6 +117,13 @@ describeImportImageTasks_importTaskIds = Lens.lens (\DescribeImportImageTasks' {
 -- | The maximum number of results to return in a single call.
 describeImportImageTasks_maxResults :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Int)
 describeImportImageTasks_maxResults = Lens.lens (\DescribeImportImageTasks' {maxResults} -> maxResults) (\s@DescribeImportImageTasks' {} a -> s {maxResults = a} :: DescribeImportImageTasks)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeImportImageTasks_dryRun :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Bool)
+describeImportImageTasks_dryRun = Lens.lens (\DescribeImportImageTasks' {dryRun} -> dryRun) (\s@DescribeImportImageTasks' {} a -> s {dryRun = a} :: DescribeImportImageTasks)
 
 -- | Filter tasks using the @task-state@ filter and one of the following
 -- values: @active@, @completed@, @deleting@, or @deleted@.
@@ -187,12 +187,12 @@ instance Core.ToQuery DescribeImportImageTasks where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ImportTaskId"
               Prelude.<$> importTaskIds
           ),
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filters" Prelude.<$> filters)
       ]

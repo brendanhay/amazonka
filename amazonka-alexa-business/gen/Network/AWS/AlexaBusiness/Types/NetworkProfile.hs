@@ -44,11 +44,11 @@ data NetworkProfile = NetworkProfile'
     eapMethod :: Prelude.Maybe NetworkEapMethod,
     -- | The name of the network profile associated with a device.
     networkProfileName :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about a device\'s network profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
     -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: Prelude.Maybe NetworkSecurityType,
-    -- | Detailed information about a device\'s network profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
@@ -83,10 +83,10 @@ data NetworkProfile = NetworkProfile'
 --
 -- 'networkProfileName', 'networkProfile_networkProfileName' - The name of the network profile associated with a device.
 --
+-- 'description', 'networkProfile_description' - Detailed information about a device\'s network profile.
+--
 -- 'securityType', 'networkProfile_securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
---
--- 'description', 'networkProfile_description' - Detailed information about a device\'s network profile.
 --
 -- 'nextPassword', 'networkProfile_nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
@@ -105,8 +105,8 @@ newNetworkProfile =
       currentPassword = Prelude.Nothing,
       eapMethod = Prelude.Nothing,
       networkProfileName = Prelude.Nothing,
-      securityType = Prelude.Nothing,
       description = Prelude.Nothing,
+      securityType = Prelude.Nothing,
       nextPassword = Prelude.Nothing,
       networkProfileArn = Prelude.Nothing,
       ssid = Prelude.Nothing
@@ -137,14 +137,14 @@ networkProfile_eapMethod = Lens.lens (\NetworkProfile' {eapMethod} -> eapMethod)
 networkProfile_networkProfileName :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
 networkProfile_networkProfileName = Lens.lens (\NetworkProfile' {networkProfileName} -> networkProfileName) (\s@NetworkProfile' {} a -> s {networkProfileName = a} :: NetworkProfile)
 
+-- | Detailed information about a device\'s network profile.
+networkProfile_description :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
+networkProfile_description = Lens.lens (\NetworkProfile' {description} -> description) (\s@NetworkProfile' {} a -> s {description = a} :: NetworkProfile)
+
 -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
 networkProfile_securityType :: Lens.Lens' NetworkProfile (Prelude.Maybe NetworkSecurityType)
 networkProfile_securityType = Lens.lens (\NetworkProfile' {securityType} -> securityType) (\s@NetworkProfile' {} a -> s {securityType = a} :: NetworkProfile)
-
--- | Detailed information about a device\'s network profile.
-networkProfile_description :: Lens.Lens' NetworkProfile (Prelude.Maybe Prelude.Text)
-networkProfile_description = Lens.lens (\NetworkProfile' {description} -> description) (\s@NetworkProfile' {} a -> s {description = a} :: NetworkProfile)
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
@@ -171,8 +171,8 @@ instance Core.FromJSON NetworkProfile where
             Prelude.<*> (x Core..:? "CurrentPassword")
             Prelude.<*> (x Core..:? "EapMethod")
             Prelude.<*> (x Core..:? "NetworkProfileName")
-            Prelude.<*> (x Core..:? "SecurityType")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "SecurityType")
             Prelude.<*> (x Core..:? "NextPassword")
             Prelude.<*> (x Core..:? "NetworkProfileArn")
             Prelude.<*> (x Core..:? "Ssid")

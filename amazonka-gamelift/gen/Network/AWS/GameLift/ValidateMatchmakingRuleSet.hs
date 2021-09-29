@@ -27,25 +27,15 @@
 --
 -- __Learn more__
 --
--- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a Rule Set>
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a rule set>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.ValidateMatchmakingRuleSet
   ( -- * Creating a Request
     ValidateMatchmakingRuleSet (..),

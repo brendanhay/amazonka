@@ -23,8 +23,9 @@
 -- Gets a list of domain configurations for the user. This list is sorted
 -- alphabetically by domain configuration name.
 --
--- The domain configuration feature is in public preview and is subject to
--- change.
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListDomainConfigurations>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListDomainConfigurations

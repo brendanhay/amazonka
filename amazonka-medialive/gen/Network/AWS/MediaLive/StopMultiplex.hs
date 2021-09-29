@@ -39,10 +39,10 @@ module Network.AWS.MediaLive.StopMultiplex
     stopMultiplexResponse_arn,
     stopMultiplexResponse_id,
     stopMultiplexResponse_pipelinesRunningCount,
-    stopMultiplexResponse_programCount,
-    stopMultiplexResponse_destinations,
-    stopMultiplexResponse_state,
     stopMultiplexResponse_name,
+    stopMultiplexResponse_destinations,
+    stopMultiplexResponse_programCount,
+    stopMultiplexResponse_state,
     stopMultiplexResponse_tags,
     stopMultiplexResponse_multiplexSettings,
     stopMultiplexResponse_httpStatus,
@@ -100,10 +100,10 @@ instance Core.AWSRequest StopMultiplex where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "programCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "multiplexSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,14 +150,14 @@ data StopMultiplexResponse = StopMultiplexResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of the multiplex output destinations.
-    destinations :: Prelude.Maybe [MultiplexOutputDestination],
-    -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of the multiplex output destinations.
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
+    -- | The number of programs in the multiplex.
+    programCount :: Prelude.Maybe Prelude.Int,
+    -- | The current state of the multiplex.
+    state :: Prelude.Maybe MultiplexState,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
@@ -183,13 +183,13 @@ data StopMultiplexResponse = StopMultiplexResponse'
 --
 -- 'pipelinesRunningCount', 'stopMultiplexResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
--- 'programCount', 'stopMultiplexResponse_programCount' - The number of programs in the multiplex.
+-- 'name', 'stopMultiplexResponse_name' - The name of the multiplex.
 --
 -- 'destinations', 'stopMultiplexResponse_destinations' - A list of the multiplex output destinations.
 --
--- 'state', 'stopMultiplexResponse_state' - The current state of the multiplex.
+-- 'programCount', 'stopMultiplexResponse_programCount' - The number of programs in the multiplex.
 --
--- 'name', 'stopMultiplexResponse_name' - The name of the multiplex.
+-- 'state', 'stopMultiplexResponse_state' - The current state of the multiplex.
 --
 -- 'tags', 'stopMultiplexResponse_tags' - A collection of key-value pairs.
 --
@@ -207,10 +207,10 @@ newStopMultiplexResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       multiplexSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -232,21 +232,21 @@ stopMultiplexResponse_id = Lens.lens (\StopMultiplexResponse' {id} -> id) (\s@St
 stopMultiplexResponse_pipelinesRunningCount :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Int)
 stopMultiplexResponse_pipelinesRunningCount = Lens.lens (\StopMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@StopMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: StopMultiplexResponse)
 
--- | The number of programs in the multiplex.
-stopMultiplexResponse_programCount :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Int)
-stopMultiplexResponse_programCount = Lens.lens (\StopMultiplexResponse' {programCount} -> programCount) (\s@StopMultiplexResponse' {} a -> s {programCount = a} :: StopMultiplexResponse)
+-- | The name of the multiplex.
+stopMultiplexResponse_name :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Text)
+stopMultiplexResponse_name = Lens.lens (\StopMultiplexResponse' {name} -> name) (\s@StopMultiplexResponse' {} a -> s {name = a} :: StopMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
 stopMultiplexResponse_destinations :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
 stopMultiplexResponse_destinations = Lens.lens (\StopMultiplexResponse' {destinations} -> destinations) (\s@StopMultiplexResponse' {} a -> s {destinations = a} :: StopMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of programs in the multiplex.
+stopMultiplexResponse_programCount :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Int)
+stopMultiplexResponse_programCount = Lens.lens (\StopMultiplexResponse' {programCount} -> programCount) (\s@StopMultiplexResponse' {} a -> s {programCount = a} :: StopMultiplexResponse)
+
 -- | The current state of the multiplex.
 stopMultiplexResponse_state :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe MultiplexState)
 stopMultiplexResponse_state = Lens.lens (\StopMultiplexResponse' {state} -> state) (\s@StopMultiplexResponse' {} a -> s {state = a} :: StopMultiplexResponse)
-
--- | The name of the multiplex.
-stopMultiplexResponse_name :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe Prelude.Text)
-stopMultiplexResponse_name = Lens.lens (\StopMultiplexResponse' {name} -> name) (\s@StopMultiplexResponse' {} a -> s {name = a} :: StopMultiplexResponse)
 
 -- | A collection of key-value pairs.
 stopMultiplexResponse_tags :: Lens.Lens' StopMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))

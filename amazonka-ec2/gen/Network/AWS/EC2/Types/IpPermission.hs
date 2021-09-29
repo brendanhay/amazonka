@@ -39,11 +39,11 @@ data IpPermission = IpPermission'
     fromPort :: Prelude.Maybe Prelude.Int,
     -- | [VPC only] The prefix list IDs.
     prefixListIds :: Prelude.Maybe [PrefixListId],
-    -- | The IPv4 ranges.
-    ipRanges :: Prelude.Maybe [IpRange],
     -- | [VPC only] The IPv6 ranges.
     ipv6Ranges :: Prelude.Maybe [Ipv6Range],
-    -- | The security group and AWS account ID pairs.
+    -- | The IPv4 ranges.
+    ipRanges :: Prelude.Maybe [IpRange],
+    -- | The security group and Amazon Web Services account ID pairs.
     userIdGroupPairs :: Prelude.Maybe [UserIdGroupPair],
     -- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
     -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
@@ -77,11 +77,11 @@ data IpPermission = IpPermission'
 --
 -- 'prefixListIds', 'ipPermission_prefixListIds' - [VPC only] The prefix list IDs.
 --
--- 'ipRanges', 'ipPermission_ipRanges' - The IPv4 ranges.
---
 -- 'ipv6Ranges', 'ipPermission_ipv6Ranges' - [VPC only] The IPv6 ranges.
 --
--- 'userIdGroupPairs', 'ipPermission_userIdGroupPairs' - The security group and AWS account ID pairs.
+-- 'ipRanges', 'ipPermission_ipRanges' - The IPv4 ranges.
+--
+-- 'userIdGroupPairs', 'ipPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.
 --
 -- 'toPort', 'ipPermission_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
 -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
@@ -104,8 +104,8 @@ newIpPermission pIpProtocol_ =
   IpPermission'
     { fromPort = Prelude.Nothing,
       prefixListIds = Prelude.Nothing,
-      ipRanges = Prelude.Nothing,
       ipv6Ranges = Prelude.Nothing,
+      ipRanges = Prelude.Nothing,
       userIdGroupPairs = Prelude.Nothing,
       toPort = Prelude.Nothing,
       ipProtocol = pIpProtocol_
@@ -122,15 +122,15 @@ ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@Ip
 ipPermission_prefixListIds :: Lens.Lens' IpPermission (Prelude.Maybe [PrefixListId])
 ipPermission_prefixListIds = Lens.lens (\IpPermission' {prefixListIds} -> prefixListIds) (\s@IpPermission' {} a -> s {prefixListIds = a} :: IpPermission) Prelude.. Lens.mapping Lens._Coerce
 
--- | The IPv4 ranges.
-ipPermission_ipRanges :: Lens.Lens' IpPermission (Prelude.Maybe [IpRange])
-ipPermission_ipRanges = Lens.lens (\IpPermission' {ipRanges} -> ipRanges) (\s@IpPermission' {} a -> s {ipRanges = a} :: IpPermission) Prelude.. Lens.mapping Lens._Coerce
-
 -- | [VPC only] The IPv6 ranges.
 ipPermission_ipv6Ranges :: Lens.Lens' IpPermission (Prelude.Maybe [Ipv6Range])
 ipPermission_ipv6Ranges = Lens.lens (\IpPermission' {ipv6Ranges} -> ipv6Ranges) (\s@IpPermission' {} a -> s {ipv6Ranges = a} :: IpPermission) Prelude.. Lens.mapping Lens._Coerce
 
--- | The security group and AWS account ID pairs.
+-- | The IPv4 ranges.
+ipPermission_ipRanges :: Lens.Lens' IpPermission (Prelude.Maybe [IpRange])
+ipPermission_ipRanges = Lens.lens (\IpPermission' {ipRanges} -> ipRanges) (\s@IpPermission' {} a -> s {ipRanges = a} :: IpPermission) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The security group and Amazon Web Services account ID pairs.
 ipPermission_userIdGroupPairs :: Lens.Lens' IpPermission (Prelude.Maybe [UserIdGroupPair])
 ipPermission_userIdGroupPairs = Lens.lens (\IpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@IpPermission' {} a -> s {userIdGroupPairs = a} :: IpPermission) Prelude.. Lens.mapping Lens._Coerce
 
@@ -159,10 +159,10 @@ instance Core.FromXML IpPermission where
       Prelude.<*> ( x Core..@? "prefixListIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "ipv6Ranges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipv6Ranges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
@@ -184,11 +184,11 @@ instance Core.ToQuery IpPermission where
               Prelude.<$> prefixListIds
           ),
         Core.toQuery
-          (Core.toQueryList "IpRanges" Prelude.<$> ipRanges),
-        Core.toQuery
           ( Core.toQueryList "Ipv6Ranges"
               Prelude.<$> ipv6Ranges
           ),
+        Core.toQuery
+          (Core.toQueryList "IpRanges" Prelude.<$> ipRanges),
         Core.toQuery
           ( Core.toQueryList "Groups"
               Prelude.<$> userIdGroupPairs

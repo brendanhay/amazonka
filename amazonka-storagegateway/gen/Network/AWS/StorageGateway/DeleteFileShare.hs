@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file share from a file gateway. This operation is only
--- supported for file gateways.
+-- Deletes a file share from an S3 File Gateway. This operation is only
+-- supported for S3 File Gateways.
 module Network.AWS.StorageGateway.DeleteFileShare
   ( -- * Creating a Request
     DeleteFileShare (..),
@@ -53,10 +53,10 @@ import Network.AWS.StorageGateway.Types
 -- /See:/ 'newDeleteFileShare' smart constructor.
 data DeleteFileShare = DeleteFileShare'
   { -- | If this value is set to @true@, the operation deletes a file share
-    -- immediately and aborts all data uploads to AWS. Otherwise, the file
-    -- share is not deleted until all data is uploaded to AWS. This process
-    -- aborts the data upload process, and the file share enters the
-    -- @FORCE_DELETING@ status.
+    -- immediately and aborts all data uploads to Amazon Web Services.
+    -- Otherwise, the file share is not deleted until all data is uploaded to
+    -- Amazon Web Services. This process aborts the data upload process, and
+    -- the file share enters the @FORCE_DELETING@ status.
     --
     -- Valid Values: @true@ | @false@
     forceDelete :: Prelude.Maybe Prelude.Bool,
@@ -74,10 +74,10 @@ data DeleteFileShare = DeleteFileShare'
 -- for backwards compatibility:
 --
 -- 'forceDelete', 'deleteFileShare_forceDelete' - If this value is set to @true@, the operation deletes a file share
--- immediately and aborts all data uploads to AWS. Otherwise, the file
--- share is not deleted until all data is uploaded to AWS. This process
--- aborts the data upload process, and the file share enters the
--- @FORCE_DELETING@ status.
+-- immediately and aborts all data uploads to Amazon Web Services.
+-- Otherwise, the file share is not deleted until all data is uploaded to
+-- Amazon Web Services. This process aborts the data upload process, and
+-- the file share enters the @FORCE_DELETING@ status.
 --
 -- Valid Values: @true@ | @false@
 --
@@ -93,10 +93,10 @@ newDeleteFileShare pFileShareARN_ =
     }
 
 -- | If this value is set to @true@, the operation deletes a file share
--- immediately and aborts all data uploads to AWS. Otherwise, the file
--- share is not deleted until all data is uploaded to AWS. This process
--- aborts the data upload process, and the file share enters the
--- @FORCE_DELETING@ status.
+-- immediately and aborts all data uploads to Amazon Web Services.
+-- Otherwise, the file share is not deleted until all data is uploaded to
+-- Amazon Web Services. This process aborts the data upload process, and
+-- the file share enters the @FORCE_DELETING@ status.
 --
 -- Valid Values: @true@ | @false@
 deleteFileShare_forceDelete :: Lens.Lens' DeleteFileShare (Prelude.Maybe Prelude.Bool)

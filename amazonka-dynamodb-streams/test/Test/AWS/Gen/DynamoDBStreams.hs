@@ -27,11 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetRecords $
---             newGetRecords
---
---         , requestGetShardIterator $
+--         [ requestGetShardIterator $
 --             newGetShardIterator
+--
+--         , requestGetRecords $
+--             newGetRecords
 --
 --         , requestDescribeStream $
 --             newDescribeStream
@@ -42,11 +42,11 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetRecords $
---             newGetRecordsResponse
---
---         , responseGetShardIterator $
+--         [ responseGetShardIterator $
 --             newGetShardIteratorResponse
+--
+--         , responseGetRecords $
+--             newGetRecordsResponse
 --
 --         , responseDescribeStream $
 --             newDescribeStreamResponse
@@ -59,17 +59,17 @@ import Test.Tasty
 
 -- Requests
 
-requestGetRecords :: GetRecords -> TestTree
-requestGetRecords =
-  req
-    "GetRecords"
-    "fixture/GetRecords.yaml"
-
 requestGetShardIterator :: GetShardIterator -> TestTree
 requestGetShardIterator =
   req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
+
+requestGetRecords :: GetRecords -> TestTree
+requestGetRecords =
+  req
+    "GetRecords"
+    "fixture/GetRecords.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
 requestDescribeStream =
@@ -85,14 +85,6 @@ requestListStreams =
 
 -- Responses
 
-responseGetRecords :: GetRecordsResponse -> TestTree
-responseGetRecords =
-  res
-    "GetRecordsResponse"
-    "fixture/GetRecordsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRecords)
-
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
 responseGetShardIterator =
   res
@@ -100,6 +92,14 @@ responseGetShardIterator =
     "fixture/GetShardIteratorResponse.proto"
     defaultService
     (Proxy :: Proxy GetShardIterator)
+
+responseGetRecords :: GetRecordsResponse -> TestTree
+responseGetRecords =
+  res
+    "GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRecords)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
 responseDescribeStream =

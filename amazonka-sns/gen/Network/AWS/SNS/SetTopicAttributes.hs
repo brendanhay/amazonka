@@ -69,12 +69,13 @@ data SetTopicAttributes = SetTopicAttributes'
     -- The following attribute applies only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
     --
-    -- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
-    --     (CMK) for Amazon SNS or a custom CMK. For more information, see
+    -- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+    --     master key (CMK) for Amazon SNS or a custom CMK. For more
+    --     information, see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
     --     For more examples, see
     --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
-    --     in the /AWS Key Management Service API Reference/.
+    --     in the /Key Management Service API Reference/.
     --
     -- The following attribute applies only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -95,7 +96,7 @@ data SetTopicAttributes = SetTopicAttributes'
     --         message).
     --
     --         (Optional) To override the generated value, you can specify a
-    --         value for the the @MessageDeduplicationId@ parameter for the
+    --         value for the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
     attributeName :: Prelude.Text
   }
@@ -130,12 +131,13 @@ data SetTopicAttributes = SetTopicAttributes'
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -156,7 +158,7 @@ data SetTopicAttributes = SetTopicAttributes'
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 newSetTopicAttributes ::
   -- | 'topicArn'
@@ -197,12 +199,13 @@ setTopicAttributes_topicArn = Lens.lens (\SetTopicAttributes' {topicArn} -> topi
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ – The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -223,7 +226,7 @@ setTopicAttributes_topicArn = Lens.lens (\SetTopicAttributes' {topicArn} -> topi
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 setTopicAttributes_attributeName :: Lens.Lens' SetTopicAttributes Prelude.Text
 setTopicAttributes_attributeName = Lens.lens (\SetTopicAttributes' {attributeName} -> attributeName) (\s@SetTopicAttributes' {} a -> s {attributeName = a} :: SetTopicAttributes)

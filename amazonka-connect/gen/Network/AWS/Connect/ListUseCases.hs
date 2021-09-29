@@ -20,10 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
--- Lists the use cases.
+-- Lists the use cases for the integration association.
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListUseCases
@@ -56,7 +53,7 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | Provides summary information about the use cases for the specified
--- Amazon Connect AppIntegration association.
+-- integration association.
 --
 -- /See:/ 'newListUseCases' smart constructor.
 data ListUseCases = ListUseCases'
@@ -66,7 +63,8 @@ data ListUseCases = ListUseCases'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text
@@ -87,7 +85,8 @@ data ListUseCases = ListUseCases'
 --
 -- 'maxResults', 'listUseCases_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listUseCases_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listUseCases_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'integrationAssociationId', 'listUseCases_integrationAssociationId' - The identifier for the integration association.
 newListUseCases ::
@@ -117,7 +116,8 @@ listUseCases_nextToken = Lens.lens (\ListUseCases' {nextToken} -> nextToken) (\s
 listUseCases_maxResults :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Natural)
 listUseCases_maxResults = Lens.lens (\ListUseCases' {maxResults} -> maxResults) (\s@ListUseCases' {} a -> s {maxResults = a} :: ListUseCases)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listUseCases_instanceId :: Lens.Lens' ListUseCases Prelude.Text
 listUseCases_instanceId = Lens.lens (\ListUseCases' {instanceId} -> instanceId) (\s@ListUseCases' {} a -> s {instanceId = a} :: ListUseCases)
 

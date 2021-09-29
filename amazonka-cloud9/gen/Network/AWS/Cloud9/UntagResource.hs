@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an AWS Cloud9 development environment.
+-- Removes tags from an Cloud9 development environment.
 module Network.AWS.Cloud9.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -48,14 +48,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
-    -- to remove tags from.
+  { -- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+    -- remove tags from.
     resourceARN :: Prelude.Text,
-    -- | The tag names of the tags to remove from the given AWS Cloud9
-    -- development environment.
-    tagKeys :: [Prelude.Text]
+    -- | The tag names of the tags to remove from the given Cloud9 development
+    -- environment.
+    tagKeys :: Core.Sensitive [Core.Sensitive Prelude.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -65,11 +65,11 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'untagResource_resourceARN' - The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to remove tags from.
+-- 'resourceARN', 'untagResource_resourceARN' - The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- remove tags from.
 --
--- 'tagKeys', 'untagResource_tagKeys' - The tag names of the tags to remove from the given AWS Cloud9
--- development environment.
+-- 'tagKeys', 'untagResource_tagKeys' - The tag names of the tags to remove from the given Cloud9 development
+-- environment.
 newUntagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -80,15 +80,15 @@ newUntagResource pResourceARN_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to remove tags from.
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- remove tags from.
 untagResource_resourceARN :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resourceARN) (\s@UntagResource' {} a -> s {resourceARN = a} :: UntagResource)
 
--- | The tag names of the tags to remove from the given AWS Cloud9
--- development environment.
+-- | The tag names of the tags to remove from the given Cloud9 development
+-- environment.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 instance Core.AWSRequest UntagResource where
   type

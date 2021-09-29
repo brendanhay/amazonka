@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds an environment member to an AWS Cloud9 development environment.
+-- Adds an environment member to an Cloud9 development environment.
 module Network.AWS.Cloud9.CreateEnvironmentMembership
   ( -- * Creating a Request
     CreateEnvironmentMembership (..),
@@ -36,8 +36,8 @@ module Network.AWS.Cloud9.CreateEnvironmentMembership
     newCreateEnvironmentMembershipResponse,
 
     -- * Response Lenses
-    createEnvironmentMembershipResponse_membership,
     createEnvironmentMembershipResponse_httpStatus,
+    createEnvironmentMembershipResponse_membership,
   )
 where
 
@@ -133,8 +133,8 @@ instance Core.AWSRequest CreateEnvironmentMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentMembershipResponse'
-            Prelude.<$> (x Core..?> "membership")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "membership")
       )
 
 instance Prelude.Hashable CreateEnvironmentMembership
@@ -175,10 +175,10 @@ instance Core.ToQuery CreateEnvironmentMembership where
 
 -- | /See:/ 'newCreateEnvironmentMembershipResponse' smart constructor.
 data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
-  { -- | Information about the environment member that was added.
-    membership :: Prelude.Maybe EnvironmentMember,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about the environment member that was added.
+    membership :: EnvironmentMember
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -190,27 +190,31 @@ data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'membership', 'createEnvironmentMembershipResponse_membership' - Information about the environment member that was added.
---
 -- 'httpStatus', 'createEnvironmentMembershipResponse_httpStatus' - The response's http status code.
+--
+-- 'membership', 'createEnvironmentMembershipResponse_membership' - Information about the environment member that was added.
 newCreateEnvironmentMembershipResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'membership'
+  EnvironmentMember ->
   CreateEnvironmentMembershipResponse
-newCreateEnvironmentMembershipResponse pHttpStatus_ =
-  CreateEnvironmentMembershipResponse'
-    { membership =
-        Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | Information about the environment member that was added.
-createEnvironmentMembershipResponse_membership :: Lens.Lens' CreateEnvironmentMembershipResponse (Prelude.Maybe EnvironmentMember)
-createEnvironmentMembershipResponse_membership = Lens.lens (\CreateEnvironmentMembershipResponse' {membership} -> membership) (\s@CreateEnvironmentMembershipResponse' {} a -> s {membership = a} :: CreateEnvironmentMembershipResponse)
+newCreateEnvironmentMembershipResponse
+  pHttpStatus_
+  pMembership_ =
+    CreateEnvironmentMembershipResponse'
+      { httpStatus =
+          pHttpStatus_,
+        membership = pMembership_
+      }
 
 -- | The response's http status code.
 createEnvironmentMembershipResponse_httpStatus :: Lens.Lens' CreateEnvironmentMembershipResponse Prelude.Int
 createEnvironmentMembershipResponse_httpStatus = Lens.lens (\CreateEnvironmentMembershipResponse' {httpStatus} -> httpStatus) (\s@CreateEnvironmentMembershipResponse' {} a -> s {httpStatus = a} :: CreateEnvironmentMembershipResponse)
+
+-- | Information about the environment member that was added.
+createEnvironmentMembershipResponse_membership :: Lens.Lens' CreateEnvironmentMembershipResponse EnvironmentMember
+createEnvironmentMembershipResponse_membership = Lens.lens (\CreateEnvironmentMembershipResponse' {membership} -> membership) (\s@CreateEnvironmentMembershipResponse' {} a -> s {membership = a} :: CreateEnvironmentMembershipResponse)
 
 instance
   Prelude.NFData

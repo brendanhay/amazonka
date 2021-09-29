@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Fargate profile.
+-- Deletes an Fargate profile.
 --
 -- When you delete a Fargate profile, any pods running on Fargate that were
 -- created with the profile are deleted. If those pods match another

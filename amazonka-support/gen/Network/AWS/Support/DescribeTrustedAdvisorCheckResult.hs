@@ -35,18 +35,18 @@
 --
 -- In addition, the response contains these fields:
 --
--- -   __status__ - The alert status of the check: \"ok\" (green),
---     \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- -   __status__ - The alert status of the check can be @ok@ (green),
+--     @warning@ (yellow), @error@ (red), or @not_available@.
 --
 -- -   __timestamp__ - The time of the last refresh of the check.
 --
 -- -   __checkId__ - The unique identifier for the check.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.

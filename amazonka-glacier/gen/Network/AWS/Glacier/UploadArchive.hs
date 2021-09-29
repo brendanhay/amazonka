@@ -79,8 +79,8 @@ module Network.AWS.Glacier.UploadArchive
 
     -- * Response Lenses
     archiveCreationOutput_archiveId,
-    archiveCreationOutput_location,
     archiveCreationOutput_checksum,
+    archiveCreationOutput_location,
   )
 where
 
@@ -187,8 +187,8 @@ instance Core.AWSRequest UploadArchive where
       ( \s h x ->
           ArchiveCreationOutput'
             Prelude.<$> (h Core..#? "x-amz-archive-id")
-            Prelude.<*> (h Core..#? "Location")
             Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
+            Prelude.<*> (h Core..#? "Location")
       )
 
 instance Core.ToBody UploadArchive where

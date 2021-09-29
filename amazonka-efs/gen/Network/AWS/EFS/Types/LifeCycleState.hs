@@ -24,6 +24,7 @@ module Network.AWS.EFS.Types.LifeCycleState
         LifeCycleState_Creating,
         LifeCycleState_Deleted,
         LifeCycleState_Deleting,
+        LifeCycleState_Error,
         LifeCycleState_Updating
       ),
   )
@@ -72,6 +73,9 @@ pattern LifeCycleState_Deleted = LifeCycleState' "deleted"
 pattern LifeCycleState_Deleting :: LifeCycleState
 pattern LifeCycleState_Deleting = LifeCycleState' "deleting"
 
+pattern LifeCycleState_Error :: LifeCycleState
+pattern LifeCycleState_Error = LifeCycleState' "error"
+
 pattern LifeCycleState_Updating :: LifeCycleState
 pattern LifeCycleState_Updating = LifeCycleState' "updating"
 
@@ -80,6 +84,7 @@ pattern LifeCycleState_Updating = LifeCycleState' "updating"
   LifeCycleState_Creating,
   LifeCycleState_Deleted,
   LifeCycleState_Deleting,
+  LifeCycleState_Error,
   LifeCycleState_Updating,
   LifeCycleState'
   #-}

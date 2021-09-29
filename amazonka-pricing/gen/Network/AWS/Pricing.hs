@@ -11,15 +11,16 @@
 --
 -- Derived from API version @2017-10-15@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Price List Service API (AWS Price List Service) is a centralized and
--- convenient way to programmatically query Amazon Web Services for
--- services, products, and pricing information. The AWS Price List Service
--- uses standardized product attributes such as @Location@,
--- @Storage Class@, and @Operating System@, and provides prices at the SKU
--- level. You can use the AWS Price List Service to build cost control and
+-- Amazon Web Services Price List Service API (Amazon Web Services Price
+-- List Service) is a centralized and convenient way to programmatically
+-- query Amazon Web Services for services, products, and pricing
+-- information. The Amazon Web Services Price List Service uses
+-- standardized product attributes such as @Location@, @Storage Class@, and
+-- @Operating System@, and provides prices at the SKU level. You can use
+-- the Amazon Web Services Price List Service to build cost control and
 -- scenario planning tools, reconcile billing data, forecast future spend
 -- for budgeting purposes, and provide cost benefit analysis that compare
--- your internal workloads with AWS.
+-- your internal workloads with Amazon Web Services.
 --
 -- Use @GetServices@ without a service code to retrieve the service codes
 -- for all AWS services, then @GetServices@ with a service code to retreive
@@ -32,7 +33,8 @@
 --
 -- Service Endpoint
 --
--- AWS Price List Service API provides the following two endpoints:
+-- Amazon Web Services Price List Service API provides the following two
+-- endpoints:
 --
 -- -   https:\/\/api.pricing.us-east-1.amazonaws.com
 --
@@ -44,11 +46,11 @@ module Network.AWS.Pricing
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** InternalErrorException
     _InternalErrorException,

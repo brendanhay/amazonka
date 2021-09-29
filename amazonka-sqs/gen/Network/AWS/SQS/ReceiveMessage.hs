@@ -24,7 +24,7 @@
 -- Using the @WaitTimeSeconds@ parameter enables long-poll support. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html Amazon SQS Long Polling>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- Short poll is the default behavior where a weighted random set of
 -- machines is sampled on a @ReceiveMessage@ call. Thus, only the messages
@@ -53,7 +53,7 @@
 -- The receipt handle is the identifier you must provide when deleting the
 -- message. For more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html Queue and Message Identifiers>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- You can provide the @VisibilityTimeout@ parameter in your request. The
 -- parameter is applied to the messages that Amazon SQS returns in the
@@ -61,7 +61,7 @@
 -- timeout for the queue is used for the returned messages. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- A message that isn\'t deleted or a message whose visibility isn\'t
 -- extended before the visibility timeout expires counts as a failed
@@ -148,7 +148,7 @@ data ReceiveMessage = ReceiveMessage'
     -- -   @ApproximateReceiveCount@ – Returns the number of times a message
     --     has been received across all queues but not deleted.
     --
-    -- -   @AWSTraceHeader@ – Returns the AWS X-Ray trace header string.
+    -- -   @AWSTraceHeader@ – Returns the X-Ray trace header string.
     --
     -- -   @SenderId@
     --
@@ -213,7 +213,7 @@ data ReceiveMessage = ReceiveMessage'
     --     handles. If a retry occurs within the deduplication interval, it
     --     resets the visibility timeout. For more information, see
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
-    --     in the /Amazon Simple Queue Service Developer Guide/.
+    --     in the /Amazon SQS Developer Guide/.
     --
     --     If a caller of the @ReceiveMessage@ action still processes messages
     --     when the visibility timeout expires and messages become visible,
@@ -243,7 +243,7 @@ data ReceiveMessage = ReceiveMessage'
     --
     -- For best practices of using @ReceiveRequestAttemptId@, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
+    -- in the /Amazon SQS Developer Guide/.
     receiveRequestAttemptId :: Prelude.Maybe Prelude.Text,
     -- | The URL of the Amazon SQS queue from which messages are received.
     --
@@ -302,7 +302,7 @@ data ReceiveMessage = ReceiveMessage'
 -- -   @ApproximateReceiveCount@ – Returns the number of times a message
 --     has been received across all queues but not deleted.
 --
--- -   @AWSTraceHeader@ – Returns the AWS X-Ray trace header string.
+-- -   @AWSTraceHeader@ – Returns the X-Ray trace header string.
 --
 -- -   @SenderId@
 --
@@ -367,7 +367,7 @@ data ReceiveMessage = ReceiveMessage'
 --     handles. If a retry occurs within the deduplication interval, it
 --     resets the visibility timeout. For more information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     in the /Amazon SQS Developer Guide/.
 --
 --     If a caller of the @ReceiveMessage@ action still processes messages
 --     when the visibility timeout expires and messages become visible,
@@ -397,7 +397,7 @@ data ReceiveMessage = ReceiveMessage'
 --
 -- For best practices of using @ReceiveRequestAttemptId@, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- 'queueUrl', 'receiveMessage_queueUrl' - The URL of the Amazon SQS queue from which messages are received.
 --
@@ -466,7 +466,7 @@ receiveMessage_messageAttributeNames = Lens.lens (\ReceiveMessage' {messageAttri
 -- -   @ApproximateReceiveCount@ – Returns the number of times a message
 --     has been received across all queues but not deleted.
 --
--- -   @AWSTraceHeader@ – Returns the AWS X-Ray trace header string.
+-- -   @AWSTraceHeader@ – Returns the X-Ray trace header string.
 --
 -- -   @SenderId@
 --
@@ -535,7 +535,7 @@ receiveMessage_waitTimeSeconds = Lens.lens (\ReceiveMessage' {waitTimeSeconds} -
 --     handles. If a retry occurs within the deduplication interval, it
 --     resets the visibility timeout. For more information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     in the /Amazon SQS Developer Guide/.
 --
 --     If a caller of the @ReceiveMessage@ action still processes messages
 --     when the visibility timeout expires and messages become visible,
@@ -565,7 +565,7 @@ receiveMessage_waitTimeSeconds = Lens.lens (\ReceiveMessage' {waitTimeSeconds} -
 --
 -- For best practices of using @ReceiveRequestAttemptId@, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 receiveMessage_receiveRequestAttemptId :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Text)
 receiveMessage_receiveRequestAttemptId = Lens.lens (\ReceiveMessage' {receiveRequestAttemptId} -> receiveRequestAttemptId) (\s@ReceiveMessage' {} a -> s {receiveRequestAttemptId = a} :: ReceiveMessage)
 

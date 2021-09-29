@@ -29,6 +29,7 @@ module Network.AWS.Transcribe.CreateVocabularyFilter
 
     -- * Request Lenses
     createVocabularyFilter_vocabularyFilterFileUri,
+    createVocabularyFilter_tags,
     createVocabularyFilter_words,
     createVocabularyFilter_vocabularyFilterName,
     createVocabularyFilter_languageCode,
@@ -65,6 +66,10 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
     -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
     -- parameter.
     vocabularyFilterFileUri :: Prelude.Maybe Prelude.Text,
+    -- | Adds one or more tags, each in the form of a key:value pair, to a new
+    -- Amazon Transcribe vocabulary filter at the time you create this new
+    -- vocabulary filter.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The words to use in the vocabulary filter. Only use characters from the
     -- character set defined for custom vocabularies. For a list of character
     -- sets, see
@@ -103,6 +108,10 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
 -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
 -- parameter.
 --
+-- 'tags', 'createVocabularyFilter_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary filter at the time you create this new
+-- vocabulary filter.
+--
 -- 'words', 'createVocabularyFilter_words' - The words to use in the vocabulary filter. Only use characters from the
 -- character set defined for custom vocabularies. For a list of character
 -- sets, see
@@ -130,6 +139,7 @@ newCreateVocabularyFilter
     CreateVocabularyFilter'
       { vocabularyFilterFileUri =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         words = Prelude.Nothing,
         vocabularyFilterName = pVocabularyFilterName_,
         languageCode = pLanguageCode_
@@ -147,6 +157,12 @@ newCreateVocabularyFilter
 -- parameter.
 createVocabularyFilter_vocabularyFilterFileUri :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe Prelude.Text)
 createVocabularyFilter_vocabularyFilterFileUri = Lens.lens (\CreateVocabularyFilter' {vocabularyFilterFileUri} -> vocabularyFilterFileUri) (\s@CreateVocabularyFilter' {} a -> s {vocabularyFilterFileUri = a} :: CreateVocabularyFilter)
+
+-- | Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary filter at the time you create this new
+-- vocabulary filter.
+createVocabularyFilter_tags :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVocabularyFilter_tags = Lens.lens (\CreateVocabularyFilter' {tags} -> tags) (\s@CreateVocabularyFilter' {} a -> s {tags = a} :: CreateVocabularyFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The words to use in the vocabulary filter. Only use characters from the
 -- character set defined for custom vocabularies. For a list of character
@@ -210,6 +226,7 @@ instance Core.ToJSON CreateVocabularyFilter where
       ( Prelude.catMaybes
           [ ("VocabularyFilterFileUri" Core..=)
               Prelude.<$> vocabularyFilterFileUri,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("Words" Core..=) Prelude.<$> words,
             Prelude.Just
               ( "VocabularyFilterName"

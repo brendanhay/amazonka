@@ -24,7 +24,7 @@ import Network.AWS.IAM.Types.StatusType
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains information about an AWS access key.
+-- | Contains information about an Amazon Web Services access key.
 --
 -- This data type is used as a response element in the CreateAccessKey and
 -- ListAccessKeys operations.

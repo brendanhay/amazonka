@@ -27,17 +27,16 @@
 -- ultimately results in improving the quality of your machine learning
 -- transform.
 --
--- After the @StartMLLabelingSetGenerationTaskRun@ finishes, AWS Glue
--- machine learning will have generated a series of questions for humans to
--- answer. (Answering these questions is often called \'labeling\' in the
--- machine learning workflows). In the case of the @FindMatches@ transform,
--- these questions are of the form, “What is the correct way to group these
--- rows together into groups composed entirely of matching records?” After
--- the labeling process is finished, users upload their answers\/labels
--- with a call to @StartImportLabelsTaskRun@. After
--- @StartImportLabelsTaskRun@ finishes, all future runs of the machine
--- learning transform use the new and improved labels and perform a
--- higher-quality transformation.
+-- After the @StartMLLabelingSetGenerationTaskRun@ finishes, Glue machine
+-- learning will have generated a series of questions for humans to answer.
+-- (Answering these questions is often called \'labeling\' in the machine
+-- learning workflows). In the case of the @FindMatches@ transform, these
+-- questions are of the form, “What is the correct way to group these rows
+-- together into groups composed entirely of matching records?” After the
+-- labeling process is finished, users upload their answers\/labels with a
+-- call to @StartImportLabelsTaskRun@. After @StartImportLabelsTaskRun@
+-- finishes, all future runs of the machine learning transform use the new
+-- and improved labels and perform a higher-quality transformation.
 --
 -- By default, @StartMLLabelingSetGenerationTaskRun@ continually learns
 -- from and combines all labels that you upload unless you set @Replace@ to

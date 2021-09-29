@@ -20,11 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
--- Deletes an AppIntegration association from an Amazon Connect instance.
--- The association must not have any use cases associated with it.
+-- Deletes an AWS resource association from an Amazon Connect instance. The
+-- association must not have any use cases associated with it.
 module Network.AWS.Connect.DeleteIntegrationAssociation
   ( -- * Creating a Request
     DeleteIntegrationAssociation (..),
@@ -49,9 +46,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteIntegrationAssociation' smart constructor.
 data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The identifier for the AppIntegration association.
+    -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +62,10 @@ data DeleteIntegrationAssociation = DeleteIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'deleteIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
--- 'integrationAssociationId', 'deleteIntegrationAssociation_integrationAssociationId' - The identifier for the AppIntegration association.
+-- 'integrationAssociationId', 'deleteIntegrationAssociation_integrationAssociationId' - The identifier for the integration association.
 newDeleteIntegrationAssociation ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -83,11 +82,12 @@ newDeleteIntegrationAssociation
           pIntegrationAssociationId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 deleteIntegrationAssociation_instanceId :: Lens.Lens' DeleteIntegrationAssociation Prelude.Text
 deleteIntegrationAssociation_instanceId = Lens.lens (\DeleteIntegrationAssociation' {instanceId} -> instanceId) (\s@DeleteIntegrationAssociation' {} a -> s {instanceId = a} :: DeleteIntegrationAssociation)
 
--- | The identifier for the AppIntegration association.
+-- | The identifier for the integration association.
 deleteIntegrationAssociation_integrationAssociationId :: Lens.Lens' DeleteIntegrationAssociation Prelude.Text
 deleteIntegrationAssociation_integrationAssociationId = Lens.lens (\DeleteIntegrationAssociation' {integrationAssociationId} -> integrationAssociationId) (\s@DeleteIntegrationAssociation' {} a -> s {integrationAssociationId = a} :: DeleteIntegrationAssociation)
 

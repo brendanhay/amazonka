@@ -13,9 +13,9 @@
 --
 -- Amazon EMR is a web service that makes it easier to process large
 -- amounts of data efficiently. Amazon EMR uses Hadoop processing combined
--- with several AWS services to do tasks such as web indexing, data mining,
--- log file analysis, machine learning, scientific simulation, and data
--- warehouse management.
+-- with several Amazon Web Services services to do tasks such as web
+-- indexing, data mining, log file analysis, machine learning, scientific
+-- simulation, and data warehouse management.
 module Network.AWS.EMR
   ( -- * Service Configuration
     defaultService,
@@ -47,17 +47,11 @@ module Network.AWS.EMR
     -- * Operations
     -- $operations
 
-    -- ** DescribeStep
-    DescribeStep (DescribeStep'),
-    newDescribeStep,
-    DescribeStepResponse (DescribeStepResponse'),
-    newDescribeStepResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
+    -- ** ModifyInstanceFleet
+    ModifyInstanceFleet (ModifyInstanceFleet'),
+    newModifyInstanceFleet,
+    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
+    newModifyInstanceFleetResponse,
 
     -- ** DeleteSecurityConfiguration
     DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
@@ -71,17 +65,17 @@ module Network.AWS.EMR
     ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
     newListSecurityConfigurationsResponse,
 
-    -- ** ModifyInstanceFleet
-    ModifyInstanceFleet (ModifyInstanceFleet'),
-    newModifyInstanceFleet,
-    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
-    newModifyInstanceFleetResponse,
+    -- ** DescribeStep
+    DescribeStep (DescribeStep'),
+    newDescribeStep,
+    DescribeStepResponse (DescribeStepResponse'),
+    newDescribeStepResponse,
 
-    -- ** RunJobFlow
-    RunJobFlow (RunJobFlow'),
-    newRunJobFlow,
-    RunJobFlowResponse (RunJobFlowResponse'),
-    newRunJobFlowResponse,
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
     -- ** GetStudioSessionMapping
     GetStudioSessionMapping (GetStudioSessionMapping'),
@@ -95,17 +89,23 @@ module Network.AWS.EMR
     SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
     newSetVisibleToAllUsersResponse,
 
-    -- ** AddInstanceGroups
-    AddInstanceGroups (AddInstanceGroups'),
-    newAddInstanceGroups,
-    AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
-    newAddInstanceGroupsResponse,
+    -- ** RunJobFlow
+    RunJobFlow (RunJobFlow'),
+    newRunJobFlow,
+    RunJobFlowResponse (RunJobFlowResponse'),
+    newRunJobFlowResponse,
 
     -- ** CreateStudio
     CreateStudio (CreateStudio'),
     newCreateStudio,
     CreateStudioResponse (CreateStudioResponse'),
     newCreateStudioResponse,
+
+    -- ** AddInstanceGroups
+    AddInstanceGroups (AddInstanceGroups'),
+    newAddInstanceGroups,
+    AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
+    newAddInstanceGroupsResponse,
 
     -- ** DeleteStudio
     DeleteStudio (DeleteStudio'),
@@ -131,6 +131,18 @@ module Network.AWS.EMR
     RemoveManagedScalingPolicyResponse (RemoveManagedScalingPolicyResponse'),
     newRemoveManagedScalingPolicyResponse,
 
+    -- ** ListReleaseLabels
+    ListReleaseLabels (ListReleaseLabels'),
+    newListReleaseLabels,
+    ListReleaseLabelsResponse (ListReleaseLabelsResponse'),
+    newListReleaseLabelsResponse,
+
+    -- ** StopNotebookExecution
+    StopNotebookExecution (StopNotebookExecution'),
+    newStopNotebookExecution,
+    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
+    newStopNotebookExecutionResponse,
+
     -- ** DescribeSecurityConfiguration
     DescribeSecurityConfiguration (DescribeSecurityConfiguration'),
     newDescribeSecurityConfiguration,
@@ -148,12 +160,6 @@ module Network.AWS.EMR
     newListStudioSessionMappings,
     ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
     newListStudioSessionMappingsResponse,
-
-    -- ** StopNotebookExecution
-    StopNotebookExecution (StopNotebookExecution'),
-    newStopNotebookExecution,
-    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
-    newStopNotebookExecutionResponse,
 
     -- ** ListInstances (Paginated)
     ListInstances (ListInstances'),
@@ -179,11 +185,17 @@ module Network.AWS.EMR
     ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
     newListBootstrapActionsResponse,
 
-    -- ** ListNotebookExecutions (Paginated)
-    ListNotebookExecutions (ListNotebookExecutions'),
-    newListNotebookExecutions,
-    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
-    newListNotebookExecutionsResponse,
+    -- ** GetAutoTerminationPolicy
+    GetAutoTerminationPolicy (GetAutoTerminationPolicy'),
+    newGetAutoTerminationPolicy,
+    GetAutoTerminationPolicyResponse (GetAutoTerminationPolicyResponse'),
+    newGetAutoTerminationPolicyResponse,
+
+    -- ** DescribeReleaseLabel
+    DescribeReleaseLabel (DescribeReleaseLabel'),
+    newDescribeReleaseLabel,
+    DescribeReleaseLabelResponse (DescribeReleaseLabelResponse'),
+    newDescribeReleaseLabelResponse,
 
     -- ** GetBlockPublicAccessConfiguration
     GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
@@ -196,6 +208,24 @@ module Network.AWS.EMR
     newModifyCluster,
     ModifyClusterResponse (ModifyClusterResponse'),
     newModifyClusterResponse,
+
+    -- ** PutAutoTerminationPolicy
+    PutAutoTerminationPolicy (PutAutoTerminationPolicy'),
+    newPutAutoTerminationPolicy,
+    PutAutoTerminationPolicyResponse (PutAutoTerminationPolicyResponse'),
+    newPutAutoTerminationPolicyResponse,
+
+    -- ** ListNotebookExecutions (Paginated)
+    ListNotebookExecutions (ListNotebookExecutions'),
+    newListNotebookExecutions,
+    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
+    newListNotebookExecutionsResponse,
+
+    -- ** ListInstanceGroups (Paginated)
+    ListInstanceGroups (ListInstanceGroups'),
+    newListInstanceGroups,
+    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
+    newListInstanceGroupsResponse,
 
     -- ** TerminateJobFlows
     TerminateJobFlows (TerminateJobFlows'),
@@ -215,12 +245,6 @@ module Network.AWS.EMR
     CancelStepsResponse (CancelStepsResponse'),
     newCancelStepsResponse,
 
-    -- ** ListInstanceGroups (Paginated)
-    ListInstanceGroups (ListInstanceGroups'),
-    newListInstanceGroups,
-    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
-    newListInstanceGroupsResponse,
-
     -- ** RemoveAutoScalingPolicy
     RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
     newRemoveAutoScalingPolicy,
@@ -239,11 +263,11 @@ module Network.AWS.EMR
     ListStudiosResponse (ListStudiosResponse'),
     newListStudiosResponse,
 
-    -- ** AddInstanceFleet
-    AddInstanceFleet (AddInstanceFleet'),
-    newAddInstanceFleet,
-    AddInstanceFleetResponse (AddInstanceFleetResponse'),
-    newAddInstanceFleetResponse,
+    -- ** GetManagedScalingPolicy
+    GetManagedScalingPolicy (GetManagedScalingPolicy'),
+    newGetManagedScalingPolicy,
+    GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
+    newGetManagedScalingPolicyResponse,
 
     -- ** CreateStudioSessionMapping
     CreateStudioSessionMapping (CreateStudioSessionMapping'),
@@ -251,11 +275,11 @@ module Network.AWS.EMR
     CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
     newCreateStudioSessionMappingResponse,
 
-    -- ** GetManagedScalingPolicy
-    GetManagedScalingPolicy (GetManagedScalingPolicy'),
-    newGetManagedScalingPolicy,
-    GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
-    newGetManagedScalingPolicyResponse,
+    -- ** AddInstanceFleet
+    AddInstanceFleet (AddInstanceFleet'),
+    newAddInstanceFleet,
+    AddInstanceFleetResponse (AddInstanceFleetResponse'),
+    newAddInstanceFleetResponse,
 
     -- ** DescribeNotebookExecution
     DescribeNotebookExecution (DescribeNotebookExecution'),
@@ -281,17 +305,29 @@ module Network.AWS.EMR
     ListStepsResponse (ListStepsResponse'),
     newListStepsResponse,
 
+    -- ** PutAutoScalingPolicy
+    PutAutoScalingPolicy (PutAutoScalingPolicy'),
+    newPutAutoScalingPolicy,
+    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
+    newPutAutoScalingPolicyResponse,
+
     -- ** ListClusters (Paginated)
     ListClusters (ListClusters'),
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
 
-    -- ** PutAutoScalingPolicy
-    PutAutoScalingPolicy (PutAutoScalingPolicy'),
-    newPutAutoScalingPolicy,
-    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
-    newPutAutoScalingPolicyResponse,
+    -- ** DescribeStudio
+    DescribeStudio (DescribeStudio'),
+    newDescribeStudio,
+    DescribeStudioResponse (DescribeStudioResponse'),
+    newDescribeStudioResponse,
+
+    -- ** ModifyInstanceGroups
+    ModifyInstanceGroups (ModifyInstanceGroups'),
+    newModifyInstanceGroups,
+    ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
+    newModifyInstanceGroupsResponse,
 
     -- ** SetTerminationProtection
     SetTerminationProtection (SetTerminationProtection'),
@@ -305,17 +341,11 @@ module Network.AWS.EMR
     PutBlockPublicAccessConfigurationResponse (PutBlockPublicAccessConfigurationResponse'),
     newPutBlockPublicAccessConfigurationResponse,
 
-    -- ** DescribeStudio
-    DescribeStudio (DescribeStudio'),
-    newDescribeStudio,
-    DescribeStudioResponse (DescribeStudioResponse'),
-    newDescribeStudioResponse,
-
-    -- ** ModifyInstanceGroups
-    ModifyInstanceGroups (ModifyInstanceGroups'),
-    newModifyInstanceGroups,
-    ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
-    newModifyInstanceGroupsResponse,
+    -- ** RemoveAutoTerminationPolicy
+    RemoveAutoTerminationPolicy (RemoveAutoTerminationPolicy'),
+    newRemoveAutoTerminationPolicy,
+    RemoveAutoTerminationPolicyResponse (RemoveAutoTerminationPolicyResponse'),
+    newRemoveAutoTerminationPolicyResponse,
 
     -- ** CreateSecurityConfiguration
     CreateSecurityConfiguration (CreateSecurityConfiguration'),
@@ -397,6 +427,12 @@ module Network.AWS.EMR
     -- ** NotebookExecutionStatus
     NotebookExecutionStatus (..),
 
+    -- ** OnDemandCapacityReservationPreference
+    OnDemandCapacityReservationPreference (..),
+
+    -- ** OnDemandCapacityReservationUsageStrategy
+    OnDemandCapacityReservationUsageStrategy (..),
+
     -- ** OnDemandProvisioningAllocationStrategy
     OnDemandProvisioningAllocationStrategy (..),
 
@@ -449,6 +485,10 @@ module Network.AWS.EMR
     -- ** AutoScalingPolicyStatus
     AutoScalingPolicyStatus (AutoScalingPolicyStatus'),
     newAutoScalingPolicyStatus,
+
+    -- ** AutoTerminationPolicy
+    AutoTerminationPolicy (AutoTerminationPolicy'),
+    newAutoTerminationPolicy,
 
     -- ** BlockPublicAccessConfiguration
     BlockPublicAccessConfiguration (BlockPublicAccessConfiguration'),
@@ -646,6 +686,10 @@ module Network.AWS.EMR
     NotebookExecutionSummary (NotebookExecutionSummary'),
     newNotebookExecutionSummary,
 
+    -- ** OnDemandCapacityReservationOptions
+    OnDemandCapacityReservationOptions (OnDemandCapacityReservationOptions'),
+    newOnDemandCapacityReservationOptions,
+
     -- ** OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (OnDemandProvisioningSpecification'),
     newOnDemandProvisioningSpecification,
@@ -661,6 +705,10 @@ module Network.AWS.EMR
     -- ** PortRange
     PortRange (PortRange'),
     newPortRange,
+
+    -- ** ReleaseLabelFilter
+    ReleaseLabelFilter (ReleaseLabelFilter'),
+    newReleaseLabelFilter,
 
     -- ** ScalingAction
     ScalingAction (ScalingAction'),
@@ -701,6 +749,10 @@ module Network.AWS.EMR
     -- ** SimpleScalingPolicyConfiguration
     SimpleScalingPolicyConfiguration (SimpleScalingPolicyConfiguration'),
     newSimpleScalingPolicyConfiguration,
+
+    -- ** SimplifiedApplication
+    SimplifiedApplication (SimplifiedApplication'),
+    newSimplifiedApplication,
 
     -- ** SpotProvisioningSpecification
     SpotProvisioningSpecification (SpotProvisioningSpecification'),
@@ -765,9 +817,11 @@ import Network.AWS.EMR.DeleteStudio
 import Network.AWS.EMR.DeleteStudioSessionMapping
 import Network.AWS.EMR.DescribeCluster
 import Network.AWS.EMR.DescribeNotebookExecution
+import Network.AWS.EMR.DescribeReleaseLabel
 import Network.AWS.EMR.DescribeSecurityConfiguration
 import Network.AWS.EMR.DescribeStep
 import Network.AWS.EMR.DescribeStudio
+import Network.AWS.EMR.GetAutoTerminationPolicy
 import Network.AWS.EMR.GetBlockPublicAccessConfiguration
 import Network.AWS.EMR.GetManagedScalingPolicy
 import Network.AWS.EMR.GetStudioSessionMapping
@@ -778,6 +832,7 @@ import Network.AWS.EMR.ListInstanceFleets
 import Network.AWS.EMR.ListInstanceGroups
 import Network.AWS.EMR.ListInstances
 import Network.AWS.EMR.ListNotebookExecutions
+import Network.AWS.EMR.ListReleaseLabels
 import Network.AWS.EMR.ListSecurityConfigurations
 import Network.AWS.EMR.ListSteps
 import Network.AWS.EMR.ListStudioSessionMappings
@@ -786,9 +841,11 @@ import Network.AWS.EMR.ModifyCluster
 import Network.AWS.EMR.ModifyInstanceFleet
 import Network.AWS.EMR.ModifyInstanceGroups
 import Network.AWS.EMR.PutAutoScalingPolicy
+import Network.AWS.EMR.PutAutoTerminationPolicy
 import Network.AWS.EMR.PutBlockPublicAccessConfiguration
 import Network.AWS.EMR.PutManagedScalingPolicy
 import Network.AWS.EMR.RemoveAutoScalingPolicy
+import Network.AWS.EMR.RemoveAutoTerminationPolicy
 import Network.AWS.EMR.RemoveManagedScalingPolicy
 import Network.AWS.EMR.RemoveTags
 import Network.AWS.EMR.RunJobFlow

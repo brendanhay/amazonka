@@ -40,8 +40,8 @@ module Network.AWS.APIGateway.PutMethodResponse
 
     -- * Response Lenses
     methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
   )
 where
 

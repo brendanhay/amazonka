@@ -37,6 +37,12 @@ module Network.AWS.DataPipeline.Lens
     evaluateExpressionResponse_httpStatus,
     evaluateExpressionResponse_evaluatedExpression,
 
+    -- ** ReportTaskProgress
+    reportTaskProgress_fields,
+    reportTaskProgress_taskId,
+    reportTaskProgressResponse_httpStatus,
+    reportTaskProgressResponse_canceled,
+
     -- ** CreatePipeline
     createPipeline_tags,
     createPipeline_description,
@@ -45,11 +51,8 @@ module Network.AWS.DataPipeline.Lens
     createPipelineResponse_httpStatus,
     createPipelineResponse_pipelineId,
 
-    -- ** ReportTaskProgress
-    reportTaskProgress_fields,
-    reportTaskProgress_taskId,
-    reportTaskProgressResponse_httpStatus,
-    reportTaskProgressResponse_canceled,
+    -- ** DeletePipeline
+    deletePipeline_pipelineId,
 
     -- ** SetTaskStatus
     setTaskStatus_errorStackTrace,
@@ -59,25 +62,22 @@ module Network.AWS.DataPipeline.Lens
     setTaskStatus_taskStatus,
     setTaskStatusResponse_httpStatus,
 
-    -- ** DescribeObjects
-    describeObjects_marker,
-    describeObjects_evaluateExpressions,
-    describeObjects_pipelineId,
-    describeObjects_objectIds,
-    describeObjectsResponse_hasMoreResults,
-    describeObjectsResponse_marker,
-    describeObjectsResponse_httpStatus,
-    describeObjectsResponse_pipelineObjects,
-
-    -- ** DeletePipeline
-    deletePipeline_pipelineId,
-
     -- ** ReportTaskRunnerHeartbeat
     reportTaskRunnerHeartbeat_hostname,
     reportTaskRunnerHeartbeat_workerGroup,
     reportTaskRunnerHeartbeat_taskrunnerId,
     reportTaskRunnerHeartbeatResponse_httpStatus,
     reportTaskRunnerHeartbeatResponse_terminate,
+
+    -- ** DescribeObjects
+    describeObjects_evaluateExpressions,
+    describeObjects_marker,
+    describeObjects_pipelineId,
+    describeObjects_objectIds,
+    describeObjectsResponse_hasMoreResults,
+    describeObjectsResponse_marker,
+    describeObjectsResponse_httpStatus,
+    describeObjectsResponse_pipelineObjects,
 
     -- ** AddTags
     addTags_pipelineId,
@@ -88,14 +88,6 @@ module Network.AWS.DataPipeline.Lens
     describePipelines_pipelineIds,
     describePipelinesResponse_httpStatus,
     describePipelinesResponse_pipelineDescriptionList,
-
-    -- ** GetPipelineDefinition
-    getPipelineDefinition_version,
-    getPipelineDefinition_pipelineId,
-    getPipelineDefinitionResponse_parameterValues,
-    getPipelineDefinitionResponse_parameterObjects,
-    getPipelineDefinitionResponse_pipelineObjects,
-    getPipelineDefinitionResponse_httpStatus,
 
     -- ** PollForTask
     pollForTask_hostname,
@@ -113,6 +105,14 @@ module Network.AWS.DataPipeline.Lens
     validatePipelineDefinitionResponse_validationWarnings,
     validatePipelineDefinitionResponse_httpStatus,
     validatePipelineDefinitionResponse_errored,
+
+    -- ** GetPipelineDefinition
+    getPipelineDefinition_version,
+    getPipelineDefinition_pipelineId,
+    getPipelineDefinitionResponse_parameterValues,
+    getPipelineDefinitionResponse_parameterObjects,
+    getPipelineDefinitionResponse_pipelineObjects,
+    getPipelineDefinitionResponse_httpStatus,
 
     -- ** PutPipelineDefinition
     putPipelineDefinition_parameterValues,

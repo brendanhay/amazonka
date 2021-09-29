@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides details about the AWS Shield Advanced subscription for an
--- account.
+-- Provides details about the Shield Advanced subscription for an account.
 module Network.AWS.Shield.DescribeSubscription
   ( -- * Creating a Request
     DescribeSubscription (..),
@@ -101,7 +100,7 @@ instance Core.ToQuery DescribeSubscription where
 
 -- | /See:/ 'newDescribeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
-  { -- | The AWS Shield Advanced subscription details for an account.
+  { -- | The Shield Advanced subscription details for an account.
     subscription :: Prelude.Maybe Subscription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -116,7 +115,7 @@ data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscription', 'describeSubscriptionResponse_subscription' - The AWS Shield Advanced subscription details for an account.
+-- 'subscription', 'describeSubscriptionResponse_subscription' - The Shield Advanced subscription details for an account.
 --
 -- 'httpStatus', 'describeSubscriptionResponse_httpStatus' - The response's http status code.
 newDescribeSubscriptionResponse ::
@@ -130,7 +129,7 @@ newDescribeSubscriptionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS Shield Advanced subscription details for an account.
+-- | The Shield Advanced subscription details for an account.
 describeSubscriptionResponse_subscription :: Lens.Lens' DescribeSubscriptionResponse (Prelude.Maybe Subscription)
 describeSubscriptionResponse_subscription = Lens.lens (\DescribeSubscriptionResponse' {subscription} -> subscription) (\s@DescribeSubscriptionResponse' {} a -> s {subscription = a} :: DescribeSubscriptionResponse)
 

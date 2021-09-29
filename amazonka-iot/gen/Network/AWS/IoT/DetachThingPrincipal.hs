@@ -26,6 +26,10 @@
 --
 -- This call is asynchronous. It might take several seconds for the
 -- detachment to propagate.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DetachThingPrincipal>
+-- action.
 module Network.AWS.IoT.DetachThingPrincipal
   ( -- * Creating a Request
     DetachThingPrincipal (..),

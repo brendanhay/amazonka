@@ -24,19 +24,25 @@ module Network.AWS.SQS.Lens
     -- ** PurgeQueue
     purgeQueue_queueUrl,
 
+    -- ** TagQueue
+    tagQueue_queueUrl,
+    tagQueue_tags,
+
     -- ** ChangeMessageVisibility
     changeMessageVisibility_queueUrl,
     changeMessageVisibility_receiptHandle,
     changeMessageVisibility_visibilityTimeout,
 
-    -- ** TagQueue
-    tagQueue_queueUrl,
-    tagQueue_tags,
+    -- ** GetQueueAttributes
+    getQueueAttributes_attributeNames,
+    getQueueAttributes_queueUrl,
+    getQueueAttributesResponse_attributes,
+    getQueueAttributesResponse_httpStatus,
 
     -- ** ListQueues
     listQueues_nextToken,
-    listQueues_maxResults,
     listQueues_queueNamePrefix,
+    listQueues_maxResults,
     listQueuesResponse_nextToken,
     listQueuesResponse_queueUrls,
     listQueuesResponse_httpStatus,
@@ -52,32 +58,34 @@ module Network.AWS.SQS.Lens
     receiveMessageResponse_messages,
     receiveMessageResponse_httpStatus,
 
-    -- ** GetQueueAttributes
-    getQueueAttributes_attributeNames,
-    getQueueAttributes_queueUrl,
-    getQueueAttributesResponse_attributes,
-    getQueueAttributesResponse_httpStatus,
-
-    -- ** DeleteMessage
-    deleteMessage_queueUrl,
-    deleteMessage_receiptHandle,
-
     -- ** AddPermission
     addPermission_queueUrl,
     addPermission_label,
     addPermission_aWSAccountIds,
     addPermission_actions,
 
+    -- ** DeleteMessage
+    deleteMessage_queueUrl,
+    deleteMessage_receiptHandle,
+
     -- ** ListQueueTags
     listQueueTags_queueUrl,
     listQueueTagsResponse_tags,
     listQueueTagsResponse_httpStatus,
 
+    -- ** ListDeadLetterSourceQueues
+    listDeadLetterSourceQueues_nextToken,
+    listDeadLetterSourceQueues_maxResults,
+    listDeadLetterSourceQueues_queueUrl,
+    listDeadLetterSourceQueuesResponse_nextToken,
+    listDeadLetterSourceQueuesResponse_httpStatus,
+    listDeadLetterSourceQueuesResponse_queueUrls,
+
     -- ** SendMessage
     sendMessage_messageDeduplicationId,
     sendMessage_messageAttributes,
-    sendMessage_messageSystemAttributes,
     sendMessage_messageGroupId,
+    sendMessage_messageSystemAttributes,
     sendMessage_delaySeconds,
     sendMessage_queueUrl,
     sendMessage_messageBody,
@@ -87,14 +95,6 @@ module Network.AWS.SQS.Lens
     sendMessageResponse_mD5OfMessageAttributes,
     sendMessageResponse_messageId,
     sendMessageResponse_httpStatus,
-
-    -- ** ListDeadLetterSourceQueues
-    listDeadLetterSourceQueues_nextToken,
-    listDeadLetterSourceQueues_maxResults,
-    listDeadLetterSourceQueues_queueUrl,
-    listDeadLetterSourceQueuesResponse_nextToken,
-    listDeadLetterSourceQueuesResponse_httpStatus,
-    listDeadLetterSourceQueuesResponse_queueUrls,
 
     -- ** GetQueueUrl
     getQueueUrl_queueOwnerAWSAccountId,
@@ -187,8 +187,8 @@ module Network.AWS.SQS.Lens
     -- ** SendMessageBatchRequestEntry
     sendMessageBatchRequestEntry_messageDeduplicationId,
     sendMessageBatchRequestEntry_messageAttributes,
-    sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_messageGroupId,
+    sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_delaySeconds,
     sendMessageBatchRequestEntry_id,
     sendMessageBatchRequestEntry_messageBody,

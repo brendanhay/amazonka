@@ -62,10 +62,10 @@ data DescribeStackSetOperation = DescribeStackSetOperation'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
     -- | The name or the unique stack ID of the stack set for the stack
     -- operation.
@@ -95,10 +95,10 @@ data DescribeStackSetOperation = DescribeStackSetOperation'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 --
 -- 'stackSetName', 'describeStackSetOperation_stackSetName' - The name or the unique stack ID of the stack set for the stack
 -- operation.
@@ -132,10 +132,10 @@ newDescribeStackSetOperation
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 describeStackSetOperation_callAs :: Lens.Lens' DescribeStackSetOperation (Prelude.Maybe CallAs)
 describeStackSetOperation_callAs = Lens.lens (\DescribeStackSetOperation' {callAs} -> callAs) (\s@DescribeStackSetOperation' {} a -> s {callAs = a} :: DescribeStackSetOperation)
 

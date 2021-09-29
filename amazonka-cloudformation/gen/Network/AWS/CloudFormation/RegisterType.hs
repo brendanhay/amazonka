@@ -22,7 +22,7 @@
 --
 -- Registers an extension with the CloudFormation service. Registering an
 -- extension makes it available for use in CloudFormation templates in your
--- AWS account, and includes:
+-- Amazon Web Services account, and includes:
 --
 -- -   Validating the extension schema
 --
@@ -44,6 +44,14 @@
 -- Once you have initiated a registration request using @ RegisterType @,
 -- you can use @ DescribeTypeRegistration @ to monitor the progress of the
 -- registration request.
+--
+-- Once you have registered a private extension in your account and region,
+-- use
+-- <AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>
+-- to specify configuration properties for the extension. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
+-- in the /CloudFormation User Guide/.
 module Network.AWS.CloudFormation.RegisterType
   ( -- * Creating a Request
     RegisterType (..),
@@ -79,15 +87,24 @@ data RegisterType = RegisterType'
   { -- | Specifies logging configuration information for an extension.
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
-    -- assume when invoking the extension. If your extension calls AWS APIs in
-    -- any of its handlers, you must create an
+    -- assume when invoking the extension.
+    --
+    -- For CloudFormation to assume the specified execution role, the role must
+    -- contain a trust relationship with the CloudFormation service principle
+    -- (@resources.cloudformation.amazonaws.com@). For more information on
+    -- adding trust relationships, see
+    -- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+    -- in the /Identity and Access Management User Guide/.
+    --
+    -- If your extension calls Amazon Web Services APIs in any of its handlers,
+    -- you must create an
     -- /<https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role>/
-    -- that includes the necessary permissions to call those AWS APIs, and
-    -- provision that execution role in your account. When CloudFormation needs
-    -- to invoke the extension handler, CloudFormation assumes this execution
-    -- role to create a temporary session token, which it then passes to the
-    -- extension handler, thereby supplying your extension with the appropriate
-    -- credentials.
+    -- that includes the necessary permissions to call those Amazon Web
+    -- Services APIs, and provision that execution role in your account. When
+    -- CloudFormation needs to invoke the resource type handler, CloudFormation
+    -- assumes this execution role to create a temporary session token, which
+    -- it then passes to the resource type handler, thereby supplying your
+    -- resource type with the appropriate credentials.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier that acts as an idempotency key for this
     -- registration request. Specifying a client request token prevents
@@ -99,8 +116,11 @@ data RegisterType = RegisterType'
     type' :: Prelude.Maybe RegistryType,
     -- | The name of the extension being registered.
     --
-    -- We recommend that extension names adhere to the following pattern:
-    -- /company_or_organization/::/service/::/type/.
+    -- We recommend that extension names adhere to the following patterns:
+    --
+    -- -   For resource types, /company_or_organization/::/service/::/type/.
+    --
+    -- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
     --
     -- The following organization namespaces are reserved and cannot be used in
     -- your extension names:
@@ -130,7 +150,7 @@ data RegisterType = RegisterType'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
     -- permissions for the schema handler package. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
-    -- in the /AWS Identity and Access Management User Guide/.
+    -- in the /Identity and Access Management User Guide/.
     schemaHandlerPackage :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -146,15 +166,24 @@ data RegisterType = RegisterType'
 -- 'loggingConfig', 'registerType_loggingConfig' - Specifies logging configuration information for an extension.
 --
 -- 'executionRoleArn', 'registerType_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
--- assume when invoking the extension. If your extension calls AWS APIs in
--- any of its handlers, you must create an
+-- assume when invoking the extension.
+--
+-- For CloudFormation to assume the specified execution role, the role must
+-- contain a trust relationship with the CloudFormation service principle
+-- (@resources.cloudformation.amazonaws.com@). For more information on
+-- adding trust relationships, see
+-- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+-- in the /Identity and Access Management User Guide/.
+--
+-- If your extension calls Amazon Web Services APIs in any of its handlers,
+-- you must create an
 -- /<https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role>/
--- that includes the necessary permissions to call those AWS APIs, and
--- provision that execution role in your account. When CloudFormation needs
--- to invoke the extension handler, CloudFormation assumes this execution
--- role to create a temporary session token, which it then passes to the
--- extension handler, thereby supplying your extension with the appropriate
--- credentials.
+-- that includes the necessary permissions to call those Amazon Web
+-- Services APIs, and provision that execution role in your account. When
+-- CloudFormation needs to invoke the resource type handler, CloudFormation
+-- assumes this execution role to create a temporary session token, which
+-- it then passes to the resource type handler, thereby supplying your
+-- resource type with the appropriate credentials.
 --
 -- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this
 -- registration request. Specifying a client request token prevents
@@ -166,8 +195,11 @@ data RegisterType = RegisterType'
 --
 -- 'typeName', 'registerType_typeName' - The name of the extension being registered.
 --
--- We recommend that extension names adhere to the following pattern:
--- /company_or_organization/::/service/::/type/.
+-- We recommend that extension names adhere to the following patterns:
+--
+-- -   For resource types, /company_or_organization/::/service/::/type/.
+--
+-- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
 --
 -- The following organization namespaces are reserved and cannot be used in
 -- your extension names:
@@ -197,7 +229,7 @@ data RegisterType = RegisterType'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 -- permissions for the schema handler package. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
--- in the /AWS Identity and Access Management User Guide/.
+-- in the /Identity and Access Management User Guide/.
 newRegisterType ::
   -- | 'typeName'
   Prelude.Text ->
@@ -219,15 +251,24 @@ registerType_loggingConfig :: Lens.Lens' RegisterType (Prelude.Maybe LoggingConf
 registerType_loggingConfig = Lens.lens (\RegisterType' {loggingConfig} -> loggingConfig) (\s@RegisterType' {} a -> s {loggingConfig = a} :: RegisterType)
 
 -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
--- assume when invoking the extension. If your extension calls AWS APIs in
--- any of its handlers, you must create an
+-- assume when invoking the extension.
+--
+-- For CloudFormation to assume the specified execution role, the role must
+-- contain a trust relationship with the CloudFormation service principle
+-- (@resources.cloudformation.amazonaws.com@). For more information on
+-- adding trust relationships, see
+-- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+-- in the /Identity and Access Management User Guide/.
+--
+-- If your extension calls Amazon Web Services APIs in any of its handlers,
+-- you must create an
 -- /<https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role>/
--- that includes the necessary permissions to call those AWS APIs, and
--- provision that execution role in your account. When CloudFormation needs
--- to invoke the extension handler, CloudFormation assumes this execution
--- role to create a temporary session token, which it then passes to the
--- extension handler, thereby supplying your extension with the appropriate
--- credentials.
+-- that includes the necessary permissions to call those Amazon Web
+-- Services APIs, and provision that execution role in your account. When
+-- CloudFormation needs to invoke the resource type handler, CloudFormation
+-- assumes this execution role to create a temporary session token, which
+-- it then passes to the resource type handler, thereby supplying your
+-- resource type with the appropriate credentials.
 registerType_executionRoleArn :: Lens.Lens' RegisterType (Prelude.Maybe Prelude.Text)
 registerType_executionRoleArn = Lens.lens (\RegisterType' {executionRoleArn} -> executionRoleArn) (\s@RegisterType' {} a -> s {executionRoleArn = a} :: RegisterType)
 
@@ -245,8 +286,11 @@ registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType
 
 -- | The name of the extension being registered.
 --
--- We recommend that extension names adhere to the following pattern:
--- /company_or_organization/::/service/::/type/.
+-- We recommend that extension names adhere to the following patterns:
+--
+-- -   For resource types, /company_or_organization/::/service/::/type/.
+--
+-- -   For modules, /company_or_organization/::/service/::/type/::MODULE.
 --
 -- The following organization namespaces are reserved and cannot be used in
 -- your extension names:
@@ -278,7 +322,7 @@ registerType_typeName = Lens.lens (\RegisterType' {typeName} -> typeName) (\s@Re
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 -- permissions for the schema handler package. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>
--- in the /AWS Identity and Access Management User Guide/.
+-- in the /Identity and Access Management User Guide/.
 registerType_schemaHandlerPackage :: Lens.Lens' RegisterType Prelude.Text
 registerType_schemaHandlerPackage = Lens.lens (\RegisterType' {schemaHandlerPackage} -> schemaHandlerPackage) (\s@RegisterType' {} a -> s {schemaHandlerPackage = a} :: RegisterType)
 

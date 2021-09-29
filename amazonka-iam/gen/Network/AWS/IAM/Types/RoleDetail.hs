@@ -39,11 +39,6 @@ import qualified Network.AWS.Prelude as Prelude
 data RoleDetail = RoleDetail'
   { -- | The trust policy that grants permission to assume the role.
     assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The stable and unique string identifying the role. For more information
-    -- about IDs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
-    -- in the /IAM User Guide/.
-    roleId :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the last time that an IAM role was used. This
     -- includes the date and time and the Region in which the role was last
     -- used. Activity is only reported for the trailing 400 days. This period
@@ -53,6 +48,11 @@ data RoleDetail = RoleDetail'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
     -- in the /IAM User Guide/.
     roleLastUsed :: Prelude.Maybe RoleLastUsed,
+    -- | The stable and unique string identifying the role. For more information
+    -- about IDs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+    -- in the /IAM User Guide/.
+    roleId :: Prelude.Maybe Prelude.Text,
     -- | A list of managed policies attached to the role. These policies are the
     -- role\'s access (permissions) policies.
     attachedManagedPolicies :: Prelude.Maybe [AttachedPolicy],
@@ -61,16 +61,16 @@ data RoleDetail = RoleDetail'
     rolePolicyList :: Prelude.Maybe [PolicyDetail],
     -- | The friendly name that identifies the role.
     roleName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- role was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | The ARN of the policy used to set the permissions boundary for the role.
     --
     -- For more information about permissions boundaries, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
-    -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- role was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
     arn :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that are attached to the role. For more information about
     -- tagging, see
@@ -96,11 +96,6 @@ data RoleDetail = RoleDetail'
 --
 -- 'assumeRolePolicyDocument', 'roleDetail_assumeRolePolicyDocument' - The trust policy that grants permission to assume the role.
 --
--- 'roleId', 'roleDetail_roleId' - The stable and unique string identifying the role. For more information
--- about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
---
 -- 'roleLastUsed', 'roleDetail_roleLastUsed' - Contains information about the last time that an IAM role was used. This
 -- includes the date and time and the Region in which the role was last
 -- used. Activity is only reported for the trailing 400 days. This period
@@ -108,6 +103,11 @@ data RoleDetail = RoleDetail'
 -- last year. The role might have been used more than 400 days ago. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
+-- in the /IAM User Guide/.
+--
+-- 'roleId', 'roleDetail_roleId' - The stable and unique string identifying the role. For more information
+-- about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
 --
 -- 'attachedManagedPolicies', 'roleDetail_attachedManagedPolicies' - A list of managed policies attached to the role. These policies are the
@@ -118,15 +118,15 @@ data RoleDetail = RoleDetail'
 --
 -- 'roleName', 'roleDetail_roleName' - The friendly name that identifies the role.
 --
+-- 'createDate', 'roleDetail_createDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- role was created.
+--
 -- 'permissionsBoundary', 'roleDetail_permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role.
 --
 -- For more information about permissions boundaries, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
---
--- 'createDate', 'roleDetail_createDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- role was created.
 --
 -- 'arn', 'roleDetail_arn' - Undocumented member.
 --
@@ -146,13 +146,13 @@ newRoleDetail =
   RoleDetail'
     { assumeRolePolicyDocument =
         Prelude.Nothing,
-      roleId = Prelude.Nothing,
       roleLastUsed = Prelude.Nothing,
+      roleId = Prelude.Nothing,
       attachedManagedPolicies = Prelude.Nothing,
       rolePolicyList = Prelude.Nothing,
       roleName = Prelude.Nothing,
-      permissionsBoundary = Prelude.Nothing,
       createDate = Prelude.Nothing,
+      permissionsBoundary = Prelude.Nothing,
       arn = Prelude.Nothing,
       tags = Prelude.Nothing,
       instanceProfileList = Prelude.Nothing,
@@ -162,13 +162,6 @@ newRoleDetail =
 -- | The trust policy that grants permission to assume the role.
 roleDetail_assumeRolePolicyDocument :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.Text)
 roleDetail_assumeRolePolicyDocument = Lens.lens (\RoleDetail' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@RoleDetail' {} a -> s {assumeRolePolicyDocument = a} :: RoleDetail)
-
--- | The stable and unique string identifying the role. For more information
--- about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
-roleDetail_roleId :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.Text)
-roleDetail_roleId = Lens.lens (\RoleDetail' {roleId} -> roleId) (\s@RoleDetail' {} a -> s {roleId = a} :: RoleDetail)
 
 -- | Contains information about the last time that an IAM role was used. This
 -- includes the date and time and the Region in which the role was last
@@ -180,6 +173,13 @@ roleDetail_roleId = Lens.lens (\RoleDetail' {roleId} -> roleId) (\s@RoleDetail' 
 -- in the /IAM User Guide/.
 roleDetail_roleLastUsed :: Lens.Lens' RoleDetail (Prelude.Maybe RoleLastUsed)
 roleDetail_roleLastUsed = Lens.lens (\RoleDetail' {roleLastUsed} -> roleLastUsed) (\s@RoleDetail' {} a -> s {roleLastUsed = a} :: RoleDetail)
+
+-- | The stable and unique string identifying the role. For more information
+-- about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
+roleDetail_roleId :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.Text)
+roleDetail_roleId = Lens.lens (\RoleDetail' {roleId} -> roleId) (\s@RoleDetail' {} a -> s {roleId = a} :: RoleDetail)
 
 -- | A list of managed policies attached to the role. These policies are the
 -- role\'s access (permissions) policies.
@@ -195,6 +195,12 @@ roleDetail_rolePolicyList = Lens.lens (\RoleDetail' {rolePolicyList} -> rolePoli
 roleDetail_roleName :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.Text)
 roleDetail_roleName = Lens.lens (\RoleDetail' {roleName} -> roleName) (\s@RoleDetail' {} a -> s {roleName = a} :: RoleDetail)
 
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- role was created.
+roleDetail_createDate :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.UTCTime)
+roleDetail_createDate = Lens.lens (\RoleDetail' {createDate} -> createDate) (\s@RoleDetail' {} a -> s {createDate = a} :: RoleDetail) Prelude.. Lens.mapping Core._Time
+
 -- | The ARN of the policy used to set the permissions boundary for the role.
 --
 -- For more information about permissions boundaries, see
@@ -202,12 +208,6 @@ roleDetail_roleName = Lens.lens (\RoleDetail' {roleName} -> roleName) (\s@RoleDe
 -- in the /IAM User Guide/.
 roleDetail_permissionsBoundary :: Lens.Lens' RoleDetail (Prelude.Maybe AttachedPermissionsBoundary)
 roleDetail_permissionsBoundary = Lens.lens (\RoleDetail' {permissionsBoundary} -> permissionsBoundary) (\s@RoleDetail' {} a -> s {permissionsBoundary = a} :: RoleDetail)
-
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- role was created.
-roleDetail_createDate :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.UTCTime)
-roleDetail_createDate = Lens.lens (\RoleDetail' {createDate} -> createDate) (\s@RoleDetail' {} a -> s {createDate = a} :: RoleDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 roleDetail_arn :: Lens.Lens' RoleDetail (Prelude.Maybe Prelude.Text)
@@ -234,8 +234,8 @@ instance Core.FromXML RoleDetail where
   parseXML x =
     RoleDetail'
       Prelude.<$> (x Core..@? "AssumeRolePolicyDocument")
-      Prelude.<*> (x Core..@? "RoleId")
       Prelude.<*> (x Core..@? "RoleLastUsed")
+      Prelude.<*> (x Core..@? "RoleId")
       Prelude.<*> ( x Core..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -244,8 +244,8 @@ instance Core.FromXML RoleDetail where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "RoleName")
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
       Prelude.<*> (x Core..@? "CreateDate")
+      Prelude.<*> (x Core..@? "PermissionsBoundary")
       Prelude.<*> (x Core..@? "Arn")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")

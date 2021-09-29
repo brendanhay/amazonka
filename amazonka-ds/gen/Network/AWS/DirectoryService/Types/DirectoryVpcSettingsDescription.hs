@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDirectoryVpcSettingsDescription' smart constructor.
 data DirectoryVpcSettingsDescription = DirectoryVpcSettingsDescription'
-  { -- | The domain controller security group identifier for the directory.
-    securityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The list of Availability Zones that the directory is in.
+  { -- | The list of Availability Zones that the directory is in.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The domain controller security group identifier for the directory.
+    securityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the subnets for the directory servers.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the VPC that the directory is in.
@@ -46,9 +46,9 @@ data DirectoryVpcSettingsDescription = DirectoryVpcSettingsDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupId', 'directoryVpcSettingsDescription_securityGroupId' - The domain controller security group identifier for the directory.
---
 -- 'availabilityZones', 'directoryVpcSettingsDescription_availabilityZones' - The list of Availability Zones that the directory is in.
+--
+-- 'securityGroupId', 'directoryVpcSettingsDescription_securityGroupId' - The domain controller security group identifier for the directory.
 --
 -- 'subnetIds', 'directoryVpcSettingsDescription_subnetIds' - The identifiers of the subnets for the directory servers.
 --
@@ -57,20 +57,20 @@ newDirectoryVpcSettingsDescription ::
   DirectoryVpcSettingsDescription
 newDirectoryVpcSettingsDescription =
   DirectoryVpcSettingsDescription'
-    { securityGroupId =
+    { availabilityZones =
         Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
+      securityGroupId = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | The domain controller security group identifier for the directory.
-directoryVpcSettingsDescription_securityGroupId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
-directoryVpcSettingsDescription_securityGroupId = Lens.lens (\DirectoryVpcSettingsDescription' {securityGroupId} -> securityGroupId) (\s@DirectoryVpcSettingsDescription' {} a -> s {securityGroupId = a} :: DirectoryVpcSettingsDescription)
-
 -- | The list of Availability Zones that the directory is in.
 directoryVpcSettingsDescription_availabilityZones :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe [Prelude.Text])
 directoryVpcSettingsDescription_availabilityZones = Lens.lens (\DirectoryVpcSettingsDescription' {availabilityZones} -> availabilityZones) (\s@DirectoryVpcSettingsDescription' {} a -> s {availabilityZones = a} :: DirectoryVpcSettingsDescription) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The domain controller security group identifier for the directory.
+directoryVpcSettingsDescription_securityGroupId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
+directoryVpcSettingsDescription_securityGroupId = Lens.lens (\DirectoryVpcSettingsDescription' {securityGroupId} -> securityGroupId) (\s@DirectoryVpcSettingsDescription' {} a -> s {securityGroupId = a} :: DirectoryVpcSettingsDescription)
 
 -- | The identifiers of the subnets for the directory servers.
 directoryVpcSettingsDescription_subnetIds :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe [Prelude.Text])
@@ -89,10 +89,10 @@ instance
       "DirectoryVpcSettingsDescription"
       ( \x ->
           DirectoryVpcSettingsDescription'
-            Prelude.<$> (x Core..:? "SecurityGroupId")
-            Prelude.<*> ( x Core..:? "AvailabilityZones"
+            Prelude.<$> ( x Core..:? "AvailabilityZones"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "SecurityGroupId")
             Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VpcId")
       )

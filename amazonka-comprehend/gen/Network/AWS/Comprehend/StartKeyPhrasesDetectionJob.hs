@@ -30,6 +30,7 @@ module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
     -- * Request Lenses
     startKeyPhrasesDetectionJob_vpcConfig,
     startKeyPhrasesDetectionJob_volumeKmsKeyId,
+    startKeyPhrasesDetectionJob_tags,
     startKeyPhrasesDetectionJob_clientRequestToken,
     startKeyPhrasesDetectionJob_jobName,
     startKeyPhrasesDetectionJob_inputDataConfig,
@@ -43,6 +44,7 @@ module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
 
     -- * Response Lenses
     startKeyPhrasesDetectionJobResponse_jobStatus,
+    startKeyPhrasesDetectionJobResponse_jobArn,
     startKeyPhrasesDetectionJobResponse_jobId,
     startKeyPhrasesDetectionJobResponse_httpStatus,
   )
@@ -72,6 +74,11 @@ data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Tags to be associated with the key phrases detection job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -116,6 +123,11 @@ data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
+-- 'tags', 'startKeyPhrasesDetectionJob_tags' - Tags to be associated with the key phrases detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
 -- 'clientRequestToken', 'startKeyPhrasesDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
 --
@@ -152,6 +164,7 @@ newStartKeyPhrasesDetectionJob
       { vpcConfig =
           Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
@@ -178,6 +191,13 @@ startKeyPhrasesDetectionJob_vpcConfig = Lens.lens (\StartKeyPhrasesDetectionJob'
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 startKeyPhrasesDetectionJob_volumeKmsKeyId :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe Prelude.Text)
 startKeyPhrasesDetectionJob_volumeKmsKeyId = Lens.lens (\StartKeyPhrasesDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartKeyPhrasesDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartKeyPhrasesDetectionJob)
+
+-- | Tags to be associated with the key phrases detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startKeyPhrasesDetectionJob_tags :: Lens.Lens' StartKeyPhrasesDetectionJob (Prelude.Maybe [Tag])
+startKeyPhrasesDetectionJob_tags = Lens.lens (\StartKeyPhrasesDetectionJob' {tags} -> tags) (\s@StartKeyPhrasesDetectionJob' {} a -> s {tags = a} :: StartKeyPhrasesDetectionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
@@ -219,6 +239,7 @@ instance Core.AWSRequest StartKeyPhrasesDetectionJob where
       ( \s h x ->
           StartKeyPhrasesDetectionJobResponse'
             Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -249,6 +270,7 @@ instance Core.ToJSON StartKeyPhrasesDetectionJob where
           [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("JobName" Core..=) Prelude.<$> jobName,
@@ -282,6 +304,16 @@ data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
     -- -   FAILED - The job did not complete. To get details, use the
     --     operation.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The Amazon Resource Name (ARN) of the key phrase detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier generated for the job. To get the status of a job, use
     -- this identifier with the operation.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -310,6 +342,16 @@ data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
 -- -   FAILED - The job did not complete. To get details, use the
 --     operation.
 --
+-- 'jobArn', 'startKeyPhrasesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the key phrase detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'jobId', 'startKeyPhrasesDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
 --
@@ -322,6 +364,7 @@ newStartKeyPhrasesDetectionJobResponse pHttpStatus_ =
   StartKeyPhrasesDetectionJobResponse'
     { jobStatus =
         Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -339,6 +382,18 @@ newStartKeyPhrasesDetectionJobResponse pHttpStatus_ =
 --     operation.
 startKeyPhrasesDetectionJobResponse_jobStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Prelude.Maybe JobStatus)
 startKeyPhrasesDetectionJobResponse_jobStatus = Lens.lens (\StartKeyPhrasesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartKeyPhrasesDetectionJobResponse' {} a -> s {jobStatus = a} :: StartKeyPhrasesDetectionJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the key phrase detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+startKeyPhrasesDetectionJobResponse_jobArn :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startKeyPhrasesDetectionJobResponse_jobArn = Lens.lens (\StartKeyPhrasesDetectionJobResponse' {jobArn} -> jobArn) (\s@StartKeyPhrasesDetectionJobResponse' {} a -> s {jobArn = a} :: StartKeyPhrasesDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.

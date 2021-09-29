@@ -167,8 +167,8 @@ data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
     humanLoopConfig :: HumanLoopConfig,
     -- | An object containing information about the output file.
     outputConfig :: FlowDefinitionOutputConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) execution role for the flow definition.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+    -- Access Management (IAM) execution role for the flow definition.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -205,8 +205,8 @@ data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
 --
 -- 'outputConfig', 'describeFlowDefinitionResponse_outputConfig' - An object containing information about the output file.
 --
--- 'roleArn', 'describeFlowDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) execution role for the flow definition.
+-- 'roleArn', 'describeFlowDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) execution role for the flow definition.
 newDescribeFlowDefinitionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -295,8 +295,8 @@ describeFlowDefinitionResponse_humanLoopConfig = Lens.lens (\DescribeFlowDefinit
 describeFlowDefinitionResponse_outputConfig :: Lens.Lens' DescribeFlowDefinitionResponse FlowDefinitionOutputConfig
 describeFlowDefinitionResponse_outputConfig = Lens.lens (\DescribeFlowDefinitionResponse' {outputConfig} -> outputConfig) (\s@DescribeFlowDefinitionResponse' {} a -> s {outputConfig = a} :: DescribeFlowDefinitionResponse)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) execution role for the flow definition.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) execution role for the flow definition.
 describeFlowDefinitionResponse_roleArn :: Lens.Lens' DescribeFlowDefinitionResponse Prelude.Text
 describeFlowDefinitionResponse_roleArn = Lens.lens (\DescribeFlowDefinitionResponse' {roleArn} -> roleArn) (\s@DescribeFlowDefinitionResponse' {} a -> s {roleArn = a} :: DescribeFlowDefinitionResponse)
 

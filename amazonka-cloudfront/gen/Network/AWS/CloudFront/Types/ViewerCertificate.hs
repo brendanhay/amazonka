@@ -60,9 +60,9 @@ import qualified Network.AWS.Prelude as Prelude
 --     in the /Amazon CloudFront Developer Guide/.
 --
 -- -   The location of the SSL\/TLS certificate,
---     <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)>
+--     <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)>
 --     (recommended) or
---     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)>.
+--     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)>.
 --     You specify the location by setting a value in one of the following
 --     fields (not both):
 --
@@ -100,7 +100,7 @@ data ViewerCertificate = ViewerCertificate'
     --     been enabled for this feature by the CloudFront team. If you have a
     --     use case that requires static IP addresses for a distribution,
     --     contact CloudFront through the
-    --     <https://console.aws.amazon.com/support/home AWS Support Center>.
+    --     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
     --
     -- If the distribution uses the CloudFront domain name such as
     -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
@@ -120,7 +120,7 @@ data ViewerCertificate = ViewerCertificate'
     cloudFrontDefaultCertificate :: Prelude.Maybe Prelude.Bool,
     -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
     -- and the SSL\/TLS certificate is stored in
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)>,
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)>,
     -- provide the ID of the IAM certificate.
     --
     -- If you specify an IAM certificate ID, you must also specify values for
@@ -128,7 +128,7 @@ data ViewerCertificate = ViewerCertificate'
     iAMCertificateId :: Prelude.Maybe Prelude.Text,
     -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
     -- and the SSL\/TLS certificate is stored in
-    -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)>,
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)>,
     -- provide the Amazon Resource Name (ARN) of the ACM certificate.
     -- CloudFront only supports ACM certificates in the US East (N. Virginia)
     -- Region (@us-east-1@).
@@ -205,7 +205,7 @@ data ViewerCertificate = ViewerCertificate'
 --     been enabled for this feature by the CloudFront team. If you have a
 --     use case that requires static IP addresses for a distribution,
 --     contact CloudFront through the
---     <https://console.aws.amazon.com/support/home AWS Support Center>.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
 --
 -- If the distribution uses the CloudFront domain name such as
 -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
@@ -225,7 +225,7 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- 'iAMCertificateId', 'viewerCertificate_iAMCertificateId' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
 -- and the SSL\/TLS certificate is stored in
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)>,
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)>,
 -- provide the ID of the IAM certificate.
 --
 -- If you specify an IAM certificate ID, you must also specify values for
@@ -233,7 +233,7 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- 'aCMCertificateArn', 'viewerCertificate_aCMCertificateArn' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
 -- and the SSL\/TLS certificate is stored in
--- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)>,
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)>,
 -- provide the Amazon Resource Name (ARN) of the ACM certificate.
 -- CloudFront only supports ACM certificates in the US East (N. Virginia)
 -- Region (@us-east-1@).
@@ -312,7 +312,7 @@ newViewerCertificate =
 --     been enabled for this feature by the CloudFront team. If you have a
 --     use case that requires static IP addresses for a distribution,
 --     contact CloudFront through the
---     <https://console.aws.amazon.com/support/home AWS Support Center>.
+--     <https://console.aws.amazon.com/support/home Amazon Web Services Support Center>.
 --
 -- If the distribution uses the CloudFront domain name such as
 -- @d111111abcdef8.cloudfront.net@, don’t set a value for this field.
@@ -336,7 +336,7 @@ viewerCertificate_cloudFrontDefaultCertificate = Lens.lens (\ViewerCertificate' 
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
 -- and the SSL\/TLS certificate is stored in
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)>,
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Identity and Access Management (IAM)>,
 -- provide the ID of the IAM certificate.
 --
 -- If you specify an IAM certificate ID, you must also specify values for
@@ -346,7 +346,7 @@ viewerCertificate_iAMCertificateId = Lens.lens (\ViewerCertificate' {iAMCertific
 
 -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)
 -- and the SSL\/TLS certificate is stored in
--- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)>,
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html Certificate Manager (ACM)>,
 -- provide the Amazon Resource Name (ARN) of the ACM certificate.
 -- CloudFront only supports ACM certificates in the US East (N. Virginia)
 -- Region (@us-east-1@).

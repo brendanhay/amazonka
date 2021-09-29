@@ -21,6 +21,8 @@ module Network.AWS.MediaLive.Types.VideoSelectorColorSpace
   ( VideoSelectorColorSpace
       ( ..,
         VideoSelectorColorSpace_FOLLOW,
+        VideoSelectorColorSpace_HDR10,
+        VideoSelectorColorSpace_HLG_2020,
         VideoSelectorColorSpace_REC_601,
         VideoSelectorColorSpace_REC_709
       ),
@@ -62,6 +64,12 @@ newtype VideoSelectorColorSpace = VideoSelectorColorSpace'
 pattern VideoSelectorColorSpace_FOLLOW :: VideoSelectorColorSpace
 pattern VideoSelectorColorSpace_FOLLOW = VideoSelectorColorSpace' "FOLLOW"
 
+pattern VideoSelectorColorSpace_HDR10 :: VideoSelectorColorSpace
+pattern VideoSelectorColorSpace_HDR10 = VideoSelectorColorSpace' "HDR10"
+
+pattern VideoSelectorColorSpace_HLG_2020 :: VideoSelectorColorSpace
+pattern VideoSelectorColorSpace_HLG_2020 = VideoSelectorColorSpace' "HLG_2020"
+
 pattern VideoSelectorColorSpace_REC_601 :: VideoSelectorColorSpace
 pattern VideoSelectorColorSpace_REC_601 = VideoSelectorColorSpace' "REC_601"
 
@@ -70,6 +78,8 @@ pattern VideoSelectorColorSpace_REC_709 = VideoSelectorColorSpace' "REC_709"
 
 {-# COMPLETE
   VideoSelectorColorSpace_FOLLOW,
+  VideoSelectorColorSpace_HDR10,
+  VideoSelectorColorSpace_HLG_2020,
   VideoSelectorColorSpace_REC_601,
   VideoSelectorColorSpace_REC_709,
   VideoSelectorColorSpace'

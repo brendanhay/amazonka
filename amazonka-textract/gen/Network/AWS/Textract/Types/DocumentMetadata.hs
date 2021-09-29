@@ -1,0 +1,63 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Textract.Types.DocumentMetadata
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Textract.Types.DocumentMetadata where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Information about the input document.
+--
+-- /See:/ 'newDocumentMetadata' smart constructor.
+data DocumentMetadata = DocumentMetadata'
+  { -- | The number of pages that are detected in the document.
+    pages :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DocumentMetadata' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pages', 'documentMetadata_pages' - The number of pages that are detected in the document.
+newDocumentMetadata ::
+  DocumentMetadata
+newDocumentMetadata =
+  DocumentMetadata' {pages = Prelude.Nothing}
+
+-- | The number of pages that are detected in the document.
+documentMetadata_pages :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.Natural)
+documentMetadata_pages = Lens.lens (\DocumentMetadata' {pages} -> pages) (\s@DocumentMetadata' {} a -> s {pages = a} :: DocumentMetadata)
+
+instance Core.FromJSON DocumentMetadata where
+  parseJSON =
+    Core.withObject
+      "DocumentMetadata"
+      ( \x ->
+          DocumentMetadata' Prelude.<$> (x Core..:? "Pages")
+      )
+
+instance Prelude.Hashable DocumentMetadata
+
+instance Prelude.NFData DocumentMetadata

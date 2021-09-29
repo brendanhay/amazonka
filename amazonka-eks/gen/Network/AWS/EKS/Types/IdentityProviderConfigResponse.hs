@@ -24,7 +24,7 @@ import Network.AWS.EKS.Types.OidcIdentityProviderConfig
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object that represents an identity configuration.
+-- | The full description of your identity configuration.
 --
 -- /See:/ 'newIdentityProviderConfigResponse' smart constructor.
 data IdentityProviderConfigResponse = IdentityProviderConfigResponse'

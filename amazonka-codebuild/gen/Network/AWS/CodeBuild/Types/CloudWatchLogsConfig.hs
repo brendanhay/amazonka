@@ -24,26 +24,23 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about Amazon CloudWatch Logs for a build project.
+-- | Information about CloudWatch Logs for a build project.
 --
 -- /See:/ 'newCloudWatchLogsConfig' smart constructor.
 data CloudWatchLogsConfig = CloudWatchLogsConfig'
-  { -- | The group name of the logs in Amazon CloudWatch Logs. For more
-    -- information, see
+  { -- | The group name of the logs in CloudWatch Logs. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The prefix of the stream name of the Amazon CloudWatch Logs. For more
+    -- | The prefix of the stream name of the CloudWatch Logs. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
     streamName :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the logs in Amazon CloudWatch Logs for a build
-    -- project. Valid values are:
+    -- | The current status of the logs in CloudWatch Logs for a build project.
+    -- Valid values are:
     --
-    -- -   @ENABLED@: Amazon CloudWatch Logs are enabled for this build
-    --     project.
+    -- -   @ENABLED@: CloudWatch Logs are enabled for this build project.
     --
-    -- -   @DISABLED@: Amazon CloudWatch Logs are not enabled for this build
-    --     project.
+    -- -   @DISABLED@: CloudWatch Logs are not enabled for this build project.
     status :: LogsConfigStatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,22 +53,19 @@ data CloudWatchLogsConfig = CloudWatchLogsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'cloudWatchLogsConfig_groupName' - The group name of the logs in Amazon CloudWatch Logs. For more
+-- 'groupName', 'cloudWatchLogsConfig_groupName' - The group name of the logs in CloudWatch Logs. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
+--
+-- 'streamName', 'cloudWatchLogsConfig_streamName' - The prefix of the stream name of the CloudWatch Logs. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
 --
--- 'streamName', 'cloudWatchLogsConfig_streamName' - The prefix of the stream name of the Amazon CloudWatch Logs. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
+-- 'status', 'cloudWatchLogsConfig_status' - The current status of the logs in CloudWatch Logs for a build project.
+-- Valid values are:
 --
--- 'status', 'cloudWatchLogsConfig_status' - The current status of the logs in Amazon CloudWatch Logs for a build
--- project. Valid values are:
+-- -   @ENABLED@: CloudWatch Logs are enabled for this build project.
 --
--- -   @ENABLED@: Amazon CloudWatch Logs are enabled for this build
---     project.
---
--- -   @DISABLED@: Amazon CloudWatch Logs are not enabled for this build
---     project.
+-- -   @DISABLED@: CloudWatch Logs are not enabled for this build project.
 newCloudWatchLogsConfig ::
   -- | 'status'
   LogsConfigStatusType ->
@@ -83,26 +77,23 @@ newCloudWatchLogsConfig pStatus_ =
       status = pStatus_
     }
 
--- | The group name of the logs in Amazon CloudWatch Logs. For more
--- information, see
+-- | The group name of the logs in CloudWatch Logs. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
 cloudWatchLogsConfig_groupName :: Lens.Lens' CloudWatchLogsConfig (Prelude.Maybe Prelude.Text)
 cloudWatchLogsConfig_groupName = Lens.lens (\CloudWatchLogsConfig' {groupName} -> groupName) (\s@CloudWatchLogsConfig' {} a -> s {groupName = a} :: CloudWatchLogsConfig)
 
--- | The prefix of the stream name of the Amazon CloudWatch Logs. For more
+-- | The prefix of the stream name of the CloudWatch Logs. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams>.
 cloudWatchLogsConfig_streamName :: Lens.Lens' CloudWatchLogsConfig (Prelude.Maybe Prelude.Text)
 cloudWatchLogsConfig_streamName = Lens.lens (\CloudWatchLogsConfig' {streamName} -> streamName) (\s@CloudWatchLogsConfig' {} a -> s {streamName = a} :: CloudWatchLogsConfig)
 
--- | The current status of the logs in Amazon CloudWatch Logs for a build
--- project. Valid values are:
+-- | The current status of the logs in CloudWatch Logs for a build project.
+-- Valid values are:
 --
--- -   @ENABLED@: Amazon CloudWatch Logs are enabled for this build
---     project.
+-- -   @ENABLED@: CloudWatch Logs are enabled for this build project.
 --
--- -   @DISABLED@: Amazon CloudWatch Logs are not enabled for this build
---     project.
+-- -   @DISABLED@: CloudWatch Logs are not enabled for this build project.
 cloudWatchLogsConfig_status :: Lens.Lens' CloudWatchLogsConfig LogsConfigStatusType
 cloudWatchLogsConfig_status = Lens.lens (\CloudWatchLogsConfig' {status} -> status) (\s@CloudWatchLogsConfig' {} a -> s {status = a} :: CloudWatchLogsConfig)
 

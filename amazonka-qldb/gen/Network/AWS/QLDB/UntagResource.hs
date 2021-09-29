@@ -49,12 +49,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) from which you want to remove the tags.
-    -- For example:
+  { -- | The Amazon Resource Name (ARN) from which to remove the tags. For
+    -- example:
     --
     -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
     resourceArn :: Prelude.Text,
-    -- | The list of tag keys that you want to remove.
+    -- | The list of tag keys to remove.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,12 +67,12 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) from which you want to remove the tags.
--- For example:
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) from which to remove the tags. For
+-- example:
 --
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
 --
--- 'tagKeys', 'untagResource_tagKeys' - The list of tag keys that you want to remove.
+-- 'tagKeys', 'untagResource_tagKeys' - The list of tag keys to remove.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -83,14 +83,14 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) from which you want to remove the tags.
--- For example:
+-- | The Amazon Resource Name (ARN) from which to remove the tags. For
+-- example:
 --
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | The list of tag keys that you want to remove.
+-- | The list of tag keys to remove.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 

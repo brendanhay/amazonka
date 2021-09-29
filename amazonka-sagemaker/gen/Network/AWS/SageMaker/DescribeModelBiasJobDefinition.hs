@@ -59,7 +59,7 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeModelBiasJobDefinition' smart constructor.
 data DescribeModelBiasJobDefinition = DescribeModelBiasJobDefinition'
   { -- | The name of the model bias job definition. The name must be unique
-    -- within an AWS Region in the AWS account.
+    -- within an Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +73,7 @@ data DescribeModelBiasJobDefinition = DescribeModelBiasJobDefinition'
 -- for backwards compatibility:
 --
 -- 'jobDefinitionName', 'describeModelBiasJobDefinition_jobDefinitionName' - The name of the model bias job definition. The name must be unique
--- within an AWS Region in the AWS account.
+-- within an Amazon Web Services Region in the Amazon Web Services account.
 newDescribeModelBiasJobDefinition ::
   -- | 'jobDefinitionName'
   Prelude.Text ->
@@ -85,7 +85,7 @@ newDescribeModelBiasJobDefinition pJobDefinitionName_ =
     }
 
 -- | The name of the model bias job definition. The name must be unique
--- within an AWS Region in the AWS account.
+-- within an Amazon Web Services Region in the Amazon Web Services account.
 describeModelBiasJobDefinition_jobDefinitionName :: Lens.Lens' DescribeModelBiasJobDefinition Prelude.Text
 describeModelBiasJobDefinition_jobDefinitionName = Lens.lens (\DescribeModelBiasJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelBiasJobDefinition' {} a -> s {jobDefinitionName = a} :: DescribeModelBiasJobDefinition)
 
@@ -168,7 +168,7 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
     -- | The Amazon Resource Name (ARN) of the model bias job.
     jobDefinitionArn :: Prelude.Text,
     -- | The name of the bias job definition. The name must be unique within an
-    -- AWS Region in the AWS account.
+    -- Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model bias job was created.
     creationTime :: Core.POSIX,
@@ -178,9 +178,9 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
     modelBiasJobInput :: ModelBiasJobInput,
     modelBiasJobOutputConfig :: MonitoringOutputConfig,
     jobResources :: MonitoringResources,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that has read permission to the input data location and write
-    -- permission to the output data location in Amazon S3.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+    -- Access Management (IAM) role that has read permission to the input data
+    -- location and write permission to the output data location in Amazon S3.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -204,7 +204,7 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
 -- 'jobDefinitionArn', 'describeModelBiasJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the model bias job.
 --
 -- 'jobDefinitionName', 'describeModelBiasJobDefinitionResponse_jobDefinitionName' - The name of the bias job definition. The name must be unique within an
--- AWS Region in the AWS account.
+-- Amazon Web Services Region in the Amazon Web Services account.
 --
 -- 'creationTime', 'describeModelBiasJobDefinitionResponse_creationTime' - The time at which the model bias job was created.
 --
@@ -216,9 +216,9 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
 --
 -- 'jobResources', 'describeModelBiasJobDefinitionResponse_jobResources' - Undocumented member.
 --
--- 'roleArn', 'describeModelBiasJobDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that has read permission to the input data location and write
--- permission to the output data location in Amazon S3.
+-- 'roleArn', 'describeModelBiasJobDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that has read permission to the input data
+-- location and write permission to the output data location in Amazon S3.
 newDescribeModelBiasJobDefinitionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -293,7 +293,7 @@ describeModelBiasJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' DescribeMo
 describeModelBiasJobDefinitionResponse_jobDefinitionArn = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: DescribeModelBiasJobDefinitionResponse)
 
 -- | The name of the bias job definition. The name must be unique within an
--- AWS Region in the AWS account.
+-- Amazon Web Services Region in the Amazon Web Services account.
 describeModelBiasJobDefinitionResponse_jobDefinitionName :: Lens.Lens' DescribeModelBiasJobDefinitionResponse Prelude.Text
 describeModelBiasJobDefinitionResponse_jobDefinitionName = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {jobDefinitionName = a} :: DescribeModelBiasJobDefinitionResponse)
 
@@ -317,9 +317,9 @@ describeModelBiasJobDefinitionResponse_modelBiasJobOutputConfig = Lens.lens (\De
 describeModelBiasJobDefinitionResponse_jobResources :: Lens.Lens' DescribeModelBiasJobDefinitionResponse MonitoringResources
 describeModelBiasJobDefinitionResponse_jobResources = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {jobResources} -> jobResources) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {jobResources = a} :: DescribeModelBiasJobDefinitionResponse)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that has read permission to the input data location and write
--- permission to the output data location in Amazon S3.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that has read permission to the input data
+-- location and write permission to the output data location in Amazon S3.
 describeModelBiasJobDefinitionResponse_roleArn :: Lens.Lens' DescribeModelBiasJobDefinitionResponse Prelude.Text
 describeModelBiasJobDefinitionResponse_roleArn = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {roleArn} -> roleArn) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {roleArn = a} :: DescribeModelBiasJobDefinitionResponse)
 

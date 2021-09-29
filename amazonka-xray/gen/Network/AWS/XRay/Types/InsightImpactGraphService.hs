@@ -30,10 +30,10 @@ import Network.AWS.XRay.Types.InsightImpactGraphEdge
 --
 -- /See:/ 'newInsightImpactGraphService' smart constructor.
 data InsightImpactGraphService = InsightImpactGraphService'
-  { -- | A list of names for the service, including the canonical name.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | Identifier of the AWS account in which the service runs.
+  { -- | Identifier of the Amazon Web Services account in which the service runs.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | A list of names for the service, including the canonical name.
+    names :: Prelude.Maybe [Prelude.Text],
     -- | Identifier for the service. Unique within the service map.
     referenceId :: Prelude.Maybe Prelude.Int,
     -- | Connections to downstream services.
@@ -42,18 +42,18 @@ data InsightImpactGraphService = InsightImpactGraphService'
     name :: Prelude.Maybe Prelude.Text,
     -- | Identifier for the service. Unique within the service map.
     --
-    -- -   AWS Resource - The type of an AWS resource. For example,
-    --     AWS::EC2::Instance for an application running on Amazon EC2 or
-    --     AWS::DynamoDB::Table for an Amazon DynamoDB table that the
-    --     application used.
+    -- -   Amazon Web Services Resource - The type of an Amazon Web Services
+    --     resource. For example, AWS::EC2::Instance for an application running
+    --     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table
+    --     that the application used.
     --
-    -- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
-    --     for downstream calls to Amazon DynamoDB that didn\'t target a
-    --     specific table.
+    -- -   Amazon Web Services Service - The type of an Amazon Web Services
+    --     service. For example, AWS::DynamoDB for downstream calls to Amazon
+    --     DynamoDB that didn\'t target a specific table.
     --
-    -- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
-    --     for downstream calls to Amazon DynamoDB that didn\'t target a
-    --     specific table.
+    -- -   Amazon Web Services Service - The type of an Amazon Web Services
+    --     service. For example, AWS::DynamoDB for downstream calls to Amazon
+    --     DynamoDB that didn\'t target a specific table.
     --
     -- -   remote - A downstream service of indeterminate type.
     type' :: Prelude.Maybe Prelude.Text
@@ -68,9 +68,9 @@ data InsightImpactGraphService = InsightImpactGraphService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'insightImpactGraphService_names' - A list of names for the service, including the canonical name.
+-- 'accountId', 'insightImpactGraphService_accountId' - Identifier of the Amazon Web Services account in which the service runs.
 --
--- 'accountId', 'insightImpactGraphService_accountId' - Identifier of the AWS account in which the service runs.
+-- 'names', 'insightImpactGraphService_names' - A list of names for the service, including the canonical name.
 --
 -- 'referenceId', 'insightImpactGraphService_referenceId' - Identifier for the service. Unique within the service map.
 --
@@ -80,39 +80,40 @@ data InsightImpactGraphService = InsightImpactGraphService'
 --
 -- 'type'', 'insightImpactGraphService_type' - Identifier for the service. Unique within the service map.
 --
--- -   AWS Resource - The type of an AWS resource. For example,
---     AWS::EC2::Instance for an application running on Amazon EC2 or
---     AWS::DynamoDB::Table for an Amazon DynamoDB table that the
---     application used.
+-- -   Amazon Web Services Resource - The type of an Amazon Web Services
+--     resource. For example, AWS::EC2::Instance for an application running
+--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table
+--     that the application used.
 --
--- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
---     for downstream calls to Amazon DynamoDB that didn\'t target a
---     specific table.
+-- -   Amazon Web Services Service - The type of an Amazon Web Services
+--     service. For example, AWS::DynamoDB for downstream calls to Amazon
+--     DynamoDB that didn\'t target a specific table.
 --
--- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
---     for downstream calls to Amazon DynamoDB that didn\'t target a
---     specific table.
+-- -   Amazon Web Services Service - The type of an Amazon Web Services
+--     service. For example, AWS::DynamoDB for downstream calls to Amazon
+--     DynamoDB that didn\'t target a specific table.
 --
 -- -   remote - A downstream service of indeterminate type.
 newInsightImpactGraphService ::
   InsightImpactGraphService
 newInsightImpactGraphService =
   InsightImpactGraphService'
-    { names = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+    { accountId =
+        Prelude.Nothing,
+      names = Prelude.Nothing,
       referenceId = Prelude.Nothing,
       edges = Prelude.Nothing,
       name = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
+-- | Identifier of the Amazon Web Services account in which the service runs.
+insightImpactGraphService_accountId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
+insightImpactGraphService_accountId = Lens.lens (\InsightImpactGraphService' {accountId} -> accountId) (\s@InsightImpactGraphService' {} a -> s {accountId = a} :: InsightImpactGraphService)
+
 -- | A list of names for the service, including the canonical name.
 insightImpactGraphService_names :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe [Prelude.Text])
 insightImpactGraphService_names = Lens.lens (\InsightImpactGraphService' {names} -> names) (\s@InsightImpactGraphService' {} a -> s {names = a} :: InsightImpactGraphService) Prelude.. Lens.mapping Lens._Coerce
-
--- | Identifier of the AWS account in which the service runs.
-insightImpactGraphService_accountId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
-insightImpactGraphService_accountId = Lens.lens (\InsightImpactGraphService' {accountId} -> accountId) (\s@InsightImpactGraphService' {} a -> s {accountId = a} :: InsightImpactGraphService)
 
 -- | Identifier for the service. Unique within the service map.
 insightImpactGraphService_referenceId :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Int)
@@ -128,18 +129,18 @@ insightImpactGraphService_name = Lens.lens (\InsightImpactGraphService' {name} -
 
 -- | Identifier for the service. Unique within the service map.
 --
--- -   AWS Resource - The type of an AWS resource. For example,
---     AWS::EC2::Instance for an application running on Amazon EC2 or
---     AWS::DynamoDB::Table for an Amazon DynamoDB table that the
---     application used.
+-- -   Amazon Web Services Resource - The type of an Amazon Web Services
+--     resource. For example, AWS::EC2::Instance for an application running
+--     on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table
+--     that the application used.
 --
--- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
---     for downstream calls to Amazon DynamoDB that didn\'t target a
---     specific table.
+-- -   Amazon Web Services Service - The type of an Amazon Web Services
+--     service. For example, AWS::DynamoDB for downstream calls to Amazon
+--     DynamoDB that didn\'t target a specific table.
 --
--- -   AWS Service - The type of an AWS service. For example, AWS::DynamoDB
---     for downstream calls to Amazon DynamoDB that didn\'t target a
---     specific table.
+-- -   Amazon Web Services Service - The type of an Amazon Web Services
+--     service. For example, AWS::DynamoDB for downstream calls to Amazon
+--     DynamoDB that didn\'t target a specific table.
 --
 -- -   remote - A downstream service of indeterminate type.
 insightImpactGraphService_type :: Lens.Lens' InsightImpactGraphService (Prelude.Maybe Prelude.Text)
@@ -151,8 +152,8 @@ instance Core.FromJSON InsightImpactGraphService where
       "InsightImpactGraphService"
       ( \x ->
           InsightImpactGraphService'
-            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ReferenceId")
             Prelude.<*> (x Core..:? "Edges" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Name")

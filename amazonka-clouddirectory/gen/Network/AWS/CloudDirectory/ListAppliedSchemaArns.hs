@@ -30,8 +30,8 @@ module Network.AWS.CloudDirectory.ListAppliedSchemaArns
     newListAppliedSchemaArns,
 
     -- * Request Lenses
-    listAppliedSchemaArns_schemaArn,
     listAppliedSchemaArns_nextToken,
+    listAppliedSchemaArns_schemaArn,
     listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_directoryArn,
 
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAppliedSchemaArns' smart constructor.
 data ListAppliedSchemaArns = ListAppliedSchemaArns'
-  { -- | The response for @ListAppliedSchemaArns@ when this parameter is used
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response for @ListAppliedSchemaArns@ when this parameter is used
     -- will list all minor version ARNs for a major version.
     schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the directory you are listing.
@@ -75,10 +75,10 @@ data ListAppliedSchemaArns = ListAppliedSchemaArns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAppliedSchemaArns_nextToken' - The pagination token.
+--
 -- 'schemaArn', 'listAppliedSchemaArns_schemaArn' - The response for @ListAppliedSchemaArns@ when this parameter is used
 -- will list all minor version ARNs for a major version.
---
--- 'nextToken', 'listAppliedSchemaArns_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listAppliedSchemaArns_maxResults' - The maximum number of results to retrieve.
 --
@@ -89,20 +89,20 @@ newListAppliedSchemaArns ::
   ListAppliedSchemaArns
 newListAppliedSchemaArns pDirectoryArn_ =
   ListAppliedSchemaArns'
-    { schemaArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       directoryArn = pDirectoryArn_
     }
+
+-- | The pagination token.
+listAppliedSchemaArns_nextToken :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
+listAppliedSchemaArns_nextToken = Lens.lens (\ListAppliedSchemaArns' {nextToken} -> nextToken) (\s@ListAppliedSchemaArns' {} a -> s {nextToken = a} :: ListAppliedSchemaArns)
 
 -- | The response for @ListAppliedSchemaArns@ when this parameter is used
 -- will list all minor version ARNs for a major version.
 listAppliedSchemaArns_schemaArn :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
 listAppliedSchemaArns_schemaArn = Lens.lens (\ListAppliedSchemaArns' {schemaArn} -> schemaArn) (\s@ListAppliedSchemaArns' {} a -> s {schemaArn = a} :: ListAppliedSchemaArns)
-
--- | The pagination token.
-listAppliedSchemaArns_nextToken :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
-listAppliedSchemaArns_nextToken = Lens.lens (\ListAppliedSchemaArns' {nextToken} -> nextToken) (\s@ListAppliedSchemaArns' {} a -> s {nextToken = a} :: ListAppliedSchemaArns)
 
 -- | The maximum number of results to retrieve.
 listAppliedSchemaArns_maxResults :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Natural)
@@ -159,8 +159,8 @@ instance Core.ToJSON ListAppliedSchemaArns where
   toJSON ListAppliedSchemaArns' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SchemaArn" Core..=) Prelude.<$> schemaArn,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("DirectoryArn" Core..= directoryArn)
           ]

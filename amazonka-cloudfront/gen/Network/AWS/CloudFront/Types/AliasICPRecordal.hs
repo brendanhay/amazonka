@@ -24,16 +24,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | AWS services in China customers must file for an Internet Content
--- Provider (ICP) recordal if they want to serve content publicly on an
--- alternate domain name, also known as a CNAME, that they\'ve added to
--- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
--- associated with distributions. The status is returned in the CloudFront
--- response; you can\'t configure it yourself.
+-- | Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions. The status is returned
+-- in the CloudFront response; you can\'t configure it yourself.
 --
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with AWS services in China/.
+-- in /Getting Started with Amazon Web Services services in China/.
 --
 -- /See:/ 'newAliasICPRecordal' smart constructor.
 data AliasICPRecordal = AliasICPRecordal'

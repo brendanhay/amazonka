@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Request Lenses
     describeDBParameters_source,
     describeDBParameters_filters,
-    describeDBParameters_marker,
     describeDBParameters_maxRecords,
+    describeDBParameters_marker,
     describeDBParameters_dbParameterGroupName,
 
     -- * Destructuring the Response
@@ -63,11 +63,6 @@ data DescribeDBParameters = DescribeDBParameters'
     source :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBParameters@ request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -77,6 +72,11 @@ data DescribeDBParameters = DescribeDBParameters'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBParameters@ request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of a specific DB parameter group to return details for.
     --
     -- Constraints:
@@ -102,11 +102,6 @@ data DescribeDBParameters = DescribeDBParameters'
 --
 -- 'filters', 'describeDBParameters_filters' - This parameter isn\'t currently supported.
 --
--- 'marker', 'describeDBParameters_marker' - An optional pagination token provided by a previous
--- @DescribeDBParameters@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeDBParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -115,6 +110,11 @@ data DescribeDBParameters = DescribeDBParameters'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBParameters_marker' - An optional pagination token provided by a previous
+-- @DescribeDBParameters@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'dbParameterGroupName', 'describeDBParameters_dbParameterGroupName' - The name of a specific DB parameter group to return details for.
 --
@@ -129,8 +129,8 @@ newDescribeDBParameters pDBParameterGroupName_ =
   DescribeDBParameters'
     { source = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       dbParameterGroupName = pDBParameterGroupName_
     }
 
@@ -146,13 +146,6 @@ describeDBParameters_source = Lens.lens (\DescribeDBParameters' {source} -> sour
 describeDBParameters_filters :: Lens.Lens' DescribeDBParameters (Prelude.Maybe [Filter])
 describeDBParameters_filters = Lens.lens (\DescribeDBParameters' {filters} -> filters) (\s@DescribeDBParameters' {} a -> s {filters = a} :: DescribeDBParameters) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous
--- @DescribeDBParameters@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBParameters_marker :: Lens.Lens' DescribeDBParameters (Prelude.Maybe Prelude.Text)
-describeDBParameters_marker = Lens.lens (\DescribeDBParameters' {marker} -> marker) (\s@DescribeDBParameters' {} a -> s {marker = a} :: DescribeDBParameters)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -163,6 +156,13 @@ describeDBParameters_marker = Lens.lens (\DescribeDBParameters' {marker} -> mark
 -- Constraints: Minimum 20, maximum 100.
 describeDBParameters_maxRecords :: Lens.Lens' DescribeDBParameters (Prelude.Maybe Prelude.Int)
 describeDBParameters_maxRecords = Lens.lens (\DescribeDBParameters' {maxRecords} -> maxRecords) (\s@DescribeDBParameters' {} a -> s {maxRecords = a} :: DescribeDBParameters)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBParameters@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBParameters_marker :: Lens.Lens' DescribeDBParameters (Prelude.Maybe Prelude.Text)
+describeDBParameters_marker = Lens.lens (\DescribeDBParameters' {marker} -> marker) (\s@DescribeDBParameters' {} a -> s {marker = a} :: DescribeDBParameters)
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -232,8 +232,8 @@ instance Core.ToQuery DescribeDBParameters where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "DBParameterGroupName" Core.=: dbParameterGroupName
       ]
 

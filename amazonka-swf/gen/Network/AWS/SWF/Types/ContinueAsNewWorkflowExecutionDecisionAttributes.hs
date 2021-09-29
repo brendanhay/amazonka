@@ -84,9 +84,6 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
     childPolicy :: Prelude.Maybe ChildPolicy,
-    -- | The task list to use for the decisions of the new (continued) workflow
-    -- execution.
-    taskList :: Prelude.Maybe TaskList,
     -- | The task priority that, if set, specifies the priority for the decision
     -- tasks for this workflow execution. This overrides the
     -- defaultTaskPriority specified when registering the workflow type. Valid
@@ -98,6 +95,9 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
     taskPriority :: Prelude.Maybe Prelude.Text,
+    -- | The task list to use for the decisions of the new (continued) workflow
+    -- execution.
+    taskList :: Prelude.Maybe TaskList,
     -- | If set, specifies the total duration for this workflow execution. This
     -- overrides the @defaultExecutionStartToCloseTimeout@ specified when
     -- registering the workflow type.
@@ -169,9 +169,6 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
 --
--- 'taskList', 'continueAsNewWorkflowExecutionDecisionAttributes_taskList' - The task list to use for the decisions of the new (continued) workflow
--- execution.
---
 -- 'taskPriority', 'continueAsNewWorkflowExecutionDecisionAttributes_taskPriority' - The task priority that, if set, specifies the priority for the decision
 -- tasks for this workflow execution. This overrides the
 -- defaultTaskPriority specified when registering the workflow type. Valid
@@ -182,6 +179,9 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
+--
+-- 'taskList', 'continueAsNewWorkflowExecutionDecisionAttributes_taskList' - The task list to use for the decisions of the new (continued) workflow
+-- execution.
 --
 -- 'executionStartToCloseTimeout', 'continueAsNewWorkflowExecutionDecisionAttributes_executionStartToCloseTimeout' - If set, specifies the total duration for this workflow execution. This
 -- overrides the @defaultExecutionStartToCloseTimeout@ specified when
@@ -225,9 +225,9 @@ newContinueAsNewWorkflowExecutionDecisionAttributes =
         Prelude.Nothing,
       childPolicy =
         Prelude.Nothing,
-      taskList =
-        Prelude.Nothing,
       taskPriority =
+        Prelude.Nothing,
+      taskList =
         Prelude.Nothing,
       executionStartToCloseTimeout =
         Prelude.Nothing,
@@ -271,11 +271,6 @@ continueAsNewWorkflowExecutionDecisionAttributes_lambdaRole = Lens.lens (\Contin
 continueAsNewWorkflowExecutionDecisionAttributes_childPolicy :: Lens.Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Prelude.Maybe ChildPolicy)
 continueAsNewWorkflowExecutionDecisionAttributes_childPolicy = Lens.lens (\ContinueAsNewWorkflowExecutionDecisionAttributes' {childPolicy} -> childPolicy) (\s@ContinueAsNewWorkflowExecutionDecisionAttributes' {} a -> s {childPolicy = a} :: ContinueAsNewWorkflowExecutionDecisionAttributes)
 
--- | The task list to use for the decisions of the new (continued) workflow
--- execution.
-continueAsNewWorkflowExecutionDecisionAttributes_taskList :: Lens.Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Prelude.Maybe TaskList)
-continueAsNewWorkflowExecutionDecisionAttributes_taskList = Lens.lens (\ContinueAsNewWorkflowExecutionDecisionAttributes' {taskList} -> taskList) (\s@ContinueAsNewWorkflowExecutionDecisionAttributes' {} a -> s {taskList = a} :: ContinueAsNewWorkflowExecutionDecisionAttributes)
-
 -- | The task priority that, if set, specifies the priority for the decision
 -- tasks for this workflow execution. This overrides the
 -- defaultTaskPriority specified when registering the workflow type. Valid
@@ -288,6 +283,11 @@ continueAsNewWorkflowExecutionDecisionAttributes_taskList = Lens.lens (\Continue
 -- in the /Amazon SWF Developer Guide/.
 continueAsNewWorkflowExecutionDecisionAttributes_taskPriority :: Lens.Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 continueAsNewWorkflowExecutionDecisionAttributes_taskPriority = Lens.lens (\ContinueAsNewWorkflowExecutionDecisionAttributes' {taskPriority} -> taskPriority) (\s@ContinueAsNewWorkflowExecutionDecisionAttributes' {} a -> s {taskPriority = a} :: ContinueAsNewWorkflowExecutionDecisionAttributes)
+
+-- | The task list to use for the decisions of the new (continued) workflow
+-- execution.
+continueAsNewWorkflowExecutionDecisionAttributes_taskList :: Lens.Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Prelude.Maybe TaskList)
+continueAsNewWorkflowExecutionDecisionAttributes_taskList = Lens.lens (\ContinueAsNewWorkflowExecutionDecisionAttributes' {taskList} -> taskList) (\s@ContinueAsNewWorkflowExecutionDecisionAttributes' {} a -> s {taskList = a} :: ContinueAsNewWorkflowExecutionDecisionAttributes)
 
 -- | If set, specifies the total duration for this workflow execution. This
 -- overrides the @defaultExecutionStartToCloseTimeout@ specified when
@@ -349,8 +349,8 @@ instance
             [ ("input" Core..=) Prelude.<$> input,
               ("lambdaRole" Core..=) Prelude.<$> lambdaRole,
               ("childPolicy" Core..=) Prelude.<$> childPolicy,
-              ("taskList" Core..=) Prelude.<$> taskList,
               ("taskPriority" Core..=) Prelude.<$> taskPriority,
+              ("taskList" Core..=) Prelude.<$> taskList,
               ("executionStartToCloseTimeout" Core..=)
                 Prelude.<$> executionStartToCloseTimeout,
               ("workflowTypeVersion" Core..=)

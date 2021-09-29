@@ -33,9 +33,15 @@ module Network.AWS.CloudFormation.Types.ResourceStatus
         ResourceStatus_IMPORT_ROLLBACK_COMPLETE,
         ResourceStatus_IMPORT_ROLLBACK_FAILED,
         ResourceStatus_IMPORT_ROLLBACK_IN_PROGRESS,
+        ResourceStatus_ROLLBACK_COMPLETE,
+        ResourceStatus_ROLLBACK_FAILED,
+        ResourceStatus_ROLLBACK_IN_PROGRESS,
         ResourceStatus_UPDATE_COMPLETE,
         ResourceStatus_UPDATE_FAILED,
-        ResourceStatus_UPDATE_IN_PROGRESS
+        ResourceStatus_UPDATE_IN_PROGRESS,
+        ResourceStatus_UPDATE_ROLLBACK_COMPLETE,
+        ResourceStatus_UPDATE_ROLLBACK_FAILED,
+        ResourceStatus_UPDATE_ROLLBACK_IN_PROGRESS
       ),
   )
 where
@@ -110,6 +116,15 @@ pattern ResourceStatus_IMPORT_ROLLBACK_FAILED = ResourceStatus' "IMPORT_ROLLBACK
 pattern ResourceStatus_IMPORT_ROLLBACK_IN_PROGRESS :: ResourceStatus
 pattern ResourceStatus_IMPORT_ROLLBACK_IN_PROGRESS = ResourceStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
 
+pattern ResourceStatus_ROLLBACK_COMPLETE :: ResourceStatus
+pattern ResourceStatus_ROLLBACK_COMPLETE = ResourceStatus' "ROLLBACK_COMPLETE"
+
+pattern ResourceStatus_ROLLBACK_FAILED :: ResourceStatus
+pattern ResourceStatus_ROLLBACK_FAILED = ResourceStatus' "ROLLBACK_FAILED"
+
+pattern ResourceStatus_ROLLBACK_IN_PROGRESS :: ResourceStatus
+pattern ResourceStatus_ROLLBACK_IN_PROGRESS = ResourceStatus' "ROLLBACK_IN_PROGRESS"
+
 pattern ResourceStatus_UPDATE_COMPLETE :: ResourceStatus
 pattern ResourceStatus_UPDATE_COMPLETE = ResourceStatus' "UPDATE_COMPLETE"
 
@@ -118,6 +133,15 @@ pattern ResourceStatus_UPDATE_FAILED = ResourceStatus' "UPDATE_FAILED"
 
 pattern ResourceStatus_UPDATE_IN_PROGRESS :: ResourceStatus
 pattern ResourceStatus_UPDATE_IN_PROGRESS = ResourceStatus' "UPDATE_IN_PROGRESS"
+
+pattern ResourceStatus_UPDATE_ROLLBACK_COMPLETE :: ResourceStatus
+pattern ResourceStatus_UPDATE_ROLLBACK_COMPLETE = ResourceStatus' "UPDATE_ROLLBACK_COMPLETE"
+
+pattern ResourceStatus_UPDATE_ROLLBACK_FAILED :: ResourceStatus
+pattern ResourceStatus_UPDATE_ROLLBACK_FAILED = ResourceStatus' "UPDATE_ROLLBACK_FAILED"
+
+pattern ResourceStatus_UPDATE_ROLLBACK_IN_PROGRESS :: ResourceStatus
+pattern ResourceStatus_UPDATE_ROLLBACK_IN_PROGRESS = ResourceStatus' "UPDATE_ROLLBACK_IN_PROGRESS"
 
 {-# COMPLETE
   ResourceStatus_CREATE_COMPLETE,
@@ -133,8 +157,14 @@ pattern ResourceStatus_UPDATE_IN_PROGRESS = ResourceStatus' "UPDATE_IN_PROGRESS"
   ResourceStatus_IMPORT_ROLLBACK_COMPLETE,
   ResourceStatus_IMPORT_ROLLBACK_FAILED,
   ResourceStatus_IMPORT_ROLLBACK_IN_PROGRESS,
+  ResourceStatus_ROLLBACK_COMPLETE,
+  ResourceStatus_ROLLBACK_FAILED,
+  ResourceStatus_ROLLBACK_IN_PROGRESS,
   ResourceStatus_UPDATE_COMPLETE,
   ResourceStatus_UPDATE_FAILED,
   ResourceStatus_UPDATE_IN_PROGRESS,
+  ResourceStatus_UPDATE_ROLLBACK_COMPLETE,
+  ResourceStatus_UPDATE_ROLLBACK_FAILED,
+  ResourceStatus_UPDATE_ROLLBACK_IN_PROGRESS,
   ResourceStatus'
   #-}

@@ -23,15 +23,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
+import Network.AWS.Redshift.Types.NetworkInterface
 
--- | The connection endpoint for connecting an Amazon Redshift cluster
+-- | The connection endpoint for connecting to an Amazon Redshift cluster
 -- through the proxy.
 --
 -- /See:/ 'newVpcEndpoint' smart constructor.
 data VpcEndpoint = VpcEndpoint'
   { -- | The connection endpoint ID for connecting an Amazon Redshift cluster
     -- through the proxy.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The VPC identifier that the endpoint is associated.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | One or more network interfaces of the endpoint. Also known as an
+    -- interface endpoint.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +51,43 @@ data VpcEndpoint = VpcEndpoint'
 --
 -- 'vpcEndpointId', 'vpcEndpoint_vpcEndpointId' - The connection endpoint ID for connecting an Amazon Redshift cluster
 -- through the proxy.
+--
+-- 'vpcId', 'vpcEndpoint_vpcId' - The VPC identifier that the endpoint is associated.
+--
+-- 'networkInterfaces', 'vpcEndpoint_networkInterfaces' - One or more network interfaces of the endpoint. Also known as an
+-- interface endpoint.
 newVpcEndpoint ::
   VpcEndpoint
 newVpcEndpoint =
-  VpcEndpoint' {vpcEndpointId = Prelude.Nothing}
+  VpcEndpoint'
+    { vpcEndpointId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing
+    }
 
 -- | The connection endpoint ID for connecting an Amazon Redshift cluster
 -- through the proxy.
 vpcEndpoint_vpcEndpointId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
 vpcEndpoint_vpcEndpointId = Lens.lens (\VpcEndpoint' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpoint' {} a -> s {vpcEndpointId = a} :: VpcEndpoint)
 
+-- | The VPC identifier that the endpoint is associated.
+vpcEndpoint_vpcId :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Text)
+vpcEndpoint_vpcId = Lens.lens (\VpcEndpoint' {vpcId} -> vpcId) (\s@VpcEndpoint' {} a -> s {vpcId = a} :: VpcEndpoint)
+
+-- | One or more network interfaces of the endpoint. Also known as an
+-- interface endpoint.
+vpcEndpoint_networkInterfaces :: Lens.Lens' VpcEndpoint (Prelude.Maybe [NetworkInterface])
+vpcEndpoint_networkInterfaces = Lens.lens (\VpcEndpoint' {networkInterfaces} -> networkInterfaces) (\s@VpcEndpoint' {} a -> s {networkInterfaces = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens._Coerce
+
 instance Core.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
       Prelude.<$> (x Core..@? "VpcEndpointId")
+      Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> ( x Core..@? "NetworkInterfaces"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "NetworkInterface")
+                  )
 
 instance Prelude.Hashable VpcEndpoint
 

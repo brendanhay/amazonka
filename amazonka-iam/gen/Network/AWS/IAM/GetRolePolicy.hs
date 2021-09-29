@@ -189,9 +189,9 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
     -- | The policy document.
     --
     -- IAM stores policies in JSON format. However, resources that were created
-    -- using AWS CloudFormation templates can be formatted in YAML. AWS
-    -- CloudFormation always converts a YAML policy to JSON format before
-    -- submitting it to IAM.
+    -- using CloudFormation templates can be formatted in YAML. CloudFormation
+    -- always converts a YAML policy to JSON format before submitting it to
+    -- IAM.
     policyDocument :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -213,9 +213,9 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 -- 'policyDocument', 'getRolePolicyResponse_policyDocument' - The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 newGetRolePolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -253,9 +253,9 @@ getRolePolicyResponse_policyName = Lens.lens (\GetRolePolicyResponse' {policyNam
 -- | The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 getRolePolicyResponse_policyDocument :: Lens.Lens' GetRolePolicyResponse Prelude.Text
 getRolePolicyResponse_policyDocument = Lens.lens (\GetRolePolicyResponse' {policyDocument} -> policyDocument) (\s@GetRolePolicyResponse' {} a -> s {policyDocument = a} :: GetRolePolicyResponse)
 

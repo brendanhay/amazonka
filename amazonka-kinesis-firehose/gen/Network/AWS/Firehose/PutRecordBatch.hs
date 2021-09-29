@@ -30,7 +30,7 @@
 -- <https://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Data Firehose Quota>.
 --
 -- Each PutRecordBatch request supports up to 500 records. Each record in
--- the request can be as large as 1,000 KB (before 64-bit encoding), up to
+-- the request can be as large as 1,000 KB (before base64 encoding), up to
 -- a limit of 4 MB for the entire request. These limits cannot be changed.
 --
 -- You must specify the name of the delivery stream and the data record

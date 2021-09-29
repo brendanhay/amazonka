@@ -39,12 +39,12 @@ data Finding = Finding'
     -- | The finding severity. Values can be set to High, Medium, Low, and
     -- Informational.
     severity :: Prelude.Maybe Severity,
-    -- | The name of the finding.
-    title :: Prelude.Maybe Prelude.Text,
     -- | The type of the host from which the finding is generated.
     assetType :: Prelude.Maybe AssetType,
     -- | The numeric value of the finding severity.
     numericSeverity :: Prelude.Maybe Prelude.Double,
+    -- | The name of the finding.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The ID of the finding.
     id :: Prelude.Maybe Prelude.Text,
     -- | The data element is set to \"Inspector\".
@@ -88,11 +88,11 @@ data Finding = Finding'
 -- 'severity', 'finding_severity' - The finding severity. Values can be set to High, Medium, Low, and
 -- Informational.
 --
--- 'title', 'finding_title' - The name of the finding.
---
 -- 'assetType', 'finding_assetType' - The type of the host from which the finding is generated.
 --
 -- 'numericSeverity', 'finding_numericSeverity' - The numeric value of the finding severity.
+--
+-- 'title', 'finding_title' - The name of the finding.
 --
 -- 'id', 'finding_id' - The ID of the finding.
 --
@@ -131,9 +131,9 @@ newFinding pArn_ pCreatedAt_ pUpdatedAt_ =
   Finding'
     { assetAttributes = Prelude.Nothing,
       severity = Prelude.Nothing,
-      title = Prelude.Nothing,
       assetType = Prelude.Nothing,
       numericSeverity = Prelude.Nothing,
+      title = Prelude.Nothing,
       id = Prelude.Nothing,
       service = Prelude.Nothing,
       serviceAttributes = Prelude.Nothing,
@@ -159,10 +159,6 @@ finding_assetAttributes = Lens.lens (\Finding' {assetAttributes} -> assetAttribu
 finding_severity :: Lens.Lens' Finding (Prelude.Maybe Severity)
 finding_severity = Lens.lens (\Finding' {severity} -> severity) (\s@Finding' {} a -> s {severity = a} :: Finding)
 
--- | The name of the finding.
-finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
-
 -- | The type of the host from which the finding is generated.
 finding_assetType :: Lens.Lens' Finding (Prelude.Maybe AssetType)
 finding_assetType = Lens.lens (\Finding' {assetType} -> assetType) (\s@Finding' {} a -> s {assetType = a} :: Finding)
@@ -170,6 +166,10 @@ finding_assetType = Lens.lens (\Finding' {assetType} -> assetType) (\s@Finding' 
 -- | The numeric value of the finding severity.
 finding_numericSeverity :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
 finding_numericSeverity = Lens.lens (\Finding' {numericSeverity} -> numericSeverity) (\s@Finding' {} a -> s {numericSeverity = a} :: Finding)
+
+-- | The name of the finding.
+finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | The ID of the finding.
 finding_id :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
@@ -231,9 +231,9 @@ instance Core.FromJSON Finding where
           Finding'
             Prelude.<$> (x Core..:? "assetAttributes")
             Prelude.<*> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "assetType")
             Prelude.<*> (x Core..:? "numericSeverity")
+            Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "service")
             Prelude.<*> (x Core..:? "serviceAttributes")

@@ -48,7 +48,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'
-  { -- | The ARN of the AWS Glue resource for the resource policy to be deleted.
+  { -- | The ARN of the Glue resource for the resource policy to be deleted.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The hash value returned when this policy was set.
     policyHashCondition :: Prelude.Maybe Prelude.Text
@@ -63,7 +63,7 @@ data DeleteResourcePolicy = DeleteResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'deleteResourcePolicy_resourceArn' - The ARN of the AWS Glue resource for the resource policy to be deleted.
+-- 'resourceArn', 'deleteResourcePolicy_resourceArn' - The ARN of the Glue resource for the resource policy to be deleted.
 --
 -- 'policyHashCondition', 'deleteResourcePolicy_policyHashCondition' - The hash value returned when this policy was set.
 newDeleteResourcePolicy ::
@@ -75,7 +75,7 @@ newDeleteResourcePolicy =
       policyHashCondition = Prelude.Nothing
     }
 
--- | The ARN of the AWS Glue resource for the resource policy to be deleted.
+-- | The ARN of the Glue resource for the resource policy to be deleted.
 deleteResourcePolicy_resourceArn :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
 deleteResourcePolicy_resourceArn = Lens.lens (\DeleteResourcePolicy' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicy' {} a -> s {resourceArn = a} :: DeleteResourcePolicy)
 

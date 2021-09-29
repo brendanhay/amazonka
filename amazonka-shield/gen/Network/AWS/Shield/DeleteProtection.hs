@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Shield Advanced Protection.
+-- Deletes an Shield Advanced Protection.
 module Network.AWS.Shield.DeleteProtection
   ( -- * Creating a Request
     DeleteProtection (..),

@@ -33,10 +33,10 @@ data EmailMessage = EmailMessage'
   { -- | The email address to forward bounces and complaints to, if feedback
     -- forwarding is enabled.
     feedbackForwardingAddress :: Prelude.Maybe Prelude.Text,
-    -- | The email message, represented as a raw MIME message.
-    rawEmail :: Prelude.Maybe RawEmail,
     -- | The body of the email message.
     body :: Prelude.Maybe Prelude.Text,
+    -- | The email message, represented as a raw MIME message.
+    rawEmail :: Prelude.Maybe RawEmail,
     -- | The email message, composed of a subject, a text part, and an HTML part.
     simpleEmail :: Prelude.Maybe SimpleEmail,
     -- | The default message variables to use in the email message. You can
@@ -62,9 +62,9 @@ data EmailMessage = EmailMessage'
 -- 'feedbackForwardingAddress', 'emailMessage_feedbackForwardingAddress' - The email address to forward bounces and complaints to, if feedback
 -- forwarding is enabled.
 --
--- 'rawEmail', 'emailMessage_rawEmail' - The email message, represented as a raw MIME message.
---
 -- 'body', 'emailMessage_body' - The body of the email message.
+--
+-- 'rawEmail', 'emailMessage_rawEmail' - The email message, represented as a raw MIME message.
 --
 -- 'simpleEmail', 'emailMessage_simpleEmail' - The email message, composed of a subject, a text part, and an HTML part.
 --
@@ -82,8 +82,8 @@ newEmailMessage =
   EmailMessage'
     { feedbackForwardingAddress =
         Prelude.Nothing,
-      rawEmail = Prelude.Nothing,
       body = Prelude.Nothing,
+      rawEmail = Prelude.Nothing,
       simpleEmail = Prelude.Nothing,
       substitutions = Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
@@ -95,13 +95,13 @@ newEmailMessage =
 emailMessage_feedbackForwardingAddress :: Lens.Lens' EmailMessage (Prelude.Maybe Prelude.Text)
 emailMessage_feedbackForwardingAddress = Lens.lens (\EmailMessage' {feedbackForwardingAddress} -> feedbackForwardingAddress) (\s@EmailMessage' {} a -> s {feedbackForwardingAddress = a} :: EmailMessage)
 
--- | The email message, represented as a raw MIME message.
-emailMessage_rawEmail :: Lens.Lens' EmailMessage (Prelude.Maybe RawEmail)
-emailMessage_rawEmail = Lens.lens (\EmailMessage' {rawEmail} -> rawEmail) (\s@EmailMessage' {} a -> s {rawEmail = a} :: EmailMessage)
-
 -- | The body of the email message.
 emailMessage_body :: Lens.Lens' EmailMessage (Prelude.Maybe Prelude.Text)
 emailMessage_body = Lens.lens (\EmailMessage' {body} -> body) (\s@EmailMessage' {} a -> s {body = a} :: EmailMessage)
+
+-- | The email message, represented as a raw MIME message.
+emailMessage_rawEmail :: Lens.Lens' EmailMessage (Prelude.Maybe RawEmail)
+emailMessage_rawEmail = Lens.lens (\EmailMessage' {rawEmail} -> rawEmail) (\s@EmailMessage' {} a -> s {rawEmail = a} :: EmailMessage)
 
 -- | The email message, composed of a subject, a text part, and an HTML part.
 emailMessage_simpleEmail :: Lens.Lens' EmailMessage (Prelude.Maybe SimpleEmail)
@@ -132,8 +132,8 @@ instance Core.ToJSON EmailMessage where
       ( Prelude.catMaybes
           [ ("FeedbackForwardingAddress" Core..=)
               Prelude.<$> feedbackForwardingAddress,
-            ("RawEmail" Core..=) Prelude.<$> rawEmail,
             ("Body" Core..=) Prelude.<$> body,
+            ("RawEmail" Core..=) Prelude.<$> rawEmail,
             ("SimpleEmail" Core..=) Prelude.<$> simpleEmail,
             ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("ReplyToAddresses" Core..=)

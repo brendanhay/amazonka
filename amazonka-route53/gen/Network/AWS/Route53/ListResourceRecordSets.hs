@@ -22,7 +22,7 @@
 --
 -- Lists the resource record sets in a specified hosted zone.
 --
--- @ListResourceRecordSets@ returns up to 100 resource record sets at a
+-- @ListResourceRecordSets@ returns up to 300 resource record sets at a
 -- time in ASCII order, beginning at a position specified by the @name@ and
 -- @type@ elements.
 --

@@ -30,13 +30,14 @@ data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
   { -- | A free-form string used to decide what fields to expect in the event
     -- detail.
     detailType :: Prelude.Maybe Prelude.Text,
-    -- | The event source that is generating the evntry.
+    -- | The event source that is generating the entry.
     source :: Prelude.Maybe Prelude.Text,
     -- | A valid JSON string. There is no other schema imposed. The JSON string
     -- may contain fields and nested subobjects.
     detail :: Prelude.Maybe Prelude.Text,
-    -- | AWS resources, identified by Amazon Resource Name (ARN), which the event
-    -- primarily concerns. Any number, including zero, may be present.
+    -- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+    -- which the event primarily concerns. Any number, including zero, may be
+    -- present.
     resources :: Prelude.Maybe [Prelude.Text],
     -- | The date and time of the event.
     time :: Prelude.Maybe Core.POSIX
@@ -54,13 +55,14 @@ data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
 -- 'detailType', 'putPartnerEventsRequestEntry_detailType' - A free-form string used to decide what fields to expect in the event
 -- detail.
 --
--- 'source', 'putPartnerEventsRequestEntry_source' - The event source that is generating the evntry.
+-- 'source', 'putPartnerEventsRequestEntry_source' - The event source that is generating the entry.
 --
 -- 'detail', 'putPartnerEventsRequestEntry_detail' - A valid JSON string. There is no other schema imposed. The JSON string
 -- may contain fields and nested subobjects.
 --
--- 'resources', 'putPartnerEventsRequestEntry_resources' - AWS resources, identified by Amazon Resource Name (ARN), which the event
--- primarily concerns. Any number, including zero, may be present.
+-- 'resources', 'putPartnerEventsRequestEntry_resources' - Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+-- which the event primarily concerns. Any number, including zero, may be
+-- present.
 --
 -- 'time', 'putPartnerEventsRequestEntry_time' - The date and time of the event.
 newPutPartnerEventsRequestEntry ::
@@ -80,7 +82,7 @@ newPutPartnerEventsRequestEntry =
 putPartnerEventsRequestEntry_detailType :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_detailType = Lens.lens (\PutPartnerEventsRequestEntry' {detailType} -> detailType) (\s@PutPartnerEventsRequestEntry' {} a -> s {detailType = a} :: PutPartnerEventsRequestEntry)
 
--- | The event source that is generating the evntry.
+-- | The event source that is generating the entry.
 putPartnerEventsRequestEntry_source :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_source = Lens.lens (\PutPartnerEventsRequestEntry' {source} -> source) (\s@PutPartnerEventsRequestEntry' {} a -> s {source = a} :: PutPartnerEventsRequestEntry)
 
@@ -89,8 +91,9 @@ putPartnerEventsRequestEntry_source = Lens.lens (\PutPartnerEventsRequestEntry' 
 putPartnerEventsRequestEntry_detail :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsRequestEntry_detail = Lens.lens (\PutPartnerEventsRequestEntry' {detail} -> detail) (\s@PutPartnerEventsRequestEntry' {} a -> s {detail = a} :: PutPartnerEventsRequestEntry)
 
--- | AWS resources, identified by Amazon Resource Name (ARN), which the event
--- primarily concerns. Any number, including zero, may be present.
+-- | Amazon Web Services resources, identified by Amazon Resource Name (ARN),
+-- which the event primarily concerns. Any number, including zero, may be
+-- present.
 putPartnerEventsRequestEntry_resources :: Lens.Lens' PutPartnerEventsRequestEntry (Prelude.Maybe [Prelude.Text])
 putPartnerEventsRequestEntry_resources = Lens.lens (\PutPartnerEventsRequestEntry' {resources} -> resources) (\s@PutPartnerEventsRequestEntry' {} a -> s {resources = a} :: PutPartnerEventsRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 

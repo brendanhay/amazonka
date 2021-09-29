@@ -37,10 +37,10 @@ module Network.AWS.EC2.DescribeFleetHistory
     newDescribeFleetHistory,
 
     -- * Request Lenses
-    describeFleetHistory_nextToken,
     describeFleetHistory_eventType,
-    describeFleetHistory_dryRun,
+    describeFleetHistory_nextToken,
     describeFleetHistory_maxResults,
+    describeFleetHistory_dryRun,
     describeFleetHistory_fleetId,
     describeFleetHistory_startTime,
 
@@ -67,20 +67,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFleetHistory' smart constructor.
 data DescribeFleetHistory = DescribeFleetHistory'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of events to describe. By default, all events are described.
+  { -- | The type of events to describe. By default, all events are described.
     eventType :: Prelude.Maybe FleetEventType,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text,
     -- | The start date and time for the events, in UTC format (for example,
@@ -97,19 +97,19 @@ data DescribeFleetHistory = DescribeFleetHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetHistory_nextToken' - The token for the next set of results.
---
 -- 'eventType', 'describeFleetHistory_eventType' - The type of events to describe. By default, all events are described.
 --
--- 'dryRun', 'describeFleetHistory_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'nextToken', 'describeFleetHistory_nextToken' - The token for the next set of results.
 --
 -- 'maxResults', 'describeFleetHistory_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeFleetHistory_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'fleetId', 'describeFleetHistory_fleetId' - The ID of the EC2 Fleet.
 --
@@ -123,28 +123,21 @@ newDescribeFleetHistory ::
   DescribeFleetHistory
 newDescribeFleetHistory pFleetId_ pStartTime_ =
   DescribeFleetHistory'
-    { nextToken = Prelude.Nothing,
-      eventType = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       fleetId = pFleetId_,
       startTime = Core._Time Lens.# pStartTime_
     }
-
--- | The token for the next set of results.
-describeFleetHistory_nextToken :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Text)
-describeFleetHistory_nextToken = Lens.lens (\DescribeFleetHistory' {nextToken} -> nextToken) (\s@DescribeFleetHistory' {} a -> s {nextToken = a} :: DescribeFleetHistory)
 
 -- | The type of events to describe. By default, all events are described.
 describeFleetHistory_eventType :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe FleetEventType)
 describeFleetHistory_eventType = Lens.lens (\DescribeFleetHistory' {eventType} -> eventType) (\s@DescribeFleetHistory' {} a -> s {eventType = a} :: DescribeFleetHistory)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeFleetHistory_dryRun :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Bool)
-describeFleetHistory_dryRun = Lens.lens (\DescribeFleetHistory' {dryRun} -> dryRun) (\s@DescribeFleetHistory' {} a -> s {dryRun = a} :: DescribeFleetHistory)
+-- | The token for the next set of results.
+describeFleetHistory_nextToken :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Text)
+describeFleetHistory_nextToken = Lens.lens (\DescribeFleetHistory' {nextToken} -> nextToken) (\s@DescribeFleetHistory' {} a -> s {nextToken = a} :: DescribeFleetHistory)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
@@ -152,6 +145,13 @@ describeFleetHistory_dryRun = Lens.lens (\DescribeFleetHistory' {dryRun} -> dryR
 -- value.
 describeFleetHistory_maxResults :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Int)
 describeFleetHistory_maxResults = Lens.lens (\DescribeFleetHistory' {maxResults} -> maxResults) (\s@DescribeFleetHistory' {} a -> s {maxResults = a} :: DescribeFleetHistory)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeFleetHistory_dryRun :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Bool)
+describeFleetHistory_dryRun = Lens.lens (\DescribeFleetHistory' {dryRun} -> dryRun) (\s@DescribeFleetHistory' {} a -> s {dryRun = a} :: DescribeFleetHistory)
 
 -- | The ID of the EC2 Fleet.
 describeFleetHistory_fleetId :: Lens.Lens' DescribeFleetHistory Prelude.Text
@@ -199,10 +199,10 @@ instance Core.ToQuery DescribeFleetHistory where
           Core.=: ("DescribeFleetHistory" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         "EventType" Core.=: eventType,
-        "DryRun" Core.=: dryRun,
+        "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "FleetId" Core.=: fleetId,
         "StartTime" Core.=: startTime
       ]

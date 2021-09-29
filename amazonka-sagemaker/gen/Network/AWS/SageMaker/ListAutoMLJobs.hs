@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListAutoMLJobs
 
     -- * Request Lenses
     listAutoMLJobs_lastModifiedTimeBefore,
-    listAutoMLJobs_sortOrder,
     listAutoMLJobs_nextToken,
+    listAutoMLJobs_sortOrder,
     listAutoMLJobs_nameContains,
     listAutoMLJobs_maxResults,
     listAutoMLJobs_creationTimeBefore,
@@ -62,11 +62,11 @@ import Network.AWS.SageMaker.Types
 data ListAutoMLJobs = ListAutoMLJobs'
   { -- | Request a list of jobs, using a filter for time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for the results. The default is Descending.
-    sortOrder :: Prelude.Maybe AutoMLSortOrder,
     -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe AutoMLSortOrder,
     -- | Request a list of jobs, using a search filter for name.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | Request a list of jobs up to a specified limit.
@@ -75,8 +75,7 @@ data ListAutoMLJobs = ListAutoMLJobs'
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Request a list of jobs, using a filter for time.
     lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | The parameter by which to sort the results. The default is
-    -- AutoMLJobName.
+    -- | The parameter by which to sort the results. The default is @Name@.
     sortBy :: Prelude.Maybe AutoMLSortBy,
     -- | Request a list of jobs, using a filter for status.
     statusEquals :: Prelude.Maybe AutoMLJobStatus,
@@ -95,10 +94,10 @@ data ListAutoMLJobs = ListAutoMLJobs'
 --
 -- 'lastModifiedTimeBefore', 'listAutoMLJobs_lastModifiedTimeBefore' - Request a list of jobs, using a filter for time.
 --
--- 'sortOrder', 'listAutoMLJobs_sortOrder' - The sort order for the results. The default is Descending.
---
 -- 'nextToken', 'listAutoMLJobs_nextToken' - If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
+--
+-- 'sortOrder', 'listAutoMLJobs_sortOrder' - The sort order for the results. The default is @Descending@.
 --
 -- 'nameContains', 'listAutoMLJobs_nameContains' - Request a list of jobs, using a search filter for name.
 --
@@ -108,8 +107,7 @@ data ListAutoMLJobs = ListAutoMLJobs'
 --
 -- 'lastModifiedTimeAfter', 'listAutoMLJobs_lastModifiedTimeAfter' - Request a list of jobs, using a filter for time.
 --
--- 'sortBy', 'listAutoMLJobs_sortBy' - The parameter by which to sort the results. The default is
--- AutoMLJobName.
+-- 'sortBy', 'listAutoMLJobs_sortBy' - The parameter by which to sort the results. The default is @Name@.
 --
 -- 'statusEquals', 'listAutoMLJobs_statusEquals' - Request a list of jobs, using a filter for status.
 --
@@ -120,8 +118,8 @@ newListAutoMLJobs =
   ListAutoMLJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -135,14 +133,14 @@ newListAutoMLJobs =
 listAutoMLJobs_lastModifiedTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
 listAutoMLJobs_lastModifiedTimeBefore = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for the results. The default is Descending.
-listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortOrder)
-listAutoMLJobs_sortOrder = Lens.lens (\ListAutoMLJobs' {sortOrder} -> sortOrder) (\s@ListAutoMLJobs' {} a -> s {sortOrder = a} :: ListAutoMLJobs)
-
 -- | If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 listAutoMLJobs_nextToken :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
 listAutoMLJobs_nextToken = Lens.lens (\ListAutoMLJobs' {nextToken} -> nextToken) (\s@ListAutoMLJobs' {} a -> s {nextToken = a} :: ListAutoMLJobs)
+
+-- | The sort order for the results. The default is @Descending@.
+listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortOrder)
+listAutoMLJobs_sortOrder = Lens.lens (\ListAutoMLJobs' {sortOrder} -> sortOrder) (\s@ListAutoMLJobs' {} a -> s {sortOrder = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a search filter for name.
 listAutoMLJobs_nameContains :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
@@ -160,8 +158,7 @@ listAutoMLJobs_creationTimeBefore = Lens.lens (\ListAutoMLJobs' {creationTimeBef
 listAutoMLJobs_lastModifiedTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
 listAutoMLJobs_lastModifiedTimeAfter = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Core._Time
 
--- | The parameter by which to sort the results. The default is
--- AutoMLJobName.
+-- | The parameter by which to sort the results. The default is @Name@.
 listAutoMLJobs_sortBy :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortBy)
 listAutoMLJobs_sortBy = Lens.lens (\ListAutoMLJobs' {sortBy} -> sortBy) (\s@ListAutoMLJobs' {} a -> s {sortBy = a} :: ListAutoMLJobs)
 
@@ -232,8 +229,8 @@ instance Core.ToJSON ListAutoMLJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

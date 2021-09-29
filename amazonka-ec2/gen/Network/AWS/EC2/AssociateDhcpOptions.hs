@@ -31,7 +31,7 @@
 -- the operating system on the instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP Options Sets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP options sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.AssociateDhcpOptions
   ( -- * Creating a Request

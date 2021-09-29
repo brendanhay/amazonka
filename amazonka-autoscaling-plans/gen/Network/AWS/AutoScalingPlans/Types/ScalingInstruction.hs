@@ -68,10 +68,6 @@ data ScalingInstruction = ScalingInstruction'
     -- or a __CustomizedLoadMetricSpecification__ is required when configuring
     -- predictive scaling, and cannot be used otherwise.
     predefinedLoadMetricSpecification :: Prelude.Maybe PredefinedLoadMetricSpecification,
-    -- | The customized load metric to use for predictive scaling. This parameter
-    -- or a __PredefinedLoadMetricSpecification__ is required when configuring
-    -- predictive scaling, and cannot be used otherwise.
-    customizedLoadMetricSpecification :: Prelude.Maybe CustomizedLoadMetricSpecification,
     -- | Defines the behavior that should be applied if the forecast capacity
     -- approaches or exceeds the maximum capacity specified for the resource.
     -- The default value is @SetForecastCapacityToMaxCapacity@.
@@ -93,6 +89,10 @@ data ScalingInstruction = ScalingInstruction'
     --
     -- Only valid when configuring predictive scaling.
     predictiveScalingMaxCapacityBehavior :: Prelude.Maybe PredictiveScalingMaxCapacityBehavior,
+    -- | The customized load metric to use for predictive scaling. This parameter
+    -- or a __PredefinedLoadMetricSpecification__ is required when configuring
+    -- predictive scaling, and cannot be used otherwise.
+    customizedLoadMetricSpecification :: Prelude.Maybe CustomizedLoadMetricSpecification,
     -- | The size of the capacity buffer to use when the forecast capacity is
     -- close to or exceeds the maximum capacity. The value is specified as a
     -- percentage relative to the forecast capacity. For example, if the buffer
@@ -223,10 +223,6 @@ data ScalingInstruction = ScalingInstruction'
 -- or a __CustomizedLoadMetricSpecification__ is required when configuring
 -- predictive scaling, and cannot be used otherwise.
 --
--- 'customizedLoadMetricSpecification', 'scalingInstruction_customizedLoadMetricSpecification' - The customized load metric to use for predictive scaling. This parameter
--- or a __PredefinedLoadMetricSpecification__ is required when configuring
--- predictive scaling, and cannot be used otherwise.
---
 -- 'predictiveScalingMaxCapacityBehavior', 'scalingInstruction_predictiveScalingMaxCapacityBehavior' - Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity specified for the resource.
 -- The default value is @SetForecastCapacityToMaxCapacity@.
@@ -247,6 +243,10 @@ data ScalingInstruction = ScalingInstruction'
 --     policy extra capacity if unexpected traffic occurs.
 --
 -- Only valid when configuring predictive scaling.
+--
+-- 'customizedLoadMetricSpecification', 'scalingInstruction_customizedLoadMetricSpecification' - The customized load metric to use for predictive scaling. This parameter
+-- or a __PredefinedLoadMetricSpecification__ is required when configuring
+-- predictive scaling, and cannot be used otherwise.
 --
 -- 'predictiveScalingMaxCapacityBuffer', 'scalingInstruction_predictiveScalingMaxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
 -- close to or exceeds the maximum capacity. The value is specified as a
@@ -378,9 +378,9 @@ newScalingInstruction
       { disableDynamicScaling =
           Prelude.Nothing,
         predefinedLoadMetricSpecification = Prelude.Nothing,
-        customizedLoadMetricSpecification = Prelude.Nothing,
         predictiveScalingMaxCapacityBehavior =
           Prelude.Nothing,
+        customizedLoadMetricSpecification = Prelude.Nothing,
         predictiveScalingMaxCapacityBuffer = Prelude.Nothing,
         predictiveScalingMode = Prelude.Nothing,
         scalingPolicyUpdateBehavior = Prelude.Nothing,
@@ -407,12 +407,6 @@ scalingInstruction_disableDynamicScaling = Lens.lens (\ScalingInstruction' {disa
 scalingInstruction_predefinedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredefinedLoadMetricSpecification)
 scalingInstruction_predefinedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {predefinedLoadMetricSpecification} -> predefinedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {predefinedLoadMetricSpecification = a} :: ScalingInstruction)
 
--- | The customized load metric to use for predictive scaling. This parameter
--- or a __PredefinedLoadMetricSpecification__ is required when configuring
--- predictive scaling, and cannot be used otherwise.
-scalingInstruction_customizedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe CustomizedLoadMetricSpecification)
-scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {customizedLoadMetricSpecification = a} :: ScalingInstruction)
-
 -- | Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity specified for the resource.
 -- The default value is @SetForecastCapacityToMaxCapacity@.
@@ -435,6 +429,12 @@ scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstru
 -- Only valid when configuring predictive scaling.
 scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMaxCapacityBehavior)
 scalingInstruction_predictiveScalingMaxCapacityBehavior = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBehavior} -> predictiveScalingMaxCapacityBehavior) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBehavior = a} :: ScalingInstruction)
+
+-- | The customized load metric to use for predictive scaling. This parameter
+-- or a __PredefinedLoadMetricSpecification__ is required when configuring
+-- predictive scaling, and cannot be used otherwise.
+scalingInstruction_customizedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe CustomizedLoadMetricSpecification)
+scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {customizedLoadMetricSpecification = a} :: ScalingInstruction)
 
 -- | The size of the capacity buffer to use when the forecast capacity is
 -- close to or exceeds the maximum capacity. The value is specified as a
@@ -573,8 +573,8 @@ instance Core.FromJSON ScalingInstruction where
           ScalingInstruction'
             Prelude.<$> (x Core..:? "DisableDynamicScaling")
             Prelude.<*> (x Core..:? "PredefinedLoadMetricSpecification")
-            Prelude.<*> (x Core..:? "CustomizedLoadMetricSpecification")
             Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBehavior")
+            Prelude.<*> (x Core..:? "CustomizedLoadMetricSpecification")
             Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBuffer")
             Prelude.<*> (x Core..:? "PredictiveScalingMode")
             Prelude.<*> (x Core..:? "ScalingPolicyUpdateBehavior")
@@ -601,10 +601,10 @@ instance Core.ToJSON ScalingInstruction where
               Prelude.<$> disableDynamicScaling,
             ("PredefinedLoadMetricSpecification" Core..=)
               Prelude.<$> predefinedLoadMetricSpecification,
-            ("CustomizedLoadMetricSpecification" Core..=)
-              Prelude.<$> customizedLoadMetricSpecification,
             ("PredictiveScalingMaxCapacityBehavior" Core..=)
               Prelude.<$> predictiveScalingMaxCapacityBehavior,
+            ("CustomizedLoadMetricSpecification" Core..=)
+              Prelude.<$> customizedLoadMetricSpecification,
             ("PredictiveScalingMaxCapacityBuffer" Core..=)
               Prelude.<$> predictiveScalingMaxCapacityBuffer,
             ("PredictiveScalingMode" Core..=)

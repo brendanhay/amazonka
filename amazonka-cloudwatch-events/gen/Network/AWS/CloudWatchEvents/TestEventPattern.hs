@@ -22,11 +22,11 @@
 --
 -- Tests whether the specified event pattern matches the provided event.
 --
--- Most services in AWS treat : or \/ as the same character in Amazon
--- Resource Names (ARNs). However, EventBridge uses an exact match in event
--- patterns and rules. Be sure to use the correct ARN characters when
--- creating event patterns so that they match the ARN syntax in the event
--- you want to match.
+-- Most services in Amazon Web Services treat : or \/ as the same character
+-- in Amazon Resource Names (ARNs). However, EventBridge uses an exact
+-- match in event patterns and rules. Be sure to use the correct ARN
+-- characters when creating event patterns so that they match the ARN
+-- syntax in the event you want to match.
 module Network.AWS.CloudWatchEvents.TestEventPattern
   ( -- * Creating a Request
     TestEventPattern (..),
@@ -61,7 +61,7 @@ data TestEventPattern = TestEventPattern'
     eventPattern :: Prelude.Text,
     -- | The event, in JSON format, to test against the event pattern. The JSON
     -- must follow the format specified in
-    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html AWS Events>,
+    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html Amazon Web Services Events>,
     -- and the following fields are mandatory:
     --
     -- -   @id@
@@ -95,7 +95,7 @@ data TestEventPattern = TestEventPattern'
 --
 -- 'event', 'testEventPattern_event' - The event, in JSON format, to test against the event pattern. The JSON
 -- must follow the format specified in
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html AWS Events>,
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html Amazon Web Services Events>,
 -- and the following fields are mandatory:
 --
 -- -   @id@
@@ -131,7 +131,7 @@ testEventPattern_eventPattern = Lens.lens (\TestEventPattern' {eventPattern} -> 
 
 -- | The event, in JSON format, to test against the event pattern. The JSON
 -- must follow the format specified in
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html AWS Events>,
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html Amazon Web Services Events>,
 -- and the following fields are mandatory:
 --
 -- -   @id@

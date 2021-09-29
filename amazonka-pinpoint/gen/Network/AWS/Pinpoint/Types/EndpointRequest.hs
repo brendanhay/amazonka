@@ -67,6 +67,9 @@ data EndpointRequest = EndpointRequest'
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | Specifies whether to send messages or push notifications to the
     -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
     -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -76,9 +79,6 @@ data EndpointRequest = EndpointRequest'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The unique identifier for the most recent request to update the
     -- endpoint.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -133,6 +133,9 @@ data EndpointRequest = EndpointRequest'
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 --
+-- 'metrics', 'endpointRequest_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+--
 -- 'endpointStatus', 'endpointRequest_endpointStatus' - Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -141,9 +144,6 @@ data EndpointRequest = EndpointRequest'
 -- an endpoint or update an existing endpoint. Amazon Pinpoint
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
---
--- 'metrics', 'endpointRequest_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
 --
 -- 'requestId', 'endpointRequest_requestId' - The unique identifier for the most recent request to update the
 -- endpoint.
@@ -161,8 +161,8 @@ newEndpointRequest =
       optOut = Prelude.Nothing,
       demographic = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
       metrics = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
       requestId = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
       location = Prelude.Nothing
@@ -216,6 +216,11 @@ endpointRequest_demographic = Lens.lens (\EndpointRequest' {demographic} -> demo
 endpointRequest_attributes :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 endpointRequest_attributes = Lens.lens (\EndpointRequest' {attributes} -> attributes) (\s@EndpointRequest' {} a -> s {attributes = a} :: EndpointRequest) Prelude.. Lens.mapping Lens._Coerce
 
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+endpointRequest_metrics :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+endpointRequest_metrics = Lens.lens (\EndpointRequest' {metrics} -> metrics) (\s@EndpointRequest' {} a -> s {metrics = a} :: EndpointRequest) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -226,11 +231,6 @@ endpointRequest_attributes = Lens.lens (\EndpointRequest' {attributes} -> attrib
 -- that has the same address specified by the Address property.
 endpointRequest_endpointStatus :: Lens.Lens' EndpointRequest (Prelude.Maybe Prelude.Text)
 endpointRequest_endpointStatus = Lens.lens (\EndpointRequest' {endpointStatus} -> endpointStatus) (\s@EndpointRequest' {} a -> s {endpointStatus = a} :: EndpointRequest)
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
-endpointRequest_metrics :: Lens.Lens' EndpointRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-endpointRequest_metrics = Lens.lens (\EndpointRequest' {metrics} -> metrics) (\s@EndpointRequest' {} a -> s {metrics = a} :: EndpointRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the most recent request to update the
 -- endpoint.
@@ -259,9 +259,9 @@ instance Core.ToJSON EndpointRequest where
             ("OptOut" Core..=) Prelude.<$> optOut,
             ("Demographic" Core..=) Prelude.<$> demographic,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Metrics" Core..=) Prelude.<$> metrics,
             ("EndpointStatus" Core..=)
               Prelude.<$> endpointStatus,
-            ("Metrics" Core..=) Prelude.<$> metrics,
             ("RequestId" Core..=) Prelude.<$> requestId,
             ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
             ("Location" Core..=) Prelude.<$> location

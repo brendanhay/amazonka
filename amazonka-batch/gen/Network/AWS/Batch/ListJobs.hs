@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of AWS Batch jobs.
+-- Returns a list of Batch jobs.
 --
 -- You must specify only one of the following items:
 --
 -- -   A job queue ID to return a list of jobs in that job queue
 --
--- -   A multi-node parallel job ID to return a list of that job\'s nodes
+-- -   A multi-node parallel job ID to return a list of nodes for that job
 --
--- -   An array job ID to return a list of that job\'s children
+-- -   An array job ID to return a list of the children for that job
 --
 -- You can filter the results by job status with the @jobStatus@ parameter.
 -- If you don\'t specify a status, only @RUNNING@ jobs are returned.
@@ -44,8 +44,9 @@ module Network.AWS.Batch.ListJobs
     listJobs_maxResults,
     listJobs_jobQueue,
     listJobs_jobStatus,
-    listJobs_arrayJobId,
+    listJobs_filters,
     listJobs_multiNodeJobId,
+    listJobs_arrayJobId,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
@@ -81,7 +82,7 @@ data ListJobs = ListJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @ListJobs@ in paginated
     -- output. When this parameter is used, @ListJobs@ only returns
-    -- @maxResults@ results in a single page along with a @nextToken@ response
+    -- @maxResults@ results in a single page and a @nextToken@ response
     -- element. The remaining results of the initial request can be seen by
     -- sending another @ListJobs@ request with the returned @nextToken@ value.
     -- This value can be between 1 and 100. If this parameter isn\'t used, then
@@ -91,16 +92,61 @@ data ListJobs = ListJobs'
     -- | The name or full Amazon Resource Name (ARN) of the job queue used to
     -- list jobs.
     jobQueue :: Prelude.Maybe Prelude.Text,
-    -- | The job status used to filter jobs in the specified queue. If you don\'t
-    -- specify a status, only @RUNNING@ jobs are returned.
+    -- | The job status used to filter jobs in the specified queue. If the
+    -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+    -- and jobs with any status are returned. If you don\'t specify a status,
+    -- only @RUNNING@ jobs are returned.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The job ID for an array job. Specifying an array job ID with this
-    -- parameter lists all child jobs from within the specified array.
-    arrayJobId :: Prelude.Maybe Prelude.Text,
+    -- | The filter to apply to the query. Only one filter can be used at a time.
+    -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
+    -- apply to child jobs in an array or multi-node parallel (MNP) jobs. The
+    -- results are sorted by the @createdAt@ field, with the most recent jobs
+    -- being first.
+    --
+    -- [JOB_NAME]
+    --     The value of the filter is a case-insensitive match for the job
+    --     name. If the value ends with an asterisk (*), the filter will match
+    --     any job name that begins with the string before the \'*\'. This
+    --     corresponds to the @jobName@ value. For example, @test1@ matches
+    --     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
+    --     @Test10@. When the @JOB_NAME@ filter is used, the results are
+    --     grouped by the job name and version.
+    --
+    -- [JOB_DEFINITION]
+    --     The value for the filter is the name or Amazon Resource Name (ARN)
+    --     of the job definition. This corresponds to the @jobDefinition@
+    --     value. The value is case sensitive. When the value for the filter is
+    --     the job definition name, the results include all the jobs that used
+    --     any revision of that job definition name. If the value ends with an
+    --     asterisk (*), the filter will match any job definition name that
+    --     begins with the string before the \'*\'. For example, @jd1@ matches
+    --     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
+    --     the job definition that\'s used doesn\'t affect the sort order. When
+    --     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
+    --     the form
+    --     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
+    --     the results include jobs that used the specified revision of the job
+    --     definition. Asterisk (*) is not supported when the ARN is used.
+    --
+    -- [BEFORE_CREATED_AT]
+    --     The value for the filter is the time that\'s before the job was
+    --     created. This corresponds to the @createdAt@ value. The value is a
+    --     string representation of the number of seconds since 00:00:00 UTC
+    --     (midnight) on January 1, 1970.
+    --
+    -- [AFTER_CREATED_AT]
+    --     The value for the filter is the time that\'s after the job was
+    --     created. This corresponds to the @createdAt@ value. The value is a
+    --     string representation of the number of seconds since 00:00:00 UTC
+    --     (midnight) on January 1, 1970.
+    filters :: Prelude.Maybe [KeyValuesPair],
     -- | The job ID for a multi-node parallel job. Specifying a multi-node
     -- parallel job ID with this parameter lists all nodes that are associated
     -- with the specified job.
-    multiNodeJobId :: Prelude.Maybe Prelude.Text
+    multiNodeJobId :: Prelude.Maybe Prelude.Text,
+    -- | The job ID for an array job. Specifying an array job ID with this
+    -- parameter lists all child jobs from within the specified array.
+    arrayJobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,7 +170,7 @@ data ListJobs = ListJobs'
 --
 -- 'maxResults', 'listJobs_maxResults' - The maximum number of results returned by @ListJobs@ in paginated
 -- output. When this parameter is used, @ListJobs@ only returns
--- @maxResults@ results in a single page along with a @nextToken@ response
+-- @maxResults@ results in a single page and a @nextToken@ response
 -- element. The remaining results of the initial request can be seen by
 -- sending another @ListJobs@ request with the returned @nextToken@ value.
 -- This value can be between 1 and 100. If this parameter isn\'t used, then
@@ -134,15 +180,60 @@ data ListJobs = ListJobs'
 -- 'jobQueue', 'listJobs_jobQueue' - The name or full Amazon Resource Name (ARN) of the job queue used to
 -- list jobs.
 --
--- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If you don\'t
--- specify a status, only @RUNNING@ jobs are returned.
+-- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
 --
--- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
--- parameter lists all child jobs from within the specified array.
+-- 'filters', 'listJobs_filters' - The filter to apply to the query. Only one filter can be used at a time.
+-- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
+-- apply to child jobs in an array or multi-node parallel (MNP) jobs. The
+-- results are sorted by the @createdAt@ field, with the most recent jobs
+-- being first.
+--
+-- [JOB_NAME]
+--     The value of the filter is a case-insensitive match for the job
+--     name. If the value ends with an asterisk (*), the filter will match
+--     any job name that begins with the string before the \'*\'. This
+--     corresponds to the @jobName@ value. For example, @test1@ matches
+--     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
+--     @Test10@. When the @JOB_NAME@ filter is used, the results are
+--     grouped by the job name and version.
+--
+-- [JOB_DEFINITION]
+--     The value for the filter is the name or Amazon Resource Name (ARN)
+--     of the job definition. This corresponds to the @jobDefinition@
+--     value. The value is case sensitive. When the value for the filter is
+--     the job definition name, the results include all the jobs that used
+--     any revision of that job definition name. If the value ends with an
+--     asterisk (*), the filter will match any job definition name that
+--     begins with the string before the \'*\'. For example, @jd1@ matches
+--     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
+--     the job definition that\'s used doesn\'t affect the sort order. When
+--     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
+--     the form
+--     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
+--     the results include jobs that used the specified revision of the job
+--     definition. Asterisk (*) is not supported when the ARN is used.
+--
+-- [BEFORE_CREATED_AT]
+--     The value for the filter is the time that\'s before the job was
+--     created. This corresponds to the @createdAt@ value. The value is a
+--     string representation of the number of seconds since 00:00:00 UTC
+--     (midnight) on January 1, 1970.
+--
+-- [AFTER_CREATED_AT]
+--     The value for the filter is the time that\'s after the job was
+--     created. This corresponds to the @createdAt@ value. The value is a
+--     string representation of the number of seconds since 00:00:00 UTC
+--     (midnight) on January 1, 1970.
 --
 -- 'multiNodeJobId', 'listJobs_multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node
 -- parallel job ID with this parameter lists all nodes that are associated
 -- with the specified job.
+--
+-- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
+-- parameter lists all child jobs from within the specified array.
 newListJobs ::
   ListJobs
 newListJobs =
@@ -151,8 +242,9 @@ newListJobs =
       maxResults = Prelude.Nothing,
       jobQueue = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
-      arrayJobId = Prelude.Nothing,
-      multiNodeJobId = Prelude.Nothing
+      filters = Prelude.Nothing,
+      multiNodeJobId = Prelude.Nothing,
+      arrayJobId = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListJobs@
@@ -169,7 +261,7 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 
 -- | The maximum number of results returned by @ListJobs@ in paginated
 -- output. When this parameter is used, @ListJobs@ only returns
--- @maxResults@ results in a single page along with a @nextToken@ response
+-- @maxResults@ results in a single page and a @nextToken@ response
 -- element. The remaining results of the initial request can be seen by
 -- sending another @ListJobs@ request with the returned @nextToken@ value.
 -- This value can be between 1 and 100. If this parameter isn\'t used, then
@@ -183,21 +275,68 @@ listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@List
 listJobs_jobQueue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_jobQueue = Lens.lens (\ListJobs' {jobQueue} -> jobQueue) (\s@ListJobs' {} a -> s {jobQueue = a} :: ListJobs)
 
--- | The job status used to filter jobs in the specified queue. If you don\'t
--- specify a status, only @RUNNING@ jobs are returned.
+-- | The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
 listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
 listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
 
--- | The job ID for an array job. Specifying an array job ID with this
--- parameter lists all child jobs from within the specified array.
-listJobs_arrayJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_arrayJobId = Lens.lens (\ListJobs' {arrayJobId} -> arrayJobId) (\s@ListJobs' {} a -> s {arrayJobId = a} :: ListJobs)
+-- | The filter to apply to the query. Only one filter can be used at a time.
+-- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
+-- apply to child jobs in an array or multi-node parallel (MNP) jobs. The
+-- results are sorted by the @createdAt@ field, with the most recent jobs
+-- being first.
+--
+-- [JOB_NAME]
+--     The value of the filter is a case-insensitive match for the job
+--     name. If the value ends with an asterisk (*), the filter will match
+--     any job name that begins with the string before the \'*\'. This
+--     corresponds to the @jobName@ value. For example, @test1@ matches
+--     both @Test1@ and @test1@, and @test1*@ matches both @test1@ and
+--     @Test10@. When the @JOB_NAME@ filter is used, the results are
+--     grouped by the job name and version.
+--
+-- [JOB_DEFINITION]
+--     The value for the filter is the name or Amazon Resource Name (ARN)
+--     of the job definition. This corresponds to the @jobDefinition@
+--     value. The value is case sensitive. When the value for the filter is
+--     the job definition name, the results include all the jobs that used
+--     any revision of that job definition name. If the value ends with an
+--     asterisk (*), the filter will match any job definition name that
+--     begins with the string before the \'*\'. For example, @jd1@ matches
+--     only @jd1@, and @jd1*@ matches both @jd1@ and @jd1A@. The version of
+--     the job definition that\'s used doesn\'t affect the sort order. When
+--     the @JOB_DEFINITION@ filter is used and the ARN is used (which is in
+--     the form
+--     @arn:${Partition}:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@),
+--     the results include jobs that used the specified revision of the job
+--     definition. Asterisk (*) is not supported when the ARN is used.
+--
+-- [BEFORE_CREATED_AT]
+--     The value for the filter is the time that\'s before the job was
+--     created. This corresponds to the @createdAt@ value. The value is a
+--     string representation of the number of seconds since 00:00:00 UTC
+--     (midnight) on January 1, 1970.
+--
+-- [AFTER_CREATED_AT]
+--     The value for the filter is the time that\'s after the job was
+--     created. This corresponds to the @createdAt@ value. The value is a
+--     string representation of the number of seconds since 00:00:00 UTC
+--     (midnight) on January 1, 1970.
+listJobs_filters :: Lens.Lens' ListJobs (Prelude.Maybe [KeyValuesPair])
+listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} a -> s {filters = a} :: ListJobs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The job ID for a multi-node parallel job. Specifying a multi-node
 -- parallel job ID with this parameter lists all nodes that are associated
 -- with the specified job.
 listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJobId) (\s@ListJobs' {} a -> s {multiNodeJobId = a} :: ListJobs)
+
+-- | The job ID for an array job. Specifying an array job ID with this
+-- parameter lists all child jobs from within the specified array.
+listJobs_arrayJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_arrayJobId = Lens.lens (\ListJobs' {arrayJobId} -> arrayJobId) (\s@ListJobs' {} a -> s {arrayJobId = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
@@ -253,9 +392,10 @@ instance Core.ToJSON ListJobs where
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("jobQueue" Core..=) Prelude.<$> jobQueue,
             ("jobStatus" Core..=) Prelude.<$> jobStatus,
-            ("arrayJobId" Core..=) Prelude.<$> arrayJobId,
+            ("filters" Core..=) Prelude.<$> filters,
             ("multiNodeJobId" Core..=)
-              Prelude.<$> multiNodeJobId
+              Prelude.<$> multiNodeJobId,
+            ("arrayJobId" Core..=) Prelude.<$> arrayJobId
           ]
       )
 

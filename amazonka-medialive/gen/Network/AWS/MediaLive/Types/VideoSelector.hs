@@ -22,6 +22,7 @@ module Network.AWS.MediaLive.Types.VideoSelector where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.VideoSelectorColorSpace
+import Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings
 import Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
 import Network.AWS.MediaLive.Types.VideoSelectorSettings
 import qualified Network.AWS.Prelude as Prelude
@@ -43,6 +44,8 @@ data VideoSelector = VideoSelector'
     colorSpaceUsage :: Prelude.Maybe VideoSelectorColorSpaceUsage,
     -- | The video selector settings.
     selectorSettings :: Prelude.Maybe VideoSelectorSettings,
+    -- | Color space settings
+    colorSpaceSettings :: Prelude.Maybe VideoSelectorColorSpaceSettings,
     -- | Specifies the color space of an input. This setting works in tandem with
     -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
     -- determine if any conversion will be performed.
@@ -70,6 +73,8 @@ data VideoSelector = VideoSelector'
 --
 -- 'selectorSettings', 'videoSelector_selectorSettings' - The video selector settings.
 --
+-- 'colorSpaceSettings', 'videoSelector_colorSpaceSettings' - Color space settings
+--
 -- 'colorSpace', 'videoSelector_colorSpace' - Specifies the color space of an input. This setting works in tandem with
 -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
 -- determine if any conversion will be performed.
@@ -79,6 +84,7 @@ newVideoSelector =
   VideoSelector'
     { colorSpaceUsage = Prelude.Nothing,
       selectorSettings = Prelude.Nothing,
+      colorSpaceSettings = Prelude.Nothing,
       colorSpace = Prelude.Nothing
     }
 
@@ -98,6 +104,10 @@ videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> 
 videoSelector_selectorSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorSettings)
 videoSelector_selectorSettings = Lens.lens (\VideoSelector' {selectorSettings} -> selectorSettings) (\s@VideoSelector' {} a -> s {selectorSettings = a} :: VideoSelector)
 
+-- | Color space settings
+videoSelector_colorSpaceSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpaceSettings)
+videoSelector_colorSpaceSettings = Lens.lens (\VideoSelector' {colorSpaceSettings} -> colorSpaceSettings) (\s@VideoSelector' {} a -> s {colorSpaceSettings = a} :: VideoSelector)
+
 -- | Specifies the color space of an input. This setting works in tandem with
 -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
 -- determine if any conversion will be performed.
@@ -112,6 +122,7 @@ instance Core.FromJSON VideoSelector where
           VideoSelector'
             Prelude.<$> (x Core..:? "colorSpaceUsage")
             Prelude.<*> (x Core..:? "selectorSettings")
+            Prelude.<*> (x Core..:? "colorSpaceSettings")
             Prelude.<*> (x Core..:? "colorSpace")
       )
 
@@ -127,6 +138,8 @@ instance Core.ToJSON VideoSelector where
               Prelude.<$> colorSpaceUsage,
             ("selectorSettings" Core..=)
               Prelude.<$> selectorSettings,
+            ("colorSpaceSettings" Core..=)
+              Prelude.<$> colorSpaceSettings,
             ("colorSpace" Core..=) Prelude.<$> colorSpace
           ]
       )

@@ -25,9 +25,9 @@
 -- You can\'t modify the task endpoints. The task must be stopped before
 -- you can modify it.
 --
--- For more information about AWS DMS tasks, see
+-- For more information about DMS tasks, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks>
--- in the /AWS Database Migration Service User Guide/.
+-- in the /Database Migration Service User Guide/.
 module Network.AWS.DMS.ModifyReplicationTask
   ( -- * Creating a Request
     ModifyReplicationTask (..),
@@ -71,15 +71,15 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- | Supplemental information that the task requires to migrate the data for
     -- certain source and target endpoints. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
-    -- in the /AWS Database Migration Service User Guide./
+    -- in the /Database Migration Service User Guide./
     taskData :: Prelude.Maybe Prelude.Text,
     -- | JSON file that contains settings for the task, such as task metadata
     -- settings.
     replicationTaskSettings :: Prelude.Maybe Prelude.Text,
-    -- | When using the AWS CLI or boto3, provide the path of the JSON file that
-    -- contains the table mappings. Precede the path with @file:\/\/@. When
-    -- working with the DMS API, provide the JSON as the parameter value, for
-    -- example: @--table-mappings file:\/\/mappingfile.json@
+    -- | When using the CLI or boto3, provide the path of the JSON file that
+    -- contains the table mappings. Precede the path with @file:\/\/@. For
+    -- example, @--table-mappings file:\/\/mappingfile.json@. When working with
+    -- the DMS API, provide the JSON as the parameter value.
     tableMappings :: Prelude.Maybe Prelude.Text,
     -- | Indicates the start time for a change data capture (CDC) operation. Use
     -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
@@ -114,7 +114,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- the source endpoint. You can verify this by setting the @slotName@ extra
     -- connection attribute to the name of this logical replication slot. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
     cdcStartPosition :: Prelude.Maybe Prelude.Text,
     -- | The replication task identifier.
     --
@@ -145,15 +145,15 @@ data ModifyReplicationTask = ModifyReplicationTask'
 -- 'taskData', 'modifyReplicationTask_taskData' - Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 --
 -- 'replicationTaskSettings', 'modifyReplicationTask_replicationTaskSettings' - JSON file that contains settings for the task, such as task metadata
 -- settings.
 --
--- 'tableMappings', 'modifyReplicationTask_tableMappings' - When using the AWS CLI or boto3, provide the path of the JSON file that
--- contains the table mappings. Precede the path with @file:\/\/@. When
--- working with the DMS API, provide the JSON as the parameter value, for
--- example: @--table-mappings file:\/\/mappingfile.json@
+-- 'tableMappings', 'modifyReplicationTask_tableMappings' - When using the CLI or boto3, provide the path of the JSON file that
+-- contains the table mappings. Precede the path with @file:\/\/@. For
+-- example, @--table-mappings file:\/\/mappingfile.json@. When working with
+-- the DMS API, provide the JSON as the parameter value.
 --
 -- 'cdcStartTime', 'modifyReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
 -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
@@ -188,7 +188,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
 -- the source endpoint. You can verify this by setting the @slotName@ extra
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 --
 -- 'replicationTaskIdentifier', 'modifyReplicationTask_replicationTaskIdentifier' - The replication task identifier.
 --
@@ -227,7 +227,7 @@ modifyReplicationTask_migrationType = Lens.lens (\ModifyReplicationTask' {migrat
 -- | Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 modifyReplicationTask_taskData :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
 modifyReplicationTask_taskData = Lens.lens (\ModifyReplicationTask' {taskData} -> taskData) (\s@ModifyReplicationTask' {} a -> s {taskData = a} :: ModifyReplicationTask)
 
@@ -236,10 +236,10 @@ modifyReplicationTask_taskData = Lens.lens (\ModifyReplicationTask' {taskData} -
 modifyReplicationTask_replicationTaskSettings :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
 modifyReplicationTask_replicationTaskSettings = Lens.lens (\ModifyReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@ModifyReplicationTask' {} a -> s {replicationTaskSettings = a} :: ModifyReplicationTask)
 
--- | When using the AWS CLI or boto3, provide the path of the JSON file that
--- contains the table mappings. Precede the path with @file:\/\/@. When
--- working with the DMS API, provide the JSON as the parameter value, for
--- example: @--table-mappings file:\/\/mappingfile.json@
+-- | When using the CLI or boto3, provide the path of the JSON file that
+-- contains the table mappings. Precede the path with @file:\/\/@. For
+-- example, @--table-mappings file:\/\/mappingfile.json@. When working with
+-- the DMS API, provide the JSON as the parameter value.
 modifyReplicationTask_tableMappings :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
 modifyReplicationTask_tableMappings = Lens.lens (\ModifyReplicationTask' {tableMappings} -> tableMappings) (\s@ModifyReplicationTask' {} a -> s {tableMappings = a} :: ModifyReplicationTask)
 
@@ -280,7 +280,7 @@ modifyReplicationTask_cdcStopPosition = Lens.lens (\ModifyReplicationTask' {cdcS
 -- the source endpoint. You can verify this by setting the @slotName@ extra
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 modifyReplicationTask_cdcStartPosition :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
 modifyReplicationTask_cdcStartPosition = Lens.lens (\ModifyReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@ModifyReplicationTask' {} a -> s {cdcStartPosition = a} :: ModifyReplicationTask)
 

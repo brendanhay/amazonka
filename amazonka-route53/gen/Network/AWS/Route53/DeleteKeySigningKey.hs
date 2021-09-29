@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a key-signing key (KSK). Before you can delete a KSK, you must
--- deactivate it. The KSK must be deactived before you can delete it
+-- deactivate it. The KSK must be deactivated before you can delete it
 -- regardless of whether the hosted zone is enabled for DNSSEC signing.
 module Network.AWS.Route53.DeleteKeySigningKey
   ( -- * Creating a Request

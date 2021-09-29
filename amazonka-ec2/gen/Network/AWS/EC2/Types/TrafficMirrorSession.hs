@@ -43,10 +43,10 @@ data TrafficMirrorSession = TrafficMirrorSession'
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the Traffic Mirror filter.
     trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Traffic Mirror session\'s network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The description of the Traffic Mirror session.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Traffic Mirror session\'s network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Traffic Mirror target.
     trafficMirrorTargetId :: Prelude.Maybe Prelude.Text,
     -- | The session number determines the order in which sessions are evaluated
@@ -82,9 +82,9 @@ data TrafficMirrorSession = TrafficMirrorSession'
 --
 -- 'trafficMirrorFilterId', 'trafficMirrorSession_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 --
--- 'networkInterfaceId', 'trafficMirrorSession_networkInterfaceId' - The ID of the Traffic Mirror session\'s network interface.
---
 -- 'description', 'trafficMirrorSession_description' - The description of the Traffic Mirror session.
+--
+-- 'networkInterfaceId', 'trafficMirrorSession_networkInterfaceId' - The ID of the Traffic Mirror session\'s network interface.
 --
 -- 'trafficMirrorTargetId', 'trafficMirrorSession_trafficMirrorTargetId' - The ID of the Traffic Mirror target.
 --
@@ -104,8 +104,8 @@ newTrafficMirrorSession =
       packetLength = Prelude.Nothing,
       tags = Prelude.Nothing,
       trafficMirrorFilterId = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
       description = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       trafficMirrorTargetId = Prelude.Nothing,
       sessionNumber = Prelude.Nothing,
       virtualNetworkId = Prelude.Nothing
@@ -135,13 +135,13 @@ trafficMirrorSession_tags = Lens.lens (\TrafficMirrorSession' {tags} -> tags) (\
 trafficMirrorSession_trafficMirrorFilterId :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Text)
 trafficMirrorSession_trafficMirrorFilterId = Lens.lens (\TrafficMirrorSession' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@TrafficMirrorSession' {} a -> s {trafficMirrorFilterId = a} :: TrafficMirrorSession)
 
--- | The ID of the Traffic Mirror session\'s network interface.
-trafficMirrorSession_networkInterfaceId :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Text)
-trafficMirrorSession_networkInterfaceId = Lens.lens (\TrafficMirrorSession' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorSession' {} a -> s {networkInterfaceId = a} :: TrafficMirrorSession)
-
 -- | The description of the Traffic Mirror session.
 trafficMirrorSession_description :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Text)
 trafficMirrorSession_description = Lens.lens (\TrafficMirrorSession' {description} -> description) (\s@TrafficMirrorSession' {} a -> s {description = a} :: TrafficMirrorSession)
+
+-- | The ID of the Traffic Mirror session\'s network interface.
+trafficMirrorSession_networkInterfaceId :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Text)
+trafficMirrorSession_networkInterfaceId = Lens.lens (\TrafficMirrorSession' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorSession' {} a -> s {networkInterfaceId = a} :: TrafficMirrorSession)
 
 -- | The ID of the Traffic Mirror target.
 trafficMirrorSession_trafficMirrorTargetId :: Lens.Lens' TrafficMirrorSession (Prelude.Maybe Prelude.Text)
@@ -169,8 +169,8 @@ instance Core.FromXML TrafficMirrorSession where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "trafficMirrorFilterId")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "trafficMirrorTargetId")
       Prelude.<*> (x Core..@? "sessionNumber")
       Prelude.<*> (x Core..@? "virtualNetworkId")

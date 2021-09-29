@@ -24,12 +24,12 @@ import Network.AWS.CostExplorer.Types.OfferingClass
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The Amazon EC2 hardware specifications that you want AWS to provide
--- recommendations for.
+-- | The Amazon EC2 hardware specifications that you want Amazon Web Services
+-- to provide recommendations for.
 --
 -- /See:/ 'newEC2Specification' smart constructor.
 data EC2Specification = EC2Specification'
-  { -- | Whether you want a recommendation for standard or convertible
+  { -- | Indicates whether you want a recommendation for standard or convertible
     -- reservations.
     offeringClass :: Prelude.Maybe OfferingClass
   }
@@ -43,14 +43,14 @@ data EC2Specification = EC2Specification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'offeringClass', 'eC2Specification_offeringClass' - Whether you want a recommendation for standard or convertible
+-- 'offeringClass', 'eC2Specification_offeringClass' - Indicates whether you want a recommendation for standard or convertible
 -- reservations.
 newEC2Specification ::
   EC2Specification
 newEC2Specification =
   EC2Specification' {offeringClass = Prelude.Nothing}
 
--- | Whether you want a recommendation for standard or convertible
+-- | Indicates whether you want a recommendation for standard or convertible
 -- reservations.
 eC2Specification_offeringClass :: Lens.Lens' EC2Specification (Prelude.Maybe OfferingClass)
 eC2Specification_offeringClass = Lens.lens (\EC2Specification' {offeringClass} -> offeringClass) (\s@EC2Specification' {} a -> s {offeringClass = a} :: EC2Specification)

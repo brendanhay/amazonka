@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies an AWS Glue Data Catalog target.
+-- | Specifies an Glue Data Catalog target.
 --
 -- /See:/ 'newCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'

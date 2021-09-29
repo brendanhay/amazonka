@@ -23,11 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Context information that enables AWS CloudFormation to uniquely identify
--- a resource. AWS CloudFormation uses context key-value pairs in cases
--- where a resource\'s logical and physical IDs are not enough to uniquely
--- identify that resource. Each context key-value pair specifies a resource
--- that contains the targeted resource.
+-- | Context information that enables CloudFormation to uniquely identify a
+-- resource. CloudFormation uses context key-value pairs in cases where a
+-- resource\'s logical and physical IDs are not enough to uniquely identify
+-- that resource. Each context key-value pair specifies a resource that
+-- contains the targeted resource.
 --
 -- /See:/ 'newPhysicalResourceIdContextKeyValuePair' smart constructor.
 data PhysicalResourceIdContextKeyValuePair = PhysicalResourceIdContextKeyValuePair'

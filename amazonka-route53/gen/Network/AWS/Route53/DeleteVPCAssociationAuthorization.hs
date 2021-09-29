@@ -25,11 +25,11 @@
 -- different account. You must use the account that created the hosted zone
 -- to submit a @DeleteVPCAssociationAuthorization@ request.
 --
--- Sending this request only prevents the AWS account that created the VPC
--- from associating the VPC with the Amazon Route 53 hosted zone in the
--- future. If the VPC is already associated with the hosted zone,
--- @DeleteVPCAssociationAuthorization@ won\'t disassociate the VPC from the
--- hosted zone. If you want to delete an existing association, use
+-- Sending this request only prevents the Amazon Web Services account that
+-- created the VPC from associating the VPC with the Amazon Route 53 hosted
+-- zone in the future. If the VPC is already associated with the hosted
+-- zone, @DeleteVPCAssociationAuthorization@ won\'t disassociate the VPC
+-- from the hosted zone. If you want to delete an existing association, use
 -- @DisassociateVPCFromHostedZone@.
 module Network.AWS.Route53.DeleteVPCAssociationAuthorization
   ( -- * Creating a Request
@@ -57,18 +57,20 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains information about the request to remove
--- authorization to associate a VPC that was created by one AWS account
--- with a hosted zone that was created with a different AWS account.
+-- authorization to associate a VPC that was created by one Amazon Web
+-- Services account with a hosted zone that was created with a different
+-- Amazon Web Services account.
 --
 -- /See:/ 'newDeleteVPCAssociationAuthorization' smart constructor.
 data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
   { -- | When removing authorization to associate a VPC that was created by one
-    -- AWS account with a hosted zone that was created with a different AWS
-    -- account, the ID of the hosted zone.
+    -- Amazon Web Services account with a hosted zone that was created with a
+    -- different Amazon Web Services account, the ID of the hosted zone.
     hostedZoneId :: ResourceId,
     -- | When removing authorization to associate a VPC that was created by one
-    -- AWS account with a hosted zone that was created with a different AWS
-    -- account, a complex type that includes the ID and region of the VPC.
+    -- Amazon Web Services account with a hosted zone that was created with a
+    -- different Amazon Web Services account, a complex type that includes the
+    -- ID and region of the VPC.
     vpc :: VPC
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,12 +84,13 @@ data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
 -- for backwards compatibility:
 --
 -- 'hostedZoneId', 'deleteVPCAssociationAuthorization_hostedZoneId' - When removing authorization to associate a VPC that was created by one
--- AWS account with a hosted zone that was created with a different AWS
--- account, the ID of the hosted zone.
+-- Amazon Web Services account with a hosted zone that was created with a
+-- different Amazon Web Services account, the ID of the hosted zone.
 --
 -- 'vpc', 'deleteVPCAssociationAuthorization_vpc' - When removing authorization to associate a VPC that was created by one
--- AWS account with a hosted zone that was created with a different AWS
--- account, a complex type that includes the ID and region of the VPC.
+-- Amazon Web Services account with a hosted zone that was created with a
+-- different Amazon Web Services account, a complex type that includes the
+-- ID and region of the VPC.
 newDeleteVPCAssociationAuthorization ::
   -- | 'hostedZoneId'
   ResourceId ->
@@ -104,14 +107,15 @@ newDeleteVPCAssociationAuthorization
       }
 
 -- | When removing authorization to associate a VPC that was created by one
--- AWS account with a hosted zone that was created with a different AWS
--- account, the ID of the hosted zone.
+-- Amazon Web Services account with a hosted zone that was created with a
+-- different Amazon Web Services account, the ID of the hosted zone.
 deleteVPCAssociationAuthorization_hostedZoneId :: Lens.Lens' DeleteVPCAssociationAuthorization ResourceId
 deleteVPCAssociationAuthorization_hostedZoneId = Lens.lens (\DeleteVPCAssociationAuthorization' {hostedZoneId} -> hostedZoneId) (\s@DeleteVPCAssociationAuthorization' {} a -> s {hostedZoneId = a} :: DeleteVPCAssociationAuthorization)
 
 -- | When removing authorization to associate a VPC that was created by one
--- AWS account with a hosted zone that was created with a different AWS
--- account, a complex type that includes the ID and region of the VPC.
+-- Amazon Web Services account with a hosted zone that was created with a
+-- different Amazon Web Services account, a complex type that includes the
+-- ID and region of the VPC.
 deleteVPCAssociationAuthorization_vpc :: Lens.Lens' DeleteVPCAssociationAuthorization VPC
 deleteVPCAssociationAuthorization_vpc = Lens.lens (\DeleteVPCAssociationAuthorization' {vpc} -> vpc) (\s@DeleteVPCAssociationAuthorization' {} a -> s {vpc = a} :: DeleteVPCAssociationAuthorization)
 

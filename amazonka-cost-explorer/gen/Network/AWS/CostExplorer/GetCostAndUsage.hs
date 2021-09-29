@@ -21,14 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves cost and usage metrics for your account. You can specify which
--- cost and usage-related metric, such as @BlendedCosts@ or
--- @UsageQuantity@, that you want the request to return. You can also
+-- cost and usage-related metric that you want the request to return. For
+-- example, you can specify @BlendedCosts@ or @UsageQuantity@. You can also
 -- filter and group your data by various dimensions, such as @SERVICE@ or
 -- @AZ@, in a specific time range. For a complete list of valid dimensions,
 -- see the
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html GetDimensionValues>
--- operation. Management account in an organization in AWS Organizations
--- have access to all member accounts.
+-- operation. Management account in an organization in Organizations have
+-- access to all member accounts.
 --
 -- For information about filter limitations, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html Quotas and restrictions>
@@ -39,11 +39,11 @@ module Network.AWS.CostExplorer.GetCostAndUsage
     newGetCostAndUsage,
 
     -- * Request Lenses
-    getCostAndUsage_granularity,
     getCostAndUsage_nextPageToken,
     getCostAndUsage_groupBy,
     getCostAndUsage_filter,
     getCostAndUsage_timePeriod,
+    getCostAndUsage_granularity,
     getCostAndUsage_metrics,
 
     -- * Destructuring the Response
@@ -52,8 +52,8 @@ module Network.AWS.CostExplorer.GetCostAndUsage
 
     -- * Response Lenses
     getCostAndUsageResponse_nextPageToken,
-    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_dimensionValueAttributes,
+    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_groupDefinitions,
     getCostAndUsageResponse_httpStatus,
   )
@@ -68,37 +68,38 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCostAndUsage' smart constructor.
 data GetCostAndUsage = GetCostAndUsage'
-  { -- | Sets the AWS cost granularity to @MONTHLY@ or @DAILY@, or @HOURLY@. If
-    -- @Granularity@ isn\'t set, the response object doesn\'t include the
-    -- @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
-    granularity :: Prelude.Maybe Granularity,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | You can group AWS costs using up to two different groups, either
-    -- dimensions, tag keys, cost categories, or any two group by types.
+    -- | You can group Amazon Web Services costs using up to two different
+    -- groups, either dimensions, tag keys, cost categories, or any two group
+    -- by types.
     --
-    -- When you group by tag key, you get all tag values, including empty
-    -- strings.
+    -- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
+    -- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
+    -- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
     --
-    -- Valid values are @AZ@, @INSTANCE_TYPE@, @LEGAL_ENTITY_NAME@,
-    -- @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@,
-    -- @TAGS@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
+    -- When you group by the @TAG@ type and include a valid tag key, you get
+    -- all tag values, including empty strings.
     groupBy :: Prelude.Maybe [GroupDefinition],
-    -- | Filters AWS costs by different dimensions. For example, you can specify
-    -- @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated
-    -- with that account\'s usage of that service. You can nest @Expression@
-    -- objects to define any combination of dimension filters. For more
-    -- information, see
+    -- | Filters Amazon Web Services costs by different dimensions. For example,
+    -- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
+    -- are associated with that account\'s usage of that service. You can nest
+    -- @Expression@ objects to define any combination of dimension filters. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
     filter' :: Prelude.Maybe Expression,
-    -- | Sets the start and end dates for retrieving AWS costs. The start date is
-    -- inclusive, but the end date is exclusive. For example, if @start@ is
-    -- @2017-01-01@ and @end@ is @2017-05-01@, then the cost and usage data is
-    -- retrieved from @2017-01-01@ up to and including @2017-04-30@ but not
-    -- including @2017-05-01@.
+    -- | Sets the start date and end date for retrieving Amazon Web Services
+    -- costs. The start date is inclusive, but the end date is exclusive. For
+    -- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the
+    -- cost and usage data is retrieved from @2017-01-01@ up to and including
+    -- @2017-04-30@ but not including @2017-05-01@.
     timePeriod :: DateInterval,
+    -- | Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,
+    -- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t
+    -- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
+    granularity :: Granularity,
     -- | Which metrics are returned in the query. For more information about
     -- blended and unblended rates, see
     -- <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the \"blended\" annotation appear on some line items in my bill?>.
@@ -111,7 +112,7 @@ data GetCostAndUsage = GetCostAndUsage'
     -- usage numbers without taking into account the units. For example, if you
     -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
     -- meaningful because Amazon EC2 compute hours and data transfer are
-    -- measured in different units (for example, hours vs. GB). To get more
+    -- measured in different units (for example, hours and GB). To get more
     -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
     -- @UsageTypeGroups@.
     --
@@ -128,36 +129,37 @@ data GetCostAndUsage = GetCostAndUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'granularity', 'getCostAndUsage_granularity' - Sets the AWS cost granularity to @MONTHLY@ or @DAILY@, or @HOURLY@. If
--- @Granularity@ isn\'t set, the response object doesn\'t include the
--- @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
+-- 'nextPageToken', 'getCostAndUsage_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
--- 'nextPageToken', 'getCostAndUsage_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'groupBy', 'getCostAndUsage_groupBy' - You can group Amazon Web Services costs using up to two different
+-- groups, either dimensions, tag keys, cost categories, or any two group
+-- by types.
 --
--- 'groupBy', 'getCostAndUsage_groupBy' - You can group AWS costs using up to two different groups, either
--- dimensions, tag keys, cost categories, or any two group by types.
+-- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
+-- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
+-- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
 --
--- When you group by tag key, you get all tag values, including empty
--- strings.
+-- When you group by the @TAG@ type and include a valid tag key, you get
+-- all tag values, including empty strings.
 --
--- Valid values are @AZ@, @INSTANCE_TYPE@, @LEGAL_ENTITY_NAME@,
--- @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@,
--- @TAGS@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
---
--- 'filter'', 'getCostAndUsage_filter' - Filters AWS costs by different dimensions. For example, you can specify
--- @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated
--- with that account\'s usage of that service. You can nest @Expression@
--- objects to define any combination of dimension filters. For more
--- information, see
+-- 'filter'', 'getCostAndUsage_filter' - Filters Amazon Web Services costs by different dimensions. For example,
+-- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
+-- are associated with that account\'s usage of that service. You can nest
+-- @Expression@ objects to define any combination of dimension filters. For
+-- more information, see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
 --
--- 'timePeriod', 'getCostAndUsage_timePeriod' - Sets the start and end dates for retrieving AWS costs. The start date is
--- inclusive, but the end date is exclusive. For example, if @start@ is
--- @2017-01-01@ and @end@ is @2017-05-01@, then the cost and usage data is
--- retrieved from @2017-01-01@ up to and including @2017-04-30@ but not
--- including @2017-05-01@.
+-- 'timePeriod', 'getCostAndUsage_timePeriod' - Sets the start date and end date for retrieving Amazon Web Services
+-- costs. The start date is inclusive, but the end date is exclusive. For
+-- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the
+-- cost and usage data is retrieved from @2017-01-01@ up to and including
+-- @2017-04-30@ but not including @2017-05-01@.
+--
+-- 'granularity', 'getCostAndUsage_granularity' - Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,
+-- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t
+-- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
 --
 -- 'metrics', 'getCostAndUsage_metrics' - Which metrics are returned in the query. For more information about
 -- blended and unblended rates, see
@@ -171,7 +173,7 @@ data GetCostAndUsage = GetCostAndUsage'
 -- usage numbers without taking into account the units. For example, if you
 -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
 -- meaningful because Amazon EC2 compute hours and data transfer are
--- measured in different units (for example, hours vs. GB). To get more
+-- measured in different units (for example, hours and GB). To get more
 -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
 -- @UsageTypeGroups@.
 --
@@ -179,57 +181,60 @@ data GetCostAndUsage = GetCostAndUsage'
 newGetCostAndUsage ::
   -- | 'timePeriod'
   DateInterval ->
+  -- | 'granularity'
+  Granularity ->
   GetCostAndUsage
-newGetCostAndUsage pTimePeriod_ =
+newGetCostAndUsage pTimePeriod_ pGranularity_ =
   GetCostAndUsage'
-    { granularity = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
       groupBy = Prelude.Nothing,
       filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_,
+      granularity = pGranularity_,
       metrics = Prelude.mempty
     }
 
--- | Sets the AWS cost granularity to @MONTHLY@ or @DAILY@, or @HOURLY@. If
--- @Granularity@ isn\'t set, the response object doesn\'t include the
--- @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
-getCostAndUsage_granularity :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Granularity)
-getCostAndUsage_granularity = Lens.lens (\GetCostAndUsage' {granularity} -> granularity) (\s@GetCostAndUsage' {} a -> s {granularity = a} :: GetCostAndUsage)
-
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getCostAndUsage_nextPageToken :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Prelude.Text)
 getCostAndUsage_nextPageToken = Lens.lens (\GetCostAndUsage' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsage' {} a -> s {nextPageToken = a} :: GetCostAndUsage)
 
--- | You can group AWS costs using up to two different groups, either
--- dimensions, tag keys, cost categories, or any two group by types.
+-- | You can group Amazon Web Services costs using up to two different
+-- groups, either dimensions, tag keys, cost categories, or any two group
+-- by types.
 --
--- When you group by tag key, you get all tag values, including empty
--- strings.
+-- Valid values for the @DIMENSION@ type are @AZ@, @INSTANCE_TYPE@,
+-- @LEGAL_ENTITY_NAME@, @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@,
+-- @PURCHASE_TYPE@, @SERVICE@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
 --
--- Valid values are @AZ@, @INSTANCE_TYPE@, @LEGAL_ENTITY_NAME@,
--- @LINKED_ACCOUNT@, @OPERATION@, @PLATFORM@, @PURCHASE_TYPE@, @SERVICE@,
--- @TAGS@, @TENANCY@, @RECORD_TYPE@, and @USAGE_TYPE@.
+-- When you group by the @TAG@ type and include a valid tag key, you get
+-- all tag values, including empty strings.
 getCostAndUsage_groupBy :: Lens.Lens' GetCostAndUsage (Prelude.Maybe [GroupDefinition])
 getCostAndUsage_groupBy = Lens.lens (\GetCostAndUsage' {groupBy} -> groupBy) (\s@GetCostAndUsage' {} a -> s {groupBy = a} :: GetCostAndUsage) Prelude.. Lens.mapping Lens._Coerce
 
--- | Filters AWS costs by different dimensions. For example, you can specify
--- @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated
--- with that account\'s usage of that service. You can nest @Expression@
--- objects to define any combination of dimension filters. For more
--- information, see
+-- | Filters Amazon Web Services costs by different dimensions. For example,
+-- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
+-- are associated with that account\'s usage of that service. You can nest
+-- @Expression@ objects to define any combination of dimension filters. For
+-- more information, see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>.
 getCostAndUsage_filter :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Expression)
 getCostAndUsage_filter = Lens.lens (\GetCostAndUsage' {filter'} -> filter') (\s@GetCostAndUsage' {} a -> s {filter' = a} :: GetCostAndUsage)
 
--- | Sets the start and end dates for retrieving AWS costs. The start date is
--- inclusive, but the end date is exclusive. For example, if @start@ is
--- @2017-01-01@ and @end@ is @2017-05-01@, then the cost and usage data is
--- retrieved from @2017-01-01@ up to and including @2017-04-30@ but not
--- including @2017-05-01@.
+-- | Sets the start date and end date for retrieving Amazon Web Services
+-- costs. The start date is inclusive, but the end date is exclusive. For
+-- example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the
+-- cost and usage data is retrieved from @2017-01-01@ up to and including
+-- @2017-04-30@ but not including @2017-05-01@.
 getCostAndUsage_timePeriod :: Lens.Lens' GetCostAndUsage DateInterval
 getCostAndUsage_timePeriod = Lens.lens (\GetCostAndUsage' {timePeriod} -> timePeriod) (\s@GetCostAndUsage' {} a -> s {timePeriod = a} :: GetCostAndUsage)
+
+-- | Sets the Amazon Web Services cost granularity to @MONTHLY@ or @DAILY@,
+-- or @HOURLY@. If @Granularity@ isn\'t set, the response object doesn\'t
+-- include the @Granularity@, either @MONTHLY@ or @DAILY@, or @HOURLY@.
+getCostAndUsage_granularity :: Lens.Lens' GetCostAndUsage Granularity
+getCostAndUsage_granularity = Lens.lens (\GetCostAndUsage' {granularity} -> granularity) (\s@GetCostAndUsage' {} a -> s {granularity = a} :: GetCostAndUsage)
 
 -- | Which metrics are returned in the query. For more information about
 -- blended and unblended rates, see
@@ -243,7 +248,7 @@ getCostAndUsage_timePeriod = Lens.lens (\GetCostAndUsage' {timePeriod} -> timePe
 -- usage numbers without taking into account the units. For example, if you
 -- aggregate @usageQuantity@ across all of Amazon EC2, the results aren\'t
 -- meaningful because Amazon EC2 compute hours and data transfer are
--- measured in different units (for example, hours vs. GB). To get more
+-- measured in different units (for example, hours and GB). To get more
 -- meaningful @UsageQuantity@ metrics, filter by @UsageType@ or
 -- @UsageTypeGroups@.
 --
@@ -261,10 +266,10 @@ instance Core.AWSRequest GetCostAndUsage where
       ( \s h x ->
           GetCostAndUsageResponse'
             Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "DimensionValueAttributes"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "GroupDefinitions"
                             Core..!@ Prelude.mempty
                         )
@@ -294,11 +299,11 @@ instance Core.ToJSON GetCostAndUsage where
   toJSON GetCostAndUsage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Granularity" Core..=) Prelude.<$> granularity,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("GroupBy" Core..=) Prelude.<$> groupBy,
             ("Filter" Core..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Core..= timePeriod),
+            Prelude.Just ("Granularity" Core..= granularity),
             Prelude.Just ("Metrics" Core..= metrics)
           ]
       )
@@ -311,15 +316,15 @@ instance Core.ToQuery GetCostAndUsage where
 
 -- | /See:/ 'newGetCostAndUsageResponse' smart constructor.
 data GetCostAndUsageResponse = GetCostAndUsageResponse'
-  { -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+  { -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | The time period that is covered by the results in the response.
-    resultsByTime :: Prelude.Maybe [ResultByTime],
     -- | The attributes that apply to a specific dimension value. For example, if
     -- the value is a linked account, the attribute is that account name.
     dimensionValueAttributes :: Prelude.Maybe [DimensionValuesWithAttributes],
+    -- | The time period that\'s covered by the results in the response.
+    resultsByTime :: Prelude.Maybe [ResultByTime],
     -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
     -- the request.
     groupDefinitions :: Prelude.Maybe [GroupDefinition],
@@ -336,14 +341,14 @@ data GetCostAndUsageResponse = GetCostAndUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getCostAndUsageResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
---
--- 'resultsByTime', 'getCostAndUsageResponse_resultsByTime' - The time period that is covered by the results in the response.
+-- 'nextPageToken', 'getCostAndUsageResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'dimensionValueAttributes', 'getCostAndUsageResponse_dimensionValueAttributes' - The attributes that apply to a specific dimension value. For example, if
 -- the value is a linked account, the attribute is that account name.
+--
+-- 'resultsByTime', 'getCostAndUsageResponse_resultsByTime' - The time period that\'s covered by the results in the response.
 --
 -- 'groupDefinitions', 'getCostAndUsageResponse_groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.
@@ -357,26 +362,26 @@ newGetCostAndUsageResponse pHttpStatus_ =
   GetCostAndUsageResponse'
     { nextPageToken =
         Prelude.Nothing,
-      resultsByTime = Prelude.Nothing,
       dimensionValueAttributes = Prelude.Nothing,
+      resultsByTime = Prelude.Nothing,
       groupDefinitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getCostAndUsageResponse_nextPageToken :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe Prelude.Text)
 getCostAndUsageResponse_nextPageToken = Lens.lens (\GetCostAndUsageResponse' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsageResponse' {} a -> s {nextPageToken = a} :: GetCostAndUsageResponse)
-
--- | The time period that is covered by the results in the response.
-getCostAndUsageResponse_resultsByTime :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [ResultByTime])
-getCostAndUsageResponse_resultsByTime = Lens.lens (\GetCostAndUsageResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The attributes that apply to a specific dimension value. For example, if
 -- the value is a linked account, the attribute is that account name.
 getCostAndUsageResponse_dimensionValueAttributes :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [DimensionValuesWithAttributes])
 getCostAndUsageResponse_dimensionValueAttributes = Lens.lens (\GetCostAndUsageResponse' {dimensionValueAttributes} -> dimensionValueAttributes) (\s@GetCostAndUsageResponse' {} a -> s {dimensionValueAttributes = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The time period that\'s covered by the results in the response.
+getCostAndUsageResponse_resultsByTime :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [ResultByTime])
+getCostAndUsageResponse_resultsByTime = Lens.lens (\GetCostAndUsageResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.

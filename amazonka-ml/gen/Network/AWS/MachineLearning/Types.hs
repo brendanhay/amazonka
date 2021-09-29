@@ -62,15 +62,15 @@ module Network.AWS.MachineLearning.Types
     -- * BatchPrediction
     BatchPrediction (..),
     newBatchPrediction,
-    batchPrediction_batchPredictionId,
     batchPrediction_status,
+    batchPrediction_batchPredictionId,
     batchPrediction_startedAt,
     batchPrediction_outputUri,
     batchPrediction_message,
     batchPrediction_createdAt,
-    batchPrediction_finishedAt,
-    batchPrediction_createdByIamUser,
     batchPrediction_name,
+    batchPrediction_createdByIamUser,
+    batchPrediction_finishedAt,
     batchPrediction_invalidRecordCount,
     batchPrediction_totalRecordCount,
     batchPrediction_batchPredictionDataSourceId,
@@ -84,18 +84,18 @@ module Network.AWS.MachineLearning.Types
     newDataSource,
     dataSource_status,
     dataSource_startedAt,
-    dataSource_dataRearrangement,
     dataSource_roleARN,
+    dataSource_dataRearrangement,
     dataSource_redshiftMetadata,
     dataSource_message,
     dataSource_dataSourceId,
     dataSource_computeStatistics,
-    dataSource_dataLocationS3,
     dataSource_createdAt,
-    dataSource_numberOfFiles,
-    dataSource_finishedAt,
-    dataSource_createdByIamUser,
+    dataSource_dataLocationS3,
     dataSource_name,
+    dataSource_numberOfFiles,
+    dataSource_createdByIamUser,
+    dataSource_finishedAt,
     dataSource_dataSizeInBytes,
     dataSource_computeTime,
     dataSource_rDSMetadata,
@@ -110,11 +110,11 @@ module Network.AWS.MachineLearning.Types
     evaluation_evaluationDataSourceId,
     evaluation_message,
     evaluation_createdAt,
-    evaluation_finishedAt,
-    evaluation_createdByIamUser,
     evaluation_name,
-    evaluation_evaluationId,
+    evaluation_createdByIamUser,
+    evaluation_finishedAt,
     evaluation_mLModelId,
+    evaluation_evaluationId,
     evaluation_inputDataLocationS3,
     evaluation_computeTime,
     evaluation_lastUpdatedAt,
@@ -126,17 +126,17 @@ module Network.AWS.MachineLearning.Types
     mLModel_status,
     mLModel_startedAt,
     mLModel_message,
-    mLModel_endpointInfo,
-    mLModel_scoreThresholdLastUpdatedAt,
     mLModel_createdAt,
+    mLModel_scoreThresholdLastUpdatedAt,
+    mLModel_endpointInfo,
     mLModel_trainingParameters,
+    mLModel_name,
+    mLModel_createdByIamUser,
     mLModel_finishedAt,
     mLModel_scoreThreshold,
-    mLModel_createdByIamUser,
-    mLModel_name,
     mLModel_mLModelType,
-    mLModel_mLModelId,
     mLModel_sizeInBytes,
+    mLModel_mLModelId,
     mLModel_inputDataLocationS3,
     mLModel_computeTime,
     mLModel_trainingDataSourceId,
@@ -158,8 +158,8 @@ module Network.AWS.MachineLearning.Types
     -- * RDSDataSpec
     RDSDataSpec (..),
     newRDSDataSpec,
-    rDSDataSpec_dataRearrangement,
     rDSDataSpec_dataSchema,
+    rDSDataSpec_dataRearrangement,
     rDSDataSpec_dataSchemaUri,
     rDSDataSpec_databaseInformation,
     rDSDataSpec_selectSqlQuery,
@@ -203,8 +203,8 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftDataSpec
     RedshiftDataSpec (..),
     newRedshiftDataSpec,
-    redshiftDataSpec_dataRearrangement,
     redshiftDataSpec_dataSchema,
+    redshiftDataSpec_dataRearrangement,
     redshiftDataSpec_dataSchemaUri,
     redshiftDataSpec_databaseInformation,
     redshiftDataSpec_selectSqlQuery,
@@ -233,8 +233,8 @@ module Network.AWS.MachineLearning.Types
     -- * S3DataSpec
     S3DataSpec (..),
     newS3DataSpec,
-    s3DataSpec_dataRearrangement,
     s3DataSpec_dataSchema,
+    s3DataSpec_dataRearrangement,
     s3DataSpec_dataSchemaLocationS3,
     s3DataSpec_dataLocationS3,
 
@@ -358,7 +358,6 @@ _PredictorNotMountedException =
   Core._MatchServiceError
     defaultService
     "PredictorNotMountedException"
-    Prelude.. Core.hasStatus 400
 
 -- | Prism for TagLimitExceededException' errors.
 _TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -374,7 +373,6 @@ _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
-    Prelude.. Core.hasStatus 400
 
 -- | Prism for InvalidTagException' errors.
 _InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -390,7 +388,6 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-    Prelude.. Core.hasStatus 417
 
 -- | A specified resource cannot be located.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -398,7 +395,6 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | A second request to use or change an object was not allowed. This can
 -- result from retrying a request using a parameter that was not present in
@@ -408,7 +404,6 @@ _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
-    Prelude.. Core.hasStatus 400
 
 -- | An error on the server occurred when trying to process a request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -416,4 +411,3 @@ _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
-    Prelude.. Core.hasStatus 500

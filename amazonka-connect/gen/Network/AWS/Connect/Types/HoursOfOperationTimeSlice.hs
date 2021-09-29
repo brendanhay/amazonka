@@ -28,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHoursOfOperationTimeSlice' smart constructor.
 data HoursOfOperationTimeSlice = HoursOfOperationTimeSlice'
   { -- | The hours.
-    hours :: Prelude.Maybe Prelude.Natural,
+    hours :: Prelude.Natural,
     -- | The minutes.
-    minutes :: Prelude.Maybe Prelude.Natural
+    minutes :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data HoursOfOperationTimeSlice = HoursOfOperationTimeSlice'
 --
 -- 'minutes', 'hoursOfOperationTimeSlice_minutes' - The minutes.
 newHoursOfOperationTimeSlice ::
+  -- | 'hours'
+  Prelude.Natural ->
+  -- | 'minutes'
+  Prelude.Natural ->
   HoursOfOperationTimeSlice
-newHoursOfOperationTimeSlice =
+newHoursOfOperationTimeSlice pHours_ pMinutes_ =
   HoursOfOperationTimeSlice'
-    { hours = Prelude.Nothing,
-      minutes = Prelude.Nothing
+    { hours = pHours_,
+      minutes = pMinutes_
     }
 
 -- | The hours.
-hoursOfOperationTimeSlice_hours :: Lens.Lens' HoursOfOperationTimeSlice (Prelude.Maybe Prelude.Natural)
+hoursOfOperationTimeSlice_hours :: Lens.Lens' HoursOfOperationTimeSlice Prelude.Natural
 hoursOfOperationTimeSlice_hours = Lens.lens (\HoursOfOperationTimeSlice' {hours} -> hours) (\s@HoursOfOperationTimeSlice' {} a -> s {hours = a} :: HoursOfOperationTimeSlice)
 
 -- | The minutes.
-hoursOfOperationTimeSlice_minutes :: Lens.Lens' HoursOfOperationTimeSlice (Prelude.Maybe Prelude.Natural)
+hoursOfOperationTimeSlice_minutes :: Lens.Lens' HoursOfOperationTimeSlice Prelude.Natural
 hoursOfOperationTimeSlice_minutes = Lens.lens (\HoursOfOperationTimeSlice' {minutes} -> minutes) (\s@HoursOfOperationTimeSlice' {} a -> s {minutes = a} :: HoursOfOperationTimeSlice)
 
 instance Core.FromJSON HoursOfOperationTimeSlice where
@@ -67,10 +71,19 @@ instance Core.FromJSON HoursOfOperationTimeSlice where
       "HoursOfOperationTimeSlice"
       ( \x ->
           HoursOfOperationTimeSlice'
-            Prelude.<$> (x Core..:? "Hours")
-            Prelude.<*> (x Core..:? "Minutes")
+            Prelude.<$> (x Core..: "Hours")
+            Prelude.<*> (x Core..: "Minutes")
       )
 
 instance Prelude.Hashable HoursOfOperationTimeSlice
 
 instance Prelude.NFData HoursOfOperationTimeSlice
+
+instance Core.ToJSON HoursOfOperationTimeSlice where
+  toJSON HoursOfOperationTimeSlice' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Hours" Core..= hours),
+            Prelude.Just ("Minutes" Core..= minutes)
+          ]
+      )

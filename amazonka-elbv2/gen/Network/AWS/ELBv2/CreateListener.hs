@@ -43,8 +43,8 @@ module Network.AWS.ELBv2.CreateListener
     createListener_sslPolicy,
     createListener_tags,
     createListener_port,
-    createListener_protocol,
     createListener_certificates,
+    createListener_protocol,
     createListener_alpnPolicy,
     createListener_loadBalancerArn,
     createListener_defaultActions,
@@ -82,6 +82,10 @@ data CreateListener = CreateListener'
     -- | The port on which the load balancer is listening. You cannot specify a
     -- port for a Gateway Load Balancer.
     port :: Prelude.Maybe Prelude.Natural,
+    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
+    -- must provide exactly one certificate. Set @CertificateArn@ to the
+    -- certificate ARN but do not set @IsDefault@.
+    certificates :: Prelude.Maybe [Certificate],
     -- | The protocol for connections from clients to the load balancer. For
     -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
     -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
@@ -89,10 +93,6 @@ data CreateListener = CreateListener'
     -- mode is enabled. You cannot specify a protocol for a Gateway Load
     -- Balancer.
     protocol :: Prelude.Maybe ProtocolEnum,
-    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
-    -- must provide exactly one certificate. Set @CertificateArn@ to the
-    -- certificate ARN but do not set @IsDefault@.
-    certificates :: Prelude.Maybe [Certificate],
     -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
     -- (ALPN) policy. You can specify one policy name. The following are the
     -- possible values:
@@ -140,16 +140,16 @@ data CreateListener = CreateListener'
 -- 'port', 'createListener_port' - The port on which the load balancer is listening. You cannot specify a
 -- port for a Gateway Load Balancer.
 --
+-- 'certificates', 'createListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+--
 -- 'protocol', 'createListener_protocol' - The protocol for connections from clients to the load balancer. For
 -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
 -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
 -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
 -- mode is enabled. You cannot specify a protocol for a Gateway Load
 -- Balancer.
---
--- 'certificates', 'createListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
--- must provide exactly one certificate. Set @CertificateArn@ to the
--- certificate ARN but do not set @IsDefault@.
 --
 -- 'alpnPolicy', 'createListener_alpnPolicy' - [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -181,8 +181,8 @@ newCreateListener pLoadBalancerArn_ =
     { sslPolicy = Prelude.Nothing,
       tags = Prelude.Nothing,
       port = Prelude.Nothing,
-      protocol = Prelude.Nothing,
       certificates = Prelude.Nothing,
+      protocol = Prelude.Nothing,
       alpnPolicy = Prelude.Nothing,
       loadBalancerArn = pLoadBalancerArn_,
       defaultActions = Prelude.mempty
@@ -208,6 +208,12 @@ createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateList
 createListener_port :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Natural)
 createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateListener' {} a -> s {port = a} :: CreateListener)
 
+-- | [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+createListener_certificates :: Lens.Lens' CreateListener (Prelude.Maybe [Certificate])
+createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The protocol for connections from clients to the load balancer. For
 -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
 -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
@@ -216,12 +222,6 @@ createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateList
 -- Balancer.
 createListener_protocol :: Lens.Lens' CreateListener (Prelude.Maybe ProtocolEnum)
 createListener_protocol = Lens.lens (\CreateListener' {protocol} -> protocol) (\s@CreateListener' {} a -> s {protocol = a} :: CreateListener)
-
--- | [HTTPS and TLS listeners] The default certificate for the listener. You
--- must provide exactly one certificate. Set @CertificateArn@ to the
--- certificate ARN but do not set @IsDefault@.
-createListener_certificates :: Lens.Lens' CreateListener (Prelude.Maybe [Certificate])
-createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -289,10 +289,10 @@ instance Core.ToQuery CreateListener where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
         "Port" Core.=: port,
-        "Protocol" Core.=: protocol,
         "Certificates"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> certificates),
+        "Protocol" Core.=: protocol,
         "AlpnPolicy"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> alpnPolicy),

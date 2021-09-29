@@ -22,7 +22,7 @@
 --
 -- Returns information about the specified HSM client certificate. If no
 -- certificate ID is specified, returns information about all the HSM
--- certificates owned by your AWS customer account.
+-- certificates owned by your Amazon Web Services account.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all HSM client certificates that match any combination
@@ -45,8 +45,8 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     describeHsmClientCertificates_hsmClientCertificateIdentifier,
     describeHsmClientCertificates_tagKeys,
     describeHsmClientCertificates_tagValues,
-    describeHsmClientCertificates_marker,
     describeHsmClientCertificates_maxRecords,
+    describeHsmClientCertificates_marker,
 
     -- * Destructuring the Response
     DescribeHsmClientCertificatesResponse (..),
@@ -72,7 +72,7 @@ import qualified Network.AWS.Response as Response
 data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
   { -- | The identifier of a specific HSM client certificate for which you want
     -- information. If no identifier is specified, information is returned for
-    -- all HSM client certificates owned by your AWS customer account.
+    -- all HSM client certificates owned by your Amazon Web Services account.
     hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A tag key or keys for which you want to return all matching HSM client
     -- certificates that are associated with the specified key or keys. For
@@ -90,13 +90,6 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- the HSM client certificates that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeHsmClientCertificates
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -106,7 +99,14 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeHsmClientCertificates
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,7 +120,7 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
 --
 -- 'hsmClientCertificateIdentifier', 'describeHsmClientCertificates_hsmClientCertificateIdentifier' - The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
--- all HSM client certificates owned by your AWS customer account.
+-- all HSM client certificates owned by your Amazon Web Services account.
 --
 -- 'tagKeys', 'describeHsmClientCertificates_tagKeys' - A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
@@ -138,13 +138,6 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
 --
--- 'marker', 'describeHsmClientCertificates_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmClientCertificates
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeHsmClientCertificates_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -154,6 +147,13 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeHsmClientCertificates_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmClientCertificates
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeHsmClientCertificates ::
   DescribeHsmClientCertificates
 newDescribeHsmClientCertificates =
@@ -162,13 +162,13 @@ newDescribeHsmClientCertificates =
         Prelude.Nothing,
       tagKeys = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
--- all HSM client certificates owned by your AWS customer account.
+-- all HSM client certificates owned by your Amazon Web Services account.
 describeHsmClientCertificates_hsmClientCertificateIdentifier :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
 describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\DescribeHsmClientCertificates' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DescribeHsmClientCertificates' {} a -> s {hsmClientCertificateIdentifier = a} :: DescribeHsmClientCertificates)
 
@@ -192,15 +192,6 @@ describeHsmClientCertificates_tagKeys = Lens.lens (\DescribeHsmClientCertificate
 describeHsmClientCertificates_tagValues :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
 describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertificates' {tagValues} -> tagValues) (\s@DescribeHsmClientCertificates' {} a -> s {tagValues = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmClientCertificates
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeHsmClientCertificates_marker :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
-describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates' {marker} -> marker) (\s@DescribeHsmClientCertificates' {} a -> s {marker = a} :: DescribeHsmClientCertificates)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -212,6 +203,15 @@ describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates
 -- Constraints: minimum 20, maximum 100.
 describeHsmClientCertificates_maxRecords :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Int)
 describeHsmClientCertificates_maxRecords = Lens.lens (\DescribeHsmClientCertificates' {maxRecords} -> maxRecords) (\s@DescribeHsmClientCertificates' {} a -> s {maxRecords = a} :: DescribeHsmClientCertificates)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeHsmClientCertificates
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeHsmClientCertificates_marker :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
+describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates' {marker} -> marker) (\s@DescribeHsmClientCertificates' {} a -> s {marker = a} :: DescribeHsmClientCertificates)
 
 instance Core.AWSPager DescribeHsmClientCertificates where
   page rq rs
@@ -285,8 +285,8 @@ instance Core.ToQuery DescribeHsmClientCertificates where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

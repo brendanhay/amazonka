@@ -24,7 +24,7 @@
 -- transit gateway with the specified Direct Connect gateway.
 --
 -- You can associate a Direct Connect gateway and virtual private gateway
--- or transit gateway that is owned by any AWS account.
+-- or transit gateway that is owned by any account.
 module Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociationProposal
   ( -- * Creating a Request
     CreateDirectConnectGatewayAssociationProposal (..),
@@ -63,7 +63,7 @@ data CreateDirectConnectGatewayAssociationProposal = CreateDirectConnectGatewayA
     addAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Text,
-    -- | The ID of the AWS account that owns the Direct Connect gateway.
+    -- | The ID of the account that owns the Direct Connect gateway.
     directConnectGatewayOwnerAccount :: Prelude.Text,
     -- | The ID of the virtual private gateway or transit gateway.
     gatewayId :: Prelude.Text
@@ -85,7 +85,7 @@ data CreateDirectConnectGatewayAssociationProposal = CreateDirectConnectGatewayA
 --
 -- 'directConnectGatewayId', 'createDirectConnectGatewayAssociationProposal_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'directConnectGatewayOwnerAccount', 'createDirectConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
+-- 'directConnectGatewayOwnerAccount', 'createDirectConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the account that owns the Direct Connect gateway.
 --
 -- 'gatewayId', 'createDirectConnectGatewayAssociationProposal_gatewayId' - The ID of the virtual private gateway or transit gateway.
 newCreateDirectConnectGatewayAssociationProposal ::
@@ -125,7 +125,7 @@ createDirectConnectGatewayAssociationProposal_addAllowedPrefixesToDirectConnectG
 createDirectConnectGatewayAssociationProposal_directConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociationProposal Prelude.Text
 createDirectConnectGatewayAssociationProposal_directConnectGatewayId = Lens.lens (\CreateDirectConnectGatewayAssociationProposal' {directConnectGatewayId} -> directConnectGatewayId) (\s@CreateDirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayId = a} :: CreateDirectConnectGatewayAssociationProposal)
 
--- | The ID of the AWS account that owns the Direct Connect gateway.
+-- | The ID of the account that owns the Direct Connect gateway.
 createDirectConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount :: Lens.Lens' CreateDirectConnectGatewayAssociationProposal Prelude.Text
 createDirectConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount = Lens.lens (\CreateDirectConnectGatewayAssociationProposal' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@CreateDirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayOwnerAccount = a} :: CreateDirectConnectGatewayAssociationProposal)
 

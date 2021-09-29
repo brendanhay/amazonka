@@ -36,14 +36,14 @@ module Network.AWS.SWF
     -- * Errors
     -- $errors
 
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
     -- ** DomainAlreadyExistsFault
     _DomainAlreadyExistsFault,
 
     -- ** WorkflowExecutionAlreadyStartedFault
     _WorkflowExecutionAlreadyStartedFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
 
     -- ** DomainDeprecatedFault
     _DomainDeprecatedFault,
@@ -84,17 +84,17 @@ module Network.AWS.SWF
     DescribeWorkflowExecutionResponse (DescribeWorkflowExecutionResponse'),
     newDescribeWorkflowExecutionResponse,
 
-    -- ** PollForActivityTask
-    PollForActivityTask (PollForActivityTask'),
-    newPollForActivityTask,
-    PollForActivityTaskResponse (PollForActivityTaskResponse'),
-    newPollForActivityTaskResponse,
-
     -- ** RegisterActivityType
     RegisterActivityType (RegisterActivityType'),
     newRegisterActivityType,
     RegisterActivityTypeResponse (RegisterActivityTypeResponse'),
     newRegisterActivityTypeResponse,
+
+    -- ** PollForActivityTask
+    PollForActivityTask (PollForActivityTask'),
+    newPollForActivityTask,
+    PollForActivityTaskResponse (PollForActivityTaskResponse'),
+    newPollForActivityTaskResponse,
 
     -- ** ListOpenWorkflowExecutions (Paginated)
     ListOpenWorkflowExecutions (ListOpenWorkflowExecutions'),
@@ -108,12 +108,6 @@ module Network.AWS.SWF
     RegisterDomainResponse (RegisterDomainResponse'),
     newRegisterDomainResponse,
 
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
-
     -- ** RespondDecisionTaskCompleted
     RespondDecisionTaskCompleted (RespondDecisionTaskCompleted'),
     newRespondDecisionTaskCompleted,
@@ -126,11 +120,11 @@ module Network.AWS.SWF
     PollForDecisionTaskResponse (PollForDecisionTaskResponse'),
     newPollForDecisionTaskResponse,
 
-    -- ** DeprecateWorkflowType
-    DeprecateWorkflowType (DeprecateWorkflowType'),
-    newDeprecateWorkflowType,
-    DeprecateWorkflowTypeResponse (DeprecateWorkflowTypeResponse'),
-    newDeprecateWorkflowTypeResponse,
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
 
     -- ** UndeprecateDomain
     UndeprecateDomain (UndeprecateDomain'),
@@ -138,11 +132,11 @@ module Network.AWS.SWF
     UndeprecateDomainResponse (UndeprecateDomainResponse'),
     newUndeprecateDomainResponse,
 
-    -- ** UndeprecateActivityType
-    UndeprecateActivityType (UndeprecateActivityType'),
-    newUndeprecateActivityType,
-    UndeprecateActivityTypeResponse (UndeprecateActivityTypeResponse'),
-    newUndeprecateActivityTypeResponse,
+    -- ** DeprecateWorkflowType
+    DeprecateWorkflowType (DeprecateWorkflowType'),
+    newDeprecateWorkflowType,
+    DeprecateWorkflowTypeResponse (DeprecateWorkflowTypeResponse'),
+    newDeprecateWorkflowTypeResponse,
 
     -- ** CountClosedWorkflowExecutions
     CountClosedWorkflowExecutions (CountClosedWorkflowExecutions'),
@@ -156,17 +150,23 @@ module Network.AWS.SWF
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DeprecateActivityType
-    DeprecateActivityType (DeprecateActivityType'),
-    newDeprecateActivityType,
-    DeprecateActivityTypeResponse (DeprecateActivityTypeResponse'),
-    newDeprecateActivityTypeResponse,
+    -- ** UndeprecateActivityType
+    UndeprecateActivityType (UndeprecateActivityType'),
+    newUndeprecateActivityType,
+    UndeprecateActivityTypeResponse (UndeprecateActivityTypeResponse'),
+    newUndeprecateActivityTypeResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** DeprecateActivityType
+    DeprecateActivityType (DeprecateActivityType'),
+    newDeprecateActivityType,
+    DeprecateActivityTypeResponse (DeprecateActivityTypeResponse'),
+    newDeprecateActivityTypeResponse,
 
     -- ** DescribeDomain
     DescribeDomain (DescribeDomain'),
@@ -198,29 +198,23 @@ module Network.AWS.SWF
     PendingTaskCount (PendingTaskCount'),
     newPendingTaskCount,
 
-    -- ** RespondActivityTaskCompleted
-    RespondActivityTaskCompleted (RespondActivityTaskCompleted'),
-    newRespondActivityTaskCompleted,
-    RespondActivityTaskCompletedResponse (RespondActivityTaskCompletedResponse'),
-    newRespondActivityTaskCompletedResponse,
-
     -- ** ListActivityTypes (Paginated)
     ListActivityTypes (ListActivityTypes'),
     newListActivityTypes,
     ListActivityTypesResponse (ListActivityTypesResponse'),
     newListActivityTypesResponse,
 
+    -- ** RespondActivityTaskCompleted
+    RespondActivityTaskCompleted (RespondActivityTaskCompleted'),
+    newRespondActivityTaskCompleted,
+    RespondActivityTaskCompletedResponse (RespondActivityTaskCompletedResponse'),
+    newRespondActivityTaskCompletedResponse,
+
     -- ** StartWorkflowExecution
     StartWorkflowExecution (StartWorkflowExecution'),
     newStartWorkflowExecution,
     StartWorkflowExecutionResponse (StartWorkflowExecutionResponse'),
     newStartWorkflowExecutionResponse,
-
-    -- ** DescribeWorkflowType
-    DescribeWorkflowType (DescribeWorkflowType'),
-    newDescribeWorkflowType,
-    DescribeWorkflowTypeResponse (DescribeWorkflowTypeResponse'),
-    newDescribeWorkflowTypeResponse,
 
     -- ** RespondActivityTaskCanceled
     RespondActivityTaskCanceled (RespondActivityTaskCanceled'),
@@ -234,11 +228,11 @@ module Network.AWS.SWF
     RequestCancelWorkflowExecutionResponse (RequestCancelWorkflowExecutionResponse'),
     newRequestCancelWorkflowExecutionResponse,
 
-    -- ** DescribeActivityType
-    DescribeActivityType (DescribeActivityType'),
-    newDescribeActivityType,
-    DescribeActivityTypeResponse (DescribeActivityTypeResponse'),
-    newDescribeActivityTypeResponse,
+    -- ** DescribeWorkflowType
+    DescribeWorkflowType (DescribeWorkflowType'),
+    newDescribeWorkflowType,
+    DescribeWorkflowTypeResponse (DescribeWorkflowTypeResponse'),
+    newDescribeWorkflowTypeResponse,
 
     -- ** TerminateWorkflowExecution
     TerminateWorkflowExecution (TerminateWorkflowExecution'),
@@ -246,23 +240,11 @@ module Network.AWS.SWF
     TerminateWorkflowExecutionResponse (TerminateWorkflowExecutionResponse'),
     newTerminateWorkflowExecutionResponse,
 
-    -- ** RecordActivityTaskHeartbeat
-    RecordActivityTaskHeartbeat (RecordActivityTaskHeartbeat'),
-    newRecordActivityTaskHeartbeat,
-    RecordActivityTaskHeartbeatResponse (RecordActivityTaskHeartbeatResponse'),
-    newRecordActivityTaskHeartbeatResponse,
-
-    -- ** GetWorkflowExecutionHistory (Paginated)
-    GetWorkflowExecutionHistory (GetWorkflowExecutionHistory'),
-    newGetWorkflowExecutionHistory,
-    GetWorkflowExecutionHistoryResponse (GetWorkflowExecutionHistoryResponse'),
-    newGetWorkflowExecutionHistoryResponse,
-
-    -- ** DeprecateDomain
-    DeprecateDomain (DeprecateDomain'),
-    newDeprecateDomain,
-    DeprecateDomainResponse (DeprecateDomainResponse'),
-    newDeprecateDomainResponse,
+    -- ** DescribeActivityType
+    DescribeActivityType (DescribeActivityType'),
+    newDescribeActivityType,
+    DescribeActivityTypeResponse (DescribeActivityTypeResponse'),
+    newDescribeActivityTypeResponse,
 
     -- ** UndeprecateWorkflowType
     UndeprecateWorkflowType (UndeprecateWorkflowType'),
@@ -270,11 +252,35 @@ module Network.AWS.SWF
     UndeprecateWorkflowTypeResponse (UndeprecateWorkflowTypeResponse'),
     newUndeprecateWorkflowTypeResponse,
 
+    -- ** DeprecateDomain
+    DeprecateDomain (DeprecateDomain'),
+    newDeprecateDomain,
+    DeprecateDomainResponse (DeprecateDomainResponse'),
+    newDeprecateDomainResponse,
+
+    -- ** GetWorkflowExecutionHistory (Paginated)
+    GetWorkflowExecutionHistory (GetWorkflowExecutionHistory'),
+    newGetWorkflowExecutionHistory,
+    GetWorkflowExecutionHistoryResponse (GetWorkflowExecutionHistoryResponse'),
+    newGetWorkflowExecutionHistoryResponse,
+
+    -- ** RecordActivityTaskHeartbeat
+    RecordActivityTaskHeartbeat (RecordActivityTaskHeartbeat'),
+    newRecordActivityTaskHeartbeat,
+    RecordActivityTaskHeartbeatResponse (RecordActivityTaskHeartbeatResponse'),
+    newRecordActivityTaskHeartbeatResponse,
+
     -- ** RespondActivityTaskFailed
     RespondActivityTaskFailed (RespondActivityTaskFailed'),
     newRespondActivityTaskFailed,
     RespondActivityTaskFailedResponse (RespondActivityTaskFailedResponse'),
     newRespondActivityTaskFailedResponse,
+
+    -- ** ListClosedWorkflowExecutions (Paginated)
+    ListClosedWorkflowExecutions (ListClosedWorkflowExecutions'),
+    newListClosedWorkflowExecutions,
+    WorkflowExecutionInfos (WorkflowExecutionInfos'),
+    newWorkflowExecutionInfos,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -287,12 +293,6 @@ module Network.AWS.SWF
     newListWorkflowTypes,
     ListWorkflowTypesResponse (ListWorkflowTypesResponse'),
     newListWorkflowTypesResponse,
-
-    -- ** ListClosedWorkflowExecutions (Paginated)
-    ListClosedWorkflowExecutions (ListClosedWorkflowExecutions'),
-    newListClosedWorkflowExecutions,
-    WorkflowExecutionInfos (WorkflowExecutionInfos'),
-    newWorkflowExecutionInfos,
 
     -- * Types
 

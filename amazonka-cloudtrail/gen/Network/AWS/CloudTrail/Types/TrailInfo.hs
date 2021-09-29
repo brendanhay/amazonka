@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data TrailInfo = TrailInfo'
   { -- | The ARN of a trail.
     trailARN :: Prelude.Maybe Prelude.Text,
-    -- | The AWS region in which a trail was created.
-    homeRegion :: Prelude.Maybe Prelude.Text,
     -- | The name of a trail.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region in which a trail was created.
+    homeRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data TrailInfo = TrailInfo'
 --
 -- 'trailARN', 'trailInfo_trailARN' - The ARN of a trail.
 --
--- 'homeRegion', 'trailInfo_homeRegion' - The AWS region in which a trail was created.
---
 -- 'name', 'trailInfo_name' - The name of a trail.
+--
+-- 'homeRegion', 'trailInfo_homeRegion' - The Amazon Web Services Region in which a trail was created.
 newTrailInfo ::
   TrailInfo
 newTrailInfo =
   TrailInfo'
     { trailARN = Prelude.Nothing,
-      homeRegion = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      homeRegion = Prelude.Nothing
     }
 
 -- | The ARN of a trail.
 trailInfo_trailARN :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_trailARN = Lens.lens (\TrailInfo' {trailARN} -> trailARN) (\s@TrailInfo' {} a -> s {trailARN = a} :: TrailInfo)
 
--- | The AWS region in which a trail was created.
-trailInfo_homeRegion :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
-trailInfo_homeRegion = Lens.lens (\TrailInfo' {homeRegion} -> homeRegion) (\s@TrailInfo' {} a -> s {homeRegion = a} :: TrailInfo)
-
 -- | The name of a trail.
 trailInfo_name :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_name = Lens.lens (\TrailInfo' {name} -> name) (\s@TrailInfo' {} a -> s {name = a} :: TrailInfo)
+
+-- | The Amazon Web Services Region in which a trail was created.
+trailInfo_homeRegion :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
+trailInfo_homeRegion = Lens.lens (\TrailInfo' {homeRegion} -> homeRegion) (\s@TrailInfo' {} a -> s {homeRegion = a} :: TrailInfo)
 
 instance Core.FromJSON TrailInfo where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON TrailInfo where
       ( \x ->
           TrailInfo'
             Prelude.<$> (x Core..:? "TrailARN")
-            Prelude.<*> (x Core..:? "HomeRegion")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "HomeRegion")
       )
 
 instance Prelude.Hashable TrailInfo

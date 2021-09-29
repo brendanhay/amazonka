@@ -51,9 +51,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetResourcePolicy' smart constructor.
 data GetResourcePolicy = GetResourcePolicy'
-  { -- | The ARN of the AWS Glue resource for the resource policy to be
-    -- retrieved. For more information about AWS Glue resource ARNs, see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+  { -- | The ARN of the Glue resource for which to retrieve the resource policy.
+    -- If not supplied, the Data Catalog resource policy is returned. Use
+    -- @GetResourcePolicies@ to view all existing resource policies. For more
+    -- information see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html Specifying Glue Resource ARNs>.
     resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,17 +68,21 @@ data GetResourcePolicy = GetResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'getResourcePolicy_resourceArn' - The ARN of the AWS Glue resource for the resource policy to be
--- retrieved. For more information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+-- 'resourceArn', 'getResourcePolicy_resourceArn' - The ARN of the Glue resource for which to retrieve the resource policy.
+-- If not supplied, the Data Catalog resource policy is returned. Use
+-- @GetResourcePolicies@ to view all existing resource policies. For more
+-- information see
+-- <https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html Specifying Glue Resource ARNs>.
 newGetResourcePolicy ::
   GetResourcePolicy
 newGetResourcePolicy =
   GetResourcePolicy' {resourceArn = Prelude.Nothing}
 
--- | The ARN of the AWS Glue resource for the resource policy to be
--- retrieved. For more information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+-- | The ARN of the Glue resource for which to retrieve the resource policy.
+-- If not supplied, the Data Catalog resource policy is returned. Use
+-- @GetResourcePolicies@ to view all existing resource policies. For more
+-- information see
+-- <https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html Specifying Glue Resource ARNs>.
 getResourcePolicy_resourceArn :: Lens.Lens' GetResourcePolicy (Prelude.Maybe Prelude.Text)
 getResourcePolicy_resourceArn = Lens.lens (\GetResourcePolicy' {resourceArn} -> resourceArn) (\s@GetResourcePolicy' {} a -> s {resourceArn = a} :: GetResourcePolicy)
 

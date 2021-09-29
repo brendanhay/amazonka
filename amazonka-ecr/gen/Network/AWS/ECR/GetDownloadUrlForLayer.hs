@@ -60,9 +60,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDownloadUrlForLayer' smart constructor.
 data GetDownloadUrlForLayer = GetDownloadUrlForLayer'
-  { -- | The AWS account ID associated with the registry that contains the image
-    -- layer to download. If you do not specify a registry, the default
-    -- registry is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the image layer to download. If you do not specify a registry,
+    -- the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that is associated with the image layer to
     -- download.
@@ -80,9 +80,9 @@ data GetDownloadUrlForLayer = GetDownloadUrlForLayer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'getDownloadUrlForLayer_registryId' - The AWS account ID associated with the registry that contains the image
--- layer to download. If you do not specify a registry, the default
--- registry is assumed.
+-- 'registryId', 'getDownloadUrlForLayer_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the image layer to download. If you do not specify a registry,
+-- the default registry is assumed.
 --
 -- 'repositoryName', 'getDownloadUrlForLayer_repositoryName' - The name of the repository that is associated with the image layer to
 -- download.
@@ -104,9 +104,9 @@ newGetDownloadUrlForLayer
         layerDigest = pLayerDigest_
       }
 
--- | The AWS account ID associated with the registry that contains the image
--- layer to download. If you do not specify a registry, the default
--- registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the image layer to download. If you do not specify a registry,
+-- the default registry is assumed.
 getDownloadUrlForLayer_registryId :: Lens.Lens' GetDownloadUrlForLayer (Prelude.Maybe Prelude.Text)
 getDownloadUrlForLayer_registryId = Lens.lens (\GetDownloadUrlForLayer' {registryId} -> registryId) (\s@GetDownloadUrlForLayer' {} a -> s {registryId = a} :: GetDownloadUrlForLayer)
 

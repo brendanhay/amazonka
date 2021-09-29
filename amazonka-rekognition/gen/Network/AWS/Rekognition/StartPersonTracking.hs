@@ -65,7 +65,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartPersonTracking' smart constructor.
 data StartPersonTracking = StartPersonTracking'
   { -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
-    -- the completion status of the people detection operation to.
+    -- the completion status of the people detection operation to. The Amazon
+    -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+    -- you are using the AmazonRekognitionServiceRole permissions policy.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartPersonTracking@ requests, the same @JobId@ is
@@ -92,7 +94,9 @@ data StartPersonTracking = StartPersonTracking'
 -- for backwards compatibility:
 --
 -- 'notificationChannel', 'startPersonTracking_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
--- the completion status of the people detection operation to.
+-- the completion status of the people detection operation to. The Amazon
+-- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+-- you are using the AmazonRekognitionServiceRole permissions policy.
 --
 -- 'clientRequestToken', 'startPersonTracking_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartPersonTracking@ requests, the same @JobId@ is
@@ -120,7 +124,9 @@ newStartPersonTracking pVideo_ =
     }
 
 -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
--- the completion status of the people detection operation to.
+-- the completion status of the people detection operation to. The Amazon
+-- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+-- you are using the AmazonRekognitionServiceRole permissions policy.
 startPersonTracking_notificationChannel :: Lens.Lens' StartPersonTracking (Prelude.Maybe NotificationChannel)
 startPersonTracking_notificationChannel = Lens.lens (\StartPersonTracking' {notificationChannel} -> notificationChannel) (\s@StartPersonTracking' {} a -> s {notificationChannel = a} :: StartPersonTracking)
 

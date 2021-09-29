@@ -33,8 +33,8 @@ module Network.AWS.CertificateManager.ListCertificates
 
     -- * Request Lenses
     listCertificates_nextToken,
-    listCertificates_includes,
     listCertificates_certificateStatuses,
+    listCertificates_includes,
     listCertificates_maxItems,
 
     -- * Destructuring the Response
@@ -61,11 +61,11 @@ data ListCertificates = ListCertificates'
     -- request after you receive a response with truncated results. Set it to
     -- the value of @NextToken@ from the response you just received.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filter the certificate list by status value.
+    certificateStatuses :: Prelude.Maybe [CertificateStatus],
     -- | Filter the certificate list. For more information, see the Filters
     -- structure.
     includes :: Prelude.Maybe Filters,
-    -- | Filter the certificate list by status value.
-    certificateStatuses :: Prelude.Maybe [CertificateStatus],
     -- | Use this parameter when paginating results to specify the maximum number
     -- of items to return in the response. If additional items exist beyond the
     -- number you specify, the @NextToken@ element is sent in the response. Use
@@ -87,10 +87,10 @@ data ListCertificates = ListCertificates'
 -- request after you receive a response with truncated results. Set it to
 -- the value of @NextToken@ from the response you just received.
 --
+-- 'certificateStatuses', 'listCertificates_certificateStatuses' - Filter the certificate list by status value.
+--
 -- 'includes', 'listCertificates_includes' - Filter the certificate list. For more information, see the Filters
 -- structure.
---
--- 'certificateStatuses', 'listCertificates_certificateStatuses' - Filter the certificate list by status value.
 --
 -- 'maxItems', 'listCertificates_maxItems' - Use this parameter when paginating results to specify the maximum number
 -- of items to return in the response. If additional items exist beyond the
@@ -102,8 +102,8 @@ newListCertificates ::
 newListCertificates =
   ListCertificates'
     { nextToken = Prelude.Nothing,
-      includes = Prelude.Nothing,
       certificateStatuses = Prelude.Nothing,
+      includes = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
 
@@ -113,14 +113,14 @@ newListCertificates =
 listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
 listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
 
+-- | Filter the certificate list by status value.
+listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
+listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Filter the certificate list. For more information, see the Filters
 -- structure.
 listCertificates_includes :: Lens.Lens' ListCertificates (Prelude.Maybe Filters)
 listCertificates_includes = Lens.lens (\ListCertificates' {includes} -> includes) (\s@ListCertificates' {} a -> s {includes = a} :: ListCertificates)
-
--- | Filter the certificate list by status value.
-listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
-listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this parameter when paginating results to specify the maximum number
 -- of items to return in the response. If additional items exist beyond the
@@ -192,9 +192,9 @@ instance Core.ToJSON ListCertificates where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Includes" Core..=) Prelude.<$> includes,
             ("CertificateStatuses" Core..=)
               Prelude.<$> certificateStatuses,
+            ("Includes" Core..=) Prelude.<$> includes,
             ("MaxItems" Core..=) Prelude.<$> maxItems
           ]
       )

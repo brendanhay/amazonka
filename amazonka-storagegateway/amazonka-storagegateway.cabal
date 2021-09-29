@@ -52,6 +52,7 @@ library
     Network.AWS.StorageGateway.AddUploadBuffer
     Network.AWS.StorageGateway.AddWorkingStorage
     Network.AWS.StorageGateway.AssignTapePool
+    Network.AWS.StorageGateway.AssociateFileSystem
     Network.AWS.StorageGateway.AttachVolume
     Network.AWS.StorageGateway.CancelArchival
     Network.AWS.StorageGateway.CancelRetrieval
@@ -80,6 +81,7 @@ library
     Network.AWS.StorageGateway.DescribeCache
     Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     Network.AWS.StorageGateway.DescribeChapCredentials
+    Network.AWS.StorageGateway.DescribeFileSystemAssociations
     Network.AWS.StorageGateway.DescribeGatewayInformation
     Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     Network.AWS.StorageGateway.DescribeNFSFileShares
@@ -95,10 +97,12 @@ library
     Network.AWS.StorageGateway.DescribeWorkingStorage
     Network.AWS.StorageGateway.DetachVolume
     Network.AWS.StorageGateway.DisableGateway
+    Network.AWS.StorageGateway.DisassociateFileSystem
     Network.AWS.StorageGateway.JoinDomain
     Network.AWS.StorageGateway.Lens
     Network.AWS.StorageGateway.ListAutomaticTapeCreationPolicies
     Network.AWS.StorageGateway.ListFileShares
+    Network.AWS.StorageGateway.ListFileSystemAssociations
     Network.AWS.StorageGateway.ListGateways
     Network.AWS.StorageGateway.ListLocalDisks
     Network.AWS.StorageGateway.ListTagsForResource
@@ -130,8 +134,12 @@ library
     Network.AWS.StorageGateway.Types.ChapInfo
     Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
     Network.AWS.StorageGateway.Types.Disk
+    Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
     Network.AWS.StorageGateway.Types.FileShareInfo
     Network.AWS.StorageGateway.Types.FileShareType
+    Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+    Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
+    Network.AWS.StorageGateway.Types.GatewayCapacity
     Network.AWS.StorageGateway.Types.GatewayInfo
     Network.AWS.StorageGateway.Types.HostEnvironment
     Network.AWS.StorageGateway.Types.NetworkInterface
@@ -158,6 +166,7 @@ library
     Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     Network.AWS.StorageGateway.UpdateBandwidthRateLimitSchedule
     Network.AWS.StorageGateway.UpdateChapCredentials
+    Network.AWS.StorageGateway.UpdateFileSystemAssociation
     Network.AWS.StorageGateway.UpdateGatewayInformation
     Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     Network.AWS.StorageGateway.UpdateMaintenanceStartTime

@@ -25,8 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | In terms of implementation, a Bucket is a resource. An Amazon S3 bucket
--- name is globally unique, and the namespace is shared by all AWS
--- accounts.
+-- name is globally unique, and the namespace is shared by all Amazon Web
+-- Services accounts.
 --
 -- /See:/ 'newBucket' smart constructor.
 data Bucket = Bucket'

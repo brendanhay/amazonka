@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchDeleteTableVersion' smart constructor.
 data BatchDeleteTableVersion = BatchDeleteTableVersion'
   { -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
@@ -75,7 +75,7 @@ data BatchDeleteTableVersion = BatchDeleteTableVersion'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchDeleteTableVersion_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'batchDeleteTableVersion_databaseName' - The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -101,7 +101,7 @@ newBatchDeleteTableVersion pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 batchDeleteTableVersion_catalogId :: Lens.Lens' BatchDeleteTableVersion (Prelude.Maybe Prelude.Text)
 batchDeleteTableVersion_catalogId = Lens.lens (\BatchDeleteTableVersion' {catalogId} -> catalogId) (\s@BatchDeleteTableVersion' {} a -> s {catalogId = a} :: BatchDeleteTableVersion)
 

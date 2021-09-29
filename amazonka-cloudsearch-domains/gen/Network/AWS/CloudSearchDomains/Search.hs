@@ -55,8 +55,8 @@ module Network.AWS.CloudSearchDomains.Search
     search_partial,
     search_queryParser,
     search_queryOptions,
-    search_cursor,
     search_return,
+    search_cursor,
     search_stats,
     search_highlight,
     search_start,
@@ -248,6 +248,13 @@ data Search = Search'
     --     fields (pure sum): @\"tieBreaker\":1@. Valid values: 0.0 to 1.0.
     --     Default: 0.0. Valid for: @dismax@.
     queryOptions :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the field and expression values to include in the response.
+    -- Multiple fields or expressions are specified as a comma-separated list.
+    -- By default, a search response includes all return enabled fields
+    -- (@_all_fields@). To return only the document IDs for the matching
+    -- documents, specify @_no_fields@. To retrieve the relevance score
+    -- calculated for each document, specify @_score@.
+    return' :: Prelude.Maybe Prelude.Text,
     -- | Retrieves a cursor value you can use to page through large result sets.
     -- Use the @size@ parameter to control the number of hits to include in
     -- each response. You can specify either the @cursor@ or @start@ parameter
@@ -259,13 +266,6 @@ data Search = Search'
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
     -- in the /Amazon CloudSearch Developer Guide/.
     cursor :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the field and expression values to include in the response.
-    -- Multiple fields or expressions are specified as a comma-separated list.
-    -- By default, a search response includes all return enabled fields
-    -- (@_all_fields@). To return only the document IDs for the matching
-    -- documents, specify @_no_fields@. To retrieve the relevance score
-    -- calculated for each document, specify @_score@.
-    return' :: Prelude.Maybe Prelude.Text,
     -- | Specifies one or more fields for which to get statistics information.
     -- Each specified field must be facet-enabled in the domain configuration.
     -- The fields are specified in JSON using the form:
@@ -577,6 +577,13 @@ data Search = Search'
 --     fields (pure sum): @\"tieBreaker\":1@. Valid values: 0.0 to 1.0.
 --     Default: 0.0. Valid for: @dismax@.
 --
+-- 'return'', 'search_return' - Specifies the field and expression values to include in the response.
+-- Multiple fields or expressions are specified as a comma-separated list.
+-- By default, a search response includes all return enabled fields
+-- (@_all_fields@). To return only the document IDs for the matching
+-- documents, specify @_no_fields@. To retrieve the relevance score
+-- calculated for each document, specify @_score@.
+--
 -- 'cursor', 'search_cursor' - Retrieves a cursor value you can use to page through large result sets.
 -- Use the @size@ parameter to control the number of hits to include in
 -- each response. You can specify either the @cursor@ or @start@ parameter
@@ -587,13 +594,6 @@ data Search = Search'
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- 'return'', 'search_return' - Specifies the field and expression values to include in the response.
--- Multiple fields or expressions are specified as a comma-separated list.
--- By default, a search response includes all return enabled fields
--- (@_all_fields@). To return only the document IDs for the matching
--- documents, specify @_no_fields@. To retrieve the relevance score
--- calculated for each document, specify @_score@.
 --
 -- 'stats', 'search_stats' - Specifies one or more fields for which to get statistics information.
 -- Each specified field must be facet-enabled in the domain configuration.
@@ -746,8 +746,8 @@ newSearch pQuery_ =
       partial = Prelude.Nothing,
       queryParser = Prelude.Nothing,
       queryOptions = Prelude.Nothing,
-      cursor = Prelude.Nothing,
       return' = Prelude.Nothing,
+      cursor = Prelude.Nothing,
       stats = Prelude.Nothing,
       highlight = Prelude.Nothing,
       start = Prelude.Nothing,
@@ -924,6 +924,15 @@ search_queryParser = Lens.lens (\Search' {queryParser} -> queryParser) (\s@Searc
 search_queryOptions :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
 search_queryOptions = Lens.lens (\Search' {queryOptions} -> queryOptions) (\s@Search' {} a -> s {queryOptions = a} :: Search)
 
+-- | Specifies the field and expression values to include in the response.
+-- Multiple fields or expressions are specified as a comma-separated list.
+-- By default, a search response includes all return enabled fields
+-- (@_all_fields@). To return only the document IDs for the matching
+-- documents, specify @_no_fields@. To retrieve the relevance score
+-- calculated for each document, specify @_score@.
+search_return :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_return = Lens.lens (\Search' {return'} -> return') (\s@Search' {} a -> s {return' = a} :: Search)
+
 -- | Retrieves a cursor value you can use to page through large result sets.
 -- Use the @size@ parameter to control the number of hits to include in
 -- each response. You can specify either the @cursor@ or @start@ parameter
@@ -936,15 +945,6 @@ search_queryOptions = Lens.lens (\Search' {queryOptions} -> queryOptions) (\s@Se
 -- in the /Amazon CloudSearch Developer Guide/.
 search_cursor :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
 search_cursor = Lens.lens (\Search' {cursor} -> cursor) (\s@Search' {} a -> s {cursor = a} :: Search)
-
--- | Specifies the field and expression values to include in the response.
--- Multiple fields or expressions are specified as a comma-separated list.
--- By default, a search response includes all return enabled fields
--- (@_all_fields@). To return only the document IDs for the matching
--- documents, specify @_no_fields@. To retrieve the relevance score
--- calculated for each document, specify @_score@.
-search_return :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
-search_return = Lens.lens (\Search' {return'} -> return') (\s@Search' {} a -> s {return' = a} :: Search)
 
 -- | Specifies one or more fields for which to get statistics information.
 -- Each specified field must be facet-enabled in the domain configuration.
@@ -1143,8 +1143,8 @@ instance Core.ToQuery Search where
         "partial" Core.=: partial,
         "q.parser" Core.=: queryParser,
         "q.options" Core.=: queryOptions,
-        "cursor" Core.=: cursor,
         "return" Core.=: return',
+        "cursor" Core.=: cursor,
         "stats" Core.=: stats,
         "highlight" Core.=: highlight,
         "start" Core.=: start,

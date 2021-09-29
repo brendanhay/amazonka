@@ -34,7 +34,7 @@
 -- A 429 error occurs in two situations:
 --
 -- -   API rate limit is exceeded. API TPS throttling returns a
---     @TooManyRequests@ exception from the API Gateway.
+--     @TooManyRequests@ exception.
 --
 -- -   The
 --     <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html quota for concurrent active chats>
@@ -91,7 +91,8 @@ data StartChatContact = StartChatContact'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact flow for initiating the chat. To see the
     -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -128,7 +129,8 @@ data StartChatContact = StartChatContact'
 -- 'clientToken', 'startChatContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'startChatContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'contactFlowId', 'startChatContact_contactFlowId' - The identifier of the contact flow for initiating the chat. To see the
 -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -180,7 +182,8 @@ startChatContact_attributes = Lens.lens (\StartChatContact' {attributes} -> attr
 startChatContact_clientToken :: Lens.Lens' StartChatContact (Prelude.Maybe Prelude.Text)
 startChatContact_clientToken = Lens.lens (\StartChatContact' {clientToken} -> clientToken) (\s@StartChatContact' {} a -> s {clientToken = a} :: StartChatContact)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 startChatContact_instanceId :: Lens.Lens' StartChatContact Prelude.Text
 startChatContact_instanceId = Lens.lens (\StartChatContact' {instanceId} -> instanceId) (\s@StartChatContact' {} a -> s {instanceId = a} :: StartChatContact)
 

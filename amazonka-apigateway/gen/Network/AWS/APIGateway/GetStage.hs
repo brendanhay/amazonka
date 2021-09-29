@@ -35,23 +35,23 @@ module Network.AWS.APIGateway.GetStage
     newStage,
 
     -- * Response Lenses
-    stage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
+    stage_methodSettings,
   )
 where
 

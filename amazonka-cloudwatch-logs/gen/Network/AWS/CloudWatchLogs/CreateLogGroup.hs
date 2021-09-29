@@ -25,7 +25,8 @@
 --
 -- You must use the following guidelines when naming a log group:
 --
--- -   Log group names must be unique within a region for an AWS account.
+-- -   Log group names must be unique within a region for an Amazon Web
+--     Services account.
 --
 -- -   Log group names can be between 1 and 512 characters long.
 --
@@ -38,11 +39,11 @@
 -- deleted after a specified time, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html PutRetentionPolicy>.
 --
--- If you associate a AWS Key Management Service (AWS KMS) customer master
--- key (CMK) with the log group, ingested data is encrypted using the CMK.
--- This association is stored as long as the data encrypted with the CMK is
--- still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs
--- to decrypt this data whenever it is requested.
+-- If you associate a Key Management Service customer master key (CMK) with
+-- the log group, ingested data is encrypted using the CMK. This
+-- association is stored as long as the data encrypted with the CMK is
+-- still within CloudWatch Logs. This enables CloudWatch Logs to decrypt
+-- this data whenever it is requested.
 --
 -- If you attempt to associate a CMK with the log group but the CMK does
 -- not exist or the CMK is disabled, you receive an
@@ -78,9 +79,15 @@ import qualified Network.AWS.Response as Response
 data CreateLogGroup = CreateLogGroup'
   { -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
     -- data. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The key-value pairs to use for the tags.
+    --
+    -- CloudWatch Logs doesn’t support IAM policies that prevent users from
+    -- assigning specified tags to log groups using the
+    -- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys. For more
+    -- information about using tags to control access, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the log group.
     logGroupName :: Prelude.Text
@@ -97,9 +104,15 @@ data CreateLogGroup = CreateLogGroup'
 --
 -- 'kmsKeyId', 'createLogGroup_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
 --
 -- 'tags', 'createLogGroup_tags' - The key-value pairs to use for the tags.
+--
+-- CloudWatch Logs doesn’t support IAM policies that prevent users from
+-- assigning specified tags to log groups using the
+-- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys. For more
+-- information about using tags to control access, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 --
 -- 'logGroupName', 'createLogGroup_logGroupName' - The name of the log group.
 newCreateLogGroup ::
@@ -115,11 +128,17 @@ newCreateLogGroup pLogGroupName_ =
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
 createLogGroup_kmsKeyId :: Lens.Lens' CreateLogGroup (Prelude.Maybe Prelude.Text)
 createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateLogGroup' {} a -> s {kmsKeyId = a} :: CreateLogGroup)
 
 -- | The key-value pairs to use for the tags.
+--
+-- CloudWatch Logs doesn’t support IAM policies that prevent users from
+-- assigning specified tags to log groups using the
+-- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys. For more
+-- information about using tags to control access, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 createLogGroup_tags :: Lens.Lens' CreateLogGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Prelude.. Lens.mapping Lens._Coerce
 

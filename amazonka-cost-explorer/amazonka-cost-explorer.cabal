@@ -85,10 +85,17 @@ library
     Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
     Network.AWS.CostExplorer.Types.Context
     Network.AWS.CostExplorer.Types.CostCategory
+    Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimension
+    Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimensionName
     Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
     Network.AWS.CostExplorer.Types.CostCategoryReference
     Network.AWS.CostExplorer.Types.CostCategoryRule
+    Network.AWS.CostExplorer.Types.CostCategoryRuleType
     Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
+    Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
+    Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
+    Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameter
+    Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
     Network.AWS.CostExplorer.Types.CostCategoryStatus
     Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
     Network.AWS.CostExplorer.Types.CostCategoryValues
@@ -102,6 +109,7 @@ library
     Network.AWS.CostExplorer.Types.Dimension
     Network.AWS.CostExplorer.Types.DimensionValues
     Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
+    Network.AWS.CostExplorer.Types.DiskResourceUtilization
     Network.AWS.CostExplorer.Types.EBSResourceUtilization
     Network.AWS.CostExplorer.Types.EC2InstanceDetails
     Network.AWS.CostExplorer.Types.EC2ResourceDetails
@@ -110,6 +118,7 @@ library
     Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
     Network.AWS.CostExplorer.Types.ESInstanceDetails
     Network.AWS.CostExplorer.Types.Expression
+    Network.AWS.CostExplorer.Types.FindingReasonCode
     Network.AWS.CostExplorer.Types.ForecastResult
     Network.AWS.CostExplorer.Types.Granularity
     Network.AWS.CostExplorer.Types.Group
@@ -124,9 +133,11 @@ library
     Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
     Network.AWS.CostExplorer.Types.MonitorDimension
     Network.AWS.CostExplorer.Types.MonitorType
+    Network.AWS.CostExplorer.Types.NetworkResourceUtilization
     Network.AWS.CostExplorer.Types.NumericOperator
     Network.AWS.CostExplorer.Types.OfferingClass
     Network.AWS.CostExplorer.Types.PaymentOption
+    Network.AWS.CostExplorer.Types.PlatformDifference
     Network.AWS.CostExplorer.Types.RDSInstanceDetails
     Network.AWS.CostExplorer.Types.RecommendationTarget
     Network.AWS.CostExplorer.Types.RedshiftInstanceDetails

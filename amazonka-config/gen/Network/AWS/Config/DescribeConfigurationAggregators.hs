@@ -62,7 +62,7 @@ data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
     -- | The name of the configuration aggregators.
     configurationAggregatorNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of configuration aggregators returned on each page.
-    -- The default is maximum. If you specify 0, AWS Config uses the default.
+    -- The default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
 -- 'configurationAggregatorNames', 'describeConfigurationAggregators_configurationAggregatorNames' - The name of the configuration aggregators.
 --
 -- 'limit', 'describeConfigurationAggregators_limit' - The maximum number of configuration aggregators returned on each page.
--- The default is maximum. If you specify 0, AWS Config uses the default.
+-- The default is maximum. If you specify 0, Config uses the default.
 newDescribeConfigurationAggregators ::
   DescribeConfigurationAggregators
 newDescribeConfigurationAggregators =
@@ -103,7 +103,7 @@ describeConfigurationAggregators_configurationAggregatorNames :: Lens.Lens' Desc
 describeConfigurationAggregators_configurationAggregatorNames = Lens.lens (\DescribeConfigurationAggregators' {configurationAggregatorNames} -> configurationAggregatorNames) (\s@DescribeConfigurationAggregators' {} a -> s {configurationAggregatorNames = a} :: DescribeConfigurationAggregators) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of configuration aggregators returned on each page.
--- The default is maximum. If you specify 0, AWS Config uses the default.
+-- The default is maximum. If you specify 0, Config uses the default.
 describeConfigurationAggregators_limit :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Natural)
 describeConfigurationAggregators_limit = Lens.lens (\DescribeConfigurationAggregators' {limit} -> limit) (\s@DescribeConfigurationAggregators' {} a -> s {limit = a} :: DescribeConfigurationAggregators)
 

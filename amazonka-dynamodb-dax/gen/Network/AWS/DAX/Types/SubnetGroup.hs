@@ -36,11 +36,11 @@ data SubnetGroup = SubnetGroup'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the subnet group.
     subnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of subnets associated with the subnet group.
-    subnets :: Prelude.Maybe [Subnet],
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
     -- group.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A list of subnets associated with the subnet group.
+    subnets :: Prelude.Maybe [Subnet]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,18 +56,18 @@ data SubnetGroup = SubnetGroup'
 --
 -- 'subnetGroupName', 'subnetGroup_subnetGroupName' - The name of the subnet group.
 --
--- 'subnets', 'subnetGroup_subnets' - A list of subnets associated with the subnet group.
---
 -- 'vpcId', 'subnetGroup_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
+--
+-- 'subnets', 'subnetGroup_subnets' - A list of subnets associated with the subnet group.
 newSubnetGroup ::
   SubnetGroup
 newSubnetGroup =
   SubnetGroup'
     { description = Prelude.Nothing,
       subnetGroupName = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      subnets = Prelude.Nothing
     }
 
 -- | The description of the subnet group.
@@ -78,14 +78,14 @@ subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description)
 subnetGroup_subnetGroupName :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
 subnetGroup_subnetGroupName = Lens.lens (\SubnetGroup' {subnetGroupName} -> subnetGroupName) (\s@SubnetGroup' {} a -> s {subnetGroupName = a} :: SubnetGroup)
 
--- | A list of subnets associated with the subnet group.
-subnetGroup_subnets :: Lens.Lens' SubnetGroup (Prelude.Maybe [Subnet])
-subnetGroup_subnets = Lens.lens (\SubnetGroup' {subnets} -> subnets) (\s@SubnetGroup' {} a -> s {subnets = a} :: SubnetGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
 subnetGroup_vpcId :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
 subnetGroup_vpcId = Lens.lens (\SubnetGroup' {vpcId} -> vpcId) (\s@SubnetGroup' {} a -> s {vpcId = a} :: SubnetGroup)
+
+-- | A list of subnets associated with the subnet group.
+subnetGroup_subnets :: Lens.Lens' SubnetGroup (Prelude.Maybe [Subnet])
+subnetGroup_subnets = Lens.lens (\SubnetGroup' {subnets} -> subnets) (\s@SubnetGroup' {} a -> s {subnets = a} :: SubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON SubnetGroup where
   parseJSON =
@@ -95,8 +95,8 @@ instance Core.FromJSON SubnetGroup where
           SubnetGroup'
             Prelude.<$> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SubnetGroupName")
-            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SubnetGroup

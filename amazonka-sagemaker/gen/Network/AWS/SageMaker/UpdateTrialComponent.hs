@@ -27,16 +27,16 @@ module Network.AWS.SageMaker.UpdateTrialComponent
     newUpdateTrialComponent,
 
     -- * Request Lenses
-    updateTrialComponent_outputArtifactsToRemove,
     updateTrialComponent_parametersToRemove,
+    updateTrialComponent_outputArtifactsToRemove,
     updateTrialComponent_status,
     updateTrialComponent_inputArtifactsToRemove,
     updateTrialComponent_startTime,
     updateTrialComponent_endTime,
     updateTrialComponent_inputArtifacts,
     updateTrialComponent_displayName,
-    updateTrialComponent_parameters,
     updateTrialComponent_outputArtifacts,
+    updateTrialComponent_parameters,
     updateTrialComponent_trialComponentName,
 
     -- * Destructuring the Response
@@ -58,10 +58,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateTrialComponent' smart constructor.
 data UpdateTrialComponent = UpdateTrialComponent'
-  { -- | The output artifacts to remove from the component.
-    outputArtifactsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The hyperparameters to remove from the component.
+  { -- | The hyperparameters to remove from the component.
     parametersToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The output artifacts to remove from the component.
+    outputArtifactsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The new status of the component.
     status :: Prelude.Maybe TrialComponentStatus,
     -- | The input artifacts to remove from the component.
@@ -77,12 +77,12 @@ data UpdateTrialComponent = UpdateTrialComponent'
     -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | Replaces all of the component\'s hyperparameters with the specified
-    -- hyperparameters.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | Replaces all of the component\'s output artifacts with the specified
     -- artifacts.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
+    -- | Replaces all of the component\'s hyperparameters with the specified
+    -- hyperparameters.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The name of the component to update.
     trialComponentName :: Prelude.Text
   }
@@ -96,9 +96,9 @@ data UpdateTrialComponent = UpdateTrialComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputArtifactsToRemove', 'updateTrialComponent_outputArtifactsToRemove' - The output artifacts to remove from the component.
---
 -- 'parametersToRemove', 'updateTrialComponent_parametersToRemove' - The hyperparameters to remove from the component.
+--
+-- 'outputArtifactsToRemove', 'updateTrialComponent_outputArtifactsToRemove' - The output artifacts to remove from the component.
 --
 -- 'status', 'updateTrialComponent_status' - The new status of the component.
 --
@@ -115,11 +115,11 @@ data UpdateTrialComponent = UpdateTrialComponent'
 -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
 -- displayed.
 --
--- 'parameters', 'updateTrialComponent_parameters' - Replaces all of the component\'s hyperparameters with the specified
--- hyperparameters.
---
 -- 'outputArtifacts', 'updateTrialComponent_outputArtifacts' - Replaces all of the component\'s output artifacts with the specified
 -- artifacts.
+--
+-- 'parameters', 'updateTrialComponent_parameters' - Replaces all of the component\'s hyperparameters with the specified
+-- hyperparameters.
 --
 -- 'trialComponentName', 'updateTrialComponent_trialComponentName' - The name of the component to update.
 newUpdateTrialComponent ::
@@ -128,27 +128,27 @@ newUpdateTrialComponent ::
   UpdateTrialComponent
 newUpdateTrialComponent pTrialComponentName_ =
   UpdateTrialComponent'
-    { outputArtifactsToRemove =
+    { parametersToRemove =
         Prelude.Nothing,
-      parametersToRemove = Prelude.Nothing,
+      outputArtifactsToRemove = Prelude.Nothing,
       status = Prelude.Nothing,
       inputArtifactsToRemove = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       outputArtifacts = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       trialComponentName = pTrialComponentName_
     }
-
--- | The output artifacts to remove from the component.
-updateTrialComponent_outputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe [Prelude.Text])
-updateTrialComponent_outputArtifactsToRemove = Lens.lens (\UpdateTrialComponent' {outputArtifactsToRemove} -> outputArtifactsToRemove) (\s@UpdateTrialComponent' {} a -> s {outputArtifactsToRemove = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The hyperparameters to remove from the component.
 updateTrialComponent_parametersToRemove :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe [Prelude.Text])
 updateTrialComponent_parametersToRemove = Lens.lens (\UpdateTrialComponent' {parametersToRemove} -> parametersToRemove) (\s@UpdateTrialComponent' {} a -> s {parametersToRemove = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The output artifacts to remove from the component.
+updateTrialComponent_outputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe [Prelude.Text])
+updateTrialComponent_outputArtifactsToRemove = Lens.lens (\UpdateTrialComponent' {outputArtifactsToRemove} -> outputArtifactsToRemove) (\s@UpdateTrialComponent' {} a -> s {outputArtifactsToRemove = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new status of the component.
 updateTrialComponent_status :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe TrialComponentStatus)
@@ -177,15 +177,15 @@ updateTrialComponent_inputArtifacts = Lens.lens (\UpdateTrialComponent' {inputAr
 updateTrialComponent_displayName :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe Prelude.Text)
 updateTrialComponent_displayName = Lens.lens (\UpdateTrialComponent' {displayName} -> displayName) (\s@UpdateTrialComponent' {} a -> s {displayName = a} :: UpdateTrialComponent)
 
--- | Replaces all of the component\'s hyperparameters with the specified
--- hyperparameters.
-updateTrialComponent_parameters :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
-updateTrialComponent_parameters = Lens.lens (\UpdateTrialComponent' {parameters} -> parameters) (\s@UpdateTrialComponent' {} a -> s {parameters = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Replaces all of the component\'s output artifacts with the specified
 -- artifacts.
 updateTrialComponent_outputArtifacts :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 updateTrialComponent_outputArtifacts = Lens.lens (\UpdateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@UpdateTrialComponent' {} a -> s {outputArtifacts = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Replaces all of the component\'s hyperparameters with the specified
+-- hyperparameters.
+updateTrialComponent_parameters :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+updateTrialComponent_parameters = Lens.lens (\UpdateTrialComponent' {parameters} -> parameters) (\s@UpdateTrialComponent' {} a -> s {parameters = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the component to update.
 updateTrialComponent_trialComponentName :: Lens.Lens' UpdateTrialComponent Prelude.Text
@@ -227,10 +227,10 @@ instance Core.ToJSON UpdateTrialComponent where
   toJSON UpdateTrialComponent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputArtifactsToRemove" Core..=)
-              Prelude.<$> outputArtifactsToRemove,
-            ("ParametersToRemove" Core..=)
+          [ ("ParametersToRemove" Core..=)
               Prelude.<$> parametersToRemove,
+            ("OutputArtifactsToRemove" Core..=)
+              Prelude.<$> outputArtifactsToRemove,
             ("Status" Core..=) Prelude.<$> status,
             ("InputArtifactsToRemove" Core..=)
               Prelude.<$> inputArtifactsToRemove,
@@ -239,9 +239,9 @@ instance Core.ToJSON UpdateTrialComponent where
             ("InputArtifacts" Core..=)
               Prelude.<$> inputArtifacts,
             ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Parameters" Core..=) Prelude.<$> parameters,
             ("OutputArtifacts" Core..=)
               Prelude.<$> outputArtifacts,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("TrialComponentName" Core..= trialComponentName)
           ]

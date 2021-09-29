@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | By default, @UpdateTable@ always creates an archived version of the
     -- table before updating it. However, if @skipArchive@ is set to true,
@@ -75,7 +75,7 @@ data UpdateTable = UpdateTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'updateTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'skipArchive', 'updateTable_skipArchive' - By default, @UpdateTable@ always creates an archived version of the
 -- table before updating it. However, if @skipArchive@ is set to true,
@@ -101,7 +101,7 @@ newUpdateTable pDatabaseName_ pTableInput_ =
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 updateTable_catalogId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
 updateTable_catalogId = Lens.lens (\UpdateTable' {catalogId} -> catalogId) (\s@UpdateTable' {} a -> s {catalogId = a} :: UpdateTable)
 

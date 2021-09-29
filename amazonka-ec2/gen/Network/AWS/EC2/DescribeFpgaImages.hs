@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeFpgaImages
 
     -- * Request Lenses
     describeFpgaImages_nextToken,
-    describeFpgaImages_dryRun,
     describeFpgaImages_maxResults,
+    describeFpgaImages_dryRun,
     describeFpgaImages_owners,
     describeFpgaImages_fpgaImageIds,
     describeFpgaImages_filters,
@@ -60,13 +60,13 @@ import qualified Network.AWS.Response as Response
 data DescribeFpgaImages = DescribeFpgaImages'
   { -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is
     -- the sender of the request), or an AWS owner alias (valid values are
     -- @amazon@ | @aws-marketplace@).
@@ -118,12 +118,12 @@ data DescribeFpgaImages = DescribeFpgaImages'
 --
 -- 'nextToken', 'describeFpgaImages_nextToken' - The token to retrieve the next page of results.
 --
+-- 'maxResults', 'describeFpgaImages_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'dryRun', 'describeFpgaImages_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeFpgaImages_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'owners', 'describeFpgaImages_owners' - Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is
 -- the sender of the request), or an AWS owner alias (valid values are
@@ -167,8 +167,8 @@ newDescribeFpgaImages ::
 newDescribeFpgaImages =
   DescribeFpgaImages'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       owners = Prelude.Nothing,
       fpgaImageIds = Prelude.Nothing,
       filters = Prelude.Nothing
@@ -178,16 +178,16 @@ newDescribeFpgaImages =
 describeFpgaImages_nextToken :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Text)
 describeFpgaImages_nextToken = Lens.lens (\DescribeFpgaImages' {nextToken} -> nextToken) (\s@DescribeFpgaImages' {} a -> s {nextToken = a} :: DescribeFpgaImages)
 
+-- | The maximum number of results to return in a single call.
+describeFpgaImages_maxResults :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Natural)
+describeFpgaImages_maxResults = Lens.lens (\DescribeFpgaImages' {maxResults} -> maxResults) (\s@DescribeFpgaImages' {} a -> s {maxResults = a} :: DescribeFpgaImages)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeFpgaImages_dryRun :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Bool)
 describeFpgaImages_dryRun = Lens.lens (\DescribeFpgaImages' {dryRun} -> dryRun) (\s@DescribeFpgaImages' {} a -> s {dryRun = a} :: DescribeFpgaImages)
-
--- | The maximum number of results to return in a single call.
-describeFpgaImages_maxResults :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Natural)
-describeFpgaImages_maxResults = Lens.lens (\DescribeFpgaImages' {maxResults} -> maxResults) (\s@DescribeFpgaImages' {} a -> s {maxResults = a} :: DescribeFpgaImages)
 
 -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is
 -- the sender of the request), or an AWS owner alias (valid values are
@@ -289,8 +289,8 @@ instance Core.ToQuery DescribeFpgaImages where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Owner" Prelude.<$> owners),
         Core.toQuery

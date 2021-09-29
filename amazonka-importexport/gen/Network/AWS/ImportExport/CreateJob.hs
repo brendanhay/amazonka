@@ -45,8 +45,8 @@ module Network.AWS.ImportExport.CreateJob
     -- * Response Lenses
     createJobResponse_warningMessage,
     createJobResponse_jobType,
-    createJobResponse_artifactList,
     createJobResponse_signature,
+    createJobResponse_artifactList,
     createJobResponse_signatureFileContents,
     createJobResponse_jobId,
     createJobResponse_httpStatus,
@@ -136,10 +136,10 @@ instance Core.AWSRequest CreateJob where
           CreateJobResponse'
             Prelude.<$> (x Core..@? "WarningMessage")
             Prelude.<*> (x Core..@? "JobType")
+            Prelude.<*> (x Core..@? "Signature")
             Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Signature")
             Prelude.<*> (x Core..@? "SignatureFileContents")
             Prelude.<*> (x Core..@? "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,8 +175,8 @@ instance Core.ToQuery CreateJob where
 data CreateJobResponse = CreateJobResponse'
   { warningMessage :: Prelude.Maybe Prelude.Text,
     jobType :: Prelude.Maybe JobType,
-    artifactList :: Prelude.Maybe [Artifact],
     signature :: Prelude.Maybe Prelude.Text,
+    artifactList :: Prelude.Maybe [Artifact],
     signatureFileContents :: Prelude.Maybe Prelude.Text,
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -196,9 +196,9 @@ data CreateJobResponse = CreateJobResponse'
 --
 -- 'jobType', 'createJobResponse_jobType' - Undocumented member.
 --
--- 'artifactList', 'createJobResponse_artifactList' - Undocumented member.
---
 -- 'signature', 'createJobResponse_signature' - Undocumented member.
+--
+-- 'artifactList', 'createJobResponse_artifactList' - Undocumented member.
 --
 -- 'signatureFileContents', 'createJobResponse_signatureFileContents' - Undocumented member.
 --
@@ -214,8 +214,8 @@ newCreateJobResponse pHttpStatus_ =
     { warningMessage =
         Prelude.Nothing,
       jobType = Prelude.Nothing,
-      artifactList = Prelude.Nothing,
       signature = Prelude.Nothing,
+      artifactList = Prelude.Nothing,
       signatureFileContents = Prelude.Nothing,
       jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -230,12 +230,12 @@ createJobResponse_jobType :: Lens.Lens' CreateJobResponse (Prelude.Maybe JobType
 createJobResponse_jobType = Lens.lens (\CreateJobResponse' {jobType} -> jobType) (\s@CreateJobResponse' {} a -> s {jobType = a} :: CreateJobResponse)
 
 -- | Undocumented member.
-createJobResponse_artifactList :: Lens.Lens' CreateJobResponse (Prelude.Maybe [Artifact])
-createJobResponse_artifactList = Lens.lens (\CreateJobResponse' {artifactList} -> artifactList) (\s@CreateJobResponse' {} a -> s {artifactList = a} :: CreateJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
 createJobResponse_signature :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
 createJobResponse_signature = Lens.lens (\CreateJobResponse' {signature} -> signature) (\s@CreateJobResponse' {} a -> s {signature = a} :: CreateJobResponse)
+
+-- | Undocumented member.
+createJobResponse_artifactList :: Lens.Lens' CreateJobResponse (Prelude.Maybe [Artifact])
+createJobResponse_artifactList = Lens.lens (\CreateJobResponse' {artifactList} -> artifactList) (\s@CreateJobResponse' {} a -> s {artifactList = a} :: CreateJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 createJobResponse_signatureFileContents :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)

@@ -23,7 +23,11 @@
 -- Sets the specified version of the specified policy as the policy\'s
 -- default (operative) version. This action affects all certificates to
 -- which the policy is attached. To list the principals the policy is
--- attached to, use the ListPrincipalPolicy API.
+-- attached to, use the ListPrincipalPolicies action.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetDefaultPolicyVersion>
+-- action.
 module Network.AWS.IoT.SetDefaultPolicyVersion
   ( -- * Creating a Request
     SetDefaultPolicyVersion (..),

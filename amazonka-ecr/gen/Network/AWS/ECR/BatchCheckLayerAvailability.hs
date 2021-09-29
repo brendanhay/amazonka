@@ -59,9 +59,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchCheckLayerAvailability' smart constructor.
 data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
-  { -- | The AWS account ID associated with the registry that contains the image
-    -- layers to check. If you do not specify a registry, the default registry
-    -- is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the image layers to check. If you do not specify a registry,
+    -- the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that is associated with the image layers to
     -- check.
@@ -79,9 +79,9 @@ data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'batchCheckLayerAvailability_registryId' - The AWS account ID associated with the registry that contains the image
--- layers to check. If you do not specify a registry, the default registry
--- is assumed.
+-- 'registryId', 'batchCheckLayerAvailability_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the image layers to check. If you do not specify a registry,
+-- the default registry is assumed.
 --
 -- 'repositoryName', 'batchCheckLayerAvailability_repositoryName' - The name of the repository that is associated with the image layers to
 -- check.
@@ -104,9 +104,9 @@ newBatchCheckLayerAvailability
           Lens._Coerce Lens.# pLayerDigests_
       }
 
--- | The AWS account ID associated with the registry that contains the image
--- layers to check. If you do not specify a registry, the default registry
--- is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the image layers to check. If you do not specify a registry,
+-- the default registry is assumed.
 batchCheckLayerAvailability_registryId :: Lens.Lens' BatchCheckLayerAvailability (Prelude.Maybe Prelude.Text)
 batchCheckLayerAvailability_registryId = Lens.lens (\BatchCheckLayerAvailability' {registryId} -> registryId) (\s@BatchCheckLayerAvailability' {} a -> s {registryId = a} :: BatchCheckLayerAvailability)
 

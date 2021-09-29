@@ -32,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCrawlerTargets' smart constructor.
 data CrawlerTargets = CrawlerTargets'
-  { -- | Specifies AWS Glue Data Catalog targets.
+  { -- | Specifies Glue Data Catalog targets.
     catalogTargets :: Prelude.Maybe [CatalogTarget],
     -- | Specifies Amazon DocumentDB or MongoDB targets.
     mongoDBTargets :: Prelude.Maybe [MongoDBTarget],
@@ -53,7 +53,7 @@ data CrawlerTargets = CrawlerTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies AWS Glue Data Catalog targets.
+-- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies Glue Data Catalog targets.
 --
 -- 'mongoDBTargets', 'crawlerTargets_mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
 --
@@ -73,7 +73,7 @@ newCrawlerTargets =
       s3Targets = Prelude.Nothing
     }
 
--- | Specifies AWS Glue Data Catalog targets.
+-- | Specifies Glue Data Catalog targets.
 crawlerTargets_catalogTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [CatalogTarget])
 crawlerTargets_catalogTargets = Lens.lens (\CrawlerTargets' {catalogTargets} -> catalogTargets) (\s@CrawlerTargets' {} a -> s {catalogTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
 

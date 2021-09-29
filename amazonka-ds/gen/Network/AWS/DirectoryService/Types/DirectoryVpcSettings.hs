@@ -31,7 +31,7 @@ data DirectoryVpcSettings = DirectoryVpcSettings'
   { -- | The identifier of the VPC in which to create the directory.
     vpcId :: Prelude.Text,
     -- | The identifiers of the subnets for the directory servers. The two
-    -- subnets must be in different Availability Zones. AWS Directory Service
+    -- subnets must be in different Availability Zones. Directory Service
     -- creates a directory server and a DNS server in each of these subnets.
     subnetIds :: [Prelude.Text]
   }
@@ -48,7 +48,7 @@ data DirectoryVpcSettings = DirectoryVpcSettings'
 -- 'vpcId', 'directoryVpcSettings_vpcId' - The identifier of the VPC in which to create the directory.
 --
 -- 'subnetIds', 'directoryVpcSettings_subnetIds' - The identifiers of the subnets for the directory servers. The two
--- subnets must be in different Availability Zones. AWS Directory Service
+-- subnets must be in different Availability Zones. Directory Service
 -- creates a directory server and a DNS server in each of these subnets.
 newDirectoryVpcSettings ::
   -- | 'vpcId'
@@ -65,7 +65,7 @@ directoryVpcSettings_vpcId :: Lens.Lens' DirectoryVpcSettings Prelude.Text
 directoryVpcSettings_vpcId = Lens.lens (\DirectoryVpcSettings' {vpcId} -> vpcId) (\s@DirectoryVpcSettings' {} a -> s {vpcId = a} :: DirectoryVpcSettings)
 
 -- | The identifiers of the subnets for the directory servers. The two
--- subnets must be in different Availability Zones. AWS Directory Service
+-- subnets must be in different Availability Zones. Directory Service
 -- creates a directory server and a DNS server in each of these subnets.
 directoryVpcSettings_subnetIds :: Lens.Lens' DirectoryVpcSettings [Prelude.Text]
 directoryVpcSettings_subnetIds = Lens.lens (\DirectoryVpcSettings' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettings' {} a -> s {subnetIds = a} :: DirectoryVpcSettings) Prelude.. Lens._Coerce

@@ -24,18 +24,20 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
 
--- | Information about the AwsOrganizationsSource resource data sync source.
--- A sync source of this type can synchronize data from AWS Organizations
--- or, if an AWS Organization is not present, from multiple AWS Regions.
+-- | Information about the @AwsOrganizationsSource@ resource data sync
+-- source. A sync source of this type can synchronize data from
+-- Organizations or, if an Amazon Web Services organization isn\'t present,
+-- from multiple Amazon Web Services Regions.
 --
 -- /See:/ 'newResourceDataSyncAwsOrganizationsSource' smart constructor.
 data ResourceDataSyncAwsOrganizationsSource = ResourceDataSyncAwsOrganizationsSource'
-  { -- | The AWS Organizations organization units included in the sync.
+  { -- | The Organizations organization units included in the sync.
     organizationalUnits :: Prelude.Maybe (Prelude.NonEmpty ResourceDataSyncOrganizationalUnit),
-    -- | If an AWS Organization is present, this is either @OrganizationalUnits@
-    -- or @EntireOrganization@. For @OrganizationalUnits@, the data is
-    -- aggregated from a set of organization units. For @EntireOrganization@,
-    -- the data is aggregated from the entire AWS Organization.
+    -- | If an Amazon Web Services organization is present, this is either
+    -- @OrganizationalUnits@ or @EntireOrganization@. For
+    -- @OrganizationalUnits@, the data is aggregated from a set of organization
+    -- units. For @EntireOrganization@, the data is aggregated from the entire
+    -- Amazon Web Services organization.
     organizationSourceType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,12 +50,13 @@ data ResourceDataSyncAwsOrganizationsSource = ResourceDataSyncAwsOrganizationsSo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationalUnits', 'resourceDataSyncAwsOrganizationsSource_organizationalUnits' - The AWS Organizations organization units included in the sync.
+-- 'organizationalUnits', 'resourceDataSyncAwsOrganizationsSource_organizationalUnits' - The Organizations organization units included in the sync.
 --
--- 'organizationSourceType', 'resourceDataSyncAwsOrganizationsSource_organizationSourceType' - If an AWS Organization is present, this is either @OrganizationalUnits@
--- or @EntireOrganization@. For @OrganizationalUnits@, the data is
--- aggregated from a set of organization units. For @EntireOrganization@,
--- the data is aggregated from the entire AWS Organization.
+-- 'organizationSourceType', 'resourceDataSyncAwsOrganizationsSource_organizationSourceType' - If an Amazon Web Services organization is present, this is either
+-- @OrganizationalUnits@ or @EntireOrganization@. For
+-- @OrganizationalUnits@, the data is aggregated from a set of organization
+-- units. For @EntireOrganization@, the data is aggregated from the entire
+-- Amazon Web Services organization.
 newResourceDataSyncAwsOrganizationsSource ::
   -- | 'organizationSourceType'
   Prelude.Text ->
@@ -67,14 +70,15 @@ newResourceDataSyncAwsOrganizationsSource
           pOrganizationSourceType_
       }
 
--- | The AWS Organizations organization units included in the sync.
+-- | The Organizations organization units included in the sync.
 resourceDataSyncAwsOrganizationsSource_organizationalUnits :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource (Prelude.Maybe (Prelude.NonEmpty ResourceDataSyncOrganizationalUnit))
 resourceDataSyncAwsOrganizationsSource_organizationalUnits = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationalUnits} -> organizationalUnits) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationalUnits = a} :: ResourceDataSyncAwsOrganizationsSource) Prelude.. Lens.mapping Lens._Coerce
 
--- | If an AWS Organization is present, this is either @OrganizationalUnits@
--- or @EntireOrganization@. For @OrganizationalUnits@, the data is
--- aggregated from a set of organization units. For @EntireOrganization@,
--- the data is aggregated from the entire AWS Organization.
+-- | If an Amazon Web Services organization is present, this is either
+-- @OrganizationalUnits@ or @EntireOrganization@. For
+-- @OrganizationalUnits@, the data is aggregated from a set of organization
+-- units. For @EntireOrganization@, the data is aggregated from the entire
+-- Amazon Web Services organization.
 resourceDataSyncAwsOrganizationsSource_organizationSourceType :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource Prelude.Text
 resourceDataSyncAwsOrganizationsSource_organizationSourceType = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationSourceType} -> organizationSourceType) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationSourceType = a} :: ResourceDataSyncAwsOrganizationsSource)
 

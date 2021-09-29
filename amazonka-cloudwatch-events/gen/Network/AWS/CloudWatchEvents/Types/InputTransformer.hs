@@ -36,7 +36,7 @@ data InputTransformer = InputTransformer'
     -- JSON path. You can have as many as 100 key-value pairs. You must use
     -- JSON dot notation, not bracket notation.
     --
-    -- The keys cannot start with \"AWS.\"
+    -- The keys cannot start with \"Amazon Web Services.\"
     inputPathsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Input template where you specify placeholders that will be filled with
     -- the values of the keys from @InputPathsMap@ to customize the data sent
@@ -106,7 +106,7 @@ data InputTransformer = InputTransformer'
 -- JSON path. You can have as many as 100 key-value pairs. You must use
 -- JSON dot notation, not bracket notation.
 --
--- The keys cannot start with \"AWS.\"
+-- The keys cannot start with \"Amazon Web Services.\"
 --
 -- 'inputTemplate', 'inputTransformer_inputTemplate' - Input template where you specify placeholders that will be filled with
 -- the values of the keys from @InputPathsMap@ to customize the data sent
@@ -174,7 +174,7 @@ newInputTransformer pInputTemplate_ =
 -- JSON path. You can have as many as 100 key-value pairs. You must use
 -- JSON dot notation, not bracket notation.
 --
--- The keys cannot start with \"AWS.\"
+-- The keys cannot start with \"Amazon Web Services.\"
 inputTransformer_inputPathsMap :: Lens.Lens' InputTransformer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 inputTransformer_inputPathsMap = Lens.lens (\InputTransformer' {inputPathsMap} -> inputPathsMap) (\s@InputTransformer' {} a -> s {inputPathsMap = a} :: InputTransformer) Prelude.. Lens.mapping Lens._Coerce
 

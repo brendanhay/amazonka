@@ -31,12 +31,12 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
     -- can be replicating, replication stop point set, replication stop point
     -- reached, error, stopped, or terminated.
     status :: Prelude.Maybe Prelude.Text,
-    -- | Details of the error if there is an error for the instance. If the
-    -- instance isn\'t in an error state, this value is blank.
-    message :: Prelude.Maybe Prelude.Text,
     -- | Boolean value that is true if the instance is operating normally, or
     -- false if the instance is in an error state.
     normal :: Prelude.Maybe Prelude.Bool,
+    -- | Details of the error if there is an error for the instance. If the
+    -- instance isn\'t in an error state, this value is blank.
+    message :: Prelude.Maybe Prelude.Text,
     -- | This value is currently \"read replication.\"
     statusType :: Prelude.Maybe Prelude.Text
   }
@@ -54,11 +54,11 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
 -- can be replicating, replication stop point set, replication stop point
 -- reached, error, stopped, or terminated.
 --
--- 'message', 'dbInstanceStatusInfo_message' - Details of the error if there is an error for the instance. If the
--- instance isn\'t in an error state, this value is blank.
---
 -- 'normal', 'dbInstanceStatusInfo_normal' - Boolean value that is true if the instance is operating normally, or
 -- false if the instance is in an error state.
+--
+-- 'message', 'dbInstanceStatusInfo_message' - Details of the error if there is an error for the instance. If the
+-- instance isn\'t in an error state, this value is blank.
 --
 -- 'statusType', 'dbInstanceStatusInfo_statusType' - This value is currently \"read replication.\"
 newDBInstanceStatusInfo ::
@@ -66,8 +66,8 @@ newDBInstanceStatusInfo ::
 newDBInstanceStatusInfo =
   DBInstanceStatusInfo'
     { status = Prelude.Nothing,
-      message = Prelude.Nothing,
       normal = Prelude.Nothing,
+      message = Prelude.Nothing,
       statusType = Prelude.Nothing
     }
 
@@ -77,15 +77,15 @@ newDBInstanceStatusInfo =
 dbInstanceStatusInfo_status :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_status = Lens.lens (\DBInstanceStatusInfo' {status} -> status) (\s@DBInstanceStatusInfo' {} a -> s {status = a} :: DBInstanceStatusInfo)
 
--- | Details of the error if there is an error for the instance. If the
--- instance isn\'t in an error state, this value is blank.
-dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
-dbInstanceStatusInfo_message = Lens.lens (\DBInstanceStatusInfo' {message} -> message) (\s@DBInstanceStatusInfo' {} a -> s {message = a} :: DBInstanceStatusInfo)
-
 -- | Boolean value that is true if the instance is operating normally, or
 -- false if the instance is in an error state.
 dbInstanceStatusInfo_normal :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Bool)
 dbInstanceStatusInfo_normal = Lens.lens (\DBInstanceStatusInfo' {normal} -> normal) (\s@DBInstanceStatusInfo' {} a -> s {normal = a} :: DBInstanceStatusInfo)
+
+-- | Details of the error if there is an error for the instance. If the
+-- instance isn\'t in an error state, this value is blank.
+dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
+dbInstanceStatusInfo_message = Lens.lens (\DBInstanceStatusInfo' {message} -> message) (\s@DBInstanceStatusInfo' {} a -> s {message = a} :: DBInstanceStatusInfo)
 
 -- | This value is currently \"read replication.\"
 dbInstanceStatusInfo_statusType :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
@@ -95,8 +95,8 @@ instance Core.FromXML DBInstanceStatusInfo where
   parseXML x =
     DBInstanceStatusInfo'
       Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "Normal")
+      Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "StatusType")
 
 instance Prelude.Hashable DBInstanceStatusInfo

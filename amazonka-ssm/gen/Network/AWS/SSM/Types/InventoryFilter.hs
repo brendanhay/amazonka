@@ -34,13 +34,13 @@ data InventoryFilter = InventoryFilter'
     -- The @Exists@ filter must be used with aggregators. For more information,
     -- see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html Aggregating inventory data>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     type' :: Prelude.Maybe InventoryQueryOperatorType,
     -- | The name of the filter key.
     key :: Prelude.Text,
     -- | Inventory filter values. Example: inventory filter where instance IDs
-    -- are specified as values Key=AWS:InstanceInformation.InstanceId,Values=
-    -- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
+    -- are specified as values
+    -- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
     values :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,13 +58,13 @@ data InventoryFilter = InventoryFilter'
 -- The @Exists@ filter must be used with aggregators. For more information,
 -- see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html Aggregating inventory data>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'key', 'inventoryFilter_key' - The name of the filter key.
 --
 -- 'values', 'inventoryFilter_values' - Inventory filter values. Example: inventory filter where instance IDs
--- are specified as values Key=AWS:InstanceInformation.InstanceId,Values=
--- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
+-- are specified as values
+-- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
 newInventoryFilter ::
   -- | 'key'
   Prelude.Text ->
@@ -83,7 +83,7 @@ newInventoryFilter pKey_ pValues_ =
 -- The @Exists@ filter must be used with aggregators. For more information,
 -- see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-aggregate.html Aggregating inventory data>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 inventoryFilter_type :: Lens.Lens' InventoryFilter (Prelude.Maybe InventoryQueryOperatorType)
 inventoryFilter_type = Lens.lens (\InventoryFilter' {type'} -> type') (\s@InventoryFilter' {} a -> s {type' = a} :: InventoryFilter)
 
@@ -92,8 +92,8 @@ inventoryFilter_key :: Lens.Lens' InventoryFilter Prelude.Text
 inventoryFilter_key = Lens.lens (\InventoryFilter' {key} -> key) (\s@InventoryFilter' {} a -> s {key = a} :: InventoryFilter)
 
 -- | Inventory filter values. Example: inventory filter where instance IDs
--- are specified as values Key=AWS:InstanceInformation.InstanceId,Values=
--- i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal
+-- are specified as values
+-- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
 inventoryFilter_values :: Lens.Lens' InventoryFilter (Prelude.NonEmpty Prelude.Text)
 inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Lens._Coerce
 

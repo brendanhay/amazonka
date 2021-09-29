@@ -34,7 +34,7 @@ data ClientConnectResponseOptions = ClientConnectResponseOptions'
     status :: Prelude.Maybe ClientVpnEndpointAttributeStatus,
     -- | Indicates whether client connect options are enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
+    -- | The Amazon Resource Name (ARN) of the Lambda function used for
     -- connection authorization.
     lambdaFunctionArn :: Prelude.Maybe Prelude.Text
   }
@@ -52,7 +52,7 @@ data ClientConnectResponseOptions = ClientConnectResponseOptions'
 --
 -- 'enabled', 'clientConnectResponseOptions_enabled' - Indicates whether client connect options are enabled.
 --
--- 'lambdaFunctionArn', 'clientConnectResponseOptions_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the AWS Lambda function used for
+-- 'lambdaFunctionArn', 'clientConnectResponseOptions_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
 newClientConnectResponseOptions ::
   ClientConnectResponseOptions
@@ -72,7 +72,7 @@ clientConnectResponseOptions_status = Lens.lens (\ClientConnectResponseOptions' 
 clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Bool)
 clientConnectResponseOptions_enabled = Lens.lens (\ClientConnectResponseOptions' {enabled} -> enabled) (\s@ClientConnectResponseOptions' {} a -> s {enabled = a} :: ClientConnectResponseOptions)
 
--- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
+-- | The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
 clientConnectResponseOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Text)
 clientConnectResponseOptions_lambdaFunctionArn = Lens.lens (\ClientConnectResponseOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectResponseOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectResponseOptions)

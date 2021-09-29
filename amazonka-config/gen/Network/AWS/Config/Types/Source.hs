@@ -25,25 +25,25 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Provides the AWS Config rule owner (AWS or customer), the rule
--- identifier, and the events that trigger the evaluation of your AWS
--- resources.
+-- | Provides the Config rule owner (Amazon Web Services or customer), the
+-- rule identifier, and the events that trigger the evaluation of your
+-- Amazon Web Services resources.
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { -- | Provides the source and type of the event that causes AWS Config to
-    -- evaluate your AWS resources.
+  { -- | Provides the source and type of the event that causes Config to evaluate
+    -- your Amazon Web Services resources.
     sourceDetails :: Prelude.Maybe [SourceDetail],
-    -- | Indicates whether AWS or the customer owns and manages the AWS Config
-    -- rule.
+    -- | Indicates whether Amazon Web Services or the customer owns and manages
+    -- the Config rule.
     owner :: Owner,
-    -- | For AWS Config managed rules, a predefined identifier from a list. For
+    -- | For Config managed rules, a predefined identifier from a list. For
     -- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
     -- rule, see
-    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
     --
     -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
-    -- the rule\'s AWS Lambda function, such as
+    -- the rule\'s Lambda function, such as
     -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
     sourceIdentifier :: Prelude.Text
   }
@@ -57,19 +57,19 @@ data Source = Source'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceDetails', 'source_sourceDetails' - Provides the source and type of the event that causes AWS Config to
--- evaluate your AWS resources.
+-- 'sourceDetails', 'source_sourceDetails' - Provides the source and type of the event that causes Config to evaluate
+-- your Amazon Web Services resources.
 --
--- 'owner', 'source_owner' - Indicates whether AWS or the customer owns and manages the AWS Config
--- rule.
+-- 'owner', 'source_owner' - Indicates whether Amazon Web Services or the customer owns and manages
+-- the Config rule.
 --
--- 'sourceIdentifier', 'source_sourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For
+-- 'sourceIdentifier', 'source_sourceIdentifier' - For Config managed rules, a predefined identifier from a list. For
 -- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
 -- rule, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
 --
 -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
--- the rule\'s AWS Lambda function, such as
+-- the rule\'s Lambda function, such as
 -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
 newSource ::
   -- | 'owner'
@@ -84,23 +84,23 @@ newSource pOwner_ pSourceIdentifier_ =
       sourceIdentifier = pSourceIdentifier_
     }
 
--- | Provides the source and type of the event that causes AWS Config to
--- evaluate your AWS resources.
+-- | Provides the source and type of the event that causes Config to evaluate
+-- your Amazon Web Services resources.
 source_sourceDetails :: Lens.Lens' Source (Prelude.Maybe [SourceDetail])
 source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Lens._Coerce
 
--- | Indicates whether AWS or the customer owns and manages the AWS Config
--- rule.
+-- | Indicates whether Amazon Web Services or the customer owns and manages
+-- the Config rule.
 source_owner :: Lens.Lens' Source Owner
 source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owner = a} :: Source)
 
--- | For AWS Config managed rules, a predefined identifier from a list. For
+-- | For Config managed rules, a predefined identifier from a list. For
 -- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
 -- rule, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules>.
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
 --
 -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
--- the rule\'s AWS Lambda function, such as
+-- the rule\'s Lambda function, such as
 -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
 source_sourceIdentifier :: Lens.Lens' Source Prelude.Text
 source_sourceIdentifier = Lens.lens (\Source' {sourceIdentifier} -> sourceIdentifier) (\s@Source' {} a -> s {sourceIdentifier = a} :: Source)

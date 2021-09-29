@@ -39,8 +39,8 @@ module Network.AWS.AppStream.CreateImageBuilder
     createImageBuilder_tags,
     createImageBuilder_appstreamAgentVersion,
     createImageBuilder_description,
-    createImageBuilder_displayName,
     createImageBuilder_enableDefaultInternetAccess,
+    createImageBuilder_displayName,
     createImageBuilder_imageArn,
     createImageBuilder_name,
     createImageBuilder_instanceType,
@@ -108,10 +108,10 @@ data CreateImageBuilder = CreateImageBuilder'
     appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The image builder name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables default internet access for the image builder.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The image builder name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the public, private, or shared image to use.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the image builder.
@@ -240,9 +240,9 @@ data CreateImageBuilder = CreateImageBuilder'
 --
 -- 'description', 'createImageBuilder_description' - The description to display.
 --
--- 'displayName', 'createImageBuilder_displayName' - The image builder name to display.
---
 -- 'enableDefaultInternetAccess', 'createImageBuilder_enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
+--
+-- 'displayName', 'createImageBuilder_displayName' - The image builder name to display.
 --
 -- 'imageArn', 'createImageBuilder_imageArn' - The ARN of the public, private, or shared image to use.
 --
@@ -332,8 +332,8 @@ newCreateImageBuilder pName_ pInstanceType_ =
       tags = Prelude.Nothing,
       appstreamAgentVersion = Prelude.Nothing,
       description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       enableDefaultInternetAccess = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       imageArn = Prelude.Nothing,
       name = pName_,
       instanceType = pInstanceType_
@@ -399,13 +399,13 @@ createImageBuilder_appstreamAgentVersion = Lens.lens (\CreateImageBuilder' {apps
 createImageBuilder_description :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
 createImageBuilder_description = Lens.lens (\CreateImageBuilder' {description} -> description) (\s@CreateImageBuilder' {} a -> s {description = a} :: CreateImageBuilder)
 
--- | The image builder name to display.
-createImageBuilder_displayName :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
-createImageBuilder_displayName = Lens.lens (\CreateImageBuilder' {displayName} -> displayName) (\s@CreateImageBuilder' {} a -> s {displayName = a} :: CreateImageBuilder)
-
 -- | Enables or disables default internet access for the image builder.
 createImageBuilder_enableDefaultInternetAccess :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Bool)
 createImageBuilder_enableDefaultInternetAccess = Lens.lens (\CreateImageBuilder' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@CreateImageBuilder' {} a -> s {enableDefaultInternetAccess = a} :: CreateImageBuilder)
+
+-- | The image builder name to display.
+createImageBuilder_displayName :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
+createImageBuilder_displayName = Lens.lens (\CreateImageBuilder' {displayName} -> displayName) (\s@CreateImageBuilder' {} a -> s {displayName = a} :: CreateImageBuilder)
 
 -- | The ARN of the public, private, or shared image to use.
 createImageBuilder_imageArn :: Lens.Lens' CreateImageBuilder (Prelude.Maybe Prelude.Text)
@@ -533,9 +533,9 @@ instance Core.ToJSON CreateImageBuilder where
             ("AppstreamAgentVersion" Core..=)
               Prelude.<$> appstreamAgentVersion,
             ("Description" Core..=) Prelude.<$> description,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EnableDefaultInternetAccess" Core..=)
               Prelude.<$> enableDefaultInternetAccess,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("ImageArn" Core..=) Prelude.<$> imageArn,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("InstanceType" Core..= instanceType)

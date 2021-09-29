@@ -25,7 +25,7 @@
 -- The minimum is 0 seconds. The maximum is 12 hours. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- For example, you have a message with a visibility timeout of 5 minutes.
 -- After 3 minutes, you call @ChangeMessageVisibility@ with a timeout of 10

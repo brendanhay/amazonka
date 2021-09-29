@@ -41,8 +41,8 @@ module Network.AWS.Transcribe.UpdateVocabulary
     -- * Response Lenses
     updateVocabularyResponse_languageCode,
     updateVocabularyResponse_lastModifiedTime,
-    updateVocabularyResponse_vocabularyState,
     updateVocabularyResponse_vocabularyName,
+    updateVocabularyResponse_vocabularyState,
     updateVocabularyResponse_httpStatus,
   )
 where
@@ -65,17 +65,18 @@ data UpdateVocabulary = UpdateVocabulary'
     -- For example:
     --
     -- For more information about S3 object names, see
-    -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
     -- in the /Amazon S3 Developer Guide/.
     --
     -- For more information about custom vocabularies, see
-    -- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
     vocabularyFileUri :: Prelude.Maybe Prelude.Text,
     -- | The name of the vocabulary to update. The name is case sensitive. If you
     -- try to update a vocabulary with the same name as a previous vocabulary
     -- you will receive a @ConflictException@ error.
     vocabularyName :: Prelude.Text,
-    -- | The language code of the vocabulary entries.
+    -- | The language code of the vocabulary entries. For a list of languages and
+    -- their corresponding language codes, see transcribe-whatis.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,17 +98,18 @@ data UpdateVocabulary = UpdateVocabulary'
 -- For example:
 --
 -- For more information about S3 object names, see
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
 --
 -- For more information about custom vocabularies, see
--- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
 --
 -- 'vocabularyName', 'updateVocabulary_vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you
 -- try to update a vocabulary with the same name as a previous vocabulary
 -- you will receive a @ConflictException@ error.
 --
--- 'languageCode', 'updateVocabulary_languageCode' - The language code of the vocabulary entries.
+-- 'languageCode', 'updateVocabulary_languageCode' - The language code of the vocabulary entries. For a list of languages and
+-- their corresponding language codes, see transcribe-whatis.
 newUpdateVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -133,11 +135,11 @@ updateVocabulary_phrases = Lens.lens (\UpdateVocabulary' {phrases} -> phrases) (
 -- For example:
 --
 -- For more information about S3 object names, see
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
 --
 -- For more information about custom vocabularies, see
--- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
 updateVocabulary_vocabularyFileUri :: Lens.Lens' UpdateVocabulary (Prelude.Maybe Prelude.Text)
 updateVocabulary_vocabularyFileUri = Lens.lens (\UpdateVocabulary' {vocabularyFileUri} -> vocabularyFileUri) (\s@UpdateVocabulary' {} a -> s {vocabularyFileUri = a} :: UpdateVocabulary)
 
@@ -147,7 +149,8 @@ updateVocabulary_vocabularyFileUri = Lens.lens (\UpdateVocabulary' {vocabularyFi
 updateVocabulary_vocabularyName :: Lens.Lens' UpdateVocabulary Prelude.Text
 updateVocabulary_vocabularyName = Lens.lens (\UpdateVocabulary' {vocabularyName} -> vocabularyName) (\s@UpdateVocabulary' {} a -> s {vocabularyName = a} :: UpdateVocabulary)
 
--- | The language code of the vocabulary entries.
+-- | The language code of the vocabulary entries. For a list of languages and
+-- their corresponding language codes, see transcribe-whatis.
 updateVocabulary_languageCode :: Lens.Lens' UpdateVocabulary LanguageCode
 updateVocabulary_languageCode = Lens.lens (\UpdateVocabulary' {languageCode} -> languageCode) (\s@UpdateVocabulary' {} a -> s {languageCode = a} :: UpdateVocabulary)
 
@@ -162,8 +165,8 @@ instance Core.AWSRequest UpdateVocabulary where
           UpdateVocabularyResponse'
             Prelude.<$> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "VocabularyName")
+            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,12 +214,12 @@ data UpdateVocabularyResponse = UpdateVocabularyResponse'
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The date and time that the vocabulary was updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the vocabulary that was updated.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The processing state of the vocabulary. When the @VocabularyState@ field
     -- contains @READY@ the vocabulary is ready to be used in a
     -- @StartTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The name of the vocabulary that was updated.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,11 +237,11 @@ data UpdateVocabularyResponse = UpdateVocabularyResponse'
 --
 -- 'lastModifiedTime', 'updateVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
 --
+-- 'vocabularyName', 'updateVocabularyResponse_vocabularyName' - The name of the vocabulary that was updated.
+--
 -- 'vocabularyState', 'updateVocabularyResponse_vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field
 -- contains @READY@ the vocabulary is ready to be used in a
 -- @StartTranscriptionJob@ request.
---
--- 'vocabularyName', 'updateVocabularyResponse_vocabularyName' - The name of the vocabulary that was updated.
 --
 -- 'httpStatus', 'updateVocabularyResponse_httpStatus' - The response's http status code.
 newUpdateVocabularyResponse ::
@@ -250,8 +253,8 @@ newUpdateVocabularyResponse pHttpStatus_ =
     { languageCode =
         Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -263,15 +266,15 @@ updateVocabularyResponse_languageCode = Lens.lens (\UpdateVocabularyResponse' {l
 updateVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 updateVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the vocabulary that was updated.
+updateVocabularyResponse_vocabularyName :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.Text)
+updateVocabularyResponse_vocabularyName = Lens.lens (\UpdateVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@UpdateVocabularyResponse' {} a -> s {vocabularyName = a} :: UpdateVocabularyResponse)
+
 -- | The processing state of the vocabulary. When the @VocabularyState@ field
 -- contains @READY@ the vocabulary is ready to be used in a
 -- @StartTranscriptionJob@ request.
 updateVocabularyResponse_vocabularyState :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe VocabularyState)
 updateVocabularyResponse_vocabularyState = Lens.lens (\UpdateVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@UpdateVocabularyResponse' {} a -> s {vocabularyState = a} :: UpdateVocabularyResponse)
-
--- | The name of the vocabulary that was updated.
-updateVocabularyResponse_vocabularyName :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.Text)
-updateVocabularyResponse_vocabularyName = Lens.lens (\UpdateVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@UpdateVocabularyResponse' {} a -> s {vocabularyName = a} :: UpdateVocabularyResponse)
 
 -- | The response's http status code.
 updateVocabularyResponse_httpStatus :: Lens.Lens' UpdateVocabularyResponse Prelude.Int

@@ -24,9 +24,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | /See:/ 'newBatchListObjectParentsResponse' smart constructor.
+-- | Represents the output of a ListObjectParents response operation.
+--
+-- /See:/ 'newBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
+  { -- | Returns a list of parent reference and LinkName Tuples.
+    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,9 +43,9 @@ data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentLinks', 'batchListObjectParentsResponse_parentLinks' - Undocumented member.
+-- 'parentLinks', 'batchListObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
 --
--- 'nextToken', 'batchListObjectParentsResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'batchListObjectParentsResponse_nextToken' - The pagination token.
 newBatchListObjectParentsResponse ::
   BatchListObjectParentsResponse
 newBatchListObjectParentsResponse =
@@ -51,11 +55,11 @@ newBatchListObjectParentsResponse =
       nextToken = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Returns a list of parent reference and LinkName Tuples.
 batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
 batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
+-- | The pagination token.
 batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe Prelude.Text)
 batchListObjectParentsResponse_nextToken = Lens.lens (\BatchListObjectParentsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentsResponse)
 

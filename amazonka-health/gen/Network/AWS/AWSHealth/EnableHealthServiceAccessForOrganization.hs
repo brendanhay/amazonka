@@ -29,10 +29,10 @@
 --
 -- To call this operation, you must meet the following requirements:
 --
--- -   You must have a Business or Enterprise support plan from
+-- -   You must have a Business or Enterprise Support plan from
 --     <http://aws.amazon.com/premiumsupport/ AWS Support> to use the AWS
 --     Health API. If you call the AWS Health API from an AWS account that
---     doesn\'t have a Business or Enterprise support plan, you receive a
+--     doesn\'t have a Business or Enterprise Support plan, you receive a
 --     @SubscriptionRequiredException@ error.
 --
 -- -   You must have permission to call this operation from the

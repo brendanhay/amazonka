@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a specific static IP.
+-- Returns information about an Amazon Lightsail static IP.
 module Network.AWS.Lightsail.GetStaticIp
   ( -- * Creating a Request
     GetStaticIp (..),

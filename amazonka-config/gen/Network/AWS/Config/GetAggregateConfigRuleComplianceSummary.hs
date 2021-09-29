@@ -68,7 +68,7 @@ data GetAggregateConfigRuleComplianceSummary = GetAggregateConfigRuleComplianceS
     groupByKey :: Prelude.Maybe ConfigRuleComplianceSummaryGroupKey,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 1000. You cannot specify a number greater than 1000. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
@@ -93,7 +93,7 @@ data GetAggregateConfigRuleComplianceSummary = GetAggregateConfigRuleComplianceS
 --
 -- 'limit', 'getAggregateConfigRuleComplianceSummary_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 1000. You cannot specify a number greater than 1000. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'getAggregateConfigRuleComplianceSummary_configurationAggregatorName' - The name of the configuration aggregator.
 newGetAggregateConfigRuleComplianceSummary ::
@@ -128,7 +128,7 @@ getAggregateConfigRuleComplianceSummary_groupByKey = Lens.lens (\GetAggregateCon
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 1000. You cannot specify a number greater than 1000. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 getAggregateConfigRuleComplianceSummary_limit :: Lens.Lens' GetAggregateConfigRuleComplianceSummary (Prelude.Maybe Prelude.Natural)
 getAggregateConfigRuleComplianceSummary_limit = Lens.lens (\GetAggregateConfigRuleComplianceSummary' {limit} -> limit) (\s@GetAggregateConfigRuleComplianceSummary' {} a -> s {limit = a} :: GetAggregateConfigRuleComplianceSummary)
 

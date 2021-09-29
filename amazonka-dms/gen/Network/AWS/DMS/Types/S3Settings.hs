@@ -20,6 +20,7 @@
 module Network.AWS.DMS.Types.S3Settings where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.DMS.Types.CannedAclForObjectsValue
 import Network.AWS.DMS.Types.CompressionTypeValue
 import Network.AWS.DMS.Types.DataFormatValue
 import Network.AWS.DMS.Types.DatePartitionDelimiterValue
@@ -34,11 +35,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3Settings' smart constructor.
 data S3Settings = S3Settings'
-  { -- | A value that when nonblank causes AWS DMS to add a column with timestamp
+  { -- | A value that when nonblank causes DMS to add a column with timestamp
     -- information to the endpoint data for an Amazon S3 target.
     --
-    -- AWS DMS supports the @TimestampColumnName@ parameter in versions 3.1.4
-    -- and later.
+    -- DMS supports the @TimestampColumnName@ parameter in versions 3.1.4 and
+    -- later.
     --
     -- DMS includes an additional @STRING@ column in the .csv or .parquet
     -- object files of your migrated data when you set @TimestampColumnName@ to
@@ -59,17 +60,17 @@ data S3Settings = S3Settings'
     -- When the @AddColumnName@ parameter is set to @true@, DMS also includes a
     -- name for the timestamp column that you set with @TimestampColumnName@.
     timestampColumnName :: Prelude.Maybe Prelude.Text,
-    -- | If set to @true@, AWS DMS saves the transaction order for a change data
+    -- | The delimiter used to separate rows in the .csv file for both source and
+    -- target. The default is a carriage return (@\\n@).
+    csvRowDelimiter :: Prelude.Maybe Prelude.Text,
+    -- | If set to @true@, DMS saves the transaction order for a change data
     -- capture (CDC) load on the Amazon S3 target specified by
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
     -- . For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
     --
-    -- This setting is supported in AWS DMS versions 3.4.2 and later.
+    -- This setting is supported in DMS versions 3.4.2 and later.
     preserveTransactions :: Prelude.Maybe Prelude.Bool,
-    -- | The delimiter used to separate rows in the .csv file for both source and
-    -- target. The default is a carriage return (@\\n@).
-    csvRowDelimiter :: Prelude.Maybe Prelude.Text,
     -- | The version of the Apache Parquet format that you want to use:
     -- @parquet_1_0@ (the default) or @parquet_2_0@.
     parquetVersion :: Prelude.Maybe ParquetVersionValue,
@@ -81,14 +82,13 @@ data S3Settings = S3Settings'
     bucketName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the folder path of CDC files. For an S3 source, this setting
     -- is required if a task captures change data; otherwise, it\'s optional.
-    -- If @CdcPath@ is set, AWS DMS reads CDC files from this path and
-    -- replicates the data changes to the target endpoint. For an S3 target if
-    -- you set
+    -- If @CdcPath@ is set, DMS reads CDC files from this path and replicates
+    -- the data changes to the target endpoint. For an S3 target if you set
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions PreserveTransactions>
-    -- to @true@, AWS DMS verifies that you have set this parameter to a folder
-    -- path on your S3 target where AWS DMS can save the transaction order for
-    -- the CDC load. AWS DMS creates this CDC folder path in either your S3
-    -- target working directory or the S3 target location specified by
+    -- to @true@, DMS verifies that you have set this parameter to a folder
+    -- path on your S3 target where DMS can save the transaction order for the
+    -- CDC load. DMS creates this CDC folder path in either your S3 target
+    -- working directory or the S3 target location specified by
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder BucketFolder>
     -- and
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName BucketName>
@@ -96,33 +96,57 @@ data S3Settings = S3Settings'
     --
     -- For example, if you specify @CdcPath@ as @MyChangedData@, and you
     -- specify @BucketName@ as @MyTargetBucket@ but do not specify
-    -- @BucketFolder@, AWS DMS creates the CDC folder path following:
+    -- @BucketFolder@, DMS creates the CDC folder path following:
     -- @MyTargetBucket\/MyChangedData@.
     --
     -- If you specify the same @CdcPath@, and you specify @BucketName@ as
-    -- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, AWS DMS creates
-    -- the CDC folder path following:
+    -- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, DMS creates the
+    -- CDC folder path following:
     -- @MyTargetBucket\/MyTargetData\/MyChangedData@.
     --
     -- For more information on CDC including transaction order on an S3 target,
     -- see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
     --
-    -- This setting is supported in AWS DMS versions 3.4.2 and later.
+    -- This setting is supported in DMS versions 3.4.2 and later.
     cdcPath :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how tables are defined in the S3 source files only.
-    externalTableDefinition :: Prelude.Maybe Prelude.Text,
-    -- | If you are using @SSE_KMS@ for the @EncryptionMode@, provide the AWS KMS
-    -- key ID. The key that you use needs an attached policy that enables AWS
-    -- Identity and Access Management (IAM) user permissions and allows use of
-    -- the key.
+    -- | If you are using @SSE_KMS@ for the @EncryptionMode@, provide the KMS key
+    -- ID. The key that you use needs an attached policy that enables Identity
+    -- and Access Management (IAM) user permissions and allows use of the key.
     --
     -- Here is a CLI example:
     -- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
     serverSideEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how tables are defined in the S3 source files only.
+    externalTableDefinition :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that specifies how DMS treats null values. While
+    -- handling the null value, you can use this parameter to pass a
+    -- user-defined string as null when writing to the target. For example,
+    -- when target columns are not nullable, you can use this option to
+    -- differentiate between the empty string value and the null value. So, if
+    -- you set this parameter value to the empty string (\"\" or \'\'), DMS
+    -- treats the empty string as the null value instead of @NULL@.
+    --
+    -- The default value is @NULL@. Valid values include any valid string.
+    csvNullValue :: Prelude.Maybe Prelude.Text,
     -- | The size of one data page in bytes. This parameter defaults to 1024 *
     -- 1024 bytes (1 MiB). This number is used for .parquet file format only.
     dataPageSize :: Prelude.Maybe Prelude.Int,
+    -- | The format of the data that you want to use for output. You can choose
+    -- one of the following:
+    --
+    -- -   @csv@ : This is a row-based file format with comma-separated values
+    --     (.csv).
+    --
+    -- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
+    --     format that features efficient compression and provides faster query
+    --     response.
+    dataFormat :: Prelude.Maybe DataFormatValue,
+    -- | When set to @true@, this parameter partitions S3 bucket folders based on
+    -- transaction commit dates. The default value is @false@. For more
+    -- information about date-based folder partitioning, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
+    datePartitionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The type of encoding you are using:
     --
     -- -   @RLE_DICTIONARY@ uses a combination of bit-packing and run-length
@@ -135,39 +159,41 @@ data S3Settings = S3Settings'
     --     a given column. The dictionary is stored in a dictionary page for
     --     each column chunk.
     encodingType :: Prelude.Maybe EncodingTypeValue,
-    -- | When set to @true@, this parameter partitions S3 bucket folders based on
-    -- transaction commit dates. The default value is @false@. For more
-    -- information about date-based folder partitoning, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
-    datePartitionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The format of the data that you want to use for output. You can choose
-    -- one of the following:
-    --
-    -- -   @csv@ : This is a row-based file format with comma-separated values
-    --     (.csv).
-    --
-    -- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
-    --     format that features efficient compression and provides faster query
-    --     response.
-    dataFormat :: Prelude.Maybe DataFormatValue,
-    -- | The Amazon Resource Name (ARN) used by the service access IAM role. It
-    -- is a required parameter that enables DMS to write and read objects from
-    -- an 3S bucket.
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter to set a folder name in the S3 bucket. If
     -- provided, tables are created in the path
     -- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
     -- specified, then the path used is @ schema_name\/table_name\/@.
     bucketFolder :: Prelude.Maybe Prelude.Text,
+    -- | A value that enables DMS to specify a predefined (canned) access control
+    -- list for objects created in an Amazon S3 bucket as .csv or .parquet
+    -- files. For more information about Amazon S3 canned ACLs, see
+    -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACL>
+    -- in the /Amazon S3 Developer Guide./
+    --
+    -- The default value is NONE. Valid values include NONE, PRIVATE,
+    -- PUBLIC_READ, PUBLIC_READ_WRITE, AUTHENTICATED_READ, AWS_EXEC_READ,
+    -- BUCKET_OWNER_READ, and BUCKET_OWNER_FULL_CONTROL.
+    cannedAclForObjects :: Prelude.Maybe CannedAclForObjectsValue,
+    -- | The Amazon Resource Name (ARN) used by the service to access the IAM
+    -- role. The role must allow the @iam:PassRole@ action. It is a required
+    -- parameter that enables DMS to write and read objects from an S3 bucket.
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that, when set to @true@ or @y@, you can use to
+    -- add column name information to the .csv output file.
+    --
+    -- The default value is @false@. Valid values are @true@, @false@, @y@, and
+    -- @n@.
+    addColumnName :: Prelude.Maybe Prelude.Bool,
     -- | Specifies a date separating delimiter to use during folder partitioning.
     -- The default value is @SLASH@. Use this parameter when
     -- @DatePartitionedEnabled@ is set to @true@.
     datePartitionDelimiter :: Prelude.Maybe DatePartitionDelimiterValue,
-    -- | A value that enables statistics for Parquet pages and row groups. Choose
-    -- @true@ to enable statistics, @false@ to disable. Statistics include
-    -- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
-    -- @true@. This value is used for .parquet file format only.
-    enableStatistics :: Prelude.Maybe Prelude.Bool,
+    -- | A value that specifies the maximum size (in KB) of any .csv file to be
+    -- created while migrating to an S3 target during full load.
+    --
+    -- The default value is 1,048,576 KB (1 GB). Valid values include 1 to
+    -- 1,048,576.
+    maxFileSize :: Prelude.Maybe Prelude.Int,
     -- | The type of server-side encryption that you want to use for your data.
     -- This encryption type is part of the endpoint settings or the extra
     -- connections attributes for Amazon S3. You can choose either @SSE_S3@
@@ -177,9 +203,9 @@ data S3Settings = S3Settings'
     -- the @EncryptionMode@ parameter from @SSE_KMS@ to @SSE_S3@. But you can’t
     -- change the existing value from @SSE_S3@ to @SSE_KMS@.
     --
-    -- To use @SSE_S3@, you need an AWS Identity and Access Management (IAM)
-    -- role with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the
-    -- following actions:
+    -- To use @SSE_S3@, you need an Identity and Access Management (IAM) role
+    -- with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the following
+    -- actions:
     --
     -- -   @s3:CreateBucket@
     --
@@ -220,9 +246,9 @@ data S3Settings = S3Settings'
     -- operation at the source. For more information about how these settings
     -- work together, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
-    -- in the /AWS Database Migration Service User Guide./.
+    -- in the /Database Migration Service User Guide./.
     --
-    -- AWS DMS supports the interaction described preceding between the
+    -- DMS supports the interaction described preceding between the
     -- @CdcInsertsOnly@ and @IncludeOpForFullLoad@ parameters in versions 3.1.4
     -- and later.
     --
@@ -230,6 +256,20 @@ data S3Settings = S3Settings'
     -- for the same endpoint. Set either @CdcInsertsOnly@ or
     -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
     cdcInsertsOnly :: Prelude.Maybe Prelude.Bool,
+    -- | A value that enables statistics for Parquet pages and row groups. Choose
+    -- @true@ to enable statistics, @false@ to disable. Statistics include
+    -- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
+    -- @true@. This value is used for .parquet file format only.
+    enableStatistics :: Prelude.Maybe Prelude.Bool,
+    -- | This setting applies if the S3 output files during a change data capture
+    -- (CDC) load are written in .csv format. If set to @true@ for columns not
+    -- included in the supplemental log, DMS uses the value specified by
+    -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
+    -- . If not set or set to @false@, DMS uses the null value for these
+    -- columns.
+    --
+    -- This setting is supported in DMS versions 3.4.1 and later.
+    useCsvNoSupValue :: Prelude.Maybe Prelude.Bool,
     -- | A value that enables a change data capture (CDC) load to write INSERT
     -- and UPDATE operations to .csv or .parquet (columnar storage) output
     -- files. The default setting is @false@, but when @CdcInsertsAndUpdates@
@@ -245,30 +285,15 @@ data S3Settings = S3Settings'
     -- UPDATE operations at the source. For more information about how these
     -- settings work together, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
-    -- in the /AWS Database Migration Service User Guide./.
+    -- in the /Database Migration Service User Guide./.
     --
-    -- AWS DMS supports the use of the @CdcInsertsAndUpdates@ parameter in
-    -- versions 3.3.1 and later.
+    -- DMS supports the use of the @CdcInsertsAndUpdates@ parameter in versions
+    -- 3.3.1 and later.
     --
     -- @CdcInsertsOnly@ and @CdcInsertsAndUpdates@ can\'t both be set to @true@
     -- for the same endpoint. Set either @CdcInsertsOnly@ or
     -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
     cdcInsertsAndUpdates :: Prelude.Maybe Prelude.Bool,
-    -- | This setting applies if the S3 output files during a change data capture
-    -- (CDC) load are written in .csv format. If set to @true@ for columns not
-    -- included in the supplemental log, AWS DMS uses the value specified by
-    -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
-    -- . If not set or set to @false@, AWS DMS uses the null value for these
-    -- columns.
-    --
-    -- This setting is supported in AWS DMS versions 3.4.1 and later.
-    useCsvNoSupValue :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum size of an encoded dictionary page of a column. If the
-    -- dictionary page exceeds this, this column is stored using an encoding
-    -- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
-    -- the maximum size of a dictionary page before it reverts to @PLAIN@
-    -- encoding. This size is used for .parquet file format only.
-    dictPageSizeLimit :: Prelude.Maybe Prelude.Int,
     -- | The number of rows in a row group. A smaller row group size provides
     -- faster reads. But as the number of row groups grows, the slower writes
     -- become. This parameter defaults to 10,000 rows. This number is used for
@@ -277,17 +302,47 @@ data S3Settings = S3Settings'
     -- If you choose a value larger than the maximum, @RowGroupLength@ is set
     -- to the max row group length in bytes (64 * 1024 * 1024).
     rowGroupLength :: Prelude.Maybe Prelude.Int,
+    -- | The maximum size of an encoded dictionary page of a column. If the
+    -- dictionary page exceeds this, this column is stored using an encoding
+    -- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
+    -- the maximum size of a dictionary page before it reverts to @PLAIN@
+    -- encoding. This size is used for .parquet file format only.
+    dictPageSizeLimit :: Prelude.Maybe Prelude.Int,
+    -- | When this value is set to 1, DMS ignores the first row header in a .csv
+    -- file. A value of 1 turns on the feature; a value of 0 turns off the
+    -- feature.
+    --
+    -- The default is 0.
+    ignoreHeaderRows :: Prelude.Maybe Prelude.Int,
     -- | An optional parameter to use GZIP to compress the target files. Set to
     -- GZIP to compress the target files. Either set this parameter to NONE
     -- (the default) or don\'t use it to leave the files uncompressed. This
     -- parameter applies to both .csv and .parquet file formats.
     compressionType :: Prelude.Maybe CompressionTypeValue,
+    -- | Maximum length of the interval, defined in seconds, after which to
+    -- output a file to Amazon S3.
+    --
+    -- When @CdcMaxBatchInterval@ and @CdcMinFileSize@ are both specified, the
+    -- file write is triggered by whichever parameter condition is met first
+    -- within an DMS CloudFormation template.
+    --
+    -- The default value is 60 seconds.
+    cdcMaxBatchInterval :: Prelude.Maybe Prelude.Int,
+    -- | Minimum file size, defined in megabytes, to reach for a file output to
+    -- Amazon S3.
+    --
+    -- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the
+    -- file write is triggered by whichever parameter condition is met first
+    -- within an DMS CloudFormation template.
+    --
+    -- The default value is 32 MB.
+    cdcMinFileSize :: Prelude.Maybe Prelude.Int,
     -- | A value that enables a full load to write INSERT operations to the
     -- comma-separated value (.csv) output files only to indicate how the rows
     -- were added to the source database.
     --
-    -- AWS DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4
-    -- and later.
+    -- DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4 and
+    -- later.
     --
     -- For full load, records can only be inserted. By default (the @false@
     -- setting), no information is recorded in these output files for a full
@@ -301,7 +356,7 @@ data S3Settings = S3Settings'
     -- @CdcInsertsAndUpdates@ parameters for output to .csv files only. For
     -- more information about how these settings work together, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
-    -- in the /AWS Database Migration Service User Guide./.
+    -- in the /Database Migration Service User Guide./.
     includeOpForFullLoad :: Prelude.Maybe Prelude.Bool,
     -- | The delimiter used to separate columns in the .csv file for both source
     -- and target. The default is a comma.
@@ -309,35 +364,52 @@ data S3Settings = S3Settings'
     -- | A value that specifies the precision of any @TIMESTAMP@ column values
     -- that are written to an Amazon S3 object file in .parquet format.
     --
-    -- AWS DMS supports the @ParquetTimestampInMillisecond@ parameter in
-    -- versions 3.1.4 and later.
+    -- DMS supports the @ParquetTimestampInMillisecond@ parameter in versions
+    -- 3.1.4 and later.
     --
-    -- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, AWS DMS
-    -- writes all @TIMESTAMP@ columns in a .parquet formatted file with
-    -- millisecond precision. Otherwise, DMS writes them with microsecond
-    -- precision.
+    -- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, DMS writes
+    -- all @TIMESTAMP@ columns in a .parquet formatted file with millisecond
+    -- precision. Otherwise, DMS writes them with microsecond precision.
     --
-    -- Currently, Amazon Athena and AWS Glue can handle only millisecond
-    -- precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3
-    -- endpoint object files that are .parquet formatted only if you plan to
-    -- query or process the data with Athena or AWS Glue.
+    -- Currently, Amazon Athena and Glue can handle only millisecond precision
+    -- for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint
+    -- object files that are .parquet formatted only if you plan to query or
+    -- process the data with Athena or Glue.
     --
-    -- AWS DMS writes any @TIMESTAMP@ column values written to an S3 file in
-    -- .csv format with microsecond precision.
+    -- DMS writes any @TIMESTAMP@ column values written to an S3 file in .csv
+    -- format with microsecond precision.
     --
     -- Setting @ParquetTimestampInMillisecond@ has no effect on the string
     -- format of the timestamp column value that is inserted by setting the
     -- @TimestampColumnName@ parameter.
     parquetTimestampInMillisecond :: Prelude.Maybe Prelude.Bool,
+    -- | For an S3 source, when this value is set to @true@ or @y@, each leading
+    -- double quotation mark has to be followed by an ending double quotation
+    -- mark. This formatting complies with RFC 4180. When this value is set to
+    -- @false@ or @n@, string literals are copied to the target as is. In this
+    -- case, a delimiter (row or column) signals the end of the field. Thus,
+    -- you can\'t use a delimiter as part of the string, because it signals the
+    -- end of the value.
+    --
+    -- For an S3 target, an optional parameter used to set behavior to comply
+    -- with RFC 4180 for data migrated to Amazon S3 using .csv file format
+    -- only. When this value is set to @true@ or @y@ using Amazon S3 as a
+    -- target, if the data has quotation marks or newline characters in it, DMS
+    -- encloses the entire column with an additional pair of double quotation
+    -- marks (\"). Every quotation mark within the data is repeated twice.
+    --
+    -- The default value is @true@. Valid values include @true@, @false@, @y@,
+    -- and @n@.
+    rfc4180 :: Prelude.Maybe Prelude.Bool,
     -- | This setting only applies if your Amazon S3 output files during a change
     -- data capture (CDC) load are written in .csv format. If
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue UseCsvNoSupValue>
-    -- is set to true, specify a string value that you want AWS DMS to use for
-    -- all columns not included in the supplemental log. If you do not specify
-    -- a string value, AWS DMS uses the null value for these columns regardless
-    -- of the @UseCsvNoSupValue@ setting.
+    -- is set to true, specify a string value that you want DMS to use for all
+    -- columns not included in the supplemental log. If you do not specify a
+    -- string value, DMS uses the null value for these columns regardless of
+    -- the @UseCsvNoSupValue@ setting.
     --
-    -- This setting is supported in AWS DMS versions 3.4.1 and later.
+    -- This setting is supported in DMS versions 3.4.1 and later.
     csvNoSupValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -350,11 +422,11 @@ data S3Settings = S3Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestampColumnName', 's3Settings_timestampColumnName' - A value that when nonblank causes AWS DMS to add a column with timestamp
+-- 'timestampColumnName', 's3Settings_timestampColumnName' - A value that when nonblank causes DMS to add a column with timestamp
 -- information to the endpoint data for an Amazon S3 target.
 --
--- AWS DMS supports the @TimestampColumnName@ parameter in versions 3.1.4
--- and later.
+-- DMS supports the @TimestampColumnName@ parameter in versions 3.1.4 and
+-- later.
 --
 -- DMS includes an additional @STRING@ column in the .csv or .parquet
 -- object files of your migrated data when you set @TimestampColumnName@ to
@@ -375,16 +447,16 @@ data S3Settings = S3Settings'
 -- When the @AddColumnName@ parameter is set to @true@, DMS also includes a
 -- name for the timestamp column that you set with @TimestampColumnName@.
 --
--- 'preserveTransactions', 's3Settings_preserveTransactions' - If set to @true@, AWS DMS saves the transaction order for a change data
+-- 'csvRowDelimiter', 's3Settings_csvRowDelimiter' - The delimiter used to separate rows in the .csv file for both source and
+-- target. The default is a carriage return (@\\n@).
+--
+-- 'preserveTransactions', 's3Settings_preserveTransactions' - If set to @true@, DMS saves the transaction order for a change data
 -- capture (CDC) load on the Amazon S3 target specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
 -- . For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
 --
--- This setting is supported in AWS DMS versions 3.4.2 and later.
---
--- 'csvRowDelimiter', 's3Settings_csvRowDelimiter' - The delimiter used to separate rows in the .csv file for both source and
--- target. The default is a carriage return (@\\n@).
+-- This setting is supported in DMS versions 3.4.2 and later.
 --
 -- 'parquetVersion', 's3Settings_parquetVersion' - The version of the Apache Parquet format that you want to use:
 -- @parquet_1_0@ (the default) or @parquet_2_0@.
@@ -397,14 +469,13 @@ data S3Settings = S3Settings'
 --
 -- 'cdcPath', 's3Settings_cdcPath' - Specifies the folder path of CDC files. For an S3 source, this setting
 -- is required if a task captures change data; otherwise, it\'s optional.
--- If @CdcPath@ is set, AWS DMS reads CDC files from this path and
--- replicates the data changes to the target endpoint. For an S3 target if
--- you set
+-- If @CdcPath@ is set, DMS reads CDC files from this path and replicates
+-- the data changes to the target endpoint. For an S3 target if you set
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions PreserveTransactions>
--- to @true@, AWS DMS verifies that you have set this parameter to a folder
--- path on your S3 target where AWS DMS can save the transaction order for
--- the CDC load. AWS DMS creates this CDC folder path in either your S3
--- target working directory or the S3 target location specified by
+-- to @true@, DMS verifies that you have set this parameter to a folder
+-- path on your S3 target where DMS can save the transaction order for the
+-- CDC load. DMS creates this CDC folder path in either your S3 target
+-- working directory or the S3 target location specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder BucketFolder>
 -- and
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName BucketName>
@@ -412,32 +483,56 @@ data S3Settings = S3Settings'
 --
 -- For example, if you specify @CdcPath@ as @MyChangedData@, and you
 -- specify @BucketName@ as @MyTargetBucket@ but do not specify
--- @BucketFolder@, AWS DMS creates the CDC folder path following:
+-- @BucketFolder@, DMS creates the CDC folder path following:
 -- @MyTargetBucket\/MyChangedData@.
 --
 -- If you specify the same @CdcPath@, and you specify @BucketName@ as
--- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, AWS DMS creates
--- the CDC folder path following:
+-- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, DMS creates the
+-- CDC folder path following:
 -- @MyTargetBucket\/MyTargetData\/MyChangedData@.
 --
 -- For more information on CDC including transaction order on an S3 target,
 -- see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
 --
--- This setting is supported in AWS DMS versions 3.4.2 and later.
+-- This setting is supported in DMS versions 3.4.2 and later.
 --
--- 'externalTableDefinition', 's3Settings_externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
---
--- 'serverSideEncryptionKmsKeyId', 's3Settings_serverSideEncryptionKmsKeyId' - If you are using @SSE_KMS@ for the @EncryptionMode@, provide the AWS KMS
--- key ID. The key that you use needs an attached policy that enables AWS
--- Identity and Access Management (IAM) user permissions and allows use of
--- the key.
+-- 'serverSideEncryptionKmsKeyId', 's3Settings_serverSideEncryptionKmsKeyId' - If you are using @SSE_KMS@ for the @EncryptionMode@, provide the KMS key
+-- ID. The key that you use needs an attached policy that enables Identity
+-- and Access Management (IAM) user permissions and allows use of the key.
 --
 -- Here is a CLI example:
 -- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
 --
+-- 'externalTableDefinition', 's3Settings_externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
+--
+-- 'csvNullValue', 's3Settings_csvNullValue' - An optional parameter that specifies how DMS treats null values. While
+-- handling the null value, you can use this parameter to pass a
+-- user-defined string as null when writing to the target. For example,
+-- when target columns are not nullable, you can use this option to
+-- differentiate between the empty string value and the null value. So, if
+-- you set this parameter value to the empty string (\"\" or \'\'), DMS
+-- treats the empty string as the null value instead of @NULL@.
+--
+-- The default value is @NULL@. Valid values include any valid string.
+--
 -- 'dataPageSize', 's3Settings_dataPageSize' - The size of one data page in bytes. This parameter defaults to 1024 *
 -- 1024 bytes (1 MiB). This number is used for .parquet file format only.
+--
+-- 'dataFormat', 's3Settings_dataFormat' - The format of the data that you want to use for output. You can choose
+-- one of the following:
+--
+-- -   @csv@ : This is a row-based file format with comma-separated values
+--     (.csv).
+--
+-- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
+--     format that features efficient compression and provides faster query
+--     response.
+--
+-- 'datePartitionEnabled', 's3Settings_datePartitionEnabled' - When set to @true@, this parameter partitions S3 bucket folders based on
+-- transaction commit dates. The default value is @false@. For more
+-- information about date-based folder partitioning, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
 --
 -- 'encodingType', 's3Settings_encodingType' - The type of encoding you are using:
 --
@@ -451,38 +546,40 @@ data S3Settings = S3Settings'
 --     a given column. The dictionary is stored in a dictionary page for
 --     each column chunk.
 --
--- 'datePartitionEnabled', 's3Settings_datePartitionEnabled' - When set to @true@, this parameter partitions S3 bucket folders based on
--- transaction commit dates. The default value is @false@. For more
--- information about date-based folder partitoning, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
---
--- 'dataFormat', 's3Settings_dataFormat' - The format of the data that you want to use for output. You can choose
--- one of the following:
---
--- -   @csv@ : This is a row-based file format with comma-separated values
---     (.csv).
---
--- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
---     format that features efficient compression and provides faster query
---     response.
---
--- 'serviceAccessRoleArn', 's3Settings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. It
--- is a required parameter that enables DMS to write and read objects from
--- an 3S bucket.
---
 -- 'bucketFolder', 's3Settings_bucketFolder' - An optional parameter to set a folder name in the S3 bucket. If
 -- provided, tables are created in the path
 -- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
 -- specified, then the path used is @ schema_name\/table_name\/@.
 --
+-- 'cannedAclForObjects', 's3Settings_cannedAclForObjects' - A value that enables DMS to specify a predefined (canned) access control
+-- list for objects created in an Amazon S3 bucket as .csv or .parquet
+-- files. For more information about Amazon S3 canned ACLs, see
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACL>
+-- in the /Amazon S3 Developer Guide./
+--
+-- The default value is NONE. Valid values include NONE, PRIVATE,
+-- PUBLIC_READ, PUBLIC_READ_WRITE, AUTHENTICATED_READ, AWS_EXEC_READ,
+-- BUCKET_OWNER_READ, and BUCKET_OWNER_FULL_CONTROL.
+--
+-- 'serviceAccessRoleArn', 's3Settings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action. It is a required
+-- parameter that enables DMS to write and read objects from an S3 bucket.
+--
+-- 'addColumnName', 's3Settings_addColumnName' - An optional parameter that, when set to @true@ or @y@, you can use to
+-- add column name information to the .csv output file.
+--
+-- The default value is @false@. Valid values are @true@, @false@, @y@, and
+-- @n@.
+--
 -- 'datePartitionDelimiter', 's3Settings_datePartitionDelimiter' - Specifies a date separating delimiter to use during folder partitioning.
 -- The default value is @SLASH@. Use this parameter when
 -- @DatePartitionedEnabled@ is set to @true@.
 --
--- 'enableStatistics', 's3Settings_enableStatistics' - A value that enables statistics for Parquet pages and row groups. Choose
--- @true@ to enable statistics, @false@ to disable. Statistics include
--- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
--- @true@. This value is used for .parquet file format only.
+-- 'maxFileSize', 's3Settings_maxFileSize' - A value that specifies the maximum size (in KB) of any .csv file to be
+-- created while migrating to an S3 target during full load.
+--
+-- The default value is 1,048,576 KB (1 GB). Valid values include 1 to
+-- 1,048,576.
 --
 -- 'encryptionMode', 's3Settings_encryptionMode' - The type of server-side encryption that you want to use for your data.
 -- This encryption type is part of the endpoint settings or the extra
@@ -493,9 +590,9 @@ data S3Settings = S3Settings'
 -- the @EncryptionMode@ parameter from @SSE_KMS@ to @SSE_S3@. But you can’t
 -- change the existing value from @SSE_S3@ to @SSE_KMS@.
 --
--- To use @SSE_S3@, you need an AWS Identity and Access Management (IAM)
--- role with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the
--- following actions:
+-- To use @SSE_S3@, you need an Identity and Access Management (IAM) role
+-- with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the following
+-- actions:
 --
 -- -   @s3:CreateBucket@
 --
@@ -536,15 +633,29 @@ data S3Settings = S3Settings'
 -- operation at the source. For more information about how these settings
 -- work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 --
--- AWS DMS supports the interaction described preceding between the
+-- DMS supports the interaction described preceding between the
 -- @CdcInsertsOnly@ and @IncludeOpForFullLoad@ parameters in versions 3.1.4
 -- and later.
 --
 -- @CdcInsertsOnly@ and @CdcInsertsAndUpdates@ can\'t both be set to @true@
 -- for the same endpoint. Set either @CdcInsertsOnly@ or
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
+--
+-- 'enableStatistics', 's3Settings_enableStatistics' - A value that enables statistics for Parquet pages and row groups. Choose
+-- @true@ to enable statistics, @false@ to disable. Statistics include
+-- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
+-- @true@. This value is used for .parquet file format only.
+--
+-- 'useCsvNoSupValue', 's3Settings_useCsvNoSupValue' - This setting applies if the S3 output files during a change data capture
+-- (CDC) load are written in .csv format. If set to @true@ for columns not
+-- included in the supplemental log, DMS uses the value specified by
+-- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
+-- . If not set or set to @false@, DMS uses the null value for these
+-- columns.
+--
+-- This setting is supported in DMS versions 3.4.1 and later.
 --
 -- 'cdcInsertsAndUpdates', 's3Settings_cdcInsertsAndUpdates' - A value that enables a change data capture (CDC) load to write INSERT
 -- and UPDATE operations to .csv or .parquet (columnar storage) output
@@ -561,29 +672,14 @@ data S3Settings = S3Settings'
 -- UPDATE operations at the source. For more information about how these
 -- settings work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 --
--- AWS DMS supports the use of the @CdcInsertsAndUpdates@ parameter in
--- versions 3.3.1 and later.
+-- DMS supports the use of the @CdcInsertsAndUpdates@ parameter in versions
+-- 3.3.1 and later.
 --
 -- @CdcInsertsOnly@ and @CdcInsertsAndUpdates@ can\'t both be set to @true@
 -- for the same endpoint. Set either @CdcInsertsOnly@ or
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
---
--- 'useCsvNoSupValue', 's3Settings_useCsvNoSupValue' - This setting applies if the S3 output files during a change data capture
--- (CDC) load are written in .csv format. If set to @true@ for columns not
--- included in the supplemental log, AWS DMS uses the value specified by
--- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
--- . If not set or set to @false@, AWS DMS uses the null value for these
--- columns.
---
--- This setting is supported in AWS DMS versions 3.4.1 and later.
---
--- 'dictPageSizeLimit', 's3Settings_dictPageSizeLimit' - The maximum size of an encoded dictionary page of a column. If the
--- dictionary page exceeds this, this column is stored using an encoding
--- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
--- the maximum size of a dictionary page before it reverts to @PLAIN@
--- encoding. This size is used for .parquet file format only.
 --
 -- 'rowGroupLength', 's3Settings_rowGroupLength' - The number of rows in a row group. A smaller row group size provides
 -- faster reads. But as the number of row groups grows, the slower writes
@@ -593,17 +689,47 @@ data S3Settings = S3Settings'
 -- If you choose a value larger than the maximum, @RowGroupLength@ is set
 -- to the max row group length in bytes (64 * 1024 * 1024).
 --
+-- 'dictPageSizeLimit', 's3Settings_dictPageSizeLimit' - The maximum size of an encoded dictionary page of a column. If the
+-- dictionary page exceeds this, this column is stored using an encoding
+-- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
+-- the maximum size of a dictionary page before it reverts to @PLAIN@
+-- encoding. This size is used for .parquet file format only.
+--
+-- 'ignoreHeaderRows', 's3Settings_ignoreHeaderRows' - When this value is set to 1, DMS ignores the first row header in a .csv
+-- file. A value of 1 turns on the feature; a value of 0 turns off the
+-- feature.
+--
+-- The default is 0.
+--
 -- 'compressionType', 's3Settings_compressionType' - An optional parameter to use GZIP to compress the target files. Set to
 -- GZIP to compress the target files. Either set this parameter to NONE
 -- (the default) or don\'t use it to leave the files uncompressed. This
 -- parameter applies to both .csv and .parquet file formats.
 --
+-- 'cdcMaxBatchInterval', 's3Settings_cdcMaxBatchInterval' - Maximum length of the interval, defined in seconds, after which to
+-- output a file to Amazon S3.
+--
+-- When @CdcMaxBatchInterval@ and @CdcMinFileSize@ are both specified, the
+-- file write is triggered by whichever parameter condition is met first
+-- within an DMS CloudFormation template.
+--
+-- The default value is 60 seconds.
+--
+-- 'cdcMinFileSize', 's3Settings_cdcMinFileSize' - Minimum file size, defined in megabytes, to reach for a file output to
+-- Amazon S3.
+--
+-- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the
+-- file write is triggered by whichever parameter condition is met first
+-- within an DMS CloudFormation template.
+--
+-- The default value is 32 MB.
+--
 -- 'includeOpForFullLoad', 's3Settings_includeOpForFullLoad' - A value that enables a full load to write INSERT operations to the
 -- comma-separated value (.csv) output files only to indicate how the rows
 -- were added to the source database.
 --
--- AWS DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4
--- and later.
+-- DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4 and
+-- later.
 --
 -- For full load, records can only be inserted. By default (the @false@
 -- setting), no information is recorded in these output files for a full
@@ -617,7 +743,7 @@ data S3Settings = S3Settings'
 -- @CdcInsertsAndUpdates@ parameters for output to .csv files only. For
 -- more information about how these settings work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 --
 -- 'csvDelimiter', 's3Settings_csvDelimiter' - The delimiter used to separate columns in the .csv file for both source
 -- and target. The default is a comma.
@@ -625,74 +751,99 @@ data S3Settings = S3Settings'
 -- 'parquetTimestampInMillisecond', 's3Settings_parquetTimestampInMillisecond' - A value that specifies the precision of any @TIMESTAMP@ column values
 -- that are written to an Amazon S3 object file in .parquet format.
 --
--- AWS DMS supports the @ParquetTimestampInMillisecond@ parameter in
--- versions 3.1.4 and later.
+-- DMS supports the @ParquetTimestampInMillisecond@ parameter in versions
+-- 3.1.4 and later.
 --
--- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, AWS DMS
--- writes all @TIMESTAMP@ columns in a .parquet formatted file with
--- millisecond precision. Otherwise, DMS writes them with microsecond
--- precision.
+-- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, DMS writes
+-- all @TIMESTAMP@ columns in a .parquet formatted file with millisecond
+-- precision. Otherwise, DMS writes them with microsecond precision.
 --
--- Currently, Amazon Athena and AWS Glue can handle only millisecond
--- precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3
--- endpoint object files that are .parquet formatted only if you plan to
--- query or process the data with Athena or AWS Glue.
+-- Currently, Amazon Athena and Glue can handle only millisecond precision
+-- for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint
+-- object files that are .parquet formatted only if you plan to query or
+-- process the data with Athena or Glue.
 --
--- AWS DMS writes any @TIMESTAMP@ column values written to an S3 file in
--- .csv format with microsecond precision.
+-- DMS writes any @TIMESTAMP@ column values written to an S3 file in .csv
+-- format with microsecond precision.
 --
 -- Setting @ParquetTimestampInMillisecond@ has no effect on the string
 -- format of the timestamp column value that is inserted by setting the
 -- @TimestampColumnName@ parameter.
 --
+-- 'rfc4180', 's3Settings_rfc4180' - For an S3 source, when this value is set to @true@ or @y@, each leading
+-- double quotation mark has to be followed by an ending double quotation
+-- mark. This formatting complies with RFC 4180. When this value is set to
+-- @false@ or @n@, string literals are copied to the target as is. In this
+-- case, a delimiter (row or column) signals the end of the field. Thus,
+-- you can\'t use a delimiter as part of the string, because it signals the
+-- end of the value.
+--
+-- For an S3 target, an optional parameter used to set behavior to comply
+-- with RFC 4180 for data migrated to Amazon S3 using .csv file format
+-- only. When this value is set to @true@ or @y@ using Amazon S3 as a
+-- target, if the data has quotation marks or newline characters in it, DMS
+-- encloses the entire column with an additional pair of double quotation
+-- marks (\"). Every quotation mark within the data is repeated twice.
+--
+-- The default value is @true@. Valid values include @true@, @false@, @y@,
+-- and @n@.
+--
 -- 'csvNoSupValue', 's3Settings_csvNoSupValue' - This setting only applies if your Amazon S3 output files during a change
 -- data capture (CDC) load are written in .csv format. If
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue UseCsvNoSupValue>
--- is set to true, specify a string value that you want AWS DMS to use for
--- all columns not included in the supplemental log. If you do not specify
--- a string value, AWS DMS uses the null value for these columns regardless
--- of the @UseCsvNoSupValue@ setting.
+-- is set to true, specify a string value that you want DMS to use for all
+-- columns not included in the supplemental log. If you do not specify a
+-- string value, DMS uses the null value for these columns regardless of
+-- the @UseCsvNoSupValue@ setting.
 --
--- This setting is supported in AWS DMS versions 3.4.1 and later.
+-- This setting is supported in DMS versions 3.4.1 and later.
 newS3Settings ::
   S3Settings
 newS3Settings =
   S3Settings'
     { timestampColumnName = Prelude.Nothing,
-      preserveTransactions = Prelude.Nothing,
       csvRowDelimiter = Prelude.Nothing,
+      preserveTransactions = Prelude.Nothing,
       parquetVersion = Prelude.Nothing,
       datePartitionSequence = Prelude.Nothing,
       bucketName = Prelude.Nothing,
       cdcPath = Prelude.Nothing,
-      externalTableDefinition = Prelude.Nothing,
       serverSideEncryptionKmsKeyId = Prelude.Nothing,
+      externalTableDefinition = Prelude.Nothing,
+      csvNullValue = Prelude.Nothing,
       dataPageSize = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
-      datePartitionEnabled = Prelude.Nothing,
       dataFormat = Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing,
+      datePartitionEnabled = Prelude.Nothing,
+      encodingType = Prelude.Nothing,
       bucketFolder = Prelude.Nothing,
+      cannedAclForObjects = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing,
+      addColumnName = Prelude.Nothing,
       datePartitionDelimiter = Prelude.Nothing,
-      enableStatistics = Prelude.Nothing,
+      maxFileSize = Prelude.Nothing,
       encryptionMode = Prelude.Nothing,
       cdcInsertsOnly = Prelude.Nothing,
-      cdcInsertsAndUpdates = Prelude.Nothing,
+      enableStatistics = Prelude.Nothing,
       useCsvNoSupValue = Prelude.Nothing,
-      dictPageSizeLimit = Prelude.Nothing,
+      cdcInsertsAndUpdates = Prelude.Nothing,
       rowGroupLength = Prelude.Nothing,
+      dictPageSizeLimit = Prelude.Nothing,
+      ignoreHeaderRows = Prelude.Nothing,
       compressionType = Prelude.Nothing,
+      cdcMaxBatchInterval = Prelude.Nothing,
+      cdcMinFileSize = Prelude.Nothing,
       includeOpForFullLoad = Prelude.Nothing,
       csvDelimiter = Prelude.Nothing,
       parquetTimestampInMillisecond = Prelude.Nothing,
+      rfc4180 = Prelude.Nothing,
       csvNoSupValue = Prelude.Nothing
     }
 
--- | A value that when nonblank causes AWS DMS to add a column with timestamp
+-- | A value that when nonblank causes DMS to add a column with timestamp
 -- information to the endpoint data for an Amazon S3 target.
 --
--- AWS DMS supports the @TimestampColumnName@ parameter in versions 3.1.4
--- and later.
+-- DMS supports the @TimestampColumnName@ parameter in versions 3.1.4 and
+-- later.
 --
 -- DMS includes an additional @STRING@ column in the .csv or .parquet
 -- object files of your migrated data when you set @TimestampColumnName@ to
@@ -715,20 +866,20 @@ newS3Settings =
 s3Settings_timestampColumnName :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_timestampColumnName = Lens.lens (\S3Settings' {timestampColumnName} -> timestampColumnName) (\s@S3Settings' {} a -> s {timestampColumnName = a} :: S3Settings)
 
--- | If set to @true@, AWS DMS saves the transaction order for a change data
+-- | The delimiter used to separate rows in the .csv file for both source and
+-- target. The default is a carriage return (@\\n@).
+s3Settings_csvRowDelimiter :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_csvRowDelimiter = Lens.lens (\S3Settings' {csvRowDelimiter} -> csvRowDelimiter) (\s@S3Settings' {} a -> s {csvRowDelimiter = a} :: S3Settings)
+
+-- | If set to @true@, DMS saves the transaction order for a change data
 -- capture (CDC) load on the Amazon S3 target specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
 -- . For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
 --
--- This setting is supported in AWS DMS versions 3.4.2 and later.
+-- This setting is supported in DMS versions 3.4.2 and later.
 s3Settings_preserveTransactions :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_preserveTransactions = Lens.lens (\S3Settings' {preserveTransactions} -> preserveTransactions) (\s@S3Settings' {} a -> s {preserveTransactions = a} :: S3Settings)
-
--- | The delimiter used to separate rows in the .csv file for both source and
--- target. The default is a carriage return (@\\n@).
-s3Settings_csvRowDelimiter :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
-s3Settings_csvRowDelimiter = Lens.lens (\S3Settings' {csvRowDelimiter} -> csvRowDelimiter) (\s@S3Settings' {} a -> s {csvRowDelimiter = a} :: S3Settings)
 
 -- | The version of the Apache Parquet format that you want to use:
 -- @parquet_1_0@ (the default) or @parquet_2_0@.
@@ -747,14 +898,13 @@ s3Settings_bucketName = Lens.lens (\S3Settings' {bucketName} -> bucketName) (\s@
 
 -- | Specifies the folder path of CDC files. For an S3 source, this setting
 -- is required if a task captures change data; otherwise, it\'s optional.
--- If @CdcPath@ is set, AWS DMS reads CDC files from this path and
--- replicates the data changes to the target endpoint. For an S3 target if
--- you set
+-- If @CdcPath@ is set, DMS reads CDC files from this path and replicates
+-- the data changes to the target endpoint. For an S3 target if you set
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-PreserveTransactions PreserveTransactions>
--- to @true@, AWS DMS verifies that you have set this parameter to a folder
--- path on your S3 target where AWS DMS can save the transaction order for
--- the CDC load. AWS DMS creates this CDC folder path in either your S3
--- target working directory or the S3 target location specified by
+-- to @true@, DMS verifies that you have set this parameter to a folder
+-- path on your S3 target where DMS can save the transaction order for the
+-- CDC load. DMS creates this CDC folder path in either your S3 target
+-- working directory or the S3 target location specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketFolder BucketFolder>
 -- and
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-BucketName BucketName>
@@ -762,40 +912,70 @@ s3Settings_bucketName = Lens.lens (\S3Settings' {bucketName} -> bucketName) (\s@
 --
 -- For example, if you specify @CdcPath@ as @MyChangedData@, and you
 -- specify @BucketName@ as @MyTargetBucket@ but do not specify
--- @BucketFolder@, AWS DMS creates the CDC folder path following:
+-- @BucketFolder@, DMS creates the CDC folder path following:
 -- @MyTargetBucket\/MyChangedData@.
 --
 -- If you specify the same @CdcPath@, and you specify @BucketName@ as
--- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, AWS DMS creates
--- the CDC folder path following:
+-- @MyTargetBucket@ and @BucketFolder@ as @MyTargetData@, DMS creates the
+-- CDC folder path following:
 -- @MyTargetBucket\/MyTargetData\/MyChangedData@.
 --
 -- For more information on CDC including transaction order on an S3 target,
 -- see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.EndpointSettings.CdcPath Capturing data changes (CDC) including transaction order on the S3 target>.
 --
--- This setting is supported in AWS DMS versions 3.4.2 and later.
+-- This setting is supported in DMS versions 3.4.2 and later.
 s3Settings_cdcPath :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_cdcPath = Lens.lens (\S3Settings' {cdcPath} -> cdcPath) (\s@S3Settings' {} a -> s {cdcPath = a} :: S3Settings)
 
--- | Specifies how tables are defined in the S3 source files only.
-s3Settings_externalTableDefinition :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
-s3Settings_externalTableDefinition = Lens.lens (\S3Settings' {externalTableDefinition} -> externalTableDefinition) (\s@S3Settings' {} a -> s {externalTableDefinition = a} :: S3Settings)
-
--- | If you are using @SSE_KMS@ for the @EncryptionMode@, provide the AWS KMS
--- key ID. The key that you use needs an attached policy that enables AWS
--- Identity and Access Management (IAM) user permissions and allows use of
--- the key.
+-- | If you are using @SSE_KMS@ for the @EncryptionMode@, provide the KMS key
+-- ID. The key that you use needs an attached policy that enables Identity
+-- and Access Management (IAM) user permissions and allows use of the key.
 --
 -- Here is a CLI example:
 -- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
 s3Settings_serverSideEncryptionKmsKeyId :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_serverSideEncryptionKmsKeyId = Lens.lens (\S3Settings' {serverSideEncryptionKmsKeyId} -> serverSideEncryptionKmsKeyId) (\s@S3Settings' {} a -> s {serverSideEncryptionKmsKeyId = a} :: S3Settings)
 
+-- | Specifies how tables are defined in the S3 source files only.
+s3Settings_externalTableDefinition :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_externalTableDefinition = Lens.lens (\S3Settings' {externalTableDefinition} -> externalTableDefinition) (\s@S3Settings' {} a -> s {externalTableDefinition = a} :: S3Settings)
+
+-- | An optional parameter that specifies how DMS treats null values. While
+-- handling the null value, you can use this parameter to pass a
+-- user-defined string as null when writing to the target. For example,
+-- when target columns are not nullable, you can use this option to
+-- differentiate between the empty string value and the null value. So, if
+-- you set this parameter value to the empty string (\"\" or \'\'), DMS
+-- treats the empty string as the null value instead of @NULL@.
+--
+-- The default value is @NULL@. Valid values include any valid string.
+s3Settings_csvNullValue :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_csvNullValue = Lens.lens (\S3Settings' {csvNullValue} -> csvNullValue) (\s@S3Settings' {} a -> s {csvNullValue = a} :: S3Settings)
+
 -- | The size of one data page in bytes. This parameter defaults to 1024 *
 -- 1024 bytes (1 MiB). This number is used for .parquet file format only.
 s3Settings_dataPageSize :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
 s3Settings_dataPageSize = Lens.lens (\S3Settings' {dataPageSize} -> dataPageSize) (\s@S3Settings' {} a -> s {dataPageSize = a} :: S3Settings)
+
+-- | The format of the data that you want to use for output. You can choose
+-- one of the following:
+--
+-- -   @csv@ : This is a row-based file format with comma-separated values
+--     (.csv).
+--
+-- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
+--     format that features efficient compression and provides faster query
+--     response.
+s3Settings_dataFormat :: Lens.Lens' S3Settings (Prelude.Maybe DataFormatValue)
+s3Settings_dataFormat = Lens.lens (\S3Settings' {dataFormat} -> dataFormat) (\s@S3Settings' {} a -> s {dataFormat = a} :: S3Settings)
+
+-- | When set to @true@, this parameter partitions S3 bucket folders based on
+-- transaction commit dates. The default value is @false@. For more
+-- information about date-based folder partitioning, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
+s3Settings_datePartitionEnabled :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_datePartitionEnabled = Lens.lens (\S3Settings' {datePartitionEnabled} -> datePartitionEnabled) (\s@S3Settings' {} a -> s {datePartitionEnabled = a} :: S3Settings)
 
 -- | The type of encoding you are using:
 --
@@ -811,31 +991,6 @@ s3Settings_dataPageSize = Lens.lens (\S3Settings' {dataPageSize} -> dataPageSize
 s3Settings_encodingType :: Lens.Lens' S3Settings (Prelude.Maybe EncodingTypeValue)
 s3Settings_encodingType = Lens.lens (\S3Settings' {encodingType} -> encodingType) (\s@S3Settings' {} a -> s {encodingType = a} :: S3Settings)
 
--- | When set to @true@, this parameter partitions S3 bucket folders based on
--- transaction commit dates. The default value is @false@. For more
--- information about date-based folder partitoning, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
-s3Settings_datePartitionEnabled :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
-s3Settings_datePartitionEnabled = Lens.lens (\S3Settings' {datePartitionEnabled} -> datePartitionEnabled) (\s@S3Settings' {} a -> s {datePartitionEnabled = a} :: S3Settings)
-
--- | The format of the data that you want to use for output. You can choose
--- one of the following:
---
--- -   @csv@ : This is a row-based file format with comma-separated values
---     (.csv).
---
--- -   @parquet@ : Apache Parquet (.parquet) is a columnar storage file
---     format that features efficient compression and provides faster query
---     response.
-s3Settings_dataFormat :: Lens.Lens' S3Settings (Prelude.Maybe DataFormatValue)
-s3Settings_dataFormat = Lens.lens (\S3Settings' {dataFormat} -> dataFormat) (\s@S3Settings' {} a -> s {dataFormat = a} :: S3Settings)
-
--- | The Amazon Resource Name (ARN) used by the service access IAM role. It
--- is a required parameter that enables DMS to write and read objects from
--- an 3S bucket.
-s3Settings_serviceAccessRoleArn :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
-s3Settings_serviceAccessRoleArn = Lens.lens (\S3Settings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@S3Settings' {} a -> s {serviceAccessRoleArn = a} :: S3Settings)
-
 -- | An optional parameter to set a folder name in the S3 bucket. If
 -- provided, tables are created in the path
 -- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
@@ -843,18 +998,45 @@ s3Settings_serviceAccessRoleArn = Lens.lens (\S3Settings' {serviceAccessRoleArn}
 s3Settings_bucketFolder :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_bucketFolder = Lens.lens (\S3Settings' {bucketFolder} -> bucketFolder) (\s@S3Settings' {} a -> s {bucketFolder = a} :: S3Settings)
 
+-- | A value that enables DMS to specify a predefined (canned) access control
+-- list for objects created in an Amazon S3 bucket as .csv or .parquet
+-- files. For more information about Amazon S3 canned ACLs, see
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACL>
+-- in the /Amazon S3 Developer Guide./
+--
+-- The default value is NONE. Valid values include NONE, PRIVATE,
+-- PUBLIC_READ, PUBLIC_READ_WRITE, AUTHENTICATED_READ, AWS_EXEC_READ,
+-- BUCKET_OWNER_READ, and BUCKET_OWNER_FULL_CONTROL.
+s3Settings_cannedAclForObjects :: Lens.Lens' S3Settings (Prelude.Maybe CannedAclForObjectsValue)
+s3Settings_cannedAclForObjects = Lens.lens (\S3Settings' {cannedAclForObjects} -> cannedAclForObjects) (\s@S3Settings' {} a -> s {cannedAclForObjects = a} :: S3Settings)
+
+-- | The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action. It is a required
+-- parameter that enables DMS to write and read objects from an S3 bucket.
+s3Settings_serviceAccessRoleArn :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_serviceAccessRoleArn = Lens.lens (\S3Settings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@S3Settings' {} a -> s {serviceAccessRoleArn = a} :: S3Settings)
+
+-- | An optional parameter that, when set to @true@ or @y@, you can use to
+-- add column name information to the .csv output file.
+--
+-- The default value is @false@. Valid values are @true@, @false@, @y@, and
+-- @n@.
+s3Settings_addColumnName :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_addColumnName = Lens.lens (\S3Settings' {addColumnName} -> addColumnName) (\s@S3Settings' {} a -> s {addColumnName = a} :: S3Settings)
+
 -- | Specifies a date separating delimiter to use during folder partitioning.
 -- The default value is @SLASH@. Use this parameter when
 -- @DatePartitionedEnabled@ is set to @true@.
 s3Settings_datePartitionDelimiter :: Lens.Lens' S3Settings (Prelude.Maybe DatePartitionDelimiterValue)
 s3Settings_datePartitionDelimiter = Lens.lens (\S3Settings' {datePartitionDelimiter} -> datePartitionDelimiter) (\s@S3Settings' {} a -> s {datePartitionDelimiter = a} :: S3Settings)
 
--- | A value that enables statistics for Parquet pages and row groups. Choose
--- @true@ to enable statistics, @false@ to disable. Statistics include
--- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
--- @true@. This value is used for .parquet file format only.
-s3Settings_enableStatistics :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
-s3Settings_enableStatistics = Lens.lens (\S3Settings' {enableStatistics} -> enableStatistics) (\s@S3Settings' {} a -> s {enableStatistics = a} :: S3Settings)
+-- | A value that specifies the maximum size (in KB) of any .csv file to be
+-- created while migrating to an S3 target during full load.
+--
+-- The default value is 1,048,576 KB (1 GB). Valid values include 1 to
+-- 1,048,576.
+s3Settings_maxFileSize :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
+s3Settings_maxFileSize = Lens.lens (\S3Settings' {maxFileSize} -> maxFileSize) (\s@S3Settings' {} a -> s {maxFileSize = a} :: S3Settings)
 
 -- | The type of server-side encryption that you want to use for your data.
 -- This encryption type is part of the endpoint settings or the extra
@@ -865,9 +1047,9 @@ s3Settings_enableStatistics = Lens.lens (\S3Settings' {enableStatistics} -> enab
 -- the @EncryptionMode@ parameter from @SSE_KMS@ to @SSE_S3@. But you can’t
 -- change the existing value from @SSE_S3@ to @SSE_KMS@.
 --
--- To use @SSE_S3@, you need an AWS Identity and Access Management (IAM)
--- role with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the
--- following actions:
+-- To use @SSE_S3@, you need an Identity and Access Management (IAM) role
+-- with permission to allow @\"arn:aws:s3:::dms-*\"@ to use the following
+-- actions:
 --
 -- -   @s3:CreateBucket@
 --
@@ -910,9 +1092,9 @@ s3Settings_encryptionMode = Lens.lens (\S3Settings' {encryptionMode} -> encrypti
 -- operation at the source. For more information about how these settings
 -- work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 --
--- AWS DMS supports the interaction described preceding between the
+-- DMS supports the interaction described preceding between the
 -- @CdcInsertsOnly@ and @IncludeOpForFullLoad@ parameters in versions 3.1.4
 -- and later.
 --
@@ -921,6 +1103,24 @@ s3Settings_encryptionMode = Lens.lens (\S3Settings' {encryptionMode} -> encrypti
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
 s3Settings_cdcInsertsOnly :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_cdcInsertsOnly = Lens.lens (\S3Settings' {cdcInsertsOnly} -> cdcInsertsOnly) (\s@S3Settings' {} a -> s {cdcInsertsOnly = a} :: S3Settings)
+
+-- | A value that enables statistics for Parquet pages and row groups. Choose
+-- @true@ to enable statistics, @false@ to disable. Statistics include
+-- @NULL@, @DISTINCT@, @MAX@, and @MIN@ values. This parameter defaults to
+-- @true@. This value is used for .parquet file format only.
+s3Settings_enableStatistics :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_enableStatistics = Lens.lens (\S3Settings' {enableStatistics} -> enableStatistics) (\s@S3Settings' {} a -> s {enableStatistics = a} :: S3Settings)
+
+-- | This setting applies if the S3 output files during a change data capture
+-- (CDC) load are written in .csv format. If set to @true@ for columns not
+-- included in the supplemental log, DMS uses the value specified by
+-- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
+-- . If not set or set to @false@, DMS uses the null value for these
+-- columns.
+--
+-- This setting is supported in DMS versions 3.4.1 and later.
+s3Settings_useCsvNoSupValue :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_useCsvNoSupValue = Lens.lens (\S3Settings' {useCsvNoSupValue} -> useCsvNoSupValue) (\s@S3Settings' {} a -> s {useCsvNoSupValue = a} :: S3Settings)
 
 -- | A value that enables a change data capture (CDC) load to write INSERT
 -- and UPDATE operations to .csv or .parquet (columnar storage) output
@@ -937,35 +1137,16 @@ s3Settings_cdcInsertsOnly = Lens.lens (\S3Settings' {cdcInsertsOnly} -> cdcInser
 -- UPDATE operations at the source. For more information about how these
 -- settings work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 --
--- AWS DMS supports the use of the @CdcInsertsAndUpdates@ parameter in
--- versions 3.3.1 and later.
+-- DMS supports the use of the @CdcInsertsAndUpdates@ parameter in versions
+-- 3.3.1 and later.
 --
 -- @CdcInsertsOnly@ and @CdcInsertsAndUpdates@ can\'t both be set to @true@
 -- for the same endpoint. Set either @CdcInsertsOnly@ or
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
 s3Settings_cdcInsertsAndUpdates :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_cdcInsertsAndUpdates = Lens.lens (\S3Settings' {cdcInsertsAndUpdates} -> cdcInsertsAndUpdates) (\s@S3Settings' {} a -> s {cdcInsertsAndUpdates = a} :: S3Settings)
-
--- | This setting applies if the S3 output files during a change data capture
--- (CDC) load are written in .csv format. If set to @true@ for columns not
--- included in the supplemental log, AWS DMS uses the value specified by
--- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CsvNoSupValue CsvNoSupValue>
--- . If not set or set to @false@, AWS DMS uses the null value for these
--- columns.
---
--- This setting is supported in AWS DMS versions 3.4.1 and later.
-s3Settings_useCsvNoSupValue :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
-s3Settings_useCsvNoSupValue = Lens.lens (\S3Settings' {useCsvNoSupValue} -> useCsvNoSupValue) (\s@S3Settings' {} a -> s {useCsvNoSupValue = a} :: S3Settings)
-
--- | The maximum size of an encoded dictionary page of a column. If the
--- dictionary page exceeds this, this column is stored using an encoding
--- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
--- the maximum size of a dictionary page before it reverts to @PLAIN@
--- encoding. This size is used for .parquet file format only.
-s3Settings_dictPageSizeLimit :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
-s3Settings_dictPageSizeLimit = Lens.lens (\S3Settings' {dictPageSizeLimit} -> dictPageSizeLimit) (\s@S3Settings' {} a -> s {dictPageSizeLimit = a} :: S3Settings)
 
 -- | The number of rows in a row group. A smaller row group size provides
 -- faster reads. But as the number of row groups grows, the slower writes
@@ -977,6 +1158,22 @@ s3Settings_dictPageSizeLimit = Lens.lens (\S3Settings' {dictPageSizeLimit} -> di
 s3Settings_rowGroupLength :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
 s3Settings_rowGroupLength = Lens.lens (\S3Settings' {rowGroupLength} -> rowGroupLength) (\s@S3Settings' {} a -> s {rowGroupLength = a} :: S3Settings)
 
+-- | The maximum size of an encoded dictionary page of a column. If the
+-- dictionary page exceeds this, this column is stored using an encoding
+-- type of @PLAIN@. This parameter defaults to 1024 * 1024 bytes (1 MiB),
+-- the maximum size of a dictionary page before it reverts to @PLAIN@
+-- encoding. This size is used for .parquet file format only.
+s3Settings_dictPageSizeLimit :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
+s3Settings_dictPageSizeLimit = Lens.lens (\S3Settings' {dictPageSizeLimit} -> dictPageSizeLimit) (\s@S3Settings' {} a -> s {dictPageSizeLimit = a} :: S3Settings)
+
+-- | When this value is set to 1, DMS ignores the first row header in a .csv
+-- file. A value of 1 turns on the feature; a value of 0 turns off the
+-- feature.
+--
+-- The default is 0.
+s3Settings_ignoreHeaderRows :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
+s3Settings_ignoreHeaderRows = Lens.lens (\S3Settings' {ignoreHeaderRows} -> ignoreHeaderRows) (\s@S3Settings' {} a -> s {ignoreHeaderRows = a} :: S3Settings)
+
 -- | An optional parameter to use GZIP to compress the target files. Set to
 -- GZIP to compress the target files. Either set this parameter to NONE
 -- (the default) or don\'t use it to leave the files uncompressed. This
@@ -984,12 +1181,34 @@ s3Settings_rowGroupLength = Lens.lens (\S3Settings' {rowGroupLength} -> rowGroup
 s3Settings_compressionType :: Lens.Lens' S3Settings (Prelude.Maybe CompressionTypeValue)
 s3Settings_compressionType = Lens.lens (\S3Settings' {compressionType} -> compressionType) (\s@S3Settings' {} a -> s {compressionType = a} :: S3Settings)
 
+-- | Maximum length of the interval, defined in seconds, after which to
+-- output a file to Amazon S3.
+--
+-- When @CdcMaxBatchInterval@ and @CdcMinFileSize@ are both specified, the
+-- file write is triggered by whichever parameter condition is met first
+-- within an DMS CloudFormation template.
+--
+-- The default value is 60 seconds.
+s3Settings_cdcMaxBatchInterval :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
+s3Settings_cdcMaxBatchInterval = Lens.lens (\S3Settings' {cdcMaxBatchInterval} -> cdcMaxBatchInterval) (\s@S3Settings' {} a -> s {cdcMaxBatchInterval = a} :: S3Settings)
+
+-- | Minimum file size, defined in megabytes, to reach for a file output to
+-- Amazon S3.
+--
+-- When @CdcMinFileSize@ and @CdcMaxBatchInterval@ are both specified, the
+-- file write is triggered by whichever parameter condition is met first
+-- within an DMS CloudFormation template.
+--
+-- The default value is 32 MB.
+s3Settings_cdcMinFileSize :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Int)
+s3Settings_cdcMinFileSize = Lens.lens (\S3Settings' {cdcMinFileSize} -> cdcMinFileSize) (\s@S3Settings' {} a -> s {cdcMinFileSize = a} :: S3Settings)
+
 -- | A value that enables a full load to write INSERT operations to the
 -- comma-separated value (.csv) output files only to indicate how the rows
 -- were added to the source database.
 --
--- AWS DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4
--- and later.
+-- DMS supports the @IncludeOpForFullLoad@ parameter in versions 3.1.4 and
+-- later.
 --
 -- For full load, records can only be inserted. By default (the @false@
 -- setting), no information is recorded in these output files for a full
@@ -1003,7 +1222,7 @@ s3Settings_compressionType = Lens.lens (\S3Settings' {compressionType} -> compre
 -- @CdcInsertsAndUpdates@ parameters for output to .csv files only. For
 -- more information about how these settings work together, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data>
--- in the /AWS Database Migration Service User Guide./.
+-- in the /Database Migration Service User Guide./.
 s3Settings_includeOpForFullLoad :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_includeOpForFullLoad = Lens.lens (\S3Settings' {includeOpForFullLoad} -> includeOpForFullLoad) (\s@S3Settings' {} a -> s {includeOpForFullLoad = a} :: S3Settings)
 
@@ -1015,21 +1234,20 @@ s3Settings_csvDelimiter = Lens.lens (\S3Settings' {csvDelimiter} -> csvDelimiter
 -- | A value that specifies the precision of any @TIMESTAMP@ column values
 -- that are written to an Amazon S3 object file in .parquet format.
 --
--- AWS DMS supports the @ParquetTimestampInMillisecond@ parameter in
--- versions 3.1.4 and later.
+-- DMS supports the @ParquetTimestampInMillisecond@ parameter in versions
+-- 3.1.4 and later.
 --
--- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, AWS DMS
--- writes all @TIMESTAMP@ columns in a .parquet formatted file with
--- millisecond precision. Otherwise, DMS writes them with microsecond
--- precision.
+-- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@, DMS writes
+-- all @TIMESTAMP@ columns in a .parquet formatted file with millisecond
+-- precision. Otherwise, DMS writes them with microsecond precision.
 --
--- Currently, Amazon Athena and AWS Glue can handle only millisecond
--- precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3
--- endpoint object files that are .parquet formatted only if you plan to
--- query or process the data with Athena or AWS Glue.
+-- Currently, Amazon Athena and Glue can handle only millisecond precision
+-- for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint
+-- object files that are .parquet formatted only if you plan to query or
+-- process the data with Athena or Glue.
 --
--- AWS DMS writes any @TIMESTAMP@ column values written to an S3 file in
--- .csv format with microsecond precision.
+-- DMS writes any @TIMESTAMP@ column values written to an S3 file in .csv
+-- format with microsecond precision.
 --
 -- Setting @ParquetTimestampInMillisecond@ has no effect on the string
 -- format of the timestamp column value that is inserted by setting the
@@ -1037,15 +1255,35 @@ s3Settings_csvDelimiter = Lens.lens (\S3Settings' {csvDelimiter} -> csvDelimiter
 s3Settings_parquetTimestampInMillisecond :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_parquetTimestampInMillisecond = Lens.lens (\S3Settings' {parquetTimestampInMillisecond} -> parquetTimestampInMillisecond) (\s@S3Settings' {} a -> s {parquetTimestampInMillisecond = a} :: S3Settings)
 
+-- | For an S3 source, when this value is set to @true@ or @y@, each leading
+-- double quotation mark has to be followed by an ending double quotation
+-- mark. This formatting complies with RFC 4180. When this value is set to
+-- @false@ or @n@, string literals are copied to the target as is. In this
+-- case, a delimiter (row or column) signals the end of the field. Thus,
+-- you can\'t use a delimiter as part of the string, because it signals the
+-- end of the value.
+--
+-- For an S3 target, an optional parameter used to set behavior to comply
+-- with RFC 4180 for data migrated to Amazon S3 using .csv file format
+-- only. When this value is set to @true@ or @y@ using Amazon S3 as a
+-- target, if the data has quotation marks or newline characters in it, DMS
+-- encloses the entire column with an additional pair of double quotation
+-- marks (\"). Every quotation mark within the data is repeated twice.
+--
+-- The default value is @true@. Valid values include @true@, @false@, @y@,
+-- and @n@.
+s3Settings_rfc4180 :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_rfc4180 = Lens.lens (\S3Settings' {rfc4180} -> rfc4180) (\s@S3Settings' {} a -> s {rfc4180 = a} :: S3Settings)
+
 -- | This setting only applies if your Amazon S3 output files during a change
 -- data capture (CDC) load are written in .csv format. If
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-UseCsvNoSupValue UseCsvNoSupValue>
--- is set to true, specify a string value that you want AWS DMS to use for
--- all columns not included in the supplemental log. If you do not specify
--- a string value, AWS DMS uses the null value for these columns regardless
--- of the @UseCsvNoSupValue@ setting.
+-- is set to true, specify a string value that you want DMS to use for all
+-- columns not included in the supplemental log. If you do not specify a
+-- string value, DMS uses the null value for these columns regardless of
+-- the @UseCsvNoSupValue@ setting.
 --
--- This setting is supported in AWS DMS versions 3.4.1 and later.
+-- This setting is supported in DMS versions 3.4.1 and later.
 s3Settings_csvNoSupValue :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_csvNoSupValue = Lens.lens (\S3Settings' {csvNoSupValue} -> csvNoSupValue) (\s@S3Settings' {} a -> s {csvNoSupValue = a} :: S3Settings)
 
@@ -1056,32 +1294,40 @@ instance Core.FromJSON S3Settings where
       ( \x ->
           S3Settings'
             Prelude.<$> (x Core..:? "TimestampColumnName")
-            Prelude.<*> (x Core..:? "PreserveTransactions")
             Prelude.<*> (x Core..:? "CsvRowDelimiter")
+            Prelude.<*> (x Core..:? "PreserveTransactions")
             Prelude.<*> (x Core..:? "ParquetVersion")
             Prelude.<*> (x Core..:? "DatePartitionSequence")
             Prelude.<*> (x Core..:? "BucketName")
             Prelude.<*> (x Core..:? "CdcPath")
-            Prelude.<*> (x Core..:? "ExternalTableDefinition")
             Prelude.<*> (x Core..:? "ServerSideEncryptionKmsKeyId")
+            Prelude.<*> (x Core..:? "ExternalTableDefinition")
+            Prelude.<*> (x Core..:? "CsvNullValue")
             Prelude.<*> (x Core..:? "DataPageSize")
-            Prelude.<*> (x Core..:? "EncodingType")
-            Prelude.<*> (x Core..:? "DatePartitionEnabled")
             Prelude.<*> (x Core..:? "DataFormat")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Core..:? "DatePartitionEnabled")
+            Prelude.<*> (x Core..:? "EncodingType")
             Prelude.<*> (x Core..:? "BucketFolder")
+            Prelude.<*> (x Core..:? "CannedAclForObjects")
+            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Core..:? "AddColumnName")
             Prelude.<*> (x Core..:? "DatePartitionDelimiter")
-            Prelude.<*> (x Core..:? "EnableStatistics")
+            Prelude.<*> (x Core..:? "MaxFileSize")
             Prelude.<*> (x Core..:? "EncryptionMode")
             Prelude.<*> (x Core..:? "CdcInsertsOnly")
-            Prelude.<*> (x Core..:? "CdcInsertsAndUpdates")
+            Prelude.<*> (x Core..:? "EnableStatistics")
             Prelude.<*> (x Core..:? "UseCsvNoSupValue")
-            Prelude.<*> (x Core..:? "DictPageSizeLimit")
+            Prelude.<*> (x Core..:? "CdcInsertsAndUpdates")
             Prelude.<*> (x Core..:? "RowGroupLength")
+            Prelude.<*> (x Core..:? "DictPageSizeLimit")
+            Prelude.<*> (x Core..:? "IgnoreHeaderRows")
             Prelude.<*> (x Core..:? "CompressionType")
+            Prelude.<*> (x Core..:? "CdcMaxBatchInterval")
+            Prelude.<*> (x Core..:? "CdcMinFileSize")
             Prelude.<*> (x Core..:? "IncludeOpForFullLoad")
             Prelude.<*> (x Core..:? "CsvDelimiter")
             Prelude.<*> (x Core..:? "ParquetTimestampInMillisecond")
+            Prelude.<*> (x Core..:? "Rfc4180")
             Prelude.<*> (x Core..:? "CsvNoSupValue")
       )
 
@@ -1095,51 +1341,63 @@ instance Core.ToJSON S3Settings where
       ( Prelude.catMaybes
           [ ("TimestampColumnName" Core..=)
               Prelude.<$> timestampColumnName,
-            ("PreserveTransactions" Core..=)
-              Prelude.<$> preserveTransactions,
             ("CsvRowDelimiter" Core..=)
               Prelude.<$> csvRowDelimiter,
+            ("PreserveTransactions" Core..=)
+              Prelude.<$> preserveTransactions,
             ("ParquetVersion" Core..=)
               Prelude.<$> parquetVersion,
             ("DatePartitionSequence" Core..=)
               Prelude.<$> datePartitionSequence,
             ("BucketName" Core..=) Prelude.<$> bucketName,
             ("CdcPath" Core..=) Prelude.<$> cdcPath,
-            ("ExternalTableDefinition" Core..=)
-              Prelude.<$> externalTableDefinition,
             ("ServerSideEncryptionKmsKeyId" Core..=)
               Prelude.<$> serverSideEncryptionKmsKeyId,
+            ("ExternalTableDefinition" Core..=)
+              Prelude.<$> externalTableDefinition,
+            ("CsvNullValue" Core..=) Prelude.<$> csvNullValue,
             ("DataPageSize" Core..=) Prelude.<$> dataPageSize,
-            ("EncodingType" Core..=) Prelude.<$> encodingType,
+            ("DataFormat" Core..=) Prelude.<$> dataFormat,
             ("DatePartitionEnabled" Core..=)
               Prelude.<$> datePartitionEnabled,
-            ("DataFormat" Core..=) Prelude.<$> dataFormat,
+            ("EncodingType" Core..=) Prelude.<$> encodingType,
+            ("BucketFolder" Core..=) Prelude.<$> bucketFolder,
+            ("CannedAclForObjects" Core..=)
+              Prelude.<$> cannedAclForObjects,
             ("ServiceAccessRoleArn" Core..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("BucketFolder" Core..=) Prelude.<$> bucketFolder,
+            ("AddColumnName" Core..=) Prelude.<$> addColumnName,
             ("DatePartitionDelimiter" Core..=)
               Prelude.<$> datePartitionDelimiter,
-            ("EnableStatistics" Core..=)
-              Prelude.<$> enableStatistics,
+            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
             ("EncryptionMode" Core..=)
               Prelude.<$> encryptionMode,
             ("CdcInsertsOnly" Core..=)
               Prelude.<$> cdcInsertsOnly,
-            ("CdcInsertsAndUpdates" Core..=)
-              Prelude.<$> cdcInsertsAndUpdates,
+            ("EnableStatistics" Core..=)
+              Prelude.<$> enableStatistics,
             ("UseCsvNoSupValue" Core..=)
               Prelude.<$> useCsvNoSupValue,
-            ("DictPageSizeLimit" Core..=)
-              Prelude.<$> dictPageSizeLimit,
+            ("CdcInsertsAndUpdates" Core..=)
+              Prelude.<$> cdcInsertsAndUpdates,
             ("RowGroupLength" Core..=)
               Prelude.<$> rowGroupLength,
+            ("DictPageSizeLimit" Core..=)
+              Prelude.<$> dictPageSizeLimit,
+            ("IgnoreHeaderRows" Core..=)
+              Prelude.<$> ignoreHeaderRows,
             ("CompressionType" Core..=)
               Prelude.<$> compressionType,
+            ("CdcMaxBatchInterval" Core..=)
+              Prelude.<$> cdcMaxBatchInterval,
+            ("CdcMinFileSize" Core..=)
+              Prelude.<$> cdcMinFileSize,
             ("IncludeOpForFullLoad" Core..=)
               Prelude.<$> includeOpForFullLoad,
             ("CsvDelimiter" Core..=) Prelude.<$> csvDelimiter,
             ("ParquetTimestampInMillisecond" Core..=)
               Prelude.<$> parquetTimestampInMillisecond,
+            ("Rfc4180" Core..=) Prelude.<$> rfc4180,
             ("CsvNoSupValue" Core..=) Prelude.<$> csvNoSupValue
           ]
       )

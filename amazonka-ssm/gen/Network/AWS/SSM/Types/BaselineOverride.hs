@@ -33,20 +33,20 @@ import Network.AWS.SSM.Types.PatchSource
 --
 -- /See:/ 'newBaselineOverride' smart constructor.
 data BaselineOverride = BaselineOverride'
-  { -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
-    sources :: Prelude.Maybe [PatchSource],
-    -- | A list of explicitly rejected patches for the baseline.
+  { -- | A list of explicitly rejected patches for the baseline.
     --
     -- For information about accepted formats for lists of approved patches and
     -- rejected patches, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
+    -- | Information about the patches to use to update the instances, including
+    -- target operating systems and source repositories. Applies to Linux
+    -- instances only.
+    sources :: Prelude.Maybe [PatchSource],
     -- | Indicates whether the list of approved patches includes non-security
     -- updates that should be applied to the instances. The default value is
-    -- \'false\'. Applies to Linux instances only.
+    -- @false@. Applies to Linux instances only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | Defines the compliance level for approved patches. When an approved
     -- patch is reported as missing, this value describes the severity of the
@@ -57,12 +57,12 @@ data BaselineOverride = BaselineOverride'
     -- For information about accepted formats for lists of approved patches and
     -- rejected patches, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     approvedPatches :: Prelude.Maybe [Prelude.Text],
     -- | The action for Patch Manager to take on patches included in the
-    -- RejectedPackages list. A patch can be allowed only if it is a dependency
-    -- of another package, or blocked entirely along with packages that include
-    -- it as a dependency.
+    -- @RejectedPackages@ list. A patch can be allowed only if it is a
+    -- dependency of another package, or blocked entirely along with packages
+    -- that include it as a dependency.
     rejectedPatchesAction :: Prelude.Maybe PatchAction,
     -- | The operating system rule used by the patch baseline override.
     operatingSystem :: Prelude.Maybe OperatingSystem,
@@ -79,20 +79,20 @@ data BaselineOverride = BaselineOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'baselineOverride_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
---
 -- 'rejectedPatches', 'baselineOverride_rejectedPatches' - A list of explicitly rejected patches for the baseline.
 --
 -- For information about accepted formats for lists of approved patches and
 -- rejected patches, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'sources', 'baselineOverride_sources' - Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
 --
 -- 'approvedPatchesEnableNonSecurity', 'baselineOverride_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
--- \'false\'. Applies to Linux instances only.
+-- @false@. Applies to Linux instances only.
 --
 -- 'approvedPatchesComplianceLevel', 'baselineOverride_approvedPatchesComplianceLevel' - Defines the compliance level for approved patches. When an approved
 -- patch is reported as missing, this value describes the severity of the
@@ -103,12 +103,12 @@ data BaselineOverride = BaselineOverride'
 -- For information about accepted formats for lists of approved patches and
 -- rejected patches, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'rejectedPatchesAction', 'baselineOverride_rejectedPatchesAction' - The action for Patch Manager to take on patches included in the
--- RejectedPackages list. A patch can be allowed only if it is a dependency
--- of another package, or blocked entirely along with packages that include
--- it as a dependency.
+-- @RejectedPackages@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
 --
 -- 'operatingSystem', 'baselineOverride_operatingSystem' - The operating system rule used by the patch baseline override.
 --
@@ -119,8 +119,9 @@ newBaselineOverride ::
   BaselineOverride
 newBaselineOverride =
   BaselineOverride'
-    { sources = Prelude.Nothing,
-      rejectedPatches = Prelude.Nothing,
+    { rejectedPatches =
+        Prelude.Nothing,
+      sources = Prelude.Nothing,
       approvedPatchesEnableNonSecurity = Prelude.Nothing,
       approvedPatchesComplianceLevel = Prelude.Nothing,
       approvedPatches = Prelude.Nothing,
@@ -130,24 +131,24 @@ newBaselineOverride =
       approvalRules = Prelude.Nothing
     }
 
+-- | A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+baselineOverride_rejectedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [Prelude.Text])
+baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatches} -> rejectedPatches) (\s@BaselineOverride' {} a -> s {rejectedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Information about the patches to use to update the instances, including
 -- target operating systems and source repositories. Applies to Linux
 -- instances only.
 baselineOverride_sources :: Lens.Lens' BaselineOverride (Prelude.Maybe [PatchSource])
 baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (\s@BaselineOverride' {} a -> s {sources = a} :: BaselineOverride) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of explicitly rejected patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and
--- rejected patches, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /AWS Systems Manager User Guide/.
-baselineOverride_rejectedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [Prelude.Text])
-baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatches} -> rejectedPatches) (\s@BaselineOverride' {} a -> s {rejectedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
--- \'false\'. Applies to Linux instances only.
+-- @false@. Applies to Linux instances only.
 baselineOverride_approvedPatchesEnableNonSecurity :: Lens.Lens' BaselineOverride (Prelude.Maybe Prelude.Bool)
 baselineOverride_approvedPatchesEnableNonSecurity = Lens.lens (\BaselineOverride' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@BaselineOverride' {} a -> s {approvedPatchesEnableNonSecurity = a} :: BaselineOverride)
 
@@ -162,14 +163,14 @@ baselineOverride_approvedPatchesComplianceLevel = Lens.lens (\BaselineOverride' 
 -- For information about accepted formats for lists of approved patches and
 -- rejected patches, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 baselineOverride_approvedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [Prelude.Text])
 baselineOverride_approvedPatches = Lens.lens (\BaselineOverride' {approvedPatches} -> approvedPatches) (\s@BaselineOverride' {} a -> s {approvedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The action for Patch Manager to take on patches included in the
--- RejectedPackages list. A patch can be allowed only if it is a dependency
--- of another package, or blocked entirely along with packages that include
--- it as a dependency.
+-- @RejectedPackages@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
 baselineOverride_rejectedPatchesAction :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchAction)
 baselineOverride_rejectedPatchesAction = Lens.lens (\BaselineOverride' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@BaselineOverride' {} a -> s {rejectedPatchesAction = a} :: BaselineOverride)
 
@@ -193,9 +194,9 @@ instance Core.ToJSON BaselineOverride where
   toJSON BaselineOverride' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Sources" Core..=) Prelude.<$> sources,
-            ("RejectedPatches" Core..=)
+          [ ("RejectedPatches" Core..=)
               Prelude.<$> rejectedPatches,
+            ("Sources" Core..=) Prelude.<$> sources,
             ("ApprovedPatchesEnableNonSecurity" Core..=)
               Prelude.<$> approvedPatchesEnableNonSecurity,
             ("ApprovedPatchesComplianceLevel" Core..=)

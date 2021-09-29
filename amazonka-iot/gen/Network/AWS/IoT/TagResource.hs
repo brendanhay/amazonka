@@ -22,6 +22,10 @@
 --
 -- Adds to or modifies the tags of the given resource. Tags are metadata
 -- which can be used to manage a resource.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions TagResource>
+-- action.
 module Network.AWS.IoT.TagResource
   ( -- * Creating a Request
     TagResource (..),

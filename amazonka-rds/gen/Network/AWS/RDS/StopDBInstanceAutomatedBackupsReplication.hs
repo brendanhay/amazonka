@@ -23,7 +23,7 @@
 -- Stops automated backup replication for a DB instance.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html Replicating Automated Backups to Another AWS Region>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html Replicating Automated Backups to Another Amazon Web Services Region>
 -- in the /Amazon RDS User Guide./
 module Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication
   ( -- * Creating a Request

@@ -23,7 +23,7 @@
 -- Describes one or more of your DHCP options sets.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP Options Sets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html DHCP options sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -35,8 +35,8 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Request Lenses
     describeDhcpOptions_nextToken,
     describeDhcpOptions_dhcpOptionsIds,
-    describeDhcpOptions_dryRun,
     describeDhcpOptions_maxResults,
+    describeDhcpOptions_dryRun,
     describeDhcpOptions_filters,
 
     -- * Destructuring the Response
@@ -65,15 +65,15 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
     --
     -- Default: Describes all your DHCP options sets.
     dhcpOptionsIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @dhcp-options-id@ - The ID of a DHCP options set.
@@ -82,8 +82,8 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
     --
     -- -   @value@ - The value for one of the options.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the DHCP options
-    --     set.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     DHCP options set.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
@@ -112,14 +112,14 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
 --
 -- Default: Describes all your DHCP options sets.
 --
+-- 'maxResults', 'describeDhcpOptions_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeDhcpOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeDhcpOptions_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeDhcpOptions_filters' - One or more filters.
 --
@@ -129,8 +129,8 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
 --
 -- -   @value@ - The value for one of the options.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the DHCP options
---     set.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     DHCP options set.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -147,8 +147,8 @@ newDescribeDhcpOptions =
   DescribeDhcpOptions'
     { nextToken = Prelude.Nothing,
       dhcpOptionsIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -162,18 +162,18 @@ describeDhcpOptions_nextToken = Lens.lens (\DescribeDhcpOptions' {nextToken} -> 
 describeDhcpOptions_dhcpOptionsIds :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Prelude.Text])
 describeDhcpOptions_dhcpOptionsIds = Lens.lens (\DescribeDhcpOptions' {dhcpOptionsIds} -> dhcpOptionsIds) (\s@DescribeDhcpOptions' {} a -> s {dhcpOptionsIds = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeDhcpOptions_maxResults :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Natural)
+describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -> maxResults) (\s@DescribeDhcpOptions' {} a -> s {maxResults = a} :: DescribeDhcpOptions)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeDhcpOptions_dryRun :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Bool)
 describeDhcpOptions_dryRun = Lens.lens (\DescribeDhcpOptions' {dryRun} -> dryRun) (\s@DescribeDhcpOptions' {} a -> s {dryRun = a} :: DescribeDhcpOptions)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeDhcpOptions_maxResults :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Natural)
-describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -> maxResults) (\s@DescribeDhcpOptions' {} a -> s {maxResults = a} :: DescribeDhcpOptions)
 
 -- | One or more filters.
 --
@@ -183,8 +183,8 @@ describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -
 --
 -- -   @value@ - The value for one of the options.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the DHCP options
---     set.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     DHCP options set.
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -258,8 +258,8 @@ instance Core.ToQuery DescribeDhcpOptions where
           ( Core.toQueryList "DhcpOptionsId"
               Prelude.<$> dhcpOptionsIds
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

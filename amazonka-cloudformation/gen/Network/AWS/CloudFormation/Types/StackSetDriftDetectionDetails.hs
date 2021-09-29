@@ -36,7 +36,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newStackSetDriftDetectionDetails' smart constructor.
 data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
@@ -68,7 +68,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     --     configuration. A stack instance is considered to have drifted if one
     --     or more of the resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked the stack set for
+    -- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
     --     drift.
     --
     -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
@@ -141,7 +141,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
 --     drift.
 --
 -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
@@ -228,7 +228,7 @@ stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDrif
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
 --     drift.
 --
 -- -   @IN_SYNC@: All of the stack instances belonging to the stack set

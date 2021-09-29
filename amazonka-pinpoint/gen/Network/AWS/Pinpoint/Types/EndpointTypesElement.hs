@@ -29,6 +29,7 @@ module Network.AWS.Pinpoint.Types.EndpointTypesElement
         EndpointTypesElement_CUSTOM,
         EndpointTypesElement_EMAIL,
         EndpointTypesElement_GCM,
+        EndpointTypesElement_IN_APP,
         EndpointTypesElement_PUSH,
         EndpointTypesElement_SMS,
         EndpointTypesElement_VOICE
@@ -94,6 +95,9 @@ pattern EndpointTypesElement_EMAIL = EndpointTypesElement' "EMAIL"
 pattern EndpointTypesElement_GCM :: EndpointTypesElement
 pattern EndpointTypesElement_GCM = EndpointTypesElement' "GCM"
 
+pattern EndpointTypesElement_IN_APP :: EndpointTypesElement
+pattern EndpointTypesElement_IN_APP = EndpointTypesElement' "IN_APP"
+
 pattern EndpointTypesElement_PUSH :: EndpointTypesElement
 pattern EndpointTypesElement_PUSH = EndpointTypesElement' "PUSH"
 
@@ -113,6 +117,7 @@ pattern EndpointTypesElement_VOICE = EndpointTypesElement' "VOICE"
   EndpointTypesElement_CUSTOM,
   EndpointTypesElement_EMAIL,
   EndpointTypesElement_GCM,
+  EndpointTypesElement_IN_APP,
   EndpointTypesElement_PUSH,
   EndpointTypesElement_SMS,
   EndpointTypesElement_VOICE,

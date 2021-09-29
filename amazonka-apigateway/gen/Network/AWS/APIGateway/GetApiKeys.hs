@@ -32,8 +32,8 @@ module Network.AWS.APIGateway.GetApiKeys
     getApiKeys_customerId,
     getApiKeys_includeValues,
     getApiKeys_position,
-    getApiKeys_limit,
     getApiKeys_nameQuery,
+    getApiKeys_limit,
 
     -- * Destructuring the Response
     GetApiKeysResponse (..),
@@ -66,11 +66,11 @@ data GetApiKeys = GetApiKeys'
     includeValues :: Prelude.Maybe Prelude.Bool,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
+    -- | The name of queried API keys.
+    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
-    -- | The name of queried API keys.
-    nameQuery :: Prelude.Maybe Prelude.Text
+    limit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,10 +90,10 @@ data GetApiKeys = GetApiKeys'
 --
 -- 'position', 'getApiKeys_position' - The current pagination position in the paged result set.
 --
+-- 'nameQuery', 'getApiKeys_nameQuery' - The name of queried API keys.
+--
 -- 'limit', 'getApiKeys_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
---
--- 'nameQuery', 'getApiKeys_nameQuery' - The name of queried API keys.
 newGetApiKeys ::
   GetApiKeys
 newGetApiKeys =
@@ -101,8 +101,8 @@ newGetApiKeys =
     { customerId = Prelude.Nothing,
       includeValues = Prelude.Nothing,
       position = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      nameQuery = Prelude.Nothing
+      nameQuery = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The identifier of a customer in AWS Marketplace or an external system,
@@ -119,14 +119,14 @@ getApiKeys_includeValues = Lens.lens (\GetApiKeys' {includeValues} -> includeVal
 getApiKeys_position :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_position = Lens.lens (\GetApiKeys' {position} -> position) (\s@GetApiKeys' {} a -> s {position = a} :: GetApiKeys)
 
+-- | The name of queried API keys.
+getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
+getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@GetApiKeys' {} a -> s {nameQuery = a} :: GetApiKeys)
+
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getApiKeys_limit :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Int)
 getApiKeys_limit = Lens.lens (\GetApiKeys' {limit} -> limit) (\s@GetApiKeys' {} a -> s {limit = a} :: GetApiKeys)
-
--- | The name of queried API keys.
-getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
-getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@GetApiKeys' {} a -> s {nameQuery = a} :: GetApiKeys)
 
 instance Core.AWSPager GetApiKeys where
   page rq rs
@@ -182,8 +182,8 @@ instance Core.ToQuery GetApiKeys where
       [ "customerId" Core.=: customerId,
         "includeValues" Core.=: includeValues,
         "position" Core.=: position,
-        "limit" Core.=: limit,
-        "name" Core.=: nameQuery
+        "name" Core.=: nameQuery,
+        "limit" Core.=: limit
       ]
 
 -- | Represents a collection of API keys as represented by an ApiKeys

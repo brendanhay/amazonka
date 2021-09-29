@@ -28,11 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoMLJobCompletionCriteria' smart constructor.
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
-  { -- | The maximum time, in seconds, a job is allowed to run.
+  { -- | The maximum time, in seconds, a training job is allowed to run as part
+    -- of an AutoML job.
     maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum time, in seconds, an AutoML job is allowed to wait for a
-    -- trial to complete. It must be equal to or greater than
-    -- MaxRuntimePerTrainingJobInSeconds.
+    -- | The maximum runtime, in seconds, an AutoML job has to complete.
     maxAutoMLJobRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of times a training job is allowed to run.
     maxCandidates :: Prelude.Maybe Prelude.Natural
@@ -47,11 +46,10 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, a job is allowed to run.
+-- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, a training job is allowed to run as part
+-- of an AutoML job.
 --
--- 'maxAutoMLJobRuntimeInSeconds', 'autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds' - The maximum time, in seconds, an AutoML job is allowed to wait for a
--- trial to complete. It must be equal to or greater than
--- MaxRuntimePerTrainingJobInSeconds.
+-- 'maxAutoMLJobRuntimeInSeconds', 'autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds' - The maximum runtime, in seconds, an AutoML job has to complete.
 --
 -- 'maxCandidates', 'autoMLJobCompletionCriteria_maxCandidates' - The maximum number of times a training job is allowed to run.
 newAutoMLJobCompletionCriteria ::
@@ -64,13 +62,12 @@ newAutoMLJobCompletionCriteria =
       maxCandidates = Prelude.Nothing
     }
 
--- | The maximum time, in seconds, a job is allowed to run.
+-- | The maximum time, in seconds, a training job is allowed to run as part
+-- of an AutoML job.
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
 
--- | The maximum time, in seconds, an AutoML job is allowed to wait for a
--- trial to complete. It must be equal to or greater than
--- MaxRuntimePerTrainingJobInSeconds.
+-- | The maximum runtime, in seconds, an AutoML job has to complete.
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxAutoMLJobRuntimeInSeconds} -> maxAutoMLJobRuntimeInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
 

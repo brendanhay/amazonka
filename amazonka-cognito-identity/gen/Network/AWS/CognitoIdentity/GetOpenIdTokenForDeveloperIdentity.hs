@@ -44,8 +44,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 
     -- * Request Lenses
     getOpenIdTokenForDeveloperIdentity_tokenDuration,
-    getOpenIdTokenForDeveloperIdentity_identityId,
     getOpenIdTokenForDeveloperIdentity_principalTags,
+    getOpenIdTokenForDeveloperIdentity_identityId,
     getOpenIdTokenForDeveloperIdentity_identityPoolId,
     getOpenIdTokenForDeveloperIdentity_logins,
 
@@ -84,10 +84,10 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
     -- Please provide for a small grace period, usually no more than 5 minutes,
     -- to account for clock skew.
     tokenDuration :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
     -- | Use this operation to configure attribute mappings for custom providers.
     principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | An identity pool ID in the format REGION:GUID.
     identityPoolId :: Prelude.Text,
     -- | A set of optional name-value pairs that map provider names to provider
@@ -125,9 +125,9 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
 -- Please provide for a small grace period, usually no more than 5 minutes,
 -- to account for clock skew.
 --
--- 'identityId', 'getOpenIdTokenForDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.
---
 -- 'principalTags', 'getOpenIdTokenForDeveloperIdentity_principalTags' - Use this operation to configure attribute mappings for custom providers.
+--
+-- 'identityId', 'getOpenIdTokenForDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.
 --
 -- 'identityPoolId', 'getOpenIdTokenForDeveloperIdentity_identityPoolId' - An identity pool ID in the format REGION:GUID.
 --
@@ -150,8 +150,8 @@ newGetOpenIdTokenForDeveloperIdentity
     GetOpenIdTokenForDeveloperIdentity'
       { tokenDuration =
           Prelude.Nothing,
-        identityId = Prelude.Nothing,
         principalTags = Prelude.Nothing,
+        identityId = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         logins = Prelude.mempty
       }
@@ -171,13 +171,13 @@ newGetOpenIdTokenForDeveloperIdentity
 getOpenIdTokenForDeveloperIdentity_tokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Natural)
 getOpenIdTokenForDeveloperIdentity_tokenDuration = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {tokenDuration} -> tokenDuration) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {tokenDuration = a} :: GetOpenIdTokenForDeveloperIdentity)
 
--- | A unique identifier in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
-getOpenIdTokenForDeveloperIdentity_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
-
 -- | Use this operation to configure attribute mappings for custom providers.
 getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A unique identifier in the format REGION:GUID.
+getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentity_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
 
 -- | An identity pool ID in the format REGION:GUID.
 getOpenIdTokenForDeveloperIdentity_identityPoolId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity Prelude.Text
@@ -247,8 +247,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("TokenDuration" Core..=) Prelude.<$> tokenDuration,
-            ("IdentityId" Core..=) Prelude.<$> identityId,
             ("PrincipalTags" Core..=) Prelude.<$> principalTags,
+            ("IdentityId" Core..=) Prelude.<$> identityId,
             Prelude.Just
               ("IdentityPoolId" Core..= identityPoolId),
             Prelude.Just ("Logins" Core..= logins)

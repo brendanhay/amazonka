@@ -60,9 +60,26 @@ data DescribeInstancePatches = DescribeInstancePatches'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An array of structures. Each entry in the array is a structure
-    -- containing a Key, Value combination. Valid values for Key are
-    -- @Classification@ | @KBId@ | @Severity@ | @State@.
+    -- | Each element in the array is a structure containing a key-value pair.
+    --
+    -- Supported keys for @DescribeInstancePatches@include the following:
+    --
+    -- -   __@Classification@__
+    --
+    --     Sample values: @Security@ | @SecurityUpdates@
+    --
+    -- -   __@KBId@__
+    --
+    --     Sample values: @KB4480056@ | @java-1.7.0-openjdk.x86_64@
+    --
+    -- -   __@Severity@__
+    --
+    --     Sample values: @Important@ | @Medium@ | @Low@
+    --
+    -- -   __@State@__
+    --
+    --     Sample values: @Installed@ | @InstalledOther@ |
+    --     @InstalledPendingReboot@
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
     -- | The ID of the instance whose patch state information should be
     -- retrieved.
@@ -83,9 +100,26 @@ data DescribeInstancePatches = DescribeInstancePatches'
 --
 -- 'maxResults', 'describeInstancePatches_maxResults' - The maximum number of patches to return (per page).
 --
--- 'filters', 'describeInstancePatches_filters' - An array of structures. Each entry in the array is a structure
--- containing a Key, Value combination. Valid values for Key are
--- @Classification@ | @KBId@ | @Severity@ | @State@.
+-- 'filters', 'describeInstancePatches_filters' - Each element in the array is a structure containing a key-value pair.
+--
+-- Supported keys for @DescribeInstancePatches@include the following:
+--
+-- -   __@Classification@__
+--
+--     Sample values: @Security@ | @SecurityUpdates@
+--
+-- -   __@KBId@__
+--
+--     Sample values: @KB4480056@ | @java-1.7.0-openjdk.x86_64@
+--
+-- -   __@Severity@__
+--
+--     Sample values: @Important@ | @Medium@ | @Low@
+--
+-- -   __@State@__
+--
+--     Sample values: @Installed@ | @InstalledOther@ |
+--     @InstalledPendingReboot@
 --
 -- 'instanceId', 'describeInstancePatches_instanceId' - The ID of the instance whose patch state information should be
 -- retrieved.
@@ -111,9 +145,26 @@ describeInstancePatches_nextToken = Lens.lens (\DescribeInstancePatches' {nextTo
 describeInstancePatches_maxResults :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Natural)
 describeInstancePatches_maxResults = Lens.lens (\DescribeInstancePatches' {maxResults} -> maxResults) (\s@DescribeInstancePatches' {} a -> s {maxResults = a} :: DescribeInstancePatches)
 
--- | An array of structures. Each entry in the array is a structure
--- containing a Key, Value combination. Valid values for Key are
--- @Classification@ | @KBId@ | @Severity@ | @State@.
+-- | Each element in the array is a structure containing a key-value pair.
+--
+-- Supported keys for @DescribeInstancePatches@include the following:
+--
+-- -   __@Classification@__
+--
+--     Sample values: @Security@ | @SecurityUpdates@
+--
+-- -   __@KBId@__
+--
+--     Sample values: @KB4480056@ | @java-1.7.0-openjdk.x86_64@
+--
+-- -   __@Severity@__
+--
+--     Sample values: @Important@ | @Medium@ | @Low@
+--
+-- -   __@State@__
+--
+--     Sample values: @Installed@ | @InstalledOther@ |
+--     @InstalledPendingReboot@
 describeInstancePatches_filters :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe [PatchOrchestratorFilter])
 describeInstancePatches_filters = Lens.lens (\DescribeInstancePatches' {filters} -> filters) (\s@DescribeInstancePatches' {} a -> s {filters = a} :: DescribeInstancePatches) Prelude.. Lens.mapping Lens._Coerce
 
@@ -201,19 +252,19 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Each entry in the array is a structure containing:
     --
-    -- Title (string)
+    -- -   Title (string)
     --
-    -- KBId (string)
+    -- -   KBId (string)
     --
-    -- Classification (string)
+    -- -   Classification (string)
     --
-    -- Severity (string)
+    -- -   Severity (string)
     --
-    -- State (string, such as \"INSTALLED\" or \"FAILED\")
+    -- -   State (string, such as \"INSTALLED\" or \"FAILED\")
     --
-    -- InstalledTime (DateTime)
+    -- -   InstalledTime (DateTime)
     --
-    -- InstalledBy (string)
+    -- -   InstalledBy (string)
     patches :: Prelude.Maybe [PatchComplianceData],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -233,19 +284,19 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
 --
 -- 'patches', 'describeInstancePatchesResponse_patches' - Each entry in the array is a structure containing:
 --
--- Title (string)
+-- -   Title (string)
 --
--- KBId (string)
+-- -   KBId (string)
 --
--- Classification (string)
+-- -   Classification (string)
 --
--- Severity (string)
+-- -   Severity (string)
 --
--- State (string, such as \"INSTALLED\" or \"FAILED\")
+-- -   State (string, such as \"INSTALLED\" or \"FAILED\")
 --
--- InstalledTime (DateTime)
+-- -   InstalledTime (DateTime)
 --
--- InstalledBy (string)
+-- -   InstalledBy (string)
 --
 -- 'httpStatus', 'describeInstancePatchesResponse_httpStatus' - The response's http status code.
 newDescribeInstancePatchesResponse ::
@@ -267,19 +318,19 @@ describeInstancePatchesResponse_nextToken = Lens.lens (\DescribeInstancePatchesR
 
 -- | Each entry in the array is a structure containing:
 --
--- Title (string)
+-- -   Title (string)
 --
--- KBId (string)
+-- -   KBId (string)
 --
--- Classification (string)
+-- -   Classification (string)
 --
--- Severity (string)
+-- -   Severity (string)
 --
--- State (string, such as \"INSTALLED\" or \"FAILED\")
+-- -   State (string, such as \"INSTALLED\" or \"FAILED\")
 --
--- InstalledTime (DateTime)
+-- -   InstalledTime (DateTime)
 --
--- InstalledBy (string)
+-- -   InstalledBy (string)
 describeInstancePatchesResponse_patches :: Lens.Lens' DescribeInstancePatchesResponse (Prelude.Maybe [PatchComplianceData])
 describeInstancePatchesResponse_patches = Lens.lens (\DescribeInstancePatchesResponse' {patches} -> patches) (\s@DescribeInstancePatchesResponse' {} a -> s {patches = a} :: DescribeInstancePatchesResponse) Prelude.. Lens.mapping Lens._Coerce
 

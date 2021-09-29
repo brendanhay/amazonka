@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the latest version for every traffic policy that
--- is associated with the current AWS account. Policies are listed in the
--- order that they were created in.
+-- is associated with the current Amazon Web Services account. Policies are
+-- listed in the order that they were created in.
 --
 -- For information about how of deleting a traffic policy affects the
 -- response from @ListTrafficPolicies@, see
@@ -33,8 +33,8 @@ module Network.AWS.Route53.ListTrafficPolicies
     newListTrafficPolicies,
 
     -- * Request Lenses
-    listTrafficPolicies_maxItems,
     listTrafficPolicies_trafficPolicyIdMarker,
+    listTrafficPolicies_maxItems,
 
     -- * Destructuring the Response
     ListTrafficPoliciesResponse (..),
@@ -57,18 +57,12 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A complex type that contains the information about the request to list
--- the traffic policies that are associated with the current AWS account.
+-- the traffic policies that are associated with the current Amazon Web
+-- Services account.
 --
 -- /See:/ 'newListTrafficPolicies' smart constructor.
 data ListTrafficPolicies = ListTrafficPolicies'
-  { -- | (Optional) The maximum number of traffic policies that you want Amazon
-    -- Route 53 to return in response to this request. If you have more than
-    -- @MaxItems@ traffic policies, the value of @IsTruncated@ in the response
-    -- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
-    -- first traffic policy that Route 53 will return if you submit another
-    -- request.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | (Conditional) For your first request to @ListTrafficPolicies@, don\'t
+  { -- | (Conditional) For your first request to @ListTrafficPolicies@, don\'t
     -- include the @TrafficPolicyIdMarker@ parameter.
     --
     -- If you have more traffic policies than the value of @MaxItems@,
@@ -77,7 +71,14 @@ data ListTrafficPolicies = ListTrafficPolicies'
     -- @ListTrafficPolicies@. For the value of @TrafficPolicyIdMarker@, specify
     -- the value of @TrafficPolicyIdMarker@ that was returned in the previous
     -- response.
-    trafficPolicyIdMarker :: Prelude.Maybe Prelude.Text
+    trafficPolicyIdMarker :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The maximum number of traffic policies that you want Amazon
+    -- Route 53 to return in response to this request. If you have more than
+    -- @MaxItems@ traffic policies, the value of @IsTruncated@ in the response
+    -- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
+    -- first traffic policy that Route 53 will return if you submit another
+    -- request.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,13 +90,6 @@ data ListTrafficPolicies = ListTrafficPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listTrafficPolicies_maxItems' - (Optional) The maximum number of traffic policies that you want Amazon
--- Route 53 to return in response to this request. If you have more than
--- @MaxItems@ traffic policies, the value of @IsTruncated@ in the response
--- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
--- first traffic policy that Route 53 will return if you submit another
--- request.
---
 -- 'trafficPolicyIdMarker', 'listTrafficPolicies_trafficPolicyIdMarker' - (Conditional) For your first request to @ListTrafficPolicies@, don\'t
 -- include the @TrafficPolicyIdMarker@ parameter.
 --
@@ -105,22 +99,21 @@ data ListTrafficPolicies = ListTrafficPolicies'
 -- @ListTrafficPolicies@. For the value of @TrafficPolicyIdMarker@, specify
 -- the value of @TrafficPolicyIdMarker@ that was returned in the previous
 -- response.
-newListTrafficPolicies ::
-  ListTrafficPolicies
-newListTrafficPolicies =
-  ListTrafficPolicies'
-    { maxItems = Prelude.Nothing,
-      trafficPolicyIdMarker = Prelude.Nothing
-    }
-
--- | (Optional) The maximum number of traffic policies that you want Amazon
+--
+-- 'maxItems', 'listTrafficPolicies_maxItems' - (Optional) The maximum number of traffic policies that you want Amazon
 -- Route 53 to return in response to this request. If you have more than
 -- @MaxItems@ traffic policies, the value of @IsTruncated@ in the response
 -- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
 -- first traffic policy that Route 53 will return if you submit another
 -- request.
-listTrafficPolicies_maxItems :: Lens.Lens' ListTrafficPolicies (Prelude.Maybe Prelude.Text)
-listTrafficPolicies_maxItems = Lens.lens (\ListTrafficPolicies' {maxItems} -> maxItems) (\s@ListTrafficPolicies' {} a -> s {maxItems = a} :: ListTrafficPolicies)
+newListTrafficPolicies ::
+  ListTrafficPolicies
+newListTrafficPolicies =
+  ListTrafficPolicies'
+    { trafficPolicyIdMarker =
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing
+    }
 
 -- | (Conditional) For your first request to @ListTrafficPolicies@, don\'t
 -- include the @TrafficPolicyIdMarker@ parameter.
@@ -133,6 +126,15 @@ listTrafficPolicies_maxItems = Lens.lens (\ListTrafficPolicies' {maxItems} -> ma
 -- response.
 listTrafficPolicies_trafficPolicyIdMarker :: Lens.Lens' ListTrafficPolicies (Prelude.Maybe Prelude.Text)
 listTrafficPolicies_trafficPolicyIdMarker = Lens.lens (\ListTrafficPolicies' {trafficPolicyIdMarker} -> trafficPolicyIdMarker) (\s@ListTrafficPolicies' {} a -> s {trafficPolicyIdMarker = a} :: ListTrafficPolicies)
+
+-- | (Optional) The maximum number of traffic policies that you want Amazon
+-- Route 53 to return in response to this request. If you have more than
+-- @MaxItems@ traffic policies, the value of @IsTruncated@ in the response
+-- is @true@, and the value of @TrafficPolicyIdMarker@ is the ID of the
+-- first traffic policy that Route 53 will return if you submit another
+-- request.
+listTrafficPolicies_maxItems :: Lens.Lens' ListTrafficPolicies (Prelude.Maybe Prelude.Text)
+listTrafficPolicies_maxItems = Lens.lens (\ListTrafficPolicies' {maxItems} -> maxItems) (\s@ListTrafficPolicies' {} a -> s {maxItems = a} :: ListTrafficPolicies)
 
 instance Core.AWSRequest ListTrafficPolicies where
   type
@@ -166,8 +168,8 @@ instance Core.ToPath ListTrafficPolicies where
 instance Core.ToQuery ListTrafficPolicies where
   toQuery ListTrafficPolicies' {..} =
     Prelude.mconcat
-      [ "maxitems" Core.=: maxItems,
-        "trafficpolicyid" Core.=: trafficPolicyIdMarker
+      [ "trafficpolicyid" Core.=: trafficPolicyIdMarker,
+        "maxitems" Core.=: maxItems
       ]
 
 -- | A complex type that contains the response information for the request.
@@ -177,7 +179,7 @@ data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list that contains one @TrafficPolicySummary@ element for each traffic
-    -- policy that was created by the current AWS account.
+    -- policy that was created by the current Amazon Web Services account.
     trafficPolicySummaries :: [TrafficPolicySummary],
     -- | A flag that indicates whether there are more traffic policies to be
     -- listed. If the response was truncated, you can get the next group of
@@ -206,7 +208,7 @@ data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
 -- 'httpStatus', 'listTrafficPoliciesResponse_httpStatus' - The response's http status code.
 --
 -- 'trafficPolicySummaries', 'listTrafficPoliciesResponse_trafficPolicySummaries' - A list that contains one @TrafficPolicySummary@ element for each traffic
--- policy that was created by the current AWS account.
+-- policy that was created by the current Amazon Web Services account.
 --
 -- 'isTruncated', 'listTrafficPoliciesResponse_isTruncated' - A flag that indicates whether there are more traffic policies to be
 -- listed. If the response was truncated, you can get the next group of
@@ -250,7 +252,7 @@ listTrafficPoliciesResponse_httpStatus :: Lens.Lens' ListTrafficPoliciesResponse
 listTrafficPoliciesResponse_httpStatus = Lens.lens (\ListTrafficPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListTrafficPoliciesResponse' {} a -> s {httpStatus = a} :: ListTrafficPoliciesResponse)
 
 -- | A list that contains one @TrafficPolicySummary@ element for each traffic
--- policy that was created by the current AWS account.
+-- policy that was created by the current Amazon Web Services account.
 listTrafficPoliciesResponse_trafficPolicySummaries :: Lens.Lens' ListTrafficPoliciesResponse [TrafficPolicySummary]
 listTrafficPoliciesResponse_trafficPolicySummaries = Lens.lens (\ListTrafficPoliciesResponse' {trafficPolicySummaries} -> trafficPolicySummaries) (\s@ListTrafficPoliciesResponse' {} a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse) Prelude.. Lens._Coerce
 

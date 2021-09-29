@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the maintenance windows in an AWS account.
+-- Retrieves the maintenance windows in an Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindows
@@ -61,7 +61,8 @@ data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional filters used to narrow down the scope of the returned
-    -- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+    -- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
+    -- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +83,8 @@ data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
 -- next set of results.
 --
 -- 'filters', 'describeMaintenanceWindows_filters' - Optional filters used to narrow down the scope of the returned
--- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
+-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
 newDescribeMaintenanceWindows ::
   DescribeMaintenanceWindows
 newDescribeMaintenanceWindows =
@@ -105,7 +107,8 @@ describeMaintenanceWindows_maxResults :: Lens.Lens' DescribeMaintenanceWindows (
 describeMaintenanceWindows_maxResults = Lens.lens (\DescribeMaintenanceWindows' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindows' {} a -> s {maxResults = a} :: DescribeMaintenanceWindows)
 
 -- | Optional filters used to narrow down the scope of the returned
--- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
+-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
 describeMaintenanceWindows_filters :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindows_filters = Lens.lens (\DescribeMaintenanceWindows' {filters} -> filters) (\s@DescribeMaintenanceWindows' {} a -> s {filters = a} :: DescribeMaintenanceWindows) Prelude.. Lens.mapping Lens._Coerce
 

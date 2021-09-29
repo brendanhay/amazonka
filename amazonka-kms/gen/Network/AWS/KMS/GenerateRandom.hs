@@ -22,14 +22,20 @@
 --
 -- Returns a random byte string that is cryptographically secure.
 --
--- By default, the random byte string is generated in AWS KMS. To generate
--- the byte string in the AWS CloudHSM cluster that is associated with a
+-- By default, the random byte string is generated in KMS. To generate the
+-- byte string in the CloudHSM cluster that is associated with a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
 -- specify the custom key store ID.
 --
--- For more information about entropy and random number generation, see the
--- <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details>
--- whitepaper.
+-- Applications in Amazon Web Services Nitro Enclaves can call this
+-- operation by using the
+-- <https://github.com/aws/aws-nitro-enclaves-sdk-c Amazon Web Services Nitro Enclaves Development Kit>.
+-- For information about the supporting parameters, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves use KMS>
+-- in the /Key Management Service Developer Guide/.
+--
+-- For more information about entropy and random number generation, see
+-- <https://docs.aws.amazon.com/kms/latest/cryptographic-details/ Key Management Service Cryptographic Details>.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GenerateRandom>
@@ -62,7 +68,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGenerateRandom' smart constructor.
 data GenerateRandom = GenerateRandom'
-  { -- | Generates the random byte string in the AWS CloudHSM cluster that is
+  { -- | Generates the random byte string in the CloudHSM cluster that is
     -- associated with the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
     -- To find the ID of a custom key store, use the DescribeCustomKeyStores
@@ -81,7 +87,7 @@ data GenerateRandom = GenerateRandom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customKeyStoreId', 'generateRandom_customKeyStoreId' - Generates the random byte string in the AWS CloudHSM cluster that is
+-- 'customKeyStoreId', 'generateRandom_customKeyStoreId' - Generates the random byte string in the CloudHSM cluster that is
 -- associated with the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
@@ -96,7 +102,7 @@ newGenerateRandom =
       numberOfBytes = Prelude.Nothing
     }
 
--- | Generates the random byte string in the AWS CloudHSM cluster that is
+-- | Generates the random byte string in the CloudHSM cluster that is
 -- associated with the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
@@ -158,8 +164,9 @@ instance Core.ToQuery GenerateRandom where
 
 -- | /See:/ 'newGenerateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-  { -- | The random byte string. When you use the HTTP API or the AWS CLI, the
-    -- value is Base64-encoded. Otherwise, it is not Base64-encoded.
+  { -- | The random byte string. When you use the HTTP API or the Amazon Web
+    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
+    -- Base64-encoded.
     plaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -174,8 +181,9 @@ data GenerateRandomResponse = GenerateRandomResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'plaintext', 'generateRandomResponse_plaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the
--- value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- 'plaintext', 'generateRandomResponse_plaintext' - The random byte string. When you use the HTTP API or the Amazon Web
+-- Services CLI, the value is Base64-encoded. Otherwise, it is not
+-- Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -193,8 +201,9 @@ newGenerateRandomResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The random byte string. When you use the HTTP API or the AWS CLI, the
--- value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- | The random byte string. When you use the HTTP API or the Amazon Web
+-- Services CLI, the value is Base64-encoded. Otherwise, it is not
+-- Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

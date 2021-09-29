@@ -20,6 +20,7 @@
 module Network.AWS.Connect.Types.UseCaseType
   ( UseCaseType
       ( ..,
+        UseCaseType_CONNECT_CAMPAIGNS,
         UseCaseType_RULES_EVALUATION
       ),
   )
@@ -56,10 +57,14 @@ newtype UseCaseType = UseCaseType'
       Core.ToXML
     )
 
+pattern UseCaseType_CONNECT_CAMPAIGNS :: UseCaseType
+pattern UseCaseType_CONNECT_CAMPAIGNS = UseCaseType' "CONNECT_CAMPAIGNS"
+
 pattern UseCaseType_RULES_EVALUATION :: UseCaseType
 pattern UseCaseType_RULES_EVALUATION = UseCaseType' "RULES_EVALUATION"
 
 {-# COMPLETE
+  UseCaseType_CONNECT_CAMPAIGNS,
   UseCaseType_RULES_EVALUATION,
   UseCaseType'
   #-}

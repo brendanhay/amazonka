@@ -61,7 +61,7 @@ data DescribeInventoryDeletions = DescribeInventoryDeletions'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify the delete inventory ID for which you want information. This ID
-    -- was returned by the @DeleteInventory@ action.
+    -- was returned by the @DeleteInventory@ operation.
     deletionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DescribeInventoryDeletions = DescribeInventoryDeletions'
 -- next set of results.
 --
 -- 'deletionId', 'describeInventoryDeletions_deletionId' - Specify the delete inventory ID for which you want information. This ID
--- was returned by the @DeleteInventory@ action.
+-- was returned by the @DeleteInventory@ operation.
 newDescribeInventoryDeletions ::
   DescribeInventoryDeletions
 newDescribeInventoryDeletions =
@@ -105,7 +105,7 @@ describeInventoryDeletions_maxResults :: Lens.Lens' DescribeInventoryDeletions (
 describeInventoryDeletions_maxResults = Lens.lens (\DescribeInventoryDeletions' {maxResults} -> maxResults) (\s@DescribeInventoryDeletions' {} a -> s {maxResults = a} :: DescribeInventoryDeletions)
 
 -- | Specify the delete inventory ID for which you want information. This ID
--- was returned by the @DeleteInventory@ action.
+-- was returned by the @DeleteInventory@ operation.
 describeInventoryDeletions_deletionId :: Lens.Lens' DescribeInventoryDeletions (Prelude.Maybe Prelude.Text)
 describeInventoryDeletions_deletionId = Lens.lens (\DescribeInventoryDeletions' {deletionId} -> deletionId) (\s@DescribeInventoryDeletions' {} a -> s {deletionId = a} :: DescribeInventoryDeletions)
 

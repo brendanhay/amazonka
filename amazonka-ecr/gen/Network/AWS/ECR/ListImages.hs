@@ -81,9 +81,9 @@ data ListImages = ListImages'
     -- used, then @ListImages@ returns up to 100 results and a @nextToken@
     -- value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to list images. If you do not specify a registry,
-    -- the default registry is assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to list images. If you do not specify a
+    -- registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The filter key and value with which to filter your @ListImages@ results.
     filter' :: Prelude.Maybe ListImagesFilter,
@@ -119,9 +119,9 @@ data ListImages = ListImages'
 -- used, then @ListImages@ returns up to 100 results and a @nextToken@
 -- value, if applicable.
 --
--- 'registryId', 'listImages_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to list images. If you do not specify a registry,
--- the default registry is assumed.
+-- 'registryId', 'listImages_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to list images. If you do not specify a
+-- registry, the default registry is assumed.
 --
 -- 'filter'', 'listImages_filter' - The filter key and value with which to filter your @ListImages@ results.
 --
@@ -162,9 +162,9 @@ listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@Lis
 listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
 listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to list images. If you do not specify a registry,
--- the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to list images. If you do not specify a
+-- registry, the default registry is assumed.
 listImages_registryId :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
 listImages_registryId = Lens.lens (\ListImages' {registryId} -> registryId) (\s@ListImages' {} a -> s {registryId = a} :: ListImages)
 

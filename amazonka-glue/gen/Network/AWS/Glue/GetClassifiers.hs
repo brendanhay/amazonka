@@ -37,8 +37,8 @@ module Network.AWS.Glue.GetClassifiers
     newGetClassifiersResponse,
 
     -- * Response Lenses
-    getClassifiersResponse_nextToken,
     getClassifiersResponse_classifiers,
+    getClassifiersResponse_nextToken,
     getClassifiersResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest GetClassifiers where
     Response.receiveJSON
       ( \s h x ->
           GetClassifiersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Classifiers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Classifiers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,10 +155,10 @@ instance Core.ToQuery GetClassifiers where
 
 -- | /See:/ 'newGetClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
-  { -- | A continuation token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The requested list of classifier objects.
+  { -- | The requested list of classifier objects.
     classifiers :: Prelude.Maybe [Classifier],
+    -- | A continuation token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,9 +172,9 @@ data GetClassifiersResponse = GetClassifiersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getClassifiersResponse_nextToken' - A continuation token.
---
 -- 'classifiers', 'getClassifiersResponse_classifiers' - The requested list of classifier objects.
+--
+-- 'nextToken', 'getClassifiersResponse_nextToken' - A continuation token.
 --
 -- 'httpStatus', 'getClassifiersResponse_httpStatus' - The response's http status code.
 newGetClassifiersResponse ::
@@ -183,19 +183,19 @@ newGetClassifiersResponse ::
   GetClassifiersResponse
 newGetClassifiersResponse pHttpStatus_ =
   GetClassifiersResponse'
-    { nextToken =
+    { classifiers =
         Prelude.Nothing,
-      classifiers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A continuation token.
-getClassifiersResponse_nextToken :: Lens.Lens' GetClassifiersResponse (Prelude.Maybe Prelude.Text)
-getClassifiersResponse_nextToken = Lens.lens (\GetClassifiersResponse' {nextToken} -> nextToken) (\s@GetClassifiersResponse' {} a -> s {nextToken = a} :: GetClassifiersResponse)
 
 -- | The requested list of classifier objects.
 getClassifiersResponse_classifiers :: Lens.Lens' GetClassifiersResponse (Prelude.Maybe [Classifier])
 getClassifiersResponse_classifiers = Lens.lens (\GetClassifiersResponse' {classifiers} -> classifiers) (\s@GetClassifiersResponse' {} a -> s {classifiers = a} :: GetClassifiersResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A continuation token.
+getClassifiersResponse_nextToken :: Lens.Lens' GetClassifiersResponse (Prelude.Maybe Prelude.Text)
+getClassifiersResponse_nextToken = Lens.lens (\GetClassifiersResponse' {nextToken} -> nextToken) (\s@GetClassifiersResponse' {} a -> s {nextToken = a} :: GetClassifiersResponse)
 
 -- | The response's http status code.
 getClassifiersResponse_httpStatus :: Lens.Lens' GetClassifiersResponse Prelude.Int

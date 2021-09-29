@@ -24,7 +24,7 @@ import Network.AWS.DMS.Types.PendingMaintenanceAction
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Identifies an AWS DMS resource and any pending actions for it.
+-- | Identifies an DMS resource and any pending actions for it.
 --
 -- /See:/ 'newResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
@@ -33,7 +33,7 @@ data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
     -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
     -- maintenance action applies to. For information about creating an ARN,
     -- see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS>
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for DMS>
     -- in the DMS documentation.
     resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
@@ -52,7 +52,7 @@ data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
 -- 'resourceIdentifier', 'resourcePendingMaintenanceActions_resourceIdentifier' - The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to. For information about creating an ARN,
 -- see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for DMS>
 -- in the DMS documentation.
 newResourcePendingMaintenanceActions ::
   ResourcePendingMaintenanceActions
@@ -70,7 +70,7 @@ resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\
 -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to. For information about creating an ARN,
 -- see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for DMS>
 -- in the DMS documentation.
 resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)

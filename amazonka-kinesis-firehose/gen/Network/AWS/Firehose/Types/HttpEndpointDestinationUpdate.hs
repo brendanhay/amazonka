@@ -39,9 +39,9 @@ data HttpEndpointDestinationUpdate = HttpEndpointDestinationUpdate'
     -- the delivery stream needs.
     roleARN :: Prelude.Maybe Prelude.Text,
     s3Update :: Prelude.Maybe S3DestinationUpdate,
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | Describes the configuration of the HTTP endpoint destination.
     endpointConfiguration :: Prelude.Maybe HttpEndpointConfiguration,
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The configuration of the request sent to the HTTP endpoint specified as
     -- the destination.
@@ -80,9 +80,9 @@ data HttpEndpointDestinationUpdate = HttpEndpointDestinationUpdate'
 --
 -- 's3Update', 'httpEndpointDestinationUpdate_s3Update' - Undocumented member.
 --
--- 'processingConfiguration', 'httpEndpointDestinationUpdate_processingConfiguration' - Undocumented member.
---
 -- 'endpointConfiguration', 'httpEndpointDestinationUpdate_endpointConfiguration' - Describes the configuration of the HTTP endpoint destination.
+--
+-- 'processingConfiguration', 'httpEndpointDestinationUpdate_processingConfiguration' - Undocumented member.
 --
 -- 'cloudWatchLoggingOptions', 'httpEndpointDestinationUpdate_cloudWatchLoggingOptions' - Undocumented member.
 --
@@ -113,8 +113,8 @@ newHttpEndpointDestinationUpdate =
     { roleARN =
         Prelude.Nothing,
       s3Update = Prelude.Nothing,
-      processingConfiguration = Prelude.Nothing,
       endpointConfiguration = Prelude.Nothing,
+      processingConfiguration = Prelude.Nothing,
       cloudWatchLoggingOptions = Prelude.Nothing,
       requestConfiguration = Prelude.Nothing,
       bufferingHints = Prelude.Nothing,
@@ -131,13 +131,13 @@ httpEndpointDestinationUpdate_roleARN = Lens.lens (\HttpEndpointDestinationUpdat
 httpEndpointDestinationUpdate_s3Update :: Lens.Lens' HttpEndpointDestinationUpdate (Prelude.Maybe S3DestinationUpdate)
 httpEndpointDestinationUpdate_s3Update = Lens.lens (\HttpEndpointDestinationUpdate' {s3Update} -> s3Update) (\s@HttpEndpointDestinationUpdate' {} a -> s {s3Update = a} :: HttpEndpointDestinationUpdate)
 
--- | Undocumented member.
-httpEndpointDestinationUpdate_processingConfiguration :: Lens.Lens' HttpEndpointDestinationUpdate (Prelude.Maybe ProcessingConfiguration)
-httpEndpointDestinationUpdate_processingConfiguration = Lens.lens (\HttpEndpointDestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@HttpEndpointDestinationUpdate' {} a -> s {processingConfiguration = a} :: HttpEndpointDestinationUpdate)
-
 -- | Describes the configuration of the HTTP endpoint destination.
 httpEndpointDestinationUpdate_endpointConfiguration :: Lens.Lens' HttpEndpointDestinationUpdate (Prelude.Maybe HttpEndpointConfiguration)
 httpEndpointDestinationUpdate_endpointConfiguration = Lens.lens (\HttpEndpointDestinationUpdate' {endpointConfiguration} -> endpointConfiguration) (\s@HttpEndpointDestinationUpdate' {} a -> s {endpointConfiguration = a} :: HttpEndpointDestinationUpdate)
+
+-- | Undocumented member.
+httpEndpointDestinationUpdate_processingConfiguration :: Lens.Lens' HttpEndpointDestinationUpdate (Prelude.Maybe ProcessingConfiguration)
+httpEndpointDestinationUpdate_processingConfiguration = Lens.lens (\HttpEndpointDestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@HttpEndpointDestinationUpdate' {} a -> s {processingConfiguration = a} :: HttpEndpointDestinationUpdate)
 
 -- | Undocumented member.
 httpEndpointDestinationUpdate_cloudWatchLoggingOptions :: Lens.Lens' HttpEndpointDestinationUpdate (Prelude.Maybe CloudWatchLoggingOptions)
@@ -184,10 +184,10 @@ instance Core.ToJSON HttpEndpointDestinationUpdate where
       ( Prelude.catMaybes
           [ ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("S3Update" Core..=) Prelude.<$> s3Update,
-            ("ProcessingConfiguration" Core..=)
-              Prelude.<$> processingConfiguration,
             ("EndpointConfiguration" Core..=)
               Prelude.<$> endpointConfiguration,
+            ("ProcessingConfiguration" Core..=)
+              Prelude.<$> processingConfiguration,
             ("CloudWatchLoggingOptions" Core..=)
               Prelude.<$> cloudWatchLoggingOptions,
             ("RequestConfiguration" Core..=)

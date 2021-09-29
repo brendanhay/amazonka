@@ -32,22 +32,30 @@ import qualified Network.AWS.Prelude as Prelude
 -- values in the @securityGroupIds@ parameter of @CreateComputeEnvironment@
 -- will be used.
 --
--- This object isn\'t applicable to jobs running on Fargate resources.
+-- This object isn\'t applicable to jobs that are running on Fargate
+-- resources.
 --
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template, @$Latest@, or @$Default@.
     --
     -- If the value is @$Latest@, the latest version of the launch template is
     -- used. If the value is @$Default@, the default version of the launch
     -- template is used.
     --
+    -- After the compute environment is created, the launch template version
+    -- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
+    -- for the launch template is updated. To use a new launch template
+    -- version, create a new compute environment, add the new compute
+    -- environment to the existing job queue, remove the old compute
+    -- environment from the job queue, and delete the old compute environment.
+    --
     -- Default: @$Default@.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,32 +69,35 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
 --
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
---
 -- 'version', 'launchTemplateSpecification_version' - The version number of the launch template, @$Latest@, or @$Default@.
 --
 -- If the value is @$Latest@, the latest version of the launch template is
 -- used. If the value is @$Default@, the default version of the launch
 -- template is used.
 --
+-- After the compute environment is created, the launch template version
+-- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
+-- for the launch template is updated. To use a new launch template
+-- version, create a new compute environment, add the new compute
+-- environment to the existing job queue, remove the old compute
+-- environment from the job queue, and delete the old compute environment.
+--
 -- Default: @$Default@.
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { launchTemplateId =
         Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing,
-      version = Prelude.Nothing
+      version = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing
     }
 
 -- | The ID of the launch template.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
-
--- | The name of the launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The version number of the launch template, @$Latest@, or @$Default@.
 --
@@ -94,9 +105,20 @@ launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpeci
 -- used. If the value is @$Default@, the default version of the launch
 -- template is used.
 --
+-- After the compute environment is created, the launch template version
+-- that\'s used isn\'t changed, even if the @$Default@ or @$Latest@ version
+-- for the launch template is updated. To use a new launch template
+-- version, create a new compute environment, add the new compute
+-- environment to the existing job queue, remove the old compute
+-- environment from the job queue, and delete the old compute environment.
+--
 -- Default: @$Default@.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
+
+-- | The name of the launch template.
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 instance Core.FromJSON LaunchTemplateSpecification where
   parseJSON =
@@ -105,8 +127,8 @@ instance Core.FromJSON LaunchTemplateSpecification where
       ( \x ->
           LaunchTemplateSpecification'
             Prelude.<$> (x Core..:? "launchTemplateId")
-            Prelude.<*> (x Core..:? "launchTemplateName")
             Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "launchTemplateName")
       )
 
 instance Prelude.Hashable LaunchTemplateSpecification
@@ -119,8 +141,8 @@ instance Core.ToJSON LaunchTemplateSpecification where
       ( Prelude.catMaybes
           [ ("launchTemplateId" Core..=)
               Prelude.<$> launchTemplateId,
+            ("version" Core..=) Prelude.<$> version,
             ("launchTemplateName" Core..=)
-              Prelude.<$> launchTemplateName,
-            ("version" Core..=) Prelude.<$> version
+              Prelude.<$> launchTemplateName
           ]
       )

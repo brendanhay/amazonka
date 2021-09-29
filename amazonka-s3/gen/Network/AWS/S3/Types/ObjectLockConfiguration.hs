@@ -30,9 +30,15 @@ import Network.AWS.S3.Types.ObjectLockRule
 --
 -- /See:/ 'newObjectLockConfiguration' smart constructor.
 data ObjectLockConfiguration = ObjectLockConfiguration'
-  { -- | The Object Lock rule in place for the specified object.
+  { -- | Specifies the Object Lock rule for the specified object. Enable the this
+    -- rule when you apply @ObjectLockConfiguration@ to a bucket. Bucket
+    -- settings require both a mode and a period. The period can be either
+    -- @Days@ or @Years@ but you must select one. You cannot specify @Days@ and
+    -- @Years@ at the same time.
     rule :: Prelude.Maybe ObjectLockRule,
     -- | Indicates whether this bucket has an Object Lock configuration enabled.
+    -- Enable @ObjectLockEnabled@ when you apply @ObjectLockConfiguration@ to a
+    -- bucket.
     objectLockEnabled :: Prelude.Maybe ObjectLockEnabled
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +51,15 @@ data ObjectLockConfiguration = ObjectLockConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rule', 'objectLockConfiguration_rule' - The Object Lock rule in place for the specified object.
+-- 'rule', 'objectLockConfiguration_rule' - Specifies the Object Lock rule for the specified object. Enable the this
+-- rule when you apply @ObjectLockConfiguration@ to a bucket. Bucket
+-- settings require both a mode and a period. The period can be either
+-- @Days@ or @Years@ but you must select one. You cannot specify @Days@ and
+-- @Years@ at the same time.
 --
 -- 'objectLockEnabled', 'objectLockConfiguration_objectLockEnabled' - Indicates whether this bucket has an Object Lock configuration enabled.
+-- Enable @ObjectLockEnabled@ when you apply @ObjectLockConfiguration@ to a
+-- bucket.
 newObjectLockConfiguration ::
   ObjectLockConfiguration
 newObjectLockConfiguration =
@@ -56,11 +68,17 @@ newObjectLockConfiguration =
       objectLockEnabled = Prelude.Nothing
     }
 
--- | The Object Lock rule in place for the specified object.
+-- | Specifies the Object Lock rule for the specified object. Enable the this
+-- rule when you apply @ObjectLockConfiguration@ to a bucket. Bucket
+-- settings require both a mode and a period. The period can be either
+-- @Days@ or @Years@ but you must select one. You cannot specify @Days@ and
+-- @Years@ at the same time.
 objectLockConfiguration_rule :: Lens.Lens' ObjectLockConfiguration (Prelude.Maybe ObjectLockRule)
 objectLockConfiguration_rule = Lens.lens (\ObjectLockConfiguration' {rule} -> rule) (\s@ObjectLockConfiguration' {} a -> s {rule = a} :: ObjectLockConfiguration)
 
 -- | Indicates whether this bucket has an Object Lock configuration enabled.
+-- Enable @ObjectLockEnabled@ when you apply @ObjectLockConfiguration@ to a
+-- bucket.
 objectLockConfiguration_objectLockEnabled :: Lens.Lens' ObjectLockConfiguration (Prelude.Maybe ObjectLockEnabled)
 objectLockConfiguration_objectLockEnabled = Lens.lens (\ObjectLockConfiguration' {objectLockEnabled} -> objectLockEnabled) (\s@ObjectLockConfiguration' {} a -> s {objectLockEnabled = a} :: ObjectLockConfiguration)
 

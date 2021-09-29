@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance
--- is connected to the environment, also terminates the instance.
+-- Deletes an Cloud9 development environment. If an Amazon EC2 instance is
+-- connected to the environment, also terminates the instance.
 module Network.AWS.Cloud9.DeleteEnvironment
   ( -- * Creating a Request
     DeleteEnvironment (..),

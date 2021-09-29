@@ -30,6 +30,7 @@ module Network.AWS.RDS.StartActivityStream
     newStartActivityStream,
 
     -- * Request Lenses
+    startActivityStream_engineNativeAuditFieldsIncluded,
     startActivityStream_applyImmediately,
     startActivityStream_resourceArn,
     startActivityStream_mode,
@@ -44,6 +45,7 @@ module Network.AWS.RDS.StartActivityStream
     startActivityStreamResponse_mode,
     startActivityStreamResponse_kmsKeyId,
     startActivityStreamResponse_kinesisStreamName,
+    startActivityStreamResponse_engineNativeAuditFieldsIncluded,
     startActivityStreamResponse_applyImmediately,
     startActivityStreamResponse_httpStatus,
   )
@@ -58,7 +60,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartActivityStream' smart constructor.
 data StartActivityStream = StartActivityStream'
-  { -- | Specifies whether or not the database activity stream is to start as
+  { -- | Specifies whether the database activity stream includes engine-native
+    -- audit fields. This option only applies to an Oracle DB instance. By
+    -- default, no engine-native audit fields are included.
+    engineNativeAuditFieldsIncluded :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether or not the database activity stream is to start as
     -- soon as possible, regardless of the maintenance window for the database.
     applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the DB cluster, for example,
@@ -68,9 +74,10 @@ data StartActivityStream = StartActivityStream'
     -- as a change or access generate an activity stream event. The database
     -- session can handle these events either synchronously or asynchronously.
     mode :: ActivityStreamMode,
-    -- | The AWS KMS key identifier for encrypting messages in the database
-    -- activity stream. The AWS KMS key identifier is the key ARN, key ID,
-    -- alias ARN, or alias name for the AWS KMS customer master key (CMK).
+    -- | The Amazon Web Services KMS key identifier for encrypting messages in
+    -- the database activity stream. The Amazon Web Services KMS key identifier
+    -- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
+    -- Services KMS customer master key (CMK).
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,6 +90,10 @@ data StartActivityStream = StartActivityStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineNativeAuditFieldsIncluded', 'startActivityStream_engineNativeAuditFieldsIncluded' - Specifies whether the database activity stream includes engine-native
+-- audit fields. This option only applies to an Oracle DB instance. By
+-- default, no engine-native audit fields are included.
+--
 -- 'applyImmediately', 'startActivityStream_applyImmediately' - Specifies whether or not the database activity stream is to start as
 -- soon as possible, regardless of the maintenance window for the database.
 --
@@ -93,9 +104,10 @@ data StartActivityStream = StartActivityStream'
 -- as a change or access generate an activity stream event. The database
 -- session can handle these events either synchronously or asynchronously.
 --
--- 'kmsKeyId', 'startActivityStream_kmsKeyId' - The AWS KMS key identifier for encrypting messages in the database
--- activity stream. The AWS KMS key identifier is the key ARN, key ID,
--- alias ARN, or alias name for the AWS KMS customer master key (CMK).
+-- 'kmsKeyId', 'startActivityStream_kmsKeyId' - The Amazon Web Services KMS key identifier for encrypting messages in
+-- the database activity stream. The Amazon Web Services KMS key identifier
+-- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
+-- Services KMS customer master key (CMK).
 newStartActivityStream ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -109,12 +121,19 @@ newStartActivityStream
   pMode_
   pKmsKeyId_ =
     StartActivityStream'
-      { applyImmediately =
+      { engineNativeAuditFieldsIncluded =
           Prelude.Nothing,
+        applyImmediately = Prelude.Nothing,
         resourceArn = pResourceArn_,
         mode = pMode_,
         kmsKeyId = pKmsKeyId_
       }
+
+-- | Specifies whether the database activity stream includes engine-native
+-- audit fields. This option only applies to an Oracle DB instance. By
+-- default, no engine-native audit fields are included.
+startActivityStream_engineNativeAuditFieldsIncluded :: Lens.Lens' StartActivityStream (Prelude.Maybe Prelude.Bool)
+startActivityStream_engineNativeAuditFieldsIncluded = Lens.lens (\StartActivityStream' {engineNativeAuditFieldsIncluded} -> engineNativeAuditFieldsIncluded) (\s@StartActivityStream' {} a -> s {engineNativeAuditFieldsIncluded = a} :: StartActivityStream)
 
 -- | Specifies whether or not the database activity stream is to start as
 -- soon as possible, regardless of the maintenance window for the database.
@@ -132,9 +151,10 @@ startActivityStream_resourceArn = Lens.lens (\StartActivityStream' {resourceArn}
 startActivityStream_mode :: Lens.Lens' StartActivityStream ActivityStreamMode
 startActivityStream_mode = Lens.lens (\StartActivityStream' {mode} -> mode) (\s@StartActivityStream' {} a -> s {mode = a} :: StartActivityStream)
 
--- | The AWS KMS key identifier for encrypting messages in the database
--- activity stream. The AWS KMS key identifier is the key ARN, key ID,
--- alias ARN, or alias name for the AWS KMS customer master key (CMK).
+-- | The Amazon Web Services KMS key identifier for encrypting messages in
+-- the database activity stream. The Amazon Web Services KMS key identifier
+-- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
+-- Services KMS customer master key (CMK).
 startActivityStream_kmsKeyId :: Lens.Lens' StartActivityStream Prelude.Text
 startActivityStream_kmsKeyId = Lens.lens (\StartActivityStream' {kmsKeyId} -> kmsKeyId) (\s@StartActivityStream' {} a -> s {kmsKeyId = a} :: StartActivityStream)
 
@@ -152,6 +172,7 @@ instance Core.AWSRequest StartActivityStream where
             Prelude.<*> (x Core..@? "Mode")
             Prelude.<*> (x Core..@? "KmsKeyId")
             Prelude.<*> (x Core..@? "KinesisStreamName")
+            Prelude.<*> (x Core..@? "EngineNativeAuditFieldsIncluded")
             Prelude.<*> (x Core..@? "ApplyImmediately")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -173,6 +194,8 @@ instance Core.ToQuery StartActivityStream where
           Core.=: ("StartActivityStream" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "EngineNativeAuditFieldsIncluded"
+          Core.=: engineNativeAuditFieldsIncluded,
         "ApplyImmediately" Core.=: applyImmediately,
         "ResourceArn" Core.=: resourceArn,
         "Mode" Core.=: mode,
@@ -185,12 +208,15 @@ data StartActivityStreamResponse = StartActivityStreamResponse'
     status :: Prelude.Maybe ActivityStreamStatus,
     -- | The mode of the database activity stream.
     mode :: Prelude.Maybe ActivityStreamMode,
-    -- | The AWS KMS key identifier for encryption of messages in the database
-    -- activity stream.
+    -- | The Amazon Web Services KMS key identifier for encryption of messages in
+    -- the database activity stream.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Kinesis data stream to be used for the database
     -- activity stream.
     kinesisStreamName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether engine-native audit fields are included in the
+    -- database activity stream.
+    engineNativeAuditFieldsIncluded :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether or not the database activity stream will start as soon
     -- as possible, regardless of the maintenance window for the database.
     applyImmediately :: Prelude.Maybe Prelude.Bool,
@@ -211,11 +237,14 @@ data StartActivityStreamResponse = StartActivityStreamResponse'
 --
 -- 'mode', 'startActivityStreamResponse_mode' - The mode of the database activity stream.
 --
--- 'kmsKeyId', 'startActivityStreamResponse_kmsKeyId' - The AWS KMS key identifier for encryption of messages in the database
--- activity stream.
+-- 'kmsKeyId', 'startActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of messages in
+-- the database activity stream.
 --
 -- 'kinesisStreamName', 'startActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database
 -- activity stream.
+--
+-- 'engineNativeAuditFieldsIncluded', 'startActivityStreamResponse_engineNativeAuditFieldsIncluded' - Indicates whether engine-native audit fields are included in the
+-- database activity stream.
 --
 -- 'applyImmediately', 'startActivityStreamResponse_applyImmediately' - Indicates whether or not the database activity stream will start as soon
 -- as possible, regardless of the maintenance window for the database.
@@ -232,6 +261,8 @@ newStartActivityStreamResponse pHttpStatus_ =
       mode = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       kinesisStreamName = Prelude.Nothing,
+      engineNativeAuditFieldsIncluded =
+        Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -244,8 +275,8 @@ startActivityStreamResponse_status = Lens.lens (\StartActivityStreamResponse' {s
 startActivityStreamResponse_mode :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe ActivityStreamMode)
 startActivityStreamResponse_mode = Lens.lens (\StartActivityStreamResponse' {mode} -> mode) (\s@StartActivityStreamResponse' {} a -> s {mode = a} :: StartActivityStreamResponse)
 
--- | The AWS KMS key identifier for encryption of messages in the database
--- activity stream.
+-- | The Amazon Web Services KMS key identifier for encryption of messages in
+-- the database activity stream.
 startActivityStreamResponse_kmsKeyId :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Text)
 startActivityStreamResponse_kmsKeyId = Lens.lens (\StartActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StartActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StartActivityStreamResponse)
 
@@ -253,6 +284,11 @@ startActivityStreamResponse_kmsKeyId = Lens.lens (\StartActivityStreamResponse' 
 -- activity stream.
 startActivityStreamResponse_kinesisStreamName :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Text)
 startActivityStreamResponse_kinesisStreamName = Lens.lens (\StartActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@StartActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: StartActivityStreamResponse)
+
+-- | Indicates whether engine-native audit fields are included in the
+-- database activity stream.
+startActivityStreamResponse_engineNativeAuditFieldsIncluded :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Bool)
+startActivityStreamResponse_engineNativeAuditFieldsIncluded = Lens.lens (\StartActivityStreamResponse' {engineNativeAuditFieldsIncluded} -> engineNativeAuditFieldsIncluded) (\s@StartActivityStreamResponse' {} a -> s {engineNativeAuditFieldsIncluded = a} :: StartActivityStreamResponse)
 
 -- | Indicates whether or not the database activity stream will start as soon
 -- as possible, regardless of the maintenance window for the database.

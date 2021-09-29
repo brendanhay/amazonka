@@ -25,21 +25,38 @@
 --
 -- The OIDC provider that you create with this operation can be used as a
 -- principal in a role\'s trust policy. Such a policy establishes a trust
--- relationship between AWS and the OIDC provider.
+-- relationship between Amazon Web Services and the OIDC provider.
+--
+-- If you are using an OIDC identity provider from Google, Facebook, or
+-- Amazon Cognito, you don\'t need to create a separate IAM identity
+-- provider. These OIDC identity providers are already built-in to Amazon
+-- Web Services and are available for your use. Instead, you can move
+-- directly to creating new roles using your identity provider. To learn
+-- more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html Creating a role for web identity or OpenID connect federation>
+-- in the /IAM User Guide/.
 --
 -- When you create the IAM OIDC provider, you specify the following:
 --
 -- -   The URL of the OIDC identity provider (IdP) to trust
 --
 -- -   A list of client IDs (also known as audiences) that identify the
---     application or applications that are allowed to authenticate using
---     the OIDC provider
+--     application or applications allowed to authenticate using the OIDC
+--     provider
 --
 -- -   A list of thumbprints of one or more server certificates that the
 --     IdP uses
 --
--- You get all of this information from the OIDC IdP that you want to use
--- to access AWS.
+-- You get all of this information from the OIDC IdP you want to use to
+-- access Amazon Web Services.
+--
+-- Amazon Web Services secures communication with some OIDC identity
+-- providers (IdPs) through our library of trusted certificate authorities
+-- (CAs) instead of using a certificate thumbprint to verify your IdP
+-- server certificate. These OIDC IdPs include Google, and those that use
+-- an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
+-- cases, your legacy thumbprint remains in your configuration, but is no
+-- longer used for validation.
 --
 -- The trust for the OIDC provider is derived from the IAM provider that
 -- this operation creates. Therefore, it is best to limit access to the
@@ -75,10 +92,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateOpenIDConnectProvider' smart constructor.
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
-  { -- | A list of client IDs (also known as audiences). When a mobile or web app
-    -- registers with an OpenID Connect provider, they establish a value that
-    -- identifies the application. (This is the value that\'s sent as the
-    -- @client_id@ parameter on OAuth requests.)
+  { -- | Provides a list of client IDs, also known as audiences. When a mobile or
+    -- web app registers with an OpenID Connect provider, they establish a
+    -- value that identifies the application. This is the value that\'s sent as
+    -- the @client_id@ parameter on OAuth requests.
     --
     -- You can register multiple client IDs with the same provider. For
     -- example, you might have multiple applications that use the same OIDC
@@ -104,11 +121,12 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- Connect ID tokens. Per the OIDC standard, path components are allowed
     -- but query parameters are not. Typically the URL consists of only a
     -- hostname, like @https:\/\/server.example.org@ or
-    -- @https:\/\/example.com@.
+    -- @https:\/\/example.com@. The URL should not contain a port number.
     --
-    -- You cannot register the same provider multiple times in a single AWS
-    -- account. If you try to submit a URL that has already been used for an
-    -- OpenID Connect provider in the AWS account, you will get an error.
+    -- You cannot register the same provider multiple times in a single Amazon
+    -- Web Services account. If you try to submit a URL that has already been
+    -- used for an OpenID Connect provider in the Amazon Web Services account,
+    -- you will get an error.
     url :: Prelude.Text,
     -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
     -- identity provider\'s server certificates. Typically this list includes
@@ -125,10 +143,9 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     -- @server.example.com@ and the provider stores its keys at
     -- https:\/\/keys.server.example.com\/openid-connect. In that case, the
     -- thumbprint string would be the hex-encoded SHA-1 hash value of the
-    -- certificate used by https:\/\/keys.server.example.com.
+    -- certificate used by @https:\/\/keys.server.example.com.@
     --
-    -- For more information about obtaining the OIDC provider\'s thumbprint,
-    -- see
+    -- For more information about obtaining the OIDC provider thumbprint, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
     -- in the /IAM User Guide/.
     thumbprintList :: [Prelude.Text]
@@ -143,10 +160,10 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientIDList', 'createOpenIDConnectProvider_clientIDList' - A list of client IDs (also known as audiences). When a mobile or web app
--- registers with an OpenID Connect provider, they establish a value that
--- identifies the application. (This is the value that\'s sent as the
--- @client_id@ parameter on OAuth requests.)
+-- 'clientIDList', 'createOpenIDConnectProvider_clientIDList' - Provides a list of client IDs, also known as audiences. When a mobile or
+-- web app registers with an OpenID Connect provider, they establish a
+-- value that identifies the application. This is the value that\'s sent as
+-- the @client_id@ parameter on OAuth requests.
 --
 -- You can register multiple client IDs with the same provider. For
 -- example, you might have multiple applications that use the same OIDC
@@ -172,11 +189,12 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
 -- Connect ID tokens. Per the OIDC standard, path components are allowed
 -- but query parameters are not. Typically the URL consists of only a
 -- hostname, like @https:\/\/server.example.org@ or
--- @https:\/\/example.com@.
+-- @https:\/\/example.com@. The URL should not contain a port number.
 --
--- You cannot register the same provider multiple times in a single AWS
--- account. If you try to submit a URL that has already been used for an
--- OpenID Connect provider in the AWS account, you will get an error.
+-- You cannot register the same provider multiple times in a single Amazon
+-- Web Services account. If you try to submit a URL that has already been
+-- used for an OpenID Connect provider in the Amazon Web Services account,
+-- you will get an error.
 --
 -- 'thumbprintList', 'createOpenIDConnectProvider_thumbprintList' - A list of server certificate thumbprints for the OpenID Connect (OIDC)
 -- identity provider\'s server certificates. Typically this list includes
@@ -193,10 +211,9 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
 -- @server.example.com@ and the provider stores its keys at
 -- https:\/\/keys.server.example.com\/openid-connect. In that case, the
 -- thumbprint string would be the hex-encoded SHA-1 hash value of the
--- certificate used by https:\/\/keys.server.example.com.
+-- certificate used by @https:\/\/keys.server.example.com.@
 --
--- For more information about obtaining the OIDC provider\'s thumbprint,
--- see
+-- For more information about obtaining the OIDC provider thumbprint, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
 -- in the /IAM User Guide/.
 newCreateOpenIDConnectProvider ::
@@ -212,10 +229,10 @@ newCreateOpenIDConnectProvider pUrl_ =
       thumbprintList = Prelude.mempty
     }
 
--- | A list of client IDs (also known as audiences). When a mobile or web app
--- registers with an OpenID Connect provider, they establish a value that
--- identifies the application. (This is the value that\'s sent as the
--- @client_id@ parameter on OAuth requests.)
+-- | Provides a list of client IDs, also known as audiences. When a mobile or
+-- web app registers with an OpenID Connect provider, they establish a
+-- value that identifies the application. This is the value that\'s sent as
+-- the @client_id@ parameter on OAuth requests.
 --
 -- You can register multiple client IDs with the same provider. For
 -- example, you might have multiple applications that use the same OIDC
@@ -245,11 +262,12 @@ createOpenIDConnectProvider_tags = Lens.lens (\CreateOpenIDConnectProvider' {tag
 -- Connect ID tokens. Per the OIDC standard, path components are allowed
 -- but query parameters are not. Typically the URL consists of only a
 -- hostname, like @https:\/\/server.example.org@ or
--- @https:\/\/example.com@.
+-- @https:\/\/example.com@. The URL should not contain a port number.
 --
--- You cannot register the same provider multiple times in a single AWS
--- account. If you try to submit a URL that has already been used for an
--- OpenID Connect provider in the AWS account, you will get an error.
+-- You cannot register the same provider multiple times in a single Amazon
+-- Web Services account. If you try to submit a URL that has already been
+-- used for an OpenID Connect provider in the Amazon Web Services account,
+-- you will get an error.
 createOpenIDConnectProvider_url :: Lens.Lens' CreateOpenIDConnectProvider Prelude.Text
 createOpenIDConnectProvider_url = Lens.lens (\CreateOpenIDConnectProvider' {url} -> url) (\s@CreateOpenIDConnectProvider' {} a -> s {url = a} :: CreateOpenIDConnectProvider)
 
@@ -268,10 +286,9 @@ createOpenIDConnectProvider_url = Lens.lens (\CreateOpenIDConnectProvider' {url}
 -- @server.example.com@ and the provider stores its keys at
 -- https:\/\/keys.server.example.com\/openid-connect. In that case, the
 -- thumbprint string would be the hex-encoded SHA-1 hash value of the
--- certificate used by https:\/\/keys.server.example.com.
+-- certificate used by @https:\/\/keys.server.example.com.@
 --
--- For more information about obtaining the OIDC provider\'s thumbprint,
--- see
+-- For more information about obtaining the OIDC provider thumbprint, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
 -- in the /IAM User Guide/.
 createOpenIDConnectProvider_thumbprintList :: Lens.Lens' CreateOpenIDConnectProvider [Prelude.Text]

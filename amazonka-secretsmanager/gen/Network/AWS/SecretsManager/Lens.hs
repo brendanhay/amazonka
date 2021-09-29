@@ -31,8 +31,8 @@ module Network.AWS.SecretsManager.Lens
     updateSecret_clientRequestToken,
     updateSecret_secretId,
     updateSecretResponse_arn,
-    updateSecretResponse_versionId,
     updateSecretResponse_name,
+    updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
 
     -- ** RotateSecret
@@ -41,8 +41,8 @@ module Network.AWS.SecretsManager.Lens
     rotateSecret_clientRequestToken,
     rotateSecret_secretId,
     rotateSecretResponse_arn,
-    rotateSecretResponse_versionId,
     rotateSecretResponse_name,
+    rotateSecretResponse_versionId,
     rotateSecretResponse_httpStatus,
 
     -- ** RemoveRegionsFromReplication
@@ -69,8 +69,8 @@ module Network.AWS.SecretsManager.Lens
     -- ** CancelRotateSecret
     cancelRotateSecret_secretId,
     cancelRotateSecretResponse_arn,
-    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_name,
+    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_httpStatus,
 
     -- ** RestoreSecret
@@ -79,18 +79,13 @@ module Network.AWS.SecretsManager.Lens
     restoreSecretResponse_name,
     restoreSecretResponse_httpStatus,
 
-    -- ** GetSecretValue
-    getSecretValue_versionId,
-    getSecretValue_versionStage,
-    getSecretValue_secretId,
-    getSecretValueResponse_createdDate,
-    getSecretValueResponse_secretBinary,
-    getSecretValueResponse_versionStages,
-    getSecretValueResponse_arn,
-    getSecretValueResponse_versionId,
-    getSecretValueResponse_name,
-    getSecretValueResponse_secretString,
-    getSecretValueResponse_httpStatus,
+    -- ** PutResourcePolicy
+    putResourcePolicy_blockPublicPolicy,
+    putResourcePolicy_secretId,
+    putResourcePolicy_resourcePolicy,
+    putResourcePolicyResponse_arn,
+    putResourcePolicyResponse_name,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** DescribeSecret
     describeSecret_secretId,
@@ -101,25 +96,30 @@ module Network.AWS.SecretsManager.Lens
     describeSecretResponse_arn,
     describeSecretResponse_kmsKeyId,
     describeSecretResponse_name,
-    describeSecretResponse_lastChangedDate,
     describeSecretResponse_primaryRegion,
-    describeSecretResponse_rotationRules,
+    describeSecretResponse_lastChangedDate,
+    describeSecretResponse_deletedDate,
     describeSecretResponse_tags,
     describeSecretResponse_rotationEnabled,
-    describeSecretResponse_deletedDate,
-    describeSecretResponse_rotationLambdaARN,
+    describeSecretResponse_rotationRules,
     describeSecretResponse_description,
+    describeSecretResponse_rotationLambdaARN,
     describeSecretResponse_lastAccessedDate,
     describeSecretResponse_versionIdsToStages,
     describeSecretResponse_httpStatus,
 
-    -- ** PutResourcePolicy
-    putResourcePolicy_blockPublicPolicy,
-    putResourcePolicy_secretId,
-    putResourcePolicy_resourcePolicy,
-    putResourcePolicyResponse_arn,
-    putResourcePolicyResponse_name,
-    putResourcePolicyResponse_httpStatus,
+    -- ** GetSecretValue
+    getSecretValue_versionId,
+    getSecretValue_versionStage,
+    getSecretValue_secretId,
+    getSecretValueResponse_createdDate,
+    getSecretValueResponse_secretBinary,
+    getSecretValueResponse_versionStages,
+    getSecretValueResponse_arn,
+    getSecretValueResponse_name,
+    getSecretValueResponse_versionId,
+    getSecretValueResponse_secretString,
+    getSecretValueResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_secretId,
@@ -128,18 +128,6 @@ module Network.AWS.SecretsManager.Lens
     -- ** TagResource
     tagResource_secretId,
     tagResource_tags,
-
-    -- ** GetRandomPassword
-    getRandomPassword_excludeCharacters,
-    getRandomPassword_excludeLowercase,
-    getRandomPassword_includeSpace,
-    getRandomPassword_requireEachIncludedType,
-    getRandomPassword_excludeNumbers,
-    getRandomPassword_passwordLength,
-    getRandomPassword_excludeUppercase,
-    getRandomPassword_excludePunctuation,
-    getRandomPasswordResponse_randomPassword,
-    getRandomPasswordResponse_httpStatus,
 
     -- ** CreateSecret
     createSecret_secretBinary,
@@ -153,23 +141,21 @@ module Network.AWS.SecretsManager.Lens
     createSecret_name,
     createSecretResponse_replicationStatus,
     createSecretResponse_arn,
-    createSecretResponse_versionId,
     createSecretResponse_name,
+    createSecretResponse_versionId,
     createSecretResponse_httpStatus,
 
-    -- ** StopReplicationToReplica
-    stopReplicationToReplica_secretId,
-    stopReplicationToReplicaResponse_arn,
-    stopReplicationToReplicaResponse_httpStatus,
-
-    -- ** ListSecrets
-    listSecrets_sortOrder,
-    listSecrets_nextToken,
-    listSecrets_maxResults,
-    listSecrets_filters,
-    listSecretsResponse_nextToken,
-    listSecretsResponse_secretList,
-    listSecretsResponse_httpStatus,
+    -- ** GetRandomPassword
+    getRandomPassword_excludeCharacters,
+    getRandomPassword_excludeLowercase,
+    getRandomPassword_includeSpace,
+    getRandomPassword_requireEachIncludedType,
+    getRandomPassword_excludeNumbers,
+    getRandomPassword_passwordLength,
+    getRandomPassword_excludeUppercase,
+    getRandomPassword_excludePunctuation,
+    getRandomPasswordResponse_randomPassword,
+    getRandomPasswordResponse_httpStatus,
 
     -- ** ReplicateSecretToRegions
     replicateSecretToRegions_forceOverwriteReplicaSecret,
@@ -179,6 +165,20 @@ module Network.AWS.SecretsManager.Lens
     replicateSecretToRegionsResponse_arn,
     replicateSecretToRegionsResponse_httpStatus,
 
+    -- ** StopReplicationToReplica
+    stopReplicationToReplica_secretId,
+    stopReplicationToReplicaResponse_arn,
+    stopReplicationToReplicaResponse_httpStatus,
+
+    -- ** ListSecrets
+    listSecrets_nextToken,
+    listSecrets_sortOrder,
+    listSecrets_maxResults,
+    listSecrets_filters,
+    listSecretsResponse_nextToken,
+    listSecretsResponse_secretList,
+    listSecretsResponse_httpStatus,
+
     -- ** PutSecretValue
     putSecretValue_secretBinary,
     putSecretValue_versionStages,
@@ -187,8 +187,8 @@ module Network.AWS.SecretsManager.Lens
     putSecretValue_secretId,
     putSecretValueResponse_versionStages,
     putSecretValueResponse_arn,
-    putSecretValueResponse_versionId,
     putSecretValueResponse_name,
+    putSecretValueResponse_versionId,
     putSecretValueResponse_httpStatus,
 
     -- ** UpdateSecretVersionStage
@@ -245,18 +245,19 @@ module Network.AWS.SecretsManager.Lens
     secretListEntry_arn,
     secretListEntry_kmsKeyId,
     secretListEntry_name,
-    secretListEntry_lastChangedDate,
     secretListEntry_primaryRegion,
-    secretListEntry_rotationRules,
+    secretListEntry_lastChangedDate,
+    secretListEntry_deletedDate,
     secretListEntry_tags,
     secretListEntry_rotationEnabled,
-    secretListEntry_deletedDate,
-    secretListEntry_rotationLambdaARN,
+    secretListEntry_rotationRules,
     secretListEntry_description,
+    secretListEntry_rotationLambdaARN,
     secretListEntry_lastAccessedDate,
 
     -- ** SecretVersionsListEntry
     secretVersionsListEntry_createdDate,
+    secretVersionsListEntry_kmsKeyIds,
     secretVersionsListEntry_versionStages,
     secretVersionsListEntry_versionId,
     secretVersionsListEntry_lastAccessedDate,

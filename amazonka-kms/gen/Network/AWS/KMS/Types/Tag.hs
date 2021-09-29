@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- For information about the rules that apply to tag keys and tag values,
 -- see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

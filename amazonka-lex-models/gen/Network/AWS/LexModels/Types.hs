@@ -19,9 +19,10 @@ module Network.AWS.LexModels.Types
     -- * Errors
     _NotFoundException,
     _BadRequestException,
-    _ResourceInUseException,
-    _LimitExceededException,
+    _AccessDeniedException,
     _ConflictException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _InternalFailureException,
     _PreconditionFailedException,
 
@@ -61,6 +62,18 @@ module Network.AWS.LexModels.Types
     -- * MergeStrategy
     MergeStrategy (..),
 
+    -- * MigrationAlertType
+    MigrationAlertType (..),
+
+    -- * MigrationSortAttribute
+    MigrationSortAttribute (..),
+
+    -- * MigrationStatus
+    MigrationStatus (..),
+
+    -- * MigrationStrategy
+    MigrationStrategy (..),
+
     -- * ObfuscationSetting
     ObfuscationSetting (..),
 
@@ -75,6 +88,9 @@ module Network.AWS.LexModels.Types
 
     -- * SlotValueSelectionStrategy
     SlotValueSelectionStrategy (..),
+
+    -- * SortOrder
+    SortOrder (..),
 
     -- * StatusType
     StatusType (..),
@@ -218,6 +234,27 @@ module Network.AWS.LexModels.Types
     message_contentType,
     message_content,
 
+    -- * MigrationAlert
+    MigrationAlert (..),
+    newMigrationAlert,
+    migrationAlert_message,
+    migrationAlert_details,
+    migrationAlert_referenceURLs,
+    migrationAlert_type,
+
+    -- * MigrationSummary
+    MigrationSummary (..),
+    newMigrationSummary,
+    migrationSummary_v1BotVersion,
+    migrationSummary_migrationId,
+    migrationSummary_v1BotLocale,
+    migrationSummary_migrationTimestamp,
+    migrationSummary_migrationStrategy,
+    migrationSummary_v2BotRole,
+    migrationSummary_v1BotName,
+    migrationSummary_v2BotId,
+    migrationSummary_migrationStatus,
+
     -- * OutputContext
     OutputContext (..),
     newOutputContext,
@@ -236,8 +273,8 @@ module Network.AWS.LexModels.Types
     Slot (..),
     newSlot,
     slot_responseCard,
-    slot_valueElicitationPrompt,
     slot_slotType,
+    slot_valueElicitationPrompt,
     slot_slotTypeVersion,
     slot_priority,
     slot_sampleUtterances,
@@ -294,8 +331,8 @@ module Network.AWS.LexModels.Types
     utteranceData_utteranceString,
     utteranceData_distinctUsers,
     utteranceData_count,
-    utteranceData_firstUtteredDate,
     utteranceData_lastUtteredDate,
+    utteranceData_firstUtteredDate,
 
     -- * UtteranceList
     UtteranceList (..),
@@ -338,6 +375,12 @@ import Network.AWS.LexModels.Types.LogSettingsResponse
 import Network.AWS.LexModels.Types.LogType
 import Network.AWS.LexModels.Types.MergeStrategy
 import Network.AWS.LexModels.Types.Message
+import Network.AWS.LexModels.Types.MigrationAlert
+import Network.AWS.LexModels.Types.MigrationAlertType
+import Network.AWS.LexModels.Types.MigrationSortAttribute
+import Network.AWS.LexModels.Types.MigrationStatus
+import Network.AWS.LexModels.Types.MigrationStrategy
+import Network.AWS.LexModels.Types.MigrationSummary
 import Network.AWS.LexModels.Types.ObfuscationSetting
 import Network.AWS.LexModels.Types.OutputContext
 import Network.AWS.LexModels.Types.ProcessBehavior
@@ -351,6 +394,7 @@ import Network.AWS.LexModels.Types.SlotTypeConfiguration
 import Network.AWS.LexModels.Types.SlotTypeMetadata
 import Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
 import Network.AWS.LexModels.Types.SlotValueSelectionStrategy
+import Network.AWS.LexModels.Types.SortOrder
 import Network.AWS.LexModels.Types.Statement
 import Network.AWS.LexModels.Types.StatusType
 import Network.AWS.LexModels.Types.Tag
@@ -447,6 +491,31 @@ _BadRequestException =
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
+-- | Your IAM user or role does not have permission to call the Amazon Lex V2
+-- APIs required to migrate your bot.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
+-- | There was a conflict processing the request. Try your request again.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request exceeded a limit. Try your request again.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
+
 -- | The resource that you are attempting to delete is referred to by another
 -- resource. Use this information to remove references to the resource that
 -- you are trying to delete.
@@ -465,22 +534,6 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 400
-
--- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
-
--- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | An internal Amazon Lex error occurred. Try your request again.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

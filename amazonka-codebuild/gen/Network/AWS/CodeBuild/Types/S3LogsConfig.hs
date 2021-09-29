@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.S3LogsConfig where
 
+import Network.AWS.CodeBuild.Types.BucketOwnerAccess
 import Network.AWS.CodeBuild.Types.LogsConfigStatusType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -28,7 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3LogsConfig' smart constructor.
 data S3LogsConfig = S3LogsConfig'
-  { -- | Set to true if you do not want your S3 build log output encrypted. By
+  { bucketOwnerAccess :: Prelude.Maybe BucketOwnerAccess,
+    -- | Set to true if you do not want your S3 build log output encrypted. By
     -- default S3 build logs are encrypted.
     encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon
@@ -53,6 +55,8 @@ data S3LogsConfig = S3LogsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucketOwnerAccess', 's3LogsConfig_bucketOwnerAccess' - Undocumented member.
+--
 -- 'encryptionDisabled', 's3LogsConfig_encryptionDisabled' - Set to true if you do not want your S3 build log output encrypted. By
 -- default S3 build logs are encrypted.
 --
@@ -72,10 +76,15 @@ newS3LogsConfig ::
   S3LogsConfig
 newS3LogsConfig pStatus_ =
   S3LogsConfig'
-    { encryptionDisabled = Prelude.Nothing,
+    { bucketOwnerAccess = Prelude.Nothing,
+      encryptionDisabled = Prelude.Nothing,
       location = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | Undocumented member.
+s3LogsConfig_bucketOwnerAccess :: Lens.Lens' S3LogsConfig (Prelude.Maybe BucketOwnerAccess)
+s3LogsConfig_bucketOwnerAccess = Lens.lens (\S3LogsConfig' {bucketOwnerAccess} -> bucketOwnerAccess) (\s@S3LogsConfig' {} a -> s {bucketOwnerAccess = a} :: S3LogsConfig)
 
 -- | Set to true if you do not want your S3 build log output encrypted. By
 -- default S3 build logs are encrypted.
@@ -103,7 +112,8 @@ instance Core.FromJSON S3LogsConfig where
       "S3LogsConfig"
       ( \x ->
           S3LogsConfig'
-            Prelude.<$> (x Core..:? "encryptionDisabled")
+            Prelude.<$> (x Core..:? "bucketOwnerAccess")
+            Prelude.<*> (x Core..:? "encryptionDisabled")
             Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..: "status")
       )
@@ -116,7 +126,9 @@ instance Core.ToJSON S3LogsConfig where
   toJSON S3LogsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionDisabled" Core..=)
+          [ ("bucketOwnerAccess" Core..=)
+              Prelude.<$> bucketOwnerAccess,
+            ("encryptionDisabled" Core..=)
               Prelude.<$> encryptionDisabled,
             ("location" Core..=) Prelude.<$> location,
             Prelude.Just ("status" Core..= status)

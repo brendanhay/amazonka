@@ -71,15 +71,15 @@ data CreateProcessingJob = CreateProcessingJob'
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | An array of inputs configuring the data to download into the processing
     -- container.
     processingInputs :: Prelude.Maybe [ProcessingInput],
     -- | The time limit for how long the processing job is allowed to run.
     stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
-    -- | The name of the processing job. The name must be unique within an AWS
-    -- Region in the AWS account.
+    -- | The name of the processing job. The name must be unique within an Amazon
+    -- Web Services Region in the Amazon Web Services account.
     processingJobName :: Prelude.Text,
     -- | Identifies the resources, ML compute instances, and ML storage volumes
     -- to deploy for a processing job. In distributed training, you specify
@@ -115,15 +115,15 @@ data CreateProcessingJob = CreateProcessingJob'
 --
 -- 'tags', 'createProcessingJob_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'processingInputs', 'createProcessingJob_processingInputs' - An array of inputs configuring the data to download into the processing
 -- container.
 --
 -- 'stoppingCondition', 'createProcessingJob_stoppingCondition' - The time limit for how long the processing job is allowed to run.
 --
--- 'processingJobName', 'createProcessingJob_processingJobName' - The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- 'processingJobName', 'createProcessingJob_processingJobName' - The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 --
 -- 'processingResources', 'createProcessingJob_processingResources' - Identifies the resources, ML compute instances, and ML storage volumes
 -- to deploy for a processing job. In distributed training, you specify
@@ -185,7 +185,7 @@ createProcessingJob_environment = Lens.lens (\CreateProcessingJob' {environment}
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createProcessingJob_tags :: Lens.Lens' CreateProcessingJob (Prelude.Maybe [Tag])
 createProcessingJob_tags = Lens.lens (\CreateProcessingJob' {tags} -> tags) (\s@CreateProcessingJob' {} a -> s {tags = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens._Coerce
 
@@ -198,8 +198,8 @@ createProcessingJob_processingInputs = Lens.lens (\CreateProcessingJob' {process
 createProcessingJob_stoppingCondition :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ProcessingStoppingCondition)
 createProcessingJob_stoppingCondition = Lens.lens (\CreateProcessingJob' {stoppingCondition} -> stoppingCondition) (\s@CreateProcessingJob' {} a -> s {stoppingCondition = a} :: CreateProcessingJob)
 
--- | The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- | The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 createProcessingJob_processingJobName :: Lens.Lens' CreateProcessingJob Prelude.Text
 createProcessingJob_processingJobName = Lens.lens (\CreateProcessingJob' {processingJobName} -> processingJobName) (\s@CreateProcessingJob' {} a -> s {processingJobName = a} :: CreateProcessingJob)
 

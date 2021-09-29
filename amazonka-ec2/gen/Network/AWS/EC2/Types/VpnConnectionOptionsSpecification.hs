@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpnConnectionOptionsSpecification' smart constructor.
 data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
-  { -- | The IPv6 CIDR on the AWS side of the VPN connection.
+  { -- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
     --
     -- Default: @::\/0@
     remoteIpv6NetworkCidr :: Prelude.Maybe Prelude.Text,
@@ -52,7 +52,7 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
     enableAcceleration :: Prelude.Maybe Prelude.Bool,
     -- | The tunnel options for the VPN connection.
     tunnelOptions :: Prelude.Maybe [VpnTunnelOptionsSpecification],
-    -- | The IPv4 CIDR on the AWS side of the VPN connection.
+    -- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
     --
     -- Default: @0.0.0.0\/0@
     remoteIpv4NetworkCidr :: Prelude.Maybe Prelude.Text,
@@ -76,7 +76,7 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteIpv6NetworkCidr', 'vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv6NetworkCidr', 'vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr' - The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @::\/0@
 --
@@ -98,7 +98,7 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
 --
 -- 'tunnelOptions', 'vpnConnectionOptionsSpecification_tunnelOptions' - The tunnel options for the VPN connection.
 --
--- 'remoteIpv4NetworkCidr', 'vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
+-- 'remoteIpv4NetworkCidr', 'vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr' - The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
 --
@@ -125,7 +125,7 @@ newVpnConnectionOptionsSpecification =
       localIpv4NetworkCidr = Prelude.Nothing
     }
 
--- | The IPv6 CIDR on the AWS side of the VPN connection.
+-- | The IPv6 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @::\/0@
 vpnConnectionOptionsSpecification_remoteIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)
@@ -157,7 +157,7 @@ vpnConnectionOptionsSpecification_enableAcceleration = Lens.lens (\VpnConnection
 vpnConnectionOptionsSpecification_tunnelOptions :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe [VpnTunnelOptionsSpecification])
 vpnConnectionOptionsSpecification_tunnelOptions = Lens.lens (\VpnConnectionOptionsSpecification' {tunnelOptions} -> tunnelOptions) (\s@VpnConnectionOptionsSpecification' {} a -> s {tunnelOptions = a} :: VpnConnectionOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
 
--- | The IPv4 CIDR on the AWS side of the VPN connection.
+-- | The IPv4 CIDR on the Amazon Web Services side of the VPN connection.
 --
 -- Default: @0.0.0.0\/0@
 vpnConnectionOptionsSpecification_remoteIpv4NetworkCidr :: Lens.Lens' VpnConnectionOptionsSpecification (Prelude.Maybe Prelude.Text)

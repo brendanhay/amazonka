@@ -30,6 +30,12 @@
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging Tag Log Groups in Amazon CloudWatch Logs>
 -- in the /Amazon CloudWatch Logs User Guide/.
+--
+-- CloudWatch Logs doesn’t support IAM policies that prevent users from
+-- assigning specified tags to log groups using the
+-- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys. For more
+-- information about using tags to control access, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 module Network.AWS.CloudWatchLogs.TagLogGroup
   ( -- * Creating a Request
     TagLogGroup (..),

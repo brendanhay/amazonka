@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation is used by SaaS partners to delete a partner event
--- source. This operation is not used by AWS customers.
+-- source. This operation is not used by Amazon Web Services customers.
 --
 -- When you delete an event source, the status of the corresponding partner
--- event bus in the AWS customer account becomes DELETED.
+-- event bus in the Amazon Web Services customer account becomes DELETED.
 module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
   ( -- * Creating a Request
     DeletePartnerEventSource (..),
@@ -51,8 +51,8 @@ import qualified Network.AWS.Response as Response
 data DeletePartnerEventSource = DeletePartnerEventSource'
   { -- | The name of the event source to delete.
     name :: Prelude.Text,
-    -- | The AWS account ID of the AWS customer that the event source was created
-    -- for.
+    -- | The Amazon Web Services account ID of the Amazon Web Services customer
+    -- that the event source was created for.
     account :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,8 +67,8 @@ data DeletePartnerEventSource = DeletePartnerEventSource'
 --
 -- 'name', 'deletePartnerEventSource_name' - The name of the event source to delete.
 --
--- 'account', 'deletePartnerEventSource_account' - The AWS account ID of the AWS customer that the event source was created
--- for.
+-- 'account', 'deletePartnerEventSource_account' - The Amazon Web Services account ID of the Amazon Web Services customer
+-- that the event source was created for.
 newDeletePartnerEventSource ::
   -- | 'name'
   Prelude.Text ->
@@ -85,8 +85,8 @@ newDeletePartnerEventSource pName_ pAccount_ =
 deletePartnerEventSource_name :: Lens.Lens' DeletePartnerEventSource Prelude.Text
 deletePartnerEventSource_name = Lens.lens (\DeletePartnerEventSource' {name} -> name) (\s@DeletePartnerEventSource' {} a -> s {name = a} :: DeletePartnerEventSource)
 
--- | The AWS account ID of the AWS customer that the event source was created
--- for.
+-- | The Amazon Web Services account ID of the Amazon Web Services customer
+-- that the event source was created for.
 deletePartnerEventSource_account :: Lens.Lens' DeletePartnerEventSource Prelude.Text
 deletePartnerEventSource_account = Lens.lens (\DeletePartnerEventSource' {account} -> account) (\s@DeletePartnerEventSource' {} a -> s {account = a} :: DeletePartnerEventSource)
 

@@ -68,6 +68,15 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
     description :: Prelude.Maybe Prelude.Text,
     -- | A list containing information about the versions of the policy.
     policyVersionList :: Prelude.Maybe [PolicyVersion],
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- policy was last updated.
+    --
+    -- When a policy has only one version, this field contains the date and
+    -- time when the policy was created. When a policy has more than one
+    -- version, this field contains the date and time when the most recent
+    -- policy version was created.
+    updateDate :: Prelude.Maybe Core.ISO8601,
     -- | The path to the policy.
     --
     -- For more information about paths, see
@@ -79,16 +88,7 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
     -- For more information about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- policy was last updated.
-    --
-    -- When a policy has only one version, this field contains the date and
-    -- time when the policy was created. When a policy has more than one
-    -- version, this field contains the date and time when the most recent
-    -- policy version was created.
-    updateDate :: Prelude.Maybe Core.ISO8601
+    policyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -132,6 +132,15 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
 --
 -- 'policyVersionList', 'managedPolicyDetail_policyVersionList' - A list containing information about the versions of the policy.
 --
+-- 'updateDate', 'managedPolicyDetail_updateDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy was last updated.
+--
+-- When a policy has only one version, this field contains the date and
+-- time when the policy was created. When a policy has more than one
+-- version, this field contains the date and time when the most recent
+-- policy version was created.
+--
 -- 'path', 'managedPolicyDetail_path' - The path to the policy.
 --
 -- For more information about paths, see
@@ -143,15 +152,6 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
 -- For more information about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
---
--- 'updateDate', 'managedPolicyDetail_updateDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy was last updated.
---
--- When a policy has only one version, this field contains the date and
--- time when the policy was created. When a policy has more than one
--- version, this field contains the date and time when the most recent
--- policy version was created.
 newManagedPolicyDetail ::
   ManagedPolicyDetail
 newManagedPolicyDetail =
@@ -165,9 +165,9 @@ newManagedPolicyDetail =
       defaultVersionId = Prelude.Nothing,
       description = Prelude.Nothing,
       policyVersionList = Prelude.Nothing,
+      updateDate = Prelude.Nothing,
       path = Prelude.Nothing,
-      policyId = Prelude.Nothing,
-      updateDate = Prelude.Nothing
+      policyId = Prelude.Nothing
     }
 
 -- | The friendly name (not ARN) identifying the policy.
@@ -220,6 +220,17 @@ managedPolicyDetail_description = Lens.lens (\ManagedPolicyDetail' {description}
 managedPolicyDetail_policyVersionList :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe [PolicyVersion])
 managedPolicyDetail_policyVersionList = Lens.lens (\ManagedPolicyDetail' {policyVersionList} -> policyVersionList) (\s@ManagedPolicyDetail' {} a -> s {policyVersionList = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy was last updated.
+--
+-- When a policy has only one version, this field contains the date and
+-- time when the policy was created. When a policy has more than one
+-- version, this field contains the date and time when the most recent
+-- policy version was created.
+managedPolicyDetail_updateDate :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.UTCTime)
+managedPolicyDetail_updateDate = Lens.lens (\ManagedPolicyDetail' {updateDate} -> updateDate) (\s@ManagedPolicyDetail' {} a -> s {updateDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Core._Time
+
 -- | The path to the policy.
 --
 -- For more information about paths, see
@@ -236,17 +247,6 @@ managedPolicyDetail_path = Lens.lens (\ManagedPolicyDetail' {path} -> path) (\s@
 managedPolicyDetail_policyId :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.Text)
 managedPolicyDetail_policyId = Lens.lens (\ManagedPolicyDetail' {policyId} -> policyId) (\s@ManagedPolicyDetail' {} a -> s {policyId = a} :: ManagedPolicyDetail)
 
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy was last updated.
---
--- When a policy has only one version, this field contains the date and
--- time when the policy was created. When a policy has more than one
--- version, this field contains the date and time when the most recent
--- policy version was created.
-managedPolicyDetail_updateDate :: Lens.Lens' ManagedPolicyDetail (Prelude.Maybe Prelude.UTCTime)
-managedPolicyDetail_updateDate = Lens.lens (\ManagedPolicyDetail' {updateDate} -> updateDate) (\s@ManagedPolicyDetail' {} a -> s {updateDate = a} :: ManagedPolicyDetail) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromXML ManagedPolicyDetail where
   parseXML x =
     ManagedPolicyDetail'
@@ -262,9 +262,9 @@ instance Core.FromXML ManagedPolicyDetail where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "UpdateDate")
       Prelude.<*> (x Core..@? "Path")
       Prelude.<*> (x Core..@? "PolicyId")
-      Prelude.<*> (x Core..@? "UpdateDate")
 
 instance Prelude.Hashable ManagedPolicyDetail
 

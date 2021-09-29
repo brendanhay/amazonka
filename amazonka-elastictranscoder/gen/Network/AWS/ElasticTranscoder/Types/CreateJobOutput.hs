@@ -80,15 +80,15 @@ data CreateJobOutput = CreateJobOutput'
     -- for each output. Settings for each watermark must be defined in the
     -- preset for the current output.
     watermarks :: Prelude.Maybe [JobWatermark],
-    -- | The @Id@ of the preset to use for this job. The preset determines the
-    -- audio, video, and thumbnail settings that Elastic Transcoder uses for
-    -- transcoding.
-    presetId :: Prelude.Maybe Prelude.Text,
     -- | Information about the album art that you want Elastic Transcoder to add
     -- to the file during transcoding. You can specify up to twenty album
     -- artworks for each output. Settings for each artwork must be defined in
     -- the job for the current output.
     albumArt :: Prelude.Maybe JobAlbumArt,
+    -- | The @Id@ of the preset to use for this job. The preset determines the
+    -- audio, video, and thumbnail settings that Elastic Transcoder uses for
+    -- transcoding.
+    presetId :: Prelude.Maybe Prelude.Text,
     -- | You can specify encryption settings for any output files that you want
     -- to use for a transcoding job. This includes the output file and any
     -- watermarks, thumbnails, album art, or captions that you want to use. You
@@ -107,26 +107,6 @@ data CreateJobOutput = CreateJobOutput'
     -- specify settings for a single clip per output file. The Composition
     -- object cannot be null.
     composition :: Prelude.Maybe [Clip],
-    -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
-    --
-    -- If you specify a preset in @PresetId@ for which the value of @Container@
-    -- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
-    -- target maximum duration of each segment in seconds. For @HLSv3@ format
-    -- playlists, each media segment is stored in a separate @.ts@ file. For
-    -- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
-    -- stored in a single file. Each segment is approximately the length of the
-    -- @SegmentDuration@, though individual segments might be shorter or
-    -- longer.
-    --
-    -- The range of valid values is 1 to 60 seconds. If the duration of the
-    -- video is not evenly divisible by @SegmentDuration@, the duration of the
-    -- last segment is the remainder of total length\/SegmentDuration.
-    --
-    -- Elastic Transcoder creates an output-specific playlist for each output
-    -- @HLS@ output that you specify in OutputKeys. To add an output to the
-    -- master playlist for this job, include it in the @OutputKeys@ of the
-    -- associated playlist.
-    segmentDuration :: Prelude.Maybe Prelude.Text,
     -- | You can configure Elastic Transcoder to transcode captions, or
     -- subtitles, from one format to another. All captions must be in UTF-8.
     -- Elastic Transcoder supports two types of captions:
@@ -177,7 +157,27 @@ data CreateJobOutput = CreateJobOutput'
     --
     -- For more information on sidecar files, see the Extensible Metadata
     -- Platform and Sidecar file Wikipedia pages.
-    captions :: Prelude.Maybe Captions
+    captions :: Prelude.Maybe Captions,
+    -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
+    --
+    -- If you specify a preset in @PresetId@ for which the value of @Container@
+    -- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+    -- target maximum duration of each segment in seconds. For @HLSv3@ format
+    -- playlists, each media segment is stored in a separate @.ts@ file. For
+    -- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
+    -- stored in a single file. Each segment is approximately the length of the
+    -- @SegmentDuration@, though individual segments might be shorter or
+    -- longer.
+    --
+    -- The range of valid values is 1 to 60 seconds. If the duration of the
+    -- video is not evenly divisible by @SegmentDuration@, the duration of the
+    -- last segment is the remainder of total length\/SegmentDuration.
+    --
+    -- Elastic Transcoder creates an output-specific playlist for each output
+    -- @HLS@ output that you specify in OutputKeys. To add an output to the
+    -- master playlist for this job, include it in the @OutputKeys@ of the
+    -- associated playlist.
+    segmentDuration :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -237,14 +237,14 @@ data CreateJobOutput = CreateJobOutput'
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
 --
--- 'presetId', 'createJobOutput_presetId' - The @Id@ of the preset to use for this job. The preset determines the
--- audio, video, and thumbnail settings that Elastic Transcoder uses for
--- transcoding.
---
 -- 'albumArt', 'createJobOutput_albumArt' - Information about the album art that you want Elastic Transcoder to add
 -- to the file during transcoding. You can specify up to twenty album
 -- artworks for each output. Settings for each artwork must be defined in
 -- the job for the current output.
+--
+-- 'presetId', 'createJobOutput_presetId' - The @Id@ of the preset to use for this job. The preset determines the
+-- audio, video, and thumbnail settings that Elastic Transcoder uses for
+-- transcoding.
 --
 -- 'encryption', 'createJobOutput_encryption' - You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any
@@ -263,26 +263,6 @@ data CreateJobOutput = CreateJobOutput'
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
---
--- 'segmentDuration', 'createJobOutput_segmentDuration' - (Outputs in Fragmented MP4 or MPEG-TS format only.
---
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
--- stored in a single file. Each segment is approximately the length of the
--- @SegmentDuration@, though individual segments might be shorter or
--- longer.
---
--- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
--- last segment is the remainder of total length\/SegmentDuration.
---
--- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
--- associated playlist.
 --
 -- 'captions', 'createJobOutput_captions' - You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -334,6 +314,26 @@ data CreateJobOutput = CreateJobOutput'
 --
 -- For more information on sidecar files, see the Extensible Metadata
 -- Platform and Sidecar file Wikipedia pages.
+--
+-- 'segmentDuration', 'createJobOutput_segmentDuration' - (Outputs in Fragmented MP4 or MPEG-TS format only.
+--
+-- If you specify a preset in @PresetId@ for which the value of @Container@
+-- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+-- target maximum duration of each segment in seconds. For @HLSv3@ format
+-- playlists, each media segment is stored in a separate @.ts@ file. For
+-- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
+-- stored in a single file. Each segment is approximately the length of the
+-- @SegmentDuration@, though individual segments might be shorter or
+-- longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the
+-- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- last segment is the remainder of total length\/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output
+-- @HLS@ output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the @OutputKeys@ of the
+-- associated playlist.
 newCreateJobOutput ::
   CreateJobOutput
 newCreateJobOutput =
@@ -342,13 +342,13 @@ newCreateJobOutput =
       thumbnailPattern = Prelude.Nothing,
       thumbnailEncryption = Prelude.Nothing,
       watermarks = Prelude.Nothing,
-      presetId = Prelude.Nothing,
       albumArt = Prelude.Nothing,
+      presetId = Prelude.Nothing,
       encryption = Prelude.Nothing,
       rotate = Prelude.Nothing,
       composition = Prelude.Nothing,
-      segmentDuration = Prelude.Nothing,
-      captions = Prelude.Nothing
+      captions = Prelude.Nothing,
+      segmentDuration = Prelude.Nothing
     }
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
@@ -407,18 +407,18 @@ createJobOutput_thumbnailEncryption = Lens.lens (\CreateJobOutput' {thumbnailEnc
 createJobOutput_watermarks :: Lens.Lens' CreateJobOutput (Prelude.Maybe [JobWatermark])
 createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> watermarks) (\s@CreateJobOutput' {} a -> s {watermarks = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens._Coerce
 
--- | The @Id@ of the preset to use for this job. The preset determines the
--- audio, video, and thumbnail settings that Elastic Transcoder uses for
--- transcoding.
-createJobOutput_presetId :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
-createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) (\s@CreateJobOutput' {} a -> s {presetId = a} :: CreateJobOutput)
-
 -- | Information about the album art that you want Elastic Transcoder to add
 -- to the file during transcoding. You can specify up to twenty album
 -- artworks for each output. Settings for each artwork must be defined in
 -- the job for the current output.
 createJobOutput_albumArt :: Lens.Lens' CreateJobOutput (Prelude.Maybe JobAlbumArt)
 createJobOutput_albumArt = Lens.lens (\CreateJobOutput' {albumArt} -> albumArt) (\s@CreateJobOutput' {} a -> s {albumArt = a} :: CreateJobOutput)
+
+-- | The @Id@ of the preset to use for this job. The preset determines the
+-- audio, video, and thumbnail settings that Elastic Transcoder uses for
+-- transcoding.
+createJobOutput_presetId :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
+createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) (\s@CreateJobOutput' {} a -> s {presetId = a} :: CreateJobOutput)
 
 -- | You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any
@@ -443,28 +443,6 @@ createJobOutput_rotate = Lens.lens (\CreateJobOutput' {rotate} -> rotate) (\s@Cr
 -- object cannot be null.
 createJobOutput_composition :: Lens.Lens' CreateJobOutput (Prelude.Maybe [Clip])
 createJobOutput_composition = Lens.lens (\CreateJobOutput' {composition} -> composition) (\s@CreateJobOutput' {} a -> s {composition = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens._Coerce
-
--- | (Outputs in Fragmented MP4 or MPEG-TS format only.
---
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
--- stored in a single file. Each segment is approximately the length of the
--- @SegmentDuration@, though individual segments might be shorter or
--- longer.
---
--- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
--- last segment is the remainder of total length\/SegmentDuration.
---
--- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
--- associated playlist.
-createJobOutput_segmentDuration :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
-createJobOutput_segmentDuration = Lens.lens (\CreateJobOutput' {segmentDuration} -> segmentDuration) (\s@CreateJobOutput' {} a -> s {segmentDuration = a} :: CreateJobOutput)
 
 -- | You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -519,6 +497,28 @@ createJobOutput_segmentDuration = Lens.lens (\CreateJobOutput' {segmentDuration}
 createJobOutput_captions :: Lens.Lens' CreateJobOutput (Prelude.Maybe Captions)
 createJobOutput_captions = Lens.lens (\CreateJobOutput' {captions} -> captions) (\s@CreateJobOutput' {} a -> s {captions = a} :: CreateJobOutput)
 
+-- | (Outputs in Fragmented MP4 or MPEG-TS format only.
+--
+-- If you specify a preset in @PresetId@ for which the value of @Container@
+-- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
+-- target maximum duration of each segment in seconds. For @HLSv3@ format
+-- playlists, each media segment is stored in a separate @.ts@ file. For
+-- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
+-- stored in a single file. Each segment is approximately the length of the
+-- @SegmentDuration@, though individual segments might be shorter or
+-- longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the
+-- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- last segment is the remainder of total length\/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output
+-- @HLS@ output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the @OutputKeys@ of the
+-- associated playlist.
+createJobOutput_segmentDuration :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
+createJobOutput_segmentDuration = Lens.lens (\CreateJobOutput' {segmentDuration} -> segmentDuration) (\s@CreateJobOutput' {} a -> s {segmentDuration = a} :: CreateJobOutput)
+
 instance Prelude.Hashable CreateJobOutput
 
 instance Prelude.NFData CreateJobOutput
@@ -533,13 +533,13 @@ instance Core.ToJSON CreateJobOutput where
             ("ThumbnailEncryption" Core..=)
               Prelude.<$> thumbnailEncryption,
             ("Watermarks" Core..=) Prelude.<$> watermarks,
-            ("PresetId" Core..=) Prelude.<$> presetId,
             ("AlbumArt" Core..=) Prelude.<$> albumArt,
+            ("PresetId" Core..=) Prelude.<$> presetId,
             ("Encryption" Core..=) Prelude.<$> encryption,
             ("Rotate" Core..=) Prelude.<$> rotate,
             ("Composition" Core..=) Prelude.<$> composition,
+            ("Captions" Core..=) Prelude.<$> captions,
             ("SegmentDuration" Core..=)
-              Prelude.<$> segmentDuration,
-            ("Captions" Core..=) Prelude.<$> captions
+              Prelude.<$> segmentDuration
           ]
       )

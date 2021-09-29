@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.HttpTokensState
 import Network.AWS.EC2.Types.InstanceMetadataEndpointState
+import Network.AWS.EC2.Types.InstanceMetadataProtocolState
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -30,7 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadataOptionsRequest' smart constructor.
 data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
-  { -- | This parameter enables or disables the HTTP metadata endpoint on your
+  { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
+    -- | This parameter enables or disables the HTTP metadata endpoint on your
     -- instances. If the parameter is not specified, the default state is
     -- @enabled@.
     --
@@ -71,6 +74,8 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpProtocolIpv6', 'instanceMetadataOptionsRequest_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+--
 -- 'httpEndpoint', 'instanceMetadataOptionsRequest_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
 -- instances. If the parameter is not specified, the default state is
 -- @enabled@.
@@ -104,11 +109,16 @@ newInstanceMetadataOptionsRequest ::
   InstanceMetadataOptionsRequest
 newInstanceMetadataOptionsRequest =
   InstanceMetadataOptionsRequest'
-    { httpEndpoint =
+    { httpProtocolIpv6 =
         Prelude.Nothing,
+      httpEndpoint = Prelude.Nothing,
       httpPutResponseHopLimit = Prelude.Nothing,
       httpTokens = Prelude.Nothing
     }
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+instanceMetadataOptionsRequest_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataProtocolState)
+instanceMetadataOptionsRequest_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptionsRequest' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptionsRequest)
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your
 -- instances. If the parameter is not specified, the default state is
@@ -157,7 +167,8 @@ instance
 instance Core.ToQuery InstanceMetadataOptionsRequest where
   toQuery InstanceMetadataOptionsRequest' {..} =
     Prelude.mconcat
-      [ "HttpEndpoint" Core.=: httpEndpoint,
+      [ "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
+        "HttpEndpoint" Core.=: httpEndpoint,
         "HttpPutResponseHopLimit"
           Core.=: httpPutResponseHopLimit,
         "HttpTokens" Core.=: httpTokens

@@ -14,11 +14,14 @@
 module Network.AWS.GuardDuty.Lens
   ( -- * Operations
 
-    -- ** CreateMembers
-    createMembers_detectorId,
-    createMembers_accountDetails,
-    createMembersResponse_httpStatus,
-    createMembersResponse_unprocessedAccounts,
+    -- ** GetInvitationsCount
+    getInvitationsCountResponse_invitationsCount,
+    getInvitationsCountResponse_httpStatus,
+
+    -- ** UnarchiveFindings
+    unarchiveFindings_detectorId,
+    unarchiveFindings_findingIds,
+    unarchiveFindingsResponse_httpStatus,
 
     -- ** UpdateThreatIntelSet
     updateThreatIntelSet_activate,
@@ -33,29 +36,47 @@ module Network.AWS.GuardDuty.Lens
     deleteThreatIntelSet_threatIntelSetId,
     deleteThreatIntelSetResponse_httpStatus,
 
-    -- ** GetInvitationsCount
-    getInvitationsCountResponse_invitationsCount,
-    getInvitationsCountResponse_httpStatus,
-
-    -- ** UnarchiveFindings
-    unarchiveFindings_detectorId,
-    unarchiveFindings_findingIds,
-    unarchiveFindingsResponse_httpStatus,
-
-    -- ** EnableOrganizationAdminAccount
-    enableOrganizationAdminAccount_adminAccountId,
-    enableOrganizationAdminAccountResponse_httpStatus,
+    -- ** CreateMembers
+    createMembers_detectorId,
+    createMembers_accountDetails,
+    createMembersResponse_httpStatus,
+    createMembersResponse_unprocessedAccounts,
 
     -- ** DeletePublishingDestination
     deletePublishingDestination_detectorId,
     deletePublishingDestination_destinationId,
     deletePublishingDestinationResponse_httpStatus,
 
+    -- ** GetDetector
+    getDetector_detectorId,
+    getDetectorResponse_dataSources,
+    getDetectorResponse_updatedAt,
+    getDetectorResponse_findingPublishingFrequency,
+    getDetectorResponse_createdAt,
+    getDetectorResponse_tags,
+    getDetectorResponse_httpStatus,
+    getDetectorResponse_serviceRole,
+    getDetectorResponse_status,
+
+    -- ** ListFindings
+    listFindings_nextToken,
+    listFindings_sortCriteria,
+    listFindings_maxResults,
+    listFindings_findingCriteria,
+    listFindings_detectorId,
+    listFindingsResponse_nextToken,
+    listFindingsResponse_httpStatus,
+    listFindingsResponse_findingIds,
+
     -- ** UpdatePublishingDestination
     updatePublishingDestination_destinationProperties,
     updatePublishingDestination_detectorId,
     updatePublishingDestination_destinationId,
     updatePublishingDestinationResponse_httpStatus,
+
+    -- ** EnableOrganizationAdminAccount
+    enableOrganizationAdminAccount_adminAccountId,
+    enableOrganizationAdminAccountResponse_httpStatus,
 
     -- ** ArchiveFindings
     archiveFindings_detectorId,
@@ -74,26 +95,10 @@ module Network.AWS.GuardDuty.Lens
     createFilterResponse_httpStatus,
     createFilterResponse_name,
 
-    -- ** GetDetector
-    getDetector_detectorId,
-    getDetectorResponse_dataSources,
-    getDetectorResponse_findingPublishingFrequency,
-    getDetectorResponse_updatedAt,
-    getDetectorResponse_createdAt,
-    getDetectorResponse_tags,
-    getDetectorResponse_httpStatus,
-    getDetectorResponse_serviceRole,
-    getDetectorResponse_status,
-
-    -- ** ListFindings
-    listFindings_nextToken,
-    listFindings_sortCriteria,
-    listFindings_findingCriteria,
-    listFindings_maxResults,
-    listFindings_detectorId,
-    listFindingsResponse_nextToken,
-    listFindingsResponse_httpStatus,
-    listFindingsResponse_findingIds,
+    -- ** DeleteFilter
+    deleteFilter_detectorId,
+    deleteFilter_filterName,
+    deleteFilterResponse_httpStatus,
 
     -- ** UpdateFilter
     updateFilter_rank,
@@ -105,20 +110,15 @@ module Network.AWS.GuardDuty.Lens
     updateFilterResponse_httpStatus,
     updateFilterResponse_name,
 
-    -- ** DeleteFilter
-    deleteFilter_detectorId,
-    deleteFilter_filterName,
-    deleteFilterResponse_httpStatus,
-
-    -- ** DisableOrganizationAdminAccount
-    disableOrganizationAdminAccount_adminAccountId,
-    disableOrganizationAdminAccountResponse_httpStatus,
-
     -- ** AcceptInvitation
     acceptInvitation_detectorId,
     acceptInvitation_masterId,
     acceptInvitation_invitationId,
     acceptInvitationResponse_httpStatus,
+
+    -- ** DisableOrganizationAdminAccount
+    disableOrganizationAdminAccount_adminAccountId,
+    disableOrganizationAdminAccountResponse_httpStatus,
 
     -- ** UpdateFindingsFeedback
     updateFindingsFeedback_comments,
@@ -134,22 +134,27 @@ module Network.AWS.GuardDuty.Lens
     describeOrganizationConfigurationResponse_autoEnable,
     describeOrganizationConfigurationResponse_memberAccountLimitReached,
 
-    -- ** GetMasterAccount
-    getMasterAccount_detectorId,
-    getMasterAccountResponse_httpStatus,
-    getMasterAccountResponse_master,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
     -- ** ListDetectors
     listDetectors_nextToken,
     listDetectors_maxResults,
     listDetectorsResponse_nextToken,
     listDetectorsResponse_httpStatus,
     listDetectorsResponse_detectorIds,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** GetMasterAccount
+    getMasterAccount_detectorId,
+    getMasterAccountResponse_httpStatus,
+    getMasterAccountResponse_master,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** DescribePublishingDestination
     describePublishingDestination_detectorId,
@@ -168,11 +173,6 @@ module Network.AWS.GuardDuty.Lens
     getFindingsResponse_httpStatus,
     getFindingsResponse_findings,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** GetFindingsStatistics
     getFindingsStatistics_findingCriteria,
     getFindingsStatistics_detectorId,
@@ -187,10 +187,11 @@ module Network.AWS.GuardDuty.Lens
     getMembersResponse_members,
     getMembersResponse_unprocessedAccounts,
 
-    -- ** DeleteIPSet
-    deleteIPSet_detectorId,
-    deleteIPSet_ipSetId,
-    deleteIPSetResponse_httpStatus,
+    -- ** UpdateOrganizationConfiguration
+    updateOrganizationConfiguration_dataSources,
+    updateOrganizationConfiguration_detectorId,
+    updateOrganizationConfiguration_autoEnable,
+    updateOrganizationConfigurationResponse_httpStatus,
 
     -- ** UpdateIPSet
     updateIPSet_activate,
@@ -211,12 +212,6 @@ module Network.AWS.GuardDuty.Lens
     createThreatIntelSetResponse_httpStatus,
     createThreatIntelSetResponse_threatIntelSetId,
 
-    -- ** UpdateOrganizationConfiguration
-    updateOrganizationConfiguration_dataSources,
-    updateOrganizationConfiguration_detectorId,
-    updateOrganizationConfiguration_autoEnable,
-    updateOrganizationConfigurationResponse_httpStatus,
-
     -- ** InviteMembers
     inviteMembers_message,
     inviteMembers_disableEmailNotification,
@@ -225,32 +220,16 @@ module Network.AWS.GuardDuty.Lens
     inviteMembersResponse_httpStatus,
     inviteMembersResponse_unprocessedAccounts,
 
+    -- ** DeleteIPSet
+    deleteIPSet_detectorId,
+    deleteIPSet_ipSetId,
+    deleteIPSetResponse_httpStatus,
+
     -- ** StopMonitoringMembers
     stopMonitoringMembers_detectorId,
     stopMonitoringMembers_accountIds,
     stopMonitoringMembersResponse_httpStatus,
     stopMonitoringMembersResponse_unprocessedAccounts,
-
-    -- ** ListThreatIntelSets
-    listThreatIntelSets_nextToken,
-    listThreatIntelSets_maxResults,
-    listThreatIntelSets_detectorId,
-    listThreatIntelSetsResponse_nextToken,
-    listThreatIntelSetsResponse_httpStatus,
-    listThreatIntelSetsResponse_threatIntelSetIds,
-
-    -- ** GetMemberDetectors
-    getMemberDetectors_detectorId,
-    getMemberDetectors_accountIds,
-    getMemberDetectorsResponse_httpStatus,
-    getMemberDetectorsResponse_memberDataSourceConfigurations,
-    getMemberDetectorsResponse_unprocessedAccounts,
-
-    -- ** StartMonitoringMembers
-    startMonitoringMembers_detectorId,
-    startMonitoringMembers_accountIds,
-    startMonitoringMembersResponse_httpStatus,
-    startMonitoringMembersResponse_unprocessedAccounts,
 
     -- ** CreateIPSet
     createIPSet_tags,
@@ -263,12 +242,26 @@ module Network.AWS.GuardDuty.Lens
     createIPSetResponse_httpStatus,
     createIPSetResponse_ipSetId,
 
-    -- ** ListOrganizationAdminAccounts
-    listOrganizationAdminAccounts_nextToken,
-    listOrganizationAdminAccounts_maxResults,
-    listOrganizationAdminAccountsResponse_nextToken,
-    listOrganizationAdminAccountsResponse_adminAccounts,
-    listOrganizationAdminAccountsResponse_httpStatus,
+    -- ** ListThreatIntelSets
+    listThreatIntelSets_nextToken,
+    listThreatIntelSets_maxResults,
+    listThreatIntelSets_detectorId,
+    listThreatIntelSetsResponse_nextToken,
+    listThreatIntelSetsResponse_httpStatus,
+    listThreatIntelSetsResponse_threatIntelSetIds,
+
+    -- ** StartMonitoringMembers
+    startMonitoringMembers_detectorId,
+    startMonitoringMembers_accountIds,
+    startMonitoringMembersResponse_httpStatus,
+    startMonitoringMembersResponse_unprocessedAccounts,
+
+    -- ** GetMemberDetectors
+    getMemberDetectors_detectorId,
+    getMemberDetectors_accountIds,
+    getMemberDetectorsResponse_httpStatus,
+    getMemberDetectorsResponse_memberDataSourceConfigurations,
+    getMemberDetectorsResponse_unprocessedAccounts,
 
     -- ** ListPublishingDestinations
     listPublishingDestinations_nextToken,
@@ -282,6 +275,13 @@ module Network.AWS.GuardDuty.Lens
     createSampleFindings_findingTypes,
     createSampleFindings_detectorId,
     createSampleFindingsResponse_httpStatus,
+
+    -- ** ListOrganizationAdminAccounts
+    listOrganizationAdminAccounts_nextToken,
+    listOrganizationAdminAccounts_maxResults,
+    listOrganizationAdminAccountsResponse_nextToken,
+    listOrganizationAdminAccountsResponse_adminAccounts,
+    listOrganizationAdminAccountsResponse_httpStatus,
 
     -- ** DisassociateMembers
     disassociateMembers_detectorId,
@@ -305,10 +305,6 @@ module Network.AWS.GuardDuty.Lens
     listFiltersResponse_httpStatus,
     listFiltersResponse_filterNames,
 
-    -- ** DisassociateFromMasterAccount
-    disassociateFromMasterAccount_detectorId,
-    disassociateFromMasterAccountResponse_httpStatus,
-
     -- ** ListMembers
     listMembers_nextToken,
     listMembers_maxResults,
@@ -318,30 +314,9 @@ module Network.AWS.GuardDuty.Lens
     listMembersResponse_members,
     listMembersResponse_httpStatus,
 
-    -- ** DeclineInvitations
-    declineInvitations_accountIds,
-    declineInvitationsResponse_httpStatus,
-    declineInvitationsResponse_unprocessedAccounts,
-
-    -- ** CreateDetector
-    createDetector_dataSources,
-    createDetector_findingPublishingFrequency,
-    createDetector_tags,
-    createDetector_clientToken,
-    createDetector_enable,
-    createDetectorResponse_detectorId,
-    createDetectorResponse_httpStatus,
-
-    -- ** GetUsageStatistics
-    getUsageStatistics_nextToken,
-    getUsageStatistics_unit,
-    getUsageStatistics_maxResults,
-    getUsageStatistics_detectorId,
-    getUsageStatistics_usageStatisticType,
-    getUsageStatistics_usageCriteria,
-    getUsageStatisticsResponse_nextToken,
-    getUsageStatisticsResponse_usageStatistics,
-    getUsageStatisticsResponse_httpStatus,
+    -- ** DisassociateFromMasterAccount
+    disassociateFromMasterAccount_detectorId,
+    disassociateFromMasterAccountResponse_httpStatus,
 
     -- ** GetFilter
     getFilter_detectorId,
@@ -354,10 +329,34 @@ module Network.AWS.GuardDuty.Lens
     getFilterResponse_action,
     getFilterResponse_findingCriteria,
 
-    -- ** DeleteInvitations
-    deleteInvitations_accountIds,
-    deleteInvitationsResponse_httpStatus,
-    deleteInvitationsResponse_unprocessedAccounts,
+    -- ** CreateDetector
+    createDetector_dataSources,
+    createDetector_findingPublishingFrequency,
+    createDetector_tags,
+    createDetector_clientToken,
+    createDetector_enable,
+    createDetectorResponse_detectorId,
+    createDetectorResponse_httpStatus,
+
+    -- ** DeclineInvitations
+    declineInvitations_accountIds,
+    declineInvitationsResponse_httpStatus,
+    declineInvitationsResponse_unprocessedAccounts,
+
+    -- ** GetUsageStatistics
+    getUsageStatistics_nextToken,
+    getUsageStatistics_maxResults,
+    getUsageStatistics_unit,
+    getUsageStatistics_detectorId,
+    getUsageStatistics_usageStatisticType,
+    getUsageStatistics_usageCriteria,
+    getUsageStatisticsResponse_nextToken,
+    getUsageStatisticsResponse_usageStatistics,
+    getUsageStatisticsResponse_httpStatus,
+
+    -- ** DeleteDetector
+    deleteDetector_detectorId,
+    deleteDetectorResponse_httpStatus,
 
     -- ** UpdateDetector
     updateDetector_enable,
@@ -366,9 +365,10 @@ module Network.AWS.GuardDuty.Lens
     updateDetector_detectorId,
     updateDetectorResponse_httpStatus,
 
-    -- ** DeleteDetector
-    deleteDetector_detectorId,
-    deleteDetectorResponse_httpStatus,
+    -- ** DeleteInvitations
+    deleteInvitations_accountIds,
+    deleteInvitationsResponse_httpStatus,
+    deleteInvitationsResponse_unprocessedAccounts,
 
     -- ** ListInvitations
     listInvitations_nextToken,
@@ -409,12 +409,6 @@ module Network.AWS.GuardDuty.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** DeleteMembers
-    deleteMembers_detectorId,
-    deleteMembers_accountIds,
-    deleteMembersResponse_httpStatus,
-    deleteMembersResponse_unprocessedAccounts,
-
     -- ** ListIPSets
     listIPSets_nextToken,
     listIPSets_maxResults,
@@ -422,6 +416,12 @@ module Network.AWS.GuardDuty.Lens
     listIPSetsResponse_nextToken,
     listIPSetsResponse_httpStatus,
     listIPSetsResponse_ipSetIds,
+
+    -- ** DeleteMembers
+    deleteMembers_detectorId,
+    deleteMembers_accountIds,
+    deleteMembersResponse_httpStatus,
+    deleteMembersResponse_unprocessedAccounts,
 
     -- * Types
 
@@ -432,8 +432,8 @@ module Network.AWS.GuardDuty.Lens
     -- ** AccessKeyDetails
     accessKeyDetails_principalId,
     accessKeyDetails_userType,
-    accessKeyDetails_accessKeyId,
     accessKeyDetails_userName,
+    accessKeyDetails_accessKeyId,
 
     -- ** AccountDetail
     accountDetail_accountId,
@@ -444,8 +444,8 @@ module Network.AWS.GuardDuty.Lens
 
     -- ** Action
     action_actionType,
-    action_dnsRequestAction,
     action_networkConnectionAction,
+    action_dnsRequestAction,
     action_awsApiCallAction,
     action_portProbeAction,
 
@@ -489,8 +489,8 @@ module Network.AWS.GuardDuty.Lens
     condition_greaterThanOrEqual,
     condition_lte,
     condition_neq,
-    condition_notEquals,
     condition_lessThan,
+    condition_notEquals,
     condition_equals,
     condition_gte,
     condition_lessThanOrEqual,
@@ -578,8 +578,8 @@ module Network.AWS.GuardDuty.Lens
     instanceDetails_imageId,
     instanceDetails_iamInstanceProfile,
     instanceDetails_availabilityZone,
-    instanceDetails_tags,
     instanceDetails_imageDescription,
+    instanceDetails_tags,
     instanceDetails_instanceState,
     instanceDetails_networkInterfaces,
 
@@ -621,16 +621,16 @@ module Network.AWS.GuardDuty.Lens
     networkConnectionAction_connectionDirection,
     networkConnectionAction_blocked,
     networkConnectionAction_remoteIpDetails,
-    networkConnectionAction_localIpDetails,
     networkConnectionAction_protocol,
+    networkConnectionAction_localIpDetails,
 
     -- ** NetworkInterface
     networkInterface_privateIpAddresses,
     networkInterface_ipv6Addresses,
     networkInterface_securityGroups,
     networkInterface_publicDnsName,
-    networkInterface_networkInterfaceId,
     networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
     networkInterface_privateDnsName,
     networkInterface_publicIp,
     networkInterface_vpcId,
@@ -700,9 +700,9 @@ module Network.AWS.GuardDuty.Lens
     resource_accessKeyDetails,
 
     -- ** S3BucketDetail
-    s3BucketDetail_arn,
-    s3BucketDetail_publicAccess,
     s3BucketDetail_createdAt,
+    s3BucketDetail_publicAccess,
+    s3BucketDetail_arn,
     s3BucketDetail_defaultServerSideEncryption,
     s3BucketDetail_name,
     s3BucketDetail_tags,
@@ -720,8 +720,8 @@ module Network.AWS.GuardDuty.Lens
     securityGroup_groupId,
 
     -- ** ServiceInfo
-    serviceInfo_resourceRole,
     serviceInfo_archived,
+    serviceInfo_resourceRole,
     serviceInfo_eventFirstSeen,
     serviceInfo_eventLastSeen,
     serviceInfo_serviceName,

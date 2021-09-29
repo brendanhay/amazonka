@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Object containing expiration events options associated with an AWS
--- account.
+-- | Object containing expiration events options associated with an Amazon
+-- Web Services account.
 --
 -- /See:/ 'newExpiryEventsConfiguration' smart constructor.
 data ExpiryEventsConfiguration = ExpiryEventsConfiguration'

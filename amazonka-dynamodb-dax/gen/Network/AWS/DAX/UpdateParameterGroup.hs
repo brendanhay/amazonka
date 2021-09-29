@@ -55,6 +55,10 @@ data UpdateParameterGroup = UpdateParameterGroup'
     parameterGroupName :: Prelude.Text,
     -- | An array of name-value pairs for the parameters in the group. Each
     -- element in the array represents a single parameter.
+    --
+    -- @record-ttl-millis@ and @query-ttl-millis@ are the only supported
+    -- parameter names. For more details, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl Configuring TTL Settings>.
     parameterNameValues :: [ParameterNameValue]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,6 +75,10 @@ data UpdateParameterGroup = UpdateParameterGroup'
 --
 -- 'parameterNameValues', 'updateParameterGroup_parameterNameValues' - An array of name-value pairs for the parameters in the group. Each
 -- element in the array represents a single parameter.
+--
+-- @record-ttl-millis@ and @query-ttl-millis@ are the only supported
+-- parameter names. For more details, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl Configuring TTL Settings>.
 newUpdateParameterGroup ::
   -- | 'parameterGroupName'
   Prelude.Text ->
@@ -88,6 +96,10 @@ updateParameterGroup_parameterGroupName = Lens.lens (\UpdateParameterGroup' {par
 
 -- | An array of name-value pairs for the parameters in the group. Each
 -- element in the array represents a single parameter.
+--
+-- @record-ttl-millis@ and @query-ttl-millis@ are the only supported
+-- parameter names. For more details, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl Configuring TTL Settings>.
 updateParameterGroup_parameterNameValues :: Lens.Lens' UpdateParameterGroup [ParameterNameValue]
 updateParameterGroup_parameterNameValues = Lens.lens (\UpdateParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@UpdateParameterGroup' {} a -> s {parameterNameValues = a} :: UpdateParameterGroup) Prelude.. Lens._Coerce
 

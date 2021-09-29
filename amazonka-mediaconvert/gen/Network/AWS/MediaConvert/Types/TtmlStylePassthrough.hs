@@ -30,7 +30,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Pass through style and position information from a TTML-like input
--- source (TTML, SMPTE-TT) to the TTML output.
+-- source (TTML, IMSC, SMPTE-TT) to the TTML output.
 newtype TtmlStylePassthrough = TtmlStylePassthrough'
   { fromTtmlStylePassthrough ::
       Core.Text

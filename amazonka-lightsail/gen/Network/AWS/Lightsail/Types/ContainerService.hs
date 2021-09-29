@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ContainerServiceDeployment
 import Network.AWS.Lightsail.Types.ContainerServicePowerName
 import Network.AWS.Lightsail.Types.ContainerServiceState
+import Network.AWS.Lightsail.Types.ContainerServiceStateDetail
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
@@ -38,15 +39,20 @@ data ContainerService = ContainerService'
     -- The power specifies the amount of RAM, the number of vCPUs, and the base
     -- price of the container service.
     power :: Prelude.Maybe ContainerServicePowerName,
+    -- | An object that describes the current state of the container service.
+    --
+    -- The state detail is populated only when a container service is in a
+    -- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
+    stateDetail :: Prelude.Maybe ContainerServiceStateDetail,
     -- | An object that describes the current container deployment of the
     -- container service.
     currentDeployment :: Prelude.Maybe ContainerServiceDeployment,
     -- | The timestamp when the container service was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the container service.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the container service.
     containerServiceName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the container service.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The private domain name of the container service.
     --
     -- The private domain name is accessible only by other resources within the
@@ -57,23 +63,26 @@ data ContainerService = ContainerService'
     resourceType :: Prelude.Maybe ResourceType,
     -- | The current state of the container service.
     --
-    -- The state can be:
+    -- The following container service states are possible:
     --
-    -- -   @Pending@ - The container service is being created.
+    -- -   @PENDING@ - The container service is being created.
     --
-    -- -   @Ready@ - The container service is created but does not have a
+    -- -   @READY@ - The container service is running but it does not have an
+    --     active container deployment.
+    --
+    -- -   @DEPLOYING@ - The container service is launching a container
+    --     deployment.
+    --
+    -- -   @RUNNING@ - The container service is running and it has an active
     --     container deployment.
     --
-    -- -   @Disabled@ - The container service is disabled.
+    -- -   @UPDATING@ - The container service capacity or its custom domains
+    --     are being updated.
     --
-    -- -   @Updating@ - The container service capacity or other setting is
-    --     being updated.
+    -- -   @DELETING@ - The container service is being deleted.
     --
-    -- -   @Deploying@ - The container service is launching a container
-    --     deployment.
-    --
-    -- -   @Running@ - The container service is created and it has a container
-    --     deployment.
+    -- -   @DISABLED@ - The container service is disabled, and its active
+    --     deployment and containers, if any, are shut down.
     state :: Prelude.Maybe ContainerServiceState,
     -- | The principal ARN of the container service.
     --
@@ -84,7 +93,7 @@ data ContainerService = ContainerService'
     principalArn :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | An object that describes the next deployment of the container service.
     --
@@ -143,14 +152,19 @@ data ContainerService = ContainerService'
 -- The power specifies the amount of RAM, the number of vCPUs, and the base
 -- price of the container service.
 --
+-- 'stateDetail', 'containerService_stateDetail' - An object that describes the current state of the container service.
+--
+-- The state detail is populated only when a container service is in a
+-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
+--
 -- 'currentDeployment', 'containerService_currentDeployment' - An object that describes the current container deployment of the
 -- container service.
 --
 -- 'createdAt', 'containerService_createdAt' - The timestamp when the container service was created.
 --
--- 'arn', 'containerService_arn' - The Amazon Resource Name (ARN) of the container service.
---
 -- 'containerServiceName', 'containerService_containerServiceName' - The name of the container service.
+--
+-- 'arn', 'containerService_arn' - The Amazon Resource Name (ARN) of the container service.
 --
 -- 'privateDomainName', 'containerService_privateDomainName' - The private domain name of the container service.
 --
@@ -162,23 +176,26 @@ data ContainerService = ContainerService'
 --
 -- 'state', 'containerService_state' - The current state of the container service.
 --
--- The state can be:
+-- The following container service states are possible:
 --
--- -   @Pending@ - The container service is being created.
+-- -   @PENDING@ - The container service is being created.
 --
--- -   @Ready@ - The container service is created but does not have a
+-- -   @READY@ - The container service is running but it does not have an
+--     active container deployment.
+--
+-- -   @DEPLOYING@ - The container service is launching a container
+--     deployment.
+--
+-- -   @RUNNING@ - The container service is running and it has an active
 --     container deployment.
 --
--- -   @Disabled@ - The container service is disabled.
+-- -   @UPDATING@ - The container service capacity or its custom domains
+--     are being updated.
 --
--- -   @Updating@ - The container service capacity or other setting is
---     being updated.
+-- -   @DELETING@ - The container service is being deleted.
 --
--- -   @Deploying@ - The container service is launching a container
---     deployment.
---
--- -   @Running@ - The container service is created and it has a container
---     deployment.
+-- -   @DISABLED@ - The container service is disabled, and its active
+--     deployment and containers, if any, are shut down.
 --
 -- 'principalArn', 'containerService_principalArn' - The principal ARN of the container service.
 --
@@ -189,7 +206,7 @@ data ContainerService = ContainerService'
 --
 -- 'tags', 'containerService_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'nextDeployment', 'containerService_nextDeployment' - An object that describes the next deployment of the container service.
 --
@@ -236,10 +253,11 @@ newContainerService ::
 newContainerService =
   ContainerService'
     { power = Prelude.Nothing,
+      stateDetail = Prelude.Nothing,
       currentDeployment = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
       containerServiceName = Prelude.Nothing,
+      arn = Prelude.Nothing,
       privateDomainName = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -261,6 +279,13 @@ newContainerService =
 containerService_power :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServicePowerName)
 containerService_power = Lens.lens (\ContainerService' {power} -> power) (\s@ContainerService' {} a -> s {power = a} :: ContainerService)
 
+-- | An object that describes the current state of the container service.
+--
+-- The state detail is populated only when a container service is in a
+-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
+containerService_stateDetail :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceStateDetail)
+containerService_stateDetail = Lens.lens (\ContainerService' {stateDetail} -> stateDetail) (\s@ContainerService' {} a -> s {stateDetail = a} :: ContainerService)
+
 -- | An object that describes the current container deployment of the
 -- container service.
 containerService_currentDeployment :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceDeployment)
@@ -270,13 +295,13 @@ containerService_currentDeployment = Lens.lens (\ContainerService' {currentDeplo
 containerService_createdAt :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.UTCTime)
 containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the container service.
-containerService_arn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
-containerService_arn = Lens.lens (\ContainerService' {arn} -> arn) (\s@ContainerService' {} a -> s {arn = a} :: ContainerService)
-
 -- | The name of the container service.
 containerService_containerServiceName :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_containerServiceName = Lens.lens (\ContainerService' {containerServiceName} -> containerServiceName) (\s@ContainerService' {} a -> s {containerServiceName = a} :: ContainerService)
+
+-- | The Amazon Resource Name (ARN) of the container service.
+containerService_arn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
+containerService_arn = Lens.lens (\ContainerService' {arn} -> arn) (\s@ContainerService' {} a -> s {arn = a} :: ContainerService)
 
 -- | The private domain name of the container service.
 --
@@ -292,23 +317,26 @@ containerService_resourceType = Lens.lens (\ContainerService' {resourceType} -> 
 
 -- | The current state of the container service.
 --
--- The state can be:
+-- The following container service states are possible:
 --
--- -   @Pending@ - The container service is being created.
+-- -   @PENDING@ - The container service is being created.
 --
--- -   @Ready@ - The container service is created but does not have a
+-- -   @READY@ - The container service is running but it does not have an
+--     active container deployment.
+--
+-- -   @DEPLOYING@ - The container service is launching a container
+--     deployment.
+--
+-- -   @RUNNING@ - The container service is running and it has an active
 --     container deployment.
 --
--- -   @Disabled@ - The container service is disabled.
+-- -   @UPDATING@ - The container service capacity or its custom domains
+--     are being updated.
 --
--- -   @Updating@ - The container service capacity or other setting is
---     being updated.
+-- -   @DELETING@ - The container service is being deleted.
 --
--- -   @Deploying@ - The container service is launching a container
---     deployment.
---
--- -   @Running@ - The container service is created and it has a container
---     deployment.
+-- -   @DISABLED@ - The container service is disabled, and its active
+--     deployment and containers, if any, are shut down.
 containerService_state :: Lens.Lens' ContainerService (Prelude.Maybe ContainerServiceState)
 containerService_state = Lens.lens (\ContainerService' {state} -> state) (\s@ContainerService' {} a -> s {state = a} :: ContainerService)
 
@@ -323,7 +351,7 @@ containerService_principalArn = Lens.lens (\ContainerService' {principalArn} -> 
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 containerService_tags :: Lens.Lens' ContainerService (Prelude.Maybe [Tag])
 containerService_tags = Lens.lens (\ContainerService' {tags} -> tags) (\s@ContainerService' {} a -> s {tags = a} :: ContainerService) Prelude.. Lens.mapping Lens._Coerce
 
@@ -389,10 +417,11 @@ instance Core.FromJSON ContainerService where
       ( \x ->
           ContainerService'
             Prelude.<$> (x Core..:? "power")
+            Prelude.<*> (x Core..:? "stateDetail")
             Prelude.<*> (x Core..:? "currentDeployment")
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "containerServiceName")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "privateDomainName")
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "state")

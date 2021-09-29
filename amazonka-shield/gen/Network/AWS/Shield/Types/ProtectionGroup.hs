@@ -26,7 +26,7 @@ import Network.AWS.Shield.Types.ProtectedResourceType
 import Network.AWS.Shield.Types.ProtectionGroupAggregation
 import Network.AWS.Shield.Types.ProtectionGroupPattern
 
--- | A grouping of protected resources that you and AWS Shield Advanced can
+-- | A grouping of protected resources that you and Shield Advanced can
 -- monitor as a collective. This resource grouping improves the accuracy of
 -- detection and reduces false positives.
 --
@@ -37,11 +37,13 @@ data ProtectionGroup = ProtectionGroup'
     -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
     -- set it for any other @Pattern@ setting.
     resourceType :: Prelude.Maybe ProtectedResourceType,
+    -- | The ARN (Amazon Resource Name) of the protection group.
+    protectionGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
     protectionGroupId :: Prelude.Text,
-    -- | Defines how AWS Shield combines resource data for the group in order to
+    -- | Defines how Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
     -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -54,8 +56,9 @@ data ProtectionGroup = ProtectionGroup'
     --
     -- -   Max - Use the highest traffic from each resource. This is useful for
     --     resources that don\'t share traffic and for resources that share
-    --     that traffic in a non-uniform way. Examples include CloudFront
-    --     distributions and origin resources for CloudFront distributions.
+    --     that traffic in a non-uniform way. Examples include Amazon
+    --     CloudFront distributions and origin resources for CloudFront
+    --     distributions.
     aggregation :: ProtectionGroupAggregation,
     -- | The criteria to use to choose the protected resources for inclusion in
     -- the group. You can include all resources that have protections, provide
@@ -82,11 +85,13 @@ data ProtectionGroup = ProtectionGroup'
 -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
 -- set it for any other @Pattern@ setting.
 --
+-- 'protectionGroupArn', 'protectionGroup_protectionGroupArn' - The ARN (Amazon Resource Name) of the protection group.
+--
 -- 'protectionGroupId', 'protectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
 --
--- 'aggregation', 'protectionGroup_aggregation' - Defines how AWS Shield combines resource data for the group in order to
+-- 'aggregation', 'protectionGroup_aggregation' - Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -99,8 +104,9 @@ data ProtectionGroup = ProtectionGroup'
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront distributions and origin resources for CloudFront
+--     distributions.
 --
 -- 'pattern'', 'protectionGroup_pattern' - The criteria to use to choose the protected resources for inclusion in
 -- the group. You can include all resources that have protections, provide
@@ -124,6 +130,7 @@ newProtectionGroup
   pPattern_ =
     ProtectionGroup'
       { resourceType = Prelude.Nothing,
+        protectionGroupArn = Prelude.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_,
@@ -137,13 +144,17 @@ newProtectionGroup
 protectionGroup_resourceType :: Lens.Lens' ProtectionGroup (Prelude.Maybe ProtectedResourceType)
 protectionGroup_resourceType = Lens.lens (\ProtectionGroup' {resourceType} -> resourceType) (\s@ProtectionGroup' {} a -> s {resourceType = a} :: ProtectionGroup)
 
+-- | The ARN (Amazon Resource Name) of the protection group.
+protectionGroup_protectionGroupArn :: Lens.Lens' ProtectionGroup (Prelude.Maybe Prelude.Text)
+protectionGroup_protectionGroupArn = Lens.lens (\ProtectionGroup' {protectionGroupArn} -> protectionGroupArn) (\s@ProtectionGroup' {} a -> s {protectionGroupArn = a} :: ProtectionGroup)
+
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
 protectionGroup_protectionGroupId :: Lens.Lens' ProtectionGroup Prelude.Text
 protectionGroup_protectionGroupId = Lens.lens (\ProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@ProtectionGroup' {} a -> s {protectionGroupId = a} :: ProtectionGroup)
 
--- | Defines how AWS Shield combines resource data for the group in order to
+-- | Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -156,8 +167,9 @@ protectionGroup_protectionGroupId = Lens.lens (\ProtectionGroup' {protectionGrou
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront distributions and origin resources for CloudFront
+--     distributions.
 protectionGroup_aggregation :: Lens.Lens' ProtectionGroup ProtectionGroupAggregation
 protectionGroup_aggregation = Lens.lens (\ProtectionGroup' {aggregation} -> aggregation) (\s@ProtectionGroup' {} a -> s {aggregation = a} :: ProtectionGroup)
 
@@ -181,6 +193,7 @@ instance Core.FromJSON ProtectionGroup where
       ( \x ->
           ProtectionGroup'
             Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "ProtectionGroupArn")
             Prelude.<*> (x Core..: "ProtectionGroupId")
             Prelude.<*> (x Core..: "Aggregation")
             Prelude.<*> (x Core..: "Pattern")

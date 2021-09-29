@@ -27,8 +27,8 @@
 -- __Note the following__
 --
 -- -   A customer can use this operation to test automatic failover on up
---     to 5 shards (called node groups in the ElastiCache API and AWS CLI)
---     in any rolling 24-hour period.
+--     to 5 shards (called node groups in the ElastiCache API and Amazon
+--     CLI) in any rolling 24-hour period.
 --
 -- -   If calling this operation on shards in different clusters (called
 --     replication groups in the API and CLI), the calls can be made
@@ -39,7 +39,7 @@
 --     replacement must complete before a subsequent call can be made.
 --
 -- -   To determine whether the node replacement is complete you can check
---     Events using the Amazon ElastiCache console, the AWS CLI, or the
+--     Events using the Amazon ElastiCache console, the Amazon CLI, or the
 --     ElastiCache API. Look for the following automatic failover related
 --     events, listed here in order of occurrance:
 --

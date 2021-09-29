@@ -20,6 +20,7 @@
 module Network.AWS.EMR.Types.OnDemandProvisioningSpecification where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.EMR.Types.OnDemandCapacityReservationOptions
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -33,9 +34,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOnDemandProvisioningSpecification' smart constructor.
 data OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
-  { -- | Specifies the strategy to use in launching On-Demand Instance fleets.
-    -- Currently, the only option is lowest-price (the default), which launches
-    -- the lowest price first.
+  { -- | The launch specification for On-Demand instances in the instance fleet,
+    -- which determines the allocation strategy.
+    capacityReservationOptions :: Prelude.Maybe OnDemandCapacityReservationOptions,
+    -- | Specifies the strategy to use in launching On-Demand instance fleets.
+    -- Currently, the only option is @lowest-price@ (the default), which
+    -- launches the lowest price first.
     allocationStrategy :: OnDemandProvisioningAllocationStrategy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +52,12 @@ data OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocationStrategy', 'onDemandProvisioningSpecification_allocationStrategy' - Specifies the strategy to use in launching On-Demand Instance fleets.
--- Currently, the only option is lowest-price (the default), which launches
--- the lowest price first.
+-- 'capacityReservationOptions', 'onDemandProvisioningSpecification_capacityReservationOptions' - The launch specification for On-Demand instances in the instance fleet,
+-- which determines the allocation strategy.
+--
+-- 'allocationStrategy', 'onDemandProvisioningSpecification_allocationStrategy' - Specifies the strategy to use in launching On-Demand instance fleets.
+-- Currently, the only option is @lowest-price@ (the default), which
+-- launches the lowest price first.
 newOnDemandProvisioningSpecification ::
   -- | 'allocationStrategy'
   OnDemandProvisioningAllocationStrategy ->
@@ -58,13 +65,20 @@ newOnDemandProvisioningSpecification ::
 newOnDemandProvisioningSpecification
   pAllocationStrategy_ =
     OnDemandProvisioningSpecification'
-      { allocationStrategy =
+      { capacityReservationOptions =
+          Prelude.Nothing,
+        allocationStrategy =
           pAllocationStrategy_
       }
 
--- | Specifies the strategy to use in launching On-Demand Instance fleets.
--- Currently, the only option is lowest-price (the default), which launches
--- the lowest price first.
+-- | The launch specification for On-Demand instances in the instance fleet,
+-- which determines the allocation strategy.
+onDemandProvisioningSpecification_capacityReservationOptions :: Lens.Lens' OnDemandProvisioningSpecification (Prelude.Maybe OnDemandCapacityReservationOptions)
+onDemandProvisioningSpecification_capacityReservationOptions = Lens.lens (\OnDemandProvisioningSpecification' {capacityReservationOptions} -> capacityReservationOptions) (\s@OnDemandProvisioningSpecification' {} a -> s {capacityReservationOptions = a} :: OnDemandProvisioningSpecification)
+
+-- | Specifies the strategy to use in launching On-Demand instance fleets.
+-- Currently, the only option is @lowest-price@ (the default), which
+-- launches the lowest price first.
 onDemandProvisioningSpecification_allocationStrategy :: Lens.Lens' OnDemandProvisioningSpecification OnDemandProvisioningAllocationStrategy
 onDemandProvisioningSpecification_allocationStrategy = Lens.lens (\OnDemandProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@OnDemandProvisioningSpecification' {} a -> s {allocationStrategy = a} :: OnDemandProvisioningSpecification)
 
@@ -77,7 +91,8 @@ instance
       "OnDemandProvisioningSpecification"
       ( \x ->
           OnDemandProvisioningSpecification'
-            Prelude.<$> (x Core..: "AllocationStrategy")
+            Prelude.<$> (x Core..:? "CapacityReservationOptions")
+            Prelude.<*> (x Core..: "AllocationStrategy")
       )
 
 instance
@@ -95,7 +110,9 @@ instance
   toJSON OnDemandProvisioningSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("CapacityReservationOptions" Core..=)
+              Prelude.<$> capacityReservationOptions,
+            Prelude.Just
               ("AllocationStrategy" Core..= allocationStrategy)
           ]
       )

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTerminateRecommendationDetail' smart constructor.
 data TerminateRecommendationDetail = TerminateRecommendationDetail'
-  { -- | Estimated savings resulting from modification, on a monthly basis.
+  { -- | The estimated savings that result from modification, on a monthly basis.
     estimatedMonthlySavings :: Prelude.Maybe Prelude.Text,
-    -- | The currency code that AWS used to calculate the costs for this
-    -- instance.
+    -- | The currency code that Amazon Web Services used to calculate the costs
+    -- for this instance.
     currencyCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,10 +43,10 @@ data TerminateRecommendationDetail = TerminateRecommendationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'estimatedMonthlySavings', 'terminateRecommendationDetail_estimatedMonthlySavings' - Estimated savings resulting from modification, on a monthly basis.
+-- 'estimatedMonthlySavings', 'terminateRecommendationDetail_estimatedMonthlySavings' - The estimated savings that result from modification, on a monthly basis.
 --
--- 'currencyCode', 'terminateRecommendationDetail_currencyCode' - The currency code that AWS used to calculate the costs for this
--- instance.
+-- 'currencyCode', 'terminateRecommendationDetail_currencyCode' - The currency code that Amazon Web Services used to calculate the costs
+-- for this instance.
 newTerminateRecommendationDetail ::
   TerminateRecommendationDetail
 newTerminateRecommendationDetail =
@@ -56,12 +56,12 @@ newTerminateRecommendationDetail =
       currencyCode = Prelude.Nothing
     }
 
--- | Estimated savings resulting from modification, on a monthly basis.
+-- | The estimated savings that result from modification, on a monthly basis.
 terminateRecommendationDetail_estimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
 terminateRecommendationDetail_estimatedMonthlySavings = Lens.lens (\TerminateRecommendationDetail' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TerminateRecommendationDetail' {} a -> s {estimatedMonthlySavings = a} :: TerminateRecommendationDetail)
 
--- | The currency code that AWS used to calculate the costs for this
--- instance.
+-- | The currency code that Amazon Web Services used to calculate the costs
+-- for this instance.
 terminateRecommendationDetail_currencyCode :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
 terminateRecommendationDetail_currencyCode = Lens.lens (\TerminateRecommendationDetail' {currencyCode} -> currencyCode) (\s@TerminateRecommendationDetail' {} a -> s {currencyCode = a} :: TerminateRecommendationDetail)
 

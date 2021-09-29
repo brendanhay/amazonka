@@ -42,7 +42,7 @@
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless>
 -- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora DB clusters.
+-- This action only applies to Aurora Serverless DB clusters.
 module Network.AWS.RDS.ModifyCurrentDBClusterCapacity
   ( -- * Creating a Request
     ModifyCurrentDBClusterCapacity (..),
@@ -103,7 +103,7 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
     -- scaling point to perform seamless scaling before enforcing the timeout
     -- action. The default is 300.
     --
-    -- -   Value must be from 10 through 600.
+    -- Specify a value between 10 and 600 seconds.
     secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
     -- | The DB cluster identifier for the cluster being modified. This parameter
     -- isn\'t case-sensitive.
@@ -149,7 +149,7 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 -- scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
--- -   Value must be from 10 through 600.
+-- Specify a value between 10 and 600 seconds.
 --
 -- 'dbClusterIdentifier', 'modifyCurrentDBClusterCapacity_dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter
 -- isn\'t case-sensitive.
@@ -201,7 +201,7 @@ modifyCurrentDBClusterCapacity_capacity = Lens.lens (\ModifyCurrentDBClusterCapa
 -- scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
--- -   Value must be from 10 through 600.
+-- Specify a value between 10 and 600 seconds.
 modifyCurrentDBClusterCapacity_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
 modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacity' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacity)
 

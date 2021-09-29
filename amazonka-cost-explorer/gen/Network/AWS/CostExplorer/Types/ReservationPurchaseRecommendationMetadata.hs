@@ -24,13 +24,13 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about this specific recommendation, such as the timestamp
--- for when AWS made a specific recommendation.
+-- for when Amazon Web Services made a specific recommendation.
 --
 -- /See:/ 'newReservationPurchaseRecommendationMetadata' smart constructor.
 data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendationMetadata'
   { -- | The ID for this specific recommendation.
     recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp for when AWS made this recommendation.
+    -- | The timestamp for when Amazon Web Services made this recommendation.
     generationTimestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendati
 --
 -- 'recommendationId', 'reservationPurchaseRecommendationMetadata_recommendationId' - The ID for this specific recommendation.
 --
--- 'generationTimestamp', 'reservationPurchaseRecommendationMetadata_generationTimestamp' - The timestamp for when AWS made this recommendation.
+-- 'generationTimestamp', 'reservationPurchaseRecommendationMetadata_generationTimestamp' - The timestamp for when Amazon Web Services made this recommendation.
 newReservationPurchaseRecommendationMetadata ::
   ReservationPurchaseRecommendationMetadata
 newReservationPurchaseRecommendationMetadata =
@@ -60,7 +60,7 @@ newReservationPurchaseRecommendationMetadata =
 reservationPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationMetadata_recommendationId = Lens.lens (\ReservationPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: ReservationPurchaseRecommendationMetadata)
 
--- | The timestamp for when AWS made this recommendation.
+-- | The timestamp for when Amazon Web Services made this recommendation.
 reservationPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\ReservationPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: ReservationPurchaseRecommendationMetadata)
 

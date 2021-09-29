@@ -29,8 +29,8 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Bucket
     Bucket (..),
     newBucket,
-    bucket_value,
     bucket_count,
+    bucket_value,
 
     -- * BucketInfo
     BucketInfo (..),
@@ -49,8 +49,8 @@ module Network.AWS.CloudSearchDomains.Types
     fieldStats_missing,
     fieldStats_sum,
     fieldStats_min,
-    fieldStats_max,
     fieldStats_stddev,
+    fieldStats_max,
     fieldStats_count,
     fieldStats_sumOfSquares,
 

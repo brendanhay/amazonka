@@ -23,12 +23,7 @@
 -- Creates a replication configuration or replaces an existing one. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
--- in the /Amazon S3 Developer Guide/.
---
--- To perform this operation, the user or role performing the operation
--- must have the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html iam:PassRole>
--- permission.
+-- in the /Amazon S3 User Guide/.
 --
 -- Specify the replication configuration in the request body. In the
 -- replication configuration, you provide the name of the destination
@@ -56,25 +51,36 @@
 -- For information about enabling versioning on a bucket, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html Using Versioning>.
 --
--- By default, a resource owner, in this case the AWS account that created
--- the bucket, can perform this operation. The resource owner can also
--- grant others permissions to perform the operation. For more information
--- about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
--- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
---
 -- __Handling Replication of Encrypted Objects__
 --
 -- By default, Amazon S3 doesn\'t replicate objects that are stored at rest
--- using server-side encryption with CMKs stored in AWS KMS. To replicate
--- AWS KMS-encrypted objects, add the following: @SourceSelectionCriteria@,
--- @SseKmsEncryptedObjects@, @Status@, @EncryptionConfiguration@, and
--- @ReplicaKmsKeyID@. For information about replication configuration, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html Replicating Objects Created with SSE Using CMKs stored in AWS KMS>.
+-- using server-side encryption with KMS keys. To replicate Amazon Web
+-- Services KMS-encrypted objects, add the following:
+-- @SourceSelectionCriteria@, @SseKmsEncryptedObjects@, @Status@,
+-- @EncryptionConfiguration@, and @ReplicaKmsKeyID@. For information about
+-- replication configuration, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html Replicating Objects Created with SSE Using KMS keys>.
 --
 -- For information on @PutBucketReplication@ errors, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList List of replication-related error codes>
+--
+-- __Permissions__
+--
+-- To create a @PutBucketReplication@ request, you must have
+-- @s3:PutReplicationConfiguration@ permissions for the bucket.
+--
+-- By default, a resource owner, in this case the Amazon Web Services
+-- account that created the bucket, can perform this operation. The
+-- resource owner can also grant others permissions to perform the
+-- operation. For more information about permissions, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
+-- and
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+--
+-- To perform this operation, the user or role performing the action must
+-- have the
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html iam:PassRole>
+-- permission.
 --
 -- The following operations are related to @PutBucketReplication@:
 --
@@ -108,7 +114,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketReplication' smart constructor.
 data PutBucketReplication = PutBucketReplication'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -117,8 +123,9 @@ data PutBucketReplication = PutBucketReplication'
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | A token to allow Object Lock to be enabled for an existing bucket.
     token :: Prelude.Maybe Prelude.Text,
@@ -136,7 +143,7 @@ data PutBucketReplication = PutBucketReplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketReplication_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketReplication_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -145,8 +152,9 @@ data PutBucketReplication = PutBucketReplication'
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'token', 'putBucketReplication_token' - A token to allow Object Lock to be enabled for an existing bucket.
 --
@@ -172,7 +180,7 @@ newPutBucketReplication
           pReplicationConfiguration_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketReplication_expectedBucketOwner :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
@@ -183,8 +191,9 @@ putBucketReplication_expectedBucketOwner = Lens.lens (\PutBucketReplication' {ex
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketReplication_contentMD5 :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
 putBucketReplication_contentMD5 = Lens.lens (\PutBucketReplication' {contentMD5} -> contentMD5) (\s@PutBucketReplication' {} a -> s {contentMD5 = a} :: PutBucketReplication)
 

@@ -23,7 +23,7 @@
 -- Gets a resource policy that manages access for a model group. For
 -- information about resource policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html Identity-based policies and resource-based policies>
--- in the /AWS Identity and Access Management User Guide./.
+-- in the /Amazon Web Services Identity and Access Management User Guide./.
 module Network.AWS.SageMaker.GetModelPackageGroupPolicy
   ( -- * Creating a Request
     GetModelPackageGroupPolicy (..),

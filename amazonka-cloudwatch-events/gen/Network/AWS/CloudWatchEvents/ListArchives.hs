@@ -29,10 +29,10 @@ module Network.AWS.CloudWatchEvents.ListArchives
     newListArchives,
 
     -- * Request Lenses
-    listArchives_nextToken,
     listArchives_eventSourceArn,
-    listArchives_state,
+    listArchives_nextToken,
     listArchives_namePrefix,
+    listArchives_state,
     listArchives_limit,
 
     -- * Destructuring the Response
@@ -55,16 +55,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListArchives' smart constructor.
 data ListArchives = ListArchives'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The ARN of the event source associated with the archive.
+    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event source associated with the archive.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the archive.
-    state :: Prelude.Maybe ArchiveState,
     -- | A name prefix to filter the archives returned. Only archives with name
     -- that match the prefix are returned.
     namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The state of the archive.
+    state :: Prelude.Maybe ArchiveState,
     -- | The maximum number of results to return.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -78,45 +78,45 @@ data ListArchives = ListArchives'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventSourceArn', 'listArchives_eventSourceArn' - The ARN of the event source associated with the archive.
+--
 -- 'nextToken', 'listArchives_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
 --
--- 'eventSourceArn', 'listArchives_eventSourceArn' - The ARN of the event source associated with the archive.
---
--- 'state', 'listArchives_state' - The state of the archive.
---
 -- 'namePrefix', 'listArchives_namePrefix' - A name prefix to filter the archives returned. Only archives with name
 -- that match the prefix are returned.
+--
+-- 'state', 'listArchives_state' - The state of the archive.
 --
 -- 'limit', 'listArchives_limit' - The maximum number of results to return.
 newListArchives ::
   ListArchives
 newListArchives =
   ListArchives'
-    { nextToken = Prelude.Nothing,
-      eventSourceArn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { eventSourceArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       namePrefix = Prelude.Nothing,
+      state = Prelude.Nothing,
       limit = Prelude.Nothing
     }
+
+-- | The ARN of the event source associated with the archive.
+listArchives_eventSourceArn :: Lens.Lens' ListArchives (Prelude.Maybe Prelude.Text)
+listArchives_eventSourceArn = Lens.lens (\ListArchives' {eventSourceArn} -> eventSourceArn) (\s@ListArchives' {} a -> s {eventSourceArn = a} :: ListArchives)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listArchives_nextToken :: Lens.Lens' ListArchives (Prelude.Maybe Prelude.Text)
 listArchives_nextToken = Lens.lens (\ListArchives' {nextToken} -> nextToken) (\s@ListArchives' {} a -> s {nextToken = a} :: ListArchives)
 
--- | The ARN of the event source associated with the archive.
-listArchives_eventSourceArn :: Lens.Lens' ListArchives (Prelude.Maybe Prelude.Text)
-listArchives_eventSourceArn = Lens.lens (\ListArchives' {eventSourceArn} -> eventSourceArn) (\s@ListArchives' {} a -> s {eventSourceArn = a} :: ListArchives)
-
--- | The state of the archive.
-listArchives_state :: Lens.Lens' ListArchives (Prelude.Maybe ArchiveState)
-listArchives_state = Lens.lens (\ListArchives' {state} -> state) (\s@ListArchives' {} a -> s {state = a} :: ListArchives)
-
 -- | A name prefix to filter the archives returned. Only archives with name
 -- that match the prefix are returned.
 listArchives_namePrefix :: Lens.Lens' ListArchives (Prelude.Maybe Prelude.Text)
 listArchives_namePrefix = Lens.lens (\ListArchives' {namePrefix} -> namePrefix) (\s@ListArchives' {} a -> s {namePrefix = a} :: ListArchives)
+
+-- | The state of the archive.
+listArchives_state :: Lens.Lens' ListArchives (Prelude.Maybe ArchiveState)
+listArchives_state = Lens.lens (\ListArchives' {state} -> state) (\s@ListArchives' {} a -> s {state = a} :: ListArchives)
 
 -- | The maximum number of results to return.
 listArchives_limit :: Lens.Lens' ListArchives (Prelude.Maybe Prelude.Natural)
@@ -155,11 +155,11 @@ instance Core.ToJSON ListArchives where
   toJSON ListArchives' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EventSourceArn" Core..=)
+          [ ("EventSourceArn" Core..=)
               Prelude.<$> eventSourceArn,
-            ("State" Core..=) Prelude.<$> state,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("NamePrefix" Core..=) Prelude.<$> namePrefix,
+            ("State" Core..=) Prelude.<$> state,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )

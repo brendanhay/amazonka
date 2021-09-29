@@ -23,11 +23,11 @@ module Network.AWS.Kinesis.Types
     _KMSNotFoundException,
     _KMSOptInRequired,
     _ExpiredIteratorException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _KMSAccessDeniedException,
-    _ProvisionedThroughputExceededException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
+    _ProvisionedThroughputExceededException,
     _InternalFailureException,
     _InvalidArgumentException,
     _KMSDisabledException,
@@ -346,13 +346,13 @@ _ExpiredIteratorException =
     defaultService
     "ExpiredIteratorException"
 
--- | The resource is not available for this operation. For successful
--- operation, the resource must be in the @ACTIVE@ state.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | The ciphertext references a key that doesn\'t exist or that you don\'t
+-- have access to.
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "KMSAccessDeniedException"
 
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed.
@@ -362,13 +362,21 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The ciphertext references a key that doesn\'t exist or that you don\'t
--- have access to.
-_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSAccessDeniedException =
+-- | The resource is not available for this operation. For successful
+-- operation, the resource must be in the @ACTIVE@ state.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "KMSAccessDeniedException"
+    "ResourceInUseException"
+
+-- | The requested resource could not be found. The stream might not be
+-- specified correctly.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | The request rate for the stream is too high, or the requested data is
 -- too large for the available throughput. Reduce the frequency or size of
@@ -382,14 +390,6 @@ _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
-
--- | The requested resource could not be found. The stream might not be
--- specified correctly.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | The processing of the request failed because of an unknown error,
 -- exception, or failure.

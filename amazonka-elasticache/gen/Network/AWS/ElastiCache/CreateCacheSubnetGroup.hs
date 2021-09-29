@@ -30,6 +30,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     newCreateCacheSubnetGroup,
 
     -- * Request Lenses
+    createCacheSubnetGroup_tags,
     createCacheSubnetGroup_cacheSubnetGroupName,
     createCacheSubnetGroup_cacheSubnetGroupDescription,
     createCacheSubnetGroup_subnetIds,
@@ -55,7 +56,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateCacheSubnetGroup' smart constructor.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-  { -- | A name for the cache subnet group. This value is stored as a lowercase
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
+    -- | A name for the cache subnet group. This value is stored as a lowercase
     -- string.
     --
     -- Constraints: Must contain no more than 255 alphanumeric characters or
@@ -78,6 +82,9 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCacheSubnetGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'cacheSubnetGroupName', 'createCacheSubnetGroup_cacheSubnetGroupName' - A name for the cache subnet group. This value is stored as a lowercase
 -- string.
 --
@@ -99,12 +106,17 @@ newCreateCacheSubnetGroup
   pCacheSubnetGroupName_
   pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
-      { cacheSubnetGroupName =
-          pCacheSubnetGroupName_,
+      { tags = Prelude.Nothing,
+        cacheSubnetGroupName = pCacheSubnetGroupName_,
         cacheSubnetGroupDescription =
           pCacheSubnetGroupDescription_,
         subnetIds = Prelude.mempty
       }
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createCacheSubnetGroup_tags :: Lens.Lens' CreateCacheSubnetGroup (Prelude.Maybe [Tag])
+createCacheSubnetGroup_tags = Lens.lens (\CreateCacheSubnetGroup' {tags} -> tags) (\s@CreateCacheSubnetGroup' {} a -> s {tags = a} :: CreateCacheSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string.
@@ -155,6 +167,9 @@ instance Core.ToQuery CreateCacheSubnetGroup where
           Core.=: ("CreateCacheSubnetGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
         "CacheSubnetGroupDescription"
           Core.=: cacheSubnetGroupDescription,

@@ -25,14 +25,15 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria
 import Network.AWS.SageMaker.Types.AutoMLSecurityConfig
 
--- | A collection of settings used for a job.
+-- | A collection of settings used for an AutoML job.
 --
 -- /See:/ 'newAutoMLJobConfig' smart constructor.
 data AutoMLJobConfig = AutoMLJobConfig'
-  { -- | Security configuration for traffic encryption or Amazon VPC settings.
+  { -- | The security configuration for traffic encryption or Amazon VPC
+    -- settings.
     securityConfig :: Prelude.Maybe AutoMLSecurityConfig,
-    -- | How long a job is allowed to run, or how many candidates a job is
-    -- allowed to generate.
+    -- | How long an AutoML job is allowed to run, or how many candidates a job
+    -- is allowed to generate.
     completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,10 +46,11 @@ data AutoMLJobConfig = AutoMLJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityConfig', 'autoMLJobConfig_securityConfig' - Security configuration for traffic encryption or Amazon VPC settings.
+-- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
+-- settings.
 --
--- 'completionCriteria', 'autoMLJobConfig_completionCriteria' - How long a job is allowed to run, or how many candidates a job is
--- allowed to generate.
+-- 'completionCriteria', 'autoMLJobConfig_completionCriteria' - How long an AutoML job is allowed to run, or how many candidates a job
+-- is allowed to generate.
 newAutoMLJobConfig ::
   AutoMLJobConfig
 newAutoMLJobConfig =
@@ -57,12 +59,13 @@ newAutoMLJobConfig =
       completionCriteria = Prelude.Nothing
     }
 
--- | Security configuration for traffic encryption or Amazon VPC settings.
+-- | The security configuration for traffic encryption or Amazon VPC
+-- settings.
 autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
 autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
 
--- | How long a job is allowed to run, or how many candidates a job is
--- allowed to generate.
+-- | How long an AutoML job is allowed to run, or how many candidates a job
+-- is allowed to generate.
 autoMLJobConfig_completionCriteria :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLJobCompletionCriteria)
 autoMLJobConfig_completionCriteria = Lens.lens (\AutoMLJobConfig' {completionCriteria} -> completionCriteria) (\s@AutoMLJobConfig' {} a -> s {completionCriteria = a} :: AutoMLJobConfig)
 

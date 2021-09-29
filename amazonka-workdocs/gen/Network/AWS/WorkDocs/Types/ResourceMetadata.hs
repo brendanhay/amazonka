@@ -33,15 +33,15 @@ data ResourceMetadata = ResourceMetadata'
     originalName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version ID of the resource. This is an optional field and is filled
     -- for action on document version.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The parent ID of the resource before a rename operation.
-    parentId :: Prelude.Maybe Prelude.Text,
     -- | The owner of the resource.
     owner :: Prelude.Maybe UserMetadata,
+    -- | The parent ID of the resource before a rename operation.
+    parentId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource.
     type' :: Prelude.Maybe ResourceType
   }
@@ -59,14 +59,14 @@ data ResourceMetadata = ResourceMetadata'
 --
 -- 'id', 'resourceMetadata_id' - The ID of the resource.
 --
+-- 'name', 'resourceMetadata_name' - The name of the resource.
+--
 -- 'versionId', 'resourceMetadata_versionId' - The version ID of the resource. This is an optional field and is filled
 -- for action on document version.
 --
--- 'name', 'resourceMetadata_name' - The name of the resource.
+-- 'owner', 'resourceMetadata_owner' - The owner of the resource.
 --
 -- 'parentId', 'resourceMetadata_parentId' - The parent ID of the resource before a rename operation.
---
--- 'owner', 'resourceMetadata_owner' - The owner of the resource.
 --
 -- 'type'', 'resourceMetadata_type' - The type of resource.
 newResourceMetadata ::
@@ -75,10 +75,10 @@ newResourceMetadata =
   ResourceMetadata'
     { originalName = Prelude.Nothing,
       id = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
-      parentId = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       owner = Prelude.Nothing,
+      parentId = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -90,22 +90,22 @@ resourceMetadata_originalName = Lens.lens (\ResourceMetadata' {originalName} -> 
 resourceMetadata_id :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
 resourceMetadata_id = Lens.lens (\ResourceMetadata' {id} -> id) (\s@ResourceMetadata' {} a -> s {id = a} :: ResourceMetadata)
 
+-- | The name of the resource.
+resourceMetadata_name :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
+resourceMetadata_name = Lens.lens (\ResourceMetadata' {name} -> name) (\s@ResourceMetadata' {} a -> s {name = a} :: ResourceMetadata)
+
 -- | The version ID of the resource. This is an optional field and is filled
 -- for action on document version.
 resourceMetadata_versionId :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
 resourceMetadata_versionId = Lens.lens (\ResourceMetadata' {versionId} -> versionId) (\s@ResourceMetadata' {} a -> s {versionId = a} :: ResourceMetadata)
 
--- | The name of the resource.
-resourceMetadata_name :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
-resourceMetadata_name = Lens.lens (\ResourceMetadata' {name} -> name) (\s@ResourceMetadata' {} a -> s {name = a} :: ResourceMetadata)
+-- | The owner of the resource.
+resourceMetadata_owner :: Lens.Lens' ResourceMetadata (Prelude.Maybe UserMetadata)
+resourceMetadata_owner = Lens.lens (\ResourceMetadata' {owner} -> owner) (\s@ResourceMetadata' {} a -> s {owner = a} :: ResourceMetadata)
 
 -- | The parent ID of the resource before a rename operation.
 resourceMetadata_parentId :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
 resourceMetadata_parentId = Lens.lens (\ResourceMetadata' {parentId} -> parentId) (\s@ResourceMetadata' {} a -> s {parentId = a} :: ResourceMetadata)
-
--- | The owner of the resource.
-resourceMetadata_owner :: Lens.Lens' ResourceMetadata (Prelude.Maybe UserMetadata)
-resourceMetadata_owner = Lens.lens (\ResourceMetadata' {owner} -> owner) (\s@ResourceMetadata' {} a -> s {owner = a} :: ResourceMetadata)
 
 -- | The type of resource.
 resourceMetadata_type :: Lens.Lens' ResourceMetadata (Prelude.Maybe ResourceType)
@@ -119,10 +119,10 @@ instance Core.FromJSON ResourceMetadata where
           ResourceMetadata'
             Prelude.<$> (x Core..:? "OriginalName")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ParentId")
+            Prelude.<*> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "ParentId")
             Prelude.<*> (x Core..:? "Type")
       )
 

@@ -57,6 +57,11 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
     dataFormat :: Prelude.Maybe DocumentClassifierDataFormat,
+    -- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
+    -- the same AWS Region as the API endpoint that you are calling. The URI
+    -- can point to a single input file or it can provide the prefix for a
+    -- collection of input files.
+    testS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Indicates the delimiter used to separate each label for training a
     -- multi-label classifier. The default delimiter between labels is a pipe
     -- (|). You can use a different character as a delimiter (if it\'s an
@@ -113,6 +118,11 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
 --
+-- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
+-- the same AWS Region as the API endpoint that you are calling. The URI
+-- can point to a single input file or it can provide the prefix for a
+-- collection of input files.
+--
 -- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a
 -- multi-label classifier. The default delimiter between labels is a pipe
 -- (|). You can use a different character as a delimiter (if it\'s an
@@ -139,6 +149,7 @@ newDocumentClassifierInputDataConfig =
     { augmentedManifests =
         Prelude.Nothing,
       dataFormat = Prelude.Nothing,
+      testS3Uri = Prelude.Nothing,
       labelDelimiter = Prelude.Nothing,
       s3Uri = Prelude.Nothing
     }
@@ -171,6 +182,13 @@ documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClass
 -- as the default.
 documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDataFormat)
 documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInputDataConfig' {dataFormat} -> dataFormat) (\s@DocumentClassifierInputDataConfig' {} a -> s {dataFormat = a} :: DocumentClassifierInputDataConfig)
+
+-- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
+-- the same AWS Region as the API endpoint that you are calling. The URI
+-- can point to a single input file or it can provide the prefix for a
+-- collection of input files.
+documentClassifierInputDataConfig_testS3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
+documentClassifierInputDataConfig_testS3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {testS3Uri} -> testS3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {testS3Uri = a} :: DocumentClassifierInputDataConfig)
 
 -- | Indicates the delimiter used to separate each label for training a
 -- multi-label classifier. The default delimiter between labels is a pipe
@@ -209,6 +227,7 @@ instance
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "DataFormat")
+            Prelude.<*> (x Core..:? "TestS3Uri")
             Prelude.<*> (x Core..:? "LabelDelimiter")
             Prelude.<*> (x Core..:? "S3Uri")
       )
@@ -231,6 +250,7 @@ instance
           [ ("AugmentedManifests" Core..=)
               Prelude.<$> augmentedManifests,
             ("DataFormat" Core..=) Prelude.<$> dataFormat,
+            ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
             ("LabelDelimiter" Core..=)
               Prelude.<$> labelDelimiter,
             ("S3Uri" Core..=) Prelude.<$> s3Uri

@@ -51,13 +51,13 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
     -- formerly Google Cloud Messaging (GCM), service. This message overrides
     -- the default push notification message (DefaultPushNotificationMessage).
     gCMMessage :: Prelude.Maybe GCMMessage,
+    -- | The default message for the email channel. This message overrides the
+    -- default message (DefaultMessage).
+    emailMessage :: Prelude.Maybe EmailMessage,
     -- | The default push notification message for the APNs (Apple Push
     -- Notification service) channel. This message overrides the default push
     -- notification message (DefaultPushNotificationMessage).
     aPNSMessage :: Prelude.Maybe APNSMessage,
-    -- | The default message for the email channel. This message overrides the
-    -- default message (DefaultMessage).
-    emailMessage :: Prelude.Maybe EmailMessage,
     -- | The default message for the SMS channel. This message overrides the
     -- default message (DefaultMessage).
     sMSMessage :: Prelude.Maybe SMSMessage,
@@ -93,12 +93,12 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
 -- formerly Google Cloud Messaging (GCM), service. This message overrides
 -- the default push notification message (DefaultPushNotificationMessage).
 --
+-- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the
+-- default message (DefaultMessage).
+--
 -- 'aPNSMessage', 'directMessageConfiguration_aPNSMessage' - The default push notification message for the APNs (Apple Push
 -- Notification service) channel. This message overrides the default push
 -- notification message (DefaultPushNotificationMessage).
---
--- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the
--- default message (DefaultMessage).
 --
 -- 'sMSMessage', 'directMessageConfiguration_sMSMessage' - The default message for the SMS channel. This message overrides the
 -- default message (DefaultMessage).
@@ -118,8 +118,8 @@ newDirectMessageConfiguration =
       defaultMessage = Prelude.Nothing,
       voiceMessage = Prelude.Nothing,
       gCMMessage = Prelude.Nothing,
-      aPNSMessage = Prelude.Nothing,
       emailMessage = Prelude.Nothing,
+      aPNSMessage = Prelude.Nothing,
       sMSMessage = Prelude.Nothing,
       defaultPushNotificationMessage =
         Prelude.Nothing,
@@ -148,16 +148,16 @@ directMessageConfiguration_voiceMessage = Lens.lens (\DirectMessageConfiguration
 directMessageConfiguration_gCMMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe GCMMessage)
 directMessageConfiguration_gCMMessage = Lens.lens (\DirectMessageConfiguration' {gCMMessage} -> gCMMessage) (\s@DirectMessageConfiguration' {} a -> s {gCMMessage = a} :: DirectMessageConfiguration)
 
+-- | The default message for the email channel. This message overrides the
+-- default message (DefaultMessage).
+directMessageConfiguration_emailMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe EmailMessage)
+directMessageConfiguration_emailMessage = Lens.lens (\DirectMessageConfiguration' {emailMessage} -> emailMessage) (\s@DirectMessageConfiguration' {} a -> s {emailMessage = a} :: DirectMessageConfiguration)
+
 -- | The default push notification message for the APNs (Apple Push
 -- Notification service) channel. This message overrides the default push
 -- notification message (DefaultPushNotificationMessage).
 directMessageConfiguration_aPNSMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe APNSMessage)
 directMessageConfiguration_aPNSMessage = Lens.lens (\DirectMessageConfiguration' {aPNSMessage} -> aPNSMessage) (\s@DirectMessageConfiguration' {} a -> s {aPNSMessage = a} :: DirectMessageConfiguration)
-
--- | The default message for the email channel. This message overrides the
--- default message (DefaultMessage).
-directMessageConfiguration_emailMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe EmailMessage)
-directMessageConfiguration_emailMessage = Lens.lens (\DirectMessageConfiguration' {emailMessage} -> emailMessage) (\s@DirectMessageConfiguration' {} a -> s {emailMessage = a} :: DirectMessageConfiguration)
 
 -- | The default message for the SMS channel. This message overrides the
 -- default message (DefaultMessage).
@@ -188,8 +188,8 @@ instance Core.ToJSON DirectMessageConfiguration where
               Prelude.<$> defaultMessage,
             ("VoiceMessage" Core..=) Prelude.<$> voiceMessage,
             ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
-            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
             ("EmailMessage" Core..=) Prelude.<$> emailMessage,
+            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
             ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
             ("DefaultPushNotificationMessage" Core..=)
               Prelude.<$> defaultPushNotificationMessage,

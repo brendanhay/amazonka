@@ -34,6 +34,7 @@ module Network.AWS.SageMaker.DescribeEndpoint
     newDescribeEndpointResponse,
 
     -- * Response Lenses
+    describeEndpointResponse_asyncInferenceConfig,
     describeEndpointResponse_productionVariants,
     describeEndpointResponse_lastDeploymentConfig,
     describeEndpointResponse_failureReason,
@@ -91,7 +92,8 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Core..?> "ProductionVariants")
+            Prelude.<$> (x Core..?> "AsyncInferenceConfig")
+            Prelude.<*> (x Core..?> "ProductionVariants")
             Prelude.<*> (x Core..?> "LastDeploymentConfig")
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
@@ -136,7 +138,11 @@ instance Core.ToQuery DescribeEndpoint where
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { -- | An array of ProductionVariantSummary objects, one for each model hosted
+  { -- | Returns the description of an endpoint configuration created using the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+    -- API.
+    asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
+    -- | An array of ProductionVariantSummary objects, one for each model hosted
     -- behind this endpoint.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | The most recent deployment configuration for the endpoint.
@@ -199,6 +205,10 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'asyncInferenceConfig', 'describeEndpointResponse_asyncInferenceConfig' - Returns the description of an endpoint configuration created using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API.
 --
 -- 'productionVariants', 'describeEndpointResponse_productionVariants' - An array of ProductionVariantSummary objects, one for each model hosted
 -- behind this endpoint.
@@ -278,8 +288,9 @@ newDescribeEndpointResponse
   pCreationTime_
   pLastModifiedTime_ =
     DescribeEndpointResponse'
-      { productionVariants =
+      { asyncInferenceConfig =
           Prelude.Nothing,
+        productionVariants = Prelude.Nothing,
         lastDeploymentConfig = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
@@ -292,6 +303,12 @@ newDescribeEndpointResponse
         lastModifiedTime =
           Core._Time Lens.# pLastModifiedTime_
       }
+
+-- | Returns the description of an endpoint configuration created using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API.
+describeEndpointResponse_asyncInferenceConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe AsyncInferenceConfig)
+describeEndpointResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpointResponse' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@DescribeEndpointResponse' {} a -> s {asyncInferenceConfig = a} :: DescribeEndpointResponse)
 
 -- | An array of ProductionVariantSummary objects, one for each model hosted
 -- behind this endpoint.

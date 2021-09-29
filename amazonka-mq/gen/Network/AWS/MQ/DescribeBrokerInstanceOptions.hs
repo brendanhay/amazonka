@@ -29,8 +29,8 @@ module Network.AWS.MQ.DescribeBrokerInstanceOptions
     -- * Request Lenses
     describeBrokerInstanceOptions_nextToken,
     describeBrokerInstanceOptions_storageType,
-    describeBrokerInstanceOptions_engineType,
     describeBrokerInstanceOptions_maxResults,
+    describeBrokerInstanceOptions_engineType,
     describeBrokerInstanceOptions_hostInstanceType,
 
     -- * Destructuring the Response
@@ -59,11 +59,11 @@ data DescribeBrokerInstanceOptions = DescribeBrokerInstanceOptions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filter response by storage type.
     storageType :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of brokers that Amazon MQ can return per page (20 by
+    -- default). This value must be an integer from 5 to 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter response by engine type.
     engineType :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instance options that Amazon MQ can return per
-    -- page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter response by host instance type.
     hostInstanceType :: Prelude.Maybe Prelude.Text
   }
@@ -82,10 +82,10 @@ data DescribeBrokerInstanceOptions = DescribeBrokerInstanceOptions'
 --
 -- 'storageType', 'describeBrokerInstanceOptions_storageType' - Filter response by storage type.
 --
--- 'engineType', 'describeBrokerInstanceOptions_engineType' - Filter response by engine type.
+-- 'maxResults', 'describeBrokerInstanceOptions_maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
 --
--- 'maxResults', 'describeBrokerInstanceOptions_maxResults' - The maximum number of instance options that Amazon MQ can return per
--- page (20 by default). This value must be an integer from 5 to 100.
+-- 'engineType', 'describeBrokerInstanceOptions_engineType' - Filter response by engine type.
 --
 -- 'hostInstanceType', 'describeBrokerInstanceOptions_hostInstanceType' - Filter response by host instance type.
 newDescribeBrokerInstanceOptions ::
@@ -95,8 +95,8 @@ newDescribeBrokerInstanceOptions =
     { nextToken =
         Prelude.Nothing,
       storageType = Prelude.Nothing,
-      engineType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      engineType = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing
     }
 
@@ -109,14 +109,14 @@ describeBrokerInstanceOptions_nextToken = Lens.lens (\DescribeBrokerInstanceOpti
 describeBrokerInstanceOptions_storageType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_storageType = Lens.lens (\DescribeBrokerInstanceOptions' {storageType} -> storageType) (\s@DescribeBrokerInstanceOptions' {} a -> s {storageType = a} :: DescribeBrokerInstanceOptions)
 
+-- | The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
+describeBrokerInstanceOptions_maxResults :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Natural)
+describeBrokerInstanceOptions_maxResults = Lens.lens (\DescribeBrokerInstanceOptions' {maxResults} -> maxResults) (\s@DescribeBrokerInstanceOptions' {} a -> s {maxResults = a} :: DescribeBrokerInstanceOptions)
+
 -- | Filter response by engine type.
 describeBrokerInstanceOptions_engineType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
 describeBrokerInstanceOptions_engineType = Lens.lens (\DescribeBrokerInstanceOptions' {engineType} -> engineType) (\s@DescribeBrokerInstanceOptions' {} a -> s {engineType = a} :: DescribeBrokerInstanceOptions)
-
--- | The maximum number of instance options that Amazon MQ can return per
--- page (20 by default). This value must be an integer from 5 to 100.
-describeBrokerInstanceOptions_maxResults :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Natural)
-describeBrokerInstanceOptions_maxResults = Lens.lens (\DescribeBrokerInstanceOptions' {maxResults} -> maxResults) (\s@DescribeBrokerInstanceOptions' {} a -> s {maxResults = a} :: DescribeBrokerInstanceOptions)
 
 -- | Filter response by host instance type.
 describeBrokerInstanceOptions_hostInstanceType :: Lens.Lens' DescribeBrokerInstanceOptions (Prelude.Maybe Prelude.Text)
@@ -167,8 +167,8 @@ instance Core.ToQuery DescribeBrokerInstanceOptions where
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "storageType" Core.=: storageType,
-        "engineType" Core.=: engineType,
         "maxResults" Core.=: maxResults,
+        "engineType" Core.=: engineType,
         "hostInstanceType" Core.=: hostInstanceType
       ]
 

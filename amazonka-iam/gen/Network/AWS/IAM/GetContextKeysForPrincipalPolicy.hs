@@ -35,11 +35,11 @@
 -- permissions, then consider allowing them to use
 -- GetContextKeysForCustomPolicy instead.
 --
--- Context keys are variables maintained by AWS and its services that
--- provide details about the context of an API query request. Context keys
--- can be evaluated by testing against a value in an IAM policy. Use
--- GetContextKeysForPrincipalPolicy to understand what key names and values
--- you must supply when you call SimulatePrincipalPolicy.
+-- Context keys are variables maintained by Amazon Web Services and its
+-- services that provide details about the context of an API query request.
+-- Context keys can be evaluated by testing against a value in an IAM
+-- policy. Use GetContextKeysForPrincipalPolicy to understand what key
+-- names and values you must supply when you call SimulatePrincipalPolicy.
 module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
   ( -- * Creating a Request
     GetContextKeysForPrincipalPolicy (..),
@@ -93,7 +93,7 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policySourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,7 +132,7 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newGetContextKeysForPrincipalPolicy ::
   -- | 'policySourceArn'
   Prelude.Text ->
@@ -172,7 +172,7 @@ getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysFor
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 getContextKeysForPrincipalPolicy_policySourceArn :: Lens.Lens' GetContextKeysForPrincipalPolicy Prelude.Text
 getContextKeysForPrincipalPolicy_policySourceArn = Lens.lens (\GetContextKeysForPrincipalPolicy' {policySourceArn} -> policySourceArn) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policySourceArn = a} :: GetContextKeysForPrincipalPolicy)
 

@@ -29,8 +29,8 @@ module Network.AWS.CodeBuild.ListBuildBatchesForProject
     newListBuildBatchesForProject,
 
     -- * Request Lenses
-    listBuildBatchesForProject_sortOrder,
     listBuildBatchesForProject_nextToken,
+    listBuildBatchesForProject_sortOrder,
     listBuildBatchesForProject_maxResults,
     listBuildBatchesForProject_projectName,
     listBuildBatchesForProject_filter,
@@ -55,7 +55,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBuildBatchesForProject' smart constructor.
 data ListBuildBatchesForProject = ListBuildBatchesForProject'
-  { -- | Specifies the sort order of the returned items. Valid values include:
+  { -- | The @nextToken@ value returned from a previous call to
+    -- @ListBuildBatchesForProject@. This specifies the next item to return. To
+    -- return the beginning of the list, exclude this parameter.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the sort order of the returned items. Valid values include:
     --
     -- -   @ASCENDING@: List the batch build identifiers in ascending order by
     --     identifier.
@@ -63,10 +67,6 @@ data ListBuildBatchesForProject = ListBuildBatchesForProject'
     -- -   @DESCENDING@: List the batch build identifiers in descending order
     --     by identifier.
     sortOrder :: Prelude.Maybe SortOrderType,
-    -- | The @nextToken@ value returned from a previous call to
-    -- @ListBuildBatchesForProject@. This specifies the next item to return. To
-    -- return the beginning of the list, exclude this parameter.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the project.
@@ -84,6 +84,10 @@ data ListBuildBatchesForProject = ListBuildBatchesForProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listBuildBatchesForProject_nextToken' - The @nextToken@ value returned from a previous call to
+-- @ListBuildBatchesForProject@. This specifies the next item to return. To
+-- return the beginning of the list, exclude this parameter.
+--
 -- 'sortOrder', 'listBuildBatchesForProject_sortOrder' - Specifies the sort order of the returned items. Valid values include:
 --
 -- -   @ASCENDING@: List the batch build identifiers in ascending order by
@@ -91,10 +95,6 @@ data ListBuildBatchesForProject = ListBuildBatchesForProject'
 --
 -- -   @DESCENDING@: List the batch build identifiers in descending order
 --     by identifier.
---
--- 'nextToken', 'listBuildBatchesForProject_nextToken' - The @nextToken@ value returned from a previous call to
--- @ListBuildBatchesForProject@. This specifies the next item to return. To
--- return the beginning of the list, exclude this parameter.
 --
 -- 'maxResults', 'listBuildBatchesForProject_maxResults' - The maximum number of results to return.
 --
@@ -105,13 +105,19 @@ newListBuildBatchesForProject ::
   ListBuildBatchesForProject
 newListBuildBatchesForProject =
   ListBuildBatchesForProject'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       projectName = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
+
+-- | The @nextToken@ value returned from a previous call to
+-- @ListBuildBatchesForProject@. This specifies the next item to return. To
+-- return the beginning of the list, exclude this parameter.
+listBuildBatchesForProject_nextToken :: Lens.Lens' ListBuildBatchesForProject (Prelude.Maybe Prelude.Text)
+listBuildBatchesForProject_nextToken = Lens.lens (\ListBuildBatchesForProject' {nextToken} -> nextToken) (\s@ListBuildBatchesForProject' {} a -> s {nextToken = a} :: ListBuildBatchesForProject)
 
 -- | Specifies the sort order of the returned items. Valid values include:
 --
@@ -122,12 +128,6 @@ newListBuildBatchesForProject =
 --     by identifier.
 listBuildBatchesForProject_sortOrder :: Lens.Lens' ListBuildBatchesForProject (Prelude.Maybe SortOrderType)
 listBuildBatchesForProject_sortOrder = Lens.lens (\ListBuildBatchesForProject' {sortOrder} -> sortOrder) (\s@ListBuildBatchesForProject' {} a -> s {sortOrder = a} :: ListBuildBatchesForProject)
-
--- | The @nextToken@ value returned from a previous call to
--- @ListBuildBatchesForProject@. This specifies the next item to return. To
--- return the beginning of the list, exclude this parameter.
-listBuildBatchesForProject_nextToken :: Lens.Lens' ListBuildBatchesForProject (Prelude.Maybe Prelude.Text)
-listBuildBatchesForProject_nextToken = Lens.lens (\ListBuildBatchesForProject' {nextToken} -> nextToken) (\s@ListBuildBatchesForProject' {} a -> s {nextToken = a} :: ListBuildBatchesForProject)
 
 -- | The maximum number of results to return.
 listBuildBatchesForProject_maxResults :: Lens.Lens' ListBuildBatchesForProject (Prelude.Maybe Prelude.Natural)
@@ -200,8 +200,8 @@ instance Core.ToJSON ListBuildBatchesForProject where
   toJSON ListBuildBatchesForProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("projectName" Core..=) Prelude.<$> projectName,
             ("filter" Core..=) Prelude.<$> filter'

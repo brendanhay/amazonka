@@ -23,7 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings that specify how your still graphic overlay appears.
+-- | These settings apply to a specific graphic overlay. You can include
+-- multiple overlays in your job.
 --
 -- /See:/ 'newInsertableImage' smart constructor.
 data InsertableImage = InsertableImage'
@@ -36,6 +37,11 @@ data InsertableImage = InsertableImage'
     -- edge of the video frame. Required for any image overlay that you
     -- specify.
     imageX :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the width of the inserted image in pixels. If you specify a
+    -- value that\'s larger than the video resolution width, the service will
+    -- crop your overlaid image to fit. To use the native width of the image,
+    -- keep this setting blank.
+    width :: Prelude.Maybe Prelude.Natural,
     -- | Specify the distance, in pixels, between the overlaid image and the top
     -- edge of the video frame. Required for any image overlay that you
     -- specify.
@@ -43,11 +49,6 @@ data InsertableImage = InsertableImage'
     -- | Specify the time, in milliseconds, for the image to remain on the output
     -- video. This duration includes fade-in time but not fade-out time.
     duration :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the width of the inserted image in pixels. If you specify a
-    -- value that\'s larger than the video resolution width, the service will
-    -- crop your overlaid image to fit. To use the native width of the image,
-    -- keep this setting blank.
-    width :: Prelude.Maybe Prelude.Natural,
     -- | Specify how overlapping inserted images appear. Images with higher
     -- values for Layer appear on top of images with lower values for Layer.
     layer :: Prelude.Maybe Prelude.Natural,
@@ -59,15 +60,15 @@ data InsertableImage = InsertableImage'
     -- through the inserted image. 0 is transparent and 100 is fully opaque.
     -- Default is 50.
     opacity :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
+    -- want to overlay on the video. Use a PNG or TGA file.
+    imageInserterInput :: Prelude.Maybe Prelude.Text,
     -- | Specify the length of time, in milliseconds, between the Start time that
     -- you specify for the image insertion and the time that the image appears
     -- at full opacity. Full opacity is the level that you specify for the
     -- opacity setting. If you don\'t specify a value for Fade-in, the image
     -- will appear abruptly at the overlay start time.
     fadeIn :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
-    -- want to overlay on the video. Use a PNG or TGA file.
-    imageInserterInput :: Prelude.Maybe Prelude.Text,
     -- | Specify the length of time, in milliseconds, between the end of the time
     -- that you have specified for the image overlay Duration and when the
     -- overlaid image has faded to total transparency. If you don\'t specify a
@@ -94,17 +95,17 @@ data InsertableImage = InsertableImage'
 -- edge of the video frame. Required for any image overlay that you
 -- specify.
 --
+-- 'width', 'insertableImage_width' - Specify the width of the inserted image in pixels. If you specify a
+-- value that\'s larger than the video resolution width, the service will
+-- crop your overlaid image to fit. To use the native width of the image,
+-- keep this setting blank.
+--
 -- 'imageY', 'insertableImage_imageY' - Specify the distance, in pixels, between the overlaid image and the top
 -- edge of the video frame. Required for any image overlay that you
 -- specify.
 --
 -- 'duration', 'insertableImage_duration' - Specify the time, in milliseconds, for the image to remain on the output
 -- video. This duration includes fade-in time but not fade-out time.
---
--- 'width', 'insertableImage_width' - Specify the width of the inserted image in pixels. If you specify a
--- value that\'s larger than the video resolution width, the service will
--- crop your overlaid image to fit. To use the native width of the image,
--- keep this setting blank.
 --
 -- 'layer', 'insertableImage_layer' - Specify how overlapping inserted images appear. Images with higher
 -- values for Layer appear on top of images with lower values for Layer.
@@ -117,14 +118,14 @@ data InsertableImage = InsertableImage'
 -- through the inserted image. 0 is transparent and 100 is fully opaque.
 -- Default is 50.
 --
+-- 'imageInserterInput', 'insertableImage_imageInserterInput' - Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
+-- want to overlay on the video. Use a PNG or TGA file.
+--
 -- 'fadeIn', 'insertableImage_fadeIn' - Specify the length of time, in milliseconds, between the Start time that
 -- you specify for the image insertion and the time that the image appears
 -- at full opacity. Full opacity is the level that you specify for the
 -- opacity setting. If you don\'t specify a value for Fade-in, the image
 -- will appear abruptly at the overlay start time.
---
--- 'imageInserterInput', 'insertableImage_imageInserterInput' - Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
--- want to overlay on the video. Use a PNG or TGA file.
 --
 -- 'fadeOut', 'insertableImage_fadeOut' - Specify the length of time, in milliseconds, between the end of the time
 -- that you have specified for the image overlay Duration and when the
@@ -137,14 +138,14 @@ newInsertableImage =
   InsertableImage'
     { height = Prelude.Nothing,
       imageX = Prelude.Nothing,
+      width = Prelude.Nothing,
       imageY = Prelude.Nothing,
       duration = Prelude.Nothing,
-      width = Prelude.Nothing,
       layer = Prelude.Nothing,
       startTime = Prelude.Nothing,
       opacity = Prelude.Nothing,
-      fadeIn = Prelude.Nothing,
       imageInserterInput = Prelude.Nothing,
+      fadeIn = Prelude.Nothing,
       fadeOut = Prelude.Nothing
     }
 
@@ -161,6 +162,13 @@ insertableImage_height = Lens.lens (\InsertableImage' {height} -> height) (\s@In
 insertableImage_imageX :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
 insertableImage_imageX = Lens.lens (\InsertableImage' {imageX} -> imageX) (\s@InsertableImage' {} a -> s {imageX = a} :: InsertableImage)
 
+-- | Specify the width of the inserted image in pixels. If you specify a
+-- value that\'s larger than the video resolution width, the service will
+-- crop your overlaid image to fit. To use the native width of the image,
+-- keep this setting blank.
+insertableImage_width :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
+insertableImage_width = Lens.lens (\InsertableImage' {width} -> width) (\s@InsertableImage' {} a -> s {width = a} :: InsertableImage)
+
 -- | Specify the distance, in pixels, between the overlaid image and the top
 -- edge of the video frame. Required for any image overlay that you
 -- specify.
@@ -171,13 +179,6 @@ insertableImage_imageY = Lens.lens (\InsertableImage' {imageY} -> imageY) (\s@In
 -- video. This duration includes fade-in time but not fade-out time.
 insertableImage_duration :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
 insertableImage_duration = Lens.lens (\InsertableImage' {duration} -> duration) (\s@InsertableImage' {} a -> s {duration = a} :: InsertableImage)
-
--- | Specify the width of the inserted image in pixels. If you specify a
--- value that\'s larger than the video resolution width, the service will
--- crop your overlaid image to fit. To use the native width of the image,
--- keep this setting blank.
-insertableImage_width :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
-insertableImage_width = Lens.lens (\InsertableImage' {width} -> width) (\s@InsertableImage' {} a -> s {width = a} :: InsertableImage)
 
 -- | Specify how overlapping inserted images appear. Images with higher
 -- values for Layer appear on top of images with lower values for Layer.
@@ -196,6 +197,11 @@ insertableImage_startTime = Lens.lens (\InsertableImage' {startTime} -> startTim
 insertableImage_opacity :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
 insertableImage_opacity = Lens.lens (\InsertableImage' {opacity} -> opacity) (\s@InsertableImage' {} a -> s {opacity = a} :: InsertableImage)
 
+-- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
+-- want to overlay on the video. Use a PNG or TGA file.
+insertableImage_imageInserterInput :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Text)
+insertableImage_imageInserterInput = Lens.lens (\InsertableImage' {imageInserterInput} -> imageInserterInput) (\s@InsertableImage' {} a -> s {imageInserterInput = a} :: InsertableImage)
+
 -- | Specify the length of time, in milliseconds, between the Start time that
 -- you specify for the image insertion and the time that the image appears
 -- at full opacity. Full opacity is the level that you specify for the
@@ -203,11 +209,6 @@ insertableImage_opacity = Lens.lens (\InsertableImage' {opacity} -> opacity) (\s
 -- will appear abruptly at the overlay start time.
 insertableImage_fadeIn :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Natural)
 insertableImage_fadeIn = Lens.lens (\InsertableImage' {fadeIn} -> fadeIn) (\s@InsertableImage' {} a -> s {fadeIn = a} :: InsertableImage)
-
--- | Specify the HTTP, HTTPS, or Amazon S3 location of the image that you
--- want to overlay on the video. Use a PNG or TGA file.
-insertableImage_imageInserterInput :: Lens.Lens' InsertableImage (Prelude.Maybe Prelude.Text)
-insertableImage_imageInserterInput = Lens.lens (\InsertableImage' {imageInserterInput} -> imageInserterInput) (\s@InsertableImage' {} a -> s {imageInserterInput = a} :: InsertableImage)
 
 -- | Specify the length of time, in milliseconds, between the end of the time
 -- that you have specified for the image overlay Duration and when the
@@ -225,14 +226,14 @@ instance Core.FromJSON InsertableImage where
           InsertableImage'
             Prelude.<$> (x Core..:? "height")
             Prelude.<*> (x Core..:? "imageX")
+            Prelude.<*> (x Core..:? "width")
             Prelude.<*> (x Core..:? "imageY")
             Prelude.<*> (x Core..:? "duration")
-            Prelude.<*> (x Core..:? "width")
             Prelude.<*> (x Core..:? "layer")
             Prelude.<*> (x Core..:? "startTime")
             Prelude.<*> (x Core..:? "opacity")
-            Prelude.<*> (x Core..:? "fadeIn")
             Prelude.<*> (x Core..:? "imageInserterInput")
+            Prelude.<*> (x Core..:? "fadeIn")
             Prelude.<*> (x Core..:? "fadeOut")
       )
 
@@ -246,15 +247,15 @@ instance Core.ToJSON InsertableImage where
       ( Prelude.catMaybes
           [ ("height" Core..=) Prelude.<$> height,
             ("imageX" Core..=) Prelude.<$> imageX,
+            ("width" Core..=) Prelude.<$> width,
             ("imageY" Core..=) Prelude.<$> imageY,
             ("duration" Core..=) Prelude.<$> duration,
-            ("width" Core..=) Prelude.<$> width,
             ("layer" Core..=) Prelude.<$> layer,
             ("startTime" Core..=) Prelude.<$> startTime,
             ("opacity" Core..=) Prelude.<$> opacity,
-            ("fadeIn" Core..=) Prelude.<$> fadeIn,
             ("imageInserterInput" Core..=)
               Prelude.<$> imageInserterInput,
+            ("fadeIn" Core..=) Prelude.<$> fadeIn,
             ("fadeOut" Core..=) Prelude.<$> fadeOut
           ]
       )

@@ -52,17 +52,13 @@ module Network.AWS.CertificateManagerPCA.Lens
 
     -- ** CreateCertificateAuthority
     createCertificateAuthority_idempotencyToken,
+    createCertificateAuthority_keyStorageSecurityStandard,
     createCertificateAuthority_revocationConfiguration,
     createCertificateAuthority_tags,
     createCertificateAuthority_certificateAuthorityConfiguration,
     createCertificateAuthority_certificateAuthorityType,
     createCertificateAuthorityResponse_certificateAuthorityArn,
     createCertificateAuthorityResponse_httpStatus,
-
-    -- ** GetCertificateAuthorityCsr
-    getCertificateAuthorityCsr_certificateAuthorityArn,
-    getCertificateAuthorityCsrResponse_csr,
-    getCertificateAuthorityCsrResponse_httpStatus,
 
     -- ** ListCertificateAuthorities
     listCertificateAuthorities_nextToken,
@@ -71,6 +67,11 @@ module Network.AWS.CertificateManagerPCA.Lens
     listCertificateAuthoritiesResponse_nextToken,
     listCertificateAuthoritiesResponse_certificateAuthorities,
     listCertificateAuthoritiesResponse_httpStatus,
+
+    -- ** GetCertificateAuthorityCsr
+    getCertificateAuthorityCsr_certificateAuthorityArn,
+    getCertificateAuthorityCsrResponse_csr,
+    getCertificateAuthorityCsrResponse_httpStatus,
 
     -- ** RevokeCertificate
     revokeCertificate_certificateAuthorityArn,
@@ -134,14 +135,14 @@ module Network.AWS.CertificateManagerPCA.Lens
     deleteCertificateAuthority_permanentDeletionTimeInDays,
     deleteCertificateAuthority_certificateAuthorityArn,
 
+    -- ** UntagCertificateAuthority
+    untagCertificateAuthority_certificateAuthorityArn,
+    untagCertificateAuthority_tags,
+
     -- ** UpdateCertificateAuthority
     updateCertificateAuthority_status,
     updateCertificateAuthority_revocationConfiguration,
     updateCertificateAuthority_certificateAuthorityArn,
-
-    -- ** UntagCertificateAuthority
-    untagCertificateAuthority_certificateAuthorityArn,
-    untagCertificateAuthority_tags,
 
     -- ** DescribeCertificateAuthorityAuditReport
     describeCertificateAuthorityAuditReport_certificateAuthorityArn,
@@ -158,16 +159,16 @@ module Network.AWS.CertificateManagerPCA.Lens
     aSN1Subject_locality,
     aSN1Subject_generationQualifier,
     aSN1Subject_surname,
-    aSN1Subject_title,
     aSN1Subject_organizationalUnit,
+    aSN1Subject_title,
     aSN1Subject_initials,
-    aSN1Subject_pseudonym,
     aSN1Subject_commonName,
+    aSN1Subject_pseudonym,
     aSN1Subject_state,
     aSN1Subject_givenName,
-    aSN1Subject_organization,
-    aSN1Subject_distinguishedNameQualifier,
     aSN1Subject_serialNumber,
+    aSN1Subject_distinguishedNameQualifier,
+    aSN1Subject_organization,
     aSN1Subject_country,
 
     -- ** AccessDescription
@@ -185,10 +186,11 @@ module Network.AWS.CertificateManagerPCA.Lens
     -- ** CertificateAuthority
     certificateAuthority_status,
     certificateAuthority_notBefore,
+    certificateAuthority_keyStorageSecurityStandard,
     certificateAuthority_revocationConfiguration,
     certificateAuthority_serial,
-    certificateAuthority_arn,
     certificateAuthority_createdAt,
+    certificateAuthority_arn,
     certificateAuthority_certificateAuthorityConfiguration,
     certificateAuthority_failureReason,
     certificateAuthority_notAfter,
@@ -205,6 +207,7 @@ module Network.AWS.CertificateManagerPCA.Lens
 
     -- ** CrlConfiguration
     crlConfiguration_customCname,
+    crlConfiguration_s3ObjectAcl,
     crlConfiguration_s3BucketName,
     crlConfiguration_expirationInDays,
     crlConfiguration_enabled,
@@ -248,6 +251,10 @@ module Network.AWS.CertificateManagerPCA.Lens
     keyUsage_decipherOnly,
     keyUsage_nonRepudiation,
 
+    -- ** OcspConfiguration
+    ocspConfiguration_ocspCustomCname,
+    ocspConfiguration_enabled,
+
     -- ** OtherName
     otherName_typeId,
     otherName_value,
@@ -272,6 +279,7 @@ module Network.AWS.CertificateManagerPCA.Lens
     qualifier_cpsUri,
 
     -- ** RevocationConfiguration
+    revocationConfiguration_ocspConfiguration,
     revocationConfiguration_crlConfiguration,
 
     -- ** Tag
@@ -318,6 +326,7 @@ import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
 import Network.AWS.CertificateManagerPCA.Types.Extensions
 import Network.AWS.CertificateManagerPCA.Types.GeneralName
 import Network.AWS.CertificateManagerPCA.Types.KeyUsage
+import Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
 import Network.AWS.CertificateManagerPCA.Types.OtherName
 import Network.AWS.CertificateManagerPCA.Types.Permission
 import Network.AWS.CertificateManagerPCA.Types.PolicyInformation

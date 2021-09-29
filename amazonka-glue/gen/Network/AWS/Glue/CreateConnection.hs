@@ -49,7 +49,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
   { -- | The ID of the Data Catalog in which to create the connection. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A @ConnectionInput@ object defining the connection to create.
     connectionInput :: ConnectionInput
@@ -65,7 +65,7 @@ data CreateConnection = CreateConnection'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'createConnection_catalogId' - The ID of the Data Catalog in which to create the connection. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'connectionInput', 'createConnection_connectionInput' - A @ConnectionInput@ object defining the connection to create.
 newCreateConnection ::
@@ -79,7 +79,7 @@ newCreateConnection pConnectionInput_ =
     }
 
 -- | The ID of the Data Catalog in which to create the connection. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 createConnection_catalogId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_catalogId = Lens.lens (\CreateConnection' {catalogId} -> catalogId) (\s@CreateConnection' {} a -> s {catalogId = a} :: CreateConnection)
 

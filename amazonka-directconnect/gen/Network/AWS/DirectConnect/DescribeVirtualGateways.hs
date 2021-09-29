@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the virtual private gateways owned by the AWS account.
+-- Lists the virtual private gateways owned by the account.
 --
--- You can create one or more AWS Direct Connect private virtual interfaces
+-- You can create one or more Direct Connect private virtual interfaces
 -- linked to a virtual private gateway.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
   ( -- * Creating a Request

@@ -66,7 +66,7 @@ data TransformInput = TransformInput'
     -- For more information about @RecordIO@, see
     -- <https://mxnet.apache.org/api/faq/recordio Create a Dataset Using RecordIO>
     -- in the MXNet documentation. For more information about @TFRecord@, see
-    -- <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data Consuming TFRecord data>
+    -- <https://www.tensorflow.org/guide/data#consuming_tfrecord_data Consuming TFRecord data>
     -- in the TensorFlow documentation.
     splitType :: Prelude.Maybe SplitType,
     -- | If your transform data is compressed, specify the compression type.
@@ -122,7 +122,7 @@ data TransformInput = TransformInput'
 -- For more information about @RecordIO@, see
 -- <https://mxnet.apache.org/api/faq/recordio Create a Dataset Using RecordIO>
 -- in the MXNet documentation. For more information about @TFRecord@, see
--- <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data Consuming TFRecord data>
+-- <https://www.tensorflow.org/guide/data#consuming_tfrecord_data Consuming TFRecord data>
 -- in the TensorFlow documentation.
 --
 -- 'compressionType', 'transformInput_compressionType' - If your transform data is compressed, specify the compression type.
@@ -180,7 +180,7 @@ transformInput_contentType = Lens.lens (\TransformInput' {contentType} -> conten
 -- For more information about @RecordIO@, see
 -- <https://mxnet.apache.org/api/faq/recordio Create a Dataset Using RecordIO>
 -- in the MXNet documentation. For more information about @TFRecord@, see
--- <https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data Consuming TFRecord data>
+-- <https://www.tensorflow.org/guide/data#consuming_tfrecord_data Consuming TFRecord data>
 -- in the TensorFlow documentation.
 transformInput_splitType :: Lens.Lens' TransformInput (Prelude.Maybe SplitType)
 transformInput_splitType = Lens.lens (\TransformInput' {splitType} -> splitType) (\s@TransformInput' {} a -> s {splitType = a} :: TransformInput)

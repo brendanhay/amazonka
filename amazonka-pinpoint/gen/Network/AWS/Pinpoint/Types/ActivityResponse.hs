@@ -41,15 +41,15 @@ data ActivityResponse = ActivityResponse'
     -- | The current status of the activity. Possible values are: PENDING,
     -- INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
     state :: Prelude.Maybe Prelude.Text,
-    -- | The total number of unique time zones that are in the segment for the
-    -- campaign.
-    timezonesTotalCount :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier for the campaign treatment that the activity
     -- applies to. A treatment is a variation of a campaign that\'s used for
     -- A\/B testing of a campaign.
     treatmentId :: Prelude.Maybe Prelude.Text,
     -- | The scheduled start time, in ISO 8601 format, for the activity.
     scheduledStart :: Prelude.Maybe Prelude.Text,
+    -- | The total number of unique time zones that are in the segment for the
+    -- campaign.
+    timezonesTotalCount :: Prelude.Maybe Prelude.Int,
     -- | The actual start time, in ISO 8601 format, of the activity.
     start :: Prelude.Maybe Prelude.Text,
     -- | The total number of endpoints that the campaign attempted to deliver
@@ -86,14 +86,14 @@ data ActivityResponse = ActivityResponse'
 -- 'state', 'activityResponse_state' - The current status of the activity. Possible values are: PENDING,
 -- INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
 --
--- 'timezonesTotalCount', 'activityResponse_timezonesTotalCount' - The total number of unique time zones that are in the segment for the
--- campaign.
---
 -- 'treatmentId', 'activityResponse_treatmentId' - The unique identifier for the campaign treatment that the activity
 -- applies to. A treatment is a variation of a campaign that\'s used for
 -- A\/B testing of a campaign.
 --
 -- 'scheduledStart', 'activityResponse_scheduledStart' - The scheduled start time, in ISO 8601 format, for the activity.
+--
+-- 'timezonesTotalCount', 'activityResponse_timezonesTotalCount' - The total number of unique time zones that are in the segment for the
+-- campaign.
 --
 -- 'start', 'activityResponse_start' - The actual start time, in ISO 8601 format, of the activity.
 --
@@ -120,9 +120,9 @@ newActivityResponse pCampaignId_ pId_ pApplicationId_ =
       result = Prelude.Nothing,
       timezonesCompletedCount = Prelude.Nothing,
       state = Prelude.Nothing,
-      timezonesTotalCount = Prelude.Nothing,
       treatmentId = Prelude.Nothing,
       scheduledStart = Prelude.Nothing,
+      timezonesTotalCount = Prelude.Nothing,
       start = Prelude.Nothing,
       totalEndpointCount = Prelude.Nothing,
       campaignId = pCampaignId_,
@@ -154,11 +154,6 @@ activityResponse_timezonesCompletedCount = Lens.lens (\ActivityResponse' {timezo
 activityResponse_state :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Text)
 activityResponse_state = Lens.lens (\ActivityResponse' {state} -> state) (\s@ActivityResponse' {} a -> s {state = a} :: ActivityResponse)
 
--- | The total number of unique time zones that are in the segment for the
--- campaign.
-activityResponse_timezonesTotalCount :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Int)
-activityResponse_timezonesTotalCount = Lens.lens (\ActivityResponse' {timezonesTotalCount} -> timezonesTotalCount) (\s@ActivityResponse' {} a -> s {timezonesTotalCount = a} :: ActivityResponse)
-
 -- | The unique identifier for the campaign treatment that the activity
 -- applies to. A treatment is a variation of a campaign that\'s used for
 -- A\/B testing of a campaign.
@@ -168,6 +163,11 @@ activityResponse_treatmentId = Lens.lens (\ActivityResponse' {treatmentId} -> tr
 -- | The scheduled start time, in ISO 8601 format, for the activity.
 activityResponse_scheduledStart :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Text)
 activityResponse_scheduledStart = Lens.lens (\ActivityResponse' {scheduledStart} -> scheduledStart) (\s@ActivityResponse' {} a -> s {scheduledStart = a} :: ActivityResponse)
+
+-- | The total number of unique time zones that are in the segment for the
+-- campaign.
+activityResponse_timezonesTotalCount :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Int)
+activityResponse_timezonesTotalCount = Lens.lens (\ActivityResponse' {timezonesTotalCount} -> timezonesTotalCount) (\s@ActivityResponse' {} a -> s {timezonesTotalCount = a} :: ActivityResponse)
 
 -- | The actual start time, in ISO 8601 format, of the activity.
 activityResponse_start :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Text)
@@ -201,9 +201,9 @@ instance Core.FromJSON ActivityResponse where
             Prelude.<*> (x Core..:? "Result")
             Prelude.<*> (x Core..:? "TimezonesCompletedCount")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "TimezonesTotalCount")
             Prelude.<*> (x Core..:? "TreatmentId")
             Prelude.<*> (x Core..:? "ScheduledStart")
+            Prelude.<*> (x Core..:? "TimezonesTotalCount")
             Prelude.<*> (x Core..:? "Start")
             Prelude.<*> (x Core..:? "TotalEndpointCount")
             Prelude.<*> (x Core..: "CampaignId")

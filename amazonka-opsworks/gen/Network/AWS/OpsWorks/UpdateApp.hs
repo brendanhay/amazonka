@@ -39,8 +39,8 @@ module Network.AWS.OpsWorks.UpdateApp
     updateApp_domains,
     updateApp_enableSsl,
     updateApp_environment,
-    updateApp_attributes,
     updateApp_name,
+    updateApp_attributes,
     updateApp_description,
     updateApp_type,
     updateApp_appId,
@@ -87,11 +87,11 @@ data UpdateApp = UpdateApp'
     -- If you have specified one or more environment variables, you cannot
     -- modify the stack\'s Chef version.
     environment :: Prelude.Maybe [EnvironmentVariable],
+    -- | The app name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | One or more user-defined key\/value pairs to be added to the stack
     -- attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text),
-    -- | The app name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A description of the app.
     description :: Prelude.Maybe Prelude.Text,
     -- | The app type.
@@ -136,10 +136,10 @@ data UpdateApp = UpdateApp'
 -- If you have specified one or more environment variables, you cannot
 -- modify the stack\'s Chef version.
 --
+-- 'name', 'updateApp_name' - The app name.
+--
 -- 'attributes', 'updateApp_attributes' - One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
---
--- 'name', 'updateApp_name' - The app name.
 --
 -- 'description', 'updateApp_description' - A description of the app.
 --
@@ -158,8 +158,8 @@ newUpdateApp pAppId_ =
       domains = Prelude.Nothing,
       enableSsl = Prelude.Nothing,
       environment = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       name = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       description = Prelude.Nothing,
       type' = Prelude.Nothing,
       appId = pAppId_
@@ -204,14 +204,14 @@ updateApp_enableSsl = Lens.lens (\UpdateApp' {enableSsl} -> enableSsl) (\s@Updat
 updateApp_environment :: Lens.Lens' UpdateApp (Prelude.Maybe [EnvironmentVariable])
 updateApp_environment = Lens.lens (\UpdateApp' {environment} -> environment) (\s@UpdateApp' {} a -> s {environment = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The app name.
+updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
+
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 updateApp_attributes :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
 updateApp_attributes = Lens.lens (\UpdateApp' {attributes} -> attributes) (\s@UpdateApp' {} a -> s {attributes = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
-
--- | The app name.
-updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
 
 -- | A description of the app.
 updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -260,8 +260,8 @@ instance Core.ToJSON UpdateApp where
             ("Domains" Core..=) Prelude.<$> domains,
             ("EnableSsl" Core..=) Prelude.<$> enableSsl,
             ("Environment" Core..=) Prelude.<$> environment,
-            ("Attributes" Core..=) Prelude.<$> attributes,
             ("Name" Core..=) Prelude.<$> name,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("Description" Core..=) Prelude.<$> description,
             ("Type" Core..=) Prelude.<$> type',
             Prelude.Just ("AppId" Core..= appId)

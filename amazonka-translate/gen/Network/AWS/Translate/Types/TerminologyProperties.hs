@@ -30,14 +30,14 @@ import Network.AWS.Translate.Types.EncryptionKey
 data TerminologyProperties = TerminologyProperties'
   { -- | The encryption key for the custom terminology.
     encryptionKey :: Prelude.Maybe EncryptionKey,
+    -- | The time at which the custom terminology was created, based on the
+    -- timestamp.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the custom terminology.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The language codes for the target languages available with the custom
     -- terminology file. All possible target languages are returned in array.
     targetLanguageCodes :: Prelude.Maybe [Prelude.Text],
-    -- | The time at which the custom terminology was created, based on the
-    -- timestamp.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the custom terminology.
     name :: Prelude.Maybe Prelude.Text,
     -- | The size of the file used when importing a custom terminology.
@@ -65,13 +65,13 @@ data TerminologyProperties = TerminologyProperties'
 --
 -- 'encryptionKey', 'terminologyProperties_encryptionKey' - The encryption key for the custom terminology.
 --
+-- 'createdAt', 'terminologyProperties_createdAt' - The time at which the custom terminology was created, based on the
+-- timestamp.
+--
 -- 'arn', 'terminologyProperties_arn' - The Amazon Resource Name (ARN) of the custom terminology.
 --
 -- 'targetLanguageCodes', 'terminologyProperties_targetLanguageCodes' - The language codes for the target languages available with the custom
 -- terminology file. All possible target languages are returned in array.
---
--- 'createdAt', 'terminologyProperties_createdAt' - The time at which the custom terminology was created, based on the
--- timestamp.
 --
 -- 'name', 'terminologyProperties_name' - The name of the custom terminology.
 --
@@ -92,9 +92,9 @@ newTerminologyProperties =
   TerminologyProperties'
     { encryptionKey =
         Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
       targetLanguageCodes = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       name = Prelude.Nothing,
       sizeBytes = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -107,6 +107,11 @@ newTerminologyProperties =
 terminologyProperties_encryptionKey :: Lens.Lens' TerminologyProperties (Prelude.Maybe EncryptionKey)
 terminologyProperties_encryptionKey = Lens.lens (\TerminologyProperties' {encryptionKey} -> encryptionKey) (\s@TerminologyProperties' {} a -> s {encryptionKey = a} :: TerminologyProperties)
 
+-- | The time at which the custom terminology was created, based on the
+-- timestamp.
+terminologyProperties_createdAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
+terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Resource Name (ARN) of the custom terminology.
 terminologyProperties_arn :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
 terminologyProperties_arn = Lens.lens (\TerminologyProperties' {arn} -> arn) (\s@TerminologyProperties' {} a -> s {arn = a} :: TerminologyProperties)
@@ -115,11 +120,6 @@ terminologyProperties_arn = Lens.lens (\TerminologyProperties' {arn} -> arn) (\s
 -- terminology file. All possible target languages are returned in array.
 terminologyProperties_targetLanguageCodes :: Lens.Lens' TerminologyProperties (Prelude.Maybe [Prelude.Text])
 terminologyProperties_targetLanguageCodes = Lens.lens (\TerminologyProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@TerminologyProperties' {} a -> s {targetLanguageCodes = a} :: TerminologyProperties) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time at which the custom terminology was created, based on the
--- timestamp.
-terminologyProperties_createdAt :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.UTCTime)
-terminologyProperties_createdAt = Lens.lens (\TerminologyProperties' {createdAt} -> createdAt) (\s@TerminologyProperties' {} a -> s {createdAt = a} :: TerminologyProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the custom terminology.
 terminologyProperties_name :: Lens.Lens' TerminologyProperties (Prelude.Maybe Prelude.Text)
@@ -154,11 +154,11 @@ instance Core.FromJSON TerminologyProperties where
       ( \x ->
           TerminologyProperties'
             Prelude.<$> (x Core..:? "EncryptionKey")
+            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> ( x Core..:? "TargetLanguageCodes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "SizeBytes")
             Prelude.<*> (x Core..:? "Description")

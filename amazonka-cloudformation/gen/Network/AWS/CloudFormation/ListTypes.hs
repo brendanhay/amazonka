@@ -22,6 +22,8 @@
 --
 -- Returns summary information about extension that have been registered
 -- with CloudFormation.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListTypes
   ( -- * Creating a Request
     ListTypes (..),
@@ -33,6 +35,7 @@ module Network.AWS.CloudFormation.ListTypes
     listTypes_deprecatedStatus,
     listTypes_provisioningType,
     listTypes_visibility,
+    listTypes_filters,
     listTypes_type,
 
     -- * Destructuring the Response
@@ -78,36 +81,50 @@ data ListTypes = ListTypes'
     -- -   @DEPRECATED@: The extension has been deregistered and can no longer
     --     be used in CloudFormation operations.
     deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
-    -- | The provisioning behavior of the type. AWS CloudFormation determines the
-    -- provisioning type during registration, based on the types of handlers in
-    -- the schema handler package submitted.
+    -- | For resource types, the provisioning behavior of the resource type.
+    -- CloudFormation determines the provisioning type during registration,
+    -- based on the types of handlers in the schema handler package submitted.
     --
     -- Valid values include:
     --
-    -- -   @FULLY_MUTABLE@: The extension includes an update handler to process
-    --     updates to the extension during stack update operations.
+    -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
+    --     process updates to the type during stack update operations.
     --
-    -- -   @IMMUTABLE@: The extension does not include an update handler, so
-    --     the extension cannot be updated and must instead be replaced during
+    -- -   @IMMUTABLE@: The resource type does not include an update handler,
+    --     so the type cannot be updated and must instead be replaced during
     --     stack update operations.
     --
-    -- -   @NON_PROVISIONABLE@: The extension does not include create, read,
-    --     and delete handlers, and therefore cannot actually be provisioned.
+    -- -   @NON_PROVISIONABLE@: The resource type does not include create,
+    --     read, and delete handlers, and therefore cannot actually be
+    --     provisioned.
+    --
+    -- The default is @FULLY_MUTABLE@.
     provisioningType :: Prelude.Maybe ProvisioningType,
-    -- | The scope at which the extension is visible and usable in CloudFormation
-    -- operations.
+    -- | The scope at which the extensions are visible and usable in
+    -- CloudFormation operations.
     --
     -- Valid values include:
     --
-    -- -   @PRIVATE@: The extension is only visible and usable within the
-    --     account in which it is registered. Currently, AWS CloudFormation
-    --     marks any extension you create as @PRIVATE@.
+    -- -   @PRIVATE@: Extensions that are visible and usable within this
+    --     account and region. This includes:
     --
-    -- -   @PUBLIC@: The extension is publically visible and usable within any
-    --     Amazon account.
+    --     -   Private extensions you have registered in this account and
+    --         region.
+    --
+    --     -   Public extensions that you have activated in this account and
+    --         region.
+    --
+    -- -   @PUBLIC@: Extensions that are publicly visible and available to be
+    --     activated within any Amazon account. This includes extensions from
+    --     Amazon, as well as third-party publishers.
     --
     -- The default is @PRIVATE@.
     visibility :: Prelude.Maybe Visibility,
+    -- | Filter criteria to use in determining which extensions to return.
+    --
+    -- If you specify a filter, CloudFormation ignores any specified
+    -- @Visibility@ value when returning the list of types.
+    filters :: Prelude.Maybe TypeFilters,
     -- | The type of extension.
     type' :: Prelude.Maybe RegistryType
   }
@@ -144,35 +161,49 @@ data ListTypes = ListTypes'
 -- -   @DEPRECATED@: The extension has been deregistered and can no longer
 --     be used in CloudFormation operations.
 --
--- 'provisioningType', 'listTypes_provisioningType' - The provisioning behavior of the type. AWS CloudFormation determines the
--- provisioning type during registration, based on the types of handlers in
--- the schema handler package submitted.
+-- 'provisioningType', 'listTypes_provisioningType' - For resource types, the provisioning behavior of the resource type.
+-- CloudFormation determines the provisioning type during registration,
+-- based on the types of handlers in the schema handler package submitted.
 --
 -- Valid values include:
 --
--- -   @FULLY_MUTABLE@: The extension includes an update handler to process
---     updates to the extension during stack update operations.
+-- -   @FULLY_MUTABLE@: The resource type includes an update handler to
+--     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The extension does not include an update handler, so
---     the extension cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type does not include an update handler,
+--     so the type cannot be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The extension does not include create, read,
---     and delete handlers, and therefore cannot actually be provisioned.
+-- -   @NON_PROVISIONABLE@: The resource type does not include create,
+--     read, and delete handlers, and therefore cannot actually be
+--     provisioned.
 --
--- 'visibility', 'listTypes_visibility' - The scope at which the extension is visible and usable in CloudFormation
--- operations.
+-- The default is @FULLY_MUTABLE@.
+--
+-- 'visibility', 'listTypes_visibility' - The scope at which the extensions are visible and usable in
+-- CloudFormation operations.
 --
 -- Valid values include:
 --
--- -   @PRIVATE@: The extension is only visible and usable within the
---     account in which it is registered. Currently, AWS CloudFormation
---     marks any extension you create as @PRIVATE@.
+-- -   @PRIVATE@: Extensions that are visible and usable within this
+--     account and region. This includes:
 --
--- -   @PUBLIC@: The extension is publically visible and usable within any
---     Amazon account.
+--     -   Private extensions you have registered in this account and
+--         region.
+--
+--     -   Public extensions that you have activated in this account and
+--         region.
+--
+-- -   @PUBLIC@: Extensions that are publicly visible and available to be
+--     activated within any Amazon account. This includes extensions from
+--     Amazon, as well as third-party publishers.
 --
 -- The default is @PRIVATE@.
+--
+-- 'filters', 'listTypes_filters' - Filter criteria to use in determining which extensions to return.
+--
+-- If you specify a filter, CloudFormation ignores any specified
+-- @Visibility@ value when returning the list of types.
 --
 -- 'type'', 'listTypes_type' - The type of extension.
 newListTypes ::
@@ -184,6 +215,7 @@ newListTypes =
       deprecatedStatus = Prelude.Nothing,
       provisioningType = Prelude.Nothing,
       visibility = Prelude.Nothing,
+      filters = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -216,43 +248,78 @@ listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@Li
 listTypes_deprecatedStatus :: Lens.Lens' ListTypes (Prelude.Maybe DeprecatedStatus)
 listTypes_deprecatedStatus = Lens.lens (\ListTypes' {deprecatedStatus} -> deprecatedStatus) (\s@ListTypes' {} a -> s {deprecatedStatus = a} :: ListTypes)
 
--- | The provisioning behavior of the type. AWS CloudFormation determines the
--- provisioning type during registration, based on the types of handlers in
--- the schema handler package submitted.
+-- | For resource types, the provisioning behavior of the resource type.
+-- CloudFormation determines the provisioning type during registration,
+-- based on the types of handlers in the schema handler package submitted.
 --
 -- Valid values include:
 --
--- -   @FULLY_MUTABLE@: The extension includes an update handler to process
---     updates to the extension during stack update operations.
+-- -   @FULLY_MUTABLE@: The resource type includes an update handler to
+--     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The extension does not include an update handler, so
---     the extension cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type does not include an update handler,
+--     so the type cannot be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The extension does not include create, read,
---     and delete handlers, and therefore cannot actually be provisioned.
+-- -   @NON_PROVISIONABLE@: The resource type does not include create,
+--     read, and delete handlers, and therefore cannot actually be
+--     provisioned.
+--
+-- The default is @FULLY_MUTABLE@.
 listTypes_provisioningType :: Lens.Lens' ListTypes (Prelude.Maybe ProvisioningType)
 listTypes_provisioningType = Lens.lens (\ListTypes' {provisioningType} -> provisioningType) (\s@ListTypes' {} a -> s {provisioningType = a} :: ListTypes)
 
--- | The scope at which the extension is visible and usable in CloudFormation
--- operations.
+-- | The scope at which the extensions are visible and usable in
+-- CloudFormation operations.
 --
 -- Valid values include:
 --
--- -   @PRIVATE@: The extension is only visible and usable within the
---     account in which it is registered. Currently, AWS CloudFormation
---     marks any extension you create as @PRIVATE@.
+-- -   @PRIVATE@: Extensions that are visible and usable within this
+--     account and region. This includes:
 --
--- -   @PUBLIC@: The extension is publically visible and usable within any
---     Amazon account.
+--     -   Private extensions you have registered in this account and
+--         region.
+--
+--     -   Public extensions that you have activated in this account and
+--         region.
+--
+-- -   @PUBLIC@: Extensions that are publicly visible and available to be
+--     activated within any Amazon account. This includes extensions from
+--     Amazon, as well as third-party publishers.
 --
 -- The default is @PRIVATE@.
 listTypes_visibility :: Lens.Lens' ListTypes (Prelude.Maybe Visibility)
 listTypes_visibility = Lens.lens (\ListTypes' {visibility} -> visibility) (\s@ListTypes' {} a -> s {visibility = a} :: ListTypes)
 
+-- | Filter criteria to use in determining which extensions to return.
+--
+-- If you specify a filter, CloudFormation ignores any specified
+-- @Visibility@ value when returning the list of types.
+listTypes_filters :: Lens.Lens' ListTypes (Prelude.Maybe TypeFilters)
+listTypes_filters = Lens.lens (\ListTypes' {filters} -> filters) (\s@ListTypes' {} a -> s {filters = a} :: ListTypes)
+
 -- | The type of extension.
 listTypes_type :: Lens.Lens' ListTypes (Prelude.Maybe RegistryType)
 listTypes_type = Lens.lens (\ListTypes' {type'} -> type') (\s@ListTypes' {} a -> s {type' = a} :: ListTypes)
+
+instance Core.AWSPager ListTypes where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listTypesResponse_typeSummaries Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listTypes_nextToken
+          Lens..~ rs
+          Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTypes where
   type AWSResponse ListTypes = ListTypesResponse
@@ -291,6 +358,7 @@ instance Core.ToQuery ListTypes where
         "DeprecatedStatus" Core.=: deprecatedStatus,
         "ProvisioningType" Core.=: provisioningType,
         "Visibility" Core.=: visibility,
+        "Filters" Core.=: filters,
         "Type" Core.=: type'
       ]
 

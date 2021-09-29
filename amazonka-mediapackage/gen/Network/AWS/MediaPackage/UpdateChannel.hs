@@ -36,9 +36,9 @@ module Network.AWS.MediaPackage.UpdateChannel
 
     -- * Response Lenses
     updateChannelResponse_egressAccessLogs,
-    updateChannelResponse_hlsIngest,
     updateChannelResponse_arn,
     updateChannelResponse_id,
+    updateChannelResponse_hlsIngest,
     updateChannelResponse_ingressAccessLogs,
     updateChannelResponse_tags,
     updateChannelResponse_description,
@@ -103,9 +103,9 @@ instance Core.AWSRequest UpdateChannel where
       ( \s h x ->
           UpdateChannelResponse'
             Prelude.<$> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "description")
@@ -144,11 +144,11 @@ instance Core.ToQuery UpdateChannel where
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
   { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
     id :: Prelude.Maybe Prelude.Text,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
@@ -168,11 +168,11 @@ data UpdateChannelResponse = UpdateChannelResponse'
 --
 -- 'egressAccessLogs', 'updateChannelResponse_egressAccessLogs' - Undocumented member.
 --
--- 'hlsIngest', 'updateChannelResponse_hlsIngest' - Undocumented member.
---
 -- 'arn', 'updateChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
 -- 'id', 'updateChannelResponse_id' - The ID of the Channel.
+--
+-- 'hlsIngest', 'updateChannelResponse_hlsIngest' - Undocumented member.
 --
 -- 'ingressAccessLogs', 'updateChannelResponse_ingressAccessLogs' - Undocumented member.
 --
@@ -189,9 +189,9 @@ newUpdateChannelResponse pHttpStatus_ =
   UpdateChannelResponse'
     { egressAccessLogs =
         Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       ingressAccessLogs = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -202,10 +202,6 @@ newUpdateChannelResponse pHttpStatus_ =
 updateChannelResponse_egressAccessLogs :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe EgressAccessLogs)
 updateChannelResponse_egressAccessLogs = Lens.lens (\UpdateChannelResponse' {egressAccessLogs} -> egressAccessLogs) (\s@UpdateChannelResponse' {} a -> s {egressAccessLogs = a} :: UpdateChannelResponse)
 
--- | Undocumented member.
-updateChannelResponse_hlsIngest :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe HlsIngest)
-updateChannelResponse_hlsIngest = Lens.lens (\UpdateChannelResponse' {hlsIngest} -> hlsIngest) (\s@UpdateChannelResponse' {} a -> s {hlsIngest = a} :: UpdateChannelResponse)
-
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s@UpdateChannelResponse' {} a -> s {arn = a} :: UpdateChannelResponse)
@@ -213,6 +209,10 @@ updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s
 -- | The ID of the Channel.
 updateChannelResponse_id :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_id = Lens.lens (\UpdateChannelResponse' {id} -> id) (\s@UpdateChannelResponse' {} a -> s {id = a} :: UpdateChannelResponse)
+
+-- | Undocumented member.
+updateChannelResponse_hlsIngest :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe HlsIngest)
+updateChannelResponse_hlsIngest = Lens.lens (\UpdateChannelResponse' {hlsIngest} -> hlsIngest) (\s@UpdateChannelResponse' {} a -> s {hlsIngest = a} :: UpdateChannelResponse)
 
 -- | Undocumented member.
 updateChannelResponse_ingressAccessLogs :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe IngressAccessLogs)

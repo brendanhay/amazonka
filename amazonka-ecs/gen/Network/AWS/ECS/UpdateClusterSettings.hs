@@ -143,7 +143,8 @@ instance Core.ToQuery UpdateClusterSettings where
 
 -- | /See:/ 'newUpdateClusterSettingsResponse' smart constructor.
 data UpdateClusterSettingsResponse = UpdateClusterSettingsResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { -- | Details about the cluster
+    cluster :: Prelude.Maybe Cluster,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,7 +158,7 @@ data UpdateClusterSettingsResponse = UpdateClusterSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cluster', 'updateClusterSettingsResponse_cluster' - Undocumented member.
+-- 'cluster', 'updateClusterSettingsResponse_cluster' - Details about the cluster
 --
 -- 'httpStatus', 'updateClusterSettingsResponse_httpStatus' - The response's http status code.
 newUpdateClusterSettingsResponse ::
@@ -171,7 +172,7 @@ newUpdateClusterSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the cluster
 updateClusterSettingsResponse_cluster :: Lens.Lens' UpdateClusterSettingsResponse (Prelude.Maybe Cluster)
 updateClusterSettingsResponse_cluster = Lens.lens (\UpdateClusterSettingsResponse' {cluster} -> cluster) (\s@UpdateClusterSettingsResponse' {} a -> s {cluster = a} :: UpdateClusterSettingsResponse)
 

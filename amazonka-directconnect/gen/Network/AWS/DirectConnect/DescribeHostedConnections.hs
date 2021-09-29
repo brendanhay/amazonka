@@ -23,7 +23,7 @@
 -- Lists the hosted connections that have been provisioned on the specified
 -- interconnect or link aggregation group (LAG).
 --
--- Intended for use by AWS Direct Connect Partners only.
+-- Intended for use by Direct Connect Partners only.
 module Network.AWS.DirectConnect.DescribeHostedConnections
   ( -- * Creating a Request
     DescribeHostedConnections (..),

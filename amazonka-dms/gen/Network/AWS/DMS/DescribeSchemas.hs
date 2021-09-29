@@ -29,8 +29,8 @@ module Network.AWS.DMS.DescribeSchemas
     newDescribeSchemas,
 
     -- * Request Lenses
-    describeSchemas_marker,
     describeSchemas_maxRecords,
+    describeSchemas_marker,
     describeSchemas_endpointArn,
 
     -- * Destructuring the Response
@@ -55,11 +55,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
+  { -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
@@ -68,6 +64,10 @@ data DescribeSchemas = DescribeSchemas'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) string that uniquely identifies the
     -- endpoint.
     endpointArn :: Prelude.Text
@@ -82,10 +82,6 @@ data DescribeSchemas = DescribeSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeSchemas_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeSchemas_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -95,6 +91,10 @@ data DescribeSchemas = DescribeSchemas'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
+-- 'marker', 'describeSchemas_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'endpointArn', 'describeSchemas_endpointArn' - The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
 newDescribeSchemas ::
@@ -103,16 +103,10 @@ newDescribeSchemas ::
   DescribeSchemas
 newDescribeSchemas pEndpointArn_ =
   DescribeSchemas'
-    { marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+    { maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       endpointArn = pEndpointArn_
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeSchemas_marker :: Lens.Lens' DescribeSchemas (Prelude.Maybe Prelude.Text)
-describeSchemas_marker = Lens.lens (\DescribeSchemas' {marker} -> marker) (\s@DescribeSchemas' {} a -> s {marker = a} :: DescribeSchemas)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -124,6 +118,12 @@ describeSchemas_marker = Lens.lens (\DescribeSchemas' {marker} -> marker) (\s@De
 -- Constraints: Minimum 20, maximum 100.
 describeSchemas_maxRecords :: Lens.Lens' DescribeSchemas (Prelude.Maybe Prelude.Int)
 describeSchemas_maxRecords = Lens.lens (\DescribeSchemas' {maxRecords} -> maxRecords) (\s@DescribeSchemas' {} a -> s {maxRecords = a} :: DescribeSchemas)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeSchemas_marker :: Lens.Lens' DescribeSchemas (Prelude.Maybe Prelude.Text)
+describeSchemas_marker = Lens.lens (\DescribeSchemas' {marker} -> marker) (\s@DescribeSchemas' {} a -> s {marker = a} :: DescribeSchemas)
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
@@ -186,8 +186,8 @@ instance Core.ToJSON DescribeSchemas where
   toJSON DescribeSchemas' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+          [ ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker,
             Prelude.Just ("EndpointArn" Core..= endpointArn)
           ]
       )

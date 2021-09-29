@@ -20,17 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports key material into an existing symmetric AWS KMS customer master
--- key (CMK) that was created without key material. After you successfully
--- import key material into a CMK, you can
+-- Imports key material into an existing symmetric KMS KMS key that was
+-- created without key material. After you successfully import key material
+-- into a KMS key, you can
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material reimport the same key material>
--- into that CMK, but you cannot import different key material.
+-- into that KMS key, but you cannot import different key material.
 --
--- You cannot perform this operation on an asymmetric CMK or on any CMK in
--- a different AWS account. For more information about creating CMKs with
--- no key material and then importing key material, see
+-- You cannot perform this operation on an asymmetric KMS key or on any KMS
+-- key in a different Amazon Web Services account. For more information
+-- about creating KMS keys with no key material and then importing key
+-- material, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- Before using this operation, call GetParametersForImport. Its response
 -- includes a public key and an import token. Use the public key to encrypt
@@ -39,12 +40,12 @@
 --
 -- When calling this operation, you must specify the following values:
 --
--- -   The key ID or key ARN of a CMK with no key material. Its @Origin@
---     must be @EXTERNAL@.
+-- -   The key ID or key ARN of a KMS key with no key material. Its
+--     @Origin@ must be @EXTERNAL@.
 --
---     To create a CMK with no key material, call CreateKey and set the
+--     To create a KMS key with no key material, call CreateKey and set the
 --     value of its @Origin@ parameter to @EXTERNAL@. To get the @Origin@
---     of a CMK, call DescribeKey.)
+--     of a KMS key, call DescribeKey.)
 --
 -- -   The encrypted key material. To get the public key to encrypt the key
 --     material, call GetParametersForImport.
@@ -54,29 +55,30 @@
 --     response.
 --
 -- -   Whether the key material expires and if so, when. If you set an
---     expiration date, AWS KMS deletes the key material from the CMK on
---     the specified date, and the CMK becomes unusable. To use the CMK
---     again, you must reimport the same key material. The only way to
+--     expiration date, KMS deletes the key material from the KMS key on
+--     the specified date, and the KMS key becomes unusable. To use the KMS
+--     key again, you must reimport the same key material. The only way to
 --     change an expiration date is by reimporting the same key material
 --     and specifying a new expiration date.
 --
--- When this operation is successful, the key state of the CMK changes from
--- @PendingImport@ to @Enabled@, and you can use the CMK.
+-- When this operation is successful, the key state of the KMS key changes
+-- from @PendingImport@ to @Enabled@, and you can use the KMS key.
 --
 -- If this operation fails, use the exception to help determine the
 -- problem. If the error is related to the key material, the import token,
 -- or wrapping key, use GetParametersForImport to get a new public key and
--- import token for the CMK and repeat the import procedure. For help, see
+-- import token for the KMS key and repeat the import procedure. For help,
+-- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#importing-keys-overview How To Import Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ImportKeyMaterial>
@@ -118,7 +120,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newImportKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
   { -- | The time at which the imported key material expires. When the key
-    -- material expires, AWS KMS deletes the key material and the CMK becomes
+    -- material expires, KMS deletes the key material and the KMS key becomes
     -- unusable. You must omit this parameter when the @ExpirationModel@
     -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
     -- required.
@@ -128,12 +130,12 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
     -- you must omit the @ValidTo@ parameter.
     expirationModel :: Prelude.Maybe ExpirationModelType,
-    -- | The identifier of the symmetric CMK that receives the imported key
-    -- material. The CMK\'s @Origin@ must be @EXTERNAL@. This must be the same
-    -- CMK specified in the @KeyID@ parameter of the corresponding
+    -- | The identifier of the symmetric KMS key that receives the imported key
+    -- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
+    -- same KMS key specified in the @KeyID@ parameter of the corresponding
     -- GetParametersForImport request.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -142,7 +144,8 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
     -- | The import token that you received in the response to a previous
     -- GetParametersForImport request. It must be from the same response that
@@ -165,7 +168,7 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- for backwards compatibility:
 --
 -- 'validTo', 'importKeyMaterial_validTo' - The time at which the imported key material expires. When the key
--- material expires, AWS KMS deletes the key material and the CMK becomes
+-- material expires, KMS deletes the key material and the KMS key becomes
 -- unusable. You must omit this parameter when the @ExpirationModel@
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
@@ -175,12 +178,12 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
 -- you must omit the @ValidTo@ parameter.
 --
--- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric CMK that receives the imported key
--- material. The CMK\'s @Origin@ must be @EXTERNAL@. This must be the same
--- CMK specified in the @KeyID@ parameter of the corresponding
+-- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric KMS key that receives the imported key
+-- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
+-- same KMS key specified in the @KeyID@ parameter of the corresponding
 -- GetParametersForImport request.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -189,7 +192,8 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
 -- 'importToken', 'importKeyMaterial_importToken' - The import token that you received in the response to a previous
 -- GetParametersForImport request. It must be from the same response that
@@ -229,7 +233,7 @@ newImportKeyMaterial
       }
 
 -- | The time at which the imported key material expires. When the key
--- material expires, AWS KMS deletes the key material and the CMK becomes
+-- material expires, KMS deletes the key material and the KMS key becomes
 -- unusable. You must omit this parameter when the @ExpirationModel@
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
@@ -243,12 +247,12 @@ importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo)
 importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe ExpirationModelType)
 importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationModel} -> expirationModel) (\s@ImportKeyMaterial' {} a -> s {expirationModel = a} :: ImportKeyMaterial)
 
--- | The identifier of the symmetric CMK that receives the imported key
--- material. The CMK\'s @Origin@ must be @EXTERNAL@. This must be the same
--- CMK specified in the @KeyID@ parameter of the corresponding
+-- | The identifier of the symmetric KMS key that receives the imported key
+-- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
+-- same KMS key specified in the @KeyID@ parameter of the corresponding
 -- GetParametersForImport request.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -257,7 +261,8 @@ importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationMo
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 importKeyMaterial_keyId :: Lens.Lens' ImportKeyMaterial Prelude.Text
 importKeyMaterial_keyId = Lens.lens (\ImportKeyMaterial' {keyId} -> keyId) (\s@ImportKeyMaterial' {} a -> s {keyId = a} :: ImportKeyMaterial)
 

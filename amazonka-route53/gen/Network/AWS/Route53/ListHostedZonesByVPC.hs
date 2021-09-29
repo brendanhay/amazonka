@@ -21,19 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all the private hosted zones that a specified VPC is associated
--- with, regardless of which AWS account or AWS service owns the hosted
--- zones. The @HostedZoneOwner@ structure in the response contains one of
--- the following values:
+-- with, regardless of which Amazon Web Services account or Amazon Web
+-- Services service owns the hosted zones. The @HostedZoneOwner@ structure
+-- in the response contains one of the following values:
 --
 -- -   An @OwningAccount@ element, which contains the account number of
---     either the current AWS account or another AWS account. Some
---     services, such as AWS Cloud Map, create hosted zones using the
---     current account.
+--     either the current Amazon Web Services account or another Amazon Web
+--     Services account. Some services, such as Cloud Map, create hosted
+--     zones using the current account.
 --
--- -   An @OwningService@ element, which identifies the AWS service that
---     created and owns the hosted zone. For example, if a hosted zone was
---     created by Amazon Elastic File System (Amazon EFS), the value of
---     @Owner@ is @efs.amazonaws.com@.
+-- -   An @OwningService@ element, which identifies the Amazon Web Services
+--     service that created and owns the hosted zone. For example, if a
+--     hosted zone was created by Amazon Elastic File System (Amazon EFS),
+--     the value of @Owner@ is @efs.amazonaws.com@.
 module Network.AWS.Route53.ListHostedZonesByVPC
   ( -- * Creating a Request
     ListHostedZonesByVPC (..),
@@ -65,7 +65,8 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | Lists all the private hosted zones that a specified VPC is associated
--- with, regardless of which AWS account created the hosted zones.
+-- with, regardless of which Amazon Web Services account created the hosted
+-- zones.
 --
 -- /See:/ 'newListHostedZonesByVPC' smart constructor.
 data ListHostedZonesByVPC = ListHostedZonesByVPC'
@@ -87,8 +88,8 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
     maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon VPC that you want to list hosted zones for.
     vPCId :: Prelude.Text,
-    -- | For the Amazon VPC that you specified for @VPCId@, the AWS Region that
-    -- you created the VPC in.
+    -- | For the Amazon VPC that you specified for @VPCId@, the Amazon Web
+    -- Services Region that you created the VPC in.
     vPCRegion :: VPCRegion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,8 +120,8 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
 --
 -- 'vPCId', 'listHostedZonesByVPC_vPCId' - The ID of the Amazon VPC that you want to list hosted zones for.
 --
--- 'vPCRegion', 'listHostedZonesByVPC_vPCRegion' - For the Amazon VPC that you specified for @VPCId@, the AWS Region that
--- you created the VPC in.
+-- 'vPCRegion', 'listHostedZonesByVPC_vPCRegion' - For the Amazon VPC that you specified for @VPCId@, the Amazon Web
+-- Services Region that you created the VPC in.
 newListHostedZonesByVPC ::
   -- | 'vPCId'
   Prelude.Text ->
@@ -159,8 +160,8 @@ listHostedZonesByVPC_maxItems = Lens.lens (\ListHostedZonesByVPC' {maxItems} -> 
 listHostedZonesByVPC_vPCId :: Lens.Lens' ListHostedZonesByVPC Prelude.Text
 listHostedZonesByVPC_vPCId = Lens.lens (\ListHostedZonesByVPC' {vPCId} -> vPCId) (\s@ListHostedZonesByVPC' {} a -> s {vPCId = a} :: ListHostedZonesByVPC)
 
--- | For the Amazon VPC that you specified for @VPCId@, the AWS Region that
--- you created the VPC in.
+-- | For the Amazon VPC that you specified for @VPCId@, the Amazon Web
+-- Services Region that you created the VPC in.
 listHostedZonesByVPC_vPCRegion :: Lens.Lens' ListHostedZonesByVPC VPCRegion
 listHostedZonesByVPC_vPCRegion = Lens.lens (\ListHostedZonesByVPC' {vPCRegion} -> vPCRegion) (\s@ListHostedZonesByVPC' {} a -> s {vPCRegion = a} :: ListHostedZonesByVPC)
 
@@ -203,7 +204,7 @@ instance Core.ToQuery ListHostedZonesByVPC where
 
 -- | /See:/ 'newListHostedZonesByVPCResponse' smart constructor.
 data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
-  { -- | The value that you specified for @NextToken@ in the most recent
+  { -- | The value that you will use for @NextToken@ in the next
     -- @ListHostedZonesByVPC@ request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -227,7 +228,7 @@ data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listHostedZonesByVPCResponse_nextToken' - The value that you specified for @NextToken@ in the most recent
+-- 'nextToken', 'listHostedZonesByVPCResponse_nextToken' - The value that you will use for @NextToken@ in the next
 -- @ListHostedZonesByVPC@ request.
 --
 -- 'httpStatus', 'listHostedZonesByVPCResponse_httpStatus' - The response's http status code.
@@ -256,7 +257,7 @@ newListHostedZonesByVPCResponse
         maxItems = pMaxItems_
       }
 
--- | The value that you specified for @NextToken@ in the most recent
+-- | The value that you will use for @NextToken@ in the next
 -- @ListHostedZonesByVPC@ request.
 listHostedZonesByVPCResponse_nextToken :: Lens.Lens' ListHostedZonesByVPCResponse (Prelude.Maybe Prelude.Text)
 listHostedZonesByVPCResponse_nextToken = Lens.lens (\ListHostedZonesByVPCResponse' {nextToken} -> nextToken) (\s@ListHostedZonesByVPCResponse' {} a -> s {nextToken = a} :: ListHostedZonesByVPCResponse)

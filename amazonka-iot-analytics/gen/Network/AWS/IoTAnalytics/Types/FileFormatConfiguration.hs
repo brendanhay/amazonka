@@ -25,9 +25,8 @@ import Network.AWS.IoTAnalytics.Types.ParquetConfiguration
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains the configuration information of file formats. AWS IoT
--- Analytics data stores support JSON and
--- <https://parquet.apache.org/ Parquet>.
+-- | Contains the configuration information of file formats. IoT Analytics
+-- data stores support JSON and <https://parquet.apache.org/ Parquet>.
 --
 -- The default file format is JSON. You can specify only one format.
 --

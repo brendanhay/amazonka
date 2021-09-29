@@ -21,13 +21,16 @@ module Network.AWS.MediaLive.Types.TeletextSourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.CaptionRectangle
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Teletext Source Settings
 --
 -- /See:/ 'newTeletextSourceSettings' smart constructor.
 data TeletextSourceSettings = TeletextSourceSettings'
-  { -- | Specifies the teletext page number within the data stream from which to
+  { -- | Optionally defines a region where TTML style captions will be displayed
+    outputRectangle :: Prelude.Maybe CaptionRectangle,
+    -- | Specifies the teletext page number within the data stream from which to
     -- extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for
     -- passthrough. Should be specified as a hexadecimal string with no \"0x\"
     -- prefix.
@@ -43,6 +46,8 @@ data TeletextSourceSettings = TeletextSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputRectangle', 'teletextSourceSettings_outputRectangle' - Optionally defines a region where TTML style captions will be displayed
+--
 -- 'pageNumber', 'teletextSourceSettings_pageNumber' - Specifies the teletext page number within the data stream from which to
 -- extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for
 -- passthrough. Should be specified as a hexadecimal string with no \"0x\"
@@ -51,9 +56,14 @@ newTeletextSourceSettings ::
   TeletextSourceSettings
 newTeletextSourceSettings =
   TeletextSourceSettings'
-    { pageNumber =
-        Prelude.Nothing
+    { outputRectangle =
+        Prelude.Nothing,
+      pageNumber = Prelude.Nothing
     }
+
+-- | Optionally defines a region where TTML style captions will be displayed
+teletextSourceSettings_outputRectangle :: Lens.Lens' TeletextSourceSettings (Prelude.Maybe CaptionRectangle)
+teletextSourceSettings_outputRectangle = Lens.lens (\TeletextSourceSettings' {outputRectangle} -> outputRectangle) (\s@TeletextSourceSettings' {} a -> s {outputRectangle = a} :: TeletextSourceSettings)
 
 -- | Specifies the teletext page number within the data stream from which to
 -- extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for
@@ -68,7 +78,8 @@ instance Core.FromJSON TeletextSourceSettings where
       "TeletextSourceSettings"
       ( \x ->
           TeletextSourceSettings'
-            Prelude.<$> (x Core..:? "pageNumber")
+            Prelude.<$> (x Core..:? "outputRectangle")
+            Prelude.<*> (x Core..:? "pageNumber")
       )
 
 instance Prelude.Hashable TeletextSourceSettings
@@ -79,5 +90,8 @@ instance Core.ToJSON TeletextSourceSettings where
   toJSON TeletextSourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("pageNumber" Core..=) Prelude.<$> pageNumber]
+          [ ("outputRectangle" Core..=)
+              Prelude.<$> outputRectangle,
+            ("pageNumber" Core..=) Prelude.<$> pageNumber
+          ]
       )

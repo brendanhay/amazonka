@@ -33,8 +33,7 @@
 --
 -- -   Change the Dedicated Host with which an instance is associated.
 --
--- -   Change the instance tenancy of an instance from @host@ to
---     @dedicated@, or from @dedicated@ to @host@.
+-- -   Change the instance tenancy of an instance.
 --
 -- -   Move an instance to or from a
 --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html placement group>.
@@ -87,6 +86,10 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
     -- (\"\").
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The tenancy for the instance.
+    --
+    -- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+    -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+    -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
     tenancy :: Prelude.Maybe HostTenancy,
     -- | The affinity setting for the instance.
     affinity :: Prelude.Maybe Affinity,
@@ -118,6 +121,10 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- (\"\").
 --
 -- 'tenancy', 'modifyInstancePlacement_tenancy' - The tenancy for the instance.
+--
+-- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+-- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+-- unsupported tenancy changes results in the @InvalidTenancy@ error code.
 --
 -- 'affinity', 'modifyInstancePlacement_affinity' - The affinity setting for the instance.
 --
@@ -155,6 +162,10 @@ modifyInstancePlacement_groupName :: Lens.Lens' ModifyInstancePlacement (Prelude
 modifyInstancePlacement_groupName = Lens.lens (\ModifyInstancePlacement' {groupName} -> groupName) (\s@ModifyInstancePlacement' {} a -> s {groupName = a} :: ModifyInstancePlacement)
 
 -- | The tenancy for the instance.
+--
+-- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+-- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+-- unsupported tenancy changes results in the @InvalidTenancy@ error code.
 modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
 modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
 

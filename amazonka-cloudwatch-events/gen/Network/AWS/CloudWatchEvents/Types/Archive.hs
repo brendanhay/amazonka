@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Archive = Archive'
   { -- | The number of events in the archive.
     eventCount :: Prelude.Maybe Prelude.Integer,
+    -- | The time stamp for the time that the archive was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the event bus associated with the archive. Only events from
     -- this event bus are sent to the archive.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp for the time that the archive was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
     -- | A description for the reason that the archive is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the archive.
@@ -59,10 +59,10 @@ data Archive = Archive'
 --
 -- 'eventCount', 'archive_eventCount' - The number of events in the archive.
 --
+-- 'creationTime', 'archive_creationTime' - The time stamp for the time that the archive was created.
+--
 -- 'eventSourceArn', 'archive_eventSourceArn' - The ARN of the event bus associated with the archive. Only events from
 -- this event bus are sent to the archive.
---
--- 'creationTime', 'archive_creationTime' - The time stamp for the time that the archive was created.
 --
 -- 'stateReason', 'archive_stateReason' - A description for the reason that the archive is in the current state.
 --
@@ -79,8 +79,8 @@ newArchive ::
 newArchive =
   Archive'
     { eventCount = Prelude.Nothing,
-      eventSourceArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      eventSourceArn = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       archiveName = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -92,14 +92,14 @@ newArchive =
 archive_eventCount :: Lens.Lens' Archive (Prelude.Maybe Prelude.Integer)
 archive_eventCount = Lens.lens (\Archive' {eventCount} -> eventCount) (\s@Archive' {} a -> s {eventCount = a} :: Archive)
 
+-- | The time stamp for the time that the archive was created.
+archive_creationTime :: Lens.Lens' Archive (Prelude.Maybe Prelude.UTCTime)
+archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Prelude.. Lens.mapping Core._Time
+
 -- | The ARN of the event bus associated with the archive. Only events from
 -- this event bus are sent to the archive.
 archive_eventSourceArn :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
 archive_eventSourceArn = Lens.lens (\Archive' {eventSourceArn} -> eventSourceArn) (\s@Archive' {} a -> s {eventSourceArn = a} :: Archive)
-
--- | The time stamp for the time that the archive was created.
-archive_creationTime :: Lens.Lens' Archive (Prelude.Maybe Prelude.UTCTime)
-archive_creationTime = Lens.lens (\Archive' {creationTime} -> creationTime) (\s@Archive' {} a -> s {creationTime = a} :: Archive) Prelude.. Lens.mapping Core._Time
 
 -- | A description for the reason that the archive is in the current state.
 archive_stateReason :: Lens.Lens' Archive (Prelude.Maybe Prelude.Text)
@@ -129,8 +129,8 @@ instance Core.FromJSON Archive where
       ( \x ->
           Archive'
             Prelude.<$> (x Core..:? "EventCount")
-            Prelude.<*> (x Core..:? "EventSourceArn")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "EventSourceArn")
             Prelude.<*> (x Core..:? "StateReason")
             Prelude.<*> (x Core..:? "ArchiveName")
             Prelude.<*> (x Core..:? "State")

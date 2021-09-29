@@ -33,11 +33,11 @@ import Test.Tasty
 --         , requestPutCorsPolicy $
 --             newPutCorsPolicy
 --
---         , requestPutContainerPolicy $
---             newPutContainerPolicy
---
 --         , requestDeleteContainer $
 --             newDeleteContainer
+--
+--         , requestPutContainerPolicy $
+--             newPutContainerPolicy
 --
 --         , requestGetCorsPolicy $
 --             newGetCorsPolicy
@@ -57,14 +57,14 @@ import Test.Tasty
 --         , requestGetMetricPolicy $
 --             newGetMetricPolicy
 --
+--         , requestStopAccessLogging $
+--             newStopAccessLogging
+--
 --         , requestStartAccessLogging $
 --             newStartAccessLogging
 --
 --         , requestDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicy
---
---         , requestStopAccessLogging $
---             newStopAccessLogging
 --
 --         , requestDeleteCorsPolicy $
 --             newDeleteCorsPolicy
@@ -99,11 +99,11 @@ import Test.Tasty
 --         , responsePutCorsPolicy $
 --             newPutCorsPolicyResponse
 --
---         , responsePutContainerPolicy $
---             newPutContainerPolicyResponse
---
 --         , responseDeleteContainer $
 --             newDeleteContainerResponse
+--
+--         , responsePutContainerPolicy $
+--             newPutContainerPolicyResponse
 --
 --         , responseGetCorsPolicy $
 --             newGetCorsPolicyResponse
@@ -123,14 +123,14 @@ import Test.Tasty
 --         , responseGetMetricPolicy $
 --             newGetMetricPolicyResponse
 --
+--         , responseStopAccessLogging $
+--             newStopAccessLoggingResponse
+--
 --         , responseStartAccessLogging $
 --             newStartAccessLoggingResponse
 --
 --         , responseDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicyResponse
---
---         , responseStopAccessLogging $
---             newStopAccessLoggingResponse
 --
 --         , responseDeleteCorsPolicy $
 --             newDeleteCorsPolicyResponse
@@ -173,17 +173,17 @@ requestPutCorsPolicy =
     "PutCorsPolicy"
     "fixture/PutCorsPolicy.yaml"
 
-requestPutContainerPolicy :: PutContainerPolicy -> TestTree
-requestPutContainerPolicy =
-  req
-    "PutContainerPolicy"
-    "fixture/PutContainerPolicy.yaml"
-
 requestDeleteContainer :: DeleteContainer -> TestTree
 requestDeleteContainer =
   req
     "DeleteContainer"
     "fixture/DeleteContainer.yaml"
+
+requestPutContainerPolicy :: PutContainerPolicy -> TestTree
+requestPutContainerPolicy =
+  req
+    "PutContainerPolicy"
+    "fixture/PutContainerPolicy.yaml"
 
 requestGetCorsPolicy :: GetCorsPolicy -> TestTree
 requestGetCorsPolicy =
@@ -221,6 +221,12 @@ requestGetMetricPolicy =
     "GetMetricPolicy"
     "fixture/GetMetricPolicy.yaml"
 
+requestStopAccessLogging :: StopAccessLogging -> TestTree
+requestStopAccessLogging =
+  req
+    "StopAccessLogging"
+    "fixture/StopAccessLogging.yaml"
+
 requestStartAccessLogging :: StartAccessLogging -> TestTree
 requestStartAccessLogging =
   req
@@ -232,12 +238,6 @@ requestDeleteLifecyclePolicy =
   req
     "DeleteLifecyclePolicy"
     "fixture/DeleteLifecyclePolicy.yaml"
-
-requestStopAccessLogging :: StopAccessLogging -> TestTree
-requestStopAccessLogging =
-  req
-    "StopAccessLogging"
-    "fixture/StopAccessLogging.yaml"
 
 requestDeleteCorsPolicy :: DeleteCorsPolicy -> TestTree
 requestDeleteCorsPolicy =
@@ -305,14 +305,6 @@ responsePutCorsPolicy =
     defaultService
     (Proxy :: Proxy PutCorsPolicy)
 
-responsePutContainerPolicy :: PutContainerPolicyResponse -> TestTree
-responsePutContainerPolicy =
-  res
-    "PutContainerPolicyResponse"
-    "fixture/PutContainerPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutContainerPolicy)
-
 responseDeleteContainer :: DeleteContainerResponse -> TestTree
 responseDeleteContainer =
   res
@@ -320,6 +312,14 @@ responseDeleteContainer =
     "fixture/DeleteContainerResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteContainer)
+
+responsePutContainerPolicy :: PutContainerPolicyResponse -> TestTree
+responsePutContainerPolicy =
+  res
+    "PutContainerPolicyResponse"
+    "fixture/PutContainerPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutContainerPolicy)
 
 responseGetCorsPolicy :: GetCorsPolicyResponse -> TestTree
 responseGetCorsPolicy =
@@ -369,6 +369,14 @@ responseGetMetricPolicy =
     defaultService
     (Proxy :: Proxy GetMetricPolicy)
 
+responseStopAccessLogging :: StopAccessLoggingResponse -> TestTree
+responseStopAccessLogging =
+  res
+    "StopAccessLoggingResponse"
+    "fixture/StopAccessLoggingResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopAccessLogging)
+
 responseStartAccessLogging :: StartAccessLoggingResponse -> TestTree
 responseStartAccessLogging =
   res
@@ -384,14 +392,6 @@ responseDeleteLifecyclePolicy =
     "fixture/DeleteLifecyclePolicyResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteLifecyclePolicy)
-
-responseStopAccessLogging :: StopAccessLoggingResponse -> TestTree
-responseStopAccessLogging =
-  res
-    "StopAccessLoggingResponse"
-    "fixture/StopAccessLoggingResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopAccessLogging)
 
 responseDeleteCorsPolicy :: DeleteCorsPolicyResponse -> TestTree
 responseDeleteCorsPolicy =

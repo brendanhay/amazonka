@@ -14,6 +14,21 @@
 module Network.AWS.CloudFormation.Lens
   ( -- * Operations
 
+    -- ** RegisterPublisher
+    registerPublisher_acceptTermsAndConditions,
+    registerPublisher_connectionArn,
+    registerPublisherResponse_publisherId,
+    registerPublisherResponse_httpStatus,
+
+    -- ** ImportStacksToStackSet
+    importStacksToStackSet_operationId,
+    importStacksToStackSet_callAs,
+    importStacksToStackSet_operationPreferences,
+    importStacksToStackSet_stackSetName,
+    importStacksToStackSet_stackIds,
+    importStacksToStackSetResponse_operationId,
+    importStacksToStackSetResponse_httpStatus,
+
     -- ** DescribeStackResourceDrifts
     describeStackResourceDrifts_nextToken,
     describeStackResourceDrifts_maxResults,
@@ -23,13 +38,6 @@ module Network.AWS.CloudFormation.Lens
     describeStackResourceDriftsResponse_httpStatus,
     describeStackResourceDriftsResponse_stackResourceDrifts,
 
-    -- ** ListImports
-    listImports_nextToken,
-    listImports_exportName,
-    listImportsResponse_nextToken,
-    listImportsResponse_imports,
-    listImportsResponse_httpStatus,
-
     -- ** DescribeStackEvents
     describeStackEvents_nextToken,
     describeStackEvents_stackName,
@@ -37,20 +45,21 @@ module Network.AWS.CloudFormation.Lens
     describeStackEventsResponse_stackEvents,
     describeStackEventsResponse_httpStatus,
 
-    -- ** StopStackSetOperation
-    stopStackSetOperation_callAs,
-    stopStackSetOperation_stackSetName,
-    stopStackSetOperation_operationId,
-    stopStackSetOperationResponse_httpStatus,
+    -- ** ListImports
+    listImports_nextToken,
+    listImports_exportName,
+    listImportsResponse_nextToken,
+    listImportsResponse_imports,
+    listImportsResponse_httpStatus,
 
     -- ** DescribeChangeSet
     describeChangeSet_nextToken,
     describeChangeSet_stackName,
     describeChangeSet_changeSetName,
     describeChangeSetResponse_rootChangeSetId,
-    describeChangeSetResponse_nextToken,
     describeChangeSetResponse_creationTime,
     describeChangeSetResponse_includeNestedStacks,
+    describeChangeSetResponse_nextToken,
     describeChangeSetResponse_stackName,
     describeChangeSetResponse_capabilities,
     describeChangeSetResponse_executionStatus,
@@ -68,11 +77,26 @@ module Network.AWS.CloudFormation.Lens
     describeChangeSetResponse_httpStatus,
     describeChangeSetResponse_status,
 
+    -- ** StopStackSetOperation
+    stopStackSetOperation_callAs,
+    stopStackSetOperation_stackSetName,
+    stopStackSetOperation_operationId,
+    stopStackSetOperationResponse_httpStatus,
+
     -- ** DescribeStackResource
     describeStackResource_stackName,
     describeStackResource_logicalResourceId,
     describeStackResourceResponse_stackResourceDetail,
     describeStackResourceResponse_httpStatus,
+
+    -- ** TestType
+    testType_typeName,
+    testType_logDeliveryBucket,
+    testType_arn,
+    testType_versionId,
+    testType_type,
+    testTypeResponse_typeVersionArn,
+    testTypeResponse_httpStatus,
 
     -- ** DetectStackResourceDrift
     detectStackResourceDrift_stackName,
@@ -80,18 +104,50 @@ module Network.AWS.CloudFormation.Lens
     detectStackResourceDriftResponse_httpStatus,
     detectStackResourceDriftResponse_stackResourceDrift,
 
-    -- ** ExecuteChangeSet
-    executeChangeSet_stackName,
-    executeChangeSet_clientRequestToken,
-    executeChangeSet_changeSetName,
-    executeChangeSetResponse_httpStatus,
-
     -- ** SetTypeDefaultVersion
     setTypeDefaultVersion_typeName,
     setTypeDefaultVersion_arn,
     setTypeDefaultVersion_versionId,
     setTypeDefaultVersion_type,
     setTypeDefaultVersionResponse_httpStatus,
+
+    -- ** ExecuteChangeSet
+    executeChangeSet_stackName,
+    executeChangeSet_clientRequestToken,
+    executeChangeSet_disableRollback,
+    executeChangeSet_changeSetName,
+    executeChangeSetResponse_httpStatus,
+
+    -- ** RollbackStack
+    rollbackStack_roleARN,
+    rollbackStack_clientRequestToken,
+    rollbackStack_stackName,
+    rollbackStackResponse_stackId,
+    rollbackStackResponse_httpStatus,
+
+    -- ** GetStackPolicy
+    getStackPolicy_stackName,
+    getStackPolicyResponse_stackPolicyBody,
+    getStackPolicyResponse_httpStatus,
+
+    -- ** CreateStackInstances
+    createStackInstances_parameterOverrides,
+    createStackInstances_deploymentTargets,
+    createStackInstances_operationId,
+    createStackInstances_callAs,
+    createStackInstances_operationPreferences,
+    createStackInstances_accounts,
+    createStackInstances_stackSetName,
+    createStackInstances_regions,
+    createStackInstancesResponse_operationId,
+    createStackInstancesResponse_httpStatus,
+
+    -- ** DescribeStacks
+    describeStacks_nextToken,
+    describeStacks_stackName,
+    describeStacksResponse_nextToken,
+    describeStacksResponse_stacks,
+    describeStacksResponse_httpStatus,
 
     -- ** RecordHandlerProgress
     recordHandlerProgress_statusMessage,
@@ -112,48 +168,12 @@ module Network.AWS.CloudFormation.Lens
     listStackSetOperationsResponse_summaries,
     listStackSetOperationsResponse_httpStatus,
 
-    -- ** CreateStackInstances
-    createStackInstances_parameterOverrides,
-    createStackInstances_deploymentTargets,
-    createStackInstances_operationId,
-    createStackInstances_callAs,
-    createStackInstances_operationPreferences,
-    createStackInstances_accounts,
-    createStackInstances_stackSetName,
-    createStackInstances_regions,
-    createStackInstancesResponse_operationId,
-    createStackInstancesResponse_httpStatus,
-
-    -- ** GetStackPolicy
-    getStackPolicy_stackName,
-    getStackPolicyResponse_stackPolicyBody,
-    getStackPolicyResponse_httpStatus,
-
-    -- ** DescribeStacks
-    describeStacks_nextToken,
-    describeStacks_stackName,
-    describeStacksResponse_nextToken,
-    describeStacksResponse_stacks,
-    describeStacksResponse_httpStatus,
-
-    -- ** DeleteStackSet
-    deleteStackSet_callAs,
-    deleteStackSet_stackSetName,
-    deleteStackSetResponse_httpStatus,
-
-    -- ** EstimateTemplateCost
-    estimateTemplateCost_templateURL,
-    estimateTemplateCost_templateBody,
-    estimateTemplateCost_parameters,
-    estimateTemplateCostResponse_url,
-    estimateTemplateCostResponse_httpStatus,
-
     -- ** UpdateStackSet
     updateStackSet_permissionModel,
     updateStackSet_executionRoleName,
     updateStackSet_capabilities,
-    updateStackSet_templateURL,
     updateStackSet_deploymentTargets,
+    updateStackSet_templateURL,
     updateStackSet_operationId,
     updateStackSet_callAs,
     updateStackSet_operationPreferences,
@@ -170,21 +190,27 @@ module Network.AWS.CloudFormation.Lens
     updateStackSetResponse_operationId,
     updateStackSetResponse_httpStatus,
 
-    -- ** DescribeAccountLimits
-    describeAccountLimits_nextToken,
-    describeAccountLimitsResponse_accountLimits,
-    describeAccountLimitsResponse_nextToken,
-    describeAccountLimitsResponse_httpStatus,
+    -- ** EstimateTemplateCost
+    estimateTemplateCost_templateURL,
+    estimateTemplateCost_templateBody,
+    estimateTemplateCost_parameters,
+    estimateTemplateCostResponse_url,
+    estimateTemplateCostResponse_httpStatus,
+
+    -- ** DeleteStackSet
+    deleteStackSet_callAs,
+    deleteStackSet_stackSetName,
+    deleteStackSetResponse_httpStatus,
 
     -- ** CreateStack
-    createStack_onFailure,
     createStack_roleARN,
+    createStack_onFailure,
     createStack_resourceTypes,
-    createStack_capabilities,
-    createStack_stackPolicyBody,
     createStack_enableTerminationProtection,
-    createStack_templateURL,
+    createStack_stackPolicyBody,
+    createStack_capabilities,
     createStack_notificationARNs,
+    createStack_templateURL,
     createStack_stackPolicyURL,
     createStack_tags,
     createStack_timeoutInMinutes,
@@ -197,17 +223,16 @@ module Network.AWS.CloudFormation.Lens
     createStackResponse_stackId,
     createStackResponse_httpStatus,
 
-    -- ** DescribeStackInstance
-    describeStackInstance_callAs,
-    describeStackInstance_stackSetName,
-    describeStackInstance_stackInstanceAccount,
-    describeStackInstance_stackInstanceRegion,
-    describeStackInstanceResponse_stackInstance,
-    describeStackInstanceResponse_httpStatus,
+    -- ** DescribeAccountLimits
+    describeAccountLimits_nextToken,
+    describeAccountLimitsResponse_accountLimits,
+    describeAccountLimitsResponse_nextToken,
+    describeAccountLimitsResponse_httpStatus,
 
     -- ** GetTemplateSummary
     getTemplateSummary_stackName,
     getTemplateSummary_templateURL,
+    getTemplateSummary_callAs,
     getTemplateSummary_stackSetName,
     getTemplateSummary_templateBody,
     getTemplateSummaryResponse_resourceTypes,
@@ -221,12 +246,22 @@ module Network.AWS.CloudFormation.Lens
     getTemplateSummaryResponse_capabilitiesReason,
     getTemplateSummaryResponse_httpStatus,
 
-    -- ** ListStacks
-    listStacks_nextToken,
-    listStacks_stackStatusFilter,
-    listStacksResponse_nextToken,
-    listStacksResponse_stackSummaries,
-    listStacksResponse_httpStatus,
+    -- ** SetTypeConfiguration
+    setTypeConfiguration_typeName,
+    setTypeConfiguration_configurationAlias,
+    setTypeConfiguration_type,
+    setTypeConfiguration_typeArn,
+    setTypeConfiguration_configuration,
+    setTypeConfigurationResponse_configurationArn,
+    setTypeConfigurationResponse_httpStatus,
+
+    -- ** DescribeStackInstance
+    describeStackInstance_callAs,
+    describeStackInstance_stackSetName,
+    describeStackInstance_stackInstanceAccount,
+    describeStackInstance_stackInstanceRegion,
+    describeStackInstanceResponse_stackInstance,
+    describeStackInstanceResponse_httpStatus,
 
     -- ** DeleteStack
     deleteStack_retainResources,
@@ -238,27 +273,46 @@ module Network.AWS.CloudFormation.Lens
     updateStack_stackPolicyDuringUpdateBody,
     updateStack_roleARN,
     updateStack_resourceTypes,
-    updateStack_capabilities,
     updateStack_stackPolicyBody,
-    updateStack_templateURL,
+    updateStack_capabilities,
     updateStack_notificationARNs,
+    updateStack_templateURL,
     updateStack_stackPolicyURL,
     updateStack_stackPolicyDuringUpdateURL,
     updateStack_tags,
     updateStack_rollbackConfiguration,
     updateStack_clientRequestToken,
     updateStack_templateBody,
+    updateStack_disableRollback,
     updateStack_parameters,
     updateStack_usePreviousTemplate,
     updateStack_stackName,
     updateStackResponse_stackId,
     updateStackResponse_httpStatus,
 
+    -- ** ListStacks
+    listStacks_nextToken,
+    listStacks_stackStatusFilter,
+    listStacksResponse_nextToken,
+    listStacksResponse_stackSummaries,
+    listStacksResponse_httpStatus,
+
+    -- ** SignalResource
+    signalResource_stackName,
+    signalResource_logicalResourceId,
+    signalResource_uniqueId,
+    signalResource_status,
+
     -- ** DetectStackDrift
     detectStackDrift_logicalResourceIds,
     detectStackDrift_stackName,
     detectStackDriftResponse_httpStatus,
     detectStackDriftResponse_stackDriftDetectionId,
+
+    -- ** SetStackPolicy
+    setStackPolicy_stackPolicyBody,
+    setStackPolicy_stackPolicyURL,
+    setStackPolicy_stackName,
 
     -- ** DescribeStackSetOperation
     describeStackSetOperation_callAs,
@@ -275,16 +329,17 @@ module Network.AWS.CloudFormation.Lens
     describeTypeRegistrationResponse_typeArn,
     describeTypeRegistrationResponse_httpStatus,
 
-    -- ** SetStackPolicy
-    setStackPolicy_stackPolicyBody,
-    setStackPolicy_stackPolicyURL,
-    setStackPolicy_stackName,
-
-    -- ** SignalResource
-    signalResource_stackName,
-    signalResource_logicalResourceId,
-    signalResource_uniqueId,
-    signalResource_status,
+    -- ** ListTypes
+    listTypes_nextToken,
+    listTypes_maxResults,
+    listTypes_deprecatedStatus,
+    listTypes_provisioningType,
+    listTypes_visibility,
+    listTypes_filters,
+    listTypes_type,
+    listTypesResponse_nextToken,
+    listTypesResponse_typeSummaries,
+    listTypesResponse_httpStatus,
 
     -- ** DescribeStackSet
     describeStackSet_callAs,
@@ -302,21 +357,6 @@ module Network.AWS.CloudFormation.Lens
     listStackSetOperationResultsResponse_summaries,
     listStackSetOperationResultsResponse_httpStatus,
 
-    -- ** CancelUpdateStack
-    cancelUpdateStack_clientRequestToken,
-    cancelUpdateStack_stackName,
-
-    -- ** ListTypes
-    listTypes_nextToken,
-    listTypes_maxResults,
-    listTypes_deprecatedStatus,
-    listTypes_provisioningType,
-    listTypes_visibility,
-    listTypes_type,
-    listTypesResponse_nextToken,
-    listTypesResponse_typeSummaries,
-    listTypesResponse_httpStatus,
-
     -- ** RegisterType
     registerType_loggingConfig,
     registerType_executionRoleArn,
@@ -326,6 +366,58 @@ module Network.AWS.CloudFormation.Lens
     registerType_schemaHandlerPackage,
     registerTypeResponse_registrationToken,
     registerTypeResponse_httpStatus,
+
+    -- ** PublishType
+    publishType_typeName,
+    publishType_arn,
+    publishType_publicVersionNumber,
+    publishType_type,
+    publishTypeResponse_publicTypeArn,
+    publishTypeResponse_httpStatus,
+
+    -- ** CancelUpdateStack
+    cancelUpdateStack_clientRequestToken,
+    cancelUpdateStack_stackName,
+
+    -- ** ActivateType
+    activateType_typeName,
+    activateType_publicTypeArn,
+    activateType_loggingConfig,
+    activateType_majorVersion,
+    activateType_publisherId,
+    activateType_executionRoleArn,
+    activateType_typeNameAlias,
+    activateType_autoUpdate,
+    activateType_versionBump,
+    activateType_type,
+    activateTypeResponse_arn,
+    activateTypeResponse_httpStatus,
+
+    -- ** ValidateTemplate
+    validateTemplate_templateURL,
+    validateTemplate_templateBody,
+    validateTemplateResponse_capabilities,
+    validateTemplateResponse_declaredTransforms,
+    validateTemplateResponse_description,
+    validateTemplateResponse_parameters,
+    validateTemplateResponse_capabilitiesReason,
+    validateTemplateResponse_httpStatus,
+
+    -- ** DetectStackSetDrift
+    detectStackSetDrift_operationId,
+    detectStackSetDrift_callAs,
+    detectStackSetDrift_operationPreferences,
+    detectStackSetDrift_stackSetName,
+    detectStackSetDriftResponse_operationId,
+    detectStackSetDriftResponse_httpStatus,
+
+    -- ** GetTemplate
+    getTemplate_templateStage,
+    getTemplate_stackName,
+    getTemplate_changeSetName,
+    getTemplateResponse_stagesAvailable,
+    getTemplateResponse_templateBody,
+    getTemplateResponse_httpStatus,
 
     -- ** ListStackInstances
     listStackInstances_nextToken,
@@ -339,38 +431,12 @@ module Network.AWS.CloudFormation.Lens
     listStackInstancesResponse_summaries,
     listStackInstancesResponse_httpStatus,
 
-    -- ** DetectStackSetDrift
-    detectStackSetDrift_operationId,
-    detectStackSetDrift_callAs,
-    detectStackSetDrift_operationPreferences,
-    detectStackSetDrift_stackSetName,
-    detectStackSetDriftResponse_operationId,
-    detectStackSetDriftResponse_httpStatus,
-
     -- ** ContinueUpdateRollback
     continueUpdateRollback_roleARN,
     continueUpdateRollback_resourcesToSkip,
     continueUpdateRollback_clientRequestToken,
     continueUpdateRollback_stackName,
     continueUpdateRollbackResponse_httpStatus,
-
-    -- ** ValidateTemplate
-    validateTemplate_templateURL,
-    validateTemplate_templateBody,
-    validateTemplateResponse_capabilities,
-    validateTemplateResponse_declaredTransforms,
-    validateTemplateResponse_description,
-    validateTemplateResponse_parameters,
-    validateTemplateResponse_capabilitiesReason,
-    validateTemplateResponse_httpStatus,
-
-    -- ** GetTemplate
-    getTemplate_templateStage,
-    getTemplate_stackName,
-    getTemplate_changeSetName,
-    getTemplateResponse_stagesAvailable,
-    getTemplateResponse_templateBody,
-    getTemplateResponse_httpStatus,
 
     -- ** UpdateTerminationProtection
     updateTerminationProtection_enableTerminationProtection,
@@ -382,12 +448,27 @@ module Network.AWS.CloudFormation.Lens
     listTypeVersions_typeName,
     listTypeVersions_nextToken,
     listTypeVersions_maxResults,
+    listTypeVersions_publisherId,
     listTypeVersions_arn,
     listTypeVersions_deprecatedStatus,
     listTypeVersions_type,
     listTypeVersionsResponse_nextToken,
     listTypeVersionsResponse_typeVersionSummaries,
     listTypeVersionsResponse_httpStatus,
+
+    -- ** DescribePublisher
+    describePublisher_publisherId,
+    describePublisherResponse_publisherId,
+    describePublisherResponse_identityProvider,
+    describePublisherResponse_publisherProfile,
+    describePublisherResponse_publisherStatus,
+    describePublisherResponse_httpStatus,
+
+    -- ** DeactivateType
+    deactivateType_typeName,
+    deactivateType_arn,
+    deactivateType_type,
+    deactivateTypeResponse_httpStatus,
 
     -- ** ListTypeRegistrations
     listTypeRegistrations_typeName,
@@ -400,17 +481,11 @@ module Network.AWS.CloudFormation.Lens
     listTypeRegistrationsResponse_registrationTokenList,
     listTypeRegistrationsResponse_httpStatus,
 
-    -- ** DeregisterType
-    deregisterType_typeName,
-    deregisterType_arn,
-    deregisterType_versionId,
-    deregisterType_type,
-    deregisterTypeResponse_httpStatus,
-
     -- ** CreateStackSet
     createStackSet_permissionModel,
     createStackSet_executionRoleName,
     createStackSet_capabilities,
+    createStackSet_stackId,
     createStackSet_templateURL,
     createStackSet_callAs,
     createStackSet_administrationRoleARN,
@@ -430,15 +505,15 @@ module Network.AWS.CloudFormation.Lens
     createChangeSet_roleARN,
     createChangeSet_resourceTypes,
     createChangeSet_capabilities,
-    createChangeSet_templateURL,
     createChangeSet_notificationARNs,
+    createChangeSet_templateURL,
     createChangeSet_changeSetType,
     createChangeSet_tags,
     createChangeSet_rollbackConfiguration,
     createChangeSet_description,
     createChangeSet_templateBody,
-    createChangeSet_parameters,
     createChangeSet_clientToken,
+    createChangeSet_parameters,
     createChangeSet_usePreviousTemplate,
     createChangeSet_stackName,
     createChangeSet_changeSetName,
@@ -446,85 +521,48 @@ module Network.AWS.CloudFormation.Lens
     createChangeSetResponse_id,
     createChangeSetResponse_httpStatus,
 
-    -- ** ListExports
-    listExports_nextToken,
-    listExportsResponse_exports,
-    listExportsResponse_nextToken,
-    listExportsResponse_httpStatus,
+    -- ** DeregisterType
+    deregisterType_typeName,
+    deregisterType_arn,
+    deregisterType_versionId,
+    deregisterType_type,
+    deregisterTypeResponse_httpStatus,
 
     -- ** DescribeType
     describeType_typeName,
+    describeType_publisherId,
     describeType_arn,
     describeType_versionId,
+    describeType_publicVersionNumber,
     describeType_type,
+    describeTypeResponse_isActivated,
+    describeTypeResponse_typeTestsStatusDescription,
     describeTypeResponse_typeName,
-    describeTypeResponse_schema,
+    describeTypeResponse_originalTypeArn,
     describeTypeResponse_loggingConfig,
+    describeTypeResponse_typeTestsStatus,
+    describeTypeResponse_configurationSchema,
+    describeTypeResponse_schema,
+    describeTypeResponse_publisherId,
     describeTypeResponse_executionRoleArn,
+    describeTypeResponse_latestPublicVersion,
     describeTypeResponse_arn,
     describeTypeResponse_deprecatedStatus,
+    describeTypeResponse_requiredActivatedTypes,
     describeTypeResponse_lastUpdated,
     describeTypeResponse_defaultVersionId,
     describeTypeResponse_documentationUrl,
     describeTypeResponse_provisioningType,
-    describeTypeResponse_visibility,
-    describeTypeResponse_description,
     describeTypeResponse_sourceUrl,
+    describeTypeResponse_description,
+    describeTypeResponse_autoUpdate,
+    describeTypeResponse_originalTypeName,
+    describeTypeResponse_visibility,
     describeTypeResponse_isDefaultVersion,
+    describeTypeResponse_publicVersionNumber,
     describeTypeResponse_type,
     describeTypeResponse_timeCreated,
     describeTypeResponse_httpStatus,
-
-    -- ** ListStackResources
-    listStackResources_nextToken,
-    listStackResources_stackName,
-    listStackResourcesResponse_nextToken,
-    listStackResourcesResponse_stackResourceSummaries,
-    listStackResourcesResponse_httpStatus,
-
-    -- ** DeleteStackInstances
-    deleteStackInstances_deploymentTargets,
-    deleteStackInstances_operationId,
-    deleteStackInstances_callAs,
-    deleteStackInstances_operationPreferences,
-    deleteStackInstances_accounts,
-    deleteStackInstances_stackSetName,
-    deleteStackInstances_regions,
-    deleteStackInstances_retainStacks,
-    deleteStackInstancesResponse_operationId,
-    deleteStackInstancesResponse_httpStatus,
-
-    -- ** ListStackSets
-    listStackSets_status,
-    listStackSets_nextToken,
-    listStackSets_maxResults,
-    listStackSets_callAs,
-    listStackSetsResponse_nextToken,
-    listStackSetsResponse_summaries,
-    listStackSetsResponse_httpStatus,
-
-    -- ** DescribeStackDriftDetectionStatus
-    describeStackDriftDetectionStatus_stackDriftDetectionId,
-    describeStackDriftDetectionStatusResponse_stackDriftStatus,
-    describeStackDriftDetectionStatusResponse_detectionStatusReason,
-    describeStackDriftDetectionStatusResponse_driftedStackResourceCount,
-    describeStackDriftDetectionStatusResponse_httpStatus,
-    describeStackDriftDetectionStatusResponse_stackId,
-    describeStackDriftDetectionStatusResponse_stackDriftDetectionId,
-    describeStackDriftDetectionStatusResponse_detectionStatus,
-    describeStackDriftDetectionStatusResponse_timestamp,
-
-    -- ** UpdateStackInstances
-    updateStackInstances_parameterOverrides,
-    updateStackInstances_deploymentTargets,
-    updateStackInstances_operationId,
-    updateStackInstances_callAs,
-    updateStackInstances_operationPreferences,
-    updateStackInstances_accounts,
-    updateStackInstances_stackSetName,
-    updateStackInstances_regions,
-    updateStackInstancesResponse_operationId,
-    updateStackInstancesResponse_httpStatus,
 
     -- ** ListChangeSets
     listChangeSets_nextToken,
@@ -538,12 +576,76 @@ module Network.AWS.CloudFormation.Lens
     deleteChangeSet_changeSetName,
     deleteChangeSetResponse_httpStatus,
 
+    -- ** DeleteStackInstances
+    deleteStackInstances_deploymentTargets,
+    deleteStackInstances_operationId,
+    deleteStackInstances_callAs,
+    deleteStackInstances_operationPreferences,
+    deleteStackInstances_accounts,
+    deleteStackInstances_stackSetName,
+    deleteStackInstances_regions,
+    deleteStackInstances_retainStacks,
+    deleteStackInstancesResponse_operationId,
+    deleteStackInstancesResponse_httpStatus,
+
+    -- ** ListStackResources
+    listStackResources_nextToken,
+    listStackResources_stackName,
+    listStackResourcesResponse_nextToken,
+    listStackResourcesResponse_stackResourceSummaries,
+    listStackResourcesResponse_httpStatus,
+
+    -- ** UpdateStackInstances
+    updateStackInstances_parameterOverrides,
+    updateStackInstances_deploymentTargets,
+    updateStackInstances_operationId,
+    updateStackInstances_callAs,
+    updateStackInstances_operationPreferences,
+    updateStackInstances_accounts,
+    updateStackInstances_stackSetName,
+    updateStackInstances_regions,
+    updateStackInstancesResponse_operationId,
+    updateStackInstancesResponse_httpStatus,
+
+    -- ** DescribeStackDriftDetectionStatus
+    describeStackDriftDetectionStatus_stackDriftDetectionId,
+    describeStackDriftDetectionStatusResponse_detectionStatusReason,
+    describeStackDriftDetectionStatusResponse_stackDriftStatus,
+    describeStackDriftDetectionStatusResponse_driftedStackResourceCount,
+    describeStackDriftDetectionStatusResponse_httpStatus,
+    describeStackDriftDetectionStatusResponse_stackId,
+    describeStackDriftDetectionStatusResponse_stackDriftDetectionId,
+    describeStackDriftDetectionStatusResponse_detectionStatus,
+    describeStackDriftDetectionStatusResponse_timestamp,
+
+    -- ** ListStackSets
+    listStackSets_status,
+    listStackSets_nextToken,
+    listStackSets_maxResults,
+    listStackSets_callAs,
+    listStackSetsResponse_nextToken,
+    listStackSetsResponse_summaries,
+    listStackSetsResponse_httpStatus,
+
+    -- ** ListExports
+    listExports_nextToken,
+    listExportsResponse_exports,
+    listExportsResponse_nextToken,
+    listExportsResponse_httpStatus,
+
     -- ** DescribeStackResources
     describeStackResources_stackName,
     describeStackResources_physicalResourceId,
     describeStackResources_logicalResourceId,
     describeStackResourcesResponse_stackResources,
     describeStackResourcesResponse_httpStatus,
+
+    -- ** BatchDescribeTypeConfigurations
+    batchDescribeTypeConfigurations_typeConfigurationIdentifiers,
+    batchDescribeTypeConfigurationsResponse_errors,
+    batchDescribeTypeConfigurationsResponse_typeConfigurations,
+    batchDescribeTypeConfigurationsResponse_unprocessedTypeConfigurations,
+    batchDescribeTypeConfigurationsResponse_httpStatus,
 
     -- * Types
 
@@ -559,14 +661,19 @@ module Network.AWS.CloudFormation.Lens
     autoDeployment_enabled,
     autoDeployment_retainStacksOnAccountRemoval,
 
+    -- ** BatchDescribeTypeConfigurationsError
+    batchDescribeTypeConfigurationsError_typeConfigurationIdentifier,
+    batchDescribeTypeConfigurationsError_errorMessage,
+    batchDescribeTypeConfigurationsError_errorCode,
+
     -- ** Change
     change_resourceChange,
     change_type,
 
     -- ** ChangeSetSummary
     changeSetSummary_rootChangeSetId,
-    changeSetSummary_status,
     changeSetSummary_creationTime,
+    changeSetSummary_status,
     changeSetSummary_includeNestedStacks,
     changeSetSummary_stackName,
     changeSetSummary_executionStatus,
@@ -580,10 +687,11 @@ module Network.AWS.CloudFormation.Lens
     -- ** DeploymentTargets
     deploymentTargets_organizationalUnitIds,
     deploymentTargets_accounts,
+    deploymentTargets_accountsUrl,
 
     -- ** Export
-    export_exportingStackId,
     export_name,
+    export_exportingStackId,
     export_value,
 
     -- ** LoggingConfig
@@ -612,10 +720,10 @@ module Network.AWS.CloudFormation.Lens
     -- ** ParameterDeclaration
     parameterDeclaration_parameterConstraints,
     parameterDeclaration_parameterType,
-    parameterDeclaration_parameterKey,
     parameterDeclaration_description,
-    parameterDeclaration_noEcho,
+    parameterDeclaration_parameterKey,
     parameterDeclaration_defaultValue,
+    parameterDeclaration_noEcho,
 
     -- ** PhysicalResourceIdContextKeyValuePair
     physicalResourceIdContextKeyValuePair_key,
@@ -627,11 +735,17 @@ module Network.AWS.CloudFormation.Lens
     propertyDifference_actualValue,
     propertyDifference_differenceType,
 
+    -- ** RequiredActivatedType
+    requiredActivatedType_publisherId,
+    requiredActivatedType_supportedMajorVersions,
+    requiredActivatedType_typeNameAlias,
+    requiredActivatedType_originalTypeName,
+
     -- ** ResourceChange
-    resourceChange_physicalResourceId,
     resourceChange_resourceType,
-    resourceChange_scope,
+    resourceChange_physicalResourceId,
     resourceChange_details,
+    resourceChange_scope,
     resourceChange_moduleInfo,
     resourceChange_logicalResourceId,
     resourceChange_changeSetId,
@@ -645,8 +759,8 @@ module Network.AWS.CloudFormation.Lens
     resourceChangeDetail_target,
 
     -- ** ResourceIdentifierSummary
-    resourceIdentifierSummary_resourceIdentifiers,
     resourceIdentifierSummary_resourceType,
+    resourceIdentifierSummary_resourceIdentifiers,
     resourceIdentifierSummary_logicalResourceIds,
 
     -- ** ResourceTargetDefinition
@@ -669,12 +783,12 @@ module Network.AWS.CloudFormation.Lens
 
     -- ** Stack
     stack_outputs,
-    stack_driftInformation,
     stack_roleARN,
     stack_deletionTime,
-    stack_capabilities,
-    stack_stackStatusReason,
+    stack_driftInformation,
     stack_enableTerminationProtection,
+    stack_stackStatusReason,
+    stack_capabilities,
     stack_stackId,
     stack_notificationARNs,
     stack_rootId,
@@ -685,8 +799,8 @@ module Network.AWS.CloudFormation.Lens
     stack_rollbackConfiguration,
     stack_description,
     stack_disableRollback,
-    stack_parameters,
     stack_lastUpdatedTime,
+    stack_parameters,
     stack_stackName,
     stack_creationTime,
     stack_stackStatus,
@@ -701,8 +815,8 @@ module Network.AWS.CloudFormation.Lens
 
     -- ** StackEvent
     stackEvent_resourceProperties,
-    stackEvent_physicalResourceId,
     stackEvent_resourceType,
+    stackEvent_physicalResourceId,
     stackEvent_resourceStatusReason,
     stackEvent_logicalResourceId,
     stackEvent_resourceStatus,
@@ -719,9 +833,9 @@ module Network.AWS.CloudFormation.Lens
     stackInstance_stackInstanceStatus,
     stackInstance_organizationalUnitId,
     stackInstance_lastDriftCheckTimestamp,
+    stackInstance_stackSetId,
     stackInstance_driftStatus,
     stackInstance_account,
-    stackInstance_stackSetId,
     stackInstance_region,
     stackInstance_statusReason,
 
@@ -738,15 +852,15 @@ module Network.AWS.CloudFormation.Lens
     stackInstanceSummary_stackInstanceStatus,
     stackInstanceSummary_organizationalUnitId,
     stackInstanceSummary_lastDriftCheckTimestamp,
+    stackInstanceSummary_stackSetId,
     stackInstanceSummary_driftStatus,
     stackInstanceSummary_account,
-    stackInstanceSummary_stackSetId,
     stackInstanceSummary_region,
     stackInstanceSummary_statusReason,
 
     -- ** StackResource
-    stackResource_driftInformation,
     stackResource_stackName,
+    stackResource_driftInformation,
     stackResource_stackId,
     stackResource_physicalResourceId,
     stackResource_resourceStatusReason,
@@ -758,8 +872,8 @@ module Network.AWS.CloudFormation.Lens
     stackResource_resourceStatus,
 
     -- ** StackResourceDetail
-    stackResourceDetail_driftInformation,
     stackResourceDetail_stackName,
+    stackResourceDetail_driftInformation,
     stackResourceDetail_stackId,
     stackResourceDetail_metadata,
     stackResourceDetail_physicalResourceId,
@@ -810,9 +924,9 @@ module Network.AWS.CloudFormation.Lens
     stackSet_organizationalUnitIds,
     stackSet_administrationRoleARN,
     stackSet_stackSetDriftDetectionDetails,
+    stackSet_stackSetARN,
     stackSet_stackSetId,
     stackSet_tags,
-    stackSet_stackSetARN,
     stackSet_autoDeployment,
     stackSet_description,
     stackSet_stackSetName,
@@ -849,6 +963,7 @@ module Network.AWS.CloudFormation.Lens
     stackSetOperationPreferences_failureToleranceCount,
     stackSetOperationPreferences_maxConcurrentCount,
     stackSetOperationPreferences_failureTolerancePercentage,
+    stackSetOperationPreferences_regionConcurrencyType,
 
     -- ** StackSetOperationResultSummary
     stackSetOperationResultSummary_accountGateResult,
@@ -869,15 +984,15 @@ module Network.AWS.CloudFormation.Lens
     stackSetSummary_status,
     stackSetSummary_permissionModel,
     stackSetSummary_lastDriftCheckTimestamp,
-    stackSetSummary_driftStatus,
     stackSetSummary_stackSetId,
+    stackSetSummary_driftStatus,
     stackSetSummary_autoDeployment,
     stackSetSummary_description,
     stackSetSummary_stackSetName,
 
     -- ** StackSummary
-    stackSummary_driftInformation,
     stackSummary_deletionTime,
+    stackSummary_driftInformation,
     stackSummary_templateDescription,
     stackSummary_stackStatusReason,
     stackSummary_stackId,
@@ -893,16 +1008,44 @@ module Network.AWS.CloudFormation.Lens
     tag_value,
 
     -- ** TemplateParameter
-    templateParameter_parameterKey,
     templateParameter_description,
-    templateParameter_noEcho,
+    templateParameter_parameterKey,
     templateParameter_defaultValue,
+    templateParameter_noEcho,
+
+    -- ** TypeConfigurationDetails
+    typeConfigurationDetails_typeName,
+    typeConfigurationDetails_alias,
+    typeConfigurationDetails_configuration,
+    typeConfigurationDetails_arn,
+    typeConfigurationDetails_lastUpdated,
+    typeConfigurationDetails_isDefaultConfiguration,
+    typeConfigurationDetails_typeArn,
+
+    -- ** TypeConfigurationIdentifier
+    typeConfigurationIdentifier_typeName,
+    typeConfigurationIdentifier_typeConfigurationAlias,
+    typeConfigurationIdentifier_type,
+    typeConfigurationIdentifier_typeConfigurationArn,
+    typeConfigurationIdentifier_typeArn,
+
+    -- ** TypeFilters
+    typeFilters_typeNamePrefix,
+    typeFilters_publisherId,
+    typeFilters_category,
 
     -- ** TypeSummary
+    typeSummary_isActivated,
     typeSummary_typeName,
+    typeSummary_publisherName,
+    typeSummary_publisherId,
+    typeSummary_latestPublicVersion,
     typeSummary_lastUpdated,
     typeSummary_defaultVersionId,
     typeSummary_description,
+    typeSummary_originalTypeName,
+    typeSummary_publisherIdentity,
+    typeSummary_publicVersionNumber,
     typeSummary_type,
     typeSummary_typeArn,
 
@@ -912,17 +1055,21 @@ module Network.AWS.CloudFormation.Lens
     typeVersionSummary_versionId,
     typeVersionSummary_description,
     typeVersionSummary_isDefaultVersion,
+    typeVersionSummary_publicVersionNumber,
     typeVersionSummary_type,
     typeVersionSummary_timeCreated,
   )
 where
 
+import Network.AWS.CloudFormation.ActivateType
+import Network.AWS.CloudFormation.BatchDescribeTypeConfigurations
 import Network.AWS.CloudFormation.CancelUpdateStack
 import Network.AWS.CloudFormation.ContinueUpdateRollback
 import Network.AWS.CloudFormation.CreateChangeSet
 import Network.AWS.CloudFormation.CreateStack
 import Network.AWS.CloudFormation.CreateStackInstances
 import Network.AWS.CloudFormation.CreateStackSet
+import Network.AWS.CloudFormation.DeactivateType
 import Network.AWS.CloudFormation.DeleteChangeSet
 import Network.AWS.CloudFormation.DeleteStack
 import Network.AWS.CloudFormation.DeleteStackInstances
@@ -930,6 +1077,7 @@ import Network.AWS.CloudFormation.DeleteStackSet
 import Network.AWS.CloudFormation.DeregisterType
 import Network.AWS.CloudFormation.DescribeAccountLimits
 import Network.AWS.CloudFormation.DescribeChangeSet
+import Network.AWS.CloudFormation.DescribePublisher
 import Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
 import Network.AWS.CloudFormation.DescribeStackEvents
 import Network.AWS.CloudFormation.DescribeStackInstance
@@ -949,6 +1097,7 @@ import Network.AWS.CloudFormation.ExecuteChangeSet
 import Network.AWS.CloudFormation.GetStackPolicy
 import Network.AWS.CloudFormation.GetTemplate
 import Network.AWS.CloudFormation.GetTemplateSummary
+import Network.AWS.CloudFormation.ImportStacksToStackSet
 import Network.AWS.CloudFormation.ListChangeSets
 import Network.AWS.CloudFormation.ListExports
 import Network.AWS.CloudFormation.ListImports
@@ -961,15 +1110,21 @@ import Network.AWS.CloudFormation.ListStacks
 import Network.AWS.CloudFormation.ListTypeRegistrations
 import Network.AWS.CloudFormation.ListTypeVersions
 import Network.AWS.CloudFormation.ListTypes
+import Network.AWS.CloudFormation.PublishType
 import Network.AWS.CloudFormation.RecordHandlerProgress
+import Network.AWS.CloudFormation.RegisterPublisher
 import Network.AWS.CloudFormation.RegisterType
+import Network.AWS.CloudFormation.RollbackStack
 import Network.AWS.CloudFormation.SetStackPolicy
+import Network.AWS.CloudFormation.SetTypeConfiguration
 import Network.AWS.CloudFormation.SetTypeDefaultVersion
 import Network.AWS.CloudFormation.SignalResource
 import Network.AWS.CloudFormation.StopStackSetOperation
+import Network.AWS.CloudFormation.TestType
 import Network.AWS.CloudFormation.Types.AccountGateResult
 import Network.AWS.CloudFormation.Types.AccountLimit
 import Network.AWS.CloudFormation.Types.AutoDeployment
+import Network.AWS.CloudFormation.Types.BatchDescribeTypeConfigurationsError
 import Network.AWS.CloudFormation.Types.Change
 import Network.AWS.CloudFormation.Types.ChangeSetSummary
 import Network.AWS.CloudFormation.Types.DeploymentTargets
@@ -982,6 +1137,7 @@ import Network.AWS.CloudFormation.Types.ParameterConstraints
 import Network.AWS.CloudFormation.Types.ParameterDeclaration
 import Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
 import Network.AWS.CloudFormation.Types.PropertyDifference
+import Network.AWS.CloudFormation.Types.RequiredActivatedType
 import Network.AWS.CloudFormation.Types.ResourceChange
 import Network.AWS.CloudFormation.Types.ResourceChangeDetail
 import Network.AWS.CloudFormation.Types.ResourceIdentifierSummary
@@ -1013,6 +1169,9 @@ import Network.AWS.CloudFormation.Types.StackSetSummary
 import Network.AWS.CloudFormation.Types.StackSummary
 import Network.AWS.CloudFormation.Types.Tag
 import Network.AWS.CloudFormation.Types.TemplateParameter
+import Network.AWS.CloudFormation.Types.TypeConfigurationDetails
+import Network.AWS.CloudFormation.Types.TypeConfigurationIdentifier
+import Network.AWS.CloudFormation.Types.TypeFilters
 import Network.AWS.CloudFormation.Types.TypeSummary
 import Network.AWS.CloudFormation.Types.TypeVersionSummary
 import Network.AWS.CloudFormation.UpdateStack

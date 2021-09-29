@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccountAggregationSource' smart constructor.
 data AccountAggregationSource = AccountAggregationSource'
-  { -- | If true, aggregate existing AWS Config regions and future regions.
+  { -- | If true, aggregate existing Config regions and future regions.
     allAwsRegions :: Prelude.Maybe Prelude.Bool,
     -- | The source regions being aggregated.
     awsRegions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -44,7 +44,7 @@ data AccountAggregationSource = AccountAggregationSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing AWS Config regions and future regions.
+-- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.
 --
 -- 'awsRegions', 'accountAggregationSource_awsRegions' - The source regions being aggregated.
 --
@@ -61,7 +61,7 @@ newAccountAggregationSource pAccountIds_ =
       accountIds = Lens._Coerce Lens.# pAccountIds_
     }
 
--- | If true, aggregate existing AWS Config regions and future regions.
+-- | If true, aggregate existing Config regions and future regions.
 accountAggregationSource_allAwsRegions :: Lens.Lens' AccountAggregationSource (Prelude.Maybe Prelude.Bool)
 accountAggregationSource_allAwsRegions = Lens.lens (\AccountAggregationSource' {allAwsRegions} -> allAwsRegions) (\s@AccountAggregationSource' {} a -> s {allAwsRegions = a} :: AccountAggregationSource)
 

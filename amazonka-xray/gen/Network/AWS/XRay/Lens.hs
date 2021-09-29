@@ -48,11 +48,6 @@ module Network.AWS.XRay.Lens
     getTraceGraphResponse_services,
     getTraceGraphResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
     -- ** CreateGroup
     createGroup_insightsConfiguration,
     createGroup_filterExpression,
@@ -61,19 +56,24 @@ module Network.AWS.XRay.Lens
     createGroupResponse_group,
     createGroupResponse_httpStatus,
 
-    -- ** GetInsight
-    getInsight_insightId,
-    getInsightResponse_insight,
-    getInsightResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** PutTraceSegments
     putTraceSegments_traceSegmentDocuments,
     putTraceSegmentsResponse_unprocessedTraceSegments,
     putTraceSegmentsResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** GetTimeSeriesServiceStatistics
-    getTimeSeriesServiceStatistics_nextToken,
     getTimeSeriesServiceStatistics_entitySelectorExpression,
+    getTimeSeriesServiceStatistics_nextToken,
     getTimeSeriesServiceStatistics_groupName,
     getTimeSeriesServiceStatistics_forecastStatistics,
     getTimeSeriesServiceStatistics_period,
@@ -85,14 +85,14 @@ module Network.AWS.XRay.Lens
     getTimeSeriesServiceStatisticsResponse_containsOldGroupVersions,
     getTimeSeriesServiceStatisticsResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** GetInsight
+    getInsight_insightId,
+    getInsightResponse_insight,
+    getInsightResponse_httpStatus,
 
     -- ** PutTelemetryRecords
-    putTelemetryRecords_resourceARN,
     putTelemetryRecords_hostname,
+    putTelemetryRecords_resourceARN,
     putTelemetryRecords_eC2InstanceId,
     putTelemetryRecords_telemetryRecords,
     putTelemetryRecordsResponse_httpStatus,
@@ -119,9 +119,15 @@ module Network.AWS.XRay.Lens
     getTraceSummariesResponse_approximateTime,
     getTraceSummariesResponse_httpStatus,
 
+    -- ** GetGroups
+    getGroups_nextToken,
+    getGroupsResponse_groups,
+    getGroupsResponse_nextToken,
+    getGroupsResponse_httpStatus,
+
     -- ** GetInsightSummaries
-    getInsightSummaries_nextToken,
     getInsightSummaries_states,
+    getInsightSummaries_nextToken,
     getInsightSummaries_maxResults,
     getInsightSummaries_groupName,
     getInsightSummaries_groupARN,
@@ -130,20 +136,6 @@ module Network.AWS.XRay.Lens
     getInsightSummariesResponse_insightSummaries,
     getInsightSummariesResponse_nextToken,
     getInsightSummariesResponse_httpStatus,
-
-    -- ** GetGroups
-    getGroups_nextToken,
-    getGroupsResponse_groups,
-    getGroupsResponse_nextToken,
-    getGroupsResponse_httpStatus,
-
-    -- ** GetInsightEvents
-    getInsightEvents_nextToken,
-    getInsightEvents_maxResults,
-    getInsightEvents_insightId,
-    getInsightEventsResponse_nextToken,
-    getInsightEventsResponse_insightEvents,
-    getInsightEventsResponse_httpStatus,
 
     -- ** GetServiceGraph
     getServiceGraph_nextToken,
@@ -154,15 +146,17 @@ module Network.AWS.XRay.Lens
     getServiceGraphResponse_nextToken,
     getServiceGraphResponse_services,
     getServiceGraphResponse_startTime,
-    getServiceGraphResponse_containsOldGroupVersions,
     getServiceGraphResponse_endTime,
+    getServiceGraphResponse_containsOldGroupVersions,
     getServiceGraphResponse_httpStatus,
 
-    -- ** PutEncryptionConfig
-    putEncryptionConfig_keyId,
-    putEncryptionConfig_type,
-    putEncryptionConfigResponse_encryptionConfig,
-    putEncryptionConfigResponse_httpStatus,
+    -- ** GetInsightEvents
+    getInsightEvents_nextToken,
+    getInsightEvents_maxResults,
+    getInsightEvents_insightId,
+    getInsightEventsResponse_nextToken,
+    getInsightEventsResponse_insightEvents,
+    getInsightEventsResponse_httpStatus,
 
     -- ** DeleteSamplingRule
     deleteSamplingRule_ruleName,
@@ -175,17 +169,28 @@ module Network.AWS.XRay.Lens
     updateSamplingRuleResponse_samplingRuleRecord,
     updateSamplingRuleResponse_httpStatus,
 
-    -- ** GetGroup
-    getGroup_groupName,
-    getGroup_groupARN,
-    getGroupResponse_group,
-    getGroupResponse_httpStatus,
+    -- ** PutEncryptionConfig
+    putEncryptionConfig_keyId,
+    putEncryptionConfig_type,
+    putEncryptionConfigResponse_encryptionConfig,
+    putEncryptionConfigResponse_httpStatus,
 
     -- ** CreateSamplingRule
     createSamplingRule_tags,
     createSamplingRule_samplingRule,
     createSamplingRuleResponse_samplingRuleRecord,
     createSamplingRuleResponse_httpStatus,
+
+    -- ** GetGroup
+    getGroup_groupName,
+    getGroup_groupARN,
+    getGroupResponse_group,
+    getGroupResponse_httpStatus,
+
+    -- ** DeleteGroup
+    deleteGroup_groupName,
+    deleteGroup_groupARN,
+    deleteGroupResponse_httpStatus,
 
     -- ** UpdateGroup
     updateGroup_groupName,
@@ -194,11 +199,6 @@ module Network.AWS.XRay.Lens
     updateGroup_groupARN,
     updateGroupResponse_group,
     updateGroupResponse_httpStatus,
-
-    -- ** DeleteGroup
-    deleteGroup_groupName,
-    deleteGroup_groupARN,
-    deleteGroupResponse_httpStatus,
 
     -- ** GetEncryptionConfig
     getEncryptionConfigResponse_encryptionConfig,
@@ -268,13 +268,13 @@ module Network.AWS.XRay.Lens
     errorRootCause_clientImpacting,
 
     -- ** ErrorRootCauseEntity
-    errorRootCauseEntity_exceptions,
     errorRootCauseEntity_remote,
+    errorRootCauseEntity_exceptions,
     errorRootCauseEntity_name,
 
     -- ** ErrorRootCauseService
-    errorRootCauseService_names,
     errorRootCauseService_accountId,
+    errorRootCauseService_names,
     errorRootCauseService_inferred,
     errorRootCauseService_name,
     errorRootCauseService_entityPath,
@@ -290,13 +290,13 @@ module Network.AWS.XRay.Lens
     faultRootCause_clientImpacting,
 
     -- ** FaultRootCauseEntity
-    faultRootCauseEntity_exceptions,
     faultRootCauseEntity_remote,
+    faultRootCauseEntity_exceptions,
     faultRootCauseEntity_name,
 
     -- ** FaultRootCauseService
-    faultRootCauseService_names,
     faultRootCauseService_accountId,
+    faultRootCauseService_names,
     faultRootCauseService_inferred,
     faultRootCauseService_name,
     faultRootCauseService_entityPath,
@@ -358,8 +358,8 @@ module Network.AWS.XRay.Lens
     insightImpactGraphEdge_referenceId,
 
     -- ** InsightImpactGraphService
-    insightImpactGraphService_names,
     insightImpactGraphService_accountId,
+    insightImpactGraphService_names,
     insightImpactGraphService_referenceId,
     insightImpactGraphService_edges,
     insightImpactGraphService_name,
@@ -405,8 +405,8 @@ module Network.AWS.XRay.Lens
     responseTimeRootCauseEntity_coverage,
 
     -- ** ResponseTimeRootCauseService
-    responseTimeRootCauseService_names,
     responseTimeRootCauseService_accountId,
+    responseTimeRootCauseService_names,
     responseTimeRootCauseService_inferred,
     responseTimeRootCauseService_name,
     responseTimeRootCauseService_entityPath,
@@ -437,10 +437,10 @@ module Network.AWS.XRay.Lens
     samplingRuleRecord_samplingRule,
 
     -- ** SamplingRuleUpdate
-    samplingRuleUpdate_resourceARN,
     samplingRuleUpdate_hTTPMethod,
-    samplingRuleUpdate_reservoirSize,
+    samplingRuleUpdate_resourceARN,
     samplingRuleUpdate_fixedRate,
+    samplingRuleUpdate_reservoirSize,
     samplingRuleUpdate_ruleName,
     samplingRuleUpdate_ruleARN,
     samplingRuleUpdate_serviceName,
@@ -481,23 +481,23 @@ module Network.AWS.XRay.Lens
     segment_document,
 
     -- ** ServiceId
-    serviceId_names,
     serviceId_accountId,
+    serviceId_names,
     serviceId_name,
     serviceId_type,
 
     -- ** ServiceInfo
-    serviceInfo_names,
     serviceInfo_accountId,
+    serviceInfo_names,
     serviceInfo_summaryStatistics,
     serviceInfo_responseTimeHistogram,
-    serviceInfo_referenceId,
     serviceInfo_durationHistogram,
+    serviceInfo_referenceId,
     serviceInfo_edges,
     serviceInfo_startTime,
     serviceInfo_endTime,
-    serviceInfo_state,
     serviceInfo_name,
+    serviceInfo_state,
     serviceInfo_root,
     serviceInfo_type,
 
@@ -528,21 +528,21 @@ module Network.AWS.XRay.Lens
     timeSeriesServiceStatistics_timestamp,
 
     -- ** Trace
-    trace_limitExceeded,
     trace_duration,
+    trace_limitExceeded,
     trace_id,
     trace_segments,
 
     -- ** TraceSummary
     traceSummary_instanceIds,
-    traceSummary_errorRootCauses,
     traceSummary_availabilityZones,
+    traceSummary_errorRootCauses,
     traceSummary_responseTime,
     traceSummary_duration,
-    traceSummary_matchedEventTime,
     traceSummary_serviceIds,
-    traceSummary_hasFault,
+    traceSummary_matchedEventTime,
     traceSummary_entryPoint,
+    traceSummary_hasFault,
     traceSummary_id,
     traceSummary_annotations,
     traceSummary_resourceARNs,
@@ -552,8 +552,8 @@ module Network.AWS.XRay.Lens
     traceSummary_http,
     traceSummary_hasError,
     traceSummary_users,
-    traceSummary_hasThrottle,
     traceSummary_responseTimeRootCauses,
+    traceSummary_hasThrottle,
 
     -- ** TraceUser
     traceUser_serviceIds,

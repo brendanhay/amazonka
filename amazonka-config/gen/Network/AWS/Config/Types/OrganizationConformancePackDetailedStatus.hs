@@ -52,7 +52,7 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
     -- account deletes @OrganizationConformancePack@ and disables service
     -- access for @config-multiaccountsetup.amazonaws.com@.
     --
-    -- AWS Config sets the state of the conformance pack to:
+    -- Config sets the state of the conformance pack to:
     --
     -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
     --     member account.
@@ -113,7 +113,7 @@ data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDeta
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
 --     member account.
@@ -195,7 +195,7 @@ organizationConformancePackDetailedStatus_conformancePackName = Lens.lens (\Orga
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
 --     member account.

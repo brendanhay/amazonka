@@ -32,14 +32,14 @@ data PatchBaselineIdentity = PatchBaselineIdentity'
     baselineName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the patch baseline.
     baselineId :: Prelude.Maybe Prelude.Text,
-    -- | Whether this is the default baseline. Note that Systems Manager supports
-    -- creating multiple default patch baselines. For example, you can create a
-    -- default patch baseline for each operating system.
+    -- | Whether this is the default baseline. Amazon Web Services Systems
+    -- Manager supports creating multiple default patch baselines. For example,
+    -- you can create a default patch baseline for each operating system.
     defaultBaseline :: Prelude.Maybe Prelude.Bool,
     -- | The description of the patch baseline.
     baselineDescription :: Prelude.Maybe Prelude.Text,
-    -- | Defines the operating system the patch baseline applies to. The Default
-    -- value is WINDOWS.
+    -- | Defines the operating system the patch baseline applies to. The default
+    -- value is @WINDOWS@.
     operatingSystem :: Prelude.Maybe OperatingSystem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,14 +56,14 @@ data PatchBaselineIdentity = PatchBaselineIdentity'
 --
 -- 'baselineId', 'patchBaselineIdentity_baselineId' - The ID of the patch baseline.
 --
--- 'defaultBaseline', 'patchBaselineIdentity_defaultBaseline' - Whether this is the default baseline. Note that Systems Manager supports
--- creating multiple default patch baselines. For example, you can create a
--- default patch baseline for each operating system.
+-- 'defaultBaseline', 'patchBaselineIdentity_defaultBaseline' - Whether this is the default baseline. Amazon Web Services Systems
+-- Manager supports creating multiple default patch baselines. For example,
+-- you can create a default patch baseline for each operating system.
 --
 -- 'baselineDescription', 'patchBaselineIdentity_baselineDescription' - The description of the patch baseline.
 --
--- 'operatingSystem', 'patchBaselineIdentity_operatingSystem' - Defines the operating system the patch baseline applies to. The Default
--- value is WINDOWS.
+-- 'operatingSystem', 'patchBaselineIdentity_operatingSystem' - Defines the operating system the patch baseline applies to. The default
+-- value is @WINDOWS@.
 newPatchBaselineIdentity ::
   PatchBaselineIdentity
 newPatchBaselineIdentity =
@@ -84,9 +84,9 @@ patchBaselineIdentity_baselineName = Lens.lens (\PatchBaselineIdentity' {baselin
 patchBaselineIdentity_baselineId :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
 patchBaselineIdentity_baselineId = Lens.lens (\PatchBaselineIdentity' {baselineId} -> baselineId) (\s@PatchBaselineIdentity' {} a -> s {baselineId = a} :: PatchBaselineIdentity)
 
--- | Whether this is the default baseline. Note that Systems Manager supports
--- creating multiple default patch baselines. For example, you can create a
--- default patch baseline for each operating system.
+-- | Whether this is the default baseline. Amazon Web Services Systems
+-- Manager supports creating multiple default patch baselines. For example,
+-- you can create a default patch baseline for each operating system.
 patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Bool)
 patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defaultBaseline} -> defaultBaseline) (\s@PatchBaselineIdentity' {} a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
 
@@ -94,8 +94,8 @@ patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defa
 patchBaselineIdentity_baselineDescription :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
 patchBaselineIdentity_baselineDescription = Lens.lens (\PatchBaselineIdentity' {baselineDescription} -> baselineDescription) (\s@PatchBaselineIdentity' {} a -> s {baselineDescription = a} :: PatchBaselineIdentity)
 
--- | Defines the operating system the patch baseline applies to. The Default
--- value is WINDOWS.
+-- | Defines the operating system the patch baseline applies to. The default
+-- value is @WINDOWS@.
 patchBaselineIdentity_operatingSystem :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe OperatingSystem)
 patchBaselineIdentity_operatingSystem = Lens.lens (\PatchBaselineIdentity' {operatingSystem} -> operatingSystem) (\s@PatchBaselineIdentity' {} a -> s {operatingSystem = a} :: PatchBaselineIdentity)
 

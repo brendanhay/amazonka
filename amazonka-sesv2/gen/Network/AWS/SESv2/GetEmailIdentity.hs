@@ -42,8 +42,8 @@ module Network.AWS.SESv2.GetEmailIdentity
     getEmailIdentityResponse_tags,
     getEmailIdentityResponse_identityType,
     getEmailIdentityResponse_mailFromAttributes,
-    getEmailIdentityResponse_verifiedForSendingStatus,
     getEmailIdentityResponse_configurationSetName,
+    getEmailIdentityResponse_verifiedForSendingStatus,
     getEmailIdentityResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetEmailIdentity where
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "IdentityType")
             Prelude.<*> (x Core..?> "MailFromAttributes")
-            Prelude.<*> (x Core..?> "VerifiedForSendingStatus")
             Prelude.<*> (x Core..?> "ConfigurationSetName")
+            Prelude.<*> (x Core..?> "VerifiedForSendingStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,13 +156,13 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
     -- | An object that contains information about the Mail-From attributes for
     -- the email identity.
     mailFromAttributes :: Prelude.Maybe MailFromAttributes,
+    -- | The configuration set used by default when sending from this identity.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether or not the identity is verified. You can only send
     -- email from verified email addresses or domains. For more information
     -- about verifying identities, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
     verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
-    -- | The configuration set used by default when sending from this identity.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,12 +201,12 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
 -- 'mailFromAttributes', 'getEmailIdentityResponse_mailFromAttributes' - An object that contains information about the Mail-From attributes for
 -- the email identity.
 --
+-- 'configurationSetName', 'getEmailIdentityResponse_configurationSetName' - The configuration set used by default when sending from this identity.
+--
 -- 'verifiedForSendingStatus', 'getEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
 -- about verifying identities, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
---
--- 'configurationSetName', 'getEmailIdentityResponse_configurationSetName' - The configuration set used by default when sending from this identity.
 --
 -- 'httpStatus', 'getEmailIdentityResponse_httpStatus' - The response's http status code.
 newGetEmailIdentityResponse ::
@@ -222,8 +222,8 @@ newGetEmailIdentityResponse pHttpStatus_ =
       tags = Prelude.Nothing,
       identityType = Prelude.Nothing,
       mailFromAttributes = Prelude.Nothing,
-      verifiedForSendingStatus = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
+      verifiedForSendingStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -264,16 +264,16 @@ getEmailIdentityResponse_identityType = Lens.lens (\GetEmailIdentityResponse' {i
 getEmailIdentityResponse_mailFromAttributes :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe MailFromAttributes)
 getEmailIdentityResponse_mailFromAttributes = Lens.lens (\GetEmailIdentityResponse' {mailFromAttributes} -> mailFromAttributes) (\s@GetEmailIdentityResponse' {} a -> s {mailFromAttributes = a} :: GetEmailIdentityResponse)
 
+-- | The configuration set used by default when sending from this identity.
+getEmailIdentityResponse_configurationSetName :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Text)
+getEmailIdentityResponse_configurationSetName = Lens.lens (\GetEmailIdentityResponse' {configurationSetName} -> configurationSetName) (\s@GetEmailIdentityResponse' {} a -> s {configurationSetName = a} :: GetEmailIdentityResponse)
+
 -- | Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
 -- about verifying identities, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
 getEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
 getEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\GetEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@GetEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: GetEmailIdentityResponse)
-
--- | The configuration set used by default when sending from this identity.
-getEmailIdentityResponse_configurationSetName :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Text)
-getEmailIdentityResponse_configurationSetName = Lens.lens (\GetEmailIdentityResponse' {configurationSetName} -> configurationSetName) (\s@GetEmailIdentityResponse' {} a -> s {configurationSetName = a} :: GetEmailIdentityResponse)
 
 -- | The response's http status code.
 getEmailIdentityResponse_httpStatus :: Lens.Lens' GetEmailIdentityResponse Prelude.Int

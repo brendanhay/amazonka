@@ -24,9 +24,10 @@
 -- aggregation group (LAG) or interconnect. If the target interconnect or
 -- LAG has an existing hosted connection with a conflicting VLAN number or
 -- IP address, the operation fails. This action temporarily interrupts the
--- hosted connection\'s connectivity to AWS as it is being migrated.
+-- hosted connection\'s connectivity to Amazon Web Services as it is being
+-- migrated.
 --
--- Intended for use by AWS Direct Connect Partners only.
+-- Intended for use by Direct Connect Partners only.
 module Network.AWS.DirectConnect.AssociateHostedConnection
   ( -- * Creating a Request
     AssociateHostedConnection (..),
@@ -42,22 +43,27 @@ module Network.AWS.DirectConnect.AssociateHostedConnection
 
     -- * Response Lenses
     connection_bandwidth,
-    connection_connectionState,
     connection_awsDeviceV2,
+    connection_connectionState,
     connection_connectionName,
+    connection_macSecKeys,
     connection_providerName,
     connection_connectionId,
+    connection_awsLogicalDeviceId,
     connection_hasLogicalRedundancy,
     connection_awsDevice,
     connection_jumboFrameCapable,
+    connection_portEncryptionStatus,
     connection_lagId,
+    connection_encryptionMode,
     connection_partnerName,
     connection_tags,
     connection_loaIssueTime,
     connection_ownerAccount,
     connection_region,
-    connection_location,
     connection_vlan,
+    connection_location,
+    connection_macSecCapable,
   )
 where
 

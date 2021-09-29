@@ -11,11 +11,11 @@
 --
 -- Derived from API version @2017-10-25@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The Cost Explorer API enables you to programmatically query your cost
+-- You can use the Cost Explorer API to programmatically query your cost
 -- and usage data. You can query for aggregated data such as total monthly
--- costs or total daily usage. You can also query for granular data, such
--- as the number of daily write operations for Amazon DynamoDB database
--- tables in your production environment.
+-- costs or total daily usage. You can also query for granular data. This
+-- might include the number of daily write operations for Amazon DynamoDB
+-- database tables in your production environment.
 --
 -- Service Endpoint
 --
@@ -23,8 +23,9 @@
 --
 -- -   @https:\/\/ce.us-east-1.amazonaws.com@
 --
--- For information about costs associated with the Cost Explorer API, see
--- <http://aws.amazon.com/aws-cost-management/pricing/ AWS Cost Management Pricing>.
+-- For information about the costs that are associated with the Cost
+-- Explorer API, see
+-- <http://aws.amazon.com/aws-cost-management/pricing/ Amazon Web Services Cost Management Pricing>.
 module Network.AWS.CostExplorer
   ( -- * Service Configuration
     defaultService,
@@ -68,12 +69,6 @@ module Network.AWS.CostExplorer
     -- * Operations
     -- $operations
 
-    -- ** ListCostCategoryDefinitions
-    ListCostCategoryDefinitions (ListCostCategoryDefinitions'),
-    newListCostCategoryDefinitions,
-    ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
-    newListCostCategoryDefinitionsResponse,
-
     -- ** GetRightsizingRecommendation
     GetRightsizingRecommendation (GetRightsizingRecommendation'),
     newGetRightsizingRecommendation,
@@ -85,6 +80,12 @@ module Network.AWS.CostExplorer
     newGetAnomalySubscriptions,
     GetAnomalySubscriptionsResponse (GetAnomalySubscriptionsResponse'),
     newGetAnomalySubscriptionsResponse,
+
+    -- ** ListCostCategoryDefinitions
+    ListCostCategoryDefinitions (ListCostCategoryDefinitions'),
+    newListCostCategoryDefinitions,
+    ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
+    newListCostCategoryDefinitionsResponse,
 
     -- ** GetAnomalies
     GetAnomalies (GetAnomalies'),
@@ -104,6 +105,18 @@ module Network.AWS.CostExplorer
     GetCostForecastResponse (GetCostForecastResponse'),
     newGetCostForecastResponse,
 
+    -- ** DeleteAnomalySubscription
+    DeleteAnomalySubscription (DeleteAnomalySubscription'),
+    newDeleteAnomalySubscription,
+    DeleteAnomalySubscriptionResponse (DeleteAnomalySubscriptionResponse'),
+    newDeleteAnomalySubscriptionResponse,
+
+    -- ** UpdateAnomalySubscription
+    UpdateAnomalySubscription (UpdateAnomalySubscription'),
+    newUpdateAnomalySubscription,
+    UpdateAnomalySubscriptionResponse (UpdateAnomalySubscriptionResponse'),
+    newUpdateAnomalySubscriptionResponse,
+
     -- ** GetCostAndUsage
     GetCostAndUsage (GetCostAndUsage'),
     newGetCostAndUsage,
@@ -115,24 +128,6 @@ module Network.AWS.CostExplorer
     newGetSavingsPlansPurchaseRecommendation,
     GetSavingsPlansPurchaseRecommendationResponse (GetSavingsPlansPurchaseRecommendationResponse'),
     newGetSavingsPlansPurchaseRecommendationResponse,
-
-    -- ** UpdateAnomalySubscription
-    UpdateAnomalySubscription (UpdateAnomalySubscription'),
-    newUpdateAnomalySubscription,
-    UpdateAnomalySubscriptionResponse (UpdateAnomalySubscriptionResponse'),
-    newUpdateAnomalySubscriptionResponse,
-
-    -- ** DeleteAnomalySubscription
-    DeleteAnomalySubscription (DeleteAnomalySubscription'),
-    newDeleteAnomalySubscription,
-    DeleteAnomalySubscriptionResponse (DeleteAnomalySubscriptionResponse'),
-    newDeleteAnomalySubscriptionResponse,
-
-    -- ** GetReservationCoverage
-    GetReservationCoverage (GetReservationCoverage'),
-    newGetReservationCoverage,
-    GetReservationCoverageResponse (GetReservationCoverageResponse'),
-    newGetReservationCoverageResponse,
 
     -- ** GetUsageForecast
     GetUsageForecast (GetUsageForecast'),
@@ -146,17 +141,17 @@ module Network.AWS.CostExplorer
     GetCostAndUsageWithResourcesResponse (GetCostAndUsageWithResourcesResponse'),
     newGetCostAndUsageWithResourcesResponse,
 
+    -- ** GetReservationCoverage
+    GetReservationCoverage (GetReservationCoverage'),
+    newGetReservationCoverage,
+    GetReservationCoverageResponse (GetReservationCoverageResponse'),
+    newGetReservationCoverageResponse,
+
     -- ** GetTags
     GetTags (GetTags'),
     newGetTags,
     GetTagsResponse (GetTagsResponse'),
     newGetTagsResponse,
-
-    -- ** DeleteCostCategoryDefinition
-    DeleteCostCategoryDefinition (DeleteCostCategoryDefinition'),
-    newDeleteCostCategoryDefinition,
-    DeleteCostCategoryDefinitionResponse (DeleteCostCategoryDefinitionResponse'),
-    newDeleteCostCategoryDefinitionResponse,
 
     -- ** UpdateCostCategoryDefinition
     UpdateCostCategoryDefinition (UpdateCostCategoryDefinition'),
@@ -164,17 +159,17 @@ module Network.AWS.CostExplorer
     UpdateCostCategoryDefinitionResponse (UpdateCostCategoryDefinitionResponse'),
     newUpdateCostCategoryDefinitionResponse,
 
+    -- ** DeleteCostCategoryDefinition
+    DeleteCostCategoryDefinition (DeleteCostCategoryDefinition'),
+    newDeleteCostCategoryDefinition,
+    DeleteCostCategoryDefinitionResponse (DeleteCostCategoryDefinitionResponse'),
+    newDeleteCostCategoryDefinitionResponse,
+
     -- ** GetSavingsPlansCoverage
     GetSavingsPlansCoverage (GetSavingsPlansCoverage'),
     newGetSavingsPlansCoverage,
     GetSavingsPlansCoverageResponse (GetSavingsPlansCoverageResponse'),
     newGetSavingsPlansCoverageResponse,
-
-    -- ** DeleteAnomalyMonitor
-    DeleteAnomalyMonitor (DeleteAnomalyMonitor'),
-    newDeleteAnomalyMonitor,
-    DeleteAnomalyMonitorResponse (DeleteAnomalyMonitorResponse'),
-    newDeleteAnomalyMonitorResponse,
 
     -- ** GetReservationUtilization
     GetReservationUtilization (GetReservationUtilization'),
@@ -182,11 +177,11 @@ module Network.AWS.CostExplorer
     GetReservationUtilizationResponse (GetReservationUtilizationResponse'),
     newGetReservationUtilizationResponse,
 
-    -- ** GetReservationPurchaseRecommendation
-    GetReservationPurchaseRecommendation (GetReservationPurchaseRecommendation'),
-    newGetReservationPurchaseRecommendation,
-    GetReservationPurchaseRecommendationResponse (GetReservationPurchaseRecommendationResponse'),
-    newGetReservationPurchaseRecommendationResponse,
+    -- ** DeleteAnomalyMonitor
+    DeleteAnomalyMonitor (DeleteAnomalyMonitor'),
+    newDeleteAnomalyMonitor,
+    DeleteAnomalyMonitorResponse (DeleteAnomalyMonitorResponse'),
+    newDeleteAnomalyMonitorResponse,
 
     -- ** UpdateAnomalyMonitor
     UpdateAnomalyMonitor (UpdateAnomalyMonitor'),
@@ -194,17 +189,17 @@ module Network.AWS.CostExplorer
     UpdateAnomalyMonitorResponse (UpdateAnomalyMonitorResponse'),
     newUpdateAnomalyMonitorResponse,
 
+    -- ** GetReservationPurchaseRecommendation
+    GetReservationPurchaseRecommendation (GetReservationPurchaseRecommendation'),
+    newGetReservationPurchaseRecommendation,
+    GetReservationPurchaseRecommendationResponse (GetReservationPurchaseRecommendationResponse'),
+    newGetReservationPurchaseRecommendationResponse,
+
     -- ** CreateAnomalyMonitor
     CreateAnomalyMonitor (CreateAnomalyMonitor'),
     newCreateAnomalyMonitor,
     CreateAnomalyMonitorResponse (CreateAnomalyMonitorResponse'),
     newCreateAnomalyMonitorResponse,
-
-    -- ** GetDimensionValues
-    GetDimensionValues (GetDimensionValues'),
-    newGetDimensionValues,
-    GetDimensionValuesResponse (GetDimensionValuesResponse'),
-    newGetDimensionValuesResponse,
 
     -- ** CreateAnomalySubscription
     CreateAnomalySubscription (CreateAnomalySubscription'),
@@ -212,17 +207,11 @@ module Network.AWS.CostExplorer
     CreateAnomalySubscriptionResponse (CreateAnomalySubscriptionResponse'),
     newCreateAnomalySubscriptionResponse,
 
-    -- ** DescribeCostCategoryDefinition
-    DescribeCostCategoryDefinition (DescribeCostCategoryDefinition'),
-    newDescribeCostCategoryDefinition,
-    DescribeCostCategoryDefinitionResponse (DescribeCostCategoryDefinitionResponse'),
-    newDescribeCostCategoryDefinitionResponse,
-
-    -- ** GetCostCategories
-    GetCostCategories (GetCostCategories'),
-    newGetCostCategories,
-    GetCostCategoriesResponse (GetCostCategoriesResponse'),
-    newGetCostCategoriesResponse,
+    -- ** GetDimensionValues
+    GetDimensionValues (GetDimensionValues'),
+    newGetDimensionValues,
+    GetDimensionValuesResponse (GetDimensionValuesResponse'),
+    newGetDimensionValuesResponse,
 
     -- ** GetSavingsPlansUtilization
     GetSavingsPlansUtilization (GetSavingsPlansUtilization'),
@@ -230,11 +219,23 @@ module Network.AWS.CostExplorer
     GetSavingsPlansUtilizationResponse (GetSavingsPlansUtilizationResponse'),
     newGetSavingsPlansUtilizationResponse,
 
+    -- ** DescribeCostCategoryDefinition
+    DescribeCostCategoryDefinition (DescribeCostCategoryDefinition'),
+    newDescribeCostCategoryDefinition,
+    DescribeCostCategoryDefinitionResponse (DescribeCostCategoryDefinitionResponse'),
+    newDescribeCostCategoryDefinitionResponse,
+
     -- ** ProvideAnomalyFeedback
     ProvideAnomalyFeedback (ProvideAnomalyFeedback'),
     newProvideAnomalyFeedback,
     ProvideAnomalyFeedbackResponse (ProvideAnomalyFeedbackResponse'),
     newProvideAnomalyFeedbackResponse,
+
+    -- ** GetCostCategories
+    GetCostCategories (GetCostCategories'),
+    newGetCostCategories,
+    GetCostCategoriesResponse (GetCostCategoriesResponse'),
+    newGetCostCategoriesResponse,
 
     -- ** GetAnomalyMonitors
     GetAnomalyMonitors (GetAnomalyMonitors'),
@@ -262,8 +263,20 @@ module Network.AWS.CostExplorer
     -- ** Context
     Context (..),
 
+    -- ** CostCategoryInheritedValueDimensionName
+    CostCategoryInheritedValueDimensionName (..),
+
+    -- ** CostCategoryRuleType
+    CostCategoryRuleType (..),
+
     -- ** CostCategoryRuleVersion
     CostCategoryRuleVersion (..),
+
+    -- ** CostCategorySplitChargeMethod
+    CostCategorySplitChargeMethod (..),
+
+    -- ** CostCategorySplitChargeRuleParameterType
+    CostCategorySplitChargeRuleParameterType (..),
 
     -- ** CostCategoryStatus
     CostCategoryStatus (..),
@@ -273,6 +286,9 @@ module Network.AWS.CostExplorer
 
     -- ** Dimension
     Dimension (..),
+
+    -- ** FindingReasonCode
+    FindingReasonCode (..),
 
     -- ** Granularity
     Granularity (..),
@@ -303,6 +319,9 @@ module Network.AWS.CostExplorer
 
     -- ** PaymentOption
     PaymentOption (..),
+
+    -- ** PlatformDifference
+    PlatformDifference (..),
 
     -- ** RecommendationTarget
     RecommendationTarget (..),
@@ -352,6 +371,10 @@ module Network.AWS.CostExplorer
     CostCategory (CostCategory'),
     newCostCategory,
 
+    -- ** CostCategoryInheritedValueDimension
+    CostCategoryInheritedValueDimension (CostCategoryInheritedValueDimension'),
+    newCostCategoryInheritedValueDimension,
+
     -- ** CostCategoryProcessingStatus
     CostCategoryProcessingStatus (CostCategoryProcessingStatus'),
     newCostCategoryProcessingStatus,
@@ -363,6 +386,14 @@ module Network.AWS.CostExplorer
     -- ** CostCategoryRule
     CostCategoryRule (CostCategoryRule'),
     newCostCategoryRule,
+
+    -- ** CostCategorySplitChargeRule
+    CostCategorySplitChargeRule (CostCategorySplitChargeRule'),
+    newCostCategorySplitChargeRule,
+
+    -- ** CostCategorySplitChargeRuleParameter
+    CostCategorySplitChargeRuleParameter (CostCategorySplitChargeRuleParameter'),
+    newCostCategorySplitChargeRuleParameter,
 
     -- ** CostCategoryValues
     CostCategoryValues (CostCategoryValues'),
@@ -403,6 +434,10 @@ module Network.AWS.CostExplorer
     -- ** DimensionValuesWithAttributes
     DimensionValuesWithAttributes (DimensionValuesWithAttributes'),
     newDimensionValuesWithAttributes,
+
+    -- ** DiskResourceUtilization
+    DiskResourceUtilization (DiskResourceUtilization'),
+    newDiskResourceUtilization,
 
     -- ** EBSResourceUtilization
     EBSResourceUtilization (EBSResourceUtilization'),
@@ -463,6 +498,10 @@ module Network.AWS.CostExplorer
     -- ** ModifyRecommendationDetail
     ModifyRecommendationDetail (ModifyRecommendationDetail'),
     newModifyRecommendationDetail,
+
+    -- ** NetworkResourceUtilization
+    NetworkResourceUtilization (NetworkResourceUtilization'),
+    newNetworkResourceUtilization,
 
     -- ** RDSInstanceDetails
     RDSInstanceDetails (RDSInstanceDetails'),

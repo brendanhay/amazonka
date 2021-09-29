@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an Amazon Aurora DB cluster that was stopped using the AWS
--- console, the stop-db-cluster AWS CLI command, or the StopDBCluster
+-- Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web
+-- Services console, the stop-db-cluster CLI command, or the StopDBCluster
 -- action.
 --
 -- For more information, see

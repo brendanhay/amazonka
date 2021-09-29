@@ -38,6 +38,7 @@ module Network.AWS.SQS.Types.QueueAttributeName
         QueueAttributeName_Policy,
         QueueAttributeName_QueueArn,
         QueueAttributeName_ReceiveMessageWaitTimeSeconds,
+        QueueAttributeName_RedriveAllowPolicy,
         QueueAttributeName_RedrivePolicy,
         QueueAttributeName_VisibilityTimeout
       ),
@@ -129,6 +130,9 @@ pattern QueueAttributeName_QueueArn = QueueAttributeName' "QueueArn"
 pattern QueueAttributeName_ReceiveMessageWaitTimeSeconds :: QueueAttributeName
 pattern QueueAttributeName_ReceiveMessageWaitTimeSeconds = QueueAttributeName' "ReceiveMessageWaitTimeSeconds"
 
+pattern QueueAttributeName_RedriveAllowPolicy :: QueueAttributeName
+pattern QueueAttributeName_RedriveAllowPolicy = QueueAttributeName' "RedriveAllowPolicy"
+
 pattern QueueAttributeName_RedrivePolicy :: QueueAttributeName
 pattern QueueAttributeName_RedrivePolicy = QueueAttributeName' "RedrivePolicy"
 
@@ -154,6 +158,7 @@ pattern QueueAttributeName_VisibilityTimeout = QueueAttributeName' "VisibilityTi
   QueueAttributeName_Policy,
   QueueAttributeName_QueueArn,
   QueueAttributeName_ReceiveMessageWaitTimeSeconds,
+  QueueAttributeName_RedriveAllowPolicy,
   QueueAttributeName_RedrivePolicy,
   QueueAttributeName_VisibilityTimeout,
   QueueAttributeName'

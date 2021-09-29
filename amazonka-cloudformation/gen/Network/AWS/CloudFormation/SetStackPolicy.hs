@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data SetStackPolicy = SetStackPolicy'
   { -- | Structure containing the stack policy body. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
-    -- in the AWS CloudFormation User Guide. You can specify either the
+    -- in the CloudFormation User Guide. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | Location of a file containing the stack policy. The URL must point to a
@@ -73,7 +73,7 @@ data SetStackPolicy = SetStackPolicy'
 --
 -- 'stackPolicyBody', 'setStackPolicy_stackPolicyBody' - Structure containing the stack policy body. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
--- in the AWS CloudFormation User Guide. You can specify either the
+-- in the CloudFormation User Guide. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- 'stackPolicyURL', 'setStackPolicy_stackPolicyURL' - Location of a file containing the stack policy. The URL must point to a
@@ -95,7 +95,7 @@ newSetStackPolicy pStackName_ =
 
 -- | Structure containing the stack policy body. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
--- in the AWS CloudFormation User Guide. You can specify either the
+-- in the CloudFormation User Guide. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 setStackPolicy_stackPolicyBody :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
 setStackPolicy_stackPolicyBody = Lens.lens (\SetStackPolicy' {stackPolicyBody} -> stackPolicyBody) (\s@SetStackPolicy' {} a -> s {stackPolicyBody = a} :: SetStackPolicy)

@@ -39,8 +39,8 @@ module Network.AWS.CodeCommit.GetFolder
     getFolderResponse_symbolicLinks,
     getFolderResponse_subFolders,
     getFolderResponse_treeId,
-    getFolderResponse_subModules,
     getFolderResponse_files,
+    getFolderResponse_subModules,
     getFolderResponse_httpStatus,
     getFolderResponse_commitId,
     getFolderResponse_folderPath,
@@ -134,8 +134,8 @@ instance Core.AWSRequest GetFolder where
             Prelude.<$> (x Core..?> "symbolicLinks" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "subFolders" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "treeId")
-            Prelude.<*> (x Core..?> "subModules" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "files" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "subModules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "commitId")
             Prelude.<*> (x Core..:> "folderPath")
@@ -188,10 +188,10 @@ data GetFolderResponse = GetFolderResponse'
     -- | The full SHA-1 pointer of the tree information for the commit that
     -- contains the folder.
     treeId :: Prelude.Maybe Prelude.Text,
-    -- | The list of submodules in the specified folder, if any.
-    subModules :: Prelude.Maybe [SubModule],
     -- | The list of files in the specified folder, if any.
     files :: Prelude.Maybe [File],
+    -- | The list of submodules in the specified folder, if any.
+    subModules :: Prelude.Maybe [SubModule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The full commit ID used as a reference for the returned version of the
@@ -218,9 +218,9 @@ data GetFolderResponse = GetFolderResponse'
 -- 'treeId', 'getFolderResponse_treeId' - The full SHA-1 pointer of the tree information for the commit that
 -- contains the folder.
 --
--- 'subModules', 'getFolderResponse_subModules' - The list of submodules in the specified folder, if any.
---
 -- 'files', 'getFolderResponse_files' - The list of files in the specified folder, if any.
+--
+-- 'subModules', 'getFolderResponse_subModules' - The list of submodules in the specified folder, if any.
 --
 -- 'httpStatus', 'getFolderResponse_httpStatus' - The response's http status code.
 --
@@ -244,8 +244,8 @@ newGetFolderResponse
       { symbolicLinks = Prelude.Nothing,
         subFolders = Prelude.Nothing,
         treeId = Prelude.Nothing,
-        subModules = Prelude.Nothing,
         files = Prelude.Nothing,
+        subModules = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         commitId = pCommitId_,
         folderPath = pFolderPath_
@@ -265,13 +265,13 @@ getFolderResponse_subFolders = Lens.lens (\GetFolderResponse' {subFolders} -> su
 getFolderResponse_treeId :: Lens.Lens' GetFolderResponse (Prelude.Maybe Prelude.Text)
 getFolderResponse_treeId = Lens.lens (\GetFolderResponse' {treeId} -> treeId) (\s@GetFolderResponse' {} a -> s {treeId = a} :: GetFolderResponse)
 
--- | The list of submodules in the specified folder, if any.
-getFolderResponse_subModules :: Lens.Lens' GetFolderResponse (Prelude.Maybe [SubModule])
-getFolderResponse_subModules = Lens.lens (\GetFolderResponse' {subModules} -> subModules) (\s@GetFolderResponse' {} a -> s {subModules = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The list of files in the specified folder, if any.
 getFolderResponse_files :: Lens.Lens' GetFolderResponse (Prelude.Maybe [File])
 getFolderResponse_files = Lens.lens (\GetFolderResponse' {files} -> files) (\s@GetFolderResponse' {} a -> s {files = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The list of submodules in the specified folder, if any.
+getFolderResponse_subModules :: Lens.Lens' GetFolderResponse (Prelude.Maybe [SubModule])
+getFolderResponse_subModules = Lens.lens (\GetFolderResponse' {subModules} -> subModules) (\s@GetFolderResponse' {} a -> s {subModules = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Prelude.Int

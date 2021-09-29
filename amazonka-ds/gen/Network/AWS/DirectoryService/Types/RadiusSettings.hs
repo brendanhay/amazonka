@@ -33,21 +33,21 @@ data RadiusSettings = RadiusSettings'
     useSameUsername :: Prelude.Maybe Prelude.Bool,
     -- | Not currently used.
     displayLabel :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of times that communication with the RADIUS server is
+    -- attempted.
+    radiusRetries :: Prelude.Maybe Prelude.Natural,
     -- | An array of strings that contains the fully qualified domain name (FQDN)
     -- or IP addresses of the RADIUS server endpoints, or the FQDN or IP
     -- addresses of your RADIUS server load balancer.
     radiusServers :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of times that communication with the RADIUS server is
-    -- attempted.
-    radiusRetries :: Prelude.Maybe Prelude.Natural,
     -- | The amount of time, in seconds, to wait for the RADIUS server to
     -- respond.
     radiusTimeout :: Prelude.Maybe Prelude.Natural,
     -- | Required for enabling RADIUS on the directory.
     sharedSecret :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The port that your RADIUS server is using for communications. Your
-    -- on-premises network must allow inbound traffic over this port from the
-    -- AWS Directory Service servers.
+    -- self-managed network must allow inbound traffic over this port from the
+    -- Directory Service servers.
     radiusPort :: Prelude.Maybe Prelude.Natural,
     -- | The protocol specified for your RADIUS endpoints.
     authenticationProtocol :: Prelude.Maybe RadiusAuthenticationProtocol
@@ -66,12 +66,12 @@ data RadiusSettings = RadiusSettings'
 --
 -- 'displayLabel', 'radiusSettings_displayLabel' - Not currently used.
 --
+-- 'radiusRetries', 'radiusSettings_radiusRetries' - The maximum number of times that communication with the RADIUS server is
+-- attempted.
+--
 -- 'radiusServers', 'radiusSettings_radiusServers' - An array of strings that contains the fully qualified domain name (FQDN)
 -- or IP addresses of the RADIUS server endpoints, or the FQDN or IP
 -- addresses of your RADIUS server load balancer.
---
--- 'radiusRetries', 'radiusSettings_radiusRetries' - The maximum number of times that communication with the RADIUS server is
--- attempted.
 --
 -- 'radiusTimeout', 'radiusSettings_radiusTimeout' - The amount of time, in seconds, to wait for the RADIUS server to
 -- respond.
@@ -79,8 +79,8 @@ data RadiusSettings = RadiusSettings'
 -- 'sharedSecret', 'radiusSettings_sharedSecret' - Required for enabling RADIUS on the directory.
 --
 -- 'radiusPort', 'radiusSettings_radiusPort' - The port that your RADIUS server is using for communications. Your
--- on-premises network must allow inbound traffic over this port from the
--- AWS Directory Service servers.
+-- self-managed network must allow inbound traffic over this port from the
+-- Directory Service servers.
 --
 -- 'authenticationProtocol', 'radiusSettings_authenticationProtocol' - The protocol specified for your RADIUS endpoints.
 newRadiusSettings ::
@@ -89,8 +89,8 @@ newRadiusSettings =
   RadiusSettings'
     { useSameUsername = Prelude.Nothing,
       displayLabel = Prelude.Nothing,
-      radiusServers = Prelude.Nothing,
       radiusRetries = Prelude.Nothing,
+      radiusServers = Prelude.Nothing,
       radiusTimeout = Prelude.Nothing,
       sharedSecret = Prelude.Nothing,
       radiusPort = Prelude.Nothing,
@@ -105,16 +105,16 @@ radiusSettings_useSameUsername = Lens.lens (\RadiusSettings' {useSameUsername} -
 radiusSettings_displayLabel :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Text)
 radiusSettings_displayLabel = Lens.lens (\RadiusSettings' {displayLabel} -> displayLabel) (\s@RadiusSettings' {} a -> s {displayLabel = a} :: RadiusSettings)
 
+-- | The maximum number of times that communication with the RADIUS server is
+-- attempted.
+radiusSettings_radiusRetries :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
+radiusSettings_radiusRetries = Lens.lens (\RadiusSettings' {radiusRetries} -> radiusRetries) (\s@RadiusSettings' {} a -> s {radiusRetries = a} :: RadiusSettings)
+
 -- | An array of strings that contains the fully qualified domain name (FQDN)
 -- or IP addresses of the RADIUS server endpoints, or the FQDN or IP
 -- addresses of your RADIUS server load balancer.
 radiusSettings_radiusServers :: Lens.Lens' RadiusSettings (Prelude.Maybe [Prelude.Text])
 radiusSettings_radiusServers = Lens.lens (\RadiusSettings' {radiusServers} -> radiusServers) (\s@RadiusSettings' {} a -> s {radiusServers = a} :: RadiusSettings) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of times that communication with the RADIUS server is
--- attempted.
-radiusSettings_radiusRetries :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
-radiusSettings_radiusRetries = Lens.lens (\RadiusSettings' {radiusRetries} -> radiusRetries) (\s@RadiusSettings' {} a -> s {radiusRetries = a} :: RadiusSettings)
 
 -- | The amount of time, in seconds, to wait for the RADIUS server to
 -- respond.
@@ -126,8 +126,8 @@ radiusSettings_sharedSecret :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.
 radiusSettings_sharedSecret = Lens.lens (\RadiusSettings' {sharedSecret} -> sharedSecret) (\s@RadiusSettings' {} a -> s {sharedSecret = a} :: RadiusSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The port that your RADIUS server is using for communications. Your
--- on-premises network must allow inbound traffic over this port from the
--- AWS Directory Service servers.
+-- self-managed network must allow inbound traffic over this port from the
+-- Directory Service servers.
 radiusSettings_radiusPort :: Lens.Lens' RadiusSettings (Prelude.Maybe Prelude.Natural)
 radiusSettings_radiusPort = Lens.lens (\RadiusSettings' {radiusPort} -> radiusPort) (\s@RadiusSettings' {} a -> s {radiusPort = a} :: RadiusSettings)
 
@@ -143,8 +143,8 @@ instance Core.FromJSON RadiusSettings where
           RadiusSettings'
             Prelude.<$> (x Core..:? "UseSameUsername")
             Prelude.<*> (x Core..:? "DisplayLabel")
-            Prelude.<*> (x Core..:? "RadiusServers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "RadiusRetries")
+            Prelude.<*> (x Core..:? "RadiusServers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "RadiusTimeout")
             Prelude.<*> (x Core..:? "SharedSecret")
             Prelude.<*> (x Core..:? "RadiusPort")
@@ -162,8 +162,8 @@ instance Core.ToJSON RadiusSettings where
           [ ("UseSameUsername" Core..=)
               Prelude.<$> useSameUsername,
             ("DisplayLabel" Core..=) Prelude.<$> displayLabel,
-            ("RadiusServers" Core..=) Prelude.<$> radiusServers,
             ("RadiusRetries" Core..=) Prelude.<$> radiusRetries,
+            ("RadiusServers" Core..=) Prelude.<$> radiusServers,
             ("RadiusTimeout" Core..=) Prelude.<$> radiusTimeout,
             ("SharedSecret" Core..=) Prelude.<$> sharedSecret,
             ("RadiusPort" Core..=) Prelude.<$> radiusPort,

@@ -33,10 +33,10 @@ data OrderableClusterOption = OrderableClusterOption'
     availabilityZones :: Prelude.Maybe [AvailabilityZone],
     -- | The cluster type, for example @multi-node@.
     clusterType :: Prelude.Maybe Prelude.Text,
-    -- | The node type for the orderable cluster.
-    nodeType :: Prelude.Maybe Prelude.Text,
     -- | The version of the orderable cluster.
-    clusterVersion :: Prelude.Maybe Prelude.Text
+    clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The node type for the orderable cluster.
+    nodeType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,9 @@ data OrderableClusterOption = OrderableClusterOption'
 --
 -- 'clusterType', 'orderableClusterOption_clusterType' - The cluster type, for example @multi-node@.
 --
--- 'nodeType', 'orderableClusterOption_nodeType' - The node type for the orderable cluster.
---
 -- 'clusterVersion', 'orderableClusterOption_clusterVersion' - The version of the orderable cluster.
+--
+-- 'nodeType', 'orderableClusterOption_nodeType' - The node type for the orderable cluster.
 newOrderableClusterOption ::
   OrderableClusterOption
 newOrderableClusterOption =
@@ -62,8 +62,8 @@ newOrderableClusterOption =
     { availabilityZones =
         Prelude.Nothing,
       clusterType = Prelude.Nothing,
-      nodeType = Prelude.Nothing,
-      clusterVersion = Prelude.Nothing
+      clusterVersion = Prelude.Nothing,
+      nodeType = Prelude.Nothing
     }
 
 -- | A list of availability zones for the orderable cluster.
@@ -74,13 +74,13 @@ orderableClusterOption_availabilityZones = Lens.lens (\OrderableClusterOption' {
 orderableClusterOption_clusterType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
 orderableClusterOption_clusterType = Lens.lens (\OrderableClusterOption' {clusterType} -> clusterType) (\s@OrderableClusterOption' {} a -> s {clusterType = a} :: OrderableClusterOption)
 
--- | The node type for the orderable cluster.
-orderableClusterOption_nodeType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
-orderableClusterOption_nodeType = Lens.lens (\OrderableClusterOption' {nodeType} -> nodeType) (\s@OrderableClusterOption' {} a -> s {nodeType = a} :: OrderableClusterOption)
-
 -- | The version of the orderable cluster.
 orderableClusterOption_clusterVersion :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
 orderableClusterOption_clusterVersion = Lens.lens (\OrderableClusterOption' {clusterVersion} -> clusterVersion) (\s@OrderableClusterOption' {} a -> s {clusterVersion = a} :: OrderableClusterOption)
+
+-- | The node type for the orderable cluster.
+orderableClusterOption_nodeType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
+orderableClusterOption_nodeType = Lens.lens (\OrderableClusterOption' {nodeType} -> nodeType) (\s@OrderableClusterOption' {} a -> s {nodeType = a} :: OrderableClusterOption)
 
 instance Core.FromXML OrderableClusterOption where
   parseXML x =
@@ -90,8 +90,8 @@ instance Core.FromXML OrderableClusterOption where
                       Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
                   )
       Prelude.<*> (x Core..@? "ClusterType")
-      Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@? "ClusterVersion")
+      Prelude.<*> (x Core..@? "NodeType")
 
 instance Prelude.Hashable OrderableClusterOption
 

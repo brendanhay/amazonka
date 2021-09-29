@@ -33,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Channel = Channel'
   { -- | The last time when a new message arrived in the channel.
     --
-    -- AWS IoT Analytics updates this value at most once per minute for one
+    -- IoT Analytics updates this value at most once per minute for one
     -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
     --
     -- This feature only applies to messages that arrived in the data store
@@ -53,7 +53,7 @@ data Channel = Channel'
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
-    -- @serviceManagedS3@. You cannot change this storage option after the
+    -- @serviceManagedS3@. You can\'t change this storage option after the
     -- channel is created.
     storage :: Prelude.Maybe ChannelStorage
   }
@@ -69,7 +69,7 @@ data Channel = Channel'
 --
 -- 'lastMessageArrivalTime', 'channel_lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
--- AWS IoT Analytics updates this value at most once per minute for one
+-- IoT Analytics updates this value at most once per minute for one
 -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
 --
 -- This feature only applies to messages that arrived in the data store
@@ -89,7 +89,7 @@ data Channel = Channel'
 --
 -- 'storage', 'channel_storage' - Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 newChannel ::
   Channel
@@ -107,7 +107,7 @@ newChannel =
 
 -- | The last time when a new message arrived in the channel.
 --
--- AWS IoT Analytics updates this value at most once per minute for one
+-- IoT Analytics updates this value at most once per minute for one
 -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
 --
 -- This feature only applies to messages that arrived in the data store
@@ -141,7 +141,7 @@ channel_retentionPeriod = Lens.lens (\Channel' {retentionPeriod} -> retentionPer
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You cannot change this storage option after the
+-- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
 channel_storage :: Lens.Lens' Channel (Prelude.Maybe ChannelStorage)
 channel_storage = Lens.lens (\Channel' {storage} -> storage) (\s@Channel' {} a -> s {storage = a} :: Channel)

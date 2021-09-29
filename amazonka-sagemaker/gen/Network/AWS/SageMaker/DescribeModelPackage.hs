@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a description of the specified model package, which is used to
--- create Amazon SageMaker models or list them on AWS Marketplace.
+-- create Amazon SageMaker models or list them on Amazon Web Services
+-- Marketplace.
 --
 -- To create models in Amazon SageMaker, buyers can subscribe to model
--- packages listed on AWS Marketplace.
+-- packages listed on Amazon Web Services Marketplace.
 module Network.AWS.SageMaker.DescribeModelPackage
   ( -- * Creating a Request
     DescribeModelPackage (..),
@@ -46,10 +47,10 @@ module Network.AWS.SageMaker.DescribeModelPackage
     describeModelPackageResponse_certifyForMarketplace,
     describeModelPackageResponse_modelApprovalStatus,
     describeModelPackageResponse_approvalDescription,
-    describeModelPackageResponse_lastModifiedTime,
     describeModelPackageResponse_inferenceSpecification,
-    describeModelPackageResponse_modelPackageDescription,
+    describeModelPackageResponse_lastModifiedTime,
     describeModelPackageResponse_createdBy,
+    describeModelPackageResponse_modelPackageDescription,
     describeModelPackageResponse_lastModifiedBy,
     describeModelPackageResponse_modelPackageGroupName,
     describeModelPackageResponse_httpStatus,
@@ -70,7 +71,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newDescribeModelPackage' smart constructor.
 data DescribeModelPackage = DescribeModelPackage'
-  { -- | The name of the model package to describe.
+  { -- | The name or Amazon Resource Name (ARN) of the model package to describe.
+    --
+    -- When you specify a name, the name must have 1 to 63 characters. Valid
+    -- characters are a-z, A-Z, 0-9, and - (hyphen).
     modelPackageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +87,10 @@ data DescribeModelPackage = DescribeModelPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageName', 'describeModelPackage_modelPackageName' - The name of the model package to describe.
+-- 'modelPackageName', 'describeModelPackage_modelPackageName' - The name or Amazon Resource Name (ARN) of the model package to describe.
+--
+-- When you specify a name, the name must have 1 to 63 characters. Valid
+-- characters are a-z, A-Z, 0-9, and - (hyphen).
 newDescribeModelPackage ::
   -- | 'modelPackageName'
   Prelude.Text ->
@@ -94,7 +101,10 @@ newDescribeModelPackage pModelPackageName_ =
         pModelPackageName_
     }
 
--- | The name of the model package to describe.
+-- | The name or Amazon Resource Name (ARN) of the model package to describe.
+--
+-- When you specify a name, the name must have 1 to 63 characters. Valid
+-- characters are a-z, A-Z, 0-9, and - (hyphen).
 describeModelPackage_modelPackageName :: Lens.Lens' DescribeModelPackage Prelude.Text
 describeModelPackage_modelPackageName = Lens.lens (\DescribeModelPackage' {modelPackageName} -> modelPackageName) (\s@DescribeModelPackage' {} a -> s {modelPackageName = a} :: DescribeModelPackage)
 
@@ -115,10 +125,10 @@ instance Core.AWSRequest DescribeModelPackage where
             Prelude.<*> (x Core..?> "CertifyForMarketplace")
             Prelude.<*> (x Core..?> "ModelApprovalStatus")
             Prelude.<*> (x Core..?> "ApprovalDescription")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "InferenceSpecification")
-            Prelude.<*> (x Core..?> "ModelPackageDescription")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (x Core..?> "ModelPackageDescription")
             Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (x Core..?> "ModelPackageGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,20 +185,21 @@ data DescribeModelPackageResponse = DescribeModelPackageResponse'
     validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
     -- | Metrics for the model.
     modelMetrics :: Prelude.Maybe ModelMetrics,
-    -- | Whether the model package is certified for listing on AWS Marketplace.
+    -- | Whether the model package is certified for listing on Amazon Web
+    -- Services Marketplace.
     certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The approval status of the model package.
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | A description provided for the model approval.
     approvalDescription :: Prelude.Maybe Prelude.Text,
-    -- | The last time the model package was modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | Details about inference jobs that can be run with models based on this
     -- model package.
     inferenceSpecification :: Prelude.Maybe InferenceSpecification,
+    -- | The last time the model package was modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    createdBy :: Prelude.Maybe UserContext,
     -- | A brief summary of the model package.
     modelPackageDescription :: Prelude.Maybe Prelude.Text,
-    createdBy :: Prelude.Maybe UserContext,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | If the model is a versioned model, the name of the model group that the
     -- versioned model belongs to.
@@ -227,20 +238,21 @@ data DescribeModelPackageResponse = DescribeModelPackageResponse'
 --
 -- 'modelMetrics', 'describeModelPackageResponse_modelMetrics' - Metrics for the model.
 --
--- 'certifyForMarketplace', 'describeModelPackageResponse_certifyForMarketplace' - Whether the model package is certified for listing on AWS Marketplace.
+-- 'certifyForMarketplace', 'describeModelPackageResponse_certifyForMarketplace' - Whether the model package is certified for listing on Amazon Web
+-- Services Marketplace.
 --
 -- 'modelApprovalStatus', 'describeModelPackageResponse_modelApprovalStatus' - The approval status of the model package.
 --
 -- 'approvalDescription', 'describeModelPackageResponse_approvalDescription' - A description provided for the model approval.
 --
--- 'lastModifiedTime', 'describeModelPackageResponse_lastModifiedTime' - The last time the model package was modified.
---
 -- 'inferenceSpecification', 'describeModelPackageResponse_inferenceSpecification' - Details about inference jobs that can be run with models based on this
 -- model package.
 --
--- 'modelPackageDescription', 'describeModelPackageResponse_modelPackageDescription' - A brief summary of the model package.
+-- 'lastModifiedTime', 'describeModelPackageResponse_lastModifiedTime' - The last time the model package was modified.
 --
 -- 'createdBy', 'describeModelPackageResponse_createdBy' - Undocumented member.
+--
+-- 'modelPackageDescription', 'describeModelPackageResponse_modelPackageDescription' - A brief summary of the model package.
 --
 -- 'lastModifiedBy', 'describeModelPackageResponse_lastModifiedBy' - Undocumented member.
 --
@@ -289,10 +301,10 @@ newDescribeModelPackageResponse
         certifyForMarketplace = Prelude.Nothing,
         modelApprovalStatus = Prelude.Nothing,
         approvalDescription = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
         inferenceSpecification = Prelude.Nothing,
-        modelPackageDescription = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         createdBy = Prelude.Nothing,
+        modelPackageDescription = Prelude.Nothing,
         lastModifiedBy = Prelude.Nothing,
         modelPackageGroupName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -326,7 +338,8 @@ describeModelPackageResponse_validationSpecification = Lens.lens (\DescribeModel
 describeModelPackageResponse_modelMetrics :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelMetrics)
 describeModelPackageResponse_modelMetrics = Lens.lens (\DescribeModelPackageResponse' {modelMetrics} -> modelMetrics) (\s@DescribeModelPackageResponse' {} a -> s {modelMetrics = a} :: DescribeModelPackageResponse)
 
--- | Whether the model package is certified for listing on AWS Marketplace.
+-- | Whether the model package is certified for listing on Amazon Web
+-- Services Marketplace.
 describeModelPackageResponse_certifyForMarketplace :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Bool)
 describeModelPackageResponse_certifyForMarketplace = Lens.lens (\DescribeModelPackageResponse' {certifyForMarketplace} -> certifyForMarketplace) (\s@DescribeModelPackageResponse' {} a -> s {certifyForMarketplace = a} :: DescribeModelPackageResponse)
 
@@ -338,22 +351,22 @@ describeModelPackageResponse_modelApprovalStatus = Lens.lens (\DescribeModelPack
 describeModelPackageResponse_approvalDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
 describeModelPackageResponse_approvalDescription = Lens.lens (\DescribeModelPackageResponse' {approvalDescription} -> approvalDescription) (\s@DescribeModelPackageResponse' {} a -> s {approvalDescription = a} :: DescribeModelPackageResponse)
 
--- | The last time the model package was modified.
-describeModelPackageResponse_lastModifiedTime :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelPackageResponse_lastModifiedTime = Lens.lens (\DescribeModelPackageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeModelPackageResponse' {} a -> s {lastModifiedTime = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Core._Time
-
 -- | Details about inference jobs that can be run with models based on this
 -- model package.
 describeModelPackageResponse_inferenceSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe InferenceSpecification)
 describeModelPackageResponse_inferenceSpecification = Lens.lens (\DescribeModelPackageResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeModelPackageResponse' {} a -> s {inferenceSpecification = a} :: DescribeModelPackageResponse)
 
--- | A brief summary of the model package.
-describeModelPackageResponse_modelPackageDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_modelPackageDescription = Lens.lens (\DescribeModelPackageResponse' {modelPackageDescription} -> modelPackageDescription) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageDescription = a} :: DescribeModelPackageResponse)
+-- | The last time the model package was modified.
+describeModelPackageResponse_lastModifiedTime :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.UTCTime)
+describeModelPackageResponse_lastModifiedTime = Lens.lens (\DescribeModelPackageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeModelPackageResponse' {} a -> s {lastModifiedTime = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 describeModelPackageResponse_createdBy :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe UserContext)
 describeModelPackageResponse_createdBy = Lens.lens (\DescribeModelPackageResponse' {createdBy} -> createdBy) (\s@DescribeModelPackageResponse' {} a -> s {createdBy = a} :: DescribeModelPackageResponse)
+
+-- | A brief summary of the model package.
+describeModelPackageResponse_modelPackageDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_modelPackageDescription = Lens.lens (\DescribeModelPackageResponse' {modelPackageDescription} -> modelPackageDescription) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageDescription = a} :: DescribeModelPackageResponse)
 
 -- | Undocumented member.
 describeModelPackageResponse_lastModifiedBy :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe UserContext)

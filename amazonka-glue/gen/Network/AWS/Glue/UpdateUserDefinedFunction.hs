@@ -51,7 +51,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateUserDefinedFunction' smart constructor.
 data UpdateUserDefinedFunction = UpdateUserDefinedFunction'
   { -- | The ID of the Data Catalog where the function to be updated is located.
-    -- If none is provided, the AWS account ID is used by default.
+    -- If none is provided, the Amazon Web Services account ID is used by
+    -- default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the function to be updated is
     -- located.
@@ -73,7 +74,8 @@ data UpdateUserDefinedFunction = UpdateUserDefinedFunction'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'updateUserDefinedFunction_catalogId' - The ID of the Data Catalog where the function to be updated is located.
--- If none is provided, the AWS account ID is used by default.
+-- If none is provided, the Amazon Web Services account ID is used by
+-- default.
 --
 -- 'databaseName', 'updateUserDefinedFunction_databaseName' - The name of the catalog database where the function to be updated is
 -- located.
@@ -103,7 +105,8 @@ newUpdateUserDefinedFunction
       }
 
 -- | The ID of the Data Catalog where the function to be updated is located.
--- If none is provided, the AWS account ID is used by default.
+-- If none is provided, the Amazon Web Services account ID is used by
+-- default.
 updateUserDefinedFunction_catalogId :: Lens.Lens' UpdateUserDefinedFunction (Prelude.Maybe Prelude.Text)
 updateUserDefinedFunction_catalogId = Lens.lens (\UpdateUserDefinedFunction' {catalogId} -> catalogId) (\s@UpdateUserDefinedFunction' {} a -> s {catalogId = a} :: UpdateUserDefinedFunction)
 

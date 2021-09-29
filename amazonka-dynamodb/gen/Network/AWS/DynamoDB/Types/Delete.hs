@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDelete' smart constructor.
 data Delete = Delete'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+  { -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional delete to
@@ -56,11 +56,11 @@ data Delete = Delete'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'delete_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
 -- 'returnValuesOnConditionCheckFailure', 'delete_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
+--
+-- 'expressionAttributeValues', 'delete_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
@@ -77,25 +77,24 @@ newDelete ::
   Delete
 newDelete pTableName_ =
   Delete'
-    { expressionAttributeValues =
+    { returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
-      returnValuesOnConditionCheckFailure =
-        Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       key = Prelude.mempty,
       tableName = pTableName_
     }
 
--- | One or more values that can be substituted in an expression.
-delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
 delete_returnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 delete_returnValuesOnConditionCheckFailure = Lens.lens (\Delete' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Delete' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Delete)
+
+-- | One or more values that can be substituted in an expression.
+delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more substitution tokens for attribute names in an expression.
 delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -123,10 +122,10 @@ instance Core.ToJSON Delete where
   toJSON Delete' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+          [ ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
+            ("ExpressionAttributeValues" Core..=)
+              Prelude.<$> expressionAttributeValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
             ("ConditionExpression" Core..=)

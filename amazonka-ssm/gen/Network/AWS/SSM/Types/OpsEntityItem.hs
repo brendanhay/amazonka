@@ -23,14 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The OpsItem summaries result item.
+-- | The OpsData summary.
 --
 -- /See:/ 'newOpsEntityItem' smart constructor.
 data OpsEntityItem = OpsEntityItem'
-  { -- | The time OpsItem data was captured.
-    captureTime :: Prelude.Maybe Prelude.Text,
-    -- | The detailed data content for an OpsItem summaries result item.
-    content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text]
+  { -- | The details of an OpsData summary.
+    content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    -- | The time the OpsData was captured.
+    captureTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data OpsEntityItem = OpsEntityItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'captureTime', 'opsEntityItem_captureTime' - The time OpsItem data was captured.
+-- 'content', 'opsEntityItem_content' - The details of an OpsData summary.
 --
--- 'content', 'opsEntityItem_content' - The detailed data content for an OpsItem summaries result item.
+-- 'captureTime', 'opsEntityItem_captureTime' - The time the OpsData was captured.
 newOpsEntityItem ::
   OpsEntityItem
 newOpsEntityItem =
   OpsEntityItem'
-    { captureTime = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      captureTime = Prelude.Nothing
     }
 
--- | The time OpsItem data was captured.
-opsEntityItem_captureTime :: Lens.Lens' OpsEntityItem (Prelude.Maybe Prelude.Text)
-opsEntityItem_captureTime = Lens.lens (\OpsEntityItem' {captureTime} -> captureTime) (\s@OpsEntityItem' {} a -> s {captureTime = a} :: OpsEntityItem)
-
--- | The detailed data content for an OpsItem summaries result item.
+-- | The details of an OpsData summary.
 opsEntityItem_content :: Lens.Lens' OpsEntityItem (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
 opsEntityItem_content = Lens.lens (\OpsEntityItem' {content} -> content) (\s@OpsEntityItem' {} a -> s {content = a} :: OpsEntityItem) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The time the OpsData was captured.
+opsEntityItem_captureTime :: Lens.Lens' OpsEntityItem (Prelude.Maybe Prelude.Text)
+opsEntityItem_captureTime = Lens.lens (\OpsEntityItem' {captureTime} -> captureTime) (\s@OpsEntityItem' {} a -> s {captureTime = a} :: OpsEntityItem)
 
 instance Core.FromJSON OpsEntityItem where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON OpsEntityItem where
       "OpsEntityItem"
       ( \x ->
           OpsEntityItem'
-            Prelude.<$> (x Core..:? "CaptureTime")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CaptureTime")
       )
 
 instance Prelude.Hashable OpsEntityItem

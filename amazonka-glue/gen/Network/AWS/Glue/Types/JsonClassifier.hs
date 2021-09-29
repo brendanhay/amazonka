@@ -36,7 +36,7 @@ data JsonClassifier = JsonClassifier'
     -- | The name of the classifier.
     name :: Prelude.Text,
     -- | A @JsonPath@ string defining the JSON data for the classifier to
-    -- classify. AWS Glue supports a subset of JsonPath, as described in
+    -- classify. Glue supports a subset of JsonPath, as described in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
     jsonPath :: Prelude.Text
   }
@@ -59,7 +59,7 @@ data JsonClassifier = JsonClassifier'
 -- 'name', 'jsonClassifier_name' - The name of the classifier.
 --
 -- 'jsonPath', 'jsonClassifier_jsonPath' - A @JsonPath@ string defining the JSON data for the classifier to
--- classify. AWS Glue supports a subset of JsonPath, as described in
+-- classify. Glue supports a subset of JsonPath, as described in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
 newJsonClassifier ::
   -- | 'name'
@@ -93,7 +93,7 @@ jsonClassifier_name :: Lens.Lens' JsonClassifier Prelude.Text
 jsonClassifier_name = Lens.lens (\JsonClassifier' {name} -> name) (\s@JsonClassifier' {} a -> s {name = a} :: JsonClassifier)
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to
--- classify. AWS Glue supports a subset of JsonPath, as described in
+-- classify. Glue supports a subset of JsonPath, as described in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers>.
 jsonClassifier_jsonPath :: Lens.Lens' JsonClassifier Prelude.Text
 jsonClassifier_jsonPath = Lens.lens (\JsonClassifier' {jsonPath} -> jsonPath) (\s@JsonClassifier' {} a -> s {jsonPath = a} :: JsonClassifier)

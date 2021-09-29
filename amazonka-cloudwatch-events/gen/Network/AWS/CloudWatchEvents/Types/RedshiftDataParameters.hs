@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | These are custom parameters to be used when the target is a Redshift
--- cluster to invoke the Redshift Data API ExecuteStatement based on
--- EventBridge events.
+-- | These are custom parameters to be used when the target is a Amazon
+-- Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement
+-- based on EventBridge events.
 --
 -- /See:/ 'newRedshiftDataParameters' smart constructor.
 data RedshiftDataParameters = RedshiftDataParameters'
@@ -33,7 +33,7 @@ data RedshiftDataParameters = RedshiftDataParameters'
     -- credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the secret that enables access to the database.
-    -- Required when authenticating using AWS Secrets Manager.
+    -- Required when authenticating using Amazon Web Services Secrets Manager.
     secretManagerArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the SQL statement. You can name the SQL statement when you
     -- create it to identify the query.
@@ -61,7 +61,7 @@ data RedshiftDataParameters = RedshiftDataParameters'
 -- credentials.
 --
 -- 'secretManagerArn', 'redshiftDataParameters_secretManagerArn' - The name or ARN of the secret that enables access to the database.
--- Required when authenticating using AWS Secrets Manager.
+-- Required when authenticating using Amazon Web Services Secrets Manager.
 --
 -- 'statementName', 'redshiftDataParameters_statementName' - The name of the SQL statement. You can name the SQL statement when you
 -- create it to identify the query.
@@ -95,7 +95,7 @@ redshiftDataParameters_dbUser :: Lens.Lens' RedshiftDataParameters (Prelude.Mayb
 redshiftDataParameters_dbUser = Lens.lens (\RedshiftDataParameters' {dbUser} -> dbUser) (\s@RedshiftDataParameters' {} a -> s {dbUser = a} :: RedshiftDataParameters)
 
 -- | The name or ARN of the secret that enables access to the database.
--- Required when authenticating using AWS Secrets Manager.
+-- Required when authenticating using Amazon Web Services Secrets Manager.
 redshiftDataParameters_secretManagerArn :: Lens.Lens' RedshiftDataParameters (Prelude.Maybe Prelude.Text)
 redshiftDataParameters_secretManagerArn = Lens.lens (\RedshiftDataParameters' {secretManagerArn} -> secretManagerArn) (\s@RedshiftDataParameters' {} a -> s {secretManagerArn = a} :: RedshiftDataParameters)
 

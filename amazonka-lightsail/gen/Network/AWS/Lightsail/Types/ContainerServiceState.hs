@@ -21,6 +21,7 @@ module Network.AWS.Lightsail.Types.ContainerServiceState
   ( ContainerServiceState
       ( ..,
         ContainerServiceState_DELETING,
+        ContainerServiceState_DEPLOYING,
         ContainerServiceState_DISABLED,
         ContainerServiceState_PENDING,
         ContainerServiceState_READY,
@@ -64,6 +65,9 @@ newtype ContainerServiceState = ContainerServiceState'
 pattern ContainerServiceState_DELETING :: ContainerServiceState
 pattern ContainerServiceState_DELETING = ContainerServiceState' "DELETING"
 
+pattern ContainerServiceState_DEPLOYING :: ContainerServiceState
+pattern ContainerServiceState_DEPLOYING = ContainerServiceState' "DEPLOYING"
+
 pattern ContainerServiceState_DISABLED :: ContainerServiceState
 pattern ContainerServiceState_DISABLED = ContainerServiceState' "DISABLED"
 
@@ -81,6 +85,7 @@ pattern ContainerServiceState_UPDATING = ContainerServiceState' "UPDATING"
 
 {-# COMPLETE
   ContainerServiceState_DELETING,
+  ContainerServiceState_DEPLOYING,
   ContainerServiceState_DISABLED,
   ContainerServiceState_PENDING,
   ContainerServiceState_READY,

@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.ListHyperParameterTuningJobs
 
     -- * Request Lenses
     listHyperParameterTuningJobs_lastModifiedTimeBefore,
-    listHyperParameterTuningJobs_sortOrder,
     listHyperParameterTuningJobs_nextToken,
+    listHyperParameterTuningJobs_sortOrder,
     listHyperParameterTuningJobs_nameContains,
     listHyperParameterTuningJobs_maxResults,
     listHyperParameterTuningJobs_creationTimeBefore,
@@ -64,12 +64,12 @@ data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
   { -- | A filter that returns only tuning jobs that were modified before the
     -- specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of tuning jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the tuning job name. This filter returns only tuning jobs
     -- whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -102,11 +102,11 @@ data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
 -- 'lastModifiedTimeBefore', 'listHyperParameterTuningJobs_lastModifiedTimeBefore' - A filter that returns only tuning jobs that were modified before the
 -- specified time.
 --
--- 'sortOrder', 'listHyperParameterTuningJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listHyperParameterTuningJobs_nextToken' - If the result of the previous @ListHyperParameterTuningJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of tuning jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listHyperParameterTuningJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listHyperParameterTuningJobs_nameContains' - A string in the tuning job name. This filter returns only tuning jobs
 -- whose name contains the specified string.
@@ -131,8 +131,8 @@ newListHyperParameterTuningJobs =
   ListHyperParameterTuningJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -147,15 +147,15 @@ newListHyperParameterTuningJobs =
 listHyperParameterTuningJobs_lastModifiedTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
 listHyperParameterTuningJobs_lastModifiedTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listHyperParameterTuningJobs_sortOrder :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe SortOrder)
-listHyperParameterTuningJobs_sortOrder = Lens.lens (\ListHyperParameterTuningJobs' {sortOrder} -> sortOrder) (\s@ListHyperParameterTuningJobs' {} a -> s {sortOrder = a} :: ListHyperParameterTuningJobs)
-
 -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of tuning jobs, use the token in the next request.
 listHyperParameterTuningJobs_nextToken :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Text)
 listHyperParameterTuningJobs_nextToken = Lens.lens (\ListHyperParameterTuningJobs' {nextToken} -> nextToken) (\s@ListHyperParameterTuningJobs' {} a -> s {nextToken = a} :: ListHyperParameterTuningJobs)
+
+-- | The sort order for results. The default is @Ascending@.
+listHyperParameterTuningJobs_sortOrder :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe SortOrder)
+listHyperParameterTuningJobs_sortOrder = Lens.lens (\ListHyperParameterTuningJobs' {sortOrder} -> sortOrder) (\s@ListHyperParameterTuningJobs' {} a -> s {sortOrder = a} :: ListHyperParameterTuningJobs)
 
 -- | A string in the tuning job name. This filter returns only tuning jobs
 -- whose name contains the specified string.
@@ -253,8 +253,8 @@ instance Core.ToJSON ListHyperParameterTuningJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

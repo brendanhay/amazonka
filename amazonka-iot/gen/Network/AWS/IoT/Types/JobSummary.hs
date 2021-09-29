@@ -46,10 +46,10 @@ data JobSummary = JobSummary'
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the thing group.
     thingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The time, in seconds since the epoch, when the job was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The time, in seconds since the epoch, when the job was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,9 +78,9 @@ data JobSummary = JobSummary'
 --
 -- 'thingGroupId', 'jobSummary_thingGroupId' - The ID of the thing group.
 --
--- 'lastUpdatedAt', 'jobSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
---
 -- 'jobId', 'jobSummary_jobId' - The unique identifier you assigned to this job when it was created.
+--
+-- 'lastUpdatedAt', 'jobSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
 newJobSummary ::
   JobSummary
 newJobSummary =
@@ -91,8 +91,8 @@ newJobSummary =
       createdAt = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       thingGroupId = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobId = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | The job summary status.
@@ -124,13 +124,13 @@ jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' 
 jobSummary_thingGroupId :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
 jobSummary_thingGroupId = Lens.lens (\JobSummary' {thingGroupId} -> thingGroupId) (\s@JobSummary' {} a -> s {thingGroupId = a} :: JobSummary)
 
--- | The time, in seconds since the epoch, when the job was last updated.
-jobSummary_lastUpdatedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
-jobSummary_lastUpdatedAt = Lens.lens (\JobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobSummary' {} a -> s {lastUpdatedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The unique identifier you assigned to this job when it was created.
 jobSummary_jobId :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
 jobSummary_jobId = Lens.lens (\JobSummary' {jobId} -> jobId) (\s@JobSummary' {} a -> s {jobId = a} :: JobSummary)
+
+-- | The time, in seconds since the epoch, when the job was last updated.
+jobSummary_lastUpdatedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
+jobSummary_lastUpdatedAt = Lens.lens (\JobSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobSummary' {} a -> s {lastUpdatedAt = a} :: JobSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON JobSummary where
   parseJSON =
@@ -144,8 +144,8 @@ instance Core.FromJSON JobSummary where
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "jobArn")
             Prelude.<*> (x Core..:? "thingGroupId")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "jobId")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
 instance Prelude.Hashable JobSummary

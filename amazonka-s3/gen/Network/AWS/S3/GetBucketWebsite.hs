@@ -25,7 +25,7 @@
 -- configuration. For more information about hosting websites, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3>.
 --
--- This GET operation requires the @S3:GetBucketWebsite@ permission. By
+-- This GET action requires the @S3:GetBucketWebsite@ permission. By
 -- default, only the bucket owner can read the bucket website
 -- configuration. However, bucket owners can allow other users to read the
 -- website configuration by writing a bucket policy granting them the
@@ -67,7 +67,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketWebsite' smart constructor.
 data GetBucketWebsite = GetBucketWebsite'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data GetBucketWebsite = GetBucketWebsite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketWebsite_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -100,7 +100,7 @@ newGetBucketWebsite pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketWebsite_expectedBucketOwner :: Lens.Lens' GetBucketWebsite (Prelude.Maybe Prelude.Text)

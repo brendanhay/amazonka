@@ -52,6 +52,9 @@ data FieldStats = FieldStats'
     -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
     -- yyyy-mm-ddTHH:mm:ss.SSSZ.
     min :: Prelude.Maybe Prelude.Text,
+    -- | The standard deviation of the values in the specified field in the
+    -- result set.
+    stddev :: Prelude.Maybe Prelude.Double,
     -- | The maximum value found in the specified field in the result set.
     --
     -- If the field is numeric (@int@, @int-array@, @double@, or
@@ -61,9 +64,6 @@ data FieldStats = FieldStats'
     -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
     -- yyyy-mm-ddTHH:mm:ss.SSSZ.
     max :: Prelude.Maybe Prelude.Text,
-    -- | The standard deviation of the values in the specified field in the
-    -- result set.
-    stddev :: Prelude.Maybe Prelude.Double,
     -- | The number of documents that contain a value in the specified field in
     -- the result set.
     count :: Prelude.Maybe Prelude.Integer,
@@ -105,6 +105,9 @@ data FieldStats = FieldStats'
 -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
+-- 'stddev', 'fieldStats_stddev' - The standard deviation of the values in the specified field in the
+-- result set.
+--
 -- 'max', 'fieldStats_max' - The maximum value found in the specified field in the result set.
 --
 -- If the field is numeric (@int@, @int-array@, @double@, or
@@ -113,9 +116,6 @@ data FieldStats = FieldStats'
 -- @date-array@, @max@ is the string representation of a date with the
 -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
---
--- 'stddev', 'fieldStats_stddev' - The standard deviation of the values in the specified field in the
--- result set.
 --
 -- 'count', 'fieldStats_count' - The number of documents that contain a value in the specified field in
 -- the result set.
@@ -129,8 +129,8 @@ newFieldStats =
       missing = Prelude.Nothing,
       sum = Prelude.Nothing,
       min = Prelude.Nothing,
-      max = Prelude.Nothing,
       stddev = Prelude.Nothing,
+      max = Prelude.Nothing,
       count = Prelude.Nothing,
       sumOfSquares = Prelude.Nothing
     }
@@ -168,6 +168,11 @@ fieldStats_sum = Lens.lens (\FieldStats' {sum} -> sum) (\s@FieldStats' {} a -> s
 fieldStats_min :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
 fieldStats_min = Lens.lens (\FieldStats' {min} -> min) (\s@FieldStats' {} a -> s {min = a} :: FieldStats)
 
+-- | The standard deviation of the values in the specified field in the
+-- result set.
+fieldStats_stddev :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
+fieldStats_stddev = Lens.lens (\FieldStats' {stddev} -> stddev) (\s@FieldStats' {} a -> s {stddev = a} :: FieldStats)
+
 -- | The maximum value found in the specified field in the result set.
 --
 -- If the field is numeric (@int@, @int-array@, @double@, or
@@ -178,11 +183,6 @@ fieldStats_min = Lens.lens (\FieldStats' {min} -> min) (\s@FieldStats' {} a -> s
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_max :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
 fieldStats_max = Lens.lens (\FieldStats' {max} -> max) (\s@FieldStats' {} a -> s {max = a} :: FieldStats)
-
--- | The standard deviation of the values in the specified field in the
--- result set.
-fieldStats_stddev :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
-fieldStats_stddev = Lens.lens (\FieldStats' {stddev} -> stddev) (\s@FieldStats' {} a -> s {stddev = a} :: FieldStats)
 
 -- | The number of documents that contain a value in the specified field in
 -- the result set.
@@ -203,8 +203,8 @@ instance Core.FromJSON FieldStats where
             Prelude.<*> (x Core..:? "missing")
             Prelude.<*> (x Core..:? "sum")
             Prelude.<*> (x Core..:? "min")
-            Prelude.<*> (x Core..:? "max")
             Prelude.<*> (x Core..:? "stddev")
+            Prelude.<*> (x Core..:? "max")
             Prelude.<*> (x Core..:? "count")
             Prelude.<*> (x Core..:? "sumOfSquares")
       )

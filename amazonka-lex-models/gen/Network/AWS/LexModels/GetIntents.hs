@@ -37,8 +37,8 @@ module Network.AWS.LexModels.GetIntents
     newGetIntents,
 
     -- * Request Lenses
-    getIntents_nextToken,
     getIntents_nameContains,
+    getIntents_nextToken,
     getIntents_maxResults,
 
     -- * Destructuring the Response
@@ -61,15 +61,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetIntents' smart constructor.
 data GetIntents = GetIntents'
-  { -- | A pagination token that fetches the next page of intents. If the
+  { -- | Substring to match in intent names. An intent will be returned if any
+    -- part of its name matches the substring. For example, \"xyz\" matches
+    -- both \"xyzabc\" and \"abcxyz.\"
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token that fetches the next page of intents. If the
     -- response to this API call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of intents, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Substring to match in intent names. An intent will be returned if any
-    -- part of its name matches the substring. For example, \"xyz\" matches
-    -- both \"xyzabc\" and \"abcxyz.\"
-    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of intents to return in the response. The default is
     -- 10.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -84,14 +84,14 @@ data GetIntents = GetIntents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'getIntents_nameContains' - Substring to match in intent names. An intent will be returned if any
+-- part of its name matches the substring. For example, \"xyz\" matches
+-- both \"xyzabc\" and \"abcxyz.\"
+--
 -- 'nextToken', 'getIntents_nextToken' - A pagination token that fetches the next page of intents. If the
 -- response to this API call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of intents, specify the
 -- pagination token in the next request.
---
--- 'nameContains', 'getIntents_nameContains' - Substring to match in intent names. An intent will be returned if any
--- part of its name matches the substring. For example, \"xyz\" matches
--- both \"xyzabc\" and \"abcxyz.\"
 --
 -- 'maxResults', 'getIntents_maxResults' - The maximum number of intents to return in the response. The default is
 -- 10.
@@ -99,10 +99,16 @@ newGetIntents ::
   GetIntents
 newGetIntents =
   GetIntents'
-    { nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Substring to match in intent names. An intent will be returned if any
+-- part of its name matches the substring. For example, \"xyz\" matches
+-- both \"xyzabc\" and \"abcxyz.\"
+getIntents_nameContains :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Text)
+getIntents_nameContains = Lens.lens (\GetIntents' {nameContains} -> nameContains) (\s@GetIntents' {} a -> s {nameContains = a} :: GetIntents)
 
 -- | A pagination token that fetches the next page of intents. If the
 -- response to this API call is truncated, Amazon Lex returns a pagination
@@ -110,12 +116,6 @@ newGetIntents =
 -- pagination token in the next request.
 getIntents_nextToken :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Text)
 getIntents_nextToken = Lens.lens (\GetIntents' {nextToken} -> nextToken) (\s@GetIntents' {} a -> s {nextToken = a} :: GetIntents)
-
--- | Substring to match in intent names. An intent will be returned if any
--- part of its name matches the substring. For example, \"xyz\" matches
--- both \"xyzabc\" and \"abcxyz.\"
-getIntents_nameContains :: Lens.Lens' GetIntents (Prelude.Maybe Prelude.Text)
-getIntents_nameContains = Lens.lens (\GetIntents' {nameContains} -> nameContains) (\s@GetIntents' {} a -> s {nameContains = a} :: GetIntents)
 
 -- | The maximum number of intents to return in the response. The default is
 -- 10.
@@ -174,8 +174,8 @@ instance Core.ToPath GetIntents where
 instance Core.ToQuery GetIntents where
   toQuery GetIntents' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "nameContains" Core.=: nameContains,
+      [ "nameContains" Core.=: nameContains,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 

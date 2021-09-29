@@ -35,8 +35,8 @@ module Network.AWS.SageMaker.DescribeProject
 
     -- * Response Lenses
     describeProjectResponse_serviceCatalogProvisionedProductDetails,
-    describeProjectResponse_projectDescription,
     describeProjectResponse_createdBy,
+    describeProjectResponse_projectDescription,
     describeProjectResponse_httpStatus,
     describeProjectResponse_projectArn,
     describeProjectResponse_projectName,
@@ -93,8 +93,8 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<$> ( x
                             Core..?> "ServiceCatalogProvisionedProductDetails"
                         )
-            Prelude.<*> (x Core..?> "ProjectDescription")
             Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (x Core..?> "ProjectDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProjectArn")
             Prelude.<*> (x Core..:> "ProjectName")
@@ -138,9 +138,9 @@ instance Core.ToQuery DescribeProject where
 data DescribeProjectResponse = DescribeProjectResponse'
   { -- | Information about a provisioned service catalog product.
     serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
+    createdBy :: Prelude.Maybe UserContext,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
-    createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the project.
@@ -151,7 +151,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
     projectId :: Prelude.Text,
     -- | Information used to provision a service catalog product. For
     -- information, see
-    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
     serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetails,
     -- | The status of the project.
     projectStatus :: ProjectStatus,
@@ -170,9 +170,9 @@ data DescribeProjectResponse = DescribeProjectResponse'
 --
 -- 'serviceCatalogProvisionedProductDetails', 'describeProjectResponse_serviceCatalogProvisionedProductDetails' - Information about a provisioned service catalog product.
 --
--- 'projectDescription', 'describeProjectResponse_projectDescription' - The description of the project.
---
 -- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
+--
+-- 'projectDescription', 'describeProjectResponse_projectDescription' - The description of the project.
 --
 -- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
 --
@@ -184,7 +184,7 @@ data DescribeProjectResponse = DescribeProjectResponse'
 --
 -- 'serviceCatalogProvisioningDetails', 'describeProjectResponse_serviceCatalogProvisioningDetails' - Information used to provision a service catalog product. For
 -- information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 --
 -- 'projectStatus', 'describeProjectResponse_projectStatus' - The status of the project.
 --
@@ -216,8 +216,8 @@ newDescribeProjectResponse
     DescribeProjectResponse'
       { serviceCatalogProvisionedProductDetails =
           Prelude.Nothing,
-        projectDescription = Prelude.Nothing,
         createdBy = Prelude.Nothing,
+        projectDescription = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         projectArn = pProjectArn_,
         projectName = pProjectName_,
@@ -232,13 +232,13 @@ newDescribeProjectResponse
 describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
 describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
 
--- | The description of the project.
-describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
-
 -- | Undocumented member.
 describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
 describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
+
+-- | The description of the project.
+describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
@@ -258,7 +258,7 @@ describeProjectResponse_projectId = Lens.lens (\DescribeProjectResponse' {projec
 
 -- | Information used to provision a service catalog product. For
 -- information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 describeProjectResponse_serviceCatalogProvisioningDetails :: Lens.Lens' DescribeProjectResponse ServiceCatalogProvisioningDetails
 describeProjectResponse_serviceCatalogProvisioningDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisioningDetails} -> serviceCatalogProvisioningDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisioningDetails = a} :: DescribeProjectResponse)
 

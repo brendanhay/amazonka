@@ -52,7 +52,7 @@ data DirectConnectGateway = DirectConnectGateway'
     amazonSideAsn :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account that owns the Direct Connect gateway.
+    -- | The ID of the account that owns the Direct Connect gateway.
     ownerAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data DirectConnectGateway = DirectConnectGateway'
 --
 -- 'directConnectGatewayId', 'directConnectGateway_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'ownerAccount', 'directConnectGateway_ownerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
+-- 'ownerAccount', 'directConnectGateway_ownerAccount' - The ID of the account that owns the Direct Connect gateway.
 newDirectConnectGateway ::
   DirectConnectGateway
 newDirectConnectGateway =
@@ -135,7 +135,7 @@ directConnectGateway_amazonSideAsn = Lens.lens (\DirectConnectGateway' {amazonSi
 directConnectGateway_directConnectGatewayId :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_directConnectGatewayId = Lens.lens (\DirectConnectGateway' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGateway' {} a -> s {directConnectGatewayId = a} :: DirectConnectGateway)
 
--- | The ID of the AWS account that owns the Direct Connect gateway.
+-- | The ID of the account that owns the Direct Connect gateway.
 directConnectGateway_ownerAccount :: Lens.Lens' DirectConnectGateway (Prelude.Maybe Prelude.Text)
 directConnectGateway_ownerAccount = Lens.lens (\DirectConnectGateway' {ownerAccount} -> ownerAccount) (\s@DirectConnectGateway' {} a -> s {ownerAccount = a} :: DirectConnectGateway)
 

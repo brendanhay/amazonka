@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newFailoverGlobalReplicationGroup' smart constructor.
 data FailoverGlobalReplicationGroup = FailoverGlobalReplicationGroup'
-  { -- | The name of the Global Datastore
+  { -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
-    -- | The AWS region of the primary cluster of the Global Datastore
+    -- | The Amazon region of the primary cluster of the Global datastore
     primaryRegion :: Prelude.Text,
     -- | The name of the primary replication group
     primaryReplicationGroupId :: Prelude.Text
@@ -69,9 +69,9 @@ data FailoverGlobalReplicationGroup = FailoverGlobalReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalReplicationGroupId', 'failoverGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'failoverGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
--- 'primaryRegion', 'failoverGlobalReplicationGroup_primaryRegion' - The AWS region of the primary cluster of the Global Datastore
+-- 'primaryRegion', 'failoverGlobalReplicationGroup_primaryRegion' - The Amazon region of the primary cluster of the Global datastore
 --
 -- 'primaryReplicationGroupId', 'failoverGlobalReplicationGroup_primaryReplicationGroupId' - The name of the primary replication group
 newFailoverGlobalReplicationGroup ::
@@ -94,11 +94,11 @@ newFailoverGlobalReplicationGroup
           pPrimaryReplicationGroupId_
       }
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 failoverGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Prelude.Text
 failoverGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\FailoverGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@FailoverGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: FailoverGlobalReplicationGroup)
 
--- | The AWS region of the primary cluster of the Global Datastore
+-- | The Amazon region of the primary cluster of the Global datastore
 failoverGlobalReplicationGroup_primaryRegion :: Lens.Lens' FailoverGlobalReplicationGroup Prelude.Text
 failoverGlobalReplicationGroup_primaryRegion = Lens.lens (\FailoverGlobalReplicationGroup' {primaryRegion} -> primaryRegion) (\s@FailoverGlobalReplicationGroup' {} a -> s {primaryRegion = a} :: FailoverGlobalReplicationGroup)
 

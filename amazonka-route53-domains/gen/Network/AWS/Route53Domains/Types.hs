@@ -53,8 +53,8 @@ module Network.AWS.Route53Domains.Types
     newBillingRecord,
     billingRecord_invoiceId,
     billingRecord_operation,
-    billingRecord_domainName,
     billingRecord_billDate,
+    billingRecord_domainName,
     billingRecord_price,
 
     -- * ContactDetail
@@ -66,13 +66,13 @@ module Network.AWS.Route53Domains.Types
     contactDetail_extraParams,
     contactDetail_zipCode,
     contactDetail_contactType,
+    contactDetail_fax,
     contactDetail_city,
     contactDetail_state,
-    contactDetail_fax,
     contactDetail_email,
-    contactDetail_countryCode,
-    contactDetail_firstName,
     contactDetail_lastName,
+    contactDetail_firstName,
+    contactDetail_countryCode,
     contactDetail_addressLine2,
 
     -- * DomainSuggestion

@@ -23,6 +23,10 @@
 -- Lists the active violations for a given Device Defender security
 -- profile.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListActiveViolations>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListActiveViolations
   ( -- * Creating a Request
@@ -36,6 +40,7 @@ module Network.AWS.IoT.ListActiveViolations
     listActiveViolations_securityProfileName,
     listActiveViolations_listSuppressedAlerts,
     listActiveViolations_behaviorCriteriaType,
+    listActiveViolations_verificationState,
 
     -- * Destructuring the Response
     ListActiveViolationsResponse (..),
@@ -69,7 +74,9 @@ data ListActiveViolations = ListActiveViolations'
     -- | A list of all suppressed alerts.
     listSuppressedAlerts :: Prelude.Maybe Prelude.Bool,
     -- | The criteria for a behavior.
-    behaviorCriteriaType :: Prelude.Maybe BehaviorCriteriaType
+    behaviorCriteriaType :: Prelude.Maybe BehaviorCriteriaType,
+    -- | The verification state of the violation (detect alarm).
+    verificationState :: Prelude.Maybe VerificationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +100,8 @@ data ListActiveViolations = ListActiveViolations'
 -- 'listSuppressedAlerts', 'listActiveViolations_listSuppressedAlerts' - A list of all suppressed alerts.
 --
 -- 'behaviorCriteriaType', 'listActiveViolations_behaviorCriteriaType' - The criteria for a behavior.
+--
+-- 'verificationState', 'listActiveViolations_verificationState' - The verification state of the violation (detect alarm).
 newListActiveViolations ::
   ListActiveViolations
 newListActiveViolations =
@@ -102,7 +111,8 @@ newListActiveViolations =
       thingName = Prelude.Nothing,
       securityProfileName = Prelude.Nothing,
       listSuppressedAlerts = Prelude.Nothing,
-      behaviorCriteriaType = Prelude.Nothing
+      behaviorCriteriaType = Prelude.Nothing,
+      verificationState = Prelude.Nothing
     }
 
 -- | The token for the next set of results.
@@ -129,6 +139,10 @@ listActiveViolations_listSuppressedAlerts = Lens.lens (\ListActiveViolations' {l
 -- | The criteria for a behavior.
 listActiveViolations_behaviorCriteriaType :: Lens.Lens' ListActiveViolations (Prelude.Maybe BehaviorCriteriaType)
 listActiveViolations_behaviorCriteriaType = Lens.lens (\ListActiveViolations' {behaviorCriteriaType} -> behaviorCriteriaType) (\s@ListActiveViolations' {} a -> s {behaviorCriteriaType = a} :: ListActiveViolations)
+
+-- | The verification state of the violation (detect alarm).
+listActiveViolations_verificationState :: Lens.Lens' ListActiveViolations (Prelude.Maybe VerificationState)
+listActiveViolations_verificationState = Lens.lens (\ListActiveViolations' {verificationState} -> verificationState) (\s@ListActiveViolations' {} a -> s {verificationState = a} :: ListActiveViolations)
 
 instance Core.AWSPager ListActiveViolations where
   page rq rs
@@ -186,7 +200,8 @@ instance Core.ToQuery ListActiveViolations where
         "thingName" Core.=: thingName,
         "securityProfileName" Core.=: securityProfileName,
         "listSuppressedAlerts" Core.=: listSuppressedAlerts,
-        "behaviorCriteriaType" Core.=: behaviorCriteriaType
+        "behaviorCriteriaType" Core.=: behaviorCriteriaType,
+        "verificationState" Core.=: verificationState
       ]
 
 -- | /See:/ 'newListActiveViolationsResponse' smart constructor.

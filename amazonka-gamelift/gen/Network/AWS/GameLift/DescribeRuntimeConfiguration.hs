@@ -21,47 +21,30 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a fleet\'s runtime configuration settings. The runtime
--- configuration tells Amazon GameLift which server processes to run (and
--- how) on each instance in the fleet.
+-- configuration tells GameLift which server processes to run (and how) on
+-- each instance in the fleet.
 --
--- To get a runtime configuration, specify the fleet\'s unique identifier.
+-- To get the runtime configuration that is currently in forces for a
+-- fleet, provide the fleet ID.
+--
 -- If successful, a RuntimeConfiguration object is returned for the
 -- requested fleet. If the requested fleet has been deleted, the result set
 -- is empty.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html Running Multiple Processes on a Fleet>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html Running multiple processes on a fleet>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateFleet
---
--- -   ListFleets
---
--- -   DeleteFleet
---
--- -   Describe fleets:
---
---     -   DescribeFleetAttributes
---
---     -   DescribeFleetCapacity
---
---     -   DescribeFleetPortSettings
---
---     -   DescribeFleetUtilization
---
---     -   DescribeRuntimeConfiguration
---
---     -   DescribeEC2InstanceLimits
---
---     -   DescribeFleetEvents
---
--- -   UpdateFleetAttributes
---
--- -   StartFleetActions or StopFleetActions
+-- ListFleets | DescribeEC2InstanceLimits | DescribeFleetAttributes |
+-- DescribeFleetCapacity | DescribeFleetEvents |
+-- DescribeFleetLocationAttributes | DescribeFleetPortSettings |
+-- DescribeFleetUtilization | DescribeRuntimeConfiguration |
+-- DescribeScalingPolicies |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeRuntimeConfiguration
   ( -- * Creating a Request
     DescribeRuntimeConfiguration (..),
@@ -91,7 +74,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeRuntimeConfiguration' smart constructor.
 data DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
-  { -- | A unique identifier for a fleet to get the runtime configuration for.
+  { -- | A unique identifier for the fleet to get the runtime configuration for.
     -- You can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
@@ -105,7 +88,7 @@ data DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'describeRuntimeConfiguration_fleetId' - A unique identifier for a fleet to get the runtime configuration for.
+-- 'fleetId', 'describeRuntimeConfiguration_fleetId' - A unique identifier for the fleet to get the runtime configuration for.
 -- You can use either the fleet ID or ARN value.
 newDescribeRuntimeConfiguration ::
   -- | 'fleetId'
@@ -114,7 +97,7 @@ newDescribeRuntimeConfiguration ::
 newDescribeRuntimeConfiguration pFleetId_ =
   DescribeRuntimeConfiguration' {fleetId = pFleetId_}
 
--- | A unique identifier for a fleet to get the runtime configuration for.
+-- | A unique identifier for the fleet to get the runtime configuration for.
 -- You can use either the fleet ID or ARN value.
 describeRuntimeConfiguration_fleetId :: Lens.Lens' DescribeRuntimeConfiguration Prelude.Text
 describeRuntimeConfiguration_fleetId = Lens.lens (\DescribeRuntimeConfiguration' {fleetId} -> fleetId) (\s@DescribeRuntimeConfiguration' {} a -> s {fleetId = a} :: DescribeRuntimeConfiguration)
@@ -170,7 +153,7 @@ instance Core.ToQuery DescribeRuntimeConfiguration where
 --
 -- /See:/ 'newDescribeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
-  { -- | Instructions describing how server processes should be launched and
+  { -- | Instructions that describe how server processes should be launched and
     -- maintained on each instance in the fleet.
     runtimeConfiguration :: Prelude.Maybe RuntimeConfiguration,
     -- | The response's http status code.
@@ -186,7 +169,7 @@ data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runtimeConfiguration', 'describeRuntimeConfigurationResponse_runtimeConfiguration' - Instructions describing how server processes should be launched and
+-- 'runtimeConfiguration', 'describeRuntimeConfigurationResponse_runtimeConfiguration' - Instructions that describe how server processes should be launched and
 -- maintained on each instance in the fleet.
 --
 -- 'httpStatus', 'describeRuntimeConfigurationResponse_httpStatus' - The response's http status code.
@@ -201,7 +184,7 @@ newDescribeRuntimeConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Instructions describing how server processes should be launched and
+-- | Instructions that describe how server processes should be launched and
 -- maintained on each instance in the fleet.
 describeRuntimeConfigurationResponse_runtimeConfiguration :: Lens.Lens' DescribeRuntimeConfigurationResponse (Prelude.Maybe RuntimeConfiguration)
 describeRuntimeConfigurationResponse_runtimeConfiguration = Lens.lens (\DescribeRuntimeConfigurationResponse' {runtimeConfiguration} -> runtimeConfiguration) (\s@DescribeRuntimeConfigurationResponse' {} a -> s {runtimeConfiguration = a} :: DescribeRuntimeConfigurationResponse)

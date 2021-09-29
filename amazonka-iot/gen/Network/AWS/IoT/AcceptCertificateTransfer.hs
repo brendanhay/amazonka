@@ -25,6 +25,10 @@
 --
 -- To check for pending certificate transfers, call ListCertificates to
 -- enumerate your certificates.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AcceptCertificateTransfer>
+-- action.
 module Network.AWS.IoT.AcceptCertificateTransfer
   ( -- * Creating a Request
     AcceptCertificateTransfer (..),

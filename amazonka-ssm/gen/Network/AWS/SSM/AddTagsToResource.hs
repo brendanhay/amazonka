@@ -27,9 +27,19 @@
 -- example, by purpose, owner, or environment. Each tag consists of a key
 -- and an optional value, both of which you define. For example, you could
 -- define a set of tags for your account\'s managed instances that helps
--- you track each instance\'s owner and stack level. For example: Key=Owner
--- and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production,
--- Pre-Production, or Test.
+-- you track each instance\'s owner and stack level. For example:
+--
+-- -   @Key=Owner,Value=DbAdmin@
+--
+-- -   @Key=Owner,Value=SysAdmin@
+--
+-- -   @Key=Owner,Value=Dev@
+--
+-- -   @Key=Stack,Value=Production@
+--
+-- -   @Key=Stack,Value=Pre-Production@
+--
+-- -   @Key=Stack,Value=Test@
 --
 -- Each resource can have a maximum of 50 tags.
 --
@@ -39,7 +49,8 @@
 -- resources based on the tags you add. Tags don\'t have any semantic
 -- meaning to and are interpreted strictly as a string of characters.
 --
--- For more information about using tags with EC2 instances, see
+-- For more information about using tags with Amazon Elastic Compute Cloud
+-- (Amazon EC2) instances, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging your Amazon EC2 resources>
 -- in the /Amazon EC2 User Guide/.
 module Network.AWS.SSM.AddTagsToResource
@@ -72,31 +83,38 @@ import Network.AWS.SSM.Types
 data AddTagsToResource = AddTagsToResource'
   { -- | Specifies the type of resource you are tagging.
     --
-    -- The ManagedInstance type for this API action is for on-premises managed
-    -- instances. You must specify the name of the managed instance in the
-    -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+    -- The @ManagedInstance@ type for this API operation is for on-premises
+    -- managed instances. You must specify the name of the managed instance in
+    -- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The resource ID you want to tag.
     --
     -- Use the ID of the resource. Here are some examples:
     --
-    -- ManagedInstance: mi-012345abcde
+    -- @MaintenanceWindow@: @mw-012345abcde@
     --
-    -- MaintenanceWindow: mw-012345abcde
+    -- @PatchBaseline@: @pb-012345abcde@
     --
-    -- PatchBaseline: pb-012345abcde
+    -- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
+    -- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+    -- created from the strings that come after the word @opsmetadata@ in the
+    -- ARN. For example, an OpsMetadata object with an ARN of
+    -- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+    -- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+    -- @\/aws\/ssm\/MyGroup\/appmanager@.
     --
-    -- For the Document and Parameter values, use the name of the resource.
+    -- For the @Document@ and @Parameter@ values, use the name of the resource.
     --
-    -- The ManagedInstance type for this API action is only for on-premises
-    -- managed instances. You must specify the name of the managed instance in
-    -- the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+    -- @ManagedInstance@: @mi-012345abcde@
+    --
+    -- The @ManagedInstance@ type for this API operation is only for
+    -- on-premises managed instances. You must specify the name of the managed
+    -- instance in the following format: @mi-ID_number @. For example,
+    -- @mi-1a2b3c4d5e6f@.
     resourceId :: Prelude.Text,
-    -- | One or more tags. The value parameter is required, but if you don\'t
-    -- want the tag to have a value, specify the parameter with no value, and
-    -- we set the value to an empty string.
+    -- | One or more tags. The value parameter is required.
     --
-    -- Do not enter personally identifiable information in this field.
+    -- Don\'t enter personally identifiable information in this field.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,31 +129,38 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- 'resourceType', 'addTagsToResource_resourceType' - Specifies the type of resource you are tagging.
 --
--- The ManagedInstance type for this API action is for on-premises managed
--- instances. You must specify the name of the managed instance in the
--- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- The @ManagedInstance@ type for this API operation is for on-premises
+-- managed instances. You must specify the name of the managed instance in
+-- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'addTagsToResource_resourceId' - The resource ID you want to tag.
 --
 -- Use the ID of the resource. Here are some examples:
 --
--- ManagedInstance: mi-012345abcde
+-- @MaintenanceWindow@: @mw-012345abcde@
 --
--- MaintenanceWindow: mw-012345abcde
+-- @PatchBaseline@: @pb-012345abcde@
 --
--- PatchBaseline: pb-012345abcde
+-- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
+-- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+-- created from the strings that come after the word @opsmetadata@ in the
+-- ARN. For example, an OpsMetadata object with an ARN of
+-- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+-- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+-- @\/aws\/ssm\/MyGroup\/appmanager@.
 --
--- For the Document and Parameter values, use the name of the resource.
+-- For the @Document@ and @Parameter@ values, use the name of the resource.
 --
--- The ManagedInstance type for this API action is only for on-premises
--- managed instances. You must specify the name of the managed instance in
--- the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- @ManagedInstance@: @mi-012345abcde@
 --
--- 'tags', 'addTagsToResource_tags' - One or more tags. The value parameter is required, but if you don\'t
--- want the tag to have a value, specify the parameter with no value, and
--- we set the value to an empty string.
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed instances. You must specify the name of the managed
+-- instance in the following format: @mi-ID_number @. For example,
+-- @mi-1a2b3c4d5e6f@.
 --
--- Do not enter personally identifiable information in this field.
+-- 'tags', 'addTagsToResource_tags' - One or more tags. The value parameter is required.
+--
+-- Don\'t enter personally identifiable information in this field.
 newAddTagsToResource ::
   -- | 'resourceType'
   ResourceTypeForTagging ->
@@ -151,9 +176,9 @@ newAddTagsToResource pResourceType_ pResourceId_ =
 
 -- | Specifies the type of resource you are tagging.
 --
--- The ManagedInstance type for this API action is for on-premises managed
--- instances. You must specify the name of the managed instance in the
--- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- The @ManagedInstance@ type for this API operation is for on-premises
+-- managed instances. You must specify the name of the managed instance in
+-- the following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceType :: Lens.Lens' AddTagsToResource ResourceTypeForTagging
 addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -> resourceType) (\s@AddTagsToResource' {} a -> s {resourceType = a} :: AddTagsToResource)
 
@@ -161,25 +186,32 @@ addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -
 --
 -- Use the ID of the resource. Here are some examples:
 --
--- ManagedInstance: mi-012345abcde
+-- @MaintenanceWindow@: @mw-012345abcde@
 --
--- MaintenanceWindow: mw-012345abcde
+-- @PatchBaseline@: @pb-012345abcde@
 --
--- PatchBaseline: pb-012345abcde
+-- @OpsMetadata@ object: @ResourceID@ for tagging is created from the
+-- Amazon Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+-- created from the strings that come after the word @opsmetadata@ in the
+-- ARN. For example, an OpsMetadata object with an ARN of
+-- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+-- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+-- @\/aws\/ssm\/MyGroup\/appmanager@.
 --
--- For the Document and Parameter values, use the name of the resource.
+-- For the @Document@ and @Parameter@ values, use the name of the resource.
 --
--- The ManagedInstance type for this API action is only for on-premises
--- managed instances. You must specify the name of the managed instance in
--- the following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- @ManagedInstance@: @mi-012345abcde@
+--
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed instances. You must specify the name of the managed
+-- instance in the following format: @mi-ID_number @. For example,
+-- @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceId :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> resourceId) (\s@AddTagsToResource' {} a -> s {resourceId = a} :: AddTagsToResource)
 
--- | One or more tags. The value parameter is required, but if you don\'t
--- want the tag to have a value, specify the parameter with no value, and
--- we set the value to an empty string.
+-- | One or more tags. The value parameter is required.
 --
--- Do not enter personally identifiable information in this field.
+-- Don\'t enter personally identifiable information in this field.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
 addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 

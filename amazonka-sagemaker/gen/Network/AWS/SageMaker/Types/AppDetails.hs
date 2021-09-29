@@ -29,10 +29,10 @@ import Network.AWS.SageMaker.Types.AppType
 --
 -- /See:/ 'newAppDetails' smart constructor.
 data AppDetails = AppDetails'
-  { -- | The status.
-    status :: Prelude.Maybe AppStatus,
-    -- | The creation time.
+  { -- | The creation time.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status.
+    status :: Prelude.Maybe AppStatus,
     -- | The type of app.
     appType :: Prelude.Maybe AppType,
     -- | The name of the app.
@@ -52,9 +52,9 @@ data AppDetails = AppDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'appDetails_status' - The status.
---
 -- 'creationTime', 'appDetails_creationTime' - The creation time.
+--
+-- 'status', 'appDetails_status' - The status.
 --
 -- 'appType', 'appDetails_appType' - The type of app.
 --
@@ -67,21 +67,21 @@ newAppDetails ::
   AppDetails
 newAppDetails =
   AppDetails'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       appType = Prelude.Nothing,
       appName = Prelude.Nothing,
       userProfileName = Prelude.Nothing,
       domainId = Prelude.Nothing
     }
 
--- | The status.
-appDetails_status :: Lens.Lens' AppDetails (Prelude.Maybe AppStatus)
-appDetails_status = Lens.lens (\AppDetails' {status} -> status) (\s@AppDetails' {} a -> s {status = a} :: AppDetails)
-
 -- | The creation time.
 appDetails_creationTime :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.UTCTime)
 appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Core._Time
+
+-- | The status.
+appDetails_status :: Lens.Lens' AppDetails (Prelude.Maybe AppStatus)
+appDetails_status = Lens.lens (\AppDetails' {status} -> status) (\s@AppDetails' {} a -> s {status = a} :: AppDetails)
 
 -- | The type of app.
 appDetails_appType :: Lens.Lens' AppDetails (Prelude.Maybe AppType)
@@ -105,8 +105,8 @@ instance Core.FromJSON AppDetails where
       "AppDetails"
       ( \x ->
           AppDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "AppType")
             Prelude.<*> (x Core..:? "AppName")
             Prelude.<*> (x Core..:? "UserProfileName")

@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { -- | The name of the Region.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the zone that handles some of the Local Zone or Wavelength
+  { -- | The ID of the zone that handles some of the Local Zone or Wavelength
     -- Zone control plane operations, such as API calls.
     parentZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Region.
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Availability Zone, Local Zone, or Wavelength Zone.
     zoneName :: Prelude.Maybe Prelude.Text,
     -- | The type of zone. The valid values are @availability-zone@,
@@ -43,6 +43,12 @@ data AvailabilityZone = AvailabilityZone'
     zoneType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Availability Zone, Local Zone, or Wavelength Zone.
     zoneId :: Prelude.Maybe Prelude.Text,
+    -- | For Availability Zones, this parameter always has the value of
+    -- @opt-in-not-required@.
+    --
+    -- For Local Zones and Wavelength Zones, this parameter is the opt-in
+    -- status. The possible values are @opted-in@, and @not-opted-in@.
+    optInStatus :: Prelude.Maybe AvailabilityZoneOptInStatus,
     -- | For Availability Zones, this parameter has the same value as the Region
     -- name.
     --
@@ -52,22 +58,16 @@ data AvailabilityZone = AvailabilityZone'
     -- For Wavelength Zones, the name of the associated group, for example
     -- @us-east-1-wl1-bos-wlz-1@.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | For Availability Zones, this parameter always has the value of
-    -- @opt-in-not-required@.
-    --
-    -- For Local Zones and Wavelength Zones, this parameter is the opt-in
-    -- status. The possible values are @opted-in@, and @not-opted-in@.
-    optInStatus :: Prelude.Maybe AvailabilityZoneOptInStatus,
     -- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
     state :: Prelude.Maybe AvailabilityZoneState,
     -- | Any messages about the Availability Zone, Local Zone, or Wavelength
     -- Zone.
     messages :: Prelude.Maybe [AvailabilityZoneMessage],
-    -- | The name of the network border group.
-    networkBorderGroup :: Prelude.Maybe Prelude.Text,
     -- | The name of the zone that handles some of the Local Zone or Wavelength
     -- Zone control plane operations, such as API calls.
-    parentZoneName :: Prelude.Maybe Prelude.Text
+    parentZoneName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the network border group.
+    networkBorderGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,10 +79,10 @@ data AvailabilityZone = AvailabilityZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'availabilityZone_regionName' - The name of the Region.
---
 -- 'parentZoneId', 'availabilityZone_parentZoneId' - The ID of the zone that handles some of the Local Zone or Wavelength
 -- Zone control plane operations, such as API calls.
+--
+-- 'regionName', 'availabilityZone_regionName' - The name of the Region.
 --
 -- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone, Local Zone, or Wavelength Zone.
 --
@@ -90,6 +90,12 @@ data AvailabilityZone = AvailabilityZone'
 -- @local-zone@, and @wavelength-zone@.
 --
 -- 'zoneId', 'availabilityZone_zoneId' - The ID of the Availability Zone, Local Zone, or Wavelength Zone.
+--
+-- 'optInStatus', 'availabilityZone_optInStatus' - For Availability Zones, this parameter always has the value of
+-- @opt-in-not-required@.
+--
+-- For Local Zones and Wavelength Zones, this parameter is the opt-in
+-- status. The possible values are @opted-in@, and @not-opted-in@.
 --
 -- 'groupName', 'availabilityZone_groupName' - For Availability Zones, this parameter has the same value as the Region
 -- name.
@@ -100,46 +106,40 @@ data AvailabilityZone = AvailabilityZone'
 -- For Wavelength Zones, the name of the associated group, for example
 -- @us-east-1-wl1-bos-wlz-1@.
 --
--- 'optInStatus', 'availabilityZone_optInStatus' - For Availability Zones, this parameter always has the value of
--- @opt-in-not-required@.
---
--- For Local Zones and Wavelength Zones, this parameter is the opt-in
--- status. The possible values are @opted-in@, and @not-opted-in@.
---
 -- 'state', 'availabilityZone_state' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
 --
 -- 'messages', 'availabilityZone_messages' - Any messages about the Availability Zone, Local Zone, or Wavelength
 -- Zone.
 --
--- 'networkBorderGroup', 'availabilityZone_networkBorderGroup' - The name of the network border group.
---
 -- 'parentZoneName', 'availabilityZone_parentZoneName' - The name of the zone that handles some of the Local Zone or Wavelength
 -- Zone control plane operations, such as API calls.
+--
+-- 'networkBorderGroup', 'availabilityZone_networkBorderGroup' - The name of the network border group.
 newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { regionName = Prelude.Nothing,
-      parentZoneId = Prelude.Nothing,
+    { parentZoneId = Prelude.Nothing,
+      regionName = Prelude.Nothing,
       zoneName = Prelude.Nothing,
       zoneType = Prelude.Nothing,
       zoneId = Prelude.Nothing,
-      groupName = Prelude.Nothing,
       optInStatus = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       state = Prelude.Nothing,
       messages = Prelude.Nothing,
-      networkBorderGroup = Prelude.Nothing,
-      parentZoneName = Prelude.Nothing
+      parentZoneName = Prelude.Nothing,
+      networkBorderGroup = Prelude.Nothing
     }
-
--- | The name of the Region.
-availabilityZone_regionName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
-availabilityZone_regionName = Lens.lens (\AvailabilityZone' {regionName} -> regionName) (\s@AvailabilityZone' {} a -> s {regionName = a} :: AvailabilityZone)
 
 -- | The ID of the zone that handles some of the Local Zone or Wavelength
 -- Zone control plane operations, such as API calls.
 availabilityZone_parentZoneId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_parentZoneId = Lens.lens (\AvailabilityZone' {parentZoneId} -> parentZoneId) (\s@AvailabilityZone' {} a -> s {parentZoneId = a} :: AvailabilityZone)
+
+-- | The name of the Region.
+availabilityZone_regionName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_regionName = Lens.lens (\AvailabilityZone' {regionName} -> regionName) (\s@AvailabilityZone' {} a -> s {regionName = a} :: AvailabilityZone)
 
 -- | The name of the Availability Zone, Local Zone, or Wavelength Zone.
 availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
@@ -154,6 +154,14 @@ availabilityZone_zoneType = Lens.lens (\AvailabilityZone' {zoneType} -> zoneType
 availabilityZone_zoneId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_zoneId = Lens.lens (\AvailabilityZone' {zoneId} -> zoneId) (\s@AvailabilityZone' {} a -> s {zoneId = a} :: AvailabilityZone)
 
+-- | For Availability Zones, this parameter always has the value of
+-- @opt-in-not-required@.
+--
+-- For Local Zones and Wavelength Zones, this parameter is the opt-in
+-- status. The possible values are @opted-in@, and @not-opted-in@.
+availabilityZone_optInStatus :: Lens.Lens' AvailabilityZone (Prelude.Maybe AvailabilityZoneOptInStatus)
+availabilityZone_optInStatus = Lens.lens (\AvailabilityZone' {optInStatus} -> optInStatus) (\s@AvailabilityZone' {} a -> s {optInStatus = a} :: AvailabilityZone)
+
 -- | For Availability Zones, this parameter has the same value as the Region
 -- name.
 --
@@ -165,14 +173,6 @@ availabilityZone_zoneId = Lens.lens (\AvailabilityZone' {zoneId} -> zoneId) (\s@
 availabilityZone_groupName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_groupName = Lens.lens (\AvailabilityZone' {groupName} -> groupName) (\s@AvailabilityZone' {} a -> s {groupName = a} :: AvailabilityZone)
 
--- | For Availability Zones, this parameter always has the value of
--- @opt-in-not-required@.
---
--- For Local Zones and Wavelength Zones, this parameter is the opt-in
--- status. The possible values are @opted-in@, and @not-opted-in@.
-availabilityZone_optInStatus :: Lens.Lens' AvailabilityZone (Prelude.Maybe AvailabilityZoneOptInStatus)
-availabilityZone_optInStatus = Lens.lens (\AvailabilityZone' {optInStatus} -> optInStatus) (\s@AvailabilityZone' {} a -> s {optInStatus = a} :: AvailabilityZone)
-
 -- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
 availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe AvailabilityZoneState)
 availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
@@ -182,31 +182,31 @@ availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@Ava
 availabilityZone_messages :: Lens.Lens' AvailabilityZone (Prelude.Maybe [AvailabilityZoneMessage])
 availabilityZone_messages = Lens.lens (\AvailabilityZone' {messages} -> messages) (\s@AvailabilityZone' {} a -> s {messages = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the network border group.
-availabilityZone_networkBorderGroup :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
-availabilityZone_networkBorderGroup = Lens.lens (\AvailabilityZone' {networkBorderGroup} -> networkBorderGroup) (\s@AvailabilityZone' {} a -> s {networkBorderGroup = a} :: AvailabilityZone)
-
 -- | The name of the zone that handles some of the Local Zone or Wavelength
 -- Zone control plane operations, such as API calls.
 availabilityZone_parentZoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_parentZoneName = Lens.lens (\AvailabilityZone' {parentZoneName} -> parentZoneName) (\s@AvailabilityZone' {} a -> s {parentZoneName = a} :: AvailabilityZone)
 
+-- | The name of the network border group.
+availabilityZone_networkBorderGroup :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_networkBorderGroup = Lens.lens (\AvailabilityZone' {networkBorderGroup} -> networkBorderGroup) (\s@AvailabilityZone' {} a -> s {networkBorderGroup = a} :: AvailabilityZone)
+
 instance Core.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> (x Core..@? "regionName")
-      Prelude.<*> (x Core..@? "parentZoneId")
+      Prelude.<$> (x Core..@? "parentZoneId")
+      Prelude.<*> (x Core..@? "regionName")
       Prelude.<*> (x Core..@? "zoneName")
       Prelude.<*> (x Core..@? "zoneType")
       Prelude.<*> (x Core..@? "zoneId")
-      Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "optInStatus")
+      Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "zoneState")
       Prelude.<*> ( x Core..@? "messageSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkBorderGroup")
       Prelude.<*> (x Core..@? "parentZoneName")
+      Prelude.<*> (x Core..@? "networkBorderGroup")
 
 instance Prelude.Hashable AvailabilityZone
 

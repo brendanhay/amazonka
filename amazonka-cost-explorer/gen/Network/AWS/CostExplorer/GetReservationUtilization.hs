@@ -69,13 +69,13 @@ data GetReservationUtilization = GetReservationUtilization'
     -- @MONTHLY@ granularities.
     granularity :: Prelude.Maybe Granularity,
     -- | The maximum number of objects that you returned for this request. If
-    -- more objects are available, in the response, AWS provides a
-    -- NextPageToken value that you can use in a subsequent call to get the
-    -- next batch of objects.
+    -- more objects are available, in the response, Amazon Web Services
+    -- provides a NextPageToken value that you can use in a subsequent call to
+    -- get the next batch of objects.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Groups only by @SUBSCRIPTION_ID@. Metadata is included.
     groupBy :: Prelude.Maybe [GroupDefinition],
@@ -176,13 +176,13 @@ data GetReservationUtilization = GetReservationUtilization'
 -- @MONTHLY@ granularities.
 --
 -- 'maxResults', 'getReservationUtilization_maxResults' - The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, AWS provides a
--- NextPageToken value that you can use in a subsequent call to get the
--- next batch of objects.
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
 --
--- 'nextPageToken', 'getReservationUtilization_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getReservationUtilization_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'groupBy', 'getReservationUtilization_groupBy' - Groups only by @SUBSCRIPTION_ID@. Metadata is included.
 --
@@ -289,15 +289,15 @@ getReservationUtilization_granularity :: Lens.Lens' GetReservationUtilization (P
 getReservationUtilization_granularity = Lens.lens (\GetReservationUtilization' {granularity} -> granularity) (\s@GetReservationUtilization' {} a -> s {granularity = a} :: GetReservationUtilization)
 
 -- | The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, AWS provides a
--- NextPageToken value that you can use in a subsequent call to get the
--- next batch of objects.
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
 getReservationUtilization_maxResults :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Natural)
 getReservationUtilization_maxResults = Lens.lens (\GetReservationUtilization' {maxResults} -> maxResults) (\s@GetReservationUtilization' {} a -> s {maxResults = a} :: GetReservationUtilization)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getReservationUtilization_nextPageToken :: Lens.Lens' GetReservationUtilization (Prelude.Maybe Prelude.Text)
 getReservationUtilization_nextPageToken = Lens.lens (\GetReservationUtilization' {nextPageToken} -> nextPageToken) (\s@GetReservationUtilization' {} a -> s {nextPageToken = a} :: GetReservationUtilization)
 
@@ -448,9 +448,9 @@ instance Core.ToQuery GetReservationUtilization where
 data GetReservationUtilizationResponse = GetReservationUtilizationResponse'
   { -- | The total amount of time that you used your RIs.
     total :: Prelude.Maybe ReservationAggregates,
-    -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+    -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -469,9 +469,9 @@ data GetReservationUtilizationResponse = GetReservationUtilizationResponse'
 --
 -- 'total', 'getReservationUtilizationResponse_total' - The total amount of time that you used your RIs.
 --
--- 'nextPageToken', 'getReservationUtilizationResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- 'nextPageToken', 'getReservationUtilizationResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getReservationUtilizationResponse_httpStatus' - The response's http status code.
 --
@@ -493,9 +493,9 @@ newGetReservationUtilizationResponse pHttpStatus_ =
 getReservationUtilizationResponse_total :: Lens.Lens' GetReservationUtilizationResponse (Prelude.Maybe ReservationAggregates)
 getReservationUtilizationResponse_total = Lens.lens (\GetReservationUtilizationResponse' {total} -> total) (\s@GetReservationUtilizationResponse' {} a -> s {total = a} :: GetReservationUtilizationResponse)
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getReservationUtilizationResponse_nextPageToken :: Lens.Lens' GetReservationUtilizationResponse (Prelude.Maybe Prelude.Text)
 getReservationUtilizationResponse_nextPageToken = Lens.lens (\GetReservationUtilizationResponse' {nextPageToken} -> nextPageToken) (\s@GetReservationUtilizationResponse' {} a -> s {nextPageToken = a} :: GetReservationUtilizationResponse)
 

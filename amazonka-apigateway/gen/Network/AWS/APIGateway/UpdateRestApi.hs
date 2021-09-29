@@ -44,8 +44,8 @@ module Network.AWS.APIGateway.UpdateRestApi
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
   )

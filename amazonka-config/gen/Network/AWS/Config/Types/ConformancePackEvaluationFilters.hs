@@ -24,14 +24,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Filters a conformance pack by AWS Config rule names, compliance types,
--- AWS resource types, and resource IDs.
+-- | Filters a conformance pack by Config rule names, compliance types,
+-- Amazon Web Services resource types, and resource IDs.
 --
 -- /See:/ 'newConformancePackEvaluationFilters' smart constructor.
 data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
   { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+    -- @INSUFFICIENT_DATA@ is not supported.
     complianceType :: Prelude.Maybe ConformancePackComplianceType,
     -- | Filters the results by the resource type (for example,
     -- @\"AWS::EC2::Instance\"@).
@@ -41,7 +42,7 @@ data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
     -- This is valid only when you provide resource type. If there is no
     -- resource type, you will see an error.
     resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | Filters the results by AWS Config rule names.
+    -- | Filters the results by Config rule names.
     configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,6 +58,7 @@ data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
 -- 'complianceType', 'conformancePackEvaluationFilters_complianceType' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+-- @INSUFFICIENT_DATA@ is not supported.
 --
 -- 'resourceType', 'conformancePackEvaluationFilters_resourceType' - Filters the results by the resource type (for example,
 -- @\"AWS::EC2::Instance\"@).
@@ -66,7 +68,7 @@ data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
 -- This is valid only when you provide resource type. If there is no
 -- resource type, you will see an error.
 --
--- 'configRuleNames', 'conformancePackEvaluationFilters_configRuleNames' - Filters the results by AWS Config rule names.
+-- 'configRuleNames', 'conformancePackEvaluationFilters_configRuleNames' - Filters the results by Config rule names.
 newConformancePackEvaluationFilters ::
   ConformancePackEvaluationFilters
 newConformancePackEvaluationFilters =
@@ -81,6 +83,7 @@ newConformancePackEvaluationFilters =
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+-- @INSUFFICIENT_DATA@ is not supported.
 conformancePackEvaluationFilters_complianceType :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe ConformancePackComplianceType)
 conformancePackEvaluationFilters_complianceType = Lens.lens (\ConformancePackEvaluationFilters' {complianceType} -> complianceType) (\s@ConformancePackEvaluationFilters' {} a -> s {complianceType = a} :: ConformancePackEvaluationFilters)
 
@@ -96,7 +99,7 @@ conformancePackEvaluationFilters_resourceType = Lens.lens (\ConformancePackEvalu
 conformancePackEvaluationFilters_resourceIds :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe [Prelude.Text])
 conformancePackEvaluationFilters_resourceIds = Lens.lens (\ConformancePackEvaluationFilters' {resourceIds} -> resourceIds) (\s@ConformancePackEvaluationFilters' {} a -> s {resourceIds = a} :: ConformancePackEvaluationFilters) Prelude.. Lens.mapping Lens._Coerce
 
--- | Filters the results by AWS Config rule names.
+-- | Filters the results by Config rule names.
 conformancePackEvaluationFilters_configRuleNames :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe [Prelude.Text])
 conformancePackEvaluationFilters_configRuleNames = Lens.lens (\ConformancePackEvaluationFilters' {configRuleNames} -> configRuleNames) (\s@ConformancePackEvaluationFilters' {} a -> s {configRuleNames = a} :: ConformancePackEvaluationFilters) Prelude.. Lens.mapping Lens._Coerce
 

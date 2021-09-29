@@ -25,7 +25,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the current creation or deletion lifecycle state of an
--- AWS Cloud9 development environment.
+-- Cloud9 development environment.
 --
 -- /See:/ 'newEnvironmentLifecycle' smart constructor.
 data EnvironmentLifecycle = EnvironmentLifecycle'
@@ -44,7 +44,7 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
     -- | Any informational message about the lifecycle state of the environment.
     reason :: Prelude.Maybe Prelude.Text,
     -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
-    -- the related AWS resource.
+    -- the related Amazon Web Services resource.
     failureResource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
 -- 'reason', 'environmentLifecycle_reason' - Any informational message about the lifecycle state of the environment.
 --
 -- 'failureResource', 'environmentLifecycle_failureResource' - If the environment failed to delete, the Amazon Resource Name (ARN) of
--- the related AWS resource.
+-- the related Amazon Web Services resource.
 newEnvironmentLifecycle ::
   EnvironmentLifecycle
 newEnvironmentLifecycle =
@@ -101,7 +101,7 @@ environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Pr
 environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reason) (\s@EnvironmentLifecycle' {} a -> s {reason = a} :: EnvironmentLifecycle)
 
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
--- the related AWS resource.
+-- the related Amazon Web Services resource.
 environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
 environmentLifecycle_failureResource = Lens.lens (\EnvironmentLifecycle' {failureResource} -> failureResource) (\s@EnvironmentLifecycle' {} a -> s {failureResource = a} :: EnvironmentLifecycle)
 

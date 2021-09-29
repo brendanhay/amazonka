@@ -14,22 +14,71 @@
 module Network.AWS.EC2.Lens
   ( -- * Operations
 
-    -- ** AcceptReservedInstancesExchangeQuote
-    acceptReservedInstancesExchangeQuote_dryRun,
-    acceptReservedInstancesExchangeQuote_targetConfigurations,
-    acceptReservedInstancesExchangeQuote_reservedInstanceIds,
-    acceptReservedInstancesExchangeQuoteResponse_exchangeId,
-    acceptReservedInstancesExchangeQuoteResponse_httpStatus,
+    -- ** DescribeVpcPeeringConnections
+    describeVpcPeeringConnections_vpcPeeringConnectionIds,
+    describeVpcPeeringConnections_nextToken,
+    describeVpcPeeringConnections_maxResults,
+    describeVpcPeeringConnections_dryRun,
+    describeVpcPeeringConnections_filters,
+    describeVpcPeeringConnectionsResponse_nextToken,
+    describeVpcPeeringConnectionsResponse_vpcPeeringConnections,
+    describeVpcPeeringConnectionsResponse_httpStatus,
 
-    -- ** DescribeInstanceCreditSpecifications
-    describeInstanceCreditSpecifications_instanceIds,
-    describeInstanceCreditSpecifications_nextToken,
-    describeInstanceCreditSpecifications_dryRun,
-    describeInstanceCreditSpecifications_maxResults,
-    describeInstanceCreditSpecifications_filters,
-    describeInstanceCreditSpecificationsResponse_nextToken,
-    describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications,
-    describeInstanceCreditSpecificationsResponse_httpStatus,
+    -- ** AssociateTrunkInterface
+    associateTrunkInterface_dryRun,
+    associateTrunkInterface_greKey,
+    associateTrunkInterface_vlanId,
+    associateTrunkInterface_clientToken,
+    associateTrunkInterface_branchInterfaceId,
+    associateTrunkInterface_trunkInterfaceId,
+    associateTrunkInterfaceResponse_interfaceAssociation,
+    associateTrunkInterfaceResponse_clientToken,
+    associateTrunkInterfaceResponse_httpStatus,
+
+    -- ** DeleteTransitGatewayRoute
+    deleteTransitGatewayRoute_dryRun,
+    deleteTransitGatewayRoute_transitGatewayRouteTableId,
+    deleteTransitGatewayRoute_destinationCidrBlock,
+    deleteTransitGatewayRouteResponse_route,
+    deleteTransitGatewayRouteResponse_httpStatus,
+
+    -- ** DescribeExportTasks
+    describeExportTasks_exportTaskIds,
+    describeExportTasks_filters,
+    describeExportTasksResponse_exportTasks,
+    describeExportTasksResponse_httpStatus,
+
+    -- ** DeleteLocalGatewayRouteTableVpcAssociation
+    deleteLocalGatewayRouteTableVpcAssociation_dryRun,
+    deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId,
+    deleteLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation,
+    deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus,
+
+    -- ** DeleteVpcEndpointConnectionNotifications
+    deleteVpcEndpointConnectionNotifications_dryRun,
+    deleteVpcEndpointConnectionNotifications_connectionNotificationIds,
+    deleteVpcEndpointConnectionNotificationsResponse_unsuccessful,
+    deleteVpcEndpointConnectionNotificationsResponse_httpStatus,
+
+    -- ** CreateTransitGatewayMulticastDomain
+    createTransitGatewayMulticastDomain_tagSpecifications,
+    createTransitGatewayMulticastDomain_dryRun,
+    createTransitGatewayMulticastDomain_options,
+    createTransitGatewayMulticastDomain_transitGatewayId,
+    createTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain,
+    createTransitGatewayMulticastDomainResponse_httpStatus,
+
+    -- ** CreateVpcEndpointServiceConfiguration
+    createVpcEndpointServiceConfiguration_tagSpecifications,
+    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
+    createVpcEndpointServiceConfiguration_dryRun,
+    createVpcEndpointServiceConfiguration_privateDnsName,
+    createVpcEndpointServiceConfiguration_acceptanceRequired,
+    createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
+    createVpcEndpointServiceConfiguration_clientToken,
+    createVpcEndpointServiceConfigurationResponse_serviceConfiguration,
+    createVpcEndpointServiceConfigurationResponse_clientToken,
+    createVpcEndpointServiceConfigurationResponse_httpStatus,
 
     -- ** DescribeByoipCidrs
     describeByoipCidrs_nextToken,
@@ -38,22 +87,6 @@ module Network.AWS.EC2.Lens
     describeByoipCidrsResponse_nextToken,
     describeByoipCidrsResponse_byoipCidrs,
     describeByoipCidrsResponse_httpStatus,
-
-    -- ** DescribeLocalGatewayVirtualInterfaces
-    describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds,
-    describeLocalGatewayVirtualInterfaces_nextToken,
-    describeLocalGatewayVirtualInterfaces_dryRun,
-    describeLocalGatewayVirtualInterfaces_maxResults,
-    describeLocalGatewayVirtualInterfaces_filters,
-    describeLocalGatewayVirtualInterfacesResponse_nextToken,
-    describeLocalGatewayVirtualInterfacesResponse_localGatewayVirtualInterfaces,
-    describeLocalGatewayVirtualInterfacesResponse_httpStatus,
-
-    -- ** DeleteLocalGatewayRouteTableVpcAssociation
-    deleteLocalGatewayRouteTableVpcAssociation_dryRun,
-    deleteLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId,
-    deleteLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation,
-    deleteLocalGatewayRouteTableVpcAssociationResponse_httpStatus,
 
     -- ** DetachVolume
     detachVolume_instanceId,
@@ -68,127 +101,11 @@ module Network.AWS.EC2.Lens
     volumeAttachment_state,
     volumeAttachment_deleteOnTermination,
 
-    -- ** CreateTransitGatewayVpcAttachment
-    createTransitGatewayVpcAttachment_tagSpecifications,
-    createTransitGatewayVpcAttachment_dryRun,
-    createTransitGatewayVpcAttachment_options,
-    createTransitGatewayVpcAttachment_transitGatewayId,
-    createTransitGatewayVpcAttachment_vpcId,
-    createTransitGatewayVpcAttachment_subnetIds,
-    createTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
-    createTransitGatewayVpcAttachmentResponse_httpStatus,
-
-    -- ** DeleteVpcEndpointConnectionNotifications
-    deleteVpcEndpointConnectionNotifications_dryRun,
-    deleteVpcEndpointConnectionNotifications_connectionNotificationIds,
-    deleteVpcEndpointConnectionNotificationsResponse_unsuccessful,
-    deleteVpcEndpointConnectionNotificationsResponse_httpStatus,
-
     -- ** DeleteNetworkInsightsPath
     deleteNetworkInsightsPath_dryRun,
     deleteNetworkInsightsPath_networkInsightsPathId,
     deleteNetworkInsightsPathResponse_networkInsightsPathId,
     deleteNetworkInsightsPathResponse_httpStatus,
-
-    -- ** AuthorizeSecurityGroupEgress
-    authorizeSecurityGroupEgress_fromPort,
-    authorizeSecurityGroupEgress_dryRun,
-    authorizeSecurityGroupEgress_sourceSecurityGroupName,
-    authorizeSecurityGroupEgress_cidrIp,
-    authorizeSecurityGroupEgress_ipProtocol,
-    authorizeSecurityGroupEgress_ipPermissions,
-    authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId,
-    authorizeSecurityGroupEgress_toPort,
-    authorizeSecurityGroupEgress_groupId,
-
-    -- ** ModifyManagedPrefixList
-    modifyManagedPrefixList_removeEntries,
-    modifyManagedPrefixList_dryRun,
-    modifyManagedPrefixList_currentVersion,
-    modifyManagedPrefixList_prefixListName,
-    modifyManagedPrefixList_addEntries,
-    modifyManagedPrefixList_prefixListId,
-    modifyManagedPrefixListResponse_prefixList,
-    modifyManagedPrefixListResponse_httpStatus,
-
-    -- ** DeleteTransitGatewayPrefixListReference
-    deleteTransitGatewayPrefixListReference_dryRun,
-    deleteTransitGatewayPrefixListReference_transitGatewayRouteTableId,
-    deleteTransitGatewayPrefixListReference_prefixListId,
-    deleteTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference,
-    deleteTransitGatewayPrefixListReferenceResponse_httpStatus,
-
-    -- ** DeleteTransitGatewayRoute
-    deleteTransitGatewayRoute_dryRun,
-    deleteTransitGatewayRoute_transitGatewayRouteTableId,
-    deleteTransitGatewayRoute_destinationCidrBlock,
-    deleteTransitGatewayRouteResponse_route,
-    deleteTransitGatewayRouteResponse_httpStatus,
-
-    -- ** DescribeVpcPeeringConnections
-    describeVpcPeeringConnections_vpcPeeringConnectionIds,
-    describeVpcPeeringConnections_nextToken,
-    describeVpcPeeringConnections_dryRun,
-    describeVpcPeeringConnections_maxResults,
-    describeVpcPeeringConnections_filters,
-    describeVpcPeeringConnectionsResponse_nextToken,
-    describeVpcPeeringConnectionsResponse_vpcPeeringConnections,
-    describeVpcPeeringConnectionsResponse_httpStatus,
-
-    -- ** DescribeInstances
-    describeInstances_instanceIds,
-    describeInstances_nextToken,
-    describeInstances_dryRun,
-    describeInstances_maxResults,
-    describeInstances_filters,
-    describeInstancesResponse_nextToken,
-    describeInstancesResponse_reservations,
-    describeInstancesResponse_httpStatus,
-
-    -- ** DeregisterInstanceEventNotificationAttributes
-    deregisterInstanceEventNotificationAttributes_dryRun,
-    deregisterInstanceEventNotificationAttributes_instanceTagAttribute,
-    deregisterInstanceEventNotificationAttributesResponse_instanceTagAttribute,
-    deregisterInstanceEventNotificationAttributesResponse_httpStatus,
-
-    -- ** CreateTransitGatewayMulticastDomain
-    createTransitGatewayMulticastDomain_tagSpecifications,
-    createTransitGatewayMulticastDomain_dryRun,
-    createTransitGatewayMulticastDomain_options,
-    createTransitGatewayMulticastDomain_transitGatewayId,
-    createTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain,
-    createTransitGatewayMulticastDomainResponse_httpStatus,
-
-    -- ** AssociateTransitGatewayMulticastDomain
-    associateTransitGatewayMulticastDomain_dryRun,
-    associateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
-    associateTransitGatewayMulticastDomain_subnetIds,
-    associateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
-    associateTransitGatewayMulticastDomainResponse_associations,
-    associateTransitGatewayMulticastDomainResponse_httpStatus,
-
-    -- ** ReleaseAddress
-    releaseAddress_dryRun,
-    releaseAddress_publicIp,
-    releaseAddress_allocationId,
-    releaseAddress_networkBorderGroup,
-
-    -- ** DeregisterTransitGatewayMulticastGroupMembers
-    deregisterTransitGatewayMulticastGroupMembers_dryRun,
-    deregisterTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
-    deregisterTransitGatewayMulticastGroupMembers_networkInterfaceIds,
-    deregisterTransitGatewayMulticastGroupMembers_groupIpAddress,
-    deregisterTransitGatewayMulticastGroupMembersResponse_deregisteredMulticastGroupMembers,
-    deregisterTransitGatewayMulticastGroupMembersResponse_httpStatus,
-
-    -- ** GetHostReservationPurchasePreview
-    getHostReservationPurchasePreview_hostIdSet,
-    getHostReservationPurchasePreview_offeringId,
-    getHostReservationPurchasePreviewResponse_totalUpfrontPrice,
-    getHostReservationPurchasePreviewResponse_currencyCode,
-    getHostReservationPurchasePreviewResponse_purchase,
-    getHostReservationPurchasePreviewResponse_totalHourlyPrice,
-    getHostReservationPurchasePreviewResponse_httpStatus,
 
     -- ** CancelBundleTask
     cancelBundleTask_dryRun,
@@ -198,8 +115,8 @@ module Network.AWS.EC2.Lens
 
     -- ** GetCapacityReservationUsage
     getCapacityReservationUsage_nextToken,
-    getCapacityReservationUsage_dryRun,
     getCapacityReservationUsage_maxResults,
+    getCapacityReservationUsage_dryRun,
     getCapacityReservationUsage_capacityReservationId,
     getCapacityReservationUsageResponse_instanceUsages,
     getCapacityReservationUsageResponse_nextToken,
@@ -209,6 +126,14 @@ module Network.AWS.EC2.Lens
     getCapacityReservationUsageResponse_capacityReservationId,
     getCapacityReservationUsageResponse_totalInstanceCount,
     getCapacityReservationUsageResponse_httpStatus,
+
+    -- ** AssociateTransitGatewayMulticastDomain
+    associateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
+    associateTransitGatewayMulticastDomain_dryRun,
+    associateTransitGatewayMulticastDomain_subnetIds,
+    associateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
+    associateTransitGatewayMulticastDomainResponse_associations,
+    associateTransitGatewayMulticastDomainResponse_httpStatus,
 
     -- ** CreateTransitGatewayConnectPeer
     createTransitGatewayConnectPeer_tagSpecifications,
@@ -221,6 +146,12 @@ module Network.AWS.EC2.Lens
     createTransitGatewayConnectPeerResponse_transitGatewayConnectPeer,
     createTransitGatewayConnectPeerResponse_httpStatus,
 
+    -- ** ReleaseAddress
+    releaseAddress_dryRun,
+    releaseAddress_publicIp,
+    releaseAddress_allocationId,
+    releaseAddress_networkBorderGroup,
+
     -- ** ModifyVpcTenancy
     modifyVpcTenancy_dryRun,
     modifyVpcTenancy_vpcId,
@@ -228,38 +159,152 @@ module Network.AWS.EC2.Lens
     modifyVpcTenancyResponse_returnValue,
     modifyVpcTenancyResponse_httpStatus,
 
-    -- ** CreateVpcEndpointServiceConfiguration
-    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
-    createVpcEndpointServiceConfiguration_tagSpecifications,
-    createVpcEndpointServiceConfiguration_dryRun,
-    createVpcEndpointServiceConfiguration_privateDnsName,
-    createVpcEndpointServiceConfiguration_acceptanceRequired,
-    createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
-    createVpcEndpointServiceConfiguration_clientToken,
-    createVpcEndpointServiceConfigurationResponse_serviceConfiguration,
-    createVpcEndpointServiceConfigurationResponse_clientToken,
-    createVpcEndpointServiceConfigurationResponse_httpStatus,
+    -- ** DescribeLocalGatewayVirtualInterfaces
+    describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds,
+    describeLocalGatewayVirtualInterfaces_nextToken,
+    describeLocalGatewayVirtualInterfaces_maxResults,
+    describeLocalGatewayVirtualInterfaces_dryRun,
+    describeLocalGatewayVirtualInterfaces_filters,
+    describeLocalGatewayVirtualInterfacesResponse_nextToken,
+    describeLocalGatewayVirtualInterfacesResponse_localGatewayVirtualInterfaces,
+    describeLocalGatewayVirtualInterfacesResponse_httpStatus,
 
-    -- ** DescribeExportTasks
-    describeExportTasks_exportTaskIds,
-    describeExportTasks_filters,
-    describeExportTasksResponse_exportTasks,
-    describeExportTasksResponse_httpStatus,
+    -- ** GetHostReservationPurchasePreview
+    getHostReservationPurchasePreview_hostIdSet,
+    getHostReservationPurchasePreview_offeringId,
+    getHostReservationPurchasePreviewResponse_totalUpfrontPrice,
+    getHostReservationPurchasePreviewResponse_currencyCode,
+    getHostReservationPurchasePreviewResponse_purchase,
+    getHostReservationPurchasePreviewResponse_totalHourlyPrice,
+    getHostReservationPurchasePreviewResponse_httpStatus,
+
+    -- ** AuthorizeSecurityGroupEgress
+    authorizeSecurityGroupEgress_fromPort,
+    authorizeSecurityGroupEgress_tagSpecifications,
+    authorizeSecurityGroupEgress_dryRun,
+    authorizeSecurityGroupEgress_sourceSecurityGroupName,
+    authorizeSecurityGroupEgress_cidrIp,
+    authorizeSecurityGroupEgress_ipProtocol,
+    authorizeSecurityGroupEgress_ipPermissions,
+    authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId,
+    authorizeSecurityGroupEgress_toPort,
+    authorizeSecurityGroupEgress_groupId,
+    authorizeSecurityGroupEgressResponse_return,
+    authorizeSecurityGroupEgressResponse_securityGroupRules,
+    authorizeSecurityGroupEgressResponse_httpStatus,
+
+    -- ** AcceptReservedInstancesExchangeQuote
+    acceptReservedInstancesExchangeQuote_dryRun,
+    acceptReservedInstancesExchangeQuote_targetConfigurations,
+    acceptReservedInstancesExchangeQuote_reservedInstanceIds,
+    acceptReservedInstancesExchangeQuoteResponse_exchangeId,
+    acceptReservedInstancesExchangeQuoteResponse_httpStatus,
+
+    -- ** ModifyManagedPrefixList
+    modifyManagedPrefixList_removeEntries,
+    modifyManagedPrefixList_maxEntries,
+    modifyManagedPrefixList_dryRun,
+    modifyManagedPrefixList_currentVersion,
+    modifyManagedPrefixList_prefixListName,
+    modifyManagedPrefixList_addEntries,
+    modifyManagedPrefixList_prefixListId,
+    modifyManagedPrefixListResponse_prefixList,
+    modifyManagedPrefixListResponse_httpStatus,
+
+    -- ** DescribeInstanceCreditSpecifications
+    describeInstanceCreditSpecifications_instanceIds,
+    describeInstanceCreditSpecifications_nextToken,
+    describeInstanceCreditSpecifications_maxResults,
+    describeInstanceCreditSpecifications_dryRun,
+    describeInstanceCreditSpecifications_filters,
+    describeInstanceCreditSpecificationsResponse_nextToken,
+    describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications,
+    describeInstanceCreditSpecificationsResponse_httpStatus,
 
     -- ** GetTransitGatewayMulticastDomainAssociations
     getTransitGatewayMulticastDomainAssociations_nextToken,
-    getTransitGatewayMulticastDomainAssociations_dryRun,
-    getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
     getTransitGatewayMulticastDomainAssociations_maxResults,
+    getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
+    getTransitGatewayMulticastDomainAssociations_dryRun,
     getTransitGatewayMulticastDomainAssociations_filters,
     getTransitGatewayMulticastDomainAssociationsResponse_nextToken,
     getTransitGatewayMulticastDomainAssociationsResponse_multicastDomainAssociations,
     getTransitGatewayMulticastDomainAssociationsResponse_httpStatus,
 
+    -- ** DescribeInstances
+    describeInstances_instanceIds,
+    describeInstances_nextToken,
+    describeInstances_maxResults,
+    describeInstances_dryRun,
+    describeInstances_filters,
+    describeInstancesResponse_nextToken,
+    describeInstancesResponse_reservations,
+    describeInstancesResponse_httpStatus,
+
     -- ** DisableEbsEncryptionByDefault
     disableEbsEncryptionByDefault_dryRun,
     disableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault,
     disableEbsEncryptionByDefaultResponse_httpStatus,
+
+    -- ** DeregisterInstanceEventNotificationAttributes
+    deregisterInstanceEventNotificationAttributes_dryRun,
+    deregisterInstanceEventNotificationAttributes_instanceTagAttribute,
+    deregisterInstanceEventNotificationAttributesResponse_instanceTagAttribute,
+    deregisterInstanceEventNotificationAttributesResponse_httpStatus,
+
+    -- ** CreateTransitGatewayVpcAttachment
+    createTransitGatewayVpcAttachment_tagSpecifications,
+    createTransitGatewayVpcAttachment_dryRun,
+    createTransitGatewayVpcAttachment_options,
+    createTransitGatewayVpcAttachment_transitGatewayId,
+    createTransitGatewayVpcAttachment_vpcId,
+    createTransitGatewayVpcAttachment_subnetIds,
+    createTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
+    createTransitGatewayVpcAttachmentResponse_httpStatus,
+
+    -- ** DeregisterTransitGatewayMulticastGroupMembers
+    deregisterTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
+    deregisterTransitGatewayMulticastGroupMembers_dryRun,
+    deregisterTransitGatewayMulticastGroupMembers_networkInterfaceIds,
+    deregisterTransitGatewayMulticastGroupMembers_groupIpAddress,
+    deregisterTransitGatewayMulticastGroupMembersResponse_deregisteredMulticastGroupMembers,
+    deregisterTransitGatewayMulticastGroupMembersResponse_httpStatus,
+
+    -- ** DeleteTransitGatewayPrefixListReference
+    deleteTransitGatewayPrefixListReference_dryRun,
+    deleteTransitGatewayPrefixListReference_transitGatewayRouteTableId,
+    deleteTransitGatewayPrefixListReference_prefixListId,
+    deleteTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference,
+    deleteTransitGatewayPrefixListReferenceResponse_httpStatus,
+
+    -- ** CreateTransitGatewayRouteTable
+    createTransitGatewayRouteTable_tagSpecifications,
+    createTransitGatewayRouteTable_dryRun,
+    createTransitGatewayRouteTable_transitGatewayId,
+    createTransitGatewayRouteTableResponse_transitGatewayRouteTable,
+    createTransitGatewayRouteTableResponse_httpStatus,
+
+    -- ** DisassociateAddress
+    disassociateAddress_dryRun,
+    disassociateAddress_associationId,
+    disassociateAddress_publicIp,
+
+    -- ** DetachNetworkInterface
+    detachNetworkInterface_dryRun,
+    detachNetworkInterface_force,
+    detachNetworkInterface_attachmentId,
+
+    -- ** DeleteFleets
+    deleteFleets_dryRun,
+    deleteFleets_fleetIds,
+    deleteFleets_terminateInstances,
+    deleteFleetsResponse_unsuccessfulFleetDeletions,
+    deleteFleetsResponse_successfulFleetDeletions,
+    deleteFleetsResponse_httpStatus,
+
+    -- ** DeleteVpc
+    deleteVpc_dryRun,
+    deleteVpc_vpcId,
 
     -- ** AssociateVpcCidrBlock
     associateVpcCidrBlock_ipv6Pool,
@@ -280,11 +325,11 @@ module Network.AWS.EC2.Lens
     createNetworkAclResponse_networkAcl,
     createNetworkAclResponse_httpStatus,
 
-    -- ** AcceptTransitGatewayPeeringAttachment
-    acceptTransitGatewayPeeringAttachment_dryRun,
-    acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId,
-    acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
-    acceptTransitGatewayPeeringAttachmentResponse_httpStatus,
+    -- ** DeleteTrafficMirrorTarget
+    deleteTrafficMirrorTarget_dryRun,
+    deleteTrafficMirrorTarget_trafficMirrorTargetId,
+    deleteTrafficMirrorTargetResponse_trafficMirrorTargetId,
+    deleteTrafficMirrorTargetResponse_httpStatus,
 
     -- ** DeleteLaunchTemplate
     deleteLaunchTemplate_dryRun,
@@ -293,36 +338,63 @@ module Network.AWS.EC2.Lens
     deleteLaunchTemplateResponse_launchTemplate,
     deleteLaunchTemplateResponse_httpStatus,
 
-    -- ** DeleteVpc
-    deleteVpc_dryRun,
-    deleteVpc_vpcId,
+    -- ** ModifySecurityGroupRules
+    modifySecurityGroupRules_dryRun,
+    modifySecurityGroupRules_groupId,
+    modifySecurityGroupRules_securityGroupRules,
+    modifySecurityGroupRulesResponse_return,
+    modifySecurityGroupRulesResponse_httpStatus,
 
-    -- ** DeleteFleets
-    deleteFleets_dryRun,
-    deleteFleets_fleetIds,
-    deleteFleets_terminateInstances,
-    deleteFleetsResponse_unsuccessfulFleetDeletions,
-    deleteFleetsResponse_successfulFleetDeletions,
-    deleteFleetsResponse_httpStatus,
-
-    -- ** GetAssociatedIpv6PoolCidrs
-    getAssociatedIpv6PoolCidrs_nextToken,
-    getAssociatedIpv6PoolCidrs_dryRun,
-    getAssociatedIpv6PoolCidrs_maxResults,
-    getAssociatedIpv6PoolCidrs_poolId,
-    getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations,
-    getAssociatedIpv6PoolCidrsResponse_nextToken,
-    getAssociatedIpv6PoolCidrsResponse_httpStatus,
+    -- ** DeleteVpcEndpoints
+    deleteVpcEndpoints_dryRun,
+    deleteVpcEndpoints_vpcEndpointIds,
+    deleteVpcEndpointsResponse_unsuccessful,
+    deleteVpcEndpointsResponse_httpStatus,
 
     -- ** DescribeTrafficMirrorSessions
-    describeTrafficMirrorSessions_nextToken,
     describeTrafficMirrorSessions_trafficMirrorSessionIds,
-    describeTrafficMirrorSessions_dryRun,
+    describeTrafficMirrorSessions_nextToken,
     describeTrafficMirrorSessions_maxResults,
+    describeTrafficMirrorSessions_dryRun,
     describeTrafficMirrorSessions_filters,
     describeTrafficMirrorSessionsResponse_nextToken,
     describeTrafficMirrorSessionsResponse_trafficMirrorSessions,
     describeTrafficMirrorSessionsResponse_httpStatus,
+
+    -- ** UpdateSecurityGroupRuleDescriptionsIngress
+    updateSecurityGroupRuleDescriptionsIngress_dryRun,
+    updateSecurityGroupRuleDescriptionsIngress_groupName,
+    updateSecurityGroupRuleDescriptionsIngress_groupId,
+    updateSecurityGroupRuleDescriptionsIngress_ipPermissions,
+    updateSecurityGroupRuleDescriptionsIngress_securityGroupRuleDescriptions,
+    updateSecurityGroupRuleDescriptionsIngressResponse_return,
+    updateSecurityGroupRuleDescriptionsIngressResponse_httpStatus,
+
+    -- ** DescribePrefixLists
+    describePrefixLists_prefixListIds,
+    describePrefixLists_nextToken,
+    describePrefixLists_maxResults,
+    describePrefixLists_dryRun,
+    describePrefixLists_filters,
+    describePrefixListsResponse_nextToken,
+    describePrefixListsResponse_prefixLists,
+    describePrefixListsResponse_httpStatus,
+
+    -- ** DescribeVpcClassicLink
+    describeVpcClassicLink_dryRun,
+    describeVpcClassicLink_filters,
+    describeVpcClassicLink_vpcIds,
+    describeVpcClassicLinkResponse_vpcs,
+    describeVpcClassicLinkResponse_httpStatus,
+
+    -- ** GetAssociatedIpv6PoolCidrs
+    getAssociatedIpv6PoolCidrs_nextToken,
+    getAssociatedIpv6PoolCidrs_maxResults,
+    getAssociatedIpv6PoolCidrs_dryRun,
+    getAssociatedIpv6PoolCidrs_poolId,
+    getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations,
+    getAssociatedIpv6PoolCidrsResponse_nextToken,
+    getAssociatedIpv6PoolCidrsResponse_httpStatus,
 
     -- ** ImportInstance
     importInstance_diskImages,
@@ -333,15 +405,22 @@ module Network.AWS.EC2.Lens
     importInstanceResponse_conversionTask,
     importInstanceResponse_httpStatus,
 
-    -- ** DescribeLocalGatewayRouteTables
-    describeLocalGatewayRouteTables_localGatewayRouteTableIds,
-    describeLocalGatewayRouteTables_nextToken,
-    describeLocalGatewayRouteTables_dryRun,
-    describeLocalGatewayRouteTables_maxResults,
-    describeLocalGatewayRouteTables_filters,
-    describeLocalGatewayRouteTablesResponse_nextToken,
-    describeLocalGatewayRouteTablesResponse_localGatewayRouteTables,
-    describeLocalGatewayRouteTablesResponse_httpStatus,
+    -- ** CreateDefaultSubnet
+    createDefaultSubnet_dryRun,
+    createDefaultSubnet_availabilityZone,
+    createDefaultSubnetResponse_subnet,
+    createDefaultSubnetResponse_httpStatus,
+
+    -- ** DeleteFlowLogs
+    deleteFlowLogs_dryRun,
+    deleteFlowLogs_flowLogIds,
+    deleteFlowLogsResponse_unsuccessful,
+    deleteFlowLogsResponse_httpStatus,
+
+    -- ** ModifyVolumeAttribute
+    modifyVolumeAttribute_dryRun,
+    modifyVolumeAttribute_autoEnableIO,
+    modifyVolumeAttribute_volumeId,
 
     -- ** CreateNetworkInterfacePermission
     createNetworkInterfacePermission_awsAccountId,
@@ -352,92 +431,11 @@ module Network.AWS.EC2.Lens
     createNetworkInterfacePermissionResponse_interfacePermission,
     createNetworkInterfacePermissionResponse_httpStatus,
 
-    -- ** CreateVpnGateway
-    createVpnGateway_tagSpecifications,
-    createVpnGateway_dryRun,
-    createVpnGateway_availabilityZone,
-    createVpnGateway_amazonSideAsn,
-    createVpnGateway_type,
-    createVpnGatewayResponse_vpnGateway,
-    createVpnGatewayResponse_httpStatus,
-
-    -- ** GetTransitGatewayRouteTableAssociations
-    getTransitGatewayRouteTableAssociations_nextToken,
-    getTransitGatewayRouteTableAssociations_dryRun,
-    getTransitGatewayRouteTableAssociations_maxResults,
-    getTransitGatewayRouteTableAssociations_filters,
-    getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId,
-    getTransitGatewayRouteTableAssociationsResponse_nextToken,
-    getTransitGatewayRouteTableAssociationsResponse_associations,
-    getTransitGatewayRouteTableAssociationsResponse_httpStatus,
-
-    -- ** RejectTransitGatewayVpcAttachment
-    rejectTransitGatewayVpcAttachment_dryRun,
-    rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId,
-    rejectTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
-    rejectTransitGatewayVpcAttachmentResponse_httpStatus,
-
-    -- ** ModifyVolumeAttribute
-    modifyVolumeAttribute_dryRun,
-    modifyVolumeAttribute_autoEnableIO,
-    modifyVolumeAttribute_volumeId,
-
-    -- ** DescribePrefixLists
-    describePrefixLists_nextToken,
-    describePrefixLists_prefixListIds,
-    describePrefixLists_dryRun,
-    describePrefixLists_maxResults,
-    describePrefixLists_filters,
-    describePrefixListsResponse_nextToken,
-    describePrefixListsResponse_prefixLists,
-    describePrefixListsResponse_httpStatus,
-
-    -- ** DetachNetworkInterface
-    detachNetworkInterface_dryRun,
-    detachNetworkInterface_force,
-    detachNetworkInterface_attachmentId,
-
-    -- ** DeleteVpcEndpoints
-    deleteVpcEndpoints_dryRun,
-    deleteVpcEndpoints_vpcEndpointIds,
-    deleteVpcEndpointsResponse_unsuccessful,
-    deleteVpcEndpointsResponse_httpStatus,
-
-    -- ** DescribeVpcClassicLink
-    describeVpcClassicLink_dryRun,
-    describeVpcClassicLink_filters,
-    describeVpcClassicLink_vpcIds,
-    describeVpcClassicLinkResponse_vpcs,
-    describeVpcClassicLinkResponse_httpStatus,
-
-    -- ** UpdateSecurityGroupRuleDescriptionsIngress
-    updateSecurityGroupRuleDescriptionsIngress_dryRun,
-    updateSecurityGroupRuleDescriptionsIngress_groupName,
-    updateSecurityGroupRuleDescriptionsIngress_groupId,
-    updateSecurityGroupRuleDescriptionsIngress_ipPermissions,
-    updateSecurityGroupRuleDescriptionsIngressResponse_return,
-    updateSecurityGroupRuleDescriptionsIngressResponse_httpStatus,
-
-    -- ** DescribeClientVpnEndpoints
-    describeClientVpnEndpoints_nextToken,
-    describeClientVpnEndpoints_dryRun,
-    describeClientVpnEndpoints_maxResults,
-    describeClientVpnEndpoints_clientVpnEndpointIds,
-    describeClientVpnEndpoints_filters,
-    describeClientVpnEndpointsResponse_nextToken,
-    describeClientVpnEndpointsResponse_clientVpnEndpoints,
-    describeClientVpnEndpointsResponse_httpStatus,
-
-    -- ** DisassociateAddress
-    disassociateAddress_dryRun,
-    disassociateAddress_associationId,
-    disassociateAddress_publicIp,
-
     -- ** DescribeScheduledInstanceAvailability
     describeScheduledInstanceAvailability_minSlotDurationInHours,
     describeScheduledInstanceAvailability_nextToken,
-    describeScheduledInstanceAvailability_dryRun,
     describeScheduledInstanceAvailability_maxResults,
+    describeScheduledInstanceAvailability_dryRun,
     describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_maxSlotDurationInHours,
     describeScheduledInstanceAvailability_firstSlotStartTimeRange,
@@ -446,6 +444,16 @@ module Network.AWS.EC2.Lens
     describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet,
     describeScheduledInstanceAvailabilityResponse_httpStatus,
 
+    -- ** DescribeClientVpnEndpoints
+    describeClientVpnEndpoints_nextToken,
+    describeClientVpnEndpoints_maxResults,
+    describeClientVpnEndpoints_dryRun,
+    describeClientVpnEndpoints_clientVpnEndpointIds,
+    describeClientVpnEndpoints_filters,
+    describeClientVpnEndpointsResponse_nextToken,
+    describeClientVpnEndpointsResponse_clientVpnEndpoints,
+    describeClientVpnEndpointsResponse_httpStatus,
+
     -- ** RejectVpcEndpointConnections
     rejectVpcEndpointConnections_dryRun,
     rejectVpcEndpointConnections_serviceId,
@@ -453,17 +461,10 @@ module Network.AWS.EC2.Lens
     rejectVpcEndpointConnectionsResponse_unsuccessful,
     rejectVpcEndpointConnectionsResponse_httpStatus,
 
-    -- ** CreateTransitGatewayRouteTable
-    createTransitGatewayRouteTable_tagSpecifications,
-    createTransitGatewayRouteTable_dryRun,
-    createTransitGatewayRouteTable_transitGatewayId,
-    createTransitGatewayRouteTableResponse_transitGatewayRouteTable,
-    createTransitGatewayRouteTableResponse_httpStatus,
-
     -- ** DescribeTags
     describeTags_nextToken,
-    describeTags_dryRun,
     describeTags_maxResults,
+    describeTags_dryRun,
     describeTags_filters,
     describeTagsResponse_nextToken,
     describeTagsResponse_tags,
@@ -476,84 +477,60 @@ module Network.AWS.EC2.Lens
     associateTransitGatewayRouteTableResponse_association,
     associateTransitGatewayRouteTableResponse_httpStatus,
 
-    -- ** DeleteFlowLogs
-    deleteFlowLogs_dryRun,
-    deleteFlowLogs_flowLogIds,
-    deleteFlowLogsResponse_unsuccessful,
-    deleteFlowLogsResponse_httpStatus,
+    -- ** DescribeLocalGatewayRouteTables
+    describeLocalGatewayRouteTables_nextToken,
+    describeLocalGatewayRouteTables_localGatewayRouteTableIds,
+    describeLocalGatewayRouteTables_maxResults,
+    describeLocalGatewayRouteTables_dryRun,
+    describeLocalGatewayRouteTables_filters,
+    describeLocalGatewayRouteTablesResponse_nextToken,
+    describeLocalGatewayRouteTablesResponse_localGatewayRouteTables,
+    describeLocalGatewayRouteTablesResponse_httpStatus,
 
-    -- ** CreateDefaultSubnet
-    createDefaultSubnet_dryRun,
-    createDefaultSubnet_availabilityZone,
-    createDefaultSubnetResponse_subnet,
-    createDefaultSubnetResponse_httpStatus,
+    -- ** RejectTransitGatewayVpcAttachment
+    rejectTransitGatewayVpcAttachment_dryRun,
+    rejectTransitGatewayVpcAttachment_transitGatewayAttachmentId,
+    rejectTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
+    rejectTransitGatewayVpcAttachmentResponse_httpStatus,
 
-    -- ** DeleteTrafficMirrorTarget
-    deleteTrafficMirrorTarget_dryRun,
-    deleteTrafficMirrorTarget_trafficMirrorTargetId,
-    deleteTrafficMirrorTargetResponse_trafficMirrorTargetId,
-    deleteTrafficMirrorTargetResponse_httpStatus,
+    -- ** CreateVpnGateway
+    createVpnGateway_tagSpecifications,
+    createVpnGateway_dryRun,
+    createVpnGateway_availabilityZone,
+    createVpnGateway_amazonSideAsn,
+    createVpnGateway_type,
+    createVpnGatewayResponse_vpnGateway,
+    createVpnGatewayResponse_httpStatus,
 
-    -- ** AcceptTransitGatewayMulticastDomainAssociations
-    acceptTransitGatewayMulticastDomainAssociations_dryRun,
-    acceptTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
-    acceptTransitGatewayMulticastDomainAssociations_subnetIds,
-    acceptTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId,
-    acceptTransitGatewayMulticastDomainAssociationsResponse_associations,
-    acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus,
+    -- ** AcceptTransitGatewayPeeringAttachment
+    acceptTransitGatewayPeeringAttachment_dryRun,
+    acceptTransitGatewayPeeringAttachment_transitGatewayAttachmentId,
+    acceptTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
+    acceptTransitGatewayPeeringAttachmentResponse_httpStatus,
 
-    -- ** DescribeLaunchTemplateVersions
-    describeLaunchTemplateVersions_nextToken,
-    describeLaunchTemplateVersions_versions,
-    describeLaunchTemplateVersions_dryRun,
-    describeLaunchTemplateVersions_maxResults,
-    describeLaunchTemplateVersions_minVersion,
-    describeLaunchTemplateVersions_launchTemplateId,
-    describeLaunchTemplateVersions_launchTemplateName,
-    describeLaunchTemplateVersions_maxVersion,
-    describeLaunchTemplateVersions_filters,
-    describeLaunchTemplateVersionsResponse_nextToken,
-    describeLaunchTemplateVersionsResponse_launchTemplateVersions,
-    describeLaunchTemplateVersionsResponse_httpStatus,
-
-    -- ** DescribeAvailabilityZones
-    describeAvailabilityZones_dryRun,
-    describeAvailabilityZones_filters,
-    describeAvailabilityZones_zoneIds,
-    describeAvailabilityZones_allAvailabilityZones,
-    describeAvailabilityZones_zoneNames,
-    describeAvailabilityZonesResponse_availabilityZones,
-    describeAvailabilityZonesResponse_httpStatus,
-
-    -- ** GetReservedInstancesExchangeQuote
-    getReservedInstancesExchangeQuote_dryRun,
-    getReservedInstancesExchangeQuote_targetConfigurations,
-    getReservedInstancesExchangeQuote_reservedInstanceIds,
-    getReservedInstancesExchangeQuoteResponse_isValidExchange,
-    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup,
-    getReservedInstancesExchangeQuoteResponse_paymentDue,
-    getReservedInstancesExchangeQuoteResponse_currencyCode,
-    getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup,
-    getReservedInstancesExchangeQuoteResponse_validationFailureReason,
-    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet,
-    getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt,
-    getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet,
-    getReservedInstancesExchangeQuoteResponse_httpStatus,
+    -- ** GetTransitGatewayRouteTableAssociations
+    getTransitGatewayRouteTableAssociations_nextToken,
+    getTransitGatewayRouteTableAssociations_maxResults,
+    getTransitGatewayRouteTableAssociations_dryRun,
+    getTransitGatewayRouteTableAssociations_filters,
+    getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId,
+    getTransitGatewayRouteTableAssociationsResponse_nextToken,
+    getTransitGatewayRouteTableAssociationsResponse_associations,
+    getTransitGatewayRouteTableAssociationsResponse_httpStatus,
 
     -- ** DeleteVpnGateway
     deleteVpnGateway_dryRun,
     deleteVpnGateway_vpnGatewayId,
 
-    -- ** CreateKeyPair
-    createKeyPair_tagSpecifications,
-    createKeyPair_dryRun,
-    createKeyPair_keyName,
-    createKeyPairResponse_keyPairId,
-    createKeyPairResponse_tags,
-    createKeyPairResponse_httpStatus,
-    createKeyPairResponse_keyName,
-    createKeyPairResponse_keyFingerprint,
-    createKeyPairResponse_keyMaterial,
+    -- ** DescribeImportImageTasks
+    describeImportImageTasks_nextToken,
+    describeImportImageTasks_importTaskIds,
+    describeImportImageTasks_maxResults,
+    describeImportImageTasks_dryRun,
+    describeImportImageTasks_filters,
+    describeImportImageTasksResponse_nextToken,
+    describeImportImageTasksResponse_importImageTasks,
+    describeImportImageTasksResponse_httpStatus,
 
     -- ** ExportTransitGatewayRoutes
     exportTransitGatewayRoutes_dryRun,
@@ -563,26 +540,63 @@ module Network.AWS.EC2.Lens
     exportTransitGatewayRoutesResponse_s3Location,
     exportTransitGatewayRoutesResponse_httpStatus,
 
-    -- ** CopySnapshot
-    copySnapshot_tagSpecifications,
-    copySnapshot_destinationRegion,
-    copySnapshot_dryRun,
-    copySnapshot_encrypted,
-    copySnapshot_kmsKeyId,
-    copySnapshot_destinationOutpostArn,
-    copySnapshot_presignedUrl,
-    copySnapshot_description,
-    copySnapshot_sourceRegion,
-    copySnapshot_sourceSnapshotId,
-    copySnapshotResponse_snapshotId,
-    copySnapshotResponse_tags,
-    copySnapshotResponse_httpStatus,
+    -- ** DescribeLaunchTemplateVersions
+    describeLaunchTemplateVersions_nextToken,
+    describeLaunchTemplateVersions_versions,
+    describeLaunchTemplateVersions_maxResults,
+    describeLaunchTemplateVersions_dryRun,
+    describeLaunchTemplateVersions_launchTemplateId,
+    describeLaunchTemplateVersions_minVersion,
+    describeLaunchTemplateVersions_launchTemplateName,
+    describeLaunchTemplateVersions_maxVersion,
+    describeLaunchTemplateVersions_filters,
+    describeLaunchTemplateVersionsResponse_nextToken,
+    describeLaunchTemplateVersionsResponse_launchTemplateVersions,
+    describeLaunchTemplateVersionsResponse_httpStatus,
+
+    -- ** DescribeFpgaImages
+    describeFpgaImages_nextToken,
+    describeFpgaImages_maxResults,
+    describeFpgaImages_dryRun,
+    describeFpgaImages_owners,
+    describeFpgaImages_fpgaImageIds,
+    describeFpgaImages_filters,
+    describeFpgaImagesResponse_nextToken,
+    describeFpgaImagesResponse_fpgaImages,
+    describeFpgaImagesResponse_httpStatus,
+
+    -- ** GetReservedInstancesExchangeQuote
+    getReservedInstancesExchangeQuote_dryRun,
+    getReservedInstancesExchangeQuote_targetConfigurations,
+    getReservedInstancesExchangeQuote_reservedInstanceIds,
+    getReservedInstancesExchangeQuoteResponse_isValidExchange,
+    getReservedInstancesExchangeQuoteResponse_paymentDue,
+    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueRollup,
+    getReservedInstancesExchangeQuoteResponse_currencyCode,
+    getReservedInstancesExchangeQuoteResponse_targetConfigurationValueRollup,
+    getReservedInstancesExchangeQuoteResponse_validationFailureReason,
+    getReservedInstancesExchangeQuoteResponse_reservedInstanceValueSet,
+    getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt,
+    getReservedInstancesExchangeQuoteResponse_targetConfigurationValueSet,
+    getReservedInstancesExchangeQuoteResponse_httpStatus,
+
+    -- ** CreateKeyPair
+    createKeyPair_tagSpecifications,
+    createKeyPair_dryRun,
+    createKeyPair_keyType,
+    createKeyPair_keyName,
+    createKeyPairResponse_keyPairId,
+    createKeyPairResponse_tags,
+    createKeyPairResponse_httpStatus,
+    createKeyPairResponse_keyName,
+    createKeyPairResponse_keyFingerprint,
+    createKeyPairResponse_keyMaterial,
 
     -- ** DescribeElasticGpus
     describeElasticGpus_nextToken,
     describeElasticGpus_elasticGpuIds,
-    describeElasticGpus_dryRun,
     describeElasticGpus_maxResults,
+    describeElasticGpus_dryRun,
     describeElasticGpus_filters,
     describeElasticGpusResponse_nextToken,
     describeElasticGpusResponse_maxResults,
@@ -598,34 +612,46 @@ module Network.AWS.EC2.Lens
     startNetworkInsightsAnalysisResponse_networkInsightsAnalysis,
     startNetworkInsightsAnalysisResponse_httpStatus,
 
-    -- ** DescribeFpgaImages
-    describeFpgaImages_nextToken,
-    describeFpgaImages_dryRun,
-    describeFpgaImages_maxResults,
-    describeFpgaImages_owners,
-    describeFpgaImages_fpgaImageIds,
-    describeFpgaImages_filters,
-    describeFpgaImagesResponse_nextToken,
-    describeFpgaImagesResponse_fpgaImages,
-    describeFpgaImagesResponse_httpStatus,
+    -- ** DescribeSecurityGroupRules
+    describeSecurityGroupRules_nextToken,
+    describeSecurityGroupRules_maxResults,
+    describeSecurityGroupRules_dryRun,
+    describeSecurityGroupRules_securityGroupRuleIds,
+    describeSecurityGroupRules_filters,
+    describeSecurityGroupRulesResponse_nextToken,
+    describeSecurityGroupRulesResponse_securityGroupRules,
+    describeSecurityGroupRulesResponse_httpStatus,
 
-    -- ** CreateFlowLogs
-    createFlowLogs_maxAggregationInterval,
-    createFlowLogs_tagSpecifications,
-    createFlowLogs_dryRun,
-    createFlowLogs_logDestination,
-    createFlowLogs_logFormat,
-    createFlowLogs_logGroupName,
-    createFlowLogs_deliverLogsPermissionArn,
-    createFlowLogs_logDestinationType,
-    createFlowLogs_clientToken,
-    createFlowLogs_resourceIds,
-    createFlowLogs_resourceType,
-    createFlowLogs_trafficType,
-    createFlowLogsResponse_unsuccessful,
-    createFlowLogsResponse_flowLogIds,
-    createFlowLogsResponse_clientToken,
-    createFlowLogsResponse_httpStatus,
+    -- ** DeleteNetworkAcl
+    deleteNetworkAcl_dryRun,
+    deleteNetworkAcl_networkAclId,
+
+    -- ** DescribeRouteTables
+    describeRouteTables_nextToken,
+    describeRouteTables_routeTableIds,
+    describeRouteTables_maxResults,
+    describeRouteTables_dryRun,
+    describeRouteTables_filters,
+    describeRouteTablesResponse_routeTables,
+    describeRouteTablesResponse_nextToken,
+    describeRouteTablesResponse_httpStatus,
+
+    -- ** DescribeFleetInstances
+    describeFleetInstances_nextToken,
+    describeFleetInstances_maxResults,
+    describeFleetInstances_dryRun,
+    describeFleetInstances_filters,
+    describeFleetInstances_fleetId,
+    describeFleetInstancesResponse_nextToken,
+    describeFleetInstancesResponse_fleetId,
+    describeFleetInstancesResponse_activeInstances,
+    describeFleetInstancesResponse_httpStatus,
+
+    -- ** DeleteTransitGatewayRouteTable
+    deleteTransitGatewayRouteTable_dryRun,
+    deleteTransitGatewayRouteTable_transitGatewayRouteTableId,
+    deleteTransitGatewayRouteTableResponse_transitGatewayRouteTable,
+    deleteTransitGatewayRouteTableResponse_httpStatus,
 
     -- ** CreateLaunchTemplate
     createLaunchTemplate_tagSpecifications,
@@ -638,25 +664,14 @@ module Network.AWS.EC2.Lens
     createLaunchTemplateResponse_warning,
     createLaunchTemplateResponse_httpStatus,
 
-    -- ** DescribeImportImageTasks
-    describeImportImageTasks_nextToken,
-    describeImportImageTasks_dryRun,
-    describeImportImageTasks_importTaskIds,
-    describeImportImageTasks_maxResults,
-    describeImportImageTasks_filters,
-    describeImportImageTasksResponse_nextToken,
-    describeImportImageTasksResponse_importImageTasks,
-    describeImportImageTasksResponse_httpStatus,
-
-    -- ** DeleteTransitGatewayRouteTable
-    deleteTransitGatewayRouteTable_dryRun,
-    deleteTransitGatewayRouteTable_transitGatewayRouteTableId,
-    deleteTransitGatewayRouteTableResponse_transitGatewayRouteTable,
-    deleteTransitGatewayRouteTableResponse_httpStatus,
-
-    -- ** DeleteNetworkAcl
-    deleteNetworkAcl_dryRun,
-    deleteNetworkAcl_networkAclId,
+    -- ** ModifyInstanceEventWindow
+    modifyInstanceEventWindow_dryRun,
+    modifyInstanceEventWindow_name,
+    modifyInstanceEventWindow_timeRanges,
+    modifyInstanceEventWindow_cronExpression,
+    modifyInstanceEventWindow_instanceEventWindowId,
+    modifyInstanceEventWindowResponse_instanceEventWindow,
+    modifyInstanceEventWindowResponse_httpStatus,
 
     -- ** MoveAddressToVpc
     moveAddressToVpc_dryRun,
@@ -665,16 +680,13 @@ module Network.AWS.EC2.Lens
     moveAddressToVpcResponse_allocationId,
     moveAddressToVpcResponse_httpStatus,
 
-    -- ** DescribeFleetInstances
-    describeFleetInstances_nextToken,
-    describeFleetInstances_dryRun,
-    describeFleetInstances_maxResults,
-    describeFleetInstances_filters,
-    describeFleetInstances_fleetId,
-    describeFleetInstancesResponse_nextToken,
-    describeFleetInstancesResponse_fleetId,
-    describeFleetInstancesResponse_activeInstances,
-    describeFleetInstancesResponse_httpStatus,
+    -- ** AcceptTransitGatewayMulticastDomainAssociations
+    acceptTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
+    acceptTransitGatewayMulticastDomainAssociations_dryRun,
+    acceptTransitGatewayMulticastDomainAssociations_subnetIds,
+    acceptTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId,
+    acceptTransitGatewayMulticastDomainAssociationsResponse_associations,
+    acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus,
 
     -- ** RestoreAddressToClassic
     restoreAddressToClassic_dryRun,
@@ -683,6 +695,38 @@ module Network.AWS.EC2.Lens
     restoreAddressToClassicResponse_publicIp,
     restoreAddressToClassicResponse_httpStatus,
 
+    -- ** DescribeAvailabilityZones
+    describeAvailabilityZones_dryRun,
+    describeAvailabilityZones_filters,
+    describeAvailabilityZones_zoneIds,
+    describeAvailabilityZones_allAvailabilityZones,
+    describeAvailabilityZones_zoneNames,
+    describeAvailabilityZonesResponse_availabilityZones,
+    describeAvailabilityZonesResponse_httpStatus,
+
+    -- ** CreateStoreImageTask
+    createStoreImageTask_dryRun,
+    createStoreImageTask_s3ObjectTags,
+    createStoreImageTask_imageId,
+    createStoreImageTask_bucket,
+    createStoreImageTaskResponse_objectKey,
+    createStoreImageTaskResponse_httpStatus,
+
+    -- ** CopySnapshot
+    copySnapshot_tagSpecifications,
+    copySnapshot_destinationRegion,
+    copySnapshot_encrypted,
+    copySnapshot_dryRun,
+    copySnapshot_kmsKeyId,
+    copySnapshot_destinationOutpostArn,
+    copySnapshot_presignedUrl,
+    copySnapshot_description,
+    copySnapshot_sourceRegion,
+    copySnapshot_sourceSnapshotId,
+    copySnapshotResponse_tags,
+    copySnapshotResponse_snapshotId,
+    copySnapshotResponse_httpStatus,
+
     -- ** DeleteNetworkInterfacePermission
     deleteNetworkInterfacePermission_dryRun,
     deleteNetworkInterfacePermission_force,
@@ -690,30 +734,99 @@ module Network.AWS.EC2.Lens
     deleteNetworkInterfacePermissionResponse_return,
     deleteNetworkInterfacePermissionResponse_httpStatus,
 
-    -- ** DescribeRouteTables
-    describeRouteTables_nextToken,
-    describeRouteTables_routeTableIds,
-    describeRouteTables_dryRun,
-    describeRouteTables_maxResults,
-    describeRouteTables_filters,
-    describeRouteTablesResponse_nextToken,
-    describeRouteTablesResponse_routeTables,
-    describeRouteTablesResponse_httpStatus,
+    -- ** CreateFlowLogs
+    createFlowLogs_maxAggregationInterval,
+    createFlowLogs_tagSpecifications,
+    createFlowLogs_dryRun,
+    createFlowLogs_logDestination,
+    createFlowLogs_logFormat,
+    createFlowLogs_deliverLogsPermissionArn,
+    createFlowLogs_logGroupName,
+    createFlowLogs_logDestinationType,
+    createFlowLogs_clientToken,
+    createFlowLogs_resourceIds,
+    createFlowLogs_resourceType,
+    createFlowLogs_trafficType,
+    createFlowLogsResponse_unsuccessful,
+    createFlowLogsResponse_flowLogIds,
+    createFlowLogsResponse_clientToken,
+    createFlowLogsResponse_httpStatus,
 
-    -- ** UpdateSecurityGroupRuleDescriptionsEgress
-    updateSecurityGroupRuleDescriptionsEgress_dryRun,
-    updateSecurityGroupRuleDescriptionsEgress_groupName,
-    updateSecurityGroupRuleDescriptionsEgress_groupId,
-    updateSecurityGroupRuleDescriptionsEgress_ipPermissions,
-    updateSecurityGroupRuleDescriptionsEgressResponse_return,
-    updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus,
+    -- ** DetachClassicLinkVpc
+    detachClassicLinkVpc_dryRun,
+    detachClassicLinkVpc_instanceId,
+    detachClassicLinkVpc_vpcId,
+    detachClassicLinkVpcResponse_return,
+    detachClassicLinkVpcResponse_httpStatus,
 
-    -- ** ResetFpgaImageAttribute
-    resetFpgaImageAttribute_dryRun,
-    resetFpgaImageAttribute_attribute,
-    resetFpgaImageAttribute_fpgaImageId,
-    resetFpgaImageAttributeResponse_return,
-    resetFpgaImageAttributeResponse_httpStatus,
+    -- ** DeleteRouteTable
+    deleteRouteTable_dryRun,
+    deleteRouteTable_routeTableId,
+
+    -- ** ModifyVpnConnectionOptions
+    modifyVpnConnectionOptions_remoteIpv6NetworkCidr,
+    modifyVpnConnectionOptions_localIpv6NetworkCidr,
+    modifyVpnConnectionOptions_dryRun,
+    modifyVpnConnectionOptions_remoteIpv4NetworkCidr,
+    modifyVpnConnectionOptions_localIpv4NetworkCidr,
+    modifyVpnConnectionOptions_vpnConnectionId,
+    modifyVpnConnectionOptionsResponse_vpnConnection,
+    modifyVpnConnectionOptionsResponse_httpStatus,
+
+    -- ** MonitorInstances
+    monitorInstances_dryRun,
+    monitorInstances_instanceIds,
+    monitorInstancesResponse_instanceMonitorings,
+    monitorInstancesResponse_httpStatus,
+
+    -- ** ModifyIdFormat
+    modifyIdFormat_resource,
+    modifyIdFormat_useLongIds,
+
+    -- ** AllocateHosts
+    allocateHosts_instanceFamily,
+    allocateHosts_tagSpecifications,
+    allocateHosts_instanceType,
+    allocateHosts_autoPlacement,
+    allocateHosts_hostRecovery,
+    allocateHosts_clientToken,
+    allocateHosts_availabilityZone,
+    allocateHosts_quantity,
+    allocateHostsResponse_hostIds,
+    allocateHostsResponse_httpStatus,
+
+    -- ** DescribeImageAttribute
+    describeImageAttribute_dryRun,
+    describeImageAttribute_attribute,
+    describeImageAttribute_imageId,
+    describeImageAttributeResponse_ramdiskId,
+    describeImageAttributeResponse_launchPermissions,
+    describeImageAttributeResponse_bootMode,
+    describeImageAttributeResponse_productCodes,
+    describeImageAttributeResponse_imageId,
+    describeImageAttributeResponse_sriovNetSupport,
+    describeImageAttributeResponse_blockDeviceMappings,
+    describeImageAttributeResponse_description,
+    describeImageAttributeResponse_kernelId,
+    describeImageAttributeResponse_httpStatus,
+
+    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_dryRun,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_nextToken,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_localGatewayRouteTableVirtualInterfaceGroupAssociations,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_httpStatus,
+
+    -- ** DescribeReservedInstancesModifications
+    describeReservedInstancesModifications_nextToken,
+    describeReservedInstancesModifications_reservedInstancesModificationIds,
+    describeReservedInstancesModifications_filters,
+    describeReservedInstancesModificationsResponse_nextToken,
+    describeReservedInstancesModificationsResponse_reservedInstancesModifications,
+    describeReservedInstancesModificationsResponse_httpStatus,
 
     -- ** StartVpcEndpointServicePrivateDnsVerification
     startVpcEndpointServicePrivateDnsVerification_dryRun,
@@ -721,37 +834,74 @@ module Network.AWS.EC2.Lens
     startVpcEndpointServicePrivateDnsVerificationResponse_returnValue,
     startVpcEndpointServicePrivateDnsVerificationResponse_httpStatus,
 
-    -- ** DescribeVolumes
-    describeVolumes_nextToken,
-    describeVolumes_dryRun,
-    describeVolumes_volumeIds,
-    describeVolumes_maxResults,
-    describeVolumes_filters,
-    describeVolumesResponse_nextToken,
-    describeVolumesResponse_volumes,
-    describeVolumesResponse_httpStatus,
+    -- ** CreateTrafficMirrorFilterRule
+    createTrafficMirrorFilterRule_dryRun,
+    createTrafficMirrorFilterRule_sourcePortRange,
+    createTrafficMirrorFilterRule_protocol,
+    createTrafficMirrorFilterRule_description,
+    createTrafficMirrorFilterRule_destinationPortRange,
+    createTrafficMirrorFilterRule_clientToken,
+    createTrafficMirrorFilterRule_trafficMirrorFilterId,
+    createTrafficMirrorFilterRule_trafficDirection,
+    createTrafficMirrorFilterRule_ruleNumber,
+    createTrafficMirrorFilterRule_ruleAction,
+    createTrafficMirrorFilterRule_destinationCidrBlock,
+    createTrafficMirrorFilterRule_sourceCidrBlock,
+    createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule,
+    createTrafficMirrorFilterRuleResponse_clientToken,
+    createTrafficMirrorFilterRuleResponse_httpStatus,
 
-    -- ** CreateClientVpnEndpoint
-    createClientVpnEndpoint_securityGroupIds,
-    createClientVpnEndpoint_tagSpecifications,
-    createClientVpnEndpoint_dryRun,
-    createClientVpnEndpoint_transportProtocol,
-    createClientVpnEndpoint_clientConnectOptions,
-    createClientVpnEndpoint_dnsServers,
-    createClientVpnEndpoint_vpnPort,
-    createClientVpnEndpoint_description,
-    createClientVpnEndpoint_vpcId,
-    createClientVpnEndpoint_selfServicePortal,
-    createClientVpnEndpoint_clientToken,
-    createClientVpnEndpoint_splitTunnel,
-    createClientVpnEndpoint_clientCidrBlock,
-    createClientVpnEndpoint_serverCertificateArn,
-    createClientVpnEndpoint_authenticationOptions,
-    createClientVpnEndpoint_connectionLogOptions,
-    createClientVpnEndpointResponse_clientVpnEndpointId,
-    createClientVpnEndpointResponse_status,
-    createClientVpnEndpointResponse_dnsName,
-    createClientVpnEndpointResponse_httpStatus,
+    -- ** GetEbsDefaultKmsKeyId
+    getEbsDefaultKmsKeyId_dryRun,
+    getEbsDefaultKmsKeyIdResponse_kmsKeyId,
+    getEbsDefaultKmsKeyIdResponse_httpStatus,
+
+    -- ** DescribeClientVpnRoutes
+    describeClientVpnRoutes_nextToken,
+    describeClientVpnRoutes_maxResults,
+    describeClientVpnRoutes_dryRun,
+    describeClientVpnRoutes_filters,
+    describeClientVpnRoutes_clientVpnEndpointId,
+    describeClientVpnRoutesResponse_nextToken,
+    describeClientVpnRoutesResponse_routes,
+    describeClientVpnRoutesResponse_httpStatus,
+
+    -- ** ModifyVpnConnection
+    modifyVpnConnection_dryRun,
+    modifyVpnConnection_customerGatewayId,
+    modifyVpnConnection_vpnGatewayId,
+    modifyVpnConnection_transitGatewayId,
+    modifyVpnConnection_vpnConnectionId,
+    modifyVpnConnectionResponse_vpnConnection,
+    modifyVpnConnectionResponse_httpStatus,
+
+    -- ** ModifyFleet
+    modifyFleet_launchTemplateConfigs,
+    modifyFleet_dryRun,
+    modifyFleet_context,
+    modifyFleet_excessCapacityTerminationPolicy,
+    modifyFleet_targetCapacitySpecification,
+    modifyFleet_fleetId,
+    modifyFleetResponse_return,
+    modifyFleetResponse_httpStatus,
+
+    -- ** RegisterImage
+    registerImage_virtualizationType,
+    registerImage_rootDeviceName,
+    registerImage_ramdiskId,
+    registerImage_dryRun,
+    registerImage_architecture,
+    registerImage_bootMode,
+    registerImage_sriovNetSupport,
+    registerImage_blockDeviceMappings,
+    registerImage_description,
+    registerImage_kernelId,
+    registerImage_billingProducts,
+    registerImage_enaSupport,
+    registerImage_imageLocation,
+    registerImage_name,
+    registerImageResponse_imageId,
+    registerImageResponse_httpStatus,
 
     -- ** RevokeClientVpnIngress
     revokeClientVpnIngress_accessGroupId,
@@ -762,11 +912,14 @@ module Network.AWS.EC2.Lens
     revokeClientVpnIngressResponse_status,
     revokeClientVpnIngressResponse_httpStatus,
 
-    -- ** DeleteFpgaImage
-    deleteFpgaImage_dryRun,
-    deleteFpgaImage_fpgaImageId,
-    deleteFpgaImageResponse_return,
-    deleteFpgaImageResponse_httpStatus,
+    -- ** UpdateSecurityGroupRuleDescriptionsEgress
+    updateSecurityGroupRuleDescriptionsEgress_dryRun,
+    updateSecurityGroupRuleDescriptionsEgress_groupName,
+    updateSecurityGroupRuleDescriptionsEgress_groupId,
+    updateSecurityGroupRuleDescriptionsEgress_ipPermissions,
+    updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions,
+    updateSecurityGroupRuleDescriptionsEgressResponse_return,
+    updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus,
 
     -- ** ModifyVpcEndpoint
     modifyVpcEndpoint_policyDocument,
@@ -783,23 +936,10 @@ module Network.AWS.EC2.Lens
     modifyVpcEndpointResponse_return,
     modifyVpcEndpointResponse_httpStatus,
 
-    -- ** DescribeReservedInstancesModifications
-    describeReservedInstancesModifications_nextToken,
-    describeReservedInstancesModifications_reservedInstancesModificationIds,
-    describeReservedInstancesModifications_filters,
-    describeReservedInstancesModificationsResponse_nextToken,
-    describeReservedInstancesModificationsResponse_reservedInstancesModifications,
-    describeReservedInstancesModificationsResponse_httpStatus,
-
-    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_dryRun,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_nextToken,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_localGatewayRouteTableVirtualInterfaceGroupAssociations,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse_httpStatus,
+    -- ** UnassignPrivateIpAddresses
+    unassignPrivateIpAddresses_privateIpAddresses,
+    unassignPrivateIpAddresses_ipv4Prefixes,
+    unassignPrivateIpAddresses_networkInterfaceId,
 
     -- ** EnableFastSnapshotRestores
     enableFastSnapshotRestores_dryRun,
@@ -808,67 +948,6 @@ module Network.AWS.EC2.Lens
     enableFastSnapshotRestoresResponse_unsuccessful,
     enableFastSnapshotRestoresResponse_successful,
     enableFastSnapshotRestoresResponse_httpStatus,
-
-    -- ** DescribeClientVpnRoutes
-    describeClientVpnRoutes_nextToken,
-    describeClientVpnRoutes_dryRun,
-    describeClientVpnRoutes_maxResults,
-    describeClientVpnRoutes_filters,
-    describeClientVpnRoutes_clientVpnEndpointId,
-    describeClientVpnRoutesResponse_nextToken,
-    describeClientVpnRoutesResponse_routes,
-    describeClientVpnRoutesResponse_httpStatus,
-
-    -- ** GetEbsDefaultKmsKeyId
-    getEbsDefaultKmsKeyId_dryRun,
-    getEbsDefaultKmsKeyIdResponse_kmsKeyId,
-    getEbsDefaultKmsKeyIdResponse_httpStatus,
-
-    -- ** ModifyIdFormat
-    modifyIdFormat_resource,
-    modifyIdFormat_useLongIds,
-
-    -- ** DetachClassicLinkVpc
-    detachClassicLinkVpc_dryRun,
-    detachClassicLinkVpc_instanceId,
-    detachClassicLinkVpc_vpcId,
-    detachClassicLinkVpcResponse_return,
-    detachClassicLinkVpcResponse_httpStatus,
-
-    -- ** UnassignPrivateIpAddresses
-    unassignPrivateIpAddresses_networkInterfaceId,
-    unassignPrivateIpAddresses_privateIpAddresses,
-
-    -- ** AllocateHosts
-    allocateHosts_instanceFamily,
-    allocateHosts_tagSpecifications,
-    allocateHosts_instanceType,
-    allocateHosts_autoPlacement,
-    allocateHosts_hostRecovery,
-    allocateHosts_clientToken,
-    allocateHosts_availabilityZone,
-    allocateHosts_quantity,
-    allocateHostsResponse_hostIds,
-    allocateHostsResponse_httpStatus,
-
-    -- ** GetConsoleOutput
-    getConsoleOutput_dryRun,
-    getConsoleOutput_latest,
-    getConsoleOutput_instanceId,
-    getConsoleOutputResponse_instanceId,
-    getConsoleOutputResponse_output,
-    getConsoleOutputResponse_timestamp,
-    getConsoleOutputResponse_httpStatus,
-
-    -- ** ModifyVpnConnectionOptions
-    modifyVpnConnectionOptions_remoteIpv6NetworkCidr,
-    modifyVpnConnectionOptions_dryRun,
-    modifyVpnConnectionOptions_localIpv6NetworkCidr,
-    modifyVpnConnectionOptions_remoteIpv4NetworkCidr,
-    modifyVpnConnectionOptions_localIpv4NetworkCidr,
-    modifyVpnConnectionOptions_vpnConnectionId,
-    modifyVpnConnectionOptionsResponse_vpnConnection,
-    modifyVpnConnectionOptionsResponse_httpStatus,
 
     -- ** CancelImportTask
     cancelImportTask_dryRun,
@@ -879,35 +958,59 @@ module Network.AWS.EC2.Lens
     cancelImportTaskResponse_previousState,
     cancelImportTaskResponse_httpStatus,
 
-    -- ** RegisterImage
-    registerImage_virtualizationType,
-    registerImage_rootDeviceName,
-    registerImage_dryRun,
-    registerImage_ramdiskId,
-    registerImage_architecture,
-    registerImage_sriovNetSupport,
-    registerImage_blockDeviceMappings,
-    registerImage_kernelId,
-    registerImage_description,
-    registerImage_billingProducts,
-    registerImage_enaSupport,
-    registerImage_imageLocation,
-    registerImage_name,
-    registerImageResponse_imageId,
-    registerImageResponse_httpStatus,
+    -- ** DescribeVolumes
+    describeVolumes_nextToken,
+    describeVolumes_maxResults,
+    describeVolumes_volumeIds,
+    describeVolumes_dryRun,
+    describeVolumes_filters,
+    describeVolumesResponse_nextToken,
+    describeVolumesResponse_volumes,
+    describeVolumesResponse_httpStatus,
 
-    -- ** ModifyFleet
-    modifyFleet_launchTemplateConfigs,
-    modifyFleet_dryRun,
-    modifyFleet_excessCapacityTerminationPolicy,
-    modifyFleet_targetCapacitySpecification,
-    modifyFleet_fleetId,
-    modifyFleetResponse_return,
-    modifyFleetResponse_httpStatus,
+    -- ** CreateClientVpnEndpoint
+    createClientVpnEndpoint_securityGroupIds,
+    createClientVpnEndpoint_tagSpecifications,
+    createClientVpnEndpoint_dryRun,
+    createClientVpnEndpoint_transportProtocol,
+    createClientVpnEndpoint_clientConnectOptions,
+    createClientVpnEndpoint_dnsServers,
+    createClientVpnEndpoint_vpnPort,
+    createClientVpnEndpoint_description,
+    createClientVpnEndpoint_vpcId,
+    createClientVpnEndpoint_selfServicePortal,
+    createClientVpnEndpoint_splitTunnel,
+    createClientVpnEndpoint_clientToken,
+    createClientVpnEndpoint_clientCidrBlock,
+    createClientVpnEndpoint_serverCertificateArn,
+    createClientVpnEndpoint_authenticationOptions,
+    createClientVpnEndpoint_connectionLogOptions,
+    createClientVpnEndpointResponse_clientVpnEndpointId,
+    createClientVpnEndpointResponse_status,
+    createClientVpnEndpointResponse_dnsName,
+    createClientVpnEndpointResponse_httpStatus,
 
-    -- ** DeleteRouteTable
-    deleteRouteTable_dryRun,
-    deleteRouteTable_routeTableId,
+    -- ** ResetFpgaImageAttribute
+    resetFpgaImageAttribute_dryRun,
+    resetFpgaImageAttribute_attribute,
+    resetFpgaImageAttribute_fpgaImageId,
+    resetFpgaImageAttributeResponse_return,
+    resetFpgaImageAttributeResponse_httpStatus,
+
+    -- ** GetConsoleOutput
+    getConsoleOutput_dryRun,
+    getConsoleOutput_latest,
+    getConsoleOutput_instanceId,
+    getConsoleOutputResponse_instanceId,
+    getConsoleOutputResponse_output,
+    getConsoleOutputResponse_timestamp,
+    getConsoleOutputResponse_httpStatus,
+
+    -- ** DeleteFpgaImage
+    deleteFpgaImage_dryRun,
+    deleteFpgaImage_fpgaImageId,
+    deleteFpgaImageResponse_return,
+    deleteFpgaImageResponse_httpStatus,
 
     -- ** ModifyReservedInstances
     modifyReservedInstances_clientToken,
@@ -916,88 +1019,180 @@ module Network.AWS.EC2.Lens
     modifyReservedInstancesResponse_reservedInstancesModificationId,
     modifyReservedInstancesResponse_httpStatus,
 
-    -- ** DescribeImageAttribute
-    describeImageAttribute_dryRun,
-    describeImageAttribute_attribute,
-    describeImageAttribute_imageId,
-    describeImageAttributeResponse_ramdiskId,
-    describeImageAttributeResponse_productCodes,
-    describeImageAttributeResponse_launchPermissions,
-    describeImageAttributeResponse_imageId,
-    describeImageAttributeResponse_sriovNetSupport,
-    describeImageAttributeResponse_blockDeviceMappings,
-    describeImageAttributeResponse_kernelId,
-    describeImageAttributeResponse_description,
-    describeImageAttributeResponse_httpStatus,
-
-    -- ** CreateTrafficMirrorFilterRule
-    createTrafficMirrorFilterRule_dryRun,
-    createTrafficMirrorFilterRule_sourcePortRange,
-    createTrafficMirrorFilterRule_protocol,
-    createTrafficMirrorFilterRule_description,
-    createTrafficMirrorFilterRule_clientToken,
-    createTrafficMirrorFilterRule_destinationPortRange,
-    createTrafficMirrorFilterRule_trafficMirrorFilterId,
-    createTrafficMirrorFilterRule_trafficDirection,
-    createTrafficMirrorFilterRule_ruleNumber,
-    createTrafficMirrorFilterRule_ruleAction,
-    createTrafficMirrorFilterRule_destinationCidrBlock,
-    createTrafficMirrorFilterRule_sourceCidrBlock,
-    createTrafficMirrorFilterRuleResponse_clientToken,
-    createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule,
-    createTrafficMirrorFilterRuleResponse_httpStatus,
-
-    -- ** MonitorInstances
-    monitorInstances_dryRun,
-    monitorInstances_instanceIds,
-    monitorInstancesResponse_instanceMonitorings,
-    monitorInstancesResponse_httpStatus,
-
-    -- ** ModifyVpnConnection
-    modifyVpnConnection_dryRun,
-    modifyVpnConnection_customerGatewayId,
-    modifyVpnConnection_vpnGatewayId,
-    modifyVpnConnection_transitGatewayId,
-    modifyVpnConnection_vpnConnectionId,
-    modifyVpnConnectionResponse_vpnConnection,
-    modifyVpnConnectionResponse_httpStatus,
+    -- ** CreateRestoreImageTask
+    createRestoreImageTask_tagSpecifications,
+    createRestoreImageTask_dryRun,
+    createRestoreImageTask_name,
+    createRestoreImageTask_bucket,
+    createRestoreImageTask_objectKey,
+    createRestoreImageTaskResponse_imageId,
+    createRestoreImageTaskResponse_httpStatus,
 
     -- ** DescribeSpotInstanceRequests
     describeSpotInstanceRequests_nextToken,
-    describeSpotInstanceRequests_dryRun,
     describeSpotInstanceRequests_maxResults,
+    describeSpotInstanceRequests_dryRun,
     describeSpotInstanceRequests_spotInstanceRequestIds,
     describeSpotInstanceRequests_filters,
     describeSpotInstanceRequestsResponse_nextToken,
     describeSpotInstanceRequestsResponse_spotInstanceRequests,
     describeSpotInstanceRequestsResponse_httpStatus,
 
-    -- ** CancelConversionTask
-    cancelConversionTask_dryRun,
-    cancelConversionTask_reasonMessage,
-    cancelConversionTask_conversionTaskId,
+    -- ** ModifyVpcEndpointServicePermissions
+    modifyVpcEndpointServicePermissions_dryRun,
+    modifyVpcEndpointServicePermissions_addAllowedPrincipals,
+    modifyVpcEndpointServicePermissions_removeAllowedPrincipals,
+    modifyVpcEndpointServicePermissions_serviceId,
+    modifyVpcEndpointServicePermissionsResponse_returnValue,
+    modifyVpcEndpointServicePermissionsResponse_httpStatus,
 
-    -- ** ModifyVpcEndpointServiceConfiguration
-    modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns,
-    modifyVpcEndpointServiceConfiguration_dryRun,
-    modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns,
-    modifyVpcEndpointServiceConfiguration_privateDnsName,
-    modifyVpcEndpointServiceConfiguration_acceptanceRequired,
-    modifyVpcEndpointServiceConfiguration_removePrivateDnsName,
-    modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns,
-    modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns,
-    modifyVpcEndpointServiceConfiguration_serviceId,
-    modifyVpcEndpointServiceConfigurationResponse_return,
-    modifyVpcEndpointServiceConfigurationResponse_httpStatus,
+    -- ** UnassignIpv6Addresses
+    unassignIpv6Addresses_ipv6Addresses,
+    unassignIpv6Addresses_ipv6Prefixes,
+    unassignIpv6Addresses_networkInterfaceId,
+    unassignIpv6AddressesResponse_unassignedIpv6Prefixes,
+    unassignIpv6AddressesResponse_unassignedIpv6Addresses,
+    unassignIpv6AddressesResponse_networkInterfaceId,
+    unassignIpv6AddressesResponse_httpStatus,
 
-    -- ** ModifyTransitGatewayVpcAttachment
-    modifyTransitGatewayVpcAttachment_dryRun,
-    modifyTransitGatewayVpcAttachment_removeSubnetIds,
-    modifyTransitGatewayVpcAttachment_options,
-    modifyTransitGatewayVpcAttachment_addSubnetIds,
-    modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId,
-    modifyTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
-    modifyTransitGatewayVpcAttachmentResponse_httpStatus,
+    -- ** DescribeVolumesModifications
+    describeVolumesModifications_nextToken,
+    describeVolumesModifications_maxResults,
+    describeVolumesModifications_volumeIds,
+    describeVolumesModifications_dryRun,
+    describeVolumesModifications_filters,
+    describeVolumesModificationsResponse_nextToken,
+    describeVolumesModificationsResponse_volumesModifications,
+    describeVolumesModificationsResponse_httpStatus,
+
+    -- ** DescribeIdFormat
+    describeIdFormat_resource,
+    describeIdFormatResponse_statuses,
+    describeIdFormatResponse_httpStatus,
+
+    -- ** ReportInstanceStatus
+    reportInstanceStatus_dryRun,
+    reportInstanceStatus_startTime,
+    reportInstanceStatus_endTime,
+    reportInstanceStatus_description,
+    reportInstanceStatus_instances,
+    reportInstanceStatus_reasonCodes,
+    reportInstanceStatus_status,
+
+    -- ** RunInstances
+    runInstances_additionalInfo,
+    runInstances_securityGroupIds,
+    runInstances_tagSpecifications,
+    runInstances_capacityReservationSpecification,
+    runInstances_ebsOptimized,
+    runInstances_placement,
+    runInstances_userData,
+    runInstances_instanceType,
+    runInstances_ipv6Addresses,
+    runInstances_ramdiskId,
+    runInstances_dryRun,
+    runInstances_creditSpecification,
+    runInstances_licenseSpecifications,
+    runInstances_instanceMarketOptions,
+    runInstances_launchTemplate,
+    runInstances_instanceInitiatedShutdownBehavior,
+    runInstances_elasticInferenceAccelerators,
+    runInstances_imageId,
+    runInstances_securityGroups,
+    runInstances_elasticGpuSpecification,
+    runInstances_iamInstanceProfile,
+    runInstances_hibernationOptions,
+    runInstances_ipv6AddressCount,
+    runInstances_monitoring,
+    runInstances_blockDeviceMappings,
+    runInstances_subnetId,
+    runInstances_enclaveOptions,
+    runInstances_kernelId,
+    runInstances_cpuOptions,
+    runInstances_disableApiTermination,
+    runInstances_networkInterfaces,
+    runInstances_keyName,
+    runInstances_metadataOptions,
+    runInstances_privateIpAddress,
+    runInstances_clientToken,
+    runInstances_maxCount,
+    runInstances_minCount,
+    reservation_groups,
+    reservation_requesterId,
+    reservation_instances,
+    reservation_reservationId,
+    reservation_ownerId,
+
+    -- ** ModifyHosts
+    modifyHosts_instanceFamily,
+    modifyHosts_instanceType,
+    modifyHosts_autoPlacement,
+    modifyHosts_hostRecovery,
+    modifyHosts_hostIds,
+    modifyHostsResponse_unsuccessful,
+    modifyHostsResponse_successful,
+    modifyHostsResponse_httpStatus,
+
+    -- ** AttachVolume
+    attachVolume_dryRun,
+    attachVolume_device,
+    attachVolume_instanceId,
+    attachVolume_volumeId,
+    volumeAttachment_instanceId,
+    volumeAttachment_attachTime,
+    volumeAttachment_device,
+    volumeAttachment_volumeId,
+    volumeAttachment_state,
+    volumeAttachment_deleteOnTermination,
+
+    -- ** DescribeStoreImageTasks
+    describeStoreImageTasks_nextToken,
+    describeStoreImageTasks_imageIds,
+    describeStoreImageTasks_maxResults,
+    describeStoreImageTasks_dryRun,
+    describeStoreImageTasks_filters,
+    describeStoreImageTasksResponse_nextToken,
+    describeStoreImageTasksResponse_storeImageTaskResults,
+    describeStoreImageTasksResponse_httpStatus,
+
+    -- ** CreateReplaceRootVolumeTask
+    createReplaceRootVolumeTask_tagSpecifications,
+    createReplaceRootVolumeTask_dryRun,
+    createReplaceRootVolumeTask_snapshotId,
+    createReplaceRootVolumeTask_clientToken,
+    createReplaceRootVolumeTask_instanceId,
+    createReplaceRootVolumeTaskResponse_replaceRootVolumeTask,
+    createReplaceRootVolumeTaskResponse_httpStatus,
+
+    -- ** DescribeAccountAttributes
+    describeAccountAttributes_dryRun,
+    describeAccountAttributes_attributeNames,
+    describeAccountAttributesResponse_accountAttributes,
+    describeAccountAttributesResponse_httpStatus,
+
+    -- ** ModifyImageAttribute
+    modifyImageAttribute_dryRun,
+    modifyImageAttribute_productCodes,
+    modifyImageAttribute_userIds,
+    modifyImageAttribute_attribute,
+    modifyImageAttribute_description,
+    modifyImageAttribute_launchPermission,
+    modifyImageAttribute_value,
+    modifyImageAttribute_operationType,
+    modifyImageAttribute_userGroups,
+    modifyImageAttribute_imageId,
+
+    -- ** RegisterTransitGatewayMulticastGroupSources
+    registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
+    registerTransitGatewayMulticastGroupSources_dryRun,
+    registerTransitGatewayMulticastGroupSources_networkInterfaceIds,
+    registerTransitGatewayMulticastGroupSources_groupIpAddress,
+    registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources,
+    registerTransitGatewayMulticastGroupSourcesResponse_httpStatus,
+
+    -- ** RebootInstances
+    rebootInstances_dryRun,
+    rebootInstances_instanceIds,
 
     -- ** AssociateRouteTable
     associateRouteTable_dryRun,
@@ -1008,42 +1203,11 @@ module Network.AWS.EC2.Lens
     associateRouteTableResponse_associationId,
     associateRouteTableResponse_httpStatus,
 
-    -- ** DescribeAccountAttributes
-    describeAccountAttributes_dryRun,
-    describeAccountAttributes_attributeNames,
-    describeAccountAttributesResponse_accountAttributes,
-    describeAccountAttributesResponse_httpStatus,
-
-    -- ** DescribeLaunchTemplates
-    describeLaunchTemplates_nextToken,
-    describeLaunchTemplates_launchTemplateNames,
-    describeLaunchTemplates_dryRun,
-    describeLaunchTemplates_maxResults,
-    describeLaunchTemplates_launchTemplateIds,
-    describeLaunchTemplates_filters,
-    describeLaunchTemplatesResponse_nextToken,
-    describeLaunchTemplatesResponse_launchTemplates,
-    describeLaunchTemplatesResponse_httpStatus,
-
-    -- ** DescribeIpv6Pools
-    describeIpv6Pools_nextToken,
-    describeIpv6Pools_dryRun,
-    describeIpv6Pools_maxResults,
-    describeIpv6Pools_filters,
-    describeIpv6Pools_poolIds,
-    describeIpv6PoolsResponse_nextToken,
-    describeIpv6PoolsResponse_ipv6Pools,
-    describeIpv6PoolsResponse_httpStatus,
-
-    -- ** DescribeLocalGateways
-    describeLocalGateways_nextToken,
-    describeLocalGateways_dryRun,
-    describeLocalGateways_maxResults,
-    describeLocalGateways_localGatewayIds,
-    describeLocalGateways_filters,
-    describeLocalGatewaysResponse_nextToken,
-    describeLocalGatewaysResponse_localGateways,
-    describeLocalGatewaysResponse_httpStatus,
+    -- ** AssociateIamInstanceProfile
+    associateIamInstanceProfile_iamInstanceProfile,
+    associateIamInstanceProfile_instanceId,
+    associateIamInstanceProfileResponse_iamInstanceProfileAssociation,
+    associateIamInstanceProfileResponse_httpStatus,
 
     -- ** PurchaseHostReservation
     purchaseHostReservation_tagSpecifications,
@@ -1059,48 +1223,172 @@ module Network.AWS.EC2.Lens
     purchaseHostReservationResponse_clientToken,
     purchaseHostReservationResponse_httpStatus,
 
-    -- ** ReportInstanceStatus
-    reportInstanceStatus_dryRun,
-    reportInstanceStatus_startTime,
-    reportInstanceStatus_endTime,
-    reportInstanceStatus_description,
-    reportInstanceStatus_instances,
-    reportInstanceStatus_reasonCodes,
-    reportInstanceStatus_status,
-
-    -- ** ModifyVpcEndpointServicePermissions
-    modifyVpcEndpointServicePermissions_dryRun,
-    modifyVpcEndpointServicePermissions_addAllowedPrincipals,
-    modifyVpcEndpointServicePermissions_removeAllowedPrincipals,
-    modifyVpcEndpointServicePermissions_serviceId,
-    modifyVpcEndpointServicePermissionsResponse_returnValue,
-    modifyVpcEndpointServicePermissionsResponse_httpStatus,
-
-    -- ** ModifyHosts
-    modifyHosts_instanceFamily,
-    modifyHosts_instanceType,
-    modifyHosts_autoPlacement,
-    modifyHosts_hostRecovery,
-    modifyHosts_hostIds,
-    modifyHostsResponse_unsuccessful,
-    modifyHostsResponse_successful,
-    modifyHostsResponse_httpStatus,
-
-    -- ** UnassignIpv6Addresses
-    unassignIpv6Addresses_ipv6Addresses,
-    unassignIpv6Addresses_networkInterfaceId,
-    unassignIpv6AddressesResponse_unassignedIpv6Addresses,
-    unassignIpv6AddressesResponse_networkInterfaceId,
-    unassignIpv6AddressesResponse_httpStatus,
+    -- ** DescribeTrafficMirrorTargets
+    describeTrafficMirrorTargets_nextToken,
+    describeTrafficMirrorTargets_maxResults,
+    describeTrafficMirrorTargets_dryRun,
+    describeTrafficMirrorTargets_trafficMirrorTargetIds,
+    describeTrafficMirrorTargets_filters,
+    describeTrafficMirrorTargetsResponse_nextToken,
+    describeTrafficMirrorTargetsResponse_trafficMirrorTargets,
+    describeTrafficMirrorTargetsResponse_httpStatus,
 
     -- ** GetManagedPrefixListAssociations
     getManagedPrefixListAssociations_nextToken,
-    getManagedPrefixListAssociations_dryRun,
     getManagedPrefixListAssociations_maxResults,
+    getManagedPrefixListAssociations_dryRun,
     getManagedPrefixListAssociations_prefixListId,
     getManagedPrefixListAssociationsResponse_nextToken,
     getManagedPrefixListAssociationsResponse_prefixListAssociations,
     getManagedPrefixListAssociationsResponse_httpStatus,
+
+    -- ** CancelConversionTask
+    cancelConversionTask_dryRun,
+    cancelConversionTask_reasonMessage,
+    cancelConversionTask_conversionTaskId,
+
+    -- ** ModifyVpcEndpointServiceConfiguration
+    modifyVpcEndpointServiceConfiguration_removeNetworkLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_dryRun,
+    modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_privateDnsName,
+    modifyVpcEndpointServiceConfiguration_acceptanceRequired,
+    modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_removePrivateDnsName,
+    modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_serviceId,
+    modifyVpcEndpointServiceConfigurationResponse_return,
+    modifyVpcEndpointServiceConfigurationResponse_httpStatus,
+
+    -- ** CreateDhcpOptions
+    createDhcpOptions_tagSpecifications,
+    createDhcpOptions_dryRun,
+    createDhcpOptions_dhcpConfigurations,
+    createDhcpOptionsResponse_dhcpOptions,
+    createDhcpOptionsResponse_httpStatus,
+
+    -- ** CreateManagedPrefixList
+    createManagedPrefixList_tagSpecifications,
+    createManagedPrefixList_dryRun,
+    createManagedPrefixList_entries,
+    createManagedPrefixList_clientToken,
+    createManagedPrefixList_prefixListName,
+    createManagedPrefixList_maxEntries,
+    createManagedPrefixList_addressFamily,
+    createManagedPrefixListResponse_prefixList,
+    createManagedPrefixListResponse_httpStatus,
+
+    -- ** SearchTransitGatewayRoutes
+    searchTransitGatewayRoutes_maxResults,
+    searchTransitGatewayRoutes_dryRun,
+    searchTransitGatewayRoutes_transitGatewayRouteTableId,
+    searchTransitGatewayRoutes_filters,
+    searchTransitGatewayRoutesResponse_routes,
+    searchTransitGatewayRoutesResponse_additionalRoutesAvailable,
+    searchTransitGatewayRoutesResponse_httpStatus,
+
+    -- ** DescribeVpcs
+    describeVpcs_nextToken,
+    describeVpcs_maxResults,
+    describeVpcs_dryRun,
+    describeVpcs_filters,
+    describeVpcs_vpcIds,
+    describeVpcsResponse_nextToken,
+    describeVpcsResponse_vpcs,
+    describeVpcsResponse_httpStatus,
+
+    -- ** DescribeLocalGateways
+    describeLocalGateways_nextToken,
+    describeLocalGateways_maxResults,
+    describeLocalGateways_dryRun,
+    describeLocalGateways_localGatewayIds,
+    describeLocalGateways_filters,
+    describeLocalGatewaysResponse_nextToken,
+    describeLocalGatewaysResponse_localGateways,
+    describeLocalGatewaysResponse_httpStatus,
+
+    -- ** DescribeIpv6Pools
+    describeIpv6Pools_nextToken,
+    describeIpv6Pools_maxResults,
+    describeIpv6Pools_dryRun,
+    describeIpv6Pools_filters,
+    describeIpv6Pools_poolIds,
+    describeIpv6PoolsResponse_nextToken,
+    describeIpv6PoolsResponse_ipv6Pools,
+    describeIpv6PoolsResponse_httpStatus,
+
+    -- ** CreateRouteTable
+    createRouteTable_tagSpecifications,
+    createRouteTable_dryRun,
+    createRouteTable_vpcId,
+    createRouteTableResponse_routeTable,
+    createRouteTableResponse_httpStatus,
+
+    -- ** DescribeVpcEndpointConnectionNotifications
+    describeVpcEndpointConnectionNotifications_nextToken,
+    describeVpcEndpointConnectionNotifications_connectionNotificationId,
+    describeVpcEndpointConnectionNotifications_maxResults,
+    describeVpcEndpointConnectionNotifications_dryRun,
+    describeVpcEndpointConnectionNotifications_filters,
+    describeVpcEndpointConnectionNotificationsResponse_nextToken,
+    describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet,
+    describeVpcEndpointConnectionNotificationsResponse_httpStatus,
+
+    -- ** GetTransitGatewayPrefixListReferences
+    getTransitGatewayPrefixListReferences_nextToken,
+    getTransitGatewayPrefixListReferences_maxResults,
+    getTransitGatewayPrefixListReferences_dryRun,
+    getTransitGatewayPrefixListReferences_filters,
+    getTransitGatewayPrefixListReferences_transitGatewayRouteTableId,
+    getTransitGatewayPrefixListReferencesResponse_nextToken,
+    getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences,
+    getTransitGatewayPrefixListReferencesResponse_httpStatus,
+
+    -- ** AcceptVpcEndpointConnections
+    acceptVpcEndpointConnections_dryRun,
+    acceptVpcEndpointConnections_serviceId,
+    acceptVpcEndpointConnections_vpcEndpointIds,
+    acceptVpcEndpointConnectionsResponse_unsuccessful,
+    acceptVpcEndpointConnectionsResponse_httpStatus,
+
+    -- ** GetTransitGatewayRouteTablePropagations
+    getTransitGatewayRouteTablePropagations_nextToken,
+    getTransitGatewayRouteTablePropagations_maxResults,
+    getTransitGatewayRouteTablePropagations_dryRun,
+    getTransitGatewayRouteTablePropagations_filters,
+    getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId,
+    getTransitGatewayRouteTablePropagationsResponse_nextToken,
+    getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations,
+    getTransitGatewayRouteTablePropagationsResponse_httpStatus,
+
+    -- ** AssociateDhcpOptions
+    associateDhcpOptions_dryRun,
+    associateDhcpOptions_dhcpOptionsId,
+    associateDhcpOptions_vpcId,
+
+    -- ** DeleteEgressOnlyInternetGateway
+    deleteEgressOnlyInternetGateway_dryRun,
+    deleteEgressOnlyInternetGateway_egressOnlyInternetGatewayId,
+    deleteEgressOnlyInternetGatewayResponse_returnCode,
+    deleteEgressOnlyInternetGatewayResponse_httpStatus,
+
+    -- ** GetVpnConnectionDeviceTypes
+    getVpnConnectionDeviceTypes_nextToken,
+    getVpnConnectionDeviceTypes_maxResults,
+    getVpnConnectionDeviceTypes_dryRun,
+    getVpnConnectionDeviceTypesResponse_nextToken,
+    getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes,
+    getVpnConnectionDeviceTypesResponse_httpStatus,
+
+    -- ** CreateSubnetCidrReservation
+    createSubnetCidrReservation_tagSpecifications,
+    createSubnetCidrReservation_dryRun,
+    createSubnetCidrReservation_description,
+    createSubnetCidrReservation_subnetId,
+    createSubnetCidrReservation_cidr,
+    createSubnetCidrReservation_reservationType,
+    createSubnetCidrReservationResponse_subnetCidrReservation,
+    createSubnetCidrReservationResponse_httpStatus,
 
     -- ** DisableFastSnapshotRestores
     disableFastSnapshotRestores_dryRun,
@@ -1110,210 +1398,33 @@ module Network.AWS.EC2.Lens
     disableFastSnapshotRestoresResponse_successful,
     disableFastSnapshotRestoresResponse_httpStatus,
 
-    -- ** DeleteEgressOnlyInternetGateway
-    deleteEgressOnlyInternetGateway_dryRun,
-    deleteEgressOnlyInternetGateway_egressOnlyInternetGatewayId,
-    deleteEgressOnlyInternetGatewayResponse_returnCode,
-    deleteEgressOnlyInternetGatewayResponse_httpStatus,
-
     -- ** RequestSpotInstances
     requestSpotInstances_tagSpecifications,
     requestSpotInstances_dryRun,
     requestSpotInstances_validFrom,
     requestSpotInstances_spotPrice,
-    requestSpotInstances_blockDurationMinutes,
     requestSpotInstances_launchGroup,
+    requestSpotInstances_blockDurationMinutes,
     requestSpotInstances_instanceInterruptionBehavior,
     requestSpotInstances_validUntil,
     requestSpotInstances_launchSpecification,
-    requestSpotInstances_type,
     requestSpotInstances_availabilityZoneGroup,
-    requestSpotInstances_clientToken,
+    requestSpotInstances_type,
     requestSpotInstances_instanceCount,
+    requestSpotInstances_clientToken,
     requestSpotInstancesResponse_spotInstanceRequests,
     requestSpotInstancesResponse_httpStatus,
 
-    -- ** RunInstances
-    runInstances_securityGroupIds,
-    runInstances_additionalInfo,
-    runInstances_tagSpecifications,
-    runInstances_instanceType,
-    runInstances_capacityReservationSpecification,
-    runInstances_ebsOptimized,
-    runInstances_userData,
-    runInstances_placement,
-    runInstances_ipv6Addresses,
-    runInstances_dryRun,
-    runInstances_ramdiskId,
-    runInstances_creditSpecification,
-    runInstances_instanceMarketOptions,
-    runInstances_launchTemplate,
-    runInstances_licenseSpecifications,
-    runInstances_instanceInitiatedShutdownBehavior,
-    runInstances_imageId,
-    runInstances_securityGroups,
-    runInstances_elasticGpuSpecification,
-    runInstances_elasticInferenceAccelerators,
-    runInstances_iamInstanceProfile,
-    runInstances_hibernationOptions,
-    runInstances_ipv6AddressCount,
-    runInstances_monitoring,
-    runInstances_blockDeviceMappings,
-    runInstances_subnetId,
-    runInstances_enclaveOptions,
-    runInstances_kernelId,
-    runInstances_cpuOptions,
-    runInstances_keyName,
-    runInstances_networkInterfaces,
-    runInstances_disableApiTermination,
-    runInstances_metadataOptions,
-    runInstances_clientToken,
-    runInstances_privateIpAddress,
-    runInstances_maxCount,
-    runInstances_minCount,
-    reservation_groups,
-    reservation_requesterId,
-    reservation_instances,
-    reservation_reservationId,
-    reservation_ownerId,
-
-    -- ** GetTransitGatewayRouteTablePropagations
-    getTransitGatewayRouteTablePropagations_nextToken,
-    getTransitGatewayRouteTablePropagations_dryRun,
-    getTransitGatewayRouteTablePropagations_maxResults,
-    getTransitGatewayRouteTablePropagations_filters,
-    getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId,
-    getTransitGatewayRouteTablePropagationsResponse_nextToken,
-    getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations,
-    getTransitGatewayRouteTablePropagationsResponse_httpStatus,
-
-    -- ** AttachVolume
-    attachVolume_dryRun,
-    attachVolume_device,
-    attachVolume_instanceId,
-    attachVolume_volumeId,
-    volumeAttachment_instanceId,
-    volumeAttachment_attachTime,
-    volumeAttachment_device,
-    volumeAttachment_volumeId,
-    volumeAttachment_state,
-    volumeAttachment_deleteOnTermination,
-
-    -- ** AcceptVpcEndpointConnections
-    acceptVpcEndpointConnections_dryRun,
-    acceptVpcEndpointConnections_serviceId,
-    acceptVpcEndpointConnections_vpcEndpointIds,
-    acceptVpcEndpointConnectionsResponse_unsuccessful,
-    acceptVpcEndpointConnectionsResponse_httpStatus,
-
-    -- ** CreateDhcpOptions
-    createDhcpOptions_tagSpecifications,
-    createDhcpOptions_dryRun,
-    createDhcpOptions_dhcpConfigurations,
-    createDhcpOptionsResponse_dhcpOptions,
-    createDhcpOptionsResponse_httpStatus,
-
-    -- ** RebootInstances
-    rebootInstances_dryRun,
-    rebootInstances_instanceIds,
-
-    -- ** ModifyImageAttribute
-    modifyImageAttribute_dryRun,
-    modifyImageAttribute_productCodes,
-    modifyImageAttribute_userIds,
-    modifyImageAttribute_attribute,
-    modifyImageAttribute_launchPermission,
-    modifyImageAttribute_description,
-    modifyImageAttribute_value,
-    modifyImageAttribute_userGroups,
-    modifyImageAttribute_operationType,
-    modifyImageAttribute_imageId,
-
-    -- ** CreateManagedPrefixList
-    createManagedPrefixList_tagSpecifications,
-    createManagedPrefixList_dryRun,
-    createManagedPrefixList_clientToken,
-    createManagedPrefixList_entries,
-    createManagedPrefixList_prefixListName,
-    createManagedPrefixList_maxEntries,
-    createManagedPrefixList_addressFamily,
-    createManagedPrefixListResponse_prefixList,
-    createManagedPrefixListResponse_httpStatus,
-
-    -- ** SearchTransitGatewayRoutes
-    searchTransitGatewayRoutes_dryRun,
-    searchTransitGatewayRoutes_maxResults,
-    searchTransitGatewayRoutes_transitGatewayRouteTableId,
-    searchTransitGatewayRoutes_filters,
-    searchTransitGatewayRoutesResponse_routes,
-    searchTransitGatewayRoutesResponse_additionalRoutesAvailable,
-    searchTransitGatewayRoutesResponse_httpStatus,
-
-    -- ** DescribeIdFormat
-    describeIdFormat_resource,
-    describeIdFormatResponse_statuses,
-    describeIdFormatResponse_httpStatus,
-
-    -- ** RegisterTransitGatewayMulticastGroupSources
-    registerTransitGatewayMulticastGroupSources_dryRun,
-    registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
-    registerTransitGatewayMulticastGroupSources_networkInterfaceIds,
-    registerTransitGatewayMulticastGroupSources_groupIpAddress,
-    registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources,
-    registerTransitGatewayMulticastGroupSourcesResponse_httpStatus,
-
-    -- ** DescribeVpcEndpointConnectionNotifications
-    describeVpcEndpointConnectionNotifications_nextToken,
-    describeVpcEndpointConnectionNotifications_dryRun,
-    describeVpcEndpointConnectionNotifications_connectionNotificationId,
-    describeVpcEndpointConnectionNotifications_maxResults,
-    describeVpcEndpointConnectionNotifications_filters,
-    describeVpcEndpointConnectionNotificationsResponse_nextToken,
-    describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet,
-    describeVpcEndpointConnectionNotificationsResponse_httpStatus,
-
-    -- ** DescribeVpcs
-    describeVpcs_nextToken,
-    describeVpcs_dryRun,
-    describeVpcs_maxResults,
-    describeVpcs_filters,
-    describeVpcs_vpcIds,
-    describeVpcsResponse_nextToken,
-    describeVpcsResponse_vpcs,
-    describeVpcsResponse_httpStatus,
-
-    -- ** GetTransitGatewayPrefixListReferences
-    getTransitGatewayPrefixListReferences_nextToken,
-    getTransitGatewayPrefixListReferences_dryRun,
-    getTransitGatewayPrefixListReferences_maxResults,
-    getTransitGatewayPrefixListReferences_filters,
-    getTransitGatewayPrefixListReferences_transitGatewayRouteTableId,
-    getTransitGatewayPrefixListReferencesResponse_nextToken,
-    getTransitGatewayPrefixListReferencesResponse_transitGatewayPrefixListReferences,
-    getTransitGatewayPrefixListReferencesResponse_httpStatus,
-
-    -- ** CreateRouteTable
-    createRouteTable_tagSpecifications,
-    createRouteTable_dryRun,
-    createRouteTable_vpcId,
-    createRouteTableResponse_routeTable,
-    createRouteTableResponse_httpStatus,
-
-    -- ** DescribeVolumesModifications
-    describeVolumesModifications_nextToken,
-    describeVolumesModifications_dryRun,
-    describeVolumesModifications_volumeIds,
-    describeVolumesModifications_maxResults,
-    describeVolumesModifications_filters,
-    describeVolumesModificationsResponse_nextToken,
-    describeVolumesModificationsResponse_volumesModifications,
-    describeVolumesModificationsResponse_httpStatus,
-
-    -- ** AssociateIamInstanceProfile
-    associateIamInstanceProfile_iamInstanceProfile,
-    associateIamInstanceProfile_instanceId,
-    associateIamInstanceProfileResponse_iamInstanceProfileAssociation,
-    associateIamInstanceProfileResponse_httpStatus,
+    -- ** DescribeLaunchTemplates
+    describeLaunchTemplates_nextToken,
+    describeLaunchTemplates_launchTemplateNames,
+    describeLaunchTemplates_maxResults,
+    describeLaunchTemplates_dryRun,
+    describeLaunchTemplates_launchTemplateIds,
+    describeLaunchTemplates_filters,
+    describeLaunchTemplatesResponse_nextToken,
+    describeLaunchTemplatesResponse_launchTemplates,
+    describeLaunchTemplatesResponse_httpStatus,
 
     -- ** CreateImage
     createImage_tagSpecifications,
@@ -1326,42 +1437,91 @@ module Network.AWS.EC2.Lens
     createImageResponse_imageId,
     createImageResponse_httpStatus,
 
-    -- ** DescribeTrafficMirrorTargets
-    describeTrafficMirrorTargets_nextToken,
-    describeTrafficMirrorTargets_dryRun,
-    describeTrafficMirrorTargets_maxResults,
-    describeTrafficMirrorTargets_filters,
-    describeTrafficMirrorTargets_trafficMirrorTargetIds,
-    describeTrafficMirrorTargetsResponse_nextToken,
-    describeTrafficMirrorTargetsResponse_trafficMirrorTargets,
-    describeTrafficMirrorTargetsResponse_httpStatus,
+    -- ** ModifyTransitGatewayVpcAttachment
+    modifyTransitGatewayVpcAttachment_dryRun,
+    modifyTransitGatewayVpcAttachment_removeSubnetIds,
+    modifyTransitGatewayVpcAttachment_options,
+    modifyTransitGatewayVpcAttachment_addSubnetIds,
+    modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId,
+    modifyTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
+    modifyTransitGatewayVpcAttachmentResponse_httpStatus,
 
-    -- ** AssociateDhcpOptions
-    associateDhcpOptions_dryRun,
-    associateDhcpOptions_dhcpOptionsId,
-    associateDhcpOptions_vpcId,
+    -- ** AssignIpv6Addresses
+    assignIpv6Addresses_ipv6Addresses,
+    assignIpv6Addresses_ipv6PrefixCount,
+    assignIpv6Addresses_ipv6Prefixes,
+    assignIpv6Addresses_ipv6AddressCount,
+    assignIpv6Addresses_networkInterfaceId,
+    assignIpv6AddressesResponse_assignedIpv6Addresses,
+    assignIpv6AddressesResponse_assignedIpv6Prefixes,
+    assignIpv6AddressesResponse_networkInterfaceId,
+    assignIpv6AddressesResponse_httpStatus,
 
-    -- ** DescribeSpotFleetRequestHistory
-    describeSpotFleetRequestHistory_nextToken,
-    describeSpotFleetRequestHistory_eventType,
-    describeSpotFleetRequestHistory_dryRun,
-    describeSpotFleetRequestHistory_maxResults,
-    describeSpotFleetRequestHistory_spotFleetRequestId,
-    describeSpotFleetRequestHistory_startTime,
-    describeSpotFleetRequestHistoryResponse_nextToken,
-    describeSpotFleetRequestHistoryResponse_startTime,
-    describeSpotFleetRequestHistoryResponse_historyRecords,
-    describeSpotFleetRequestHistoryResponse_lastEvaluatedTime,
-    describeSpotFleetRequestHistoryResponse_spotFleetRequestId,
-    describeSpotFleetRequestHistoryResponse_httpStatus,
+    -- ** DescribeLocalGatewayVirtualInterfaceGroups
+    describeLocalGatewayVirtualInterfaceGroups_nextToken,
+    describeLocalGatewayVirtualInterfaceGroups_maxResults,
+    describeLocalGatewayVirtualInterfaceGroups_dryRun,
+    describeLocalGatewayVirtualInterfaceGroups_filters,
+    describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds,
+    describeLocalGatewayVirtualInterfaceGroupsResponse_nextToken,
+    describeLocalGatewayVirtualInterfaceGroupsResponse_localGatewayVirtualInterfaceGroups,
+    describeLocalGatewayVirtualInterfaceGroupsResponse_httpStatus,
 
-    -- ** ModifyInstanceEventStartTime
-    modifyInstanceEventStartTime_dryRun,
-    modifyInstanceEventStartTime_instanceId,
-    modifyInstanceEventStartTime_instanceEventId,
-    modifyInstanceEventStartTime_notBefore,
-    modifyInstanceEventStartTimeResponse_event,
-    modifyInstanceEventStartTimeResponse_httpStatus,
+    -- ** DescribeVpnConnections
+    describeVpnConnections_dryRun,
+    describeVpnConnections_filters,
+    describeVpnConnections_vpnConnectionIds,
+    describeVpnConnectionsResponse_vpnConnections,
+    describeVpnConnectionsResponse_httpStatus,
+
+    -- ** CreateNetworkAclEntry
+    createNetworkAclEntry_portRange,
+    createNetworkAclEntry_dryRun,
+    createNetworkAclEntry_icmpTypeCode,
+    createNetworkAclEntry_ipv6CidrBlock,
+    createNetworkAclEntry_cidrBlock,
+    createNetworkAclEntry_egress,
+    createNetworkAclEntry_networkAclId,
+    createNetworkAclEntry_protocol,
+    createNetworkAclEntry_ruleAction,
+    createNetworkAclEntry_ruleNumber,
+
+    -- ** DescribePlacementGroups
+    describePlacementGroups_groupIds,
+    describePlacementGroups_dryRun,
+    describePlacementGroups_groupNames,
+    describePlacementGroups_filters,
+    describePlacementGroupsResponse_placementGroups,
+    describePlacementGroupsResponse_httpStatus,
+
+    -- ** ModifySnapshotAttribute
+    modifySnapshotAttribute_createVolumePermission,
+    modifySnapshotAttribute_dryRun,
+    modifySnapshotAttribute_groupNames,
+    modifySnapshotAttribute_userIds,
+    modifySnapshotAttribute_attribute,
+    modifySnapshotAttribute_operationType,
+    modifySnapshotAttribute_snapshotId,
+
+    -- ** ModifyIdentityIdFormat
+    modifyIdentityIdFormat_principalArn,
+    modifyIdentityIdFormat_resource,
+    modifyIdentityIdFormat_useLongIds,
+
+    -- ** EnableVgwRoutePropagation
+    enableVgwRoutePropagation_dryRun,
+    enableVgwRoutePropagation_gatewayId,
+    enableVgwRoutePropagation_routeTableId,
+
+    -- ** DeleteTags
+    deleteTags_dryRun,
+    deleteTags_tags,
+    deleteTags_resources,
+
+    -- ** ResetInstanceAttribute
+    resetInstanceAttribute_dryRun,
+    resetInstanceAttribute_attribute,
+    resetInstanceAttribute_instanceId,
 
     -- ** DisassociateEnclaveCertificateIamRole
     disassociateEnclaveCertificateIamRole_roleArn,
@@ -1376,163 +1536,25 @@ module Network.AWS.EC2.Lens
     deleteVpcPeeringConnectionResponse_return,
     deleteVpcPeeringConnectionResponse_httpStatus,
 
-    -- ** ResetInstanceAttribute
-    resetInstanceAttribute_dryRun,
-    resetInstanceAttribute_attribute,
-    resetInstanceAttribute_instanceId,
-
-    -- ** DescribeInstanceStatus
-    describeInstanceStatus_instanceIds,
-    describeInstanceStatus_nextToken,
-    describeInstanceStatus_dryRun,
-    describeInstanceStatus_maxResults,
-    describeInstanceStatus_includeAllInstances,
-    describeInstanceStatus_filters,
-    describeInstanceStatusResponse_nextToken,
-    describeInstanceStatusResponse_instanceStatuses,
-    describeInstanceStatusResponse_httpStatus,
-
-    -- ** AttachNetworkInterface
-    attachNetworkInterface_dryRun,
-    attachNetworkInterface_networkCardIndex,
-    attachNetworkInterface_deviceIndex,
-    attachNetworkInterface_instanceId,
-    attachNetworkInterface_networkInterfaceId,
-    attachNetworkInterfaceResponse_attachmentId,
-    attachNetworkInterfaceResponse_networkCardIndex,
-    attachNetworkInterfaceResponse_httpStatus,
-
-    -- ** AssignIpv6Addresses
-    assignIpv6Addresses_ipv6Addresses,
-    assignIpv6Addresses_ipv6AddressCount,
-    assignIpv6Addresses_networkInterfaceId,
-    assignIpv6AddressesResponse_assignedIpv6Addresses,
-    assignIpv6AddressesResponse_networkInterfaceId,
-    assignIpv6AddressesResponse_httpStatus,
-
-    -- ** CreateLocalGatewayRoute
-    createLocalGatewayRoute_dryRun,
-    createLocalGatewayRoute_destinationCidrBlock,
-    createLocalGatewayRoute_localGatewayRouteTableId,
-    createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
-    createLocalGatewayRouteResponse_route,
-    createLocalGatewayRouteResponse_httpStatus,
-
-    -- ** EnableVgwRoutePropagation
-    enableVgwRoutePropagation_dryRun,
-    enableVgwRoutePropagation_gatewayId,
-    enableVgwRoutePropagation_routeTableId,
-
-    -- ** DescribeVpcEndpoints
-    describeVpcEndpoints_nextToken,
-    describeVpcEndpoints_dryRun,
-    describeVpcEndpoints_maxResults,
-    describeVpcEndpoints_filters,
-    describeVpcEndpoints_vpcEndpointIds,
-    describeVpcEndpointsResponse_nextToken,
-    describeVpcEndpointsResponse_vpcEndpoints,
-    describeVpcEndpointsResponse_httpStatus,
-
-    -- ** CreateNetworkAclEntry
-    createNetworkAclEntry_dryRun,
-    createNetworkAclEntry_portRange,
-    createNetworkAclEntry_icmpTypeCode,
-    createNetworkAclEntry_ipv6CidrBlock,
-    createNetworkAclEntry_cidrBlock,
-    createNetworkAclEntry_egress,
-    createNetworkAclEntry_networkAclId,
-    createNetworkAclEntry_protocol,
-    createNetworkAclEntry_ruleAction,
-    createNetworkAclEntry_ruleNumber,
-
-    -- ** DescribeStaleSecurityGroups
-    describeStaleSecurityGroups_nextToken,
-    describeStaleSecurityGroups_dryRun,
-    describeStaleSecurityGroups_maxResults,
-    describeStaleSecurityGroups_vpcId,
-    describeStaleSecurityGroupsResponse_nextToken,
-    describeStaleSecurityGroupsResponse_staleSecurityGroupSet,
-    describeStaleSecurityGroupsResponse_httpStatus,
-
     -- ** DescribeFlowLogs
     describeFlowLogs_nextToken,
-    describeFlowLogs_dryRun,
     describeFlowLogs_maxResults,
+    describeFlowLogs_dryRun,
     describeFlowLogs_flowLogIds,
     describeFlowLogs_filter,
     describeFlowLogsResponse_nextToken,
     describeFlowLogsResponse_flowLogs,
     describeFlowLogsResponse_httpStatus,
 
-    -- ** DescribePlacementGroups
-    describePlacementGroups_groupIds,
-    describePlacementGroups_dryRun,
-    describePlacementGroups_groupNames,
-    describePlacementGroups_filters,
-    describePlacementGroupsResponse_placementGroups,
-    describePlacementGroupsResponse_httpStatus,
-
-    -- ** DescribeFleets
-    describeFleets_nextToken,
-    describeFleets_dryRun,
-    describeFleets_maxResults,
-    describeFleets_filters,
-    describeFleets_fleetIds,
-    describeFleetsResponse_nextToken,
-    describeFleetsResponse_fleets,
-    describeFleetsResponse_httpStatus,
-
-    -- ** ModifyIdentityIdFormat
-    modifyIdentityIdFormat_principalArn,
-    modifyIdentityIdFormat_resource,
-    modifyIdentityIdFormat_useLongIds,
-
-    -- ** DescribeLocalGatewayVirtualInterfaceGroups
-    describeLocalGatewayVirtualInterfaceGroups_nextToken,
-    describeLocalGatewayVirtualInterfaceGroups_dryRun,
-    describeLocalGatewayVirtualInterfaceGroups_maxResults,
-    describeLocalGatewayVirtualInterfaceGroups_filters,
-    describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds,
-    describeLocalGatewayVirtualInterfaceGroupsResponse_nextToken,
-    describeLocalGatewayVirtualInterfaceGroupsResponse_localGatewayVirtualInterfaceGroups,
-    describeLocalGatewayVirtualInterfaceGroupsResponse_httpStatus,
-
-    -- ** ReplaceNetworkAclEntry
-    replaceNetworkAclEntry_dryRun,
-    replaceNetworkAclEntry_portRange,
-    replaceNetworkAclEntry_icmpTypeCode,
-    replaceNetworkAclEntry_ipv6CidrBlock,
-    replaceNetworkAclEntry_cidrBlock,
-    replaceNetworkAclEntry_egress,
-    replaceNetworkAclEntry_networkAclId,
-    replaceNetworkAclEntry_protocol,
-    replaceNetworkAclEntry_ruleAction,
-    replaceNetworkAclEntry_ruleNumber,
-
-    -- ** DeleteTags
-    deleteTags_dryRun,
-    deleteTags_tags,
-    deleteTags_resources,
-
-    -- ** DescribeTransitGatewayAttachments
-    describeTransitGatewayAttachments_nextToken,
-    describeTransitGatewayAttachments_dryRun,
-    describeTransitGatewayAttachments_maxResults,
-    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
-    describeTransitGatewayAttachments_filters,
-    describeTransitGatewayAttachmentsResponse_nextToken,
-    describeTransitGatewayAttachmentsResponse_transitGatewayAttachments,
-    describeTransitGatewayAttachmentsResponse_httpStatus,
-
     -- ** DescribeReservedInstancesOfferings
-    describeReservedInstancesOfferings_minDuration,
     describeReservedInstancesOfferings_nextToken,
+    describeReservedInstancesOfferings_minDuration,
     describeReservedInstancesOfferings_instanceType,
-    describeReservedInstancesOfferings_dryRun,
     describeReservedInstancesOfferings_maxInstanceCount,
     describeReservedInstancesOfferings_maxResults,
-    describeReservedInstancesOfferings_includeMarketplace,
+    describeReservedInstancesOfferings_dryRun,
     describeReservedInstancesOfferings_instanceTenancy,
+    describeReservedInstancesOfferings_includeMarketplace,
     describeReservedInstancesOfferings_availabilityZone,
     describeReservedInstancesOfferings_offeringClass,
     describeReservedInstancesOfferings_filters,
@@ -1544,14 +1566,25 @@ module Network.AWS.EC2.Lens
     describeReservedInstancesOfferingsResponse_reservedInstancesOfferings,
     describeReservedInstancesOfferingsResponse_httpStatus,
 
-    -- ** ModifySnapshotAttribute
-    modifySnapshotAttribute_createVolumePermission,
-    modifySnapshotAttribute_dryRun,
-    modifySnapshotAttribute_groupNames,
-    modifySnapshotAttribute_userIds,
-    modifySnapshotAttribute_attribute,
-    modifySnapshotAttribute_operationType,
-    modifySnapshotAttribute_snapshotId,
+    -- ** DescribeFleets
+    describeFleets_nextToken,
+    describeFleets_maxResults,
+    describeFleets_dryRun,
+    describeFleets_filters,
+    describeFleets_fleetIds,
+    describeFleetsResponse_nextToken,
+    describeFleetsResponse_fleets,
+    describeFleetsResponse_httpStatus,
+
+    -- ** AttachNetworkInterface
+    attachNetworkInterface_dryRun,
+    attachNetworkInterface_networkCardIndex,
+    attachNetworkInterface_deviceIndex,
+    attachNetworkInterface_instanceId,
+    attachNetworkInterface_networkInterfaceId,
+    attachNetworkInterfaceResponse_attachmentId,
+    attachNetworkInterfaceResponse_networkCardIndex,
+    attachNetworkInterfaceResponse_httpStatus,
 
     -- ** ConfirmProductInstance
     confirmProductInstance_dryRun,
@@ -1561,12 +1594,15 @@ module Network.AWS.EC2.Lens
     confirmProductInstanceResponse_return,
     confirmProductInstanceResponse_httpStatus,
 
-    -- ** DescribeVpnConnections
-    describeVpnConnections_dryRun,
-    describeVpnConnections_filters,
-    describeVpnConnections_vpnConnectionIds,
-    describeVpnConnectionsResponse_vpnConnections,
-    describeVpnConnectionsResponse_httpStatus,
+    -- ** DescribeTransitGatewayAttachments
+    describeTransitGatewayAttachments_nextToken,
+    describeTransitGatewayAttachments_maxResults,
+    describeTransitGatewayAttachments_dryRun,
+    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayAttachments_filters,
+    describeTransitGatewayAttachmentsResponse_nextToken,
+    describeTransitGatewayAttachmentsResponse_transitGatewayAttachments,
+    describeTransitGatewayAttachmentsResponse_httpStatus,
 
     -- ** ModifyAvailabilityZoneGroup
     modifyAvailabilityZoneGroup_dryRun,
@@ -1575,25 +1611,202 @@ module Network.AWS.EC2.Lens
     modifyAvailabilityZoneGroupResponse_return,
     modifyAvailabilityZoneGroupResponse_httpStatus,
 
+    -- ** ReplaceNetworkAclEntry
+    replaceNetworkAclEntry_portRange,
+    replaceNetworkAclEntry_dryRun,
+    replaceNetworkAclEntry_icmpTypeCode,
+    replaceNetworkAclEntry_ipv6CidrBlock,
+    replaceNetworkAclEntry_cidrBlock,
+    replaceNetworkAclEntry_egress,
+    replaceNetworkAclEntry_networkAclId,
+    replaceNetworkAclEntry_protocol,
+    replaceNetworkAclEntry_ruleAction,
+    replaceNetworkAclEntry_ruleNumber,
+
+    -- ** DescribeSpotFleetRequestHistory
+    describeSpotFleetRequestHistory_eventType,
+    describeSpotFleetRequestHistory_nextToken,
+    describeSpotFleetRequestHistory_maxResults,
+    describeSpotFleetRequestHistory_dryRun,
+    describeSpotFleetRequestHistory_spotFleetRequestId,
+    describeSpotFleetRequestHistory_startTime,
+    describeSpotFleetRequestHistoryResponse_nextToken,
+    describeSpotFleetRequestHistoryResponse_startTime,
+    describeSpotFleetRequestHistoryResponse_historyRecords,
+    describeSpotFleetRequestHistoryResponse_lastEvaluatedTime,
+    describeSpotFleetRequestHistoryResponse_spotFleetRequestId,
+    describeSpotFleetRequestHistoryResponse_httpStatus,
+
+    -- ** CreateLocalGatewayRoute
+    createLocalGatewayRoute_dryRun,
+    createLocalGatewayRoute_destinationCidrBlock,
+    createLocalGatewayRoute_localGatewayRouteTableId,
+    createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
+    createLocalGatewayRouteResponse_route,
+    createLocalGatewayRouteResponse_httpStatus,
+
+    -- ** DescribeVpcEndpoints
+    describeVpcEndpoints_nextToken,
+    describeVpcEndpoints_maxResults,
+    describeVpcEndpoints_dryRun,
+    describeVpcEndpoints_filters,
+    describeVpcEndpoints_vpcEndpointIds,
+    describeVpcEndpointsResponse_nextToken,
+    describeVpcEndpointsResponse_vpcEndpoints,
+    describeVpcEndpointsResponse_httpStatus,
+
+    -- ** ModifyInstanceEventStartTime
+    modifyInstanceEventStartTime_dryRun,
+    modifyInstanceEventStartTime_instanceId,
+    modifyInstanceEventStartTime_instanceEventId,
+    modifyInstanceEventStartTime_notBefore,
+    modifyInstanceEventStartTimeResponse_event,
+    modifyInstanceEventStartTimeResponse_httpStatus,
+
+    -- ** DescribeStaleSecurityGroups
+    describeStaleSecurityGroups_nextToken,
+    describeStaleSecurityGroups_maxResults,
+    describeStaleSecurityGroups_dryRun,
+    describeStaleSecurityGroups_vpcId,
+    describeStaleSecurityGroupsResponse_nextToken,
+    describeStaleSecurityGroupsResponse_staleSecurityGroupSet,
+    describeStaleSecurityGroupsResponse_httpStatus,
+
+    -- ** DescribeInstanceStatus
+    describeInstanceStatus_instanceIds,
+    describeInstanceStatus_nextToken,
+    describeInstanceStatus_maxResults,
+    describeInstanceStatus_dryRun,
+    describeInstanceStatus_includeAllInstances,
+    describeInstanceStatus_filters,
+    describeInstanceStatusResponse_nextToken,
+    describeInstanceStatusResponse_instanceStatuses,
+    describeInstanceStatusResponse_httpStatus,
+
+    -- ** DeleteNetworkAclEntry
+    deleteNetworkAclEntry_dryRun,
+    deleteNetworkAclEntry_egress,
+    deleteNetworkAclEntry_networkAclId,
+    deleteNetworkAclEntry_ruleNumber,
+
+    -- ** GetConsoleScreenshot
+    getConsoleScreenshot_dryRun,
+    getConsoleScreenshot_wakeUp,
+    getConsoleScreenshot_instanceId,
+    getConsoleScreenshotResponse_instanceId,
+    getConsoleScreenshotResponse_imageData,
+    getConsoleScreenshotResponse_httpStatus,
+
+    -- ** GetGroupsForCapacityReservation
+    getGroupsForCapacityReservation_nextToken,
+    getGroupsForCapacityReservation_maxResults,
+    getGroupsForCapacityReservation_dryRun,
+    getGroupsForCapacityReservation_capacityReservationId,
+    getGroupsForCapacityReservationResponse_nextToken,
+    getGroupsForCapacityReservationResponse_capacityReservationGroups,
+    getGroupsForCapacityReservationResponse_httpStatus,
+
     -- ** DisassociateIamInstanceProfile
     disassociateIamInstanceProfile_associationId,
     disassociateIamInstanceProfileResponse_iamInstanceProfileAssociation,
     disassociateIamInstanceProfileResponse_httpStatus,
 
-    -- ** DisableVpcClassicLink
-    disableVpcClassicLink_dryRun,
-    disableVpcClassicLink_vpcId,
-    disableVpcClassicLinkResponse_return,
-    disableVpcClassicLinkResponse_httpStatus,
+    -- ** DescribeVpcEndpointServiceConfigurations
+    describeVpcEndpointServiceConfigurations_nextToken,
+    describeVpcEndpointServiceConfigurations_maxResults,
+    describeVpcEndpointServiceConfigurations_dryRun,
+    describeVpcEndpointServiceConfigurations_serviceIds,
+    describeVpcEndpointServiceConfigurations_filters,
+    describeVpcEndpointServiceConfigurationsResponse_nextToken,
+    describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations,
+    describeVpcEndpointServiceConfigurationsResponse_httpStatus,
 
-    -- ** GetGroupsForCapacityReservation
-    getGroupsForCapacityReservation_nextToken,
-    getGroupsForCapacityReservation_dryRun,
-    getGroupsForCapacityReservation_maxResults,
-    getGroupsForCapacityReservation_capacityReservationId,
-    getGroupsForCapacityReservationResponse_nextToken,
-    getGroupsForCapacityReservationResponse_capacityReservationGroups,
-    getGroupsForCapacityReservationResponse_httpStatus,
+    -- ** CancelSpotInstanceRequests
+    cancelSpotInstanceRequests_dryRun,
+    cancelSpotInstanceRequests_spotInstanceRequestIds,
+    cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests,
+    cancelSpotInstanceRequestsResponse_httpStatus,
+
+    -- ** DeleteLocalGatewayRoute
+    deleteLocalGatewayRoute_dryRun,
+    deleteLocalGatewayRoute_destinationCidrBlock,
+    deleteLocalGatewayRoute_localGatewayRouteTableId,
+    deleteLocalGatewayRouteResponse_route,
+    deleteLocalGatewayRouteResponse_httpStatus,
+
+    -- ** DescribeVpcEndpointServices
+    describeVpcEndpointServices_nextToken,
+    describeVpcEndpointServices_serviceNames,
+    describeVpcEndpointServices_maxResults,
+    describeVpcEndpointServices_dryRun,
+    describeVpcEndpointServices_filters,
+    describeVpcEndpointServicesResponse_serviceDetails,
+    describeVpcEndpointServicesResponse_nextToken,
+    describeVpcEndpointServicesResponse_serviceNames,
+    describeVpcEndpointServicesResponse_httpStatus,
+
+    -- ** DisassociateRouteTable
+    disassociateRouteTable_dryRun,
+    disassociateRouteTable_associationId,
+
+    -- ** AssignPrivateIpAddresses
+    assignPrivateIpAddresses_privateIpAddresses,
+    assignPrivateIpAddresses_secondaryPrivateIpAddressCount,
+    assignPrivateIpAddresses_ipv4PrefixCount,
+    assignPrivateIpAddresses_allowReassignment,
+    assignPrivateIpAddresses_ipv4Prefixes,
+    assignPrivateIpAddresses_networkInterfaceId,
+    assignPrivateIpAddressesResponse_assignedPrivateIpAddresses,
+    assignPrivateIpAddressesResponse_networkInterfaceId,
+    assignPrivateIpAddressesResponse_assignedIpv4Prefixes,
+    assignPrivateIpAddressesResponse_httpStatus,
+
+    -- ** GetFlowLogsIntegrationTemplate
+    getFlowLogsIntegrationTemplate_dryRun,
+    getFlowLogsIntegrationTemplate_flowLogId,
+    getFlowLogsIntegrationTemplate_configDeliveryS3DestinationArn,
+    getFlowLogsIntegrationTemplate_integrateServices,
+    getFlowLogsIntegrationTemplateResponse_result,
+    getFlowLogsIntegrationTemplateResponse_httpStatus,
+
+    -- ** ModifyVpnTunnelCertificate
+    modifyVpnTunnelCertificate_dryRun,
+    modifyVpnTunnelCertificate_vpnConnectionId,
+    modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress,
+    modifyVpnTunnelCertificateResponse_vpnConnection,
+    modifyVpnTunnelCertificateResponse_httpStatus,
+
+    -- ** DisableVgwRoutePropagation
+    disableVgwRoutePropagation_dryRun,
+    disableVgwRoutePropagation_gatewayId,
+    disableVgwRoutePropagation_routeTableId,
+
+    -- ** DeleteSnapshot
+    deleteSnapshot_dryRun,
+    deleteSnapshot_snapshotId,
+
+    -- ** DescribeSubnets
+    describeSubnets_nextToken,
+    describeSubnets_maxResults,
+    describeSubnets_dryRun,
+    describeSubnets_subnetIds,
+    describeSubnets_filters,
+    describeSubnetsResponse_nextToken,
+    describeSubnetsResponse_subnets,
+    describeSubnetsResponse_httpStatus,
+
+    -- ** CreateSpotDatafeedSubscription
+    createSpotDatafeedSubscription_dryRun,
+    createSpotDatafeedSubscription_prefix,
+    createSpotDatafeedSubscription_bucket,
+    createSpotDatafeedSubscriptionResponse_spotDatafeedSubscription,
+    createSpotDatafeedSubscriptionResponse_httpStatus,
+
+    -- ** UnmonitorInstances
+    unmonitorInstances_dryRun,
+    unmonitorInstances_instanceIds,
+    unmonitorInstancesResponse_instanceMonitorings,
+    unmonitorInstancesResponse_httpStatus,
 
     -- ** ImportVolume
     importVolume_dryRun,
@@ -1612,78 +1825,14 @@ module Network.AWS.EC2.Lens
     describeAddressesResponse_addresses,
     describeAddressesResponse_httpStatus,
 
-    -- ** DeleteLocalGatewayRoute
-    deleteLocalGatewayRoute_dryRun,
-    deleteLocalGatewayRoute_destinationCidrBlock,
-    deleteLocalGatewayRoute_localGatewayRouteTableId,
-    deleteLocalGatewayRouteResponse_route,
-    deleteLocalGatewayRouteResponse_httpStatus,
-
-    -- ** DescribeVpcEndpointServiceConfigurations
-    describeVpcEndpointServiceConfigurations_nextToken,
-    describeVpcEndpointServiceConfigurations_dryRun,
-    describeVpcEndpointServiceConfigurations_maxResults,
-    describeVpcEndpointServiceConfigurations_serviceIds,
-    describeVpcEndpointServiceConfigurations_filters,
-    describeVpcEndpointServiceConfigurationsResponse_nextToken,
-    describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations,
-    describeVpcEndpointServiceConfigurationsResponse_httpStatus,
-
-    -- ** DescribeNetworkInterfaces
-    describeNetworkInterfaces_nextToken,
-    describeNetworkInterfaces_dryRun,
-    describeNetworkInterfaces_maxResults,
-    describeNetworkInterfaces_networkInterfaceIds,
-    describeNetworkInterfaces_filters,
-    describeNetworkInterfacesResponse_nextToken,
-    describeNetworkInterfacesResponse_networkInterfaces,
-    describeNetworkInterfacesResponse_httpStatus,
-
-    -- ** DescribeVpcEndpointServices
-    describeVpcEndpointServices_nextToken,
-    describeVpcEndpointServices_serviceNames,
-    describeVpcEndpointServices_dryRun,
-    describeVpcEndpointServices_maxResults,
-    describeVpcEndpointServices_filters,
-    describeVpcEndpointServicesResponse_serviceDetails,
-    describeVpcEndpointServicesResponse_nextToken,
-    describeVpcEndpointServicesResponse_serviceNames,
-    describeVpcEndpointServicesResponse_httpStatus,
-
-    -- ** DeleteNetworkAclEntry
-    deleteNetworkAclEntry_dryRun,
-    deleteNetworkAclEntry_egress,
-    deleteNetworkAclEntry_networkAclId,
-    deleteNetworkAclEntry_ruleNumber,
-
-    -- ** GetTransitGatewayAttachmentPropagations
-    getTransitGatewayAttachmentPropagations_nextToken,
-    getTransitGatewayAttachmentPropagations_dryRun,
-    getTransitGatewayAttachmentPropagations_maxResults,
-    getTransitGatewayAttachmentPropagations_filters,
-    getTransitGatewayAttachmentPropagations_transitGatewayAttachmentId,
-    getTransitGatewayAttachmentPropagationsResponse_nextToken,
-    getTransitGatewayAttachmentPropagationsResponse_transitGatewayAttachmentPropagations,
-    getTransitGatewayAttachmentPropagationsResponse_httpStatus,
-
-    -- ** AssignPrivateIpAddresses
-    assignPrivateIpAddresses_privateIpAddresses,
-    assignPrivateIpAddresses_secondaryPrivateIpAddressCount,
-    assignPrivateIpAddresses_allowReassignment,
-    assignPrivateIpAddresses_networkInterfaceId,
-    assignPrivateIpAddressesResponse_assignedPrivateIpAddresses,
-    assignPrivateIpAddressesResponse_networkInterfaceId,
-    assignPrivateIpAddressesResponse_httpStatus,
-
-    -- ** DescribeNatGateways
-    describeNatGateways_nextToken,
-    describeNatGateways_dryRun,
-    describeNatGateways_maxResults,
-    describeNatGateways_natGatewayIds,
-    describeNatGateways_filter,
-    describeNatGatewaysResponse_nextToken,
-    describeNatGatewaysResponse_natGateways,
-    describeNatGatewaysResponse_httpStatus,
+    -- ** PurchaseReservedInstancesOffering
+    purchaseReservedInstancesOffering_dryRun,
+    purchaseReservedInstancesOffering_purchaseTime,
+    purchaseReservedInstancesOffering_limitPrice,
+    purchaseReservedInstancesOffering_instanceCount,
+    purchaseReservedInstancesOffering_reservedInstancesOfferingId,
+    purchaseReservedInstancesOfferingResponse_reservedInstancesId,
+    purchaseReservedInstancesOfferingResponse_httpStatus,
 
     -- ** DescribeSnapshotAttribute
     describeSnapshotAttribute_dryRun,
@@ -1694,45 +1843,9 @@ module Network.AWS.EC2.Lens
     describeSnapshotAttributeResponse_snapshotId,
     describeSnapshotAttributeResponse_httpStatus,
 
-    -- ** DeleteSnapshot
-    deleteSnapshot_dryRun,
-    deleteSnapshot_snapshotId,
-
-    -- ** DeleteCarrierGateway
-    deleteCarrierGateway_dryRun,
-    deleteCarrierGateway_carrierGatewayId,
-    deleteCarrierGatewayResponse_carrierGateway,
-    deleteCarrierGatewayResponse_httpStatus,
-
-    -- ** DescribeTransitGatewayVpcAttachments
-    describeTransitGatewayVpcAttachments_nextToken,
-    describeTransitGatewayVpcAttachments_dryRun,
-    describeTransitGatewayVpcAttachments_maxResults,
-    describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds,
-    describeTransitGatewayVpcAttachments_filters,
-    describeTransitGatewayVpcAttachmentsResponse_nextToken,
-    describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments,
-    describeTransitGatewayVpcAttachmentsResponse_httpStatus,
-
-    -- ** ModifyVpcEndpointConnectionNotification
-    modifyVpcEndpointConnectionNotification_connectionEvents,
-    modifyVpcEndpointConnectionNotification_dryRun,
-    modifyVpcEndpointConnectionNotification_connectionNotificationArn,
-    modifyVpcEndpointConnectionNotification_connectionNotificationId,
-    modifyVpcEndpointConnectionNotificationResponse_returnValue,
-    modifyVpcEndpointConnectionNotificationResponse_httpStatus,
-
-    -- ** PurchaseReservedInstancesOffering
-    purchaseReservedInstancesOffering_dryRun,
-    purchaseReservedInstancesOffering_purchaseTime,
-    purchaseReservedInstancesOffering_limitPrice,
-    purchaseReservedInstancesOffering_instanceCount,
-    purchaseReservedInstancesOffering_reservedInstancesOfferingId,
-    purchaseReservedInstancesOfferingResponse_reservedInstancesId,
-    purchaseReservedInstancesOfferingResponse_httpStatus,
-
     -- ** AuthorizeSecurityGroupIngress
     authorizeSecurityGroupIngress_fromPort,
+    authorizeSecurityGroupIngress_tagSpecifications,
     authorizeSecurityGroupIngress_dryRun,
     authorizeSecurityGroupIngress_sourceSecurityGroupName,
     authorizeSecurityGroupIngress_groupName,
@@ -1742,79 +1855,53 @@ module Network.AWS.EC2.Lens
     authorizeSecurityGroupIngress_ipPermissions,
     authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId,
     authorizeSecurityGroupIngress_toPort,
+    authorizeSecurityGroupIngressResponse_return,
+    authorizeSecurityGroupIngressResponse_securityGroupRules,
+    authorizeSecurityGroupIngressResponse_httpStatus,
 
-    -- ** GetConsoleScreenshot
-    getConsoleScreenshot_dryRun,
-    getConsoleScreenshot_wakeUp,
-    getConsoleScreenshot_instanceId,
-    getConsoleScreenshotResponse_instanceId,
-    getConsoleScreenshotResponse_imageData,
-    getConsoleScreenshotResponse_httpStatus,
+    -- ** DescribeNatGateways
+    describeNatGateways_nextToken,
+    describeNatGateways_maxResults,
+    describeNatGateways_dryRun,
+    describeNatGateways_natGatewayIds,
+    describeNatGateways_filter,
+    describeNatGatewaysResponse_nextToken,
+    describeNatGatewaysResponse_natGateways,
+    describeNatGatewaysResponse_httpStatus,
 
-    -- ** DisableVgwRoutePropagation
-    disableVgwRoutePropagation_dryRun,
-    disableVgwRoutePropagation_gatewayId,
-    disableVgwRoutePropagation_routeTableId,
+    -- ** DisableVpcClassicLink
+    disableVpcClassicLink_dryRun,
+    disableVpcClassicLink_vpcId,
+    disableVpcClassicLinkResponse_return,
+    disableVpcClassicLinkResponse_httpStatus,
 
     -- ** DescribeTransitGatewayMulticastDomains
     describeTransitGatewayMulticastDomains_nextToken,
-    describeTransitGatewayMulticastDomains_dryRun,
     describeTransitGatewayMulticastDomains_maxResults,
+    describeTransitGatewayMulticastDomains_dryRun,
     describeTransitGatewayMulticastDomains_filters,
     describeTransitGatewayMulticastDomains_transitGatewayMulticastDomainIds,
     describeTransitGatewayMulticastDomainsResponse_nextToken,
     describeTransitGatewayMulticastDomainsResponse_transitGatewayMulticastDomains,
     describeTransitGatewayMulticastDomainsResponse_httpStatus,
 
-    -- ** DescribeSubnets
-    describeSubnets_nextToken,
-    describeSubnets_dryRun,
-    describeSubnets_maxResults,
-    describeSubnets_subnetIds,
-    describeSubnets_filters,
-    describeSubnetsResponse_nextToken,
-    describeSubnetsResponse_subnets,
-    describeSubnetsResponse_httpStatus,
+    -- ** GetTransitGatewayAttachmentPropagations
+    getTransitGatewayAttachmentPropagations_nextToken,
+    getTransitGatewayAttachmentPropagations_maxResults,
+    getTransitGatewayAttachmentPropagations_dryRun,
+    getTransitGatewayAttachmentPropagations_filters,
+    getTransitGatewayAttachmentPropagations_transitGatewayAttachmentId,
+    getTransitGatewayAttachmentPropagationsResponse_nextToken,
+    getTransitGatewayAttachmentPropagationsResponse_transitGatewayAttachmentPropagations,
+    getTransitGatewayAttachmentPropagationsResponse_httpStatus,
 
-    -- ** UnmonitorInstances
-    unmonitorInstances_dryRun,
-    unmonitorInstances_instanceIds,
-    unmonitorInstancesResponse_instanceMonitorings,
-    unmonitorInstancesResponse_httpStatus,
-
-    -- ** CancelSpotInstanceRequests
-    cancelSpotInstanceRequests_dryRun,
-    cancelSpotInstanceRequests_spotInstanceRequestIds,
-    cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests,
-    cancelSpotInstanceRequestsResponse_httpStatus,
-
-    -- ** CreateSpotDatafeedSubscription
-    createSpotDatafeedSubscription_dryRun,
-    createSpotDatafeedSubscription_prefix,
-    createSpotDatafeedSubscription_bucket,
-    createSpotDatafeedSubscriptionResponse_spotDatafeedSubscription,
-    createSpotDatafeedSubscriptionResponse_httpStatus,
-
-    -- ** DisassociateRouteTable
-    disassociateRouteTable_dryRun,
-    disassociateRouteTable_associationId,
-
-    -- ** DescribeTransitGatewayConnectPeers
-    describeTransitGatewayConnectPeers_nextToken,
-    describeTransitGatewayConnectPeers_dryRun,
-    describeTransitGatewayConnectPeers_maxResults,
-    describeTransitGatewayConnectPeers_filters,
-    describeTransitGatewayConnectPeers_transitGatewayConnectPeerIds,
-    describeTransitGatewayConnectPeersResponse_nextToken,
-    describeTransitGatewayConnectPeersResponse_transitGatewayConnectPeers,
-    describeTransitGatewayConnectPeersResponse_httpStatus,
-
-    -- ** ModifyVpnTunnelCertificate
-    modifyVpnTunnelCertificate_dryRun,
-    modifyVpnTunnelCertificate_vpnConnectionId,
-    modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress,
-    modifyVpnTunnelCertificateResponse_vpnConnection,
-    modifyVpnTunnelCertificateResponse_httpStatus,
+    -- ** ModifyVpcEndpointConnectionNotification
+    modifyVpcEndpointConnectionNotification_connectionEvents,
+    modifyVpcEndpointConnectionNotification_dryRun,
+    modifyVpcEndpointConnectionNotification_connectionNotificationArn,
+    modifyVpcEndpointConnectionNotification_connectionNotificationId,
+    modifyVpcEndpointConnectionNotificationResponse_returnValue,
+    modifyVpcEndpointConnectionNotificationResponse_httpStatus,
 
     -- ** RestoreManagedPrefixListVersion
     restoreManagedPrefixListVersion_dryRun,
@@ -1824,6 +1911,42 @@ module Network.AWS.EC2.Lens
     restoreManagedPrefixListVersionResponse_prefixList,
     restoreManagedPrefixListVersionResponse_httpStatus,
 
+    -- ** DescribeTransitGatewayConnectPeers
+    describeTransitGatewayConnectPeers_nextToken,
+    describeTransitGatewayConnectPeers_maxResults,
+    describeTransitGatewayConnectPeers_dryRun,
+    describeTransitGatewayConnectPeers_filters,
+    describeTransitGatewayConnectPeers_transitGatewayConnectPeerIds,
+    describeTransitGatewayConnectPeersResponse_nextToken,
+    describeTransitGatewayConnectPeersResponse_transitGatewayConnectPeers,
+    describeTransitGatewayConnectPeersResponse_httpStatus,
+
+    -- ** DeleteCarrierGateway
+    deleteCarrierGateway_dryRun,
+    deleteCarrierGateway_carrierGatewayId,
+    deleteCarrierGatewayResponse_carrierGateway,
+    deleteCarrierGatewayResponse_httpStatus,
+
+    -- ** DescribeNetworkInterfaces
+    describeNetworkInterfaces_nextToken,
+    describeNetworkInterfaces_maxResults,
+    describeNetworkInterfaces_dryRun,
+    describeNetworkInterfaces_networkInterfaceIds,
+    describeNetworkInterfaces_filters,
+    describeNetworkInterfacesResponse_nextToken,
+    describeNetworkInterfacesResponse_networkInterfaces,
+    describeNetworkInterfacesResponse_httpStatus,
+
+    -- ** DescribeTransitGatewayVpcAttachments
+    describeTransitGatewayVpcAttachments_nextToken,
+    describeTransitGatewayVpcAttachments_maxResults,
+    describeTransitGatewayVpcAttachments_dryRun,
+    describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayVpcAttachments_filters,
+    describeTransitGatewayVpcAttachmentsResponse_nextToken,
+    describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments,
+    describeTransitGatewayVpcAttachmentsResponse_httpStatus,
+
     -- ** ModifyAddressAttribute
     modifyAddressAttribute_dryRun,
     modifyAddressAttribute_domainName,
@@ -1831,69 +1954,19 @@ module Network.AWS.EC2.Lens
     modifyAddressAttributeResponse_address,
     modifyAddressAttributeResponse_httpStatus,
 
-    -- ** CreateVpnConnection
-    createVpnConnection_tagSpecifications,
-    createVpnConnection_dryRun,
-    createVpnConnection_options,
-    createVpnConnection_vpnGatewayId,
-    createVpnConnection_transitGatewayId,
-    createVpnConnection_customerGatewayId,
-    createVpnConnection_type,
-    createVpnConnectionResponse_vpnConnection,
-    createVpnConnectionResponse_httpStatus,
-
-    -- ** AssociateSubnetCidrBlock
-    associateSubnetCidrBlock_ipv6CidrBlock,
-    associateSubnetCidrBlock_subnetId,
-    associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
-    associateSubnetCidrBlockResponse_subnetId,
-    associateSubnetCidrBlockResponse_httpStatus,
-
-    -- ** AttachClassicLinkVpc
-    attachClassicLinkVpc_dryRun,
-    attachClassicLinkVpc_groups,
-    attachClassicLinkVpc_instanceId,
-    attachClassicLinkVpc_vpcId,
-    attachClassicLinkVpcResponse_return,
-    attachClassicLinkVpcResponse_httpStatus,
-
-    -- ** DescribeSpotPriceHistory
-    describeSpotPriceHistory_nextToken,
-    describeSpotPriceHistory_dryRun,
-    describeSpotPriceHistory_maxResults,
-    describeSpotPriceHistory_startTime,
-    describeSpotPriceHistory_endTime,
-    describeSpotPriceHistory_availabilityZone,
-    describeSpotPriceHistory_productDescriptions,
-    describeSpotPriceHistory_filters,
-    describeSpotPriceHistory_instanceTypes,
-    describeSpotPriceHistoryResponse_nextToken,
-    describeSpotPriceHistoryResponse_spotPriceHistory,
-    describeSpotPriceHistoryResponse_httpStatus,
-
-    -- ** DeleteQueuedReservedInstances
-    deleteQueuedReservedInstances_dryRun,
-    deleteQueuedReservedInstances_reservedInstancesIds,
-    deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions,
-    deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions,
-    deleteQueuedReservedInstancesResponse_httpStatus,
-
-    -- ** DescribeAggregateIdFormat
-    describeAggregateIdFormat_dryRun,
-    describeAggregateIdFormatResponse_useLongIdsAggregated,
-    describeAggregateIdFormatResponse_statuses,
-    describeAggregateIdFormatResponse_httpStatus,
-
-    -- ** DescribeReservedInstancesListings
-    describeReservedInstancesListings_reservedInstancesId,
-    describeReservedInstancesListings_reservedInstancesListingId,
-    describeReservedInstancesListings_filters,
-    describeReservedInstancesListingsResponse_reservedInstancesListings,
-    describeReservedInstancesListingsResponse_httpStatus,
+    -- ** DescribeImportSnapshotTasks
+    describeImportSnapshotTasks_nextToken,
+    describeImportSnapshotTasks_importTaskIds,
+    describeImportSnapshotTasks_maxResults,
+    describeImportSnapshotTasks_dryRun,
+    describeImportSnapshotTasks_filters,
+    describeImportSnapshotTasksResponse_importSnapshotTasks,
+    describeImportSnapshotTasksResponse_nextToken,
+    describeImportSnapshotTasksResponse_httpStatus,
 
     -- ** CopyImage
-    copyImage_dryRun,
     copyImage_encrypted,
+    copyImage_dryRun,
     copyImage_kmsKeyId,
     copyImage_destinationOutpostArn,
     copyImage_description,
@@ -1904,18 +1977,36 @@ module Network.AWS.EC2.Lens
     copyImageResponse_imageId,
     copyImageResponse_httpStatus,
 
-    -- ** CreateLocalGatewayRouteTableVpcAssociation
-    createLocalGatewayRouteTableVpcAssociation_tagSpecifications,
-    createLocalGatewayRouteTableVpcAssociation_dryRun,
-    createLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableId,
-    createLocalGatewayRouteTableVpcAssociation_vpcId,
-    createLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation,
-    createLocalGatewayRouteTableVpcAssociationResponse_httpStatus,
+    -- ** DescribeInstanceEventNotificationAttributes
+    describeInstanceEventNotificationAttributes_dryRun,
+    describeInstanceEventNotificationAttributesResponse_instanceTagAttribute,
+    describeInstanceEventNotificationAttributesResponse_httpStatus,
+
+    -- ** EnableSerialConsoleAccess
+    enableSerialConsoleAccess_dryRun,
+    enableSerialConsoleAccessResponse_serialConsoleAccessEnabled,
+    enableSerialConsoleAccessResponse_httpStatus,
+
+    -- ** ModifyTrafficMirrorFilterRule
+    modifyTrafficMirrorFilterRule_removeFields,
+    modifyTrafficMirrorFilterRule_dryRun,
+    modifyTrafficMirrorFilterRule_sourcePortRange,
+    modifyTrafficMirrorFilterRule_ruleAction,
+    modifyTrafficMirrorFilterRule_sourceCidrBlock,
+    modifyTrafficMirrorFilterRule_trafficDirection,
+    modifyTrafficMirrorFilterRule_destinationCidrBlock,
+    modifyTrafficMirrorFilterRule_protocol,
+    modifyTrafficMirrorFilterRule_description,
+    modifyTrafficMirrorFilterRule_ruleNumber,
+    modifyTrafficMirrorFilterRule_destinationPortRange,
+    modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId,
+    modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule,
+    modifyTrafficMirrorFilterRuleResponse_httpStatus,
 
     -- ** DescribeCarrierGateways
     describeCarrierGateways_nextToken,
-    describeCarrierGateways_dryRun,
     describeCarrierGateways_maxResults,
+    describeCarrierGateways_dryRun,
     describeCarrierGateways_carrierGatewayIds,
     describeCarrierGateways_filters,
     describeCarrierGatewaysResponse_carrierGateways,
@@ -1926,24 +2017,115 @@ module Network.AWS.EC2.Lens
     deleteInternetGateway_dryRun,
     deleteInternetGateway_internetGatewayId,
 
+    -- ** ModifyInstanceCapacityReservationAttributes
+    modifyInstanceCapacityReservationAttributes_dryRun,
+    modifyInstanceCapacityReservationAttributes_instanceId,
+    modifyInstanceCapacityReservationAttributes_capacityReservationSpecification,
+    modifyInstanceCapacityReservationAttributesResponse_return,
+    modifyInstanceCapacityReservationAttributesResponse_httpStatus,
+
+    -- ** DescribeNetworkInterfaceAttribute
+    describeNetworkInterfaceAttribute_dryRun,
+    describeNetworkInterfaceAttribute_attribute,
+    describeNetworkInterfaceAttribute_networkInterfaceId,
+    describeNetworkInterfaceAttributeResponse_groups,
+    describeNetworkInterfaceAttributeResponse_attachment,
+    describeNetworkInterfaceAttributeResponse_sourceDestCheck,
+    describeNetworkInterfaceAttributeResponse_description,
+    describeNetworkInterfaceAttributeResponse_networkInterfaceId,
+    describeNetworkInterfaceAttributeResponse_httpStatus,
+
+    -- ** AttachClassicLinkVpc
+    attachClassicLinkVpc_dryRun,
+    attachClassicLinkVpc_groups,
+    attachClassicLinkVpc_instanceId,
+    attachClassicLinkVpc_vpcId,
+    attachClassicLinkVpcResponse_return,
+    attachClassicLinkVpcResponse_httpStatus,
+
+    -- ** GetSubnetCidrReservations
+    getSubnetCidrReservations_nextToken,
+    getSubnetCidrReservations_maxResults,
+    getSubnetCidrReservations_dryRun,
+    getSubnetCidrReservations_filters,
+    getSubnetCidrReservations_subnetId,
+    getSubnetCidrReservationsResponse_nextToken,
+    getSubnetCidrReservationsResponse_subnetIpv4CidrReservations,
+    getSubnetCidrReservationsResponse_subnetIpv6CidrReservations,
+    getSubnetCidrReservationsResponse_httpStatus,
+
+    -- ** AssociateClientVpnTargetNetwork
+    associateClientVpnTargetNetwork_dryRun,
+    associateClientVpnTargetNetwork_clientToken,
+    associateClientVpnTargetNetwork_clientVpnEndpointId,
+    associateClientVpnTargetNetwork_subnetId,
+    associateClientVpnTargetNetworkResponse_status,
+    associateClientVpnTargetNetworkResponse_associationId,
+    associateClientVpnTargetNetworkResponse_httpStatus,
+
+    -- ** CancelCapacityReservation
+    cancelCapacityReservation_dryRun,
+    cancelCapacityReservation_capacityReservationId,
+    cancelCapacityReservationResponse_return,
+    cancelCapacityReservationResponse_httpStatus,
+
+    -- ** DisableTransitGatewayRouteTablePropagation
+    disableTransitGatewayRouteTablePropagation_dryRun,
+    disableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId,
+    disableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId,
+    disableTransitGatewayRouteTablePropagationResponse_propagation,
+    disableTransitGatewayRouteTablePropagationResponse_httpStatus,
+
+    -- ** CancelReservedInstancesListing
+    cancelReservedInstancesListing_reservedInstancesListingId,
+    cancelReservedInstancesListingResponse_reservedInstancesListings,
+    cancelReservedInstancesListingResponse_httpStatus,
+
+    -- ** DeleteQueuedReservedInstances
+    deleteQueuedReservedInstances_dryRun,
+    deleteQueuedReservedInstances_reservedInstancesIds,
+    deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions,
+    deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions,
+    deleteQueuedReservedInstancesResponse_httpStatus,
+
     -- ** CreateFleet
     createFleet_tagSpecifications,
-    createFleet_dryRun,
     createFleet_onDemandOptions,
+    createFleet_dryRun,
     createFleet_validFrom,
     createFleet_replaceUnhealthyInstances,
+    createFleet_context,
     createFleet_validUntil,
     createFleet_excessCapacityTerminationPolicy,
-    createFleet_type,
     createFleet_spotOptions,
-    createFleet_clientToken,
+    createFleet_type,
     createFleet_terminateInstancesWithExpiration,
+    createFleet_clientToken,
     createFleet_launchTemplateConfigs,
     createFleet_targetCapacitySpecification,
     createFleetResponse_fleetId,
     createFleetResponse_instances,
     createFleetResponse_errors,
     createFleetResponse_httpStatus,
+
+    -- ** DescribeSnapshots
+    describeSnapshots_ownerIds,
+    describeSnapshots_nextToken,
+    describeSnapshots_maxResults,
+    describeSnapshots_dryRun,
+    describeSnapshots_restorableByUserIds,
+    describeSnapshots_snapshotIds,
+    describeSnapshots_filters,
+    describeSnapshotsResponse_snapshots,
+    describeSnapshotsResponse_nextToken,
+    describeSnapshotsResponse_httpStatus,
+
+    -- ** DescribeReservedInstancesListings
+    describeReservedInstancesListings_reservedInstancesId,
+    describeReservedInstancesListings_reservedInstancesListingId,
+    describeReservedInstancesListings_filters,
+    describeReservedInstancesListingsResponse_reservedInstancesListings,
+    describeReservedInstancesListingsResponse_httpStatus,
 
     -- ** ModifyClientVpnEndpoint
     modifyClientVpnEndpoint_securityGroupIds,
@@ -1961,62 +2143,13 @@ module Network.AWS.EC2.Lens
     modifyClientVpnEndpointResponse_return,
     modifyClientVpnEndpointResponse_httpStatus,
 
-    -- ** ModifyInstanceCapacityReservationAttributes
-    modifyInstanceCapacityReservationAttributes_dryRun,
-    modifyInstanceCapacityReservationAttributes_instanceId,
-    modifyInstanceCapacityReservationAttributes_capacityReservationSpecification,
-    modifyInstanceCapacityReservationAttributesResponse_return,
-    modifyInstanceCapacityReservationAttributesResponse_httpStatus,
-
-    -- ** ImportClientVpnClientCertificateRevocationList
-    importClientVpnClientCertificateRevocationList_dryRun,
-    importClientVpnClientCertificateRevocationList_clientVpnEndpointId,
-    importClientVpnClientCertificateRevocationList_certificateRevocationList,
-    importClientVpnClientCertificateRevocationListResponse_return,
-    importClientVpnClientCertificateRevocationListResponse_httpStatus,
-
-    -- ** AssociateClientVpnTargetNetwork
-    associateClientVpnTargetNetwork_dryRun,
-    associateClientVpnTargetNetwork_clientToken,
-    associateClientVpnTargetNetwork_clientVpnEndpointId,
-    associateClientVpnTargetNetwork_subnetId,
-    associateClientVpnTargetNetworkResponse_status,
-    associateClientVpnTargetNetworkResponse_associationId,
-    associateClientVpnTargetNetworkResponse_httpStatus,
-
-    -- ** CancelCapacityReservation
-    cancelCapacityReservation_dryRun,
-    cancelCapacityReservation_capacityReservationId,
-    cancelCapacityReservationResponse_return,
-    cancelCapacityReservationResponse_httpStatus,
-
-    -- ** CancelReservedInstancesListing
-    cancelReservedInstancesListing_reservedInstancesListingId,
-    cancelReservedInstancesListingResponse_reservedInstancesListings,
-    cancelReservedInstancesListingResponse_httpStatus,
-
-    -- ** DisableTransitGatewayRouteTablePropagation
-    disableTransitGatewayRouteTablePropagation_dryRun,
-    disableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId,
-    disableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId,
-    disableTransitGatewayRouteTablePropagationResponse_propagation,
-    disableTransitGatewayRouteTablePropagationResponse_httpStatus,
-
-    -- ** DescribeVpcClassicLinkDnsSupport
-    describeVpcClassicLinkDnsSupport_nextToken,
-    describeVpcClassicLinkDnsSupport_maxResults,
-    describeVpcClassicLinkDnsSupport_vpcIds,
-    describeVpcClassicLinkDnsSupportResponse_nextToken,
-    describeVpcClassicLinkDnsSupportResponse_vpcs,
-    describeVpcClassicLinkDnsSupportResponse_httpStatus,
-
     -- ** CreateVpcEndpoint
-    createVpcEndpoint_securityGroupIds,
     createVpcEndpoint_policyDocument,
+    createVpcEndpoint_securityGroupIds,
     createVpcEndpoint_tagSpecifications,
     createVpcEndpoint_routeTableIds,
-    createVpcEndpoint_dryRun,
     createVpcEndpoint_vpcEndpointType,
+    createVpcEndpoint_dryRun,
     createVpcEndpoint_subnetIds,
     createVpcEndpoint_privateDnsEnabled,
     createVpcEndpoint_clientToken,
@@ -2026,111 +2159,78 @@ module Network.AWS.EC2.Lens
     createVpcEndpointResponse_clientToken,
     createVpcEndpointResponse_httpStatus,
 
-    -- ** DescribeSnapshots
-    describeSnapshots_ownerIds,
-    describeSnapshots_nextToken,
-    describeSnapshots_dryRun,
-    describeSnapshots_maxResults,
-    describeSnapshots_restorableByUserIds,
-    describeSnapshots_snapshotIds,
-    describeSnapshots_filters,
-    describeSnapshotsResponse_snapshots,
-    describeSnapshotsResponse_nextToken,
-    describeSnapshotsResponse_httpStatus,
+    -- ** CreateVpnConnection
+    createVpnConnection_tagSpecifications,
+    createVpnConnection_dryRun,
+    createVpnConnection_options,
+    createVpnConnection_vpnGatewayId,
+    createVpnConnection_transitGatewayId,
+    createVpnConnection_customerGatewayId,
+    createVpnConnection_type,
+    createVpnConnectionResponse_vpnConnection,
+    createVpnConnectionResponse_httpStatus,
 
-    -- ** DescribeImportSnapshotTasks
-    describeImportSnapshotTasks_nextToken,
-    describeImportSnapshotTasks_dryRun,
-    describeImportSnapshotTasks_importTaskIds,
-    describeImportSnapshotTasks_maxResults,
-    describeImportSnapshotTasks_filters,
-    describeImportSnapshotTasksResponse_importSnapshotTasks,
-    describeImportSnapshotTasksResponse_nextToken,
-    describeImportSnapshotTasksResponse_httpStatus,
+    -- ** ImportClientVpnClientCertificateRevocationList
+    importClientVpnClientCertificateRevocationList_dryRun,
+    importClientVpnClientCertificateRevocationList_clientVpnEndpointId,
+    importClientVpnClientCertificateRevocationList_certificateRevocationList,
+    importClientVpnClientCertificateRevocationListResponse_return,
+    importClientVpnClientCertificateRevocationListResponse_httpStatus,
 
-    -- ** DescribeNetworkInterfaceAttribute
-    describeNetworkInterfaceAttribute_dryRun,
-    describeNetworkInterfaceAttribute_attribute,
-    describeNetworkInterfaceAttribute_networkInterfaceId,
-    describeNetworkInterfaceAttributeResponse_groups,
-    describeNetworkInterfaceAttributeResponse_attachment,
-    describeNetworkInterfaceAttributeResponse_sourceDestCheck,
-    describeNetworkInterfaceAttributeResponse_networkInterfaceId,
-    describeNetworkInterfaceAttributeResponse_description,
-    describeNetworkInterfaceAttributeResponse_httpStatus,
+    -- ** AssociateSubnetCidrBlock
+    associateSubnetCidrBlock_ipv6CidrBlock,
+    associateSubnetCidrBlock_subnetId,
+    associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
+    associateSubnetCidrBlockResponse_subnetId,
+    associateSubnetCidrBlockResponse_httpStatus,
 
-    -- ** DescribeInstanceEventNotificationAttributes
-    describeInstanceEventNotificationAttributes_dryRun,
-    describeInstanceEventNotificationAttributesResponse_instanceTagAttribute,
-    describeInstanceEventNotificationAttributesResponse_httpStatus,
+    -- ** DescribeSpotPriceHistory
+    describeSpotPriceHistory_nextToken,
+    describeSpotPriceHistory_maxResults,
+    describeSpotPriceHistory_dryRun,
+    describeSpotPriceHistory_startTime,
+    describeSpotPriceHistory_endTime,
+    describeSpotPriceHistory_availabilityZone,
+    describeSpotPriceHistory_productDescriptions,
+    describeSpotPriceHistory_filters,
+    describeSpotPriceHistory_instanceTypes,
+    describeSpotPriceHistoryResponse_nextToken,
+    describeSpotPriceHistoryResponse_spotPriceHistory,
+    describeSpotPriceHistoryResponse_httpStatus,
 
     -- ** EnableEbsEncryptionByDefault
     enableEbsEncryptionByDefault_dryRun,
     enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault,
     enableEbsEncryptionByDefaultResponse_httpStatus,
 
-    -- ** ModifyTrafficMirrorFilterRule
-    modifyTrafficMirrorFilterRule_removeFields,
-    modifyTrafficMirrorFilterRule_dryRun,
-    modifyTrafficMirrorFilterRule_sourcePortRange,
-    modifyTrafficMirrorFilterRule_trafficDirection,
-    modifyTrafficMirrorFilterRule_ruleAction,
-    modifyTrafficMirrorFilterRule_sourceCidrBlock,
-    modifyTrafficMirrorFilterRule_destinationCidrBlock,
-    modifyTrafficMirrorFilterRule_protocol,
-    modifyTrafficMirrorFilterRule_description,
-    modifyTrafficMirrorFilterRule_ruleNumber,
-    modifyTrafficMirrorFilterRule_destinationPortRange,
-    modifyTrafficMirrorFilterRule_trafficMirrorFilterRuleId,
-    modifyTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule,
-    modifyTrafficMirrorFilterRuleResponse_httpStatus,
+    -- ** DescribeVpcClassicLinkDnsSupport
+    describeVpcClassicLinkDnsSupport_nextToken,
+    describeVpcClassicLinkDnsSupport_maxResults,
+    describeVpcClassicLinkDnsSupport_vpcIds,
+    describeVpcClassicLinkDnsSupportResponse_nextToken,
+    describeVpcClassicLinkDnsSupportResponse_vpcs,
+    describeVpcClassicLinkDnsSupportResponse_httpStatus,
 
-    -- ** DescribeCoipPools
-    describeCoipPools_nextToken,
-    describeCoipPools_dryRun,
-    describeCoipPools_maxResults,
-    describeCoipPools_filters,
-    describeCoipPools_poolIds,
-    describeCoipPoolsResponse_nextToken,
-    describeCoipPoolsResponse_coipPools,
-    describeCoipPoolsResponse_httpStatus,
+    -- ** CreateLocalGatewayRouteTableVpcAssociation
+    createLocalGatewayRouteTableVpcAssociation_tagSpecifications,
+    createLocalGatewayRouteTableVpcAssociation_dryRun,
+    createLocalGatewayRouteTableVpcAssociation_localGatewayRouteTableId,
+    createLocalGatewayRouteTableVpcAssociation_vpcId,
+    createLocalGatewayRouteTableVpcAssociationResponse_localGatewayRouteTableVpcAssociation,
+    createLocalGatewayRouteTableVpcAssociationResponse_httpStatus,
 
-    -- ** CancelExportTask
-    cancelExportTask_exportTaskId,
+    -- ** DescribeAggregateIdFormat
+    describeAggregateIdFormat_dryRun,
+    describeAggregateIdFormatResponse_useLongIdsAggregated,
+    describeAggregateIdFormatResponse_statuses,
+    describeAggregateIdFormatResponse_httpStatus,
 
-    -- ** EnableVolumeIO
-    enableVolumeIO_dryRun,
-    enableVolumeIO_volumeId,
-
-    -- ** ModifyTransitGateway
-    modifyTransitGateway_dryRun,
-    modifyTransitGateway_options,
-    modifyTransitGateway_description,
-    modifyTransitGateway_transitGatewayId,
-    modifyTransitGatewayResponse_transitGateway,
-    modifyTransitGatewayResponse_httpStatus,
-
-    -- ** DescribeInstanceTypeOfferings
-    describeInstanceTypeOfferings_nextToken,
-    describeInstanceTypeOfferings_dryRun,
-    describeInstanceTypeOfferings_maxResults,
-    describeInstanceTypeOfferings_locationType,
-    describeInstanceTypeOfferings_filters,
-    describeInstanceTypeOfferingsResponse_nextToken,
-    describeInstanceTypeOfferingsResponse_instanceTypeOfferings,
-    describeInstanceTypeOfferingsResponse_httpStatus,
-
-    -- ** CreateSubnet
-    createSubnet_tagSpecifications,
-    createSubnet_dryRun,
-    createSubnet_outpostArn,
-    createSubnet_availabilityZoneId,
-    createSubnet_availabilityZone,
-    createSubnet_ipv6CidrBlock,
-    createSubnet_cidrBlock,
-    createSubnet_vpcId,
-    createSubnetResponse_subnet,
-    createSubnetResponse_httpStatus,
+    -- ** EnableTransitGatewayRouteTablePropagation
+    enableTransitGatewayRouteTablePropagation_dryRun,
+    enableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId,
+    enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId,
+    enableTransitGatewayRouteTablePropagationResponse_propagation,
+    enableTransitGatewayRouteTablePropagationResponse_httpStatus,
 
     -- ** RequestSpotFleet
     requestSpotFleet_dryRun,
@@ -2138,13 +2238,40 @@ module Network.AWS.EC2.Lens
     requestSpotFleetResponse_spotFleetRequestId,
     requestSpotFleetResponse_httpStatus,
 
-    -- ** DeleteVpnConnection
-    deleteVpnConnection_dryRun,
-    deleteVpnConnection_vpnConnectionId,
+    -- ** DescribeBundleTasks
+    describeBundleTasks_dryRun,
+    describeBundleTasks_filters,
+    describeBundleTasks_bundleIds,
+    describeBundleTasksResponse_bundleTasks,
+    describeBundleTasksResponse_httpStatus,
+
+    -- ** ModifyNetworkInterfaceAttribute
+    modifyNetworkInterfaceAttribute_groups,
+    modifyNetworkInterfaceAttribute_attachment,
+    modifyNetworkInterfaceAttribute_dryRun,
+    modifyNetworkInterfaceAttribute_sourceDestCheck,
+    modifyNetworkInterfaceAttribute_description,
+    modifyNetworkInterfaceAttribute_networkInterfaceId,
+
+    -- ** DisableSerialConsoleAccess
+    disableSerialConsoleAccess_dryRun,
+    disableSerialConsoleAccessResponse_serialConsoleAccessEnabled,
+    disableSerialConsoleAccessResponse_httpStatus,
+
+    -- ** DescribeInstanceTypeOfferings
+    describeInstanceTypeOfferings_nextToken,
+    describeInstanceTypeOfferings_maxResults,
+    describeInstanceTypeOfferings_dryRun,
+    describeInstanceTypeOfferings_locationType,
+    describeInstanceTypeOfferings_filters,
+    describeInstanceTypeOfferingsResponse_nextToken,
+    describeInstanceTypeOfferingsResponse_instanceTypeOfferings,
+    describeInstanceTypeOfferingsResponse_httpStatus,
 
     -- ** ModifySpotFleetRequest
     modifySpotFleetRequest_launchTemplateConfigs,
     modifySpotFleetRequest_onDemandTargetCapacity,
+    modifySpotFleetRequest_context,
     modifySpotFleetRequest_excessCapacityTerminationPolicy,
     modifySpotFleetRequest_targetCapacity,
     modifySpotFleetRequest_spotFleetRequestId,
@@ -2155,39 +2282,70 @@ module Network.AWS.EC2.Lens
     deregisterImage_dryRun,
     deregisterImage_imageId,
 
-    -- ** DetachVpnGateway
-    detachVpnGateway_dryRun,
-    detachVpnGateway_vpcId,
-    detachVpnGateway_vpnGatewayId,
+    -- ** ResetAddressAttribute
+    resetAddressAttribute_dryRun,
+    resetAddressAttribute_allocationId,
+    resetAddressAttribute_attribute,
+    resetAddressAttributeResponse_address,
+    resetAddressAttributeResponse_httpStatus,
 
-    -- ** CreateNetworkInterface
-    createNetworkInterface_groups,
-    createNetworkInterface_tagSpecifications,
-    createNetworkInterface_privateIpAddresses,
-    createNetworkInterface_ipv6Addresses,
-    createNetworkInterface_dryRun,
-    createNetworkInterface_interfaceType,
-    createNetworkInterface_ipv6AddressCount,
-    createNetworkInterface_description,
-    createNetworkInterface_secondaryPrivateIpAddressCount,
-    createNetworkInterface_privateIpAddress,
-    createNetworkInterface_subnetId,
-    createNetworkInterfaceResponse_networkInterface,
-    createNetworkInterfaceResponse_httpStatus,
+    -- ** DescribeCoipPools
+    describeCoipPools_nextToken,
+    describeCoipPools_maxResults,
+    describeCoipPools_dryRun,
+    describeCoipPools_filters,
+    describeCoipPools_poolIds,
+    describeCoipPoolsResponse_nextToken,
+    describeCoipPoolsResponse_coipPools,
+    describeCoipPoolsResponse_httpStatus,
 
-    -- ** ModifyNetworkInterfaceAttribute
-    modifyNetworkInterfaceAttribute_groups,
-    modifyNetworkInterfaceAttribute_attachment,
-    modifyNetworkInterfaceAttribute_dryRun,
-    modifyNetworkInterfaceAttribute_sourceDestCheck,
-    modifyNetworkInterfaceAttribute_description,
-    modifyNetworkInterfaceAttribute_networkInterfaceId,
+    -- ** DescribeInstanceEventWindows
+    describeInstanceEventWindows_instanceEventWindowIds,
+    describeInstanceEventWindows_nextToken,
+    describeInstanceEventWindows_maxResults,
+    describeInstanceEventWindows_dryRun,
+    describeInstanceEventWindows_filters,
+    describeInstanceEventWindowsResponse_nextToken,
+    describeInstanceEventWindowsResponse_instanceEventWindows,
+    describeInstanceEventWindowsResponse_httpStatus,
+
+    -- ** CreateSubnet
+    createSubnet_tagSpecifications,
+    createSubnet_dryRun,
+    createSubnet_outpostArn,
+    createSubnet_availabilityZoneId,
+    createSubnet_availabilityZone,
+    createSubnet_ipv6CidrBlock,
+    createSubnet_vpcId,
+    createSubnet_cidrBlock,
+    createSubnetResponse_subnet,
+    createSubnetResponse_httpStatus,
+
+    -- ** DescribeSecurityGroups
+    describeSecurityGroups_nextToken,
+    describeSecurityGroups_groupIds,
+    describeSecurityGroups_maxResults,
+    describeSecurityGroups_dryRun,
+    describeSecurityGroups_groupNames,
+    describeSecurityGroups_filters,
+    describeSecurityGroupsResponse_nextToken,
+    describeSecurityGroupsResponse_securityGroups,
+    describeSecurityGroupsResponse_httpStatus,
+
+    -- ** DeletePlacementGroup
+    deletePlacementGroup_dryRun,
+    deletePlacementGroup_groupName,
+
+    -- ** EnableVolumeIO
+    enableVolumeIO_dryRun,
+    enableVolumeIO_volumeId,
 
     -- ** CreateNatGateway
     createNatGateway_tagSpecifications,
     createNatGateway_dryRun,
-    createNatGateway_clientToken,
     createNatGateway_allocationId,
+    createNatGateway_connectivityType,
+    createNatGateway_clientToken,
     createNatGateway_subnetId,
     createNatGatewayResponse_natGateway,
     createNatGatewayResponse_clientToken,
@@ -2199,57 +2357,6 @@ module Network.AWS.EC2.Lens
     getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles,
     getAssociatedEnclaveCertificateIamRolesResponse_httpStatus,
 
-    -- ** CreateInternetGateway
-    createInternetGateway_tagSpecifications,
-    createInternetGateway_dryRun,
-    createInternetGatewayResponse_internetGateway,
-    createInternetGatewayResponse_httpStatus,
-
-    -- ** EnableTransitGatewayRouteTablePropagation
-    enableTransitGatewayRouteTablePropagation_dryRun,
-    enableTransitGatewayRouteTablePropagation_transitGatewayRouteTableId,
-    enableTransitGatewayRouteTablePropagation_transitGatewayAttachmentId,
-    enableTransitGatewayRouteTablePropagationResponse_propagation,
-    enableTransitGatewayRouteTablePropagationResponse_httpStatus,
-
-    -- ** ResetAddressAttribute
-    resetAddressAttribute_dryRun,
-    resetAddressAttribute_allocationId,
-    resetAddressAttribute_attribute,
-    resetAddressAttributeResponse_address,
-    resetAddressAttributeResponse_httpStatus,
-
-    -- ** DescribeTransitGatewayConnects
-    describeTransitGatewayConnects_nextToken,
-    describeTransitGatewayConnects_dryRun,
-    describeTransitGatewayConnects_maxResults,
-    describeTransitGatewayConnects_transitGatewayAttachmentIds,
-    describeTransitGatewayConnects_filters,
-    describeTransitGatewayConnectsResponse_nextToken,
-    describeTransitGatewayConnectsResponse_transitGatewayConnects,
-    describeTransitGatewayConnectsResponse_httpStatus,
-
-    -- ** DeletePlacementGroup
-    deletePlacementGroup_dryRun,
-    deletePlacementGroup_groupName,
-
-    -- ** DescribeInstanceTypes
-    describeInstanceTypes_nextToken,
-    describeInstanceTypes_dryRun,
-    describeInstanceTypes_maxResults,
-    describeInstanceTypes_filters,
-    describeInstanceTypes_instanceTypes,
-    describeInstanceTypesResponse_nextToken,
-    describeInstanceTypesResponse_instanceTypes,
-    describeInstanceTypesResponse_httpStatus,
-
-    -- ** DescribeBundleTasks
-    describeBundleTasks_dryRun,
-    describeBundleTasks_filters,
-    describeBundleTasks_bundleIds,
-    describeBundleTasksResponse_bundleTasks,
-    describeBundleTasksResponse_httpStatus,
-
     -- ** ModifySubnetAttribute
     modifySubnetAttribute_customerOwnedIpv4Pool,
     modifySubnetAttribute_assignIpv6AddressOnCreation,
@@ -2257,46 +2364,76 @@ module Network.AWS.EC2.Lens
     modifySubnetAttribute_mapCustomerOwnedIpOnLaunch,
     modifySubnetAttribute_subnetId,
 
-    -- ** DescribeSecurityGroups
-    describeSecurityGroups_nextToken,
-    describeSecurityGroups_groupIds,
-    describeSecurityGroups_dryRun,
-    describeSecurityGroups_maxResults,
-    describeSecurityGroups_groupNames,
-    describeSecurityGroups_filters,
-    describeSecurityGroupsResponse_nextToken,
-    describeSecurityGroupsResponse_securityGroups,
-    describeSecurityGroupsResponse_httpStatus,
+    -- ** DescribeTransitGatewayConnects
+    describeTransitGatewayConnects_nextToken,
+    describeTransitGatewayConnects_maxResults,
+    describeTransitGatewayConnects_dryRun,
+    describeTransitGatewayConnects_transitGatewayAttachmentIds,
+    describeTransitGatewayConnects_filters,
+    describeTransitGatewayConnectsResponse_nextToken,
+    describeTransitGatewayConnectsResponse_transitGatewayConnects,
+    describeTransitGatewayConnectsResponse_httpStatus,
 
-    -- ** CreateClientVpnRoute
-    createClientVpnRoute_dryRun,
-    createClientVpnRoute_description,
-    createClientVpnRoute_clientToken,
-    createClientVpnRoute_clientVpnEndpointId,
-    createClientVpnRoute_destinationCidrBlock,
-    createClientVpnRoute_targetVpcSubnetId,
-    createClientVpnRouteResponse_status,
-    createClientVpnRouteResponse_httpStatus,
+    -- ** DetachVpnGateway
+    detachVpnGateway_dryRun,
+    detachVpnGateway_vpcId,
+    detachVpnGateway_vpnGatewayId,
 
-    -- ** DisassociateSubnetCidrBlock
-    disassociateSubnetCidrBlock_associationId,
-    disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
-    disassociateSubnetCidrBlockResponse_subnetId,
-    disassociateSubnetCidrBlockResponse_httpStatus,
+    -- ** CreateNetworkInterface
+    createNetworkInterface_tagSpecifications,
+    createNetworkInterface_groups,
+    createNetworkInterface_privateIpAddresses,
+    createNetworkInterface_ipv6Addresses,
+    createNetworkInterface_dryRun,
+    createNetworkInterface_interfaceType,
+    createNetworkInterface_ipv6PrefixCount,
+    createNetworkInterface_ipv6Prefixes,
+    createNetworkInterface_ipv6AddressCount,
+    createNetworkInterface_description,
+    createNetworkInterface_secondaryPrivateIpAddressCount,
+    createNetworkInterface_ipv4PrefixCount,
+    createNetworkInterface_ipv4Prefixes,
+    createNetworkInterface_privateIpAddress,
+    createNetworkInterface_clientToken,
+    createNetworkInterface_subnetId,
+    createNetworkInterfaceResponse_networkInterface,
+    createNetworkInterfaceResponse_clientToken,
+    createNetworkInterfaceResponse_httpStatus,
 
-    -- ** DescribeSpotDatafeedSubscription
-    describeSpotDatafeedSubscription_dryRun,
-    describeSpotDatafeedSubscriptionResponse_spotDatafeedSubscription,
-    describeSpotDatafeedSubscriptionResponse_httpStatus,
+    -- ** DeleteVpnConnection
+    deleteVpnConnection_dryRun,
+    deleteVpnConnection_vpnConnectionId,
 
-    -- ** CreateInstanceExportTask
-    createInstanceExportTask_tagSpecifications,
-    createInstanceExportTask_description,
-    createInstanceExportTask_exportToS3Task,
-    createInstanceExportTask_instanceId,
-    createInstanceExportTask_targetEnvironment,
-    createInstanceExportTaskResponse_exportTask,
-    createInstanceExportTaskResponse_httpStatus,
+    -- ** DescribeInstanceTypes
+    describeInstanceTypes_nextToken,
+    describeInstanceTypes_maxResults,
+    describeInstanceTypes_dryRun,
+    describeInstanceTypes_filters,
+    describeInstanceTypes_instanceTypes,
+    describeInstanceTypesResponse_nextToken,
+    describeInstanceTypesResponse_instanceTypes,
+    describeInstanceTypesResponse_httpStatus,
+
+    -- ** CancelExportTask
+    cancelExportTask_exportTaskId,
+
+    -- ** ModifyTransitGateway
+    modifyTransitGateway_dryRun,
+    modifyTransitGateway_options,
+    modifyTransitGateway_description,
+    modifyTransitGateway_transitGatewayId,
+    modifyTransitGatewayResponse_transitGateway,
+    modifyTransitGatewayResponse_httpStatus,
+
+    -- ** CreateInternetGateway
+    createInternetGateway_tagSpecifications,
+    createInternetGateway_dryRun,
+    createInternetGatewayResponse_internetGateway,
+    createInternetGatewayResponse_httpStatus,
+
+    -- ** SendDiagnosticInterrupt
+    sendDiagnosticInterrupt_dryRun,
+    sendDiagnosticInterrupt_instanceId,
 
     -- ** DisassociateClientVpnTargetNetwork
     disassociateClientVpnTargetNetwork_dryRun,
@@ -2306,45 +2443,48 @@ module Network.AWS.EC2.Lens
     disassociateClientVpnTargetNetworkResponse_associationId,
     disassociateClientVpnTargetNetworkResponse_httpStatus,
 
-    -- ** SendDiagnosticInterrupt
-    sendDiagnosticInterrupt_dryRun,
-    sendDiagnosticInterrupt_instanceId,
+    -- ** ModifyInstanceMetadataOptions
+    modifyInstanceMetadataOptions_httpProtocolIpv6,
+    modifyInstanceMetadataOptions_dryRun,
+    modifyInstanceMetadataOptions_httpEndpoint,
+    modifyInstanceMetadataOptions_httpPutResponseHopLimit,
+    modifyInstanceMetadataOptions_httpTokens,
+    modifyInstanceMetadataOptions_instanceId,
+    modifyInstanceMetadataOptionsResponse_instanceMetadataOptions,
+    modifyInstanceMetadataOptionsResponse_instanceId,
+    modifyInstanceMetadataOptionsResponse_httpStatus,
 
-    -- ** DescribeVpcAttribute
-    describeVpcAttribute_dryRun,
-    describeVpcAttribute_attribute,
-    describeVpcAttribute_vpcId,
-    describeVpcAttributeResponse_enableDnsSupport,
-    describeVpcAttributeResponse_enableDnsHostnames,
-    describeVpcAttributeResponse_vpcId,
-    describeVpcAttributeResponse_httpStatus,
+    -- ** DescribeSpotDatafeedSubscription
+    describeSpotDatafeedSubscription_dryRun,
+    describeSpotDatafeedSubscriptionResponse_spotDatafeedSubscription,
+    describeSpotDatafeedSubscriptionResponse_httpStatus,
 
-    -- ** DescribeSecurityGroupReferences
-    describeSecurityGroupReferences_dryRun,
-    describeSecurityGroupReferences_groupId,
-    describeSecurityGroupReferencesResponse_securityGroupReferenceSet,
-    describeSecurityGroupReferencesResponse_httpStatus,
+    -- ** ExportClientVpnClientConfiguration
+    exportClientVpnClientConfiguration_dryRun,
+    exportClientVpnClientConfiguration_clientVpnEndpointId,
+    exportClientVpnClientConfigurationResponse_clientConfiguration,
+    exportClientVpnClientConfigurationResponse_httpStatus,
 
-    -- ** ModifyCapacityReservation
-    modifyCapacityReservation_dryRun,
-    modifyCapacityReservation_endDateType,
-    modifyCapacityReservation_accept,
-    modifyCapacityReservation_endDate,
-    modifyCapacityReservation_instanceCount,
-    modifyCapacityReservation_capacityReservationId,
-    modifyCapacityReservationResponse_return,
-    modifyCapacityReservationResponse_httpStatus,
+    -- ** DeleteKeyPair
+    deleteKeyPair_dryRun,
+    deleteKeyPair_keyPairId,
+    deleteKeyPair_keyName,
 
-    -- ** DetachInternetGateway
-    detachInternetGateway_dryRun,
-    detachInternetGateway_internetGatewayId,
-    detachInternetGateway_vpcId,
+    -- ** DescribeEgressOnlyInternetGateways
+    describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds,
+    describeEgressOnlyInternetGateways_nextToken,
+    describeEgressOnlyInternetGateways_maxResults,
+    describeEgressOnlyInternetGateways_dryRun,
+    describeEgressOnlyInternetGateways_filters,
+    describeEgressOnlyInternetGatewaysResponse_nextToken,
+    describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways,
+    describeEgressOnlyInternetGatewaysResponse_httpStatus,
 
     -- ** CreateVolume
     createVolume_multiAttachEnabled,
     createVolume_tagSpecifications,
-    createVolume_dryRun,
     createVolume_encrypted,
+    createVolume_dryRun,
     createVolume_outpostArn,
     createVolume_throughput,
     createVolume_kmsKeyId,
@@ -2352,6 +2492,7 @@ module Network.AWS.EC2.Lens
     createVolume_volumeType,
     createVolume_iops,
     createVolume_size,
+    createVolume_clientToken,
     createVolume_availabilityZone,
     volume_multiAttachEnabled,
     volume_fastRestored,
@@ -2370,51 +2511,6 @@ module Network.AWS.EC2.Lens
     volume_volumeId,
     volume_volumeType,
 
-    -- ** ExportClientVpnClientConfiguration
-    exportClientVpnClientConfiguration_dryRun,
-    exportClientVpnClientConfiguration_clientVpnEndpointId,
-    exportClientVpnClientConfigurationResponse_clientConfiguration,
-    exportClientVpnClientConfigurationResponse_httpStatus,
-
-    -- ** RevokeSecurityGroupEgress
-    revokeSecurityGroupEgress_fromPort,
-    revokeSecurityGroupEgress_dryRun,
-    revokeSecurityGroupEgress_sourceSecurityGroupName,
-    revokeSecurityGroupEgress_cidrIp,
-    revokeSecurityGroupEgress_ipProtocol,
-    revokeSecurityGroupEgress_ipPermissions,
-    revokeSecurityGroupEgress_sourceSecurityGroupOwnerId,
-    revokeSecurityGroupEgress_toPort,
-    revokeSecurityGroupEgress_groupId,
-    revokeSecurityGroupEgressResponse_unknownIpPermissions,
-    revokeSecurityGroupEgressResponse_return,
-    revokeSecurityGroupEgressResponse_httpStatus,
-
-    -- ** DeleteKeyPair
-    deleteKeyPair_dryRun,
-    deleteKeyPair_keyPairId,
-    deleteKeyPair_keyName,
-
-    -- ** ModifyInstanceMetadataOptions
-    modifyInstanceMetadataOptions_dryRun,
-    modifyInstanceMetadataOptions_httpEndpoint,
-    modifyInstanceMetadataOptions_httpPutResponseHopLimit,
-    modifyInstanceMetadataOptions_httpTokens,
-    modifyInstanceMetadataOptions_instanceId,
-    modifyInstanceMetadataOptionsResponse_instanceMetadataOptions,
-    modifyInstanceMetadataOptionsResponse_instanceId,
-    modifyInstanceMetadataOptionsResponse_httpStatus,
-
-    -- ** DescribeEgressOnlyInternetGateways
-    describeEgressOnlyInternetGateways_nextToken,
-    describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds,
-    describeEgressOnlyInternetGateways_dryRun,
-    describeEgressOnlyInternetGateways_maxResults,
-    describeEgressOnlyInternetGateways_filters,
-    describeEgressOnlyInternetGatewaysResponse_nextToken,
-    describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways,
-    describeEgressOnlyInternetGatewaysResponse_httpStatus,
-
     -- ** ModifyTrafficMirrorFilterNetworkServices
     modifyTrafficMirrorFilterNetworkServices_addNetworkServices,
     modifyTrafficMirrorFilterNetworkServices_dryRun,
@@ -2423,203 +2519,109 @@ module Network.AWS.EC2.Lens
     modifyTrafficMirrorFilterNetworkServicesResponse_trafficMirrorFilter,
     modifyTrafficMirrorFilterNetworkServicesResponse_httpStatus,
 
-    -- ** ImportSnapshot
-    importSnapshot_tagSpecifications,
-    importSnapshot_dryRun,
-    importSnapshot_encrypted,
-    importSnapshot_roleName,
-    importSnapshot_kmsKeyId,
-    importSnapshot_clientData,
-    importSnapshot_description,
-    importSnapshot_clientToken,
-    importSnapshot_diskContainer,
-    importSnapshotResponse_snapshotTaskDetail,
-    importSnapshotResponse_importTaskId,
-    importSnapshotResponse_tags,
-    importSnapshotResponse_description,
-    importSnapshotResponse_httpStatus,
+    -- ** DescribeVpcAttribute
+    describeVpcAttribute_dryRun,
+    describeVpcAttribute_attribute,
+    describeVpcAttribute_vpcId,
+    describeVpcAttributeResponse_enableDnsSupport,
+    describeVpcAttributeResponse_enableDnsHostnames,
+    describeVpcAttributeResponse_vpcId,
+    describeVpcAttributeResponse_httpStatus,
 
-    -- ** DescribeImages
-    describeImages_imageIds,
-    describeImages_dryRun,
-    describeImages_owners,
-    describeImages_filters,
-    describeImages_executableUsers,
-    describeImagesResponse_images,
-    describeImagesResponse_httpStatus,
+    -- ** DescribeTrunkInterfaceAssociations
+    describeTrunkInterfaceAssociations_nextToken,
+    describeTrunkInterfaceAssociations_maxResults,
+    describeTrunkInterfaceAssociations_dryRun,
+    describeTrunkInterfaceAssociations_associationIds,
+    describeTrunkInterfaceAssociations_filters,
+    describeTrunkInterfaceAssociationsResponse_nextToken,
+    describeTrunkInterfaceAssociationsResponse_interfaceAssociations,
+    describeTrunkInterfaceAssociationsResponse_httpStatus,
 
-    -- ** DeprovisionByoipCidr
-    deprovisionByoipCidr_dryRun,
-    deprovisionByoipCidr_cidr,
-    deprovisionByoipCidrResponse_byoipCidr,
-    deprovisionByoipCidrResponse_httpStatus,
+    -- ** CreateInstanceExportTask
+    createInstanceExportTask_tagSpecifications,
+    createInstanceExportTask_description,
+    createInstanceExportTask_exportToS3Task,
+    createInstanceExportTask_instanceId,
+    createInstanceExportTask_targetEnvironment,
+    createInstanceExportTaskResponse_exportTask,
+    createInstanceExportTaskResponse_httpStatus,
 
-    -- ** DescribeAddressesAttribute
-    describeAddressesAttribute_nextToken,
-    describeAddressesAttribute_dryRun,
-    describeAddressesAttribute_maxResults,
-    describeAddressesAttribute_attribute,
-    describeAddressesAttribute_allocationIds,
-    describeAddressesAttributeResponse_nextToken,
-    describeAddressesAttributeResponse_addresses,
-    describeAddressesAttributeResponse_httpStatus,
+    -- ** CreateClientVpnRoute
+    createClientVpnRoute_dryRun,
+    createClientVpnRoute_description,
+    createClientVpnRoute_clientToken,
+    createClientVpnRoute_clientVpnEndpointId,
+    createClientVpnRoute_destinationCidrBlock,
+    createClientVpnRoute_targetVpcSubnetId,
+    createClientVpnRouteResponse_status,
+    createClientVpnRouteResponse_httpStatus,
 
-    -- ** AcceptVpcPeeringConnection
-    acceptVpcPeeringConnection_vpcPeeringConnectionId,
-    acceptVpcPeeringConnection_dryRun,
-    acceptVpcPeeringConnectionResponse_vpcPeeringConnection,
-    acceptVpcPeeringConnectionResponse_httpStatus,
+    -- ** ModifyCapacityReservation
+    modifyCapacityReservation_dryRun,
+    modifyCapacityReservation_endDateType,
+    modifyCapacityReservation_accept,
+    modifyCapacityReservation_endDate,
+    modifyCapacityReservation_instanceCount,
+    modifyCapacityReservation_capacityReservationId,
+    modifyCapacityReservationResponse_return,
+    modifyCapacityReservationResponse_httpStatus,
 
-    -- ** DescribeMovingAddresses
-    describeMovingAddresses_nextToken,
-    describeMovingAddresses_dryRun,
-    describeMovingAddresses_maxResults,
-    describeMovingAddresses_publicIps,
-    describeMovingAddresses_filters,
-    describeMovingAddressesResponse_nextToken,
-    describeMovingAddressesResponse_movingAddressStatuses,
-    describeMovingAddressesResponse_httpStatus,
+    -- ** RevokeSecurityGroupEgress
+    revokeSecurityGroupEgress_fromPort,
+    revokeSecurityGroupEgress_dryRun,
+    revokeSecurityGroupEgress_sourceSecurityGroupName,
+    revokeSecurityGroupEgress_cidrIp,
+    revokeSecurityGroupEgress_ipProtocol,
+    revokeSecurityGroupEgress_ipPermissions,
+    revokeSecurityGroupEgress_securityGroupRuleIds,
+    revokeSecurityGroupEgress_sourceSecurityGroupOwnerId,
+    revokeSecurityGroupEgress_toPort,
+    revokeSecurityGroupEgress_groupId,
+    revokeSecurityGroupEgressResponse_unknownIpPermissions,
+    revokeSecurityGroupEgressResponse_return,
+    revokeSecurityGroupEgressResponse_httpStatus,
 
-    -- ** CreateVpcEndpointConnectionNotification
-    createVpcEndpointConnectionNotification_dryRun,
-    createVpcEndpointConnectionNotification_vpcEndpointId,
-    createVpcEndpointConnectionNotification_serviceId,
-    createVpcEndpointConnectionNotification_clientToken,
-    createVpcEndpointConnectionNotification_connectionNotificationArn,
-    createVpcEndpointConnectionNotification_connectionEvents,
-    createVpcEndpointConnectionNotificationResponse_connectionNotification,
-    createVpcEndpointConnectionNotificationResponse_clientToken,
-    createVpcEndpointConnectionNotificationResponse_httpStatus,
+    -- ** DescribeSecurityGroupReferences
+    describeSecurityGroupReferences_dryRun,
+    describeSecurityGroupReferences_groupId,
+    describeSecurityGroupReferencesResponse_securityGroupReferenceSet,
+    describeSecurityGroupReferencesResponse_httpStatus,
 
-    -- ** DescribeFleetHistory
-    describeFleetHistory_nextToken,
-    describeFleetHistory_eventType,
-    describeFleetHistory_dryRun,
-    describeFleetHistory_maxResults,
-    describeFleetHistory_fleetId,
-    describeFleetHistory_startTime,
-    describeFleetHistoryResponse_nextToken,
-    describeFleetHistoryResponse_fleetId,
-    describeFleetHistoryResponse_startTime,
-    describeFleetHistoryResponse_historyRecords,
-    describeFleetHistoryResponse_lastEvaluatedTime,
-    describeFleetHistoryResponse_httpStatus,
+    -- ** DisassociateSubnetCidrBlock
+    disassociateSubnetCidrBlock_associationId,
+    disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
+    disassociateSubnetCidrBlockResponse_subnetId,
+    disassociateSubnetCidrBlockResponse_httpStatus,
 
-    -- ** DeleteVpcEndpointServiceConfigurations
-    deleteVpcEndpointServiceConfigurations_dryRun,
-    deleteVpcEndpointServiceConfigurations_serviceIds,
-    deleteVpcEndpointServiceConfigurationsResponse_unsuccessful,
-    deleteVpcEndpointServiceConfigurationsResponse_httpStatus,
+    -- ** DetachInternetGateway
+    detachInternetGateway_dryRun,
+    detachInternetGateway_internetGatewayId,
+    detachInternetGateway_vpcId,
 
-    -- ** CreateVpc
-    createVpc_tagSpecifications,
-    createVpc_dryRun,
-    createVpc_instanceTenancy,
-    createVpc_ipv6Pool,
-    createVpc_ipv6CidrBlock,
-    createVpc_ipv6CidrBlockNetworkBorderGroup,
-    createVpc_amazonProvidedIpv6CidrBlock,
-    createVpc_cidrBlock,
-    createVpcResponse_vpc,
-    createVpcResponse_httpStatus,
-
-    -- ** SearchLocalGatewayRoutes
-    searchLocalGatewayRoutes_nextToken,
-    searchLocalGatewayRoutes_dryRun,
-    searchLocalGatewayRoutes_maxResults,
-    searchLocalGatewayRoutes_localGatewayRouteTableId,
-    searchLocalGatewayRoutes_filters,
-    searchLocalGatewayRoutesResponse_nextToken,
-    searchLocalGatewayRoutesResponse_routes,
-    searchLocalGatewayRoutesResponse_httpStatus,
-
-    -- ** CreateTrafficMirrorTarget
-    createTrafficMirrorTarget_tagSpecifications,
-    createTrafficMirrorTarget_networkLoadBalancerArn,
-    createTrafficMirrorTarget_dryRun,
-    createTrafficMirrorTarget_networkInterfaceId,
-    createTrafficMirrorTarget_description,
-    createTrafficMirrorTarget_clientToken,
-    createTrafficMirrorTargetResponse_trafficMirrorTarget,
-    createTrafficMirrorTargetResponse_clientToken,
-    createTrafficMirrorTargetResponse_httpStatus,
-
-    -- ** DescribeVolumeStatus
-    describeVolumeStatus_nextToken,
-    describeVolumeStatus_dryRun,
-    describeVolumeStatus_volumeIds,
-    describeVolumeStatus_maxResults,
-    describeVolumeStatus_filters,
-    describeVolumeStatusResponse_nextToken,
-    describeVolumeStatusResponse_volumeStatuses,
-    describeVolumeStatusResponse_httpStatus,
-
-    -- ** DescribeVolumeAttribute
-    describeVolumeAttribute_dryRun,
-    describeVolumeAttribute_attribute,
-    describeVolumeAttribute_volumeId,
-    describeVolumeAttributeResponse_productCodes,
-    describeVolumeAttributeResponse_volumeId,
-    describeVolumeAttributeResponse_autoEnableIO,
-    describeVolumeAttributeResponse_httpStatus,
-
-    -- ** DeleteClientVpnRoute
-    deleteClientVpnRoute_dryRun,
-    deleteClientVpnRoute_targetVpcSubnetId,
-    deleteClientVpnRoute_clientVpnEndpointId,
-    deleteClientVpnRoute_destinationCidrBlock,
-    deleteClientVpnRouteResponse_status,
-    deleteClientVpnRouteResponse_httpStatus,
-
-    -- ** ModifyVpcPeeringConnectionOptions
-    modifyVpcPeeringConnectionOptions_dryRun,
-    modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions,
-    modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions,
-    modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId,
-    modifyVpcPeeringConnectionOptionsResponse_accepterPeeringConnectionOptions,
-    modifyVpcPeeringConnectionOptionsResponse_requesterPeeringConnectionOptions,
-    modifyVpcPeeringConnectionOptionsResponse_httpStatus,
-
-    -- ** DescribeSpotFleetInstances
-    describeSpotFleetInstances_nextToken,
-    describeSpotFleetInstances_dryRun,
-    describeSpotFleetInstances_maxResults,
-    describeSpotFleetInstances_spotFleetRequestId,
-    describeSpotFleetInstancesResponse_nextToken,
-    describeSpotFleetInstancesResponse_activeInstances,
-    describeSpotFleetInstancesResponse_spotFleetRequestId,
-    describeSpotFleetInstancesResponse_httpStatus,
-
-    -- ** DescribePrincipalIdFormat
-    describePrincipalIdFormat_nextToken,
-    describePrincipalIdFormat_dryRun,
-    describePrincipalIdFormat_maxResults,
-    describePrincipalIdFormat_resources,
-    describePrincipalIdFormatResponse_nextToken,
-    describePrincipalIdFormatResponse_principals,
-    describePrincipalIdFormatResponse_httpStatus,
-
-    -- ** ModifyInstanceCreditSpecification
-    modifyInstanceCreditSpecification_dryRun,
-    modifyInstanceCreditSpecification_clientToken,
-    modifyInstanceCreditSpecification_instanceCreditSpecifications,
-    modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications,
-    modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications,
-    modifyInstanceCreditSpecificationResponse_httpStatus,
+    -- ** SearchTransitGatewayMulticastGroups
+    searchTransitGatewayMulticastGroups_nextToken,
+    searchTransitGatewayMulticastGroups_maxResults,
+    searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId,
+    searchTransitGatewayMulticastGroups_dryRun,
+    searchTransitGatewayMulticastGroups_filters,
+    searchTransitGatewayMulticastGroupsResponse_nextToken,
+    searchTransitGatewayMulticastGroupsResponse_multicastGroups,
+    searchTransitGatewayMulticastGroupsResponse_httpStatus,
 
     -- ** DisassociateTransitGatewayMulticastDomain
-    disassociateTransitGatewayMulticastDomain_dryRun,
     disassociateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
+    disassociateTransitGatewayMulticastDomain_dryRun,
     disassociateTransitGatewayMulticastDomain_subnetIds,
     disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
     disassociateTransitGatewayMulticastDomainResponse_associations,
     disassociateTransitGatewayMulticastDomainResponse_httpStatus,
 
     -- ** DescribeManagedPrefixLists
-    describeManagedPrefixLists_nextToken,
     describeManagedPrefixLists_prefixListIds,
-    describeManagedPrefixLists_dryRun,
+    describeManagedPrefixLists_nextToken,
     describeManagedPrefixLists_maxResults,
+    describeManagedPrefixLists_dryRun,
     describeManagedPrefixLists_filters,
     describeManagedPrefixListsResponse_nextToken,
     describeManagedPrefixListsResponse_prefixLists,
@@ -2633,223 +2635,251 @@ module Network.AWS.EC2.Lens
     getPasswordDataResponse_passwordData,
     getPasswordDataResponse_timestamp,
 
-    -- ** DeleteVolume
-    deleteVolume_dryRun,
-    deleteVolume_volumeId,
+    -- ** ModifyVpcAttribute
+    modifyVpcAttribute_enableDnsSupport,
+    modifyVpcAttribute_enableDnsHostnames,
+    modifyVpcAttribute_vpcId,
 
-    -- ** DescribeTransitGateways
-    describeTransitGateways_nextToken,
-    describeTransitGateways_dryRun,
-    describeTransitGateways_maxResults,
-    describeTransitGateways_transitGatewayIds,
-    describeTransitGateways_filters,
-    describeTransitGatewaysResponse_nextToken,
-    describeTransitGatewaysResponse_transitGateways,
-    describeTransitGatewaysResponse_httpStatus,
+    -- ** DeleteClientVpnRoute
+    deleteClientVpnRoute_dryRun,
+    deleteClientVpnRoute_targetVpcSubnetId,
+    deleteClientVpnRoute_clientVpnEndpointId,
+    deleteClientVpnRoute_destinationCidrBlock,
+    deleteClientVpnRouteResponse_status,
+    deleteClientVpnRouteResponse_httpStatus,
 
-    -- ** DescribeSpotFleetRequests
-    describeSpotFleetRequests_nextToken,
-    describeSpotFleetRequests_dryRun,
-    describeSpotFleetRequests_maxResults,
-    describeSpotFleetRequests_spotFleetRequestIds,
-    describeSpotFleetRequestsResponse_nextToken,
-    describeSpotFleetRequestsResponse_spotFleetRequestConfigs,
-    describeSpotFleetRequestsResponse_httpStatus,
+    -- ** DeprovisionByoipCidr
+    deprovisionByoipCidr_dryRun,
+    deprovisionByoipCidr_cidr,
+    deprovisionByoipCidrResponse_byoipCidr,
+    deprovisionByoipCidrResponse_httpStatus,
+
+    -- ** DisassociateTrunkInterface
+    disassociateTrunkInterface_dryRun,
+    disassociateTrunkInterface_clientToken,
+    disassociateTrunkInterface_associationId,
+    disassociateTrunkInterfaceResponse_return,
+    disassociateTrunkInterfaceResponse_clientToken,
+    disassociateTrunkInterfaceResponse_httpStatus,
+
+    -- ** ImportSnapshot
+    importSnapshot_tagSpecifications,
+    importSnapshot_encrypted,
+    importSnapshot_dryRun,
+    importSnapshot_roleName,
+    importSnapshot_kmsKeyId,
+    importSnapshot_clientData,
+    importSnapshot_description,
+    importSnapshot_clientToken,
+    importSnapshot_diskContainer,
+    importSnapshotResponse_snapshotTaskDetail,
+    importSnapshotResponse_importTaskId,
+    importSnapshotResponse_tags,
+    importSnapshotResponse_description,
+    importSnapshotResponse_httpStatus,
+
+    -- ** DescribeSpotFleetInstances
+    describeSpotFleetInstances_nextToken,
+    describeSpotFleetInstances_maxResults,
+    describeSpotFleetInstances_dryRun,
+    describeSpotFleetInstances_spotFleetRequestId,
+    describeSpotFleetInstancesResponse_nextToken,
+    describeSpotFleetInstancesResponse_activeInstances,
+    describeSpotFleetInstancesResponse_spotFleetRequestId,
+    describeSpotFleetInstancesResponse_httpStatus,
 
     -- ** DescribeClientVpnConnections
     describeClientVpnConnections_nextToken,
-    describeClientVpnConnections_dryRun,
     describeClientVpnConnections_maxResults,
+    describeClientVpnConnections_dryRun,
     describeClientVpnConnections_filters,
     describeClientVpnConnections_clientVpnEndpointId,
     describeClientVpnConnectionsResponse_nextToken,
     describeClientVpnConnectionsResponse_connections,
     describeClientVpnConnectionsResponse_httpStatus,
 
-    -- ** SearchTransitGatewayMulticastGroups
-    searchTransitGatewayMulticastGroups_nextToken,
-    searchTransitGatewayMulticastGroups_dryRun,
-    searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId,
-    searchTransitGatewayMulticastGroups_maxResults,
-    searchTransitGatewayMulticastGroups_filters,
-    searchTransitGatewayMulticastGroupsResponse_nextToken,
-    searchTransitGatewayMulticastGroupsResponse_multicastGroups,
-    searchTransitGatewayMulticastGroupsResponse_httpStatus,
+    -- ** CreateTrafficMirrorTarget
+    createTrafficMirrorTarget_tagSpecifications,
+    createTrafficMirrorTarget_networkLoadBalancerArn,
+    createTrafficMirrorTarget_dryRun,
+    createTrafficMirrorTarget_description,
+    createTrafficMirrorTarget_networkInterfaceId,
+    createTrafficMirrorTarget_clientToken,
+    createTrafficMirrorTargetResponse_trafficMirrorTarget,
+    createTrafficMirrorTargetResponse_clientToken,
+    createTrafficMirrorTargetResponse_httpStatus,
 
-    -- ** ModifyVpcAttribute
-    modifyVpcAttribute_enableDnsSupport,
-    modifyVpcAttribute_enableDnsHostnames,
-    modifyVpcAttribute_vpcId,
+    -- ** ModifyInstanceCreditSpecification
+    modifyInstanceCreditSpecification_dryRun,
+    modifyInstanceCreditSpecification_clientToken,
+    modifyInstanceCreditSpecification_instanceCreditSpecifications,
+    modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications,
+    modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications,
+    modifyInstanceCreditSpecificationResponse_httpStatus,
 
-    -- ** RevokeSecurityGroupIngress
-    revokeSecurityGroupIngress_fromPort,
-    revokeSecurityGroupIngress_dryRun,
-    revokeSecurityGroupIngress_sourceSecurityGroupName,
-    revokeSecurityGroupIngress_groupName,
-    revokeSecurityGroupIngress_cidrIp,
-    revokeSecurityGroupIngress_groupId,
-    revokeSecurityGroupIngress_ipProtocol,
-    revokeSecurityGroupIngress_ipPermissions,
-    revokeSecurityGroupIngress_sourceSecurityGroupOwnerId,
-    revokeSecurityGroupIngress_toPort,
-    revokeSecurityGroupIngressResponse_unknownIpPermissions,
-    revokeSecurityGroupIngressResponse_return,
-    revokeSecurityGroupIngressResponse_httpStatus,
+    -- ** AcceptVpcPeeringConnection
+    acceptVpcPeeringConnection_vpcPeeringConnectionId,
+    acceptVpcPeeringConnection_dryRun,
+    acceptVpcPeeringConnectionResponse_vpcPeeringConnection,
+    acceptVpcPeeringConnectionResponse_httpStatus,
 
-    -- ** DescribeHostReservationOfferings
-    describeHostReservationOfferings_minDuration,
-    describeHostReservationOfferings_nextToken,
-    describeHostReservationOfferings_maxResults,
-    describeHostReservationOfferings_offeringId,
-    describeHostReservationOfferings_filter,
-    describeHostReservationOfferings_maxDuration,
-    describeHostReservationOfferingsResponse_nextToken,
-    describeHostReservationOfferingsResponse_offeringSet,
-    describeHostReservationOfferingsResponse_httpStatus,
+    -- ** DescribeVolumeAttribute
+    describeVolumeAttribute_dryRun,
+    describeVolumeAttribute_attribute,
+    describeVolumeAttribute_volumeId,
+    describeVolumeAttributeResponse_productCodes,
+    describeVolumeAttributeResponse_volumeId,
+    describeVolumeAttributeResponse_autoEnableIO,
+    describeVolumeAttributeResponse_httpStatus,
 
-    -- ** DescribeTransitGatewayRouteTables
-    describeTransitGatewayRouteTables_nextToken,
-    describeTransitGatewayRouteTables_dryRun,
-    describeTransitGatewayRouteTables_maxResults,
-    describeTransitGatewayRouteTables_transitGatewayRouteTableIds,
-    describeTransitGatewayRouteTables_filters,
-    describeTransitGatewayRouteTablesResponse_nextToken,
-    describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables,
-    describeTransitGatewayRouteTablesResponse_httpStatus,
+    -- ** DescribeSpotFleetRequests
+    describeSpotFleetRequests_nextToken,
+    describeSpotFleetRequests_maxResults,
+    describeSpotFleetRequests_dryRun,
+    describeSpotFleetRequests_spotFleetRequestIds,
+    describeSpotFleetRequestsResponse_nextToken,
+    describeSpotFleetRequestsResponse_spotFleetRequestConfigs,
+    describeSpotFleetRequestsResponse_httpStatus,
 
-    -- ** DescribeNetworkAcls
-    describeNetworkAcls_nextToken,
-    describeNetworkAcls_dryRun,
-    describeNetworkAcls_maxResults,
-    describeNetworkAcls_networkAclIds,
-    describeNetworkAcls_filters,
-    describeNetworkAclsResponse_nextToken,
-    describeNetworkAclsResponse_networkAcls,
-    describeNetworkAclsResponse_httpStatus,
+    -- ** DescribeAddressesAttribute
+    describeAddressesAttribute_nextToken,
+    describeAddressesAttribute_maxResults,
+    describeAddressesAttribute_dryRun,
+    describeAddressesAttribute_attribute,
+    describeAddressesAttribute_allocationIds,
+    describeAddressesAttributeResponse_nextToken,
+    describeAddressesAttributeResponse_addresses,
+    describeAddressesAttributeResponse_httpStatus,
 
-    -- ** RegisterTransitGatewayMulticastGroupMembers
-    registerTransitGatewayMulticastGroupMembers_dryRun,
-    registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
-    registerTransitGatewayMulticastGroupMembers_networkInterfaceIds,
-    registerTransitGatewayMulticastGroupMembers_groupIpAddress,
-    registerTransitGatewayMulticastGroupMembersResponse_registeredMulticastGroupMembers,
-    registerTransitGatewayMulticastGroupMembersResponse_httpStatus,
+    -- ** DescribePrincipalIdFormat
+    describePrincipalIdFormat_nextToken,
+    describePrincipalIdFormat_maxResults,
+    describePrincipalIdFormat_dryRun,
+    describePrincipalIdFormat_resources,
+    describePrincipalIdFormatResponse_nextToken,
+    describePrincipalIdFormatResponse_principals,
+    describePrincipalIdFormatResponse_httpStatus,
 
-    -- ** DescribeHosts
-    describeHosts_nextToken,
-    describeHosts_maxResults,
-    describeHosts_hostIds,
-    describeHosts_filter,
-    describeHostsResponse_nextToken,
-    describeHostsResponse_hosts,
-    describeHostsResponse_httpStatus,
+    -- ** DescribeTransitGateways
+    describeTransitGateways_nextToken,
+    describeTransitGateways_maxResults,
+    describeTransitGateways_dryRun,
+    describeTransitGateways_transitGatewayIds,
+    describeTransitGateways_filters,
+    describeTransitGatewaysResponse_nextToken,
+    describeTransitGatewaysResponse_transitGateways,
+    describeTransitGatewaysResponse_httpStatus,
 
-    -- ** DescribeVpnGateways
-    describeVpnGateways_dryRun,
-    describeVpnGateways_vpnGatewayIds,
-    describeVpnGateways_filters,
-    describeVpnGatewaysResponse_vpnGateways,
-    describeVpnGatewaysResponse_httpStatus,
+    -- ** ModifyVpcPeeringConnectionOptions
+    modifyVpcPeeringConnectionOptions_dryRun,
+    modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions,
+    modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions,
+    modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId,
+    modifyVpcPeeringConnectionOptionsResponse_accepterPeeringConnectionOptions,
+    modifyVpcPeeringConnectionOptionsResponse_requesterPeeringConnectionOptions,
+    modifyVpcPeeringConnectionOptionsResponse_httpStatus,
 
-    -- ** DescribeHostReservations
-    describeHostReservations_nextToken,
-    describeHostReservations_maxResults,
-    describeHostReservations_hostReservationIdSet,
-    describeHostReservations_filter,
-    describeHostReservationsResponse_nextToken,
-    describeHostReservationsResponse_hostReservationSet,
-    describeHostReservationsResponse_httpStatus,
+    -- ** CreateVpcEndpointConnectionNotification
+    createVpcEndpointConnectionNotification_dryRun,
+    createVpcEndpointConnectionNotification_vpcEndpointId,
+    createVpcEndpointConnectionNotification_serviceId,
+    createVpcEndpointConnectionNotification_clientToken,
+    createVpcEndpointConnectionNotification_connectionNotificationArn,
+    createVpcEndpointConnectionNotification_connectionEvents,
+    createVpcEndpointConnectionNotificationResponse_connectionNotification,
+    createVpcEndpointConnectionNotificationResponse_clientToken,
+    createVpcEndpointConnectionNotificationResponse_httpStatus,
 
-    -- ** DeleteManagedPrefixList
-    deleteManagedPrefixList_dryRun,
-    deleteManagedPrefixList_prefixListId,
-    deleteManagedPrefixListResponse_prefixList,
-    deleteManagedPrefixListResponse_httpStatus,
+    -- ** DeleteVpcEndpointServiceConfigurations
+    deleteVpcEndpointServiceConfigurations_dryRun,
+    deleteVpcEndpointServiceConfigurations_serviceIds,
+    deleteVpcEndpointServiceConfigurationsResponse_unsuccessful,
+    deleteVpcEndpointServiceConfigurationsResponse_httpStatus,
 
-    -- ** RejectVpcPeeringConnection
-    rejectVpcPeeringConnection_dryRun,
-    rejectVpcPeeringConnection_vpcPeeringConnectionId,
-    rejectVpcPeeringConnectionResponse_return,
-    rejectVpcPeeringConnectionResponse_httpStatus,
+    -- ** DescribeFleetHistory
+    describeFleetHistory_eventType,
+    describeFleetHistory_nextToken,
+    describeFleetHistory_maxResults,
+    describeFleetHistory_dryRun,
+    describeFleetHistory_fleetId,
+    describeFleetHistory_startTime,
+    describeFleetHistoryResponse_nextToken,
+    describeFleetHistoryResponse_fleetId,
+    describeFleetHistoryResponse_startTime,
+    describeFleetHistoryResponse_historyRecords,
+    describeFleetHistoryResponse_lastEvaluatedTime,
+    describeFleetHistoryResponse_httpStatus,
 
-    -- ** ResetImageAttribute
-    resetImageAttribute_dryRun,
-    resetImageAttribute_attribute,
-    resetImageAttribute_imageId,
+    -- ** CreateVpc
+    createVpc_tagSpecifications,
+    createVpc_dryRun,
+    createVpc_instanceTenancy,
+    createVpc_ipv6Pool,
+    createVpc_ipv6CidrBlock,
+    createVpc_ipv6CidrBlockNetworkBorderGroup,
+    createVpc_amazonProvidedIpv6CidrBlock,
+    createVpc_cidrBlock,
+    createVpcResponse_vpc,
+    createVpcResponse_httpStatus,
 
-    -- ** DescribeScheduledInstances
-    describeScheduledInstances_nextToken,
-    describeScheduledInstances_dryRun,
-    describeScheduledInstances_scheduledInstanceIds,
-    describeScheduledInstances_maxResults,
-    describeScheduledInstances_slotStartTimeRange,
-    describeScheduledInstances_filters,
-    describeScheduledInstancesResponse_nextToken,
-    describeScheduledInstancesResponse_scheduledInstanceSet,
-    describeScheduledInstancesResponse_httpStatus,
+    -- ** DescribeVolumeStatus
+    describeVolumeStatus_nextToken,
+    describeVolumeStatus_maxResults,
+    describeVolumeStatus_volumeIds,
+    describeVolumeStatus_dryRun,
+    describeVolumeStatus_filters,
+    describeVolumeStatusResponse_nextToken,
+    describeVolumeStatusResponse_volumeStatuses,
+    describeVolumeStatusResponse_httpStatus,
 
-    -- ** AssociateEnclaveCertificateIamRole
-    associateEnclaveCertificateIamRole_roleArn,
-    associateEnclaveCertificateIamRole_dryRun,
-    associateEnclaveCertificateIamRole_certificateArn,
-    associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey,
-    associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId,
-    associateEnclaveCertificateIamRoleResponse_certificateS3BucketName,
-    associateEnclaveCertificateIamRoleResponse_httpStatus,
+    -- ** GetSerialConsoleAccessStatus
+    getSerialConsoleAccessStatus_dryRun,
+    getSerialConsoleAccessStatusResponse_serialConsoleAccessEnabled,
+    getSerialConsoleAccessStatusResponse_httpStatus,
 
-    -- ** ModifyTransitGatewayPrefixListReference
-    modifyTransitGatewayPrefixListReference_dryRun,
-    modifyTransitGatewayPrefixListReference_blackhole,
-    modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId,
-    modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId,
-    modifyTransitGatewayPrefixListReference_prefixListId,
-    modifyTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference,
-    modifyTransitGatewayPrefixListReferenceResponse_httpStatus,
+    -- ** DescribeReplaceRootVolumeTasks
+    describeReplaceRootVolumeTasks_nextToken,
+    describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds,
+    describeReplaceRootVolumeTasks_maxResults,
+    describeReplaceRootVolumeTasks_dryRun,
+    describeReplaceRootVolumeTasks_filters,
+    describeReplaceRootVolumeTasksResponse_nextToken,
+    describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks,
+    describeReplaceRootVolumeTasksResponse_httpStatus,
 
-    -- ** DescribeFpgaImageAttribute
-    describeFpgaImageAttribute_dryRun,
-    describeFpgaImageAttribute_fpgaImageId,
-    describeFpgaImageAttribute_attribute,
-    describeFpgaImageAttributeResponse_fpgaImageAttribute,
-    describeFpgaImageAttributeResponse_httpStatus,
+    -- ** DescribeImages
+    describeImages_imageIds,
+    describeImages_dryRun,
+    describeImages_owners,
+    describeImages_filters,
+    describeImages_includeDeprecated,
+    describeImages_executableUsers,
+    describeImagesResponse_images,
+    describeImagesResponse_httpStatus,
 
-    -- ** AdvertiseByoipCidr
-    advertiseByoipCidr_dryRun,
-    advertiseByoipCidr_cidr,
-    advertiseByoipCidrResponse_byoipCidr,
-    advertiseByoipCidrResponse_httpStatus,
+    -- ** DeleteVolume
+    deleteVolume_dryRun,
+    deleteVolume_volumeId,
 
-    -- ** DeleteVpnConnectionRoute
-    deleteVpnConnectionRoute_destinationCidrBlock,
-    deleteVpnConnectionRoute_vpnConnectionId,
+    -- ** SearchLocalGatewayRoutes
+    searchLocalGatewayRoutes_nextToken,
+    searchLocalGatewayRoutes_maxResults,
+    searchLocalGatewayRoutes_dryRun,
+    searchLocalGatewayRoutes_localGatewayRouteTableId,
+    searchLocalGatewayRoutes_filters,
+    searchLocalGatewayRoutesResponse_nextToken,
+    searchLocalGatewayRoutesResponse_routes,
+    searchLocalGatewayRoutesResponse_httpStatus,
 
-    -- ** DescribeVpcEndpointServicePermissions
-    describeVpcEndpointServicePermissions_nextToken,
-    describeVpcEndpointServicePermissions_dryRun,
-    describeVpcEndpointServicePermissions_maxResults,
-    describeVpcEndpointServicePermissions_filters,
-    describeVpcEndpointServicePermissions_serviceId,
-    describeVpcEndpointServicePermissionsResponse_nextToken,
-    describeVpcEndpointServicePermissionsResponse_allowedPrincipals,
-    describeVpcEndpointServicePermissionsResponse_httpStatus,
-
-    -- ** DescribeVpcEndpointConnections
-    describeVpcEndpointConnections_nextToken,
-    describeVpcEndpointConnections_dryRun,
-    describeVpcEndpointConnections_maxResults,
-    describeVpcEndpointConnections_filters,
-    describeVpcEndpointConnectionsResponse_nextToken,
-    describeVpcEndpointConnectionsResponse_vpcEndpointConnections,
-    describeVpcEndpointConnectionsResponse_httpStatus,
-
-    -- ** DescribeNetworkInterfacePermissions
-    describeNetworkInterfacePermissions_nextToken,
-    describeNetworkInterfacePermissions_maxResults,
-    describeNetworkInterfacePermissions_networkInterfacePermissionIds,
-    describeNetworkInterfacePermissions_filters,
-    describeNetworkInterfacePermissionsResponse_nextToken,
-    describeNetworkInterfacePermissionsResponse_networkInterfacePermissions,
-    describeNetworkInterfacePermissionsResponse_httpStatus,
+    -- ** DescribeMovingAddresses
+    describeMovingAddresses_nextToken,
+    describeMovingAddresses_maxResults,
+    describeMovingAddresses_dryRun,
+    describeMovingAddresses_publicIps,
+    describeMovingAddresses_filters,
+    describeMovingAddressesResponse_nextToken,
+    describeMovingAddressesResponse_movingAddressStatuses,
+    describeMovingAddressesResponse_httpStatus,
 
     -- ** CreateTrafficMirrorSession
     createTrafficMirrorSession_tagSpecifications,
@@ -2866,23 +2896,33 @@ module Network.AWS.EC2.Lens
     createTrafficMirrorSessionResponse_clientToken,
     createTrafficMirrorSessionResponse_httpStatus,
 
-    -- ** RegisterInstanceEventNotificationAttributes
-    registerInstanceEventNotificationAttributes_dryRun,
-    registerInstanceEventNotificationAttributes_instanceTagAttribute,
-    registerInstanceEventNotificationAttributesResponse_instanceTagAttribute,
-    registerInstanceEventNotificationAttributesResponse_httpStatus,
+    -- ** DescribeScheduledInstances
+    describeScheduledInstances_nextToken,
+    describeScheduledInstances_maxResults,
+    describeScheduledInstances_dryRun,
+    describeScheduledInstances_scheduledInstanceIds,
+    describeScheduledInstances_slotStartTimeRange,
+    describeScheduledInstances_filters,
+    describeScheduledInstancesResponse_nextToken,
+    describeScheduledInstancesResponse_scheduledInstanceSet,
+    describeScheduledInstancesResponse_httpStatus,
+
+    -- ** AssociateEnclaveCertificateIamRole
+    associateEnclaveCertificateIamRole_roleArn,
+    associateEnclaveCertificateIamRole_dryRun,
+    associateEnclaveCertificateIamRole_certificateArn,
+    associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey,
+    associateEnclaveCertificateIamRoleResponse_encryptionKmsKeyId,
+    associateEnclaveCertificateIamRoleResponse_certificateS3BucketName,
+    associateEnclaveCertificateIamRoleResponse_httpStatus,
 
     -- ** RejectTransitGatewayMulticastDomainAssociations
-    rejectTransitGatewayMulticastDomainAssociations_dryRun,
     rejectTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
+    rejectTransitGatewayMulticastDomainAssociations_dryRun,
     rejectTransitGatewayMulticastDomainAssociations_subnetIds,
     rejectTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId,
     rejectTransitGatewayMulticastDomainAssociationsResponse_associations,
     rejectTransitGatewayMulticastDomainAssociationsResponse_httpStatus,
-
-    -- ** DeleteDhcpOptions
-    deleteDhcpOptions_dryRun,
-    deleteDhcpOptions_dhcpOptionsId,
 
     -- ** DeleteTransitGateway
     deleteTransitGateway_dryRun,
@@ -2890,10 +2930,117 @@ module Network.AWS.EC2.Lens
     deleteTransitGatewayResponse_transitGateway,
     deleteTransitGatewayResponse_httpStatus,
 
-    -- ** EnableVpcClassicLinkDnsSupport
-    enableVpcClassicLinkDnsSupport_vpcId,
-    enableVpcClassicLinkDnsSupportResponse_return,
-    enableVpcClassicLinkDnsSupportResponse_httpStatus,
+    -- ** DescribeHosts
+    describeHosts_nextToken,
+    describeHosts_maxResults,
+    describeHosts_hostIds,
+    describeHosts_filter,
+    describeHostsResponse_nextToken,
+    describeHostsResponse_hosts,
+    describeHostsResponse_httpStatus,
+
+    -- ** DescribeNetworkInterfacePermissions
+    describeNetworkInterfacePermissions_nextToken,
+    describeNetworkInterfacePermissions_maxResults,
+    describeNetworkInterfacePermissions_networkInterfacePermissionIds,
+    describeNetworkInterfacePermissions_filters,
+    describeNetworkInterfacePermissionsResponse_nextToken,
+    describeNetworkInterfacePermissionsResponse_networkInterfacePermissions,
+    describeNetworkInterfacePermissionsResponse_httpStatus,
+
+    -- ** GetVpnConnectionDeviceSampleConfiguration
+    getVpnConnectionDeviceSampleConfiguration_dryRun,
+    getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion,
+    getVpnConnectionDeviceSampleConfiguration_vpnConnectionId,
+    getVpnConnectionDeviceSampleConfiguration_vpnConnectionDeviceTypeId,
+    getVpnConnectionDeviceSampleConfigurationResponse_vpnConnectionDeviceSampleConfiguration,
+    getVpnConnectionDeviceSampleConfigurationResponse_httpStatus,
+
+    -- ** DescribeVpcEndpointServicePermissions
+    describeVpcEndpointServicePermissions_nextToken,
+    describeVpcEndpointServicePermissions_maxResults,
+    describeVpcEndpointServicePermissions_dryRun,
+    describeVpcEndpointServicePermissions_filters,
+    describeVpcEndpointServicePermissions_serviceId,
+    describeVpcEndpointServicePermissionsResponse_nextToken,
+    describeVpcEndpointServicePermissionsResponse_allowedPrincipals,
+    describeVpcEndpointServicePermissionsResponse_httpStatus,
+
+    -- ** DescribeHostReservationOfferings
+    describeHostReservationOfferings_nextToken,
+    describeHostReservationOfferings_minDuration,
+    describeHostReservationOfferings_maxResults,
+    describeHostReservationOfferings_offeringId,
+    describeHostReservationOfferings_filter,
+    describeHostReservationOfferings_maxDuration,
+    describeHostReservationOfferingsResponse_nextToken,
+    describeHostReservationOfferingsResponse_offeringSet,
+    describeHostReservationOfferingsResponse_httpStatus,
+
+    -- ** DescribeVpcEndpointConnections
+    describeVpcEndpointConnections_nextToken,
+    describeVpcEndpointConnections_maxResults,
+    describeVpcEndpointConnections_dryRun,
+    describeVpcEndpointConnections_filters,
+    describeVpcEndpointConnectionsResponse_nextToken,
+    describeVpcEndpointConnectionsResponse_vpcEndpointConnections,
+    describeVpcEndpointConnectionsResponse_httpStatus,
+
+    -- ** DescribeFpgaImageAttribute
+    describeFpgaImageAttribute_dryRun,
+    describeFpgaImageAttribute_fpgaImageId,
+    describeFpgaImageAttribute_attribute,
+    describeFpgaImageAttributeResponse_fpgaImageAttribute,
+    describeFpgaImageAttributeResponse_httpStatus,
+
+    -- ** EnableImageDeprecation
+    enableImageDeprecation_dryRun,
+    enableImageDeprecation_imageId,
+    enableImageDeprecation_deprecateAt,
+    enableImageDeprecationResponse_return,
+    enableImageDeprecationResponse_httpStatus,
+
+    -- ** ResetImageAttribute
+    resetImageAttribute_dryRun,
+    resetImageAttribute_attribute,
+    resetImageAttribute_imageId,
+
+    -- ** AdvertiseByoipCidr
+    advertiseByoipCidr_dryRun,
+    advertiseByoipCidr_cidr,
+    advertiseByoipCidrResponse_byoipCidr,
+    advertiseByoipCidrResponse_httpStatus,
+
+    -- ** DescribeTransitGatewayRouteTables
+    describeTransitGatewayRouteTables_nextToken,
+    describeTransitGatewayRouteTables_maxResults,
+    describeTransitGatewayRouteTables_dryRun,
+    describeTransitGatewayRouteTables_transitGatewayRouteTableIds,
+    describeTransitGatewayRouteTables_filters,
+    describeTransitGatewayRouteTablesResponse_nextToken,
+    describeTransitGatewayRouteTablesResponse_transitGatewayRouteTables,
+    describeTransitGatewayRouteTablesResponse_httpStatus,
+
+    -- ** ModifyTransitGatewayPrefixListReference
+    modifyTransitGatewayPrefixListReference_dryRun,
+    modifyTransitGatewayPrefixListReference_blackhole,
+    modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId,
+    modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId,
+    modifyTransitGatewayPrefixListReference_prefixListId,
+    modifyTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference,
+    modifyTransitGatewayPrefixListReferenceResponse_httpStatus,
+
+    -- ** RegisterInstanceEventNotificationAttributes
+    registerInstanceEventNotificationAttributes_dryRun,
+    registerInstanceEventNotificationAttributes_instanceTagAttribute,
+    registerInstanceEventNotificationAttributesResponse_instanceTagAttribute,
+    registerInstanceEventNotificationAttributesResponse_httpStatus,
+
+    -- ** DeleteManagedPrefixList
+    deleteManagedPrefixList_dryRun,
+    deleteManagedPrefixList_prefixListId,
+    deleteManagedPrefixListResponse_prefixList,
+    deleteManagedPrefixListResponse_httpStatus,
 
     -- ** DescribeRegions
     describeRegions_dryRun,
@@ -2902,6 +3049,70 @@ module Network.AWS.EC2.Lens
     describeRegions_allRegions,
     describeRegionsResponse_regions,
     describeRegionsResponse_httpStatus,
+
+    -- ** RevokeSecurityGroupIngress
+    revokeSecurityGroupIngress_fromPort,
+    revokeSecurityGroupIngress_dryRun,
+    revokeSecurityGroupIngress_sourceSecurityGroupName,
+    revokeSecurityGroupIngress_groupName,
+    revokeSecurityGroupIngress_cidrIp,
+    revokeSecurityGroupIngress_groupId,
+    revokeSecurityGroupIngress_ipProtocol,
+    revokeSecurityGroupIngress_ipPermissions,
+    revokeSecurityGroupIngress_securityGroupRuleIds,
+    revokeSecurityGroupIngress_sourceSecurityGroupOwnerId,
+    revokeSecurityGroupIngress_toPort,
+    revokeSecurityGroupIngressResponse_unknownIpPermissions,
+    revokeSecurityGroupIngressResponse_return,
+    revokeSecurityGroupIngressResponse_httpStatus,
+
+    -- ** DeleteVpnConnectionRoute
+    deleteVpnConnectionRoute_destinationCidrBlock,
+    deleteVpnConnectionRoute_vpnConnectionId,
+
+    -- ** DescribeNetworkAcls
+    describeNetworkAcls_nextToken,
+    describeNetworkAcls_maxResults,
+    describeNetworkAcls_dryRun,
+    describeNetworkAcls_networkAclIds,
+    describeNetworkAcls_filters,
+    describeNetworkAclsResponse_nextToken,
+    describeNetworkAclsResponse_networkAcls,
+    describeNetworkAclsResponse_httpStatus,
+
+    -- ** DeleteDhcpOptions
+    deleteDhcpOptions_dryRun,
+    deleteDhcpOptions_dhcpOptionsId,
+
+    -- ** DescribeVpnGateways
+    describeVpnGateways_dryRun,
+    describeVpnGateways_vpnGatewayIds,
+    describeVpnGateways_filters,
+    describeVpnGatewaysResponse_vpnGateways,
+    describeVpnGatewaysResponse_httpStatus,
+
+    -- ** RegisterTransitGatewayMulticastGroupMembers
+    registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
+    registerTransitGatewayMulticastGroupMembers_dryRun,
+    registerTransitGatewayMulticastGroupMembers_networkInterfaceIds,
+    registerTransitGatewayMulticastGroupMembers_groupIpAddress,
+    registerTransitGatewayMulticastGroupMembersResponse_registeredMulticastGroupMembers,
+    registerTransitGatewayMulticastGroupMembersResponse_httpStatus,
+
+    -- ** DescribeHostReservations
+    describeHostReservations_nextToken,
+    describeHostReservations_maxResults,
+    describeHostReservations_hostReservationIdSet,
+    describeHostReservations_filter,
+    describeHostReservationsResponse_nextToken,
+    describeHostReservationsResponse_hostReservationSet,
+    describeHostReservationsResponse_httpStatus,
+
+    -- ** RejectVpcPeeringConnection
+    rejectVpcPeeringConnection_dryRun,
+    rejectVpcPeeringConnection_vpcPeeringConnectionId,
+    rejectVpcPeeringConnectionResponse_return,
+    rejectVpcPeeringConnectionResponse_httpStatus,
 
     -- ** CreateEgressOnlyInternetGateway
     createEgressOnlyInternetGateway_tagSpecifications,
@@ -2912,88 +3123,22 @@ module Network.AWS.EC2.Lens
     createEgressOnlyInternetGatewayResponse_clientToken,
     createEgressOnlyInternetGatewayResponse_httpStatus,
 
-    -- ** CreateTransitGateway
-    createTransitGateway_tagSpecifications,
-    createTransitGateway_dryRun,
-    createTransitGateway_options,
-    createTransitGateway_description,
-    createTransitGatewayResponse_transitGateway,
-    createTransitGatewayResponse_httpStatus,
+    -- ** DeleteSubnetCidrReservation
+    deleteSubnetCidrReservation_dryRun,
+    deleteSubnetCidrReservation_subnetCidrReservationId,
+    deleteSubnetCidrReservationResponse_deletedSubnetCidrReservation,
+    deleteSubnetCidrReservationResponse_httpStatus,
 
-    -- ** DeleteClientVpnEndpoint
-    deleteClientVpnEndpoint_dryRun,
-    deleteClientVpnEndpoint_clientVpnEndpointId,
-    deleteClientVpnEndpointResponse_status,
-    deleteClientVpnEndpointResponse_httpStatus,
-
-    -- ** ExportClientVpnClientCertificateRevocationList
-    exportClientVpnClientCertificateRevocationList_dryRun,
-    exportClientVpnClientCertificateRevocationList_clientVpnEndpointId,
-    exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList,
-    exportClientVpnClientCertificateRevocationListResponse_status,
-    exportClientVpnClientCertificateRevocationListResponse_httpStatus,
-
-    -- ** CreateLaunchTemplateVersion
-    createLaunchTemplateVersion_sourceVersion,
-    createLaunchTemplateVersion_dryRun,
-    createLaunchTemplateVersion_launchTemplateId,
-    createLaunchTemplateVersion_launchTemplateName,
-    createLaunchTemplateVersion_versionDescription,
-    createLaunchTemplateVersion_clientToken,
-    createLaunchTemplateVersion_launchTemplateData,
-    createLaunchTemplateVersionResponse_launchTemplateVersion,
-    createLaunchTemplateVersionResponse_warning,
-    createLaunchTemplateVersionResponse_httpStatus,
-
-    -- ** CreateSnapshots
-    createSnapshots_tagSpecifications,
-    createSnapshots_dryRun,
-    createSnapshots_outpostArn,
-    createSnapshots_copyTagsFromSource,
-    createSnapshots_description,
-    createSnapshots_instanceSpecification,
-    createSnapshotsResponse_snapshots,
-    createSnapshotsResponse_httpStatus,
-
-    -- ** ModifyDefaultCreditSpecification
-    modifyDefaultCreditSpecification_dryRun,
-    modifyDefaultCreditSpecification_instanceFamily,
-    modifyDefaultCreditSpecification_cpuCredits,
-    modifyDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification,
-    modifyDefaultCreditSpecificationResponse_httpStatus,
-
-    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
-    applySecurityGroupsToClientVpnTargetNetwork_dryRun,
-    applySecurityGroupsToClientVpnTargetNetwork_clientVpnEndpointId,
-    applySecurityGroupsToClientVpnTargetNetwork_vpcId,
-    applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds,
-    applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds,
-    applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus,
-
-    -- ** AttachVpnGateway
-    attachVpnGateway_dryRun,
-    attachVpnGateway_vpcId,
-    attachVpnGateway_vpnGatewayId,
-    attachVpnGatewayResponse_vpcAttachment,
-    attachVpnGatewayResponse_httpStatus,
-
-    -- ** CreateVpnConnectionRoute
-    createVpnConnectionRoute_destinationCidrBlock,
-    createVpnConnectionRoute_vpnConnectionId,
-
-    -- ** DescribeKeyPairs
-    describeKeyPairs_dryRun,
-    describeKeyPairs_keyPairIds,
-    describeKeyPairs_filters,
-    describeKeyPairs_keyNames,
-    describeKeyPairsResponse_keyPairs,
-    describeKeyPairsResponse_httpStatus,
+    -- ** EnableVpcClassicLinkDnsSupport
+    enableVpcClassicLinkDnsSupport_vpcId,
+    enableVpcClassicLinkDnsSupportResponse_return,
+    enableVpcClassicLinkDnsSupportResponse_httpStatus,
 
     -- ** AllocateAddress
     allocateAddress_tagSpecifications,
     allocateAddress_customerOwnedIpv4Pool,
-    allocateAddress_dryRun,
     allocateAddress_address,
+    allocateAddress_dryRun,
     allocateAddress_domain,
     allocateAddress_publicIpv4Pool,
     allocateAddress_networkBorderGroup,
@@ -3006,34 +3151,6 @@ module Network.AWS.EC2.Lens
     allocateAddressResponse_allocationId,
     allocateAddressResponse_networkBorderGroup,
     allocateAddressResponse_httpStatus,
-
-    -- ** DeleteTrafficMirrorSession
-    deleteTrafficMirrorSession_dryRun,
-    deleteTrafficMirrorSession_trafficMirrorSessionId,
-    deleteTrafficMirrorSessionResponse_trafficMirrorSessionId,
-    deleteTrafficMirrorSessionResponse_httpStatus,
-
-    -- ** GetManagedPrefixListEntries
-    getManagedPrefixListEntries_nextToken,
-    getManagedPrefixListEntries_dryRun,
-    getManagedPrefixListEntries_maxResults,
-    getManagedPrefixListEntries_targetVersion,
-    getManagedPrefixListEntries_prefixListId,
-    getManagedPrefixListEntriesResponse_nextToken,
-    getManagedPrefixListEntriesResponse_entries,
-    getManagedPrefixListEntriesResponse_httpStatus,
-
-    -- ** CreateFpgaImage
-    createFpgaImage_tagSpecifications,
-    createFpgaImage_dryRun,
-    createFpgaImage_name,
-    createFpgaImage_description,
-    createFpgaImage_logsStorageLocation,
-    createFpgaImage_clientToken,
-    createFpgaImage_inputStorageLocation,
-    createFpgaImageResponse_fpgaImageGlobalId,
-    createFpgaImageResponse_fpgaImageId,
-    createFpgaImageResponse_httpStatus,
 
     -- ** ExportImage
     exportImage_tagSpecifications,
@@ -3062,51 +3179,6 @@ module Network.AWS.EC2.Lens
     rejectTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
     rejectTransitGatewayPeeringAttachmentResponse_httpStatus,
 
-    -- ** DescribeConversionTasks
-    describeConversionTasks_dryRun,
-    describeConversionTasks_conversionTaskIds,
-    describeConversionTasksResponse_conversionTasks,
-    describeConversionTasksResponse_httpStatus,
-
-    -- ** WithdrawByoipCidr
-    withdrawByoipCidr_dryRun,
-    withdrawByoipCidr_cidr,
-    withdrawByoipCidrResponse_byoipCidr,
-    withdrawByoipCidrResponse_httpStatus,
-
-    -- ** DeleteTrafficMirrorFilterRule
-    deleteTrafficMirrorFilterRule_dryRun,
-    deleteTrafficMirrorFilterRule_trafficMirrorFilterRuleId,
-    deleteTrafficMirrorFilterRuleResponse_trafficMirrorFilterRuleId,
-    deleteTrafficMirrorFilterRuleResponse_httpStatus,
-
-    -- ** DescribeClassicLinkInstances
-    describeClassicLinkInstances_instanceIds,
-    describeClassicLinkInstances_nextToken,
-    describeClassicLinkInstances_dryRun,
-    describeClassicLinkInstances_maxResults,
-    describeClassicLinkInstances_filters,
-    describeClassicLinkInstancesResponse_nextToken,
-    describeClassicLinkInstancesResponse_instances,
-    describeClassicLinkInstancesResponse_httpStatus,
-
-    -- ** TerminateInstances
-    terminateInstances_dryRun,
-    terminateInstances_instanceIds,
-    terminateInstancesResponse_terminatingInstances,
-    terminateInstancesResponse_httpStatus,
-
-    -- ** AcceptTransitGatewayVpcAttachment
-    acceptTransitGatewayVpcAttachment_dryRun,
-    acceptTransitGatewayVpcAttachment_transitGatewayAttachmentId,
-    acceptTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
-    acceptTransitGatewayVpcAttachmentResponse_httpStatus,
-
-    -- ** DisableVpcClassicLinkDnsSupport
-    disableVpcClassicLinkDnsSupport_vpcId,
-    disableVpcClassicLinkDnsSupportResponse_return,
-    disableVpcClassicLinkDnsSupportResponse_httpStatus,
-
     -- ** GetLaunchTemplateData
     getLaunchTemplateData_dryRun,
     getLaunchTemplateData_instanceId,
@@ -3122,50 +3194,234 @@ module Network.AWS.EC2.Lens
     describeReservedInstancesResponse_reservedInstances,
     describeReservedInstancesResponse_httpStatus,
 
+    -- ** ModifyDefaultCreditSpecification
+    modifyDefaultCreditSpecification_dryRun,
+    modifyDefaultCreditSpecification_instanceFamily,
+    modifyDefaultCreditSpecification_cpuCredits,
+    modifyDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification,
+    modifyDefaultCreditSpecificationResponse_httpStatus,
+
+    -- ** GetManagedPrefixListEntries
+    getManagedPrefixListEntries_nextToken,
+    getManagedPrefixListEntries_maxResults,
+    getManagedPrefixListEntries_dryRun,
+    getManagedPrefixListEntries_targetVersion,
+    getManagedPrefixListEntries_prefixListId,
+    getManagedPrefixListEntriesResponse_nextToken,
+    getManagedPrefixListEntriesResponse_entries,
+    getManagedPrefixListEntriesResponse_httpStatus,
+
+    -- ** DisableVpcClassicLinkDnsSupport
+    disableVpcClassicLinkDnsSupport_vpcId,
+    disableVpcClassicLinkDnsSupportResponse_return,
+    disableVpcClassicLinkDnsSupportResponse_httpStatus,
+
+    -- ** DisableImageDeprecation
+    disableImageDeprecation_dryRun,
+    disableImageDeprecation_imageId,
+    disableImageDeprecationResponse_return,
+    disableImageDeprecationResponse_httpStatus,
+
+    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
+    applySecurityGroupsToClientVpnTargetNetwork_dryRun,
+    applySecurityGroupsToClientVpnTargetNetwork_clientVpnEndpointId,
+    applySecurityGroupsToClientVpnTargetNetwork_vpcId,
+    applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds,
+    applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds,
+    applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus,
+
+    -- ** CreateLaunchTemplateVersion
+    createLaunchTemplateVersion_sourceVersion,
+    createLaunchTemplateVersion_dryRun,
+    createLaunchTemplateVersion_launchTemplateId,
+    createLaunchTemplateVersion_launchTemplateName,
+    createLaunchTemplateVersion_versionDescription,
+    createLaunchTemplateVersion_clientToken,
+    createLaunchTemplateVersion_launchTemplateData,
+    createLaunchTemplateVersionResponse_launchTemplateVersion,
+    createLaunchTemplateVersionResponse_warning,
+    createLaunchTemplateVersionResponse_httpStatus,
+
+    -- ** CreateVpnConnectionRoute
+    createVpnConnectionRoute_destinationCidrBlock,
+    createVpnConnectionRoute_vpnConnectionId,
+
+    -- ** DisassociateInstanceEventWindow
+    disassociateInstanceEventWindow_dryRun,
+    disassociateInstanceEventWindow_instanceEventWindowId,
+    disassociateInstanceEventWindow_associationTarget,
+    disassociateInstanceEventWindowResponse_instanceEventWindow,
+    disassociateInstanceEventWindowResponse_httpStatus,
+
+    -- ** DescribeConversionTasks
+    describeConversionTasks_dryRun,
+    describeConversionTasks_conversionTaskIds,
+    describeConversionTasksResponse_conversionTasks,
+    describeConversionTasksResponse_httpStatus,
+
+    -- ** DeleteTrafficMirrorSession
+    deleteTrafficMirrorSession_dryRun,
+    deleteTrafficMirrorSession_trafficMirrorSessionId,
+    deleteTrafficMirrorSessionResponse_trafficMirrorSessionId,
+    deleteTrafficMirrorSessionResponse_httpStatus,
+
+    -- ** CreateTransitGateway
+    createTransitGateway_tagSpecifications,
+    createTransitGateway_dryRun,
+    createTransitGateway_options,
+    createTransitGateway_description,
+    createTransitGatewayResponse_transitGateway,
+    createTransitGatewayResponse_httpStatus,
+
+    -- ** CreateSnapshots
+    createSnapshots_tagSpecifications,
+    createSnapshots_dryRun,
+    createSnapshots_outpostArn,
+    createSnapshots_copyTagsFromSource,
+    createSnapshots_description,
+    createSnapshots_instanceSpecification,
+    createSnapshotsResponse_snapshots,
+    createSnapshotsResponse_httpStatus,
+
+    -- ** DeleteClientVpnEndpoint
+    deleteClientVpnEndpoint_dryRun,
+    deleteClientVpnEndpoint_clientVpnEndpointId,
+    deleteClientVpnEndpointResponse_status,
+    deleteClientVpnEndpointResponse_httpStatus,
+
+    -- ** ExportClientVpnClientCertificateRevocationList
+    exportClientVpnClientCertificateRevocationList_dryRun,
+    exportClientVpnClientCertificateRevocationList_clientVpnEndpointId,
+    exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList,
+    exportClientVpnClientCertificateRevocationListResponse_status,
+    exportClientVpnClientCertificateRevocationListResponse_httpStatus,
+
+    -- ** DescribeKeyPairs
+    describeKeyPairs_dryRun,
+    describeKeyPairs_keyPairIds,
+    describeKeyPairs_keyNames,
+    describeKeyPairs_filters,
+    describeKeyPairsResponse_keyPairs,
+    describeKeyPairsResponse_httpStatus,
+
+    -- ** CreateFpgaImage
+    createFpgaImage_tagSpecifications,
+    createFpgaImage_dryRun,
+    createFpgaImage_name,
+    createFpgaImage_description,
+    createFpgaImage_logsStorageLocation,
+    createFpgaImage_clientToken,
+    createFpgaImage_inputStorageLocation,
+    createFpgaImageResponse_fpgaImageGlobalId,
+    createFpgaImageResponse_fpgaImageId,
+    createFpgaImageResponse_httpStatus,
+
+    -- ** DescribeClassicLinkInstances
+    describeClassicLinkInstances_instanceIds,
+    describeClassicLinkInstances_nextToken,
+    describeClassicLinkInstances_maxResults,
+    describeClassicLinkInstances_dryRun,
+    describeClassicLinkInstances_filters,
+    describeClassicLinkInstancesResponse_nextToken,
+    describeClassicLinkInstancesResponse_instances,
+    describeClassicLinkInstancesResponse_httpStatus,
+
+    -- ** DeleteTrafficMirrorFilterRule
+    deleteTrafficMirrorFilterRule_dryRun,
+    deleteTrafficMirrorFilterRule_trafficMirrorFilterRuleId,
+    deleteTrafficMirrorFilterRuleResponse_trafficMirrorFilterRuleId,
+    deleteTrafficMirrorFilterRuleResponse_httpStatus,
+
+    -- ** TerminateInstances
+    terminateInstances_dryRun,
+    terminateInstances_instanceIds,
+    terminateInstancesResponse_terminatingInstances,
+    terminateInstancesResponse_httpStatus,
+
     -- ** ModifyFpgaImageAttribute
     modifyFpgaImageAttribute_dryRun,
     modifyFpgaImageAttribute_productCodes,
-    modifyFpgaImageAttribute_userIds,
     modifyFpgaImageAttribute_name,
+    modifyFpgaImageAttribute_userIds,
     modifyFpgaImageAttribute_attribute,
     modifyFpgaImageAttribute_description,
+    modifyFpgaImageAttribute_operationType,
     modifyFpgaImageAttribute_userGroups,
     modifyFpgaImageAttribute_loadPermission,
-    modifyFpgaImageAttribute_operationType,
     modifyFpgaImageAttribute_fpgaImageId,
     modifyFpgaImageAttributeResponse_fpgaImageAttribute,
     modifyFpgaImageAttributeResponse_httpStatus,
 
-    -- ** EnableVpcClassicLink
-    enableVpcClassicLink_dryRun,
-    enableVpcClassicLink_vpcId,
-    enableVpcClassicLinkResponse_return,
-    enableVpcClassicLinkResponse_httpStatus,
+    -- ** WithdrawByoipCidr
+    withdrawByoipCidr_dryRun,
+    withdrawByoipCidr_cidr,
+    withdrawByoipCidrResponse_byoipCidr,
+    withdrawByoipCidrResponse_httpStatus,
+
+    -- ** AttachVpnGateway
+    attachVpnGateway_dryRun,
+    attachVpnGateway_vpcId,
+    attachVpnGateway_vpnGatewayId,
+    attachVpnGatewayResponse_vpcAttachment,
+    attachVpnGatewayResponse_httpStatus,
+
+    -- ** AcceptTransitGatewayVpcAttachment
+    acceptTransitGatewayVpcAttachment_dryRun,
+    acceptTransitGatewayVpcAttachment_transitGatewayAttachmentId,
+    acceptTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
+    acceptTransitGatewayVpcAttachmentResponse_httpStatus,
+
+    -- ** DeleteSpotDatafeedSubscription
+    deleteSpotDatafeedSubscription_dryRun,
+
+    -- ** DescribeExportImageTasks
+    describeExportImageTasks_nextToken,
+    describeExportImageTasks_maxResults,
+    describeExportImageTasks_dryRun,
+    describeExportImageTasks_exportImageTaskIds,
+    describeExportImageTasks_filters,
+    describeExportImageTasksResponse_nextToken,
+    describeExportImageTasksResponse_exportImageTasks,
+    describeExportImageTasksResponse_httpStatus,
+
+    -- ** CreateCarrierGateway
+    createCarrierGateway_tagSpecifications,
+    createCarrierGateway_dryRun,
+    createCarrierGateway_clientToken,
+    createCarrierGateway_vpcId,
+    createCarrierGatewayResponse_carrierGateway,
+    createCarrierGatewayResponse_httpStatus,
 
     -- ** AttachInternetGateway
     attachInternetGateway_dryRun,
     attachInternetGateway_internetGatewayId,
     attachInternetGateway_vpcId,
 
-    -- ** DescribePublicIpv4Pools
-    describePublicIpv4Pools_nextToken,
-    describePublicIpv4Pools_maxResults,
-    describePublicIpv4Pools_filters,
-    describePublicIpv4Pools_poolIds,
-    describePublicIpv4PoolsResponse_nextToken,
-    describePublicIpv4PoolsResponse_publicIpv4Pools,
-    describePublicIpv4PoolsResponse_httpStatus,
+    -- ** DescribeClientVpnTargetNetworks
+    describeClientVpnTargetNetworks_nextToken,
+    describeClientVpnTargetNetworks_maxResults,
+    describeClientVpnTargetNetworks_dryRun,
+    describeClientVpnTargetNetworks_associationIds,
+    describeClientVpnTargetNetworks_filters,
+    describeClientVpnTargetNetworks_clientVpnEndpointId,
+    describeClientVpnTargetNetworksResponse_nextToken,
+    describeClientVpnTargetNetworksResponse_clientVpnTargetNetworks,
+    describeClientVpnTargetNetworksResponse_httpStatus,
 
-    -- ** CreateCustomerGateway
-    createCustomerGateway_tagSpecifications,
-    createCustomerGateway_dryRun,
-    createCustomerGateway_certificateArn,
-    createCustomerGateway_deviceName,
-    createCustomerGateway_publicIp,
-    createCustomerGateway_bgpAsn,
-    createCustomerGateway_type,
-    createCustomerGatewayResponse_customerGateway,
-    createCustomerGatewayResponse_httpStatus,
+    -- ** CreateTrafficMirrorFilter
+    createTrafficMirrorFilter_tagSpecifications,
+    createTrafficMirrorFilter_dryRun,
+    createTrafficMirrorFilter_description,
+    createTrafficMirrorFilter_clientToken,
+    createTrafficMirrorFilterResponse_trafficMirrorFilter,
+    createTrafficMirrorFilterResponse_clientToken,
+    createTrafficMirrorFilterResponse_httpStatus,
+
+    -- ** DeleteNetworkInsightsAnalysis
+    deleteNetworkInsightsAnalysis_dryRun,
+    deleteNetworkInsightsAnalysis_networkInsightsAnalysisId,
+    deleteNetworkInsightsAnalysisResponse_networkInsightsAnalysisId,
+    deleteNetworkInsightsAnalysisResponse_httpStatus,
 
     -- ** DescribeIamInstanceProfileAssociations
     describeIamInstanceProfileAssociations_nextToken,
@@ -3175,64 +3431,6 @@ module Network.AWS.EC2.Lens
     describeIamInstanceProfileAssociationsResponse_nextToken,
     describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations,
     describeIamInstanceProfileAssociationsResponse_httpStatus,
-
-    -- ** DescribeExportImageTasks
-    describeExportImageTasks_nextToken,
-    describeExportImageTasks_dryRun,
-    describeExportImageTasks_maxResults,
-    describeExportImageTasks_exportImageTaskIds,
-    describeExportImageTasks_filters,
-    describeExportImageTasksResponse_nextToken,
-    describeExportImageTasksResponse_exportImageTasks,
-    describeExportImageTasksResponse_httpStatus,
-
-    -- ** ProvisionByoipCidr
-    provisionByoipCidr_dryRun,
-    provisionByoipCidr_cidrAuthorizationContext,
-    provisionByoipCidr_publiclyAdvertisable,
-    provisionByoipCidr_description,
-    provisionByoipCidr_poolTagSpecifications,
-    provisionByoipCidr_cidr,
-    provisionByoipCidrResponse_byoipCidr,
-    provisionByoipCidrResponse_httpStatus,
-
-    -- ** CreateReservedInstancesListing
-    createReservedInstancesListing_clientToken,
-    createReservedInstancesListing_instanceCount,
-    createReservedInstancesListing_priceSchedules,
-    createReservedInstancesListing_reservedInstancesId,
-    createReservedInstancesListingResponse_reservedInstancesListings,
-    createReservedInstancesListingResponse_httpStatus,
-
-    -- ** DescribeClientVpnTargetNetworks
-    describeClientVpnTargetNetworks_nextToken,
-    describeClientVpnTargetNetworks_dryRun,
-    describeClientVpnTargetNetworks_maxResults,
-    describeClientVpnTargetNetworks_associationIds,
-    describeClientVpnTargetNetworks_filters,
-    describeClientVpnTargetNetworks_clientVpnEndpointId,
-    describeClientVpnTargetNetworksResponse_nextToken,
-    describeClientVpnTargetNetworksResponse_clientVpnTargetNetworks,
-    describeClientVpnTargetNetworksResponse_httpStatus,
-
-    -- ** ModifyVpnTunnelOptions
-    modifyVpnTunnelOptions_dryRun,
-    modifyVpnTunnelOptions_vpnConnectionId,
-    modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress,
-    modifyVpnTunnelOptions_tunnelOptions,
-    modifyVpnTunnelOptionsResponse_vpnConnection,
-    modifyVpnTunnelOptionsResponse_httpStatus,
-
-    -- ** ModifyInstancePlacement
-    modifyInstancePlacement_groupName,
-    modifyInstancePlacement_tenancy,
-    modifyInstancePlacement_affinity,
-    modifyInstancePlacement_partitionNumber,
-    modifyInstancePlacement_hostResourceGroupArn,
-    modifyInstancePlacement_hostId,
-    modifyInstancePlacement_instanceId,
-    modifyInstancePlacementResponse_return,
-    modifyInstancePlacementResponse_httpStatus,
 
     -- ** ImportKeyPair
     importKeyPair_tagSpecifications,
@@ -3245,31 +3443,141 @@ module Network.AWS.EC2.Lens
     importKeyPairResponse_keyName,
     importKeyPairResponse_httpStatus,
 
+    -- ** EnableVpcClassicLink
+    enableVpcClassicLink_dryRun,
+    enableVpcClassicLink_vpcId,
+    enableVpcClassicLinkResponse_return,
+    enableVpcClassicLinkResponse_httpStatus,
+
     -- ** DescribeNetworkInsightsAnalyses
-    describeNetworkInsightsAnalyses_analysisStartTime,
     describeNetworkInsightsAnalyses_networkInsightsAnalysisIds,
+    describeNetworkInsightsAnalyses_analysisStartTime,
     describeNetworkInsightsAnalyses_nextToken,
-    describeNetworkInsightsAnalyses_dryRun,
     describeNetworkInsightsAnalyses_maxResults,
-    describeNetworkInsightsAnalyses_filters,
+    describeNetworkInsightsAnalyses_dryRun,
     describeNetworkInsightsAnalyses_networkInsightsPathId,
+    describeNetworkInsightsAnalyses_filters,
     describeNetworkInsightsAnalyses_analysisEndTime,
     describeNetworkInsightsAnalysesResponse_nextToken,
     describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses,
     describeNetworkInsightsAnalysesResponse_httpStatus,
 
-    -- ** DeleteSecurityGroup
-    deleteSecurityGroup_dryRun,
-    deleteSecurityGroup_groupName,
-    deleteSecurityGroup_groupId,
+    -- ** DeleteRoute
+    deleteRoute_dryRun,
+    deleteRoute_destinationPrefixListId,
+    deleteRoute_destinationIpv6CidrBlock,
+    deleteRoute_destinationCidrBlock,
+    deleteRoute_routeTableId,
 
-    -- ** CreateCarrierGateway
-    createCarrierGateway_tagSpecifications,
-    createCarrierGateway_dryRun,
-    createCarrierGateway_clientToken,
-    createCarrierGateway_vpcId,
-    createCarrierGatewayResponse_carrierGateway,
-    createCarrierGatewayResponse_httpStatus,
+    -- ** DescribeNetworkInsightsPaths
+    describeNetworkInsightsPaths_nextToken,
+    describeNetworkInsightsPaths_maxResults,
+    describeNetworkInsightsPaths_dryRun,
+    describeNetworkInsightsPaths_networkInsightsPathIds,
+    describeNetworkInsightsPaths_filters,
+    describeNetworkInsightsPathsResponse_nextToken,
+    describeNetworkInsightsPathsResponse_networkInsightsPaths,
+    describeNetworkInsightsPathsResponse_httpStatus,
+
+    -- ** CreateCapacityReservation
+    createCapacityReservation_tagSpecifications,
+    createCapacityReservation_ebsOptimized,
+    createCapacityReservation_dryRun,
+    createCapacityReservation_outpostArn,
+    createCapacityReservation_endDateType,
+    createCapacityReservation_availabilityZoneId,
+    createCapacityReservation_tenancy,
+    createCapacityReservation_availabilityZone,
+    createCapacityReservation_instanceMatchCriteria,
+    createCapacityReservation_ephemeralStorage,
+    createCapacityReservation_endDate,
+    createCapacityReservation_clientToken,
+    createCapacityReservation_instanceType,
+    createCapacityReservation_instancePlatform,
+    createCapacityReservation_instanceCount,
+    createCapacityReservationResponse_capacityReservation,
+    createCapacityReservationResponse_httpStatus,
+
+    -- ** DeleteInstanceEventWindow
+    deleteInstanceEventWindow_forceDelete,
+    deleteInstanceEventWindow_dryRun,
+    deleteInstanceEventWindow_instanceEventWindowId,
+    deleteInstanceEventWindowResponse_instanceEventWindowState,
+    deleteInstanceEventWindowResponse_httpStatus,
+
+    -- ** ModifyEbsDefaultKmsKeyId
+    modifyEbsDefaultKmsKeyId_dryRun,
+    modifyEbsDefaultKmsKeyId_kmsKeyId,
+    modifyEbsDefaultKmsKeyIdResponse_kmsKeyId,
+    modifyEbsDefaultKmsKeyIdResponse_httpStatus,
+
+    -- ** ProvisionByoipCidr
+    provisionByoipCidr_multiRegion,
+    provisionByoipCidr_dryRun,
+    provisionByoipCidr_cidrAuthorizationContext,
+    provisionByoipCidr_publiclyAdvertisable,
+    provisionByoipCidr_description,
+    provisionByoipCidr_poolTagSpecifications,
+    provisionByoipCidr_cidr,
+    provisionByoipCidrResponse_byoipCidr,
+    provisionByoipCidrResponse_httpStatus,
+
+    -- ** DeleteTransitGatewayConnect
+    deleteTransitGatewayConnect_dryRun,
+    deleteTransitGatewayConnect_transitGatewayAttachmentId,
+    deleteTransitGatewayConnectResponse_transitGatewayConnect,
+    deleteTransitGatewayConnectResponse_httpStatus,
+
+    -- ** ModifyVpnTunnelOptions
+    modifyVpnTunnelOptions_dryRun,
+    modifyVpnTunnelOptions_vpnConnectionId,
+    modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress,
+    modifyVpnTunnelOptions_tunnelOptions,
+    modifyVpnTunnelOptionsResponse_vpnConnection,
+    modifyVpnTunnelOptionsResponse_httpStatus,
+
+    -- ** CreateTransitGatewayPeeringAttachment
+    createTransitGatewayPeeringAttachment_tagSpecifications,
+    createTransitGatewayPeeringAttachment_dryRun,
+    createTransitGatewayPeeringAttachment_transitGatewayId,
+    createTransitGatewayPeeringAttachment_peerTransitGatewayId,
+    createTransitGatewayPeeringAttachment_peerAccountId,
+    createTransitGatewayPeeringAttachment_peerRegion,
+    createTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
+    createTransitGatewayPeeringAttachmentResponse_httpStatus,
+
+    -- ** CreateCustomerGateway
+    createCustomerGateway_tagSpecifications,
+    createCustomerGateway_dryRun,
+    createCustomerGateway_certificateArn,
+    createCustomerGateway_deviceName,
+    createCustomerGateway_publicIp,
+    createCustomerGateway_bgpAsn,
+    createCustomerGateway_type,
+    createCustomerGatewayResponse_customerGateway,
+    createCustomerGatewayResponse_httpStatus,
+
+    -- ** ModifyVolume
+    modifyVolume_multiAttachEnabled,
+    modifyVolume_dryRun,
+    modifyVolume_throughput,
+    modifyVolume_volumeType,
+    modifyVolume_iops,
+    modifyVolume_size,
+    modifyVolume_volumeId,
+    modifyVolumeResponse_volumeModification,
+    modifyVolumeResponse_httpStatus,
+
+    -- ** ModifyInstancePlacement
+    modifyInstancePlacement_groupName,
+    modifyInstancePlacement_tenancy,
+    modifyInstancePlacement_affinity,
+    modifyInstancePlacement_partitionNumber,
+    modifyInstancePlacement_hostResourceGroupArn,
+    modifyInstancePlacement_hostId,
+    modifyInstancePlacement_instanceId,
+    modifyInstancePlacementResponse_return,
+    modifyInstancePlacementResponse_httpStatus,
 
     -- ** CreateSnapshot
     createSnapshot_tagSpecifications,
@@ -3293,58 +3601,19 @@ module Network.AWS.EC2.Lens
     snapshot_state,
     snapshot_encrypted,
 
-    -- ** ModifyVolume
-    modifyVolume_multiAttachEnabled,
-    modifyVolume_dryRun,
-    modifyVolume_throughput,
-    modifyVolume_volumeType,
-    modifyVolume_iops,
-    modifyVolume_size,
-    modifyVolume_volumeId,
-    modifyVolumeResponse_volumeModification,
-    modifyVolumeResponse_httpStatus,
-
-    -- ** DeleteNetworkInsightsAnalysis
-    deleteNetworkInsightsAnalysis_dryRun,
-    deleteNetworkInsightsAnalysis_networkInsightsAnalysisId,
-    deleteNetworkInsightsAnalysisResponse_networkInsightsAnalysisId,
-    deleteNetworkInsightsAnalysisResponse_httpStatus,
-
-    -- ** DescribeLocalGatewayRouteTableVpcAssociations
-    describeLocalGatewayRouteTableVpcAssociations_nextToken,
-    describeLocalGatewayRouteTableVpcAssociations_dryRun,
-    describeLocalGatewayRouteTableVpcAssociations_maxResults,
-    describeLocalGatewayRouteTableVpcAssociations_filters,
-    describeLocalGatewayRouteTableVpcAssociations_localGatewayRouteTableVpcAssociationIds,
-    describeLocalGatewayRouteTableVpcAssociationsResponse_nextToken,
-    describeLocalGatewayRouteTableVpcAssociationsResponse_localGatewayRouteTableVpcAssociations,
-    describeLocalGatewayRouteTableVpcAssociationsResponse_httpStatus,
-
-    -- ** CreateTrafficMirrorFilter
-    createTrafficMirrorFilter_tagSpecifications,
-    createTrafficMirrorFilter_dryRun,
-    createTrafficMirrorFilter_description,
-    createTrafficMirrorFilter_clientToken,
-    createTrafficMirrorFilterResponse_trafficMirrorFilter,
-    createTrafficMirrorFilterResponse_clientToken,
-    createTrafficMirrorFilterResponse_httpStatus,
-
-    -- ** DeleteSpotDatafeedSubscription
-    deleteSpotDatafeedSubscription_dryRun,
-
     -- ** DescribeInstanceAttribute
     describeInstanceAttribute_dryRun,
     describeInstanceAttribute_attribute,
     describeInstanceAttribute_instanceId,
-    describeInstanceAttributeResponse_groups,
     describeInstanceAttributeResponse_instanceId,
-    describeInstanceAttributeResponse_instanceType,
-    describeInstanceAttributeResponse_rootDeviceName,
+    describeInstanceAttributeResponse_groups,
     describeInstanceAttributeResponse_ebsOptimized,
     describeInstanceAttributeResponse_userData,
+    describeInstanceAttributeResponse_instanceType,
+    describeInstanceAttributeResponse_rootDeviceName,
     describeInstanceAttributeResponse_ramdiskId,
-    describeInstanceAttributeResponse_sourceDestCheck,
     describeInstanceAttributeResponse_productCodes,
+    describeInstanceAttributeResponse_sourceDestCheck,
     describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior,
     describeInstanceAttributeResponse_sriovNetSupport,
     describeInstanceAttributeResponse_blockDeviceMappings,
@@ -3354,52 +3623,18 @@ module Network.AWS.EC2.Lens
     describeInstanceAttributeResponse_enaSupport,
     describeInstanceAttributeResponse_httpStatus,
 
-    -- ** CreateCapacityReservation
-    createCapacityReservation_tagSpecifications,
-    createCapacityReservation_ebsOptimized,
-    createCapacityReservation_dryRun,
-    createCapacityReservation_endDateType,
-    createCapacityReservation_tenancy,
-    createCapacityReservation_availabilityZoneId,
-    createCapacityReservation_availabilityZone,
-    createCapacityReservation_instanceMatchCriteria,
-    createCapacityReservation_ephemeralStorage,
-    createCapacityReservation_endDate,
-    createCapacityReservation_clientToken,
-    createCapacityReservation_instanceType,
-    createCapacityReservation_instancePlatform,
-    createCapacityReservation_instanceCount,
-    createCapacityReservationResponse_capacityReservation,
-    createCapacityReservationResponse_httpStatus,
+    -- ** CreateReservedInstancesListing
+    createReservedInstancesListing_clientToken,
+    createReservedInstancesListing_instanceCount,
+    createReservedInstancesListing_priceSchedules,
+    createReservedInstancesListing_reservedInstancesId,
+    createReservedInstancesListingResponse_reservedInstancesListings,
+    createReservedInstancesListingResponse_httpStatus,
 
-    -- ** DeleteTransitGatewayConnect
-    deleteTransitGatewayConnect_dryRun,
-    deleteTransitGatewayConnect_transitGatewayAttachmentId,
-    deleteTransitGatewayConnectResponse_transitGatewayConnect,
-    deleteTransitGatewayConnectResponse_httpStatus,
-
-    -- ** ModifyEbsDefaultKmsKeyId
-    modifyEbsDefaultKmsKeyId_dryRun,
-    modifyEbsDefaultKmsKeyId_kmsKeyId,
-    modifyEbsDefaultKmsKeyIdResponse_kmsKeyId,
-    modifyEbsDefaultKmsKeyIdResponse_httpStatus,
-
-    -- ** DeleteRoute
-    deleteRoute_dryRun,
-    deleteRoute_destinationPrefixListId,
-    deleteRoute_destinationIpv6CidrBlock,
-    deleteRoute_destinationCidrBlock,
-    deleteRoute_routeTableId,
-
-    -- ** DescribeNetworkInsightsPaths
-    describeNetworkInsightsPaths_nextToken,
-    describeNetworkInsightsPaths_dryRun,
-    describeNetworkInsightsPaths_maxResults,
-    describeNetworkInsightsPaths_networkInsightsPathIds,
-    describeNetworkInsightsPaths_filters,
-    describeNetworkInsightsPathsResponse_nextToken,
-    describeNetworkInsightsPathsResponse_networkInsightsPaths,
-    describeNetworkInsightsPathsResponse_httpStatus,
+    -- ** DeleteSecurityGroup
+    deleteSecurityGroup_dryRun,
+    deleteSecurityGroup_groupName,
+    deleteSecurityGroup_groupId,
 
     -- ** PurchaseScheduledInstances
     purchaseScheduledInstances_dryRun,
@@ -3408,37 +3643,89 @@ module Network.AWS.EC2.Lens
     purchaseScheduledInstancesResponse_scheduledInstanceSet,
     purchaseScheduledInstancesResponse_httpStatus,
 
-    -- ** CreateTransitGatewayPeeringAttachment
-    createTransitGatewayPeeringAttachment_tagSpecifications,
-    createTransitGatewayPeeringAttachment_dryRun,
-    createTransitGatewayPeeringAttachment_transitGatewayId,
-    createTransitGatewayPeeringAttachment_peerTransitGatewayId,
-    createTransitGatewayPeeringAttachment_peerAccountId,
-    createTransitGatewayPeeringAttachment_peerRegion,
-    createTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
-    createTransitGatewayPeeringAttachmentResponse_httpStatus,
+    -- ** DescribePublicIpv4Pools
+    describePublicIpv4Pools_nextToken,
+    describePublicIpv4Pools_maxResults,
+    describePublicIpv4Pools_filters,
+    describePublicIpv4Pools_poolIds,
+    describePublicIpv4PoolsResponse_nextToken,
+    describePublicIpv4PoolsResponse_publicIpv4Pools,
+    describePublicIpv4PoolsResponse_httpStatus,
 
-    -- ** GetDefaultCreditSpecification
-    getDefaultCreditSpecification_dryRun,
-    getDefaultCreditSpecification_instanceFamily,
-    getDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification,
-    getDefaultCreditSpecificationResponse_httpStatus,
+    -- ** DescribeLocalGatewayRouteTableVpcAssociations
+    describeLocalGatewayRouteTableVpcAssociations_nextToken,
+    describeLocalGatewayRouteTableVpcAssociations_maxResults,
+    describeLocalGatewayRouteTableVpcAssociations_dryRun,
+    describeLocalGatewayRouteTableVpcAssociations_filters,
+    describeLocalGatewayRouteTableVpcAssociations_localGatewayRouteTableVpcAssociationIds,
+    describeLocalGatewayRouteTableVpcAssociationsResponse_nextToken,
+    describeLocalGatewayRouteTableVpcAssociationsResponse_localGatewayRouteTableVpcAssociations,
+    describeLocalGatewayRouteTableVpcAssociationsResponse_httpStatus,
+
+    -- ** AuthorizeClientVpnIngress
+    authorizeClientVpnIngress_accessGroupId,
+    authorizeClientVpnIngress_dryRun,
+    authorizeClientVpnIngress_description,
+    authorizeClientVpnIngress_authorizeAllGroups,
+    authorizeClientVpnIngress_clientToken,
+    authorizeClientVpnIngress_clientVpnEndpointId,
+    authorizeClientVpnIngress_targetNetworkCidr,
+    authorizeClientVpnIngressResponse_status,
+    authorizeClientVpnIngressResponse_httpStatus,
+
+    -- ** CreateVpcPeeringConnection
+    createVpcPeeringConnection_tagSpecifications,
+    createVpcPeeringConnection_peerOwnerId,
+    createVpcPeeringConnection_dryRun,
+    createVpcPeeringConnection_vpcId,
+    createVpcPeeringConnection_peerVpcId,
+    createVpcPeeringConnection_peerRegion,
+    createVpcPeeringConnectionResponse_vpcPeeringConnection,
+    createVpcPeeringConnectionResponse_httpStatus,
+
+    -- ** CreateInstanceEventWindow
+    createInstanceEventWindow_tagSpecifications,
+    createInstanceEventWindow_dryRun,
+    createInstanceEventWindow_name,
+    createInstanceEventWindow_timeRanges,
+    createInstanceEventWindow_cronExpression,
+    createInstanceEventWindowResponse_instanceEventWindow,
+    createInstanceEventWindowResponse_httpStatus,
+
+    -- ** CreateSecurityGroup
+    createSecurityGroup_tagSpecifications,
+    createSecurityGroup_dryRun,
+    createSecurityGroup_vpcId,
+    createSecurityGroup_description,
+    createSecurityGroup_groupName,
+    createSecurityGroupResponse_tags,
+    createSecurityGroupResponse_httpStatus,
+    createSecurityGroupResponse_groupId,
 
     -- ** DescribeInternetGateways
     describeInternetGateways_nextToken,
-    describeInternetGateways_dryRun,
     describeInternetGateways_maxResults,
+    describeInternetGateways_dryRun,
     describeInternetGateways_internetGatewayIds,
     describeInternetGateways_filters,
     describeInternetGatewaysResponse_nextToken,
     describeInternetGatewaysResponse_internetGateways,
     describeInternetGatewaysResponse_httpStatus,
 
+    -- ** ModifyLaunchTemplate
+    modifyLaunchTemplate_defaultVersion,
+    modifyLaunchTemplate_dryRun,
+    modifyLaunchTemplate_launchTemplateId,
+    modifyLaunchTemplate_launchTemplateName,
+    modifyLaunchTemplate_clientToken,
+    modifyLaunchTemplateResponse_launchTemplate,
+    modifyLaunchTemplateResponse_httpStatus,
+
     -- ** ModifyInstanceAttribute
     modifyInstanceAttribute_groups,
-    modifyInstanceAttribute_instanceType,
     modifyInstanceAttribute_ebsOptimized,
     modifyInstanceAttribute_userData,
+    modifyInstanceAttribute_instanceType,
     modifyInstanceAttribute_dryRun,
     modifyInstanceAttribute_kernel,
     modifyInstanceAttribute_sourceDestCheck,
@@ -3452,136 +3739,15 @@ module Network.AWS.EC2.Lens
     modifyInstanceAttribute_enaSupport,
     modifyInstanceAttribute_instanceId,
 
-    -- ** CreateSecurityGroup
-    createSecurityGroup_tagSpecifications,
-    createSecurityGroup_dryRun,
-    createSecurityGroup_vpcId,
-    createSecurityGroup_description,
-    createSecurityGroup_groupName,
-    createSecurityGroupResponse_tags,
-    createSecurityGroupResponse_httpStatus,
-    createSecurityGroupResponse_groupId,
-
-    -- ** CreateTransitGatewayConnect
-    createTransitGatewayConnect_tagSpecifications,
-    createTransitGatewayConnect_dryRun,
-    createTransitGatewayConnect_transportTransitGatewayAttachmentId,
-    createTransitGatewayConnect_options,
-    createTransitGatewayConnectResponse_transitGatewayConnect,
-    createTransitGatewayConnectResponse_httpStatus,
-
-    -- ** ReplaceNetworkAclAssociation
-    replaceNetworkAclAssociation_dryRun,
-    replaceNetworkAclAssociation_associationId,
-    replaceNetworkAclAssociation_networkAclId,
-    replaceNetworkAclAssociationResponse_newAssociationId,
-    replaceNetworkAclAssociationResponse_httpStatus,
-
-    -- ** CreateRoute
-    createRoute_instanceId,
-    createRoute_vpcPeeringConnectionId,
-    createRoute_dryRun,
-    createRoute_vpcEndpointId,
-    createRoute_destinationPrefixListId,
-    createRoute_destinationIpv6CidrBlock,
-    createRoute_localGatewayId,
-    createRoute_egressOnlyInternetGatewayId,
-    createRoute_carrierGatewayId,
-    createRoute_destinationCidrBlock,
-    createRoute_networkInterfaceId,
-    createRoute_natGatewayId,
-    createRoute_gatewayId,
-    createRoute_transitGatewayId,
-    createRoute_routeTableId,
-    createRouteResponse_return,
-    createRouteResponse_httpStatus,
-
-    -- ** DeleteLaunchTemplateVersions
-    deleteLaunchTemplateVersions_dryRun,
-    deleteLaunchTemplateVersions_launchTemplateId,
-    deleteLaunchTemplateVersions_launchTemplateName,
-    deleteLaunchTemplateVersions_versions,
-    deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions,
-    deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions,
-    deleteLaunchTemplateVersionsResponse_httpStatus,
-
-    -- ** DescribeIdentityIdFormat
-    describeIdentityIdFormat_resource,
-    describeIdentityIdFormat_principalArn,
-    describeIdentityIdFormatResponse_statuses,
-    describeIdentityIdFormatResponse_httpStatus,
-
-    -- ** DeleteTrafficMirrorFilter
-    deleteTrafficMirrorFilter_dryRun,
-    deleteTrafficMirrorFilter_trafficMirrorFilterId,
-    deleteTrafficMirrorFilterResponse_trafficMirrorFilterId,
-    deleteTrafficMirrorFilterResponse_httpStatus,
-
-    -- ** ReplaceRoute
-    replaceRoute_instanceId,
-    replaceRoute_localTarget,
-    replaceRoute_vpcPeeringConnectionId,
-    replaceRoute_dryRun,
-    replaceRoute_vpcEndpointId,
-    replaceRoute_destinationPrefixListId,
-    replaceRoute_destinationIpv6CidrBlock,
-    replaceRoute_localGatewayId,
-    replaceRoute_egressOnlyInternetGatewayId,
-    replaceRoute_carrierGatewayId,
-    replaceRoute_destinationCidrBlock,
-    replaceRoute_networkInterfaceId,
-    replaceRoute_natGatewayId,
-    replaceRoute_gatewayId,
-    replaceRoute_transitGatewayId,
-    replaceRoute_routeTableId,
-
-    -- ** ResetSnapshotAttribute
-    resetSnapshotAttribute_dryRun,
-    resetSnapshotAttribute_attribute,
-    resetSnapshotAttribute_snapshotId,
-
     -- ** ResetEbsDefaultKmsKeyId
     resetEbsDefaultKmsKeyId_dryRun,
     resetEbsDefaultKmsKeyIdResponse_kmsKeyId,
     resetEbsDefaultKmsKeyIdResponse_httpStatus,
 
-    -- ** CreateTags
-    createTags_dryRun,
-    createTags_resources,
-    createTags_tags,
-
-    -- ** BundleInstance
-    bundleInstance_dryRun,
-    bundleInstance_instanceId,
-    bundleInstance_storage,
-    bundleInstanceResponse_bundleTask,
-    bundleInstanceResponse_httpStatus,
-
-    -- ** DeleteTransitGatewayPeeringAttachment
-    deleteTransitGatewayPeeringAttachment_dryRun,
-    deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId,
-    deleteTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
-    deleteTransitGatewayPeeringAttachmentResponse_httpStatus,
-
-    -- ** AuthorizeClientVpnIngress
-    authorizeClientVpnIngress_accessGroupId,
-    authorizeClientVpnIngress_dryRun,
-    authorizeClientVpnIngress_authorizeAllGroups,
-    authorizeClientVpnIngress_description,
-    authorizeClientVpnIngress_clientToken,
-    authorizeClientVpnIngress_clientVpnEndpointId,
-    authorizeClientVpnIngress_targetNetworkCidr,
-    authorizeClientVpnIngressResponse_status,
-    authorizeClientVpnIngressResponse_httpStatus,
-
-    -- ** ModifyLaunchTemplate
-    modifyLaunchTemplate_defaultVersion,
-    modifyLaunchTemplate_dryRun,
-    modifyLaunchTemplate_launchTemplateId,
-    modifyLaunchTemplate_launchTemplateName,
-    modifyLaunchTemplate_clientToken,
-    modifyLaunchTemplateResponse_launchTemplate,
-    modifyLaunchTemplateResponse_httpStatus,
+    -- ** GetEbsEncryptionByDefault
+    getEbsEncryptionByDefault_dryRun,
+    getEbsEncryptionByDefaultResponse_ebsEncryptionByDefault,
+    getEbsEncryptionByDefaultResponse_httpStatus,
 
     -- ** DeleteCustomerGateway
     deleteCustomerGateway_dryRun,
@@ -3597,26 +3763,149 @@ module Network.AWS.EC2.Lens
     terminateClientVpnConnectionsResponse_username,
     terminateClientVpnConnectionsResponse_httpStatus,
 
-    -- ** GetEbsEncryptionByDefault
-    getEbsEncryptionByDefault_dryRun,
-    getEbsEncryptionByDefaultResponse_ebsEncryptionByDefault,
-    getEbsEncryptionByDefaultResponse_httpStatus,
+    -- ** AssociateInstanceEventWindow
+    associateInstanceEventWindow_dryRun,
+    associateInstanceEventWindow_instanceEventWindowId,
+    associateInstanceEventWindow_associationTarget,
+    associateInstanceEventWindowResponse_instanceEventWindow,
+    associateInstanceEventWindowResponse_httpStatus,
 
-    -- ** CreateVpcPeeringConnection
-    createVpcPeeringConnection_tagSpecifications,
-    createVpcPeeringConnection_dryRun,
-    createVpcPeeringConnection_peerOwnerId,
-    createVpcPeeringConnection_vpcId,
-    createVpcPeeringConnection_peerRegion,
-    createVpcPeeringConnection_peerVpcId,
-    createVpcPeeringConnectionResponse_vpcPeeringConnection,
-    createVpcPeeringConnectionResponse_httpStatus,
+    -- ** ReplaceRoute
+    replaceRoute_instanceId,
+    replaceRoute_vpcPeeringConnectionId,
+    replaceRoute_localTarget,
+    replaceRoute_dryRun,
+    replaceRoute_vpcEndpointId,
+    replaceRoute_destinationPrefixListId,
+    replaceRoute_destinationIpv6CidrBlock,
+    replaceRoute_localGatewayId,
+    replaceRoute_egressOnlyInternetGatewayId,
+    replaceRoute_destinationCidrBlock,
+    replaceRoute_carrierGatewayId,
+    replaceRoute_natGatewayId,
+    replaceRoute_networkInterfaceId,
+    replaceRoute_gatewayId,
+    replaceRoute_transitGatewayId,
+    replaceRoute_routeTableId,
+
+    -- ** CreateTags
+    createTags_dryRun,
+    createTags_resources,
+    createTags_tags,
+
+    -- ** CreateTransitGatewayConnect
+    createTransitGatewayConnect_tagSpecifications,
+    createTransitGatewayConnect_dryRun,
+    createTransitGatewayConnect_transportTransitGatewayAttachmentId,
+    createTransitGatewayConnect_options,
+    createTransitGatewayConnectResponse_transitGatewayConnect,
+    createTransitGatewayConnectResponse_httpStatus,
+
+    -- ** DeleteLaunchTemplateVersions
+    deleteLaunchTemplateVersions_dryRun,
+    deleteLaunchTemplateVersions_launchTemplateId,
+    deleteLaunchTemplateVersions_launchTemplateName,
+    deleteLaunchTemplateVersions_versions,
+    deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions,
+    deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions,
+    deleteLaunchTemplateVersionsResponse_httpStatus,
+
+    -- ** GetDefaultCreditSpecification
+    getDefaultCreditSpecification_dryRun,
+    getDefaultCreditSpecification_instanceFamily,
+    getDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification,
+    getDefaultCreditSpecificationResponse_httpStatus,
+
+    -- ** ResetSnapshotAttribute
+    resetSnapshotAttribute_dryRun,
+    resetSnapshotAttribute_attribute,
+    resetSnapshotAttribute_snapshotId,
+
+    -- ** DeleteTransitGatewayPeeringAttachment
+    deleteTransitGatewayPeeringAttachment_dryRun,
+    deleteTransitGatewayPeeringAttachment_transitGatewayAttachmentId,
+    deleteTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment,
+    deleteTransitGatewayPeeringAttachmentResponse_httpStatus,
+
+    -- ** CreateRoute
+    createRoute_instanceId,
+    createRoute_vpcPeeringConnectionId,
+    createRoute_dryRun,
+    createRoute_vpcEndpointId,
+    createRoute_destinationPrefixListId,
+    createRoute_destinationIpv6CidrBlock,
+    createRoute_localGatewayId,
+    createRoute_egressOnlyInternetGatewayId,
+    createRoute_destinationCidrBlock,
+    createRoute_carrierGatewayId,
+    createRoute_natGatewayId,
+    createRoute_networkInterfaceId,
+    createRoute_gatewayId,
+    createRoute_transitGatewayId,
+    createRoute_routeTableId,
+    createRouteResponse_return,
+    createRouteResponse_httpStatus,
+
+    -- ** BundleInstance
+    bundleInstance_dryRun,
+    bundleInstance_instanceId,
+    bundleInstance_storage,
+    bundleInstanceResponse_bundleTask,
+    bundleInstanceResponse_httpStatus,
+
+    -- ** ReplaceNetworkAclAssociation
+    replaceNetworkAclAssociation_dryRun,
+    replaceNetworkAclAssociation_associationId,
+    replaceNetworkAclAssociation_networkAclId,
+    replaceNetworkAclAssociationResponse_newAssociationId,
+    replaceNetworkAclAssociationResponse_httpStatus,
+
+    -- ** DeleteTrafficMirrorFilter
+    deleteTrafficMirrorFilter_dryRun,
+    deleteTrafficMirrorFilter_trafficMirrorFilterId,
+    deleteTrafficMirrorFilterResponse_trafficMirrorFilterId,
+    deleteTrafficMirrorFilterResponse_httpStatus,
+
+    -- ** DescribeIdentityIdFormat
+    describeIdentityIdFormat_resource,
+    describeIdentityIdFormat_principalArn,
+    describeIdentityIdFormatResponse_statuses,
+    describeIdentityIdFormatResponse_httpStatus,
+
+    -- ** ReplaceTransitGatewayRoute
+    replaceTransitGatewayRoute_dryRun,
+    replaceTransitGatewayRoute_blackhole,
+    replaceTransitGatewayRoute_transitGatewayAttachmentId,
+    replaceTransitGatewayRoute_destinationCidrBlock,
+    replaceTransitGatewayRoute_transitGatewayRouteTableId,
+    replaceTransitGatewayRouteResponse_route,
+    replaceTransitGatewayRouteResponse_httpStatus,
+
+    -- ** GetCoipPoolUsage
+    getCoipPoolUsage_nextToken,
+    getCoipPoolUsage_maxResults,
+    getCoipPoolUsage_dryRun,
+    getCoipPoolUsage_filters,
+    getCoipPoolUsage_poolId,
+    getCoipPoolUsageResponse_coipAddressUsages,
+    getCoipPoolUsageResponse_localGatewayRouteTableId,
+    getCoipPoolUsageResponse_coipPoolId,
+    getCoipPoolUsageResponse_httpStatus,
 
     -- ** DeleteTransitGatewayVpcAttachment
     deleteTransitGatewayVpcAttachment_dryRun,
     deleteTransitGatewayVpcAttachment_transitGatewayAttachmentId,
     deleteTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment,
     deleteTransitGatewayVpcAttachmentResponse_httpStatus,
+
+    -- ** CreatePlacementGroup
+    createPlacementGroup_tagSpecifications,
+    createPlacementGroup_dryRun,
+    createPlacementGroup_strategy,
+    createPlacementGroup_groupName,
+    createPlacementGroup_partitionCount,
+    createPlacementGroupResponse_placementGroup,
+    createPlacementGroupResponse_httpStatus,
 
     -- ** ReplaceIamInstanceProfileAssociation
     replaceIamInstanceProfileAssociation_iamInstanceProfile,
@@ -3630,17 +3919,6 @@ module Network.AWS.EC2.Lens
     deleteTransitGatewayConnectPeerResponse_transitGatewayConnectPeer,
     deleteTransitGatewayConnectPeerResponse_httpStatus,
 
-    -- ** AssociateAddress
-    associateAddress_instanceId,
-    associateAddress_dryRun,
-    associateAddress_allowReassociation,
-    associateAddress_networkInterfaceId,
-    associateAddress_publicIp,
-    associateAddress_allocationId,
-    associateAddress_privateIpAddress,
-    associateAddressResponse_associationId,
-    associateAddressResponse_httpStatus,
-
     -- ** CancelSpotFleetRequests
     cancelSpotFleetRequests_dryRun,
     cancelSpotFleetRequests_spotFleetRequestIds,
@@ -3649,34 +3927,27 @@ module Network.AWS.EC2.Lens
     cancelSpotFleetRequestsResponse_successfulFleetRequests,
     cancelSpotFleetRequestsResponse_httpStatus,
 
-    -- ** ResetNetworkInterfaceAttribute
-    resetNetworkInterfaceAttribute_dryRun,
-    resetNetworkInterfaceAttribute_sourceDestCheck,
-    resetNetworkInterfaceAttribute_networkInterfaceId,
+    -- ** DescribeClientVpnAuthorizationRules
+    describeClientVpnAuthorizationRules_nextToken,
+    describeClientVpnAuthorizationRules_maxResults,
+    describeClientVpnAuthorizationRules_dryRun,
+    describeClientVpnAuthorizationRules_filters,
+    describeClientVpnAuthorizationRules_clientVpnEndpointId,
+    describeClientVpnAuthorizationRulesResponse_nextToken,
+    describeClientVpnAuthorizationRulesResponse_authorizationRules,
+    describeClientVpnAuthorizationRulesResponse_httpStatus,
 
-    -- ** StartInstances
-    startInstances_additionalInfo,
-    startInstances_dryRun,
-    startInstances_instanceIds,
-    startInstancesResponse_startingInstances,
-    startInstancesResponse_httpStatus,
+    -- ** DeleteSubnet
+    deleteSubnet_dryRun,
+    deleteSubnet_subnetId,
 
-    -- ** DisassociateTransitGatewayRouteTable
-    disassociateTransitGatewayRouteTable_dryRun,
-    disassociateTransitGatewayRouteTable_transitGatewayRouteTableId,
-    disassociateTransitGatewayRouteTable_transitGatewayAttachmentId,
-    disassociateTransitGatewayRouteTableResponse_association,
-    disassociateTransitGatewayRouteTableResponse_httpStatus,
-
-    -- ** CopyFpgaImage
-    copyFpgaImage_dryRun,
-    copyFpgaImage_name,
-    copyFpgaImage_description,
-    copyFpgaImage_clientToken,
-    copyFpgaImage_sourceFpgaImageId,
-    copyFpgaImage_sourceRegion,
-    copyFpgaImageResponse_fpgaImageId,
-    copyFpgaImageResponse_httpStatus,
+    -- ** StopInstances
+    stopInstances_dryRun,
+    stopInstances_force,
+    stopInstances_hibernate,
+    stopInstances_instanceIds,
+    stopInstancesResponse_stoppingInstances,
+    stopInstancesResponse_httpStatus,
 
     -- ** ReleaseHosts
     releaseHosts_hostIds,
@@ -3686,22 +3957,17 @@ module Network.AWS.EC2.Lens
 
     -- ** DescribeFastSnapshotRestores
     describeFastSnapshotRestores_nextToken,
-    describeFastSnapshotRestores_dryRun,
     describeFastSnapshotRestores_maxResults,
+    describeFastSnapshotRestores_dryRun,
     describeFastSnapshotRestores_filters,
     describeFastSnapshotRestoresResponse_fastSnapshotRestores,
     describeFastSnapshotRestoresResponse_nextToken,
     describeFastSnapshotRestoresResponse_httpStatus,
 
-    -- ** DescribeTrafficMirrorFilters
-    describeTrafficMirrorFilters_nextToken,
-    describeTrafficMirrorFilters_dryRun,
-    describeTrafficMirrorFilters_maxResults,
-    describeTrafficMirrorFilters_trafficMirrorFilterIds,
-    describeTrafficMirrorFilters_filters,
-    describeTrafficMirrorFiltersResponse_trafficMirrorFilters,
-    describeTrafficMirrorFiltersResponse_nextToken,
-    describeTrafficMirrorFiltersResponse_httpStatus,
+    -- ** CreateDefaultVpc
+    createDefaultVpc_dryRun,
+    createDefaultVpcResponse_vpc,
+    createDefaultVpcResponse_httpStatus,
 
     -- ** CreateTransitGatewayPrefixListReference
     createTransitGatewayPrefixListReference_dryRun,
@@ -3712,9 +3978,15 @@ module Network.AWS.EC2.Lens
     createTransitGatewayPrefixListReferenceResponse_transitGatewayPrefixListReference,
     createTransitGatewayPrefixListReferenceResponse_httpStatus,
 
-    -- ** DeleteNetworkInterface
-    deleteNetworkInterface_dryRun,
-    deleteNetworkInterface_networkInterfaceId,
+    -- ** DescribeDhcpOptions
+    describeDhcpOptions_nextToken,
+    describeDhcpOptions_dhcpOptionsIds,
+    describeDhcpOptions_maxResults,
+    describeDhcpOptions_dryRun,
+    describeDhcpOptions_filters,
+    describeDhcpOptionsResponse_nextToken,
+    describeDhcpOptionsResponse_dhcpOptions,
+    describeDhcpOptionsResponse_httpStatus,
 
     -- ** CreateTransitGatewayRoute
     createTransitGatewayRoute_dryRun,
@@ -3725,13 +3997,20 @@ module Network.AWS.EC2.Lens
     createTransitGatewayRouteResponse_route,
     createTransitGatewayRouteResponse_httpStatus,
 
-    -- ** DeregisterTransitGatewayMulticastGroupSources
-    deregisterTransitGatewayMulticastGroupSources_dryRun,
-    deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
-    deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds,
-    deregisterTransitGatewayMulticastGroupSources_groupIpAddress,
-    deregisterTransitGatewayMulticastGroupSourcesResponse_deregisteredMulticastGroupSources,
-    deregisterTransitGatewayMulticastGroupSourcesResponse_httpStatus,
+    -- ** ResetNetworkInterfaceAttribute
+    resetNetworkInterfaceAttribute_dryRun,
+    resetNetworkInterfaceAttribute_sourceDestCheck,
+    resetNetworkInterfaceAttribute_networkInterfaceId,
+
+    -- ** DeleteTransitGatewayMulticastDomain
+    deleteTransitGatewayMulticastDomain_dryRun,
+    deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
+    deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain,
+    deleteTransitGatewayMulticastDomainResponse_httpStatus,
+
+    -- ** DeleteNetworkInterface
+    deleteNetworkInterface_dryRun,
+    deleteNetworkInterface_networkInterfaceId,
 
     -- ** DisassociateVpcCidrBlock
     disassociateVpcCidrBlock_associationId,
@@ -3740,81 +4019,13 @@ module Network.AWS.EC2.Lens
     disassociateVpcCidrBlockResponse_vpcId,
     disassociateVpcCidrBlockResponse_httpStatus,
 
-    -- ** DescribeTransitGatewayPeeringAttachments
-    describeTransitGatewayPeeringAttachments_nextToken,
-    describeTransitGatewayPeeringAttachments_dryRun,
-    describeTransitGatewayPeeringAttachments_maxResults,
-    describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds,
-    describeTransitGatewayPeeringAttachments_filters,
-    describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments,
-    describeTransitGatewayPeeringAttachmentsResponse_nextToken,
-    describeTransitGatewayPeeringAttachmentsResponse_httpStatus,
-
-    -- ** GetCoipPoolUsage
-    getCoipPoolUsage_nextToken,
-    getCoipPoolUsage_dryRun,
-    getCoipPoolUsage_maxResults,
-    getCoipPoolUsage_filters,
-    getCoipPoolUsage_poolId,
-    getCoipPoolUsageResponse_coipAddressUsages,
-    getCoipPoolUsageResponse_localGatewayRouteTableId,
-    getCoipPoolUsageResponse_coipPoolId,
-    getCoipPoolUsageResponse_httpStatus,
-
-    -- ** ImportImage
-    importImage_hypervisor,
-    importImage_platform,
-    importImage_tagSpecifications,
-    importImage_dryRun,
-    importImage_encrypted,
-    importImage_roleName,
-    importImage_licenseSpecifications,
-    importImage_architecture,
-    importImage_kmsKeyId,
-    importImage_diskContainers,
-    importImage_clientData,
-    importImage_description,
-    importImage_licenseType,
-    importImage_clientToken,
-    importImageResponse_hypervisor,
-    importImageResponse_platform,
-    importImageResponse_statusMessage,
-    importImageResponse_status,
-    importImageResponse_snapshotDetails,
-    importImageResponse_encrypted,
-    importImageResponse_importTaskId,
-    importImageResponse_licenseSpecifications,
-    importImageResponse_architecture,
-    importImageResponse_imageId,
-    importImageResponse_kmsKeyId,
-    importImageResponse_tags,
-    importImageResponse_description,
-    importImageResponse_licenseType,
-    importImageResponse_progress,
-    importImageResponse_httpStatus,
-
-    -- ** ReplaceTransitGatewayRoute
-    replaceTransitGatewayRoute_dryRun,
-    replaceTransitGatewayRoute_blackhole,
-    replaceTransitGatewayRoute_transitGatewayAttachmentId,
-    replaceTransitGatewayRoute_destinationCidrBlock,
-    replaceTransitGatewayRoute_transitGatewayRouteTableId,
-    replaceTransitGatewayRouteResponse_route,
-    replaceTransitGatewayRouteResponse_httpStatus,
-
-    -- ** CreatePlacementGroup
-    createPlacementGroup_tagSpecifications,
-    createPlacementGroup_dryRun,
-    createPlacementGroup_strategy,
-    createPlacementGroup_groupName,
-    createPlacementGroup_partitionCount,
-    createPlacementGroupResponse_placementGroup,
-    createPlacementGroupResponse_httpStatus,
-
-    -- ** CreateDefaultVpc
-    createDefaultVpc_dryRun,
-    createDefaultVpcResponse_vpc,
-    createDefaultVpcResponse_httpStatus,
+    -- ** ReplaceRouteTableAssociation
+    replaceRouteTableAssociation_dryRun,
+    replaceRouteTableAssociation_associationId,
+    replaceRouteTableAssociation_routeTableId,
+    replaceRouteTableAssociationResponse_associationState,
+    replaceRouteTableAssociationResponse_newAssociationId,
+    replaceRouteTableAssociationResponse_httpStatus,
 
     -- ** CreateNetworkInsightsPath
     createNetworkInsightsPath_tagSpecifications,
@@ -3829,6 +4040,31 @@ module Network.AWS.EC2.Lens
     createNetworkInsightsPathResponse_networkInsightsPath,
     createNetworkInsightsPathResponse_httpStatus,
 
+    -- ** DeregisterTransitGatewayMulticastGroupSources
+    deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
+    deregisterTransitGatewayMulticastGroupSources_dryRun,
+    deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds,
+    deregisterTransitGatewayMulticastGroupSources_groupIpAddress,
+    deregisterTransitGatewayMulticastGroupSourcesResponse_deregisteredMulticastGroupSources,
+    deregisterTransitGatewayMulticastGroupSourcesResponse_httpStatus,
+
+    -- ** DescribeCustomerGateways
+    describeCustomerGateways_dryRun,
+    describeCustomerGateways_customerGatewayIds,
+    describeCustomerGateways_filters,
+    describeCustomerGatewaysResponse_customerGateways,
+    describeCustomerGatewaysResponse_httpStatus,
+
+    -- ** DescribeCapacityReservations
+    describeCapacityReservations_nextToken,
+    describeCapacityReservations_maxResults,
+    describeCapacityReservations_dryRun,
+    describeCapacityReservations_capacityReservationIds,
+    describeCapacityReservations_filters,
+    describeCapacityReservationsResponse_capacityReservations,
+    describeCapacityReservationsResponse_nextToken,
+    describeCapacityReservationsResponse_httpStatus,
+
     -- ** ModifyTrafficMirrorSession
     modifyTrafficMirrorSession_removeFields,
     modifyTrafficMirrorSession_dryRun,
@@ -3842,83 +4078,110 @@ module Network.AWS.EC2.Lens
     modifyTrafficMirrorSessionResponse_trafficMirrorSession,
     modifyTrafficMirrorSessionResponse_httpStatus,
 
+    -- ** DisassociateTransitGatewayRouteTable
+    disassociateTransitGatewayRouteTable_dryRun,
+    disassociateTransitGatewayRouteTable_transitGatewayRouteTableId,
+    disassociateTransitGatewayRouteTable_transitGatewayAttachmentId,
+    disassociateTransitGatewayRouteTableResponse_association,
+    disassociateTransitGatewayRouteTableResponse_httpStatus,
+
+    -- ** StartInstances
+    startInstances_additionalInfo,
+    startInstances_dryRun,
+    startInstances_instanceIds,
+    startInstancesResponse_startingInstances,
+    startInstancesResponse_httpStatus,
+
+    -- ** DescribeTransitGatewayPeeringAttachments
+    describeTransitGatewayPeeringAttachments_nextToken,
+    describeTransitGatewayPeeringAttachments_maxResults,
+    describeTransitGatewayPeeringAttachments_dryRun,
+    describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayPeeringAttachments_filters,
+    describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments,
+    describeTransitGatewayPeeringAttachmentsResponse_nextToken,
+    describeTransitGatewayPeeringAttachmentsResponse_httpStatus,
+
+    -- ** ImportImage
+    importImage_platform,
+    importImage_hypervisor,
+    importImage_tagSpecifications,
+    importImage_encrypted,
+    importImage_dryRun,
+    importImage_roleName,
+    importImage_usageOperation,
+    importImage_architecture,
+    importImage_bootMode,
+    importImage_licenseSpecifications,
+    importImage_kmsKeyId,
+    importImage_diskContainers,
+    importImage_clientData,
+    importImage_description,
+    importImage_licenseType,
+    importImage_clientToken,
+    importImageResponse_platform,
+    importImageResponse_hypervisor,
+    importImageResponse_statusMessage,
+    importImageResponse_status,
+    importImageResponse_encrypted,
+    importImageResponse_snapshotDetails,
+    importImageResponse_usageOperation,
+    importImageResponse_architecture,
+    importImageResponse_licenseSpecifications,
+    importImageResponse_importTaskId,
+    importImageResponse_imageId,
+    importImageResponse_kmsKeyId,
+    importImageResponse_tags,
+    importImageResponse_description,
+    importImageResponse_licenseType,
+    importImageResponse_progress,
+    importImageResponse_httpStatus,
+
+    -- ** DescribeTrafficMirrorFilters
+    describeTrafficMirrorFilters_nextToken,
+    describeTrafficMirrorFilters_maxResults,
+    describeTrafficMirrorFilters_dryRun,
+    describeTrafficMirrorFilters_trafficMirrorFilterIds,
+    describeTrafficMirrorFilters_filters,
+    describeTrafficMirrorFiltersResponse_trafficMirrorFilters,
+    describeTrafficMirrorFiltersResponse_nextToken,
+    describeTrafficMirrorFiltersResponse_httpStatus,
+
+    -- ** AssociateAddress
+    associateAddress_instanceId,
+    associateAddress_dryRun,
+    associateAddress_allowReassociation,
+    associateAddress_networkInterfaceId,
+    associateAddress_publicIp,
+    associateAddress_allocationId,
+    associateAddress_privateIpAddress,
+    associateAddressResponse_associationId,
+    associateAddressResponse_httpStatus,
+
     -- ** RunScheduledInstances
     runScheduledInstances_dryRun,
-    runScheduledInstances_clientToken,
     runScheduledInstances_instanceCount,
+    runScheduledInstances_clientToken,
     runScheduledInstances_launchSpecification,
     runScheduledInstances_scheduledInstanceId,
     runScheduledInstancesResponse_instanceIdSet,
     runScheduledInstancesResponse_httpStatus,
 
-    -- ** DescribeDhcpOptions
-    describeDhcpOptions_nextToken,
-    describeDhcpOptions_dhcpOptionsIds,
-    describeDhcpOptions_dryRun,
-    describeDhcpOptions_maxResults,
-    describeDhcpOptions_filters,
-    describeDhcpOptionsResponse_nextToken,
-    describeDhcpOptionsResponse_dhcpOptions,
-    describeDhcpOptionsResponse_httpStatus,
-
-    -- ** DescribeCapacityReservations
-    describeCapacityReservations_nextToken,
-    describeCapacityReservations_dryRun,
-    describeCapacityReservations_maxResults,
-    describeCapacityReservations_capacityReservationIds,
-    describeCapacityReservations_filters,
-    describeCapacityReservationsResponse_capacityReservations,
-    describeCapacityReservationsResponse_nextToken,
-    describeCapacityReservationsResponse_httpStatus,
-
-    -- ** DescribeCustomerGateways
-    describeCustomerGateways_dryRun,
-    describeCustomerGateways_customerGatewayIds,
-    describeCustomerGateways_filters,
-    describeCustomerGatewaysResponse_customerGateways,
-    describeCustomerGatewaysResponse_httpStatus,
+    -- ** CopyFpgaImage
+    copyFpgaImage_dryRun,
+    copyFpgaImage_name,
+    copyFpgaImage_description,
+    copyFpgaImage_clientToken,
+    copyFpgaImage_sourceFpgaImageId,
+    copyFpgaImage_sourceRegion,
+    copyFpgaImageResponse_fpgaImageId,
+    copyFpgaImageResponse_httpStatus,
 
     -- ** DeleteNatGateway
     deleteNatGateway_dryRun,
     deleteNatGateway_natGatewayId,
     deleteNatGatewayResponse_natGatewayId,
     deleteNatGatewayResponse_httpStatus,
-
-    -- ** DescribeClientVpnAuthorizationRules
-    describeClientVpnAuthorizationRules_nextToken,
-    describeClientVpnAuthorizationRules_dryRun,
-    describeClientVpnAuthorizationRules_maxResults,
-    describeClientVpnAuthorizationRules_filters,
-    describeClientVpnAuthorizationRules_clientVpnEndpointId,
-    describeClientVpnAuthorizationRulesResponse_nextToken,
-    describeClientVpnAuthorizationRulesResponse_authorizationRules,
-    describeClientVpnAuthorizationRulesResponse_httpStatus,
-
-    -- ** StopInstances
-    stopInstances_dryRun,
-    stopInstances_force,
-    stopInstances_hibernate,
-    stopInstances_instanceIds,
-    stopInstancesResponse_stoppingInstances,
-    stopInstancesResponse_httpStatus,
-
-    -- ** ReplaceRouteTableAssociation
-    replaceRouteTableAssociation_dryRun,
-    replaceRouteTableAssociation_associationId,
-    replaceRouteTableAssociation_routeTableId,
-    replaceRouteTableAssociationResponse_associationState,
-    replaceRouteTableAssociationResponse_newAssociationId,
-    replaceRouteTableAssociationResponse_httpStatus,
-
-    -- ** DeleteTransitGatewayMulticastDomain
-    deleteTransitGatewayMulticastDomain_dryRun,
-    deleteTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
-    deleteTransitGatewayMulticastDomainResponse_transitGatewayMulticastDomain,
-    deleteTransitGatewayMulticastDomainResponse_httpStatus,
-
-    -- ** DeleteSubnet
-    deleteSubnet_dryRun,
-    deleteSubnet_subnetId,
 
     -- * Types
 
@@ -3940,16 +4203,16 @@ module Network.AWS.EC2.Lens
     addPrefixListEntry_cidr,
 
     -- ** Address
-    address_customerOwnedIpv4Pool,
     address_instanceId,
+    address_customerOwnedIpv4Pool,
     address_domain,
     address_carrierIp,
     address_customerOwnedIp,
     address_networkInterfaceOwnerId,
     address_associationId,
     address_tags,
-    address_networkInterfaceId,
     address_publicIpv4Pool,
+    address_networkInterfaceId,
     address_publicIp,
     address_allocationId,
     address_networkBorderGroup,
@@ -4005,8 +4268,8 @@ module Network.AWS.EC2.Lens
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_destinationCidr,
     analysisRouteTableRoute_egressOnlyInternetGatewayId,
-    analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_natGatewayId,
+    analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_gatewayId,
     analysisRouteTableRoute_transitGatewayId,
 
@@ -4035,6 +4298,12 @@ module Network.AWS.EC2.Lens
     associationStatus_message,
     associationStatus_code,
 
+    -- ** AthenaIntegration
+    athenaIntegration_partitionStartDate,
+    athenaIntegration_partitionEndDate,
+    athenaIntegration_integrationResultS3DestinationArn,
+    athenaIntegration_partitionLoadFrequency,
+
     -- ** AttributeBooleanValue
     attributeBooleanValue_value,
 
@@ -4050,17 +4319,17 @@ module Network.AWS.EC2.Lens
     authorizationRule_description,
 
     -- ** AvailabilityZone
-    availabilityZone_regionName,
     availabilityZone_parentZoneId,
+    availabilityZone_regionName,
     availabilityZone_zoneName,
     availabilityZone_zoneType,
     availabilityZone_zoneId,
-    availabilityZone_groupName,
     availabilityZone_optInStatus,
+    availabilityZone_groupName,
     availabilityZone_state,
     availabilityZone_messages,
-    availabilityZone_networkBorderGroup,
     availabilityZone_parentZoneName,
+    availabilityZone_networkBorderGroup,
 
     -- ** AvailabilityZoneMessage
     availabilityZoneMessage_message,
@@ -4107,8 +4376,8 @@ module Network.AWS.EC2.Lens
     cancelSpotFleetRequestsErrorItem_spotFleetRequestId,
 
     -- ** CancelSpotFleetRequestsSuccessItem
-    cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState,
     cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState,
+    cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState,
     cancelSpotFleetRequestsSuccessItem_spotFleetRequestId,
 
     -- ** CancelledSpotInstanceRequest
@@ -4118,21 +4387,22 @@ module Network.AWS.EC2.Lens
     -- ** CapacityReservation
     capacityReservation_ownerId,
     capacityReservation_startDate,
-    capacityReservation_instanceType,
     capacityReservation_ebsOptimized,
-    capacityReservation_endDateType,
+    capacityReservation_instanceType,
     capacityReservation_availableInstanceCount,
+    capacityReservation_outpostArn,
+    capacityReservation_endDateType,
     capacityReservation_createDate,
-    capacityReservation_tenancy,
     capacityReservation_availabilityZoneId,
-    capacityReservation_state,
+    capacityReservation_tenancy,
     capacityReservation_availabilityZone,
-    capacityReservation_capacityReservationId,
+    capacityReservation_state,
     capacityReservation_tags,
     capacityReservation_capacityReservationArn,
     capacityReservation_instanceMatchCriteria,
-    capacityReservation_ephemeralStorage,
+    capacityReservation_capacityReservationId,
     capacityReservation_instancePlatform,
+    capacityReservation_ephemeralStorage,
     capacityReservation_endDate,
     capacityReservation_totalInstanceCount,
 
@@ -4187,8 +4457,8 @@ module Network.AWS.EC2.Lens
     classicLinkDnsSupport_vpcId,
 
     -- ** ClassicLinkInstance
-    classicLinkInstance_groups,
     classicLinkInstance_instanceId,
+    classicLinkInstance_groups,
     classicLinkInstance_tags,
     classicLinkInstance_vpcId,
 
@@ -4236,16 +4506,16 @@ module Network.AWS.EC2.Lens
     -- ** ClientVpnConnection
     clientVpnConnection_clientVpnEndpointId,
     clientVpnConnection_status,
-    clientVpnConnection_ingressPackets,
     clientVpnConnection_egressBytes,
+    clientVpnConnection_ingressPackets,
     clientVpnConnection_connectionId,
     clientVpnConnection_connectionEstablishedTime,
     clientVpnConnection_postureComplianceStatuses,
     clientVpnConnection_commonName,
     clientVpnConnection_connectionEndTime,
+    clientVpnConnection_timestamp,
     clientVpnConnection_ingressBytes,
     clientVpnConnection_egressPackets,
-    clientVpnConnection_timestamp,
     clientVpnConnection_username,
     clientVpnConnection_clientIp,
 
@@ -4256,22 +4526,22 @@ module Network.AWS.EC2.Lens
     -- ** ClientVpnEndpoint
     clientVpnEndpoint_clientVpnEndpointId,
     clientVpnEndpoint_securityGroupIds,
+    clientVpnEndpoint_creationTime,
     clientVpnEndpoint_clientCidrBlock,
     clientVpnEndpoint_status,
-    clientVpnEndpoint_creationTime,
     clientVpnEndpoint_associatedTargetNetworks,
     clientVpnEndpoint_deletionTime,
     clientVpnEndpoint_selfServicePortalUrl,
     clientVpnEndpoint_authenticationOptions,
-    clientVpnEndpoint_serverCertificateArn,
     clientVpnEndpoint_transportProtocol,
+    clientVpnEndpoint_serverCertificateArn,
     clientVpnEndpoint_connectionLogOptions,
     clientVpnEndpoint_clientConnectOptions,
     clientVpnEndpoint_dnsServers,
     clientVpnEndpoint_tags,
     clientVpnEndpoint_vpnPort,
-    clientVpnEndpoint_dnsName,
     clientVpnEndpoint_vpnProtocol,
+    clientVpnEndpoint_dnsName,
     clientVpnEndpoint_description,
     clientVpnEndpoint_vpcId,
     clientVpnEndpoint_splitTunnel,
@@ -4355,8 +4625,8 @@ module Network.AWS.EC2.Lens
     -- ** CreateFleetInstance
     createFleetInstance_instanceIds,
     createFleetInstance_platform,
-    createFleetInstance_instanceType,
     createFleetInstance_launchTemplateAndOverrides,
+    createFleetInstance_instanceType,
     createFleetInstance_lifecycle,
 
     -- ** CreateTransitGatewayConnectRequestOptions
@@ -4369,8 +4639,8 @@ module Network.AWS.EC2.Lens
 
     -- ** CreateTransitGatewayVpcAttachmentRequestOptions
     createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport,
-    createTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
     createTransitGatewayVpcAttachmentRequestOptions_ipv6Support,
+    createTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
 
     -- ** CreateVolumePermission
     createVolumePermission_group,
@@ -4406,8 +4676,8 @@ module Network.AWS.EC2.Lens
 
     -- ** DeleteFleetSuccessItem
     deleteFleetSuccessItem_fleetId,
-    deleteFleetSuccessItem_currentFleetState,
     deleteFleetSuccessItem_previousFleetState,
+    deleteFleetSuccessItem_currentFleetState,
 
     -- ** DeleteLaunchTemplateVersionsResponseErrorItem
     deleteLaunchTemplateVersionsResponseErrorItem_responseError,
@@ -4430,11 +4700,11 @@ module Network.AWS.EC2.Lens
 
     -- ** DescribeFastSnapshotRestoreSuccessItem
     describeFastSnapshotRestoreSuccessItem_ownerAlias,
-    describeFastSnapshotRestoreSuccessItem_ownerId,
     describeFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    describeFastSnapshotRestoreSuccessItem_ownerId,
     describeFastSnapshotRestoreSuccessItem_optimizingTime,
-    describeFastSnapshotRestoreSuccessItem_state,
     describeFastSnapshotRestoreSuccessItem_availabilityZone,
+    describeFastSnapshotRestoreSuccessItem_state,
     describeFastSnapshotRestoreSuccessItem_disablingTime,
     describeFastSnapshotRestoreSuccessItem_snapshotId,
     describeFastSnapshotRestoreSuccessItem_enablingTime,
@@ -4450,8 +4720,8 @@ module Network.AWS.EC2.Lens
     -- ** DescribeFleetsInstances
     describeFleetsInstances_instanceIds,
     describeFleetsInstances_platform,
-    describeFleetsInstances_instanceType,
     describeFleetsInstances_launchTemplateAndOverrides,
+    describeFleetsInstances_instanceType,
     describeFleetsInstances_lifecycle,
 
     -- ** DhcpConfiguration
@@ -4459,8 +4729,8 @@ module Network.AWS.EC2.Lens
     dhcpConfiguration_values,
 
     -- ** DhcpOptions
-    dhcpOptions_ownerId,
     dhcpOptions_dhcpConfigurations,
+    dhcpOptions_ownerId,
     dhcpOptions_dhcpOptionsId,
     dhcpOptions_tags,
 
@@ -4484,11 +4754,11 @@ module Network.AWS.EC2.Lens
 
     -- ** DisableFastSnapshotRestoreSuccessItem
     disableFastSnapshotRestoreSuccessItem_ownerAlias,
-    disableFastSnapshotRestoreSuccessItem_ownerId,
     disableFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    disableFastSnapshotRestoreSuccessItem_ownerId,
     disableFastSnapshotRestoreSuccessItem_optimizingTime,
-    disableFastSnapshotRestoreSuccessItem_state,
     disableFastSnapshotRestoreSuccessItem_availabilityZone,
+    disableFastSnapshotRestoreSuccessItem_state,
     disableFastSnapshotRestoreSuccessItem_disablingTime,
     disableFastSnapshotRestoreSuccessItem_snapshotId,
     disableFastSnapshotRestoreSuccessItem_enablingTime,
@@ -4503,8 +4773,8 @@ module Network.AWS.EC2.Lens
     -- ** DiskImageDescription
     diskImageDescription_format,
     diskImageDescription_importManifestUrl,
-    diskImageDescription_checksum,
     diskImageDescription_size,
+    diskImageDescription_checksum,
 
     -- ** DiskImageDetail
     diskImageDetail_bytes,
@@ -4536,8 +4806,8 @@ module Network.AWS.EC2.Lens
     ebsBlockDevice_deleteOnTermination,
     ebsBlockDevice_snapshotId,
     ebsBlockDevice_volumeType,
-    ebsBlockDevice_volumeSize,
     ebsBlockDevice_iops,
+    ebsBlockDevice_volumeSize,
 
     -- ** EbsInfo
     ebsInfo_nvmeSupport,
@@ -4562,6 +4832,9 @@ module Network.AWS.EC2.Lens
     ebsOptimizedInfo_maximumThroughputInMBps,
     ebsOptimizedInfo_baselineIops,
     ebsOptimizedInfo_baselineThroughputInMBps,
+
+    -- ** EfaInfo
+    efaInfo_maximumEfaInterfaces,
 
     -- ** EgressOnlyInternetGateway
     egressOnlyInternetGateway_egressOnlyInternetGatewayId,
@@ -4616,11 +4889,11 @@ module Network.AWS.EC2.Lens
 
     -- ** EnableFastSnapshotRestoreSuccessItem
     enableFastSnapshotRestoreSuccessItem_ownerAlias,
-    enableFastSnapshotRestoreSuccessItem_ownerId,
     enableFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    enableFastSnapshotRestoreSuccessItem_ownerId,
     enableFastSnapshotRestoreSuccessItem_optimizingTime,
-    enableFastSnapshotRestoreSuccessItem_state,
     enableFastSnapshotRestoreSuccessItem_availabilityZone,
+    enableFastSnapshotRestoreSuccessItem_state,
     enableFastSnapshotRestoreSuccessItem_disablingTime,
     enableFastSnapshotRestoreSuccessItem_snapshotId,
     enableFastSnapshotRestoreSuccessItem_enablingTime,
@@ -4642,47 +4915,47 @@ module Network.AWS.EC2.Lens
     explanation_loadBalancerTargetGroups,
     explanation_loadBalancerArn,
     explanation_securityGroupRule,
-    explanation_customerGateway,
-    explanation_availabilityZones,
     explanation_loadBalancerTargetGroup,
-    explanation_explanationCode,
+    explanation_availabilityZones,
+    explanation_customerGateway,
     explanation_address,
-    explanation_natGateway,
+    explanation_explanationCode,
     explanation_loadBalancerTarget,
     explanation_internetGateway,
-    explanation_networkInterface,
     explanation_subnet,
+    explanation_networkInterface,
+    explanation_natGateway,
     explanation_sourceVpc,
     explanation_aclRule,
     explanation_protocols,
     explanation_direction,
-    explanation_securityGroups,
     explanation_prefixList,
+    explanation_securityGroups,
     explanation_packetField,
+    explanation_routeTable,
     explanation_cidrs,
     explanation_component,
     explanation_state,
-    explanation_routeTable,
-    explanation_destination,
     explanation_subnetRouteTable,
+    explanation_destination,
     explanation_attachedTo,
-    explanation_securityGroup,
     explanation_vpcPeeringConnection,
-    explanation_destinationVpc,
+    explanation_securityGroup,
     explanation_elasticLoadBalancerListener,
     explanation_port,
+    explanation_destinationVpc,
     explanation_acl,
     explanation_vpcEndpoint,
     explanation_routeTableRoute,
     explanation_vpnConnection,
     explanation_missingComponent,
-    explanation_addresses,
     explanation_classicLoadBalancerListener,
-    explanation_ingressRouteTable,
     explanation_vpnGateway,
-    explanation_portRanges,
+    explanation_ingressRouteTable,
+    explanation_addresses,
     explanation_loadBalancerListenerPort,
     explanation_vpc,
+    explanation_portRanges,
     explanation_loadBalancerTargetPort,
 
     -- ** ExportImageTask
@@ -4749,18 +5022,19 @@ module Network.AWS.EC2.Lens
     fleetData_validFrom,
     fleetData_replaceUnhealthyInstances,
     fleetData_instances,
+    fleetData_context,
     fleetData_validUntil,
-    fleetData_activityStatus,
-    fleetData_tags,
     fleetData_createTime,
+    fleetData_tags,
+    fleetData_activityStatus,
     fleetData_excessCapacityTerminationPolicy,
     fleetData_errors,
-    fleetData_type,
-    fleetData_spotOptions,
     fleetData_targetCapacitySpecification,
+    fleetData_spotOptions,
+    fleetData_type,
     fleetData_fulfilledCapacity,
-    fleetData_clientToken,
     fleetData_terminateInstancesWithExpiration,
+    fleetData_clientToken,
 
     -- ** FleetLaunchTemplateConfig
     fleetLaunchTemplateConfig_launchTemplateSpecification,
@@ -4771,8 +5045,8 @@ module Network.AWS.EC2.Lens
     fleetLaunchTemplateConfigRequest_overrides,
 
     -- ** FleetLaunchTemplateOverrides
-    fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_placement,
+    fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_priority,
     fleetLaunchTemplateOverrides_availabilityZone,
     fleetLaunchTemplateOverrides_maxPrice,
@@ -4780,8 +5054,8 @@ module Network.AWS.EC2.Lens
     fleetLaunchTemplateOverrides_weightedCapacity,
 
     -- ** FleetLaunchTemplateOverridesRequest
-    fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_placement,
+    fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_priority,
     fleetLaunchTemplateOverridesRequest_availabilityZone,
     fleetLaunchTemplateOverridesRequest_maxPrice,
@@ -4790,13 +5064,13 @@ module Network.AWS.EC2.Lens
 
     -- ** FleetLaunchTemplateSpecification
     fleetLaunchTemplateSpecification_launchTemplateId,
-    fleetLaunchTemplateSpecification_launchTemplateName,
     fleetLaunchTemplateSpecification_version,
+    fleetLaunchTemplateSpecification_launchTemplateName,
 
     -- ** FleetLaunchTemplateSpecificationRequest
     fleetLaunchTemplateSpecificationRequest_launchTemplateId,
-    fleetLaunchTemplateSpecificationRequest_launchTemplateName,
     fleetLaunchTemplateSpecificationRequest_version,
+    fleetLaunchTemplateSpecificationRequest_launchTemplateName,
 
     -- ** FleetSpotCapacityRebalance
     fleetSpotCapacityRebalance_replacementStrategy,
@@ -4819,16 +5093,16 @@ module Network.AWS.EC2.Lens
     flowLog_logDestination,
     flowLog_trafficType,
     flowLog_logFormat,
-    flowLog_logGroupName,
     flowLog_deliverLogsPermissionArn,
-    flowLog_deliverLogsErrorMessage,
+    flowLog_logGroupName,
     flowLog_tags,
+    flowLog_deliverLogsErrorMessage,
     flowLog_logDestinationType,
     flowLog_flowLogStatus,
 
     -- ** FpgaDeviceInfo
-    fpgaDeviceInfo_memoryInfo,
     fpgaDeviceInfo_manufacturer,
+    fpgaDeviceInfo_memoryInfo,
     fpgaDeviceInfo_name,
     fpgaDeviceInfo_count,
 
@@ -4837,26 +5111,26 @@ module Network.AWS.EC2.Lens
 
     -- ** FpgaImage
     fpgaImage_ownerAlias,
-    fpgaImage_shellVersion,
     fpgaImage_ownerId,
+    fpgaImage_shellVersion,
     fpgaImage_fpgaImageGlobalId,
     fpgaImage_dataRetentionSupport,
     fpgaImage_productCodes,
-    fpgaImage_state,
-    fpgaImage_pciId,
     fpgaImage_name,
+    fpgaImage_pciId,
+    fpgaImage_state,
     fpgaImage_updateTime,
+    fpgaImage_createTime,
     fpgaImage_tags,
     fpgaImage_public,
-    fpgaImage_createTime,
     fpgaImage_description,
     fpgaImage_fpgaImageId,
 
     -- ** FpgaImageAttribute
     fpgaImageAttribute_productCodes,
     fpgaImageAttribute_name,
-    fpgaImageAttribute_loadPermissions,
     fpgaImageAttribute_description,
+    fpgaImageAttribute_loadPermissions,
     fpgaImageAttribute_fpgaImageId,
 
     -- ** FpgaImageState
@@ -4868,8 +5142,8 @@ module Network.AWS.EC2.Lens
     fpgaInfo_fpgas,
 
     -- ** GpuDeviceInfo
-    gpuDeviceInfo_memoryInfo,
     gpuDeviceInfo_manufacturer,
+    gpuDeviceInfo_memoryInfo,
     gpuDeviceInfo_name,
     gpuDeviceInfo_count,
 
@@ -4903,13 +5177,13 @@ module Network.AWS.EC2.Lens
     -- ** Host
     host_ownerId,
     host_hostProperties,
-    host_availableCapacity,
     host_hostReservationId,
+    host_availableCapacity,
     host_allocationTime,
-    host_instances,
     host_availabilityZoneId,
-    host_state,
+    host_instances,
     host_availabilityZone,
+    host_state,
     host_releaseTime,
     host_tags,
     host_autoPlacement,
@@ -4920,14 +5194,14 @@ module Network.AWS.EC2.Lens
     host_clientToken,
 
     -- ** HostInstance
-    hostInstance_ownerId,
     hostInstance_instanceId,
+    hostInstance_ownerId,
     hostInstance_instanceType,
 
     -- ** HostOffering
     hostOffering_instanceFamily,
-    hostOffering_upfrontPrice,
     hostOffering_paymentOption,
+    hostOffering_upfrontPrice,
     hostOffering_duration,
     hostOffering_offeringId,
     hostOffering_currencyCode,
@@ -4941,20 +5215,20 @@ module Network.AWS.EC2.Lens
     hostProperties_sockets,
 
     -- ** HostReservation
-    hostReservation_instanceFamily,
     hostReservation_end,
     hostReservation_hostIdSet,
-    hostReservation_upfrontPrice,
+    hostReservation_instanceFamily,
     hostReservation_paymentOption,
+    hostReservation_upfrontPrice,
     hostReservation_duration,
-    hostReservation_offeringId,
     hostReservation_hostReservationId,
+    hostReservation_offeringId,
     hostReservation_currencyCode,
     hostReservation_state,
     hostReservation_tags,
     hostReservation_count,
-    hostReservation_hourlyPrice,
     hostReservation_start,
+    hostReservation_hourlyPrice,
 
     -- ** IKEVersionsListValue
     iKEVersionsListValue_value,
@@ -4983,8 +5257,8 @@ module Network.AWS.EC2.Lens
 
     -- ** IdFormat
     idFormat_useLongIds,
-    idFormat_resource,
     idFormat_deadline,
+    idFormat_resource,
 
     -- ** Image
     image_platform,
@@ -4992,15 +5266,17 @@ module Network.AWS.EC2.Lens
     image_ramdiskId,
     image_stateReason,
     image_usageOperation,
+    image_platformDetails,
+    image_bootMode,
     image_creationDate,
     image_productCodes,
-    image_platformDetails,
+    image_deprecationTime,
     image_name,
     image_tags,
     image_sriovNetSupport,
     image_blockDeviceMappings,
-    image_kernelId,
     image_description,
+    image_kernelId,
     image_imageOwnerAlias,
     image_enaSupport,
     image_imageId,
@@ -5016,8 +5292,8 @@ module Network.AWS.EC2.Lens
 
     -- ** ImageDiskContainer
     imageDiskContainer_format,
-    imageDiskContainer_userBucket,
     imageDiskContainer_deviceName,
+    imageDiskContainer_userBucket,
     imageDiskContainer_snapshotId,
     imageDiskContainer_description,
     imageDiskContainer_url,
@@ -5029,15 +5305,17 @@ module Network.AWS.EC2.Lens
     importImageLicenseConfigurationResponse_licenseConfigurationArn,
 
     -- ** ImportImageTask
-    importImageTask_hypervisor,
     importImageTask_platform,
+    importImageTask_hypervisor,
     importImageTask_statusMessage,
     importImageTask_status,
-    importImageTask_snapshotDetails,
     importImageTask_encrypted,
-    importImageTask_importTaskId,
-    importImageTask_licenseSpecifications,
+    importImageTask_snapshotDetails,
+    importImageTask_usageOperation,
     importImageTask_architecture,
+    importImageTask_bootMode,
+    importImageTask_licenseSpecifications,
+    importImageTask_importTaskId,
     importImageTask_imageId,
     importImageTask_kmsKeyId,
     importImageTask_tags,
@@ -5047,10 +5325,10 @@ module Network.AWS.EC2.Lens
 
     -- ** ImportInstanceLaunchSpecification
     importInstanceLaunchSpecification_additionalInfo,
-    importInstanceLaunchSpecification_instanceType,
-    importInstanceLaunchSpecification_userData,
     importInstanceLaunchSpecification_placement,
+    importInstanceLaunchSpecification_userData,
     importInstanceLaunchSpecification_groupIds,
+    importInstanceLaunchSpecification_instanceType,
     importInstanceLaunchSpecification_groupNames,
     importInstanceLaunchSpecification_architecture,
     importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior,
@@ -5065,8 +5343,8 @@ module Network.AWS.EC2.Lens
     importInstanceTaskDetails_description,
 
     -- ** ImportInstanceVolumeDetailItem
-    importInstanceVolumeDetailItem_statusMessage,
     importInstanceVolumeDetailItem_bytesConverted,
+    importInstanceVolumeDetailItem_statusMessage,
     importInstanceVolumeDetailItem_status,
     importInstanceVolumeDetailItem_volume,
     importInstanceVolumeDetailItem_image,
@@ -5098,39 +5376,43 @@ module Network.AWS.EC2.Lens
     instance_platform,
     instance_instanceLifecycle,
     instance_stateTransitionReason,
-    instance_rootDeviceName,
     instance_capacityReservationSpecification,
     instance_ebsOptimized,
+    instance_rootDeviceName,
     instance_ramdiskId,
-    instance_elasticInferenceAcceleratorAssociations,
     instance_stateReason,
     instance_outpostArn,
-    instance_sourceDestCheck,
+    instance_elasticInferenceAcceleratorAssociations,
+    instance_usageOperation,
+    instance_platformDetails,
+    instance_bootMode,
     instance_productCodes,
+    instance_sourceDestCheck,
     instance_securityGroups,
-    instance_iamInstanceProfile,
     instance_publicDnsName,
+    instance_iamInstanceProfile,
     instance_hibernationOptions,
-    instance_capacityReservationId,
+    instance_usageOperationUpdateTime,
     instance_tags,
+    instance_capacityReservationId,
     instance_sriovNetSupport,
-    instance_blockDeviceMappings,
     instance_publicIpAddress,
+    instance_blockDeviceMappings,
     instance_subnetId,
     instance_enclaveOptions,
     instance_kernelId,
     instance_cpuOptions,
     instance_privateDnsName,
-    instance_keyName,
-    instance_networkInterfaces,
     instance_licenses,
     instance_vpcId,
-    instance_elasticGpuAssociations,
-    instance_metadataOptions,
-    instance_enaSupport,
+    instance_networkInterfaces,
+    instance_keyName,
     instance_spotInstanceRequestId,
-    instance_clientToken,
+    instance_elasticGpuAssociations,
+    instance_enaSupport,
+    instance_metadataOptions,
     instance_privateIpAddress,
+    instance_clientToken,
     instance_instanceId,
     instance_imageId,
     instance_amiLaunchIndex,
@@ -5171,6 +5453,46 @@ module Network.AWS.EC2.Lens
     instanceCreditSpecificationRequest_instanceId,
     instanceCreditSpecificationRequest_cpuCredits,
 
+    -- ** InstanceEventWindow
+    instanceEventWindow_instanceEventWindowId,
+    instanceEventWindow_name,
+    instanceEventWindow_state,
+    instanceEventWindow_timeRanges,
+    instanceEventWindow_tags,
+    instanceEventWindow_associationTarget,
+    instanceEventWindow_cronExpression,
+
+    -- ** InstanceEventWindowAssociationRequest
+    instanceEventWindowAssociationRequest_instanceIds,
+    instanceEventWindowAssociationRequest_instanceTags,
+    instanceEventWindowAssociationRequest_dedicatedHostIds,
+
+    -- ** InstanceEventWindowAssociationTarget
+    instanceEventWindowAssociationTarget_instanceIds,
+    instanceEventWindowAssociationTarget_dedicatedHostIds,
+    instanceEventWindowAssociationTarget_tags,
+
+    -- ** InstanceEventWindowDisassociationRequest
+    instanceEventWindowDisassociationRequest_instanceIds,
+    instanceEventWindowDisassociationRequest_instanceTags,
+    instanceEventWindowDisassociationRequest_dedicatedHostIds,
+
+    -- ** InstanceEventWindowStateChange
+    instanceEventWindowStateChange_instanceEventWindowId,
+    instanceEventWindowStateChange_state,
+
+    -- ** InstanceEventWindowTimeRange
+    instanceEventWindowTimeRange_startHour,
+    instanceEventWindowTimeRange_endWeekDay,
+    instanceEventWindowTimeRange_endHour,
+    instanceEventWindowTimeRange_startWeekDay,
+
+    -- ** InstanceEventWindowTimeRangeRequest
+    instanceEventWindowTimeRangeRequest_startHour,
+    instanceEventWindowTimeRangeRequest_endWeekDay,
+    instanceEventWindowTimeRangeRequest_endHour,
+    instanceEventWindowTimeRangeRequest_startWeekDay,
+
     -- ** InstanceExportDetails
     instanceExportDetails_instanceId,
     instanceExportDetails_targetEnvironment,
@@ -5179,22 +5501,30 @@ module Network.AWS.EC2.Lens
     instanceFamilyCreditSpecification_instanceFamily,
     instanceFamilyCreditSpecification_cpuCredits,
 
+    -- ** InstanceIpv4Prefix
+    instanceIpv4Prefix_ipv4Prefix,
+
     -- ** InstanceIpv6Address
     instanceIpv6Address_ipv6Address,
 
     -- ** InstanceIpv6AddressRequest
     instanceIpv6AddressRequest_ipv6Address,
 
+    -- ** InstanceIpv6Prefix
+    instanceIpv6Prefix_ipv6Prefix,
+
     -- ** InstanceMarketOptionsRequest
     instanceMarketOptionsRequest_marketType,
     instanceMarketOptionsRequest_spotOptions,
 
     -- ** InstanceMetadataOptionsRequest
+    instanceMetadataOptionsRequest_httpProtocolIpv6,
     instanceMetadataOptionsRequest_httpEndpoint,
     instanceMetadataOptionsRequest_httpPutResponseHopLimit,
     instanceMetadataOptionsRequest_httpTokens,
 
     -- ** InstanceMetadataOptionsResponse
+    instanceMetadataOptionsResponse_httpProtocolIpv6,
     instanceMetadataOptionsResponse_httpEndpoint,
     instanceMetadataOptionsResponse_httpPutResponseHopLimit,
     instanceMetadataOptionsResponse_state,
@@ -5205,21 +5535,23 @@ module Network.AWS.EC2.Lens
     instanceMonitoring_monitoring,
 
     -- ** InstanceNetworkInterface
-    instanceNetworkInterface_groups,
     instanceNetworkInterface_status,
+    instanceNetworkInterface_groups,
     instanceNetworkInterface_ownerId,
     instanceNetworkInterface_privateIpAddresses,
-    instanceNetworkInterface_attachment,
     instanceNetworkInterface_macAddress,
+    instanceNetworkInterface_attachment,
     instanceNetworkInterface_association,
     instanceNetworkInterface_ipv6Addresses,
-    instanceNetworkInterface_interfaceType,
     instanceNetworkInterface_sourceDestCheck,
-    instanceNetworkInterface_networkInterfaceId,
-    instanceNetworkInterface_subnetId,
+    instanceNetworkInterface_interfaceType,
+    instanceNetworkInterface_ipv6Prefixes,
     instanceNetworkInterface_description,
+    instanceNetworkInterface_subnetId,
+    instanceNetworkInterface_networkInterfaceId,
     instanceNetworkInterface_privateDnsName,
     instanceNetworkInterface_vpcId,
+    instanceNetworkInterface_ipv4Prefixes,
     instanceNetworkInterface_privateIpAddress,
 
     -- ** InstanceNetworkInterfaceAssociation
@@ -5231,9 +5563,9 @@ module Network.AWS.EC2.Lens
     -- ** InstanceNetworkInterfaceAttachment
     instanceNetworkInterfaceAttachment_status,
     instanceNetworkInterfaceAttachment_attachTime,
+    instanceNetworkInterfaceAttachment_deleteOnTermination,
     instanceNetworkInterfaceAttachment_attachmentId,
     instanceNetworkInterfaceAttachment_networkCardIndex,
-    instanceNetworkInterfaceAttachment_deleteOnTermination,
     instanceNetworkInterfaceAttachment_deviceIndex,
 
     -- ** InstanceNetworkInterfaceSpecification
@@ -5242,15 +5574,19 @@ module Network.AWS.EC2.Lens
     instanceNetworkInterfaceSpecification_ipv6Addresses,
     instanceNetworkInterfaceSpecification_interfaceType,
     instanceNetworkInterfaceSpecification_associatePublicIpAddress,
+    instanceNetworkInterfaceSpecification_ipv6PrefixCount,
+    instanceNetworkInterfaceSpecification_ipv6Prefixes,
     instanceNetworkInterfaceSpecification_associateCarrierIpAddress,
     instanceNetworkInterfaceSpecification_ipv6AddressCount,
-    instanceNetworkInterfaceSpecification_networkCardIndex,
     instanceNetworkInterfaceSpecification_deleteOnTermination,
-    instanceNetworkInterfaceSpecification_networkInterfaceId,
-    instanceNetworkInterfaceSpecification_subnetId,
+    instanceNetworkInterfaceSpecification_networkCardIndex,
     instanceNetworkInterfaceSpecification_description,
+    instanceNetworkInterfaceSpecification_subnetId,
     instanceNetworkInterfaceSpecification_deviceIndex,
+    instanceNetworkInterfaceSpecification_networkInterfaceId,
     instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount,
+    instanceNetworkInterfaceSpecification_ipv4PrefixCount,
+    instanceNetworkInterfaceSpecification_ipv4Prefixes,
     instanceNetworkInterfaceSpecification_privateIpAddress,
 
     -- ** InstancePrivateIpAddress
@@ -5269,8 +5605,8 @@ module Network.AWS.EC2.Lens
 
     -- ** InstanceStateChange
     instanceStateChange_instanceId,
-    instanceStateChange_currentState,
     instanceStateChange_previousState,
+    instanceStateChange_currentState,
 
     -- ** InstanceStatus
     instanceStatus_instanceId,
@@ -5308,16 +5644,17 @@ module Network.AWS.EC2.Lens
     instanceTagNotificationAttribute_includeAllTagsOfInstance,
 
     -- ** InstanceTypeInfo
-    instanceTypeInfo_memoryInfo,
     instanceTypeInfo_hypervisor,
+    instanceTypeInfo_memoryInfo,
     instanceTypeInfo_gpuInfo,
     instanceTypeInfo_instanceType,
-    instanceTypeInfo_burstablePerformanceSupported,
     instanceTypeInfo_vCpuInfo,
+    instanceTypeInfo_burstablePerformanceSupported,
     instanceTypeInfo_supportedRootDeviceTypes,
-    instanceTypeInfo_placementGroupInfo,
-    instanceTypeInfo_networkInfo,
     instanceTypeInfo_processorInfo,
+    instanceTypeInfo_networkInfo,
+    instanceTypeInfo_supportedBootModes,
+    instanceTypeInfo_placementGroupInfo,
     instanceTypeInfo_ebsInfo,
     instanceTypeInfo_autoRecoverySupported,
     instanceTypeInfo_currentGeneration,
@@ -5341,6 +5678,9 @@ module Network.AWS.EC2.Lens
     instanceUsage_accountId,
     instanceUsage_usedInstanceCount,
 
+    -- ** IntegrateServices
+    integrateServices_athenaIntegrations,
+
     -- ** InternetGateway
     internetGateway_ownerId,
     internetGateway_tags,
@@ -5354,8 +5694,8 @@ module Network.AWS.EC2.Lens
     -- ** IpPermission
     ipPermission_fromPort,
     ipPermission_prefixListIds,
-    ipPermission_ipRanges,
     ipPermission_ipv6Ranges,
+    ipPermission_ipRanges,
     ipPermission_userIdGroupPairs,
     ipPermission_toPort,
     ipPermission_ipProtocol,
@@ -5363,6 +5703,15 @@ module Network.AWS.EC2.Lens
     -- ** IpRange
     ipRange_description,
     ipRange_cidrIp,
+
+    -- ** Ipv4PrefixSpecification
+    ipv4PrefixSpecification_ipv4Prefix,
+
+    -- ** Ipv4PrefixSpecificationRequest
+    ipv4PrefixSpecificationRequest_ipv4Prefix,
+
+    -- ** Ipv4PrefixSpecificationResponse
+    ipv4PrefixSpecificationResponse_ipv4Prefix,
 
     -- ** Ipv6CidrAssociation
     ipv6CidrAssociation_ipv6Cidr,
@@ -5377,6 +5726,15 @@ module Network.AWS.EC2.Lens
     ipv6Pool_tags,
     ipv6Pool_description,
 
+    -- ** Ipv6PrefixSpecification
+    ipv6PrefixSpecification_ipv6Prefix,
+
+    -- ** Ipv6PrefixSpecificationRequest
+    ipv6PrefixSpecificationRequest_ipv6Prefix,
+
+    -- ** Ipv6PrefixSpecificationResponse
+    ipv6PrefixSpecificationResponse_ipv6Prefix,
+
     -- ** Ipv6Range
     ipv6Range_cidrIpv6,
     ipv6Range_description,
@@ -5384,6 +5742,7 @@ module Network.AWS.EC2.Lens
     -- ** KeyPairInfo
     keyPairInfo_keyFingerprint,
     keyPairInfo_keyPairId,
+    keyPairInfo_keyType,
     keyPairInfo_tags,
     keyPairInfo_keyName,
 
@@ -5400,12 +5759,12 @@ module Network.AWS.EC2.Lens
     launchPermissionModifications_remove,
 
     -- ** LaunchSpecification
-    launchSpecification_instanceType,
     launchSpecification_ebsOptimized,
-    launchSpecification_userData,
     launchSpecification_placement,
-    launchSpecification_addressingType,
+    launchSpecification_userData,
+    launchSpecification_instanceType,
     launchSpecification_ramdiskId,
+    launchSpecification_addressingType,
     launchSpecification_imageId,
     launchSpecification_securityGroups,
     launchSpecification_iamInstanceProfile,
@@ -5413,14 +5772,14 @@ module Network.AWS.EC2.Lens
     launchSpecification_blockDeviceMappings,
     launchSpecification_subnetId,
     launchSpecification_kernelId,
-    launchSpecification_keyName,
     launchSpecification_networkInterfaces,
+    launchSpecification_keyName,
 
     -- ** LaunchTemplate
     launchTemplate_launchTemplateId,
     launchTemplate_launchTemplateName,
-    launchTemplate_tags,
     launchTemplate_createTime,
+    launchTemplate_tags,
     launchTemplate_createdBy,
     launchTemplate_defaultVersionNumber,
     launchTemplate_latestVersionNumber,
@@ -5468,8 +5827,8 @@ module Network.AWS.EC2.Lens
     launchTemplateEbsBlockDevice_deleteOnTermination,
     launchTemplateEbsBlockDevice_snapshotId,
     launchTemplateEbsBlockDevice_volumeType,
-    launchTemplateEbsBlockDevice_volumeSize,
     launchTemplateEbsBlockDevice_iops,
+    launchTemplateEbsBlockDevice_volumeSize,
 
     -- ** LaunchTemplateEbsBlockDeviceRequest
     launchTemplateEbsBlockDeviceRequest_encrypted,
@@ -5478,8 +5837,8 @@ module Network.AWS.EC2.Lens
     launchTemplateEbsBlockDeviceRequest_deleteOnTermination,
     launchTemplateEbsBlockDeviceRequest_snapshotId,
     launchTemplateEbsBlockDeviceRequest_volumeType,
-    launchTemplateEbsBlockDeviceRequest_volumeSize,
     launchTemplateEbsBlockDeviceRequest_iops,
+    launchTemplateEbsBlockDeviceRequest_volumeSize,
 
     -- ** LaunchTemplateElasticInferenceAccelerator
     launchTemplateElasticInferenceAccelerator_count,
@@ -5518,12 +5877,14 @@ module Network.AWS.EC2.Lens
     launchTemplateInstanceMarketOptionsRequest_spotOptions,
 
     -- ** LaunchTemplateInstanceMetadataOptions
+    launchTemplateInstanceMetadataOptions_httpProtocolIpv6,
     launchTemplateInstanceMetadataOptions_httpEndpoint,
     launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit,
     launchTemplateInstanceMetadataOptions_state,
     launchTemplateInstanceMetadataOptions_httpTokens,
 
     -- ** LaunchTemplateInstanceMetadataOptionsRequest
+    launchTemplateInstanceMetadataOptionsRequest_httpProtocolIpv6,
     launchTemplateInstanceMetadataOptionsRequest_httpEndpoint,
     launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit,
     launchTemplateInstanceMetadataOptionsRequest_httpTokens,
@@ -5534,15 +5895,19 @@ module Network.AWS.EC2.Lens
     launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses,
     launchTemplateInstanceNetworkInterfaceSpecification_interfaceType,
     launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv6PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv6Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecification_associateCarrierIpAddress,
     launchTemplateInstanceNetworkInterfaceSpecification_ipv6AddressCount,
-    launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecification_deleteOnTermination,
-    launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId,
-    launchTemplateInstanceNetworkInterfaceSpecification_subnetId,
+    launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecification_description,
+    launchTemplateInstanceNetworkInterfaceSpecification_subnetId,
     launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex,
+    launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId,
     launchTemplateInstanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv4PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv4Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddress,
 
     -- ** LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
@@ -5551,15 +5916,19 @@ module Network.AWS.EC2.Lens
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Addresses,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_interfaceType,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_associatePublicIpAddress,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAddress,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6AddressCount,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_description,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_deviceIndex,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_secondaryPrivateIpAddressCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_privateIpAddress,
 
     -- ** LaunchTemplateLicenseConfiguration
@@ -5598,8 +5967,8 @@ module Network.AWS.EC2.Lens
 
     -- ** LaunchTemplateSpecification
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- ** LaunchTemplateSpotMarketOptions
     launchTemplateSpotMarketOptions_blockDurationMinutes,
@@ -5629,8 +5998,8 @@ module Network.AWS.EC2.Lens
     launchTemplateVersion_launchTemplateData,
     launchTemplateVersion_launchTemplateName,
     launchTemplateVersion_versionDescription,
-    launchTemplateVersion_versionNumber,
     launchTemplateVersion_createTime,
+    launchTemplateVersion_versionNumber,
     launchTemplateVersion_createdBy,
 
     -- ** LaunchTemplatesMonitoring
@@ -5672,8 +6041,8 @@ module Network.AWS.EC2.Lens
     localGatewayRoute_ownerId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
     localGatewayRoute_localGatewayRouteTableArn,
-    localGatewayRoute_state,
     localGatewayRoute_localGatewayRouteTableId,
+    localGatewayRoute_state,
     localGatewayRoute_destinationCidrBlock,
     localGatewayRoute_type,
 
@@ -5682,8 +6051,8 @@ module Network.AWS.EC2.Lens
     localGatewayRouteTable_outpostArn,
     localGatewayRouteTable_localGatewayId,
     localGatewayRouteTable_localGatewayRouteTableArn,
-    localGatewayRouteTable_state,
     localGatewayRouteTable_localGatewayRouteTableId,
+    localGatewayRouteTable_state,
     localGatewayRouteTable_tags,
 
     -- ** LocalGatewayRouteTableVirtualInterfaceGroupAssociation
@@ -5692,8 +6061,8 @@ module Network.AWS.EC2.Lens
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayId,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn,
-    localGatewayRouteTableVirtualInterfaceGroupAssociation_state,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId,
+    localGatewayRouteTableVirtualInterfaceGroupAssociation_state,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_tags,
 
     -- ** LocalGatewayRouteTableVpcAssociation
@@ -5701,17 +6070,17 @@ module Network.AWS.EC2.Lens
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId,
     localGatewayRouteTableVpcAssociation_localGatewayId,
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn,
-    localGatewayRouteTableVpcAssociation_state,
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableId,
+    localGatewayRouteTableVpcAssociation_state,
     localGatewayRouteTableVpcAssociation_tags,
     localGatewayRouteTableVpcAssociation_vpcId,
 
     -- ** LocalGatewayVirtualInterface
     localGatewayVirtualInterface_peerAddress,
-    localGatewayVirtualInterface_ownerId,
     localGatewayVirtualInterface_localGatewayVirtualInterfaceId,
-    localGatewayVirtualInterface_peerBgpAsn,
+    localGatewayVirtualInterface_ownerId,
     localGatewayVirtualInterface_localAddress,
+    localGatewayVirtualInterface_peerBgpAsn,
     localGatewayVirtualInterface_localGatewayId,
     localGatewayVirtualInterface_localBgpAsn,
     localGatewayVirtualInterface_tags,
@@ -5725,8 +6094,8 @@ module Network.AWS.EC2.Lens
     localGatewayVirtualInterfaceGroup_tags,
 
     -- ** ManagedPrefixList
-    managedPrefixList_stateMessage,
     managedPrefixList_ownerId,
+    managedPrefixList_stateMessage,
     managedPrefixList_maxEntries,
     managedPrefixList_prefixListName,
     managedPrefixList_version,
@@ -5752,15 +6121,15 @@ module Network.AWS.EC2.Lens
 
     -- ** ModifyTransitGatewayVpcAttachmentRequestOptions
     modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport,
-    modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
     modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support,
+    modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
 
     -- ** ModifyVpnTunnelOptionsSpecification
     modifyVpnTunnelOptionsSpecification_phase1LifetimeSeconds,
-    modifyVpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     modifyVpnTunnelOptionsSpecification_iKEVersions,
-    modifyVpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
     modifyVpnTunnelOptionsSpecification_phase2IntegrityAlgorithms,
+    modifyVpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
+    modifyVpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     modifyVpnTunnelOptionsSpecification_startupAction,
     modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds,
     modifyVpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -5789,11 +6158,12 @@ module Network.AWS.EC2.Lens
     natGateway_provisionedBandwidth,
     natGateway_state,
     natGateway_deleteTime,
-    natGateway_tags,
     natGateway_createTime,
+    natGateway_tags,
     natGateway_subnetId,
     natGateway_natGatewayId,
     natGateway_vpcId,
+    natGateway_connectivityType,
 
     -- ** NatGatewayAddress
     natGatewayAddress_privateIp,
@@ -5822,8 +6192,8 @@ module Network.AWS.EC2.Lens
     networkAclEntry_icmpTypeCode,
     networkAclEntry_ipv6CidrBlock,
     networkAclEntry_protocol,
-    networkAclEntry_ruleNumber,
     networkAclEntry_cidrBlock,
+    networkAclEntry_ruleNumber,
 
     -- ** NetworkCardInfo
     networkCardInfo_maximumNetworkInterfaces,
@@ -5833,10 +6203,12 @@ module Network.AWS.EC2.Lens
     -- ** NetworkInfo
     networkInfo_defaultNetworkCardIndex,
     networkInfo_efaSupported,
+    networkInfo_efaInfo,
     networkInfo_networkCards,
     networkInfo_ipv4AddressesPerInterface,
     networkInfo_maximumNetworkInterfaces,
     networkInfo_ipv6Supported,
+    networkInfo_encryptionInTransitSupported,
     networkInfo_maximumNetworkCards,
     networkInfo_networkPerformance,
     networkInfo_ipv6AddressesPerInterface,
@@ -5861,35 +6233,37 @@ module Network.AWS.EC2.Lens
     networkInsightsPath_createdDate,
     networkInsightsPath_source,
     networkInsightsPath_destinationIp,
-    networkInsightsPath_destination,
     networkInsightsPath_sourceIp,
+    networkInsightsPath_destination,
     networkInsightsPath_tags,
     networkInsightsPath_protocol,
-    networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_networkInsightsPathId,
+    networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_destinationPort,
 
     -- ** NetworkInterface
-    networkInterface_groups,
     networkInterface_status,
+    networkInterface_groups,
     networkInterface_ownerId,
     networkInterface_privateIpAddresses,
-    networkInterface_attachment,
     networkInterface_macAddress,
+    networkInterface_attachment,
     networkInterface_association,
     networkInterface_ipv6Addresses,
-    networkInterface_requesterManaged,
     networkInterface_requesterId,
+    networkInterface_requesterManaged,
     networkInterface_outpostArn,
     networkInterface_tagSet,
-    networkInterface_interfaceType,
     networkInterface_sourceDestCheck,
+    networkInterface_interfaceType,
+    networkInterface_ipv6Prefixes,
     networkInterface_availabilityZone,
-    networkInterface_networkInterfaceId,
-    networkInterface_subnetId,
     networkInterface_description,
+    networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
     networkInterface_privateDnsName,
     networkInterface_vpcId,
+    networkInterface_ipv4Prefixes,
     networkInterface_privateIpAddress,
 
     -- ** NetworkInterfaceAssociation
@@ -5905,15 +6279,15 @@ module Network.AWS.EC2.Lens
     networkInterfaceAttachment_status,
     networkInterfaceAttachment_instanceId,
     networkInterfaceAttachment_attachTime,
+    networkInterfaceAttachment_deleteOnTermination,
     networkInterfaceAttachment_attachmentId,
     networkInterfaceAttachment_networkCardIndex,
-    networkInterfaceAttachment_deleteOnTermination,
     networkInterfaceAttachment_deviceIndex,
     networkInterfaceAttachment_instanceOwnerId,
 
     -- ** NetworkInterfaceAttachmentChanges
-    networkInterfaceAttachmentChanges_attachmentId,
     networkInterfaceAttachmentChanges_deleteOnTermination,
+    networkInterfaceAttachmentChanges_attachmentId,
 
     -- ** NetworkInterfaceIpv6Address
     networkInterfaceIpv6Address_ipv6Address,
@@ -5943,17 +6317,17 @@ module Network.AWS.EC2.Lens
     -- ** OnDemandOptions
     onDemandOptions_minTargetCapacity,
     onDemandOptions_capacityReservationOptions,
-    onDemandOptions_singleInstanceType,
-    onDemandOptions_allocationStrategy,
     onDemandOptions_maxTotalPrice,
+    onDemandOptions_allocationStrategy,
+    onDemandOptions_singleInstanceType,
     onDemandOptions_singleAvailabilityZone,
 
     -- ** OnDemandOptionsRequest
     onDemandOptionsRequest_minTargetCapacity,
     onDemandOptionsRequest_capacityReservationOptions,
-    onDemandOptionsRequest_singleInstanceType,
-    onDemandOptionsRequest_allocationStrategy,
     onDemandOptionsRequest_maxTotalPrice,
+    onDemandOptionsRequest_allocationStrategy,
+    onDemandOptionsRequest_singleInstanceType,
     onDemandOptionsRequest_singleAvailabilityZone,
 
     -- ** PathComponent
@@ -6063,8 +6437,8 @@ module Network.AWS.EC2.Lens
 
     -- ** PrefixList
     prefixList_prefixListName,
-    prefixList_cidrs,
     prefixList_prefixListId,
+    prefixList_cidrs,
 
     -- ** PrefixListAssociation
     prefixListAssociation_resourceId,
@@ -6101,8 +6475,8 @@ module Network.AWS.EC2.Lens
     privateDnsDetails_privateDnsName,
 
     -- ** PrivateDnsNameConfiguration
-    privateDnsNameConfiguration_state,
     privateDnsNameConfiguration_name,
+    privateDnsNameConfiguration_state,
     privateDnsNameConfiguration_value,
     privateDnsNameConfiguration_type,
 
@@ -6122,8 +6496,8 @@ module Network.AWS.EC2.Lens
     propagatingVgw_gatewayId,
 
     -- ** ProvisionedBandwidth
-    provisionedBandwidth_provisionTime,
     provisionedBandwidth_status,
+    provisionedBandwidth_provisionTime,
     provisionedBandwidth_requestTime,
     provisionedBandwidth_requested,
     provisionedBandwidth_provisioned,
@@ -6138,8 +6512,8 @@ module Network.AWS.EC2.Lens
     publicIpv4Pool_poolAddressRanges,
     publicIpv4Pool_totalAddressCount,
     publicIpv4Pool_tags,
-    publicIpv4Pool_totalAvailableAddressCount,
     publicIpv4Pool_description,
+    publicIpv4Pool_totalAvailableAddressCount,
     publicIpv4Pool_networkBorderGroup,
 
     -- ** PublicIpv4PoolRange
@@ -6149,10 +6523,10 @@ module Network.AWS.EC2.Lens
     publicIpv4PoolRange_availableAddressCount,
 
     -- ** Purchase
-    purchase_instanceFamily,
     purchase_hostIdSet,
-    purchase_upfrontPrice,
+    purchase_instanceFamily,
     purchase_paymentOption,
+    purchase_upfrontPrice,
     purchase_duration,
     purchase_hostReservationId,
     purchase_currencyCode,
@@ -6166,6 +6540,13 @@ module Network.AWS.EC2.Lens
     recurringCharge_amount,
     recurringCharge_frequency,
 
+    -- ** ReferencedSecurityGroup
+    referencedSecurityGroup_vpcPeeringConnectionId,
+    referencedSecurityGroup_groupId,
+    referencedSecurityGroup_userId,
+    referencedSecurityGroup_peeringStatus,
+    referencedSecurityGroup_vpcId,
+
     -- ** RegionInfo
     regionInfo_regionName,
     regionInfo_optInStatus,
@@ -6178,23 +6559,31 @@ module Network.AWS.EC2.Lens
     -- ** RemovePrefixListEntry
     removePrefixListEntry_cidr,
 
+    -- ** ReplaceRootVolumeTask
+    replaceRootVolumeTask_instanceId,
+    replaceRootVolumeTask_startTime,
+    replaceRootVolumeTask_replaceRootVolumeTaskId,
+    replaceRootVolumeTask_completeTime,
+    replaceRootVolumeTask_tags,
+    replaceRootVolumeTask_taskState,
+
     -- ** RequestLaunchTemplateData
     requestLaunchTemplateData_securityGroupIds,
     requestLaunchTemplateData_tagSpecifications,
     requestLaunchTemplateData_elasticGpuSpecifications,
-    requestLaunchTemplateData_instanceType,
     requestLaunchTemplateData_capacityReservationSpecification,
     requestLaunchTemplateData_ebsOptimized,
-    requestLaunchTemplateData_userData,
     requestLaunchTemplateData_placement,
+    requestLaunchTemplateData_userData,
+    requestLaunchTemplateData_instanceType,
     requestLaunchTemplateData_ramDiskId,
     requestLaunchTemplateData_creditSpecification,
-    requestLaunchTemplateData_instanceMarketOptions,
     requestLaunchTemplateData_licenseSpecifications,
+    requestLaunchTemplateData_instanceMarketOptions,
     requestLaunchTemplateData_instanceInitiatedShutdownBehavior,
+    requestLaunchTemplateData_elasticInferenceAccelerators,
     requestLaunchTemplateData_imageId,
     requestLaunchTemplateData_securityGroups,
-    requestLaunchTemplateData_elasticInferenceAccelerators,
     requestLaunchTemplateData_iamInstanceProfile,
     requestLaunchTemplateData_hibernationOptions,
     requestLaunchTemplateData_monitoring,
@@ -6202,19 +6591,19 @@ module Network.AWS.EC2.Lens
     requestLaunchTemplateData_enclaveOptions,
     requestLaunchTemplateData_kernelId,
     requestLaunchTemplateData_cpuOptions,
-    requestLaunchTemplateData_keyName,
-    requestLaunchTemplateData_networkInterfaces,
     requestLaunchTemplateData_disableApiTermination,
+    requestLaunchTemplateData_networkInterfaces,
+    requestLaunchTemplateData_keyName,
     requestLaunchTemplateData_metadataOptions,
 
     -- ** RequestSpotLaunchSpecification
     requestSpotLaunchSpecification_securityGroupIds,
-    requestSpotLaunchSpecification_instanceType,
     requestSpotLaunchSpecification_ebsOptimized,
-    requestSpotLaunchSpecification_userData,
     requestSpotLaunchSpecification_placement,
-    requestSpotLaunchSpecification_addressingType,
+    requestSpotLaunchSpecification_userData,
+    requestSpotLaunchSpecification_instanceType,
     requestSpotLaunchSpecification_ramdiskId,
+    requestSpotLaunchSpecification_addressingType,
     requestSpotLaunchSpecification_imageId,
     requestSpotLaunchSpecification_securityGroups,
     requestSpotLaunchSpecification_iamInstanceProfile,
@@ -6222,8 +6611,8 @@ module Network.AWS.EC2.Lens
     requestSpotLaunchSpecification_blockDeviceMappings,
     requestSpotLaunchSpecification_subnetId,
     requestSpotLaunchSpecification_kernelId,
-    requestSpotLaunchSpecification_keyName,
     requestSpotLaunchSpecification_networkInterfaces,
+    requestSpotLaunchSpecification_keyName,
 
     -- ** Reservation
     reservation_groups,
@@ -6253,8 +6642,8 @@ module Network.AWS.EC2.Lens
     reservedInstances_instanceTenancy,
     reservedInstances_currencyCode,
     reservedInstances_scope,
-    reservedInstances_state,
     reservedInstances_availabilityZone,
+    reservedInstances_state,
     reservedInstances_tags,
     reservedInstances_offeringClass,
     reservedInstances_fixedPrice,
@@ -6278,11 +6667,11 @@ module Network.AWS.EC2.Lens
     -- ** ReservedInstancesListing
     reservedInstancesListing_statusMessage,
     reservedInstancesListing_status,
-    reservedInstancesListing_priceSchedules,
     reservedInstancesListing_reservedInstancesId,
+    reservedInstancesListing_priceSchedules,
     reservedInstancesListing_createDate,
-    reservedInstancesListing_tags,
     reservedInstancesListing_instanceCounts,
+    reservedInstancesListing_tags,
     reservedInstancesListing_reservedInstancesListingId,
     reservedInstancesListing_updateDate,
     reservedInstancesListing_clientToken,
@@ -6305,8 +6694,8 @@ module Network.AWS.EC2.Lens
     -- ** ReservedInstancesOffering
     reservedInstancesOffering_instanceType,
     reservedInstancesOffering_duration,
-    reservedInstancesOffering_instanceTenancy,
     reservedInstancesOffering_reservedInstancesOfferingId,
+    reservedInstancesOffering_instanceTenancy,
     reservedInstancesOffering_currencyCode,
     reservedInstancesOffering_scope,
     reservedInstancesOffering_availabilityZone,
@@ -6327,19 +6716,19 @@ module Network.AWS.EC2.Lens
     responseLaunchTemplateData_securityGroupIds,
     responseLaunchTemplateData_tagSpecifications,
     responseLaunchTemplateData_elasticGpuSpecifications,
-    responseLaunchTemplateData_instanceType,
     responseLaunchTemplateData_capacityReservationSpecification,
     responseLaunchTemplateData_ebsOptimized,
-    responseLaunchTemplateData_userData,
     responseLaunchTemplateData_placement,
+    responseLaunchTemplateData_userData,
+    responseLaunchTemplateData_instanceType,
     responseLaunchTemplateData_ramDiskId,
     responseLaunchTemplateData_creditSpecification,
-    responseLaunchTemplateData_instanceMarketOptions,
     responseLaunchTemplateData_licenseSpecifications,
+    responseLaunchTemplateData_instanceMarketOptions,
     responseLaunchTemplateData_instanceInitiatedShutdownBehavior,
+    responseLaunchTemplateData_elasticInferenceAccelerators,
     responseLaunchTemplateData_imageId,
     responseLaunchTemplateData_securityGroups,
-    responseLaunchTemplateData_elasticInferenceAccelerators,
     responseLaunchTemplateData_iamInstanceProfile,
     responseLaunchTemplateData_hibernationOptions,
     responseLaunchTemplateData_monitoring,
@@ -6347,9 +6736,9 @@ module Network.AWS.EC2.Lens
     responseLaunchTemplateData_enclaveOptions,
     responseLaunchTemplateData_kernelId,
     responseLaunchTemplateData_cpuOptions,
-    responseLaunchTemplateData_keyName,
-    responseLaunchTemplateData_networkInterfaces,
     responseLaunchTemplateData_disableApiTermination,
+    responseLaunchTemplateData_networkInterfaces,
+    responseLaunchTemplateData_keyName,
     responseLaunchTemplateData_metadataOptions,
 
     -- ** Route
@@ -6359,20 +6748,20 @@ module Network.AWS.EC2.Lens
     route_destinationPrefixListId,
     route_destinationIpv6CidrBlock,
     route_localGatewayId,
-    route_state,
     route_egressOnlyInternetGatewayId,
-    route_carrierGatewayId,
+    route_state,
     route_destinationCidrBlock,
-    route_networkInterfaceId,
+    route_carrierGatewayId,
     route_natGatewayId,
-    route_instanceOwnerId,
+    route_networkInterfaceId,
     route_gatewayId,
+    route_instanceOwnerId,
     route_transitGatewayId,
 
     -- ** RouteTable
     routeTable_ownerId,
-    routeTable_routeTableId,
     routeTable_routes,
+    routeTable_routeTableId,
     routeTable_tags,
     routeTable_propagatingVgws,
     routeTable_vpcId,
@@ -6393,6 +6782,10 @@ module Network.AWS.EC2.Lens
     -- ** RunInstancesMonitoringEnabled
     runInstancesMonitoringEnabled_enabled,
 
+    -- ** S3ObjectTag
+    s3ObjectTag_key,
+    s3ObjectTag_value,
+
     -- ** S3Storage
     s3Storage_uploadPolicySignature,
     s3Storage_uploadPolicy,
@@ -6402,13 +6795,13 @@ module Network.AWS.EC2.Lens
 
     -- ** ScheduledInstance
     scheduledInstance_platform,
-    scheduledInstance_instanceType,
     scheduledInstance_networkPlatform,
+    scheduledInstance_instanceType,
     scheduledInstance_slotDurationInHours,
     scheduledInstance_createDate,
     scheduledInstance_scheduledInstanceId,
-    scheduledInstance_previousSlotEndTime,
     scheduledInstance_availabilityZone,
+    scheduledInstance_previousSlotEndTime,
     scheduledInstance_recurrence,
     scheduledInstance_totalScheduledInstanceHours,
     scheduledInstance_nextSlotStartTime,
@@ -6419,18 +6812,18 @@ module Network.AWS.EC2.Lens
 
     -- ** ScheduledInstanceAvailability
     scheduledInstanceAvailability_platform,
-    scheduledInstanceAvailability_instanceType,
     scheduledInstanceAvailability_networkPlatform,
+    scheduledInstanceAvailability_instanceType,
     scheduledInstanceAvailability_slotDurationInHours,
     scheduledInstanceAvailability_availableInstanceCount,
     scheduledInstanceAvailability_minTermDurationInDays,
     scheduledInstanceAvailability_availabilityZone,
-    scheduledInstanceAvailability_recurrence,
     scheduledInstanceAvailability_maxTermDurationInDays,
+    scheduledInstanceAvailability_recurrence,
     scheduledInstanceAvailability_totalScheduledInstanceHours,
     scheduledInstanceAvailability_firstSlotStartTime,
-    scheduledInstanceAvailability_hourlyPrice,
     scheduledInstanceAvailability_purchaseToken,
+    scheduledInstanceAvailability_hourlyPrice,
 
     -- ** ScheduledInstanceRecurrence
     scheduledInstanceRecurrence_occurrenceUnit,
@@ -6457,8 +6850,8 @@ module Network.AWS.EC2.Lens
     scheduledInstancesEbs_deleteOnTermination,
     scheduledInstancesEbs_snapshotId,
     scheduledInstancesEbs_volumeType,
-    scheduledInstancesEbs_volumeSize,
     scheduledInstancesEbs_iops,
+    scheduledInstancesEbs_volumeSize,
 
     -- ** ScheduledInstancesIamInstanceProfile
     scheduledInstancesIamInstanceProfile_arn,
@@ -6469,18 +6862,18 @@ module Network.AWS.EC2.Lens
 
     -- ** ScheduledInstancesLaunchSpecification
     scheduledInstancesLaunchSpecification_securityGroupIds,
-    scheduledInstancesLaunchSpecification_instanceType,
     scheduledInstancesLaunchSpecification_ebsOptimized,
-    scheduledInstancesLaunchSpecification_userData,
     scheduledInstancesLaunchSpecification_placement,
+    scheduledInstancesLaunchSpecification_userData,
+    scheduledInstancesLaunchSpecification_instanceType,
     scheduledInstancesLaunchSpecification_ramdiskId,
     scheduledInstancesLaunchSpecification_iamInstanceProfile,
     scheduledInstancesLaunchSpecification_monitoring,
     scheduledInstancesLaunchSpecification_blockDeviceMappings,
     scheduledInstancesLaunchSpecification_subnetId,
     scheduledInstancesLaunchSpecification_kernelId,
-    scheduledInstancesLaunchSpecification_keyName,
     scheduledInstancesLaunchSpecification_networkInterfaces,
+    scheduledInstancesLaunchSpecification_keyName,
     scheduledInstancesLaunchSpecification_imageId,
 
     -- ** ScheduledInstancesMonitoring
@@ -6492,10 +6885,10 @@ module Network.AWS.EC2.Lens
     scheduledInstancesNetworkInterface_associatePublicIpAddress,
     scheduledInstancesNetworkInterface_ipv6AddressCount,
     scheduledInstancesNetworkInterface_deleteOnTermination,
-    scheduledInstancesNetworkInterface_networkInterfaceId,
-    scheduledInstancesNetworkInterface_subnetId,
     scheduledInstancesNetworkInterface_description,
+    scheduledInstancesNetworkInterface_subnetId,
     scheduledInstancesNetworkInterface_deviceIndex,
+    scheduledInstancesNetworkInterface_networkInterfaceId,
     scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount,
     scheduledInstancesNetworkInterface_privateIpAddressConfigs,
     scheduledInstancesNetworkInterface_privateIpAddress,
@@ -6527,10 +6920,43 @@ module Network.AWS.EC2.Lens
     securityGroupReference_groupId,
     securityGroupReference_referencingVpcId,
 
+    -- ** SecurityGroupRule
+    securityGroupRule_fromPort,
+    securityGroupRule_cidrIpv4,
+    securityGroupRule_isEgress,
+    securityGroupRule_referencedGroupInfo,
+    securityGroupRule_groupOwnerId,
+    securityGroupRule_cidrIpv6,
+    securityGroupRule_groupId,
+    securityGroupRule_prefixListId,
+    securityGroupRule_ipProtocol,
+    securityGroupRule_tags,
+    securityGroupRule_description,
+    securityGroupRule_toPort,
+    securityGroupRule_securityGroupRuleId,
+
+    -- ** SecurityGroupRuleDescription
+    securityGroupRuleDescription_description,
+    securityGroupRuleDescription_securityGroupRuleId,
+
+    -- ** SecurityGroupRuleRequest
+    securityGroupRuleRequest_fromPort,
+    securityGroupRuleRequest_cidrIpv4,
+    securityGroupRuleRequest_referencedGroupId,
+    securityGroupRuleRequest_cidrIpv6,
+    securityGroupRuleRequest_prefixListId,
+    securityGroupRuleRequest_ipProtocol,
+    securityGroupRuleRequest_description,
+    securityGroupRuleRequest_toPort,
+
+    -- ** SecurityGroupRuleUpdate
+    securityGroupRuleUpdate_securityGroupRule,
+    securityGroupRuleUpdate_securityGroupRuleId,
+
     -- ** ServiceConfiguration
     serviceConfiguration_managesVpcEndpoints,
-    serviceConfiguration_gatewayLoadBalancerArns,
     serviceConfiguration_availabilityZones,
+    serviceConfiguration_gatewayLoadBalancerArns,
     serviceConfiguration_privateDnsNameConfiguration,
     serviceConfiguration_baseEndpointDnsNames,
     serviceConfiguration_serviceId,
@@ -6539,16 +6965,16 @@ module Network.AWS.EC2.Lens
     serviceConfiguration_privateDnsName,
     serviceConfiguration_acceptanceRequired,
     serviceConfiguration_serviceType,
-    serviceConfiguration_networkLoadBalancerArns,
     serviceConfiguration_serviceState,
+    serviceConfiguration_networkLoadBalancerArns,
 
     -- ** ServiceDetail
     serviceDetail_managesVpcEndpoints,
     serviceDetail_availabilityZones,
     serviceDetail_baseEndpointDnsNames,
     serviceDetail_serviceId,
-    serviceDetail_vpcEndpointPolicySupported,
     serviceDetail_privateDnsNames,
+    serviceDetail_vpcEndpointPolicySupported,
     serviceDetail_privateDnsNameVerificationState,
     serviceDetail_serviceName,
     serviceDetail_tags,
@@ -6590,8 +7016,8 @@ module Network.AWS.EC2.Lens
     snapshotDetail_statusMessage,
     snapshotDetail_status,
     snapshotDetail_format,
-    snapshotDetail_userBucket,
     snapshotDetail_deviceName,
+    snapshotDetail_userBucket,
     snapshotDetail_snapshotId,
     snapshotDetail_description,
     snapshotDetail_url,
@@ -6610,11 +7036,11 @@ module Network.AWS.EC2.Lens
     snapshotInfo_startTime,
     snapshotInfo_volumeId,
     snapshotInfo_state,
-    snapshotInfo_snapshotId,
     snapshotInfo_tags,
+    snapshotInfo_snapshotId,
     snapshotInfo_description,
-    snapshotInfo_progress,
     snapshotInfo_volumeSize,
+    snapshotInfo_progress,
 
     -- ** SnapshotTaskDetail
     snapshotTaskDetail_diskImageSize,
@@ -6622,8 +7048,8 @@ module Network.AWS.EC2.Lens
     snapshotTaskDetail_status,
     snapshotTaskDetail_encrypted,
     snapshotTaskDetail_format,
-    snapshotTaskDetail_userBucket,
     snapshotTaskDetail_kmsKeyId,
+    snapshotTaskDetail_userBucket,
     snapshotTaskDetail_snapshotId,
     snapshotTaskDetail_description,
     snapshotTaskDetail_url,
@@ -6641,12 +7067,12 @@ module Network.AWS.EC2.Lens
 
     -- ** SpotFleetLaunchSpecification
     spotFleetLaunchSpecification_tagSpecifications,
-    spotFleetLaunchSpecification_instanceType,
     spotFleetLaunchSpecification_ebsOptimized,
-    spotFleetLaunchSpecification_userData,
     spotFleetLaunchSpecification_placement,
-    spotFleetLaunchSpecification_addressingType,
+    spotFleetLaunchSpecification_userData,
+    spotFleetLaunchSpecification_instanceType,
     spotFleetLaunchSpecification_ramdiskId,
+    spotFleetLaunchSpecification_addressingType,
     spotFleetLaunchSpecification_spotPrice,
     spotFleetLaunchSpecification_imageId,
     spotFleetLaunchSpecification_securityGroups,
@@ -6655,8 +7081,8 @@ module Network.AWS.EC2.Lens
     spotFleetLaunchSpecification_blockDeviceMappings,
     spotFleetLaunchSpecification_subnetId,
     spotFleetLaunchSpecification_kernelId,
-    spotFleetLaunchSpecification_keyName,
     spotFleetLaunchSpecification_networkInterfaces,
+    spotFleetLaunchSpecification_keyName,
     spotFleetLaunchSpecification_weightedCapacity,
 
     -- ** SpotFleetMonitoring
@@ -6664,35 +7090,36 @@ module Network.AWS.EC2.Lens
 
     -- ** SpotFleetRequestConfig
     spotFleetRequestConfig_spotFleetRequestState,
-    spotFleetRequestConfig_activityStatus,
-    spotFleetRequestConfig_tags,
     spotFleetRequestConfig_createTime,
+    spotFleetRequestConfig_tags,
+    spotFleetRequestConfig_activityStatus,
     spotFleetRequestConfig_spotFleetRequestConfig,
     spotFleetRequestConfig_spotFleetRequestId,
 
     -- ** SpotFleetRequestConfigData
-    spotFleetRequestConfigData_launchTemplateConfigs,
     spotFleetRequestConfigData_tagSpecifications,
-    spotFleetRequestConfigData_spotMaxTotalPrice,
+    spotFleetRequestConfigData_launchTemplateConfigs,
     spotFleetRequestConfigData_onDemandTargetCapacity,
     spotFleetRequestConfigData_onDemandFulfilledCapacity,
+    spotFleetRequestConfigData_spotMaxTotalPrice,
     spotFleetRequestConfigData_validFrom,
     spotFleetRequestConfigData_replaceUnhealthyInstances,
     spotFleetRequestConfigData_onDemandAllocationStrategy,
     spotFleetRequestConfigData_spotPrice,
     spotFleetRequestConfigData_onDemandMaxTotalPrice,
     spotFleetRequestConfigData_instanceInterruptionBehavior,
+    spotFleetRequestConfigData_context,
     spotFleetRequestConfigData_validUntil,
-    spotFleetRequestConfigData_loadBalancersConfig,
     spotFleetRequestConfigData_excessCapacityTerminationPolicy,
-    spotFleetRequestConfigData_allocationStrategy,
     spotFleetRequestConfigData_launchSpecifications,
-    spotFleetRequestConfigData_type,
+    spotFleetRequestConfigData_loadBalancersConfig,
+    spotFleetRequestConfigData_allocationStrategy,
     spotFleetRequestConfigData_spotMaintenanceStrategies,
-    spotFleetRequestConfigData_instancePoolsToUseCount,
+    spotFleetRequestConfigData_type,
     spotFleetRequestConfigData_fulfilledCapacity,
-    spotFleetRequestConfigData_clientToken,
+    spotFleetRequestConfigData_instancePoolsToUseCount,
     spotFleetRequestConfigData_terminateInstancesWithExpiration,
+    spotFleetRequestConfigData_clientToken,
     spotFleetRequestConfigData_iamFleetRole,
     spotFleetRequestConfigData_targetCapacity,
 
@@ -6707,19 +7134,19 @@ module Network.AWS.EC2.Lens
     spotInstanceRequest_launchedAvailabilityZone,
     spotInstanceRequest_validFrom,
     spotInstanceRequest_spotPrice,
-    spotInstanceRequest_fault,
-    spotInstanceRequest_blockDurationMinutes,
     spotInstanceRequest_launchGroup,
+    spotInstanceRequest_blockDurationMinutes,
+    spotInstanceRequest_fault,
     spotInstanceRequest_instanceInterruptionBehavior,
     spotInstanceRequest_state,
     spotInstanceRequest_validUntil,
-    spotInstanceRequest_tags,
     spotInstanceRequest_createTime,
+    spotInstanceRequest_tags,
     spotInstanceRequest_launchSpecification,
-    spotInstanceRequest_type,
     spotInstanceRequest_availabilityZoneGroup,
-    spotInstanceRequest_productDescription,
+    spotInstanceRequest_type,
     spotInstanceRequest_spotInstanceRequestId,
+    spotInstanceRequest_productDescription,
 
     -- ** SpotInstanceStateFault
     spotInstanceStateFault_message,
@@ -6744,21 +7171,21 @@ module Network.AWS.EC2.Lens
     spotOptions_minTargetCapacity,
     spotOptions_maintenanceStrategies,
     spotOptions_instanceInterruptionBehavior,
-    spotOptions_singleInstanceType,
-    spotOptions_allocationStrategy,
     spotOptions_maxTotalPrice,
-    spotOptions_instancePoolsToUseCount,
+    spotOptions_allocationStrategy,
+    spotOptions_singleInstanceType,
     spotOptions_singleAvailabilityZone,
+    spotOptions_instancePoolsToUseCount,
 
     -- ** SpotOptionsRequest
     spotOptionsRequest_minTargetCapacity,
     spotOptionsRequest_maintenanceStrategies,
     spotOptionsRequest_instanceInterruptionBehavior,
-    spotOptionsRequest_singleInstanceType,
-    spotOptionsRequest_allocationStrategy,
     spotOptionsRequest_maxTotalPrice,
-    spotOptionsRequest_instancePoolsToUseCount,
+    spotOptionsRequest_allocationStrategy,
+    spotOptionsRequest_singleInstanceType,
     spotOptionsRequest_singleAvailabilityZone,
+    spotOptionsRequest_instancePoolsToUseCount,
 
     -- ** SpotPlacement
     spotPlacement_groupName,
@@ -6799,11 +7226,20 @@ module Network.AWS.EC2.Lens
     storageLocation_key,
     storageLocation_bucket,
 
+    -- ** StoreImageTaskResult
+    storeImageTaskResult_storeTaskFailureReason,
+    storeImageTaskResult_amiId,
+    storeImageTaskResult_progressPercentage,
+    storeImageTaskResult_bucket,
+    storeImageTaskResult_taskStartTime,
+    storeImageTaskResult_storeTaskState,
+    storeImageTaskResult_s3objectKey,
+
     -- ** Subnet
-    subnet_ownerId,
     subnet_customerOwnedIpv4Pool,
-    subnet_subnetArn,
+    subnet_ownerId,
     subnet_assignIpv6AddressOnCreation,
+    subnet_subnetArn,
     subnet_outpostArn,
     subnet_mapPublicIpOnLaunch,
     subnet_availabilityZoneId,
@@ -6826,10 +7262,19 @@ module Network.AWS.EC2.Lens
     subnetCidrBlockState_statusMessage,
     subnetCidrBlockState_state,
 
+    -- ** SubnetCidrReservation
+    subnetCidrReservation_ownerId,
+    subnetCidrReservation_reservationType,
+    subnetCidrReservation_subnetCidrReservationId,
+    subnetCidrReservation_cidr,
+    subnetCidrReservation_tags,
+    subnetCidrReservation_description,
+    subnetCidrReservation_subnetId,
+
     -- ** SubnetIpv6CidrBlockAssociation
     subnetIpv6CidrBlockAssociation_ipv6CidrBlockState,
-    subnetIpv6CidrBlockAssociation_associationId,
     subnetIpv6CidrBlockAssociation_ipv6CidrBlock,
+    subnetIpv6CidrBlockAssociation_associationId,
 
     -- ** SuccessfulInstanceCreditSpecificationItem
     successfulInstanceCreditSpecificationItem_instanceId,
@@ -6891,12 +7336,12 @@ module Network.AWS.EC2.Lens
 
     -- ** TerminateConnectionStatus
     terminateConnectionStatus_connectionId,
-    terminateConnectionStatus_previousStatus,
     terminateConnectionStatus_currentStatus,
+    terminateConnectionStatus_previousStatus,
 
     -- ** TrafficMirrorFilter
-    trafficMirrorFilter_egressFilterRules,
     trafficMirrorFilter_networkServices,
+    trafficMirrorFilter_egressFilterRules,
     trafficMirrorFilter_tags,
     trafficMirrorFilter_trafficMirrorFilterId,
     trafficMirrorFilter_description,
@@ -6905,9 +7350,9 @@ module Network.AWS.EC2.Lens
     -- ** TrafficMirrorFilterRule
     trafficMirrorFilterRule_trafficMirrorFilterRuleId,
     trafficMirrorFilterRule_sourcePortRange,
-    trafficMirrorFilterRule_trafficDirection,
     trafficMirrorFilterRule_ruleAction,
     trafficMirrorFilterRule_sourceCidrBlock,
+    trafficMirrorFilterRule_trafficDirection,
     trafficMirrorFilterRule_trafficMirrorFilterId,
     trafficMirrorFilterRule_destinationCidrBlock,
     trafficMirrorFilterRule_protocol,
@@ -6929,8 +7374,8 @@ module Network.AWS.EC2.Lens
     trafficMirrorSession_packetLength,
     trafficMirrorSession_tags,
     trafficMirrorSession_trafficMirrorFilterId,
-    trafficMirrorSession_networkInterfaceId,
     trafficMirrorSession_description,
+    trafficMirrorSession_networkInterfaceId,
     trafficMirrorSession_trafficMirrorTargetId,
     trafficMirrorSession_sessionNumber,
     trafficMirrorSession_virtualNetworkId,
@@ -6939,14 +7384,14 @@ module Network.AWS.EC2.Lens
     trafficMirrorTarget_ownerId,
     trafficMirrorTarget_networkLoadBalancerArn,
     trafficMirrorTarget_tags,
-    trafficMirrorTarget_networkInterfaceId,
     trafficMirrorTarget_description,
-    trafficMirrorTarget_type,
+    trafficMirrorTarget_networkInterfaceId,
     trafficMirrorTarget_trafficMirrorTargetId,
+    trafficMirrorTarget_type,
 
     -- ** TransitGateway
-    transitGateway_ownerId,
     transitGateway_creationTime,
+    transitGateway_ownerId,
     transitGateway_options,
     transitGateway_transitGatewayArn,
     transitGateway_state,
@@ -6980,8 +7425,8 @@ module Network.AWS.EC2.Lens
     -- ** TransitGatewayAttachmentBgpConfiguration
     transitGatewayAttachmentBgpConfiguration_peerAddress,
     transitGatewayAttachmentBgpConfiguration_peerAsn,
-    transitGatewayAttachmentBgpConfiguration_bgpStatus,
     transitGatewayAttachmentBgpConfiguration_transitGatewayAddress,
+    transitGatewayAttachmentBgpConfiguration_bgpStatus,
     transitGatewayAttachmentBgpConfiguration_transitGatewayAsn,
 
     -- ** TransitGatewayAttachmentPropagation
@@ -7001,8 +7446,8 @@ module Network.AWS.EC2.Lens
     transitGatewayConnectOptions_protocol,
 
     -- ** TransitGatewayConnectPeer
-    transitGatewayConnectPeer_connectPeerConfiguration,
     transitGatewayConnectPeer_creationTime,
+    transitGatewayConnectPeer_connectPeerConfiguration,
     transitGatewayConnectPeer_transitGatewayConnectPeerId,
     transitGatewayConnectPeer_state,
     transitGatewayConnectPeer_tags,
@@ -7011,8 +7456,8 @@ module Network.AWS.EC2.Lens
     -- ** TransitGatewayConnectPeerConfiguration
     transitGatewayConnectPeerConfiguration_peerAddress,
     transitGatewayConnectPeerConfiguration_transitGatewayAddress,
-    transitGatewayConnectPeerConfiguration_bgpConfigurations,
     transitGatewayConnectPeerConfiguration_protocol,
+    transitGatewayConnectPeerConfiguration_bgpConfigurations,
     transitGatewayConnectPeerConfiguration_insideCidrBlocks,
 
     -- ** TransitGatewayConnectRequestBgpOptions
@@ -7029,8 +7474,8 @@ module Network.AWS.EC2.Lens
     transitGatewayMulticastDeregisteredGroupSources_groupIpAddress,
 
     -- ** TransitGatewayMulticastDomain
-    transitGatewayMulticastDomain_ownerId,
     transitGatewayMulticastDomain_creationTime,
+    transitGatewayMulticastDomain_ownerId,
     transitGatewayMulticastDomain_transitGatewayMulticastDomainId,
     transitGatewayMulticastDomain_options,
     transitGatewayMulticastDomain_state,
@@ -7062,11 +7507,11 @@ module Network.AWS.EC2.Lens
     transitGatewayMulticastGroup_resourceId,
     transitGatewayMulticastGroup_groupMember,
     transitGatewayMulticastGroup_memberType,
-    transitGatewayMulticastGroup_groupSource,
     transitGatewayMulticastGroup_resourceType,
+    transitGatewayMulticastGroup_groupSource,
+    transitGatewayMulticastGroup_subnetId,
     transitGatewayMulticastGroup_resourceOwnerId,
     transitGatewayMulticastGroup_networkInterfaceId,
-    transitGatewayMulticastGroup_subnetId,
     transitGatewayMulticastGroup_transitGatewayAttachmentId,
     transitGatewayMulticastGroup_groupIpAddress,
     transitGatewayMulticastGroup_sourceType,
@@ -7087,16 +7532,16 @@ module Network.AWS.EC2.Lens
     transitGatewayOptions_dnsSupport,
     transitGatewayOptions_associationDefaultRouteTableId,
     transitGatewayOptions_autoAcceptSharedAttachments,
-    transitGatewayOptions_amazonSideAsn,
     transitGatewayOptions_transitGatewayCidrBlocks,
+    transitGatewayOptions_amazonSideAsn,
     transitGatewayOptions_multicastSupport,
     transitGatewayOptions_defaultRouteTableAssociation,
     transitGatewayOptions_defaultRouteTablePropagation,
 
     -- ** TransitGatewayPeeringAttachment
-    transitGatewayPeeringAttachment_status,
     transitGatewayPeeringAttachment_creationTime,
     transitGatewayPeeringAttachment_requesterTgwInfo,
+    transitGatewayPeeringAttachment_status,
     transitGatewayPeeringAttachment_accepterTgwInfo,
     transitGatewayPeeringAttachment_state,
     transitGatewayPeeringAttachment_tags,
@@ -7126,8 +7571,8 @@ module Network.AWS.EC2.Lens
     transitGatewayRequestOptions_vpnEcmpSupport,
     transitGatewayRequestOptions_dnsSupport,
     transitGatewayRequestOptions_autoAcceptSharedAttachments,
-    transitGatewayRequestOptions_amazonSideAsn,
     transitGatewayRequestOptions_transitGatewayCidrBlocks,
+    transitGatewayRequestOptions_amazonSideAsn,
     transitGatewayRequestOptions_multicastSupport,
     transitGatewayRequestOptions_defaultRouteTableAssociation,
     transitGatewayRequestOptions_defaultRouteTablePropagation,
@@ -7170,23 +7615,32 @@ module Network.AWS.EC2.Lens
     transitGatewayVpcAttachment_options,
     transitGatewayVpcAttachment_subnetIds,
     transitGatewayVpcAttachment_state,
-    transitGatewayVpcAttachment_vpcOwnerId,
     transitGatewayVpcAttachment_tags,
+    transitGatewayVpcAttachment_vpcOwnerId,
     transitGatewayVpcAttachment_transitGatewayAttachmentId,
     transitGatewayVpcAttachment_vpcId,
     transitGatewayVpcAttachment_transitGatewayId,
 
     -- ** TransitGatewayVpcAttachmentOptions
     transitGatewayVpcAttachmentOptions_applianceModeSupport,
-    transitGatewayVpcAttachmentOptions_dnsSupport,
     transitGatewayVpcAttachmentOptions_ipv6Support,
+    transitGatewayVpcAttachmentOptions_dnsSupport,
+
+    -- ** TrunkInterfaceAssociation
+    trunkInterfaceAssociation_branchInterfaceId,
+    trunkInterfaceAssociation_trunkInterfaceId,
+    trunkInterfaceAssociation_greKey,
+    trunkInterfaceAssociation_associationId,
+    trunkInterfaceAssociation_tags,
+    trunkInterfaceAssociation_interfaceProtocol,
+    trunkInterfaceAssociation_vlanId,
 
     -- ** TunnelOption
     tunnelOption_phase1LifetimeSeconds,
-    tunnelOption_phase2DHGroupNumbers,
     tunnelOption_ikeVersions,
-    tunnelOption_phase2EncryptionAlgorithms,
     tunnelOption_phase2IntegrityAlgorithms,
+    tunnelOption_phase2EncryptionAlgorithms,
+    tunnelOption_phase2DHGroupNumbers,
     tunnelOption_startupAction,
     tunnelOption_dpdTimeoutSeconds,
     tunnelOption_phase1DHGroupNumbers,
@@ -7291,20 +7745,20 @@ module Network.AWS.EC2.Lens
 
     -- ** VolumeModification
     volumeModification_statusMessage,
-    volumeModification_targetVolumeType,
     volumeModification_originalVolumeType,
+    volumeModification_targetVolumeType,
     volumeModification_startTime,
     volumeModification_volumeId,
     volumeModification_endTime,
-    volumeModification_originalIops,
-    volumeModification_targetSize,
-    volumeModification_originalSize,
     volumeModification_targetIops,
+    volumeModification_originalSize,
+    volumeModification_targetSize,
+    volumeModification_originalIops,
     volumeModification_modificationState,
     volumeModification_targetMultiAttachEnabled,
     volumeModification_originalMultiAttachEnabled,
-    volumeModification_targetThroughput,
     volumeModification_originalThroughput,
+    volumeModification_targetThroughput,
     volumeModification_progress,
 
     -- ** VolumeStatusAction
@@ -7322,9 +7776,9 @@ module Network.AWS.EC2.Lens
     volumeStatusDetails_name,
 
     -- ** VolumeStatusEvent
-    volumeStatusEvent_notBefore,
-    volumeStatusEvent_eventType,
     volumeStatusEvent_instanceId,
+    volumeStatusEvent_eventType,
+    volumeStatusEvent_notBefore,
     volumeStatusEvent_eventId,
     volumeStatusEvent_notAfter,
     volumeStatusEvent_description,
@@ -7336,8 +7790,8 @@ module Network.AWS.EC2.Lens
     -- ** VolumeStatusItem
     volumeStatusItem_volumeStatus,
     volumeStatusItem_outpostArn,
-    volumeStatusItem_volumeId,
     volumeStatusItem_actions,
+    volumeStatusItem_volumeId,
     volumeStatusItem_events,
     volumeStatusItem_availabilityZone,
     volumeStatusItem_attachmentStatuses,
@@ -7373,27 +7827,27 @@ module Network.AWS.EC2.Lens
     vpcClassicLink_vpcId,
 
     -- ** VpcEndpoint
-    vpcEndpoint_creationTimestamp,
     vpcEndpoint_policyDocument,
+    vpcEndpoint_creationTimestamp,
     vpcEndpoint_groups,
     vpcEndpoint_ownerId,
     vpcEndpoint_routeTableIds,
     vpcEndpoint_vpcEndpointType,
-    vpcEndpoint_requesterManaged,
     vpcEndpoint_dnsEntries,
+    vpcEndpoint_requesterManaged,
     vpcEndpoint_vpcEndpointId,
     vpcEndpoint_subnetIds,
     vpcEndpoint_networkInterfaceIds,
     vpcEndpoint_serviceName,
     vpcEndpoint_lastError,
     vpcEndpoint_state,
-    vpcEndpoint_privateDnsEnabled,
     vpcEndpoint_tags,
+    vpcEndpoint_privateDnsEnabled,
     vpcEndpoint_vpcId,
 
     -- ** VpcEndpointConnection
-    vpcEndpointConnection_creationTimestamp,
     vpcEndpointConnection_vpcEndpointOwner,
+    vpcEndpointConnection_creationTimestamp,
     vpcEndpointConnection_gatewayLoadBalancerArns,
     vpcEndpointConnection_vpcEndpointState,
     vpcEndpointConnection_dnsEntries,
@@ -7404,14 +7858,14 @@ module Network.AWS.EC2.Lens
     -- ** VpcIpv6CidrBlockAssociation
     vpcIpv6CidrBlockAssociation_ipv6CidrBlockState,
     vpcIpv6CidrBlockAssociation_ipv6Pool,
-    vpcIpv6CidrBlockAssociation_associationId,
     vpcIpv6CidrBlockAssociation_ipv6CidrBlock,
+    vpcIpv6CidrBlockAssociation_associationId,
     vpcIpv6CidrBlockAssociation_networkBorderGroup,
 
     -- ** VpcPeeringConnection
     vpcPeeringConnection_status,
-    vpcPeeringConnection_accepterVpcInfo,
     vpcPeeringConnection_vpcPeeringConnectionId,
+    vpcPeeringConnection_accepterVpcInfo,
     vpcPeeringConnection_expirationTime,
     vpcPeeringConnection_requesterVpcInfo,
     vpcPeeringConnection_tags,
@@ -7448,6 +7902,12 @@ module Network.AWS.EC2.Lens
     vpnConnection_state,
     vpnConnection_type,
 
+    -- ** VpnConnectionDeviceType
+    vpnConnectionDeviceType_platform,
+    vpnConnectionDeviceType_vendor,
+    vpnConnectionDeviceType_software,
+    vpnConnectionDeviceType_vpnConnectionDeviceTypeId,
+
     -- ** VpnConnectionOptions
     vpnConnectionOptions_remoteIpv6NetworkCidr,
     vpnConnectionOptions_staticRoutesOnly,
@@ -7470,10 +7930,10 @@ module Network.AWS.EC2.Lens
 
     -- ** VpnGateway
     vpnGateway_vpcAttachments,
-    vpnGateway_state,
     vpnGateway_availabilityZone,
-    vpnGateway_amazonSideAsn,
+    vpnGateway_state,
     vpnGateway_tags,
+    vpnGateway_amazonSideAsn,
     vpnGateway_type,
     vpnGateway_vpnGatewayId,
 
@@ -7484,10 +7944,10 @@ module Network.AWS.EC2.Lens
 
     -- ** VpnTunnelOptionsSpecification
     vpnTunnelOptionsSpecification_phase1LifetimeSeconds,
-    vpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     vpnTunnelOptionsSpecification_iKEVersions,
-    vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
     vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms,
+    vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
+    vpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     vpnTunnelOptionsSpecification_startupAction,
     vpnTunnelOptionsSpecification_dPDTimeoutSeconds,
     vpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -7521,10 +7981,12 @@ import Network.AWS.EC2.AssociateClientVpnTargetNetwork
 import Network.AWS.EC2.AssociateDhcpOptions
 import Network.AWS.EC2.AssociateEnclaveCertificateIamRole
 import Network.AWS.EC2.AssociateIamInstanceProfile
+import Network.AWS.EC2.AssociateInstanceEventWindow
 import Network.AWS.EC2.AssociateRouteTable
 import Network.AWS.EC2.AssociateSubnetCidrBlock
 import Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.AssociateTransitGatewayRouteTable
+import Network.AWS.EC2.AssociateTrunkInterface
 import Network.AWS.EC2.AssociateVpcCidrBlock
 import Network.AWS.EC2.AttachClassicLinkVpc
 import Network.AWS.EC2.AttachInternetGateway
@@ -7560,6 +8022,7 @@ import Network.AWS.EC2.CreateFleet
 import Network.AWS.EC2.CreateFlowLogs
 import Network.AWS.EC2.CreateFpgaImage
 import Network.AWS.EC2.CreateImage
+import Network.AWS.EC2.CreateInstanceEventWindow
 import Network.AWS.EC2.CreateInstanceExportTask
 import Network.AWS.EC2.CreateInternetGateway
 import Network.AWS.EC2.CreateKeyPair
@@ -7575,14 +8038,18 @@ import Network.AWS.EC2.CreateNetworkInsightsPath
 import Network.AWS.EC2.CreateNetworkInterface
 import Network.AWS.EC2.CreateNetworkInterfacePermission
 import Network.AWS.EC2.CreatePlacementGroup
+import Network.AWS.EC2.CreateReplaceRootVolumeTask
 import Network.AWS.EC2.CreateReservedInstancesListing
+import Network.AWS.EC2.CreateRestoreImageTask
 import Network.AWS.EC2.CreateRoute
 import Network.AWS.EC2.CreateRouteTable
 import Network.AWS.EC2.CreateSecurityGroup
 import Network.AWS.EC2.CreateSnapshot
 import Network.AWS.EC2.CreateSnapshots
 import Network.AWS.EC2.CreateSpotDatafeedSubscription
+import Network.AWS.EC2.CreateStoreImageTask
 import Network.AWS.EC2.CreateSubnet
+import Network.AWS.EC2.CreateSubnetCidrReservation
 import Network.AWS.EC2.CreateTags
 import Network.AWS.EC2.CreateTrafficMirrorFilter
 import Network.AWS.EC2.CreateTrafficMirrorFilterRule
@@ -7615,6 +8082,7 @@ import Network.AWS.EC2.DeleteEgressOnlyInternetGateway
 import Network.AWS.EC2.DeleteFleets
 import Network.AWS.EC2.DeleteFlowLogs
 import Network.AWS.EC2.DeleteFpgaImage
+import Network.AWS.EC2.DeleteInstanceEventWindow
 import Network.AWS.EC2.DeleteInternetGateway
 import Network.AWS.EC2.DeleteKeyPair
 import Network.AWS.EC2.DeleteLaunchTemplate
@@ -7637,6 +8105,7 @@ import Network.AWS.EC2.DeleteSecurityGroup
 import Network.AWS.EC2.DeleteSnapshot
 import Network.AWS.EC2.DeleteSpotDatafeedSubscription
 import Network.AWS.EC2.DeleteSubnet
+import Network.AWS.EC2.DeleteSubnetCidrReservation
 import Network.AWS.EC2.DeleteTags
 import Network.AWS.EC2.DeleteTrafficMirrorFilter
 import Network.AWS.EC2.DeleteTrafficMirrorFilterRule
@@ -7708,6 +8177,7 @@ import Network.AWS.EC2.DescribeImportSnapshotTasks
 import Network.AWS.EC2.DescribeInstanceAttribute
 import Network.AWS.EC2.DescribeInstanceCreditSpecifications
 import Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
+import Network.AWS.EC2.DescribeInstanceEventWindows
 import Network.AWS.EC2.DescribeInstanceStatus
 import Network.AWS.EC2.DescribeInstanceTypeOfferings
 import Network.AWS.EC2.DescribeInstanceTypes
@@ -7737,6 +8207,7 @@ import Network.AWS.EC2.DescribePrefixLists
 import Network.AWS.EC2.DescribePrincipalIdFormat
 import Network.AWS.EC2.DescribePublicIpv4Pools
 import Network.AWS.EC2.DescribeRegions
+import Network.AWS.EC2.DescribeReplaceRootVolumeTasks
 import Network.AWS.EC2.DescribeReservedInstances
 import Network.AWS.EC2.DescribeReservedInstancesListings
 import Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -7745,6 +8216,7 @@ import Network.AWS.EC2.DescribeRouteTables
 import Network.AWS.EC2.DescribeScheduledInstanceAvailability
 import Network.AWS.EC2.DescribeScheduledInstances
 import Network.AWS.EC2.DescribeSecurityGroupReferences
+import Network.AWS.EC2.DescribeSecurityGroupRules
 import Network.AWS.EC2.DescribeSecurityGroups
 import Network.AWS.EC2.DescribeSnapshotAttribute
 import Network.AWS.EC2.DescribeSnapshots
@@ -7755,6 +8227,7 @@ import Network.AWS.EC2.DescribeSpotFleetRequests
 import Network.AWS.EC2.DescribeSpotInstanceRequests
 import Network.AWS.EC2.DescribeSpotPriceHistory
 import Network.AWS.EC2.DescribeStaleSecurityGroups
+import Network.AWS.EC2.DescribeStoreImageTasks
 import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeTags
 import Network.AWS.EC2.DescribeTrafficMirrorFilters
@@ -7768,6 +8241,7 @@ import Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
 import Network.AWS.EC2.DescribeTransitGatewayRouteTables
 import Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
 import Network.AWS.EC2.DescribeTransitGateways
+import Network.AWS.EC2.DescribeTrunkInterfaceAssociations
 import Network.AWS.EC2.DescribeVolumeAttribute
 import Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.EC2.DescribeVolumes
@@ -7792,6 +8266,8 @@ import Network.AWS.EC2.DetachVolume
 import Network.AWS.EC2.DetachVpnGateway
 import Network.AWS.EC2.DisableEbsEncryptionByDefault
 import Network.AWS.EC2.DisableFastSnapshotRestores
+import Network.AWS.EC2.DisableImageDeprecation
+import Network.AWS.EC2.DisableSerialConsoleAccess
 import Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
 import Network.AWS.EC2.DisableVgwRoutePropagation
 import Network.AWS.EC2.DisableVpcClassicLink
@@ -7800,13 +8276,17 @@ import Network.AWS.EC2.DisassociateAddress
 import Network.AWS.EC2.DisassociateClientVpnTargetNetwork
 import Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
 import Network.AWS.EC2.DisassociateIamInstanceProfile
+import Network.AWS.EC2.DisassociateInstanceEventWindow
 import Network.AWS.EC2.DisassociateRouteTable
 import Network.AWS.EC2.DisassociateSubnetCidrBlock
 import Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.DisassociateTransitGatewayRouteTable
+import Network.AWS.EC2.DisassociateTrunkInterface
 import Network.AWS.EC2.DisassociateVpcCidrBlock
 import Network.AWS.EC2.EnableEbsEncryptionByDefault
 import Network.AWS.EC2.EnableFastSnapshotRestores
+import Network.AWS.EC2.EnableImageDeprecation
+import Network.AWS.EC2.EnableSerialConsoleAccess
 import Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
 import Network.AWS.EC2.EnableVgwRoutePropagation
 import Network.AWS.EC2.EnableVolumeIO
@@ -7825,6 +8305,7 @@ import Network.AWS.EC2.GetConsoleScreenshot
 import Network.AWS.EC2.GetDefaultCreditSpecification
 import Network.AWS.EC2.GetEbsDefaultKmsKeyId
 import Network.AWS.EC2.GetEbsEncryptionByDefault
+import Network.AWS.EC2.GetFlowLogsIntegrationTemplate
 import Network.AWS.EC2.GetGroupsForCapacityReservation
 import Network.AWS.EC2.GetHostReservationPurchasePreview
 import Network.AWS.EC2.GetLaunchTemplateData
@@ -7832,11 +8313,15 @@ import Network.AWS.EC2.GetManagedPrefixListAssociations
 import Network.AWS.EC2.GetManagedPrefixListEntries
 import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.GetReservedInstancesExchangeQuote
+import Network.AWS.EC2.GetSerialConsoleAccessStatus
+import Network.AWS.EC2.GetSubnetCidrReservations
 import Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
 import Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
 import Network.AWS.EC2.GetTransitGatewayPrefixListReferences
 import Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
 import Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
+import Network.AWS.EC2.GetVpnConnectionDeviceSampleConfiguration
+import Network.AWS.EC2.GetVpnConnectionDeviceTypes
 import Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
 import Network.AWS.EC2.ImportImage
 import Network.AWS.EC2.ImportInstance
@@ -7859,12 +8344,14 @@ import Network.AWS.EC2.ModifyInstanceAttribute
 import Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
 import Network.AWS.EC2.ModifyInstanceCreditSpecification
 import Network.AWS.EC2.ModifyInstanceEventStartTime
+import Network.AWS.EC2.ModifyInstanceEventWindow
 import Network.AWS.EC2.ModifyInstanceMetadataOptions
 import Network.AWS.EC2.ModifyInstancePlacement
 import Network.AWS.EC2.ModifyLaunchTemplate
 import Network.AWS.EC2.ModifyManagedPrefixList
 import Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 import Network.AWS.EC2.ModifyReservedInstances
+import Network.AWS.EC2.ModifySecurityGroupRules
 import Network.AWS.EC2.ModifySnapshotAttribute
 import Network.AWS.EC2.ModifySpotFleetRequest
 import Network.AWS.EC2.ModifySubnetAttribute
@@ -7957,6 +8444,7 @@ import Network.AWS.EC2.Types.AssignedPrivateIpAddress
 import Network.AWS.EC2.Types.AssociatedRole
 import Network.AWS.EC2.Types.AssociatedTargetNetwork
 import Network.AWS.EC2.Types.AssociationStatus
+import Network.AWS.EC2.Types.AthenaIntegration
 import Network.AWS.EC2.Types.AttributeBooleanValue
 import Network.AWS.EC2.Types.AttributeValue
 import Network.AWS.EC2.Types.AuthorizationRule
@@ -8051,6 +8539,7 @@ import Network.AWS.EC2.Types.EbsInfo
 import Network.AWS.EC2.Types.EbsInstanceBlockDevice
 import Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification
 import Network.AWS.EC2.Types.EbsOptimizedInfo
+import Network.AWS.EC2.Types.EfaInfo
 import Network.AWS.EC2.Types.EgressOnlyInternetGateway
 import Network.AWS.EC2.Types.ElasticGpuAssociation
 import Network.AWS.EC2.Types.ElasticGpuHealth
@@ -8134,10 +8623,19 @@ import Network.AWS.EC2.Types.InstanceCapacity
 import Network.AWS.EC2.Types.InstanceCount
 import Network.AWS.EC2.Types.InstanceCreditSpecification
 import Network.AWS.EC2.Types.InstanceCreditSpecificationRequest
+import Network.AWS.EC2.Types.InstanceEventWindow
+import Network.AWS.EC2.Types.InstanceEventWindowAssociationRequest
+import Network.AWS.EC2.Types.InstanceEventWindowAssociationTarget
+import Network.AWS.EC2.Types.InstanceEventWindowDisassociationRequest
+import Network.AWS.EC2.Types.InstanceEventWindowStateChange
+import Network.AWS.EC2.Types.InstanceEventWindowTimeRange
+import Network.AWS.EC2.Types.InstanceEventWindowTimeRangeRequest
 import Network.AWS.EC2.Types.InstanceExportDetails
 import Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
+import Network.AWS.EC2.Types.InstanceIpv4Prefix
 import Network.AWS.EC2.Types.InstanceIpv6Address
 import Network.AWS.EC2.Types.InstanceIpv6AddressRequest
+import Network.AWS.EC2.Types.InstanceIpv6Prefix
 import Network.AWS.EC2.Types.InstanceMarketOptionsRequest
 import Network.AWS.EC2.Types.InstanceMetadataOptionsRequest
 import Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
@@ -8159,13 +8657,20 @@ import Network.AWS.EC2.Types.InstanceTagNotificationAttribute
 import Network.AWS.EC2.Types.InstanceTypeInfo
 import Network.AWS.EC2.Types.InstanceTypeOffering
 import Network.AWS.EC2.Types.InstanceUsage
+import Network.AWS.EC2.Types.IntegrateServices
 import Network.AWS.EC2.Types.InternetGateway
 import Network.AWS.EC2.Types.InternetGatewayAttachment
 import Network.AWS.EC2.Types.IpPermission
 import Network.AWS.EC2.Types.IpRange
+import Network.AWS.EC2.Types.Ipv4PrefixSpecification
+import Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest
+import Network.AWS.EC2.Types.Ipv4PrefixSpecificationResponse
 import Network.AWS.EC2.Types.Ipv6CidrAssociation
 import Network.AWS.EC2.Types.Ipv6CidrBlock
 import Network.AWS.EC2.Types.Ipv6Pool
+import Network.AWS.EC2.Types.Ipv6PrefixSpecification
+import Network.AWS.EC2.Types.Ipv6PrefixSpecificationRequest
+import Network.AWS.EC2.Types.Ipv6PrefixSpecificationResponse
 import Network.AWS.EC2.Types.Ipv6Range
 import Network.AWS.EC2.Types.KeyPairInfo
 import Network.AWS.EC2.Types.LastError
@@ -8295,9 +8800,11 @@ import Network.AWS.EC2.Types.PublicIpv4PoolRange
 import Network.AWS.EC2.Types.Purchase
 import Network.AWS.EC2.Types.PurchaseRequest
 import Network.AWS.EC2.Types.RecurringCharge
+import Network.AWS.EC2.Types.ReferencedSecurityGroup
 import Network.AWS.EC2.Types.RegionInfo
 import Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest
 import Network.AWS.EC2.Types.RemovePrefixListEntry
+import Network.AWS.EC2.Types.ReplaceRootVolumeTask
 import Network.AWS.EC2.Types.RequestLaunchTemplateData
 import Network.AWS.EC2.Types.RequestSpotLaunchSpecification
 import Network.AWS.EC2.Types.Reservation
@@ -8318,6 +8825,7 @@ import Network.AWS.EC2.Types.RouteTable
 import Network.AWS.EC2.Types.RouteTableAssociation
 import Network.AWS.EC2.Types.RouteTableAssociationState
 import Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
+import Network.AWS.EC2.Types.S3ObjectTag
 import Network.AWS.EC2.Types.S3Storage
 import Network.AWS.EC2.Types.ScheduledInstance
 import Network.AWS.EC2.Types.ScheduledInstanceAvailability
@@ -8335,6 +8843,10 @@ import Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig
 import Network.AWS.EC2.Types.SecurityGroup
 import Network.AWS.EC2.Types.SecurityGroupIdentifier
 import Network.AWS.EC2.Types.SecurityGroupReference
+import Network.AWS.EC2.Types.SecurityGroupRule
+import Network.AWS.EC2.Types.SecurityGroupRuleDescription
+import Network.AWS.EC2.Types.SecurityGroupRuleRequest
+import Network.AWS.EC2.Types.SecurityGroupRuleUpdate
 import Network.AWS.EC2.Types.ServiceConfiguration
 import Network.AWS.EC2.Types.ServiceDetail
 import Network.AWS.EC2.Types.ServiceTypeDetail
@@ -8366,9 +8878,11 @@ import Network.AWS.EC2.Types.StaleSecurityGroup
 import Network.AWS.EC2.Types.StateReason
 import Network.AWS.EC2.Types.Storage
 import Network.AWS.EC2.Types.StorageLocation
+import Network.AWS.EC2.Types.StoreImageTaskResult
 import Network.AWS.EC2.Types.Subnet
 import Network.AWS.EC2.Types.SubnetAssociation
 import Network.AWS.EC2.Types.SubnetCidrBlockState
+import Network.AWS.EC2.Types.SubnetCidrReservation
 import Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation
 import Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
 import Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion
@@ -8423,6 +8937,7 @@ import Network.AWS.EC2.Types.TransitGatewayRouteTableAssociation
 import Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation
 import Network.AWS.EC2.Types.TransitGatewayVpcAttachment
 import Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
+import Network.AWS.EC2.Types.TrunkInterfaceAssociation
 import Network.AWS.EC2.Types.TunnelOption
 import Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem
 import Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
@@ -8459,6 +8974,7 @@ import Network.AWS.EC2.Types.VpcPeeringConnectionOptionsDescription
 import Network.AWS.EC2.Types.VpcPeeringConnectionStateReason
 import Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo
 import Network.AWS.EC2.Types.VpnConnection
+import Network.AWS.EC2.Types.VpnConnectionDeviceType
 import Network.AWS.EC2.Types.VpnConnectionOptions
 import Network.AWS.EC2.Types.VpnConnectionOptionsSpecification
 import Network.AWS.EC2.Types.VpnGateway

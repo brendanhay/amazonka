@@ -49,9 +49,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateInstanceAttribute' smart constructor.
 data UpdateInstanceAttribute = UpdateInstanceAttribute'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The type of attribute.
+    --
+    -- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
+    -- this feature, contact AWS Support for allowlisting.
     attributeType :: InstanceAttributeType,
     -- | The value for the attribute. Maximum character limit is 100.
     value :: Prelude.Text
@@ -66,9 +70,13 @@ data UpdateInstanceAttribute = UpdateInstanceAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateInstanceAttribute_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateInstanceAttribute_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'attributeType', 'updateInstanceAttribute_attributeType' - The type of attribute.
+--
+-- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
+-- this feature, contact AWS Support for allowlisting.
 --
 -- 'value', 'updateInstanceAttribute_value' - The value for the attribute. Maximum character limit is 100.
 newUpdateInstanceAttribute ::
@@ -89,11 +97,15 @@ newUpdateInstanceAttribute
         value = pValue_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateInstanceAttribute_instanceId :: Lens.Lens' UpdateInstanceAttribute Prelude.Text
 updateInstanceAttribute_instanceId = Lens.lens (\UpdateInstanceAttribute' {instanceId} -> instanceId) (\s@UpdateInstanceAttribute' {} a -> s {instanceId = a} :: UpdateInstanceAttribute)
 
 -- | The type of attribute.
+--
+-- Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access
+-- this feature, contact AWS Support for allowlisting.
 updateInstanceAttribute_attributeType :: Lens.Lens' UpdateInstanceAttribute InstanceAttributeType
 updateInstanceAttribute_attributeType = Lens.lens (\UpdateInstanceAttribute' {attributeType} -> attributeType) (\s@UpdateInstanceAttribute' {} a -> s {attributeType = a} :: UpdateInstanceAttribute)
 

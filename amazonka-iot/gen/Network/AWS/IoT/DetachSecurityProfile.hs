@@ -22,6 +22,10 @@
 --
 -- Disassociates a Device Defender security profile from a thing group or
 -- from this account.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DetachSecurityProfile>
+-- action.
 module Network.AWS.IoT.DetachSecurityProfile
   ( -- * Creating a Request
     DetachSecurityProfile (..),

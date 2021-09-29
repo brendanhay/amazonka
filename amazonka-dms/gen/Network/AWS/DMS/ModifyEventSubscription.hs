@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing AWS DMS event notification subscription.
+-- Modifies an existing DMS event notification subscription.
 module Network.AWS.DMS.ModifyEventSubscription
   ( -- * Creating a Request
     ModifyEventSubscription (..),
@@ -60,8 +60,8 @@ data ModifyEventSubscription = ModifyEventSubscription'
     -- to. Use the @DescribeEventCategories@ action to see a list of event
     -- categories.
     eventCategories :: Prelude.Maybe [Prelude.Text],
-    -- | The type of AWS DMS resource that generates the events you want to
-    -- subscribe to.
+    -- | The type of DMS resource that generates the events you want to subscribe
+    -- to.
     --
     -- Valid values: replication-instance | replication-task
     sourceType :: Prelude.Maybe Prelude.Text,
@@ -69,7 +69,7 @@ data ModifyEventSubscription = ModifyEventSubscription'
     -- notification. The ARN is created by Amazon SNS when you create a topic
     -- and subscribe to it.
     snsTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS DMS event notification subscription to be modified.
+    -- | The name of the DMS event notification subscription to be modified.
     subscriptionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +88,8 @@ data ModifyEventSubscription = ModifyEventSubscription'
 -- to. Use the @DescribeEventCategories@ action to see a list of event
 -- categories.
 --
--- 'sourceType', 'modifyEventSubscription_sourceType' - The type of AWS DMS resource that generates the events you want to
--- subscribe to.
+-- 'sourceType', 'modifyEventSubscription_sourceType' - The type of DMS resource that generates the events you want to subscribe
+-- to.
 --
 -- Valid values: replication-instance | replication-task
 --
@@ -97,7 +97,7 @@ data ModifyEventSubscription = ModifyEventSubscription'
 -- notification. The ARN is created by Amazon SNS when you create a topic
 -- and subscribe to it.
 --
--- 'subscriptionName', 'modifyEventSubscription_subscriptionName' - The name of the AWS DMS event notification subscription to be modified.
+-- 'subscriptionName', 'modifyEventSubscription_subscriptionName' - The name of the DMS event notification subscription to be modified.
 newModifyEventSubscription ::
   -- | 'subscriptionName'
   Prelude.Text ->
@@ -121,8 +121,8 @@ modifyEventSubscription_enabled = Lens.lens (\ModifyEventSubscription' {enabled}
 modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
 modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
--- | The type of AWS DMS resource that generates the events you want to
--- subscribe to.
+-- | The type of DMS resource that generates the events you want to subscribe
+-- to.
 --
 -- Valid values: replication-instance | replication-task
 modifyEventSubscription_sourceType :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
@@ -134,7 +134,7 @@ modifyEventSubscription_sourceType = Lens.lens (\ModifyEventSubscription' {sourc
 modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
 modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
 
--- | The name of the AWS DMS event notification subscription to be modified.
+-- | The name of the DMS event notification subscription to be modified.
 modifyEventSubscription_subscriptionName :: Lens.Lens' ModifyEventSubscription Prelude.Text
 modifyEventSubscription_subscriptionName = Lens.lens (\ModifyEventSubscription' {subscriptionName} -> subscriptionName) (\s@ModifyEventSubscription' {} a -> s {subscriptionName = a} :: ModifyEventSubscription)
 

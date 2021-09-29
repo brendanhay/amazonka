@@ -59,16 +59,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSAMLProviderTags' smart constructor.
 data ListSAMLProviderTags = ListSAMLProviderTags'
-  { -- | (Optional) Use this only when paginating results to indicate the maximum
-    -- number of items that you want in the response. If additional items exist
-    -- beyond the maximum that you specify, the @IsTruncated@ response element
-    -- is @true@.
+  { -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
-    -- If you do not include this parameter, it defaults to 100. Note that IAM
-    -- might return fewer results, even when more results are available. In
-    -- that case, the @IsTruncated@ response element returns @true@, and
-    -- @Marker@ contains a value to include in the subsequent call that tells
-    -- the service where to continue from.
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
@@ -78,10 +77,10 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
     -- | The ARN of the Security Assertion Markup Language (SAML) identity
     -- provider whose tags you want to see.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     sAMLProviderArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,16 +93,15 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listSAMLProviderTags_maxItems' - (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- 'maxItems', 'listSAMLProviderTags_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 --
 -- 'marker', 'listSAMLProviderTags_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -113,10 +111,10 @@ data ListSAMLProviderTags = ListSAMLProviderTags'
 -- 'sAMLProviderArn', 'listSAMLProviderTags_sAMLProviderArn' - The ARN of the Security Assertion Markup Language (SAML) identity
 -- provider whose tags you want to see.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 newListSAMLProviderTags ::
   -- | 'sAMLProviderArn'
   Prelude.Text ->
@@ -128,16 +126,15 @@ newListSAMLProviderTags pSAMLProviderArn_ =
       sAMLProviderArn = pSAMLProviderArn_
     }
 
--- | (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 listSAMLProviderTags_maxItems :: Lens.Lens' ListSAMLProviderTags (Prelude.Maybe Prelude.Natural)
 listSAMLProviderTags_maxItems = Lens.lens (\ListSAMLProviderTags' {maxItems} -> maxItems) (\s@ListSAMLProviderTags' {} a -> s {maxItems = a} :: ListSAMLProviderTags)
 
@@ -151,10 +148,10 @@ listSAMLProviderTags_marker = Lens.lens (\ListSAMLProviderTags' {marker} -> mark
 -- | The ARN of the Security Assertion Markup Language (SAML) identity
 -- provider whose tags you want to see.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 listSAMLProviderTags_sAMLProviderArn :: Lens.Lens' ListSAMLProviderTags Prelude.Text
 listSAMLProviderTags_sAMLProviderArn = Lens.lens (\ListSAMLProviderTags' {sAMLProviderArn} -> sAMLProviderArn) (\s@ListSAMLProviderTags' {} a -> s {sAMLProviderArn = a} :: ListSAMLProviderTags)
 
@@ -201,11 +198,12 @@ instance Core.ToQuery ListSAMLProviderTags where
 -- | /See:/ 'newListSAMLProviderTagsResponse' smart constructor.
 data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
   { -- | A flag that indicates whether there are more items to return. If your
-    -- results were truncated, you can use the @Marker@ request parameter to
-    -- make a subsequent pagination request that retrieves more items. Note
-    -- that IAM might return fewer than the @MaxItems@ number of results even
-    -- when more results are available. Check @IsTruncated@ after every call to
-    -- ensure that you receive all of your results.
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -230,11 +228,12 @@ data ListSAMLProviderTagsResponse = ListSAMLProviderTagsResponse'
 -- for backwards compatibility:
 --
 -- 'isTruncated', 'listSAMLProviderTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 --
 -- 'marker', 'listSAMLProviderTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -260,11 +259,12 @@ newListSAMLProviderTagsResponse pHttpStatus_ =
     }
 
 -- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 listSAMLProviderTagsResponse_isTruncated :: Lens.Lens' ListSAMLProviderTagsResponse (Prelude.Maybe Prelude.Bool)
 listSAMLProviderTagsResponse_isTruncated = Lens.lens (\ListSAMLProviderTagsResponse' {isTruncated} -> isTruncated) (\s@ListSAMLProviderTagsResponse' {} a -> s {isTruncated = a} :: ListSAMLProviderTagsResponse)
 

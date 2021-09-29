@@ -38,14 +38,14 @@ data Message = Message'
     -- | The URL of the image to display as the push-notification icon, such as
     -- the icon for the app.
     imageIconUrl :: Prelude.Maybe Prelude.Text,
-    -- | The title to display above the notification message on a recipient\'s
-    -- device.
-    title :: Prelude.Maybe Prelude.Text,
-    -- | The JSON payload to use for a silent push notification.
-    jsonBody :: Prelude.Maybe Prelude.Text,
     -- | The body of the notification message. The maximum number of characters
     -- is 200.
     body :: Prelude.Maybe Prelude.Text,
+    -- | The JSON payload to use for a silent push notification.
+    jsonBody :: Prelude.Maybe Prelude.Text,
+    -- | The title to display above the notification message on a recipient\'s
+    -- device.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds that the push-notification service should keep the
     -- message, if the service is unable to deliver the notification the first
     -- time. This value is converted to an expiration value when it\'s sent to
@@ -103,13 +103,13 @@ data Message = Message'
 -- 'imageIconUrl', 'message_imageIconUrl' - The URL of the image to display as the push-notification icon, such as
 -- the icon for the app.
 --
--- 'title', 'message_title' - The title to display above the notification message on a recipient\'s
--- device.
+-- 'body', 'message_body' - The body of the notification message. The maximum number of characters
+-- is 200.
 --
 -- 'jsonBody', 'message_jsonBody' - The JSON payload to use for a silent push notification.
 --
--- 'body', 'message_body' - The body of the notification message. The maximum number of characters
--- is 200.
+-- 'title', 'message_title' - The title to display above the notification message on a recipient\'s
+-- device.
 --
 -- 'timeToLive', 'message_timeToLive' - The number of seconds that the push-notification service should keep the
 -- message, if the service is unable to deliver the notification the first
@@ -153,9 +153,9 @@ newMessage =
   Message'
     { silentPush = Prelude.Nothing,
       imageIconUrl = Prelude.Nothing,
-      title = Prelude.Nothing,
-      jsonBody = Prelude.Nothing,
       body = Prelude.Nothing,
+      jsonBody = Prelude.Nothing,
+      title = Prelude.Nothing,
       timeToLive = Prelude.Nothing,
       mediaUrl = Prelude.Nothing,
       imageUrl = Prelude.Nothing,
@@ -178,19 +178,19 @@ message_silentPush = Lens.lens (\Message' {silentPush} -> silentPush) (\s@Messag
 message_imageIconUrl :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_imageIconUrl = Lens.lens (\Message' {imageIconUrl} -> imageIconUrl) (\s@Message' {} a -> s {imageIconUrl = a} :: Message)
 
--- | The title to display above the notification message on a recipient\'s
--- device.
-message_title :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_title = Lens.lens (\Message' {title} -> title) (\s@Message' {} a -> s {title = a} :: Message)
+-- | The body of the notification message. The maximum number of characters
+-- is 200.
+message_body :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
 
 -- | The JSON payload to use for a silent push notification.
 message_jsonBody :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_jsonBody = Lens.lens (\Message' {jsonBody} -> jsonBody) (\s@Message' {} a -> s {jsonBody = a} :: Message)
 
--- | The body of the notification message. The maximum number of characters
--- is 200.
-message_body :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
-message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
+-- | The title to display above the notification message on a recipient\'s
+-- device.
+message_title :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
+message_title = Lens.lens (\Message' {title} -> title) (\s@Message' {} a -> s {title = a} :: Message)
 
 -- | The number of seconds that the push-notification service should keep the
 -- message, if the service is unable to deliver the notification the first
@@ -251,9 +251,9 @@ instance Core.FromJSON Message where
           Message'
             Prelude.<$> (x Core..:? "SilentPush")
             Prelude.<*> (x Core..:? "ImageIconUrl")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "JsonBody")
             Prelude.<*> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "JsonBody")
+            Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "TimeToLive")
             Prelude.<*> (x Core..:? "MediaUrl")
             Prelude.<*> (x Core..:? "ImageUrl")
@@ -273,9 +273,9 @@ instance Core.ToJSON Message where
       ( Prelude.catMaybes
           [ ("SilentPush" Core..=) Prelude.<$> silentPush,
             ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
-            ("Title" Core..=) Prelude.<$> title,
-            ("JsonBody" Core..=) Prelude.<$> jsonBody,
             ("Body" Core..=) Prelude.<$> body,
+            ("JsonBody" Core..=) Prelude.<$> jsonBody,
+            ("Title" Core..=) Prelude.<$> title,
             ("TimeToLive" Core..=) Prelude.<$> timeToLive,
             ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
             ("ImageUrl" Core..=) Prelude.<$> imageUrl,

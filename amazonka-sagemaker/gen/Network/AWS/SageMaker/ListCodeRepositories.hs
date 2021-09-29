@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListCodeRepositories
 
     -- * Request Lenses
     listCodeRepositories_lastModifiedTimeBefore,
-    listCodeRepositories_sortOrder,
     listCodeRepositories_nextToken,
+    listCodeRepositories_sortOrder,
     listCodeRepositories_nameContains,
     listCodeRepositories_maxResults,
     listCodeRepositories_creationTimeBefore,
@@ -62,12 +62,12 @@ data ListCodeRepositories = ListCodeRepositories'
   { -- | A filter that returns only Git repositories that were last modified
     -- before the specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe CodeRepositorySortOrder,
     -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
     -- the response includes a @NextToken@. To get the next set of Git
     -- repositories, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe CodeRepositorySortOrder,
     -- | A string in the Git repositories name. This filter returns only
     -- repositories whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -98,11 +98,11 @@ data ListCodeRepositories = ListCodeRepositories'
 -- 'lastModifiedTimeBefore', 'listCodeRepositories_lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified
 -- before the specified time.
 --
--- 'sortOrder', 'listCodeRepositories_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listCodeRepositories_nextToken' - If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
 -- repositories, use the token in the next request.
+--
+-- 'sortOrder', 'listCodeRepositories_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listCodeRepositories_nameContains' - A string in the Git repositories name. This filter returns only
 -- repositories whose name contains the specified string.
@@ -125,8 +125,8 @@ newListCodeRepositories =
   ListCodeRepositories'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -140,15 +140,15 @@ newListCodeRepositories =
 listCodeRepositories_lastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
 listCodeRepositories_lastModifiedTimeBefore = Lens.lens (\ListCodeRepositories' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortOrder)
-listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -> sortOrder) (\s@ListCodeRepositories' {} a -> s {sortOrder = a} :: ListCodeRepositories)
-
 -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
 -- repositories, use the token in the next request.
 listCodeRepositories_nextToken :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
 listCodeRepositories_nextToken = Lens.lens (\ListCodeRepositories' {nextToken} -> nextToken) (\s@ListCodeRepositories' {} a -> s {nextToken = a} :: ListCodeRepositories)
+
+-- | The sort order for results. The default is @Ascending@.
+listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortOrder)
+listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -> sortOrder) (\s@ListCodeRepositories' {} a -> s {sortOrder = a} :: ListCodeRepositories)
 
 -- | A string in the Git repositories name. This filter returns only
 -- repositories whose name contains the specified string.
@@ -240,8 +240,8 @@ instance Core.ToJSON ListCodeRepositories where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
@@ -280,8 +280,8 @@ data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
     -- -   Last modified time
     --
     -- -   Configuration information, including the URL location of the
-    --     repository and the ARN of the AWS Secrets Manager secret that
-    --     contains the credentials used to access the repository.
+    --     repository and the ARN of the Amazon Web Services Secrets Manager
+    --     secret that contains the credentials used to access the repository.
     codeRepositorySummaryList :: [CodeRepositorySummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -312,8 +312,8 @@ data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
 -- -   Last modified time
 --
 -- -   Configuration information, including the URL location of the
---     repository and the ARN of the AWS Secrets Manager secret that
---     contains the credentials used to access the repository.
+--     repository and the ARN of the Amazon Web Services Secrets Manager
+--     secret that contains the credentials used to access the repository.
 newListCodeRepositoriesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -348,8 +348,8 @@ listCodeRepositoriesResponse_httpStatus = Lens.lens (\ListCodeRepositoriesRespon
 -- -   Last modified time
 --
 -- -   Configuration information, including the URL location of the
---     repository and the ARN of the AWS Secrets Manager secret that
---     contains the credentials used to access the repository.
+--     repository and the ARN of the Amazon Web Services Secrets Manager
+--     secret that contains the credentials used to access the repository.
 listCodeRepositoriesResponse_codeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [CodeRepositorySummary]
 listCodeRepositoriesResponse_codeRepositorySummaryList = Lens.lens (\ListCodeRepositoriesResponse' {codeRepositorySummaryList} -> codeRepositorySummaryList) (\s@ListCodeRepositoriesResponse' {} a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse) Prelude.. Lens._Coerce
 

@@ -32,37 +32,47 @@ data InstanceSummary = InstanceSummary'
     id :: Prelude.Maybe Prelude.Text,
     -- | A string map that contains the following information:
     --
-    -- -   The attributes that are associate with the instance.
+    -- -   The attributes that are associated with the instance.
     --
     -- -   For each attribute, the applicable value.
     --
     -- Supported attribute keys include the following:
     --
-    -- -   @AWS_ALIAS_DNS_NAME@: For an alias record that routes traffic to an
-    --     Elastic Load Balancing load balancer, the DNS name that is
-    --     associated with the load balancer.
+    -- [AWS_ALIAS_DNS_NAME]
+    --     For an alias record that routes traffic to an Elastic Load Balancing
+    --     load balancer, the DNS name that\'s associated with the load
+    --     balancer.
     --
-    -- -   @AWS_EC2_INSTANCE_ID@: (HTTP namespaces only) The Amazon EC2
-    --     instance ID for the instance. When the @AWS_EC2_INSTANCE_ID@
-    --     attribute is specified, then the @AWS_INSTANCE_IPV4@ attribute
-    --     contains the primary private IPv4 address.
+    -- [AWS_EC2_INSTANCE_ID (HTTP namespaces only)]
+    --     The Amazon EC2 instance ID for the instance. When the
+    --     @AWS_EC2_INSTANCE_ID@ attribute is specified, then the
+    --     @AWS_INSTANCE_IPV4@ attribute contains the primary private IPv4
+    --     address.
     --
-    -- -   @AWS_INSTANCE_CNAME@: For a @CNAME@ record, the domain name that
-    --     Route 53 returns in response to DNS queries, for example,
-    --     @example.com@.
+    -- [AWS_INIT_HEALTH_STATUS]
+    --     If the service configuration includes @HealthCheckCustomConfig@, you
+    --     can optionally use @AWS_INIT_HEALTH_STATUS@ to specify the initial
+    --     status of the custom health check, @HEALTHY@ or @UNHEALTHY@. If you
+    --     don\'t specify a value for @AWS_INIT_HEALTH_STATUS@, the initial
+    --     status is @HEALTHY@.
     --
-    -- -   @AWS_INSTANCE_IPV4@: For an @A@ record, the IPv4 address that
-    --     Route 53 returns in response to DNS queries, for example,
-    --     @192.0.2.44@.
+    -- [AWS_INSTANCE_CNAME]
+    --     For a @CNAME@ record, the domain name that Route 53 returns in
+    --     response to DNS queries (for example, @example.com@).
     --
-    -- -   @AWS_INSTANCE_IPV6@: For an @AAAA@ record, the IPv6 address that
-    --     Route 53 returns in response to DNS queries, for example,
-    --     @2001:0db8:85a3:0000:0000:abcd:0001:2345@.
+    -- [AWS_INSTANCE_IPV4]
+    --     For an @A@ record, the IPv4 address that Route 53 returns in
+    --     response to DNS queries (for example, @192.0.2.44@).
     --
-    -- -   @AWS_INSTANCE_PORT@: For an @SRV@ record, the value that Route 53
-    --     returns for the port. In addition, if the service includes
-    --     @HealthCheckConfig@, the port on the endpoint that Route 53 sends
-    --     requests to.
+    -- [AWS_INSTANCE_IPV6]
+    --     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+    --     response to DNS queries (for example,
+    --     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
+    --
+    -- [AWS_INSTANCE_PORT]
+    --     For an @SRV@ record, the value that Route 53 returns for the port.
+    --     In addition, if the service includes @HealthCheckConfig@, the port
+    --     on the endpoint that Route 53 sends requests to.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,37 +89,47 @@ data InstanceSummary = InstanceSummary'
 --
 -- 'attributes', 'instanceSummary_attributes' - A string map that contains the following information:
 --
--- -   The attributes that are associate with the instance.
+-- -   The attributes that are associated with the instance.
 --
 -- -   For each attribute, the applicable value.
 --
 -- Supported attribute keys include the following:
 --
--- -   @AWS_ALIAS_DNS_NAME@: For an alias record that routes traffic to an
---     Elastic Load Balancing load balancer, the DNS name that is
---     associated with the load balancer.
+-- [AWS_ALIAS_DNS_NAME]
+--     For an alias record that routes traffic to an Elastic Load Balancing
+--     load balancer, the DNS name that\'s associated with the load
+--     balancer.
 --
--- -   @AWS_EC2_INSTANCE_ID@: (HTTP namespaces only) The Amazon EC2
---     instance ID for the instance. When the @AWS_EC2_INSTANCE_ID@
---     attribute is specified, then the @AWS_INSTANCE_IPV4@ attribute
---     contains the primary private IPv4 address.
+-- [AWS_EC2_INSTANCE_ID (HTTP namespaces only)]
+--     The Amazon EC2 instance ID for the instance. When the
+--     @AWS_EC2_INSTANCE_ID@ attribute is specified, then the
+--     @AWS_INSTANCE_IPV4@ attribute contains the primary private IPv4
+--     address.
 --
--- -   @AWS_INSTANCE_CNAME@: For a @CNAME@ record, the domain name that
---     Route 53 returns in response to DNS queries, for example,
---     @example.com@.
+-- [AWS_INIT_HEALTH_STATUS]
+--     If the service configuration includes @HealthCheckCustomConfig@, you
+--     can optionally use @AWS_INIT_HEALTH_STATUS@ to specify the initial
+--     status of the custom health check, @HEALTHY@ or @UNHEALTHY@. If you
+--     don\'t specify a value for @AWS_INIT_HEALTH_STATUS@, the initial
+--     status is @HEALTHY@.
 --
--- -   @AWS_INSTANCE_IPV4@: For an @A@ record, the IPv4 address that
---     Route 53 returns in response to DNS queries, for example,
---     @192.0.2.44@.
+-- [AWS_INSTANCE_CNAME]
+--     For a @CNAME@ record, the domain name that Route 53 returns in
+--     response to DNS queries (for example, @example.com@).
 --
--- -   @AWS_INSTANCE_IPV6@: For an @AAAA@ record, the IPv6 address that
---     Route 53 returns in response to DNS queries, for example,
---     @2001:0db8:85a3:0000:0000:abcd:0001:2345@.
+-- [AWS_INSTANCE_IPV4]
+--     For an @A@ record, the IPv4 address that Route 53 returns in
+--     response to DNS queries (for example, @192.0.2.44@).
 --
--- -   @AWS_INSTANCE_PORT@: For an @SRV@ record, the value that Route 53
---     returns for the port. In addition, if the service includes
---     @HealthCheckConfig@, the port on the endpoint that Route 53 sends
---     requests to.
+-- [AWS_INSTANCE_IPV6]
+--     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+--     response to DNS queries (for example,
+--     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
+--
+-- [AWS_INSTANCE_PORT]
+--     For an @SRV@ record, the value that Route 53 returns for the port.
+--     In addition, if the service includes @HealthCheckConfig@, the port
+--     on the endpoint that Route 53 sends requests to.
 newInstanceSummary ::
   InstanceSummary
 newInstanceSummary =
@@ -124,37 +144,47 @@ instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummar
 
 -- | A string map that contains the following information:
 --
--- -   The attributes that are associate with the instance.
+-- -   The attributes that are associated with the instance.
 --
 -- -   For each attribute, the applicable value.
 --
 -- Supported attribute keys include the following:
 --
--- -   @AWS_ALIAS_DNS_NAME@: For an alias record that routes traffic to an
---     Elastic Load Balancing load balancer, the DNS name that is
---     associated with the load balancer.
+-- [AWS_ALIAS_DNS_NAME]
+--     For an alias record that routes traffic to an Elastic Load Balancing
+--     load balancer, the DNS name that\'s associated with the load
+--     balancer.
 --
--- -   @AWS_EC2_INSTANCE_ID@: (HTTP namespaces only) The Amazon EC2
---     instance ID for the instance. When the @AWS_EC2_INSTANCE_ID@
---     attribute is specified, then the @AWS_INSTANCE_IPV4@ attribute
---     contains the primary private IPv4 address.
+-- [AWS_EC2_INSTANCE_ID (HTTP namespaces only)]
+--     The Amazon EC2 instance ID for the instance. When the
+--     @AWS_EC2_INSTANCE_ID@ attribute is specified, then the
+--     @AWS_INSTANCE_IPV4@ attribute contains the primary private IPv4
+--     address.
 --
--- -   @AWS_INSTANCE_CNAME@: For a @CNAME@ record, the domain name that
---     Route 53 returns in response to DNS queries, for example,
---     @example.com@.
+-- [AWS_INIT_HEALTH_STATUS]
+--     If the service configuration includes @HealthCheckCustomConfig@, you
+--     can optionally use @AWS_INIT_HEALTH_STATUS@ to specify the initial
+--     status of the custom health check, @HEALTHY@ or @UNHEALTHY@. If you
+--     don\'t specify a value for @AWS_INIT_HEALTH_STATUS@, the initial
+--     status is @HEALTHY@.
 --
--- -   @AWS_INSTANCE_IPV4@: For an @A@ record, the IPv4 address that
---     Route 53 returns in response to DNS queries, for example,
---     @192.0.2.44@.
+-- [AWS_INSTANCE_CNAME]
+--     For a @CNAME@ record, the domain name that Route 53 returns in
+--     response to DNS queries (for example, @example.com@).
 --
--- -   @AWS_INSTANCE_IPV6@: For an @AAAA@ record, the IPv6 address that
---     Route 53 returns in response to DNS queries, for example,
---     @2001:0db8:85a3:0000:0000:abcd:0001:2345@.
+-- [AWS_INSTANCE_IPV4]
+--     For an @A@ record, the IPv4 address that Route 53 returns in
+--     response to DNS queries (for example, @192.0.2.44@).
 --
--- -   @AWS_INSTANCE_PORT@: For an @SRV@ record, the value that Route 53
---     returns for the port. In addition, if the service includes
---     @HealthCheckConfig@, the port on the endpoint that Route 53 sends
---     requests to.
+-- [AWS_INSTANCE_IPV6]
+--     For an @AAAA@ record, the IPv6 address that Route 53 returns in
+--     response to DNS queries (for example,
+--     @2001:0db8:85a3:0000:0000:abcd:0001:2345@).
+--
+-- [AWS_INSTANCE_PORT]
+--     For an @SRV@ record, the value that Route 53 returns for the port.
+--     In addition, if the service includes @HealthCheckConfig@, the port
+--     on the endpoint that Route 53 sends requests to.
 instanceSummary_attributes :: Lens.Lens' InstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Prelude.. Lens.mapping Lens._Coerce
 

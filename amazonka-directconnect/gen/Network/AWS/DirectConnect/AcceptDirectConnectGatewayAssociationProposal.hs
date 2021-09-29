@@ -57,14 +57,14 @@ data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayA
     --
     -- For information about how to set the prefixes, see
     -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
-    -- in the /AWS Direct Connect User Guide/.
+    -- in the /Direct Connect User Guide/.
     overrideAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Text,
     -- | The ID of the request proposal.
     proposalId :: Prelude.Text,
-    -- | The ID of the AWS account that owns the virtual private gateway or
-    -- transit gateway.
+    -- | The ID of the account that owns the virtual private gateway or transit
+    -- gateway.
     associatedGatewayOwnerAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,14 +82,14 @@ data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayA
 --
 -- For information about how to set the prefixes, see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
--- in the /AWS Direct Connect User Guide/.
+-- in the /Direct Connect User Guide/.
 --
 -- 'directConnectGatewayId', 'acceptDirectConnectGatewayAssociationProposal_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
 -- 'proposalId', 'acceptDirectConnectGatewayAssociationProposal_proposalId' - The ID of the request proposal.
 --
--- 'associatedGatewayOwnerAccount', 'acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway or
--- transit gateway.
+-- 'associatedGatewayOwnerAccount', 'acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount' - The ID of the account that owns the virtual private gateway or transit
+-- gateway.
 newAcceptDirectConnectGatewayAssociationProposal ::
   -- | 'directConnectGatewayId'
   Prelude.Text ->
@@ -117,7 +117,7 @@ newAcceptDirectConnectGatewayAssociationProposal
 --
 -- For information about how to set the prefixes, see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
--- in the /AWS Direct Connect User Guide/.
+-- in the /Direct Connect User Guide/.
 acceptDirectConnectGatewayAssociationProposal_overrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Prelude.Maybe [RouteFilterPrefix])
 acceptDirectConnectGatewayAssociationProposal_overrideAllowedPrefixesToDirectConnectGateway = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {overrideAllowedPrefixesToDirectConnectGateway} -> overrideAllowedPrefixesToDirectConnectGateway) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal) Prelude.. Lens.mapping Lens._Coerce
 
@@ -129,8 +129,8 @@ acceptDirectConnectGatewayAssociationProposal_directConnectGatewayId = Lens.lens
 acceptDirectConnectGatewayAssociationProposal_proposalId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Prelude.Text
 acceptDirectConnectGatewayAssociationProposal_proposalId = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {proposalId} -> proposalId) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {proposalId = a} :: AcceptDirectConnectGatewayAssociationProposal)
 
--- | The ID of the AWS account that owns the virtual private gateway or
--- transit gateway.
+-- | The ID of the account that owns the virtual private gateway or transit
+-- gateway.
 acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Prelude.Text
 acceptDirectConnectGatewayAssociationProposal_associatedGatewayOwnerAccount = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {associatedGatewayOwnerAccount} -> associatedGatewayOwnerAccount) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {associatedGatewayOwnerAccount = a} :: AcceptDirectConnectGatewayAssociationProposal)
 

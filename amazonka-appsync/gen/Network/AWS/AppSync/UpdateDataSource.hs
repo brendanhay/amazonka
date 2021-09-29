@@ -27,12 +27,13 @@ module Network.AWS.AppSync.UpdateDataSource
     newUpdateDataSource,
 
     -- * Request Lenses
-    updateDataSource_relationalDatabaseConfig,
     updateDataSource_serviceRoleArn,
+    updateDataSource_relationalDatabaseConfig,
     updateDataSource_elasticsearchConfig,
     updateDataSource_lambdaConfig,
     updateDataSource_dynamodbConfig,
     updateDataSource_description,
+    updateDataSource_openSearchServiceConfig,
     updateDataSource_httpConfig,
     updateDataSource_apiId,
     updateDataSource_name,
@@ -57,18 +58,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { -- | The new relational database configuration.
-    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
-    -- | The new service role ARN for the data source.
+  { -- | The new service role ARN for the data source.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The new Elasticsearch Service configuration.
+    -- | The new relational database configuration.
+    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
+    -- | The new OpenSearch configuration.
+    --
+    -- As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch
+    -- Service. This configuration is deprecated. Instead, use
+    -- UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch
+    -- data source.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
-    -- | The new AWS Lambda configuration.
+    -- | The new Amazon Web Services Lambda configuration.
     lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
     -- | The new Amazon DynamoDB configuration.
     dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
     -- | The new description for the data source.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The new OpenSearch configuration.
+    openSearchServiceConfig :: Prelude.Maybe OpenSearchServiceDataSourceConfig,
     -- | The new HTTP endpoint configuration.
     httpConfig :: Prelude.Maybe HttpDataSourceConfig,
     -- | The API ID.
@@ -88,17 +96,24 @@ data UpdateDataSource = UpdateDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relationalDatabaseConfig', 'updateDataSource_relationalDatabaseConfig' - The new relational database configuration.
---
 -- 'serviceRoleArn', 'updateDataSource_serviceRoleArn' - The new service role ARN for the data source.
 --
--- 'elasticsearchConfig', 'updateDataSource_elasticsearchConfig' - The new Elasticsearch Service configuration.
+-- 'relationalDatabaseConfig', 'updateDataSource_relationalDatabaseConfig' - The new relational database configuration.
 --
--- 'lambdaConfig', 'updateDataSource_lambdaConfig' - The new AWS Lambda configuration.
+-- 'elasticsearchConfig', 'updateDataSource_elasticsearchConfig' - The new OpenSearch configuration.
+--
+-- As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch
+-- Service. This configuration is deprecated. Instead, use
+-- UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch
+-- data source.
+--
+-- 'lambdaConfig', 'updateDataSource_lambdaConfig' - The new Amazon Web Services Lambda configuration.
 --
 -- 'dynamodbConfig', 'updateDataSource_dynamodbConfig' - The new Amazon DynamoDB configuration.
 --
 -- 'description', 'updateDataSource_description' - The new description for the data source.
+--
+-- 'openSearchServiceConfig', 'updateDataSource_openSearchServiceConfig' - The new OpenSearch configuration.
 --
 -- 'httpConfig', 'updateDataSource_httpConfig' - The new HTTP endpoint configuration.
 --
@@ -117,32 +132,37 @@ newUpdateDataSource ::
   UpdateDataSource
 newUpdateDataSource pApiId_ pName_ pType_ =
   UpdateDataSource'
-    { relationalDatabaseConfig =
-        Prelude.Nothing,
-      serviceRoleArn = Prelude.Nothing,
+    { serviceRoleArn = Prelude.Nothing,
+      relationalDatabaseConfig = Prelude.Nothing,
       elasticsearchConfig = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
       dynamodbConfig = Prelude.Nothing,
       description = Prelude.Nothing,
+      openSearchServiceConfig = Prelude.Nothing,
       httpConfig = Prelude.Nothing,
       apiId = pApiId_,
       name = pName_,
       type' = pType_
     }
 
--- | The new relational database configuration.
-updateDataSource_relationalDatabaseConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
-updateDataSource_relationalDatabaseConfig = Lens.lens (\UpdateDataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@UpdateDataSource' {} a -> s {relationalDatabaseConfig = a} :: UpdateDataSource)
-
 -- | The new service role ARN for the data source.
 updateDataSource_serviceRoleArn :: Lens.Lens' UpdateDataSource (Prelude.Maybe Prelude.Text)
 updateDataSource_serviceRoleArn = Lens.lens (\UpdateDataSource' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateDataSource' {} a -> s {serviceRoleArn = a} :: UpdateDataSource)
 
--- | The new Elasticsearch Service configuration.
+-- | The new relational database configuration.
+updateDataSource_relationalDatabaseConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
+updateDataSource_relationalDatabaseConfig = Lens.lens (\UpdateDataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@UpdateDataSource' {} a -> s {relationalDatabaseConfig = a} :: UpdateDataSource)
+
+-- | The new OpenSearch configuration.
+--
+-- As of September 2021, Amazon Elasticsearch service is Amazon OpenSearch
+-- Service. This configuration is deprecated. Instead, use
+-- UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch
+-- data source.
 updateDataSource_elasticsearchConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 updateDataSource_elasticsearchConfig = Lens.lens (\UpdateDataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@UpdateDataSource' {} a -> s {elasticsearchConfig = a} :: UpdateDataSource)
 
--- | The new AWS Lambda configuration.
+-- | The new Amazon Web Services Lambda configuration.
 updateDataSource_lambdaConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe LambdaDataSourceConfig)
 updateDataSource_lambdaConfig = Lens.lens (\UpdateDataSource' {lambdaConfig} -> lambdaConfig) (\s@UpdateDataSource' {} a -> s {lambdaConfig = a} :: UpdateDataSource)
 
@@ -153,6 +173,10 @@ updateDataSource_dynamodbConfig = Lens.lens (\UpdateDataSource' {dynamodbConfig}
 -- | The new description for the data source.
 updateDataSource_description :: Lens.Lens' UpdateDataSource (Prelude.Maybe Prelude.Text)
 updateDataSource_description = Lens.lens (\UpdateDataSource' {description} -> description) (\s@UpdateDataSource' {} a -> s {description = a} :: UpdateDataSource)
+
+-- | The new OpenSearch configuration.
+updateDataSource_openSearchServiceConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe OpenSearchServiceDataSourceConfig)
+updateDataSource_openSearchServiceConfig = Lens.lens (\UpdateDataSource' {openSearchServiceConfig} -> openSearchServiceConfig) (\s@UpdateDataSource' {} a -> s {openSearchServiceConfig = a} :: UpdateDataSource)
 
 -- | The new HTTP endpoint configuration.
 updateDataSource_httpConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe HttpDataSourceConfig)
@@ -202,16 +226,18 @@ instance Core.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("relationalDatabaseConfig" Core..=)
-              Prelude.<$> relationalDatabaseConfig,
-            ("serviceRoleArn" Core..=)
+          [ ("serviceRoleArn" Core..=)
               Prelude.<$> serviceRoleArn,
+            ("relationalDatabaseConfig" Core..=)
+              Prelude.<$> relationalDatabaseConfig,
             ("elasticsearchConfig" Core..=)
               Prelude.<$> elasticsearchConfig,
             ("lambdaConfig" Core..=) Prelude.<$> lambdaConfig,
             ("dynamodbConfig" Core..=)
               Prelude.<$> dynamodbConfig,
             ("description" Core..=) Prelude.<$> description,
+            ("openSearchServiceConfig" Core..=)
+              Prelude.<$> openSearchServiceConfig,
             ("httpConfig" Core..=) Prelude.<$> httpConfig,
             Prelude.Just ("type" Core..= type')
           ]

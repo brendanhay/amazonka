@@ -21,10 +21,10 @@ module Network.AWS.ServiceCatalog.Types
     _OperationNotSupportedException,
     _InvalidStateException,
     _DuplicateResourceException,
-    _ResourceInUseException,
     _LimitExceededException,
-    _TagOptionNotMigratedException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
+    _TagOptionNotMigratedException,
 
     -- * AccessLevelFilterKey
     AccessLevelFilterKey (..),
@@ -171,8 +171,8 @@ module Network.AWS.ServiceCatalog.Types
     FailedServiceActionAssociation (..),
     newFailedServiceActionAssociation,
     failedServiceActionAssociation_provisioningArtifactId,
-    failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_productId,
+    failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_errorMessage,
     failedServiceActionAssociation_errorCode,
 
@@ -225,8 +225,8 @@ module Network.AWS.ServiceCatalog.Types
     newPortfolioDetail,
     portfolioDetail_providerName,
     portfolioDetail_id,
-    portfolioDetail_arn,
     portfolioDetail_createdTime,
+    portfolioDetail_arn,
     portfolioDetail_description,
     portfolioDetail_displayName,
 
@@ -264,11 +264,11 @@ module Network.AWS.ServiceCatalog.Types
     productViewSummary_distributor,
     productViewSummary_id,
     productViewSummary_name,
-    productViewSummary_hasDefaultPath,
-    productViewSummary_shortDescription,
     productViewSummary_supportUrl,
-    productViewSummary_supportDescription,
+    productViewSummary_shortDescription,
+    productViewSummary_hasDefaultPath,
     productViewSummary_owner,
+    productViewSummary_supportDescription,
     productViewSummary_productId,
     productViewSummary_supportEmail,
     productViewSummary_type,
@@ -276,10 +276,10 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProvisionedProductAttribute
     ProvisionedProductAttribute (..),
     newProvisionedProductAttribute,
-    provisionedProductAttribute_statusMessage,
     provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
-    provisionedProductAttribute_idempotencyToken,
+    provisionedProductAttribute_statusMessage,
     provisionedProductAttribute_status,
+    provisionedProductAttribute_idempotencyToken,
     provisionedProductAttribute_userArn,
     provisionedProductAttribute_provisioningArtifactName,
     provisionedProductAttribute_arn,
@@ -291,18 +291,18 @@ module Network.AWS.ServiceCatalog.Types
     provisionedProductAttribute_tags,
     provisionedProductAttribute_productId,
     provisionedProductAttribute_lastProvisioningRecordId,
-    provisionedProductAttribute_type,
     provisionedProductAttribute_physicalId,
-    provisionedProductAttribute_userArnSession,
+    provisionedProductAttribute_type,
     provisionedProductAttribute_lastRecordId,
+    provisionedProductAttribute_userArnSession,
 
     -- * ProvisionedProductDetail
     ProvisionedProductDetail (..),
     newProvisionedProductDetail,
-    provisionedProductDetail_statusMessage,
     provisionedProductDetail_lastSuccessfulProvisioningRecordId,
-    provisionedProductDetail_idempotencyToken,
+    provisionedProductDetail_statusMessage,
     provisionedProductDetail_status,
+    provisionedProductDetail_idempotencyToken,
     provisionedProductDetail_arn,
     provisionedProductDetail_id,
     provisionedProductDetail_createdTime,
@@ -326,8 +326,8 @@ module Network.AWS.ServiceCatalog.Types
     provisionedProductPlanDetails_provisioningArtifactId,
     provisionedProductPlanDetails_planName,
     provisionedProductPlanDetails_tags,
-    provisionedProductPlanDetails_planId,
     provisionedProductPlanDetails_productId,
+    provisionedProductPlanDetails_planId,
     provisionedProductPlanDetails_provisioningParameters,
     provisionedProductPlanDetails_planType,
     provisionedProductPlanDetails_pathId,
@@ -375,8 +375,8 @@ module Network.AWS.ServiceCatalog.Types
     provisioningArtifactParameter_isNoEcho,
     provisioningArtifactParameter_parameterConstraints,
     provisioningArtifactParameter_parameterType,
-    provisioningArtifactParameter_parameterKey,
     provisioningArtifactParameter_description,
+    provisioningArtifactParameter_parameterKey,
     provisioningArtifactParameter_defaultValue,
 
     -- * ProvisioningArtifactPreferences
@@ -418,8 +418,8 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProvisioningPreferences
     ProvisioningPreferences (..),
     newProvisioningPreferences,
-    provisioningPreferences_stackSetFailureToleranceCount,
     provisioningPreferences_stackSetAccounts,
+    provisioningPreferences_stackSetFailureToleranceCount,
     provisioningPreferences_stackSetFailureTolerancePercentage,
     provisioningPreferences_stackSetRegions,
     provisioningPreferences_stackSetMaxConcurrencyCount,
@@ -434,8 +434,8 @@ module Network.AWS.ServiceCatalog.Types
     recordDetail_recordErrors,
     recordDetail_provisionedProductId,
     recordDetail_provisionedProductType,
-    recordDetail_recordId,
     recordDetail_updatedTime,
+    recordDetail_recordId,
     recordDetail_createdTime,
     recordDetail_provisioningArtifactId,
     recordDetail_launchRoleArn,
@@ -465,10 +465,10 @@ module Network.AWS.ServiceCatalog.Types
     -- * ResourceChange
     ResourceChange (..),
     newResourceChange,
-    resourceChange_physicalResourceId,
     resourceChange_resourceType,
-    resourceChange_scope,
+    resourceChange_physicalResourceId,
     resourceChange_details,
+    resourceChange_scope,
     resourceChange_logicalResourceId,
     resourceChange_action,
     resourceChange_replacement,
@@ -484,8 +484,8 @@ module Network.AWS.ServiceCatalog.Types
     ResourceDetail (..),
     newResourceDetail,
     resourceDetail_id,
-    resourceDetail_arn,
     resourceDetail_createdTime,
+    resourceDetail_arn,
     resourceDetail_name,
     resourceDetail_description,
 
@@ -512,8 +512,8 @@ module Network.AWS.ServiceCatalog.Types
     -- * ServiceActionSummary
     ServiceActionSummary (..),
     newServiceActionSummary,
-    serviceActionSummary_id,
     serviceActionSummary_definitionType,
+    serviceActionSummary_id,
     serviceActionSummary_name,
     serviceActionSummary_description,
 
@@ -569,8 +569,8 @@ module Network.AWS.ServiceCatalog.Types
     UpdateProvisioningPreferences (..),
     newUpdateProvisioningPreferences,
     updateProvisioningPreferences_stackSetOperationType,
-    updateProvisioningPreferences_stackSetFailureToleranceCount,
     updateProvisioningPreferences_stackSetAccounts,
+    updateProvisioningPreferences_stackSetFailureToleranceCount,
     updateProvisioningPreferences_stackSetFailureTolerancePercentage,
     updateProvisioningPreferences_stackSetRegions,
     updateProvisioningPreferences_stackSetMaxConcurrencyCount,
@@ -778,14 +778,6 @@ _DuplicateResourceException =
     defaultService
     "DuplicateResourceException"
 
--- | A resource that is currently in use. Ensure that the resource is not in
--- use and retry the operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
 -- | The current limits of the service would have been exceeded by this
 -- operation. Decrease your resource use or increase your service limits
 -- and retry the operation.
@@ -794,6 +786,21 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
+
+-- | A resource that is currently in use. Ensure that the resource is not in
+-- use and retry the operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | An operation requiring TagOptions failed because the TagOptions
 -- migration process has not been performed for this account. Please use
@@ -804,10 +811,3 @@ _TagOptionNotMigratedException =
   Core._MatchServiceError
     defaultService
     "TagOptionNotMigratedException"
-
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"

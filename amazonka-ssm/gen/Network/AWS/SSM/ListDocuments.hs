@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all Systems Manager (SSM) documents in the current AWS account
--- and Region. You can limit the results of this request by using a filter.
+-- Returns all Systems Manager (SSM) documents in the current Amazon Web
+-- Services account and Amazon Web Services Region. You can limit the
+-- results of this request by using a filter.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
@@ -70,8 +71,8 @@ data ListDocuments = ListDocuments'
     -- @Key=Owner,Values=Self@. To specify a custom key-value pair, use the
     -- format @Key=tag:tagName,Values=valueName@.
     --
-    -- This API action only supports filtering documents by using a single tag
-    -- key and one or more tag values. For example:
+    -- This API operation only supports filtering documents by using a single
+    -- tag key and one or more tag values. For example:
     -- @Key=tag:tagName,Values=valueName1,valueName2@
     filters :: Prelude.Maybe [DocumentKeyValuesFilter],
     -- | This data type is deprecated. Instead, use @Filters@.
@@ -102,8 +103,8 @@ data ListDocuments = ListDocuments'
 -- @Key=Owner,Values=Self@. To specify a custom key-value pair, use the
 -- format @Key=tag:tagName,Values=valueName@.
 --
--- This API action only supports filtering documents by using a single tag
--- key and one or more tag values. For example:
+-- This API operation only supports filtering documents by using a single
+-- tag key and one or more tag values. For example:
 -- @Key=tag:tagName,Values=valueName1,valueName2@
 --
 -- 'documentFilterList', 'listDocuments_documentFilterList' - This data type is deprecated. Instead, use @Filters@.
@@ -136,8 +137,8 @@ listDocuments_maxResults = Lens.lens (\ListDocuments' {maxResults} -> maxResults
 -- @Key=Owner,Values=Self@. To specify a custom key-value pair, use the
 -- format @Key=tag:tagName,Values=valueName@.
 --
--- This API action only supports filtering documents by using a single tag
--- key and one or more tag values. For example:
+-- This API operation only supports filtering documents by using a single
+-- tag key and one or more tag values. For example:
 -- @Key=tag:tagName,Values=valueName1,valueName2@
 listDocuments_filters :: Lens.Lens' ListDocuments (Prelude.Maybe [DocumentKeyValuesFilter])
 listDocuments_filters = Lens.lens (\ListDocuments' {filters} -> filters) (\s@ListDocuments' {} a -> s {filters = a} :: ListDocuments) Prelude.. Lens.mapping Lens._Coerce
@@ -222,7 +223,7 @@ data ListDocumentsResponse = ListDocumentsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the Systems Manager documents.
+    -- | The names of the SSM documents.
     documentIdentifiers :: Prelude.Maybe [DocumentIdentifier],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -240,7 +241,7 @@ data ListDocumentsResponse = ListDocumentsResponse'
 -- 'nextToken', 'listDocumentsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'documentIdentifiers', 'listDocumentsResponse_documentIdentifiers' - The names of the Systems Manager documents.
+-- 'documentIdentifiers', 'listDocumentsResponse_documentIdentifiers' - The names of the SSM documents.
 --
 -- 'httpStatus', 'listDocumentsResponse_httpStatus' - The response's http status code.
 newListDocumentsResponse ::
@@ -259,7 +260,7 @@ newListDocumentsResponse pHttpStatus_ =
 listDocumentsResponse_nextToken :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe Prelude.Text)
 listDocumentsResponse_nextToken = Lens.lens (\ListDocumentsResponse' {nextToken} -> nextToken) (\s@ListDocumentsResponse' {} a -> s {nextToken = a} :: ListDocumentsResponse)
 
--- | The names of the Systems Manager documents.
+-- | The names of the SSM documents.
 listDocumentsResponse_documentIdentifiers :: Lens.Lens' ListDocumentsResponse (Prelude.Maybe [DocumentIdentifier])
 listDocumentsResponse_documentIdentifiers = Lens.lens (\ListDocumentsResponse' {documentIdentifiers} -> documentIdentifiers) (\s@ListDocumentsResponse' {} a -> s {documentIdentifiers = a} :: ListDocumentsResponse) Prelude.. Lens.mapping Lens._Coerce
 

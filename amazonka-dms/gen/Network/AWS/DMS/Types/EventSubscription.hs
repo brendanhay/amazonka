@@ -28,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { -- | The AWS DMS event notification subscription Id.
+  { -- | The DMS event notification subscription Id.
     custSubscriptionId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the AWS DMS event notification subscription.
+    -- | The status of the DMS event notification subscription.
     --
     -- Constraints:
     --
     -- Can be one of the following: creating | modifying | deleting | active |
     -- no-permission | topic-not-exist
     --
-    -- The status \"no-permission\" indicates that AWS DMS no longer has
-    -- permission to post to the SNS topic. The status \"topic-not-exist\"
-    -- indicates that the topic was deleted after the subscription was created.
+    -- The status \"no-permission\" indicates that DMS no longer has permission
+    -- to post to the SNS topic. The status \"topic-not-exist\" indicates that
+    -- the topic was deleted after the subscription was created.
     status :: Prelude.Maybe Prelude.Text,
     -- | A list of source Ids for the event subscription.
     sourceIdsList :: Prelude.Maybe [Prelude.Text],
@@ -47,17 +47,17 @@ data EventSubscription = EventSubscription'
     eventCategoriesList :: Prelude.Maybe [Prelude.Text],
     -- | Boolean value that indicates if the event subscription is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The time the AWS DMS event notification subscription was created.
+    -- | The time the DMS event notification subscription was created.
     subscriptionCreationTime :: Prelude.Maybe Prelude.Text,
-    -- | The AWS customer account associated with the AWS DMS event notification
-    -- subscription.
+    -- | The Amazon Web Services customer account associated with the DMS event
+    -- notification subscription.
     customerAwsId :: Prelude.Maybe Prelude.Text,
-    -- | The type of AWS DMS resource that generates events.
+    -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-server | security-group
     -- | replication-task
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | The topic ARN of the AWS DMS event notification subscription.
+    -- | The topic ARN of the DMS event notification subscription.
     snsTopicArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,18 +70,18 @@ data EventSubscription = EventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'custSubscriptionId', 'eventSubscription_custSubscriptionId' - The AWS DMS event notification subscription Id.
+-- 'custSubscriptionId', 'eventSubscription_custSubscriptionId' - The DMS event notification subscription Id.
 --
--- 'status', 'eventSubscription_status' - The status of the AWS DMS event notification subscription.
+-- 'status', 'eventSubscription_status' - The status of the DMS event notification subscription.
 --
 -- Constraints:
 --
 -- Can be one of the following: creating | modifying | deleting | active |
 -- no-permission | topic-not-exist
 --
--- The status \"no-permission\" indicates that AWS DMS no longer has
--- permission to post to the SNS topic. The status \"topic-not-exist\"
--- indicates that the topic was deleted after the subscription was created.
+-- The status \"no-permission\" indicates that DMS no longer has permission
+-- to post to the SNS topic. The status \"topic-not-exist\" indicates that
+-- the topic was deleted after the subscription was created.
 --
 -- 'sourceIdsList', 'eventSubscription_sourceIdsList' - A list of source Ids for the event subscription.
 --
@@ -89,17 +89,17 @@ data EventSubscription = EventSubscription'
 --
 -- 'enabled', 'eventSubscription_enabled' - Boolean value that indicates if the event subscription is enabled.
 --
--- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The time the AWS DMS event notification subscription was created.
+-- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The time the DMS event notification subscription was created.
 --
--- 'customerAwsId', 'eventSubscription_customerAwsId' - The AWS customer account associated with the AWS DMS event notification
--- subscription.
+-- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services customer account associated with the DMS event
+-- notification subscription.
 --
--- 'sourceType', 'eventSubscription_sourceType' - The type of AWS DMS resource that generates events.
+-- 'sourceType', 'eventSubscription_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-server | security-group
 -- | replication-task
 --
--- 'snsTopicArn', 'eventSubscription_snsTopicArn' - The topic ARN of the AWS DMS event notification subscription.
+-- 'snsTopicArn', 'eventSubscription_snsTopicArn' - The topic ARN of the DMS event notification subscription.
 newEventSubscription ::
   EventSubscription
 newEventSubscription =
@@ -116,20 +116,20 @@ newEventSubscription =
       snsTopicArn = Prelude.Nothing
     }
 
--- | The AWS DMS event notification subscription Id.
+-- | The DMS event notification subscription Id.
 eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_custSubscriptionId = Lens.lens (\EventSubscription' {custSubscriptionId} -> custSubscriptionId) (\s@EventSubscription' {} a -> s {custSubscriptionId = a} :: EventSubscription)
 
--- | The status of the AWS DMS event notification subscription.
+-- | The status of the DMS event notification subscription.
 --
 -- Constraints:
 --
 -- Can be one of the following: creating | modifying | deleting | active |
 -- no-permission | topic-not-exist
 --
--- The status \"no-permission\" indicates that AWS DMS no longer has
--- permission to post to the SNS topic. The status \"topic-not-exist\"
--- indicates that the topic was deleted after the subscription was created.
+-- The status \"no-permission\" indicates that DMS no longer has permission
+-- to post to the SNS topic. The status \"topic-not-exist\" indicates that
+-- the topic was deleted after the subscription was created.
 eventSubscription_status :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_status = Lens.lens (\EventSubscription' {status} -> status) (\s@EventSubscription' {} a -> s {status = a} :: EventSubscription)
 
@@ -145,23 +145,23 @@ eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCat
 eventSubscription_enabled :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Bool)
 eventSubscription_enabled = Lens.lens (\EventSubscription' {enabled} -> enabled) (\s@EventSubscription' {} a -> s {enabled = a} :: EventSubscription)
 
--- | The time the AWS DMS event notification subscription was created.
+-- | The time the DMS event notification subscription was created.
 eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription)
 
--- | The AWS customer account associated with the AWS DMS event notification
--- subscription.
+-- | The Amazon Web Services customer account associated with the DMS event
+-- notification subscription.
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
--- | The type of AWS DMS resource that generates events.
+-- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-server | security-group
 -- | replication-task
 eventSubscription_sourceType :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_sourceType = Lens.lens (\EventSubscription' {sourceType} -> sourceType) (\s@EventSubscription' {} a -> s {sourceType = a} :: EventSubscription)
 
--- | The topic ARN of the AWS DMS event notification subscription.
+-- | The topic ARN of the DMS event notification subscription.
 eventSubscription_snsTopicArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_snsTopicArn = Lens.lens (\EventSubscription' {snsTopicArn} -> snsTopicArn) (\s@EventSubscription' {} a -> s {snsTopicArn = a} :: EventSubscription)
 

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets an OTA update.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetOTAUpdate>
+-- action.
 module Network.AWS.IoT.GetOTAUpdate
   ( -- * Creating a Request
     GetOTAUpdate (..),

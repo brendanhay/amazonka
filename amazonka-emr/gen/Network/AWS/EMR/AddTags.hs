@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to an Amazon EMR resource. Tags make it easier to associate
--- clusters in various ways, such as grouping clusters to track your Amazon
--- EMR resource allocation costs. For more information, see
+-- Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
+-- Studio. Tags make it easier to associate resources in various ways, such
+-- as grouping clusters to track your Amazon EMR resource allocation costs.
+-- For more information, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag Clusters>.
 module Network.AWS.EMR.AddTags
   ( -- * Creating a Request
@@ -49,17 +50,18 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | This input identifies a cluster and a list of tags to attach.
+-- | This input identifies an Amazon EMR resource and a list of tags to
+-- attach.
 --
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | The Amazon EMR resource identifier to which tags will be added. This
-    -- value must be a cluster identifier.
+  { -- | The Amazon EMR resource identifier to which tags will be added. For
+    -- example, a cluster identifier or an Amazon EMR Studio ID.
     resourceId :: Prelude.Text,
-    -- | A list of tags to associate with a cluster and propagate to EC2
-    -- instances. Tags are user-defined key-value pairs that consist of a
-    -- required key string with a maximum of 128 characters, and an optional
-    -- value string with a maximum of 256 characters.
+    -- | A list of tags to associate with a resource. Tags are user-defined
+    -- key-value pairs that consist of a required key string with a maximum of
+    -- 128 characters, and an optional value string with a maximum of 256
+    -- characters.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,13 +74,13 @@ data AddTags = AddTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'addTags_resourceId' - The Amazon EMR resource identifier to which tags will be added. This
--- value must be a cluster identifier.
+-- 'resourceId', 'addTags_resourceId' - The Amazon EMR resource identifier to which tags will be added. For
+-- example, a cluster identifier or an Amazon EMR Studio ID.
 --
--- 'tags', 'addTags_tags' - A list of tags to associate with a cluster and propagate to EC2
--- instances. Tags are user-defined key-value pairs that consist of a
--- required key string with a maximum of 128 characters, and an optional
--- value string with a maximum of 256 characters.
+-- 'tags', 'addTags_tags' - A list of tags to associate with a resource. Tags are user-defined
+-- key-value pairs that consist of a required key string with a maximum of
+-- 128 characters, and an optional value string with a maximum of 256
+-- characters.
 newAddTags ::
   -- | 'resourceId'
   Prelude.Text ->
@@ -89,15 +91,15 @@ newAddTags pResourceId_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon EMR resource identifier to which tags will be added. This
--- value must be a cluster identifier.
+-- | The Amazon EMR resource identifier to which tags will be added. For
+-- example, a cluster identifier or an Amazon EMR Studio ID.
 addTags_resourceId :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceId = Lens.lens (\AddTags' {resourceId} -> resourceId) (\s@AddTags' {} a -> s {resourceId = a} :: AddTags)
 
--- | A list of tags to associate with a cluster and propagate to EC2
--- instances. Tags are user-defined key-value pairs that consist of a
--- required key string with a maximum of 128 characters, and an optional
--- value string with a maximum of 256 characters.
+-- | A list of tags to associate with a resource. Tags are user-defined
+-- key-value pairs that consist of a required key string with a maximum of
+-- 128 characters, and an optional value string with a maximum of 256
+-- characters.
 addTags_tags :: Lens.Lens' AddTags [Tag]
 addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 

@@ -23,26 +23,28 @@
 -- Adds an attribute and values to, or removes an attribute and values
 -- from, a manual DB cluster snapshot.
 --
--- To share a manual DB cluster snapshot with other AWS accounts, specify
--- @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to
--- add a list of IDs of the AWS accounts that are authorized to restore the
--- manual DB cluster snapshot. Use the value @all@ to make the manual DB
--- cluster snapshot public, which means that it can be copied or restored
--- by all AWS accounts.
---
--- Don\'t add the @all@ value for any manual DB cluster snapshots that
--- contain private information that you don\'t want available to all AWS
+-- To share a manual DB cluster snapshot with other Amazon Web Services
+-- accounts, specify @restore@ as the @AttributeName@ and use the
+-- @ValuesToAdd@ parameter to add a list of IDs of the Amazon Web Services
+-- accounts that are authorized to restore the manual DB cluster snapshot.
+-- Use the value @all@ to make the manual DB cluster snapshot public, which
+-- means that it can be copied or restored by all Amazon Web Services
 -- accounts.
 --
--- If a manual DB cluster snapshot is encrypted, it can be shared, but only
--- by specifying a list of authorized AWS account IDs for the @ValuesToAdd@
--- parameter. You can\'t use @all@ as a value for that parameter in this
--- case.
+-- Don\'t add the @all@ value for any manual DB cluster snapshots that
+-- contain private information that you don\'t want available to all Amazon
+-- Web Services accounts.
 --
--- To view which AWS accounts have access to copy or restore a manual DB
--- cluster snapshot, or whether a manual DB cluster snapshot is public or
--- private, use the DescribeDBClusterSnapshotAttributes API action. The
--- accounts are returned as values for the @restore@ attribute.
+-- If a manual DB cluster snapshot is encrypted, it can be shared, but only
+-- by specifying a list of authorized Amazon Web Services account IDs for
+-- the @ValuesToAdd@ parameter. You can\'t use @all@ as a value for that
+-- parameter in this case.
+--
+-- To view which Amazon Web Services accounts have access to copy or
+-- restore a manual DB cluster snapshot, or whether a manual DB cluster
+-- snapshot is public or private, use the
+-- DescribeDBClusterSnapshotAttributes API action. The accounts are
+-- returned as values for the @restore@ attribute.
 --
 -- This action only applies to Aurora DB clusters.
 module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
@@ -80,29 +82,31 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
   { -- | A list of DB cluster snapshot attributes to remove from the attribute
     -- specified by @AttributeName@.
     --
-    -- To remove authorization for other AWS accounts to copy or restore a
-    -- manual DB cluster snapshot, set this list to include one or more AWS
-    -- account identifiers, or @all@ to remove authorization for any AWS
-    -- account to copy or restore the DB cluster snapshot. If you specify
-    -- @all@, an AWS account whose account ID is explicitly added to the
-    -- @restore@ attribute can still copy or restore a manual DB cluster
-    -- snapshot.
+    -- To remove authorization for other Amazon Web Services accounts to copy
+    -- or restore a manual DB cluster snapshot, set this list to include one or
+    -- more Amazon Web Services account identifiers, or @all@ to remove
+    -- authorization for any Amazon Web Services account to copy or restore the
+    -- DB cluster snapshot. If you specify @all@, an Amazon Web Services
+    -- account whose account ID is explicitly added to the @restore@ attribute
+    -- can still copy or restore a manual DB cluster snapshot.
     valuesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A list of DB cluster snapshot attributes to add to the attribute
     -- specified by @AttributeName@.
     --
-    -- To authorize other AWS accounts to copy or restore a manual DB cluster
-    -- snapshot, set this list to include one or more AWS account IDs, or @all@
-    -- to make the manual DB cluster snapshot restorable by any AWS account. Do
-    -- not add the @all@ value for any manual DB cluster snapshots that contain
-    -- private information that you don\'t want available to all AWS accounts.
+    -- To authorize other Amazon Web Services accounts to copy or restore a
+    -- manual DB cluster snapshot, set this list to include one or more Amazon
+    -- Web Services account IDs, or @all@ to make the manual DB cluster
+    -- snapshot restorable by any Amazon Web Services account. Do not add the
+    -- @all@ value for any manual DB cluster snapshots that contain private
+    -- information that you don\'t want available to all Amazon Web Services
+    -- accounts.
     valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB cluster snapshot to modify the attributes for.
     dbClusterSnapshotIdentifier :: Prelude.Text,
     -- | The name of the DB cluster snapshot attribute to modify.
     --
-    -- To manage authorization for other AWS accounts to copy or restore a
-    -- manual DB cluster snapshot, set this value to @restore@.
+    -- To manage authorization for other Amazon Web Services accounts to copy
+    -- or restore a manual DB cluster snapshot, set this value to @restore@.
     --
     -- To view the list of attributes available to modify, use the
     -- DescribeDBClusterSnapshotAttributes API action.
@@ -121,29 +125,31 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- 'valuesToRemove', 'modifyDBClusterSnapshotAttribute_valuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute
 -- specified by @AttributeName@.
 --
--- To remove authorization for other AWS accounts to copy or restore a
--- manual DB cluster snapshot, set this list to include one or more AWS
--- account identifiers, or @all@ to remove authorization for any AWS
--- account to copy or restore the DB cluster snapshot. If you specify
--- @all@, an AWS account whose account ID is explicitly added to the
--- @restore@ attribute can still copy or restore a manual DB cluster
--- snapshot.
+-- To remove authorization for other Amazon Web Services accounts to copy
+-- or restore a manual DB cluster snapshot, set this list to include one or
+-- more Amazon Web Services account identifiers, or @all@ to remove
+-- authorization for any Amazon Web Services account to copy or restore the
+-- DB cluster snapshot. If you specify @all@, an Amazon Web Services
+-- account whose account ID is explicitly added to the @restore@ attribute
+-- can still copy or restore a manual DB cluster snapshot.
 --
 -- 'valuesToAdd', 'modifyDBClusterSnapshotAttribute_valuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute
 -- specified by @AttributeName@.
 --
--- To authorize other AWS accounts to copy or restore a manual DB cluster
--- snapshot, set this list to include one or more AWS account IDs, or @all@
--- to make the manual DB cluster snapshot restorable by any AWS account. Do
--- not add the @all@ value for any manual DB cluster snapshots that contain
--- private information that you don\'t want available to all AWS accounts.
+-- To authorize other Amazon Web Services accounts to copy or restore a
+-- manual DB cluster snapshot, set this list to include one or more Amazon
+-- Web Services account IDs, or @all@ to make the manual DB cluster
+-- snapshot restorable by any Amazon Web Services account. Do not add the
+-- @all@ value for any manual DB cluster snapshots that contain private
+-- information that you don\'t want available to all Amazon Web Services
+-- accounts.
 --
 -- 'dbClusterSnapshotIdentifier', 'modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
 --
 -- 'attributeName', 'modifyDBClusterSnapshotAttribute_attributeName' - The name of the DB cluster snapshot attribute to modify.
 --
--- To manage authorization for other AWS accounts to copy or restore a
--- manual DB cluster snapshot, set this value to @restore@.
+-- To manage authorization for other Amazon Web Services accounts to copy
+-- or restore a manual DB cluster snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
 -- DescribeDBClusterSnapshotAttributes API action.
@@ -168,24 +174,26 @@ newModifyDBClusterSnapshotAttribute
 -- | A list of DB cluster snapshot attributes to remove from the attribute
 -- specified by @AttributeName@.
 --
--- To remove authorization for other AWS accounts to copy or restore a
--- manual DB cluster snapshot, set this list to include one or more AWS
--- account identifiers, or @all@ to remove authorization for any AWS
--- account to copy or restore the DB cluster snapshot. If you specify
--- @all@, an AWS account whose account ID is explicitly added to the
--- @restore@ attribute can still copy or restore a manual DB cluster
--- snapshot.
+-- To remove authorization for other Amazon Web Services accounts to copy
+-- or restore a manual DB cluster snapshot, set this list to include one or
+-- more Amazon Web Services account identifiers, or @all@ to remove
+-- authorization for any Amazon Web Services account to copy or restore the
+-- DB cluster snapshot. If you specify @all@, an Amazon Web Services
+-- account whose account ID is explicitly added to the @restore@ attribute
+-- can still copy or restore a manual DB cluster snapshot.
 modifyDBClusterSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of DB cluster snapshot attributes to add to the attribute
 -- specified by @AttributeName@.
 --
--- To authorize other AWS accounts to copy or restore a manual DB cluster
--- snapshot, set this list to include one or more AWS account IDs, or @all@
--- to make the manual DB cluster snapshot restorable by any AWS account. Do
--- not add the @all@ value for any manual DB cluster snapshots that contain
--- private information that you don\'t want available to all AWS accounts.
+-- To authorize other Amazon Web Services accounts to copy or restore a
+-- manual DB cluster snapshot, set this list to include one or more Amazon
+-- Web Services account IDs, or @all@ to make the manual DB cluster
+-- snapshot restorable by any Amazon Web Services account. Do not add the
+-- @all@ value for any manual DB cluster snapshots that contain private
+-- information that you don\'t want available to all Amazon Web Services
+-- accounts.
 modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens._Coerce
 
@@ -195,8 +203,8 @@ modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier = Lens.lens (\Modif
 
 -- | The name of the DB cluster snapshot attribute to modify.
 --
--- To manage authorization for other AWS accounts to copy or restore a
--- manual DB cluster snapshot, set this value to @restore@.
+-- To manage authorization for other Amazon Web Services accounts to copy
+-- or restore a manual DB cluster snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
 -- DescribeDBClusterSnapshotAttributes API action.

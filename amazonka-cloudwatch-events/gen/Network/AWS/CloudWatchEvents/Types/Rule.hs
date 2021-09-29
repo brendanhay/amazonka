@@ -34,22 +34,29 @@ data Rule = Rule'
     eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role that is used for target
     -- invocation.
+    --
+    -- If you\'re setting an event bus in another account as the target and
+    -- that account granted permission to your account through an organization
+    -- instead of directly by the account ID, you must specify a @RoleArn@ with
+    -- proper permissions in the @Target@ structure, instead of here in this
+    -- parameter.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the rule.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
+    -- minutes)\". For more information, see
+    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule>.
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The state of the rule.
     state :: Prelude.Maybe RuleState,
-    -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
-    -- minutes)\".
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The name of the rule.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If the rule was created on behalf of your account by an AWS service,
-    -- this field displays the principal name of the service that created the
-    -- rule.
+    -- | If the rule was created on behalf of your account by an Amazon Web
+    -- Services service, this field displays the principal name of the service
+    -- that created the rule.
     managedBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the rule.
     description :: Prelude.Maybe Prelude.Text
@@ -71,21 +78,28 @@ data Rule = Rule'
 -- 'roleArn', 'rule_roleArn' - The Amazon Resource Name (ARN) of the role that is used for target
 -- invocation.
 --
+-- If you\'re setting an event bus in another account as the target and
+-- that account granted permission to your account through an organization
+-- instead of directly by the account ID, you must specify a @RoleArn@ with
+-- proper permissions in the @Target@ structure, instead of here in this
+-- parameter.
+--
 -- 'arn', 'rule_arn' - The Amazon Resource Name (ARN) of the rule.
+--
+-- 'name', 'rule_name' - The name of the rule.
 --
 -- 'eventBusName', 'rule_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
 --
+-- 'scheduleExpression', 'rule_scheduleExpression' - The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
+-- minutes)\". For more information, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule>.
+--
 -- 'state', 'rule_state' - The state of the rule.
 --
--- 'scheduleExpression', 'rule_scheduleExpression' - The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
--- minutes)\".
---
--- 'name', 'rule_name' - The name of the rule.
---
--- 'managedBy', 'rule_managedBy' - If the rule was created on behalf of your account by an AWS service,
--- this field displays the principal name of the service that created the
--- rule.
+-- 'managedBy', 'rule_managedBy' - If the rule was created on behalf of your account by an Amazon Web
+-- Services service, this field displays the principal name of the service
+-- that created the rule.
 --
 -- 'description', 'rule_description' - The description of the rule.
 newRule ::
@@ -95,10 +109,10 @@ newRule =
     { eventPattern = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       arn = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      state = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
       name = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      state = Prelude.Nothing,
       managedBy = Prelude.Nothing,
       description = Prelude.Nothing
     }
@@ -111,6 +125,12 @@ rule_eventPattern = Lens.lens (\Rule' {eventPattern} -> eventPattern) (\s@Rule' 
 
 -- | The Amazon Resource Name (ARN) of the role that is used for target
 -- invocation.
+--
+-- If you\'re setting an event bus in another account as the target and
+-- that account granted permission to your account through an organization
+-- instead of directly by the account ID, you must specify a @RoleArn@ with
+-- proper permissions in the @Target@ structure, instead of here in this
+-- parameter.
 rule_roleArn :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_roleArn = Lens.lens (\Rule' {roleArn} -> roleArn) (\s@Rule' {} a -> s {roleArn = a} :: Rule)
 
@@ -118,27 +138,28 @@ rule_roleArn = Lens.lens (\Rule' {roleArn} -> roleArn) (\s@Rule' {} a -> s {role
 rule_arn :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_arn = Lens.lens (\Rule' {arn} -> arn) (\s@Rule' {} a -> s {arn = a} :: Rule)
 
+-- | The name of the rule.
+rule_name :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: Rule)
+
 -- | The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
 rule_eventBusName :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_eventBusName = Lens.lens (\Rule' {eventBusName} -> eventBusName) (\s@Rule' {} a -> s {eventBusName = a} :: Rule)
 
+-- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
+-- minutes)\". For more information, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule>.
+rule_scheduleExpression :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_scheduleExpression = Lens.lens (\Rule' {scheduleExpression} -> scheduleExpression) (\s@Rule' {} a -> s {scheduleExpression = a} :: Rule)
+
 -- | The state of the rule.
 rule_state :: Lens.Lens' Rule (Prelude.Maybe RuleState)
 rule_state = Lens.lens (\Rule' {state} -> state) (\s@Rule' {} a -> s {state = a} :: Rule)
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
--- minutes)\".
-rule_scheduleExpression :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
-rule_scheduleExpression = Lens.lens (\Rule' {scheduleExpression} -> scheduleExpression) (\s@Rule' {} a -> s {scheduleExpression = a} :: Rule)
-
--- | The name of the rule.
-rule_name :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
-rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: Rule)
-
--- | If the rule was created on behalf of your account by an AWS service,
--- this field displays the principal name of the service that created the
--- rule.
+-- | If the rule was created on behalf of your account by an Amazon Web
+-- Services service, this field displays the principal name of the service
+-- that created the rule.
 rule_managedBy :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_managedBy = Lens.lens (\Rule' {managedBy} -> managedBy) (\s@Rule' {} a -> s {managedBy = a} :: Rule)
 
@@ -155,10 +176,10 @@ instance Core.FromJSON Rule where
             Prelude.<$> (x Core..:? "EventPattern")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "EventBusName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "EventBusName")
+            Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ManagedBy")
             Prelude.<*> (x Core..:? "Description")
       )

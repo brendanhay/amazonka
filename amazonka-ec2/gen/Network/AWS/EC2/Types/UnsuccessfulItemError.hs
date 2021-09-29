@@ -26,7 +26,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the error that occurred. For more information about
 -- errors, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
 --
 -- /See:/ 'newUnsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'

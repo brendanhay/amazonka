@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Aurora global database spread across multiple AWS Regions.
--- The global database contains a single primary cluster with read-write
--- capability, and a read-only secondary cluster that receives data from
--- the primary cluster through high-speed replication performed by the
--- Aurora storage subsystem.
+-- Creates an Aurora global database spread across multiple Amazon Web
+-- Services Regions. The global database contains a single primary cluster
+-- with read-write capability, and a read-only secondary cluster that
+-- receives data from the primary cluster through high-speed replication
+-- performed by the Aurora storage subsystem.
 --
 -- You can create a global database that is initially empty, and then add a
 -- primary cluster and a secondary cluster to it. Or you can specify an

@@ -23,11 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The AWS Organizations organizational unit data source for the sync.
+-- | The Organizations organizational unit data source for the sync.
 --
 -- /See:/ 'newResourceDataSyncOrganizationalUnit' smart constructor.
 data ResourceDataSyncOrganizationalUnit = ResourceDataSyncOrganizationalUnit'
-  { -- | The AWS Organization unit ID data source for the sync.
+  { -- | The Organizations unit ID data source for the sync.
     organizationalUnitId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data ResourceDataSyncOrganizationalUnit = ResourceDataSyncOrganizationalUnit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationalUnitId', 'resourceDataSyncOrganizationalUnit_organizationalUnitId' - The AWS Organization unit ID data source for the sync.
+-- 'organizationalUnitId', 'resourceDataSyncOrganizationalUnit_organizationalUnitId' - The Organizations unit ID data source for the sync.
 newResourceDataSyncOrganizationalUnit ::
   ResourceDataSyncOrganizationalUnit
 newResourceDataSyncOrganizationalUnit =
@@ -49,7 +49,7 @@ newResourceDataSyncOrganizationalUnit =
         Prelude.Nothing
     }
 
--- | The AWS Organization unit ID data source for the sync.
+-- | The Organizations unit ID data source for the sync.
 resourceDataSyncOrganizationalUnit_organizationalUnitId :: Lens.Lens' ResourceDataSyncOrganizationalUnit (Prelude.Maybe Prelude.Text)
 resourceDataSyncOrganizationalUnit_organizationalUnitId = Lens.lens (\ResourceDataSyncOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@ResourceDataSyncOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: ResourceDataSyncOrganizationalUnit)
 

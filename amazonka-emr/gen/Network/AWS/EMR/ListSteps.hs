@@ -21,8 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides a list of steps for the cluster in reverse order unless you
--- specify @stepIds@ with the request of filter by @StepStates@. You can
--- specify a maximum of 10 @stepIDs@.
+-- specify @stepIds@ with the request or filter by @StepStates@. You can
+-- specify a maximum of 10 @stepIDs@. The CLI automatically paginates
+-- results to return a list greater than 50 steps. To return more than 50
+-- steps using the CLI, specify a @Marker@, which is a pagination token
+-- that indicates the next set of steps to retrieve.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListSteps
@@ -64,7 +67,10 @@ data ListSteps = ListSteps'
     stepIds :: Prelude.Maybe [Prelude.Text],
     -- | The filter to limit the step list based on certain states.
     stepStates :: Prelude.Maybe [StepState],
-    -- | The pagination token that indicates the next set of results to retrieve.
+    -- | The maximum number of steps that a single @ListSteps@ action returns is
+    -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+    -- along with the @Marker@ parameter, which is a pagination token that
+    -- indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster for which to list the steps.
     clusterId :: Prelude.Text
@@ -85,7 +91,10 @@ data ListSteps = ListSteps'
 --
 -- 'stepStates', 'listSteps_stepStates' - The filter to limit the step list based on certain states.
 --
--- 'marker', 'listSteps_marker' - The pagination token that indicates the next set of results to retrieve.
+-- 'marker', 'listSteps_marker' - The maximum number of steps that a single @ListSteps@ action returns is
+-- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+-- along with the @Marker@ parameter, which is a pagination token that
+-- indicates the next set of results to retrieve.
 --
 -- 'clusterId', 'listSteps_clusterId' - The identifier of the cluster for which to list the steps.
 newListSteps ::
@@ -110,7 +119,10 @@ listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' 
 listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
 listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens._Coerce
 
--- | The pagination token that indicates the next set of results to retrieve.
+-- | The maximum number of steps that a single @ListSteps@ action returns is
+-- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+-- along with the @Marker@ parameter, which is a pagination token that
+-- indicates the next set of results to retrieve.
 listSteps_marker :: Lens.Lens' ListSteps (Prelude.Maybe Prelude.Text)
 listSteps_marker = Lens.lens (\ListSteps' {marker} -> marker) (\s@ListSteps' {} a -> s {marker = a} :: ListSteps)
 
@@ -190,7 +202,10 @@ instance Core.ToQuery ListSteps where
 data ListStepsResponse = ListStepsResponse'
   { -- | The filtered list of steps for the cluster.
     steps :: Prelude.Maybe [StepSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
+    -- | The maximum number of steps that a single @ListSteps@ action returns is
+    -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+    -- along with the @Marker@ parameter, which is a pagination token that
+    -- indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -207,7 +222,10 @@ data ListStepsResponse = ListStepsResponse'
 --
 -- 'steps', 'listStepsResponse_steps' - The filtered list of steps for the cluster.
 --
--- 'marker', 'listStepsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+-- 'marker', 'listStepsResponse_marker' - The maximum number of steps that a single @ListSteps@ action returns is
+-- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+-- along with the @Marker@ parameter, which is a pagination token that
+-- indicates the next set of results to retrieve.
 --
 -- 'httpStatus', 'listStepsResponse_httpStatus' - The response's http status code.
 newListStepsResponse ::
@@ -225,7 +243,10 @@ newListStepsResponse pHttpStatus_ =
 listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Prelude.Maybe [StepSummary])
 listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The pagination token that indicates the next set of results to retrieve.
+-- | The maximum number of steps that a single @ListSteps@ action returns is
+-- 50. To return a longer list of steps, use multiple @ListSteps@ actions
+-- along with the @Marker@ parameter, which is a pagination token that
+-- indicates the next set of results to retrieve.
 listStepsResponse_marker :: Lens.Lens' ListStepsResponse (Prelude.Maybe Prelude.Text)
 listStepsResponse_marker = Lens.lens (\ListStepsResponse' {marker} -> marker) (\s@ListStepsResponse' {} a -> s {marker = a} :: ListStepsResponse)
 

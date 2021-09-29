@@ -29,9 +29,9 @@ module Network.AWS.SageMaker.ListPipelines
     newListPipelines,
 
     -- * Request Lenses
-    listPipelines_createdAfter,
-    listPipelines_sortOrder,
     listPipelines_nextToken,
+    listPipelines_sortOrder,
+    listPipelines_createdAfter,
     listPipelines_createdBefore,
     listPipelines_maxResults,
     listPipelines_sortBy,
@@ -57,15 +57,15 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
-  { -- | A filter that returns the pipelines that were created after a specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListPipelines@ request was truncated, the
+  { -- | If the result of the previous @ListPipelines@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of pipelines,
     -- use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns the pipelines that were created after a specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns the pipelines that were created before a specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -86,14 +86,14 @@ data ListPipelines = ListPipelines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
--- time.
---
--- 'sortOrder', 'listPipelines_sortOrder' - The sort order for results.
---
 -- 'nextToken', 'listPipelines_nextToken' - If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
 -- use the token in the next request.
+--
+-- 'sortOrder', 'listPipelines_sortOrder' - The sort order for results.
+--
+-- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
+-- time.
 --
 -- 'createdBefore', 'listPipelines_createdBefore' - A filter that returns the pipelines that were created before a specified
 -- time.
@@ -107,29 +107,29 @@ newListPipelines ::
   ListPipelines
 newListPipelines =
   ListPipelines'
-    { createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       pipelineNamePrefix = Prelude.Nothing
     }
 
--- | A filter that returns the pipelines that were created after a specified
--- time.
-listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
-
--- | The sort order for results.
-listPipelines_sortOrder :: Lens.Lens' ListPipelines (Prelude.Maybe SortOrder)
-listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (\s@ListPipelines' {} a -> s {sortOrder = a} :: ListPipelines)
-
 -- | If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
 -- use the token in the next request.
 listPipelines_nextToken :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
 listPipelines_nextToken = Lens.lens (\ListPipelines' {nextToken} -> nextToken) (\s@ListPipelines' {} a -> s {nextToken = a} :: ListPipelines)
+
+-- | The sort order for results.
+listPipelines_sortOrder :: Lens.Lens' ListPipelines (Prelude.Maybe SortOrder)
+listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (\s@ListPipelines' {} a -> s {sortOrder = a} :: ListPipelines)
+
+-- | A filter that returns the pipelines that were created after a specified
+-- time.
+listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
+listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns the pipelines that were created before a specified
 -- time.
@@ -205,9 +205,9 @@ instance Core.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,

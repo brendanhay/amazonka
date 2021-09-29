@@ -41,9 +41,9 @@ module Network.AWS.EC2.ModifyInstanceAttribute
 
     -- * Request Lenses
     modifyInstanceAttribute_groups,
-    modifyInstanceAttribute_instanceType,
     modifyInstanceAttribute_ebsOptimized,
     modifyInstanceAttribute_userData,
+    modifyInstanceAttribute_instanceType,
     modifyInstanceAttribute_dryRun,
     modifyInstanceAttribute_kernel,
     modifyInstanceAttribute_sourceDestCheck,
@@ -72,17 +72,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-  { -- | [EC2-VPC] Changes the security groups of the instance. You must specify
-    -- at least one security group, even if it\'s just the default security
-    -- group for the VPC. You must specify the security group ID, not the
-    -- security group name.
+  { -- | [EC2-VPC] Replaces the security groups of the instance with the
+    -- specified security groups. You must specify at least one security group,
+    -- even if it\'s just the default security group for the VPC. You must
+    -- specify the security group ID, not the security group name.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Changes the instance type to the specified value. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
-    -- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
-    -- error returned is @InvalidInstanceAttributeValue@.
-    instanceType :: Prelude.Maybe AttributeValue,
     -- | Specifies whether the instance is optimized for Amazon EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -90,10 +84,16 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- usage charges apply when using an EBS Optimized instance.
     ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
     -- | Changes the instance\'s user data to the specified value. If you are
-    -- using an AWS SDK or command line tool, base64-encoding is performed for
-    -- you, and you can load the text from a file. Otherwise, you must provide
-    -- base64-encoded text.
+    -- using an Amazon Web Services SDK or command line tool, base64-encoding
+    -- is performed for you, and you can load the text from a file. Otherwise,
+    -- you must provide base64-encoded text.
     userData :: Prelude.Maybe BlobAttributeValue,
+    -- | Changes the instance type to the specified value. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+    -- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
+    -- error returned is @InvalidInstanceAttributeValue@.
+    instanceType :: Prelude.Maybe AttributeValue,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -104,10 +104,12 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
     kernel :: Prelude.Maybe AttributeValue,
-    -- | Specifies whether source\/destination checking is enabled. A value of
-    -- @true@ means that checking is enabled, and @false@ means that checking
-    -- is disabled. This value must be @false@ for a NAT instance to perform
-    -- NAT.
+    -- | Enable or disable source\/destination checks, which ensure that the
+    -- instance is either the source or the destination of any traffic that it
+    -- receives. If the value is @true@, source\/destination checks are
+    -- enabled; otherwise, they are disabled. The default value is @true@. You
+    -- must disable source\/destination checks if the instance runs services
+    -- such as network address translation, routing, or firewalls.
     sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
     -- | Specifies whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
@@ -165,16 +167,10 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'modifyInstanceAttribute_groups' - [EC2-VPC] Changes the security groups of the instance. You must specify
--- at least one security group, even if it\'s just the default security
--- group for the VPC. You must specify the security group ID, not the
--- security group name.
---
--- 'instanceType', 'modifyInstanceAttribute_instanceType' - Changes the instance type to the specified value. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
--- error returned is @InvalidInstanceAttributeValue@.
+-- 'groups', 'modifyInstanceAttribute_groups' - [EC2-VPC] Replaces the security groups of the instance with the
+-- specified security groups. You must specify at least one security group,
+-- even if it\'s just the default security group for the VPC. You must
+-- specify the security group ID, not the security group name.
 --
 -- 'ebsOptimized', 'modifyInstanceAttribute_ebsOptimized' - Specifies whether the instance is optimized for Amazon EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -183,9 +179,15 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- usage charges apply when using an EBS Optimized instance.
 --
 -- 'userData', 'modifyInstanceAttribute_userData' - Changes the instance\'s user data to the specified value. If you are
--- using an AWS SDK or command line tool, base64-encoding is performed for
--- you, and you can load the text from a file. Otherwise, you must provide
--- base64-encoded text.
+-- using an Amazon Web Services SDK or command line tool, base64-encoding
+-- is performed for you, and you can load the text from a file. Otherwise,
+-- you must provide base64-encoded text.
+--
+-- 'instanceType', 'modifyInstanceAttribute_instanceType' - Changes the instance type to the specified value. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
+-- error returned is @InvalidInstanceAttributeValue@.
 --
 -- 'dryRun', 'modifyInstanceAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -197,10 +199,12 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
 --
--- 'sourceDestCheck', 'modifyInstanceAttribute_sourceDestCheck' - Specifies whether source\/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means that checking
--- is disabled. This value must be @false@ for a NAT instance to perform
--- NAT.
+-- 'sourceDestCheck', 'modifyInstanceAttribute_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
 --
 -- 'instanceInitiatedShutdownBehavior', 'modifyInstanceAttribute_instanceInitiatedShutdownBehavior' - Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -253,9 +257,9 @@ newModifyInstanceAttribute ::
 newModifyInstanceAttribute pInstanceId_ =
   ModifyInstanceAttribute'
     { groups = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
       userData = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       kernel = Prelude.Nothing,
       sourceDestCheck = Prelude.Nothing,
@@ -271,20 +275,12 @@ newModifyInstanceAttribute pInstanceId_ =
       instanceId = pInstanceId_
     }
 
--- | [EC2-VPC] Changes the security groups of the instance. You must specify
--- at least one security group, even if it\'s just the default security
--- group for the VPC. You must specify the security group ID, not the
--- security group name.
+-- | [EC2-VPC] Replaces the security groups of the instance with the
+-- specified security groups. You must specify at least one security group,
+-- even if it\'s just the default security group for the VPC. You must
+-- specify the security group ID, not the security group name.
 modifyInstanceAttribute_groups :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [Prelude.Text])
 modifyInstanceAttribute_groups = Lens.lens (\ModifyInstanceAttribute' {groups} -> groups) (\s@ModifyInstanceAttribute' {} a -> s {groups = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Lens._Coerce
-
--- | Changes the instance type to the specified value. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
--- error returned is @InvalidInstanceAttributeValue@.
-modifyInstanceAttribute_instanceType :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
-modifyInstanceAttribute_instanceType = Lens.lens (\ModifyInstanceAttribute' {instanceType} -> instanceType) (\s@ModifyInstanceAttribute' {} a -> s {instanceType = a} :: ModifyInstanceAttribute)
 
 -- | Specifies whether the instance is optimized for Amazon EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -295,11 +291,19 @@ modifyInstanceAttribute_ebsOptimized :: Lens.Lens' ModifyInstanceAttribute (Prel
 modifyInstanceAttribute_ebsOptimized = Lens.lens (\ModifyInstanceAttribute' {ebsOptimized} -> ebsOptimized) (\s@ModifyInstanceAttribute' {} a -> s {ebsOptimized = a} :: ModifyInstanceAttribute)
 
 -- | Changes the instance\'s user data to the specified value. If you are
--- using an AWS SDK or command line tool, base64-encoding is performed for
--- you, and you can load the text from a file. Otherwise, you must provide
--- base64-encoded text.
+-- using an Amazon Web Services SDK or command line tool, base64-encoding
+-- is performed for you, and you can load the text from a file. Otherwise,
+-- you must provide base64-encoded text.
 modifyInstanceAttribute_userData :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe BlobAttributeValue)
 modifyInstanceAttribute_userData = Lens.lens (\ModifyInstanceAttribute' {userData} -> userData) (\s@ModifyInstanceAttribute' {} a -> s {userData = a} :: ModifyInstanceAttribute)
+
+-- | Changes the instance type to the specified value. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
+-- error returned is @InvalidInstanceAttributeValue@.
+modifyInstanceAttribute_instanceType :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_instanceType = Lens.lens (\ModifyInstanceAttribute' {instanceType} -> instanceType) (\s@ModifyInstanceAttribute' {} a -> s {instanceType = a} :: ModifyInstanceAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -315,10 +319,12 @@ modifyInstanceAttribute_dryRun = Lens.lens (\ModifyInstanceAttribute' {dryRun} -
 modifyInstanceAttribute_kernel :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
 modifyInstanceAttribute_kernel = Lens.lens (\ModifyInstanceAttribute' {kernel} -> kernel) (\s@ModifyInstanceAttribute' {} a -> s {kernel = a} :: ModifyInstanceAttribute)
 
--- | Specifies whether source\/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means that checking
--- is disabled. This value must be @false@ for a NAT instance to perform
--- NAT.
+-- | Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
 modifyInstanceAttribute_sourceDestCheck :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_sourceDestCheck = Lens.lens (\ModifyInstanceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ModifyInstanceAttribute' {} a -> s {sourceDestCheck = a} :: ModifyInstanceAttribute)
 
@@ -413,9 +419,9 @@ instance Core.ToQuery ModifyInstanceAttribute where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
           (Core.toQueryList "GroupId" Prelude.<$> groups),
-        "InstanceType" Core.=: instanceType,
         "EbsOptimized" Core.=: ebsOptimized,
         "UserData" Core.=: userData,
+        "InstanceType" Core.=: instanceType,
         "DryRun" Core.=: dryRun,
         "Kernel" Core.=: kernel,
         "SourceDestCheck" Core.=: sourceDestCheck,

@@ -14,36 +14,52 @@
 module Network.AWS.APIGateway.Lens
   ( -- * Operations
 
-    -- ** GenerateClientCertificate
-    generateClientCertificate_tags,
-    generateClientCertificate_description,
-    clientCertificate_createdDate,
-    clientCertificate_expirationDate,
-    clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
-    clientCertificate_clientCertificateId,
-    clientCertificate_description,
-
     -- ** UpdateIntegration
     updateIntegration_patchOperations,
     updateIntegration_restApiId,
     updateIntegration_resourceId,
     updateIntegration_httpMethod,
     integration_httpMethod,
-    integration_passthroughBehavior,
     integration_contentHandling,
     integration_uri,
     integration_connectionType,
+    integration_passthroughBehavior,
     integration_connectionId,
-    integration_requestTemplates,
     integration_timeoutInMillis,
+    integration_requestTemplates,
     integration_cacheNamespace,
-    integration_cacheKeyParameters,
     integration_tlsConfig,
+    integration_cacheKeyParameters,
     integration_integrationResponses,
     integration_requestParameters,
-    integration_type,
     integration_credentials,
+    integration_type,
+
+    -- ** UpdateUsagePlan
+    updateUsagePlan_patchOperations,
+    updateUsagePlan_usagePlanId,
+    usagePlan_id,
+    usagePlan_apiStages,
+    usagePlan_name,
+    usagePlan_tags,
+    usagePlan_productCode,
+    usagePlan_description,
+    usagePlan_quota,
+    usagePlan_throttle,
+
+    -- ** GetAuthorizer
+    getAuthorizer_restApiId,
+    getAuthorizer_authorizerId,
+    authorizer_identityValidationExpression,
+    authorizer_authorizerCredentials,
+    authorizer_id,
+    authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
+    authorizer_identitySource,
+    authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
 
     -- ** DeleteUsagePlan
     deleteUsagePlan_usagePlanId,
@@ -53,6 +69,16 @@ module Network.AWS.APIGateway.Lens
     deleteIntegration_resourceId,
     deleteIntegration_httpMethod,
 
+    -- ** GenerateClientCertificate
+    generateClientCertificate_tags,
+    generateClientCertificate_description,
+    clientCertificate_createdDate,
+    clientCertificate_pemEncodedCertificate,
+    clientCertificate_expirationDate,
+    clientCertificate_clientCertificateId,
+    clientCertificate_tags,
+    clientCertificate_description,
+
     -- ** GetUsagePlanKey
     getUsagePlanKey_usagePlanId,
     getUsagePlanKey_keyId,
@@ -61,76 +87,14 @@ module Network.AWS.APIGateway.Lens
     usagePlanKey_value,
     usagePlanKey_type,
 
-    -- ** GetAuthorizer
-    getAuthorizer_restApiId,
-    getAuthorizer_authorizerId,
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
-    authorizer_authorizerUri,
-    authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
-    authorizer_authorizerResultTtlInSeconds,
-
-    -- ** UpdateUsagePlan
-    updateUsagePlan_patchOperations,
-    updateUsagePlan_usagePlanId,
-    usagePlan_id,
-    usagePlan_name,
-    usagePlan_apiStages,
-    usagePlan_tags,
-    usagePlan_description,
-    usagePlan_quota,
-    usagePlan_productCode,
-    usagePlan_throttle,
-
-    -- ** GetDeployments
-    getDeployments_position,
-    getDeployments_limit,
-    getDeployments_restApiId,
-    getDeploymentsResponse_items,
-    getDeploymentsResponse_position,
-    getDeploymentsResponse_httpStatus,
-
-    -- ** DeleteIntegrationResponse
-    deleteIntegrationResponse_restApiId,
-    deleteIntegrationResponse_resourceId,
-    deleteIntegrationResponse_httpMethod,
-    deleteIntegrationResponse_statusCode,
-
-    -- ** FlushStageCache
-    flushStageCache_restApiId,
-    flushStageCache_stageName,
-
-    -- ** DeleteVpcLink
-    deleteVpcLink_vpcLinkId,
-
-    -- ** DeleteDocumentationPart
-    deleteDocumentationPart_restApiId,
-    deleteDocumentationPart_documentationPartId,
-
-    -- ** UpdateVpcLink
-    updateVpcLink_patchOperations,
-    updateVpcLink_vpcLinkId,
-    vpcLink_statusMessage,
-    vpcLink_status,
-    vpcLink_id,
-    vpcLink_name,
-    vpcLink_targetArns,
-    vpcLink_tags,
-    vpcLink_description,
-
     -- ** CreateRestApi
     createRestApi_endpointConfiguration,
     createRestApi_binaryMediaTypes,
     createRestApi_version,
     createRestApi_tags,
     createRestApi_description,
-    createRestApi_disableExecuteApiEndpoint,
     createRestApi_policy,
+    createRestApi_disableExecuteApiEndpoint,
     createRestApi_cloneFrom,
     createRestApi_minimumCompressionSize,
     createRestApi_apiKeySource,
@@ -144,32 +108,16 @@ module Network.AWS.APIGateway.Lens
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
-    -- ** UpdateUsage
-    updateUsage_patchOperations,
-    updateUsage_usagePlanId,
-    updateUsage_keyId,
-    usage_startDate,
-    usage_items,
-    usage_position,
-    usage_usagePlanId,
-    usage_endDate,
-
-    -- ** UpdateIntegrationResponse
-    updateIntegrationResponse_patchOperations,
-    updateIntegrationResponse_restApiId,
-    updateIntegrationResponse_resourceId,
-    updateIntegrationResponse_httpMethod,
-    updateIntegrationResponse_statusCode,
-    integrationResponse_contentHandling,
-    integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
-    integrationResponse_responseParameters,
-    integrationResponse_selectionPattern,
+    -- ** DeleteIntegrationResponse
+    deleteIntegrationResponse_restApiId,
+    deleteIntegrationResponse_resourceId,
+    deleteIntegrationResponse_httpMethod,
+    deleteIntegrationResponse_statusCode,
 
     -- ** UpdateDocumentationPart
     updateDocumentationPart_patchOperations,
@@ -179,27 +127,64 @@ module Network.AWS.APIGateway.Lens
     documentationPart_properties,
     documentationPart_location,
 
-    -- ** GetSdkTypes
-    getSdkTypes_position,
-    getSdkTypes_limit,
-    getSdkTypesResponse_items,
-    getSdkTypesResponse_position,
-    getSdkTypesResponse_httpStatus,
+    -- ** UpdateIntegrationResponse
+    updateIntegrationResponse_patchOperations,
+    updateIntegrationResponse_restApiId,
+    updateIntegrationResponse_resourceId,
+    updateIntegrationResponse_httpMethod,
+    updateIntegrationResponse_statusCode,
+    integrationResponse_contentHandling,
+    integrationResponse_responseTemplates,
+    integrationResponse_responseParameters,
+    integrationResponse_statusCode,
+    integrationResponse_selectionPattern,
 
-    -- ** GetBasePathMappings
-    getBasePathMappings_position,
-    getBasePathMappings_limit,
-    getBasePathMappings_domainName,
-    getBasePathMappingsResponse_items,
-    getBasePathMappingsResponse_position,
-    getBasePathMappingsResponse_httpStatus,
+    -- ** GetDeployments
+    getDeployments_position,
+    getDeployments_limit,
+    getDeployments_restApiId,
+    getDeploymentsResponse_items,
+    getDeploymentsResponse_position,
+    getDeploymentsResponse_httpStatus,
+
+    -- ** DeleteDocumentationPart
+    deleteDocumentationPart_restApiId,
+    deleteDocumentationPart_documentationPartId,
+
+    -- ** UpdateUsage
+    updateUsage_patchOperations,
+    updateUsage_usagePlanId,
+    updateUsage_keyId,
+    usage_startDate,
+    usage_items,
+    usage_position,
+    usage_endDate,
+    usage_usagePlanId,
+
+    -- ** UpdateVpcLink
+    updateVpcLink_patchOperations,
+    updateVpcLink_vpcLinkId,
+    vpcLink_statusMessage,
+    vpcLink_status,
+    vpcLink_id,
+    vpcLink_targetArns,
+    vpcLink_name,
+    vpcLink_tags,
+    vpcLink_description,
+
+    -- ** DeleteVpcLink
+    deleteVpcLink_vpcLinkId,
+
+    -- ** FlushStageCache
+    flushStageCache_restApiId,
+    flushStageCache_stageName,
 
     -- ** GetModel
     getModel_flatten,
     getModel_restApiId,
     getModel_modelName,
-    model_contentType,
     model_schema,
+    model_contentType,
     model_id,
     model_name,
     model_description,
@@ -210,6 +195,26 @@ module Network.AWS.APIGateway.Lens
     getClientCertificatesResponse_items,
     getClientCertificatesResponse_position,
     getClientCertificatesResponse_httpStatus,
+
+    -- ** PutRestApi
+    putRestApi_mode,
+    putRestApi_failOnWarnings,
+    putRestApi_parameters,
+    putRestApi_restApiId,
+    putRestApi_body,
+    restApi_createdDate,
+    restApi_warnings,
+    restApi_endpointConfiguration,
+    restApi_binaryMediaTypes,
+    restApi_id,
+    restApi_version,
+    restApi_name,
+    restApi_tags,
+    restApi_description,
+    restApi_policy,
+    restApi_disableExecuteApiEndpoint,
+    restApi_minimumCompressionSize,
+    restApi_apiKeySource,
 
     -- ** TestInvokeMethod
     testInvokeMethod_headers,
@@ -229,25 +234,13 @@ module Network.AWS.APIGateway.Lens
     testInvokeMethodResponse_latency,
     testInvokeMethodResponse_httpStatus,
 
-    -- ** PutRestApi
-    putRestApi_mode,
-    putRestApi_parameters,
-    putRestApi_failOnWarnings,
-    putRestApi_restApiId,
-    putRestApi_body,
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_disableExecuteApiEndpoint,
-    restApi_policy,
-    restApi_minimumCompressionSize,
-    restApi_apiKeySource,
+    -- ** GetBasePathMappings
+    getBasePathMappings_position,
+    getBasePathMappings_limit,
+    getBasePathMappings_domainName,
+    getBasePathMappingsResponse_items,
+    getBasePathMappingsResponse_position,
+    getBasePathMappingsResponse_httpStatus,
 
     -- ** GetApiKey
     getApiKey_includeValue,
@@ -256,12 +249,28 @@ module Network.AWS.APIGateway.Lens
     apiKey_customerId,
     apiKey_lastUpdatedDate,
     apiKey_stageKeys,
-    apiKey_enabled,
     apiKey_id,
+    apiKey_enabled,
     apiKey_name,
     apiKey_tags,
     apiKey_description,
     apiKey_value,
+
+    -- ** GetSdkTypes
+    getSdkTypes_position,
+    getSdkTypes_limit,
+    getSdkTypesResponse_items,
+    getSdkTypesResponse_position,
+    getSdkTypesResponse_httpStatus,
+
+    -- ** UpdateRequestValidator
+    updateRequestValidator_patchOperations,
+    updateRequestValidator_restApiId,
+    updateRequestValidator_requestValidatorId,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
+    requestValidator_validateRequestParameters,
+    requestValidator_name,
 
     -- ** GetGatewayResponses
     getGatewayResponses_position,
@@ -271,14 +280,62 @@ module Network.AWS.APIGateway.Lens
     getGatewayResponsesResponse_position,
     getGatewayResponsesResponse_httpStatus,
 
+    -- ** UpdateModel
+    updateModel_patchOperations,
+    updateModel_restApiId,
+    updateModel_modelName,
+    model_schema,
+    model_contentType,
+    model_id,
+    model_name,
+    model_description,
+
     -- ** DeleteModel
     deleteModel_restApiId,
     deleteModel_modelName,
+
+    -- ** DeleteDomainName
+    deleteDomainName_domainName,
 
     -- ** DeleteMethod
     deleteMethod_restApiId,
     deleteMethod_resourceId,
     deleteMethod_httpMethod,
+
+    -- ** CreateResource
+    createResource_restApiId,
+    createResource_parentId,
+    createResource_pathPart,
+    resource_id,
+    resource_pathPart,
+    resource_parentId,
+    resource_resourceMethods,
+    resource_path,
+
+    -- ** UpdateDomainName
+    updateDomainName_patchOperations,
+    updateDomainName_domainName,
+    domainName_regionalHostedZoneId,
+    domainName_regionalCertificateName,
+    domainName_mutualTlsAuthentication,
+    domainName_endpointConfiguration,
+    domainName_certificateArn,
+    domainName_distributionHostedZoneId,
+    domainName_domainNameStatusMessage,
+    domainName_distributionDomainName,
+    domainName_certificateUploadDate,
+    domainName_domainName,
+    domainName_tags,
+    domainName_securityPolicy,
+    domainName_domainNameStatus,
+    domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
+    domainName_certificateName,
+    domainName_regionalDomainName,
+
+    -- ** DeleteRequestValidator
+    deleteRequestValidator_restApiId,
+    deleteRequestValidator_requestValidatorId,
 
     -- ** GetDocumentationVersion
     getDocumentationVersion_restApiId,
@@ -297,86 +354,12 @@ module Network.AWS.APIGateway.Lens
     method_apiKeyRequired,
     method_authorizationType,
     method_requestModels,
-    method_operationName,
     method_requestValidatorId,
+    method_operationName,
     method_methodResponses,
     method_authorizerId,
     method_requestParameters,
     method_authorizationScopes,
-
-    -- ** UpdateModel
-    updateModel_patchOperations,
-    updateModel_restApiId,
-    updateModel_modelName,
-    model_contentType,
-    model_schema,
-    model_id,
-    model_name,
-    model_description,
-
-    -- ** UpdateDomainName
-    updateDomainName_patchOperations,
-    updateDomainName_domainName,
-    domainName_regionalHostedZoneId,
-    domainName_regionalCertificateName,
-    domainName_mutualTlsAuthentication,
-    domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
-    domainName_certificateArn,
-    domainName_domainNameStatusMessage,
-    domainName_distributionDomainName,
-    domainName_certificateUploadDate,
-    domainName_domainName,
-    domainName_tags,
-    domainName_securityPolicy,
-    domainName_domainNameStatus,
-    domainName_regionalCertificateArn,
-    domainName_certificateName,
-    domainName_regionalDomainName,
-
-    -- ** CreateResource
-    createResource_restApiId,
-    createResource_parentId,
-    createResource_pathPart,
-    resource_id,
-    resource_pathPart,
-    resource_parentId,
-    resource_resourceMethods,
-    resource_path,
-
-    -- ** DeleteDomainName
-    deleteDomainName_domainName,
-
-    -- ** UpdateRequestValidator
-    updateRequestValidator_patchOperations,
-    updateRequestValidator_restApiId,
-    updateRequestValidator_requestValidatorId,
-    requestValidator_validateRequestBody,
-    requestValidator_id,
-    requestValidator_validateRequestParameters,
-    requestValidator_name,
-
-    -- ** DeleteRequestValidator
-    deleteRequestValidator_restApiId,
-    deleteRequestValidator_requestValidatorId,
-
-    -- ** GetUsagePlans
-    getUsagePlans_position,
-    getUsagePlans_limit,
-    getUsagePlans_keyId,
-    getUsagePlansResponse_items,
-    getUsagePlansResponse_position,
-    getUsagePlansResponse_httpStatus,
-
-    -- ** CreateRequestValidator
-    createRequestValidator_validateRequestBody,
-    createRequestValidator_validateRequestParameters,
-    createRequestValidator_name,
-    createRequestValidator_restApiId,
-    requestValidator_validateRequestBody,
-    requestValidator_id,
-    requestValidator_validateRequestParameters,
-    requestValidator_name,
 
     -- ** CreateDomainName
     createDomainName_certificatePrivateKey,
@@ -387,16 +370,17 @@ module Network.AWS.APIGateway.Lens
     createDomainName_tags,
     createDomainName_securityPolicy,
     createDomainName_certificateChain,
-    createDomainName_certificateBody,
     createDomainName_regionalCertificateArn,
+    createDomainName_certificateBody,
+    createDomainName_ownershipVerificationCertificateArn,
     createDomainName_certificateName,
     createDomainName_domainName,
     domainName_regionalHostedZoneId,
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -405,18 +389,18 @@ module Network.AWS.APIGateway.Lens
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
 
-    -- ** GetVpcLink
-    getVpcLink_vpcLinkId,
-    vpcLink_statusMessage,
-    vpcLink_status,
-    vpcLink_id,
-    vpcLink_name,
-    vpcLink_targetArns,
-    vpcLink_tags,
-    vpcLink_description,
+    -- ** ImportDocumentationParts
+    importDocumentationParts_mode,
+    importDocumentationParts_failOnWarnings,
+    importDocumentationParts_restApiId,
+    importDocumentationParts_body,
+    importDocumentationPartsResponse_warnings,
+    importDocumentationPartsResponse_ids,
+    importDocumentationPartsResponse_httpStatus,
 
     -- ** UpdateResource
     updateResource_patchOperations,
@@ -428,12 +412,24 @@ module Network.AWS.APIGateway.Lens
     resource_resourceMethods,
     resource_path,
 
+    -- ** DeleteResource
+    deleteResource_restApiId,
+    deleteResource_resourceId,
+
     -- ** GetDocumentationPart
     getDocumentationPart_restApiId,
     getDocumentationPart_documentationPartId,
     documentationPart_id,
     documentationPart_properties,
     documentationPart_location,
+
+    -- ** GetUsagePlans
+    getUsagePlans_position,
+    getUsagePlans_limit,
+    getUsagePlans_keyId,
+    getUsagePlansResponse_items,
+    getUsagePlansResponse_position,
+    getUsagePlansResponse_httpStatus,
 
     -- ** GetUsage
     getUsage_position,
@@ -445,25 +441,18 @@ module Network.AWS.APIGateway.Lens
     usage_startDate,
     usage_items,
     usage_position,
-    usage_usagePlanId,
     usage_endDate,
+    usage_usagePlanId,
 
-    -- ** ImportDocumentationParts
-    importDocumentationParts_mode,
-    importDocumentationParts_failOnWarnings,
-    importDocumentationParts_restApiId,
-    importDocumentationParts_body,
-    importDocumentationPartsResponse_warnings,
-    importDocumentationPartsResponse_ids,
-    importDocumentationPartsResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-
-    -- ** DeleteResource
-    deleteResource_restApiId,
-    deleteResource_resourceId,
+    -- ** GetVpcLink
+    getVpcLink_vpcLinkId,
+    vpcLink_statusMessage,
+    vpcLink_status,
+    vpcLink_id,
+    vpcLink_targetArns,
+    vpcLink_name,
+    vpcLink_tags,
+    vpcLink_description,
 
     -- ** GetIntegrationResponse
     getIntegrationResponse_restApiId,
@@ -472,67 +461,47 @@ module Network.AWS.APIGateway.Lens
     getIntegrationResponse_statusCode,
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
     integrationResponse_responseParameters,
+    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
 
-    -- ** DeleteDeployment
-    deleteDeployment_restApiId,
-    deleteDeployment_deploymentId,
+    -- ** CreateRequestValidator
+    createRequestValidator_validateRequestBody,
+    createRequestValidator_validateRequestParameters,
+    createRequestValidator_name,
+    createRequestValidator_restApiId,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
+    requestValidator_validateRequestParameters,
+    requestValidator_name,
 
-    -- ** CreateStage
-    createStage_tracingEnabled,
-    createStage_cacheClusterEnabled,
-    createStage_documentationVersion,
-    createStage_variables,
-    createStage_tags,
-    createStage_description,
-    createStage_canarySettings,
-    createStage_cacheClusterSize,
-    createStage_restApiId,
-    createStage_stageName,
-    createStage_deploymentId,
-    stage_deploymentId,
-    stage_createdDate,
-    stage_tracingEnabled,
-    stage_webAclArn,
-    stage_lastUpdatedDate,
-    stage_cacheClusterEnabled,
-    stage_stageName,
-    stage_documentationVersion,
-    stage_variables,
-    stage_accessLogSettings,
-    stage_tags,
-    stage_clientCertificateId,
-    stage_description,
-    stage_canarySettings,
-    stage_cacheClusterSize,
-    stage_methodSettings,
-    stage_cacheClusterStatus,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
 
     -- ** GetIntegration
     getIntegration_restApiId,
     getIntegration_resourceId,
     getIntegration_httpMethod,
     integration_httpMethod,
-    integration_passthroughBehavior,
     integration_contentHandling,
     integration_uri,
     integration_connectionType,
+    integration_passthroughBehavior,
     integration_connectionId,
-    integration_requestTemplates,
     integration_timeoutInMillis,
+    integration_requestTemplates,
     integration_cacheNamespace,
-    integration_cacheKeyParameters,
     integration_tlsConfig,
+    integration_cacheKeyParameters,
     integration_integrationResponses,
     integration_requestParameters,
-    integration_type,
     integration_credentials,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
+    integration_type,
 
     -- ** UpdateDeployment
     updateDeployment_patchOperations,
@@ -546,68 +515,47 @@ module Network.AWS.APIGateway.Lens
     -- ** GetUsagePlan
     getUsagePlan_usagePlanId,
     usagePlan_id,
-    usagePlan_name,
     usagePlan_apiStages,
+    usagePlan_name,
     usagePlan_tags,
+    usagePlan_productCode,
     usagePlan_description,
     usagePlan_quota,
-    usagePlan_productCode,
     usagePlan_throttle,
 
-    -- ** GetRestApis
-    getRestApis_position,
-    getRestApis_limit,
-    getRestApisResponse_items,
-    getRestApisResponse_position,
-    getRestApisResponse_httpStatus,
+    -- ** DeleteDeployment
+    deleteDeployment_restApiId,
+    deleteDeployment_deploymentId,
 
-    -- ** CreateAuthorizer
-    createAuthorizer_identityValidationExpression,
-    createAuthorizer_authorizerCredentials,
-    createAuthorizer_providerARNs,
-    createAuthorizer_authorizerUri,
-    createAuthorizer_identitySource,
-    createAuthorizer_authType,
-    createAuthorizer_authorizerResultTtlInSeconds,
-    createAuthorizer_restApiId,
-    createAuthorizer_name,
-    createAuthorizer_type,
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
-    authorizer_authorizerUri,
-    authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
-    authorizer_authorizerResultTtlInSeconds,
-
-    -- ** DeleteStage
-    deleteStage_restApiId,
-    deleteStage_stageName,
-
-    -- ** UpdateStage
-    updateStage_patchOperations,
-    updateStage_restApiId,
-    updateStage_stageName,
-    stage_deploymentId,
+    -- ** CreateStage
+    createStage_tracingEnabled,
+    createStage_cacheClusterEnabled,
+    createStage_documentationVersion,
+    createStage_variables,
+    createStage_tags,
+    createStage_description,
+    createStage_cacheClusterSize,
+    createStage_canarySettings,
+    createStage_restApiId,
+    createStage_stageName,
+    createStage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
+    stage_methodSettings,
 
     -- ** CreateUsagePlanKey
     createUsagePlanKey_usagePlanId,
@@ -618,18 +566,68 @@ module Network.AWS.APIGateway.Lens
     usagePlanKey_value,
     usagePlanKey_type,
 
-    -- ** GetGatewayResponse
-    getGatewayResponse_restApiId,
-    getGatewayResponse_responseType,
-    gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
-    gatewayResponse_responseParameters,
-    gatewayResponse_responseType,
-    gatewayResponse_defaultResponse,
+    -- ** PutMethodResponse
+    putMethodResponse_responseModels,
+    putMethodResponse_responseParameters,
+    putMethodResponse_restApiId,
+    putMethodResponse_resourceId,
+    putMethodResponse_httpMethod,
+    putMethodResponse_statusCode,
+    methodResponse_responseModels,
+    methodResponse_responseParameters,
+    methodResponse_statusCode,
+
+    -- ** DeleteStage
+    deleteStage_restApiId,
+    deleteStage_stageName,
+
+    -- ** CreateAuthorizer
+    createAuthorizer_identityValidationExpression,
+    createAuthorizer_authorizerCredentials,
+    createAuthorizer_authorizerUri,
+    createAuthorizer_providerARNs,
+    createAuthorizer_identitySource,
+    createAuthorizer_authorizerResultTtlInSeconds,
+    createAuthorizer_authType,
+    createAuthorizer_restApiId,
+    createAuthorizer_name,
+    createAuthorizer_type,
+    authorizer_identityValidationExpression,
+    authorizer_authorizerCredentials,
+    authorizer_id,
+    authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
+    authorizer_identitySource,
+    authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
+
+    -- ** UpdateStage
+    updateStage_patchOperations,
+    updateStage_restApiId,
+    updateStage_stageName,
+    stage_createdDate,
+    stage_deploymentId,
+    stage_tracingEnabled,
+    stage_lastUpdatedDate,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_webAclArn,
+    stage_documentationVersion,
+    stage_accessLogSettings,
+    stage_variables,
+    stage_clientCertificateId,
+    stage_tags,
+    stage_description,
+    stage_cacheClusterSize,
+    stage_canarySettings,
+    stage_cacheClusterStatus,
+    stage_methodSettings,
 
     -- ** ImportRestApi
-    importRestApi_parameters,
     importRestApi_failOnWarnings,
+    importRestApi_parameters,
     importRestApi_body,
     restApi_createdDate,
     restApi_warnings,
@@ -640,28 +638,26 @@ module Network.AWS.APIGateway.Lens
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
-    -- ** PutMethodResponse
-    putMethodResponse_responseModels,
-    putMethodResponse_responseParameters,
-    putMethodResponse_restApiId,
-    putMethodResponse_resourceId,
-    putMethodResponse_httpMethod,
-    putMethodResponse_statusCode,
-    methodResponse_responseModels,
-    methodResponse_statusCode,
-    methodResponse_responseParameters,
+    -- ** GetRestApis
+    getRestApis_position,
+    getRestApis_limit,
+    getRestApisResponse_items,
+    getRestApisResponse_position,
+    getRestApisResponse_httpStatus,
 
-    -- ** GetBasePathMapping
-    getBasePathMapping_domainName,
-    getBasePathMapping_basePath,
-    basePathMapping_basePath,
-    basePathMapping_stage,
-    basePathMapping_restApiId,
+    -- ** GetGatewayResponse
+    getGatewayResponse_restApiId,
+    getGatewayResponse_responseType,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
+    gatewayResponse_responseType,
+    gatewayResponse_defaultResponse,
 
     -- ** GetRequestValidators
     getRequestValidators_position,
@@ -670,32 +666,6 @@ module Network.AWS.APIGateway.Lens
     getRequestValidatorsResponse_items,
     getRequestValidatorsResponse_position,
     getRequestValidatorsResponse_httpStatus,
-
-    -- ** GetDomainNames
-    getDomainNames_position,
-    getDomainNames_limit,
-    getDomainNamesResponse_items,
-    getDomainNamesResponse_position,
-    getDomainNamesResponse_httpStatus,
-
-    -- ** GetSdkType
-    getSdkType_id,
-    sdkType_friendlyName,
-    sdkType_id,
-    sdkType_configurationProperties,
-    sdkType_description,
-
-    -- ** PutGatewayResponse
-    putGatewayResponse_responseTemplates,
-    putGatewayResponse_statusCode,
-    putGatewayResponse_responseParameters,
-    putGatewayResponse_restApiId,
-    putGatewayResponse_responseType,
-    gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
-    gatewayResponse_responseParameters,
-    gatewayResponse_responseType,
-    gatewayResponse_defaultResponse,
 
     -- ** GetExport
     getExport_accepts,
@@ -708,32 +678,90 @@ module Network.AWS.APIGateway.Lens
     getExportResponse_body,
     getExportResponse_httpStatus,
 
+    -- ** GetSdkType
+    getSdkType_id,
+    sdkType_friendlyName,
+    sdkType_id,
+    sdkType_configurationProperties,
+    sdkType_description,
+
+    -- ** PutGatewayResponse
+    putGatewayResponse_responseTemplates,
+    putGatewayResponse_responseParameters,
+    putGatewayResponse_statusCode,
+    putGatewayResponse_restApiId,
+    putGatewayResponse_responseType,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
+    gatewayResponse_responseType,
+    gatewayResponse_defaultResponse,
+
+    -- ** GetBasePathMapping
+    getBasePathMapping_domainName,
+    getBasePathMapping_basePath,
+    basePathMapping_basePath,
+    basePathMapping_stage,
+    basePathMapping_restApiId,
+
+    -- ** GetDomainNames
+    getDomainNames_position,
+    getDomainNames_limit,
+    getDomainNamesResponse_items,
+    getDomainNamesResponse_position,
+    getDomainNamesResponse_httpStatus,
+
     -- ** GetClientCertificate
     getClientCertificate_clientCertificateId,
     clientCertificate_createdDate,
-    clientCertificate_expirationDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
+    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
+    clientCertificate_tags,
     clientCertificate_description,
 
-    -- ** TestInvokeAuthorizer
-    testInvokeAuthorizer_headers,
-    testInvokeAuthorizer_stageVariables,
-    testInvokeAuthorizer_additionalContext,
-    testInvokeAuthorizer_body,
-    testInvokeAuthorizer_multiValueHeaders,
-    testInvokeAuthorizer_pathWithQueryString,
-    testInvokeAuthorizer_restApiId,
-    testInvokeAuthorizer_authorizerId,
-    testInvokeAuthorizerResponse_claims,
-    testInvokeAuthorizerResponse_clientStatus,
-    testInvokeAuthorizerResponse_principalId,
-    testInvokeAuthorizerResponse_log,
-    testInvokeAuthorizerResponse_authorization,
-    testInvokeAuthorizerResponse_policy,
-    testInvokeAuthorizerResponse_latency,
-    testInvokeAuthorizerResponse_httpStatus,
+    -- ** PutIntegration
+    putIntegration_integrationHttpMethod,
+    putIntegration_contentHandling,
+    putIntegration_uri,
+    putIntegration_connectionType,
+    putIntegration_passthroughBehavior,
+    putIntegration_connectionId,
+    putIntegration_timeoutInMillis,
+    putIntegration_requestTemplates,
+    putIntegration_cacheNamespace,
+    putIntegration_tlsConfig,
+    putIntegration_cacheKeyParameters,
+    putIntegration_requestParameters,
+    putIntegration_credentials,
+    putIntegration_restApiId,
+    putIntegration_resourceId,
+    putIntegration_httpMethod,
+    putIntegration_type,
+    integration_httpMethod,
+    integration_contentHandling,
+    integration_uri,
+    integration_connectionType,
+    integration_passthroughBehavior,
+    integration_connectionId,
+    integration_timeoutInMillis,
+    integration_requestTemplates,
+    integration_cacheNamespace,
+    integration_tlsConfig,
+    integration_cacheKeyParameters,
+    integration_integrationResponses,
+    integration_requestParameters,
+    integration_credentials,
+    integration_type,
+
+    -- ** GetResources
+    getResources_position,
+    getResources_embed,
+    getResources_limit,
+    getResources_restApiId,
+    getResourcesResponse_items,
+    getResourcesResponse_position,
+    getResourcesResponse_httpStatus,
 
     -- ** GetTags
     getTags_position,
@@ -757,48 +785,38 @@ module Network.AWS.APIGateway.Lens
     account_features,
     account_cloudwatchRoleArn,
 
-    -- ** PutIntegration
-    putIntegration_integrationHttpMethod,
-    putIntegration_passthroughBehavior,
-    putIntegration_contentHandling,
-    putIntegration_uri,
-    putIntegration_connectionType,
-    putIntegration_connectionId,
-    putIntegration_requestTemplates,
-    putIntegration_timeoutInMillis,
-    putIntegration_cacheNamespace,
-    putIntegration_cacheKeyParameters,
-    putIntegration_tlsConfig,
-    putIntegration_requestParameters,
-    putIntegration_credentials,
-    putIntegration_restApiId,
-    putIntegration_resourceId,
-    putIntegration_httpMethod,
-    putIntegration_type,
-    integration_httpMethod,
-    integration_passthroughBehavior,
-    integration_contentHandling,
-    integration_uri,
-    integration_connectionType,
-    integration_connectionId,
-    integration_requestTemplates,
-    integration_timeoutInMillis,
-    integration_cacheNamespace,
-    integration_cacheKeyParameters,
-    integration_tlsConfig,
-    integration_integrationResponses,
-    integration_requestParameters,
-    integration_type,
-    integration_credentials,
+    -- ** TestInvokeAuthorizer
+    testInvokeAuthorizer_headers,
+    testInvokeAuthorizer_stageVariables,
+    testInvokeAuthorizer_additionalContext,
+    testInvokeAuthorizer_body,
+    testInvokeAuthorizer_multiValueHeaders,
+    testInvokeAuthorizer_pathWithQueryString,
+    testInvokeAuthorizer_restApiId,
+    testInvokeAuthorizer_authorizerId,
+    testInvokeAuthorizerResponse_claims,
+    testInvokeAuthorizerResponse_clientStatus,
+    testInvokeAuthorizerResponse_principalId,
+    testInvokeAuthorizerResponse_log,
+    testInvokeAuthorizerResponse_authorization,
+    testInvokeAuthorizerResponse_policy,
+    testInvokeAuthorizerResponse_latency,
+    testInvokeAuthorizerResponse_httpStatus,
 
-    -- ** GetResources
-    getResources_position,
-    getResources_embed,
-    getResources_limit,
-    getResources_restApiId,
-    getResourcesResponse_items,
-    getResourcesResponse_position,
-    getResourcesResponse_httpStatus,
+    -- ** PutIntegrationResponse
+    putIntegrationResponse_contentHandling,
+    putIntegrationResponse_responseTemplates,
+    putIntegrationResponse_responseParameters,
+    putIntegrationResponse_selectionPattern,
+    putIntegrationResponse_restApiId,
+    putIntegrationResponse_resourceId,
+    putIntegrationResponse_httpMethod,
+    putIntegrationResponse_statusCode,
+    integrationResponse_contentHandling,
+    integrationResponse_responseTemplates,
+    integrationResponse_responseParameters,
+    integrationResponse_statusCode,
+    integrationResponse_selectionPattern,
 
     -- ** GetResource
     getResource_embed,
@@ -827,43 +845,27 @@ module Network.AWS.APIGateway.Lens
     getAuthorizersResponse_position,
     getAuthorizersResponse_httpStatus,
 
-    -- ** PutIntegrationResponse
-    putIntegrationResponse_contentHandling,
-    putIntegrationResponse_responseTemplates,
-    putIntegrationResponse_responseParameters,
-    putIntegrationResponse_selectionPattern,
-    putIntegrationResponse_restApiId,
-    putIntegrationResponse_resourceId,
-    putIntegrationResponse_httpMethod,
-    putIntegrationResponse_statusCode,
-    integrationResponse_contentHandling,
-    integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
-    integrationResponse_responseParameters,
-    integrationResponse_selectionPattern,
-
     -- ** GetUsagePlanKeys
     getUsagePlanKeys_position,
-    getUsagePlanKeys_limit,
     getUsagePlanKeys_nameQuery,
+    getUsagePlanKeys_limit,
     getUsagePlanKeys_usagePlanId,
     getUsagePlanKeysResponse_items,
     getUsagePlanKeysResponse_position,
     getUsagePlanKeysResponse_httpStatus,
 
-    -- ** CreateDocumentationPart
-    createDocumentationPart_restApiId,
-    createDocumentationPart_location,
-    createDocumentationPart_properties,
-    documentationPart_id,
-    documentationPart_properties,
-    documentationPart_location,
-
-    -- ** GetStages
-    getStages_deploymentId,
-    getStages_restApiId,
-    getStagesResponse_item,
-    getStagesResponse_httpStatus,
+    -- ** CreateVpcLink
+    createVpcLink_tags,
+    createVpcLink_description,
+    createVpcLink_name,
+    createVpcLink_targetArns,
+    vpcLink_statusMessage,
+    vpcLink_status,
+    vpcLink_id,
+    vpcLink_targetArns,
+    vpcLink_name,
+    vpcLink_tags,
+    vpcLink_description,
 
     -- ** GetDomainName
     getDomainName_domainName,
@@ -871,8 +873,8 @@ module Network.AWS.APIGateway.Lens
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -881,6 +883,7 @@ module Network.AWS.APIGateway.Lens
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
 
@@ -890,24 +893,44 @@ module Network.AWS.APIGateway.Lens
     getModelTemplateResponse_value,
     getModelTemplateResponse_httpStatus,
 
+    -- ** UpdateDocumentationVersion
+    updateDocumentationVersion_patchOperations,
+    updateDocumentationVersion_restApiId,
+    updateDocumentationVersion_documentationVersion,
+    documentationVersion_createdDate,
+    documentationVersion_version,
+    documentationVersion_description,
+
     -- ** DeleteRestApi
     deleteRestApi_restApiId,
 
-    -- ** GetMethod
-    getMethod_restApiId,
-    getMethod_resourceId,
-    getMethod_httpMethod,
-    method_httpMethod,
-    method_methodIntegration,
-    method_apiKeyRequired,
-    method_authorizationType,
-    method_requestModels,
-    method_operationName,
-    method_requestValidatorId,
-    method_methodResponses,
-    method_authorizerId,
-    method_requestParameters,
-    method_authorizationScopes,
+    -- ** GetRequestValidator
+    getRequestValidator_restApiId,
+    getRequestValidator_requestValidatorId,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
+    requestValidator_validateRequestParameters,
+    requestValidator_name,
+
+    -- ** CreateDocumentationPart
+    createDocumentationPart_restApiId,
+    createDocumentationPart_location,
+    createDocumentationPart_properties,
+    documentationPart_id,
+    documentationPart_properties,
+    documentationPart_location,
+
+    -- ** DeleteDocumentationVersion
+    deleteDocumentationVersion_restApiId,
+    deleteDocumentationVersion_documentationVersion,
+
+    -- ** ImportApiKeys
+    importApiKeys_failOnWarnings,
+    importApiKeys_body,
+    importApiKeys_format,
+    importApiKeysResponse_warnings,
+    importApiKeysResponse_ids,
+    importApiKeysResponse_httpStatus,
 
     -- ** UpdateRestApi
     updateRestApi_patchOperations,
@@ -921,96 +944,39 @@ module Network.AWS.APIGateway.Lens
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
-    -- ** CreateVpcLink
-    createVpcLink_tags,
-    createVpcLink_description,
-    createVpcLink_name,
-    createVpcLink_targetArns,
-    vpcLink_statusMessage,
-    vpcLink_status,
-    vpcLink_id,
-    vpcLink_name,
-    vpcLink_targetArns,
-    vpcLink_tags,
-    vpcLink_description,
+    -- ** GetStages
+    getStages_deploymentId,
+    getStages_restApiId,
+    getStagesResponse_item,
+    getStagesResponse_httpStatus,
 
-    -- ** GetRequestValidator
-    getRequestValidator_restApiId,
-    getRequestValidator_requestValidatorId,
-    requestValidator_validateRequestBody,
-    requestValidator_id,
-    requestValidator_validateRequestParameters,
-    requestValidator_name,
-
-    -- ** UpdateDocumentationVersion
-    updateDocumentationVersion_patchOperations,
-    updateDocumentationVersion_restApiId,
-    updateDocumentationVersion_documentationVersion,
-    documentationVersion_createdDate,
-    documentationVersion_version,
-    documentationVersion_description,
-
-    -- ** ImportApiKeys
-    importApiKeys_failOnWarnings,
-    importApiKeys_body,
-    importApiKeys_format,
-    importApiKeysResponse_warnings,
-    importApiKeysResponse_ids,
-    importApiKeysResponse_httpStatus,
-
-    -- ** DeleteDocumentationVersion
-    deleteDocumentationVersion_restApiId,
-    deleteDocumentationVersion_documentationVersion,
-
-    -- ** PutMethod
-    putMethod_apiKeyRequired,
-    putMethod_requestModels,
-    putMethod_operationName,
-    putMethod_requestValidatorId,
-    putMethod_authorizerId,
-    putMethod_requestParameters,
-    putMethod_authorizationScopes,
-    putMethod_restApiId,
-    putMethod_resourceId,
-    putMethod_httpMethod,
-    putMethod_authorizationType,
+    -- ** GetMethod
+    getMethod_restApiId,
+    getMethod_resourceId,
+    getMethod_httpMethod,
     method_httpMethod,
     method_methodIntegration,
     method_apiKeyRequired,
     method_authorizationType,
     method_requestModels,
-    method_operationName,
     method_requestValidatorId,
+    method_operationName,
     method_methodResponses,
     method_authorizerId,
     method_requestParameters,
     method_authorizationScopes,
 
-    -- ** DeleteApiKey
-    deleteApiKey_apiKey,
-
     -- ** FlushStageAuthorizersCache
     flushStageAuthorizersCache_restApiId,
     flushStageAuthorizersCache_stageName,
 
-    -- ** UpdateApiKey
-    updateApiKey_patchOperations,
-    updateApiKey_apiKey,
-    apiKey_createdDate,
-    apiKey_customerId,
-    apiKey_lastUpdatedDate,
-    apiKey_stageKeys,
-    apiKey_enabled,
-    apiKey_id,
-    apiKey_name,
-    apiKey_tags,
-    apiKey_description,
-    apiKey_value,
+    -- ** DeleteApiKey
+    deleteApiKey_apiKey,
 
     -- ** GetRestApi
     getRestApi_restApiId,
@@ -1023,22 +989,48 @@ module Network.AWS.APIGateway.Lens
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
-    -- ** CreateModel
-    createModel_schema,
-    createModel_description,
-    createModel_restApiId,
-    createModel_name,
-    createModel_contentType,
-    model_contentType,
-    model_schema,
-    model_id,
-    model_name,
-    model_description,
+    -- ** UpdateApiKey
+    updateApiKey_patchOperations,
+    updateApiKey_apiKey,
+    apiKey_createdDate,
+    apiKey_customerId,
+    apiKey_lastUpdatedDate,
+    apiKey_stageKeys,
+    apiKey_id,
+    apiKey_enabled,
+    apiKey_name,
+    apiKey_tags,
+    apiKey_description,
+    apiKey_value,
+
+    -- ** PutMethod
+    putMethod_apiKeyRequired,
+    putMethod_requestModels,
+    putMethod_requestValidatorId,
+    putMethod_operationName,
+    putMethod_authorizerId,
+    putMethod_requestParameters,
+    putMethod_authorizationScopes,
+    putMethod_restApiId,
+    putMethod_resourceId,
+    putMethod_httpMethod,
+    putMethod_authorizationType,
+    method_httpMethod,
+    method_methodIntegration,
+    method_apiKeyRequired,
+    method_authorizationType,
+    method_requestModels,
+    method_requestValidatorId,
+    method_operationName,
+    method_methodResponses,
+    method_authorizerId,
+    method_requestParameters,
+    method_authorizationScopes,
 
     -- ** CreateApiKey
     createApiKey_customerId,
@@ -1053,16 +1045,24 @@ module Network.AWS.APIGateway.Lens
     apiKey_customerId,
     apiKey_lastUpdatedDate,
     apiKey_stageKeys,
-    apiKey_enabled,
     apiKey_id,
+    apiKey_enabled,
     apiKey_name,
     apiKey_tags,
     apiKey_description,
     apiKey_value,
 
-    -- ** DeleteUsagePlanKey
-    deleteUsagePlanKey_usagePlanId,
-    deleteUsagePlanKey_keyId,
+    -- ** CreateModel
+    createModel_schema,
+    createModel_description,
+    createModel_restApiId,
+    createModel_name,
+    createModel_contentType,
+    model_schema,
+    model_contentType,
+    model_id,
+    model_name,
+    model_description,
 
     -- ** UpdateAccount
     updateAccount_patchOperations,
@@ -1071,12 +1071,17 @@ module Network.AWS.APIGateway.Lens
     account_features,
     account_cloudwatchRoleArn,
 
-    -- ** GetVpcLinks
-    getVpcLinks_position,
-    getVpcLinks_limit,
-    getVpcLinksResponse_items,
-    getVpcLinksResponse_position,
-    getVpcLinksResponse_httpStatus,
+    -- ** GetDocumentationParts
+    getDocumentationParts_locationStatus,
+    getDocumentationParts_position,
+    getDocumentationParts_type,
+    getDocumentationParts_path,
+    getDocumentationParts_nameQuery,
+    getDocumentationParts_limit,
+    getDocumentationParts_restApiId,
+    getDocumentationPartsResponse_items,
+    getDocumentationPartsResponse_position,
+    getDocumentationPartsResponse_httpStatus,
 
     -- ** UpdateAuthorizer
     updateAuthorizer_patchOperations,
@@ -1085,13 +1090,28 @@ module Network.AWS.APIGateway.Lens
     authorizer_identityValidationExpression,
     authorizer_authorizerCredentials,
     authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
     authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
     authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
     authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
+
+    -- ** GetVpcLinks
+    getVpcLinks_position,
+    getVpcLinks_limit,
+    getVpcLinksResponse_items,
+    getVpcLinksResponse_position,
+    getVpcLinksResponse_httpStatus,
+
+    -- ** DeleteUsagePlanKey
+    deleteUsagePlanKey_usagePlanId,
+    deleteUsagePlanKey_keyId,
+
+    -- ** DeleteAuthorizer
+    deleteAuthorizer_restApiId,
+    deleteAuthorizer_authorizerId,
 
     -- ** CreateBasePathMapping
     createBasePathMapping_basePath,
@@ -1102,34 +1122,13 @@ module Network.AWS.APIGateway.Lens
     basePathMapping_stage,
     basePathMapping_restApiId,
 
-    -- ** GetDocumentationParts
-    getDocumentationParts_locationStatus,
-    getDocumentationParts_position,
-    getDocumentationParts_type,
-    getDocumentationParts_limit,
-    getDocumentationParts_path,
-    getDocumentationParts_nameQuery,
-    getDocumentationParts_restApiId,
-    getDocumentationPartsResponse_items,
-    getDocumentationPartsResponse_position,
-    getDocumentationPartsResponse_httpStatus,
-
-    -- ** DeleteAuthorizer
-    deleteAuthorizer_restApiId,
-    deleteAuthorizer_authorizerId,
-
-    -- ** DeleteClientCertificate
-    deleteClientCertificate_clientCertificateId,
-
-    -- ** DeleteMethodResponse
-    deleteMethodResponse_restApiId,
-    deleteMethodResponse_resourceId,
-    deleteMethodResponse_httpMethod,
-    deleteMethodResponse_statusCode,
-
-    -- ** DeleteBasePathMapping
-    deleteBasePathMapping_domainName,
-    deleteBasePathMapping_basePath,
+    -- ** UpdateBasePathMapping
+    updateBasePathMapping_patchOperations,
+    updateBasePathMapping_domainName,
+    updateBasePathMapping_basePath,
+    basePathMapping_basePath,
+    basePathMapping_stage,
+    basePathMapping_restApiId,
 
     -- ** GetDocumentationVersions
     getDocumentationVersions_position,
@@ -1139,33 +1138,21 @@ module Network.AWS.APIGateway.Lens
     getDocumentationVersionsResponse_position,
     getDocumentationVersionsResponse_httpStatus,
 
-    -- ** UpdateBasePathMapping
-    updateBasePathMapping_patchOperations,
-    updateBasePathMapping_domainName,
-    updateBasePathMapping_basePath,
-    basePathMapping_basePath,
-    basePathMapping_stage,
-    basePathMapping_restApiId,
+    -- ** DeleteMethodResponse
+    deleteMethodResponse_restApiId,
+    deleteMethodResponse_resourceId,
+    deleteMethodResponse_httpMethod,
+    deleteMethodResponse_statusCode,
 
     -- ** UpdateClientCertificate
     updateClientCertificate_patchOperations,
     updateClientCertificate_clientCertificateId,
     clientCertificate_createdDate,
-    clientCertificate_expirationDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
+    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
+    clientCertificate_tags,
     clientCertificate_description,
-
-    -- ** UpdateMethodResponse
-    updateMethodResponse_patchOperations,
-    updateMethodResponse_restApiId,
-    updateMethodResponse_resourceId,
-    updateMethodResponse_httpMethod,
-    updateMethodResponse_statusCode,
-    methodResponse_responseModels,
-    methodResponse_statusCode,
-    methodResponse_responseParameters,
 
     -- ** CreateDeployment
     createDeployment_tracingEnabled,
@@ -1174,24 +1161,42 @@ module Network.AWS.APIGateway.Lens
     createDeployment_variables,
     createDeployment_stageDescription,
     createDeployment_description,
-    createDeployment_canarySettings,
     createDeployment_cacheClusterSize,
+    createDeployment_canarySettings,
     createDeployment_restApiId,
     deployment_createdDate,
     deployment_id,
     deployment_apiSummary,
     deployment_description,
 
-    -- ** GetApiKeys
-    getApiKeys_customerId,
-    getApiKeys_includeValues,
-    getApiKeys_position,
-    getApiKeys_limit,
-    getApiKeys_nameQuery,
-    getApiKeysResponse_warnings,
-    getApiKeysResponse_items,
-    getApiKeysResponse_position,
-    getApiKeysResponse_httpStatus,
+    -- ** UpdateMethodResponse
+    updateMethodResponse_patchOperations,
+    updateMethodResponse_restApiId,
+    updateMethodResponse_resourceId,
+    updateMethodResponse_httpMethod,
+    updateMethodResponse_statusCode,
+    methodResponse_responseModels,
+    methodResponse_responseParameters,
+    methodResponse_statusCode,
+
+    -- ** DeleteBasePathMapping
+    deleteBasePathMapping_domainName,
+    deleteBasePathMapping_basePath,
+
+    -- ** DeleteClientCertificate
+    deleteClientCertificate_clientCertificateId,
+
+    -- ** DeleteGatewayResponse
+    deleteGatewayResponse_restApiId,
+    deleteGatewayResponse_responseType,
+
+    -- ** GetModels
+    getModels_position,
+    getModels_limit,
+    getModels_restApiId,
+    getModelsResponse_items,
+    getModelsResponse_position,
+    getModelsResponse_httpStatus,
 
     -- ** CreateUsagePlan
     createUsagePlan_apiStages,
@@ -1201,12 +1206,12 @@ module Network.AWS.APIGateway.Lens
     createUsagePlan_throttle,
     createUsagePlan_name,
     usagePlan_id,
-    usagePlan_name,
     usagePlan_apiStages,
+    usagePlan_name,
     usagePlan_tags,
+    usagePlan_productCode,
     usagePlan_description,
     usagePlan_quota,
-    usagePlan_productCode,
     usagePlan_throttle,
 
     -- ** UpdateGatewayResponse
@@ -1214,8 +1219,8 @@ module Network.AWS.APIGateway.Lens
     updateGatewayResponse_restApiId,
     updateGatewayResponse_responseType,
     gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
     gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
     gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
 
@@ -1235,41 +1240,40 @@ module Network.AWS.APIGateway.Lens
     getMethodResponse_httpMethod,
     getMethodResponse_statusCode,
     methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
 
-    -- ** GetModels
-    getModels_position,
-    getModels_limit,
-    getModels_restApiId,
-    getModelsResponse_items,
-    getModelsResponse_position,
-    getModelsResponse_httpStatus,
+    -- ** GetApiKeys
+    getApiKeys_customerId,
+    getApiKeys_includeValues,
+    getApiKeys_position,
+    getApiKeys_nameQuery,
+    getApiKeys_limit,
+    getApiKeysResponse_warnings,
+    getApiKeysResponse_items,
+    getApiKeysResponse_position,
+    getApiKeysResponse_httpStatus,
 
     -- ** GetStage
     getStage_restApiId,
     getStage_stageName,
-    stage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
-
-    -- ** DeleteGatewayResponse
-    deleteGatewayResponse_restApiId,
-    deleteGatewayResponse_responseType,
+    stage_methodSettings,
 
     -- * Types
 
@@ -1288,8 +1292,8 @@ module Network.AWS.APIGateway.Lens
     apiKey_customerId,
     apiKey_lastUpdatedDate,
     apiKey_stageKeys,
-    apiKey_enabled,
     apiKey_id,
+    apiKey_enabled,
     apiKey_name,
     apiKey_tags,
     apiKey_description,
@@ -1304,13 +1308,13 @@ module Network.AWS.APIGateway.Lens
     authorizer_identityValidationExpression,
     authorizer_authorizerCredentials,
     authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
     authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
     authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
     authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
 
     -- ** BasePathMapping
     basePathMapping_basePath,
@@ -1325,10 +1329,10 @@ module Network.AWS.APIGateway.Lens
 
     -- ** ClientCertificate
     clientCertificate_createdDate,
-    clientCertificate_expirationDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
+    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
+    clientCertificate_tags,
     clientCertificate_description,
 
     -- ** Deployment
@@ -1348,8 +1352,8 @@ module Network.AWS.APIGateway.Lens
     documentationPart_location,
 
     -- ** DocumentationPartLocation
-    documentationPartLocation_name,
     documentationPartLocation_method,
+    documentationPartLocation_name,
     documentationPartLocation_statusCode,
     documentationPartLocation_path,
     documentationPartLocation_type,
@@ -1364,8 +1368,8 @@ module Network.AWS.APIGateway.Lens
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -1374,6 +1378,7 @@ module Network.AWS.APIGateway.Lens
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
 
@@ -1383,33 +1388,33 @@ module Network.AWS.APIGateway.Lens
 
     -- ** GatewayResponse
     gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
     gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
     gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
 
     -- ** Integration
     integration_httpMethod,
-    integration_passthroughBehavior,
     integration_contentHandling,
     integration_uri,
     integration_connectionType,
+    integration_passthroughBehavior,
     integration_connectionId,
-    integration_requestTemplates,
     integration_timeoutInMillis,
+    integration_requestTemplates,
     integration_cacheNamespace,
-    integration_cacheKeyParameters,
     integration_tlsConfig,
+    integration_cacheKeyParameters,
     integration_integrationResponses,
     integration_requestParameters,
-    integration_type,
     integration_credentials,
+    integration_type,
 
     -- ** IntegrationResponse
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
     integrationResponse_responseParameters,
+    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
 
     -- ** Method
@@ -1418,8 +1423,8 @@ module Network.AWS.APIGateway.Lens
     method_apiKeyRequired,
     method_authorizationType,
     method_requestModels,
-    method_operationName,
     method_requestValidatorId,
+    method_operationName,
     method_methodResponses,
     method_authorizerId,
     method_requestParameters,
@@ -1427,15 +1432,15 @@ module Network.AWS.APIGateway.Lens
 
     -- ** MethodResponse
     methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
 
     -- ** MethodSetting
     methodSetting_dataTraceEnabled,
     methodSetting_requireAuthorizationForCacheControl,
-    methodSetting_cacheDataEncrypted,
     methodSetting_throttlingRateLimit,
     methodSetting_throttlingBurstLimit,
+    methodSetting_cacheDataEncrypted,
     methodSetting_cacheTtlInSeconds,
     methodSetting_cachingEnabled,
     methodSetting_unauthorizedCacheControlHeaderStrategy,
@@ -1447,8 +1452,8 @@ module Network.AWS.APIGateway.Lens
     methodSnapshot_authorizationType,
 
     -- ** Model
-    model_contentType,
     model_schema,
+    model_contentType,
     model_id,
     model_name,
     model_description,
@@ -1469,8 +1474,8 @@ module Network.AWS.APIGateway.Lens
     patchOperation_path,
 
     -- ** QuotaSettings
-    quotaSettings_period,
     quotaSettings_limit,
+    quotaSettings_period,
     quotaSettings_offset,
 
     -- ** RequestValidator
@@ -1496,8 +1501,8 @@ module Network.AWS.APIGateway.Lens
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
@@ -1515,23 +1520,23 @@ module Network.AWS.APIGateway.Lens
     sdkType_description,
 
     -- ** Stage
-    stage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
+    stage_methodSettings,
 
     -- ** StageKey
     stageKey_stageName,
@@ -1548,17 +1553,17 @@ module Network.AWS.APIGateway.Lens
     usage_startDate,
     usage_items,
     usage_position,
-    usage_usagePlanId,
     usage_endDate,
+    usage_usagePlanId,
 
     -- ** UsagePlan
     usagePlan_id,
-    usagePlan_name,
     usagePlan_apiStages,
+    usagePlan_name,
     usagePlan_tags,
+    usagePlan_productCode,
     usagePlan_description,
     usagePlan_quota,
-    usagePlan_productCode,
     usagePlan_throttle,
 
     -- ** UsagePlanKey
@@ -1571,8 +1576,8 @@ module Network.AWS.APIGateway.Lens
     vpcLink_statusMessage,
     vpcLink_status,
     vpcLink_id,
-    vpcLink_name,
     vpcLink_targetArns,
+    vpcLink_name,
     vpcLink_tags,
     vpcLink_description,
   )

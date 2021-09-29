@@ -24,16 +24,16 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes prefixes for AWS services.
+-- | Describes prefixes for Amazon Web Services services.
 --
 -- /See:/ 'newPrefixList' smart constructor.
 data PrefixList = PrefixList'
   { -- | The name of the prefix.
     prefixListName :: Prelude.Maybe Prelude.Text,
-    -- | The IP address range of the AWS service.
-    cidrs :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the prefix.
-    prefixListId :: Prelude.Maybe Prelude.Text
+    prefixListId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address range of the Amazon Web Service.
+    cidrs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data PrefixList = PrefixList'
 --
 -- 'prefixListName', 'prefixList_prefixListName' - The name of the prefix.
 --
--- 'cidrs', 'prefixList_cidrs' - The IP address range of the AWS service.
---
 -- 'prefixListId', 'prefixList_prefixListId' - The ID of the prefix.
+--
+-- 'cidrs', 'prefixList_cidrs' - The IP address range of the Amazon Web Service.
 newPrefixList ::
   PrefixList
 newPrefixList =
   PrefixList'
     { prefixListName = Prelude.Nothing,
-      cidrs = Prelude.Nothing,
-      prefixListId = Prelude.Nothing
+      prefixListId = Prelude.Nothing,
+      cidrs = Prelude.Nothing
     }
 
 -- | The name of the prefix.
 prefixList_prefixListName :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
 prefixList_prefixListName = Lens.lens (\PrefixList' {prefixListName} -> prefixListName) (\s@PrefixList' {} a -> s {prefixListName = a} :: PrefixList)
 
--- | The IP address range of the AWS service.
-prefixList_cidrs :: Lens.Lens' PrefixList (Prelude.Maybe [Prelude.Text])
-prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The ID of the prefix.
 prefixList_prefixListId :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
 prefixList_prefixListId = Lens.lens (\PrefixList' {prefixListId} -> prefixListId) (\s@PrefixList' {} a -> s {prefixListId = a} :: PrefixList)
+
+-- | The IP address range of the Amazon Web Service.
+prefixList_cidrs :: Lens.Lens' PrefixList (Prelude.Maybe [Prelude.Text])
+prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromXML PrefixList where
   parseXML x =
     PrefixList'
       Prelude.<$> (x Core..@? "prefixListName")
+      Prelude.<*> (x Core..@? "prefixListId")
       Prelude.<*> ( x Core..@? "cidrSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "prefixListId")
 
 instance Prelude.Hashable PrefixList
 

@@ -38,8 +38,8 @@ module Network.AWS.APIGateway.UpdateVpcLink
     vpcLink_statusMessage,
     vpcLink_status,
     vpcLink_id,
-    vpcLink_name,
     vpcLink_targetArns,
+    vpcLink_name,
     vpcLink_tags,
     vpcLink_description,
   )

@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPublicKeyConfig' smart constructor.
 data PublicKeyConfig = PublicKeyConfig'
-  { -- | A comment to describe the public key.
+  { -- | A comment to describe the public key. The comment cannot be longer than
+    -- 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A string included in the request to help make sure that the request
     -- can’t be replayed.
@@ -53,7 +54,8 @@ data PublicKeyConfig = PublicKeyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'publicKeyConfig_comment' - A comment to describe the public key.
+-- 'comment', 'publicKeyConfig_comment' - A comment to describe the public key. The comment cannot be longer than
+-- 128 characters.
 --
 -- 'callerReference', 'publicKeyConfig_callerReference' - A string included in the request to help make sure that the request
 -- can’t be replayed.
@@ -83,7 +85,8 @@ newPublicKeyConfig
         encodedKey = pEncodedKey_
       }
 
--- | A comment to describe the public key.
+-- | A comment to describe the public key. The comment cannot be longer than
+-- 128 characters.
 publicKeyConfig_comment :: Lens.Lens' PublicKeyConfig (Prelude.Maybe Prelude.Text)
 publicKeyConfig_comment = Lens.lens (\PublicKeyConfig' {comment} -> comment) (\s@PublicKeyConfig' {} a -> s {comment = a} :: PublicKeyConfig)
 

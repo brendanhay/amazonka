@@ -179,8 +179,8 @@ instance Core.ToQuery DescribeWorkspaceDirectories where
 
 -- | /See:/ 'newDescribeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the directories.
     directories :: Prelude.Maybe [WorkspaceDirectory],
@@ -197,8 +197,8 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspaceDirectoriesResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'describeWorkspaceDirectoriesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'directories', 'describeWorkspaceDirectoriesResponse_directories' - Information about the directories.
 --
@@ -215,8 +215,8 @@ newDescribeWorkspaceDirectoriesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 describeWorkspaceDirectoriesResponse_nextToken :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspaceDirectoriesResponse_nextToken = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectoriesResponse)
 

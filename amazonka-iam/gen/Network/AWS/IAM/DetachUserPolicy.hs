@@ -62,7 +62,7 @@ data DetachUserPolicy = DetachUserPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data DetachUserPolicy = DetachUserPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newDetachUserPolicy ::
   -- | 'userName'
   Prelude.Text ->
@@ -114,7 +114,7 @@ detachUserPolicy_userName = Lens.lens (\DetachUserPolicy' {userName} -> userName
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 detachUserPolicy_policyArn :: Lens.Lens' DetachUserPolicy Prelude.Text
 detachUserPolicy_policyArn = Lens.lens (\DetachUserPolicy' {policyArn} -> policyArn) (\s@DetachUserPolicy' {} a -> s {policyArn = a} :: DetachUserPolicy)
 

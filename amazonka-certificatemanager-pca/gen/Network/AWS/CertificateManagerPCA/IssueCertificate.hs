@@ -113,7 +113,8 @@ data IssueCertificate = IssueCertificate'
     --
     -- If conflicting or duplicate certificate information is supplied during
     -- certificate issuance, ACM Private CA applies
-    -- <xxxxx order of operation rules> to determine what information is used.
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
+    -- to determine what information is used.
     apiPassthrough :: Prelude.Maybe ApiPassthrough,
     -- | The Amazon Resource Name (ARN) that was returned when you called
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
@@ -222,7 +223,8 @@ data IssueCertificate = IssueCertificate'
 --
 -- If conflicting or duplicate certificate information is supplied during
 -- certificate issuance, ACM Private CA applies
--- <xxxxx order of operation rules> to determine what information is used.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
+-- to determine what information is used.
 --
 -- 'certificateAuthorityArn', 'issueCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
@@ -356,7 +358,8 @@ issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> te
 --
 -- If conflicting or duplicate certificate information is supplied during
 -- certificate issuance, ACM Private CA applies
--- <xxxxx order of operation rules> to determine what information is used.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
+-- to determine what information is used.
 issueCertificate_apiPassthrough :: Lens.Lens' IssueCertificate (Prelude.Maybe ApiPassthrough)
 issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough} -> apiPassthrough) (\s@IssueCertificate' {} a -> s {apiPassthrough = a} :: IssueCertificate)
 

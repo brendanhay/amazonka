@@ -37,8 +37,8 @@ module Network.AWS.Transcribe.GetVocabulary
     getVocabularyResponse_languageCode,
     getVocabularyResponse_failureReason,
     getVocabularyResponse_lastModifiedTime,
-    getVocabularyResponse_vocabularyState,
     getVocabularyResponse_vocabularyName,
+    getVocabularyResponse_vocabularyState,
     getVocabularyResponse_downloadUri,
     getVocabularyResponse_httpStatus,
   )
@@ -93,8 +93,8 @@ instance Core.AWSRequest GetVocabulary where
             Prelude.<$> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "VocabularyName")
+            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "DownloadUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -140,10 +140,10 @@ data GetVocabularyResponse = GetVocabularyResponse'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the vocabulary was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The processing state of the vocabulary.
-    vocabularyState :: Prelude.Maybe VocabularyState,
     -- | The name of the vocabulary to return.
     vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The processing state of the vocabulary.
+    vocabularyState :: Prelude.Maybe VocabularyState,
     -- | The S3 location where the vocabulary is stored. Use this URI to get the
     -- contents of the vocabulary. The URI is available for a limited time.
     downloadUri :: Prelude.Maybe Prelude.Text,
@@ -167,9 +167,9 @@ data GetVocabularyResponse = GetVocabularyResponse'
 --
 -- 'lastModifiedTime', 'getVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was last modified.
 --
--- 'vocabularyState', 'getVocabularyResponse_vocabularyState' - The processing state of the vocabulary.
---
 -- 'vocabularyName', 'getVocabularyResponse_vocabularyName' - The name of the vocabulary to return.
+--
+-- 'vocabularyState', 'getVocabularyResponse_vocabularyState' - The processing state of the vocabulary.
 --
 -- 'downloadUri', 'getVocabularyResponse_downloadUri' - The S3 location where the vocabulary is stored. Use this URI to get the
 -- contents of the vocabulary. The URI is available for a limited time.
@@ -185,8 +185,8 @@ newGetVocabularyResponse pHttpStatus_ =
         Prelude.Nothing,
       failureReason = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
       downloadUri = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -204,13 +204,13 @@ getVocabularyResponse_failureReason = Lens.lens (\GetVocabularyResponse' {failur
 getVocabularyResponse_lastModifiedTime :: Lens.Lens' GetVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 getVocabularyResponse_lastModifiedTime = Lens.lens (\GetVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetVocabularyResponse' {} a -> s {lastModifiedTime = a} :: GetVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
--- | The processing state of the vocabulary.
-getVocabularyResponse_vocabularyState :: Lens.Lens' GetVocabularyResponse (Prelude.Maybe VocabularyState)
-getVocabularyResponse_vocabularyState = Lens.lens (\GetVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetVocabularyResponse' {} a -> s {vocabularyState = a} :: GetVocabularyResponse)
-
 -- | The name of the vocabulary to return.
 getVocabularyResponse_vocabularyName :: Lens.Lens' GetVocabularyResponse (Prelude.Maybe Prelude.Text)
 getVocabularyResponse_vocabularyName = Lens.lens (\GetVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetVocabularyResponse' {} a -> s {vocabularyName = a} :: GetVocabularyResponse)
+
+-- | The processing state of the vocabulary.
+getVocabularyResponse_vocabularyState :: Lens.Lens' GetVocabularyResponse (Prelude.Maybe VocabularyState)
+getVocabularyResponse_vocabularyState = Lens.lens (\GetVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetVocabularyResponse' {} a -> s {vocabularyState = a} :: GetVocabularyResponse)
 
 -- | The S3 location where the vocabulary is stored. Use this URI to get the
 -- contents of the vocabulary. The URI is available for a limited time.

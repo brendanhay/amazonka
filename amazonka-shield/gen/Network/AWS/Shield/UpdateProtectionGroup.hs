@@ -67,7 +67,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
     protectionGroupId :: Prelude.Text,
-    -- | Defines how AWS Shield combines resource data for the group in order to
+    -- | Defines how Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
     -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -80,8 +80,9 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     --
     -- -   Max - Use the highest traffic from each resource. This is useful for
     --     resources that don\'t share traffic and for resources that share
-    --     that traffic in a non-uniform way. Examples include CloudFront
-    --     distributions and origin resources for CloudFront distributions.
+    --     that traffic in a non-uniform way. Examples include Amazon
+    --     CloudFront distributions and origin resources for CloudFront
+    --     distributions.
     aggregation :: ProtectionGroupAggregation,
     -- | The criteria to use to choose the protected resources for inclusion in
     -- the group. You can include all resources that have protections, provide
@@ -112,7 +113,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
 --
--- 'aggregation', 'updateProtectionGroup_aggregation' - Defines how AWS Shield combines resource data for the group in order to
+-- 'aggregation', 'updateProtectionGroup_aggregation' - Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -125,8 +126,9 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront distributions and origin resources for CloudFront
+--     distributions.
 --
 -- 'pattern'', 'updateProtectionGroup_pattern' - The criteria to use to choose the protected resources for inclusion in
 -- the group. You can include all resources that have protections, provide
@@ -172,7 +174,7 @@ updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> 
 updateProtectionGroup_protectionGroupId :: Lens.Lens' UpdateProtectionGroup Prelude.Text
 updateProtectionGroup_protectionGroupId = Lens.lens (\UpdateProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@UpdateProtectionGroup' {} a -> s {protectionGroupId = a} :: UpdateProtectionGroup)
 
--- | Defines how AWS Shield combines resource data for the group in order to
+-- | Defines how Shield combines resource data for the group in order to
 -- detect, mitigate, and report events.
 --
 -- -   Sum - Use the total traffic across the group. This is a good choice
@@ -185,8 +187,9 @@ updateProtectionGroup_protectionGroupId = Lens.lens (\UpdateProtectionGroup' {pr
 --
 -- -   Max - Use the highest traffic from each resource. This is useful for
 --     resources that don\'t share traffic and for resources that share
---     that traffic in a non-uniform way. Examples include CloudFront
---     distributions and origin resources for CloudFront distributions.
+--     that traffic in a non-uniform way. Examples include Amazon
+--     CloudFront distributions and origin resources for CloudFront
+--     distributions.
 updateProtectionGroup_aggregation :: Lens.Lens' UpdateProtectionGroup ProtectionGroupAggregation
 updateProtectionGroup_aggregation = Lens.lens (\UpdateProtectionGroup' {aggregation} -> aggregation) (\s@UpdateProtectionGroup' {} a -> s {aggregation = a} :: UpdateProtectionGroup)
 

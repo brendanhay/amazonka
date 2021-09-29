@@ -40,8 +40,8 @@ module Network.AWS.Greengrass.GetCoreDefinition
     getCoreDefinitionResponse_arn,
     getCoreDefinitionResponse_id,
     getCoreDefinitionResponse_name,
-    getCoreDefinitionResponse_lastUpdatedTimestamp,
     getCoreDefinitionResponse_tags,
+    getCoreDefinitionResponse_lastUpdatedTimestamp,
     getCoreDefinitionResponse_httpStatus,
   )
 where
@@ -98,8 +98,8 @@ instance Core.AWSRequest GetCoreDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,11 +143,11 @@ data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
 --
 -- 'name', 'getCoreDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getCoreDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getCoreDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getCoreDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getCoreDefinitionResponse_httpStatus' - The response's http status code.
 newGetCoreDefinitionResponse ::
@@ -193,8 +193,8 @@ newGetCoreDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -223,14 +223,14 @@ getCoreDefinitionResponse_id = Lens.lens (\GetCoreDefinitionResponse' {id} -> id
 getCoreDefinitionResponse_name :: Lens.Lens' GetCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
 getCoreDefinitionResponse_name = Lens.lens (\GetCoreDefinitionResponse' {name} -> name) (\s@GetCoreDefinitionResponse' {} a -> s {name = a} :: GetCoreDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getCoreDefinitionResponse_tags :: Lens.Lens' GetCoreDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getCoreDefinitionResponse_tags = Lens.lens (\GetCoreDefinitionResponse' {tags} -> tags) (\s@GetCoreDefinitionResponse' {} a -> s {tags = a} :: GetCoreDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getCoreDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
 getCoreDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetCoreDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetCoreDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetCoreDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getCoreDefinitionResponse_tags :: Lens.Lens' GetCoreDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getCoreDefinitionResponse_tags = Lens.lens (\GetCoreDefinitionResponse' {tags} -> tags) (\s@GetCoreDefinitionResponse' {} a -> s {tags = a} :: GetCoreDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getCoreDefinitionResponse_httpStatus :: Lens.Lens' GetCoreDefinitionResponse Prelude.Int

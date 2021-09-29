@@ -49,11 +49,11 @@ module Network.AWS.Snowball
     -- ** UnsupportedAddressException
     _UnsupportedAddressException,
 
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** Ec2RequestFailedException
     _Ec2RequestFailedException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InvalidJobStateException
     _InvalidJobStateException,
@@ -73,23 +73,17 @@ module Network.AWS.Snowball
     ListClusterJobsResponse (ListClusterJobsResponse'),
     newListClusterJobsResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
-
     -- ** UpdateJobShipmentState
     UpdateJobShipmentState (UpdateJobShipmentState'),
     newUpdateJobShipmentState,
     UpdateJobShipmentStateResponse (UpdateJobShipmentStateResponse'),
     newUpdateJobShipmentStateResponse,
 
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- ** UpdateJob
     UpdateJob (UpdateJob'),
@@ -97,11 +91,23 @@ module Network.AWS.Snowball
     UpdateJobResponse (UpdateJobResponse'),
     newUpdateJobResponse,
 
-    -- ** DescribeAddress
-    DescribeAddress (DescribeAddress'),
-    newDescribeAddress,
-    DescribeAddressResponse (DescribeAddressResponse'),
-    newDescribeAddressResponse,
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** ListLongTermPricing
+    ListLongTermPricing (ListLongTermPricing'),
+    newListLongTermPricing,
+    ListLongTermPricingResponse (ListLongTermPricingResponse'),
+    newListLongTermPricingResponse,
+
+    -- ** GetSoftwareUpdates
+    GetSoftwareUpdates (GetSoftwareUpdates'),
+    newGetSoftwareUpdates,
+    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
+    newGetSoftwareUpdatesResponse,
 
     -- ** DescribeReturnShippingLabel
     DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
@@ -109,11 +115,11 @@ module Network.AWS.Snowball
     DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
     newDescribeReturnShippingLabelResponse,
 
-    -- ** GetSoftwareUpdates
-    GetSoftwareUpdates (GetSoftwareUpdates'),
-    newGetSoftwareUpdates,
-    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
-    newGetSoftwareUpdatesResponse,
+    -- ** DescribeAddress
+    DescribeAddress (DescribeAddress'),
+    newDescribeAddress,
+    DescribeAddressResponse (DescribeAddressResponse'),
+    newDescribeAddressResponse,
 
     -- ** ListCompatibleImages (Paginated)
     ListCompatibleImages (ListCompatibleImages'),
@@ -139,23 +145,17 @@ module Network.AWS.Snowball
     DescribeClusterResponse (DescribeClusterResponse'),
     newDescribeClusterResponse,
 
-    -- ** CancelCluster
-    CancelCluster (CancelCluster'),
-    newCancelCluster,
-    CancelClusterResponse (CancelClusterResponse'),
-    newCancelClusterResponse,
-
     -- ** GetJobUnlockCode
     GetJobUnlockCode (GetJobUnlockCode'),
     newGetJobUnlockCode,
     GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
     newGetJobUnlockCodeResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** CancelCluster
+    CancelCluster (CancelCluster'),
+    newCancelCluster,
+    CancelClusterResponse (CancelClusterResponse'),
+    newCancelClusterResponse,
 
     -- ** GetJobManifest
     GetJobManifest (GetJobManifest'),
@@ -163,17 +163,17 @@ module Network.AWS.Snowball
     GetJobManifestResponse (GetJobManifestResponse'),
     newGetJobManifestResponse,
 
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
     -- ** CreateJob
     CreateJob (CreateJob'),
     newCreateJob,
     CreateJobResponse (CreateJobResponse'),
     newCreateJobResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
 
     -- ** ListClusters (Paginated)
     ListClusters (ListClusters'),
@@ -181,17 +181,29 @@ module Network.AWS.Snowball
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
 
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** CreateLongTermPricing
+    CreateLongTermPricing (CreateLongTermPricing'),
+    newCreateLongTermPricing,
+    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
+    newCreateLongTermPricingResponse,
+
+    -- ** UpdateLongTermPricing
+    UpdateLongTermPricing (UpdateLongTermPricing'),
+    newUpdateLongTermPricing,
+    UpdateLongTermPricingResponse (UpdateLongTermPricingResponse'),
+    newUpdateLongTermPricingResponse,
+
     -- ** GetSnowballUsage
     GetSnowballUsage (GetSnowballUsage'),
     newGetSnowballUsage,
     GetSnowballUsageResponse (GetSnowballUsageResponse'),
     newGetSnowballUsageResponse,
-
-    -- ** CreateReturnShippingLabel
-    CreateReturnShippingLabel (CreateReturnShippingLabel'),
-    newCreateReturnShippingLabel,
-    CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
-    newCreateReturnShippingLabelResponse,
 
     -- ** CreateAddress
     CreateAddress (CreateAddress'),
@@ -199,16 +211,31 @@ module Network.AWS.Snowball
     CreateAddressResponse (CreateAddressResponse'),
     newCreateAddressResponse,
 
+    -- ** CreateReturnShippingLabel
+    CreateReturnShippingLabel (CreateReturnShippingLabel'),
+    newCreateReturnShippingLabel,
+    CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
+    newCreateReturnShippingLabelResponse,
+
     -- * Types
 
     -- ** ClusterState
     ClusterState (..),
+
+    -- ** DeviceServiceName
+    DeviceServiceName (..),
 
     -- ** JobState
     JobState (..),
 
     -- ** JobType
     JobType (..),
+
+    -- ** LongTermPricingType
+    LongTermPricingType (..),
+
+    -- ** RemoteManagement
+    RemoteManagement (..),
 
     -- ** ShipmentState
     ShipmentState (..),
@@ -224,6 +251,12 @@ module Network.AWS.Snowball
 
     -- ** SnowballType
     SnowballType (..),
+
+    -- ** StorageUnit
+    StorageUnit (..),
+
+    -- ** TransferOption
+    TransferOption (..),
 
     -- ** Address
     Address (Address'),
@@ -285,9 +318,21 @@ module Network.AWS.Snowball
     LambdaResource (LambdaResource'),
     newLambdaResource,
 
+    -- ** LongTermPricingListEntry
+    LongTermPricingListEntry (LongTermPricingListEntry'),
+    newLongTermPricingListEntry,
+
+    -- ** NFSOnDeviceServiceConfiguration
+    NFSOnDeviceServiceConfiguration (NFSOnDeviceServiceConfiguration'),
+    newNFSOnDeviceServiceConfiguration,
+
     -- ** Notification
     Notification (Notification'),
     newNotification,
+
+    -- ** OnDeviceServiceConfiguration
+    OnDeviceServiceConfiguration (OnDeviceServiceConfiguration'),
+    newOnDeviceServiceConfiguration,
 
     -- ** S3Resource
     S3Resource (S3Resource'),
@@ -305,6 +350,10 @@ module Network.AWS.Snowball
     SnowconeDeviceConfiguration (SnowconeDeviceConfiguration'),
     newSnowconeDeviceConfiguration,
 
+    -- ** TargetOnDeviceService
+    TargetOnDeviceService (TargetOnDeviceService'),
+    newTargetOnDeviceService,
+
     -- ** TaxDocuments
     TaxDocuments (TaxDocuments'),
     newTaxDocuments,
@@ -320,6 +369,7 @@ import Network.AWS.Snowball.CancelJob
 import Network.AWS.Snowball.CreateAddress
 import Network.AWS.Snowball.CreateCluster
 import Network.AWS.Snowball.CreateJob
+import Network.AWS.Snowball.CreateLongTermPricing
 import Network.AWS.Snowball.CreateReturnShippingLabel
 import Network.AWS.Snowball.DescribeAddress
 import Network.AWS.Snowball.DescribeAddresses
@@ -335,10 +385,12 @@ import Network.AWS.Snowball.ListClusterJobs
 import Network.AWS.Snowball.ListClusters
 import Network.AWS.Snowball.ListCompatibleImages
 import Network.AWS.Snowball.ListJobs
+import Network.AWS.Snowball.ListLongTermPricing
 import Network.AWS.Snowball.Types
 import Network.AWS.Snowball.UpdateCluster
 import Network.AWS.Snowball.UpdateJob
 import Network.AWS.Snowball.UpdateJobShipmentState
+import Network.AWS.Snowball.UpdateLongTermPricing
 import Network.AWS.Snowball.Waiters
 
 -- $errors

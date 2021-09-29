@@ -17,18 +17,11 @@ module Network.AWS.Route53AutoNaming.Lens
     -- ** CreatePublicDnsNamespace
     createPublicDnsNamespace_creatorRequestId,
     createPublicDnsNamespace_tags,
+    createPublicDnsNamespace_properties,
     createPublicDnsNamespace_description,
     createPublicDnsNamespace_name,
     createPublicDnsNamespaceResponse_operationId,
     createPublicDnsNamespaceResponse_httpStatus,
-
-    -- ** ListServices
-    listServices_nextToken,
-    listServices_maxResults,
-    listServices_filters,
-    listServicesResponse_nextToken,
-    listServicesResponse_services,
-    listServicesResponse_httpStatus,
 
     -- ** ListOperations
     listOperations_nextToken,
@@ -38,6 +31,14 @@ module Network.AWS.Route53AutoNaming.Lens
     listOperationsResponse_operations,
     listOperationsResponse_httpStatus,
 
+    -- ** ListServices
+    listServices_nextToken,
+    listServices_maxResults,
+    listServices_filters,
+    listServicesResponse_nextToken,
+    listServicesResponse_services,
+    listServicesResponse_httpStatus,
+
     -- ** CreateService
     createService_namespaceId,
     createService_dnsConfig,
@@ -45,8 +46,8 @@ module Network.AWS.Route53AutoNaming.Lens
     createService_tags,
     createService_description,
     createService_healthCheckCustomConfig,
-    createService_type,
     createService_healthCheckConfig,
+    createService_type,
     createService_name,
     createServiceResponse_service,
     createServiceResponse_httpStatus,
@@ -54,6 +55,7 @@ module Network.AWS.Route53AutoNaming.Lens
     -- ** CreatePrivateDnsNamespace
     createPrivateDnsNamespace_creatorRequestId,
     createPrivateDnsNamespace_tags,
+    createPrivateDnsNamespace_properties,
     createPrivateDnsNamespace_description,
     createPrivateDnsNamespace_name,
     createPrivateDnsNamespace_vpc,
@@ -65,6 +67,11 @@ module Network.AWS.Route53AutoNaming.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** ListInstances
     listInstances_nextToken,
     listInstances_maxResults,
@@ -73,15 +80,17 @@ module Network.AWS.Route53AutoNaming.Lens
     listInstancesResponse_instances,
     listInstancesResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** GetNamespace
     getNamespace_id,
     getNamespaceResponse_namespace,
     getNamespaceResponse_httpStatus,
+
+    -- ** UpdatePublicDnsNamespace
+    updatePublicDnsNamespace_updaterRequestId,
+    updatePublicDnsNamespace_id,
+    updatePublicDnsNamespace_namespace,
+    updatePublicDnsNamespaceResponse_operationId,
+    updatePublicDnsNamespaceResponse_httpStatus,
 
     -- ** ListNamespaces
     listNamespaces_nextToken,
@@ -91,6 +100,19 @@ module Network.AWS.Route53AutoNaming.Lens
     listNamespacesResponse_namespaces,
     listNamespacesResponse_httpStatus,
 
+    -- ** UpdateHttpNamespace
+    updateHttpNamespace_updaterRequestId,
+    updateHttpNamespace_id,
+    updateHttpNamespace_namespace,
+    updateHttpNamespaceResponse_operationId,
+    updateHttpNamespaceResponse_httpStatus,
+
+    -- ** GetInstance
+    getInstance_serviceId,
+    getInstance_instanceId,
+    getInstanceResponse_instance,
+    getInstanceResponse_httpStatus,
+
     -- ** CreateHttpNamespace
     createHttpNamespace_creatorRequestId,
     createHttpNamespace_tags,
@@ -98,12 +120,6 @@ module Network.AWS.Route53AutoNaming.Lens
     createHttpNamespace_name,
     createHttpNamespaceResponse_operationId,
     createHttpNamespaceResponse_httpStatus,
-
-    -- ** GetInstance
-    getInstance_serviceId,
-    getInstance_instanceId,
-    getInstanceResponse_instance,
-    getInstanceResponse_httpStatus,
 
     -- ** GetInstancesHealthStatus
     getInstancesHealthStatus_nextToken,
@@ -127,8 +143,8 @@ module Network.AWS.Route53AutoNaming.Lens
     -- ** DiscoverInstances
     discoverInstances_maxResults,
     discoverInstances_optionalParameters,
-    discoverInstances_healthStatus,
     discoverInstances_queryParameters,
+    discoverInstances_healthStatus,
     discoverInstances_namespaceName,
     discoverInstances_serviceName,
     discoverInstancesResponse_instances,
@@ -140,20 +156,27 @@ module Network.AWS.Route53AutoNaming.Lens
     deregisterInstanceResponse_operationId,
     deregisterInstanceResponse_httpStatus,
 
+    -- ** UpdatePrivateDnsNamespace
+    updatePrivateDnsNamespace_updaterRequestId,
+    updatePrivateDnsNamespace_id,
+    updatePrivateDnsNamespace_namespace,
+    updatePrivateDnsNamespaceResponse_operationId,
+    updatePrivateDnsNamespaceResponse_httpStatus,
+
     -- ** GetOperation
     getOperation_operationId,
     getOperationResponse_operation,
     getOperationResponse_httpStatus,
 
-    -- ** GetService
-    getService_id,
-    getServiceResponse_service,
-    getServiceResponse_httpStatus,
-
     -- ** UpdateInstanceCustomHealthStatus
     updateInstanceCustomHealthStatus_serviceId,
     updateInstanceCustomHealthStatus_instanceId,
     updateInstanceCustomHealthStatus_status,
+
+    -- ** GetService
+    getService_id,
+    getServiceResponse_service,
+    getServiceResponse_httpStatus,
 
     -- ** RegisterInstance
     registerInstance_creatorRequestId,
@@ -185,6 +208,7 @@ module Network.AWS.Route53AutoNaming.Lens
 
     -- ** DnsProperties
     dnsProperties_hostedZoneId,
+    dnsProperties_soa,
 
     -- ** DnsRecord
     dnsRecord_type,
@@ -199,11 +223,14 @@ module Network.AWS.Route53AutoNaming.Lens
     healthCheckCustomConfig_failureThreshold,
 
     -- ** HttpInstanceSummary
-    httpInstanceSummary_namespaceName,
     httpInstanceSummary_instanceId,
+    httpInstanceSummary_namespaceName,
     httpInstanceSummary_serviceName,
     httpInstanceSummary_attributes,
     httpInstanceSummary_healthStatus,
+
+    -- ** HttpNamespaceChange
+    httpNamespaceChange_description,
 
     -- ** HttpProperties
     httpProperties_httpName,
@@ -224,8 +251,8 @@ module Network.AWS.Route53AutoNaming.Lens
     namespace_id,
     namespace_name,
     namespace_properties,
-    namespace_serviceCount,
     namespace_description,
+    namespace_serviceCount,
     namespace_type,
 
     -- ** NamespaceFilter
@@ -243,8 +270,8 @@ module Network.AWS.Route53AutoNaming.Lens
     namespaceSummary_id,
     namespaceSummary_name,
     namespaceSummary_properties,
-    namespaceSummary_serviceCount,
     namespaceSummary_description,
+    namespaceSummary_serviceCount,
     namespaceSummary_type,
 
     -- ** Operation
@@ -266,6 +293,44 @@ module Network.AWS.Route53AutoNaming.Lens
     operationSummary_status,
     operationSummary_id,
 
+    -- ** PrivateDnsNamespaceChange
+    privateDnsNamespaceChange_properties,
+    privateDnsNamespaceChange_description,
+
+    -- ** PrivateDnsNamespaceProperties
+    privateDnsNamespaceProperties_dnsProperties,
+
+    -- ** PrivateDnsNamespacePropertiesChange
+    privateDnsNamespacePropertiesChange_dnsProperties,
+
+    -- ** PrivateDnsPropertiesMutable
+    privateDnsPropertiesMutable_soa,
+
+    -- ** PrivateDnsPropertiesMutableChange
+    privateDnsPropertiesMutableChange_soa,
+
+    -- ** PublicDnsNamespaceChange
+    publicDnsNamespaceChange_properties,
+    publicDnsNamespaceChange_description,
+
+    -- ** PublicDnsNamespaceProperties
+    publicDnsNamespaceProperties_dnsProperties,
+
+    -- ** PublicDnsNamespacePropertiesChange
+    publicDnsNamespacePropertiesChange_dnsProperties,
+
+    -- ** PublicDnsPropertiesMutable
+    publicDnsPropertiesMutable_soa,
+
+    -- ** PublicDnsPropertiesMutableChange
+    publicDnsPropertiesMutableChange_soa,
+
+    -- ** SOA
+    soa_ttl,
+
+    -- ** SOAChange
+    sOAChange_ttl,
+
     -- ** ServiceChange
     serviceChange_dnsConfig,
     serviceChange_description,
@@ -286,8 +351,8 @@ module Network.AWS.Route53AutoNaming.Lens
     serviceInfo_name,
     serviceInfo_description,
     serviceInfo_healthCheckCustomConfig,
-    serviceInfo_type,
     serviceInfo_healthCheckConfig,
+    serviceInfo_type,
     serviceInfo_instanceCount,
 
     -- ** ServiceSummary
@@ -298,8 +363,8 @@ module Network.AWS.Route53AutoNaming.Lens
     serviceSummary_name,
     serviceSummary_description,
     serviceSummary_healthCheckCustomConfig,
-    serviceSummary_type,
     serviceSummary_healthCheckConfig,
+    serviceSummary_type,
     serviceSummary_instanceCount,
 
     -- ** Tag
@@ -335,6 +400,7 @@ import Network.AWS.Route53AutoNaming.Types.DnsRecord
 import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
 import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
 import Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+import Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
 import Network.AWS.Route53AutoNaming.Types.HttpProperties
 import Network.AWS.Route53AutoNaming.Types.Instance
 import Network.AWS.Route53AutoNaming.Types.InstanceSummary
@@ -345,11 +411,26 @@ import Network.AWS.Route53AutoNaming.Types.NamespaceSummary
 import Network.AWS.Route53AutoNaming.Types.Operation
 import Network.AWS.Route53AutoNaming.Types.OperationFilter
 import Network.AWS.Route53AutoNaming.Types.OperationSummary
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
+import Network.AWS.Route53AutoNaming.Types.SOA
+import Network.AWS.Route53AutoNaming.Types.SOAChange
 import Network.AWS.Route53AutoNaming.Types.ServiceChange
 import Network.AWS.Route53AutoNaming.Types.ServiceFilter
 import Network.AWS.Route53AutoNaming.Types.ServiceInfo
 import Network.AWS.Route53AutoNaming.Types.ServiceSummary
 import Network.AWS.Route53AutoNaming.Types.Tag
 import Network.AWS.Route53AutoNaming.UntagResource
+import Network.AWS.Route53AutoNaming.UpdateHttpNamespace
 import Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+import Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
+import Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
 import Network.AWS.Route53AutoNaming.UpdateService

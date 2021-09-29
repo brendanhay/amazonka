@@ -31,8 +31,8 @@ module Network.AWS.ElastiCache.DescribeServiceUpdates
     -- * Request Lenses
     describeServiceUpdates_serviceUpdateStatus,
     describeServiceUpdates_serviceUpdateName,
-    describeServiceUpdates_marker,
     describeServiceUpdates_maxRecords,
+    describeServiceUpdates_marker,
 
     -- * Destructuring the Response
     DescribeServiceUpdatesResponse (..),
@@ -58,13 +58,13 @@ data DescribeServiceUpdates = DescribeServiceUpdates'
     serviceUpdateStatus :: Prelude.Maybe [ServiceUpdateStatus],
     -- | The unique ID of the service update
     serviceUpdateName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,12 +80,12 @@ data DescribeServiceUpdates = DescribeServiceUpdates'
 --
 -- 'serviceUpdateName', 'describeServiceUpdates_serviceUpdateName' - The unique ID of the service update
 --
+-- 'maxRecords', 'describeServiceUpdates_maxRecords' - The maximum number of records to include in the response
+--
 -- 'marker', 'describeServiceUpdates_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
---
--- 'maxRecords', 'describeServiceUpdates_maxRecords' - The maximum number of records to include in the response
 newDescribeServiceUpdates ::
   DescribeServiceUpdates
 newDescribeServiceUpdates =
@@ -93,8 +93,8 @@ newDescribeServiceUpdates =
     { serviceUpdateStatus =
         Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The status of the service update
@@ -105,16 +105,16 @@ describeServiceUpdates_serviceUpdateStatus = Lens.lens (\DescribeServiceUpdates'
 describeServiceUpdates_serviceUpdateName :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
 describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {serviceUpdateName} -> serviceUpdateName) (\s@DescribeServiceUpdates' {} a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
 
+-- | The maximum number of records to include in the response
+describeServiceUpdates_maxRecords :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Int)
+describeServiceUpdates_maxRecords = Lens.lens (\DescribeServiceUpdates' {maxRecords} -> maxRecords) (\s@DescribeServiceUpdates' {} a -> s {maxRecords = a} :: DescribeServiceUpdates)
+
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
 describeServiceUpdates_marker :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
 describeServiceUpdates_marker = Lens.lens (\DescribeServiceUpdates' {marker} -> marker) (\s@DescribeServiceUpdates' {} a -> s {marker = a} :: DescribeServiceUpdates)
-
--- | The maximum number of records to include in the response
-describeServiceUpdates_maxRecords :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Int)
-describeServiceUpdates_maxRecords = Lens.lens (\DescribeServiceUpdates' {maxRecords} -> maxRecords) (\s@DescribeServiceUpdates' {} a -> s {maxRecords = a} :: DescribeServiceUpdates)
 
 instance Core.AWSPager DescribeServiceUpdates where
   page rq rs
@@ -178,8 +178,8 @@ instance Core.ToQuery DescribeServiceUpdates where
                 Prelude.<$> serviceUpdateStatus
             ),
         "ServiceUpdateName" Core.=: serviceUpdateName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeServiceUpdatesResponse' smart constructor.

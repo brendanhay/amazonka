@@ -53,8 +53,6 @@ data MethodResponse = MethodResponse'
     -- Response models are represented as a key\/value map, with a content-type
     -- as the key and a Model name as the value.
     responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The method response\'s status code.
-    statusCode :: Prelude.Maybe Prelude.Text,
     -- | A key-value map specifying required or optional response parameters that
     -- API Gateway can send back to the caller. A key defines a method response
     -- header and the value specifies whether the associated method response
@@ -69,7 +67,9 @@ data MethodResponse = MethodResponse'
     -- or a JSON expression from the back-end response payload in the form of
     -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
     -- is a valid JSON expression without the @$@ prefix.)
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool)
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
+    -- | The method response\'s status code.
+    statusCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,8 +85,6 @@ data MethodResponse = MethodResponse'
 -- Response models are represented as a key\/value map, with a content-type
 -- as the key and a Model name as the value.
 --
--- 'statusCode', 'methodResponse_statusCode' - The method response\'s status code.
---
 -- 'responseParameters', 'methodResponse_responseParameters' - A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
 -- header and the value specifies whether the associated method response
@@ -101,13 +99,15 @@ data MethodResponse = MethodResponse'
 -- or a JSON expression from the back-end response payload in the form of
 -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
 -- is a valid JSON expression without the @$@ prefix.)
+--
+-- 'statusCode', 'methodResponse_statusCode' - The method response\'s status code.
 newMethodResponse ::
   MethodResponse
 newMethodResponse =
   MethodResponse'
     { responseModels = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      responseParameters = Prelude.Nothing
+      responseParameters = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
 
 -- | Specifies the Model resources used for the response\'s content-type.
@@ -115,10 +115,6 @@ newMethodResponse =
 -- as the key and a Model name as the value.
 methodResponse_responseModels :: Lens.Lens' MethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 methodResponse_responseModels = Lens.lens (\MethodResponse' {responseModels} -> responseModels) (\s@MethodResponse' {} a -> s {responseModels = a} :: MethodResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The method response\'s status code.
-methodResponse_statusCode :: Lens.Lens' MethodResponse (Prelude.Maybe Prelude.Text)
-methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCode) (\s@MethodResponse' {} a -> s {statusCode = a} :: MethodResponse)
 
 -- | A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
@@ -137,6 +133,10 @@ methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCo
 methodResponse_responseParameters :: Lens.Lens' MethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
 methodResponse_responseParameters = Lens.lens (\MethodResponse' {responseParameters} -> responseParameters) (\s@MethodResponse' {} a -> s {responseParameters = a} :: MethodResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The method response\'s status code.
+methodResponse_statusCode :: Lens.Lens' MethodResponse (Prelude.Maybe Prelude.Text)
+methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCode) (\s@MethodResponse' {} a -> s {statusCode = a} :: MethodResponse)
+
 instance Core.FromJSON MethodResponse where
   parseJSON =
     Core.withObject
@@ -144,10 +144,10 @@ instance Core.FromJSON MethodResponse where
       ( \x ->
           MethodResponse'
             Prelude.<$> (x Core..:? "responseModels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> ( x Core..:? "responseParameters"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "statusCode")
       )
 
 instance Prelude.Hashable MethodResponse

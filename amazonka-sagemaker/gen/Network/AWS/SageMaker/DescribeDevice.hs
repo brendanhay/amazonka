@@ -175,8 +175,8 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
     deviceArn :: Prelude.Maybe Prelude.Text,
     -- | Models on the device.
     models :: Prelude.Maybe [EdgeModel],
-    -- | The AWS Internet of Things (IoT) object thing name associated with the
-    -- device.
+    -- | The Amazon Web Services Internet of Things (IoT) object thing name
+    -- associated with the device.
     iotThingName :: Prelude.Maybe Prelude.Text,
     -- | A description of the device.
     description :: Prelude.Maybe Prelude.Text,
@@ -210,8 +210,8 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 --
 -- 'models', 'describeDeviceResponse_models' - Models on the device.
 --
--- 'iotThingName', 'describeDeviceResponse_iotThingName' - The AWS Internet of Things (IoT) object thing name associated with the
--- device.
+-- 'iotThingName', 'describeDeviceResponse_iotThingName' - The Amazon Web Services Internet of Things (IoT) object thing name
+-- associated with the device.
 --
 -- 'description', 'describeDeviceResponse_description' - A description of the device.
 --
@@ -274,8 +274,8 @@ describeDeviceResponse_deviceArn = Lens.lens (\DescribeDeviceResponse' {deviceAr
 describeDeviceResponse_models :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe [EdgeModel])
 describeDeviceResponse_models = Lens.lens (\DescribeDeviceResponse' {models} -> models) (\s@DescribeDeviceResponse' {} a -> s {models = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS Internet of Things (IoT) object thing name associated with the
--- device.
+-- | The Amazon Web Services Internet of Things (IoT) object thing name
+-- associated with the device.
 describeDeviceResponse_iotThingName :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_iotThingName = Lens.lens (\DescribeDeviceResponse' {iotThingName} -> iotThingName) (\s@DescribeDeviceResponse' {} a -> s {iotThingName = a} :: DescribeDeviceResponse)
 

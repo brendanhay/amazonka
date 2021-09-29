@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeVpcs
 
     -- * Request Lenses
     describeVpcs_nextToken,
-    describeVpcs_dryRun,
     describeVpcs_maxResults,
+    describeVpcs_dryRun,
     describeVpcs_filters,
     describeVpcs_vpcIds,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeVpcs = DescribeVpcs'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @cidr@ - The primary IPv4 CIDR block of the VPC. The CIDR block you
@@ -96,9 +96,10 @@ data DescribeVpcs = DescribeVpcs'
     -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
     --     block associated with the VPC.
     --
-    -- -   @isDefault@ - Indicates whether the VPC is the default VPC.
+    -- -   @is-default@ - Indicates whether the VPC is the default VPC.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the VPC.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     VPC.
     --
     -- -   @state@ - The state of the VPC (@pending@ | @available@).
     --
@@ -131,14 +132,14 @@ data DescribeVpcs = DescribeVpcs'
 --
 -- 'nextToken', 'describeVpcs_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeVpcs_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeVpcs_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeVpcs_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeVpcs_filters' - One or more filters.
 --
@@ -170,9 +171,10 @@ data DescribeVpcs = DescribeVpcs'
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the VPC.
 --
--- -   @isDefault@ - Indicates whether the VPC is the default VPC.
+-- -   @is-default@ - Indicates whether the VPC is the default VPC.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the VPC.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     VPC.
 --
 -- -   @state@ - The state of the VPC (@pending@ | @available@).
 --
@@ -196,8 +198,8 @@ newDescribeVpcs ::
 newDescribeVpcs =
   DescribeVpcs'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       vpcIds = Prelude.Nothing
     }
@@ -206,18 +208,18 @@ newDescribeVpcs =
 describeVpcs_nextToken :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Text)
 describeVpcs_nextToken = Lens.lens (\DescribeVpcs' {nextToken} -> nextToken) (\s@DescribeVpcs' {} a -> s {nextToken = a} :: DescribeVpcs)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Natural)
+describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) (\s@DescribeVpcs' {} a -> s {maxResults = a} :: DescribeVpcs)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeVpcs_dryRun :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Bool)
 describeVpcs_dryRun = Lens.lens (\DescribeVpcs' {dryRun} -> dryRun) (\s@DescribeVpcs' {} a -> s {dryRun = a} :: DescribeVpcs)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Natural)
-describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) (\s@DescribeVpcs' {} a -> s {maxResults = a} :: DescribeVpcs)
 
 -- | One or more filters.
 --
@@ -249,9 +251,10 @@ describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) 
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the VPC.
 --
--- -   @isDefault@ - Indicates whether the VPC is the default VPC.
+-- -   @is-default@ - Indicates whether the VPC is the default VPC.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the VPC.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     VPC.
 --
 -- -   @state@ - The state of the VPC (@pending@ | @available@).
 --
@@ -326,8 +329,8 @@ instance Core.ToQuery DescribeVpcs where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery

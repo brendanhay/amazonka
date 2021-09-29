@@ -19,9 +19,9 @@ module Network.AWS.MediaPackage.Lens
     createChannel_description,
     createChannel_id,
     createChannelResponse_egressAccessLogs,
-    createChannelResponse_hlsIngest,
     createChannelResponse_arn,
     createChannelResponse_id,
+    createChannelResponse_hlsIngest,
     createChannelResponse_ingressAccessLogs,
     createChannelResponse_tags,
     createChannelResponse_description,
@@ -33,21 +33,33 @@ module Network.AWS.MediaPackage.Lens
     createHarvestJob_originEndpointId,
     createHarvestJob_startTime,
     createHarvestJob_id,
-    createHarvestJobResponse_status,
     createHarvestJobResponse_s3Destination,
+    createHarvestJobResponse_status,
     createHarvestJobResponse_channelId,
-    createHarvestJobResponse_startTime,
+    createHarvestJobResponse_createdAt,
     createHarvestJobResponse_arn,
     createHarvestJobResponse_id,
-    createHarvestJobResponse_createdAt,
-    createHarvestJobResponse_originEndpointId,
+    createHarvestJobResponse_startTime,
     createHarvestJobResponse_endTime,
+    createHarvestJobResponse_originEndpointId,
     createHarvestJobResponse_httpStatus,
+
+    -- ** ListOriginEndpoints
+    listOriginEndpoints_nextToken,
+    listOriginEndpoints_maxResults,
+    listOriginEndpoints_channelId,
+    listOriginEndpointsResponse_originEndpoints,
+    listOriginEndpointsResponse_nextToken,
+    listOriginEndpointsResponse_httpStatus,
+
+    -- ** DeleteOriginEndpoint
+    deleteOriginEndpoint_id,
+    deleteOriginEndpointResponse_httpStatus,
 
     -- ** UpdateOriginEndpoint
     updateOriginEndpoint_dashPackage,
-    updateOriginEndpoint_startoverWindowSeconds,
     updateOriginEndpoint_origination,
+    updateOriginEndpoint_startoverWindowSeconds,
     updateOriginEndpoint_cmafPackage,
     updateOriginEndpoint_manifestName,
     updateOriginEndpoint_whitelist,
@@ -58,8 +70,8 @@ module Network.AWS.MediaPackage.Lens
     updateOriginEndpoint_hlsPackage,
     updateOriginEndpoint_id,
     updateOriginEndpointResponse_dashPackage,
-    updateOriginEndpointResponse_startoverWindowSeconds,
     updateOriginEndpointResponse_origination,
+    updateOriginEndpointResponse_startoverWindowSeconds,
     updateOriginEndpointResponse_channelId,
     updateOriginEndpointResponse_cmafPackage,
     updateOriginEndpointResponse_manifestName,
@@ -69,28 +81,20 @@ module Network.AWS.MediaPackage.Lens
     updateOriginEndpointResponse_mssPackage,
     updateOriginEndpointResponse_tags,
     updateOriginEndpointResponse_description,
+    updateOriginEndpointResponse_url,
     updateOriginEndpointResponse_timeDelaySeconds,
     updateOriginEndpointResponse_authorization,
-    updateOriginEndpointResponse_url,
     updateOriginEndpointResponse_hlsPackage,
     updateOriginEndpointResponse_httpStatus,
 
-    -- ** DeleteOriginEndpoint
-    deleteOriginEndpoint_id,
-    deleteOriginEndpointResponse_httpStatus,
-
-    -- ** ListOriginEndpoints
-    listOriginEndpoints_nextToken,
-    listOriginEndpoints_channelId,
-    listOriginEndpoints_maxResults,
-    listOriginEndpointsResponse_originEndpoints,
-    listOriginEndpointsResponse_nextToken,
-    listOriginEndpointsResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_tagKeys,
+    untagResource_resourceArn,
 
     -- ** CreateOriginEndpoint
     createOriginEndpoint_dashPackage,
-    createOriginEndpoint_startoverWindowSeconds,
     createOriginEndpoint_origination,
+    createOriginEndpoint_startoverWindowSeconds,
     createOriginEndpoint_cmafPackage,
     createOriginEndpoint_manifestName,
     createOriginEndpoint_whitelist,
@@ -103,8 +107,8 @@ module Network.AWS.MediaPackage.Lens
     createOriginEndpoint_channelId,
     createOriginEndpoint_id,
     createOriginEndpointResponse_dashPackage,
-    createOriginEndpointResponse_startoverWindowSeconds,
     createOriginEndpointResponse_origination,
+    createOriginEndpointResponse_startoverWindowSeconds,
     createOriginEndpointResponse_channelId,
     createOriginEndpointResponse_cmafPackage,
     createOriginEndpointResponse_manifestName,
@@ -114,25 +118,28 @@ module Network.AWS.MediaPackage.Lens
     createOriginEndpointResponse_mssPackage,
     createOriginEndpointResponse_tags,
     createOriginEndpointResponse_description,
+    createOriginEndpointResponse_url,
     createOriginEndpointResponse_timeDelaySeconds,
     createOriginEndpointResponse_authorization,
-    createOriginEndpointResponse_url,
     createOriginEndpointResponse_hlsPackage,
     createOriginEndpointResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_tagKeys,
-    untagResource_resourceArn,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
 
+    -- ** ListChannels
+    listChannels_nextToken,
+    listChannels_maxResults,
+    listChannelsResponse_nextToken,
+    listChannelsResponse_channels,
+    listChannelsResponse_httpStatus,
+
     -- ** DescribeOriginEndpoint
     describeOriginEndpoint_id,
     describeOriginEndpointResponse_dashPackage,
-    describeOriginEndpointResponse_startoverWindowSeconds,
     describeOriginEndpointResponse_origination,
+    describeOriginEndpointResponse_startoverWindowSeconds,
     describeOriginEndpointResponse_channelId,
     describeOriginEndpointResponse_cmafPackage,
     describeOriginEndpointResponse_manifestName,
@@ -142,27 +149,20 @@ module Network.AWS.MediaPackage.Lens
     describeOriginEndpointResponse_mssPackage,
     describeOriginEndpointResponse_tags,
     describeOriginEndpointResponse_description,
+    describeOriginEndpointResponse_url,
     describeOriginEndpointResponse_timeDelaySeconds,
     describeOriginEndpointResponse_authorization,
-    describeOriginEndpointResponse_url,
     describeOriginEndpointResponse_hlsPackage,
     describeOriginEndpointResponse_httpStatus,
-
-    -- ** ListChannels
-    listChannels_nextToken,
-    listChannels_maxResults,
-    listChannelsResponse_nextToken,
-    listChannelsResponse_channels,
-    listChannelsResponse_httpStatus,
 
     -- ** ConfigureLogs
     configureLogs_egressAccessLogs,
     configureLogs_ingressAccessLogs,
     configureLogs_id,
     configureLogsResponse_egressAccessLogs,
-    configureLogsResponse_hlsIngest,
     configureLogsResponse_arn,
     configureLogsResponse_id,
+    configureLogsResponse_hlsIngest,
     configureLogsResponse_ingressAccessLogs,
     configureLogsResponse_tags,
     configureLogsResponse_description,
@@ -180,9 +180,9 @@ module Network.AWS.MediaPackage.Lens
     -- ** DescribeChannel
     describeChannel_id,
     describeChannelResponse_egressAccessLogs,
-    describeChannelResponse_hlsIngest,
     describeChannelResponse_arn,
     describeChannelResponse_id,
+    describeChannelResponse_hlsIngest,
     describeChannelResponse_ingressAccessLogs,
     describeChannelResponse_tags,
     describeChannelResponse_description,
@@ -192,9 +192,9 @@ module Network.AWS.MediaPackage.Lens
     rotateIngestEndpointCredentials_ingestEndpointId,
     rotateIngestEndpointCredentials_id,
     rotateIngestEndpointCredentialsResponse_egressAccessLogs,
-    rotateIngestEndpointCredentialsResponse_hlsIngest,
     rotateIngestEndpointCredentialsResponse_arn,
     rotateIngestEndpointCredentialsResponse_id,
+    rotateIngestEndpointCredentialsResponse_hlsIngest,
     rotateIngestEndpointCredentialsResponse_ingressAccessLogs,
     rotateIngestEndpointCredentialsResponse_tags,
     rotateIngestEndpointCredentialsResponse_description,
@@ -202,37 +202,37 @@ module Network.AWS.MediaPackage.Lens
 
     -- ** DescribeHarvestJob
     describeHarvestJob_id,
-    describeHarvestJobResponse_status,
     describeHarvestJobResponse_s3Destination,
+    describeHarvestJobResponse_status,
     describeHarvestJobResponse_channelId,
-    describeHarvestJobResponse_startTime,
+    describeHarvestJobResponse_createdAt,
     describeHarvestJobResponse_arn,
     describeHarvestJobResponse_id,
-    describeHarvestJobResponse_createdAt,
-    describeHarvestJobResponse_originEndpointId,
+    describeHarvestJobResponse_startTime,
     describeHarvestJobResponse_endTime,
+    describeHarvestJobResponse_originEndpointId,
     describeHarvestJobResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteChannel
-    deleteChannel_id,
-    deleteChannelResponse_httpStatus,
 
     -- ** UpdateChannel
     updateChannel_description,
     updateChannel_id,
     updateChannelResponse_egressAccessLogs,
-    updateChannelResponse_hlsIngest,
     updateChannelResponse_arn,
     updateChannelResponse_id,
+    updateChannelResponse_hlsIngest,
     updateChannelResponse_ingressAccessLogs,
     updateChannelResponse_tags,
     updateChannelResponse_description,
     updateChannelResponse_httpStatus,
+
+    -- ** DeleteChannel
+    deleteChannel_id,
+    deleteChannelResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- * Types
 
@@ -242,14 +242,15 @@ module Network.AWS.MediaPackage.Lens
 
     -- ** Channel
     channel_egressAccessLogs,
-    channel_hlsIngest,
     channel_arn,
     channel_id,
+    channel_hlsIngest,
     channel_ingressAccessLogs,
     channel_tags,
     channel_description,
 
     -- ** CmafEncryption
+    cmafEncryption_constantInitializationVector,
     cmafEncryption_keyRotationIntervalSeconds,
     cmafEncryption_spekeKeyProvider,
 
@@ -277,8 +278,8 @@ module Network.AWS.MediaPackage.Lens
     dashPackage_periodTriggers,
     dashPackage_adTriggers,
     dashPackage_manifestWindowSeconds,
-    dashPackage_manifestLayout,
     dashPackage_minUpdatePeriodSeconds,
+    dashPackage_manifestLayout,
     dashPackage_encryption,
     dashPackage_adsOnDeliveryRestrictions,
     dashPackage_utcTimingUri,
@@ -291,16 +292,20 @@ module Network.AWS.MediaPackage.Lens
     -- ** EgressAccessLogs
     egressAccessLogs_logGroupName,
 
+    -- ** EncryptionContractConfiguration
+    encryptionContractConfiguration_presetSpeke20Audio,
+    encryptionContractConfiguration_presetSpeke20Video,
+
     -- ** HarvestJob
-    harvestJob_status,
     harvestJob_s3Destination,
+    harvestJob_status,
     harvestJob_channelId,
-    harvestJob_startTime,
+    harvestJob_createdAt,
     harvestJob_arn,
     harvestJob_id,
-    harvestJob_createdAt,
-    harvestJob_originEndpointId,
+    harvestJob_startTime,
     harvestJob_endTime,
+    harvestJob_originEndpointId,
 
     -- ** HlsEncryption
     hlsEncryption_repeatExtXKey,
@@ -366,8 +371,8 @@ module Network.AWS.MediaPackage.Lens
 
     -- ** OriginEndpoint
     originEndpoint_dashPackage,
-    originEndpoint_startoverWindowSeconds,
     originEndpoint_origination,
+    originEndpoint_startoverWindowSeconds,
     originEndpoint_channelId,
     originEndpoint_cmafPackage,
     originEndpoint_manifestName,
@@ -377,9 +382,9 @@ module Network.AWS.MediaPackage.Lens
     originEndpoint_mssPackage,
     originEndpoint_tags,
     originEndpoint_description,
+    originEndpoint_url,
     originEndpoint_timeDelaySeconds,
     originEndpoint_authorization,
-    originEndpoint_url,
     originEndpoint_hlsPackage,
 
     -- ** S3Destination
@@ -389,6 +394,7 @@ module Network.AWS.MediaPackage.Lens
 
     -- ** SpekeKeyProvider
     spekeKeyProvider_certificateArn,
+    spekeKeyProvider_encryptionContractConfiguration,
     spekeKeyProvider_resourceId,
     spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
@@ -424,6 +430,7 @@ import Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
 import Network.AWS.MediaPackage.Types.DashEncryption
 import Network.AWS.MediaPackage.Types.DashPackage
 import Network.AWS.MediaPackage.Types.EgressAccessLogs
+import Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
 import Network.AWS.MediaPackage.Types.HarvestJob
 import Network.AWS.MediaPackage.Types.HlsEncryption
 import Network.AWS.MediaPackage.Types.HlsIngest

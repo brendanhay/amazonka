@@ -42,12 +42,12 @@ module Network.AWS.OpsWorks.CreateLayer
 
     -- * Request Lenses
     createLayer_installUpdatesOnBoot,
-    createLayer_customInstanceProfileArn,
     createLayer_customSecurityGroupIds,
+    createLayer_customInstanceProfileArn,
     createLayer_packages,
     createLayer_enableAutoHealing,
-    createLayer_volumeConfigurations,
     createLayer_customJson,
+    createLayer_volumeConfigurations,
     createLayer_attributes,
     createLayer_cloudWatchLogsConfiguration,
     createLayer_autoAssignElasticIps,
@@ -89,25 +89,25 @@ data CreateLayer = CreateLayer'
     -- To ensure that your instances have the latest security updates, we
     -- strongly recommend using the default value of @true@.
     installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
+    -- | An array containing the layer custom security group IDs.
+    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
     -- more information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
     customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | An array containing the layer custom security group IDs.
-    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of @Package@ objects that describes the layer packages.
     packages :: Prelude.Maybe [Prelude.Text],
     -- | Whether to disable auto healing for the layer.
     enableAutoHealing :: Prelude.Maybe Prelude.Bool,
-    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
-    -- volumes.
-    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
     -- | A JSON-formatted string containing custom stack configuration and
     -- deployment attributes to be installed on the layer\'s instances. For
     -- more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
     -- This feature is supported as of version 1.7.42 of the AWS CLI.
     customJson :: Prelude.Maybe Prelude.Text,
+    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+    -- volumes.
+    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
     -- | One or more user-defined key-value pairs to be added to the stack
     -- attributes.
     --
@@ -174,24 +174,24 @@ data CreateLayer = CreateLayer'
 -- To ensure that your instances have the latest security updates, we
 -- strongly recommend using the default value of @true@.
 --
+-- 'customSecurityGroupIds', 'createLayer_customSecurityGroupIds' - An array containing the layer custom security group IDs.
+--
 -- 'customInstanceProfileArn', 'createLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
 -- more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 --
--- 'customSecurityGroupIds', 'createLayer_customSecurityGroupIds' - An array containing the layer custom security group IDs.
---
 -- 'packages', 'createLayer_packages' - An array of @Package@ objects that describes the layer packages.
 --
 -- 'enableAutoHealing', 'createLayer_enableAutoHealing' - Whether to disable auto healing for the layer.
---
--- 'volumeConfigurations', 'createLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
 --
 -- 'customJson', 'createLayer_customJson' - A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
 -- This feature is supported as of version 1.7.42 of the AWS CLI.
+--
+-- 'volumeConfigurations', 'createLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
 --
 -- 'attributes', 'createLayer_attributes' - One or more user-defined key-value pairs to be added to the stack
 -- attributes.
@@ -251,12 +251,12 @@ newCreateLayer pStackId_ pType_ pName_ pShortname_ =
   CreateLayer'
     { installUpdatesOnBoot =
         Prelude.Nothing,
-      customInstanceProfileArn = Prelude.Nothing,
       customSecurityGroupIds = Prelude.Nothing,
+      customInstanceProfileArn = Prelude.Nothing,
       packages = Prelude.Nothing,
       enableAutoHealing = Prelude.Nothing,
-      volumeConfigurations = Prelude.Nothing,
       customJson = Prelude.Nothing,
+      volumeConfigurations = Prelude.Nothing,
       attributes = Prelude.Nothing,
       cloudWatchLogsConfiguration = Prelude.Nothing,
       autoAssignElasticIps = Prelude.Nothing,
@@ -282,15 +282,15 @@ newCreateLayer pStackId_ pType_ pName_ pShortname_ =
 createLayer_installUpdatesOnBoot :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
 createLayer_installUpdatesOnBoot = Lens.lens (\CreateLayer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@CreateLayer' {} a -> s {installUpdatesOnBoot = a} :: CreateLayer)
 
+-- | An array containing the layer custom security group IDs.
+createLayer_customSecurityGroupIds :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
+createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
 -- more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 createLayer_customInstanceProfileArn :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Text)
 createLayer_customInstanceProfileArn = Lens.lens (\CreateLayer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@CreateLayer' {} a -> s {customInstanceProfileArn = a} :: CreateLayer)
-
--- | An array containing the layer custom security group IDs.
-createLayer_customSecurityGroupIds :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
-createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of @Package@ objects that describes the layer packages.
 createLayer_packages :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
@@ -300,11 +300,6 @@ createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@Crea
 createLayer_enableAutoHealing :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
 createLayer_enableAutoHealing = Lens.lens (\CreateLayer' {enableAutoHealing} -> enableAutoHealing) (\s@CreateLayer' {} a -> s {enableAutoHealing = a} :: CreateLayer)
 
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
-createLayer_volumeConfigurations :: Lens.Lens' CreateLayer (Prelude.Maybe [VolumeConfiguration])
-createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@CreateLayer' {} a -> s {volumeConfigurations = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
@@ -312,6 +307,11 @@ createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfiguration
 -- This feature is supported as of version 1.7.42 of the AWS CLI.
 createLayer_customJson :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Text)
 createLayer_customJson = Lens.lens (\CreateLayer' {customJson} -> customJson) (\s@CreateLayer' {} a -> s {customJson = a} :: CreateLayer)
+
+-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+createLayer_volumeConfigurations :: Lens.Lens' CreateLayer (Prelude.Maybe [VolumeConfiguration])
+createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@CreateLayer' {} a -> s {volumeConfigurations = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
@@ -416,16 +416,16 @@ instance Core.ToJSON CreateLayer where
       ( Prelude.catMaybes
           [ ("InstallUpdatesOnBoot" Core..=)
               Prelude.<$> installUpdatesOnBoot,
-            ("CustomInstanceProfileArn" Core..=)
-              Prelude.<$> customInstanceProfileArn,
             ("CustomSecurityGroupIds" Core..=)
               Prelude.<$> customSecurityGroupIds,
+            ("CustomInstanceProfileArn" Core..=)
+              Prelude.<$> customInstanceProfileArn,
             ("Packages" Core..=) Prelude.<$> packages,
             ("EnableAutoHealing" Core..=)
               Prelude.<$> enableAutoHealing,
+            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("VolumeConfigurations" Core..=)
               Prelude.<$> volumeConfigurations,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("Attributes" Core..=) Prelude.<$> attributes,
             ("CloudWatchLogsConfiguration" Core..=)
               Prelude.<$> cloudWatchLogsConfiguration,

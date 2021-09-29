@@ -23,7 +23,7 @@
 -- Creates a carrier gateway. For more information about carrier gateways,
 -- see
 -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway Carrier gateways>
--- in the /AWS Wavelength Developer Guide/.
+-- in the /Amazon Web Services Wavelength Developer Guide/.
 module Network.AWS.EC2.CreateCarrierGateway
   ( -- * Creating a Request
     CreateCarrierGateway (..),
@@ -63,7 +63,7 @@ data CreateCarrierGateway = CreateCarrierGateway'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC to associate with the carrier gateway.
     vpcId :: Prelude.Text
@@ -87,7 +87,7 @@ data CreateCarrierGateway = CreateCarrierGateway'
 --
 -- 'clientToken', 'createCarrierGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'vpcId', 'createCarrierGateway_vpcId' - The ID of the VPC to associate with the carrier gateway.
 newCreateCarrierGateway ::
@@ -116,7 +116,7 @@ createCarrierGateway_dryRun = Lens.lens (\CreateCarrierGateway' {dryRun} -> dryR
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 createCarrierGateway_clientToken :: Lens.Lens' CreateCarrierGateway (Prelude.Maybe Prelude.Text)
 createCarrierGateway_clientToken = Lens.lens (\CreateCarrierGateway' {clientToken} -> clientToken) (\s@CreateCarrierGateway' {} a -> s {clientToken = a} :: CreateCarrierGateway)
 

@@ -28,11 +28,11 @@ module Network.AWS.MQ.CreateConfiguration
     newCreateConfiguration,
 
     -- * Request Lenses
-    createConfiguration_engineType,
     createConfiguration_authenticationStrategy,
-    createConfiguration_name,
-    createConfiguration_engineVersion,
     createConfiguration_tags,
+    createConfiguration_engineVersion,
+    createConfiguration_engineType,
+    createConfiguration_name,
 
     -- * Destructuring the Response
     CreateConfigurationResponse (..),
@@ -61,21 +61,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateConfiguration' smart constructor.
 data CreateConfiguration = CreateConfiguration'
-  { -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
-    -- ACTIVEMQ and RABBITMQ.
-    engineType :: Prelude.Maybe EngineType,
-    -- | The authentication strategy associated with the configuration.
+  { -- | Optional. The authentication strategy associated with the configuration.
+    -- The default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+    -- | Create tags when creating the configuration.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Required. The broker engine\'s version. For a list of supported engine
+    -- versions, see
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
+    engineVersion :: Prelude.Text,
+    -- | Required. The type of broker engine. Currently, Amazon MQ supports
+    -- ACTIVEMQ and RABBITMQ.
+    engineType :: EngineType,
     -- | Required. The name of the configuration. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Required. The version of the broker engine. For a list of supported
-    -- engine versions, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Create tags when creating the configuration.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,55 +88,67 @@ data CreateConfiguration = CreateConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineType', 'createConfiguration_engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports
--- ACTIVEMQ and RABBITMQ.
+-- 'authenticationStrategy', 'createConfiguration_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 --
--- 'authenticationStrategy', 'createConfiguration_authenticationStrategy' - The authentication strategy associated with the configuration.
+-- 'tags', 'createConfiguration_tags' - Create tags when creating the configuration.
+--
+-- 'engineVersion', 'createConfiguration_engineVersion' - Required. The broker engine\'s version. For a list of supported engine
+-- versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
+--
+-- 'engineType', 'createConfiguration_engineType' - Required. The type of broker engine. Currently, Amazon MQ supports
+-- ACTIVEMQ and RABBITMQ.
 --
 -- 'name', 'createConfiguration_name' - Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
---
--- 'engineVersion', 'createConfiguration_engineVersion' - Required. The version of the broker engine. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
---
--- 'tags', 'createConfiguration_tags' - Create tags when creating the configuration.
 newCreateConfiguration ::
+  -- | 'engineVersion'
+  Prelude.Text ->
+  -- | 'engineType'
+  EngineType ->
+  -- | 'name'
+  Prelude.Text ->
   CreateConfiguration
-newCreateConfiguration =
-  CreateConfiguration'
-    { engineType = Prelude.Nothing,
-      authenticationStrategy = Prelude.Nothing,
-      name = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      tags = Prelude.Nothing
-    }
+newCreateConfiguration
+  pEngineVersion_
+  pEngineType_
+  pName_ =
+    CreateConfiguration'
+      { authenticationStrategy =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
+        engineVersion = pEngineVersion_,
+        engineType = pEngineType_,
+        name = pName_
+      }
 
--- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
--- ACTIVEMQ and RABBITMQ.
-createConfiguration_engineType :: Lens.Lens' CreateConfiguration (Prelude.Maybe EngineType)
-createConfiguration_engineType = Lens.lens (\CreateConfiguration' {engineType} -> engineType) (\s@CreateConfiguration' {} a -> s {engineType = a} :: CreateConfiguration)
-
--- | The authentication strategy associated with the configuration.
+-- | Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 createConfiguration_authenticationStrategy :: Lens.Lens' CreateConfiguration (Prelude.Maybe AuthenticationStrategy)
 createConfiguration_authenticationStrategy = Lens.lens (\CreateConfiguration' {authenticationStrategy} -> authenticationStrategy) (\s@CreateConfiguration' {} a -> s {authenticationStrategy = a} :: CreateConfiguration)
-
--- | Required. The name of the configuration. This value can contain only
--- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
--- ~). This value must be 1-150 characters long.
-createConfiguration_name :: Lens.Lens' CreateConfiguration (Prelude.Maybe Prelude.Text)
-createConfiguration_name = Lens.lens (\CreateConfiguration' {name} -> name) (\s@CreateConfiguration' {} a -> s {name = a} :: CreateConfiguration)
-
--- | Required. The version of the broker engine. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
-createConfiguration_engineVersion :: Lens.Lens' CreateConfiguration (Prelude.Maybe Prelude.Text)
-createConfiguration_engineVersion = Lens.lens (\CreateConfiguration' {engineVersion} -> engineVersion) (\s@CreateConfiguration' {} a -> s {engineVersion = a} :: CreateConfiguration)
 
 -- | Create tags when creating the configuration.
 createConfiguration_tags :: Lens.Lens' CreateConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createConfiguration_tags = Lens.lens (\CreateConfiguration' {tags} -> tags) (\s@CreateConfiguration' {} a -> s {tags = a} :: CreateConfiguration) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Required. The broker engine\'s version. For a list of supported engine
+-- versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
+createConfiguration_engineVersion :: Lens.Lens' CreateConfiguration Prelude.Text
+createConfiguration_engineVersion = Lens.lens (\CreateConfiguration' {engineVersion} -> engineVersion) (\s@CreateConfiguration' {} a -> s {engineVersion = a} :: CreateConfiguration)
+
+-- | Required. The type of broker engine. Currently, Amazon MQ supports
+-- ACTIVEMQ and RABBITMQ.
+createConfiguration_engineType :: Lens.Lens' CreateConfiguration EngineType
+createConfiguration_engineType = Lens.lens (\CreateConfiguration' {engineType} -> engineType) (\s@CreateConfiguration' {} a -> s {engineType = a} :: CreateConfiguration)
+
+-- | Required. The name of the configuration. This value can contain only
+-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
+-- ~). This value must be 1-150 characters long.
+createConfiguration_name :: Lens.Lens' CreateConfiguration Prelude.Text
+createConfiguration_name = Lens.lens (\CreateConfiguration' {name} -> name) (\s@CreateConfiguration' {} a -> s {name = a} :: CreateConfiguration)
 
 instance Core.AWSRequest CreateConfiguration where
   type
@@ -174,12 +187,12 @@ instance Core.ToJSON CreateConfiguration where
   toJSON CreateConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("engineType" Core..=) Prelude.<$> engineType,
-            ("authenticationStrategy" Core..=)
+          [ ("authenticationStrategy" Core..=)
               Prelude.<$> authenticationStrategy,
-            ("name" Core..=) Prelude.<$> name,
-            ("engineVersion" Core..=) Prelude.<$> engineVersion,
-            ("tags" Core..=) Prelude.<$> tags
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("engineVersion" Core..= engineVersion),
+            Prelude.Just ("engineType" Core..= engineType),
+            Prelude.Just ("name" Core..= name)
           ]
       )
 
@@ -191,7 +204,8 @@ instance Core.ToQuery CreateConfiguration where
 
 -- | /See:/ 'newCreateConfigurationResponse' smart constructor.
 data CreateConfigurationResponse = CreateConfigurationResponse'
-  { -- | The authentication strategy associated with the configuration.
+  { -- | Optional. The authentication strategy associated with the configuration.
+    -- The default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | The latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
@@ -218,7 +232,8 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - The authentication strategy associated with the configuration.
+-- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 --
 -- 'latestRevision', 'createConfigurationResponse_latestRevision' - The latest revision of the configuration.
 --
@@ -249,7 +264,8 @@ newCreateConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The authentication strategy associated with the configuration.
+-- | Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 createConfigurationResponse_authenticationStrategy :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe AuthenticationStrategy)
 createConfigurationResponse_authenticationStrategy = Lens.lens (\CreateConfigurationResponse' {authenticationStrategy} -> authenticationStrategy) (\s@CreateConfigurationResponse' {} a -> s {authenticationStrategy = a} :: CreateConfigurationResponse)
 

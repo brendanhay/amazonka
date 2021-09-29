@@ -32,9 +32,9 @@ module Network.AWS.APIGateway.GetDocumentationParts
     getDocumentationParts_locationStatus,
     getDocumentationParts_position,
     getDocumentationParts_type,
-    getDocumentationParts_limit,
     getDocumentationParts_path,
     getDocumentationParts_nameQuery,
+    getDocumentationParts_limit,
     getDocumentationParts_restApiId,
 
     -- * Destructuring the Response
@@ -68,13 +68,13 @@ data GetDocumentationParts = GetDocumentationParts'
     position :: Prelude.Maybe Prelude.Text,
     -- | The type of API entities of the to-be-retrieved documentation parts.
     type' :: Prelude.Maybe DocumentationPartType,
-    -- | The maximum number of returned results per page. The default value is 25
-    -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The path of API entities of the to-be-retrieved documentation parts.
     path :: Prelude.Maybe Prelude.Text,
     -- | The name of API entities of the to-be-retrieved documentation parts.
     nameQuery :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of returned results per page. The default value is 25
+    -- and the maximum value is 500.
+    limit :: Prelude.Maybe Prelude.Int,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -96,12 +96,12 @@ data GetDocumentationParts = GetDocumentationParts'
 --
 -- 'type'', 'getDocumentationParts_type' - The type of API entities of the to-be-retrieved documentation parts.
 --
--- 'limit', 'getDocumentationParts_limit' - The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
---
 -- 'path', 'getDocumentationParts_path' - The path of API entities of the to-be-retrieved documentation parts.
 --
 -- 'nameQuery', 'getDocumentationParts_nameQuery' - The name of API entities of the to-be-retrieved documentation parts.
+--
+-- 'limit', 'getDocumentationParts_limit' - The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
 --
 -- 'restApiId', 'getDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDocumentationParts ::
@@ -114,9 +114,9 @@ newGetDocumentationParts pRestApiId_ =
         Prelude.Nothing,
       position = Prelude.Nothing,
       type' = Prelude.Nothing,
-      limit = Prelude.Nothing,
       path = Prelude.Nothing,
       nameQuery = Prelude.Nothing,
+      limit = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
@@ -134,11 +134,6 @@ getDocumentationParts_position = Lens.lens (\GetDocumentationParts' {position} -
 getDocumentationParts_type :: Lens.Lens' GetDocumentationParts (Prelude.Maybe DocumentationPartType)
 getDocumentationParts_type = Lens.lens (\GetDocumentationParts' {type'} -> type') (\s@GetDocumentationParts' {} a -> s {type' = a} :: GetDocumentationParts)
 
--- | The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
-getDocumentationParts_limit :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Int)
-getDocumentationParts_limit = Lens.lens (\GetDocumentationParts' {limit} -> limit) (\s@GetDocumentationParts' {} a -> s {limit = a} :: GetDocumentationParts)
-
 -- | The path of API entities of the to-be-retrieved documentation parts.
 getDocumentationParts_path :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
 getDocumentationParts_path = Lens.lens (\GetDocumentationParts' {path} -> path) (\s@GetDocumentationParts' {} a -> s {path = a} :: GetDocumentationParts)
@@ -146,6 +141,11 @@ getDocumentationParts_path = Lens.lens (\GetDocumentationParts' {path} -> path) 
 -- | The name of API entities of the to-be-retrieved documentation parts.
 getDocumentationParts_nameQuery :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
 getDocumentationParts_nameQuery = Lens.lens (\GetDocumentationParts' {nameQuery} -> nameQuery) (\s@GetDocumentationParts' {} a -> s {nameQuery = a} :: GetDocumentationParts)
+
+-- | The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+getDocumentationParts_limit :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Int)
+getDocumentationParts_limit = Lens.lens (\GetDocumentationParts' {limit} -> limit) (\s@GetDocumentationParts' {} a -> s {limit = a} :: GetDocumentationParts)
 
 -- | [Required] The string identifier of the associated RestApi.
 getDocumentationParts_restApiId :: Lens.Lens' GetDocumentationParts Prelude.Text
@@ -214,9 +214,9 @@ instance Core.ToQuery GetDocumentationParts where
       [ "locationStatus" Core.=: locationStatus,
         "position" Core.=: position,
         "type" Core.=: type',
-        "limit" Core.=: limit,
         "path" Core.=: path,
-        "name" Core.=: nameQuery
+        "name" Core.=: nameQuery,
+        "limit" Core.=: limit
       ]
 
 -- | The collection of documentation parts of an API.

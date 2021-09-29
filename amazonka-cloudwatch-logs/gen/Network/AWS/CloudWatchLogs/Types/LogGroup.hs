@@ -35,11 +35,11 @@ data LogGroup = LogGroup'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The number of bytes stored.
     storedBytes :: Prelude.Maybe Prelude.Natural,
-    -- | The number of metric filters.
-    metricFilterCount :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
     -- data.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The number of metric filters.
+    metricFilterCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the log group.
     logGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -62,10 +62,10 @@ data LogGroup = LogGroup'
 --
 -- 'storedBytes', 'logGroup_storedBytes' - The number of bytes stored.
 --
--- 'metricFilterCount', 'logGroup_metricFilterCount' - The number of metric filters.
---
 -- 'kmsKeyId', 'logGroup_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data.
+--
+-- 'metricFilterCount', 'logGroup_metricFilterCount' - The number of metric filters.
 --
 -- 'logGroupName', 'logGroup_logGroupName' - The name of the log group.
 newLogGroup ::
@@ -76,8 +76,8 @@ newLogGroup =
       creationTime = Prelude.Nothing,
       arn = Prelude.Nothing,
       storedBytes = Prelude.Nothing,
-      metricFilterCount = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      metricFilterCount = Prelude.Nothing,
       logGroupName = Prelude.Nothing
     }
 
@@ -98,14 +98,14 @@ logGroup_arn = Lens.lens (\LogGroup' {arn} -> arn) (\s@LogGroup' {} a -> s {arn 
 logGroup_storedBytes :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Natural)
 logGroup_storedBytes = Lens.lens (\LogGroup' {storedBytes} -> storedBytes) (\s@LogGroup' {} a -> s {storedBytes = a} :: LogGroup)
 
--- | The number of metric filters.
-logGroup_metricFilterCount :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Int)
-logGroup_metricFilterCount = Lens.lens (\LogGroup' {metricFilterCount} -> metricFilterCount) (\s@LogGroup' {} a -> s {metricFilterCount = a} :: LogGroup)
-
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data.
 logGroup_kmsKeyId :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Text)
 logGroup_kmsKeyId = Lens.lens (\LogGroup' {kmsKeyId} -> kmsKeyId) (\s@LogGroup' {} a -> s {kmsKeyId = a} :: LogGroup)
+
+-- | The number of metric filters.
+logGroup_metricFilterCount :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Int)
+logGroup_metricFilterCount = Lens.lens (\LogGroup' {metricFilterCount} -> metricFilterCount) (\s@LogGroup' {} a -> s {metricFilterCount = a} :: LogGroup)
 
 -- | The name of the log group.
 logGroup_logGroupName :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Text)
@@ -121,8 +121,8 @@ instance Core.FromJSON LogGroup where
             Prelude.<*> (x Core..:? "creationTime")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "storedBytes")
-            Prelude.<*> (x Core..:? "metricFilterCount")
             Prelude.<*> (x Core..:? "kmsKeyId")
+            Prelude.<*> (x Core..:? "metricFilterCount")
             Prelude.<*> (x Core..:? "logGroupName")
       )
 

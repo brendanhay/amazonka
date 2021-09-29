@@ -28,12 +28,14 @@ module Network.AWS.EKS.Types.EKSErrorCode
         EKSErrorCode_InsufficientFreeAddresses,
         EKSErrorCode_InsufficientNumberOfReplicas,
         EKSErrorCode_IpNotAvailable,
+        EKSErrorCode_K8sResourceNotFound,
         EKSErrorCode_NodeCreationFailure,
         EKSErrorCode_OperationNotPermitted,
         EKSErrorCode_PodEvictionFailure,
         EKSErrorCode_SecurityGroupNotFound,
         EKSErrorCode_SubnetNotFound,
         EKSErrorCode_Unknown,
+        EKSErrorCode_UnsupportedAddonModification,
         EKSErrorCode_VpcIdNotFound
       ),
   )
@@ -94,6 +96,9 @@ pattern EKSErrorCode_InsufficientNumberOfReplicas = EKSErrorCode' "InsufficientN
 pattern EKSErrorCode_IpNotAvailable :: EKSErrorCode
 pattern EKSErrorCode_IpNotAvailable = EKSErrorCode' "IpNotAvailable"
 
+pattern EKSErrorCode_K8sResourceNotFound :: EKSErrorCode
+pattern EKSErrorCode_K8sResourceNotFound = EKSErrorCode' "K8sResourceNotFound"
+
 pattern EKSErrorCode_NodeCreationFailure :: EKSErrorCode
 pattern EKSErrorCode_NodeCreationFailure = EKSErrorCode' "NodeCreationFailure"
 
@@ -112,6 +117,9 @@ pattern EKSErrorCode_SubnetNotFound = EKSErrorCode' "SubnetNotFound"
 pattern EKSErrorCode_Unknown :: EKSErrorCode
 pattern EKSErrorCode_Unknown = EKSErrorCode' "Unknown"
 
+pattern EKSErrorCode_UnsupportedAddonModification :: EKSErrorCode
+pattern EKSErrorCode_UnsupportedAddonModification = EKSErrorCode' "UnsupportedAddonModification"
+
 pattern EKSErrorCode_VpcIdNotFound :: EKSErrorCode
 pattern EKSErrorCode_VpcIdNotFound = EKSErrorCode' "VpcIdNotFound"
 
@@ -124,12 +132,14 @@ pattern EKSErrorCode_VpcIdNotFound = EKSErrorCode' "VpcIdNotFound"
   EKSErrorCode_InsufficientFreeAddresses,
   EKSErrorCode_InsufficientNumberOfReplicas,
   EKSErrorCode_IpNotAvailable,
+  EKSErrorCode_K8sResourceNotFound,
   EKSErrorCode_NodeCreationFailure,
   EKSErrorCode_OperationNotPermitted,
   EKSErrorCode_PodEvictionFailure,
   EKSErrorCode_SecurityGroupNotFound,
   EKSErrorCode_SubnetNotFound,
   EKSErrorCode_Unknown,
+  EKSErrorCode_UnsupportedAddonModification,
   EKSErrorCode_VpcIdNotFound,
   EKSErrorCode'
   #-}

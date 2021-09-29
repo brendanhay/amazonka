@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserDefinedFunction' smart constructor.
 data UserDefinedFunction = UserDefinedFunction'
-  { -- | The owner type.
-    ownerType :: Prelude.Maybe PrincipalType,
-    -- | The Java class that contains the function code.
+  { -- | The Java class that contains the function code.
     className :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog in which the function resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The owner type.
+    ownerType :: Prelude.Maybe PrincipalType,
     -- | The owner of the function.
     ownerName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Data Catalog in which the function resides.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the function.
     functionName :: Prelude.Maybe Prelude.Text,
     -- | The resource URIs for the function.
@@ -57,13 +57,13 @@ data UserDefinedFunction = UserDefinedFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerType', 'userDefinedFunction_ownerType' - The owner type.
---
 -- 'className', 'userDefinedFunction_className' - The Java class that contains the function code.
 --
--- 'catalogId', 'userDefinedFunction_catalogId' - The ID of the Data Catalog in which the function resides.
+-- 'ownerType', 'userDefinedFunction_ownerType' - The owner type.
 --
 -- 'ownerName', 'userDefinedFunction_ownerName' - The owner of the function.
+--
+-- 'catalogId', 'userDefinedFunction_catalogId' - The ID of the Data Catalog in which the function resides.
 --
 -- 'functionName', 'userDefinedFunction_functionName' - The name of the function.
 --
@@ -76,31 +76,31 @@ newUserDefinedFunction ::
   UserDefinedFunction
 newUserDefinedFunction =
   UserDefinedFunction'
-    { ownerType = Prelude.Nothing,
-      className = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { className = Prelude.Nothing,
+      ownerType = Prelude.Nothing,
       ownerName = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       functionName = Prelude.Nothing,
       resourceUris = Prelude.Nothing,
       createTime = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
 
--- | The owner type.
-userDefinedFunction_ownerType :: Lens.Lens' UserDefinedFunction (Prelude.Maybe PrincipalType)
-userDefinedFunction_ownerType = Lens.lens (\UserDefinedFunction' {ownerType} -> ownerType) (\s@UserDefinedFunction' {} a -> s {ownerType = a} :: UserDefinedFunction)
-
 -- | The Java class that contains the function code.
 userDefinedFunction_className :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.Text)
 userDefinedFunction_className = Lens.lens (\UserDefinedFunction' {className} -> className) (\s@UserDefinedFunction' {} a -> s {className = a} :: UserDefinedFunction)
 
--- | The ID of the Data Catalog in which the function resides.
-userDefinedFunction_catalogId :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.Text)
-userDefinedFunction_catalogId = Lens.lens (\UserDefinedFunction' {catalogId} -> catalogId) (\s@UserDefinedFunction' {} a -> s {catalogId = a} :: UserDefinedFunction)
+-- | The owner type.
+userDefinedFunction_ownerType :: Lens.Lens' UserDefinedFunction (Prelude.Maybe PrincipalType)
+userDefinedFunction_ownerType = Lens.lens (\UserDefinedFunction' {ownerType} -> ownerType) (\s@UserDefinedFunction' {} a -> s {ownerType = a} :: UserDefinedFunction)
 
 -- | The owner of the function.
 userDefinedFunction_ownerName :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.Text)
 userDefinedFunction_ownerName = Lens.lens (\UserDefinedFunction' {ownerName} -> ownerName) (\s@UserDefinedFunction' {} a -> s {ownerName = a} :: UserDefinedFunction)
+
+-- | The ID of the Data Catalog in which the function resides.
+userDefinedFunction_catalogId :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.Text)
+userDefinedFunction_catalogId = Lens.lens (\UserDefinedFunction' {catalogId} -> catalogId) (\s@UserDefinedFunction' {} a -> s {catalogId = a} :: UserDefinedFunction)
 
 -- | The name of the function.
 userDefinedFunction_functionName :: Lens.Lens' UserDefinedFunction (Prelude.Maybe Prelude.Text)
@@ -124,10 +124,10 @@ instance Core.FromJSON UserDefinedFunction where
       "UserDefinedFunction"
       ( \x ->
           UserDefinedFunction'
-            Prelude.<$> (x Core..:? "OwnerType")
-            Prelude.<*> (x Core..:? "ClassName")
-            Prelude.<*> (x Core..:? "CatalogId")
+            Prelude.<$> (x Core..:? "ClassName")
+            Prelude.<*> (x Core..:? "OwnerType")
             Prelude.<*> (x Core..:? "OwnerName")
+            Prelude.<*> (x Core..:? "CatalogId")
             Prelude.<*> (x Core..:? "FunctionName")
             Prelude.<*> (x Core..:? "ResourceUris" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CreateTime")

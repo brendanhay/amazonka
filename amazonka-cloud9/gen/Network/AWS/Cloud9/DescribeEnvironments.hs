@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about AWS Cloud9 development environments.
+-- Gets information about Cloud9 development environments.
 module Network.AWS.Cloud9.DescribeEnvironments
   ( -- * Creating a Request
     DescribeEnvironments (..),

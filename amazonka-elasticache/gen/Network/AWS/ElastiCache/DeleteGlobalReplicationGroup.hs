@@ -20,18 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deleting a Global Datastore is a two-step process:
+-- Deleting a Global datastore is a two-step process:
 --
 -- -   First, you must DisassociateGlobalReplicationGroup to remove the
---     secondary clusters in the Global Datastore.
+--     secondary clusters in the Global datastore.
 --
--- -   Once the Global Datastore contains only the primary cluster, you can
---     use DeleteGlobalReplicationGroup API to delete the Global Datastore
---     while retainining the primary cluster using Retain…= true.
+-- -   Once the Global datastore contains only the primary cluster, you can
+--     use the @DeleteGlobalReplicationGroup@ API to delete the Global
+--     datastore while retainining the primary cluster using
+--     @RetainPrimaryReplicationGroup=true@.
 --
 -- Since the Global Datastore has only a primary cluster, you can delete
 -- the Global Datastore while retaining the primary by setting
--- @RetainPrimaryCluster=true@.
+-- @RetainPrimaryReplicationGroup=true@. The primary cluster is never
+-- deleted when deleting a Global Datastore. It can only be deleted when it
+-- no longer is associated with any Global Datastore.
 --
 -- When you receive a successful response from this operation, Amazon
 -- ElastiCache immediately begins deleting the selected resources; you
@@ -64,7 +67,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGlobalReplicationGroup' smart constructor.
 data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
-  { -- | The name of the Global Datastore
+  { -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | The primary replication group is retained as a standalone replication
     -- group.
@@ -80,7 +83,7 @@ data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalReplicationGroupId', 'deleteGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'deleteGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'retainPrimaryReplicationGroup', 'deleteGlobalReplicationGroup_retainPrimaryReplicationGroup' - The primary replication group is retained as a standalone replication
 -- group.
@@ -100,7 +103,7 @@ newDeleteGlobalReplicationGroup
           pRetainPrimaryReplicationGroup_
       }
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 deleteGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Prelude.Text
 deleteGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\DeleteGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@DeleteGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: DeleteGlobalReplicationGroup)
 

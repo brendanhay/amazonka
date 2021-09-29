@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS IoT OTAUpdate on a target group of things or groups.
+-- Creates an IoT OTA update on a target group of things or groups.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateOTAUpdate>
+-- action.
 module Network.AWS.IoT.CreateOTAUpdate
   ( -- * Creating a Request
     CreateOTAUpdate (..),
@@ -48,8 +52,8 @@ module Network.AWS.IoT.CreateOTAUpdate
     -- * Response Lenses
     createOTAUpdateResponse_otaUpdateStatus,
     createOTAUpdateResponse_otaUpdateArn,
-    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_awsIotJobArn,
+    createOTAUpdateResponse_awsIotJobId,
     createOTAUpdateResponse_otaUpdateId,
     createOTAUpdateResponse_httpStatus,
   )
@@ -100,8 +104,9 @@ data CreateOTAUpdate = CreateOTAUpdate'
     targets :: Prelude.NonEmpty Prelude.Text,
     -- | The files to be streamed by the OTA update.
     files :: Prelude.NonEmpty OTAUpdateFile,
-    -- | The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs
-    -- and AWS Code Signing resources to create an OTA update job.
+    -- | The IAM role that grants Amazon Web Services IoT Core access to the
+    -- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to
+    -- create an OTA update job.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -150,8 +155,9 @@ data CreateOTAUpdate = CreateOTAUpdate'
 --
 -- 'files', 'createOTAUpdate_files' - The files to be streamed by the OTA update.
 --
--- 'roleArn', 'createOTAUpdate_roleArn' - The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs
--- and AWS Code Signing resources to create an OTA update job.
+-- 'roleArn', 'createOTAUpdate_roleArn' - The IAM role that grants Amazon Web Services IoT Core access to the
+-- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to
+-- create an OTA update job.
 newCreateOTAUpdate ::
   -- | 'otaUpdateId'
   Prelude.Text ->
@@ -243,8 +249,9 @@ createOTAUpdate_targets = Lens.lens (\CreateOTAUpdate' {targets} -> targets) (\s
 createOTAUpdate_files :: Lens.Lens' CreateOTAUpdate (Prelude.NonEmpty OTAUpdateFile)
 createOTAUpdate_files = Lens.lens (\CreateOTAUpdate' {files} -> files) (\s@CreateOTAUpdate' {} a -> s {files = a} :: CreateOTAUpdate) Prelude.. Lens._Coerce
 
--- | The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs
--- and AWS Code Signing resources to create an OTA update job.
+-- | The IAM role that grants Amazon Web Services IoT Core access to the
+-- Amazon S3, IoT jobs and Amazon Web Services Code Signing resources to
+-- create an OTA update job.
 createOTAUpdate_roleArn :: Lens.Lens' CreateOTAUpdate Prelude.Text
 createOTAUpdate_roleArn = Lens.lens (\CreateOTAUpdate' {roleArn} -> roleArn) (\s@CreateOTAUpdate' {} a -> s {roleArn = a} :: CreateOTAUpdate)
 
@@ -259,8 +266,8 @@ instance Core.AWSRequest CreateOTAUpdate where
           CreateOTAUpdateResponse'
             Prelude.<$> (x Core..?> "otaUpdateStatus")
             Prelude.<*> (x Core..?> "otaUpdateArn")
-            Prelude.<*> (x Core..?> "awsIotJobId")
             Prelude.<*> (x Core..?> "awsIotJobArn")
+            Prelude.<*> (x Core..?> "awsIotJobId")
             Prelude.<*> (x Core..?> "otaUpdateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -311,10 +318,10 @@ data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
     otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
     -- | The OTA update ARN.
     otaUpdateArn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IoT job ID associated with the OTA update.
-    awsIotJobId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IoT job ARN associated with the OTA update.
+    -- | The IoT job ARN associated with the OTA update.
     awsIotJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The IoT job ID associated with the OTA update.
+    awsIotJobId :: Prelude.Maybe Prelude.Text,
     -- | The OTA update ID.
     otaUpdateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -334,9 +341,9 @@ data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
 --
 -- 'otaUpdateArn', 'createOTAUpdateResponse_otaUpdateArn' - The OTA update ARN.
 --
--- 'awsIotJobId', 'createOTAUpdateResponse_awsIotJobId' - The AWS IoT job ID associated with the OTA update.
+-- 'awsIotJobArn', 'createOTAUpdateResponse_awsIotJobArn' - The IoT job ARN associated with the OTA update.
 --
--- 'awsIotJobArn', 'createOTAUpdateResponse_awsIotJobArn' - The AWS IoT job ARN associated with the OTA update.
+-- 'awsIotJobId', 'createOTAUpdateResponse_awsIotJobId' - The IoT job ID associated with the OTA update.
 --
 -- 'otaUpdateId', 'createOTAUpdateResponse_otaUpdateId' - The OTA update ID.
 --
@@ -350,8 +357,8 @@ newCreateOTAUpdateResponse pHttpStatus_ =
     { otaUpdateStatus =
         Prelude.Nothing,
       otaUpdateArn = Prelude.Nothing,
-      awsIotJobId = Prelude.Nothing,
       awsIotJobArn = Prelude.Nothing,
+      awsIotJobId = Prelude.Nothing,
       otaUpdateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -364,13 +371,13 @@ createOTAUpdateResponse_otaUpdateStatus = Lens.lens (\CreateOTAUpdateResponse' {
 createOTAUpdateResponse_otaUpdateArn :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
 createOTAUpdateResponse_otaUpdateArn = Lens.lens (\CreateOTAUpdateResponse' {otaUpdateArn} -> otaUpdateArn) (\s@CreateOTAUpdateResponse' {} a -> s {otaUpdateArn = a} :: CreateOTAUpdateResponse)
 
--- | The AWS IoT job ID associated with the OTA update.
-createOTAUpdateResponse_awsIotJobId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
-createOTAUpdateResponse_awsIotJobId = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobId} -> awsIotJobId) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobId = a} :: CreateOTAUpdateResponse)
-
--- | The AWS IoT job ARN associated with the OTA update.
+-- | The IoT job ARN associated with the OTA update.
 createOTAUpdateResponse_awsIotJobArn :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
 createOTAUpdateResponse_awsIotJobArn = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobArn} -> awsIotJobArn) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobArn = a} :: CreateOTAUpdateResponse)
+
+-- | The IoT job ID associated with the OTA update.
+createOTAUpdateResponse_awsIotJobId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)
+createOTAUpdateResponse_awsIotJobId = Lens.lens (\CreateOTAUpdateResponse' {awsIotJobId} -> awsIotJobId) (\s@CreateOTAUpdateResponse' {} a -> s {awsIotJobId = a} :: CreateOTAUpdateResponse)
 
 -- | The OTA update ID.
 createOTAUpdateResponse_otaUpdateId :: Lens.Lens' CreateOTAUpdateResponse (Prelude.Maybe Prelude.Text)

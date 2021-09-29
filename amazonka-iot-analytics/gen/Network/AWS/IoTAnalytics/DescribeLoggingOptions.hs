@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current settings of the AWS IoT Analytics logging options.
+-- Retrieves the current settings of the IoT Analytics logging options.
 module Network.AWS.IoTAnalytics.DescribeLoggingOptions
   ( -- * Creating a Request
     DescribeLoggingOptions (..),
@@ -85,7 +85,7 @@ instance Core.ToQuery DescribeLoggingOptions where
 
 -- | /See:/ 'newDescribeLoggingOptionsResponse' smart constructor.
 data DescribeLoggingOptionsResponse = DescribeLoggingOptionsResponse'
-  { -- | The current settings of the AWS IoT Analytics logging options.
+  { -- | The current settings of the IoT Analytics logging options.
     loggingOptions :: Prelude.Maybe LoggingOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -100,7 +100,7 @@ data DescribeLoggingOptionsResponse = DescribeLoggingOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingOptions', 'describeLoggingOptionsResponse_loggingOptions' - The current settings of the AWS IoT Analytics logging options.
+-- 'loggingOptions', 'describeLoggingOptionsResponse_loggingOptions' - The current settings of the IoT Analytics logging options.
 --
 -- 'httpStatus', 'describeLoggingOptionsResponse_httpStatus' - The response's http status code.
 newDescribeLoggingOptionsResponse ::
@@ -114,7 +114,7 @@ newDescribeLoggingOptionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The current settings of the AWS IoT Analytics logging options.
+-- | The current settings of the IoT Analytics logging options.
 describeLoggingOptionsResponse_loggingOptions :: Lens.Lens' DescribeLoggingOptionsResponse (Prelude.Maybe LoggingOptions)
 describeLoggingOptionsResponse_loggingOptions = Lens.lens (\DescribeLoggingOptionsResponse' {loggingOptions} -> loggingOptions) (\s@DescribeLoggingOptionsResponse' {} a -> s {loggingOptions = a} :: DescribeLoggingOptionsResponse)
 

@@ -59,7 +59,8 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeModelExplainabilityJobDefinition' smart constructor.
 data DescribeModelExplainabilityJobDefinition = DescribeModelExplainabilityJobDefinition'
   { -- | The name of the model explainability job definition. The name must be
-    -- unique within an AWS Region in the AWS account.
+    -- unique within an Amazon Web Services Region in the Amazon Web Services
+    -- account.
     jobDefinitionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +74,8 @@ data DescribeModelExplainabilityJobDefinition = DescribeModelExplainabilityJobDe
 -- for backwards compatibility:
 --
 -- 'jobDefinitionName', 'describeModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition. The name must be
--- unique within an AWS Region in the AWS account.
+-- unique within an Amazon Web Services Region in the Amazon Web Services
+-- account.
 newDescribeModelExplainabilityJobDefinition ::
   -- | 'jobDefinitionName'
   Prelude.Text ->
@@ -86,7 +88,8 @@ newDescribeModelExplainabilityJobDefinition
       }
 
 -- | The name of the model explainability job definition. The name must be
--- unique within an AWS Region in the AWS account.
+-- unique within an Amazon Web Services Region in the Amazon Web Services
+-- account.
 describeModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' DescribeModelExplainabilityJobDefinition Prelude.Text
 describeModelExplainabilityJobDefinition_jobDefinitionName = Lens.lens (\DescribeModelExplainabilityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelExplainabilityJobDefinition' {} a -> s {jobDefinitionName = a} :: DescribeModelExplainabilityJobDefinition)
 
@@ -179,7 +182,7 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
     -- | The Amazon Resource Name (ARN) of the model explainability job.
     jobDefinitionArn :: Prelude.Text,
     -- | The name of the explainability job definition. The name must be unique
-    -- within an AWS Region in the AWS account.
+    -- within an Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model explainability job was created.
     creationTime :: Core.POSIX,
@@ -190,9 +193,9 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
     modelExplainabilityJobInput :: ModelExplainabilityJobInput,
     modelExplainabilityJobOutputConfig :: MonitoringOutputConfig,
     jobResources :: MonitoringResources,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that has read permission to the input data location and write
-    -- permission to the output data location in Amazon S3.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+    -- Access Management (IAM) role that has read permission to the input data
+    -- location and write permission to the output data location in Amazon S3.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -216,7 +219,7 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
 -- 'jobDefinitionArn', 'describeModelExplainabilityJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the model explainability job.
 --
 -- 'jobDefinitionName', 'describeModelExplainabilityJobDefinitionResponse_jobDefinitionName' - The name of the explainability job definition. The name must be unique
--- within an AWS Region in the AWS account.
+-- within an Amazon Web Services Region in the Amazon Web Services account.
 --
 -- 'creationTime', 'describeModelExplainabilityJobDefinitionResponse_creationTime' - The time at which the model explainability job was created.
 --
@@ -229,9 +232,9 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
 --
 -- 'jobResources', 'describeModelExplainabilityJobDefinitionResponse_jobResources' - Undocumented member.
 --
--- 'roleArn', 'describeModelExplainabilityJobDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that has read permission to the input data location and write
--- permission to the output data location in Amazon S3.
+-- 'roleArn', 'describeModelExplainabilityJobDefinitionResponse_roleArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that has read permission to the input data
+-- location and write permission to the output data location in Amazon S3.
 newDescribeModelExplainabilityJobDefinitionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -309,7 +312,7 @@ describeModelExplainabilityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' 
 describeModelExplainabilityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: DescribeModelExplainabilityJobDefinitionResponse)
 
 -- | The name of the explainability job definition. The name must be unique
--- within an AWS Region in the AWS account.
+-- within an Amazon Web Services Region in the Amazon Web Services account.
 describeModelExplainabilityJobDefinitionResponse_jobDefinitionName :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse Prelude.Text
 describeModelExplainabilityJobDefinitionResponse_jobDefinitionName = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {jobDefinitionName = a} :: DescribeModelExplainabilityJobDefinitionResponse)
 
@@ -334,9 +337,9 @@ describeModelExplainabilityJobDefinitionResponse_modelExplainabilityJobOutputCon
 describeModelExplainabilityJobDefinitionResponse_jobResources :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse MonitoringResources
 describeModelExplainabilityJobDefinitionResponse_jobResources = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {jobResources} -> jobResources) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {jobResources = a} :: DescribeModelExplainabilityJobDefinitionResponse)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that has read permission to the input data location and write
--- permission to the output data location in Amazon S3.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that has read permission to the input data
+-- location and write permission to the output data location in Amazon S3.
 describeModelExplainabilityJobDefinitionResponse_roleArn :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse Prelude.Text
 describeModelExplainabilityJobDefinitionResponse_roleArn = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {roleArn} -> roleArn) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {roleArn = a} :: DescribeModelExplainabilityJobDefinitionResponse)
 

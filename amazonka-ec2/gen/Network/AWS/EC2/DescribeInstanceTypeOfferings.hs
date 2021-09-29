@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeInstanceTypeOfferings
 
     -- * Request Lenses
     describeInstanceTypeOfferings_nextToken,
-    describeInstanceTypeOfferings_dryRun,
     describeInstanceTypeOfferings_maxResults,
+    describeInstanceTypeOfferings_dryRun,
     describeInstanceTypeOfferings_locationType,
     describeInstanceTypeOfferings_filters,
 
@@ -60,15 +60,15 @@ import qualified Network.AWS.Response as Response
 data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
   { -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the next token value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the next token value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The location type.
     locationType :: Prelude.Maybe LocationType,
     -- | One or more filters. Filter names and values are case-sensitive.
@@ -92,14 +92,14 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
 --
 -- 'nextToken', 'describeInstanceTypeOfferings_nextToken' - The token to retrieve the next page of results.
 --
+-- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
+--
 -- 'dryRun', 'describeInstanceTypeOfferings_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
 --
 -- 'locationType', 'describeInstanceTypeOfferings_locationType' - The location type.
 --
@@ -116,8 +116,8 @@ newDescribeInstanceTypeOfferings =
   DescribeInstanceTypeOfferings'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       locationType = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -126,18 +126,18 @@ newDescribeInstanceTypeOfferings =
 describeInstanceTypeOfferings_nextToken :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Text)
 describeInstanceTypeOfferings_nextToken = Lens.lens (\DescribeInstanceTypeOfferings' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferings' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferings)
 
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
+describeInstanceTypeOfferings_maxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Natural)
+describeInstanceTypeOfferings_maxResults = Lens.lens (\DescribeInstanceTypeOfferings' {maxResults} -> maxResults) (\s@DescribeInstanceTypeOfferings' {} a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeInstanceTypeOfferings_dryRun :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Bool)
 describeInstanceTypeOfferings_dryRun = Lens.lens (\DescribeInstanceTypeOfferings' {dryRun} -> dryRun) (\s@DescribeInstanceTypeOfferings' {} a -> s {dryRun = a} :: DescribeInstanceTypeOfferings)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
-describeInstanceTypeOfferings_maxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Natural)
-describeInstanceTypeOfferings_maxResults = Lens.lens (\DescribeInstanceTypeOfferings' {maxResults} -> maxResults) (\s@DescribeInstanceTypeOfferings' {} a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
 
 -- | The location type.
 describeInstanceTypeOfferings_locationType :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe LocationType)
@@ -217,8 +217,8 @@ instance Core.ToQuery DescribeInstanceTypeOfferings where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "LocationType" Core.=: locationType,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)

@@ -41,11 +41,6 @@ data ScheduledInstancesEbs = ScheduledInstancesEbs'
     --
     -- Default: @gp2@
     volumeType :: Prelude.Maybe Prelude.Text,
-    -- | The size of the volume, in GiB.
-    --
-    -- Default: If you\'re creating the volume from a snapshot and don\'t
-    -- specify a volume size, the default is the snapshot size.
-    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS) to provision for an
     -- @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS\/GiB for @io1@,
     -- and 500 IOPS\/GiB for @io2@. Range is 100 to 64,000 IOPS for volumes in
@@ -58,7 +53,12 @@ data ScheduledInstancesEbs = ScheduledInstancesEbs'
     --
     -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@)
     -- volumes.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The size of the volume, in GiB.
+    --
+    -- Default: If you\'re creating the volume from a snapshot and don\'t
+    -- specify a volume size, the default is the snapshot size.
+    volumeSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,11 +83,6 @@ data ScheduledInstancesEbs = ScheduledInstancesEbs'
 --
 -- Default: @gp2@
 --
--- 'volumeSize', 'scheduledInstancesEbs_volumeSize' - The size of the volume, in GiB.
---
--- Default: If you\'re creating the volume from a snapshot and don\'t
--- specify a volume size, the default is the snapshot size.
---
 -- 'iops', 'scheduledInstancesEbs_iops' - The number of I\/O operations per second (IOPS) to provision for an
 -- @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS\/GiB for @io1@,
 -- and 500 IOPS\/GiB for @io2@. Range is 100 to 64,000 IOPS for volumes in
@@ -100,6 +95,11 @@ data ScheduledInstancesEbs = ScheduledInstancesEbs'
 --
 -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@)
 -- volumes.
+--
+-- 'volumeSize', 'scheduledInstancesEbs_volumeSize' - The size of the volume, in GiB.
+--
+-- Default: If you\'re creating the volume from a snapshot and don\'t
+-- specify a volume size, the default is the snapshot size.
 newScheduledInstancesEbs ::
   ScheduledInstancesEbs
 newScheduledInstancesEbs =
@@ -108,8 +108,8 @@ newScheduledInstancesEbs =
       deleteOnTermination = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iops = Prelude.Nothing,
+      volumeSize = Prelude.Nothing
     }
 
 -- | Indicates whether the volume is encrypted. You can attached encrypted
@@ -133,13 +133,6 @@ scheduledInstancesEbs_snapshotId = Lens.lens (\ScheduledInstancesEbs' {snapshotI
 scheduledInstancesEbs_volumeType :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Text)
 scheduledInstancesEbs_volumeType = Lens.lens (\ScheduledInstancesEbs' {volumeType} -> volumeType) (\s@ScheduledInstancesEbs' {} a -> s {volumeType = a} :: ScheduledInstancesEbs)
 
--- | The size of the volume, in GiB.
---
--- Default: If you\'re creating the volume from a snapshot and don\'t
--- specify a volume size, the default is the snapshot size.
-scheduledInstancesEbs_volumeSize :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Int)
-scheduledInstancesEbs_volumeSize = Lens.lens (\ScheduledInstancesEbs' {volumeSize} -> volumeSize) (\s@ScheduledInstancesEbs' {} a -> s {volumeSize = a} :: ScheduledInstancesEbs)
-
 -- | The number of I\/O operations per second (IOPS) to provision for an
 -- @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS\/GiB for @io1@,
 -- and 500 IOPS\/GiB for @io2@. Range is 100 to 64,000 IOPS for volumes in
@@ -155,6 +148,13 @@ scheduledInstancesEbs_volumeSize = Lens.lens (\ScheduledInstancesEbs' {volumeSiz
 scheduledInstancesEbs_iops :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Int)
 scheduledInstancesEbs_iops = Lens.lens (\ScheduledInstancesEbs' {iops} -> iops) (\s@ScheduledInstancesEbs' {} a -> s {iops = a} :: ScheduledInstancesEbs)
 
+-- | The size of the volume, in GiB.
+--
+-- Default: If you\'re creating the volume from a snapshot and don\'t
+-- specify a volume size, the default is the snapshot size.
+scheduledInstancesEbs_volumeSize :: Lens.Lens' ScheduledInstancesEbs (Prelude.Maybe Prelude.Int)
+scheduledInstancesEbs_volumeSize = Lens.lens (\ScheduledInstancesEbs' {volumeSize} -> volumeSize) (\s@ScheduledInstancesEbs' {} a -> s {volumeSize = a} :: ScheduledInstancesEbs)
+
 instance Prelude.Hashable ScheduledInstancesEbs
 
 instance Prelude.NFData ScheduledInstancesEbs
@@ -166,6 +166,6 @@ instance Core.ToQuery ScheduledInstancesEbs where
         "DeleteOnTermination" Core.=: deleteOnTermination,
         "SnapshotId" Core.=: snapshotId,
         "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Iops" Core.=: iops
+        "Iops" Core.=: iops,
+        "VolumeSize" Core.=: volumeSize
       ]

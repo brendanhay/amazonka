@@ -26,27 +26,27 @@ module Network.AWS.ECR.Types
     _ImageDigestDoesNotMatchException,
     _ImageNotFoundException,
     _LayerPartTooSmallException,
-    _InvalidLayerException,
     _InvalidTagParameterException,
+    _InvalidLayerException,
     _InvalidLayerPartException,
     _ReferencedImagesNotFoundException,
     _InvalidParameterException,
-    _ValidationException,
     _LayersNotFoundException,
-    _LimitExceededException,
-    _RegistryPolicyNotFoundException,
-    _LifecyclePolicyPreviewInProgressException,
+    _ValidationException,
     _EmptyUploadException,
+    _RegistryPolicyNotFoundException,
+    _LimitExceededException,
+    _LifecyclePolicyPreviewInProgressException,
     _RepositoryPolicyNotFoundException,
     _RepositoryAlreadyExistsException,
     _LifecyclePolicyPreviewNotFoundException,
-    _UnsupportedImageTypeException,
-    _RepositoryNotEmptyException,
     _LayerInaccessibleException,
+    _RepositoryNotEmptyException,
+    _UnsupportedImageTypeException,
     _LifecyclePolicyNotFoundException,
-    _KmsException,
-    _ServerException,
     _LayerAlreadyExistsException,
+    _ServerException,
+    _KmsException,
 
     -- * EncryptionType
     EncryptionType (..),
@@ -71,6 +71,12 @@ module Network.AWS.ECR.Types
 
     -- * LifecyclePolicyPreviewStatus
     LifecyclePolicyPreviewStatus (..),
+
+    -- * ReplicationStatus
+    ReplicationStatus (..),
+
+    -- * RepositoryFilterType
+    RepositoryFilterType (..),
 
     -- * ScanStatus
     ScanStatus (..),
@@ -105,8 +111,8 @@ module Network.AWS.ECR.Types
     -- * Image
     Image (..),
     newImage,
-    image_imageManifest,
     image_registryId,
+    image_imageManifest,
     image_repositoryName,
     image_imageId,
     image_imageManifestMediaType,
@@ -137,6 +143,14 @@ module Network.AWS.ECR.Types
     newImageIdentifier,
     imageIdentifier_imageDigest,
     imageIdentifier_imageTag,
+
+    -- * ImageReplicationStatus
+    ImageReplicationStatus (..),
+    newImageReplicationStatus,
+    imageReplicationStatus_status,
+    imageReplicationStatus_registryId,
+    imageReplicationStatus_failureCode,
+    imageReplicationStatus_region,
 
     -- * ImageScanFinding
     ImageScanFinding (..),
@@ -231,6 +245,7 @@ module Network.AWS.ECR.Types
     -- * ReplicationRule
     ReplicationRule (..),
     newReplicationRule,
+    replicationRule_repositoryFilters,
     replicationRule_destinations,
 
     -- * Repository
@@ -244,6 +259,12 @@ module Network.AWS.ECR.Types
     repository_repositoryArn,
     repository_imageScanningConfiguration,
     repository_imageTagMutability,
+
+    -- * RepositoryFilter
+    RepositoryFilter (..),
+    newRepositoryFilter,
+    repositoryFilter_filter,
+    repositoryFilter_filterType,
 
     -- * Tag
     Tag (..),
@@ -266,6 +287,7 @@ import Network.AWS.ECR.Types.ImageDetail
 import Network.AWS.ECR.Types.ImageFailure
 import Network.AWS.ECR.Types.ImageFailureCode
 import Network.AWS.ECR.Types.ImageIdentifier
+import Network.AWS.ECR.Types.ImageReplicationStatus
 import Network.AWS.ECR.Types.ImageScanFinding
 import Network.AWS.ECR.Types.ImageScanFindings
 import Network.AWS.ECR.Types.ImageScanFindingsSummary
@@ -285,7 +307,10 @@ import Network.AWS.ECR.Types.ListImagesFilter
 import Network.AWS.ECR.Types.ReplicationConfiguration
 import Network.AWS.ECR.Types.ReplicationDestination
 import Network.AWS.ECR.Types.ReplicationRule
+import Network.AWS.ECR.Types.ReplicationStatus
 import Network.AWS.ECR.Types.Repository
+import Network.AWS.ECR.Types.RepositoryFilter
+import Network.AWS.ECR.Types.RepositoryFilterType
 import Network.AWS.ECR.Types.ScanStatus
 import Network.AWS.ECR.Types.Tag
 import Network.AWS.ECR.Types.TagStatus
@@ -434,14 +459,6 @@ _LayerPartTooSmallException =
     defaultService
     "LayerPartTooSmallException"
 
--- | The layer digest calculation performed by Amazon ECR upon receipt of the
--- image layer does not match the digest specified.
-_InvalidLayerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidLayerException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidLayerException"
-
 -- | An invalid parameter has been specified. Tag keys can have a maximum
 -- character length of 128 characters, and tag values can have a maximum
 -- length of 256 characters.
@@ -450,6 +467,14 @@ _InvalidTagParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidTagParameterException"
+
+-- | The layer digest calculation performed by Amazon ECR upon receipt of the
+-- image layer does not match the digest specified.
+_InvalidLayerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLayerException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidLayerException"
 
 -- | The layer part size is not valid, or the first byte specified is not
 -- consecutive to the last byte of a previous layer part upload.
@@ -474,13 +499,6 @@ _InvalidParameterException =
     defaultService
     "InvalidParameterException"
 
--- | There was an exception validating this request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-
 -- | The specified layers could not be found, or the specified layer is not
 -- valid for this repository.
 _LayersNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -489,15 +507,19 @@ _LayersNotFoundException =
     defaultService
     "LayersNotFoundException"
 
--- | The operation did not succeed because it would have exceeded a service
--- limit for your account. For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html Amazon ECR Service Quotas>
--- in the Amazon Elastic Container Registry User Guide.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | There was an exception validating this request.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "ValidationException"
+
+-- | The specified layer upload does not contain any layer parts.
+_EmptyUploadException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EmptyUploadException =
+  Core._MatchServiceError
+    defaultService
+    "EmptyUploadException"
 
 -- | The registry doesn\'t have an associated registry policy.
 _RegistryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -506,6 +528,16 @@ _RegistryPolicyNotFoundException =
     defaultService
     "RegistryPolicyNotFoundException"
 
+-- | The operation did not succeed because it would have exceeded a service
+-- limit for your account. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html Amazon ECR service quotas>
+-- in the Amazon Elastic Container Registry User Guide.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
 -- | The previous lifecycle policy preview request has not completed. Wait
 -- and try again.
 _LifecyclePolicyPreviewInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -513,13 +545,6 @@ _LifecyclePolicyPreviewInProgressException =
   Core._MatchServiceError
     defaultService
     "LifecyclePolicyPreviewInProgressException"
-
--- | The specified layer upload does not contain any layer parts.
-_EmptyUploadException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EmptyUploadException =
-  Core._MatchServiceError
-    defaultService
-    "EmptyUploadException"
 
 -- | The specified repository and registry combination does not have an
 -- associated repository policy.
@@ -543,12 +568,13 @@ _LifecyclePolicyPreviewNotFoundException =
     defaultService
     "LifecyclePolicyPreviewNotFoundException"
 
--- | The image is of a type that cannot be scanned.
-_UnsupportedImageTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedImageTypeException =
+-- | The specified layer is not available because it is not associated with
+-- an image. Unassociated image layers may be cleaned up at any time.
+_LayerInaccessibleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LayerInaccessibleException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedImageTypeException"
+    "LayerInaccessibleException"
 
 -- | The specified repository contains images. To delete a repository that
 -- contains images, you must force the deletion with the @force@ parameter.
@@ -558,13 +584,12 @@ _RepositoryNotEmptyException =
     defaultService
     "RepositoryNotEmptyException"
 
--- | The specified layer is not available because it is not associated with
--- an image. Unassociated image layers may be cleaned up at any time.
-_LayerInaccessibleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LayerInaccessibleException =
+-- | The image is of a type that cannot be scanned.
+_UnsupportedImageTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedImageTypeException =
   Core._MatchServiceError
     defaultService
-    "LayerInaccessibleException"
+    "UnsupportedImageTypeException"
 
 -- | The lifecycle policy could not be found, and no policy is set to the
 -- repository.
@@ -574,12 +599,12 @@ _LifecyclePolicyNotFoundException =
     defaultService
     "LifecyclePolicyNotFoundException"
 
--- | The operation failed due to a KMS exception.
-_KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KmsException =
+-- | The image layer already exists in the associated repository.
+_LayerAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LayerAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "KmsException"
+    "LayerAlreadyExistsException"
 
 -- | These errors are usually caused by a server-side issue.
 _ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -588,9 +613,9 @@ _ServerException =
     defaultService
     "ServerException"
 
--- | The image layer already exists in the associated repository.
-_LayerAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LayerAlreadyExistsException =
+-- | The operation failed due to a KMS exception.
+_KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsException =
   Core._MatchServiceError
     defaultService
-    "LayerAlreadyExistsException"
+    "KmsException"

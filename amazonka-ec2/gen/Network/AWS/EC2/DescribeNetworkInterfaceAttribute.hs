@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     describeNetworkInterfaceAttributeResponse_groups,
     describeNetworkInterfaceAttributeResponse_attachment,
     describeNetworkInterfaceAttributeResponse_sourceDestCheck,
-    describeNetworkInterfaceAttributeResponse_networkInterfaceId,
     describeNetworkInterfaceAttributeResponse_description,
+    describeNetworkInterfaceAttributeResponse_networkInterfaceId,
     describeNetworkInterfaceAttributeResponse_httpStatus,
   )
 where
@@ -131,8 +131,8 @@ instance
                         )
               Prelude.<*> (x Core..@? "attachment")
               Prelude.<*> (x Core..@? "sourceDestCheck")
-              Prelude.<*> (x Core..@? "networkInterfaceId")
               Prelude.<*> (x Core..@? "description")
+              Prelude.<*> (x Core..@? "networkInterfaceId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,10 +183,10 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     attachment :: Prelude.Maybe NetworkInterfaceAttachment,
     -- | Indicates whether source\/destination checking is enabled.
     sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The description of the network interface.
     description :: Prelude.Maybe AttributeValue,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +206,9 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 --
 -- 'sourceDestCheck', 'describeNetworkInterfaceAttributeResponse_sourceDestCheck' - Indicates whether source\/destination checking is enabled.
 --
--- 'networkInterfaceId', 'describeNetworkInterfaceAttributeResponse_networkInterfaceId' - The ID of the network interface.
---
 -- 'description', 'describeNetworkInterfaceAttributeResponse_description' - The description of the network interface.
+--
+-- 'networkInterfaceId', 'describeNetworkInterfaceAttributeResponse_networkInterfaceId' - The ID of the network interface.
 --
 -- 'httpStatus', 'describeNetworkInterfaceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfaceAttributeResponse ::
@@ -223,9 +223,9 @@ newDescribeNetworkInterfaceAttributeResponse
         attachment = Prelude.Nothing,
         sourceDestCheck =
           Prelude.Nothing,
+        description = Prelude.Nothing,
         networkInterfaceId =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -241,13 +241,13 @@ describeNetworkInterfaceAttributeResponse_attachment = Lens.lens (\DescribeNetwo
 describeNetworkInterfaceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeNetworkInterfaceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeNetworkInterfaceAttributeResponse)
 
--- | The ID of the network interface.
-describeNetworkInterfaceAttributeResponse_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe Prelude.Text)
-describeNetworkInterfaceAttributeResponse_networkInterfaceId = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttributeResponse)
-
 -- | The description of the network interface.
 describeNetworkInterfaceAttributeResponse_description :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeValue)
 describeNetworkInterfaceAttributeResponse_description = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {description} -> description) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {description = a} :: DescribeNetworkInterfaceAttributeResponse)
+
+-- | The ID of the network interface.
+describeNetworkInterfaceAttributeResponse_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe Prelude.Text)
+describeNetworkInterfaceAttributeResponse_networkInterfaceId = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | The response's http status code.
 describeNetworkInterfaceAttributeResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse Prelude.Int

@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCancelUpdateStack' smart constructor.
 data CancelUpdateStack = CancelUpdateStack'
   { -- | A unique identifier for this @CancelUpdateStack@ request. Specify this
-    -- token if you plan to retry requests so that AWS CloudFormation knows
-    -- that you\'re not attempting to cancel an update on a stack with the same
-    -- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+    -- token if you plan to retry requests so that CloudFormation knows that
+    -- you\'re not attempting to cancel an update on a stack with the same
+    -- name. You might retry @CancelUpdateStack@ requests to ensure that
     -- CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name or the unique stack ID that is associated with the stack.
@@ -71,9 +71,9 @@ data CancelUpdateStack = CancelUpdateStack'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'cancelUpdateStack_clientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this
--- token if you plan to retry requests so that AWS CloudFormation knows
--- that you\'re not attempting to cancel an update on a stack with the same
--- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to cancel an update on a stack with the same
+-- name. You might retry @CancelUpdateStack@ requests to ensure that
 -- CloudFormation successfully received them.
 --
 -- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that is associated with the stack.
@@ -89,9 +89,9 @@ newCancelUpdateStack pStackName_ =
     }
 
 -- | A unique identifier for this @CancelUpdateStack@ request. Specify this
--- token if you plan to retry requests so that AWS CloudFormation knows
--- that you\'re not attempting to cancel an update on a stack with the same
--- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to cancel an update on a stack with the same
+-- name. You might retry @CancelUpdateStack@ requests to ensure that
 -- CloudFormation successfully received them.
 cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Prelude.Maybe Prelude.Text)
 cancelUpdateStack_clientRequestToken = Lens.lens (\CancelUpdateStack' {clientRequestToken} -> clientRequestToken) (\s@CancelUpdateStack' {} a -> s {clientRequestToken = a} :: CancelUpdateStack)

@@ -22,8 +22,8 @@
 --
 -- Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
--- information about all cluster subnet groups that are defined in you AWS
--- account.
+-- information about all cluster subnet groups that are defined in your
+-- Amazon Web Services account.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all subnet groups that match any combination of the
@@ -45,8 +45,8 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     describeClusterSubnetGroups_clusterSubnetGroupName,
     describeClusterSubnetGroups_tagKeys,
     describeClusterSubnetGroups_tagValues,
-    describeClusterSubnetGroups_marker,
     describeClusterSubnetGroups_maxRecords,
+    describeClusterSubnetGroups_marker,
 
     -- * Destructuring the Response
     DescribeClusterSubnetGroupsResponse (..),
@@ -87,13 +87,6 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
     -- subnet groups that have either or both of these tag values associated
     -- with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusterSubnetGroups
-    -- request exceed the value specified in @MaxRecords@, AWS returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -103,7 +96,14 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterSubnetGroups
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -132,13 +132,6 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
 -- subnet groups that have either or both of these tag values associated
 -- with them.
 --
--- 'marker', 'describeClusterSubnetGroups_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSubnetGroups
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeClusterSubnetGroups_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -148,6 +141,13 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeClusterSubnetGroups_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 newDescribeClusterSubnetGroups ::
   DescribeClusterSubnetGroups
 newDescribeClusterSubnetGroups =
@@ -156,8 +156,8 @@ newDescribeClusterSubnetGroups =
         Prelude.Nothing,
       tagKeys = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The name of the cluster subnet group for which information is requested.
@@ -183,15 +183,6 @@ describeClusterSubnetGroups_tagKeys = Lens.lens (\DescribeClusterSubnetGroups' {
 describeClusterSubnetGroups_tagValues :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe [Prelude.Text])
 describeClusterSubnetGroups_tagValues = Lens.lens (\DescribeClusterSubnetGroups' {tagValues} -> tagValues) (\s@DescribeClusterSubnetGroups' {} a -> s {tagValues = a} :: DescribeClusterSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSubnetGroups
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeClusterSubnetGroups_marker :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Text)
-describeClusterSubnetGroups_marker = Lens.lens (\DescribeClusterSubnetGroups' {marker} -> marker) (\s@DescribeClusterSubnetGroups' {} a -> s {marker = a} :: DescribeClusterSubnetGroups)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -203,6 +194,15 @@ describeClusterSubnetGroups_marker = Lens.lens (\DescribeClusterSubnetGroups' {m
 -- Constraints: minimum 20, maximum 100.
 describeClusterSubnetGroups_maxRecords :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Int)
 describeClusterSubnetGroups_maxRecords = Lens.lens (\DescribeClusterSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSubnetGroups' {} a -> s {maxRecords = a} :: DescribeClusterSubnetGroups)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSubnetGroups
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeClusterSubnetGroups_marker :: Lens.Lens' DescribeClusterSubnetGroups (Prelude.Maybe Prelude.Text)
+describeClusterSubnetGroups_marker = Lens.lens (\DescribeClusterSubnetGroups' {marker} -> marker) (\s@DescribeClusterSubnetGroups' {} a -> s {marker = a} :: DescribeClusterSubnetGroups)
 
 instance Core.AWSPager DescribeClusterSubnetGroups where
   page rq rs
@@ -271,8 +271,8 @@ instance Core.ToQuery DescribeClusterSubnetGroups where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.

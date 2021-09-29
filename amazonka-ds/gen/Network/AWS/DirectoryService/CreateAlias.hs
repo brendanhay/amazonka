@@ -61,9 +61,9 @@ data CreateAlias = CreateAlias'
     directoryId :: Prelude.Text,
     -- | The requested alias.
     --
-    -- The alias must be unique amongst all aliases in AWS. This operation
-    -- throws an @EntityAlreadyExistsException@ error if the alias already
-    -- exists.
+    -- The alias must be unique amongst all aliases in Amazon Web Services.
+    -- This operation throws an @EntityAlreadyExistsException@ error if the
+    -- alias already exists.
     alias :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,9 +80,9 @@ data CreateAlias = CreateAlias'
 --
 -- 'alias', 'createAlias_alias' - The requested alias.
 --
--- The alias must be unique amongst all aliases in AWS. This operation
--- throws an @EntityAlreadyExistsException@ error if the alias already
--- exists.
+-- The alias must be unique amongst all aliases in Amazon Web Services.
+-- This operation throws an @EntityAlreadyExistsException@ error if the
+-- alias already exists.
 newCreateAlias ::
   -- | 'directoryId'
   Prelude.Text ->
@@ -101,9 +101,9 @@ createAlias_directoryId = Lens.lens (\CreateAlias' {directoryId} -> directoryId)
 
 -- | The requested alias.
 --
--- The alias must be unique amongst all aliases in AWS. This operation
--- throws an @EntityAlreadyExistsException@ error if the alias already
--- exists.
+-- The alias must be unique amongst all aliases in Amazon Web Services.
+-- This operation throws an @EntityAlreadyExistsException@ error if the
+-- alias already exists.
 createAlias_alias :: Lens.Lens' CreateAlias Prelude.Text
 createAlias_alias = Lens.lens (\CreateAlias' {alias} -> alias) (\s@CreateAlias' {} a -> s {alias = a} :: CreateAlias)
 

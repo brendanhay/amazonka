@@ -29,6 +29,7 @@ module Network.AWS.Comprehend.StartPiiEntitiesDetectionJob
 
     -- * Request Lenses
     startPiiEntitiesDetectionJob_redactionConfig,
+    startPiiEntitiesDetectionJob_tags,
     startPiiEntitiesDetectionJob_clientRequestToken,
     startPiiEntitiesDetectionJob_jobName,
     startPiiEntitiesDetectionJob_inputDataConfig,
@@ -43,6 +44,7 @@ module Network.AWS.Comprehend.StartPiiEntitiesDetectionJob
 
     -- * Response Lenses
     startPiiEntitiesDetectionJobResponse_jobStatus,
+    startPiiEntitiesDetectionJobResponse_jobArn,
     startPiiEntitiesDetectionJobResponse_jobId,
     startPiiEntitiesDetectionJobResponse_httpStatus,
   )
@@ -63,6 +65,11 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
     -- definition that includes the @PiiEntityTypes@ parameter.
     redactionConfig :: Prelude.Maybe RedactionConfig,
+    -- | Tags to be associated with the PII entities detection job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -97,6 +104,11 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
 -- This parameter is required if you set the @Mode@ parameter to
 -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
 -- definition that includes the @PiiEntityTypes@ parameter.
+--
+-- 'tags', 'startPiiEntitiesDetectionJob_tags' - Tags to be associated with the PII entities detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
 --
 -- 'clientRequestToken', 'startPiiEntitiesDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
@@ -136,6 +148,7 @@ newStartPiiEntitiesDetectionJob
     StartPiiEntitiesDetectionJob'
       { redactionConfig =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
@@ -152,6 +165,13 @@ newStartPiiEntitiesDetectionJob
 -- definition that includes the @PiiEntityTypes@ parameter.
 startPiiEntitiesDetectionJob_redactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe RedactionConfig)
 startPiiEntitiesDetectionJob_redactionConfig = Lens.lens (\StartPiiEntitiesDetectionJob' {redactionConfig} -> redactionConfig) (\s@StartPiiEntitiesDetectionJob' {} a -> s {redactionConfig = a} :: StartPiiEntitiesDetectionJob)
+
+-- | Tags to be associated with the PII entities detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startPiiEntitiesDetectionJob_tags :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe [Tag])
+startPiiEntitiesDetectionJob_tags = Lens.lens (\StartPiiEntitiesDetectionJob' {tags} -> tags) (\s@StartPiiEntitiesDetectionJob' {} a -> s {tags = a} :: StartPiiEntitiesDetectionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
@@ -195,6 +215,7 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
       ( \s h x ->
           StartPiiEntitiesDetectionJobResponse'
             Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -226,6 +247,7 @@ instance Core.ToJSON StartPiiEntitiesDetectionJob where
       ( Prelude.catMaybes
           [ ("RedactionConfig" Core..=)
               Prelude.<$> redactionConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("JobName" Core..=) Prelude.<$> jobName,
@@ -250,6 +272,16 @@ instance Core.ToQuery StartPiiEntitiesDetectionJob where
 data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse'
   { -- | The status of the job.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The Amazon Resource Name (ARN) of the PII entity detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier generated for the job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -267,6 +299,16 @@ data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse
 --
 -- 'jobStatus', 'startPiiEntitiesDetectionJobResponse_jobStatus' - The status of the job.
 --
+-- 'jobArn', 'startPiiEntitiesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the PII entity detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'jobId', 'startPiiEntitiesDetectionJobResponse_jobId' - The identifier generated for the job.
 --
 -- 'httpStatus', 'startPiiEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
@@ -278,6 +320,7 @@ newStartPiiEntitiesDetectionJobResponse pHttpStatus_ =
   StartPiiEntitiesDetectionJobResponse'
     { jobStatus =
         Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -285,6 +328,18 @@ newStartPiiEntitiesDetectionJobResponse pHttpStatus_ =
 -- | The status of the job.
 startPiiEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
 startPiiEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StartPiiEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartPiiEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StartPiiEntitiesDetectionJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the PII entity detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+startPiiEntitiesDetectionJobResponse_jobArn :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startPiiEntitiesDetectionJobResponse_jobArn = Lens.lens (\StartPiiEntitiesDetectionJobResponse' {jobArn} -> jobArn) (\s@StartPiiEntitiesDetectionJobResponse' {} a -> s {jobArn = a} :: StartPiiEntitiesDetectionJobResponse)
 
 -- | The identifier generated for the job.
 startPiiEntitiesDetectionJobResponse_jobId :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)

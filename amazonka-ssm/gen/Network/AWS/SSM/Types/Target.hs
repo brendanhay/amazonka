@@ -23,16 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An array of search criteria that targets instances using a Key,Value
--- combination that you specify.
+-- | An array of search criteria that targets instances using a key-value
+-- pair that you specify.
 --
 -- One or more targets must be specified for maintenance window Run
 -- Command-type tasks. Depending on the task, targets are optional for
--- other maintenance window task types (Automation, AWS Lambda, and AWS
--- Step Functions). For more information about running tasks that do not
--- specify targets, see
+-- other maintenance window task types (Automation, Lambda, and Step
+-- Functions). For more information about running tasks that don\'t specify
+-- targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- Supported formats include the following.
 --
@@ -69,8 +69,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- -   __Maintenance window targets only__:
 --     @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
 --
---     This example demonstrates how to target only EC2 instances and VPCs
---     in your maintenance window.
+--     This example demonstrates how to target only Amazon Elastic Compute
+--     Cloud (Amazon EC2) instances and VPCs in your maintenance window.
 --
 -- -   __Automation targets only__:
 --     @Key=ResourceGroup,Values=MyResourceGroup@
@@ -79,12 +79,12 @@ import qualified Network.AWS.Prelude as Prelude
 --     @Key=InstanceIds,Values=* @
 --
 --     This example demonstrates how to target all managed instances in the
---     AWS Region where the association was created.
+--     Amazon Web Services Region where the association was created.
 --
 -- For more information about how to send commands that target instances
 -- using @Key,Value@ parameters, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting Targeting multiple instances>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
@@ -94,6 +94,9 @@ data Target = Target'
     -- | User-defined criteria that maps to @Key@. For example, if you specified
     -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
     -- on instances that include EC2 tags of @ServerRole,WebServer@.
+    --
+    -- Depending on the type of target, the maximum number of values for a key
+    -- might be lower than the global maximum of 50.
     values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,6 +115,9 @@ data Target = Target'
 -- 'values', 'target_values' - User-defined criteria that maps to @Key@. For example, if you specified
 -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
 -- on instances that include EC2 tags of @ServerRole,WebServer@.
+--
+-- Depending on the type of target, the maximum number of values for a key
+-- might be lower than the global maximum of 50.
 newTarget ::
   Target
 newTarget =
@@ -128,6 +134,9 @@ target_key = Lens.lens (\Target' {key} -> key) (\s@Target' {} a -> s {key = a} :
 -- | User-defined criteria that maps to @Key@. For example, if you specified
 -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
 -- on instances that include EC2 tags of @ServerRole,WebServer@.
+--
+-- Depending on the type of target, the maximum number of values for a key
+-- might be lower than the global maximum of 50.
 target_values :: Lens.Lens' Target (Prelude.Maybe [Prelude.Text])
 target_values = Lens.lens (\Target' {values} -> values) (\s@Target' {} a -> s {values = a} :: Target) Prelude.. Lens.mapping Lens._Coerce
 

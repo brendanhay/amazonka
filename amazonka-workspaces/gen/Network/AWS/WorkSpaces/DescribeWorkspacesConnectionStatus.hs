@@ -186,8 +186,8 @@ instance
 
 -- | /See:/ 'newDescribeWorkspacesConnectionStatusResponse' smart constructor.
 data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionStatusResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the connection status of the WorkSpace.
     workspacesConnectionStatus :: Prelude.Maybe [WorkspaceConnectionStatus],
@@ -204,8 +204,8 @@ data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionSt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspacesConnectionStatusResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'describeWorkspacesConnectionStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'workspacesConnectionStatus', 'describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus' - Information about the connection status of the WorkSpace.
 --
@@ -224,8 +224,8 @@ newDescribeWorkspacesConnectionStatusResponse
         httpStatus = pHttpStatus_
       }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 describeWorkspacesConnectionStatusResponse_nextToken :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse (Prelude.Maybe Prelude.Text)
 describeWorkspacesConnectionStatusResponse_nextToken = Lens.lens (\DescribeWorkspacesConnectionStatusResponse' {nextToken} -> nextToken) (\s@DescribeWorkspacesConnectionStatusResponse' {} a -> s {nextToken = a} :: DescribeWorkspacesConnectionStatusResponse)
 

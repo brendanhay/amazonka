@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Deletes a quick connect.
 module Network.AWS.Connect.DeleteQuickConnect
   ( -- * Creating a Request
@@ -48,7 +45,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteQuickConnect' smart constructor.
 data DeleteQuickConnect = DeleteQuickConnect'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text
@@ -63,7 +61,8 @@ data DeleteQuickConnect = DeleteQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteQuickConnect_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'deleteQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'quickConnectId', 'deleteQuickConnect_quickConnectId' - The identifier for the quick connect.
 newDeleteQuickConnect ::
@@ -78,7 +77,8 @@ newDeleteQuickConnect pInstanceId_ pQuickConnectId_ =
       quickConnectId = pQuickConnectId_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 deleteQuickConnect_instanceId :: Lens.Lens' DeleteQuickConnect Prelude.Text
 deleteQuickConnect_instanceId = Lens.lens (\DeleteQuickConnect' {instanceId} -> instanceId) (\s@DeleteQuickConnect' {} a -> s {instanceId = a} :: DeleteQuickConnect)
 

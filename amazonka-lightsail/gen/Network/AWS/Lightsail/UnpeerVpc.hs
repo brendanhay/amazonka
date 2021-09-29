@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attempts to unpeer the Lightsail VPC from the user\'s default VPC.
+-- Unpeers the Lightsail VPC from the user\'s default VPC.
 module Network.AWS.Lightsail.UnpeerVpc
   ( -- * Creating a Request
     UnpeerVpc (..),

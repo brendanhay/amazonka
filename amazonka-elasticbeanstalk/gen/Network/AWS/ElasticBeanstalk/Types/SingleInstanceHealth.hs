@@ -44,10 +44,10 @@ data SingleInstanceHealth = SingleInstanceHealth'
     causes :: Prelude.Maybe [Prelude.Text],
     -- | The availability zone in which the instance runs.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | Information about the most recent deployment to an instance.
-    deployment :: Prelude.Maybe Deployment,
     -- | The time at which the EC2 instance was launched.
     launchedAt :: Prelude.Maybe Core.ISO8601,
+    -- | Information about the most recent deployment to an instance.
+    deployment :: Prelude.Maybe Deployment,
     -- | Returns the health status of the specified instance. For more
     -- information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
@@ -80,9 +80,9 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- 'availabilityZone', 'singleInstanceHealth_availabilityZone' - The availability zone in which the instance runs.
 --
--- 'deployment', 'singleInstanceHealth_deployment' - Information about the most recent deployment to an instance.
---
 -- 'launchedAt', 'singleInstanceHealth_launchedAt' - The time at which the EC2 instance was launched.
+--
+-- 'deployment', 'singleInstanceHealth_deployment' - Information about the most recent deployment to an instance.
 --
 -- 'healthStatus', 'singleInstanceHealth_healthStatus' - Returns the health status of the specified instance. For more
 -- information, see
@@ -100,8 +100,8 @@ newSingleInstanceHealth =
       color = Prelude.Nothing,
       causes = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      deployment = Prelude.Nothing,
       launchedAt = Prelude.Nothing,
+      deployment = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
       system = Prelude.Nothing,
       applicationMetrics = Prelude.Nothing
@@ -130,13 +130,13 @@ singleInstanceHealth_causes = Lens.lens (\SingleInstanceHealth' {causes} -> caus
 singleInstanceHealth_availabilityZone :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
 singleInstanceHealth_availabilityZone = Lens.lens (\SingleInstanceHealth' {availabilityZone} -> availabilityZone) (\s@SingleInstanceHealth' {} a -> s {availabilityZone = a} :: SingleInstanceHealth)
 
--- | Information about the most recent deployment to an instance.
-singleInstanceHealth_deployment :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Deployment)
-singleInstanceHealth_deployment = Lens.lens (\SingleInstanceHealth' {deployment} -> deployment) (\s@SingleInstanceHealth' {} a -> s {deployment = a} :: SingleInstanceHealth)
-
 -- | The time at which the EC2 instance was launched.
 singleInstanceHealth_launchedAt :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.UTCTime)
 singleInstanceHealth_launchedAt = Lens.lens (\SingleInstanceHealth' {launchedAt} -> launchedAt) (\s@SingleInstanceHealth' {} a -> s {launchedAt = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Core._Time
+
+-- | Information about the most recent deployment to an instance.
+singleInstanceHealth_deployment :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Deployment)
+singleInstanceHealth_deployment = Lens.lens (\SingleInstanceHealth' {deployment} -> deployment) (\s@SingleInstanceHealth' {} a -> s {deployment = a} :: SingleInstanceHealth)
 
 -- | Returns the health status of the specified instance. For more
 -- information, see
@@ -162,8 +162,8 @@ instance Core.FromXML SingleInstanceHealth where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "Deployment")
       Prelude.<*> (x Core..@? "LaunchedAt")
+      Prelude.<*> (x Core..@? "Deployment")
       Prelude.<*> (x Core..@? "HealthStatus")
       Prelude.<*> (x Core..@? "System")
       Prelude.<*> (x Core..@? "ApplicationMetrics")

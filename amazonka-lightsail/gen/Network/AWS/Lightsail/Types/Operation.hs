@@ -37,23 +37,23 @@ data Operation = Operation'
     status :: Prelude.Maybe OperationStatus,
     -- | A Boolean value indicating whether the operation is terminal.
     isTerminal :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the operation.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the operation was initialized (e.g.,
     -- @1479816991.349@).
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the operation.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The resource type.
     resourceType :: Prelude.Maybe ResourceType,
     -- | The timestamp when the status was changed (e.g., @1479816991.349@).
     statusChangedAt :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Region and Availability Zone.
-    location :: Prelude.Maybe ResourceLocation,
-    -- | The resource name.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The type of operation.
-    operationType :: Prelude.Maybe OperationType,
     -- | The error code.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The type of operation.
+    operationType :: Prelude.Maybe OperationType,
+    -- | The resource name.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The AWS Region and Availability Zone.
+    location :: Prelude.Maybe ResourceLocation,
     -- | The error details.
     errorDetails :: Prelude.Maybe Prelude.Text
   }
@@ -73,22 +73,22 @@ data Operation = Operation'
 --
 -- 'isTerminal', 'operation_isTerminal' - A Boolean value indicating whether the operation is terminal.
 --
+-- 'id', 'operation_id' - The ID of the operation.
+--
 -- 'createdAt', 'operation_createdAt' - The timestamp when the operation was initialized (e.g.,
 -- @1479816991.349@).
---
--- 'id', 'operation_id' - The ID of the operation.
 --
 -- 'resourceType', 'operation_resourceType' - The resource type.
 --
 -- 'statusChangedAt', 'operation_statusChangedAt' - The timestamp when the status was changed (e.g., @1479816991.349@).
 --
--- 'location', 'operation_location' - The AWS Region and Availability Zone.
---
--- 'resourceName', 'operation_resourceName' - The resource name.
+-- 'errorCode', 'operation_errorCode' - The error code.
 --
 -- 'operationType', 'operation_operationType' - The type of operation.
 --
--- 'errorCode', 'operation_errorCode' - The error code.
+-- 'resourceName', 'operation_resourceName' - The resource name.
+--
+-- 'location', 'operation_location' - The AWS Region and Availability Zone.
 --
 -- 'errorDetails', 'operation_errorDetails' - The error details.
 newOperation ::
@@ -98,14 +98,14 @@ newOperation =
     { operationDetails = Prelude.Nothing,
       status = Prelude.Nothing,
       isTerminal = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       statusChangedAt = Prelude.Nothing,
-      location = Prelude.Nothing,
-      resourceName = Prelude.Nothing,
-      operationType = Prelude.Nothing,
       errorCode = Prelude.Nothing,
+      operationType = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      location = Prelude.Nothing,
       errorDetails = Prelude.Nothing
     }
 
@@ -121,14 +121,14 @@ operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} 
 operation_isTerminal :: Lens.Lens' Operation (Prelude.Maybe Prelude.Bool)
 operation_isTerminal = Lens.lens (\Operation' {isTerminal} -> isTerminal) (\s@Operation' {} a -> s {isTerminal = a} :: Operation)
 
+-- | The ID of the operation.
+operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
+
 -- | The timestamp when the operation was initialized (e.g.,
 -- @1479816991.349@).
 operation_createdAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_createdAt = Lens.lens (\Operation' {createdAt} -> createdAt) (\s@Operation' {} a -> s {createdAt = a} :: Operation) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the operation.
-operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
-operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
 -- | The resource type.
 operation_resourceType :: Lens.Lens' Operation (Prelude.Maybe ResourceType)
@@ -138,21 +138,21 @@ operation_resourceType = Lens.lens (\Operation' {resourceType} -> resourceType) 
 operation_statusChangedAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
 operation_statusChangedAt = Lens.lens (\Operation' {statusChangedAt} -> statusChangedAt) (\s@Operation' {} a -> s {statusChangedAt = a} :: Operation) Prelude.. Lens.mapping Core._Time
 
--- | The AWS Region and Availability Zone.
-operation_location :: Lens.Lens' Operation (Prelude.Maybe ResourceLocation)
-operation_location = Lens.lens (\Operation' {location} -> location) (\s@Operation' {} a -> s {location = a} :: Operation)
-
--- | The resource name.
-operation_resourceName :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
-operation_resourceName = Lens.lens (\Operation' {resourceName} -> resourceName) (\s@Operation' {} a -> s {resourceName = a} :: Operation)
+-- | The error code.
+operation_errorCode :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Operation' {} a -> s {errorCode = a} :: Operation)
 
 -- | The type of operation.
 operation_operationType :: Lens.Lens' Operation (Prelude.Maybe OperationType)
 operation_operationType = Lens.lens (\Operation' {operationType} -> operationType) (\s@Operation' {} a -> s {operationType = a} :: Operation)
 
--- | The error code.
-operation_errorCode :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
-operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Operation' {} a -> s {errorCode = a} :: Operation)
+-- | The resource name.
+operation_resourceName :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_resourceName = Lens.lens (\Operation' {resourceName} -> resourceName) (\s@Operation' {} a -> s {resourceName = a} :: Operation)
+
+-- | The AWS Region and Availability Zone.
+operation_location :: Lens.Lens' Operation (Prelude.Maybe ResourceLocation)
+operation_location = Lens.lens (\Operation' {location} -> location) (\s@Operation' {} a -> s {location = a} :: Operation)
 
 -- | The error details.
 operation_errorDetails :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
@@ -167,14 +167,14 @@ instance Core.FromJSON Operation where
             Prelude.<$> (x Core..:? "operationDetails")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "isTerminal")
-            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "statusChangedAt")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "resourceName")
-            Prelude.<*> (x Core..:? "operationType")
             Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<*> (x Core..:? "operationType")
+            Prelude.<*> (x Core..:? "resourceName")
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "errorDetails")
       )
 

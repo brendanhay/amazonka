@@ -62,9 +62,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newBatchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
-  { -- | The AWS account ID associated with the registry that contains the image
-    -- to delete. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the image to delete. If you do not specify a registry, the
+    -- default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository that contains the image to delete.
     repositoryName :: Prelude.Text,
@@ -83,9 +83,9 @@ data BatchDeleteImage = BatchDeleteImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'batchDeleteImage_registryId' - The AWS account ID associated with the registry that contains the image
--- to delete. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'batchDeleteImage_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the image to delete. If you do not specify a registry, the
+-- default registry is assumed.
 --
 -- 'repositoryName', 'batchDeleteImage_repositoryName' - The repository that contains the image to delete.
 --
@@ -103,9 +103,9 @@ newBatchDeleteImage pRepositoryName_ =
       imageIds = Prelude.mempty
     }
 
--- | The AWS account ID associated with the registry that contains the image
--- to delete. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the image to delete. If you do not specify a registry, the
+-- default registry is assumed.
 batchDeleteImage_registryId :: Lens.Lens' BatchDeleteImage (Prelude.Maybe Prelude.Text)
 batchDeleteImage_registryId = Lens.lens (\BatchDeleteImage' {registryId} -> registryId) (\s@BatchDeleteImage' {} a -> s {registryId = a} :: BatchDeleteImage)
 

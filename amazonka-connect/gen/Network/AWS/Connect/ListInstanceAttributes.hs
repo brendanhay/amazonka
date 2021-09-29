@@ -62,7 +62,8 @@ data ListInstanceAttributes = ListInstanceAttributes'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +82,8 @@ data ListInstanceAttributes = ListInstanceAttributes'
 --
 -- 'maxResults', 'listInstanceAttributes_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listInstanceAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListInstanceAttributes ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +106,8 @@ listInstanceAttributes_nextToken = Lens.lens (\ListInstanceAttributes' {nextToke
 listInstanceAttributes_maxResults :: Lens.Lens' ListInstanceAttributes (Prelude.Maybe Prelude.Natural)
 listInstanceAttributes_maxResults = Lens.lens (\ListInstanceAttributes' {maxResults} -> maxResults) (\s@ListInstanceAttributes' {} a -> s {maxResults = a} :: ListInstanceAttributes)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listInstanceAttributes_instanceId :: Lens.Lens' ListInstanceAttributes Prelude.Text
 listInstanceAttributes_instanceId = Lens.lens (\ListInstanceAttributes' {instanceId} -> instanceId) (\s@ListInstanceAttributes' {} a -> s {instanceId = a} :: ListInstanceAttributes)
 

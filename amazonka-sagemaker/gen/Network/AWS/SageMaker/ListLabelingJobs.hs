@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListLabelingJobs
 
     -- * Request Lenses
     listLabelingJobs_lastModifiedTimeBefore,
-    listLabelingJobs_sortOrder,
     listLabelingJobs_nextToken,
+    listLabelingJobs_sortOrder,
     listLabelingJobs_nameContains,
     listLabelingJobs_maxResults,
     listLabelingJobs_creationTimeBefore,
@@ -63,12 +63,12 @@ data ListLabelingJobs = ListLabelingJobs'
   { -- | A filter that returns only labeling jobs modified before the specified
     -- time (timestamp).
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListLabelingJobs@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- labeling jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the labeling job name. This filter returns only labeling
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -102,11 +102,11 @@ data ListLabelingJobs = ListLabelingJobs'
 -- 'lastModifiedTimeBefore', 'listLabelingJobs_lastModifiedTimeBefore' - A filter that returns only labeling jobs modified before the specified
 -- time (timestamp).
 --
--- 'sortOrder', 'listLabelingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listLabelingJobs_nextToken' - If the result of the previous @ListLabelingJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- labeling jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listLabelingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listLabelingJobs_nameContains' - A string in the labeling job name. This filter returns only labeling
 -- jobs whose name contains the specified string.
@@ -132,8 +132,8 @@ newListLabelingJobs =
   ListLabelingJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -148,15 +148,15 @@ newListLabelingJobs =
 listLabelingJobs_lastModifiedTimeBefore :: Lens.Lens' ListLabelingJobs (Prelude.Maybe Prelude.UTCTime)
 listLabelingJobs_lastModifiedTimeBefore = Lens.lens (\ListLabelingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListLabelingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListLabelingJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listLabelingJobs_sortOrder :: Lens.Lens' ListLabelingJobs (Prelude.Maybe SortOrder)
-listLabelingJobs_sortOrder = Lens.lens (\ListLabelingJobs' {sortOrder} -> sortOrder) (\s@ListLabelingJobs' {} a -> s {sortOrder = a} :: ListLabelingJobs)
-
 -- | If the result of the previous @ListLabelingJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- labeling jobs, use the token in the next request.
 listLabelingJobs_nextToken :: Lens.Lens' ListLabelingJobs (Prelude.Maybe Prelude.Text)
 listLabelingJobs_nextToken = Lens.lens (\ListLabelingJobs' {nextToken} -> nextToken) (\s@ListLabelingJobs' {} a -> s {nextToken = a} :: ListLabelingJobs)
+
+-- | The sort order for results. The default is @Ascending@.
+listLabelingJobs_sortOrder :: Lens.Lens' ListLabelingJobs (Prelude.Maybe SortOrder)
+listLabelingJobs_sortOrder = Lens.lens (\ListLabelingJobs' {sortOrder} -> sortOrder) (\s@ListLabelingJobs' {} a -> s {sortOrder = a} :: ListLabelingJobs)
 
 -- | A string in the labeling job name. This filter returns only labeling
 -- jobs whose name contains the specified string.
@@ -252,8 +252,8 @@ instance Core.ToJSON ListLabelingJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

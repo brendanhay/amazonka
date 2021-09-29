@@ -25,8 +25,8 @@ import Network.AWS.FMS.Types.Tag
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Violations for a resource based on the specified AWS Firewall Manager
--- policy and AWS account.
+-- | Violations for a resource based on the specified Firewall Manager policy
+-- and Amazon Web Services account.
 --
 -- /See:/ 'newViolationDetail' smart constructor.
 data ViolationDetail = ViolationDetail'
@@ -34,10 +34,11 @@ data ViolationDetail = ViolationDetail'
     resourceDescription :: Prelude.Maybe Prelude.Text,
     -- | The @ResourceTag@ objects associated with the resource.
     resourceTags :: Prelude.Maybe [Tag],
-    -- | The ID of the AWS Firewall Manager policy that the violation details
-    -- were requested for.
+    -- | The ID of the Firewall Manager policy that the violation details were
+    -- requested for.
     policyId :: Prelude.Text,
-    -- | The AWS account that the violation details were requested for.
+    -- | The Amazon Web Services account that the violation details were
+    -- requested for.
     memberAccount :: Prelude.Text,
     -- | The resource ID that the violation details were requested for.
     resourceId :: Prelude.Text,
@@ -60,10 +61,11 @@ data ViolationDetail = ViolationDetail'
 --
 -- 'resourceTags', 'violationDetail_resourceTags' - The @ResourceTag@ objects associated with the resource.
 --
--- 'policyId', 'violationDetail_policyId' - The ID of the AWS Firewall Manager policy that the violation details
--- were requested for.
+-- 'policyId', 'violationDetail_policyId' - The ID of the Firewall Manager policy that the violation details were
+-- requested for.
 --
--- 'memberAccount', 'violationDetail_memberAccount' - The AWS account that the violation details were requested for.
+-- 'memberAccount', 'violationDetail_memberAccount' - The Amazon Web Services account that the violation details were
+-- requested for.
 --
 -- 'resourceId', 'violationDetail_resourceId' - The resource ID that the violation details were requested for.
 --
@@ -104,12 +106,13 @@ violationDetail_resourceDescription = Lens.lens (\ViolationDetail' {resourceDesc
 violationDetail_resourceTags :: Lens.Lens' ViolationDetail (Prelude.Maybe [Tag])
 violationDetail_resourceTags = Lens.lens (\ViolationDetail' {resourceTags} -> resourceTags) (\s@ViolationDetail' {} a -> s {resourceTags = a} :: ViolationDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the AWS Firewall Manager policy that the violation details
--- were requested for.
+-- | The ID of the Firewall Manager policy that the violation details were
+-- requested for.
 violationDetail_policyId :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_policyId = Lens.lens (\ViolationDetail' {policyId} -> policyId) (\s@ViolationDetail' {} a -> s {policyId = a} :: ViolationDetail)
 
--- | The AWS account that the violation details were requested for.
+-- | The Amazon Web Services account that the violation details were
+-- requested for.
 violationDetail_memberAccount :: Lens.Lens' ViolationDetail Prelude.Text
 violationDetail_memberAccount = Lens.lens (\ViolationDetail' {memberAccount} -> memberAccount) (\s@ViolationDetail' {} a -> s {memberAccount = a} :: ViolationDetail)
 

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a description for one or more Server Message Block (SMB) file
--- shares from a file gateway. This operation is only supported for file
--- gateways.
+-- shares from a S3 File Gateway. This operation is only supported for S3
+-- File Gateways.
 module Network.AWS.StorageGateway.DescribeSMBFileShares
   ( -- * Creating a Request
     DescribeSMBFileShares (..),

@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data CodeSigning = CodeSigning'
   { -- | Describes the code-signing job.
     startSigningJobParameter :: Prelude.Maybe StartSigningJobParameter,
-    -- | The ID of the AWSSignerJob which was created to sign the file.
+    -- | The ID of the @AWSSignerJob@ which was created to sign the file.
     awsSignerJobId :: Prelude.Maybe Prelude.Text,
     -- | A custom method for code signing a file.
     customCodeSigning :: Prelude.Maybe CustomCodeSigning
@@ -48,7 +48,7 @@ data CodeSigning = CodeSigning'
 --
 -- 'startSigningJobParameter', 'codeSigning_startSigningJobParameter' - Describes the code-signing job.
 --
--- 'awsSignerJobId', 'codeSigning_awsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
+-- 'awsSignerJobId', 'codeSigning_awsSignerJobId' - The ID of the @AWSSignerJob@ which was created to sign the file.
 --
 -- 'customCodeSigning', 'codeSigning_customCodeSigning' - A custom method for code signing a file.
 newCodeSigning ::
@@ -65,7 +65,7 @@ newCodeSigning =
 codeSigning_startSigningJobParameter :: Lens.Lens' CodeSigning (Prelude.Maybe StartSigningJobParameter)
 codeSigning_startSigningJobParameter = Lens.lens (\CodeSigning' {startSigningJobParameter} -> startSigningJobParameter) (\s@CodeSigning' {} a -> s {startSigningJobParameter = a} :: CodeSigning)
 
--- | The ID of the AWSSignerJob which was created to sign the file.
+-- | The ID of the @AWSSignerJob@ which was created to sign the file.
 codeSigning_awsSignerJobId :: Lens.Lens' CodeSigning (Prelude.Maybe Prelude.Text)
 codeSigning_awsSignerJobId = Lens.lens (\CodeSigning' {awsSignerJobId} -> awsSignerJobId) (\s@CodeSigning' {} a -> s {awsSignerJobId = a} :: CodeSigning)
 

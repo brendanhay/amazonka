@@ -70,20 +70,20 @@ data Connection = Connection'
     --     false.
     --
     -- -   @CUSTOM_JDBC_CERT@ - An Amazon S3 location specifying the
-    --     customer\'s root certificate. AWS Glue uses this root certificate to
+    --     customer\'s root certificate. Glue uses this root certificate to
     --     validate the customer’s certificate when connecting to the customer
-    --     database. AWS Glue only handles X.509 certificates. The certificate
+    --     database. Glue only handles X.509 certificates. The certificate
     --     provided must be DER-encoded and supplied in Base64 encoding PEM
     --     format.
     --
     -- -   @SKIP_CUSTOM_JDBC_CERT_VALIDATION@ - By default, this is @false@.
-    --     AWS Glue validates the Signature algorithm and Subject Public Key
+    --     Glue validates the Signature algorithm and Subject Public Key
     --     Algorithm for the customer certificate. The only permitted
     --     algorithms for the Signature algorithm are SHA256withRSA,
     --     SHA384withRSA or SHA512withRSA. For the Subject Public Key
     --     Algorithm, the key length must be at least 2048. You can set the
-    --     value of this property to @true@ to skip AWS Glue’s validation of
-    --     the customer certificate.
+    --     value of this property to @true@ to skip Glue’s validation of the
+    --     customer certificate.
     --
     -- -   @CUSTOM_JDBC_CERT_STRING@ - A custom JDBC certificate string which
     --     is used for domain match or distinguished name match to prevent a
@@ -106,7 +106,7 @@ data Connection = Connection'
     --     (.pem format). The default is an empty string.
     --
     -- -   @KAFKA_SKIP_CUSTOM_CERT_VALIDATION@ - Whether to skip the validation
-    --     of the CA cert file or not. AWS Glue validates for three algorithms:
+    --     of the CA cert file or not. Glue validates for three algorithms:
     --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
     --     \"false\".
     --
@@ -121,17 +121,35 @@ data Connection = Connection'
     --
     -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
     --     or CUSTOM connection.
+    --
+    -- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
+    --     keystore file for Kafka client side authentication (Optional).
+    --
+    -- -   @KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The password to access the
+    --     provided keystore (Optional).
+    --
+    -- -   @KAFKA_CLIENT_KEY_PASSWORD@ - A keystore can consist of multiple
+    --     keys, so this is the password to access the client key to be used
+    --     with the Kafka server side key (Optional).
+    --
+    -- -   @ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The encrypted version
+    --     of the Kafka client keystore password (if the user has the Glue
+    --     encrypt passwords setting selected).
+    --
+    -- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
+    --     Kafka client key password (if the user has the Glue encrypt
+    --     passwords setting selected).
     connectionProperties :: Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text),
     -- | The time that this connection definition was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The type of the connection. Currently, SFTP is not supported.
     connectionType :: Prelude.Maybe ConnectionType,
+    -- | The name of the connection definition.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to make this connection
     -- successfully.
     physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
-    -- | The name of the connection definition.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The user, group, or role that last updated this connection definition.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the connection.
@@ -191,20 +209,20 @@ data Connection = Connection'
 --     false.
 --
 -- -   @CUSTOM_JDBC_CERT@ - An Amazon S3 location specifying the
---     customer\'s root certificate. AWS Glue uses this root certificate to
+--     customer\'s root certificate. Glue uses this root certificate to
 --     validate the customer’s certificate when connecting to the customer
---     database. AWS Glue only handles X.509 certificates. The certificate
+--     database. Glue only handles X.509 certificates. The certificate
 --     provided must be DER-encoded and supplied in Base64 encoding PEM
 --     format.
 --
 -- -   @SKIP_CUSTOM_JDBC_CERT_VALIDATION@ - By default, this is @false@.
---     AWS Glue validates the Signature algorithm and Subject Public Key
+--     Glue validates the Signature algorithm and Subject Public Key
 --     Algorithm for the customer certificate. The only permitted
 --     algorithms for the Signature algorithm are SHA256withRSA,
 --     SHA384withRSA or SHA512withRSA. For the Subject Public Key
 --     Algorithm, the key length must be at least 2048. You can set the
---     value of this property to @true@ to skip AWS Glue’s validation of
---     the customer certificate.
+--     value of this property to @true@ to skip Glue’s validation of the
+--     customer certificate.
 --
 -- -   @CUSTOM_JDBC_CERT_STRING@ - A custom JDBC certificate string which
 --     is used for domain match or distinguished name match to prevent a
@@ -227,7 +245,7 @@ data Connection = Connection'
 --     (.pem format). The default is an empty string.
 --
 -- -   @KAFKA_SKIP_CUSTOM_CERT_VALIDATION@ - Whether to skip the validation
---     of the CA cert file or not. AWS Glue validates for three algorithms:
+--     of the CA cert file or not. Glue validates for three algorithms:
 --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
 --     \"false\".
 --
@@ -243,15 +261,33 @@ data Connection = Connection'
 -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
 --     or CUSTOM connection.
 --
+-- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
+--     keystore file for Kafka client side authentication (Optional).
+--
+-- -   @KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The password to access the
+--     provided keystore (Optional).
+--
+-- -   @KAFKA_CLIENT_KEY_PASSWORD@ - A keystore can consist of multiple
+--     keys, so this is the password to access the client key to be used
+--     with the Kafka server side key (Optional).
+--
+-- -   @ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The encrypted version
+--     of the Kafka client keystore password (if the user has the Glue
+--     encrypt passwords setting selected).
+--
+-- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
+--     Kafka client key password (if the user has the Glue encrypt
+--     passwords setting selected).
+--
 -- 'creationTime', 'connection_creationTime' - The time that this connection definition was created.
 --
 -- 'connectionType', 'connection_connectionType' - The type of the connection. Currently, SFTP is not supported.
 --
+-- 'name', 'connection_name' - The name of the connection definition.
+--
 -- 'physicalConnectionRequirements', 'connection_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
 -- successfully.
---
--- 'name', 'connection_name' - The name of the connection definition.
 --
 -- 'lastUpdatedBy', 'connection_lastUpdatedBy' - The user, group, or role that last updated this connection definition.
 --
@@ -267,8 +303,8 @@ newConnection =
     { connectionProperties = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       connectionType = Prelude.Nothing,
-      physicalConnectionRequirements = Prelude.Nothing,
       name = Prelude.Nothing,
+      physicalConnectionRequirements = Prelude.Nothing,
       lastUpdatedBy = Prelude.Nothing,
       description = Prelude.Nothing,
       matchCriteria = Prelude.Nothing,
@@ -315,20 +351,20 @@ newConnection =
 --     false.
 --
 -- -   @CUSTOM_JDBC_CERT@ - An Amazon S3 location specifying the
---     customer\'s root certificate. AWS Glue uses this root certificate to
+--     customer\'s root certificate. Glue uses this root certificate to
 --     validate the customer’s certificate when connecting to the customer
---     database. AWS Glue only handles X.509 certificates. The certificate
+--     database. Glue only handles X.509 certificates. The certificate
 --     provided must be DER-encoded and supplied in Base64 encoding PEM
 --     format.
 --
 -- -   @SKIP_CUSTOM_JDBC_CERT_VALIDATION@ - By default, this is @false@.
---     AWS Glue validates the Signature algorithm and Subject Public Key
+--     Glue validates the Signature algorithm and Subject Public Key
 --     Algorithm for the customer certificate. The only permitted
 --     algorithms for the Signature algorithm are SHA256withRSA,
 --     SHA384withRSA or SHA512withRSA. For the Subject Public Key
 --     Algorithm, the key length must be at least 2048. You can set the
---     value of this property to @true@ to skip AWS Glue’s validation of
---     the customer certificate.
+--     value of this property to @true@ to skip Glue’s validation of the
+--     customer certificate.
 --
 -- -   @CUSTOM_JDBC_CERT_STRING@ - A custom JDBC certificate string which
 --     is used for domain match or distinguished name match to prevent a
@@ -351,7 +387,7 @@ newConnection =
 --     (.pem format). The default is an empty string.
 --
 -- -   @KAFKA_SKIP_CUSTOM_CERT_VALIDATION@ - Whether to skip the validation
---     of the CA cert file or not. AWS Glue validates for three algorithms:
+--     of the CA cert file or not. Glue validates for three algorithms:
 --     SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is
 --     \"false\".
 --
@@ -366,6 +402,24 @@ newConnection =
 --
 -- -   @CONNECTOR_CLASS_NAME@ - The connector class name for a MARKETPLACE
 --     or CUSTOM connection.
+--
+-- -   @KAFKA_CLIENT_KEYSTORE@ - The Amazon S3 location of the client
+--     keystore file for Kafka client side authentication (Optional).
+--
+-- -   @KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The password to access the
+--     provided keystore (Optional).
+--
+-- -   @KAFKA_CLIENT_KEY_PASSWORD@ - A keystore can consist of multiple
+--     keys, so this is the password to access the client key to be used
+--     with the Kafka server side key (Optional).
+--
+-- -   @ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD@ - The encrypted version
+--     of the Kafka client keystore password (if the user has the Glue
+--     encrypt passwords setting selected).
+--
+-- -   @ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD@ - The encrypted version of the
+--     Kafka client key password (if the user has the Glue encrypt
+--     passwords setting selected).
 connection_connectionProperties :: Lens.Lens' Connection (Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text))
 connection_connectionProperties = Lens.lens (\Connection' {connectionProperties} -> connectionProperties) (\s@Connection' {} a -> s {connectionProperties = a} :: Connection) Prelude.. Lens.mapping Lens._Coerce
 
@@ -377,15 +431,15 @@ connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime
 connection_connectionType :: Lens.Lens' Connection (Prelude.Maybe ConnectionType)
 connection_connectionType = Lens.lens (\Connection' {connectionType} -> connectionType) (\s@Connection' {} a -> s {connectionType = a} :: Connection)
 
+-- | The name of the connection definition.
+connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
+
 -- | A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
 -- successfully.
 connection_physicalConnectionRequirements :: Lens.Lens' Connection (Prelude.Maybe PhysicalConnectionRequirements)
 connection_physicalConnectionRequirements = Lens.lens (\Connection' {physicalConnectionRequirements} -> physicalConnectionRequirements) (\s@Connection' {} a -> s {physicalConnectionRequirements = a} :: Connection)
-
--- | The name of the connection definition.
-connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
 
 -- | The user, group, or role that last updated this connection definition.
 connection_lastUpdatedBy :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
@@ -414,8 +468,8 @@ instance Core.FromJSON Connection where
                         )
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "ConnectionType")
-            Prelude.<*> (x Core..:? "PhysicalConnectionRequirements")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "PhysicalConnectionRequirements")
             Prelude.<*> (x Core..:? "LastUpdatedBy")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "MatchCriteria" Core..!= Prelude.mempty)

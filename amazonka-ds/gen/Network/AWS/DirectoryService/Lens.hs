@@ -14,6 +14,11 @@
 module Network.AWS.DirectoryService.Lens
   ( -- * Operations
 
+    -- ** RejectSharedDirectory
+    rejectSharedDirectory_sharedDirectoryId,
+    rejectSharedDirectoryResponse_sharedDirectoryId,
+    rejectSharedDirectoryResponse_httpStatus,
+
     -- ** ConnectDirectory
     connectDirectory_shortName,
     connectDirectory_tags,
@@ -25,19 +30,14 @@ module Network.AWS.DirectoryService.Lens
     connectDirectoryResponse_directoryId,
     connectDirectoryResponse_httpStatus,
 
-    -- ** RejectSharedDirectory
-    rejectSharedDirectory_sharedDirectoryId,
-    rejectSharedDirectoryResponse_sharedDirectoryId,
-    rejectSharedDirectoryResponse_httpStatus,
-
-    -- ** DisableRadius
-    disableRadius_directoryId,
-    disableRadiusResponse_httpStatus,
-
     -- ** RegisterEventTopic
     registerEventTopic_directoryId,
     registerEventTopic_topicName,
     registerEventTopicResponse_httpStatus,
+
+    -- ** DisableRadius
+    disableRadius_directoryId,
+    disableRadiusResponse_httpStatus,
 
     -- ** ShareDirectory
     shareDirectory_shareNotes,
@@ -47,12 +47,6 @@ module Network.AWS.DirectoryService.Lens
     shareDirectoryResponse_sharedDirectoryId,
     shareDirectoryResponse_httpStatus,
 
-    -- ** AddRegion
-    addRegion_directoryId,
-    addRegion_regionName,
-    addRegion_vPCSettings,
-    addRegionResponse_httpStatus,
-
     -- ** ListIpRoutes
     listIpRoutes_nextToken,
     listIpRoutes_limit,
@@ -60,11 +54,6 @@ module Network.AWS.DirectoryService.Lens
     listIpRoutesResponse_nextToken,
     listIpRoutesResponse_ipRoutesInfo,
     listIpRoutesResponse_httpStatus,
-
-    -- ** EnableRadius
-    enableRadius_directoryId,
-    enableRadius_radiusSettings,
-    enableRadiusResponse_httpStatus,
 
     -- ** ListSchemaExtensions
     listSchemaExtensions_nextToken,
@@ -74,18 +63,33 @@ module Network.AWS.DirectoryService.Lens
     listSchemaExtensionsResponse_schemaExtensionsInfo,
     listSchemaExtensionsResponse_httpStatus,
 
-    -- ** RemoveRegion
-    removeRegion_directoryId,
-    removeRegionResponse_httpStatus,
+    -- ** DescribeClientAuthenticationSettings
+    describeClientAuthenticationSettings_nextToken,
+    describeClientAuthenticationSettings_type,
+    describeClientAuthenticationSettings_limit,
+    describeClientAuthenticationSettings_directoryId,
+    describeClientAuthenticationSettingsResponse_nextToken,
+    describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo,
+    describeClientAuthenticationSettingsResponse_httpStatus,
+
+    -- ** EnableRadius
+    enableRadius_directoryId,
+    enableRadius_radiusSettings,
+    enableRadiusResponse_httpStatus,
+
+    -- ** AddRegion
+    addRegion_directoryId,
+    addRegion_regionName,
+    addRegion_vPCSettings,
+    addRegionResponse_httpStatus,
 
     -- ** DeleteLogSubscription
     deleteLogSubscription_directoryId,
     deleteLogSubscriptionResponse_httpStatus,
 
-    -- ** CancelSchemaExtension
-    cancelSchemaExtension_directoryId,
-    cancelSchemaExtension_schemaExtensionId,
-    cancelSchemaExtensionResponse_httpStatus,
+    -- ** RemoveRegion
+    removeRegion_directoryId,
+    removeRegionResponse_httpStatus,
 
     -- ** EnableSso
     enableSso_password,
@@ -99,20 +103,25 @@ module Network.AWS.DirectoryService.Lens
     createConditionalForwarder_dnsIpAddrs,
     createConditionalForwarderResponse_httpStatus,
 
+    -- ** CancelSchemaExtension
+    cancelSchemaExtension_directoryId,
+    cancelSchemaExtension_schemaExtensionId,
+    cancelSchemaExtensionResponse_httpStatus,
+
     -- ** RemoveTagsFromResource
     removeTagsFromResource_resourceId,
     removeTagsFromResource_tagKeys,
     removeTagsFromResourceResponse_httpStatus,
 
-    -- ** EnableLDAPS
-    enableLDAPS_directoryId,
-    enableLDAPS_type,
-    enableLDAPSResponse_httpStatus,
-
     -- ** DeleteConditionalForwarder
     deleteConditionalForwarder_directoryId,
     deleteConditionalForwarder_remoteDomainName,
     deleteConditionalForwarderResponse_httpStatus,
+
+    -- ** VerifyTrust
+    verifyTrust_trustId,
+    verifyTrustResponse_trustId,
+    verifyTrustResponse_httpStatus,
 
     -- ** DescribeSharedDirectories
     describeSharedDirectories_nextToken,
@@ -129,16 +138,10 @@ module Network.AWS.DirectoryService.Lens
     updateConditionalForwarder_dnsIpAddrs,
     updateConditionalForwarderResponse_httpStatus,
 
-    -- ** VerifyTrust
-    verifyTrust_trustId,
-    verifyTrustResponse_trustId,
-    verifyTrustResponse_httpStatus,
-
-    -- ** DescribeCertificate
-    describeCertificate_directoryId,
-    describeCertificate_certificateId,
-    describeCertificateResponse_certificate,
-    describeCertificateResponse_httpStatus,
+    -- ** EnableLDAPS
+    enableLDAPS_directoryId,
+    enableLDAPS_type,
+    enableLDAPSResponse_httpStatus,
 
     -- ** CreateTrust
     createTrust_trustType,
@@ -151,31 +154,16 @@ module Network.AWS.DirectoryService.Lens
     createTrustResponse_trustId,
     createTrustResponse_httpStatus,
 
+    -- ** DescribeCertificate
+    describeCertificate_directoryId,
+    describeCertificate_certificateId,
+    describeCertificateResponse_certificate,
+    describeCertificateResponse_httpStatus,
+
     -- ** DeleteDirectory
     deleteDirectory_directoryId,
     deleteDirectoryResponse_directoryId,
     deleteDirectoryResponse_httpStatus,
-
-    -- ** DisableClientAuthentication
-    disableClientAuthentication_directoryId,
-    disableClientAuthentication_type,
-    disableClientAuthenticationResponse_httpStatus,
-
-    -- ** CreateMicrosoftAD
-    createMicrosoftAD_shortName,
-    createMicrosoftAD_edition,
-    createMicrosoftAD_tags,
-    createMicrosoftAD_description,
-    createMicrosoftAD_name,
-    createMicrosoftAD_password,
-    createMicrosoftAD_vpcSettings,
-    createMicrosoftADResponse_directoryId,
-    createMicrosoftADResponse_httpStatus,
-
-    -- ** DeleteSnapshot
-    deleteSnapshot_snapshotId,
-    deleteSnapshotResponse_snapshotId,
-    deleteSnapshotResponse_httpStatus,
 
     -- ** RemoveIpRoutes
     removeIpRoutes_directoryId,
@@ -189,11 +177,16 @@ module Network.AWS.DirectoryService.Lens
     updateTrustResponse_requestId,
     updateTrustResponse_httpStatus,
 
-    -- ** DeleteTrust
-    deleteTrust_deleteAssociatedConditionalForwarder,
-    deleteTrust_trustId,
-    deleteTrustResponse_trustId,
-    deleteTrustResponse_httpStatus,
+    -- ** CreateMicrosoftAD
+    createMicrosoftAD_shortName,
+    createMicrosoftAD_edition,
+    createMicrosoftAD_tags,
+    createMicrosoftAD_description,
+    createMicrosoftAD_name,
+    createMicrosoftAD_password,
+    createMicrosoftAD_vpcSettings,
+    createMicrosoftADResponse_directoryId,
+    createMicrosoftADResponse_httpStatus,
 
     -- ** CreateDirectory
     createDirectory_vpcSettings,
@@ -205,6 +198,22 @@ module Network.AWS.DirectoryService.Lens
     createDirectory_size,
     createDirectoryResponse_directoryId,
     createDirectoryResponse_httpStatus,
+
+    -- ** DeleteSnapshot
+    deleteSnapshot_snapshotId,
+    deleteSnapshotResponse_snapshotId,
+    deleteSnapshotResponse_httpStatus,
+
+    -- ** DisableClientAuthentication
+    disableClientAuthentication_directoryId,
+    disableClientAuthentication_type,
+    disableClientAuthenticationResponse_httpStatus,
+
+    -- ** DeleteTrust
+    deleteTrust_deleteAssociatedConditionalForwarder,
+    deleteTrust_trustId,
+    deleteTrustResponse_trustId,
+    deleteTrustResponse_httpStatus,
 
     -- ** RestoreFromSnapshot
     restoreFromSnapshot_snapshotId,
@@ -219,15 +228,6 @@ module Network.AWS.DirectoryService.Lens
     describeDomainControllersResponse_nextToken,
     describeDomainControllersResponse_httpStatus,
 
-    -- ** DescribeTrusts
-    describeTrusts_nextToken,
-    describeTrusts_directoryId,
-    describeTrusts_limit,
-    describeTrusts_trustIds,
-    describeTrustsResponse_nextToken,
-    describeTrustsResponse_trusts,
-    describeTrustsResponse_httpStatus,
-
     -- ** DescribeSnapshots
     describeSnapshots_nextToken,
     describeSnapshots_snapshotIds,
@@ -236,6 +236,15 @@ module Network.AWS.DirectoryService.Lens
     describeSnapshotsResponse_snapshots,
     describeSnapshotsResponse_nextToken,
     describeSnapshotsResponse_httpStatus,
+
+    -- ** DescribeTrusts
+    describeTrusts_nextToken,
+    describeTrusts_directoryId,
+    describeTrusts_limit,
+    describeTrusts_trustIds,
+    describeTrustsResponse_nextToken,
+    describeTrustsResponse_trusts,
+    describeTrustsResponse_httpStatus,
 
     -- ** UnshareDirectory
     unshareDirectory_directoryId,
@@ -280,19 +289,14 @@ module Network.AWS.DirectoryService.Lens
     addTagsToResource_tags,
     addTagsToResourceResponse_httpStatus,
 
-    -- ** GetDirectoryLimits
-    getDirectoryLimitsResponse_directoryLimits,
-    getDirectoryLimitsResponse_httpStatus,
-
     -- ** UpdateRadius
     updateRadius_directoryId,
     updateRadius_radiusSettings,
     updateRadiusResponse_httpStatus,
 
-    -- ** DisableLDAPS
-    disableLDAPS_directoryId,
-    disableLDAPS_type,
-    disableLDAPSResponse_httpStatus,
+    -- ** GetDirectoryLimits
+    getDirectoryLimitsResponse_directoryLimits,
+    getDirectoryLimitsResponse_httpStatus,
 
     -- ** ListLogSubscriptions
     listLogSubscriptions_nextToken,
@@ -310,6 +314,20 @@ module Network.AWS.DirectoryService.Lens
     describeRegionsResponse_regionsDescription,
     describeRegionsResponse_httpStatus,
 
+    -- ** DisableLDAPS
+    disableLDAPS_directoryId,
+    disableLDAPS_type,
+    disableLDAPSResponse_httpStatus,
+
+    -- ** CreateComputer
+    createComputer_organizationalUnitDistinguishedName,
+    createComputer_computerAttributes,
+    createComputer_directoryId,
+    createComputer_computerName,
+    createComputer_password,
+    createComputerResponse_computer,
+    createComputerResponse_httpStatus,
+
     -- ** DisableSso
     disableSso_password,
     disableSso_userName,
@@ -321,42 +339,22 @@ module Network.AWS.DirectoryService.Lens
     createLogSubscription_logGroupName,
     createLogSubscriptionResponse_httpStatus,
 
-    -- ** ResetUserPassword
-    resetUserPassword_directoryId,
-    resetUserPassword_userName,
-    resetUserPassword_newPassword,
-    resetUserPasswordResponse_httpStatus,
-
     -- ** DescribeEventTopics
     describeEventTopics_directoryId,
     describeEventTopics_topicNames,
     describeEventTopicsResponse_eventTopics,
     describeEventTopicsResponse_httpStatus,
 
-    -- ** CreateComputer
-    createComputer_organizationalUnitDistinguishedName,
-    createComputer_computerAttributes,
-    createComputer_directoryId,
-    createComputer_computerName,
-    createComputer_password,
-    createComputerResponse_computer,
-    createComputerResponse_httpStatus,
-
-    -- ** AcceptSharedDirectory
-    acceptSharedDirectory_sharedDirectoryId,
-    acceptSharedDirectoryResponse_sharedDirectory,
-    acceptSharedDirectoryResponse_httpStatus,
+    -- ** ResetUserPassword
+    resetUserPassword_directoryId,
+    resetUserPassword_userName,
+    resetUserPassword_newPassword,
+    resetUserPasswordResponse_httpStatus,
 
     -- ** EnableClientAuthentication
     enableClientAuthentication_directoryId,
     enableClientAuthentication_type,
     enableClientAuthenticationResponse_httpStatus,
-
-    -- ** CreateSnapshot
-    createSnapshot_name,
-    createSnapshot_directoryId,
-    createSnapshotResponse_snapshotId,
-    createSnapshotResponse_httpStatus,
 
     -- ** StartSchemaExtension
     startSchemaExtension_directoryId,
@@ -365,6 +363,17 @@ module Network.AWS.DirectoryService.Lens
     startSchemaExtension_description,
     startSchemaExtensionResponse_schemaExtensionId,
     startSchemaExtensionResponse_httpStatus,
+
+    -- ** CreateSnapshot
+    createSnapshot_name,
+    createSnapshot_directoryId,
+    createSnapshotResponse_snapshotId,
+    createSnapshotResponse_httpStatus,
+
+    -- ** AcceptSharedDirectory
+    acceptSharedDirectory_sharedDirectoryId,
+    acceptSharedDirectoryResponse_sharedDirectory,
+    acceptSharedDirectoryResponse_httpStatus,
 
     -- ** DeregisterEventTopic
     deregisterEventTopic_directoryId,
@@ -376,6 +385,12 @@ module Network.AWS.DirectoryService.Lens
     deregisterCertificate_certificateId,
     deregisterCertificateResponse_httpStatus,
 
+    -- ** AddIpRoutes
+    addIpRoutes_updateSecurityGroupForDirectoryControllers,
+    addIpRoutes_directoryId,
+    addIpRoutes_ipRoutes,
+    addIpRoutesResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_limit,
@@ -384,19 +399,6 @@ module Network.AWS.DirectoryService.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** CreateAlias
-    createAlias_directoryId,
-    createAlias_alias,
-    createAliasResponse_alias,
-    createAliasResponse_directoryId,
-    createAliasResponse_httpStatus,
-
-    -- ** AddIpRoutes
-    addIpRoutes_updateSecurityGroupForDirectoryControllers,
-    addIpRoutes_directoryId,
-    addIpRoutes_ipRoutes,
-    addIpRoutesResponse_httpStatus,
-
     -- ** DescribeDirectories
     describeDirectories_nextToken,
     describeDirectories_directoryIds,
@@ -404,6 +406,13 @@ module Network.AWS.DirectoryService.Lens
     describeDirectoriesResponse_nextToken,
     describeDirectoriesResponse_directoryDescriptions,
     describeDirectoriesResponse_httpStatus,
+
+    -- ** CreateAlias
+    createAlias_directoryId,
+    createAlias_alias,
+    createAliasResponse_alias,
+    createAliasResponse_directoryId,
+    createAliasResponse_httpStatus,
 
     -- ** DescribeLDAPSSettings
     describeLDAPSSettings_nextToken,
@@ -427,22 +436,27 @@ module Network.AWS.DirectoryService.Lens
     certificate_commonName,
     certificate_state,
     certificate_expiryDateTime,
-    certificate_type,
     certificate_certificateId,
+    certificate_type,
 
     -- ** CertificateInfo
     certificateInfo_commonName,
     certificateInfo_state,
     certificateInfo_expiryDateTime,
-    certificateInfo_type,
     certificateInfo_certificateId,
+    certificateInfo_type,
+
+    -- ** ClientAuthenticationSettingInfo
+    clientAuthenticationSettingInfo_status,
+    clientAuthenticationSettingInfo_lastUpdatedDateTime,
+    clientAuthenticationSettingInfo_type,
 
     -- ** ClientCertAuthSettings
     clientCertAuthSettings_oCSPUrl,
 
     -- ** Computer
-    computer_computerName,
     computer_computerAttributes,
+    computer_computerName,
     computer_computerId,
 
     -- ** ConditionalForwarder
@@ -457,8 +471,8 @@ module Network.AWS.DirectoryService.Lens
     directoryConnectSettings_customerUserName,
 
     -- ** DirectoryConnectSettingsDescription
-    directoryConnectSettingsDescription_securityGroupId,
     directoryConnectSettingsDescription_availabilityZones,
+    directoryConnectSettingsDescription_securityGroupId,
     directoryConnectSettingsDescription_subnetIds,
     directoryConnectSettingsDescription_customerUserName,
     directoryConnectSettingsDescription_connectIps,
@@ -469,25 +483,25 @@ module Network.AWS.DirectoryService.Lens
     directoryDescription_alias,
     directoryDescription_shareNotes,
     directoryDescription_connectSettings,
-    directoryDescription_vpcSettings,
     directoryDescription_stageReason,
     directoryDescription_launchTime,
+    directoryDescription_vpcSettings,
     directoryDescription_regionsInfo,
     directoryDescription_shortName,
     directoryDescription_shareMethod,
-    directoryDescription_accessUrl,
     directoryDescription_name,
+    directoryDescription_accessUrl,
+    directoryDescription_directoryId,
     directoryDescription_stage,
     directoryDescription_edition,
-    directoryDescription_directoryId,
     directoryDescription_shareStatus,
-    directoryDescription_ownerDirectoryDescription,
     directoryDescription_description,
+    directoryDescription_ownerDirectoryDescription,
     directoryDescription_type,
     directoryDescription_dnsIpAddrs,
-    directoryDescription_radiusSettings,
     directoryDescription_desiredNumberOfDomainControllers,
     directoryDescription_size,
+    directoryDescription_radiusSettings,
     directoryDescription_stageLastUpdatedDateTime,
     directoryDescription_ssoEnabled,
 
@@ -507,8 +521,8 @@ module Network.AWS.DirectoryService.Lens
     directoryVpcSettings_subnetIds,
 
     -- ** DirectoryVpcSettingsDescription
-    directoryVpcSettingsDescription_securityGroupId,
     directoryVpcSettingsDescription_availabilityZones,
+    directoryVpcSettingsDescription_securityGroupId,
     directoryVpcSettingsDescription_subnetIds,
     directoryVpcSettingsDescription_vpcId,
 
@@ -528,16 +542,16 @@ module Network.AWS.DirectoryService.Lens
     eventTopic_status,
     eventTopic_createdDateTime,
     eventTopic_topicName,
-    eventTopic_topicArn,
     eventTopic_directoryId,
+    eventTopic_topicArn,
 
     -- ** IpRoute
     ipRoute_cidrIp,
     ipRoute_description,
 
     -- ** IpRouteInfo
-    ipRouteInfo_cidrIp,
     ipRouteInfo_ipRouteStatusMsg,
+    ipRouteInfo_cidrIp,
     ipRouteInfo_directoryId,
     ipRouteInfo_addedDateTime,
     ipRouteInfo_description,
@@ -550,8 +564,8 @@ module Network.AWS.DirectoryService.Lens
 
     -- ** LogSubscription
     logSubscription_subscriptionCreatedDateTime,
-    logSubscription_logGroupName,
     logSubscription_directoryId,
+    logSubscription_logGroupName,
 
     -- ** OwnerDirectoryDescription
     ownerDirectoryDescription_radiusStatus,
@@ -564,8 +578,8 @@ module Network.AWS.DirectoryService.Lens
     -- ** RadiusSettings
     radiusSettings_useSameUsername,
     radiusSettings_displayLabel,
-    radiusSettings_radiusServers,
     radiusSettings_radiusRetries,
+    radiusSettings_radiusServers,
     radiusSettings_radiusTimeout,
     radiusSettings_sharedSecret,
     radiusSettings_radiusPort,
@@ -575,9 +589,9 @@ module Network.AWS.DirectoryService.Lens
     regionDescription_regionName,
     regionDescription_status,
     regionDescription_lastUpdatedDateTime,
-    regionDescription_vpcSettings,
-    regionDescription_regionType,
     regionDescription_launchTime,
+    regionDescription_regionType,
+    regionDescription_vpcSettings,
     regionDescription_statusLastUpdatedDateTime,
     regionDescription_directoryId,
     regionDescription_desiredNumberOfDomainControllers,
@@ -591,8 +605,8 @@ module Network.AWS.DirectoryService.Lens
     schemaExtensionInfo_startDateTime,
     schemaExtensionInfo_schemaExtensionId,
     schemaExtensionInfo_directoryId,
-    schemaExtensionInfo_endDateTime,
     schemaExtensionInfo_description,
+    schemaExtensionInfo_endDateTime,
     schemaExtensionInfo_schemaExtensionStatusReason,
 
     -- ** ShareTarget
@@ -601,14 +615,14 @@ module Network.AWS.DirectoryService.Lens
 
     -- ** SharedDirectory
     sharedDirectory_createdDateTime,
-    sharedDirectory_shareNotes,
     sharedDirectory_lastUpdatedDateTime,
+    sharedDirectory_shareNotes,
     sharedDirectory_sharedAccountId,
     sharedDirectory_ownerDirectoryId,
     sharedDirectory_shareMethod,
     sharedDirectory_shareStatus,
-    sharedDirectory_ownerAccountId,
     sharedDirectory_sharedDirectoryId,
+    sharedDirectory_ownerAccountId,
 
     -- ** Snapshot
     snapshot_status,
@@ -629,10 +643,10 @@ module Network.AWS.DirectoryService.Lens
 
     -- ** Trust
     trust_trustType,
-    trust_createdDateTime,
-    trust_trustId,
     trust_trustDirection,
     trust_stateLastUpdatedDateTime,
+    trust_trustId,
+    trust_createdDateTime,
     trust_lastUpdatedDateTime,
     trust_trustState,
     trust_selectiveAuth,
@@ -668,6 +682,7 @@ import Network.AWS.DirectoryService.DeleteTrust
 import Network.AWS.DirectoryService.DeregisterCertificate
 import Network.AWS.DirectoryService.DeregisterEventTopic
 import Network.AWS.DirectoryService.DescribeCertificate
+import Network.AWS.DirectoryService.DescribeClientAuthenticationSettings
 import Network.AWS.DirectoryService.DescribeConditionalForwarders
 import Network.AWS.DirectoryService.DescribeDirectories
 import Network.AWS.DirectoryService.DescribeDomainControllers
@@ -705,6 +720,7 @@ import Network.AWS.DirectoryService.StartSchemaExtension
 import Network.AWS.DirectoryService.Types.Attribute
 import Network.AWS.DirectoryService.Types.Certificate
 import Network.AWS.DirectoryService.Types.CertificateInfo
+import Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo
 import Network.AWS.DirectoryService.Types.ClientCertAuthSettings
 import Network.AWS.DirectoryService.Types.Computer
 import Network.AWS.DirectoryService.Types.ConditionalForwarder

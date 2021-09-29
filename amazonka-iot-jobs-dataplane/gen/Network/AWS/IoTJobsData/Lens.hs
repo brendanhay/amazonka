@@ -21,8 +21,8 @@ module Network.AWS.IoTJobsData.Lens
     getPendingJobExecutionsResponse_httpStatus,
 
     -- ** UpdateJobExecution
-    updateJobExecution_expectedVersion,
     updateJobExecution_includeJobDocument,
+    updateJobExecution_expectedVersion,
     updateJobExecution_includeJobExecutionState,
     updateJobExecution_statusDetails,
     updateJobExecution_stepTimeoutInMinutes,
@@ -57,12 +57,12 @@ module Network.AWS.IoTJobsData.Lens
     jobExecution_statusDetails,
     jobExecution_thingName,
     jobExecution_queuedAt,
-    jobExecution_versionNumber,
     jobExecution_executionNumber,
+    jobExecution_versionNumber,
     jobExecution_jobDocument,
     jobExecution_approximateSecondsBeforeTimedOut,
-    jobExecution_lastUpdatedAt,
     jobExecution_jobId,
+    jobExecution_lastUpdatedAt,
 
     -- ** JobExecutionState
     jobExecutionState_status,
@@ -72,10 +72,10 @@ module Network.AWS.IoTJobsData.Lens
     -- ** JobExecutionSummary
     jobExecutionSummary_startedAt,
     jobExecutionSummary_queuedAt,
-    jobExecutionSummary_versionNumber,
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_versionNumber,
     jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
   )
 where
 

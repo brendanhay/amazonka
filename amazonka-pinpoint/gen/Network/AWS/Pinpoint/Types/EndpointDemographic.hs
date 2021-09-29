@@ -39,10 +39,10 @@ data EndpointDemographic = EndpointDemographic'
     -- alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1
     -- alpha-2 value.
     locale :: Prelude.Maybe Prelude.Text,
-    -- | The platform version of the endpoint device.
-    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The model version of the endpoint device.
     modelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The platform version of the endpoint device.
+    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the endpoint, specified as a tz database name value,
     -- such as America\/Los_Angeles.
     timezone :: Prelude.Maybe Prelude.Text,
@@ -70,9 +70,9 @@ data EndpointDemographic = EndpointDemographic'
 -- alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1
 -- alpha-2 value.
 --
--- 'platformVersion', 'endpointDemographic_platformVersion' - The platform version of the endpoint device.
---
 -- 'modelVersion', 'endpointDemographic_modelVersion' - The model version of the endpoint device.
+--
+-- 'platformVersion', 'endpointDemographic_platformVersion' - The platform version of the endpoint device.
 --
 -- 'timezone', 'endpointDemographic_timezone' - The time zone of the endpoint, specified as a tz database name value,
 -- such as America\/Los_Angeles.
@@ -86,8 +86,8 @@ newEndpointDemographic =
       platform = Prelude.Nothing,
       appVersion = Prelude.Nothing,
       locale = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
       modelVersion = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
       timezone = Prelude.Nothing,
       make = Prelude.Nothing
     }
@@ -111,13 +111,13 @@ endpointDemographic_appVersion = Lens.lens (\EndpointDemographic' {appVersion} -
 endpointDemographic_locale :: Lens.Lens' EndpointDemographic (Prelude.Maybe Prelude.Text)
 endpointDemographic_locale = Lens.lens (\EndpointDemographic' {locale} -> locale) (\s@EndpointDemographic' {} a -> s {locale = a} :: EndpointDemographic)
 
--- | The platform version of the endpoint device.
-endpointDemographic_platformVersion :: Lens.Lens' EndpointDemographic (Prelude.Maybe Prelude.Text)
-endpointDemographic_platformVersion = Lens.lens (\EndpointDemographic' {platformVersion} -> platformVersion) (\s@EndpointDemographic' {} a -> s {platformVersion = a} :: EndpointDemographic)
-
 -- | The model version of the endpoint device.
 endpointDemographic_modelVersion :: Lens.Lens' EndpointDemographic (Prelude.Maybe Prelude.Text)
 endpointDemographic_modelVersion = Lens.lens (\EndpointDemographic' {modelVersion} -> modelVersion) (\s@EndpointDemographic' {} a -> s {modelVersion = a} :: EndpointDemographic)
+
+-- | The platform version of the endpoint device.
+endpointDemographic_platformVersion :: Lens.Lens' EndpointDemographic (Prelude.Maybe Prelude.Text)
+endpointDemographic_platformVersion = Lens.lens (\EndpointDemographic' {platformVersion} -> platformVersion) (\s@EndpointDemographic' {} a -> s {platformVersion = a} :: EndpointDemographic)
 
 -- | The time zone of the endpoint, specified as a tz database name value,
 -- such as America\/Los_Angeles.
@@ -138,8 +138,8 @@ instance Core.FromJSON EndpointDemographic where
             Prelude.<*> (x Core..:? "Platform")
             Prelude.<*> (x Core..:? "AppVersion")
             Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "PlatformVersion")
             Prelude.<*> (x Core..:? "ModelVersion")
+            Prelude.<*> (x Core..:? "PlatformVersion")
             Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "Make")
       )
@@ -156,9 +156,9 @@ instance Core.ToJSON EndpointDemographic where
             ("Platform" Core..=) Prelude.<$> platform,
             ("AppVersion" Core..=) Prelude.<$> appVersion,
             ("Locale" Core..=) Prelude.<$> locale,
+            ("ModelVersion" Core..=) Prelude.<$> modelVersion,
             ("PlatformVersion" Core..=)
               Prelude.<$> platformVersion,
-            ("ModelVersion" Core..=) Prelude.<$> modelVersion,
             ("Timezone" Core..=) Prelude.<$> timezone,
             ("Make" Core..=) Prelude.<$> make
           ]

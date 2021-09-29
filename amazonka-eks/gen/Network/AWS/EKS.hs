@@ -12,10 +12,10 @@
 -- Derived from API version @2017-11-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that
--- makes it easy for you to run Kubernetes on AWS without needing to stand
--- up or maintain your own Kubernetes control plane. Kubernetes is an
--- open-source system for automating the deployment, scaling, and
--- management of containerized applications.
+-- makes it easy for you to run Kubernetes on Amazon Web Services without
+-- needing to stand up or maintain your own Kubernetes control plane.
+-- Kubernetes is an open-source system for automating the deployment,
+-- scaling, and management of containerized applications.
 --
 -- Amazon EKS runs up-to-date versions of the open-source Kubernetes
 -- software, so you can use all the existing plugins and tooling from the
@@ -43,20 +43,20 @@ module Network.AWS.EKS
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ClientException
-    _ClientException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ClientException
+    _ClientException,
 
     -- ** UnsupportedAvailabilityZoneException
     _UnsupportedAvailabilityZoneException,
@@ -66,6 +66,9 @@ module Network.AWS.EKS
 
     -- * Waiters
     -- $waiters
+
+    -- ** FargateProfileDeleted
+    newFargateProfileDeleted,
 
     -- ** ClusterActive
     newClusterActive,
@@ -82,17 +85,14 @@ module Network.AWS.EKS
     -- ** AddonActive
     newAddonActive,
 
+    -- ** FargateProfileActive
+    newFargateProfileActive,
+
     -- ** AddonDeleted
     newAddonDeleted,
 
     -- * Operations
     -- $operations
-
-    -- ** DescribeAddonVersions (Paginated)
-    DescribeAddonVersions (DescribeAddonVersions'),
-    newDescribeAddonVersions,
-    DescribeAddonVersionsResponse (DescribeAddonVersionsResponse'),
-    newDescribeAddonVersionsResponse,
 
     -- ** DescribeUpdate
     DescribeUpdate (DescribeUpdate'),
@@ -100,41 +100,29 @@ module Network.AWS.EKS
     DescribeUpdateResponse (DescribeUpdateResponse'),
     newDescribeUpdateResponse,
 
-    -- ** ListIdentityProviderConfigs (Paginated)
-    ListIdentityProviderConfigs (ListIdentityProviderConfigs'),
-    newListIdentityProviderConfigs,
-    ListIdentityProviderConfigsResponse (ListIdentityProviderConfigsResponse'),
-    newListIdentityProviderConfigsResponse,
-
     -- ** DescribeFargateProfile
     DescribeFargateProfile (DescribeFargateProfile'),
     newDescribeFargateProfile,
     DescribeFargateProfileResponse (DescribeFargateProfileResponse'),
     newDescribeFargateProfileResponse,
 
-    -- ** UpdateAddon
-    UpdateAddon (UpdateAddon'),
-    newUpdateAddon,
-    UpdateAddonResponse (UpdateAddonResponse'),
-    newUpdateAddonResponse,
+    -- ** DescribeAddonVersions (Paginated)
+    DescribeAddonVersions (DescribeAddonVersions'),
+    newDescribeAddonVersions,
+    DescribeAddonVersionsResponse (DescribeAddonVersionsResponse'),
+    newDescribeAddonVersionsResponse,
 
-    -- ** AssociateEncryptionConfig
-    AssociateEncryptionConfig (AssociateEncryptionConfig'),
-    newAssociateEncryptionConfig,
-    AssociateEncryptionConfigResponse (AssociateEncryptionConfigResponse'),
-    newAssociateEncryptionConfigResponse,
+    -- ** ListIdentityProviderConfigs (Paginated)
+    ListIdentityProviderConfigs (ListIdentityProviderConfigs'),
+    newListIdentityProviderConfigs,
+    ListIdentityProviderConfigsResponse (ListIdentityProviderConfigsResponse'),
+    newListIdentityProviderConfigsResponse,
 
     -- ** ListAddons (Paginated)
     ListAddons (ListAddons'),
     newListAddons,
     ListAddonsResponse (ListAddonsResponse'),
     newListAddonsResponse,
-
-    -- ** DeleteAddon
-    DeleteAddon (DeleteAddon'),
-    newDeleteAddon,
-    DeleteAddonResponse (DeleteAddonResponse'),
-    newDeleteAddonResponse,
 
     -- ** AssociateIdentityProviderConfig
     AssociateIdentityProviderConfig (AssociateIdentityProviderConfig'),
@@ -148,6 +136,24 @@ module Network.AWS.EKS
     UpdateClusterVersionResponse (UpdateClusterVersionResponse'),
     newUpdateClusterVersionResponse,
 
+    -- ** DeleteAddon
+    DeleteAddon (DeleteAddon'),
+    newDeleteAddon,
+    DeleteAddonResponse (DeleteAddonResponse'),
+    newDeleteAddonResponse,
+
+    -- ** AssociateEncryptionConfig
+    AssociateEncryptionConfig (AssociateEncryptionConfig'),
+    newAssociateEncryptionConfig,
+    AssociateEncryptionConfigResponse (AssociateEncryptionConfigResponse'),
+    newAssociateEncryptionConfigResponse,
+
+    -- ** UpdateAddon
+    UpdateAddon (UpdateAddon'),
+    newUpdateAddon,
+    UpdateAddonResponse (UpdateAddonResponse'),
+    newUpdateAddonResponse,
+
     -- ** ListNodegroups (Paginated)
     ListNodegroups (ListNodegroups'),
     newListNodegroups,
@@ -160,17 +166,23 @@ module Network.AWS.EKS
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
 
-    -- ** CreateNodegroup
-    CreateNodegroup (CreateNodegroup'),
-    newCreateNodegroup,
-    CreateNodegroupResponse (CreateNodegroupResponse'),
-    newCreateNodegroupResponse,
+    -- ** RegisterCluster
+    RegisterCluster (RegisterCluster'),
+    newRegisterCluster,
+    RegisterClusterResponse (RegisterClusterResponse'),
+    newRegisterClusterResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** CreateNodegroup
+    CreateNodegroup (CreateNodegroup'),
+    newCreateNodegroup,
+    CreateNodegroupResponse (CreateNodegroupResponse'),
+    newCreateNodegroupResponse,
 
     -- ** DescribeIdentityProviderConfig
     DescribeIdentityProviderConfig (DescribeIdentityProviderConfig'),
@@ -184,12 +196,6 @@ module Network.AWS.EKS
     DeleteFargateProfileResponse (DeleteFargateProfileResponse'),
     newDeleteFargateProfileResponse,
 
-    -- ** ListUpdates (Paginated)
-    ListUpdates (ListUpdates'),
-    newListUpdates,
-    ListUpdatesResponse (ListUpdatesResponse'),
-    newListUpdatesResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -201,6 +207,12 @@ module Network.AWS.EKS
     newListFargateProfiles,
     ListFargateProfilesResponse (ListFargateProfilesResponse'),
     newListFargateProfilesResponse,
+
+    -- ** ListUpdates (Paginated)
+    ListUpdates (ListUpdates'),
+    newListUpdates,
+    ListUpdatesResponse (ListUpdatesResponse'),
+    newListUpdatesResponse,
 
     -- ** DisassociateIdentityProviderConfig
     DisassociateIdentityProviderConfig (DisassociateIdentityProviderConfig'),
@@ -214,6 +226,12 @@ module Network.AWS.EKS
     DescribeClusterResponse (DescribeClusterResponse'),
     newDescribeClusterResponse,
 
+    -- ** UpdateNodegroupVersion
+    UpdateNodegroupVersion (UpdateNodegroupVersion'),
+    newUpdateNodegroupVersion,
+    UpdateNodegroupVersionResponse (UpdateNodegroupVersionResponse'),
+    newUpdateNodegroupVersionResponse,
+
     -- ** CreateAddon
     CreateAddon (CreateAddon'),
     newCreateAddon,
@@ -225,12 +243,6 @@ module Network.AWS.EKS
     newUpdateNodegroupConfig,
     UpdateNodegroupConfigResponse (UpdateNodegroupConfigResponse'),
     newUpdateNodegroupConfigResponse,
-
-    -- ** UpdateNodegroupVersion
-    UpdateNodegroupVersion (UpdateNodegroupVersion'),
-    newUpdateNodegroupVersion,
-    UpdateNodegroupVersionResponse (UpdateNodegroupVersionResponse'),
-    newUpdateNodegroupVersionResponse,
 
     -- ** UpdateClusterConfig
     UpdateClusterConfig (UpdateClusterConfig'),
@@ -244,23 +256,17 @@ module Network.AWS.EKS
     DeleteNodegroupResponse (DeleteNodegroupResponse'),
     newDeleteNodegroupResponse,
 
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
     -- ** ListClusters (Paginated)
     ListClusters (ListClusters'),
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
 
-    -- ** DescribeAddon
-    DescribeAddon (DescribeAddon'),
-    newDescribeAddon,
-    DescribeAddonResponse (DescribeAddonResponse'),
-    newDescribeAddonResponse,
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
     -- ** CreateFargateProfile
     CreateFargateProfile (CreateFargateProfile'),
@@ -268,17 +274,29 @@ module Network.AWS.EKS
     CreateFargateProfileResponse (CreateFargateProfileResponse'),
     newCreateFargateProfileResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DescribeAddon
+    DescribeAddon (DescribeAddon'),
+    newDescribeAddon,
+    DescribeAddonResponse (DescribeAddonResponse'),
+    newDescribeAddonResponse,
 
     -- ** DescribeNodegroup
     DescribeNodegroup (DescribeNodegroup'),
     newDescribeNodegroup,
     DescribeNodegroupResponse (DescribeNodegroupResponse'),
     newDescribeNodegroupResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DeregisterCluster
+    DeregisterCluster (DeregisterCluster'),
+    newDeregisterCluster,
+    DeregisterClusterResponse (DeregisterClusterResponse'),
+    newDeregisterClusterResponse,
 
     -- * Types
 
@@ -300,6 +318,9 @@ module Network.AWS.EKS
     -- ** ConfigStatus
     ConfigStatus (..),
 
+    -- ** ConnectorConfigProvider
+    ConnectorConfigProvider (..),
+
     -- ** EKSErrorCode
     EKSErrorCode (..),
 
@@ -317,6 +338,9 @@ module Network.AWS.EKS
 
     -- ** ResolveConflicts
     ResolveConflicts (..),
+
+    -- ** TaintEffect
+    TaintEffect (..),
 
     -- ** UpdateParamType
     UpdateParamType (..),
@@ -362,6 +386,14 @@ module Network.AWS.EKS
     -- ** Compatibility
     Compatibility (Compatibility'),
     newCompatibility,
+
+    -- ** ConnectorConfigRequest
+    ConnectorConfigRequest (ConnectorConfigRequest'),
+    newConnectorConfigRequest,
+
+    -- ** ConnectorConfigResponse
+    ConnectorConfigResponse (ConnectorConfigResponse'),
+    newConnectorConfigResponse,
 
     -- ** EncryptionConfig
     EncryptionConfig (EncryptionConfig'),
@@ -431,6 +463,10 @@ module Network.AWS.EKS
     NodegroupScalingConfig (NodegroupScalingConfig'),
     newNodegroupScalingConfig,
 
+    -- ** NodegroupUpdateConfig
+    NodegroupUpdateConfig (NodegroupUpdateConfig'),
+    newNodegroupUpdateConfig,
+
     -- ** OIDC
     OIDC (OIDC'),
     newOIDC,
@@ -451,6 +487,10 @@ module Network.AWS.EKS
     RemoteAccessConfig (RemoteAccessConfig'),
     newRemoteAccessConfig,
 
+    -- ** Taint
+    Taint (Taint'),
+    newTaint,
+
     -- ** Update
     Update (Update'),
     newUpdate,
@@ -462,6 +502,10 @@ module Network.AWS.EKS
     -- ** UpdateParam
     UpdateParam (UpdateParam'),
     newUpdateParam,
+
+    -- ** UpdateTaintsPayload
+    UpdateTaintsPayload (UpdateTaintsPayload'),
+    newUpdateTaintsPayload,
 
     -- ** VpcConfigRequest
     VpcConfigRequest (VpcConfigRequest'),
@@ -483,6 +527,7 @@ import Network.AWS.EKS.DeleteAddon
 import Network.AWS.EKS.DeleteCluster
 import Network.AWS.EKS.DeleteFargateProfile
 import Network.AWS.EKS.DeleteNodegroup
+import Network.AWS.EKS.DeregisterCluster
 import Network.AWS.EKS.DescribeAddon
 import Network.AWS.EKS.DescribeAddonVersions
 import Network.AWS.EKS.DescribeCluster
@@ -499,6 +544,7 @@ import Network.AWS.EKS.ListIdentityProviderConfigs
 import Network.AWS.EKS.ListNodegroups
 import Network.AWS.EKS.ListTagsForResource
 import Network.AWS.EKS.ListUpdates
+import Network.AWS.EKS.RegisterCluster
 import Network.AWS.EKS.TagResource
 import Network.AWS.EKS.Types
 import Network.AWS.EKS.UntagResource

@@ -25,6 +25,11 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document>
 -- that is used to authorize claims to register a subscription filter
 -- against a given destination.
+--
+-- If multiple Amazon Web Services accounts are sending logs to this
+-- destination, each sender account must be listed separately in the
+-- policy. The policy does not support specifying @*@ as the Principal or
+-- the use of the @aws:PrincipalOrgId@ global key.
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
   ( -- * Creating a Request
     PutDestinationPolicy (..),

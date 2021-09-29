@@ -14,6 +14,17 @@
 module Network.AWS.SESv2.Lens
   ( -- * Operations
 
+    -- ** PutEmailIdentityDkimAttributes
+    putEmailIdentityDkimAttributes_signingEnabled,
+    putEmailIdentityDkimAttributes_emailIdentity,
+    putEmailIdentityDkimAttributesResponse_httpStatus,
+
+    -- ** PutConfigurationSetDeliveryOptions
+    putConfigurationSetDeliveryOptions_sendingPoolName,
+    putConfigurationSetDeliveryOptions_tlsPolicy,
+    putConfigurationSetDeliveryOptions_configurationSetName,
+    putConfigurationSetDeliveryOptionsResponse_httpStatus,
+
     -- ** ListDedicatedIpPools
     listDedicatedIpPools_nextToken,
     listDedicatedIpPools_pageSize,
@@ -21,20 +32,22 @@ module Network.AWS.SESv2.Lens
     listDedicatedIpPoolsResponse_dedicatedIpPools,
     listDedicatedIpPoolsResponse_httpStatus,
 
-    -- ** PutEmailIdentityDkimAttributes
-    putEmailIdentityDkimAttributes_signingEnabled,
-    putEmailIdentityDkimAttributes_emailIdentity,
-    putEmailIdentityDkimAttributesResponse_httpStatus,
-
     -- ** DeleteDedicatedIpPool
     deleteDedicatedIpPool_poolName,
     deleteDedicatedIpPoolResponse_httpStatus,
 
-    -- ** PutConfigurationSetDeliveryOptions
-    putConfigurationSetDeliveryOptions_sendingPoolName,
-    putConfigurationSetDeliveryOptions_tlsPolicy,
-    putConfigurationSetDeliveryOptions_configurationSetName,
-    putConfigurationSetDeliveryOptionsResponse_httpStatus,
+    -- ** GetImportJob
+    getImportJob_jobId,
+    getImportJobResponse_failedRecordsCount,
+    getImportJobResponse_failureInfo,
+    getImportJobResponse_createdTimestamp,
+    getImportJobResponse_jobStatus,
+    getImportJobResponse_completedTimestamp,
+    getImportJobResponse_importDataSource,
+    getImportJobResponse_processedRecordsCount,
+    getImportJobResponse_importDestination,
+    getImportJobResponse_jobId,
+    getImportJobResponse_httpStatus,
 
     -- ** CreateContact
     createContact_unsubscribeAll,
@@ -49,23 +62,6 @@ module Network.AWS.SESv2.Lens
     putConfigurationSetTrackingOptions_configurationSetName,
     putConfigurationSetTrackingOptionsResponse_httpStatus,
 
-    -- ** GetImportJob
-    getImportJob_jobId,
-    getImportJobResponse_failedRecordsCount,
-    getImportJobResponse_createdTimestamp,
-    getImportJobResponse_failureInfo,
-    getImportJobResponse_jobStatus,
-    getImportJobResponse_completedTimestamp,
-    getImportJobResponse_importDataSource,
-    getImportJobResponse_processedRecordsCount,
-    getImportJobResponse_importDestination,
-    getImportJobResponse_jobId,
-    getImportJobResponse_httpStatus,
-
-    -- ** PutAccountDedicatedIpWarmupAttributes
-    putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled,
-    putAccountDedicatedIpWarmupAttributesResponse_httpStatus,
-
     -- ** GetDeliverabilityTestReport
     getDeliverabilityTestReport_reportId,
     getDeliverabilityTestReportResponse_message,
@@ -75,23 +71,9 @@ module Network.AWS.SESv2.Lens
     getDeliverabilityTestReportResponse_overallPlacement,
     getDeliverabilityTestReportResponse_ispPlacements,
 
-    -- ** PutEmailIdentityConfigurationSetAttributes
-    putEmailIdentityConfigurationSetAttributes_configurationSetName,
-    putEmailIdentityConfigurationSetAttributes_emailIdentity,
-    putEmailIdentityConfigurationSetAttributesResponse_httpStatus,
-
-    -- ** CreateConfigurationSetEventDestination
-    createConfigurationSetEventDestination_configurationSetName,
-    createConfigurationSetEventDestination_eventDestinationName,
-    createConfigurationSetEventDestination_eventDestination,
-    createConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** ListEmailIdentities
-    listEmailIdentities_nextToken,
-    listEmailIdentities_pageSize,
-    listEmailIdentitiesResponse_nextToken,
-    listEmailIdentitiesResponse_emailIdentities,
-    listEmailIdentitiesResponse_httpStatus,
+    -- ** PutAccountDedicatedIpWarmupAttributes
+    putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled,
+    putAccountDedicatedIpWarmupAttributesResponse_httpStatus,
 
     -- ** CreateEmailIdentity
     createEmailIdentity_dkimSigningAttributes,
@@ -108,15 +90,18 @@ module Network.AWS.SESv2.Lens
     getBlacklistReportsResponse_httpStatus,
     getBlacklistReportsResponse_blacklistReport,
 
-    -- ** CreateConfigurationSet
-    createConfigurationSet_trackingOptions,
-    createConfigurationSet_deliveryOptions,
-    createConfigurationSet_sendingOptions,
-    createConfigurationSet_reputationOptions,
-    createConfigurationSet_suppressionOptions,
-    createConfigurationSet_tags,
-    createConfigurationSet_configurationSetName,
-    createConfigurationSetResponse_httpStatus,
+    -- ** CreateConfigurationSetEventDestination
+    createConfigurationSetEventDestination_configurationSetName,
+    createConfigurationSetEventDestination_eventDestinationName,
+    createConfigurationSetEventDestination_eventDestination,
+    createConfigurationSetEventDestinationResponse_httpStatus,
+
+    -- ** ListEmailIdentities
+    listEmailIdentities_nextToken,
+    listEmailIdentities_pageSize,
+    listEmailIdentitiesResponse_emailIdentities,
+    listEmailIdentitiesResponse_nextToken,
+    listEmailIdentitiesResponse_httpStatus,
 
     -- ** CreateContactList
     createContactList_topics,
@@ -125,9 +110,41 @@ module Network.AWS.SESv2.Lens
     createContactList_contactListName,
     createContactListResponse_httpStatus,
 
+    -- ** CreateConfigurationSet
+    createConfigurationSet_trackingOptions,
+    createConfigurationSet_sendingOptions,
+    createConfigurationSet_deliveryOptions,
+    createConfigurationSet_reputationOptions,
+    createConfigurationSet_suppressionOptions,
+    createConfigurationSet_tags,
+    createConfigurationSet_configurationSetName,
+    createConfigurationSetResponse_httpStatus,
+
+    -- ** PutEmailIdentityConfigurationSetAttributes
+    putEmailIdentityConfigurationSetAttributes_configurationSetName,
+    putEmailIdentityConfigurationSetAttributes_emailIdentity,
+    putEmailIdentityConfigurationSetAttributesResponse_httpStatus,
+
     -- ** DeleteConfigurationSet
     deleteConfigurationSet_configurationSetName,
     deleteConfigurationSetResponse_httpStatus,
+
+    -- ** DeleteEmailIdentityPolicy
+    deleteEmailIdentityPolicy_emailIdentity,
+    deleteEmailIdentityPolicy_policyName,
+    deleteEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** UpdateEmailIdentityPolicy
+    updateEmailIdentityPolicy_emailIdentity,
+    updateEmailIdentityPolicy_policyName,
+    updateEmailIdentityPolicy_policy,
+    updateEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** UpdateConfigurationSetEventDestination
+    updateConfigurationSetEventDestination_configurationSetName,
+    updateConfigurationSetEventDestination_eventDestinationName,
+    updateConfigurationSetEventDestination_eventDestination,
+    updateConfigurationSetEventDestinationResponse_httpStatus,
 
     -- ** ListImportJobs
     listImportJobs_nextToken,
@@ -137,46 +154,23 @@ module Network.AWS.SESv2.Lens
     listImportJobsResponse_importJobs,
     listImportJobsResponse_httpStatus,
 
-    -- ** UpdateEmailIdentityPolicy
-    updateEmailIdentityPolicy_emailIdentity,
-    updateEmailIdentityPolicy_policyName,
-    updateEmailIdentityPolicy_policy,
-    updateEmailIdentityPolicyResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
-
-    -- ** DeleteEmailIdentityPolicy
-    deleteEmailIdentityPolicy_emailIdentity,
-    deleteEmailIdentityPolicy_policyName,
-    deleteEmailIdentityPolicyResponse_httpStatus,
-
-    -- ** UpdateConfigurationSetEventDestination
-    updateConfigurationSetEventDestination_configurationSetName,
-    updateConfigurationSetEventDestination_eventDestinationName,
-    updateConfigurationSetEventDestination_eventDestination,
-    updateConfigurationSetEventDestinationResponse_httpStatus,
 
     -- ** DeleteConfigurationSetEventDestination
     deleteConfigurationSetEventDestination_configurationSetName,
     deleteConfigurationSetEventDestination_eventDestinationName,
     deleteConfigurationSetEventDestinationResponse_httpStatus,
 
-    -- ** TestRenderEmailTemplate
-    testRenderEmailTemplate_templateName,
-    testRenderEmailTemplate_templateData,
-    testRenderEmailTemplateResponse_httpStatus,
-    testRenderEmailTemplateResponse_renderedTemplate,
-
     -- ** SendEmail
     sendEmail_fromEmailAddress,
     sendEmail_feedbackForwardingEmailAddressIdentityArn,
     sendEmail_fromEmailAddressIdentityArn,
     sendEmail_destination,
-    sendEmail_replyToAddresses,
     sendEmail_listManagementOptions,
+    sendEmail_replyToAddresses,
     sendEmail_feedbackForwardingEmailAddress,
     sendEmail_configurationSetName,
     sendEmail_emailTags,
@@ -188,11 +182,6 @@ module Network.AWS.SESv2.Lens
     putConfigurationSetReputationOptions_reputationMetricsEnabled,
     putConfigurationSetReputationOptions_configurationSetName,
     putConfigurationSetReputationOptionsResponse_httpStatus,
-
-    -- ** PutDedicatedIpInPool
-    putDedicatedIpInPool_ip,
-    putDedicatedIpInPool_destinationPoolName,
-    putDedicatedIpInPoolResponse_httpStatus,
 
     -- ** SendBulkEmail
     sendBulkEmail_fromEmailAddress,
@@ -207,10 +196,21 @@ module Network.AWS.SESv2.Lens
     sendBulkEmailResponse_httpStatus,
     sendBulkEmailResponse_bulkEmailEntryResults,
 
+    -- ** TestRenderEmailTemplate
+    testRenderEmailTemplate_templateName,
+    testRenderEmailTemplate_templateData,
+    testRenderEmailTemplateResponse_httpStatus,
+    testRenderEmailTemplateResponse_renderedTemplate,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
+
+    -- ** PutDedicatedIpInPool
+    putDedicatedIpInPool_ip,
+    putDedicatedIpInPool_destinationPoolName,
+    putDedicatedIpInPoolResponse_httpStatus,
 
     -- ** ListDomainDeliverabilityCampaigns
     listDomainDeliverabilityCampaigns_nextToken,
@@ -245,11 +245,6 @@ module Network.AWS.SESv2.Lens
     createCustomVerificationEmailTemplate_failureRedirectionURL,
     createCustomVerificationEmailTemplateResponse_httpStatus,
 
-    -- ** PutConfigurationSetSuppressionOptions
-    putConfigurationSetSuppressionOptions_suppressedReasons,
-    putConfigurationSetSuppressionOptions_configurationSetName,
-    putConfigurationSetSuppressionOptionsResponse_httpStatus,
-
     -- ** GetSuppressedDestination
     getSuppressedDestination_emailAddress,
     getSuppressedDestinationResponse_httpStatus,
@@ -260,6 +255,34 @@ module Network.AWS.SESv2.Lens
     getEmailTemplateResponse_httpStatus,
     getEmailTemplateResponse_templateName,
     getEmailTemplateResponse_templateContent,
+
+    -- ** PutConfigurationSetSuppressionOptions
+    putConfigurationSetSuppressionOptions_suppressedReasons,
+    putConfigurationSetSuppressionOptions_configurationSetName,
+    putConfigurationSetSuppressionOptionsResponse_httpStatus,
+
+    -- ** DeleteCustomVerificationEmailTemplate
+    deleteCustomVerificationEmailTemplate_templateName,
+    deleteCustomVerificationEmailTemplateResponse_httpStatus,
+
+    -- ** GetDomainDeliverabilityCampaign
+    getDomainDeliverabilityCampaign_campaignId,
+    getDomainDeliverabilityCampaignResponse_httpStatus,
+    getDomainDeliverabilityCampaignResponse_domainDeliverabilityCampaign,
+
+    -- ** UpdateCustomVerificationEmailTemplate
+    updateCustomVerificationEmailTemplate_templateName,
+    updateCustomVerificationEmailTemplate_fromEmailAddress,
+    updateCustomVerificationEmailTemplate_templateSubject,
+    updateCustomVerificationEmailTemplate_templateContent,
+    updateCustomVerificationEmailTemplate_successRedirectionURL,
+    updateCustomVerificationEmailTemplate_failureRedirectionURL,
+    updateCustomVerificationEmailTemplateResponse_httpStatus,
+
+    -- ** GetConfigurationSetEventDestinations
+    getConfigurationSetEventDestinations_configurationSetName,
+    getConfigurationSetEventDestinationsResponse_eventDestinations,
+    getConfigurationSetEventDestinationsResponse_httpStatus,
 
     -- ** ListCustomVerificationEmailTemplates
     listCustomVerificationEmailTemplates_nextToken,
@@ -276,20 +299,6 @@ module Network.AWS.SESv2.Lens
     getDedicatedIpsResponse_dedicatedIps,
     getDedicatedIpsResponse_httpStatus,
 
-    -- ** DeleteCustomVerificationEmailTemplate
-    deleteCustomVerificationEmailTemplate_templateName,
-    deleteCustomVerificationEmailTemplateResponse_httpStatus,
-
-    -- ** GetConfigurationSetEventDestinations
-    getConfigurationSetEventDestinations_configurationSetName,
-    getConfigurationSetEventDestinationsResponse_eventDestinations,
-    getConfigurationSetEventDestinationsResponse_httpStatus,
-
-    -- ** PutConfigurationSetSendingOptions
-    putConfigurationSetSendingOptions_sendingEnabled,
-    putConfigurationSetSendingOptions_configurationSetName,
-    putConfigurationSetSendingOptionsResponse_httpStatus,
-
     -- ** GetAccount
     getAccountResponse_productionAccessEnabled,
     getAccountResponse_details,
@@ -300,24 +309,38 @@ module Network.AWS.SESv2.Lens
     getAccountResponse_enforcementStatus,
     getAccountResponse_httpStatus,
 
-    -- ** UpdateCustomVerificationEmailTemplate
-    updateCustomVerificationEmailTemplate_templateName,
-    updateCustomVerificationEmailTemplate_fromEmailAddress,
-    updateCustomVerificationEmailTemplate_templateSubject,
-    updateCustomVerificationEmailTemplate_templateContent,
-    updateCustomVerificationEmailTemplate_successRedirectionURL,
-    updateCustomVerificationEmailTemplate_failureRedirectionURL,
-    updateCustomVerificationEmailTemplateResponse_httpStatus,
+    -- ** PutConfigurationSetSendingOptions
+    putConfigurationSetSendingOptions_sendingEnabled,
+    putConfigurationSetSendingOptions_configurationSetName,
+    putConfigurationSetSendingOptionsResponse_httpStatus,
 
-    -- ** GetDomainDeliverabilityCampaign
-    getDomainDeliverabilityCampaign_campaignId,
-    getDomainDeliverabilityCampaignResponse_httpStatus,
-    getDomainDeliverabilityCampaignResponse_domainDeliverabilityCampaign,
+    -- ** GetConfigurationSet
+    getConfigurationSet_configurationSetName,
+    getConfigurationSetResponse_trackingOptions,
+    getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_deliveryOptions,
+    getConfigurationSetResponse_reputationOptions,
+    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_configurationSetName,
+    getConfigurationSetResponse_httpStatus,
 
     -- ** GetDedicatedIp
     getDedicatedIp_ip,
     getDedicatedIpResponse_dedicatedIp,
     getDedicatedIpResponse_httpStatus,
+
+    -- ** GetEmailIdentity
+    getEmailIdentity_emailIdentity,
+    getEmailIdentityResponse_dkimAttributes,
+    getEmailIdentityResponse_feedbackForwardingStatus,
+    getEmailIdentityResponse_policies,
+    getEmailIdentityResponse_tags,
+    getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_mailFromAttributes,
+    getEmailIdentityResponse_configurationSetName,
+    getEmailIdentityResponse_verifiedForSendingStatus,
+    getEmailIdentityResponse_httpStatus,
 
     -- ** PutEmailIdentityDkimSigningAttributes
     putEmailIdentityDkimSigningAttributes_signingAttributes,
@@ -326,17 +349,6 @@ module Network.AWS.SESv2.Lens
     putEmailIdentityDkimSigningAttributesResponse_dkimStatus,
     putEmailIdentityDkimSigningAttributesResponse_dkimTokens,
     putEmailIdentityDkimSigningAttributesResponse_httpStatus,
-
-    -- ** GetConfigurationSet
-    getConfigurationSet_configurationSetName,
-    getConfigurationSetResponse_trackingOptions,
-    getConfigurationSetResponse_deliveryOptions,
-    getConfigurationSetResponse_sendingOptions,
-    getConfigurationSetResponse_reputationOptions,
-    getConfigurationSetResponse_suppressionOptions,
-    getConfigurationSetResponse_tags,
-    getConfigurationSetResponse_configurationSetName,
-    getConfigurationSetResponse_httpStatus,
 
     -- ** GetContactList
     getContactList_contactListName,
@@ -347,18 +359,6 @@ module Network.AWS.SESv2.Lens
     getContactListResponse_description,
     getContactListResponse_contactListName,
     getContactListResponse_httpStatus,
-
-    -- ** GetEmailIdentity
-    getEmailIdentity_emailIdentity,
-    getEmailIdentityResponse_dkimAttributes,
-    getEmailIdentityResponse_feedbackForwardingStatus,
-    getEmailIdentityResponse_policies,
-    getEmailIdentityResponse_tags,
-    getEmailIdentityResponse_identityType,
-    getEmailIdentityResponse_mailFromAttributes,
-    getEmailIdentityResponse_verifiedForSendingStatus,
-    getEmailIdentityResponse_configurationSetName,
-    getEmailIdentityResponse_httpStatus,
 
     -- ** UpdateContact
     updateContact_unsubscribeAll,
@@ -394,16 +394,6 @@ module Network.AWS.SESv2.Lens
     listDeliverabilityTestReportsResponse_httpStatus,
     listDeliverabilityTestReportsResponse_deliverabilityTestReports,
 
-    -- ** CreateEmailIdentityPolicy
-    createEmailIdentityPolicy_emailIdentity,
-    createEmailIdentityPolicy_policyName,
-    createEmailIdentityPolicy_policy,
-    createEmailIdentityPolicyResponse_httpStatus,
-
-    -- ** PutAccountSuppressionAttributes
-    putAccountSuppressionAttributes_suppressedReasons,
-    putAccountSuppressionAttributesResponse_httpStatus,
-
     -- ** CreateImportJob
     createImportJob_importDestination,
     createImportJob_importDataSource,
@@ -414,14 +404,34 @@ module Network.AWS.SESv2.Lens
     getContact_contactListName,
     getContact_emailAddress,
     getContactResponse_createdTimestamp,
-    getContactResponse_unsubscribeAll,
     getContactResponse_topicDefaultPreferences,
+    getContactResponse_unsubscribeAll,
     getContactResponse_attributesData,
     getContactResponse_topicPreferences,
     getContactResponse_lastUpdatedTimestamp,
     getContactResponse_contactListName,
     getContactResponse_emailAddress,
     getContactResponse_httpStatus,
+
+    -- ** PutAccountSuppressionAttributes
+    putAccountSuppressionAttributes_suppressedReasons,
+    putAccountSuppressionAttributesResponse_httpStatus,
+
+    -- ** CreateEmailIdentityPolicy
+    createEmailIdentityPolicy_emailIdentity,
+    createEmailIdentityPolicy_policyName,
+    createEmailIdentityPolicy_policy,
+    createEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** PutAccountSendingAttributes
+    putAccountSendingAttributes_sendingEnabled,
+    putAccountSendingAttributesResponse_httpStatus,
+
+    -- ** UpdateContactList
+    updateContactList_topics,
+    updateContactList_description,
+    updateContactList_contactListName,
+    updateContactListResponse_httpStatus,
 
     -- ** ListConfigurationSets
     listConfigurationSets_nextToken,
@@ -430,21 +440,16 @@ module Network.AWS.SESv2.Lens
     listConfigurationSetsResponse_configurationSets,
     listConfigurationSetsResponse_httpStatus,
 
-    -- ** UpdateContactList
-    updateContactList_topics,
-    updateContactList_description,
-    updateContactList_contactListName,
-    updateContactListResponse_httpStatus,
+    -- ** ListContactLists
+    listContactLists_nextToken,
+    listContactLists_pageSize,
+    listContactListsResponse_nextToken,
+    listContactListsResponse_contactLists,
+    listContactListsResponse_httpStatus,
 
-    -- ** PutAccountSendingAttributes
-    putAccountSendingAttributes_sendingEnabled,
-    putAccountSendingAttributesResponse_httpStatus,
-
-    -- ** PutEmailIdentityMailFromAttributes
-    putEmailIdentityMailFromAttributes_mailFromDomain,
-    putEmailIdentityMailFromAttributes_behaviorOnMxFailure,
-    putEmailIdentityMailFromAttributes_emailIdentity,
-    putEmailIdentityMailFromAttributesResponse_httpStatus,
+    -- ** DeleteContactList
+    deleteContactList_contactListName,
+    deleteContactListResponse_httpStatus,
 
     -- ** CreateDeliverabilityTestReport
     createDeliverabilityTestReport_reportName,
@@ -459,21 +464,11 @@ module Network.AWS.SESv2.Lens
     deleteEmailIdentity_emailIdentity,
     deleteEmailIdentityResponse_httpStatus,
 
-    -- ** ListContactLists
-    listContactLists_nextToken,
-    listContactLists_pageSize,
-    listContactListsResponse_nextToken,
-    listContactListsResponse_contactLists,
-    listContactListsResponse_httpStatus,
-
-    -- ** DeleteContactList
-    deleteContactList_contactListName,
-    deleteContactListResponse_httpStatus,
-
-    -- ** PutDedicatedIpWarmupAttributes
-    putDedicatedIpWarmupAttributes_ip,
-    putDedicatedIpWarmupAttributes_warmupPercentage,
-    putDedicatedIpWarmupAttributesResponse_httpStatus,
+    -- ** PutEmailIdentityMailFromAttributes
+    putEmailIdentityMailFromAttributes_mailFromDomain,
+    putEmailIdentityMailFromAttributes_behaviorOnMxFailure,
+    putEmailIdentityMailFromAttributes_emailIdentity,
+    putEmailIdentityMailFromAttributesResponse_httpStatus,
 
     -- ** GetCustomVerificationEmailTemplate
     getCustomVerificationEmailTemplate_templateName,
@@ -485,22 +480,15 @@ module Network.AWS.SESv2.Lens
     getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
     getCustomVerificationEmailTemplateResponse_httpStatus,
 
+    -- ** PutDedicatedIpWarmupAttributes
+    putDedicatedIpWarmupAttributes_ip,
+    putDedicatedIpWarmupAttributes_warmupPercentage,
+    putDedicatedIpWarmupAttributesResponse_httpStatus,
+
     -- ** CreateEmailTemplate
     createEmailTemplate_templateName,
     createEmailTemplate_templateContent,
     createEmailTemplateResponse_httpStatus,
-
-    -- ** ListEmailTemplates
-    listEmailTemplates_nextToken,
-    listEmailTemplates_pageSize,
-    listEmailTemplatesResponse_nextToken,
-    listEmailTemplatesResponse_templatesMetadata,
-    listEmailTemplatesResponse_httpStatus,
-
-    -- ** UpdateEmailTemplate
-    updateEmailTemplate_templateName,
-    updateEmailTemplate_templateContent,
-    updateEmailTemplateResponse_httpStatus,
 
     -- ** GetDomainStatisticsReport
     getDomainStatisticsReport_domain,
@@ -510,14 +498,29 @@ module Network.AWS.SESv2.Lens
     getDomainStatisticsReportResponse_overallVolume,
     getDomainStatisticsReportResponse_dailyVolumes,
 
-    -- ** DeleteEmailTemplate
-    deleteEmailTemplate_templateName,
-    deleteEmailTemplateResponse_httpStatus,
-
     -- ** PutEmailIdentityFeedbackAttributes
     putEmailIdentityFeedbackAttributes_emailForwardingEnabled,
     putEmailIdentityFeedbackAttributes_emailIdentity,
     putEmailIdentityFeedbackAttributesResponse_httpStatus,
+
+    -- ** GetDeliverabilityDashboardOptions
+    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
+    getDeliverabilityDashboardOptionsResponse_accountStatus,
+    getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_httpStatus,
+    getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
+
+    -- ** ListEmailTemplates
+    listEmailTemplates_nextToken,
+    listEmailTemplates_pageSize,
+    listEmailTemplatesResponse_nextToken,
+    listEmailTemplatesResponse_templatesMetadata,
+    listEmailTemplatesResponse_httpStatus,
+
+    -- ** DeleteEmailTemplate
+    deleteEmailTemplate_templateName,
+    deleteEmailTemplateResponse_httpStatus,
 
     -- ** ListSuppressedDestinations
     listSuppressedDestinations_nextToken,
@@ -529,22 +532,24 @@ module Network.AWS.SESv2.Lens
     listSuppressedDestinationsResponse_suppressedDestinationSummaries,
     listSuppressedDestinationsResponse_httpStatus,
 
+    -- ** UpdateEmailTemplate
+    updateEmailTemplate_templateName,
+    updateEmailTemplate_templateContent,
+    updateEmailTemplateResponse_httpStatus,
+
     -- ** DeleteSuppressedDestination
     deleteSuppressedDestination_emailAddress,
     deleteSuppressedDestinationResponse_httpStatus,
 
-    -- ** GetDeliverabilityDashboardOptions
-    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
-    getDeliverabilityDashboardOptionsResponse_accountStatus,
-    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
-    getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
-    getDeliverabilityDashboardOptionsResponse_httpStatus,
-    getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
+    -- ** GetEmailIdentityPolicies
+    getEmailIdentityPolicies_emailIdentity,
+    getEmailIdentityPoliciesResponse_policies,
+    getEmailIdentityPoliciesResponse_httpStatus,
 
-    -- ** CreateDedicatedIpPool
-    createDedicatedIpPool_tags,
-    createDedicatedIpPool_poolName,
-    createDedicatedIpPoolResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
 
     -- ** SendCustomVerificationEmail
     sendCustomVerificationEmail_configurationSetName,
@@ -553,15 +558,10 @@ module Network.AWS.SESv2.Lens
     sendCustomVerificationEmailResponse_messageId,
     sendCustomVerificationEmailResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
-
-    -- ** GetEmailIdentityPolicies
-    getEmailIdentityPolicies_emailIdentity,
-    getEmailIdentityPoliciesResponse_policies,
-    getEmailIdentityPoliciesResponse_httpStatus,
+    -- ** CreateDedicatedIpPool
+    createDedicatedIpPool_tags,
+    createDedicatedIpPool_poolName,
+    createDedicatedIpPoolResponse_httpStatus,
 
     -- * Types
 
@@ -604,8 +604,8 @@ module Network.AWS.SESv2.Lens
     cloudWatchDimensionConfiguration_defaultDimensionValue,
 
     -- ** Contact
-    contact_unsubscribeAll,
     contact_topicDefaultPreferences,
+    contact_unsubscribeAll,
     contact_topicPreferences,
     contact_lastUpdatedTimestamp,
     contact_emailAddress,
@@ -659,8 +659,8 @@ module Network.AWS.SESv2.Lens
 
     -- ** DkimAttributes
     dkimAttributes_status,
-    dkimAttributes_tokens,
     dkimAttributes_signingAttributesOrigin,
+    dkimAttributes_tokens,
     dkimAttributes_signingEnabled,
 
     -- ** DkimSigningAttributes
@@ -669,18 +669,18 @@ module Network.AWS.SESv2.Lens
 
     -- ** DomainDeliverabilityCampaign
     domainDeliverabilityCampaign_projectedVolume,
-    domainDeliverabilityCampaign_readDeleteRate,
     domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_readDeleteRate,
     domainDeliverabilityCampaign_firstSeenDateTime,
     domainDeliverabilityCampaign_lastSeenDateTime,
-    domainDeliverabilityCampaign_deleteRate,
     domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_spamCount,
+    domainDeliverabilityCampaign_deleteRate,
     domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_spamCount,
     domainDeliverabilityCampaign_subject,
     domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_readRate,
+    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_esps,
 
     -- ** DomainDeliverabilityTrackingOption
@@ -731,8 +731,8 @@ module Network.AWS.SESv2.Lens
     failureInfo_errorMessage,
 
     -- ** IdentityInfo
-    identityInfo_identityName,
     identityInfo_sendingEnabled,
+    identityInfo_identityName,
     identityInfo_identityType,
 
     -- ** ImportDataSource

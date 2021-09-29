@@ -47,8 +47,8 @@ module Network.AWS.Redshift.DescribeClusters
     describeClusters_tagKeys,
     describeClusters_clusterIdentifier,
     describeClusters_tagValues,
-    describeClusters_marker,
     describeClusters_maxRecords,
+    describeClusters_marker,
 
     -- * Destructuring the Response
     DescribeClustersResponse (..),
@@ -91,16 +91,6 @@ data DescribeClusters = DescribeClusters'
     -- request, Amazon Redshift returns a response with the clusters that have
     -- either or both of these tag values associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusters request
-    -- exceed the value specified in @MaxRecords@, AWS returns a value in the
-    -- @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    --
-    -- Constraints: You can specify either the __ClusterIdentifier__ parameter
-    -- or the __Marker__ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -110,7 +100,17 @@ data DescribeClusters = DescribeClusters'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusters request
+    -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+    -- a value in the @Marker@ field of the response. You can retrieve the next
+    -- set of response records by providing the returned marker value in the
+    -- @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __ClusterIdentifier__ parameter
+    -- or the __Marker__ parameter, but not both.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,16 +141,6 @@ data DescribeClusters = DescribeClusters'
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
 --
--- 'marker', 'describeClusters_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterIdentifier__ parameter
--- or the __Marker__ parameter, but not both.
---
 -- 'maxRecords', 'describeClusters_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -160,6 +150,16 @@ data DescribeClusters = DescribeClusters'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeClusters_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusters request
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __ClusterIdentifier__ parameter
+-- or the __Marker__ parameter, but not both.
 newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
@@ -167,8 +167,8 @@ newDescribeClusters =
     { tagKeys = Prelude.Nothing,
       clusterIdentifier = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A tag key or keys for which you want to return all matching clusters
@@ -196,18 +196,6 @@ describeClusters_clusterIdentifier = Lens.lens (\DescribeClusters' {clusterIdent
 describeClusters_tagValues :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
 describeClusters_tagValues = Lens.lens (\DescribeClusters' {tagValues} -> tagValues) (\s@DescribeClusters' {} a -> s {tagValues = a} :: DescribeClusters) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterIdentifier__ parameter
--- or the __Marker__ parameter, but not both.
-describeClusters_marker :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
-describeClusters_marker = Lens.lens (\DescribeClusters' {marker} -> marker) (\s@DescribeClusters' {} a -> s {marker = a} :: DescribeClusters)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -219,6 +207,18 @@ describeClusters_marker = Lens.lens (\DescribeClusters' {marker} -> marker) (\s@
 -- Constraints: minimum 20, maximum 100.
 describeClusters_maxRecords :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Int)
 describeClusters_maxRecords = Lens.lens (\DescribeClusters' {maxRecords} -> maxRecords) (\s@DescribeClusters' {} a -> s {maxRecords = a} :: DescribeClusters)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusters request
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __ClusterIdentifier__ parameter
+-- or the __Marker__ parameter, but not both.
+describeClusters_marker :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_marker = Lens.lens (\DescribeClusters' {marker} -> marker) (\s@DescribeClusters' {} a -> s {marker = a} :: DescribeClusters)
 
 instance Core.AWSPager DescribeClusters where
   page rq rs
@@ -281,8 +281,8 @@ instance Core.ToQuery DescribeClusters where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the output from the DescribeClusters action.

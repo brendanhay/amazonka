@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the Amazon Route 53 DNS records and health check, if any, that
--- AWS Cloud Map created for the specified instance.
+-- Deletes the Amazon Route 53 DNS records and health check, if any, that
+-- Cloud Map created for the specified instance.
 module Network.AWS.Route53AutoNaming.DeregisterInstance
   ( -- * Creating a Request
     DeregisterInstance (..),
@@ -144,7 +144,7 @@ instance Core.ToQuery DeregisterInstance where
 -- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
   { -- | A value that you can use to determine whether the request completed
-    -- successfully. For more information, see
+    -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -161,7 +161,7 @@ data DeregisterInstanceResponse = DeregisterInstanceResponse'
 -- for backwards compatibility:
 --
 -- 'operationId', 'deregisterInstanceResponse_operationId' - A value that you can use to determine whether the request completed
--- successfully. For more information, see
+-- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
 --
 -- 'httpStatus', 'deregisterInstanceResponse_httpStatus' - The response's http status code.
@@ -177,7 +177,7 @@ newDeregisterInstanceResponse pHttpStatus_ =
     }
 
 -- | A value that you can use to determine whether the request completed
--- successfully. For more information, see
+-- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
 deregisterInstanceResponse_operationId :: Lens.Lens' DeregisterInstanceResponse (Prelude.Maybe Prelude.Text)
 deregisterInstanceResponse_operationId = Lens.lens (\DeregisterInstanceResponse' {operationId} -> operationId) (\s@DeregisterInstanceResponse' {} a -> s {operationId = a} :: DeregisterInstanceResponse)

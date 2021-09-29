@@ -64,14 +64,14 @@ data UserImportJobType = UserImportJobType'
     skippedUsers :: Prelude.Maybe Prelude.Integer,
     -- | The number of users that could not be imported.
     failedUsers :: Prelude.Maybe Prelude.Integer,
-    -- | The number of users that were successfully imported.
-    importedUsers :: Prelude.Maybe Prelude.Integer,
+    -- | The pre-signed URL to be used to upload the @.csv@ file.
+    preSignedUrl :: Prelude.Maybe Prelude.Text,
     -- | The role ARN for the Amazon CloudWatch Logging role for the user import
     -- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
     -- in the Amazon Cognito Developer Guide.
     cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The pre-signed URL to be used to upload the @.csv@ file.
-    preSignedUrl :: Prelude.Maybe Prelude.Text,
+    -- | The number of users that were successfully imported.
+    importedUsers :: Prelude.Maybe Prelude.Integer,
     -- | The date when the user import job was completed.
     completionDate :: Prelude.Maybe Core.POSIX,
     -- | The job name for the user import job.
@@ -125,13 +125,13 @@ data UserImportJobType = UserImportJobType'
 --
 -- 'failedUsers', 'userImportJobType_failedUsers' - The number of users that could not be imported.
 --
--- 'importedUsers', 'userImportJobType_importedUsers' - The number of users that were successfully imported.
+-- 'preSignedUrl', 'userImportJobType_preSignedUrl' - The pre-signed URL to be used to upload the @.csv@ file.
 --
 -- 'cloudWatchLogsRoleArn', 'userImportJobType_cloudWatchLogsRoleArn' - The role ARN for the Amazon CloudWatch Logging role for the user import
 -- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
 -- in the Amazon Cognito Developer Guide.
 --
--- 'preSignedUrl', 'userImportJobType_preSignedUrl' - The pre-signed URL to be used to upload the @.csv@ file.
+-- 'importedUsers', 'userImportJobType_importedUsers' - The number of users that were successfully imported.
 --
 -- 'completionDate', 'userImportJobType_completionDate' - The date when the user import job was completed.
 --
@@ -150,9 +150,9 @@ newUserImportJobType =
       creationDate = Prelude.Nothing,
       skippedUsers = Prelude.Nothing,
       failedUsers = Prelude.Nothing,
-      importedUsers = Prelude.Nothing,
-      cloudWatchLogsRoleArn = Prelude.Nothing,
       preSignedUrl = Prelude.Nothing,
+      cloudWatchLogsRoleArn = Prelude.Nothing,
+      importedUsers = Prelude.Nothing,
       completionDate = Prelude.Nothing,
       jobName = Prelude.Nothing,
       jobId = Prelude.Nothing
@@ -208,9 +208,9 @@ userImportJobType_skippedUsers = Lens.lens (\UserImportJobType' {skippedUsers} -
 userImportJobType_failedUsers :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Integer)
 userImportJobType_failedUsers = Lens.lens (\UserImportJobType' {failedUsers} -> failedUsers) (\s@UserImportJobType' {} a -> s {failedUsers = a} :: UserImportJobType)
 
--- | The number of users that were successfully imported.
-userImportJobType_importedUsers :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Integer)
-userImportJobType_importedUsers = Lens.lens (\UserImportJobType' {importedUsers} -> importedUsers) (\s@UserImportJobType' {} a -> s {importedUsers = a} :: UserImportJobType)
+-- | The pre-signed URL to be used to upload the @.csv@ file.
+userImportJobType_preSignedUrl :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
+userImportJobType_preSignedUrl = Lens.lens (\UserImportJobType' {preSignedUrl} -> preSignedUrl) (\s@UserImportJobType' {} a -> s {preSignedUrl = a} :: UserImportJobType)
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import
 -- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
@@ -218,9 +218,9 @@ userImportJobType_importedUsers = Lens.lens (\UserImportJobType' {importedUsers}
 userImportJobType_cloudWatchLogsRoleArn :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
 userImportJobType_cloudWatchLogsRoleArn = Lens.lens (\UserImportJobType' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@UserImportJobType' {} a -> s {cloudWatchLogsRoleArn = a} :: UserImportJobType)
 
--- | The pre-signed URL to be used to upload the @.csv@ file.
-userImportJobType_preSignedUrl :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
-userImportJobType_preSignedUrl = Lens.lens (\UserImportJobType' {preSignedUrl} -> preSignedUrl) (\s@UserImportJobType' {} a -> s {preSignedUrl = a} :: UserImportJobType)
+-- | The number of users that were successfully imported.
+userImportJobType_importedUsers :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Integer)
+userImportJobType_importedUsers = Lens.lens (\UserImportJobType' {importedUsers} -> importedUsers) (\s@UserImportJobType' {} a -> s {importedUsers = a} :: UserImportJobType)
 
 -- | The date when the user import job was completed.
 userImportJobType_completionDate :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.UTCTime)
@@ -247,9 +247,9 @@ instance Core.FromJSON UserImportJobType where
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "SkippedUsers")
             Prelude.<*> (x Core..:? "FailedUsers")
-            Prelude.<*> (x Core..:? "ImportedUsers")
-            Prelude.<*> (x Core..:? "CloudWatchLogsRoleArn")
             Prelude.<*> (x Core..:? "PreSignedUrl")
+            Prelude.<*> (x Core..:? "CloudWatchLogsRoleArn")
+            Prelude.<*> (x Core..:? "ImportedUsers")
             Prelude.<*> (x Core..:? "CompletionDate")
             Prelude.<*> (x Core..:? "JobName")
             Prelude.<*> (x Core..:? "JobId")

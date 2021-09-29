@@ -80,6 +80,7 @@ library
     Network.AWS.Rekognition.ListCollections
     Network.AWS.Rekognition.ListFaces
     Network.AWS.Rekognition.ListStreamProcessors
+    Network.AWS.Rekognition.ListTagsForResource
     Network.AWS.Rekognition.RecognizeCelebrities
     Network.AWS.Rekognition.SearchFaces
     Network.AWS.Rekognition.SearchFacesByImage
@@ -95,12 +96,14 @@ library
     Network.AWS.Rekognition.StartTextDetection
     Network.AWS.Rekognition.StopProjectVersion
     Network.AWS.Rekognition.StopStreamProcessor
+    Network.AWS.Rekognition.TagResource
     Network.AWS.Rekognition.Types
     Network.AWS.Rekognition.Types.AgeRange
     Network.AWS.Rekognition.Types.Asset
     Network.AWS.Rekognition.Types.Attribute
     Network.AWS.Rekognition.Types.AudioMetadata
     Network.AWS.Rekognition.Types.Beard
+    Network.AWS.Rekognition.Types.BlackFrame
     Network.AWS.Rekognition.Types.BodyPart
     Network.AWS.Rekognition.Types.BoundingBox
     Network.AWS.Rekognition.Types.Celebrity
@@ -143,6 +146,8 @@ library
     Network.AWS.Rekognition.Types.Instance
     Network.AWS.Rekognition.Types.KinesisDataStream
     Network.AWS.Rekognition.Types.KinesisVideoStream
+    Network.AWS.Rekognition.Types.KnownGender
+    Network.AWS.Rekognition.Types.KnownGenderType
     Network.AWS.Rekognition.Types.Label
     Network.AWS.Rekognition.Types.LabelDetection
     Network.AWS.Rekognition.Types.LabelDetectionSortBy
@@ -202,8 +207,10 @@ library
     Network.AWS.Rekognition.Types.UnindexedFace
     Network.AWS.Rekognition.Types.ValidationData
     Network.AWS.Rekognition.Types.Video
+    Network.AWS.Rekognition.Types.VideoColorRange
     Network.AWS.Rekognition.Types.VideoJobStatus
     Network.AWS.Rekognition.Types.VideoMetadata
+    Network.AWS.Rekognition.UntagResource
     Network.AWS.Rekognition.Waiters
 
   reexported-modules: Network.AWS

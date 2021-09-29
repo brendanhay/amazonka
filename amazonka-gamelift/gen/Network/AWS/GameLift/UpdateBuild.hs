@@ -29,17 +29,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateBuild
---
--- -   ListBuilds
---
--- -   DescribeBuild
---
--- -   UpdateBuild
---
--- -   DeleteBuild
+-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateBuild
   ( -- * Creating a Request
     UpdateBuild (..),
@@ -77,8 +70,8 @@ data UpdateBuild = UpdateBuild'
     -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a build to update. You can use either the build
-    -- ID or ARN value.
+    -- | A unique identifier for the build to update. You can use either the
+    -- build ID or ARN value.
     buildId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,8 +90,8 @@ data UpdateBuild = UpdateBuild'
 -- 'name', 'updateBuild_name' - A descriptive label that is associated with a build. Build names do not
 -- need to be unique.
 --
--- 'buildId', 'updateBuild_buildId' - A unique identifier for a build to update. You can use either the build
--- ID or ARN value.
+-- 'buildId', 'updateBuild_buildId' - A unique identifier for the build to update. You can use either the
+-- build ID or ARN value.
 newUpdateBuild ::
   -- | 'buildId'
   Prelude.Text ->
@@ -120,8 +113,8 @@ updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateB
 updateBuild_name :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_name = Lens.lens (\UpdateBuild' {name} -> name) (\s@UpdateBuild' {} a -> s {name = a} :: UpdateBuild)
 
--- | A unique identifier for a build to update. You can use either the build
--- ID or ARN value.
+-- | A unique identifier for the build to update. You can use either the
+-- build ID or ARN value.
 updateBuild_buildId :: Lens.Lens' UpdateBuild Prelude.Text
 updateBuild_buildId = Lens.lens (\UpdateBuild' {buildId} -> buildId) (\s@UpdateBuild' {} a -> s {buildId = a} :: UpdateBuild)
 

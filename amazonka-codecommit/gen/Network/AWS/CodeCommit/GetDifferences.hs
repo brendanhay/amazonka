@@ -31,8 +31,8 @@ module Network.AWS.CodeCommit.GetDifferences
     newGetDifferences,
 
     -- * Request Lenses
-    getDifferences_nextToken,
     getDifferences_beforeCommitSpecifier,
+    getDifferences_nextToken,
     getDifferences_maxResults,
     getDifferences_beforePath,
     getDifferences_afterPath,
@@ -44,8 +44,8 @@ module Network.AWS.CodeCommit.GetDifferences
     newGetDifferencesResponse,
 
     -- * Response Lenses
-    getDifferencesResponse_nextToken,
     getDifferencesResponse_differences,
+    getDifferencesResponse_nextToken,
     getDifferencesResponse_httpStatus,
   )
 where
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDifferences' smart constructor.
 data GetDifferences = GetDifferences'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The branch, tag, HEAD, or other fully qualified reference used to
+  { -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, the full commit ID). Optional. If not
     -- specified, all changes before the @afterCommitSpecifier@ value are
     -- shown. If you do not use @beforeCommitSpecifier@ in your request,
     -- consider limiting the results with @maxResults@.
     beforeCommitSpecifier :: Prelude.Maybe Prelude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results.
     maxResults :: Prelude.Maybe Prelude.Int,
@@ -97,14 +97,14 @@ data GetDifferences = GetDifferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDifferences_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
 -- 'beforeCommitSpecifier', 'getDifferences_beforeCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, the full commit ID). Optional. If not
 -- specified, all changes before the @afterCommitSpecifier@ value are
 -- shown. If you do not use @beforeCommitSpecifier@ in your request,
 -- consider limiting the results with @maxResults@.
+--
+-- 'nextToken', 'getDifferences_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
 --
 -- 'maxResults', 'getDifferences_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results.
@@ -133,19 +133,15 @@ newGetDifferences
   pRepositoryName_
   pAfterCommitSpecifier_ =
     GetDifferences'
-      { nextToken = Prelude.Nothing,
-        beforeCommitSpecifier = Prelude.Nothing,
+      { beforeCommitSpecifier =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         beforePath = Prelude.Nothing,
         afterPath = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         afterCommitSpecifier = pAfterCommitSpecifier_
       }
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-getDifferences_nextToken :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
-getDifferences_nextToken = Lens.lens (\GetDifferences' {nextToken} -> nextToken) (\s@GetDifferences' {} a -> s {nextToken = a} :: GetDifferences)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, the full commit ID). Optional. If not
@@ -154,6 +150,11 @@ getDifferences_nextToken = Lens.lens (\GetDifferences' {nextToken} -> nextToken)
 -- consider limiting the results with @maxResults@.
 getDifferences_beforeCommitSpecifier :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
 getDifferences_beforeCommitSpecifier = Lens.lens (\GetDifferences' {beforeCommitSpecifier} -> beforeCommitSpecifier) (\s@GetDifferences' {} a -> s {beforeCommitSpecifier = a} :: GetDifferences)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+getDifferences_nextToken :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
+getDifferences_nextToken = Lens.lens (\GetDifferences' {nextToken} -> nextToken) (\s@GetDifferences' {} a -> s {nextToken = a} :: GetDifferences)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results.
@@ -213,8 +214,8 @@ instance Core.AWSRequest GetDifferences where
     Response.receiveJSON
       ( \s h x ->
           GetDifferencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "differences" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "differences" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,9 +242,9 @@ instance Core.ToJSON GetDifferences where
   toJSON GetDifferences' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("beforeCommitSpecifier" Core..=)
+          [ ("beforeCommitSpecifier" Core..=)
               Prelude.<$> beforeCommitSpecifier,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("beforePath" Core..=) Prelude.<$> beforePath,
             ("afterPath" Core..=) Prelude.<$> afterPath,
@@ -264,13 +265,13 @@ instance Core.ToQuery GetDifferences where
 
 -- | /See:/ 'newGetDifferencesResponse' smart constructor.
 data GetDifferencesResponse = GetDifferencesResponse'
-  { -- | An enumeration token that can be used in a request to return the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A data type object that contains information about the differences,
+  { -- | A data type object that contains information about the differences,
     -- including whether the difference is added, modified, or deleted (A, D,
     -- M).
     differences :: Prelude.Maybe [Difference],
+    -- | An enumeration token that can be used in a request to return the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -284,12 +285,12 @@ data GetDifferencesResponse = GetDifferencesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDifferencesResponse_nextToken' - An enumeration token that can be used in a request to return the next
--- batch of the results.
---
 -- 'differences', 'getDifferencesResponse_differences' - A data type object that contains information about the differences,
 -- including whether the difference is added, modified, or deleted (A, D,
 -- M).
+--
+-- 'nextToken', 'getDifferencesResponse_nextToken' - An enumeration token that can be used in a request to return the next
+-- batch of the results.
 --
 -- 'httpStatus', 'getDifferencesResponse_httpStatus' - The response's http status code.
 newGetDifferencesResponse ::
@@ -298,22 +299,22 @@ newGetDifferencesResponse ::
   GetDifferencesResponse
 newGetDifferencesResponse pHttpStatus_ =
   GetDifferencesResponse'
-    { nextToken =
+    { differences =
         Prelude.Nothing,
-      differences = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An enumeration token that can be used in a request to return the next
--- batch of the results.
-getDifferencesResponse_nextToken :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe Prelude.Text)
-getDifferencesResponse_nextToken = Lens.lens (\GetDifferencesResponse' {nextToken} -> nextToken) (\s@GetDifferencesResponse' {} a -> s {nextToken = a} :: GetDifferencesResponse)
 
 -- | A data type object that contains information about the differences,
 -- including whether the difference is added, modified, or deleted (A, D,
 -- M).
 getDifferencesResponse_differences :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe [Difference])
 getDifferencesResponse_differences = Lens.lens (\GetDifferencesResponse' {differences} -> differences) (\s@GetDifferencesResponse' {} a -> s {differences = a} :: GetDifferencesResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An enumeration token that can be used in a request to return the next
+-- batch of the results.
+getDifferencesResponse_nextToken :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe Prelude.Text)
+getDifferencesResponse_nextToken = Lens.lens (\GetDifferencesResponse' {nextToken} -> nextToken) (\s@GetDifferencesResponse' {} a -> s {nextToken = a} :: GetDifferencesResponse)
 
 -- | The response's http status code.
 getDifferencesResponse_httpStatus :: Lens.Lens' GetDifferencesResponse Prelude.Int

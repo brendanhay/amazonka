@@ -21,6 +21,7 @@ module Network.AWS.MediaPackage.Types.SpekeKeyProvider where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A configuration for accessing an external Secure Packager and Encoder
@@ -32,6 +33,7 @@ data SpekeKeyProvider = SpekeKeyProvider'
     -- MediaPackage will use for enforcing secure end-to-end data transfer with
     -- the key provider service.
     certificateArn :: Prelude.Maybe Prelude.Text,
+    encryptionContractConfiguration :: Prelude.Maybe EncryptionContractConfiguration,
     -- | The resource ID to include in key requests.
     resourceId :: Prelude.Text,
     -- | The system IDs to include in key requests.
@@ -56,6 +58,8 @@ data SpekeKeyProvider = SpekeKeyProvider'
 -- MediaPackage will use for enforcing secure end-to-end data transfer with
 -- the key provider service.
 --
+-- 'encryptionContractConfiguration', 'spekeKeyProvider_encryptionContractConfiguration' - Undocumented member.
+--
 -- 'resourceId', 'spekeKeyProvider_resourceId' - The resource ID to include in key requests.
 --
 -- 'systemIds', 'spekeKeyProvider_systemIds' - The system IDs to include in key requests.
@@ -75,6 +79,7 @@ newSpekeKeyProvider ::
 newSpekeKeyProvider pResourceId_ pUrl_ pRoleArn_ =
   SpekeKeyProvider'
     { certificateArn = Prelude.Nothing,
+      encryptionContractConfiguration = Prelude.Nothing,
       resourceId = pResourceId_,
       systemIds = Prelude.mempty,
       url = pUrl_,
@@ -86,6 +91,10 @@ newSpekeKeyProvider pResourceId_ pUrl_ pRoleArn_ =
 -- the key provider service.
 spekeKeyProvider_certificateArn :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe Prelude.Text)
 spekeKeyProvider_certificateArn = Lens.lens (\SpekeKeyProvider' {certificateArn} -> certificateArn) (\s@SpekeKeyProvider' {} a -> s {certificateArn = a} :: SpekeKeyProvider)
+
+-- | Undocumented member.
+spekeKeyProvider_encryptionContractConfiguration :: Lens.Lens' SpekeKeyProvider (Prelude.Maybe EncryptionContractConfiguration)
+spekeKeyProvider_encryptionContractConfiguration = Lens.lens (\SpekeKeyProvider' {encryptionContractConfiguration} -> encryptionContractConfiguration) (\s@SpekeKeyProvider' {} a -> s {encryptionContractConfiguration = a} :: SpekeKeyProvider)
 
 -- | The resource ID to include in key requests.
 spekeKeyProvider_resourceId :: Lens.Lens' SpekeKeyProvider Prelude.Text
@@ -111,6 +120,7 @@ instance Core.FromJSON SpekeKeyProvider where
       ( \x ->
           SpekeKeyProvider'
             Prelude.<$> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..:? "encryptionContractConfiguration")
             Prelude.<*> (x Core..: "resourceId")
             Prelude.<*> (x Core..:? "systemIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "url")
@@ -127,6 +137,8 @@ instance Core.ToJSON SpekeKeyProvider where
       ( Prelude.catMaybes
           [ ("certificateArn" Core..=)
               Prelude.<$> certificateArn,
+            ("encryptionContractConfiguration" Core..=)
+              Prelude.<$> encryptionContractConfiguration,
             Prelude.Just ("resourceId" Core..= resourceId),
             Prelude.Just ("systemIds" Core..= systemIds),
             Prelude.Just ("url" Core..= url),

@@ -20,9 +20,11 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
   ( DvbSubtitleFontColor
       ( ..,
+        DvbSubtitleFontColor_AUTO,
         DvbSubtitleFontColor_BLACK,
         DvbSubtitleFontColor_BLUE,
         DvbSubtitleFontColor_GREEN,
+        DvbSubtitleFontColor_HEX,
         DvbSubtitleFontColor_RED,
         DvbSubtitleFontColor_WHITE,
         DvbSubtitleFontColor_YELLOW
@@ -33,7 +35,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies the color of the burned-in captions. This option is not valid
+-- | Specifies the color of the DVB-SUB captions. This option is not valid
 -- for source captions that are STL, 608\/embedded or teletext. These
 -- source settings are already pre-defined by the caption stream. All
 -- burn-in and DVB-Sub font settings must match.
@@ -65,6 +67,9 @@ newtype DvbSubtitleFontColor = DvbSubtitleFontColor'
       Core.ToXML
     )
 
+pattern DvbSubtitleFontColor_AUTO :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColor_AUTO = DvbSubtitleFontColor' "AUTO"
+
 pattern DvbSubtitleFontColor_BLACK :: DvbSubtitleFontColor
 pattern DvbSubtitleFontColor_BLACK = DvbSubtitleFontColor' "BLACK"
 
@@ -73,6 +78,9 @@ pattern DvbSubtitleFontColor_BLUE = DvbSubtitleFontColor' "BLUE"
 
 pattern DvbSubtitleFontColor_GREEN :: DvbSubtitleFontColor
 pattern DvbSubtitleFontColor_GREEN = DvbSubtitleFontColor' "GREEN"
+
+pattern DvbSubtitleFontColor_HEX :: DvbSubtitleFontColor
+pattern DvbSubtitleFontColor_HEX = DvbSubtitleFontColor' "HEX"
 
 pattern DvbSubtitleFontColor_RED :: DvbSubtitleFontColor
 pattern DvbSubtitleFontColor_RED = DvbSubtitleFontColor' "RED"
@@ -84,9 +92,11 @@ pattern DvbSubtitleFontColor_YELLOW :: DvbSubtitleFontColor
 pattern DvbSubtitleFontColor_YELLOW = DvbSubtitleFontColor' "YELLOW"
 
 {-# COMPLETE
+  DvbSubtitleFontColor_AUTO,
   DvbSubtitleFontColor_BLACK,
   DvbSubtitleFontColor_BLUE,
   DvbSubtitleFontColor_GREEN,
+  DvbSubtitleFontColor_HEX,
   DvbSubtitleFontColor_RED,
   DvbSubtitleFontColor_WHITE,
   DvbSubtitleFontColor_YELLOW,

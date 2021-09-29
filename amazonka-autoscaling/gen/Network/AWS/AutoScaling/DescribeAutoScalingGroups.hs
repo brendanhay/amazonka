@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling groups.
+-- Gets information about the Auto Scaling groups in the account and
+-- Region.
+--
+-- This operation returns information about instances in Auto Scaling
+-- groups. To retrieve information about the instances in a warm pool, you
+-- must call the DescribeWarmPool API.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups

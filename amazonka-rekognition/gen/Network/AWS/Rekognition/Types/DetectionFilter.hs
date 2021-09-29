@@ -32,9 +32,9 @@ data DetectionFilter = DetectionFilter'
     -- boxes widths lesser than this value will be excluded from the result.
     -- Value is relative to the video frame width.
     minBoundingBoxWidth :: Prelude.Maybe Prelude.Double,
-    -- | Sets confidence of word detection. Words with detection confidence below
-    -- this will be excluded from the result. Values should be between 0.5 and
-    -- 1 as Text in Video will not return any result below 0.5.
+    -- | Sets the confidence of word detection. Words with detection confidence
+    -- below this will be excluded from the result. Values should be between 50
+    -- and 100 as Text in Video will not return any result below 50.
     minConfidence :: Prelude.Maybe Prelude.Double,
     -- | Sets the minimum height of the word bounding box. Words with bounding
     -- box heights lesser than this value will be excluded from the result.
@@ -55,9 +55,9 @@ data DetectionFilter = DetectionFilter'
 -- boxes widths lesser than this value will be excluded from the result.
 -- Value is relative to the video frame width.
 --
--- 'minConfidence', 'detectionFilter_minConfidence' - Sets confidence of word detection. Words with detection confidence below
--- this will be excluded from the result. Values should be between 0.5 and
--- 1 as Text in Video will not return any result below 0.5.
+-- 'minConfidence', 'detectionFilter_minConfidence' - Sets the confidence of word detection. Words with detection confidence
+-- below this will be excluded from the result. Values should be between 50
+-- and 100 as Text in Video will not return any result below 50.
 --
 -- 'minBoundingBoxHeight', 'detectionFilter_minBoundingBoxHeight' - Sets the minimum height of the word bounding box. Words with bounding
 -- box heights lesser than this value will be excluded from the result.
@@ -78,9 +78,9 @@ newDetectionFilter =
 detectionFilter_minBoundingBoxWidth :: Lens.Lens' DetectionFilter (Prelude.Maybe Prelude.Double)
 detectionFilter_minBoundingBoxWidth = Lens.lens (\DetectionFilter' {minBoundingBoxWidth} -> minBoundingBoxWidth) (\s@DetectionFilter' {} a -> s {minBoundingBoxWidth = a} :: DetectionFilter)
 
--- | Sets confidence of word detection. Words with detection confidence below
--- this will be excluded from the result. Values should be between 0.5 and
--- 1 as Text in Video will not return any result below 0.5.
+-- | Sets the confidence of word detection. Words with detection confidence
+-- below this will be excluded from the result. Values should be between 50
+-- and 100 as Text in Video will not return any result below 50.
 detectionFilter_minConfidence :: Lens.Lens' DetectionFilter (Prelude.Maybe Prelude.Double)
 detectionFilter_minConfidence = Lens.lens (\DetectionFilter' {minConfidence} -> minConfidence) (\s@DetectionFilter' {} a -> s {minConfidence = a} :: DetectionFilter)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about data set contents that have been created.
+-- Lists information about dataset contents that have been created.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListDatasetContents
@@ -59,15 +59,15 @@ data ListDatasetContents = ListDatasetContents'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter to limit results to those data set contents whose creation is
+    -- | A filter to limit results to those dataset contents whose creation is
     -- scheduled before the given time. See the field @triggers.schedule@ in
     -- the @CreateDataset@ request. (timestamp)
     scheduledBefore :: Prelude.Maybe Core.POSIX,
-    -- | A filter to limit results to those data set contents whose creation is
+    -- | A filter to limit results to those dataset contents whose creation is
     -- scheduled on or after the given time. See the field @triggers.schedule@
     -- in the @CreateDataset@ request. (timestamp)
     scheduledOnOrAfter :: Prelude.Maybe Core.POSIX,
-    -- | The name of the data set whose contents information you want to list.
+    -- | The name of the dataset whose contents information you want to list.
     datasetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,15 +84,15 @@ data ListDatasetContents = ListDatasetContents'
 --
 -- 'maxResults', 'listDatasetContents_maxResults' - The maximum number of results to return in this request.
 --
--- 'scheduledBefore', 'listDatasetContents_scheduledBefore' - A filter to limit results to those data set contents whose creation is
+-- 'scheduledBefore', 'listDatasetContents_scheduledBefore' - A filter to limit results to those dataset contents whose creation is
 -- scheduled before the given time. See the field @triggers.schedule@ in
 -- the @CreateDataset@ request. (timestamp)
 --
--- 'scheduledOnOrAfter', 'listDatasetContents_scheduledOnOrAfter' - A filter to limit results to those data set contents whose creation is
+-- 'scheduledOnOrAfter', 'listDatasetContents_scheduledOnOrAfter' - A filter to limit results to those dataset contents whose creation is
 -- scheduled on or after the given time. See the field @triggers.schedule@
 -- in the @CreateDataset@ request. (timestamp)
 --
--- 'datasetName', 'listDatasetContents_datasetName' - The name of the data set whose contents information you want to list.
+-- 'datasetName', 'listDatasetContents_datasetName' - The name of the dataset whose contents information you want to list.
 newListDatasetContents ::
   -- | 'datasetName'
   Prelude.Text ->
@@ -114,19 +114,19 @@ listDatasetContents_nextToken = Lens.lens (\ListDatasetContents' {nextToken} -> 
 listDatasetContents_maxResults :: Lens.Lens' ListDatasetContents (Prelude.Maybe Prelude.Natural)
 listDatasetContents_maxResults = Lens.lens (\ListDatasetContents' {maxResults} -> maxResults) (\s@ListDatasetContents' {} a -> s {maxResults = a} :: ListDatasetContents)
 
--- | A filter to limit results to those data set contents whose creation is
+-- | A filter to limit results to those dataset contents whose creation is
 -- scheduled before the given time. See the field @triggers.schedule@ in
 -- the @CreateDataset@ request. (timestamp)
 listDatasetContents_scheduledBefore :: Lens.Lens' ListDatasetContents (Prelude.Maybe Prelude.UTCTime)
 listDatasetContents_scheduledBefore = Lens.lens (\ListDatasetContents' {scheduledBefore} -> scheduledBefore) (\s@ListDatasetContents' {} a -> s {scheduledBefore = a} :: ListDatasetContents) Prelude.. Lens.mapping Core._Time
 
--- | A filter to limit results to those data set contents whose creation is
+-- | A filter to limit results to those dataset contents whose creation is
 -- scheduled on or after the given time. See the field @triggers.schedule@
 -- in the @CreateDataset@ request. (timestamp)
 listDatasetContents_scheduledOnOrAfter :: Lens.Lens' ListDatasetContents (Prelude.Maybe Prelude.UTCTime)
 listDatasetContents_scheduledOnOrAfter = Lens.lens (\ListDatasetContents' {scheduledOnOrAfter} -> scheduledOnOrAfter) (\s@ListDatasetContents' {} a -> s {scheduledOnOrAfter = a} :: ListDatasetContents) Prelude.. Lens.mapping Core._Time
 
--- | The name of the data set whose contents information you want to list.
+-- | The name of the dataset whose contents information you want to list.
 listDatasetContents_datasetName :: Lens.Lens' ListDatasetContents Prelude.Text
 listDatasetContents_datasetName = Lens.lens (\ListDatasetContents' {datasetName} -> datasetName) (\s@ListDatasetContents' {} a -> s {datasetName = a} :: ListDatasetContents)
 
@@ -194,7 +194,7 @@ data ListDatasetContentsResponse = ListDatasetContentsResponse'
   { -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information about data set contents that have been created.
+    -- | Summary information about dataset contents that have been created.
     datasetContentSummaries :: Prelude.Maybe [DatasetContentSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -212,7 +212,7 @@ data ListDatasetContentsResponse = ListDatasetContentsResponse'
 -- 'nextToken', 'listDatasetContentsResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
 --
--- 'datasetContentSummaries', 'listDatasetContentsResponse_datasetContentSummaries' - Summary information about data set contents that have been created.
+-- 'datasetContentSummaries', 'listDatasetContentsResponse_datasetContentSummaries' - Summary information about dataset contents that have been created.
 --
 -- 'httpStatus', 'listDatasetContentsResponse_httpStatus' - The response's http status code.
 newListDatasetContentsResponse ::
@@ -232,7 +232,7 @@ newListDatasetContentsResponse pHttpStatus_ =
 listDatasetContentsResponse_nextToken :: Lens.Lens' ListDatasetContentsResponse (Prelude.Maybe Prelude.Text)
 listDatasetContentsResponse_nextToken = Lens.lens (\ListDatasetContentsResponse' {nextToken} -> nextToken) (\s@ListDatasetContentsResponse' {} a -> s {nextToken = a} :: ListDatasetContentsResponse)
 
--- | Summary information about data set contents that have been created.
+-- | Summary information about dataset contents that have been created.
 listDatasetContentsResponse_datasetContentSummaries :: Lens.Lens' ListDatasetContentsResponse (Prelude.Maybe [DatasetContentSummary])
 listDatasetContentsResponse_datasetContentSummaries = Lens.lens (\ListDatasetContentsResponse' {datasetContentSummaries} -> datasetContentSummaries) (\s@ListDatasetContentsResponse' {} a -> s {datasetContentSummaries = a} :: ListDatasetContentsResponse) Prelude.. Lens.mapping Lens._Coerce
 

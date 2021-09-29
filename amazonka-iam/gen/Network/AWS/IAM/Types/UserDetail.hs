@@ -37,16 +37,16 @@ import qualified Network.AWS.Prelude as Prelude
 data UserDetail = UserDetail'
   { -- | A list of the managed policies attached to the user.
     attachedManagedPolicies :: Prelude.Maybe [AttachedPolicy],
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- user was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | The ARN of the policy used to set the permissions boundary for the user.
     --
     -- For more information about permissions boundaries, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
-    -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- user was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
     arn :: Prelude.Maybe Prelude.Text,
     -- | A list of IAM groups that the user is in.
     groupList :: Prelude.Maybe [Prelude.Text],
@@ -81,15 +81,15 @@ data UserDetail = UserDetail'
 --
 -- 'attachedManagedPolicies', 'userDetail_attachedManagedPolicies' - A list of the managed policies attached to the user.
 --
+-- 'createDate', 'userDetail_createDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- user was created.
+--
 -- 'permissionsBoundary', 'userDetail_permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user.
 --
 -- For more information about permissions boundaries, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
---
--- 'createDate', 'userDetail_createDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user was created.
 --
 -- 'arn', 'userDetail_arn' - Undocumented member.
 --
@@ -118,8 +118,8 @@ newUserDetail =
   UserDetail'
     { attachedManagedPolicies =
         Prelude.Nothing,
-      permissionsBoundary = Prelude.Nothing,
       createDate = Prelude.Nothing,
+      permissionsBoundary = Prelude.Nothing,
       arn = Prelude.Nothing,
       groupList = Prelude.Nothing,
       userId = Prelude.Nothing,
@@ -133,6 +133,12 @@ newUserDetail =
 userDetail_attachedManagedPolicies :: Lens.Lens' UserDetail (Prelude.Maybe [AttachedPolicy])
 userDetail_attachedManagedPolicies = Lens.lens (\UserDetail' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@UserDetail' {} a -> s {attachedManagedPolicies = a} :: UserDetail) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- user was created.
+userDetail_createDate :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.UTCTime)
+userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Core._Time
+
 -- | The ARN of the policy used to set the permissions boundary for the user.
 --
 -- For more information about permissions boundaries, see
@@ -140,12 +146,6 @@ userDetail_attachedManagedPolicies = Lens.lens (\UserDetail' {attachedManagedPol
 -- in the /IAM User Guide/.
 userDetail_permissionsBoundary :: Lens.Lens' UserDetail (Prelude.Maybe AttachedPermissionsBoundary)
 userDetail_permissionsBoundary = Lens.lens (\UserDetail' {permissionsBoundary} -> permissionsBoundary) (\s@UserDetail' {} a -> s {permissionsBoundary = a} :: UserDetail)
-
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user was created.
-userDetail_createDate :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.UTCTime)
-userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 userDetail_arn :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
@@ -190,8 +190,8 @@ instance Core.FromXML UserDetail where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
       Prelude.<*> (x Core..@? "CreateDate")
+      Prelude.<*> (x Core..@? "PermissionsBoundary")
       Prelude.<*> (x Core..@? "Arn")
       Prelude.<*> ( x Core..@? "GroupList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")

@@ -56,6 +56,8 @@ data Suite = Suite'
     --
     -- -   STOPPING
     status :: Prelude.Maybe ExecutionStatus,
+    -- | The suite\'s start time.
+    started :: Prelude.Maybe Core.POSIX,
     -- | The suite\'s result.
     --
     -- Allowed values include:
@@ -74,8 +76,6 @@ data Suite = Suite'
     --
     -- -   STOPPED
     result :: Prelude.Maybe ExecutionResult,
-    -- | The suite\'s start time.
-    started :: Prelude.Maybe Core.POSIX,
     -- | A message about the suite\'s result.
     message :: Prelude.Maybe Prelude.Text,
     -- | The suite\'s ARN.
@@ -84,8 +84,6 @@ data Suite = Suite'
     name :: Prelude.Maybe Prelude.Text,
     -- | The suite\'s stop time.
     stopped :: Prelude.Maybe Core.POSIX,
-    -- | When the suite was created.
-    created :: Prelude.Maybe Core.POSIX,
     -- | The suite\'s type.
     --
     -- Must be one of the following values:
@@ -130,6 +128,8 @@ data Suite = Suite'
     --
     -- -   XCTEST_UI
     type' :: Prelude.Maybe TestType,
+    -- | When the suite was created.
+    created :: Prelude.Maybe Core.POSIX,
     -- | Represents the total (metered or unmetered) minutes used by the test
     -- suite.
     deviceMinutes :: Prelude.Maybe DeviceMinutes
@@ -168,6 +168,8 @@ data Suite = Suite'
 --
 -- -   STOPPING
 --
+-- 'started', 'suite_started' - The suite\'s start time.
+--
 -- 'result', 'suite_result' - The suite\'s result.
 --
 -- Allowed values include:
@@ -186,8 +188,6 @@ data Suite = Suite'
 --
 -- -   STOPPED
 --
--- 'started', 'suite_started' - The suite\'s start time.
---
 -- 'message', 'suite_message' - A message about the suite\'s result.
 --
 -- 'arn', 'suite_arn' - The suite\'s ARN.
@@ -195,8 +195,6 @@ data Suite = Suite'
 -- 'name', 'suite_name' - The suite\'s name.
 --
 -- 'stopped', 'suite_stopped' - The suite\'s stop time.
---
--- 'created', 'suite_created' - When the suite was created.
 --
 -- 'type'', 'suite_type' - The suite\'s type.
 --
@@ -242,6 +240,8 @@ data Suite = Suite'
 --
 -- -   XCTEST_UI
 --
+-- 'created', 'suite_created' - When the suite was created.
+--
 -- 'deviceMinutes', 'suite_deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test
 -- suite.
 newSuite ::
@@ -250,14 +250,14 @@ newSuite =
   Suite'
     { counters = Prelude.Nothing,
       status = Prelude.Nothing,
-      result = Prelude.Nothing,
       started = Prelude.Nothing,
+      result = Prelude.Nothing,
       message = Prelude.Nothing,
       arn = Prelude.Nothing,
       name = Prelude.Nothing,
       stopped = Prelude.Nothing,
-      created = Prelude.Nothing,
       type' = Prelude.Nothing,
+      created = Prelude.Nothing,
       deviceMinutes = Prelude.Nothing
     }
 
@@ -289,6 +289,10 @@ suite_counters = Lens.lens (\Suite' {counters} -> counters) (\s@Suite' {} a -> s
 suite_status :: Lens.Lens' Suite (Prelude.Maybe ExecutionStatus)
 suite_status = Lens.lens (\Suite' {status} -> status) (\s@Suite' {} a -> s {status = a} :: Suite)
 
+-- | The suite\'s start time.
+suite_started :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
+suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Prelude.. Lens.mapping Core._Time
+
 -- | The suite\'s result.
 --
 -- Allowed values include:
@@ -309,10 +313,6 @@ suite_status = Lens.lens (\Suite' {status} -> status) (\s@Suite' {} a -> s {stat
 suite_result :: Lens.Lens' Suite (Prelude.Maybe ExecutionResult)
 suite_result = Lens.lens (\Suite' {result} -> result) (\s@Suite' {} a -> s {result = a} :: Suite)
 
--- | The suite\'s start time.
-suite_started :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Prelude.. Lens.mapping Core._Time
-
 -- | A message about the suite\'s result.
 suite_message :: Lens.Lens' Suite (Prelude.Maybe Prelude.Text)
 suite_message = Lens.lens (\Suite' {message} -> message) (\s@Suite' {} a -> s {message = a} :: Suite)
@@ -328,10 +328,6 @@ suite_name = Lens.lens (\Suite' {name} -> name) (\s@Suite' {} a -> s {name = a} 
 -- | The suite\'s stop time.
 suite_stopped :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
 suite_stopped = Lens.lens (\Suite' {stopped} -> stopped) (\s@Suite' {} a -> s {stopped = a} :: Suite) Prelude.. Lens.mapping Core._Time
-
--- | When the suite was created.
-suite_created :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Prelude.. Lens.mapping Core._Time
 
 -- | The suite\'s type.
 --
@@ -379,6 +375,10 @@ suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {c
 suite_type :: Lens.Lens' Suite (Prelude.Maybe TestType)
 suite_type = Lens.lens (\Suite' {type'} -> type') (\s@Suite' {} a -> s {type' = a} :: Suite)
 
+-- | When the suite was created.
+suite_created :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
+suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Prelude.. Lens.mapping Core._Time
+
 -- | Represents the total (metered or unmetered) minutes used by the test
 -- suite.
 suite_deviceMinutes :: Lens.Lens' Suite (Prelude.Maybe DeviceMinutes)
@@ -392,14 +392,14 @@ instance Core.FromJSON Suite where
           Suite'
             Prelude.<$> (x Core..:? "counters")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "result")
             Prelude.<*> (x Core..:? "started")
+            Prelude.<*> (x Core..:? "result")
             Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "stopped")
-            Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "deviceMinutes")
       )
 

@@ -31,8 +31,8 @@ data EncryptionConfig = EncryptionConfig'
   { -- | Specifies the resources to be encrypted. The only supported value is
     -- \"secrets\".
     resources :: Prelude.Maybe [Prelude.Text],
-    -- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
-    -- the ARN or the alias can be used.
+    -- | Key Management Service (KMS) key. Either the ARN or the alias can be
+    -- used.
     provider :: Prelude.Maybe Provider
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,8 +48,8 @@ data EncryptionConfig = EncryptionConfig'
 -- 'resources', 'encryptionConfig_resources' - Specifies the resources to be encrypted. The only supported value is
 -- \"secrets\".
 --
--- 'provider', 'encryptionConfig_provider' - AWS Key Management Service (AWS KMS) customer master key (CMK). Either
--- the ARN or the alias can be used.
+-- 'provider', 'encryptionConfig_provider' - Key Management Service (KMS) key. Either the ARN or the alias can be
+-- used.
 newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
@@ -63,8 +63,8 @@ newEncryptionConfig =
 encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
 encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens._Coerce
 
--- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
--- the ARN or the alias can be used.
+-- | Key Management Service (KMS) key. Either the ARN or the alias can be
+-- used.
 encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Prelude.Maybe Provider)
 encryptionConfig_provider = Lens.lens (\EncryptionConfig' {provider} -> provider) (\s@EncryptionConfig' {} a -> s {provider = a} :: EncryptionConfig)
 

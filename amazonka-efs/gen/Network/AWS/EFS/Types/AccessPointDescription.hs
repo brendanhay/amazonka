@@ -31,17 +31,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccessPointDescription' smart constructor.
 data AccessPointDescription = AccessPointDescription'
-  { -- | Identified the AWS account that owns the access point resource.
+  { -- | Identified the Amazon Web Services account that owns the access point
+    -- resource.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The unique Amazon Resource Name (ARN) associated with the access point.
-    accessPointArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the access point, assigned by Amazon EFS.
     accessPointId :: Prelude.Maybe Prelude.Text,
+    -- | The unique Amazon Resource Name (ARN) associated with the access point.
+    accessPointArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the access point. This is the value of the @Name@ tag.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The directory on the Amazon EFS file system that the access point
     -- exposes as the root directory to NFS clients using the access point.
     rootDirectory :: Prelude.Maybe RootDirectory,
-    -- | The name of the access point. This is the value of the @Name@ tag.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The full POSIX identity, including the user ID, group ID, and secondary
     -- group IDs on the access point that is used for all file operations by
     -- NFS clients using the access point.
@@ -67,16 +68,17 @@ data AccessPointDescription = AccessPointDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'accessPointDescription_ownerId' - Identified the AWS account that owns the access point resource.
---
--- 'accessPointArn', 'accessPointDescription_accessPointArn' - The unique Amazon Resource Name (ARN) associated with the access point.
+-- 'ownerId', 'accessPointDescription_ownerId' - Identified the Amazon Web Services account that owns the access point
+-- resource.
 --
 -- 'accessPointId', 'accessPointDescription_accessPointId' - The ID of the access point, assigned by Amazon EFS.
 --
--- 'rootDirectory', 'accessPointDescription_rootDirectory' - The directory on the Amazon EFS file system that the access point
--- exposes as the root directory to NFS clients using the access point.
+-- 'accessPointArn', 'accessPointDescription_accessPointArn' - The unique Amazon Resource Name (ARN) associated with the access point.
 --
 -- 'name', 'accessPointDescription_name' - The name of the access point. This is the value of the @Name@ tag.
+--
+-- 'rootDirectory', 'accessPointDescription_rootDirectory' - The directory on the Amazon EFS file system that the access point
+-- exposes as the root directory to NFS clients using the access point.
 --
 -- 'posixUser', 'accessPointDescription_posixUser' - The full POSIX identity, including the user ID, group ID, and secondary
 -- group IDs on the access point that is used for all file operations by
@@ -96,10 +98,10 @@ newAccessPointDescription ::
 newAccessPointDescription =
   AccessPointDescription'
     { ownerId = Prelude.Nothing,
-      accessPointArn = Prelude.Nothing,
       accessPointId = Prelude.Nothing,
-      rootDirectory = Prelude.Nothing,
+      accessPointArn = Prelude.Nothing,
       name = Prelude.Nothing,
+      rootDirectory = Prelude.Nothing,
       posixUser = Prelude.Nothing,
       tags = Prelude.Nothing,
       lifeCycleState = Prelude.Nothing,
@@ -107,26 +109,27 @@ newAccessPointDescription =
       clientToken = Prelude.Nothing
     }
 
--- | Identified the AWS account that owns the access point resource.
+-- | Identified the Amazon Web Services account that owns the access point
+-- resource.
 accessPointDescription_ownerId :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
 accessPointDescription_ownerId = Lens.lens (\AccessPointDescription' {ownerId} -> ownerId) (\s@AccessPointDescription' {} a -> s {ownerId = a} :: AccessPointDescription)
-
--- | The unique Amazon Resource Name (ARN) associated with the access point.
-accessPointDescription_accessPointArn :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
-accessPointDescription_accessPointArn = Lens.lens (\AccessPointDescription' {accessPointArn} -> accessPointArn) (\s@AccessPointDescription' {} a -> s {accessPointArn = a} :: AccessPointDescription)
 
 -- | The ID of the access point, assigned by Amazon EFS.
 accessPointDescription_accessPointId :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
 accessPointDescription_accessPointId = Lens.lens (\AccessPointDescription' {accessPointId} -> accessPointId) (\s@AccessPointDescription' {} a -> s {accessPointId = a} :: AccessPointDescription)
 
--- | The directory on the Amazon EFS file system that the access point
--- exposes as the root directory to NFS clients using the access point.
-accessPointDescription_rootDirectory :: Lens.Lens' AccessPointDescription (Prelude.Maybe RootDirectory)
-accessPointDescription_rootDirectory = Lens.lens (\AccessPointDescription' {rootDirectory} -> rootDirectory) (\s@AccessPointDescription' {} a -> s {rootDirectory = a} :: AccessPointDescription)
+-- | The unique Amazon Resource Name (ARN) associated with the access point.
+accessPointDescription_accessPointArn :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
+accessPointDescription_accessPointArn = Lens.lens (\AccessPointDescription' {accessPointArn} -> accessPointArn) (\s@AccessPointDescription' {} a -> s {accessPointArn = a} :: AccessPointDescription)
 
 -- | The name of the access point. This is the value of the @Name@ tag.
 accessPointDescription_name :: Lens.Lens' AccessPointDescription (Prelude.Maybe Prelude.Text)
 accessPointDescription_name = Lens.lens (\AccessPointDescription' {name} -> name) (\s@AccessPointDescription' {} a -> s {name = a} :: AccessPointDescription)
+
+-- | The directory on the Amazon EFS file system that the access point
+-- exposes as the root directory to NFS clients using the access point.
+accessPointDescription_rootDirectory :: Lens.Lens' AccessPointDescription (Prelude.Maybe RootDirectory)
+accessPointDescription_rootDirectory = Lens.lens (\AccessPointDescription' {rootDirectory} -> rootDirectory) (\s@AccessPointDescription' {} a -> s {rootDirectory = a} :: AccessPointDescription)
 
 -- | The full POSIX identity, including the user ID, group ID, and secondary
 -- group IDs on the access point that is used for all file operations by
@@ -159,10 +162,10 @@ instance Core.FromJSON AccessPointDescription where
       ( \x ->
           AccessPointDescription'
             Prelude.<$> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "AccessPointArn")
             Prelude.<*> (x Core..:? "AccessPointId")
-            Prelude.<*> (x Core..:? "RootDirectory")
+            Prelude.<*> (x Core..:? "AccessPointArn")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "RootDirectory")
             Prelude.<*> (x Core..:? "PosixUser")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LifeCycleState")

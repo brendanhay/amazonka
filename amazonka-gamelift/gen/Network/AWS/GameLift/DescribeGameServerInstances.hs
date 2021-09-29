@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Retrieves status information about the Amazon EC2 instances associated
 -- with a GameLift FleetIQ game server group. Use this operation to detect
@@ -45,23 +45,12 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateGameServerGroup
---
--- -   ListGameServerGroups
---
--- -   DescribeGameServerGroup
---
--- -   UpdateGameServerGroup
---
--- -   DeleteGameServerGroup
---
--- -   ResumeGameServerGroup
---
--- -   SuspendGameServerGroup
---
--- -   DescribeGameServerInstances
+-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
+-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
+-- SuspendGameServerGroup | DescribeGameServerInstances |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameServerInstances
@@ -100,13 +89,12 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
     -- retrieve all instances in the game server group, leave this parameter
     -- empty.
     instanceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A token that indicates the start of the next sequential segment of
-    -- results. Use the token returned with the previous call to this
-    -- operation. To start at the beginning of the result set, do not specify a
-    -- value.
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential segments.
+    -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
@@ -127,13 +115,12 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
 -- retrieve all instances in the game server group, leave this parameter
 -- empty.
 --
--- 'nextToken', 'describeGameServerInstances_nextToken' - A token that indicates the start of the next sequential segment of
--- results. Use the token returned with the previous call to this
--- operation. To start at the beginning of the result set, do not specify a
--- value.
+-- 'nextToken', 'describeGameServerInstances_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 --
 -- 'limit', 'describeGameServerInstances_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential segments.
+-- @NextToken@ to get results as a set of sequential pages.
 --
 -- 'gameServerGroupName', 'describeGameServerInstances_gameServerGroupName' - A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -157,15 +144,14 @@ newDescribeGameServerInstances pGameServerGroupName_ =
 describeGameServerInstances_instanceIds :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeGameServerInstances_instanceIds = Lens.lens (\DescribeGameServerInstances' {instanceIds} -> instanceIds) (\s@DescribeGameServerInstances' {} a -> s {instanceIds = a} :: DescribeGameServerInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | A token that indicates the start of the next sequential segment of
--- results. Use the token returned with the previous call to this
--- operation. To start at the beginning of the result set, do not specify a
--- value.
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 describeGameServerInstances_nextToken :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Text)
 describeGameServerInstances_nextToken = Lens.lens (\DescribeGameServerInstances' {nextToken} -> nextToken) (\s@DescribeGameServerInstances' {} a -> s {nextToken = a} :: DescribeGameServerInstances)
 
 -- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential segments.
+-- @NextToken@ to get results as a set of sequential pages.
 describeGameServerInstances_limit :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Natural)
 describeGameServerInstances_limit = Lens.lens (\DescribeGameServerInstances' {limit} -> limit) (\s@DescribeGameServerInstances' {} a -> s {limit = a} :: DescribeGameServerInstances)
 

@@ -19,6 +19,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.DescribeEndpoint
+import Network.AWS.SageMaker.DescribeImage
+import Network.AWS.SageMaker.DescribeImageVersion
 import Network.AWS.SageMaker.DescribeNotebookInstance
 import Network.AWS.SageMaker.DescribeProcessingJob
 import Network.AWS.SageMaker.DescribeTrainingJob
@@ -120,6 +122,86 @@ newNotebookInstanceInService =
         ]
     }
 
+-- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageUpdated :: Core.Wait DescribeImage
+newImageUpdated =
+  Core.Wait
+    { Core._waitName = "ImageUpdated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATED"
+            Core.AcceptSuccess
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "UPDATE_FAILED"
+            Core.AcceptFailure
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageDeleted :: Core.Wait DescribeImage
+newImageDeleted =
+  Core.Wait
+    { Core._waitName = "ImageDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageCreated :: Core.Wait DescribeImage
+newImageCreated =
+  Core.Wait
+    { Core._waitName = "ImageCreated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATED"
+            Core.AcceptSuccess
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
 -- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newEndpointInService :: Core.Wait DescribeEndpoint
 newEndpointInService =
@@ -171,6 +253,58 @@ newTrainingJobCompletedOrStopped =
             "Failed"
             Core.AcceptFailure
             ( describeTrainingJobResponse_trainingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageVersionDeleted :: Core.Wait DescribeImageVersion
+newImageVersionDeleted =
+  Core.Wait
+    { Core._waitName = "ImageVersionDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageVersionCreated :: Core.Wait DescribeImageVersion
+newImageVersionCreated =
+  Core.Wait
+    { Core._waitName = "ImageVersionCreated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATED"
+            Core.AcceptSuccess
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError

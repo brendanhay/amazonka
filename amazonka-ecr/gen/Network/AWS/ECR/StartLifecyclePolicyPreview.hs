@@ -55,9 +55,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartLifecyclePolicyPreview' smart constructor.
 data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The policy to be evaluated against. If you do not specify a policy, the
     -- current policy for the repository is used.
@@ -75,9 +75,9 @@ data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'startLifecyclePolicyPreview_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'startLifecyclePolicyPreview_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'lifecyclePolicyText', 'startLifecyclePolicyPreview_lifecyclePolicyText' - The policy to be evaluated against. If you do not specify a policy, the
 -- current policy for the repository is used.
@@ -95,9 +95,9 @@ newStartLifecyclePolicyPreview pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 startLifecyclePolicyPreview_registryId :: Lens.Lens' StartLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
 startLifecyclePolicyPreview_registryId = Lens.lens (\StartLifecyclePolicyPreview' {registryId} -> registryId) (\s@StartLifecyclePolicyPreview' {} a -> s {registryId = a} :: StartLifecyclePolicyPreview)
 

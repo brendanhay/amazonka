@@ -32,8 +32,8 @@ module Network.AWS.RDS.DescribeInstallationMedia
     -- * Request Lenses
     describeInstallationMedia_installationMediaId,
     describeInstallationMedia_filters,
-    describeInstallationMedia_marker,
     describeInstallationMedia_maxRecords,
+    describeInstallationMedia_marker,
 
     -- * Destructuring the Response
     DescribeInstallationMediaResponse (..),
@@ -71,15 +71,15 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
     --     For more information about the valid engines for installation media,
     --     see ImportInstallationMedia.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- DescribeInstallationMedia request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,14 +107,14 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
 --     For more information about the valid engines for installation media,
 --     see ImportInstallationMedia.
 --
--- 'marker', 'describeInstallationMedia_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeInstallationMedia_maxRecords' - An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
+--
+-- 'marker', 'describeInstallationMedia_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeInstallationMedia ::
   DescribeInstallationMedia
 newDescribeInstallationMedia =
@@ -122,8 +122,8 @@ newDescribeInstallationMedia =
     { installationMediaId =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The installation medium ID.
@@ -146,18 +146,18 @@ describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallation
 describeInstallationMedia_filters :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe [Filter])
 describeInstallationMedia_filters = Lens.lens (\DescribeInstallationMedia' {filters} -> filters) (\s@DescribeInstallationMedia' {} a -> s {filters = a} :: DescribeInstallationMedia) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
-describeInstallationMedia_marker = Lens.lens (\DescribeInstallationMedia' {marker} -> marker) (\s@DescribeInstallationMedia' {} a -> s {marker = a} :: DescribeInstallationMedia)
-
 -- | An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
 describeInstallationMedia_maxRecords :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Int)
 describeInstallationMedia_maxRecords = Lens.lens (\DescribeInstallationMedia' {maxRecords} -> maxRecords) (\s@DescribeInstallationMedia' {} a -> s {maxRecords = a} :: DescribeInstallationMedia)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
+describeInstallationMedia_marker = Lens.lens (\DescribeInstallationMedia' {marker} -> marker) (\s@DescribeInstallationMedia' {} a -> s {marker = a} :: DescribeInstallationMedia)
 
 instance Core.AWSPager DescribeInstallationMedia where
   page rq rs
@@ -220,13 +220,14 @@ instance Core.ToQuery DescribeInstallationMedia where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeInstallationMediaResponse' smart constructor.
 data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
-  { -- | The list of InstallationMedia objects for the AWS account.
+  { -- | The list of InstallationMedia objects for the Amazon Web Services
+    -- account.
     installationMedia :: Prelude.Maybe [InstallationMedia],
     -- | An optional pagination token provided by a previous
     -- DescribeInstallationMedia request. If this parameter is specified, the
@@ -246,7 +247,8 @@ data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'installationMedia', 'describeInstallationMediaResponse_installationMedia' - The list of InstallationMedia objects for the AWS account.
+-- 'installationMedia', 'describeInstallationMediaResponse_installationMedia' - The list of InstallationMedia objects for the Amazon Web Services
+-- account.
 --
 -- 'marker', 'describeInstallationMediaResponse_marker' - An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
@@ -266,7 +268,8 @@ newDescribeInstallationMediaResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of InstallationMedia objects for the AWS account.
+-- | The list of InstallationMedia objects for the Amazon Web Services
+-- account.
 describeInstallationMediaResponse_installationMedia :: Lens.Lens' DescribeInstallationMediaResponse (Prelude.Maybe [InstallationMedia])
 describeInstallationMediaResponse_installationMedia = Lens.lens (\DescribeInstallationMediaResponse' {installationMedia} -> installationMedia) (\s@DescribeInstallationMediaResponse' {} a -> s {installationMedia = a} :: DescribeInstallationMediaResponse) Prelude.. Lens.mapping Lens._Coerce
 

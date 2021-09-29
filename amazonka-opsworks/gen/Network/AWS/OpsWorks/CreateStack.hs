@@ -33,19 +33,19 @@ module Network.AWS.OpsWorks.CreateStack
     newCreateStack,
 
     -- * Request Lenses
-    createStack_defaultOs,
     createStack_useOpsworksSecurityGroups,
+    createStack_defaultOs,
     createStack_customCookbooksSource,
     createStack_defaultAvailabilityZone,
-    createStack_agentVersion,
     createStack_customJson,
+    createStack_agentVersion,
     createStack_defaultRootDeviceType,
     createStack_attributes,
     createStack_hostnameTheme,
-    createStack_defaultSshKeyName,
     createStack_configurationManager,
-    createStack_vpcId,
+    createStack_defaultSshKeyName,
     createStack_chefConfiguration,
+    createStack_vpcId,
     createStack_defaultSubnetId,
     createStack_useCustomCookbooks,
     createStack_name,
@@ -72,7 +72,30 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { -- | The stack\'s default operating system, which is installed on every
+  { -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
+    -- with the stack\'s layers.
+    --
+    -- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+    -- one for each layer, which are associated with layers by default. With
+    -- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+    -- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+    --
+    -- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+    --     built-in security group with each layer (default setting). You can
+    --     associate additional security groups with a layer after you create
+    --     it, but you cannot delete the built-in security group.
+    --
+    -- -   False - AWS OpsWorks Stacks does not associate built-in security
+    --     groups with layers. You must create appropriate EC2 security groups
+    --     and associate a security group with each layer that you create.
+    --     However, you can still manually associate a built-in security group
+    --     with a layer on creation; custom security groups are required only
+    --     for those layers that need custom settings.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
+    -- | The stack\'s default operating system, which is installed on every
     -- instance unless you specify a different operating system when you create
     -- the instance. You can specify one of the following.
     --
@@ -103,29 +126,6 @@ data CreateStack = CreateStack'
     -- information about supported operating systems, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
     defaultOs :: Prelude.Maybe Prelude.Text,
-    -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
-    -- with the stack\'s layers.
-    --
-    -- AWS OpsWorks Stacks provides a standard set of built-in security groups,
-    -- one for each layer, which are associated with layers by default. With
-    -- @UseOpsworksSecurityGroups@ you can instead provide your own custom
-    -- security groups. @UseOpsworksSecurityGroups@ has the following settings:
-    --
-    -- -   True - AWS OpsWorks Stacks automatically associates the appropriate
-    --     built-in security group with each layer (default setting). You can
-    --     associate additional security groups with a layer after you create
-    --     it, but you cannot delete the built-in security group.
-    --
-    -- -   False - AWS OpsWorks Stacks does not associate built-in security
-    --     groups with layers. You must create appropriate EC2 security groups
-    --     and associate a security group with each layer that you create.
-    --     However, you can still manually associate a built-in security group
-    --     with a layer on creation; custom security groups are required only
-    --     for those layers that need custom settings.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
     -- | Contains the information required to retrieve an app or cookbook from a
     -- repository. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -139,6 +139,16 @@ data CreateStack = CreateStack'
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
     defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | A string that contains user-defined, custom JSON. It can be used to
+    -- override the corresponding default stack configuration attribute values
+    -- or to pass data to recipes. The string should be in the following
+    -- format:
+    --
+    -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+    --
+    -- For more information about custom JSON, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+    customJson :: Prelude.Maybe Prelude.Text,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -160,16 +170,6 @@ data CreateStack = CreateStack'
     -- You can also specify an agent version when you create or update an
     -- instance, which overrides the stack\'s default setting.
     agentVersion :: Prelude.Maybe Prelude.Text,
-    -- | A string that contains user-defined, custom JSON. It can be used to
-    -- override the corresponding default stack configuration attribute values
-    -- or to pass data to recipes. The string should be in the following
-    -- format:
-    --
-    -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
-    --
-    -- For more information about custom JSON, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-    customJson :: Prelude.Maybe Prelude.Text,
     -- | The default root device type. This value is the default for all
     -- instances in the stack, but you can override it when you create an
     -- instance. The default option is @instance-store@. For more information,
@@ -210,6 +210,11 @@ data CreateStack = CreateStack'
     -- To obtain a generated host name, call @GetHostNameSuggestion@, which
     -- returns a host name based on the current theme.
     hostnameTheme :: Prelude.Maybe Prelude.Text,
+    -- | The configuration manager. When you create a stack we recommend that you
+    -- use the configuration manager to specify the Chef version: 12, 11.10, or
+    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+    -- Linux stacks is currently 12.
+    configurationManager :: Prelude.Maybe StackConfigurationManager,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -221,11 +226,11 @@ data CreateStack = CreateStack'
     -- key pair, when you
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
     defaultSshKeyName :: Prelude.Maybe Prelude.Text,
-    -- | The configuration manager. When you create a stack we recommend that you
-    -- use the configuration manager to specify the Chef version: 12, 11.10, or
-    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
-    -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    chefConfiguration :: Prelude.Maybe ChefConfiguration,
     -- | The ID of the VPC that the stack is to be launched into. The VPC must be
     -- in the stack\'s region. All instances are launched into this VPC. You
     -- cannot change the ID later.
@@ -255,11 +260,6 @@ data CreateStack = CreateStack'
     -- For more information about default VPC and EC2-Classic, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
-    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
     -- | The stack\'s default VPC subnet ID. This parameter is required if you
     -- specify a value for the @VpcId@ parameter. All instances are launched
     -- into this subnet unless you specify otherwise when you create the
@@ -314,6 +314,29 @@ data CreateStack = CreateStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'useOpsworksSecurityGroups', 'createStack_useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups
+-- with the stack\'s layers.
+--
+-- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+-- one for each layer, which are associated with layers by default. With
+-- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+-- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+--
+-- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+--     built-in security group with each layer (default setting). You can
+--     associate additional security groups with a layer after you create
+--     it, but you cannot delete the built-in security group.
+--
+-- -   False - AWS OpsWorks Stacks does not associate built-in security
+--     groups with layers. You must create appropriate EC2 security groups
+--     and associate a security group with each layer that you create.
+--     However, you can still manually associate a built-in security group
+--     with a layer on creation; custom security groups are required only
+--     for those layers that need custom settings.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+--
 -- 'defaultOs', 'createStack_defaultOs' - The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create
 -- the instance. You can specify one of the following.
@@ -345,29 +368,6 @@ data CreateStack = CreateStack'
 -- information about supported operating systems, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
 --
--- 'useOpsworksSecurityGroups', 'createStack_useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups
--- with the stack\'s layers.
---
--- AWS OpsWorks Stacks provides a standard set of built-in security groups,
--- one for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
---
--- -   True - AWS OpsWorks Stacks automatically associates the appropriate
---     built-in security group with each layer (default setting). You can
---     associate additional security groups with a layer after you create
---     it, but you cannot delete the built-in security group.
---
--- -   False - AWS OpsWorks Stacks does not associate built-in security
---     groups with layers. You must create appropriate EC2 security groups
---     and associate a security group with each layer that you create.
---     However, you can still manually associate a built-in security group
---     with a layer on creation; custom security groups are required only
---     for those layers that need custom settings.
---
--- For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
---
 -- 'customCookbooksSource', 'createStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -380,6 +380,16 @@ data CreateStack = CreateStack'
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
+--
+-- 'customJson', 'createStack_customJson' - A string that contains user-defined, custom JSON. It can be used to
+-- override the corresponding default stack configuration attribute values
+-- or to pass data to recipes. The string should be in the following
+-- format:
+--
+-- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+--
+-- For more information about custom JSON, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
 --
 -- 'agentVersion', 'createStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -401,16 +411,6 @@ data CreateStack = CreateStack'
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
---
--- 'customJson', 'createStack_customJson' - A string that contains user-defined, custom JSON. It can be used to
--- override the corresponding default stack configuration attribute values
--- or to pass data to recipes. The string should be in the following
--- format:
---
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
---
--- For more information about custom JSON, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
 --
 -- 'defaultRootDeviceType', 'createStack_defaultRootDeviceType' - The default root device type. This value is the default for all
 -- instances in the stack, but you can override it when you create an
@@ -452,6 +452,11 @@ data CreateStack = CreateStack'
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
 --
+-- 'configurationManager', 'createStack_configurationManager' - The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+--
 -- 'defaultSshKeyName', 'createStack_defaultSshKeyName' - A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
@@ -463,10 +468,10 @@ data CreateStack = CreateStack'
 -- key pair, when you
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
 --
--- 'configurationManager', 'createStack_configurationManager' - The configuration manager. When you create a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
+-- 'chefConfiguration', 'createStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
 -- 'vpcId', 'createStack_vpcId' - The ID of the VPC that the stack is to be launched into. The VPC must be
 -- in the stack\'s region. All instances are launched into this VPC. You
@@ -496,11 +501,6 @@ data CreateStack = CreateStack'
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
 -- For more information about default VPC and EC2-Classic, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
---
--- 'chefConfiguration', 'createStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
 -- 'defaultSubnetId', 'createStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -560,19 +560,20 @@ newCreateStack
   pServiceRoleArn_
   pDefaultInstanceProfileArn_ =
     CreateStack'
-      { defaultOs = Prelude.Nothing,
-        useOpsworksSecurityGroups = Prelude.Nothing,
+      { useOpsworksSecurityGroups =
+          Prelude.Nothing,
+        defaultOs = Prelude.Nothing,
         customCookbooksSource = Prelude.Nothing,
         defaultAvailabilityZone = Prelude.Nothing,
-        agentVersion = Prelude.Nothing,
         customJson = Prelude.Nothing,
+        agentVersion = Prelude.Nothing,
         defaultRootDeviceType = Prelude.Nothing,
         attributes = Prelude.Nothing,
         hostnameTheme = Prelude.Nothing,
-        defaultSshKeyName = Prelude.Nothing,
         configurationManager = Prelude.Nothing,
-        vpcId = Prelude.Nothing,
+        defaultSshKeyName = Prelude.Nothing,
         chefConfiguration = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
         defaultSubnetId = Prelude.Nothing,
         useCustomCookbooks = Prelude.Nothing,
         name = pName_,
@@ -581,6 +582,31 @@ newCreateStack
         defaultInstanceProfileArn =
           pDefaultInstanceProfileArn_
       }
+
+-- | Whether to associate the AWS OpsWorks Stacks built-in security groups
+-- with the stack\'s layers.
+--
+-- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+-- one for each layer, which are associated with layers by default. With
+-- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+-- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+--
+-- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+--     built-in security group with each layer (default setting). You can
+--     associate additional security groups with a layer after you create
+--     it, but you cannot delete the built-in security group.
+--
+-- -   False - AWS OpsWorks Stacks does not associate built-in security
+--     groups with layers. You must create appropriate EC2 security groups
+--     and associate a security group with each layer that you create.
+--     However, you can still manually associate a built-in security group
+--     with a layer on creation; custom security groups are required only
+--     for those layers that need custom settings.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+createStack_useOpsworksSecurityGroups :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_useOpsworksSecurityGroups = Lens.lens (\CreateStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CreateStack' {} a -> s {useOpsworksSecurityGroups = a} :: CreateStack)
 
 -- | The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create
@@ -615,31 +641,6 @@ newCreateStack
 createStack_defaultOs :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_defaultOs = Lens.lens (\CreateStack' {defaultOs} -> defaultOs) (\s@CreateStack' {} a -> s {defaultOs = a} :: CreateStack)
 
--- | Whether to associate the AWS OpsWorks Stacks built-in security groups
--- with the stack\'s layers.
---
--- AWS OpsWorks Stacks provides a standard set of built-in security groups,
--- one for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
---
--- -   True - AWS OpsWorks Stacks automatically associates the appropriate
---     built-in security group with each layer (default setting). You can
---     associate additional security groups with a layer after you create
---     it, but you cannot delete the built-in security group.
---
--- -   False - AWS OpsWorks Stacks does not associate built-in security
---     groups with layers. You must create appropriate EC2 security groups
---     and associate a security group with each layer that you create.
---     However, you can still manually associate a built-in security group
---     with a layer on creation; custom security groups are required only
---     for those layers that need custom settings.
---
--- For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-createStack_useOpsworksSecurityGroups :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
-createStack_useOpsworksSecurityGroups = Lens.lens (\CreateStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CreateStack' {} a -> s {useOpsworksSecurityGroups = a} :: CreateStack)
-
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -656,6 +657,18 @@ createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSou
 -- description.
 createStack_defaultAvailabilityZone :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CreateStack' {} a -> s {defaultAvailabilityZone = a} :: CreateStack)
+
+-- | A string that contains user-defined, custom JSON. It can be used to
+-- override the corresponding default stack configuration attribute values
+-- or to pass data to recipes. The string should be in the following
+-- format:
+--
+-- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+--
+-- For more information about custom JSON, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+createStack_customJson :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_customJson = Lens.lens (\CreateStack' {customJson} -> customJson) (\s@CreateStack' {} a -> s {customJson = a} :: CreateStack)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -679,18 +692,6 @@ createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabil
 -- instance, which overrides the stack\'s default setting.
 createStack_agentVersion :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_agentVersion = Lens.lens (\CreateStack' {agentVersion} -> agentVersion) (\s@CreateStack' {} a -> s {agentVersion = a} :: CreateStack)
-
--- | A string that contains user-defined, custom JSON. It can be used to
--- override the corresponding default stack configuration attribute values
--- or to pass data to recipes. The string should be in the following
--- format:
---
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
---
--- For more information about custom JSON, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-createStack_customJson :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_customJson = Lens.lens (\CreateStack' {customJson} -> customJson) (\s@CreateStack' {} a -> s {customJson = a} :: CreateStack)
 
 -- | The default root device type. This value is the default for all
 -- instances in the stack, but you can override it when you create an
@@ -738,6 +739,13 @@ createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\
 createStack_hostnameTheme :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostnameTheme) (\s@CreateStack' {} a -> s {hostnameTheme = a} :: CreateStack)
 
+-- | The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+createStack_configurationManager :: Lens.Lens' CreateStack (Prelude.Maybe StackConfigurationManager)
+createStack_configurationManager = Lens.lens (\CreateStack' {configurationManager} -> configurationManager) (\s@CreateStack' {} a -> s {configurationManager = a} :: CreateStack)
+
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
@@ -751,12 +759,12 @@ createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostname
 createStack_defaultSshKeyName :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_defaultSshKeyName = Lens.lens (\CreateStack' {defaultSshKeyName} -> defaultSshKeyName) (\s@CreateStack' {} a -> s {defaultSshKeyName = a} :: CreateStack)
 
--- | The configuration manager. When you create a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
-createStack_configurationManager :: Lens.Lens' CreateStack (Prelude.Maybe StackConfigurationManager)
-createStack_configurationManager = Lens.lens (\CreateStack' {configurationManager} -> configurationManager) (\s@CreateStack' {} a -> s {configurationManager = a} :: CreateStack)
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+createStack_chefConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe ChefConfiguration)
+createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> chefConfiguration) (\s@CreateStack' {} a -> s {chefConfiguration = a} :: CreateStack)
 
 -- | The ID of the VPC that the stack is to be launched into. The VPC must be
 -- in the stack\'s region. All instances are launched into this VPC. You
@@ -788,13 +796,6 @@ createStack_configurationManager = Lens.lens (\CreateStack' {configurationManage
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 createStack_vpcId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_vpcId = Lens.lens (\CreateStack' {vpcId} -> vpcId) (\s@CreateStack' {} a -> s {vpcId = a} :: CreateStack)
-
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-createStack_chefConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe ChefConfiguration)
-createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> chefConfiguration) (\s@CreateStack' {} a -> s {chefConfiguration = a} :: CreateStack)
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -885,26 +886,26 @@ instance Core.ToJSON CreateStack where
   toJSON CreateStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
+          [ ("UseOpsworksSecurityGroups" Core..=)
               Prelude.<$> useOpsworksSecurityGroups,
+            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
             ("CustomCookbooksSource" Core..=)
               Prelude.<$> customCookbooksSource,
             ("DefaultAvailabilityZone" Core..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
             ("CustomJson" Core..=) Prelude.<$> customJson,
+            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
             ("DefaultRootDeviceType" Core..=)
               Prelude.<$> defaultRootDeviceType,
             ("Attributes" Core..=) Prelude.<$> attributes,
             ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Core..=)
-              Prelude.<$> defaultSshKeyName,
             ("ConfigurationManager" Core..=)
               Prelude.<$> configurationManager,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("DefaultSshKeyName" Core..=)
+              Prelude.<$> defaultSshKeyName,
             ("ChefConfiguration" Core..=)
               Prelude.<$> chefConfiguration,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
             ("DefaultSubnetId" Core..=)
               Prelude.<$> defaultSubnetId,
             ("UseCustomCookbooks" Core..=)

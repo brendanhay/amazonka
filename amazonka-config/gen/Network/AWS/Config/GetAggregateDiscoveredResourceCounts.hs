@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the resource counts across accounts and regions that are present
--- in your AWS Config aggregator. You can request the resource counts by
+-- in your Config aggregator. You can request the resource counts by
 -- providing filters and GroupByKey.
 --
 -- For example, if the input contains accountID 12345678910 and region
@@ -72,7 +72,7 @@ data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts
     groupByKey :: Prelude.Maybe ResourceCountGroupKey,
     -- | The maximum number of GroupedResourceCount objects returned on each
     -- page. The default is 1000. You cannot specify a number greater than
-    -- 1000. If you specify 0, AWS Config uses the default.
+    -- 1000. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
@@ -96,7 +96,7 @@ data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts
 --
 -- 'limit', 'getAggregateDiscoveredResourceCounts_limit' - The maximum number of GroupedResourceCount objects returned on each
 -- page. The default is 1000. You cannot specify a number greater than
--- 1000. If you specify 0, AWS Config uses the default.
+-- 1000. If you specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'getAggregateDiscoveredResourceCounts_configurationAggregatorName' - The name of the configuration aggregator.
 newGetAggregateDiscoveredResourceCounts ::
@@ -130,7 +130,7 @@ getAggregateDiscoveredResourceCounts_groupByKey = Lens.lens (\GetAggregateDiscov
 
 -- | The maximum number of GroupedResourceCount objects returned on each
 -- page. The default is 1000. You cannot specify a number greater than
--- 1000. If you specify 0, AWS Config uses the default.
+-- 1000. If you specify 0, Config uses the default.
 getAggregateDiscoveredResourceCounts_limit :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
 getAggregateDiscoveredResourceCounts_limit = Lens.lens (\GetAggregateDiscoveredResourceCounts' {limit} -> limit) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {limit = a} :: GetAggregateDiscoveredResourceCounts)
 

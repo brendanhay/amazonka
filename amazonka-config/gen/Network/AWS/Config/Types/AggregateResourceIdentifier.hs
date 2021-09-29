@@ -24,21 +24,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details that identify a resource that is collected by AWS Config
+-- | The details that identify a resource that is collected by Config
 -- aggregator, including the resource type, ID, (if available) the custom
 -- resource name, the source account, and source region.
 --
 -- /See:/ 'newAggregateResourceIdentifier' smart constructor.
 data AggregateResourceIdentifier = AggregateResourceIdentifier'
-  { -- | The name of the AWS resource.
+  { -- | The name of the Amazon Web Services resource.
     resourceName :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of the source account.
     sourceAccountId :: Prelude.Text,
     -- | The source region where data is aggregated.
     sourceRegion :: Prelude.Text,
-    -- | The ID of the AWS resource.
+    -- | The ID of the Amazon Web Services resource.
     resourceId :: Prelude.Text,
-    -- | The type of the AWS resource.
+    -- | The type of the Amazon Web Services resource.
     resourceType :: ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,15 +51,15 @@ data AggregateResourceIdentifier = AggregateResourceIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceName', 'aggregateResourceIdentifier_resourceName' - The name of the AWS resource.
+-- 'resourceName', 'aggregateResourceIdentifier_resourceName' - The name of the Amazon Web Services resource.
 --
 -- 'sourceAccountId', 'aggregateResourceIdentifier_sourceAccountId' - The 12-digit account ID of the source account.
 --
 -- 'sourceRegion', 'aggregateResourceIdentifier_sourceRegion' - The source region where data is aggregated.
 --
--- 'resourceId', 'aggregateResourceIdentifier_resourceId' - The ID of the AWS resource.
+-- 'resourceId', 'aggregateResourceIdentifier_resourceId' - The ID of the Amazon Web Services resource.
 --
--- 'resourceType', 'aggregateResourceIdentifier_resourceType' - The type of the AWS resource.
+-- 'resourceType', 'aggregateResourceIdentifier_resourceType' - The type of the Amazon Web Services resource.
 newAggregateResourceIdentifier ::
   -- | 'sourceAccountId'
   Prelude.Text ->
@@ -84,7 +84,7 @@ newAggregateResourceIdentifier
         resourceType = pResourceType_
       }
 
--- | The name of the AWS resource.
+-- | The name of the Amazon Web Services resource.
 aggregateResourceIdentifier_resourceName :: Lens.Lens' AggregateResourceIdentifier (Prelude.Maybe Prelude.Text)
 aggregateResourceIdentifier_resourceName = Lens.lens (\AggregateResourceIdentifier' {resourceName} -> resourceName) (\s@AggregateResourceIdentifier' {} a -> s {resourceName = a} :: AggregateResourceIdentifier)
 
@@ -96,11 +96,11 @@ aggregateResourceIdentifier_sourceAccountId = Lens.lens (\AggregateResourceIdent
 aggregateResourceIdentifier_sourceRegion :: Lens.Lens' AggregateResourceIdentifier Prelude.Text
 aggregateResourceIdentifier_sourceRegion = Lens.lens (\AggregateResourceIdentifier' {sourceRegion} -> sourceRegion) (\s@AggregateResourceIdentifier' {} a -> s {sourceRegion = a} :: AggregateResourceIdentifier)
 
--- | The ID of the AWS resource.
+-- | The ID of the Amazon Web Services resource.
 aggregateResourceIdentifier_resourceId :: Lens.Lens' AggregateResourceIdentifier Prelude.Text
 aggregateResourceIdentifier_resourceId = Lens.lens (\AggregateResourceIdentifier' {resourceId} -> resourceId) (\s@AggregateResourceIdentifier' {} a -> s {resourceId = a} :: AggregateResourceIdentifier)
 
--- | The type of the AWS resource.
+-- | The type of the Amazon Web Services resource.
 aggregateResourceIdentifier_resourceType :: Lens.Lens' AggregateResourceIdentifier ResourceType
 aggregateResourceIdentifier_resourceType = Lens.lens (\AggregateResourceIdentifier' {resourceType} -> resourceType) (\s@AggregateResourceIdentifier' {} a -> s {resourceType = a} :: AggregateResourceIdentifier)
 

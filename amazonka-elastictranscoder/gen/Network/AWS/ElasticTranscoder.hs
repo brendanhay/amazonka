@@ -33,11 +33,11 @@ module Network.AWS.ElasticTranscoder
     -- ** ValidationException
     _ValidationException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -51,23 +51,17 @@ module Network.AWS.ElasticTranscoder
     -- * Operations
     -- $operations
 
-    -- ** ListJobsByPipeline (Paginated)
-    ListJobsByPipeline (ListJobsByPipeline'),
-    newListJobsByPipeline,
-    ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
-    newListJobsByPipelineResponse,
-
     -- ** UpdatePipelineStatus
     UpdatePipelineStatus (UpdatePipelineStatus'),
     newUpdatePipelineStatus,
     UpdatePipelineStatusResponse (UpdatePipelineStatusResponse'),
     newUpdatePipelineStatusResponse,
 
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
+    -- ** ListJobsByPipeline (Paginated)
+    ListJobsByPipeline (ListJobsByPipeline'),
+    newListJobsByPipeline,
+    ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
+    newListJobsByPipelineResponse,
 
     -- ** DeletePreset
     DeletePreset (DeletePreset'),
@@ -75,11 +69,11 @@ module Network.AWS.ElasticTranscoder
     DeletePresetResponse (DeletePresetResponse'),
     newDeletePresetResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
 
     -- ** CreatePreset
     CreatePreset (CreatePreset'),
@@ -87,23 +81,29 @@ module Network.AWS.ElasticTranscoder
     CreatePresetResponse (CreatePresetResponse'),
     newCreatePresetResponse,
 
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
     -- ** CreatePipeline
     CreatePipeline (CreatePipeline'),
     newCreatePipeline,
     CreatePipelineResponse (CreatePipelineResponse'),
     newCreatePipelineResponse,
 
-    -- ** UpdatePipeline
-    UpdatePipeline (UpdatePipeline'),
-    newUpdatePipeline,
-    UpdatePipelineResponse (UpdatePipelineResponse'),
-    newUpdatePipelineResponse,
-
     -- ** DeletePipeline
     DeletePipeline (DeletePipeline'),
     newDeletePipeline,
     DeletePipelineResponse (DeletePipelineResponse'),
     newDeletePipelineResponse,
+
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
 
     -- ** ReadPreset
     ReadPreset (ReadPreset'),

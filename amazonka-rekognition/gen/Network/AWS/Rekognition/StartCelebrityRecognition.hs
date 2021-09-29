@@ -68,6 +68,9 @@ import qualified Network.AWS.Response as Response
 data StartCelebrityRecognition = StartCelebrityRecognition'
   { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
     -- publish the completion status of the celebrity recognition analysis to.
+    -- The Amazon SNS topic must have a topic name that begins with
+    -- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+    -- permissions policy.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartCelebrityRecognition@ requests, the same
@@ -95,6 +98,9 @@ data StartCelebrityRecognition = StartCelebrityRecognition'
 --
 -- 'notificationChannel', 'startCelebrityRecognition_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the celebrity recognition analysis to.
+-- The Amazon SNS topic must have a topic name that begins with
+-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+-- permissions policy.
 --
 -- 'clientRequestToken', 'startCelebrityRecognition_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartCelebrityRecognition@ requests, the same
@@ -123,6 +129,9 @@ newStartCelebrityRecognition pVideo_ =
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the celebrity recognition analysis to.
+-- The Amazon SNS topic must have a topic name that begins with
+-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+-- permissions policy.
 startCelebrityRecognition_notificationChannel :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe NotificationChannel)
 startCelebrityRecognition_notificationChannel = Lens.lens (\StartCelebrityRecognition' {notificationChannel} -> notificationChannel) (\s@StartCelebrityRecognition' {} a -> s {notificationChannel = a} :: StartCelebrityRecognition)
 

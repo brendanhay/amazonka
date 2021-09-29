@@ -23,25 +23,25 @@
 -- Creates a
 -- <https://en.wikipedia.org/wiki/Digital_signature digital signature> for
 -- a message or message digest by using the private key in an asymmetric
--- CMK. To verify the signature, use the Verify operation, or use the
--- public key in the same asymmetric CMK outside of AWS KMS. For
--- information about symmetric and asymmetric CMKs, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric CMKs>
--- in the /AWS Key Management Service Developer Guide/.
+-- KMS key. To verify the signature, use the Verify operation, or use the
+-- public key in the same asymmetric KMS key outside of KMS. For
+-- information about symmetric and asymmetric KMS keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric KMS keys>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Digital signatures are generated and verified by using asymmetric key
 -- pair, such as an RSA or ECC pair that is represented by an asymmetric
--- customer master key (CMK). The key owner (or an authorized user) uses
--- their private key to sign a message. Anyone with the public key can
--- verify that the message was signed with that particular private key and
--- that the message hasn\'t changed since it was signed.
+-- KMS key. The key owner (or an authorized user) uses their private key to
+-- sign a message. Anyone with the public key can verify that the message
+-- was signed with that particular private key and that the message hasn\'t
+-- changed since it was signed.
 --
 -- To use the @Sign@ operation, provide the following information:
 --
--- -   Use the @KeyId@ parameter to identify an asymmetric CMK with a
+-- -   Use the @KeyId@ parameter to identify an asymmetric KMS key with a
 --     @KeyUsage@ value of @SIGN_VERIFY@. To get the @KeyUsage@ value of a
---     CMK, use the DescribeKey operation. The caller must have @kms:Sign@
---     permission on the CMK.
+--     KMS key, use the DescribeKey operation. The caller must have
+--     @kms:Sign@ permission on the KMS key.
 --
 -- -   Use the @Message@ parameter to specify the message or message digest
 --     to sign. You can submit messages of up to 4096 bytes. To sign a
@@ -50,23 +50,23 @@
 --     whether the message is a full message or a digest, use the
 --     @MessageType@ parameter.
 --
--- -   Choose a signing algorithm that is compatible with the CMK.
+-- -   Choose a signing algorithm that is compatible with the KMS key.
 --
--- When signing a message, be sure to record the CMK and the signing
+-- When signing a message, be sure to record the KMS key and the signing
 -- algorithm. This information is required to verify the signature.
 --
 -- To verify the signature that this operation generates, use the Verify
 -- operation. Or use the GetPublicKey operation to download the public key
--- and then use the public key to verify the signature outside of AWS KMS.
+-- and then use the public key to verify the signature outside of KMS.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: Yes. To perform this operation with a CMK in a
--- different AWS account, specify the key ARN or alias ARN in the value of
--- the @KeyId@ parameter.
+-- __Cross-account use__: Yes. To perform this operation with a KMS key in
+-- a different Amazon Web Services account, specify the key ARN or alias
+-- ARN in the value of the @KeyId@ parameter.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:Sign>
@@ -108,23 +108,27 @@ import qualified Network.AWS.Response as Response
 data Sign = Sign'
   { -- | A list of grant tokens.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Tells AWS KMS whether the value of the @Message@ parameter is a message
-    -- or message digest. The default value, RAW, indicates a message. To
-    -- indicate a message digest, enter @DIGEST@.
+    -- | Tells KMS whether the value of the @Message@ parameter is a message or
+    -- message digest. The default value, RAW, indicates a message. To indicate
+    -- a message digest, enter @DIGEST@.
     messageType :: Prelude.Maybe MessageType,
-    -- | Identifies an asymmetric CMK. AWS KMS uses the private key in the
-    -- asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must
-    -- be @SIGN_VERIFY@. To find the @KeyUsage@ of a CMK, use the DescribeKey
-    -- operation.
+    -- | Identifies an asymmetric KMS key. KMS uses the private key in the
+    -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
+    -- key must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key, use the
+    -- DescribeKey operation.
     --
-    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
-    -- name, or alias ARN. When using an alias name, prefix it with
-    -- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
-    -- the key ARN or alias ARN.
+    -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+    -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+    -- key in a different Amazon Web Services account, you must use the key ARN
+    -- or alias ARN.
     --
     -- For example:
     --
@@ -137,19 +141,19 @@ data Sign = Sign'
     --
     -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
-    -- get the alias name and alias ARN, use ListAliases.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     keyId :: Prelude.Text,
     -- | Specifies the message or message digest to sign. Messages can be 0-4096
     -- bytes. To sign a larger message, provide the message digest.
     --
-    -- If you provide a message, AWS KMS generates a hash digest of the message
-    -- and then signs it.
+    -- If you provide a message, KMS generates a hash digest of the message and
+    -- then signs it.
     message :: Core.Sensitive Core.Base64,
     -- | Specifies the signing algorithm to use when signing the message.
     --
     -- Choose an algorithm that is compatible with the type and size of the
-    -- specified asymmetric CMK.
+    -- specified asymmetric KMS key.
     signingAlgorithm :: SigningAlgorithmSpec
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -164,23 +168,27 @@ data Sign = Sign'
 --
 -- 'grantTokens', 'sign_grantTokens' - A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
--- 'messageType', 'sign_messageType' - Tells AWS KMS whether the value of the @Message@ parameter is a message
--- or message digest. The default value, RAW, indicates a message. To
--- indicate a message digest, enter @DIGEST@.
+-- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
 --
--- 'keyId', 'sign_keyId' - Identifies an asymmetric CMK. AWS KMS uses the private key in the
--- asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must
--- be @SIGN_VERIFY@. To find the @KeyUsage@ of a CMK, use the DescribeKey
--- operation.
+-- 'keyId', 'sign_keyId' - Identifies an asymmetric KMS key. KMS uses the private key in the
+-- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
+-- key must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key, use the
+-- DescribeKey operation.
 --
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
--- name, or alias ARN. When using an alias name, prefix it with
--- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
--- the key ARN or alias ARN.
+-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+-- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+-- key in a different Amazon Web Services account, you must use the key ARN
+-- or alias ARN.
 --
 -- For example:
 --
@@ -193,14 +201,14 @@ data Sign = Sign'
 --
 -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
--- get the alias name and alias ARN, use ListAliases.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 --
 -- 'message', 'sign_message' - Specifies the message or message digest to sign. Messages can be 0-4096
 -- bytes. To sign a larger message, provide the message digest.
 --
--- If you provide a message, AWS KMS generates a hash digest of the message
--- and then signs it.--
+-- If you provide a message, KMS generates a hash digest of the message and
+-- then signs it.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -209,7 +217,7 @@ data Sign = Sign'
 -- 'signingAlgorithm', 'sign_signingAlgorithm' - Specifies the signing algorithm to use when signing the message.
 --
 -- Choose an algorithm that is compatible with the type and size of the
--- specified asymmetric CMK.
+-- specified asymmetric KMS key.
 newSign ::
   -- | 'keyId'
   Prelude.Text ->
@@ -231,27 +239,31 @@ newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
 
 -- | A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 sign_grantTokens :: Lens.Lens' Sign (Prelude.Maybe [Prelude.Text])
 sign_grantTokens = Lens.lens (\Sign' {grantTokens} -> grantTokens) (\s@Sign' {} a -> s {grantTokens = a} :: Sign) Prelude.. Lens.mapping Lens._Coerce
 
--- | Tells AWS KMS whether the value of the @Message@ parameter is a message
--- or message digest. The default value, RAW, indicates a message. To
--- indicate a message digest, enter @DIGEST@.
+-- | Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
 sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
 sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
 
--- | Identifies an asymmetric CMK. AWS KMS uses the private key in the
--- asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must
--- be @SIGN_VERIFY@. To find the @KeyUsage@ of a CMK, use the DescribeKey
--- operation.
+-- | Identifies an asymmetric KMS key. KMS uses the private key in the
+-- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
+-- key must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key, use the
+-- DescribeKey operation.
 --
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias
--- name, or alias ARN. When using an alias name, prefix it with
--- @\"alias\/\"@. To specify a CMK in a different AWS account, you must use
--- the key ARN or alias ARN.
+-- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
+-- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
+-- key in a different Amazon Web Services account, you must use the key ARN
+-- or alias ARN.
 --
 -- For example:
 --
@@ -264,16 +276,16 @@ sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} 
 --
 -- -   Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias\/ExampleAlias@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey. To
--- get the alias name and alias ARN, use ListAliases.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 sign_keyId :: Lens.Lens' Sign Prelude.Text
 sign_keyId = Lens.lens (\Sign' {keyId} -> keyId) (\s@Sign' {} a -> s {keyId = a} :: Sign)
 
 -- | Specifies the message or message digest to sign. Messages can be 0-4096
 -- bytes. To sign a larger message, provide the message digest.
 --
--- If you provide a message, AWS KMS generates a hash digest of the message
--- and then signs it.--
+-- If you provide a message, KMS generates a hash digest of the message and
+-- then signs it.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -284,7 +296,7 @@ sign_message = Lens.lens (\Sign' {message} -> message) (\s@Sign' {} a -> s {mess
 -- | Specifies the signing algorithm to use when signing the message.
 --
 -- Choose an algorithm that is compatible with the type and size of the
--- specified asymmetric CMK.
+-- specified asymmetric KMS key.
 sign_signingAlgorithm :: Lens.Lens' Sign SigningAlgorithmSpec
 sign_signingAlgorithm = Lens.lens (\Sign' {signingAlgorithm} -> signingAlgorithm) (\s@Sign' {} a -> s {signingAlgorithm = a} :: Sign)
 
@@ -354,12 +366,12 @@ data SignResponse = SignResponse'
     --     This is the most commonly used signature format and is appropriate
     --     for most uses.
     --
-    -- When you use the HTTP API or the AWS CLI, the value is Base64-encoded.
-    -- Otherwise, it is not Base64-encoded.
+    -- When you use the HTTP API or the Amazon Web Services CLI, the value is
+    -- Base64-encoded. Otherwise, it is not Base64-encoded.
     signature :: Prelude.Maybe Core.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the asymmetric CMK that was used to sign the message.
+    -- of the asymmetric KMS key that was used to sign the message.
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -389,8 +401,8 @@ data SignResponse = SignResponse'
 --     This is the most commonly used signature format and is appropriate
 --     for most uses.
 --
--- When you use the HTTP API or the AWS CLI, the value is Base64-encoded.
--- Otherwise, it is not Base64-encoded.--
+-- When you use the HTTP API or the Amazon Web Services CLI, the value is
+-- Base64-encoded. Otherwise, it is not Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -398,7 +410,7 @@ data SignResponse = SignResponse'
 --
 -- 'keyId', 'signResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric CMK that was used to sign the message.
+-- of the asymmetric KMS key that was used to sign the message.
 --
 -- 'httpStatus', 'signResponse_httpStatus' - The response's http status code.
 newSignResponse ::
@@ -430,8 +442,8 @@ signResponse_signingAlgorithm = Lens.lens (\SignResponse' {signingAlgorithm} -> 
 --     This is the most commonly used signature format and is appropriate
 --     for most uses.
 --
--- When you use the HTTP API or the AWS CLI, the value is Base64-encoded.
--- Otherwise, it is not Base64-encoded.--
+-- When you use the HTTP API or the Amazon Web Services CLI, the value is
+-- Base64-encoded. Otherwise, it is not Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -441,7 +453,7 @@ signResponse_signature = Lens.lens (\SignResponse' {signature} -> signature) (\s
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric CMK that was used to sign the message.
+-- of the asymmetric KMS key that was used to sign the message.
 signResponse_keyId :: Lens.Lens' SignResponse (Prelude.Maybe Prelude.Text)
 signResponse_keyId = Lens.lens (\SignResponse' {keyId} -> keyId) (\s@SignResponse' {} a -> s {keyId = a} :: SignResponse)
 

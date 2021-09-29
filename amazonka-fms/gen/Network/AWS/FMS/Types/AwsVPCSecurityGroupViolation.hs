@@ -25,16 +25,16 @@ import Network.AWS.FMS.Types.SecurityGroupRemediationAction
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Details of the rule violation in a security group when compared to the
--- master security group of the AWS Firewall Manager policy.
+-- | Violation detail for the rule violation in a security group when
+-- compared to the primary security group of the Firewall Manager policy.
 --
 -- /See:/ 'newAwsVPCSecurityGroupViolation' smart constructor.
 data AwsVPCSecurityGroupViolation = AwsVPCSecurityGroupViolation'
-  { -- | List of rules specified in the security group of the AWS Firewall
-    -- Manager policy that partially match the @ViolationTarget@ rule.
-    partialMatches :: Prelude.Maybe [PartialMatch],
-    -- | Remediation options for the rule specified in the @ViolationTarget@.
+  { -- | Remediation options for the rule specified in the @ViolationTarget@.
     possibleSecurityGroupRemediationActions :: Prelude.Maybe [SecurityGroupRemediationAction],
+    -- | List of rules specified in the security group of the Firewall Manager
+    -- policy that partially match the @ViolationTarget@ rule.
+    partialMatches :: Prelude.Maybe [PartialMatch],
     -- | The security group rule that is being evaluated.
     violationTarget :: Prelude.Maybe Prelude.Text,
     -- | A description of the security group that violates the policy.
@@ -50,10 +50,10 @@ data AwsVPCSecurityGroupViolation = AwsVPCSecurityGroupViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partialMatches', 'awsVPCSecurityGroupViolation_partialMatches' - List of rules specified in the security group of the AWS Firewall
--- Manager policy that partially match the @ViolationTarget@ rule.
---
 -- 'possibleSecurityGroupRemediationActions', 'awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions' - Remediation options for the rule specified in the @ViolationTarget@.
+--
+-- 'partialMatches', 'awsVPCSecurityGroupViolation_partialMatches' - List of rules specified in the security group of the Firewall Manager
+-- policy that partially match the @ViolationTarget@ rule.
 --
 -- 'violationTarget', 'awsVPCSecurityGroupViolation_violationTarget' - The security group rule that is being evaluated.
 --
@@ -62,22 +62,21 @@ newAwsVPCSecurityGroupViolation ::
   AwsVPCSecurityGroupViolation
 newAwsVPCSecurityGroupViolation =
   AwsVPCSecurityGroupViolation'
-    { partialMatches =
+    { possibleSecurityGroupRemediationActions =
         Prelude.Nothing,
-      possibleSecurityGroupRemediationActions =
-        Prelude.Nothing,
+      partialMatches = Prelude.Nothing,
       violationTarget = Prelude.Nothing,
       violationTargetDescription = Prelude.Nothing
     }
 
--- | List of rules specified in the security group of the AWS Firewall
--- Manager policy that partially match the @ViolationTarget@ rule.
-awsVPCSecurityGroupViolation_partialMatches :: Lens.Lens' AwsVPCSecurityGroupViolation (Prelude.Maybe [PartialMatch])
-awsVPCSecurityGroupViolation_partialMatches = Lens.lens (\AwsVPCSecurityGroupViolation' {partialMatches} -> partialMatches) (\s@AwsVPCSecurityGroupViolation' {} a -> s {partialMatches = a} :: AwsVPCSecurityGroupViolation) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Remediation options for the rule specified in the @ViolationTarget@.
 awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions :: Lens.Lens' AwsVPCSecurityGroupViolation (Prelude.Maybe [SecurityGroupRemediationAction])
 awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions = Lens.lens (\AwsVPCSecurityGroupViolation' {possibleSecurityGroupRemediationActions} -> possibleSecurityGroupRemediationActions) (\s@AwsVPCSecurityGroupViolation' {} a -> s {possibleSecurityGroupRemediationActions = a} :: AwsVPCSecurityGroupViolation) Prelude.. Lens.mapping Lens._Coerce
+
+-- | List of rules specified in the security group of the Firewall Manager
+-- policy that partially match the @ViolationTarget@ rule.
+awsVPCSecurityGroupViolation_partialMatches :: Lens.Lens' AwsVPCSecurityGroupViolation (Prelude.Maybe [PartialMatch])
+awsVPCSecurityGroupViolation_partialMatches = Lens.lens (\AwsVPCSecurityGroupViolation' {partialMatches} -> partialMatches) (\s@AwsVPCSecurityGroupViolation' {} a -> s {partialMatches = a} :: AwsVPCSecurityGroupViolation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The security group rule that is being evaluated.
 awsVPCSecurityGroupViolation_violationTarget :: Lens.Lens' AwsVPCSecurityGroupViolation (Prelude.Maybe Prelude.Text)
@@ -93,10 +92,10 @@ instance Core.FromJSON AwsVPCSecurityGroupViolation where
       "AwsVPCSecurityGroupViolation"
       ( \x ->
           AwsVPCSecurityGroupViolation'
-            Prelude.<$> (x Core..:? "PartialMatches" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "PossibleSecurityGroupRemediationActions"
+            Prelude.<$> ( x Core..:? "PossibleSecurityGroupRemediationActions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "PartialMatches" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ViolationTarget")
             Prelude.<*> (x Core..:? "ViolationTargetDescription")
       )

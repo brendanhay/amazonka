@@ -60,6 +60,16 @@ data DkimAttributes = DkimAttributes'
     -- -   @NOT_STARTED@ – The DKIM verification process hasn\'t been initiated
     --     for the domain.
     status :: Prelude.Maybe DkimStatus,
+    -- | A string that indicates how DKIM was configured for the identity. There
+    -- are two possible values:
+    --
+    -- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
+    --     using
+    --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
+    --
+    -- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
+    --     using Bring Your Own DKIM (BYODKIM).
+    signingAttributesOrigin :: Prelude.Maybe DkimSigningAttributesOrigin,
     -- | If you used
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>
     -- to configure DKIM authentication for the domain, then this object
@@ -76,16 +86,6 @@ data DkimAttributes = DkimAttributes'
     -- searches for the appropriate records in the DNS configuration of the
     -- domain for up to 72 hours.
     tokens :: Prelude.Maybe [Prelude.Text],
-    -- | A string that indicates how DKIM was configured for the identity. There
-    -- are two possible values:
-    --
-    -- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
-    --     using
-    --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
-    --
-    -- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
-    --     using Bring Your Own DKIM (BYODKIM).
-    signingAttributesOrigin :: Prelude.Maybe DkimSigningAttributesOrigin,
     -- | If the value is @true@, then the messages that you send from the
     -- identity are signed using DKIM. If the value is @false@, then the
     -- messages that you send from the identity aren\'t DKIM-signed.
@@ -121,6 +121,16 @@ data DkimAttributes = DkimAttributes'
 -- -   @NOT_STARTED@ – The DKIM verification process hasn\'t been initiated
 --     for the domain.
 --
+-- 'signingAttributesOrigin', 'dkimAttributes_signingAttributesOrigin' - A string that indicates how DKIM was configured for the identity. There
+-- are two possible values:
+--
+-- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
+--     using
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
+--
+-- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
+--     using Bring Your Own DKIM (BYODKIM).
+--
 -- 'tokens', 'dkimAttributes_tokens' - If you used
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>
 -- to configure DKIM authentication for the domain, then this object
@@ -137,16 +147,6 @@ data DkimAttributes = DkimAttributes'
 -- searches for the appropriate records in the DNS configuration of the
 -- domain for up to 72 hours.
 --
--- 'signingAttributesOrigin', 'dkimAttributes_signingAttributesOrigin' - A string that indicates how DKIM was configured for the identity. There
--- are two possible values:
---
--- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
---     using
---     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
---
--- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
---     using Bring Your Own DKIM (BYODKIM).
---
 -- 'signingEnabled', 'dkimAttributes_signingEnabled' - If the value is @true@, then the messages that you send from the
 -- identity are signed using DKIM. If the value is @false@, then the
 -- messages that you send from the identity aren\'t DKIM-signed.
@@ -155,8 +155,8 @@ newDkimAttributes ::
 newDkimAttributes =
   DkimAttributes'
     { status = Prelude.Nothing,
-      tokens = Prelude.Nothing,
       signingAttributesOrigin = Prelude.Nothing,
+      tokens = Prelude.Nothing,
       signingEnabled = Prelude.Nothing
     }
 
@@ -182,6 +182,18 @@ newDkimAttributes =
 dkimAttributes_status :: Lens.Lens' DkimAttributes (Prelude.Maybe DkimStatus)
 dkimAttributes_status = Lens.lens (\DkimAttributes' {status} -> status) (\s@DkimAttributes' {} a -> s {status = a} :: DkimAttributes)
 
+-- | A string that indicates how DKIM was configured for the identity. There
+-- are two possible values:
+--
+-- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
+--     using
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
+--
+-- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
+--     using Bring Your Own DKIM (BYODKIM).
+dkimAttributes_signingAttributesOrigin :: Lens.Lens' DkimAttributes (Prelude.Maybe DkimSigningAttributesOrigin)
+dkimAttributes_signingAttributesOrigin = Lens.lens (\DkimAttributes' {signingAttributesOrigin} -> signingAttributesOrigin) (\s@DkimAttributes' {} a -> s {signingAttributesOrigin = a} :: DkimAttributes)
+
 -- | If you used
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>
 -- to configure DKIM authentication for the domain, then this object
@@ -200,18 +212,6 @@ dkimAttributes_status = Lens.lens (\DkimAttributes' {status} -> status) (\s@Dkim
 dkimAttributes_tokens :: Lens.Lens' DkimAttributes (Prelude.Maybe [Prelude.Text])
 dkimAttributes_tokens = Lens.lens (\DkimAttributes' {tokens} -> tokens) (\s@DkimAttributes' {} a -> s {tokens = a} :: DkimAttributes) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string that indicates how DKIM was configured for the identity. There
--- are two possible values:
---
--- -   @AWS_SES@ – Indicates that DKIM was configured for the identity by
---     using
---     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
---
--- -   @EXTERNAL@ – Indicates that DKIM was configured for the identity by
---     using Bring Your Own DKIM (BYODKIM).
-dkimAttributes_signingAttributesOrigin :: Lens.Lens' DkimAttributes (Prelude.Maybe DkimSigningAttributesOrigin)
-dkimAttributes_signingAttributesOrigin = Lens.lens (\DkimAttributes' {signingAttributesOrigin} -> signingAttributesOrigin) (\s@DkimAttributes' {} a -> s {signingAttributesOrigin = a} :: DkimAttributes)
-
 -- | If the value is @true@, then the messages that you send from the
 -- identity are signed using DKIM. If the value is @false@, then the
 -- messages that you send from the identity aren\'t DKIM-signed.
@@ -225,8 +225,8 @@ instance Core.FromJSON DkimAttributes where
       ( \x ->
           DkimAttributes'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Tokens" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SigningAttributesOrigin")
+            Prelude.<*> (x Core..:? "Tokens" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SigningEnabled")
       )
 

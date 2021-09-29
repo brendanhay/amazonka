@@ -36,8 +36,8 @@ module Network.AWS.SESv2.GetContact
 
     -- * Response Lenses
     getContactResponse_createdTimestamp,
-    getContactResponse_unsubscribeAll,
     getContactResponse_topicDefaultPreferences,
+    getContactResponse_unsubscribeAll,
     getContactResponse_attributesData,
     getContactResponse_topicPreferences,
     getContactResponse_lastUpdatedTimestamp,
@@ -102,10 +102,10 @@ instance Core.AWSRequest GetContact where
       ( \s h x ->
           GetContactResponse'
             Prelude.<$> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "UnsubscribeAll")
             Prelude.<*> ( x Core..?> "TopicDefaultPreferences"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "UnsubscribeAll")
             Prelude.<*> (x Core..?> "AttributesData")
             Prelude.<*> ( x Core..?> "TopicPreferences"
                             Core..!@ Prelude.mempty
@@ -147,11 +147,11 @@ instance Core.ToQuery GetContact where
 data GetContactResponse = GetContactResponse'
   { -- | A timestamp noting when the contact was created.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The default topic preferences applied to the contact.
+    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
     -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
-    -- | The default topic preferences applied to the contact.
-    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
     -- | The attribute data attached to a contact.
     attributesData :: Prelude.Maybe Prelude.Text,
     -- | The contact\'s preference for being opted-in to or opted-out of a
@@ -178,10 +178,10 @@ data GetContactResponse = GetContactResponse'
 --
 -- 'createdTimestamp', 'getContactResponse_createdTimestamp' - A timestamp noting when the contact was created.
 --
+-- 'topicDefaultPreferences', 'getContactResponse_topicDefaultPreferences' - The default topic preferences applied to the contact.
+--
 -- 'unsubscribeAll', 'getContactResponse_unsubscribeAll' - A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
---
--- 'topicDefaultPreferences', 'getContactResponse_topicDefaultPreferences' - The default topic preferences applied to the contact.
 --
 -- 'attributesData', 'getContactResponse_attributesData' - The attribute data attached to a contact.
 --
@@ -203,8 +203,8 @@ newGetContactResponse pHttpStatus_ =
   GetContactResponse'
     { createdTimestamp =
         Prelude.Nothing,
-      unsubscribeAll = Prelude.Nothing,
       topicDefaultPreferences = Prelude.Nothing,
+      unsubscribeAll = Prelude.Nothing,
       attributesData = Prelude.Nothing,
       topicPreferences = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
@@ -217,14 +217,14 @@ newGetContactResponse pHttpStatus_ =
 getContactResponse_createdTimestamp :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.UTCTime)
 getContactResponse_createdTimestamp = Lens.lens (\GetContactResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactResponse' {} a -> s {createdTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The default topic preferences applied to the contact.
+getContactResponse_topicDefaultPreferences :: Lens.Lens' GetContactResponse (Prelude.Maybe [TopicPreference])
+getContactResponse_topicDefaultPreferences = Lens.lens (\GetContactResponse' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@GetContactResponse' {} a -> s {topicDefaultPreferences = a} :: GetContactResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
 getContactResponse_unsubscribeAll :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.Bool)
 getContactResponse_unsubscribeAll = Lens.lens (\GetContactResponse' {unsubscribeAll} -> unsubscribeAll) (\s@GetContactResponse' {} a -> s {unsubscribeAll = a} :: GetContactResponse)
-
--- | The default topic preferences applied to the contact.
-getContactResponse_topicDefaultPreferences :: Lens.Lens' GetContactResponse (Prelude.Maybe [TopicPreference])
-getContactResponse_topicDefaultPreferences = Lens.lens (\GetContactResponse' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@GetContactResponse' {} a -> s {topicDefaultPreferences = a} :: GetContactResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The attribute data attached to a contact.
 getContactResponse_attributesData :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.Text)

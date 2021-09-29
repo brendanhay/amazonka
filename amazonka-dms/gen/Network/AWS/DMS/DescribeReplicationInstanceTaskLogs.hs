@@ -27,8 +27,8 @@ module Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
     newDescribeReplicationInstanceTaskLogs,
 
     -- * Request Lenses
-    describeReplicationInstanceTaskLogs_marker,
     describeReplicationInstanceTaskLogs_maxRecords,
+    describeReplicationInstanceTaskLogs_marker,
     describeReplicationInstanceTaskLogs_replicationInstanceArn,
 
     -- * Destructuring the Response
@@ -52,11 +52,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeReplicationInstanceTaskLogs' smart constructor.
 data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
+  { -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
@@ -65,6 +61,10 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceArn :: Prelude.Text
   }
@@ -78,10 +78,6 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeReplicationInstanceTaskLogs_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReplicationInstanceTaskLogs_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -91,6 +87,10 @@ data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
+-- 'marker', 'describeReplicationInstanceTaskLogs_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'replicationInstanceArn', 'describeReplicationInstanceTaskLogs_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newDescribeReplicationInstanceTaskLogs ::
   -- | 'replicationInstanceArn'
@@ -99,18 +99,12 @@ newDescribeReplicationInstanceTaskLogs ::
 newDescribeReplicationInstanceTaskLogs
   pReplicationInstanceArn_ =
     DescribeReplicationInstanceTaskLogs'
-      { marker =
+      { maxRecords =
           Prelude.Nothing,
-        maxRecords = Prelude.Nothing,
+        marker = Prelude.Nothing,
         replicationInstanceArn =
           pReplicationInstanceArn_
       }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationInstanceTaskLogs_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Prelude.Maybe Prelude.Text)
-describeReplicationInstanceTaskLogs_marker = Lens.lens (\DescribeReplicationInstanceTaskLogs' {marker} -> marker) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {marker = a} :: DescribeReplicationInstanceTaskLogs)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -122,6 +116,12 @@ describeReplicationInstanceTaskLogs_marker = Lens.lens (\DescribeReplicationInst
 -- Constraints: Minimum 20, maximum 100.
 describeReplicationInstanceTaskLogs_maxRecords :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Prelude.Maybe Prelude.Int)
 describeReplicationInstanceTaskLogs_maxRecords = Lens.lens (\DescribeReplicationInstanceTaskLogs' {maxRecords} -> maxRecords) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {maxRecords = a} :: DescribeReplicationInstanceTaskLogs)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationInstanceTaskLogs_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Prelude.Maybe Prelude.Text)
+describeReplicationInstanceTaskLogs_marker = Lens.lens (\DescribeReplicationInstanceTaskLogs' {marker} -> marker) (\s@DescribeReplicationInstanceTaskLogs' {} a -> s {marker = a} :: DescribeReplicationInstanceTaskLogs)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 describeReplicationInstanceTaskLogs_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogs Prelude.Text
@@ -180,8 +180,8 @@ instance
   toJSON DescribeReplicationInstanceTaskLogs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+          [ ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker,
             Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn

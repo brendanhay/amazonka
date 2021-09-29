@@ -42,8 +42,8 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     newCreateConfigurationTemplate,
 
     -- * Request Lenses
-    createConfigurationTemplate_solutionStackName,
     createConfigurationTemplate_environmentId,
+    createConfigurationTemplate_solutionStackName,
     createConfigurationTemplate_platformArn,
     createConfigurationTemplate_tags,
     createConfigurationTemplate_optionSettings,
@@ -61,8 +61,8 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     configurationSettingsDescription_dateCreated,
     configurationSettingsDescription_solutionStackName,
     configurationSettingsDescription_deploymentStatus,
-    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_platformArn,
+    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_dateUpdated,
     configurationSettingsDescription_optionSettings,
     configurationSettingsDescription_description,
@@ -81,7 +81,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-  { -- | The name of an Elastic Beanstalk solution stack (platform version) that
+  { -- | The ID of an environment whose settings you want to use to create the
+    -- configuration template. You must specify @EnvironmentId@ if you don\'t
+    -- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of an Elastic Beanstalk solution stack (platform version) that
     -- this configuration uses. For example,
     -- @64bit Amazon Linux 2013.09 running Tomcat 7 Java 7@. A solution stack
     -- specifies the operating system, runtime, and application server for a
@@ -98,10 +102,6 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html ListAvailableSolutionStacks>
     -- API to obtain a list of available solution stacks.
     solutionStackName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an environment whose settings you want to use to create the
-    -- configuration template. You must specify @EnvironmentId@ if you don\'t
-    -- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom platform. For more
     -- information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
@@ -152,6 +152,10 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentId', 'createConfigurationTemplate_environmentId' - The ID of an environment whose settings you want to use to create the
+-- configuration template. You must specify @EnvironmentId@ if you don\'t
+-- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
+--
 -- 'solutionStackName', 'createConfigurationTemplate_solutionStackName' - The name of an Elastic Beanstalk solution stack (platform version) that
 -- this configuration uses. For example,
 -- @64bit Amazon Linux 2013.09 running Tomcat 7 Java 7@. A solution stack
@@ -168,10 +172,6 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
 -- Use the
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html ListAvailableSolutionStacks>
 -- API to obtain a list of available solution stacks.
---
--- 'environmentId', 'createConfigurationTemplate_environmentId' - The ID of an environment whose settings you want to use to create the
--- configuration template. You must specify @EnvironmentId@ if you don\'t
--- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
 --
 -- 'platformArn', 'createConfigurationTemplate_platformArn' - The Amazon Resource Name (ARN) of the custom platform. For more
 -- information, see
@@ -221,9 +221,9 @@ newCreateConfigurationTemplate
   pApplicationName_
   pTemplateName_ =
     CreateConfigurationTemplate'
-      { solutionStackName =
+      { environmentId =
           Prelude.Nothing,
-        environmentId = Prelude.Nothing,
+        solutionStackName = Prelude.Nothing,
         platformArn = Prelude.Nothing,
         tags = Prelude.Nothing,
         optionSettings = Prelude.Nothing,
@@ -232,6 +232,12 @@ newCreateConfigurationTemplate
         applicationName = pApplicationName_,
         templateName = pTemplateName_
       }
+
+-- | The ID of an environment whose settings you want to use to create the
+-- configuration template. You must specify @EnvironmentId@ if you don\'t
+-- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
+createConfigurationTemplate_environmentId :: Lens.Lens' CreateConfigurationTemplate (Prelude.Maybe Prelude.Text)
+createConfigurationTemplate_environmentId = Lens.lens (\CreateConfigurationTemplate' {environmentId} -> environmentId) (\s@CreateConfigurationTemplate' {} a -> s {environmentId = a} :: CreateConfigurationTemplate)
 
 -- | The name of an Elastic Beanstalk solution stack (platform version) that
 -- this configuration uses. For example,
@@ -251,12 +257,6 @@ newCreateConfigurationTemplate
 -- API to obtain a list of available solution stacks.
 createConfigurationTemplate_solutionStackName :: Lens.Lens' CreateConfigurationTemplate (Prelude.Maybe Prelude.Text)
 createConfigurationTemplate_solutionStackName = Lens.lens (\CreateConfigurationTemplate' {solutionStackName} -> solutionStackName) (\s@CreateConfigurationTemplate' {} a -> s {solutionStackName = a} :: CreateConfigurationTemplate)
-
--- | The ID of an environment whose settings you want to use to create the
--- configuration template. You must specify @EnvironmentId@ if you don\'t
--- specify @PlatformArn@, @SolutionStackName@, or @SourceConfiguration@.
-createConfigurationTemplate_environmentId :: Lens.Lens' CreateConfigurationTemplate (Prelude.Maybe Prelude.Text)
-createConfigurationTemplate_environmentId = Lens.lens (\CreateConfigurationTemplate' {environmentId} -> environmentId) (\s@CreateConfigurationTemplate' {} a -> s {environmentId = a} :: CreateConfigurationTemplate)
 
 -- | The Amazon Resource Name (ARN) of the custom platform. For more
 -- information, see
@@ -340,8 +340,8 @@ instance Core.ToQuery CreateConfigurationTemplate where
                   ),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "SolutionStackName" Core.=: solutionStackName,
         "EnvironmentId" Core.=: environmentId,
+        "SolutionStackName" Core.=: solutionStackName,
         "PlatformArn" Core.=: platformArn,
         "Tags"
           Core.=: Core.toQuery

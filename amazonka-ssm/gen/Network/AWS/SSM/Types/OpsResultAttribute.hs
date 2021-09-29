@@ -27,9 +27,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOpsResultAttribute' smart constructor.
 data OpsResultAttribute = OpsResultAttribute'
-  { -- | Name of the data type. Valid value: AWS:OpsItem,
-    -- AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or
-    -- AWS:ComplianceSummary.
+  { -- | Name of the data type. Valid value: @AWS:OpsItem@,
+    -- @AWS:EC2InstanceInformation@, @AWS:OpsItemTrendline@, or
+    -- @AWS:ComplianceSummary@.
     typeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data OpsResultAttribute = OpsResultAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'opsResultAttribute_typeName' - Name of the data type. Valid value: AWS:OpsItem,
--- AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or
--- AWS:ComplianceSummary.
+-- 'typeName', 'opsResultAttribute_typeName' - Name of the data type. Valid value: @AWS:OpsItem@,
+-- @AWS:EC2InstanceInformation@, @AWS:OpsItemTrendline@, or
+-- @AWS:ComplianceSummary@.
 newOpsResultAttribute ::
   -- | 'typeName'
   Prelude.Text ->
@@ -52,9 +52,9 @@ newOpsResultAttribute ::
 newOpsResultAttribute pTypeName_ =
   OpsResultAttribute' {typeName = pTypeName_}
 
--- | Name of the data type. Valid value: AWS:OpsItem,
--- AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or
--- AWS:ComplianceSummary.
+-- | Name of the data type. Valid value: @AWS:OpsItem@,
+-- @AWS:EC2InstanceInformation@, @AWS:OpsItemTrendline@, or
+-- @AWS:ComplianceSummary@.
 opsResultAttribute_typeName :: Lens.Lens' OpsResultAttribute Prelude.Text
 opsResultAttribute_typeName = Lens.lens (\OpsResultAttribute' {typeName} -> typeName) (\s@OpsResultAttribute' {} a -> s {typeName = a} :: OpsResultAttribute)
 

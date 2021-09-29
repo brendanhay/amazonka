@@ -73,6 +73,8 @@ library
     Network.AWS.LexModels.GetIntent
     Network.AWS.LexModels.GetIntents
     Network.AWS.LexModels.GetIntentVersions
+    Network.AWS.LexModels.GetMigration
+    Network.AWS.LexModels.GetMigrations
     Network.AWS.LexModels.GetSlotType
     Network.AWS.LexModels.GetSlotTypes
     Network.AWS.LexModels.GetSlotTypeVersions
@@ -84,6 +86,7 @@ library
     Network.AWS.LexModels.PutIntent
     Network.AWS.LexModels.PutSlotType
     Network.AWS.LexModels.StartImport
+    Network.AWS.LexModels.StartMigration
     Network.AWS.LexModels.TagResource
     Network.AWS.LexModels.Types
     Network.AWS.LexModels.Types.BotAliasMetadata
@@ -117,6 +120,12 @@ library
     Network.AWS.LexModels.Types.LogType
     Network.AWS.LexModels.Types.MergeStrategy
     Network.AWS.LexModels.Types.Message
+    Network.AWS.LexModels.Types.MigrationAlert
+    Network.AWS.LexModels.Types.MigrationAlertType
+    Network.AWS.LexModels.Types.MigrationSortAttribute
+    Network.AWS.LexModels.Types.MigrationStatus
+    Network.AWS.LexModels.Types.MigrationStrategy
+    Network.AWS.LexModels.Types.MigrationSummary
     Network.AWS.LexModels.Types.ObfuscationSetting
     Network.AWS.LexModels.Types.OutputContext
     Network.AWS.LexModels.Types.ProcessBehavior
@@ -130,6 +139,7 @@ library
     Network.AWS.LexModels.Types.SlotTypeMetadata
     Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
     Network.AWS.LexModels.Types.SlotValueSelectionStrategy
+    Network.AWS.LexModels.Types.SortOrder
     Network.AWS.LexModels.Types.Statement
     Network.AWS.LexModels.Types.StatusType
     Network.AWS.LexModels.Types.Tag

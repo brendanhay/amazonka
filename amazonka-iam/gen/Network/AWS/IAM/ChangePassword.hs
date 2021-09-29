@@ -21,13 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the password of the IAM user who is calling this operation. This
--- operation can be performed using the AWS CLI, the AWS API, or the __My
--- Security Credentials__ page in the AWS Management Console. The AWS
--- account root user password is not affected by this operation.
+-- operation can be performed using the CLI, the Amazon Web Services API,
+-- or the __My Security Credentials__ page in the Amazon Web Services
+-- Management Console. The Amazon Web Services account root user password
+-- is not affected by this operation.
 --
--- Use UpdateLoginProfile to use the AWS CLI, the AWS API, or the __Users__
--- page in the IAM console to change the password for any IAM user. For
--- more information about modifying passwords, see
+-- Use UpdateLoginProfile to use the CLI, the Amazon Web Services API, or
+-- the __Users__ page in the IAM console to change the password for any IAM
+-- user. For more information about modifying passwords, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing passwords>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.ChangePassword
@@ -56,8 +57,8 @@ import qualified Network.AWS.Response as Response
 data ChangePassword = ChangePassword'
   { -- | The IAM user\'s current password.
     oldPassword :: Core.Sensitive Prelude.Text,
-    -- | The new password. The new password must conform to the AWS account\'s
-    -- password policy, if one exists.
+    -- | The new password. The new password must conform to the Amazon Web
+    -- Services account\'s password policy, if one exists.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of characters. That string can
@@ -65,9 +66,9 @@ data ChangePassword = ChangePassword'
     -- through the end of the ASCII character range (@\\u00FF@). You can also
     -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
     -- (@\\u000D@) characters. Any of these characters are valid in a password.
-    -- However, many tools, such as the AWS Management Console, might restrict
-    -- the ability to type certain characters because they have special meaning
-    -- within that tool.
+    -- However, many tools, such as the Amazon Web Services Management Console,
+    -- might restrict the ability to type certain characters because they have
+    -- special meaning within that tool.
     newPassword' :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -82,8 +83,8 @@ data ChangePassword = ChangePassword'
 --
 -- 'oldPassword', 'changePassword_oldPassword' - The IAM user\'s current password.
 --
--- 'newPassword'', 'changePassword_newPassword' - The new password. The new password must conform to the AWS account\'s
--- password policy, if one exists.
+-- 'newPassword'', 'changePassword_newPassword' - The new password. The new password must conform to the Amazon Web
+-- Services account\'s password policy, if one exists.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of characters. That string can
@@ -91,9 +92,9 @@ data ChangePassword = ChangePassword'
 -- through the end of the ASCII character range (@\\u00FF@). You can also
 -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
 -- (@\\u000D@) characters. Any of these characters are valid in a password.
--- However, many tools, such as the AWS Management Console, might restrict
--- the ability to type certain characters because they have special meaning
--- within that tool.
+-- However, many tools, such as the Amazon Web Services Management Console,
+-- might restrict the ability to type certain characters because they have
+-- special meaning within that tool.
 newChangePassword ::
   -- | 'oldPassword'
   Prelude.Text ->
@@ -111,8 +112,8 @@ newChangePassword pOldPassword_ pNewPassword_ =
 changePassword_oldPassword :: Lens.Lens' ChangePassword Prelude.Text
 changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPassword) (\s@ChangePassword' {} a -> s {oldPassword = a} :: ChangePassword) Prelude.. Core._Sensitive
 
--- | The new password. The new password must conform to the AWS account\'s
--- password policy, if one exists.
+-- | The new password. The new password must conform to the Amazon Web
+-- Services account\'s password policy, if one exists.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of characters. That string can
@@ -120,9 +121,9 @@ changePassword_oldPassword = Lens.lens (\ChangePassword' {oldPassword} -> oldPas
 -- through the end of the ASCII character range (@\\u00FF@). You can also
 -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
 -- (@\\u000D@) characters. Any of these characters are valid in a password.
--- However, many tools, such as the AWS Management Console, might restrict
--- the ability to type certain characters because they have special meaning
--- within that tool.
+-- However, many tools, such as the Amazon Web Services Management Console,
+-- might restrict the ability to type certain characters because they have
+-- special meaning within that tool.
 changePassword_newPassword :: Lens.Lens' ChangePassword Prelude.Text
 changePassword_newPassword = Lens.lens (\ChangePassword' {newPassword'} -> newPassword') (\s@ChangePassword' {} a -> s {newPassword' = a} :: ChangePassword) Prelude.. Core._Sensitive
 

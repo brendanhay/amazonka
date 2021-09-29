@@ -30,6 +30,7 @@ module Network.AWS.Comprehend.CreateEndpoint
     -- * Request Lenses
     createEndpoint_tags,
     createEndpoint_clientRequestToken,
+    createEndpoint_dataAccessRoleArn,
     createEndpoint_endpointName,
     createEndpoint_modelArn,
     createEndpoint_desiredInferenceUnits,
@@ -62,6 +63,10 @@ data CreateEndpoint = CreateEndpoint'
     -- previous endpoint creation request, Amazon Comprehend will not return a
     -- @ResourceInUseException@.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
+    -- (IAM) role that grants Amazon Comprehend read access to trained custom
+    -- models encrypted with a customer managed key (ModelKmsKeyId).
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | This is the descriptive suffix that becomes part of the @EndpointArn@
     -- used for all subsequent requests to this resource.
     endpointName :: Prelude.Text,
@@ -92,6 +97,10 @@ data CreateEndpoint = CreateEndpoint'
 -- previous endpoint creation request, Amazon Comprehend will not return a
 -- @ResourceInUseException@.
 --
+-- 'dataAccessRoleArn', 'createEndpoint_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
+-- (IAM) role that grants Amazon Comprehend read access to trained custom
+-- models encrypted with a customer managed key (ModelKmsKeyId).
+--
 -- 'endpointName', 'createEndpoint_endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@
 -- used for all subsequent requests to this resource.
 --
@@ -116,6 +125,7 @@ newCreateEndpoint
     CreateEndpoint'
       { tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
+        dataAccessRoleArn = Prelude.Nothing,
         endpointName = pEndpointName_,
         modelArn = pModelArn_,
         desiredInferenceUnits = pDesiredInferenceUnits_
@@ -133,6 +143,12 @@ createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndp
 -- @ResourceInUseException@.
 createEndpoint_clientRequestToken :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_clientRequestToken = Lens.lens (\CreateEndpoint' {clientRequestToken} -> clientRequestToken) (\s@CreateEndpoint' {} a -> s {clientRequestToken = a} :: CreateEndpoint)
+
+-- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
+-- (IAM) role that grants Amazon Comprehend read access to trained custom
+-- models encrypted with a customer managed key (ModelKmsKeyId).
+createEndpoint_dataAccessRoleArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
+createEndpoint_dataAccessRoleArn = Lens.lens (\CreateEndpoint' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEndpoint' {} a -> s {dataAccessRoleArn = a} :: CreateEndpoint)
 
 -- | This is the descriptive suffix that becomes part of the @EndpointArn@
 -- used for all subsequent requests to this resource.
@@ -189,6 +205,8 @@ instance Core.ToJSON CreateEndpoint where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("DataAccessRoleArn" Core..=)
+              Prelude.<$> dataAccessRoleArn,
             Prelude.Just ("EndpointName" Core..= endpointName),
             Prelude.Just ("ModelArn" Core..= modelArn),
             Prelude.Just

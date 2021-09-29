@@ -46,10 +46,10 @@ module Network.AWS.RDS.RestoreDBClusterFromS
     newRestoreDBClusterFromS,
 
     -- * Request Lenses
-    restoreDBClusterFromS_backupRetentionPeriod,
     restoreDBClusterFromS_deletionProtection,
-    restoreDBClusterFromS_storageEncrypted,
     restoreDBClusterFromS_preferredBackupWindow,
+    restoreDBClusterFromS_backupRetentionPeriod,
+    restoreDBClusterFromS_storageEncrypted,
     restoreDBClusterFromS_availabilityZones,
     restoreDBClusterFromS_enableIAMDatabaseAuthentication,
     restoreDBClusterFromS_enableCloudwatchLogsExports,
@@ -59,8 +59,8 @@ module Network.AWS.RDS.RestoreDBClusterFromS
     restoreDBClusterFromS_vpcSecurityGroupIds,
     restoreDBClusterFromS_kmsKeyId,
     restoreDBClusterFromS_engineVersion,
-    restoreDBClusterFromS_preferredMaintenanceWindow,
     restoreDBClusterFromS_characterSetName,
+    restoreDBClusterFromS_preferredMaintenanceWindow,
     restoreDBClusterFromS_tags,
     restoreDBClusterFromS_port,
     restoreDBClusterFromS_domainIAMRoleName,
@@ -97,28 +97,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRestoreDBClusterFromS' smart constructor.
 data RestoreDBClusterFromS = RestoreDBClusterFromS'
-  { -- | The number of days for which automated backups of the restored DB
-    -- cluster are retained. You must specify a minimum value of 1.
-    --
-    -- Default: 1
-    --
-    -- Constraints:
-    --
-    -- -   Must be a value from 1 to 35
-    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether the DB cluster has deletion protection
+  { -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether the restored DB cluster is encrypted.
-    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled using the @BackupRetentionPeriod@
     -- parameter.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region. To see the time blocks available, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+    -- block of time for each Amazon Web Services Region. To view the time
+    -- blocks available, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
     -- in the /Amazon Aurora User Guide./
     --
     -- Constraints:
@@ -131,12 +121,23 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | The number of days for which automated backups of the restored DB
+    -- cluster are retained. You must specify a minimum value of 1.
+    --
+    -- Default: 1
+    --
+    -- Constraints:
+    --
+    -- -   Must be a value from 1 to 35
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether the restored DB cluster is encrypted.
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | A list of Availability Zones (AZs) where instances in the restored DB
     -- cluster can be created.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | A value that indicates whether to enable mapping of AWS Identity and
-    -- Access Management (IAM) accounts to database accounts. By default,
-    -- mapping is disabled.
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -174,16 +175,18 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- | A list of EC2 VPC security groups to associate with the restored DB
     -- cluster.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS KMS key identifier for an encrypted DB cluster.
+    -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK). To use a CMK in a
-    -- different AWS account, specify the key ARN or alias ARN.
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
+    -- the key ARN or alias ARN.
     --
     -- If the StorageEncrypted parameter is enabled, and you do not specify a
     -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
-    -- default CMK. There is a default CMK for your AWS account. Your AWS
-    -- account has a different default CMK for each AWS Region.
+    -- default CMK. There is a default CMK for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default CMK
+    -- for each Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the database engine to use.
     --
@@ -211,14 +214,17 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- Example: @9.6.3@, @10.7@
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates that the restored DB cluster should be associated
+    -- with the specified CharacterSet.
+    characterSetName :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
     -- Format: @ddd:hh24:mi-ddd:hh24:mi@
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region, occurring on a random day of the
-    -- week. To see the time blocks available, see
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week. To see the time blocks available, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
     -- in the /Amazon Aurora User Guide./
     --
@@ -226,9 +232,6 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- Constraints: Minimum 30-minute window.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates that the restored DB cluster should be associated
-    -- with the specified CharacterSet.
-    characterSetName :: Prelude.Maybe Prelude.Text,
     tags :: Prelude.Maybe [Tag],
     -- | The port number on which the instances in the restored DB cluster accept
     -- connections.
@@ -317,9 +320,9 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- | The name of the Amazon S3 bucket that contains the data used to create
     -- the Amazon Aurora DB cluster.
     s3BucketName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that authorizes Amazon RDS to access the Amazon S3 bucket on
-    -- your behalf.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+    -- Access Management (IAM) role that authorizes Amazon RDS to access the
+    -- Amazon S3 bucket on your behalf.
     s3IngestionRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -332,28 +335,18 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupRetentionPeriod', 'restoreDBClusterFromS_backupRetentionPeriod' - The number of days for which automated backups of the restored DB
--- cluster are retained. You must specify a minimum value of 1.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 1 to 35
---
 -- 'deletionProtection', 'restoreDBClusterFromS_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
---
--- 'storageEncrypted', 'restoreDBClusterFromS_storageEncrypted' - A value that indicates whether the restored DB cluster is encrypted.
 --
 -- 'preferredBackupWindow', 'restoreDBClusterFromS_preferredBackupWindow' - The daily time range during which automated backups are created if
 -- automated backups are enabled using the @BackupRetentionPeriod@
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+-- block of time for each Amazon Web Services Region. To view the time
+-- blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
 -- in the /Amazon Aurora User Guide./
 --
 -- Constraints:
@@ -366,12 +359,23 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 --
 -- -   Must be at least 30 minutes.
 --
+-- 'backupRetentionPeriod', 'restoreDBClusterFromS_backupRetentionPeriod' - The number of days for which automated backups of the restored DB
+-- cluster are retained. You must specify a minimum value of 1.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 1 to 35
+--
+-- 'storageEncrypted', 'restoreDBClusterFromS_storageEncrypted' - A value that indicates whether the restored DB cluster is encrypted.
+--
 -- 'availabilityZones', 'restoreDBClusterFromS_availabilityZones' - A list of Availability Zones (AZs) where instances in the restored DB
 -- cluster can be created.
 --
--- 'enableIAMDatabaseAuthentication', 'restoreDBClusterFromS_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- 'enableIAMDatabaseAuthentication', 'restoreDBClusterFromS_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -409,16 +413,18 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- 'vpcSecurityGroupIds', 'restoreDBClusterFromS_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the restored DB
 -- cluster.
 --
--- 'kmsKeyId', 'restoreDBClusterFromS_kmsKeyId' - The AWS KMS key identifier for an encrypted DB cluster.
+-- 'kmsKeyId', 'restoreDBClusterFromS_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- If the StorageEncrypted parameter is enabled, and you do not specify a
 -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your AWS account. Your AWS
--- account has a different default CMK for each AWS Region.
+-- default CMK. There is a default CMK for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default CMK
+-- for each Amazon Web Services Region.
 --
 -- 'engineVersion', 'restoreDBClusterFromS_engineVersion' - The version number of the database engine to use.
 --
@@ -446,23 +452,23 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 --
 -- Example: @9.6.3@, @10.7@
 --
+-- 'characterSetName', 'restoreDBClusterFromS_characterSetName' - A value that indicates that the restored DB cluster should be associated
+-- with the specified CharacterSet.
+--
 -- 'preferredMaintenanceWindow', 'restoreDBClusterFromS_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
 --
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week. To see the time blocks available, see
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
 -- in the /Amazon Aurora User Guide./
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 --
 -- Constraints: Minimum 30-minute window.
---
--- 'characterSetName', 'restoreDBClusterFromS_characterSetName' - A value that indicates that the restored DB cluster should be associated
--- with the specified CharacterSet.
 --
 -- 'tags', 'restoreDBClusterFromS_tags' - Undocumented member.
 --
@@ -553,9 +559,9 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- 's3BucketName', 'restoreDBClusterFromS_s3BucketName' - The name of the Amazon S3 bucket that contains the data used to create
 -- the Amazon Aurora DB cluster.
 --
--- 's3IngestionRoleArn', 'restoreDBClusterFromS_s3IngestionRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that authorizes Amazon RDS to access the Amazon S3 bucket on
--- your behalf.
+-- 's3IngestionRoleArn', 'restoreDBClusterFromS_s3IngestionRoleArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that authorizes Amazon RDS to access the
+-- Amazon S3 bucket on your behalf.
 newRestoreDBClusterFromS ::
   -- | 'dbClusterIdentifier'
   Prelude.Text ->
@@ -584,11 +590,11 @@ newRestoreDBClusterFromS
   pS3BucketName_
   pS3IngestionRoleArn_ =
     RestoreDBClusterFromS'
-      { backupRetentionPeriod =
+      { deletionProtection =
           Prelude.Nothing,
-        deletionProtection = Prelude.Nothing,
-        storageEncrypted = Prelude.Nothing,
         preferredBackupWindow = Prelude.Nothing,
+        backupRetentionPeriod = Prelude.Nothing,
+        storageEncrypted = Prelude.Nothing,
         availabilityZones = Prelude.Nothing,
         enableIAMDatabaseAuthentication = Prelude.Nothing,
         enableCloudwatchLogsExports = Prelude.Nothing,
@@ -598,8 +604,8 @@ newRestoreDBClusterFromS
         vpcSecurityGroupIds = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
         characterSetName = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
         tags = Prelude.Nothing,
         port = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
@@ -618,34 +624,20 @@ newRestoreDBClusterFromS
         s3IngestionRoleArn = pS3IngestionRoleArn_
       }
 
--- | The number of days for which automated backups of the restored DB
--- cluster are retained. You must specify a minimum value of 1.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 1 to 35
-restoreDBClusterFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
-restoreDBClusterFromS_backupRetentionPeriod = Lens.lens (\RestoreDBClusterFromS' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBClusterFromS' {} a -> s {backupRetentionPeriod = a} :: RestoreDBClusterFromS)
-
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
 restoreDBClusterFromS_deletionProtection :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_deletionProtection = Lens.lens (\RestoreDBClusterFromS' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterFromS' {} a -> s {deletionProtection = a} :: RestoreDBClusterFromS)
 
--- | A value that indicates whether the restored DB cluster is encrypted.
-restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
-restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS)
-
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled using the @BackupRetentionPeriod@
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+-- block of time for each Amazon Web Services Region. To view the time
+-- blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow Backup window>
 -- in the /Amazon Aurora User Guide./
 --
 -- Constraints:
@@ -660,14 +652,29 @@ restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {sto
 restoreDBClusterFromS_preferredBackupWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_preferredBackupWindow = Lens.lens (\RestoreDBClusterFromS' {preferredBackupWindow} -> preferredBackupWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredBackupWindow = a} :: RestoreDBClusterFromS)
 
+-- | The number of days for which automated backups of the restored DB
+-- cluster are retained. You must specify a minimum value of 1.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 1 to 35
+restoreDBClusterFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
+restoreDBClusterFromS_backupRetentionPeriod = Lens.lens (\RestoreDBClusterFromS' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBClusterFromS' {} a -> s {backupRetentionPeriod = a} :: RestoreDBClusterFromS)
+
+-- | A value that indicates whether the restored DB cluster is encrypted.
+restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
+restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS)
+
 -- | A list of Availability Zones (AZs) where instances in the restored DB
 -- cluster can be created.
 restoreDBClusterFromS_availabilityZones :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromS' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
--- | A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -717,16 +724,18 @@ restoreDBClusterFromS_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromS' {db
 restoreDBClusterFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS KMS key identifier for an encrypted DB cluster.
+-- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- If the StorageEncrypted parameter is enabled, and you do not specify a
 -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your AWS account. Your AWS
--- account has a different default CMK for each AWS Region.
+-- default CMK. There is a default CMK for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default CMK
+-- for each Amazon Web Services Region.
 restoreDBClusterFromS_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromS' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromS)
 
@@ -758,14 +767,19 @@ restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -
 restoreDBClusterFromS_engineVersion :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromS' {} a -> s {engineVersion = a} :: RestoreDBClusterFromS)
 
+-- | A value that indicates that the restored DB cluster should be associated
+-- with the specified CharacterSet.
+restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_characterSetName = Lens.lens (\RestoreDBClusterFromS' {characterSetName} -> characterSetName) (\s@RestoreDBClusterFromS' {} a -> s {characterSetName = a} :: RestoreDBClusterFromS)
+
 -- | The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
 --
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week. To see the time blocks available, see
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
 -- in the /Amazon Aurora User Guide./
 --
@@ -774,11 +788,6 @@ restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engine
 -- Constraints: Minimum 30-minute window.
 restoreDBClusterFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS_preferredMaintenanceWindow = Lens.lens (\RestoreDBClusterFromS' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBClusterFromS)
-
--- | A value that indicates that the restored DB cluster should be associated
--- with the specified CharacterSet.
-restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_characterSetName = Lens.lens (\RestoreDBClusterFromS' {characterSetName} -> characterSetName) (\s@RestoreDBClusterFromS' {} a -> s {characterSetName = a} :: RestoreDBClusterFromS)
 
 -- | Undocumented member.
 restoreDBClusterFromS_tags :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Tag])
@@ -899,9 +908,9 @@ restoreDBClusterFromS_sourceEngineVersion = Lens.lens (\RestoreDBClusterFromS' {
 restoreDBClusterFromS_s3BucketName :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_s3BucketName = Lens.lens (\RestoreDBClusterFromS' {s3BucketName} -> s3BucketName) (\s@RestoreDBClusterFromS' {} a -> s {s3BucketName = a} :: RestoreDBClusterFromS)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that authorizes Amazon RDS to access the Amazon S3 bucket on
--- your behalf.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
+-- Access Management (IAM) role that authorizes Amazon RDS to access the
+-- Amazon S3 bucket on your behalf.
 restoreDBClusterFromS_s3IngestionRoleArn :: Lens.Lens' RestoreDBClusterFromS Prelude.Text
 restoreDBClusterFromS_s3IngestionRoleArn = Lens.lens (\RestoreDBClusterFromS' {s3IngestionRoleArn} -> s3IngestionRoleArn) (\s@RestoreDBClusterFromS' {} a -> s {s3IngestionRoleArn = a} :: RestoreDBClusterFromS)
 
@@ -936,12 +945,12 @@ instance Core.ToQuery RestoreDBClusterFromS where
           Core.=: ("RestoreDBClusterFromS" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
         "DeletionProtection" Core.=: deletionProtection,
-        "StorageEncrypted" Core.=: storageEncrypted,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
+        "StorageEncrypted" Core.=: storageEncrypted,
         "AvailabilityZones"
           Core.=: Core.toQuery
             ( Core.toQueryList "AvailabilityZone"
@@ -964,9 +973,9 @@ instance Core.ToQuery RestoreDBClusterFromS where
             ),
         "KmsKeyId" Core.=: kmsKeyId,
         "EngineVersion" Core.=: engineVersion,
+        "CharacterSetName" Core.=: characterSetName,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
-        "CharacterSetName" Core.=: characterSetName,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),

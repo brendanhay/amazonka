@@ -51,6 +51,7 @@ library
     Network.AWS.Glue.BatchDeletePartition
     Network.AWS.Glue.BatchDeleteTable
     Network.AWS.Glue.BatchDeleteTableVersion
+    Network.AWS.Glue.BatchGetBlueprints
     Network.AWS.Glue.BatchGetCrawlers
     Network.AWS.Glue.BatchGetDevEndpoints
     Network.AWS.Glue.BatchGetJobs
@@ -61,6 +62,7 @@ library
     Network.AWS.Glue.BatchUpdatePartition
     Network.AWS.Glue.CancelMLTaskRun
     Network.AWS.Glue.CheckSchemaVersionValidity
+    Network.AWS.Glue.CreateBlueprint
     Network.AWS.Glue.CreateClassifier
     Network.AWS.Glue.CreateConnection
     Network.AWS.Glue.CreateCrawler
@@ -78,6 +80,7 @@ library
     Network.AWS.Glue.CreateTrigger
     Network.AWS.Glue.CreateUserDefinedFunction
     Network.AWS.Glue.CreateWorkflow
+    Network.AWS.Glue.DeleteBlueprint
     Network.AWS.Glue.DeleteClassifier
     Network.AWS.Glue.DeleteColumnStatisticsForPartition
     Network.AWS.Glue.DeleteColumnStatisticsForTable
@@ -99,6 +102,9 @@ library
     Network.AWS.Glue.DeleteTrigger
     Network.AWS.Glue.DeleteUserDefinedFunction
     Network.AWS.Glue.DeleteWorkflow
+    Network.AWS.Glue.GetBlueprint
+    Network.AWS.Glue.GetBlueprintRun
+    Network.AWS.Glue.GetBlueprintRuns
     Network.AWS.Glue.GetCatalogImportStatus
     Network.AWS.Glue.GetClassifier
     Network.AWS.Glue.GetClassifiers
@@ -153,6 +159,7 @@ library
     Network.AWS.Glue.GetWorkflowRuns
     Network.AWS.Glue.ImportCatalogToGlue
     Network.AWS.Glue.Lens
+    Network.AWS.Glue.ListBlueprints
     Network.AWS.Glue.ListCrawlers
     Network.AWS.Glue.ListDevEndpoints
     Network.AWS.Glue.ListJobs
@@ -172,6 +179,7 @@ library
     Network.AWS.Glue.ResetJobBookmark
     Network.AWS.Glue.ResumeWorkflowRun
     Network.AWS.Glue.SearchTables
+    Network.AWS.Glue.StartBlueprintRun
     Network.AWS.Glue.StartCrawler
     Network.AWS.Glue.StartCrawlerSchedule
     Network.AWS.Glue.StartExportLabelsTaskRun
@@ -195,6 +203,11 @@ library
     Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry
     Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry
     Network.AWS.Glue.Types.BinaryColumnStatisticsData
+    Network.AWS.Glue.Types.Blueprint
+    Network.AWS.Glue.Types.BlueprintDetails
+    Network.AWS.Glue.Types.BlueprintRun
+    Network.AWS.Glue.Types.BlueprintRunState
+    Network.AWS.Glue.Types.BlueprintStatus
     Network.AWS.Glue.Types.BooleanColumnStatisticsData
     Network.AWS.Glue.Types.CatalogEncryptionMode
     Network.AWS.Glue.Types.CatalogEntry
@@ -258,6 +271,7 @@ library
     Network.AWS.Glue.Types.ErrorDetail
     Network.AWS.Glue.Types.ErrorDetails
     Network.AWS.Glue.Types.EvaluationMetrics
+    Network.AWS.Glue.Types.EventBatchingCondition
     Network.AWS.Glue.Types.ExecutionProperty
     Network.AWS.Glue.Types.ExistCondition
     Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
@@ -283,6 +297,7 @@ library
     Network.AWS.Glue.Types.KeySchemaElement
     Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
     Network.AWS.Glue.Types.Language
+    Network.AWS.Glue.Types.LastActiveDefinition
     Network.AWS.Glue.Types.LastCrawlInfo
     Network.AWS.Glue.Types.LastCrawlStatus
     Network.AWS.Glue.Types.LineageConfiguration
@@ -301,6 +316,7 @@ library
     Network.AWS.Glue.Types.NodeType
     Network.AWS.Glue.Types.NotificationProperty
     Network.AWS.Glue.Types.Order
+    Network.AWS.Glue.Types.OtherMetadataValueListItem
     Network.AWS.Glue.Types.Partition
     Network.AWS.Glue.Types.PartitionError
     Network.AWS.Glue.Types.PartitionIndex
@@ -346,6 +362,7 @@ library
     Network.AWS.Glue.Types.Sort
     Network.AWS.Glue.Types.SortCriterion
     Network.AWS.Glue.Types.SortDirectionType
+    Network.AWS.Glue.Types.StartingEventBatchCondition
     Network.AWS.Glue.Types.StorageDescriptor
     Network.AWS.Glue.Types.StringColumnStatisticsData
     Network.AWS.Glue.Types.Table
@@ -388,6 +405,7 @@ library
     Network.AWS.Glue.Types.WorkflowRunStatus
     Network.AWS.Glue.Types.XMLClassifier
     Network.AWS.Glue.UntagResource
+    Network.AWS.Glue.UpdateBlueprint
     Network.AWS.Glue.UpdateClassifier
     Network.AWS.Glue.UpdateColumnStatisticsForPartition
     Network.AWS.Glue.UpdateColumnStatisticsForTable

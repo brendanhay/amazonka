@@ -23,16 +23,26 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AudioDefaultSelection
 import Network.AWS.MediaConvert.Types.AudioSelectorType
+import Network.AWS.MediaConvert.Types.HlsRenditionGroupSettings
 import Network.AWS.MediaConvert.Types.LanguageCode
 import Network.AWS.MediaConvert.Types.RemixSettings
 import qualified Network.AWS.Prelude as Prelude
 
--- | Selector for Audio
+-- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
+-- from the input that you will use in your outputs. You can use multiple
+-- Audio selectors per input.
 --
 -- /See:/ 'newAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
   { -- | Selects a specific language code from within an audio source.
     languageCode :: Prelude.Maybe LanguageCode,
+    -- | Identify a track from the input audio to include in this selector by
+    -- entering the track index number. To include several tracks in a single
+    -- audio selector, specify multiple tracks as follows. Using the console,
+    -- enter a comma-separated list. For examle, type \"1,2,3\" to include
+    -- tracks 1 through 3. Specifying directly in your JSON job file, provide
+    -- the track numbers in an array. For example, \"tracks\": [1,2,3].
+    tracks :: Prelude.Maybe [Prelude.Natural],
     -- | Use this setting for input streams that contain Dolby E, to have the
     -- service extract specific program data from the track. To select multiple
     -- programs, create multiple selectors with the same Track and different
@@ -47,13 +57,6 @@ data AudioSelector = AudioSelector'
     -- | Selects a specific language code from within an audio source, using the
     -- ISO 639-2 or ISO 639-3 three-letter language code
     customLanguageCode :: Prelude.Maybe Prelude.Text,
-    -- | Identify a track from the input audio to include in this selector by
-    -- entering the track index number. To include several tracks in a single
-    -- audio selector, specify multiple tracks as follows. Using the console,
-    -- enter a comma-separated list. For examle, type \"1,2,3\" to include
-    -- tracks 1 through 3. Specifying directly in your JSON job file, provide
-    -- the track numbers in an array. For example, \"tracks\": [1,2,3].
-    tracks :: Prelude.Maybe [Prelude.Natural],
     -- | Enable this setting on one audio selector to set it as the default for
     -- the job. The service uses this default for outputs where it can\'t find
     -- the specified input audio. If you don\'t set a default, those outputs
@@ -72,7 +75,17 @@ data AudioSelector = AudioSelector'
     externalAudioFileInput :: Prelude.Maybe Prelude.Text,
     -- | Specifies a time delta in milliseconds to offset the audio from the
     -- input video.
-    offset :: Prelude.Maybe Prelude.Int
+    offset :: Prelude.Maybe Prelude.Int,
+    -- | Settings specific to audio sources in an HLS alternate rendition group.
+    -- Specify the properties (renditionGroupId, renditionName or
+    -- renditionLanguageCode) to identify the unique audio track among the
+    -- alternative rendition groups present in the HLS manifest. If no unique
+    -- track is found, or multiple tracks match the properties provided, the
+    -- job fails. If no properties in hlsRenditionGroupSettings are specified,
+    -- the default audio track within the video segment is chosen. If there is
+    -- no audio within video segment, the alternative audio with DEFAULT=YES is
+    -- chosen instead.
+    hlsRenditionGroupSettings :: Prelude.Maybe HlsRenditionGroupSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +98,13 @@ data AudioSelector = AudioSelector'
 -- for backwards compatibility:
 --
 -- 'languageCode', 'audioSelector_languageCode' - Selects a specific language code from within an audio source.
+--
+-- 'tracks', 'audioSelector_tracks' - Identify a track from the input audio to include in this selector by
+-- entering the track index number. To include several tracks in a single
+-- audio selector, specify multiple tracks as follows. Using the console,
+-- enter a comma-separated list. For examle, type \"1,2,3\" to include
+-- tracks 1 through 3. Specifying directly in your JSON job file, provide
+-- the track numbers in an array. For example, \"tracks\": [1,2,3].
 --
 -- 'programSelection', 'audioSelector_programSelection' - Use this setting for input streams that contain Dolby E, to have the
 -- service extract specific program data from the track. To select multiple
@@ -99,13 +119,6 @@ data AudioSelector = AudioSelector'
 --
 -- 'customLanguageCode', 'audioSelector_customLanguageCode' - Selects a specific language code from within an audio source, using the
 -- ISO 639-2 or ISO 639-3 three-letter language code
---
--- 'tracks', 'audioSelector_tracks' - Identify a track from the input audio to include in this selector by
--- entering the track index number. To include several tracks in a single
--- audio selector, specify multiple tracks as follows. Using the console,
--- enter a comma-separated list. For examle, type \"1,2,3\" to include
--- tracks 1 through 3. Specifying directly in your JSON job file, provide
--- the track numbers in an array. For example, \"tracks\": [1,2,3].
 --
 -- 'defaultSelection', 'audioSelector_defaultSelection' - Enable this setting on one audio selector to set it as the default for
 -- the job. The service uses this default for outputs where it can\'t find
@@ -125,25 +138,45 @@ data AudioSelector = AudioSelector'
 --
 -- 'offset', 'audioSelector_offset' - Specifies a time delta in milliseconds to offset the audio from the
 -- input video.
+--
+-- 'hlsRenditionGroupSettings', 'audioSelector_hlsRenditionGroupSettings' - Settings specific to audio sources in an HLS alternate rendition group.
+-- Specify the properties (renditionGroupId, renditionName or
+-- renditionLanguageCode) to identify the unique audio track among the
+-- alternative rendition groups present in the HLS manifest. If no unique
+-- track is found, or multiple tracks match the properties provided, the
+-- job fails. If no properties in hlsRenditionGroupSettings are specified,
+-- the default audio track within the video segment is chosen. If there is
+-- no audio within video segment, the alternative audio with DEFAULT=YES is
+-- chosen instead.
 newAudioSelector ::
   AudioSelector
 newAudioSelector =
   AudioSelector'
     { languageCode = Prelude.Nothing,
+      tracks = Prelude.Nothing,
       programSelection = Prelude.Nothing,
       customLanguageCode = Prelude.Nothing,
-      tracks = Prelude.Nothing,
       defaultSelection = Prelude.Nothing,
       selectorType = Prelude.Nothing,
       remixSettings = Prelude.Nothing,
       pids = Prelude.Nothing,
       externalAudioFileInput = Prelude.Nothing,
-      offset = Prelude.Nothing
+      offset = Prelude.Nothing,
+      hlsRenditionGroupSettings = Prelude.Nothing
     }
 
 -- | Selects a specific language code from within an audio source.
 audioSelector_languageCode :: Lens.Lens' AudioSelector (Prelude.Maybe LanguageCode)
 audioSelector_languageCode = Lens.lens (\AudioSelector' {languageCode} -> languageCode) (\s@AudioSelector' {} a -> s {languageCode = a} :: AudioSelector)
+
+-- | Identify a track from the input audio to include in this selector by
+-- entering the track index number. To include several tracks in a single
+-- audio selector, specify multiple tracks as follows. Using the console,
+-- enter a comma-separated list. For examle, type \"1,2,3\" to include
+-- tracks 1 through 3. Specifying directly in your JSON job file, provide
+-- the track numbers in an array. For example, \"tracks\": [1,2,3].
+audioSelector_tracks :: Lens.Lens' AudioSelector (Prelude.Maybe [Prelude.Natural])
+audioSelector_tracks = Lens.lens (\AudioSelector' {tracks} -> tracks) (\s@AudioSelector' {} a -> s {tracks = a} :: AudioSelector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use this setting for input streams that contain Dolby E, to have the
 -- service extract specific program data from the track. To select multiple
@@ -162,15 +195,6 @@ audioSelector_programSelection = Lens.lens (\AudioSelector' {programSelection} -
 -- ISO 639-2 or ISO 639-3 three-letter language code
 audioSelector_customLanguageCode :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
 audioSelector_customLanguageCode = Lens.lens (\AudioSelector' {customLanguageCode} -> customLanguageCode) (\s@AudioSelector' {} a -> s {customLanguageCode = a} :: AudioSelector)
-
--- | Identify a track from the input audio to include in this selector by
--- entering the track index number. To include several tracks in a single
--- audio selector, specify multiple tracks as follows. Using the console,
--- enter a comma-separated list. For examle, type \"1,2,3\" to include
--- tracks 1 through 3. Specifying directly in your JSON job file, provide
--- the track numbers in an array. For example, \"tracks\": [1,2,3].
-audioSelector_tracks :: Lens.Lens' AudioSelector (Prelude.Maybe [Prelude.Natural])
-audioSelector_tracks = Lens.lens (\AudioSelector' {tracks} -> tracks) (\s@AudioSelector' {} a -> s {tracks = a} :: AudioSelector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Enable this setting on one audio selector to set it as the default for
 -- the job. The service uses this default for outputs where it can\'t find
@@ -203,6 +227,18 @@ audioSelector_externalAudioFileInput = Lens.lens (\AudioSelector' {externalAudio
 audioSelector_offset :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Int)
 audioSelector_offset = Lens.lens (\AudioSelector' {offset} -> offset) (\s@AudioSelector' {} a -> s {offset = a} :: AudioSelector)
 
+-- | Settings specific to audio sources in an HLS alternate rendition group.
+-- Specify the properties (renditionGroupId, renditionName or
+-- renditionLanguageCode) to identify the unique audio track among the
+-- alternative rendition groups present in the HLS manifest. If no unique
+-- track is found, or multiple tracks match the properties provided, the
+-- job fails. If no properties in hlsRenditionGroupSettings are specified,
+-- the default audio track within the video segment is chosen. If there is
+-- no audio within video segment, the alternative audio with DEFAULT=YES is
+-- chosen instead.
+audioSelector_hlsRenditionGroupSettings :: Lens.Lens' AudioSelector (Prelude.Maybe HlsRenditionGroupSettings)
+audioSelector_hlsRenditionGroupSettings = Lens.lens (\AudioSelector' {hlsRenditionGroupSettings} -> hlsRenditionGroupSettings) (\s@AudioSelector' {} a -> s {hlsRenditionGroupSettings = a} :: AudioSelector)
+
 instance Core.FromJSON AudioSelector where
   parseJSON =
     Core.withObject
@@ -210,15 +246,16 @@ instance Core.FromJSON AudioSelector where
       ( \x ->
           AudioSelector'
             Prelude.<$> (x Core..:? "languageCode")
+            Prelude.<*> (x Core..:? "tracks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "programSelection")
             Prelude.<*> (x Core..:? "customLanguageCode")
-            Prelude.<*> (x Core..:? "tracks" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "defaultSelection")
             Prelude.<*> (x Core..:? "selectorType")
             Prelude.<*> (x Core..:? "remixSettings")
             Prelude.<*> (x Core..:? "pids" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "externalAudioFileInput")
             Prelude.<*> (x Core..:? "offset")
+            Prelude.<*> (x Core..:? "hlsRenditionGroupSettings")
       )
 
 instance Prelude.Hashable AudioSelector
@@ -230,11 +267,11 @@ instance Core.ToJSON AudioSelector where
     Core.object
       ( Prelude.catMaybes
           [ ("languageCode" Core..=) Prelude.<$> languageCode,
+            ("tracks" Core..=) Prelude.<$> tracks,
             ("programSelection" Core..=)
               Prelude.<$> programSelection,
             ("customLanguageCode" Core..=)
               Prelude.<$> customLanguageCode,
-            ("tracks" Core..=) Prelude.<$> tracks,
             ("defaultSelection" Core..=)
               Prelude.<$> defaultSelection,
             ("selectorType" Core..=) Prelude.<$> selectorType,
@@ -242,6 +279,8 @@ instance Core.ToJSON AudioSelector where
             ("pids" Core..=) Prelude.<$> pids,
             ("externalAudioFileInput" Core..=)
               Prelude.<$> externalAudioFileInput,
-            ("offset" Core..=) Prelude.<$> offset
+            ("offset" Core..=) Prelude.<$> offset,
+            ("hlsRenditionGroupSettings" Core..=)
+              Prelude.<$> hlsRenditionGroupSettings
           ]
       )

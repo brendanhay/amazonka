@@ -20,23 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- @ServiceSetting@ is an account-level setting for an AWS service. This
--- setting defines how a user interacts with or uses a service or a feature
--- of a service. For example, if an AWS service charges money to the
--- account based on feature or service usage, then the AWS service team
--- might create a default setting of \"false\". This means the user can\'t
--- use this feature unless they change the setting to \"true\" and
--- intentionally opt in for a paid feature.
+-- @ServiceSetting@ is an account-level setting for an Amazon Web Services
+-- service. This setting defines how a user interacts with or uses a
+-- service or a feature of a service. For example, if an Amazon Web
+-- Services service charges money to the account based on feature or
+-- service usage, then the Amazon Web Services service team might create a
+-- default setting of @false@. This means the user can\'t use this feature
+-- unless they change the setting to @true@ and intentionally opt in for a
+-- paid feature.
 --
--- Services map a @SettingId@ object to a setting value. AWS services teams
--- define the default value for a @SettingId@. You can\'t create a new
--- @SettingId@, but you can overwrite the default value if you have the
--- @ssm:UpdateServiceSetting@ permission for the setting. Use the
--- UpdateServiceSetting API action to change the default setting. Or use
--- the ResetServiceSetting to change the value back to the original value
--- defined by the AWS service team.
+-- Services map a @SettingId@ object to a setting value. Amazon Web
+-- Services services teams define the default value for a @SettingId@. You
+-- can\'t create a new @SettingId@, but you can overwrite the default value
+-- if you have the @ssm:UpdateServiceSetting@ permission for the setting.
+-- Use the UpdateServiceSetting API operation to change the default
+-- setting. Or use the ResetServiceSetting to change the value back to the
+-- original value defined by the Amazon Web Services service team.
 --
--- Query the current service setting for the account.
+-- Query the current service setting for the Amazon Web Services account.
 module Network.AWS.SSM.GetServiceSetting
   ( -- * Creating a Request
     GetServiceSetting (..),
@@ -62,16 +63,24 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
 
--- | The request body of the GetServiceSetting API action.
+-- | The request body of the GetServiceSetting API operation.
 --
 -- /See:/ 'newGetServiceSetting' smart constructor.
 data GetServiceSetting = GetServiceSetting'
-  { -- | The ID of the service setting to get. The setting ID can be
-    -- @\/ssm\/automation\/customer-script-log-destination@,
-    -- @\/ssm\/automation\/customer-script-log-group-name@,
-    -- @\/ssm\/parameter-store\/default-parameter-tier@,
-    -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
-    -- @\/ssm\/managed-instance\/activation-tier@.
+  { -- | The ID of the service setting to get. The setting ID can be one of the
+    -- following.
+    --
+    -- -   @\/ssm\/automation\/customer-script-log-destination@
+    --
+    -- -   @\/ssm\/automation\/customer-script-log-group-name@
+    --
+    -- -   @\/ssm\/documents\/console\/public-sharing-permission@
+    --
+    -- -   @\/ssm\/parameter-store\/default-parameter-tier@
+    --
+    -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+    --
+    -- -   @\/ssm\/managed-instance\/activation-tier@
     settingId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,12 +93,20 @@ data GetServiceSetting = GetServiceSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'settingId', 'getServiceSetting_settingId' - The ID of the service setting to get. The setting ID can be
--- @\/ssm\/automation\/customer-script-log-destination@,
--- @\/ssm\/automation\/customer-script-log-group-name@,
--- @\/ssm\/parameter-store\/default-parameter-tier@,
--- @\/ssm\/parameter-store\/high-throughput-enabled@, or
--- @\/ssm\/managed-instance\/activation-tier@.
+-- 'settingId', 'getServiceSetting_settingId' - The ID of the service setting to get. The setting ID can be one of the
+-- following.
+--
+-- -   @\/ssm\/automation\/customer-script-log-destination@
+--
+-- -   @\/ssm\/automation\/customer-script-log-group-name@
+--
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@
+--
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@
 newGetServiceSetting ::
   -- | 'settingId'
   Prelude.Text ->
@@ -97,12 +114,20 @@ newGetServiceSetting ::
 newGetServiceSetting pSettingId_ =
   GetServiceSetting' {settingId = pSettingId_}
 
--- | The ID of the service setting to get. The setting ID can be
--- @\/ssm\/automation\/customer-script-log-destination@,
--- @\/ssm\/automation\/customer-script-log-group-name@,
--- @\/ssm\/parameter-store\/default-parameter-tier@,
--- @\/ssm\/parameter-store\/high-throughput-enabled@, or
--- @\/ssm\/managed-instance\/activation-tier@.
+-- | The ID of the service setting to get. The setting ID can be one of the
+-- following.
+--
+-- -   @\/ssm\/automation\/customer-script-log-destination@
+--
+-- -   @\/ssm\/automation\/customer-script-log-group-name@
+--
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@
+--
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@
 getServiceSetting_settingId :: Lens.Lens' GetServiceSetting Prelude.Text
 getServiceSetting_settingId = Lens.lens (\GetServiceSetting' {settingId} -> settingId) (\s@GetServiceSetting' {} a -> s {settingId = a} :: GetServiceSetting)
 
@@ -151,7 +176,7 @@ instance Core.ToPath GetServiceSetting where
 instance Core.ToQuery GetServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
--- | The query result body of the GetServiceSetting API action.
+-- | The query result body of the GetServiceSetting API operation.
 --
 -- /See:/ 'newGetServiceSettingResponse' smart constructor.
 data GetServiceSettingResponse = GetServiceSettingResponse'

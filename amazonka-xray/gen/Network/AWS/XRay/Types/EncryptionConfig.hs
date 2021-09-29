@@ -33,11 +33,10 @@ data EncryptionConfig = EncryptionConfig'
   { -- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt
     -- data with a combination of the new and old settings.
     status :: Prelude.Maybe EncryptionStatus,
-    -- | The type of encryption. Set to @KMS@ for encryption with CMKs. Set to
-    -- @NONE@ for default encryption.
+    -- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+    -- to @NONE@ for default encryption.
     type' :: Prelude.Maybe EncryptionType,
-    -- | The ID of the customer master key (CMK) used for encryption, if
-    -- applicable.
+    -- | The ID of the KMS key used for encryption, if applicable.
     keyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,11 +52,10 @@ data EncryptionConfig = EncryptionConfig'
 -- 'status', 'encryptionConfig_status' - The encryption status. While the status is @UPDATING@, X-Ray may encrypt
 -- data with a combination of the new and old settings.
 --
--- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with CMKs. Set to
--- @NONE@ for default encryption.
+-- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+-- to @NONE@ for default encryption.
 --
--- 'keyId', 'encryptionConfig_keyId' - The ID of the customer master key (CMK) used for encryption, if
--- applicable.
+-- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.
 newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
@@ -72,13 +70,12 @@ newEncryptionConfig =
 encryptionConfig_status :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionStatus)
 encryptionConfig_status = Lens.lens (\EncryptionConfig' {status} -> status) (\s@EncryptionConfig' {} a -> s {status = a} :: EncryptionConfig)
 
--- | The type of encryption. Set to @KMS@ for encryption with CMKs. Set to
--- @NONE@ for default encryption.
+-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
+-- to @NONE@ for default encryption.
 encryptionConfig_type :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionType)
 encryptionConfig_type = Lens.lens (\EncryptionConfig' {type'} -> type') (\s@EncryptionConfig' {} a -> s {type' = a} :: EncryptionConfig)
 
--- | The ID of the customer master key (CMK) used for encryption, if
--- applicable.
+-- | The ID of the KMS key used for encryption, if applicable.
 encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
 encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 

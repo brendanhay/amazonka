@@ -21,10 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns status information for sources within an aggregator. The status
--- includes information about the last time AWS Config verified
--- authorization between the source account and an aggregator account. In
--- case of a failure, the status contains the related error code or
--- message.
+-- includes information about the last time Config verified authorization
+-- between the source account and an aggregator account. In case of a
+-- failure, the status contains the related error code or message.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
@@ -70,7 +69,7 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
     -- -   Valid value OUTDATED indicates the data is not the most recent.
     updateStatus :: Prelude.Maybe (Prelude.NonEmpty AggregatedSourceStatusType),
     -- | The maximum number of AggregatorSourceStatus returned on each page. The
-    -- default is maximum. If you specify 0, AWS Config uses the default.
+    -- default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
@@ -97,7 +96,7 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
 -- -   Valid value OUTDATED indicates the data is not the most recent.
 --
 -- 'limit', 'describeConfigurationAggregatorSourcesStatus_limit' - The maximum number of AggregatorSourceStatus returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'describeConfigurationAggregatorSourcesStatus_configurationAggregatorName' - The name of the configuration aggregator.
 newDescribeConfigurationAggregatorSourcesStatus ::
@@ -132,7 +131,7 @@ describeConfigurationAggregatorSourcesStatus_updateStatus :: Lens.Lens' Describe
 describeConfigurationAggregatorSourcesStatus_updateStatus = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {updateStatus} -> updateStatus) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {updateStatus = a} :: DescribeConfigurationAggregatorSourcesStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of AggregatorSourceStatus returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 describeConfigurationAggregatorSourcesStatus_limit :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Prelude.Maybe Prelude.Natural)
 describeConfigurationAggregatorSourcesStatus_limit = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {limit} -> limit) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {limit = a} :: DescribeConfigurationAggregatorSourcesStatus)
 

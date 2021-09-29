@@ -54,7 +54,8 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
     -- | The description of the routing profile. Must not be more than 250
     -- characters.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text
@@ -74,7 +75,8 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
 -- 'description', 'updateRoutingProfileName_description' - The description of the routing profile. Must not be more than 250
 -- characters.
 --
--- 'instanceId', 'updateRoutingProfileName_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateRoutingProfileName_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'updateRoutingProfileName_routingProfileId' - The identifier of the routing profile.
 newUpdateRoutingProfileName ::
@@ -102,7 +104,8 @@ updateRoutingProfileName_name = Lens.lens (\UpdateRoutingProfileName' {name} -> 
 updateRoutingProfileName_description :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
 updateRoutingProfileName_description = Lens.lens (\UpdateRoutingProfileName' {description} -> description) (\s@UpdateRoutingProfileName' {} a -> s {description = a} :: UpdateRoutingProfileName)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateRoutingProfileName_instanceId :: Lens.Lens' UpdateRoutingProfileName Prelude.Text
 updateRoutingProfileName_instanceId = Lens.lens (\UpdateRoutingProfileName' {instanceId} -> instanceId) (\s@UpdateRoutingProfileName' {} a -> s {instanceId = a} :: UpdateRoutingProfileName)
 

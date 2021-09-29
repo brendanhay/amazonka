@@ -28,7 +28,7 @@
 -- the queue. For more information about shared queue access, see
 -- @ AddPermission @ or see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.GetQueueUrl
   ( -- * Creating a Request
     GetQueueUrl (..),
@@ -59,7 +59,7 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'newGetQueueUrl' smart constructor.
 data GetQueueUrl = GetQueueUrl'
-  { -- | The AWS account ID of the account that created the queue.
+  { -- | The account ID of the account that created the queue.
     queueOwnerAWSAccountId :: Prelude.Maybe Prelude.Text,
     -- | The name of the queue whose URL must be fetched. Maximum 80 characters.
     -- Valid values: alphanumeric characters, hyphens (@-@), and underscores
@@ -78,7 +78,7 @@ data GetQueueUrl = GetQueueUrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queueOwnerAWSAccountId', 'getQueueUrl_queueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
+-- 'queueOwnerAWSAccountId', 'getQueueUrl_queueOwnerAWSAccountId' - The account ID of the account that created the queue.
 --
 -- 'queueName', 'getQueueUrl_queueName' - The name of the queue whose URL must be fetched. Maximum 80 characters.
 -- Valid values: alphanumeric characters, hyphens (@-@), and underscores
@@ -96,7 +96,7 @@ newGetQueueUrl pQueueName_ =
       queueName = pQueueName_
     }
 
--- | The AWS account ID of the account that created the queue.
+-- | The account ID of the account that created the queue.
 getQueueUrl_queueOwnerAWSAccountId :: Lens.Lens' GetQueueUrl (Prelude.Maybe Prelude.Text)
 getQueueUrl_queueOwnerAWSAccountId = Lens.lens (\GetQueueUrl' {queueOwnerAWSAccountId} -> queueOwnerAWSAccountId) (\s@GetQueueUrl' {} a -> s {queueOwnerAWSAccountId = a} :: GetQueueUrl)
 
@@ -144,7 +144,7 @@ instance Core.ToQuery GetQueueUrl where
 
 -- | For more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html Interpreting Responses>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- /See:/ 'newGetQueueUrlResponse' smart constructor.
 data GetQueueUrlResponse = GetQueueUrlResponse'

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified certificate.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeCertificate>
+-- action.
 module Network.AWS.IoT.DescribeCertificate
   ( -- * Creating a Request
     DescribeCertificate (..),

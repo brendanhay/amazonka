@@ -39,7 +39,7 @@
 -- For more information about formatting messages, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html Send Custom Platform-Specific Payloads in Messages to Mobile Devices>.
 --
--- You can publish messages only to topics and endpoints in the same AWS
+-- You can publish messages only to topics and endpoints in the same
 -- Region.
 module Network.AWS.SNS.Publish
   ( -- * Creating a Request
@@ -50,10 +50,10 @@ module Network.AWS.SNS.Publish
     publish_phoneNumber,
     publish_messageStructure,
     publish_messageDeduplicationId,
-    publish_messageAttributes,
     publish_targetArn,
-    publish_subject,
+    publish_messageAttributes,
     publish_topicArn,
+    publish_subject,
     publish_messageGroupId,
     publish_message,
 
@@ -116,11 +116,16 @@ data Publish = Publish'
     -- @MessageDeduplicationId@ based on the contents of the message. Your
     -- @MessageDeduplicationId@ overrides the generated one.
     messageDeduplicationId :: Prelude.Maybe Prelude.Text,
-    -- | Message attributes for Publish action.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
     -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
     targetArn :: Prelude.Maybe Prelude.Text,
+    -- | Message attributes for Publish action.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | The topic you want to publish to.
+    --
+    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
+    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | Optional parameter to be used as the \"Subject\" line when the message
     -- is delivered to email endpoints. This field will also be included, if
     -- present, in the standard JSON messages delivered to other endpoints.
@@ -129,11 +134,6 @@ data Publish = Publish'
     -- number, or punctuation mark; must not include line breaks or control
     -- characters; and must be less than 100 characters long.
     subject :: Prelude.Maybe Prelude.Text,
-    -- | The topic you want to publish to.
-    --
-    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
-    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-    topicArn :: Prelude.Maybe Prelude.Text,
     -- | This parameter applies only to FIFO (first-in-first-out) topics. The
     -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
     -- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
@@ -245,10 +245,15 @@ data Publish = Publish'
 -- @MessageDeduplicationId@ based on the contents of the message. Your
 -- @MessageDeduplicationId@ overrides the generated one.
 --
--- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
---
 -- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must
 -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+--
+-- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
+--
+-- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
 --
 -- 'subject', 'publish_subject' - Optional parameter to be used as the \"Subject\" line when the message
 -- is delivered to email endpoints. This field will also be included, if
@@ -257,11 +262,6 @@ data Publish = Publish'
 -- Constraints: Subjects must be ASCII text that begins with a letter,
 -- number, or punctuation mark; must not include line breaks or control
 -- characters; and must be less than 100 characters long.
---
--- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
 --
 -- 'messageGroupId', 'publish_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
@@ -334,10 +334,10 @@ newPublish pMessage_ =
     { phoneNumber = Prelude.Nothing,
       messageStructure = Prelude.Nothing,
       messageDeduplicationId = Prelude.Nothing,
-      messageAttributes = Prelude.Nothing,
       targetArn = Prelude.Nothing,
-      subject = Prelude.Nothing,
+      messageAttributes = Prelude.Nothing,
       topicArn = Prelude.Nothing,
+      subject = Prelude.Nothing,
       messageGroupId = Prelude.Nothing,
       message = pMessage_
     }
@@ -385,14 +385,21 @@ publish_messageStructure = Lens.lens (\Publish' {messageStructure} -> messageStr
 publish_messageDeduplicationId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_messageDeduplicationId = Lens.lens (\Publish' {messageDeduplicationId} -> messageDeduplicationId) (\s@Publish' {} a -> s {messageDeduplicationId = a} :: Publish)
 
--- | Message attributes for Publish action.
-publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens._Coerce
-
 -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
 -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
 publish_targetArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' {} a -> s {targetArn = a} :: Publish)
+
+-- | Message attributes for Publish action.
+publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
 
 -- | Optional parameter to be used as the \"Subject\" line when the message
 -- is delivered to email endpoints. This field will also be included, if
@@ -403,13 +410,6 @@ publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' 
 -- characters; and must be less than 100 characters long.
 publish_subject :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_subject = Lens.lens (\Publish' {subject} -> subject) (\s@Publish' {} a -> s {subject = a} :: Publish)
-
--- | The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
@@ -511,14 +511,14 @@ instance Core.ToQuery Publish where
         "MessageStructure" Core.=: messageStructure,
         "MessageDeduplicationId"
           Core.=: messageDeduplicationId,
+        "TargetArn" Core.=: targetArn,
         "MessageAttributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
-        "TargetArn" Core.=: targetArn,
-        "Subject" Core.=: subject,
         "TopicArn" Core.=: topicArn,
+        "Subject" Core.=: subject,
         "MessageGroupId" Core.=: messageGroupId,
         "Message" Core.=: message
       ]

@@ -38,8 +38,8 @@ module Network.AWS.Kinesis.ListShards
 
     -- * Request Lenses
     listShards_exclusiveStartShardId,
-    listShards_nextToken,
     listShards_shardFilter,
+    listShards_nextToken,
     listShards_maxResults,
     listShards_streamCreationTimestamp,
     listShards_streamName,
@@ -74,6 +74,7 @@ data ListShards = ListShards'
     --
     -- You cannot specify this parameter if you specify @NextToken@.
     exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
+    shardFilter :: Prelude.Maybe ShardFilter,
     -- | When the number of shards in the data stream is greater than the default
     -- value for the @MaxResults@ parameter, or if you explicitly specify a
     -- value for @MaxResults@ that is less than the number of shards in the
@@ -96,7 +97,6 @@ data ListShards = ListShards'
     -- that value. If you specify an expired token in a call to @ListShards@,
     -- you get @ExpiredNextTokenException@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    shardFilter :: Prelude.Maybe ShardFilter,
     -- | The maximum number of shards to return in a single call to @ListShards@.
     -- The minimum value you can specify for this parameter is 1, and the
     -- maximum is 10,000, which is also the default.
@@ -140,6 +140,8 @@ data ListShards = ListShards'
 --
 -- You cannot specify this parameter if you specify @NextToken@.
 --
+-- 'shardFilter', 'listShards_shardFilter' - Undocumented member.
+--
 -- 'nextToken', 'listShards_nextToken' - When the number of shards in the data stream is greater than the default
 -- value for the @MaxResults@ parameter, or if you explicitly specify a
 -- value for @MaxResults@ that is less than the number of shards in the
@@ -161,8 +163,6 @@ data ListShards = ListShards'
 -- in the response to a call to @ListShards@, you have 300 seconds to use
 -- that value. If you specify an expired token in a call to @ListShards@,
 -- you get @ExpiredNextTokenException@.
---
--- 'shardFilter', 'listShards_shardFilter' - Undocumented member.
 --
 -- 'maxResults', 'listShards_maxResults' - The maximum number of shards to return in a single call to @ListShards@.
 -- The minimum value you can specify for this parameter is 1, and the
@@ -191,8 +191,8 @@ newListShards =
   ListShards'
     { exclusiveStartShardId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       shardFilter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       streamCreationTimestamp = Prelude.Nothing,
       streamName = Prelude.Nothing
@@ -209,6 +209,10 @@ newListShards =
 -- You cannot specify this parameter if you specify @NextToken@.
 listShards_exclusiveStartShardId :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
 listShards_exclusiveStartShardId = Lens.lens (\ListShards' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@ListShards' {} a -> s {exclusiveStartShardId = a} :: ListShards)
+
+-- | Undocumented member.
+listShards_shardFilter :: Lens.Lens' ListShards (Prelude.Maybe ShardFilter)
+listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (\s@ListShards' {} a -> s {shardFilter = a} :: ListShards)
 
 -- | When the number of shards in the data stream is greater than the default
 -- value for the @MaxResults@ parameter, or if you explicitly specify a
@@ -233,10 +237,6 @@ listShards_exclusiveStartShardId = Lens.lens (\ListShards' {exclusiveStartShardI
 -- you get @ExpiredNextTokenException@.
 listShards_nextToken :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
 listShards_nextToken = Lens.lens (\ListShards' {nextToken} -> nextToken) (\s@ListShards' {} a -> s {nextToken = a} :: ListShards)
-
--- | Undocumented member.
-listShards_shardFilter :: Lens.Lens' ListShards (Prelude.Maybe ShardFilter)
-listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (\s@ListShards' {} a -> s {shardFilter = a} :: ListShards)
 
 -- | The maximum number of shards to return in a single call to @ListShards@.
 -- The minimum value you can specify for this parameter is 1, and the
@@ -322,8 +322,8 @@ instance Core.ToJSON ListShards where
       ( Prelude.catMaybes
           [ ("ExclusiveStartShardId" Core..=)
               Prelude.<$> exclusiveStartShardId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ShardFilter" Core..=) Prelude.<$> shardFilter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("StreamCreationTimestamp" Core..=)
               Prelude.<$> streamCreationTimestamp,

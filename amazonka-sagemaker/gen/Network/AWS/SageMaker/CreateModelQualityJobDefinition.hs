@@ -65,7 +65,7 @@ data CreateModelQualityJobDefinition = CreateModelQualityJobDefinition'
     modelQualityBaselineConfig :: Prelude.Maybe ModelQualityBaselineConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name of the monitoring job definition.
@@ -97,7 +97,7 @@ data CreateModelQualityJobDefinition = CreateModelQualityJobDefinition'
 --
 -- 'tags', 'createModelQualityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'stoppingCondition', 'createModelQualityJobDefinition_stoppingCondition' - Undocumented member.
 --
@@ -163,7 +163,7 @@ createModelQualityJobDefinition_modelQualityBaselineConfig = Lens.lens (\CreateM
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createModelQualityJobDefinition_tags :: Lens.Lens' CreateModelQualityJobDefinition (Prelude.Maybe [Tag])
 createModelQualityJobDefinition_tags = Lens.lens (\CreateModelQualityJobDefinition' {tags} -> tags) (\s@CreateModelQualityJobDefinition' {} a -> s {tags = a} :: CreateModelQualityJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 

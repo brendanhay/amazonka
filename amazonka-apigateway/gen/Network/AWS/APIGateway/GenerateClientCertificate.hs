@@ -36,10 +36,10 @@ module Network.AWS.APIGateway.GenerateClientCertificate
 
     -- * Response Lenses
     clientCertificate_createdDate,
-    clientCertificate_expirationDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
+    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
+    clientCertificate_tags,
     clientCertificate_description,
   )
 where

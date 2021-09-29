@@ -32,6 +32,7 @@ module Network.AWS.Snowball.UpdateCluster
     -- * Request Lenses
     updateCluster_roleARN,
     updateCluster_shippingOption,
+    updateCluster_onDeviceServiceConfiguration,
     updateCluster_resources,
     updateCluster_description,
     updateCluster_addressId,
@@ -65,6 +66,10 @@ data UpdateCluster = UpdateCluster'
     -- | The updated shipping option value of this cluster\'s ShippingDetails
     -- object.
     shippingOption :: Prelude.Maybe ShippingOption,
+    -- | Specifies the service or services on the Snow Family device that your
+    -- transferred data will be exported from or imported into. AWS Snow Family
+    -- supports Amazon S3 and NFS (Network File System).
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The updated arrays of JobResource objects that can include updated
     -- S3Resource objects or LambdaResource objects.
     resources :: Prelude.Maybe JobResource,
@@ -99,6 +104,10 @@ data UpdateCluster = UpdateCluster'
 -- 'shippingOption', 'updateCluster_shippingOption' - The updated shipping option value of this cluster\'s ShippingDetails
 -- object.
 --
+-- 'onDeviceServiceConfiguration', 'updateCluster_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+--
 -- 'resources', 'updateCluster_resources' - The updated arrays of JobResource objects that can include updated
 -- S3Resource objects or LambdaResource objects.
 --
@@ -121,6 +130,7 @@ newUpdateCluster pClusterId_ =
   UpdateCluster'
     { roleARN = Prelude.Nothing,
       shippingOption = Prelude.Nothing,
+      onDeviceServiceConfiguration = Prelude.Nothing,
       resources = Prelude.Nothing,
       description = Prelude.Nothing,
       addressId = Prelude.Nothing,
@@ -140,6 +150,12 @@ updateCluster_roleARN = Lens.lens (\UpdateCluster' {roleARN} -> roleARN) (\s@Upd
 -- object.
 updateCluster_shippingOption :: Lens.Lens' UpdateCluster (Prelude.Maybe ShippingOption)
 updateCluster_shippingOption = Lens.lens (\UpdateCluster' {shippingOption} -> shippingOption) (\s@UpdateCluster' {} a -> s {shippingOption = a} :: UpdateCluster)
+
+-- | Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+updateCluster_onDeviceServiceConfiguration :: Lens.Lens' UpdateCluster (Prelude.Maybe OnDeviceServiceConfiguration)
+updateCluster_onDeviceServiceConfiguration = Lens.lens (\UpdateCluster' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@UpdateCluster' {} a -> s {onDeviceServiceConfiguration = a} :: UpdateCluster)
 
 -- | The updated arrays of JobResource objects that can include updated
 -- S3Resource objects or LambdaResource objects.
@@ -206,6 +222,8 @@ instance Core.ToJSON UpdateCluster where
           [ ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("ShippingOption" Core..=)
               Prelude.<$> shippingOption,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration,
             ("Resources" Core..=) Prelude.<$> resources,
             ("Description" Core..=) Prelude.<$> description,
             ("AddressId" Core..=) Prelude.<$> addressId,

@@ -27,6 +27,16 @@
 -- largest face and compares it with each face detected in the target
 -- image.
 --
+-- CompareFaces uses machine learning algorithms, which are probabilistic.
+-- A false negative is an incorrect prediction that a face in the target
+-- image has a low similarity confidence score when compared to the face in
+-- the source image. To reduce the probability of false negatives, we
+-- recommend that you compare the target image against multiple source
+-- images. If you plan to use @CompareFaces@ to make a decision that
+-- impacts an individual\'s rights, privacy, or access to services, we
+-- recommend that you pass the result to a human for review and further
+-- validation before taking action.
+--
 -- You pass the input and target images either as base64-encoded image
 -- bytes or as references to images in an Amazon S3 bucket. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes
@@ -87,8 +97,8 @@ module Network.AWS.Rekognition.CompareFaces
     newCompareFacesResponse,
 
     -- * Response Lenses
-    compareFacesResponse_sourceImageFace,
     compareFacesResponse_unmatchedFaces,
+    compareFacesResponse_sourceImageFace,
     compareFacesResponse_faceMatches,
     compareFacesResponse_targetImageOrientationCorrection,
     compareFacesResponse_sourceImageOrientationCorrection,
@@ -240,8 +250,8 @@ instance Core.AWSRequest CompareFaces where
     Response.receiveJSON
       ( \s h x ->
           CompareFacesResponse'
-            Prelude.<$> (x Core..?> "SourceImageFace")
-            Prelude.<*> (x Core..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "SourceImageFace")
             Prelude.<*> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TargetImageOrientationCorrection")
             Prelude.<*> (x Core..?> "SourceImageOrientationCorrection")
@@ -287,11 +297,11 @@ instance Core.ToQuery CompareFaces where
 
 -- | /See:/ 'newCompareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
-  { -- | The face in the source image that was used for comparison.
-    sourceImageFace :: Prelude.Maybe ComparedSourceImageFace,
-    -- | An array of faces in the target image that did not match the source
+  { -- | An array of faces in the target image that did not match the source
     -- image face.
     unmatchedFaces :: Prelude.Maybe [ComparedFace],
+    -- | The face in the source image that was used for comparison.
+    sourceImageFace :: Prelude.Maybe ComparedSourceImageFace,
     -- | An array of faces in the target image that match the source image face.
     -- Each @CompareFacesMatch@ object provides the bounding box, the
     -- confidence level that the bounding box contains a face, and the
@@ -341,10 +351,10 @@ data CompareFacesResponse = CompareFacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.
---
 -- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source
 -- image face.
+--
+-- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.
 --
 -- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.
 -- Each @CompareFacesMatch@ object provides the bounding box, the
@@ -389,23 +399,23 @@ newCompareFacesResponse ::
   CompareFacesResponse
 newCompareFacesResponse pHttpStatus_ =
   CompareFacesResponse'
-    { sourceImageFace =
+    { unmatchedFaces =
         Prelude.Nothing,
-      unmatchedFaces = Prelude.Nothing,
+      sourceImageFace = Prelude.Nothing,
       faceMatches = Prelude.Nothing,
       targetImageOrientationCorrection = Prelude.Nothing,
       sourceImageOrientationCorrection = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The face in the source image that was used for comparison.
-compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Prelude.Maybe ComparedSourceImageFace)
-compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {sourceImageFace} -> sourceImageFace) (\s@CompareFacesResponse' {} a -> s {sourceImageFace = a} :: CompareFacesResponse)
-
 -- | An array of faces in the target image that did not match the source
 -- image face.
 compareFacesResponse_unmatchedFaces :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [ComparedFace])
 compareFacesResponse_unmatchedFaces = Lens.lens (\CompareFacesResponse' {unmatchedFaces} -> unmatchedFaces) (\s@CompareFacesResponse' {} a -> s {unmatchedFaces = a} :: CompareFacesResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The face in the source image that was used for comparison.
+compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Prelude.Maybe ComparedSourceImageFace)
+compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {sourceImageFace} -> sourceImageFace) (\s@CompareFacesResponse' {} a -> s {sourceImageFace = a} :: CompareFacesResponse)
 
 -- | An array of faces in the target image that match the source image face.
 -- Each @CompareFacesMatch@ object provides the bounding box, the

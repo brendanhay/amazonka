@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a conditional forwarder that has been set up for your AWS
--- directory.
+-- Deletes a conditional forwarder that has been set up for your Amazon Web
+-- Services directory.
 module Network.AWS.DirectoryService.DeleteConditionalForwarder
   ( -- * Creating a Request
     DeleteConditionalForwarder (..),

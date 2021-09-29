@@ -24,18 +24,18 @@
 -- volume size, volume type, and IOPS capacity. If your EBS volume is
 -- attached to a current-generation EC2 instance type, you might be able to
 -- apply these changes without stopping the instance or detaching the
--- volume from it. For more information about modifying an EBS volume
--- running Linux, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html Modifying the size, IOPS, or type of an EBS volume on Linux>.
--- For more information about modifying an EBS volume running Windows, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html Modifying the size, IOPS, or type of an EBS volume on Windows>.
+-- volume from it. For more information about modifying EBS volumes, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html Amazon EBS Elastic Volumes>
+-- (Linux instances) or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html Amazon EBS Elastic Volumes>
+-- (Windows instances).
 --
 -- When you complete a resize operation on your volume, you need to extend
 -- the volume\'s file-system size to take advantage of the new storage
--- capacity. For information about extending a Linux file system, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux Extending a Linux file system>.
--- For information about extending a Windows file system, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows Extending a Windows file system>.
+-- capacity. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux Extend a Linux file system>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows Extend a Windows file system>.
 --
 -- You can use CloudWatch Events to check the status of a modification to
 -- an EBS volume. For information about CloudWatch Events, see the
@@ -43,19 +43,15 @@
 -- You can also track the status of a modification using
 -- DescribeVolumesModifications. For information about tracking status
 -- changes using either method, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods Monitoring volume modifications>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html Monitor the progress of volume modifications>.
 --
 -- With previous-generation instance types, resizing an EBS volume might
 -- require detaching and reattaching the volume or stopping and restarting
--- the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html Amazon EBS Elastic Volumes>
--- (Linux) or
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html Amazon EBS Elastic Volumes>
--- (Windows).
+-- the instance.
 --
 -- If you reach the maximum volume modification rate per volume limit, you
--- will need to wait at least six hours before applying further
--- modifications to the affected EBS volume.
+-- must wait at least six hours before applying further modifications to
+-- the affected EBS volume.
 module Network.AWS.EC2.ModifyVolume
   ( -- * Creating a Request
     ModifyVolume (..),
@@ -105,8 +101,8 @@ data ModifyVolume = ModifyVolume'
     -- | The target throughput of the volume, in MiB\/s. This parameter is valid
     -- only for @gp3@ volumes. The maximum value is 1,000.
     --
-    -- Default: If no throughput value is specified, the existing value is
-    -- retained.
+    -- Default: The existing value is retained if the source and target volume
+    -- type is @gp3@. Otherwise, the default value is 125.
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
     throughput :: Prelude.Maybe Prelude.Int,
@@ -114,7 +110,7 @@ data ModifyVolume = ModifyVolume'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     --
-    -- Default: If no type is specified, the existing type is retained.
+    -- Default: The existing type is retained.
     volumeType :: Prelude.Maybe VolumeType,
     -- | The target IOPS rate of the volume. This parameter is valid only for
     -- @gp3@, @io1@, and @io2@ volumes.
@@ -127,7 +123,9 @@ data ModifyVolume = ModifyVolume'
     --
     -- -   @io2@: 100-64,000 IOPS
     --
-    -- Default: If no IOPS value is specified, the existing value is retained.
+    -- Default: The existing value is retained if you keep the same volume
+    -- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
+    -- default is 3,000.
     iops :: Prelude.Maybe Prelude.Int,
     -- | The target size of the volume, in GiB. The target volume size must be
     -- greater than or equal to the existing size of the volume.
@@ -142,7 +140,7 @@ data ModifyVolume = ModifyVolume'
     --
     -- -   @standard@: 1-1,024
     --
-    -- Default: If no size is specified, the existing size is retained.
+    -- Default: The existing size is retained.
     size :: Prelude.Maybe Prelude.Int,
     -- | The ID of the volume.
     volumeId :: Prelude.Text
@@ -173,8 +171,8 @@ data ModifyVolume = ModifyVolume'
 -- 'throughput', 'modifyVolume_throughput' - The target throughput of the volume, in MiB\/s. This parameter is valid
 -- only for @gp3@ volumes. The maximum value is 1,000.
 --
--- Default: If no throughput value is specified, the existing value is
--- retained.
+-- Default: The existing value is retained if the source and target volume
+-- type is @gp3@. Otherwise, the default value is 125.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
 --
@@ -182,7 +180,7 @@ data ModifyVolume = ModifyVolume'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Default: If no type is specified, the existing type is retained.
+-- Default: The existing type is retained.
 --
 -- 'iops', 'modifyVolume_iops' - The target IOPS rate of the volume. This parameter is valid only for
 -- @gp3@, @io1@, and @io2@ volumes.
@@ -195,7 +193,9 @@ data ModifyVolume = ModifyVolume'
 --
 -- -   @io2@: 100-64,000 IOPS
 --
--- Default: If no IOPS value is specified, the existing value is retained.
+-- Default: The existing value is retained if you keep the same volume
+-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
+-- default is 3,000.
 --
 -- 'size', 'modifyVolume_size' - The target size of the volume, in GiB. The target volume size must be
 -- greater than or equal to the existing size of the volume.
@@ -210,7 +210,7 @@ data ModifyVolume = ModifyVolume'
 --
 -- -   @standard@: 1-1,024
 --
--- Default: If no size is specified, the existing size is retained.
+-- Default: The existing size is retained.
 --
 -- 'volumeId', 'modifyVolume_volumeId' - The ID of the volume.
 newModifyVolume ::
@@ -248,8 +248,8 @@ modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVo
 -- | The target throughput of the volume, in MiB\/s. This parameter is valid
 -- only for @gp3@ volumes. The maximum value is 1,000.
 --
--- Default: If no throughput value is specified, the existing value is
--- retained.
+-- Default: The existing value is retained if the source and target volume
+-- type is @gp3@. Otherwise, the default value is 125.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
 modifyVolume_throughput :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
@@ -259,7 +259,7 @@ modifyVolume_throughput = Lens.lens (\ModifyVolume' {throughput} -> throughput) 
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Default: If no type is specified, the existing type is retained.
+-- Default: The existing type is retained.
 modifyVolume_volumeType :: Lens.Lens' ModifyVolume (Prelude.Maybe VolumeType)
 modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) (\s@ModifyVolume' {} a -> s {volumeType = a} :: ModifyVolume)
 
@@ -274,7 +274,9 @@ modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) 
 --
 -- -   @io2@: 100-64,000 IOPS
 --
--- Default: If no IOPS value is specified, the existing value is retained.
+-- Default: The existing value is retained if you keep the same volume
+-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
+-- default is 3,000.
 modifyVolume_iops :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_iops = Lens.lens (\ModifyVolume' {iops} -> iops) (\s@ModifyVolume' {} a -> s {iops = a} :: ModifyVolume)
 
@@ -291,7 +293,7 @@ modifyVolume_iops = Lens.lens (\ModifyVolume' {iops} -> iops) (\s@ModifyVolume' 
 --
 -- -   @standard@: 1-1,024
 --
--- Default: If no size is specified, the existing size is retained.
+-- Default: The existing size is retained.
 modifyVolume_size :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_size = Lens.lens (\ModifyVolume' {size} -> size) (\s@ModifyVolume' {} a -> s {size = a} :: ModifyVolume)
 

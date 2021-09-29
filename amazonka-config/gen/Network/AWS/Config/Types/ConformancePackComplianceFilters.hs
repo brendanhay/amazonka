@@ -24,16 +24,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Filters the conformance pack by compliance types and AWS Config rule
--- names.
+-- | Filters the conformance pack by compliance types and Config rule names.
 --
 -- /See:/ 'newConformancePackComplianceFilters' smart constructor.
 data ConformancePackComplianceFilters = ConformancePackComplianceFilters'
   { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+    -- @INSUFFICIENT_DATA@ is not supported.
     complianceType :: Prelude.Maybe ConformancePackComplianceType,
-    -- | Filters the results by AWS Config rule names.
+    -- | Filters the results by Config rule names.
     configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,8 +49,9 @@ data ConformancePackComplianceFilters = ConformancePackComplianceFilters'
 -- 'complianceType', 'conformancePackComplianceFilters_complianceType' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+-- @INSUFFICIENT_DATA@ is not supported.
 --
--- 'configRuleNames', 'conformancePackComplianceFilters_configRuleNames' - Filters the results by AWS Config rule names.
+-- 'configRuleNames', 'conformancePackComplianceFilters_configRuleNames' - Filters the results by Config rule names.
 newConformancePackComplianceFilters ::
   ConformancePackComplianceFilters
 newConformancePackComplianceFilters =
@@ -63,10 +64,11 @@ newConformancePackComplianceFilters =
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
+-- @INSUFFICIENT_DATA@ is not supported.
 conformancePackComplianceFilters_complianceType :: Lens.Lens' ConformancePackComplianceFilters (Prelude.Maybe ConformancePackComplianceType)
 conformancePackComplianceFilters_complianceType = Lens.lens (\ConformancePackComplianceFilters' {complianceType} -> complianceType) (\s@ConformancePackComplianceFilters' {} a -> s {complianceType = a} :: ConformancePackComplianceFilters)
 
--- | Filters the results by AWS Config rule names.
+-- | Filters the results by Config rule names.
 conformancePackComplianceFilters_configRuleNames :: Lens.Lens' ConformancePackComplianceFilters (Prelude.Maybe [Prelude.Text])
 conformancePackComplianceFilters_configRuleNames = Lens.lens (\ConformancePackComplianceFilters' {configRuleNames} -> configRuleNames) (\s@ConformancePackComplianceFilters' {} a -> s {configRuleNames = a} :: ConformancePackComplianceFilters) Prelude.. Lens.mapping Lens._Coerce
 

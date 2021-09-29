@@ -38,10 +38,11 @@ data PlacementConstraint = PlacementConstraint'
     -- in a particular group is running on a different container instance. Use
     -- @memberOf@ to restrict the selection to a group of valid candidates.
     type' :: Prelude.Maybe PlacementConstraintType,
-    -- | A cluster query language expression to apply to the constraint. You
-    -- cannot specify an expression if the constraint type is
-    -- @distinctInstance@. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+    -- | A cluster query language expression to apply to the constraint. The
+    -- expression can have a maximum length of 2000 characters. You can\'t
+    -- specify an expression if the constraint type is @distinctInstance@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     expression :: Prelude.Maybe Prelude.Text
   }
@@ -59,10 +60,11 @@ data PlacementConstraint = PlacementConstraint'
 -- in a particular group is running on a different container instance. Use
 -- @memberOf@ to restrict the selection to a group of valid candidates.
 --
--- 'expression', 'placementConstraint_expression' - A cluster query language expression to apply to the constraint. You
--- cannot specify an expression if the constraint type is
--- @distinctInstance@. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+-- 'expression', 'placementConstraint_expression' - A cluster query language expression to apply to the constraint. The
+-- expression can have a maximum length of 2000 characters. You can\'t
+-- specify an expression if the constraint type is @distinctInstance@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 newPlacementConstraint ::
   PlacementConstraint
@@ -78,10 +80,11 @@ newPlacementConstraint =
 placementConstraint_type :: Lens.Lens' PlacementConstraint (Prelude.Maybe PlacementConstraintType)
 placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\s@PlacementConstraint' {} a -> s {type' = a} :: PlacementConstraint)
 
--- | A cluster query language expression to apply to the constraint. You
--- cannot specify an expression if the constraint type is
--- @distinctInstance@. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+-- | A cluster query language expression to apply to the constraint. The
+-- expression can have a maximum length of 2000 characters. You can\'t
+-- specify an expression if the constraint type is @distinctInstance@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 placementConstraint_expression :: Lens.Lens' PlacementConstraint (Prelude.Maybe Prelude.Text)
 placementConstraint_expression = Lens.lens (\PlacementConstraint' {expression} -> expression) (\s@PlacementConstraint' {} a -> s {expression = a} :: PlacementConstraint)

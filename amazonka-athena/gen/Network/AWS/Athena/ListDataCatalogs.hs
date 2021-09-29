@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the data catalogs in the current AWS account.
+-- Lists the data catalogs in the current Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Athena.ListDataCatalogs

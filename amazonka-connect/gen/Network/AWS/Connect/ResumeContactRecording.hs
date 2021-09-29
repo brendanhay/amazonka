@@ -52,7 +52,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newResumeContactRecording' smart constructor.
 data ResumeContactRecording = ResumeContactRecording'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -70,7 +71,8 @@ data ResumeContactRecording = ResumeContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'resumeContactRecording_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'resumeContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'contactId', 'resumeContactRecording_contactId' - The identifier of the contact.
 --
@@ -94,7 +96,8 @@ newResumeContactRecording
         initialContactId = pInitialContactId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 resumeContactRecording_instanceId :: Lens.Lens' ResumeContactRecording Prelude.Text
 resumeContactRecording_instanceId = Lens.lens (\ResumeContactRecording' {instanceId} -> instanceId) (\s@ResumeContactRecording' {} a -> s {instanceId = a} :: ResumeContactRecording)
 

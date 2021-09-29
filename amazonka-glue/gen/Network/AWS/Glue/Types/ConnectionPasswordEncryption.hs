@@ -29,23 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- catalog encryption or only password encryption.
 --
 -- When a @CreationConnection@ request arrives containing a password, the
--- Data Catalog first encrypts the password using your AWS KMS key. It then
+-- Data Catalog first encrypts the password using your KMS key. It then
 -- encrypts the whole connection object again if catalog encryption is also
 -- enabled.
 --
--- This encryption requires that you set AWS KMS key permissions to enable
--- or restrict access on the password key according to your security
+-- This encryption requires that you set KMS key permissions to enable or
+-- restrict access on the password key according to your security
 -- requirements. For example, you might want only administrators to have
 -- decrypt permission on the password key.
 --
 -- /See:/ 'newConnectionPasswordEncryption' smart constructor.
 data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
-  { -- | An AWS KMS key that is used to encrypt the connection password.
+  { -- | An KMS key that is used to encrypt the connection password.
     --
     -- If connection password protection is enabled, the caller of
     -- @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@
-    -- permission on the specified AWS KMS key, to encrypt passwords before
-    -- storing them in the Data Catalog.
+    -- permission on the specified KMS key, to encrypt passwords before storing
+    -- them in the Data Catalog.
     --
     -- You can set the decrypt permission to enable or restrict access on the
     -- password key according to your security requirements.
@@ -66,12 +66,12 @@ data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsKmsKeyId', 'connectionPasswordEncryption_awsKmsKeyId' - An AWS KMS key that is used to encrypt the connection password.
+-- 'awsKmsKeyId', 'connectionPasswordEncryption_awsKmsKeyId' - An KMS key that is used to encrypt the connection password.
 --
 -- If connection password protection is enabled, the caller of
 -- @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@
--- permission on the specified AWS KMS key, to encrypt passwords before
--- storing them in the Data Catalog.
+-- permission on the specified KMS key, to encrypt passwords before storing
+-- them in the Data Catalog.
 --
 -- You can set the decrypt permission to enable or restrict access on the
 -- password key according to your security requirements.
@@ -93,12 +93,12 @@ newConnectionPasswordEncryption
           pReturnConnectionPasswordEncrypted_
       }
 
--- | An AWS KMS key that is used to encrypt the connection password.
+-- | An KMS key that is used to encrypt the connection password.
 --
 -- If connection password protection is enabled, the caller of
 -- @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@
--- permission on the specified AWS KMS key, to encrypt passwords before
--- storing them in the Data Catalog.
+-- permission on the specified KMS key, to encrypt passwords before storing
+-- them in the Data Catalog.
 --
 -- You can set the decrypt permission to enable or restrict access on the
 -- password key according to your security requirements.

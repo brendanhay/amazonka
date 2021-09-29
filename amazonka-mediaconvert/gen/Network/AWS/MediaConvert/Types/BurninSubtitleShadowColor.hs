@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
   ( BurninSubtitleShadowColor
       ( ..,
+        BurninSubtitleShadowColor_AUTO,
         BurninSubtitleShadowColor_BLACK,
         BurninSubtitleShadowColor_NONE,
         BurninSubtitleShadowColor_WHITE
@@ -60,6 +61,9 @@ newtype BurninSubtitleShadowColor = BurninSubtitleShadowColor'
       Core.ToXML
     )
 
+pattern BurninSubtitleShadowColor_AUTO :: BurninSubtitleShadowColor
+pattern BurninSubtitleShadowColor_AUTO = BurninSubtitleShadowColor' "AUTO"
+
 pattern BurninSubtitleShadowColor_BLACK :: BurninSubtitleShadowColor
 pattern BurninSubtitleShadowColor_BLACK = BurninSubtitleShadowColor' "BLACK"
 
@@ -70,6 +74,7 @@ pattern BurninSubtitleShadowColor_WHITE :: BurninSubtitleShadowColor
 pattern BurninSubtitleShadowColor_WHITE = BurninSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
+  BurninSubtitleShadowColor_AUTO,
   BurninSubtitleShadowColor_BLACK,
   BurninSubtitleShadowColor_NONE,
   BurninSubtitleShadowColor_WHITE,

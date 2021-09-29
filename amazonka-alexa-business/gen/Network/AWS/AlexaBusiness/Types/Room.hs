@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Room = Room'
   { -- | The ARN of a room.
     roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The provider calendar ARN of a room.
-    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The profile ARN of a room.
     profileArn :: Prelude.Maybe Prelude.Text,
     -- | The description of a room.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The provider calendar ARN of a room.
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The name of a room.
     roomName :: Prelude.Maybe Prelude.Text
   }
@@ -50,11 +50,11 @@ data Room = Room'
 --
 -- 'roomArn', 'room_roomArn' - The ARN of a room.
 --
--- 'providerCalendarId', 'room_providerCalendarId' - The provider calendar ARN of a room.
---
 -- 'profileArn', 'room_profileArn' - The profile ARN of a room.
 --
 -- 'description', 'room_description' - The description of a room.
+--
+-- 'providerCalendarId', 'room_providerCalendarId' - The provider calendar ARN of a room.
 --
 -- 'roomName', 'room_roomName' - The name of a room.
 newRoom ::
@@ -62,19 +62,15 @@ newRoom ::
 newRoom =
   Room'
     { roomArn = Prelude.Nothing,
-      providerCalendarId = Prelude.Nothing,
       profileArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
       roomName = Prelude.Nothing
     }
 
 -- | The ARN of a room.
 room_roomArn :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
 room_roomArn = Lens.lens (\Room' {roomArn} -> roomArn) (\s@Room' {} a -> s {roomArn = a} :: Room)
-
--- | The provider calendar ARN of a room.
-room_providerCalendarId :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
-room_providerCalendarId = Lens.lens (\Room' {providerCalendarId} -> providerCalendarId) (\s@Room' {} a -> s {providerCalendarId = a} :: Room)
 
 -- | The profile ARN of a room.
 room_profileArn :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
@@ -83,6 +79,10 @@ room_profileArn = Lens.lens (\Room' {profileArn} -> profileArn) (\s@Room' {} a -
 -- | The description of a room.
 room_description :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
 room_description = Lens.lens (\Room' {description} -> description) (\s@Room' {} a -> s {description = a} :: Room)
+
+-- | The provider calendar ARN of a room.
+room_providerCalendarId :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
+room_providerCalendarId = Lens.lens (\Room' {providerCalendarId} -> providerCalendarId) (\s@Room' {} a -> s {providerCalendarId = a} :: Room)
 
 -- | The name of a room.
 room_roomName :: Lens.Lens' Room (Prelude.Maybe Prelude.Text)
@@ -95,9 +95,9 @@ instance Core.FromJSON Room where
       ( \x ->
           Room'
             Prelude.<$> (x Core..:? "RoomArn")
-            Prelude.<*> (x Core..:? "ProviderCalendarId")
             Prelude.<*> (x Core..:? "ProfileArn")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ProviderCalendarId")
             Prelude.<*> (x Core..:? "RoomName")
       )
 

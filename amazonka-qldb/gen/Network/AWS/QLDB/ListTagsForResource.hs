@@ -48,8 +48,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) for which you want to list the tags. For
-    -- example:
+  { -- | The Amazon Resource Name (ARN) for which to list the tags. For example:
     --
     -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
     resourceArn :: Prelude.Text
@@ -64,8 +63,7 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) for which you want to list the tags. For
--- example:
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) for which to list the tags. For example:
 --
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
 newListTagsForResource ::
@@ -75,8 +73,7 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The Amazon Resource Name (ARN) for which you want to list the tags. For
--- example:
+-- | The Amazon Resource Name (ARN) for which to list the tags. For example:
 --
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text

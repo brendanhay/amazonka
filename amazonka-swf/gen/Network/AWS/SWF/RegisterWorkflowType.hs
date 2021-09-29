@@ -68,8 +68,8 @@ module Network.AWS.SWF.RegisterWorkflowType
     registerWorkflowType_defaultTaskList,
     registerWorkflowType_defaultChildPolicy,
     registerWorkflowType_description,
-    registerWorkflowType_defaultLambdaRole,
     registerWorkflowType_defaultTaskStartToCloseTimeout,
+    registerWorkflowType_defaultLambdaRole,
     registerWorkflowType_domain,
     registerWorkflowType_name,
     registerWorkflowType_version,
@@ -136,6 +136,14 @@ data RegisterWorkflowType = RegisterWorkflowType'
     defaultChildPolicy :: Prelude.Maybe ChildPolicy,
     -- | Textual description of the workflow type.
     description :: Prelude.Maybe Prelude.Text,
+    -- | If set, specifies the default maximum duration of decision tasks for
+    -- this workflow type. This default can be overridden when starting a
+    -- workflow execution using the StartWorkflowExecution action or the
+    -- @StartChildWorkflowExecution@ Decision.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The default IAM role attached to this workflow type.
     --
     -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -145,14 +153,6 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
     -- in the /Amazon SWF Developer Guide/.
     defaultLambdaRole :: Prelude.Maybe Prelude.Text,
-    -- | If set, specifies the default maximum duration of decision tasks for
-    -- this workflow type. This default can be overridden when starting a
-    -- workflow execution using the StartWorkflowExecution action or the
-    -- @StartChildWorkflowExecution@ Decision.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain in which to register the workflow type.
     domain :: Prelude.Text,
     -- | The name of the workflow type.
@@ -231,6 +231,14 @@ data RegisterWorkflowType = RegisterWorkflowType'
 --
 -- 'description', 'registerWorkflowType_description' - Textual description of the workflow type.
 --
+-- 'defaultTaskStartToCloseTimeout', 'registerWorkflowType_defaultTaskStartToCloseTimeout' - If set, specifies the default maximum duration of decision tasks for
+-- this workflow type. This default can be overridden when starting a
+-- workflow execution using the StartWorkflowExecution action or the
+-- @StartChildWorkflowExecution@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
 -- 'defaultLambdaRole', 'registerWorkflowType_defaultLambdaRole' - The default IAM role attached to this workflow type.
 --
 -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -239,14 +247,6 @@ data RegisterWorkflowType = RegisterWorkflowType'
 -- more information, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
 -- in the /Amazon SWF Developer Guide/.
---
--- 'defaultTaskStartToCloseTimeout', 'registerWorkflowType_defaultTaskStartToCloseTimeout' - If set, specifies the default maximum duration of decision tasks for
--- this workflow type. This default can be overridden when starting a
--- workflow execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
 --
 -- 'domain', 'registerWorkflowType_domain' - The name of the domain in which to register the workflow type.
 --
@@ -283,8 +283,8 @@ newRegisterWorkflowType pDomain_ pName_ pVersion_ =
       defaultTaskList = Prelude.Nothing,
       defaultChildPolicy = Prelude.Nothing,
       description = Prelude.Nothing,
-      defaultLambdaRole = Prelude.Nothing,
       defaultTaskStartToCloseTimeout = Prelude.Nothing,
+      defaultLambdaRole = Prelude.Nothing,
       domain = pDomain_,
       name = pName_,
       version = pVersion_
@@ -347,6 +347,16 @@ registerWorkflowType_defaultChildPolicy = Lens.lens (\RegisterWorkflowType' {def
 registerWorkflowType_description :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
 registerWorkflowType_description = Lens.lens (\RegisterWorkflowType' {description} -> description) (\s@RegisterWorkflowType' {} a -> s {description = a} :: RegisterWorkflowType)
 
+-- | If set, specifies the default maximum duration of decision tasks for
+-- this workflow type. This default can be overridden when starting a
+-- workflow execution using the StartWorkflowExecution action or the
+-- @StartChildWorkflowExecution@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+registerWorkflowType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterWorkflowType' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@RegisterWorkflowType' {} a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterWorkflowType)
+
 -- | The default IAM role attached to this workflow type.
 --
 -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -357,16 +367,6 @@ registerWorkflowType_description = Lens.lens (\RegisterWorkflowType' {descriptio
 -- in the /Amazon SWF Developer Guide/.
 registerWorkflowType_defaultLambdaRole :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
 registerWorkflowType_defaultLambdaRole = Lens.lens (\RegisterWorkflowType' {defaultLambdaRole} -> defaultLambdaRole) (\s@RegisterWorkflowType' {} a -> s {defaultLambdaRole = a} :: RegisterWorkflowType)
-
--- | If set, specifies the default maximum duration of decision tasks for
--- this workflow type. This default can be overridden when starting a
--- workflow execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-registerWorkflowType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
-registerWorkflowType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterWorkflowType' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@RegisterWorkflowType' {} a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterWorkflowType)
 
 -- | The name of the domain in which to register the workflow type.
 registerWorkflowType_domain :: Lens.Lens' RegisterWorkflowType Prelude.Text
@@ -434,10 +434,10 @@ instance Core.ToJSON RegisterWorkflowType where
             ("defaultChildPolicy" Core..=)
               Prelude.<$> defaultChildPolicy,
             ("description" Core..=) Prelude.<$> description,
-            ("defaultLambdaRole" Core..=)
-              Prelude.<$> defaultLambdaRole,
             ("defaultTaskStartToCloseTimeout" Core..=)
               Prelude.<$> defaultTaskStartToCloseTimeout,
+            ("defaultLambdaRole" Core..=)
+              Prelude.<$> defaultLambdaRole,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("version" Core..= version)

@@ -35,9 +35,9 @@ module Network.AWS.MarketplaceMetering.MeterUsage
     newMeterUsage,
 
     -- * Request Lenses
-    meterUsage_dryRun,
     meterUsage_usageAllocations,
     meterUsage_usageQuantity,
+    meterUsage_dryRun,
     meterUsage_productCode,
     meterUsage_timestamp,
     meterUsage_usageDimension,
@@ -61,12 +61,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newMeterUsage' smart constructor.
 data MeterUsage = MeterUsage'
-  { -- | Checks whether you have the permissions required for the action, but
-    -- does not make the request. If you have the permissions, the request
-    -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
-    -- Defaults to @false@ if not specified.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The set of UsageAllocations to submit.
+  { -- | The set of UsageAllocations to submit.
     --
     -- The sum of all UsageAllocation quantities must equal the UsageQuantity
     -- of the MeterUsage request, and each UsageAllocation must have a unique
@@ -74,6 +69,11 @@ data MeterUsage = MeterUsage'
     usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
     -- | Consumption value for the hour. Defaults to @0@ if not specified.
     usageQuantity :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the permissions required for the action, but
+    -- does not make the request. If you have the permissions, the request
+    -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
+    -- Defaults to @false@ if not specified.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
     -- publishing of a new product.
@@ -96,11 +96,6 @@ data MeterUsage = MeterUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'meterUsage_dryRun' - Checks whether you have the permissions required for the action, but
--- does not make the request. If you have the permissions, the request
--- returns DryRunOperation; otherwise, it returns UnauthorizedException.
--- Defaults to @false@ if not specified.
---
 -- 'usageAllocations', 'meterUsage_usageAllocations' - The set of UsageAllocations to submit.
 --
 -- The sum of all UsageAllocation quantities must equal the UsageQuantity
@@ -108,6 +103,11 @@ data MeterUsage = MeterUsage'
 -- set of tags (include no tags).
 --
 -- 'usageQuantity', 'meterUsage_usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
+--
+-- 'dryRun', 'meterUsage_dryRun' - Checks whether you have the permissions required for the action, but
+-- does not make the request. If you have the permissions, the request
+-- returns DryRunOperation; otherwise, it returns UnauthorizedException.
+-- Defaults to @false@ if not specified.
 --
 -- 'productCode', 'meterUsage_productCode' - Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
@@ -132,20 +132,13 @@ newMeterUsage
   pTimestamp_
   pUsageDimension_ =
     MeterUsage'
-      { dryRun = Prelude.Nothing,
-        usageAllocations = Prelude.Nothing,
+      { usageAllocations = Prelude.Nothing,
         usageQuantity = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         productCode = pProductCode_,
         timestamp = Core._Time Lens.# pTimestamp_,
         usageDimension = pUsageDimension_
       }
-
--- | Checks whether you have the permissions required for the action, but
--- does not make the request. If you have the permissions, the request
--- returns DryRunOperation; otherwise, it returns UnauthorizedException.
--- Defaults to @false@ if not specified.
-meterUsage_dryRun :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Bool)
-meterUsage_dryRun = Lens.lens (\MeterUsage' {dryRun} -> dryRun) (\s@MeterUsage' {} a -> s {dryRun = a} :: MeterUsage)
 
 -- | The set of UsageAllocations to submit.
 --
@@ -158,6 +151,13 @@ meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usag
 -- | Consumption value for the hour. Defaults to @0@ if not specified.
 meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Natural)
 meterUsage_usageQuantity = Lens.lens (\MeterUsage' {usageQuantity} -> usageQuantity) (\s@MeterUsage' {} a -> s {usageQuantity = a} :: MeterUsage)
+
+-- | Checks whether you have the permissions required for the action, but
+-- does not make the request. If you have the permissions, the request
+-- returns DryRunOperation; otherwise, it returns UnauthorizedException.
+-- Defaults to @false@ if not specified.
+meterUsage_dryRun :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Bool)
+meterUsage_dryRun = Lens.lens (\MeterUsage' {dryRun} -> dryRun) (\s@MeterUsage' {} a -> s {dryRun = a} :: MeterUsage)
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
@@ -210,10 +210,10 @@ instance Core.ToJSON MeterUsage where
   toJSON MeterUsage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("UsageAllocations" Core..=)
+          [ ("UsageAllocations" Core..=)
               Prelude.<$> usageAllocations,
             ("UsageQuantity" Core..=) Prelude.<$> usageQuantity,
+            ("DryRun" Core..=) Prelude.<$> dryRun,
             Prelude.Just ("ProductCode" Core..= productCode),
             Prelude.Just ("Timestamp" Core..= timestamp),
             Prelude.Just

@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListModelQualityJobDefinitions
     newListModelQualityJobDefinitions,
 
     -- * Request Lenses
-    listModelQualityJobDefinitions_sortOrder,
     listModelQualityJobDefinitions_nextToken,
+    listModelQualityJobDefinitions_sortOrder,
     listModelQualityJobDefinitions_endpointName,
     listModelQualityJobDefinitions_nameContains,
     listModelQualityJobDefinitions_maxResults,
@@ -58,13 +58,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelQualityJobDefinitions' smart constructor.
 data ListModelQualityJobDefinitions = ListModelQualityJobDefinitions'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListModelQualityJobDefinitions@ request
+  { -- | If the result of the previous @ListModelQualityJobDefinitions@ request
     -- was truncated, the response includes a @NextToken@. To retrieve the next
     -- set of model quality monitoring job definitions, use the token in the
     -- next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter that returns only model quality monitoring job definitions that
     -- are associated with the specified endpoint.
     endpointName :: Prelude.Maybe Prelude.Text,
@@ -94,12 +94,12 @@ data ListModelQualityJobDefinitions = ListModelQualityJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelQualityJobDefinitions_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listModelQualityJobDefinitions_nextToken' - If the result of the previous @ListModelQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of model quality monitoring job definitions, use the token in the
 -- next request.
+--
+-- 'sortOrder', 'listModelQualityJobDefinitions_sortOrder' - The sort order for results. The default is @Descending@.
 --
 -- 'endpointName', 'listModelQualityJobDefinitions_endpointName' - A filter that returns only model quality monitoring job definitions that
 -- are associated with the specified endpoint.
@@ -122,9 +122,9 @@ newListModelQualityJobDefinitions ::
   ListModelQualityJobDefinitions
 newListModelQualityJobDefinitions =
   ListModelQualityJobDefinitions'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -133,16 +133,16 @@ newListModelQualityJobDefinitions =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listModelQualityJobDefinitions_sortOrder :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe SortOrder)
-listModelQualityJobDefinitions_sortOrder = Lens.lens (\ListModelQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelQualityJobDefinitions)
-
 -- | If the result of the previous @ListModelQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of model quality monitoring job definitions, use the token in the
 -- next request.
 listModelQualityJobDefinitions_nextToken :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelQualityJobDefinitions_nextToken = Lens.lens (\ListModelQualityJobDefinitions' {nextToken} -> nextToken) (\s@ListModelQualityJobDefinitions' {} a -> s {nextToken = a} :: ListModelQualityJobDefinitions)
+
+-- | The sort order for results. The default is @Descending@.
+listModelQualityJobDefinitions_sortOrder :: Lens.Lens' ListModelQualityJobDefinitions (Prelude.Maybe SortOrder)
+listModelQualityJobDefinitions_sortOrder = Lens.lens (\ListModelQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelQualityJobDefinitions)
 
 -- | A filter that returns only model quality monitoring job definitions that
 -- are associated with the specified endpoint.
@@ -244,8 +244,8 @@ instance Core.ToJSON ListModelQualityJobDefinitions where
   toJSON ListModelQualityJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

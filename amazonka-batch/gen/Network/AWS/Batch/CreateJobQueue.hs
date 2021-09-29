@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Batch job queue. When you create a job queue, you
--- associate one or more compute environments to the queue and assign an
--- order of preference for the compute environments.
+-- Creates an Batch job queue. When you create a job queue, you associate
+-- one or more compute environments to the queue and assign an order of
+-- preference for the compute environments.
 --
--- You also set a priority to the job queue that determines the order in
--- which the AWS Batch scheduler places jobs onto its associated compute
+-- You also set a priority to the job queue that determines the order that
+-- the Batch scheduler places jobs onto its associated compute
 -- environments. For example, if a compute environment is associated with
 -- more than one job queue, the job queue with a higher priority is given
 -- preference for scheduling jobs to that compute environment.
@@ -70,8 +70,8 @@ data CreateJobQueue = CreateJobQueue'
     -- | The tags that you apply to the job queue to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
-    -- in /AWS Batch User Guide/.
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+    -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
     -- numbers, and underscores are allowed.
@@ -83,7 +83,7 @@ data CreateJobQueue = CreateJobQueue'
     -- value of @10@ is given scheduling preference over a job queue with a
     -- priority value of @1@. All of the compute environments must be either
     -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
-    -- Fargate compute environments cannot be mixed.
+    -- Fargate compute environments can\'t be mixed.
     priority :: Prelude.Int,
     -- | The set of compute environments mapped to a job queue and their order
     -- relative to each other. The job scheduler uses this parameter to
@@ -95,8 +95,8 @@ data CreateJobQueue = CreateJobQueue'
     -- Fargate compute environments can\'t be mixed.
     --
     -- All compute environments that are associated with a job queue must share
-    -- the same architecture. AWS Batch doesn\'t support mixing compute
-    -- environment architecture types in a single job queue.
+    -- the same architecture. Batch doesn\'t support mixing compute environment
+    -- architecture types in a single job queue.
     computeEnvironmentOrder :: [ComputeEnvironmentOrder]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -116,8 +116,8 @@ data CreateJobQueue = CreateJobQueue'
 -- 'tags', 'createJobQueue_tags' - The tags that you apply to the job queue to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 --
 -- 'jobQueueName', 'createJobQueue_jobQueueName' - The name of the job queue. Up to 128 letters (uppercase and lowercase),
 -- numbers, and underscores are allowed.
@@ -129,7 +129,7 @@ data CreateJobQueue = CreateJobQueue'
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- Fargate compute environments can\'t be mixed.
 --
 -- 'computeEnvironmentOrder', 'createJobQueue_computeEnvironmentOrder' - The set of compute environments mapped to a job queue and their order
 -- relative to each other. The job scheduler uses this parameter to
@@ -141,8 +141,8 @@ data CreateJobQueue = CreateJobQueue'
 -- Fargate compute environments can\'t be mixed.
 --
 -- All compute environments that are associated with a job queue must share
--- the same architecture. AWS Batch doesn\'t support mixing compute
--- environment architecture types in a single job queue.
+-- the same architecture. Batch doesn\'t support mixing compute environment
+-- architecture types in a single job queue.
 newCreateJobQueue ::
   -- | 'jobQueueName'
   Prelude.Text ->
@@ -167,8 +167,8 @@ createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJ
 -- | The tags that you apply to the job queue to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 createJobQueue_tags :: Lens.Lens' CreateJobQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJobQueue_tags = Lens.lens (\CreateJobQueue' {tags} -> tags) (\s@CreateJobQueue' {} a -> s {tags = a} :: CreateJobQueue) Prelude.. Lens.mapping Lens._Coerce
 
@@ -184,7 +184,7 @@ createJobQueue_jobQueueName = Lens.lens (\CreateJobQueue' {jobQueueName} -> jobQ
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- Fargate compute environments can\'t be mixed.
 createJobQueue_priority :: Lens.Lens' CreateJobQueue Prelude.Int
 createJobQueue_priority = Lens.lens (\CreateJobQueue' {priority} -> priority) (\s@CreateJobQueue' {} a -> s {priority = a} :: CreateJobQueue)
 
@@ -198,8 +198,8 @@ createJobQueue_priority = Lens.lens (\CreateJobQueue' {priority} -> priority) (\
 -- Fargate compute environments can\'t be mixed.
 --
 -- All compute environments that are associated with a job queue must share
--- the same architecture. AWS Batch doesn\'t support mixing compute
--- environment architecture types in a single job queue.
+-- the same architecture. Batch doesn\'t support mixing compute environment
+-- architecture types in a single job queue.
 createJobQueue_computeEnvironmentOrder :: Lens.Lens' CreateJobQueue [ComputeEnvironmentOrder]
 createJobQueue_computeEnvironmentOrder = Lens.lens (\CreateJobQueue' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@CreateJobQueue' {} a -> s {computeEnvironmentOrder = a} :: CreateJobQueue) Prelude.. Lens._Coerce
 

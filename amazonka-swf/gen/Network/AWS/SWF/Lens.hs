@@ -31,6 +31,18 @@ module Network.AWS.SWF.Lens
     describeWorkflowExecutionResponse_executionConfiguration,
     describeWorkflowExecutionResponse_openCounts,
 
+    -- ** RegisterActivityType
+    registerActivityType_defaultTaskPriority,
+    registerActivityType_defaultTaskList,
+    registerActivityType_description,
+    registerActivityType_defaultTaskScheduleToStartTimeout,
+    registerActivityType_defaultTaskStartToCloseTimeout,
+    registerActivityType_defaultTaskScheduleToCloseTimeout,
+    registerActivityType_defaultTaskHeartbeatTimeout,
+    registerActivityType_domain,
+    registerActivityType_name,
+    registerActivityType_version,
+
     -- ** PollForActivityTask
     pollForActivityTask_identity,
     pollForActivityTask_domain,
@@ -42,18 +54,6 @@ module Network.AWS.SWF.Lens
     pollForActivityTaskResponse_activityType,
     pollForActivityTaskResponse_httpStatus,
     pollForActivityTaskResponse_startedEventId,
-
-    -- ** RegisterActivityType
-    registerActivityType_defaultTaskPriority,
-    registerActivityType_defaultTaskList,
-    registerActivityType_description,
-    registerActivityType_defaultTaskScheduleToStartTimeout,
-    registerActivityType_defaultTaskStartToCloseTimeout,
-    registerActivityType_defaultTaskHeartbeatTimeout,
-    registerActivityType_defaultTaskScheduleToCloseTimeout,
-    registerActivityType_domain,
-    registerActivityType_name,
-    registerActivityType_version,
 
     -- ** ListOpenWorkflowExecutions
     listOpenWorkflowExecutions_typeFilter,
@@ -72,15 +72,6 @@ module Network.AWS.SWF.Lens
     registerDomain_description,
     registerDomain_name,
     registerDomain_workflowExecutionRetentionPeriodInDays,
-
-    -- ** ListDomains
-    listDomains_nextPageToken,
-    listDomains_maximumPageSize,
-    listDomains_reverseOrder,
-    listDomains_registrationStatus,
-    listDomainsResponse_nextPageToken,
-    listDomainsResponse_httpStatus,
-    listDomainsResponse_domainInfos,
 
     -- ** RespondDecisionTaskCompleted
     respondDecisionTaskCompleted_executionContext,
@@ -103,24 +94,29 @@ module Network.AWS.SWF.Lens
     pollForDecisionTaskResponse_httpStatus,
     pollForDecisionTaskResponse_startedEventId,
 
-    -- ** DeprecateWorkflowType
-    deprecateWorkflowType_domain,
-    deprecateWorkflowType_workflowType,
+    -- ** ListDomains
+    listDomains_nextPageToken,
+    listDomains_maximumPageSize,
+    listDomains_reverseOrder,
+    listDomains_registrationStatus,
+    listDomainsResponse_nextPageToken,
+    listDomainsResponse_httpStatus,
+    listDomainsResponse_domainInfos,
 
     -- ** UndeprecateDomain
     undeprecateDomain_name,
 
-    -- ** UndeprecateActivityType
-    undeprecateActivityType_domain,
-    undeprecateActivityType_activityType,
+    -- ** DeprecateWorkflowType
+    deprecateWorkflowType_domain,
+    deprecateWorkflowType_workflowType,
 
     -- ** CountClosedWorkflowExecutions
     countClosedWorkflowExecutions_typeFilter,
     countClosedWorkflowExecutions_tagFilter,
     countClosedWorkflowExecutions_closeTimeFilter,
     countClosedWorkflowExecutions_startTimeFilter,
-    countClosedWorkflowExecutions_executionFilter,
     countClosedWorkflowExecutions_closeStatusFilter,
+    countClosedWorkflowExecutions_executionFilter,
     countClosedWorkflowExecutions_domain,
     workflowExecutionCount_truncated,
     workflowExecutionCount_count,
@@ -129,13 +125,17 @@ module Network.AWS.SWF.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
 
-    -- ** DeprecateActivityType
-    deprecateActivityType_domain,
-    deprecateActivityType_activityType,
+    -- ** UndeprecateActivityType
+    undeprecateActivityType_domain,
+    undeprecateActivityType_activityType,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
+
+    -- ** DeprecateActivityType
+    deprecateActivityType_domain,
+    deprecateActivityType_activityType,
 
     -- ** DescribeDomain
     describeDomain_name,
@@ -164,8 +164,8 @@ module Network.AWS.SWF.Lens
     registerWorkflowType_defaultTaskList,
     registerWorkflowType_defaultChildPolicy,
     registerWorkflowType_description,
-    registerWorkflowType_defaultLambdaRole,
     registerWorkflowType_defaultTaskStartToCloseTimeout,
+    registerWorkflowType_defaultLambdaRole,
     registerWorkflowType_domain,
     registerWorkflowType_name,
     registerWorkflowType_version,
@@ -176,13 +176,9 @@ module Network.AWS.SWF.Lens
     pendingTaskCount_truncated,
     pendingTaskCount_count,
 
-    -- ** RespondActivityTaskCompleted
-    respondActivityTaskCompleted_result,
-    respondActivityTaskCompleted_taskToken,
-
     -- ** ListActivityTypes
-    listActivityTypes_name,
     listActivityTypes_nextPageToken,
+    listActivityTypes_name,
     listActivityTypes_maximumPageSize,
     listActivityTypes_reverseOrder,
     listActivityTypes_domain,
@@ -191,12 +187,16 @@ module Network.AWS.SWF.Lens
     listActivityTypesResponse_httpStatus,
     listActivityTypesResponse_typeInfos,
 
+    -- ** RespondActivityTaskCompleted
+    respondActivityTaskCompleted_result,
+    respondActivityTaskCompleted_taskToken,
+
     -- ** StartWorkflowExecution
     startWorkflowExecution_input,
     startWorkflowExecution_lambdaRole,
     startWorkflowExecution_childPolicy,
-    startWorkflowExecution_taskList,
     startWorkflowExecution_taskPriority,
+    startWorkflowExecution_taskList,
     startWorkflowExecution_executionStartToCloseTimeout,
     startWorkflowExecution_taskStartToCloseTimeout,
     startWorkflowExecution_tagList,
@@ -205,13 +205,6 @@ module Network.AWS.SWF.Lens
     startWorkflowExecution_workflowType,
     startWorkflowExecutionResponse_runId,
     startWorkflowExecutionResponse_httpStatus,
-
-    -- ** DescribeWorkflowType
-    describeWorkflowType_domain,
-    describeWorkflowType_workflowType,
-    describeWorkflowTypeResponse_httpStatus,
-    describeWorkflowTypeResponse_typeInfo,
-    describeWorkflowTypeResponse_configuration,
 
     -- ** RespondActivityTaskCanceled
     respondActivityTaskCanceled_details,
@@ -222,12 +215,12 @@ module Network.AWS.SWF.Lens
     requestCancelWorkflowExecution_domain,
     requestCancelWorkflowExecution_workflowId,
 
-    -- ** DescribeActivityType
-    describeActivityType_domain,
-    describeActivityType_activityType,
-    describeActivityTypeResponse_httpStatus,
-    describeActivityTypeResponse_typeInfo,
-    describeActivityTypeResponse_configuration,
+    -- ** DescribeWorkflowType
+    describeWorkflowType_domain,
+    describeWorkflowType_workflowType,
+    describeWorkflowTypeResponse_httpStatus,
+    describeWorkflowTypeResponse_typeInfo,
+    describeWorkflowTypeResponse_configuration,
 
     -- ** TerminateWorkflowExecution
     terminateWorkflowExecution_runId,
@@ -237,11 +230,19 @@ module Network.AWS.SWF.Lens
     terminateWorkflowExecution_domain,
     terminateWorkflowExecution_workflowId,
 
-    -- ** RecordActivityTaskHeartbeat
-    recordActivityTaskHeartbeat_details,
-    recordActivityTaskHeartbeat_taskToken,
-    recordActivityTaskHeartbeatResponse_httpStatus,
-    recordActivityTaskHeartbeatResponse_cancelRequested,
+    -- ** DescribeActivityType
+    describeActivityType_domain,
+    describeActivityType_activityType,
+    describeActivityTypeResponse_httpStatus,
+    describeActivityTypeResponse_typeInfo,
+    describeActivityTypeResponse_configuration,
+
+    -- ** UndeprecateWorkflowType
+    undeprecateWorkflowType_domain,
+    undeprecateWorkflowType_workflowType,
+
+    -- ** DeprecateDomain
+    deprecateDomain_name,
 
     -- ** GetWorkflowExecutionHistory
     getWorkflowExecutionHistory_nextPageToken,
@@ -253,33 +254,16 @@ module Network.AWS.SWF.Lens
     getWorkflowExecutionHistoryResponse_httpStatus,
     getWorkflowExecutionHistoryResponse_events,
 
-    -- ** DeprecateDomain
-    deprecateDomain_name,
-
-    -- ** UndeprecateWorkflowType
-    undeprecateWorkflowType_domain,
-    undeprecateWorkflowType_workflowType,
+    -- ** RecordActivityTaskHeartbeat
+    recordActivityTaskHeartbeat_details,
+    recordActivityTaskHeartbeat_taskToken,
+    recordActivityTaskHeartbeatResponse_httpStatus,
+    recordActivityTaskHeartbeatResponse_cancelRequested,
 
     -- ** RespondActivityTaskFailed
     respondActivityTaskFailed_details,
     respondActivityTaskFailed_reason,
     respondActivityTaskFailed_taskToken,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ListWorkflowTypes
-    listWorkflowTypes_name,
-    listWorkflowTypes_nextPageToken,
-    listWorkflowTypes_maximumPageSize,
-    listWorkflowTypes_reverseOrder,
-    listWorkflowTypes_domain,
-    listWorkflowTypes_registrationStatus,
-    listWorkflowTypesResponse_nextPageToken,
-    listWorkflowTypesResponse_httpStatus,
-    listWorkflowTypesResponse_typeInfos,
 
     -- ** ListClosedWorkflowExecutions
     listClosedWorkflowExecutions_typeFilter,
@@ -289,11 +273,27 @@ module Network.AWS.SWF.Lens
     listClosedWorkflowExecutions_reverseOrder,
     listClosedWorkflowExecutions_closeTimeFilter,
     listClosedWorkflowExecutions_startTimeFilter,
-    listClosedWorkflowExecutions_executionFilter,
     listClosedWorkflowExecutions_closeStatusFilter,
+    listClosedWorkflowExecutions_executionFilter,
     listClosedWorkflowExecutions_domain,
     workflowExecutionInfos_nextPageToken,
     workflowExecutionInfos_executionInfos,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListWorkflowTypes
+    listWorkflowTypes_nextPageToken,
+    listWorkflowTypes_name,
+    listWorkflowTypes_maximumPageSize,
+    listWorkflowTypes_reverseOrder,
+    listWorkflowTypes_domain,
+    listWorkflowTypes_registrationStatus,
+    listWorkflowTypesResponse_nextPageToken,
+    listWorkflowTypesResponse_httpStatus,
+    listWorkflowTypesResponse_typeInfos,
 
     -- * Types
 
@@ -350,8 +350,8 @@ module Network.AWS.SWF.Lens
     activityTypeConfiguration_defaultTaskList,
     activityTypeConfiguration_defaultTaskScheduleToStartTimeout,
     activityTypeConfiguration_defaultTaskStartToCloseTimeout,
-    activityTypeConfiguration_defaultTaskHeartbeatTimeout,
     activityTypeConfiguration_defaultTaskScheduleToCloseTimeout,
+    activityTypeConfiguration_defaultTaskHeartbeatTimeout,
 
     -- ** ActivityTypeInfo
     activityTypeInfo_deprecationDate,
@@ -429,8 +429,8 @@ module Network.AWS.SWF.Lens
     continueAsNewWorkflowExecutionDecisionAttributes_input,
     continueAsNewWorkflowExecutionDecisionAttributes_lambdaRole,
     continueAsNewWorkflowExecutionDecisionAttributes_childPolicy,
-    continueAsNewWorkflowExecutionDecisionAttributes_taskList,
     continueAsNewWorkflowExecutionDecisionAttributes_taskPriority,
+    continueAsNewWorkflowExecutionDecisionAttributes_taskList,
     continueAsNewWorkflowExecutionDecisionAttributes_executionStartToCloseTimeout,
     continueAsNewWorkflowExecutionDecisionAttributes_workflowTypeVersion,
     continueAsNewWorkflowExecutionDecisionAttributes_taskStartToCloseTimeout,
@@ -442,13 +442,13 @@ module Network.AWS.SWF.Lens
 
     -- ** Decision
     decision_completeWorkflowExecutionDecisionAttributes,
+    decision_failWorkflowExecutionDecisionAttributes,
     decision_startChildWorkflowExecutionDecisionAttributes,
     decision_requestCancelExternalWorkflowExecutionDecisionAttributes,
-    decision_failWorkflowExecutionDecisionAttributes,
-    decision_cancelWorkflowExecutionDecisionAttributes,
-    decision_startTimerDecisionAttributes,
-    decision_requestCancelActivityTaskDecisionAttributes,
     decision_recordMarkerDecisionAttributes,
+    decision_cancelWorkflowExecutionDecisionAttributes,
+    decision_requestCancelActivityTaskDecisionAttributes,
+    decision_startTimerDecisionAttributes,
     decision_signalExternalWorkflowExecutionDecisionAttributes,
     decision_scheduleActivityTaskDecisionAttributes,
     decision_scheduleLambdaFunctionDecisionAttributes,
@@ -505,60 +505,60 @@ module Network.AWS.SWF.Lens
     failWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId,
 
     -- ** HistoryEvent
-    historyEvent_childWorkflowExecutionTimedOutEventAttributes,
+    historyEvent_childWorkflowExecutionCanceledEventAttributes,
     historyEvent_requestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    historyEvent_lambdaFunctionStartedEventAttributes,
+    historyEvent_childWorkflowExecutionTimedOutEventAttributes,
     historyEvent_startChildWorkflowExecutionInitiatedEventAttributes,
     historyEvent_decisionTaskScheduledEventAttributes,
-    historyEvent_childWorkflowExecutionCanceledEventAttributes,
+    historyEvent_lambdaFunctionStartedEventAttributes,
     historyEvent_activityTaskCanceledEventAttributes,
     historyEvent_activityTaskTimedOutEventAttributes,
-    historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes,
     historyEvent_cancelTimerFailedEventAttributes,
-    historyEvent_childWorkflowExecutionStartedEventAttributes,
     historyEvent_lambdaFunctionTimedOutEventAttributes,
-    historyEvent_childWorkflowExecutionFailedEventAttributes,
+    historyEvent_childWorkflowExecutionStartedEventAttributes,
+    historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes,
     historyEvent_timerCanceledEventAttributes,
+    historyEvent_childWorkflowExecutionFailedEventAttributes,
     historyEvent_lambdaFunctionCompletedEventAttributes,
-    historyEvent_completeWorkflowExecutionFailedEventAttributes,
     historyEvent_activityTaskFailedEventAttributes,
+    historyEvent_completeWorkflowExecutionFailedEventAttributes,
     historyEvent_timerFiredEventAttributes,
+    historyEvent_workflowExecutionTimedOutEventAttributes,
+    historyEvent_workflowExecutionCanceledEventAttributes,
+    historyEvent_scheduleActivityTaskFailedEventAttributes,
+    historyEvent_markerRecordedEventAttributes,
+    historyEvent_startLambdaFunctionFailedEventAttributes,
     historyEvent_workflowExecutionSignaledEventAttributes,
     historyEvent_activityTaskCancelRequestedEventAttributes,
-    historyEvent_workflowExecutionCanceledEventAttributes,
-    historyEvent_startLambdaFunctionFailedEventAttributes,
-    historyEvent_scheduleActivityTaskFailedEventAttributes,
-    historyEvent_workflowExecutionTimedOutEventAttributes,
-    historyEvent_markerRecordedEventAttributes,
     historyEvent_activityTaskScheduledEventAttributes,
-    historyEvent_startTimerFailedEventAttributes,
-    historyEvent_workflowExecutionTerminatedEventAttributes,
-    historyEvent_workflowExecutionCompletedEventAttributes,
-    historyEvent_requestCancelActivityTaskFailedEventAttributes,
-    historyEvent_recordMarkerFailedEventAttributes,
-    historyEvent_cancelWorkflowExecutionFailedEventAttributes,
-    historyEvent_lambdaFunctionScheduledEventAttributes,
     historyEvent_decisionTaskStartedEventAttributes,
+    historyEvent_recordMarkerFailedEventAttributes,
+    historyEvent_lambdaFunctionScheduledEventAttributes,
+    historyEvent_startTimerFailedEventAttributes,
+    historyEvent_requestCancelActivityTaskFailedEventAttributes,
+    historyEvent_cancelWorkflowExecutionFailedEventAttributes,
+    historyEvent_workflowExecutionCompletedEventAttributes,
+    historyEvent_workflowExecutionTerminatedEventAttributes,
     historyEvent_workflowExecutionCancelRequestedEventAttributes,
-    historyEvent_workflowExecutionContinuedAsNewEventAttributes,
     historyEvent_decisionTaskTimedOutEventAttributes,
+    historyEvent_workflowExecutionContinuedAsNewEventAttributes,
     historyEvent_workflowExecutionFailedEventAttributes,
+    historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes,
     historyEvent_activityTaskCompletedEventAttributes,
     historyEvent_signalExternalWorkflowExecutionInitiatedEventAttributes,
-    historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes,
-    historyEvent_decisionTaskCompletedEventAttributes,
-    historyEvent_requestCancelExternalWorkflowExecutionFailedEventAttributes,
-    historyEvent_failWorkflowExecutionFailedEventAttributes,
     historyEvent_workflowExecutionStartedEventAttributes,
     historyEvent_startChildWorkflowExecutionFailedEventAttributes,
-    historyEvent_externalWorkflowExecutionSignaledEventAttributes,
+    historyEvent_failWorkflowExecutionFailedEventAttributes,
+    historyEvent_decisionTaskCompletedEventAttributes,
+    historyEvent_requestCancelExternalWorkflowExecutionFailedEventAttributes,
     historyEvent_scheduleLambdaFunctionFailedEventAttributes,
+    historyEvent_externalWorkflowExecutionSignaledEventAttributes,
+    historyEvent_timerStartedEventAttributes,
     historyEvent_childWorkflowExecutionCompletedEventAttributes,
     historyEvent_lambdaFunctionFailedEventAttributes,
     historyEvent_childWorkflowExecutionTerminatedEventAttributes,
-    historyEvent_timerStartedEventAttributes,
-    historyEvent_activityTaskStartedEventAttributes,
     historyEvent_signalExternalWorkflowExecutionFailedEventAttributes,
+    historyEvent_activityTaskStartedEventAttributes,
     historyEvent_eventTimestamp,
     historyEvent_eventType,
     historyEvent_eventId,
@@ -644,8 +644,8 @@ module Network.AWS.SWF.Lens
     scheduleActivityTaskDecisionAttributes_heartbeatTimeout,
     scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout,
     scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout,
-    scheduleActivityTaskDecisionAttributes_taskList,
     scheduleActivityTaskDecisionAttributes_taskPriority,
+    scheduleActivityTaskDecisionAttributes_taskList,
     scheduleActivityTaskDecisionAttributes_control,
     scheduleActivityTaskDecisionAttributes_startToCloseTimeout,
     scheduleActivityTaskDecisionAttributes_activityType,
@@ -697,8 +697,8 @@ module Network.AWS.SWF.Lens
     startChildWorkflowExecutionDecisionAttributes_input,
     startChildWorkflowExecutionDecisionAttributes_lambdaRole,
     startChildWorkflowExecutionDecisionAttributes_childPolicy,
-    startChildWorkflowExecutionDecisionAttributes_taskList,
     startChildWorkflowExecutionDecisionAttributes_taskPriority,
+    startChildWorkflowExecutionDecisionAttributes_taskList,
     startChildWorkflowExecutionDecisionAttributes_control,
     startChildWorkflowExecutionDecisionAttributes_executionStartToCloseTimeout,
     startChildWorkflowExecutionDecisionAttributes_taskStartToCloseTimeout,
@@ -844,8 +844,8 @@ module Network.AWS.SWF.Lens
 
     -- ** WorkflowExecutionStartedEventAttributes
     workflowExecutionStartedEventAttributes_input,
-    workflowExecutionStartedEventAttributes_continuedExecutionRunId,
     workflowExecutionStartedEventAttributes_lambdaRole,
+    workflowExecutionStartedEventAttributes_continuedExecutionRunId,
     workflowExecutionStartedEventAttributes_parentInitiatedEventId,
     workflowExecutionStartedEventAttributes_taskPriority,
     workflowExecutionStartedEventAttributes_executionStartToCloseTimeout,
@@ -875,8 +875,8 @@ module Network.AWS.SWF.Lens
     workflowTypeConfiguration_defaultTaskPriority,
     workflowTypeConfiguration_defaultTaskList,
     workflowTypeConfiguration_defaultChildPolicy,
-    workflowTypeConfiguration_defaultLambdaRole,
     workflowTypeConfiguration_defaultTaskStartToCloseTimeout,
+    workflowTypeConfiguration_defaultLambdaRole,
 
     -- ** WorkflowTypeFilter
     workflowTypeFilter_version,

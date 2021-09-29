@@ -23,14 +23,17 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Configuration options for sending command output to CloudWatch Logs.
+-- | Configuration options for sending command output to Amazon CloudWatch
+-- Logs.
 --
 -- /See:/ 'newCloudWatchOutputConfig' smart constructor.
 data CloudWatchOutputConfig = CloudWatchOutputConfig'
-  { -- | The name of the CloudWatch log group where you want to send command
-    -- output. If you don\'t specify a group name, Systems Manager
-    -- automatically creates a log group for you. The log group uses the
-    -- following naming format: aws\/ssm\//SystemsManagerDocumentName/.
+  { -- | The name of the CloudWatch Logs log group where you want to send command
+    -- output. If you don\'t specify a group name, Amazon Web Services Systems
+    -- Manager automatically creates a log group for you. The log group uses
+    -- the following naming format:
+    --
+    -- @aws\/ssm\/SystemsManagerDocumentName @
     cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text,
     -- | Enables Systems Manager to send command output to CloudWatch Logs.
     cloudWatchOutputEnabled :: Prelude.Maybe Prelude.Bool
@@ -45,10 +48,12 @@ data CloudWatchOutputConfig = CloudWatchOutputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudWatchLogGroupName', 'cloudWatchOutputConfig_cloudWatchLogGroupName' - The name of the CloudWatch log group where you want to send command
--- output. If you don\'t specify a group name, Systems Manager
--- automatically creates a log group for you. The log group uses the
--- following naming format: aws\/ssm\//SystemsManagerDocumentName/.
+-- 'cloudWatchLogGroupName', 'cloudWatchOutputConfig_cloudWatchLogGroupName' - The name of the CloudWatch Logs log group where you want to send command
+-- output. If you don\'t specify a group name, Amazon Web Services Systems
+-- Manager automatically creates a log group for you. The log group uses
+-- the following naming format:
+--
+-- @aws\/ssm\/SystemsManagerDocumentName @
 --
 -- 'cloudWatchOutputEnabled', 'cloudWatchOutputConfig_cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
 newCloudWatchOutputConfig ::
@@ -60,10 +65,12 @@ newCloudWatchOutputConfig =
       cloudWatchOutputEnabled = Prelude.Nothing
     }
 
--- | The name of the CloudWatch log group where you want to send command
--- output. If you don\'t specify a group name, Systems Manager
--- automatically creates a log group for you. The log group uses the
--- following naming format: aws\/ssm\//SystemsManagerDocumentName/.
+-- | The name of the CloudWatch Logs log group where you want to send command
+-- output. If you don\'t specify a group name, Amazon Web Services Systems
+-- Manager automatically creates a log group for you. The log group uses
+-- the following naming format:
+--
+-- @aws\/ssm\/SystemsManagerDocumentName @
 cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Text)
 cloudWatchOutputConfig_cloudWatchLogGroupName = Lens.lens (\CloudWatchOutputConfig' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
 

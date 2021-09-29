@@ -57,8 +57,8 @@ module Network.AWS.EC2.DescribeInstanceCreditSpecifications
     -- * Request Lenses
     describeInstanceCreditSpecifications_instanceIds,
     describeInstanceCreditSpecifications_nextToken,
-    describeInstanceCreditSpecifications_dryRun,
     describeInstanceCreditSpecifications_maxResults,
+    describeInstanceCreditSpecifications_dryRun,
     describeInstanceCreditSpecifications_filters,
 
     -- * Destructuring the Response
@@ -89,16 +89,16 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 5 and 1000. You cannot specify this
     -- parameter and the instance IDs parameter in the same call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @instance-id@ - The ID of the instance.
@@ -122,15 +122,15 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
 --
 -- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
 --
--- 'dryRun', 'describeInstanceCreditSpecifications_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeInstanceCreditSpecifications_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
+--
+-- 'dryRun', 'describeInstanceCreditSpecifications_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeInstanceCreditSpecifications_filters' - The filters.
 --
@@ -142,8 +142,8 @@ newDescribeInstanceCreditSpecifications =
     { instanceIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -159,19 +159,19 @@ describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceC
 describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
 describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceCreditSpecifications_dryRun :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Bool)
-describeInstanceCreditSpecifications_dryRun = Lens.lens (\DescribeInstanceCreditSpecifications' {dryRun} -> dryRun) (\s@DescribeInstanceCreditSpecifications' {} a -> s {dryRun = a} :: DescribeInstanceCreditSpecifications)
-
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
 describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
 describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstanceCreditSpecifications_dryRun :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Bool)
+describeInstanceCreditSpecifications_dryRun = Lens.lens (\DescribeInstanceCreditSpecifications' {dryRun} -> dryRun) (\s@DescribeInstanceCreditSpecifications' {} a -> s {dryRun = a} :: DescribeInstanceCreditSpecifications)
 
 -- | The filters.
 --
@@ -261,8 +261,8 @@ instance
               Prelude.<$> instanceIds
           ),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

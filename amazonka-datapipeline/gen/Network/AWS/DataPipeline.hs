@@ -80,29 +80,17 @@ module Network.AWS.DataPipeline
     EvaluateExpressionResponse (EvaluateExpressionResponse'),
     newEvaluateExpressionResponse,
 
-    -- ** CreatePipeline
-    CreatePipeline (CreatePipeline'),
-    newCreatePipeline,
-    CreatePipelineResponse (CreatePipelineResponse'),
-    newCreatePipelineResponse,
-
     -- ** ReportTaskProgress
     ReportTaskProgress (ReportTaskProgress'),
     newReportTaskProgress,
     ReportTaskProgressResponse (ReportTaskProgressResponse'),
     newReportTaskProgressResponse,
 
-    -- ** SetTaskStatus
-    SetTaskStatus (SetTaskStatus'),
-    newSetTaskStatus,
-    SetTaskStatusResponse (SetTaskStatusResponse'),
-    newSetTaskStatusResponse,
-
-    -- ** DescribeObjects (Paginated)
-    DescribeObjects (DescribeObjects'),
-    newDescribeObjects,
-    DescribeObjectsResponse (DescribeObjectsResponse'),
-    newDescribeObjectsResponse,
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
 
     -- ** DeletePipeline
     DeletePipeline (DeletePipeline'),
@@ -110,11 +98,23 @@ module Network.AWS.DataPipeline
     DeletePipelineResponse (DeletePipelineResponse'),
     newDeletePipelineResponse,
 
+    -- ** SetTaskStatus
+    SetTaskStatus (SetTaskStatus'),
+    newSetTaskStatus,
+    SetTaskStatusResponse (SetTaskStatusResponse'),
+    newSetTaskStatusResponse,
+
     -- ** ReportTaskRunnerHeartbeat
     ReportTaskRunnerHeartbeat (ReportTaskRunnerHeartbeat'),
     newReportTaskRunnerHeartbeat,
     ReportTaskRunnerHeartbeatResponse (ReportTaskRunnerHeartbeatResponse'),
     newReportTaskRunnerHeartbeatResponse,
+
+    -- ** DescribeObjects (Paginated)
+    DescribeObjects (DescribeObjects'),
+    newDescribeObjects,
+    DescribeObjectsResponse (DescribeObjectsResponse'),
+    newDescribeObjectsResponse,
 
     -- ** AddTags
     AddTags (AddTags'),
@@ -128,12 +128,6 @@ module Network.AWS.DataPipeline
     DescribePipelinesResponse (DescribePipelinesResponse'),
     newDescribePipelinesResponse,
 
-    -- ** GetPipelineDefinition
-    GetPipelineDefinition (GetPipelineDefinition'),
-    newGetPipelineDefinition,
-    GetPipelineDefinitionResponse (GetPipelineDefinitionResponse'),
-    newGetPipelineDefinitionResponse,
-
     -- ** PollForTask
     PollForTask (PollForTask'),
     newPollForTask,
@@ -145,6 +139,12 @@ module Network.AWS.DataPipeline
     newValidatePipelineDefinition,
     ValidatePipelineDefinitionResponse (ValidatePipelineDefinitionResponse'),
     newValidatePipelineDefinitionResponse,
+
+    -- ** GetPipelineDefinition
+    GetPipelineDefinition (GetPipelineDefinition'),
+    newGetPipelineDefinition,
+    GetPipelineDefinitionResponse (GetPipelineDefinitionResponse'),
+    newGetPipelineDefinitionResponse,
 
     -- ** PutPipelineDefinition
     PutPipelineDefinition (PutPipelineDefinition'),

@@ -23,10 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A map that contains tag keys and tag values to attach to an AWS X-Ray
--- group or sampling rule. For more information about ways to use tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- | A map that contains tag keys and tag values to attach to an Amazon Web
+-- Services X-Ray group or sampling rule. For more information about ways
+-- to use tags, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -34,8 +35,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
---     You cannot edit or delete system tags.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use. You cannot edit or delete system tags.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

@@ -32,15 +32,18 @@ import Network.AWS.Route53AutoNaming.Types.OperationType
 data Operation = Operation'
   { -- | The status of the operation. Values include the following:
     --
-    -- -   __SUBMITTED__: This is the initial state immediately after you
-    --     submit a request.
+    -- [SUBMITTED]
+    --     This is the initial state that occurs immediately after you submit a
+    --     request.
     --
-    -- -   __PENDING__: AWS Cloud Map is performing the operation.
+    -- [PENDING]
+    --     Cloud Map is performing the operation.
     --
-    -- -   __SUCCESS__: The operation succeeded.
+    -- [SUCCESS]
+    --     The operation succeeded.
     --
-    -- -   __FAIL__: The operation failed. For the failure reason, see
-    --     @ErrorMessage@.
+    -- [FAIL]
+    --     The operation failed. For the failure reason, see @ErrorMessage@.
     status :: Prelude.Maybe OperationStatus,
     -- | The date and time that the request was submitted, in Unix date\/time
     -- format and Coordinated Universal Time (UTC). The value of @CreateDate@
@@ -49,21 +52,21 @@ data Operation = Operation'
     createDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the operation that you want to get information about.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the target entity that is associated with the operation:
+    -- | The name of the target entity that\'s associated with the operation:
     --
-    -- -   __NAMESPACE__: The namespace ID is returned in the @ResourceId@
-    --     property.
+    -- [NAMESPACE]
+    --     The namespace ID is returned in the @ResourceId@ property.
     --
-    -- -   __SERVICE__: The service ID is returned in the @ResourceId@
-    --     property.
+    -- [SERVICE]
+    --     The service ID is returned in the @ResourceId@ property.
     --
-    -- -   __INSTANCE__: The instance ID is returned in the @ResourceId@
-    --     property.
+    -- [INSTANCE]
+    --     The instance ID is returned in the @ResourceId@ property.
     targets :: Prelude.Maybe (Prelude.HashMap OperationTargetType Prelude.Text),
     -- | If the value of @Status@ is @FAIL@, the reason that the operation
     -- failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation that is associated with the specified ID.
+    -- | The name of the operation that\'s associated with the specified ID.
     type' :: Prelude.Maybe OperationType,
     -- | The code associated with @ErrorMessage@. Values for @ErrorCode@ include
     -- the following:
@@ -101,15 +104,18 @@ data Operation = Operation'
 --
 -- 'status', 'operation_status' - The status of the operation. Values include the following:
 --
--- -   __SUBMITTED__: This is the initial state immediately after you
---     submit a request.
+-- [SUBMITTED]
+--     This is the initial state that occurs immediately after you submit a
+--     request.
 --
--- -   __PENDING__: AWS Cloud Map is performing the operation.
+-- [PENDING]
+--     Cloud Map is performing the operation.
 --
--- -   __SUCCESS__: The operation succeeded.
+-- [SUCCESS]
+--     The operation succeeded.
 --
--- -   __FAIL__: The operation failed. For the failure reason, see
---     @ErrorMessage@.
+-- [FAIL]
+--     The operation failed. For the failure reason, see @ErrorMessage@.
 --
 -- 'createDate', 'operation_createDate' - The date and time that the request was submitted, in Unix date\/time
 -- format and Coordinated Universal Time (UTC). The value of @CreateDate@
@@ -118,21 +124,21 @@ data Operation = Operation'
 --
 -- 'id', 'operation_id' - The ID of the operation that you want to get information about.
 --
--- 'targets', 'operation_targets' - The name of the target entity that is associated with the operation:
+-- 'targets', 'operation_targets' - The name of the target entity that\'s associated with the operation:
 --
--- -   __NAMESPACE__: The namespace ID is returned in the @ResourceId@
---     property.
+-- [NAMESPACE]
+--     The namespace ID is returned in the @ResourceId@ property.
 --
--- -   __SERVICE__: The service ID is returned in the @ResourceId@
---     property.
+-- [SERVICE]
+--     The service ID is returned in the @ResourceId@ property.
 --
--- -   __INSTANCE__: The instance ID is returned in the @ResourceId@
---     property.
+-- [INSTANCE]
+--     The instance ID is returned in the @ResourceId@ property.
 --
 -- 'errorMessage', 'operation_errorMessage' - If the value of @Status@ is @FAIL@, the reason that the operation
 -- failed.
 --
--- 'type'', 'operation_type' - The name of the operation that is associated with the specified ID.
+-- 'type'', 'operation_type' - The name of the operation that\'s associated with the specified ID.
 --
 -- 'errorCode', 'operation_errorCode' - The code associated with @ErrorMessage@. Values for @ErrorCode@ include
 -- the following:
@@ -172,15 +178,18 @@ newOperation =
 
 -- | The status of the operation. Values include the following:
 --
--- -   __SUBMITTED__: This is the initial state immediately after you
---     submit a request.
+-- [SUBMITTED]
+--     This is the initial state that occurs immediately after you submit a
+--     request.
 --
--- -   __PENDING__: AWS Cloud Map is performing the operation.
+-- [PENDING]
+--     Cloud Map is performing the operation.
 --
--- -   __SUCCESS__: The operation succeeded.
+-- [SUCCESS]
+--     The operation succeeded.
 --
--- -   __FAIL__: The operation failed. For the failure reason, see
---     @ErrorMessage@.
+-- [FAIL]
+--     The operation failed. For the failure reason, see @ErrorMessage@.
 operation_status :: Lens.Lens' Operation (Prelude.Maybe OperationStatus)
 operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} a -> s {status = a} :: Operation)
 
@@ -195,16 +204,16 @@ operation_createDate = Lens.lens (\Operation' {createDate} -> createDate) (\s@Op
 operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
--- | The name of the target entity that is associated with the operation:
+-- | The name of the target entity that\'s associated with the operation:
 --
--- -   __NAMESPACE__: The namespace ID is returned in the @ResourceId@
---     property.
+-- [NAMESPACE]
+--     The namespace ID is returned in the @ResourceId@ property.
 --
--- -   __SERVICE__: The service ID is returned in the @ResourceId@
---     property.
+-- [SERVICE]
+--     The service ID is returned in the @ResourceId@ property.
 --
--- -   __INSTANCE__: The instance ID is returned in the @ResourceId@
---     property.
+-- [INSTANCE]
+--     The instance ID is returned in the @ResourceId@ property.
 operation_targets :: Lens.Lens' Operation (Prelude.Maybe (Prelude.HashMap OperationTargetType Prelude.Text))
 operation_targets = Lens.lens (\Operation' {targets} -> targets) (\s@Operation' {} a -> s {targets = a} :: Operation) Prelude.. Lens.mapping Lens._Coerce
 
@@ -213,7 +222,7 @@ operation_targets = Lens.lens (\Operation' {targets} -> targets) (\s@Operation' 
 operation_errorMessage :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
 operation_errorMessage = Lens.lens (\Operation' {errorMessage} -> errorMessage) (\s@Operation' {} a -> s {errorMessage = a} :: Operation)
 
--- | The name of the operation that is associated with the specified ID.
+-- | The name of the operation that\'s associated with the specified ID.
 operation_type :: Lens.Lens' Operation (Prelude.Maybe OperationType)
 operation_type = Lens.lens (\Operation' {type'} -> type') (\s@Operation' {} a -> s {type' = a} :: Operation)
 

@@ -30,6 +30,7 @@ module Network.AWS.AppSync.UpdateGraphqlApi
     updateGraphqlApi_openIDConnectConfig,
     updateGraphqlApi_userPoolConfig,
     updateGraphqlApi_xrayEnabled,
+    updateGraphqlApi_lambdaAuthorizerConfig,
     updateGraphqlApi_logConfig,
     updateGraphqlApi_additionalAuthenticationProviders,
     updateGraphqlApi_authenticationType,
@@ -62,6 +63,8 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
     userPoolConfig :: Prelude.Maybe UserPoolConfig,
     -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
     xrayEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration for Amazon Web Services Lambda function authorization.
+    lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
     logConfig :: Prelude.Maybe LogConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
@@ -90,6 +93,8 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
 --
 -- 'xrayEnabled', 'updateGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
 --
+-- 'lambdaAuthorizerConfig', 'updateGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
+--
 -- 'logConfig', 'updateGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 --
 -- 'additionalAuthenticationProviders', 'updateGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
@@ -111,6 +116,7 @@ newUpdateGraphqlApi pApiId_ pName_ =
         Prelude.Nothing,
       userPoolConfig = Prelude.Nothing,
       xrayEnabled = Prelude.Nothing,
+      lambdaAuthorizerConfig = Prelude.Nothing,
       logConfig = Prelude.Nothing,
       additionalAuthenticationProviders = Prelude.Nothing,
       authenticationType = Prelude.Nothing,
@@ -130,6 +136,10 @@ updateGraphqlApi_userPoolConfig = Lens.lens (\UpdateGraphqlApi' {userPoolConfig}
 -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
 updateGraphqlApi_xrayEnabled :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Bool)
 updateGraphqlApi_xrayEnabled = Lens.lens (\UpdateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@UpdateGraphqlApi' {} a -> s {xrayEnabled = a} :: UpdateGraphqlApi)
+
+-- | Configuration for Amazon Web Services Lambda function authorization.
+updateGraphqlApi_lambdaAuthorizerConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LambdaAuthorizerConfig)
+updateGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\UpdateGraphqlApi' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@UpdateGraphqlApi' {} a -> s {lambdaAuthorizerConfig = a} :: UpdateGraphqlApi)
 
 -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 updateGraphqlApi_logConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LogConfig)
@@ -188,6 +198,8 @@ instance Core.ToJSON UpdateGraphqlApi where
             ("userPoolConfig" Core..=)
               Prelude.<$> userPoolConfig,
             ("xrayEnabled" Core..=) Prelude.<$> xrayEnabled,
+            ("lambdaAuthorizerConfig" Core..=)
+              Prelude.<$> lambdaAuthorizerConfig,
             ("logConfig" Core..=) Prelude.<$> logConfig,
             ("additionalAuthenticationProviders" Core..=)
               Prelude.<$> additionalAuthenticationProviders,

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the @UnlockCode@ code value for the specified job. A particular
--- @UnlockCode@ value can be accessed for up to 90 days after the
+-- @UnlockCode@ value can be accessed for up to 360 days after the
 -- associated job has been created.
 --
 -- The @UnlockCode@ value is a 29-character code with 25 alphanumeric
@@ -136,7 +136,7 @@ instance Core.ToQuery GetJobUnlockCode where
 -- | /See:/ 'newGetJobUnlockCodeResponse' smart constructor.
 data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
   { -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can
-    -- be accessed for up to 90 days after the job has been created.
+    -- be accessed for up to 360 days after the job has been created.
     unlockCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -152,7 +152,7 @@ data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
 -- for backwards compatibility:
 --
 -- 'unlockCode', 'getJobUnlockCodeResponse_unlockCode' - The @UnlockCode@ value for the specified job. The @UnlockCode@ value can
--- be accessed for up to 90 days after the job has been created.
+-- be accessed for up to 360 days after the job has been created.
 --
 -- 'httpStatus', 'getJobUnlockCodeResponse_httpStatus' - The response's http status code.
 newGetJobUnlockCodeResponse ::
@@ -167,7 +167,7 @@ newGetJobUnlockCodeResponse pHttpStatus_ =
     }
 
 -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can
--- be accessed for up to 90 days after the job has been created.
+-- be accessed for up to 360 days after the job has been created.
 getJobUnlockCodeResponse_unlockCode :: Lens.Lens' GetJobUnlockCodeResponse (Prelude.Maybe Prelude.Text)
 getJobUnlockCodeResponse_unlockCode = Lens.lens (\GetJobUnlockCodeResponse' {unlockCode} -> unlockCode) (\s@GetJobUnlockCodeResponse' {} a -> s {unlockCode = a} :: GetJobUnlockCodeResponse)
 

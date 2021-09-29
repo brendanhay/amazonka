@@ -37,7 +37,7 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
     deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
     -- | The table name.
     tableName :: Prelude.Text,
-    -- | The AWS Region.
+    -- | The Amazon Web Services Region.
     awsRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 --
 -- 'tableName', 'dynamodbDataSourceConfig_tableName' - The table name.
 --
--- 'awsRegion', 'dynamodbDataSourceConfig_awsRegion' - The AWS Region.
+-- 'awsRegion', 'dynamodbDataSourceConfig_awsRegion' - The Amazon Web Services Region.
 newDynamodbDataSourceConfig ::
   -- | 'tableName'
   Prelude.Text ->
@@ -93,7 +93,7 @@ dynamodbDataSourceConfig_deltaSyncConfig = Lens.lens (\DynamodbDataSourceConfig'
 dynamodbDataSourceConfig_tableName :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
 dynamodbDataSourceConfig_tableName = Lens.lens (\DynamodbDataSourceConfig' {tableName} -> tableName) (\s@DynamodbDataSourceConfig' {} a -> s {tableName = a} :: DynamodbDataSourceConfig)
 
--- | The AWS Region.
+-- | The Amazon Web Services Region.
 dynamodbDataSourceConfig_awsRegion :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
 dynamodbDataSourceConfig_awsRegion = Lens.lens (\DynamodbDataSourceConfig' {awsRegion} -> awsRegion) (\s@DynamodbDataSourceConfig' {} a -> s {awsRegion = a} :: DynamodbDataSourceConfig)
 

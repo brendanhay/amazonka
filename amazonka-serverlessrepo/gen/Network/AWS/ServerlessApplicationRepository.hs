@@ -81,6 +81,12 @@ module Network.AWS.ServerlessApplicationRepository
     GetApplicationPolicyResponse (GetApplicationPolicyResponse'),
     newGetApplicationPolicyResponse,
 
+    -- ** CreateApplicationVersion
+    CreateApplicationVersion (CreateApplicationVersion'),
+    newCreateApplicationVersion,
+    CreateApplicationVersionResponse (CreateApplicationVersionResponse'),
+    newCreateApplicationVersionResponse,
+
     -- ** GetCloudFormationTemplate
     GetCloudFormationTemplate (GetCloudFormationTemplate'),
     newGetCloudFormationTemplate,
@@ -92,12 +98,6 @@ module Network.AWS.ServerlessApplicationRepository
     newUnshareApplication,
     UnshareApplicationResponse (UnshareApplicationResponse'),
     newUnshareApplicationResponse,
-
-    -- ** CreateApplicationVersion
-    CreateApplicationVersion (CreateApplicationVersion'),
-    newCreateApplicationVersion,
-    CreateApplicationVersionResponse (CreateApplicationVersionResponse'),
-    newCreateApplicationVersionResponse,
 
     -- ** CreateApplication
     CreateApplication (CreateApplication'),
@@ -135,11 +135,11 @@ module Network.AWS.ServerlessApplicationRepository
     CreateCloudFormationTemplateResponse (CreateCloudFormationTemplateResponse'),
     newCreateCloudFormationTemplateResponse,
 
-    -- ** PutApplicationPolicy
-    PutApplicationPolicy (PutApplicationPolicy'),
-    newPutApplicationPolicy,
-    PutApplicationPolicyResponse (PutApplicationPolicyResponse'),
-    newPutApplicationPolicyResponse,
+    -- ** ListApplications (Paginated)
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
 
     -- ** DeleteApplication
     DeleteApplication (DeleteApplication'),
@@ -147,17 +147,17 @@ module Network.AWS.ServerlessApplicationRepository
     DeleteApplicationResponse (DeleteApplicationResponse'),
     newDeleteApplicationResponse,
 
-    -- ** ListApplications (Paginated)
-    ListApplications (ListApplications'),
-    newListApplications,
-    ListApplicationsResponse (ListApplicationsResponse'),
-    newListApplicationsResponse,
-
     -- ** UpdateApplication
     UpdateApplication (UpdateApplication'),
     newUpdateApplication,
     UpdateApplicationResponse (UpdateApplicationResponse'),
     newUpdateApplicationResponse,
+
+    -- ** PutApplicationPolicy
+    PutApplicationPolicy (PutApplicationPolicy'),
+    newPutApplicationPolicy,
+    PutApplicationPolicyResponse (PutApplicationPolicyResponse'),
+    newPutApplicationPolicyResponse,
 
     -- * Types
 

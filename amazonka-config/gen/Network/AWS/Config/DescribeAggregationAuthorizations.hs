@@ -57,7 +57,7 @@ data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of AggregationAuthorizations returned on each page.
-    -- The default is maximum. If you specify 0, AWS Config uses the default.
+    -- The default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
 -- the next page of results in a paginated response.
 --
 -- 'limit', 'describeAggregationAuthorizations_limit' - The maximum number of AggregationAuthorizations returned on each page.
--- The default is maximum. If you specify 0, AWS Config uses the default.
+-- The default is maximum. If you specify 0, Config uses the default.
 newDescribeAggregationAuthorizations ::
   DescribeAggregationAuthorizations
 newDescribeAggregationAuthorizations =
@@ -90,7 +90,7 @@ describeAggregationAuthorizations_nextToken :: Lens.Lens' DescribeAggregationAut
 describeAggregationAuthorizations_nextToken = Lens.lens (\DescribeAggregationAuthorizations' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizations' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizations)
 
 -- | The maximum number of AggregationAuthorizations returned on each page.
--- The default is maximum. If you specify 0, AWS Config uses the default.
+-- The default is maximum. If you specify 0, Config uses the default.
 describeAggregationAuthorizations_limit :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Natural)
 describeAggregationAuthorizations_limit = Lens.lens (\DescribeAggregationAuthorizations' {limit} -> limit) (\s@DescribeAggregationAuthorizations' {} a -> s {limit = a} :: DescribeAggregationAuthorizations)
 

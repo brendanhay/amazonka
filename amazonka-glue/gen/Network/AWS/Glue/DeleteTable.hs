@@ -23,9 +23,9 @@
 -- Removes a table definition from the Data Catalog.
 --
 -- After completing this operation, you no longer have access to the table
--- versions and partitions that belong to the deleted table. AWS Glue
--- deletes these \"orphaned\" resources asynchronously in a timely manner,
--- at the discretion of the service.
+-- versions and partitions that belong to the deleted table. Glue deletes
+-- these \"orphaned\" resources asynchronously in a timely manner, at the
+-- discretion of the service.
 --
 -- To ensure the immediate deletion of all related resources, before
 -- calling @DeleteTable@, use @DeleteTableVersion@ or
@@ -61,7 +61,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteTable' smart constructor.
 data DeleteTable = DeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
@@ -81,7 +81,7 @@ data DeleteTable = DeleteTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'deleteTable_databaseName' - The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -102,7 +102,7 @@ newDeleteTable pDatabaseName_ pName_ =
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 deleteTable_catalogId :: Lens.Lens' DeleteTable (Prelude.Maybe Prelude.Text)
 deleteTable_catalogId = Lens.lens (\DeleteTable' {catalogId} -> catalogId) (\s@DeleteTable' {} a -> s {catalogId = a} :: DeleteTable)
 

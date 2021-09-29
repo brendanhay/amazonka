@@ -31,14 +31,14 @@ import Network.AWS.S3.Types.MetricsFilter
 -- full replacement of the existing metrics configuration. If you don\'t
 -- include the elements you want to keep, they are erased. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html PUT Bucket metrics>
--- in the /Amazon Simple Storage Service API Reference/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html PutBucketMetricsConfiguration>.
 --
 -- /See:/ 'newMetricsConfiguration' smart constructor.
 data MetricsConfiguration = MetricsConfiguration'
   { -- | Specifies a metrics configuration filter. The metrics configuration will
     -- only include objects that meet the filter\'s criteria. A filter must be
-    -- a prefix, a tag, or a conjunction (MetricsAndOperator).
+    -- a prefix, an object tag, an access point ARN, or a conjunction
+    -- (MetricsAndOperator).
     filter' :: Prelude.Maybe MetricsFilter,
     -- | The ID used to identify the metrics configuration.
     id :: Prelude.Text
@@ -55,7 +55,8 @@ data MetricsConfiguration = MetricsConfiguration'
 --
 -- 'filter'', 'metricsConfiguration_filter' - Specifies a metrics configuration filter. The metrics configuration will
 -- only include objects that meet the filter\'s criteria. A filter must be
--- a prefix, a tag, or a conjunction (MetricsAndOperator).
+-- a prefix, an object tag, an access point ARN, or a conjunction
+-- (MetricsAndOperator).
 --
 -- 'id', 'metricsConfiguration_id' - The ID used to identify the metrics configuration.
 newMetricsConfiguration ::
@@ -70,7 +71,8 @@ newMetricsConfiguration pId_ =
 
 -- | Specifies a metrics configuration filter. The metrics configuration will
 -- only include objects that meet the filter\'s criteria. A filter must be
--- a prefix, a tag, or a conjunction (MetricsAndOperator).
+-- a prefix, an object tag, an access point ARN, or a conjunction
+-- (MetricsAndOperator).
 metricsConfiguration_filter :: Lens.Lens' MetricsConfiguration (Prelude.Maybe MetricsFilter)
 metricsConfiguration_filter = Lens.lens (\MetricsConfiguration' {filter'} -> filter') (\s@MetricsConfiguration' {} a -> s {filter' = a} :: MetricsConfiguration)
 

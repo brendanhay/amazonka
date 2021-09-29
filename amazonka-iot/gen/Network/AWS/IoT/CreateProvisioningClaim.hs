@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a provisioning claim.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateProvisioningClaim>
+-- action.
 module Network.AWS.IoT.CreateProvisioningClaim
   ( -- * Creating a Request
     CreateProvisioningClaim (..),

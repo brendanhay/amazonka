@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups
 
     -- * Request Lenses
     describeLocalGatewayVirtualInterfaceGroups_nextToken,
-    describeLocalGatewayVirtualInterfaceGroups_dryRun,
     describeLocalGatewayVirtualInterfaceGroups_maxResults,
+    describeLocalGatewayVirtualInterfaceGroups_dryRun,
     describeLocalGatewayVirtualInterfaceGroups_filters,
     describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInterfaceGroups'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -91,14 +91,14 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 --
 -- 'nextToken', 'describeLocalGatewayVirtualInterfaceGroups_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeLocalGatewayVirtualInterfaceGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeLocalGatewayVirtualInterfaceGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeLocalGatewayVirtualInterfaceGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeLocalGatewayVirtualInterfaceGroups_filters' - One or more filters.
 --
@@ -117,8 +117,8 @@ newDescribeLocalGatewayVirtualInterfaceGroups =
   DescribeLocalGatewayVirtualInterfaceGroups'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       localGatewayVirtualInterfaceGroupIds =
         Prelude.Nothing
@@ -128,18 +128,18 @@ newDescribeLocalGatewayVirtualInterfaceGroups =
 describeLocalGatewayVirtualInterfaceGroups_nextToken :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Text)
 describeLocalGatewayVirtualInterfaceGroups_nextToken = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {nextToken} -> nextToken) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {nextToken = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeLocalGatewayVirtualInterfaceGroups_maxResults :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Natural)
+describeLocalGatewayVirtualInterfaceGroups_maxResults = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {maxResults} -> maxResults) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {maxResults = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeLocalGatewayVirtualInterfaceGroups_dryRun :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Bool)
 describeLocalGatewayVirtualInterfaceGroups_dryRun = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {dryRun} -> dryRun) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {dryRun = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeLocalGatewayVirtualInterfaceGroups_maxResults :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Natural)
-describeLocalGatewayVirtualInterfaceGroups_maxResults = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {maxResults} -> maxResults) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {maxResults = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
 
 -- | One or more filters.
 --
@@ -237,8 +237,8 @@ instance
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
           "NextToken" Core.=: nextToken,
-          "DryRun" Core.=: dryRun,
           "MaxResults" Core.=: maxResults,
+          "DryRun" Core.=: dryRun,
           Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
           Core.toQuery

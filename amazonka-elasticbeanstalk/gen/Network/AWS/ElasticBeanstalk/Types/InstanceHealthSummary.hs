@@ -46,12 +46,12 @@ data InstanceHealthSummary = InstanceHealthSummary'
     -- | __Grey.__ An operation is in progress on an instance within the command
     -- timeout.
     pending :: Prelude.Maybe Prelude.Int,
-    -- | __Red.__ The health agent is reporting a high number of request failures
-    -- or other issues for an instance or environment.
-    degraded :: Prelude.Maybe Prelude.Int,
     -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an
     -- insufficient amount of data on an instance.
-    unknown :: Prelude.Maybe Prelude.Int
+    unknown :: Prelude.Maybe Prelude.Int,
+    -- | __Red.__ The health agent is reporting a high number of request failures
+    -- or other issues for an instance or environment.
+    degraded :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,11 +80,11 @@ data InstanceHealthSummary = InstanceHealthSummary'
 -- 'pending', 'instanceHealthSummary_pending' - __Grey.__ An operation is in progress on an instance within the command
 -- timeout.
 --
--- 'degraded', 'instanceHealthSummary_degraded' - __Red.__ The health agent is reporting a high number of request failures
--- or other issues for an instance or environment.
---
 -- 'unknown', 'instanceHealthSummary_unknown' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an
 -- insufficient amount of data on an instance.
+--
+-- 'degraded', 'instanceHealthSummary_degraded' - __Red.__ The health agent is reporting a high number of request failures
+-- or other issues for an instance or environment.
 newInstanceHealthSummary ::
   InstanceHealthSummary
 newInstanceHealthSummary =
@@ -95,8 +95,8 @@ newInstanceHealthSummary =
       severe = Prelude.Nothing,
       warning = Prelude.Nothing,
       pending = Prelude.Nothing,
-      degraded = Prelude.Nothing,
-      unknown = Prelude.Nothing
+      unknown = Prelude.Nothing,
+      degraded = Prelude.Nothing
     }
 
 -- | __Green.__ An instance is passing health checks and the health agent is
@@ -128,15 +128,15 @@ instanceHealthSummary_warning = Lens.lens (\InstanceHealthSummary' {warning} -> 
 instanceHealthSummary_pending :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Int)
 instanceHealthSummary_pending = Lens.lens (\InstanceHealthSummary' {pending} -> pending) (\s@InstanceHealthSummary' {} a -> s {pending = a} :: InstanceHealthSummary)
 
--- | __Red.__ The health agent is reporting a high number of request failures
--- or other issues for an instance or environment.
-instanceHealthSummary_degraded :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Int)
-instanceHealthSummary_degraded = Lens.lens (\InstanceHealthSummary' {degraded} -> degraded) (\s@InstanceHealthSummary' {} a -> s {degraded = a} :: InstanceHealthSummary)
-
 -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an
 -- insufficient amount of data on an instance.
 instanceHealthSummary_unknown :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Int)
 instanceHealthSummary_unknown = Lens.lens (\InstanceHealthSummary' {unknown} -> unknown) (\s@InstanceHealthSummary' {} a -> s {unknown = a} :: InstanceHealthSummary)
+
+-- | __Red.__ The health agent is reporting a high number of request failures
+-- or other issues for an instance or environment.
+instanceHealthSummary_degraded :: Lens.Lens' InstanceHealthSummary (Prelude.Maybe Prelude.Int)
+instanceHealthSummary_degraded = Lens.lens (\InstanceHealthSummary' {degraded} -> degraded) (\s@InstanceHealthSummary' {} a -> s {degraded = a} :: InstanceHealthSummary)
 
 instance Core.FromXML InstanceHealthSummary where
   parseXML x =
@@ -147,8 +147,8 @@ instance Core.FromXML InstanceHealthSummary where
       Prelude.<*> (x Core..@? "Severe")
       Prelude.<*> (x Core..@? "Warning")
       Prelude.<*> (x Core..@? "Pending")
-      Prelude.<*> (x Core..@? "Degraded")
       Prelude.<*> (x Core..@? "Unknown")
+      Prelude.<*> (x Core..@? "Degraded")
 
 instance Prelude.Hashable InstanceHealthSummary
 

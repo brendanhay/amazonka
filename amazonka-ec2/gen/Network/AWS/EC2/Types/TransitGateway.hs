@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGateway' smart constructor.
 data TransitGateway = TransitGateway'
-  { -- | The ID of the AWS account ID that owns the transit gateway.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The creation time.
+  { -- | The creation time.
     creationTime :: Prelude.Maybe Core.ISO8601,
+    -- | The ID of the Amazon Web Services account that owns the transit gateway.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The transit gateway options.
     options :: Prelude.Maybe TransitGatewayOptions,
     -- | The Amazon Resource Name (ARN) of the transit gateway.
@@ -58,9 +58,9 @@ data TransitGateway = TransitGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'transitGateway_ownerId' - The ID of the AWS account ID that owns the transit gateway.
---
 -- 'creationTime', 'transitGateway_creationTime' - The creation time.
+--
+-- 'ownerId', 'transitGateway_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.
 --
 -- 'options', 'transitGateway_options' - The transit gateway options.
 --
@@ -77,8 +77,8 @@ newTransitGateway ::
   TransitGateway
 newTransitGateway =
   TransitGateway'
-    { ownerId = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       options = Prelude.Nothing,
       transitGatewayArn = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -87,13 +87,13 @@ newTransitGateway =
       transitGatewayId = Prelude.Nothing
     }
 
--- | The ID of the AWS account ID that owns the transit gateway.
-transitGateway_ownerId :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
-transitGateway_ownerId = Lens.lens (\TransitGateway' {ownerId} -> ownerId) (\s@TransitGateway' {} a -> s {ownerId = a} :: TransitGateway)
-
 -- | The creation time.
 transitGateway_creationTime :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.UTCTime)
 transitGateway_creationTime = Lens.lens (\TransitGateway' {creationTime} -> creationTime) (\s@TransitGateway' {} a -> s {creationTime = a} :: TransitGateway) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the Amazon Web Services account that owns the transit gateway.
+transitGateway_ownerId :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
+transitGateway_ownerId = Lens.lens (\TransitGateway' {ownerId} -> ownerId) (\s@TransitGateway' {} a -> s {ownerId = a} :: TransitGateway)
 
 -- | The transit gateway options.
 transitGateway_options :: Lens.Lens' TransitGateway (Prelude.Maybe TransitGatewayOptions)
@@ -122,8 +122,8 @@ transitGateway_transitGatewayId = Lens.lens (\TransitGateway' {transitGatewayId}
 instance Core.FromXML TransitGateway where
   parseXML x =
     TransitGateway'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<$> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "options")
       Prelude.<*> (x Core..@? "transitGatewayArn")
       Prelude.<*> (x Core..@? "state")

@@ -34,17 +34,17 @@ module Network.AWS.OpsWorks.CreateInstance
     newCreateInstance,
 
     -- * Request Lenses
-    createInstance_hostname,
     createInstance_virtualizationType,
+    createInstance_hostname,
     createInstance_installUpdatesOnBoot,
     createInstance_ebsOptimized,
     createInstance_rootDeviceType,
     createInstance_agentVersion,
-    createInstance_sshKeyName,
     createInstance_amiId,
+    createInstance_sshKeyName,
     createInstance_architecture,
-    createInstance_tenancy,
     createInstance_autoScalingType,
+    createInstance_tenancy,
     createInstance_availabilityZone,
     createInstance_os,
     createInstance_blockDeviceMappings,
@@ -72,10 +72,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
-  { -- | The instance host name.
-    hostname :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
+  { -- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
     virtualizationType :: Prelude.Maybe Prelude.Text,
+    -- | The instance host name.
+    hostname :: Prelude.Maybe Prelude.Text,
     -- | Whether to install operating system and package updates when the
     -- instance boots. The default value is @true@. To control when updates are
     -- installed, set this value to @false@. You must then update your
@@ -107,8 +107,6 @@ data CreateInstance = CreateInstance'
     -- console. For a list of available agent version numbers, call
     -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
     agentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s Amazon EC2 key-pair name.
-    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | A custom AMI ID to be used to create the instance. The AMI should be
     -- based on one of the supported operating systems. For more information,
     -- see
@@ -116,11 +114,16 @@ data CreateInstance = CreateInstance'
     --
     -- If you specify a custom AMI, you must set @Os@ to @Custom@.
     amiId :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s Amazon EC2 key-pair name.
+    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | The instance architecture. The default option is @x86_64@. Instance
     -- types do not necessarily support both architectures. For a list of the
     -- architectures that are supported by the different instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
     architecture :: Prelude.Maybe Architecture,
+    -- | For load-based or time-based instances, the type. Windows stacks can use
+    -- only time-based instances.
+    autoScalingType :: Prelude.Maybe AutoScalingType,
     -- | The instance\'s tenancy option. The default option is no tenancy, or if
     -- the instance is running in a VPC, inherit tenancy settings from the VPC.
     -- The following are valid values for this parameter: @dedicated@,
@@ -136,9 +139,6 @@ data CreateInstance = CreateInstance'
     -- and
     -- <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
     tenancy :: Prelude.Maybe Prelude.Text,
-    -- | For load-based or time-based instances, the type. Windows stacks can use
-    -- only time-based instances.
-    autoScalingType :: Prelude.Maybe AutoScalingType,
     -- | The instance Availability Zone. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -212,9 +212,9 @@ data CreateInstance = CreateInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'createInstance_hostname' - The instance host name.
---
 -- 'virtualizationType', 'createInstance_virtualizationType' - The instance\'s virtualization type, @paravirtual@ or @hvm@.
+--
+-- 'hostname', 'createInstance_hostname' - The instance host name.
 --
 -- 'installUpdatesOnBoot', 'createInstance_installUpdatesOnBoot' - Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -247,8 +247,6 @@ data CreateInstance = CreateInstance'
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
 --
--- 'sshKeyName', 'createInstance_sshKeyName' - The instance\'s Amazon EC2 key-pair name.
---
 -- 'amiId', 'createInstance_amiId' - A custom AMI ID to be used to create the instance. The AMI should be
 -- based on one of the supported operating systems. For more information,
 -- see
@@ -256,10 +254,15 @@ data CreateInstance = CreateInstance'
 --
 -- If you specify a custom AMI, you must set @Os@ to @Custom@.
 --
+-- 'sshKeyName', 'createInstance_sshKeyName' - The instance\'s Amazon EC2 key-pair name.
+--
 -- 'architecture', 'createInstance_architecture' - The instance architecture. The default option is @x86_64@. Instance
 -- types do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
+--
+-- 'autoScalingType', 'createInstance_autoScalingType' - For load-based or time-based instances, the type. Windows stacks can use
+-- only time-based instances.
 --
 -- 'tenancy', 'createInstance_tenancy' - The instance\'s tenancy option. The default option is no tenancy, or if
 -- the instance is running in a VPC, inherit tenancy settings from the VPC.
@@ -275,9 +278,6 @@ data CreateInstance = CreateInstance'
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html Dedicated Instances>
 -- and
 -- <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
---
--- 'autoScalingType', 'createInstance_autoScalingType' - For load-based or time-based instances, the type. Windows stacks can use
--- only time-based instances.
 --
 -- 'availabilityZone', 'createInstance_availabilityZone' - The instance Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -348,17 +348,18 @@ newCreateInstance ::
   CreateInstance
 newCreateInstance pStackId_ pInstanceType_ =
   CreateInstance'
-    { hostname = Prelude.Nothing,
-      virtualizationType = Prelude.Nothing,
+    { virtualizationType =
+        Prelude.Nothing,
+      hostname = Prelude.Nothing,
       installUpdatesOnBoot = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
       rootDeviceType = Prelude.Nothing,
       agentVersion = Prelude.Nothing,
-      sshKeyName = Prelude.Nothing,
       amiId = Prelude.Nothing,
+      sshKeyName = Prelude.Nothing,
       architecture = Prelude.Nothing,
-      tenancy = Prelude.Nothing,
       autoScalingType = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       os = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
@@ -368,13 +369,13 @@ newCreateInstance pStackId_ pInstanceType_ =
       instanceType = pInstanceType_
     }
 
--- | The instance host name.
-createInstance_hostname :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_hostname = Lens.lens (\CreateInstance' {hostname} -> hostname) (\s@CreateInstance' {} a -> s {hostname = a} :: CreateInstance)
-
 -- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
 createInstance_virtualizationType :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_virtualizationType = Lens.lens (\CreateInstance' {virtualizationType} -> virtualizationType) (\s@CreateInstance' {} a -> s {virtualizationType = a} :: CreateInstance)
+
+-- | The instance host name.
+createInstance_hostname :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_hostname = Lens.lens (\CreateInstance' {hostname} -> hostname) (\s@CreateInstance' {} a -> s {hostname = a} :: CreateInstance)
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -415,10 +416,6 @@ createInstance_rootDeviceType = Lens.lens (\CreateInstance' {rootDeviceType} -> 
 createInstance_agentVersion :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_agentVersion = Lens.lens (\CreateInstance' {agentVersion} -> agentVersion) (\s@CreateInstance' {} a -> s {agentVersion = a} :: CreateInstance)
 
--- | The instance\'s Amazon EC2 key-pair name.
-createInstance_sshKeyName :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_sshKeyName = Lens.lens (\CreateInstance' {sshKeyName} -> sshKeyName) (\s@CreateInstance' {} a -> s {sshKeyName = a} :: CreateInstance)
-
 -- | A custom AMI ID to be used to create the instance. The AMI should be
 -- based on one of the supported operating systems. For more information,
 -- see
@@ -428,12 +425,21 @@ createInstance_sshKeyName = Lens.lens (\CreateInstance' {sshKeyName} -> sshKeyNa
 createInstance_amiId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_amiId = Lens.lens (\CreateInstance' {amiId} -> amiId) (\s@CreateInstance' {} a -> s {amiId = a} :: CreateInstance)
 
+-- | The instance\'s Amazon EC2 key-pair name.
+createInstance_sshKeyName :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_sshKeyName = Lens.lens (\CreateInstance' {sshKeyName} -> sshKeyName) (\s@CreateInstance' {} a -> s {sshKeyName = a} :: CreateInstance)
+
 -- | The instance architecture. The default option is @x86_64@. Instance
 -- types do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 createInstance_architecture :: Lens.Lens' CreateInstance (Prelude.Maybe Architecture)
 createInstance_architecture = Lens.lens (\CreateInstance' {architecture} -> architecture) (\s@CreateInstance' {} a -> s {architecture = a} :: CreateInstance)
+
+-- | For load-based or time-based instances, the type. Windows stacks can use
+-- only time-based instances.
+createInstance_autoScalingType :: Lens.Lens' CreateInstance (Prelude.Maybe AutoScalingType)
+createInstance_autoScalingType = Lens.lens (\CreateInstance' {autoScalingType} -> autoScalingType) (\s@CreateInstance' {} a -> s {autoScalingType = a} :: CreateInstance)
 
 -- | The instance\'s tenancy option. The default option is no tenancy, or if
 -- the instance is running in a VPC, inherit tenancy settings from the VPC.
@@ -451,11 +457,6 @@ createInstance_architecture = Lens.lens (\CreateInstance' {architecture} -> arch
 -- <http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
 createInstance_tenancy :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_tenancy = Lens.lens (\CreateInstance' {tenancy} -> tenancy) (\s@CreateInstance' {} a -> s {tenancy = a} :: CreateInstance)
-
--- | For load-based or time-based instances, the type. Windows stacks can use
--- only time-based instances.
-createInstance_autoScalingType :: Lens.Lens' CreateInstance (Prelude.Maybe AutoScalingType)
-createInstance_autoScalingType = Lens.lens (\CreateInstance' {autoScalingType} -> autoScalingType) (\s@CreateInstance' {} a -> s {autoScalingType = a} :: CreateInstance)
 
 -- | The instance Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -569,21 +570,21 @@ instance Core.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Hostname" Core..=) Prelude.<$> hostname,
-            ("VirtualizationType" Core..=)
+          [ ("VirtualizationType" Core..=)
               Prelude.<$> virtualizationType,
+            ("Hostname" Core..=) Prelude.<$> hostname,
             ("InstallUpdatesOnBoot" Core..=)
               Prelude.<$> installUpdatesOnBoot,
             ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
             ("RootDeviceType" Core..=)
               Prelude.<$> rootDeviceType,
             ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
             ("AmiId" Core..=) Prelude.<$> amiId,
+            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
             ("Architecture" Core..=) Prelude.<$> architecture,
-            ("Tenancy" Core..=) Prelude.<$> tenancy,
             ("AutoScalingType" Core..=)
               Prelude.<$> autoScalingType,
+            ("Tenancy" Core..=) Prelude.<$> tenancy,
             ("AvailabilityZone" Core..=)
               Prelude.<$> availabilityZone,
             ("Os" Core..=) Prelude.<$> os,

@@ -28,6 +28,9 @@ module Network.AWS.DAX
     -- ** SubnetInUse
     _SubnetInUse,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** InvalidVPCNetworkStateFault
     _InvalidVPCNetworkStateFault,
 
@@ -46,14 +49,14 @@ module Network.AWS.DAX
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
     -- ** SubnetGroupQuotaExceededFault
     _SubnetGroupQuotaExceededFault,
 
     -- ** TagNotFoundFault
     _TagNotFoundFault,
-
-    -- ** ClusterNotFoundFault
-    _ClusterNotFoundFault,
 
     -- ** SubnetGroupAlreadyExistsFault
     _SubnetGroupAlreadyExistsFault,
@@ -76,23 +79,20 @@ module Network.AWS.DAX
     -- ** NodeNotFoundFault
     _NodeNotFoundFault,
 
-    -- ** InvalidARNFault
-    _InvalidARNFault,
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
 
     -- ** ClusterAlreadyExistsFault
     _ClusterAlreadyExistsFault,
 
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
     -- ** InvalidClusterStateFault
     _InvalidClusterStateFault,
 
-    -- ** NodeQuotaForClusterExceededFault
-    _NodeQuotaForClusterExceededFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** ClusterQuotaForCustomerExceededFault
-    _ClusterQuotaForCustomerExceededFault,
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
 
     -- ** SubnetGroupInUseFault
     _SubnetGroupInUseFault,
@@ -100,8 +100,11 @@ module Network.AWS.DAX
     -- ** InvalidParameterGroupStateFault
     _InvalidParameterGroupStateFault,
 
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
 
     -- * Waiters
     -- $waiters
@@ -115,17 +118,17 @@ module Network.AWS.DAX
     DescribeParametersResponse (DescribeParametersResponse'),
     newDescribeParametersResponse,
 
-    -- ** DescribeDefaultParameters (Paginated)
-    DescribeDefaultParameters (DescribeDefaultParameters'),
-    newDescribeDefaultParameters,
-    DescribeDefaultParametersResponse (DescribeDefaultParametersResponse'),
-    newDescribeDefaultParametersResponse,
-
     -- ** DescribeClusters (Paginated)
     DescribeClusters (DescribeClusters'),
     newDescribeClusters,
     DescribeClustersResponse (DescribeClustersResponse'),
     newDescribeClustersResponse,
+
+    -- ** DescribeDefaultParameters (Paginated)
+    DescribeDefaultParameters (DescribeDefaultParameters'),
+    newDescribeDefaultParameters,
+    DescribeDefaultParametersResponse (DescribeDefaultParametersResponse'),
+    newDescribeDefaultParametersResponse,
 
     -- ** CreateCluster
     CreateCluster (CreateCluster'),
@@ -133,29 +136,29 @@ module Network.AWS.DAX
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** DecreaseReplicationFactor
     DecreaseReplicationFactor (DecreaseReplicationFactor'),
     newDecreaseReplicationFactor,
     DecreaseReplicationFactorResponse (DecreaseReplicationFactorResponse'),
     newDecreaseReplicationFactorResponse,
 
-    -- ** DescribeParameterGroups (Paginated)
-    DescribeParameterGroups (DescribeParameterGroups'),
-    newDescribeParameterGroups,
-    DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
-    newDescribeParameterGroupsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** DescribeParameterGroups (Paginated)
+    DescribeParameterGroups (DescribeParameterGroups'),
+    newDescribeParameterGroups,
+    DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
+    newDescribeParameterGroupsResponse,
 
     -- ** IncreaseReplicationFactor
     IncreaseReplicationFactor (IncreaseReplicationFactor'),
@@ -169,17 +172,17 @@ module Network.AWS.DAX
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
-    -- ** DeleteParameterGroup
-    DeleteParameterGroup (DeleteParameterGroup'),
-    newDeleteParameterGroup,
-    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
-    newDeleteParameterGroupResponse,
-
     -- ** UpdateParameterGroup
     UpdateParameterGroup (UpdateParameterGroup'),
     newUpdateParameterGroup,
     UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
     newUpdateParameterGroupResponse,
+
+    -- ** DeleteParameterGroup
+    DeleteParameterGroup (DeleteParameterGroup'),
+    newDeleteParameterGroup,
+    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
+    newDeleteParameterGroupResponse,
 
     -- ** RebootNode
     RebootNode (RebootNode'),
@@ -187,11 +190,11 @@ module Network.AWS.DAX
     RebootNodeResponse (RebootNodeResponse'),
     newRebootNodeResponse,
 
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** UpdateCluster
     UpdateCluster (UpdateCluster'),
@@ -199,11 +202,11 @@ module Network.AWS.DAX
     UpdateClusterResponse (UpdateClusterResponse'),
     newUpdateClusterResponse,
 
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
     -- ** CreateSubnetGroup
     CreateSubnetGroup (CreateSubnetGroup'),
@@ -239,6 +242,9 @@ module Network.AWS.DAX
 
     -- ** ChangeType
     ChangeType (..),
+
+    -- ** ClusterEndpointEncryptionType
+    ClusterEndpointEncryptionType (..),
 
     -- ** IsModifiable
     IsModifiable (..),

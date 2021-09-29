@@ -17,8 +17,8 @@ module Network.AWS.SDB.Lens
     -- ** ListDomains
     listDomains_nextToken,
     listDomains_maxNumberOfDomains,
-    listDomainsResponse_nextToken,
     listDomainsResponse_domainNames,
+    listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
 
     -- ** DeleteAttributes
@@ -45,6 +45,9 @@ module Network.AWS.SDB.Lens
     -- ** CreateDomain
     createDomain_domainName,
 
+    -- ** DeleteDomain
+    deleteDomain_domainName,
+
     -- ** GetAttributes
     getAttributes_consistentRead,
     getAttributes_attributeNames,
@@ -52,9 +55,6 @@ module Network.AWS.SDB.Lens
     getAttributes_itemName,
     getAttributesResponse_attributes,
     getAttributesResponse_httpStatus,
-
-    -- ** DeleteDomain
-    deleteDomain_domainName,
 
     -- ** PutAttributes
     putAttributes_expected,

@@ -25,8 +25,9 @@ import Network.AWS.MediaConvert.Types.CaptionSourceSettings
 import Network.AWS.MediaConvert.Types.LanguageCode
 import qualified Network.AWS.Prelude as Prelude
 
--- | Set up captions in your outputs by first selecting them from your input
--- here.
+-- | Use captions selectors to specify the captions data from your input that
+-- you use in your outputs. You can use up to 20 captions selectors per
+-- input.
 --
 -- /See:/ 'newCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'

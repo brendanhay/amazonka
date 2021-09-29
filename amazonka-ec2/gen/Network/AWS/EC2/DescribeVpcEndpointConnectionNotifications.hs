@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeVpcEndpointConnectionNotifications
 
     -- * Request Lenses
     describeVpcEndpointConnectionNotifications_nextToken,
-    describeVpcEndpointConnectionNotifications_dryRun,
     describeVpcEndpointConnectionNotifications_connectionNotificationId,
     describeVpcEndpointConnectionNotifications_maxResults,
+    describeVpcEndpointConnectionNotifications_dryRun,
     describeVpcEndpointConnectionNotifications_filters,
 
     -- * Destructuring the Response
@@ -58,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionNotifications'
   { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the notification.
     connectionNotificationId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another request with the returned
     -- @NextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @connection-notification-arn@ - The ARN of the SNS topic for the
@@ -98,16 +98,16 @@ data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionN
 --
 -- 'nextToken', 'describeVpcEndpointConnectionNotifications_nextToken' - The token to request the next page of results.
 --
--- 'dryRun', 'describeVpcEndpointConnectionNotifications_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'connectionNotificationId', 'describeVpcEndpointConnectionNotifications_connectionNotificationId' - The ID of the notification.
 --
 -- 'maxResults', 'describeVpcEndpointConnectionNotifications_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned
 -- @NextToken@ value.
+--
+-- 'dryRun', 'describeVpcEndpointConnectionNotifications_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcEndpointConnectionNotifications_filters' - One or more filters.
 --
@@ -130,23 +130,16 @@ newDescribeVpcEndpointConnectionNotifications =
   DescribeVpcEndpointConnectionNotifications'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       connectionNotificationId =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
 -- | The token to request the next page of results.
 describeVpcEndpointConnectionNotifications_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
 describeVpcEndpointConnectionNotifications_nextToken = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionNotifications)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointConnectionNotifications_dryRun :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Bool)
-describeVpcEndpointConnectionNotifications_dryRun = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {dryRun} -> dryRun) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {dryRun = a} :: DescribeVpcEndpointConnectionNotifications)
 
 -- | The ID of the notification.
 describeVpcEndpointConnectionNotifications_connectionNotificationId :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
@@ -157,6 +150,13 @@ describeVpcEndpointConnectionNotifications_connectionNotificationId = Lens.lens 
 -- @NextToken@ value.
 describeVpcEndpointConnectionNotifications_maxResults :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Int)
 describeVpcEndpointConnectionNotifications_maxResults = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {maxResults} -> maxResults) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {maxResults = a} :: DescribeVpcEndpointConnectionNotifications)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcEndpointConnectionNotifications_dryRun :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointConnectionNotifications_dryRun = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {dryRun} -> dryRun) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {dryRun = a} :: DescribeVpcEndpointConnectionNotifications)
 
 -- | One or more filters.
 --
@@ -256,10 +256,10 @@ instance
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
           "NextToken" Core.=: nextToken,
-          "DryRun" Core.=: dryRun,
           "ConnectionNotificationId"
             Core.=: connectionNotificationId,
           "MaxResults" Core.=: maxResults,
+          "DryRun" Core.=: dryRun,
           Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters)
         ]

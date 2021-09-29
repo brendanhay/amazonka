@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntitiesDetectionJobProperties' smart constructor.
 data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
-  { -- | Configuration parameters for a private Virtual Private Cloud (VPC)
+  { -- | The language code of the input documents.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your entity detection job.
     -- For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The language code of the input documents.
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input data configuration that you supplied when you created the
     -- entities detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
@@ -52,6 +52,16 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the entities detection job completed
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -84,12 +94,12 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'languageCode', 'entitiesDetectionJobProperties_languageCode' - The language code of the input documents.
+--
 -- 'vpcConfig', 'entitiesDetectionJobProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your entity detection job.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
---
--- 'languageCode', 'entitiesDetectionJobProperties_languageCode' - The language code of the input documents.
 --
 -- 'inputDataConfig', 'entitiesDetectionJobProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- entities detection job.
@@ -103,6 +113,16 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
 -- entities detection job.
 --
 -- 'endTime', 'entitiesDetectionJobProperties_endTime' - The time that the entities detection job completed
+--
+-- 'jobArn', 'entitiesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the entities detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'volumeKmsKeyId', 'entitiesDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -128,14 +148,15 @@ newEntitiesDetectionJobProperties ::
   EntitiesDetectionJobProperties
 newEntitiesDetectionJobProperties =
   EntitiesDetectionJobProperties'
-    { vpcConfig =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       message = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       entityRecognizerArn = Prelude.Nothing,
@@ -144,16 +165,16 @@ newEntitiesDetectionJobProperties =
       jobId = Prelude.Nothing
     }
 
+-- | The language code of the input documents.
+entitiesDetectionJobProperties_languageCode :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
+entitiesDetectionJobProperties_languageCode = Lens.lens (\EntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@EntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: EntitiesDetectionJobProperties)
+
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your entity detection job.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 entitiesDetectionJobProperties_vpcConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe VpcConfig)
 entitiesDetectionJobProperties_vpcConfig = Lens.lens (\EntitiesDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {vpcConfig = a} :: EntitiesDetectionJobProperties)
-
--- | The language code of the input documents.
-entitiesDetectionJobProperties_languageCode :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
-entitiesDetectionJobProperties_languageCode = Lens.lens (\EntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@EntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: EntitiesDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- entities detection job.
@@ -177,6 +198,18 @@ entitiesDetectionJobProperties_outputDataConfig = Lens.lens (\EntitiesDetectionJ
 -- | The time that the entities detection job completed
 entitiesDetectionJobProperties_endTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobProperties' {endTime} -> endTime) (\s@EntitiesDetectionJobProperties' {} a -> s {endTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the entities detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+entitiesDetectionJobProperties_jobArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
+entitiesDetectionJobProperties_jobArn = Lens.lens (\EntitiesDetectionJobProperties' {jobArn} -> jobArn) (\s@EntitiesDetectionJobProperties' {} a -> s {jobArn = a} :: EntitiesDetectionJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -217,13 +250,14 @@ instance Core.FromJSON EntitiesDetectionJobProperties where
       "EntitiesDetectionJobProperties"
       ( \x ->
           EntitiesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "EntityRecognizerArn")

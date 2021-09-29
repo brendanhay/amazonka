@@ -14,6 +14,10 @@
 module Network.AWS.ELBv2.Lens
   ( -- * Operations
 
+    -- ** DeleteRule
+    deleteRule_ruleArn,
+    deleteRuleResponse_httpStatus,
+
     -- ** DescribeSSLPolicies
     describeSSLPolicies_names,
     describeSSLPolicies_pageSize,
@@ -27,19 +31,15 @@ module Network.AWS.ELBv2.Lens
     removeTags_tagKeys,
     removeTagsResponse_httpStatus,
 
-    -- ** DeleteRule
-    deleteRule_ruleArn,
-    deleteRuleResponse_httpStatus,
+    -- ** DescribeTargetGroupAttributes
+    describeTargetGroupAttributes_targetGroupArn,
+    describeTargetGroupAttributesResponse_attributes,
+    describeTargetGroupAttributesResponse_httpStatus,
 
     -- ** DescribeTags
     describeTags_resourceArns,
     describeTagsResponse_tagDescriptions,
     describeTagsResponse_httpStatus,
-
-    -- ** DescribeTargetGroupAttributes
-    describeTargetGroupAttributes_targetGroupArn,
-    describeTargetGroupAttributesResponse_attributes,
-    describeTargetGroupAttributesResponse_httpStatus,
 
     -- ** AddListenerCertificates
     addListenerCertificates_listenerArn,
@@ -47,30 +47,10 @@ module Network.AWS.ELBv2.Lens
     addListenerCertificatesResponse_certificates,
     addListenerCertificatesResponse_httpStatus,
 
-    -- ** CreateLoadBalancer
-    createLoadBalancer_ipAddressType,
-    createLoadBalancer_customerOwnedIpv4Pool,
-    createLoadBalancer_subnetMappings,
-    createLoadBalancer_scheme,
-    createLoadBalancer_securityGroups,
-    createLoadBalancer_tags,
-    createLoadBalancer_type,
-    createLoadBalancer_subnets,
-    createLoadBalancer_name,
-    createLoadBalancerResponse_loadBalancers,
-    createLoadBalancerResponse_httpStatus,
-
     -- ** RemoveListenerCertificates
     removeListenerCertificates_listenerArn,
     removeListenerCertificates_certificates,
     removeListenerCertificatesResponse_httpStatus,
-
-    -- ** ModifyRule
-    modifyRule_actions,
-    modifyRule_conditions,
-    modifyRule_ruleArn,
-    modifyRuleResponse_rules,
-    modifyRuleResponse_httpStatus,
 
     -- ** ModifyTargetGroup
     modifyTargetGroup_healthCheckEnabled,
@@ -86,6 +66,26 @@ module Network.AWS.ELBv2.Lens
     modifyTargetGroupResponse_targetGroups,
     modifyTargetGroupResponse_httpStatus,
 
+    -- ** CreateLoadBalancer
+    createLoadBalancer_ipAddressType,
+    createLoadBalancer_subnetMappings,
+    createLoadBalancer_customerOwnedIpv4Pool,
+    createLoadBalancer_scheme,
+    createLoadBalancer_securityGroups,
+    createLoadBalancer_tags,
+    createLoadBalancer_subnets,
+    createLoadBalancer_type,
+    createLoadBalancer_name,
+    createLoadBalancerResponse_loadBalancers,
+    createLoadBalancerResponse_httpStatus,
+
+    -- ** ModifyRule
+    modifyRule_actions,
+    modifyRule_conditions,
+    modifyRule_ruleArn,
+    modifyRuleResponse_rules,
+    modifyRuleResponse_httpStatus,
+
     -- ** DeleteLoadBalancer
     deleteLoadBalancer_loadBalancerArn,
     deleteLoadBalancerResponse_httpStatus,
@@ -99,20 +99,20 @@ module Network.AWS.ELBv2.Lens
     describeListenersResponse_listeners,
     describeListenersResponse_httpStatus,
 
-    -- ** AddTags
-    addTags_resourceArns,
-    addTags_tags,
-    addTagsResponse_httpStatus,
-
     -- ** DescribeTargetGroups
     describeTargetGroups_loadBalancerArn,
     describeTargetGroups_names,
     describeTargetGroups_pageSize,
     describeTargetGroups_targetGroupArns,
     describeTargetGroups_marker,
-    describeTargetGroupsResponse_targetGroups,
     describeTargetGroupsResponse_nextMarker,
+    describeTargetGroupsResponse_targetGroups,
     describeTargetGroupsResponse_httpStatus,
+
+    -- ** AddTags
+    addTags_resourceArns,
+    addTags_tags,
+    addTagsResponse_httpStatus,
 
     -- ** SetIpAddressType
     setIpAddressType_loadBalancerArn,
@@ -125,13 +125,6 @@ module Network.AWS.ELBv2.Lens
     modifyLoadBalancerAttributes_attributes,
     modifyLoadBalancerAttributesResponse_attributes,
     modifyLoadBalancerAttributesResponse_httpStatus,
-
-    -- ** DescribeAccountLimits
-    describeAccountLimits_pageSize,
-    describeAccountLimits_marker,
-    describeAccountLimitsResponse_nextMarker,
-    describeAccountLimitsResponse_limits,
-    describeAccountLimitsResponse_httpStatus,
 
     -- ** CreateRule
     createRule_tags,
@@ -149,13 +142,13 @@ module Network.AWS.ELBv2.Lens
     createTargetGroup_healthCheckPort,
     createTargetGroup_healthCheckTimeoutSeconds,
     createTargetGroup_healthCheckPath,
-    createTargetGroup_matcher,
     createTargetGroup_protocolVersion,
-    createTargetGroup_healthyThresholdCount,
+    createTargetGroup_matcher,
     createTargetGroup_tags,
+    createTargetGroup_healthyThresholdCount,
     createTargetGroup_port,
-    createTargetGroup_healthCheckIntervalSeconds,
     createTargetGroup_protocol,
+    createTargetGroup_healthCheckIntervalSeconds,
     createTargetGroup_vpcId,
     createTargetGroup_unhealthyThresholdCount,
     createTargetGroup_name,
@@ -171,18 +164,25 @@ module Network.AWS.ELBv2.Lens
     setSubnetsResponse_availabilityZones,
     setSubnetsResponse_httpStatus,
 
+    -- ** DescribeAccountLimits
+    describeAccountLimits_pageSize,
+    describeAccountLimits_marker,
+    describeAccountLimitsResponse_nextMarker,
+    describeAccountLimitsResponse_limits,
+    describeAccountLimitsResponse_httpStatus,
+
     -- ** DeregisterTargets
     deregisterTargets_targetGroupArn,
     deregisterTargets_targets,
     deregisterTargetsResponse_httpStatus,
 
-    -- ** DeleteListener
-    deleteListener_listenerArn,
-    deleteListenerResponse_httpStatus,
-
     -- ** DeleteTargetGroup
     deleteTargetGroup_targetGroupArn,
     deleteTargetGroupResponse_httpStatus,
+
+    -- ** DeleteListener
+    deleteListener_listenerArn,
+    deleteListenerResponse_httpStatus,
 
     -- ** DescribeLoadBalancers
     describeLoadBalancers_names,
@@ -202,9 +202,9 @@ module Network.AWS.ELBv2.Lens
     -- ** ModifyListener
     modifyListener_sslPolicy,
     modifyListener_port,
-    modifyListener_defaultActions,
-    modifyListener_protocol,
     modifyListener_certificates,
+    modifyListener_protocol,
+    modifyListener_defaultActions,
     modifyListener_alpnPolicy,
     modifyListener_listenerArn,
     modifyListenerResponse_listeners,
@@ -215,16 +215,21 @@ module Network.AWS.ELBv2.Lens
     registerTargets_targets,
     registerTargetsResponse_httpStatus,
 
+    -- ** SetRulePriorities
+    setRulePriorities_rulePriorities,
+    setRulePrioritiesResponse_rules,
+    setRulePrioritiesResponse_httpStatus,
+
+    -- ** DescribeLoadBalancerAttributes
+    describeLoadBalancerAttributes_loadBalancerArn,
+    describeLoadBalancerAttributesResponse_attributes,
+    describeLoadBalancerAttributesResponse_httpStatus,
+
     -- ** DescribeTargetHealth
     describeTargetHealth_targets,
     describeTargetHealth_targetGroupArn,
     describeTargetHealthResponse_targetHealthDescriptions,
     describeTargetHealthResponse_httpStatus,
-
-    -- ** SetRulePriorities
-    setRulePriorities_rulePriorities,
-    setRulePrioritiesResponse_rules,
-    setRulePrioritiesResponse_httpStatus,
 
     -- ** DescribeRules
     describeRules_pageSize,
@@ -241,11 +246,6 @@ module Network.AWS.ELBv2.Lens
     setSecurityGroupsResponse_securityGroupIds,
     setSecurityGroupsResponse_httpStatus,
 
-    -- ** DescribeLoadBalancerAttributes
-    describeLoadBalancerAttributes_loadBalancerArn,
-    describeLoadBalancerAttributesResponse_attributes,
-    describeLoadBalancerAttributesResponse_httpStatus,
-
     -- ** DescribeListenerCertificates
     describeListenerCertificates_pageSize,
     describeListenerCertificates_marker,
@@ -258,8 +258,8 @@ module Network.AWS.ELBv2.Lens
     createListener_sslPolicy,
     createListener_tags,
     createListener_port,
-    createListener_protocol,
     createListener_certificates,
+    createListener_protocol,
     createListener_alpnPolicy,
     createListener_loadBalancerArn,
     createListener_defaultActions,
@@ -343,31 +343,31 @@ module Network.AWS.ELBv2.Lens
     listener_loadBalancerArn,
     listener_sslPolicy,
     listener_port,
-    listener_defaultActions,
-    listener_protocol,
     listener_certificates,
-    listener_listenerArn,
+    listener_protocol,
+    listener_defaultActions,
     listener_alpnPolicy,
+    listener_listenerArn,
 
     -- ** LoadBalancer
     loadBalancer_ipAddressType,
     loadBalancer_loadBalancerArn,
-    loadBalancer_customerOwnedIpv4Pool,
     loadBalancer_availabilityZones,
+    loadBalancer_customerOwnedIpv4Pool,
     loadBalancer_scheme,
     loadBalancer_createdTime,
     loadBalancer_securityGroups,
     loadBalancer_state,
     loadBalancer_dNSName,
-    loadBalancer_type,
     loadBalancer_canonicalHostedZoneId,
     loadBalancer_vpcId,
+    loadBalancer_type,
     loadBalancer_loadBalancerName,
 
     -- ** LoadBalancerAddress
     loadBalancerAddress_privateIPv4Address,
-    loadBalancerAddress_ipAddress,
     loadBalancerAddress_iPv6Address,
+    loadBalancerAddress_ipAddress,
     loadBalancerAddress_allocationId,
 
     -- ** LoadBalancerAttribute
@@ -453,17 +453,17 @@ module Network.AWS.ELBv2.Lens
     targetGroup_healthCheckProtocol,
     targetGroup_targetGroupName,
     targetGroup_targetType,
-    targetGroup_targetGroupArn,
     targetGroup_healthCheckPort,
+    targetGroup_targetGroupArn,
     targetGroup_healthCheckTimeoutSeconds,
     targetGroup_healthCheckPath,
+    targetGroup_protocolVersion,
     targetGroup_loadBalancerArns,
     targetGroup_matcher,
-    targetGroup_protocolVersion,
     targetGroup_healthyThresholdCount,
     targetGroup_port,
-    targetGroup_healthCheckIntervalSeconds,
     targetGroup_protocol,
+    targetGroup_healthCheckIntervalSeconds,
     targetGroup_vpcId,
     targetGroup_unhealthyThresholdCount,
 

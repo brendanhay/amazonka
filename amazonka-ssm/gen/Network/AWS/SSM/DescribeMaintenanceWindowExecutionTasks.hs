@@ -62,8 +62,9 @@ data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutio
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional filters used to scope down the returned tasks. The supported
-    -- filter key is STATUS with the corresponding values PENDING, IN_PROGRESS,
-    -- SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
+    -- filter key is @STATUS@ with the corresponding values @PENDING@,
+    -- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+    -- @CANCELLED@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window execution whose task executions should
     -- be retrieved.
@@ -87,8 +88,9 @@ data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutio
 -- next set of results.
 --
 -- 'filters', 'describeMaintenanceWindowExecutionTasks_filters' - Optional filters used to scope down the returned tasks. The supported
--- filter key is STATUS with the corresponding values PENDING, IN_PROGRESS,
--- SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
+-- filter key is @STATUS@ with the corresponding values @PENDING@,
+-- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+-- @CANCELLED@.
 --
 -- 'windowExecutionId', 'describeMaintenanceWindowExecutionTasks_windowExecutionId' - The ID of the maintenance window execution whose task executions should
 -- be retrieved.
@@ -119,8 +121,9 @@ describeMaintenanceWindowExecutionTasks_maxResults :: Lens.Lens' DescribeMainten
 describeMaintenanceWindowExecutionTasks_maxResults = Lens.lens (\DescribeMaintenanceWindowExecutionTasks' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowExecutionTasks' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutionTasks)
 
 -- | Optional filters used to scope down the returned tasks. The supported
--- filter key is STATUS with the corresponding values PENDING, IN_PROGRESS,
--- SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
+-- filter key is @STATUS@ with the corresponding values @PENDING@,
+-- @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@, @CANCELLING@, and
+-- @CANCELLED@.
 describeMaintenanceWindowExecutionTasks_filters :: Lens.Lens' DescribeMaintenanceWindowExecutionTasks (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindowExecutionTasks_filters = Lens.lens (\DescribeMaintenanceWindowExecutionTasks' {filters} -> filters) (\s@DescribeMaintenanceWindowExecutionTasks' {} a -> s {filters = a} :: DescribeMaintenanceWindowExecutionTasks) Prelude.. Lens.mapping Lens._Coerce
 

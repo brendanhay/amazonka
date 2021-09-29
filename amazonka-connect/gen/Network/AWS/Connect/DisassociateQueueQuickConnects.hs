@@ -49,7 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateQueueQuickConnects' smart constructor.
 data DisassociateQueueQuickConnects = DisassociateQueueQuickConnects'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text,
@@ -66,7 +67,8 @@ data DisassociateQueueQuickConnects = DisassociateQueueQuickConnects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'disassociateQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'disassociateQueueQuickConnects_queueId' - The identifier for the queue.
 --
@@ -91,7 +93,8 @@ newDisassociateQueueQuickConnects
           Lens._Coerce Lens.# pQuickConnectIds_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 disassociateQueueQuickConnects_instanceId :: Lens.Lens' DisassociateQueueQuickConnects Prelude.Text
 disassociateQueueQuickConnects_instanceId = Lens.lens (\DisassociateQueueQuickConnects' {instanceId} -> instanceId) (\s@DisassociateQueueQuickConnects' {} a -> s {instanceId = a} :: DisassociateQueueQuickConnects)
 

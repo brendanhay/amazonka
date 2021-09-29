@@ -48,6 +48,8 @@ data TableInput = TableInput'
     retention :: Prelude.Maybe Prelude.Natural,
     -- | The table owner.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | A description of the table.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of columns by which the table is partitioned. Only primitive
     -- types are supported as partition keys.
     --
@@ -57,8 +59,6 @@ data TableInput = TableInput'
     --
     -- @\"PartitionKeys\": []@
     partitionKeys :: Prelude.Maybe [Column],
-    -- | A description of the table.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the table was accessed.
     lastAccessTime :: Prelude.Maybe Core.POSIX,
     -- | These key-value pairs define properties associated with the table.
@@ -95,6 +95,8 @@ data TableInput = TableInput'
 --
 -- 'owner', 'tableInput_owner' - The table owner.
 --
+-- 'description', 'tableInput_description' - A description of the table.
+--
 -- 'partitionKeys', 'tableInput_partitionKeys' - A list of columns by which the table is partitioned. Only primitive
 -- types are supported as partition keys.
 --
@@ -103,8 +105,6 @@ data TableInput = TableInput'
 -- to an empty list. For example:
 --
 -- @\"PartitionKeys\": []@
---
--- 'description', 'tableInput_description' - A description of the table.
 --
 -- 'lastAccessTime', 'tableInput_lastAccessTime' - The last time that the table was accessed.
 --
@@ -126,8 +126,8 @@ newTableInput pName_ =
       targetTable = Prelude.Nothing,
       retention = Prelude.Nothing,
       owner = Prelude.Nothing,
-      partitionKeys = Prelude.Nothing,
       description = Prelude.Nothing,
+      partitionKeys = Prelude.Nothing,
       lastAccessTime = Prelude.Nothing,
       parameters = Prelude.Nothing,
       name = pName_
@@ -167,6 +167,10 @@ tableInput_retention = Lens.lens (\TableInput' {retention} -> retention) (\s@Tab
 tableInput_owner :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
 tableInput_owner = Lens.lens (\TableInput' {owner} -> owner) (\s@TableInput' {} a -> s {owner = a} :: TableInput)
 
+-- | A description of the table.
+tableInput_description :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
+tableInput_description = Lens.lens (\TableInput' {description} -> description) (\s@TableInput' {} a -> s {description = a} :: TableInput)
+
 -- | A list of columns by which the table is partitioned. Only primitive
 -- types are supported as partition keys.
 --
@@ -177,10 +181,6 @@ tableInput_owner = Lens.lens (\TableInput' {owner} -> owner) (\s@TableInput' {} 
 -- @\"PartitionKeys\": []@
 tableInput_partitionKeys :: Lens.Lens' TableInput (Prelude.Maybe [Column])
 tableInput_partitionKeys = Lens.lens (\TableInput' {partitionKeys} -> partitionKeys) (\s@TableInput' {} a -> s {partitionKeys = a} :: TableInput) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description of the table.
-tableInput_description :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
-tableInput_description = Lens.lens (\TableInput' {description} -> description) (\s@TableInput' {} a -> s {description = a} :: TableInput)
 
 -- | The last time that the table was accessed.
 tableInput_lastAccessTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
@@ -215,8 +215,8 @@ instance Core.ToJSON TableInput where
             ("TargetTable" Core..=) Prelude.<$> targetTable,
             ("Retention" Core..=) Prelude.<$> retention,
             ("Owner" Core..=) Prelude.<$> owner,
-            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
             ("Description" Core..=) Prelude.<$> description,
+            ("PartitionKeys" Core..=) Prelude.<$> partitionKeys,
             ("LastAccessTime" Core..=)
               Prelude.<$> lastAccessTime,
             ("Parameters" Core..=) Prelude.<$> parameters,

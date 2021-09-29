@@ -22,8 +22,13 @@
 --
 -- Returns detailed information about a given Amazon QLDB journal stream.
 -- The output includes the Amazon Resource Name (ARN), stream name, current
--- status, creation time, and the parameters of your original stream
+-- status, creation time, and the parameters of the original stream
 -- creation request.
+--
+-- This action does not return any expired journal streams. For more
+-- information, see
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration Expiration for terminal streams>
+-- in the /Amazon QLDB Developer Guide/.
 module Network.AWS.QLDB.DescribeJournalKinesisStream
   ( -- * Creating a Request
     DescribeJournalKinesisStream (..),
@@ -54,7 +59,8 @@ import qualified Network.AWS.Response as Response
 data DescribeJournalKinesisStream = DescribeJournalKinesisStream'
   { -- | The name of the ledger.
     ledgerName :: Prelude.Text,
-    -- | The unique ID that QLDB assigns to each QLDB journal stream.
+    -- | The UUID (represented in Base62-encoded text) of the QLDB journal stream
+    -- to describe.
     streamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +75,8 @@ data DescribeJournalKinesisStream = DescribeJournalKinesisStream'
 --
 -- 'ledgerName', 'describeJournalKinesisStream_ledgerName' - The name of the ledger.
 --
--- 'streamId', 'describeJournalKinesisStream_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
+-- 'streamId', 'describeJournalKinesisStream_streamId' - The UUID (represented in Base62-encoded text) of the QLDB journal stream
+-- to describe.
 newDescribeJournalKinesisStream ::
   -- | 'ledgerName'
   Prelude.Text ->
@@ -89,7 +96,8 @@ newDescribeJournalKinesisStream
 describeJournalKinesisStream_ledgerName :: Lens.Lens' DescribeJournalKinesisStream Prelude.Text
 describeJournalKinesisStream_ledgerName = Lens.lens (\DescribeJournalKinesisStream' {ledgerName} -> ledgerName) (\s@DescribeJournalKinesisStream' {} a -> s {ledgerName = a} :: DescribeJournalKinesisStream)
 
--- | The unique ID that QLDB assigns to each QLDB journal stream.
+-- | The UUID (represented in Base62-encoded text) of the QLDB journal stream
+-- to describe.
 describeJournalKinesisStream_streamId :: Lens.Lens' DescribeJournalKinesisStream Prelude.Text
 describeJournalKinesisStream_streamId = Lens.lens (\DescribeJournalKinesisStream' {streamId} -> streamId) (\s@DescribeJournalKinesisStream' {} a -> s {streamId = a} :: DescribeJournalKinesisStream)
 

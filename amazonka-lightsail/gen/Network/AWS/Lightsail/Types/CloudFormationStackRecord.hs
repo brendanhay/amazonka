@@ -29,7 +29,7 @@ import Network.AWS.Lightsail.Types.ResourceType
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a CloudFormation stack record created as a result of the
--- @create cloud formation stack@ operation.
+-- @create cloud formation stack@ action.
 --
 -- A CloudFormation stack record provides information about the AWS
 -- CloudFormation stack used to create a new Amazon Elastic Compute Cloud

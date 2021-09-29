@@ -31,12 +31,12 @@ data IdFormat = IdFormat'
   { -- | Indicates whether longer IDs (17-character IDs) are enabled for the
     -- resource.
     useLongIds :: Prelude.Maybe Prelude.Bool,
-    -- | The type of resource.
-    resource :: Prelude.Maybe Prelude.Text,
     -- | The date in UTC at which you are permanently switched over to using
     -- longer IDs. If a deadline is not yet available for this resource type,
     -- this field is not returned.
-    deadline :: Prelude.Maybe Core.ISO8601
+    deadline :: Prelude.Maybe Core.ISO8601,
+    -- | The type of resource.
+    resource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,18 +51,18 @@ data IdFormat = IdFormat'
 -- 'useLongIds', 'idFormat_useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the
 -- resource.
 --
--- 'resource', 'idFormat_resource' - The type of resource.
---
 -- 'deadline', 'idFormat_deadline' - The date in UTC at which you are permanently switched over to using
 -- longer IDs. If a deadline is not yet available for this resource type,
 -- this field is not returned.
+--
+-- 'resource', 'idFormat_resource' - The type of resource.
 newIdFormat ::
   IdFormat
 newIdFormat =
   IdFormat'
     { useLongIds = Prelude.Nothing,
-      resource = Prelude.Nothing,
-      deadline = Prelude.Nothing
+      deadline = Prelude.Nothing,
+      resource = Prelude.Nothing
     }
 
 -- | Indicates whether longer IDs (17-character IDs) are enabled for the
@@ -70,22 +70,22 @@ newIdFormat =
 idFormat_useLongIds :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Bool)
 idFormat_useLongIds = Lens.lens (\IdFormat' {useLongIds} -> useLongIds) (\s@IdFormat' {} a -> s {useLongIds = a} :: IdFormat)
 
--- | The type of resource.
-idFormat_resource :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Text)
-idFormat_resource = Lens.lens (\IdFormat' {resource} -> resource) (\s@IdFormat' {} a -> s {resource = a} :: IdFormat)
-
 -- | The date in UTC at which you are permanently switched over to using
 -- longer IDs. If a deadline is not yet available for this resource type,
 -- this field is not returned.
 idFormat_deadline :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.UTCTime)
 idFormat_deadline = Lens.lens (\IdFormat' {deadline} -> deadline) (\s@IdFormat' {} a -> s {deadline = a} :: IdFormat) Prelude.. Lens.mapping Core._Time
 
+-- | The type of resource.
+idFormat_resource :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Text)
+idFormat_resource = Lens.lens (\IdFormat' {resource} -> resource) (\s@IdFormat' {} a -> s {resource = a} :: IdFormat)
+
 instance Core.FromXML IdFormat where
   parseXML x =
     IdFormat'
       Prelude.<$> (x Core..@? "useLongIds")
-      Prelude.<*> (x Core..@? "resource")
       Prelude.<*> (x Core..@? "deadline")
+      Prelude.<*> (x Core..@? "resource")
 
 instance Prelude.Hashable IdFormat
 

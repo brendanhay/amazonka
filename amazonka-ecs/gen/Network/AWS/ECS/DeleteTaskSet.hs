@@ -176,7 +176,8 @@ instance Core.ToQuery DeleteTaskSet where
 
 -- | /See:/ 'newDeleteTaskSetResponse' smart constructor.
 data DeleteTaskSetResponse = DeleteTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { -- | Details about the task set.
+    taskSet :: Prelude.Maybe TaskSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,7 +191,7 @@ data DeleteTaskSetResponse = DeleteTaskSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskSet', 'deleteTaskSetResponse_taskSet' - Undocumented member.
+-- 'taskSet', 'deleteTaskSetResponse_taskSet' - Details about the task set.
 --
 -- 'httpStatus', 'deleteTaskSetResponse_httpStatus' - The response's http status code.
 newDeleteTaskSetResponse ::
@@ -203,7 +204,7 @@ newDeleteTaskSetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the task set.
 deleteTaskSetResponse_taskSet :: Lens.Lens' DeleteTaskSetResponse (Prelude.Maybe TaskSet)
 deleteTaskSetResponse_taskSet = Lens.lens (\DeleteTaskSetResponse' {taskSet} -> taskSet) (\s@DeleteTaskSetResponse' {} a -> s {taskSet = a} :: DeleteTaskSetResponse)
 

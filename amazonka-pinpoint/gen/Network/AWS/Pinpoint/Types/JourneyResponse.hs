@@ -22,6 +22,7 @@ module Network.AWS.Pinpoint.Types.JourneyResponse where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Activity
+import Network.AWS.Pinpoint.Types.JourneyChannelSettings
 import Network.AWS.Pinpoint.Types.JourneyLimits
 import Network.AWS.Pinpoint.Types.JourneySchedule
 import Network.AWS.Pinpoint.Types.QuietTime
@@ -36,6 +37,11 @@ import qualified Network.AWS.Prelude as Prelude
 data JourneyResponse = JourneyResponse'
   { -- | The date, in ISO 8601 format, when the journey was last modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether endpoints in quiet hours should enter a wait till the
+    -- end of their quiet hours.
+    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
+    -- | The channel-specific configurations for the journey.
+    journeyChannelSettings :: Prelude.Maybe JourneyChannelSettings,
     -- | A map that contains a set of Activity objects, one object for each
     -- activity in the journey. For each Activity object, the key is the unique
     -- identifier (string) for an activity and the value is the settings for
@@ -69,8 +75,9 @@ data JourneyResponse = JourneyResponse'
     --     time. However, any existing participants who are currently waiting
     --     to start an activity may continue the journey.
     state :: Prelude.Maybe State,
-    -- | This object is not used or supported.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The frequency with which Amazon Pinpoint evaluates segment and event
+    -- data for the journey, as a duration in ISO 8601 format.
+    refreshFrequency :: Prelude.Maybe Prelude.Text,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -89,11 +96,12 @@ data JourneyResponse = JourneyResponse'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The frequency with which Amazon Pinpoint evaluates segment and event
-    -- data for the journey, as a duration in ISO 8601 format.
-    refreshFrequency :: Prelude.Maybe Prelude.Text,
+    -- | This object is not used or supported.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The messaging and entry limits for the journey.
     limits :: Prelude.Maybe JourneyLimits,
+    -- | Specifies whether a journey should be refreshed on segment update.
+    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
     -- | The segment that defines which users are participants in the journey.
     startCondition :: Prelude.Maybe StartCondition,
     -- | Specifies whether the journey\'s scheduled start and end times use each
@@ -122,6 +130,11 @@ data JourneyResponse = JourneyResponse'
 -- for backwards compatibility:
 --
 -- 'lastModifiedDate', 'journeyResponse_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
+--
+-- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+--
+-- 'journeyChannelSettings', 'journeyResponse_journeyChannelSettings' - The channel-specific configurations for the journey.
 --
 -- 'activities', 'journeyResponse_activities' - A map that contains a set of Activity objects, one object for each
 -- activity in the journey. For each Activity object, the key is the unique
@@ -156,7 +169,8 @@ data JourneyResponse = JourneyResponse'
 --     time. However, any existing participants who are currently waiting
 --     to start an activity may continue the journey.
 --
--- 'tags', 'journeyResponse_tags' - This object is not used or supported.
+-- 'refreshFrequency', 'journeyResponse_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
 --
 -- 'quietTime', 'journeyResponse_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -176,10 +190,11 @@ data JourneyResponse = JourneyResponse'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
--- 'refreshFrequency', 'journeyResponse_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
+-- 'tags', 'journeyResponse_tags' - This object is not used or supported.
 --
 -- 'limits', 'journeyResponse_limits' - The messaging and entry limits for the journey.
+--
+-- 'refreshOnSegmentUpdate', 'journeyResponse_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
 --
 -- 'startCondition', 'journeyResponse_startCondition' - The segment that defines which users are participants in the journey.
 --
@@ -208,13 +223,16 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
   JourneyResponse'
     { lastModifiedDate =
         Prelude.Nothing,
+      waitForQuietTime = Prelude.Nothing,
+      journeyChannelSettings = Prelude.Nothing,
       activities = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       state = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
       limits = Prelude.Nothing,
+      refreshOnSegmentUpdate = Prelude.Nothing,
       startCondition = Prelude.Nothing,
       localTime = Prelude.Nothing,
       startActivity = Prelude.Nothing,
@@ -227,6 +245,15 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
 -- | The date, in ISO 8601 format, when the journey was last modified.
 journeyResponse_lastModifiedDate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
 journeyResponse_lastModifiedDate = Lens.lens (\JourneyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@JourneyResponse' {} a -> s {lastModifiedDate = a} :: JourneyResponse)
+
+-- | Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+journeyResponse_waitForQuietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
+journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTime} -> waitForQuietTime) (\s@JourneyResponse' {} a -> s {waitForQuietTime = a} :: JourneyResponse)
+
+-- | The channel-specific configurations for the journey.
+journeyResponse_journeyChannelSettings :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyChannelSettings)
+journeyResponse_journeyChannelSettings = Lens.lens (\JourneyResponse' {journeyChannelSettings} -> journeyChannelSettings) (\s@JourneyResponse' {} a -> s {journeyChannelSettings = a} :: JourneyResponse)
 
 -- | A map that contains a set of Activity objects, one object for each
 -- activity in the journey. For each Activity object, the key is the unique
@@ -267,9 +294,10 @@ journeyResponse_creationDate = Lens.lens (\JourneyResponse' {creationDate} -> cr
 journeyResponse_state :: Lens.Lens' JourneyResponse (Prelude.Maybe State)
 journeyResponse_state = Lens.lens (\JourneyResponse' {state} -> state) (\s@JourneyResponse' {} a -> s {state = a} :: JourneyResponse)
 
--- | This object is not used or supported.
-journeyResponse_tags :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-journeyResponse_tags = Lens.lens (\JourneyResponse' {tags} -> tags) (\s@JourneyResponse' {} a -> s {tags = a} :: JourneyResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
+journeyResponse_refreshFrequency :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
+journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequency} -> refreshFrequency) (\s@JourneyResponse' {} a -> s {refreshFrequency = a} :: JourneyResponse)
 
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -291,14 +319,17 @@ journeyResponse_tags = Lens.lens (\JourneyResponse' {tags} -> tags) (\s@JourneyR
 journeyResponse_quietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe QuietTime)
 journeyResponse_quietTime = Lens.lens (\JourneyResponse' {quietTime} -> quietTime) (\s@JourneyResponse' {} a -> s {quietTime = a} :: JourneyResponse)
 
--- | The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
-journeyResponse_refreshFrequency :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
-journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequency} -> refreshFrequency) (\s@JourneyResponse' {} a -> s {refreshFrequency = a} :: JourneyResponse)
+-- | This object is not used or supported.
+journeyResponse_tags :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+journeyResponse_tags = Lens.lens (\JourneyResponse' {tags} -> tags) (\s@JourneyResponse' {} a -> s {tags = a} :: JourneyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The messaging and entry limits for the journey.
 journeyResponse_limits :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyLimits)
 journeyResponse_limits = Lens.lens (\JourneyResponse' {limits} -> limits) (\s@JourneyResponse' {} a -> s {limits = a} :: JourneyResponse)
+
+-- | Specifies whether a journey should be refreshed on segment update.
+journeyResponse_refreshOnSegmentUpdate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
+journeyResponse_refreshOnSegmentUpdate = Lens.lens (\JourneyResponse' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@JourneyResponse' {} a -> s {refreshOnSegmentUpdate = a} :: JourneyResponse)
 
 -- | The segment that defines which users are participants in the journey.
 journeyResponse_startCondition :: Lens.Lens' JourneyResponse (Prelude.Maybe StartCondition)
@@ -337,13 +368,16 @@ instance Core.FromJSON JourneyResponse where
       ( \x ->
           JourneyResponse'
             Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "WaitForQuietTime")
+            Prelude.<*> (x Core..:? "JourneyChannelSettings")
             Prelude.<*> (x Core..:? "Activities" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "QuietTime")
             Prelude.<*> (x Core..:? "RefreshFrequency")
+            Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Limits")
+            Prelude.<*> (x Core..:? "RefreshOnSegmentUpdate")
             Prelude.<*> (x Core..:? "StartCondition")
             Prelude.<*> (x Core..:? "LocalTime")
             Prelude.<*> (x Core..:? "StartActivity")

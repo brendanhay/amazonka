@@ -57,7 +57,7 @@ data ListTags = ListTags'
   { -- | Reserved for future use.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of trail ARNs whose tags will be listed. The list has a
-    -- limit of 20 ARNs. The format of a trail ARN is:
+    -- limit of 20 ARNs. The following is the format of a trail ARN.
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
     resourceIdList :: [Prelude.Text]
@@ -75,7 +75,7 @@ data ListTags = ListTags'
 -- 'nextToken', 'listTags_nextToken' - Reserved for future use.
 --
 -- 'resourceIdList', 'listTags_resourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a
--- limit of 20 ARNs. The format of a trail ARN is:
+-- limit of 20 ARNs. The following is the format of a trail ARN.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newListTags ::
@@ -91,7 +91,7 @@ listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | Specifies a list of trail ARNs whose tags will be listed. The list has a
--- limit of 20 ARNs. The format of a trail ARN is:
+-- limit of 20 ARNs. The following is the format of a trail ARN.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 listTags_resourceIdList :: Lens.Lens' ListTags [Prelude.Text]

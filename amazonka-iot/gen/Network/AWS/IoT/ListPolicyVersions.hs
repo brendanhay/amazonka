@@ -22,6 +22,10 @@
 --
 -- Lists the versions of the specified policy and identifies the default
 -- version.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListPolicyVersions>
+-- action.
 module Network.AWS.IoT.ListPolicyVersions
   ( -- * Creating a Request
     ListPolicyVersions (..),

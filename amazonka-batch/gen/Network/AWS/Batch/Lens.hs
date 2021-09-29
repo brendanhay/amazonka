@@ -15,29 +15,20 @@ module Network.AWS.Batch.Lens
   ( -- * Operations
 
     -- ** CreateComputeEnvironment
+    createComputeEnvironment_serviceRole,
     createComputeEnvironment_state,
     createComputeEnvironment_computeResources,
     createComputeEnvironment_tags,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
-    createComputeEnvironment_serviceRole,
     createComputeEnvironmentResponse_computeEnvironmentName,
     createComputeEnvironmentResponse_computeEnvironmentArn,
     createComputeEnvironmentResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_jobId,
-    cancelJob_reason,
-    cancelJobResponse_httpStatus,
 
     -- ** DescribeJobs
     describeJobs_jobs,
     describeJobsResponse_jobs,
     describeJobsResponse_httpStatus,
-
-    -- ** DeleteComputeEnvironment
-    deleteComputeEnvironment_computeEnvironment,
-    deleteComputeEnvironmentResponse_httpStatus,
 
     -- ** UpdateComputeEnvironment
     updateComputeEnvironment_serviceRole,
@@ -47,6 +38,15 @@ module Network.AWS.Batch.Lens
     updateComputeEnvironmentResponse_computeEnvironmentName,
     updateComputeEnvironmentResponse_computeEnvironmentArn,
     updateComputeEnvironmentResponse_httpStatus,
+
+    -- ** CancelJob
+    cancelJob_jobId,
+    cancelJob_reason,
+    cancelJobResponse_httpStatus,
+
+    -- ** DeleteComputeEnvironment
+    deleteComputeEnvironment_computeEnvironment,
+    deleteComputeEnvironmentResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
@@ -70,10 +70,6 @@ module Network.AWS.Batch.Lens
     deregisterJobDefinition_jobDefinition,
     deregisterJobDefinitionResponse_httpStatus,
 
-    -- ** DeleteJobQueue
-    deleteJobQueue_jobQueue,
-    deleteJobQueueResponse_httpStatus,
-
     -- ** UpdateJobQueue
     updateJobQueue_computeEnvironmentOrder,
     updateJobQueue_priority,
@@ -82,6 +78,10 @@ module Network.AWS.Batch.Lens
     updateJobQueueResponse_jobQueueName,
     updateJobQueueResponse_jobQueueArn,
     updateJobQueueResponse_httpStatus,
+
+    -- ** DeleteJobQueue
+    deleteJobQueue_jobQueue,
+    deleteJobQueueResponse_httpStatus,
 
     -- ** DescribeJobDefinitions
     describeJobDefinitions_nextToken,
@@ -93,16 +93,10 @@ module Network.AWS.Batch.Lens
     describeJobDefinitionsResponse_jobDefinitions,
     describeJobDefinitionsResponse_httpStatus,
 
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobs_jobQueue,
-    listJobs_jobStatus,
-    listJobs_arrayJobId,
-    listJobs_multiNodeJobId,
-    listJobsResponse_nextToken,
-    listJobsResponse_httpStatus,
-    listJobsResponse_jobSummaryList,
+    -- ** TerminateJob
+    terminateJob_jobId,
+    terminateJob_reason,
+    terminateJobResponse_httpStatus,
 
     -- ** DescribeComputeEnvironments
     describeComputeEnvironments_nextToken,
@@ -112,10 +106,35 @@ module Network.AWS.Batch.Lens
     describeComputeEnvironmentsResponse_computeEnvironments,
     describeComputeEnvironmentsResponse_httpStatus,
 
-    -- ** TerminateJob
-    terminateJob_jobId,
-    terminateJob_reason,
-    terminateJobResponse_httpStatus,
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_maxResults,
+    listJobs_jobQueue,
+    listJobs_jobStatus,
+    listJobs_filters,
+    listJobs_multiNodeJobId,
+    listJobs_arrayJobId,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+    listJobsResponse_jobSummaryList,
+
+    -- ** SubmitJob
+    submitJob_dependsOn,
+    submitJob_timeout,
+    submitJob_containerOverrides,
+    submitJob_arrayProperties,
+    submitJob_nodeOverrides,
+    submitJob_tags,
+    submitJob_retryStrategy,
+    submitJob_parameters,
+    submitJob_propagateTags,
+    submitJob_jobName,
+    submitJob_jobQueue,
+    submitJob_jobDefinition,
+    submitJobResponse_jobArn,
+    submitJobResponse_httpStatus,
+    submitJobResponse_jobName,
+    submitJobResponse_jobId,
 
     -- ** RegisterJobDefinition
     registerJobDefinition_platformCapabilities,
@@ -133,23 +152,10 @@ module Network.AWS.Batch.Lens
     registerJobDefinitionResponse_jobDefinitionArn,
     registerJobDefinitionResponse_revision,
 
-    -- ** SubmitJob
-    submitJob_dependsOn,
-    submitJob_timeout,
-    submitJob_arrayProperties,
-    submitJob_containerOverrides,
-    submitJob_nodeOverrides,
-    submitJob_tags,
-    submitJob_retryStrategy,
-    submitJob_parameters,
-    submitJob_propagateTags,
-    submitJob_jobName,
-    submitJob_jobQueue,
-    submitJob_jobDefinition,
-    submitJobResponse_jobArn,
-    submitJobResponse_httpStatus,
-    submitJobResponse_jobName,
-    submitJobResponse_jobId,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** CreateJobQueue
     createJobQueue_state,
@@ -160,11 +166,6 @@ module Network.AWS.Batch.Lens
     createJobQueueResponse_httpStatus,
     createJobQueueResponse_jobQueueName,
     createJobQueueResponse_jobQueueArn,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
 
     -- * Types
 
@@ -185,8 +186,8 @@ module Network.AWS.Batch.Lens
     attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_exitCode,
     attemptContainerDetail_reason,
-    attemptContainerDetail_taskArn,
     attemptContainerDetail_networkInterfaces,
+    attemptContainerDetail_taskArn,
 
     -- ** AttemptDetail
     attemptDetail_container,
@@ -200,8 +201,8 @@ module Network.AWS.Batch.Lens
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_computeResources,
     computeEnvironmentDetail_tags,
-    computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_type,
+    computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -240,29 +241,29 @@ module Network.AWS.Batch.Lens
     containerDetail_logStreamName,
     containerDetail_linuxParameters,
     containerDetail_memory,
-    containerDetail_user,
     containerDetail_instanceType,
+    containerDetail_user,
     containerDetail_networkConfiguration,
-    containerDetail_executionRoleArn,
-    containerDetail_privileged,
-    containerDetail_vcpus,
     containerDetail_containerInstanceArn,
+    containerDetail_privileged,
     containerDetail_volumes,
+    containerDetail_vcpus,
+    containerDetail_executionRoleArn,
     containerDetail_environment,
     containerDetail_fargatePlatformConfiguration,
     containerDetail_exitCode,
     containerDetail_secrets,
     containerDetail_mountPoints,
-    containerDetail_image,
     containerDetail_command,
+    containerDetail_image,
     containerDetail_logConfiguration,
     containerDetail_reason,
     containerDetail_resourceRequirements,
     containerDetail_jobRoleArn,
-    containerDetail_readonlyRootFilesystem,
     containerDetail_ulimits,
-    containerDetail_taskArn,
+    containerDetail_readonlyRootFilesystem,
     containerDetail_networkInterfaces,
+    containerDetail_taskArn,
 
     -- ** ContainerOverrides
     containerOverrides_memory,
@@ -275,24 +276,24 @@ module Network.AWS.Batch.Lens
     -- ** ContainerProperties
     containerProperties_linuxParameters,
     containerProperties_memory,
-    containerProperties_user,
     containerProperties_instanceType,
+    containerProperties_user,
     containerProperties_networkConfiguration,
-    containerProperties_executionRoleArn,
     containerProperties_privileged,
-    containerProperties_vcpus,
     containerProperties_volumes,
+    containerProperties_vcpus,
+    containerProperties_executionRoleArn,
     containerProperties_environment,
     containerProperties_fargatePlatformConfiguration,
     containerProperties_secrets,
     containerProperties_mountPoints,
-    containerProperties_image,
     containerProperties_command,
+    containerProperties_image,
     containerProperties_logConfiguration,
     containerProperties_resourceRequirements,
     containerProperties_jobRoleArn,
-    containerProperties_readonlyRootFilesystem,
     containerProperties_ulimits,
+    containerProperties_readonlyRootFilesystem,
 
     -- ** ContainerSummary
     containerSummary_exitCode,
@@ -302,6 +303,17 @@ module Network.AWS.Batch.Lens
     device_permissions,
     device_containerPath,
     device_hostPath,
+
+    -- ** EFSAuthorizationConfig
+    eFSAuthorizationConfig_accessPointId,
+    eFSAuthorizationConfig_iam,
+
+    -- ** EFSVolumeConfiguration
+    eFSVolumeConfiguration_transitEncryptionPort,
+    eFSVolumeConfiguration_rootDirectory,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_fileSystemId,
 
     -- ** Ec2Configuration
     ec2Configuration_imageIdOverride,
@@ -340,8 +352,8 @@ module Network.AWS.Batch.Lens
 
     -- ** JobDetail
     jobDetail_container,
-    jobDetail_startedAt,
     jobDetail_dependsOn,
+    jobDetail_startedAt,
     jobDetail_platformCapabilities,
     jobDetail_timeout,
     jobDetail_arrayProperties,
@@ -379,6 +391,7 @@ module Network.AWS.Batch.Lens
     jobSummary_arrayProperties,
     jobSummary_createdAt,
     jobSummary_jobArn,
+    jobSummary_jobDefinition,
     jobSummary_stoppedAt,
     jobSummary_nodeProperties,
     jobSummary_statusReason,
@@ -392,10 +405,14 @@ module Network.AWS.Batch.Lens
     keyValuePair_name,
     keyValuePair_value,
 
+    -- ** KeyValuesPair
+    keyValuesPair_values,
+    keyValuesPair_name,
+
     -- ** LaunchTemplateSpecification
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- ** LinuxParameters
     linuxParameters_tmpfs,
@@ -474,6 +491,7 @@ module Network.AWS.Batch.Lens
     -- ** Volume
     volume_name,
     volume_host,
+    volume_efsVolumeConfiguration,
   )
 where
 
@@ -507,6 +525,8 @@ import Network.AWS.Batch.Types.ContainerOverrides
 import Network.AWS.Batch.Types.ContainerProperties
 import Network.AWS.Batch.Types.ContainerSummary
 import Network.AWS.Batch.Types.Device
+import Network.AWS.Batch.Types.EFSAuthorizationConfig
+import Network.AWS.Batch.Types.EFSVolumeConfiguration
 import Network.AWS.Batch.Types.Ec2Configuration
 import Network.AWS.Batch.Types.EvaluateOnExit
 import Network.AWS.Batch.Types.FargatePlatformConfiguration
@@ -518,6 +538,7 @@ import Network.AWS.Batch.Types.JobQueueDetail
 import Network.AWS.Batch.Types.JobSummary
 import Network.AWS.Batch.Types.JobTimeout
 import Network.AWS.Batch.Types.KeyValuePair
+import Network.AWS.Batch.Types.KeyValuesPair
 import Network.AWS.Batch.Types.LaunchTemplateSpecification
 import Network.AWS.Batch.Types.LinuxParameters
 import Network.AWS.Batch.Types.LogConfiguration

@@ -23,8 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Inserts DVB Time and Date Table (TDT) at the specified table repetition
--- interval.
+-- | Use these settings to insert a DVB Time and Date Table (TDT) in the
+-- transport stream of this output. When you work directly in your JSON job
+-- specification, include this object only when your job has a transport
+-- stream output and the container settings contain the object
+-- M2tsSettings.
 --
 -- /See:/ 'newDvbTdtSettings' smart constructor.
 data DvbTdtSettings = DvbTdtSettings'

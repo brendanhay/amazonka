@@ -37,12 +37,12 @@ data OutboundCrossClusterSearchConnection = OutboundCrossClusterSearchConnection
     -- | Specifies the connection alias for the outbound cross-cluster search
     -- connection.
     connectionAlias :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the @DomainInformation@ for the destination Elasticsearch
-    -- domain.
-    destinationDomainInfo :: Prelude.Maybe DomainInformation,
     -- | Specifies the @OutboundCrossClusterSearchConnectionStatus@ for the
     -- outbound connection.
-    connectionStatus :: Prelude.Maybe OutboundCrossClusterSearchConnectionStatus
+    connectionStatus :: Prelude.Maybe OutboundCrossClusterSearchConnectionStatus,
+    -- | Specifies the @DomainInformation@ for the destination Elasticsearch
+    -- domain.
+    destinationDomainInfo :: Prelude.Maybe DomainInformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,11 @@ data OutboundCrossClusterSearchConnection = OutboundCrossClusterSearchConnection
 -- 'connectionAlias', 'outboundCrossClusterSearchConnection_connectionAlias' - Specifies the connection alias for the outbound cross-cluster search
 -- connection.
 --
--- 'destinationDomainInfo', 'outboundCrossClusterSearchConnection_destinationDomainInfo' - Specifies the @DomainInformation@ for the destination Elasticsearch
--- domain.
---
 -- 'connectionStatus', 'outboundCrossClusterSearchConnection_connectionStatus' - Specifies the @OutboundCrossClusterSearchConnectionStatus@ for the
 -- outbound connection.
+--
+-- 'destinationDomainInfo', 'outboundCrossClusterSearchConnection_destinationDomainInfo' - Specifies the @DomainInformation@ for the destination Elasticsearch
+-- domain.
 newOutboundCrossClusterSearchConnection ::
   OutboundCrossClusterSearchConnection
 newOutboundCrossClusterSearchConnection =
@@ -75,9 +75,9 @@ newOutboundCrossClusterSearchConnection =
         Prelude.Nothing,
       sourceDomainInfo = Prelude.Nothing,
       connectionAlias = Prelude.Nothing,
+      connectionStatus = Prelude.Nothing,
       destinationDomainInfo =
-        Prelude.Nothing,
-      connectionStatus = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | Specifies the connection id for the outbound cross-cluster search
@@ -94,15 +94,15 @@ outboundCrossClusterSearchConnection_sourceDomainInfo = Lens.lens (\OutboundCros
 outboundCrossClusterSearchConnection_connectionAlias :: Lens.Lens' OutboundCrossClusterSearchConnection (Prelude.Maybe Prelude.Text)
 outboundCrossClusterSearchConnection_connectionAlias = Lens.lens (\OutboundCrossClusterSearchConnection' {connectionAlias} -> connectionAlias) (\s@OutboundCrossClusterSearchConnection' {} a -> s {connectionAlias = a} :: OutboundCrossClusterSearchConnection)
 
--- | Specifies the @DomainInformation@ for the destination Elasticsearch
--- domain.
-outboundCrossClusterSearchConnection_destinationDomainInfo :: Lens.Lens' OutboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
-outboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\OutboundCrossClusterSearchConnection' {destinationDomainInfo} -> destinationDomainInfo) (\s@OutboundCrossClusterSearchConnection' {} a -> s {destinationDomainInfo = a} :: OutboundCrossClusterSearchConnection)
-
 -- | Specifies the @OutboundCrossClusterSearchConnectionStatus@ for the
 -- outbound connection.
 outboundCrossClusterSearchConnection_connectionStatus :: Lens.Lens' OutboundCrossClusterSearchConnection (Prelude.Maybe OutboundCrossClusterSearchConnectionStatus)
 outboundCrossClusterSearchConnection_connectionStatus = Lens.lens (\OutboundCrossClusterSearchConnection' {connectionStatus} -> connectionStatus) (\s@OutboundCrossClusterSearchConnection' {} a -> s {connectionStatus = a} :: OutboundCrossClusterSearchConnection)
+
+-- | Specifies the @DomainInformation@ for the destination Elasticsearch
+-- domain.
+outboundCrossClusterSearchConnection_destinationDomainInfo :: Lens.Lens' OutboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
+outboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\OutboundCrossClusterSearchConnection' {destinationDomainInfo} -> destinationDomainInfo) (\s@OutboundCrossClusterSearchConnection' {} a -> s {destinationDomainInfo = a} :: OutboundCrossClusterSearchConnection)
 
 instance
   Core.FromJSON
@@ -116,8 +116,8 @@ instance
             Prelude.<$> (x Core..:? "CrossClusterSearchConnectionId")
             Prelude.<*> (x Core..:? "SourceDomainInfo")
             Prelude.<*> (x Core..:? "ConnectionAlias")
-            Prelude.<*> (x Core..:? "DestinationDomainInfo")
             Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<*> (x Core..:? "DestinationDomainInfo")
       )
 
 instance

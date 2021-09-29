@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTotalImpactFilter' smart constructor.
 data TotalImpactFilter = TotalImpactFilter'
-  { -- | The upper bound dollar value used in the filter.
+  { -- | The upper bound dollar value that\'s used in the filter.
     endValue :: Prelude.Maybe Prelude.Double,
-    -- | The comparing value used in the filter.
+    -- | The comparing value that\'s used in the filter.
     numericOperator :: NumericOperator,
-    -- | The lower bound dollar value used in the filter.
+    -- | The lower bound dollar value that\'s used in the filter.
     startValue :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data TotalImpactFilter = TotalImpactFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endValue', 'totalImpactFilter_endValue' - The upper bound dollar value used in the filter.
+-- 'endValue', 'totalImpactFilter_endValue' - The upper bound dollar value that\'s used in the filter.
 --
--- 'numericOperator', 'totalImpactFilter_numericOperator' - The comparing value used in the filter.
+-- 'numericOperator', 'totalImpactFilter_numericOperator' - The comparing value that\'s used in the filter.
 --
--- 'startValue', 'totalImpactFilter_startValue' - The lower bound dollar value used in the filter.
+-- 'startValue', 'totalImpactFilter_startValue' - The lower bound dollar value that\'s used in the filter.
 newTotalImpactFilter ::
   -- | 'numericOperator'
   NumericOperator ->
@@ -63,15 +63,15 @@ newTotalImpactFilter pNumericOperator_ pStartValue_ =
       startValue = pStartValue_
     }
 
--- | The upper bound dollar value used in the filter.
+-- | The upper bound dollar value that\'s used in the filter.
 totalImpactFilter_endValue :: Lens.Lens' TotalImpactFilter (Prelude.Maybe Prelude.Double)
 totalImpactFilter_endValue = Lens.lens (\TotalImpactFilter' {endValue} -> endValue) (\s@TotalImpactFilter' {} a -> s {endValue = a} :: TotalImpactFilter)
 
--- | The comparing value used in the filter.
+-- | The comparing value that\'s used in the filter.
 totalImpactFilter_numericOperator :: Lens.Lens' TotalImpactFilter NumericOperator
 totalImpactFilter_numericOperator = Lens.lens (\TotalImpactFilter' {numericOperator} -> numericOperator) (\s@TotalImpactFilter' {} a -> s {numericOperator = a} :: TotalImpactFilter)
 
--- | The lower bound dollar value used in the filter.
+-- | The lower bound dollar value that\'s used in the filter.
 totalImpactFilter_startValue :: Lens.Lens' TotalImpactFilter Prelude.Double
 totalImpactFilter_startValue = Lens.lens (\TotalImpactFilter' {startValue} -> startValue) (\s@TotalImpactFilter' {} a -> s {startValue = a} :: TotalImpactFilter)
 

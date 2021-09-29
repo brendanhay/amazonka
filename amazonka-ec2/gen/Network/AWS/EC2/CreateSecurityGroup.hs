@@ -24,9 +24,9 @@
 --
 -- A security group acts as a virtual firewall for your instance to control
 -- inbound and outbound traffic. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 security groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/ and
--- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
+-- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security groups for your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- When you create a security group, you specify a friendly name of your

@@ -27,26 +27,29 @@ import Network.AWS.Shield.Types.AttackPropertyIdentifier
 import Network.AWS.Shield.Types.Contributor
 import Network.AWS.Shield.Types.Unit
 
--- | Details of the described attack.
+-- | Details of a Shield event. This is provided as part of an AttackDetail.
 --
 -- /See:/ 'newAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
-  { -- | The unit of the @Value@ of the contributions.
+  { -- | The unit used for the @Contributor@ @Value@ property.
     unit :: Prelude.Maybe Unit,
-    -- | The total contributions made to this attack by all contributors, not
-    -- just the five listed in the @TopContributors@ list.
+    -- | The total contributions made to this Shield event by all contributors.
     total :: Prelude.Maybe Prelude.Integer,
-    -- | Defines the DDoS attack property information that is provided. The
+    -- | Defines the Shield event property information that is provided. The
     -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
-    -- are valid only for WordPress reflective pingback DDoS attacks.
+    -- are valid only for WordPress reflective pingback events.
     attackPropertyIdentifier :: Prelude.Maybe AttackPropertyIdentifier,
-    -- | The type of distributed denial of service (DDoS) event that was
-    -- observed. @NETWORK@ indicates layer 3 and layer 4 events and
-    -- @APPLICATION@ indicates layer 7 events.
-    attackLayer :: Prelude.Maybe AttackLayer,
-    -- | The array of contributor objects that includes the top five contributors
-    -- to an attack.
-    topContributors :: Prelude.Maybe [Contributor]
+    -- | Contributor objects for the top five contributors to a Shield event.
+    topContributors :: Prelude.Maybe [Contributor],
+    -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
+    -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
+    --
+    -- For infrastructure layer events (L3 and L4 events) after January 25,
+    -- 2021, you can view metrics for top contributors in Amazon CloudWatch
+    -- metrics. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+    -- in the /WAF Developer Guide/.
+    attackLayer :: Prelude.Maybe AttackLayer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,21 +61,24 @@ data AttackProperty = AttackProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'attackProperty_unit' - The unit of the @Value@ of the contributions.
+-- 'unit', 'attackProperty_unit' - The unit used for the @Contributor@ @Value@ property.
 --
--- 'total', 'attackProperty_total' - The total contributions made to this attack by all contributors, not
--- just the five listed in the @TopContributors@ list.
+-- 'total', 'attackProperty_total' - The total contributions made to this Shield event by all contributors.
 --
--- 'attackPropertyIdentifier', 'attackProperty_attackPropertyIdentifier' - Defines the DDoS attack property information that is provided. The
+-- 'attackPropertyIdentifier', 'attackProperty_attackPropertyIdentifier' - Defines the Shield event property information that is provided. The
 -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
--- are valid only for WordPress reflective pingback DDoS attacks.
+-- are valid only for WordPress reflective pingback events.
 --
--- 'attackLayer', 'attackProperty_attackLayer' - The type of distributed denial of service (DDoS) event that was
--- observed. @NETWORK@ indicates layer 3 and layer 4 events and
--- @APPLICATION@ indicates layer 7 events.
+-- 'topContributors', 'attackProperty_topContributors' - Contributor objects for the top five contributors to a Shield event.
 --
--- 'topContributors', 'attackProperty_topContributors' - The array of contributor objects that includes the top five contributors
--- to an attack.
+-- 'attackLayer', 'attackProperty_attackLayer' - The type of Shield event that was observed. @NETWORK@ indicates layer 3
+-- and layer 4 events and @APPLICATION@ indicates layer 7 events.
+--
+-- For infrastructure layer events (L3 and L4 events) after January 25,
+-- 2021, you can view metrics for top contributors in Amazon CloudWatch
+-- metrics. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+-- in the /WAF Developer Guide/.
 newAttackProperty ::
   AttackProperty
 newAttackProperty =
@@ -80,35 +86,38 @@ newAttackProperty =
     { unit = Prelude.Nothing,
       total = Prelude.Nothing,
       attackPropertyIdentifier = Prelude.Nothing,
-      attackLayer = Prelude.Nothing,
-      topContributors = Prelude.Nothing
+      topContributors = Prelude.Nothing,
+      attackLayer = Prelude.Nothing
     }
 
--- | The unit of the @Value@ of the contributions.
+-- | The unit used for the @Contributor@ @Value@ property.
 attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
 attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
 
--- | The total contributions made to this attack by all contributors, not
--- just the five listed in the @TopContributors@ list.
+-- | The total contributions made to this Shield event by all contributors.
 attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
 attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
 
--- | Defines the DDoS attack property information that is provided. The
+-- | Defines the Shield event property information that is provided. The
 -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
--- are valid only for WordPress reflective pingback DDoS attacks.
+-- are valid only for WordPress reflective pingback events.
 attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Prelude.Maybe AttackPropertyIdentifier)
 attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPropertyIdentifier} -> attackPropertyIdentifier) (\s@AttackProperty' {} a -> s {attackPropertyIdentifier = a} :: AttackProperty)
 
--- | The type of distributed denial of service (DDoS) event that was
--- observed. @NETWORK@ indicates layer 3 and layer 4 events and
--- @APPLICATION@ indicates layer 7 events.
-attackProperty_attackLayer :: Lens.Lens' AttackProperty (Prelude.Maybe AttackLayer)
-attackProperty_attackLayer = Lens.lens (\AttackProperty' {attackLayer} -> attackLayer) (\s@AttackProperty' {} a -> s {attackLayer = a} :: AttackProperty)
-
--- | The array of contributor objects that includes the top five contributors
--- to an attack.
+-- | Contributor objects for the top five contributors to a Shield event.
 attackProperty_topContributors :: Lens.Lens' AttackProperty (Prelude.Maybe [Contributor])
 attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
+-- and layer 4 events and @APPLICATION@ indicates layer 7 events.
+--
+-- For infrastructure layer events (L3 and L4 events) after January 25,
+-- 2021, you can view metrics for top contributors in Amazon CloudWatch
+-- metrics. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+-- in the /WAF Developer Guide/.
+attackProperty_attackLayer :: Lens.Lens' AttackProperty (Prelude.Maybe AttackLayer)
+attackProperty_attackLayer = Lens.lens (\AttackProperty' {attackLayer} -> attackLayer) (\s@AttackProperty' {} a -> s {attackLayer = a} :: AttackProperty)
 
 instance Core.FromJSON AttackProperty where
   parseJSON =
@@ -119,10 +128,10 @@ instance Core.FromJSON AttackProperty where
             Prelude.<$> (x Core..:? "Unit")
             Prelude.<*> (x Core..:? "Total")
             Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
-            Prelude.<*> (x Core..:? "AttackLayer")
             Prelude.<*> ( x Core..:? "TopContributors"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "AttackLayer")
       )
 
 instance Prelude.Hashable AttackProperty

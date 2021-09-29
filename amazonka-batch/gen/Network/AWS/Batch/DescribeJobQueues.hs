@@ -67,9 +67,9 @@ data DescribeJobQueues = DescribeJobQueues'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @DescribeJobQueues@ in
     -- paginated output. When this parameter is used, @DescribeJobQueues@ only
-    -- returns @maxResults@ results in a single page along with a @nextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another @DescribeJobQueues@ request with the returned
+    -- returns @maxResults@ results in a single page and a @nextToken@ response
+    -- element. The remaining results of the initial request can be seen by
+    -- sending another @DescribeJobQueues@ request with the returned
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter isn\'t used, then @DescribeJobQueues@ returns up to 100
     -- results and a @nextToken@ value if applicable.
@@ -100,9 +100,9 @@ data DescribeJobQueues = DescribeJobQueues'
 --
 -- 'maxResults', 'describeJobQueues_maxResults' - The maximum number of results returned by @DescribeJobQueues@ in
 -- paginated output. When this parameter is used, @DescribeJobQueues@ only
--- returns @maxResults@ results in a single page along with a @nextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeJobQueues@ request with the returned
+-- returns @maxResults@ results in a single page and a @nextToken@ response
+-- element. The remaining results of the initial request can be seen by
+-- sending another @DescribeJobQueues@ request with the returned
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @DescribeJobQueues@ returns up to 100
 -- results and a @nextToken@ value if applicable.
@@ -132,9 +132,9 @@ describeJobQueues_nextToken = Lens.lens (\DescribeJobQueues' {nextToken} -> next
 
 -- | The maximum number of results returned by @DescribeJobQueues@ in
 -- paginated output. When this parameter is used, @DescribeJobQueues@ only
--- returns @maxResults@ results in a single page along with a @nextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeJobQueues@ request with the returned
+-- returns @maxResults@ results in a single page and a @nextToken@ response
+-- element. The remaining results of the initial request can be seen by
+-- sending another @DescribeJobQueues@ request with the returned
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @DescribeJobQueues@ returns up to 100
 -- results and a @nextToken@ value if applicable.

@@ -22,9 +22,9 @@
 --
 -- Starts the replication task.
 --
--- For more information about AWS DMS tasks, see
+-- For more information about DMS tasks, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks>
--- in the /AWS Database Migration Service User Guide./
+-- in the /Database Migration Service User Guide./
 module Network.AWS.DMS.StartReplicationTask
   ( -- * Creating a Request
     StartReplicationTask (..),
@@ -91,7 +91,7 @@ data StartReplicationTask = StartReplicationTask'
     -- the source endpoint. You can verify this by setting the @slotName@ extra
     -- connection attribute to the name of this logical replication slot. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
     cdcStartPosition :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task to be started.
     replicationTaskArn :: Prelude.Text,
@@ -141,7 +141,7 @@ data StartReplicationTask = StartReplicationTask'
 -- the source endpoint. You can verify this by setting the @slotName@ extra
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 --
 -- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.
 --
@@ -202,7 +202,7 @@ startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcSto
 -- the source endpoint. You can verify this by setting the @slotName@ extra
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 startReplicationTask_cdcStartPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
 startReplicationTask_cdcStartPosition = Lens.lens (\StartReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@StartReplicationTask' {} a -> s {cdcStartPosition = a} :: StartReplicationTask)
 

@@ -53,8 +53,8 @@ import qualified Network.AWS.Response as Response
 data CreateReportGroup = CreateReportGroup'
   { -- | A list of tag key and value pairs associated with this report group.
     --
-    -- These tags are available for use by AWS services that support AWS
-    -- CodeBuild report group tags.
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild report group tags.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the report group.
     name :: Prelude.Text,
@@ -76,8 +76,8 @@ data CreateReportGroup = CreateReportGroup'
 --
 -- 'tags', 'createReportGroup_tags' - A list of tag key and value pairs associated with this report group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 --
 -- 'name', 'createReportGroup_name' - The name of the report group.
 --
@@ -103,8 +103,8 @@ newCreateReportGroup pName_ pType_ pExportConfig_ =
 
 -- | A list of tag key and value pairs associated with this report group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 createReportGroup_tags :: Lens.Lens' CreateReportGroup (Prelude.Maybe [Tag])
 createReportGroup_tags = Lens.lens (\CreateReportGroup' {tags} -> tags) (\s@CreateReportGroup' {} a -> s {tags = a} :: CreateReportGroup) Prelude.. Lens.mapping Lens._Coerce
 

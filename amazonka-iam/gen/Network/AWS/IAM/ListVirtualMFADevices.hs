@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the virtual MFA devices defined in the AWS account by assignment
--- status. If you do not specify an assignment status, the operation
--- returns a list of all virtual MFA devices. Assignment status can be
--- @Assigned@, @Unassigned@, or @Any@.
+-- Lists the virtual MFA devices defined in the Amazon Web Services account
+-- by assignment status. If you do not specify an assignment status, the
+-- operation returns a list of all virtual MFA devices. Assignment status
+-- can be @Assigned@, @Unassigned@, or @Any@.
 --
 -- IAM resource-listing operations return a subset of the available
 -- attributes for the resource. For example, this operation does not return

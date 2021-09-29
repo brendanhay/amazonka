@@ -58,17 +58,17 @@ module Network.AWS.Mobile
     ListProjectsResponse (ListProjectsResponse'),
     newListProjectsResponse,
 
-    -- ** DescribeBundle
-    DescribeBundle (DescribeBundle'),
-    newDescribeBundle,
-    DescribeBundleResponse (DescribeBundleResponse'),
-    newDescribeBundleResponse,
-
     -- ** CreateProject
     CreateProject (CreateProject'),
     newCreateProject,
     CreateProjectResponse (CreateProjectResponse'),
     newCreateProjectResponse,
+
+    -- ** DescribeBundle
+    DescribeBundle (DescribeBundle'),
+    newDescribeBundle,
+    DescribeBundleResponse (DescribeBundleResponse'),
+    newDescribeBundleResponse,
 
     -- ** ListBundles (Paginated)
     ListBundles (ListBundles'),
@@ -76,17 +76,17 @@ module Network.AWS.Mobile
     ListBundlesResponse (ListBundlesResponse'),
     newListBundlesResponse,
 
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
     -- ** UpdateProject
     UpdateProject (UpdateProject'),
     newUpdateProject,
     UpdateProjectResponse (UpdateProjectResponse'),
     newUpdateProjectResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
     -- ** ExportProject
     ExportProject (ExportProject'),
@@ -94,17 +94,17 @@ module Network.AWS.Mobile
     ExportProjectResponse (ExportProjectResponse'),
     newExportProjectResponse,
 
-    -- ** ExportBundle
-    ExportBundle (ExportBundle'),
-    newExportBundle,
-    ExportBundleResponse (ExportBundleResponse'),
-    newExportBundleResponse,
-
     -- ** DescribeProject
     DescribeProject (DescribeProject'),
     newDescribeProject,
     DescribeProjectResponse (DescribeProjectResponse'),
     newDescribeProjectResponse,
+
+    -- ** ExportBundle
+    ExportBundle (ExportBundle'),
+    newExportBundle,
+    ExportBundleResponse (ExportBundleResponse'),
+    newExportBundleResponse,
 
     -- * Types
 

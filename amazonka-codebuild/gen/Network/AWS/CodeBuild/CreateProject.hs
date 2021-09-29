@@ -28,18 +28,18 @@ module Network.AWS.CodeBuild.CreateProject
 
     -- * Request Lenses
     createProject_vpcConfig,
-    createProject_secondaryArtifacts,
     createProject_sourceVersion,
+    createProject_secondaryArtifacts,
     createProject_cache,
     createProject_secondarySourceVersions,
-    createProject_encryptionKey,
     createProject_badgeEnabled,
     createProject_concurrentBuildLimit,
+    createProject_encryptionKey,
     createProject_logsConfig,
     createProject_queuedTimeoutInMinutes,
     createProject_secondarySources,
-    createProject_tags,
     createProject_timeoutInMinutes,
+    createProject_tags,
     createProject_description,
     createProject_buildBatchConfig,
     createProject_fileSystemLocations,
@@ -68,14 +68,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
+  { -- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | An array of @ProjectArtifacts@ objects.
-    secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
     -- | A version of the build input to be built for this project. If not
     -- specified, the latest version is used. If specified, it must be one of:
     --
-    -- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+    -- -   For CodeCommit: the commit ID, branch, or Git tag to use.
     --
     -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
     --     that corresponds to the version of the source code you want to
@@ -97,8 +95,10 @@ data CreateProject = CreateProject'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
-    -- in the /AWS CodeBuild User Guide/.
+    -- in the /CodeBuild User Guide/.
     sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | An array of @ProjectArtifacts@ objects.
+    secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
     -- | Stores recently used information so that it can be quickly accessed at a
     -- later time.
     cache :: Prelude.Maybe ProjectCache,
@@ -106,15 +106,6 @@ data CreateProject = CreateProject'
     -- is specified at the build level, then they take precedence over these
     -- @secondarySourceVersions@ (at the project level).
     secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
-    -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
-    -- used for encrypting the build output artifacts.
-    --
-    -- You can use a cross-account KMS key to encrypt the build output
-    -- artifacts if your service role has permission to that key.
-    --
-    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
-    -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
     badgeEnabled :: Prelude.Maybe Prelude.Bool,
@@ -125,23 +116,32 @@ data CreateProject = CreateProject'
     -- or equal to this limit. If the current build count meets this limit, new
     -- builds are throttled and are not run.
     concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
+    -- | The Key Management Service customer master key (CMK) to be used for
+    -- encrypting the build output artifacts.
+    --
+    -- You can use a cross-account KMS key to encrypt the build output
+    -- artifacts if your service role has permission to that key.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+    -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | Information about logs for the build project. These can be logs in
-    -- Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
+    -- CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
     logsConfig :: Prelude.Maybe LogsConfig,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
     queuedTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | An array of @ProjectSource@ objects.
     secondarySources :: Prelude.Maybe [ProjectSource],
-    -- | A list of tag key and value pairs associated with this build project.
-    --
-    -- These tags are available for use by AWS services that support AWS
-    -- CodeBuild build project tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
+    -- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
     -- before it times out any build that has not been marked as completed. The
     -- default is 60 minutes.
     timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | A list of tag key and value pairs associated with this build project.
+    --
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild build project tags.
+    tags :: Prelude.Maybe [Tag],
     -- | A description that makes the build project easy to identify.
     description :: Prelude.Maybe Prelude.Text,
     -- | A ProjectBuildBatchConfig object that defines the batch build options
@@ -160,9 +160,9 @@ data CreateProject = CreateProject'
     artifacts :: ProjectArtifacts,
     -- | Information about the build environment for the build project.
     environment :: ProjectEnvironment,
-    -- | The ARN of the AWS Identity and Access Management (IAM) role that
-    -- enables AWS CodeBuild to interact with dependent AWS services on behalf
-    -- of the AWS account.
+    -- | The ARN of the IAM role that enables CodeBuild to interact with
+    -- dependent Amazon Web Services services on behalf of the Amazon Web
+    -- Services account.
     serviceRole :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -175,14 +175,12 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createProject_vpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
---
--- 'secondaryArtifacts', 'createProject_secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+-- 'vpcConfig', 'createProject_vpcConfig' - VpcConfig enables CodeBuild to access resources in an Amazon VPC.
 --
 -- 'sourceVersion', 'createProject_sourceVersion' - A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
 --
--- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+-- -   For CodeCommit: the commit ID, branch, or Git tag to use.
 --
 -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
 --     that corresponds to the version of the source code you want to
@@ -204,7 +202,9 @@ data CreateProject = CreateProject'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
+--
+-- 'secondaryArtifacts', 'createProject_secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
 --
 -- 'cache', 'createProject_cache' - Stores recently used information so that it can be quickly accessed at a
 -- later time.
@@ -212,15 +212,6 @@ data CreateProject = CreateProject'
 -- 'secondarySourceVersions', 'createProject_secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
 -- is specified at the build level, then they take precedence over these
 -- @secondarySourceVersions@ (at the project level).
---
--- 'encryptionKey', 'createProject_encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
--- used for encrypting the build output artifacts.
---
--- You can use a cross-account KMS key to encrypt the build output
--- artifacts if your service role has permission to that key.
---
--- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
--- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
 --
 -- 'badgeEnabled', 'createProject_badgeEnabled' - Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
@@ -232,22 +223,31 @@ data CreateProject = CreateProject'
 -- or equal to this limit. If the current build count meets this limit, new
 -- builds are throttled and are not run.
 --
+-- 'encryptionKey', 'createProject_encryptionKey' - The Key Management Service customer master key (CMK) to be used for
+-- encrypting the build output artifacts.
+--
+-- You can use a cross-account KMS key to encrypt the build output
+-- artifacts if your service role has permission to that key.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+-- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+--
 -- 'logsConfig', 'createProject_logsConfig' - Information about logs for the build project. These can be logs in
--- Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
+-- CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
 --
 -- 'queuedTimeoutInMinutes', 'createProject_queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times
 -- out.
 --
 -- 'secondarySources', 'createProject_secondarySources' - An array of @ProjectSource@ objects.
 --
--- 'tags', 'createProject_tags' - A list of tag key and value pairs associated with this build project.
---
--- These tags are available for use by AWS services that support AWS
--- CodeBuild build project tags.
---
--- 'timeoutInMinutes', 'createProject_timeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
+-- 'timeoutInMinutes', 'createProject_timeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
 -- before it times out any build that has not been marked as completed. The
 -- default is 60 minutes.
+--
+-- 'tags', 'createProject_tags' - A list of tag key and value pairs associated with this build project.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
 --
 -- 'description', 'createProject_description' - A description that makes the build project easy to identify.
 --
@@ -267,9 +267,9 @@ data CreateProject = CreateProject'
 --
 -- 'environment', 'createProject_environment' - Information about the build environment for the build project.
 --
--- 'serviceRole', 'createProject_serviceRole' - The ARN of the AWS Identity and Access Management (IAM) role that
--- enables AWS CodeBuild to interact with dependent AWS services on behalf
--- of the AWS account.
+-- 'serviceRole', 'createProject_serviceRole' - The ARN of the IAM role that enables CodeBuild to interact with
+-- dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
 newCreateProject ::
   -- | 'name'
   Prelude.Text ->
@@ -290,18 +290,18 @@ newCreateProject
   pServiceRole_ =
     CreateProject'
       { vpcConfig = Prelude.Nothing,
-        secondaryArtifacts = Prelude.Nothing,
         sourceVersion = Prelude.Nothing,
+        secondaryArtifacts = Prelude.Nothing,
         cache = Prelude.Nothing,
         secondarySourceVersions = Prelude.Nothing,
-        encryptionKey = Prelude.Nothing,
         badgeEnabled = Prelude.Nothing,
         concurrentBuildLimit = Prelude.Nothing,
+        encryptionKey = Prelude.Nothing,
         logsConfig = Prelude.Nothing,
         queuedTimeoutInMinutes = Prelude.Nothing,
         secondarySources = Prelude.Nothing,
-        tags = Prelude.Nothing,
         timeoutInMinutes = Prelude.Nothing,
+        tags = Prelude.Nothing,
         description = Prelude.Nothing,
         buildBatchConfig = Prelude.Nothing,
         fileSystemLocations = Prelude.Nothing,
@@ -312,18 +312,14 @@ newCreateProject
         serviceRole = pServiceRole_
       }
 
--- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
+-- | VpcConfig enables CodeBuild to access resources in an Amazon VPC.
 createProject_vpcConfig :: Lens.Lens' CreateProject (Prelude.Maybe VpcConfig)
 createProject_vpcConfig = Lens.lens (\CreateProject' {vpcConfig} -> vpcConfig) (\s@CreateProject' {} a -> s {vpcConfig = a} :: CreateProject)
-
--- | An array of @ProjectArtifacts@ objects.
-createProject_secondaryArtifacts :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectArtifacts])
-createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifacts} -> secondaryArtifacts) (\s@CreateProject' {} a -> s {secondaryArtifacts = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
 --
--- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+-- -   For CodeCommit: the commit ID, branch, or Git tag to use.
 --
 -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
 --     that corresponds to the version of the source code you want to
@@ -345,9 +341,13 @@ createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifact
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 createProject_sourceVersion :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_sourceVersion = Lens.lens (\CreateProject' {sourceVersion} -> sourceVersion) (\s@CreateProject' {} a -> s {sourceVersion = a} :: CreateProject)
+
+-- | An array of @ProjectArtifacts@ objects.
+createProject_secondaryArtifacts :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectArtifacts])
+createProject_secondaryArtifacts = Lens.lens (\CreateProject' {secondaryArtifacts} -> secondaryArtifacts) (\s@CreateProject' {} a -> s {secondaryArtifacts = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Stores recently used information so that it can be quickly accessed at a
 -- later time.
@@ -359,17 +359,6 @@ createProject_cache = Lens.lens (\CreateProject' {cache} -> cache) (\s@CreatePro
 -- @secondarySourceVersions@ (at the project level).
 createProject_secondarySourceVersions :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectSourceVersion])
 createProject_secondarySourceVersions = Lens.lens (\CreateProject' {secondarySourceVersions} -> secondarySourceVersions) (\s@CreateProject' {} a -> s {secondarySourceVersions = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
-
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
--- used for encrypting the build output artifacts.
---
--- You can use a cross-account KMS key to encrypt the build output
--- artifacts if your service role has permission to that key.
---
--- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
--- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-createProject_encryptionKey :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_encryptionKey = Lens.lens (\CreateProject' {encryptionKey} -> encryptionKey) (\s@CreateProject' {} a -> s {encryptionKey = a} :: CreateProject)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
@@ -385,8 +374,19 @@ createProject_badgeEnabled = Lens.lens (\CreateProject' {badgeEnabled} -> badgeE
 createProject_concurrentBuildLimit :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Int)
 createProject_concurrentBuildLimit = Lens.lens (\CreateProject' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@CreateProject' {} a -> s {concurrentBuildLimit = a} :: CreateProject)
 
+-- | The Key Management Service customer master key (CMK) to be used for
+-- encrypting the build output artifacts.
+--
+-- You can use a cross-account KMS key to encrypt the build output
+-- artifacts if your service role has permission to that key.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
+-- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
+createProject_encryptionKey :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_encryptionKey = Lens.lens (\CreateProject' {encryptionKey} -> encryptionKey) (\s@CreateProject' {} a -> s {encryptionKey = a} :: CreateProject)
+
 -- | Information about logs for the build project. These can be logs in
--- Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
+-- CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
 createProject_logsConfig :: Lens.Lens' CreateProject (Prelude.Maybe LogsConfig)
 createProject_logsConfig = Lens.lens (\CreateProject' {logsConfig} -> logsConfig) (\s@CreateProject' {} a -> s {logsConfig = a} :: CreateProject)
 
@@ -399,18 +399,18 @@ createProject_queuedTimeoutInMinutes = Lens.lens (\CreateProject' {queuedTimeout
 createProject_secondarySources :: Lens.Lens' CreateProject (Prelude.Maybe [ProjectSource])
 createProject_secondarySources = Lens.lens (\CreateProject' {secondarySources} -> secondarySources) (\s@CreateProject' {} a -> s {secondarySources = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of tag key and value pairs associated with this build project.
---
--- These tags are available for use by AWS services that support AWS
--- CodeBuild build project tags.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
-
--- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
+-- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
 -- before it times out any build that has not been marked as completed. The
 -- default is 60 minutes.
 createProject_timeoutInMinutes :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Natural)
 createProject_timeoutInMinutes = Lens.lens (\CreateProject' {timeoutInMinutes} -> timeoutInMinutes) (\s@CreateProject' {} a -> s {timeoutInMinutes = a} :: CreateProject)
+
+-- | A list of tag key and value pairs associated with this build project.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description that makes the build project easy to identify.
 createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
@@ -444,9 +444,9 @@ createProject_artifacts = Lens.lens (\CreateProject' {artifacts} -> artifacts) (
 createProject_environment :: Lens.Lens' CreateProject ProjectEnvironment
 createProject_environment = Lens.lens (\CreateProject' {environment} -> environment) (\s@CreateProject' {} a -> s {environment = a} :: CreateProject)
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that
--- enables AWS CodeBuild to interact with dependent AWS services on behalf
--- of the AWS account.
+-- | The ARN of the IAM role that enables CodeBuild to interact with
+-- dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
 createProject_serviceRole :: Lens.Lens' CreateProject Prelude.Text
 createProject_serviceRole = Lens.lens (\CreateProject' {serviceRole} -> serviceRole) (\s@CreateProject' {} a -> s {serviceRole = a} :: CreateProject)
 
@@ -487,24 +487,24 @@ instance Core.ToJSON CreateProject where
     Core.object
       ( Prelude.catMaybes
           [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
             ("secondaryArtifacts" Core..=)
               Prelude.<$> secondaryArtifacts,
-            ("sourceVersion" Core..=) Prelude.<$> sourceVersion,
             ("cache" Core..=) Prelude.<$> cache,
             ("secondarySourceVersions" Core..=)
               Prelude.<$> secondarySourceVersions,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
             ("badgeEnabled" Core..=) Prelude.<$> badgeEnabled,
             ("concurrentBuildLimit" Core..=)
               Prelude.<$> concurrentBuildLimit,
+            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
             ("logsConfig" Core..=) Prelude.<$> logsConfig,
             ("queuedTimeoutInMinutes" Core..=)
               Prelude.<$> queuedTimeoutInMinutes,
             ("secondarySources" Core..=)
               Prelude.<$> secondarySources,
-            ("tags" Core..=) Prelude.<$> tags,
             ("timeoutInMinutes" Core..=)
               Prelude.<$> timeoutInMinutes,
+            ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
             ("buildBatchConfig" Core..=)
               Prelude.<$> buildBatchConfig,

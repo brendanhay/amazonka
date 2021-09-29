@@ -91,7 +91,8 @@ data DescribeReservedInstances = DescribeReservedInstances'
     --     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
     --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
     --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
-    --     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+    --     @Red Hat Enterprise Linux (Amazon VPC)@ |
+    --     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
     --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
     --     @Windows with SQL Server Standard (Amazon VPC)@ |
     --     @Windows with SQL Server Web@ |
@@ -107,7 +108,7 @@ data DescribeReservedInstances = DescribeReservedInstances'
     -- -   @state@ - The state of the Reserved Instance (@payment-pending@ |
     --     @active@ | @payment-failed@ | @retired@).
     --
-    -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+    -- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -173,7 +174,8 @@ data DescribeReservedInstances = DescribeReservedInstances'
 --     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
 --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
 --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
 --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
 --     @Windows with SQL Server Standard (Amazon VPC)@ |
 --     @Windows with SQL Server Web@ |
@@ -189,7 +191,7 @@ data DescribeReservedInstances = DescribeReservedInstances'
 -- -   @state@ - The state of the Reserved Instance (@payment-pending@ |
 --     @active@ | @payment-failed@ | @retired@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
@@ -259,7 +261,8 @@ describeReservedInstances_offeringClass = Lens.lens (\DescribeReservedInstances'
 --     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
 --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
 --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
 --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
 --     @Windows with SQL Server Standard (Amazon VPC)@ |
 --     @Windows with SQL Server Web@ |
@@ -275,7 +278,7 @@ describeReservedInstances_offeringClass = Lens.lens (\DescribeReservedInstances'
 -- -   @state@ - The state of the Reserved Instance (@payment-pending@ |
 --     @active@ | @payment-failed@ | @retired@).
 --
--- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
+-- -   @tag:\<key>@ - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for

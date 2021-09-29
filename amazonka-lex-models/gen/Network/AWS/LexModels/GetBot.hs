@@ -41,11 +41,11 @@ module Network.AWS.LexModels.GetBot
     getBotResponse_abortStatement,
     getBotResponse_createdDate,
     getBotResponse_status,
-    getBotResponse_voiceId,
     getBotResponse_lastUpdatedDate,
+    getBotResponse_voiceId,
+    getBotResponse_clarificationPrompt,
     getBotResponse_nluIntentConfidenceThreshold,
     getBotResponse_locale,
-    getBotResponse_clarificationPrompt,
     getBotResponse_enableModelImprovements,
     getBotResponse_version,
     getBotResponse_idleSessionTTLInSeconds,
@@ -117,11 +117,11 @@ instance Core.AWSRequest GetBot where
             Prelude.<$> (x Core..?> "abortStatement")
             Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "voiceId")
             Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "voiceId")
+            Prelude.<*> (x Core..?> "clarificationPrompt")
             Prelude.<*> (x Core..?> "nluIntentConfidenceThreshold")
             Prelude.<*> (x Core..?> "locale")
-            Prelude.<*> (x Core..?> "clarificationPrompt")
             Prelude.<*> (x Core..?> "enableModelImprovements")
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
@@ -183,12 +183,15 @@ data GetBotResponse = GetBotResponse'
     --
     -- If the bot was saved but not built, the status is @NOT_BUILT@.
     status :: Prelude.Maybe LexStatus,
-    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
-    -- with the user. For more information, see PutBot.
-    voiceId :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot was updated. When you create a resource, the
     -- creation date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+    -- with the user. For more information, see PutBot.
+    voiceId :: Prelude.Maybe Prelude.Text,
+    -- | The message Amazon Lex uses when it doesn\'t understand the user\'s
+    -- request. For more information, see PutBot.
+    clarificationPrompt :: Prelude.Maybe Prompt,
     -- | The score that determines where Amazon Lex inserts the
     -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
     -- returning alternative intents in a
@@ -201,9 +204,6 @@ data GetBotResponse = GetBotResponse'
     nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
     -- | The target locale for the bot.
     locale :: Prelude.Maybe Locale,
-    -- | The message Amazon Lex uses when it doesn\'t understand the user\'s
-    -- request. For more information, see PutBot.
-    clarificationPrompt :: Prelude.Maybe Prompt,
     -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
     -- that the bot is using the improvements, otherwise, @false@.
     enableModelImprovements :: Prelude.Maybe Prelude.Bool,
@@ -285,11 +285,14 @@ data GetBotResponse = GetBotResponse'
 --
 -- If the bot was saved but not built, the status is @NOT_BUILT@.
 --
+-- 'lastUpdatedDate', 'getBotResponse_lastUpdatedDate' - The date that the bot was updated. When you create a resource, the
+-- creation date and last updated date are the same.
+--
 -- 'voiceId', 'getBotResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction
 -- with the user. For more information, see PutBot.
 --
--- 'lastUpdatedDate', 'getBotResponse_lastUpdatedDate' - The date that the bot was updated. When you create a resource, the
--- creation date and last updated date are the same.
+-- 'clarificationPrompt', 'getBotResponse_clarificationPrompt' - The message Amazon Lex uses when it doesn\'t understand the user\'s
+-- request. For more information, see PutBot.
 --
 -- 'nluIntentConfidenceThreshold', 'getBotResponse_nluIntentConfidenceThreshold' - The score that determines where Amazon Lex inserts the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -302,9 +305,6 @@ data GetBotResponse = GetBotResponse'
 -- inserted if it is configured for the bot.
 --
 -- 'locale', 'getBotResponse_locale' - The target locale for the bot.
---
--- 'clarificationPrompt', 'getBotResponse_clarificationPrompt' - The message Amazon Lex uses when it doesn\'t understand the user\'s
--- request. For more information, see PutBot.
 --
 -- 'enableModelImprovements', 'getBotResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
 -- that the bot is using the improvements, otherwise, @false@.
@@ -365,11 +365,11 @@ newGetBotResponse pHttpStatus_ =
     { abortStatement = Prelude.Nothing,
       createdDate = Prelude.Nothing,
       status = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
+      clarificationPrompt = Prelude.Nothing,
       nluIntentConfidenceThreshold = Prelude.Nothing,
       locale = Prelude.Nothing,
-      clarificationPrompt = Prelude.Nothing,
       enableModelImprovements = Prelude.Nothing,
       version = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
@@ -408,15 +408,20 @@ getBotResponse_createdDate = Lens.lens (\GetBotResponse' {createdDate} -> create
 getBotResponse_status :: Lens.Lens' GetBotResponse (Prelude.Maybe LexStatus)
 getBotResponse_status = Lens.lens (\GetBotResponse' {status} -> status) (\s@GetBotResponse' {} a -> s {status = a} :: GetBotResponse)
 
+-- | The date that the bot was updated. When you create a resource, the
+-- creation date and last updated date are the same.
+getBotResponse_lastUpdatedDate :: Lens.Lens' GetBotResponse (Prelude.Maybe Prelude.UTCTime)
+getBotResponse_lastUpdatedDate = Lens.lens (\GetBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotResponse' {} a -> s {lastUpdatedDate = a} :: GetBotResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
 -- with the user. For more information, see PutBot.
 getBotResponse_voiceId :: Lens.Lens' GetBotResponse (Prelude.Maybe Prelude.Text)
 getBotResponse_voiceId = Lens.lens (\GetBotResponse' {voiceId} -> voiceId) (\s@GetBotResponse' {} a -> s {voiceId = a} :: GetBotResponse)
 
--- | The date that the bot was updated. When you create a resource, the
--- creation date and last updated date are the same.
-getBotResponse_lastUpdatedDate :: Lens.Lens' GetBotResponse (Prelude.Maybe Prelude.UTCTime)
-getBotResponse_lastUpdatedDate = Lens.lens (\GetBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotResponse' {} a -> s {lastUpdatedDate = a} :: GetBotResponse) Prelude.. Lens.mapping Core._Time
+-- | The message Amazon Lex uses when it doesn\'t understand the user\'s
+-- request. For more information, see PutBot.
+getBotResponse_clarificationPrompt :: Lens.Lens' GetBotResponse (Prelude.Maybe Prompt)
+getBotResponse_clarificationPrompt = Lens.lens (\GetBotResponse' {clarificationPrompt} -> clarificationPrompt) (\s@GetBotResponse' {} a -> s {clarificationPrompt = a} :: GetBotResponse)
 
 -- | The score that determines where Amazon Lex inserts the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -433,11 +438,6 @@ getBotResponse_nluIntentConfidenceThreshold = Lens.lens (\GetBotResponse' {nluIn
 -- | The target locale for the bot.
 getBotResponse_locale :: Lens.Lens' GetBotResponse (Prelude.Maybe Locale)
 getBotResponse_locale = Lens.lens (\GetBotResponse' {locale} -> locale) (\s@GetBotResponse' {} a -> s {locale = a} :: GetBotResponse)
-
--- | The message Amazon Lex uses when it doesn\'t understand the user\'s
--- request. For more information, see PutBot.
-getBotResponse_clarificationPrompt :: Lens.Lens' GetBotResponse (Prelude.Maybe Prompt)
-getBotResponse_clarificationPrompt = Lens.lens (\GetBotResponse' {clarificationPrompt} -> clarificationPrompt) (\s@GetBotResponse' {} a -> s {clarificationPrompt = a} :: GetBotResponse)
 
 -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
 -- that the bot is using the improvements, otherwise, @false@.

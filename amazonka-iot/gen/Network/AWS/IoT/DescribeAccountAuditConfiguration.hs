@@ -23,6 +23,10 @@
 -- Gets information about the Device Defender audit settings for this
 -- account. Settings include how audit notifications are sent and which
 -- audit checks are enabled or disabled.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeAccountAuditConfiguration>
+-- action.
 module Network.AWS.IoT.DescribeAccountAuditConfiguration
   ( -- * Creating a Request
     DescribeAccountAuditConfiguration (..),
@@ -112,9 +116,9 @@ instance
 
 -- | /See:/ 'newDescribeAccountAuditConfigurationResponse' smart constructor.
 data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurationResponse'
-  { -- | The ARN of the role that grants permission to AWS IoT to access
-    -- information about your devices, policies, certificates, and other items
-    -- as required when performing an audit.
+  { -- | The ARN of the role that grants permission to IoT to access information
+    -- about your devices, policies, certificates, and other items as required
+    -- when performing an audit.
     --
     -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
     -- is required.
@@ -137,9 +141,9 @@ data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeAccountAuditConfigurationResponse_roleArn' - The ARN of the role that grants permission to AWS IoT to access
--- information about your devices, policies, certificates, and other items
--- as required when performing an audit.
+-- 'roleArn', 'describeAccountAuditConfigurationResponse_roleArn' - The ARN of the role that grants permission to IoT to access information
+-- about your devices, policies, certificates, and other items as required
+-- when performing an audit.
 --
 -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
 -- is required.
@@ -166,9 +170,9 @@ newDescribeAccountAuditConfigurationResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ARN of the role that grants permission to AWS IoT to access
--- information about your devices, policies, certificates, and other items
--- as required when performing an audit.
+-- | The ARN of the role that grants permission to IoT to access information
+-- about your devices, policies, certificates, and other items as required
+-- when performing an audit.
 --
 -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
 -- is required.

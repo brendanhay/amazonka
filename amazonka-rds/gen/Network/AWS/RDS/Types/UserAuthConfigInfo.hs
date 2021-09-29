@@ -34,12 +34,12 @@ data UserAuthConfigInfo = UserAuthConfigInfo'
     -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
     -- secrets are stored within Amazon Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether to require or disallow AWS Identity and Access Management (IAM)
-    -- authentication for connections to the proxy.
-    iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The type of authentication that the proxy uses for connections from the
     -- proxy to the underlying database.
     authScheme :: Prelude.Maybe AuthScheme,
+    -- | Whether to require or disallow Amazon Web Services Identity and Access
+    -- Management (IAM) authentication for connections to the proxy.
+    iAMAuth :: Prelude.Maybe IAMAuthMode,
     -- | The name of the database user to which the proxy connects.
     userName :: Prelude.Maybe Prelude.Text,
     -- | A user-specified description about the authentication used by a proxy to
@@ -60,11 +60,11 @@ data UserAuthConfigInfo = UserAuthConfigInfo'
 -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
 -- secrets are stored within Amazon Secrets Manager.
 --
--- 'iAMAuth', 'userAuthConfigInfo_iAMAuth' - Whether to require or disallow AWS Identity and Access Management (IAM)
--- authentication for connections to the proxy.
---
 -- 'authScheme', 'userAuthConfigInfo_authScheme' - The type of authentication that the proxy uses for connections from the
 -- proxy to the underlying database.
+--
+-- 'iAMAuth', 'userAuthConfigInfo_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access
+-- Management (IAM) authentication for connections to the proxy.
 --
 -- 'userName', 'userAuthConfigInfo_userName' - The name of the database user to which the proxy connects.
 --
@@ -75,8 +75,8 @@ newUserAuthConfigInfo ::
 newUserAuthConfigInfo =
   UserAuthConfigInfo'
     { secretArn = Prelude.Nothing,
-      iAMAuth = Prelude.Nothing,
       authScheme = Prelude.Nothing,
+      iAMAuth = Prelude.Nothing,
       userName = Prelude.Nothing,
       description = Prelude.Nothing
     }
@@ -87,15 +87,15 @@ newUserAuthConfigInfo =
 userAuthConfigInfo_secretArn :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
 userAuthConfigInfo_secretArn = Lens.lens (\UserAuthConfigInfo' {secretArn} -> secretArn) (\s@UserAuthConfigInfo' {} a -> s {secretArn = a} :: UserAuthConfigInfo)
 
--- | Whether to require or disallow AWS Identity and Access Management (IAM)
--- authentication for connections to the proxy.
-userAuthConfigInfo_iAMAuth :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe IAMAuthMode)
-userAuthConfigInfo_iAMAuth = Lens.lens (\UserAuthConfigInfo' {iAMAuth} -> iAMAuth) (\s@UserAuthConfigInfo' {} a -> s {iAMAuth = a} :: UserAuthConfigInfo)
-
 -- | The type of authentication that the proxy uses for connections from the
 -- proxy to the underlying database.
 userAuthConfigInfo_authScheme :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe AuthScheme)
 userAuthConfigInfo_authScheme = Lens.lens (\UserAuthConfigInfo' {authScheme} -> authScheme) (\s@UserAuthConfigInfo' {} a -> s {authScheme = a} :: UserAuthConfigInfo)
+
+-- | Whether to require or disallow Amazon Web Services Identity and Access
+-- Management (IAM) authentication for connections to the proxy.
+userAuthConfigInfo_iAMAuth :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe IAMAuthMode)
+userAuthConfigInfo_iAMAuth = Lens.lens (\UserAuthConfigInfo' {iAMAuth} -> iAMAuth) (\s@UserAuthConfigInfo' {} a -> s {iAMAuth = a} :: UserAuthConfigInfo)
 
 -- | The name of the database user to which the proxy connects.
 userAuthConfigInfo_userName :: Lens.Lens' UserAuthConfigInfo (Prelude.Maybe Prelude.Text)
@@ -110,8 +110,8 @@ instance Core.FromXML UserAuthConfigInfo where
   parseXML x =
     UserAuthConfigInfo'
       Prelude.<$> (x Core..@? "SecretArn")
-      Prelude.<*> (x Core..@? "IAMAuth")
       Prelude.<*> (x Core..@? "AuthScheme")
+      Prelude.<*> (x Core..@? "IAMAuth")
       Prelude.<*> (x Core..@? "UserName")
       Prelude.<*> (x Core..@? "Description")
 

@@ -25,7 +25,7 @@
 -- operation fails and the stack remains unchanged. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- For
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,

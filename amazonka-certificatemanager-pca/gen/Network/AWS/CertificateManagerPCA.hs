@@ -22,10 +22,20 @@
 -- that you\'re using. For more information, see
 -- <https://aws.amazon.com/tools/#SDKs AWS SDKs>.
 --
--- Each ACM Private CA API action has a quota that determines the number of
--- times the action can be called per second. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api API Rate Quotas in ACM Private CA>
--- in the ACM Private CA user guide.
+-- Each ACM Private CA API operation has a quota that determines the number
+-- of times the operation can be called per second. ACM Private CA
+-- throttles API requests at different rates depending on the operation.
+-- Throttling means that ACM Private CA rejects an otherwise valid request
+-- because the request exceeds the operation\'s quota for the number of
+-- requests per second. When a request is throttled, ACM Private CA returns
+-- a
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/CommonErrors.html ThrottlingException>
+-- error. ACM Private CA does not guarantee a minimum request rate for
+-- APIs.
+--
+-- To see an up-to-date list of your ACM Private CA quotas, or to request a
+-- quota increase, log into your AWS account and visit the
+-- <https://console.aws.amazon.com/servicequotas/ Service Quotas> console.
 module Network.AWS.CertificateManagerPCA
   ( -- * Service Configuration
     defaultService,
@@ -51,17 +61,17 @@ module Network.AWS.CertificateManagerPCA
     -- ** MalformedCertificateException
     _MalformedCertificateException,
 
-    -- ** RequestAlreadyProcessedException
-    _RequestAlreadyProcessedException,
+    -- ** PermissionAlreadyExistsException
+    _PermissionAlreadyExistsException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
+    -- ** RequestAlreadyProcessedException
+    _RequestAlreadyProcessedException,
+
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
-
-    -- ** PermissionAlreadyExistsException
-    _PermissionAlreadyExistsException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -75,11 +85,11 @@ module Network.AWS.CertificateManagerPCA
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** CertificateMismatchException
-    _CertificateMismatchException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** CertificateMismatchException
+    _CertificateMismatchException,
 
     -- ** RequestFailedException
     _RequestFailedException,
@@ -153,17 +163,17 @@ module Network.AWS.CertificateManagerPCA
     CreateCertificateAuthorityResponse (CreateCertificateAuthorityResponse'),
     newCreateCertificateAuthorityResponse,
 
-    -- ** GetCertificateAuthorityCsr
-    GetCertificateAuthorityCsr (GetCertificateAuthorityCsr'),
-    newGetCertificateAuthorityCsr,
-    GetCertificateAuthorityCsrResponse (GetCertificateAuthorityCsrResponse'),
-    newGetCertificateAuthorityCsrResponse,
-
     -- ** ListCertificateAuthorities (Paginated)
     ListCertificateAuthorities (ListCertificateAuthorities'),
     newListCertificateAuthorities,
     ListCertificateAuthoritiesResponse (ListCertificateAuthoritiesResponse'),
     newListCertificateAuthoritiesResponse,
+
+    -- ** GetCertificateAuthorityCsr
+    GetCertificateAuthorityCsr (GetCertificateAuthorityCsr'),
+    newGetCertificateAuthorityCsr,
+    GetCertificateAuthorityCsrResponse (GetCertificateAuthorityCsrResponse'),
+    newGetCertificateAuthorityCsrResponse,
 
     -- ** RevokeCertificate
     RevokeCertificate (RevokeCertificate'),
@@ -225,17 +235,17 @@ module Network.AWS.CertificateManagerPCA
     DeleteCertificateAuthorityResponse (DeleteCertificateAuthorityResponse'),
     newDeleteCertificateAuthorityResponse,
 
-    -- ** UpdateCertificateAuthority
-    UpdateCertificateAuthority (UpdateCertificateAuthority'),
-    newUpdateCertificateAuthority,
-    UpdateCertificateAuthorityResponse (UpdateCertificateAuthorityResponse'),
-    newUpdateCertificateAuthorityResponse,
-
     -- ** UntagCertificateAuthority
     UntagCertificateAuthority (UntagCertificateAuthority'),
     newUntagCertificateAuthority,
     UntagCertificateAuthorityResponse (UntagCertificateAuthorityResponse'),
     newUntagCertificateAuthorityResponse,
+
+    -- ** UpdateCertificateAuthority
+    UpdateCertificateAuthority (UpdateCertificateAuthority'),
+    newUpdateCertificateAuthority,
+    UpdateCertificateAuthorityResponse (UpdateCertificateAuthorityResponse'),
+    newUpdateCertificateAuthorityResponse,
 
     -- ** DescribeCertificateAuthorityAuditReport
     DescribeCertificateAuthorityAuditReport (DescribeCertificateAuthorityAuditReport'),
@@ -272,6 +282,9 @@ module Network.AWS.CertificateManagerPCA
     -- ** KeyAlgorithm
     KeyAlgorithm (..),
 
+    -- ** KeyStorageSecurityStandard
+    KeyStorageSecurityStandard (..),
+
     -- ** PolicyQualifierId
     PolicyQualifierId (..),
 
@@ -280,6 +293,9 @@ module Network.AWS.CertificateManagerPCA
 
     -- ** RevocationReason
     RevocationReason (..),
+
+    -- ** S3ObjectAcl
+    S3ObjectAcl (..),
 
     -- ** SigningAlgorithm
     SigningAlgorithm (..),
@@ -338,6 +354,10 @@ module Network.AWS.CertificateManagerPCA
     -- ** KeyUsage
     KeyUsage (KeyUsage'),
     newKeyUsage,
+
+    -- ** OcspConfiguration
+    OcspConfiguration (OcspConfiguration'),
+    newOcspConfiguration,
 
     -- ** OtherName
     OtherName (OtherName'),

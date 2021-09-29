@@ -87,21 +87,6 @@ vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {p
 vpcOutputSettings_subnetIds :: Lens.Lens' VpcOutputSettings [Prelude.Text]
 vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Prelude.. Lens._Coerce
 
-instance Core.FromJSON VpcOutputSettings where
-  parseJSON =
-    Core.withObject
-      "VpcOutputSettings"
-      ( \x ->
-          VpcOutputSettings'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "publicAddressAllocationIds"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-      )
-
 instance Prelude.Hashable VpcOutputSettings
 
 instance Prelude.NFData VpcOutputSettings

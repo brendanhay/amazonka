@@ -24,18 +24,18 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The number of AWS Config rules or AWS resources that are compliant and
--- noncompliant.
+-- | The number of Config rules or Amazon Web Services resources that are
+-- compliant and noncompliant.
 --
 -- /See:/ 'newComplianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
-  { -- | The time that AWS Config created the compliance summary.
+  { -- | The time that Config created the compliance summary.
     complianceSummaryTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The number of AWS Config rules or AWS resources that are noncompliant,
-    -- up to a maximum of 25 for rules and 100 for resources.
+    -- | The number of Config rules or Amazon Web Services resources that are
+    -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
     nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
-    -- | The number of AWS Config rules or AWS resources that are compliant, up
-    -- to a maximum of 25 for rules and 100 for resources.
+    -- | The number of Config rules or Amazon Web Services resources that are
+    -- compliant, up to a maximum of 25 for rules and 100 for resources.
     compliantResourceCount :: Prelude.Maybe ComplianceContributorCount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +48,13 @@ data ComplianceSummary = ComplianceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceSummaryTimestamp', 'complianceSummary_complianceSummaryTimestamp' - The time that AWS Config created the compliance summary.
+-- 'complianceSummaryTimestamp', 'complianceSummary_complianceSummaryTimestamp' - The time that Config created the compliance summary.
 --
--- 'nonCompliantResourceCount', 'complianceSummary_nonCompliantResourceCount' - The number of AWS Config rules or AWS resources that are noncompliant,
--- up to a maximum of 25 for rules and 100 for resources.
+-- 'nonCompliantResourceCount', 'complianceSummary_nonCompliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
+-- noncompliant, up to a maximum of 25 for rules and 100 for resources.
 --
--- 'compliantResourceCount', 'complianceSummary_compliantResourceCount' - The number of AWS Config rules or AWS resources that are compliant, up
--- to a maximum of 25 for rules and 100 for resources.
+-- 'compliantResourceCount', 'complianceSummary_compliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
+-- compliant, up to a maximum of 25 for rules and 100 for resources.
 newComplianceSummary ::
   ComplianceSummary
 newComplianceSummary =
@@ -65,17 +65,17 @@ newComplianceSummary =
       compliantResourceCount = Prelude.Nothing
     }
 
--- | The time that AWS Config created the compliance summary.
+-- | The time that Config created the compliance summary.
 complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Prelude.Maybe Prelude.UTCTime)
 complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Core._Time
 
--- | The number of AWS Config rules or AWS resources that are noncompliant,
--- up to a maximum of 25 for rules and 100 for resources.
+-- | The number of Config rules or Amazon Web Services resources that are
+-- noncompliant, up to a maximum of 25 for rules and 100 for resources.
 complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
 complianceSummary_nonCompliantResourceCount = Lens.lens (\ComplianceSummary' {nonCompliantResourceCount} -> nonCompliantResourceCount) (\s@ComplianceSummary' {} a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
 
--- | The number of AWS Config rules or AWS resources that are compliant, up
--- to a maximum of 25 for rules and 100 for resources.
+-- | The number of Config rules or Amazon Web Services resources that are
+-- compliant, up to a maximum of 25 for rules and 100 for resources.
 complianceSummary_compliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
 complianceSummary_compliantResourceCount = Lens.lens (\ComplianceSummary' {compliantResourceCount} -> compliantResourceCount) (\s@ComplianceSummary' {} a -> s {compliantResourceCount = a} :: ComplianceSummary)
 

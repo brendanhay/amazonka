@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by an AWS Lambda function to deliver evaluation results to AWS
--- Config. This action is required in every AWS Lambda function that is
--- invoked by an AWS Config rule.
+-- Used by an Lambda function to deliver evaluation results to Config. This
+-- action is required in every Lambda function that is invoked by an Config
+-- rule.
 module Network.AWS.Config.PutEvaluations
   ( -- * Creating a Request
     PutEvaluations (..),
@@ -55,19 +55,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPutEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
   { -- | Use this parameter to specify a test run for @PutEvaluations@. You can
-    -- verify whether your AWS Lambda function will deliver evaluation results
-    -- to AWS Config. No updates occur to your existing evaluations, and
-    -- evaluation results are not sent to AWS Config.
+    -- verify whether your Lambda function will deliver evaluation results to
+    -- Config. No updates occur to your existing evaluations, and evaluation
+    -- results are not sent to Config.
     --
     -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
     -- value for the @ResultToken@ parameter, but the value cannot be null.
     testMode :: Prelude.Maybe Prelude.Bool,
-    -- | The assessments that the AWS Lambda function performs. Each evaluation
-    -- identifies an AWS resource and indicates whether it complies with the
-    -- AWS Config rule that invokes the AWS Lambda function.
+    -- | The assessments that the Lambda function performs. Each evaluation
+    -- identifies an Amazon Web Services resource and indicates whether it
+    -- complies with the Config rule that invokes the Lambda function.
     evaluations :: Prelude.Maybe [Evaluation],
-    -- | An encrypted token that associates an evaluation with an AWS Config
-    -- rule. Identifies the rule and the event that triggered the evaluation.
+    -- | An encrypted token that associates an evaluation with an Config rule.
+    -- Identifies the rule and the event that triggered the evaluation.
     resultToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,19 +81,19 @@ data PutEvaluations = PutEvaluations'
 -- for backwards compatibility:
 --
 -- 'testMode', 'putEvaluations_testMode' - Use this parameter to specify a test run for @PutEvaluations@. You can
--- verify whether your AWS Lambda function will deliver evaluation results
--- to AWS Config. No updates occur to your existing evaluations, and
--- evaluation results are not sent to AWS Config.
+-- verify whether your Lambda function will deliver evaluation results to
+-- Config. No updates occur to your existing evaluations, and evaluation
+-- results are not sent to Config.
 --
 -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
 -- value for the @ResultToken@ parameter, but the value cannot be null.
 --
--- 'evaluations', 'putEvaluations_evaluations' - The assessments that the AWS Lambda function performs. Each evaluation
--- identifies an AWS resource and indicates whether it complies with the
--- AWS Config rule that invokes the AWS Lambda function.
+-- 'evaluations', 'putEvaluations_evaluations' - The assessments that the Lambda function performs. Each evaluation
+-- identifies an Amazon Web Services resource and indicates whether it
+-- complies with the Config rule that invokes the Lambda function.
 --
--- 'resultToken', 'putEvaluations_resultToken' - An encrypted token that associates an evaluation with an AWS Config
--- rule. Identifies the rule and the event that triggered the evaluation.
+-- 'resultToken', 'putEvaluations_resultToken' - An encrypted token that associates an evaluation with an Config rule.
+-- Identifies the rule and the event that triggered the evaluation.
 newPutEvaluations ::
   -- | 'resultToken'
   Prelude.Text ->
@@ -106,23 +106,23 @@ newPutEvaluations pResultToken_ =
     }
 
 -- | Use this parameter to specify a test run for @PutEvaluations@. You can
--- verify whether your AWS Lambda function will deliver evaluation results
--- to AWS Config. No updates occur to your existing evaluations, and
--- evaluation results are not sent to AWS Config.
+-- verify whether your Lambda function will deliver evaluation results to
+-- Config. No updates occur to your existing evaluations, and evaluation
+-- results are not sent to Config.
 --
 -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
 -- value for the @ResultToken@ parameter, but the value cannot be null.
 putEvaluations_testMode :: Lens.Lens' PutEvaluations (Prelude.Maybe Prelude.Bool)
 putEvaluations_testMode = Lens.lens (\PutEvaluations' {testMode} -> testMode) (\s@PutEvaluations' {} a -> s {testMode = a} :: PutEvaluations)
 
--- | The assessments that the AWS Lambda function performs. Each evaluation
--- identifies an AWS resource and indicates whether it complies with the
--- AWS Config rule that invokes the AWS Lambda function.
+-- | The assessments that the Lambda function performs. Each evaluation
+-- identifies an Amazon Web Services resource and indicates whether it
+-- complies with the Config rule that invokes the Lambda function.
 putEvaluations_evaluations :: Lens.Lens' PutEvaluations (Prelude.Maybe [Evaluation])
 putEvaluations_evaluations = Lens.lens (\PutEvaluations' {evaluations} -> evaluations) (\s@PutEvaluations' {} a -> s {evaluations = a} :: PutEvaluations) Prelude.. Lens.mapping Lens._Coerce
 
--- | An encrypted token that associates an evaluation with an AWS Config
--- rule. Identifies the rule and the event that triggered the evaluation.
+-- | An encrypted token that associates an evaluation with an Config rule.
+-- Identifies the rule and the event that triggered the evaluation.
 putEvaluations_resultToken :: Lens.Lens' PutEvaluations Prelude.Text
 putEvaluations_resultToken = Lens.lens (\PutEvaluations' {resultToken} -> resultToken) (\s@PutEvaluations' {} a -> s {resultToken = a} :: PutEvaluations)
 

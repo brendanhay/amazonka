@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the list of tags for the specified AWS resource.
+-- Retrieves the list of tags for the specified Amazon Web Services
+-- resource.
 module Network.AWS.FMS.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -49,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
-    -- AWS Firewall Manager resources that support tagging are policies,
+    -- Firewall Manager resources that support tagging are policies,
     -- applications lists, and protocols lists.
     resourceArn :: Prelude.Text
   }
@@ -64,7 +65,7 @@ data ListTagsForResource = ListTagsForResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 newListTagsForResource ::
   -- | 'resourceArn'
@@ -74,7 +75,7 @@ newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
 -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)

@@ -31,7 +31,7 @@ data RegionsInfo = RegionsInfo'
   { -- | Lists the Regions where the directory has been replicated, excluding the
     -- primary Region.
     additionalRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The Region where the AWS Managed Microsoft AD directory was originally
+    -- | The Region where the Managed Microsoft AD directory was originally
     -- created.
     primaryRegion :: Prelude.Maybe Prelude.Text
   }
@@ -48,7 +48,7 @@ data RegionsInfo = RegionsInfo'
 -- 'additionalRegions', 'regionsInfo_additionalRegions' - Lists the Regions where the directory has been replicated, excluding the
 -- primary Region.
 --
--- 'primaryRegion', 'regionsInfo_primaryRegion' - The Region where the AWS Managed Microsoft AD directory was originally
+-- 'primaryRegion', 'regionsInfo_primaryRegion' - The Region where the Managed Microsoft AD directory was originally
 -- created.
 newRegionsInfo ::
   RegionsInfo
@@ -63,7 +63,7 @@ newRegionsInfo =
 regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
 regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Region where the AWS Managed Microsoft AD directory was originally
+-- | The Region where the Managed Microsoft AD directory was originally
 -- created.
 regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Prelude.Maybe Prelude.Text)
 regionsInfo_primaryRegion = Lens.lens (\RegionsInfo' {primaryRegion} -> primaryRegion) (\s@RegionsInfo' {} a -> s {primaryRegion = a} :: RegionsInfo)

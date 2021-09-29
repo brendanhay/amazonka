@@ -50,11 +50,11 @@ module Network.AWS.Redshift.DescribeResize
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
     resizeProgressMessage_targetEncryptionType,
     resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetNumberOfNodes,
     resizeProgressMessage_dataTransferProgressPercent,
     resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
   )
@@ -74,8 +74,8 @@ data DescribeResize = DescribeResize'
   { -- | The unique identifier of a cluster whose resize progress you are
     -- requesting. This parameter is case-sensitive.
     --
-    -- By default, resize operations for all clusters defined for an AWS
-    -- account are returned.
+    -- By default, resize operations for all clusters defined for an Amazon Web
+    -- Services account are returned.
     clusterIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,8 +91,8 @@ data DescribeResize = DescribeResize'
 -- 'clusterIdentifier', 'describeResize_clusterIdentifier' - The unique identifier of a cluster whose resize progress you are
 -- requesting. This parameter is case-sensitive.
 --
--- By default, resize operations for all clusters defined for an AWS
--- account are returned.
+-- By default, resize operations for all clusters defined for an Amazon Web
+-- Services account are returned.
 newDescribeResize ::
   -- | 'clusterIdentifier'
   Prelude.Text ->
@@ -106,8 +106,8 @@ newDescribeResize pClusterIdentifier_ =
 -- | The unique identifier of a cluster whose resize progress you are
 -- requesting. This parameter is case-sensitive.
 --
--- By default, resize operations for all clusters defined for an AWS
--- account are returned.
+-- By default, resize operations for all clusters defined for an Amazon Web
+-- Services account are returned.
 describeResize_clusterIdentifier :: Lens.Lens' DescribeResize Prelude.Text
 describeResize_clusterIdentifier = Lens.lens (\DescribeResize' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeResize' {} a -> s {clusterIdentifier = a} :: DescribeResize)
 

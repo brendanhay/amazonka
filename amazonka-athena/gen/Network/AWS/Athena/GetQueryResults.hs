@@ -207,7 +207,7 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The results of the query execution.
     resultSet :: Prelude.Maybe ResultSet,
-    -- | The number of rows inserted with a CREATE TABLE AS SELECT statement.
+    -- | The number of rows inserted with a @CREATE TABLE AS SELECT@ statement.
     updateCount :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -229,7 +229,7 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 --
 -- 'resultSet', 'getQueryResultsResponse_resultSet' - The results of the query execution.
 --
--- 'updateCount', 'getQueryResultsResponse_updateCount' - The number of rows inserted with a CREATE TABLE AS SELECT statement.
+-- 'updateCount', 'getQueryResultsResponse_updateCount' - The number of rows inserted with a @CREATE TABLE AS SELECT@ statement.
 --
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
@@ -256,7 +256,7 @@ getQueryResultsResponse_nextToken = Lens.lens (\GetQueryResultsResponse' {nextTo
 getQueryResultsResponse_resultSet :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe ResultSet)
 getQueryResultsResponse_resultSet = Lens.lens (\GetQueryResultsResponse' {resultSet} -> resultSet) (\s@GetQueryResultsResponse' {} a -> s {resultSet = a} :: GetQueryResultsResponse)
 
--- | The number of rows inserted with a CREATE TABLE AS SELECT statement.
+-- | The number of rows inserted with a @CREATE TABLE AS SELECT@ statement.
 getQueryResultsResponse_updateCount :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Integer)
 getQueryResultsResponse_updateCount = Lens.lens (\GetQueryResultsResponse' {updateCount} -> updateCount) (\s@GetQueryResultsResponse' {} a -> s {updateCount = a} :: GetQueryResultsResponse)
 

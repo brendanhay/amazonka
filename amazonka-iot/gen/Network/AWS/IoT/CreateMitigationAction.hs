@@ -26,6 +26,10 @@
 -- see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html Mitigation actions>.
 -- Each mitigation action can apply only one type of change.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateMitigationAction>
+-- action.
 module Network.AWS.IoT.CreateMitigationAction
   ( -- * Creating a Request
     CreateMitigationAction (..),

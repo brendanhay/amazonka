@@ -24,6 +24,12 @@
 -- change.
 --
 -- Deletes the Amazon Connect instance.
+--
+-- Amazon Connect enforces a limit on the total number of instances that
+-- you can create or delete in 30 days. If you exceed this limit, you will
+-- get an error message indicating there has been an excessive number of
+-- attempts at creating or deleting instances. You must wait 30 days before
+-- you can restart creating and deleting instances in your account.
 module Network.AWS.Connect.DeleteInstance
   ( -- * Creating a Request
     DeleteInstance (..),
@@ -47,7 +53,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +67,8 @@ data DeleteInstance = DeleteInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteInstance_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'deleteInstance_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newDeleteInstance ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -68,7 +76,8 @@ newDeleteInstance ::
 newDeleteInstance pInstanceId_ =
   DeleteInstance' {instanceId = pInstanceId_}
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 deleteInstance_instanceId :: Lens.Lens' DeleteInstance Prelude.Text
 deleteInstance_instanceId = Lens.lens (\DeleteInstance' {instanceId} -> instanceId) (\s@DeleteInstance' {} a -> s {instanceId = a} :: DeleteInstance)
 

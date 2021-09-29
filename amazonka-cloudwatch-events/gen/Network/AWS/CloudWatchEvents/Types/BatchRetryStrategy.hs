@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The retry strategy to use for failed jobs, if the target is an AWS Batch
+-- | The retry strategy to use for failed jobs, if the target is an Batch
 -- job. If you specify a retry strategy here, it overrides the retry
 -- strategy defined in the job definition.
 --

@@ -24,7 +24,8 @@
 -- or you can provide a prefix to match to the rule names.
 --
 -- ListRules does not list the targets of a rule. To see the targets
--- associated with a rule, use ListTargetsByRule.
+-- associated with a rule, use
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html ListTargetsByRule>.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListRules

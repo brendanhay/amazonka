@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGroupVersion' smart constructor.
 data GroupVersion = GroupVersion'
-  { -- | The ARN of the core definition version for this group.
+  { -- | The ARN of the subscription definition version for this group.
+    subscriptionDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the core definition version for this group.
     coreDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the connector definition version for this group.
     connectorDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the subscription definition version for this group.
-    subscriptionDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the logger definition version for this group.
     loggerDefinitionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource definition version for this group.
@@ -52,11 +52,11 @@ data GroupVersion = GroupVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subscriptionDefinitionVersionArn', 'groupVersion_subscriptionDefinitionVersionArn' - The ARN of the subscription definition version for this group.
+--
 -- 'coreDefinitionVersionArn', 'groupVersion_coreDefinitionVersionArn' - The ARN of the core definition version for this group.
 --
 -- 'connectorDefinitionVersionArn', 'groupVersion_connectorDefinitionVersionArn' - The ARN of the connector definition version for this group.
---
--- 'subscriptionDefinitionVersionArn', 'groupVersion_subscriptionDefinitionVersionArn' - The ARN of the subscription definition version for this group.
 --
 -- 'loggerDefinitionVersionArn', 'groupVersion_loggerDefinitionVersionArn' - The ARN of the logger definition version for this group.
 --
@@ -69,15 +69,19 @@ newGroupVersion ::
   GroupVersion
 newGroupVersion =
   GroupVersion'
-    { coreDefinitionVersionArn =
+    { subscriptionDefinitionVersionArn =
         Prelude.Nothing,
+      coreDefinitionVersionArn = Prelude.Nothing,
       connectorDefinitionVersionArn = Prelude.Nothing,
-      subscriptionDefinitionVersionArn = Prelude.Nothing,
       loggerDefinitionVersionArn = Prelude.Nothing,
       resourceDefinitionVersionArn = Prelude.Nothing,
       functionDefinitionVersionArn = Prelude.Nothing,
       deviceDefinitionVersionArn = Prelude.Nothing
     }
+
+-- | The ARN of the subscription definition version for this group.
+groupVersion_subscriptionDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
+groupVersion_subscriptionDefinitionVersionArn = Lens.lens (\GroupVersion' {subscriptionDefinitionVersionArn} -> subscriptionDefinitionVersionArn) (\s@GroupVersion' {} a -> s {subscriptionDefinitionVersionArn = a} :: GroupVersion)
 
 -- | The ARN of the core definition version for this group.
 groupVersion_coreDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
@@ -86,10 +90,6 @@ groupVersion_coreDefinitionVersionArn = Lens.lens (\GroupVersion' {coreDefinitio
 -- | The ARN of the connector definition version for this group.
 groupVersion_connectorDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
 groupVersion_connectorDefinitionVersionArn = Lens.lens (\GroupVersion' {connectorDefinitionVersionArn} -> connectorDefinitionVersionArn) (\s@GroupVersion' {} a -> s {connectorDefinitionVersionArn = a} :: GroupVersion)
-
--- | The ARN of the subscription definition version for this group.
-groupVersion_subscriptionDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
-groupVersion_subscriptionDefinitionVersionArn = Lens.lens (\GroupVersion' {subscriptionDefinitionVersionArn} -> subscriptionDefinitionVersionArn) (\s@GroupVersion' {} a -> s {subscriptionDefinitionVersionArn = a} :: GroupVersion)
 
 -- | The ARN of the logger definition version for this group.
 groupVersion_loggerDefinitionVersionArn :: Lens.Lens' GroupVersion (Prelude.Maybe Prelude.Text)
@@ -113,9 +113,9 @@ instance Core.FromJSON GroupVersion where
       "GroupVersion"
       ( \x ->
           GroupVersion'
-            Prelude.<$> (x Core..:? "CoreDefinitionVersionArn")
+            Prelude.<$> (x Core..:? "SubscriptionDefinitionVersionArn")
+            Prelude.<*> (x Core..:? "CoreDefinitionVersionArn")
             Prelude.<*> (x Core..:? "ConnectorDefinitionVersionArn")
-            Prelude.<*> (x Core..:? "SubscriptionDefinitionVersionArn")
             Prelude.<*> (x Core..:? "LoggerDefinitionVersionArn")
             Prelude.<*> (x Core..:? "ResourceDefinitionVersionArn")
             Prelude.<*> (x Core..:? "FunctionDefinitionVersionArn")
@@ -130,12 +130,12 @@ instance Core.ToJSON GroupVersion where
   toJSON GroupVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CoreDefinitionVersionArn" Core..=)
+          [ ("SubscriptionDefinitionVersionArn" Core..=)
+              Prelude.<$> subscriptionDefinitionVersionArn,
+            ("CoreDefinitionVersionArn" Core..=)
               Prelude.<$> coreDefinitionVersionArn,
             ("ConnectorDefinitionVersionArn" Core..=)
               Prelude.<$> connectorDefinitionVersionArn,
-            ("SubscriptionDefinitionVersionArn" Core..=)
-              Prelude.<$> subscriptionDefinitionVersionArn,
             ("LoggerDefinitionVersionArn" Core..=)
               Prelude.<$> loggerDefinitionVersionArn,
             ("ResourceDefinitionVersionArn" Core..=)

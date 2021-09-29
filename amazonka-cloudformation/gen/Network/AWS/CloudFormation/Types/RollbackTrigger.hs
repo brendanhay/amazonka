@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A rollback trigger AWS CloudFormation monitors during creation and
--- updating of stacks. If any of the alarms you specify goes to ALARM state
--- during the stack operation or within the specified monitoring period
+-- | A rollback trigger CloudFormation monitors during creation and updating
+-- of stacks. If any of the alarms you specify goes to ALARM state during
+-- the stack operation or within the specified monitoring period
 -- afterwards, CloudFormation rolls back the entire stack operation.
 --
 -- /See:/ 'newRollbackTrigger' smart constructor.

@@ -34,8 +34,8 @@ module Network.AWS.Greengrass.GetBulkDeploymentStatus
     newGetBulkDeploymentStatusResponse,
 
     -- * Response Lenses
-    getBulkDeploymentStatusResponse_createdAt,
     getBulkDeploymentStatusResponse_bulkDeploymentStatus,
+    getBulkDeploymentStatusResponse_createdAt,
     getBulkDeploymentStatusResponse_tags,
     getBulkDeploymentStatusResponse_bulkDeploymentMetrics,
     getBulkDeploymentStatusResponse_errorMessage,
@@ -90,8 +90,8 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetBulkDeploymentStatusResponse'
-            Prelude.<$> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "BulkDeploymentStatus")
+            Prelude.<$> (x Core..?> "BulkDeploymentStatus")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "BulkDeploymentMetrics")
             Prelude.<*> (x Core..?> "ErrorMessage")
@@ -127,10 +127,10 @@ instance Core.ToQuery GetBulkDeploymentStatus where
 
 -- | /See:/ 'newGetBulkDeploymentStatusResponse' smart constructor.
 data GetBulkDeploymentStatusResponse = GetBulkDeploymentStatusResponse'
-  { -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
-    -- | The status of the bulk deployment.
+  { -- | The status of the bulk deployment.
     bulkDeploymentStatus :: Prelude.Maybe BulkDeploymentStatus,
+    -- | The time, in ISO format, when the deployment was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) attached to the resource arn.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Relevant metrics on input records processed during bulk deployment.
@@ -152,9 +152,9 @@ data GetBulkDeploymentStatusResponse = GetBulkDeploymentStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'getBulkDeploymentStatusResponse_createdAt' - The time, in ISO format, when the deployment was created.
---
 -- 'bulkDeploymentStatus', 'getBulkDeploymentStatusResponse_bulkDeploymentStatus' - The status of the bulk deployment.
+--
+-- 'createdAt', 'getBulkDeploymentStatusResponse_createdAt' - The time, in ISO format, when the deployment was created.
 --
 -- 'tags', 'getBulkDeploymentStatusResponse_tags' - Tag(s) attached to the resource arn.
 --
@@ -171,9 +171,9 @@ newGetBulkDeploymentStatusResponse ::
   GetBulkDeploymentStatusResponse
 newGetBulkDeploymentStatusResponse pHttpStatus_ =
   GetBulkDeploymentStatusResponse'
-    { createdAt =
+    { bulkDeploymentStatus =
         Prelude.Nothing,
-      bulkDeploymentStatus = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       tags = Prelude.Nothing,
       bulkDeploymentMetrics = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
@@ -181,13 +181,13 @@ newGetBulkDeploymentStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The time, in ISO format, when the deployment was created.
-getBulkDeploymentStatusResponse_createdAt :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
-getBulkDeploymentStatusResponse_createdAt = Lens.lens (\GetBulkDeploymentStatusResponse' {createdAt} -> createdAt) (\s@GetBulkDeploymentStatusResponse' {} a -> s {createdAt = a} :: GetBulkDeploymentStatusResponse)
-
 -- | The status of the bulk deployment.
 getBulkDeploymentStatusResponse_bulkDeploymentStatus :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe BulkDeploymentStatus)
 getBulkDeploymentStatusResponse_bulkDeploymentStatus = Lens.lens (\GetBulkDeploymentStatusResponse' {bulkDeploymentStatus} -> bulkDeploymentStatus) (\s@GetBulkDeploymentStatusResponse' {} a -> s {bulkDeploymentStatus = a} :: GetBulkDeploymentStatusResponse)
+
+-- | The time, in ISO format, when the deployment was created.
+getBulkDeploymentStatusResponse_createdAt :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getBulkDeploymentStatusResponse_createdAt = Lens.lens (\GetBulkDeploymentStatusResponse' {createdAt} -> createdAt) (\s@GetBulkDeploymentStatusResponse' {} a -> s {createdAt = a} :: GetBulkDeploymentStatusResponse)
 
 -- | Tag(s) attached to the resource arn.
 getBulkDeploymentStatusResponse_tags :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))

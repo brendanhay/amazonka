@@ -28,7 +28,7 @@ import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a system disk or a block storage disk.
+-- | Describes a block storage disk.
 --
 -- /See:/ 'newDisk' smart constructor.
 data Disk = Disk'
@@ -51,13 +51,13 @@ data Disk = Disk'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the disk.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type (e.g., @Disk@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type (e.g., @Disk@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The size of the disk in GB.
     sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | Describes the status of the disk.
@@ -68,14 +68,14 @@ data Disk = Disk'
     attachedTo :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
+    -- | The disk path.
+    path :: Prelude.Maybe Prelude.Text,
     -- | The input\/output operations per second (IOPS) of the disk.
     iops :: Prelude.Maybe Prelude.Int,
     -- | The AWS Region and Availability Zone where the disk is located.
     location :: Prelude.Maybe ResourceLocation,
-    -- | The disk path.
-    path :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether this disk is a system disk (has an
     -- operating system loaded on it).
     isSystemDisk :: Prelude.Maybe Prelude.Bool
@@ -109,12 +109,12 @@ data Disk = Disk'
 --
 -- 'arn', 'disk_arn' - The Amazon Resource Name (ARN) of the disk.
 --
--- 'resourceType', 'disk_resourceType' - The Lightsail resource type (e.g., @Disk@).
---
 -- 'supportCode', 'disk_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
+--
+-- 'resourceType', 'disk_resourceType' - The Lightsail resource type (e.g., @Disk@).
 --
 -- 'sizeInGb', 'disk_sizeInGb' - The size of the disk in GB.
 --
@@ -126,13 +126,13 @@ data Disk = Disk'
 --
 -- 'tags', 'disk_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+--
+-- 'path', 'disk_path' - The disk path.
 --
 -- 'iops', 'disk_iops' - The input\/output operations per second (IOPS) of the disk.
 --
 -- 'location', 'disk_location' - The AWS Region and Availability Zone where the disk is located.
---
--- 'path', 'disk_path' - The disk path.
 --
 -- 'isSystemDisk', 'disk_isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an
 -- operating system loaded on it).
@@ -146,16 +146,16 @@ newDisk =
       isAttached = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       supportCode = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       sizeInGb = Prelude.Nothing,
       state = Prelude.Nothing,
       name = Prelude.Nothing,
       attachedTo = Prelude.Nothing,
       tags = Prelude.Nothing,
+      path = Prelude.Nothing,
       iops = Prelude.Nothing,
       location = Prelude.Nothing,
-      path = Prelude.Nothing,
       isSystemDisk = Prelude.Nothing
     }
 
@@ -190,16 +190,16 @@ disk_createdAt = Lens.lens (\Disk' {createdAt} -> createdAt) (\s@Disk' {} a -> s
 disk_arn :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_arn = Lens.lens (\Disk' {arn} -> arn) (\s@Disk' {} a -> s {arn = a} :: Disk)
 
--- | The Lightsail resource type (e.g., @Disk@).
-disk_resourceType :: Lens.Lens' Disk (Prelude.Maybe ResourceType)
-disk_resourceType = Lens.lens (\Disk' {resourceType} -> resourceType) (\s@Disk' {} a -> s {resourceType = a} :: Disk)
-
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
 disk_supportCode :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_supportCode = Lens.lens (\Disk' {supportCode} -> supportCode) (\s@Disk' {} a -> s {supportCode = a} :: Disk)
+
+-- | The Lightsail resource type (e.g., @Disk@).
+disk_resourceType :: Lens.Lens' Disk (Prelude.Maybe ResourceType)
+disk_resourceType = Lens.lens (\Disk' {resourceType} -> resourceType) (\s@Disk' {} a -> s {resourceType = a} :: Disk)
 
 -- | The size of the disk in GB.
 disk_sizeInGb :: Lens.Lens' Disk (Prelude.Maybe Prelude.Int)
@@ -219,9 +219,13 @@ disk_attachedTo = Lens.lens (\Disk' {attachedTo} -> attachedTo) (\s@Disk' {} a -
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 disk_tags :: Lens.Lens' Disk (Prelude.Maybe [Tag])
 disk_tags = Lens.lens (\Disk' {tags} -> tags) (\s@Disk' {} a -> s {tags = a} :: Disk) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The disk path.
+disk_path :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
+disk_path = Lens.lens (\Disk' {path} -> path) (\s@Disk' {} a -> s {path = a} :: Disk)
 
 -- | The input\/output operations per second (IOPS) of the disk.
 disk_iops :: Lens.Lens' Disk (Prelude.Maybe Prelude.Int)
@@ -230,10 +234,6 @@ disk_iops = Lens.lens (\Disk' {iops} -> iops) (\s@Disk' {} a -> s {iops = a} :: 
 -- | The AWS Region and Availability Zone where the disk is located.
 disk_location :: Lens.Lens' Disk (Prelude.Maybe ResourceLocation)
 disk_location = Lens.lens (\Disk' {location} -> location) (\s@Disk' {} a -> s {location = a} :: Disk)
-
--- | The disk path.
-disk_path :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
-disk_path = Lens.lens (\Disk' {path} -> path) (\s@Disk' {} a -> s {path = a} :: Disk)
 
 -- | A Boolean value indicating whether this disk is a system disk (has an
 -- operating system loaded on it).
@@ -252,16 +252,16 @@ instance Core.FromJSON Disk where
             Prelude.<*> (x Core..:? "isAttached")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "supportCode")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "sizeInGb")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "attachedTo")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..:? "iops")
             Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..:? "isSystemDisk")
       )
 

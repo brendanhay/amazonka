@@ -128,12 +128,6 @@ module Network.AWS.OpsWorks
     -- * Operations
     -- $operations
 
-    -- ** DescribeInstances
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
-
     -- ** DescribeDeployments
     DescribeDeployments (DescribeDeployments'),
     newDescribeDeployments,
@@ -146,11 +140,11 @@ module Network.AWS.OpsWorks
     UpdateMyUserProfileResponse (UpdateMyUserProfileResponse'),
     newUpdateMyUserProfileResponse,
 
-    -- ** DeregisterElasticIp
-    DeregisterElasticIp (DeregisterElasticIp'),
-    newDeregisterElasticIp,
-    DeregisterElasticIpResponse (DeregisterElasticIpResponse'),
-    newDeregisterElasticIpResponse,
+    -- ** DescribeInstances
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
 
     -- ** SetTimeBasedAutoScaling
     SetTimeBasedAutoScaling (SetTimeBasedAutoScaling'),
@@ -158,23 +152,23 @@ module Network.AWS.OpsWorks
     SetTimeBasedAutoScalingResponse (SetTimeBasedAutoScalingResponse'),
     newSetTimeBasedAutoScalingResponse,
 
-    -- ** DescribeRdsDbInstances
-    DescribeRdsDbInstances (DescribeRdsDbInstances'),
-    newDescribeRdsDbInstances,
-    DescribeRdsDbInstancesResponse (DescribeRdsDbInstancesResponse'),
-    newDescribeRdsDbInstancesResponse,
-
     -- ** AttachElasticLoadBalancer
     AttachElasticLoadBalancer (AttachElasticLoadBalancer'),
     newAttachElasticLoadBalancer,
     AttachElasticLoadBalancerResponse (AttachElasticLoadBalancerResponse'),
     newAttachElasticLoadBalancerResponse,
 
-    -- ** StartInstance
-    StartInstance (StartInstance'),
-    newStartInstance,
-    StartInstanceResponse (StartInstanceResponse'),
-    newStartInstanceResponse,
+    -- ** DescribeRdsDbInstances
+    DescribeRdsDbInstances (DescribeRdsDbInstances'),
+    newDescribeRdsDbInstances,
+    DescribeRdsDbInstancesResponse (DescribeRdsDbInstancesResponse'),
+    newDescribeRdsDbInstancesResponse,
+
+    -- ** DeregisterElasticIp
+    DeregisterElasticIp (DeregisterElasticIp'),
+    newDeregisterElasticIp,
+    DeregisterElasticIpResponse (DeregisterElasticIpResponse'),
+    newDeregisterElasticIpResponse,
 
     -- ** SetPermission
     SetPermission (SetPermission'),
@@ -188,11 +182,11 @@ module Network.AWS.OpsWorks
     RegisterVolumeResponse (RegisterVolumeResponse'),
     newRegisterVolumeResponse,
 
-    -- ** StopInstance
-    StopInstance (StopInstance'),
-    newStopInstance,
-    StopInstanceResponse (StopInstanceResponse'),
-    newStopInstanceResponse,
+    -- ** StartInstance
+    StartInstance (StartInstance'),
+    newStartInstance,
+    StartInstanceResponse (StartInstanceResponse'),
+    newStartInstanceResponse,
 
     -- ** DescribeEcsClusters (Paginated)
     DescribeEcsClusters (DescribeEcsClusters'),
@@ -200,17 +194,11 @@ module Network.AWS.OpsWorks
     DescribeEcsClustersResponse (DescribeEcsClustersResponse'),
     newDescribeEcsClustersResponse,
 
-    -- ** DescribeVolumes
-    DescribeVolumes (DescribeVolumes'),
-    newDescribeVolumes,
-    DescribeVolumesResponse (DescribeVolumesResponse'),
-    newDescribeVolumesResponse,
-
-    -- ** DescribeOperatingSystems
-    DescribeOperatingSystems (DescribeOperatingSystems'),
-    newDescribeOperatingSystems,
-    DescribeOperatingSystemsResponse (DescribeOperatingSystemsResponse'),
-    newDescribeOperatingSystemsResponse,
+    -- ** StopInstance
+    StopInstance (StopInstance'),
+    newStopInstance,
+    StopInstanceResponse (StopInstanceResponse'),
+    newStopInstanceResponse,
 
     -- ** DisassociateElasticIp
     DisassociateElasticIp (DisassociateElasticIp'),
@@ -218,11 +206,11 @@ module Network.AWS.OpsWorks
     DisassociateElasticIpResponse (DisassociateElasticIpResponse'),
     newDisassociateElasticIpResponse,
 
-    -- ** StartStack
-    StartStack (StartStack'),
-    newStartStack,
-    StartStackResponse (StartStackResponse'),
-    newStartStackResponse,
+    -- ** DescribeOperatingSystems
+    DescribeOperatingSystems (DescribeOperatingSystems'),
+    newDescribeOperatingSystems,
+    DescribeOperatingSystemsResponse (DescribeOperatingSystemsResponse'),
+    newDescribeOperatingSystemsResponse,
 
     -- ** StopStack
     StopStack (StopStack'),
@@ -230,17 +218,23 @@ module Network.AWS.OpsWorks
     StopStackResponse (StopStackResponse'),
     newStopStackResponse,
 
-    -- ** RegisterRdsDbInstance
-    RegisterRdsDbInstance (RegisterRdsDbInstance'),
-    newRegisterRdsDbInstance,
-    RegisterRdsDbInstanceResponse (RegisterRdsDbInstanceResponse'),
-    newRegisterRdsDbInstanceResponse,
+    -- ** DescribeVolumes
+    DescribeVolumes (DescribeVolumes'),
+    newDescribeVolumes,
+    DescribeVolumesResponse (DescribeVolumesResponse'),
+    newDescribeVolumesResponse,
 
-    -- ** DescribeServiceErrors
-    DescribeServiceErrors (DescribeServiceErrors'),
-    newDescribeServiceErrors,
-    DescribeServiceErrorsResponse (DescribeServiceErrorsResponse'),
-    newDescribeServiceErrorsResponse,
+    -- ** StartStack
+    StartStack (StartStack'),
+    newStartStack,
+    StartStackResponse (StartStackResponse'),
+    newStartStackResponse,
+
+    -- ** UpdateUserProfile
+    UpdateUserProfile (UpdateUserProfile'),
+    newUpdateUserProfile,
+    UpdateUserProfileResponse (UpdateUserProfileResponse'),
+    newUpdateUserProfileResponse,
 
     -- ** DescribeTimeBasedAutoScaling
     DescribeTimeBasedAutoScaling (DescribeTimeBasedAutoScaling'),
@@ -248,11 +242,23 @@ module Network.AWS.OpsWorks
     DescribeTimeBasedAutoScalingResponse (DescribeTimeBasedAutoScalingResponse'),
     newDescribeTimeBasedAutoScalingResponse,
 
-    -- ** UpdateUserProfile
-    UpdateUserProfile (UpdateUserProfile'),
-    newUpdateUserProfile,
-    UpdateUserProfileResponse (UpdateUserProfileResponse'),
-    newUpdateUserProfileResponse,
+    -- ** DescribeServiceErrors
+    DescribeServiceErrors (DescribeServiceErrors'),
+    newDescribeServiceErrors,
+    DescribeServiceErrorsResponse (DescribeServiceErrorsResponse'),
+    newDescribeServiceErrorsResponse,
+
+    -- ** RegisterRdsDbInstance
+    RegisterRdsDbInstance (RegisterRdsDbInstance'),
+    newRegisterRdsDbInstance,
+    RegisterRdsDbInstanceResponse (RegisterRdsDbInstanceResponse'),
+    newRegisterRdsDbInstanceResponse,
+
+    -- ** DeleteUserProfile
+    DeleteUserProfile (DeleteUserProfile'),
+    newDeleteUserProfile,
+    DeleteUserProfileResponse (DeleteUserProfileResponse'),
+    newDeleteUserProfileResponse,
 
     -- ** DescribeMyUserProfile
     DescribeMyUserProfile (DescribeMyUserProfile'),
@@ -266,11 +272,11 @@ module Network.AWS.OpsWorks
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DeleteUserProfile
-    DeleteUserProfile (DeleteUserProfile'),
-    newDeleteUserProfile,
-    DeleteUserProfileResponse (DeleteUserProfileResponse'),
-    newDeleteUserProfileResponse,
+    -- ** UpdateInstance
+    UpdateInstance (UpdateInstance'),
+    newUpdateInstance,
+    UpdateInstanceResponse (UpdateInstanceResponse'),
+    newUpdateInstanceResponse,
 
     -- ** AssignInstance
     AssignInstance (AssignInstance'),
@@ -278,35 +284,11 @@ module Network.AWS.OpsWorks
     AssignInstanceResponse (AssignInstanceResponse'),
     newAssignInstanceResponse,
 
-    -- ** DetachElasticLoadBalancer
-    DetachElasticLoadBalancer (DetachElasticLoadBalancer'),
-    newDetachElasticLoadBalancer,
-    DetachElasticLoadBalancerResponse (DetachElasticLoadBalancerResponse'),
-    newDetachElasticLoadBalancerResponse,
-
-    -- ** DescribeStackProvisioningParameters
-    DescribeStackProvisioningParameters (DescribeStackProvisioningParameters'),
-    newDescribeStackProvisioningParameters,
-    DescribeStackProvisioningParametersResponse (DescribeStackProvisioningParametersResponse'),
-    newDescribeStackProvisioningParametersResponse,
-
-    -- ** DeregisterVolume
-    DeregisterVolume (DeregisterVolume'),
-    newDeregisterVolume,
-    DeregisterVolumeResponse (DeregisterVolumeResponse'),
-    newDeregisterVolumeResponse,
-
-    -- ** DescribeStacks
-    DescribeStacks (DescribeStacks'),
-    newDescribeStacks,
-    DescribeStacksResponse (DescribeStacksResponse'),
-    newDescribeStacksResponse,
-
-    -- ** DeleteInstance
-    DeleteInstance (DeleteInstance'),
-    newDeleteInstance,
-    DeleteInstanceResponse (DeleteInstanceResponse'),
-    newDeleteInstanceResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** RebootInstance
     RebootInstance (RebootInstance'),
@@ -314,29 +296,47 @@ module Network.AWS.OpsWorks
     RebootInstanceResponse (RebootInstanceResponse'),
     newRebootInstanceResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DeregisterVolume
+    DeregisterVolume (DeregisterVolume'),
+    newDeregisterVolume,
+    DeregisterVolumeResponse (DeregisterVolumeResponse'),
+    newDeregisterVolumeResponse,
 
-    -- ** UpdateInstance
-    UpdateInstance (UpdateInstance'),
-    newUpdateInstance,
-    UpdateInstanceResponse (UpdateInstanceResponse'),
-    newUpdateInstanceResponse,
+    -- ** DescribeStackProvisioningParameters
+    DescribeStackProvisioningParameters (DescribeStackProvisioningParameters'),
+    newDescribeStackProvisioningParameters,
+    DescribeStackProvisioningParametersResponse (DescribeStackProvisioningParametersResponse'),
+    newDescribeStackProvisioningParametersResponse,
 
-    -- ** CloneStack
-    CloneStack (CloneStack'),
-    newCloneStack,
-    CloneStackResponse (CloneStackResponse'),
-    newCloneStackResponse,
+    -- ** DeleteInstance
+    DeleteInstance (DeleteInstance'),
+    newDeleteInstance,
+    DeleteInstanceResponse (DeleteInstanceResponse'),
+    newDeleteInstanceResponse,
+
+    -- ** DescribeStacks
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
+
+    -- ** DetachElasticLoadBalancer
+    DetachElasticLoadBalancer (DetachElasticLoadBalancer'),
+    newDetachElasticLoadBalancer,
+    DetachElasticLoadBalancerResponse (DetachElasticLoadBalancerResponse'),
+    newDetachElasticLoadBalancerResponse,
 
     -- ** RegisterElasticIp
     RegisterElasticIp (RegisterElasticIp'),
     newRegisterElasticIp,
     RegisterElasticIpResponse (RegisterElasticIpResponse'),
     newRegisterElasticIpResponse,
+
+    -- ** CloneStack
+    CloneStack (CloneStack'),
+    newCloneStack,
+    CloneStackResponse (CloneStackResponse'),
+    newCloneStackResponse,
 
     -- ** DescribeAgentVersions
     DescribeAgentVersions (DescribeAgentVersions'),
@@ -356,6 +356,12 @@ module Network.AWS.OpsWorks
     CreateStackResponse (CreateStackResponse'),
     newCreateStackResponse,
 
+    -- ** DeleteLayer
+    DeleteLayer (DeleteLayer'),
+    newDeleteLayer,
+    DeleteLayerResponse (DeleteLayerResponse'),
+    newDeleteLayerResponse,
+
     -- ** UnassignVolume
     UnassignVolume (UnassignVolume'),
     newUnassignVolume,
@@ -368,11 +374,35 @@ module Network.AWS.OpsWorks
     GrantAccessResponse (GrantAccessResponse'),
     newGrantAccessResponse,
 
-    -- ** DeleteLayer
-    DeleteLayer (DeleteLayer'),
-    newDeleteLayer,
-    DeleteLayerResponse (DeleteLayerResponse'),
-    newDeleteLayerResponse,
+    -- ** CreateLayer
+    CreateLayer (CreateLayer'),
+    newCreateLayer,
+    CreateLayerResponse (CreateLayerResponse'),
+    newCreateLayerResponse,
+
+    -- ** DeleteStack
+    DeleteStack (DeleteStack'),
+    newDeleteStack,
+    DeleteStackResponse (DeleteStackResponse'),
+    newDeleteStackResponse,
+
+    -- ** UpdateStack
+    UpdateStack (UpdateStack'),
+    newUpdateStack,
+    UpdateStackResponse (UpdateStackResponse'),
+    newUpdateStackResponse,
+
+    -- ** SetLoadBasedAutoScaling
+    SetLoadBasedAutoScaling (SetLoadBasedAutoScaling'),
+    newSetLoadBasedAutoScaling,
+    SetLoadBasedAutoScalingResponse (SetLoadBasedAutoScalingResponse'),
+    newSetLoadBasedAutoScalingResponse,
+
+    -- ** DescribeStackSummary
+    DescribeStackSummary (DescribeStackSummary'),
+    newDescribeStackSummary,
+    DescribeStackSummaryResponse (DescribeStackSummaryResponse'),
+    newDescribeStackSummaryResponse,
 
     -- ** DescribeApps
     DescribeApps (DescribeApps'),
@@ -386,36 +416,6 @@ module Network.AWS.OpsWorks
     DeregisterEcsClusterResponse (DeregisterEcsClusterResponse'),
     newDeregisterEcsClusterResponse,
 
-    -- ** DescribeStackSummary
-    DescribeStackSummary (DescribeStackSummary'),
-    newDescribeStackSummary,
-    DescribeStackSummaryResponse (DescribeStackSummaryResponse'),
-    newDescribeStackSummaryResponse,
-
-    -- ** DeleteStack
-    DeleteStack (DeleteStack'),
-    newDeleteStack,
-    DeleteStackResponse (DeleteStackResponse'),
-    newDeleteStackResponse,
-
-    -- ** SetLoadBasedAutoScaling
-    SetLoadBasedAutoScaling (SetLoadBasedAutoScaling'),
-    newSetLoadBasedAutoScaling,
-    SetLoadBasedAutoScalingResponse (SetLoadBasedAutoScalingResponse'),
-    newSetLoadBasedAutoScalingResponse,
-
-    -- ** CreateLayer
-    CreateLayer (CreateLayer'),
-    newCreateLayer,
-    CreateLayerResponse (CreateLayerResponse'),
-    newCreateLayerResponse,
-
-    -- ** UpdateStack
-    UpdateStack (UpdateStack'),
-    newUpdateStack,
-    UpdateStackResponse (UpdateStackResponse'),
-    newUpdateStackResponse,
-
     -- ** DescribeUserProfiles
     DescribeUserProfiles (DescribeUserProfiles'),
     newDescribeUserProfiles,
@@ -428,11 +428,23 @@ module Network.AWS.OpsWorks
     DescribeElasticLoadBalancersResponse (DescribeElasticLoadBalancersResponse'),
     newDescribeElasticLoadBalancersResponse,
 
+    -- ** DescribeRaidArrays
+    DescribeRaidArrays (DescribeRaidArrays'),
+    newDescribeRaidArrays,
+    DescribeRaidArraysResponse (DescribeRaidArraysResponse'),
+    newDescribeRaidArraysResponse,
+
     -- ** DescribeCommands
     DescribeCommands (DescribeCommands'),
     newDescribeCommands,
     DescribeCommandsResponse (DescribeCommandsResponse'),
     newDescribeCommandsResponse,
+
+    -- ** DeregisterInstance
+    DeregisterInstance (DeregisterInstance'),
+    newDeregisterInstance,
+    DeregisterInstanceResponse (DeregisterInstanceResponse'),
+    newDeregisterInstanceResponse,
 
     -- ** UpdateVolume
     UpdateVolume (UpdateVolume'),
@@ -446,18 +458,6 @@ module Network.AWS.OpsWorks
     AssignVolumeResponse (AssignVolumeResponse'),
     newAssignVolumeResponse,
 
-    -- ** DescribeRaidArrays
-    DescribeRaidArrays (DescribeRaidArrays'),
-    newDescribeRaidArrays,
-    DescribeRaidArraysResponse (DescribeRaidArraysResponse'),
-    newDescribeRaidArraysResponse,
-
-    -- ** DeregisterInstance
-    DeregisterInstance (DeregisterInstance'),
-    newDeregisterInstance,
-    DeregisterInstanceResponse (DeregisterInstanceResponse'),
-    newDeregisterInstanceResponse,
-
     -- ** RegisterEcsCluster
     RegisterEcsCluster (RegisterEcsCluster'),
     newRegisterEcsCluster,
@@ -470,11 +470,11 @@ module Network.AWS.OpsWorks
     CreateUserProfileResponse (CreateUserProfileResponse'),
     newCreateUserProfileResponse,
 
-    -- ** UpdateRdsDbInstance
-    UpdateRdsDbInstance (UpdateRdsDbInstance'),
-    newUpdateRdsDbInstance,
-    UpdateRdsDbInstanceResponse (UpdateRdsDbInstanceResponse'),
-    newUpdateRdsDbInstanceResponse,
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** UnassignInstance
     UnassignInstance (UnassignInstance'),
@@ -482,17 +482,11 @@ module Network.AWS.OpsWorks
     UnassignInstanceResponse (UnassignInstanceResponse'),
     newUnassignInstanceResponse,
 
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** DescribeLoadBasedAutoScaling
-    DescribeLoadBasedAutoScaling (DescribeLoadBasedAutoScaling'),
-    newDescribeLoadBasedAutoScaling,
-    DescribeLoadBasedAutoScalingResponse (DescribeLoadBasedAutoScalingResponse'),
-    newDescribeLoadBasedAutoScalingResponse,
+    -- ** UpdateRdsDbInstance
+    UpdateRdsDbInstance (UpdateRdsDbInstance'),
+    newUpdateRdsDbInstance,
+    UpdateRdsDbInstanceResponse (UpdateRdsDbInstanceResponse'),
+    newUpdateRdsDbInstanceResponse,
 
     -- ** RegisterInstance
     RegisterInstance (RegisterInstance'),
@@ -500,17 +494,11 @@ module Network.AWS.OpsWorks
     RegisterInstanceResponse (RegisterInstanceResponse'),
     newRegisterInstanceResponse,
 
-    -- ** DeleteApp
-    DeleteApp (DeleteApp'),
-    newDeleteApp,
-    DeleteAppResponse (DeleteAppResponse'),
-    newDeleteAppResponse,
-
-    -- ** UpdateApp
-    UpdateApp (UpdateApp'),
-    newUpdateApp,
-    UpdateAppResponse (UpdateAppResponse'),
-    newUpdateAppResponse,
+    -- ** DescribeLoadBasedAutoScaling
+    DescribeLoadBasedAutoScaling (DescribeLoadBasedAutoScaling'),
+    newDescribeLoadBasedAutoScaling,
+    DescribeLoadBasedAutoScalingResponse (DescribeLoadBasedAutoScalingResponse'),
+    newDescribeLoadBasedAutoScalingResponse,
 
     -- ** AssociateElasticIp
     AssociateElasticIp (AssociateElasticIp'),
@@ -518,17 +506,17 @@ module Network.AWS.OpsWorks
     AssociateElasticIpResponse (AssociateElasticIpResponse'),
     newAssociateElasticIpResponse,
 
-    -- ** UpdateElasticIp
-    UpdateElasticIp (UpdateElasticIp'),
-    newUpdateElasticIp,
-    UpdateElasticIpResponse (UpdateElasticIpResponse'),
-    newUpdateElasticIpResponse,
+    -- ** UpdateApp
+    UpdateApp (UpdateApp'),
+    newUpdateApp,
+    UpdateAppResponse (UpdateAppResponse'),
+    newUpdateAppResponse,
 
-    -- ** DescribePermissions
-    DescribePermissions (DescribePermissions'),
-    newDescribePermissions,
-    DescribePermissionsResponse (DescribePermissionsResponse'),
-    newDescribePermissionsResponse,
+    -- ** DeleteApp
+    DeleteApp (DeleteApp'),
+    newDeleteApp,
+    DeleteAppResponse (DeleteAppResponse'),
+    newDeleteAppResponse,
 
     -- ** GetHostnameSuggestion
     GetHostnameSuggestion (GetHostnameSuggestion'),
@@ -548,29 +536,41 @@ module Network.AWS.OpsWorks
     DescribeLayersResponse (DescribeLayersResponse'),
     newDescribeLayersResponse,
 
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
-
     -- ** CreateDeployment
     CreateDeployment (CreateDeployment'),
     newCreateDeployment,
     CreateDeploymentResponse (CreateDeploymentResponse'),
     newCreateDeploymentResponse,
 
-    -- ** DeregisterRdsDbInstance
-    DeregisterRdsDbInstance (DeregisterRdsDbInstance'),
-    newDeregisterRdsDbInstance,
-    DeregisterRdsDbInstanceResponse (DeregisterRdsDbInstanceResponse'),
-    newDeregisterRdsDbInstanceResponse,
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
+
+    -- ** DescribePermissions
+    DescribePermissions (DescribePermissions'),
+    newDescribePermissions,
+    DescribePermissionsResponse (DescribePermissionsResponse'),
+    newDescribePermissionsResponse,
+
+    -- ** UpdateElasticIp
+    UpdateElasticIp (UpdateElasticIp'),
+    newUpdateElasticIp,
+    UpdateElasticIpResponse (UpdateElasticIpResponse'),
+    newUpdateElasticIpResponse,
 
     -- ** DescribeElasticIps
     DescribeElasticIps (DescribeElasticIps'),
     newDescribeElasticIps,
     DescribeElasticIpsResponse (DescribeElasticIpsResponse'),
     newDescribeElasticIpsResponse,
+
+    -- ** DeregisterRdsDbInstance
+    DeregisterRdsDbInstance (DeregisterRdsDbInstance'),
+    newDeregisterRdsDbInstance,
+    DeregisterRdsDbInstanceResponse (DeregisterRdsDbInstanceResponse'),
+    newDeregisterRdsDbInstanceResponse,
 
     -- * Types
 

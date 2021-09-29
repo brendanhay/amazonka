@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Information about the Amazon Simple Notification Service (SNS) topic
--- that is used to record AWS Firewall Manager SNS logs.
+-- that is used to record Firewall Manager SNS logs.
 module Network.AWS.FMS.GetNotificationChannel
   ( -- * Creating a Request
     GetNotificationChannel (..),
@@ -103,10 +103,9 @@ instance Core.ToQuery GetNotificationChannel where
 
 -- | /See:/ 'newGetNotificationChannelResponse' smart constructor.
 data GetNotificationChannelResponse = GetNotificationChannelResponse'
-  { -- | The IAM role that is used by AWS Firewall Manager to record activity to
-    -- SNS.
+  { -- | The IAM role that is used by Firewall Manager to record activity to SNS.
     snsRoleName :: Prelude.Maybe Prelude.Text,
-    -- | The SNS topic that records AWS Firewall Manager activity.
+    -- | The SNS topic that records Firewall Manager activity.
     snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -121,10 +120,9 @@ data GetNotificationChannelResponse = GetNotificationChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snsRoleName', 'getNotificationChannelResponse_snsRoleName' - The IAM role that is used by AWS Firewall Manager to record activity to
--- SNS.
+-- 'snsRoleName', 'getNotificationChannelResponse_snsRoleName' - The IAM role that is used by Firewall Manager to record activity to SNS.
 --
--- 'snsTopicArn', 'getNotificationChannelResponse_snsTopicArn' - The SNS topic that records AWS Firewall Manager activity.
+-- 'snsTopicArn', 'getNotificationChannelResponse_snsTopicArn' - The SNS topic that records Firewall Manager activity.
 --
 -- 'httpStatus', 'getNotificationChannelResponse_httpStatus' - The response's http status code.
 newGetNotificationChannelResponse ::
@@ -139,12 +137,11 @@ newGetNotificationChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The IAM role that is used by AWS Firewall Manager to record activity to
--- SNS.
+-- | The IAM role that is used by Firewall Manager to record activity to SNS.
 getNotificationChannelResponse_snsRoleName :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
 getNotificationChannelResponse_snsRoleName = Lens.lens (\GetNotificationChannelResponse' {snsRoleName} -> snsRoleName) (\s@GetNotificationChannelResponse' {} a -> s {snsRoleName = a} :: GetNotificationChannelResponse)
 
--- | The SNS topic that records AWS Firewall Manager activity.
+-- | The SNS topic that records Firewall Manager activity.
 getNotificationChannelResponse_snsTopicArn :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
 getNotificationChannelResponse_snsTopicArn = Lens.lens (\GetNotificationChannelResponse' {snsTopicArn} -> snsTopicArn) (\s@GetNotificationChannelResponse' {} a -> s {snsTopicArn = a} :: GetNotificationChannelResponse)
 

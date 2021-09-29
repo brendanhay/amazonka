@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes an authorizer.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeAuthorizer>
+-- action.
 module Network.AWS.IoT.DescribeAuthorizer
   ( -- * Creating a Request
     DescribeAuthorizer (..),

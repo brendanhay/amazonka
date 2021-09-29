@@ -20,22 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uploads a server certificate entity for the AWS account. The server
--- certificate entity includes a public key certificate, a private key, and
--- an optional certificate chain, which should all be PEM-encoded.
+-- Uploads a server certificate entity for the Amazon Web Services account.
+-- The server certificate entity includes a public key certificate, a
+-- private key, and an optional certificate chain, which should all be
+-- PEM-encoded.
 --
 -- We recommend that you use
--- <https://docs.aws.amazon.com/acm/ AWS Certificate Manager> to provision,
+-- <https://docs.aws.amazon.com/acm/ Certificate Manager> to provision,
 -- manage, and deploy your server certificates. With ACM you can request a
--- certificate, deploy it to AWS resources, and let ACM handle certificate
--- renewals for you. Certificates provided by ACM are free. For more
--- information about using ACM, see the
--- <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide>.
+-- certificate, deploy it to Amazon Web Services resources, and let ACM
+-- handle certificate renewals for you. Certificates provided by ACM are
+-- free. For more information about using ACM, see the
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
 --
 -- For more information about working with server certificates, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates>
--- in the /IAM User Guide/. This topic includes a list of AWS services that
--- can use the server certificates that you manage with IAM.
+-- in the /IAM User Guide/. This topic includes a list of Amazon Web
+-- Services services that can use the server certificates that you manage
+-- with IAM.
 --
 -- For information about the number of server certificates you can upload,
 -- see
@@ -46,9 +48,9 @@
 -- certificate chain can be large, you should use POST rather than GET when
 -- calling @UploadServerCertificate@. For information about setting up
 -- signatures and authorization through the API, see
--- <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API requests>
--- in the /AWS General Reference/. For general information about using the
--- Query API with IAM, see
+-- <https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing Amazon Web Services API requests>
+-- in the /Amazon Web Services General Reference/. For general information
+-- about using the Query API with IAM, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by making HTTP query requests>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.UploadServerCertificate

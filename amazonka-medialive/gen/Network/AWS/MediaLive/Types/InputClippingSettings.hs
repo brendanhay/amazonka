@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputClippingSettings' smart constructor.
 data InputClippingSettings = InputClippingSettings'
-  { -- | Settings to identify the start of the clip.
-    startTimecode :: Prelude.Maybe StartTimecode,
-    -- | Settings to identify the end of the clip.
+  { -- | Settings to identify the end of the clip.
     stopTimecode :: Prelude.Maybe StopTimecode,
+    -- | Settings to identify the start of the clip.
+    startTimecode :: Prelude.Maybe StartTimecode,
     -- | The source of the timecodes in the source being clipped.
     inputTimecodeSource :: InputTimecodeSource
   }
@@ -48,9 +48,9 @@ data InputClippingSettings = InputClippingSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTimecode', 'inputClippingSettings_startTimecode' - Settings to identify the start of the clip.
---
 -- 'stopTimecode', 'inputClippingSettings_stopTimecode' - Settings to identify the end of the clip.
+--
+-- 'startTimecode', 'inputClippingSettings_startTimecode' - Settings to identify the start of the clip.
 --
 -- 'inputTimecodeSource', 'inputClippingSettings_inputTimecodeSource' - The source of the timecodes in the source being clipped.
 newInputClippingSettings ::
@@ -59,19 +59,19 @@ newInputClippingSettings ::
   InputClippingSettings
 newInputClippingSettings pInputTimecodeSource_ =
   InputClippingSettings'
-    { startTimecode =
+    { stopTimecode =
         Prelude.Nothing,
-      stopTimecode = Prelude.Nothing,
+      startTimecode = Prelude.Nothing,
       inputTimecodeSource = pInputTimecodeSource_
     }
-
--- | Settings to identify the start of the clip.
-inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StartTimecode)
-inputClippingSettings_startTimecode = Lens.lens (\InputClippingSettings' {startTimecode} -> startTimecode) (\s@InputClippingSettings' {} a -> s {startTimecode = a} :: InputClippingSettings)
 
 -- | Settings to identify the end of the clip.
 inputClippingSettings_stopTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StopTimecode)
 inputClippingSettings_stopTimecode = Lens.lens (\InputClippingSettings' {stopTimecode} -> stopTimecode) (\s@InputClippingSettings' {} a -> s {stopTimecode = a} :: InputClippingSettings)
+
+-- | Settings to identify the start of the clip.
+inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StartTimecode)
+inputClippingSettings_startTimecode = Lens.lens (\InputClippingSettings' {startTimecode} -> startTimecode) (\s@InputClippingSettings' {} a -> s {startTimecode = a} :: InputClippingSettings)
 
 -- | The source of the timecodes in the source being clipped.
 inputClippingSettings_inputTimecodeSource :: Lens.Lens' InputClippingSettings InputTimecodeSource
@@ -83,8 +83,8 @@ instance Core.FromJSON InputClippingSettings where
       "InputClippingSettings"
       ( \x ->
           InputClippingSettings'
-            Prelude.<$> (x Core..:? "startTimecode")
-            Prelude.<*> (x Core..:? "stopTimecode")
+            Prelude.<$> (x Core..:? "stopTimecode")
+            Prelude.<*> (x Core..:? "startTimecode")
             Prelude.<*> (x Core..: "inputTimecodeSource")
       )
 
@@ -96,8 +96,8 @@ instance Core.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startTimecode" Core..=) Prelude.<$> startTimecode,
-            ("stopTimecode" Core..=) Prelude.<$> stopTimecode,
+          [ ("stopTimecode" Core..=) Prelude.<$> stopTimecode,
+            ("startTimecode" Core..=) Prelude.<$> startTimecode,
             Prelude.Just
               ("inputTimecodeSource" Core..= inputTimecodeSource)
           ]

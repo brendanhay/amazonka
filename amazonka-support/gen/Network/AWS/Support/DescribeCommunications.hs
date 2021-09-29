@@ -34,11 +34,11 @@
 -- you want to display on each page, and use @nextToken@ to specify the
 -- resumption of pagination.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -87,8 +87,8 @@ data DescribeCommunications = DescribeCommunications'
     -- communications. Case communications are available for 12 months after
     -- creation.
     afterTime :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Support case ID requested or returned in the call. The case ID
-    -- is an alphanumeric string formatted as shown in this example:
+    -- | The support case ID requested or returned in the call. The case ID is an
+    -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Text
   }
@@ -113,8 +113,8 @@ data DescribeCommunications = DescribeCommunications'
 -- communications. Case communications are available for 12 months after
 -- creation.
 --
--- 'caseId', 'describeCommunications_caseId' - The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- 'caseId', 'describeCommunications_caseId' - The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 newDescribeCommunications ::
   -- | 'caseId'
@@ -149,8 +149,8 @@ describeCommunications_beforeTime = Lens.lens (\DescribeCommunications' {beforeT
 describeCommunications_afterTime :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
 describeCommunications_afterTime = Lens.lens (\DescribeCommunications' {afterTime} -> afterTime) (\s@DescribeCommunications' {} a -> s {afterTime = a} :: DescribeCommunications)
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- | The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 describeCommunications_caseId :: Lens.Lens' DescribeCommunications Prelude.Text
 describeCommunications_caseId = Lens.lens (\DescribeCommunications' {caseId} -> caseId) (\s@DescribeCommunications' {} a -> s {caseId = a} :: DescribeCommunications)

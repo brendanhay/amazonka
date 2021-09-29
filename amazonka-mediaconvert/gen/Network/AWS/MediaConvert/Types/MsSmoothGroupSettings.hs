@@ -25,11 +25,16 @@ import Network.AWS.MediaConvert.Types.DestinationSettings
 import Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
 import Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
 import Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
+import Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl
 import Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
 import qualified Network.AWS.Prelude as Prelude
 
--- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
--- to MS_SMOOTH_GROUP_SETTINGS.
+-- | Settings related to your Microsoft Smooth Streaming output package. For
+-- more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set Type, under
+-- OutputGroupSettings, to MS_SMOOTH_GROUP_SETTINGS.
 --
 -- /See:/ 'newMsSmoothGroupSettings' smart constructor.
 data MsSmoothGroupSettings = MsSmoothGroupSettings'
@@ -37,9 +42,11 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     -- format for the server and client manifest. Valid options are utf8 and
     -- utf16.
     manifestEncoding :: Prelude.Maybe MsSmoothManifestEncoding,
-    -- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes
-    -- in seconds. Fragment length must be compatible with GOP size and frame
-    -- rate.
+    -- | Specify how you want MediaConvert to determine the fragment length.
+    -- Choose Exact (EXACT) to have the encoder use the exact length that you
+    -- specify with the setting Fragment length (FragmentLength). This might
+    -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+    -- the encoder round up the segment lengths to match the next GOP boundary.
     fragmentLength :: Prelude.Maybe Prelude.Natural,
     -- | By default, the service creates one .ism Microsoft Smooth Streaming
     -- manifest for each Microsoft Smooth Streaming output group in your job.
@@ -59,6 +66,12 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     -- | Settings associated with the destination. Will vary based on the type of
     -- destination
     destinationSettings :: Prelude.Maybe DestinationSettings,
+    -- | Specify how you want MediaConvert to determine the fragment length.
+    -- Choose Exact (EXACT) to have the encoder use the exact length that you
+    -- specify with the setting Fragment length (FragmentLength). This might
+    -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+    -- the encoder round up the segment lengths to match the next GOP boundary.
+    fragmentLengthControl :: Prelude.Maybe MsSmoothFragmentLengthControl,
     -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings
     -- across a Microsoft Smooth output group into a single audio stream.
     audioDeduplication :: Prelude.Maybe MsSmoothAudioDeduplication
@@ -77,9 +90,11 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 -- format for the server and client manifest. Valid options are utf8 and
 -- utf16.
 --
--- 'fragmentLength', 'msSmoothGroupSettings_fragmentLength' - Use Fragment length (FragmentLength) to specify the mp4 fragment sizes
--- in seconds. Fragment length must be compatible with GOP size and frame
--- rate.
+-- 'fragmentLength', 'msSmoothGroupSettings_fragmentLength' - Specify how you want MediaConvert to determine the fragment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Fragment length (FragmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
 --
 -- 'additionalManifests', 'msSmoothGroupSettings_additionalManifests' - By default, the service creates one .ism Microsoft Smooth Streaming
 -- manifest for each Microsoft Smooth Streaming output group in your job.
@@ -99,6 +114,12 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 -- 'destinationSettings', 'msSmoothGroupSettings_destinationSettings' - Settings associated with the destination. Will vary based on the type of
 -- destination
 --
+-- 'fragmentLengthControl', 'msSmoothGroupSettings_fragmentLengthControl' - Specify how you want MediaConvert to determine the fragment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Fragment length (FragmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+--
 -- 'audioDeduplication', 'msSmoothGroupSettings_audioDeduplication' - COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings
 -- across a Microsoft Smooth output group into a single audio stream.
 newMsSmoothGroupSettings ::
@@ -112,6 +133,7 @@ newMsSmoothGroupSettings =
       encryption = Prelude.Nothing,
       destination = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
+      fragmentLengthControl = Prelude.Nothing,
       audioDeduplication = Prelude.Nothing
     }
 
@@ -121,9 +143,11 @@ newMsSmoothGroupSettings =
 msSmoothGroupSettings_manifestEncoding :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe MsSmoothManifestEncoding)
 msSmoothGroupSettings_manifestEncoding = Lens.lens (\MsSmoothGroupSettings' {manifestEncoding} -> manifestEncoding) (\s@MsSmoothGroupSettings' {} a -> s {manifestEncoding = a} :: MsSmoothGroupSettings)
 
--- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes
--- in seconds. Fragment length must be compatible with GOP size and frame
--- rate.
+-- | Specify how you want MediaConvert to determine the fragment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Fragment length (FragmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
 msSmoothGroupSettings_fragmentLength :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
 msSmoothGroupSettings_fragmentLength = Lens.lens (\MsSmoothGroupSettings' {fragmentLength} -> fragmentLength) (\s@MsSmoothGroupSettings' {} a -> s {fragmentLength = a} :: MsSmoothGroupSettings)
 
@@ -153,6 +177,14 @@ msSmoothGroupSettings_destination = Lens.lens (\MsSmoothGroupSettings' {destinat
 msSmoothGroupSettings_destinationSettings :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe DestinationSettings)
 msSmoothGroupSettings_destinationSettings = Lens.lens (\MsSmoothGroupSettings' {destinationSettings} -> destinationSettings) (\s@MsSmoothGroupSettings' {} a -> s {destinationSettings = a} :: MsSmoothGroupSettings)
 
+-- | Specify how you want MediaConvert to determine the fragment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Fragment length (FragmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+msSmoothGroupSettings_fragmentLengthControl :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe MsSmoothFragmentLengthControl)
+msSmoothGroupSettings_fragmentLengthControl = Lens.lens (\MsSmoothGroupSettings' {fragmentLengthControl} -> fragmentLengthControl) (\s@MsSmoothGroupSettings' {} a -> s {fragmentLengthControl = a} :: MsSmoothGroupSettings)
+
 -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings
 -- across a Microsoft Smooth output group into a single audio stream.
 msSmoothGroupSettings_audioDeduplication :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe MsSmoothAudioDeduplication)
@@ -172,6 +204,7 @@ instance Core.FromJSON MsSmoothGroupSettings where
             Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "destination")
             Prelude.<*> (x Core..:? "destinationSettings")
+            Prelude.<*> (x Core..:? "fragmentLengthControl")
             Prelude.<*> (x Core..:? "audioDeduplication")
       )
 
@@ -193,6 +226,8 @@ instance Core.ToJSON MsSmoothGroupSettings where
             ("destination" Core..=) Prelude.<$> destination,
             ("destinationSettings" Core..=)
               Prelude.<$> destinationSettings,
+            ("fragmentLengthControl" Core..=)
+              Prelude.<$> fragmentLengthControl,
             ("audioDeduplication" Core..=)
               Prelude.<$> audioDeduplication
           ]

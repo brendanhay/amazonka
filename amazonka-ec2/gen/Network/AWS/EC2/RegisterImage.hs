@@ -47,20 +47,20 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot Create a Linux AMI from a snapshot>
 -- and
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html Use encryption with EBS-backed AMIs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html Use encryption with Amazon EBS-backed AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- __AWS Marketplace product codes__
+-- __Amazon Web Services Marketplace product codes__
 --
--- If any snapshots have AWS Marketplace product codes, they are copied to
--- the new AMI.
+-- If any snapshots have Amazon Web Services Marketplace product codes,
+-- they are copied to the new AMI.
 --
 -- Windows and some Linux distributions, such as Red Hat Enterprise Linux
--- (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing
--- product code associated with an AMI to verify the subscription status
--- for package updates. To create a new AMI for operating systems that
--- require a billing product code, instead of registering the AMI, do the
--- following to preserve the billing product code association:
+-- (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2
+-- billing product code associated with an AMI to verify the subscription
+-- status for package updates. To create a new AMI for operating systems
+-- that require a billing product code, instead of registering the AMI, do
+-- the following to preserve the billing product code association:
 --
 -- 1.  Launch an instance from an existing AMI with that billing product
 --     code.
@@ -76,7 +76,7 @@
 -- the Reserved Instance will not be applied to the On-Demand Instance. For
 -- information about how to obtain the platform details and billing
 -- information of an AMI, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining billing information>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.RegisterImage
   ( -- * Creating a Request
@@ -86,13 +86,14 @@ module Network.AWS.EC2.RegisterImage
     -- * Request Lenses
     registerImage_virtualizationType,
     registerImage_rootDeviceName,
-    registerImage_dryRun,
     registerImage_ramdiskId,
+    registerImage_dryRun,
     registerImage_architecture,
+    registerImage_bootMode,
     registerImage_sriovNetSupport,
     registerImage_blockDeviceMappings,
-    registerImage_kernelId,
     registerImage_description,
+    registerImage_kernelId,
     registerImage_billingProducts,
     registerImage_enaSupport,
     registerImage_imageLocation,
@@ -125,18 +126,22 @@ data RegisterImage = RegisterImage'
     virtualizationType :: Prelude.Maybe Prelude.Text,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
     rootDeviceName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the RAM disk.
+    ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the RAM disk.
-    ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the AMI.
     --
     -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
     -- AMIs, the architecture specified in the manifest file.
     architecture :: Prelude.Maybe ArchitectureValues,
+    -- | The boot mode of the AMI. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    bootMode :: Prelude.Maybe BootModeValues,
     -- | Set to @simple@ to enable enhanced networking with the Intel 82599
     -- Virtual Function interface for the AMI and any instances that you launch
     -- from the AMI.
@@ -148,8 +153,8 @@ data RegisterImage = RegisterImage'
     sriovNetSupport :: Prelude.Maybe Prelude.Text,
     -- | The block device mapping entries.
     --
-    -- If you specify an EBS volume using the ID of an EBS snapshot, you can\'t
-    -- specify the encryption state of the volume.
+    -- If you specify an Amazon EBS volume using the ID of an Amazon EBS
+    -- snapshot, you can\'t specify the encryption state of the volume.
     --
     -- If you create an AMI on an Outpost, then all backing snapshots must be
     -- on the same Outpost or in the Region of that Outpost. AMIs on an Outpost
@@ -158,13 +163,13 @@ data RegisterImage = RegisterImage'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
-    -- | The ID of the kernel.
-    kernelId :: Prelude.Maybe Prelude.Text,
     -- | A description for your AMI.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the kernel.
+    kernelId :: Prelude.Maybe Prelude.Text,
     -- | The billing product codes. Your account must be authorized to specify
-    -- billing product codes. Otherwise, you can use the AWS Marketplace to
-    -- bill for the use of an AMI.
+    -- billing product codes. Otherwise, you can use the Amazon Web Services
+    -- Marketplace to bill for the use of an AMI.
     billingProducts :: Prelude.Maybe [Prelude.Text],
     -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any
     -- instances that you launch from the AMI.
@@ -201,17 +206,21 @@ data RegisterImage = RegisterImage'
 --
 -- 'rootDeviceName', 'registerImage_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
 --
+-- 'ramdiskId', 'registerImage_ramdiskId' - The ID of the RAM disk.
+--
 -- 'dryRun', 'registerImage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'ramdiskId', 'registerImage_ramdiskId' - The ID of the RAM disk.
---
 -- 'architecture', 'registerImage_architecture' - The architecture of the AMI.
 --
 -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
 -- AMIs, the architecture specified in the manifest file.
+--
+-- 'bootMode', 'registerImage_bootMode' - The boot mode of the AMI. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'sriovNetSupport', 'registerImage_sriovNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599
 -- Virtual Function interface for the AMI and any instances that you launch
@@ -224,8 +233,8 @@ data RegisterImage = RegisterImage'
 --
 -- 'blockDeviceMappings', 'registerImage_blockDeviceMappings' - The block device mapping entries.
 --
--- If you specify an EBS volume using the ID of an EBS snapshot, you can\'t
--- specify the encryption state of the volume.
+-- If you specify an Amazon EBS volume using the ID of an Amazon EBS
+-- snapshot, you can\'t specify the encryption state of the volume.
 --
 -- If you create an AMI on an Outpost, then all backing snapshots must be
 -- on the same Outpost or in the Region of that Outpost. AMIs on an Outpost
@@ -234,13 +243,13 @@ data RegisterImage = RegisterImage'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'kernelId', 'registerImage_kernelId' - The ID of the kernel.
---
 -- 'description', 'registerImage_description' - A description for your AMI.
 --
+-- 'kernelId', 'registerImage_kernelId' - The ID of the kernel.
+--
 -- 'billingProducts', 'registerImage_billingProducts' - The billing product codes. Your account must be authorized to specify
--- billing product codes. Otherwise, you can use the AWS Marketplace to
--- bill for the use of an AMI.
+-- billing product codes. Otherwise, you can use the Amazon Web Services
+-- Marketplace to bill for the use of an AMI.
 --
 -- 'enaSupport', 'registerImage_enaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any
 -- instances that you launch from the AMI.
@@ -268,13 +277,14 @@ newRegisterImage pName_ =
     { virtualizationType =
         Prelude.Nothing,
       rootDeviceName = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       architecture = Prelude.Nothing,
+      bootMode = Prelude.Nothing,
       sriovNetSupport = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
       description = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
       billingProducts = Prelude.Nothing,
       enaSupport = Prelude.Nothing,
       imageLocation = Prelude.Nothing,
@@ -291,6 +301,10 @@ registerImage_virtualizationType = Lens.lens (\RegisterImage' {virtualizationTyp
 registerImage_rootDeviceName :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_rootDeviceName = Lens.lens (\RegisterImage' {rootDeviceName} -> rootDeviceName) (\s@RegisterImage' {} a -> s {rootDeviceName = a} :: RegisterImage)
 
+-- | The ID of the RAM disk.
+registerImage_ramdiskId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_ramdiskId = Lens.lens (\RegisterImage' {ramdiskId} -> ramdiskId) (\s@RegisterImage' {} a -> s {ramdiskId = a} :: RegisterImage)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -298,16 +312,18 @@ registerImage_rootDeviceName = Lens.lens (\RegisterImage' {rootDeviceName} -> ro
 registerImage_dryRun :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Bool)
 registerImage_dryRun = Lens.lens (\RegisterImage' {dryRun} -> dryRun) (\s@RegisterImage' {} a -> s {dryRun = a} :: RegisterImage)
 
--- | The ID of the RAM disk.
-registerImage_ramdiskId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
-registerImage_ramdiskId = Lens.lens (\RegisterImage' {ramdiskId} -> ramdiskId) (\s@RegisterImage' {} a -> s {ramdiskId = a} :: RegisterImage)
-
 -- | The architecture of the AMI.
 --
 -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
 -- AMIs, the architecture specified in the manifest file.
 registerImage_architecture :: Lens.Lens' RegisterImage (Prelude.Maybe ArchitectureValues)
 registerImage_architecture = Lens.lens (\RegisterImage' {architecture} -> architecture) (\s@RegisterImage' {} a -> s {architecture = a} :: RegisterImage)
+
+-- | The boot mode of the AMI. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+registerImage_bootMode :: Lens.Lens' RegisterImage (Prelude.Maybe BootModeValues)
+registerImage_bootMode = Lens.lens (\RegisterImage' {bootMode} -> bootMode) (\s@RegisterImage' {} a -> s {bootMode = a} :: RegisterImage)
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599
 -- Virtual Function interface for the AMI and any instances that you launch
@@ -322,8 +338,8 @@ registerImage_sriovNetSupport = Lens.lens (\RegisterImage' {sriovNetSupport} -> 
 
 -- | The block device mapping entries.
 --
--- If you specify an EBS volume using the ID of an EBS snapshot, you can\'t
--- specify the encryption state of the volume.
+-- If you specify an Amazon EBS volume using the ID of an Amazon EBS
+-- snapshot, you can\'t specify the encryption state of the volume.
 --
 -- If you create an AMI on an Outpost, then all backing snapshots must be
 -- on the same Outpost or in the Region of that Outpost. AMIs on an Outpost
@@ -334,17 +350,17 @@ registerImage_sriovNetSupport = Lens.lens (\RegisterImage' {sriovNetSupport} -> 
 registerImage_blockDeviceMappings :: Lens.Lens' RegisterImage (Prelude.Maybe [BlockDeviceMapping])
 registerImage_blockDeviceMappings = Lens.lens (\RegisterImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@RegisterImage' {} a -> s {blockDeviceMappings = a} :: RegisterImage) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the kernel.
-registerImage_kernelId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
-registerImage_kernelId = Lens.lens (\RegisterImage' {kernelId} -> kernelId) (\s@RegisterImage' {} a -> s {kernelId = a} :: RegisterImage)
-
 -- | A description for your AMI.
 registerImage_description :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_description = Lens.lens (\RegisterImage' {description} -> description) (\s@RegisterImage' {} a -> s {description = a} :: RegisterImage)
 
+-- | The ID of the kernel.
+registerImage_kernelId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_kernelId = Lens.lens (\RegisterImage' {kernelId} -> kernelId) (\s@RegisterImage' {} a -> s {kernelId = a} :: RegisterImage)
+
 -- | The billing product codes. Your account must be authorized to specify
--- billing product codes. Otherwise, you can use the AWS Marketplace to
--- bill for the use of an AMI.
+-- billing product codes. Otherwise, you can use the Amazon Web Services
+-- Marketplace to bill for the use of an AMI.
 registerImage_billingProducts :: Lens.Lens' RegisterImage (Prelude.Maybe [Prelude.Text])
 registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> billingProducts) (\s@RegisterImage' {} a -> s {billingProducts = a} :: RegisterImage) Prelude.. Lens.mapping Lens._Coerce
 
@@ -404,16 +420,17 @@ instance Core.ToQuery RegisterImage where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "VirtualizationType" Core.=: virtualizationType,
         "RootDeviceName" Core.=: rootDeviceName,
-        "DryRun" Core.=: dryRun,
         "RamdiskId" Core.=: ramdiskId,
+        "DryRun" Core.=: dryRun,
         "Architecture" Core.=: architecture,
+        "BootMode" Core.=: bootMode,
         "SriovNetSupport" Core.=: sriovNetSupport,
         Core.toQuery
           ( Core.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "KernelId" Core.=: kernelId,
         "Description" Core.=: description,
+        "KernelId" Core.=: kernelId,
         Core.toQuery
           ( Core.toQueryList "BillingProduct"
               Prelude.<$> billingProducts

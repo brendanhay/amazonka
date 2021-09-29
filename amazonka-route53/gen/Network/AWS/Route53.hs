@@ -24,47 +24,47 @@ module Network.AWS.Route53
     -- * Errors
     -- $errors
 
+    -- ** DNSSECNotFound
+    _DNSSECNotFound,
+
+    -- ** HostedZoneNotPrivate
+    _HostedZoneNotPrivate,
+
     -- ** KeySigningKeyInUse
     _KeySigningKeyInUse,
 
     -- ** NoSuchKeySigningKey
     _NoSuchKeySigningKey,
 
-    -- ** HostedZoneNotEmpty
-    _HostedZoneNotEmpty,
-
     -- ** NoSuchQueryLoggingConfig
     _NoSuchQueryLoggingConfig,
+
+    -- ** HostedZoneNotEmpty
+    _HostedZoneNotEmpty,
 
     -- ** InvalidInput
     _InvalidInput,
 
-    -- ** HostedZoneNotPrivate
-    _HostedZoneNotPrivate,
-
-    -- ** DNSSECNotFound
-    _DNSSECNotFound,
-
-    -- ** NoSuchDelegationSet
-    _NoSuchDelegationSet,
+    -- ** DelegationSetNotAvailable
+    _DelegationSetNotAvailable,
 
     -- ** VPCAssociationAuthorizationNotFound
     _VPCAssociationAuthorizationNotFound,
 
-    -- ** NoSuchGeoLocation
-    _NoSuchGeoLocation,
-
-    -- ** DelegationSetNotAvailable
-    _DelegationSetNotAvailable,
-
     -- ** HealthCheckVersionMismatch
     _HealthCheckVersionMismatch,
 
-    -- ** HostedZoneAlreadyExists
-    _HostedZoneAlreadyExists,
+    -- ** NoSuchDelegationSet
+    _NoSuchDelegationSet,
+
+    -- ** NoSuchGeoLocation
+    _NoSuchGeoLocation,
 
     -- ** InvalidKMSArn
     _InvalidKMSArn,
+
+    -- ** HostedZoneAlreadyExists
+    _HostedZoneAlreadyExists,
 
     -- ** InvalidDomainName
     _InvalidDomainName,
@@ -81,20 +81,14 @@ module Network.AWS.Route53
     -- ** TrafficPolicyAlreadyExists
     _TrafficPolicyAlreadyExists,
 
-    -- ** InvalidChangeBatch
-    _InvalidChangeBatch,
-
     -- ** IncompatibleVersion
     _IncompatibleVersion,
 
+    -- ** InvalidChangeBatch
+    _InvalidChangeBatch,
+
     -- ** InvalidTrafficPolicyDocument
     _InvalidTrafficPolicyDocument,
-
-    -- ** NoSuchCloudWatchLogsLogGroup
-    _NoSuchCloudWatchLogsLogGroup,
-
-    -- ** InsufficientCloudWatchLogsResourcePolicy
-    _InsufficientCloudWatchLogsResourcePolicy,
 
     -- ** NoSuchTrafficPolicyInstance
     _NoSuchTrafficPolicyInstance,
@@ -102,32 +96,41 @@ module Network.AWS.Route53
     -- ** TooManyTrafficPolicyInstances
     _TooManyTrafficPolicyInstances,
 
-    -- ** InvalidKeySigningKeyName
-    _InvalidKeySigningKeyName,
+    -- ** InsufficientCloudWatchLogsResourcePolicy
+    _InsufficientCloudWatchLogsResourcePolicy,
 
-    -- ** QueryLoggingConfigAlreadyExists
-    _QueryLoggingConfigAlreadyExists,
+    -- ** NoSuchCloudWatchLogsLogGroup
+    _NoSuchCloudWatchLogsLogGroup,
 
     -- ** LimitsExceeded
     _LimitsExceeded,
 
+    -- ** InvalidKeySigningKeyName
+    _InvalidKeySigningKeyName,
+
     -- ** KeySigningKeyAlreadyExists
     _KeySigningKeyAlreadyExists,
+
+    -- ** QueryLoggingConfigAlreadyExists
+    _QueryLoggingConfigAlreadyExists,
 
     -- ** TrafficPolicyInstanceAlreadyExists
     _TrafficPolicyInstanceAlreadyExists,
 
-    -- ** KeySigningKeyInParentDSRecord
-    _KeySigningKeyInParentDSRecord,
-
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** KeySigningKeyInParentDSRecord
+    _KeySigningKeyInParentDSRecord,
 
     -- ** VPCAssociationNotFound
     _VPCAssociationNotFound,
 
     -- ** TooManyKeySigningKeys
     _TooManyKeySigningKeys,
+
+    -- ** TooManyTrafficPolicies
+    _TooManyTrafficPolicies,
 
     -- ** DelegationSetInUse
     _DelegationSetInUse,
@@ -138,32 +141,20 @@ module Network.AWS.Route53
     -- ** HostedZoneNotFound
     _HostedZoneNotFound,
 
-    -- ** TooManyTrafficPolicies
-    _TooManyTrafficPolicies,
+    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
+    _TooManyTrafficPolicyVersionsForCurrentPolicy,
 
     -- ** NoSuchTrafficPolicy
     _NoSuchTrafficPolicy,
 
-    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
-    _TooManyTrafficPolicyVersionsForCurrentPolicy,
+    -- ** TrafficPolicyInUse
+    _TrafficPolicyInUse,
 
     -- ** InvalidVPCId
     _InvalidVPCId,
 
-    -- ** TrafficPolicyInUse
-    _TrafficPolicyInUse,
-
-    -- ** InvalidSigningStatus
-    _InvalidSigningStatus,
-
-    -- ** DelegationSetNotReusable
-    _DelegationSetNotReusable,
-
-    -- ** NoSuchHealthCheck
-    _NoSuchHealthCheck,
-
-    -- ** InvalidPaginationToken
-    _InvalidPaginationToken,
+    -- ** DelegationSetAlreadyCreated
+    _DelegationSetAlreadyCreated,
 
     -- ** ConflictingDomainExists
     _ConflictingDomainExists,
@@ -171,8 +162,17 @@ module Network.AWS.Route53
     -- ** TooManyHealthChecks
     _TooManyHealthChecks,
 
-    -- ** DelegationSetAlreadyCreated
-    _DelegationSetAlreadyCreated,
+    -- ** DelegationSetNotReusable
+    _DelegationSetNotReusable,
+
+    -- ** NoSuchHealthCheck
+    _NoSuchHealthCheck,
+
+    -- ** InvalidSigningStatus
+    _InvalidSigningStatus,
+
+    -- ** InvalidPaginationToken
+    _InvalidPaginationToken,
 
     -- ** TooManyVPCAssociationAuthorizations
     _TooManyVPCAssociationAuthorizations,
@@ -183,23 +183,23 @@ module Network.AWS.Route53
     -- ** PriorRequestNotComplete
     _PriorRequestNotComplete,
 
-    -- ** NoSuchHostedZone
-    _NoSuchHostedZone,
-
     -- ** PublicZoneVPCAssociation
     _PublicZoneVPCAssociation,
 
-    -- ** ConflictingTypes
-    _ConflictingTypes,
+    -- ** NoSuchHostedZone
+    _NoSuchHostedZone,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,
 
-    -- ** DelegationSetAlreadyReusable
-    _DelegationSetAlreadyReusable,
+    -- ** ConflictingTypes
+    _ConflictingTypes,
 
     -- ** ConcurrentModification
     _ConcurrentModification,
+
+    -- ** DelegationSetAlreadyReusable
+    _DelegationSetAlreadyReusable,
 
     -- ** KeySigningKeyWithActiveStatusNotFound
     _KeySigningKeyWithActiveStatusNotFound,
@@ -246,6 +246,12 @@ module Network.AWS.Route53
     AssociateVPCWithHostedZoneResponse (AssociateVPCWithHostedZoneResponse'),
     newAssociateVPCWithHostedZoneResponse,
 
+    -- ** CreateTrafficPolicy
+    CreateTrafficPolicy (CreateTrafficPolicy'),
+    newCreateTrafficPolicy,
+    CreateTrafficPolicyResponse (CreateTrafficPolicyResponse'),
+    newCreateTrafficPolicyResponse,
+
     -- ** ListGeoLocations
     ListGeoLocations (ListGeoLocations'),
     newListGeoLocations,
@@ -258,11 +264,17 @@ module Network.AWS.Route53
     ListTrafficPoliciesResponse (ListTrafficPoliciesResponse'),
     newListTrafficPoliciesResponse,
 
-    -- ** CreateTrafficPolicy
-    CreateTrafficPolicy (CreateTrafficPolicy'),
-    newCreateTrafficPolicy,
-    CreateTrafficPolicyResponse (CreateTrafficPolicyResponse'),
-    newCreateTrafficPolicyResponse,
+    -- ** GetGeoLocation
+    GetGeoLocation (GetGeoLocation'),
+    newGetGeoLocation,
+    GetGeoLocationResponse (GetGeoLocationResponse'),
+    newGetGeoLocationResponse,
+
+    -- ** ChangeTagsForResource
+    ChangeTagsForResource (ChangeTagsForResource'),
+    newChangeTagsForResource,
+    ChangeTagsForResourceResponse (ChangeTagsForResourceResponse'),
+    newChangeTagsForResourceResponse,
 
     -- ** DeleteHostedZone
     DeleteHostedZone (DeleteHostedZone'),
@@ -276,35 +288,29 @@ module Network.AWS.Route53
     CreateHealthCheckResponse (CreateHealthCheckResponse'),
     newCreateHealthCheckResponse,
 
-    -- ** DisassociateVPCFromHostedZone
-    DisassociateVPCFromHostedZone (DisassociateVPCFromHostedZone'),
-    newDisassociateVPCFromHostedZone,
-    DisassociateVPCFromHostedZoneResponse (DisassociateVPCFromHostedZoneResponse'),
-    newDisassociateVPCFromHostedZoneResponse,
-
-    -- ** ChangeTagsForResource
-    ChangeTagsForResource (ChangeTagsForResource'),
-    newChangeTagsForResource,
-    ChangeTagsForResourceResponse (ChangeTagsForResourceResponse'),
-    newChangeTagsForResourceResponse,
-
-    -- ** GetGeoLocation
-    GetGeoLocation (GetGeoLocation'),
-    newGetGeoLocation,
-    GetGeoLocationResponse (GetGeoLocationResponse'),
-    newGetGeoLocationResponse,
-
     -- ** DeleteVPCAssociationAuthorization
     DeleteVPCAssociationAuthorization (DeleteVPCAssociationAuthorization'),
     newDeleteVPCAssociationAuthorization,
     DeleteVPCAssociationAuthorizationResponse (DeleteVPCAssociationAuthorizationResponse'),
     newDeleteVPCAssociationAuthorizationResponse,
 
+    -- ** DisassociateVPCFromHostedZone
+    DisassociateVPCFromHostedZone (DisassociateVPCFromHostedZone'),
+    newDisassociateVPCFromHostedZone,
+    DisassociateVPCFromHostedZoneResponse (DisassociateVPCFromHostedZoneResponse'),
+    newDisassociateVPCFromHostedZoneResponse,
+
     -- ** ListHostedZones (Paginated)
     ListHostedZones (ListHostedZones'),
     newListHostedZones,
     ListHostedZonesResponse (ListHostedZonesResponse'),
     newListHostedZonesResponse,
+
+    -- ** CreateHostedZone
+    CreateHostedZone (CreateHostedZone'),
+    newCreateHostedZone,
+    CreateHostedZoneResponse (CreateHostedZoneResponse'),
+    newCreateHostedZoneResponse,
 
     -- ** DeactivateKeySigningKey
     DeactivateKeySigningKey (DeactivateKeySigningKey'),
@@ -318,11 +324,11 @@ module Network.AWS.Route53
     TestDNSAnswerResponse (TestDNSAnswerResponse'),
     newTestDNSAnswerResponse,
 
-    -- ** CreateHostedZone
-    CreateHostedZone (CreateHostedZone'),
-    newCreateHostedZone,
-    CreateHostedZoneResponse (CreateHostedZoneResponse'),
-    newCreateHostedZoneResponse,
+    -- ** ChangeResourceRecordSets
+    ChangeResourceRecordSets (ChangeResourceRecordSets'),
+    newChangeResourceRecordSets,
+    ChangeResourceRecordSetsResponse (ChangeResourceRecordSetsResponse'),
+    newChangeResourceRecordSetsResponse,
 
     -- ** GetReusableDelegationSetLimit
     GetReusableDelegationSetLimit (GetReusableDelegationSetLimit'),
@@ -330,17 +336,23 @@ module Network.AWS.Route53
     GetReusableDelegationSetLimitResponse (GetReusableDelegationSetLimitResponse'),
     newGetReusableDelegationSetLimitResponse,
 
-    -- ** ChangeResourceRecordSets
-    ChangeResourceRecordSets (ChangeResourceRecordSets'),
-    newChangeResourceRecordSets,
-    ChangeResourceRecordSetsResponse (ChangeResourceRecordSetsResponse'),
-    newChangeResourceRecordSetsResponse,
-
     -- ** GetReusableDelegationSet
     GetReusableDelegationSet (GetReusableDelegationSet'),
     newGetReusableDelegationSet,
     GetReusableDelegationSetResponse (GetReusableDelegationSetResponse'),
     newGetReusableDelegationSetResponse,
+
+    -- ** GetAccountLimit
+    GetAccountLimit (GetAccountLimit'),
+    newGetAccountLimit,
+    GetAccountLimitResponse (GetAccountLimitResponse'),
+    newGetAccountLimitResponse,
+
+    -- ** GetDNSSEC
+    GetDNSSEC (GetDNSSEC'),
+    newGetDNSSEC,
+    GetDNSSECResponse (GetDNSSECResponse'),
+    newGetDNSSECResponse,
 
     -- ** GetCheckerIpRanges
     GetCheckerIpRanges (GetCheckerIpRanges'),
@@ -348,11 +360,11 @@ module Network.AWS.Route53
     GetCheckerIpRangesResponse (GetCheckerIpRangesResponse'),
     newGetCheckerIpRangesResponse,
 
-    -- ** GetDNSSEC
-    GetDNSSEC (GetDNSSEC'),
-    newGetDNSSEC,
-    GetDNSSECResponse (GetDNSSECResponse'),
-    newGetDNSSECResponse,
+    -- ** ListReusableDelegationSets
+    ListReusableDelegationSets (ListReusableDelegationSets'),
+    newListReusableDelegationSets,
+    ListReusableDelegationSetsResponse (ListReusableDelegationSetsResponse'),
+    newListReusableDelegationSetsResponse,
 
     -- ** DeleteKeySigningKey
     DeleteKeySigningKey (DeleteKeySigningKey'),
@@ -366,35 +378,11 @@ module Network.AWS.Route53
     GetTrafficPolicyInstanceResponse (GetTrafficPolicyInstanceResponse'),
     newGetTrafficPolicyInstanceResponse,
 
-    -- ** ListReusableDelegationSets
-    ListReusableDelegationSets (ListReusableDelegationSets'),
-    newListReusableDelegationSets,
-    ListReusableDelegationSetsResponse (ListReusableDelegationSetsResponse'),
-    newListReusableDelegationSetsResponse,
-
-    -- ** GetAccountLimit
-    GetAccountLimit (GetAccountLimit'),
-    newGetAccountLimit,
-    GetAccountLimitResponse (GetAccountLimitResponse'),
-    newGetAccountLimitResponse,
-
     -- ** CreateQueryLoggingConfig
     CreateQueryLoggingConfig (CreateQueryLoggingConfig'),
     newCreateQueryLoggingConfig,
     CreateQueryLoggingConfigResponse (CreateQueryLoggingConfigResponse'),
     newCreateQueryLoggingConfigResponse,
-
-    -- ** UpdateTrafficPolicyComment
-    UpdateTrafficPolicyComment (UpdateTrafficPolicyComment'),
-    newUpdateTrafficPolicyComment,
-    UpdateTrafficPolicyCommentResponse (UpdateTrafficPolicyCommentResponse'),
-    newUpdateTrafficPolicyCommentResponse,
-
-    -- ** CreateKeySigningKey
-    CreateKeySigningKey (CreateKeySigningKey'),
-    newCreateKeySigningKey,
-    CreateKeySigningKeyResponse (CreateKeySigningKeyResponse'),
-    newCreateKeySigningKeyResponse,
 
     -- ** DisableHostedZoneDNSSEC
     DisableHostedZoneDNSSEC (DisableHostedZoneDNSSEC'),
@@ -402,17 +390,23 @@ module Network.AWS.Route53
     DisableHostedZoneDNSSECResponse (DisableHostedZoneDNSSECResponse'),
     newDisableHostedZoneDNSSECResponse,
 
+    -- ** CreateKeySigningKey
+    CreateKeySigningKey (CreateKeySigningKey'),
+    newCreateKeySigningKey,
+    CreateKeySigningKeyResponse (CreateKeySigningKeyResponse'),
+    newCreateKeySigningKeyResponse,
+
+    -- ** UpdateTrafficPolicyComment
+    UpdateTrafficPolicyComment (UpdateTrafficPolicyComment'),
+    newUpdateTrafficPolicyComment,
+    UpdateTrafficPolicyCommentResponse (UpdateTrafficPolicyCommentResponse'),
+    newUpdateTrafficPolicyCommentResponse,
+
     -- ** ListResourceRecordSets (Paginated)
     ListResourceRecordSets (ListResourceRecordSets'),
     newListResourceRecordSets,
     ListResourceRecordSetsResponse (ListResourceRecordSetsResponse'),
     newListResourceRecordSetsResponse,
-
-    -- ** DeleteTrafficPolicy
-    DeleteTrafficPolicy (DeleteTrafficPolicy'),
-    newDeleteTrafficPolicy,
-    DeleteTrafficPolicyResponse (DeleteTrafficPolicyResponse'),
-    newDeleteTrafficPolicyResponse,
 
     -- ** GetHealthCheck
     GetHealthCheck (GetHealthCheck'),
@@ -420,23 +414,11 @@ module Network.AWS.Route53
     GetHealthCheckResponse (GetHealthCheckResponse'),
     newGetHealthCheckResponse,
 
-    -- ** ListTrafficPolicyInstancesByHostedZone
-    ListTrafficPolicyInstancesByHostedZone (ListTrafficPolicyInstancesByHostedZone'),
-    newListTrafficPolicyInstancesByHostedZone,
-    ListTrafficPolicyInstancesByHostedZoneResponse (ListTrafficPolicyInstancesByHostedZoneResponse'),
-    newListTrafficPolicyInstancesByHostedZoneResponse,
-
-    -- ** ListTagsForResources
-    ListTagsForResources (ListTagsForResources'),
-    newListTagsForResources,
-    ListTagsForResourcesResponse (ListTagsForResourcesResponse'),
-    newListTagsForResourcesResponse,
-
-    -- ** GetTrafficPolicyInstanceCount
-    GetTrafficPolicyInstanceCount (GetTrafficPolicyInstanceCount'),
-    newGetTrafficPolicyInstanceCount,
-    GetTrafficPolicyInstanceCountResponse (GetTrafficPolicyInstanceCountResponse'),
-    newGetTrafficPolicyInstanceCountResponse,
+    -- ** DeleteTrafficPolicy
+    DeleteTrafficPolicy (DeleteTrafficPolicy'),
+    newDeleteTrafficPolicy,
+    DeleteTrafficPolicyResponse (DeleteTrafficPolicyResponse'),
+    newDeleteTrafficPolicyResponse,
 
     -- ** GetHostedZone
     GetHostedZone (GetHostedZone'),
@@ -444,17 +426,29 @@ module Network.AWS.Route53
     GetHostedZoneResponse (GetHostedZoneResponse'),
     newGetHostedZoneResponse,
 
+    -- ** GetTrafficPolicyInstanceCount
+    GetTrafficPolicyInstanceCount (GetTrafficPolicyInstanceCount'),
+    newGetTrafficPolicyInstanceCount,
+    GetTrafficPolicyInstanceCountResponse (GetTrafficPolicyInstanceCountResponse'),
+    newGetTrafficPolicyInstanceCountResponse,
+
+    -- ** ListTagsForResources
+    ListTagsForResources (ListTagsForResources'),
+    newListTagsForResources,
+    ListTagsForResourcesResponse (ListTagsForResourcesResponse'),
+    newListTagsForResourcesResponse,
+
+    -- ** ListTrafficPolicyInstancesByHostedZone
+    ListTrafficPolicyInstancesByHostedZone (ListTrafficPolicyInstancesByHostedZone'),
+    newListTrafficPolicyInstancesByHostedZone,
+    ListTrafficPolicyInstancesByHostedZoneResponse (ListTrafficPolicyInstancesByHostedZoneResponse'),
+    newListTrafficPolicyInstancesByHostedZoneResponse,
+
     -- ** ListVPCAssociationAuthorizations (Paginated)
     ListVPCAssociationAuthorizations (ListVPCAssociationAuthorizations'),
     newListVPCAssociationAuthorizations,
     ListVPCAssociationAuthorizationsResponse (ListVPCAssociationAuthorizationsResponse'),
     newListVPCAssociationAuthorizationsResponse,
-
-    -- ** ListTrafficPolicyVersions
-    ListTrafficPolicyVersions (ListTrafficPolicyVersions'),
-    newListTrafficPolicyVersions,
-    ListTrafficPolicyVersionsResponse (ListTrafficPolicyVersionsResponse'),
-    newListTrafficPolicyVersionsResponse,
 
     -- ** ListTrafficPolicyInstancesByPolicy
     ListTrafficPolicyInstancesByPolicy (ListTrafficPolicyInstancesByPolicy'),
@@ -462,17 +456,17 @@ module Network.AWS.Route53
     ListTrafficPolicyInstancesByPolicyResponse (ListTrafficPolicyInstancesByPolicyResponse'),
     newListTrafficPolicyInstancesByPolicyResponse,
 
-    -- ** ListHealthChecks (Paginated)
-    ListHealthChecks (ListHealthChecks'),
-    newListHealthChecks,
-    ListHealthChecksResponse (ListHealthChecksResponse'),
-    newListHealthChecksResponse,
+    -- ** ListTrafficPolicyVersions
+    ListTrafficPolicyVersions (ListTrafficPolicyVersions'),
+    newListTrafficPolicyVersions,
+    ListTrafficPolicyVersionsResponse (ListTrafficPolicyVersionsResponse'),
+    newListTrafficPolicyVersionsResponse,
 
-    -- ** DeleteHealthCheck
-    DeleteHealthCheck (DeleteHealthCheck'),
-    newDeleteHealthCheck,
-    DeleteHealthCheckResponse (DeleteHealthCheckResponse'),
-    newDeleteHealthCheckResponse,
+    -- ** CreateVPCAssociationAuthorization
+    CreateVPCAssociationAuthorization (CreateVPCAssociationAuthorization'),
+    newCreateVPCAssociationAuthorization,
+    CreateVPCAssociationAuthorizationResponse (CreateVPCAssociationAuthorizationResponse'),
+    newCreateVPCAssociationAuthorizationResponse,
 
     -- ** CreateTrafficPolicyVersion
     CreateTrafficPolicyVersion (CreateTrafficPolicyVersion'),
@@ -480,17 +474,23 @@ module Network.AWS.Route53
     CreateTrafficPolicyVersionResponse (CreateTrafficPolicyVersionResponse'),
     newCreateTrafficPolicyVersionResponse,
 
+    -- ** ListHealthChecks (Paginated)
+    ListHealthChecks (ListHealthChecks'),
+    newListHealthChecks,
+    ListHealthChecksResponse (ListHealthChecksResponse'),
+    newListHealthChecksResponse,
+
     -- ** GetTrafficPolicy
     GetTrafficPolicy (GetTrafficPolicy'),
     newGetTrafficPolicy,
     GetTrafficPolicyResponse (GetTrafficPolicyResponse'),
     newGetTrafficPolicyResponse,
 
-    -- ** CreateVPCAssociationAuthorization
-    CreateVPCAssociationAuthorization (CreateVPCAssociationAuthorization'),
-    newCreateVPCAssociationAuthorization,
-    CreateVPCAssociationAuthorizationResponse (CreateVPCAssociationAuthorizationResponse'),
-    newCreateVPCAssociationAuthorizationResponse,
+    -- ** DeleteHealthCheck
+    DeleteHealthCheck (DeleteHealthCheck'),
+    newDeleteHealthCheck,
+    DeleteHealthCheckResponse (DeleteHealthCheckResponse'),
+    newDeleteHealthCheckResponse,
 
     -- ** UpdateHealthCheck
     UpdateHealthCheck (UpdateHealthCheck'),
@@ -504,17 +504,17 @@ module Network.AWS.Route53
     CreateTrafficPolicyInstanceResponse (CreateTrafficPolicyInstanceResponse'),
     newCreateTrafficPolicyInstanceResponse,
 
-    -- ** ListHostedZonesByVPC
-    ListHostedZonesByVPC (ListHostedZonesByVPC'),
-    newListHostedZonesByVPC,
-    ListHostedZonesByVPCResponse (ListHostedZonesByVPCResponse'),
-    newListHostedZonesByVPCResponse,
-
     -- ** GetHealthCheckStatus
     GetHealthCheckStatus (GetHealthCheckStatus'),
     newGetHealthCheckStatus,
     GetHealthCheckStatusResponse (GetHealthCheckStatusResponse'),
     newGetHealthCheckStatusResponse,
+
+    -- ** ListHostedZonesByVPC
+    ListHostedZonesByVPC (ListHostedZonesByVPC'),
+    newListHostedZonesByVPC,
+    ListHostedZonesByVPCResponse (ListHostedZonesByVPCResponse'),
+    newListHostedZonesByVPCResponse,
 
     -- ** GetChange
     GetChange (GetChange'),
@@ -558,41 +558,11 @@ module Network.AWS.Route53
     DeleteReusableDelegationSetResponse (DeleteReusableDelegationSetResponse'),
     newDeleteReusableDelegationSetResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** DeleteQueryLoggingConfig
     DeleteQueryLoggingConfig (DeleteQueryLoggingConfig'),
     newDeleteQueryLoggingConfig,
     DeleteQueryLoggingConfigResponse (DeleteQueryLoggingConfigResponse'),
     newDeleteQueryLoggingConfigResponse,
-
-    -- ** GetHealthCheckLastFailureReason
-    GetHealthCheckLastFailureReason (GetHealthCheckLastFailureReason'),
-    newGetHealthCheckLastFailureReason,
-    GetHealthCheckLastFailureReasonResponse (GetHealthCheckLastFailureReasonResponse'),
-    newGetHealthCheckLastFailureReasonResponse,
-
-    -- ** EnableHostedZoneDNSSEC
-    EnableHostedZoneDNSSEC (EnableHostedZoneDNSSEC'),
-    newEnableHostedZoneDNSSEC,
-    EnableHostedZoneDNSSECResponse (EnableHostedZoneDNSSECResponse'),
-    newEnableHostedZoneDNSSECResponse,
-
-    -- ** ListQueryLoggingConfigs (Paginated)
-    ListQueryLoggingConfigs (ListQueryLoggingConfigs'),
-    newListQueryLoggingConfigs,
-    ListQueryLoggingConfigsResponse (ListQueryLoggingConfigsResponse'),
-    newListQueryLoggingConfigsResponse,
-
-    -- ** ListHostedZonesByName
-    ListHostedZonesByName (ListHostedZonesByName'),
-    newListHostedZonesByName,
-    ListHostedZonesByNameResponse (ListHostedZonesByNameResponse'),
-    newListHostedZonesByNameResponse,
 
     -- ** GetHostedZoneCount
     GetHostedZoneCount (GetHostedZoneCount'),
@@ -600,11 +570,41 @@ module Network.AWS.Route53
     GetHostedZoneCountResponse (GetHostedZoneCountResponse'),
     newGetHostedZoneCountResponse,
 
+    -- ** EnableHostedZoneDNSSEC
+    EnableHostedZoneDNSSEC (EnableHostedZoneDNSSEC'),
+    newEnableHostedZoneDNSSEC,
+    EnableHostedZoneDNSSECResponse (EnableHostedZoneDNSSECResponse'),
+    newEnableHostedZoneDNSSECResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** GetHealthCheckLastFailureReason
+    GetHealthCheckLastFailureReason (GetHealthCheckLastFailureReason'),
+    newGetHealthCheckLastFailureReason,
+    GetHealthCheckLastFailureReasonResponse (GetHealthCheckLastFailureReasonResponse'),
+    newGetHealthCheckLastFailureReasonResponse,
+
     -- ** ActivateKeySigningKey
     ActivateKeySigningKey (ActivateKeySigningKey'),
     newActivateKeySigningKey,
     ActivateKeySigningKeyResponse (ActivateKeySigningKeyResponse'),
     newActivateKeySigningKeyResponse,
+
+    -- ** ListHostedZonesByName
+    ListHostedZonesByName (ListHostedZonesByName'),
+    newListHostedZonesByName,
+    ListHostedZonesByNameResponse (ListHostedZonesByNameResponse'),
+    newListHostedZonesByNameResponse,
+
+    -- ** ListQueryLoggingConfigs (Paginated)
+    ListQueryLoggingConfigs (ListQueryLoggingConfigs'),
+    newListQueryLoggingConfigs,
+    ListQueryLoggingConfigsResponse (ListQueryLoggingConfigsResponse'),
+    newListQueryLoggingConfigsResponse,
 
     -- * Types
 

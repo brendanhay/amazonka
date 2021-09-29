@@ -39,23 +39,23 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestDeleteEnvironment $
+--             newDeleteEnvironment
+--
 --         , requestDescribeEnvironmentStatus $
 --             newDescribeEnvironmentStatus
 --
 --         , requestUpdateEnvironment $
 --             newUpdateEnvironment
 --
---         , requestDeleteEnvironment $
---             newDeleteEnvironment
---
 --         , requestDescribeEnvironmentMemberships $
 --             newDescribeEnvironmentMemberships
 --
---         , requestUpdateEnvironmentMembership $
---             newUpdateEnvironmentMembership
---
 --         , requestDeleteEnvironmentMembership $
 --             newDeleteEnvironmentMembership
+--
+--         , requestUpdateEnvironmentMembership $
+--             newUpdateEnvironmentMembership
 --
 --         , requestDescribeEnvironments $
 --             newDescribeEnvironments
@@ -81,23 +81,23 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseDeleteEnvironment $
+--             newDeleteEnvironmentResponse
+--
 --         , responseDescribeEnvironmentStatus $
 --             newDescribeEnvironmentStatusResponse
 --
 --         , responseUpdateEnvironment $
 --             newUpdateEnvironmentResponse
 --
---         , responseDeleteEnvironment $
---             newDeleteEnvironmentResponse
---
 --         , responseDescribeEnvironmentMemberships $
 --             newDescribeEnvironmentMembershipsResponse
 --
---         , responseUpdateEnvironmentMembership $
---             newUpdateEnvironmentMembershipResponse
---
 --         , responseDeleteEnvironmentMembership $
 --             newDeleteEnvironmentMembershipResponse
+--
+--         , responseUpdateEnvironmentMembership $
+--             newUpdateEnvironmentMembershipResponse
 --
 --         , responseDescribeEnvironments $
 --             newDescribeEnvironmentsResponse
@@ -137,6 +137,12 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestDeleteEnvironment :: DeleteEnvironment -> TestTree
+requestDeleteEnvironment =
+  req
+    "DeleteEnvironment"
+    "fixture/DeleteEnvironment.yaml"
+
 requestDescribeEnvironmentStatus :: DescribeEnvironmentStatus -> TestTree
 requestDescribeEnvironmentStatus =
   req
@@ -149,29 +155,23 @@ requestUpdateEnvironment =
     "UpdateEnvironment"
     "fixture/UpdateEnvironment.yaml"
 
-requestDeleteEnvironment :: DeleteEnvironment -> TestTree
-requestDeleteEnvironment =
-  req
-    "DeleteEnvironment"
-    "fixture/DeleteEnvironment.yaml"
-
 requestDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships -> TestTree
 requestDescribeEnvironmentMemberships =
   req
     "DescribeEnvironmentMemberships"
     "fixture/DescribeEnvironmentMemberships.yaml"
 
-requestUpdateEnvironmentMembership :: UpdateEnvironmentMembership -> TestTree
-requestUpdateEnvironmentMembership =
-  req
-    "UpdateEnvironmentMembership"
-    "fixture/UpdateEnvironmentMembership.yaml"
-
 requestDeleteEnvironmentMembership :: DeleteEnvironmentMembership -> TestTree
 requestDeleteEnvironmentMembership =
   req
     "DeleteEnvironmentMembership"
     "fixture/DeleteEnvironmentMembership.yaml"
+
+requestUpdateEnvironmentMembership :: UpdateEnvironmentMembership -> TestTree
+requestUpdateEnvironmentMembership =
+  req
+    "UpdateEnvironmentMembership"
+    "fixture/UpdateEnvironmentMembership.yaml"
 
 requestDescribeEnvironments :: DescribeEnvironments -> TestTree
 requestDescribeEnvironments =
@@ -225,6 +225,14 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
+responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
+responseDeleteEnvironment =
+  res
+    "DeleteEnvironmentResponse"
+    "fixture/DeleteEnvironmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEnvironment)
+
 responseDescribeEnvironmentStatus :: DescribeEnvironmentStatusResponse -> TestTree
 responseDescribeEnvironmentStatus =
   res
@@ -241,14 +249,6 @@ responseUpdateEnvironment =
     defaultService
     (Proxy :: Proxy UpdateEnvironment)
 
-responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
-responseDeleteEnvironment =
-  res
-    "DeleteEnvironmentResponse"
-    "fixture/DeleteEnvironmentResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteEnvironment)
-
 responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
 responseDescribeEnvironmentMemberships =
   res
@@ -257,14 +257,6 @@ responseDescribeEnvironmentMemberships =
     defaultService
     (Proxy :: Proxy DescribeEnvironmentMemberships)
 
-responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
-responseUpdateEnvironmentMembership =
-  res
-    "UpdateEnvironmentMembershipResponse"
-    "fixture/UpdateEnvironmentMembershipResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateEnvironmentMembership)
-
 responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
 responseDeleteEnvironmentMembership =
   res
@@ -272,6 +264,14 @@ responseDeleteEnvironmentMembership =
     "fixture/DeleteEnvironmentMembershipResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteEnvironmentMembership)
+
+responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
+responseUpdateEnvironmentMembership =
+  res
+    "UpdateEnvironmentMembershipResponse"
+    "fixture/UpdateEnvironmentMembershipResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEnvironmentMembership)
 
 responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
 responseDescribeEnvironments =

@@ -29,7 +29,9 @@ module Network.AWS.Polly.Types.LanguageCode
         LanguageCode_En_GB,
         LanguageCode_En_GB_WLS,
         LanguageCode_En_IN,
+        LanguageCode_En_NZ,
         LanguageCode_En_US,
+        LanguageCode_En_ZA,
         LanguageCode_Es_ES,
         LanguageCode_Es_MX,
         LanguageCode_Es_US,
@@ -111,8 +113,14 @@ pattern LanguageCode_En_GB_WLS = LanguageCode' "en-GB-WLS"
 pattern LanguageCode_En_IN :: LanguageCode
 pattern LanguageCode_En_IN = LanguageCode' "en-IN"
 
+pattern LanguageCode_En_NZ :: LanguageCode
+pattern LanguageCode_En_NZ = LanguageCode' "en-NZ"
+
 pattern LanguageCode_En_US :: LanguageCode
 pattern LanguageCode_En_US = LanguageCode' "en-US"
+
+pattern LanguageCode_En_ZA :: LanguageCode
+pattern LanguageCode_En_ZA = LanguageCode' "en-ZA"
 
 pattern LanguageCode_Es_ES :: LanguageCode
 pattern LanguageCode_Es_ES = LanguageCode' "es-ES"
@@ -181,7 +189,9 @@ pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
   LanguageCode_En_GB,
   LanguageCode_En_GB_WLS,
   LanguageCode_En_IN,
+  LanguageCode_En_NZ,
   LanguageCode_En_US,
+  LanguageCode_En_ZA,
   LanguageCode_Es_ES,
   LanguageCode_Es_MX,
   LanguageCode_Es_US,

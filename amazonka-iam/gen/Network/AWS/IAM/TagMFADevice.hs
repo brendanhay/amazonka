@@ -47,9 +47,10 @@
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 --     in the /IAM User Guide/.
 --
--- -   AWS always interprets the tag @Value@ as a single string. If you
---     need to store an array, you can store comma-separated values in the
---     string. However, you must interpret the value in your code.
+-- -   Amazon Web Services always interprets the tag @Value@ as a single
+--     string. If you need to store an array, you can store comma-separated
+--     values in the string. However, you must interpret the value in your
+--     code.
 module Network.AWS.IAM.TagMFADevice
   ( -- * Creating a Request
     TagMFADevice (..),
@@ -78,10 +79,10 @@ data TagMFADevice = TagMFADevice'
     -- to add tags. For virtual MFA devices, the serial number is the same as
     -- the ARN.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     serialNumber :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM virtual MFA device.
     -- Each tag consists of a key name and an associated value.
@@ -101,10 +102,10 @@ data TagMFADevice = TagMFADevice'
 -- to add tags. For virtual MFA devices, the serial number is the same as
 -- the ARN.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tags', 'tagMFADevice_tags' - The list of tags that you want to attach to the IAM virtual MFA device.
 -- Each tag consists of a key name and an associated value.
@@ -122,10 +123,10 @@ newTagMFADevice pSerialNumber_ =
 -- to add tags. For virtual MFA devices, the serial number is the same as
 -- the ARN.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 tagMFADevice_serialNumber :: Lens.Lens' TagMFADevice Prelude.Text
 tagMFADevice_serialNumber = Lens.lens (\TagMFADevice' {serialNumber} -> serialNumber) (\s@TagMFADevice' {} a -> s {serialNumber = a} :: TagMFADevice)
 

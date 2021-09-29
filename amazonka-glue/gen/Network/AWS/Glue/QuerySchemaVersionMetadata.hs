@@ -28,8 +28,8 @@ module Network.AWS.Glue.QuerySchemaVersionMetadata
 
     -- * Request Lenses
     querySchemaVersionMetadata_nextToken,
-    querySchemaVersionMetadata_schemaVersionId,
     querySchemaVersionMetadata_maxResults,
+    querySchemaVersionMetadata_schemaVersionId,
     querySchemaVersionMetadata_schemaVersionNumber,
     querySchemaVersionMetadata_metadataList,
     querySchemaVersionMetadata_schemaId,
@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Response
 data QuerySchemaVersionMetadata = QuerySchemaVersionMetadata'
   { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The unique version ID of the schema version.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique version ID of the schema version.
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the schema.
     schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
     -- | Search key-value pairs for metadata, if they are not provided all the
@@ -83,10 +83,10 @@ data QuerySchemaVersionMetadata = QuerySchemaVersionMetadata'
 --
 -- 'nextToken', 'querySchemaVersionMetadata_nextToken' - A continuation token, if this is a continuation call.
 --
--- 'schemaVersionId', 'querySchemaVersionMetadata_schemaVersionId' - The unique version ID of the schema version.
---
 -- 'maxResults', 'querySchemaVersionMetadata_maxResults' - Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
+--
+-- 'schemaVersionId', 'querySchemaVersionMetadata_schemaVersionId' - The unique version ID of the schema version.
 --
 -- 'schemaVersionNumber', 'querySchemaVersionMetadata_schemaVersionNumber' - The version number of the schema.
 --
@@ -101,8 +101,8 @@ newQuerySchemaVersionMetadata =
   QuerySchemaVersionMetadata'
     { nextToken =
         Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
       schemaVersionNumber = Prelude.Nothing,
       metadataList = Prelude.Nothing,
       schemaId = Prelude.Nothing
@@ -112,14 +112,14 @@ newQuerySchemaVersionMetadata =
 querySchemaVersionMetadata_nextToken :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Text)
 querySchemaVersionMetadata_nextToken = Lens.lens (\QuerySchemaVersionMetadata' {nextToken} -> nextToken) (\s@QuerySchemaVersionMetadata' {} a -> s {nextToken = a} :: QuerySchemaVersionMetadata)
 
--- | The unique version ID of the schema version.
-querySchemaVersionMetadata_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Text)
-querySchemaVersionMetadata_schemaVersionId = Lens.lens (\QuerySchemaVersionMetadata' {schemaVersionId} -> schemaVersionId) (\s@QuerySchemaVersionMetadata' {} a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadata)
-
 -- | Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
 querySchemaVersionMetadata_maxResults :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Natural)
 querySchemaVersionMetadata_maxResults = Lens.lens (\QuerySchemaVersionMetadata' {maxResults} -> maxResults) (\s@QuerySchemaVersionMetadata' {} a -> s {maxResults = a} :: QuerySchemaVersionMetadata)
+
+-- | The unique version ID of the schema version.
+querySchemaVersionMetadata_schemaVersionId :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe Prelude.Text)
+querySchemaVersionMetadata_schemaVersionId = Lens.lens (\QuerySchemaVersionMetadata' {schemaVersionId} -> schemaVersionId) (\s@QuerySchemaVersionMetadata' {} a -> s {schemaVersionId = a} :: QuerySchemaVersionMetadata)
 
 -- | The version number of the schema.
 querySchemaVersionMetadata_schemaVersionNumber :: Lens.Lens' QuerySchemaVersionMetadata (Prelude.Maybe SchemaVersionNumber)
@@ -176,9 +176,9 @@ instance Core.ToJSON QuerySchemaVersionMetadata where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SchemaVersionId" Core..=)
               Prelude.<$> schemaVersionId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SchemaVersionNumber" Core..=)
               Prelude.<$> schemaVersionNumber,
             ("MetadataList" Core..=) Prelude.<$> metadataList,

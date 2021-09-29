@@ -221,8 +221,8 @@ instance
 
 -- | /See:/ 'newListAvailableManagementCidrRangesResponse' smart constructor.
 data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRangesResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
     managementCidrRanges :: Prelude.Maybe [Prelude.Text],
@@ -239,8 +239,8 @@ data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRang
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAvailableManagementCidrRangesResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'listAvailableManagementCidrRangesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'managementCidrRanges', 'listAvailableManagementCidrRangesResponse_managementCidrRanges' - The list of available IP address ranges, specified as IPv4 CIDR blocks.
 --
@@ -259,8 +259,8 @@ newListAvailableManagementCidrRangesResponse
         httpStatus = pHttpStatus_
       }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 listAvailableManagementCidrRangesResponse_nextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Prelude.Maybe Prelude.Text)
 listAvailableManagementCidrRangesResponse_nextToken = Lens.lens (\ListAvailableManagementCidrRangesResponse' {nextToken} -> nextToken) (\s@ListAvailableManagementCidrRangesResponse' {} a -> s {nextToken = a} :: ListAvailableManagementCidrRangesResponse)
 

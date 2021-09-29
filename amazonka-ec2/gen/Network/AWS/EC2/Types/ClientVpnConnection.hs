@@ -33,10 +33,10 @@ data ClientVpnConnection = ClientVpnConnection'
     clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the client connection.
     status :: Prelude.Maybe ClientVpnConnectionStatus,
-    -- | The number of packets sent by the client.
-    ingressPackets :: Prelude.Maybe Prelude.Text,
     -- | The number of bytes received by the client.
     egressBytes :: Prelude.Maybe Prelude.Text,
+    -- | The number of packets sent by the client.
+    ingressPackets :: Prelude.Maybe Prelude.Text,
     -- | The ID of the client connection.
     connectionId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the client connection was established.
@@ -49,12 +49,12 @@ data ClientVpnConnection = ClientVpnConnection'
     commonName :: Prelude.Maybe Prelude.Text,
     -- | The date and time the client connection was terminated.
     connectionEndTime :: Prelude.Maybe Prelude.Text,
+    -- | The current date and time.
+    timestamp :: Prelude.Maybe Prelude.Text,
     -- | The number of bytes sent by the client.
     ingressBytes :: Prelude.Maybe Prelude.Text,
     -- | The number of packets received by the client.
     egressPackets :: Prelude.Maybe Prelude.Text,
-    -- | The current date and time.
-    timestamp :: Prelude.Maybe Prelude.Text,
     -- | The username of the client who established the client connection. This
     -- information is only provided if Active Directory client authentication
     -- is used.
@@ -76,9 +76,9 @@ data ClientVpnConnection = ClientVpnConnection'
 --
 -- 'status', 'clientVpnConnection_status' - The current state of the client connection.
 --
--- 'ingressPackets', 'clientVpnConnection_ingressPackets' - The number of packets sent by the client.
---
 -- 'egressBytes', 'clientVpnConnection_egressBytes' - The number of bytes received by the client.
+--
+-- 'ingressPackets', 'clientVpnConnection_ingressPackets' - The number of packets sent by the client.
 --
 -- 'connectionId', 'clientVpnConnection_connectionId' - The ID of the client connection.
 --
@@ -92,11 +92,11 @@ data ClientVpnConnection = ClientVpnConnection'
 --
 -- 'connectionEndTime', 'clientVpnConnection_connectionEndTime' - The date and time the client connection was terminated.
 --
+-- 'timestamp', 'clientVpnConnection_timestamp' - The current date and time.
+--
 -- 'ingressBytes', 'clientVpnConnection_ingressBytes' - The number of bytes sent by the client.
 --
 -- 'egressPackets', 'clientVpnConnection_egressPackets' - The number of packets received by the client.
---
--- 'timestamp', 'clientVpnConnection_timestamp' - The current date and time.
 --
 -- 'username', 'clientVpnConnection_username' - The username of the client who established the client connection. This
 -- information is only provided if Active Directory client authentication
@@ -110,16 +110,16 @@ newClientVpnConnection =
     { clientVpnEndpointId =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      ingressPackets = Prelude.Nothing,
       egressBytes = Prelude.Nothing,
+      ingressPackets = Prelude.Nothing,
       connectionId = Prelude.Nothing,
       connectionEstablishedTime = Prelude.Nothing,
       postureComplianceStatuses = Prelude.Nothing,
       commonName = Prelude.Nothing,
       connectionEndTime = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       ingressBytes = Prelude.Nothing,
       egressPackets = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
       username = Prelude.Nothing,
       clientIp = Prelude.Nothing
     }
@@ -132,13 +132,13 @@ clientVpnConnection_clientVpnEndpointId = Lens.lens (\ClientVpnConnection' {clie
 clientVpnConnection_status :: Lens.Lens' ClientVpnConnection (Prelude.Maybe ClientVpnConnectionStatus)
 clientVpnConnection_status = Lens.lens (\ClientVpnConnection' {status} -> status) (\s@ClientVpnConnection' {} a -> s {status = a} :: ClientVpnConnection)
 
--- | The number of packets sent by the client.
-clientVpnConnection_ingressPackets :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
-clientVpnConnection_ingressPackets = Lens.lens (\ClientVpnConnection' {ingressPackets} -> ingressPackets) (\s@ClientVpnConnection' {} a -> s {ingressPackets = a} :: ClientVpnConnection)
-
 -- | The number of bytes received by the client.
 clientVpnConnection_egressBytes :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
 clientVpnConnection_egressBytes = Lens.lens (\ClientVpnConnection' {egressBytes} -> egressBytes) (\s@ClientVpnConnection' {} a -> s {egressBytes = a} :: ClientVpnConnection)
+
+-- | The number of packets sent by the client.
+clientVpnConnection_ingressPackets :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
+clientVpnConnection_ingressPackets = Lens.lens (\ClientVpnConnection' {ingressPackets} -> ingressPackets) (\s@ClientVpnConnection' {} a -> s {ingressPackets = a} :: ClientVpnConnection)
 
 -- | The ID of the client connection.
 clientVpnConnection_connectionId :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
@@ -162,6 +162,10 @@ clientVpnConnection_commonName = Lens.lens (\ClientVpnConnection' {commonName} -
 clientVpnConnection_connectionEndTime :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
 clientVpnConnection_connectionEndTime = Lens.lens (\ClientVpnConnection' {connectionEndTime} -> connectionEndTime) (\s@ClientVpnConnection' {} a -> s {connectionEndTime = a} :: ClientVpnConnection)
 
+-- | The current date and time.
+clientVpnConnection_timestamp :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
+clientVpnConnection_timestamp = Lens.lens (\ClientVpnConnection' {timestamp} -> timestamp) (\s@ClientVpnConnection' {} a -> s {timestamp = a} :: ClientVpnConnection)
+
 -- | The number of bytes sent by the client.
 clientVpnConnection_ingressBytes :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
 clientVpnConnection_ingressBytes = Lens.lens (\ClientVpnConnection' {ingressBytes} -> ingressBytes) (\s@ClientVpnConnection' {} a -> s {ingressBytes = a} :: ClientVpnConnection)
@@ -169,10 +173,6 @@ clientVpnConnection_ingressBytes = Lens.lens (\ClientVpnConnection' {ingressByte
 -- | The number of packets received by the client.
 clientVpnConnection_egressPackets :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
 clientVpnConnection_egressPackets = Lens.lens (\ClientVpnConnection' {egressPackets} -> egressPackets) (\s@ClientVpnConnection' {} a -> s {egressPackets = a} :: ClientVpnConnection)
-
--- | The current date and time.
-clientVpnConnection_timestamp :: Lens.Lens' ClientVpnConnection (Prelude.Maybe Prelude.Text)
-clientVpnConnection_timestamp = Lens.lens (\ClientVpnConnection' {timestamp} -> timestamp) (\s@ClientVpnConnection' {} a -> s {timestamp = a} :: ClientVpnConnection)
 
 -- | The username of the client who established the client connection. This
 -- information is only provided if Active Directory client authentication
@@ -189,8 +189,8 @@ instance Core.FromXML ClientVpnConnection where
     ClientVpnConnection'
       Prelude.<$> (x Core..@? "clientVpnEndpointId")
       Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "ingressPackets")
       Prelude.<*> (x Core..@? "egressBytes")
+      Prelude.<*> (x Core..@? "ingressPackets")
       Prelude.<*> (x Core..@? "connectionId")
       Prelude.<*> (x Core..@? "connectionEstablishedTime")
       Prelude.<*> ( x Core..@? "postureComplianceStatusSet"
@@ -199,9 +199,9 @@ instance Core.FromXML ClientVpnConnection where
                   )
       Prelude.<*> (x Core..@? "commonName")
       Prelude.<*> (x Core..@? "connectionEndTime")
+      Prelude.<*> (x Core..@? "timestamp")
       Prelude.<*> (x Core..@? "ingressBytes")
       Prelude.<*> (x Core..@? "egressPackets")
-      Prelude.<*> (x Core..@? "timestamp")
       Prelude.<*> (x Core..@? "username")
       Prelude.<*> (x Core..@? "clientIp")
 

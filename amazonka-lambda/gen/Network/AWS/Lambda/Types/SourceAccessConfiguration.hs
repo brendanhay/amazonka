@@ -24,34 +24,41 @@ import Network.AWS.Lambda.Types.SourceAccessType
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | You can specify the authentication protocol, or the VPC components to
--- secure access to your event source.
+-- | To secure and define access to your event source, you can specify the
+-- authentication protocol, VPC components, or virtual host.
 --
 -- /See:/ 'newSourceAccessConfiguration' smart constructor.
 data SourceAccessConfiguration = SourceAccessConfiguration'
   { -- | The value for your chosen configuration in @Type@. For example:
     -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication protocol or the VPC components for your event
-    -- source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
+    -- | The type of authentication protocol, VPC components, or virtual host for
+    -- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
     --
-    -- -   @BASIC_AUTH@ - (MQ) The Secrets Manager secret that stores your
-    --     broker credentials.
+    -- -   @BASIC_AUTH@ - (Amazon MQ) The Secrets Manager secret that stores
+    --     your broker credentials.
+    --
+    -- -   @BASIC_AUTH@ - (Self-managed Apache Kafka) The Secrets Manager ARN
+    --     of your secret key used for SASL\/PLAIN authentication of your
+    --     Apache Kafka brokers.
     --
     -- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
-    --     to these subnets to fetch data from your Self-Managed Apache Kafka
+    --     to these subnets to fetch data from your self-managed Apache Kafka
     --     cluster.
     --
     -- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
-    --     to your Self-Managed Apache Kafka brokers.
+    --     to your self-managed Apache Kafka brokers.
     --
     -- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
-    --     used for SASL SCRAM-256 authentication of your Self-Managed Apache
+    --     used for SASL SCRAM-256 authentication of your self-managed Apache
     --     Kafka brokers.
     --
     -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
-    --     used for SASL SCRAM-512 authentication of your Self-Managed Apache
+    --     used for SASL SCRAM-512 authentication of your self-managed Apache
     --     Kafka brokers.
+    --
+    -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+    --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
     type' :: Prelude.Maybe SourceAccessType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,26 +74,33 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
 -- 'uri', 'sourceAccessConfiguration_uri' - The value for your chosen configuration in @Type@. For example:
 -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
 --
--- 'type'', 'sourceAccessConfiguration_type' - The type of authentication protocol or the VPC components for your event
--- source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
+-- 'type'', 'sourceAccessConfiguration_type' - The type of authentication protocol, VPC components, or virtual host for
+-- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
 --
--- -   @BASIC_AUTH@ - (MQ) The Secrets Manager secret that stores your
---     broker credentials.
+-- -   @BASIC_AUTH@ - (Amazon MQ) The Secrets Manager secret that stores
+--     your broker credentials.
+--
+-- -   @BASIC_AUTH@ - (Self-managed Apache Kafka) The Secrets Manager ARN
+--     of your secret key used for SASL\/PLAIN authentication of your
+--     Apache Kafka brokers.
 --
 -- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
---     to these subnets to fetch data from your Self-Managed Apache Kafka
+--     to these subnets to fetch data from your self-managed Apache Kafka
 --     cluster.
 --
 -- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
---     to your Self-Managed Apache Kafka brokers.
+--     to your self-managed Apache Kafka brokers.
 --
 -- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-256 authentication of your Self-Managed Apache
+--     used for SASL SCRAM-256 authentication of your self-managed Apache
 --     Kafka brokers.
 --
 -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-512 authentication of your Self-Managed Apache
+--     used for SASL SCRAM-512 authentication of your self-managed Apache
 --     Kafka brokers.
+--
+-- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+--     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
 newSourceAccessConfiguration ::
   SourceAccessConfiguration
 newSourceAccessConfiguration =
@@ -100,26 +114,33 @@ newSourceAccessConfiguration =
 sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe Prelude.Text)
 sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> uri) (\s@SourceAccessConfiguration' {} a -> s {uri = a} :: SourceAccessConfiguration)
 
--- | The type of authentication protocol or the VPC components for your event
--- source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
+-- | The type of authentication protocol, VPC components, or virtual host for
+-- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
 --
--- -   @BASIC_AUTH@ - (MQ) The Secrets Manager secret that stores your
---     broker credentials.
+-- -   @BASIC_AUTH@ - (Amazon MQ) The Secrets Manager secret that stores
+--     your broker credentials.
+--
+-- -   @BASIC_AUTH@ - (Self-managed Apache Kafka) The Secrets Manager ARN
+--     of your secret key used for SASL\/PLAIN authentication of your
+--     Apache Kafka brokers.
 --
 -- -   @VPC_SUBNET@ - The subnets associated with your VPC. Lambda connects
---     to these subnets to fetch data from your Self-Managed Apache Kafka
+--     to these subnets to fetch data from your self-managed Apache Kafka
 --     cluster.
 --
 -- -   @VPC_SECURITY_GROUP@ - The VPC security group used to manage access
---     to your Self-Managed Apache Kafka brokers.
+--     to your self-managed Apache Kafka brokers.
 --
 -- -   @SASL_SCRAM_256_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-256 authentication of your Self-Managed Apache
+--     used for SASL SCRAM-256 authentication of your self-managed Apache
 --     Kafka brokers.
 --
 -- -   @SASL_SCRAM_512_AUTH@ - The Secrets Manager ARN of your secret key
---     used for SASL SCRAM-512 authentication of your Self-Managed Apache
+--     used for SASL SCRAM-512 authentication of your self-managed Apache
 --     Kafka brokers.
+--
+-- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
+--     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
 sourceAccessConfiguration_type :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe SourceAccessType)
 sourceAccessConfiguration_type = Lens.lens (\SourceAccessConfiguration' {type'} -> type') (\s@SourceAccessConfiguration' {} a -> s {type' = a} :: SourceAccessConfiguration)
 

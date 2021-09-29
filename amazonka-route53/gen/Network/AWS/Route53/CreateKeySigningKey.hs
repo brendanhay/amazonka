@@ -60,11 +60,10 @@ data CreateKeySigningKey = CreateKeySigningKey'
     -- | The unique string (ID) used to identify a hosted zone.
     hostedZoneId :: ResourceId,
     -- | The Amazon resource name (ARN) for a customer managed customer master
-    -- key (CMK) in AWS Key Management Service (AWS KMS). The
-    -- @KeyManagementServiceArn@ must be unique for each key-signing key (KSK)
-    -- in a single hosted zone. To see an example of @KeyManagementServiceArn@
-    -- that grants the correct permissions for DNSSEC, scroll down to
-    -- __Example__.
+    -- key (CMK) in Key Management Service (KMS). The @KeyManagementServiceArn@
+    -- must be unique for each key-signing key (KSK) in a single hosted zone.
+    -- To see an example of @KeyManagementServiceArn@ that grants the correct
+    -- permissions for DNSSEC, scroll down to __Example__.
     --
     -- You must configure the customer managed CMK as follows:
     --
@@ -89,11 +88,11 @@ data CreateKeySigningKey = CreateKeySigningKey'
     --     The key policy must also include the Amazon Route 53 service in the
     --     principal for your account. Specify the following:
     --
-    --     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+    --     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
     --
-    -- For more information about working with a customer managed CMK in AWS
-    -- KMS, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+    -- For more information about working with a customer managed CMK in KMS,
+    -- see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
     keyManagementServiceArn :: Prelude.Text,
     -- | A string used to identify a key-signing key (KSK). @Name@ can include
     -- numbers, letters, and underscores (_). @Name@ must be unique for each
@@ -118,11 +117,10 @@ data CreateKeySigningKey = CreateKeySigningKey'
 -- 'hostedZoneId', 'createKeySigningKey_hostedZoneId' - The unique string (ID) used to identify a hosted zone.
 --
 -- 'keyManagementServiceArn', 'createKeySigningKey_keyManagementServiceArn' - The Amazon resource name (ARN) for a customer managed customer master
--- key (CMK) in AWS Key Management Service (AWS KMS). The
--- @KeyManagementServiceArn@ must be unique for each key-signing key (KSK)
--- in a single hosted zone. To see an example of @KeyManagementServiceArn@
--- that grants the correct permissions for DNSSEC, scroll down to
--- __Example__.
+-- key (CMK) in Key Management Service (KMS). The @KeyManagementServiceArn@
+-- must be unique for each key-signing key (KSK) in a single hosted zone.
+-- To see an example of @KeyManagementServiceArn@ that grants the correct
+-- permissions for DNSSEC, scroll down to __Example__.
 --
 -- You must configure the customer managed CMK as follows:
 --
@@ -147,11 +145,11 @@ data CreateKeySigningKey = CreateKeySigningKey'
 --     The key policy must also include the Amazon Route 53 service in the
 --     principal for your account. Specify the following:
 --
---     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+--     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with a customer managed CMK in AWS
--- KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+-- For more information about working with a customer managed CMK in KMS,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 --
 -- 'name', 'createKeySigningKey_name' - A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
@@ -195,11 +193,10 @@ createKeySigningKey_hostedZoneId :: Lens.Lens' CreateKeySigningKey ResourceId
 createKeySigningKey_hostedZoneId = Lens.lens (\CreateKeySigningKey' {hostedZoneId} -> hostedZoneId) (\s@CreateKeySigningKey' {} a -> s {hostedZoneId = a} :: CreateKeySigningKey)
 
 -- | The Amazon resource name (ARN) for a customer managed customer master
--- key (CMK) in AWS Key Management Service (AWS KMS). The
--- @KeyManagementServiceArn@ must be unique for each key-signing key (KSK)
--- in a single hosted zone. To see an example of @KeyManagementServiceArn@
--- that grants the correct permissions for DNSSEC, scroll down to
--- __Example__.
+-- key (CMK) in Key Management Service (KMS). The @KeyManagementServiceArn@
+-- must be unique for each key-signing key (KSK) in a single hosted zone.
+-- To see an example of @KeyManagementServiceArn@ that grants the correct
+-- permissions for DNSSEC, scroll down to __Example__.
 --
 -- You must configure the customer managed CMK as follows:
 --
@@ -224,11 +221,11 @@ createKeySigningKey_hostedZoneId = Lens.lens (\CreateKeySigningKey' {hostedZoneI
 --     The key policy must also include the Amazon Route 53 service in the
 --     principal for your account. Specify the following:
 --
---     -   @\"Service\": \"api-service.dnssec.route53.aws.internal\"@
+--     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with a customer managed CMK in AWS
--- KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
+-- For more information about working with a customer managed CMK in KMS,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 createKeySigningKey_keyManagementServiceArn :: Lens.Lens' CreateKeySigningKey Prelude.Text
 createKeySigningKey_keyManagementServiceArn = Lens.lens (\CreateKeySigningKey' {keyManagementServiceArn} -> keyManagementServiceArn) (\s@CreateKeySigningKey' {} a -> s {keyManagementServiceArn = a} :: CreateKeySigningKey)
 

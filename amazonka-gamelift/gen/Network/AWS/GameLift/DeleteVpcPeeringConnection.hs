@@ -31,17 +31,12 @@
 -- connection to delete by the connection ID and fleet ID. If successful,
 -- the connection is removed.
 --
--- -   CreateVpcPeeringAuthorization
+-- __Related actions__
 --
--- -   DescribeVpcPeeringAuthorizations
---
--- -   DeleteVpcPeeringAuthorization
---
--- -   CreateVpcPeeringConnection
---
--- -   DescribeVpcPeeringConnections
---
--- -   DeleteVpcPeeringConnection
+-- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
+-- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
+-- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteVpcPeeringConnection
   ( -- * Creating a Request
     DeleteVpcPeeringConnection (..),
@@ -71,7 +66,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteVpcPeeringConnection' smart constructor.
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
-  { -- | A unique identifier for a fleet. This fleet specified must match the
+  { -- | A unique identifier for the fleet. This fleet specified must match the
     -- fleet referenced in the VPC peering connection record. You can use
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
@@ -90,7 +85,7 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'deleteVpcPeeringConnection_fleetId' - A unique identifier for a fleet. This fleet specified must match the
+-- 'fleetId', 'deleteVpcPeeringConnection_fleetId' - A unique identifier for the fleet. This fleet specified must match the
 -- fleet referenced in the VPC peering connection record. You can use
 -- either the fleet ID or ARN value.
 --
@@ -112,7 +107,7 @@ newDeleteVpcPeeringConnection
           pVpcPeeringConnectionId_
       }
 
--- | A unique identifier for a fleet. This fleet specified must match the
+-- | A unique identifier for the fleet. This fleet specified must match the
 -- fleet referenced in the VPC peering connection record. You can use
 -- either the fleet ID or ARN value.
 deleteVpcPeeringConnection_fleetId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text

@@ -23,16 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies a limit to how long a model training or compilation job can
--- run. It also specifies how long you are willing to wait for a managed
--- spot training job to complete. When the job reaches the time limit,
--- Amazon SageMaker ends the training or compilation job. Use this API to
--- cap model training costs.
+-- | Specifies a limit to how long a model training job, model compilation
+-- job, or hyperparameter tuning job can run. It also specifies how long a
+-- managed Spot training job has to complete. When the job reaches the time
+-- limit, Amazon SageMaker ends the training or compilation job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
--- signal, which delays job termination for 120 seconds. Algorithms can use
--- this 120-second window to save the model artifacts, so the results of
--- training are not lost.
+-- To stop a training job, Amazon SageMaker sends the algorithm the
+-- @SIGTERM@ signal, which delays job termination for 120 seconds.
+-- Algorithms can use this 120-second window to save the model artifacts,
+-- so the results of training are not lost.
 --
 -- The training algorithms provided by Amazon SageMaker automatically save
 -- the intermediate results of a model training job when possible. This
@@ -48,15 +48,28 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStoppingCondition' smart constructor.
 data StoppingCondition = StoppingCondition'
-  { -- | The maximum length of time, in seconds, that the training or compilation
-    -- job can run. If job does not complete during this time, Amazon SageMaker
-    -- ends the job. If value is not specified, default value is 1 day. The
-    -- maximum value is 28 days.
+  { -- | The maximum length of time, in seconds, that a training or compilation
+    -- job can run.
+    --
+    -- For compilation jobs, if the job does not complete during this time, you
+    -- will receive a @TimeOut@ error. We recommend starting with 900 seconds
+    -- and increase as necessary based on your model.
+    --
+    -- For all other jobs, if the job does not complete during this time,
+    -- Amazon SageMaker ends the job. When @RetryStrategy@ is specified in the
+    -- job request, @MaxRuntimeInSeconds@ specifies the maximum time for all of
+    -- the attempts in total, not each individual attempt. The default value is
+    -- 1 day. The maximum value is 28 days.
     maxRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum length of time, in seconds, how long you are willing to wait
-    -- for a managed spot training job to complete. It is the amount of time
-    -- spent waiting for Spot capacity plus the amount of time the training job
-    -- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
+    -- | The maximum length of time, in seconds, that a managed Spot training job
+    -- has to complete. It is the amount of time spent waiting for Spot
+    -- capacity plus the amount of time the job can run. It must be equal to or
+    -- greater than @MaxRuntimeInSeconds@. If the job does not complete during
+    -- this time, Amazon SageMaker ends the job.
+    --
+    -- When @RetryStrategy@ is specified in the job request,
+    -- @MaxWaitTimeInSeconds@ specifies the maximum time for all of the
+    -- attempts in total, not each individual attempt.
     maxWaitTimeInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,15 +82,28 @@ data StoppingCondition = StoppingCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxRuntimeInSeconds', 'stoppingCondition_maxRuntimeInSeconds' - The maximum length of time, in seconds, that the training or compilation
--- job can run. If job does not complete during this time, Amazon SageMaker
--- ends the job. If value is not specified, default value is 1 day. The
--- maximum value is 28 days.
+-- 'maxRuntimeInSeconds', 'stoppingCondition_maxRuntimeInSeconds' - The maximum length of time, in seconds, that a training or compilation
+-- job can run.
 --
--- 'maxWaitTimeInSeconds', 'stoppingCondition_maxWaitTimeInSeconds' - The maximum length of time, in seconds, how long you are willing to wait
--- for a managed spot training job to complete. It is the amount of time
--- spent waiting for Spot capacity plus the amount of time the training job
--- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
+-- For compilation jobs, if the job does not complete during this time, you
+-- will receive a @TimeOut@ error. We recommend starting with 900 seconds
+-- and increase as necessary based on your model.
+--
+-- For all other jobs, if the job does not complete during this time,
+-- Amazon SageMaker ends the job. When @RetryStrategy@ is specified in the
+-- job request, @MaxRuntimeInSeconds@ specifies the maximum time for all of
+-- the attempts in total, not each individual attempt. The default value is
+-- 1 day. The maximum value is 28 days.
+--
+-- 'maxWaitTimeInSeconds', 'stoppingCondition_maxWaitTimeInSeconds' - The maximum length of time, in seconds, that a managed Spot training job
+-- has to complete. It is the amount of time spent waiting for Spot
+-- capacity plus the amount of time the job can run. It must be equal to or
+-- greater than @MaxRuntimeInSeconds@. If the job does not complete during
+-- this time, Amazon SageMaker ends the job.
+--
+-- When @RetryStrategy@ is specified in the job request,
+-- @MaxWaitTimeInSeconds@ specifies the maximum time for all of the
+-- attempts in total, not each individual attempt.
 newStoppingCondition ::
   StoppingCondition
 newStoppingCondition =
@@ -87,17 +113,30 @@ newStoppingCondition =
       maxWaitTimeInSeconds = Prelude.Nothing
     }
 
--- | The maximum length of time, in seconds, that the training or compilation
--- job can run. If job does not complete during this time, Amazon SageMaker
--- ends the job. If value is not specified, default value is 1 day. The
--- maximum value is 28 days.
+-- | The maximum length of time, in seconds, that a training or compilation
+-- job can run.
+--
+-- For compilation jobs, if the job does not complete during this time, you
+-- will receive a @TimeOut@ error. We recommend starting with 900 seconds
+-- and increase as necessary based on your model.
+--
+-- For all other jobs, if the job does not complete during this time,
+-- Amazon SageMaker ends the job. When @RetryStrategy@ is specified in the
+-- job request, @MaxRuntimeInSeconds@ specifies the maximum time for all of
+-- the attempts in total, not each individual attempt. The default value is
+-- 1 day. The maximum value is 28 days.
 stoppingCondition_maxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
 stoppingCondition_maxRuntimeInSeconds = Lens.lens (\StoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@StoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: StoppingCondition)
 
--- | The maximum length of time, in seconds, how long you are willing to wait
--- for a managed spot training job to complete. It is the amount of time
--- spent waiting for Spot capacity plus the amount of time the training job
--- runs. It must be equal to or greater than @MaxRuntimeInSeconds@.
+-- | The maximum length of time, in seconds, that a managed Spot training job
+-- has to complete. It is the amount of time spent waiting for Spot
+-- capacity plus the amount of time the job can run. It must be equal to or
+-- greater than @MaxRuntimeInSeconds@. If the job does not complete during
+-- this time, Amazon SageMaker ends the job.
+--
+-- When @RetryStrategy@ is specified in the job request,
+-- @MaxWaitTimeInSeconds@ specifies the maximum time for all of the
+-- attempts in total, not each individual attempt.
 stoppingCondition_maxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Prelude.Maybe Prelude.Natural)
 stoppingCondition_maxWaitTimeInSeconds = Lens.lens (\StoppingCondition' {maxWaitTimeInSeconds} -> maxWaitTimeInSeconds) (\s@StoppingCondition' {} a -> s {maxWaitTimeInSeconds = a} :: StoppingCondition)
 

@@ -27,7 +27,7 @@
 -- The @create disk from snapshot@ operation supports tag-based access
 -- control via request tags and resource tags applied to the resource
 -- identified by @disk snapshot name@. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateDiskFromSnapshot
   ( -- * Creating a Request
     CreateDiskFromSnapshot (..),
@@ -74,7 +74,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     --
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     sourceDiskName :: Prelude.Maybe Prelude.Text,
     -- | The date of the automatic snapshot to use for the new disk. Use the
     -- @get auto snapshots@ operation to identify the dates of the available
@@ -91,7 +91,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     --
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     restoreDate :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that represent the add-ons to enable for the new
     -- disk.
@@ -107,7 +107,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
     --
     -- -   Define this parameter only when creating a new disk from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The tag keys and optional values to add to the resource during create.
     --
@@ -155,7 +155,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'restoreDate', 'createDiskFromSnapshot_restoreDate' - The date of the automatic snapshot to use for the new disk. Use the
 -- @get auto snapshots@ operation to identify the dates of the available
@@ -172,7 +172,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'addOns', 'createDiskFromSnapshot_addOns' - An array of objects that represent the add-ons to enable for the new
 -- disk.
@@ -188,7 +188,7 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'tags', 'createDiskFromSnapshot_tags' - The tag keys and optional values to add to the resource during create.
 --
@@ -249,7 +249,7 @@ newCreateDiskFromSnapshot
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createDiskFromSnapshot_sourceDiskName :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Text)
 createDiskFromSnapshot_sourceDiskName = Lens.lens (\CreateDiskFromSnapshot' {sourceDiskName} -> sourceDiskName) (\s@CreateDiskFromSnapshot' {} a -> s {sourceDiskName = a} :: CreateDiskFromSnapshot)
 
@@ -268,7 +268,7 @@ createDiskFromSnapshot_sourceDiskName = Lens.lens (\CreateDiskFromSnapshot' {sou
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createDiskFromSnapshot_restoreDate :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Text)
 createDiskFromSnapshot_restoreDate = Lens.lens (\CreateDiskFromSnapshot' {restoreDate} -> restoreDate) (\s@CreateDiskFromSnapshot' {} a -> s {restoreDate = a} :: CreateDiskFromSnapshot)
 
@@ -288,7 +288,7 @@ createDiskFromSnapshot_addOns = Lens.lens (\CreateDiskFromSnapshot' {addOns} -> 
 --
 -- -   Define this parameter only when creating a new disk from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createDiskFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateDiskFromSnapshot (Prelude.Maybe Prelude.Bool)
 createDiskFromSnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CreateDiskFromSnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CreateDiskFromSnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CreateDiskFromSnapshot)
 

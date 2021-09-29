@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the definition for the specified mitigation action.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateMitigationAction>
+-- action.
 module Network.AWS.IoT.UpdateMitigationAction
   ( -- * Creating a Request
     UpdateMitigationAction (..),

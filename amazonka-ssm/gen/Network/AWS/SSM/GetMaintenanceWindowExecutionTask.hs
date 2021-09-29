@@ -42,12 +42,12 @@ module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
     getMaintenanceWindowExecutionTaskResponse_serviceRole,
     getMaintenanceWindowExecutionTaskResponse_statusDetails,
     getMaintenanceWindowExecutionTaskResponse_startTime,
-    getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_endTime,
+    getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_maxConcurrency,
     getMaintenanceWindowExecutionTaskResponse_windowExecutionId,
-    getMaintenanceWindowExecutionTaskResponse_type,
     getMaintenanceWindowExecutionTaskResponse_taskArn,
+    getMaintenanceWindowExecutionTaskResponse_type,
     getMaintenanceWindowExecutionTaskResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskResponse_httpStatus,
   )
@@ -124,12 +124,12 @@ instance
               Prelude.<*> (x Core..?> "ServiceRole")
               Prelude.<*> (x Core..?> "StatusDetails")
               Prelude.<*> (x Core..?> "StartTime")
-              Prelude.<*> (x Core..?> "Priority")
               Prelude.<*> (x Core..?> "EndTime")
+              Prelude.<*> (x Core..?> "Priority")
               Prelude.<*> (x Core..?> "MaxConcurrency")
               Prelude.<*> (x Core..?> "WindowExecutionId")
-              Prelude.<*> (x Core..?> "Type")
               Prelude.<*> (x Core..?> "TaskArn")
+              Prelude.<*> (x Core..?> "Type")
               Prelude.<*> (x Core..?> "TaskExecutionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -200,32 +200,31 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     --
     -- The map has the following format:
     --
-    -- Key: string, between 1 and 255 characters
+    -- -   @Key@: string, between 1 and 255 characters
     --
-    -- Value: an array of strings, each string is between 1 and 255 characters
+    -- -   @Value@: an array of strings, each between 1 and 255 characters
     taskParameters :: Prelude.Maybe (Core.Sensitive [Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))]),
     -- | The status of the task.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The role that was assumed when running the task.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The details explaining the Status. Only available for certain status
-    -- values.
+    -- | The details explaining the status. Not available for all status values.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the task execution started.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The priority of the task.
-    priority :: Prelude.Maybe Prelude.Natural,
     -- | The time the task execution completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The priority of the task.
+    priority :: Prelude.Maybe Prelude.Natural,
     -- | The defined maximum number of task executions that could be run in
     -- parallel.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window execution that includes the task.
     windowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the task that ran.
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The type of task that was run.
     type' :: Prelude.Maybe MaintenanceWindowTaskType,
-    -- | The ARN of the task that ran.
-    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the specific task execution in the maintenance window task
     -- that was retrieved.
     taskExecutionId :: Prelude.Maybe Prelude.Text,
@@ -255,31 +254,30 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
 --
 -- The map has the following format:
 --
--- Key: string, between 1 and 255 characters
+-- -   @Key@: string, between 1 and 255 characters
 --
--- Value: an array of strings, each string is between 1 and 255 characters
+-- -   @Value@: an array of strings, each between 1 and 255 characters
 --
 -- 'status', 'getMaintenanceWindowExecutionTaskResponse_status' - The status of the task.
 --
 -- 'serviceRole', 'getMaintenanceWindowExecutionTaskResponse_serviceRole' - The role that was assumed when running the task.
 --
--- 'statusDetails', 'getMaintenanceWindowExecutionTaskResponse_statusDetails' - The details explaining the Status. Only available for certain status
--- values.
+-- 'statusDetails', 'getMaintenanceWindowExecutionTaskResponse_statusDetails' - The details explaining the status. Not available for all status values.
 --
 -- 'startTime', 'getMaintenanceWindowExecutionTaskResponse_startTime' - The time the task execution started.
 --
--- 'priority', 'getMaintenanceWindowExecutionTaskResponse_priority' - The priority of the task.
---
 -- 'endTime', 'getMaintenanceWindowExecutionTaskResponse_endTime' - The time the task execution completed.
+--
+-- 'priority', 'getMaintenanceWindowExecutionTaskResponse_priority' - The priority of the task.
 --
 -- 'maxConcurrency', 'getMaintenanceWindowExecutionTaskResponse_maxConcurrency' - The defined maximum number of task executions that could be run in
 -- parallel.
 --
 -- 'windowExecutionId', 'getMaintenanceWindowExecutionTaskResponse_windowExecutionId' - The ID of the maintenance window execution that includes the task.
 --
--- 'type'', 'getMaintenanceWindowExecutionTaskResponse_type' - The type of task that was run.
+-- 'taskArn', 'getMaintenanceWindowExecutionTaskResponse_taskArn' - The Amazon Resource Name (ARN) of the task that ran.
 --
--- 'taskArn', 'getMaintenanceWindowExecutionTaskResponse_taskArn' - The ARN of the task that ran.
+-- 'type'', 'getMaintenanceWindowExecutionTaskResponse_type' - The type of task that was run.
 --
 -- 'taskExecutionId', 'getMaintenanceWindowExecutionTaskResponse_taskExecutionId' - The ID of the specific task execution in the maintenance window task
 -- that was retrieved.
@@ -299,13 +297,13 @@ newGetMaintenanceWindowExecutionTaskResponse
         serviceRole = Prelude.Nothing,
         statusDetails = Prelude.Nothing,
         startTime = Prelude.Nothing,
-        priority = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        priority = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
         windowExecutionId =
           Prelude.Nothing,
-        type' = Prelude.Nothing,
         taskArn = Prelude.Nothing,
+        type' = Prelude.Nothing,
         taskExecutionId =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
@@ -326,9 +324,9 @@ getMaintenanceWindowExecutionTaskResponse_maxErrors = Lens.lens (\GetMaintenance
 --
 -- The map has the following format:
 --
--- Key: string, between 1 and 255 characters
+-- -   @Key@: string, between 1 and 255 characters
 --
--- Value: an array of strings, each string is between 1 and 255 characters
+-- -   @Value@: an array of strings, each between 1 and 255 characters
 getMaintenanceWindowExecutionTaskResponse_taskParameters :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression])
 getMaintenanceWindowExecutionTaskResponse_taskParameters = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {taskParameters} -> taskParameters) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {taskParameters = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
@@ -340,8 +338,7 @@ getMaintenanceWindowExecutionTaskResponse_status = Lens.lens (\GetMaintenanceWin
 getMaintenanceWindowExecutionTaskResponse_serviceRole :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskResponse_serviceRole = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {serviceRole} -> serviceRole) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {serviceRole = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
--- | The details explaining the Status. Only available for certain status
--- values.
+-- | The details explaining the status. Not available for all status values.
 getMaintenanceWindowExecutionTaskResponse_statusDetails :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskResponse_statusDetails = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {statusDetails} -> statusDetails) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
@@ -349,13 +346,13 @@ getMaintenanceWindowExecutionTaskResponse_statusDetails = Lens.lens (\GetMainten
 getMaintenanceWindowExecutionTaskResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.UTCTime)
 getMaintenanceWindowExecutionTaskResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Core._Time
 
--- | The priority of the task.
-getMaintenanceWindowExecutionTaskResponse_priority :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Natural)
-getMaintenanceWindowExecutionTaskResponse_priority = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {priority} -> priority) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {priority = a} :: GetMaintenanceWindowExecutionTaskResponse)
-
 -- | The time the task execution completed.
 getMaintenanceWindowExecutionTaskResponse_endTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.UTCTime)
 getMaintenanceWindowExecutionTaskResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The priority of the task.
+getMaintenanceWindowExecutionTaskResponse_priority :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Natural)
+getMaintenanceWindowExecutionTaskResponse_priority = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {priority} -> priority) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {priority = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
 -- | The defined maximum number of task executions that could be run in
 -- parallel.
@@ -366,13 +363,13 @@ getMaintenanceWindowExecutionTaskResponse_maxConcurrency = Lens.lens (\GetMainte
 getMaintenanceWindowExecutionTaskResponse_windowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskResponse_windowExecutionId = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {windowExecutionId} -> windowExecutionId) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
+-- | The Amazon Resource Name (ARN) of the task that ran.
+getMaintenanceWindowExecutionTaskResponse_taskArn :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskResponse_taskArn = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {taskArn} -> taskArn) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {taskArn = a} :: GetMaintenanceWindowExecutionTaskResponse)
+
 -- | The type of task that was run.
 getMaintenanceWindowExecutionTaskResponse_type :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe MaintenanceWindowTaskType)
 getMaintenanceWindowExecutionTaskResponse_type = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {type'} -> type') (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {type' = a} :: GetMaintenanceWindowExecutionTaskResponse)
-
--- | The ARN of the task that ran.
-getMaintenanceWindowExecutionTaskResponse_taskArn :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowExecutionTaskResponse_taskArn = Lens.lens (\GetMaintenanceWindowExecutionTaskResponse' {taskArn} -> taskArn) (\s@GetMaintenanceWindowExecutionTaskResponse' {} a -> s {taskArn = a} :: GetMaintenanceWindowExecutionTaskResponse)
 
 -- | The ID of the specific task execution in the maintenance window task
 -- that was retrieved.

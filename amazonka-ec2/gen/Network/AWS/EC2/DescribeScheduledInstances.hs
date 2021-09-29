@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeScheduledInstances
 
     -- * Request Lenses
     describeScheduledInstances_nextToken,
+    describeScheduledInstances_maxResults,
     describeScheduledInstances_dryRun,
     describeScheduledInstances_scheduledInstanceIds,
-    describeScheduledInstances_maxResults,
     describeScheduledInstances_slotStartTimeRange,
     describeScheduledInstances_filters,
 
@@ -61,6 +61,11 @@ import qualified Network.AWS.Response as Response
 data DescribeScheduledInstances = DescribeScheduledInstances'
   { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call. This value can
+    -- be between 5 and 300. The default value is 100. To retrieve the
+    -- remaining results, make another call with the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -68,11 +73,6 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Scheduled Instance IDs.
     scheduledInstanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. This value can
-    -- be between 5 and 300. The default value is 100. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The time period for the first schedule to start.
     slotStartTimeRange :: Prelude.Maybe SlotStartTimeRangeRequest,
     -- | The filters.
@@ -100,17 +100,17 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
 --
 -- 'nextToken', 'describeScheduledInstances_nextToken' - The token for the next set of results.
 --
+-- 'maxResults', 'describeScheduledInstances_maxResults' - The maximum number of results to return in a single call. This value can
+-- be between 5 and 300. The default value is 100. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+--
 -- 'dryRun', 'describeScheduledInstances_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'scheduledInstanceIds', 'describeScheduledInstances_scheduledInstanceIds' - The Scheduled Instance IDs.
---
--- 'maxResults', 'describeScheduledInstances_maxResults' - The maximum number of results to return in a single call. This value can
--- be between 5 and 300. The default value is 100. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
 --
 -- 'slotStartTimeRange', 'describeScheduledInstances_slotStartTimeRange' - The time period for the first schedule to start.
 --
@@ -131,9 +131,9 @@ newDescribeScheduledInstances =
   DescribeScheduledInstances'
     { nextToken =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       scheduledInstanceIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       slotStartTimeRange = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -141,6 +141,13 @@ newDescribeScheduledInstances =
 -- | The token for the next set of results.
 describeScheduledInstances_nextToken :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Text)
 describeScheduledInstances_nextToken = Lens.lens (\DescribeScheduledInstances' {nextToken} -> nextToken) (\s@DescribeScheduledInstances' {} a -> s {nextToken = a} :: DescribeScheduledInstances)
+
+-- | The maximum number of results to return in a single call. This value can
+-- be between 5 and 300. The default value is 100. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+describeScheduledInstances_maxResults :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Int)
+describeScheduledInstances_maxResults = Lens.lens (\DescribeScheduledInstances' {maxResults} -> maxResults) (\s@DescribeScheduledInstances' {} a -> s {maxResults = a} :: DescribeScheduledInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -152,13 +159,6 @@ describeScheduledInstances_dryRun = Lens.lens (\DescribeScheduledInstances' {dry
 -- | The Scheduled Instance IDs.
 describeScheduledInstances_scheduledInstanceIds :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe [Prelude.Text])
 describeScheduledInstances_scheduledInstanceIds = Lens.lens (\DescribeScheduledInstances' {scheduledInstanceIds} -> scheduledInstanceIds) (\s@DescribeScheduledInstances' {} a -> s {scheduledInstanceIds = a} :: DescribeScheduledInstances) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 300. The default value is 100. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
-describeScheduledInstances_maxResults :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Int)
-describeScheduledInstances_maxResults = Lens.lens (\DescribeScheduledInstances' {maxResults} -> maxResults) (\s@DescribeScheduledInstances' {} a -> s {maxResults = a} :: DescribeScheduledInstances)
 
 -- | The time period for the first schedule to start.
 describeScheduledInstances_slotStartTimeRange :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe SlotStartTimeRangeRequest)
@@ -235,12 +235,12 @@ instance Core.ToQuery DescribeScheduledInstances where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ScheduledInstanceId"
               Prelude.<$> scheduledInstanceIds
           ),
-        "MaxResults" Core.=: maxResults,
         "SlotStartTimeRange" Core.=: slotStartTimeRange,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)

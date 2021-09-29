@@ -30,18 +30,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackResource' smart constructor.
 data StackResource = StackResource'
-  { -- | Information about whether the resource\'s actual configuration differs,
+  { -- | The name associated with the stack.
+    stackName :: Prelude.Maybe Prelude.Text,
+    -- | Information about whether the resource\'s actual configuration differs,
     -- or has /drifted/, from its expected configuration, as defined in the
     -- stack template and any values specified as template parameters. For more
     -- information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
     driftInformation :: Prelude.Maybe StackResourceDriftInformation,
-    -- | The name associated with the stack.
-    stackName :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of the stack.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier that corresponds to a physical instance ID
-    -- of a resource supported by AWS CloudFormation.
+    -- of a resource supported by CloudFormation.
     physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | Success\/failure message associated with the resource.
     resourceStatusReason :: Prelude.Maybe Prelude.Text,
@@ -54,8 +54,8 @@ data StackResource = StackResource'
     -- | The logical name of the resource specified in the template.
     logicalResourceId :: Prelude.Text,
     -- | Type of resource. (For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
-    -- in the AWS CloudFormation User Guide.)
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+    -- in the CloudFormation User Guide.)
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
     timestamp :: Core.ISO8601,
@@ -72,18 +72,18 @@ data StackResource = StackResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackName', 'stackResource_stackName' - The name associated with the stack.
+--
 -- 'driftInformation', 'stackResource_driftInformation' - Information about whether the resource\'s actual configuration differs,
 -- or has /drifted/, from its expected configuration, as defined in the
 -- stack template and any values specified as template parameters. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 --
--- 'stackName', 'stackResource_stackName' - The name associated with the stack.
---
 -- 'stackId', 'stackResource_stackId' - Unique identifier of the stack.
 --
 -- 'physicalResourceId', 'stackResource_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 --
 -- 'resourceStatusReason', 'stackResource_resourceStatusReason' - Success\/failure message associated with the resource.
 --
@@ -96,8 +96,8 @@ data StackResource = StackResource'
 -- 'logicalResourceId', 'stackResource_logicalResourceId' - The logical name of the resource specified in the template.
 --
 -- 'resourceType', 'stackResource_resourceType' - Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
 --
 -- 'timestamp', 'stackResource_timestamp' - Time the status was updated.
 --
@@ -118,8 +118,8 @@ newStackResource
   pTimestamp_
   pResourceStatus_ =
     StackResource'
-      { driftInformation = Prelude.Nothing,
-        stackName = Prelude.Nothing,
+      { stackName = Prelude.Nothing,
+        driftInformation = Prelude.Nothing,
         stackId = Prelude.Nothing,
         physicalResourceId = Prelude.Nothing,
         resourceStatusReason = Prelude.Nothing,
@@ -131,6 +131,10 @@ newStackResource
         resourceStatus = pResourceStatus_
       }
 
+-- | The name associated with the stack.
+stackResource_stackName :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
+stackResource_stackName = Lens.lens (\StackResource' {stackName} -> stackName) (\s@StackResource' {} a -> s {stackName = a} :: StackResource)
+
 -- | Information about whether the resource\'s actual configuration differs,
 -- or has /drifted/, from its expected configuration, as defined in the
 -- stack template and any values specified as template parameters. For more
@@ -139,16 +143,12 @@ newStackResource
 stackResource_driftInformation :: Lens.Lens' StackResource (Prelude.Maybe StackResourceDriftInformation)
 stackResource_driftInformation = Lens.lens (\StackResource' {driftInformation} -> driftInformation) (\s@StackResource' {} a -> s {driftInformation = a} :: StackResource)
 
--- | The name associated with the stack.
-stackResource_stackName :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
-stackResource_stackName = Lens.lens (\StackResource' {stackName} -> stackName) (\s@StackResource' {} a -> s {stackName = a} :: StackResource)
-
 -- | Unique identifier of the stack.
 stackResource_stackId :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_stackId = Lens.lens (\StackResource' {stackId} -> stackId) (\s@StackResource' {} a -> s {stackId = a} :: StackResource)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 stackResource_physicalResourceId :: Lens.Lens' StackResource (Prelude.Maybe Prelude.Text)
 stackResource_physicalResourceId = Lens.lens (\StackResource' {physicalResourceId} -> physicalResourceId) (\s@StackResource' {} a -> s {physicalResourceId = a} :: StackResource)
 
@@ -171,8 +171,8 @@ stackResource_logicalResourceId :: Lens.Lens' StackResource Prelude.Text
 stackResource_logicalResourceId = Lens.lens (\StackResource' {logicalResourceId} -> logicalResourceId) (\s@StackResource' {} a -> s {logicalResourceId = a} :: StackResource)
 
 -- | Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
 stackResource_resourceType :: Lens.Lens' StackResource Prelude.Text
 stackResource_resourceType = Lens.lens (\StackResource' {resourceType} -> resourceType) (\s@StackResource' {} a -> s {resourceType = a} :: StackResource)
 
@@ -187,8 +187,8 @@ stackResource_resourceStatus = Lens.lens (\StackResource' {resourceStatus} -> re
 instance Core.FromXML StackResource where
   parseXML x =
     StackResource'
-      Prelude.<$> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "StackName")
+      Prelude.<$> (x Core..@? "StackName")
+      Prelude.<*> (x Core..@? "DriftInformation")
       Prelude.<*> (x Core..@? "StackId")
       Prelude.<*> (x Core..@? "PhysicalResourceId")
       Prelude.<*> (x Core..@? "ResourceStatusReason")

@@ -30,11 +30,11 @@ import Test.Tasty
 --         [ requestGetQualificationScore $
 --             newGetQualificationScore
 --
---         , requestListReviewableHITs $
---             newListReviewableHITs
---
 --         , requestListHITs $
 --             newListHITs
+--
+--         , requestListReviewableHITs $
+--             newListReviewableHITs
 --
 --         , requestListAssignmentsForHIT $
 --             newListAssignmentsForHIT
@@ -48,11 +48,11 @@ import Test.Tasty
 --         , requestCreateHIT $
 --             newCreateHIT
 --
---         , requestNotifyWorkers $
---             newNotifyWorkers
---
 --         , requestListWorkerBlocks $
 --             newListWorkerBlocks
+--
+--         , requestNotifyWorkers $
+--             newNotifyWorkers
 --
 --         , requestListHITsForQualificationType $
 --             newListHITsForQualificationType
@@ -63,11 +63,11 @@ import Test.Tasty
 --         , requestCreateAdditionalAssignmentsForHIT $
 --             newCreateAdditionalAssignmentsForHIT
 --
---         , requestListQualificationTypes $
---             newListQualificationTypes
---
 --         , requestUpdateHITTypeOfHIT $
 --             newUpdateHITTypeOfHIT
+--
+--         , requestListQualificationTypes $
+--             newListQualificationTypes
 --
 --         , requestGetAssignment $
 --             newGetAssignment
@@ -81,8 +81,11 @@ import Test.Tasty
 --         , requestGetQualificationType $
 --             newGetQualificationType
 --
---         , requestRejectAssignment $
---             newRejectAssignment
+--         , requestListReviewPolicyResultsForHIT $
+--             newListReviewPolicyResultsForHIT
+--
+--         , requestDeleteHIT $
+--             newDeleteHIT
 --
 --         , requestUpdateExpirationForHIT $
 --             newUpdateExpirationForHIT
@@ -90,17 +93,8 @@ import Test.Tasty
 --         , requestApproveAssignment $
 --             newApproveAssignment
 --
---         , requestDeleteHIT $
---             newDeleteHIT
---
---         , requestListReviewPolicyResultsForHIT $
---             newListReviewPolicyResultsForHIT
---
---         , requestCreateHITType $
---             newCreateHITType
---
---         , requestUpdateNotificationSettings $
---             newUpdateNotificationSettings
+--         , requestRejectAssignment $
+--             newRejectAssignment
 --
 --         , requestSendBonus $
 --             newSendBonus
@@ -111,14 +105,23 @@ import Test.Tasty
 --         , requestAssociateQualificationWithWorker $
 --             newAssociateQualificationWithWorker
 --
---         , requestCreateHITWithHITType $
---             newCreateHITWithHITType
+--         , requestUpdateNotificationSettings $
+--             newUpdateNotificationSettings
+--
+--         , requestCreateHITType $
+--             newCreateHITType
 --
 --         , requestDeleteWorkerBlock $
 --             newDeleteWorkerBlock
 --
+--         , requestCreateHITWithHITType $
+--             newCreateHITWithHITType
+--
 --         , requestListBonusPayments $
 --             newListBonusPayments
+--
+--         , requestGetHIT $
+--             newGetHIT
 --
 --         , requestDisassociateQualificationFromWorker $
 --             newDisassociateQualificationFromWorker
@@ -126,20 +129,17 @@ import Test.Tasty
 --         , requestSendTestEventNotification $
 --             newSendTestEventNotification
 --
---         , requestGetHIT $
---             newGetHIT
---
---         , requestUpdateQualificationType $
---             newUpdateQualificationType
+--         , requestGetFileUploadURL $
+--             newGetFileUploadURL
 --
 --         , requestAcceptQualificationRequest $
 --             newAcceptQualificationRequest
 --
+--         , requestUpdateQualificationType $
+--             newUpdateQualificationType
+--
 --         , requestDeleteQualificationType $
 --             newDeleteQualificationType
---
---         , requestGetFileUploadURL $
---             newGetFileUploadURL
 --
 --         , requestCreateQualificationType $
 --             newCreateQualificationType
@@ -150,11 +150,11 @@ import Test.Tasty
 --         [ responseGetQualificationScore $
 --             newGetQualificationScoreResponse
 --
---         , responseListReviewableHITs $
---             newListReviewableHITsResponse
---
 --         , responseListHITs $
 --             newListHITsResponse
+--
+--         , responseListReviewableHITs $
+--             newListReviewableHITsResponse
 --
 --         , responseListAssignmentsForHIT $
 --             newListAssignmentsForHITResponse
@@ -168,11 +168,11 @@ import Test.Tasty
 --         , responseCreateHIT $
 --             newCreateHITResponse
 --
---         , responseNotifyWorkers $
---             newNotifyWorkersResponse
---
 --         , responseListWorkerBlocks $
 --             newListWorkerBlocksResponse
+--
+--         , responseNotifyWorkers $
+--             newNotifyWorkersResponse
 --
 --         , responseListHITsForQualificationType $
 --             newListHITsForQualificationTypeResponse
@@ -183,11 +183,11 @@ import Test.Tasty
 --         , responseCreateAdditionalAssignmentsForHIT $
 --             newCreateAdditionalAssignmentsForHITResponse
 --
---         , responseListQualificationTypes $
---             newListQualificationTypesResponse
---
 --         , responseUpdateHITTypeOfHIT $
 --             newUpdateHITTypeOfHITResponse
+--
+--         , responseListQualificationTypes $
+--             newListQualificationTypesResponse
 --
 --         , responseGetAssignment $
 --             newGetAssignmentResponse
@@ -201,8 +201,11 @@ import Test.Tasty
 --         , responseGetQualificationType $
 --             newGetQualificationTypeResponse
 --
---         , responseRejectAssignment $
---             newRejectAssignmentResponse
+--         , responseListReviewPolicyResultsForHIT $
+--             newListReviewPolicyResultsForHITResponse
+--
+--         , responseDeleteHIT $
+--             newDeleteHITResponse
 --
 --         , responseUpdateExpirationForHIT $
 --             newUpdateExpirationForHITResponse
@@ -210,17 +213,8 @@ import Test.Tasty
 --         , responseApproveAssignment $
 --             newApproveAssignmentResponse
 --
---         , responseDeleteHIT $
---             newDeleteHITResponse
---
---         , responseListReviewPolicyResultsForHIT $
---             newListReviewPolicyResultsForHITResponse
---
---         , responseCreateHITType $
---             newCreateHITTypeResponse
---
---         , responseUpdateNotificationSettings $
---             newUpdateNotificationSettingsResponse
+--         , responseRejectAssignment $
+--             newRejectAssignmentResponse
 --
 --         , responseSendBonus $
 --             newSendBonusResponse
@@ -231,14 +225,23 @@ import Test.Tasty
 --         , responseAssociateQualificationWithWorker $
 --             newAssociateQualificationWithWorkerResponse
 --
---         , responseCreateHITWithHITType $
---             newCreateHITWithHITTypeResponse
+--         , responseUpdateNotificationSettings $
+--             newUpdateNotificationSettingsResponse
+--
+--         , responseCreateHITType $
+--             newCreateHITTypeResponse
 --
 --         , responseDeleteWorkerBlock $
 --             newDeleteWorkerBlockResponse
 --
+--         , responseCreateHITWithHITType $
+--             newCreateHITWithHITTypeResponse
+--
 --         , responseListBonusPayments $
 --             newListBonusPaymentsResponse
+--
+--         , responseGetHIT $
+--             newGetHITResponse
 --
 --         , responseDisassociateQualificationFromWorker $
 --             newDisassociateQualificationFromWorkerResponse
@@ -246,20 +249,17 @@ import Test.Tasty
 --         , responseSendTestEventNotification $
 --             newSendTestEventNotificationResponse
 --
---         , responseGetHIT $
---             newGetHITResponse
---
---         , responseUpdateQualificationType $
---             newUpdateQualificationTypeResponse
+--         , responseGetFileUploadURL $
+--             newGetFileUploadURLResponse
 --
 --         , responseAcceptQualificationRequest $
 --             newAcceptQualificationRequestResponse
 --
+--         , responseUpdateQualificationType $
+--             newUpdateQualificationTypeResponse
+--
 --         , responseDeleteQualificationType $
 --             newDeleteQualificationTypeResponse
---
---         , responseGetFileUploadURL $
---             newGetFileUploadURLResponse
 --
 --         , responseCreateQualificationType $
 --             newCreateQualificationTypeResponse
@@ -275,17 +275,17 @@ requestGetQualificationScore =
     "GetQualificationScore"
     "fixture/GetQualificationScore.yaml"
 
-requestListReviewableHITs :: ListReviewableHITs -> TestTree
-requestListReviewableHITs =
-  req
-    "ListReviewableHITs"
-    "fixture/ListReviewableHITs.yaml"
-
 requestListHITs :: ListHITs -> TestTree
 requestListHITs =
   req
     "ListHITs"
     "fixture/ListHITs.yaml"
+
+requestListReviewableHITs :: ListReviewableHITs -> TestTree
+requestListReviewableHITs =
+  req
+    "ListReviewableHITs"
+    "fixture/ListReviewableHITs.yaml"
 
 requestListAssignmentsForHIT :: ListAssignmentsForHIT -> TestTree
 requestListAssignmentsForHIT =
@@ -311,17 +311,17 @@ requestCreateHIT =
     "CreateHIT"
     "fixture/CreateHIT.yaml"
 
-requestNotifyWorkers :: NotifyWorkers -> TestTree
-requestNotifyWorkers =
-  req
-    "NotifyWorkers"
-    "fixture/NotifyWorkers.yaml"
-
 requestListWorkerBlocks :: ListWorkerBlocks -> TestTree
 requestListWorkerBlocks =
   req
     "ListWorkerBlocks"
     "fixture/ListWorkerBlocks.yaml"
+
+requestNotifyWorkers :: NotifyWorkers -> TestTree
+requestNotifyWorkers =
+  req
+    "NotifyWorkers"
+    "fixture/NotifyWorkers.yaml"
 
 requestListHITsForQualificationType :: ListHITsForQualificationType -> TestTree
 requestListHITsForQualificationType =
@@ -341,17 +341,17 @@ requestCreateAdditionalAssignmentsForHIT =
     "CreateAdditionalAssignmentsForHIT"
     "fixture/CreateAdditionalAssignmentsForHIT.yaml"
 
-requestListQualificationTypes :: ListQualificationTypes -> TestTree
-requestListQualificationTypes =
-  req
-    "ListQualificationTypes"
-    "fixture/ListQualificationTypes.yaml"
-
 requestUpdateHITTypeOfHIT :: UpdateHITTypeOfHIT -> TestTree
 requestUpdateHITTypeOfHIT =
   req
     "UpdateHITTypeOfHIT"
     "fixture/UpdateHITTypeOfHIT.yaml"
+
+requestListQualificationTypes :: ListQualificationTypes -> TestTree
+requestListQualificationTypes =
+  req
+    "ListQualificationTypes"
+    "fixture/ListQualificationTypes.yaml"
 
 requestGetAssignment :: GetAssignment -> TestTree
 requestGetAssignment =
@@ -377,11 +377,17 @@ requestGetQualificationType =
     "GetQualificationType"
     "fixture/GetQualificationType.yaml"
 
-requestRejectAssignment :: RejectAssignment -> TestTree
-requestRejectAssignment =
+requestListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHIT -> TestTree
+requestListReviewPolicyResultsForHIT =
   req
-    "RejectAssignment"
-    "fixture/RejectAssignment.yaml"
+    "ListReviewPolicyResultsForHIT"
+    "fixture/ListReviewPolicyResultsForHIT.yaml"
+
+requestDeleteHIT :: DeleteHIT -> TestTree
+requestDeleteHIT =
+  req
+    "DeleteHIT"
+    "fixture/DeleteHIT.yaml"
 
 requestUpdateExpirationForHIT :: UpdateExpirationForHIT -> TestTree
 requestUpdateExpirationForHIT =
@@ -395,29 +401,11 @@ requestApproveAssignment =
     "ApproveAssignment"
     "fixture/ApproveAssignment.yaml"
 
-requestDeleteHIT :: DeleteHIT -> TestTree
-requestDeleteHIT =
+requestRejectAssignment :: RejectAssignment -> TestTree
+requestRejectAssignment =
   req
-    "DeleteHIT"
-    "fixture/DeleteHIT.yaml"
-
-requestListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHIT -> TestTree
-requestListReviewPolicyResultsForHIT =
-  req
-    "ListReviewPolicyResultsForHIT"
-    "fixture/ListReviewPolicyResultsForHIT.yaml"
-
-requestCreateHITType :: CreateHITType -> TestTree
-requestCreateHITType =
-  req
-    "CreateHITType"
-    "fixture/CreateHITType.yaml"
-
-requestUpdateNotificationSettings :: UpdateNotificationSettings -> TestTree
-requestUpdateNotificationSettings =
-  req
-    "UpdateNotificationSettings"
-    "fixture/UpdateNotificationSettings.yaml"
+    "RejectAssignment"
+    "fixture/RejectAssignment.yaml"
 
 requestSendBonus :: SendBonus -> TestTree
 requestSendBonus =
@@ -437,11 +425,17 @@ requestAssociateQualificationWithWorker =
     "AssociateQualificationWithWorker"
     "fixture/AssociateQualificationWithWorker.yaml"
 
-requestCreateHITWithHITType :: CreateHITWithHITType -> TestTree
-requestCreateHITWithHITType =
+requestUpdateNotificationSettings :: UpdateNotificationSettings -> TestTree
+requestUpdateNotificationSettings =
   req
-    "CreateHITWithHITType"
-    "fixture/CreateHITWithHITType.yaml"
+    "UpdateNotificationSettings"
+    "fixture/UpdateNotificationSettings.yaml"
+
+requestCreateHITType :: CreateHITType -> TestTree
+requestCreateHITType =
+  req
+    "CreateHITType"
+    "fixture/CreateHITType.yaml"
 
 requestDeleteWorkerBlock :: DeleteWorkerBlock -> TestTree
 requestDeleteWorkerBlock =
@@ -449,11 +443,23 @@ requestDeleteWorkerBlock =
     "DeleteWorkerBlock"
     "fixture/DeleteWorkerBlock.yaml"
 
+requestCreateHITWithHITType :: CreateHITWithHITType -> TestTree
+requestCreateHITWithHITType =
+  req
+    "CreateHITWithHITType"
+    "fixture/CreateHITWithHITType.yaml"
+
 requestListBonusPayments :: ListBonusPayments -> TestTree
 requestListBonusPayments =
   req
     "ListBonusPayments"
     "fixture/ListBonusPayments.yaml"
+
+requestGetHIT :: GetHIT -> TestTree
+requestGetHIT =
+  req
+    "GetHIT"
+    "fixture/GetHIT.yaml"
 
 requestDisassociateQualificationFromWorker :: DisassociateQualificationFromWorker -> TestTree
 requestDisassociateQualificationFromWorker =
@@ -467,17 +473,11 @@ requestSendTestEventNotification =
     "SendTestEventNotification"
     "fixture/SendTestEventNotification.yaml"
 
-requestGetHIT :: GetHIT -> TestTree
-requestGetHIT =
+requestGetFileUploadURL :: GetFileUploadURL -> TestTree
+requestGetFileUploadURL =
   req
-    "GetHIT"
-    "fixture/GetHIT.yaml"
-
-requestUpdateQualificationType :: UpdateQualificationType -> TestTree
-requestUpdateQualificationType =
-  req
-    "UpdateQualificationType"
-    "fixture/UpdateQualificationType.yaml"
+    "GetFileUploadURL"
+    "fixture/GetFileUploadURL.yaml"
 
 requestAcceptQualificationRequest :: AcceptQualificationRequest -> TestTree
 requestAcceptQualificationRequest =
@@ -485,17 +485,17 @@ requestAcceptQualificationRequest =
     "AcceptQualificationRequest"
     "fixture/AcceptQualificationRequest.yaml"
 
+requestUpdateQualificationType :: UpdateQualificationType -> TestTree
+requestUpdateQualificationType =
+  req
+    "UpdateQualificationType"
+    "fixture/UpdateQualificationType.yaml"
+
 requestDeleteQualificationType :: DeleteQualificationType -> TestTree
 requestDeleteQualificationType =
   req
     "DeleteQualificationType"
     "fixture/DeleteQualificationType.yaml"
-
-requestGetFileUploadURL :: GetFileUploadURL -> TestTree
-requestGetFileUploadURL =
-  req
-    "GetFileUploadURL"
-    "fixture/GetFileUploadURL.yaml"
 
 requestCreateQualificationType :: CreateQualificationType -> TestTree
 requestCreateQualificationType =
@@ -513,14 +513,6 @@ responseGetQualificationScore =
     defaultService
     (Proxy :: Proxy GetQualificationScore)
 
-responseListReviewableHITs :: ListReviewableHITsResponse -> TestTree
-responseListReviewableHITs =
-  res
-    "ListReviewableHITsResponse"
-    "fixture/ListReviewableHITsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListReviewableHITs)
-
 responseListHITs :: ListHITsResponse -> TestTree
 responseListHITs =
   res
@@ -528,6 +520,14 @@ responseListHITs =
     "fixture/ListHITsResponse.proto"
     defaultService
     (Proxy :: Proxy ListHITs)
+
+responseListReviewableHITs :: ListReviewableHITsResponse -> TestTree
+responseListReviewableHITs =
+  res
+    "ListReviewableHITsResponse"
+    "fixture/ListReviewableHITsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListReviewableHITs)
 
 responseListAssignmentsForHIT :: ListAssignmentsForHITResponse -> TestTree
 responseListAssignmentsForHIT =
@@ -561,14 +561,6 @@ responseCreateHIT =
     defaultService
     (Proxy :: Proxy CreateHIT)
 
-responseNotifyWorkers :: NotifyWorkersResponse -> TestTree
-responseNotifyWorkers =
-  res
-    "NotifyWorkersResponse"
-    "fixture/NotifyWorkersResponse.proto"
-    defaultService
-    (Proxy :: Proxy NotifyWorkers)
-
 responseListWorkerBlocks :: ListWorkerBlocksResponse -> TestTree
 responseListWorkerBlocks =
   res
@@ -576,6 +568,14 @@ responseListWorkerBlocks =
     "fixture/ListWorkerBlocksResponse.proto"
     defaultService
     (Proxy :: Proxy ListWorkerBlocks)
+
+responseNotifyWorkers :: NotifyWorkersResponse -> TestTree
+responseNotifyWorkers =
+  res
+    "NotifyWorkersResponse"
+    "fixture/NotifyWorkersResponse.proto"
+    defaultService
+    (Proxy :: Proxy NotifyWorkers)
 
 responseListHITsForQualificationType :: ListHITsForQualificationTypeResponse -> TestTree
 responseListHITsForQualificationType =
@@ -601,14 +601,6 @@ responseCreateAdditionalAssignmentsForHIT =
     defaultService
     (Proxy :: Proxy CreateAdditionalAssignmentsForHIT)
 
-responseListQualificationTypes :: ListQualificationTypesResponse -> TestTree
-responseListQualificationTypes =
-  res
-    "ListQualificationTypesResponse"
-    "fixture/ListQualificationTypesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListQualificationTypes)
-
 responseUpdateHITTypeOfHIT :: UpdateHITTypeOfHITResponse -> TestTree
 responseUpdateHITTypeOfHIT =
   res
@@ -616,6 +608,14 @@ responseUpdateHITTypeOfHIT =
     "fixture/UpdateHITTypeOfHITResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateHITTypeOfHIT)
+
+responseListQualificationTypes :: ListQualificationTypesResponse -> TestTree
+responseListQualificationTypes =
+  res
+    "ListQualificationTypesResponse"
+    "fixture/ListQualificationTypesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListQualificationTypes)
 
 responseGetAssignment :: GetAssignmentResponse -> TestTree
 responseGetAssignment =
@@ -649,13 +649,21 @@ responseGetQualificationType =
     defaultService
     (Proxy :: Proxy GetQualificationType)
 
-responseRejectAssignment :: RejectAssignmentResponse -> TestTree
-responseRejectAssignment =
+responseListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHITResponse -> TestTree
+responseListReviewPolicyResultsForHIT =
   res
-    "RejectAssignmentResponse"
-    "fixture/RejectAssignmentResponse.proto"
+    "ListReviewPolicyResultsForHITResponse"
+    "fixture/ListReviewPolicyResultsForHITResponse.proto"
     defaultService
-    (Proxy :: Proxy RejectAssignment)
+    (Proxy :: Proxy ListReviewPolicyResultsForHIT)
+
+responseDeleteHIT :: DeleteHITResponse -> TestTree
+responseDeleteHIT =
+  res
+    "DeleteHITResponse"
+    "fixture/DeleteHITResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteHIT)
 
 responseUpdateExpirationForHIT :: UpdateExpirationForHITResponse -> TestTree
 responseUpdateExpirationForHIT =
@@ -673,37 +681,13 @@ responseApproveAssignment =
     defaultService
     (Proxy :: Proxy ApproveAssignment)
 
-responseDeleteHIT :: DeleteHITResponse -> TestTree
-responseDeleteHIT =
+responseRejectAssignment :: RejectAssignmentResponse -> TestTree
+responseRejectAssignment =
   res
-    "DeleteHITResponse"
-    "fixture/DeleteHITResponse.proto"
+    "RejectAssignmentResponse"
+    "fixture/RejectAssignmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteHIT)
-
-responseListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHITResponse -> TestTree
-responseListReviewPolicyResultsForHIT =
-  res
-    "ListReviewPolicyResultsForHITResponse"
-    "fixture/ListReviewPolicyResultsForHITResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListReviewPolicyResultsForHIT)
-
-responseCreateHITType :: CreateHITTypeResponse -> TestTree
-responseCreateHITType =
-  res
-    "CreateHITTypeResponse"
-    "fixture/CreateHITTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateHITType)
-
-responseUpdateNotificationSettings :: UpdateNotificationSettingsResponse -> TestTree
-responseUpdateNotificationSettings =
-  res
-    "UpdateNotificationSettingsResponse"
-    "fixture/UpdateNotificationSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateNotificationSettings)
+    (Proxy :: Proxy RejectAssignment)
 
 responseSendBonus :: SendBonusResponse -> TestTree
 responseSendBonus =
@@ -729,13 +713,21 @@ responseAssociateQualificationWithWorker =
     defaultService
     (Proxy :: Proxy AssociateQualificationWithWorker)
 
-responseCreateHITWithHITType :: CreateHITWithHITTypeResponse -> TestTree
-responseCreateHITWithHITType =
+responseUpdateNotificationSettings :: UpdateNotificationSettingsResponse -> TestTree
+responseUpdateNotificationSettings =
   res
-    "CreateHITWithHITTypeResponse"
-    "fixture/CreateHITWithHITTypeResponse.proto"
+    "UpdateNotificationSettingsResponse"
+    "fixture/UpdateNotificationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHITWithHITType)
+    (Proxy :: Proxy UpdateNotificationSettings)
+
+responseCreateHITType :: CreateHITTypeResponse -> TestTree
+responseCreateHITType =
+  res
+    "CreateHITTypeResponse"
+    "fixture/CreateHITTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHITType)
 
 responseDeleteWorkerBlock :: DeleteWorkerBlockResponse -> TestTree
 responseDeleteWorkerBlock =
@@ -745,6 +737,14 @@ responseDeleteWorkerBlock =
     defaultService
     (Proxy :: Proxy DeleteWorkerBlock)
 
+responseCreateHITWithHITType :: CreateHITWithHITTypeResponse -> TestTree
+responseCreateHITWithHITType =
+  res
+    "CreateHITWithHITTypeResponse"
+    "fixture/CreateHITWithHITTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHITWithHITType)
+
 responseListBonusPayments :: ListBonusPaymentsResponse -> TestTree
 responseListBonusPayments =
   res
@@ -752,6 +752,14 @@ responseListBonusPayments =
     "fixture/ListBonusPaymentsResponse.proto"
     defaultService
     (Proxy :: Proxy ListBonusPayments)
+
+responseGetHIT :: GetHITResponse -> TestTree
+responseGetHIT =
+  res
+    "GetHITResponse"
+    "fixture/GetHITResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetHIT)
 
 responseDisassociateQualificationFromWorker :: DisassociateQualificationFromWorkerResponse -> TestTree
 responseDisassociateQualificationFromWorker =
@@ -769,21 +777,13 @@ responseSendTestEventNotification =
     defaultService
     (Proxy :: Proxy SendTestEventNotification)
 
-responseGetHIT :: GetHITResponse -> TestTree
-responseGetHIT =
+responseGetFileUploadURL :: GetFileUploadURLResponse -> TestTree
+responseGetFileUploadURL =
   res
-    "GetHITResponse"
-    "fixture/GetHITResponse.proto"
+    "GetFileUploadURLResponse"
+    "fixture/GetFileUploadURLResponse.proto"
     defaultService
-    (Proxy :: Proxy GetHIT)
-
-responseUpdateQualificationType :: UpdateQualificationTypeResponse -> TestTree
-responseUpdateQualificationType =
-  res
-    "UpdateQualificationTypeResponse"
-    "fixture/UpdateQualificationTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateQualificationType)
+    (Proxy :: Proxy GetFileUploadURL)
 
 responseAcceptQualificationRequest :: AcceptQualificationRequestResponse -> TestTree
 responseAcceptQualificationRequest =
@@ -793,6 +793,14 @@ responseAcceptQualificationRequest =
     defaultService
     (Proxy :: Proxy AcceptQualificationRequest)
 
+responseUpdateQualificationType :: UpdateQualificationTypeResponse -> TestTree
+responseUpdateQualificationType =
+  res
+    "UpdateQualificationTypeResponse"
+    "fixture/UpdateQualificationTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateQualificationType)
+
 responseDeleteQualificationType :: DeleteQualificationTypeResponse -> TestTree
 responseDeleteQualificationType =
   res
@@ -800,14 +808,6 @@ responseDeleteQualificationType =
     "fixture/DeleteQualificationTypeResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteQualificationType)
-
-responseGetFileUploadURL :: GetFileUploadURLResponse -> TestTree
-responseGetFileUploadURL =
-  res
-    "GetFileUploadURLResponse"
-    "fixture/GetFileUploadURLResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetFileUploadURL)
 
 responseCreateQualificationType :: CreateQualificationTypeResponse -> TestTree
 responseCreateQualificationType =

@@ -30,8 +30,8 @@ module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
     -- * Request Lenses
     describeProductAsAdmin_id,
     describeProductAsAdmin_name,
-    describeProductAsAdmin_sourcePortfolioId,
     describeProductAsAdmin_acceptLanguage,
+    describeProductAsAdmin_sourcePortfolioId,
 
     -- * Destructuring the Response
     DescribeProductAsAdminResponse (..),
@@ -60,6 +60,14 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
     id :: Prelude.Maybe Prelude.Text,
     -- | The product name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the shared portfolio that the specified product
     -- is associated with.
     --
@@ -68,15 +76,7 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
     -- TagOptions sharing is enabled in the portfolio share, the API returns
     -- both local and shared TagOptions associated with the product. Otherwise
     -- only local TagOptions will be returned.
-    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
-    --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    sourcePortfolioId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,14 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 --
 -- 'name', 'describeProductAsAdmin_name' - The product name.
 --
+-- 'acceptLanguage', 'describeProductAsAdmin_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
 -- 'sourcePortfolioId', 'describeProductAsAdmin_sourcePortfolioId' - The unique identifier of the shared portfolio that the specified product
 -- is associated with.
 --
@@ -100,22 +108,14 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 -- TagOptions sharing is enabled in the portfolio share, the API returns
 -- both local and shared TagOptions associated with the product. Otherwise
 -- only local TagOptions will be returned.
---
--- 'acceptLanguage', 'describeProductAsAdmin_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
 newDescribeProductAsAdmin ::
   DescribeProductAsAdmin
 newDescribeProductAsAdmin =
   DescribeProductAsAdmin'
     { id = Prelude.Nothing,
       name = Prelude.Nothing,
-      sourcePortfolioId = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      acceptLanguage = Prelude.Nothing,
+      sourcePortfolioId = Prelude.Nothing
     }
 
 -- | The product identifier.
@@ -125,6 +125,16 @@ describeProductAsAdmin_id = Lens.lens (\DescribeProductAsAdmin' {id} -> id) (\s@
 -- | The product name.
 describeProductAsAdmin_name :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
 describeProductAsAdmin_name = Lens.lens (\DescribeProductAsAdmin' {name} -> name) (\s@DescribeProductAsAdmin' {} a -> s {name = a} :: DescribeProductAsAdmin)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+describeProductAsAdmin_acceptLanguage :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
+describeProductAsAdmin_acceptLanguage = Lens.lens (\DescribeProductAsAdmin' {acceptLanguage} -> acceptLanguage) (\s@DescribeProductAsAdmin' {} a -> s {acceptLanguage = a} :: DescribeProductAsAdmin)
 
 -- | The unique identifier of the shared portfolio that the specified product
 -- is associated with.
@@ -136,16 +146,6 @@ describeProductAsAdmin_name = Lens.lens (\DescribeProductAsAdmin' {name} -> name
 -- only local TagOptions will be returned.
 describeProductAsAdmin_sourcePortfolioId :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
 describeProductAsAdmin_sourcePortfolioId = Lens.lens (\DescribeProductAsAdmin' {sourcePortfolioId} -> sourcePortfolioId) (\s@DescribeProductAsAdmin' {} a -> s {sourcePortfolioId = a} :: DescribeProductAsAdmin)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-describeProductAsAdmin_acceptLanguage :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
-describeProductAsAdmin_acceptLanguage = Lens.lens (\DescribeProductAsAdmin' {acceptLanguage} -> acceptLanguage) (\s@DescribeProductAsAdmin' {} a -> s {acceptLanguage = a} :: DescribeProductAsAdmin)
 
 instance Core.AWSRequest DescribeProductAsAdmin where
   type
@@ -191,10 +191,10 @@ instance Core.ToJSON DescribeProductAsAdmin where
       ( Prelude.catMaybes
           [ ("Id" Core..=) Prelude.<$> id,
             ("Name" Core..=) Prelude.<$> name,
-            ("SourcePortfolioId" Core..=)
-              Prelude.<$> sourcePortfolioId,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> acceptLanguage,
+            ("SourcePortfolioId" Core..=)
+              Prelude.<$> sourcePortfolioId
           ]
       )
 

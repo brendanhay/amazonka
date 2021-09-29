@@ -33,11 +33,11 @@ data VocabularyInfo = VocabularyInfo'
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The date and time that the vocabulary was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the vocabulary.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The processing state of the vocabulary. If the state is @READY@ you can
     -- use the vocabulary in a @StartTranscriptionJob@ request.
-    vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The name of the vocabulary.
-    vocabularyName :: Prelude.Maybe Prelude.Text
+    vocabularyState :: Prelude.Maybe VocabularyState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,18 +53,18 @@ data VocabularyInfo = VocabularyInfo'
 --
 -- 'lastModifiedTime', 'vocabularyInfo_lastModifiedTime' - The date and time that the vocabulary was last modified.
 --
+-- 'vocabularyName', 'vocabularyInfo_vocabularyName' - The name of the vocabulary.
+--
 -- 'vocabularyState', 'vocabularyInfo_vocabularyState' - The processing state of the vocabulary. If the state is @READY@ you can
 -- use the vocabulary in a @StartTranscriptionJob@ request.
---
--- 'vocabularyName', 'vocabularyInfo_vocabularyName' - The name of the vocabulary.
 newVocabularyInfo ::
   VocabularyInfo
 newVocabularyInfo =
   VocabularyInfo'
     { languageCode = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing
+      vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing
     }
 
 -- | The language code of the vocabulary entries.
@@ -75,14 +75,14 @@ vocabularyInfo_languageCode = Lens.lens (\VocabularyInfo' {languageCode} -> lang
 vocabularyInfo_lastModifiedTime :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.UTCTime)
 vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the vocabulary.
+vocabularyInfo_vocabularyName :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.Text)
+vocabularyInfo_vocabularyName = Lens.lens (\VocabularyInfo' {vocabularyName} -> vocabularyName) (\s@VocabularyInfo' {} a -> s {vocabularyName = a} :: VocabularyInfo)
+
 -- | The processing state of the vocabulary. If the state is @READY@ you can
 -- use the vocabulary in a @StartTranscriptionJob@ request.
 vocabularyInfo_vocabularyState :: Lens.Lens' VocabularyInfo (Prelude.Maybe VocabularyState)
 vocabularyInfo_vocabularyState = Lens.lens (\VocabularyInfo' {vocabularyState} -> vocabularyState) (\s@VocabularyInfo' {} a -> s {vocabularyState = a} :: VocabularyInfo)
-
--- | The name of the vocabulary.
-vocabularyInfo_vocabularyName :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.Text)
-vocabularyInfo_vocabularyName = Lens.lens (\VocabularyInfo' {vocabularyName} -> vocabularyName) (\s@VocabularyInfo' {} a -> s {vocabularyName = a} :: VocabularyInfo)
 
 instance Core.FromJSON VocabularyInfo where
   parseJSON =
@@ -92,8 +92,8 @@ instance Core.FromJSON VocabularyInfo where
           VocabularyInfo'
             Prelude.<$> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "VocabularyState")
             Prelude.<*> (x Core..:? "VocabularyName")
+            Prelude.<*> (x Core..:? "VocabularyState")
       )
 
 instance Prelude.Hashable VocabularyInfo

@@ -93,10 +93,6 @@ data Job' = Job''
     userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Details about the timing of a job.
     timing :: Prelude.Maybe Timing,
-    -- | Information about the files that you\'re transcoding. If you specified
-    -- multiple files for this job, Elastic Transcoder stitches the files
-    -- together to make one output.
-    inputs :: Prelude.Maybe [JobInput],
     -- | Outputs in Fragmented MP4 or MPEG-TS format only.
     --
     -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -105,7 +101,11 @@ data Job' = Job''
     -- to create.
     --
     -- The maximum number of master playlists in a job is 30.
-    playlists :: Prelude.Maybe [Playlist]
+    playlists :: Prelude.Maybe [Playlist],
+    -- | Information about the files that you\'re transcoding. If you specified
+    -- multiple files for this job, Elastic Transcoder stitches the files
+    -- together to make one output.
+    inputs :: Prelude.Maybe [JobInput]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -178,10 +178,6 @@ data Job' = Job''
 --
 -- 'timing', 'job'_timing' - Details about the timing of a job.
 --
--- 'inputs', 'job'_inputs' - Information about the files that you\'re transcoding. If you specified
--- multiple files for this job, Elastic Transcoder stitches the files
--- together to make one output.
---
 -- 'playlists', 'job'_playlists' - Outputs in Fragmented MP4 or MPEG-TS format only.
 --
 -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -190,6 +186,10 @@ data Job' = Job''
 -- to create.
 --
 -- The maximum number of master playlists in a job is 30.
+--
+-- 'inputs', 'job'_inputs' - Information about the files that you\'re transcoding. If you specified
+-- multiple files for this job, Elastic Transcoder stitches the files
+-- together to make one output.
 newJob' ::
   Job'
 newJob' =
@@ -204,8 +204,8 @@ newJob' =
       output = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
       timing = Prelude.Nothing,
-      inputs = Prelude.Nothing,
-      playlists = Prelude.Nothing
+      playlists = Prelude.Nothing,
+      inputs = Prelude.Nothing
     }
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
@@ -289,12 +289,6 @@ job'_userMetadata = Lens.lens (\Job'' {userMetadata} -> userMetadata) (\s@Job'' 
 job'_timing :: Lens.Lens' Job' (Prelude.Maybe Timing)
 job'_timing = Lens.lens (\Job'' {timing} -> timing) (\s@Job'' {} a -> s {timing = a} :: Job')
 
--- | Information about the files that you\'re transcoding. If you specified
--- multiple files for this job, Elastic Transcoder stitches the files
--- together to make one output.
-job'_inputs :: Lens.Lens' Job' (Prelude.Maybe [JobInput])
-job'_inputs = Lens.lens (\Job'' {inputs} -> inputs) (\s@Job'' {} a -> s {inputs = a} :: Job') Prelude.. Lens.mapping Lens._Coerce
-
 -- | Outputs in Fragmented MP4 or MPEG-TS format only.
 --
 -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -305,6 +299,12 @@ job'_inputs = Lens.lens (\Job'' {inputs} -> inputs) (\s@Job'' {} a -> s {inputs 
 -- The maximum number of master playlists in a job is 30.
 job'_playlists :: Lens.Lens' Job' (Prelude.Maybe [Playlist])
 job'_playlists = Lens.lens (\Job'' {playlists} -> playlists) (\s@Job'' {} a -> s {playlists = a} :: Job') Prelude.. Lens.mapping Lens._Coerce
+
+-- | Information about the files that you\'re transcoding. If you specified
+-- multiple files for this job, Elastic Transcoder stitches the files
+-- together to make one output.
+job'_inputs :: Lens.Lens' Job' (Prelude.Maybe [JobInput])
+job'_inputs = Lens.lens (\Job'' {inputs} -> inputs) (\s@Job'' {} a -> s {inputs = a} :: Job') Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Job' where
   parseJSON =
@@ -322,8 +322,8 @@ instance Core.FromJSON Job' where
             Prelude.<*> (x Core..:? "Output")
             Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Timing")
-            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Playlists" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Job'

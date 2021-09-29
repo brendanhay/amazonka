@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
-  { -- | Required. The day of the week.
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
-    -- | Required. The time, in 24-hour format.
-    timeOfDay :: Prelude.Maybe Prelude.Text,
-    -- | The time zone, UTC by default, in either the Country\/City format, or
+  { -- | The time zone, UTC by default, in either the Country\/City format, or
     -- the UTC offset format.
-    timeZone :: Prelude.Maybe Prelude.Text
+    timeZone :: Prelude.Maybe Prelude.Text,
+    -- | Required. The time, in 24-hour format.
+    timeOfDay :: Prelude.Text,
+    -- | Required. The day of the week.
+    dayOfWeek :: DayOfWeek
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,37 @@ data WeeklyStartTime = WeeklyStartTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dayOfWeek', 'weeklyStartTime_dayOfWeek' - Required. The day of the week.
+-- 'timeZone', 'weeklyStartTime_timeZone' - The time zone, UTC by default, in either the Country\/City format, or
+-- the UTC offset format.
 --
 -- 'timeOfDay', 'weeklyStartTime_timeOfDay' - Required. The time, in 24-hour format.
 --
--- 'timeZone', 'weeklyStartTime_timeZone' - The time zone, UTC by default, in either the Country\/City format, or
--- the UTC offset format.
+-- 'dayOfWeek', 'weeklyStartTime_dayOfWeek' - Required. The day of the week.
 newWeeklyStartTime ::
+  -- | 'timeOfDay'
+  Prelude.Text ->
+  -- | 'dayOfWeek'
+  DayOfWeek ->
   WeeklyStartTime
-newWeeklyStartTime =
+newWeeklyStartTime pTimeOfDay_ pDayOfWeek_ =
   WeeklyStartTime'
-    { dayOfWeek = Prelude.Nothing,
-      timeOfDay = Prelude.Nothing,
-      timeZone = Prelude.Nothing
+    { timeZone = Prelude.Nothing,
+      timeOfDay = pTimeOfDay_,
+      dayOfWeek = pDayOfWeek_
     }
-
--- | Required. The day of the week.
-weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime (Prelude.Maybe DayOfWeek)
-weeklyStartTime_dayOfWeek = Lens.lens (\WeeklyStartTime' {dayOfWeek} -> dayOfWeek) (\s@WeeklyStartTime' {} a -> s {dayOfWeek = a} :: WeeklyStartTime)
-
--- | Required. The time, in 24-hour format.
-weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
-weeklyStartTime_timeOfDay = Lens.lens (\WeeklyStartTime' {timeOfDay} -> timeOfDay) (\s@WeeklyStartTime' {} a -> s {timeOfDay = a} :: WeeklyStartTime)
 
 -- | The time zone, UTC by default, in either the Country\/City format, or
 -- the UTC offset format.
 weeklyStartTime_timeZone :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
 weeklyStartTime_timeZone = Lens.lens (\WeeklyStartTime' {timeZone} -> timeZone) (\s@WeeklyStartTime' {} a -> s {timeZone = a} :: WeeklyStartTime)
+
+-- | Required. The time, in 24-hour format.
+weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime Prelude.Text
+weeklyStartTime_timeOfDay = Lens.lens (\WeeklyStartTime' {timeOfDay} -> timeOfDay) (\s@WeeklyStartTime' {} a -> s {timeOfDay = a} :: WeeklyStartTime)
+
+-- | Required. The day of the week.
+weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime DayOfWeek
+weeklyStartTime_dayOfWeek = Lens.lens (\WeeklyStartTime' {dayOfWeek} -> dayOfWeek) (\s@WeeklyStartTime' {} a -> s {dayOfWeek = a} :: WeeklyStartTime)
 
 instance Core.FromJSON WeeklyStartTime where
   parseJSON =
@@ -81,9 +85,9 @@ instance Core.FromJSON WeeklyStartTime where
       "WeeklyStartTime"
       ( \x ->
           WeeklyStartTime'
-            Prelude.<$> (x Core..:? "dayOfWeek")
-            Prelude.<*> (x Core..:? "timeOfDay")
-            Prelude.<*> (x Core..:? "timeZone")
+            Prelude.<$> (x Core..:? "timeZone")
+            Prelude.<*> (x Core..: "timeOfDay")
+            Prelude.<*> (x Core..: "dayOfWeek")
       )
 
 instance Prelude.Hashable WeeklyStartTime
@@ -94,8 +98,8 @@ instance Core.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dayOfWeek" Core..=) Prelude.<$> dayOfWeek,
-            ("timeOfDay" Core..=) Prelude.<$> timeOfDay,
-            ("timeZone" Core..=) Prelude.<$> timeZone
+          [ ("timeZone" Core..=) Prelude.<$> timeZone,
+            Prelude.Just ("timeOfDay" Core..= timeOfDay),
+            Prelude.Just ("dayOfWeek" Core..= dayOfWeek)
           ]
       )

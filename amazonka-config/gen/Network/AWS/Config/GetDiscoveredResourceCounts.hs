@@ -21,19 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the resource types, the number of each resource type, and the
--- total number of resources that AWS Config is recording in this region
--- for your AWS account.
+-- total number of resources that Config is recording in this region for
+-- your Amazon Web Services account.
 --
 -- __Example__
 --
--- 1.  AWS Config is recording three resource types in the US East (Ohio)
+-- 1.  Config is recording three resource types in the US East (Ohio)
 --     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3
 --     buckets.
 --
 -- 2.  You make a call to the @GetDiscoveredResourceCounts@ action and
 --     specify that you want all resource types.
 --
--- 3.  AWS Config returns the following:
+-- 3.  Config returns the following:
 --
 --     -   The resource types (EC2 instances, IAM users, and S3 buckets).
 --
@@ -41,20 +41,20 @@
 --
 --     -   The total number of all resources (60).
 --
--- The response is paginated. By default, AWS Config lists 100
--- ResourceCount objects on each page. You can customize this number with
--- the @limit@ parameter. The response includes a @nextToken@ string. To
--- get the next page of results, run the request again and specify the
--- string for the @nextToken@ parameter.
+-- The response is paginated. By default, Config lists 100 ResourceCount
+-- objects on each page. You can customize this number with the @limit@
+-- parameter. The response includes a @nextToken@ string. To get the next
+-- page of results, run the request again and specify the string for the
+-- @nextToken@ parameter.
 --
 -- If you make a call to the GetDiscoveredResourceCounts action, you might
 -- not immediately receive resource counts in the following situations:
 --
--- -   You are a new AWS Config customer.
+-- -   You are a new Config customer.
 --
 -- -   You just enabled resource recording.
 --
--- It might take a few minutes for AWS Config to record and count your
+-- It might take a few minutes for Config to record and count your
 -- resources. Wait a few minutes and then retry the
 -- GetDiscoveredResourceCounts action.
 module Network.AWS.Config.GetDiscoveredResourceCounts
@@ -92,21 +92,20 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The comma-separated list that specifies the resource types that you want
-    -- AWS Config to return (for example, @\"AWS::EC2::Instance\"@,
+    -- Config to return (for example, @\"AWS::EC2::Instance\"@,
     -- @\"AWS::IAM::User\"@).
     --
-    -- If a value for @resourceTypes@ is not specified, AWS Config returns all
-    -- resource types that AWS Config is recording in the region for your
-    -- account.
+    -- If a value for @resourceTypes@ is not specified, Config returns all
+    -- resource types that Config is recording in the region for your account.
     --
-    -- If the configuration recorder is turned off, AWS Config returns an empty
+    -- If the configuration recorder is turned off, Config returns an empty
     -- list of ResourceCount objects. If the configuration recorder is not
     -- recording a specific resource type (for example, S3 buckets), that
     -- resource type is not returned in the list of ResourceCount objects.
     resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of ResourceCount objects returned on each page. The
     -- default is 100. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -123,21 +122,20 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 -- the next page of results in a paginated response.
 --
 -- 'resourceTypes', 'getDiscoveredResourceCounts_resourceTypes' - The comma-separated list that specifies the resource types that you want
--- AWS Config to return (for example, @\"AWS::EC2::Instance\"@,
+-- Config to return (for example, @\"AWS::EC2::Instance\"@,
 -- @\"AWS::IAM::User\"@).
 --
--- If a value for @resourceTypes@ is not specified, AWS Config returns all
--- resource types that AWS Config is recording in the region for your
--- account.
+-- If a value for @resourceTypes@ is not specified, Config returns all
+-- resource types that Config is recording in the region for your account.
 --
--- If the configuration recorder is turned off, AWS Config returns an empty
+-- If the configuration recorder is turned off, Config returns an empty
 -- list of ResourceCount objects. If the configuration recorder is not
 -- recording a specific resource type (for example, S3 buckets), that
 -- resource type is not returned in the list of ResourceCount objects.
 --
 -- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The
 -- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 newGetDiscoveredResourceCounts ::
   GetDiscoveredResourceCounts
 newGetDiscoveredResourceCounts =
@@ -154,14 +152,13 @@ getDiscoveredResourceCounts_nextToken :: Lens.Lens' GetDiscoveredResourceCounts 
 getDiscoveredResourceCounts_nextToken = Lens.lens (\GetDiscoveredResourceCounts' {nextToken} -> nextToken) (\s@GetDiscoveredResourceCounts' {} a -> s {nextToken = a} :: GetDiscoveredResourceCounts)
 
 -- | The comma-separated list that specifies the resource types that you want
--- AWS Config to return (for example, @\"AWS::EC2::Instance\"@,
+-- Config to return (for example, @\"AWS::EC2::Instance\"@,
 -- @\"AWS::IAM::User\"@).
 --
--- If a value for @resourceTypes@ is not specified, AWS Config returns all
--- resource types that AWS Config is recording in the region for your
--- account.
+-- If a value for @resourceTypes@ is not specified, Config returns all
+-- resource types that Config is recording in the region for your account.
 --
--- If the configuration recorder is turned off, AWS Config returns an empty
+-- If the configuration recorder is turned off, Config returns an empty
 -- list of ResourceCount objects. If the configuration recorder is not
 -- recording a specific resource type (for example, S3 buckets), that
 -- resource type is not returned in the list of ResourceCount objects.
@@ -170,7 +167,7 @@ getDiscoveredResourceCounts_resourceTypes = Lens.lens (\GetDiscoveredResourceCou
 
 -- | The maximum number of ResourceCount objects returned on each page. The
 -- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 getDiscoveredResourceCounts_limit :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
 getDiscoveredResourceCounts_limit = Lens.lens (\GetDiscoveredResourceCounts' {limit} -> limit) (\s@GetDiscoveredResourceCounts' {} a -> s {limit = a} :: GetDiscoveredResourceCounts)
 
@@ -229,14 +226,13 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of resources that AWS Config is recording in the region
-    -- for your account. If you specify resource types in the request, AWS
-    -- Config returns only the total number of resources for those resource
-    -- types.
+    -- | The total number of resources that Config is recording in the region for
+    -- your account. If you specify resource types in the request, Config
+    -- returns only the total number of resources for those resource types.
     --
     -- __Example__
     --
-    -- 1.  AWS Config is recording three resource types in the US East (Ohio)
+    -- 1.  Config is recording three resource types in the US East (Ohio)
     --     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3
     --     buckets, for a total of 60 resources.
     --
@@ -244,7 +240,7 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
     --     specify the resource type, @\"AWS::EC2::Instances\"@, in the
     --     request.
     --
-    -- 3.  AWS Config returns 25 for @totalDiscoveredResources@.
+    -- 3.  Config returns 25 for @totalDiscoveredResources@.
     totalDiscoveredResources :: Prelude.Maybe Prelude.Integer,
     -- | The list of @ResourceCount@ objects. Each object is listed in descending
     -- order by the number of resources.
@@ -265,14 +261,13 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 -- 'nextToken', 'getDiscoveredResourceCountsResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'totalDiscoveredResources', 'getDiscoveredResourceCountsResponse_totalDiscoveredResources' - The total number of resources that AWS Config is recording in the region
--- for your account. If you specify resource types in the request, AWS
--- Config returns only the total number of resources for those resource
--- types.
+-- 'totalDiscoveredResources', 'getDiscoveredResourceCountsResponse_totalDiscoveredResources' - The total number of resources that Config is recording in the region for
+-- your account. If you specify resource types in the request, Config
+-- returns only the total number of resources for those resource types.
 --
 -- __Example__
 --
--- 1.  AWS Config is recording three resource types in the US East (Ohio)
+-- 1.  Config is recording three resource types in the US East (Ohio)
 --     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3
 --     buckets, for a total of 60 resources.
 --
@@ -280,7 +275,7 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 --     specify the resource type, @\"AWS::EC2::Instances\"@, in the
 --     request.
 --
--- 3.  AWS Config returns 25 for @totalDiscoveredResources@.
+-- 3.  Config returns 25 for @totalDiscoveredResources@.
 --
 -- 'resourceCounts', 'getDiscoveredResourceCountsResponse_resourceCounts' - The list of @ResourceCount@ objects. Each object is listed in descending
 -- order by the number of resources.
@@ -305,14 +300,13 @@ newGetDiscoveredResourceCountsResponse pHttpStatus_ =
 getDiscoveredResourceCountsResponse_nextToken :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Text)
 getDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetDiscoveredResourceCountsResponse' {nextToken} -> nextToken) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {nextToken = a} :: GetDiscoveredResourceCountsResponse)
 
--- | The total number of resources that AWS Config is recording in the region
--- for your account. If you specify resource types in the request, AWS
--- Config returns only the total number of resources for those resource
--- types.
+-- | The total number of resources that Config is recording in the region for
+-- your account. If you specify resource types in the request, Config
+-- returns only the total number of resources for those resource types.
 --
 -- __Example__
 --
--- 1.  AWS Config is recording three resource types in the US East (Ohio)
+-- 1.  Config is recording three resource types in the US East (Ohio)
 --     Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3
 --     buckets, for a total of 60 resources.
 --
@@ -320,7 +314,7 @@ getDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetDiscoveredResourc
 --     specify the resource type, @\"AWS::EC2::Instances\"@, in the
 --     request.
 --
--- 3.  AWS Config returns 25 for @totalDiscoveredResources@.
+-- 3.  Config returns 25 for @totalDiscoveredResources@.
 getDiscoveredResourceCountsResponse_totalDiscoveredResources :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Integer)
 getDiscoveredResourceCountsResponse_totalDiscoveredResources = Lens.lens (\GetDiscoveredResourceCountsResponse' {totalDiscoveredResources} -> totalDiscoveredResources) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {totalDiscoveredResources = a} :: GetDiscoveredResourceCountsResponse)
 

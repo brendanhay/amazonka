@@ -46,9 +46,9 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
     --     Connect gateway. Traffic flow between the Direct Connect gateway and
     --     virtual interface is stopped.
     attachmentState :: Prelude.Maybe DirectConnectGatewayAttachmentState,
-    -- | The ID of the AWS account that owns the virtual interface.
+    -- | The ID of the account that owns the virtual interface.
     virtualInterfaceOwnerAccount :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region where the virtual interface is located.
+    -- | The Region where the virtual interface is located.
     virtualInterfaceRegion :: Prelude.Maybe Prelude.Text,
     -- | The type of attachment.
     attachmentType :: Prelude.Maybe DirectConnectGatewayAttachmentType,
@@ -83,9 +83,9 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
 --     Connect gateway. Traffic flow between the Direct Connect gateway and
 --     virtual interface is stopped.
 --
--- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the AWS account that owns the virtual interface.
+-- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the account that owns the virtual interface.
 --
--- 'virtualInterfaceRegion', 'directConnectGatewayAttachment_virtualInterfaceRegion' - The AWS Region where the virtual interface is located.
+-- 'virtualInterfaceRegion', 'directConnectGatewayAttachment_virtualInterfaceRegion' - The Region where the virtual interface is located.
 --
 -- 'attachmentType', 'directConnectGatewayAttachment_attachmentType' - The type of attachment.
 --
@@ -127,11 +127,11 @@ directConnectGatewayAttachment_stateChangeError = Lens.lens (\DirectConnectGatew
 directConnectGatewayAttachment_attachmentState :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe DirectConnectGatewayAttachmentState)
 directConnectGatewayAttachment_attachmentState = Lens.lens (\DirectConnectGatewayAttachment' {attachmentState} -> attachmentState) (\s@DirectConnectGatewayAttachment' {} a -> s {attachmentState = a} :: DirectConnectGatewayAttachment)
 
--- | The ID of the AWS account that owns the virtual interface.
+-- | The ID of the account that owns the virtual interface.
 directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
 directConnectGatewayAttachment_virtualInterfaceOwnerAccount = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceOwnerAccount} -> virtualInterfaceOwnerAccount) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceOwnerAccount = a} :: DirectConnectGatewayAttachment)
 
--- | The AWS Region where the virtual interface is located.
+-- | The Region where the virtual interface is located.
 directConnectGatewayAttachment_virtualInterfaceRegion :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
 directConnectGatewayAttachment_virtualInterfaceRegion = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceRegion} -> virtualInterfaceRegion) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceRegion = a} :: DirectConnectGatewayAttachment)
 

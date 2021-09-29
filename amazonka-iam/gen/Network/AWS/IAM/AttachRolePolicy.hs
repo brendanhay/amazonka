@@ -33,6 +33,11 @@
 -- policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
+--
+-- As a best practice, you can validate your IAM policies. To learn more,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html Validating IAM policies>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.AttachRolePolicy
   ( -- * Creating a Request
     AttachRolePolicy (..),
@@ -68,7 +73,7 @@ data AttachRolePolicy = AttachRolePolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,7 +97,7 @@ data AttachRolePolicy = AttachRolePolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newAttachRolePolicy ::
   -- | 'roleName'
   Prelude.Text ->
@@ -118,7 +123,7 @@ attachRolePolicy_roleName = Lens.lens (\AttachRolePolicy' {roleName} -> roleName
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 attachRolePolicy_policyArn :: Lens.Lens' AttachRolePolicy Prelude.Text
 attachRolePolicy_policyArn = Lens.lens (\AttachRolePolicy' {policyArn} -> policyArn) (\s@AttachRolePolicy' {} a -> s {policyArn = a} :: AttachRolePolicy)
 

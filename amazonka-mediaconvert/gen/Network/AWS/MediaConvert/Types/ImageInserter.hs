@@ -24,9 +24,11 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.InsertableImage
 import qualified Network.AWS.Prelude as Prelude
 
--- | Enable the image inserter feature to include a graphic overlay on your
+-- | Use the image inserter feature to include a graphic overlay on your
 -- video. Enable or disable this feature for each input or output
--- individually. This setting is disabled by default.
+-- individually. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/graphic-overlay.html.
+-- This setting is disabled by default.
 --
 -- /See:/ 'newImageInserter' smart constructor.
 data ImageInserter = ImageInserter'

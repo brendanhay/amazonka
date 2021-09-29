@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the AWS Direct Connect locations in the current AWS Region. These
--- are the locations that can be selected when calling CreateConnection or
+-- Lists the Direct Connect locations in the current Region. These are the
+-- locations that can be selected when calling CreateConnection or
 -- CreateInterconnect.
 module Network.AWS.DirectConnect.DescribeLocations
   ( -- * Creating a Request

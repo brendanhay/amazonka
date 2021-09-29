@@ -31,22 +31,20 @@ data DirectoryLimits = DirectoryLimits'
     cloudOnlyDirectoriesLimit :: Prelude.Maybe Prelude.Natural,
     -- | Indicates if the connected directory limit has been reached.
     connectedDirectoriesLimitReached :: Prelude.Maybe Prelude.Bool,
-    -- | The current number of AWS Managed Microsoft AD directories in the
-    -- region.
+    -- | The current number of Managed Microsoft AD directories in the region.
     cloudOnlyMicrosoftADCurrentCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of connected directories allowed in the Region.
     connectedDirectoriesLimit :: Prelude.Maybe Prelude.Natural,
     -- | The current number of connected directories in the Region.
     connectedDirectoriesCurrentCount :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of AWS Managed Microsoft AD directories allowed in
-    -- the region.
+    -- | The maximum number of Managed Microsoft AD directories allowed in the
+    -- region.
     cloudOnlyMicrosoftADLimit :: Prelude.Maybe Prelude.Natural,
     -- | Indicates if the cloud directory limit has been reached.
     cloudOnlyDirectoriesLimitReached :: Prelude.Maybe Prelude.Bool,
     -- | The current number of cloud directories in the Region.
     cloudOnlyDirectoriesCurrentCount :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates if the AWS Managed Microsoft AD directory limit has been
-    -- reached.
+    -- | Indicates if the Managed Microsoft AD directory limit has been reached.
     cloudOnlyMicrosoftADLimitReached :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,22 +61,20 @@ data DirectoryLimits = DirectoryLimits'
 --
 -- 'connectedDirectoriesLimitReached', 'directoryLimits_connectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.
 --
--- 'cloudOnlyMicrosoftADCurrentCount', 'directoryLimits_cloudOnlyMicrosoftADCurrentCount' - The current number of AWS Managed Microsoft AD directories in the
--- region.
+-- 'cloudOnlyMicrosoftADCurrentCount', 'directoryLimits_cloudOnlyMicrosoftADCurrentCount' - The current number of Managed Microsoft AD directories in the region.
 --
 -- 'connectedDirectoriesLimit', 'directoryLimits_connectedDirectoriesLimit' - The maximum number of connected directories allowed in the Region.
 --
 -- 'connectedDirectoriesCurrentCount', 'directoryLimits_connectedDirectoriesCurrentCount' - The current number of connected directories in the Region.
 --
--- 'cloudOnlyMicrosoftADLimit', 'directoryLimits_cloudOnlyMicrosoftADLimit' - The maximum number of AWS Managed Microsoft AD directories allowed in
--- the region.
+-- 'cloudOnlyMicrosoftADLimit', 'directoryLimits_cloudOnlyMicrosoftADLimit' - The maximum number of Managed Microsoft AD directories allowed in the
+-- region.
 --
 -- 'cloudOnlyDirectoriesLimitReached', 'directoryLimits_cloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
 --
 -- 'cloudOnlyDirectoriesCurrentCount', 'directoryLimits_cloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the Region.
 --
--- 'cloudOnlyMicrosoftADLimitReached', 'directoryLimits_cloudOnlyMicrosoftADLimitReached' - Indicates if the AWS Managed Microsoft AD directory limit has been
--- reached.
+-- 'cloudOnlyMicrosoftADLimitReached', 'directoryLimits_cloudOnlyMicrosoftADLimitReached' - Indicates if the Managed Microsoft AD directory limit has been reached.
 newDirectoryLimits ::
   DirectoryLimits
 newDirectoryLimits =
@@ -103,8 +99,7 @@ directoryLimits_cloudOnlyDirectoriesLimit = Lens.lens (\DirectoryLimits' {cloudO
 directoryLimits_connectedDirectoriesLimitReached :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Bool)
 directoryLimits_connectedDirectoriesLimitReached = Lens.lens (\DirectoryLimits' {connectedDirectoriesLimitReached} -> connectedDirectoriesLimitReached) (\s@DirectoryLimits' {} a -> s {connectedDirectoriesLimitReached = a} :: DirectoryLimits)
 
--- | The current number of AWS Managed Microsoft AD directories in the
--- region.
+-- | The current number of Managed Microsoft AD directories in the region.
 directoryLimits_cloudOnlyMicrosoftADCurrentCount :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Natural)
 directoryLimits_cloudOnlyMicrosoftADCurrentCount = Lens.lens (\DirectoryLimits' {cloudOnlyMicrosoftADCurrentCount} -> cloudOnlyMicrosoftADCurrentCount) (\s@DirectoryLimits' {} a -> s {cloudOnlyMicrosoftADCurrentCount = a} :: DirectoryLimits)
 
@@ -116,8 +111,8 @@ directoryLimits_connectedDirectoriesLimit = Lens.lens (\DirectoryLimits' {connec
 directoryLimits_connectedDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Natural)
 directoryLimits_connectedDirectoriesCurrentCount = Lens.lens (\DirectoryLimits' {connectedDirectoriesCurrentCount} -> connectedDirectoriesCurrentCount) (\s@DirectoryLimits' {} a -> s {connectedDirectoriesCurrentCount = a} :: DirectoryLimits)
 
--- | The maximum number of AWS Managed Microsoft AD directories allowed in
--- the region.
+-- | The maximum number of Managed Microsoft AD directories allowed in the
+-- region.
 directoryLimits_cloudOnlyMicrosoftADLimit :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Natural)
 directoryLimits_cloudOnlyMicrosoftADLimit = Lens.lens (\DirectoryLimits' {cloudOnlyMicrosoftADLimit} -> cloudOnlyMicrosoftADLimit) (\s@DirectoryLimits' {} a -> s {cloudOnlyMicrosoftADLimit = a} :: DirectoryLimits)
 
@@ -129,8 +124,7 @@ directoryLimits_cloudOnlyDirectoriesLimitReached = Lens.lens (\DirectoryLimits' 
 directoryLimits_cloudOnlyDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Natural)
 directoryLimits_cloudOnlyDirectoriesCurrentCount = Lens.lens (\DirectoryLimits' {cloudOnlyDirectoriesCurrentCount} -> cloudOnlyDirectoriesCurrentCount) (\s@DirectoryLimits' {} a -> s {cloudOnlyDirectoriesCurrentCount = a} :: DirectoryLimits)
 
--- | Indicates if the AWS Managed Microsoft AD directory limit has been
--- reached.
+-- | Indicates if the Managed Microsoft AD directory limit has been reached.
 directoryLimits_cloudOnlyMicrosoftADLimitReached :: Lens.Lens' DirectoryLimits (Prelude.Maybe Prelude.Bool)
 directoryLimits_cloudOnlyMicrosoftADLimitReached = Lens.lens (\DirectoryLimits' {cloudOnlyMicrosoftADLimitReached} -> cloudOnlyMicrosoftADLimitReached) (\s@DirectoryLimits' {} a -> s {cloudOnlyMicrosoftADLimitReached = a} :: DirectoryLimits)
 

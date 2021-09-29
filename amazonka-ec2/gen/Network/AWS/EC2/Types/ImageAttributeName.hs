@@ -21,6 +21,7 @@ module Network.AWS.EC2.Types.ImageAttributeName
   ( ImageAttributeName
       ( ..,
         ImageAttributeName_BlockDeviceMapping,
+        ImageAttributeName_BootMode,
         ImageAttributeName_Description,
         ImageAttributeName_Kernel,
         ImageAttributeName_LaunchPermission,
@@ -66,6 +67,9 @@ newtype ImageAttributeName = ImageAttributeName'
 pattern ImageAttributeName_BlockDeviceMapping :: ImageAttributeName
 pattern ImageAttributeName_BlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
 
+pattern ImageAttributeName_BootMode :: ImageAttributeName
+pattern ImageAttributeName_BootMode = ImageAttributeName' "bootMode"
+
 pattern ImageAttributeName_Description :: ImageAttributeName
 pattern ImageAttributeName_Description = ImageAttributeName' "description"
 
@@ -86,6 +90,7 @@ pattern ImageAttributeName_SriovNetSupport = ImageAttributeName' "sriovNetSuppor
 
 {-# COMPLETE
   ImageAttributeName_BlockDeviceMapping,
+  ImageAttributeName_BootMode,
   ImageAttributeName_Description,
   ImageAttributeName_Kernel,
   ImageAttributeName_LaunchPermission,

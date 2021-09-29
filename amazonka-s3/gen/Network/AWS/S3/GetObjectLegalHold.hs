@@ -55,7 +55,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetObjectLegalHold' smart constructor.
 data GetObjectLegalHold = GetObjectLegalHold'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -66,14 +66,14 @@ data GetObjectLegalHold = GetObjectLegalHold'
     -- | The bucket name containing the object whose Legal Hold status you want
     -- to retrieve.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The key name for the object whose Legal Hold status you want to
     -- retrieve.
@@ -89,7 +89,7 @@ data GetObjectLegalHold = GetObjectLegalHold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getObjectLegalHold_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getObjectLegalHold_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -101,14 +101,14 @@ data GetObjectLegalHold = GetObjectLegalHold'
 -- 'bucket', 'getObjectLegalHold_bucket' - The bucket name containing the object whose Legal Hold status you want
 -- to retrieve.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'getObjectLegalHold_key' - The key name for the object whose Legal Hold status you want to
 -- retrieve.
@@ -128,7 +128,7 @@ newGetObjectLegalHold pBucket_ pKey_ =
       key = pKey_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getObjectLegalHold_expectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe Prelude.Text)
@@ -146,14 +146,14 @@ getObjectLegalHold_requestPayer = Lens.lens (\GetObjectLegalHold' {requestPayer}
 -- | The bucket name containing the object whose Legal Hold status you want
 -- to retrieve.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 getObjectLegalHold_bucket :: Lens.Lens' GetObjectLegalHold BucketName
 getObjectLegalHold_bucket = Lens.lens (\GetObjectLegalHold' {bucket} -> bucket) (\s@GetObjectLegalHold' {} a -> s {bucket = a} :: GetObjectLegalHold)
 

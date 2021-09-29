@@ -23,10 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | To transcode only portions of your input (clips), include one Input
--- clipping (one instance of InputClipping in the JSON job file) for each
--- input clip. All input clips you specify will be included in every output
--- of the job.
+-- | To transcode only portions of your input, include one input clip for
+-- each part of your input that you want in your output. All input clips
+-- that you specify will be included in every output of the job. For more
+-- information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/assembling-multiple-inputs-and-input-clips.html.
 --
 -- /See:/ 'newInputClipping' smart constructor.
 data InputClipping = InputClipping'

@@ -29,8 +29,8 @@ module Network.AWS.DMS.DescribePendingMaintenanceActions
     -- * Request Lenses
     describePendingMaintenanceActions_filters,
     describePendingMaintenanceActions_replicationInstanceArn,
-    describePendingMaintenanceActions_marker,
     describePendingMaintenanceActions_maxRecords,
+    describePendingMaintenanceActions_marker,
 
     -- * Destructuring the Response
     DescribePendingMaintenanceActionsResponse (..),
@@ -57,10 +57,6 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
   { filters :: Prelude.Maybe [Filter],
     -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -69,7 +65,11 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,10 +85,6 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 --
 -- 'replicationInstanceArn', 'describePendingMaintenanceActions_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -97,6 +93,10 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribePendingMaintenanceActions ::
   DescribePendingMaintenanceActions
 newDescribePendingMaintenanceActions =
@@ -104,8 +104,8 @@ newDescribePendingMaintenanceActions =
     { filters =
         Prelude.Nothing,
       replicationInstanceArn = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- |
@@ -115,12 +115,6 @@ describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenan
 -- | The Amazon Resource Name (ARN) of the replication instance.
 describePendingMaintenanceActions_replicationInstanceArn :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 describePendingMaintenanceActions_replicationInstanceArn = Lens.lens (\DescribePendingMaintenanceActions' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribePendingMaintenanceActions' {} a -> s {replicationInstanceArn = a} :: DescribePendingMaintenanceActions)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
-describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -132,6 +126,12 @@ describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanc
 -- Constraints: Minimum 20, maximum 100.
 describePendingMaintenanceActions_maxRecords :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Int)
 describePendingMaintenanceActions_maxRecords = Lens.lens (\DescribePendingMaintenanceActions' {maxRecords} -> maxRecords) (\s@DescribePendingMaintenanceActions' {} a -> s {maxRecords = a} :: DescribePendingMaintenanceActions)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
+describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
 
 instance
   Core.AWSRequest
@@ -188,8 +188,8 @@ instance
           [ ("Filters" Core..=) Prelude.<$> filters,
             ("ReplicationInstanceArn" Core..=)
               Prelude.<$> replicationInstanceArn,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 

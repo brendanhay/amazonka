@@ -87,6 +87,12 @@ module Network.AWS.EC2.Types
     -- * BgpStatus
     BgpStatus (..),
 
+    -- * BootModeType
+    BootModeType (..),
+
+    -- * BootModeValues
+    BootModeValues (..),
+
     -- * BundleTaskState
     BundleTaskState (..),
 
@@ -140,6 +146,9 @@ module Network.AWS.EC2.Types
 
     -- * ConnectionNotificationType
     ConnectionNotificationType (..),
+
+    -- * ConnectivityType
+    ConnectivityType (..),
 
     -- * ContainerFormat
     ContainerFormat (..),
@@ -297,6 +306,9 @@ module Network.AWS.EC2.Types
     -- * InstanceAttributeName
     InstanceAttributeName (..),
 
+    -- * InstanceEventWindowState
+    InstanceEventWindowState (..),
+
     -- * InstanceHealthStatus
     InstanceHealthStatus (..),
 
@@ -318,6 +330,9 @@ module Network.AWS.EC2.Types
     -- * InstanceMetadataOptionsState
     InstanceMetadataOptionsState (..),
 
+    -- * InstanceMetadataProtocolState
+    InstanceMetadataProtocolState (..),
+
     -- * InstanceStateName
     InstanceStateName (..),
 
@@ -330,8 +345,14 @@ module Network.AWS.EC2.Types
     -- * InterfacePermissionType
     InterfacePermissionType (..),
 
+    -- * InterfaceProtocolType
+    InterfaceProtocolType (..),
+
     -- * Ipv6SupportValue
     Ipv6SupportValue (..),
+
+    -- * KeyType
+    KeyType (..),
 
     -- * LaunchTemplateErrorCode
     LaunchTemplateErrorCode (..),
@@ -344,6 +365,9 @@ module Network.AWS.EC2.Types
 
     -- * LaunchTemplateInstanceMetadataOptionsState
     LaunchTemplateInstanceMetadataOptionsState (..),
+
+    -- * LaunchTemplateInstanceMetadataProtocolIpv6
+    LaunchTemplateInstanceMetadataProtocolIpv6 (..),
 
     -- * ListingState
     ListingState (..),
@@ -411,6 +435,9 @@ module Network.AWS.EC2.Types
     -- * OperationType
     OperationType (..),
 
+    -- * PartitionLoadFrequency
+    PartitionLoadFrequency (..),
+
     -- * PaymentOption
     PaymentOption (..),
 
@@ -449,6 +476,9 @@ module Network.AWS.EC2.Types
 
     -- * RecurringChargeFrequency
     RecurringChargeFrequency (..),
+
+    -- * ReplaceRootVolumeTaskState
+    ReplaceRootVolumeTaskState (..),
 
     -- * ReplacementStrategy
     ReplacementStrategy (..),
@@ -536,6 +566,9 @@ module Network.AWS.EC2.Types
 
     -- * SubnetCidrBlockStateCode
     SubnetCidrBlockStateCode (..),
+
+    -- * SubnetCidrReservationType
+    SubnetCidrReservationType (..),
 
     -- * SubnetState
     SubnetState (..),
@@ -675,6 +708,9 @@ module Network.AWS.EC2.Types
     -- * VpnStaticRouteSource
     VpnStaticRouteSource (..),
 
+    -- * WeekDay
+    WeekDay (..),
+
     -- * AccountAttribute
     AccountAttribute (..),
     newAccountAttribute,
@@ -703,16 +739,16 @@ module Network.AWS.EC2.Types
     -- * Address
     Address (..),
     newAddress,
-    address_customerOwnedIpv4Pool,
     address_instanceId,
+    address_customerOwnedIpv4Pool,
     address_domain,
     address_carrierIp,
     address_customerOwnedIp,
     address_networkInterfaceOwnerId,
     address_associationId,
     address_tags,
-    address_networkInterfaceId,
     address_publicIpv4Pool,
+    address_networkInterfaceId,
     address_publicIp,
     address_allocationId,
     address_networkBorderGroup,
@@ -786,8 +822,8 @@ module Network.AWS.EC2.Types
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_destinationCidr,
     analysisRouteTableRoute_egressOnlyInternetGatewayId,
-    analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_natGatewayId,
+    analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_gatewayId,
     analysisRouteTableRoute_transitGatewayId,
 
@@ -826,6 +862,14 @@ module Network.AWS.EC2.Types
     associationStatus_message,
     associationStatus_code,
 
+    -- * AthenaIntegration
+    AthenaIntegration (..),
+    newAthenaIntegration,
+    athenaIntegration_partitionStartDate,
+    athenaIntegration_partitionEndDate,
+    athenaIntegration_integrationResultS3DestinationArn,
+    athenaIntegration_partitionLoadFrequency,
+
     -- * AttributeBooleanValue
     AttributeBooleanValue (..),
     newAttributeBooleanValue,
@@ -849,17 +893,17 @@ module Network.AWS.EC2.Types
     -- * AvailabilityZone
     AvailabilityZone (..),
     newAvailabilityZone,
-    availabilityZone_regionName,
     availabilityZone_parentZoneId,
+    availabilityZone_regionName,
     availabilityZone_zoneName,
     availabilityZone_zoneType,
     availabilityZone_zoneId,
-    availabilityZone_groupName,
     availabilityZone_optInStatus,
+    availabilityZone_groupName,
     availabilityZone_state,
     availabilityZone_messages,
-    availabilityZone_networkBorderGroup,
     availabilityZone_parentZoneName,
+    availabilityZone_networkBorderGroup,
 
     -- * AvailabilityZoneMessage
     AvailabilityZoneMessage (..),
@@ -926,8 +970,8 @@ module Network.AWS.EC2.Types
     -- * CancelSpotFleetRequestsSuccessItem
     CancelSpotFleetRequestsSuccessItem (..),
     newCancelSpotFleetRequestsSuccessItem,
-    cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState,
     cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState,
+    cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState,
     cancelSpotFleetRequestsSuccessItem_spotFleetRequestId,
 
     -- * CancelledSpotInstanceRequest
@@ -941,21 +985,22 @@ module Network.AWS.EC2.Types
     newCapacityReservation,
     capacityReservation_ownerId,
     capacityReservation_startDate,
-    capacityReservation_instanceType,
     capacityReservation_ebsOptimized,
-    capacityReservation_endDateType,
+    capacityReservation_instanceType,
     capacityReservation_availableInstanceCount,
+    capacityReservation_outpostArn,
+    capacityReservation_endDateType,
     capacityReservation_createDate,
-    capacityReservation_tenancy,
     capacityReservation_availabilityZoneId,
-    capacityReservation_state,
+    capacityReservation_tenancy,
     capacityReservation_availabilityZone,
-    capacityReservation_capacityReservationId,
+    capacityReservation_state,
     capacityReservation_tags,
     capacityReservation_capacityReservationArn,
     capacityReservation_instanceMatchCriteria,
-    capacityReservation_ephemeralStorage,
+    capacityReservation_capacityReservationId,
     capacityReservation_instancePlatform,
+    capacityReservation_ephemeralStorage,
     capacityReservation_endDate,
     capacityReservation_totalInstanceCount,
 
@@ -1038,8 +1083,8 @@ module Network.AWS.EC2.Types
     -- * ClassicLinkInstance
     ClassicLinkInstance (..),
     newClassicLinkInstance,
-    classicLinkInstance_groups,
     classicLinkInstance_instanceId,
+    classicLinkInstance_groups,
     classicLinkInstance_tags,
     classicLinkInstance_vpcId,
 
@@ -1107,16 +1152,16 @@ module Network.AWS.EC2.Types
     newClientVpnConnection,
     clientVpnConnection_clientVpnEndpointId,
     clientVpnConnection_status,
-    clientVpnConnection_ingressPackets,
     clientVpnConnection_egressBytes,
+    clientVpnConnection_ingressPackets,
     clientVpnConnection_connectionId,
     clientVpnConnection_connectionEstablishedTime,
     clientVpnConnection_postureComplianceStatuses,
     clientVpnConnection_commonName,
     clientVpnConnection_connectionEndTime,
+    clientVpnConnection_timestamp,
     clientVpnConnection_ingressBytes,
     clientVpnConnection_egressPackets,
-    clientVpnConnection_timestamp,
     clientVpnConnection_username,
     clientVpnConnection_clientIp,
 
@@ -1131,22 +1176,22 @@ module Network.AWS.EC2.Types
     newClientVpnEndpoint,
     clientVpnEndpoint_clientVpnEndpointId,
     clientVpnEndpoint_securityGroupIds,
+    clientVpnEndpoint_creationTime,
     clientVpnEndpoint_clientCidrBlock,
     clientVpnEndpoint_status,
-    clientVpnEndpoint_creationTime,
     clientVpnEndpoint_associatedTargetNetworks,
     clientVpnEndpoint_deletionTime,
     clientVpnEndpoint_selfServicePortalUrl,
     clientVpnEndpoint_authenticationOptions,
-    clientVpnEndpoint_serverCertificateArn,
     clientVpnEndpoint_transportProtocol,
+    clientVpnEndpoint_serverCertificateArn,
     clientVpnEndpoint_connectionLogOptions,
     clientVpnEndpoint_clientConnectOptions,
     clientVpnEndpoint_dnsServers,
     clientVpnEndpoint_tags,
     clientVpnEndpoint_vpnPort,
-    clientVpnEndpoint_dnsName,
     clientVpnEndpoint_vpnProtocol,
+    clientVpnEndpoint_dnsName,
     clientVpnEndpoint_description,
     clientVpnEndpoint_vpcId,
     clientVpnEndpoint_splitTunnel,
@@ -1258,8 +1303,8 @@ module Network.AWS.EC2.Types
     newCreateFleetInstance,
     createFleetInstance_instanceIds,
     createFleetInstance_platform,
-    createFleetInstance_instanceType,
     createFleetInstance_launchTemplateAndOverrides,
+    createFleetInstance_instanceType,
     createFleetInstance_lifecycle,
 
     -- * CreateTransitGatewayConnectRequestOptions
@@ -1278,8 +1323,8 @@ module Network.AWS.EC2.Types
     CreateTransitGatewayVpcAttachmentRequestOptions (..),
     newCreateTransitGatewayVpcAttachmentRequestOptions,
     createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport,
-    createTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
     createTransitGatewayVpcAttachmentRequestOptions_ipv6Support,
+    createTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
 
     -- * CreateVolumePermission
     CreateVolumePermission (..),
@@ -1331,8 +1376,8 @@ module Network.AWS.EC2.Types
     DeleteFleetSuccessItem (..),
     newDeleteFleetSuccessItem,
     deleteFleetSuccessItem_fleetId,
-    deleteFleetSuccessItem_currentFleetState,
     deleteFleetSuccessItem_previousFleetState,
+    deleteFleetSuccessItem_currentFleetState,
 
     -- * DeleteLaunchTemplateVersionsResponseErrorItem
     DeleteLaunchTemplateVersionsResponseErrorItem (..),
@@ -1365,11 +1410,11 @@ module Network.AWS.EC2.Types
     DescribeFastSnapshotRestoreSuccessItem (..),
     newDescribeFastSnapshotRestoreSuccessItem,
     describeFastSnapshotRestoreSuccessItem_ownerAlias,
-    describeFastSnapshotRestoreSuccessItem_ownerId,
     describeFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    describeFastSnapshotRestoreSuccessItem_ownerId,
     describeFastSnapshotRestoreSuccessItem_optimizingTime,
-    describeFastSnapshotRestoreSuccessItem_state,
     describeFastSnapshotRestoreSuccessItem_availabilityZone,
+    describeFastSnapshotRestoreSuccessItem_state,
     describeFastSnapshotRestoreSuccessItem_disablingTime,
     describeFastSnapshotRestoreSuccessItem_snapshotId,
     describeFastSnapshotRestoreSuccessItem_enablingTime,
@@ -1389,8 +1434,8 @@ module Network.AWS.EC2.Types
     newDescribeFleetsInstances,
     describeFleetsInstances_instanceIds,
     describeFleetsInstances_platform,
-    describeFleetsInstances_instanceType,
     describeFleetsInstances_launchTemplateAndOverrides,
+    describeFleetsInstances_instanceType,
     describeFleetsInstances_lifecycle,
 
     -- * DhcpConfiguration
@@ -1402,8 +1447,8 @@ module Network.AWS.EC2.Types
     -- * DhcpOptions
     DhcpOptions (..),
     newDhcpOptions,
-    dhcpOptions_ownerId,
     dhcpOptions_dhcpConfigurations,
+    dhcpOptions_ownerId,
     dhcpOptions_dhcpOptionsId,
     dhcpOptions_tags,
 
@@ -1439,11 +1484,11 @@ module Network.AWS.EC2.Types
     DisableFastSnapshotRestoreSuccessItem (..),
     newDisableFastSnapshotRestoreSuccessItem,
     disableFastSnapshotRestoreSuccessItem_ownerAlias,
-    disableFastSnapshotRestoreSuccessItem_ownerId,
     disableFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    disableFastSnapshotRestoreSuccessItem_ownerId,
     disableFastSnapshotRestoreSuccessItem_optimizingTime,
-    disableFastSnapshotRestoreSuccessItem_state,
     disableFastSnapshotRestoreSuccessItem_availabilityZone,
+    disableFastSnapshotRestoreSuccessItem_state,
     disableFastSnapshotRestoreSuccessItem_disablingTime,
     disableFastSnapshotRestoreSuccessItem_snapshotId,
     disableFastSnapshotRestoreSuccessItem_enablingTime,
@@ -1462,8 +1507,8 @@ module Network.AWS.EC2.Types
     newDiskImageDescription,
     diskImageDescription_format,
     diskImageDescription_importManifestUrl,
-    diskImageDescription_checksum,
     diskImageDescription_size,
+    diskImageDescription_checksum,
 
     -- * DiskImageDetail
     DiskImageDetail (..),
@@ -1507,8 +1552,8 @@ module Network.AWS.EC2.Types
     ebsBlockDevice_deleteOnTermination,
     ebsBlockDevice_snapshotId,
     ebsBlockDevice_volumeType,
-    ebsBlockDevice_volumeSize,
     ebsBlockDevice_iops,
+    ebsBlockDevice_volumeSize,
 
     -- * EbsInfo
     EbsInfo (..),
@@ -1541,6 +1586,11 @@ module Network.AWS.EC2.Types
     ebsOptimizedInfo_maximumThroughputInMBps,
     ebsOptimizedInfo_baselineIops,
     ebsOptimizedInfo_baselineThroughputInMBps,
+
+    -- * EfaInfo
+    EfaInfo (..),
+    newEfaInfo,
+    efaInfo_maximumEfaInterfaces,
 
     -- * EgressOnlyInternetGateway
     EgressOnlyInternetGateway (..),
@@ -1619,11 +1669,11 @@ module Network.AWS.EC2.Types
     EnableFastSnapshotRestoreSuccessItem (..),
     newEnableFastSnapshotRestoreSuccessItem,
     enableFastSnapshotRestoreSuccessItem_ownerAlias,
-    enableFastSnapshotRestoreSuccessItem_ownerId,
     enableFastSnapshotRestoreSuccessItem_stateTransitionReason,
+    enableFastSnapshotRestoreSuccessItem_ownerId,
     enableFastSnapshotRestoreSuccessItem_optimizingTime,
-    enableFastSnapshotRestoreSuccessItem_state,
     enableFastSnapshotRestoreSuccessItem_availabilityZone,
+    enableFastSnapshotRestoreSuccessItem_state,
     enableFastSnapshotRestoreSuccessItem_disablingTime,
     enableFastSnapshotRestoreSuccessItem_snapshotId,
     enableFastSnapshotRestoreSuccessItem_enablingTime,
@@ -1653,47 +1703,47 @@ module Network.AWS.EC2.Types
     explanation_loadBalancerTargetGroups,
     explanation_loadBalancerArn,
     explanation_securityGroupRule,
-    explanation_customerGateway,
-    explanation_availabilityZones,
     explanation_loadBalancerTargetGroup,
-    explanation_explanationCode,
+    explanation_availabilityZones,
+    explanation_customerGateway,
     explanation_address,
-    explanation_natGateway,
+    explanation_explanationCode,
     explanation_loadBalancerTarget,
     explanation_internetGateway,
-    explanation_networkInterface,
     explanation_subnet,
+    explanation_networkInterface,
+    explanation_natGateway,
     explanation_sourceVpc,
     explanation_aclRule,
     explanation_protocols,
     explanation_direction,
-    explanation_securityGroups,
     explanation_prefixList,
+    explanation_securityGroups,
     explanation_packetField,
+    explanation_routeTable,
     explanation_cidrs,
     explanation_component,
     explanation_state,
-    explanation_routeTable,
-    explanation_destination,
     explanation_subnetRouteTable,
+    explanation_destination,
     explanation_attachedTo,
-    explanation_securityGroup,
     explanation_vpcPeeringConnection,
-    explanation_destinationVpc,
+    explanation_securityGroup,
     explanation_elasticLoadBalancerListener,
     explanation_port,
+    explanation_destinationVpc,
     explanation_acl,
     explanation_vpcEndpoint,
     explanation_routeTableRoute,
     explanation_vpnConnection,
     explanation_missingComponent,
-    explanation_addresses,
     explanation_classicLoadBalancerListener,
-    explanation_ingressRouteTable,
     explanation_vpnGateway,
-    explanation_portRanges,
+    explanation_ingressRouteTable,
+    explanation_addresses,
     explanation_loadBalancerListenerPort,
     explanation_vpc,
+    explanation_portRanges,
     explanation_loadBalancerTargetPort,
 
     -- * ExportImageTask
@@ -1782,18 +1832,19 @@ module Network.AWS.EC2.Types
     fleetData_validFrom,
     fleetData_replaceUnhealthyInstances,
     fleetData_instances,
+    fleetData_context,
     fleetData_validUntil,
-    fleetData_activityStatus,
-    fleetData_tags,
     fleetData_createTime,
+    fleetData_tags,
+    fleetData_activityStatus,
     fleetData_excessCapacityTerminationPolicy,
     fleetData_errors,
-    fleetData_type,
-    fleetData_spotOptions,
     fleetData_targetCapacitySpecification,
+    fleetData_spotOptions,
+    fleetData_type,
     fleetData_fulfilledCapacity,
-    fleetData_clientToken,
     fleetData_terminateInstancesWithExpiration,
+    fleetData_clientToken,
 
     -- * FleetLaunchTemplateConfig
     FleetLaunchTemplateConfig (..),
@@ -1810,8 +1861,8 @@ module Network.AWS.EC2.Types
     -- * FleetLaunchTemplateOverrides
     FleetLaunchTemplateOverrides (..),
     newFleetLaunchTemplateOverrides,
-    fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_placement,
+    fleetLaunchTemplateOverrides_instanceType,
     fleetLaunchTemplateOverrides_priority,
     fleetLaunchTemplateOverrides_availabilityZone,
     fleetLaunchTemplateOverrides_maxPrice,
@@ -1821,8 +1872,8 @@ module Network.AWS.EC2.Types
     -- * FleetLaunchTemplateOverridesRequest
     FleetLaunchTemplateOverridesRequest (..),
     newFleetLaunchTemplateOverridesRequest,
-    fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_placement,
+    fleetLaunchTemplateOverridesRequest_instanceType,
     fleetLaunchTemplateOverridesRequest_priority,
     fleetLaunchTemplateOverridesRequest_availabilityZone,
     fleetLaunchTemplateOverridesRequest_maxPrice,
@@ -1833,15 +1884,15 @@ module Network.AWS.EC2.Types
     FleetLaunchTemplateSpecification (..),
     newFleetLaunchTemplateSpecification,
     fleetLaunchTemplateSpecification_launchTemplateId,
-    fleetLaunchTemplateSpecification_launchTemplateName,
     fleetLaunchTemplateSpecification_version,
+    fleetLaunchTemplateSpecification_launchTemplateName,
 
     -- * FleetLaunchTemplateSpecificationRequest
     FleetLaunchTemplateSpecificationRequest (..),
     newFleetLaunchTemplateSpecificationRequest,
     fleetLaunchTemplateSpecificationRequest_launchTemplateId,
-    fleetLaunchTemplateSpecificationRequest_launchTemplateName,
     fleetLaunchTemplateSpecificationRequest_version,
+    fleetLaunchTemplateSpecificationRequest_launchTemplateName,
 
     -- * FleetSpotCapacityRebalance
     FleetSpotCapacityRebalance (..),
@@ -1874,18 +1925,18 @@ module Network.AWS.EC2.Types
     flowLog_logDestination,
     flowLog_trafficType,
     flowLog_logFormat,
-    flowLog_logGroupName,
     flowLog_deliverLogsPermissionArn,
-    flowLog_deliverLogsErrorMessage,
+    flowLog_logGroupName,
     flowLog_tags,
+    flowLog_deliverLogsErrorMessage,
     flowLog_logDestinationType,
     flowLog_flowLogStatus,
 
     -- * FpgaDeviceInfo
     FpgaDeviceInfo (..),
     newFpgaDeviceInfo,
-    fpgaDeviceInfo_memoryInfo,
     fpgaDeviceInfo_manufacturer,
+    fpgaDeviceInfo_memoryInfo,
     fpgaDeviceInfo_name,
     fpgaDeviceInfo_count,
 
@@ -1898,18 +1949,18 @@ module Network.AWS.EC2.Types
     FpgaImage (..),
     newFpgaImage,
     fpgaImage_ownerAlias,
-    fpgaImage_shellVersion,
     fpgaImage_ownerId,
+    fpgaImage_shellVersion,
     fpgaImage_fpgaImageGlobalId,
     fpgaImage_dataRetentionSupport,
     fpgaImage_productCodes,
-    fpgaImage_state,
-    fpgaImage_pciId,
     fpgaImage_name,
+    fpgaImage_pciId,
+    fpgaImage_state,
     fpgaImage_updateTime,
+    fpgaImage_createTime,
     fpgaImage_tags,
     fpgaImage_public,
-    fpgaImage_createTime,
     fpgaImage_description,
     fpgaImage_fpgaImageId,
 
@@ -1918,8 +1969,8 @@ module Network.AWS.EC2.Types
     newFpgaImageAttribute,
     fpgaImageAttribute_productCodes,
     fpgaImageAttribute_name,
-    fpgaImageAttribute_loadPermissions,
     fpgaImageAttribute_description,
+    fpgaImageAttribute_loadPermissions,
     fpgaImageAttribute_fpgaImageId,
 
     -- * FpgaImageState
@@ -1937,8 +1988,8 @@ module Network.AWS.EC2.Types
     -- * GpuDeviceInfo
     GpuDeviceInfo (..),
     newGpuDeviceInfo,
-    gpuDeviceInfo_memoryInfo,
     gpuDeviceInfo_manufacturer,
+    gpuDeviceInfo_memoryInfo,
     gpuDeviceInfo_name,
     gpuDeviceInfo_count,
 
@@ -1988,13 +2039,13 @@ module Network.AWS.EC2.Types
     newHost,
     host_ownerId,
     host_hostProperties,
-    host_availableCapacity,
     host_hostReservationId,
+    host_availableCapacity,
     host_allocationTime,
-    host_instances,
     host_availabilityZoneId,
-    host_state,
+    host_instances,
     host_availabilityZone,
+    host_state,
     host_releaseTime,
     host_tags,
     host_autoPlacement,
@@ -2007,16 +2058,16 @@ module Network.AWS.EC2.Types
     -- * HostInstance
     HostInstance (..),
     newHostInstance,
-    hostInstance_ownerId,
     hostInstance_instanceId,
+    hostInstance_ownerId,
     hostInstance_instanceType,
 
     -- * HostOffering
     HostOffering (..),
     newHostOffering,
     hostOffering_instanceFamily,
-    hostOffering_upfrontPrice,
     hostOffering_paymentOption,
+    hostOffering_upfrontPrice,
     hostOffering_duration,
     hostOffering_offeringId,
     hostOffering_currencyCode,
@@ -2034,20 +2085,20 @@ module Network.AWS.EC2.Types
     -- * HostReservation
     HostReservation (..),
     newHostReservation,
-    hostReservation_instanceFamily,
     hostReservation_end,
     hostReservation_hostIdSet,
-    hostReservation_upfrontPrice,
+    hostReservation_instanceFamily,
     hostReservation_paymentOption,
+    hostReservation_upfrontPrice,
     hostReservation_duration,
-    hostReservation_offeringId,
     hostReservation_hostReservationId,
+    hostReservation_offeringId,
     hostReservation_currencyCode,
     hostReservation_state,
     hostReservation_tags,
     hostReservation_count,
-    hostReservation_hourlyPrice,
     hostReservation_start,
+    hostReservation_hourlyPrice,
 
     -- * IKEVersionsListValue
     IKEVersionsListValue (..),
@@ -2090,8 +2141,8 @@ module Network.AWS.EC2.Types
     IdFormat (..),
     newIdFormat,
     idFormat_useLongIds,
-    idFormat_resource,
     idFormat_deadline,
+    idFormat_resource,
 
     -- * Image
     Image (..),
@@ -2101,15 +2152,17 @@ module Network.AWS.EC2.Types
     image_ramdiskId,
     image_stateReason,
     image_usageOperation,
+    image_platformDetails,
+    image_bootMode,
     image_creationDate,
     image_productCodes,
-    image_platformDetails,
+    image_deprecationTime,
     image_name,
     image_tags,
     image_sriovNetSupport,
     image_blockDeviceMappings,
-    image_kernelId,
     image_description,
+    image_kernelId,
     image_imageOwnerAlias,
     image_enaSupport,
     image_imageId,
@@ -2127,8 +2180,8 @@ module Network.AWS.EC2.Types
     ImageDiskContainer (..),
     newImageDiskContainer,
     imageDiskContainer_format,
-    imageDiskContainer_userBucket,
     imageDiskContainer_deviceName,
+    imageDiskContainer_userBucket,
     imageDiskContainer_snapshotId,
     imageDiskContainer_description,
     imageDiskContainer_url,
@@ -2146,15 +2199,17 @@ module Network.AWS.EC2.Types
     -- * ImportImageTask
     ImportImageTask (..),
     newImportImageTask,
-    importImageTask_hypervisor,
     importImageTask_platform,
+    importImageTask_hypervisor,
     importImageTask_statusMessage,
     importImageTask_status,
-    importImageTask_snapshotDetails,
     importImageTask_encrypted,
-    importImageTask_importTaskId,
-    importImageTask_licenseSpecifications,
+    importImageTask_snapshotDetails,
+    importImageTask_usageOperation,
     importImageTask_architecture,
+    importImageTask_bootMode,
+    importImageTask_licenseSpecifications,
+    importImageTask_importTaskId,
     importImageTask_imageId,
     importImageTask_kmsKeyId,
     importImageTask_tags,
@@ -2166,10 +2221,10 @@ module Network.AWS.EC2.Types
     ImportInstanceLaunchSpecification (..),
     newImportInstanceLaunchSpecification,
     importInstanceLaunchSpecification_additionalInfo,
-    importInstanceLaunchSpecification_instanceType,
-    importInstanceLaunchSpecification_userData,
     importInstanceLaunchSpecification_placement,
+    importInstanceLaunchSpecification_userData,
     importInstanceLaunchSpecification_groupIds,
+    importInstanceLaunchSpecification_instanceType,
     importInstanceLaunchSpecification_groupNames,
     importInstanceLaunchSpecification_architecture,
     importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior,
@@ -2188,8 +2243,8 @@ module Network.AWS.EC2.Types
     -- * ImportInstanceVolumeDetailItem
     ImportInstanceVolumeDetailItem (..),
     newImportInstanceVolumeDetailItem,
-    importInstanceVolumeDetailItem_statusMessage,
     importInstanceVolumeDetailItem_bytesConverted,
+    importInstanceVolumeDetailItem_statusMessage,
     importInstanceVolumeDetailItem_status,
     importInstanceVolumeDetailItem_volume,
     importInstanceVolumeDetailItem_image,
@@ -2231,39 +2286,43 @@ module Network.AWS.EC2.Types
     instance_platform,
     instance_instanceLifecycle,
     instance_stateTransitionReason,
-    instance_rootDeviceName,
     instance_capacityReservationSpecification,
     instance_ebsOptimized,
+    instance_rootDeviceName,
     instance_ramdiskId,
-    instance_elasticInferenceAcceleratorAssociations,
     instance_stateReason,
     instance_outpostArn,
-    instance_sourceDestCheck,
+    instance_elasticInferenceAcceleratorAssociations,
+    instance_usageOperation,
+    instance_platformDetails,
+    instance_bootMode,
     instance_productCodes,
+    instance_sourceDestCheck,
     instance_securityGroups,
-    instance_iamInstanceProfile,
     instance_publicDnsName,
+    instance_iamInstanceProfile,
     instance_hibernationOptions,
-    instance_capacityReservationId,
+    instance_usageOperationUpdateTime,
     instance_tags,
+    instance_capacityReservationId,
     instance_sriovNetSupport,
-    instance_blockDeviceMappings,
     instance_publicIpAddress,
+    instance_blockDeviceMappings,
     instance_subnetId,
     instance_enclaveOptions,
     instance_kernelId,
     instance_cpuOptions,
     instance_privateDnsName,
-    instance_keyName,
-    instance_networkInterfaces,
     instance_licenses,
     instance_vpcId,
-    instance_elasticGpuAssociations,
-    instance_metadataOptions,
-    instance_enaSupport,
+    instance_networkInterfaces,
+    instance_keyName,
     instance_spotInstanceRequestId,
-    instance_clientToken,
+    instance_elasticGpuAssociations,
+    instance_enaSupport,
+    instance_metadataOptions,
     instance_privateIpAddress,
+    instance_clientToken,
     instance_instanceId,
     instance_imageId,
     instance_amiLaunchIndex,
@@ -2316,6 +2375,60 @@ module Network.AWS.EC2.Types
     instanceCreditSpecificationRequest_instanceId,
     instanceCreditSpecificationRequest_cpuCredits,
 
+    -- * InstanceEventWindow
+    InstanceEventWindow (..),
+    newInstanceEventWindow,
+    instanceEventWindow_instanceEventWindowId,
+    instanceEventWindow_name,
+    instanceEventWindow_state,
+    instanceEventWindow_timeRanges,
+    instanceEventWindow_tags,
+    instanceEventWindow_associationTarget,
+    instanceEventWindow_cronExpression,
+
+    -- * InstanceEventWindowAssociationRequest
+    InstanceEventWindowAssociationRequest (..),
+    newInstanceEventWindowAssociationRequest,
+    instanceEventWindowAssociationRequest_instanceIds,
+    instanceEventWindowAssociationRequest_instanceTags,
+    instanceEventWindowAssociationRequest_dedicatedHostIds,
+
+    -- * InstanceEventWindowAssociationTarget
+    InstanceEventWindowAssociationTarget (..),
+    newInstanceEventWindowAssociationTarget,
+    instanceEventWindowAssociationTarget_instanceIds,
+    instanceEventWindowAssociationTarget_dedicatedHostIds,
+    instanceEventWindowAssociationTarget_tags,
+
+    -- * InstanceEventWindowDisassociationRequest
+    InstanceEventWindowDisassociationRequest (..),
+    newInstanceEventWindowDisassociationRequest,
+    instanceEventWindowDisassociationRequest_instanceIds,
+    instanceEventWindowDisassociationRequest_instanceTags,
+    instanceEventWindowDisassociationRequest_dedicatedHostIds,
+
+    -- * InstanceEventWindowStateChange
+    InstanceEventWindowStateChange (..),
+    newInstanceEventWindowStateChange,
+    instanceEventWindowStateChange_instanceEventWindowId,
+    instanceEventWindowStateChange_state,
+
+    -- * InstanceEventWindowTimeRange
+    InstanceEventWindowTimeRange (..),
+    newInstanceEventWindowTimeRange,
+    instanceEventWindowTimeRange_startHour,
+    instanceEventWindowTimeRange_endWeekDay,
+    instanceEventWindowTimeRange_endHour,
+    instanceEventWindowTimeRange_startWeekDay,
+
+    -- * InstanceEventWindowTimeRangeRequest
+    InstanceEventWindowTimeRangeRequest (..),
+    newInstanceEventWindowTimeRangeRequest,
+    instanceEventWindowTimeRangeRequest_startHour,
+    instanceEventWindowTimeRangeRequest_endWeekDay,
+    instanceEventWindowTimeRangeRequest_endHour,
+    instanceEventWindowTimeRangeRequest_startWeekDay,
+
     -- * InstanceExportDetails
     InstanceExportDetails (..),
     newInstanceExportDetails,
@@ -2328,6 +2441,11 @@ module Network.AWS.EC2.Types
     instanceFamilyCreditSpecification_instanceFamily,
     instanceFamilyCreditSpecification_cpuCredits,
 
+    -- * InstanceIpv4Prefix
+    InstanceIpv4Prefix (..),
+    newInstanceIpv4Prefix,
+    instanceIpv4Prefix_ipv4Prefix,
+
     -- * InstanceIpv6Address
     InstanceIpv6Address (..),
     newInstanceIpv6Address,
@@ -2338,6 +2456,11 @@ module Network.AWS.EC2.Types
     newInstanceIpv6AddressRequest,
     instanceIpv6AddressRequest_ipv6Address,
 
+    -- * InstanceIpv6Prefix
+    InstanceIpv6Prefix (..),
+    newInstanceIpv6Prefix,
+    instanceIpv6Prefix_ipv6Prefix,
+
     -- * InstanceMarketOptionsRequest
     InstanceMarketOptionsRequest (..),
     newInstanceMarketOptionsRequest,
@@ -2347,6 +2470,7 @@ module Network.AWS.EC2.Types
     -- * InstanceMetadataOptionsRequest
     InstanceMetadataOptionsRequest (..),
     newInstanceMetadataOptionsRequest,
+    instanceMetadataOptionsRequest_httpProtocolIpv6,
     instanceMetadataOptionsRequest_httpEndpoint,
     instanceMetadataOptionsRequest_httpPutResponseHopLimit,
     instanceMetadataOptionsRequest_httpTokens,
@@ -2354,6 +2478,7 @@ module Network.AWS.EC2.Types
     -- * InstanceMetadataOptionsResponse
     InstanceMetadataOptionsResponse (..),
     newInstanceMetadataOptionsResponse,
+    instanceMetadataOptionsResponse_httpProtocolIpv6,
     instanceMetadataOptionsResponse_httpEndpoint,
     instanceMetadataOptionsResponse_httpPutResponseHopLimit,
     instanceMetadataOptionsResponse_state,
@@ -2368,21 +2493,23 @@ module Network.AWS.EC2.Types
     -- * InstanceNetworkInterface
     InstanceNetworkInterface (..),
     newInstanceNetworkInterface,
-    instanceNetworkInterface_groups,
     instanceNetworkInterface_status,
+    instanceNetworkInterface_groups,
     instanceNetworkInterface_ownerId,
     instanceNetworkInterface_privateIpAddresses,
-    instanceNetworkInterface_attachment,
     instanceNetworkInterface_macAddress,
+    instanceNetworkInterface_attachment,
     instanceNetworkInterface_association,
     instanceNetworkInterface_ipv6Addresses,
-    instanceNetworkInterface_interfaceType,
     instanceNetworkInterface_sourceDestCheck,
-    instanceNetworkInterface_networkInterfaceId,
-    instanceNetworkInterface_subnetId,
+    instanceNetworkInterface_interfaceType,
+    instanceNetworkInterface_ipv6Prefixes,
     instanceNetworkInterface_description,
+    instanceNetworkInterface_subnetId,
+    instanceNetworkInterface_networkInterfaceId,
     instanceNetworkInterface_privateDnsName,
     instanceNetworkInterface_vpcId,
+    instanceNetworkInterface_ipv4Prefixes,
     instanceNetworkInterface_privateIpAddress,
 
     -- * InstanceNetworkInterfaceAssociation
@@ -2398,9 +2525,9 @@ module Network.AWS.EC2.Types
     newInstanceNetworkInterfaceAttachment,
     instanceNetworkInterfaceAttachment_status,
     instanceNetworkInterfaceAttachment_attachTime,
+    instanceNetworkInterfaceAttachment_deleteOnTermination,
     instanceNetworkInterfaceAttachment_attachmentId,
     instanceNetworkInterfaceAttachment_networkCardIndex,
-    instanceNetworkInterfaceAttachment_deleteOnTermination,
     instanceNetworkInterfaceAttachment_deviceIndex,
 
     -- * InstanceNetworkInterfaceSpecification
@@ -2411,15 +2538,19 @@ module Network.AWS.EC2.Types
     instanceNetworkInterfaceSpecification_ipv6Addresses,
     instanceNetworkInterfaceSpecification_interfaceType,
     instanceNetworkInterfaceSpecification_associatePublicIpAddress,
+    instanceNetworkInterfaceSpecification_ipv6PrefixCount,
+    instanceNetworkInterfaceSpecification_ipv6Prefixes,
     instanceNetworkInterfaceSpecification_associateCarrierIpAddress,
     instanceNetworkInterfaceSpecification_ipv6AddressCount,
-    instanceNetworkInterfaceSpecification_networkCardIndex,
     instanceNetworkInterfaceSpecification_deleteOnTermination,
-    instanceNetworkInterfaceSpecification_networkInterfaceId,
-    instanceNetworkInterfaceSpecification_subnetId,
+    instanceNetworkInterfaceSpecification_networkCardIndex,
     instanceNetworkInterfaceSpecification_description,
+    instanceNetworkInterfaceSpecification_subnetId,
     instanceNetworkInterfaceSpecification_deviceIndex,
+    instanceNetworkInterfaceSpecification_networkInterfaceId,
     instanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount,
+    instanceNetworkInterfaceSpecification_ipv4PrefixCount,
+    instanceNetworkInterfaceSpecification_ipv4Prefixes,
     instanceNetworkInterfaceSpecification_privateIpAddress,
 
     -- * InstancePrivateIpAddress
@@ -2446,8 +2577,8 @@ module Network.AWS.EC2.Types
     InstanceStateChange (..),
     newInstanceStateChange,
     instanceStateChange_instanceId,
-    instanceStateChange_currentState,
     instanceStateChange_previousState,
+    instanceStateChange_currentState,
 
     -- * InstanceStatus
     InstanceStatus (..),
@@ -2499,16 +2630,17 @@ module Network.AWS.EC2.Types
     -- * InstanceTypeInfo
     InstanceTypeInfo (..),
     newInstanceTypeInfo,
-    instanceTypeInfo_memoryInfo,
     instanceTypeInfo_hypervisor,
+    instanceTypeInfo_memoryInfo,
     instanceTypeInfo_gpuInfo,
     instanceTypeInfo_instanceType,
-    instanceTypeInfo_burstablePerformanceSupported,
     instanceTypeInfo_vCpuInfo,
+    instanceTypeInfo_burstablePerformanceSupported,
     instanceTypeInfo_supportedRootDeviceTypes,
-    instanceTypeInfo_placementGroupInfo,
-    instanceTypeInfo_networkInfo,
     instanceTypeInfo_processorInfo,
+    instanceTypeInfo_networkInfo,
+    instanceTypeInfo_supportedBootModes,
+    instanceTypeInfo_placementGroupInfo,
     instanceTypeInfo_ebsInfo,
     instanceTypeInfo_autoRecoverySupported,
     instanceTypeInfo_currentGeneration,
@@ -2536,6 +2668,11 @@ module Network.AWS.EC2.Types
     instanceUsage_accountId,
     instanceUsage_usedInstanceCount,
 
+    -- * IntegrateServices
+    IntegrateServices (..),
+    newIntegrateServices,
+    integrateServices_athenaIntegrations,
+
     -- * InternetGateway
     InternetGateway (..),
     newInternetGateway,
@@ -2555,8 +2692,8 @@ module Network.AWS.EC2.Types
     newIpPermission,
     ipPermission_fromPort,
     ipPermission_prefixListIds,
-    ipPermission_ipRanges,
     ipPermission_ipv6Ranges,
+    ipPermission_ipRanges,
     ipPermission_userIdGroupPairs,
     ipPermission_toPort,
     ipPermission_ipProtocol,
@@ -2566,6 +2703,21 @@ module Network.AWS.EC2.Types
     newIpRange,
     ipRange_description,
     ipRange_cidrIp,
+
+    -- * Ipv4PrefixSpecification
+    Ipv4PrefixSpecification (..),
+    newIpv4PrefixSpecification,
+    ipv4PrefixSpecification_ipv4Prefix,
+
+    -- * Ipv4PrefixSpecificationRequest
+    Ipv4PrefixSpecificationRequest (..),
+    newIpv4PrefixSpecificationRequest,
+    ipv4PrefixSpecificationRequest_ipv4Prefix,
+
+    -- * Ipv4PrefixSpecificationResponse
+    Ipv4PrefixSpecificationResponse (..),
+    newIpv4PrefixSpecificationResponse,
+    ipv4PrefixSpecificationResponse_ipv4Prefix,
 
     -- * Ipv6CidrAssociation
     Ipv6CidrAssociation (..),
@@ -2586,6 +2738,21 @@ module Network.AWS.EC2.Types
     ipv6Pool_tags,
     ipv6Pool_description,
 
+    -- * Ipv6PrefixSpecification
+    Ipv6PrefixSpecification (..),
+    newIpv6PrefixSpecification,
+    ipv6PrefixSpecification_ipv6Prefix,
+
+    -- * Ipv6PrefixSpecificationRequest
+    Ipv6PrefixSpecificationRequest (..),
+    newIpv6PrefixSpecificationRequest,
+    ipv6PrefixSpecificationRequest_ipv6Prefix,
+
+    -- * Ipv6PrefixSpecificationResponse
+    Ipv6PrefixSpecificationResponse (..),
+    newIpv6PrefixSpecificationResponse,
+    ipv6PrefixSpecificationResponse_ipv6Prefix,
+
     -- * Ipv6Range
     Ipv6Range (..),
     newIpv6Range,
@@ -2597,6 +2764,7 @@ module Network.AWS.EC2.Types
     newKeyPairInfo,
     keyPairInfo_keyFingerprint,
     keyPairInfo_keyPairId,
+    keyPairInfo_keyType,
     keyPairInfo_tags,
     keyPairInfo_keyName,
 
@@ -2621,12 +2789,12 @@ module Network.AWS.EC2.Types
     -- * LaunchSpecification
     LaunchSpecification (..),
     newLaunchSpecification,
-    launchSpecification_instanceType,
     launchSpecification_ebsOptimized,
-    launchSpecification_userData,
     launchSpecification_placement,
-    launchSpecification_addressingType,
+    launchSpecification_userData,
+    launchSpecification_instanceType,
     launchSpecification_ramdiskId,
+    launchSpecification_addressingType,
     launchSpecification_imageId,
     launchSpecification_securityGroups,
     launchSpecification_iamInstanceProfile,
@@ -2634,16 +2802,16 @@ module Network.AWS.EC2.Types
     launchSpecification_blockDeviceMappings,
     launchSpecification_subnetId,
     launchSpecification_kernelId,
-    launchSpecification_keyName,
     launchSpecification_networkInterfaces,
+    launchSpecification_keyName,
 
     -- * LaunchTemplate
     LaunchTemplate (..),
     newLaunchTemplate,
     launchTemplate_launchTemplateId,
     launchTemplate_launchTemplateName,
-    launchTemplate_tags,
     launchTemplate_createTime,
+    launchTemplate_tags,
     launchTemplate_createdBy,
     launchTemplate_defaultVersionNumber,
     launchTemplate_latestVersionNumber,
@@ -2709,8 +2877,8 @@ module Network.AWS.EC2.Types
     launchTemplateEbsBlockDevice_deleteOnTermination,
     launchTemplateEbsBlockDevice_snapshotId,
     launchTemplateEbsBlockDevice_volumeType,
-    launchTemplateEbsBlockDevice_volumeSize,
     launchTemplateEbsBlockDevice_iops,
+    launchTemplateEbsBlockDevice_volumeSize,
 
     -- * LaunchTemplateEbsBlockDeviceRequest
     LaunchTemplateEbsBlockDeviceRequest (..),
@@ -2721,8 +2889,8 @@ module Network.AWS.EC2.Types
     launchTemplateEbsBlockDeviceRequest_deleteOnTermination,
     launchTemplateEbsBlockDeviceRequest_snapshotId,
     launchTemplateEbsBlockDeviceRequest_volumeType,
-    launchTemplateEbsBlockDeviceRequest_volumeSize,
     launchTemplateEbsBlockDeviceRequest_iops,
+    launchTemplateEbsBlockDeviceRequest_volumeSize,
 
     -- * LaunchTemplateElasticInferenceAccelerator
     LaunchTemplateElasticInferenceAccelerator (..),
@@ -2783,6 +2951,7 @@ module Network.AWS.EC2.Types
     -- * LaunchTemplateInstanceMetadataOptions
     LaunchTemplateInstanceMetadataOptions (..),
     newLaunchTemplateInstanceMetadataOptions,
+    launchTemplateInstanceMetadataOptions_httpProtocolIpv6,
     launchTemplateInstanceMetadataOptions_httpEndpoint,
     launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit,
     launchTemplateInstanceMetadataOptions_state,
@@ -2791,6 +2960,7 @@ module Network.AWS.EC2.Types
     -- * LaunchTemplateInstanceMetadataOptionsRequest
     LaunchTemplateInstanceMetadataOptionsRequest (..),
     newLaunchTemplateInstanceMetadataOptionsRequest,
+    launchTemplateInstanceMetadataOptionsRequest_httpProtocolIpv6,
     launchTemplateInstanceMetadataOptionsRequest_httpEndpoint,
     launchTemplateInstanceMetadataOptionsRequest_httpPutResponseHopLimit,
     launchTemplateInstanceMetadataOptionsRequest_httpTokens,
@@ -2803,15 +2973,19 @@ module Network.AWS.EC2.Types
     launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses,
     launchTemplateInstanceNetworkInterfaceSpecification_interfaceType,
     launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv6PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv6Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecification_associateCarrierIpAddress,
     launchTemplateInstanceNetworkInterfaceSpecification_ipv6AddressCount,
-    launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecification_deleteOnTermination,
-    launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId,
-    launchTemplateInstanceNetworkInterfaceSpecification_subnetId,
+    launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecification_description,
+    launchTemplateInstanceNetworkInterfaceSpecification_subnetId,
     launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex,
+    launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId,
     launchTemplateInstanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv4PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecification_ipv4Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddress,
 
     -- * LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
@@ -2822,15 +2996,19 @@ module Network.AWS.EC2.Types
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Addresses,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_interfaceType,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_associatePublicIpAddress,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_associateCarrierIpAddress,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv6AddressCount,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_deleteOnTermination,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId,
-    launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkCardIndex,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_description,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_subnetId,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_deviceIndex,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_networkInterfaceId,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_secondaryPrivateIpAddressCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4PrefixCount,
+    launchTemplateInstanceNetworkInterfaceSpecificationRequest_ipv4Prefixes,
     launchTemplateInstanceNetworkInterfaceSpecificationRequest_privateIpAddress,
 
     -- * LaunchTemplateLicenseConfiguration
@@ -2881,8 +3059,8 @@ module Network.AWS.EC2.Types
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- * LaunchTemplateSpotMarketOptions
     LaunchTemplateSpotMarketOptions (..),
@@ -2922,8 +3100,8 @@ module Network.AWS.EC2.Types
     launchTemplateVersion_launchTemplateData,
     launchTemplateVersion_launchTemplateName,
     launchTemplateVersion_versionDescription,
-    launchTemplateVersion_versionNumber,
     launchTemplateVersion_createTime,
+    launchTemplateVersion_versionNumber,
     launchTemplateVersion_createdBy,
 
     -- * LaunchTemplatesMonitoring
@@ -2985,8 +3163,8 @@ module Network.AWS.EC2.Types
     localGatewayRoute_ownerId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
     localGatewayRoute_localGatewayRouteTableArn,
-    localGatewayRoute_state,
     localGatewayRoute_localGatewayRouteTableId,
+    localGatewayRoute_state,
     localGatewayRoute_destinationCidrBlock,
     localGatewayRoute_type,
 
@@ -2997,8 +3175,8 @@ module Network.AWS.EC2.Types
     localGatewayRouteTable_outpostArn,
     localGatewayRouteTable_localGatewayId,
     localGatewayRouteTable_localGatewayRouteTableArn,
-    localGatewayRouteTable_state,
     localGatewayRouteTable_localGatewayRouteTableId,
+    localGatewayRouteTable_state,
     localGatewayRouteTable_tags,
 
     -- * LocalGatewayRouteTableVirtualInterfaceGroupAssociation
@@ -3009,8 +3187,8 @@ module Network.AWS.EC2.Types
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayId,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableVirtualInterfaceGroupAssociationId,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn,
-    localGatewayRouteTableVirtualInterfaceGroupAssociation_state,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableId,
+    localGatewayRouteTableVirtualInterfaceGroupAssociation_state,
     localGatewayRouteTableVirtualInterfaceGroupAssociation_tags,
 
     -- * LocalGatewayRouteTableVpcAssociation
@@ -3020,8 +3198,8 @@ module Network.AWS.EC2.Types
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableVpcAssociationId,
     localGatewayRouteTableVpcAssociation_localGatewayId,
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn,
-    localGatewayRouteTableVpcAssociation_state,
     localGatewayRouteTableVpcAssociation_localGatewayRouteTableId,
+    localGatewayRouteTableVpcAssociation_state,
     localGatewayRouteTableVpcAssociation_tags,
     localGatewayRouteTableVpcAssociation_vpcId,
 
@@ -3029,10 +3207,10 @@ module Network.AWS.EC2.Types
     LocalGatewayVirtualInterface (..),
     newLocalGatewayVirtualInterface,
     localGatewayVirtualInterface_peerAddress,
-    localGatewayVirtualInterface_ownerId,
     localGatewayVirtualInterface_localGatewayVirtualInterfaceId,
-    localGatewayVirtualInterface_peerBgpAsn,
+    localGatewayVirtualInterface_ownerId,
     localGatewayVirtualInterface_localAddress,
+    localGatewayVirtualInterface_peerBgpAsn,
     localGatewayVirtualInterface_localGatewayId,
     localGatewayVirtualInterface_localBgpAsn,
     localGatewayVirtualInterface_tags,
@@ -3050,8 +3228,8 @@ module Network.AWS.EC2.Types
     -- * ManagedPrefixList
     ManagedPrefixList (..),
     newManagedPrefixList,
-    managedPrefixList_stateMessage,
     managedPrefixList_ownerId,
+    managedPrefixList_stateMessage,
     managedPrefixList_maxEntries,
     managedPrefixList_prefixListName,
     managedPrefixList_version,
@@ -3083,17 +3261,17 @@ module Network.AWS.EC2.Types
     ModifyTransitGatewayVpcAttachmentRequestOptions (..),
     newModifyTransitGatewayVpcAttachmentRequestOptions,
     modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport,
-    modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
     modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support,
+    modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport,
 
     -- * ModifyVpnTunnelOptionsSpecification
     ModifyVpnTunnelOptionsSpecification (..),
     newModifyVpnTunnelOptionsSpecification,
     modifyVpnTunnelOptionsSpecification_phase1LifetimeSeconds,
-    modifyVpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     modifyVpnTunnelOptionsSpecification_iKEVersions,
-    modifyVpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
     modifyVpnTunnelOptionsSpecification_phase2IntegrityAlgorithms,
+    modifyVpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
+    modifyVpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     modifyVpnTunnelOptionsSpecification_startupAction,
     modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds,
     modifyVpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -3128,11 +3306,12 @@ module Network.AWS.EC2.Types
     natGateway_provisionedBandwidth,
     natGateway_state,
     natGateway_deleteTime,
-    natGateway_tags,
     natGateway_createTime,
+    natGateway_tags,
     natGateway_subnetId,
     natGateway_natGatewayId,
     natGateway_vpcId,
+    natGateway_connectivityType,
 
     -- * NatGatewayAddress
     NatGatewayAddress (..),
@@ -3169,8 +3348,8 @@ module Network.AWS.EC2.Types
     networkAclEntry_icmpTypeCode,
     networkAclEntry_ipv6CidrBlock,
     networkAclEntry_protocol,
-    networkAclEntry_ruleNumber,
     networkAclEntry_cidrBlock,
+    networkAclEntry_ruleNumber,
 
     -- * NetworkCardInfo
     NetworkCardInfo (..),
@@ -3184,10 +3363,12 @@ module Network.AWS.EC2.Types
     newNetworkInfo,
     networkInfo_defaultNetworkCardIndex,
     networkInfo_efaSupported,
+    networkInfo_efaInfo,
     networkInfo_networkCards,
     networkInfo_ipv4AddressesPerInterface,
     networkInfo_maximumNetworkInterfaces,
     networkInfo_ipv6Supported,
+    networkInfo_encryptionInTransitSupported,
     networkInfo_maximumNetworkCards,
     networkInfo_networkPerformance,
     networkInfo_ipv6AddressesPerInterface,
@@ -3216,37 +3397,39 @@ module Network.AWS.EC2.Types
     networkInsightsPath_createdDate,
     networkInsightsPath_source,
     networkInsightsPath_destinationIp,
-    networkInsightsPath_destination,
     networkInsightsPath_sourceIp,
+    networkInsightsPath_destination,
     networkInsightsPath_tags,
     networkInsightsPath_protocol,
-    networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_networkInsightsPathId,
+    networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_destinationPort,
 
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_groups,
     networkInterface_status,
+    networkInterface_groups,
     networkInterface_ownerId,
     networkInterface_privateIpAddresses,
-    networkInterface_attachment,
     networkInterface_macAddress,
+    networkInterface_attachment,
     networkInterface_association,
     networkInterface_ipv6Addresses,
-    networkInterface_requesterManaged,
     networkInterface_requesterId,
+    networkInterface_requesterManaged,
     networkInterface_outpostArn,
     networkInterface_tagSet,
-    networkInterface_interfaceType,
     networkInterface_sourceDestCheck,
+    networkInterface_interfaceType,
+    networkInterface_ipv6Prefixes,
     networkInterface_availabilityZone,
-    networkInterface_networkInterfaceId,
-    networkInterface_subnetId,
     networkInterface_description,
+    networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
     networkInterface_privateDnsName,
     networkInterface_vpcId,
+    networkInterface_ipv4Prefixes,
     networkInterface_privateIpAddress,
 
     -- * NetworkInterfaceAssociation
@@ -3266,17 +3449,17 @@ module Network.AWS.EC2.Types
     networkInterfaceAttachment_status,
     networkInterfaceAttachment_instanceId,
     networkInterfaceAttachment_attachTime,
+    networkInterfaceAttachment_deleteOnTermination,
     networkInterfaceAttachment_attachmentId,
     networkInterfaceAttachment_networkCardIndex,
-    networkInterfaceAttachment_deleteOnTermination,
     networkInterfaceAttachment_deviceIndex,
     networkInterfaceAttachment_instanceOwnerId,
 
     -- * NetworkInterfaceAttachmentChanges
     NetworkInterfaceAttachmentChanges (..),
     newNetworkInterfaceAttachmentChanges,
-    networkInterfaceAttachmentChanges_attachmentId,
     networkInterfaceAttachmentChanges_deleteOnTermination,
+    networkInterfaceAttachmentChanges_attachmentId,
 
     -- * NetworkInterfaceIpv6Address
     NetworkInterfaceIpv6Address (..),
@@ -3318,9 +3501,9 @@ module Network.AWS.EC2.Types
     newOnDemandOptions,
     onDemandOptions_minTargetCapacity,
     onDemandOptions_capacityReservationOptions,
-    onDemandOptions_singleInstanceType,
-    onDemandOptions_allocationStrategy,
     onDemandOptions_maxTotalPrice,
+    onDemandOptions_allocationStrategy,
+    onDemandOptions_singleInstanceType,
     onDemandOptions_singleAvailabilityZone,
 
     -- * OnDemandOptionsRequest
@@ -3328,9 +3511,9 @@ module Network.AWS.EC2.Types
     newOnDemandOptionsRequest,
     onDemandOptionsRequest_minTargetCapacity,
     onDemandOptionsRequest_capacityReservationOptions,
-    onDemandOptionsRequest_singleInstanceType,
-    onDemandOptionsRequest_allocationStrategy,
     onDemandOptionsRequest_maxTotalPrice,
+    onDemandOptionsRequest_allocationStrategy,
+    onDemandOptionsRequest_singleInstanceType,
     onDemandOptionsRequest_singleAvailabilityZone,
 
     -- * PathComponent
@@ -3490,8 +3673,8 @@ module Network.AWS.EC2.Types
     PrefixList (..),
     newPrefixList,
     prefixList_prefixListName,
-    prefixList_cidrs,
     prefixList_prefixListId,
+    prefixList_cidrs,
 
     -- * PrefixListAssociation
     PrefixListAssociation (..),
@@ -3546,8 +3729,8 @@ module Network.AWS.EC2.Types
     -- * PrivateDnsNameConfiguration
     PrivateDnsNameConfiguration (..),
     newPrivateDnsNameConfiguration,
-    privateDnsNameConfiguration_state,
     privateDnsNameConfiguration_name,
+    privateDnsNameConfiguration_state,
     privateDnsNameConfiguration_value,
     privateDnsNameConfiguration_type,
 
@@ -3577,8 +3760,8 @@ module Network.AWS.EC2.Types
     -- * ProvisionedBandwidth
     ProvisionedBandwidth (..),
     newProvisionedBandwidth,
-    provisionedBandwidth_provisionTime,
     provisionedBandwidth_status,
+    provisionedBandwidth_provisionTime,
     provisionedBandwidth_requestTime,
     provisionedBandwidth_requested,
     provisionedBandwidth_provisioned,
@@ -3597,8 +3780,8 @@ module Network.AWS.EC2.Types
     publicIpv4Pool_poolAddressRanges,
     publicIpv4Pool_totalAddressCount,
     publicIpv4Pool_tags,
-    publicIpv4Pool_totalAvailableAddressCount,
     publicIpv4Pool_description,
+    publicIpv4Pool_totalAvailableAddressCount,
     publicIpv4Pool_networkBorderGroup,
 
     -- * PublicIpv4PoolRange
@@ -3612,10 +3795,10 @@ module Network.AWS.EC2.Types
     -- * Purchase
     Purchase (..),
     newPurchase,
-    purchase_instanceFamily,
     purchase_hostIdSet,
-    purchase_upfrontPrice,
+    purchase_instanceFamily,
     purchase_paymentOption,
+    purchase_upfrontPrice,
     purchase_duration,
     purchase_hostReservationId,
     purchase_currencyCode,
@@ -3632,6 +3815,15 @@ module Network.AWS.EC2.Types
     newRecurringCharge,
     recurringCharge_amount,
     recurringCharge_frequency,
+
+    -- * ReferencedSecurityGroup
+    ReferencedSecurityGroup (..),
+    newReferencedSecurityGroup,
+    referencedSecurityGroup_vpcPeeringConnectionId,
+    referencedSecurityGroup_groupId,
+    referencedSecurityGroup_userId,
+    referencedSecurityGroup_peeringStatus,
+    referencedSecurityGroup_vpcId,
 
     -- * RegionInfo
     RegionInfo (..),
@@ -3651,25 +3843,35 @@ module Network.AWS.EC2.Types
     newRemovePrefixListEntry,
     removePrefixListEntry_cidr,
 
+    -- * ReplaceRootVolumeTask
+    ReplaceRootVolumeTask (..),
+    newReplaceRootVolumeTask,
+    replaceRootVolumeTask_instanceId,
+    replaceRootVolumeTask_startTime,
+    replaceRootVolumeTask_replaceRootVolumeTaskId,
+    replaceRootVolumeTask_completeTime,
+    replaceRootVolumeTask_tags,
+    replaceRootVolumeTask_taskState,
+
     -- * RequestLaunchTemplateData
     RequestLaunchTemplateData (..),
     newRequestLaunchTemplateData,
     requestLaunchTemplateData_securityGroupIds,
     requestLaunchTemplateData_tagSpecifications,
     requestLaunchTemplateData_elasticGpuSpecifications,
-    requestLaunchTemplateData_instanceType,
     requestLaunchTemplateData_capacityReservationSpecification,
     requestLaunchTemplateData_ebsOptimized,
-    requestLaunchTemplateData_userData,
     requestLaunchTemplateData_placement,
+    requestLaunchTemplateData_userData,
+    requestLaunchTemplateData_instanceType,
     requestLaunchTemplateData_ramDiskId,
     requestLaunchTemplateData_creditSpecification,
-    requestLaunchTemplateData_instanceMarketOptions,
     requestLaunchTemplateData_licenseSpecifications,
+    requestLaunchTemplateData_instanceMarketOptions,
     requestLaunchTemplateData_instanceInitiatedShutdownBehavior,
+    requestLaunchTemplateData_elasticInferenceAccelerators,
     requestLaunchTemplateData_imageId,
     requestLaunchTemplateData_securityGroups,
-    requestLaunchTemplateData_elasticInferenceAccelerators,
     requestLaunchTemplateData_iamInstanceProfile,
     requestLaunchTemplateData_hibernationOptions,
     requestLaunchTemplateData_monitoring,
@@ -3677,21 +3879,21 @@ module Network.AWS.EC2.Types
     requestLaunchTemplateData_enclaveOptions,
     requestLaunchTemplateData_kernelId,
     requestLaunchTemplateData_cpuOptions,
-    requestLaunchTemplateData_keyName,
-    requestLaunchTemplateData_networkInterfaces,
     requestLaunchTemplateData_disableApiTermination,
+    requestLaunchTemplateData_networkInterfaces,
+    requestLaunchTemplateData_keyName,
     requestLaunchTemplateData_metadataOptions,
 
     -- * RequestSpotLaunchSpecification
     RequestSpotLaunchSpecification (..),
     newRequestSpotLaunchSpecification,
     requestSpotLaunchSpecification_securityGroupIds,
-    requestSpotLaunchSpecification_instanceType,
     requestSpotLaunchSpecification_ebsOptimized,
-    requestSpotLaunchSpecification_userData,
     requestSpotLaunchSpecification_placement,
-    requestSpotLaunchSpecification_addressingType,
+    requestSpotLaunchSpecification_userData,
+    requestSpotLaunchSpecification_instanceType,
     requestSpotLaunchSpecification_ramdiskId,
+    requestSpotLaunchSpecification_addressingType,
     requestSpotLaunchSpecification_imageId,
     requestSpotLaunchSpecification_securityGroups,
     requestSpotLaunchSpecification_iamInstanceProfile,
@@ -3699,8 +3901,8 @@ module Network.AWS.EC2.Types
     requestSpotLaunchSpecification_blockDeviceMappings,
     requestSpotLaunchSpecification_subnetId,
     requestSpotLaunchSpecification_kernelId,
-    requestSpotLaunchSpecification_keyName,
     requestSpotLaunchSpecification_networkInterfaces,
+    requestSpotLaunchSpecification_keyName,
 
     -- * Reservation
     Reservation (..),
@@ -3740,8 +3942,8 @@ module Network.AWS.EC2.Types
     reservedInstances_instanceTenancy,
     reservedInstances_currencyCode,
     reservedInstances_scope,
-    reservedInstances_state,
     reservedInstances_availabilityZone,
+    reservedInstances_state,
     reservedInstances_tags,
     reservedInstances_offeringClass,
     reservedInstances_fixedPrice,
@@ -3771,11 +3973,11 @@ module Network.AWS.EC2.Types
     newReservedInstancesListing,
     reservedInstancesListing_statusMessage,
     reservedInstancesListing_status,
-    reservedInstancesListing_priceSchedules,
     reservedInstancesListing_reservedInstancesId,
+    reservedInstancesListing_priceSchedules,
     reservedInstancesListing_createDate,
-    reservedInstancesListing_tags,
     reservedInstancesListing_instanceCounts,
+    reservedInstancesListing_tags,
     reservedInstancesListing_reservedInstancesListingId,
     reservedInstancesListing_updateDate,
     reservedInstancesListing_clientToken,
@@ -3804,8 +4006,8 @@ module Network.AWS.EC2.Types
     newReservedInstancesOffering,
     reservedInstancesOffering_instanceType,
     reservedInstancesOffering_duration,
-    reservedInstancesOffering_instanceTenancy,
     reservedInstancesOffering_reservedInstancesOfferingId,
+    reservedInstancesOffering_instanceTenancy,
     reservedInstancesOffering_currencyCode,
     reservedInstancesOffering_scope,
     reservedInstancesOffering_availabilityZone,
@@ -3830,19 +4032,19 @@ module Network.AWS.EC2.Types
     responseLaunchTemplateData_securityGroupIds,
     responseLaunchTemplateData_tagSpecifications,
     responseLaunchTemplateData_elasticGpuSpecifications,
-    responseLaunchTemplateData_instanceType,
     responseLaunchTemplateData_capacityReservationSpecification,
     responseLaunchTemplateData_ebsOptimized,
-    responseLaunchTemplateData_userData,
     responseLaunchTemplateData_placement,
+    responseLaunchTemplateData_userData,
+    responseLaunchTemplateData_instanceType,
     responseLaunchTemplateData_ramDiskId,
     responseLaunchTemplateData_creditSpecification,
-    responseLaunchTemplateData_instanceMarketOptions,
     responseLaunchTemplateData_licenseSpecifications,
+    responseLaunchTemplateData_instanceMarketOptions,
     responseLaunchTemplateData_instanceInitiatedShutdownBehavior,
+    responseLaunchTemplateData_elasticInferenceAccelerators,
     responseLaunchTemplateData_imageId,
     responseLaunchTemplateData_securityGroups,
-    responseLaunchTemplateData_elasticInferenceAccelerators,
     responseLaunchTemplateData_iamInstanceProfile,
     responseLaunchTemplateData_hibernationOptions,
     responseLaunchTemplateData_monitoring,
@@ -3850,9 +4052,9 @@ module Network.AWS.EC2.Types
     responseLaunchTemplateData_enclaveOptions,
     responseLaunchTemplateData_kernelId,
     responseLaunchTemplateData_cpuOptions,
-    responseLaunchTemplateData_keyName,
-    responseLaunchTemplateData_networkInterfaces,
     responseLaunchTemplateData_disableApiTermination,
+    responseLaunchTemplateData_networkInterfaces,
+    responseLaunchTemplateData_keyName,
     responseLaunchTemplateData_metadataOptions,
 
     -- * Route
@@ -3864,22 +4066,22 @@ module Network.AWS.EC2.Types
     route_destinationPrefixListId,
     route_destinationIpv6CidrBlock,
     route_localGatewayId,
-    route_state,
     route_egressOnlyInternetGatewayId,
-    route_carrierGatewayId,
+    route_state,
     route_destinationCidrBlock,
-    route_networkInterfaceId,
+    route_carrierGatewayId,
     route_natGatewayId,
-    route_instanceOwnerId,
+    route_networkInterfaceId,
     route_gatewayId,
+    route_instanceOwnerId,
     route_transitGatewayId,
 
     -- * RouteTable
     RouteTable (..),
     newRouteTable,
     routeTable_ownerId,
-    routeTable_routeTableId,
     routeTable_routes,
+    routeTable_routeTableId,
     routeTable_tags,
     routeTable_propagatingVgws,
     routeTable_vpcId,
@@ -3906,6 +4108,12 @@ module Network.AWS.EC2.Types
     newRunInstancesMonitoringEnabled,
     runInstancesMonitoringEnabled_enabled,
 
+    -- * S3ObjectTag
+    S3ObjectTag (..),
+    newS3ObjectTag,
+    s3ObjectTag_key,
+    s3ObjectTag_value,
+
     -- * S3Storage
     S3Storage (..),
     newS3Storage,
@@ -3919,13 +4127,13 @@ module Network.AWS.EC2.Types
     ScheduledInstance (..),
     newScheduledInstance,
     scheduledInstance_platform,
-    scheduledInstance_instanceType,
     scheduledInstance_networkPlatform,
+    scheduledInstance_instanceType,
     scheduledInstance_slotDurationInHours,
     scheduledInstance_createDate,
     scheduledInstance_scheduledInstanceId,
-    scheduledInstance_previousSlotEndTime,
     scheduledInstance_availabilityZone,
+    scheduledInstance_previousSlotEndTime,
     scheduledInstance_recurrence,
     scheduledInstance_totalScheduledInstanceHours,
     scheduledInstance_nextSlotStartTime,
@@ -3938,18 +4146,18 @@ module Network.AWS.EC2.Types
     ScheduledInstanceAvailability (..),
     newScheduledInstanceAvailability,
     scheduledInstanceAvailability_platform,
-    scheduledInstanceAvailability_instanceType,
     scheduledInstanceAvailability_networkPlatform,
+    scheduledInstanceAvailability_instanceType,
     scheduledInstanceAvailability_slotDurationInHours,
     scheduledInstanceAvailability_availableInstanceCount,
     scheduledInstanceAvailability_minTermDurationInDays,
     scheduledInstanceAvailability_availabilityZone,
-    scheduledInstanceAvailability_recurrence,
     scheduledInstanceAvailability_maxTermDurationInDays,
+    scheduledInstanceAvailability_recurrence,
     scheduledInstanceAvailability_totalScheduledInstanceHours,
     scheduledInstanceAvailability_firstSlotStartTime,
-    scheduledInstanceAvailability_hourlyPrice,
     scheduledInstanceAvailability_purchaseToken,
+    scheduledInstanceAvailability_hourlyPrice,
 
     -- * ScheduledInstanceRecurrence
     ScheduledInstanceRecurrence (..),
@@ -3984,8 +4192,8 @@ module Network.AWS.EC2.Types
     scheduledInstancesEbs_deleteOnTermination,
     scheduledInstancesEbs_snapshotId,
     scheduledInstancesEbs_volumeType,
-    scheduledInstancesEbs_volumeSize,
     scheduledInstancesEbs_iops,
+    scheduledInstancesEbs_volumeSize,
 
     -- * ScheduledInstancesIamInstanceProfile
     ScheduledInstancesIamInstanceProfile (..),
@@ -4002,18 +4210,18 @@ module Network.AWS.EC2.Types
     ScheduledInstancesLaunchSpecification (..),
     newScheduledInstancesLaunchSpecification,
     scheduledInstancesLaunchSpecification_securityGroupIds,
-    scheduledInstancesLaunchSpecification_instanceType,
     scheduledInstancesLaunchSpecification_ebsOptimized,
-    scheduledInstancesLaunchSpecification_userData,
     scheduledInstancesLaunchSpecification_placement,
+    scheduledInstancesLaunchSpecification_userData,
+    scheduledInstancesLaunchSpecification_instanceType,
     scheduledInstancesLaunchSpecification_ramdiskId,
     scheduledInstancesLaunchSpecification_iamInstanceProfile,
     scheduledInstancesLaunchSpecification_monitoring,
     scheduledInstancesLaunchSpecification_blockDeviceMappings,
     scheduledInstancesLaunchSpecification_subnetId,
     scheduledInstancesLaunchSpecification_kernelId,
-    scheduledInstancesLaunchSpecification_keyName,
     scheduledInstancesLaunchSpecification_networkInterfaces,
+    scheduledInstancesLaunchSpecification_keyName,
     scheduledInstancesLaunchSpecification_imageId,
 
     -- * ScheduledInstancesMonitoring
@@ -4029,10 +4237,10 @@ module Network.AWS.EC2.Types
     scheduledInstancesNetworkInterface_associatePublicIpAddress,
     scheduledInstancesNetworkInterface_ipv6AddressCount,
     scheduledInstancesNetworkInterface_deleteOnTermination,
-    scheduledInstancesNetworkInterface_networkInterfaceId,
-    scheduledInstancesNetworkInterface_subnetId,
     scheduledInstancesNetworkInterface_description,
+    scheduledInstancesNetworkInterface_subnetId,
     scheduledInstancesNetworkInterface_deviceIndex,
+    scheduledInstancesNetworkInterface_networkInterfaceId,
     scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount,
     scheduledInstancesNetworkInterface_privateIpAddressConfigs,
     scheduledInstancesNetworkInterface_privateIpAddress,
@@ -4074,12 +4282,53 @@ module Network.AWS.EC2.Types
     securityGroupReference_groupId,
     securityGroupReference_referencingVpcId,
 
+    -- * SecurityGroupRule
+    SecurityGroupRule (..),
+    newSecurityGroupRule,
+    securityGroupRule_fromPort,
+    securityGroupRule_cidrIpv4,
+    securityGroupRule_isEgress,
+    securityGroupRule_referencedGroupInfo,
+    securityGroupRule_groupOwnerId,
+    securityGroupRule_cidrIpv6,
+    securityGroupRule_groupId,
+    securityGroupRule_prefixListId,
+    securityGroupRule_ipProtocol,
+    securityGroupRule_tags,
+    securityGroupRule_description,
+    securityGroupRule_toPort,
+    securityGroupRule_securityGroupRuleId,
+
+    -- * SecurityGroupRuleDescription
+    SecurityGroupRuleDescription (..),
+    newSecurityGroupRuleDescription,
+    securityGroupRuleDescription_description,
+    securityGroupRuleDescription_securityGroupRuleId,
+
+    -- * SecurityGroupRuleRequest
+    SecurityGroupRuleRequest (..),
+    newSecurityGroupRuleRequest,
+    securityGroupRuleRequest_fromPort,
+    securityGroupRuleRequest_cidrIpv4,
+    securityGroupRuleRequest_referencedGroupId,
+    securityGroupRuleRequest_cidrIpv6,
+    securityGroupRuleRequest_prefixListId,
+    securityGroupRuleRequest_ipProtocol,
+    securityGroupRuleRequest_description,
+    securityGroupRuleRequest_toPort,
+
+    -- * SecurityGroupRuleUpdate
+    SecurityGroupRuleUpdate (..),
+    newSecurityGroupRuleUpdate,
+    securityGroupRuleUpdate_securityGroupRule,
+    securityGroupRuleUpdate_securityGroupRuleId,
+
     -- * ServiceConfiguration
     ServiceConfiguration (..),
     newServiceConfiguration,
     serviceConfiguration_managesVpcEndpoints,
-    serviceConfiguration_gatewayLoadBalancerArns,
     serviceConfiguration_availabilityZones,
+    serviceConfiguration_gatewayLoadBalancerArns,
     serviceConfiguration_privateDnsNameConfiguration,
     serviceConfiguration_baseEndpointDnsNames,
     serviceConfiguration_serviceId,
@@ -4088,8 +4337,8 @@ module Network.AWS.EC2.Types
     serviceConfiguration_privateDnsName,
     serviceConfiguration_acceptanceRequired,
     serviceConfiguration_serviceType,
-    serviceConfiguration_networkLoadBalancerArns,
     serviceConfiguration_serviceState,
+    serviceConfiguration_networkLoadBalancerArns,
 
     -- * ServiceDetail
     ServiceDetail (..),
@@ -4098,8 +4347,8 @@ module Network.AWS.EC2.Types
     serviceDetail_availabilityZones,
     serviceDetail_baseEndpointDnsNames,
     serviceDetail_serviceId,
-    serviceDetail_vpcEndpointPolicySupported,
     serviceDetail_privateDnsNames,
+    serviceDetail_vpcEndpointPolicySupported,
     serviceDetail_privateDnsNameVerificationState,
     serviceDetail_serviceName,
     serviceDetail_tags,
@@ -4151,8 +4400,8 @@ module Network.AWS.EC2.Types
     snapshotDetail_statusMessage,
     snapshotDetail_status,
     snapshotDetail_format,
-    snapshotDetail_userBucket,
     snapshotDetail_deviceName,
+    snapshotDetail_userBucket,
     snapshotDetail_snapshotId,
     snapshotDetail_description,
     snapshotDetail_url,
@@ -4175,11 +4424,11 @@ module Network.AWS.EC2.Types
     snapshotInfo_startTime,
     snapshotInfo_volumeId,
     snapshotInfo_state,
-    snapshotInfo_snapshotId,
     snapshotInfo_tags,
+    snapshotInfo_snapshotId,
     snapshotInfo_description,
-    snapshotInfo_progress,
     snapshotInfo_volumeSize,
+    snapshotInfo_progress,
 
     -- * SnapshotTaskDetail
     SnapshotTaskDetail (..),
@@ -4189,8 +4438,8 @@ module Network.AWS.EC2.Types
     snapshotTaskDetail_status,
     snapshotTaskDetail_encrypted,
     snapshotTaskDetail_format,
-    snapshotTaskDetail_userBucket,
     snapshotTaskDetail_kmsKeyId,
+    snapshotTaskDetail_userBucket,
     snapshotTaskDetail_snapshotId,
     snapshotTaskDetail_description,
     snapshotTaskDetail_url,
@@ -4214,12 +4463,12 @@ module Network.AWS.EC2.Types
     SpotFleetLaunchSpecification (..),
     newSpotFleetLaunchSpecification,
     spotFleetLaunchSpecification_tagSpecifications,
-    spotFleetLaunchSpecification_instanceType,
     spotFleetLaunchSpecification_ebsOptimized,
-    spotFleetLaunchSpecification_userData,
     spotFleetLaunchSpecification_placement,
-    spotFleetLaunchSpecification_addressingType,
+    spotFleetLaunchSpecification_userData,
+    spotFleetLaunchSpecification_instanceType,
     spotFleetLaunchSpecification_ramdiskId,
+    spotFleetLaunchSpecification_addressingType,
     spotFleetLaunchSpecification_spotPrice,
     spotFleetLaunchSpecification_imageId,
     spotFleetLaunchSpecification_securityGroups,
@@ -4228,8 +4477,8 @@ module Network.AWS.EC2.Types
     spotFleetLaunchSpecification_blockDeviceMappings,
     spotFleetLaunchSpecification_subnetId,
     spotFleetLaunchSpecification_kernelId,
-    spotFleetLaunchSpecification_keyName,
     spotFleetLaunchSpecification_networkInterfaces,
+    spotFleetLaunchSpecification_keyName,
     spotFleetLaunchSpecification_weightedCapacity,
 
     -- * SpotFleetMonitoring
@@ -4241,37 +4490,38 @@ module Network.AWS.EC2.Types
     SpotFleetRequestConfig (..),
     newSpotFleetRequestConfig,
     spotFleetRequestConfig_spotFleetRequestState,
-    spotFleetRequestConfig_activityStatus,
-    spotFleetRequestConfig_tags,
     spotFleetRequestConfig_createTime,
+    spotFleetRequestConfig_tags,
+    spotFleetRequestConfig_activityStatus,
     spotFleetRequestConfig_spotFleetRequestConfig,
     spotFleetRequestConfig_spotFleetRequestId,
 
     -- * SpotFleetRequestConfigData
     SpotFleetRequestConfigData (..),
     newSpotFleetRequestConfigData,
-    spotFleetRequestConfigData_launchTemplateConfigs,
     spotFleetRequestConfigData_tagSpecifications,
-    spotFleetRequestConfigData_spotMaxTotalPrice,
+    spotFleetRequestConfigData_launchTemplateConfigs,
     spotFleetRequestConfigData_onDemandTargetCapacity,
     spotFleetRequestConfigData_onDemandFulfilledCapacity,
+    spotFleetRequestConfigData_spotMaxTotalPrice,
     spotFleetRequestConfigData_validFrom,
     spotFleetRequestConfigData_replaceUnhealthyInstances,
     spotFleetRequestConfigData_onDemandAllocationStrategy,
     spotFleetRequestConfigData_spotPrice,
     spotFleetRequestConfigData_onDemandMaxTotalPrice,
     spotFleetRequestConfigData_instanceInterruptionBehavior,
+    spotFleetRequestConfigData_context,
     spotFleetRequestConfigData_validUntil,
-    spotFleetRequestConfigData_loadBalancersConfig,
     spotFleetRequestConfigData_excessCapacityTerminationPolicy,
-    spotFleetRequestConfigData_allocationStrategy,
     spotFleetRequestConfigData_launchSpecifications,
-    spotFleetRequestConfigData_type,
+    spotFleetRequestConfigData_loadBalancersConfig,
+    spotFleetRequestConfigData_allocationStrategy,
     spotFleetRequestConfigData_spotMaintenanceStrategies,
-    spotFleetRequestConfigData_instancePoolsToUseCount,
+    spotFleetRequestConfigData_type,
     spotFleetRequestConfigData_fulfilledCapacity,
-    spotFleetRequestConfigData_clientToken,
+    spotFleetRequestConfigData_instancePoolsToUseCount,
     spotFleetRequestConfigData_terminateInstancesWithExpiration,
+    spotFleetRequestConfigData_clientToken,
     spotFleetRequestConfigData_iamFleetRole,
     spotFleetRequestConfigData_targetCapacity,
 
@@ -4290,19 +4540,19 @@ module Network.AWS.EC2.Types
     spotInstanceRequest_launchedAvailabilityZone,
     spotInstanceRequest_validFrom,
     spotInstanceRequest_spotPrice,
-    spotInstanceRequest_fault,
-    spotInstanceRequest_blockDurationMinutes,
     spotInstanceRequest_launchGroup,
+    spotInstanceRequest_blockDurationMinutes,
+    spotInstanceRequest_fault,
     spotInstanceRequest_instanceInterruptionBehavior,
     spotInstanceRequest_state,
     spotInstanceRequest_validUntil,
-    spotInstanceRequest_tags,
     spotInstanceRequest_createTime,
+    spotInstanceRequest_tags,
     spotInstanceRequest_launchSpecification,
-    spotInstanceRequest_type,
     spotInstanceRequest_availabilityZoneGroup,
-    spotInstanceRequest_productDescription,
+    spotInstanceRequest_type,
     spotInstanceRequest_spotInstanceRequestId,
+    spotInstanceRequest_productDescription,
 
     -- * SpotInstanceStateFault
     SpotInstanceStateFault (..),
@@ -4337,11 +4587,11 @@ module Network.AWS.EC2.Types
     spotOptions_minTargetCapacity,
     spotOptions_maintenanceStrategies,
     spotOptions_instanceInterruptionBehavior,
-    spotOptions_singleInstanceType,
-    spotOptions_allocationStrategy,
     spotOptions_maxTotalPrice,
-    spotOptions_instancePoolsToUseCount,
+    spotOptions_allocationStrategy,
+    spotOptions_singleInstanceType,
     spotOptions_singleAvailabilityZone,
+    spotOptions_instancePoolsToUseCount,
 
     -- * SpotOptionsRequest
     SpotOptionsRequest (..),
@@ -4349,11 +4599,11 @@ module Network.AWS.EC2.Types
     spotOptionsRequest_minTargetCapacity,
     spotOptionsRequest_maintenanceStrategies,
     spotOptionsRequest_instanceInterruptionBehavior,
-    spotOptionsRequest_singleInstanceType,
-    spotOptionsRequest_allocationStrategy,
     spotOptionsRequest_maxTotalPrice,
-    spotOptionsRequest_instancePoolsToUseCount,
+    spotOptionsRequest_allocationStrategy,
+    spotOptionsRequest_singleInstanceType,
     spotOptionsRequest_singleAvailabilityZone,
+    spotOptionsRequest_instancePoolsToUseCount,
 
     -- * SpotPlacement
     SpotPlacement (..),
@@ -4408,13 +4658,24 @@ module Network.AWS.EC2.Types
     storageLocation_key,
     storageLocation_bucket,
 
+    -- * StoreImageTaskResult
+    StoreImageTaskResult (..),
+    newStoreImageTaskResult,
+    storeImageTaskResult_storeTaskFailureReason,
+    storeImageTaskResult_amiId,
+    storeImageTaskResult_progressPercentage,
+    storeImageTaskResult_bucket,
+    storeImageTaskResult_taskStartTime,
+    storeImageTaskResult_storeTaskState,
+    storeImageTaskResult_s3objectKey,
+
     -- * Subnet
     Subnet (..),
     newSubnet,
-    subnet_ownerId,
     subnet_customerOwnedIpv4Pool,
-    subnet_subnetArn,
+    subnet_ownerId,
     subnet_assignIpv6AddressOnCreation,
+    subnet_subnetArn,
     subnet_outpostArn,
     subnet_mapPublicIpOnLaunch,
     subnet_availabilityZoneId,
@@ -4441,12 +4702,23 @@ module Network.AWS.EC2.Types
     subnetCidrBlockState_statusMessage,
     subnetCidrBlockState_state,
 
+    -- * SubnetCidrReservation
+    SubnetCidrReservation (..),
+    newSubnetCidrReservation,
+    subnetCidrReservation_ownerId,
+    subnetCidrReservation_reservationType,
+    subnetCidrReservation_subnetCidrReservationId,
+    subnetCidrReservation_cidr,
+    subnetCidrReservation_tags,
+    subnetCidrReservation_description,
+    subnetCidrReservation_subnetId,
+
     -- * SubnetIpv6CidrBlockAssociation
     SubnetIpv6CidrBlockAssociation (..),
     newSubnetIpv6CidrBlockAssociation,
     subnetIpv6CidrBlockAssociation_ipv6CidrBlockState,
-    subnetIpv6CidrBlockAssociation_associationId,
     subnetIpv6CidrBlockAssociation_ipv6CidrBlock,
+    subnetIpv6CidrBlockAssociation_associationId,
 
     -- * SuccessfulInstanceCreditSpecificationItem
     SuccessfulInstanceCreditSpecificationItem (..),
@@ -4536,14 +4808,14 @@ module Network.AWS.EC2.Types
     TerminateConnectionStatus (..),
     newTerminateConnectionStatus,
     terminateConnectionStatus_connectionId,
-    terminateConnectionStatus_previousStatus,
     terminateConnectionStatus_currentStatus,
+    terminateConnectionStatus_previousStatus,
 
     -- * TrafficMirrorFilter
     TrafficMirrorFilter (..),
     newTrafficMirrorFilter,
-    trafficMirrorFilter_egressFilterRules,
     trafficMirrorFilter_networkServices,
+    trafficMirrorFilter_egressFilterRules,
     trafficMirrorFilter_tags,
     trafficMirrorFilter_trafficMirrorFilterId,
     trafficMirrorFilter_description,
@@ -4554,9 +4826,9 @@ module Network.AWS.EC2.Types
     newTrafficMirrorFilterRule,
     trafficMirrorFilterRule_trafficMirrorFilterRuleId,
     trafficMirrorFilterRule_sourcePortRange,
-    trafficMirrorFilterRule_trafficDirection,
     trafficMirrorFilterRule_ruleAction,
     trafficMirrorFilterRule_sourceCidrBlock,
+    trafficMirrorFilterRule_trafficDirection,
     trafficMirrorFilterRule_trafficMirrorFilterId,
     trafficMirrorFilterRule_destinationCidrBlock,
     trafficMirrorFilterRule_protocol,
@@ -4584,8 +4856,8 @@ module Network.AWS.EC2.Types
     trafficMirrorSession_packetLength,
     trafficMirrorSession_tags,
     trafficMirrorSession_trafficMirrorFilterId,
-    trafficMirrorSession_networkInterfaceId,
     trafficMirrorSession_description,
+    trafficMirrorSession_networkInterfaceId,
     trafficMirrorSession_trafficMirrorTargetId,
     trafficMirrorSession_sessionNumber,
     trafficMirrorSession_virtualNetworkId,
@@ -4596,16 +4868,16 @@ module Network.AWS.EC2.Types
     trafficMirrorTarget_ownerId,
     trafficMirrorTarget_networkLoadBalancerArn,
     trafficMirrorTarget_tags,
-    trafficMirrorTarget_networkInterfaceId,
     trafficMirrorTarget_description,
-    trafficMirrorTarget_type,
+    trafficMirrorTarget_networkInterfaceId,
     trafficMirrorTarget_trafficMirrorTargetId,
+    trafficMirrorTarget_type,
 
     -- * TransitGateway
     TransitGateway (..),
     newTransitGateway,
-    transitGateway_ownerId,
     transitGateway_creationTime,
+    transitGateway_ownerId,
     transitGateway_options,
     transitGateway_transitGatewayArn,
     transitGateway_state,
@@ -4647,8 +4919,8 @@ module Network.AWS.EC2.Types
     newTransitGatewayAttachmentBgpConfiguration,
     transitGatewayAttachmentBgpConfiguration_peerAddress,
     transitGatewayAttachmentBgpConfiguration_peerAsn,
-    transitGatewayAttachmentBgpConfiguration_bgpStatus,
     transitGatewayAttachmentBgpConfiguration_transitGatewayAddress,
+    transitGatewayAttachmentBgpConfiguration_bgpStatus,
     transitGatewayAttachmentBgpConfiguration_transitGatewayAsn,
 
     -- * TransitGatewayAttachmentPropagation
@@ -4676,8 +4948,8 @@ module Network.AWS.EC2.Types
     -- * TransitGatewayConnectPeer
     TransitGatewayConnectPeer (..),
     newTransitGatewayConnectPeer,
-    transitGatewayConnectPeer_connectPeerConfiguration,
     transitGatewayConnectPeer_creationTime,
+    transitGatewayConnectPeer_connectPeerConfiguration,
     transitGatewayConnectPeer_transitGatewayConnectPeerId,
     transitGatewayConnectPeer_state,
     transitGatewayConnectPeer_tags,
@@ -4688,8 +4960,8 @@ module Network.AWS.EC2.Types
     newTransitGatewayConnectPeerConfiguration,
     transitGatewayConnectPeerConfiguration_peerAddress,
     transitGatewayConnectPeerConfiguration_transitGatewayAddress,
-    transitGatewayConnectPeerConfiguration_bgpConfigurations,
     transitGatewayConnectPeerConfiguration_protocol,
+    transitGatewayConnectPeerConfiguration_bgpConfigurations,
     transitGatewayConnectPeerConfiguration_insideCidrBlocks,
 
     -- * TransitGatewayConnectRequestBgpOptions
@@ -4714,8 +4986,8 @@ module Network.AWS.EC2.Types
     -- * TransitGatewayMulticastDomain
     TransitGatewayMulticastDomain (..),
     newTransitGatewayMulticastDomain,
-    transitGatewayMulticastDomain_ownerId,
     transitGatewayMulticastDomain_creationTime,
+    transitGatewayMulticastDomain_ownerId,
     transitGatewayMulticastDomain_transitGatewayMulticastDomainId,
     transitGatewayMulticastDomain_options,
     transitGatewayMulticastDomain_state,
@@ -4755,11 +5027,11 @@ module Network.AWS.EC2.Types
     transitGatewayMulticastGroup_resourceId,
     transitGatewayMulticastGroup_groupMember,
     transitGatewayMulticastGroup_memberType,
-    transitGatewayMulticastGroup_groupSource,
     transitGatewayMulticastGroup_resourceType,
+    transitGatewayMulticastGroup_groupSource,
+    transitGatewayMulticastGroup_subnetId,
     transitGatewayMulticastGroup_resourceOwnerId,
     transitGatewayMulticastGroup_networkInterfaceId,
-    transitGatewayMulticastGroup_subnetId,
     transitGatewayMulticastGroup_transitGatewayAttachmentId,
     transitGatewayMulticastGroup_groupIpAddress,
     transitGatewayMulticastGroup_sourceType,
@@ -4786,8 +5058,8 @@ module Network.AWS.EC2.Types
     transitGatewayOptions_dnsSupport,
     transitGatewayOptions_associationDefaultRouteTableId,
     transitGatewayOptions_autoAcceptSharedAttachments,
-    transitGatewayOptions_amazonSideAsn,
     transitGatewayOptions_transitGatewayCidrBlocks,
+    transitGatewayOptions_amazonSideAsn,
     transitGatewayOptions_multicastSupport,
     transitGatewayOptions_defaultRouteTableAssociation,
     transitGatewayOptions_defaultRouteTablePropagation,
@@ -4795,9 +5067,9 @@ module Network.AWS.EC2.Types
     -- * TransitGatewayPeeringAttachment
     TransitGatewayPeeringAttachment (..),
     newTransitGatewayPeeringAttachment,
-    transitGatewayPeeringAttachment_status,
     transitGatewayPeeringAttachment_creationTime,
     transitGatewayPeeringAttachment_requesterTgwInfo,
+    transitGatewayPeeringAttachment_status,
     transitGatewayPeeringAttachment_accepterTgwInfo,
     transitGatewayPeeringAttachment_state,
     transitGatewayPeeringAttachment_tags,
@@ -4835,8 +5107,8 @@ module Network.AWS.EC2.Types
     transitGatewayRequestOptions_vpnEcmpSupport,
     transitGatewayRequestOptions_dnsSupport,
     transitGatewayRequestOptions_autoAcceptSharedAttachments,
-    transitGatewayRequestOptions_amazonSideAsn,
     transitGatewayRequestOptions_transitGatewayCidrBlocks,
+    transitGatewayRequestOptions_amazonSideAsn,
     transitGatewayRequestOptions_multicastSupport,
     transitGatewayRequestOptions_defaultRouteTableAssociation,
     transitGatewayRequestOptions_defaultRouteTablePropagation,
@@ -4891,8 +5163,8 @@ module Network.AWS.EC2.Types
     transitGatewayVpcAttachment_options,
     transitGatewayVpcAttachment_subnetIds,
     transitGatewayVpcAttachment_state,
-    transitGatewayVpcAttachment_vpcOwnerId,
     transitGatewayVpcAttachment_tags,
+    transitGatewayVpcAttachment_vpcOwnerId,
     transitGatewayVpcAttachment_transitGatewayAttachmentId,
     transitGatewayVpcAttachment_vpcId,
     transitGatewayVpcAttachment_transitGatewayId,
@@ -4901,17 +5173,28 @@ module Network.AWS.EC2.Types
     TransitGatewayVpcAttachmentOptions (..),
     newTransitGatewayVpcAttachmentOptions,
     transitGatewayVpcAttachmentOptions_applianceModeSupport,
-    transitGatewayVpcAttachmentOptions_dnsSupport,
     transitGatewayVpcAttachmentOptions_ipv6Support,
+    transitGatewayVpcAttachmentOptions_dnsSupport,
+
+    -- * TrunkInterfaceAssociation
+    TrunkInterfaceAssociation (..),
+    newTrunkInterfaceAssociation,
+    trunkInterfaceAssociation_branchInterfaceId,
+    trunkInterfaceAssociation_trunkInterfaceId,
+    trunkInterfaceAssociation_greKey,
+    trunkInterfaceAssociation_associationId,
+    trunkInterfaceAssociation_tags,
+    trunkInterfaceAssociation_interfaceProtocol,
+    trunkInterfaceAssociation_vlanId,
 
     -- * TunnelOption
     TunnelOption (..),
     newTunnelOption,
     tunnelOption_phase1LifetimeSeconds,
-    tunnelOption_phase2DHGroupNumbers,
     tunnelOption_ikeVersions,
-    tunnelOption_phase2EncryptionAlgorithms,
     tunnelOption_phase2IntegrityAlgorithms,
+    tunnelOption_phase2EncryptionAlgorithms,
+    tunnelOption_phase2DHGroupNumbers,
     tunnelOption_startupAction,
     tunnelOption_dpdTimeoutSeconds,
     tunnelOption_phase1DHGroupNumbers,
@@ -5048,20 +5331,20 @@ module Network.AWS.EC2.Types
     VolumeModification (..),
     newVolumeModification,
     volumeModification_statusMessage,
-    volumeModification_targetVolumeType,
     volumeModification_originalVolumeType,
+    volumeModification_targetVolumeType,
     volumeModification_startTime,
     volumeModification_volumeId,
     volumeModification_endTime,
-    volumeModification_originalIops,
-    volumeModification_targetSize,
-    volumeModification_originalSize,
     volumeModification_targetIops,
+    volumeModification_originalSize,
+    volumeModification_targetSize,
+    volumeModification_originalIops,
     volumeModification_modificationState,
     volumeModification_targetMultiAttachEnabled,
     volumeModification_originalMultiAttachEnabled,
-    volumeModification_targetThroughput,
     volumeModification_originalThroughput,
+    volumeModification_targetThroughput,
     volumeModification_progress,
 
     -- * VolumeStatusAction
@@ -5087,9 +5370,9 @@ module Network.AWS.EC2.Types
     -- * VolumeStatusEvent
     VolumeStatusEvent (..),
     newVolumeStatusEvent,
-    volumeStatusEvent_notBefore,
-    volumeStatusEvent_eventType,
     volumeStatusEvent_instanceId,
+    volumeStatusEvent_eventType,
+    volumeStatusEvent_notBefore,
     volumeStatusEvent_eventId,
     volumeStatusEvent_notAfter,
     volumeStatusEvent_description,
@@ -5105,8 +5388,8 @@ module Network.AWS.EC2.Types
     newVolumeStatusItem,
     volumeStatusItem_volumeStatus,
     volumeStatusItem_outpostArn,
-    volumeStatusItem_volumeId,
     volumeStatusItem_actions,
+    volumeStatusItem_volumeId,
     volumeStatusItem_events,
     volumeStatusItem_availabilityZone,
     volumeStatusItem_attachmentStatuses,
@@ -5154,29 +5437,29 @@ module Network.AWS.EC2.Types
     -- * VpcEndpoint
     VpcEndpoint (..),
     newVpcEndpoint,
-    vpcEndpoint_creationTimestamp,
     vpcEndpoint_policyDocument,
+    vpcEndpoint_creationTimestamp,
     vpcEndpoint_groups,
     vpcEndpoint_ownerId,
     vpcEndpoint_routeTableIds,
     vpcEndpoint_vpcEndpointType,
-    vpcEndpoint_requesterManaged,
     vpcEndpoint_dnsEntries,
+    vpcEndpoint_requesterManaged,
     vpcEndpoint_vpcEndpointId,
     vpcEndpoint_subnetIds,
     vpcEndpoint_networkInterfaceIds,
     vpcEndpoint_serviceName,
     vpcEndpoint_lastError,
     vpcEndpoint_state,
-    vpcEndpoint_privateDnsEnabled,
     vpcEndpoint_tags,
+    vpcEndpoint_privateDnsEnabled,
     vpcEndpoint_vpcId,
 
     -- * VpcEndpointConnection
     VpcEndpointConnection (..),
     newVpcEndpointConnection,
-    vpcEndpointConnection_creationTimestamp,
     vpcEndpointConnection_vpcEndpointOwner,
+    vpcEndpointConnection_creationTimestamp,
     vpcEndpointConnection_gatewayLoadBalancerArns,
     vpcEndpointConnection_vpcEndpointState,
     vpcEndpointConnection_dnsEntries,
@@ -5189,16 +5472,16 @@ module Network.AWS.EC2.Types
     newVpcIpv6CidrBlockAssociation,
     vpcIpv6CidrBlockAssociation_ipv6CidrBlockState,
     vpcIpv6CidrBlockAssociation_ipv6Pool,
-    vpcIpv6CidrBlockAssociation_associationId,
     vpcIpv6CidrBlockAssociation_ipv6CidrBlock,
+    vpcIpv6CidrBlockAssociation_associationId,
     vpcIpv6CidrBlockAssociation_networkBorderGroup,
 
     -- * VpcPeeringConnection
     VpcPeeringConnection (..),
     newVpcPeeringConnection,
     vpcPeeringConnection_status,
-    vpcPeeringConnection_accepterVpcInfo,
     vpcPeeringConnection_vpcPeeringConnectionId,
+    vpcPeeringConnection_accepterVpcInfo,
     vpcPeeringConnection_expirationTime,
     vpcPeeringConnection_requesterVpcInfo,
     vpcPeeringConnection_tags,
@@ -5243,6 +5526,14 @@ module Network.AWS.EC2.Types
     vpnConnection_state,
     vpnConnection_type,
 
+    -- * VpnConnectionDeviceType
+    VpnConnectionDeviceType (..),
+    newVpnConnectionDeviceType,
+    vpnConnectionDeviceType_platform,
+    vpnConnectionDeviceType_vendor,
+    vpnConnectionDeviceType_software,
+    vpnConnectionDeviceType_vpnConnectionDeviceTypeId,
+
     -- * VpnConnectionOptions
     VpnConnectionOptions (..),
     newVpnConnectionOptions,
@@ -5271,10 +5562,10 @@ module Network.AWS.EC2.Types
     VpnGateway (..),
     newVpnGateway,
     vpnGateway_vpcAttachments,
-    vpnGateway_state,
     vpnGateway_availabilityZone,
-    vpnGateway_amazonSideAsn,
+    vpnGateway_state,
     vpnGateway_tags,
+    vpnGateway_amazonSideAsn,
     vpnGateway_type,
     vpnGateway_vpnGatewayId,
 
@@ -5289,10 +5580,10 @@ module Network.AWS.EC2.Types
     VpnTunnelOptionsSpecification (..),
     newVpnTunnelOptionsSpecification,
     vpnTunnelOptionsSpecification_phase1LifetimeSeconds,
-    vpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     vpnTunnelOptionsSpecification_iKEVersions,
-    vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
     vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms,
+    vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms,
+    vpnTunnelOptionsSpecification_phase2DHGroupNumbers,
     vpnTunnelOptionsSpecification_startupAction,
     vpnTunnelOptionsSpecification_dPDTimeoutSeconds,
     vpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -5344,6 +5635,7 @@ import Network.AWS.EC2.Types.AssociatedRole
 import Network.AWS.EC2.Types.AssociatedTargetNetwork
 import Network.AWS.EC2.Types.AssociationStatus
 import Network.AWS.EC2.Types.AssociationStatusCode
+import Network.AWS.EC2.Types.AthenaIntegration
 import Network.AWS.EC2.Types.AttachmentStatus
 import Network.AWS.EC2.Types.AttributeBooleanValue
 import Network.AWS.EC2.Types.AttributeValue
@@ -5360,6 +5652,8 @@ import Network.AWS.EC2.Types.BatchState
 import Network.AWS.EC2.Types.BgpStatus
 import Network.AWS.EC2.Types.BlobAttributeValue
 import Network.AWS.EC2.Types.BlockDeviceMapping
+import Network.AWS.EC2.Types.BootModeType
+import Network.AWS.EC2.Types.BootModeValues
 import Network.AWS.EC2.Types.BundleTask
 import Network.AWS.EC2.Types.BundleTaskError
 import Network.AWS.EC2.Types.BundleTaskState
@@ -5421,6 +5715,7 @@ import Network.AWS.EC2.Types.ConnectionLogResponseOptions
 import Network.AWS.EC2.Types.ConnectionNotification
 import Network.AWS.EC2.Types.ConnectionNotificationState
 import Network.AWS.EC2.Types.ConnectionNotificationType
+import Network.AWS.EC2.Types.ConnectivityType
 import Network.AWS.EC2.Types.ContainerFormat
 import Network.AWS.EC2.Types.ConversionTask
 import Network.AWS.EC2.Types.ConversionTaskState
@@ -5483,6 +5778,7 @@ import Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification
 import Network.AWS.EC2.Types.EbsNvmeSupport
 import Network.AWS.EC2.Types.EbsOptimizedInfo
 import Network.AWS.EC2.Types.EbsOptimizedSupport
+import Network.AWS.EC2.Types.EfaInfo
 import Network.AWS.EC2.Types.EgressOnlyInternetGateway
 import Network.AWS.EC2.Types.ElasticGpuAssociation
 import Network.AWS.EC2.Types.ElasticGpuHealth
@@ -5599,12 +5895,22 @@ import Network.AWS.EC2.Types.InstanceCapacity
 import Network.AWS.EC2.Types.InstanceCount
 import Network.AWS.EC2.Types.InstanceCreditSpecification
 import Network.AWS.EC2.Types.InstanceCreditSpecificationRequest
+import Network.AWS.EC2.Types.InstanceEventWindow
+import Network.AWS.EC2.Types.InstanceEventWindowAssociationRequest
+import Network.AWS.EC2.Types.InstanceEventWindowAssociationTarget
+import Network.AWS.EC2.Types.InstanceEventWindowDisassociationRequest
+import Network.AWS.EC2.Types.InstanceEventWindowState
+import Network.AWS.EC2.Types.InstanceEventWindowStateChange
+import Network.AWS.EC2.Types.InstanceEventWindowTimeRange
+import Network.AWS.EC2.Types.InstanceEventWindowTimeRangeRequest
 import Network.AWS.EC2.Types.InstanceExportDetails
 import Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
 import Network.AWS.EC2.Types.InstanceHealthStatus
 import Network.AWS.EC2.Types.InstanceInterruptionBehavior
+import Network.AWS.EC2.Types.InstanceIpv4Prefix
 import Network.AWS.EC2.Types.InstanceIpv6Address
 import Network.AWS.EC2.Types.InstanceIpv6AddressRequest
+import Network.AWS.EC2.Types.InstanceIpv6Prefix
 import Network.AWS.EC2.Types.InstanceLifecycle
 import Network.AWS.EC2.Types.InstanceLifecycleType
 import Network.AWS.EC2.Types.InstanceMarketOptionsRequest
@@ -5613,6 +5919,7 @@ import Network.AWS.EC2.Types.InstanceMetadataEndpointState
 import Network.AWS.EC2.Types.InstanceMetadataOptionsRequest
 import Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
 import Network.AWS.EC2.Types.InstanceMetadataOptionsState
+import Network.AWS.EC2.Types.InstanceMetadataProtocolState
 import Network.AWS.EC2.Types.InstanceMonitoring
 import Network.AWS.EC2.Types.InstanceNetworkInterface
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
@@ -5634,17 +5941,26 @@ import Network.AWS.EC2.Types.InstanceTypeHypervisor
 import Network.AWS.EC2.Types.InstanceTypeInfo
 import Network.AWS.EC2.Types.InstanceTypeOffering
 import Network.AWS.EC2.Types.InstanceUsage
+import Network.AWS.EC2.Types.IntegrateServices
 import Network.AWS.EC2.Types.InterfacePermissionType
+import Network.AWS.EC2.Types.InterfaceProtocolType
 import Network.AWS.EC2.Types.InternetGateway
 import Network.AWS.EC2.Types.InternetGatewayAttachment
 import Network.AWS.EC2.Types.IpPermission
 import Network.AWS.EC2.Types.IpRange
+import Network.AWS.EC2.Types.Ipv4PrefixSpecification
+import Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest
+import Network.AWS.EC2.Types.Ipv4PrefixSpecificationResponse
 import Network.AWS.EC2.Types.Ipv6CidrAssociation
 import Network.AWS.EC2.Types.Ipv6CidrBlock
 import Network.AWS.EC2.Types.Ipv6Pool
+import Network.AWS.EC2.Types.Ipv6PrefixSpecification
+import Network.AWS.EC2.Types.Ipv6PrefixSpecificationRequest
+import Network.AWS.EC2.Types.Ipv6PrefixSpecificationResponse
 import Network.AWS.EC2.Types.Ipv6Range
 import Network.AWS.EC2.Types.Ipv6SupportValue
 import Network.AWS.EC2.Types.KeyPairInfo
+import Network.AWS.EC2.Types.KeyType
 import Network.AWS.EC2.Types.LastError
 import Network.AWS.EC2.Types.LaunchPermission
 import Network.AWS.EC2.Types.LaunchPermissionModifications
@@ -5676,6 +5992,7 @@ import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
 import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptions
 import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
 import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
+import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
 import Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
 import Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 import Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
@@ -5753,6 +6070,7 @@ import Network.AWS.EC2.Types.OnDemandAllocationStrategy
 import Network.AWS.EC2.Types.OnDemandOptions
 import Network.AWS.EC2.Types.OnDemandOptionsRequest
 import Network.AWS.EC2.Types.OperationType
+import Network.AWS.EC2.Types.PartitionLoadFrequency
 import Network.AWS.EC2.Types.PathComponent
 import Network.AWS.EC2.Types.PaymentOption
 import Network.AWS.EC2.Types.PciId
@@ -5811,9 +6129,12 @@ import Network.AWS.EC2.Types.PurchaseRequest
 import Network.AWS.EC2.Types.RIProductDescription
 import Network.AWS.EC2.Types.RecurringCharge
 import Network.AWS.EC2.Types.RecurringChargeFrequency
+import Network.AWS.EC2.Types.ReferencedSecurityGroup
 import Network.AWS.EC2.Types.RegionInfo
 import Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest
 import Network.AWS.EC2.Types.RemovePrefixListEntry
+import Network.AWS.EC2.Types.ReplaceRootVolumeTask
+import Network.AWS.EC2.Types.ReplaceRootVolumeTaskState
 import Network.AWS.EC2.Types.ReplacementStrategy
 import Network.AWS.EC2.Types.ReportInstanceReasonCodes
 import Network.AWS.EC2.Types.ReportStatusType
@@ -5847,6 +6168,7 @@ import Network.AWS.EC2.Types.RouteTableAssociationState
 import Network.AWS.EC2.Types.RouteTableAssociationStateCode
 import Network.AWS.EC2.Types.RuleAction
 import Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
+import Network.AWS.EC2.Types.S3ObjectTag
 import Network.AWS.EC2.Types.S3Storage
 import Network.AWS.EC2.Types.ScheduledInstance
 import Network.AWS.EC2.Types.ScheduledInstanceAvailability
@@ -5865,6 +6187,10 @@ import Network.AWS.EC2.Types.Scope
 import Network.AWS.EC2.Types.SecurityGroup
 import Network.AWS.EC2.Types.SecurityGroupIdentifier
 import Network.AWS.EC2.Types.SecurityGroupReference
+import Network.AWS.EC2.Types.SecurityGroupRule
+import Network.AWS.EC2.Types.SecurityGroupRuleDescription
+import Network.AWS.EC2.Types.SecurityGroupRuleRequest
+import Network.AWS.EC2.Types.SecurityGroupRuleUpdate
 import Network.AWS.EC2.Types.SelfServicePortal
 import Network.AWS.EC2.Types.ServiceConfiguration
 import Network.AWS.EC2.Types.ServiceDetail
@@ -5910,10 +6236,13 @@ import Network.AWS.EC2.Types.StatusName
 import Network.AWS.EC2.Types.StatusType
 import Network.AWS.EC2.Types.Storage
 import Network.AWS.EC2.Types.StorageLocation
+import Network.AWS.EC2.Types.StoreImageTaskResult
 import Network.AWS.EC2.Types.Subnet
 import Network.AWS.EC2.Types.SubnetAssociation
 import Network.AWS.EC2.Types.SubnetCidrBlockState
 import Network.AWS.EC2.Types.SubnetCidrBlockStateCode
+import Network.AWS.EC2.Types.SubnetCidrReservation
+import Network.AWS.EC2.Types.SubnetCidrReservationType
 import Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation
 import Network.AWS.EC2.Types.SubnetState
 import Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
@@ -5992,6 +6321,7 @@ import Network.AWS.EC2.Types.TransitGatewayState
 import Network.AWS.EC2.Types.TransitGatewayVpcAttachment
 import Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
 import Network.AWS.EC2.Types.TransportProtocol
+import Network.AWS.EC2.Types.TrunkInterfaceAssociation
 import Network.AWS.EC2.Types.TunnelInsideIpVersion
 import Network.AWS.EC2.Types.TunnelOption
 import Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
@@ -6046,6 +6376,7 @@ import Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo
 import Network.AWS.EC2.Types.VpcState
 import Network.AWS.EC2.Types.VpcTenancy
 import Network.AWS.EC2.Types.VpnConnection
+import Network.AWS.EC2.Types.VpnConnectionDeviceType
 import Network.AWS.EC2.Types.VpnConnectionOptions
 import Network.AWS.EC2.Types.VpnConnectionOptionsSpecification
 import Network.AWS.EC2.Types.VpnEcmpSupportValue
@@ -6055,6 +6386,7 @@ import Network.AWS.EC2.Types.VpnState
 import Network.AWS.EC2.Types.VpnStaticRoute
 import Network.AWS.EC2.Types.VpnStaticRouteSource
 import Network.AWS.EC2.Types.VpnTunnelOptionsSpecification
+import Network.AWS.EC2.Types.WeekDay
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign

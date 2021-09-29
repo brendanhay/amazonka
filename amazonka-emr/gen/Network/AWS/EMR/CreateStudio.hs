@@ -27,14 +27,16 @@ module Network.AWS.EMR.CreateStudio
     newCreateStudio,
 
     -- * Request Lenses
+    createStudio_userRole,
+    createStudio_idpRelayStateParameterName,
     createStudio_tags,
+    createStudio_idpAuthUrl,
     createStudio_description,
     createStudio_name,
     createStudio_authMode,
     createStudio_vpcId,
     createStudio_subnetIds,
     createStudio_serviceRole,
-    createStudio_userRole,
     createStudio_workspaceSecurityGroupId,
     createStudio_engineSecurityGroupId,
     createStudio_defaultS3Location,
@@ -59,18 +61,34 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
-  { -- | A list of tags to associate with the Amazon EMR Studio. Tags are
+  { -- | The IAM user role that users and groups assume when logged in to an
+    -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+    -- Services SSO authentication. The permissions attached to the @UserRole@
+    -- can be scoped down for each user or group using session policies.
+    userRole :: Prelude.Maybe Prelude.Text,
+    -- | The name that your identity provider (IdP) uses for its @RelayState@
+    -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+    -- value when you use IAM authentication and want to let federated users
+    -- log in to a Studio using the Studio URL. The @RelayState@ parameter
+    -- differs by IdP.
+    idpRelayStateParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to associate with the Amazon EMR Studio. Tags are
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters, and an optional value string with a maximum
     -- of 256 characters.
     tags :: Prelude.Maybe [Tag],
+    -- | The authentication endpoint of your identity provider (IdP). Specify
+    -- this value when you use IAM authentication and want to let federated
+    -- users log in to a Studio with the Studio URL and credentials from your
+    -- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+    -- credentials.
+    idpAuthUrl :: Prelude.Maybe Prelude.Text,
     -- | A detailed description of the Amazon EMR Studio.
     description :: Prelude.Maybe Prelude.Text,
     -- | A descriptive name for the Amazon EMR Studio.
     name :: Prelude.Text,
-    -- | Specifies whether the Studio authenticates users using single sign-on
-    -- (SSO) or IAM. Amazon EMR Studio currently only supports SSO
-    -- authentication.
+    -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
+    -- Services SSO.
     authMode :: AuthMode,
     -- | The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
     -- with the Studio.
@@ -80,14 +98,10 @@ data CreateStudio = CreateStudio'
     -- specified by @VpcId@. Studio users can create a Workspace in any of the
     -- specified subnets.
     subnetIds :: [Prelude.Text],
-    -- | The IAM role that will be assumed by the Amazon EMR Studio. The service
-    -- role provides a way for Amazon EMR Studio to interoperate with other AWS
-    -- services.
+    -- | The IAM role that the Amazon EMR Studio assumes. The service role
+    -- provides a way for Amazon EMR Studio to interoperate with other Amazon
+    -- Web Services services.
     serviceRole :: Prelude.Text,
-    -- | The IAM user role that will be assumed by users and groups logged in to
-    -- an Amazon EMR Studio. The permissions attached to this IAM role can be
-    -- scoped down for each user or group using session policies.
-    userRole :: Prelude.Text,
     -- | The ID of the Amazon EMR Studio Workspace security group. The Workspace
     -- security group allows outbound network traffic to resources in the
     -- Engine security group, and it must be in the same VPC specified by
@@ -97,9 +111,8 @@ data CreateStudio = CreateStudio'
     -- security group allows inbound network traffic from the Workspace
     -- security group, and it must be in the same VPC specified by @VpcId@.
     engineSecurityGroupId :: Prelude.Text,
-    -- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
-    -- and notebook files. A Studio user can select an alternative Amazon S3
-    -- location when creating a Workspace.
+    -- | The Amazon S3 location to back up Amazon EMR Studio Workspaces and
+    -- notebook files.
     defaultS3Location :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,18 +125,34 @@ data CreateStudio = CreateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userRole', 'createStudio_userRole' - The IAM user role that users and groups assume when logged in to an
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+-- Services SSO authentication. The permissions attached to the @UserRole@
+-- can be scoped down for each user or group using session policies.
+--
+-- 'idpRelayStateParameterName', 'createStudio_idpRelayStateParameterName' - The name that your identity provider (IdP) uses for its @RelayState@
+-- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+-- value when you use IAM authentication and want to let federated users
+-- log in to a Studio using the Studio URL. The @RelayState@ parameter
+-- differs by IdP.
+--
 -- 'tags', 'createStudio_tags' - A list of tags to associate with the Amazon EMR Studio. Tags are
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters, and an optional value string with a maximum
 -- of 256 characters.
 --
+-- 'idpAuthUrl', 'createStudio_idpAuthUrl' - The authentication endpoint of your identity provider (IdP). Specify
+-- this value when you use IAM authentication and want to let federated
+-- users log in to a Studio with the Studio URL and credentials from your
+-- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+-- credentials.
+--
 -- 'description', 'createStudio_description' - A detailed description of the Amazon EMR Studio.
 --
 -- 'name', 'createStudio_name' - A descriptive name for the Amazon EMR Studio.
 --
--- 'authMode', 'createStudio_authMode' - Specifies whether the Studio authenticates users using single sign-on
--- (SSO) or IAM. Amazon EMR Studio currently only supports SSO
--- authentication.
+-- 'authMode', 'createStudio_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web
+-- Services SSO.
 --
 -- 'vpcId', 'createStudio_vpcId' - The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
 -- with the Studio.
@@ -133,13 +162,9 @@ data CreateStudio = CreateStudio'
 -- specified by @VpcId@. Studio users can create a Workspace in any of the
 -- specified subnets.
 --
--- 'serviceRole', 'createStudio_serviceRole' - The IAM role that will be assumed by the Amazon EMR Studio. The service
--- role provides a way for Amazon EMR Studio to interoperate with other AWS
--- services.
---
--- 'userRole', 'createStudio_userRole' - The IAM user role that will be assumed by users and groups logged in to
--- an Amazon EMR Studio. The permissions attached to this IAM role can be
--- scoped down for each user or group using session policies.
+-- 'serviceRole', 'createStudio_serviceRole' - The IAM role that the Amazon EMR Studio assumes. The service role
+-- provides a way for Amazon EMR Studio to interoperate with other Amazon
+-- Web Services services.
 --
 -- 'workspaceSecurityGroupId', 'createStudio_workspaceSecurityGroupId' - The ID of the Amazon EMR Studio Workspace security group. The Workspace
 -- security group allows outbound network traffic to resources in the
@@ -150,9 +175,8 @@ data CreateStudio = CreateStudio'
 -- security group allows inbound network traffic from the Workspace
 -- security group, and it must be in the same VPC specified by @VpcId@.
 --
--- 'defaultS3Location', 'createStudio_defaultS3Location' - The default Amazon S3 location to back up Amazon EMR Studio Workspaces
--- and notebook files. A Studio user can select an alternative Amazon S3
--- location when creating a Workspace.
+-- 'defaultS3Location', 'createStudio_defaultS3Location' - The Amazon S3 location to back up Amazon EMR Studio Workspaces and
+-- notebook files.
 newCreateStudio ::
   -- | 'name'
   Prelude.Text ->
@@ -161,8 +185,6 @@ newCreateStudio ::
   -- | 'vpcId'
   Prelude.Text ->
   -- | 'serviceRole'
-  Prelude.Text ->
-  -- | 'userRole'
   Prelude.Text ->
   -- | 'workspaceSecurityGroupId'
   Prelude.Text ->
@@ -176,24 +198,40 @@ newCreateStudio
   pAuthMode_
   pVpcId_
   pServiceRole_
-  pUserRole_
   pWorkspaceSecurityGroupId_
   pEngineSecurityGroupId_
   pDefaultS3Location_ =
     CreateStudio'
-      { tags = Prelude.Nothing,
+      { userRole = Prelude.Nothing,
+        idpRelayStateParameterName = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        idpAuthUrl = Prelude.Nothing,
         description = Prelude.Nothing,
         name = pName_,
         authMode = pAuthMode_,
         vpcId = pVpcId_,
         subnetIds = Prelude.mempty,
         serviceRole = pServiceRole_,
-        userRole = pUserRole_,
         workspaceSecurityGroupId =
           pWorkspaceSecurityGroupId_,
         engineSecurityGroupId = pEngineSecurityGroupId_,
         defaultS3Location = pDefaultS3Location_
       }
+
+-- | The IAM user role that users and groups assume when logged in to an
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+-- Services SSO authentication. The permissions attached to the @UserRole@
+-- can be scoped down for each user or group using session policies.
+createStudio_userRole :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
+
+-- | The name that your identity provider (IdP) uses for its @RelayState@
+-- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+-- value when you use IAM authentication and want to let federated users
+-- log in to a Studio using the Studio URL. The @RelayState@ parameter
+-- differs by IdP.
+createStudio_idpRelayStateParameterName :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_idpRelayStateParameterName = Lens.lens (\CreateStudio' {idpRelayStateParameterName} -> idpRelayStateParameterName) (\s@CreateStudio' {} a -> s {idpRelayStateParameterName = a} :: CreateStudio)
 
 -- | A list of tags to associate with the Amazon EMR Studio. Tags are
 -- user-defined key-value pairs that consist of a required key string with
@@ -201,6 +239,14 @@ newCreateStudio
 -- of 256 characters.
 createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
 createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The authentication endpoint of your identity provider (IdP). Specify
+-- this value when you use IAM authentication and want to let federated
+-- users log in to a Studio with the Studio URL and credentials from your
+-- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+-- credentials.
+createStudio_idpAuthUrl :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_idpAuthUrl = Lens.lens (\CreateStudio' {idpAuthUrl} -> idpAuthUrl) (\s@CreateStudio' {} a -> s {idpAuthUrl = a} :: CreateStudio)
 
 -- | A detailed description of the Amazon EMR Studio.
 createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
@@ -210,9 +256,8 @@ createStudio_description = Lens.lens (\CreateStudio' {description} -> descriptio
 createStudio_name :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_name = Lens.lens (\CreateStudio' {name} -> name) (\s@CreateStudio' {} a -> s {name = a} :: CreateStudio)
 
--- | Specifies whether the Studio authenticates users using single sign-on
--- (SSO) or IAM. Amazon EMR Studio currently only supports SSO
--- authentication.
+-- | Specifies whether the Studio authenticates users using IAM or Amazon Web
+-- Services SSO.
 createStudio_authMode :: Lens.Lens' CreateStudio AuthMode
 createStudio_authMode = Lens.lens (\CreateStudio' {authMode} -> authMode) (\s@CreateStudio' {} a -> s {authMode = a} :: CreateStudio)
 
@@ -228,17 +273,11 @@ createStudio_vpcId = Lens.lens (\CreateStudio' {vpcId} -> vpcId) (\s@CreateStudi
 createStudio_subnetIds :: Lens.Lens' CreateStudio [Prelude.Text]
 createStudio_subnetIds = Lens.lens (\CreateStudio' {subnetIds} -> subnetIds) (\s@CreateStudio' {} a -> s {subnetIds = a} :: CreateStudio) Prelude.. Lens._Coerce
 
--- | The IAM role that will be assumed by the Amazon EMR Studio. The service
--- role provides a way for Amazon EMR Studio to interoperate with other AWS
--- services.
+-- | The IAM role that the Amazon EMR Studio assumes. The service role
+-- provides a way for Amazon EMR Studio to interoperate with other Amazon
+-- Web Services services.
 createStudio_serviceRole :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_serviceRole = Lens.lens (\CreateStudio' {serviceRole} -> serviceRole) (\s@CreateStudio' {} a -> s {serviceRole = a} :: CreateStudio)
-
--- | The IAM user role that will be assumed by users and groups logged in to
--- an Amazon EMR Studio. The permissions attached to this IAM role can be
--- scoped down for each user or group using session policies.
-createStudio_userRole :: Lens.Lens' CreateStudio Prelude.Text
-createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
 
 -- | The ID of the Amazon EMR Studio Workspace security group. The Workspace
 -- security group allows outbound network traffic to resources in the
@@ -253,9 +292,8 @@ createStudio_workspaceSecurityGroupId = Lens.lens (\CreateStudio' {workspaceSecu
 createStudio_engineSecurityGroupId :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_engineSecurityGroupId = Lens.lens (\CreateStudio' {engineSecurityGroupId} -> engineSecurityGroupId) (\s@CreateStudio' {} a -> s {engineSecurityGroupId = a} :: CreateStudio)
 
--- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
--- and notebook files. A Studio user can select an alternative Amazon S3
--- location when creating a Workspace.
+-- | The Amazon S3 location to back up Amazon EMR Studio Workspaces and
+-- notebook files.
 createStudio_defaultS3Location :: Lens.Lens' CreateStudio Prelude.Text
 createStudio_defaultS3Location = Lens.lens (\CreateStudio' {defaultS3Location} -> defaultS3Location) (\s@CreateStudio' {} a -> s {defaultS3Location = a} :: CreateStudio)
 
@@ -294,14 +332,17 @@ instance Core.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("UserRole" Core..=) Prelude.<$> userRole,
+            ("IdpRelayStateParameterName" Core..=)
+              Prelude.<$> idpRelayStateParameterName,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("IdpAuthUrl" Core..=) Prelude.<$> idpAuthUrl,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("AuthMode" Core..= authMode),
             Prelude.Just ("VpcId" Core..= vpcId),
             Prelude.Just ("SubnetIds" Core..= subnetIds),
             Prelude.Just ("ServiceRole" Core..= serviceRole),
-            Prelude.Just ("UserRole" Core..= userRole),
             Prelude.Just
               ( "WorkspaceSecurityGroupId"
                   Core..= workspaceSecurityGroupId

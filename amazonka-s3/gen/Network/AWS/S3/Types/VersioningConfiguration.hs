@@ -29,7 +29,7 @@ import Network.AWS.S3.Types.MFADelete
 -- | Describes the versioning state of an Amazon S3 bucket. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html PUT Bucket versioning>
--- in the /Amazon Simple Storage Service API Reference/.
+-- in the /Amazon S3 API Reference/.
 --
 -- /See:/ 'newVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'

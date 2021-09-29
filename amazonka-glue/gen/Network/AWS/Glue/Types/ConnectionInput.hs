@@ -54,12 +54,12 @@ data ConnectionInput = ConnectionInput'
     --     an Amazon Virtual Private Cloud environment (Amazon VPC).
     --
     -- -   @MARKETPLACE@ - Uses configuration settings contained in a connector
-    --     purchased from AWS Marketplace to read from and write to data stores
-    --     that are not natively supported by AWS Glue.
+    --     purchased from Amazon Web Services Marketplace to read from and
+    --     write to data stores that are not natively supported by Glue.
     --
     -- -   @CUSTOM@ - Uses configuration settings contained in a custom
     --     connector to read from and write to data stores that are not
-    --     natively supported by AWS Glue.
+    --     natively supported by Glue.
     --
     -- SFTP is not supported.
     connectionType :: ConnectionType,
@@ -100,12 +100,12 @@ data ConnectionInput = ConnectionInput'
 --     an Amazon Virtual Private Cloud environment (Amazon VPC).
 --
 -- -   @MARKETPLACE@ - Uses configuration settings contained in a connector
---     purchased from AWS Marketplace to read from and write to data stores
---     that are not natively supported by AWS Glue.
+--     purchased from Amazon Web Services Marketplace to read from and
+--     write to data stores that are not natively supported by Glue.
 --
 -- -   @CUSTOM@ - Uses configuration settings contained in a custom
 --     connector to read from and write to data stores that are not
---     natively supported by AWS Glue.
+--     natively supported by Glue.
 --
 -- SFTP is not supported.
 --
@@ -159,12 +159,12 @@ connectionInput_name = Lens.lens (\ConnectionInput' {name} -> name) (\s@Connecti
 --     an Amazon Virtual Private Cloud environment (Amazon VPC).
 --
 -- -   @MARKETPLACE@ - Uses configuration settings contained in a connector
---     purchased from AWS Marketplace to read from and write to data stores
---     that are not natively supported by AWS Glue.
+--     purchased from Amazon Web Services Marketplace to read from and
+--     write to data stores that are not natively supported by Glue.
 --
 -- -   @CUSTOM@ - Uses configuration settings contained in a custom
 --     connector to read from and write to data stores that are not
---     natively supported by AWS Glue.
+--     natively supported by Glue.
 --
 -- SFTP is not supported.
 connectionInput_connectionType :: Lens.Lens' ConnectionInput ConnectionType

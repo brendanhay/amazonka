@@ -1,7 +1,7 @@
 cabal-version:      2.2
 name:               amazonka-emr
 version:            1.6.1
-synopsis:           Amazon Elastic MapReduce SDK.
+synopsis:           Amazon EMR SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
 license:            MPL-2.0
@@ -59,9 +59,11 @@ library
     Network.AWS.EMR.DeleteStudioSessionMapping
     Network.AWS.EMR.DescribeCluster
     Network.AWS.EMR.DescribeNotebookExecution
+    Network.AWS.EMR.DescribeReleaseLabel
     Network.AWS.EMR.DescribeSecurityConfiguration
     Network.AWS.EMR.DescribeStep
     Network.AWS.EMR.DescribeStudio
+    Network.AWS.EMR.GetAutoTerminationPolicy
     Network.AWS.EMR.GetBlockPublicAccessConfiguration
     Network.AWS.EMR.GetManagedScalingPolicy
     Network.AWS.EMR.GetStudioSessionMapping
@@ -72,6 +74,7 @@ library
     Network.AWS.EMR.ListInstanceGroups
     Network.AWS.EMR.ListInstances
     Network.AWS.EMR.ListNotebookExecutions
+    Network.AWS.EMR.ListReleaseLabels
     Network.AWS.EMR.ListSecurityConfigurations
     Network.AWS.EMR.ListSteps
     Network.AWS.EMR.ListStudios
@@ -80,9 +83,11 @@ library
     Network.AWS.EMR.ModifyInstanceFleet
     Network.AWS.EMR.ModifyInstanceGroups
     Network.AWS.EMR.PutAutoScalingPolicy
+    Network.AWS.EMR.PutAutoTerminationPolicy
     Network.AWS.EMR.PutBlockPublicAccessConfiguration
     Network.AWS.EMR.PutManagedScalingPolicy
     Network.AWS.EMR.RemoveAutoScalingPolicy
+    Network.AWS.EMR.RemoveAutoTerminationPolicy
     Network.AWS.EMR.RemoveManagedScalingPolicy
     Network.AWS.EMR.RemoveTags
     Network.AWS.EMR.RunJobFlow
@@ -102,6 +107,7 @@ library
     Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
     Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
     Network.AWS.EMR.Types.AutoScalingPolicyStatus
+    Network.AWS.EMR.Types.AutoTerminationPolicy
     Network.AWS.EMR.Types.BlockPublicAccessConfiguration
     Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
     Network.AWS.EMR.Types.BootstrapActionConfig
@@ -170,12 +176,16 @@ library
     Network.AWS.EMR.Types.NotebookExecution
     Network.AWS.EMR.Types.NotebookExecutionStatus
     Network.AWS.EMR.Types.NotebookExecutionSummary
+    Network.AWS.EMR.Types.OnDemandCapacityReservationOptions
+    Network.AWS.EMR.Types.OnDemandCapacityReservationPreference
+    Network.AWS.EMR.Types.OnDemandCapacityReservationUsageStrategy
     Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
     Network.AWS.EMR.Types.OnDemandProvisioningSpecification
     Network.AWS.EMR.Types.PlacementGroupConfig
     Network.AWS.EMR.Types.PlacementGroupStrategy
     Network.AWS.EMR.Types.PlacementType
     Network.AWS.EMR.Types.PortRange
+    Network.AWS.EMR.Types.ReleaseLabelFilter
     Network.AWS.EMR.Types.RepoUpgradeOnBoot
     Network.AWS.EMR.Types.ScaleDownBehavior
     Network.AWS.EMR.Types.ScalingAction
@@ -188,6 +198,7 @@ library
     Network.AWS.EMR.Types.SessionMappingSummary
     Network.AWS.EMR.Types.ShrinkPolicy
     Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
+    Network.AWS.EMR.Types.SimplifiedApplication
     Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
     Network.AWS.EMR.Types.SpotProvisioningSpecification
     Network.AWS.EMR.Types.SpotProvisioningTimeoutAction

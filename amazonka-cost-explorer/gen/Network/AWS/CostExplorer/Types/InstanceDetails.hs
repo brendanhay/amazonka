@@ -28,19 +28,25 @@ import Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Details about the instances that AWS recommends that you purchase.
+-- | Details about the instances that Amazon Web Services recommends that you
+-- purchase.
 --
 -- /See:/ 'newInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
-  { -- | The ElastiCache instances that AWS recommends that you purchase.
+  { -- | The ElastiCache instances that Amazon Web Services recommends that you
+    -- purchase.
     elastiCacheInstanceDetails :: Prelude.Maybe ElastiCacheInstanceDetails,
-    -- | The Amazon Redshift instances that AWS recommends that you purchase.
+    -- | The Amazon Redshift instances that Amazon Web Services recommends that
+    -- you purchase.
     redshiftInstanceDetails :: Prelude.Maybe RedshiftInstanceDetails,
-    -- | The Amazon ES instances that AWS recommends that you purchase.
+    -- | The Amazon ES instances that Amazon Web Services recommends that you
+    -- purchase.
     eSInstanceDetails :: Prelude.Maybe ESInstanceDetails,
-    -- | The Amazon EC2 instances that AWS recommends that you purchase.
+    -- | The Amazon EC2 instances that Amazon Web Services recommends that you
+    -- purchase.
     eC2InstanceDetails :: Prelude.Maybe EC2InstanceDetails,
-    -- | The Amazon RDS instances that AWS recommends that you purchase.
+    -- | The Amazon RDS instances that Amazon Web Services recommends that you
+    -- purchase.
     rDSInstanceDetails :: Prelude.Maybe RDSInstanceDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,15 +59,20 @@ data InstanceDetails = InstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'elastiCacheInstanceDetails', 'instanceDetails_elastiCacheInstanceDetails' - The ElastiCache instances that AWS recommends that you purchase.
+-- 'elastiCacheInstanceDetails', 'instanceDetails_elastiCacheInstanceDetails' - The ElastiCache instances that Amazon Web Services recommends that you
+-- purchase.
 --
--- 'redshiftInstanceDetails', 'instanceDetails_redshiftInstanceDetails' - The Amazon Redshift instances that AWS recommends that you purchase.
+-- 'redshiftInstanceDetails', 'instanceDetails_redshiftInstanceDetails' - The Amazon Redshift instances that Amazon Web Services recommends that
+-- you purchase.
 --
--- 'eSInstanceDetails', 'instanceDetails_eSInstanceDetails' - The Amazon ES instances that AWS recommends that you purchase.
+-- 'eSInstanceDetails', 'instanceDetails_eSInstanceDetails' - The Amazon ES instances that Amazon Web Services recommends that you
+-- purchase.
 --
--- 'eC2InstanceDetails', 'instanceDetails_eC2InstanceDetails' - The Amazon EC2 instances that AWS recommends that you purchase.
+-- 'eC2InstanceDetails', 'instanceDetails_eC2InstanceDetails' - The Amazon EC2 instances that Amazon Web Services recommends that you
+-- purchase.
 --
--- 'rDSInstanceDetails', 'instanceDetails_rDSInstanceDetails' - The Amazon RDS instances that AWS recommends that you purchase.
+-- 'rDSInstanceDetails', 'instanceDetails_rDSInstanceDetails' - The Amazon RDS instances that Amazon Web Services recommends that you
+-- purchase.
 newInstanceDetails ::
   InstanceDetails
 newInstanceDetails =
@@ -74,23 +85,28 @@ newInstanceDetails =
       rDSInstanceDetails = Prelude.Nothing
     }
 
--- | The ElastiCache instances that AWS recommends that you purchase.
+-- | The ElastiCache instances that Amazon Web Services recommends that you
+-- purchase.
 instanceDetails_elastiCacheInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe ElastiCacheInstanceDetails)
 instanceDetails_elastiCacheInstanceDetails = Lens.lens (\InstanceDetails' {elastiCacheInstanceDetails} -> elastiCacheInstanceDetails) (\s@InstanceDetails' {} a -> s {elastiCacheInstanceDetails = a} :: InstanceDetails)
 
--- | The Amazon Redshift instances that AWS recommends that you purchase.
+-- | The Amazon Redshift instances that Amazon Web Services recommends that
+-- you purchase.
 instanceDetails_redshiftInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe RedshiftInstanceDetails)
 instanceDetails_redshiftInstanceDetails = Lens.lens (\InstanceDetails' {redshiftInstanceDetails} -> redshiftInstanceDetails) (\s@InstanceDetails' {} a -> s {redshiftInstanceDetails = a} :: InstanceDetails)
 
--- | The Amazon ES instances that AWS recommends that you purchase.
+-- | The Amazon ES instances that Amazon Web Services recommends that you
+-- purchase.
 instanceDetails_eSInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe ESInstanceDetails)
 instanceDetails_eSInstanceDetails = Lens.lens (\InstanceDetails' {eSInstanceDetails} -> eSInstanceDetails) (\s@InstanceDetails' {} a -> s {eSInstanceDetails = a} :: InstanceDetails)
 
--- | The Amazon EC2 instances that AWS recommends that you purchase.
+-- | The Amazon EC2 instances that Amazon Web Services recommends that you
+-- purchase.
 instanceDetails_eC2InstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe EC2InstanceDetails)
 instanceDetails_eC2InstanceDetails = Lens.lens (\InstanceDetails' {eC2InstanceDetails} -> eC2InstanceDetails) (\s@InstanceDetails' {} a -> s {eC2InstanceDetails = a} :: InstanceDetails)
 
--- | The Amazon RDS instances that AWS recommends that you purchase.
+-- | The Amazon RDS instances that Amazon Web Services recommends that you
+-- purchase.
 instanceDetails_rDSInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe RDSInstanceDetails)
 instanceDetails_rDSInstanceDetails = Lens.lens (\InstanceDetails' {rDSInstanceDetails} -> rDSInstanceDetails) (\s@InstanceDetails' {} a -> s {rDSInstanceDetails = a} :: InstanceDetails)
 

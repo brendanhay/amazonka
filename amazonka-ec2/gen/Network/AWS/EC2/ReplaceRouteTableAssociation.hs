@@ -24,7 +24,7 @@
 -- gateway, or virtual private gateway in a VPC. After the operation
 -- completes, the subnet or gateway uses the routes in the new route table.
 -- For more information about route tables, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route Tables>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- You can also use this operation to change which table is the main route

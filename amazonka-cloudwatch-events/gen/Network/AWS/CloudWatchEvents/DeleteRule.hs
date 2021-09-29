@@ -23,16 +23,20 @@
 -- Deletes the specified rule.
 --
 -- Before you can delete the rule, you must remove all targets, using
--- RemoveTargets.
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html RemoveTargets>.
 --
 -- When you delete a rule, incoming events might continue to match to the
 -- deleted rule. Allow a short period of time for changes to take effect.
 --
--- Managed rules are rules created and managed by another AWS service on
--- your behalf. These rules are created by those other AWS services to
--- support functionality in those services. You can delete these rules
--- using the @Force@ option, but you should do so only if you are sure the
--- other service is not still using that rule.
+-- If you call delete rule multiple times for the same rule, all calls will
+-- succeed. When you call delete rule for a non-existent custom eventbus,
+-- @ResourceNotFoundException@ is returned.
+--
+-- Managed rules are rules created and managed by another Amazon Web
+-- Services service on your behalf. These rules are created by those other
+-- Amazon Web Services services to support functionality in those services.
+-- You can delete these rules using the @Force@ option, but you should do
+-- so only if you are sure the other service is not still using that rule.
 module Network.AWS.CloudWatchEvents.DeleteRule
   ( -- * Creating a Request
     DeleteRule (..),
@@ -58,11 +62,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { -- | If this is a managed rule, created by an AWS service on your behalf, you
-    -- must specify @Force@ as @True@ to delete the rule. This parameter is
-    -- ignored for rules that are not managed rules. You can check whether a
-    -- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
-    -- checking the @ManagedBy@ field of the response.
+  { -- | If this is a managed rule, created by an Amazon Web Services service on
+    -- your behalf, you must specify @Force@ as @True@ to delete the rule. This
+    -- parameter is ignored for rules that are not managed rules. You can check
+    -- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+    -- and checking the @ManagedBy@ field of the response.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
@@ -80,11 +84,11 @@ data DeleteRule = DeleteRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteRule_force' - If this is a managed rule, created by an AWS service on your behalf, you
--- must specify @Force@ as @True@ to delete the rule. This parameter is
--- ignored for rules that are not managed rules. You can check whether a
--- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
--- checking the @ManagedBy@ field of the response.
+-- 'force', 'deleteRule_force' - If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, you must specify @Force@ as @True@ to delete the rule. This
+-- parameter is ignored for rules that are not managed rules. You can check
+-- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+-- and checking the @ManagedBy@ field of the response.
 --
 -- 'eventBusName', 'deleteRule_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
@@ -101,11 +105,11 @@ newDeleteRule pName_ =
       name = pName_
     }
 
--- | If this is a managed rule, created by an AWS service on your behalf, you
--- must specify @Force@ as @True@ to delete the rule. This parameter is
--- ignored for rules that are not managed rules. You can check whether a
--- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
--- checking the @ManagedBy@ field of the response.
+-- | If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, you must specify @Force@ as @True@ to delete the rule. This
+-- parameter is ignored for rules that are not managed rules. You can check
+-- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+-- and checking the @ManagedBy@ field of the response.
 deleteRule_force :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Bool)
 deleteRule_force = Lens.lens (\DeleteRule' {force} -> force) (\s@DeleteRule' {} a -> s {force = a} :: DeleteRule)
 

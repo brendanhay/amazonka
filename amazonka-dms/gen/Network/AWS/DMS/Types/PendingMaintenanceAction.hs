@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a maintenance action pending for an AWS DMS resource,
--- including when and how it will be applied. This data type is a response
--- element to the @DescribePendingMaintenanceActions@ operation.
+-- | Describes a maintenance action pending for an DMS resource, including
+-- when and how it will be applied. This data type is a response element to
+-- the @DescribePendingMaintenanceActions@ operation.
 --
 -- /See:/ 'newPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'

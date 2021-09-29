@@ -25,11 +25,10 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | An event bus receives events from a source and routes them to rules
 -- associated with that event bus. Your account\'s default event bus
--- receives rules from AWS services. A custom event bus can receive rules
--- from AWS services as well as your custom applications and services. A
--- partner event bus receives events from an event source created by an
--- SaaS partner. These events come from the partners services or
--- applications.
+-- receives events from Amazon Web Services services. A custom event bus
+-- can receive events from your custom applications and services. A partner
+-- event bus receives events from an event source created by an SaaS
+-- partner. These events come from the partners services or applications.
 --
 -- /See:/ 'newEventBus' smart constructor.
 data EventBus = EventBus'
@@ -37,8 +36,8 @@ data EventBus = EventBus'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The permissions policy of the event bus, describing which other AWS
-    -- accounts can write events to this event bus.
+    -- | The permissions policy of the event bus, describing which other Amazon
+    -- Web Services accounts can write events to this event bus.
     policy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +54,8 @@ data EventBus = EventBus'
 --
 -- 'name', 'eventBus_name' - The name of the event bus.
 --
--- 'policy', 'eventBus_policy' - The permissions policy of the event bus, describing which other AWS
--- accounts can write events to this event bus.
+-- 'policy', 'eventBus_policy' - The permissions policy of the event bus, describing which other Amazon
+-- Web Services accounts can write events to this event bus.
 newEventBus ::
   EventBus
 newEventBus =
@@ -74,8 +73,8 @@ eventBus_arn = Lens.lens (\EventBus' {arn} -> arn) (\s@EventBus' {} a -> s {arn 
 eventBus_name :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_name = Lens.lens (\EventBus' {name} -> name) (\s@EventBus' {} a -> s {name = a} :: EventBus)
 
--- | The permissions policy of the event bus, describing which other AWS
--- accounts can write events to this event bus.
+-- | The permissions policy of the event bus, describing which other Amazon
+-- Web Services accounts can write events to this event bus.
 eventBus_policy :: Lens.Lens' EventBus (Prelude.Maybe Prelude.Text)
 eventBus_policy = Lens.lens (\EventBus' {policy} -> policy) (\s@EventBus' {} a -> s {policy = a} :: EventBus)
 

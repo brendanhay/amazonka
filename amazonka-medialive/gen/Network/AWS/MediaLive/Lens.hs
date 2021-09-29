@@ -14,6 +14,72 @@
 module Network.AWS.MediaLive.Lens
   ( -- * Operations
 
+    -- ** ListInputDevices
+    listInputDevices_nextToken,
+    listInputDevices_maxResults,
+    listInputDevicesResponse_nextToken,
+    listInputDevicesResponse_inputDevices,
+    listInputDevicesResponse_httpStatus,
+
+    -- ** DeleteInput
+    deleteInput_inputId,
+    deleteInputResponse_httpStatus,
+
+    -- ** UpdateInputDevice
+    updateInputDevice'_uhdDeviceSettings,
+    updateInputDevice'_hdDeviceSettings,
+    updateInputDevice'_name,
+    updateInputDevice'_inputDeviceId,
+    updateInputDeviceResponse_uhdDeviceSettings,
+    updateInputDeviceResponse_macAddress,
+    updateInputDeviceResponse_hdDeviceSettings,
+    updateInputDeviceResponse_connectionState,
+    updateInputDeviceResponse_networkSettings,
+    updateInputDeviceResponse_deviceUpdateStatus,
+    updateInputDeviceResponse_arn,
+    updateInputDeviceResponse_id,
+    updateInputDeviceResponse_name,
+    updateInputDeviceResponse_serialNumber,
+    updateInputDeviceResponse_type,
+    updateInputDeviceResponse_deviceSettingsSyncState,
+    updateInputDeviceResponse_httpStatus,
+
+    -- ** CreateChannel
+    createChannel'_roleArn,
+    createChannel'_encoderSettings,
+    createChannel'_inputSpecification,
+    createChannel'_channelClass,
+    createChannel'_logLevel,
+    createChannel'_name,
+    createChannel'_destinations,
+    createChannel'_inputAttachments,
+    createChannel'_reserved,
+    createChannel'_requestId,
+    createChannel'_tags,
+    createChannel'_vpc,
+    createChannel'_cdiInputSpecification,
+    createChannelResponse_channel,
+    createChannelResponse_httpStatus,
+
+    -- ** UpdateInput
+    updateInput'_inputSecurityGroups,
+    updateInput'_roleArn,
+    updateInput'_sources,
+    updateInput'_mediaConnectFlows,
+    updateInput'_name,
+    updateInput'_destinations,
+    updateInput'_inputDevices,
+    updateInput'_inputId,
+    updateInputResponse_input,
+    updateInputResponse_httpStatus,
+
+    -- ** ListInputs
+    listInputs_nextToken,
+    listInputs_maxResults,
+    listInputsResponse_nextToken,
+    listInputsResponse_inputs,
+    listInputsResponse_httpStatus,
+
     -- ** DescribeInputDeviceThumbnail
     describeInputDeviceThumbnail_inputDeviceId,
     describeInputDeviceThumbnail_accept,
@@ -23,80 +89,6 @@ module Network.AWS.MediaLive.Lens
     describeInputDeviceThumbnailResponse_lastModified,
     describeInputDeviceThumbnailResponse_httpStatus,
     describeInputDeviceThumbnailResponse_body,
-
-    -- ** UpdateInputDevice
-    updateInputDevice'_uhdDeviceSettings,
-    updateInputDevice'_hdDeviceSettings,
-    updateInputDevice'_name,
-    updateInputDevice'_inputDeviceId,
-    updateInputDeviceResponse_uhdDeviceSettings,
-    updateInputDeviceResponse_hdDeviceSettings,
-    updateInputDeviceResponse_macAddress,
-    updateInputDeviceResponse_connectionState,
-    updateInputDeviceResponse_networkSettings,
-    updateInputDeviceResponse_arn,
-    updateInputDeviceResponse_id,
-    updateInputDeviceResponse_deviceUpdateStatus,
-    updateInputDeviceResponse_name,
-    updateInputDeviceResponse_serialNumber,
-    updateInputDeviceResponse_type,
-    updateInputDeviceResponse_deviceSettingsSyncState,
-    updateInputDeviceResponse_httpStatus,
-
-    -- ** ListInputs
-    listInputs_nextToken,
-    listInputs_maxResults,
-    listInputsResponse_nextToken,
-    listInputsResponse_inputs,
-    listInputsResponse_httpStatus,
-
-    -- ** CreateChannel
-    createChannel'_encoderSettings,
-    createChannel'_roleArn,
-    createChannel'_inputSpecification,
-    createChannel'_channelClass,
-    createChannel'_logLevel,
-    createChannel'_destinations,
-    createChannel'_name,
-    createChannel'_reserved,
-    createChannel'_requestId,
-    createChannel'_inputAttachments,
-    createChannel'_tags,
-    createChannel'_vpc,
-    createChannel'_cdiInputSpecification,
-    createChannelResponse_channel,
-    createChannelResponse_httpStatus,
-
-    -- ** DeleteInput
-    deleteInput_inputId,
-    deleteInputResponse_httpStatus,
-
-    -- ** ListInputDevices
-    listInputDevices_nextToken,
-    listInputDevices_maxResults,
-    listInputDevicesResponse_nextToken,
-    listInputDevicesResponse_inputDevices,
-    listInputDevicesResponse_httpStatus,
-
-    -- ** UpdateInput
-    updateInput'_inputSecurityGroups,
-    updateInput'_roleArn,
-    updateInput'_sources,
-    updateInput'_mediaConnectFlows,
-    updateInput'_destinations,
-    updateInput'_name,
-    updateInput'_inputDevices,
-    updateInput'_inputId,
-    updateInputResponse_input,
-    updateInputResponse_httpStatus,
-
-    -- ** ListInputDeviceTransfers
-    listInputDeviceTransfers_nextToken,
-    listInputDeviceTransfers_maxResults,
-    listInputDeviceTransfers_transferType,
-    listInputDeviceTransfersResponse_nextToken,
-    listInputDeviceTransfersResponse_inputDeviceTransfers,
-    listInputDeviceTransfersResponse_httpStatus,
 
     -- ** BatchStop
     batchStop'_multiplexIds,
@@ -119,29 +111,30 @@ module Network.AWS.MediaLive.Lens
     batchStartResponse_failed,
     batchStartResponse_httpStatus,
 
+    -- ** ListInputDeviceTransfers
+    listInputDeviceTransfers_nextToken,
+    listInputDeviceTransfers_maxResults,
+    listInputDeviceTransfers_transferType,
+    listInputDeviceTransfersResponse_nextToken,
+    listInputDeviceTransfersResponse_inputDeviceTransfers,
+    listInputDeviceTransfersResponse_httpStatus,
+
     -- ** ListOfferings
     listOfferings_maximumFramerate,
     listOfferings_nextToken,
     listOfferings_videoQuality,
-    listOfferings_duration,
     listOfferings_maxResults,
+    listOfferings_duration,
     listOfferings_codec,
     listOfferings_channelConfiguration,
     listOfferings_maximumBitrate,
-    listOfferings_specialFeature,
     listOfferings_channelClass,
+    listOfferings_specialFeature,
     listOfferings_resourceType,
     listOfferings_resolution,
     listOfferingsResponse_nextToken,
     listOfferingsResponse_offerings,
     listOfferingsResponse_httpStatus,
-
-    -- ** UpdateMultiplex
-    updateMultiplex'_name,
-    updateMultiplex'_multiplexSettings,
-    updateMultiplex'_multiplexId,
-    updateMultiplexResponse_multiplex,
-    updateMultiplexResponse_httpStatus,
 
     -- ** DeleteMultiplex
     deleteMultiplex_multiplexId,
@@ -149,17 +142,20 @@ module Network.AWS.MediaLive.Lens
     deleteMultiplexResponse_arn,
     deleteMultiplexResponse_id,
     deleteMultiplexResponse_pipelinesRunningCount,
-    deleteMultiplexResponse_programCount,
-    deleteMultiplexResponse_destinations,
-    deleteMultiplexResponse_state,
     deleteMultiplexResponse_name,
+    deleteMultiplexResponse_destinations,
+    deleteMultiplexResponse_programCount,
+    deleteMultiplexResponse_state,
     deleteMultiplexResponse_tags,
     deleteMultiplexResponse_multiplexSettings,
     deleteMultiplexResponse_httpStatus,
 
-    -- ** DeleteInputSecurityGroup
-    deleteInputSecurityGroup_inputSecurityGroupId,
-    deleteInputSecurityGroupResponse_httpStatus,
+    -- ** UpdateMultiplex
+    updateMultiplex'_name,
+    updateMultiplex'_multiplexSettings,
+    updateMultiplex'_multiplexId,
+    updateMultiplexResponse_multiplex,
+    updateMultiplexResponse_httpStatus,
 
     -- ** UpdateInputSecurityGroup
     updateInputSecurityGroup_tags,
@@ -171,29 +167,34 @@ module Network.AWS.MediaLive.Lens
     -- ** ListInputSecurityGroups
     listInputSecurityGroups_nextToken,
     listInputSecurityGroups_maxResults,
-    listInputSecurityGroupsResponse_nextToken,
     listInputSecurityGroupsResponse_inputSecurityGroups,
+    listInputSecurityGroupsResponse_nextToken,
     listInputSecurityGroupsResponse_httpStatus,
 
-    -- ** DescribeInput
-    describeInput_inputId,
-    describeInputResponse_roleArn,
-    describeInputResponse_sources,
-    describeInputResponse_inputPartnerIds,
-    describeInputResponse_inputSourceType,
-    describeInputResponse_mediaConnectFlows,
-    describeInputResponse_arn,
-    describeInputResponse_id,
-    describeInputResponse_securityGroups,
-    describeInputResponse_destinations,
-    describeInputResponse_state,
-    describeInputResponse_name,
-    describeInputResponse_tags,
-    describeInputResponse_type,
-    describeInputResponse_inputClass,
-    describeInputResponse_inputDevices,
-    describeInputResponse_attachedChannels,
-    describeInputResponse_httpStatus,
+    -- ** DeleteInputSecurityGroup
+    deleteInputSecurityGroup_inputSecurityGroupId,
+    deleteInputSecurityGroupResponse_httpStatus,
+
+    -- ** StartChannel
+    startChannel_channelId,
+    startChannelResponse_roleArn,
+    startChannelResponse_encoderSettings,
+    startChannelResponse_inputSpecification,
+    startChannelResponse_arn,
+    startChannelResponse_id,
+    startChannelResponse_pipelinesRunningCount,
+    startChannelResponse_channelClass,
+    startChannelResponse_logLevel,
+    startChannelResponse_name,
+    startChannelResponse_destinations,
+    startChannelResponse_state,
+    startChannelResponse_inputAttachments,
+    startChannelResponse_tags,
+    startChannelResponse_pipelineDetails,
+    startChannelResponse_vpc,
+    startChannelResponse_cdiInputSpecification,
+    startChannelResponse_egressEndpoints,
+    startChannelResponse_httpStatus,
 
     -- ** CreateInputSecurityGroup
     createInputSecurityGroup_tags,
@@ -201,37 +202,16 @@ module Network.AWS.MediaLive.Lens
     createInputSecurityGroupResponse_securityGroup,
     createInputSecurityGroupResponse_httpStatus,
 
-    -- ** StartChannel
-    startChannel_channelId,
-    startChannelResponse_encoderSettings,
-    startChannelResponse_roleArn,
-    startChannelResponse_inputSpecification,
-    startChannelResponse_arn,
-    startChannelResponse_id,
-    startChannelResponse_pipelinesRunningCount,
-    startChannelResponse_channelClass,
-    startChannelResponse_logLevel,
-    startChannelResponse_destinations,
-    startChannelResponse_state,
-    startChannelResponse_name,
-    startChannelResponse_inputAttachments,
-    startChannelResponse_tags,
-    startChannelResponse_pipelineDetails,
-    startChannelResponse_egressEndpoints,
-    startChannelResponse_vpc,
-    startChannelResponse_cdiInputSpecification,
-    startChannelResponse_httpStatus,
-
     -- ** DescribeInputDevice
     describeInputDevice_inputDeviceId,
     describeInputDeviceResponse_uhdDeviceSettings,
-    describeInputDeviceResponse_hdDeviceSettings,
     describeInputDeviceResponse_macAddress,
+    describeInputDeviceResponse_hdDeviceSettings,
     describeInputDeviceResponse_connectionState,
     describeInputDeviceResponse_networkSettings,
+    describeInputDeviceResponse_deviceUpdateStatus,
     describeInputDeviceResponse_arn,
     describeInputDeviceResponse_id,
-    describeInputDeviceResponse_deviceUpdateStatus,
     describeInputDeviceResponse_name,
     describeInputDeviceResponse_serialNumber,
     describeInputDeviceResponse_type,
@@ -240,24 +220,44 @@ module Network.AWS.MediaLive.Lens
 
     -- ** StopChannel
     stopChannel_channelId,
-    stopChannelResponse_encoderSettings,
     stopChannelResponse_roleArn,
+    stopChannelResponse_encoderSettings,
     stopChannelResponse_inputSpecification,
     stopChannelResponse_arn,
     stopChannelResponse_id,
     stopChannelResponse_pipelinesRunningCount,
     stopChannelResponse_channelClass,
     stopChannelResponse_logLevel,
+    stopChannelResponse_name,
     stopChannelResponse_destinations,
     stopChannelResponse_state,
-    stopChannelResponse_name,
     stopChannelResponse_inputAttachments,
     stopChannelResponse_tags,
     stopChannelResponse_pipelineDetails,
-    stopChannelResponse_egressEndpoints,
     stopChannelResponse_vpc,
     stopChannelResponse_cdiInputSpecification,
+    stopChannelResponse_egressEndpoints,
     stopChannelResponse_httpStatus,
+
+    -- ** DescribeInput
+    describeInput_inputId,
+    describeInputResponse_roleArn,
+    describeInputResponse_inputPartnerIds,
+    describeInputResponse_sources,
+    describeInputResponse_mediaConnectFlows,
+    describeInputResponse_inputSourceType,
+    describeInputResponse_arn,
+    describeInputResponse_id,
+    describeInputResponse_securityGroups,
+    describeInputResponse_name,
+    describeInputResponse_destinations,
+    describeInputResponse_state,
+    describeInputResponse_tags,
+    describeInputResponse_inputClass,
+    describeInputResponse_type,
+    describeInputResponse_inputDevices,
+    describeInputResponse_attachedChannels,
+    describeInputResponse_httpStatus,
 
     -- ** DeleteTags
     deleteTags_tagKeys,
@@ -270,6 +270,49 @@ module Network.AWS.MediaLive.Lens
     batchUpdateScheduleResponse_deletes,
     batchUpdateScheduleResponse_creates,
     batchUpdateScheduleResponse_httpStatus,
+
+    -- ** DescribeReservation
+    describeReservation_reservationId,
+    describeReservationResponse_end,
+    describeReservationResponse_duration,
+    describeReservationResponse_durationUnits,
+    describeReservationResponse_arn,
+    describeReservationResponse_offeringId,
+    describeReservationResponse_currencyCode,
+    describeReservationResponse_name,
+    describeReservationResponse_resourceSpecification,
+    describeReservationResponse_state,
+    describeReservationResponse_tags,
+    describeReservationResponse_offeringDescription,
+    describeReservationResponse_fixedPrice,
+    describeReservationResponse_count,
+    describeReservationResponse_usagePrice,
+    describeReservationResponse_offeringType,
+    describeReservationResponse_region,
+    describeReservationResponse_start,
+    describeReservationResponse_reservationId,
+    describeReservationResponse_httpStatus,
+
+    -- ** UpdateMultiplexProgram
+    updateMultiplexProgram'_multiplexProgramSettings,
+    updateMultiplexProgram'_multiplexId,
+    updateMultiplexProgram'_programName,
+    updateMultiplexProgramResponse_multiplexProgram,
+    updateMultiplexProgramResponse_httpStatus,
+
+    -- ** AcceptInputDeviceTransfer
+    acceptInputDeviceTransfer_inputDeviceId,
+    acceptInputDeviceTransferResponse_httpStatus,
+
+    -- ** DeleteMultiplexProgram
+    deleteMultiplexProgram_multiplexId,
+    deleteMultiplexProgram_programName,
+    deleteMultiplexProgramResponse_packetIdentifiersMap,
+    deleteMultiplexProgramResponse_multiplexProgramSettings,
+    deleteMultiplexProgramResponse_channelId,
+    deleteMultiplexProgramResponse_programName,
+    deleteMultiplexProgramResponse_pipelineDetails,
+    deleteMultiplexProgramResponse_httpStatus,
 
     -- ** DescribeOffering
     describeOffering_offeringId,
@@ -286,48 +329,9 @@ module Network.AWS.MediaLive.Lens
     describeOfferingResponse_region,
     describeOfferingResponse_httpStatus,
 
-    -- ** AcceptInputDeviceTransfer
-    acceptInputDeviceTransfer_inputDeviceId,
-    acceptInputDeviceTransferResponse_httpStatus,
-
-    -- ** DeleteMultiplexProgram
-    deleteMultiplexProgram_multiplexId,
-    deleteMultiplexProgram_programName,
-    deleteMultiplexProgramResponse_packetIdentifiersMap,
-    deleteMultiplexProgramResponse_multiplexProgramSettings,
-    deleteMultiplexProgramResponse_channelId,
-    deleteMultiplexProgramResponse_programName,
-    deleteMultiplexProgramResponse_pipelineDetails,
-    deleteMultiplexProgramResponse_httpStatus,
-
-    -- ** UpdateMultiplexProgram
-    updateMultiplexProgram'_multiplexProgramSettings,
-    updateMultiplexProgram'_multiplexId,
-    updateMultiplexProgram'_programName,
-    updateMultiplexProgramResponse_multiplexProgram,
-    updateMultiplexProgramResponse_httpStatus,
-
-    -- ** DescribeReservation
-    describeReservation_reservationId,
-    describeReservationResponse_end,
-    describeReservationResponse_duration,
-    describeReservationResponse_durationUnits,
-    describeReservationResponse_arn,
-    describeReservationResponse_offeringId,
-    describeReservationResponse_currencyCode,
-    describeReservationResponse_resourceSpecification,
-    describeReservationResponse_state,
-    describeReservationResponse_name,
-    describeReservationResponse_tags,
-    describeReservationResponse_offeringDescription,
-    describeReservationResponse_count,
-    describeReservationResponse_fixedPrice,
-    describeReservationResponse_usagePrice,
-    describeReservationResponse_offeringType,
-    describeReservationResponse_region,
-    describeReservationResponse_start,
-    describeReservationResponse_reservationId,
-    describeReservationResponse_httpStatus,
+    -- ** RejectInputDeviceTransfer
+    rejectInputDeviceTransfer_inputDeviceId,
+    rejectInputDeviceTransferResponse_httpStatus,
 
     -- ** DescribeInputSecurityGroup
     describeInputSecurityGroup_inputSecurityGroupId,
@@ -346,9 +350,23 @@ module Network.AWS.MediaLive.Lens
     listChannelsResponse_channels,
     listChannelsResponse_httpStatus,
 
-    -- ** RejectInputDeviceTransfer
-    rejectInputDeviceTransfer_inputDeviceId,
-    rejectInputDeviceTransferResponse_httpStatus,
+    -- ** DeleteSchedule
+    deleteSchedule_channelId,
+    deleteScheduleResponse_httpStatus,
+
+    -- ** CreatePartnerInput
+    createPartnerInput'_requestId,
+    createPartnerInput'_tags,
+    createPartnerInput'_inputId,
+    createPartnerInputResponse_input,
+    createPartnerInputResponse_httpStatus,
+
+    -- ** ListMultiplexes
+    listMultiplexes_nextToken,
+    listMultiplexes_maxResults,
+    listMultiplexesResponse_nextToken,
+    listMultiplexesResponse_multiplexes,
+    listMultiplexesResponse_httpStatus,
 
     -- ** CreateMultiplex
     createMultiplex'_tags,
@@ -359,30 +377,6 @@ module Network.AWS.MediaLive.Lens
     createMultiplexResponse_multiplex,
     createMultiplexResponse_httpStatus,
 
-    -- ** CreatePartnerInput
-    createPartnerInput'_requestId,
-    createPartnerInput'_tags,
-    createPartnerInput'_inputId,
-    createPartnerInputResponse_input,
-    createPartnerInputResponse_httpStatus,
-
-    -- ** DeleteSchedule
-    deleteSchedule_channelId,
-    deleteScheduleResponse_httpStatus,
-
-    -- ** ListMultiplexes
-    listMultiplexes_nextToken,
-    listMultiplexes_maxResults,
-    listMultiplexesResponse_nextToken,
-    listMultiplexesResponse_multiplexes,
-    listMultiplexesResponse_httpStatus,
-
-    -- ** UpdateReservation
-    updateReservation'_name,
-    updateReservation'_reservationId,
-    updateReservationResponse_reservation,
-    updateReservationResponse_httpStatus,
-
     -- ** DeleteReservation
     deleteReservation_reservationId,
     deleteReservationResponse_end,
@@ -391,19 +385,25 @@ module Network.AWS.MediaLive.Lens
     deleteReservationResponse_arn,
     deleteReservationResponse_offeringId,
     deleteReservationResponse_currencyCode,
+    deleteReservationResponse_name,
     deleteReservationResponse_resourceSpecification,
     deleteReservationResponse_state,
-    deleteReservationResponse_name,
     deleteReservationResponse_tags,
     deleteReservationResponse_offeringDescription,
-    deleteReservationResponse_count,
     deleteReservationResponse_fixedPrice,
+    deleteReservationResponse_count,
     deleteReservationResponse_usagePrice,
     deleteReservationResponse_offeringType,
     deleteReservationResponse_region,
     deleteReservationResponse_start,
     deleteReservationResponse_reservationId,
     deleteReservationResponse_httpStatus,
+
+    -- ** UpdateReservation
+    updateReservation'_name,
+    updateReservation'_reservationId,
+    updateReservationResponse_reservation,
+    updateReservationResponse_httpStatus,
 
     -- ** DescribeMultiplexProgram
     describeMultiplexProgram_multiplexId,
@@ -422,8 +422,8 @@ module Network.AWS.MediaLive.Lens
     listReservations_maxResults,
     listReservations_codec,
     listReservations_maximumBitrate,
-    listReservations_specialFeature,
     listReservations_channelClass,
+    listReservations_specialFeature,
     listReservations_resourceType,
     listReservations_resolution,
     listReservationsResponse_nextToken,
@@ -432,23 +432,23 @@ module Network.AWS.MediaLive.Lens
 
     -- ** DescribeChannel
     describeChannel_channelId,
-    describeChannelResponse_encoderSettings,
     describeChannelResponse_roleArn,
+    describeChannelResponse_encoderSettings,
     describeChannelResponse_inputSpecification,
     describeChannelResponse_arn,
     describeChannelResponse_id,
     describeChannelResponse_pipelinesRunningCount,
     describeChannelResponse_channelClass,
     describeChannelResponse_logLevel,
+    describeChannelResponse_name,
     describeChannelResponse_destinations,
     describeChannelResponse_state,
-    describeChannelResponse_name,
     describeChannelResponse_inputAttachments,
     describeChannelResponse_tags,
     describeChannelResponse_pipelineDetails,
-    describeChannelResponse_egressEndpoints,
     describeChannelResponse_vpc,
     describeChannelResponse_cdiInputSpecification,
+    describeChannelResponse_egressEndpoints,
     describeChannelResponse_httpStatus,
 
     -- ** CancelInputDeviceTransfer
@@ -471,10 +471,10 @@ module Network.AWS.MediaLive.Lens
     startMultiplexResponse_arn,
     startMultiplexResponse_id,
     startMultiplexResponse_pipelinesRunningCount,
-    startMultiplexResponse_programCount,
-    startMultiplexResponse_destinations,
-    startMultiplexResponse_state,
     startMultiplexResponse_name,
+    startMultiplexResponse_destinations,
+    startMultiplexResponse_programCount,
+    startMultiplexResponse_state,
     startMultiplexResponse_tags,
     startMultiplexResponse_multiplexSettings,
     startMultiplexResponse_httpStatus,
@@ -485,21 +485,13 @@ module Network.AWS.MediaLive.Lens
     stopMultiplexResponse_arn,
     stopMultiplexResponse_id,
     stopMultiplexResponse_pipelinesRunningCount,
-    stopMultiplexResponse_programCount,
-    stopMultiplexResponse_destinations,
-    stopMultiplexResponse_state,
     stopMultiplexResponse_name,
+    stopMultiplexResponse_destinations,
+    stopMultiplexResponse_programCount,
+    stopMultiplexResponse_state,
     stopMultiplexResponse_tags,
     stopMultiplexResponse_multiplexSettings,
     stopMultiplexResponse_httpStatus,
-
-    -- ** DescribeSchedule
-    describeSchedule_nextToken,
-    describeSchedule_maxResults,
-    describeSchedule_channelId,
-    describeScheduleResponse_nextToken,
-    describeScheduleResponse_scheduleActions,
-    describeScheduleResponse_httpStatus,
 
     -- ** CreateMultiplexProgram
     createMultiplexProgram'_multiplexId,
@@ -509,23 +501,13 @@ module Network.AWS.MediaLive.Lens
     createMultiplexProgramResponse_multiplexProgram,
     createMultiplexProgramResponse_httpStatus,
 
-    -- ** CreateTags
-    createTags_tags,
-    createTags_resourceArn,
-
-    -- ** TransferInputDevice
-    transferInputDevice'_transferMessage,
-    transferInputDevice'_targetCustomerId,
-    transferInputDevice'_inputDeviceId,
-    transferInputDeviceResponse_httpStatus,
-
-    -- ** ListMultiplexPrograms
-    listMultiplexPrograms_nextToken,
-    listMultiplexPrograms_maxResults,
-    listMultiplexPrograms_multiplexId,
-    listMultiplexProgramsResponse_multiplexPrograms,
-    listMultiplexProgramsResponse_nextToken,
-    listMultiplexProgramsResponse_httpStatus,
+    -- ** DescribeSchedule
+    describeSchedule_nextToken,
+    describeSchedule_maxResults,
+    describeSchedule_channelId,
+    describeScheduleResponse_nextToken,
+    describeScheduleResponse_scheduleActions,
+    describeScheduleResponse_httpStatus,
 
     -- ** DescribeMultiplex
     describeMultiplex_multiplexId,
@@ -533,10 +515,10 @@ module Network.AWS.MediaLive.Lens
     describeMultiplexResponse_arn,
     describeMultiplexResponse_id,
     describeMultiplexResponse_pipelinesRunningCount,
-    describeMultiplexResponse_programCount,
-    describeMultiplexResponse_destinations,
-    describeMultiplexResponse_state,
     describeMultiplexResponse_name,
+    describeMultiplexResponse_destinations,
+    describeMultiplexResponse_programCount,
+    describeMultiplexResponse_state,
     describeMultiplexResponse_tags,
     describeMultiplexResponse_multiplexSettings,
     describeMultiplexResponse_httpStatus,
@@ -550,13 +532,66 @@ module Network.AWS.MediaLive.Lens
     batchDeleteResponse_failed,
     batchDeleteResponse_httpStatus,
 
+    -- ** CreateTags
+    createTags_tags,
+    createTags_resourceArn,
+
+    -- ** TransferInputDevice
+    transferInputDevice'_targetRegion,
+    transferInputDevice'_transferMessage,
+    transferInputDevice'_targetCustomerId,
+    transferInputDevice'_inputDeviceId,
+    transferInputDeviceResponse_httpStatus,
+
+    -- ** ListMultiplexPrograms
+    listMultiplexPrograms_nextToken,
+    listMultiplexPrograms_maxResults,
+    listMultiplexPrograms_multiplexId,
+    listMultiplexProgramsResponse_multiplexPrograms,
+    listMultiplexProgramsResponse_nextToken,
+    listMultiplexProgramsResponse_httpStatus,
+
+    -- ** UpdateChannel
+    updateChannel'_roleArn,
+    updateChannel'_encoderSettings,
+    updateChannel'_inputSpecification,
+    updateChannel'_logLevel,
+    updateChannel'_name,
+    updateChannel'_destinations,
+    updateChannel'_inputAttachments,
+    updateChannel'_cdiInputSpecification,
+    updateChannel'_channelId,
+    updateChannelResponse_channel,
+    updateChannelResponse_httpStatus,
+
+    -- ** DeleteChannel
+    deleteChannel_channelId,
+    deleteChannelResponse_roleArn,
+    deleteChannelResponse_encoderSettings,
+    deleteChannelResponse_inputSpecification,
+    deleteChannelResponse_arn,
+    deleteChannelResponse_id,
+    deleteChannelResponse_pipelinesRunningCount,
+    deleteChannelResponse_channelClass,
+    deleteChannelResponse_logLevel,
+    deleteChannelResponse_name,
+    deleteChannelResponse_destinations,
+    deleteChannelResponse_state,
+    deleteChannelResponse_inputAttachments,
+    deleteChannelResponse_tags,
+    deleteChannelResponse_pipelineDetails,
+    deleteChannelResponse_vpc,
+    deleteChannelResponse_cdiInputSpecification,
+    deleteChannelResponse_egressEndpoints,
+    deleteChannelResponse_httpStatus,
+
     -- ** CreateInput
     createInput'_inputSecurityGroups,
     createInput'_roleArn,
     createInput'_sources,
     createInput'_mediaConnectFlows,
-    createInput'_destinations,
     createInput'_name,
+    createInput'_destinations,
     createInput'_requestId,
     createInput'_tags,
     createInput'_type,
@@ -569,40 +604,6 @@ module Network.AWS.MediaLive.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteChannel
-    deleteChannel_channelId,
-    deleteChannelResponse_encoderSettings,
-    deleteChannelResponse_roleArn,
-    deleteChannelResponse_inputSpecification,
-    deleteChannelResponse_arn,
-    deleteChannelResponse_id,
-    deleteChannelResponse_pipelinesRunningCount,
-    deleteChannelResponse_channelClass,
-    deleteChannelResponse_logLevel,
-    deleteChannelResponse_destinations,
-    deleteChannelResponse_state,
-    deleteChannelResponse_name,
-    deleteChannelResponse_inputAttachments,
-    deleteChannelResponse_tags,
-    deleteChannelResponse_pipelineDetails,
-    deleteChannelResponse_egressEndpoints,
-    deleteChannelResponse_vpc,
-    deleteChannelResponse_cdiInputSpecification,
-    deleteChannelResponse_httpStatus,
-
-    -- ** UpdateChannel
-    updateChannel'_encoderSettings,
-    updateChannel'_roleArn,
-    updateChannel'_inputSpecification,
-    updateChannel'_logLevel,
-    updateChannel'_destinations,
-    updateChannel'_name,
-    updateChannel'_inputAttachments,
-    updateChannel'_cdiInputSpecification,
-    updateChannel'_channelId,
-    updateChannelResponse_channel,
-    updateChannelResponse_httpStatus,
 
     -- * Types
 
@@ -629,18 +630,25 @@ module Network.AWS.MediaLive.Lens
     -- ** AncillarySourceSettings
     ancillarySourceSettings_sourceAncillaryChannelNumber,
 
+    -- ** ArchiveCdnSettings
+    archiveCdnSettings_archiveS3Settings,
+
     -- ** ArchiveContainerSettings
     archiveContainerSettings_rawSettings,
     archiveContainerSettings_m2tsSettings,
 
     -- ** ArchiveGroupSettings
     archiveGroupSettings_rolloverInterval,
+    archiveGroupSettings_archiveCdnSettings,
     archiveGroupSettings_destination,
 
     -- ** ArchiveOutputSettings
     archiveOutputSettings_extension,
     archiveOutputSettings_nameModifier,
     archiveOutputSettings_containerSettings,
+
+    -- ** ArchiveS3Settings
+    archiveS3Settings_cannedAcl,
 
     -- ** AribDestinationSettings
 
@@ -670,6 +678,10 @@ module Network.AWS.MediaLive.Lens
     audioDescription_audioSelectorName,
     audioDescription_name,
 
+    -- ** AudioHlsRenditionSelection
+    audioHlsRenditionSelection_name,
+    audioHlsRenditionSelection_groupId,
+
     -- ** AudioLanguageSelection
     audioLanguageSelection_languageSelectionPolicy,
     audioLanguageSelection_languageCode,
@@ -694,6 +706,7 @@ module Network.AWS.MediaLive.Lens
 
     -- ** AudioSelectorSettings
     audioSelectorSettings_audioLanguageSelection,
+    audioSelectorSettings_audioHlsRenditionSelection,
     audioSelectorSettings_audioPidSelection,
     audioSelectorSettings_audioTrackSelection,
 
@@ -750,8 +763,8 @@ module Network.AWS.MediaLive.Lens
     -- ** BlackoutSlate
     blackoutSlate_blackoutSlateImage,
     blackoutSlate_networkEndBlackout,
-    blackoutSlate_state,
     blackoutSlate_networkEndBlackoutImage,
+    blackoutSlate_state,
     blackoutSlate_networkId,
 
     -- ** BurnInDestinationSettings
@@ -764,14 +777,14 @@ module Network.AWS.MediaLive.Lens
     burnInDestinationSettings_xPosition,
     burnInDestinationSettings_fontColor,
     burnInDestinationSettings_fontSize,
-    burnInDestinationSettings_backgroundColor,
     burnInDestinationSettings_shadowXOffset,
     burnInDestinationSettings_font,
+    burnInDestinationSettings_backgroundColor,
     burnInDestinationSettings_yPosition,
-    burnInDestinationSettings_fontResolution,
     burnInDestinationSettings_outlineSize,
-    burnInDestinationSettings_fontOpacity,
+    burnInDestinationSettings_fontResolution,
     burnInDestinationSettings_shadowYOffset,
+    burnInDestinationSettings_fontOpacity,
 
     -- ** CaptionDescription
     captionDescription_languageCode,
@@ -781,13 +794,13 @@ module Network.AWS.MediaLive.Lens
     captionDescription_name,
 
     -- ** CaptionDestinationSettings
-    captionDestinationSettings_webvttDestinationSettings,
     captionDestinationSettings_embeddedDestinationSettings,
+    captionDestinationSettings_webvttDestinationSettings,
     captionDestinationSettings_aribDestinationSettings,
-    captionDestinationSettings_scte20PlusEmbeddedDestinationSettings,
     captionDestinationSettings_embeddedPlusScte20DestinationSettings,
-    captionDestinationSettings_dvbSubDestinationSettings,
+    captionDestinationSettings_scte20PlusEmbeddedDestinationSettings,
     captionDestinationSettings_scte27DestinationSettings,
+    captionDestinationSettings_dvbSubDestinationSettings,
     captionDestinationSettings_rtmpCaptionInfoDestinationSettings,
     captionDestinationSettings_ebuTtDDestinationSettings,
     captionDestinationSettings_teletextDestinationSettings,
@@ -799,6 +812,12 @@ module Network.AWS.MediaLive.Lens
     captionLanguageMapping_languageCode,
     captionLanguageMapping_languageDescription,
     captionLanguageMapping_captionChannel,
+
+    -- ** CaptionRectangle
+    captionRectangle_topOffset,
+    captionRectangle_height,
+    captionRectangle_width,
+    captionRectangle_leftOffset,
 
     -- ** CaptionSelector
     captionSelector_languageCode,
@@ -818,23 +837,23 @@ module Network.AWS.MediaLive.Lens
     cdiInputSpecification_resolution,
 
     -- ** Channel
-    channel_encoderSettings,
     channel_roleArn,
+    channel_encoderSettings,
     channel_inputSpecification,
     channel_arn,
     channel_id,
     channel_pipelinesRunningCount,
     channel_channelClass,
     channel_logLevel,
+    channel_name,
     channel_destinations,
     channel_state,
-    channel_name,
     channel_inputAttachments,
     channel_tags,
     channel_pipelineDetails,
-    channel_egressEndpoints,
     channel_vpc,
     channel_cdiInputSpecification,
+    channel_egressEndpoints,
 
     -- ** ChannelEgressEndpoint
     channelEgressEndpoint_sourceIp,
@@ -847,14 +866,14 @@ module Network.AWS.MediaLive.Lens
     channelSummary_pipelinesRunningCount,
     channelSummary_channelClass,
     channelSummary_logLevel,
+    channelSummary_name,
     channelSummary_destinations,
     channelSummary_state,
-    channelSummary_name,
     channelSummary_inputAttachments,
     channelSummary_tags,
-    channelSummary_egressEndpoints,
     channelSummary_vpc,
     channelSummary_cdiInputSpecification,
+    channelSummary_egressEndpoints,
 
     -- ** ColorSpacePassthroughSettings
 
@@ -879,16 +898,17 @@ module Network.AWS.MediaLive.Lens
     dvbSubDestinationSettings_xPosition,
     dvbSubDestinationSettings_fontColor,
     dvbSubDestinationSettings_fontSize,
-    dvbSubDestinationSettings_backgroundColor,
     dvbSubDestinationSettings_shadowXOffset,
     dvbSubDestinationSettings_font,
+    dvbSubDestinationSettings_backgroundColor,
     dvbSubDestinationSettings_yPosition,
-    dvbSubDestinationSettings_fontResolution,
     dvbSubDestinationSettings_outlineSize,
-    dvbSubDestinationSettings_fontOpacity,
+    dvbSubDestinationSettings_fontResolution,
     dvbSubDestinationSettings_shadowYOffset,
+    dvbSubDestinationSettings_fontOpacity,
 
     -- ** DvbSubSourceSettings
+    dvbSubSourceSettings_ocrLanguage,
     dvbSubSourceSettings_pid,
 
     -- ** DvbTdtSettings
@@ -902,21 +922,22 @@ module Network.AWS.MediaLive.Lens
     eac3Settings_lfeControl,
     eac3Settings_loRoSurroundMixLevel,
     eac3Settings_ltRtSurroundMixLevel,
-    eac3Settings_lfeFilter,
     eac3Settings_dcFilter,
+    eac3Settings_lfeFilter,
     eac3Settings_stereoDownmix,
     eac3Settings_drcRf,
     eac3Settings_drcLine,
-    eac3Settings_bitstreamMode,
-    eac3Settings_surroundExMode,
     eac3Settings_phaseControl,
-    eac3Settings_passthroughControl,
-    eac3Settings_bitrate,
+    eac3Settings_surroundExMode,
+    eac3Settings_bitstreamMode,
     eac3Settings_attenuationControl,
+    eac3Settings_bitrate,
     eac3Settings_surroundMode,
+    eac3Settings_passthroughControl,
     eac3Settings_metadataControl,
 
     -- ** EbuTtDDestinationSettings
+    ebuTtDDestinationSettings_copyrightHolder,
     ebuTtDDestinationSettings_fillLineGap,
     ebuTtDDestinationSettings_styleControl,
     ebuTtDDestinationSettings_fontFamily,
@@ -932,8 +953,9 @@ module Network.AWS.MediaLive.Lens
     embeddedSourceSettings_source608ChannelNumber,
 
     -- ** EncoderSettings
-    encoderSettings_globalConfiguration,
+    encoderSettings_motionGraphicsConfiguration,
     encoderSettings_featureActivations,
+    encoderSettings_globalConfiguration,
     encoderSettings_availConfiguration,
     encoderSettings_availBlanking,
     encoderSettings_nielsenConfiguration,
@@ -972,7 +994,11 @@ module Network.AWS.MediaLive.Lens
     followModeScheduleActionStartSettings_referenceActionName,
     followModeScheduleActionStartSettings_followPoint,
 
+    -- ** FrameCaptureCdnSettings
+    frameCaptureCdnSettings_frameCaptureS3Settings,
+
     -- ** FrameCaptureGroupSettings
+    frameCaptureGroupSettings_frameCaptureCdnSettings,
     frameCaptureGroupSettings_destination,
 
     -- ** FrameCaptureHlsSettings
@@ -980,16 +1006,19 @@ module Network.AWS.MediaLive.Lens
     -- ** FrameCaptureOutputSettings
     frameCaptureOutputSettings_nameModifier,
 
+    -- ** FrameCaptureS3Settings
+    frameCaptureS3Settings_cannedAcl,
+
     -- ** FrameCaptureSettings
     frameCaptureSettings_captureInterval,
     frameCaptureSettings_captureIntervalUnits,
 
     -- ** GlobalConfiguration
     globalConfiguration_initialAudioGain,
-    globalConfiguration_outputLockingMode,
     globalConfiguration_inputEndAction,
-    globalConfiguration_inputLossBehavior,
+    globalConfiguration_outputLockingMode,
     globalConfiguration_supportLowFramerateInputs,
+    globalConfiguration_inputLossBehavior,
     globalConfiguration_outputTimingSource,
 
     -- ** H264ColorSpaceSettings
@@ -1008,36 +1037,36 @@ module Network.AWS.MediaLive.Lens
     h264Settings_gopBReference,
     h264Settings_framerateNumerator,
     h264Settings_rateControlMode,
-    h264Settings_slices,
     h264Settings_qualityLevel,
+    h264Settings_slices,
     h264Settings_colorMetadata,
-    h264Settings_subgopLength,
     h264Settings_entropyEncoding,
     h264Settings_gopSizeUnits,
-    h264Settings_gopSize,
+    h264Settings_subgopLength,
+    h264Settings_softness,
     h264Settings_framerateDenominator,
     h264Settings_fixedAfd,
-    h264Settings_softness,
+    h264Settings_gopSize,
     h264Settings_filterSettings,
     h264Settings_parNumerator,
-    h264Settings_spatialAq,
     h264Settings_gopNumBFrames,
-    h264Settings_sceneChangeDetect,
+    h264Settings_spatialAq,
     h264Settings_timecodeInsertion,
+    h264Settings_sceneChangeDetect,
+    h264Settings_parControl,
     h264Settings_colorSpaceSettings,
     h264Settings_minIInterval,
     h264Settings_qvbrQualityLevel,
-    h264Settings_parControl,
-    h264Settings_bufFillPct,
     h264Settings_gopClosedCadence,
     h264Settings_parDenominator,
+    h264Settings_bufFillPct,
     h264Settings_maxBitrate,
     h264Settings_syntax,
     h264Settings_numRefFrames,
     h264Settings_level,
+    h264Settings_lookAheadRateControl,
     h264Settings_profile,
     h264Settings_adaptiveQuantization,
-    h264Settings_lookAheadRateControl,
     h264Settings_framerateControl,
     h264Settings_forceFieldPictures,
     h264Settings_bitrate,
@@ -1056,17 +1085,17 @@ module Network.AWS.MediaLive.Lens
     h265Settings_scanType,
     h265Settings_bufSize,
     h265Settings_flickerAq,
-    h265Settings_alternativeTransferFunction,
     h265Settings_rateControlMode,
+    h265Settings_alternativeTransferFunction,
     h265Settings_slices,
     h265Settings_colorMetadata,
     h265Settings_gopSizeUnits,
-    h265Settings_gopSize,
     h265Settings_fixedAfd,
+    h265Settings_gopSize,
     h265Settings_filterSettings,
     h265Settings_parNumerator,
-    h265Settings_sceneChangeDetect,
     h265Settings_timecodeInsertion,
+    h265Settings_sceneChangeDetect,
     h265Settings_colorSpaceSettings,
     h265Settings_minIInterval,
     h265Settings_qvbrQualityLevel,
@@ -1074,9 +1103,9 @@ module Network.AWS.MediaLive.Lens
     h265Settings_parDenominator,
     h265Settings_maxBitrate,
     h265Settings_level,
+    h265Settings_lookAheadRateControl,
     h265Settings_profile,
     h265Settings_adaptiveQuantization,
-    h265Settings_lookAheadRateControl,
     h265Settings_bitrate,
     h265Settings_afdSignaling,
     h265Settings_tier,
@@ -1089,8 +1118,8 @@ module Network.AWS.MediaLive.Lens
 
     -- ** HlsAkamaiSettings
     hlsAkamaiSettings_filecacheDuration,
-    hlsAkamaiSettings_numRetries,
     hlsAkamaiSettings_httpTransferMode,
+    hlsAkamaiSettings_numRetries,
     hlsAkamaiSettings_connectionRetryInterval,
     hlsAkamaiSettings_token,
     hlsAkamaiSettings_restartDelay,
@@ -1103,53 +1132,54 @@ module Network.AWS.MediaLive.Lens
     hlsBasicPutSettings_restartDelay,
 
     -- ** HlsCdnSettings
-    hlsCdnSettings_hlsBasicPutSettings,
     hlsCdnSettings_hlsWebdavSettings,
+    hlsCdnSettings_hlsBasicPutSettings,
+    hlsCdnSettings_hlsS3Settings,
     hlsCdnSettings_hlsAkamaiSettings,
     hlsCdnSettings_hlsMediaStoreSettings,
 
     -- ** HlsGroupSettings
-    hlsGroupSettings_outputSelection,
-    hlsGroupSettings_ivInManifest,
-    hlsGroupSettings_timedMetadataId3Period,
-    hlsGroupSettings_encryptionType,
     hlsGroupSettings_segmentLength,
     hlsGroupSettings_timedMetadataId3Frame,
-    hlsGroupSettings_adMarkers,
-    hlsGroupSettings_keyFormat,
+    hlsGroupSettings_ivInManifest,
+    hlsGroupSettings_outputSelection,
+    hlsGroupSettings_timedMetadataId3Period,
+    hlsGroupSettings_encryptionType,
     hlsGroupSettings_directoryStructure,
-    hlsGroupSettings_constantIv,
+    hlsGroupSettings_keyFormat,
+    hlsGroupSettings_adMarkers,
     hlsGroupSettings_manifestCompression,
-    hlsGroupSettings_streamInfResolution,
-    hlsGroupSettings_mode,
-    hlsGroupSettings_hlsCdnSettings,
+    hlsGroupSettings_constantIv,
     hlsGroupSettings_codecSpecification,
-    hlsGroupSettings_redundantManifest,
+    hlsGroupSettings_hlsCdnSettings,
+    hlsGroupSettings_mode,
+    hlsGroupSettings_streamInfResolution,
     hlsGroupSettings_indexNSegments,
-    hlsGroupSettings_iFrameOnlyPlaylists,
+    hlsGroupSettings_redundantManifest,
     hlsGroupSettings_segmentationMode,
     hlsGroupSettings_programDateTime,
-    hlsGroupSettings_segmentsPerSubdirectory,
+    hlsGroupSettings_iFrameOnlyPlaylists,
     hlsGroupSettings_tsFileMode,
+    hlsGroupSettings_segmentsPerSubdirectory,
     hlsGroupSettings_discontinuityTags,
     hlsGroupSettings_baseUrlContent,
     hlsGroupSettings_hlsId3SegmentTagging,
-    hlsGroupSettings_incompleteSegmentBehavior,
     hlsGroupSettings_baseUrlManifest,
+    hlsGroupSettings_incompleteSegmentBehavior,
     hlsGroupSettings_baseUrlContent1,
-    hlsGroupSettings_captionLanguageMappings,
     hlsGroupSettings_inputLossAction,
     hlsGroupSettings_keyProviderSettings,
     hlsGroupSettings_keepSegments,
+    hlsGroupSettings_captionLanguageMappings,
     hlsGroupSettings_timestampDeltaMilliseconds,
     hlsGroupSettings_baseUrlManifest1,
     hlsGroupSettings_programDateTimePeriod,
-    hlsGroupSettings_keyFormatVersions,
     hlsGroupSettings_clientCache,
+    hlsGroupSettings_keyFormatVersions,
     hlsGroupSettings_minSegmentLength,
-    hlsGroupSettings_manifestDurationFormat,
     hlsGroupSettings_ivSource,
     hlsGroupSettings_captionLanguageSetting,
+    hlsGroupSettings_manifestDurationFormat,
     hlsGroupSettings_destination,
 
     -- ** HlsId3SegmentTaggingScheduleActionSettings
@@ -1160,6 +1190,7 @@ module Network.AWS.MediaLive.Lens
     hlsInputSettings_bandwidth,
     hlsInputSettings_retries,
     hlsInputSettings_bufferSegments,
+    hlsInputSettings_scte35Source,
 
     -- ** HlsMediaStoreSettings
     hlsMediaStoreSettings_filecacheDuration,
@@ -1174,6 +1205,9 @@ module Network.AWS.MediaLive.Lens
     hlsOutputSettings_nameModifier,
     hlsOutputSettings_hlsSettings,
 
+    -- ** HlsS3Settings
+    hlsS3Settings_cannedAcl,
+
     -- ** HlsSettings
     hlsSettings_standardHlsSettings,
     hlsSettings_frameCaptureHlsSettings,
@@ -1185,28 +1219,30 @@ module Network.AWS.MediaLive.Lens
 
     -- ** HlsWebdavSettings
     hlsWebdavSettings_filecacheDuration,
-    hlsWebdavSettings_numRetries,
     hlsWebdavSettings_httpTransferMode,
+    hlsWebdavSettings_numRetries,
     hlsWebdavSettings_connectionRetryInterval,
     hlsWebdavSettings_restartDelay,
+
+    -- ** HtmlMotionGraphicsSettings
 
     -- ** ImmediateModeScheduleActionStartSettings
 
     -- ** Input
     input_roleArn,
-    input_sources,
     input_inputPartnerIds,
-    input_inputSourceType,
+    input_sources,
     input_mediaConnectFlows,
+    input_inputSourceType,
     input_arn,
     input_id,
     input_securityGroups,
+    input_name,
     input_destinations,
     input_state,
-    input_name,
     input_tags,
-    input_type,
     input_inputClass,
+    input_type,
     input_inputDevices,
     input_attachedChannels,
 
@@ -1221,8 +1257,8 @@ module Network.AWS.MediaLive.Lens
     inputChannelLevel_gain,
 
     -- ** InputClippingSettings
-    inputClippingSettings_startTimecode,
     inputClippingSettings_stopTimecode,
+    inputClippingSettings_startTimecode,
     inputClippingSettings_inputTimecodeSource,
 
     -- ** InputDestination
@@ -1254,8 +1290,8 @@ module Network.AWS.MediaLive.Lens
 
     -- ** InputDeviceNetworkSettings
     inputDeviceNetworkSettings_dnsAddresses,
-    inputDeviceNetworkSettings_ipAddress,
     inputDeviceNetworkSettings_subnetMask,
+    inputDeviceNetworkSettings_ipAddress,
     inputDeviceNetworkSettings_ipScheme,
     inputDeviceNetworkSettings_gateway,
 
@@ -1267,13 +1303,13 @@ module Network.AWS.MediaLive.Lens
 
     -- ** InputDeviceSummary
     inputDeviceSummary_uhdDeviceSettings,
-    inputDeviceSummary_hdDeviceSettings,
     inputDeviceSummary_macAddress,
+    inputDeviceSummary_hdDeviceSettings,
     inputDeviceSummary_connectionState,
     inputDeviceSummary_networkSettings,
+    inputDeviceSummary_deviceUpdateStatus,
     inputDeviceSummary_arn,
     inputDeviceSummary_id,
-    inputDeviceSummary_deviceUpdateStatus,
     inputDeviceSummary_name,
     inputDeviceSummary_serialNumber,
     inputDeviceSummary_type,
@@ -1370,26 +1406,26 @@ module Network.AWS.MediaLive.Lens
     m2tsSettings_pmtPid,
     m2tsSettings_videoPid,
     m2tsSettings_nielsenId3Behavior,
-    m2tsSettings_audioBufferModel,
-    m2tsSettings_timedMetadataPid,
     m2tsSettings_segmentationStyle,
-    m2tsSettings_dvbNitSettings,
-    m2tsSettings_nullPacketBitrate,
+    m2tsSettings_timedMetadataPid,
+    m2tsSettings_audioBufferModel,
     m2tsSettings_pcrControl,
-    m2tsSettings_ebpAudioInterval,
     m2tsSettings_ebpPlacement,
     m2tsSettings_pmtInterval,
+    m2tsSettings_dvbNitSettings,
+    m2tsSettings_ebpAudioInterval,
+    m2tsSettings_nullPacketBitrate,
     m2tsSettings_ccDescriptor,
     m2tsSettings_scte35Control,
     m2tsSettings_aribCaptionsPid,
     m2tsSettings_audioPids,
     m2tsSettings_etvPlatformPid,
     m2tsSettings_patInterval,
-    m2tsSettings_programNum,
     m2tsSettings_audioStreamType,
-    m2tsSettings_ebpLookaheadMs,
+    m2tsSettings_programNum,
     m2tsSettings_bufferModel,
     m2tsSettings_aribCaptionsPidControl,
+    m2tsSettings_ebpLookaheadMs,
     m2tsSettings_pcrPid,
     m2tsSettings_klv,
     m2tsSettings_audioFramesPerPes,
@@ -1400,16 +1436,16 @@ module Network.AWS.MediaLive.Lens
     m2tsSettings_absentInputAudioBehavior,
     m2tsSettings_segmentationTime,
     m2tsSettings_ebif,
+    m2tsSettings_arib,
     m2tsSettings_dvbTeletextPid,
     m2tsSettings_timedMetadataBehavior,
-    m2tsSettings_arib,
-    m2tsSettings_bitrate,
     m2tsSettings_fragmentTime,
+    m2tsSettings_bitrate,
     m2tsSettings_esRateInPes,
-    m2tsSettings_scte27Pids,
     m2tsSettings_transportStreamId,
     m2tsSettings_dvbSubPids,
     m2tsSettings_scte35Pid,
+    m2tsSettings_scte27Pids,
 
     -- ** M3u8Settings
     m3u8Settings_pcrPeriod,
@@ -1444,6 +1480,21 @@ module Network.AWS.MediaLive.Lens
 
     -- ** MediaPackageOutputSettings
 
+    -- ** MotionGraphicsActivateScheduleActionSettings
+    motionGraphicsActivateScheduleActionSettings_duration,
+    motionGraphicsActivateScheduleActionSettings_passwordParam,
+    motionGraphicsActivateScheduleActionSettings_username,
+    motionGraphicsActivateScheduleActionSettings_url,
+
+    -- ** MotionGraphicsConfiguration
+    motionGraphicsConfiguration_motionGraphicsInsertion,
+    motionGraphicsConfiguration_motionGraphicsSettings,
+
+    -- ** MotionGraphicsDeactivateScheduleActionSettings
+
+    -- ** MotionGraphicsSettings
+    motionGraphicsSettings_htmlMotionGraphicsSettings,
+
     -- ** Mp2Settings
     mp2Settings_codingMode,
     mp2Settings_sampleRate,
@@ -1456,10 +1507,10 @@ module Network.AWS.MediaLive.Lens
     mpeg2Settings_scanType,
     mpeg2Settings_displayAspectRatio,
     mpeg2Settings_colorMetadata,
-    mpeg2Settings_subgopLength,
     mpeg2Settings_gopSizeUnits,
-    mpeg2Settings_gopSize,
+    mpeg2Settings_subgopLength,
     mpeg2Settings_fixedAfd,
+    mpeg2Settings_gopSize,
     mpeg2Settings_filterSettings,
     mpeg2Settings_gopNumBFrames,
     mpeg2Settings_timecodeInsertion,
@@ -1476,14 +1527,14 @@ module Network.AWS.MediaLive.Lens
     msSmoothGroupSettings_fragmentLength,
     msSmoothGroupSettings_eventId,
     msSmoothGroupSettings_certificateMode,
-    msSmoothGroupSettings_numRetries,
     msSmoothGroupSettings_acquisitionPointId,
-    msSmoothGroupSettings_audioOnlyTimecodeControl,
+    msSmoothGroupSettings_numRetries,
     msSmoothGroupSettings_segmentationMode,
+    msSmoothGroupSettings_audioOnlyTimecodeControl,
     msSmoothGroupSettings_eventIdMode,
     msSmoothGroupSettings_sendDelayMs,
-    msSmoothGroupSettings_connectionRetryInterval,
     msSmoothGroupSettings_sparseTrackType,
+    msSmoothGroupSettings_connectionRetryInterval,
     msSmoothGroupSettings_inputLossAction,
     msSmoothGroupSettings_timestampOffset,
     msSmoothGroupSettings_eventStopBehavior,
@@ -1500,10 +1551,10 @@ module Network.AWS.MediaLive.Lens
     multiplex_arn,
     multiplex_id,
     multiplex_pipelinesRunningCount,
-    multiplex_programCount,
-    multiplex_destinations,
-    multiplex_state,
     multiplex_name,
+    multiplex_destinations,
+    multiplex_programCount,
+    multiplex_state,
     multiplex_tags,
     multiplex_multiplexSettings,
 
@@ -1540,9 +1591,9 @@ module Network.AWS.MediaLive.Lens
     multiplexProgramPacketIdentifiersMap_pcrPid,
     multiplexProgramPacketIdentifiersMap_dvbTeletextPid,
     multiplexProgramPacketIdentifiersMap_privateMetadataPid,
-    multiplexProgramPacketIdentifiersMap_scte27Pids,
     multiplexProgramPacketIdentifiersMap_dvbSubPids,
     multiplexProgramPacketIdentifiersMap_scte35Pid,
+    multiplexProgramPacketIdentifiersMap_scte27Pids,
 
     -- ** MultiplexProgramPipelineDetail
     multiplexProgramPipelineDetail_pipelineId,
@@ -1581,9 +1632,9 @@ module Network.AWS.MediaLive.Lens
     multiplexSummary_arn,
     multiplexSummary_id,
     multiplexSummary_pipelinesRunningCount,
+    multiplexSummary_name,
     multiplexSummary_programCount,
     multiplexSummary_state,
-    multiplexSummary_name,
     multiplexSummary_tags,
     multiplexSummary_multiplexSettings,
 
@@ -1614,8 +1665,8 @@ module Network.AWS.MediaLive.Lens
 
     -- ** Output
     output_audioDescriptionNames,
-    output_outputName,
     output_videoDescriptionName,
+    output_outputName,
     output_captionDescriptionNames,
     output_outputSettings,
 
@@ -1628,8 +1679,8 @@ module Network.AWS.MediaLive.Lens
     -- ** OutputDestinationSettings
     outputDestinationSettings_passwordParam,
     outputDestinationSettings_username,
-    outputDestinationSettings_streamName,
     outputDestinationSettings_url,
+    outputDestinationSettings_streamName,
 
     -- ** OutputGroup
     outputGroup_name,
@@ -1667,6 +1718,8 @@ module Network.AWS.MediaLive.Lens
     -- ** PipelineDetail
     pipelineDetail_pipelineId,
     pipelineDetail_activeInputAttachmentName,
+    pipelineDetail_activeMotionGraphicsActionName,
+    pipelineDetail_activeMotionGraphicsUri,
     pipelineDetail_activeInputSwitchActionName,
 
     -- ** PipelinePauseStateSettings
@@ -1690,13 +1743,13 @@ module Network.AWS.MediaLive.Lens
     reservation_arn,
     reservation_offeringId,
     reservation_currencyCode,
+    reservation_name,
     reservation_resourceSpecification,
     reservation_state,
-    reservation_name,
     reservation_tags,
     reservation_offeringDescription,
-    reservation_count,
     reservation_fixedPrice,
+    reservation_count,
     reservation_usagePrice,
     reservation_offeringType,
     reservation_region,
@@ -1708,8 +1761,8 @@ module Network.AWS.MediaLive.Lens
     reservationResourceSpecification_videoQuality,
     reservationResourceSpecification_codec,
     reservationResourceSpecification_maximumBitrate,
-    reservationResourceSpecification_specialFeature,
     reservationResourceSpecification_channelClass,
+    reservationResourceSpecification_specialFeature,
     reservationResourceSpecification_resourceType,
     reservationResourceSpecification_resolution,
 
@@ -1736,16 +1789,18 @@ module Network.AWS.MediaLive.Lens
     scheduleAction_scheduleActionSettings,
 
     -- ** ScheduleActionSettings
-    scheduleActionSettings_inputSwitchSettings,
     scheduleActionSettings_scte35TimeSignalSettings,
+    scheduleActionSettings_inputSwitchSettings,
     scheduleActionSettings_hlsTimedMetadataSettings,
+    scheduleActionSettings_motionGraphicsImageDeactivateSettings,
     scheduleActionSettings_staticImageActivateSettings,
     scheduleActionSettings_pauseStateSettings,
-    scheduleActionSettings_scte35SpliceInsertSettings,
+    scheduleActionSettings_motionGraphicsImageActivateSettings,
     scheduleActionSettings_scte35ReturnToNetworkSettings,
-    scheduleActionSettings_hlsId3SegmentTaggingSettings,
+    scheduleActionSettings_scte35SpliceInsertSettings,
     scheduleActionSettings_staticImageDeactivateSettings,
     scheduleActionSettings_inputPrepareSettings,
+    scheduleActionSettings_hlsId3SegmentTaggingSettings,
 
     -- ** ScheduleActionStartSettings
     scheduleActionStartSettings_followModeScheduleActionStartSettings,
@@ -1761,6 +1816,7 @@ module Network.AWS.MediaLive.Lens
     -- ** Scte27DestinationSettings
 
     -- ** Scte27SourceSettings
+    scte27SourceSettings_ocrLanguage,
     scte27SourceSettings_pid,
 
     -- ** Scte35DeliveryRestrictions
@@ -1820,9 +1876,9 @@ module Network.AWS.MediaLive.Lens
     -- ** StaticImageActivateScheduleActionSettings
     staticImageActivateScheduleActionSettings_height,
     staticImageActivateScheduleActionSettings_imageX,
+    staticImageActivateScheduleActionSettings_width,
     staticImageActivateScheduleActionSettings_imageY,
     staticImageActivateScheduleActionSettings_duration,
-    staticImageActivateScheduleActionSettings_width,
     staticImageActivateScheduleActionSettings_layer,
     staticImageActivateScheduleActionSettings_opacity,
     staticImageActivateScheduleActionSettings_fadeIn,
@@ -1844,6 +1900,7 @@ module Network.AWS.MediaLive.Lens
     -- ** TeletextDestinationSettings
 
     -- ** TeletextSourceSettings
+    teletextSourceSettings_outputRectangle,
     teletextSourceSettings_pageNumber,
 
     -- ** TemporalFilterSettings
@@ -1855,8 +1912,8 @@ module Network.AWS.MediaLive.Lens
     timecodeConfig_source,
 
     -- ** TransferringInputDeviceSummary
-    transferringInputDeviceSummary_transferType,
     transferringInputDeviceSummary_message,
+    transferringInputDeviceSummary_transferType,
     transferringInputDeviceSummary_id,
     transferringInputDeviceSummary_targetCustomerId,
 
@@ -1867,8 +1924,8 @@ module Network.AWS.MediaLive.Lens
     udpContainerSettings_m2tsSettings,
 
     -- ** UdpGroupSettings
-    udpGroupSettings_timedMetadataId3Period,
     udpGroupSettings_timedMetadataId3Frame,
+    udpGroupSettings_timedMetadataId3Period,
     udpGroupSettings_inputLossAction,
 
     -- ** UdpOutputSettings
@@ -1899,7 +1956,11 @@ module Network.AWS.MediaLive.Lens
     -- ** VideoSelector
     videoSelector_colorSpaceUsage,
     videoSelector_selectorSettings,
+    videoSelector_colorSpaceSettings,
     videoSelector_colorSpace,
+
+    -- ** VideoSelectorColorSpaceSettings
+    videoSelectorColorSpaceSettings_hdr10Settings,
 
     -- ** VideoSelectorPid
     videoSelectorPid_pid,
@@ -1916,12 +1977,19 @@ module Network.AWS.MediaLive.Lens
     vpcOutputSettings_publicAddressAllocationIds,
     vpcOutputSettings_subnetIds,
 
+    -- ** VpcOutputSettingsDescription
+    vpcOutputSettingsDescription_securityGroupIds,
+    vpcOutputSettingsDescription_availabilityZones,
+    vpcOutputSettingsDescription_subnetIds,
+    vpcOutputSettingsDescription_networkInterfaceIds,
+
     -- ** WavSettings
     wavSettings_codingMode,
     wavSettings_bitDepth,
     wavSettings_sampleRate,
 
     -- ** WebvttDestinationSettings
+    webvttDestinationSettings_styleControl,
   )
 where
 
@@ -1976,14 +2044,17 @@ import Network.AWS.MediaLive.TransferInputDevice
 import Network.AWS.MediaLive.Types.AacSettings
 import Network.AWS.MediaLive.Types.Ac3Settings
 import Network.AWS.MediaLive.Types.AncillarySourceSettings
+import Network.AWS.MediaLive.Types.ArchiveCdnSettings
 import Network.AWS.MediaLive.Types.ArchiveContainerSettings
 import Network.AWS.MediaLive.Types.ArchiveGroupSettings
 import Network.AWS.MediaLive.Types.ArchiveOutputSettings
+import Network.AWS.MediaLive.Types.ArchiveS3Settings
 import Network.AWS.MediaLive.Types.AribDestinationSettings
 import Network.AWS.MediaLive.Types.AribSourceSettings
 import Network.AWS.MediaLive.Types.AudioChannelMapping
 import Network.AWS.MediaLive.Types.AudioCodecSettings
 import Network.AWS.MediaLive.Types.AudioDescription
+import Network.AWS.MediaLive.Types.AudioHlsRenditionSelection
 import Network.AWS.MediaLive.Types.AudioLanguageSelection
 import Network.AWS.MediaLive.Types.AudioNormalizationSettings
 import Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
@@ -2008,6 +2079,7 @@ import Network.AWS.MediaLive.Types.BurnInDestinationSettings
 import Network.AWS.MediaLive.Types.CaptionDescription
 import Network.AWS.MediaLive.Types.CaptionDestinationSettings
 import Network.AWS.MediaLive.Types.CaptionLanguageMapping
+import Network.AWS.MediaLive.Types.CaptionRectangle
 import Network.AWS.MediaLive.Types.CaptionSelector
 import Network.AWS.MediaLive.Types.CaptionSelectorSettings
 import Network.AWS.MediaLive.Types.CdiInputSpecification
@@ -2033,9 +2105,11 @@ import Network.AWS.MediaLive.Types.FecOutputSettings
 import Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
 import Network.AWS.MediaLive.Types.Fmp4HlsSettings
 import Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
+import Network.AWS.MediaLive.Types.FrameCaptureCdnSettings
 import Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
 import Network.AWS.MediaLive.Types.FrameCaptureHlsSettings
 import Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
+import Network.AWS.MediaLive.Types.FrameCaptureS3Settings
 import Network.AWS.MediaLive.Types.FrameCaptureSettings
 import Network.AWS.MediaLive.Types.GlobalConfiguration
 import Network.AWS.MediaLive.Types.H264ColorSpaceSettings
@@ -2053,9 +2127,11 @@ import Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
 import Network.AWS.MediaLive.Types.HlsInputSettings
 import Network.AWS.MediaLive.Types.HlsMediaStoreSettings
 import Network.AWS.MediaLive.Types.HlsOutputSettings
+import Network.AWS.MediaLive.Types.HlsS3Settings
 import Network.AWS.MediaLive.Types.HlsSettings
 import Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
 import Network.AWS.MediaLive.Types.HlsWebdavSettings
+import Network.AWS.MediaLive.Types.HtmlMotionGraphicsSettings
 import Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
 import Network.AWS.MediaLive.Types.Input
 import Network.AWS.MediaLive.Types.InputAttachment
@@ -2092,6 +2168,10 @@ import Network.AWS.MediaLive.Types.MediaConnectFlowRequest
 import Network.AWS.MediaLive.Types.MediaPackageGroupSettings
 import Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
 import Network.AWS.MediaLive.Types.MediaPackageOutputSettings
+import Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings
+import Network.AWS.MediaLive.Types.MotionGraphicsConfiguration
+import Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings
+import Network.AWS.MediaLive.Types.MotionGraphicsSettings
 import Network.AWS.MediaLive.Types.Mp2Settings
 import Network.AWS.MediaLive.Types.Mpeg2FilterSettings
 import Network.AWS.MediaLive.Types.Mpeg2Settings
@@ -2173,10 +2253,12 @@ import Network.AWS.MediaLive.Types.VideoBlackFailoverSettings
 import Network.AWS.MediaLive.Types.VideoCodecSettings
 import Network.AWS.MediaLive.Types.VideoDescription
 import Network.AWS.MediaLive.Types.VideoSelector
+import Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings
 import Network.AWS.MediaLive.Types.VideoSelectorPid
 import Network.AWS.MediaLive.Types.VideoSelectorProgramId
 import Network.AWS.MediaLive.Types.VideoSelectorSettings
 import Network.AWS.MediaLive.Types.VpcOutputSettings
+import Network.AWS.MediaLive.Types.VpcOutputSettingsDescription
 import Network.AWS.MediaLive.Types.WavSettings
 import Network.AWS.MediaLive.Types.WebvttDestinationSettings
 import Network.AWS.MediaLive.UpdateChannel

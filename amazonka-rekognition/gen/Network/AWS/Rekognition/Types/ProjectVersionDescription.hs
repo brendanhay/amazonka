@@ -33,15 +33,15 @@ import Network.AWS.Rekognition.Types.TrainingDataResult
 --
 -- /See:/ 'newProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
-  { -- | The Unix datetime for the date and time that training started.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | A descriptive message for an error or warning that occurred.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the testing results.
+  { -- | Contains information about the testing results.
     testingDataResult :: Prelude.Maybe TestingDataResult,
     -- | The training results. @EvaluationResult@ is only returned if training is
     -- successful.
     evaluationResult :: Prelude.Maybe EvaluationResult,
+    -- | The Unix datetime for the date and time that training started.
+    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | A descriptive message for an error or warning that occurred.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The current status of the model version.
     status :: Prelude.Maybe ProjectVersionStatus,
     -- | The duration, in seconds, that the model version has been billed for
@@ -52,6 +52,9 @@ data ProjectVersionDescription = ProjectVersionDescription'
     outputConfig :: Prelude.Maybe OutputConfig,
     -- | The Amazon Resource Name (ARN) of the model version.
     projectVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifer for the AWS Key Management Service (AWS KMS) customer
+    -- master key that was used to encrypt the model during training.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The minimum number of inference units used by the model. For more
     -- information, see StartProjectVersion.
     minInferenceUnits :: Prelude.Maybe Prelude.Natural,
@@ -73,14 +76,14 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'projectVersionDescription_creationTimestamp' - The Unix datetime for the date and time that training started.
---
--- 'statusMessage', 'projectVersionDescription_statusMessage' - A descriptive message for an error or warning that occurred.
---
 -- 'testingDataResult', 'projectVersionDescription_testingDataResult' - Contains information about the testing results.
 --
 -- 'evaluationResult', 'projectVersionDescription_evaluationResult' - The training results. @EvaluationResult@ is only returned if training is
 -- successful.
+--
+-- 'creationTimestamp', 'projectVersionDescription_creationTimestamp' - The Unix datetime for the date and time that training started.
+--
+-- 'statusMessage', 'projectVersionDescription_statusMessage' - A descriptive message for an error or warning that occurred.
 --
 -- 'status', 'projectVersionDescription_status' - The current status of the model version.
 --
@@ -91,6 +94,9 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- 'outputConfig', 'projectVersionDescription_outputConfig' - The location where training results are saved.
 --
 -- 'projectVersionArn', 'projectVersionDescription_projectVersionArn' - The Amazon Resource Name (ARN) of the model version.
+--
+-- 'kmsKeyId', 'projectVersionDescription_kmsKeyId' - The identifer for the AWS Key Management Service (AWS KMS) customer
+-- master key that was used to encrypt the model during training.
 --
 -- 'minInferenceUnits', 'projectVersionDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more
 -- information, see StartProjectVersion.
@@ -105,28 +111,21 @@ newProjectVersionDescription ::
   ProjectVersionDescription
 newProjectVersionDescription =
   ProjectVersionDescription'
-    { creationTimestamp =
+    { testingDataResult =
         Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      testingDataResult = Prelude.Nothing,
       evaluationResult = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
       billableTrainingTimeInSeconds = Prelude.Nothing,
       outputConfig = Prelude.Nothing,
       projectVersionArn = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       minInferenceUnits = Prelude.Nothing,
       trainingDataResult = Prelude.Nothing,
       trainingEndTimestamp = Prelude.Nothing,
       manifestSummary = Prelude.Nothing
     }
-
--- | The Unix datetime for the date and time that training started.
-projectVersionDescription_creationTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
-projectVersionDescription_creationTimestamp = Lens.lens (\ProjectVersionDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectVersionDescription' {} a -> s {creationTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Core._Time
-
--- | A descriptive message for an error or warning that occurred.
-projectVersionDescription_statusMessage :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
-projectVersionDescription_statusMessage = Lens.lens (\ProjectVersionDescription' {statusMessage} -> statusMessage) (\s@ProjectVersionDescription' {} a -> s {statusMessage = a} :: ProjectVersionDescription)
 
 -- | Contains information about the testing results.
 projectVersionDescription_testingDataResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe TestingDataResult)
@@ -136,6 +135,14 @@ projectVersionDescription_testingDataResult = Lens.lens (\ProjectVersionDescript
 -- successful.
 projectVersionDescription_evaluationResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe EvaluationResult)
 projectVersionDescription_evaluationResult = Lens.lens (\ProjectVersionDescription' {evaluationResult} -> evaluationResult) (\s@ProjectVersionDescription' {} a -> s {evaluationResult = a} :: ProjectVersionDescription)
+
+-- | The Unix datetime for the date and time that training started.
+projectVersionDescription_creationTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
+projectVersionDescription_creationTimestamp = Lens.lens (\ProjectVersionDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectVersionDescription' {} a -> s {creationTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Core._Time
+
+-- | A descriptive message for an error or warning that occurred.
+projectVersionDescription_statusMessage :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
+projectVersionDescription_statusMessage = Lens.lens (\ProjectVersionDescription' {statusMessage} -> statusMessage) (\s@ProjectVersionDescription' {} a -> s {statusMessage = a} :: ProjectVersionDescription)
 
 -- | The current status of the model version.
 projectVersionDescription_status :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe ProjectVersionStatus)
@@ -154,6 +161,11 @@ projectVersionDescription_outputConfig = Lens.lens (\ProjectVersionDescription' 
 -- | The Amazon Resource Name (ARN) of the model version.
 projectVersionDescription_projectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
 projectVersionDescription_projectVersionArn = Lens.lens (\ProjectVersionDescription' {projectVersionArn} -> projectVersionArn) (\s@ProjectVersionDescription' {} a -> s {projectVersionArn = a} :: ProjectVersionDescription)
+
+-- | The identifer for the AWS Key Management Service (AWS KMS) customer
+-- master key that was used to encrypt the model during training.
+projectVersionDescription_kmsKeyId :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
+projectVersionDescription_kmsKeyId = Lens.lens (\ProjectVersionDescription' {kmsKeyId} -> kmsKeyId) (\s@ProjectVersionDescription' {} a -> s {kmsKeyId = a} :: ProjectVersionDescription)
 
 -- | The minimum number of inference units used by the model. For more
 -- information, see StartProjectVersion.
@@ -179,14 +191,15 @@ instance Core.FromJSON ProjectVersionDescription where
       "ProjectVersionDescription"
       ( \x ->
           ProjectVersionDescription'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "TestingDataResult")
+            Prelude.<$> (x Core..:? "TestingDataResult")
             Prelude.<*> (x Core..:? "EvaluationResult")
+            Prelude.<*> (x Core..:? "CreationTimestamp")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "BillableTrainingTimeInSeconds")
             Prelude.<*> (x Core..:? "OutputConfig")
             Prelude.<*> (x Core..:? "ProjectVersionArn")
+            Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "MinInferenceUnits")
             Prelude.<*> (x Core..:? "TrainingDataResult")
             Prelude.<*> (x Core..:? "TrainingEndTimestamp")

@@ -20,27 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation enables you to delete multiple objects from a bucket
--- using a single HTTP request. If you know the object keys that you want
--- to delete, then this operation provides a suitable alternative to
--- sending individual delete requests, reducing per-request overhead.
+-- This action enables you to delete multiple objects from a bucket using a
+-- single HTTP request. If you know the object keys that you want to
+-- delete, then this action provides a suitable alternative to sending
+-- individual delete requests, reducing per-request overhead.
 --
 -- The request contains a list of up to 1000 keys that you want to delete.
 -- In the XML, you provide the object key names, and optionally, version
 -- IDs if you want to delete a specific version of the object from a
 -- versioning-enabled bucket. For each key, Amazon S3 performs a delete
--- operation and returns the result of that delete, success, or failure, in
+-- action and returns the result of that delete, success, or failure, in
 -- the response. Note that if the object specified in the request is not
 -- found, Amazon S3 returns the result as deleted.
 --
--- The operation supports two modes for the response: verbose and quiet. By
--- default, the operation uses verbose mode in which the response includes
--- the result of deletion of each key in your request. In quiet mode the
--- response includes only keys where the delete operation encountered an
--- error. For a successful deletion, the operation does not return any
+-- The action supports two modes for the response: verbose and quiet. By
+-- default, the action uses verbose mode in which the response includes the
+-- result of deletion of each key in your request. In quiet mode the
+-- response includes only keys where the delete action encountered an
+-- error. For a successful deletion, the action does not return any
 -- information about the delete in the response body.
 --
--- When performing this operation on an MFA Delete enabled bucket, that
+-- When performing this action on an MFA Delete enabled bucket, that
 -- attempts to delete any versioned objects, you must include an MFA token.
 -- If you do not provide one, the entire request will fail, even if there
 -- are non-versioned objects you are trying to delete. If you provide an
@@ -98,13 +98,13 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newDeleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether you want to delete this object even if it has a
-    -- Governance-type Object Lock in place. You must have sufficient
-    -- permissions to perform this operation.
+    -- Governance-type Object Lock in place. To use this header, you must have
+    -- the @s3:PutBucketPublicAccessBlock@ permission.
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | The concatenation of the authentication device\'s serial number, a
@@ -114,24 +114,24 @@ data DeleteObjects = DeleteObjects'
     mfa :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the objects to delete.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     --
-    -- When using this API with Amazon S3 on Outposts, you must direct requests
-    -- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
-    -- form
+    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+    -- takes the form
     -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this operation using S3 on Outposts through the AWS SDKs, you
-    -- provide the Outposts bucket ARN in place of the bucket name. For more
-    -- information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action using S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- bucket name. For more information about S3 on Outposts ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Container for the request.
     delete' :: Delete
@@ -146,13 +146,13 @@ data DeleteObjects = DeleteObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
 -- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a
--- Governance-type Object Lock in place. You must have sufficient
--- permissions to perform this operation.
+-- Governance-type Object Lock in place. To use this header, you must have
+-- the @s3:PutBucketPublicAccessBlock@ permission.
 --
 -- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
 --
@@ -163,24 +163,24 @@ data DeleteObjects = DeleteObjects'
 --
 -- 'bucket', 'deleteObjects_bucket' - The bucket name containing the objects to delete.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'delete'', 'deleteObjects_delete' - Container for the request.
 newDeleteObjects ::
@@ -200,15 +200,15 @@ newDeleteObjects pBucket_ pDelete_ =
       delete' = pDelete_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
 deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
 
 -- | Specifies whether you want to delete this object even if it has a
--- Governance-type Object Lock in place. You must have sufficient
--- permissions to perform this operation.
+-- Governance-type Object Lock in place. To use this header, you must have
+-- the @s3:PutBucketPublicAccessBlock@ permission.
 deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
 deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
 
@@ -225,24 +225,24 @@ deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' 
 
 -- | The bucket name containing the objects to delete.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 deleteObjects_bucket :: Lens.Lens' DeleteObjects BucketName
 deleteObjects_bucket = Lens.lens (\DeleteObjects' {bucket} -> bucket) (\s@DeleteObjects' {} a -> s {bucket = a} :: DeleteObjects)
 
@@ -298,7 +298,7 @@ instance Core.ToQuery DeleteObjects where
 -- | /See:/ 'newDeleteObjectsResponse' smart constructor.
 data DeleteObjectsResponse = DeleteObjectsResponse'
   { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Container for a failed delete operation that describes the object that
+    -- | Container for a failed delete action that describes the object that
     -- Amazon S3 attempted to delete and the error it encountered.
     errors :: Prelude.Maybe [S3ServiceError],
     -- | Container element for a successful delete. It identifies the object that
@@ -319,7 +319,7 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 --
 -- 'requestCharged', 'deleteObjectsResponse_requestCharged' - Undocumented member.
 --
--- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete operation that describes the object that
+-- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that
 -- Amazon S3 attempted to delete and the error it encountered.
 --
 -- 'deleted', 'deleteObjectsResponse_deleted' - Container element for a successful delete. It identifies the object that
@@ -343,7 +343,7 @@ newDeleteObjectsResponse pHttpStatus_ =
 deleteObjectsResponse_requestCharged :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe RequestCharged)
 deleteObjectsResponse_requestCharged = Lens.lens (\DeleteObjectsResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectsResponse' {} a -> s {requestCharged = a} :: DeleteObjectsResponse)
 
--- | Container for a failed delete operation that describes the object that
+-- | Container for a failed delete action that describes the object that
 -- Amazon S3 attempted to delete and the error it encountered.
 deleteObjectsResponse_errors :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe [S3ServiceError])
 deleteObjectsResponse_errors = Lens.lens (\DeleteObjectsResponse' {errors} -> errors) (\s@DeleteObjectsResponse' {} a -> s {errors = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens._Coerce

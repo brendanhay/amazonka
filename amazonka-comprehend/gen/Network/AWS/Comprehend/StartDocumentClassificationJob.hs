@@ -30,6 +30,7 @@ module Network.AWS.Comprehend.StartDocumentClassificationJob
     -- * Request Lenses
     startDocumentClassificationJob_vpcConfig,
     startDocumentClassificationJob_volumeKmsKeyId,
+    startDocumentClassificationJob_tags,
     startDocumentClassificationJob_clientRequestToken,
     startDocumentClassificationJob_jobName,
     startDocumentClassificationJob_documentClassifierArn,
@@ -43,6 +44,7 @@ module Network.AWS.Comprehend.StartDocumentClassificationJob
 
     -- * Response Lenses
     startDocumentClassificationJobResponse_jobStatus,
+    startDocumentClassificationJobResponse_jobArn,
     startDocumentClassificationJobResponse_jobId,
     startDocumentClassificationJobResponse_httpStatus,
   )
@@ -72,6 +74,11 @@ data StartDocumentClassificationJob = StartDocumentClassificationJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Tags to be associated with the document classification job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -113,6 +120,11 @@ data StartDocumentClassificationJob = StartDocumentClassificationJob'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
+-- 'tags', 'startDocumentClassificationJob_tags' - Tags to be associated with the document classification job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
 -- 'clientRequestToken', 'startDocumentClassificationJob_clientRequestToken' - A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
 --
@@ -146,6 +158,7 @@ newStartDocumentClassificationJob
       { vpcConfig =
           Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         jobName = Prelude.Nothing,
         documentClassifierArn =
@@ -173,6 +186,13 @@ startDocumentClassificationJob_vpcConfig = Lens.lens (\StartDocumentClassificati
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 startDocumentClassificationJob_volumeKmsKeyId :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe Prelude.Text)
 startDocumentClassificationJob_volumeKmsKeyId = Lens.lens (\StartDocumentClassificationJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartDocumentClassificationJob' {} a -> s {volumeKmsKeyId = a} :: StartDocumentClassificationJob)
+
+-- | Tags to be associated with the document classification job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startDocumentClassificationJob_tags :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe [Tag])
+startDocumentClassificationJob_tags = Lens.lens (\StartDocumentClassificationJob' {tags} -> tags) (\s@StartDocumentClassificationJob' {} a -> s {tags = a} :: StartDocumentClassificationJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
@@ -214,6 +234,7 @@ instance
       ( \s h x ->
           StartDocumentClassificationJobResponse'
             Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -251,6 +272,7 @@ instance Core.ToJSON StartDocumentClassificationJob where
           [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("JobName" Core..=) Prelude.<$> jobName,
@@ -291,6 +313,16 @@ data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResp
     --
     -- -   STOPPED - The job was successfully stopped without completing.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The Amazon Resource Name (ARN) of the document classification job. It is
+    -- a unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier generated for the job. To get the status of the job, use
     -- this identifier with the operation.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -323,6 +355,16 @@ data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResp
 --
 -- -   STOPPED - The job was successfully stopped without completing.
 --
+-- 'jobArn', 'startDocumentClassificationJobResponse_jobArn' - The Amazon Resource Name (ARN) of the document classification job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'jobId', 'startDocumentClassificationJobResponse_jobId' - The identifier generated for the job. To get the status of the job, use
 -- this identifier with the operation.
 --
@@ -336,6 +378,7 @@ newStartDocumentClassificationJobResponse
     StartDocumentClassificationJobResponse'
       { jobStatus =
           Prelude.Nothing,
+        jobArn = Prelude.Nothing,
         jobId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -357,6 +400,18 @@ newStartDocumentClassificationJobResponse
 -- -   STOPPED - The job was successfully stopped without completing.
 startDocumentClassificationJobResponse_jobStatus :: Lens.Lens' StartDocumentClassificationJobResponse (Prelude.Maybe JobStatus)
 startDocumentClassificationJobResponse_jobStatus = Lens.lens (\StartDocumentClassificationJobResponse' {jobStatus} -> jobStatus) (\s@StartDocumentClassificationJobResponse' {} a -> s {jobStatus = a} :: StartDocumentClassificationJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the document classification job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:document-classification-job\/1234abcd12ab34cd56ef1234567890ab@
+startDocumentClassificationJobResponse_jobArn :: Lens.Lens' StartDocumentClassificationJobResponse (Prelude.Maybe Prelude.Text)
+startDocumentClassificationJobResponse_jobArn = Lens.lens (\StartDocumentClassificationJobResponse' {jobArn} -> jobArn) (\s@StartDocumentClassificationJobResponse' {} a -> s {jobArn = a} :: StartDocumentClassificationJobResponse)
 
 -- | The identifier generated for the job. To get the status of the job, use
 -- this identifier with the operation.

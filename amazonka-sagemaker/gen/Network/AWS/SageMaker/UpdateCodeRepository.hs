@@ -50,10 +50,10 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateCodeRepository' smart constructor.
 data UpdateCodeRepository = UpdateCodeRepository'
   { -- | The configuration of the git repository, including the URL and the
-    -- Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
-    -- contains the credentials used to access the repository. The secret must
-    -- have a staging label of @AWSCURRENT@ and must be in the following
-    -- format:
+    -- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager
+    -- secret that contains the credentials used to access the repository. The
+    -- secret must have a staging label of @AWSCURRENT@ and must be in the
+    -- following format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
     gitConfig :: Prelude.Maybe GitConfigForUpdate,
@@ -71,10 +71,10 @@ data UpdateCodeRepository = UpdateCodeRepository'
 -- for backwards compatibility:
 --
 -- 'gitConfig', 'updateCodeRepository_gitConfig' - The configuration of the git repository, including the URL and the
--- Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the credentials used to access the repository. The secret must
--- have a staging label of @AWSCURRENT@ and must be in the following
--- format:
+-- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager
+-- secret that contains the credentials used to access the repository. The
+-- secret must have a staging label of @AWSCURRENT@ and must be in the
+-- following format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
 --
@@ -90,10 +90,10 @@ newUpdateCodeRepository pCodeRepositoryName_ =
     }
 
 -- | The configuration of the git repository, including the URL and the
--- Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the credentials used to access the repository. The secret must
--- have a staging label of @AWSCURRENT@ and must be in the following
--- format:
+-- Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager
+-- secret that contains the credentials used to access the repository. The
+-- secret must have a staging label of @AWSCURRENT@ and must be in the
+-- following format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
 updateCodeRepository_gitConfig :: Lens.Lens' UpdateCodeRepository (Prelude.Maybe GitConfigForUpdate)

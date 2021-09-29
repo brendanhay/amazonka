@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets an AWS Glue machine learning transform artifact and all its
+-- Gets an Glue machine learning transform artifact and all its
 -- corresponding metadata. Machine learning transforms are a special type
 -- of transform that use machine learning to learn the details of the
 -- transformation to be performed by learning from examples provided by
--- humans. These transformations are then saved by AWS Glue. You can
--- retrieve their metadata by calling @GetMLTransform@.
+-- humans. These transformations are then saved by Glue. You can retrieve
+-- their metadata by calling @GetMLTransform@.
 module Network.AWS.Glue.GetMLTransform
   ( -- * Creating a Request
     GetMLTransform (..),
@@ -40,9 +40,9 @@ module Network.AWS.Glue.GetMLTransform
 
     -- * Response Lenses
     getMLTransformResponse_status,
-    getMLTransformResponse_transformId,
-    getMLTransformResponse_schema,
     getMLTransformResponse_createdOn,
+    getMLTransformResponse_schema,
+    getMLTransformResponse_transformId,
     getMLTransformResponse_inputRecordTables,
     getMLTransformResponse_transformEncryption,
     getMLTransformResponse_timeout,
@@ -56,8 +56,8 @@ module Network.AWS.Glue.GetMLTransform
     getMLTransformResponse_workerType,
     getMLTransformResponse_description,
     getMLTransformResponse_labelCount,
-    getMLTransformResponse_parameters,
     getMLTransformResponse_maxRetries,
+    getMLTransformResponse_parameters,
     getMLTransformResponse_httpStatus,
   )
 where
@@ -109,9 +109,9 @@ instance Core.AWSRequest GetMLTransform where
       ( \s h x ->
           GetMLTransformResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TransformId")
-            Prelude.<*> (x Core..?> "Schema" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CreatedOn")
+            Prelude.<*> (x Core..?> "Schema" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "TransformId")
             Prelude.<*> ( x Core..?> "InputRecordTables"
                             Core..!@ Prelude.mempty
                         )
@@ -127,8 +127,8 @@ instance Core.AWSRequest GetMLTransform where
             Prelude.<*> (x Core..?> "WorkerType")
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "LabelCount")
-            Prelude.<*> (x Core..?> "Parameters")
             Prelude.<*> (x Core..?> "MaxRetries")
+            Prelude.<*> (x Core..?> "Parameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,15 +167,15 @@ data GetMLTransformResponse = GetMLTransformResponse'
   { -- | The last known status of the transform (to indicate whether it can be
     -- used or not). One of \"NOT_READY\", \"READY\", or \"DELETING\".
     status :: Prelude.Maybe TransformStatusType,
-    -- | The unique identifier of the transform, generated at the time that the
-    -- transform was created.
-    transformId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the transform was created.
+    createdOn :: Prelude.Maybe Core.POSIX,
     -- | The @Map\<Column, Type>@ object that represents the schema that this
     -- transform accepts. Has an upper bound of 100 columns.
     schema :: Prelude.Maybe [SchemaColumn],
-    -- | The date and time when the transform was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
-    -- | A list of AWS Glue table definitions used by the transform.
+    -- | The unique identifier of the transform, generated at the time that the
+    -- transform was created.
+    transformId :: Prelude.Maybe Prelude.Text,
+    -- | A list of Glue table definitions used by the transform.
     inputRecordTables :: Prelude.Maybe [GlueTable],
     -- | The encryption-at-rest settings of the transform that apply to accessing
     -- user data. Machine learning transforms can access user data encrypted in
@@ -186,12 +186,12 @@ data GetMLTransformResponse = GetMLTransformResponse'
     -- before it is terminated and enters @TIMEOUT@ status. The default is
     -- 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of AWS Glue data processing units (DPUs) that are allocated
-    -- to task runs for this transform. You can allocate from 2 to 100 DPUs;
-    -- the default is 10. A DPU is a relative measure of processing power that
+    -- | The number of Glue data processing units (DPUs) that are allocated to
+    -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+    -- default is 10. A DPU is a relative measure of processing power that
     -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
     -- information, see the
-    -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
     -- When the @WorkerType@ field is set to a value other than @Standard@, the
     -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -206,11 +206,11 @@ data GetMLTransformResponse = GetMLTransformResponse'
     -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
     -- permissions.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | This value determines which version of AWS Glue this machine learning
+    -- | This value determines which version of Glue this machine learning
     -- transform is compatible with. Glue 1.0 is recommended for most
     -- customers. If the value is not set, the Glue compatibility defaults to
     -- Glue 0.9. For more information, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
     -- in the developer guide.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The latest evaluation metrics.
@@ -231,11 +231,11 @@ data GetMLTransformResponse = GetMLTransformResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | The number of labels available for this transform.
     labelCount :: Prelude.Maybe Prelude.Int,
-    -- | The configuration parameters that are specific to the algorithm used.
-    parameters :: Prelude.Maybe TransformParameters,
     -- | The maximum number of times to retry a task for this transform after a
     -- task run fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
+    -- | The configuration parameters that are specific to the algorithm used.
+    parameters :: Prelude.Maybe TransformParameters,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,15 +252,15 @@ data GetMLTransformResponse = GetMLTransformResponse'
 -- 'status', 'getMLTransformResponse_status' - The last known status of the transform (to indicate whether it can be
 -- used or not). One of \"NOT_READY\", \"READY\", or \"DELETING\".
 --
--- 'transformId', 'getMLTransformResponse_transformId' - The unique identifier of the transform, generated at the time that the
--- transform was created.
+-- 'createdOn', 'getMLTransformResponse_createdOn' - The date and time when the transform was created.
 --
 -- 'schema', 'getMLTransformResponse_schema' - The @Map\<Column, Type>@ object that represents the schema that this
 -- transform accepts. Has an upper bound of 100 columns.
 --
--- 'createdOn', 'getMLTransformResponse_createdOn' - The date and time when the transform was created.
+-- 'transformId', 'getMLTransformResponse_transformId' - The unique identifier of the transform, generated at the time that the
+-- transform was created.
 --
--- 'inputRecordTables', 'getMLTransformResponse_inputRecordTables' - A list of AWS Glue table definitions used by the transform.
+-- 'inputRecordTables', 'getMLTransformResponse_inputRecordTables' - A list of Glue table definitions used by the transform.
 --
 -- 'transformEncryption', 'getMLTransformResponse_transformEncryption' - The encryption-at-rest settings of the transform that apply to accessing
 -- user data. Machine learning transforms can access user data encrypted in
@@ -271,12 +271,12 @@ data GetMLTransformResponse = GetMLTransformResponse'
 -- before it is terminated and enters @TIMEOUT@ status. The default is
 -- 2,880 minutes (48 hours).
 --
--- 'maxCapacity', 'getMLTransformResponse_maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- 'maxCapacity', 'getMLTransformResponse_maxCapacity' - The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -291,11 +291,11 @@ data GetMLTransformResponse = GetMLTransformResponse'
 -- 'role'', 'getMLTransformResponse_role' - The name or Amazon Resource Name (ARN) of the IAM role with the required
 -- permissions.
 --
--- 'glueVersion', 'getMLTransformResponse_glueVersion' - This value determines which version of AWS Glue this machine learning
+-- 'glueVersion', 'getMLTransformResponse_glueVersion' - This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 --
 -- 'evaluationMetrics', 'getMLTransformResponse_evaluationMetrics' - The latest evaluation metrics.
@@ -316,10 +316,10 @@ data GetMLTransformResponse = GetMLTransformResponse'
 --
 -- 'labelCount', 'getMLTransformResponse_labelCount' - The number of labels available for this transform.
 --
--- 'parameters', 'getMLTransformResponse_parameters' - The configuration parameters that are specific to the algorithm used.
---
 -- 'maxRetries', 'getMLTransformResponse_maxRetries' - The maximum number of times to retry a task for this transform after a
 -- task run fails.
+--
+-- 'parameters', 'getMLTransformResponse_parameters' - The configuration parameters that are specific to the algorithm used.
 --
 -- 'httpStatus', 'getMLTransformResponse_httpStatus' - The response's http status code.
 newGetMLTransformResponse ::
@@ -329,9 +329,9 @@ newGetMLTransformResponse ::
 newGetMLTransformResponse pHttpStatus_ =
   GetMLTransformResponse'
     { status = Prelude.Nothing,
-      transformId = Prelude.Nothing,
-      schema = Prelude.Nothing,
       createdOn = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      transformId = Prelude.Nothing,
       inputRecordTables = Prelude.Nothing,
       transformEncryption = Prelude.Nothing,
       timeout = Prelude.Nothing,
@@ -345,8 +345,8 @@ newGetMLTransformResponse pHttpStatus_ =
       workerType = Prelude.Nothing,
       description = Prelude.Nothing,
       labelCount = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       maxRetries = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -355,21 +355,21 @@ newGetMLTransformResponse pHttpStatus_ =
 getMLTransformResponse_status :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe TransformStatusType)
 getMLTransformResponse_status = Lens.lens (\GetMLTransformResponse' {status} -> status) (\s@GetMLTransformResponse' {} a -> s {status = a} :: GetMLTransformResponse)
 
--- | The unique identifier of the transform, generated at the time that the
--- transform was created.
-getMLTransformResponse_transformId :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Text)
-getMLTransformResponse_transformId = Lens.lens (\GetMLTransformResponse' {transformId} -> transformId) (\s@GetMLTransformResponse' {} a -> s {transformId = a} :: GetMLTransformResponse)
+-- | The date and time when the transform was created.
+getMLTransformResponse_createdOn :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.UTCTime)
+getMLTransformResponse_createdOn = Lens.lens (\GetMLTransformResponse' {createdOn} -> createdOn) (\s@GetMLTransformResponse' {} a -> s {createdOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The @Map\<Column, Type>@ object that represents the schema that this
 -- transform accepts. Has an upper bound of 100 columns.
 getMLTransformResponse_schema :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe [SchemaColumn])
 getMLTransformResponse_schema = Lens.lens (\GetMLTransformResponse' {schema} -> schema) (\s@GetMLTransformResponse' {} a -> s {schema = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The date and time when the transform was created.
-getMLTransformResponse_createdOn :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTransformResponse_createdOn = Lens.lens (\GetMLTransformResponse' {createdOn} -> createdOn) (\s@GetMLTransformResponse' {} a -> s {createdOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Core._Time
+-- | The unique identifier of the transform, generated at the time that the
+-- transform was created.
+getMLTransformResponse_transformId :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Text)
+getMLTransformResponse_transformId = Lens.lens (\GetMLTransformResponse' {transformId} -> transformId) (\s@GetMLTransformResponse' {} a -> s {transformId = a} :: GetMLTransformResponse)
 
--- | A list of AWS Glue table definitions used by the transform.
+-- | A list of Glue table definitions used by the transform.
 getMLTransformResponse_inputRecordTables :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe [GlueTable])
 getMLTransformResponse_inputRecordTables = Lens.lens (\GetMLTransformResponse' {inputRecordTables} -> inputRecordTables) (\s@GetMLTransformResponse' {} a -> s {inputRecordTables = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Lens._Coerce
 
@@ -386,12 +386,12 @@ getMLTransformResponse_transformEncryption = Lens.lens (\GetMLTransformResponse'
 getMLTransformResponse_timeout :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Natural)
 getMLTransformResponse_timeout = Lens.lens (\GetMLTransformResponse' {timeout} -> timeout) (\s@GetMLTransformResponse' {} a -> s {timeout = a} :: GetMLTransformResponse)
 
--- | The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- | The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -416,11 +416,11 @@ getMLTransformResponse_name = Lens.lens (\GetMLTransformResponse' {name} -> name
 getMLTransformResponse_role :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Text)
 getMLTransformResponse_role = Lens.lens (\GetMLTransformResponse' {role'} -> role') (\s@GetMLTransformResponse' {} a -> s {role' = a} :: GetMLTransformResponse)
 
--- | This value determines which version of AWS Glue this machine learning
+-- | This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 getMLTransformResponse_glueVersion :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Text)
 getMLTransformResponse_glueVersion = Lens.lens (\GetMLTransformResponse' {glueVersion} -> glueVersion) (\s@GetMLTransformResponse' {} a -> s {glueVersion = a} :: GetMLTransformResponse)
@@ -451,14 +451,14 @@ getMLTransformResponse_description = Lens.lens (\GetMLTransformResponse' {descri
 getMLTransformResponse_labelCount :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Int)
 getMLTransformResponse_labelCount = Lens.lens (\GetMLTransformResponse' {labelCount} -> labelCount) (\s@GetMLTransformResponse' {} a -> s {labelCount = a} :: GetMLTransformResponse)
 
--- | The configuration parameters that are specific to the algorithm used.
-getMLTransformResponse_parameters :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe TransformParameters)
-getMLTransformResponse_parameters = Lens.lens (\GetMLTransformResponse' {parameters} -> parameters) (\s@GetMLTransformResponse' {} a -> s {parameters = a} :: GetMLTransformResponse)
-
 -- | The maximum number of times to retry a task for this transform after a
 -- task run fails.
 getMLTransformResponse_maxRetries :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.Int)
 getMLTransformResponse_maxRetries = Lens.lens (\GetMLTransformResponse' {maxRetries} -> maxRetries) (\s@GetMLTransformResponse' {} a -> s {maxRetries = a} :: GetMLTransformResponse)
+
+-- | The configuration parameters that are specific to the algorithm used.
+getMLTransformResponse_parameters :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe TransformParameters)
+getMLTransformResponse_parameters = Lens.lens (\GetMLTransformResponse' {parameters} -> parameters) (\s@GetMLTransformResponse' {} a -> s {parameters = a} :: GetMLTransformResponse)
 
 -- | The response's http status code.
 getMLTransformResponse_httpStatus :: Lens.Lens' GetMLTransformResponse Prelude.Int

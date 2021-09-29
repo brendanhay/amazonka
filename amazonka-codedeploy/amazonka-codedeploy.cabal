@@ -144,8 +144,10 @@ library
     Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
     Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
     Network.AWS.CodeDeploy.Types.OnPremisesTagSet
+    Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy
     Network.AWS.CodeDeploy.Types.RawString
     Network.AWS.CodeDeploy.Types.RegistrationStatus
+    Network.AWS.CodeDeploy.Types.RelatedDeployments
     Network.AWS.CodeDeploy.Types.RevisionInfo
     Network.AWS.CodeDeploy.Types.RevisionLocation
     Network.AWS.CodeDeploy.Types.RevisionLocationType

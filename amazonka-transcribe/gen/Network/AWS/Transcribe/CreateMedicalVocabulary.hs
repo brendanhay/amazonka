@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new custom vocabulary that you can use to change how Amazon
+-- Creates a new custom vocabulary that you can use to modify how Amazon
 -- Transcribe Medical transcribes your audio file.
 module Network.AWS.Transcribe.CreateMedicalVocabulary
   ( -- * Creating a Request
@@ -28,6 +28,7 @@ module Network.AWS.Transcribe.CreateMedicalVocabulary
     newCreateMedicalVocabulary,
 
     -- * Request Lenses
+    createMedicalVocabulary_tags,
     createMedicalVocabulary_vocabularyName,
     createMedicalVocabulary_languageCode,
     createMedicalVocabulary_vocabularyFileUri,
@@ -40,8 +41,8 @@ module Network.AWS.Transcribe.CreateMedicalVocabulary
     createMedicalVocabularyResponse_languageCode,
     createMedicalVocabularyResponse_failureReason,
     createMedicalVocabularyResponse_lastModifiedTime,
-    createMedicalVocabularyResponse_vocabularyState,
     createMedicalVocabularyResponse_vocabularyName,
+    createMedicalVocabularyResponse_vocabularyState,
     createMedicalVocabularyResponse_httpStatus,
   )
 where
@@ -55,9 +56,13 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'newCreateMedicalVocabulary' smart constructor.
 data CreateMedicalVocabulary = CreateMedicalVocabulary'
-  { -- | The name of the custom vocabulary. This case-sensitive name must be
-    -- unique within an AWS account. If you try to create a vocabulary with the
-    -- same name as a previous vocabulary, you get a @ConflictException@ error.
+  { -- | Adds one or more tags, each in the form of a key:value pair, to a new
+    -- medical vocabulary at the time you create this new vocabulary.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the custom vocabulary. This case-sensitive name must be
+    -- unique within an Amazon Web Services account. If you try to create a
+    -- vocabulary with the same name as a previous vocabulary, you get a
+    -- @ConflictException@ error.
     vocabularyName :: Prelude.Text,
     -- | The language code for the language used for the entries in your custom
     -- vocabulary. The language code of your custom vocabulary must match the
@@ -65,9 +70,9 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
     -- language code available for Amazon Transcribe Medical.
     languageCode :: LanguageCode,
     -- | The location in Amazon S3 of the text file you use to define your custom
-    -- vocabulary. The URI must be in the same AWS Region as the resource that
-    -- you\'re calling. Enter information about your @VocabularyFileUri@ in the
-    -- following format:
+    -- vocabulary. The URI must be in the same Amazon Web Services Region as
+    -- the resource that you\'re calling. Enter information about your
+    -- @VocabularyFileUri@ in the following format:
     --
     -- @ https:\/\/s3.\<aws-region>.amazonaws.com\/\<bucket-name>\/\<keyprefix>\/\<objectkey> @
     --
@@ -77,11 +82,11 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
     -- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@
     --
     -- For more information about Amazon S3 object names, see
-    -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
     -- in the /Amazon S3 Developer Guide/.
     --
     -- For more information about custom vocabularies, see
-    -- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
     vocabularyFileUri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,9 +99,13 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createMedicalVocabulary_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
+-- medical vocabulary at the time you create this new vocabulary.
+--
 -- 'vocabularyName', 'createMedicalVocabulary_vocabularyName' - The name of the custom vocabulary. This case-sensitive name must be
--- unique within an AWS account. If you try to create a vocabulary with the
--- same name as a previous vocabulary, you get a @ConflictException@ error.
+-- unique within an Amazon Web Services account. If you try to create a
+-- vocabulary with the same name as a previous vocabulary, you get a
+-- @ConflictException@ error.
 --
 -- 'languageCode', 'createMedicalVocabulary_languageCode' - The language code for the language used for the entries in your custom
 -- vocabulary. The language code of your custom vocabulary must match the
@@ -104,9 +113,9 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- language code available for Amazon Transcribe Medical.
 --
 -- 'vocabularyFileUri', 'createMedicalVocabulary_vocabularyFileUri' - The location in Amazon S3 of the text file you use to define your custom
--- vocabulary. The URI must be in the same AWS Region as the resource that
--- you\'re calling. Enter information about your @VocabularyFileUri@ in the
--- following format:
+-- vocabulary. The URI must be in the same Amazon Web Services Region as
+-- the resource that you\'re calling. Enter information about your
+-- @VocabularyFileUri@ in the following format:
 --
 -- @ https:\/\/s3.\<aws-region>.amazonaws.com\/\<bucket-name>\/\<keyprefix>\/\<objectkey> @
 --
@@ -116,11 +125,11 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@
 --
 -- For more information about Amazon S3 object names, see
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
 --
 -- For more information about custom vocabularies, see
--- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
 newCreateMedicalVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -134,15 +143,21 @@ newCreateMedicalVocabulary
   pLanguageCode_
   pVocabularyFileUri_ =
     CreateMedicalVocabulary'
-      { vocabularyName =
-          pVocabularyName_,
+      { tags = Prelude.Nothing,
+        vocabularyName = pVocabularyName_,
         languageCode = pLanguageCode_,
         vocabularyFileUri = pVocabularyFileUri_
       }
 
+-- | Adds one or more tags, each in the form of a key:value pair, to a new
+-- medical vocabulary at the time you create this new vocabulary.
+createMedicalVocabulary_tags :: Lens.Lens' CreateMedicalVocabulary (Prelude.Maybe (Prelude.NonEmpty Tag))
+createMedicalVocabulary_tags = Lens.lens (\CreateMedicalVocabulary' {tags} -> tags) (\s@CreateMedicalVocabulary' {} a -> s {tags = a} :: CreateMedicalVocabulary) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The name of the custom vocabulary. This case-sensitive name must be
--- unique within an AWS account. If you try to create a vocabulary with the
--- same name as a previous vocabulary, you get a @ConflictException@ error.
+-- unique within an Amazon Web Services account. If you try to create a
+-- vocabulary with the same name as a previous vocabulary, you get a
+-- @ConflictException@ error.
 createMedicalVocabulary_vocabularyName :: Lens.Lens' CreateMedicalVocabulary Prelude.Text
 createMedicalVocabulary_vocabularyName = Lens.lens (\CreateMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabulary' {} a -> s {vocabularyName = a} :: CreateMedicalVocabulary)
 
@@ -154,9 +169,9 @@ createMedicalVocabulary_languageCode :: Lens.Lens' CreateMedicalVocabulary Langu
 createMedicalVocabulary_languageCode = Lens.lens (\CreateMedicalVocabulary' {languageCode} -> languageCode) (\s@CreateMedicalVocabulary' {} a -> s {languageCode = a} :: CreateMedicalVocabulary)
 
 -- | The location in Amazon S3 of the text file you use to define your custom
--- vocabulary. The URI must be in the same AWS Region as the resource that
--- you\'re calling. Enter information about your @VocabularyFileUri@ in the
--- following format:
+-- vocabulary. The URI must be in the same Amazon Web Services Region as
+-- the resource that you\'re calling. Enter information about your
+-- @VocabularyFileUri@ in the following format:
 --
 -- @ https:\/\/s3.\<aws-region>.amazonaws.com\/\<bucket-name>\/\<keyprefix>\/\<objectkey> @
 --
@@ -166,11 +181,11 @@ createMedicalVocabulary_languageCode = Lens.lens (\CreateMedicalVocabulary' {lan
 -- @https:\/\/s3.us-east-1.amazonaws.com\/AWSDOC-EXAMPLE-BUCKET\/vocab.txt@
 --
 -- For more information about Amazon S3 object names, see
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
 --
 -- For more information about custom vocabularies, see
--- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies>.
 createMedicalVocabulary_vocabularyFileUri :: Lens.Lens' CreateMedicalVocabulary Prelude.Text
 createMedicalVocabulary_vocabularyFileUri = Lens.lens (\CreateMedicalVocabulary' {vocabularyFileUri} -> vocabularyFileUri) (\s@CreateMedicalVocabulary' {} a -> s {vocabularyFileUri = a} :: CreateMedicalVocabulary)
 
@@ -186,8 +201,8 @@ instance Core.AWSRequest CreateMedicalVocabulary where
             Prelude.<$> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "VocabularyName")
+            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,7 +229,8 @@ instance Core.ToJSON CreateMedicalVocabulary where
   toJSON CreateMedicalVocabulary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just
               ("VocabularyName" Core..= vocabularyName),
             Prelude.Just ("LanguageCode" Core..= languageCode),
             Prelude.Just
@@ -238,13 +254,13 @@ data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that you created the vocabulary.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the vocabulary. The name must be unique within an Amazon Web
+    -- Services account and is case sensitive.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The processing state of your custom vocabulary in Amazon Transcribe
     -- Medical. If the state is @READY@, you can use the vocabulary in a
     -- @StartMedicalTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The name of the vocabulary. The name must be unique within an AWS
-    -- account and is case sensitive.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,12 +282,12 @@ data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
 --
 -- 'lastModifiedTime', 'createMedicalVocabularyResponse_lastModifiedTime' - The date and time that you created the vocabulary.
 --
+-- 'vocabularyName', 'createMedicalVocabularyResponse_vocabularyName' - The name of the vocabulary. The name must be unique within an Amazon Web
+-- Services account and is case sensitive.
+--
 -- 'vocabularyState', 'createMedicalVocabularyResponse_vocabularyState' - The processing state of your custom vocabulary in Amazon Transcribe
 -- Medical. If the state is @READY@, you can use the vocabulary in a
 -- @StartMedicalTranscriptionJob@ request.
---
--- 'vocabularyName', 'createMedicalVocabularyResponse_vocabularyName' - The name of the vocabulary. The name must be unique within an AWS
--- account and is case sensitive.
 --
 -- 'httpStatus', 'createMedicalVocabularyResponse_httpStatus' - The response's http status code.
 newCreateMedicalVocabularyResponse ::
@@ -284,8 +300,8 @@ newCreateMedicalVocabularyResponse pHttpStatus_ =
         Prelude.Nothing,
       failureReason = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -303,16 +319,16 @@ createMedicalVocabularyResponse_failureReason = Lens.lens (\CreateMedicalVocabul
 createMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 createMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\CreateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: CreateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the vocabulary. The name must be unique within an Amazon Web
+-- Services account and is case sensitive.
+createMedicalVocabularyResponse_vocabularyName :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+createMedicalVocabularyResponse_vocabularyName = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateMedicalVocabularyResponse)
+
 -- | The processing state of your custom vocabulary in Amazon Transcribe
 -- Medical. If the state is @READY@, you can use the vocabulary in a
 -- @StartMedicalTranscriptionJob@ request.
 createMedicalVocabularyResponse_vocabularyState :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
 createMedicalVocabularyResponse_vocabularyState = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: CreateMedicalVocabularyResponse)
-
--- | The name of the vocabulary. The name must be unique within an AWS
--- account and is case sensitive.
-createMedicalVocabularyResponse_vocabularyName :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-createMedicalVocabularyResponse_vocabularyName = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateMedicalVocabularyResponse)
 
 -- | The response's http status code.
 createMedicalVocabularyResponse_httpStatus :: Lens.Lens' CreateMedicalVocabularyResponse Prelude.Int

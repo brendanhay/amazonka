@@ -66,11 +66,12 @@ import qualified Network.AWS.Response as Response
 data ExportJournalToS = ExportJournalToS'
   { -- | The name of the ledger.
     name :: Prelude.Text,
-    -- | The inclusive start date and time for the range of journal contents that
-    -- you want to export.
+    -- | The inclusive start date and time for the range of journal contents to
+    -- export.
     --
     -- The @InclusiveStartTime@ must be in @ISO 8601@ date and time format and
-    -- in Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+    -- in Universal Coordinated Time (UTC). For example:
+    -- @2019-06-13T21:36:34Z@.
     --
     -- The @InclusiveStartTime@ must be before @ExclusiveEndTime@.
     --
@@ -78,11 +79,11 @@ data ExportJournalToS = ExportJournalToS'
     -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
     -- @CreationDateTime@.
     inclusiveStartTime :: Core.POSIX,
-    -- | The exclusive end date and time for the range of journal contents that
-    -- you want to export.
+    -- | The exclusive end date and time for the range of journal contents to
+    -- export.
     --
     -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
-    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
     --
     -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
     -- date and time.
@@ -96,8 +97,8 @@ data ExportJournalToS = ExportJournalToS'
     -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
     --     bucket.
     --
-    -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
-    --     Service (AWS KMS) for server-side encryption of your exported data.
+    -- -   (Optional) Use your customer master key (CMK) in Key Management
+    --     Service (KMS) for server-side encryption of your exported data.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,11 +113,12 @@ data ExportJournalToS = ExportJournalToS'
 --
 -- 'name', 'exportJournalToS_name' - The name of the ledger.
 --
--- 'inclusiveStartTime', 'exportJournalToS_inclusiveStartTime' - The inclusive start date and time for the range of journal contents that
--- you want to export.
+-- 'inclusiveStartTime', 'exportJournalToS_inclusiveStartTime' - The inclusive start date and time for the range of journal contents to
+-- export.
 --
 -- The @InclusiveStartTime@ must be in @ISO 8601@ date and time format and
--- in Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- in Universal Coordinated Time (UTC). For example:
+-- @2019-06-13T21:36:34Z@.
 --
 -- The @InclusiveStartTime@ must be before @ExclusiveEndTime@.
 --
@@ -124,11 +126,11 @@ data ExportJournalToS = ExportJournalToS'
 -- @CreationDateTime@, Amazon QLDB defaults it to the ledger\'s
 -- @CreationDateTime@.
 --
--- 'exclusiveEndTime', 'exportJournalToS_exclusiveEndTime' - The exclusive end date and time for the range of journal contents that
--- you want to export.
+-- 'exclusiveEndTime', 'exportJournalToS_exclusiveEndTime' - The exclusive end date and time for the range of journal contents to
+-- export.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 --
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
@@ -142,8 +144,8 @@ data ExportJournalToS = ExportJournalToS'
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in AWS Key Management
---     Service (AWS KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer master key (CMK) in Key Management
+--     Service (KMS) for server-side encryption of your exported data.
 newExportJournalToS ::
   -- | 'name'
   Prelude.Text ->
@@ -176,11 +178,12 @@ newExportJournalToS
 exportJournalToS_name :: Lens.Lens' ExportJournalToS Prelude.Text
 exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@ExportJournalToS' {} a -> s {name = a} :: ExportJournalToS)
 
--- | The inclusive start date and time for the range of journal contents that
--- you want to export.
+-- | The inclusive start date and time for the range of journal contents to
+-- export.
 --
 -- The @InclusiveStartTime@ must be in @ISO 8601@ date and time format and
--- in Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- in Universal Coordinated Time (UTC). For example:
+-- @2019-06-13T21:36:34Z@.
 --
 -- The @InclusiveStartTime@ must be before @ExclusiveEndTime@.
 --
@@ -190,11 +193,11 @@ exportJournalToS_name = Lens.lens (\ExportJournalToS' {name} -> name) (\s@Export
 exportJournalToS_inclusiveStartTime :: Lens.Lens' ExportJournalToS Prelude.UTCTime
 exportJournalToS_inclusiveStartTime = Lens.lens (\ExportJournalToS' {inclusiveStartTime} -> inclusiveStartTime) (\s@ExportJournalToS' {} a -> s {inclusiveStartTime = a} :: ExportJournalToS) Prelude.. Core._Time
 
--- | The exclusive end date and time for the range of journal contents that
--- you want to export.
+-- | The exclusive end date and time for the range of journal contents to
+-- export.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 --
 -- The @ExclusiveEndTime@ must be less than or equal to the current UTC
 -- date and time.
@@ -212,8 +215,8 @@ exportJournalToS_s3ExportConfiguration = Lens.lens (\ExportJournalToS' {s3Export
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in AWS Key Management
---     Service (AWS KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer master key (CMK) in Key Management
+--     Service (KMS) for server-side encryption of your exported data.
 exportJournalToS_roleArn :: Lens.Lens' ExportJournalToS Prelude.Text
 exportJournalToS_roleArn = Lens.lens (\ExportJournalToS' {roleArn} -> roleArn) (\s@ExportJournalToS' {} a -> s {roleArn = a} :: ExportJournalToS)
 
@@ -273,7 +276,8 @@ instance Core.ToQuery ExportJournalToS where
 data ExportJournalToSResponse = ExportJournalToSResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The unique ID that QLDB assigns to each journal export job.
+    -- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
+    -- journal export job.
     --
     -- To describe your export request and check the status of the job, you can
     -- use @ExportId@ to call @DescribeJournalS3Export@.
@@ -291,7 +295,8 @@ data ExportJournalToSResponse = ExportJournalToSResponse'
 --
 -- 'httpStatus', 'exportJournalToSResponse_httpStatus' - The response's http status code.
 --
--- 'exportId', 'exportJournalToSResponse_exportId' - The unique ID that QLDB assigns to each journal export job.
+-- 'exportId', 'exportJournalToSResponse_exportId' - The UUID (represented in Base62-encoded text) that QLDB assigns to each
+-- journal export job.
 --
 -- To describe your export request and check the status of the job, you can
 -- use @ExportId@ to call @DescribeJournalS3Export@.
@@ -312,7 +317,8 @@ newExportJournalToSResponse pHttpStatus_ pExportId_ =
 exportJournalToSResponse_httpStatus :: Lens.Lens' ExportJournalToSResponse Prelude.Int
 exportJournalToSResponse_httpStatus = Lens.lens (\ExportJournalToSResponse' {httpStatus} -> httpStatus) (\s@ExportJournalToSResponse' {} a -> s {httpStatus = a} :: ExportJournalToSResponse)
 
--- | The unique ID that QLDB assigns to each journal export job.
+-- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
+-- journal export job.
 --
 -- To describe your export request and check the status of the job, you can
 -- use @ExportId@ to call @DescribeJournalS3Export@.

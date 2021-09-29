@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns details about your AWS Config rules.
+-- Returns details about your Config rules.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRules
@@ -57,8 +57,8 @@ data DescribeConfigRules = DescribeConfigRules'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the AWS Config rules for which you want details. If you do
-    -- not specify any names, AWS Config returns details for all your rules.
+    -- | The names of the Config rules for which you want details. If you do not
+    -- specify any names, Config returns details for all your rules.
     configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +74,8 @@ data DescribeConfigRules = DescribeConfigRules'
 -- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the AWS Config rules for which you want details. If you do
--- not specify any names, AWS Config returns details for all your rules.
+-- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not
+-- specify any names, Config returns details for all your rules.
 newDescribeConfigRules ::
   DescribeConfigRules
 newDescribeConfigRules =
@@ -89,8 +89,8 @@ newDescribeConfigRules =
 describeConfigRules_nextToken :: Lens.Lens' DescribeConfigRules (Prelude.Maybe Prelude.Text)
 describeConfigRules_nextToken = Lens.lens (\DescribeConfigRules' {nextToken} -> nextToken) (\s@DescribeConfigRules' {} a -> s {nextToken = a} :: DescribeConfigRules)
 
--- | The names of the AWS Config rules for which you want details. If you do
--- not specify any names, AWS Config returns details for all your rules.
+-- | The names of the Config rules for which you want details. If you do not
+-- specify any names, Config returns details for all your rules.
 describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
 describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens._Coerce
 
@@ -172,7 +172,7 @@ data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details about your AWS Config rules.
+    -- | The details about your Config rules.
     configRules :: Prelude.Maybe [ConfigRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -190,7 +190,7 @@ data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
 -- 'nextToken', 'describeConfigRulesResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'configRules', 'describeConfigRulesResponse_configRules' - The details about your AWS Config rules.
+-- 'configRules', 'describeConfigRulesResponse_configRules' - The details about your Config rules.
 --
 -- 'httpStatus', 'describeConfigRulesResponse_httpStatus' - The response's http status code.
 newDescribeConfigRulesResponse ::
@@ -210,7 +210,7 @@ newDescribeConfigRulesResponse pHttpStatus_ =
 describeConfigRulesResponse_nextToken :: Lens.Lens' DescribeConfigRulesResponse (Prelude.Maybe Prelude.Text)
 describeConfigRulesResponse_nextToken = Lens.lens (\DescribeConfigRulesResponse' {nextToken} -> nextToken) (\s@DescribeConfigRulesResponse' {} a -> s {nextToken = a} :: DescribeConfigRulesResponse)
 
--- | The details about your AWS Config rules.
+-- | The details about your Config rules.
 describeConfigRulesResponse_configRules :: Lens.Lens' DescribeConfigRulesResponse (Prelude.Maybe [ConfigRule])
 describeConfigRulesResponse_configRules = Lens.lens (\DescribeConfigRulesResponse' {configRules} -> configRules) (\s@DescribeConfigRulesResponse' {} a -> s {configRules = a} :: DescribeConfigRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 

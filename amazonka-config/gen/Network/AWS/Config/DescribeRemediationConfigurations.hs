@@ -48,8 +48,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRemediationConfigurations' smart constructor.
 data DescribeRemediationConfigurations = DescribeRemediationConfigurations'
-  { -- | A list of AWS Config rule names of remediation configurations for which
-    -- you want details.
+  { -- | A list of Config rule names of remediation configurations for which you
+    -- want details.
     configRuleNames :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data DescribeRemediationConfigurations = DescribeRemediationConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleNames', 'describeRemediationConfigurations_configRuleNames' - A list of AWS Config rule names of remediation configurations for which
--- you want details.
+-- 'configRuleNames', 'describeRemediationConfigurations_configRuleNames' - A list of Config rule names of remediation configurations for which you
+-- want details.
 newDescribeRemediationConfigurations ::
   DescribeRemediationConfigurations
 newDescribeRemediationConfigurations =
@@ -72,8 +72,8 @@ newDescribeRemediationConfigurations =
         Prelude.mempty
     }
 
--- | A list of AWS Config rule names of remediation configurations for which
--- you want details.
+-- | A list of Config rule names of remediation configurations for which you
+-- want details.
 describeRemediationConfigurations_configRuleNames :: Lens.Lens' DescribeRemediationConfigurations [Prelude.Text]
 describeRemediationConfigurations_configRuleNames = Lens.lens (\DescribeRemediationConfigurations' {configRuleNames} -> configRuleNames) (\s@DescribeRemediationConfigurations' {} a -> s {configRuleNames = a} :: DescribeRemediationConfigurations) Prelude.. Lens._Coerce
 

@@ -38,14 +38,14 @@ data Multiplex = Multiplex'
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of the multiplex output destinations.
-    destinations :: Prelude.Maybe [MultiplexOutputDestination],
-    -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of the multiplex output destinations.
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
+    -- | The number of programs in the multiplex.
+    programCount :: Prelude.Maybe Prelude.Int,
+    -- | The current state of the multiplex.
+    state :: Prelude.Maybe MultiplexState,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
@@ -69,13 +69,13 @@ data Multiplex = Multiplex'
 --
 -- 'pipelinesRunningCount', 'multiplex_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
--- 'programCount', 'multiplex_programCount' - The number of programs in the multiplex.
+-- 'name', 'multiplex_name' - The name of the multiplex.
 --
 -- 'destinations', 'multiplex_destinations' - A list of the multiplex output destinations.
 --
--- 'state', 'multiplex_state' - The current state of the multiplex.
+-- 'programCount', 'multiplex_programCount' - The number of programs in the multiplex.
 --
--- 'name', 'multiplex_name' - The name of the multiplex.
+-- 'state', 'multiplex_state' - The current state of the multiplex.
 --
 -- 'tags', 'multiplex_tags' - A collection of key-value pairs.
 --
@@ -88,10 +88,10 @@ newMultiplex =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       multiplexSettings = Prelude.Nothing
     }
@@ -112,21 +112,21 @@ multiplex_id = Lens.lens (\Multiplex' {id} -> id) (\s@Multiplex' {} a -> s {id =
 multiplex_pipelinesRunningCount :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Int)
 multiplex_pipelinesRunningCount = Lens.lens (\Multiplex' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@Multiplex' {} a -> s {pipelinesRunningCount = a} :: Multiplex)
 
--- | The number of programs in the multiplex.
-multiplex_programCount :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Int)
-multiplex_programCount = Lens.lens (\Multiplex' {programCount} -> programCount) (\s@Multiplex' {} a -> s {programCount = a} :: Multiplex)
+-- | The name of the multiplex.
+multiplex_name :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Text)
+multiplex_name = Lens.lens (\Multiplex' {name} -> name) (\s@Multiplex' {} a -> s {name = a} :: Multiplex)
 
 -- | A list of the multiplex output destinations.
 multiplex_destinations :: Lens.Lens' Multiplex (Prelude.Maybe [MultiplexOutputDestination])
 multiplex_destinations = Lens.lens (\Multiplex' {destinations} -> destinations) (\s@Multiplex' {} a -> s {destinations = a} :: Multiplex) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of programs in the multiplex.
+multiplex_programCount :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Int)
+multiplex_programCount = Lens.lens (\Multiplex' {programCount} -> programCount) (\s@Multiplex' {} a -> s {programCount = a} :: Multiplex)
+
 -- | The current state of the multiplex.
 multiplex_state :: Lens.Lens' Multiplex (Prelude.Maybe MultiplexState)
 multiplex_state = Lens.lens (\Multiplex' {state} -> state) (\s@Multiplex' {} a -> s {state = a} :: Multiplex)
-
--- | The name of the multiplex.
-multiplex_name :: Lens.Lens' Multiplex (Prelude.Maybe Prelude.Text)
-multiplex_name = Lens.lens (\Multiplex' {name} -> name) (\s@Multiplex' {} a -> s {name = a} :: Multiplex)
 
 -- | A collection of key-value pairs.
 multiplex_tags :: Lens.Lens' Multiplex (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -148,10 +148,10 @@ instance Core.FromJSON Multiplex where
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "pipelinesRunningCount")
-            Prelude.<*> (x Core..:? "programCount")
-            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "programCount")
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "multiplexSettings")
       )

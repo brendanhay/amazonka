@@ -53,10 +53,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newApplyPendingMaintenanceAction' smart constructor.
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-  { -- | The Amazon Resource Name (ARN) of the AWS DMS resource that the pending
+  { -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
     -- maintenance action applies to.
     replicationInstanceArn :: Prelude.Text,
     -- | The pending maintenance action to apply to this resource.
+    --
+    -- Valid values: @os-upgrade@, @system-update@, @db-upgrade@
     applyAction :: Prelude.Text,
     -- | A value that specifies the type of opt-in request, or undoes an opt-in
     -- request. You can\'t undo an opt-in request of type @immediate@.
@@ -82,10 +84,12 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationInstanceArn', 'applyPendingMaintenanceAction_replicationInstanceArn' - The Amazon Resource Name (ARN) of the AWS DMS resource that the pending
+-- 'replicationInstanceArn', 'applyPendingMaintenanceAction_replicationInstanceArn' - The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to.
 --
 -- 'applyAction', 'applyPendingMaintenanceAction_applyAction' - The pending maintenance action to apply to this resource.
+--
+-- Valid values: @os-upgrade@, @system-update@, @db-upgrade@
 --
 -- 'optInType', 'applyPendingMaintenanceAction_optInType' - A value that specifies the type of opt-in request, or undoes an opt-in
 -- request. You can\'t undo an opt-in request of type @immediate@.
@@ -118,12 +122,14 @@ newApplyPendingMaintenanceAction
         optInType = pOptInType_
       }
 
--- | The Amazon Resource Name (ARN) of the AWS DMS resource that the pending
+-- | The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to.
 applyPendingMaintenanceAction_replicationInstanceArn :: Lens.Lens' ApplyPendingMaintenanceAction Prelude.Text
 applyPendingMaintenanceAction_replicationInstanceArn = Lens.lens (\ApplyPendingMaintenanceAction' {replicationInstanceArn} -> replicationInstanceArn) (\s@ApplyPendingMaintenanceAction' {} a -> s {replicationInstanceArn = a} :: ApplyPendingMaintenanceAction)
 
 -- | The pending maintenance action to apply to this resource.
+--
+-- Valid values: @os-upgrade@, @system-update@, @db-upgrade@
 applyPendingMaintenanceAction_applyAction :: Lens.Lens' ApplyPendingMaintenanceAction Prelude.Text
 applyPendingMaintenanceAction_applyAction = Lens.lens (\ApplyPendingMaintenanceAction' {applyAction} -> applyAction) (\s@ApplyPendingMaintenanceAction' {} a -> s {applyAction = a} :: ApplyPendingMaintenanceAction)
 
@@ -202,8 +208,7 @@ instance Core.ToQuery ApplyPendingMaintenanceAction where
 --
 -- /See:/ 'newApplyPendingMaintenanceActionResponse' smart constructor.
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-  { -- | The AWS DMS resource that the pending maintenance action will be applied
-    -- to.
+  { -- | The DMS resource that the pending maintenance action will be applied to.
     resourcePendingMaintenanceActions :: Prelude.Maybe ResourcePendingMaintenanceActions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -218,8 +223,7 @@ data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourcePendingMaintenanceActions', 'applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions' - The AWS DMS resource that the pending maintenance action will be applied
--- to.
+-- 'resourcePendingMaintenanceActions', 'applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions' - The DMS resource that the pending maintenance action will be applied to.
 --
 -- 'httpStatus', 'applyPendingMaintenanceActionResponse_httpStatus' - The response's http status code.
 newApplyPendingMaintenanceActionResponse ::
@@ -233,8 +237,7 @@ newApplyPendingMaintenanceActionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS DMS resource that the pending maintenance action will be applied
--- to.
+-- | The DMS resource that the pending maintenance action will be applied to.
 applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions :: Lens.Lens' ApplyPendingMaintenanceActionResponse (Prelude.Maybe ResourcePendingMaintenanceActions)
 applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions = Lens.lens (\ApplyPendingMaintenanceActionResponse' {resourcePendingMaintenanceActions} -> resourcePendingMaintenanceActions) (\s@ApplyPendingMaintenanceActionResponse' {} a -> s {resourcePendingMaintenanceActions = a} :: ApplyPendingMaintenanceActionResponse)
 

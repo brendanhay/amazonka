@@ -28,15 +28,15 @@ import Network.AWS.SESv2.Types.IdentityType
 --
 -- /See:/ 'newIdentityInfo' smart constructor.
 data IdentityInfo = IdentityInfo'
-  { -- | The address or domain of the identity.
-    identityName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether or not you can send email from the identity.
+  { -- | Indicates whether or not you can send email from the identity.
     --
     -- An /identity/ is an email address or domain that you send email from.
     -- Before you can send email from an identity, you have to demostrate that
     -- you own the identity, and that you authorize Amazon SES to send email
     -- from that identity.
     sendingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The address or domain of the identity.
+    identityName :: Prelude.Maybe Prelude.Text,
     -- | The email identity type. The identity type can be one of the following:
     --
     -- -   @EMAIL_ADDRESS@ – The identity is an email address.
@@ -56,14 +56,14 @@ data IdentityInfo = IdentityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityName', 'identityInfo_identityName' - The address or domain of the identity.
---
 -- 'sendingEnabled', 'identityInfo_sendingEnabled' - Indicates whether or not you can send email from the identity.
 --
 -- An /identity/ is an email address or domain that you send email from.
 -- Before you can send email from an identity, you have to demostrate that
 -- you own the identity, and that you authorize Amazon SES to send email
 -- from that identity.
+--
+-- 'identityName', 'identityInfo_identityName' - The address or domain of the identity.
 --
 -- 'identityType', 'identityInfo_identityType' - The email identity type. The identity type can be one of the following:
 --
@@ -76,14 +76,10 @@ newIdentityInfo ::
   IdentityInfo
 newIdentityInfo =
   IdentityInfo'
-    { identityName = Prelude.Nothing,
-      sendingEnabled = Prelude.Nothing,
+    { sendingEnabled = Prelude.Nothing,
+      identityName = Prelude.Nothing,
       identityType = Prelude.Nothing
     }
-
--- | The address or domain of the identity.
-identityInfo_identityName :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Text)
-identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identityName) (\s@IdentityInfo' {} a -> s {identityName = a} :: IdentityInfo)
 
 -- | Indicates whether or not you can send email from the identity.
 --
@@ -93,6 +89,10 @@ identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identity
 -- from that identity.
 identityInfo_sendingEnabled :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Bool)
 identityInfo_sendingEnabled = Lens.lens (\IdentityInfo' {sendingEnabled} -> sendingEnabled) (\s@IdentityInfo' {} a -> s {sendingEnabled = a} :: IdentityInfo)
+
+-- | The address or domain of the identity.
+identityInfo_identityName :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Text)
+identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identityName) (\s@IdentityInfo' {} a -> s {identityName = a} :: IdentityInfo)
 
 -- | The email identity type. The identity type can be one of the following:
 --
@@ -110,8 +110,8 @@ instance Core.FromJSON IdentityInfo where
       "IdentityInfo"
       ( \x ->
           IdentityInfo'
-            Prelude.<$> (x Core..:? "IdentityName")
-            Prelude.<*> (x Core..:? "SendingEnabled")
+            Prelude.<$> (x Core..:? "SendingEnabled")
+            Prelude.<*> (x Core..:? "IdentityName")
             Prelude.<*> (x Core..:? "IdentityType")
       )
 

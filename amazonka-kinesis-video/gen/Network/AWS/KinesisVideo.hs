@@ -29,11 +29,11 @@ module Network.AWS.KinesisVideo
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
-    -- ** DeviceStreamLimitExceededException
-    _DeviceStreamLimitExceededException,
-
     -- ** TagsPerResourceExceededLimitException
     _TagsPerResourceExceededLimitException,
+
+    -- ** DeviceStreamLimitExceededException
+    _DeviceStreamLimitExceededException,
 
     -- ** InvalidResourceFormatException
     _InvalidResourceFormatException,
@@ -44,11 +44,11 @@ module Network.AWS.KinesisVideo
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** InvalidDeviceException
-    _InvalidDeviceException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,
@@ -80,11 +80,11 @@ module Network.AWS.KinesisVideo
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetDataEndpoint
-    GetDataEndpoint (GetDataEndpoint'),
-    newGetDataEndpoint,
-    GetDataEndpointResponse (GetDataEndpointResponse'),
-    newGetDataEndpointResponse,
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
 
     -- ** UpdateStream
     UpdateStream (UpdateStream'),
@@ -92,11 +92,17 @@ module Network.AWS.KinesisVideo
     UpdateStreamResponse (UpdateStreamResponse'),
     newUpdateStreamResponse,
 
-    -- ** DeleteStream
-    DeleteStream (DeleteStream'),
-    newDeleteStream,
-    DeleteStreamResponse (DeleteStreamResponse'),
-    newDeleteStreamResponse,
+    -- ** UpdateDataRetention
+    UpdateDataRetention (UpdateDataRetention'),
+    newUpdateDataRetention,
+    UpdateDataRetentionResponse (UpdateDataRetentionResponse'),
+    newUpdateDataRetentionResponse,
+
+    -- ** GetDataEndpoint
+    GetDataEndpoint (GetDataEndpoint'),
+    newGetDataEndpoint,
+    GetDataEndpointResponse (GetDataEndpointResponse'),
+    newGetDataEndpointResponse,
 
     -- ** UntagStream
     UntagStream (UntagStream'),
@@ -104,23 +110,17 @@ module Network.AWS.KinesisVideo
     UntagStreamResponse (UntagStreamResponse'),
     newUntagStreamResponse,
 
-    -- ** UpdateDataRetention
-    UpdateDataRetention (UpdateDataRetention'),
-    newUpdateDataRetention,
-    UpdateDataRetentionResponse (UpdateDataRetentionResponse'),
-    newUpdateDataRetentionResponse,
+    -- ** DeleteSignalingChannel
+    DeleteSignalingChannel (DeleteSignalingChannel'),
+    newDeleteSignalingChannel,
+    DeleteSignalingChannelResponse (DeleteSignalingChannelResponse'),
+    newDeleteSignalingChannelResponse,
 
     -- ** UpdateSignalingChannel
     UpdateSignalingChannel (UpdateSignalingChannel'),
     newUpdateSignalingChannel,
     UpdateSignalingChannelResponse (UpdateSignalingChannelResponse'),
     newUpdateSignalingChannelResponse,
-
-    -- ** DeleteSignalingChannel
-    DeleteSignalingChannel (DeleteSignalingChannel'),
-    newDeleteSignalingChannel,
-    DeleteSignalingChannelResponse (DeleteSignalingChannelResponse'),
-    newDeleteSignalingChannelResponse,
 
     -- ** ListSignalingChannels (Paginated)
     ListSignalingChannels (ListSignalingChannels'),
@@ -146,17 +146,17 @@ module Network.AWS.KinesisVideo
     TagStreamResponse (TagStreamResponse'),
     newTagStreamResponse,
 
-    -- ** GetSignalingChannelEndpoint
-    GetSignalingChannelEndpoint (GetSignalingChannelEndpoint'),
-    newGetSignalingChannelEndpoint,
-    GetSignalingChannelEndpointResponse (GetSignalingChannelEndpointResponse'),
-    newGetSignalingChannelEndpointResponse,
-
     -- ** DescribeSignalingChannel
     DescribeSignalingChannel (DescribeSignalingChannel'),
     newDescribeSignalingChannel,
     DescribeSignalingChannelResponse (DescribeSignalingChannelResponse'),
     newDescribeSignalingChannelResponse,
+
+    -- ** GetSignalingChannelEndpoint
+    GetSignalingChannelEndpoint (GetSignalingChannelEndpoint'),
+    newGetSignalingChannelEndpoint,
+    GetSignalingChannelEndpointResponse (GetSignalingChannelEndpointResponse'),
+    newGetSignalingChannelEndpointResponse,
 
     -- ** CreateStream
     CreateStream (CreateStream'),

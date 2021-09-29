@@ -37,6 +37,10 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
     -- frame. If the placement causes the overlay to extend beyond the right
     -- edge of the underlying video, then the overlay is cropped on the right.
     imageX :: Prelude.Maybe Prelude.Natural,
+    -- | The width of the image when inserted into the video, in pixels. The
+    -- overlay will be scaled up or down to the specified width. Leave blank to
+    -- use the native width of the overlay.
+    width :: Prelude.Maybe Prelude.Natural,
     -- | Placement of the top edge of the overlay relative to the top edge of the
     -- video frame, in pixels. 0 (the default) is the top edge of the frame. If
     -- the placement causes the overlay to extend beyond the bottom edge of the
@@ -46,10 +50,6 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
     -- omitted or set to 0 the duration is unlimited and the image will remain
     -- until it is explicitly deactivated.
     duration :: Prelude.Maybe Prelude.Natural,
-    -- | The width of the image when inserted into the video, in pixels. The
-    -- overlay will be scaled up or down to the specified width. Leave blank to
-    -- use the native width of the overlay.
-    width :: Prelude.Maybe Prelude.Natural,
     -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid
     -- on the video, each layer with a different image. The layers are in Z
     -- order, which means that overlays with higher values of layer are
@@ -89,6 +89,10 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
 -- frame. If the placement causes the overlay to extend beyond the right
 -- edge of the underlying video, then the overlay is cropped on the right.
 --
+-- 'width', 'staticImageActivateScheduleActionSettings_width' - The width of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified width. Leave blank to
+-- use the native width of the overlay.
+--
 -- 'imageY', 'staticImageActivateScheduleActionSettings_imageY' - Placement of the top edge of the overlay relative to the top edge of the
 -- video frame, in pixels. 0 (the default) is the top edge of the frame. If
 -- the placement causes the overlay to extend beyond the bottom edge of the
@@ -97,10 +101,6 @@ data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActi
 -- 'duration', 'staticImageActivateScheduleActionSettings_duration' - The duration in milliseconds for the image to remain on the video. If
 -- omitted or set to 0 the duration is unlimited and the image will remain
 -- until it is explicitly deactivated.
---
--- 'width', 'staticImageActivateScheduleActionSettings_width' - The width of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified width. Leave blank to
--- use the native width of the overlay.
 --
 -- 'layer', 'staticImageActivateScheduleActionSettings_layer' - The number of the layer, 0 to 7. There are 8 layers that can be overlaid
 -- on the video, each layer with a different image. The layers are in Z
@@ -129,9 +129,9 @@ newStaticImageActivateScheduleActionSettings pImage_ =
     { height =
         Prelude.Nothing,
       imageX = Prelude.Nothing,
+      width = Prelude.Nothing,
       imageY = Prelude.Nothing,
       duration = Prelude.Nothing,
-      width = Prelude.Nothing,
       layer = Prelude.Nothing,
       opacity = Prelude.Nothing,
       fadeIn = Prelude.Nothing,
@@ -152,6 +152,12 @@ staticImageActivateScheduleActionSettings_height = Lens.lens (\StaticImageActiva
 staticImageActivateScheduleActionSettings_imageX :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageActivateScheduleActionSettings_imageX = Lens.lens (\StaticImageActivateScheduleActionSettings' {imageX} -> imageX) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {imageX = a} :: StaticImageActivateScheduleActionSettings)
 
+-- | The width of the image when inserted into the video, in pixels. The
+-- overlay will be scaled up or down to the specified width. Leave blank to
+-- use the native width of the overlay.
+staticImageActivateScheduleActionSettings_width :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageActivateScheduleActionSettings_width = Lens.lens (\StaticImageActivateScheduleActionSettings' {width} -> width) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {width = a} :: StaticImageActivateScheduleActionSettings)
+
 -- | Placement of the top edge of the overlay relative to the top edge of the
 -- video frame, in pixels. 0 (the default) is the top edge of the frame. If
 -- the placement causes the overlay to extend beyond the bottom edge of the
@@ -164,12 +170,6 @@ staticImageActivateScheduleActionSettings_imageY = Lens.lens (\StaticImageActiva
 -- until it is explicitly deactivated.
 staticImageActivateScheduleActionSettings_duration :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageActivateScheduleActionSettings_duration = Lens.lens (\StaticImageActivateScheduleActionSettings' {duration} -> duration) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {duration = a} :: StaticImageActivateScheduleActionSettings)
-
--- | The width of the image when inserted into the video, in pixels. The
--- overlay will be scaled up or down to the specified width. Leave blank to
--- use the native width of the overlay.
-staticImageActivateScheduleActionSettings_width :: Lens.Lens' StaticImageActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageActivateScheduleActionSettings_width = Lens.lens (\StaticImageActivateScheduleActionSettings' {width} -> width) (\s@StaticImageActivateScheduleActionSettings' {} a -> s {width = a} :: StaticImageActivateScheduleActionSettings)
 
 -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid
 -- on the video, each layer with a different image. The layers are in Z
@@ -211,9 +211,9 @@ instance
           StaticImageActivateScheduleActionSettings'
             Prelude.<$> (x Core..:? "height")
               Prelude.<*> (x Core..:? "imageX")
+              Prelude.<*> (x Core..:? "width")
               Prelude.<*> (x Core..:? "imageY")
               Prelude.<*> (x Core..:? "duration")
-              Prelude.<*> (x Core..:? "width")
               Prelude.<*> (x Core..:? "layer")
               Prelude.<*> (x Core..:? "opacity")
               Prelude.<*> (x Core..:? "fadeIn")
@@ -238,9 +238,9 @@ instance
       ( Prelude.catMaybes
           [ ("height" Core..=) Prelude.<$> height,
             ("imageX" Core..=) Prelude.<$> imageX,
+            ("width" Core..=) Prelude.<$> width,
             ("imageY" Core..=) Prelude.<$> imageY,
             ("duration" Core..=) Prelude.<$> duration,
-            ("width" Core..=) Prelude.<$> width,
             ("layer" Core..=) Prelude.<$> layer,
             ("opacity" Core..=) Prelude.<$> opacity,
             ("fadeIn" Core..=) Prelude.<$> fadeIn,

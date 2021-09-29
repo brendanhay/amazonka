@@ -39,8 +39,8 @@ module Network.AWS.SSM.ListInventoryEntries
 
     -- * Response Lenses
     listInventoryEntriesResponse_typeName,
-    listInventoryEntriesResponse_nextToken,
     listInventoryEntriesResponse_instanceId,
+    listInventoryEntriesResponse_nextToken,
     listInventoryEntriesResponse_captureTime,
     listInventoryEntriesResponse_schemaVersion,
     listInventoryEntriesResponse_entries,
@@ -144,8 +144,8 @@ instance Core.AWSRequest ListInventoryEntries where
       ( \s h x ->
           ListInventoryEntriesResponse'
             Prelude.<$> (x Core..?> "TypeName")
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "InstanceId")
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "CaptureTime")
             Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
@@ -193,11 +193,11 @@ instance Core.ToQuery ListInventoryEntries where
 data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
   { -- | The type of inventory item returned by the request.
     typeName :: Prelude.Maybe Prelude.Text,
+    -- | The instance ID targeted by the request to query inventory information.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID targeted by the request to query inventory information.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The time that inventory information was collected for the instance(s).
     captureTime :: Prelude.Maybe Prelude.Text,
     -- | The inventory schema version used by the instance(s).
@@ -219,10 +219,10 @@ data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
 --
 -- 'typeName', 'listInventoryEntriesResponse_typeName' - The type of inventory item returned by the request.
 --
+-- 'instanceId', 'listInventoryEntriesResponse_instanceId' - The instance ID targeted by the request to query inventory information.
+--
 -- 'nextToken', 'listInventoryEntriesResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'instanceId', 'listInventoryEntriesResponse_instanceId' - The instance ID targeted by the request to query inventory information.
 --
 -- 'captureTime', 'listInventoryEntriesResponse_captureTime' - The time that inventory information was collected for the instance(s).
 --
@@ -239,8 +239,8 @@ newListInventoryEntriesResponse pHttpStatus_ =
   ListInventoryEntriesResponse'
     { typeName =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       instanceId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       captureTime = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
       entries = Prelude.Nothing,
@@ -251,14 +251,14 @@ newListInventoryEntriesResponse pHttpStatus_ =
 listInventoryEntriesResponse_typeName :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_typeName = Lens.lens (\ListInventoryEntriesResponse' {typeName} -> typeName) (\s@ListInventoryEntriesResponse' {} a -> s {typeName = a} :: ListInventoryEntriesResponse)
 
+-- | The instance ID targeted by the request to query inventory information.
+listInventoryEntriesResponse_instanceId :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_instanceId = Lens.lens (\ListInventoryEntriesResponse' {instanceId} -> instanceId) (\s@ListInventoryEntriesResponse' {} a -> s {instanceId = a} :: ListInventoryEntriesResponse)
+
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 listInventoryEntriesResponse_nextToken :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_nextToken = Lens.lens (\ListInventoryEntriesResponse' {nextToken} -> nextToken) (\s@ListInventoryEntriesResponse' {} a -> s {nextToken = a} :: ListInventoryEntriesResponse)
-
--- | The instance ID targeted by the request to query inventory information.
-listInventoryEntriesResponse_instanceId :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
-listInventoryEntriesResponse_instanceId = Lens.lens (\ListInventoryEntriesResponse' {instanceId} -> instanceId) (\s@ListInventoryEntriesResponse' {} a -> s {instanceId = a} :: ListInventoryEntriesResponse)
 
 -- | The time that inventory information was collected for the instance(s).
 listInventoryEntriesResponse_captureTime :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)

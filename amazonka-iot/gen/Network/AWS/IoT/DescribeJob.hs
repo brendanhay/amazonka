@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a job.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeJob>
+-- action.
 module Network.AWS.IoT.DescribeJob
   ( -- * Creating a Request
     DescribeJob (..),

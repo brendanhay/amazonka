@@ -29,8 +29,8 @@ module Network.AWS.CognitoIdentity.Lens
 
     -- ** GetOpenIdTokenForDeveloperIdentity
     getOpenIdTokenForDeveloperIdentity_tokenDuration,
-    getOpenIdTokenForDeveloperIdentity_identityId,
     getOpenIdTokenForDeveloperIdentity_principalTags,
+    getOpenIdTokenForDeveloperIdentity_identityId,
     getOpenIdTokenForDeveloperIdentity_identityPoolId,
     getOpenIdTokenForDeveloperIdentity_logins,
     getOpenIdTokenForDeveloperIdentityResponse_identityId,
@@ -49,13 +49,14 @@ module Network.AWS.CognitoIdentity.Lens
     deleteIdentitiesResponse_unprocessedIdentityIds,
     deleteIdentitiesResponse_httpStatus,
 
-    -- ** MergeDeveloperIdentities
-    mergeDeveloperIdentities_sourceUserIdentifier,
-    mergeDeveloperIdentities_destinationUserIdentifier,
-    mergeDeveloperIdentities_developerProviderName,
-    mergeDeveloperIdentities_identityPoolId,
-    mergeDeveloperIdentitiesResponse_identityId,
-    mergeDeveloperIdentitiesResponse_httpStatus,
+    -- ** GetPrincipalTagAttributeMap
+    getPrincipalTagAttributeMap_identityPoolId,
+    getPrincipalTagAttributeMap_identityProviderName,
+    getPrincipalTagAttributeMapResponse_identityPoolId,
+    getPrincipalTagAttributeMapResponse_identityProviderName,
+    getPrincipalTagAttributeMapResponse_principalTags,
+    getPrincipalTagAttributeMapResponse_useDefaults,
+    getPrincipalTagAttributeMapResponse_httpStatus,
 
     -- ** CreateIdentityPool
     createIdentityPool_allowClassicFlow,
@@ -78,14 +79,13 @@ module Network.AWS.CognitoIdentity.Lens
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
 
-    -- ** GetPrincipalTagAttributeMap
-    getPrincipalTagAttributeMap_identityPoolId,
-    getPrincipalTagAttributeMap_identityProviderName,
-    getPrincipalTagAttributeMapResponse_identityPoolId,
-    getPrincipalTagAttributeMapResponse_identityProviderName,
-    getPrincipalTagAttributeMapResponse_principalTags,
-    getPrincipalTagAttributeMapResponse_useDefaults,
-    getPrincipalTagAttributeMapResponse_httpStatus,
+    -- ** MergeDeveloperIdentities
+    mergeDeveloperIdentities_sourceUserIdentifier,
+    mergeDeveloperIdentities_destinationUserIdentifier,
+    mergeDeveloperIdentities_developerProviderName,
+    mergeDeveloperIdentities_identityPoolId,
+    mergeDeveloperIdentitiesResponse_identityId,
+    mergeDeveloperIdentitiesResponse_httpStatus,
 
     -- ** UpdateIdentityPool
     updateIdentityPool_allowClassicFlow,
@@ -109,6 +109,13 @@ module Network.AWS.CognitoIdentity.Lens
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
 
+    -- ** GetIdentityPoolRoles
+    getIdentityPoolRoles_identityPoolId,
+    getIdentityPoolRolesResponse_identityPoolId,
+    getIdentityPoolRolesResponse_roles,
+    getIdentityPoolRolesResponse_roleMappings,
+    getIdentityPoolRolesResponse_httpStatus,
+
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
@@ -116,13 +123,6 @@ module Network.AWS.CognitoIdentity.Lens
 
     -- ** DeleteIdentityPool
     deleteIdentityPool_identityPoolId,
-
-    -- ** GetIdentityPoolRoles
-    getIdentityPoolRoles_identityPoolId,
-    getIdentityPoolRolesResponse_identityPoolId,
-    getIdentityPoolRolesResponse_roles,
-    getIdentityPoolRolesResponse_roleMappings,
-    getIdentityPoolRolesResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -157,6 +157,13 @@ module Network.AWS.CognitoIdentity.Lens
     listIdentityPoolsResponse_identityPools,
     listIdentityPoolsResponse_httpStatus,
 
+    -- ** GetId
+    getId_accountId,
+    getId_logins,
+    getId_identityPoolId,
+    getIdResponse_identityId,
+    getIdResponse_httpStatus,
+
     -- ** DescribeIdentity
     describeIdentity_identityId,
     identityDescription_lastModifiedDate,
@@ -178,13 +185,6 @@ module Network.AWS.CognitoIdentity.Lens
     unlinkDeveloperIdentity_developerProviderName,
     unlinkDeveloperIdentity_developerUserIdentifier,
 
-    -- ** GetId
-    getId_accountId,
-    getId_logins,
-    getId_identityPoolId,
-    getIdResponse_identityId,
-    getIdResponse_httpStatus,
-
     -- ** ListIdentities
     listIdentities_nextToken,
     listIdentities_hideDisabled,
@@ -194,11 +194,6 @@ module Network.AWS.CognitoIdentity.Lens
     listIdentitiesResponse_nextToken,
     listIdentitiesResponse_identities,
     listIdentitiesResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
 
     -- ** SetPrincipalTagAttributeMap
     setPrincipalTagAttributeMap_principalTags,
@@ -210,6 +205,11 @@ module Network.AWS.CognitoIdentity.Lens
     setPrincipalTagAttributeMapResponse_principalTags,
     setPrincipalTagAttributeMapResponse_useDefaults,
     setPrincipalTagAttributeMapResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- * Types
 

@@ -28,24 +28,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSMSChannelResponse' smart constructor.
 data SMSChannelResponse = SMSChannelResponse'
-  { -- | The date and time, in ISO 8601 format, when the SMS channel was last
-    -- modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the application that the SMS channel applies
+  { -- | The unique identifier for the application that the SMS channel applies
     -- to.
     applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in ISO 8601 format, when the SMS channel was last
+    -- modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of promotional messages that you can send through the
     -- SMS channel each second.
     promotionalMessagesPerSecond :: Prelude.Maybe Prelude.Int,
-    -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the SMS channel is enabled for the application.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time, in ISO 8601 format, when the SMS channel was enabled.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | (Deprecated) An identifier for the SMS channel. This property is
     -- retained only for backward compatibility.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in ISO 8601 format, when the SMS channel was enabled.
-    creationDate :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the SMS channel is enabled for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The current version of the SMS channel.
     version :: Prelude.Maybe Prelude.Int,
     -- | The registered short code to use when you send messages through the SMS
@@ -75,23 +75,23 @@ data SMSChannelResponse = SMSChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationId', 'sMSChannelResponse_applicationId' - The unique identifier for the application that the SMS channel applies
+-- to.
+--
 -- 'lastModifiedDate', 'sMSChannelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the SMS channel was last
 -- modified.
 --
--- 'applicationId', 'sMSChannelResponse_applicationId' - The unique identifier for the application that the SMS channel applies
--- to.
+-- 'hasCredential', 'sMSChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
 --
 -- 'promotionalMessagesPerSecond', 'sMSChannelResponse_promotionalMessagesPerSecond' - The maximum number of promotional messages that you can send through the
 -- SMS channel each second.
 --
--- 'hasCredential', 'sMSChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
---
--- 'id', 'sMSChannelResponse_id' - (Deprecated) An identifier for the SMS channel. This property is
--- retained only for backward compatibility.
+-- 'enabled', 'sMSChannelResponse_enabled' - Specifies whether the SMS channel is enabled for the application.
 --
 -- 'creationDate', 'sMSChannelResponse_creationDate' - The date and time, in ISO 8601 format, when the SMS channel was enabled.
 --
--- 'enabled', 'sMSChannelResponse_enabled' - Specifies whether the SMS channel is enabled for the application.
+-- 'id', 'sMSChannelResponse_id' - (Deprecated) An identifier for the SMS channel. This property is
+-- retained only for backward compatibility.
 --
 -- 'version', 'sMSChannelResponse_version' - The current version of the SMS channel.
 --
@@ -116,14 +116,14 @@ newSMSChannelResponse ::
   SMSChannelResponse
 newSMSChannelResponse pPlatform_ =
   SMSChannelResponse'
-    { lastModifiedDate =
+    { applicationId =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      promotionalMessagesPerSecond = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       hasCredential = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+      promotionalMessagesPerSecond = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       version = Prelude.Nothing,
       shortCode = Prelude.Nothing,
       isArchived = Prelude.Nothing,
@@ -133,37 +133,37 @@ newSMSChannelResponse pPlatform_ =
       platform = pPlatform_
     }
 
+-- | The unique identifier for the application that the SMS channel applies
+-- to.
+sMSChannelResponse_applicationId :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
+sMSChannelResponse_applicationId = Lens.lens (\SMSChannelResponse' {applicationId} -> applicationId) (\s@SMSChannelResponse' {} a -> s {applicationId = a} :: SMSChannelResponse)
+
 -- | The date and time, in ISO 8601 format, when the SMS channel was last
 -- modified.
 sMSChannelResponse_lastModifiedDate :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
 sMSChannelResponse_lastModifiedDate = Lens.lens (\SMSChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@SMSChannelResponse' {} a -> s {lastModifiedDate = a} :: SMSChannelResponse)
 
--- | The unique identifier for the application that the SMS channel applies
--- to.
-sMSChannelResponse_applicationId :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
-sMSChannelResponse_applicationId = Lens.lens (\SMSChannelResponse' {applicationId} -> applicationId) (\s@SMSChannelResponse' {} a -> s {applicationId = a} :: SMSChannelResponse)
+-- | (Not used) This property is retained only for backward compatibility.
+sMSChannelResponse_hasCredential :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Bool)
+sMSChannelResponse_hasCredential = Lens.lens (\SMSChannelResponse' {hasCredential} -> hasCredential) (\s@SMSChannelResponse' {} a -> s {hasCredential = a} :: SMSChannelResponse)
 
 -- | The maximum number of promotional messages that you can send through the
 -- SMS channel each second.
 sMSChannelResponse_promotionalMessagesPerSecond :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Int)
 sMSChannelResponse_promotionalMessagesPerSecond = Lens.lens (\SMSChannelResponse' {promotionalMessagesPerSecond} -> promotionalMessagesPerSecond) (\s@SMSChannelResponse' {} a -> s {promotionalMessagesPerSecond = a} :: SMSChannelResponse)
 
--- | (Not used) This property is retained only for backward compatibility.
-sMSChannelResponse_hasCredential :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Bool)
-sMSChannelResponse_hasCredential = Lens.lens (\SMSChannelResponse' {hasCredential} -> hasCredential) (\s@SMSChannelResponse' {} a -> s {hasCredential = a} :: SMSChannelResponse)
-
--- | (Deprecated) An identifier for the SMS channel. This property is
--- retained only for backward compatibility.
-sMSChannelResponse_id :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
-sMSChannelResponse_id = Lens.lens (\SMSChannelResponse' {id} -> id) (\s@SMSChannelResponse' {} a -> s {id = a} :: SMSChannelResponse)
+-- | Specifies whether the SMS channel is enabled for the application.
+sMSChannelResponse_enabled :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Bool)
+sMSChannelResponse_enabled = Lens.lens (\SMSChannelResponse' {enabled} -> enabled) (\s@SMSChannelResponse' {} a -> s {enabled = a} :: SMSChannelResponse)
 
 -- | The date and time, in ISO 8601 format, when the SMS channel was enabled.
 sMSChannelResponse_creationDate :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
 sMSChannelResponse_creationDate = Lens.lens (\SMSChannelResponse' {creationDate} -> creationDate) (\s@SMSChannelResponse' {} a -> s {creationDate = a} :: SMSChannelResponse)
 
--- | Specifies whether the SMS channel is enabled for the application.
-sMSChannelResponse_enabled :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Bool)
-sMSChannelResponse_enabled = Lens.lens (\SMSChannelResponse' {enabled} -> enabled) (\s@SMSChannelResponse' {} a -> s {enabled = a} :: SMSChannelResponse)
+-- | (Deprecated) An identifier for the SMS channel. This property is
+-- retained only for backward compatibility.
+sMSChannelResponse_id :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Text)
+sMSChannelResponse_id = Lens.lens (\SMSChannelResponse' {id} -> id) (\s@SMSChannelResponse' {} a -> s {id = a} :: SMSChannelResponse)
 
 -- | The current version of the SMS channel.
 sMSChannelResponse_version :: Lens.Lens' SMSChannelResponse (Prelude.Maybe Prelude.Int)
@@ -203,13 +203,13 @@ instance Core.FromJSON SMSChannelResponse where
       "SMSChannelResponse"
       ( \x ->
           SMSChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "PromotionalMessagesPerSecond")
+            Prelude.<$> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "HasCredential")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "PromotionalMessagesPerSecond")
             Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "ShortCode")
             Prelude.<*> (x Core..:? "IsArchived")

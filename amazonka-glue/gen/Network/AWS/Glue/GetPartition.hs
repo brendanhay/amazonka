@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetPartition' smart constructor.
 data GetPartition = GetPartition'
   { -- | The ID of the Data Catalog where the partition in question resides. If
-    -- none is provided, the AWS account ID is used by default.
+    -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partition resides.
     databaseName :: Prelude.Text,
@@ -72,7 +72,7 @@ data GetPartition = GetPartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getPartition_catalogId' - The ID of the Data Catalog where the partition in question resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getPartition_databaseName' - The name of the catalog database where the partition resides.
 --
@@ -94,7 +94,7 @@ newGetPartition pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the Data Catalog where the partition in question resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 getPartition_catalogId :: Lens.Lens' GetPartition (Prelude.Maybe Prelude.Text)
 getPartition_catalogId = Lens.lens (\GetPartition' {catalogId} -> catalogId) (\s@GetPartition' {} a -> s {catalogId = a} :: GetPartition)
 

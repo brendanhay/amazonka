@@ -35,10 +35,10 @@ data Connection = Connection'
     connectionState :: Prelude.Maybe ConnectionState,
     -- | The reason that the connection is in the connection state.
     stateReason :: Prelude.Maybe Prelude.Text,
-    -- | The authorization type specified for the connection.
-    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The ARN of the connection.
     connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The authorization type specified for the connection.
+    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The name of the connection.
     name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last modified.
@@ -62,9 +62,9 @@ data Connection = Connection'
 --
 -- 'stateReason', 'connection_stateReason' - The reason that the connection is in the connection state.
 --
--- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.
---
 -- 'connectionArn', 'connection_connectionArn' - The ARN of the connection.
+--
+-- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.
 --
 -- 'name', 'connection_name' - The name of the connection.
 --
@@ -78,8 +78,8 @@ newConnection =
     { creationTime = Prelude.Nothing,
       connectionState = Prelude.Nothing,
       stateReason = Prelude.Nothing,
-      authorizationType = Prelude.Nothing,
       connectionArn = Prelude.Nothing,
+      authorizationType = Prelude.Nothing,
       name = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       lastAuthorizedTime = Prelude.Nothing
@@ -97,13 +97,13 @@ connection_connectionState = Lens.lens (\Connection' {connectionState} -> connec
 connection_stateReason :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_stateReason = Lens.lens (\Connection' {stateReason} -> stateReason) (\s@Connection' {} a -> s {stateReason = a} :: Connection)
 
--- | The authorization type specified for the connection.
-connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
-connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> authorizationType) (\s@Connection' {} a -> s {authorizationType = a} :: Connection)
-
 -- | The ARN of the connection.
 connection_connectionArn :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_connectionArn = Lens.lens (\Connection' {connectionArn} -> connectionArn) (\s@Connection' {} a -> s {connectionArn = a} :: Connection)
+
+-- | The authorization type specified for the connection.
+connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
+connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> authorizationType) (\s@Connection' {} a -> s {authorizationType = a} :: Connection)
 
 -- | The name of the connection.
 connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
@@ -126,8 +126,8 @@ instance Core.FromJSON Connection where
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "ConnectionState")
             Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "AuthorizationType")
             Prelude.<*> (x Core..:? "ConnectionArn")
+            Prelude.<*> (x Core..:? "AuthorizationType")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "LastAuthorizedTime")

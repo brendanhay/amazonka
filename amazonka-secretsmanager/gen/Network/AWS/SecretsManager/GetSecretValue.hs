@@ -30,9 +30,10 @@
 --
 -- -   secretsmanager:GetSecretValue
 --
--- -   kms:Decrypt - required only if you use a customer-managed AWS KMS
---     key to encrypt the secret. You do not need this permission to use
---     the account\'s default AWS managed CMK for Secrets Manager.
+-- -   kms:Decrypt - required only if you use a customer-managed Amazon Web
+--     Services KMS key to encrypt the secret. You do not need this
+--     permission to use the account\'s default Amazon Web Services managed
+--     CMK for Secrets Manager.
 --
 -- __Related operations__
 --
@@ -60,8 +61,8 @@ module Network.AWS.SecretsManager.GetSecretValue
     getSecretValueResponse_secretBinary,
     getSecretValueResponse_versionStages,
     getSecretValueResponse_arn,
-    getSecretValueResponse_versionId,
     getSecretValueResponse_name,
+    getSecretValueResponse_versionId,
     getSecretValueResponse_secretString,
     getSecretValueResponse_httpStatus,
   )
@@ -248,8 +249,8 @@ instance Core.AWSRequest GetSecretValue where
             Prelude.<*> (x Core..?> "SecretBinary")
             Prelude.<*> (x Core..?> "VersionStages")
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "SecretString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -310,10 +311,10 @@ data GetSecretValueResponse = GetSecretValueResponse'
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of this version of the secret.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of this version of the secret.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The decrypted part of the protected secret information that was
     -- originally provided as a string.
     --
@@ -364,9 +365,9 @@ data GetSecretValueResponse = GetSecretValueResponse'
 --
 -- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
 --
--- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
---
 -- 'name', 'getSecretValueResponse_name' - The friendly name of the secret.
+--
+-- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
 --
 -- 'secretString', 'getSecretValueResponse_secretString' - The decrypted part of the protected secret information that was
 -- originally provided as a string.
@@ -394,8 +395,8 @@ newGetSecretValueResponse pHttpStatus_ =
       secretBinary = Prelude.Nothing,
       versionStages = Prelude.Nothing,
       arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       secretString = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -431,13 +432,13 @@ getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {vers
 getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
 
--- | The unique identifier of this version of the secret.
-getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
-
 -- | The friendly name of the secret.
 getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
+
+-- | The unique identifier of this version of the secret.
+getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
 
 -- | The decrypted part of the protected secret information that was
 -- originally provided as a string.

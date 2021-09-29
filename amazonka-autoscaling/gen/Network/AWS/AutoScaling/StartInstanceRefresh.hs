@@ -20,19 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a new instance refresh operation, which triggers a rolling
--- replacement of all previously launched instances in the Auto Scaling
--- group with a new group of instances.
+-- Starts a new instance refresh operation. An instance refresh performs a
+-- rolling replacement of all or some instances in an Auto Scaling group.
+-- Each instance is terminated first and then replaced, which temporarily
+-- reduces the capacity available within your Auto Scaling group.
 --
--- If successful, this call creates a new instance refresh request with a
+-- This operation is part of the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html instance refresh feature>
+-- in Amazon EC2 Auto Scaling, which helps you update instances in your
+-- Auto Scaling group. This feature is helpful, for example, when you have
+-- a new AMI or a new user data script. You just need to create a new
+-- launch template that specifies the new AMI or user data script. Then
+-- start an instance refresh to immediately begin the process of updating
+-- instances in the group.
+--
+-- If the call succeeds, it creates a new instance refresh request with a
 -- unique ID that you can use to track its progress. To query its status,
 -- call the DescribeInstanceRefreshes API. To describe the instance
 -- refreshes that have already run, call the DescribeInstanceRefreshes API.
 -- To cancel an instance refresh operation in progress, use the
 -- CancelInstanceRefresh API.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html Replacing Auto Scaling Instances Based on an Instance Refresh>.
 module Network.AWS.AutoScaling.StartInstanceRefresh
   ( -- * Creating a Request
     StartInstanceRefresh (..),
@@ -40,6 +47,7 @@ module Network.AWS.AutoScaling.StartInstanceRefresh
 
     -- * Request Lenses
     startInstanceRefresh_strategy,
+    startInstanceRefresh_desiredConfiguration,
     startInstanceRefresh_preferences,
     startInstanceRefresh_autoScalingGroupName,
 
@@ -65,23 +73,29 @@ data StartInstanceRefresh = StartInstanceRefresh'
   { -- | The strategy to use for the instance refresh. The only valid value is
     -- @Rolling@.
     --
-    -- A rolling update is an update that is applied to all instances in an
-    -- Auto Scaling group until all instances have been updated. A rolling
+    -- A rolling update helps you update your instances gradually. A rolling
     -- update can fail due to failed health checks or if instances are on
     -- standby or are protected from scale in. If the rolling update process
-    -- fails, any instances that were already replaced are not rolled back to
-    -- their previous configuration.
+    -- fails, any instances that are replaced are not rolled back to their
+    -- previous configuration.
     strategy :: Prelude.Maybe RefreshStrategy,
-    -- | Set of preferences associated with the instance refresh request.
+    -- | The desired configuration. For example, the desired configuration can
+    -- specify a new launch template or a new version of the current launch
+    -- template.
     --
-    -- If not provided, the default values are used. For
-    -- @MinHealthyPercentage@, the default value is @90@. For @InstanceWarmup@,
-    -- the default is to use the value specified for the health check grace
-    -- period for the Auto Scaling group.
+    -- Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the
+    -- settings of the Auto Scaling group to reflect the new desired
+    -- configuration.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences>
-    -- in the /Amazon EC2 Auto Scaling API Reference/.
+    -- When you specify a new launch template or a new version of the current
+    -- launch template for your desired configuration, consider enabling the
+    -- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
+    -- Auto Scaling skips replacing instances that already use the specified
+    -- launch template and version. This can help you reduce the number of
+    -- replacements that are required to apply updates.
+    desiredConfiguration :: Prelude.Maybe DesiredConfiguration,
+    -- | Set of preferences associated with the instance refresh request. If not
+    -- provided, the default values are used.
     preferences :: Prelude.Maybe RefreshPreferences,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -99,23 +113,29 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- 'strategy', 'startInstanceRefresh_strategy' - The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
 --
--- A rolling update is an update that is applied to all instances in an
--- Auto Scaling group until all instances have been updated. A rolling
+-- A rolling update helps you update your instances gradually. A rolling
 -- update can fail due to failed health checks or if instances are on
 -- standby or are protected from scale in. If the rolling update process
--- fails, any instances that were already replaced are not rolled back to
--- their previous configuration.
+-- fails, any instances that are replaced are not rolled back to their
+-- previous configuration.
 --
--- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request.
+-- 'desiredConfiguration', 'startInstanceRefresh_desiredConfiguration' - The desired configuration. For example, the desired configuration can
+-- specify a new launch template or a new version of the current launch
+-- template.
 --
--- If not provided, the default values are used. For
--- @MinHealthyPercentage@, the default value is @90@. For @InstanceWarmup@,
--- the default is to use the value specified for the health check grace
--- period for the Auto Scaling group.
+-- Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the
+-- settings of the Auto Scaling group to reflect the new desired
+-- configuration.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences>
--- in the /Amazon EC2 Auto Scaling API Reference/.
+-- When you specify a new launch template or a new version of the current
+-- launch template for your desired configuration, consider enabling the
+-- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
+-- Auto Scaling skips replacing instances that already use the specified
+-- launch template and version. This can help you reduce the number of
+-- replacements that are required to apply updates.
+--
+-- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
+-- provided, the default values are used.
 --
 -- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
 newStartInstanceRefresh ::
@@ -125,6 +145,7 @@ newStartInstanceRefresh ::
 newStartInstanceRefresh pAutoScalingGroupName_ =
   StartInstanceRefresh'
     { strategy = Prelude.Nothing,
+      desiredConfiguration = Prelude.Nothing,
       preferences = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
@@ -132,25 +153,33 @@ newStartInstanceRefresh pAutoScalingGroupName_ =
 -- | The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
 --
--- A rolling update is an update that is applied to all instances in an
--- Auto Scaling group until all instances have been updated. A rolling
+-- A rolling update helps you update your instances gradually. A rolling
 -- update can fail due to failed health checks or if instances are on
 -- standby or are protected from scale in. If the rolling update process
--- fails, any instances that were already replaced are not rolled back to
--- their previous configuration.
+-- fails, any instances that are replaced are not rolled back to their
+-- previous configuration.
 startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshStrategy)
 startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> strategy) (\s@StartInstanceRefresh' {} a -> s {strategy = a} :: StartInstanceRefresh)
 
--- | Set of preferences associated with the instance refresh request.
+-- | The desired configuration. For example, the desired configuration can
+-- specify a new launch template or a new version of the current launch
+-- template.
 --
--- If not provided, the default values are used. For
--- @MinHealthyPercentage@, the default value is @90@. For @InstanceWarmup@,
--- the default is to use the value specified for the health check grace
--- period for the Auto Scaling group.
+-- Once the instance refresh succeeds, Amazon EC2 Auto Scaling updates the
+-- settings of the Auto Scaling group to reflect the new desired
+-- configuration.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences>
--- in the /Amazon EC2 Auto Scaling API Reference/.
+-- When you specify a new launch template or a new version of the current
+-- launch template for your desired configuration, consider enabling the
+-- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
+-- Auto Scaling skips replacing instances that already use the specified
+-- launch template and version. This can help you reduce the number of
+-- replacements that are required to apply updates.
+startInstanceRefresh_desiredConfiguration :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe DesiredConfiguration)
+startInstanceRefresh_desiredConfiguration = Lens.lens (\StartInstanceRefresh' {desiredConfiguration} -> desiredConfiguration) (\s@StartInstanceRefresh' {} a -> s {desiredConfiguration = a} :: StartInstanceRefresh)
+
+-- | Set of preferences associated with the instance refresh request. If not
+-- provided, the default values are used.
 startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
 startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
 
@@ -190,6 +219,7 @@ instance Core.ToQuery StartInstanceRefresh where
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "Strategy" Core.=: strategy,
+        "DesiredConfiguration" Core.=: desiredConfiguration,
         "Preferences" Core.=: preferences,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]

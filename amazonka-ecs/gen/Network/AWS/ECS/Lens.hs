@@ -14,25 +14,6 @@
 module Network.AWS.ECS.Lens
   ( -- * Operations
 
-    -- ** SubmitAttachmentStateChanges
-    submitAttachmentStateChanges_cluster,
-    submitAttachmentStateChanges_attachments,
-    submitAttachmentStateChangesResponse_acknowledgment,
-    submitAttachmentStateChangesResponse_httpStatus,
-
-    -- ** RegisterContainerInstance
-    registerContainerInstance_versionInfo,
-    registerContainerInstance_containerInstanceArn,
-    registerContainerInstance_instanceIdentityDocument,
-    registerContainerInstance_attributes,
-    registerContainerInstance_instanceIdentityDocumentSignature,
-    registerContainerInstance_platformDevices,
-    registerContainerInstance_tags,
-    registerContainerInstance_totalResources,
-    registerContainerInstance_cluster,
-    registerContainerInstanceResponse_containerInstance,
-    registerContainerInstanceResponse_httpStatus,
-
     -- ** DiscoverPollEndpoint
     discoverPollEndpoint_containerInstance,
     discoverPollEndpoint_cluster,
@@ -47,12 +28,67 @@ module Network.AWS.ECS.Lens
     updateServicePrimaryTaskSetResponse_taskSet,
     updateServicePrimaryTaskSetResponse_httpStatus,
 
+    -- ** RegisterContainerInstance
+    registerContainerInstance_versionInfo,
+    registerContainerInstance_containerInstanceArn,
+    registerContainerInstance_instanceIdentityDocument,
+    registerContainerInstance_attributes,
+    registerContainerInstance_instanceIdentityDocumentSignature,
+    registerContainerInstance_platformDevices,
+    registerContainerInstance_tags,
+    registerContainerInstance_totalResources,
+    registerContainerInstance_cluster,
+    registerContainerInstanceResponse_containerInstance,
+    registerContainerInstanceResponse_httpStatus,
+
+    -- ** SubmitAttachmentStateChanges
+    submitAttachmentStateChanges_cluster,
+    submitAttachmentStateChanges_attachments,
+    submitAttachmentStateChangesResponse_acknowledgment,
+    submitAttachmentStateChangesResponse_httpStatus,
+
+    -- ** RunTask
+    runTask_referenceId,
+    runTask_capacityProviderStrategy,
+    runTask_networkConfiguration,
+    runTask_enableECSManagedTags,
+    runTask_launchType,
+    runTask_platformVersion,
+    runTask_startedBy,
+    runTask_placementStrategy,
+    runTask_placementConstraints,
+    runTask_group,
+    runTask_overrides,
+    runTask_enableExecuteCommand,
+    runTask_tags,
+    runTask_count,
+    runTask_cluster,
+    runTask_propagateTags,
+    runTask_taskDefinition,
+    runTaskResponse_tasks,
+    runTaskResponse_failures,
+    runTaskResponse_httpStatus,
+
     -- ** DescribeClusters
     describeClusters_include,
     describeClusters_clusters,
     describeClustersResponse_failures,
     describeClustersResponse_clusters,
     describeClustersResponse_httpStatus,
+
+    -- ** ListTasks
+    listTasks_nextToken,
+    listTasks_maxResults,
+    listTasks_launchType,
+    listTasks_startedBy,
+    listTasks_serviceName,
+    listTasks_desiredStatus,
+    listTasks_family,
+    listTasks_containerInstance,
+    listTasks_cluster,
+    listTasksResponse_nextToken,
+    listTasksResponse_taskArns,
+    listTasksResponse_httpStatus,
 
     -- ** ListServices
     listServices_nextToken,
@@ -64,65 +100,37 @@ module Network.AWS.ECS.Lens
     listServicesResponse_serviceArns,
     listServicesResponse_httpStatus,
 
-    -- ** RunTask
-    runTask_networkConfiguration,
-    runTask_capacityProviderStrategy,
-    runTask_referenceId,
-    runTask_enableECSManagedTags,
-    runTask_launchType,
-    runTask_platformVersion,
-    runTask_placementStrategy,
-    runTask_startedBy,
-    runTask_placementConstraints,
-    runTask_group,
-    runTask_overrides,
-    runTask_tags,
-    runTask_count,
-    runTask_cluster,
-    runTask_propagateTags,
-    runTask_taskDefinition,
-    runTaskResponse_tasks,
-    runTaskResponse_failures,
-    runTaskResponse_httpStatus,
-
-    -- ** ListTasks
-    listTasks_nextToken,
-    listTasks_maxResults,
-    listTasks_launchType,
-    listTasks_serviceName,
-    listTasks_startedBy,
-    listTasks_desiredStatus,
-    listTasks_containerInstance,
-    listTasks_family,
-    listTasks_cluster,
-    listTasksResponse_nextToken,
-    listTasksResponse_taskArns,
-    listTasksResponse_httpStatus,
-
     -- ** CreateService
     createService_deploymentConfiguration,
-    createService_networkConfiguration,
     createService_capacityProviderStrategy,
+    createService_networkConfiguration,
     createService_desiredCount,
     createService_enableECSManagedTags,
+    createService_deploymentController,
     createService_launchType,
     createService_platformVersion,
-    createService_deploymentController,
     createService_placementStrategy,
     createService_placementConstraints,
     createService_role,
+    createService_enableExecuteCommand,
     createService_loadBalancers,
     createService_tags,
-    createService_serviceRegistries,
     createService_healthCheckGracePeriodSeconds,
+    createService_serviceRegistries,
     createService_schedulingStrategy,
     createService_taskDefinition,
     createService_cluster,
-    createService_clientToken,
     createService_propagateTags,
+    createService_clientToken,
     createService_serviceName,
     createServiceResponse_service,
     createServiceResponse_httpStatus,
+
+    -- ** DeleteAttributes
+    deleteAttributes_cluster,
+    deleteAttributes_attributes,
+    deleteAttributesResponse_attributes,
+    deleteAttributesResponse_httpStatus,
 
     -- ** PutAccountSetting
     putAccountSetting_principalArn,
@@ -131,13 +139,8 @@ module Network.AWS.ECS.Lens
     putAccountSettingResponse_setting,
     putAccountSettingResponse_httpStatus,
 
-    -- ** DeleteAttributes
-    deleteAttributes_cluster,
-    deleteAttributes_attributes,
-    deleteAttributesResponse_attributes,
-    deleteAttributesResponse_httpStatus,
-
     -- ** CreateCluster
+    createCluster_configuration,
     createCluster_defaultCapacityProviderStrategy,
     createCluster_tags,
     createCluster_capacityProviders,
@@ -147,15 +150,15 @@ module Network.AWS.ECS.Lens
     createClusterResponse_httpStatus,
 
     -- ** CreateTaskSet
-    createTaskSet_networkConfiguration,
     createTaskSet_capacityProviderStrategy,
+    createTaskSet_networkConfiguration,
     createTaskSet_launchType,
     createTaskSet_platformVersion,
     createTaskSet_loadBalancers,
     createTaskSet_tags,
     createTaskSet_serviceRegistries,
-    createTaskSet_externalId,
     createTaskSet_scale,
+    createTaskSet_externalId,
     createTaskSet_clientToken,
     createTaskSet_service,
     createTaskSet_cluster,
@@ -176,6 +179,11 @@ module Network.AWS.ECS.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** DescribeContainerInstances
     describeContainerInstances_include,
     describeContainerInstances_cluster,
@@ -183,17 +191,6 @@ module Network.AWS.ECS.Lens
     describeContainerInstancesResponse_failures,
     describeContainerInstancesResponse_containerInstances,
     describeContainerInstancesResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** PutAccountSettingDefault
-    putAccountSettingDefault_name,
-    putAccountSettingDefault_value,
-    putAccountSettingDefaultResponse_setting,
-    putAccountSettingDefaultResponse_httpStatus,
 
     -- ** ListAttributes
     listAttributes_attributeValue,
@@ -206,11 +203,17 @@ module Network.AWS.ECS.Lens
     listAttributesResponse_attributes,
     listAttributesResponse_httpStatus,
 
+    -- ** PutAccountSettingDefault
+    putAccountSettingDefault_name,
+    putAccountSettingDefault_value,
+    putAccountSettingDefaultResponse_setting,
+    putAccountSettingDefaultResponse_httpStatus,
+
     -- ** SubmitContainerStateChange
     submitContainerStateChange_status,
     submitContainerStateChange_runtimeId,
-    submitContainerStateChange_task,
     submitContainerStateChange_exitCode,
+    submitContainerStateChange_task,
     submitContainerStateChange_networkBindings,
     submitContainerStateChange_reason,
     submitContainerStateChange_containerName,
@@ -234,11 +237,10 @@ module Network.AWS.ECS.Lens
     updateContainerAgentResponse_containerInstance,
     updateContainerAgentResponse_httpStatus,
 
-    -- ** UpdateCapacityProvider
-    updateCapacityProvider_name,
-    updateCapacityProvider_autoScalingGroupProvider,
-    updateCapacityProviderResponse_capacityProvider,
-    updateCapacityProviderResponse_httpStatus,
+    -- ** DeleteCapacityProvider
+    deleteCapacityProvider_capacityProvider,
+    deleteCapacityProviderResponse_capacityProvider,
+    deleteCapacityProviderResponse_httpStatus,
 
     -- ** DeleteService
     deleteService_force,
@@ -249,24 +251,33 @@ module Network.AWS.ECS.Lens
 
     -- ** UpdateService
     updateService_deploymentConfiguration,
-    updateService_networkConfiguration,
     updateService_capacityProviderStrategy,
+    updateService_networkConfiguration,
     updateService_desiredCount,
     updateService_platformVersion,
     updateService_placementStrategy,
     updateService_placementConstraints,
+    updateService_enableExecuteCommand,
     updateService_healthCheckGracePeriodSeconds,
-    updateService_forceNewDeployment,
     updateService_taskDefinition,
+    updateService_forceNewDeployment,
     updateService_cluster,
     updateService_service,
     updateServiceResponse_service,
     updateServiceResponse_httpStatus,
 
-    -- ** DeleteCapacityProvider
-    deleteCapacityProvider_capacityProvider,
-    deleteCapacityProviderResponse_capacityProvider,
-    deleteCapacityProviderResponse_httpStatus,
+    -- ** UpdateCapacityProvider
+    updateCapacityProvider_name,
+    updateCapacityProvider_autoScalingGroupProvider,
+    updateCapacityProviderResponse_capacityProvider,
+    updateCapacityProviderResponse_httpStatus,
+
+    -- ** CreateCapacityProvider
+    createCapacityProvider_tags,
+    createCapacityProvider_name,
+    createCapacityProvider_autoScalingGroupProvider,
+    createCapacityProviderResponse_capacityProvider,
+    createCapacityProviderResponse_httpStatus,
 
     -- ** DescribeTaskSets
     describeTaskSets_taskSets,
@@ -276,6 +287,27 @@ module Network.AWS.ECS.Lens
     describeTaskSetsResponse_taskSets,
     describeTaskSetsResponse_failures,
     describeTaskSetsResponse_httpStatus,
+
+    -- ** RegisterTaskDefinition
+    registerTaskDefinition_taskRoleArn,
+    registerTaskDefinition_memory,
+    registerTaskDefinition_requiresCompatibilities,
+    registerTaskDefinition_pidMode,
+    registerTaskDefinition_volumes,
+    registerTaskDefinition_executionRoleArn,
+    registerTaskDefinition_placementConstraints,
+    registerTaskDefinition_inferenceAccelerators,
+    registerTaskDefinition_proxyConfiguration,
+    registerTaskDefinition_ipcMode,
+    registerTaskDefinition_tags,
+    registerTaskDefinition_ephemeralStorage,
+    registerTaskDefinition_cpu,
+    registerTaskDefinition_networkMode,
+    registerTaskDefinition_family,
+    registerTaskDefinition_containerDefinitions,
+    registerTaskDefinitionResponse_tags,
+    registerTaskDefinitionResponse_taskDefinition,
+    registerTaskDefinitionResponse_httpStatus,
 
     -- ** ListTaskDefinitions
     listTaskDefinitions_nextToken,
@@ -287,32 +319,11 @@ module Network.AWS.ECS.Lens
     listTaskDefinitionsResponse_taskDefinitionArns,
     listTaskDefinitionsResponse_httpStatus,
 
-    -- ** CreateCapacityProvider
-    createCapacityProvider_tags,
-    createCapacityProvider_name,
-    createCapacityProvider_autoScalingGroupProvider,
-    createCapacityProviderResponse_capacityProvider,
-    createCapacityProviderResponse_httpStatus,
-
-    -- ** RegisterTaskDefinition
-    registerTaskDefinition_taskRoleArn,
-    registerTaskDefinition_memory,
-    registerTaskDefinition_pidMode,
-    registerTaskDefinition_requiresCompatibilities,
-    registerTaskDefinition_executionRoleArn,
-    registerTaskDefinition_volumes,
-    registerTaskDefinition_inferenceAccelerators,
-    registerTaskDefinition_placementConstraints,
-    registerTaskDefinition_proxyConfiguration,
-    registerTaskDefinition_ipcMode,
-    registerTaskDefinition_tags,
-    registerTaskDefinition_cpu,
-    registerTaskDefinition_networkMode,
-    registerTaskDefinition_family,
-    registerTaskDefinition_containerDefinitions,
-    registerTaskDefinitionResponse_tags,
-    registerTaskDefinitionResponse_taskDefinition,
-    registerTaskDefinitionResponse_httpStatus,
+    -- ** PutAttributes
+    putAttributes_cluster,
+    putAttributes_attributes,
+    putAttributesResponse_attributes,
+    putAttributesResponse_httpStatus,
 
     -- ** DeleteTaskSet
     deleteTaskSet_force,
@@ -328,14 +339,6 @@ module Network.AWS.ECS.Lens
     updateClusterSettingsResponse_cluster,
     updateClusterSettingsResponse_httpStatus,
 
-    -- ** UpdateTaskSet
-    updateTaskSet_cluster,
-    updateTaskSet_service,
-    updateTaskSet_taskSet,
-    updateTaskSet_scale,
-    updateTaskSetResponse_taskSet,
-    updateTaskSetResponse_httpStatus,
-
     -- ** DeregisterContainerInstance
     deregisterContainerInstance_force,
     deregisterContainerInstance_cluster,
@@ -343,11 +346,13 @@ module Network.AWS.ECS.Lens
     deregisterContainerInstanceResponse_containerInstance,
     deregisterContainerInstanceResponse_httpStatus,
 
-    -- ** PutAttributes
-    putAttributes_cluster,
-    putAttributes_attributes,
-    putAttributesResponse_attributes,
-    putAttributesResponse_httpStatus,
+    -- ** UpdateTaskSet
+    updateTaskSet_cluster,
+    updateTaskSet_service,
+    updateTaskSet_taskSet,
+    updateTaskSet_scale,
+    updateTaskSetResponse_taskSet,
+    updateTaskSetResponse_httpStatus,
 
     -- ** DeleteAccountSetting
     deleteAccountSetting_principalArn,
@@ -366,13 +371,13 @@ module Network.AWS.ECS.Lens
     listAccountSettingsResponse_settings,
     listAccountSettingsResponse_httpStatus,
 
-    -- ** DescribeServices
-    describeServices_include,
-    describeServices_cluster,
-    describeServices_services,
-    describeServicesResponse_services,
-    describeServicesResponse_failures,
-    describeServicesResponse_httpStatus,
+    -- ** UpdateContainerInstancesState
+    updateContainerInstancesState_cluster,
+    updateContainerInstancesState_containerInstances,
+    updateContainerInstancesState_status,
+    updateContainerInstancesStateResponse_failures,
+    updateContainerInstancesStateResponse_containerInstances,
+    updateContainerInstancesStateResponse_httpStatus,
 
     -- ** DescribeCapacityProviders
     describeCapacityProviders_nextToken,
@@ -384,11 +389,6 @@ module Network.AWS.ECS.Lens
     describeCapacityProvidersResponse_capacityProviders,
     describeCapacityProvidersResponse_httpStatus,
 
-    -- ** DeleteCluster
-    deleteCluster_cluster,
-    deleteClusterResponse_cluster,
-    deleteClusterResponse_httpStatus,
-
     -- ** ListClusters
     listClusters_nextToken,
     listClusters_maxResults,
@@ -396,18 +396,31 @@ module Network.AWS.ECS.Lens
     listClustersResponse_clusterArns,
     listClustersResponse_httpStatus,
 
-    -- ** UpdateContainerInstancesState
-    updateContainerInstancesState_cluster,
-    updateContainerInstancesState_containerInstances,
-    updateContainerInstancesState_status,
-    updateContainerInstancesStateResponse_failures,
-    updateContainerInstancesStateResponse_containerInstances,
-    updateContainerInstancesStateResponse_httpStatus,
+    -- ** UpdateCluster
+    updateCluster_configuration,
+    updateCluster_settings,
+    updateCluster_cluster,
+    updateClusterResponse_cluster,
+    updateClusterResponse_httpStatus,
+
+    -- ** DeleteCluster
+    deleteCluster_cluster,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
+
+    -- ** DescribeServices
+    describeServices_include,
+    describeServices_cluster,
+    describeServices_services,
+    describeServicesResponse_services,
+    describeServicesResponse_failures,
+    describeServicesResponse_httpStatus,
 
     -- ** SubmitTaskStateChange
     submitTaskStateChange_status,
     submitTaskStateChange_pullStartedAt,
     submitTaskStateChange_task,
+    submitTaskStateChange_managedAgents,
     submitTaskStateChange_containers,
     submitTaskStateChange_reason,
     submitTaskStateChange_pullStoppedAt,
@@ -417,39 +430,33 @@ module Network.AWS.ECS.Lens
     submitTaskStateChangeResponse_acknowledgment,
     submitTaskStateChangeResponse_httpStatus,
 
+    -- ** ExecuteCommand
+    executeCommand_container,
+    executeCommand_cluster,
+    executeCommand_command,
+    executeCommand_interactive,
+    executeCommand_task,
+    executeCommandResponse_clusterArn,
+    executeCommandResponse_interactive,
+    executeCommandResponse_containerArn,
+    executeCommandResponse_session,
+    executeCommandResponse_containerName,
+    executeCommandResponse_taskArn,
+    executeCommandResponse_httpStatus,
+
     -- ** DeregisterTaskDefinition
     deregisterTaskDefinition_taskDefinition,
     deregisterTaskDefinitionResponse_taskDefinition,
     deregisterTaskDefinitionResponse_httpStatus,
 
-    -- ** StopTask
-    stopTask_reason,
-    stopTask_cluster,
-    stopTask_task,
-    stopTaskResponse_task,
-    stopTaskResponse_httpStatus,
-
-    -- ** PutClusterCapacityProviders
-    putClusterCapacityProviders_cluster,
-    putClusterCapacityProviders_capacityProviders,
-    putClusterCapacityProviders_defaultCapacityProviderStrategy,
-    putClusterCapacityProvidersResponse_cluster,
-    putClusterCapacityProvidersResponse_httpStatus,
-
-    -- ** DescribeTaskDefinition
-    describeTaskDefinition_include,
-    describeTaskDefinition_taskDefinition,
-    describeTaskDefinitionResponse_tags,
-    describeTaskDefinitionResponse_taskDefinition,
-    describeTaskDefinitionResponse_httpStatus,
-
     -- ** StartTask
-    startTask_networkConfiguration,
     startTask_referenceId,
+    startTask_networkConfiguration,
     startTask_enableECSManagedTags,
     startTask_startedBy,
     startTask_group,
     startTask_overrides,
+    startTask_enableExecuteCommand,
     startTask_tags,
     startTask_cluster,
     startTask_propagateTags,
@@ -458,6 +465,27 @@ module Network.AWS.ECS.Lens
     startTaskResponse_tasks,
     startTaskResponse_failures,
     startTaskResponse_httpStatus,
+
+    -- ** DescribeTaskDefinition
+    describeTaskDefinition_include,
+    describeTaskDefinition_taskDefinition,
+    describeTaskDefinitionResponse_tags,
+    describeTaskDefinitionResponse_taskDefinition,
+    describeTaskDefinitionResponse_httpStatus,
+
+    -- ** PutClusterCapacityProviders
+    putClusterCapacityProviders_cluster,
+    putClusterCapacityProviders_capacityProviders,
+    putClusterCapacityProviders_defaultCapacityProviderStrategy,
+    putClusterCapacityProvidersResponse_cluster,
+    putClusterCapacityProvidersResponse_httpStatus,
+
+    -- ** StopTask
+    stopTask_reason,
+    stopTask_cluster,
+    stopTask_task,
+    stopTaskResponse_task,
+    stopTaskResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -524,16 +552,20 @@ module Network.AWS.ECS.Lens
     cluster_status,
     cluster_activeServicesCount,
     cluster_registeredContainerInstancesCount,
+    cluster_configuration,
     cluster_statistics,
     cluster_defaultCapacityProviderStrategy,
     cluster_pendingTasksCount,
     cluster_tags,
-    cluster_attachmentsStatus,
     cluster_capacityProviders,
+    cluster_attachmentsStatus,
     cluster_clusterName,
     cluster_settings,
-    cluster_attachments,
     cluster_runningTasksCount,
+    cluster_attachments,
+
+    -- ** ClusterConfiguration
+    clusterConfiguration_executeCommandConfiguration,
 
     -- ** ClusterSetting
     clusterSetting_name,
@@ -542,60 +574,61 @@ module Network.AWS.ECS.Lens
     -- ** Container
     container_imageDigest,
     container_gpuIds,
-    container_memory,
     container_memoryReservation,
+    container_memory,
     container_runtimeId,
     container_exitCode,
     container_containerArn,
     container_name,
     container_image,
+    container_managedAgents,
     container_networkBindings,
     container_reason,
-    container_cpu,
     container_lastStatus,
-    container_taskArn,
-    container_healthStatus,
+    container_cpu,
     container_networkInterfaces,
+    container_healthStatus,
+    container_taskArn,
 
     -- ** ContainerDefinition
     containerDefinition_hostname,
-    containerDefinition_dependsOn,
     containerDefinition_linuxParameters,
     containerDefinition_firelensConfiguration,
-    containerDefinition_memory,
-    containerDefinition_user,
+    containerDefinition_dependsOn,
     containerDefinition_memoryReservation,
     containerDefinition_dockerLabels,
+    containerDefinition_memory,
     containerDefinition_extraHosts,
+    containerDefinition_user,
     containerDefinition_systemControls,
     containerDefinition_privileged,
     containerDefinition_links,
-    containerDefinition_environmentFiles,
     containerDefinition_interactive,
-    containerDefinition_workingDirectory,
+    containerDefinition_environmentFiles,
     containerDefinition_entryPoint,
+    containerDefinition_workingDirectory,
     containerDefinition_environment,
-    containerDefinition_volumesFrom,
     containerDefinition_secrets,
+    containerDefinition_volumesFrom,
     containerDefinition_mountPoints,
+    containerDefinition_command,
     containerDefinition_dnsServers,
     containerDefinition_name,
     containerDefinition_image,
-    containerDefinition_command,
-    containerDefinition_logConfiguration,
-    containerDefinition_pseudoTerminal,
     containerDefinition_dnsSearchDomains,
-    containerDefinition_essential,
+    containerDefinition_pseudoTerminal,
+    containerDefinition_logConfiguration,
     containerDefinition_portMappings,
+    containerDefinition_essential,
     containerDefinition_cpu,
     containerDefinition_resourceRequirements,
+    containerDefinition_ulimits,
     containerDefinition_startTimeout,
     containerDefinition_readonlyRootFilesystem,
-    containerDefinition_ulimits,
     containerDefinition_stopTimeout,
+    containerDefinition_healthCheck,
     containerDefinition_dockerSecurityOptions,
     containerDefinition_disableNetworking,
-    containerDefinition_healthCheck,
     containerDefinition_repositoryCredentials,
 
     -- ** ContainerDependency
@@ -603,61 +636,62 @@ module Network.AWS.ECS.Lens
     containerDependency_condition,
 
     -- ** ContainerInstance
+    containerInstance_agentUpdateStatus,
     containerInstance_versionInfo,
     containerInstance_status,
-    containerInstance_agentUpdateStatus,
     containerInstance_registeredResources,
     containerInstance_containerInstanceArn,
     containerInstance_registeredAt,
-    containerInstance_version,
     containerInstance_pendingTasksCount,
+    containerInstance_version,
     containerInstance_attributes,
     containerInstance_tags,
     containerInstance_agentConnected,
-    containerInstance_statusReason,
     containerInstance_ec2InstanceId,
+    containerInstance_statusReason,
     containerInstance_remainingResources,
+    containerInstance_runningTasksCount,
     containerInstance_capacityProviderName,
     containerInstance_attachments,
-    containerInstance_runningTasksCount,
 
     -- ** ContainerOverride
-    containerOverride_memory,
     containerOverride_memoryReservation,
+    containerOverride_memory,
     containerOverride_environmentFiles,
     containerOverride_environment,
-    containerOverride_name,
     containerOverride_command,
+    containerOverride_name,
     containerOverride_cpu,
     containerOverride_resourceRequirements,
 
     -- ** ContainerService
     containerService_clusterArn,
     containerService_taskSets,
-    containerService_status,
     containerService_runningCount,
+    containerService_status,
     containerService_roleArn,
     containerService_deploymentConfiguration,
-    containerService_networkConfiguration,
     containerService_capacityProviderStrategy,
+    containerService_networkConfiguration,
     containerService_desiredCount,
     containerService_enableECSManagedTags,
+    containerService_deploymentController,
     containerService_launchType,
     containerService_createdAt,
     containerService_platformVersion,
-    containerService_deploymentController,
-    containerService_serviceName,
-    containerService_placementStrategy,
     containerService_deployments,
+    containerService_placementStrategy,
+    containerService_serviceName,
     containerService_placementConstraints,
     containerService_events,
     containerService_pendingCount,
+    containerService_enableExecuteCommand,
     containerService_loadBalancers,
     containerService_tags,
-    containerService_serviceRegistries,
     containerService_healthCheckGracePeriodSeconds,
-    containerService_schedulingStrategy,
+    containerService_serviceRegistries,
     containerService_createdBy,
+    containerService_schedulingStrategy,
     containerService_taskDefinition,
     containerService_serviceArn,
     containerService_propagateTags,
@@ -673,19 +707,19 @@ module Network.AWS.ECS.Lens
 
     -- ** Deployment
     deployment_rolloutState,
-    deployment_status,
     deployment_runningCount,
-    deployment_networkConfiguration,
+    deployment_status,
     deployment_capacityProviderStrategy,
+    deployment_networkConfiguration,
     deployment_desiredCount,
     deployment_updatedAt,
     deployment_launchType,
+    deployment_id,
     deployment_createdAt,
     deployment_platformVersion,
-    deployment_id,
     deployment_pendingCount,
-    deployment_rolloutStateReason,
     deployment_taskDefinition,
+    deployment_rolloutStateReason,
     deployment_failedTasks,
 
     -- ** DeploymentCircuitBreaker
@@ -708,9 +742,9 @@ module Network.AWS.ECS.Lens
     -- ** DockerVolumeConfiguration
     dockerVolumeConfiguration_labels,
     dockerVolumeConfiguration_scope,
-    dockerVolumeConfiguration_driver,
     dockerVolumeConfiguration_driverOpts,
     dockerVolumeConfiguration_autoprovision,
+    dockerVolumeConfiguration_driver,
 
     -- ** EFSAuthorizationConfig
     eFSAuthorizationConfig_accessPointId,
@@ -726,6 +760,21 @@ module Network.AWS.ECS.Lens
     -- ** EnvironmentFile
     environmentFile_value,
     environmentFile_type,
+
+    -- ** EphemeralStorage
+    ephemeralStorage_sizeInGiB,
+
+    -- ** ExecuteCommandConfiguration
+    executeCommandConfiguration_logging,
+    executeCommandConfiguration_kmsKeyId,
+    executeCommandConfiguration_logConfiguration,
+
+    -- ** ExecuteCommandLogConfiguration
+    executeCommandLogConfiguration_cloudWatchLogGroupName,
+    executeCommandLogConfiguration_cloudWatchEncryptionEnabled,
+    executeCommandLogConfiguration_s3EncryptionEnabled,
+    executeCommandLogConfiguration_s3KeyPrefix,
+    executeCommandLogConfiguration_s3BucketName,
 
     -- ** FSxWindowsFileServerAuthorizationConfig
     fSxWindowsFileServerAuthorizationConfig_credentialsParameter,
@@ -794,6 +843,18 @@ module Network.AWS.ECS.Lens
     logConfiguration_options,
     logConfiguration_secretOptions,
     logConfiguration_logDriver,
+
+    -- ** ManagedAgent
+    managedAgent_name,
+    managedAgent_reason,
+    managedAgent_lastStatus,
+    managedAgent_lastStartedAt,
+
+    -- ** ManagedAgentStateChange
+    managedAgentStateChange_reason,
+    managedAgentStateChange_containerName,
+    managedAgentStateChange_managedAgentName,
+    managedAgentStateChange_status,
 
     -- ** ManagedScaling
     managedScaling_status,
@@ -868,8 +929,8 @@ module Network.AWS.ECS.Lens
 
     -- ** ServiceEvent
     serviceEvent_message,
-    serviceEvent_createdAt,
     serviceEvent_id,
+    serviceEvent_createdAt,
 
     -- ** ServiceRegistry
     serviceRegistry_port,
@@ -877,14 +938,19 @@ module Network.AWS.ECS.Lens
     serviceRegistry_containerName,
     serviceRegistry_registryArn,
 
+    -- ** Session
+    session_sessionId,
+    session_streamUrl,
+    session_tokenValue,
+
     -- ** Setting
     setting_name,
     setting_principalArn,
     setting_value,
 
     -- ** SystemControl
-    systemControl_namespace,
     systemControl_value,
+    systemControl_namespace,
 
     -- ** Tag
     tag_key,
@@ -897,55 +963,58 @@ module Network.AWS.ECS.Lens
     task_pullStartedAt,
     task_containerInstanceArn,
     task_launchType,
-    task_connectivity,
     task_createdAt,
     task_platformVersion,
+    task_connectivity,
     task_stoppingAt,
-    task_version,
     task_startedBy,
-    task_inferenceAccelerators,
+    task_version,
     task_group,
-    task_attributes,
     task_availabilityZone,
+    task_inferenceAccelerators,
+    task_attributes,
     task_overrides,
     task_desiredStatus,
     task_stoppedAt,
     task_containers,
+    task_enableExecuteCommand,
     task_tags,
     task_pullStoppedAt,
+    task_ephemeralStorage,
+    task_lastStatus,
     task_executionStoppedAt,
     task_cpu,
-    task_lastStatus,
-    task_taskArn,
-    task_connectivityAt,
     task_healthStatus,
-    task_stopCode,
+    task_connectivityAt,
+    task_taskArn,
     task_taskDefinitionArn,
+    task_stopCode,
     task_stoppedReason,
     task_capacityProviderName,
     task_attachments,
 
     -- ** TaskDefinition
-    taskDefinition_status,
     taskDefinition_taskRoleArn,
+    taskDefinition_status,
     taskDefinition_memory,
     taskDefinition_containerDefinitions,
-    taskDefinition_pidMode,
     taskDefinition_requiresCompatibilities,
-    taskDefinition_executionRoleArn,
+    taskDefinition_pidMode,
     taskDefinition_volumes,
+    taskDefinition_executionRoleArn,
     taskDefinition_compatibilities,
     taskDefinition_registeredAt,
-    taskDefinition_inferenceAccelerators,
     taskDefinition_placementConstraints,
-    taskDefinition_proxyConfiguration,
+    taskDefinition_inferenceAccelerators,
     taskDefinition_deregisteredAt,
+    taskDefinition_proxyConfiguration,
     taskDefinition_requiresAttributes,
     taskDefinition_ipcMode,
-    taskDefinition_cpu,
     taskDefinition_family,
-    taskDefinition_revision,
+    taskDefinition_ephemeralStorage,
+    taskDefinition_cpu,
     taskDefinition_registeredBy,
+    taskDefinition_revision,
     taskDefinition_networkMode,
     taskDefinition_taskDefinitionArn,
 
@@ -956,34 +1025,35 @@ module Network.AWS.ECS.Lens
     -- ** TaskOverride
     taskOverride_taskRoleArn,
     taskOverride_memory,
-    taskOverride_executionRoleArn,
     taskOverride_inferenceAcceleratorOverrides,
+    taskOverride_executionRoleArn,
     taskOverride_containerOverrides,
+    taskOverride_ephemeralStorage,
     taskOverride_cpu,
 
     -- ** TaskSet
     taskSet_clusterArn,
-    taskSet_status,
     taskSet_stabilityStatusAt,
     taskSet_runningCount,
+    taskSet_status,
     taskSet_stabilityStatus,
-    taskSet_networkConfiguration,
     taskSet_capacityProviderStrategy,
+    taskSet_networkConfiguration,
     taskSet_updatedAt,
     taskSet_launchType,
+    taskSet_id,
     taskSet_createdAt,
     taskSet_platformVersion,
-    taskSet_id,
     taskSet_startedBy,
     taskSet_computedDesiredCount,
     taskSet_pendingCount,
     taskSet_loadBalancers,
     taskSet_tags,
     taskSet_serviceRegistries,
+    taskSet_scale,
     taskSet_taskDefinition,
     taskSet_serviceArn,
     taskSet_externalId,
-    taskSet_scale,
     taskSet_taskSetArn,
 
     -- ** Tmpfs
@@ -1005,8 +1075,8 @@ module Network.AWS.ECS.Lens
     volume_name,
     volume_dockerVolumeConfiguration,
     volume_fsxWindowsFileServerVolumeConfiguration,
-    volume_efsVolumeConfiguration,
     volume_host,
+    volume_efsVolumeConfiguration,
 
     -- ** VolumeFrom
     volumeFrom_readOnly,
@@ -1034,6 +1104,7 @@ import Network.AWS.ECS.DescribeTaskDefinition
 import Network.AWS.ECS.DescribeTaskSets
 import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.DiscoverPollEndpoint
+import Network.AWS.ECS.ExecuteCommand
 import Network.AWS.ECS.ListAccountSettings
 import Network.AWS.ECS.ListAttributes
 import Network.AWS.ECS.ListClusters
@@ -1065,6 +1136,7 @@ import Network.AWS.ECS.Types.AwsVpcConfiguration
 import Network.AWS.ECS.Types.CapacityProvider
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.Cluster
+import Network.AWS.ECS.Types.ClusterConfiguration
 import Network.AWS.ECS.Types.ClusterSetting
 import Network.AWS.ECS.Types.Container
 import Network.AWS.ECS.Types.ContainerDefinition
@@ -1082,6 +1154,9 @@ import Network.AWS.ECS.Types.DockerVolumeConfiguration
 import Network.AWS.ECS.Types.EFSAuthorizationConfig
 import Network.AWS.ECS.Types.EFSVolumeConfiguration
 import Network.AWS.ECS.Types.EnvironmentFile
+import Network.AWS.ECS.Types.EphemeralStorage
+import Network.AWS.ECS.Types.ExecuteCommandConfiguration
+import Network.AWS.ECS.Types.ExecuteCommandLogConfiguration
 import Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
 import Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
 import Network.AWS.ECS.Types.Failure
@@ -1096,6 +1171,8 @@ import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.LinuxParameters
 import Network.AWS.ECS.Types.LoadBalancer
 import Network.AWS.ECS.Types.LogConfiguration
+import Network.AWS.ECS.Types.ManagedAgent
+import Network.AWS.ECS.Types.ManagedAgentStateChange
 import Network.AWS.ECS.Types.ManagedScaling
 import Network.AWS.ECS.Types.MountPoint
 import Network.AWS.ECS.Types.NetworkBinding
@@ -1113,6 +1190,7 @@ import Network.AWS.ECS.Types.Scale
 import Network.AWS.ECS.Types.Secret
 import Network.AWS.ECS.Types.ServiceEvent
 import Network.AWS.ECS.Types.ServiceRegistry
+import Network.AWS.ECS.Types.Session
 import Network.AWS.ECS.Types.Setting
 import Network.AWS.ECS.Types.SystemControl
 import Network.AWS.ECS.Types.Tag
@@ -1128,6 +1206,7 @@ import Network.AWS.ECS.Types.Volume
 import Network.AWS.ECS.Types.VolumeFrom
 import Network.AWS.ECS.UntagResource
 import Network.AWS.ECS.UpdateCapacityProvider
+import Network.AWS.ECS.UpdateCluster
 import Network.AWS.ECS.UpdateClusterSettings
 import Network.AWS.ECS.UpdateContainerAgent
 import Network.AWS.ECS.UpdateContainerInstancesState

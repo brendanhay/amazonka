@@ -27,9 +27,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOnlineStoreSecurityConfig' smart constructor.
 data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
-  { -- | The ID of the AWS Key Management Service (AWS KMS) key that SageMaker
-    -- Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon
-    -- S3 server-side encryption.
+  { -- | The ID of the Amazon Web Services Key Management Service (Amazon Web
+    -- Services KMS) key that SageMaker Feature Store uses to encrypt the
+    -- Amazon S3 objects at rest using Amazon S3 server-side encryption.
     --
     -- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
     -- have below permissions to the @OnlineStore@ @KmsKeyId@:
@@ -73,9 +73,9 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'onlineStoreSecurityConfig_kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that SageMaker
--- Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon
--- S3 server-side encryption.
+-- 'kmsKeyId', 'onlineStoreSecurityConfig_kmsKeyId' - The ID of the Amazon Web Services Key Management Service (Amazon Web
+-- Services KMS) key that SageMaker Feature Store uses to encrypt the
+-- Amazon S3 objects at rest using Amazon S3 server-side encryption.
 --
 -- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
 -- have below permissions to the @OnlineStore@ @KmsKeyId@:
@@ -115,9 +115,9 @@ newOnlineStoreSecurityConfig =
         Prelude.Nothing
     }
 
--- | The ID of the AWS Key Management Service (AWS KMS) key that SageMaker
--- Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon
--- S3 server-side encryption.
+-- | The ID of the Amazon Web Services Key Management Service (Amazon Web
+-- Services KMS) key that SageMaker Feature Store uses to encrypt the
+-- Amazon S3 objects at rest using Amazon S3 server-side encryption.
 --
 -- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
 -- have below permissions to the @OnlineStore@ @KmsKeyId@:

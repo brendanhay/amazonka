@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.GetDeploymentTarget
     newGetDeploymentTarget,
 
     -- * Request Lenses
-    getDeploymentTarget_deploymentId,
     getDeploymentTarget_targetId,
+    getDeploymentTarget_deploymentId,
 
     -- * Destructuring the Response
     GetDeploymentTargetResponse (..),
@@ -49,10 +49,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
-  { -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of a deployment target.
-    targetId :: Prelude.Maybe Prelude.Text
+  { -- | The unique ID of a deployment target.
+    targetId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,25 +64,24 @@ data GetDeploymentTarget = GetDeploymentTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentId', 'getDeploymentTarget_deploymentId' - The unique ID of a deployment.
---
 -- 'targetId', 'getDeploymentTarget_targetId' - The unique ID of a deployment target.
+--
+-- 'deploymentId', 'getDeploymentTarget_deploymentId' - The unique ID of a deployment.
 newGetDeploymentTarget ::
   GetDeploymentTarget
 newGetDeploymentTarget =
   GetDeploymentTarget'
-    { deploymentId =
-        Prelude.Nothing,
-      targetId = Prelude.Nothing
+    { targetId = Prelude.Nothing,
+      deploymentId = Prelude.Nothing
     }
-
--- | The unique ID of a deployment.
-getDeploymentTarget_deploymentId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
-getDeploymentTarget_deploymentId = Lens.lens (\GetDeploymentTarget' {deploymentId} -> deploymentId) (\s@GetDeploymentTarget' {} a -> s {deploymentId = a} :: GetDeploymentTarget)
 
 -- | The unique ID of a deployment target.
 getDeploymentTarget_targetId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
 getDeploymentTarget_targetId = Lens.lens (\GetDeploymentTarget' {targetId} -> targetId) (\s@GetDeploymentTarget' {} a -> s {targetId = a} :: GetDeploymentTarget)
+
+-- | The unique ID of a deployment.
+getDeploymentTarget_deploymentId :: Lens.Lens' GetDeploymentTarget (Prelude.Maybe Prelude.Text)
+getDeploymentTarget_deploymentId = Lens.lens (\GetDeploymentTarget' {deploymentId} -> deploymentId) (\s@GetDeploymentTarget' {} a -> s {deploymentId = a} :: GetDeploymentTarget)
 
 instance Core.AWSRequest GetDeploymentTarget where
   type
@@ -120,8 +119,8 @@ instance Core.ToJSON GetDeploymentTarget where
   toJSON GetDeploymentTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("targetId" Core..=) Prelude.<$> targetId
+          [ ("targetId" Core..=) Prelude.<$> targetId,
+            ("deploymentId" Core..=) Prelude.<$> deploymentId
           ]
       )
 

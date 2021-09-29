@@ -36,7 +36,7 @@ data OperationSummary = OperationSummary'
     -- -   __SUBMITTED__: This is the initial state immediately after you
     --     submit a request.
     --
-    -- -   __PENDING__: AWS Cloud Map is performing the operation.
+    -- -   __PENDING__: Cloud Map is performing the operation.
     --
     -- -   __SUCCESS__: The operation succeeded.
     --
@@ -61,7 +61,7 @@ data OperationSummary = OperationSummary'
 -- -   __SUBMITTED__: This is the initial state immediately after you
 --     submit a request.
 --
--- -   __PENDING__: AWS Cloud Map is performing the operation.
+-- -   __PENDING__: Cloud Map is performing the operation.
 --
 -- -   __SUCCESS__: The operation succeeded.
 --
@@ -82,7 +82,7 @@ newOperationSummary =
 -- -   __SUBMITTED__: This is the initial state immediately after you
 --     submit a request.
 --
--- -   __PENDING__: AWS Cloud Map is performing the operation.
+-- -   __PENDING__: Cloud Map is performing the operation.
 --
 -- -   __SUCCESS__: The operation succeeded.
 --

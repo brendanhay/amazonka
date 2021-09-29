@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an AWS Identity and Access Management (IAM) role with a DB
--- instance.
+-- Associates an Amazon Web Services Identity and Access Management (IAM)
+-- role with a DB instance.
 --
 -- To add a role to a DB instance, the status of the DB instance must be
 -- @available@.

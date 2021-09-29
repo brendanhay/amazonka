@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified AWS Config rule and all of its evaluation results.
+-- Deletes the specified Config rule and all of its evaluation results.
 --
--- AWS Config sets the state of a rule to @DELETING@ until the deletion is
+-- Config sets the state of a rule to @DELETING@ until the deletion is
 -- complete. You cannot update a rule while it is in this state. If you
 -- make a @PutConfigRule@ or @DeleteConfigRule@ request for the rule, you
 -- will receive a @ResourceInUseException@.
@@ -54,7 +54,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteConfigRule' smart constructor.
 data DeleteConfigRule = DeleteConfigRule'
-  { -- | The name of the AWS Config rule that you want to delete.
+  { -- | The name of the Config rule that you want to delete.
     configRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +67,7 @@ data DeleteConfigRule = DeleteConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'deleteConfigRule_configRuleName' - The name of the AWS Config rule that you want to delete.
+-- 'configRuleName', 'deleteConfigRule_configRuleName' - The name of the Config rule that you want to delete.
 newDeleteConfigRule ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -78,7 +78,7 @@ newDeleteConfigRule pConfigRuleName_ =
         pConfigRuleName_
     }
 
--- | The name of the AWS Config rule that you want to delete.
+-- | The name of the Config rule that you want to delete.
 deleteConfigRule_configRuleName :: Lens.Lens' DeleteConfigRule Prelude.Text
 deleteConfigRule_configRuleName = Lens.lens (\DeleteConfigRule' {configRuleName} -> configRuleName) (\s@DeleteConfigRule' {} a -> s {configRuleName = a} :: DeleteConfigRule)
 

@@ -64,7 +64,8 @@ data ListHoursOfOperations = ListHoursOfOperations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data ListHoursOfOperations = ListHoursOfOperations'
 --
 -- 'maxResults', 'listHoursOfOperations_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listHoursOfOperations_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listHoursOfOperations_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListHoursOfOperations ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -105,7 +107,8 @@ listHoursOfOperations_nextToken = Lens.lens (\ListHoursOfOperations' {nextToken}
 listHoursOfOperations_maxResults :: Lens.Lens' ListHoursOfOperations (Prelude.Maybe Prelude.Natural)
 listHoursOfOperations_maxResults = Lens.lens (\ListHoursOfOperations' {maxResults} -> maxResults) (\s@ListHoursOfOperations' {} a -> s {maxResults = a} :: ListHoursOfOperations)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listHoursOfOperations_instanceId :: Lens.Lens' ListHoursOfOperations Prelude.Text
 listHoursOfOperations_instanceId = Lens.lens (\ListHoursOfOperations' {instanceId} -> instanceId) (\s@ListHoursOfOperations' {} a -> s {instanceId = a} :: ListHoursOfOperations)
 

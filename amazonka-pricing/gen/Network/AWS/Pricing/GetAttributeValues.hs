@@ -22,9 +22,9 @@
 --
 -- Returns a list of attribute values. Attibutes are similar to the details
 -- in a Price List API offer file. For a list of available attributes, see
--- <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs Offer File Definitions>
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs Offer File Definitions>
 -- in the
--- <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html AWS Billing and Cost Management User Guide>.
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html Amazon Web Services Billing and Cost Management User Guide>.
 --
 -- This operation returns paginated results.
 module Network.AWS.Pricing.GetAttributeValues

@@ -50,6 +50,10 @@ data HTTPRequest = HTTPRequest'
     -- supports the following methods: @DELETE@, @GET@, @HEAD@, @OPTIONS@,
     -- @PATCH@, @POST@, and @PUT@.
     method :: Prelude.Maybe Prelude.Text,
+    -- | The two-letter country code for the country that the request originated
+    -- from. For a current list of country codes, see the Wikipedia entry
+    -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
+    country :: Prelude.Maybe Prelude.Text,
     -- | The IP address that the request originated from. If the @WebACL@ is
     -- associated with a CloudFront distribution, this is the value of one of
     -- the following fields in CloudFront access logs:
@@ -60,10 +64,6 @@ data HTTPRequest = HTTPRequest'
     -- -   @x-forwarded-for@, if the viewer did use an HTTP proxy or a load
     --     balancer to send the request
     clientIP :: Prelude.Maybe Prelude.Text,
-    -- | The two-letter country code for the country that the request originated
-    -- from. For a current list of country codes, see the Wikipedia entry
-    -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
-    country :: Prelude.Maybe Prelude.Text,
     -- | The HTTP version specified in the sampled web request, for example,
     -- @HTTP\/1.1@.
     hTTPVersion :: Prelude.Maybe Prelude.Text
@@ -88,6 +88,10 @@ data HTTPRequest = HTTPRequest'
 -- supports the following methods: @DELETE@, @GET@, @HEAD@, @OPTIONS@,
 -- @PATCH@, @POST@, and @PUT@.
 --
+-- 'country', 'hTTPRequest_country' - The two-letter country code for the country that the request originated
+-- from. For a current list of country codes, see the Wikipedia entry
+-- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
+--
 -- 'clientIP', 'hTTPRequest_clientIP' - The IP address that the request originated from. If the @WebACL@ is
 -- associated with a CloudFront distribution, this is the value of one of
 -- the following fields in CloudFront access logs:
@@ -98,10 +102,6 @@ data HTTPRequest = HTTPRequest'
 -- -   @x-forwarded-for@, if the viewer did use an HTTP proxy or a load
 --     balancer to send the request
 --
--- 'country', 'hTTPRequest_country' - The two-letter country code for the country that the request originated
--- from. For a current list of country codes, see the Wikipedia entry
--- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
---
 -- 'hTTPVersion', 'hTTPRequest_hTTPVersion' - The HTTP version specified in the sampled web request, for example,
 -- @HTTP\/1.1@.
 newHTTPRequest ::
@@ -111,8 +111,8 @@ newHTTPRequest =
     { headers = Prelude.Nothing,
       uri = Prelude.Nothing,
       method = Prelude.Nothing,
-      clientIP = Prelude.Nothing,
       country = Prelude.Nothing,
+      clientIP = Prelude.Nothing,
       hTTPVersion = Prelude.Nothing
     }
 
@@ -132,6 +132,12 @@ hTTPRequest_uri = Lens.lens (\HTTPRequest' {uri} -> uri) (\s@HTTPRequest' {} a -
 hTTPRequest_method :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_method = Lens.lens (\HTTPRequest' {method} -> method) (\s@HTTPRequest' {} a -> s {method = a} :: HTTPRequest)
 
+-- | The two-letter country code for the country that the request originated
+-- from. For a current list of country codes, see the Wikipedia entry
+-- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
+hTTPRequest_country :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
+hTTPRequest_country = Lens.lens (\HTTPRequest' {country} -> country) (\s@HTTPRequest' {} a -> s {country = a} :: HTTPRequest)
+
 -- | The IP address that the request originated from. If the @WebACL@ is
 -- associated with a CloudFront distribution, this is the value of one of
 -- the following fields in CloudFront access logs:
@@ -143,12 +149,6 @@ hTTPRequest_method = Lens.lens (\HTTPRequest' {method} -> method) (\s@HTTPReques
 --     balancer to send the request
 hTTPRequest_clientIP :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
 hTTPRequest_clientIP = Lens.lens (\HTTPRequest' {clientIP} -> clientIP) (\s@HTTPRequest' {} a -> s {clientIP = a} :: HTTPRequest)
-
--- | The two-letter country code for the country that the request originated
--- from. For a current list of country codes, see the Wikipedia entry
--- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2>.
-hTTPRequest_country :: Lens.Lens' HTTPRequest (Prelude.Maybe Prelude.Text)
-hTTPRequest_country = Lens.lens (\HTTPRequest' {country} -> country) (\s@HTTPRequest' {} a -> s {country = a} :: HTTPRequest)
 
 -- | The HTTP version specified in the sampled web request, for example,
 -- @HTTP\/1.1@.
@@ -164,8 +164,8 @@ instance Core.FromJSON HTTPRequest where
             Prelude.<$> (x Core..:? "Headers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "URI")
             Prelude.<*> (x Core..:? "Method")
-            Prelude.<*> (x Core..:? "ClientIP")
             Prelude.<*> (x Core..:? "Country")
+            Prelude.<*> (x Core..:? "ClientIP")
             Prelude.<*> (x Core..:? "HTTPVersion")
       )
 

@@ -103,6 +103,7 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
     -- -   DatabaseInformation -
     --
     --     -   @DatabaseName@ - The name of the Amazon Redshift database.
+    --
     --     -   @ ClusterIdentifier@ - The unique ID for the Amazon Redshift
     --         cluster.
     --
@@ -164,6 +165,7 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
 -- -   DatabaseInformation -
 --
 --     -   @DatabaseName@ - The name of the Amazon Redshift database.
+--
 --     -   @ ClusterIdentifier@ - The unique ID for the Amazon Redshift
 --         cluster.
 --
@@ -240,6 +242,7 @@ createDataSourceFromRedshift_dataSourceId = Lens.lens (\CreateDataSourceFromReds
 -- -   DatabaseInformation -
 --
 --     -   @DatabaseName@ - The name of the Amazon Redshift database.
+--
 --     -   @ ClusterIdentifier@ - The unique ID for the Amazon Redshift
 --         cluster.
 --

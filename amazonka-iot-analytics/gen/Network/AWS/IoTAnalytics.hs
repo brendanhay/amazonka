@@ -11,9 +11,9 @@
 --
 -- Derived from API version @2017-11-27@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT Analytics allows you to collect large amounts of device data,
+-- IoT Analytics allows you to collect large amounts of device data,
 -- process messages, and store them. You can then query the data and run
--- sophisticated analytics on it. AWS IoT Analytics enables advanced data
+-- sophisticated analytics on it. IoT Analytics enables advanced data
 -- exploration through integration with Jupyter Notebooks and data
 -- visualization through integration with Amazon QuickSight.
 --
@@ -25,18 +25,18 @@
 -- Also, IoT data is often only meaningful in the context of other data
 -- from external sources.
 --
--- AWS IoT Analytics automates the steps required to analyze data from IoT
--- devices. AWS IoT Analytics filters, transforms, and enriches IoT data
--- before storing it in a time-series data store for analysis. You can set
--- up the service to collect only the data you need from your devices,
--- apply mathematical transforms to process the data, and enrich the data
--- with device-specific metadata such as device type and location before
--- storing it. Then, you can analyze your data by running queries using the
+-- IoT Analytics automates the steps required to analyze data from IoT
+-- devices. IoT Analytics filters, transforms, and enriches IoT data before
+-- storing it in a time-series data store for analysis. You can set up the
+-- service to collect only the data you need from your devices, apply
+-- mathematical transforms to process the data, and enrich the data with
+-- device-specific metadata such as device type and location before storing
+-- it. Then, you can analyze your data by running queries using the
 -- built-in SQL query engine, or perform more complex analytics and machine
--- learning inference. AWS IoT Analytics includes pre-built models for
--- common IoT use cases so you can answer questions like which devices are
--- about to fail or which customers are at risk of abandoning their
--- wearable devices.
+-- learning inference. IoT Analytics includes pre-built models for common
+-- IoT use cases so you can answer questions like which devices are about
+-- to fail or which customers are at risk of abandoning their wearable
+-- devices.
 module Network.AWS.IoTAnalytics
   ( -- * Service Configuration
     defaultService,
@@ -83,23 +83,17 @@ module Network.AWS.IoTAnalytics
     DescribePipelineResponse (DescribePipelineResponse'),
     newDescribePipelineResponse,
 
-    -- ** BatchPutMessage
-    BatchPutMessage (BatchPutMessage'),
-    newBatchPutMessage,
-    BatchPutMessageResponse (BatchPutMessageResponse'),
-    newBatchPutMessageResponse,
-
     -- ** DescribeLoggingOptions
     DescribeLoggingOptions (DescribeLoggingOptions'),
     newDescribeLoggingOptions,
     DescribeLoggingOptionsResponse (DescribeLoggingOptionsResponse'),
     newDescribeLoggingOptionsResponse,
 
-    -- ** DeleteDatastore
-    DeleteDatastore (DeleteDatastore'),
-    newDeleteDatastore,
-    DeleteDatastoreResponse (DeleteDatastoreResponse'),
-    newDeleteDatastoreResponse,
+    -- ** CreateDataset
+    CreateDataset (CreateDataset'),
+    newCreateDataset,
+    CreateDatasetResponse (CreateDatasetResponse'),
+    newCreateDatasetResponse,
 
     -- ** UpdateDatastore
     UpdateDatastore (UpdateDatastore'),
@@ -107,17 +101,29 @@ module Network.AWS.IoTAnalytics
     UpdateDatastoreResponse (UpdateDatastoreResponse'),
     newUpdateDatastoreResponse,
 
+    -- ** DeleteDatastore
+    DeleteDatastore (DeleteDatastore'),
+    newDeleteDatastore,
+    DeleteDatastoreResponse (DeleteDatastoreResponse'),
+    newDeleteDatastoreResponse,
+
+    -- ** BatchPutMessage
+    BatchPutMessage (BatchPutMessage'),
+    newBatchPutMessage,
+    BatchPutMessageResponse (BatchPutMessageResponse'),
+    newBatchPutMessageResponse,
+
     -- ** CreatePipeline
     CreatePipeline (CreatePipeline'),
     newCreatePipeline,
     CreatePipelineResponse (CreatePipelineResponse'),
     newCreatePipelineResponse,
 
-    -- ** CreateDataset
-    CreateDataset (CreateDataset'),
-    newCreateDataset,
-    CreateDatasetResponse (CreateDatasetResponse'),
-    newCreateDatasetResponse,
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
 
     -- ** UpdatePipeline
     UpdatePipeline (UpdatePipeline'),
@@ -131,23 +137,17 @@ module Network.AWS.IoTAnalytics
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** CancelPipelineReprocessing
     CancelPipelineReprocessing (CancelPipelineReprocessing'),
     newCancelPipelineReprocessing,
     CancelPipelineReprocessingResponse (CancelPipelineReprocessingResponse'),
     newCancelPipelineReprocessingResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
 
     -- ** SampleChannelData
     SampleChannelData (SampleChannelData'),
@@ -185,12 +185,6 @@ module Network.AWS.IoTAnalytics
     DescribeChannelResponse (DescribeChannelResponse'),
     newDescribeChannelResponse,
 
-    -- ** ListDatastores (Paginated)
-    ListDatastores (ListDatastores'),
-    newListDatastores,
-    ListDatastoresResponse (ListDatastoresResponse'),
-    newListDatastoresResponse,
-
     -- ** StartPipelineReprocessing
     StartPipelineReprocessing (StartPipelineReprocessing'),
     newStartPipelineReprocessing,
@@ -203,11 +197,11 @@ module Network.AWS.IoTAnalytics
     RunPipelineActivityResponse (RunPipelineActivityResponse'),
     newRunPipelineActivityResponse,
 
-    -- ** DeleteDataset
-    DeleteDataset (DeleteDataset'),
-    newDeleteDataset,
-    DeleteDatasetResponse (DeleteDatasetResponse'),
-    newDeleteDatasetResponse,
+    -- ** ListDatastores (Paginated)
+    ListDatastores (ListDatastores'),
+    newListDatastores,
+    ListDatastoresResponse (ListDatastoresResponse'),
+    newListDatastoresResponse,
 
     -- ** ListDatasets (Paginated)
     ListDatasets (ListDatasets'),
@@ -220,6 +214,12 @@ module Network.AWS.IoTAnalytics
     newCreateDatastore,
     CreateDatastoreResponse (CreateDatastoreResponse'),
     newCreateDatastoreResponse,
+
+    -- ** DeleteDataset
+    DeleteDataset (DeleteDataset'),
+    newDeleteDataset,
+    DeleteDatasetResponse (DeleteDatasetResponse'),
+    newDeleteDatasetResponse,
 
     -- ** ListPipelines (Paginated)
     ListPipelines (ListPipelines'),
@@ -245,11 +245,11 @@ module Network.AWS.IoTAnalytics
     ListDatasetContentsResponse (ListDatasetContentsResponse'),
     newListDatasetContentsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
     -- ** DeleteChannel
     DeleteChannel (DeleteChannel'),
@@ -257,11 +257,11 @@ module Network.AWS.IoTAnalytics
     DeleteChannelResponse (DeleteChannelResponse'),
     newDeleteChannelResponse,
 
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** PutLoggingOptions
     PutLoggingOptions (PutLoggingOptions'),
@@ -416,6 +416,22 @@ module Network.AWS.IoTAnalytics
     DatastoreActivity (DatastoreActivity'),
     newDatastoreActivity,
 
+    -- ** DatastoreIotSiteWiseMultiLayerStorage
+    DatastoreIotSiteWiseMultiLayerStorage (DatastoreIotSiteWiseMultiLayerStorage'),
+    newDatastoreIotSiteWiseMultiLayerStorage,
+
+    -- ** DatastoreIotSiteWiseMultiLayerStorageSummary
+    DatastoreIotSiteWiseMultiLayerStorageSummary (DatastoreIotSiteWiseMultiLayerStorageSummary'),
+    newDatastoreIotSiteWiseMultiLayerStorageSummary,
+
+    -- ** DatastorePartition
+    DatastorePartition (DatastorePartition'),
+    newDatastorePartition,
+
+    -- ** DatastorePartitions
+    DatastorePartitions (DatastorePartitions'),
+    newDatastorePartitions,
+
     -- ** DatastoreStatistics
     DatastoreStatistics (DatastoreStatistics'),
     newDatastoreStatistics,
@@ -468,6 +484,14 @@ module Network.AWS.IoTAnalytics
     IotEventsDestinationConfiguration (IotEventsDestinationConfiguration'),
     newIotEventsDestinationConfiguration,
 
+    -- ** IotSiteWiseCustomerManagedDatastoreS3Storage
+    IotSiteWiseCustomerManagedDatastoreS3Storage (IotSiteWiseCustomerManagedDatastoreS3Storage'),
+    newIotSiteWiseCustomerManagedDatastoreS3Storage,
+
+    -- ** IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+    IotSiteWiseCustomerManagedDatastoreS3StorageSummary (IotSiteWiseCustomerManagedDatastoreS3StorageSummary'),
+    newIotSiteWiseCustomerManagedDatastoreS3StorageSummary,
+
     -- ** JsonConfiguration
     JsonConfiguration (JsonConfiguration'),
     newJsonConfiguration,
@@ -503,6 +527,10 @@ module Network.AWS.IoTAnalytics
     -- ** ParquetConfiguration
     ParquetConfiguration (ParquetConfiguration'),
     newParquetConfiguration,
+
+    -- ** Partition
+    Partition (Partition'),
+    newPartition,
 
     -- ** Pipeline
     Pipeline (Pipeline'),
@@ -575,6 +603,10 @@ module Network.AWS.IoTAnalytics
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TimestampPartition
+    TimestampPartition (TimestampPartition'),
+    newTimestampPartition,
 
     -- ** TriggeringDataset
     TriggeringDataset (TriggeringDataset'),

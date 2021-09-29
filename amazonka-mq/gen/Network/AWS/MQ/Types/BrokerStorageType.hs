@@ -30,7 +30,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
 -- | The broker\'s storage type.
--- EFS is currently not Supported for RabbitMQ engine type.
+--
+-- EFS is not supported for RabbitMQ engine type.
 newtype BrokerStorageType = BrokerStorageType'
   { fromBrokerStorageType ::
       Core.Text

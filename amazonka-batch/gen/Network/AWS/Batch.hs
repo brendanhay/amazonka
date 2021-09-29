@@ -11,23 +11,25 @@
 --
 -- Derived from API version @2016-08-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Using AWS Batch, you can run batch computing workloads on the AWS Cloud.
--- Batch computing is a common means for developers, scientists, and
--- engineers to access large amounts of compute resources. AWS Batch
--- utilizes the advantages of this computing workload to remove the
--- undifferentiated heavy lifting of configuring and managing required
--- infrastructure, while also adopting a familiar batch computing software
--- approach. Given these advantages, AWS Batch can help you to efficiently
--- provision resources in response to jobs submitted, thus effectively
--- helping to eliminate capacity constraints, reduce compute costs, and
--- deliver your results more quickly.
+-- Batch
 --
--- As a fully managed service, AWS Batch can run batch computing workloads
--- of any scale. AWS Batch automatically provisions compute resources and
+-- Using Batch, you can run batch computing workloads on the Cloud. Batch
+-- computing is a common means for developers, scientists, and engineers to
+-- access large amounts of compute resources. Batch uses the advantages of
+-- this computing workload to remove the undifferentiated heavy lifting of
+-- configuring and managing required infrastructure. At the same time, it
+-- also adopts a familiar batch computing software approach. Given these
+-- advantages, Batch can help you to efficiently provision resources in
+-- response to jobs submitted, thus effectively helping you to eliminate
+-- capacity constraints, reduce compute costs, and deliver your results
+-- more quickly.
+--
+-- As a fully managed service, Batch can run batch computing workloads of
+-- any scale. Batch automatically provisions compute resources and
 -- optimizes workload distribution based on the quantity and scale of your
--- specific workloads. With AWS Batch, there\'s no need to install or
--- manage batch computing software. This means that you can focus your time
--- and energy on analyzing results and solving your specific problems.
+-- specific workloads. With Batch, there\'s no need to install or manage
+-- batch computing software. This means that you can focus your time and
+-- energy on analyzing results and solving your specific problems.
 module Network.AWS.Batch
   ( -- * Service Configuration
     defaultService,
@@ -53,29 +55,29 @@ module Network.AWS.Batch
     CreateComputeEnvironmentResponse (CreateComputeEnvironmentResponse'),
     newCreateComputeEnvironmentResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
-
     -- ** DescribeJobs
     DescribeJobs (DescribeJobs'),
     newDescribeJobs,
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
 
-    -- ** DeleteComputeEnvironment
-    DeleteComputeEnvironment (DeleteComputeEnvironment'),
-    newDeleteComputeEnvironment,
-    DeleteComputeEnvironmentResponse (DeleteComputeEnvironmentResponse'),
-    newDeleteComputeEnvironmentResponse,
-
     -- ** UpdateComputeEnvironment
     UpdateComputeEnvironment (UpdateComputeEnvironment'),
     newUpdateComputeEnvironment,
     UpdateComputeEnvironmentResponse (UpdateComputeEnvironmentResponse'),
     newUpdateComputeEnvironmentResponse,
+
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** DeleteComputeEnvironment
+    DeleteComputeEnvironment (DeleteComputeEnvironment'),
+    newDeleteComputeEnvironment,
+    DeleteComputeEnvironmentResponse (DeleteComputeEnvironmentResponse'),
+    newDeleteComputeEnvironmentResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -101,17 +103,17 @@ module Network.AWS.Batch
     DeregisterJobDefinitionResponse (DeregisterJobDefinitionResponse'),
     newDeregisterJobDefinitionResponse,
 
-    -- ** DeleteJobQueue
-    DeleteJobQueue (DeleteJobQueue'),
-    newDeleteJobQueue,
-    DeleteJobQueueResponse (DeleteJobQueueResponse'),
-    newDeleteJobQueueResponse,
-
     -- ** UpdateJobQueue
     UpdateJobQueue (UpdateJobQueue'),
     newUpdateJobQueue,
     UpdateJobQueueResponse (UpdateJobQueueResponse'),
     newUpdateJobQueueResponse,
+
+    -- ** DeleteJobQueue
+    DeleteJobQueue (DeleteJobQueue'),
+    newDeleteJobQueue,
+    DeleteJobQueueResponse (DeleteJobQueueResponse'),
+    newDeleteJobQueueResponse,
 
     -- ** DescribeJobDefinitions (Paginated)
     DescribeJobDefinitions (DescribeJobDefinitions'),
@@ -119,11 +121,11 @@ module Network.AWS.Batch
     DescribeJobDefinitionsResponse (DescribeJobDefinitionsResponse'),
     newDescribeJobDefinitionsResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** TerminateJob
+    TerminateJob (TerminateJob'),
+    newTerminateJob,
+    TerminateJobResponse (TerminateJobResponse'),
+    newTerminateJobResponse,
 
     -- ** DescribeComputeEnvironments (Paginated)
     DescribeComputeEnvironments (DescribeComputeEnvironments'),
@@ -131,17 +133,11 @@ module Network.AWS.Batch
     DescribeComputeEnvironmentsResponse (DescribeComputeEnvironmentsResponse'),
     newDescribeComputeEnvironmentsResponse,
 
-    -- ** TerminateJob
-    TerminateJob (TerminateJob'),
-    newTerminateJob,
-    TerminateJobResponse (TerminateJobResponse'),
-    newTerminateJobResponse,
-
-    -- ** RegisterJobDefinition
-    RegisterJobDefinition (RegisterJobDefinition'),
-    newRegisterJobDefinition,
-    RegisterJobDefinitionResponse (RegisterJobDefinitionResponse'),
-    newRegisterJobDefinitionResponse,
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** SubmitJob
     SubmitJob (SubmitJob'),
@@ -149,17 +145,23 @@ module Network.AWS.Batch
     SubmitJobResponse (SubmitJobResponse'),
     newSubmitJobResponse,
 
-    -- ** CreateJobQueue
-    CreateJobQueue (CreateJobQueue'),
-    newCreateJobQueue,
-    CreateJobQueueResponse (CreateJobQueueResponse'),
-    newCreateJobQueueResponse,
+    -- ** RegisterJobDefinition
+    RegisterJobDefinition (RegisterJobDefinition'),
+    newRegisterJobDefinition,
+    RegisterJobDefinitionResponse (RegisterJobDefinitionResponse'),
+    newRegisterJobDefinitionResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** CreateJobQueue
+    CreateJobQueue (CreateJobQueue'),
+    newCreateJobQueue,
+    CreateJobQueueResponse (CreateJobQueueResponse'),
+    newCreateJobQueueResponse,
 
     -- * Types
 
@@ -186,6 +188,12 @@ module Network.AWS.Batch
 
     -- ** DeviceCgroupPermission
     DeviceCgroupPermission (..),
+
+    -- ** EFSAuthorizationConfigIAM
+    EFSAuthorizationConfigIAM (..),
+
+    -- ** EFSTransitEncryption
+    EFSTransitEncryption (..),
 
     -- ** JQState
     JQState (..),
@@ -267,6 +275,14 @@ module Network.AWS.Batch
     Device (Device'),
     newDevice,
 
+    -- ** EFSAuthorizationConfig
+    EFSAuthorizationConfig (EFSAuthorizationConfig'),
+    newEFSAuthorizationConfig,
+
+    -- ** EFSVolumeConfiguration
+    EFSVolumeConfiguration (EFSVolumeConfiguration'),
+    newEFSVolumeConfiguration,
+
     -- ** Ec2Configuration
     Ec2Configuration (Ec2Configuration'),
     newEc2Configuration,
@@ -310,6 +326,10 @@ module Network.AWS.Batch
     -- ** KeyValuePair
     KeyValuePair (KeyValuePair'),
     newKeyValuePair,
+
+    -- ** KeyValuesPair
+    KeyValuesPair (KeyValuesPair'),
+    newKeyValuesPair,
 
     -- ** LaunchTemplateSpecification
     LaunchTemplateSpecification (LaunchTemplateSpecification'),

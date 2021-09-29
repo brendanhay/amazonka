@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ColorCorrector
 import Network.AWS.MediaConvert.Types.Deinterlacer
 import Network.AWS.MediaConvert.Types.DolbyVision
+import Network.AWS.MediaConvert.Types.Hdr10Plus
 import Network.AWS.MediaConvert.Types.ImageInserter
 import Network.AWS.MediaConvert.Types.NoiseReducer
 import Network.AWS.MediaConvert.Types.PartnerWatermarking
@@ -40,27 +41,30 @@ data VideoPreprocessor = VideoPreprocessor'
     -- overlay on your video. Enable or disable this feature for each output
     -- individually. This setting is disabled by default.
     imageInserter :: Prelude.Maybe ImageInserter,
-    -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
-    -- specified prefix into the output.
+    -- | Settings for burning the output timecode and specified prefix into the
+    -- output.
     timecodeBurnin :: Prelude.Maybe TimecodeBurnin,
-    -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
-    -- picture.
-    deinterlacer :: Prelude.Maybe Deinterlacer,
     -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
     -- your video output if necessary. Enable or disable this feature for each
     -- output individually. This setting is disabled by default.
     noiseReducer :: Prelude.Maybe NoiseReducer,
+    -- | Use the deinterlacer to produce smoother motion and a clearer picture.
+    -- For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.
+    deinterlacer :: Prelude.Maybe Deinterlacer,
+    -- | Use these settings to convert the color space or to modify properties
+    -- such as hue and contrast for this output. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.
+    colorCorrector :: Prelude.Maybe ColorCorrector,
     -- | If you work with a third party video watermarking partner, use the group
     -- of settings that correspond with your watermarking partner to include
     -- watermarks in your output.
     partnerWatermarking :: Prelude.Maybe PartnerWatermarking,
-    -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable
-    -- or disable this feature for each output individually. This setting is
-    -- disabled by default.
-    colorCorrector :: Prelude.Maybe ColorCorrector,
     -- | Enable Dolby Vision feature to produce Dolby Vision compatible video
     -- output.
-    dolbyVision :: Prelude.Maybe DolbyVision
+    dolbyVision :: Prelude.Maybe DolbyVision,
+    -- | Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.
+    hdr10Plus :: Prelude.Maybe Hdr10Plus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,37 +80,41 @@ data VideoPreprocessor = VideoPreprocessor'
 -- overlay on your video. Enable or disable this feature for each output
 -- individually. This setting is disabled by default.
 --
--- 'timecodeBurnin', 'videoPreprocessor_timecodeBurnin' - Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
--- specified prefix into the output.
---
--- 'deinterlacer', 'videoPreprocessor_deinterlacer' - Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
--- picture.
+-- 'timecodeBurnin', 'videoPreprocessor_timecodeBurnin' - Settings for burning the output timecode and specified prefix into the
+-- output.
 --
 -- 'noiseReducer', 'videoPreprocessor_noiseReducer' - Enable the Noise reducer (NoiseReducer) feature to remove noise from
 -- your video output if necessary. Enable or disable this feature for each
 -- output individually. This setting is disabled by default.
 --
+-- 'deinterlacer', 'videoPreprocessor_deinterlacer' - Use the deinterlacer to produce smoother motion and a clearer picture.
+-- For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.
+--
+-- 'colorCorrector', 'videoPreprocessor_colorCorrector' - Use these settings to convert the color space or to modify properties
+-- such as hue and contrast for this output. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.
+--
 -- 'partnerWatermarking', 'videoPreprocessor_partnerWatermarking' - If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include
 -- watermarks in your output.
 --
--- 'colorCorrector', 'videoPreprocessor_colorCorrector' - Enable the Color corrector (ColorCorrector) feature if necessary. Enable
--- or disable this feature for each output individually. This setting is
--- disabled by default.
---
 -- 'dolbyVision', 'videoPreprocessor_dolbyVision' - Enable Dolby Vision feature to produce Dolby Vision compatible video
 -- output.
+--
+-- 'hdr10Plus', 'videoPreprocessor_hdr10Plus' - Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.
 newVideoPreprocessor ::
   VideoPreprocessor
 newVideoPreprocessor =
   VideoPreprocessor'
     { imageInserter = Prelude.Nothing,
       timecodeBurnin = Prelude.Nothing,
-      deinterlacer = Prelude.Nothing,
       noiseReducer = Prelude.Nothing,
-      partnerWatermarking = Prelude.Nothing,
+      deinterlacer = Prelude.Nothing,
       colorCorrector = Prelude.Nothing,
-      dolbyVision = Prelude.Nothing
+      partnerWatermarking = Prelude.Nothing,
+      dolbyVision = Prelude.Nothing,
+      hdr10Plus = Prelude.Nothing
     }
 
 -- | Enable the Image inserter (ImageInserter) feature to include a graphic
@@ -115,15 +123,10 @@ newVideoPreprocessor =
 videoPreprocessor_imageInserter :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ImageInserter)
 videoPreprocessor_imageInserter = Lens.lens (\VideoPreprocessor' {imageInserter} -> imageInserter) (\s@VideoPreprocessor' {} a -> s {imageInserter = a} :: VideoPreprocessor)
 
--- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
--- specified prefix into the output.
+-- | Settings for burning the output timecode and specified prefix into the
+-- output.
 videoPreprocessor_timecodeBurnin :: Lens.Lens' VideoPreprocessor (Prelude.Maybe TimecodeBurnin)
 videoPreprocessor_timecodeBurnin = Lens.lens (\VideoPreprocessor' {timecodeBurnin} -> timecodeBurnin) (\s@VideoPreprocessor' {} a -> s {timecodeBurnin = a} :: VideoPreprocessor)
-
--- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
--- picture.
-videoPreprocessor_deinterlacer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe Deinterlacer)
-videoPreprocessor_deinterlacer = Lens.lens (\VideoPreprocessor' {deinterlacer} -> deinterlacer) (\s@VideoPreprocessor' {} a -> s {deinterlacer = a} :: VideoPreprocessor)
 
 -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
 -- your video output if necessary. Enable or disable this feature for each
@@ -131,22 +134,32 @@ videoPreprocessor_deinterlacer = Lens.lens (\VideoPreprocessor' {deinterlacer} -
 videoPreprocessor_noiseReducer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe NoiseReducer)
 videoPreprocessor_noiseReducer = Lens.lens (\VideoPreprocessor' {noiseReducer} -> noiseReducer) (\s@VideoPreprocessor' {} a -> s {noiseReducer = a} :: VideoPreprocessor)
 
+-- | Use the deinterlacer to produce smoother motion and a clearer picture.
+-- For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-scan-type.html.
+videoPreprocessor_deinterlacer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe Deinterlacer)
+videoPreprocessor_deinterlacer = Lens.lens (\VideoPreprocessor' {deinterlacer} -> deinterlacer) (\s@VideoPreprocessor' {} a -> s {deinterlacer = a} :: VideoPreprocessor)
+
+-- | Use these settings to convert the color space or to modify properties
+-- such as hue and contrast for this output. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/converting-the-color-space.html.
+videoPreprocessor_colorCorrector :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ColorCorrector)
+videoPreprocessor_colorCorrector = Lens.lens (\VideoPreprocessor' {colorCorrector} -> colorCorrector) (\s@VideoPreprocessor' {} a -> s {colorCorrector = a} :: VideoPreprocessor)
+
 -- | If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include
 -- watermarks in your output.
 videoPreprocessor_partnerWatermarking :: Lens.Lens' VideoPreprocessor (Prelude.Maybe PartnerWatermarking)
 videoPreprocessor_partnerWatermarking = Lens.lens (\VideoPreprocessor' {partnerWatermarking} -> partnerWatermarking) (\s@VideoPreprocessor' {} a -> s {partnerWatermarking = a} :: VideoPreprocessor)
 
--- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable
--- or disable this feature for each output individually. This setting is
--- disabled by default.
-videoPreprocessor_colorCorrector :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ColorCorrector)
-videoPreprocessor_colorCorrector = Lens.lens (\VideoPreprocessor' {colorCorrector} -> colorCorrector) (\s@VideoPreprocessor' {} a -> s {colorCorrector = a} :: VideoPreprocessor)
-
 -- | Enable Dolby Vision feature to produce Dolby Vision compatible video
 -- output.
 videoPreprocessor_dolbyVision :: Lens.Lens' VideoPreprocessor (Prelude.Maybe DolbyVision)
 videoPreprocessor_dolbyVision = Lens.lens (\VideoPreprocessor' {dolbyVision} -> dolbyVision) (\s@VideoPreprocessor' {} a -> s {dolbyVision = a} :: VideoPreprocessor)
+
+-- | Enable HDR10+ analyis and metadata injection. Compatible with HEVC only.
+videoPreprocessor_hdr10Plus :: Lens.Lens' VideoPreprocessor (Prelude.Maybe Hdr10Plus)
+videoPreprocessor_hdr10Plus = Lens.lens (\VideoPreprocessor' {hdr10Plus} -> hdr10Plus) (\s@VideoPreprocessor' {} a -> s {hdr10Plus = a} :: VideoPreprocessor)
 
 instance Core.FromJSON VideoPreprocessor where
   parseJSON =
@@ -156,11 +169,12 @@ instance Core.FromJSON VideoPreprocessor where
           VideoPreprocessor'
             Prelude.<$> (x Core..:? "imageInserter")
             Prelude.<*> (x Core..:? "timecodeBurnin")
-            Prelude.<*> (x Core..:? "deinterlacer")
             Prelude.<*> (x Core..:? "noiseReducer")
-            Prelude.<*> (x Core..:? "partnerWatermarking")
+            Prelude.<*> (x Core..:? "deinterlacer")
             Prelude.<*> (x Core..:? "colorCorrector")
+            Prelude.<*> (x Core..:? "partnerWatermarking")
             Prelude.<*> (x Core..:? "dolbyVision")
+            Prelude.<*> (x Core..:? "hdr10Plus")
       )
 
 instance Prelude.Hashable VideoPreprocessor
@@ -174,12 +188,13 @@ instance Core.ToJSON VideoPreprocessor where
           [ ("imageInserter" Core..=) Prelude.<$> imageInserter,
             ("timecodeBurnin" Core..=)
               Prelude.<$> timecodeBurnin,
-            ("deinterlacer" Core..=) Prelude.<$> deinterlacer,
             ("noiseReducer" Core..=) Prelude.<$> noiseReducer,
-            ("partnerWatermarking" Core..=)
-              Prelude.<$> partnerWatermarking,
+            ("deinterlacer" Core..=) Prelude.<$> deinterlacer,
             ("colorCorrector" Core..=)
               Prelude.<$> colorCorrector,
-            ("dolbyVision" Core..=) Prelude.<$> dolbyVision
+            ("partnerWatermarking" Core..=)
+              Prelude.<$> partnerWatermarking,
+            ("dolbyVision" Core..=) Prelude.<$> dolbyVision,
+            ("hdr10Plus" Core..=) Prelude.<$> hdr10Plus
           ]
       )

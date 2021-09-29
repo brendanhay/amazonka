@@ -20,14 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the managed policies that are available in your AWS account,
--- including your own customer-defined managed policies and all AWS managed
--- policies.
+-- Lists all the managed policies that are available in your Amazon Web
+-- Services account, including your own customer-defined managed policies
+-- and all Amazon Web Services managed policies.
 --
 -- You can filter the list of policies that is returned using the optional
 -- @OnlyAttached@, @Scope@, and @PathPrefix@ parameters. For example, to
--- list only the customer managed policies in your AWS account, set @Scope@
--- to @Local@. To list only AWS managed policies, set @Scope@ to @AWS@.
+-- list only the customer managed policies in your Amazon Web Services
+-- account, set @Scope@ to @Local@. To list only Amazon Web Services
+-- managed policies, set @Scope@ to @AWS@.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
@@ -78,9 +79,9 @@ import qualified Network.AWS.Response as Response
 data ListPolicies = ListPolicies'
   { -- | The scope to use for filtering the results.
     --
-    -- To list only AWS managed policies, set @Scope@ to @AWS@. To list only
-    -- the customer managed policies in your AWS account, set @Scope@ to
-    -- @Local@.
+    -- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+    -- To list only the customer managed policies in your Amazon Web Services
+    -- account, set @Scope@ to @Local@.
     --
     -- This parameter is optional. If it is not included, or if it is set to
     -- @All@, all policies are returned.
@@ -140,9 +141,9 @@ data ListPolicies = ListPolicies'
 --
 -- 'scope', 'listPolicies_scope' - The scope to use for filtering the results.
 --
--- To list only AWS managed policies, set @Scope@ to @AWS@. To list only
--- the customer managed policies in your AWS account, set @Scope@ to
--- @Local@.
+-- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+-- To list only the customer managed policies in your Amazon Web Services
+-- account, set @Scope@ to @Local@.
 --
 -- This parameter is optional. If it is not included, or if it is set to
 -- @All@, all policies are returned.
@@ -202,9 +203,9 @@ newListPolicies =
 
 -- | The scope to use for filtering the results.
 --
--- To list only AWS managed policies, set @Scope@ to @AWS@. To list only
--- the customer managed policies in your AWS account, set @Scope@ to
--- @Local@.
+-- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+-- To list only the customer managed policies in your Amazon Web Services
+-- account, set @Scope@ to @Local@.
 --
 -- This parameter is optional. If it is not included, or if it is set to
 -- @All@, all policies are returned.

@@ -31,9 +31,9 @@ module Network.AWS.EC2.SearchTransitGatewayMulticastGroups
 
     -- * Request Lenses
     searchTransitGatewayMulticastGroups_nextToken,
-    searchTransitGatewayMulticastGroups_dryRun,
-    searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId,
     searchTransitGatewayMulticastGroups_maxResults,
+    searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId,
+    searchTransitGatewayMulticastGroups_dryRun,
     searchTransitGatewayMulticastGroups_filters,
 
     -- * Destructuring the Response
@@ -58,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @group-ip-address@ - The IP address of the transit gateway multicast
@@ -89,9 +89,6 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
     --
     -- -   @source-type@ - The source type. Valid values are @igmp@ | @static@.
     --
-    -- -   @state@ - The state of the subnet association. Valid values are
-    --     @associated@ | @associated@ | @disassociated@ | @disassociating@.
-    --
     -- -   @subnet-id@ - The ID of the subnet.
     --
     -- -   @transit-gateway-attachment-id@ - The id of the transit gateway
@@ -110,16 +107,16 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
 --
 -- 'nextToken', 'searchTransitGatewayMulticastGroups_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'searchTransitGatewayMulticastGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- 'transitGatewayMulticastDomainId', 'searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--
 -- 'dryRun', 'searchTransitGatewayMulticastGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'transitGatewayMulticastDomainId', 'searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- 'maxResults', 'searchTransitGatewayMulticastGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'searchTransitGatewayMulticastGroups_filters' - One or more filters. The possible values are:
 --
@@ -141,9 +138,6 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
 --
 -- -   @source-type@ - The source type. Valid values are @igmp@ | @static@.
 --
--- -   @state@ - The state of the subnet association. Valid values are
---     @associated@ | @associated@ | @disassociated@ | @disassociating@.
---
 -- -   @subnet-id@ - The ID of the subnet.
 --
 -- -   @transit-gateway-attachment-id@ - The id of the transit gateway
@@ -154,10 +148,10 @@ newSearchTransitGatewayMulticastGroups =
   SearchTransitGatewayMulticastGroups'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       transitGatewayMulticastDomainId =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -165,22 +159,22 @@ newSearchTransitGatewayMulticastGroups =
 searchTransitGatewayMulticastGroups_nextToken :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Text)
 searchTransitGatewayMulticastGroups_nextToken = Lens.lens (\SearchTransitGatewayMulticastGroups' {nextToken} -> nextToken) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {nextToken = a} :: SearchTransitGatewayMulticastGroups)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+searchTransitGatewayMulticastGroups_maxResults :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Natural)
+searchTransitGatewayMulticastGroups_maxResults = Lens.lens (\SearchTransitGatewayMulticastGroups' {maxResults} -> maxResults) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {maxResults = a} :: SearchTransitGatewayMulticastGroups)
+
+-- | The ID of the transit gateway multicast domain.
+searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Text)
+searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId = Lens.lens (\SearchTransitGatewayMulticastGroups' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {transitGatewayMulticastDomainId = a} :: SearchTransitGatewayMulticastGroups)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 searchTransitGatewayMulticastGroups_dryRun :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Bool)
 searchTransitGatewayMulticastGroups_dryRun = Lens.lens (\SearchTransitGatewayMulticastGroups' {dryRun} -> dryRun) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {dryRun = a} :: SearchTransitGatewayMulticastGroups)
-
--- | The ID of the transit gateway multicast domain.
-searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Text)
-searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId = Lens.lens (\SearchTransitGatewayMulticastGroups' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {transitGatewayMulticastDomainId = a} :: SearchTransitGatewayMulticastGroups)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-searchTransitGatewayMulticastGroups_maxResults :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Natural)
-searchTransitGatewayMulticastGroups_maxResults = Lens.lens (\SearchTransitGatewayMulticastGroups' {maxResults} -> maxResults) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {maxResults = a} :: SearchTransitGatewayMulticastGroups)
 
 -- | One or more filters. The possible values are:
 --
@@ -201,9 +195,6 @@ searchTransitGatewayMulticastGroups_maxResults = Lens.lens (\SearchTransitGatewa
 --     @vpn@ | @direct-connect-gateway@ | @tgw-peering@.
 --
 -- -   @source-type@ - The source type. Valid values are @igmp@ | @static@.
---
--- -   @state@ - The state of the subnet association. Valid values are
---     @associated@ | @associated@ | @disassociated@ | @disassociating@.
 --
 -- -   @subnet-id@ - The ID of the subnet.
 --
@@ -289,10 +280,10 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "TransitGatewayMulticastDomainId"
           Core.=: transitGatewayMulticastDomainId,
-        "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

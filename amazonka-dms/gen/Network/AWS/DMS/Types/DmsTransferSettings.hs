@@ -29,7 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 data DmsTransferSettings = DmsTransferSettings'
   { -- | The name of the S3 bucket to use.
     bucketName :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that has permission to access the Amazon S3 bucket.
+    -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
+    -- role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +45,8 @@ data DmsTransferSettings = DmsTransferSettings'
 --
 -- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.
 --
--- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The IAM role that has permission to access the Amazon S3 bucket.
+-- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. The
+-- role must allow the @iam:PassRole@ action.
 newDmsTransferSettings ::
   DmsTransferSettings
 newDmsTransferSettings =
@@ -57,7 +59,8 @@ newDmsTransferSettings =
 dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
 dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
--- | The IAM role that has permission to access the Amazon S3 bucket.
+-- | The Amazon Resource Name (ARN) used by the service access IAM role. The
+-- role must allow the @iam:PassRole@ action.
 dmsTransferSettings_serviceAccessRoleArn :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
 dmsTransferSettings_serviceAccessRoleArn = Lens.lens (\DmsTransferSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DmsTransferSettings' {} a -> s {serviceAccessRoleArn = a} :: DmsTransferSettings)
 

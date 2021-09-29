@@ -30,11 +30,11 @@ import Network.AWS.S3.Types.ReplicationRule
 --
 -- /See:/ 'newReplicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
+  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) role that Amazon S3 assumes when replicating objects. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     role' :: Prelude.Text,
     -- | A container for one or more replication rules. A replication
     -- configuration must have at least one rule and can contain a maximum of
@@ -51,11 +51,11 @@ data ReplicationConfiguration = ReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'role'', 'replicationConfiguration_role' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
+-- 'role'', 'replicationConfiguration_role' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that Amazon S3 assumes when replicating objects. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'rules', 'replicationConfiguration_rules' - A container for one or more replication rules. A replication
 -- configuration must have at least one rule and can contain a maximum of
@@ -70,11 +70,11 @@ newReplicationConfiguration pRole_ =
       rules = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that Amazon S3 assumes when replicating objects. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 replicationConfiguration_role :: Lens.Lens' ReplicationConfiguration Prelude.Text
 replicationConfiguration_role = Lens.lens (\ReplicationConfiguration' {role'} -> role') (\s@ReplicationConfiguration' {} a -> s {role' = a} :: ReplicationConfiguration)
 

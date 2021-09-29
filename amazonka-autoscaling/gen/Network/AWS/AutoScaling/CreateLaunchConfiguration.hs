@@ -38,14 +38,14 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
 
     -- * Request Lenses
     createLaunchConfiguration_instanceId,
-    createLaunchConfiguration_instanceType,
     createLaunchConfiguration_ebsOptimized,
     createLaunchConfiguration_userData,
+    createLaunchConfiguration_instanceType,
     createLaunchConfiguration_ramdiskId,
     createLaunchConfiguration_classicLinkVPCSecurityGroups,
     createLaunchConfiguration_spotPrice,
-    createLaunchConfiguration_imageId,
     createLaunchConfiguration_associatePublicIpAddress,
+    createLaunchConfiguration_imageId,
     createLaunchConfiguration_securityGroups,
     createLaunchConfiguration_iamInstanceProfile,
     createLaunchConfiguration_classicLinkVPCId,
@@ -86,14 +86,6 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- If you do not specify @InstanceId@, you must specify both @ImageId@ and
     -- @InstanceType@.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the instance type of the EC2 instance.
-    --
-    -- For information about available instance types, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
-    --
-    -- If you do not specify @InstanceId@, you must specify @InstanceType@.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the launch configuration is optimized for EBS I\/O
     -- (@true@) or not (@false@). The optimization provides dedicated
     -- throughput to Amazon EBS and an optimized configuration stack to provide
@@ -115,6 +107,14 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- performed for you, and you can load the text from a file. Otherwise, you
     -- must provide base64-encoded text. User data is limited to 16 KB.
     userData :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the instance type of the EC2 instance.
+    --
+    -- For information about available instance types, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    --
+    -- If you do not specify @InstanceId@, you must specify @InstanceType@.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the RAM disk to select.
     ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of one or more security groups for the specified
@@ -138,13 +138,6 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- maximum price for those running instances is higher than the current
     -- Spot price.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Machine Image (AMI) that was assigned during
-    -- registration. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
-    --
-    -- If you do not specify @InstanceId@, you must specify @ImageId@.
-    imageId :: Prelude.Maybe Prelude.Text,
     -- | For Auto Scaling groups that are running in a virtual private cloud
     -- (VPC), specifies whether to assign a public IP address to the group\'s
     -- instances. If you specify @true@, each instance in the Auto Scaling
@@ -162,6 +155,13 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     -- unless you enabled the option to assign a public IP address on the
     -- subnet.
     associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the Amazon Machine Image (AMI) that was assigned during
+    -- registration. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    --
+    -- If you do not specify @InstanceId@, you must specify @ImageId@.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | A list that contains the security groups to assign to the instances in
     -- the Auto Scaling group.
     --
@@ -264,14 +264,6 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- If you do not specify @InstanceId@, you must specify both @ImageId@ and
 -- @InstanceType@.
 --
--- 'instanceType', 'createLaunchConfiguration_instanceType' - Specifies the instance type of the EC2 instance.
---
--- For information about available instance types, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- If you do not specify @InstanceId@, you must specify @InstanceType@.
---
 -- 'ebsOptimized', 'createLaunchConfiguration_ebsOptimized' - Specifies whether the launch configuration is optimized for EBS I\/O
 -- (@true@) or not (@false@). The optimization provides dedicated
 -- throughput to Amazon EBS and an optimized configuration stack to provide
@@ -292,6 +284,14 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- (Windows). If you are using a command line tool, base64-encoding is
 -- performed for you, and you can load the text from a file. Otherwise, you
 -- must provide base64-encoded text. User data is limited to 16 KB.
+--
+-- 'instanceType', 'createLaunchConfiguration_instanceType' - Specifies the instance type of the EC2 instance.
+--
+-- For information about available instance types, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- If you do not specify @InstanceId@, you must specify @InstanceType@.
 --
 -- 'ramdiskId', 'createLaunchConfiguration_ramdiskId' - The ID of the RAM disk to select.
 --
@@ -316,13 +316,6 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- maximum price for those running instances is higher than the current
 -- Spot price.
 --
--- 'imageId', 'createLaunchConfiguration_imageId' - The ID of the Amazon Machine Image (AMI) that was assigned during
--- registration. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- If you do not specify @InstanceId@, you must specify @ImageId@.
---
 -- 'associatePublicIpAddress', 'createLaunchConfiguration_associatePublicIpAddress' - For Auto Scaling groups that are running in a virtual private cloud
 -- (VPC), specifies whether to assign a public IP address to the group\'s
 -- instances. If you specify @true@, each instance in the Auto Scaling
@@ -339,6 +332,13 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- nondefault subnet, the default is not to assign a public IP address,
 -- unless you enabled the option to assign a public IP address on the
 -- subnet.
+--
+-- 'imageId', 'createLaunchConfiguration_imageId' - The ID of the Amazon Machine Image (AMI) that was assigned during
+-- registration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- If you do not specify @InstanceId@, you must specify @ImageId@.
 --
 -- 'securityGroups', 'createLaunchConfiguration_securityGroups' - A list that contains the security groups to assign to the instances in
 -- the Auto Scaling group.
@@ -425,14 +425,14 @@ newCreateLaunchConfiguration
     CreateLaunchConfiguration'
       { instanceId =
           Prelude.Nothing,
-        instanceType = Prelude.Nothing,
         ebsOptimized = Prelude.Nothing,
         userData = Prelude.Nothing,
+        instanceType = Prelude.Nothing,
         ramdiskId = Prelude.Nothing,
         classicLinkVPCSecurityGroups = Prelude.Nothing,
         spotPrice = Prelude.Nothing,
-        imageId = Prelude.Nothing,
         associatePublicIpAddress = Prelude.Nothing,
+        imageId = Prelude.Nothing,
         securityGroups = Prelude.Nothing,
         iamInstanceProfile = Prelude.Nothing,
         classicLinkVPCId = Prelude.Nothing,
@@ -462,16 +462,6 @@ newCreateLaunchConfiguration
 createLaunchConfiguration_instanceId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_instanceId = Lens.lens (\CreateLaunchConfiguration' {instanceId} -> instanceId) (\s@CreateLaunchConfiguration' {} a -> s {instanceId = a} :: CreateLaunchConfiguration)
 
--- | Specifies the instance type of the EC2 instance.
---
--- For information about available instance types, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- If you do not specify @InstanceId@, you must specify @InstanceType@.
-createLaunchConfiguration_instanceType :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
-createLaunchConfiguration_instanceType = Lens.lens (\CreateLaunchConfiguration' {instanceType} -> instanceType) (\s@CreateLaunchConfiguration' {} a -> s {instanceType = a} :: CreateLaunchConfiguration)
-
 -- | Specifies whether the launch configuration is optimized for EBS I\/O
 -- (@true@) or not (@false@). The optimization provides dedicated
 -- throughput to Amazon EBS and an optimized configuration stack to provide
@@ -496,6 +486,16 @@ createLaunchConfiguration_ebsOptimized = Lens.lens (\CreateLaunchConfiguration' 
 -- must provide base64-encoded text. User data is limited to 16 KB.
 createLaunchConfiguration_userData :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_userData = Lens.lens (\CreateLaunchConfiguration' {userData} -> userData) (\s@CreateLaunchConfiguration' {} a -> s {userData = a} :: CreateLaunchConfiguration)
+
+-- | Specifies the instance type of the EC2 instance.
+--
+-- For information about available instance types, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- If you do not specify @InstanceId@, you must specify @InstanceType@.
+createLaunchConfiguration_instanceType :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
+createLaunchConfiguration_instanceType = Lens.lens (\CreateLaunchConfiguration' {instanceType} -> instanceType) (\s@CreateLaunchConfiguration' {} a -> s {instanceType = a} :: CreateLaunchConfiguration)
 
 -- | The ID of the RAM disk to select.
 createLaunchConfiguration_ramdiskId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
@@ -526,15 +526,6 @@ createLaunchConfiguration_classicLinkVPCSecurityGroups = Lens.lens (\CreateLaunc
 createLaunchConfiguration_spotPrice :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
 createLaunchConfiguration_spotPrice = Lens.lens (\CreateLaunchConfiguration' {spotPrice} -> spotPrice) (\s@CreateLaunchConfiguration' {} a -> s {spotPrice = a} :: CreateLaunchConfiguration)
 
--- | The ID of the Amazon Machine Image (AMI) that was assigned during
--- registration. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- If you do not specify @InstanceId@, you must specify @ImageId@.
-createLaunchConfiguration_imageId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
-createLaunchConfiguration_imageId = Lens.lens (\CreateLaunchConfiguration' {imageId} -> imageId) (\s@CreateLaunchConfiguration' {} a -> s {imageId = a} :: CreateLaunchConfiguration)
-
 -- | For Auto Scaling groups that are running in a virtual private cloud
 -- (VPC), specifies whether to assign a public IP address to the group\'s
 -- instances. If you specify @true@, each instance in the Auto Scaling
@@ -553,6 +544,15 @@ createLaunchConfiguration_imageId = Lens.lens (\CreateLaunchConfiguration' {imag
 -- subnet.
 createLaunchConfiguration_associatePublicIpAddress :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
 createLaunchConfiguration_associatePublicIpAddress = Lens.lens (\CreateLaunchConfiguration' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@CreateLaunchConfiguration' {} a -> s {associatePublicIpAddress = a} :: CreateLaunchConfiguration)
+
+-- | The ID of the Amazon Machine Image (AMI) that was assigned during
+-- registration. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- If you do not specify @InstanceId@, you must specify @ImageId@.
+createLaunchConfiguration_imageId :: Lens.Lens' CreateLaunchConfiguration (Prelude.Maybe Prelude.Text)
+createLaunchConfiguration_imageId = Lens.lens (\CreateLaunchConfiguration' {imageId} -> imageId) (\s@CreateLaunchConfiguration' {} a -> s {imageId = a} :: CreateLaunchConfiguration)
 
 -- | A list that contains the security groups to assign to the instances in
 -- the Auto Scaling group.
@@ -678,9 +678,9 @@ instance Core.ToQuery CreateLaunchConfiguration where
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
-        "InstanceType" Core.=: instanceType,
         "EbsOptimized" Core.=: ebsOptimized,
         "UserData" Core.=: userData,
+        "InstanceType" Core.=: instanceType,
         "RamdiskId" Core.=: ramdiskId,
         "ClassicLinkVPCSecurityGroups"
           Core.=: Core.toQuery
@@ -688,9 +688,9 @@ instance Core.ToQuery CreateLaunchConfiguration where
                 Prelude.<$> classicLinkVPCSecurityGroups
             ),
         "SpotPrice" Core.=: spotPrice,
-        "ImageId" Core.=: imageId,
         "AssociatePublicIpAddress"
           Core.=: associatePublicIpAddress,
+        "ImageId" Core.=: imageId,
         "SecurityGroups"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"

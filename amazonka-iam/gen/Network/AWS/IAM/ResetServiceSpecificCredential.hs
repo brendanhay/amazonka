@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resets the password for a service-specific credential. The new password
--- is AWS generated and cryptographically strong. It cannot be configured
--- by the user. Resetting the password immediately invalidates the previous
--- password associated with this user.
+-- is Amazon Web Services generated and cryptographically strong. It cannot
+-- be configured by the user. Resetting the password immediately
+-- invalidates the previous password associated with this user.
 module Network.AWS.IAM.ResetServiceSpecificCredential
   ( -- * Creating a Request
     ResetServiceSpecificCredential (..),

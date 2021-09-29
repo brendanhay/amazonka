@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an AWS Batch compute environment.
+-- Updates an Batch compute environment.
 module Network.AWS.Batch.UpdateComputeEnvironment
   ( -- * Creating a Request
     UpdateComputeEnvironment (..),
@@ -54,19 +54,24 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateComputeEnvironment' smart constructor.
 data UpdateComputeEnvironment = UpdateComputeEnvironment'
-  { -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS
-    -- Batch to make calls to other AWS services on your behalf. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
-    -- in the /AWS Batch User Guide/.
+  { -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+    -- make calls to other Amazon Web Services services on your behalf. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+    -- in the /Batch User Guide/.
+    --
+    -- If the compute environment has a service-linked role, it can\'t be
+    -- changed to use a regular IAM role. Likewise, if the compute environment
+    -- has a regular IAM role, it can\'t be changed to use a service-linked
+    -- role.
     --
     -- If your specified role has a path other than @\/@, then you must either
     -- specify the full role ARN (this is recommended) or prefix the role name
     -- with the path.
     --
-    -- Depending on how you created your AWS Batch service role, its ARN might
+    -- Depending on how you created your Batch service role, its ARN might
     -- contain the @service-role@ path prefix. When you only specify the name
-    -- of the service role, AWS Batch assumes that your ARN does not use the
+    -- of the service role, Batch assumes that your ARN doesn\'t use the
     -- @service-role@ path prefix. Because of this, we recommend that you
     -- specify the full ARN of your service role when you create compute
     -- environments.
@@ -75,22 +80,21 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- @ENABLED@ state can accept jobs from a queue and scale in or out
     -- automatically based on the workload demand of its associated queues.
     --
-    -- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
-    -- place jobs from an associated job queue on the compute resources within
-    -- the environment. If the compute environment is managed, then it can
-    -- scale its instances out or in automatically, based on the job queue
-    -- demand.
+    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+    -- jobs from an associated job queue on the compute resources within the
+    -- environment. If the compute environment is managed, then it can scale
+    -- its instances out or in automatically, based on the job queue demand.
     --
-    -- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
-    -- attempt to place jobs within the environment. Jobs in a @STARTING@ or
-    -- @RUNNING@ state continue to progress normally. Managed compute
-    -- environments in the @DISABLED@ state don\'t scale out. However, they
-    -- scale in to @minvCpus@ value after instances become idle.
+    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+    -- state continue to progress normally. Managed compute environments in the
+    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+    -- value after instances become idle.
     state :: Prelude.Maybe CEState,
     -- | Details of the compute resources managed by the compute environment.
     -- Required for a managed compute environment. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     computeResources :: Prelude.Maybe ComputeResourceUpdate,
     -- | The name or full Amazon Resource Name (ARN) of the compute environment
     -- to update.
@@ -106,19 +110,24 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceRole', 'updateComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows AWS
--- Batch to make calls to other AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
--- in the /AWS Batch User Guide/.
+-- 'serviceRole', 'updateComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+-- make calls to other Amazon Web Services services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+-- in the /Batch User Guide/.
+--
+-- If the compute environment has a service-linked role, it can\'t be
+-- changed to use a regular IAM role. Likewise, if the compute environment
+-- has a regular IAM role, it can\'t be changed to use a service-linked
+-- role.
 --
 -- If your specified role has a path other than @\/@, then you must either
 -- specify the full role ARN (this is recommended) or prefix the role name
 -- with the path.
 --
--- Depending on how you created your AWS Batch service role, its ARN might
+-- Depending on how you created your Batch service role, its ARN might
 -- contain the @service-role@ path prefix. When you only specify the name
--- of the service role, AWS Batch assumes that your ARN does not use the
+-- of the service role, Batch assumes that your ARN doesn\'t use the
 -- @service-role@ path prefix. Because of this, we recommend that you
 -- specify the full ARN of your service role when you create compute
 -- environments.
@@ -127,22 +136,21 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- @ENABLED@ state can accept jobs from a queue and scale in or out
 -- automatically based on the workload demand of its associated queues.
 --
--- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
--- place jobs from an associated job queue on the compute resources within
--- the environment. If the compute environment is managed, then it can
--- scale its instances out or in automatically, based on the job queue
--- demand.
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
 --
--- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
--- attempt to place jobs within the environment. Jobs in a @STARTING@ or
--- @RUNNING@ state continue to progress normally. Managed compute
--- environments in the @DISABLED@ state don\'t scale out. However, they
--- scale in to @minvCpus@ value after instances become idle.
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
 --
 -- 'computeResources', 'updateComputeEnvironment_computeResources' - Details of the compute resources managed by the compute environment.
 -- Required for a managed compute environment. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'computeEnvironment', 'updateComputeEnvironment_computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment
 -- to update.
@@ -159,19 +167,24 @@ newUpdateComputeEnvironment pComputeEnvironment_ =
       computeEnvironment = pComputeEnvironment_
     }
 
--- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS
--- Batch to make calls to other AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
--- in the /AWS Batch User Guide/.
+-- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+-- make calls to other Amazon Web Services services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+-- in the /Batch User Guide/.
+--
+-- If the compute environment has a service-linked role, it can\'t be
+-- changed to use a regular IAM role. Likewise, if the compute environment
+-- has a regular IAM role, it can\'t be changed to use a service-linked
+-- role.
 --
 -- If your specified role has a path other than @\/@, then you must either
 -- specify the full role ARN (this is recommended) or prefix the role name
 -- with the path.
 --
--- Depending on how you created your AWS Batch service role, its ARN might
+-- Depending on how you created your Batch service role, its ARN might
 -- contain the @service-role@ path prefix. When you only specify the name
--- of the service role, AWS Batch assumes that your ARN does not use the
+-- of the service role, Batch assumes that your ARN doesn\'t use the
 -- @service-role@ path prefix. Because of this, we recommend that you
 -- specify the full ARN of your service role when you create compute
 -- environments.
@@ -182,24 +195,23 @@ updateComputeEnvironment_serviceRole = Lens.lens (\UpdateComputeEnvironment' {se
 -- @ENABLED@ state can accept jobs from a queue and scale in or out
 -- automatically based on the workload demand of its associated queues.
 --
--- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
--- place jobs from an associated job queue on the compute resources within
--- the environment. If the compute environment is managed, then it can
--- scale its instances out or in automatically, based on the job queue
--- demand.
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
 --
--- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
--- attempt to place jobs within the environment. Jobs in a @STARTING@ or
--- @RUNNING@ state continue to progress normally. Managed compute
--- environments in the @DISABLED@ state don\'t scale out. However, they
--- scale in to @minvCpus@ value after instances become idle.
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
 updateComputeEnvironment_state :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe CEState)
 updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -> state) (\s@UpdateComputeEnvironment' {} a -> s {state = a} :: UpdateComputeEnvironment)
 
 -- | Details of the compute resources managed by the compute environment.
 -- Required for a managed compute environment. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe ComputeResourceUpdate)
 updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
 

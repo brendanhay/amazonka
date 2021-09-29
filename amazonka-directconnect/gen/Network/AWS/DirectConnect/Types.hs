@@ -17,8 +17,8 @@ module Network.AWS.DirectConnect.Types
     defaultService,
 
     -- * Errors
-    _TooManyTagsException,
     _DirectConnectServerException,
+    _TooManyTagsException,
     _DuplicateTagKeysException,
     _DirectConnectClientException,
 
@@ -81,33 +81,39 @@ module Network.AWS.DirectConnect.Types
     bGPPeer_authKey,
     bGPPeer_asn,
     bGPPeer_awsDeviceV2,
+    bGPPeer_awsLogicalDeviceId,
     bGPPeer_bgpPeerId,
     bGPPeer_bgpStatus,
     bGPPeer_bgpPeerState,
-    bGPPeer_addressFamily,
     bGPPeer_amazonAddress,
+    bGPPeer_addressFamily,
     bGPPeer_customerAddress,
 
     -- * Connection
     Connection (..),
     newConnection,
     connection_bandwidth,
-    connection_connectionState,
     connection_awsDeviceV2,
+    connection_connectionState,
     connection_connectionName,
+    connection_macSecKeys,
     connection_providerName,
     connection_connectionId,
+    connection_awsLogicalDeviceId,
     connection_hasLogicalRedundancy,
     connection_awsDevice,
     connection_jumboFrameCapable,
+    connection_portEncryptionStatus,
     connection_lagId,
+    connection_encryptionMode,
     connection_partnerName,
     connection_tags,
     connection_loaIssueTime,
     connection_ownerAccount,
     connection_region,
-    connection_location,
     connection_vlan,
+    connection_location,
+    connection_macSecCapable,
 
     -- * Connections
     Connections (..),
@@ -128,9 +134,9 @@ module Network.AWS.DirectConnect.Types
     DirectConnectGatewayAssociation (..),
     newDirectConnectGatewayAssociation,
     directConnectGatewayAssociation_virtualGatewayId,
+    directConnectGatewayAssociation_virtualGatewayRegion,
     directConnectGatewayAssociation_virtualGatewayOwnerAccount,
     directConnectGatewayAssociation_stateChangeError,
-    directConnectGatewayAssociation_virtualGatewayRegion,
     directConnectGatewayAssociation_associationState,
     directConnectGatewayAssociation_associatedGateway,
     directConnectGatewayAssociation_associationId,
@@ -163,10 +169,11 @@ module Network.AWS.DirectConnect.Types
     -- * Interconnect
     Interconnect (..),
     newInterconnect,
-    interconnect_bandwidth,
     interconnect_interconnectId,
+    interconnect_bandwidth,
     interconnect_awsDeviceV2,
     interconnect_providerName,
+    interconnect_awsLogicalDeviceId,
     interconnect_hasLogicalRedundancy,
     interconnect_awsDevice,
     interconnect_jumboFrameCapable,
@@ -174,9 +181,9 @@ module Network.AWS.DirectConnect.Types
     interconnect_tags,
     interconnect_loaIssueTime,
     interconnect_region,
+    interconnect_interconnectName,
     interconnect_interconnectState,
     interconnect_location,
-    interconnect_interconnectName,
 
     -- * Lag
     Lag (..),
@@ -184,37 +191,50 @@ module Network.AWS.DirectConnect.Types
     lag_numberOfConnections,
     lag_awsDeviceV2,
     lag_allowsHostedConnections,
+    lag_macSecKeys,
     lag_providerName,
+    lag_awsLogicalDeviceId,
     lag_hasLogicalRedundancy,
+    lag_lagName,
     lag_connections,
     lag_awsDevice,
-    lag_lagName,
     lag_lagState,
     lag_jumboFrameCapable,
     lag_connectionsBandwidth,
     lag_lagId,
+    lag_encryptionMode,
     lag_tags,
     lag_ownerAccount,
     lag_region,
     lag_location,
     lag_minimumLinks,
+    lag_macSecCapable,
 
     -- * Location
     Location (..),
     newLocation,
     location_availablePortSpeeds,
+    location_availableMacSecPortSpeeds,
     location_availableProviders,
     location_locationCode,
     location_region,
     location_locationName,
+
+    -- * MacSecKey
+    MacSecKey (..),
+    newMacSecKey,
+    macSecKey_startOn,
+    macSecKey_ckn,
+    macSecKey_secretARN,
+    macSecKey_state,
 
     -- * NewBGPPeer
     NewBGPPeer (..),
     newNewBGPPeer,
     newBGPPeer_authKey,
     newBGPPeer_asn,
-    newBGPPeer_addressFamily,
     newBGPPeer_amazonAddress,
+    newBGPPeer_addressFamily,
     newBGPPeer_customerAddress,
 
     -- * NewPrivateVirtualInterface
@@ -225,8 +245,8 @@ module Network.AWS.DirectConnect.Types
     newPrivateVirtualInterface_mtu,
     newPrivateVirtualInterface_tags,
     newPrivateVirtualInterface_directConnectGatewayId,
-    newPrivateVirtualInterface_addressFamily,
     newPrivateVirtualInterface_amazonAddress,
+    newPrivateVirtualInterface_addressFamily,
     newPrivateVirtualInterface_customerAddress,
     newPrivateVirtualInterface_virtualInterfaceName,
     newPrivateVirtualInterface_vlan,
@@ -238,8 +258,8 @@ module Network.AWS.DirectConnect.Types
     newPrivateVirtualInterfaceAllocation_authKey,
     newPrivateVirtualInterfaceAllocation_mtu,
     newPrivateVirtualInterfaceAllocation_tags,
-    newPrivateVirtualInterfaceAllocation_addressFamily,
     newPrivateVirtualInterfaceAllocation_amazonAddress,
+    newPrivateVirtualInterfaceAllocation_addressFamily,
     newPrivateVirtualInterfaceAllocation_customerAddress,
     newPrivateVirtualInterfaceAllocation_virtualInterfaceName,
     newPrivateVirtualInterfaceAllocation_vlan,
@@ -251,8 +271,8 @@ module Network.AWS.DirectConnect.Types
     newPublicVirtualInterface_authKey,
     newPublicVirtualInterface_routeFilterPrefixes,
     newPublicVirtualInterface_tags,
-    newPublicVirtualInterface_addressFamily,
     newPublicVirtualInterface_amazonAddress,
+    newPublicVirtualInterface_addressFamily,
     newPublicVirtualInterface_customerAddress,
     newPublicVirtualInterface_virtualInterfaceName,
     newPublicVirtualInterface_vlan,
@@ -264,8 +284,8 @@ module Network.AWS.DirectConnect.Types
     newPublicVirtualInterfaceAllocation_authKey,
     newPublicVirtualInterfaceAllocation_routeFilterPrefixes,
     newPublicVirtualInterfaceAllocation_tags,
-    newPublicVirtualInterfaceAllocation_addressFamily,
     newPublicVirtualInterfaceAllocation_amazonAddress,
+    newPublicVirtualInterfaceAllocation_addressFamily,
     newPublicVirtualInterfaceAllocation_customerAddress,
     newPublicVirtualInterfaceAllocation_virtualInterfaceName,
     newPublicVirtualInterfaceAllocation_vlan,
@@ -280,8 +300,8 @@ module Network.AWS.DirectConnect.Types
     newTransitVirtualInterface_tags,
     newTransitVirtualInterface_directConnectGatewayId,
     newTransitVirtualInterface_virtualInterfaceName,
-    newTransitVirtualInterface_addressFamily,
     newTransitVirtualInterface_amazonAddress,
+    newTransitVirtualInterface_addressFamily,
     newTransitVirtualInterface_vlan,
     newTransitVirtualInterface_customerAddress,
 
@@ -293,8 +313,8 @@ module Network.AWS.DirectConnect.Types
     newTransitVirtualInterfaceAllocation_mtu,
     newTransitVirtualInterfaceAllocation_tags,
     newTransitVirtualInterfaceAllocation_virtualInterfaceName,
-    newTransitVirtualInterfaceAllocation_addressFamily,
     newTransitVirtualInterfaceAllocation_amazonAddress,
+    newTransitVirtualInterfaceAllocation_addressFamily,
     newTransitVirtualInterfaceAllocation_vlan,
     newTransitVirtualInterfaceAllocation_customerAddress,
 
@@ -330,23 +350,24 @@ module Network.AWS.DirectConnect.Types
     virtualInterface_asn,
     virtualInterface_awsDeviceV2,
     virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
     virtualInterface_customerRouterConfig,
     virtualInterface_jumboFrameCapable,
     virtualInterface_routeFilterPrefixes,
-    virtualInterface_virtualInterfaceType,
     virtualInterface_mtu,
-    virtualInterface_tags,
-    virtualInterface_virtualInterfaceId,
+    virtualInterface_virtualInterfaceType,
     virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
     virtualInterface_directConnectGatewayId,
-    virtualInterface_virtualInterfaceState,
     virtualInterface_virtualInterfaceName,
-    virtualInterface_addressFamily,
+    virtualInterface_virtualInterfaceState,
     virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
     virtualInterface_ownerAccount,
     virtualInterface_region,
-    virtualInterface_location,
     virtualInterface_vlan,
+    virtualInterface_location,
     virtualInterface_customerAddress,
 
     -- * VirtualInterfaceTestHistory
@@ -389,6 +410,7 @@ import Network.AWS.DirectConnect.Types.Lag
 import Network.AWS.DirectConnect.Types.LagState
 import Network.AWS.DirectConnect.Types.LoaContentType
 import Network.AWS.DirectConnect.Types.Location
+import Network.AWS.DirectConnect.Types.MacSecKey
 import Network.AWS.DirectConnect.Types.NewBGPPeer
 import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
 import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
@@ -478,19 +500,19 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You have reached the limit on the number of tags that can be assigned.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
 -- | A server-side error occurred.
 _DirectConnectServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DirectConnectServerException =
   Core._MatchServiceError
     defaultService
     "DirectConnectServerException"
+
+-- | You have reached the limit on the number of tags that can be assigned.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | A tag key was specified more than once.
 _DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

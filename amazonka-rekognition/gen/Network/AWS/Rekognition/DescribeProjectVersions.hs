@@ -36,8 +36,8 @@ module Network.AWS.Rekognition.DescribeProjectVersions
 
     -- * Request Lenses
     describeProjectVersions_nextToken,
-    describeProjectVersions_versionNames,
     describeProjectVersions_maxResults,
+    describeProjectVersions_versionNames,
     describeProjectVersions_projectArn,
 
     -- * Destructuring the Response
@@ -65,6 +65,10 @@ data DescribeProjectVersions = DescribeProjectVersions'
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A list of model version names that you want to describe. You can add up
     -- to 10 model version names to the list. If you don\'t specify a value,
     -- all model descriptions are returned. A version name is part of a model
@@ -72,10 +76,6 @@ data DescribeProjectVersions = DescribeProjectVersions'
     -- version name in the following ARN.
     -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
     versionNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the project that contains the models
     -- you want to describe.
     projectArn :: Prelude.Text
@@ -95,16 +95,16 @@ data DescribeProjectVersions = DescribeProjectVersions'
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
 --
+-- 'maxResults', 'describeProjectVersions_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'versionNames', 'describeProjectVersions_versionNames' - A list of model version names that you want to describe. You can add up
 -- to 10 model version names to the list. If you don\'t specify a value,
 -- all model descriptions are returned. A version name is part of a model
 -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
 -- version name in the following ARN.
 -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
---
--- 'maxResults', 'describeProjectVersions_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 --
 -- 'projectArn', 'describeProjectVersions_projectArn' - The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
@@ -116,8 +116,8 @@ newDescribeProjectVersions pProjectArn_ =
   DescribeProjectVersions'
     { nextToken =
         Prelude.Nothing,
-      versionNames = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      versionNames = Prelude.Nothing,
       projectArn = pProjectArn_
     }
 
@@ -128,6 +128,12 @@ newDescribeProjectVersions pProjectArn_ =
 describeProjectVersions_nextToken :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Text)
 describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextToken} -> nextToken) (\s@DescribeProjectVersions' {} a -> s {nextToken = a} :: DescribeProjectVersions)
 
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Natural)
+describeProjectVersions_maxResults = Lens.lens (\DescribeProjectVersions' {maxResults} -> maxResults) (\s@DescribeProjectVersions' {} a -> s {maxResults = a} :: DescribeProjectVersions)
+
 -- | A list of model version names that you want to describe. You can add up
 -- to 10 model version names to the list. If you don\'t specify a value,
 -- all model descriptions are returned. A version name is part of a model
@@ -136,12 +142,6 @@ describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextTo
 -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
 describeProjectVersions_versionNames :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeProjectVersions_versionNames = Lens.lens (\DescribeProjectVersions' {versionNames} -> versionNames) (\s@DescribeProjectVersions' {} a -> s {versionNames = a} :: DescribeProjectVersions) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Natural)
-describeProjectVersions_maxResults = Lens.lens (\DescribeProjectVersions' {maxResults} -> maxResults) (\s@DescribeProjectVersions' {} a -> s {maxResults = a} :: DescribeProjectVersions)
 
 -- | The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
@@ -210,8 +210,8 @@ instance Core.ToJSON DescribeProjectVersions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("VersionNames" Core..=) Prelude.<$> versionNames,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("VersionNames" Core..=) Prelude.<$> versionNames,
             Prelude.Just ("ProjectArn" Core..= projectArn)
           ]
       )

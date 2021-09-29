@@ -23,7 +23,7 @@
 -- Adds an ingress authorization rule to a Client VPN endpoint. Ingress
 -- authorization rules act as firewall rules that grant access to networks.
 -- You must configure ingress authorization rules to enable clients to
--- access resources in AWS or on-premises networks.
+-- access resources in Amazon Web Services or on-premises networks.
 module Network.AWS.EC2.AuthorizeClientVpnIngress
   ( -- * Creating a Request
     AuthorizeClientVpnIngress (..),
@@ -32,8 +32,8 @@ module Network.AWS.EC2.AuthorizeClientVpnIngress
     -- * Request Lenses
     authorizeClientVpnIngress_accessGroupId,
     authorizeClientVpnIngress_dryRun,
-    authorizeClientVpnIngress_authorizeAllGroups,
     authorizeClientVpnIngress_description,
+    authorizeClientVpnIngress_authorizeAllGroups,
     authorizeClientVpnIngress_clientToken,
     authorizeClientVpnIngress_clientVpnEndpointId,
     authorizeClientVpnIngress_targetNetworkCidr,
@@ -66,15 +66,15 @@ data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A brief description of the authorization rule.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to grant access to all clients. Specify @true@ to
     -- grant all clients who successfully establish a VPN connection access to
     -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
     authorizeAllGroups :: Prelude.Maybe Prelude.Bool,
-    -- | A brief description of the authorization rule.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint.
     clientVpnEndpointId :: Prelude.Text,
@@ -101,15 +101,15 @@ data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'description', 'authorizeClientVpnIngress_description' - A brief description of the authorization rule.
+--
 -- 'authorizeAllGroups', 'authorizeClientVpnIngress_authorizeAllGroups' - Indicates whether to grant access to all clients. Specify @true@ to
 -- grant all clients who successfully establish a VPN connection access to
 -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
 --
--- 'description', 'authorizeClientVpnIngress_description' - A brief description of the authorization rule.
---
 -- 'clientToken', 'authorizeClientVpnIngress_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'clientVpnEndpointId', 'authorizeClientVpnIngress_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 --
@@ -128,8 +128,8 @@ newAuthorizeClientVpnIngress
       { accessGroupId =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        authorizeAllGroups = Prelude.Nothing,
         description = Prelude.Nothing,
+        authorizeAllGroups = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         targetNetworkCidr = pTargetNetworkCidr_
@@ -148,19 +148,19 @@ authorizeClientVpnIngress_accessGroupId = Lens.lens (\AuthorizeClientVpnIngress'
 authorizeClientVpnIngress_dryRun :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
 authorizeClientVpnIngress_dryRun = Lens.lens (\AuthorizeClientVpnIngress' {dryRun} -> dryRun) (\s@AuthorizeClientVpnIngress' {} a -> s {dryRun = a} :: AuthorizeClientVpnIngress)
 
+-- | A brief description of the authorization rule.
+authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_description = Lens.lens (\AuthorizeClientVpnIngress' {description} -> description) (\s@AuthorizeClientVpnIngress' {} a -> s {description = a} :: AuthorizeClientVpnIngress)
+
 -- | Indicates whether to grant access to all clients. Specify @true@ to
 -- grant all clients who successfully establish a VPN connection access to
 -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
 authorizeClientVpnIngress_authorizeAllGroups :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
 authorizeClientVpnIngress_authorizeAllGroups = Lens.lens (\AuthorizeClientVpnIngress' {authorizeAllGroups} -> authorizeAllGroups) (\s@AuthorizeClientVpnIngress' {} a -> s {authorizeAllGroups = a} :: AuthorizeClientVpnIngress)
 
--- | A brief description of the authorization rule.
-authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
-authorizeClientVpnIngress_description = Lens.lens (\AuthorizeClientVpnIngress' {description} -> description) (\s@AuthorizeClientVpnIngress' {} a -> s {description = a} :: AuthorizeClientVpnIngress)
-
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 authorizeClientVpnIngress_clientToken :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
 authorizeClientVpnIngress_clientToken = Lens.lens (\AuthorizeClientVpnIngress' {clientToken} -> clientToken) (\s@AuthorizeClientVpnIngress' {} a -> s {clientToken = a} :: AuthorizeClientVpnIngress)
 
@@ -205,8 +205,8 @@ instance Core.ToQuery AuthorizeClientVpnIngress where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "AccessGroupId" Core.=: accessGroupId,
         "DryRun" Core.=: dryRun,
-        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
         "Description" Core.=: description,
+        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
         "ClientToken" Core.=: clientToken,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
         "TargetNetworkCidr" Core.=: targetNetworkCidr

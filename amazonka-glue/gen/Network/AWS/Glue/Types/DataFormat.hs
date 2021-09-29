@@ -20,7 +20,8 @@
 module Network.AWS.Glue.Types.DataFormat
   ( DataFormat
       ( ..,
-        DataFormat_AVRO
+        DataFormat_AVRO,
+        DataFormat_JSON
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype DataFormat = DataFormat'
 pattern DataFormat_AVRO :: DataFormat
 pattern DataFormat_AVRO = DataFormat' "AVRO"
 
+pattern DataFormat_JSON :: DataFormat
+pattern DataFormat_JSON = DataFormat' "JSON"
+
 {-# COMPLETE
   DataFormat_AVRO,
+  DataFormat_JSON,
   DataFormat'
   #-}

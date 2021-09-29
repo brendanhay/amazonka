@@ -27,14 +27,6 @@ module Network.AWS.FMS.Lens
     deletePolicy_deleteAllPolicyResources,
     deletePolicy_policyId,
 
-    -- ** ListAppsLists
-    listAppsLists_nextToken,
-    listAppsLists_defaultLists,
-    listAppsLists_maxResults,
-    listAppsListsResponse_nextToken,
-    listAppsListsResponse_appsLists,
-    listAppsListsResponse_httpStatus,
-
     -- ** GetProtectionStatus
     getProtectionStatus_nextToken,
     getProtectionStatus_maxResults,
@@ -48,6 +40,14 @@ module Network.AWS.FMS.Lens
     getProtectionStatusResponse_serviceType,
     getProtectionStatusResponse_httpStatus,
 
+    -- ** ListAppsLists
+    listAppsLists_nextToken,
+    listAppsLists_defaultLists,
+    listAppsLists_maxResults,
+    listAppsListsResponse_nextToken,
+    listAppsListsResponse_appsLists,
+    listAppsListsResponse_httpStatus,
+
     -- ** PutAppsList
     putAppsList_tagList,
     putAppsList_appsList,
@@ -55,20 +55,20 @@ module Network.AWS.FMS.Lens
     putAppsListResponse_appsListArn,
     putAppsListResponse_httpStatus,
 
-    -- ** ListProtocolsLists
-    listProtocolsLists_nextToken,
-    listProtocolsLists_defaultLists,
-    listProtocolsLists_maxResults,
-    listProtocolsListsResponse_nextToken,
-    listProtocolsListsResponse_protocolsLists,
-    listProtocolsListsResponse_httpStatus,
-
     -- ** GetAppsList
     getAppsList_defaultList,
     getAppsList_listId,
     getAppsListResponse_appsList,
     getAppsListResponse_appsListArn,
     getAppsListResponse_httpStatus,
+
+    -- ** ListProtocolsLists
+    listProtocolsLists_nextToken,
+    listProtocolsLists_defaultLists,
+    listProtocolsLists_maxResults,
+    listProtocolsListsResponse_protocolsLists,
+    listProtocolsListsResponse_nextToken,
+    listProtocolsListsResponse_httpStatus,
 
     -- ** PutProtocolsList
     putProtocolsList_tagList,
@@ -116,15 +116,15 @@ module Network.AWS.FMS.Lens
     putPolicyResponse_policyArn,
     putPolicyResponse_httpStatus,
 
-    -- ** DeleteAppsList
-    deleteAppsList_listId,
-
     -- ** GetProtocolsList
     getProtocolsList_defaultList,
     getProtocolsList_listId,
     getProtocolsListResponse_protocolsList,
     getProtocolsListResponse_protocolsListArn,
     getProtocolsListResponse_httpStatus,
+
+    -- ** DeleteAppsList
+    deleteAppsList_listId,
 
     -- ** GetPolicy
     getPolicy_policyId,
@@ -155,18 +155,22 @@ module Network.AWS.FMS.Lens
     getViolationDetailsResponse_violationDetail,
     getViolationDetailsResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tagList,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** GetComplianceDetail
     getComplianceDetail_policyId,
     getComplianceDetail_memberAccount,
     getComplianceDetailResponse_policyComplianceDetail,
     getComplianceDetailResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tagList,
+    listTagsForResourceResponse_httpStatus,
+
     -- * Types
+
+    -- ** ActionTarget
+    actionTarget_resourceId,
+    actionTarget_description,
 
     -- ** App
     app_appName,
@@ -176,8 +180,8 @@ module Network.AWS.FMS.Lens
     -- ** AppsListData
     appsListData_lastUpdateTime,
     appsListData_listId,
-    appsListData_previousAppsList,
     appsListData_createTime,
+    appsListData_previousAppsList,
     appsListData_listUpdateToken,
     appsListData_listName,
     appsListData_appsList,
@@ -185,8 +189,8 @@ module Network.AWS.FMS.Lens
     -- ** AppsListDataSummary
     appsListDataSummary_appsList,
     appsListDataSummary_listName,
-    appsListDataSummary_listArn,
     appsListDataSummary_listId,
+    appsListDataSummary_listArn,
 
     -- ** AwsEc2InstanceViolation
     awsEc2InstanceViolation_violationTarget,
@@ -197,8 +201,8 @@ module Network.AWS.FMS.Lens
     awsEc2NetworkInterfaceViolation_violatingSecurityGroups,
 
     -- ** AwsVPCSecurityGroupViolation
-    awsVPCSecurityGroupViolation_partialMatches,
     awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions,
+    awsVPCSecurityGroupViolation_partialMatches,
     awsVPCSecurityGroupViolation_violationTarget,
     awsVPCSecurityGroupViolation_violationTargetDescription,
 
@@ -207,10 +211,119 @@ module Network.AWS.FMS.Lens
     complianceViolator_resourceType,
     complianceViolator_violationReason,
 
+    -- ** DnsDuplicateRuleGroupViolation
+    dnsDuplicateRuleGroupViolation_violationTarget,
+    dnsDuplicateRuleGroupViolation_violationTargetDescription,
+
+    -- ** DnsRuleGroupLimitExceededViolation
+    dnsRuleGroupLimitExceededViolation_violationTarget,
+    dnsRuleGroupLimitExceededViolation_violationTargetDescription,
+    dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated,
+
+    -- ** DnsRuleGroupPriorityConflictViolation
+    dnsRuleGroupPriorityConflictViolation_violationTarget,
+    dnsRuleGroupPriorityConflictViolation_conflictingPriority,
+    dnsRuleGroupPriorityConflictViolation_violationTargetDescription,
+    dnsRuleGroupPriorityConflictViolation_unavailablePriorities,
+    dnsRuleGroupPriorityConflictViolation_conflictingPolicyId,
+
+    -- ** EC2AssociateRouteTableAction
+    eC2AssociateRouteTableAction_description,
+    eC2AssociateRouteTableAction_subnetId,
+    eC2AssociateRouteTableAction_gatewayId,
+    eC2AssociateRouteTableAction_routeTableId,
+
+    -- ** EC2CopyRouteTableAction
+    eC2CopyRouteTableAction_description,
+    eC2CopyRouteTableAction_vpcId,
+    eC2CopyRouteTableAction_routeTableId,
+
+    -- ** EC2CreateRouteAction
+    eC2CreateRouteAction_vpcEndpointId,
+    eC2CreateRouteAction_destinationPrefixListId,
+    eC2CreateRouteAction_destinationIpv6CidrBlock,
+    eC2CreateRouteAction_destinationCidrBlock,
+    eC2CreateRouteAction_description,
+    eC2CreateRouteAction_gatewayId,
+    eC2CreateRouteAction_routeTableId,
+
+    -- ** EC2CreateRouteTableAction
+    eC2CreateRouteTableAction_description,
+    eC2CreateRouteTableAction_vpcId,
+
+    -- ** EC2DeleteRouteAction
+    eC2DeleteRouteAction_destinationPrefixListId,
+    eC2DeleteRouteAction_destinationIpv6CidrBlock,
+    eC2DeleteRouteAction_destinationCidrBlock,
+    eC2DeleteRouteAction_description,
+    eC2DeleteRouteAction_routeTableId,
+
+    -- ** EC2ReplaceRouteAction
+    eC2ReplaceRouteAction_destinationPrefixListId,
+    eC2ReplaceRouteAction_destinationIpv6CidrBlock,
+    eC2ReplaceRouteAction_destinationCidrBlock,
+    eC2ReplaceRouteAction_description,
+    eC2ReplaceRouteAction_gatewayId,
+    eC2ReplaceRouteAction_routeTableId,
+
+    -- ** EC2ReplaceRouteTableAssociationAction
+    eC2ReplaceRouteTableAssociationAction_description,
+    eC2ReplaceRouteTableAssociationAction_associationId,
+    eC2ReplaceRouteTableAssociationAction_routeTableId,
+
     -- ** EvaluationResult
     evaluationResult_complianceStatus,
     evaluationResult_evaluationLimitExceeded,
     evaluationResult_violatorCount,
+
+    -- ** ExpectedRoute
+    expectedRoute_ipV4Cidr,
+    expectedRoute_ipV6Cidr,
+    expectedRoute_allowedTargets,
+    expectedRoute_routeTableId,
+    expectedRoute_prefixListId,
+    expectedRoute_contributingSubnets,
+
+    -- ** NetworkFirewallBlackHoleRouteDetectedViolation
+    networkFirewallBlackHoleRouteDetectedViolation_violationTarget,
+    networkFirewallBlackHoleRouteDetectedViolation_routeTableId,
+    networkFirewallBlackHoleRouteDetectedViolation_violatingRoutes,
+    networkFirewallBlackHoleRouteDetectedViolation_vpcId,
+
+    -- ** NetworkFirewallInternetTrafficNotInspectedViolation
+    networkFirewallInternetTrafficNotInspectedViolation_expectedInternetGatewayRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_expectedFirewallSubnetRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_isRouteTableUsedInDifferentAZ,
+    networkFirewallInternetTrafficNotInspectedViolation_currentFirewallSubnetRouteTable,
+    networkFirewallInternetTrafficNotInspectedViolation_currentInternetGatewayRouteTable,
+    networkFirewallInternetTrafficNotInspectedViolation_routeTableId,
+    networkFirewallInternetTrafficNotInspectedViolation_actualInternetGatewayRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_subnetAvailabilityZone,
+    networkFirewallInternetTrafficNotInspectedViolation_actualFirewallSubnetRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_subnetId,
+    networkFirewallInternetTrafficNotInspectedViolation_internetGatewayId,
+    networkFirewallInternetTrafficNotInspectedViolation_violatingRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_expectedFirewallEndpoint,
+    networkFirewallInternetTrafficNotInspectedViolation_firewallSubnetId,
+    networkFirewallInternetTrafficNotInspectedViolation_vpcId,
+
+    -- ** NetworkFirewallInvalidRouteConfigurationViolation
+    networkFirewallInvalidRouteConfigurationViolation_expectedInternetGatewayRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallSubnetRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_actualFirewallSubnetId,
+    networkFirewallInvalidRouteConfigurationViolation_isRouteTableUsedInDifferentAZ,
+    networkFirewallInvalidRouteConfigurationViolation_actualFirewallEndpoint,
+    networkFirewallInvalidRouteConfigurationViolation_currentFirewallSubnetRouteTable,
+    networkFirewallInvalidRouteConfigurationViolation_currentInternetGatewayRouteTable,
+    networkFirewallInvalidRouteConfigurationViolation_routeTableId,
+    networkFirewallInvalidRouteConfigurationViolation_actualInternetGatewayRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_actualFirewallSubnetRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_internetGatewayId,
+    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallSubnetId,
+    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallEndpoint,
+    networkFirewallInvalidRouteConfigurationViolation_violatingRoute,
+    networkFirewallInvalidRouteConfigurationViolation_vpcId,
+    networkFirewallInvalidRouteConfigurationViolation_affectedSubnets,
 
     -- ** NetworkFirewallMissingExpectedRTViolation
     networkFirewallMissingExpectedRTViolation_currentRouteTable,
@@ -218,6 +331,11 @@ module Network.AWS.FMS.Lens
     networkFirewallMissingExpectedRTViolation_availabilityZone,
     networkFirewallMissingExpectedRTViolation_expectedRouteTable,
     networkFirewallMissingExpectedRTViolation_vpc,
+
+    -- ** NetworkFirewallMissingExpectedRoutesViolation
+    networkFirewallMissingExpectedRoutesViolation_expectedRoutes,
+    networkFirewallMissingExpectedRoutesViolation_violationTarget,
+    networkFirewallMissingExpectedRoutesViolation_vpcId,
 
     -- ** NetworkFirewallMissingFirewallViolation
     networkFirewallMissingFirewallViolation_targetViolationReason,
@@ -233,8 +351,8 @@ module Network.AWS.FMS.Lens
 
     -- ** NetworkFirewallPolicyDescription
     networkFirewallPolicyDescription_statelessRuleGroups,
-    networkFirewallPolicyDescription_statelessFragmentDefaultActions,
     networkFirewallPolicyDescription_statelessDefaultActions,
+    networkFirewallPolicyDescription_statelessFragmentDefaultActions,
     networkFirewallPolicyDescription_statefulRuleGroups,
     networkFirewallPolicyDescription_statelessCustomActions,
 
@@ -242,6 +360,19 @@ module Network.AWS.FMS.Lens
     networkFirewallPolicyModifiedViolation_currentPolicyDescription,
     networkFirewallPolicyModifiedViolation_violationTarget,
     networkFirewallPolicyModifiedViolation_expectedPolicyDescription,
+
+    -- ** NetworkFirewallUnexpectedFirewallRoutesViolation
+    networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint,
+    networkFirewallUnexpectedFirewallRoutesViolation_routeTableId,
+    networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes,
+    networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId,
+    networkFirewallUnexpectedFirewallRoutesViolation_vpcId,
+
+    -- ** NetworkFirewallUnexpectedGatewayRoutesViolation
+    networkFirewallUnexpectedGatewayRoutesViolation_routeTableId,
+    networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes,
+    networkFirewallUnexpectedGatewayRoutesViolation_vpcId,
+    networkFirewallUnexpectedGatewayRoutesViolation_gatewayId,
 
     -- ** PartialMatch
     partialMatch_targetViolationReasons,
@@ -254,6 +385,7 @@ module Network.AWS.FMS.Lens
     policy_includeMap,
     policy_policyId,
     policy_excludeMap,
+    policy_deleteUnusedFMManagedResources,
     policy_policyName,
     policy_securityServicePolicyData,
     policy_resourceType,
@@ -283,8 +415,18 @@ module Network.AWS.FMS.Lens
     policySummary_securityServiceType,
     policySummary_resourceType,
     policySummary_remediationEnabled,
-    policySummary_policyId,
     policySummary_policyArn,
+    policySummary_policyId,
+    policySummary_deleteUnusedFMManagedResources,
+
+    -- ** PossibleRemediationAction
+    possibleRemediationAction_isDefaultAction,
+    possibleRemediationAction_description,
+    possibleRemediationAction_orderedRemediationActions,
+
+    -- ** PossibleRemediationActions
+    possibleRemediationActions_actions,
+    possibleRemediationActions_description,
 
     -- ** ProtocolsListData
     protocolsListData_lastUpdateTime,
@@ -297,22 +439,52 @@ module Network.AWS.FMS.Lens
 
     -- ** ProtocolsListDataSummary
     protocolsListDataSummary_listName,
-    protocolsListDataSummary_protocolsList,
-    protocolsListDataSummary_listArn,
     protocolsListDataSummary_listId,
+    protocolsListDataSummary_listArn,
+    protocolsListDataSummary_protocolsList,
+
+    -- ** RemediationAction
+    remediationAction_eC2CreateRouteAction,
+    remediationAction_eC2ReplaceRouteAction,
+    remediationAction_eC2AssociateRouteTableAction,
+    remediationAction_eC2CreateRouteTableAction,
+    remediationAction_description,
+    remediationAction_eC2CopyRouteTableAction,
+    remediationAction_eC2ReplaceRouteTableAssociationAction,
+    remediationAction_eC2DeleteRouteAction,
+
+    -- ** RemediationActionWithOrder
+    remediationActionWithOrder_remediationAction,
+    remediationActionWithOrder_order,
 
     -- ** ResourceTag
     resourceTag_value,
     resourceTag_key,
 
     -- ** ResourceViolation
+    resourceViolation_networkFirewallBlackHoleRouteDetectedViolation,
+    resourceViolation_possibleRemediationActions,
+    resourceViolation_dnsRuleGroupLimitExceededViolation,
+    resourceViolation_networkFirewallInvalidRouteConfigurationViolation,
     resourceViolation_networkFirewallMissingSubnetViolation,
+    resourceViolation_dnsDuplicateRuleGroupViolation,
     resourceViolation_awsEc2NetworkInterfaceViolation,
+    resourceViolation_networkFirewallInternetTrafficNotInspectedViolation,
     resourceViolation_networkFirewallMissingExpectedRTViolation,
+    resourceViolation_networkFirewallMissingExpectedRoutesViolation,
     resourceViolation_awsEc2InstanceViolation,
+    resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation,
     resourceViolation_networkFirewallMissingFirewallViolation,
-    resourceViolation_networkFirewallPolicyModifiedViolation,
+    resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation,
     resourceViolation_awsVPCSecurityGroupViolation,
+    resourceViolation_networkFirewallPolicyModifiedViolation,
+    resourceViolation_dnsRuleGroupPriorityConflictViolation,
+
+    -- ** Route
+    route_destinationType,
+    route_targetType,
+    route_destination,
+    route_target,
 
     -- ** SecurityGroupRemediationAction
     securityGroupRemediationAction_remediationActionType,
@@ -324,8 +496,8 @@ module Network.AWS.FMS.Lens
     securityGroupRuleDescription_fromPort,
     securityGroupRuleDescription_iPV4Range,
     securityGroupRuleDescription_prefixListId,
-    securityGroupRuleDescription_iPV6Range,
     securityGroupRuleDescription_protocol,
+    securityGroupRuleDescription_iPV6Range,
     securityGroupRuleDescription_toPort,
 
     -- ** SecurityServicePolicyData
@@ -381,6 +553,7 @@ import Network.AWS.FMS.PutNotificationChannel
 import Network.AWS.FMS.PutPolicy
 import Network.AWS.FMS.PutProtocolsList
 import Network.AWS.FMS.TagResource
+import Network.AWS.FMS.Types.ActionTarget
 import Network.AWS.FMS.Types.App
 import Network.AWS.FMS.Types.AppsListData
 import Network.AWS.FMS.Types.AppsListDataSummary
@@ -388,21 +561,43 @@ import Network.AWS.FMS.Types.AwsEc2InstanceViolation
 import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
 import Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
 import Network.AWS.FMS.Types.ComplianceViolator
+import Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation
+import Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation
+import Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation
+import Network.AWS.FMS.Types.EC2AssociateRouteTableAction
+import Network.AWS.FMS.Types.EC2CopyRouteTableAction
+import Network.AWS.FMS.Types.EC2CreateRouteAction
+import Network.AWS.FMS.Types.EC2CreateRouteTableAction
+import Network.AWS.FMS.Types.EC2DeleteRouteAction
+import Network.AWS.FMS.Types.EC2ReplaceRouteAction
+import Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction
 import Network.AWS.FMS.Types.EvaluationResult
+import Network.AWS.FMS.Types.ExpectedRoute
+import Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+import Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
+import Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
 import Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
 import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
+import Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
+import Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
 import Network.AWS.FMS.Types.PartialMatch
 import Network.AWS.FMS.Types.Policy
 import Network.AWS.FMS.Types.PolicyComplianceDetail
 import Network.AWS.FMS.Types.PolicyComplianceStatus
 import Network.AWS.FMS.Types.PolicySummary
+import Network.AWS.FMS.Types.PossibleRemediationAction
+import Network.AWS.FMS.Types.PossibleRemediationActions
 import Network.AWS.FMS.Types.ProtocolsListData
 import Network.AWS.FMS.Types.ProtocolsListDataSummary
+import Network.AWS.FMS.Types.RemediationAction
+import Network.AWS.FMS.Types.RemediationActionWithOrder
 import Network.AWS.FMS.Types.ResourceTag
 import Network.AWS.FMS.Types.ResourceViolation
+import Network.AWS.FMS.Types.Route
 import Network.AWS.FMS.Types.SecurityGroupRemediationAction
 import Network.AWS.FMS.Types.SecurityGroupRuleDescription
 import Network.AWS.FMS.Types.SecurityServicePolicyData

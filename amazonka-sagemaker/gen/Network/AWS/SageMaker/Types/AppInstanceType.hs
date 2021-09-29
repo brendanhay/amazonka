@@ -42,9 +42,26 @@ module Network.AWS.SageMaker.Types.AppInstanceType
         AppInstanceType_Ml_m5_8xlarge,
         AppInstanceType_Ml_m5_large,
         AppInstanceType_Ml_m5_xlarge,
+        AppInstanceType_Ml_m5d_12xlarge,
+        AppInstanceType_Ml_m5d_16xlarge,
+        AppInstanceType_Ml_m5d_24xlarge,
+        AppInstanceType_Ml_m5d_2xlarge,
+        AppInstanceType_Ml_m5d_4xlarge,
+        AppInstanceType_Ml_m5d_8xlarge,
+        AppInstanceType_Ml_m5d_large,
+        AppInstanceType_Ml_m5d_xlarge,
         AppInstanceType_Ml_p3_16xlarge,
         AppInstanceType_Ml_p3_2xlarge,
         AppInstanceType_Ml_p3_8xlarge,
+        AppInstanceType_Ml_p3dn_24xlarge,
+        AppInstanceType_Ml_r5_12xlarge,
+        AppInstanceType_Ml_r5_16xlarge,
+        AppInstanceType_Ml_r5_24xlarge,
+        AppInstanceType_Ml_r5_2xlarge,
+        AppInstanceType_Ml_r5_4xlarge,
+        AppInstanceType_Ml_r5_8xlarge,
+        AppInstanceType_Ml_r5_large,
+        AppInstanceType_Ml_r5_xlarge,
         AppInstanceType_Ml_t3_2xlarge,
         AppInstanceType_Ml_t3_large,
         AppInstanceType_Ml_t3_medium,
@@ -153,6 +170,30 @@ pattern AppInstanceType_Ml_m5_large = AppInstanceType' "ml.m5.large"
 pattern AppInstanceType_Ml_m5_xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_m5_xlarge = AppInstanceType' "ml.m5.xlarge"
 
+pattern AppInstanceType_Ml_m5d_12xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_12xlarge = AppInstanceType' "ml.m5d.12xlarge"
+
+pattern AppInstanceType_Ml_m5d_16xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_16xlarge = AppInstanceType' "ml.m5d.16xlarge"
+
+pattern AppInstanceType_Ml_m5d_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_24xlarge = AppInstanceType' "ml.m5d.24xlarge"
+
+pattern AppInstanceType_Ml_m5d_2xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_2xlarge = AppInstanceType' "ml.m5d.2xlarge"
+
+pattern AppInstanceType_Ml_m5d_4xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_4xlarge = AppInstanceType' "ml.m5d.4xlarge"
+
+pattern AppInstanceType_Ml_m5d_8xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_8xlarge = AppInstanceType' "ml.m5d.8xlarge"
+
+pattern AppInstanceType_Ml_m5d_large :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_large = AppInstanceType' "ml.m5d.large"
+
+pattern AppInstanceType_Ml_m5d_xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_m5d_xlarge = AppInstanceType' "ml.m5d.xlarge"
+
 pattern AppInstanceType_Ml_p3_16xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_p3_16xlarge = AppInstanceType' "ml.p3.16xlarge"
 
@@ -161,6 +202,33 @@ pattern AppInstanceType_Ml_p3_2xlarge = AppInstanceType' "ml.p3.2xlarge"
 
 pattern AppInstanceType_Ml_p3_8xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_p3_8xlarge = AppInstanceType' "ml.p3.8xlarge"
+
+pattern AppInstanceType_Ml_p3dn_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_p3dn_24xlarge = AppInstanceType' "ml.p3dn.24xlarge"
+
+pattern AppInstanceType_Ml_r5_12xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_12xlarge = AppInstanceType' "ml.r5.12xlarge"
+
+pattern AppInstanceType_Ml_r5_16xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_16xlarge = AppInstanceType' "ml.r5.16xlarge"
+
+pattern AppInstanceType_Ml_r5_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_24xlarge = AppInstanceType' "ml.r5.24xlarge"
+
+pattern AppInstanceType_Ml_r5_2xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_2xlarge = AppInstanceType' "ml.r5.2xlarge"
+
+pattern AppInstanceType_Ml_r5_4xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_4xlarge = AppInstanceType' "ml.r5.4xlarge"
+
+pattern AppInstanceType_Ml_r5_8xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_8xlarge = AppInstanceType' "ml.r5.8xlarge"
+
+pattern AppInstanceType_Ml_r5_large :: AppInstanceType
+pattern AppInstanceType_Ml_r5_large = AppInstanceType' "ml.r5.large"
+
+pattern AppInstanceType_Ml_r5_xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_r5_xlarge = AppInstanceType' "ml.r5.xlarge"
 
 pattern AppInstanceType_Ml_t3_2xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_t3_2xlarge = AppInstanceType' "ml.t3.2xlarge"
@@ -206,9 +274,26 @@ pattern AppInstanceType_System = AppInstanceType' "system"
   AppInstanceType_Ml_m5_8xlarge,
   AppInstanceType_Ml_m5_large,
   AppInstanceType_Ml_m5_xlarge,
+  AppInstanceType_Ml_m5d_12xlarge,
+  AppInstanceType_Ml_m5d_16xlarge,
+  AppInstanceType_Ml_m5d_24xlarge,
+  AppInstanceType_Ml_m5d_2xlarge,
+  AppInstanceType_Ml_m5d_4xlarge,
+  AppInstanceType_Ml_m5d_8xlarge,
+  AppInstanceType_Ml_m5d_large,
+  AppInstanceType_Ml_m5d_xlarge,
   AppInstanceType_Ml_p3_16xlarge,
   AppInstanceType_Ml_p3_2xlarge,
   AppInstanceType_Ml_p3_8xlarge,
+  AppInstanceType_Ml_p3dn_24xlarge,
+  AppInstanceType_Ml_r5_12xlarge,
+  AppInstanceType_Ml_r5_16xlarge,
+  AppInstanceType_Ml_r5_24xlarge,
+  AppInstanceType_Ml_r5_2xlarge,
+  AppInstanceType_Ml_r5_4xlarge,
+  AppInstanceType_Ml_r5_8xlarge,
+  AppInstanceType_Ml_r5_large,
+  AppInstanceType_Ml_r5_xlarge,
   AppInstanceType_Ml_t3_2xlarge,
   AppInstanceType_Ml_t3_large,
   AppInstanceType_Ml_t3_medium,

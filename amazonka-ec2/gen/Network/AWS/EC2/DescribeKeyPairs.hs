@@ -23,7 +23,7 @@
 -- Describes the specified key pairs or all of your key pairs.
 --
 -- For more information about key pairs, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.DescribeKeyPairs
   ( -- * Creating a Request
@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Request Lenses
     describeKeyPairs_dryRun,
     describeKeyPairs_keyPairIds,
-    describeKeyPairs_filters,
     describeKeyPairs_keyNames,
+    describeKeyPairs_filters,
 
     -- * Destructuring the Response
     DescribeKeyPairsResponse (..),
@@ -62,6 +62,10 @@ data DescribeKeyPairs = DescribeKeyPairs'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the key pairs.
     keyPairIds :: Prelude.Maybe [Prelude.Text],
+    -- | The key pair names.
+    --
+    -- Default: Describes all of your key pairs.
+    keyNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @key-pair-id@ - The ID of the key pair.
@@ -79,11 +83,7 @@ data DescribeKeyPairs = DescribeKeyPairs'
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
     --     the filter name and @TeamA@ for the filter value.
-    filters :: Prelude.Maybe [Filter],
-    -- | The key pair names.
-    --
-    -- Default: Describes all your key pairs.
-    keyNames :: Prelude.Maybe [Prelude.Text]
+    filters :: Prelude.Maybe [Filter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,6 +102,10 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --
 -- 'keyPairIds', 'describeKeyPairs_keyPairIds' - The IDs of the key pairs.
 --
+-- 'keyNames', 'describeKeyPairs_keyNames' - The key pair names.
+--
+-- Default: Describes all of your key pairs.
+--
 -- 'filters', 'describeKeyPairs_filters' - The filters.
 --
 -- -   @key-pair-id@ - The ID of the key pair.
@@ -119,18 +123,14 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
 --     the filter name and @TeamA@ for the filter value.
---
--- 'keyNames', 'describeKeyPairs_keyNames' - The key pair names.
---
--- Default: Describes all your key pairs.
 newDescribeKeyPairs ::
   DescribeKeyPairs
 newDescribeKeyPairs =
   DescribeKeyPairs'
     { dryRun = Prelude.Nothing,
       keyPairIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      keyNames = Prelude.Nothing
+      keyNames = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -143,6 +143,12 @@ describeKeyPairs_dryRun = Lens.lens (\DescribeKeyPairs' {dryRun} -> dryRun) (\s@
 -- | The IDs of the key pairs.
 describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
 describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The key pair names.
+--
+-- Default: Describes all of your key pairs.
+describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
+describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -163,12 +169,6 @@ describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyP
 --     the filter name and @TeamA@ for the filter value.
 describeKeyPairs_filters :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Filter])
 describeKeyPairs_filters = Lens.lens (\DescribeKeyPairs' {filters} -> filters) (\s@DescribeKeyPairs' {} a -> s {filters = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
-
--- | The key pair names.
---
--- Default: Describes all your key pairs.
-describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
-describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeKeyPairs where
   type
@@ -208,9 +208,9 @@ instance Core.ToQuery DescribeKeyPairs where
               Prelude.<$> keyPairIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
+          (Core.toQueryList "KeyName" Prelude.<$> keyNames),
         Core.toQuery
-          (Core.toQueryList "KeyName" Prelude.<$> keyNames)
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeKeyPairsResponse' smart constructor.

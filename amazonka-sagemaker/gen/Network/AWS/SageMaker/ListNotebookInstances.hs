@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the Amazon SageMaker notebook instances in the
--- requester\'s account in an AWS Region.
+-- requester\'s account in an Amazon Web Services Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListNotebookInstances
@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.ListNotebookInstances
 
     -- * Request Lenses
     listNotebookInstances_lastModifiedTimeBefore,
-    listNotebookInstances_sortOrder,
     listNotebookInstances_nextToken,
+    listNotebookInstances_sortOrder,
     listNotebookInstances_nameContains,
     listNotebookInstances_additionalCodeRepositoryEquals,
     listNotebookInstances_maxResults,
@@ -67,8 +67,6 @@ data ListNotebookInstances = ListNotebookInstances'
   { -- | A filter that returns only notebook instances that were modified before
     -- the specified time (timestamp).
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results.
-    sortOrder :: Prelude.Maybe NotebookInstanceSortOrder,
     -- | If the previous call to the @ListNotebookInstances@ is truncated, the
     -- response includes a @NextToken@. You can use this token in your
     -- subsequent @ListNotebookInstances@ request to fetch the next set of
@@ -78,6 +76,8 @@ data ListNotebookInstances = ListNotebookInstances'
     -- response is truncated, you must use the same values for the filer and
     -- sort order in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results.
+    sortOrder :: Prelude.Maybe NotebookInstanceSortOrder,
     -- | A string in the notebook instances\' name. This filter returns only
     -- notebook instances whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -123,8 +123,6 @@ data ListNotebookInstances = ListNotebookInstances'
 -- 'lastModifiedTimeBefore', 'listNotebookInstances_lastModifiedTimeBefore' - A filter that returns only notebook instances that were modified before
 -- the specified time (timestamp).
 --
--- 'sortOrder', 'listNotebookInstances_sortOrder' - The sort order for results.
---
 -- 'nextToken', 'listNotebookInstances_nextToken' - If the previous call to the @ListNotebookInstances@ is truncated, the
 -- response includes a @NextToken@. You can use this token in your
 -- subsequent @ListNotebookInstances@ request to fetch the next set of
@@ -133,6 +131,8 @@ data ListNotebookInstances = ListNotebookInstances'
 -- You might specify a filter or a sort order in your request. When
 -- response is truncated, you must use the same values for the filer and
 -- sort order in the next request.
+--
+-- 'sortOrder', 'listNotebookInstances_sortOrder' - The sort order for results.
 --
 -- 'nameContains', 'listNotebookInstances_nameContains' - A string in the notebook instances\' name. This filter returns only
 -- notebook instances whose name contains the specified string.
@@ -170,8 +170,8 @@ newListNotebookInstances =
   ListNotebookInstances'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       additionalCodeRepositoryEquals = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -190,10 +190,6 @@ newListNotebookInstances =
 listNotebookInstances_lastModifiedTimeBefore :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.UTCTime)
 listNotebookInstances_lastModifiedTimeBefore = Lens.lens (\ListNotebookInstances' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListNotebookInstances' {} a -> s {lastModifiedTimeBefore = a} :: ListNotebookInstances) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results.
-listNotebookInstances_sortOrder :: Lens.Lens' ListNotebookInstances (Prelude.Maybe NotebookInstanceSortOrder)
-listNotebookInstances_sortOrder = Lens.lens (\ListNotebookInstances' {sortOrder} -> sortOrder) (\s@ListNotebookInstances' {} a -> s {sortOrder = a} :: ListNotebookInstances)
-
 -- | If the previous call to the @ListNotebookInstances@ is truncated, the
 -- response includes a @NextToken@. You can use this token in your
 -- subsequent @ListNotebookInstances@ request to fetch the next set of
@@ -204,6 +200,10 @@ listNotebookInstances_sortOrder = Lens.lens (\ListNotebookInstances' {sortOrder}
 -- sort order in the next request.
 listNotebookInstances_nextToken :: Lens.Lens' ListNotebookInstances (Prelude.Maybe Prelude.Text)
 listNotebookInstances_nextToken = Lens.lens (\ListNotebookInstances' {nextToken} -> nextToken) (\s@ListNotebookInstances' {} a -> s {nextToken = a} :: ListNotebookInstances)
+
+-- | The sort order for results.
+listNotebookInstances_sortOrder :: Lens.Lens' ListNotebookInstances (Prelude.Maybe NotebookInstanceSortOrder)
+listNotebookInstances_sortOrder = Lens.lens (\ListNotebookInstances' {sortOrder} -> sortOrder) (\s@ListNotebookInstances' {} a -> s {sortOrder = a} :: ListNotebookInstances)
 
 -- | A string in the notebook instances\' name. This filter returns only
 -- notebook instances whose name contains the specified string.
@@ -319,8 +319,8 @@ instance Core.ToJSON ListNotebookInstances where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("AdditionalCodeRepositoryEquals" Core..=)
               Prelude.<$> additionalCodeRepositoryEquals,

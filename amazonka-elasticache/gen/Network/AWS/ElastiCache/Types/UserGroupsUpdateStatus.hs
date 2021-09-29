@@ -27,9 +27,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserGroupsUpdateStatus' smart constructor.
 data UserGroupsUpdateStatus = UserGroupsUpdateStatus'
-  { -- | The list of user group IDs to remove.
+  { -- | The ID of the user group to remove.
     userGroupIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The list of user group IDs to add.
+    -- | The ID of the user group to add.
     userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data UserGroupsUpdateStatus = UserGroupsUpdateStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userGroupIdsToRemove', 'userGroupsUpdateStatus_userGroupIdsToRemove' - The list of user group IDs to remove.
+-- 'userGroupIdsToRemove', 'userGroupsUpdateStatus_userGroupIdsToRemove' - The ID of the user group to remove.
 --
--- 'userGroupIdsToAdd', 'userGroupsUpdateStatus_userGroupIdsToAdd' - The list of user group IDs to add.
+-- 'userGroupIdsToAdd', 'userGroupsUpdateStatus_userGroupIdsToAdd' - The ID of the user group to add.
 newUserGroupsUpdateStatus ::
   UserGroupsUpdateStatus
 newUserGroupsUpdateStatus =
@@ -54,11 +54,11 @@ newUserGroupsUpdateStatus =
       userGroupIdsToAdd = Prelude.Nothing
     }
 
--- | The list of user group IDs to remove.
+-- | The ID of the user group to remove.
 userGroupsUpdateStatus_userGroupIdsToRemove :: Lens.Lens' UserGroupsUpdateStatus (Prelude.Maybe [Prelude.Text])
 userGroupsUpdateStatus_userGroupIdsToRemove = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToRemove = a} :: UserGroupsUpdateStatus) Prelude.. Lens.mapping Lens._Coerce
 
--- | The list of user group IDs to add.
+-- | The ID of the user group to add.
 userGroupsUpdateStatus_userGroupIdsToAdd :: Lens.Lens' UserGroupsUpdateStatus (Prelude.Maybe [Prelude.Text])
 userGroupsUpdateStatus_userGroupIdsToAdd = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToAdd = a} :: UserGroupsUpdateStatus) Prelude.. Lens.mapping Lens._Coerce
 

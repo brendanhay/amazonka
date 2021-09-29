@@ -14,6 +14,37 @@
 module Network.AWS.Comprehend.Lens
   ( -- * Operations
 
+    -- ** StartSentimentDetectionJob
+    startSentimentDetectionJob_vpcConfig,
+    startSentimentDetectionJob_volumeKmsKeyId,
+    startSentimentDetectionJob_tags,
+    startSentimentDetectionJob_clientRequestToken,
+    startSentimentDetectionJob_jobName,
+    startSentimentDetectionJob_inputDataConfig,
+    startSentimentDetectionJob_outputDataConfig,
+    startSentimentDetectionJob_dataAccessRoleArn,
+    startSentimentDetectionJob_languageCode,
+    startSentimentDetectionJobResponse_jobStatus,
+    startSentimentDetectionJobResponse_jobArn,
+    startSentimentDetectionJobResponse_jobId,
+    startSentimentDetectionJobResponse_httpStatus,
+
+    -- ** CreateEndpoint
+    createEndpoint_tags,
+    createEndpoint_clientRequestToken,
+    createEndpoint_dataAccessRoleArn,
+    createEndpoint_endpointName,
+    createEndpoint_modelArn,
+    createEndpoint_desiredInferenceUnits,
+    createEndpointResponse_endpointArn,
+    createEndpointResponse_httpStatus,
+
+    -- ** StopEventsDetectionJob
+    stopEventsDetectionJob_jobId,
+    stopEventsDetectionJobResponse_jobStatus,
+    stopEventsDetectionJobResponse_jobId,
+    stopEventsDetectionJobResponse_httpStatus,
+
     -- ** StopSentimentDetectionJob
     stopSentimentDetectionJob_jobId,
     stopSentimentDetectionJobResponse_jobStatus,
@@ -21,6 +52,7 @@ module Network.AWS.Comprehend.Lens
     stopSentimentDetectionJobResponse_httpStatus,
 
     -- ** StartEventsDetectionJob
+    startEventsDetectionJob_tags,
     startEventsDetectionJob_clientRequestToken,
     startEventsDetectionJob_jobName,
     startEventsDetectionJob_inputDataConfig,
@@ -29,36 +61,14 @@ module Network.AWS.Comprehend.Lens
     startEventsDetectionJob_languageCode,
     startEventsDetectionJob_targetEventTypes,
     startEventsDetectionJobResponse_jobStatus,
+    startEventsDetectionJobResponse_jobArn,
     startEventsDetectionJobResponse_jobId,
     startEventsDetectionJobResponse_httpStatus,
 
-    -- ** CreateEndpoint
-    createEndpoint_tags,
-    createEndpoint_clientRequestToken,
-    createEndpoint_endpointName,
-    createEndpoint_modelArn,
-    createEndpoint_desiredInferenceUnits,
-    createEndpointResponse_endpointArn,
-    createEndpointResponse_httpStatus,
-
-    -- ** StartSentimentDetectionJob
-    startSentimentDetectionJob_vpcConfig,
-    startSentimentDetectionJob_volumeKmsKeyId,
-    startSentimentDetectionJob_clientRequestToken,
-    startSentimentDetectionJob_jobName,
-    startSentimentDetectionJob_inputDataConfig,
-    startSentimentDetectionJob_outputDataConfig,
-    startSentimentDetectionJob_dataAccessRoleArn,
-    startSentimentDetectionJob_languageCode,
-    startSentimentDetectionJobResponse_jobStatus,
-    startSentimentDetectionJobResponse_jobId,
-    startSentimentDetectionJobResponse_httpStatus,
-
-    -- ** StopEventsDetectionJob
-    stopEventsDetectionJob_jobId,
-    stopEventsDetectionJobResponse_jobStatus,
-    stopEventsDetectionJobResponse_jobId,
-    stopEventsDetectionJobResponse_httpStatus,
+    -- ** DescribeKeyPhrasesDetectionJob
+    describeKeyPhrasesDetectionJob_jobId,
+    describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties,
+    describeKeyPhrasesDetectionJobResponse_httpStatus,
 
     -- ** ListEntityRecognizers
     listEntityRecognizers_nextToken,
@@ -68,29 +78,16 @@ module Network.AWS.Comprehend.Lens
     listEntityRecognizersResponse_entityRecognizerPropertiesList,
     listEntityRecognizersResponse_httpStatus,
 
+    -- ** DeleteEntityRecognizer
+    deleteEntityRecognizer_entityRecognizerArn,
+    deleteEntityRecognizerResponse_httpStatus,
+
     -- ** BatchDetectSentiment
     batchDetectSentiment_textList,
     batchDetectSentiment_languageCode,
     batchDetectSentimentResponse_httpStatus,
     batchDetectSentimentResponse_resultList,
     batchDetectSentimentResponse_errorList,
-
-    -- ** DeleteEntityRecognizer
-    deleteEntityRecognizer_entityRecognizerArn,
-    deleteEntityRecognizerResponse_httpStatus,
-
-    -- ** DescribeKeyPhrasesDetectionJob
-    describeKeyPhrasesDetectionJob_jobId,
-    describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties,
-    describeKeyPhrasesDetectionJobResponse_httpStatus,
-
-    -- ** ListDominantLanguageDetectionJobs
-    listDominantLanguageDetectionJobs_nextToken,
-    listDominantLanguageDetectionJobs_maxResults,
-    listDominantLanguageDetectionJobs_filter,
-    listDominantLanguageDetectionJobsResponse_nextToken,
-    listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList,
-    listDominantLanguageDetectionJobsResponse_httpStatus,
 
     -- ** StopKeyPhrasesDetectionJob
     stopKeyPhrasesDetectionJob_jobId,
@@ -108,9 +105,11 @@ module Network.AWS.Comprehend.Lens
 
     -- ** CreateEntityRecognizer
     createEntityRecognizer_vpcConfig,
+    createEntityRecognizer_versionName,
     createEntityRecognizer_volumeKmsKeyId,
     createEntityRecognizer_tags,
     createEntityRecognizer_clientRequestToken,
+    createEntityRecognizer_modelKmsKeyId,
     createEntityRecognizer_recognizerName,
     createEntityRecognizer_dataAccessRoleArn,
     createEntityRecognizer_inputDataConfig,
@@ -121,6 +120,7 @@ module Network.AWS.Comprehend.Lens
     -- ** StartKeyPhrasesDetectionJob
     startKeyPhrasesDetectionJob_vpcConfig,
     startKeyPhrasesDetectionJob_volumeKmsKeyId,
+    startKeyPhrasesDetectionJob_tags,
     startKeyPhrasesDetectionJob_clientRequestToken,
     startKeyPhrasesDetectionJob_jobName,
     startKeyPhrasesDetectionJob_inputDataConfig,
@@ -128,34 +128,22 @@ module Network.AWS.Comprehend.Lens
     startKeyPhrasesDetectionJob_dataAccessRoleArn,
     startKeyPhrasesDetectionJob_languageCode,
     startKeyPhrasesDetectionJobResponse_jobStatus,
+    startKeyPhrasesDetectionJobResponse_jobArn,
     startKeyPhrasesDetectionJobResponse_jobId,
     startKeyPhrasesDetectionJobResponse_httpStatus,
 
-    -- ** ListEventsDetectionJobs
-    listEventsDetectionJobs_nextToken,
-    listEventsDetectionJobs_maxResults,
-    listEventsDetectionJobs_filter,
-    listEventsDetectionJobsResponse_nextToken,
-    listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList,
-    listEventsDetectionJobsResponse_httpStatus,
-
-    -- ** ListSentimentDetectionJobs
-    listSentimentDetectionJobs_nextToken,
-    listSentimentDetectionJobs_maxResults,
-    listSentimentDetectionJobs_filter,
-    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
-    listSentimentDetectionJobsResponse_nextToken,
-    listSentimentDetectionJobsResponse_httpStatus,
-
-    -- ** DetectSyntax
-    detectSyntax_text,
-    detectSyntax_languageCode,
-    detectSyntaxResponse_syntaxTokens,
-    detectSyntaxResponse_httpStatus,
+    -- ** ListDominantLanguageDetectionJobs
+    listDominantLanguageDetectionJobs_nextToken,
+    listDominantLanguageDetectionJobs_maxResults,
+    listDominantLanguageDetectionJobs_filter,
+    listDominantLanguageDetectionJobsResponse_nextToken,
+    listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList,
+    listDominantLanguageDetectionJobsResponse_httpStatus,
 
     -- ** StartDocumentClassificationJob
     startDocumentClassificationJob_vpcConfig,
     startDocumentClassificationJob_volumeKmsKeyId,
+    startDocumentClassificationJob_tags,
     startDocumentClassificationJob_clientRequestToken,
     startDocumentClassificationJob_jobName,
     startDocumentClassificationJob_documentClassifierArn,
@@ -163,6 +151,7 @@ module Network.AWS.Comprehend.Lens
     startDocumentClassificationJob_outputDataConfig,
     startDocumentClassificationJob_dataAccessRoleArn,
     startDocumentClassificationJobResponse_jobStatus,
+    startDocumentClassificationJobResponse_jobArn,
     startDocumentClassificationJobResponse_jobId,
     startDocumentClassificationJobResponse_httpStatus,
 
@@ -172,10 +161,21 @@ module Network.AWS.Comprehend.Lens
     detectKeyPhrasesResponse_keyPhrases,
     detectKeyPhrasesResponse_httpStatus,
 
-    -- ** DescribeEndpoint
-    describeEndpoint_endpointArn,
-    describeEndpointResponse_endpointProperties,
-    describeEndpointResponse_httpStatus,
+    -- ** ListSentimentDetectionJobs
+    listSentimentDetectionJobs_nextToken,
+    listSentimentDetectionJobs_maxResults,
+    listSentimentDetectionJobs_filter,
+    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
+    listSentimentDetectionJobsResponse_nextToken,
+    listSentimentDetectionJobsResponse_httpStatus,
+
+    -- ** ListEventsDetectionJobs
+    listEventsDetectionJobs_nextToken,
+    listEventsDetectionJobs_maxResults,
+    listEventsDetectionJobs_filter,
+    listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList,
+    listEventsDetectionJobsResponse_nextToken,
+    listEventsDetectionJobsResponse_httpStatus,
 
     -- ** BatchDetectEntities
     batchDetectEntities_textList,
@@ -183,6 +183,34 @@ module Network.AWS.Comprehend.Lens
     batchDetectEntitiesResponse_httpStatus,
     batchDetectEntitiesResponse_resultList,
     batchDetectEntitiesResponse_errorList,
+
+    -- ** DetectSyntax
+    detectSyntax_text,
+    detectSyntax_languageCode,
+    detectSyntaxResponse_syntaxTokens,
+    detectSyntaxResponse_httpStatus,
+
+    -- ** DescribeEndpoint
+    describeEndpoint_endpointArn,
+    describeEndpointResponse_endpointProperties,
+    describeEndpointResponse_httpStatus,
+
+    -- ** ContainsPiiEntities
+    containsPiiEntities_text,
+    containsPiiEntities_languageCode,
+    containsPiiEntitiesResponse_labels,
+    containsPiiEntitiesResponse_httpStatus,
+
+    -- ** BatchDetectDominantLanguage
+    batchDetectDominantLanguage_textList,
+    batchDetectDominantLanguageResponse_httpStatus,
+    batchDetectDominantLanguageResponse_resultList,
+    batchDetectDominantLanguageResponse_errorList,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** ListTopicsDetectionJobs
     listTopicsDetectionJobs_nextToken,
@@ -192,35 +220,14 @@ module Network.AWS.Comprehend.Lens
     listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList,
     listTopicsDetectionJobsResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** BatchDetectDominantLanguage
-    batchDetectDominantLanguage_textList,
-    batchDetectDominantLanguageResponse_httpStatus,
-    batchDetectDominantLanguageResponse_resultList,
-    batchDetectDominantLanguageResponse_errorList,
-
-    -- ** StopTrainingDocumentClassifier
-    stopTrainingDocumentClassifier_documentClassifierArn,
-    stopTrainingDocumentClassifierResponse_httpStatus,
-
-    -- ** DescribeEntityRecognizer
-    describeEntityRecognizer_entityRecognizerArn,
-    describeEntityRecognizerResponse_entityRecognizerProperties,
-    describeEntityRecognizerResponse_httpStatus,
-
-    -- ** DescribePiiEntitiesDetectionJob
-    describePiiEntitiesDetectionJob_jobId,
-    describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties,
-    describePiiEntitiesDetectionJobResponse_httpStatus,
-
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
+
+    -- ** StopTrainingDocumentClassifier
+    stopTrainingDocumentClassifier_documentClassifierArn,
+    stopTrainingDocumentClassifierResponse_httpStatus,
 
     -- ** ListKeyPhrasesDetectionJobs
     listKeyPhrasesDetectionJobs_nextToken,
@@ -229,6 +236,23 @@ module Network.AWS.Comprehend.Lens
     listKeyPhrasesDetectionJobsResponse_nextToken,
     listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList,
     listKeyPhrasesDetectionJobsResponse_httpStatus,
+
+    -- ** DescribeEntityRecognizer
+    describeEntityRecognizer_entityRecognizerArn,
+    describeEntityRecognizerResponse_entityRecognizerProperties,
+    describeEntityRecognizerResponse_httpStatus,
+
+    -- ** ListDocumentClassifierSummaries
+    listDocumentClassifierSummaries_nextToken,
+    listDocumentClassifierSummaries_maxResults,
+    listDocumentClassifierSummariesResponse_nextToken,
+    listDocumentClassifierSummariesResponse_documentClassifierSummariesList,
+    listDocumentClassifierSummariesResponse_httpStatus,
+
+    -- ** DescribePiiEntitiesDetectionJob
+    describePiiEntitiesDetectionJob_jobId,
+    describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties,
+    describePiiEntitiesDetectionJobResponse_httpStatus,
 
     -- ** DescribeDominantLanguageDetectionJob
     describeDominantLanguageDetectionJob_jobId,
@@ -241,16 +265,16 @@ module Network.AWS.Comprehend.Lens
     stopEntitiesDetectionJobResponse_jobId,
     stopEntitiesDetectionJobResponse_httpStatus,
 
+    -- ** DescribeDocumentClassifier
+    describeDocumentClassifier_documentClassifierArn,
+    describeDocumentClassifierResponse_documentClassifierProperties,
+    describeDocumentClassifierResponse_httpStatus,
+
     -- ** StopPiiEntitiesDetectionJob
     stopPiiEntitiesDetectionJob_jobId,
     stopPiiEntitiesDetectionJobResponse_jobStatus,
     stopPiiEntitiesDetectionJobResponse_jobId,
     stopPiiEntitiesDetectionJobResponse_httpStatus,
-
-    -- ** DescribeDocumentClassifier
-    describeDocumentClassifier_documentClassifierArn,
-    describeDocumentClassifierResponse_documentClassifierProperties,
-    describeDocumentClassifierResponse_httpStatus,
 
     -- ** StopTrainingEntityRecognizer
     stopTrainingEntityRecognizer_entityRecognizerArn,
@@ -259,6 +283,7 @@ module Network.AWS.Comprehend.Lens
     -- ** StartEntitiesDetectionJob
     startEntitiesDetectionJob_vpcConfig,
     startEntitiesDetectionJob_volumeKmsKeyId,
+    startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_clientRequestToken,
     startEntitiesDetectionJob_entityRecognizerArn,
     startEntitiesDetectionJob_jobName,
@@ -267,11 +292,13 @@ module Network.AWS.Comprehend.Lens
     startEntitiesDetectionJob_dataAccessRoleArn,
     startEntitiesDetectionJob_languageCode,
     startEntitiesDetectionJobResponse_jobStatus,
+    startEntitiesDetectionJobResponse_jobArn,
     startEntitiesDetectionJobResponse_jobId,
     startEntitiesDetectionJobResponse_httpStatus,
 
     -- ** StartPiiEntitiesDetectionJob
     startPiiEntitiesDetectionJob_redactionConfig,
+    startPiiEntitiesDetectionJob_tags,
     startPiiEntitiesDetectionJob_clientRequestToken,
     startPiiEntitiesDetectionJob_jobName,
     startPiiEntitiesDetectionJob_inputDataConfig,
@@ -280,8 +307,31 @@ module Network.AWS.Comprehend.Lens
     startPiiEntitiesDetectionJob_dataAccessRoleArn,
     startPiiEntitiesDetectionJob_languageCode,
     startPiiEntitiesDetectionJobResponse_jobStatus,
+    startPiiEntitiesDetectionJobResponse_jobArn,
     startPiiEntitiesDetectionJobResponse_jobId,
     startPiiEntitiesDetectionJobResponse_httpStatus,
+
+    -- ** DetectPiiEntities
+    detectPiiEntities_text,
+    detectPiiEntities_languageCode,
+    detectPiiEntitiesResponse_entities,
+    detectPiiEntitiesResponse_httpStatus,
+
+    -- ** DeleteEndpoint
+    deleteEndpoint_endpointArn,
+    deleteEndpointResponse_httpStatus,
+
+    -- ** DescribeEventsDetectionJob
+    describeEventsDetectionJob_jobId,
+    describeEventsDetectionJobResponse_eventsDetectionJobProperties,
+    describeEventsDetectionJobResponse_httpStatus,
+
+    -- ** UpdateEndpoint
+    updateEndpoint_desiredInferenceUnits,
+    updateEndpoint_desiredDataAccessRoleArn,
+    updateEndpoint_desiredModelArn,
+    updateEndpoint_endpointArn,
+    updateEndpointResponse_httpStatus,
 
     -- ** ListEndpoints
     listEndpoints_nextToken,
@@ -290,33 +340,6 @@ module Network.AWS.Comprehend.Lens
     listEndpointsResponse_nextToken,
     listEndpointsResponse_endpointPropertiesList,
     listEndpointsResponse_httpStatus,
-
-    -- ** DeleteEndpoint
-    deleteEndpoint_endpointArn,
-    deleteEndpointResponse_httpStatus,
-
-    -- ** UpdateEndpoint
-    updateEndpoint_endpointArn,
-    updateEndpoint_desiredInferenceUnits,
-    updateEndpointResponse_httpStatus,
-
-    -- ** DescribeEventsDetectionJob
-    describeEventsDetectionJob_jobId,
-    describeEventsDetectionJobResponse_eventsDetectionJobProperties,
-    describeEventsDetectionJobResponse_httpStatus,
-
-    -- ** DetectPiiEntities
-    detectPiiEntities_text,
-    detectPiiEntities_languageCode,
-    detectPiiEntitiesResponse_entities,
-    detectPiiEntitiesResponse_httpStatus,
-
-    -- ** ClassifyDocument
-    classifyDocument_text,
-    classifyDocument_endpointArn,
-    classifyDocumentResponse_classes,
-    classifyDocumentResponse_labels,
-    classifyDocumentResponse_httpStatus,
 
     -- ** DetectDominantLanguage
     detectDominantLanguage_text,
@@ -336,6 +359,21 @@ module Network.AWS.Comprehend.Lens
     describeTopicsDetectionJobResponse_topicsDetectionJobProperties,
     describeTopicsDetectionJobResponse_httpStatus,
 
+    -- ** ClassifyDocument
+    classifyDocument_text,
+    classifyDocument_endpointArn,
+    classifyDocumentResponse_classes,
+    classifyDocumentResponse_labels,
+    classifyDocumentResponse_httpStatus,
+
+    -- ** ListPiiEntitiesDetectionJobs
+    listPiiEntitiesDetectionJobs_nextToken,
+    listPiiEntitiesDetectionJobs_maxResults,
+    listPiiEntitiesDetectionJobs_filter,
+    listPiiEntitiesDetectionJobsResponse_nextToken,
+    listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList,
+    listPiiEntitiesDetectionJobsResponse_httpStatus,
+
     -- ** ListEntitiesDetectionJobs
     listEntitiesDetectionJobs_nextToken,
     listEntitiesDetectionJobs_maxResults,
@@ -348,23 +386,17 @@ module Network.AWS.Comprehend.Lens
     createDocumentClassifier_vpcConfig,
     createDocumentClassifier_mode,
     createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_versionName,
     createDocumentClassifier_volumeKmsKeyId,
     createDocumentClassifier_tags,
     createDocumentClassifier_clientRequestToken,
+    createDocumentClassifier_modelKmsKeyId,
     createDocumentClassifier_documentClassifierName,
     createDocumentClassifier_dataAccessRoleArn,
     createDocumentClassifier_inputDataConfig,
     createDocumentClassifier_languageCode,
     createDocumentClassifierResponse_documentClassifierArn,
     createDocumentClassifierResponse_httpStatus,
-
-    -- ** ListPiiEntitiesDetectionJobs
-    listPiiEntitiesDetectionJobs_nextToken,
-    listPiiEntitiesDetectionJobs_maxResults,
-    listPiiEntitiesDetectionJobs_filter,
-    listPiiEntitiesDetectionJobsResponse_nextToken,
-    listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList,
-    listPiiEntitiesDetectionJobsResponse_httpStatus,
 
     -- ** DeleteDocumentClassifier
     deleteDocumentClassifier_documentClassifierArn,
@@ -375,60 +407,44 @@ module Network.AWS.Comprehend.Lens
     describeDocumentClassificationJobResponse_documentClassificationJobProperties,
     describeDocumentClassificationJobResponse_httpStatus,
 
+    -- ** DescribeEntitiesDetectionJob
+    describeEntitiesDetectionJob_jobId,
+    describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties,
+    describeEntitiesDetectionJobResponse_httpStatus,
+
     -- ** StopDominantLanguageDetectionJob
     stopDominantLanguageDetectionJob_jobId,
     stopDominantLanguageDetectionJobResponse_jobStatus,
     stopDominantLanguageDetectionJobResponse_jobId,
     stopDominantLanguageDetectionJobResponse_httpStatus,
 
-    -- ** DescribeEntitiesDetectionJob
-    describeEntitiesDetectionJob_jobId,
-    describeEntitiesDetectionJobResponse_entitiesDetectionJobProperties,
-    describeEntitiesDetectionJobResponse_httpStatus,
+    -- ** DetectSentiment
+    detectSentiment_text,
+    detectSentiment_languageCode,
+    detectSentimentResponse_sentiment,
+    detectSentimentResponse_sentimentScore,
+    detectSentimentResponse_httpStatus,
 
     -- ** StartDominantLanguageDetectionJob
     startDominantLanguageDetectionJob_vpcConfig,
     startDominantLanguageDetectionJob_volumeKmsKeyId,
+    startDominantLanguageDetectionJob_tags,
     startDominantLanguageDetectionJob_clientRequestToken,
     startDominantLanguageDetectionJob_jobName,
     startDominantLanguageDetectionJob_inputDataConfig,
     startDominantLanguageDetectionJob_outputDataConfig,
     startDominantLanguageDetectionJob_dataAccessRoleArn,
     startDominantLanguageDetectionJobResponse_jobStatus,
+    startDominantLanguageDetectionJobResponse_jobArn,
     startDominantLanguageDetectionJobResponse_jobId,
     startDominantLanguageDetectionJobResponse_httpStatus,
 
-    -- ** DetectSentiment
-    detectSentiment_text,
-    detectSentiment_languageCode,
-    detectSentimentResponse_sentimentScore,
-    detectSentimentResponse_sentiment,
-    detectSentimentResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DetectEntities
-    detectEntities_languageCode,
-    detectEntities_endpointArn,
-    detectEntities_text,
-    detectEntitiesResponse_entities,
-    detectEntitiesResponse_httpStatus,
-
-    -- ** DescribeSentimentDetectionJob
-    describeSentimentDetectionJob_jobId,
-    describeSentimentDetectionJobResponse_sentimentDetectionJobProperties,
-    describeSentimentDetectionJobResponse_httpStatus,
-
-    -- ** BatchDetectSyntax
-    batchDetectSyntax_textList,
-    batchDetectSyntax_languageCode,
-    batchDetectSyntaxResponse_httpStatus,
-    batchDetectSyntaxResponse_resultList,
-    batchDetectSyntaxResponse_errorList,
+    -- ** ListEntityRecognizerSummaries
+    listEntityRecognizerSummaries_nextToken,
+    listEntityRecognizerSummaries_maxResults,
+    listEntityRecognizerSummariesResponse_nextToken,
+    listEntityRecognizerSummariesResponse_entityRecognizerSummariesList,
+    listEntityRecognizerSummariesResponse_httpStatus,
 
     -- ** BatchDetectKeyPhrases
     batchDetectKeyPhrases_textList,
@@ -437,9 +453,30 @@ module Network.AWS.Comprehend.Lens
     batchDetectKeyPhrasesResponse_resultList,
     batchDetectKeyPhrasesResponse_errorList,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** BatchDetectSyntax
+    batchDetectSyntax_textList,
+    batchDetectSyntax_languageCode,
+    batchDetectSyntaxResponse_httpStatus,
+    batchDetectSyntaxResponse_resultList,
+    batchDetectSyntaxResponse_errorList,
+
+    -- ** DetectEntities
+    detectEntities_languageCode,
+    detectEntities_endpointArn,
+    detectEntities_text,
+    detectEntitiesResponse_entities,
+    detectEntitiesResponse_httpStatus,
+
     -- ** StartTopicsDetectionJob
     startTopicsDetectionJob_vpcConfig,
     startTopicsDetectionJob_volumeKmsKeyId,
+    startTopicsDetectionJob_tags,
     startTopicsDetectionJob_clientRequestToken,
     startTopicsDetectionJob_numberOfTopics,
     startTopicsDetectionJob_jobName,
@@ -447,12 +484,22 @@ module Network.AWS.Comprehend.Lens
     startTopicsDetectionJob_outputDataConfig,
     startTopicsDetectionJob_dataAccessRoleArn,
     startTopicsDetectionJobResponse_jobStatus,
+    startTopicsDetectionJobResponse_jobArn,
     startTopicsDetectionJobResponse_jobId,
     startTopicsDetectionJobResponse_httpStatus,
+
+    -- ** DescribeSentimentDetectionJob
+    describeSentimentDetectionJob_jobId,
+    describeSentimentDetectionJobResponse_sentimentDetectionJobProperties,
+    describeSentimentDetectionJobResponse_httpStatus,
 
     -- * Types
 
     -- ** AugmentedManifestsListItem
+    augmentedManifestsListItem_documentType,
+    augmentedManifestsListItem_sourceDocumentsS3Uri,
+    augmentedManifestsListItem_annotationDataS3Uri,
+    augmentedManifestsListItem_split,
     augmentedManifestsListItem_s3Uri,
     augmentedManifestsListItem_attributeNames,
 
@@ -469,8 +516,8 @@ module Network.AWS.Comprehend.Lens
     batchDetectKeyPhrasesItemResult_index,
 
     -- ** BatchDetectSentimentItemResult
-    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_sentiment,
+    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_index,
 
     -- ** BatchDetectSyntaxItemResult
@@ -483,8 +530,8 @@ module Network.AWS.Comprehend.Lens
     batchItemError_errorCode,
 
     -- ** ClassifierEvaluationMetrics
-    classifierEvaluationMetrics_microRecall,
     classifierEvaluationMetrics_f1Score,
+    classifierEvaluationMetrics_microRecall,
     classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_precision,
     classifierEvaluationMetrics_accuracy,
@@ -516,6 +563,7 @@ module Network.AWS.Comprehend.Lens
     documentClassificationJobProperties_outputDataConfig,
     documentClassificationJobProperties_documentClassifierArn,
     documentClassificationJobProperties_endTime,
+    documentClassificationJobProperties_jobArn,
     documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_submitTime,
     documentClassificationJobProperties_jobName,
@@ -526,10 +574,12 @@ module Network.AWS.Comprehend.Lens
     documentClassifierFilter_status,
     documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_submitTimeAfter,
+    documentClassifierFilter_documentClassifierName,
 
     -- ** DocumentClassifierInputDataConfig
     documentClassifierInputDataConfig_augmentedManifests,
     documentClassifierInputDataConfig_dataFormat,
+    documentClassifierInputDataConfig_testS3Uri,
     documentClassifierInputDataConfig_labelDelimiter,
     documentClassifierInputDataConfig_s3Uri,
 
@@ -538,25 +588,39 @@ module Network.AWS.Comprehend.Lens
     documentClassifierOutputDataConfig_s3Uri,
 
     -- ** DocumentClassifierProperties
-    documentClassifierProperties_vpcConfig,
     documentClassifierProperties_languageCode,
+    documentClassifierProperties_vpcConfig,
     documentClassifierProperties_status,
     documentClassifierProperties_inputDataConfig,
-    documentClassifierProperties_mode,
     documentClassifierProperties_message,
+    documentClassifierProperties_mode,
     documentClassifierProperties_outputDataConfig,
     documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_versionName,
     documentClassifierProperties_endTime,
     documentClassifierProperties_classifierMetadata,
     documentClassifierProperties_volumeKmsKeyId,
     documentClassifierProperties_submitTime,
+    documentClassifierProperties_modelKmsKeyId,
     documentClassifierProperties_trainingStartTime,
     documentClassifierProperties_dataAccessRoleArn,
     documentClassifierProperties_trainingEndTime,
 
+    -- ** DocumentClassifierSummary
+    documentClassifierSummary_latestVersionCreatedAt,
+    documentClassifierSummary_documentClassifierName,
+    documentClassifierSummary_latestVersionName,
+    documentClassifierSummary_numberOfVersions,
+    documentClassifierSummary_latestVersionStatus,
+
     -- ** DocumentLabel
     documentLabel_name,
     documentLabel_score,
+
+    -- ** DocumentReaderConfig
+    documentReaderConfig_featureTypes,
+    documentReaderConfig_documentReadMode,
+    documentReaderConfig_documentReadAction,
 
     -- ** DominantLanguage
     dominantLanguage_languageCode,
@@ -575,6 +639,7 @@ module Network.AWS.Comprehend.Lens
     dominantLanguageDetectionJobProperties_jobStatus,
     dominantLanguageDetectionJobProperties_outputDataConfig,
     dominantLanguageDetectionJobProperties_endTime,
+    dominantLanguageDetectionJobProperties_jobArn,
     dominantLanguageDetectionJobProperties_volumeKmsKeyId,
     dominantLanguageDetectionJobProperties_submitTime,
     dominantLanguageDetectionJobProperties_jobName,
@@ -589,13 +654,16 @@ module Network.AWS.Comprehend.Lens
 
     -- ** EndpointProperties
     endpointProperties_currentInferenceUnits,
-    endpointProperties_status,
     endpointProperties_creationTime,
+    endpointProperties_status,
     endpointProperties_desiredInferenceUnits,
     endpointProperties_message,
+    endpointProperties_desiredDataAccessRoleArn,
     endpointProperties_modelArn,
     endpointProperties_lastModifiedTime,
     endpointProperties_endpointArn,
+    endpointProperties_dataAccessRoleArn,
+    endpointProperties_desiredModelArn,
 
     -- ** EntitiesDetectionJobFilter
     entitiesDetectionJobFilter_jobStatus,
@@ -604,13 +672,14 @@ module Network.AWS.Comprehend.Lens
     entitiesDetectionJobFilter_jobName,
 
     -- ** EntitiesDetectionJobProperties
-    entitiesDetectionJobProperties_vpcConfig,
     entitiesDetectionJobProperties_languageCode,
+    entitiesDetectionJobProperties_vpcConfig,
     entitiesDetectionJobProperties_inputDataConfig,
     entitiesDetectionJobProperties_message,
     entitiesDetectionJobProperties_jobStatus,
     entitiesDetectionJobProperties_outputDataConfig,
     entitiesDetectionJobProperties_endTime,
+    entitiesDetectionJobProperties_jobArn,
     entitiesDetectionJobProperties_volumeKmsKeyId,
     entitiesDetectionJobProperties_submitTime,
     entitiesDetectionJobProperties_entityRecognizerArn,
@@ -625,10 +694,17 @@ module Network.AWS.Comprehend.Lens
     entity_text,
     entity_beginOffset,
 
+    -- ** EntityLabel
+    entityLabel_name,
+    entityLabel_score,
+
     -- ** EntityRecognizerAnnotations
+    entityRecognizerAnnotations_testS3Uri,
     entityRecognizerAnnotations_s3Uri,
 
     -- ** EntityRecognizerDocuments
+    entityRecognizerDocuments_testS3Uri,
+    entityRecognizerDocuments_inputFormat,
     entityRecognizerDocuments_s3Uri,
 
     -- ** EntityRecognizerEntityList
@@ -643,6 +719,7 @@ module Network.AWS.Comprehend.Lens
     entityRecognizerFilter_status,
     entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_submitTimeAfter,
+    entityRecognizerFilter_recognizerName,
 
     -- ** EntityRecognizerInputDataConfig
     entityRecognizerInputDataConfig_documents,
@@ -664,19 +741,28 @@ module Network.AWS.Comprehend.Lens
     entityRecognizerMetadataEntityTypesListItem_type,
 
     -- ** EntityRecognizerProperties
-    entityRecognizerProperties_vpcConfig,
     entityRecognizerProperties_languageCode,
+    entityRecognizerProperties_vpcConfig,
     entityRecognizerProperties_status,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_message,
+    entityRecognizerProperties_versionName,
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_volumeKmsKeyId,
     entityRecognizerProperties_submitTime,
     entityRecognizerProperties_recognizerMetadata,
     entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_modelKmsKeyId,
     entityRecognizerProperties_trainingStartTime,
     entityRecognizerProperties_dataAccessRoleArn,
     entityRecognizerProperties_trainingEndTime,
+
+    -- ** EntityRecognizerSummary
+    entityRecognizerSummary_latestVersionCreatedAt,
+    entityRecognizerSummary_recognizerName,
+    entityRecognizerSummary_latestVersionName,
+    entityRecognizerSummary_numberOfVersions,
+    entityRecognizerSummary_latestVersionStatus,
 
     -- ** EntityTypesEvaluationMetrics
     entityTypesEvaluationMetrics_f1Score,
@@ -699,6 +785,7 @@ module Network.AWS.Comprehend.Lens
     eventsDetectionJobProperties_jobStatus,
     eventsDetectionJobProperties_outputDataConfig,
     eventsDetectionJobProperties_endTime,
+    eventsDetectionJobProperties_jobArn,
     eventsDetectionJobProperties_submitTime,
     eventsDetectionJobProperties_targetEventTypes,
     eventsDetectionJobProperties_jobName,
@@ -706,6 +793,7 @@ module Network.AWS.Comprehend.Lens
     eventsDetectionJobProperties_jobId,
 
     -- ** InputDataConfig
+    inputDataConfig_documentReaderConfig,
     inputDataConfig_inputFormat,
     inputDataConfig_s3Uri,
 
@@ -722,13 +810,14 @@ module Network.AWS.Comprehend.Lens
     keyPhrasesDetectionJobFilter_jobName,
 
     -- ** KeyPhrasesDetectionJobProperties
-    keyPhrasesDetectionJobProperties_vpcConfig,
     keyPhrasesDetectionJobProperties_languageCode,
+    keyPhrasesDetectionJobProperties_vpcConfig,
     keyPhrasesDetectionJobProperties_inputDataConfig,
     keyPhrasesDetectionJobProperties_message,
     keyPhrasesDetectionJobProperties_jobStatus,
     keyPhrasesDetectionJobProperties_outputDataConfig,
     keyPhrasesDetectionJobProperties_endTime,
+    keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_volumeKmsKeyId,
     keyPhrasesDetectionJobProperties_submitTime,
     keyPhrasesDetectionJobProperties_jobName,
@@ -750,14 +839,15 @@ module Network.AWS.Comprehend.Lens
     piiEntitiesDetectionJobFilter_jobName,
 
     -- ** PiiEntitiesDetectionJobProperties
-    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_languageCode,
+    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_inputDataConfig,
-    piiEntitiesDetectionJobProperties_mode,
     piiEntitiesDetectionJobProperties_message,
+    piiEntitiesDetectionJobProperties_mode,
     piiEntitiesDetectionJobProperties_jobStatus,
     piiEntitiesDetectionJobProperties_outputDataConfig,
     piiEntitiesDetectionJobProperties_endTime,
+    piiEntitiesDetectionJobProperties_jobArn,
     piiEntitiesDetectionJobProperties_submitTime,
     piiEntitiesDetectionJobProperties_jobName,
     piiEntitiesDetectionJobProperties_dataAccessRoleArn,
@@ -785,13 +875,14 @@ module Network.AWS.Comprehend.Lens
     sentimentDetectionJobFilter_jobName,
 
     -- ** SentimentDetectionJobProperties
-    sentimentDetectionJobProperties_vpcConfig,
     sentimentDetectionJobProperties_languageCode,
+    sentimentDetectionJobProperties_vpcConfig,
     sentimentDetectionJobProperties_inputDataConfig,
     sentimentDetectionJobProperties_message,
     sentimentDetectionJobProperties_jobStatus,
     sentimentDetectionJobProperties_outputDataConfig,
     sentimentDetectionJobProperties_endTime,
+    sentimentDetectionJobProperties_jobArn,
     sentimentDetectionJobProperties_volumeKmsKeyId,
     sentimentDetectionJobProperties_submitTime,
     sentimentDetectionJobProperties_jobName,
@@ -828,6 +919,7 @@ module Network.AWS.Comprehend.Lens
     topicsDetectionJobProperties_jobStatus,
     topicsDetectionJobProperties_outputDataConfig,
     topicsDetectionJobProperties_endTime,
+    topicsDetectionJobProperties_jobArn,
     topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_submitTime,
     topicsDetectionJobProperties_numberOfTopics,
@@ -847,6 +939,7 @@ import Network.AWS.Comprehend.BatchDetectKeyPhrases
 import Network.AWS.Comprehend.BatchDetectSentiment
 import Network.AWS.Comprehend.BatchDetectSyntax
 import Network.AWS.Comprehend.ClassifyDocument
+import Network.AWS.Comprehend.ContainsPiiEntities
 import Network.AWS.Comprehend.CreateDocumentClassifier
 import Network.AWS.Comprehend.CreateEndpoint
 import Network.AWS.Comprehend.CreateEntityRecognizer
@@ -871,10 +964,12 @@ import Network.AWS.Comprehend.DetectPiiEntities
 import Network.AWS.Comprehend.DetectSentiment
 import Network.AWS.Comprehend.DetectSyntax
 import Network.AWS.Comprehend.ListDocumentClassificationJobs
+import Network.AWS.Comprehend.ListDocumentClassifierSummaries
 import Network.AWS.Comprehend.ListDocumentClassifiers
 import Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
 import Network.AWS.Comprehend.ListEndpoints
 import Network.AWS.Comprehend.ListEntitiesDetectionJobs
+import Network.AWS.Comprehend.ListEntityRecognizerSummaries
 import Network.AWS.Comprehend.ListEntityRecognizers
 import Network.AWS.Comprehend.ListEventsDetectionJobs
 import Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
@@ -915,7 +1010,9 @@ import Network.AWS.Comprehend.Types.DocumentClassifierFilter
 import Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
 import Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
 import Network.AWS.Comprehend.Types.DocumentClassifierProperties
+import Network.AWS.Comprehend.Types.DocumentClassifierSummary
 import Network.AWS.Comprehend.Types.DocumentLabel
+import Network.AWS.Comprehend.Types.DocumentReaderConfig
 import Network.AWS.Comprehend.Types.DominantLanguage
 import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
 import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -924,6 +1021,7 @@ import Network.AWS.Comprehend.Types.EndpointProperties
 import Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
 import Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
 import Network.AWS.Comprehend.Types.Entity
+import Network.AWS.Comprehend.Types.EntityLabel
 import Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
 import Network.AWS.Comprehend.Types.EntityRecognizerDocuments
 import Network.AWS.Comprehend.Types.EntityRecognizerEntityList
@@ -933,6 +1031,7 @@ import Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadata
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
 import Network.AWS.Comprehend.Types.EntityRecognizerProperties
+import Network.AWS.Comprehend.Types.EntityRecognizerSummary
 import Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
 import Network.AWS.Comprehend.Types.EntityTypesListItem
 import Network.AWS.Comprehend.Types.EventsDetectionJobFilter

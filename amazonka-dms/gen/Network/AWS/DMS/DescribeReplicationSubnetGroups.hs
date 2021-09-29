@@ -30,8 +30,8 @@ module Network.AWS.DMS.DescribeReplicationSubnetGroups
 
     -- * Request Lenses
     describeReplicationSubnetGroups_filters,
-    describeReplicationSubnetGroups_marker,
     describeReplicationSubnetGroups_maxRecords,
+    describeReplicationSubnetGroups_marker,
 
     -- * Destructuring the Response
     DescribeReplicationSubnetGroupsResponse (..),
@@ -59,10 +59,6 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
     --
     -- Valid filter names: replication-subnet-group-id
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -71,7 +67,11 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,10 +87,6 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
 --
 -- Valid filter names: replication-subnet-group-id
 --
--- 'marker', 'describeReplicationSubnetGroups_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReplicationSubnetGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -99,14 +95,18 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeReplicationSubnetGroups_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeReplicationSubnetGroups ::
   DescribeReplicationSubnetGroups
 newDescribeReplicationSubnetGroups =
   DescribeReplicationSubnetGroups'
     { filters =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Filters applied to replication subnet groups.
@@ -114,12 +114,6 @@ newDescribeReplicationSubnetGroups =
 -- Valid filter names: replication-subnet-group-id
 describeReplicationSubnetGroups_filters :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe [Filter])
 describeReplicationSubnetGroups_filters = Lens.lens (\DescribeReplicationSubnetGroups' {filters} -> filters) (\s@DescribeReplicationSubnetGroups' {} a -> s {filters = a} :: DescribeReplicationSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationSubnetGroups_marker :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe Prelude.Text)
-describeReplicationSubnetGroups_marker = Lens.lens (\DescribeReplicationSubnetGroups' {marker} -> marker) (\s@DescribeReplicationSubnetGroups' {} a -> s {marker = a} :: DescribeReplicationSubnetGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -131,6 +125,12 @@ describeReplicationSubnetGroups_marker = Lens.lens (\DescribeReplicationSubnetGr
 -- Constraints: Minimum 20, maximum 100.
 describeReplicationSubnetGroups_maxRecords :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe Prelude.Int)
 describeReplicationSubnetGroups_maxRecords = Lens.lens (\DescribeReplicationSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationSubnetGroups' {} a -> s {maxRecords = a} :: DescribeReplicationSubnetGroups)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationSubnetGroups_marker :: Lens.Lens' DescribeReplicationSubnetGroups (Prelude.Maybe Prelude.Text)
+describeReplicationSubnetGroups_marker = Lens.lens (\DescribeReplicationSubnetGroups' {marker} -> marker) (\s@DescribeReplicationSubnetGroups' {} a -> s {marker = a} :: DescribeReplicationSubnetGroups)
 
 instance
   Core.AWSPager
@@ -207,8 +207,8 @@ instance Core.ToJSON DescribeReplicationSubnetGroups where
     Core.object
       ( Prelude.catMaybes
           [ ("Filters" Core..=) Prelude.<$> filters,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 

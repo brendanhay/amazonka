@@ -51,11 +51,11 @@ data StreamRecord = StreamRecord'
     sizeBytes :: Prelude.Maybe Prelude.Natural,
     -- | The item in the DynamoDB table as it appeared after it was modified.
     newImage' :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | The item in the DynamoDB table as it appeared before it was modified.
-    oldImage :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The approximate date and time when the stream record was created, in
     -- <http://www.epochconverter.com/ UNIX epoch time> format.
-    approximateCreationDateTime :: Prelude.Maybe Core.POSIX
+    approximateCreationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The item in the DynamoDB table as it appeared before it was modified.
+    oldImage :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,10 +88,10 @@ data StreamRecord = StreamRecord'
 --
 -- 'newImage'', 'streamRecord_newImage' - The item in the DynamoDB table as it appeared after it was modified.
 --
--- 'oldImage', 'streamRecord_oldImage' - The item in the DynamoDB table as it appeared before it was modified.
---
 -- 'approximateCreationDateTime', 'streamRecord_approximateCreationDateTime' - The approximate date and time when the stream record was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
+--
+-- 'oldImage', 'streamRecord_oldImage' - The item in the DynamoDB table as it appeared before it was modified.
 newStreamRecord ::
   StreamRecord
 newStreamRecord =
@@ -101,8 +101,8 @@ newStreamRecord =
       keys = Prelude.Nothing,
       sizeBytes = Prelude.Nothing,
       newImage' = Prelude.Nothing,
-      oldImage = Prelude.Nothing,
-      approximateCreationDateTime = Prelude.Nothing
+      approximateCreationDateTime = Prelude.Nothing,
+      oldImage = Prelude.Nothing
     }
 
 -- | The sequence number of the stream record.
@@ -136,14 +136,14 @@ streamRecord_sizeBytes = Lens.lens (\StreamRecord' {sizeBytes} -> sizeBytes) (\s
 streamRecord_newImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 streamRecord_newImage = Lens.lens (\StreamRecord' {newImage'} -> newImage') (\s@StreamRecord' {} a -> s {newImage' = a} :: StreamRecord) Prelude.. Lens.mapping Lens._Coerce
 
--- | The item in the DynamoDB table as it appeared before it was modified.
-streamRecord_oldImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-streamRecord_oldImage = Lens.lens (\StreamRecord' {oldImage} -> oldImage) (\s@StreamRecord' {} a -> s {oldImage = a} :: StreamRecord) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The approximate date and time when the stream record was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 streamRecord_approximateCreationDateTime :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.UTCTime)
 streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Core._Time
+
+-- | The item in the DynamoDB table as it appeared before it was modified.
+streamRecord_oldImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+streamRecord_oldImage = Lens.lens (\StreamRecord' {oldImage} -> oldImage) (\s@StreamRecord' {} a -> s {oldImage = a} :: StreamRecord) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON StreamRecord where
   parseJSON =
@@ -156,8 +156,8 @@ instance Core.FromJSON StreamRecord where
             Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SizeBytes")
             Prelude.<*> (x Core..:? "NewImage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OldImage" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ApproximateCreationDateTime")
+            Prelude.<*> (x Core..:? "OldImage" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StreamRecord

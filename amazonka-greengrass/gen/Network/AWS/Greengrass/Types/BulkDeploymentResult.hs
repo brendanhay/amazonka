@@ -34,11 +34,11 @@ data BulkDeploymentResult = BulkDeploymentResult'
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The type of the deployment.
     deploymentType :: Prelude.Maybe DeploymentType,
+    -- | The time, in ISO format, when the deployment was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The current status of the group deployment: \'\'InProgress\'\',
     -- \'\'Building\'\', \'\'Success\'\', or \'\'Failure\'\'.
     deploymentStatus :: Prelude.Maybe Prelude.Text,
-    -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group deployment.
     deploymentArn :: Prelude.Maybe Prelude.Text,
     -- | The error message for a failed deployment
@@ -62,10 +62,10 @@ data BulkDeploymentResult = BulkDeploymentResult'
 --
 -- 'deploymentType', 'bulkDeploymentResult_deploymentType' - The type of the deployment.
 --
+-- 'createdAt', 'bulkDeploymentResult_createdAt' - The time, in ISO format, when the deployment was created.
+--
 -- 'deploymentStatus', 'bulkDeploymentResult_deploymentStatus' - The current status of the group deployment: \'\'InProgress\'\',
 -- \'\'Building\'\', \'\'Success\'\', or \'\'Failure\'\'.
---
--- 'createdAt', 'bulkDeploymentResult_createdAt' - The time, in ISO format, when the deployment was created.
 --
 -- 'deploymentArn', 'bulkDeploymentResult_deploymentArn' - The ARN of the group deployment.
 --
@@ -81,8 +81,8 @@ newBulkDeploymentResult =
     { deploymentId =
         Prelude.Nothing,
       deploymentType = Prelude.Nothing,
-      deploymentStatus = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      deploymentStatus = Prelude.Nothing,
       deploymentArn = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       groupArn = Prelude.Nothing,
@@ -97,14 +97,14 @@ bulkDeploymentResult_deploymentId = Lens.lens (\BulkDeploymentResult' {deploymen
 bulkDeploymentResult_deploymentType :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe DeploymentType)
 bulkDeploymentResult_deploymentType = Lens.lens (\BulkDeploymentResult' {deploymentType} -> deploymentType) (\s@BulkDeploymentResult' {} a -> s {deploymentType = a} :: BulkDeploymentResult)
 
+-- | The time, in ISO format, when the deployment was created.
+bulkDeploymentResult_createdAt :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe Prelude.Text)
+bulkDeploymentResult_createdAt = Lens.lens (\BulkDeploymentResult' {createdAt} -> createdAt) (\s@BulkDeploymentResult' {} a -> s {createdAt = a} :: BulkDeploymentResult)
+
 -- | The current status of the group deployment: \'\'InProgress\'\',
 -- \'\'Building\'\', \'\'Success\'\', or \'\'Failure\'\'.
 bulkDeploymentResult_deploymentStatus :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe Prelude.Text)
 bulkDeploymentResult_deploymentStatus = Lens.lens (\BulkDeploymentResult' {deploymentStatus} -> deploymentStatus) (\s@BulkDeploymentResult' {} a -> s {deploymentStatus = a} :: BulkDeploymentResult)
-
--- | The time, in ISO format, when the deployment was created.
-bulkDeploymentResult_createdAt :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe Prelude.Text)
-bulkDeploymentResult_createdAt = Lens.lens (\BulkDeploymentResult' {createdAt} -> createdAt) (\s@BulkDeploymentResult' {} a -> s {createdAt = a} :: BulkDeploymentResult)
 
 -- | The ARN of the group deployment.
 bulkDeploymentResult_deploymentArn :: Lens.Lens' BulkDeploymentResult (Prelude.Maybe Prelude.Text)
@@ -130,8 +130,8 @@ instance Core.FromJSON BulkDeploymentResult where
           BulkDeploymentResult'
             Prelude.<$> (x Core..:? "DeploymentId")
             Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "DeploymentStatus")
             Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "DeploymentStatus")
             Prelude.<*> (x Core..:? "DeploymentArn")
             Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "GroupArn")

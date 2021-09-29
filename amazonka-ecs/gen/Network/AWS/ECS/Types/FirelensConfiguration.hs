@@ -40,6 +40,8 @@ data FirelensConfiguration = FirelensConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
+    --
+    -- Tasks hosted on Fargate only support the @file@ configuration file type.
     options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
     type' :: FirelensConfigurationType
@@ -64,6 +66,8 @@ data FirelensConfiguration = FirelensConfiguration'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
+-- Tasks hosted on Fargate only support the @file@ configuration file type.
+--
 -- 'type'', 'firelensConfiguration_type' - The log router to use. The valid values are @fluentd@ or @fluentbit@.
 newFirelensConfiguration ::
   -- | 'type''
@@ -84,6 +88,8 @@ newFirelensConfiguration pType_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- Tasks hosted on Fargate only support the @file@ configuration file type.
 firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Prelude.. Lens.mapping Lens._Coerce
 

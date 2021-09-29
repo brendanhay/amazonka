@@ -65,10 +65,9 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
     -- element in the list consists of the resource type and resource ID.
     resourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
     -- | The maximum number of RemediationExecutionStatuses returned on each
-    -- page. The default is maximum. If you specify 0, AWS Config uses the
-    -- default.
+    -- page. The default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A list of AWS Config rule names.
+    -- | A list of Config rule names.
     configRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,10 +87,9 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
 -- element in the list consists of the resource type and resource ID.
 --
 -- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each
--- page. The default is maximum. If you specify 0, AWS Config uses the
--- default.
+-- page. The default is maximum. If you specify 0, Config uses the default.
 --
--- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of AWS Config rule names.
+-- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of Config rule names.
 newDescribeRemediationExecutionStatus ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -117,12 +115,11 @@ describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediatio
 describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of RemediationExecutionStatuses returned on each
--- page. The default is maximum. If you specify 0, AWS Config uses the
--- default.
+-- page. The default is maximum. If you specify 0, Config uses the default.
 describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Natural)
 describeRemediationExecutionStatus_limit = Lens.lens (\DescribeRemediationExecutionStatus' {limit} -> limit) (\s@DescribeRemediationExecutionStatus' {} a -> s {limit = a} :: DescribeRemediationExecutionStatus)
 
--- | A list of AWS Config rule names.
+-- | A list of Config rule names.
 describeRemediationExecutionStatus_configRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Prelude.Text
 describeRemediationExecutionStatus_configRuleName = Lens.lens (\DescribeRemediationExecutionStatus' {configRuleName} -> configRuleName) (\s@DescribeRemediationExecutionStatus' {} a -> s {configRuleName = a} :: DescribeRemediationExecutionStatus)
 

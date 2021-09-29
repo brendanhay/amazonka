@@ -26,9 +26,9 @@
 -- deleted. When you specify the limit and the next token, you receive a
 -- paginated response.
 --
--- AWS Config generates a remediation exception when a problem occurs
--- executing a remediation action to a specific resource. Remediation
--- exceptions blocks auto-remediation until the exception is cleared.
+-- Config generates a remediation exception when a problem occurs executing
+-- a remediation action to a specific resource. Remediation exceptions
+-- blocks auto-remediation until the exception is cleared.
 --
 -- When you specify the limit and the next token, you receive a paginated
 -- response.
@@ -70,13 +70,13 @@ data DescribeRemediationExceptions = DescribeRemediationExceptions'
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An exception list of resource exception keys to be processed with the
-    -- current request. AWS Config adds exception for each resource key. For
-    -- example, AWS Config adds 3 exceptions for 3 resource keys.
+    -- current request. Config adds exception for each resource key. For
+    -- example, Config adds 3 exceptions for 3 resource keys.
     resourceKeys :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey),
     -- | The maximum number of RemediationExceptionResourceKey returned on each
-    -- page. The default is 25. If you specify 0, AWS Config uses the default.
+    -- page. The default is 25. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the AWS Config rule.
+    -- | The name of the Config rule.
     configRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,13 +93,13 @@ data DescribeRemediationExceptions = DescribeRemediationExceptions'
 -- request the next page of results in a paginated response.
 --
 -- 'resourceKeys', 'describeRemediationExceptions_resourceKeys' - An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 --
 -- 'limit', 'describeRemediationExceptions_limit' - The maximum number of RemediationExceptionResourceKey returned on each
--- page. The default is 25. If you specify 0, AWS Config uses the default.
+-- page. The default is 25. If you specify 0, Config uses the default.
 --
--- 'configRuleName', 'describeRemediationExceptions_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'describeRemediationExceptions_configRuleName' - The name of the Config rule.
 newDescribeRemediationExceptions ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -119,17 +119,17 @@ describeRemediationExceptions_nextToken :: Lens.Lens' DescribeRemediationExcepti
 describeRemediationExceptions_nextToken = Lens.lens (\DescribeRemediationExceptions' {nextToken} -> nextToken) (\s@DescribeRemediationExceptions' {} a -> s {nextToken = a} :: DescribeRemediationExceptions)
 
 -- | An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 describeRemediationExceptions_resourceKeys :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
 describeRemediationExceptions_resourceKeys = Lens.lens (\DescribeRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExceptions' {} a -> s {resourceKeys = a} :: DescribeRemediationExceptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of RemediationExceptionResourceKey returned on each
--- page. The default is 25. If you specify 0, AWS Config uses the default.
+-- page. The default is 25. If you specify 0, Config uses the default.
 describeRemediationExceptions_limit :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe Prelude.Natural)
 describeRemediationExceptions_limit = Lens.lens (\DescribeRemediationExceptions' {limit} -> limit) (\s@DescribeRemediationExceptions' {} a -> s {limit = a} :: DescribeRemediationExceptions)
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 describeRemediationExceptions_configRuleName :: Lens.Lens' DescribeRemediationExceptions Prelude.Text
 describeRemediationExceptions_configRuleName = Lens.lens (\DescribeRemediationExceptions' {configRuleName} -> configRuleName) (\s@DescribeRemediationExceptions' {} a -> s {configRuleName = a} :: DescribeRemediationExceptions)
 

@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVolumeStatusEvent' smart constructor.
 data VolumeStatusEvent = VolumeStatusEvent'
-  { -- | The earliest start time of the event.
-    notBefore :: Prelude.Maybe Core.ISO8601,
+  { -- | The ID of the instance associated with the event.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The type of this event.
     eventType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance associated with the event.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The earliest start time of the event.
+    notBefore :: Prelude.Maybe Core.ISO8601,
     -- | The ID of this event.
     eventId :: Prelude.Maybe Prelude.Text,
     -- | The latest end time of the event.
@@ -51,11 +51,11 @@ data VolumeStatusEvent = VolumeStatusEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notBefore', 'volumeStatusEvent_notBefore' - The earliest start time of the event.
+-- 'instanceId', 'volumeStatusEvent_instanceId' - The ID of the instance associated with the event.
 --
 -- 'eventType', 'volumeStatusEvent_eventType' - The type of this event.
 --
--- 'instanceId', 'volumeStatusEvent_instanceId' - The ID of the instance associated with the event.
+-- 'notBefore', 'volumeStatusEvent_notBefore' - The earliest start time of the event.
 --
 -- 'eventId', 'volumeStatusEvent_eventId' - The ID of this event.
 --
@@ -66,25 +66,25 @@ newVolumeStatusEvent ::
   VolumeStatusEvent
 newVolumeStatusEvent =
   VolumeStatusEvent'
-    { notBefore = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
       eventType = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+      notBefore = Prelude.Nothing,
       eventId = Prelude.Nothing,
       notAfter = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
--- | The earliest start time of the event.
-volumeStatusEvent_notBefore :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.UTCTime)
-volumeStatusEvent_notBefore = Lens.lens (\VolumeStatusEvent' {notBefore} -> notBefore) (\s@VolumeStatusEvent' {} a -> s {notBefore = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Core._Time
+-- | The ID of the instance associated with the event.
+volumeStatusEvent_instanceId :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.Text)
+volumeStatusEvent_instanceId = Lens.lens (\VolumeStatusEvent' {instanceId} -> instanceId) (\s@VolumeStatusEvent' {} a -> s {instanceId = a} :: VolumeStatusEvent)
 
 -- | The type of this event.
 volumeStatusEvent_eventType :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.Text)
 volumeStatusEvent_eventType = Lens.lens (\VolumeStatusEvent' {eventType} -> eventType) (\s@VolumeStatusEvent' {} a -> s {eventType = a} :: VolumeStatusEvent)
 
--- | The ID of the instance associated with the event.
-volumeStatusEvent_instanceId :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.Text)
-volumeStatusEvent_instanceId = Lens.lens (\VolumeStatusEvent' {instanceId} -> instanceId) (\s@VolumeStatusEvent' {} a -> s {instanceId = a} :: VolumeStatusEvent)
+-- | The earliest start time of the event.
+volumeStatusEvent_notBefore :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.UTCTime)
+volumeStatusEvent_notBefore = Lens.lens (\VolumeStatusEvent' {notBefore} -> notBefore) (\s@VolumeStatusEvent' {} a -> s {notBefore = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of this event.
 volumeStatusEvent_eventId :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.Text)
@@ -101,9 +101,9 @@ volumeStatusEvent_description = Lens.lens (\VolumeStatusEvent' {description} -> 
 instance Core.FromXML VolumeStatusEvent where
   parseXML x =
     VolumeStatusEvent'
-      Prelude.<$> (x Core..@? "notBefore")
+      Prelude.<$> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "eventType")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "notBefore")
       Prelude.<*> (x Core..@? "eventId")
       Prelude.<*> (x Core..@? "notAfter")
       Prelude.<*> (x Core..@? "description")

@@ -52,7 +52,7 @@ import Network.AWS.Snowball.Types
 data DescribeReturnShippingLabel = DescribeReturnShippingLabel'
   { -- | The automatically generated ID for a job, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,16 +67,15 @@ data DescribeReturnShippingLabel = DescribeReturnShippingLabel'
 -- 'jobId', 'describeReturnShippingLabel_jobId' - The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
 newDescribeReturnShippingLabel ::
+  -- | 'jobId'
+  Prelude.Text ->
   DescribeReturnShippingLabel
-newDescribeReturnShippingLabel =
-  DescribeReturnShippingLabel'
-    { jobId =
-        Prelude.Nothing
-    }
+newDescribeReturnShippingLabel pJobId_ =
+  DescribeReturnShippingLabel' {jobId = pJobId_}
 
 -- | The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
-describeReturnShippingLabel_jobId :: Lens.Lens' DescribeReturnShippingLabel (Prelude.Maybe Prelude.Text)
+describeReturnShippingLabel_jobId :: Lens.Lens' DescribeReturnShippingLabel Prelude.Text
 describeReturnShippingLabel_jobId = Lens.lens (\DescribeReturnShippingLabel' {jobId} -> jobId) (\s@DescribeReturnShippingLabel' {} a -> s {jobId = a} :: DescribeReturnShippingLabel)
 
 instance Core.AWSRequest DescribeReturnShippingLabel where
@@ -116,7 +115,7 @@ instance Core.ToJSON DescribeReturnShippingLabel where
   toJSON DescribeReturnShippingLabel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("JobId" Core..=) Prelude.<$> jobId]
+          [Prelude.Just ("JobId" Core..= jobId)]
       )
 
 instance Core.ToPath DescribeReturnShippingLabel where

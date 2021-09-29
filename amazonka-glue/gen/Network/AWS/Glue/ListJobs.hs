@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the names of all job resources in this AWS account, or the
--- resources with the specified tag. This operation allows you to see which
--- resources are available in your account, and their names.
+-- Retrieves the names of all job resources in this Amazon Web Services
+-- account, or the resources with the specified tag. This operation allows
+-- you to see which resources are available in your account, and their
+-- names.
 --
 -- This operation takes the optional @Tags@ field, which you can use as a
 -- filter on the response so that tagged resources can be retrieved as a

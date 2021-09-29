@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a fleet provisioning template.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateProvisioningTemplate>
+-- action.
 module Network.AWS.IoT.UpdateProvisioningTemplate
   ( -- * Creating a Request
     UpdateProvisioningTemplate (..),
@@ -28,8 +32,8 @@ module Network.AWS.IoT.UpdateProvisioningTemplate
 
     -- * Request Lenses
     updateProvisioningTemplate_removePreProvisioningHook,
-    updateProvisioningTemplate_enabled,
     updateProvisioningTemplate_preProvisioningHook,
+    updateProvisioningTemplate_enabled,
     updateProvisioningTemplate_defaultVersionId,
     updateProvisioningTemplate_description,
     updateProvisioningTemplate_provisioningRoleArn,
@@ -55,10 +59,10 @@ import qualified Network.AWS.Response as Response
 data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
   { -- | Removes pre-provisioning hook template.
     removePreProvisioningHook :: Prelude.Maybe Prelude.Bool,
-    -- | True to enable the fleet provisioning template, otherwise false.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Updates the pre-provisioning hook template.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
+    -- | True to enable the fleet provisioning template, otherwise false.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the default provisioning template version.
     defaultVersionId :: Prelude.Maybe Prelude.Int,
     -- | The description of the fleet provisioning template.
@@ -81,9 +85,9 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
 --
 -- 'removePreProvisioningHook', 'updateProvisioningTemplate_removePreProvisioningHook' - Removes pre-provisioning hook template.
 --
--- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
---
 -- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.
+--
+-- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
 --
 -- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.
 --
@@ -101,8 +105,8 @@ newUpdateProvisioningTemplate pTemplateName_ =
   UpdateProvisioningTemplate'
     { removePreProvisioningHook =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
       preProvisioningHook = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       defaultVersionId = Prelude.Nothing,
       description = Prelude.Nothing,
       provisioningRoleArn = Prelude.Nothing,
@@ -113,13 +117,13 @@ newUpdateProvisioningTemplate pTemplateName_ =
 updateProvisioningTemplate_removePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
 updateProvisioningTemplate_removePreProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {removePreProvisioningHook} -> removePreProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {removePreProvisioningHook = a} :: UpdateProvisioningTemplate)
 
--- | True to enable the fleet provisioning template, otherwise false.
-updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
-updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {enabled} -> enabled) (\s@UpdateProvisioningTemplate' {} a -> s {enabled = a} :: UpdateProvisioningTemplate)
-
 -- | Updates the pre-provisioning hook template.
 updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 updateProvisioningTemplate_preProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
+
+-- | True to enable the fleet provisioning template, otherwise false.
+updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {enabled} -> enabled) (\s@UpdateProvisioningTemplate' {} a -> s {enabled = a} :: UpdateProvisioningTemplate)
 
 -- | The ID of the default provisioning template version.
 updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Int)
@@ -163,9 +167,9 @@ instance Core.ToJSON UpdateProvisioningTemplate where
       ( Prelude.catMaybes
           [ ("removePreProvisioningHook" Core..=)
               Prelude.<$> removePreProvisioningHook,
-            ("enabled" Core..=) Prelude.<$> enabled,
             ("preProvisioningHook" Core..=)
               Prelude.<$> preProvisioningHook,
+            ("enabled" Core..=) Prelude.<$> enabled,
             ("defaultVersionId" Core..=)
               Prelude.<$> defaultVersionId,
             ("description" Core..=) Prelude.<$> description,

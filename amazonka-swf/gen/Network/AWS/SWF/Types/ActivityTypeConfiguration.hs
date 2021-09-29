@@ -61,6 +61,13 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration'
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | The default maximum duration, specified when registering the activity
+    -- type, for tasks of this activity type. You can override this default
+    -- when scheduling a task through the @ScheduleActivityTask@ Decision.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    defaultTaskScheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The default maximum time, in seconds, before which a worker processing a
     -- task must report progress by calling RecordActivityTaskHeartbeat.
     --
@@ -74,14 +81,7 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskHeartbeatTimeout :: Prelude.Maybe Prelude.Text,
-    -- | The default maximum duration, specified when registering the activity
-    -- type, for tasks of this activity type. You can override this default
-    -- when scheduling a task through the @ScheduleActivityTask@ Decision.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToCloseTimeout :: Prelude.Maybe Prelude.Text
+    defaultTaskHeartbeatTimeout :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,6 +126,13 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration'
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 --
+-- 'defaultTaskScheduleToCloseTimeout', 'activityTypeConfiguration_defaultTaskScheduleToCloseTimeout' - The default maximum duration, specified when registering the activity
+-- type, for tasks of this activity type. You can override this default
+-- when scheduling a task through the @ScheduleActivityTask@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
 -- 'defaultTaskHeartbeatTimeout', 'activityTypeConfiguration_defaultTaskHeartbeatTimeout' - The default maximum time, in seconds, before which a worker processing a
 -- task must report progress by calling RecordActivityTaskHeartbeat.
 --
@@ -139,13 +146,6 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration'
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- 'defaultTaskScheduleToCloseTimeout', 'activityTypeConfiguration_defaultTaskScheduleToCloseTimeout' - The default maximum duration, specified when registering the activity
--- type, for tasks of this activity type. You can override this default
--- when scheduling a task through the @ScheduleActivityTask@ Decision.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
 newActivityTypeConfiguration ::
   ActivityTypeConfiguration
 newActivityTypeConfiguration =
@@ -156,9 +156,9 @@ newActivityTypeConfiguration =
       defaultTaskScheduleToStartTimeout =
         Prelude.Nothing,
       defaultTaskStartToCloseTimeout = Prelude.Nothing,
-      defaultTaskHeartbeatTimeout = Prelude.Nothing,
       defaultTaskScheduleToCloseTimeout =
-        Prelude.Nothing
+        Prelude.Nothing,
+      defaultTaskHeartbeatTimeout = Prelude.Nothing
     }
 
 -- | The default task priority for tasks of this activity type, specified at
@@ -202,6 +202,15 @@ activityTypeConfiguration_defaultTaskScheduleToStartTimeout = Lens.lens (\Activi
 activityTypeConfiguration_defaultTaskStartToCloseTimeout :: Lens.Lens' ActivityTypeConfiguration (Prelude.Maybe Prelude.Text)
 activityTypeConfiguration_defaultTaskStartToCloseTimeout = Lens.lens (\ActivityTypeConfiguration' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@ActivityTypeConfiguration' {} a -> s {defaultTaskStartToCloseTimeout = a} :: ActivityTypeConfiguration)
 
+-- | The default maximum duration, specified when registering the activity
+-- type, for tasks of this activity type. You can override this default
+-- when scheduling a task through the @ScheduleActivityTask@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+activityTypeConfiguration_defaultTaskScheduleToCloseTimeout :: Lens.Lens' ActivityTypeConfiguration (Prelude.Maybe Prelude.Text)
+activityTypeConfiguration_defaultTaskScheduleToCloseTimeout = Lens.lens (\ActivityTypeConfiguration' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@ActivityTypeConfiguration' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: ActivityTypeConfiguration)
+
 -- | The default maximum time, in seconds, before which a worker processing a
 -- task must report progress by calling RecordActivityTaskHeartbeat.
 --
@@ -218,15 +227,6 @@ activityTypeConfiguration_defaultTaskStartToCloseTimeout = Lens.lens (\ActivityT
 activityTypeConfiguration_defaultTaskHeartbeatTimeout :: Lens.Lens' ActivityTypeConfiguration (Prelude.Maybe Prelude.Text)
 activityTypeConfiguration_defaultTaskHeartbeatTimeout = Lens.lens (\ActivityTypeConfiguration' {defaultTaskHeartbeatTimeout} -> defaultTaskHeartbeatTimeout) (\s@ActivityTypeConfiguration' {} a -> s {defaultTaskHeartbeatTimeout = a} :: ActivityTypeConfiguration)
 
--- | The default maximum duration, specified when registering the activity
--- type, for tasks of this activity type. You can override this default
--- when scheduling a task through the @ScheduleActivityTask@ Decision.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-activityTypeConfiguration_defaultTaskScheduleToCloseTimeout :: Lens.Lens' ActivityTypeConfiguration (Prelude.Maybe Prelude.Text)
-activityTypeConfiguration_defaultTaskScheduleToCloseTimeout = Lens.lens (\ActivityTypeConfiguration' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@ActivityTypeConfiguration' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: ActivityTypeConfiguration)
-
 instance Core.FromJSON ActivityTypeConfiguration where
   parseJSON =
     Core.withObject
@@ -237,8 +237,8 @@ instance Core.FromJSON ActivityTypeConfiguration where
             Prelude.<*> (x Core..:? "defaultTaskList")
             Prelude.<*> (x Core..:? "defaultTaskScheduleToStartTimeout")
             Prelude.<*> (x Core..:? "defaultTaskStartToCloseTimeout")
-            Prelude.<*> (x Core..:? "defaultTaskHeartbeatTimeout")
             Prelude.<*> (x Core..:? "defaultTaskScheduleToCloseTimeout")
+            Prelude.<*> (x Core..:? "defaultTaskHeartbeatTimeout")
       )
 
 instance Prelude.Hashable ActivityTypeConfiguration

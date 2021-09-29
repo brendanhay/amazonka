@@ -36,8 +36,8 @@ module Network.AWS.SageMaker.CreateUserProfile
     -- * Request Lenses
     createUserProfile_userSettings,
     createUserProfile_tags,
-    createUserProfile_singleSignOnUserIdentifier,
     createUserProfile_singleSignOnUserValue,
+    createUserProfile_singleSignOnUserIdentifier,
     createUserProfile_domainId,
     createUserProfile_userProfileName,
 
@@ -64,20 +64,23 @@ data CreateUserProfile = CreateUserProfile'
     userSettings :: Prelude.Maybe UserSettings,
     -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
+    --
+    -- Tags that you specify for the User Profile are also added to all Apps
+    -- that the User Profile launches.
     tags :: Prelude.Maybe [Tag],
+    -- | The username of the associated Amazon Web Services Single Sign-On User
+    -- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
+    -- required, and must match a valid username of a user in your directory.
+    -- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+    singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
     -- | A specifier for the type of value specified in SingleSignOnUserValue.
     -- Currently, the only supported value is \"UserName\". If the Domain\'s
     -- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
     -- not SSO, this field cannot be specified.
     singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The username of the associated AWS Single Sign-On User for this
-    -- UserProfile. If the Domain\'s AuthMode is SSO, this field is required,
-    -- and must match a valid username of a user in your directory. If the
-    -- Domain\'s AuthMode is not SSO, this field cannot be specified.
-    singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
     -- | The ID of the associated Domain.
     domainId :: Prelude.Text,
-    -- | A name for the UserProfile.
+    -- | A name for the UserProfile. This value is not case sensitive.
     userProfileName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,19 +98,22 @@ data CreateUserProfile = CreateUserProfile'
 -- 'tags', 'createUserProfile_tags' - Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
 --
+-- Tags that you specify for the User Profile are also added to all Apps
+-- that the User Profile launches.
+--
+-- 'singleSignOnUserValue', 'createUserProfile_singleSignOnUserValue' - The username of the associated Amazon Web Services Single Sign-On User
+-- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
+-- required, and must match a valid username of a user in your directory.
+-- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+--
 -- 'singleSignOnUserIdentifier', 'createUserProfile_singleSignOnUserIdentifier' - A specifier for the type of value specified in SingleSignOnUserValue.
 -- Currently, the only supported value is \"UserName\". If the Domain\'s
 -- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
 -- not SSO, this field cannot be specified.
 --
--- 'singleSignOnUserValue', 'createUserProfile_singleSignOnUserValue' - The username of the associated AWS Single Sign-On User for this
--- UserProfile. If the Domain\'s AuthMode is SSO, this field is required,
--- and must match a valid username of a user in your directory. If the
--- Domain\'s AuthMode is not SSO, this field cannot be specified.
---
 -- 'domainId', 'createUserProfile_domainId' - The ID of the associated Domain.
 --
--- 'userProfileName', 'createUserProfile_userProfileName' - A name for the UserProfile.
+-- 'userProfileName', 'createUserProfile_userProfileName' - A name for the UserProfile. This value is not case sensitive.
 newCreateUserProfile ::
   -- | 'domainId'
   Prelude.Text ->
@@ -118,8 +124,8 @@ newCreateUserProfile pDomainId_ pUserProfileName_ =
   CreateUserProfile'
     { userSettings = Prelude.Nothing,
       tags = Prelude.Nothing,
-      singleSignOnUserIdentifier = Prelude.Nothing,
       singleSignOnUserValue = Prelude.Nothing,
+      singleSignOnUserIdentifier = Prelude.Nothing,
       domainId = pDomainId_,
       userProfileName = pUserProfileName_
     }
@@ -130,8 +136,18 @@ createUserProfile_userSettings = Lens.lens (\CreateUserProfile' {userSettings} -
 
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
+--
+-- Tags that you specify for the User Profile are also added to all Apps
+-- that the User Profile launches.
 createUserProfile_tags :: Lens.Lens' CreateUserProfile (Prelude.Maybe [Tag])
 createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The username of the associated Amazon Web Services Single Sign-On User
+-- for this UserProfile. If the Domain\'s AuthMode is SSO, this field is
+-- required, and must match a valid username of a user in your directory.
+-- If the Domain\'s AuthMode is not SSO, this field cannot be specified.
+createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_singleSignOnUserValue = Lens.lens (\CreateUserProfile' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@CreateUserProfile' {} a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
 
 -- | A specifier for the type of value specified in SingleSignOnUserValue.
 -- Currently, the only supported value is \"UserName\". If the Domain\'s
@@ -140,18 +156,11 @@ createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@Crea
 createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
 createUserProfile_singleSignOnUserIdentifier = Lens.lens (\CreateUserProfile' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@CreateUserProfile' {} a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
 
--- | The username of the associated AWS Single Sign-On User for this
--- UserProfile. If the Domain\'s AuthMode is SSO, this field is required,
--- and must match a valid username of a user in your directory. If the
--- Domain\'s AuthMode is not SSO, this field cannot be specified.
-createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
-createUserProfile_singleSignOnUserValue = Lens.lens (\CreateUserProfile' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@CreateUserProfile' {} a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
-
 -- | The ID of the associated Domain.
 createUserProfile_domainId :: Lens.Lens' CreateUserProfile Prelude.Text
 createUserProfile_domainId = Lens.lens (\CreateUserProfile' {domainId} -> domainId) (\s@CreateUserProfile' {} a -> s {domainId = a} :: CreateUserProfile)
 
--- | A name for the UserProfile.
+-- | A name for the UserProfile. This value is not case sensitive.
 createUserProfile_userProfileName :: Lens.Lens' CreateUserProfile Prelude.Text
 createUserProfile_userProfileName = Lens.lens (\CreateUserProfile' {userProfileName} -> userProfileName) (\s@CreateUserProfile' {} a -> s {userProfileName = a} :: CreateUserProfile)
 
@@ -193,10 +202,10 @@ instance Core.ToJSON CreateUserProfile where
       ( Prelude.catMaybes
           [ ("UserSettings" Core..=) Prelude.<$> userSettings,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("SingleSignOnUserIdentifier" Core..=)
-              Prelude.<$> singleSignOnUserIdentifier,
             ("SingleSignOnUserValue" Core..=)
               Prelude.<$> singleSignOnUserValue,
+            ("SingleSignOnUserIdentifier" Core..=)
+              Prelude.<$> singleSignOnUserIdentifier,
             Prelude.Just ("DomainId" Core..= domainId),
             Prelude.Just
               ("UserProfileName" Core..= userProfileName)

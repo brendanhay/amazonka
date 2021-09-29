@@ -37,8 +37,8 @@ module Network.AWS.RDS.CancelExportTask
 
     -- * Response Lenses
     exportTask_taskEndTime,
-    exportTask_iamRoleArn,
     exportTask_status,
+    exportTask_iamRoleArn,
     exportTask_totalExtractedDataInGB,
     exportTask_warningMessage,
     exportTask_snapshotTime,

@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
   { -- | The name of the conformance pack name.
     conformancePackName :: Prelude.Text,
-    -- | The status of the conformance pack. The allowed values are COMPLIANT and
-    -- NON_COMPLIANT.
+    -- | The status of the conformance pack. The allowed values are @COMPLIANT@,
+    -- @NON_COMPLIANT@ and @INSUFFICIENT_DATA@.
     conformancePackComplianceStatus :: ConformancePackComplianceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
 --
 -- 'conformancePackName', 'conformancePackComplianceSummary_conformancePackName' - The name of the conformance pack name.
 --
--- 'conformancePackComplianceStatus', 'conformancePackComplianceSummary_conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and
--- NON_COMPLIANT.
+-- 'conformancePackComplianceStatus', 'conformancePackComplianceSummary_conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are @COMPLIANT@,
+-- @NON_COMPLIANT@ and @INSUFFICIENT_DATA@.
 newConformancePackComplianceSummary ::
   -- | 'conformancePackName'
   Prelude.Text ->
@@ -68,8 +68,8 @@ newConformancePackComplianceSummary
 conformancePackComplianceSummary_conformancePackName :: Lens.Lens' ConformancePackComplianceSummary Prelude.Text
 conformancePackComplianceSummary_conformancePackName = Lens.lens (\ConformancePackComplianceSummary' {conformancePackName} -> conformancePackName) (\s@ConformancePackComplianceSummary' {} a -> s {conformancePackName = a} :: ConformancePackComplianceSummary)
 
--- | The status of the conformance pack. The allowed values are COMPLIANT and
--- NON_COMPLIANT.
+-- | The status of the conformance pack. The allowed values are @COMPLIANT@,
+-- @NON_COMPLIANT@ and @INSUFFICIENT_DATA@.
 conformancePackComplianceSummary_conformancePackComplianceStatus :: Lens.Lens' ConformancePackComplianceSummary ConformancePackComplianceType
 conformancePackComplianceSummary_conformancePackComplianceStatus = Lens.lens (\ConformancePackComplianceSummary' {conformancePackComplianceStatus} -> conformancePackComplianceStatus) (\s@ConformancePackComplianceSummary' {} a -> s {conformancePackComplianceStatus = a} :: ConformancePackComplianceSummary)
 

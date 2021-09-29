@@ -26,8 +26,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a container instance host device.
 --
--- This object isn\'t applicable to jobs running on Fargate resources and
--- shouldn\'t be provided.
+-- This object isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
@@ -35,8 +35,8 @@ data Device = Device'
     -- default, the container has permissions for @read@, @write@, and @mknod@
     -- for the device.
     permissions :: Prelude.Maybe [DeviceCgroupPermission],
-    -- | The path inside the container used to expose the host device. By default
-    -- the @hostPath@ value is used.
+    -- | The path inside the container that\'s used to expose the host device. By
+    -- default, the @hostPath@ value is used.
     containerPath :: Prelude.Maybe Prelude.Text,
     -- | The path for the device on the host container instance.
     hostPath :: Prelude.Text
@@ -55,8 +55,8 @@ data Device = Device'
 -- default, the container has permissions for @read@, @write@, and @mknod@
 -- for the device.
 --
--- 'containerPath', 'device_containerPath' - The path inside the container used to expose the host device. By default
--- the @hostPath@ value is used.
+-- 'containerPath', 'device_containerPath' - The path inside the container that\'s used to expose the host device. By
+-- default, the @hostPath@ value is used.
 --
 -- 'hostPath', 'device_hostPath' - The path for the device on the host container instance.
 newDevice ::
@@ -76,8 +76,8 @@ newDevice pHostPath_ =
 device_permissions :: Lens.Lens' Device (Prelude.Maybe [DeviceCgroupPermission])
 device_permissions = Lens.lens (\Device' {permissions} -> permissions) (\s@Device' {} a -> s {permissions = a} :: Device) Prelude.. Lens.mapping Lens._Coerce
 
--- | The path inside the container used to expose the host device. By default
--- the @hostPath@ value is used.
+-- | The path inside the container that\'s used to expose the host device. By
+-- default, the @hostPath@ value is used.
 device_containerPath :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_containerPath = Lens.lens (\Device' {containerPath} -> containerPath) (\s@Device' {} a -> s {containerPath = a} :: Device)
 

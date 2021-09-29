@@ -47,17 +47,23 @@ library
   exposed-modules:
     Network.AWS.Redshift
     Network.AWS.Redshift.AcceptReservedNodeExchange
+    Network.AWS.Redshift.AddPartner
+    Network.AWS.Redshift.AssociateDataShareConsumer
     Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+    Network.AWS.Redshift.AuthorizeDataShare
+    Network.AWS.Redshift.AuthorizeEndpointAccess
     Network.AWS.Redshift.AuthorizeSnapshotAccess
     Network.AWS.Redshift.BatchDeleteClusterSnapshots
     Network.AWS.Redshift.BatchModifyClusterSnapshots
     Network.AWS.Redshift.CancelResize
     Network.AWS.Redshift.CopyClusterSnapshot
+    Network.AWS.Redshift.CreateAuthenticationProfile
     Network.AWS.Redshift.CreateCluster
     Network.AWS.Redshift.CreateClusterParameterGroup
     Network.AWS.Redshift.CreateClusterSecurityGroup
     Network.AWS.Redshift.CreateClusterSnapshot
     Network.AWS.Redshift.CreateClusterSubnetGroup
+    Network.AWS.Redshift.CreateEndpointAccess
     Network.AWS.Redshift.CreateEventSubscription
     Network.AWS.Redshift.CreateHsmClientCertificate
     Network.AWS.Redshift.CreateHsmConfiguration
@@ -66,20 +72,25 @@ library
     Network.AWS.Redshift.CreateSnapshotSchedule
     Network.AWS.Redshift.CreateTags
     Network.AWS.Redshift.CreateUsageLimit
+    Network.AWS.Redshift.DeauthorizeDataShare
+    Network.AWS.Redshift.DeleteAuthenticationProfile
     Network.AWS.Redshift.DeleteCluster
     Network.AWS.Redshift.DeleteClusterParameterGroup
     Network.AWS.Redshift.DeleteClusterSecurityGroup
     Network.AWS.Redshift.DeleteClusterSnapshot
     Network.AWS.Redshift.DeleteClusterSubnetGroup
+    Network.AWS.Redshift.DeleteEndpointAccess
     Network.AWS.Redshift.DeleteEventSubscription
     Network.AWS.Redshift.DeleteHsmClientCertificate
     Network.AWS.Redshift.DeleteHsmConfiguration
+    Network.AWS.Redshift.DeletePartner
     Network.AWS.Redshift.DeleteScheduledAction
     Network.AWS.Redshift.DeleteSnapshotCopyGrant
     Network.AWS.Redshift.DeleteSnapshotSchedule
     Network.AWS.Redshift.DeleteTags
     Network.AWS.Redshift.DeleteUsageLimit
     Network.AWS.Redshift.DescribeAccountAttributes
+    Network.AWS.Redshift.DescribeAuthenticationProfiles
     Network.AWS.Redshift.DescribeClusterDbRevisions
     Network.AWS.Redshift.DescribeClusterParameterGroups
     Network.AWS.Redshift.DescribeClusterParameters
@@ -89,7 +100,12 @@ library
     Network.AWS.Redshift.DescribeClusterSubnetGroups
     Network.AWS.Redshift.DescribeClusterTracks
     Network.AWS.Redshift.DescribeClusterVersions
+    Network.AWS.Redshift.DescribeDataShares
+    Network.AWS.Redshift.DescribeDataSharesForConsumer
+    Network.AWS.Redshift.DescribeDataSharesForProducer
     Network.AWS.Redshift.DescribeDefaultClusterParameters
+    Network.AWS.Redshift.DescribeEndpointAccess
+    Network.AWS.Redshift.DescribeEndpointAuthorization
     Network.AWS.Redshift.DescribeEventCategories
     Network.AWS.Redshift.DescribeEvents
     Network.AWS.Redshift.DescribeEventSubscriptions
@@ -98,6 +114,7 @@ library
     Network.AWS.Redshift.DescribeLoggingStatus
     Network.AWS.Redshift.DescribeNodeConfigurationOptions
     Network.AWS.Redshift.DescribeOrderableClusterOptions
+    Network.AWS.Redshift.DescribePartners
     Network.AWS.Redshift.DescribeReservedNodeOfferings
     Network.AWS.Redshift.DescribeReservedNodes
     Network.AWS.Redshift.DescribeResize
@@ -110,12 +127,15 @@ library
     Network.AWS.Redshift.DescribeUsageLimits
     Network.AWS.Redshift.DisableLogging
     Network.AWS.Redshift.DisableSnapshotCopy
+    Network.AWS.Redshift.DisassociateDataShareConsumer
     Network.AWS.Redshift.EnableLogging
     Network.AWS.Redshift.EnableSnapshotCopy
     Network.AWS.Redshift.GetClusterCredentials
     Network.AWS.Redshift.GetReservedNodeExchangeOfferings
     Network.AWS.Redshift.Internal
     Network.AWS.Redshift.Lens
+    Network.AWS.Redshift.ModifyAquaConfiguration
+    Network.AWS.Redshift.ModifyAuthenticationProfile
     Network.AWS.Redshift.ModifyCluster
     Network.AWS.Redshift.ModifyClusterDbRevision
     Network.AWS.Redshift.ModifyClusterIamRoles
@@ -124,6 +144,7 @@ library
     Network.AWS.Redshift.ModifyClusterSnapshot
     Network.AWS.Redshift.ModifyClusterSnapshotSchedule
     Network.AWS.Redshift.ModifyClusterSubnetGroup
+    Network.AWS.Redshift.ModifyEndpointAccess
     Network.AWS.Redshift.ModifyEventSubscription
     Network.AWS.Redshift.ModifyScheduledAction
     Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
@@ -132,19 +153,26 @@ library
     Network.AWS.Redshift.PauseCluster
     Network.AWS.Redshift.PurchaseReservedNodeOffering
     Network.AWS.Redshift.RebootCluster
+    Network.AWS.Redshift.RejectDataShare
     Network.AWS.Redshift.ResetClusterParameterGroup
     Network.AWS.Redshift.ResizeCluster
     Network.AWS.Redshift.RestoreFromClusterSnapshot
     Network.AWS.Redshift.RestoreTableFromClusterSnapshot
     Network.AWS.Redshift.ResumeCluster
     Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+    Network.AWS.Redshift.RevokeEndpointAccess
     Network.AWS.Redshift.RevokeSnapshotAccess
     Network.AWS.Redshift.RotateEncryptionKey
     Network.AWS.Redshift.Types
     Network.AWS.Redshift.Types.AccountAttribute
     Network.AWS.Redshift.Types.AccountWithRestoreAccess
     Network.AWS.Redshift.Types.ActionType
+    Network.AWS.Redshift.Types.AquaConfiguration
+    Network.AWS.Redshift.Types.AquaConfigurationStatus
+    Network.AWS.Redshift.Types.AquaStatus
     Network.AWS.Redshift.Types.AttributeValueTarget
+    Network.AWS.Redshift.Types.AuthenticationProfile
+    Network.AWS.Redshift.Types.AuthorizationStatus
     Network.AWS.Redshift.Types.AvailabilityZone
     Network.AWS.Redshift.Types.Cluster
     Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
@@ -160,6 +188,11 @@ library
     Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
     Network.AWS.Redshift.Types.ClusterSubnetGroup
     Network.AWS.Redshift.Types.ClusterVersion
+    Network.AWS.Redshift.Types.DataShare
+    Network.AWS.Redshift.Types.DataShareAssociation
+    Network.AWS.Redshift.Types.DataShareStatus
+    Network.AWS.Redshift.Types.DataShareStatusForConsumer
+    Network.AWS.Redshift.Types.DataShareStatusForProducer
     Network.AWS.Redshift.Types.DataTransferProgress
     Network.AWS.Redshift.Types.DefaultClusterParameters
     Network.AWS.Redshift.Types.DeferredMaintenanceWindow
@@ -167,6 +200,8 @@ library
     Network.AWS.Redshift.Types.EC2SecurityGroup
     Network.AWS.Redshift.Types.ElasticIpStatus
     Network.AWS.Redshift.Types.Endpoint
+    Network.AWS.Redshift.Types.EndpointAccess
+    Network.AWS.Redshift.Types.EndpointAuthorization
     Network.AWS.Redshift.Types.Event
     Network.AWS.Redshift.Types.EventCategoriesMap
     Network.AWS.Redshift.Types.EventInfoMap
@@ -178,6 +213,7 @@ library
     Network.AWS.Redshift.Types.LoggingStatus
     Network.AWS.Redshift.Types.MaintenanceTrack
     Network.AWS.Redshift.Types.Mode
+    Network.AWS.Redshift.Types.NetworkInterface
     Network.AWS.Redshift.Types.NodeConfigurationOption
     Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter
     Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
@@ -185,6 +221,10 @@ library
     Network.AWS.Redshift.Types.OrderableClusterOption
     Network.AWS.Redshift.Types.Parameter
     Network.AWS.Redshift.Types.ParameterApplyType
+    Network.AWS.Redshift.Types.PartnerIntegrationInfo
+    Network.AWS.Redshift.Types.PartnerIntegrationInputMessage
+    Network.AWS.Redshift.Types.PartnerIntegrationOutputMessage
+    Network.AWS.Redshift.Types.PartnerIntegrationStatus
     Network.AWS.Redshift.Types.PauseClusterMessage
     Network.AWS.Redshift.Types.PendingModifiedValues
     Network.AWS.Redshift.Types.RecurringCharge
@@ -227,6 +267,7 @@ library
     Network.AWS.Redshift.Types.UsageLimitPeriod
     Network.AWS.Redshift.Types.VpcEndpoint
     Network.AWS.Redshift.Types.VpcSecurityGroupMembership
+    Network.AWS.Redshift.UpdatePartnerStatus
     Network.AWS.Redshift.Waiters
 
   reexported-modules: Network.AWS

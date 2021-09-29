@@ -52,10 +52,10 @@ data User = User'
     --
     -- Users\' email addresses are case-sensitive.
     userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The first name, or given name, of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The last name, or surname, of the user.
     lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The first name, or given name, of the user.
+    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
@@ -93,9 +93,9 @@ data User = User'
 --
 -- Users\' email addresses are case-sensitive.
 --
--- 'firstName', 'user_firstName' - The first name, or given name, of the user.
---
 -- 'lastName', 'user_lastName' - The last name, or surname, of the user.
+--
+-- 'firstName', 'user_firstName' - The first name, or given name, of the user.
 --
 -- 'authenticationType', 'user_authenticationType' - The authentication type for the user.
 newUser ::
@@ -109,8 +109,8 @@ newUser pAuthenticationType_ =
       enabled = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       userName = Prelude.Nothing,
-      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      firstName = Prelude.Nothing,
       authenticationType = pAuthenticationType_
     }
 
@@ -148,13 +148,13 @@ user_createdTime = Lens.lens (\User' {createdTime} -> createdTime) (\s@User' {} 
 user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
--- | The first name, or given name, of the user.
-user_firstName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The last name, or surname, of the user.
 user_lastName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The first name, or given name, of the user.
+user_firstName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The authentication type for the user.
 user_authenticationType :: Lens.Lens' User AuthenticationType
@@ -171,8 +171,8 @@ instance Core.FromJSON User where
             Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "FirstName")
             Prelude.<*> (x Core..:? "LastName")
+            Prelude.<*> (x Core..:? "FirstName")
             Prelude.<*> (x Core..: "AuthenticationType")
       )
 

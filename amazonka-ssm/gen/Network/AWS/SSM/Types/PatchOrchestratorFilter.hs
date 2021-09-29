@@ -23,7 +23,17 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Defines a filter used in Patch Manager APIs.
+-- | Defines a filter used in Patch Manager APIs. Supported filter keys
+-- depend on the API operation that includes the filter. Patch Manager API
+-- operations that use @PatchOrchestratorFilter@ include the following:
+--
+-- -   DescribeAvailablePatches
+--
+-- -   DescribeInstancePatches
+--
+-- -   DescribePatchBaselines
+--
+-- -   DescribePatchGroups
 --
 -- /See:/ 'newPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'

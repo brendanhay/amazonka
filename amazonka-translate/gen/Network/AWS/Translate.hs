@@ -29,11 +29,11 @@ module Network.AWS.Translate
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** UnsupportedLanguagePairException
     _UnsupportedLanguagePairException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -41,14 +41,14 @@ module Network.AWS.Translate
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** TextSizeLimitExceededException
-    _TextSizeLimitExceededException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -77,17 +77,17 @@ module Network.AWS.Translate
     DescribeTextTranslationJobResponse (DescribeTextTranslationJobResponse'),
     newDescribeTextTranslationJobResponse,
 
-    -- ** StopTextTranslationJob
-    StopTextTranslationJob (StopTextTranslationJob'),
-    newStopTextTranslationJob,
-    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
-    newStopTextTranslationJobResponse,
-
     -- ** StartTextTranslationJob
     StartTextTranslationJob (StartTextTranslationJob'),
     newStartTextTranslationJob,
     StartTextTranslationJobResponse (StartTextTranslationJobResponse'),
     newStartTextTranslationJobResponse,
+
+    -- ** StopTextTranslationJob
+    StopTextTranslationJob (StopTextTranslationJob'),
+    newStopTextTranslationJob,
+    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
+    newStopTextTranslationJobResponse,
 
     -- ** ImportTerminology
     ImportTerminology (ImportTerminology'),
@@ -107,17 +107,17 @@ module Network.AWS.Translate
     GetParallelDataResponse (GetParallelDataResponse'),
     newGetParallelDataResponse,
 
-    -- ** DeleteParallelData
-    DeleteParallelData (DeleteParallelData'),
-    newDeleteParallelData,
-    DeleteParallelDataResponse (DeleteParallelDataResponse'),
-    newDeleteParallelDataResponse,
-
     -- ** UpdateParallelData
     UpdateParallelData (UpdateParallelData'),
     newUpdateParallelData,
     UpdateParallelDataResponse (UpdateParallelDataResponse'),
     newUpdateParallelDataResponse,
+
+    -- ** DeleteParallelData
+    DeleteParallelData (DeleteParallelData'),
+    newDeleteParallelData,
+    DeleteParallelDataResponse (DeleteParallelDataResponse'),
+    newDeleteParallelDataResponse,
 
     -- ** DeleteTerminology
     DeleteTerminology (DeleteTerminology'),

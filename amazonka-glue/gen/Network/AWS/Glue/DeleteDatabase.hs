@@ -24,7 +24,7 @@
 --
 -- After completing this operation, you no longer have access to the tables
 -- (and all table versions and partitions that might belong to the tables)
--- and the user-defined functions in the deleted database. AWS Glue deletes
+-- and the user-defined functions in the deleted database. Glue deletes
 -- these \"orphaned\" resources asynchronously in a timely manner, at the
 -- discretion of the service.
 --
@@ -61,7 +61,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteDatabase' smart constructor.
 data DeleteDatabase = DeleteDatabase'
   { -- | The ID of the Data Catalog in which the database resides. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database to delete. For Hive compatibility, this must be
     -- all lowercase.
@@ -78,7 +78,7 @@ data DeleteDatabase = DeleteDatabase'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteDatabase_catalogId' - The ID of the Data Catalog in which the database resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'name', 'deleteDatabase_name' - The name of the database to delete. For Hive compatibility, this must be
 -- all lowercase.
@@ -93,7 +93,7 @@ newDeleteDatabase pName_ =
     }
 
 -- | The ID of the Data Catalog in which the database resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 deleteDatabase_catalogId :: Lens.Lens' DeleteDatabase (Prelude.Maybe Prelude.Text)
 deleteDatabase_catalogId = Lens.lens (\DeleteDatabase' {catalogId} -> catalogId) (\s@DeleteDatabase' {} a -> s {catalogId = a} :: DeleteDatabase)
 

@@ -28,8 +28,8 @@ module Network.AWS.CloudSearchDomains.Lens
     search_partial,
     search_queryParser,
     search_queryOptions,
-    search_cursor,
     search_return,
+    search_cursor,
     search_stats,
     search_highlight,
     search_start,
@@ -55,8 +55,8 @@ module Network.AWS.CloudSearchDomains.Lens
     -- * Types
 
     -- ** Bucket
-    bucket_value,
     bucket_count,
+    bucket_value,
 
     -- ** BucketInfo
     bucketInfo_buckets,
@@ -69,8 +69,8 @@ module Network.AWS.CloudSearchDomains.Lens
     fieldStats_missing,
     fieldStats_sum,
     fieldStats_min,
-    fieldStats_max,
     fieldStats_stddev,
+    fieldStats_max,
     fieldStats_count,
     fieldStats_sumOfSquares,
 

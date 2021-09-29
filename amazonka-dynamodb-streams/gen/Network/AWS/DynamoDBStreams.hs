@@ -46,17 +46,17 @@ module Network.AWS.DynamoDBStreams
     -- * Operations
     -- $operations
 
-    -- ** GetRecords
-    GetRecords (GetRecords'),
-    newGetRecords,
-    GetRecordsResponse (GetRecordsResponse'),
-    newGetRecordsResponse,
-
     -- ** GetShardIterator
     GetShardIterator (GetShardIterator'),
     newGetShardIterator,
     GetShardIteratorResponse (GetShardIteratorResponse'),
     newGetShardIteratorResponse,
+
+    -- ** GetRecords
+    GetRecords (GetRecords'),
+    newGetRecords,
+    GetRecordsResponse (GetRecordsResponse'),
+    newGetRecordsResponse,
 
     -- ** DescribeStream
     DescribeStream (DescribeStream'),

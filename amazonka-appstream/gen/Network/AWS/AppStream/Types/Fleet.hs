@@ -34,15 +34,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFleet' smart constructor.
 data Fleet = Fleet'
-  { -- | The maximum amount of time that a streaming session can remain active,
-    -- in seconds. If users are still connected to a streaming instance five
-    -- minutes before this limit is reached, they are prompted to save any open
-    -- documents before being disconnected. After this time elapses, the
-    -- instance is terminated and replaced by a new instance.
-    --
-    -- Specify a value between 600 and 360000.
-    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time that a streaming session remains active after users
+  { -- | The amount of time that a streaming session remains active after users
     -- disconnect. If they try to reconnect to the streaming session after a
     -- disconnection or network interruption within this time interval, they
     -- are connected to their previous session. Otherwise, they are connected
@@ -50,6 +42,14 @@ data Fleet = Fleet'
     --
     -- Specify a value between 60 and 360000.
     disconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The maximum amount of time that a streaming session can remain active,
+    -- in seconds. If users are still connected to a streaming instance five
+    -- minutes before this limit is reached, they are prompted to save any open
+    -- documents before being disconnected. After this time elapses, the
+    -- instance is terminated and replaced by a new instance.
+    --
+    -- Specify a value between 600 and 360000.
+    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The VPC configuration for the fleet.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The ARN of the IAM role that is applied to the fleet. To assume a role,
@@ -117,12 +117,12 @@ data Fleet = Fleet'
     streamView :: Prelude.Maybe StreamView,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The fleet name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether default internet access is enabled for the fleet.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | The fleet errors.
     fleetErrors :: Prelude.Maybe [FleetError],
+    -- | The fleet name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the public, private, or shared image.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the fleet.
@@ -213,14 +213,6 @@ data Fleet = Fleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxUserDurationInSeconds', 'fleet_maxUserDurationInSeconds' - The maximum amount of time that a streaming session can remain active,
--- in seconds. If users are still connected to a streaming instance five
--- minutes before this limit is reached, they are prompted to save any open
--- documents before being disconnected. After this time elapses, the
--- instance is terminated and replaced by a new instance.
---
--- Specify a value between 600 and 360000.
---
 -- 'disconnectTimeoutInSeconds', 'fleet_disconnectTimeoutInSeconds' - The amount of time that a streaming session remains active after users
 -- disconnect. If they try to reconnect to the streaming session after a
 -- disconnection or network interruption within this time interval, they
@@ -228,6 +220,14 @@ data Fleet = Fleet'
 -- to a new session with a new streaming instance.
 --
 -- Specify a value between 60 and 360000.
+--
+-- 'maxUserDurationInSeconds', 'fleet_maxUserDurationInSeconds' - The maximum amount of time that a streaming session can remain active,
+-- in seconds. If users are still connected to a streaming instance five
+-- minutes before this limit is reached, they are prompted to save any open
+-- documents before being disconnected. After this time elapses, the
+-- instance is terminated and replaced by a new instance.
+--
+-- Specify a value between 600 and 360000.
 --
 -- 'vpcConfig', 'fleet_vpcConfig' - The VPC configuration for the fleet.
 --
@@ -296,11 +296,11 @@ data Fleet = Fleet'
 --
 -- 'description', 'fleet_description' - The description to display.
 --
--- 'displayName', 'fleet_displayName' - The fleet name to display.
---
 -- 'enableDefaultInternetAccess', 'fleet_enableDefaultInternetAccess' - Indicates whether default internet access is enabled for the fleet.
 --
 -- 'fleetErrors', 'fleet_fleetErrors' - The fleet errors.
+--
+-- 'displayName', 'fleet_displayName' - The fleet name to display.
 --
 -- 'imageArn', 'fleet_imageArn' - The ARN for the public, private, or shared image.
 --
@@ -399,8 +399,9 @@ newFleet
   pComputeCapacityStatus_
   pState_ =
     Fleet'
-      { maxUserDurationInSeconds = Prelude.Nothing,
-        disconnectTimeoutInSeconds = Prelude.Nothing,
+      { disconnectTimeoutInSeconds =
+          Prelude.Nothing,
+        maxUserDurationInSeconds = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
         iamRoleArn = Prelude.Nothing,
         domainJoinInfo = Prelude.Nothing,
@@ -410,9 +411,9 @@ newFleet
         createdTime = Prelude.Nothing,
         streamView = Prelude.Nothing,
         description = Prelude.Nothing,
-        displayName = Prelude.Nothing,
         enableDefaultInternetAccess = Prelude.Nothing,
         fleetErrors = Prelude.Nothing,
+        displayName = Prelude.Nothing,
         imageArn = Prelude.Nothing,
         arn = pArn_,
         name = pName_,
@@ -420,16 +421,6 @@ newFleet
         computeCapacityStatus = pComputeCapacityStatus_,
         state = pState_
       }
-
--- | The maximum amount of time that a streaming session can remain active,
--- in seconds. If users are still connected to a streaming instance five
--- minutes before this limit is reached, they are prompted to save any open
--- documents before being disconnected. After this time elapses, the
--- instance is terminated and replaced by a new instance.
---
--- Specify a value between 600 and 360000.
-fleet_maxUserDurationInSeconds :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Int)
-fleet_maxUserDurationInSeconds = Lens.lens (\Fleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@Fleet' {} a -> s {maxUserDurationInSeconds = a} :: Fleet)
 
 -- | The amount of time that a streaming session remains active after users
 -- disconnect. If they try to reconnect to the streaming session after a
@@ -440,6 +431,16 @@ fleet_maxUserDurationInSeconds = Lens.lens (\Fleet' {maxUserDurationInSeconds} -
 -- Specify a value between 60 and 360000.
 fleet_disconnectTimeoutInSeconds :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Int)
 fleet_disconnectTimeoutInSeconds = Lens.lens (\Fleet' {disconnectTimeoutInSeconds} -> disconnectTimeoutInSeconds) (\s@Fleet' {} a -> s {disconnectTimeoutInSeconds = a} :: Fleet)
+
+-- | The maximum amount of time that a streaming session can remain active,
+-- in seconds. If users are still connected to a streaming instance five
+-- minutes before this limit is reached, they are prompted to save any open
+-- documents before being disconnected. After this time elapses, the
+-- instance is terminated and replaced by a new instance.
+--
+-- Specify a value between 600 and 360000.
+fleet_maxUserDurationInSeconds :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Int)
+fleet_maxUserDurationInSeconds = Lens.lens (\Fleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@Fleet' {} a -> s {maxUserDurationInSeconds = a} :: Fleet)
 
 -- | The VPC configuration for the fleet.
 fleet_vpcConfig :: Lens.Lens' Fleet (Prelude.Maybe VpcConfig)
@@ -526,10 +527,6 @@ fleet_streamView = Lens.lens (\Fleet' {streamView} -> streamView) (\s@Fleet' {} 
 fleet_description :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
 fleet_description = Lens.lens (\Fleet' {description} -> description) (\s@Fleet' {} a -> s {description = a} :: Fleet)
 
--- | The fleet name to display.
-fleet_displayName :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
-fleet_displayName = Lens.lens (\Fleet' {displayName} -> displayName) (\s@Fleet' {} a -> s {displayName = a} :: Fleet)
-
 -- | Indicates whether default internet access is enabled for the fleet.
 fleet_enableDefaultInternetAccess :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Bool)
 fleet_enableDefaultInternetAccess = Lens.lens (\Fleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@Fleet' {} a -> s {enableDefaultInternetAccess = a} :: Fleet)
@@ -537,6 +534,10 @@ fleet_enableDefaultInternetAccess = Lens.lens (\Fleet' {enableDefaultInternetAcc
 -- | The fleet errors.
 fleet_fleetErrors :: Lens.Lens' Fleet (Prelude.Maybe [FleetError])
 fleet_fleetErrors = Lens.lens (\Fleet' {fleetErrors} -> fleetErrors) (\s@Fleet' {} a -> s {fleetErrors = a} :: Fleet) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The fleet name to display.
+fleet_displayName :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
+fleet_displayName = Lens.lens (\Fleet' {displayName} -> displayName) (\s@Fleet' {} a -> s {displayName = a} :: Fleet)
 
 -- | The ARN for the public, private, or shared image.
 fleet_imageArn :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
@@ -635,8 +636,8 @@ instance Core.FromJSON Fleet where
       "Fleet"
       ( \x ->
           Fleet'
-            Prelude.<$> (x Core..:? "MaxUserDurationInSeconds")
-            Prelude.<*> (x Core..:? "DisconnectTimeoutInSeconds")
+            Prelude.<$> (x Core..:? "DisconnectTimeoutInSeconds")
+            Prelude.<*> (x Core..:? "MaxUserDurationInSeconds")
             Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "IamRoleArn")
             Prelude.<*> (x Core..:? "DomainJoinInfo")
@@ -646,9 +647,9 @@ instance Core.FromJSON Fleet where
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "StreamView")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "EnableDefaultInternetAccess")
             Prelude.<*> (x Core..:? "FleetErrors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "ImageArn")
             Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "Name")

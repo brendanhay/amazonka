@@ -1,0 +1,154 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Connect.DisassociateBot
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This API is in preview release for Amazon Connect and is subject to
+-- change.
+--
+-- Revokes authorization from the specified instance to access the
+-- specified Amazon Lex or Amazon Lex V2 bot.
+module Network.AWS.Connect.DisassociateBot
+  ( -- * Creating a Request
+    DisassociateBot (..),
+    newDisassociateBot,
+
+    -- * Request Lenses
+    disassociateBot_lexBot,
+    disassociateBot_lexV2Bot,
+    disassociateBot_instanceId,
+
+    -- * Destructuring the Response
+    DisassociateBotResponse (..),
+    newDisassociateBotResponse,
+  )
+where
+
+import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDisassociateBot' smart constructor.
+data DisassociateBot = DisassociateBot'
+  { lexBot :: Prelude.Maybe LexBot,
+    -- | The Amazon Lex V2 bot to disassociate from the instance.
+    lexV2Bot :: Prelude.Maybe LexV2Bot,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    instanceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DisassociateBot' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'lexBot', 'disassociateBot_lexBot' - Undocumented member.
+--
+-- 'lexV2Bot', 'disassociateBot_lexV2Bot' - The Amazon Lex V2 bot to disassociate from the instance.
+--
+-- 'instanceId', 'disassociateBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+newDisassociateBot ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  DisassociateBot
+newDisassociateBot pInstanceId_ =
+  DisassociateBot'
+    { lexBot = Prelude.Nothing,
+      lexV2Bot = Prelude.Nothing,
+      instanceId = pInstanceId_
+    }
+
+-- | Undocumented member.
+disassociateBot_lexBot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexBot)
+disassociateBot_lexBot = Lens.lens (\DisassociateBot' {lexBot} -> lexBot) (\s@DisassociateBot' {} a -> s {lexBot = a} :: DisassociateBot)
+
+-- | The Amazon Lex V2 bot to disassociate from the instance.
+disassociateBot_lexV2Bot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexV2Bot)
+disassociateBot_lexV2Bot = Lens.lens (\DisassociateBot' {lexV2Bot} -> lexV2Bot) (\s@DisassociateBot' {} a -> s {lexV2Bot = a} :: DisassociateBot)
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+disassociateBot_instanceId :: Lens.Lens' DisassociateBot Prelude.Text
+disassociateBot_instanceId = Lens.lens (\DisassociateBot' {instanceId} -> instanceId) (\s@DisassociateBot' {} a -> s {instanceId = a} :: DisassociateBot)
+
+instance Core.AWSRequest DisassociateBot where
+  type
+    AWSResponse DisassociateBot =
+      DisassociateBotResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DisassociateBotResponse'
+
+instance Prelude.Hashable DisassociateBot
+
+instance Prelude.NFData DisassociateBot
+
+instance Core.ToHeaders DisassociateBot where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DisassociateBot where
+  toJSON DisassociateBot' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("LexBot" Core..=) Prelude.<$> lexBot,
+            ("LexV2Bot" Core..=) Prelude.<$> lexV2Bot
+          ]
+      )
+
+instance Core.ToPath DisassociateBot where
+  toPath DisassociateBot' {..} =
+    Prelude.mconcat
+      ["/instance/", Core.toBS instanceId, "/bot"]
+
+instance Core.ToQuery DisassociateBot where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDisassociateBotResponse' smart constructor.
+data DisassociateBotResponse = DisassociateBotResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DisassociateBotResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDisassociateBotResponse ::
+  DisassociateBotResponse
+newDisassociateBotResponse = DisassociateBotResponse'
+
+instance Prelude.NFData DisassociateBotResponse

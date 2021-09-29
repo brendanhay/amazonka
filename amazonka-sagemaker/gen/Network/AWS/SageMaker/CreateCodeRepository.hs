@@ -28,7 +28,7 @@
 -- the lifecycle of any notebook instances it is associated with.
 --
 -- The repository can be hosted either in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository.
 module Network.AWS.SageMaker.CreateCodeRepository
   ( -- * Creating a Request
@@ -59,10 +59,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateCodeRepository' smart constructor.
 data CreateCodeRepository = CreateCodeRepository'
-  { -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the Git repository. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
@@ -82,10 +82,10 @@ data CreateCodeRepository = CreateCodeRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCodeRepository_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createCodeRepository_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'codeRepositoryName', 'createCodeRepository_codeRepositoryName' - The name of the Git repository. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
@@ -108,10 +108,10 @@ newCreateCodeRepository
         gitConfig = pGitConfig_
       }
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createCodeRepository_tags :: Lens.Lens' CreateCodeRepository (Prelude.Maybe [Tag])
 createCodeRepository_tags = Lens.lens (\CreateCodeRepository' {tags} -> tags) (\s@CreateCodeRepository' {} a -> s {tags = a} :: CreateCodeRepository) Prelude.. Lens.mapping Lens._Coerce
 

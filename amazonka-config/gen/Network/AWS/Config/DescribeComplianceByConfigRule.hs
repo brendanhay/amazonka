@@ -20,31 +20,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indicates whether the specified AWS Config rules are compliant. If a
--- rule is noncompliant, this action returns the number of AWS resources
--- that do not comply with the rule.
+-- Indicates whether the specified Config rules are compliant. If a rule is
+-- noncompliant, this action returns the number of Amazon Web Services
+-- resources that do not comply with the rule.
 --
 -- A rule is compliant if all of the evaluated resources comply with it. It
 -- is noncompliant if any of these resources do not comply.
 --
--- If AWS Config has no current evaluation results for the rule, it returns
+-- If Config has no current evaluation results for the rule, it returns
 -- @INSUFFICIENT_DATA@. This result might indicate one of the following
 -- conditions:
 --
--- -   AWS Config has never invoked an evaluation for the rule. To check
+-- -   Config has never invoked an evaluation for the rule. To check
 --     whether it has, use the @DescribeConfigRuleEvaluationStatus@ action
 --     to get the @LastSuccessfulInvocationTime@ and
 --     @LastFailedInvocationTime@.
 --
--- -   The rule\'s AWS Lambda function is failing to send evaluation
---     results to AWS Config. Verify that the role you assigned to your
---     configuration recorder includes the @config:PutEvaluations@
---     permission. If the rule is a custom rule, verify that the AWS Lambda
---     execution role includes the @config:PutEvaluations@ permission.
+-- -   The rule\'s Lambda function is failing to send evaluation results to
+--     Config. Verify that the role you assigned to your configuration
+--     recorder includes the @config:PutEvaluations@ permission. If the
+--     rule is a custom rule, verify that the Lambda execution role
+--     includes the @config:PutEvaluations@ permission.
 --
--- -   The rule\'s AWS Lambda function has returned @NOT_APPLICABLE@ for
---     all evaluation results. This can occur if the resources were deleted
---     or removed from the rule\'s scope.
+-- -   The rule\'s Lambda function has returned @NOT_APPLICABLE@ for all
+--     evaluation results. This can occur if the resources were deleted or
+--     removed from the rule\'s scope.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByConfigRule
@@ -86,7 +86,7 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | Specify one or more AWS Config rule names to filter the results by rule.
+    -- | Specify one or more Config rule names to filter the results by rule.
     configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,7 +106,7 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
 --
--- 'configRuleNames', 'describeComplianceByConfigRule_configRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
+-- 'configRuleNames', 'describeComplianceByConfigRule_configRuleNames' - Specify one or more Config rule names to filter the results by rule.
 newDescribeComplianceByConfigRule ::
   DescribeComplianceByConfigRule
 newDescribeComplianceByConfigRule =
@@ -128,7 +128,7 @@ describeComplianceByConfigRule_nextToken = Lens.lens (\DescribeComplianceByConfi
 describeComplianceByConfigRule_complianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [ComplianceType])
 describeComplianceByConfigRule_complianceTypes = Lens.lens (\DescribeComplianceByConfigRule' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByConfigRule' {} a -> s {complianceTypes = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specify one or more AWS Config rule names to filter the results by rule.
+-- | Specify one or more Config rule names to filter the results by rule.
 describeComplianceByConfigRule_configRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [Prelude.Text])
 describeComplianceByConfigRule_configRuleNames = Lens.lens (\DescribeComplianceByConfigRule' {configRuleNames} -> configRuleNames) (\s@DescribeComplianceByConfigRule' {} a -> s {configRuleNames = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Lens._Coerce
 
@@ -224,7 +224,7 @@ data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResp
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether each of the specified AWS Config rules is compliant.
+    -- | Indicates whether each of the specified Config rules is compliant.
     complianceByConfigRules :: Prelude.Maybe [ComplianceByConfigRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -242,7 +242,7 @@ data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResp
 -- 'nextToken', 'describeComplianceByConfigRuleResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'complianceByConfigRules', 'describeComplianceByConfigRuleResponse_complianceByConfigRules' - Indicates whether each of the specified AWS Config rules is compliant.
+-- 'complianceByConfigRules', 'describeComplianceByConfigRuleResponse_complianceByConfigRules' - Indicates whether each of the specified Config rules is compliant.
 --
 -- 'httpStatus', 'describeComplianceByConfigRuleResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByConfigRuleResponse ::
@@ -264,7 +264,7 @@ newDescribeComplianceByConfigRuleResponse
 describeComplianceByConfigRuleResponse_nextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe Prelude.Text)
 describeComplianceByConfigRuleResponse_nextToken = Lens.lens (\DescribeComplianceByConfigRuleResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRuleResponse)
 
--- | Indicates whether each of the specified AWS Config rules is compliant.
+-- | Indicates whether each of the specified Config rules is compliant.
 describeComplianceByConfigRuleResponse_complianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe [ComplianceByConfigRule])
 describeComplianceByConfigRuleResponse_complianceByConfigRules = Lens.lens (\DescribeComplianceByConfigRuleResponse' {complianceByConfigRules} -> complianceByConfigRules) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse) Prelude.. Lens.mapping Lens._Coerce
 

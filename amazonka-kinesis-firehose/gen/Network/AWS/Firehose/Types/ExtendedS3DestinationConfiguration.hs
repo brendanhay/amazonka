@@ -24,6 +24,7 @@ import Network.AWS.Firehose.Types.BufferingHints
 import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.CompressionFormat
 import Network.AWS.Firehose.Types.DataFormatConversionConfiguration
+import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
 import Network.AWS.Firehose.Types.EncryptionConfiguration
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3BackupMode
@@ -47,16 +48,22 @@ data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
     s3BackupConfiguration :: Prelude.Maybe S3DestinationConfiguration,
     -- | The data processing configuration.
     processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The serializer, deserializer, and schema for converting data from the
     -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
     dataFormatConversionConfiguration :: Prelude.Maybe DataFormatConversionConfiguration,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
     -- delivered Amazon S3 files. You can also specify a custom prefix, as
     -- described in
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the dynamic partitioning mechanism that creates
+    -- smaller data sets from the streaming data by partitioning it based on
+    -- partition keys. Currently, dynamic partitioning is only supported for
+    -- Amazon S3 destinations. For more information, see
+    -- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
+    dynamicPartitioningConfiguration :: Prelude.Maybe DynamicPartitioningConfiguration,
     -- | The buffering option.
     bufferingHints :: Prelude.Maybe BufferingHints,
     -- | The Amazon S3 backup mode. After you create a delivery stream, you can
@@ -96,15 +103,21 @@ data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
 --
 -- 'processingConfiguration', 'extendedS3DestinationConfiguration_processingConfiguration' - The data processing configuration.
 --
+-- 'cloudWatchLoggingOptions', 'extendedS3DestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+--
 -- 'dataFormatConversionConfiguration', 'extendedS3DestinationConfiguration_dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the
 -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
---
--- 'cloudWatchLoggingOptions', 'extendedS3DestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
 -- 'prefix', 'extendedS3DestinationConfiguration_prefix' - The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
 -- described in
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
+--
+-- 'dynamicPartitioningConfiguration', 'extendedS3DestinationConfiguration_dynamicPartitioningConfiguration' - The configuration of the dynamic partitioning mechanism that creates
+-- smaller data sets from the streaming data by partitioning it based on
+-- partition keys. Currently, dynamic partitioning is only supported for
+-- Amazon S3 destinations. For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
 --
 -- 'bufferingHints', 'extendedS3DestinationConfiguration_bufferingHints' - The buffering option.
 --
@@ -138,11 +151,13 @@ newExtendedS3DestinationConfiguration
         s3BackupConfiguration = Prelude.Nothing,
         processingConfiguration =
           Prelude.Nothing,
-        dataFormatConversionConfiguration =
-          Prelude.Nothing,
         cloudWatchLoggingOptions =
           Prelude.Nothing,
+        dataFormatConversionConfiguration =
+          Prelude.Nothing,
         prefix = Prelude.Nothing,
+        dynamicPartitioningConfiguration =
+          Prelude.Nothing,
         bufferingHints = Prelude.Nothing,
         s3BackupMode = Prelude.Nothing,
         compressionFormat = Prelude.Nothing,
@@ -170,14 +185,14 @@ extendedS3DestinationConfiguration_s3BackupConfiguration = Lens.lens (\ExtendedS
 extendedS3DestinationConfiguration_processingConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
 extendedS3DestinationConfiguration_processingConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {processingConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
+-- | The Amazon CloudWatch logging options for your delivery stream.
+extendedS3DestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
+extendedS3DestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationConfiguration)
+
 -- | The serializer, deserializer, and schema for converting data from the
 -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
 extendedS3DestinationConfiguration_dataFormatConversionConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe DataFormatConversionConfiguration)
 extendedS3DestinationConfiguration_dataFormatConversionConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {dataFormatConversionConfiguration} -> dataFormatConversionConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {dataFormatConversionConfiguration = a} :: ExtendedS3DestinationConfiguration)
-
--- | The Amazon CloudWatch logging options for your delivery stream.
-extendedS3DestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
-extendedS3DestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationConfiguration)
 
 -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
@@ -185,6 +200,14 @@ extendedS3DestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\Extend
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
 extendedS3DestinationConfiguration_prefix :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe Prelude.Text)
 extendedS3DestinationConfiguration_prefix = Lens.lens (\ExtendedS3DestinationConfiguration' {prefix} -> prefix) (\s@ExtendedS3DestinationConfiguration' {} a -> s {prefix = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The configuration of the dynamic partitioning mechanism that creates
+-- smaller data sets from the streaming data by partitioning it based on
+-- partition keys. Currently, dynamic partitioning is only supported for
+-- Amazon S3 destinations. For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
+extendedS3DestinationConfiguration_dynamicPartitioningConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe DynamicPartitioningConfiguration)
+extendedS3DestinationConfiguration_dynamicPartitioningConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {dynamicPartitioningConfiguration} -> dynamicPartitioningConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {dynamicPartitioningConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
 -- | The buffering option.
 extendedS3DestinationConfiguration_bufferingHints :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe BufferingHints)
@@ -235,11 +258,13 @@ instance
               Prelude.<$> s3BackupConfiguration,
             ("ProcessingConfiguration" Core..=)
               Prelude.<$> processingConfiguration,
-            ("DataFormatConversionConfiguration" Core..=)
-              Prelude.<$> dataFormatConversionConfiguration,
             ("CloudWatchLoggingOptions" Core..=)
               Prelude.<$> cloudWatchLoggingOptions,
+            ("DataFormatConversionConfiguration" Core..=)
+              Prelude.<$> dataFormatConversionConfiguration,
             ("Prefix" Core..=) Prelude.<$> prefix,
+            ("DynamicPartitioningConfiguration" Core..=)
+              Prelude.<$> dynamicPartitioningConfiguration,
             ("BufferingHints" Core..=)
               Prelude.<$> bufferingHints,
             ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,

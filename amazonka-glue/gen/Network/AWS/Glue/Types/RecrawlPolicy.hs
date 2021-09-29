@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- complete, specifies whether to crawl the entire dataset again or to
 -- crawl only folders that were added since the last crawler run. For more
 -- information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html Incremental Crawls in AWS Glue>
+-- <https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html Incremental Crawls in Glue>
 -- in the developer guide.
 --
 -- /See:/ 'newRecrawlPolicy' smart constructor.

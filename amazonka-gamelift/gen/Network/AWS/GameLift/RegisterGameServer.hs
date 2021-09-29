@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Creates a new game server resource and notifies GameLift FleetIQ that
 -- the game server is ready to host gameplay and players. This operation is
@@ -45,19 +45,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   RegisterGameServer
---
--- -   ListGameServers
---
--- -   ClaimGameServer
---
--- -   DescribeGameServer
---
--- -   UpdateGameServer
---
--- -   DeregisterGameServer
+-- RegisterGameServer | ListGameServers | ClaimGameServer |
+-- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Network.AWS.GameLift.RegisterGameServer
   ( -- * Creating a Request
     RegisterGameServer (..),

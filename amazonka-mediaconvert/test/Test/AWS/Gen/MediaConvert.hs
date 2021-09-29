@@ -33,14 +33,11 @@ import Test.Tasty
 --         , requestUpdatePreset $
 --             newUpdatePreset
 --
---         , requestListPresets $
---             newListPresets
---
 --         , requestDeletePreset $
 --             newDeletePreset
 --
---         , requestCancelJob $
---             newCancelJob
+--         , requestListPresets $
+--             newListPresets
 --
 --         , requestCreatePreset $
 --             newCreatePreset
@@ -48,14 +45,17 @@ import Test.Tasty
 --         , requestGetJob $
 --             newGetJob
 --
+--         , requestCancelJob $
+--             newCancelJob
+--
 --         , requestListJobTemplates $
 --             newListJobTemplates
 --
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestCreateJobTemplate $
 --             newCreateJobTemplate
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestListQueues $
 --             newListQueues
@@ -66,20 +66,20 @@ import Test.Tasty
 --         , requestGetQueue $
 --             newGetQueue
 --
---         , requestGetJobTemplate $
---             newGetJobTemplate
---
 --         , requestAssociateCertificate $
 --             newAssociateCertificate
 --
---         , requestListJobs $
---             newListJobs
+--         , requestGetJobTemplate $
+--             newGetJobTemplate
 --
 --         , requestUpdateJobTemplate $
 --             newUpdateJobTemplate
 --
 --         , requestDeleteJobTemplate $
 --             newDeleteJobTemplate
+--
+--         , requestListJobs $
+--             newListJobs
 --
 --         , requestCreateJob $
 --             newCreateJob
@@ -111,14 +111,11 @@ import Test.Tasty
 --         , responseUpdatePreset $
 --             newUpdatePresetResponse
 --
---         , responseListPresets $
---             newListPresetsResponse
---
 --         , responseDeletePreset $
 --             newDeletePresetResponse
 --
---         , responseCancelJob $
---             newCancelJobResponse
+--         , responseListPresets $
+--             newListPresetsResponse
 --
 --         , responseCreatePreset $
 --             newCreatePresetResponse
@@ -126,14 +123,17 @@ import Test.Tasty
 --         , responseGetJob $
 --             newGetJobResponse
 --
+--         , responseCancelJob $
+--             newCancelJobResponse
+--
 --         , responseListJobTemplates $
 --             newListJobTemplatesResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseCreateJobTemplate $
 --             newCreateJobTemplateResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseListQueues $
 --             newListQueuesResponse
@@ -144,20 +144,20 @@ import Test.Tasty
 --         , responseGetQueue $
 --             newGetQueueResponse
 --
---         , responseGetJobTemplate $
---             newGetJobTemplateResponse
---
 --         , responseAssociateCertificate $
 --             newAssociateCertificateResponse
 --
---         , responseListJobs $
---             newListJobsResponse
+--         , responseGetJobTemplate $
+--             newGetJobTemplateResponse
 --
 --         , responseUpdateJobTemplate $
 --             newUpdateJobTemplateResponse
 --
 --         , responseDeleteJobTemplate $
 --             newDeleteJobTemplateResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
 --
 --         , responseCreateJob $
 --             newCreateJobResponse
@@ -197,23 +197,17 @@ requestUpdatePreset =
     "UpdatePreset"
     "fixture/UpdatePreset.yaml"
 
-requestListPresets :: ListPresets -> TestTree
-requestListPresets =
-  req
-    "ListPresets"
-    "fixture/ListPresets.yaml"
-
 requestDeletePreset :: DeletePreset -> TestTree
 requestDeletePreset =
   req
     "DeletePreset"
     "fixture/DeletePreset.yaml"
 
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
+requestListPresets :: ListPresets -> TestTree
+requestListPresets =
   req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
+    "ListPresets"
+    "fixture/ListPresets.yaml"
 
 requestCreatePreset :: CreatePreset -> TestTree
 requestCreatePreset =
@@ -227,23 +221,29 @@ requestGetJob =
     "GetJob"
     "fixture/GetJob.yaml"
 
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
 requestListJobTemplates :: ListJobTemplates -> TestTree
 requestListJobTemplates =
   req
     "ListJobTemplates"
     "fixture/ListJobTemplates.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestCreateJobTemplate :: CreateJobTemplate -> TestTree
 requestCreateJobTemplate =
   req
     "CreateJobTemplate"
     "fixture/CreateJobTemplate.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestListQueues :: ListQueues -> TestTree
 requestListQueues =
@@ -263,23 +263,17 @@ requestGetQueue =
     "GetQueue"
     "fixture/GetQueue.yaml"
 
-requestGetJobTemplate :: GetJobTemplate -> TestTree
-requestGetJobTemplate =
-  req
-    "GetJobTemplate"
-    "fixture/GetJobTemplate.yaml"
-
 requestAssociateCertificate :: AssociateCertificate -> TestTree
 requestAssociateCertificate =
   req
     "AssociateCertificate"
     "fixture/AssociateCertificate.yaml"
 
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
+requestGetJobTemplate :: GetJobTemplate -> TestTree
+requestGetJobTemplate =
   req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
+    "GetJobTemplate"
+    "fixture/GetJobTemplate.yaml"
 
 requestUpdateJobTemplate :: UpdateJobTemplate -> TestTree
 requestUpdateJobTemplate =
@@ -292,6 +286,12 @@ requestDeleteJobTemplate =
   req
     "DeleteJobTemplate"
     "fixture/DeleteJobTemplate.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
 
 requestCreateJob :: CreateJob -> TestTree
 requestCreateJob =
@@ -353,14 +353,6 @@ responseUpdatePreset =
     defaultService
     (Proxy :: Proxy UpdatePreset)
 
-responseListPresets :: ListPresetsResponse -> TestTree
-responseListPresets =
-  res
-    "ListPresetsResponse"
-    "fixture/ListPresetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPresets)
-
 responseDeletePreset :: DeletePresetResponse -> TestTree
 responseDeletePreset =
   res
@@ -369,13 +361,13 @@ responseDeletePreset =
     defaultService
     (Proxy :: Proxy DeletePreset)
 
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
+responseListPresets :: ListPresetsResponse -> TestTree
+responseListPresets =
   res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
+    "ListPresetsResponse"
+    "fixture/ListPresetsResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelJob)
+    (Proxy :: Proxy ListPresets)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
 responseCreatePreset =
@@ -393,6 +385,14 @@ responseGetJob =
     defaultService
     (Proxy :: Proxy GetJob)
 
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJob)
+
 responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
 responseListJobTemplates =
   res
@@ -401,14 +401,6 @@ responseListJobTemplates =
     defaultService
     (Proxy :: Proxy ListJobTemplates)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
 responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
 responseCreateJobTemplate =
   res
@@ -416,6 +408,14 @@ responseCreateJobTemplate =
     "fixture/CreateJobTemplateResponse.proto"
     defaultService
     (Proxy :: Proxy CreateJobTemplate)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
 
 responseListQueues :: ListQueuesResponse -> TestTree
 responseListQueues =
@@ -441,14 +441,6 @@ responseGetQueue =
     defaultService
     (Proxy :: Proxy GetQueue)
 
-responseGetJobTemplate :: GetJobTemplateResponse -> TestTree
-responseGetJobTemplate =
-  res
-    "GetJobTemplateResponse"
-    "fixture/GetJobTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetJobTemplate)
-
 responseAssociateCertificate :: AssociateCertificateResponse -> TestTree
 responseAssociateCertificate =
   res
@@ -457,13 +449,13 @@ responseAssociateCertificate =
     defaultService
     (Proxy :: Proxy AssociateCertificate)
 
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
+responseGetJobTemplate :: GetJobTemplateResponse -> TestTree
+responseGetJobTemplate =
   res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
+    "GetJobTemplateResponse"
+    "fixture/GetJobTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy :: Proxy GetJobTemplate)
 
 responseUpdateJobTemplate :: UpdateJobTemplateResponse -> TestTree
 responseUpdateJobTemplate =
@@ -480,6 +472,14 @@ responseDeleteJobTemplate =
     "fixture/DeleteJobTemplateResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteJobTemplate)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobs)
 
 responseCreateJob :: CreateJobResponse -> TestTree
 responseCreateJob =

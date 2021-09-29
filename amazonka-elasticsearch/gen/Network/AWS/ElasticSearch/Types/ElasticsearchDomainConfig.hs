@@ -49,11 +49,11 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
     elasticsearchClusterConfig :: Prelude.Maybe ElasticsearchClusterConfigStatus,
     -- | Specifies the @DomainEndpointOptions@ for the Elasticsearch domain.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptionsStatus,
+    -- | Specifies @AutoTuneOptions@ for the domain.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsStatus,
     -- | The @VPCOptions@ for the specified domain. For more information, see
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
     vPCOptions :: Prelude.Maybe VPCDerivedInfoStatus,
-    -- | Specifies @AutoTuneOptions@ for the domain.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsStatus,
     -- | IAM access policy as a JSON-formatted string.
     accessPolicies :: Prelude.Maybe AccessPoliciesStatus,
     -- | Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
@@ -93,10 +93,10 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 --
 -- 'domainEndpointOptions', 'elasticsearchDomainConfig_domainEndpointOptions' - Specifies the @DomainEndpointOptions@ for the Elasticsearch domain.
 --
+-- 'autoTuneOptions', 'elasticsearchDomainConfig_autoTuneOptions' - Specifies @AutoTuneOptions@ for the domain.
+--
 -- 'vPCOptions', 'elasticsearchDomainConfig_vPCOptions' - The @VPCOptions@ for the specified domain. For more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
---
--- 'autoTuneOptions', 'elasticsearchDomainConfig_autoTuneOptions' - Specifies @AutoTuneOptions@ for the domain.
 --
 -- 'accessPolicies', 'elasticsearchDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
 --
@@ -126,8 +126,8 @@ newElasticsearchDomainConfig =
       snapshotOptions = Prelude.Nothing,
       elasticsearchClusterConfig = Prelude.Nothing,
       domainEndpointOptions = Prelude.Nothing,
-      vPCOptions = Prelude.Nothing,
       autoTuneOptions = Prelude.Nothing,
+      vPCOptions = Prelude.Nothing,
       accessPolicies = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
@@ -154,14 +154,14 @@ elasticsearchDomainConfig_elasticsearchClusterConfig = Lens.lens (\Elasticsearch
 elasticsearchDomainConfig_domainEndpointOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe DomainEndpointOptionsStatus)
 elasticsearchDomainConfig_domainEndpointOptions = Lens.lens (\ElasticsearchDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@ElasticsearchDomainConfig' {} a -> s {domainEndpointOptions = a} :: ElasticsearchDomainConfig)
 
+-- | Specifies @AutoTuneOptions@ for the domain.
+elasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptionsStatus)
+elasticsearchDomainConfig_autoTuneOptions = Lens.lens (\ElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@ElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: ElasticsearchDomainConfig)
+
 -- | The @VPCOptions@ for the specified domain. For more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
 elasticsearchDomainConfig_vPCOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe VPCDerivedInfoStatus)
 elasticsearchDomainConfig_vPCOptions = Lens.lens (\ElasticsearchDomainConfig' {vPCOptions} -> vPCOptions) (\s@ElasticsearchDomainConfig' {} a -> s {vPCOptions = a} :: ElasticsearchDomainConfig)
-
--- | Specifies @AutoTuneOptions@ for the domain.
-elasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptionsStatus)
-elasticsearchDomainConfig_autoTuneOptions = Lens.lens (\ElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@ElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: ElasticsearchDomainConfig)
 
 -- | IAM access policy as a JSON-formatted string.
 elasticsearchDomainConfig_accessPolicies :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe AccessPoliciesStatus)
@@ -209,8 +209,8 @@ instance Core.FromJSON ElasticsearchDomainConfig where
             Prelude.<*> (x Core..:? "SnapshotOptions")
             Prelude.<*> (x Core..:? "ElasticsearchClusterConfig")
             Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "VPCOptions")
             Prelude.<*> (x Core..:? "AutoTuneOptions")
+            Prelude.<*> (x Core..:? "VPCOptions")
             Prelude.<*> (x Core..:? "AccessPolicies")
             Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
             Prelude.<*> (x Core..:? "CognitoOptions")

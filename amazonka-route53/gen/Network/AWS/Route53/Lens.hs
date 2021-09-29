@@ -39,6 +39,14 @@ module Network.AWS.Route53.Lens
     associateVPCWithHostedZoneResponse_httpStatus,
     associateVPCWithHostedZoneResponse_changeInfo,
 
+    -- ** CreateTrafficPolicy
+    createTrafficPolicy_comment,
+    createTrafficPolicy_name,
+    createTrafficPolicy_document,
+    createTrafficPolicyResponse_httpStatus,
+    createTrafficPolicyResponse_trafficPolicy,
+    createTrafficPolicyResponse_location,
+
     -- ** ListGeoLocations
     listGeoLocations_startSubdivisionCode,
     listGeoLocations_startCountryCode,
@@ -53,21 +61,27 @@ module Network.AWS.Route53.Lens
     listGeoLocationsResponse_maxItems,
 
     -- ** ListTrafficPolicies
-    listTrafficPolicies_maxItems,
     listTrafficPolicies_trafficPolicyIdMarker,
+    listTrafficPolicies_maxItems,
     listTrafficPoliciesResponse_httpStatus,
     listTrafficPoliciesResponse_trafficPolicySummaries,
     listTrafficPoliciesResponse_isTruncated,
     listTrafficPoliciesResponse_trafficPolicyIdMarker,
     listTrafficPoliciesResponse_maxItems,
 
-    -- ** CreateTrafficPolicy
-    createTrafficPolicy_comment,
-    createTrafficPolicy_name,
-    createTrafficPolicy_document,
-    createTrafficPolicyResponse_httpStatus,
-    createTrafficPolicyResponse_trafficPolicy,
-    createTrafficPolicyResponse_location,
+    -- ** GetGeoLocation
+    getGeoLocation_continentCode,
+    getGeoLocation_subdivisionCode,
+    getGeoLocation_countryCode,
+    getGeoLocationResponse_httpStatus,
+    getGeoLocationResponse_geoLocationDetails,
+
+    -- ** ChangeTagsForResource
+    changeTagsForResource_addTags,
+    changeTagsForResource_removeTagKeys,
+    changeTagsForResource_resourceType,
+    changeTagsForResource_resourceId,
+    changeTagsForResourceResponse_httpStatus,
 
     -- ** DeleteHostedZone
     deleteHostedZone_id,
@@ -81,31 +95,17 @@ module Network.AWS.Route53.Lens
     createHealthCheckResponse_healthCheck,
     createHealthCheckResponse_location,
 
+    -- ** DeleteVPCAssociationAuthorization
+    deleteVPCAssociationAuthorization_hostedZoneId,
+    deleteVPCAssociationAuthorization_vpc,
+    deleteVPCAssociationAuthorizationResponse_httpStatus,
+
     -- ** DisassociateVPCFromHostedZone
     disassociateVPCFromHostedZone_comment,
     disassociateVPCFromHostedZone_hostedZoneId,
     disassociateVPCFromHostedZone_vpc,
     disassociateVPCFromHostedZoneResponse_httpStatus,
     disassociateVPCFromHostedZoneResponse_changeInfo,
-
-    -- ** ChangeTagsForResource
-    changeTagsForResource_addTags,
-    changeTagsForResource_removeTagKeys,
-    changeTagsForResource_resourceType,
-    changeTagsForResource_resourceId,
-    changeTagsForResourceResponse_httpStatus,
-
-    -- ** GetGeoLocation
-    getGeoLocation_continentCode,
-    getGeoLocation_subdivisionCode,
-    getGeoLocation_countryCode,
-    getGeoLocationResponse_httpStatus,
-    getGeoLocationResponse_geoLocationDetails,
-
-    -- ** DeleteVPCAssociationAuthorization
-    deleteVPCAssociationAuthorization_hostedZoneId,
-    deleteVPCAssociationAuthorization_vpc,
-    deleteVPCAssociationAuthorizationResponse_httpStatus,
 
     -- ** ListHostedZones
     listHostedZones_delegationSetId,
@@ -117,6 +117,19 @@ module Network.AWS.Route53.Lens
     listHostedZonesResponse_hostedZones,
     listHostedZonesResponse_isTruncated,
     listHostedZonesResponse_maxItems,
+
+    -- ** CreateHostedZone
+    createHostedZone_hostedZoneConfig,
+    createHostedZone_delegationSetId,
+    createHostedZone_vpc,
+    createHostedZone_name,
+    createHostedZone_callerReference,
+    createHostedZoneResponse_vpc,
+    createHostedZoneResponse_httpStatus,
+    createHostedZoneResponse_hostedZone,
+    createHostedZoneResponse_changeInfo,
+    createHostedZoneResponse_delegationSet,
+    createHostedZoneResponse_location,
 
     -- ** DeactivateKeySigningKey
     deactivateKeySigningKey_hostedZoneId,
@@ -139,18 +152,11 @@ module Network.AWS.Route53.Lens
     testDNSAnswerResponse_responseCode,
     testDNSAnswerResponse_protocol,
 
-    -- ** CreateHostedZone
-    createHostedZone_delegationSetId,
-    createHostedZone_hostedZoneConfig,
-    createHostedZone_vpc,
-    createHostedZone_name,
-    createHostedZone_callerReference,
-    createHostedZoneResponse_vpc,
-    createHostedZoneResponse_httpStatus,
-    createHostedZoneResponse_hostedZone,
-    createHostedZoneResponse_changeInfo,
-    createHostedZoneResponse_delegationSet,
-    createHostedZoneResponse_location,
+    -- ** ChangeResourceRecordSets
+    changeResourceRecordSets_hostedZoneId,
+    changeResourceRecordSets_changeBatch,
+    changeResourceRecordSetsResponse_httpStatus,
+    changeResourceRecordSetsResponse_changeInfo,
 
     -- ** GetReusableDelegationSetLimit
     getReusableDelegationSetLimit_type,
@@ -159,26 +165,36 @@ module Network.AWS.Route53.Lens
     getReusableDelegationSetLimitResponse_limit,
     getReusableDelegationSetLimitResponse_count,
 
-    -- ** ChangeResourceRecordSets
-    changeResourceRecordSets_hostedZoneId,
-    changeResourceRecordSets_changeBatch,
-    changeResourceRecordSetsResponse_httpStatus,
-    changeResourceRecordSetsResponse_changeInfo,
-
     -- ** GetReusableDelegationSet
     getReusableDelegationSet_id,
     getReusableDelegationSetResponse_httpStatus,
     getReusableDelegationSetResponse_delegationSet,
 
-    -- ** GetCheckerIpRanges
-    getCheckerIpRangesResponse_httpStatus,
-    getCheckerIpRangesResponse_checkerIpRanges,
+    -- ** GetAccountLimit
+    getAccountLimit_type,
+    getAccountLimitResponse_httpStatus,
+    getAccountLimitResponse_limit,
+    getAccountLimitResponse_count,
 
     -- ** GetDNSSEC
     getDNSSEC_hostedZoneId,
     getDNSSECResponse_httpStatus,
     getDNSSECResponse_status,
     getDNSSECResponse_keySigningKeys,
+
+    -- ** GetCheckerIpRanges
+    getCheckerIpRangesResponse_httpStatus,
+    getCheckerIpRangesResponse_checkerIpRanges,
+
+    -- ** ListReusableDelegationSets
+    listReusableDelegationSets_maxItems,
+    listReusableDelegationSets_marker,
+    listReusableDelegationSetsResponse_nextMarker,
+    listReusableDelegationSetsResponse_httpStatus,
+    listReusableDelegationSetsResponse_delegationSets,
+    listReusableDelegationSetsResponse_marker,
+    listReusableDelegationSetsResponse_isTruncated,
+    listReusableDelegationSetsResponse_maxItems,
 
     -- ** DeleteKeySigningKey
     deleteKeySigningKey_hostedZoneId,
@@ -191,22 +207,6 @@ module Network.AWS.Route53.Lens
     getTrafficPolicyInstanceResponse_httpStatus,
     getTrafficPolicyInstanceResponse_trafficPolicyInstance,
 
-    -- ** ListReusableDelegationSets
-    listReusableDelegationSets_maxItems,
-    listReusableDelegationSets_marker,
-    listReusableDelegationSetsResponse_nextMarker,
-    listReusableDelegationSetsResponse_httpStatus,
-    listReusableDelegationSetsResponse_delegationSets,
-    listReusableDelegationSetsResponse_marker,
-    listReusableDelegationSetsResponse_isTruncated,
-    listReusableDelegationSetsResponse_maxItems,
-
-    -- ** GetAccountLimit
-    getAccountLimit_type,
-    getAccountLimitResponse_httpStatus,
-    getAccountLimitResponse_limit,
-    getAccountLimitResponse_count,
-
     -- ** CreateQueryLoggingConfig
     createQueryLoggingConfig_hostedZoneId,
     createQueryLoggingConfig_cloudWatchLogsLogGroupArn,
@@ -214,12 +214,10 @@ module Network.AWS.Route53.Lens
     createQueryLoggingConfigResponse_queryLoggingConfig,
     createQueryLoggingConfigResponse_location,
 
-    -- ** UpdateTrafficPolicyComment
-    updateTrafficPolicyComment_id,
-    updateTrafficPolicyComment_version,
-    updateTrafficPolicyComment_comment,
-    updateTrafficPolicyCommentResponse_httpStatus,
-    updateTrafficPolicyCommentResponse_trafficPolicy,
+    -- ** DisableHostedZoneDNSSEC
+    disableHostedZoneDNSSEC_hostedZoneId,
+    disableHostedZoneDNSSECResponse_httpStatus,
+    disableHostedZoneDNSSECResponse_changeInfo,
 
     -- ** CreateKeySigningKey
     createKeySigningKey_callerReference,
@@ -232,10 +230,12 @@ module Network.AWS.Route53.Lens
     createKeySigningKeyResponse_keySigningKey,
     createKeySigningKeyResponse_location,
 
-    -- ** DisableHostedZoneDNSSEC
-    disableHostedZoneDNSSEC_hostedZoneId,
-    disableHostedZoneDNSSECResponse_httpStatus,
-    disableHostedZoneDNSSECResponse_changeInfo,
+    -- ** UpdateTrafficPolicyComment
+    updateTrafficPolicyComment_id,
+    updateTrafficPolicyComment_version,
+    updateTrafficPolicyComment_comment,
+    updateTrafficPolicyCommentResponse_httpStatus,
+    updateTrafficPolicyCommentResponse_trafficPolicy,
 
     -- ** ListResourceRecordSets
     listResourceRecordSets_startRecordIdentifier,
@@ -251,15 +251,32 @@ module Network.AWS.Route53.Lens
     listResourceRecordSetsResponse_isTruncated,
     listResourceRecordSetsResponse_maxItems,
 
+    -- ** GetHealthCheck
+    getHealthCheck_healthCheckId,
+    getHealthCheckResponse_httpStatus,
+    getHealthCheckResponse_healthCheck,
+
     -- ** DeleteTrafficPolicy
     deleteTrafficPolicy_id,
     deleteTrafficPolicy_version,
     deleteTrafficPolicyResponse_httpStatus,
 
-    -- ** GetHealthCheck
-    getHealthCheck_healthCheckId,
-    getHealthCheckResponse_httpStatus,
-    getHealthCheckResponse_healthCheck,
+    -- ** GetHostedZone
+    getHostedZone_id,
+    getHostedZoneResponse_delegationSet,
+    getHostedZoneResponse_vPCs,
+    getHostedZoneResponse_httpStatus,
+    getHostedZoneResponse_hostedZone,
+
+    -- ** GetTrafficPolicyInstanceCount
+    getTrafficPolicyInstanceCountResponse_httpStatus,
+    getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount,
+
+    -- ** ListTagsForResources
+    listTagsForResources_resourceType,
+    listTagsForResources_resourceIds,
+    listTagsForResourcesResponse_httpStatus,
+    listTagsForResourcesResponse_resourceTagSets,
 
     -- ** ListTrafficPolicyInstancesByHostedZone
     listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
@@ -273,23 +290,6 @@ module Network.AWS.Route53.Lens
     listTrafficPolicyInstancesByHostedZoneResponse_isTruncated,
     listTrafficPolicyInstancesByHostedZoneResponse_maxItems,
 
-    -- ** ListTagsForResources
-    listTagsForResources_resourceType,
-    listTagsForResources_resourceIds,
-    listTagsForResourcesResponse_httpStatus,
-    listTagsForResourcesResponse_resourceTagSets,
-
-    -- ** GetTrafficPolicyInstanceCount
-    getTrafficPolicyInstanceCountResponse_httpStatus,
-    getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount,
-
-    -- ** GetHostedZone
-    getHostedZone_id,
-    getHostedZoneResponse_delegationSet,
-    getHostedZoneResponse_vPCs,
-    getHostedZoneResponse_httpStatus,
-    getHostedZoneResponse_hostedZone,
-
     -- ** ListVPCAssociationAuthorizations
     listVPCAssociationAuthorizations_nextToken,
     listVPCAssociationAuthorizations_maxResults,
@@ -298,16 +298,6 @@ module Network.AWS.Route53.Lens
     listVPCAssociationAuthorizationsResponse_httpStatus,
     listVPCAssociationAuthorizationsResponse_hostedZoneId,
     listVPCAssociationAuthorizationsResponse_vPCs,
-
-    -- ** ListTrafficPolicyVersions
-    listTrafficPolicyVersions_trafficPolicyVersionMarker,
-    listTrafficPolicyVersions_maxItems,
-    listTrafficPolicyVersions_id,
-    listTrafficPolicyVersionsResponse_httpStatus,
-    listTrafficPolicyVersionsResponse_trafficPolicies,
-    listTrafficPolicyVersionsResponse_isTruncated,
-    listTrafficPolicyVersionsResponse_trafficPolicyVersionMarker,
-    listTrafficPolicyVersionsResponse_maxItems,
 
     -- ** ListTrafficPolicyInstancesByPolicy
     listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceNameMarker,
@@ -324,6 +314,31 @@ module Network.AWS.Route53.Lens
     listTrafficPolicyInstancesByPolicyResponse_isTruncated,
     listTrafficPolicyInstancesByPolicyResponse_maxItems,
 
+    -- ** ListTrafficPolicyVersions
+    listTrafficPolicyVersions_trafficPolicyVersionMarker,
+    listTrafficPolicyVersions_maxItems,
+    listTrafficPolicyVersions_id,
+    listTrafficPolicyVersionsResponse_httpStatus,
+    listTrafficPolicyVersionsResponse_trafficPolicies,
+    listTrafficPolicyVersionsResponse_isTruncated,
+    listTrafficPolicyVersionsResponse_trafficPolicyVersionMarker,
+    listTrafficPolicyVersionsResponse_maxItems,
+
+    -- ** CreateVPCAssociationAuthorization
+    createVPCAssociationAuthorization_hostedZoneId,
+    createVPCAssociationAuthorization_vpc,
+    createVPCAssociationAuthorizationResponse_httpStatus,
+    createVPCAssociationAuthorizationResponse_hostedZoneId,
+    createVPCAssociationAuthorizationResponse_vpc,
+
+    -- ** CreateTrafficPolicyVersion
+    createTrafficPolicyVersion_comment,
+    createTrafficPolicyVersion_id,
+    createTrafficPolicyVersion_document,
+    createTrafficPolicyVersionResponse_httpStatus,
+    createTrafficPolicyVersionResponse_trafficPolicy,
+    createTrafficPolicyVersionResponse_location,
+
     -- ** ListHealthChecks
     listHealthChecks_maxItems,
     listHealthChecks_marker,
@@ -334,46 +349,31 @@ module Network.AWS.Route53.Lens
     listHealthChecksResponse_isTruncated,
     listHealthChecksResponse_maxItems,
 
-    -- ** DeleteHealthCheck
-    deleteHealthCheck_healthCheckId,
-    deleteHealthCheckResponse_httpStatus,
-
-    -- ** CreateTrafficPolicyVersion
-    createTrafficPolicyVersion_comment,
-    createTrafficPolicyVersion_id,
-    createTrafficPolicyVersion_document,
-    createTrafficPolicyVersionResponse_httpStatus,
-    createTrafficPolicyVersionResponse_trafficPolicy,
-    createTrafficPolicyVersionResponse_location,
-
     -- ** GetTrafficPolicy
     getTrafficPolicy_id,
     getTrafficPolicy_version,
     getTrafficPolicyResponse_httpStatus,
     getTrafficPolicyResponse_trafficPolicy,
 
-    -- ** CreateVPCAssociationAuthorization
-    createVPCAssociationAuthorization_hostedZoneId,
-    createVPCAssociationAuthorization_vpc,
-    createVPCAssociationAuthorizationResponse_httpStatus,
-    createVPCAssociationAuthorizationResponse_hostedZoneId,
-    createVPCAssociationAuthorizationResponse_vpc,
+    -- ** DeleteHealthCheck
+    deleteHealthCheck_healthCheckId,
+    deleteHealthCheckResponse_httpStatus,
 
     -- ** UpdateHealthCheck
     updateHealthCheck_failureThreshold,
-    updateHealthCheck_searchString,
     updateHealthCheck_childHealthChecks,
+    updateHealthCheck_searchString,
     updateHealthCheck_disabled,
     updateHealthCheck_alarmIdentifier,
     updateHealthCheck_enableSNI,
     updateHealthCheck_insufficientDataHealthStatus,
-    updateHealthCheck_iPAddress,
     updateHealthCheck_resourcePath,
+    updateHealthCheck_iPAddress,
     updateHealthCheck_port,
-    updateHealthCheck_healthThreshold,
     updateHealthCheck_regions,
-    updateHealthCheck_fullyQualifiedDomainName,
     updateHealthCheck_inverted,
+    updateHealthCheck_fullyQualifiedDomainName,
+    updateHealthCheck_healthThreshold,
     updateHealthCheck_healthCheckVersion,
     updateHealthCheck_resetElements,
     updateHealthCheck_healthCheckId,
@@ -390,6 +390,11 @@ module Network.AWS.Route53.Lens
     createTrafficPolicyInstanceResponse_trafficPolicyInstance,
     createTrafficPolicyInstanceResponse_location,
 
+    -- ** GetHealthCheckStatus
+    getHealthCheckStatus_healthCheckId,
+    getHealthCheckStatusResponse_httpStatus,
+    getHealthCheckStatusResponse_healthCheckObservations,
+
     -- ** ListHostedZonesByVPC
     listHostedZonesByVPC_nextToken,
     listHostedZonesByVPC_maxItems,
@@ -399,11 +404,6 @@ module Network.AWS.Route53.Lens
     listHostedZonesByVPCResponse_httpStatus,
     listHostedZonesByVPCResponse_hostedZoneSummaries,
     listHostedZonesByVPCResponse_maxItems,
-
-    -- ** GetHealthCheckStatus
-    getHealthCheckStatus_healthCheckId,
-    getHealthCheckStatusResponse_httpStatus,
-    getHealthCheckStatusResponse_healthCheckObservations,
 
     -- ** GetChange
     getChange_id,
@@ -450,33 +450,35 @@ module Network.AWS.Route53.Lens
     deleteReusableDelegationSet_id,
     deleteReusableDelegationSetResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceType,
-    listTagsForResource_resourceId,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_resourceTagSet,
-
     -- ** DeleteQueryLoggingConfig
     deleteQueryLoggingConfig_id,
     deleteQueryLoggingConfigResponse_httpStatus,
 
-    -- ** GetHealthCheckLastFailureReason
-    getHealthCheckLastFailureReason_healthCheckId,
-    getHealthCheckLastFailureReasonResponse_httpStatus,
-    getHealthCheckLastFailureReasonResponse_healthCheckObservations,
+    -- ** GetHostedZoneCount
+    getHostedZoneCountResponse_httpStatus,
+    getHostedZoneCountResponse_hostedZoneCount,
 
     -- ** EnableHostedZoneDNSSEC
     enableHostedZoneDNSSEC_hostedZoneId,
     enableHostedZoneDNSSECResponse_httpStatus,
     enableHostedZoneDNSSECResponse_changeInfo,
 
-    -- ** ListQueryLoggingConfigs
-    listQueryLoggingConfigs_nextToken,
-    listQueryLoggingConfigs_maxResults,
-    listQueryLoggingConfigs_hostedZoneId,
-    listQueryLoggingConfigsResponse_nextToken,
-    listQueryLoggingConfigsResponse_httpStatus,
-    listQueryLoggingConfigsResponse_queryLoggingConfigs,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceType,
+    listTagsForResource_resourceId,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_resourceTagSet,
+
+    -- ** GetHealthCheckLastFailureReason
+    getHealthCheckLastFailureReason_healthCheckId,
+    getHealthCheckLastFailureReasonResponse_httpStatus,
+    getHealthCheckLastFailureReasonResponse_healthCheckObservations,
+
+    -- ** ActivateKeySigningKey
+    activateKeySigningKey_hostedZoneId,
+    activateKeySigningKey_name,
+    activateKeySigningKeyResponse_httpStatus,
+    activateKeySigningKeyResponse_changeInfo,
 
     -- ** ListHostedZonesByName
     listHostedZonesByName_hostedZoneId,
@@ -491,15 +493,13 @@ module Network.AWS.Route53.Lens
     listHostedZonesByNameResponse_isTruncated,
     listHostedZonesByNameResponse_maxItems,
 
-    -- ** GetHostedZoneCount
-    getHostedZoneCountResponse_httpStatus,
-    getHostedZoneCountResponse_hostedZoneCount,
-
-    -- ** ActivateKeySigningKey
-    activateKeySigningKey_hostedZoneId,
-    activateKeySigningKey_name,
-    activateKeySigningKeyResponse_httpStatus,
-    activateKeySigningKeyResponse_changeInfo,
+    -- ** ListQueryLoggingConfigs
+    listQueryLoggingConfigs_nextToken,
+    listQueryLoggingConfigs_maxResults,
+    listQueryLoggingConfigs_hostedZoneId,
+    listQueryLoggingConfigsResponse_nextToken,
+    listQueryLoggingConfigsResponse_httpStatus,
+    listQueryLoggingConfigsResponse_queryLoggingConfigs,
 
     -- * Types
 
@@ -576,20 +576,21 @@ module Network.AWS.Route53.Lens
 
     -- ** HealthCheckConfig
     healthCheckConfig_failureThreshold,
-    healthCheckConfig_searchString,
     healthCheckConfig_childHealthChecks,
+    healthCheckConfig_searchString,
     healthCheckConfig_disabled,
     healthCheckConfig_alarmIdentifier,
     healthCheckConfig_enableSNI,
     healthCheckConfig_insufficientDataHealthStatus,
-    healthCheckConfig_iPAddress,
     healthCheckConfig_resourcePath,
+    healthCheckConfig_iPAddress,
     healthCheckConfig_port,
+    healthCheckConfig_routingControlArn,
     healthCheckConfig_requestInterval,
-    healthCheckConfig_healthThreshold,
     healthCheckConfig_regions,
-    healthCheckConfig_fullyQualifiedDomainName,
     healthCheckConfig_inverted,
+    healthCheckConfig_fullyQualifiedDomainName,
+    healthCheckConfig_healthThreshold,
     healthCheckConfig_measureLatency,
     healthCheckConfig_type,
 
@@ -607,8 +608,8 @@ module Network.AWS.Route53.Lens
     hostedZone_callerReference,
 
     -- ** HostedZoneConfig
-    hostedZoneConfig_comment,
     hostedZoneConfig_privateZone,
+    hostedZoneConfig_comment,
 
     -- ** HostedZoneLimit
     hostedZoneLimit_type,
@@ -627,14 +628,14 @@ module Network.AWS.Route53.Lens
     keySigningKey_digestAlgorithmType,
     keySigningKey_lastModifiedDate,
     keySigningKey_statusMessage,
-    keySigningKey_status,
     keySigningKey_createdDate,
     keySigningKey_signingAlgorithmMnemonic,
+    keySigningKey_status,
     keySigningKey_publicKey,
-    keySigningKey_dNSKEYRecord,
     keySigningKey_digestValue,
-    keySigningKey_digestAlgorithmMnemonic,
+    keySigningKey_dNSKEYRecord,
     keySigningKey_name,
+    keySigningKey_digestAlgorithmMnemonic,
     keySigningKey_signingAlgorithmType,
     keySigningKey_flag,
     keySigningKey_kmsArn,
@@ -659,11 +660,11 @@ module Network.AWS.Route53.Lens
     resourceRecordSet_geoLocation,
     resourceRecordSet_weight,
     resourceRecordSet_aliasTarget,
-    resourceRecordSet_resourceRecords,
     resourceRecordSet_failover,
+    resourceRecordSet_resourceRecords,
     resourceRecordSet_ttl,
-    resourceRecordSet_trafficPolicyInstanceId,
     resourceRecordSet_setIdentifier,
+    resourceRecordSet_trafficPolicyInstanceId,
     resourceRecordSet_region,
     resourceRecordSet_name,
     resourceRecordSet_type,

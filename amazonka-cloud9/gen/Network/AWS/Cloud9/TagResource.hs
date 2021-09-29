@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to an AWS Cloud9 development environment.
+-- Adds tags to an Cloud9 development environment.
 --
--- Tags that you add to an AWS Cloud9 environment by using this method will
--- NOT be automatically propagated to underlying resources.
+-- Tags that you add to an Cloud9 environment by using this method will NOT
+-- be automatically propagated to underlying resources.
 module Network.AWS.Cloud9.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
-    -- to add tags to.
+  { -- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+    -- add tags to.
     resourceARN :: Prelude.Text,
-    -- | The list of tags to add to the given AWS Cloud9 development environment.
-    tags :: [Tag]
+    -- | The list of tags to add to the given Cloud9 development environment.
+    tags :: Core.Sensitive [Core.Sensitive Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -67,10 +67,10 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'tagResource_resourceARN' - The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to add tags to.
+-- 'resourceARN', 'tagResource_resourceARN' - The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- add tags to.
 --
--- 'tags', 'tagResource_tags' - The list of tags to add to the given AWS Cloud9 development environment.
+-- 'tags', 'tagResource_tags' - The list of tags to add to the given Cloud9 development environment.
 newTagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -81,14 +81,14 @@ newTagResource pResourceARN_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Cloud9 development environment
--- to add tags to.
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment to
+-- add tags to.
 tagResource_resourceARN :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource)
 
--- | The list of tags to add to the given AWS Cloud9 development environment.
+-- | The list of tags to add to the given Cloud9 development environment.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

@@ -23,14 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a quota for an AWS account, for example, the number of
--- replication instances allowed.
+-- | Describes a quota for an Amazon Web Services account, for example the
+-- number of replication instances allowed.
 --
 -- /See:/ 'newAccountQuota' smart constructor.
 data AccountQuota = AccountQuota'
   { -- | The amount currently used toward the quota maximum.
     used :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the AWS DMS quota for this AWS account.
+    -- | The name of the DMS quota for this Amazon Web Services account.
     accountQuotaName :: Prelude.Maybe Prelude.Text,
     -- | The maximum allowed value for the quota.
     max :: Prelude.Maybe Prelude.Integer
@@ -47,7 +47,7 @@ data AccountQuota = AccountQuota'
 --
 -- 'used', 'accountQuota_used' - The amount currently used toward the quota maximum.
 --
--- 'accountQuotaName', 'accountQuota_accountQuotaName' - The name of the AWS DMS quota for this AWS account.
+-- 'accountQuotaName', 'accountQuota_accountQuotaName' - The name of the DMS quota for this Amazon Web Services account.
 --
 -- 'max', 'accountQuota_max' - The maximum allowed value for the quota.
 newAccountQuota ::
@@ -63,7 +63,7 @@ newAccountQuota =
 accountQuota_used :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Integer)
 accountQuota_used = Lens.lens (\AccountQuota' {used} -> used) (\s@AccountQuota' {} a -> s {used = a} :: AccountQuota)
 
--- | The name of the AWS DMS quota for this AWS account.
+-- | The name of the DMS quota for this Amazon Web Services account.
 accountQuota_accountQuotaName :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Text)
 accountQuota_accountQuotaName = Lens.lens (\AccountQuota' {accountQuotaName} -> accountQuotaName) (\s@AccountQuota' {} a -> s {accountQuotaName = a} :: AccountQuota)
 

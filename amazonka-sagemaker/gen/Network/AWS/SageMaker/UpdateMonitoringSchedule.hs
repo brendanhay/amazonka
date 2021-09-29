@@ -50,7 +50,7 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateMonitoringSchedule' smart constructor.
 data UpdateMonitoringSchedule = UpdateMonitoringSchedule'
   { -- | The name of the monitoring schedule. The name must be unique within an
-    -- AWS Region within an AWS account.
+    -- Amazon Web Services Region within an Amazon Web Services account.
     monitoringScheduleName :: Prelude.Text,
     -- | The configuration object that specifies the monitoring schedule and
     -- defines the monitoring job.
@@ -67,7 +67,7 @@ data UpdateMonitoringSchedule = UpdateMonitoringSchedule'
 -- for backwards compatibility:
 --
 -- 'monitoringScheduleName', 'updateMonitoringSchedule_monitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an
--- AWS Region within an AWS account.
+-- Amazon Web Services Region within an Amazon Web Services account.
 --
 -- 'monitoringScheduleConfig', 'updateMonitoringSchedule_monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and
 -- defines the monitoring job.
@@ -88,7 +88,7 @@ newUpdateMonitoringSchedule
       }
 
 -- | The name of the monitoring schedule. The name must be unique within an
--- AWS Region within an AWS account.
+-- Amazon Web Services Region within an Amazon Web Services account.
 updateMonitoringSchedule_monitoringScheduleName :: Lens.Lens' UpdateMonitoringSchedule Prelude.Text
 updateMonitoringSchedule_monitoringScheduleName = Lens.lens (\UpdateMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@UpdateMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: UpdateMonitoringSchedule)
 

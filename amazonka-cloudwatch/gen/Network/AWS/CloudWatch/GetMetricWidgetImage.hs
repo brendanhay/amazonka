@@ -90,9 +90,10 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
     -- @\<\/GetMetricWidgetImageResponse>@
     --
     -- The @image\/png@ setting is intended only for custom HTTP requests. For
-    -- most use cases, and all actions using an AWS SDK, you should use @png@.
-    -- If you specify @image\/png@, the HTTP response has a content-type set to
-    -- @image\/png@, and the body of the response is a PNG image.
+    -- most use cases, and all actions using an Amazon Web Services SDK, you
+    -- should use @png@. If you specify @image\/png@, the HTTP response has a
+    -- content-type set to @image\/png@, and the body of the response is a PNG
+    -- image.
     outputFormat :: Prelude.Maybe Prelude.Text,
     -- | A JSON string that defines the bitmap graph to be retrieved. The string
     -- includes the metrics to include in the graph, statistics, annotations,
@@ -144,9 +145,10 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
 -- @\<\/GetMetricWidgetImageResponse>@
 --
 -- The @image\/png@ setting is intended only for custom HTTP requests. For
--- most use cases, and all actions using an AWS SDK, you should use @png@.
--- If you specify @image\/png@, the HTTP response has a content-type set to
--- @image\/png@, and the body of the response is a PNG image.
+-- most use cases, and all actions using an Amazon Web Services SDK, you
+-- should use @png@. If you specify @image\/png@, the HTTP response has a
+-- content-type set to @image\/png@, and the body of the response is a PNG
+-- image.
 --
 -- 'metricWidget', 'getMetricWidgetImage_metricWidget' - A JSON string that defines the bitmap graph to be retrieved. The string
 -- includes the metrics to include in the graph, statistics, annotations,
@@ -197,9 +199,10 @@ newGetMetricWidgetImage pMetricWidget_ =
 -- @\<\/GetMetricWidgetImageResponse>@
 --
 -- The @image\/png@ setting is intended only for custom HTTP requests. For
--- most use cases, and all actions using an AWS SDK, you should use @png@.
--- If you specify @image\/png@, the HTTP response has a content-type set to
--- @image\/png@, and the body of the response is a PNG image.
+-- most use cases, and all actions using an Amazon Web Services SDK, you
+-- should use @png@. If you specify @image\/png@, the HTTP response has a
+-- content-type set to @image\/png@, and the body of the response is a PNG
+-- image.
 getMetricWidgetImage_outputFormat :: Lens.Lens' GetMetricWidgetImage (Prelude.Maybe Prelude.Text)
 getMetricWidgetImage_outputFormat = Lens.lens (\GetMetricWidgetImage' {outputFormat} -> outputFormat) (\s@GetMetricWidgetImage' {} a -> s {outputFormat = a} :: GetMetricWidgetImage)
 

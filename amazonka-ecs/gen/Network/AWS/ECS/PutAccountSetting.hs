@@ -88,6 +88,9 @@ data PutAccountSetting = PutAccountSetting'
     -- for all IAM users, IAM roles, and the root user of the account unless an
     -- IAM user or role explicitly overrides these settings. If this field is
     -- omitted, the setting is changed only for the authenticated user.
+    --
+    -- Federated users assume the account setting of the root user and can\'t
+    -- have explicit account settings set for them.
     principalArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon ECS resource name for which to modify the account setting. If
     -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
@@ -120,6 +123,9 @@ data PutAccountSetting = PutAccountSetting'
 -- IAM user or role explicitly overrides these settings. If this field is
 -- omitted, the setting is changed only for the authenticated user.
 --
+-- Federated users assume the account setting of the root user and can\'t
+-- have explicit account settings set for them.
+--
 -- 'name', 'putAccountSetting_name' - The Amazon ECS resource name for which to modify the account setting. If
 -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
 -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
@@ -151,6 +157,9 @@ newPutAccountSetting pName_ pValue_ =
 -- for all IAM users, IAM roles, and the root user of the account unless an
 -- IAM user or role explicitly overrides these settings. If this field is
 -- omitted, the setting is changed only for the authenticated user.
+--
+-- Federated users assume the account setting of the root user and can\'t
+-- have explicit account settings set for them.
 putAccountSetting_principalArn :: Lens.Lens' PutAccountSetting (Prelude.Maybe Prelude.Text)
 putAccountSetting_principalArn = Lens.lens (\PutAccountSetting' {principalArn} -> principalArn) (\s@PutAccountSetting' {} a -> s {principalArn = a} :: PutAccountSetting)
 

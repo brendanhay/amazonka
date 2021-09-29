@@ -27,14 +27,18 @@
 -- TrustedAdvisorCheckDescription object for each check. You must set the
 -- AWS Region to us-east-1.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
+--
+-- -   The names and descriptions for Trusted Advisor checks are subject to
+--     change. We recommend that you specify the check ID in your code to
+--     uniquely identify a check.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
   ( -- * Creating a Request
     DescribeTrustedAdvisorChecks (..),

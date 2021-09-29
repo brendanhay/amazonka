@@ -38,10 +38,6 @@ data AttributeValue = AttributeValue'
     --
     -- @\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]@
     bs :: Prelude.Maybe [Core.Base64],
-    -- | An attribute of type Boolean. For example:
-    --
-    -- @\"BOOL\": true@
-    bool :: Prelude.Maybe Prelude.Bool,
     -- | An attribute of type Number. For example:
     --
     -- @\"N\": \"123.45\"@
@@ -50,14 +46,18 @@ data AttributeValue = AttributeValue'
     -- compatibility across languages and libraries. However, DynamoDB treats
     -- them as number type attributes for mathematical operations.
     n :: Prelude.Maybe Prelude.Text,
-    -- | An attribute of type String. For example:
+    -- | An attribute of type Boolean. For example:
     --
-    -- @\"S\": \"Hello\"@
-    s :: Prelude.Maybe Prelude.Text,
+    -- @\"BOOL\": true@
+    bool :: Prelude.Maybe Prelude.Bool,
     -- | An attribute of type Null. For example:
     --
     -- @\"NULL\": true@
     null :: Prelude.Maybe Prelude.Bool,
+    -- | An attribute of type String. For example:
+    --
+    -- @\"S\": \"Hello\"@
+    s :: Prelude.Maybe Prelude.Text,
     -- | An attribute of type Map. For example:
     --
     -- @\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}@
@@ -97,10 +97,6 @@ data AttributeValue = AttributeValue'
 --
 -- @\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]@
 --
--- 'bool', 'attributeValue_bool' - An attribute of type Boolean. For example:
---
--- @\"BOOL\": true@
---
 -- 'n', 'attributeValue_n' - An attribute of type Number. For example:
 --
 -- @\"N\": \"123.45\"@
@@ -109,13 +105,17 @@ data AttributeValue = AttributeValue'
 -- compatibility across languages and libraries. However, DynamoDB treats
 -- them as number type attributes for mathematical operations.
 --
--- 's', 'attributeValue_s' - An attribute of type String. For example:
+-- 'bool', 'attributeValue_bool' - An attribute of type Boolean. For example:
 --
--- @\"S\": \"Hello\"@
+-- @\"BOOL\": true@
 --
 -- 'null', 'attributeValue_null' - An attribute of type Null. For example:
 --
 -- @\"NULL\": true@
+--
+-- 's', 'attributeValue_s' - An attribute of type String. For example:
+--
+-- @\"S\": \"Hello\"@
 --
 -- 'm', 'attributeValue_m' - An attribute of type Map. For example:
 --
@@ -149,10 +149,10 @@ newAttributeValue ::
 newAttributeValue =
   AttributeValue'
     { bs = Prelude.Nothing,
-      bool = Prelude.Nothing,
       n = Prelude.Nothing,
-      s = Prelude.Nothing,
+      bool = Prelude.Nothing,
       null = Prelude.Nothing,
+      s = Prelude.Nothing,
       m = Prelude.Nothing,
       b = Prelude.Nothing,
       l = Prelude.Nothing,
@@ -166,12 +166,6 @@ newAttributeValue =
 attributeValue_bs :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.ByteString])
 attributeValue_bs = Lens.lens (\AttributeValue' {bs} -> bs) (\s@AttributeValue' {} a -> s {bs = a} :: AttributeValue) Prelude.. Lens.mapping Lens._Coerce
 
--- | An attribute of type Boolean. For example:
---
--- @\"BOOL\": true@
-attributeValue_bool :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Bool)
-attributeValue_bool = Lens.lens (\AttributeValue' {bool} -> bool) (\s@AttributeValue' {} a -> s {bool = a} :: AttributeValue)
-
 -- | An attribute of type Number. For example:
 --
 -- @\"N\": \"123.45\"@
@@ -182,17 +176,23 @@ attributeValue_bool = Lens.lens (\AttributeValue' {bool} -> bool) (\s@AttributeV
 attributeValue_n :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
 attributeValue_n = Lens.lens (\AttributeValue' {n} -> n) (\s@AttributeValue' {} a -> s {n = a} :: AttributeValue)
 
--- | An attribute of type String. For example:
+-- | An attribute of type Boolean. For example:
 --
--- @\"S\": \"Hello\"@
-attributeValue_s :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
-attributeValue_s = Lens.lens (\AttributeValue' {s} -> s) (\s@AttributeValue' {} a -> s {s = a} :: AttributeValue)
+-- @\"BOOL\": true@
+attributeValue_bool :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Bool)
+attributeValue_bool = Lens.lens (\AttributeValue' {bool} -> bool) (\s@AttributeValue' {} a -> s {bool = a} :: AttributeValue)
 
 -- | An attribute of type Null. For example:
 --
 -- @\"NULL\": true@
 attributeValue_null :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Bool)
 attributeValue_null = Lens.lens (\AttributeValue' {null} -> null) (\s@AttributeValue' {} a -> s {null = a} :: AttributeValue)
+
+-- | An attribute of type String. For example:
+--
+-- @\"S\": \"Hello\"@
+attributeValue_s :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
+attributeValue_s = Lens.lens (\AttributeValue' {s} -> s) (\s@AttributeValue' {} a -> s {s = a} :: AttributeValue)
 
 -- | An attribute of type Map. For example:
 --
@@ -239,10 +239,10 @@ instance Core.FromJSON AttributeValue where
       ( \x ->
           AttributeValue'
             Prelude.<$> (x Core..:? "BS" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BOOL")
             Prelude.<*> (x Core..:? "N")
-            Prelude.<*> (x Core..:? "S")
+            Prelude.<*> (x Core..:? "BOOL")
             Prelude.<*> (x Core..:? "NULL")
+            Prelude.<*> (x Core..:? "S")
             Prelude.<*> (x Core..:? "M" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "B")
             Prelude.<*> (x Core..:? "L" Core..!= Prelude.mempty)

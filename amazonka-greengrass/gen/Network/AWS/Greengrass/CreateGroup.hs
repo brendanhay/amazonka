@@ -31,10 +31,10 @@ module Network.AWS.Greengrass.CreateGroup
     newCreateGroup,
 
     -- * Request Lenses
-    createGroup_name,
     createGroup_initialVersion,
     createGroup_tags,
     createGroup_amznClientToken,
+    createGroup_name,
 
     -- * Destructuring the Response
     CreateGroupResponse (..),
@@ -61,14 +61,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information about the initial version of the group.
+  { -- | Information about the initial version of the group.
     initialVersion :: Prelude.Maybe GroupVersion,
     -- | Tag(s) to add to the new resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text
+    amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,26 +80,24 @@ data CreateGroup = CreateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createGroup_name' - The name of the group.
---
 -- 'initialVersion', 'createGroup_initialVersion' - Information about the initial version of the group.
 --
 -- 'tags', 'createGroup_tags' - Tag(s) to add to the new resource.
 --
 -- 'amznClientToken', 'createGroup_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'name', 'createGroup_name' - The name of the group.
 newCreateGroup ::
+  -- | 'name'
+  Prelude.Text ->
   CreateGroup
-newCreateGroup =
+newCreateGroup pName_ =
   CreateGroup'
-    { name = Prelude.Nothing,
-      initialVersion = Prelude.Nothing,
+    { initialVersion = Prelude.Nothing,
       tags = Prelude.Nothing,
-      amznClientToken = Prelude.Nothing
+      amznClientToken = Prelude.Nothing,
+      name = pName_
     }
-
--- | The name of the group.
-createGroup_name :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_name = Lens.lens (\CreateGroup' {name} -> name) (\s@CreateGroup' {} a -> s {name = a} :: CreateGroup)
 
 -- | Information about the initial version of the group.
 createGroup_initialVersion :: Lens.Lens' CreateGroup (Prelude.Maybe GroupVersion)
@@ -112,6 +110,10 @@ createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} 
 -- | A client token used to correlate requests and responses.
 createGroup_amznClientToken :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_amznClientToken = Lens.lens (\CreateGroup' {amznClientToken} -> amznClientToken) (\s@CreateGroup' {} a -> s {amznClientToken = a} :: CreateGroup)
+
+-- | The name of the group.
+createGroup_name :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_name = Lens.lens (\CreateGroup' {name} -> name) (\s@CreateGroup' {} a -> s {name = a} :: CreateGroup)
 
 instance Core.AWSRequest CreateGroup where
   type AWSResponse CreateGroup = CreateGroupResponse
@@ -146,10 +148,10 @@ instance Core.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("InitialVersion" Core..=)
               Prelude.<$> initialVersion,
-            ("tags" Core..=) Prelude.<$> tags
+            ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 

@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Initiates the copy of an AMI. You can copy an AMI from one Region to
--- another, or from a Region to an AWS Outpost. You can\'t copy an AMI from
--- an Outpost to a Region, from one Outpost to another, or within the same
--- Outpost.
+-- another, or from a Region to an Outpost. You can\'t copy an AMI from an
+-- Outpost to a Region, from one Outpost to another, or within the same
+-- Outpost. To copy an AMI to another partition, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html CreateStoreImageTask>.
 --
 -- To copy an AMI from one Region to another, specify the source Region
 -- using the __SourceRegion__ parameter, and specify the destination Region
@@ -52,8 +53,8 @@ module Network.AWS.EC2.CopyImage
     newCopyImage,
 
     -- * Request Lenses
-    copyImage_dryRun,
     copyImage_encrypted,
+    copyImage_dryRun,
     copyImage_kmsKeyId,
     copyImage_destinationOutpostArn,
     copyImage_description,
@@ -83,25 +84,26 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCopyImage' smart constructor.
 data CopyImage = CopyImage'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Specifies whether the destination snapshots of the copied image should
+    -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
+    -- cannot create an unencrypted copy of an encrypted snapshot. The default
+    -- KMS key for Amazon EBS is used unless you specify a non-default Key
+    -- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the destination snapshots of the copied image should
-    -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
-    -- cannot create an unencrypted copy of an encrypted snapshot. The default
-    -- CMK for EBS is used unless you specify a non-default AWS Key Management
-    -- Service (AWS KMS) CMK using @KmsKeyId@. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of the symmetric AWS Key Management Service (AWS KMS)
-    -- customer master key (CMK) to use when creating encrypted volumes. If
-    -- this parameter is not specified, your AWS managed CMK for EBS is used.
-    -- If you specify a CMK, you must also set the encrypted state to @true@.
+    -- | The identifier of the symmetric Key Management Service (KMS) KMS key to
+    -- use when creating encrypted volumes. If this parameter is not specified,
+    -- your Amazon Web Services managed KMS key for Amazon EBS is used. If you
+    -- specify a KMS key, you must also set the encrypted state to @true@.
     --
-    -- You can specify a CMK using any of the following:
+    -- You can specify a KMS key using any of the following:
     --
     -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
     --
@@ -113,22 +115,22 @@ data CopyImage = CopyImage'
     -- -   Alias ARN. For example,
     --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
     --
-    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
-    -- identifier that is not valid, the action can appear to complete, but
-    -- eventually fails.
+    -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+    -- if you specify an identifier that is not valid, the action can appear to
+    -- complete, but eventually fails.
     --
-    -- The specified CMK must exist in the destination Region.
+    -- The specified KMS key must exist in the destination Region.
     --
-    -- Amazon EBS does not support asymmetric CMKs.
+    -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
-    -- Only specify this parameter when copying an AMI from an AWS Region to an
-    -- Outpost. The AMI must be in the Region of the destination Outpost. You
-    -- cannot copy an AMI from an Outpost to a Region, from one Outpost to
-    -- another, or within the same Outpost.
+    -- Only specify this parameter when copying an AMI from an Amazon Web
+    -- Services Region to an Outpost. The AMI must be in the Region of the
+    -- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+    -- from one Outpost to another, or within the same Outpost.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an AWS Region to an Outpost>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     destinationOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | A description for the new AMI in the destination Region.
@@ -155,25 +157,26 @@ data CopyImage = CopyImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encrypted', 'copyImage_encrypted' - Specifies whether the destination snapshots of the copied image should
+-- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
+-- cannot create an unencrypted copy of an encrypted snapshot. The default
+-- KMS key for Amazon EBS is used unless you specify a non-default Key
+-- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- 'dryRun', 'copyImage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'encrypted', 'copyImage_encrypted' - Specifies whether the destination snapshots of the copied image should
--- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
--- cannot create an unencrypted copy of an encrypted snapshot. The default
--- CMK for EBS is used unless you specify a non-default AWS Key Management
--- Service (AWS KMS) CMK using @KmsKeyId@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- 'kmsKeyId', 'copyImage_kmsKeyId' - The identifier of the symmetric Key Management Service (KMS) KMS key to
+-- use when creating encrypted volumes. If this parameter is not specified,
+-- your Amazon Web Services managed KMS key for Amazon EBS is used. If you
+-- specify a KMS key, you must also set the encrypted state to @true@.
 --
--- 'kmsKeyId', 'copyImage_kmsKeyId' - The identifier of the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) to use when creating encrypted volumes. If
--- this parameter is not specified, your AWS managed CMK for EBS is used.
--- If you specify a CMK, you must also set the encrypted state to @true@.
---
--- You can specify a CMK using any of the following:
+-- You can specify a KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -185,22 +188,22 @@ data CopyImage = CopyImage'
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- identifier that is not valid, the action can appear to complete, but
--- eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an identifier that is not valid, the action can appear to
+-- complete, but eventually fails.
 --
--- The specified CMK must exist in the destination Region.
+-- The specified KMS key must exist in the destination Region.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 --
 -- 'destinationOutpostArn', 'copyImage_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
--- Only specify this parameter when copying an AMI from an AWS Region to an
--- Outpost. The AMI must be in the Region of the destination Outpost. You
--- cannot copy an AMI from an Outpost to a Region, from one Outpost to
--- another, or within the same Outpost.
+-- Only specify this parameter when copying an AMI from an Amazon Web
+-- Services Region to an Outpost. The AMI must be in the Region of the
+-- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+-- from one Outpost to another, or within the same Outpost.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an AWS Region to an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'description', 'copyImage_description' - A description for the new AMI in the destination Region.
@@ -225,8 +228,8 @@ newCopyImage ::
   CopyImage
 newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyImage'
-    { dryRun = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
+    { encrypted = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       destinationOutpostArn = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -236,6 +239,17 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
       sourceRegion = pSourceRegion_
     }
 
+-- | Specifies whether the destination snapshots of the copied image should
+-- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
+-- cannot create an unencrypted copy of an encrypted snapshot. The default
+-- KMS key for Amazon EBS is used unless you specify a non-default Key
+-- Management Service (KMS) KMS key using @KmsKeyId@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
+copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -243,22 +257,12 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
 copyImage_dryRun :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} a -> s {dryRun = a} :: CopyImage)
 
--- | Specifies whether the destination snapshots of the copied image should
--- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
--- cannot create an unencrypted copy of an encrypted snapshot. The default
--- CMK for EBS is used unless you specify a non-default AWS Key Management
--- Service (AWS KMS) CMK using @KmsKeyId@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
-copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
-
--- | The identifier of the symmetric AWS Key Management Service (AWS KMS)
--- customer master key (CMK) to use when creating encrypted volumes. If
--- this parameter is not specified, your AWS managed CMK for EBS is used.
--- If you specify a CMK, you must also set the encrypted state to @true@.
+-- | The identifier of the symmetric Key Management Service (KMS) KMS key to
+-- use when creating encrypted volumes. If this parameter is not specified,
+-- your Amazon Web Services managed KMS key for Amazon EBS is used. If you
+-- specify a KMS key, you must also set the encrypted state to @true@.
 --
--- You can specify a CMK using any of the following:
+-- You can specify a KMS key using any of the following:
 --
 -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
 --
@@ -270,24 +274,24 @@ copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyI
 -- -   Alias ARN. For example,
 --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
 --
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an
--- identifier that is not valid, the action can appear to complete, but
--- eventually fails.
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an identifier that is not valid, the action can appear to
+-- complete, but eventually fails.
 --
--- The specified CMK must exist in the destination Region.
+-- The specified KMS key must exist in the destination Region.
 --
--- Amazon EBS does not support asymmetric CMKs.
+-- Amazon EBS does not support asymmetric KMS keys.
 copyImage_kmsKeyId :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImage' {} a -> s {kmsKeyId = a} :: CopyImage)
 
 -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
--- Only specify this parameter when copying an AMI from an AWS Region to an
--- Outpost. The AMI must be in the Region of the destination Outpost. You
--- cannot copy an AMI from an Outpost to a Region, from one Outpost to
--- another, or within the same Outpost.
+-- Only specify this parameter when copying an AMI from an Amazon Web
+-- Services Region to an Outpost. The AMI must be in the Region of the
+-- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+-- from one Outpost to another, or within the same Outpost.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an AWS Region to an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
@@ -343,8 +347,8 @@ instance Core.ToQuery CopyImage where
           Core.=: ("CopyImage" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Encrypted" Core.=: encrypted,
+        "DryRun" Core.=: dryRun,
         "KmsKeyId" Core.=: kmsKeyId,
         "DestinationOutpostArn"
           Core.=: destinationOutpostArn,

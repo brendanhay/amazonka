@@ -25,19 +25,19 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents the recording of configuration changes of an
--- AWS resource.
+-- Amazon Web Services resource.
 --
 -- /See:/ 'newConfigurationRecorder' smart constructor.
 data ConfigurationRecorder = ConfigurationRecorder'
-  { -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
-    -- resources associated with the account.
+  { -- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
+    -- Web Services resources associated with the account.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The name of the recorder. By default, AWS Config automatically assigns
-    -- the name \"default\" when creating the configuration recorder. You
-    -- cannot change the assigned name.
+    -- | The name of the recorder. By default, Config automatically assigns the
+    -- name \"default\" when creating the configuration recorder. You cannot
+    -- change the assigned name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the types of AWS resources for which AWS Config records
-    -- configuration changes.
+    -- | Specifies the types of Amazon Web Services resources for which Config
+    -- records configuration changes.
     recordingGroup :: Prelude.Maybe RecordingGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +50,15 @@ data ConfigurationRecorder = ConfigurationRecorder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleARN', 'configurationRecorder_roleARN' - Amazon Resource Name (ARN) of the IAM role used to describe the AWS
--- resources associated with the account.
+-- 'roleARN', 'configurationRecorder_roleARN' - Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
+-- Web Services resources associated with the account.
 --
--- 'name', 'configurationRecorder_name' - The name of the recorder. By default, AWS Config automatically assigns
--- the name \"default\" when creating the configuration recorder. You
--- cannot change the assigned name.
+-- 'name', 'configurationRecorder_name' - The name of the recorder. By default, Config automatically assigns the
+-- name \"default\" when creating the configuration recorder. You cannot
+-- change the assigned name.
 --
--- 'recordingGroup', 'configurationRecorder_recordingGroup' - Specifies the types of AWS resources for which AWS Config records
--- configuration changes.
+-- 'recordingGroup', 'configurationRecorder_recordingGroup' - Specifies the types of Amazon Web Services resources for which Config
+-- records configuration changes.
 newConfigurationRecorder ::
   ConfigurationRecorder
 newConfigurationRecorder =
@@ -68,19 +68,19 @@ newConfigurationRecorder =
       recordingGroup = Prelude.Nothing
     }
 
--- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
--- resources associated with the account.
+-- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
+-- Web Services resources associated with the account.
 configurationRecorder_roleARN :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_roleARN = Lens.lens (\ConfigurationRecorder' {roleARN} -> roleARN) (\s@ConfigurationRecorder' {} a -> s {roleARN = a} :: ConfigurationRecorder)
 
--- | The name of the recorder. By default, AWS Config automatically assigns
--- the name \"default\" when creating the configuration recorder. You
--- cannot change the assigned name.
+-- | The name of the recorder. By default, Config automatically assigns the
+-- name \"default\" when creating the configuration recorder. You cannot
+-- change the assigned name.
 configurationRecorder_name :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_name = Lens.lens (\ConfigurationRecorder' {name} -> name) (\s@ConfigurationRecorder' {} a -> s {name = a} :: ConfigurationRecorder)
 
--- | Specifies the types of AWS resources for which AWS Config records
--- configuration changes.
+-- | Specifies the types of Amazon Web Services resources for which Config
+-- records configuration changes.
 configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe RecordingGroup)
 configurationRecorder_recordingGroup = Lens.lens (\ConfigurationRecorder' {recordingGroup} -> recordingGroup) (\s@ConfigurationRecorder' {} a -> s {recordingGroup = a} :: ConfigurationRecorder)
 

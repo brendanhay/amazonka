@@ -45,12 +45,12 @@ import qualified Network.AWS.Prelude as Prelude
 data UserPoolType = UserPoolType'
   { -- | The date the user pool was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The status of a user pool.
+    status :: Prelude.Maybe StatusType,
     -- | The tags that are assigned to the user pool. A tag is a label that you
     -- can apply to user pools to categorize and manage them in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The status of a user pool.
-    status :: Prelude.Maybe StatusType,
     -- | Specifies whether email addresses or phone numbers can be specified as
     -- usernames when a user signs up.
     usernameAttributes :: Prelude.Maybe [UsernameAttributeType],
@@ -67,29 +67,29 @@ data UserPoolType = UserPoolType'
     -- For more information about adding a custom domain to your user pool, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI>.
     customDomain :: Prelude.Maybe Prelude.Text,
+    -- | The device configuration.
+    deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
     -- | Holds the domain prefix if the user pool has a domain associated with
     -- it.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The configuration for @AdminCreateUser@ requests.
     adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
-    -- | The device configuration.
-    deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
     -- | The Amazon Resource Name (ARN) for the user pool.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the user pool.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The date the user pool was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The SMS configuration.
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
-    -- | The AWS Lambda triggers associated with the user pool.
+    -- | The date the user pool was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The Lambda triggers associated with the user pool.
     lambdaConfig :: Prelude.Maybe LambdaConfigType,
+    -- | The ID of the user pool.
+    id :: Prelude.Maybe Prelude.Text,
     -- | A number estimating the size of the user pool.
     estimatedNumberOfUsers :: Prelude.Maybe Prelude.Int,
-    -- | The contents of the SMS verification message.
-    smsVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the user pool.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The contents of the SMS verification message.
+    smsVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | Use this setting to define which verified available method a user can
     -- use to recover their password when they call @ForgotPassword@. It allows
     -- you to define a preferred method when a user has more than one method
@@ -105,10 +105,6 @@ data UserPoolType = UserPoolType'
     emailConfigurationFailure :: Prelude.Maybe Prelude.Text,
     -- | Specifies the attributes that are aliased in a user pool.
     aliasAttributes :: Prelude.Maybe [AliasAttributeType],
-    -- | The contents of the email verification message.
-    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The user pool add-ons.
-    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
     -- | You can choose to enable case sensitivity on the username input for the
     -- selected sign-in option. For example, when this is set to @False@, users
     -- will be able to sign in using either \"username\" or \"Username\". This
@@ -118,10 +114,29 @@ data UserPoolType = UserPoolType'
     usernameConfiguration :: Prelude.Maybe UsernameConfigurationType,
     -- | The contents of the SMS authentication message.
     smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
+    -- | The user pool add-ons.
+    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
     -- | A container with the schema attributes of a user pool.
     schemaAttributes :: Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType),
+    -- | The contents of the email verification message.
+    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | The reason why the SMS configuration cannot send the messages to your
     -- users.
+    --
+    -- This message might include comma-separated values to describe why your
+    -- SMS configuration can\'t send messages to user pool end users.
+    --
+    -- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
+    --     uses to send SMS messages is not properly configured. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
+    --
+    -- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
+    --     unverified end users. This parameter won’t get populated with
+    --     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
+    --     permissions. To learn how to move your account out of the sandbox,
+    --     see
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
     smsConfigurationFailure :: Prelude.Maybe Prelude.Text,
     -- | Can be one of the following values:
     --
@@ -149,11 +164,11 @@ data UserPoolType = UserPoolType'
 --
 -- 'lastModifiedDate', 'userPoolType_lastModifiedDate' - The date the user pool was last modified.
 --
+-- 'status', 'userPoolType_status' - The status of a user pool.
+--
 -- 'userPoolTags', 'userPoolType_userPoolTags' - The tags that are assigned to the user pool. A tag is a label that you
 -- can apply to user pools to categorize and manage them in different ways,
 -- such as by purpose, owner, environment, or other criteria.
---
--- 'status', 'userPoolType_status' - The status of a user pool.
 --
 -- 'usernameAttributes', 'userPoolType_usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as
 -- usernames when a user signs up.
@@ -171,28 +186,28 @@ data UserPoolType = UserPoolType'
 -- For more information about adding a custom domain to your user pool, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI>.
 --
+-- 'deviceConfiguration', 'userPoolType_deviceConfiguration' - The device configuration.
+--
 -- 'domain', 'userPoolType_domain' - Holds the domain prefix if the user pool has a domain associated with
 -- it.
 --
 -- 'adminCreateUserConfig', 'userPoolType_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
--- 'deviceConfiguration', 'userPoolType_deviceConfiguration' - The device configuration.
---
 -- 'arn', 'userPoolType_arn' - The Amazon Resource Name (ARN) for the user pool.
---
--- 'id', 'userPoolType_id' - The ID of the user pool.
---
--- 'creationDate', 'userPoolType_creationDate' - The date the user pool was created.
 --
 -- 'smsConfiguration', 'userPoolType_smsConfiguration' - The SMS configuration.
 --
--- 'lambdaConfig', 'userPoolType_lambdaConfig' - The AWS Lambda triggers associated with the user pool.
+-- 'creationDate', 'userPoolType_creationDate' - The date the user pool was created.
+--
+-- 'lambdaConfig', 'userPoolType_lambdaConfig' - The Lambda triggers associated with the user pool.
+--
+-- 'id', 'userPoolType_id' - The ID of the user pool.
 --
 -- 'estimatedNumberOfUsers', 'userPoolType_estimatedNumberOfUsers' - A number estimating the size of the user pool.
 --
--- 'smsVerificationMessage', 'userPoolType_smsVerificationMessage' - The contents of the SMS verification message.
---
 -- 'name', 'userPoolType_name' - The name of the user pool.
+--
+-- 'smsVerificationMessage', 'userPoolType_smsVerificationMessage' - The contents of the SMS verification message.
 --
 -- 'accountRecoverySetting', 'userPoolType_accountRecoverySetting' - Use this setting to define which verified available method a user can
 -- use to recover their password when they call @ForgotPassword@. It allows
@@ -209,10 +224,6 @@ data UserPoolType = UserPoolType'
 --
 -- 'aliasAttributes', 'userPoolType_aliasAttributes' - Specifies the attributes that are aliased in a user pool.
 --
--- 'emailVerificationMessage', 'userPoolType_emailVerificationMessage' - The contents of the email verification message.
---
--- 'userPoolAddOns', 'userPoolType_userPoolAddOns' - The user pool add-ons.
---
 -- 'usernameConfiguration', 'userPoolType_usernameConfiguration' - You can choose to enable case sensitivity on the username input for the
 -- selected sign-in option. For example, when this is set to @False@, users
 -- will be able to sign in using either \"username\" or \"Username\". This
@@ -222,10 +233,29 @@ data UserPoolType = UserPoolType'
 --
 -- 'smsAuthenticationMessage', 'userPoolType_smsAuthenticationMessage' - The contents of the SMS authentication message.
 --
+-- 'userPoolAddOns', 'userPoolType_userPoolAddOns' - The user pool add-ons.
+--
 -- 'schemaAttributes', 'userPoolType_schemaAttributes' - A container with the schema attributes of a user pool.
+--
+-- 'emailVerificationMessage', 'userPoolType_emailVerificationMessage' - The contents of the email verification message.
 --
 -- 'smsConfigurationFailure', 'userPoolType_smsConfigurationFailure' - The reason why the SMS configuration cannot send the messages to your
 -- users.
+--
+-- This message might include comma-separated values to describe why your
+-- SMS configuration can\'t send messages to user pool end users.
+--
+-- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
+--     uses to send SMS messages is not properly configured. For more
+--     information, see
+--     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
+--
+-- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
+--     unverified end users. This parameter won’t get populated with
+--     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
+--     permissions. To learn how to move your account out of the sandbox,
+--     see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
 --
 -- 'mfaConfiguration', 'userPoolType_mfaConfiguration' - Can be one of the following values:
 --
@@ -244,33 +274,33 @@ newUserPoolType ::
 newUserPoolType =
   UserPoolType'
     { lastModifiedDate = Prelude.Nothing,
-      userPoolTags = Prelude.Nothing,
       status = Prelude.Nothing,
+      userPoolTags = Prelude.Nothing,
       usernameAttributes = Prelude.Nothing,
       emailVerificationSubject = Prelude.Nothing,
       autoVerifiedAttributes = Prelude.Nothing,
       policies = Prelude.Nothing,
       customDomain = Prelude.Nothing,
+      deviceConfiguration = Prelude.Nothing,
       domain = Prelude.Nothing,
       adminCreateUserConfig = Prelude.Nothing,
-      deviceConfiguration = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       smsConfiguration = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
+      id = Prelude.Nothing,
       estimatedNumberOfUsers = Prelude.Nothing,
-      smsVerificationMessage = Prelude.Nothing,
       name = Prelude.Nothing,
+      smsVerificationMessage = Prelude.Nothing,
       accountRecoverySetting = Prelude.Nothing,
       emailConfiguration = Prelude.Nothing,
       emailConfigurationFailure = Prelude.Nothing,
       aliasAttributes = Prelude.Nothing,
-      emailVerificationMessage = Prelude.Nothing,
-      userPoolAddOns = Prelude.Nothing,
       usernameConfiguration = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
+      userPoolAddOns = Prelude.Nothing,
       schemaAttributes = Prelude.Nothing,
+      emailVerificationMessage = Prelude.Nothing,
       smsConfigurationFailure = Prelude.Nothing,
       mfaConfiguration = Prelude.Nothing,
       verificationMessageTemplate = Prelude.Nothing
@@ -280,15 +310,15 @@ newUserPoolType =
 userPoolType_lastModifiedDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
 userPoolType_lastModifiedDate = Lens.lens (\UserPoolType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolType' {} a -> s {lastModifiedDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
 
+-- | The status of a user pool.
+userPoolType_status :: Lens.Lens' UserPoolType (Prelude.Maybe StatusType)
+userPoolType_status = Lens.lens (\UserPoolType' {status} -> status) (\s@UserPoolType' {} a -> s {status = a} :: UserPoolType)
+
 -- | The tags that are assigned to the user pool. A tag is a label that you
 -- can apply to user pools to categorize and manage them in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 userPoolType_userPoolTags :: Lens.Lens' UserPoolType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 userPoolType_userPoolTags = Lens.lens (\UserPoolType' {userPoolTags} -> userPoolTags) (\s@UserPoolType' {} a -> s {userPoolTags = a} :: UserPoolType) Prelude.. Lens.mapping Lens._Coerce
-
--- | The status of a user pool.
-userPoolType_status :: Lens.Lens' UserPoolType (Prelude.Maybe StatusType)
-userPoolType_status = Lens.lens (\UserPoolType' {status} -> status) (\s@UserPoolType' {} a -> s {status = a} :: UserPoolType)
 
 -- | Specifies whether email addresses or phone numbers can be specified as
 -- usernames when a user signs up.
@@ -316,6 +346,10 @@ userPoolType_policies = Lens.lens (\UserPoolType' {policies} -> policies) (\s@Us
 userPoolType_customDomain :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_customDomain = Lens.lens (\UserPoolType' {customDomain} -> customDomain) (\s@UserPoolType' {} a -> s {customDomain = a} :: UserPoolType)
 
+-- | The device configuration.
+userPoolType_deviceConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe DeviceConfigurationType)
+userPoolType_deviceConfiguration = Lens.lens (\UserPoolType' {deviceConfiguration} -> deviceConfiguration) (\s@UserPoolType' {} a -> s {deviceConfiguration = a} :: UserPoolType)
+
 -- | Holds the domain prefix if the user pool has a domain associated with
 -- it.
 userPoolType_domain :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
@@ -325,41 +359,37 @@ userPoolType_domain = Lens.lens (\UserPoolType' {domain} -> domain) (\s@UserPool
 userPoolType_adminCreateUserConfig :: Lens.Lens' UserPoolType (Prelude.Maybe AdminCreateUserConfigType)
 userPoolType_adminCreateUserConfig = Lens.lens (\UserPoolType' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@UserPoolType' {} a -> s {adminCreateUserConfig = a} :: UserPoolType)
 
--- | The device configuration.
-userPoolType_deviceConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe DeviceConfigurationType)
-userPoolType_deviceConfiguration = Lens.lens (\UserPoolType' {deviceConfiguration} -> deviceConfiguration) (\s@UserPoolType' {} a -> s {deviceConfiguration = a} :: UserPoolType)
-
 -- | The Amazon Resource Name (ARN) for the user pool.
 userPoolType_arn :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_arn = Lens.lens (\UserPoolType' {arn} -> arn) (\s@UserPoolType' {} a -> s {arn = a} :: UserPoolType)
-
--- | The ID of the user pool.
-userPoolType_id :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
-userPoolType_id = Lens.lens (\UserPoolType' {id} -> id) (\s@UserPoolType' {} a -> s {id = a} :: UserPoolType)
-
--- | The date the user pool was created.
-userPoolType_creationDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
-userPoolType_creationDate = Lens.lens (\UserPoolType' {creationDate} -> creationDate) (\s@UserPoolType' {} a -> s {creationDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
 
 -- | The SMS configuration.
 userPoolType_smsConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe SmsConfigurationType)
 userPoolType_smsConfiguration = Lens.lens (\UserPoolType' {smsConfiguration} -> smsConfiguration) (\s@UserPoolType' {} a -> s {smsConfiguration = a} :: UserPoolType)
 
--- | The AWS Lambda triggers associated with the user pool.
+-- | The date the user pool was created.
+userPoolType_creationDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
+userPoolType_creationDate = Lens.lens (\UserPoolType' {creationDate} -> creationDate) (\s@UserPoolType' {} a -> s {creationDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
+
+-- | The Lambda triggers associated with the user pool.
 userPoolType_lambdaConfig :: Lens.Lens' UserPoolType (Prelude.Maybe LambdaConfigType)
 userPoolType_lambdaConfig = Lens.lens (\UserPoolType' {lambdaConfig} -> lambdaConfig) (\s@UserPoolType' {} a -> s {lambdaConfig = a} :: UserPoolType)
+
+-- | The ID of the user pool.
+userPoolType_id :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
+userPoolType_id = Lens.lens (\UserPoolType' {id} -> id) (\s@UserPoolType' {} a -> s {id = a} :: UserPoolType)
 
 -- | A number estimating the size of the user pool.
 userPoolType_estimatedNumberOfUsers :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Int)
 userPoolType_estimatedNumberOfUsers = Lens.lens (\UserPoolType' {estimatedNumberOfUsers} -> estimatedNumberOfUsers) (\s@UserPoolType' {} a -> s {estimatedNumberOfUsers = a} :: UserPoolType)
 
--- | The contents of the SMS verification message.
-userPoolType_smsVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
-userPoolType_smsVerificationMessage = Lens.lens (\UserPoolType' {smsVerificationMessage} -> smsVerificationMessage) (\s@UserPoolType' {} a -> s {smsVerificationMessage = a} :: UserPoolType)
-
 -- | The name of the user pool.
 userPoolType_name :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_name = Lens.lens (\UserPoolType' {name} -> name) (\s@UserPoolType' {} a -> s {name = a} :: UserPoolType)
+
+-- | The contents of the SMS verification message.
+userPoolType_smsVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
+userPoolType_smsVerificationMessage = Lens.lens (\UserPoolType' {smsVerificationMessage} -> smsVerificationMessage) (\s@UserPoolType' {} a -> s {smsVerificationMessage = a} :: UserPoolType)
 
 -- | Use this setting to define which verified available method a user can
 -- use to recover their password when they call @ForgotPassword@. It allows
@@ -384,14 +414,6 @@ userPoolType_emailConfigurationFailure = Lens.lens (\UserPoolType' {emailConfigu
 userPoolType_aliasAttributes :: Lens.Lens' UserPoolType (Prelude.Maybe [AliasAttributeType])
 userPoolType_aliasAttributes = Lens.lens (\UserPoolType' {aliasAttributes} -> aliasAttributes) (\s@UserPoolType' {} a -> s {aliasAttributes = a} :: UserPoolType) Prelude.. Lens.mapping Lens._Coerce
 
--- | The contents of the email verification message.
-userPoolType_emailVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
-userPoolType_emailVerificationMessage = Lens.lens (\UserPoolType' {emailVerificationMessage} -> emailVerificationMessage) (\s@UserPoolType' {} a -> s {emailVerificationMessage = a} :: UserPoolType)
-
--- | The user pool add-ons.
-userPoolType_userPoolAddOns :: Lens.Lens' UserPoolType (Prelude.Maybe UserPoolAddOnsType)
-userPoolType_userPoolAddOns = Lens.lens (\UserPoolType' {userPoolAddOns} -> userPoolAddOns) (\s@UserPoolType' {} a -> s {userPoolAddOns = a} :: UserPoolType)
-
 -- | You can choose to enable case sensitivity on the username input for the
 -- selected sign-in option. For example, when this is set to @False@, users
 -- will be able to sign in using either \"username\" or \"Username\". This
@@ -405,12 +427,35 @@ userPoolType_usernameConfiguration = Lens.lens (\UserPoolType' {usernameConfigur
 userPoolType_smsAuthenticationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_smsAuthenticationMessage = Lens.lens (\UserPoolType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UserPoolType' {} a -> s {smsAuthenticationMessage = a} :: UserPoolType)
 
+-- | The user pool add-ons.
+userPoolType_userPoolAddOns :: Lens.Lens' UserPoolType (Prelude.Maybe UserPoolAddOnsType)
+userPoolType_userPoolAddOns = Lens.lens (\UserPoolType' {userPoolAddOns} -> userPoolAddOns) (\s@UserPoolType' {} a -> s {userPoolAddOns = a} :: UserPoolType)
+
 -- | A container with the schema attributes of a user pool.
 userPoolType_schemaAttributes :: Lens.Lens' UserPoolType (Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType))
 userPoolType_schemaAttributes = Lens.lens (\UserPoolType' {schemaAttributes} -> schemaAttributes) (\s@UserPoolType' {} a -> s {schemaAttributes = a} :: UserPoolType) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The contents of the email verification message.
+userPoolType_emailVerificationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
+userPoolType_emailVerificationMessage = Lens.lens (\UserPoolType' {emailVerificationMessage} -> emailVerificationMessage) (\s@UserPoolType' {} a -> s {emailVerificationMessage = a} :: UserPoolType)
+
 -- | The reason why the SMS configuration cannot send the messages to your
 -- users.
+--
+-- This message might include comma-separated values to describe why your
+-- SMS configuration can\'t send messages to user pool end users.
+--
+-- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
+--     uses to send SMS messages is not properly configured. For more
+--     information, see
+--     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
+--
+-- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
+--     unverified end users. This parameter won’t get populated with
+--     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
+--     permissions. To learn how to move your account out of the sandbox,
+--     see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
 userPoolType_smsConfigurationFailure :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_smsConfigurationFailure = Lens.lens (\UserPoolType' {smsConfigurationFailure} -> smsConfigurationFailure) (\s@UserPoolType' {} a -> s {smsConfigurationFailure = a} :: UserPoolType)
 
@@ -438,8 +483,8 @@ instance Core.FromJSON UserPoolType where
       ( \x ->
           UserPoolType'
             Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "UserPoolTags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "UserPoolTags" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "UsernameAttributes"
                             Core..!= Prelude.mempty
                         )
@@ -449,28 +494,28 @@ instance Core.FromJSON UserPoolType where
                         )
             Prelude.<*> (x Core..:? "Policies")
             Prelude.<*> (x Core..:? "CustomDomain")
+            Prelude.<*> (x Core..:? "DeviceConfiguration")
             Prelude.<*> (x Core..:? "Domain")
             Prelude.<*> (x Core..:? "AdminCreateUserConfig")
-            Prelude.<*> (x Core..:? "DeviceConfiguration")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "SmsConfiguration")
+            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "LambdaConfig")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "EstimatedNumberOfUsers")
-            Prelude.<*> (x Core..:? "SmsVerificationMessage")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SmsVerificationMessage")
             Prelude.<*> (x Core..:? "AccountRecoverySetting")
             Prelude.<*> (x Core..:? "EmailConfiguration")
             Prelude.<*> (x Core..:? "EmailConfigurationFailure")
             Prelude.<*> ( x Core..:? "AliasAttributes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EmailVerificationMessage")
-            Prelude.<*> (x Core..:? "UserPoolAddOns")
             Prelude.<*> (x Core..:? "UsernameConfiguration")
             Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
+            Prelude.<*> (x Core..:? "UserPoolAddOns")
             Prelude.<*> (x Core..:? "SchemaAttributes")
+            Prelude.<*> (x Core..:? "EmailVerificationMessage")
             Prelude.<*> (x Core..:? "SmsConfigurationFailure")
             Prelude.<*> (x Core..:? "MfaConfiguration")
             Prelude.<*> (x Core..:? "VerificationMessageTemplate")

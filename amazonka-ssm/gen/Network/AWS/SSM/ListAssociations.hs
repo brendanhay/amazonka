@@ -20,9 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all State Manager associations in the current AWS account and
--- Region. You can limit the results to a specific State Manager
--- association document or instance by specifying a filter.
+-- Returns all State Manager associations in the current Amazon Web
+-- Services account and Amazon Web Services Region. You can limit the
+-- results to a specific State Manager association document or instance by
+-- specifying a filter. State Manager is a capability of Amazon Web
+-- Services Systems Manager.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
@@ -68,7 +70,7 @@ data ListAssociations = ListAssociations'
     -- Filtering associations using the @InstanceID@ attribute only returns
     -- legacy associations created using the @InstanceID@ attribute.
     -- Associations targeting the instance that are part of the Target
-    -- Attributes @ResourceGroup@ or @Tags@ are not returned.
+    -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
     associationFilterList :: Prelude.Maybe (Prelude.NonEmpty AssociationFilter)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,7 +96,7 @@ data ListAssociations = ListAssociations'
 -- Filtering associations using the @InstanceID@ attribute only returns
 -- legacy associations created using the @InstanceID@ attribute.
 -- Associations targeting the instance that are part of the Target
--- Attributes @ResourceGroup@ or @Tags@ are not returned.
+-- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 newListAssociations ::
   ListAssociations
 newListAssociations =
@@ -121,7 +123,7 @@ listAssociations_maxResults = Lens.lens (\ListAssociations' {maxResults} -> maxR
 -- Filtering associations using the @InstanceID@ attribute only returns
 -- legacy associations created using the @InstanceID@ attribute.
 -- Associations targeting the instance that are part of the Target
--- Attributes @ResourceGroup@ or @Tags@ are not returned.
+-- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 listAssociations_associationFilterList :: Lens.Lens' ListAssociations (Prelude.Maybe (Prelude.NonEmpty AssociationFilter))
 listAssociations_associationFilterList = Lens.lens (\ListAssociations' {associationFilterList} -> associationFilterList) (\s@ListAssociations' {} a -> s {associationFilterList = a} :: ListAssociations) Prelude.. Lens.mapping Lens._Coerce
 

@@ -20,21 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- @ServiceSetting@ is an account-level setting for an AWS service. This
--- setting defines how a user interacts with or uses a service or a feature
--- of a service. For example, if an AWS service charges money to the
--- account based on feature or service usage, then the AWS service team
--- might create a default setting of \"false\". This means the user can\'t
--- use this feature unless they change the setting to \"true\" and
--- intentionally opt in for a paid feature.
+-- @ServiceSetting@ is an account-level setting for an Amazon Web Services
+-- service. This setting defines how a user interacts with or uses a
+-- service or a feature of a service. For example, if an Amazon Web
+-- Services service charges money to the account based on feature or
+-- service usage, then the Amazon Web Services service team might create a
+-- default setting of \"false\". This means the user can\'t use this
+-- feature unless they change the setting to \"true\" and intentionally opt
+-- in for a paid feature.
 --
--- Services map a @SettingId@ object to a setting value. AWS services teams
--- define the default value for a @SettingId@. You can\'t create a new
--- @SettingId@, but you can overwrite the default value if you have the
--- @ssm:UpdateServiceSetting@ permission for the setting. Use the
--- GetServiceSetting API action to view the current value. Or, use the
--- ResetServiceSetting to change the value back to the original value
--- defined by the AWS service team.
+-- Services map a @SettingId@ object to a setting value. Amazon Web
+-- Services services teams define the default value for a @SettingId@. You
+-- can\'t create a new @SettingId@, but you can overwrite the default value
+-- if you have the @ssm:UpdateServiceSetting@ permission for the setting.
+-- Use the GetServiceSetting API operation to view the current value. Or,
+-- use the ResetServiceSetting to change the value back to the original
+-- value defined by the Amazon Web Services service team.
 --
 -- Update the service setting for the account.
 module Network.AWS.SSM.UpdateServiceSetting
@@ -62,7 +63,7 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
 
--- | The request body of the UpdateServiceSetting API action.
+-- | The request body of the UpdateServiceSetting API operation.
 --
 -- /See:/ 'newUpdateServiceSetting' smart constructor.
 data UpdateServiceSetting = UpdateServiceSetting'
@@ -75,31 +76,33 @@ data UpdateServiceSetting = UpdateServiceSetting'
     --
     -- -   @\/ssm\/automation\/customer-script-log-group-name@
     --
+    -- -   @\/ssm\/documents\/console\/public-sharing-permission@
+    --
     -- -   @\/ssm\/parameter-store\/default-parameter-tier@
     --
     -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
     --
     -- -   @\/ssm\/managed-instance\/activation-tier@
     settingId :: Prelude.Text,
-    -- | The new value to specify for the service setting. For the
-    -- @\/ssm\/parameter-store\/default-parameter-tier@ setting ID, the setting
-    -- value can be one of the following.
+    -- | The new value to specify for the service setting. The following list
+    -- specifies the available values for each setting.
     --
-    -- -   Standard
+    -- -   @\/ssm\/parameter-store\/default-parameter-tier@: @Standard@,
+    --     @Advanced@, @Intelligent-Tiering@
     --
-    -- -   Advanced
+    -- -   @\/ssm\/parameter-store\/high-throughput-enabled@: @true@ or @false@
     --
-    -- -   Intelligent-Tiering
+    -- -   @\/ssm\/managed-instance\/activation-tier@: @true@ or @false@
     --
-    -- For the @\/ssm\/parameter-store\/high-throughput-enabled@, and
-    -- @\/ssm\/managed-instance\/activation-tier@ setting IDs, the setting
-    -- value can be true or false.
+    -- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
     --
-    -- For the @\/ssm\/automation\/customer-script-log-destination@ setting ID,
-    -- the setting value can be CloudWatch.
+    -- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+    --     Amazon CloudWatch Logs log group
     --
-    -- For the @\/ssm\/automation\/customer-script-log-group-name@ setting ID,
-    -- the setting value can be the name of a CloudWatch Logs log group.
+    -- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
+    --     @Disable@
+    --
+    -- -   @\/ssm\/managed-instance\/activation-tier@: @standard@ or @advanced@
     settingValue :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -121,31 +124,33 @@ data UpdateServiceSetting = UpdateServiceSetting'
 --
 -- -   @\/ssm\/automation\/customer-script-log-group-name@
 --
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
 --
 -- -   @\/ssm\/managed-instance\/activation-tier@
 --
--- 'settingValue', 'updateServiceSetting_settingValue' - The new value to specify for the service setting. For the
--- @\/ssm\/parameter-store\/default-parameter-tier@ setting ID, the setting
--- value can be one of the following.
+-- 'settingValue', 'updateServiceSetting_settingValue' - The new value to specify for the service setting. The following list
+-- specifies the available values for each setting.
 --
--- -   Standard
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@: @Standard@,
+--     @Advanced@, @Intelligent-Tiering@
 --
--- -   Advanced
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@: @true@ or @false@
 --
--- -   Intelligent-Tiering
+-- -   @\/ssm\/managed-instance\/activation-tier@: @true@ or @false@
 --
--- For the @\/ssm\/parameter-store\/high-throughput-enabled@, and
--- @\/ssm\/managed-instance\/activation-tier@ setting IDs, the setting
--- value can be true or false.
+-- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
 --
--- For the @\/ssm\/automation\/customer-script-log-destination@ setting ID,
--- the setting value can be CloudWatch.
+-- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+--     Amazon CloudWatch Logs log group
 --
--- For the @\/ssm\/automation\/customer-script-log-group-name@ setting ID,
--- the setting value can be the name of a CloudWatch Logs log group.
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
+--     @Disable@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@: @standard@ or @advanced@
 newUpdateServiceSetting ::
   -- | 'settingId'
   Prelude.Text ->
@@ -167,6 +172,8 @@ newUpdateServiceSetting pSettingId_ pSettingValue_ =
 --
 -- -   @\/ssm\/automation\/customer-script-log-group-name@
 --
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
@@ -175,25 +182,25 @@ newUpdateServiceSetting pSettingId_ pSettingValue_ =
 updateServiceSetting_settingId :: Lens.Lens' UpdateServiceSetting Prelude.Text
 updateServiceSetting_settingId = Lens.lens (\UpdateServiceSetting' {settingId} -> settingId) (\s@UpdateServiceSetting' {} a -> s {settingId = a} :: UpdateServiceSetting)
 
--- | The new value to specify for the service setting. For the
--- @\/ssm\/parameter-store\/default-parameter-tier@ setting ID, the setting
--- value can be one of the following.
+-- | The new value to specify for the service setting. The following list
+-- specifies the available values for each setting.
 --
--- -   Standard
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@: @Standard@,
+--     @Advanced@, @Intelligent-Tiering@
 --
--- -   Advanced
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@: @true@ or @false@
 --
--- -   Intelligent-Tiering
+-- -   @\/ssm\/managed-instance\/activation-tier@: @true@ or @false@
 --
--- For the @\/ssm\/parameter-store\/high-throughput-enabled@, and
--- @\/ssm\/managed-instance\/activation-tier@ setting IDs, the setting
--- value can be true or false.
+-- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
 --
--- For the @\/ssm\/automation\/customer-script-log-destination@ setting ID,
--- the setting value can be CloudWatch.
+-- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+--     Amazon CloudWatch Logs log group
 --
--- For the @\/ssm\/automation\/customer-script-log-group-name@ setting ID,
--- the setting value can be the name of a CloudWatch Logs log group.
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
+--     @Disable@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@: @standard@ or @advanced@
 updateServiceSetting_settingValue :: Lens.Lens' UpdateServiceSetting Prelude.Text
 updateServiceSetting_settingValue = Lens.lens (\UpdateServiceSetting' {settingValue} -> settingValue) (\s@UpdateServiceSetting' {} a -> s {settingValue = a} :: UpdateServiceSetting)
 
@@ -243,7 +250,7 @@ instance Core.ToPath UpdateServiceSetting where
 instance Core.ToQuery UpdateServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result body of the UpdateServiceSetting API action.
+-- | The result body of the UpdateServiceSetting API operation.
 --
 -- /See:/ 'newUpdateServiceSettingResponse' smart constructor.
 data UpdateServiceSettingResponse = UpdateServiceSettingResponse'

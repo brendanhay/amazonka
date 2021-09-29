@@ -24,13 +24,18 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.TtmlStylePassthrough
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings specific to TTML caption outputs, including Pass style
--- information (TtmlStylePassthrough).
+-- | Settings related to TTML captions. TTML is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to TTML.
 --
 -- /See:/ 'newTtmlDestinationSettings' smart constructor.
 data TtmlDestinationSettings = TtmlDestinationSettings'
   { -- | Pass through style and position information from a TTML-like input
-    -- source (TTML, SMPTE-TT) to the TTML output.
+    -- source (TTML, IMSC, SMPTE-TT) to the TTML output.
     stylePassthrough :: Prelude.Maybe TtmlStylePassthrough
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +49,7 @@ data TtmlDestinationSettings = TtmlDestinationSettings'
 -- for backwards compatibility:
 --
 -- 'stylePassthrough', 'ttmlDestinationSettings_stylePassthrough' - Pass through style and position information from a TTML-like input
--- source (TTML, SMPTE-TT) to the TTML output.
+-- source (TTML, IMSC, SMPTE-TT) to the TTML output.
 newTtmlDestinationSettings ::
   TtmlDestinationSettings
 newTtmlDestinationSettings =
@@ -54,7 +59,7 @@ newTtmlDestinationSettings =
     }
 
 -- | Pass through style and position information from a TTML-like input
--- source (TTML, SMPTE-TT) to the TTML output.
+-- source (TTML, IMSC, SMPTE-TT) to the TTML output.
 ttmlDestinationSettings_stylePassthrough :: Lens.Lens' TtmlDestinationSettings (Prelude.Maybe TtmlStylePassthrough)
 ttmlDestinationSettings_stylePassthrough = Lens.lens (\TtmlDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@TtmlDestinationSettings' {} a -> s {stylePassthrough = a} :: TtmlDestinationSettings)
 

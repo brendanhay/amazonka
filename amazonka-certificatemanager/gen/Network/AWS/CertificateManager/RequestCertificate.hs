@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests an ACM certificate for use with other AWS services. To request
--- an ACM certificate, you must specify a fully qualified domain name
--- (FQDN) in the @DomainName@ parameter. You can also specify additional
--- FQDNs in the @SubjectAlternativeNames@ parameter.
+-- Requests an ACM certificate for use with other Amazon Web Services
+-- services. To request an ACM certificate, you must specify a fully
+-- qualified domain name (FQDN) in the @DomainName@ parameter. You can also
+-- specify additional FQDNs in the @SubjectAlternativeNames@ parameter.
 --
 -- If you are requesting a private certificate, domain validation is not
 -- required. If you are requesting a public certificate, each domain name
@@ -34,6 +34,11 @@
 -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html email validation>.
 -- We recommend that you use DNS validation. ACM issues public certificates
 -- after receiving approval from the domain owner.
+--
+-- ACM behavior differs from the
+-- <https://tools.ietf.org/html/rfc6125#appendix-B.2>RFC 6125 specification
+-- of the certificate validation process. first checks for a subject
+-- alternative name, and, if it finds one, ignores the common name (CN)
 module Network.AWS.CertificateManager.RequestCertificate
   ( -- * Creating a Request
     RequestCertificate (..),
@@ -88,7 +93,7 @@ data RequestCertificate = RequestCertificate'
     -- and you are trying to request a private certificate, ACM will attempt to
     -- issue a public certificate. For more information about private CAs, see
     -- the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html AWS Certificate Manager Private Certificate Authority (PCA)>
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
     -- user guide. The ARN must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
@@ -173,7 +178,7 @@ data RequestCertificate = RequestCertificate'
 -- and you are trying to request a private certificate, ACM will attempt to
 -- issue a public certificate. For more information about private CAs, see
 -- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html AWS Certificate Manager Private Certificate Authority (PCA)>
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
 -- user guide. The ARN must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
@@ -267,7 +272,7 @@ requestCertificate_validationMethod = Lens.lens (\RequestCertificate' {validatio
 -- and you are trying to request a private certificate, ACM will attempt to
 -- issue a public certificate. For more information about private CAs, see
 -- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html AWS Certificate Manager Private Certificate Authority (PCA)>
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
 -- user guide. The ARN must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@

@@ -32,12 +32,12 @@ data ServiceSoftwareOptions = ServiceSoftwareOptions'
     newVersion' :: Prelude.Maybe Prelude.Text,
     -- | The current service software version that is present on the domain.
     currentVersion :: Prelude.Maybe Prelude.Text,
-    -- | @True@ if you are able to update you service software version. @False@
-    -- if you are not able to update your service software version.
-    updateAvailable :: Prelude.Maybe Prelude.Bool,
     -- | @True@ if you are able to cancel your service software version update.
     -- @False@ if you are not able to cancel your service software version.
     cancellable :: Prelude.Maybe Prelude.Bool,
+    -- | @True@ if you are able to update you service software version. @False@
+    -- if you are not able to update your service software version.
+    updateAvailable :: Prelude.Maybe Prelude.Bool,
     -- | The status of your service software update. This field can take the
     -- following values: @ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
     -- @COMPLETED@, and @NOT_ELIGIBLE@.
@@ -66,11 +66,11 @@ data ServiceSoftwareOptions = ServiceSoftwareOptions'
 --
 -- 'currentVersion', 'serviceSoftwareOptions_currentVersion' - The current service software version that is present on the domain.
 --
--- 'updateAvailable', 'serviceSoftwareOptions_updateAvailable' - @True@ if you are able to update you service software version. @False@
--- if you are not able to update your service software version.
---
 -- 'cancellable', 'serviceSoftwareOptions_cancellable' - @True@ if you are able to cancel your service software version update.
 -- @False@ if you are not able to cancel your service software version.
+--
+-- 'updateAvailable', 'serviceSoftwareOptions_updateAvailable' - @True@ if you are able to update you service software version. @False@
+-- if you are not able to update your service software version.
 --
 -- 'updateStatus', 'serviceSoftwareOptions_updateStatus' - The status of your service software update. This field can take the
 -- following values: @ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
@@ -91,8 +91,8 @@ newServiceSoftwareOptions =
     { newVersion' =
         Prelude.Nothing,
       currentVersion = Prelude.Nothing,
-      updateAvailable = Prelude.Nothing,
       cancellable = Prelude.Nothing,
+      updateAvailable = Prelude.Nothing,
       updateStatus = Prelude.Nothing,
       optionalDeployment = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -107,15 +107,15 @@ serviceSoftwareOptions_newVersion = Lens.lens (\ServiceSoftwareOptions' {newVers
 serviceSoftwareOptions_currentVersion :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 serviceSoftwareOptions_currentVersion = Lens.lens (\ServiceSoftwareOptions' {currentVersion} -> currentVersion) (\s@ServiceSoftwareOptions' {} a -> s {currentVersion = a} :: ServiceSoftwareOptions)
 
--- | @True@ if you are able to update you service software version. @False@
--- if you are not able to update your service software version.
-serviceSoftwareOptions_updateAvailable :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
-serviceSoftwareOptions_updateAvailable = Lens.lens (\ServiceSoftwareOptions' {updateAvailable} -> updateAvailable) (\s@ServiceSoftwareOptions' {} a -> s {updateAvailable = a} :: ServiceSoftwareOptions)
-
 -- | @True@ if you are able to cancel your service software version update.
 -- @False@ if you are not able to cancel your service software version.
 serviceSoftwareOptions_cancellable :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 serviceSoftwareOptions_cancellable = Lens.lens (\ServiceSoftwareOptions' {cancellable} -> cancellable) (\s@ServiceSoftwareOptions' {} a -> s {cancellable = a} :: ServiceSoftwareOptions)
+
+-- | @True@ if you are able to update you service software version. @False@
+-- if you are not able to update your service software version.
+serviceSoftwareOptions_updateAvailable :: Lens.Lens' ServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
+serviceSoftwareOptions_updateAvailable = Lens.lens (\ServiceSoftwareOptions' {updateAvailable} -> updateAvailable) (\s@ServiceSoftwareOptions' {} a -> s {updateAvailable = a} :: ServiceSoftwareOptions)
 
 -- | The status of your service software update. This field can take the
 -- following values: @ELIGIBLE@, @PENDING_UPDATE@, @IN_PROGRESS@,
@@ -146,8 +146,8 @@ instance Core.FromJSON ServiceSoftwareOptions where
           ServiceSoftwareOptions'
             Prelude.<$> (x Core..:? "NewVersion")
             Prelude.<*> (x Core..:? "CurrentVersion")
-            Prelude.<*> (x Core..:? "UpdateAvailable")
             Prelude.<*> (x Core..:? "Cancellable")
+            Prelude.<*> (x Core..:? "UpdateAvailable")
             Prelude.<*> (x Core..:? "UpdateStatus")
             Prelude.<*> (x Core..:? "OptionalDeployment")
             Prelude.<*> (x Core..:? "Description")

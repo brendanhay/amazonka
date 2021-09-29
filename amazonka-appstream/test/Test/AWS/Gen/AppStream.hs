@@ -27,20 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteImageBuilder $
---             newDeleteImageBuilder
+--         [ requestListAssociatedStacks $
+--             newListAssociatedStacks
 --
---         , requestListAssociatedFleets $
---             newListAssociatedFleets
+--         , requestDeleteImageBuilder $
+--             newDeleteImageBuilder
 --
 --         , requestBatchAssociateUserStack $
 --             newBatchAssociateUserStack
 --
---         , requestListAssociatedStacks $
---             newListAssociatedStacks
+--         , requestListAssociatedFleets $
+--             newListAssociatedFleets
 --
 --         , requestDeleteUsageReportSubscription $
 --             newDeleteUsageReportSubscription
+--
+--         , requestStopFleet $
+--             newStopFleet
 --
 --         , requestStopImageBuilder $
 --             newStopImageBuilder
@@ -51,35 +54,26 @@ import Test.Tasty
 --         , requestStartImageBuilder $
 --             newStartImageBuilder
 --
---         , requestStopFleet $
---             newStopFleet
---
 --         , requestUntagResource $
 --             newUntagResource
---
---         , requestEnableUser $
---             newEnableUser
---
---         , requestDescribeSessions $
---             newDescribeSessions
---
---         , requestDescribeFleets $
---             newDescribeFleets
---
---         , requestDescribeStacks $
---             newDescribeStacks
 --
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestDescribeFleets $
+--             newDescribeFleets
+--
+--         , requestDescribeSessions $
+--             newDescribeSessions
+--
+--         , requestEnableUser $
+--             newEnableUser
+--
+--         , requestDescribeStacks $
+--             newDescribeStacks
+--
 --         , requestCreateUser $
 --             newCreateUser
---
---         , requestUpdateDirectoryConfig $
---             newUpdateDirectoryConfig
---
---         , requestCreateStack $
---             newCreateStack
 --
 --         , requestDeleteDirectoryConfig $
 --             newDeleteDirectoryConfig
@@ -87,11 +81,17 @@ import Test.Tasty
 --         , requestCopyImage $
 --             newCopyImage
 --
+--         , requestCreateImageBuilder $
+--             newCreateImageBuilder
+--
+--         , requestCreateStack $
+--             newCreateStack
+--
 --         , requestCreateFleet $
 --             newCreateFleet
 --
---         , requestCreateImageBuilder $
---             newCreateImageBuilder
+--         , requestUpdateDirectoryConfig $
+--             newUpdateDirectoryConfig
 --
 --         , requestAssociateFleet $
 --             newAssociateFleet
@@ -99,20 +99,20 @@ import Test.Tasty
 --         , requestCreateDirectoryConfig $
 --             newCreateDirectoryConfig
 --
---         , requestUpdateFleet $
---             newUpdateFleet
---
 --         , requestDeleteStack $
 --             newDeleteStack
 --
 --         , requestDeleteFleet $
 --             newDeleteFleet
 --
+--         , requestUpdateStack $
+--             newUpdateStack
+--
 --         , requestDescribeUsers $
 --             newDescribeUsers
 --
---         , requestUpdateStack $
---             newUpdateStack
+--         , requestUpdateFleet $
+--             newUpdateFleet
 --
 --         , requestCreateUsageReportSubscription $
 --             newCreateUsageReportSubscription
@@ -120,14 +120,20 @@ import Test.Tasty
 --         , requestDisassociateFleet $
 --             newDisassociateFleet
 --
---         , requestDescribeImages $
---             newDescribeImages
---
 --         , requestBatchDisassociateUserStack $
 --             newBatchDisassociateUserStack
 --
+--         , requestDescribeImages $
+--             newDescribeImages
+--
 --         , requestDescribeUsageReportSubscriptions $
 --             newDescribeUsageReportSubscriptions
+--
+--         , requestUpdateImagePermissions $
+--             newUpdateImagePermissions
+--
+--         , requestCreateUpdatedImage $
+--             newCreateUpdatedImage
 --
 --         , requestDeleteImage $
 --             newDeleteImage
@@ -135,32 +141,29 @@ import Test.Tasty
 --         , requestDeleteImagePermissions $
 --             newDeleteImagePermissions
 --
---         , requestUpdateImagePermissions $
---             newUpdateImagePermissions
---
 --         , requestCreateStreamingURL $
 --             newCreateStreamingURL
---
---         , requestDeleteUser $
---             newDeleteUser
---
---         , requestDescribeUserStackAssociations $
---             newDescribeUserStackAssociations
 --
 --         , requestDescribeImageBuilders $
 --             newDescribeImageBuilders
 --
---         , requestDescribeDirectoryConfigs $
---             newDescribeDirectoryConfigs
+--         , requestDescribeUserStackAssociations $
+--             newDescribeUserStackAssociations
+--
+--         , requestDeleteUser $
+--             newDeleteUser
 --
 --         , requestDisableUser $
 --             newDisableUser
 --
+--         , requestCreateImageBuilderStreamingURL $
+--             newCreateImageBuilderStreamingURL
+--
 --         , requestExpireSession $
 --             newExpireSession
 --
---         , requestCreateImageBuilderStreamingURL $
---             newCreateImageBuilderStreamingURL
+--         , requestDescribeDirectoryConfigs $
+--             newDescribeDirectoryConfigs
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -171,20 +174,23 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteImageBuilder $
---             newDeleteImageBuilderResponse
+--         [ responseListAssociatedStacks $
+--             newListAssociatedStacksResponse
 --
---         , responseListAssociatedFleets $
---             newListAssociatedFleetsResponse
+--         , responseDeleteImageBuilder $
+--             newDeleteImageBuilderResponse
 --
 --         , responseBatchAssociateUserStack $
 --             newBatchAssociateUserStackResponse
 --
---         , responseListAssociatedStacks $
---             newListAssociatedStacksResponse
+--         , responseListAssociatedFleets $
+--             newListAssociatedFleetsResponse
 --
 --         , responseDeleteUsageReportSubscription $
 --             newDeleteUsageReportSubscriptionResponse
+--
+--         , responseStopFleet $
+--             newStopFleetResponse
 --
 --         , responseStopImageBuilder $
 --             newStopImageBuilderResponse
@@ -195,35 +201,26 @@ import Test.Tasty
 --         , responseStartImageBuilder $
 --             newStartImageBuilderResponse
 --
---         , responseStopFleet $
---             newStopFleetResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
---
---         , responseEnableUser $
---             newEnableUserResponse
---
---         , responseDescribeSessions $
---             newDescribeSessionsResponse
---
---         , responseDescribeFleets $
---             newDescribeFleetsResponse
---
---         , responseDescribeStacks $
---             newDescribeStacksResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseDescribeFleets $
+--             newDescribeFleetsResponse
+--
+--         , responseDescribeSessions $
+--             newDescribeSessionsResponse
+--
+--         , responseEnableUser $
+--             newEnableUserResponse
+--
+--         , responseDescribeStacks $
+--             newDescribeStacksResponse
+--
 --         , responseCreateUser $
 --             newCreateUserResponse
---
---         , responseUpdateDirectoryConfig $
---             newUpdateDirectoryConfigResponse
---
---         , responseCreateStack $
---             newCreateStackResponse
 --
 --         , responseDeleteDirectoryConfig $
 --             newDeleteDirectoryConfigResponse
@@ -231,11 +228,17 @@ import Test.Tasty
 --         , responseCopyImage $
 --             newCopyImageResponse
 --
+--         , responseCreateImageBuilder $
+--             newCreateImageBuilderResponse
+--
+--         , responseCreateStack $
+--             newCreateStackResponse
+--
 --         , responseCreateFleet $
 --             newCreateFleetResponse
 --
---         , responseCreateImageBuilder $
---             newCreateImageBuilderResponse
+--         , responseUpdateDirectoryConfig $
+--             newUpdateDirectoryConfigResponse
 --
 --         , responseAssociateFleet $
 --             newAssociateFleetResponse
@@ -243,20 +246,20 @@ import Test.Tasty
 --         , responseCreateDirectoryConfig $
 --             newCreateDirectoryConfigResponse
 --
---         , responseUpdateFleet $
---             newUpdateFleetResponse
---
 --         , responseDeleteStack $
 --             newDeleteStackResponse
 --
 --         , responseDeleteFleet $
 --             newDeleteFleetResponse
 --
+--         , responseUpdateStack $
+--             newUpdateStackResponse
+--
 --         , responseDescribeUsers $
 --             newDescribeUsersResponse
 --
---         , responseUpdateStack $
---             newUpdateStackResponse
+--         , responseUpdateFleet $
+--             newUpdateFleetResponse
 --
 --         , responseCreateUsageReportSubscription $
 --             newCreateUsageReportSubscriptionResponse
@@ -264,14 +267,20 @@ import Test.Tasty
 --         , responseDisassociateFleet $
 --             newDisassociateFleetResponse
 --
---         , responseDescribeImages $
---             newDescribeImagesResponse
---
 --         , responseBatchDisassociateUserStack $
 --             newBatchDisassociateUserStackResponse
 --
+--         , responseDescribeImages $
+--             newDescribeImagesResponse
+--
 --         , responseDescribeUsageReportSubscriptions $
 --             newDescribeUsageReportSubscriptionsResponse
+--
+--         , responseUpdateImagePermissions $
+--             newUpdateImagePermissionsResponse
+--
+--         , responseCreateUpdatedImage $
+--             newCreateUpdatedImageResponse
 --
 --         , responseDeleteImage $
 --             newDeleteImageResponse
@@ -279,32 +288,29 @@ import Test.Tasty
 --         , responseDeleteImagePermissions $
 --             newDeleteImagePermissionsResponse
 --
---         , responseUpdateImagePermissions $
---             newUpdateImagePermissionsResponse
---
 --         , responseCreateStreamingURL $
 --             newCreateStreamingURLResponse
---
---         , responseDeleteUser $
---             newDeleteUserResponse
---
---         , responseDescribeUserStackAssociations $
---             newDescribeUserStackAssociationsResponse
 --
 --         , responseDescribeImageBuilders $
 --             newDescribeImageBuildersResponse
 --
---         , responseDescribeDirectoryConfigs $
---             newDescribeDirectoryConfigsResponse
+--         , responseDescribeUserStackAssociations $
+--             newDescribeUserStackAssociationsResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
 --
 --         , responseDisableUser $
 --             newDisableUserResponse
 --
+--         , responseCreateImageBuilderStreamingURL $
+--             newCreateImageBuilderStreamingURLResponse
+--
 --         , responseExpireSession $
 --             newExpireSessionResponse
 --
---         , responseCreateImageBuilderStreamingURL $
---             newCreateImageBuilderStreamingURLResponse
+--         , responseDescribeDirectoryConfigs $
+--             newDescribeDirectoryConfigsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -317,17 +323,17 @@ import Test.Tasty
 
 -- Requests
 
+requestListAssociatedStacks :: ListAssociatedStacks -> TestTree
+requestListAssociatedStacks =
+  req
+    "ListAssociatedStacks"
+    "fixture/ListAssociatedStacks.yaml"
+
 requestDeleteImageBuilder :: DeleteImageBuilder -> TestTree
 requestDeleteImageBuilder =
   req
     "DeleteImageBuilder"
     "fixture/DeleteImageBuilder.yaml"
-
-requestListAssociatedFleets :: ListAssociatedFleets -> TestTree
-requestListAssociatedFleets =
-  req
-    "ListAssociatedFleets"
-    "fixture/ListAssociatedFleets.yaml"
 
 requestBatchAssociateUserStack :: BatchAssociateUserStack -> TestTree
 requestBatchAssociateUserStack =
@@ -335,17 +341,23 @@ requestBatchAssociateUserStack =
     "BatchAssociateUserStack"
     "fixture/BatchAssociateUserStack.yaml"
 
-requestListAssociatedStacks :: ListAssociatedStacks -> TestTree
-requestListAssociatedStacks =
+requestListAssociatedFleets :: ListAssociatedFleets -> TestTree
+requestListAssociatedFleets =
   req
-    "ListAssociatedStacks"
-    "fixture/ListAssociatedStacks.yaml"
+    "ListAssociatedFleets"
+    "fixture/ListAssociatedFleets.yaml"
 
 requestDeleteUsageReportSubscription :: DeleteUsageReportSubscription -> TestTree
 requestDeleteUsageReportSubscription =
   req
     "DeleteUsageReportSubscription"
     "fixture/DeleteUsageReportSubscription.yaml"
+
+requestStopFleet :: StopFleet -> TestTree
+requestStopFleet =
+  req
+    "StopFleet"
+    "fixture/StopFleet.yaml"
 
 requestStopImageBuilder :: StopImageBuilder -> TestTree
 requestStopImageBuilder =
@@ -365,41 +377,11 @@ requestStartImageBuilder =
     "StartImageBuilder"
     "fixture/StartImageBuilder.yaml"
 
-requestStopFleet :: StopFleet -> TestTree
-requestStopFleet =
-  req
-    "StopFleet"
-    "fixture/StopFleet.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
-
-requestEnableUser :: EnableUser -> TestTree
-requestEnableUser =
-  req
-    "EnableUser"
-    "fixture/EnableUser.yaml"
-
-requestDescribeSessions :: DescribeSessions -> TestTree
-requestDescribeSessions =
-  req
-    "DescribeSessions"
-    "fixture/DescribeSessions.yaml"
-
-requestDescribeFleets :: DescribeFleets -> TestTree
-requestDescribeFleets =
-  req
-    "DescribeFleets"
-    "fixture/DescribeFleets.yaml"
-
-requestDescribeStacks :: DescribeStacks -> TestTree
-requestDescribeStacks =
-  req
-    "DescribeStacks"
-    "fixture/DescribeStacks.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -407,23 +389,35 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestDescribeFleets :: DescribeFleets -> TestTree
+requestDescribeFleets =
+  req
+    "DescribeFleets"
+    "fixture/DescribeFleets.yaml"
+
+requestDescribeSessions :: DescribeSessions -> TestTree
+requestDescribeSessions =
+  req
+    "DescribeSessions"
+    "fixture/DescribeSessions.yaml"
+
+requestEnableUser :: EnableUser -> TestTree
+requestEnableUser =
+  req
+    "EnableUser"
+    "fixture/EnableUser.yaml"
+
+requestDescribeStacks :: DescribeStacks -> TestTree
+requestDescribeStacks =
+  req
+    "DescribeStacks"
+    "fixture/DescribeStacks.yaml"
+
 requestCreateUser :: CreateUser -> TestTree
 requestCreateUser =
   req
     "CreateUser"
     "fixture/CreateUser.yaml"
-
-requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
-requestUpdateDirectoryConfig =
-  req
-    "UpdateDirectoryConfig"
-    "fixture/UpdateDirectoryConfig.yaml"
-
-requestCreateStack :: CreateStack -> TestTree
-requestCreateStack =
-  req
-    "CreateStack"
-    "fixture/CreateStack.yaml"
 
 requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
 requestDeleteDirectoryConfig =
@@ -437,17 +431,29 @@ requestCopyImage =
     "CopyImage"
     "fixture/CopyImage.yaml"
 
+requestCreateImageBuilder :: CreateImageBuilder -> TestTree
+requestCreateImageBuilder =
+  req
+    "CreateImageBuilder"
+    "fixture/CreateImageBuilder.yaml"
+
+requestCreateStack :: CreateStack -> TestTree
+requestCreateStack =
+  req
+    "CreateStack"
+    "fixture/CreateStack.yaml"
+
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet =
   req
     "CreateFleet"
     "fixture/CreateFleet.yaml"
 
-requestCreateImageBuilder :: CreateImageBuilder -> TestTree
-requestCreateImageBuilder =
+requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
+requestUpdateDirectoryConfig =
   req
-    "CreateImageBuilder"
-    "fixture/CreateImageBuilder.yaml"
+    "UpdateDirectoryConfig"
+    "fixture/UpdateDirectoryConfig.yaml"
 
 requestAssociateFleet :: AssociateFleet -> TestTree
 requestAssociateFleet =
@@ -461,12 +467,6 @@ requestCreateDirectoryConfig =
     "CreateDirectoryConfig"
     "fixture/CreateDirectoryConfig.yaml"
 
-requestUpdateFleet :: UpdateFleet -> TestTree
-requestUpdateFleet =
-  req
-    "UpdateFleet"
-    "fixture/UpdateFleet.yaml"
-
 requestDeleteStack :: DeleteStack -> TestTree
 requestDeleteStack =
   req
@@ -479,17 +479,23 @@ requestDeleteFleet =
     "DeleteFleet"
     "fixture/DeleteFleet.yaml"
 
+requestUpdateStack :: UpdateStack -> TestTree
+requestUpdateStack =
+  req
+    "UpdateStack"
+    "fixture/UpdateStack.yaml"
+
 requestDescribeUsers :: DescribeUsers -> TestTree
 requestDescribeUsers =
   req
     "DescribeUsers"
     "fixture/DescribeUsers.yaml"
 
-requestUpdateStack :: UpdateStack -> TestTree
-requestUpdateStack =
+requestUpdateFleet :: UpdateFleet -> TestTree
+requestUpdateFleet =
   req
-    "UpdateStack"
-    "fixture/UpdateStack.yaml"
+    "UpdateFleet"
+    "fixture/UpdateFleet.yaml"
 
 requestCreateUsageReportSubscription :: CreateUsageReportSubscription -> TestTree
 requestCreateUsageReportSubscription =
@@ -503,23 +509,35 @@ requestDisassociateFleet =
     "DisassociateFleet"
     "fixture/DisassociateFleet.yaml"
 
-requestDescribeImages :: DescribeImages -> TestTree
-requestDescribeImages =
-  req
-    "DescribeImages"
-    "fixture/DescribeImages.yaml"
-
 requestBatchDisassociateUserStack :: BatchDisassociateUserStack -> TestTree
 requestBatchDisassociateUserStack =
   req
     "BatchDisassociateUserStack"
     "fixture/BatchDisassociateUserStack.yaml"
 
+requestDescribeImages :: DescribeImages -> TestTree
+requestDescribeImages =
+  req
+    "DescribeImages"
+    "fixture/DescribeImages.yaml"
+
 requestDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptions -> TestTree
 requestDescribeUsageReportSubscriptions =
   req
     "DescribeUsageReportSubscriptions"
     "fixture/DescribeUsageReportSubscriptions.yaml"
+
+requestUpdateImagePermissions :: UpdateImagePermissions -> TestTree
+requestUpdateImagePermissions =
+  req
+    "UpdateImagePermissions"
+    "fixture/UpdateImagePermissions.yaml"
+
+requestCreateUpdatedImage :: CreateUpdatedImage -> TestTree
+requestCreateUpdatedImage =
+  req
+    "CreateUpdatedImage"
+    "fixture/CreateUpdatedImage.yaml"
 
 requestDeleteImage :: DeleteImage -> TestTree
 requestDeleteImage =
@@ -533,29 +551,11 @@ requestDeleteImagePermissions =
     "DeleteImagePermissions"
     "fixture/DeleteImagePermissions.yaml"
 
-requestUpdateImagePermissions :: UpdateImagePermissions -> TestTree
-requestUpdateImagePermissions =
-  req
-    "UpdateImagePermissions"
-    "fixture/UpdateImagePermissions.yaml"
-
 requestCreateStreamingURL :: CreateStreamingURL -> TestTree
 requestCreateStreamingURL =
   req
     "CreateStreamingURL"
     "fixture/CreateStreamingURL.yaml"
-
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
-
-requestDescribeUserStackAssociations :: DescribeUserStackAssociations -> TestTree
-requestDescribeUserStackAssociations =
-  req
-    "DescribeUserStackAssociations"
-    "fixture/DescribeUserStackAssociations.yaml"
 
 requestDescribeImageBuilders :: DescribeImageBuilders -> TestTree
 requestDescribeImageBuilders =
@@ -563,11 +563,17 @@ requestDescribeImageBuilders =
     "DescribeImageBuilders"
     "fixture/DescribeImageBuilders.yaml"
 
-requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
-requestDescribeDirectoryConfigs =
+requestDescribeUserStackAssociations :: DescribeUserStackAssociations -> TestTree
+requestDescribeUserStackAssociations =
   req
-    "DescribeDirectoryConfigs"
-    "fixture/DescribeDirectoryConfigs.yaml"
+    "DescribeUserStackAssociations"
+    "fixture/DescribeUserStackAssociations.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
 
 requestDisableUser :: DisableUser -> TestTree
 requestDisableUser =
@@ -575,17 +581,23 @@ requestDisableUser =
     "DisableUser"
     "fixture/DisableUser.yaml"
 
+requestCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURL -> TestTree
+requestCreateImageBuilderStreamingURL =
+  req
+    "CreateImageBuilderStreamingURL"
+    "fixture/CreateImageBuilderStreamingURL.yaml"
+
 requestExpireSession :: ExpireSession -> TestTree
 requestExpireSession =
   req
     "ExpireSession"
     "fixture/ExpireSession.yaml"
 
-requestCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURL -> TestTree
-requestCreateImageBuilderStreamingURL =
+requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
+requestDescribeDirectoryConfigs =
   req
-    "CreateImageBuilderStreamingURL"
-    "fixture/CreateImageBuilderStreamingURL.yaml"
+    "DescribeDirectoryConfigs"
+    "fixture/DescribeDirectoryConfigs.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -601,6 +613,14 @@ requestDescribeImagePermissions =
 
 -- Responses
 
+responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
+responseListAssociatedStacks =
+  res
+    "ListAssociatedStacksResponse"
+    "fixture/ListAssociatedStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAssociatedStacks)
+
 responseDeleteImageBuilder :: DeleteImageBuilderResponse -> TestTree
 responseDeleteImageBuilder =
   res
@@ -608,14 +628,6 @@ responseDeleteImageBuilder =
     "fixture/DeleteImageBuilderResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteImageBuilder)
-
-responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
-responseListAssociatedFleets =
-  res
-    "ListAssociatedFleetsResponse"
-    "fixture/ListAssociatedFleetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAssociatedFleets)
 
 responseBatchAssociateUserStack :: BatchAssociateUserStackResponse -> TestTree
 responseBatchAssociateUserStack =
@@ -625,13 +637,13 @@ responseBatchAssociateUserStack =
     defaultService
     (Proxy :: Proxy BatchAssociateUserStack)
 
-responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
-responseListAssociatedStacks =
+responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
+responseListAssociatedFleets =
   res
-    "ListAssociatedStacksResponse"
-    "fixture/ListAssociatedStacksResponse.proto"
+    "ListAssociatedFleetsResponse"
+    "fixture/ListAssociatedFleetsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociatedStacks)
+    (Proxy :: Proxy ListAssociatedFleets)
 
 responseDeleteUsageReportSubscription :: DeleteUsageReportSubscriptionResponse -> TestTree
 responseDeleteUsageReportSubscription =
@@ -640,6 +652,14 @@ responseDeleteUsageReportSubscription =
     "fixture/DeleteUsageReportSubscriptionResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteUsageReportSubscription)
+
+responseStopFleet :: StopFleetResponse -> TestTree
+responseStopFleet =
+  res
+    "StopFleetResponse"
+    "fixture/StopFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopFleet)
 
 responseStopImageBuilder :: StopImageBuilderResponse -> TestTree
 responseStopImageBuilder =
@@ -665,14 +685,6 @@ responseStartImageBuilder =
     defaultService
     (Proxy :: Proxy StartImageBuilder)
 
-responseStopFleet :: StopFleetResponse -> TestTree
-responseStopFleet =
-  res
-    "StopFleetResponse"
-    "fixture/StopFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopFleet)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -680,38 +692,6 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy UntagResource)
-
-responseEnableUser :: EnableUserResponse -> TestTree
-responseEnableUser =
-  res
-    "EnableUserResponse"
-    "fixture/EnableUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy EnableUser)
-
-responseDescribeSessions :: DescribeSessionsResponse -> TestTree
-responseDescribeSessions =
-  res
-    "DescribeSessionsResponse"
-    "fixture/DescribeSessionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeSessions)
-
-responseDescribeFleets :: DescribeFleetsResponse -> TestTree
-responseDescribeFleets =
-  res
-    "DescribeFleetsResponse"
-    "fixture/DescribeFleetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeFleets)
-
-responseDescribeStacks :: DescribeStacksResponse -> TestTree
-responseDescribeStacks =
-  res
-    "DescribeStacksResponse"
-    "fixture/DescribeStacksResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStacks)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -721,6 +701,38 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
+responseDescribeFleets :: DescribeFleetsResponse -> TestTree
+responseDescribeFleets =
+  res
+    "DescribeFleetsResponse"
+    "fixture/DescribeFleetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFleets)
+
+responseDescribeSessions :: DescribeSessionsResponse -> TestTree
+responseDescribeSessions =
+  res
+    "DescribeSessionsResponse"
+    "fixture/DescribeSessionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSessions)
+
+responseEnableUser :: EnableUserResponse -> TestTree
+responseEnableUser =
+  res
+    "EnableUserResponse"
+    "fixture/EnableUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableUser)
+
+responseDescribeStacks :: DescribeStacksResponse -> TestTree
+responseDescribeStacks =
+  res
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStacks)
+
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser =
   res
@@ -728,22 +740,6 @@ responseCreateUser =
     "fixture/CreateUserResponse.proto"
     defaultService
     (Proxy :: Proxy CreateUser)
-
-responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
-responseUpdateDirectoryConfig =
-  res
-    "UpdateDirectoryConfigResponse"
-    "fixture/UpdateDirectoryConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDirectoryConfig)
-
-responseCreateStack :: CreateStackResponse -> TestTree
-responseCreateStack =
-  res
-    "CreateStackResponse"
-    "fixture/CreateStackResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStack)
 
 responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
 responseDeleteDirectoryConfig =
@@ -761,6 +757,22 @@ responseCopyImage =
     defaultService
     (Proxy :: Proxy CopyImage)
 
+responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
+responseCreateImageBuilder =
+  res
+    "CreateImageBuilderResponse"
+    "fixture/CreateImageBuilderResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImageBuilder)
+
+responseCreateStack :: CreateStackResponse -> TestTree
+responseCreateStack =
+  res
+    "CreateStackResponse"
+    "fixture/CreateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStack)
+
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
   res
@@ -769,13 +781,13 @@ responseCreateFleet =
     defaultService
     (Proxy :: Proxy CreateFleet)
 
-responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
-responseCreateImageBuilder =
+responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
+responseUpdateDirectoryConfig =
   res
-    "CreateImageBuilderResponse"
-    "fixture/CreateImageBuilderResponse.proto"
+    "UpdateDirectoryConfigResponse"
+    "fixture/UpdateDirectoryConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageBuilder)
+    (Proxy :: Proxy UpdateDirectoryConfig)
 
 responseAssociateFleet :: AssociateFleetResponse -> TestTree
 responseAssociateFleet =
@@ -793,14 +805,6 @@ responseCreateDirectoryConfig =
     defaultService
     (Proxy :: Proxy CreateDirectoryConfig)
 
-responseUpdateFleet :: UpdateFleetResponse -> TestTree
-responseUpdateFleet =
-  res
-    "UpdateFleetResponse"
-    "fixture/UpdateFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateFleet)
-
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
   res
@@ -817,6 +821,14 @@ responseDeleteFleet =
     defaultService
     (Proxy :: Proxy DeleteFleet)
 
+responseUpdateStack :: UpdateStackResponse -> TestTree
+responseUpdateStack =
+  res
+    "UpdateStackResponse"
+    "fixture/UpdateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateStack)
+
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
 responseDescribeUsers =
   res
@@ -825,13 +837,13 @@ responseDescribeUsers =
     defaultService
     (Proxy :: Proxy DescribeUsers)
 
-responseUpdateStack :: UpdateStackResponse -> TestTree
-responseUpdateStack =
+responseUpdateFleet :: UpdateFleetResponse -> TestTree
+responseUpdateFleet =
   res
-    "UpdateStackResponse"
-    "fixture/UpdateStackResponse.proto"
+    "UpdateFleetResponse"
+    "fixture/UpdateFleetResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateStack)
+    (Proxy :: Proxy UpdateFleet)
 
 responseCreateUsageReportSubscription :: CreateUsageReportSubscriptionResponse -> TestTree
 responseCreateUsageReportSubscription =
@@ -849,14 +861,6 @@ responseDisassociateFleet =
     defaultService
     (Proxy :: Proxy DisassociateFleet)
 
-responseDescribeImages :: DescribeImagesResponse -> TestTree
-responseDescribeImages =
-  res
-    "DescribeImagesResponse"
-    "fixture/DescribeImagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeImages)
-
 responseBatchDisassociateUserStack :: BatchDisassociateUserStackResponse -> TestTree
 responseBatchDisassociateUserStack =
   res
@@ -865,6 +869,14 @@ responseBatchDisassociateUserStack =
     defaultService
     (Proxy :: Proxy BatchDisassociateUserStack)
 
+responseDescribeImages :: DescribeImagesResponse -> TestTree
+responseDescribeImages =
+  res
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImages)
+
 responseDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> TestTree
 responseDescribeUsageReportSubscriptions =
   res
@@ -872,6 +884,22 @@ responseDescribeUsageReportSubscriptions =
     "fixture/DescribeUsageReportSubscriptionsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeUsageReportSubscriptions)
+
+responseUpdateImagePermissions :: UpdateImagePermissionsResponse -> TestTree
+responseUpdateImagePermissions =
+  res
+    "UpdateImagePermissionsResponse"
+    "fixture/UpdateImagePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateImagePermissions)
+
+responseCreateUpdatedImage :: CreateUpdatedImageResponse -> TestTree
+responseCreateUpdatedImage =
+  res
+    "CreateUpdatedImageResponse"
+    "fixture/CreateUpdatedImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUpdatedImage)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
 responseDeleteImage =
@@ -889,14 +917,6 @@ responseDeleteImagePermissions =
     defaultService
     (Proxy :: Proxy DeleteImagePermissions)
 
-responseUpdateImagePermissions :: UpdateImagePermissionsResponse -> TestTree
-responseUpdateImagePermissions =
-  res
-    "UpdateImagePermissionsResponse"
-    "fixture/UpdateImagePermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateImagePermissions)
-
 responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
 responseCreateStreamingURL =
   res
@@ -904,22 +924,6 @@ responseCreateStreamingURL =
     "fixture/CreateStreamingURLResponse.proto"
     defaultService
     (Proxy :: Proxy CreateStreamingURL)
-
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteUser)
-
-responseDescribeUserStackAssociations :: DescribeUserStackAssociationsResponse -> TestTree
-responseDescribeUserStackAssociations =
-  res
-    "DescribeUserStackAssociationsResponse"
-    "fixture/DescribeUserStackAssociationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeUserStackAssociations)
 
 responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
 responseDescribeImageBuilders =
@@ -929,13 +933,21 @@ responseDescribeImageBuilders =
     defaultService
     (Proxy :: Proxy DescribeImageBuilders)
 
-responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
-responseDescribeDirectoryConfigs =
+responseDescribeUserStackAssociations :: DescribeUserStackAssociationsResponse -> TestTree
+responseDescribeUserStackAssociations =
   res
-    "DescribeDirectoryConfigsResponse"
-    "fixture/DescribeDirectoryConfigsResponse.proto"
+    "DescribeUserStackAssociationsResponse"
+    "fixture/DescribeUserStackAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectoryConfigs)
+    (Proxy :: Proxy DescribeUserStackAssociations)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUser)
 
 responseDisableUser :: DisableUserResponse -> TestTree
 responseDisableUser =
@@ -945,6 +957,14 @@ responseDisableUser =
     defaultService
     (Proxy :: Proxy DisableUser)
 
+responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
+responseCreateImageBuilderStreamingURL =
+  res
+    "CreateImageBuilderStreamingURLResponse"
+    "fixture/CreateImageBuilderStreamingURLResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImageBuilderStreamingURL)
+
 responseExpireSession :: ExpireSessionResponse -> TestTree
 responseExpireSession =
   res
@@ -953,13 +973,13 @@ responseExpireSession =
     defaultService
     (Proxy :: Proxy ExpireSession)
 
-responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
-responseCreateImageBuilderStreamingURL =
+responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
+responseDescribeDirectoryConfigs =
   res
-    "CreateImageBuilderStreamingURLResponse"
-    "fixture/CreateImageBuilderStreamingURLResponse.proto"
+    "DescribeDirectoryConfigsResponse"
+    "fixture/DescribeDirectoryConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageBuilderStreamingURL)
+    (Proxy :: Proxy DescribeDirectoryConfigs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

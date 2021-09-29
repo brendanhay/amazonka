@@ -55,7 +55,8 @@ data UpdateQueueName = UpdateQueueName'
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the queue.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -74,7 +75,8 @@ data UpdateQueueName = UpdateQueueName'
 --
 -- 'description', 'updateQueueName_description' - The description of the queue.
 --
--- 'instanceId', 'updateQueueName_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateQueueName_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'updateQueueName_queueId' - The identifier for the queue.
 newUpdateQueueName ::
@@ -99,7 +101,8 @@ updateQueueName_name = Lens.lens (\UpdateQueueName' {name} -> name) (\s@UpdateQu
 updateQueueName_description :: Lens.Lens' UpdateQueueName (Prelude.Maybe Prelude.Text)
 updateQueueName_description = Lens.lens (\UpdateQueueName' {description} -> description) (\s@UpdateQueueName' {} a -> s {description = a} :: UpdateQueueName)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateQueueName_instanceId :: Lens.Lens' UpdateQueueName Prelude.Text
 updateQueueName_instanceId = Lens.lens (\UpdateQueueName' {instanceId} -> instanceId) (\s@UpdateQueueName' {} a -> s {instanceId = a} :: UpdateQueueName)
 

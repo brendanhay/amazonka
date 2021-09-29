@@ -25,15 +25,15 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types.ExportStatus
 import Network.AWS.QLDB.Types.S3ExportConfiguration
 
--- | The information about a journal export job, including the ledger name,
--- export ID, when it was created, current status, and its start and end
--- time export parameters.
+-- | Information about a journal export job, including the ledger name,
+-- export ID, creation time, current status, and the parameters of the
+-- original export creation request.
 --
 -- /See:/ 'newJournalS3ExportDescription' smart constructor.
 data JournalS3ExportDescription = JournalS3ExportDescription'
   { -- | The name of the ledger.
     ledgerName :: Prelude.Text,
-    -- | The unique ID of the journal export job.
+    -- | The UUID (represented in Base62-encoded text) of the journal export job.
     exportId :: Prelude.Text,
     -- | The date and time, in epoch time format, when the export job was
     -- created. (Epoch time format is the number of seconds elapsed since
@@ -54,8 +54,8 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
     -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
     --     bucket.
     --
-    -- -   (Optional) Use your customer master key (CMK) in AWS Key Management
-    --     Service (AWS KMS) for server-side encryption of your exported data.
+    -- -   (Optional) Use your customer master key (CMK) in Key Management
+    --     Service (KMS) for server-side encryption of your exported data.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 --
 -- 'ledgerName', 'journalS3ExportDescription_ledgerName' - The name of the ledger.
 --
--- 'exportId', 'journalS3ExportDescription_exportId' - The unique ID of the journal export job.
+-- 'exportId', 'journalS3ExportDescription_exportId' - The UUID (represented in Base62-encoded text) of the journal export job.
 --
 -- 'exportCreationTime', 'journalS3ExportDescription_exportCreationTime' - The date and time, in epoch time format, when the export job was
 -- created. (Epoch time format is the number of seconds elapsed since
@@ -92,8 +92,8 @@ data JournalS3ExportDescription = JournalS3ExportDescription'
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in AWS Key Management
---     Service (AWS KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer master key (CMK) in Key Management
+--     Service (KMS) for server-side encryption of your exported data.
 newJournalS3ExportDescription ::
   -- | 'ledgerName'
   Prelude.Text ->
@@ -140,7 +140,7 @@ newJournalS3ExportDescription
 journalS3ExportDescription_ledgerName :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_ledgerName = Lens.lens (\JournalS3ExportDescription' {ledgerName} -> ledgerName) (\s@JournalS3ExportDescription' {} a -> s {ledgerName = a} :: JournalS3ExportDescription)
 
--- | The unique ID of the journal export job.
+-- | The UUID (represented in Base62-encoded text) of the journal export job.
 journalS3ExportDescription_exportId :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_exportId = Lens.lens (\JournalS3ExportDescription' {exportId} -> exportId) (\s@JournalS3ExportDescription' {} a -> s {exportId = a} :: JournalS3ExportDescription)
 
@@ -174,8 +174,8 @@ journalS3ExportDescription_s3ExportConfiguration = Lens.lens (\JournalS3ExportDe
 -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
 --     bucket.
 --
--- -   (Optional) Use your customer master key (CMK) in AWS Key Management
---     Service (AWS KMS) for server-side encryption of your exported data.
+-- -   (Optional) Use your customer master key (CMK) in Key Management
+--     Service (KMS) for server-side encryption of your exported data.
 journalS3ExportDescription_roleArn :: Lens.Lens' JournalS3ExportDescription Prelude.Text
 journalS3ExportDescription_roleArn = Lens.lens (\JournalS3ExportDescription' {roleArn} -> roleArn) (\s@JournalS3ExportDescription' {} a -> s {roleArn = a} :: JournalS3ExportDescription)
 

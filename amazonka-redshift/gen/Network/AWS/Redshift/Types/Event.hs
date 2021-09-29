@@ -39,7 +39,7 @@ data Event = Event'
     message :: Prelude.Maybe Prelude.Text,
     -- | A list of the event categories.
     --
-    -- Values: Configuration, Management, Monitoring, Security
+    -- Values: Configuration, Management, Monitoring, Security, Pending
     eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The date and time of the event.
     date :: Prelude.Maybe Core.ISO8601,
@@ -68,7 +68,7 @@ data Event = Event'
 --
 -- 'eventCategories', 'event_eventCategories' - A list of the event categories.
 --
--- Values: Configuration, Management, Monitoring, Security
+-- Values: Configuration, Management, Monitoring, Security, Pending
 --
 -- 'date', 'event_date' - The date and time of the event.
 --
@@ -104,7 +104,7 @@ event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {m
 
 -- | A list of the event categories.
 --
--- Values: Configuration, Management, Monitoring, Security
+-- Values: Configuration, Management, Monitoring, Security, Pending
 event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
 event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens._Coerce
 

@@ -35,8 +35,8 @@ module Network.AWS.SageMaker.Search
     newSearch,
 
     -- * Request Lenses
-    search_sortOrder,
     search_nextToken,
+    search_sortOrder,
     search_maxResults,
     search_searchExpression,
     search_sortBy,
@@ -62,14 +62,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newSearch' smart constructor.
 data Search = Search'
-  { -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
-    -- @Descending@. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SearchSortOrder,
-    -- | If more than @MaxResults@ resources match the specified
+  { -- | If more than @MaxResults@ resources match the specified
     -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
     -- can be passed to the next @SearchRequest@ to continue retrieving
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
+    -- @Descending@. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SearchSortOrder,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A Boolean conditional statement. Resources must satisfy this condition
@@ -94,13 +94,13 @@ data Search = Search'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'search_sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or
--- @Descending@. The default is @Descending@.
---
 -- 'nextToken', 'search_nextToken' - If more than @MaxResults@ resources match the specified
 -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
 -- can be passed to the next @SearchRequest@ to continue retrieving
 -- results.
+--
+-- 'sortOrder', 'search_sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or
+-- @Descending@. The default is @Descending@.
 --
 -- 'maxResults', 'search_maxResults' - The maximum number of results to return.
 --
@@ -120,18 +120,13 @@ newSearch ::
   Search
 newSearch pResource_ =
   Search'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       searchExpression = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       resource = pResource_
     }
-
--- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
--- @Descending@. The default is @Descending@.
-search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
-search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
 
 -- | If more than @MaxResults@ resources match the specified
 -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
@@ -139,6 +134,11 @@ search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} 
 -- results.
 search_nextToken :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
 search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} a -> s {nextToken = a} :: Search)
+
+-- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
+-- @Descending@. The default is @Descending@.
+search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
+search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
 
 -- | The maximum number of results to return.
 search_maxResults :: Lens.Lens' Search (Prelude.Maybe Prelude.Natural)
@@ -213,8 +213,8 @@ instance Core.ToJSON Search where
   toJSON Search' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SearchExpression" Core..=)
               Prelude.<$> searchExpression,

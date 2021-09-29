@@ -24,8 +24,8 @@ import Network.AWS.GameLift.Types.GameServerInstanceStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | __This data type is used with the Amazon GameLift FleetIQ and game
--- server groups.__
+-- | __This data type is used with the GameLift FleetIQ and game server
+-- groups.__
 --
 -- Additional properties, including status, that describe an EC2 instance
 -- in a game server group. Instance configurations are set with game server
@@ -35,21 +35,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- Retrieve game server instances for a game server group by calling
 -- @DescribeGameServerInstances@.
 --
--- -   CreateGameServerGroup
+-- __Related actions__
 --
--- -   ListGameServerGroups
---
--- -   DescribeGameServerGroup
---
--- -   UpdateGameServerGroup
---
--- -   DeleteGameServerGroup
---
--- -   ResumeGameServerGroup
---
--- -   SuspendGameServerGroup
---
--- -   DescribeGameServerInstances
+-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
+-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
+-- SuspendGameServerGroup | DescribeGameServerInstances |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 --
 -- /See:/ 'newGameServerInstance' smart constructor.
 data GameServerInstance = GameServerInstance'

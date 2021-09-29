@@ -47,7 +47,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileConcurrency' smart constructor.
 data UpdateRoutingProfileConcurrency = UpdateRoutingProfileConcurrency'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text,
@@ -64,7 +65,8 @@ data UpdateRoutingProfileConcurrency = UpdateRoutingProfileConcurrency'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateRoutingProfileConcurrency_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateRoutingProfileConcurrency_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'updateRoutingProfileConcurrency_routingProfileId' - The identifier of the routing profile.
 --
@@ -85,7 +87,8 @@ newUpdateRoutingProfileConcurrency
         mediaConcurrencies = Prelude.mempty
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateRoutingProfileConcurrency_instanceId :: Lens.Lens' UpdateRoutingProfileConcurrency Prelude.Text
 updateRoutingProfileConcurrency_instanceId = Lens.lens (\UpdateRoutingProfileConcurrency' {instanceId} -> instanceId) (\s@UpdateRoutingProfileConcurrency' {} a -> s {instanceId = a} :: UpdateRoutingProfileConcurrency)
 

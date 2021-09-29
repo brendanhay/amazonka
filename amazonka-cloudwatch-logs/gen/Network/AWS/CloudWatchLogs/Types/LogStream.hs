@@ -43,15 +43,15 @@ data LogStream = LogStream'
     storedBytes :: Prelude.Maybe Prelude.Natural,
     -- | The sequence token.
     uploadSequenceToken :: Prelude.Maybe Prelude.Text,
-    -- | The time of the first event, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
-    firstEventTimestamp :: Prelude.Maybe Prelude.Natural,
     -- | The time of the most recent log event in the log stream in CloudWatch
     -- Logs. This number is expressed as the number of milliseconds after Jan
     -- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual
     -- consistency basis. It typically updates in less than an hour from
     -- ingestion, but in rare situations might take longer.
     lastEventTimestamp :: Prelude.Maybe Prelude.Natural,
+    -- | The time of the first event, expressed as the number of milliseconds
+    -- after Jan 1, 1970 00:00:00 UTC.
+    firstEventTimestamp :: Prelude.Maybe Prelude.Natural,
     -- | The ingestion time, expressed as the number of milliseconds after Jan 1,
     -- 1970 00:00:00 UTC.
     lastIngestionTime :: Prelude.Maybe Prelude.Natural
@@ -81,14 +81,14 @@ data LogStream = LogStream'
 --
 -- 'uploadSequenceToken', 'logStream_uploadSequenceToken' - The sequence token.
 --
--- 'firstEventTimestamp', 'logStream_firstEventTimestamp' - The time of the first event, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
---
 -- 'lastEventTimestamp', 'logStream_lastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch
 -- Logs. This number is expressed as the number of milliseconds after Jan
 -- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual
 -- consistency basis. It typically updates in less than an hour from
 -- ingestion, but in rare situations might take longer.
+--
+-- 'firstEventTimestamp', 'logStream_firstEventTimestamp' - The time of the first event, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC.
 --
 -- 'lastIngestionTime', 'logStream_lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1,
 -- 1970 00:00:00 UTC.
@@ -101,8 +101,8 @@ newLogStream =
       arn = Prelude.Nothing,
       storedBytes = Prelude.Nothing,
       uploadSequenceToken = Prelude.Nothing,
-      firstEventTimestamp = Prelude.Nothing,
       lastEventTimestamp = Prelude.Nothing,
+      firstEventTimestamp = Prelude.Nothing,
       lastIngestionTime = Prelude.Nothing
     }
 
@@ -131,11 +131,6 @@ logStream_storedBytes = Lens.lens (\LogStream' {storedBytes} -> storedBytes) (\s
 logStream_uploadSequenceToken :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Text)
 logStream_uploadSequenceToken = Lens.lens (\LogStream' {uploadSequenceToken} -> uploadSequenceToken) (\s@LogStream' {} a -> s {uploadSequenceToken = a} :: LogStream)
 
--- | The time of the first event, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
-logStream_firstEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
-logStream_firstEventTimestamp = Lens.lens (\LogStream' {firstEventTimestamp} -> firstEventTimestamp) (\s@LogStream' {} a -> s {firstEventTimestamp = a} :: LogStream)
-
 -- | The time of the most recent log event in the log stream in CloudWatch
 -- Logs. This number is expressed as the number of milliseconds after Jan
 -- 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual
@@ -143,6 +138,11 @@ logStream_firstEventTimestamp = Lens.lens (\LogStream' {firstEventTimestamp} -> 
 -- ingestion, but in rare situations might take longer.
 logStream_lastEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
 logStream_lastEventTimestamp = Lens.lens (\LogStream' {lastEventTimestamp} -> lastEventTimestamp) (\s@LogStream' {} a -> s {lastEventTimestamp = a} :: LogStream)
+
+-- | The time of the first event, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC.
+logStream_firstEventTimestamp :: Lens.Lens' LogStream (Prelude.Maybe Prelude.Natural)
+logStream_firstEventTimestamp = Lens.lens (\LogStream' {firstEventTimestamp} -> firstEventTimestamp) (\s@LogStream' {} a -> s {firstEventTimestamp = a} :: LogStream)
 
 -- | The ingestion time, expressed as the number of milliseconds after Jan 1,
 -- 1970 00:00:00 UTC.
@@ -160,8 +160,8 @@ instance Core.FromJSON LogStream where
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "storedBytes")
             Prelude.<*> (x Core..:? "uploadSequenceToken")
-            Prelude.<*> (x Core..:? "firstEventTimestamp")
             Prelude.<*> (x Core..:? "lastEventTimestamp")
+            Prelude.<*> (x Core..:? "firstEventTimestamp")
             Prelude.<*> (x Core..:? "lastIngestionTime")
       )
 

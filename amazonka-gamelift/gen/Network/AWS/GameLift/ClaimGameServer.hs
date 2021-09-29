@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Locates an available game server and temporarily reserves it to host
 -- gameplay and players. This operation is called from a game client or
@@ -62,19 +62,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   RegisterGameServer
---
--- -   ListGameServers
---
--- -   ClaimGameServer
---
--- -   DescribeGameServer
---
--- -   UpdateGameServer
---
--- -   DeregisterGameServer
+-- RegisterGameServer | ListGameServers | ClaimGameServer |
+-- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Network.AWS.GameLift.ClaimGameServer
   ( -- * Creating a Request
     ClaimGameServer (..),
@@ -113,7 +105,7 @@ data ClaimGameServer = ClaimGameServer'
     -- game server in the specified game server group.
     gameServerId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game server group where the game server is
-    -- running. Use either the GameServerGroup name or ARN value.. If you are
+    -- running. Use either the GameServerGroup name or ARN value. If you are
     -- not specifying a game server to claim, this value identifies where you
     -- want GameLift FleetIQ to look for an available game server to claim.
     gameServerGroupName :: Prelude.Text
@@ -137,7 +129,7 @@ data ClaimGameServer = ClaimGameServer'
 -- game server in the specified game server group.
 --
 -- 'gameServerGroupName', 'claimGameServer_gameServerGroupName' - A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.. If you are
+-- running. Use either the GameServerGroup name or ARN value. If you are
 -- not specifying a game server to claim, this value identifies where you
 -- want GameLift FleetIQ to look for an available game server to claim.
 newClaimGameServer ::
@@ -164,7 +156,7 @@ claimGameServer_gameServerId :: Lens.Lens' ClaimGameServer (Prelude.Maybe Prelud
 claimGameServer_gameServerId = Lens.lens (\ClaimGameServer' {gameServerId} -> gameServerId) (\s@ClaimGameServer' {} a -> s {gameServerId = a} :: ClaimGameServer)
 
 -- | A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.. If you are
+-- running. Use either the GameServerGroup name or ARN value. If you are
 -- not specifying a game server to claim, this value identifies where you
 -- want GameLift FleetIQ to look for an available game server to claim.
 claimGameServer_gameServerGroupName :: Lens.Lens' ClaimGameServer Prelude.Text

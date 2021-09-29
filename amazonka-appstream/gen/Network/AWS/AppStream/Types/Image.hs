@@ -24,6 +24,7 @@ import Network.AWS.AppStream.Types.ImagePermissions
 import Network.AWS.AppStream.Types.ImageState
 import Network.AWS.AppStream.Types.ImageStateChangeReason
 import Network.AWS.AppStream.Types.PlatformType
+import Network.AWS.AppStream.Types.ResourceError
 import Network.AWS.AppStream.Types.VisibilityType
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -38,29 +39,32 @@ data Image = Image'
     imagePermissions :: Prelude.Maybe ImagePermissions,
     -- | The operating system platform of the image.
     platform :: Prelude.Maybe PlatformType,
+    -- | Describes the errors that are returned when a new image can\'t be
+    -- created.
+    imageErrors :: Prelude.Maybe [ResourceError],
     -- | The name of the image builder that was used to create the private image.
     -- If the image is shared, this value is null.
     imageBuilderName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the image.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The reason why the last state change occurred.
-    stateChangeReason :: Prelude.Maybe ImageStateChangeReason,
     -- | The time the image was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The reason why the last state change occurred.
+    stateChangeReason :: Prelude.Maybe ImageStateChangeReason,
+    -- | The ARN of the image from which this image was created.
+    baseImageArn :: Prelude.Maybe Prelude.Text,
     -- | The image starts in the @PENDING@ state. If image creation succeeds, the
     -- state is @AVAILABLE@. If image creation fails, the state is @FAILED@.
     state :: Prelude.Maybe ImageState,
-    -- | The ARN of the image from which this image was created.
-    baseImageArn :: Prelude.Maybe Prelude.Text,
     -- | The applications associated with the image.
     applications :: Prelude.Maybe [Application],
-    -- | Indicates whether the image is public or private.
-    visibility :: Prelude.Maybe VisibilityType,
     -- | The version of the AppStream 2.0 agent to use for instances that are
     -- launched from this image.
     appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the image is public or private.
+    visibility :: Prelude.Maybe VisibilityType,
     -- | Indicates whether an image builder can be launched from this image.
     imageBuilderSupported :: Prelude.Maybe Prelude.Bool,
     -- | The image name to display.
@@ -86,28 +90,31 @@ data Image = Image'
 --
 -- 'platform', 'image_platform' - The operating system platform of the image.
 --
+-- 'imageErrors', 'image_imageErrors' - Describes the errors that are returned when a new image can\'t be
+-- created.
+--
 -- 'imageBuilderName', 'image_imageBuilderName' - The name of the image builder that was used to create the private image.
 -- If the image is shared, this value is null.
 --
 -- 'arn', 'image_arn' - The ARN of the image.
 --
+-- 'createdTime', 'image_createdTime' - The time the image was created.
+--
 -- 'stateChangeReason', 'image_stateChangeReason' - The reason why the last state change occurred.
 --
--- 'createdTime', 'image_createdTime' - The time the image was created.
+-- 'baseImageArn', 'image_baseImageArn' - The ARN of the image from which this image was created.
 --
 -- 'state', 'image_state' - The image starts in the @PENDING@ state. If image creation succeeds, the
 -- state is @AVAILABLE@. If image creation fails, the state is @FAILED@.
 --
--- 'baseImageArn', 'image_baseImageArn' - The ARN of the image from which this image was created.
---
 -- 'applications', 'image_applications' - The applications associated with the image.
---
--- 'visibility', 'image_visibility' - Indicates whether the image is public or private.
 --
 -- 'appstreamAgentVersion', 'image_appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are
 -- launched from this image.
 --
 -- 'description', 'image_description' - The description to display.
+--
+-- 'visibility', 'image_visibility' - Indicates whether the image is public or private.
 --
 -- 'imageBuilderSupported', 'image_imageBuilderSupported' - Indicates whether an image builder can be launched from this image.
 --
@@ -125,16 +132,17 @@ newImage pName_ =
   Image'
     { imagePermissions = Prelude.Nothing,
       platform = Prelude.Nothing,
+      imageErrors = Prelude.Nothing,
       imageBuilderName = Prelude.Nothing,
       arn = Prelude.Nothing,
-      stateChangeReason = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      state = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
       baseImageArn = Prelude.Nothing,
+      state = Prelude.Nothing,
       applications = Prelude.Nothing,
-      visibility = Prelude.Nothing,
       appstreamAgentVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      visibility = Prelude.Nothing,
       imageBuilderSupported = Prelude.Nothing,
       displayName = Prelude.Nothing,
       publicBaseImageReleasedDate = Prelude.Nothing,
@@ -150,6 +158,11 @@ image_imagePermissions = Lens.lens (\Image' {imagePermissions} -> imagePermissio
 image_platform :: Lens.Lens' Image (Prelude.Maybe PlatformType)
 image_platform = Lens.lens (\Image' {platform} -> platform) (\s@Image' {} a -> s {platform = a} :: Image)
 
+-- | Describes the errors that are returned when a new image can\'t be
+-- created.
+image_imageErrors :: Lens.Lens' Image (Prelude.Maybe [ResourceError])
+image_imageErrors = Lens.lens (\Image' {imageErrors} -> imageErrors) (\s@Image' {} a -> s {imageErrors = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The name of the image builder that was used to create the private image.
 -- If the image is shared, this value is null.
 image_imageBuilderName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
@@ -159,30 +172,26 @@ image_imageBuilderName = Lens.lens (\Image' {imageBuilderName} -> imageBuilderNa
 image_arn :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_arn = Lens.lens (\Image' {arn} -> arn) (\s@Image' {} a -> s {arn = a} :: Image)
 
+-- | The time the image was created.
+image_createdTime :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
+image_createdTime = Lens.lens (\Image' {createdTime} -> createdTime) (\s@Image' {} a -> s {createdTime = a} :: Image) Prelude.. Lens.mapping Core._Time
+
 -- | The reason why the last state change occurred.
 image_stateChangeReason :: Lens.Lens' Image (Prelude.Maybe ImageStateChangeReason)
 image_stateChangeReason = Lens.lens (\Image' {stateChangeReason} -> stateChangeReason) (\s@Image' {} a -> s {stateChangeReason = a} :: Image)
 
--- | The time the image was created.
-image_createdTime :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
-image_createdTime = Lens.lens (\Image' {createdTime} -> createdTime) (\s@Image' {} a -> s {createdTime = a} :: Image) Prelude.. Lens.mapping Core._Time
+-- | The ARN of the image from which this image was created.
+image_baseImageArn :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_baseImageArn = Lens.lens (\Image' {baseImageArn} -> baseImageArn) (\s@Image' {} a -> s {baseImageArn = a} :: Image)
 
 -- | The image starts in the @PENDING@ state. If image creation succeeds, the
 -- state is @AVAILABLE@. If image creation fails, the state is @FAILED@.
 image_state :: Lens.Lens' Image (Prelude.Maybe ImageState)
 image_state = Lens.lens (\Image' {state} -> state) (\s@Image' {} a -> s {state = a} :: Image)
 
--- | The ARN of the image from which this image was created.
-image_baseImageArn :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_baseImageArn = Lens.lens (\Image' {baseImageArn} -> baseImageArn) (\s@Image' {} a -> s {baseImageArn = a} :: Image)
-
 -- | The applications associated with the image.
 image_applications :: Lens.Lens' Image (Prelude.Maybe [Application])
 image_applications = Lens.lens (\Image' {applications} -> applications) (\s@Image' {} a -> s {applications = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates whether the image is public or private.
-image_visibility :: Lens.Lens' Image (Prelude.Maybe VisibilityType)
-image_visibility = Lens.lens (\Image' {visibility} -> visibility) (\s@Image' {} a -> s {visibility = a} :: Image)
 
 -- | The version of the AppStream 2.0 agent to use for instances that are
 -- launched from this image.
@@ -192,6 +201,10 @@ image_appstreamAgentVersion = Lens.lens (\Image' {appstreamAgentVersion} -> apps
 -- | The description to display.
 image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
+
+-- | Indicates whether the image is public or private.
+image_visibility :: Lens.Lens' Image (Prelude.Maybe VisibilityType)
+image_visibility = Lens.lens (\Image' {visibility} -> visibility) (\s@Image' {} a -> s {visibility = a} :: Image)
 
 -- | Indicates whether an image builder can be launched from this image.
 image_imageBuilderSupported :: Lens.Lens' Image (Prelude.Maybe Prelude.Bool)
@@ -218,16 +231,17 @@ instance Core.FromJSON Image where
           Image'
             Prelude.<$> (x Core..:? "ImagePermissions")
             Prelude.<*> (x Core..:? "Platform")
+            Prelude.<*> (x Core..:? "ImageErrors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ImageBuilderName")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "BaseImageArn")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Applications" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Visibility")
             Prelude.<*> (x Core..:? "AppstreamAgentVersion")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Visibility")
             Prelude.<*> (x Core..:? "ImageBuilderSupported")
             Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "PublicBaseImageReleasedDate")

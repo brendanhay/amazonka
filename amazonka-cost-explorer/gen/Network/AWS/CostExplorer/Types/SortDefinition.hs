@@ -28,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSortDefinition' smart constructor.
 data SortDefinition = SortDefinition'
-  { -- | The order in which to sort the data.
+  { -- | The order that\'s used to sort the data.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | The key by which to sort the data.
+    -- | The key that\'s used to sort the data.
     key :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data SortDefinition = SortDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'sortDefinition_sortOrder' - The order in which to sort the data.
+-- 'sortOrder', 'sortDefinition_sortOrder' - The order that\'s used to sort the data.
 --
--- 'key', 'sortDefinition_key' - The key by which to sort the data.
+-- 'key', 'sortDefinition_key' - The key that\'s used to sort the data.
 newSortDefinition ::
   -- | 'key'
   Prelude.Text ->
@@ -56,11 +56,11 @@ newSortDefinition pKey_ =
       key = pKey_
     }
 
--- | The order in which to sort the data.
+-- | The order that\'s used to sort the data.
 sortDefinition_sortOrder :: Lens.Lens' SortDefinition (Prelude.Maybe SortOrder)
 sortDefinition_sortOrder = Lens.lens (\SortDefinition' {sortOrder} -> sortOrder) (\s@SortDefinition' {} a -> s {sortOrder = a} :: SortDefinition)
 
--- | The key by which to sort the data.
+-- | The key that\'s used to sort the data.
 sortDefinition_key :: Lens.Lens' SortDefinition Prelude.Text
 sortDefinition_key = Lens.lens (\SortDefinition' {key} -> key) (\s@SortDefinition' {} a -> s {key = a} :: SortDefinition)
 

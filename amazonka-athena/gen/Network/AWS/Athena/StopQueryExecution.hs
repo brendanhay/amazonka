@@ -23,7 +23,7 @@
 -- Stops a query execution. Requires you to have access to the workgroup in
 -- which the query ran.
 --
--- For code samples using the AWS SDK for Java, see
+-- For code samples using the Amazon Web Services SDK for Java, see
 -- <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
 module Network.AWS.Athena.StopQueryExecution

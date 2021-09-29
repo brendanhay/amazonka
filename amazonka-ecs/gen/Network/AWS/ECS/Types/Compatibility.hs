@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.Compatibility
   ( Compatibility
       ( ..,
         Compatibility_EC2,
+        Compatibility_EXTERNAL,
         Compatibility_FARGATE
       ),
   )
@@ -60,11 +61,15 @@ newtype Compatibility = Compatibility'
 pattern Compatibility_EC2 :: Compatibility
 pattern Compatibility_EC2 = Compatibility' "EC2"
 
+pattern Compatibility_EXTERNAL :: Compatibility
+pattern Compatibility_EXTERNAL = Compatibility' "EXTERNAL"
+
 pattern Compatibility_FARGATE :: Compatibility
 pattern Compatibility_FARGATE = Compatibility' "FARGATE"
 
 {-# COMPLETE
   Compatibility_EC2,
+  Compatibility_EXTERNAL,
   Compatibility_FARGATE,
   Compatibility'
   #-}

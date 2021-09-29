@@ -126,6 +126,10 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -145,11 +149,11 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -195,12 +199,18 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The names of the scaling policies to describe.
     policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -274,6 +284,10 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'nextToken', 'describeScalingPolicies_nextToken' - The token for the next set of results.
 --
 -- 'maxResults', 'describeScalingPolicies_maxResults' - The maximum number of scalable targets. This value can be between 1 and
@@ -292,11 +306,11 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -343,11 +357,17 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
 --
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
 -- 'policyNames', 'describeScalingPolicies_policyNames' - The names of the scaling policies to describe.
 --
--- 'serviceNamespace', 'describeScalingPolicies_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'describeScalingPolicies_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 newDescribeScalingPolicies ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -423,6 +443,10 @@ newDescribeScalingPolicies pServiceNamespace_ =
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 describeScalingPolicies_resourceId :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_resourceId = Lens.lens (\DescribeScalingPolicies' {resourceId} -> resourceId) (\s@DescribeScalingPolicies' {} a -> s {resourceId = a} :: DescribeScalingPolicies)
 
@@ -448,11 +472,11 @@ describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxRe
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -498,6 +522,12 @@ describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxRe
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 describeScalingPolicies_scalableDimension :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalableDimension)
 describeScalingPolicies_scalableDimension = Lens.lens (\DescribeScalingPolicies' {scalableDimension} -> scalableDimension) (\s@DescribeScalingPolicies' {} a -> s {scalableDimension = a} :: DescribeScalingPolicies)
 
@@ -505,9 +535,9 @@ describeScalingPolicies_scalableDimension = Lens.lens (\DescribeScalingPolicies'
 describeScalingPolicies_policyNames :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe [Prelude.Text])
 describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {policyNames} -> policyNames) (\s@DescribeScalingPolicies' {} a -> s {policyNames = a} :: DescribeScalingPolicies) Prelude.. Lens.mapping Lens._Coerce
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 describeScalingPolicies_serviceNamespace :: Lens.Lens' DescribeScalingPolicies ServiceNamespace
 describeScalingPolicies_serviceNamespace = Lens.lens (\DescribeScalingPolicies' {serviceNamespace} -> serviceNamespace) (\s@DescribeScalingPolicies' {} a -> s {serviceNamespace = a} :: DescribeScalingPolicies)
 

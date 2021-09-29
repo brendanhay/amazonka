@@ -40,29 +40,29 @@ module Network.AWS.Polly
     -- ** MaxLexemeLengthExceededException
     _MaxLexemeLengthExceededException,
 
-    -- ** SynthesisTaskNotFoundException
-    _SynthesisTaskNotFoundException,
-
     -- ** TextLengthExceededException
     _TextLengthExceededException,
 
-    -- ** UnsupportedPlsAlphabetException
-    _UnsupportedPlsAlphabetException,
-
-    -- ** MaxLexiconsNumberExceededException
-    _MaxLexiconsNumberExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** MarksNotSupportedForFormatException
-    _MarksNotSupportedForFormatException,
+    -- ** SynthesisTaskNotFoundException
+    _SynthesisTaskNotFoundException,
 
     -- ** InvalidSampleRateException
     _InvalidSampleRateException,
 
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** MarksNotSupportedForFormatException
+    _MarksNotSupportedForFormatException,
+
+    -- ** MaxLexiconsNumberExceededException
+    _MaxLexiconsNumberExceededException,
+
+    -- ** UnsupportedPlsAlphabetException
+    _UnsupportedPlsAlphabetException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** UnsupportedPlsLanguageException
     _UnsupportedPlsLanguageException,
@@ -106,17 +106,17 @@ module Network.AWS.Polly
     GetLexiconResponse (GetLexiconResponse'),
     newGetLexiconResponse,
 
-    -- ** ListLexicons (Paginated)
-    ListLexicons (ListLexicons'),
-    newListLexicons,
-    ListLexiconsResponse (ListLexiconsResponse'),
-    newListLexiconsResponse,
-
     -- ** DeleteLexicon
     DeleteLexicon (DeleteLexicon'),
     newDeleteLexicon,
     DeleteLexiconResponse (DeleteLexiconResponse'),
     newDeleteLexiconResponse,
+
+    -- ** ListLexicons (Paginated)
+    ListLexicons (ListLexicons'),
+    newListLexicons,
+    ListLexiconsResponse (ListLexiconsResponse'),
+    newListLexiconsResponse,
 
     -- ** DescribeVoices (Paginated)
     DescribeVoices (DescribeVoices'),

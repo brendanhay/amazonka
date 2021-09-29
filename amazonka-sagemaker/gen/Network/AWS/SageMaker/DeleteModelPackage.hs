@@ -22,9 +22,10 @@
 --
 -- Deletes a model package.
 --
--- A model package is used to create Amazon SageMaker models or list on AWS
--- Marketplace. Buyers can subscribe to model packages listed on AWS
--- Marketplace to create models in Amazon SageMaker.
+-- A model package is used to create Amazon SageMaker models or list on
+-- Amazon Web Services Marketplace. Buyers can subscribe to model packages
+-- listed on Amazon Web Services Marketplace to create models in Amazon
+-- SageMaker.
 module Network.AWS.SageMaker.DeleteModelPackage
   ( -- * Creating a Request
     DeleteModelPackage (..),
@@ -48,8 +49,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newDeleteModelPackage' smart constructor.
 data DeleteModelPackage = DeleteModelPackage'
-  { -- | The name of the model package. The name must have 1 to 63 characters.
-    -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+  { -- | The name or Amazon Resource Name (ARN) of the model package to delete.
+    --
+    -- When you specify a name, the name must have 1 to 63 characters. Valid
+    -- characters are a-z, A-Z, 0-9, and - (hyphen).
     modelPackageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +65,10 @@ data DeleteModelPackage = DeleteModelPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageName', 'deleteModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.
--- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+-- 'modelPackageName', 'deleteModelPackage_modelPackageName' - The name or Amazon Resource Name (ARN) of the model package to delete.
+--
+-- When you specify a name, the name must have 1 to 63 characters. Valid
+-- characters are a-z, A-Z, 0-9, and - (hyphen).
 newDeleteModelPackage ::
   -- | 'modelPackageName'
   Prelude.Text ->
@@ -74,8 +79,10 @@ newDeleteModelPackage pModelPackageName_ =
         pModelPackageName_
     }
 
--- | The name of the model package. The name must have 1 to 63 characters.
--- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+-- | The name or Amazon Resource Name (ARN) of the model package to delete.
+--
+-- When you specify a name, the name must have 1 to 63 characters. Valid
+-- characters are a-z, A-Z, 0-9, and - (hyphen).
 deleteModelPackage_modelPackageName :: Lens.Lens' DeleteModelPackage Prelude.Text
 deleteModelPackage_modelPackageName = Lens.lens (\DeleteModelPackage' {modelPackageName} -> modelPackageName) (\s@DeleteModelPackage' {} a -> s {modelPackageName = a} :: DeleteModelPackage)
 

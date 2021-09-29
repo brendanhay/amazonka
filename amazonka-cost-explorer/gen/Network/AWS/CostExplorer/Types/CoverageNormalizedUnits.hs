@@ -23,15 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The amount of instance usage, in normalized units. Normalized units
--- enable you to see your EC2 usage for multiple sizes of instances in a
--- uniform way. For example, suppose you run an xlarge instance and a
--- 2xlarge instance. If you run both instances for the same amount of time,
--- the 2xlarge instance uses twice as much of your reservation as the
+-- | The amount of instance usage, in normalized units. You can use
+-- normalized units to see your EC2 usage for multiple sizes of instances
+-- in a uniform way. For example, suppose that you run an xlarge instance
+-- and a 2xlarge instance. If you run both instances for the same amount of
+-- time, the 2xlarge instance uses twice as much of your reservation as the
 -- xlarge instance, even though both instances show only one instance-hour.
--- Using normalized units instead of instance-hours, the xlarge instance
--- used 8 normalized units, and the 2xlarge instance used 16 normalized
--- units.
+-- When you use normalized units instead of instance-hours, the xlarge
+-- instance used 8 normalized units, and the 2xlarge instance used 16
+-- normalized units.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
@@ -39,12 +39,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCoverageNormalizedUnits' smart constructor.
 data CoverageNormalizedUnits = CoverageNormalizedUnits'
-  { -- | The number of normalized units that are covered by On-Demand Instances
-    -- instead of a reservation.
-    onDemandNormalizedUnits :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of your used instance normalized units that a reservation
+  { -- | The percentage of your used instance normalized units that a reservation
     -- covers.
     coverageNormalizedUnitsPercentage :: Prelude.Maybe Prelude.Text,
+    -- | The number of normalized units that are covered by On-Demand Instances
+    -- instead of a reservation.
+    onDemandNormalizedUnits :: Prelude.Maybe Prelude.Text,
     -- | The total number of normalized units that you used.
     totalRunningNormalizedUnits :: Prelude.Maybe Prelude.Text,
     -- | The number of normalized units that a reservation covers.
@@ -60,11 +60,11 @@ data CoverageNormalizedUnits = CoverageNormalizedUnits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onDemandNormalizedUnits', 'coverageNormalizedUnits_onDemandNormalizedUnits' - The number of normalized units that are covered by On-Demand Instances
--- instead of a reservation.
---
 -- 'coverageNormalizedUnitsPercentage', 'coverageNormalizedUnits_coverageNormalizedUnitsPercentage' - The percentage of your used instance normalized units that a reservation
 -- covers.
+--
+-- 'onDemandNormalizedUnits', 'coverageNormalizedUnits_onDemandNormalizedUnits' - The number of normalized units that are covered by On-Demand Instances
+-- instead of a reservation.
 --
 -- 'totalRunningNormalizedUnits', 'coverageNormalizedUnits_totalRunningNormalizedUnits' - The total number of normalized units that you used.
 --
@@ -73,23 +73,22 @@ newCoverageNormalizedUnits ::
   CoverageNormalizedUnits
 newCoverageNormalizedUnits =
   CoverageNormalizedUnits'
-    { onDemandNormalizedUnits =
+    { coverageNormalizedUnitsPercentage =
         Prelude.Nothing,
-      coverageNormalizedUnitsPercentage =
-        Prelude.Nothing,
+      onDemandNormalizedUnits = Prelude.Nothing,
       totalRunningNormalizedUnits = Prelude.Nothing,
       reservedNormalizedUnits = Prelude.Nothing
     }
-
--- | The number of normalized units that are covered by On-Demand Instances
--- instead of a reservation.
-coverageNormalizedUnits_onDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
-coverageNormalizedUnits_onDemandNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {onDemandNormalizedUnits} -> onDemandNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {onDemandNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 -- | The percentage of your used instance normalized units that a reservation
 -- covers.
 coverageNormalizedUnits_coverageNormalizedUnitsPercentage :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_coverageNormalizedUnitsPercentage = Lens.lens (\CoverageNormalizedUnits' {coverageNormalizedUnitsPercentage} -> coverageNormalizedUnitsPercentage) (\s@CoverageNormalizedUnits' {} a -> s {coverageNormalizedUnitsPercentage = a} :: CoverageNormalizedUnits)
+
+-- | The number of normalized units that are covered by On-Demand Instances
+-- instead of a reservation.
+coverageNormalizedUnits_onDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
+coverageNormalizedUnits_onDemandNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {onDemandNormalizedUnits} -> onDemandNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {onDemandNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 -- | The total number of normalized units that you used.
 coverageNormalizedUnits_totalRunningNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
@@ -105,8 +104,8 @@ instance Core.FromJSON CoverageNormalizedUnits where
       "CoverageNormalizedUnits"
       ( \x ->
           CoverageNormalizedUnits'
-            Prelude.<$> (x Core..:? "OnDemandNormalizedUnits")
-            Prelude.<*> (x Core..:? "CoverageNormalizedUnitsPercentage")
+            Prelude.<$> (x Core..:? "CoverageNormalizedUnitsPercentage")
+            Prelude.<*> (x Core..:? "OnDemandNormalizedUnits")
             Prelude.<*> (x Core..:? "TotalRunningNormalizedUnits")
             Prelude.<*> (x Core..:? "ReservedNormalizedUnits")
       )

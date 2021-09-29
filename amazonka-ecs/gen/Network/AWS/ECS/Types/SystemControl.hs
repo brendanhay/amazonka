@@ -48,10 +48,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { -- | The namespaced kernel parameter for which to set a @value@.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | The value for the namespaced kernel parameter specified in @namespace@.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value for the namespaced kernel parameter specified in @namespace@.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The namespaced kernel parameter for which to set a @value@.
+    namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,24 +63,24 @@ data SystemControl = SystemControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespace', 'systemControl_namespace' - The namespaced kernel parameter for which to set a @value@.
---
 -- 'value', 'systemControl_value' - The value for the namespaced kernel parameter specified in @namespace@.
+--
+-- 'namespace', 'systemControl_namespace' - The namespaced kernel parameter for which to set a @value@.
 newSystemControl ::
   SystemControl
 newSystemControl =
   SystemControl'
-    { namespace = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
-
--- | The namespaced kernel parameter for which to set a @value@.
-systemControl_namespace :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
-systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (\s@SystemControl' {} a -> s {namespace = a} :: SystemControl)
 
 -- | The value for the namespaced kernel parameter specified in @namespace@.
 systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
+
+-- | The namespaced kernel parameter for which to set a @value@.
+systemControl_namespace :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
+systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (\s@SystemControl' {} a -> s {namespace = a} :: SystemControl)
 
 instance Core.FromJSON SystemControl where
   parseJSON =
@@ -88,8 +88,8 @@ instance Core.FromJSON SystemControl where
       "SystemControl"
       ( \x ->
           SystemControl'
-            Prelude.<$> (x Core..:? "namespace")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "namespace")
       )
 
 instance Prelude.Hashable SystemControl
@@ -100,7 +100,7 @@ instance Core.ToJSON SystemControl where
   toJSON SystemControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("namespace" Core..=) Prelude.<$> namespace,
-            ("value" Core..=) Prelude.<$> value
+          [ ("value" Core..=) Prelude.<$> value,
+            ("namespace" Core..=) Prelude.<$> namespace
           ]
       )

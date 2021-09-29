@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     -- * Request Lenses
     describeClassicLinkInstances_instanceIds,
     describeClassicLinkInstances_nextToken,
-    describeClassicLinkInstances_dryRun,
     describeClassicLinkInstances_maxResults,
+    describeClassicLinkInstances_dryRun,
     describeClassicLinkInstances_filters,
 
     -- * Destructuring the Response
@@ -63,11 +63,6 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -75,6 +70,11 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     -- Constraint: If the value is greater than 1000, we return only 1000
     -- items.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @group-id@ - The ID of a VPC security group that\'s associated with
@@ -112,17 +112,17 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 --
 -- 'nextToken', 'describeClassicLinkInstances_nextToken' - The token for the next page of results.
 --
--- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeClassicLinkInstances_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
 -- Constraint: If the value is greater than 1000, we return only 1000
 -- items.
+--
+-- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeClassicLinkInstances_filters' - One or more filters.
 --
@@ -151,8 +151,8 @@ newDescribeClassicLinkInstances =
     { instanceIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -165,13 +165,6 @@ describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstan
 describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Text)
 describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstances' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstances' {} a -> s {nextToken = a} :: DescribeClassicLinkInstances)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
-describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
@@ -180,6 +173,13 @@ describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' 
 -- items.
 describeClassicLinkInstances_maxResults :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Natural)
 describeClassicLinkInstances_maxResults = Lens.lens (\DescribeClassicLinkInstances' {maxResults} -> maxResults) (\s@DescribeClassicLinkInstances' {} a -> s {maxResults = a} :: DescribeClassicLinkInstances)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
+describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
 
 -- | One or more filters.
 --
@@ -268,8 +268,8 @@ instance Core.ToQuery DescribeClassicLinkInstances where
               Prelude.<$> instanceIds
           ),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

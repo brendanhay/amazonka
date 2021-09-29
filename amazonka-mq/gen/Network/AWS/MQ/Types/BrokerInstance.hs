@@ -30,9 +30,9 @@ data BrokerInstance = BrokerInstance'
   { -- | The broker\'s wire-level protocol endpoints.
     endpoints :: Prelude.Maybe [Prelude.Text],
     -- | The IP address of the Elastic Network Interface (ENI) attached to the
-    -- broker. Does not apply to RabbitMQ brokers
+    -- broker. Does not apply to RabbitMQ brokers.
     ipAddress :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the broker\'s Web Console.
+    -- | The brokers web console URL.
     consoleURL :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +48,9 @@ data BrokerInstance = BrokerInstance'
 -- 'endpoints', 'brokerInstance_endpoints' - The broker\'s wire-level protocol endpoints.
 --
 -- 'ipAddress', 'brokerInstance_ipAddress' - The IP address of the Elastic Network Interface (ENI) attached to the
--- broker. Does not apply to RabbitMQ brokers
+-- broker. Does not apply to RabbitMQ brokers.
 --
--- 'consoleURL', 'brokerInstance_consoleURL' - The URL of the broker\'s Web Console.
+-- 'consoleURL', 'brokerInstance_consoleURL' - The brokers web console URL.
 newBrokerInstance ::
   BrokerInstance
 newBrokerInstance =
@@ -65,11 +65,11 @@ brokerInstance_endpoints :: Lens.Lens' BrokerInstance (Prelude.Maybe [Prelude.Te
 brokerInstance_endpoints = Lens.lens (\BrokerInstance' {endpoints} -> endpoints) (\s@BrokerInstance' {} a -> s {endpoints = a} :: BrokerInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IP address of the Elastic Network Interface (ENI) attached to the
--- broker. Does not apply to RabbitMQ brokers
+-- broker. Does not apply to RabbitMQ brokers.
 brokerInstance_ipAddress :: Lens.Lens' BrokerInstance (Prelude.Maybe Prelude.Text)
 brokerInstance_ipAddress = Lens.lens (\BrokerInstance' {ipAddress} -> ipAddress) (\s@BrokerInstance' {} a -> s {ipAddress = a} :: BrokerInstance)
 
--- | The URL of the broker\'s Web Console.
+-- | The brokers web console URL.
 brokerInstance_consoleURL :: Lens.Lens' BrokerInstance (Prelude.Maybe Prelude.Text)
 brokerInstance_consoleURL = Lens.lens (\BrokerInstance' {consoleURL} -> consoleURL) (\s@BrokerInstance' {} a -> s {consoleURL = a} :: BrokerInstance)
 

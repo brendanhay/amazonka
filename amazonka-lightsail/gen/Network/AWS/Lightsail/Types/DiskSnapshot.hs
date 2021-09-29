@@ -41,16 +41,16 @@ data DiskSnapshot = DiskSnapshot'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the disk snapshot.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the source instance from which the
-    -- disk (system volume) snapshot was created.
-    fromInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type (e.g., @DiskSnapshot@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source instance from which the
+    -- disk (system volume) snapshot was created.
+    fromInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type (e.g., @DiskSnapshot@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The size of the disk in GB.
     sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | The status of the disk snapshot operation.
@@ -59,7 +59,7 @@ data DiskSnapshot = DiskSnapshot'
     name :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the source disk from which the disk
     -- snapshot was created.
@@ -67,11 +67,11 @@ data DiskSnapshot = DiskSnapshot'
     -- | The unique name of the source instance from which the disk (system
     -- volume) snapshot was created.
     fromInstanceName :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the snapshot.
+    progress :: Prelude.Maybe Prelude.Text,
     -- | The AWS Region and Availability Zone where the disk snapshot was
     -- created.
-    location :: Prelude.Maybe ResourceLocation,
-    -- | The progress of the snapshot.
-    progress :: Prelude.Maybe Prelude.Text
+    location :: Prelude.Maybe ResourceLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,15 +93,15 @@ data DiskSnapshot = DiskSnapshot'
 --
 -- 'arn', 'diskSnapshot_arn' - The Amazon Resource Name (ARN) of the disk snapshot.
 --
--- 'fromInstanceArn', 'diskSnapshot_fromInstanceArn' - The Amazon Resource Name (ARN) of the source instance from which the
--- disk (system volume) snapshot was created.
---
--- 'resourceType', 'diskSnapshot_resourceType' - The Lightsail resource type (e.g., @DiskSnapshot@).
---
 -- 'supportCode', 'diskSnapshot_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
+--
+-- 'fromInstanceArn', 'diskSnapshot_fromInstanceArn' - The Amazon Resource Name (ARN) of the source instance from which the
+-- disk (system volume) snapshot was created.
+--
+-- 'resourceType', 'diskSnapshot_resourceType' - The Lightsail resource type (e.g., @DiskSnapshot@).
 --
 -- 'sizeInGb', 'diskSnapshot_sizeInGb' - The size of the disk in GB.
 --
@@ -111,7 +111,7 @@ data DiskSnapshot = DiskSnapshot'
 --
 -- 'tags', 'diskSnapshot_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'fromDiskArn', 'diskSnapshot_fromDiskArn' - The Amazon Resource Name (ARN) of the source disk from which the disk
 -- snapshot was created.
@@ -119,10 +119,10 @@ data DiskSnapshot = DiskSnapshot'
 -- 'fromInstanceName', 'diskSnapshot_fromInstanceName' - The unique name of the source instance from which the disk (system
 -- volume) snapshot was created.
 --
+-- 'progress', 'diskSnapshot_progress' - The progress of the snapshot.
+--
 -- 'location', 'diskSnapshot_location' - The AWS Region and Availability Zone where the disk snapshot was
 -- created.
---
--- 'progress', 'diskSnapshot_progress' - The progress of the snapshot.
 newDiskSnapshot ::
   DiskSnapshot
 newDiskSnapshot =
@@ -131,17 +131,17 @@ newDiskSnapshot =
       fromDiskName = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
       fromInstanceArn = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      supportCode = Prelude.Nothing,
       sizeInGb = Prelude.Nothing,
       state = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       fromDiskArn = Prelude.Nothing,
       fromInstanceName = Prelude.Nothing,
-      location = Prelude.Nothing,
-      progress = Prelude.Nothing
+      progress = Prelude.Nothing,
+      location = Prelude.Nothing
     }
 
 -- | A Boolean value indicating whether the snapshot was created from an
@@ -162,6 +162,13 @@ diskSnapshot_createdAt = Lens.lens (\DiskSnapshot' {createdAt} -> createdAt) (\s
 diskSnapshot_arn :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
 diskSnapshot_arn = Lens.lens (\DiskSnapshot' {arn} -> arn) (\s@DiskSnapshot' {} a -> s {arn = a} :: DiskSnapshot)
 
+-- | The support code. Include this code in your email to support when you
+-- have questions about an instance or another resource in Lightsail. This
+-- code enables our support team to look up your Lightsail information more
+-- easily.
+diskSnapshot_supportCode :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
+diskSnapshot_supportCode = Lens.lens (\DiskSnapshot' {supportCode} -> supportCode) (\s@DiskSnapshot' {} a -> s {supportCode = a} :: DiskSnapshot)
+
 -- | The Amazon Resource Name (ARN) of the source instance from which the
 -- disk (system volume) snapshot was created.
 diskSnapshot_fromInstanceArn :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
@@ -170,13 +177,6 @@ diskSnapshot_fromInstanceArn = Lens.lens (\DiskSnapshot' {fromInstanceArn} -> fr
 -- | The Lightsail resource type (e.g., @DiskSnapshot@).
 diskSnapshot_resourceType :: Lens.Lens' DiskSnapshot (Prelude.Maybe ResourceType)
 diskSnapshot_resourceType = Lens.lens (\DiskSnapshot' {resourceType} -> resourceType) (\s@DiskSnapshot' {} a -> s {resourceType = a} :: DiskSnapshot)
-
--- | The support code. Include this code in your email to support when you
--- have questions about an instance or another resource in Lightsail. This
--- code enables our support team to look up your Lightsail information more
--- easily.
-diskSnapshot_supportCode :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
-diskSnapshot_supportCode = Lens.lens (\DiskSnapshot' {supportCode} -> supportCode) (\s@DiskSnapshot' {} a -> s {supportCode = a} :: DiskSnapshot)
 
 -- | The size of the disk in GB.
 diskSnapshot_sizeInGb :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Int)
@@ -192,7 +192,7 @@ diskSnapshot_name = Lens.lens (\DiskSnapshot' {name} -> name) (\s@DiskSnapshot' 
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 diskSnapshot_tags :: Lens.Lens' DiskSnapshot (Prelude.Maybe [Tag])
 diskSnapshot_tags = Lens.lens (\DiskSnapshot' {tags} -> tags) (\s@DiskSnapshot' {} a -> s {tags = a} :: DiskSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
@@ -206,14 +206,14 @@ diskSnapshot_fromDiskArn = Lens.lens (\DiskSnapshot' {fromDiskArn} -> fromDiskAr
 diskSnapshot_fromInstanceName :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
 diskSnapshot_fromInstanceName = Lens.lens (\DiskSnapshot' {fromInstanceName} -> fromInstanceName) (\s@DiskSnapshot' {} a -> s {fromInstanceName = a} :: DiskSnapshot)
 
+-- | The progress of the snapshot.
+diskSnapshot_progress :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
+diskSnapshot_progress = Lens.lens (\DiskSnapshot' {progress} -> progress) (\s@DiskSnapshot' {} a -> s {progress = a} :: DiskSnapshot)
+
 -- | The AWS Region and Availability Zone where the disk snapshot was
 -- created.
 diskSnapshot_location :: Lens.Lens' DiskSnapshot (Prelude.Maybe ResourceLocation)
 diskSnapshot_location = Lens.lens (\DiskSnapshot' {location} -> location) (\s@DiskSnapshot' {} a -> s {location = a} :: DiskSnapshot)
-
--- | The progress of the snapshot.
-diskSnapshot_progress :: Lens.Lens' DiskSnapshot (Prelude.Maybe Prelude.Text)
-diskSnapshot_progress = Lens.lens (\DiskSnapshot' {progress} -> progress) (\s@DiskSnapshot' {} a -> s {progress = a} :: DiskSnapshot)
 
 instance Core.FromJSON DiskSnapshot where
   parseJSON =
@@ -225,17 +225,17 @@ instance Core.FromJSON DiskSnapshot where
             Prelude.<*> (x Core..:? "fromDiskName")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "fromInstanceArn")
             Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "sizeInGb")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fromDiskArn")
             Prelude.<*> (x Core..:? "fromInstanceName")
-            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "progress")
+            Prelude.<*> (x Core..:? "location")
       )
 
 instance Prelude.Hashable DiskSnapshot

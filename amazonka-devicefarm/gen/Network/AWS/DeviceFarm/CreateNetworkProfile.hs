@@ -28,14 +28,14 @@ module Network.AWS.DeviceFarm.CreateNetworkProfile
 
     -- * Request Lenses
     createNetworkProfile_uplinkJitterMs,
-    createNetworkProfile_downlinkDelayMs,
     createNetworkProfile_downlinkBandwidthBits,
+    createNetworkProfile_downlinkDelayMs,
     createNetworkProfile_downlinkJitterMs,
     createNetworkProfile_uplinkLossPercent,
     createNetworkProfile_downlinkLossPercent,
-    createNetworkProfile_description,
-    createNetworkProfile_uplinkDelayMs,
     createNetworkProfile_uplinkBandwidthBits,
+    createNetworkProfile_uplinkDelayMs,
+    createNetworkProfile_description,
     createNetworkProfile_type,
     createNetworkProfile_projectArn,
     createNetworkProfile_name,
@@ -62,12 +62,12 @@ data CreateNetworkProfile = CreateNetworkProfile'
   { -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
     uplinkJitterMs :: Prelude.Maybe Prelude.Integer,
-    -- | Delay time for all packets to destination in milliseconds as an integer
-    -- from 0 to 2000.
-    downlinkDelayMs :: Prelude.Maybe Prelude.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
     downlinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    -- | Delay time for all packets to destination in milliseconds as an integer
+    -- from 0 to 2000.
+    downlinkDelayMs :: Prelude.Maybe Prelude.Integer,
     -- | Time variation in the delay of received packets in milliseconds as an
     -- integer from 0 to 2000.
     downlinkJitterMs :: Prelude.Maybe Prelude.Integer,
@@ -77,14 +77,14 @@ data CreateNetworkProfile = CreateNetworkProfile'
     -- | Proportion of received packets that fail to arrive from 0 to 100
     -- percent.
     downlinkLossPercent :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the network profile.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Delay time for all packets to destination in milliseconds as an integer
-    -- from 0 to 2000.
-    uplinkDelayMs :: Prelude.Maybe Prelude.Integer,
     -- | The data throughput rate in bits per second, as an integer from 0 to
     -- 104857600.
     uplinkBandwidthBits :: Prelude.Maybe Prelude.Integer,
+    -- | Delay time for all packets to destination in milliseconds as an integer
+    -- from 0 to 2000.
+    uplinkDelayMs :: Prelude.Maybe Prelude.Integer,
+    -- | The description of the network profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The type of network profile to create. Valid values are listed here.
     type' :: Prelude.Maybe NetworkProfileType,
     -- | The Amazon Resource Name (ARN) of the project for which you want to
@@ -106,11 +106,11 @@ data CreateNetworkProfile = CreateNetworkProfile'
 -- 'uplinkJitterMs', 'createNetworkProfile_uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
 --
--- 'downlinkDelayMs', 'createNetworkProfile_downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer
--- from 0 to 2000.
---
 -- 'downlinkBandwidthBits', 'createNetworkProfile_downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
+--
+-- 'downlinkDelayMs', 'createNetworkProfile_downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer
+-- from 0 to 2000.
 --
 -- 'downlinkJitterMs', 'createNetworkProfile_downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
@@ -121,13 +121,13 @@ data CreateNetworkProfile = CreateNetworkProfile'
 -- 'downlinkLossPercent', 'createNetworkProfile_downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100
 -- percent.
 --
--- 'description', 'createNetworkProfile_description' - The description of the network profile.
+-- 'uplinkBandwidthBits', 'createNetworkProfile_uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to
+-- 104857600.
 --
 -- 'uplinkDelayMs', 'createNetworkProfile_uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
 --
--- 'uplinkBandwidthBits', 'createNetworkProfile_uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to
--- 104857600.
+-- 'description', 'createNetworkProfile_description' - The description of the network profile.
 --
 -- 'type'', 'createNetworkProfile_type' - The type of network profile to create. Valid values are listed here.
 --
@@ -145,14 +145,14 @@ newCreateNetworkProfile pProjectArn_ pName_ =
   CreateNetworkProfile'
     { uplinkJitterMs =
         Prelude.Nothing,
-      downlinkDelayMs = Prelude.Nothing,
       downlinkBandwidthBits = Prelude.Nothing,
+      downlinkDelayMs = Prelude.Nothing,
       downlinkJitterMs = Prelude.Nothing,
       uplinkLossPercent = Prelude.Nothing,
       downlinkLossPercent = Prelude.Nothing,
-      description = Prelude.Nothing,
-      uplinkDelayMs = Prelude.Nothing,
       uplinkBandwidthBits = Prelude.Nothing,
+      uplinkDelayMs = Prelude.Nothing,
+      description = Prelude.Nothing,
       type' = Prelude.Nothing,
       projectArn = pProjectArn_,
       name = pName_
@@ -163,15 +163,15 @@ newCreateNetworkProfile pProjectArn_ pName_ =
 createNetworkProfile_uplinkJitterMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
 createNetworkProfile_uplinkJitterMs = Lens.lens (\CreateNetworkProfile' {uplinkJitterMs} -> uplinkJitterMs) (\s@CreateNetworkProfile' {} a -> s {uplinkJitterMs = a} :: CreateNetworkProfile)
 
--- | Delay time for all packets to destination in milliseconds as an integer
--- from 0 to 2000.
-createNetworkProfile_downlinkDelayMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
-createNetworkProfile_downlinkDelayMs = Lens.lens (\CreateNetworkProfile' {downlinkDelayMs} -> downlinkDelayMs) (\s@CreateNetworkProfile' {} a -> s {downlinkDelayMs = a} :: CreateNetworkProfile)
-
 -- | The data throughput rate in bits per second, as an integer from 0 to
 -- 104857600.
 createNetworkProfile_downlinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
 createNetworkProfile_downlinkBandwidthBits = Lens.lens (\CreateNetworkProfile' {downlinkBandwidthBits} -> downlinkBandwidthBits) (\s@CreateNetworkProfile' {} a -> s {downlinkBandwidthBits = a} :: CreateNetworkProfile)
+
+-- | Delay time for all packets to destination in milliseconds as an integer
+-- from 0 to 2000.
+createNetworkProfile_downlinkDelayMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_downlinkDelayMs = Lens.lens (\CreateNetworkProfile' {downlinkDelayMs} -> downlinkDelayMs) (\s@CreateNetworkProfile' {} a -> s {downlinkDelayMs = a} :: CreateNetworkProfile)
 
 -- | Time variation in the delay of received packets in milliseconds as an
 -- integer from 0 to 2000.
@@ -188,19 +188,19 @@ createNetworkProfile_uplinkLossPercent = Lens.lens (\CreateNetworkProfile' {upli
 createNetworkProfile_downlinkLossPercent :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Natural)
 createNetworkProfile_downlinkLossPercent = Lens.lens (\CreateNetworkProfile' {downlinkLossPercent} -> downlinkLossPercent) (\s@CreateNetworkProfile' {} a -> s {downlinkLossPercent = a} :: CreateNetworkProfile)
 
--- | The description of the network profile.
-createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
-createNetworkProfile_description = Lens.lens (\CreateNetworkProfile' {description} -> description) (\s@CreateNetworkProfile' {} a -> s {description = a} :: CreateNetworkProfile)
+-- | The data throughput rate in bits per second, as an integer from 0 to
+-- 104857600.
+createNetworkProfile_uplinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
+createNetworkProfile_uplinkBandwidthBits = Lens.lens (\CreateNetworkProfile' {uplinkBandwidthBits} -> uplinkBandwidthBits) (\s@CreateNetworkProfile' {} a -> s {uplinkBandwidthBits = a} :: CreateNetworkProfile)
 
 -- | Delay time for all packets to destination in milliseconds as an integer
 -- from 0 to 2000.
 createNetworkProfile_uplinkDelayMs :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
 createNetworkProfile_uplinkDelayMs = Lens.lens (\CreateNetworkProfile' {uplinkDelayMs} -> uplinkDelayMs) (\s@CreateNetworkProfile' {} a -> s {uplinkDelayMs = a} :: CreateNetworkProfile)
 
--- | The data throughput rate in bits per second, as an integer from 0 to
--- 104857600.
-createNetworkProfile_uplinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Integer)
-createNetworkProfile_uplinkBandwidthBits = Lens.lens (\CreateNetworkProfile' {uplinkBandwidthBits} -> uplinkBandwidthBits) (\s@CreateNetworkProfile' {} a -> s {uplinkBandwidthBits = a} :: CreateNetworkProfile)
+-- | The description of the network profile.
+createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
+createNetworkProfile_description = Lens.lens (\CreateNetworkProfile' {description} -> description) (\s@CreateNetworkProfile' {} a -> s {description = a} :: CreateNetworkProfile)
 
 -- | The type of network profile to create. Valid values are listed here.
 createNetworkProfile_type :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe NetworkProfileType)
@@ -253,20 +253,20 @@ instance Core.ToJSON CreateNetworkProfile where
       ( Prelude.catMaybes
           [ ("uplinkJitterMs" Core..=)
               Prelude.<$> uplinkJitterMs,
-            ("downlinkDelayMs" Core..=)
-              Prelude.<$> downlinkDelayMs,
             ("downlinkBandwidthBits" Core..=)
               Prelude.<$> downlinkBandwidthBits,
+            ("downlinkDelayMs" Core..=)
+              Prelude.<$> downlinkDelayMs,
             ("downlinkJitterMs" Core..=)
               Prelude.<$> downlinkJitterMs,
             ("uplinkLossPercent" Core..=)
               Prelude.<$> uplinkLossPercent,
             ("downlinkLossPercent" Core..=)
               Prelude.<$> downlinkLossPercent,
-            ("description" Core..=) Prelude.<$> description,
-            ("uplinkDelayMs" Core..=) Prelude.<$> uplinkDelayMs,
             ("uplinkBandwidthBits" Core..=)
               Prelude.<$> uplinkBandwidthBits,
+            ("uplinkDelayMs" Core..=) Prelude.<$> uplinkDelayMs,
+            ("description" Core..=) Prelude.<$> description,
             ("type" Core..=) Prelude.<$> type',
             Prelude.Just ("projectArn" Core..= projectArn),
             Prelude.Just ("name" Core..= name)

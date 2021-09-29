@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the billing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteBillingGroup>
+-- action.
 module Network.AWS.IoT.DeleteBillingGroup
   ( -- * Creating a Request
     DeleteBillingGroup (..),

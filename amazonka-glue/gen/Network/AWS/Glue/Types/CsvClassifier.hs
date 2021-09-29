@@ -39,10 +39,10 @@ data CsvClassifier = CsvClassifier'
     disableValueTrimming :: Prelude.Maybe Prelude.Bool,
     -- | The version of this classifier.
     version :: Prelude.Maybe Prelude.Integer,
-    -- | The time that this classifier was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | A list of strings representing column names.
     header :: Prelude.Maybe [Prelude.Text],
+    -- | The time that this classifier was last updated.
+    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | A custom symbol to denote what combines content into a single column
     -- value. It must be different from the column delimiter.
     quoteSymbol :: Prelude.Maybe Prelude.Text,
@@ -72,9 +72,9 @@ data CsvClassifier = CsvClassifier'
 --
 -- 'version', 'csvClassifier_version' - The version of this classifier.
 --
--- 'lastUpdated', 'csvClassifier_lastUpdated' - The time that this classifier was last updated.
---
 -- 'header', 'csvClassifier_header' - A list of strings representing column names.
+--
+-- 'lastUpdated', 'csvClassifier_lastUpdated' - The time that this classifier was last updated.
 --
 -- 'quoteSymbol', 'csvClassifier_quoteSymbol' - A custom symbol to denote what combines content into a single column
 -- value. It must be different from the column delimiter.
@@ -93,8 +93,8 @@ newCsvClassifier pName_ =
       delimiter = Prelude.Nothing,
       disableValueTrimming = Prelude.Nothing,
       version = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
       header = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
       quoteSymbol = Prelude.Nothing,
       allowSingleColumn = Prelude.Nothing,
       name = pName_
@@ -121,13 +121,13 @@ csvClassifier_disableValueTrimming = Lens.lens (\CsvClassifier' {disableValueTri
 csvClassifier_version :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.Integer)
 csvClassifier_version = Lens.lens (\CsvClassifier' {version} -> version) (\s@CsvClassifier' {} a -> s {version = a} :: CsvClassifier)
 
--- | The time that this classifier was last updated.
-csvClassifier_lastUpdated :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.UTCTime)
-csvClassifier_lastUpdated = Lens.lens (\CsvClassifier' {lastUpdated} -> lastUpdated) (\s@CsvClassifier' {} a -> s {lastUpdated = a} :: CsvClassifier) Prelude.. Lens.mapping Core._Time
-
 -- | A list of strings representing column names.
 csvClassifier_header :: Lens.Lens' CsvClassifier (Prelude.Maybe [Prelude.Text])
 csvClassifier_header = Lens.lens (\CsvClassifier' {header} -> header) (\s@CsvClassifier' {} a -> s {header = a} :: CsvClassifier) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The time that this classifier was last updated.
+csvClassifier_lastUpdated :: Lens.Lens' CsvClassifier (Prelude.Maybe Prelude.UTCTime)
+csvClassifier_lastUpdated = Lens.lens (\CsvClassifier' {lastUpdated} -> lastUpdated) (\s@CsvClassifier' {} a -> s {lastUpdated = a} :: CsvClassifier) Prelude.. Lens.mapping Core._Time
 
 -- | A custom symbol to denote what combines content into a single column
 -- value. It must be different from the column delimiter.
@@ -153,8 +153,8 @@ instance Core.FromJSON CsvClassifier where
             Prelude.<*> (x Core..:? "Delimiter")
             Prelude.<*> (x Core..:? "DisableValueTrimming")
             Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "LastUpdated")
             Prelude.<*> (x Core..:? "Header" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastUpdated")
             Prelude.<*> (x Core..:? "QuoteSymbol")
             Prelude.<*> (x Core..:? "AllowSingleColumn")
             Prelude.<*> (x Core..: "Name")

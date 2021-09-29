@@ -65,11 +65,13 @@ library
     Network.AWS.QLDB.StreamJournalToKinesis
     Network.AWS.QLDB.TagResource
     Network.AWS.QLDB.Types
+    Network.AWS.QLDB.Types.EncryptionStatus
     Network.AWS.QLDB.Types.ErrorCause
     Network.AWS.QLDB.Types.ExportStatus
     Network.AWS.QLDB.Types.JournalKinesisStreamDescription
     Network.AWS.QLDB.Types.JournalS3ExportDescription
     Network.AWS.QLDB.Types.KinesisConfiguration
+    Network.AWS.QLDB.Types.LedgerEncryptionDescription
     Network.AWS.QLDB.Types.LedgerState
     Network.AWS.QLDB.Types.LedgerSummary
     Network.AWS.QLDB.Types.PermissionsMode
@@ -80,6 +82,7 @@ library
     Network.AWS.QLDB.Types.ValueHolder
     Network.AWS.QLDB.UntagResource
     Network.AWS.QLDB.UpdateLedger
+    Network.AWS.QLDB.UpdateLedgerPermissionsMode
     Network.AWS.QLDB.Waiters
 
   reexported-modules: Network.AWS

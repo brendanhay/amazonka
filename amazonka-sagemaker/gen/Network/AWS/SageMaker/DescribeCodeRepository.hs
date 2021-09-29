@@ -135,8 +135,8 @@ instance Core.ToQuery DescribeCodeRepository where
 data DescribeCodeRepositoryResponse = DescribeCodeRepositoryResponse'
   { -- | Configuration details about the repository, including the URL where the
     -- repository is located, the default branch, and the Amazon Resource Name
-    -- (ARN) of the AWS Secrets Manager secret that contains the credentials
-    -- used to access the repository.
+    -- (ARN) of the Amazon Web Services Secrets Manager secret that contains
+    -- the credentials used to access the repository.
     gitConfig :: Prelude.Maybe GitConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -161,8 +161,8 @@ data DescribeCodeRepositoryResponse = DescribeCodeRepositoryResponse'
 --
 -- 'gitConfig', 'describeCodeRepositoryResponse_gitConfig' - Configuration details about the repository, including the URL where the
 -- repository is located, the default branch, and the Amazon Resource Name
--- (ARN) of the AWS Secrets Manager secret that contains the credentials
--- used to access the repository.
+-- (ARN) of the Amazon Web Services Secrets Manager secret that contains
+-- the credentials used to access the repository.
 --
 -- 'httpStatus', 'describeCodeRepositoryResponse_httpStatus' - The response's http status code.
 --
@@ -205,8 +205,8 @@ newDescribeCodeRepositoryResponse
 
 -- | Configuration details about the repository, including the URL where the
 -- repository is located, the default branch, and the Amazon Resource Name
--- (ARN) of the AWS Secrets Manager secret that contains the credentials
--- used to access the repository.
+-- (ARN) of the Amazon Web Services Secrets Manager secret that contains
+-- the credentials used to access the repository.
 describeCodeRepositoryResponse_gitConfig :: Lens.Lens' DescribeCodeRepositoryResponse (Prelude.Maybe GitConfig)
 describeCodeRepositoryResponse_gitConfig = Lens.lens (\DescribeCodeRepositoryResponse' {gitConfig} -> gitConfig) (\s@DescribeCodeRepositoryResponse' {} a -> s {gitConfig = a} :: DescribeCodeRepositoryResponse)
 

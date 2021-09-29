@@ -21,15 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Displays details about an event bus in your account. This can include
--- the external AWS accounts that are permitted to write events to your
--- default event bus, and the associated policy. For custom event buses and
--- partner event buses, it displays the name, ARN, policy, state, and
--- creation time.
+-- the external Amazon Web Services accounts that are permitted to write
+-- events to your default event bus, and the associated policy. For custom
+-- event buses and partner event buses, it displays the name, ARN, policy,
+-- state, and creation time.
 --
 -- To enable your account to receive events from other accounts on its
--- default event bus, use PutPermission.
+-- default event bus, use
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html PutPermission>.
 --
--- For more information about partner event buses, see CreateEventBus.
+-- For more information about partner event buses, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html CreateEventBus>.
 module Network.AWS.CloudWatchEvents.DescribeEventBus
   ( -- * Creating a Request
     DescribeEventBus (..),

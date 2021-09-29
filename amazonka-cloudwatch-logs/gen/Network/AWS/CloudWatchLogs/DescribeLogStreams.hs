@@ -75,10 +75,10 @@ data DescribeLogStreams = DescribeLogStreams'
     -- If you order the results by event time, you cannot specify the
     -- @logStreamNamePrefix@ parameter.
     --
-    -- @lastEventTimeStamp@ represents the time of the most recent log event in
+    -- @lastEventTimestamp@ represents the time of the most recent log event in
     -- the log stream in CloudWatch Logs. This number is expressed as the
     -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    -- @lastEventTimeStamp@ updates on an eventual consistency basis. It
+    -- @lastEventTimestamp@ updates on an eventual consistency basis. It
     -- typically updates in less than an hour from ingestion, but in rare
     -- situations might take longer.
     orderBy :: Prelude.Maybe OrderBy,
@@ -116,10 +116,10 @@ data DescribeLogStreams = DescribeLogStreams'
 -- If you order the results by event time, you cannot specify the
 -- @logStreamNamePrefix@ parameter.
 --
--- @lastEventTimeStamp@ represents the time of the most recent log event in
+-- @lastEventTimestamp@ represents the time of the most recent log event in
 -- the log stream in CloudWatch Logs. This number is expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- @lastEventTimeStamp@ updates on an eventual consistency basis. It
+-- @lastEventTimestamp@ updates on an eventual consistency basis. It
 -- typically updates in less than an hour from ingestion, but in rare
 -- situations might take longer.
 --
@@ -164,10 +164,10 @@ describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> ne
 -- If you order the results by event time, you cannot specify the
 -- @logStreamNamePrefix@ parameter.
 --
--- @lastEventTimeStamp@ represents the time of the most recent log event in
+-- @lastEventTimestamp@ represents the time of the most recent log event in
 -- the log stream in CloudWatch Logs. This number is expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- @lastEventTimeStamp@ updates on an eventual consistency basis. It
+-- @lastEventTimestamp@ updates on an eventual consistency basis. It
 -- typically updates in less than an hour from ingestion, but in rare
 -- situations might take longer.
 describeLogStreams_orderBy :: Lens.Lens' DescribeLogStreams (Prelude.Maybe OrderBy)

@@ -11,31 +11,32 @@
 --
 -- Derived from API version @2013-11-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS CloudTrail
+-- CloudTrail
 --
 -- This is the CloudTrail API Reference. It provides descriptions of
 -- actions, data types, common parameters, and common errors for
 -- CloudTrail.
 --
--- CloudTrail is a web service that records AWS API calls for your AWS
--- account and delivers log files to an Amazon S3 bucket. The recorded
--- information includes the identity of the user, the start time of the AWS
--- API call, the source IP address, the request parameters, and the
--- response elements returned by the service.
+-- CloudTrail is a web service that records Amazon Web Services API calls
+-- for your Amazon Web Services account and delivers log files to an Amazon
+-- S3 bucket. The recorded information includes the identity of the user,
+-- the start time of the Amazon Web Services API call, the source IP
+-- address, the request parameters, and the response elements returned by
+-- the service.
 --
--- As an alternative to the API, you can use one of the AWS SDKs, which
--- consist of libraries and sample code for various programming languages
--- and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a
--- convenient way to create programmatic access to AWSCloudTrail. For
--- example, the SDKs take care of cryptographically signing requests,
--- managing errors, and retrying requests automatically. For information
--- about the AWS SDKs, including how to download and install them, see the
--- <http://aws.amazon.com/tools/ Tools for Amazon Web Services page>.
+-- As an alternative to the API, you can use one of the Amazon Web Services
+-- SDKs, which consist of libraries and sample code for various programming
+-- languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs
+-- provide programmatic access to CloudTrail. For example, the SDKs handle
+-- cryptographically signing requests, managing errors, and retrying
+-- requests automatically. For more information about the Amazon Web
+-- Services SDKs, including how to download and install them, see
+-- <http://aws.amazon.com/tools/ Tools to Build on Amazon Web Services>.
 --
 -- See the
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html AWS CloudTrail User Guide>
--- for information about the data that is included with each AWS API call
--- listed in the log files.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html CloudTrail User Guide>
+-- for information about the data that is included with each Amazon Web
+-- Services API call listed in the log files.
 module Network.AWS.CloudTrail
   ( -- * Service Configuration
     defaultService,
@@ -43,14 +44,14 @@ module Network.AWS.CloudTrail
     -- * Errors
     -- $errors
 
-    -- ** InsufficientDependencyServiceAccessPermissionException
-    _InsufficientDependencyServiceAccessPermissionException,
+    -- ** TrailNotProvidedException
+    _TrailNotProvidedException,
 
     -- ** InvalidCloudWatchLogsLogGroupArnException
     _InvalidCloudWatchLogsLogGroupArnException,
 
-    -- ** TrailNotProvidedException
-    _TrailNotProvidedException,
+    -- ** InsufficientDependencyServiceAccessPermissionException
+    _InsufficientDependencyServiceAccessPermissionException,
 
     -- ** MaximumNumberOfTrailsExceededException
     _MaximumNumberOfTrailsExceededException,
@@ -61,20 +62,20 @@ module Network.AWS.CloudTrail
     -- ** InsightNotEnabledException
     _InsightNotEnabledException,
 
+    -- ** InvalidS3PrefixException
+    _InvalidS3PrefixException,
+
+    -- ** InvalidInsightSelectorsException
+    _InvalidInsightSelectorsException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
     -- ** KmsKeyNotFoundException
     _KmsKeyNotFoundException,
 
     -- ** ResourceTypeNotSupportedException
     _ResourceTypeNotSupportedException,
-
-    -- ** InvalidS3PrefixException
-    _InvalidS3PrefixException,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** InvalidInsightSelectorsException
-    _InvalidInsightSelectorsException,
 
     -- ** InvalidLookupAttributesException
     _InvalidLookupAttributesException,
@@ -91,14 +92,14 @@ module Network.AWS.CloudTrail
     -- ** KmsKeyDisabledException
     _KmsKeyDisabledException,
 
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
+    -- ** InsufficientEncryptionPolicyException
+    _InsufficientEncryptionPolicyException,
 
     -- ** InvalidTagParameterException
     _InvalidTagParameterException,
 
-    -- ** InsufficientEncryptionPolicyException
-    _InsufficientEncryptionPolicyException,
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
 
     -- ** InsufficientSnsTopicPolicyException
     _InsufficientSnsTopicPolicyException,
@@ -112,17 +113,17 @@ module Network.AWS.CloudTrail
     -- ** CloudTrailInvalidClientTokenIdException
     _CloudTrailInvalidClientTokenIdException,
 
-    -- ** InvalidS3BucketNameException
-    _InvalidS3BucketNameException,
-
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
-    -- ** InvalidTimeRangeException
-    _InvalidTimeRangeException,
+    -- ** InvalidS3BucketNameException
+    _InvalidS3BucketNameException,
 
     -- ** InsufficientS3BucketPolicyException
     _InsufficientS3BucketPolicyException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
 
     -- ** InvalidEventSelectorsException
     _InvalidEventSelectorsException,
@@ -136,35 +137,35 @@ module Network.AWS.CloudTrail
     -- ** InvalidHomeRegionException
     _InvalidHomeRegionException,
 
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** TrailNotFoundException
     _TrailNotFoundException,
 
     -- ** CloudWatchLogsDeliveryUnavailableException
     _CloudWatchLogsDeliveryUnavailableException,
 
-    -- ** OrganizationsNotInUseException
-    _OrganizationsNotInUseException,
-
     -- ** InvalidSnsTopicNameException
     _InvalidSnsTopicNameException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** OrganizationsNotInUseException
+    _OrganizationsNotInUseException,
 
     -- ** InvalidTrailNameException
     _InvalidTrailNameException,
 
-    -- ** InvalidMaxResultsException
-    _InvalidMaxResultsException,
+    -- ** CloudTrailARNInvalidException
+    _CloudTrailARNInvalidException,
 
     -- ** CloudTrailAccessNotEnabledException
     _CloudTrailAccessNotEnabledException,
 
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
     -- ** InvalidCloudWatchLogsRoleArnException
     _InvalidCloudWatchLogsRoleArnException,
-
-    -- ** CloudTrailARNInvalidException
-    _CloudTrailARNInvalidException,
 
     -- ** InvalidTokenException
     _InvalidTokenException,
@@ -181,17 +182,17 @@ module Network.AWS.CloudTrail
     -- * Operations
     -- $operations
 
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
     -- ** ListPublicKeys (Paginated)
     ListPublicKeys (ListPublicKeys'),
     newListPublicKeys,
     ListPublicKeysResponse (ListPublicKeysResponse'),
     newListPublicKeysResponse,
+
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
     -- ** GetEventSelectors
     GetEventSelectors (GetEventSelectors'),
@@ -241,11 +242,11 @@ module Network.AWS.CloudTrail
     GetInsightSelectorsResponse (GetInsightSelectorsResponse'),
     newGetInsightSelectorsResponse,
 
-    -- ** StopLogging
-    StopLogging (StopLogging'),
-    newStopLogging,
-    StopLoggingResponse (StopLoggingResponse'),
-    newStopLoggingResponse,
+    -- ** ListTrails (Paginated)
+    ListTrails (ListTrails'),
+    newListTrails,
+    ListTrailsResponse (ListTrailsResponse'),
+    newListTrailsResponse,
 
     -- ** DeleteTrail
     DeleteTrail (DeleteTrail'),
@@ -253,11 +254,17 @@ module Network.AWS.CloudTrail
     DeleteTrailResponse (DeleteTrailResponse'),
     newDeleteTrailResponse,
 
-    -- ** StartLogging
-    StartLogging (StartLogging'),
-    newStartLogging,
-    StartLoggingResponse (StartLoggingResponse'),
-    newStartLoggingResponse,
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** StopLogging
+    StopLogging (StopLogging'),
+    newStopLogging,
+    StopLoggingResponse (StopLoggingResponse'),
+    newStopLoggingResponse,
 
     -- ** UpdateTrail
     UpdateTrail (UpdateTrail'),
@@ -265,17 +272,11 @@ module Network.AWS.CloudTrail
     UpdateTrailResponse (UpdateTrailResponse'),
     newUpdateTrailResponse,
 
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** ListTrails (Paginated)
-    ListTrails (ListTrails'),
-    newListTrails,
-    ListTrailsResponse (ListTrailsResponse'),
-    newListTrailsResponse,
+    -- ** StartLogging
+    StartLogging (StartLogging'),
+    newStartLogging,
+    StartLoggingResponse (StartLoggingResponse'),
+    newStartLoggingResponse,
 
     -- ** GetTrailStatus
     GetTrailStatus (GetTrailStatus'),

@@ -41,8 +41,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
     networkInsightsAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The time the analysis started.
     startDate :: Prelude.Maybe Core.ISO8601,
-    -- | The Amazon Resource Names (ARN) of the AWS resources that the path must
-    -- traverse.
+    -- | The Amazon Resource Names (ARN) of the Amazon Web Services resources
+    -- that the path must traverse.
     filterInArns :: Prelude.Maybe [Prelude.Text],
     -- | The components in the path from destination to source.
     returnPathComponents :: Prelude.Maybe [PathComponent],
@@ -80,8 +80,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
 --
 -- 'startDate', 'networkInsightsAnalysis_startDate' - The time the analysis started.
 --
--- 'filterInArns', 'networkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the AWS resources that the path must
--- traverse.
+-- 'filterInArns', 'networkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the Amazon Web Services resources
+-- that the path must traverse.
 --
 -- 'returnPathComponents', 'networkInsightsAnalysis_returnPathComponents' - The components in the path from destination to source.
 --
@@ -135,8 +135,8 @@ networkInsightsAnalysis_networkInsightsAnalysisId = Lens.lens (\NetworkInsightsA
 networkInsightsAnalysis_startDate :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe Prelude.UTCTime)
 networkInsightsAnalysis_startDate = Lens.lens (\NetworkInsightsAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Names (ARN) of the AWS resources that the path must
--- traverse.
+-- | The Amazon Resource Names (ARN) of the Amazon Web Services resources
+-- that the path must traverse.
 networkInsightsAnalysis_filterInArns :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
 networkInsightsAnalysis_filterInArns = Lens.lens (\NetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@NetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Lens._Coerce
 

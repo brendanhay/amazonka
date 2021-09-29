@@ -41,10 +41,10 @@ data AnomalyDetector = AnomalyDetector'
     -- | The current status of the anomaly detector\'s training. The possible
     -- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
     stateValue :: Prelude.Maybe AnomalyDetectorStateValue,
-    -- | The metric dimensions associated with the anomaly detection model.
-    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace of the metric associated with the anomaly detection model.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The metric dimensions associated with the anomaly detection model.
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The statistic associated with the anomaly detection model.
     stat :: Prelude.Maybe Prelude.Text
   }
@@ -67,9 +67,9 @@ data AnomalyDetector = AnomalyDetector'
 -- 'stateValue', 'anomalyDetector_stateValue' - The current status of the anomaly detector\'s training. The possible
 -- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
 --
--- 'dimensions', 'anomalyDetector_dimensions' - The metric dimensions associated with the anomaly detection model.
---
 -- 'namespace', 'anomalyDetector_namespace' - The namespace of the metric associated with the anomaly detection model.
+--
+-- 'dimensions', 'anomalyDetector_dimensions' - The metric dimensions associated with the anomaly detection model.
 --
 -- 'stat', 'anomalyDetector_stat' - The statistic associated with the anomaly detection model.
 newAnomalyDetector ::
@@ -79,8 +79,8 @@ newAnomalyDetector =
     { metricName = Prelude.Nothing,
       configuration = Prelude.Nothing,
       stateValue = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       stat = Prelude.Nothing
     }
 
@@ -99,13 +99,13 @@ anomalyDetector_configuration = Lens.lens (\AnomalyDetector' {configuration} -> 
 anomalyDetector_stateValue :: Lens.Lens' AnomalyDetector (Prelude.Maybe AnomalyDetectorStateValue)
 anomalyDetector_stateValue = Lens.lens (\AnomalyDetector' {stateValue} -> stateValue) (\s@AnomalyDetector' {} a -> s {stateValue = a} :: AnomalyDetector)
 
--- | The metric dimensions associated with the anomaly detection model.
-anomalyDetector_dimensions :: Lens.Lens' AnomalyDetector (Prelude.Maybe [Dimension])
-anomalyDetector_dimensions = Lens.lens (\AnomalyDetector' {dimensions} -> dimensions) (\s@AnomalyDetector' {} a -> s {dimensions = a} :: AnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The namespace of the metric associated with the anomaly detection model.
 anomalyDetector_namespace :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
 anomalyDetector_namespace = Lens.lens (\AnomalyDetector' {namespace} -> namespace) (\s@AnomalyDetector' {} a -> s {namespace = a} :: AnomalyDetector)
+
+-- | The metric dimensions associated with the anomaly detection model.
+anomalyDetector_dimensions :: Lens.Lens' AnomalyDetector (Prelude.Maybe [Dimension])
+anomalyDetector_dimensions = Lens.lens (\AnomalyDetector' {dimensions} -> dimensions) (\s@AnomalyDetector' {} a -> s {dimensions = a} :: AnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The statistic associated with the anomaly detection model.
 anomalyDetector_stat :: Lens.Lens' AnomalyDetector (Prelude.Maybe Prelude.Text)
@@ -117,10 +117,10 @@ instance Core.FromXML AnomalyDetector where
       Prelude.<$> (x Core..@? "MetricName")
       Prelude.<*> (x Core..@? "Configuration")
       Prelude.<*> (x Core..@? "StateValue")
+      Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> (x Core..@? "Stat")
 
 instance Prelude.Hashable AnomalyDetector

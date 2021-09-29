@@ -40,8 +40,8 @@ module Network.AWS.EC2.ModifyVpcEndpointServiceConfiguration
     modifyVpcEndpointServiceConfiguration_addNetworkLoadBalancerArns,
     modifyVpcEndpointServiceConfiguration_privateDnsName,
     modifyVpcEndpointServiceConfiguration_acceptanceRequired,
-    modifyVpcEndpointServiceConfiguration_removePrivateDnsName,
     modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_removePrivateDnsName,
     modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns,
     modifyVpcEndpointServiceConfiguration_serviceId,
 
@@ -81,12 +81,12 @@ data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfigurati
     -- | Indicates whether requests to create an endpoint to your service must be
     -- accepted.
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
-    -- | (Interface endpoint configuration) Removes the private DNS name of the
-    -- endpoint service.
-    removePrivateDnsName :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
     -- your service configuration.
     addGatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    -- | (Interface endpoint configuration) Removes the private DNS name of the
+    -- endpoint service.
+    removePrivateDnsName :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
     -- from your service configuration.
     removeGatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
@@ -120,11 +120,11 @@ data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfigurati
 -- 'acceptanceRequired', 'modifyVpcEndpointServiceConfiguration_acceptanceRequired' - Indicates whether requests to create an endpoint to your service must be
 -- accepted.
 --
--- 'removePrivateDnsName', 'modifyVpcEndpointServiceConfiguration_removePrivateDnsName' - (Interface endpoint configuration) Removes the private DNS name of the
--- endpoint service.
---
 -- 'addGatewayLoadBalancerArns', 'modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
 -- your service configuration.
+--
+-- 'removePrivateDnsName', 'modifyVpcEndpointServiceConfiguration_removePrivateDnsName' - (Interface endpoint configuration) Removes the private DNS name of the
+-- endpoint service.
 --
 -- 'removeGatewayLoadBalancerArns', 'modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
 -- from your service configuration.
@@ -143,9 +143,9 @@ newModifyVpcEndpointServiceConfiguration pServiceId_ =
         Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
-      removePrivateDnsName =
-        Prelude.Nothing,
       addGatewayLoadBalancerArns =
+        Prelude.Nothing,
+      removePrivateDnsName =
         Prelude.Nothing,
       removeGatewayLoadBalancerArns =
         Prelude.Nothing,
@@ -179,15 +179,15 @@ modifyVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\ModifyVpcEndp
 modifyVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: ModifyVpcEndpointServiceConfiguration)
 
--- | (Interface endpoint configuration) Removes the private DNS name of the
--- endpoint service.
-modifyVpcEndpointServiceConfiguration_removePrivateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
-modifyVpcEndpointServiceConfiguration_removePrivateDnsName = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removePrivateDnsName} -> removePrivateDnsName) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removePrivateDnsName = a} :: ModifyVpcEndpointServiceConfiguration)
-
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to
 -- your service configuration.
 modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addGatewayLoadBalancerArns} -> addGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens._Coerce
+
+-- | (Interface endpoint configuration) Removes the private DNS name of the
+-- endpoint service.
+modifyVpcEndpointServiceConfiguration_removePrivateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
+modifyVpcEndpointServiceConfiguration_removePrivateDnsName = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removePrivateDnsName} -> removePrivateDnsName) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removePrivateDnsName = a} :: ModifyVpcEndpointServiceConfiguration)
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
 -- from your service configuration.
@@ -258,11 +258,11 @@ instance
           ),
         "PrivateDnsName" Core.=: privateDnsName,
         "AcceptanceRequired" Core.=: acceptanceRequired,
-        "RemovePrivateDnsName" Core.=: removePrivateDnsName,
         Core.toQuery
           ( Core.toQueryList "AddGatewayLoadBalancerArn"
               Prelude.<$> addGatewayLoadBalancerArns
           ),
+        "RemovePrivateDnsName" Core.=: removePrivateDnsName,
         Core.toQuery
           ( Core.toQueryList "RemoveGatewayLoadBalancerArn"
               Prelude.<$> removeGatewayLoadBalancerArns

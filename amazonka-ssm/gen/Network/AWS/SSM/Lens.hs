@@ -14,22 +14,6 @@
 module Network.AWS.SSM.Lens
   ( -- * Operations
 
-    -- ** ListResourceComplianceSummaries
-    listResourceComplianceSummaries_nextToken,
-    listResourceComplianceSummaries_maxResults,
-    listResourceComplianceSummaries_filters,
-    listResourceComplianceSummariesResponse_nextToken,
-    listResourceComplianceSummariesResponse_resourceComplianceSummaryItems,
-    listResourceComplianceSummariesResponse_httpStatus,
-
-    -- ** DescribePatchGroups
-    describePatchGroups_nextToken,
-    describePatchGroups_maxResults,
-    describePatchGroups_filters,
-    describePatchGroupsResponse_mappings,
-    describePatchGroupsResponse_nextToken,
-    describePatchGroupsResponse_httpStatus,
-
     -- ** DescribeOpsItems
     describeOpsItems_nextToken,
     describeOpsItems_maxResults,
@@ -38,10 +22,13 @@ module Network.AWS.SSM.Lens
     describeOpsItemsResponse_opsItemSummaries,
     describeOpsItemsResponse_httpStatus,
 
-    -- ** TerminateSession
-    terminateSession_sessionId,
-    terminateSessionResponse_sessionId,
-    terminateSessionResponse_httpStatus,
+    -- ** ListResourceComplianceSummaries
+    listResourceComplianceSummaries_nextToken,
+    listResourceComplianceSummaries_maxResults,
+    listResourceComplianceSummaries_filters,
+    listResourceComplianceSummariesResponse_nextToken,
+    listResourceComplianceSummariesResponse_resourceComplianceSummaryItems,
+    listResourceComplianceSummariesResponse_httpStatus,
 
     -- ** GetParameter
     getParameter_withDecryption,
@@ -58,19 +45,13 @@ module Network.AWS.SSM.Lens
     getOpsMetadataResponse_metadata,
     getOpsMetadataResponse_httpStatus,
 
-    -- ** UpdateDocumentDefaultVersion
-    updateDocumentDefaultVersion_name,
-    updateDocumentDefaultVersion_documentVersion,
-    updateDocumentDefaultVersionResponse_description,
-    updateDocumentDefaultVersionResponse_httpStatus,
-
-    -- ** ListResourceDataSync
-    listResourceDataSync_syncType,
-    listResourceDataSync_nextToken,
-    listResourceDataSync_maxResults,
-    listResourceDataSyncResponse_nextToken,
-    listResourceDataSyncResponse_resourceDataSyncItems,
-    listResourceDataSyncResponse_httpStatus,
+    -- ** AssociateOpsItemRelatedItem
+    associateOpsItemRelatedItem_opsItemId,
+    associateOpsItemRelatedItem_associationType,
+    associateOpsItemRelatedItem_resourceType,
+    associateOpsItemRelatedItem_resourceUri,
+    associateOpsItemRelatedItemResponse_associationId,
+    associateOpsItemRelatedItemResponse_httpStatus,
 
     -- ** DescribeParameters
     describeParameters_nextToken,
@@ -85,10 +66,11 @@ module Network.AWS.SSM.Lens
     registerTaskWithMaintenanceWindow_maxErrors,
     registerTaskWithMaintenanceWindow_taskParameters,
     registerTaskWithMaintenanceWindow_serviceRoleArn,
-    registerTaskWithMaintenanceWindow_priority,
+    registerTaskWithMaintenanceWindow_cutoffBehavior,
     registerTaskWithMaintenanceWindow_targets,
-    registerTaskWithMaintenanceWindow_taskInvocationParameters,
+    registerTaskWithMaintenanceWindow_priority,
     registerTaskWithMaintenanceWindow_name,
+    registerTaskWithMaintenanceWindow_taskInvocationParameters,
     registerTaskWithMaintenanceWindow_maxConcurrency,
     registerTaskWithMaintenanceWindow_description,
     registerTaskWithMaintenanceWindow_loggingInfo,
@@ -99,10 +81,37 @@ module Network.AWS.SSM.Lens
     registerTaskWithMaintenanceWindowResponse_windowTaskId,
     registerTaskWithMaintenanceWindowResponse_httpStatus,
 
+    -- ** ListResourceDataSync
+    listResourceDataSync_syncType,
+    listResourceDataSync_nextToken,
+    listResourceDataSync_maxResults,
+    listResourceDataSyncResponse_nextToken,
+    listResourceDataSyncResponse_resourceDataSyncItems,
+    listResourceDataSyncResponse_httpStatus,
+
     -- ** GetOpsItem
     getOpsItem_opsItemId,
     getOpsItemResponse_opsItem,
     getOpsItemResponse_httpStatus,
+
+    -- ** DescribePatchGroups
+    describePatchGroups_nextToken,
+    describePatchGroups_maxResults,
+    describePatchGroups_filters,
+    describePatchGroupsResponse_mappings,
+    describePatchGroupsResponse_nextToken,
+    describePatchGroupsResponse_httpStatus,
+
+    -- ** TerminateSession
+    terminateSession_sessionId,
+    terminateSessionResponse_sessionId,
+    terminateSessionResponse_httpStatus,
+
+    -- ** UpdateDocumentDefaultVersion
+    updateDocumentDefaultVersion_name,
+    updateDocumentDefaultVersion_documentVersion,
+    updateDocumentDefaultVersionResponse_description,
+    updateDocumentDefaultVersionResponse_httpStatus,
 
     -- ** GetInventory
     getInventory_nextToken,
@@ -122,17 +131,6 @@ module Network.AWS.SSM.Lens
     describeAssociationResponse_associationDescription,
     describeAssociationResponse_httpStatus,
 
-    -- ** UpdateAssociationStatus
-    updateAssociationStatus_name,
-    updateAssociationStatus_instanceId,
-    updateAssociationStatus_associationStatus,
-    updateAssociationStatusResponse_associationDescription,
-    updateAssociationStatusResponse_httpStatus,
-
-    -- ** DeregisterManagedInstance
-    deregisterManagedInstance_instanceId,
-    deregisterManagedInstanceResponse_httpStatus,
-
     -- ** DescribeAssociationExecutionTargets
     describeAssociationExecutionTargets_nextToken,
     describeAssociationExecutionTargets_maxResults,
@@ -142,6 +140,34 @@ module Network.AWS.SSM.Lens
     describeAssociationExecutionTargetsResponse_nextToken,
     describeAssociationExecutionTargetsResponse_associationExecutionTargets,
     describeAssociationExecutionTargetsResponse_httpStatus,
+
+    -- ** DeregisterManagedInstance
+    deregisterManagedInstance_instanceId,
+    deregisterManagedInstanceResponse_httpStatus,
+
+    -- ** UpdateAssociationStatus
+    updateAssociationStatus_name,
+    updateAssociationStatus_instanceId,
+    updateAssociationStatus_associationStatus,
+    updateAssociationStatusResponse_associationDescription,
+    updateAssociationStatusResponse_httpStatus,
+
+    -- ** CreatePatchBaseline
+    createPatchBaseline_rejectedPatches,
+    createPatchBaseline_sources,
+    createPatchBaseline_approvedPatchesEnableNonSecurity,
+    createPatchBaseline_approvedPatchesComplianceLevel,
+    createPatchBaseline_tags,
+    createPatchBaseline_description,
+    createPatchBaseline_approvedPatches,
+    createPatchBaseline_rejectedPatchesAction,
+    createPatchBaseline_operatingSystem,
+    createPatchBaseline_globalFilters,
+    createPatchBaseline_approvalRules,
+    createPatchBaseline_clientToken,
+    createPatchBaseline_name,
+    createPatchBaselineResponse_baselineId,
+    createPatchBaselineResponse_httpStatus,
 
     -- ** UpdateMaintenanceWindowTarget
     updateMaintenanceWindowTarget_targets,
@@ -169,23 +195,6 @@ module Network.AWS.SSM.Lens
     describeAutomationStepExecutionsResponse_stepExecutions,
     describeAutomationStepExecutionsResponse_httpStatus,
 
-    -- ** CreatePatchBaseline
-    createPatchBaseline_sources,
-    createPatchBaseline_rejectedPatches,
-    createPatchBaseline_approvedPatchesEnableNonSecurity,
-    createPatchBaseline_approvedPatchesComplianceLevel,
-    createPatchBaseline_tags,
-    createPatchBaseline_description,
-    createPatchBaseline_approvedPatches,
-    createPatchBaseline_rejectedPatchesAction,
-    createPatchBaseline_operatingSystem,
-    createPatchBaseline_globalFilters,
-    createPatchBaseline_clientToken,
-    createPatchBaseline_approvalRules,
-    createPatchBaseline_name,
-    createPatchBaselineResponse_baselineId,
-    createPatchBaselineResponse_httpStatus,
-
     -- ** GetCommandInvocation
     getCommandInvocation_pluginName,
     getCommandInvocation_commandId,
@@ -199,25 +208,15 @@ module Network.AWS.SSM.Lens
     getCommandInvocationResponse_executionStartDateTime,
     getCommandInvocationResponse_standardErrorUrl,
     getCommandInvocationResponse_documentName,
-    getCommandInvocationResponse_commandId,
     getCommandInvocationResponse_standardErrorContent,
+    getCommandInvocationResponse_commandId,
     getCommandInvocationResponse_executionEndDateTime,
     getCommandInvocationResponse_responseCode,
-    getCommandInvocationResponse_cloudWatchOutputConfig,
     getCommandInvocationResponse_executionElapsedTime,
-    getCommandInvocationResponse_documentVersion,
     getCommandInvocationResponse_standardOutputContent,
+    getCommandInvocationResponse_cloudWatchOutputConfig,
+    getCommandInvocationResponse_documentVersion,
     getCommandInvocationResponse_httpStatus,
-
-    -- ** ListCommands
-    listCommands_nextToken,
-    listCommands_instanceId,
-    listCommands_maxResults,
-    listCommands_commandId,
-    listCommands_filters,
-    listCommandsResponse_nextToken,
-    listCommandsResponse_commands,
-    listCommandsResponse_httpStatus,
 
     -- ** DeregisterTargetFromMaintenanceWindow
     deregisterTargetFromMaintenanceWindow_safe,
@@ -226,48 +225,6 @@ module Network.AWS.SSM.Lens
     deregisterTargetFromMaintenanceWindowResponse_windowTargetId,
     deregisterTargetFromMaintenanceWindowResponse_windowId,
     deregisterTargetFromMaintenanceWindowResponse_httpStatus,
-
-    -- ** DescribeInstancePatchStates
-    describeInstancePatchStates_nextToken,
-    describeInstancePatchStates_maxResults,
-    describeInstancePatchStates_instanceIds,
-    describeInstancePatchStatesResponse_nextToken,
-    describeInstancePatchStatesResponse_instancePatchStates,
-    describeInstancePatchStatesResponse_httpStatus,
-
-    -- ** UpdateDocument
-    updateDocument_targetType,
-    updateDocument_versionName,
-    updateDocument_documentFormat,
-    updateDocument_documentVersion,
-    updateDocument_attachments,
-    updateDocument_content,
-    updateDocument_name,
-    updateDocumentResponse_documentDescription,
-    updateDocumentResponse_httpStatus,
-
-    -- ** ListDocuments
-    listDocuments_nextToken,
-    listDocuments_maxResults,
-    listDocuments_filters,
-    listDocuments_documentFilterList,
-    listDocumentsResponse_nextToken,
-    listDocumentsResponse_documentIdentifiers,
-    listDocumentsResponse_httpStatus,
-
-    -- ** ResetServiceSetting
-    resetServiceSetting_settingId,
-    resetServiceSettingResponse_serviceSetting,
-    resetServiceSettingResponse_httpStatus,
-
-    -- ** StartSession
-    startSession_documentName,
-    startSession_parameters,
-    startSession_target,
-    startSessionResponse_sessionId,
-    startSessionResponse_streamUrl,
-    startSessionResponse_tokenValue,
-    startSessionResponse_httpStatus,
 
     -- ** GetOpsSummary
     getOpsSummary_nextToken,
@@ -280,12 +237,87 @@ module Network.AWS.SSM.Lens
     getOpsSummaryResponse_entities,
     getOpsSummaryResponse_httpStatus,
 
+    -- ** ResetServiceSetting
+    resetServiceSetting_settingId,
+    resetServiceSettingResponse_serviceSetting,
+    resetServiceSettingResponse_httpStatus,
+
+    -- ** ListDocuments
+    listDocuments_nextToken,
+    listDocuments_maxResults,
+    listDocuments_filters,
+    listDocuments_documentFilterList,
+    listDocumentsResponse_nextToken,
+    listDocumentsResponse_documentIdentifiers,
+    listDocumentsResponse_httpStatus,
+
+    -- ** DescribeInstancePatchStates
+    describeInstancePatchStates_nextToken,
+    describeInstancePatchStates_maxResults,
+    describeInstancePatchStates_instanceIds,
+    describeInstancePatchStatesResponse_nextToken,
+    describeInstancePatchStatesResponse_instancePatchStates,
+    describeInstancePatchStatesResponse_httpStatus,
+
+    -- ** UnlabelParameterVersion
+    unlabelParameterVersion_name,
+    unlabelParameterVersion_parameterVersion,
+    unlabelParameterVersion_labels,
+    unlabelParameterVersionResponse_removedLabels,
+    unlabelParameterVersionResponse_invalidLabels,
+    unlabelParameterVersionResponse_httpStatus,
+
+    -- ** UpdateDocument
+    updateDocument_targetType,
+    updateDocument_versionName,
+    updateDocument_documentFormat,
+    updateDocument_documentVersion,
+    updateDocument_displayName,
+    updateDocument_attachments,
+    updateDocument_content,
+    updateDocument_name,
+    updateDocumentResponse_documentDescription,
+    updateDocumentResponse_httpStatus,
+
     -- ** DeleteDocument
     deleteDocument_force,
     deleteDocument_versionName,
     deleteDocument_documentVersion,
     deleteDocument_name,
     deleteDocumentResponse_httpStatus,
+
+    -- ** ListCommands
+    listCommands_instanceId,
+    listCommands_nextToken,
+    listCommands_maxResults,
+    listCommands_commandId,
+    listCommands_filters,
+    listCommandsResponse_nextToken,
+    listCommandsResponse_commands,
+    listCommandsResponse_httpStatus,
+
+    -- ** StartSession
+    startSession_documentName,
+    startSession_parameters,
+    startSession_target,
+    startSessionResponse_sessionId,
+    startSessionResponse_streamUrl,
+    startSessionResponse_tokenValue,
+    startSessionResponse_httpStatus,
+
+    -- ** CreateDocument
+    createDocument_documentType,
+    createDocument_targetType,
+    createDocument_requires,
+    createDocument_versionName,
+    createDocument_documentFormat,
+    createDocument_tags,
+    createDocument_displayName,
+    createDocument_attachments,
+    createDocument_content,
+    createDocument_name,
+    createDocumentResponse_documentDescription,
+    createDocumentResponse_httpStatus,
 
     -- ** DeleteInventory
     deleteInventory_dryRun,
@@ -297,24 +329,22 @@ module Network.AWS.SSM.Lens
     deleteInventoryResponse_deletionSummary,
     deleteInventoryResponse_httpStatus,
 
+    -- ** RemoveTagsFromResource
+    removeTagsFromResource_resourceType,
+    removeTagsFromResource_resourceId,
+    removeTagsFromResource_tagKeys,
+    removeTagsFromResourceResponse_httpStatus,
+
     -- ** DeleteParameters
     deleteParameters_names,
     deleteParametersResponse_invalidParameters,
     deleteParametersResponse_deletedParameters,
     deleteParametersResponse_httpStatus,
 
-    -- ** ListOpsMetadata
-    listOpsMetadata_nextToken,
-    listOpsMetadata_maxResults,
-    listOpsMetadata_filters,
-    listOpsMetadataResponse_nextToken,
-    listOpsMetadataResponse_opsMetadataList,
-    listOpsMetadataResponse_httpStatus,
-
     -- ** SendCommand
-    sendCommand_notificationConfig,
     sendCommand_instanceIds,
     sendCommand_maxErrors,
+    sendCommand_notificationConfig,
     sendCommand_serviceRoleArn,
     sendCommand_outputS3BucketName,
     sendCommand_comment,
@@ -322,42 +352,15 @@ module Network.AWS.SSM.Lens
     sendCommand_targets,
     sendCommand_outputS3Region,
     sendCommand_maxConcurrency,
-    sendCommand_outputS3KeyPrefix,
     sendCommand_timeoutSeconds,
+    sendCommand_outputS3KeyPrefix,
     sendCommand_cloudWatchOutputConfig,
-    sendCommand_documentHashType,
     sendCommand_documentVersion,
+    sendCommand_documentHashType,
     sendCommand_parameters,
     sendCommand_documentName,
     sendCommandResponse_command,
     sendCommandResponse_httpStatus,
-
-    -- ** RemoveTagsFromResource
-    removeTagsFromResource_resourceType,
-    removeTagsFromResource_resourceId,
-    removeTagsFromResource_tagKeys,
-    removeTagsFromResourceResponse_httpStatus,
-
-    -- ** DescribeEffectiveInstanceAssociations
-    describeEffectiveInstanceAssociations_nextToken,
-    describeEffectiveInstanceAssociations_maxResults,
-    describeEffectiveInstanceAssociations_instanceId,
-    describeEffectiveInstanceAssociationsResponse_nextToken,
-    describeEffectiveInstanceAssociationsResponse_associations,
-    describeEffectiveInstanceAssociationsResponse_httpStatus,
-
-    -- ** CreateDocument
-    createDocument_documentType,
-    createDocument_targetType,
-    createDocument_requires,
-    createDocument_versionName,
-    createDocument_documentFormat,
-    createDocument_tags,
-    createDocument_attachments,
-    createDocument_content,
-    createDocument_name,
-    createDocumentResponse_documentDescription,
-    createDocumentResponse_httpStatus,
 
     -- ** GetCalendarState
     getCalendarState_atTime,
@@ -366,6 +369,14 @@ module Network.AWS.SSM.Lens
     getCalendarStateResponse_state,
     getCalendarStateResponse_nextTransitionTime,
     getCalendarStateResponse_httpStatus,
+
+    -- ** DescribeEffectiveInstanceAssociations
+    describeEffectiveInstanceAssociations_nextToken,
+    describeEffectiveInstanceAssociations_maxResults,
+    describeEffectiveInstanceAssociations_instanceId,
+    describeEffectiveInstanceAssociationsResponse_nextToken,
+    describeEffectiveInstanceAssociationsResponse_associations,
+    describeEffectiveInstanceAssociationsResponse_httpStatus,
 
     -- ** RegisterTargetWithMaintenanceWindow
     registerTargetWithMaintenanceWindow_name,
@@ -378,18 +389,76 @@ module Network.AWS.SSM.Lens
     registerTargetWithMaintenanceWindowResponse_windowTargetId,
     registerTargetWithMaintenanceWindowResponse_httpStatus,
 
-    -- ** DescribeSessions
-    describeSessions_nextToken,
-    describeSessions_maxResults,
-    describeSessions_filters,
-    describeSessions_state,
-    describeSessionsResponse_nextToken,
-    describeSessionsResponse_sessions,
-    describeSessionsResponse_httpStatus,
+    -- ** ListOpsMetadata
+    listOpsMetadata_nextToken,
+    listOpsMetadata_maxResults,
+    listOpsMetadata_filters,
+    listOpsMetadataResponse_nextToken,
+    listOpsMetadataResponse_opsMetadataList,
+    listOpsMetadataResponse_httpStatus,
+
+    -- ** DeleteParameter
+    deleteParameter_name,
+    deleteParameterResponse_httpStatus,
+
+    -- ** CreateActivation
+    createActivation_registrationLimit,
+    createActivation_defaultInstanceName,
+    createActivation_expirationDate,
+    createActivation_tags,
+    createActivation_description,
+    createActivation_iamRole,
+    createActivationResponse_activationId,
+    createActivationResponse_activationCode,
+    createActivationResponse_httpStatus,
+
+    -- ** UpdateAssociation
+    updateAssociation_maxErrors,
+    updateAssociation_complianceSeverity,
+    updateAssociation_automationTargetParameterName,
+    updateAssociation_targets,
+    updateAssociation_name,
+    updateAssociation_scheduleExpression,
+    updateAssociation_targetLocations,
+    updateAssociation_maxConcurrency,
+    updateAssociation_calendarNames,
+    updateAssociation_associationName,
+    updateAssociation_associationVersion,
+    updateAssociation_documentVersion,
+    updateAssociation_parameters,
+    updateAssociation_syncCompliance,
+    updateAssociation_outputLocation,
+    updateAssociation_applyOnlyAtCronInterval,
+    updateAssociation_associationId,
+    updateAssociationResponse_associationDescription,
+    updateAssociationResponse_httpStatus,
 
     -- ** DeleteOpsMetadata
     deleteOpsMetadata_opsMetadataArn,
     deleteOpsMetadataResponse_httpStatus,
+
+    -- ** UpdateOpsMetadata
+    updateOpsMetadata_metadataToUpdate,
+    updateOpsMetadata_keysToDelete,
+    updateOpsMetadata_opsMetadataArn,
+    updateOpsMetadataResponse_opsMetadataArn,
+    updateOpsMetadataResponse_httpStatus,
+
+    -- ** DeleteAssociation
+    deleteAssociation_instanceId,
+    deleteAssociation_name,
+    deleteAssociation_associationId,
+    deleteAssociationResponse_httpStatus,
+
+    -- ** DescribeMaintenanceWindowExecutionTaskInvocations
+    describeMaintenanceWindowExecutionTaskInvocations_nextToken,
+    describeMaintenanceWindowExecutionTaskInvocations_maxResults,
+    describeMaintenanceWindowExecutionTaskInvocations_filters,
+    describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId,
+    describeMaintenanceWindowExecutionTaskInvocations_taskId,
+    describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken,
+    describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities,
+    describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus,
 
     -- ** UpdateOpsItem
     updateOpsItem_status,
@@ -409,38 +478,14 @@ module Network.AWS.SSM.Lens
     updateOpsItem_opsItemId,
     updateOpsItemResponse_httpStatus,
 
-    -- ** DeleteAssociation
-    deleteAssociation_instanceId,
-    deleteAssociation_name,
-    deleteAssociation_associationId,
-    deleteAssociationResponse_httpStatus,
-
-    -- ** UpdateAssociation
-    updateAssociation_maxErrors,
-    updateAssociation_complianceSeverity,
-    updateAssociation_automationTargetParameterName,
-    updateAssociation_targets,
-    updateAssociation_targetLocations,
-    updateAssociation_scheduleExpression,
-    updateAssociation_name,
-    updateAssociation_maxConcurrency,
-    updateAssociation_associationName,
-    updateAssociation_associationVersion,
-    updateAssociation_documentVersion,
-    updateAssociation_parameters,
-    updateAssociation_outputLocation,
-    updateAssociation_applyOnlyAtCronInterval,
-    updateAssociation_syncCompliance,
-    updateAssociation_associationId,
-    updateAssociationResponse_associationDescription,
-    updateAssociationResponse_httpStatus,
-
-    -- ** UpdateOpsMetadata
-    updateOpsMetadata_metadataToUpdate,
-    updateOpsMetadata_keysToDelete,
-    updateOpsMetadata_opsMetadataArn,
-    updateOpsMetadataResponse_opsMetadataArn,
-    updateOpsMetadataResponse_httpStatus,
+    -- ** DescribeSessions
+    describeSessions_nextToken,
+    describeSessions_maxResults,
+    describeSessions_filters,
+    describeSessions_state,
+    describeSessionsResponse_nextToken,
+    describeSessionsResponse_sessions,
+    describeSessionsResponse_httpStatus,
 
     -- ** DescribeInstanceInformation
     describeInstanceInformation_nextToken,
@@ -450,20 +495,6 @@ module Network.AWS.SSM.Lens
     describeInstanceInformationResponse_instanceInformationList,
     describeInstanceInformationResponse_nextToken,
     describeInstanceInformationResponse_httpStatus,
-
-    -- ** DescribeMaintenanceWindowExecutionTaskInvocations
-    describeMaintenanceWindowExecutionTaskInvocations_nextToken,
-    describeMaintenanceWindowExecutionTaskInvocations_maxResults,
-    describeMaintenanceWindowExecutionTaskInvocations_filters,
-    describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId,
-    describeMaintenanceWindowExecutionTaskInvocations_taskId,
-    describeMaintenanceWindowExecutionTaskInvocationsResponse_nextToken,
-    describeMaintenanceWindowExecutionTaskInvocationsResponse_windowExecutionTaskInvocationIdentities,
-    describeMaintenanceWindowExecutionTaskInvocationsResponse_httpStatus,
-
-    -- ** DeleteParameter
-    deleteParameter_name,
-    deleteParameterResponse_httpStatus,
 
     -- ** GetMaintenanceWindowExecutionTaskInvocation
     getMaintenanceWindowExecutionTaskInvocation_windowExecutionId,
@@ -476,35 +507,26 @@ module Network.AWS.SSM.Lens
     getMaintenanceWindowExecutionTaskInvocationResponse_endTime,
     getMaintenanceWindowExecutionTaskInvocationResponse_executionId,
     getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_invocationId,
     getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation,
     getMaintenanceWindowExecutionTaskInvocationResponse_taskType,
-    getMaintenanceWindowExecutionTaskInvocationResponse_invocationId,
     getMaintenanceWindowExecutionTaskInvocationResponse_parameters,
     getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus,
 
-    -- ** CreateActivation
-    createActivation_registrationLimit,
-    createActivation_defaultInstanceName,
-    createActivation_expirationDate,
-    createActivation_tags,
-    createActivation_description,
-    createActivation_iamRole,
-    createActivationResponse_activationCode,
-    createActivationResponse_activationId,
-    createActivationResponse_httpStatus,
-
-    -- ** CreateOpsMetadata
-    createOpsMetadata_metadata,
-    createOpsMetadata_resourceId,
-    createOpsMetadataResponse_opsMetadataArn,
-    createOpsMetadataResponse_httpStatus,
-
-    -- ** SendAutomationSignal
-    sendAutomationSignal_payload,
-    sendAutomationSignal_automationExecutionId,
-    sendAutomationSignal_signalType,
-    sendAutomationSignalResponse_httpStatus,
+    -- ** StartChangeRequestExecution
+    startChangeRequestExecution_scheduledEndTime,
+    startChangeRequestExecution_changeRequestName,
+    startChangeRequestExecution_scheduledTime,
+    startChangeRequestExecution_changeDetails,
+    startChangeRequestExecution_tags,
+    startChangeRequestExecution_documentVersion,
+    startChangeRequestExecution_clientToken,
+    startChangeRequestExecution_parameters,
+    startChangeRequestExecution_documentName,
+    startChangeRequestExecution_runbooks,
+    startChangeRequestExecutionResponse_automationExecutionId,
+    startChangeRequestExecutionResponse_httpStatus,
 
     -- ** ListComplianceSummaries
     listComplianceSummaries_nextToken,
@@ -523,6 +545,25 @@ module Network.AWS.SSM.Lens
     describeMaintenanceWindowExecutionsResponse_windowExecutions,
     describeMaintenanceWindowExecutionsResponse_httpStatus,
 
+    -- ** CreateOpsItem
+    createOpsItem_plannedEndTime,
+    createOpsItem_severity,
+    createOpsItem_actualStartTime,
+    createOpsItem_category,
+    createOpsItem_operationalData,
+    createOpsItem_priority,
+    createOpsItem_actualEndTime,
+    createOpsItem_tags,
+    createOpsItem_plannedStartTime,
+    createOpsItem_opsItemType,
+    createOpsItem_notifications,
+    createOpsItem_relatedOpsItems,
+    createOpsItem_description,
+    createOpsItem_source,
+    createOpsItem_title,
+    createOpsItemResponse_opsItemId,
+    createOpsItemResponse_httpStatus,
+
     -- ** DescribeMaintenanceWindowsForTarget
     describeMaintenanceWindowsForTarget_nextToken,
     describeMaintenanceWindowsForTarget_maxResults,
@@ -538,49 +579,39 @@ module Network.AWS.SSM.Lens
     createAssociation_complianceSeverity,
     createAssociation_automationTargetParameterName,
     createAssociation_targets,
-    createAssociation_targetLocations,
     createAssociation_scheduleExpression,
+    createAssociation_targetLocations,
     createAssociation_maxConcurrency,
+    createAssociation_calendarNames,
     createAssociation_associationName,
     createAssociation_documentVersion,
     createAssociation_parameters,
+    createAssociation_syncCompliance,
     createAssociation_outputLocation,
     createAssociation_applyOnlyAtCronInterval,
-    createAssociation_syncCompliance,
     createAssociation_name,
     createAssociationResponse_associationDescription,
     createAssociationResponse_httpStatus,
 
-    -- ** CreateOpsItem
-    createOpsItem_plannedEndTime,
-    createOpsItem_severity,
-    createOpsItem_actualStartTime,
-    createOpsItem_category,
-    createOpsItem_operationalData,
-    createOpsItem_priority,
-    createOpsItem_actualEndTime,
-    createOpsItem_tags,
-    createOpsItem_opsItemType,
-    createOpsItem_plannedStartTime,
-    createOpsItem_notifications,
-    createOpsItem_relatedOpsItems,
-    createOpsItem_description,
-    createOpsItem_source,
-    createOpsItem_title,
-    createOpsItemResponse_opsItemId,
-    createOpsItemResponse_httpStatus,
+    -- ** CreateOpsMetadata
+    createOpsMetadata_metadata,
+    createOpsMetadata_tags,
+    createOpsMetadata_resourceId,
+    createOpsMetadataResponse_opsMetadataArn,
+    createOpsMetadataResponse_httpStatus,
 
-    -- ** StartChangeRequestExecution
-    startChangeRequestExecution_changeRequestName,
-    startChangeRequestExecution_scheduledTime,
-    startChangeRequestExecution_tags,
-    startChangeRequestExecution_documentVersion,
-    startChangeRequestExecution_parameters,
-    startChangeRequestExecution_clientToken,
-    startChangeRequestExecution_documentName,
-    startChangeRequestExecution_runbooks,
-    startChangeRequestExecutionResponse_automationExecutionId,
-    startChangeRequestExecutionResponse_httpStatus,
+    -- ** SendAutomationSignal
+    sendAutomationSignal_payload,
+    sendAutomationSignal_automationExecutionId,
+    sendAutomationSignal_signalType,
+    sendAutomationSignalResponse_httpStatus,
+
+    -- ** DescribeDocument
+    describeDocument_versionName,
+    describeDocument_documentVersion,
+    describeDocument_name,
+    describeDocumentResponse_document,
+    describeDocumentResponse_httpStatus,
 
     -- ** ListAssociationVersions
     listAssociationVersions_nextToken,
@@ -590,19 +621,14 @@ module Network.AWS.SSM.Lens
     listAssociationVersionsResponse_associationVersions,
     listAssociationVersionsResponse_httpStatus,
 
-    -- ** DescribeDocument
-    describeDocument_versionName,
-    describeDocument_documentVersion,
-    describeDocument_name,
-    describeDocumentResponse_document,
-    describeDocumentResponse_httpStatus,
-
-    -- ** DeregisterTaskFromMaintenanceWindow
-    deregisterTaskFromMaintenanceWindow_windowId,
-    deregisterTaskFromMaintenanceWindow_windowTaskId,
-    deregisterTaskFromMaintenanceWindowResponse_windowTaskId,
-    deregisterTaskFromMaintenanceWindowResponse_windowId,
-    deregisterTaskFromMaintenanceWindowResponse_httpStatus,
+    -- ** ListOpsItemRelatedItems
+    listOpsItemRelatedItems_nextToken,
+    listOpsItemRelatedItems_maxResults,
+    listOpsItemRelatedItems_opsItemId,
+    listOpsItemRelatedItems_filters,
+    listOpsItemRelatedItemsResponse_nextToken,
+    listOpsItemRelatedItemsResponse_summaries,
+    listOpsItemRelatedItemsResponse_httpStatus,
 
     -- ** PutComplianceItems
     putComplianceItems_uploadType,
@@ -614,53 +640,32 @@ module Network.AWS.SSM.Lens
     putComplianceItems_items,
     putComplianceItemsResponse_httpStatus,
 
+    -- ** DeregisterTaskFromMaintenanceWindow
+    deregisterTaskFromMaintenanceWindow_windowId,
+    deregisterTaskFromMaintenanceWindow_windowTaskId,
+    deregisterTaskFromMaintenanceWindowResponse_windowTaskId,
+    deregisterTaskFromMaintenanceWindowResponse_windowId,
+    deregisterTaskFromMaintenanceWindowResponse_httpStatus,
+
     -- ** GetMaintenanceWindowTask
     getMaintenanceWindowTask_windowId,
     getMaintenanceWindowTask_windowTaskId,
     getMaintenanceWindowTaskResponse_maxErrors,
     getMaintenanceWindowTaskResponse_taskParameters,
-    getMaintenanceWindowTaskResponse_windowTaskId,
     getMaintenanceWindowTaskResponse_serviceRoleArn,
-    getMaintenanceWindowTaskResponse_priority,
+    getMaintenanceWindowTaskResponse_windowTaskId,
+    getMaintenanceWindowTaskResponse_cutoffBehavior,
     getMaintenanceWindowTaskResponse_targets,
-    getMaintenanceWindowTaskResponse_taskInvocationParameters,
+    getMaintenanceWindowTaskResponse_priority,
     getMaintenanceWindowTaskResponse_name,
-    getMaintenanceWindowTaskResponse_maxConcurrency,
+    getMaintenanceWindowTaskResponse_taskInvocationParameters,
     getMaintenanceWindowTaskResponse_windowId,
+    getMaintenanceWindowTaskResponse_maxConcurrency,
     getMaintenanceWindowTaskResponse_description,
     getMaintenanceWindowTaskResponse_taskArn,
-    getMaintenanceWindowTaskResponse_taskType,
     getMaintenanceWindowTaskResponse_loggingInfo,
+    getMaintenanceWindowTaskResponse_taskType,
     getMaintenanceWindowTaskResponse_httpStatus,
-
-    -- ** GetDeployablePatchSnapshotForInstance
-    getDeployablePatchSnapshotForInstance_baselineOverride,
-    getDeployablePatchSnapshotForInstance_instanceId,
-    getDeployablePatchSnapshotForInstance_snapshotId,
-    getDeployablePatchSnapshotForInstanceResponse_instanceId,
-    getDeployablePatchSnapshotForInstanceResponse_product,
-    getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl,
-    getDeployablePatchSnapshotForInstanceResponse_snapshotId,
-    getDeployablePatchSnapshotForInstanceResponse_httpStatus,
-
-    -- ** GetMaintenanceWindow
-    getMaintenanceWindow_windowId,
-    getMaintenanceWindowResponse_createdDate,
-    getMaintenanceWindowResponse_startDate,
-    getMaintenanceWindowResponse_duration,
-    getMaintenanceWindowResponse_scheduleOffset,
-    getMaintenanceWindowResponse_enabled,
-    getMaintenanceWindowResponse_modifiedDate,
-    getMaintenanceWindowResponse_cutoff,
-    getMaintenanceWindowResponse_name,
-    getMaintenanceWindowResponse_windowId,
-    getMaintenanceWindowResponse_description,
-    getMaintenanceWindowResponse_scheduleTimezone,
-    getMaintenanceWindowResponse_endDate,
-    getMaintenanceWindowResponse_nextExecutionTime,
-    getMaintenanceWindowResponse_allowUnassociatedTargets,
-    getMaintenanceWindowResponse_schedule,
-    getMaintenanceWindowResponse_httpStatus,
 
     -- ** DeregisterPatchBaselineForPatchGroup
     deregisterPatchBaselineForPatchGroup_baselineId,
@@ -668,18 +673,6 @@ module Network.AWS.SSM.Lens
     deregisterPatchBaselineForPatchGroupResponse_baselineId,
     deregisterPatchBaselineForPatchGroupResponse_patchGroup,
     deregisterPatchBaselineForPatchGroupResponse_httpStatus,
-
-    -- ** ResumeSession
-    resumeSession_sessionId,
-    resumeSessionResponse_sessionId,
-    resumeSessionResponse_streamUrl,
-    resumeSessionResponse_tokenValue,
-    resumeSessionResponse_httpStatus,
-
-    -- ** RegisterDefaultPatchBaseline
-    registerDefaultPatchBaseline_baselineId,
-    registerDefaultPatchBaselineResponse_baselineId,
-    registerDefaultPatchBaselineResponse_httpStatus,
 
     -- ** DescribeMaintenanceWindows
     describeMaintenanceWindows_nextToken,
@@ -689,29 +682,46 @@ module Network.AWS.SSM.Lens
     describeMaintenanceWindowsResponse_windowIdentities,
     describeMaintenanceWindowsResponse_httpStatus,
 
-    -- ** ModifyDocumentPermission
-    modifyDocumentPermission_accountIdsToAdd,
-    modifyDocumentPermission_sharedDocumentVersion,
-    modifyDocumentPermission_accountIdsToRemove,
-    modifyDocumentPermission_name,
-    modifyDocumentPermission_permissionType,
-    modifyDocumentPermissionResponse_httpStatus,
+    -- ** GetDeployablePatchSnapshotForInstance
+    getDeployablePatchSnapshotForInstance_baselineOverride,
+    getDeployablePatchSnapshotForInstance_instanceId,
+    getDeployablePatchSnapshotForInstance_snapshotId,
+    getDeployablePatchSnapshotForInstanceResponse_instanceId,
+    getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl,
+    getDeployablePatchSnapshotForInstanceResponse_product,
+    getDeployablePatchSnapshotForInstanceResponse_snapshotId,
+    getDeployablePatchSnapshotForInstanceResponse_httpStatus,
 
-    -- ** DescribeInstancePatches
-    describeInstancePatches_nextToken,
-    describeInstancePatches_maxResults,
-    describeInstancePatches_filters,
-    describeInstancePatches_instanceId,
-    describeInstancePatchesResponse_nextToken,
-    describeInstancePatchesResponse_patches,
-    describeInstancePatchesResponse_httpStatus,
+    -- ** ResumeSession
+    resumeSession_sessionId,
+    resumeSessionResponse_sessionId,
+    resumeSessionResponse_streamUrl,
+    resumeSessionResponse_tokenValue,
+    resumeSessionResponse_httpStatus,
 
-    -- ** GetParameters
-    getParameters_withDecryption,
-    getParameters_names,
-    getParametersResponse_invalidParameters,
-    getParametersResponse_parameters,
-    getParametersResponse_httpStatus,
+    -- ** GetMaintenanceWindow
+    getMaintenanceWindow_windowId,
+    getMaintenanceWindowResponse_createdDate,
+    getMaintenanceWindowResponse_startDate,
+    getMaintenanceWindowResponse_duration,
+    getMaintenanceWindowResponse_scheduleOffset,
+    getMaintenanceWindowResponse_enabled,
+    getMaintenanceWindowResponse_cutoff,
+    getMaintenanceWindowResponse_modifiedDate,
+    getMaintenanceWindowResponse_name,
+    getMaintenanceWindowResponse_windowId,
+    getMaintenanceWindowResponse_scheduleTimezone,
+    getMaintenanceWindowResponse_description,
+    getMaintenanceWindowResponse_endDate,
+    getMaintenanceWindowResponse_allowUnassociatedTargets,
+    getMaintenanceWindowResponse_nextExecutionTime,
+    getMaintenanceWindowResponse_schedule,
+    getMaintenanceWindowResponse_httpStatus,
+
+    -- ** RegisterDefaultPatchBaseline
+    registerDefaultPatchBaseline_baselineId,
+    registerDefaultPatchBaselineResponse_baselineId,
+    registerDefaultPatchBaselineResponse_httpStatus,
 
     -- ** ListDocumentVersions
     listDocumentVersions_nextToken,
@@ -732,37 +742,9 @@ module Network.AWS.SSM.Lens
     deletePatchBaselineResponse_baselineId,
     deletePatchBaselineResponse_httpStatus,
 
-    -- ** ListOpsItemEvents
-    listOpsItemEvents_nextToken,
-    listOpsItemEvents_maxResults,
-    listOpsItemEvents_filters,
-    listOpsItemEventsResponse_nextToken,
-    listOpsItemEventsResponse_summaries,
-    listOpsItemEventsResponse_httpStatus,
-
-    -- ** DeleteResourceDataSync
-    deleteResourceDataSync_syncType,
-    deleteResourceDataSync_syncName,
-    deleteResourceDataSyncResponse_httpStatus,
-
-    -- ** DescribeInstancePatchStatesForPatchGroup
-    describeInstancePatchStatesForPatchGroup_nextToken,
-    describeInstancePatchStatesForPatchGroup_maxResults,
-    describeInstancePatchStatesForPatchGroup_filters,
-    describeInstancePatchStatesForPatchGroup_patchGroup,
-    describeInstancePatchStatesForPatchGroupResponse_nextToken,
-    describeInstancePatchStatesForPatchGroupResponse_instancePatchStates,
-    describeInstancePatchStatesForPatchGroupResponse_httpStatus,
-
-    -- ** GetConnectionStatus
-    getConnectionStatus_target,
-    getConnectionStatusResponse_status,
-    getConnectionStatusResponse_target,
-    getConnectionStatusResponse_httpStatus,
-
     -- ** UpdatePatchBaseline
-    updatePatchBaseline_sources,
     updatePatchBaseline_rejectedPatches,
+    updatePatchBaseline_sources,
     updatePatchBaseline_approvedPatchesEnableNonSecurity,
     updatePatchBaseline_approvedPatchesComplianceLevel,
     updatePatchBaseline_name,
@@ -774,9 +756,9 @@ module Network.AWS.SSM.Lens
     updatePatchBaseline_approvalRules,
     updatePatchBaseline_baselineId,
     updatePatchBaselineResponse_createdDate,
+    updatePatchBaselineResponse_rejectedPatches,
     updatePatchBaselineResponse_baselineId,
     updatePatchBaselineResponse_sources,
-    updatePatchBaselineResponse_rejectedPatches,
     updatePatchBaselineResponse_approvedPatchesEnableNonSecurity,
     updatePatchBaselineResponse_approvedPatchesComplianceLevel,
     updatePatchBaselineResponse_modifiedDate,
@@ -789,6 +771,15 @@ module Network.AWS.SSM.Lens
     updatePatchBaselineResponse_approvalRules,
     updatePatchBaselineResponse_httpStatus,
 
+    -- ** DescribeInstancePatches
+    describeInstancePatches_nextToken,
+    describeInstancePatches_maxResults,
+    describeInstancePatches_filters,
+    describeInstancePatches_instanceId,
+    describeInstancePatchesResponse_nextToken,
+    describeInstancePatchesResponse_patches,
+    describeInstancePatchesResponse_httpStatus,
+
     -- ** DescribeAvailablePatches
     describeAvailablePatches_nextToken,
     describeAvailablePatches_maxResults,
@@ -797,39 +788,71 @@ module Network.AWS.SSM.Lens
     describeAvailablePatchesResponse_patches,
     describeAvailablePatchesResponse_httpStatus,
 
-    -- ** ListComplianceItems
-    listComplianceItems_nextToken,
-    listComplianceItems_resourceTypes,
-    listComplianceItems_maxResults,
-    listComplianceItems_resourceIds,
-    listComplianceItems_filters,
-    listComplianceItemsResponse_nextToken,
-    listComplianceItemsResponse_complianceItems,
-    listComplianceItemsResponse_httpStatus,
+    -- ** DescribeInstancePatchStatesForPatchGroup
+    describeInstancePatchStatesForPatchGroup_nextToken,
+    describeInstancePatchStatesForPatchGroup_maxResults,
+    describeInstancePatchStatesForPatchGroup_filters,
+    describeInstancePatchStatesForPatchGroup_patchGroup,
+    describeInstancePatchStatesForPatchGroupResponse_nextToken,
+    describeInstancePatchStatesForPatchGroupResponse_instancePatchStates,
+    describeInstancePatchStatesForPatchGroupResponse_httpStatus,
 
-    -- ** GetDocument
-    getDocument_versionName,
-    getDocument_documentFormat,
-    getDocument_documentVersion,
-    getDocument_name,
-    getDocumentResponse_documentType,
-    getDocumentResponse_status,
-    getDocumentResponse_requires,
-    getDocumentResponse_attachmentsContent,
-    getDocumentResponse_statusInformation,
-    getDocumentResponse_versionName,
-    getDocumentResponse_name,
-    getDocumentResponse_documentFormat,
-    getDocumentResponse_content,
-    getDocumentResponse_reviewStatus,
-    getDocumentResponse_documentVersion,
-    getDocumentResponse_httpStatus,
+    -- ** DeleteResourceDataSync
+    deleteResourceDataSync_syncType,
+    deleteResourceDataSync_syncName,
+    deleteResourceDataSyncResponse_httpStatus,
+
+    -- ** GetParameters
+    getParameters_withDecryption,
+    getParameters_names,
+    getParametersResponse_invalidParameters,
+    getParametersResponse_parameters,
+    getParametersResponse_httpStatus,
+
+    -- ** GetConnectionStatus
+    getConnectionStatus_target,
+    getConnectionStatusResponse_status,
+    getConnectionStatusResponse_target,
+    getConnectionStatusResponse_httpStatus,
+
+    -- ** ModifyDocumentPermission
+    modifyDocumentPermission_accountIdsToAdd,
+    modifyDocumentPermission_sharedDocumentVersion,
+    modifyDocumentPermission_accountIdsToRemove,
+    modifyDocumentPermission_name,
+    modifyDocumentPermission_permissionType,
+    modifyDocumentPermissionResponse_httpStatus,
+
+    -- ** ListOpsItemEvents
+    listOpsItemEvents_nextToken,
+    listOpsItemEvents_maxResults,
+    listOpsItemEvents_filters,
+    listOpsItemEventsResponse_nextToken,
+    listOpsItemEventsResponse_summaries,
+    listOpsItemEventsResponse_httpStatus,
 
     -- ** AddTagsToResource
     addTagsToResource_resourceType,
     addTagsToResource_resourceId,
     addTagsToResource_tags,
     addTagsToResourceResponse_httpStatus,
+
+    -- ** DescribeDocumentPermission
+    describeDocumentPermission_nextToken,
+    describeDocumentPermission_maxResults,
+    describeDocumentPermission_name,
+    describeDocumentPermission_permissionType,
+    describeDocumentPermissionResponse_accountIds,
+    describeDocumentPermissionResponse_nextToken,
+    describeDocumentPermissionResponse_accountSharingInfoList,
+    describeDocumentPermissionResponse_httpStatus,
+
+    -- ** CreateResourceDataSync
+    createResourceDataSync_syncType,
+    createResourceDataSync_s3Destination,
+    createResourceDataSync_syncSource,
+    createResourceDataSync_syncName,
+    createResourceDataSyncResponse_httpStatus,
 
     -- ** GetPatchBaselineForPatchGroup
     getPatchBaselineForPatchGroup_operatingSystem,
@@ -855,12 +878,40 @@ module Network.AWS.SSM.Lens
     describeMaintenanceWindowScheduleResponse_scheduledWindowExecutions,
     describeMaintenanceWindowScheduleResponse_httpStatus,
 
-    -- ** CreateResourceDataSync
-    createResourceDataSync_syncType,
-    createResourceDataSync_s3Destination,
-    createResourceDataSync_syncSource,
-    createResourceDataSync_syncName,
-    createResourceDataSyncResponse_httpStatus,
+    -- ** CancelCommand
+    cancelCommand_instanceIds,
+    cancelCommand_commandId,
+    cancelCommandResponse_httpStatus,
+
+    -- ** GetDocument
+    getDocument_versionName,
+    getDocument_documentFormat,
+    getDocument_documentVersion,
+    getDocument_name,
+    getDocumentResponse_documentType,
+    getDocumentResponse_createdDate,
+    getDocumentResponse_status,
+    getDocumentResponse_requires,
+    getDocumentResponse_attachmentsContent,
+    getDocumentResponse_statusInformation,
+    getDocumentResponse_versionName,
+    getDocumentResponse_name,
+    getDocumentResponse_documentFormat,
+    getDocumentResponse_content,
+    getDocumentResponse_reviewStatus,
+    getDocumentResponse_documentVersion,
+    getDocumentResponse_displayName,
+    getDocumentResponse_httpStatus,
+
+    -- ** ListComplianceItems
+    listComplianceItems_nextToken,
+    listComplianceItems_resourceTypes,
+    listComplianceItems_maxResults,
+    listComplianceItems_resourceIds,
+    listComplianceItems_filters,
+    listComplianceItemsResponse_nextToken,
+    listComplianceItemsResponse_complianceItems,
+    listComplianceItemsResponse_httpStatus,
 
     -- ** CreateAssociationBatch
     createAssociationBatch_entries,
@@ -868,20 +919,21 @@ module Network.AWS.SSM.Lens
     createAssociationBatchResponse_failed,
     createAssociationBatchResponse_httpStatus,
 
-    -- ** CancelCommand
-    cancelCommand_instanceIds,
-    cancelCommand_commandId,
-    cancelCommandResponse_httpStatus,
+    -- ** DisassociateOpsItemRelatedItem
+    disassociateOpsItemRelatedItem_opsItemId,
+    disassociateOpsItemRelatedItem_associationId,
+    disassociateOpsItemRelatedItemResponse_httpStatus,
 
-    -- ** DescribeDocumentPermission
-    describeDocumentPermission_nextToken,
-    describeDocumentPermission_maxResults,
-    describeDocumentPermission_name,
-    describeDocumentPermission_permissionType,
-    describeDocumentPermissionResponse_accountIds,
-    describeDocumentPermissionResponse_nextToken,
-    describeDocumentPermissionResponse_accountSharingInfoList,
-    describeDocumentPermissionResponse_httpStatus,
+    -- ** ListCommandInvocations
+    listCommandInvocations_instanceId,
+    listCommandInvocations_nextToken,
+    listCommandInvocations_maxResults,
+    listCommandInvocations_commandId,
+    listCommandInvocations_details,
+    listCommandInvocations_filters,
+    listCommandInvocationsResponse_nextToken,
+    listCommandInvocationsResponse_commandInvocations,
+    listCommandInvocationsResponse_httpStatus,
 
     -- ** RegisterPatchBaselineForPatchGroup
     registerPatchBaselineForPatchGroup_baselineId,
@@ -898,17 +950,6 @@ module Network.AWS.SSM.Lens
     describeEffectivePatchesForPatchBaselineResponse_effectivePatches,
     describeEffectivePatchesForPatchBaselineResponse_httpStatus,
 
-    -- ** ListCommandInvocations
-    listCommandInvocations_nextToken,
-    listCommandInvocations_instanceId,
-    listCommandInvocations_maxResults,
-    listCommandInvocations_commandId,
-    listCommandInvocations_details,
-    listCommandInvocations_filters,
-    listCommandInvocationsResponse_nextToken,
-    listCommandInvocationsResponse_commandInvocations,
-    listCommandInvocationsResponse_httpStatus,
-
     -- ** DescribeMaintenanceWindowTargets
     describeMaintenanceWindowTargets_nextToken,
     describeMaintenanceWindowTargets_maxResults,
@@ -918,17 +959,50 @@ module Network.AWS.SSM.Lens
     describeMaintenanceWindowTargetsResponse_targets,
     describeMaintenanceWindowTargetsResponse_httpStatus,
 
-    -- ** GetAutomationExecution
-    getAutomationExecution_automationExecutionId,
-    getAutomationExecutionResponse_automationExecution,
-    getAutomationExecutionResponse_httpStatus,
+    -- ** DescribeAutomationExecutions
+    describeAutomationExecutions_nextToken,
+    describeAutomationExecutions_maxResults,
+    describeAutomationExecutions_filters,
+    describeAutomationExecutionsResponse_nextToken,
+    describeAutomationExecutionsResponse_automationExecutionMetadataList,
+    describeAutomationExecutionsResponse_httpStatus,
+
+    -- ** DescribePatchBaselines
+    describePatchBaselines_nextToken,
+    describePatchBaselines_maxResults,
+    describePatchBaselines_filters,
+    describePatchBaselinesResponse_nextToken,
+    describePatchBaselinesResponse_baselineIdentities,
+    describePatchBaselinesResponse_httpStatus,
+
+    -- ** DescribePatchGroupState
+    describePatchGroupState_patchGroup,
+    describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches,
+    describePatchGroupStateResponse_instancesWithInstalledOtherPatches,
+    describePatchGroupStateResponse_instancesWithOtherNonCompliantPatches,
+    describePatchGroupStateResponse_instancesWithInstalledRejectedPatches,
+    describePatchGroupStateResponse_instancesWithCriticalNonCompliantPatches,
+    describePatchGroupStateResponse_instances,
+    describePatchGroupStateResponse_instancesWithMissingPatches,
+    describePatchGroupStateResponse_instancesWithSecurityNonCompliantPatches,
+    describePatchGroupStateResponse_instancesWithInstalledPendingRebootPatches,
+    describePatchGroupStateResponse_instancesWithFailedPatches,
+    describePatchGroupStateResponse_instancesWithNotApplicablePatches,
+    describePatchGroupStateResponse_instancesWithInstalledPatches,
+    describePatchGroupStateResponse_httpStatus,
+
+    -- ** UpdateDocumentMetadata
+    updateDocumentMetadata_documentVersion,
+    updateDocumentMetadata_name,
+    updateDocumentMetadata_documentReviews,
+    updateDocumentMetadataResponse_httpStatus,
 
     -- ** GetPatchBaseline
     getPatchBaseline_baselineId,
     getPatchBaselineResponse_createdDate,
+    getPatchBaselineResponse_rejectedPatches,
     getPatchBaselineResponse_baselineId,
     getPatchBaselineResponse_sources,
-    getPatchBaselineResponse_rejectedPatches,
     getPatchBaselineResponse_approvedPatchesEnableNonSecurity,
     getPatchBaselineResponse_approvedPatchesComplianceLevel,
     getPatchBaselineResponse_modifiedDate,
@@ -942,90 +1016,16 @@ module Network.AWS.SSM.Lens
     getPatchBaselineResponse_approvalRules,
     getPatchBaselineResponse_httpStatus,
 
-    -- ** DescribePatchGroupState
-    describePatchGroupState_patchGroup,
-    describePatchGroupStateResponse_instancesWithInstalledOtherPatches,
-    describePatchGroupStateResponse_instancesWithUnreportedNotApplicablePatches,
-    describePatchGroupStateResponse_instancesWithInstalledRejectedPatches,
-    describePatchGroupStateResponse_instances,
-    describePatchGroupStateResponse_instancesWithMissingPatches,
-    describePatchGroupStateResponse_instancesWithInstalledPendingRebootPatches,
-    describePatchGroupStateResponse_instancesWithFailedPatches,
-    describePatchGroupStateResponse_instancesWithInstalledPatches,
-    describePatchGroupStateResponse_instancesWithNotApplicablePatches,
-    describePatchGroupStateResponse_httpStatus,
-
-    -- ** DescribePatchBaselines
-    describePatchBaselines_nextToken,
-    describePatchBaselines_maxResults,
-    describePatchBaselines_filters,
-    describePatchBaselinesResponse_nextToken,
-    describePatchBaselinesResponse_baselineIdentities,
-    describePatchBaselinesResponse_httpStatus,
-
-    -- ** UpdateDocumentMetadata
-    updateDocumentMetadata_documentVersion,
-    updateDocumentMetadata_name,
-    updateDocumentMetadata_documentReviews,
-    updateDocumentMetadataResponse_httpStatus,
-
-    -- ** DescribeAutomationExecutions
-    describeAutomationExecutions_nextToken,
-    describeAutomationExecutions_maxResults,
-    describeAutomationExecutions_filters,
-    describeAutomationExecutionsResponse_nextToken,
-    describeAutomationExecutionsResponse_automationExecutionMetadataList,
-    describeAutomationExecutionsResponse_httpStatus,
-
     -- ** PutInventory
     putInventory_instanceId,
     putInventory_items,
     putInventoryResponse_message,
     putInventoryResponse_httpStatus,
 
-    -- ** DescribeInventoryDeletions
-    describeInventoryDeletions_nextToken,
-    describeInventoryDeletions_maxResults,
-    describeInventoryDeletions_deletionId,
-    describeInventoryDeletionsResponse_nextToken,
-    describeInventoryDeletionsResponse_inventoryDeletions,
-    describeInventoryDeletionsResponse_httpStatus,
-
-    -- ** DescribeMaintenanceWindowExecutionTasks
-    describeMaintenanceWindowExecutionTasks_nextToken,
-    describeMaintenanceWindowExecutionTasks_maxResults,
-    describeMaintenanceWindowExecutionTasks_filters,
-    describeMaintenanceWindowExecutionTasks_windowExecutionId,
-    describeMaintenanceWindowExecutionTasksResponse_nextToken,
-    describeMaintenanceWindowExecutionTasksResponse_windowExecutionTaskIdentities,
-    describeMaintenanceWindowExecutionTasksResponse_httpStatus,
-
-    -- ** DeleteMaintenanceWindow
-    deleteMaintenanceWindow_windowId,
-    deleteMaintenanceWindowResponse_windowId,
-    deleteMaintenanceWindowResponse_httpStatus,
-
-    -- ** GetDefaultPatchBaseline
-    getDefaultPatchBaseline_operatingSystem,
-    getDefaultPatchBaselineResponse_baselineId,
-    getDefaultPatchBaselineResponse_operatingSystem,
-    getDefaultPatchBaselineResponse_httpStatus,
-
-    -- ** PutParameter
-    putParameter_policies,
-    putParameter_overwrite,
-    putParameter_tags,
-    putParameter_description,
-    putParameter_type,
-    putParameter_dataType,
-    putParameter_allowedPattern,
-    putParameter_tier,
-    putParameter_keyId,
-    putParameter_name,
-    putParameter_value,
-    putParameterResponse_version,
-    putParameterResponse_tier,
-    putParameterResponse_httpStatus,
+    -- ** GetAutomationExecution
+    getAutomationExecution_automationExecutionId,
+    getAutomationExecutionResponse_automationExecution,
+    getAutomationExecutionResponse_httpStatus,
 
     -- ** UpdateMaintenanceWindow
     updateMaintenanceWindow_startDate,
@@ -1035,8 +1035,8 @@ module Network.AWS.SSM.Lens
     updateMaintenanceWindow_cutoff,
     updateMaintenanceWindow_name,
     updateMaintenanceWindow_replace,
-    updateMaintenanceWindow_description,
     updateMaintenanceWindow_scheduleTimezone,
+    updateMaintenanceWindow_description,
     updateMaintenanceWindow_endDate,
     updateMaintenanceWindow_allowUnassociatedTargets,
     updateMaintenanceWindow_schedule,
@@ -1048,12 +1048,25 @@ module Network.AWS.SSM.Lens
     updateMaintenanceWindowResponse_cutoff,
     updateMaintenanceWindowResponse_name,
     updateMaintenanceWindowResponse_windowId,
-    updateMaintenanceWindowResponse_description,
     updateMaintenanceWindowResponse_scheduleTimezone,
+    updateMaintenanceWindowResponse_description,
     updateMaintenanceWindowResponse_endDate,
     updateMaintenanceWindowResponse_allowUnassociatedTargets,
     updateMaintenanceWindowResponse_schedule,
     updateMaintenanceWindowResponse_httpStatus,
+
+    -- ** DescribeInventoryDeletions
+    describeInventoryDeletions_nextToken,
+    describeInventoryDeletions_maxResults,
+    describeInventoryDeletions_deletionId,
+    describeInventoryDeletionsResponse_nextToken,
+    describeInventoryDeletionsResponse_inventoryDeletions,
+    describeInventoryDeletionsResponse_httpStatus,
+
+    -- ** DeleteMaintenanceWindow
+    deleteMaintenanceWindow_windowId,
+    deleteMaintenanceWindowResponse_windowId,
+    deleteMaintenanceWindowResponse_httpStatus,
 
     -- ** ListAssociations
     listAssociations_nextToken,
@@ -1062,6 +1075,22 @@ module Network.AWS.SSM.Lens
     listAssociationsResponse_nextToken,
     listAssociationsResponse_associations,
     listAssociationsResponse_httpStatus,
+
+    -- ** PutParameter
+    putParameter_policies,
+    putParameter_overwrite,
+    putParameter_tags,
+    putParameter_description,
+    putParameter_dataType,
+    putParameter_allowedPattern,
+    putParameter_type,
+    putParameter_tier,
+    putParameter_keyId,
+    putParameter_name,
+    putParameter_value,
+    putParameterResponse_version,
+    putParameterResponse_tier,
+    putParameterResponse_httpStatus,
 
     -- ** GetMaintenanceWindowExecutionTask
     getMaintenanceWindowExecutionTask_windowExecutionId,
@@ -1072,41 +1101,65 @@ module Network.AWS.SSM.Lens
     getMaintenanceWindowExecutionTaskResponse_serviceRole,
     getMaintenanceWindowExecutionTaskResponse_statusDetails,
     getMaintenanceWindowExecutionTaskResponse_startTime,
-    getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_endTime,
+    getMaintenanceWindowExecutionTaskResponse_priority,
     getMaintenanceWindowExecutionTaskResponse_maxConcurrency,
     getMaintenanceWindowExecutionTaskResponse_windowExecutionId,
-    getMaintenanceWindowExecutionTaskResponse_type,
     getMaintenanceWindowExecutionTaskResponse_taskArn,
+    getMaintenanceWindowExecutionTaskResponse_type,
     getMaintenanceWindowExecutionTaskResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskResponse_httpStatus,
 
-    -- ** StartAutomationExecution
-    startAutomationExecution_maxErrors,
-    startAutomationExecution_mode,
-    startAutomationExecution_targets,
-    startAutomationExecution_targetLocations,
-    startAutomationExecution_targetParameterName,
-    startAutomationExecution_maxConcurrency,
-    startAutomationExecution_tags,
-    startAutomationExecution_targetMaps,
-    startAutomationExecution_documentVersion,
-    startAutomationExecution_parameters,
-    startAutomationExecution_clientToken,
-    startAutomationExecution_documentName,
-    startAutomationExecutionResponse_automationExecutionId,
-    startAutomationExecutionResponse_httpStatus,
+    -- ** DescribeMaintenanceWindowExecutionTasks
+    describeMaintenanceWindowExecutionTasks_nextToken,
+    describeMaintenanceWindowExecutionTasks_maxResults,
+    describeMaintenanceWindowExecutionTasks_filters,
+    describeMaintenanceWindowExecutionTasks_windowExecutionId,
+    describeMaintenanceWindowExecutionTasksResponse_nextToken,
+    describeMaintenanceWindowExecutionTasksResponse_windowExecutionTaskIdentities,
+    describeMaintenanceWindowExecutionTasksResponse_httpStatus,
 
-    -- ** DeleteActivation
-    deleteActivation_activationId,
-    deleteActivationResponse_httpStatus,
+    -- ** GetDefaultPatchBaseline
+    getDefaultPatchBaseline_operatingSystem,
+    getDefaultPatchBaselineResponse_baselineId,
+    getDefaultPatchBaselineResponse_operatingSystem,
+    getDefaultPatchBaselineResponse_httpStatus,
+
+    -- ** DescribeAssociationExecutions
+    describeAssociationExecutions_nextToken,
+    describeAssociationExecutions_maxResults,
+    describeAssociationExecutions_filters,
+    describeAssociationExecutions_associationId,
+    describeAssociationExecutionsResponse_nextToken,
+    describeAssociationExecutionsResponse_associationExecutions,
+    describeAssociationExecutionsResponse_httpStatus,
+
+    -- ** CancelMaintenanceWindowExecution
+    cancelMaintenanceWindowExecution_windowExecutionId,
+    cancelMaintenanceWindowExecutionResponse_windowExecutionId,
+    cancelMaintenanceWindowExecutionResponse_httpStatus,
+
+    -- ** StopAutomationExecution
+    stopAutomationExecution_type,
+    stopAutomationExecution_automationExecutionId,
+    stopAutomationExecutionResponse_httpStatus,
+
+    -- ** GetInventorySchema
+    getInventorySchema_typeName,
+    getInventorySchema_subType,
+    getInventorySchema_nextToken,
+    getInventorySchema_aggregator,
+    getInventorySchema_maxResults,
+    getInventorySchemaResponse_nextToken,
+    getInventorySchemaResponse_schemas,
+    getInventorySchemaResponse_httpStatus,
 
     -- ** CreateMaintenanceWindow
     createMaintenanceWindow_startDate,
     createMaintenanceWindow_scheduleOffset,
     createMaintenanceWindow_tags,
-    createMaintenanceWindow_description,
     createMaintenanceWindow_scheduleTimezone,
+    createMaintenanceWindow_description,
     createMaintenanceWindow_endDate,
     createMaintenanceWindow_clientToken,
     createMaintenanceWindow_name,
@@ -1117,14 +1170,79 @@ module Network.AWS.SSM.Lens
     createMaintenanceWindowResponse_windowId,
     createMaintenanceWindowResponse_httpStatus,
 
-    -- ** DescribeAssociationExecutions
-    describeAssociationExecutions_nextToken,
-    describeAssociationExecutions_maxResults,
-    describeAssociationExecutions_filters,
-    describeAssociationExecutions_associationId,
-    describeAssociationExecutionsResponse_nextToken,
-    describeAssociationExecutionsResponse_associationExecutions,
-    describeAssociationExecutionsResponse_httpStatus,
+    -- ** GetParameterHistory
+    getParameterHistory_withDecryption,
+    getParameterHistory_nextToken,
+    getParameterHistory_maxResults,
+    getParameterHistory_name,
+    getParameterHistoryResponse_nextToken,
+    getParameterHistoryResponse_parameters,
+    getParameterHistoryResponse_httpStatus,
+
+    -- ** DeleteActivation
+    deleteActivation_activationId,
+    deleteActivationResponse_httpStatus,
+
+    -- ** UpdateMaintenanceWindowTask
+    updateMaintenanceWindowTask_maxErrors,
+    updateMaintenanceWindowTask_taskParameters,
+    updateMaintenanceWindowTask_serviceRoleArn,
+    updateMaintenanceWindowTask_cutoffBehavior,
+    updateMaintenanceWindowTask_targets,
+    updateMaintenanceWindowTask_priority,
+    updateMaintenanceWindowTask_name,
+    updateMaintenanceWindowTask_taskInvocationParameters,
+    updateMaintenanceWindowTask_replace,
+    updateMaintenanceWindowTask_maxConcurrency,
+    updateMaintenanceWindowTask_description,
+    updateMaintenanceWindowTask_taskArn,
+    updateMaintenanceWindowTask_loggingInfo,
+    updateMaintenanceWindowTask_windowId,
+    updateMaintenanceWindowTask_windowTaskId,
+    updateMaintenanceWindowTaskResponse_maxErrors,
+    updateMaintenanceWindowTaskResponse_taskParameters,
+    updateMaintenanceWindowTaskResponse_serviceRoleArn,
+    updateMaintenanceWindowTaskResponse_windowTaskId,
+    updateMaintenanceWindowTaskResponse_cutoffBehavior,
+    updateMaintenanceWindowTaskResponse_targets,
+    updateMaintenanceWindowTaskResponse_priority,
+    updateMaintenanceWindowTaskResponse_name,
+    updateMaintenanceWindowTaskResponse_taskInvocationParameters,
+    updateMaintenanceWindowTaskResponse_windowId,
+    updateMaintenanceWindowTaskResponse_maxConcurrency,
+    updateMaintenanceWindowTaskResponse_description,
+    updateMaintenanceWindowTaskResponse_taskArn,
+    updateMaintenanceWindowTaskResponse_loggingInfo,
+    updateMaintenanceWindowTaskResponse_httpStatus,
+
+    -- ** StartAutomationExecution
+    startAutomationExecution_maxErrors,
+    startAutomationExecution_mode,
+    startAutomationExecution_targets,
+    startAutomationExecution_targetLocations,
+    startAutomationExecution_targetParameterName,
+    startAutomationExecution_tags,
+    startAutomationExecution_maxConcurrency,
+    startAutomationExecution_targetMaps,
+    startAutomationExecution_documentVersion,
+    startAutomationExecution_clientToken,
+    startAutomationExecution_parameters,
+    startAutomationExecution_documentName,
+    startAutomationExecutionResponse_automationExecutionId,
+    startAutomationExecutionResponse_httpStatus,
+
+    -- ** GetServiceSetting
+    getServiceSetting_settingId,
+    getServiceSettingResponse_serviceSetting,
+    getServiceSettingResponse_httpStatus,
+
+    -- ** LabelParameterVersion
+    labelParameterVersion_parameterVersion,
+    labelParameterVersion_name,
+    labelParameterVersion_labels,
+    labelParameterVersionResponse_invalidLabels,
+    labelParameterVersionResponse_parameterVersion,
+    labelParameterVersionResponse_httpStatus,
 
     -- ** GetMaintenanceWindowExecution
     getMaintenanceWindowExecution_windowExecutionId,
@@ -1136,141 +1254,9 @@ module Network.AWS.SSM.Lens
     getMaintenanceWindowExecutionResponse_windowExecutionId,
     getMaintenanceWindowExecutionResponse_httpStatus,
 
-    -- ** StopAutomationExecution
-    stopAutomationExecution_type,
-    stopAutomationExecution_automationExecutionId,
-    stopAutomationExecutionResponse_httpStatus,
-
-    -- ** GetInventorySchema
-    getInventorySchema_typeName,
-    getInventorySchema_nextToken,
-    getInventorySchema_subType,
-    getInventorySchema_aggregator,
-    getInventorySchema_maxResults,
-    getInventorySchemaResponse_nextToken,
-    getInventorySchemaResponse_schemas,
-    getInventorySchemaResponse_httpStatus,
-
     -- ** StartAssociationsOnce
     startAssociationsOnce_associationIds,
     startAssociationsOnceResponse_httpStatus,
-
-    -- ** CancelMaintenanceWindowExecution
-    cancelMaintenanceWindowExecution_windowExecutionId,
-    cancelMaintenanceWindowExecutionResponse_windowExecutionId,
-    cancelMaintenanceWindowExecutionResponse_httpStatus,
-
-    -- ** LabelParameterVersion
-    labelParameterVersion_parameterVersion,
-    labelParameterVersion_name,
-    labelParameterVersion_labels,
-    labelParameterVersionResponse_invalidLabels,
-    labelParameterVersionResponse_parameterVersion,
-    labelParameterVersionResponse_httpStatus,
-
-    -- ** GetParameterHistory
-    getParameterHistory_withDecryption,
-    getParameterHistory_nextToken,
-    getParameterHistory_maxResults,
-    getParameterHistory_name,
-    getParameterHistoryResponse_nextToken,
-    getParameterHistoryResponse_parameters,
-    getParameterHistoryResponse_httpStatus,
-
-    -- ** GetServiceSetting
-    getServiceSetting_settingId,
-    getServiceSettingResponse_serviceSetting,
-    getServiceSettingResponse_httpStatus,
-
-    -- ** UpdateMaintenanceWindowTask
-    updateMaintenanceWindowTask_maxErrors,
-    updateMaintenanceWindowTask_taskParameters,
-    updateMaintenanceWindowTask_serviceRoleArn,
-    updateMaintenanceWindowTask_priority,
-    updateMaintenanceWindowTask_targets,
-    updateMaintenanceWindowTask_taskInvocationParameters,
-    updateMaintenanceWindowTask_name,
-    updateMaintenanceWindowTask_replace,
-    updateMaintenanceWindowTask_maxConcurrency,
-    updateMaintenanceWindowTask_description,
-    updateMaintenanceWindowTask_taskArn,
-    updateMaintenanceWindowTask_loggingInfo,
-    updateMaintenanceWindowTask_windowId,
-    updateMaintenanceWindowTask_windowTaskId,
-    updateMaintenanceWindowTaskResponse_maxErrors,
-    updateMaintenanceWindowTaskResponse_taskParameters,
-    updateMaintenanceWindowTaskResponse_windowTaskId,
-    updateMaintenanceWindowTaskResponse_serviceRoleArn,
-    updateMaintenanceWindowTaskResponse_priority,
-    updateMaintenanceWindowTaskResponse_targets,
-    updateMaintenanceWindowTaskResponse_taskInvocationParameters,
-    updateMaintenanceWindowTaskResponse_name,
-    updateMaintenanceWindowTaskResponse_maxConcurrency,
-    updateMaintenanceWindowTaskResponse_windowId,
-    updateMaintenanceWindowTaskResponse_description,
-    updateMaintenanceWindowTaskResponse_taskArn,
-    updateMaintenanceWindowTaskResponse_loggingInfo,
-    updateMaintenanceWindowTaskResponse_httpStatus,
-
-    -- ** ListDocumentMetadataHistory
-    listDocumentMetadataHistory_nextToken,
-    listDocumentMetadataHistory_maxResults,
-    listDocumentMetadataHistory_documentVersion,
-    listDocumentMetadataHistory_name,
-    listDocumentMetadataHistory_metadata,
-    listDocumentMetadataHistoryResponse_nextToken,
-    listDocumentMetadataHistoryResponse_author,
-    listDocumentMetadataHistoryResponse_metadata,
-    listDocumentMetadataHistoryResponse_name,
-    listDocumentMetadataHistoryResponse_documentVersion,
-    listDocumentMetadataHistoryResponse_httpStatus,
-
-    -- ** ListInventoryEntries
-    listInventoryEntries_nextToken,
-    listInventoryEntries_maxResults,
-    listInventoryEntries_filters,
-    listInventoryEntries_instanceId,
-    listInventoryEntries_typeName,
-    listInventoryEntriesResponse_typeName,
-    listInventoryEntriesResponse_nextToken,
-    listInventoryEntriesResponse_instanceId,
-    listInventoryEntriesResponse_captureTime,
-    listInventoryEntriesResponse_schemaVersion,
-    listInventoryEntriesResponse_entries,
-    listInventoryEntriesResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceType,
-    listTagsForResource_resourceId,
-    listTagsForResourceResponse_tagList,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** GetParametersByPath
-    getParametersByPath_withDecryption,
-    getParametersByPath_nextToken,
-    getParametersByPath_maxResults,
-    getParametersByPath_recursive,
-    getParametersByPath_parameterFilters,
-    getParametersByPath_path,
-    getParametersByPathResponse_nextToken,
-    getParametersByPathResponse_parameters,
-    getParametersByPathResponse_httpStatus,
-
-    -- ** DescribeActivations
-    describeActivations_nextToken,
-    describeActivations_maxResults,
-    describeActivations_filters,
-    describeActivationsResponse_nextToken,
-    describeActivationsResponse_activationList,
-    describeActivationsResponse_httpStatus,
-
-    -- ** DescribeInstanceAssociationsStatus
-    describeInstanceAssociationsStatus_nextToken,
-    describeInstanceAssociationsStatus_maxResults,
-    describeInstanceAssociationsStatus_instanceId,
-    describeInstanceAssociationsStatusResponse_nextToken,
-    describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos,
-    describeInstanceAssociationsStatusResponse_httpStatus,
 
     -- ** DescribePatchProperties
     describePatchProperties_nextToken,
@@ -1282,10 +1268,19 @@ module Network.AWS.SSM.Lens
     describePatchPropertiesResponse_properties,
     describePatchPropertiesResponse_httpStatus,
 
-    -- ** UpdateServiceSetting
-    updateServiceSetting_settingId,
-    updateServiceSetting_settingValue,
-    updateServiceSettingResponse_httpStatus,
+    -- ** ListInventoryEntries
+    listInventoryEntries_nextToken,
+    listInventoryEntries_maxResults,
+    listInventoryEntries_filters,
+    listInventoryEntries_instanceId,
+    listInventoryEntries_typeName,
+    listInventoryEntriesResponse_typeName,
+    listInventoryEntriesResponse_instanceId,
+    listInventoryEntriesResponse_nextToken,
+    listInventoryEntriesResponse_captureTime,
+    listInventoryEntriesResponse_schemaVersion,
+    listInventoryEntriesResponse_entries,
+    listInventoryEntriesResponse_httpStatus,
 
     -- ** DescribeMaintenanceWindowTasks
     describeMaintenanceWindowTasks_nextToken,
@@ -1296,6 +1291,57 @@ module Network.AWS.SSM.Lens
     describeMaintenanceWindowTasksResponse_tasks,
     describeMaintenanceWindowTasksResponse_httpStatus,
 
+    -- ** ListDocumentMetadataHistory
+    listDocumentMetadataHistory_nextToken,
+    listDocumentMetadataHistory_maxResults,
+    listDocumentMetadataHistory_documentVersion,
+    listDocumentMetadataHistory_name,
+    listDocumentMetadataHistory_metadata,
+    listDocumentMetadataHistoryResponse_nextToken,
+    listDocumentMetadataHistoryResponse_metadata,
+    listDocumentMetadataHistoryResponse_author,
+    listDocumentMetadataHistoryResponse_name,
+    listDocumentMetadataHistoryResponse_documentVersion,
+    listDocumentMetadataHistoryResponse_httpStatus,
+
+    -- ** DescribeActivations
+    describeActivations_nextToken,
+    describeActivations_maxResults,
+    describeActivations_filters,
+    describeActivationsResponse_nextToken,
+    describeActivationsResponse_activationList,
+    describeActivationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceType,
+    listTagsForResource_resourceId,
+    listTagsForResourceResponse_tagList,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** GetParametersByPath
+    getParametersByPath_withDecryption,
+    getParametersByPath_nextToken,
+    getParametersByPath_maxResults,
+    getParametersByPath_parameterFilters,
+    getParametersByPath_recursive,
+    getParametersByPath_path,
+    getParametersByPathResponse_nextToken,
+    getParametersByPathResponse_parameters,
+    getParametersByPathResponse_httpStatus,
+
+    -- ** UpdateServiceSetting
+    updateServiceSetting_settingId,
+    updateServiceSetting_settingValue,
+    updateServiceSettingResponse_httpStatus,
+
+    -- ** DescribeInstanceAssociationsStatus
+    describeInstanceAssociationsStatus_nextToken,
+    describeInstanceAssociationsStatus_maxResults,
+    describeInstanceAssociationsStatus_instanceId,
+    describeInstanceAssociationsStatusResponse_nextToken,
+    describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos,
+    describeInstanceAssociationsStatusResponse_httpStatus,
+
     -- * Types
 
     -- ** AccountSharingInfo
@@ -1303,24 +1349,24 @@ module Network.AWS.SSM.Lens
     accountSharingInfo_sharedDocumentVersion,
 
     -- ** Activation
-    activation_registrationLimit,
     activation_createdDate,
-    activation_activationId,
+    activation_registrationLimit,
     activation_iamRole,
+    activation_activationId,
     activation_defaultInstanceName,
-    activation_expirationDate,
     activation_expired,
-    activation_registrationsCount,
+    activation_expirationDate,
     activation_tags,
+    activation_registrationsCount,
     activation_description,
 
     -- ** Association
-    association_lastExecutionDate,
     association_instanceId,
+    association_lastExecutionDate,
     association_overview,
     association_targets,
-    association_scheduleExpression,
     association_name,
+    association_scheduleExpression,
     association_associationId,
     association_associationName,
     association_associationVersion,
@@ -1329,32 +1375,33 @@ module Network.AWS.SSM.Lens
     -- ** AssociationDescription
     associationDescription_maxErrors,
     associationDescription_status,
-    associationDescription_lastExecutionDate,
     associationDescription_instanceId,
+    associationDescription_lastExecutionDate,
     associationDescription_lastUpdateAssociationDate,
     associationDescription_complianceSeverity,
     associationDescription_overview,
     associationDescription_automationTargetParameterName,
     associationDescription_targets,
-    associationDescription_targetLocations,
-    associationDescription_scheduleExpression,
     associationDescription_name,
-    associationDescription_associationId,
+    associationDescription_scheduleExpression,
+    associationDescription_targetLocations,
     associationDescription_date,
+    associationDescription_associationId,
     associationDescription_maxConcurrency,
+    associationDescription_calendarNames,
     associationDescription_associationName,
     associationDescription_associationVersion,
     associationDescription_lastSuccessfulExecutionDate,
     associationDescription_documentVersion,
     associationDescription_parameters,
+    associationDescription_syncCompliance,
     associationDescription_outputLocation,
     associationDescription_applyOnlyAtCronInterval,
-    associationDescription_syncCompliance,
 
     -- ** AssociationExecution
     associationExecution_status,
-    associationExecution_lastExecutionDate,
     associationExecution_detailedStatus,
+    associationExecution_lastExecutionDate,
     associationExecution_resourceCountByStatus,
     associationExecution_createdTime,
     associationExecution_executionId,
@@ -1369,8 +1416,8 @@ module Network.AWS.SSM.Lens
     -- ** AssociationExecutionTarget
     associationExecutionTarget_resourceId,
     associationExecutionTarget_status,
-    associationExecutionTarget_lastExecutionDate,
     associationExecutionTarget_detailedStatus,
+    associationExecutionTarget_lastExecutionDate,
     associationExecutionTarget_resourceType,
     associationExecutionTarget_outputSource,
     associationExecutionTarget_executionId,
@@ -1401,18 +1448,19 @@ module Network.AWS.SSM.Lens
     associationVersionInfo_createdDate,
     associationVersionInfo_complianceSeverity,
     associationVersionInfo_targets,
-    associationVersionInfo_targetLocations,
-    associationVersionInfo_scheduleExpression,
     associationVersionInfo_name,
+    associationVersionInfo_scheduleExpression,
+    associationVersionInfo_targetLocations,
     associationVersionInfo_associationId,
     associationVersionInfo_maxConcurrency,
+    associationVersionInfo_calendarNames,
     associationVersionInfo_associationName,
     associationVersionInfo_associationVersion,
     associationVersionInfo_documentVersion,
     associationVersionInfo_parameters,
+    associationVersionInfo_syncCompliance,
     associationVersionInfo_outputLocation,
     associationVersionInfo_applyOnlyAtCronInterval,
-    associationVersionInfo_syncCompliance,
 
     -- ** AttachmentContent
     attachmentContent_hash,
@@ -1434,31 +1482,31 @@ module Network.AWS.SSM.Lens
     automationExecution_currentAction,
     automationExecution_parentAutomationExecutionId,
     automationExecution_outputs,
-    automationExecution_mode,
     automationExecution_failureMessage,
+    automationExecution_mode,
     automationExecution_executionEndTime,
-    automationExecution_documentName,
-    automationExecution_automationExecutionId,
     automationExecution_changeRequestName,
+    automationExecution_automationExecutionId,
     automationExecution_executedBy,
+    automationExecution_documentName,
     automationExecution_progressCounters,
-    automationExecution_resolvedTargets,
     automationExecution_targets,
+    automationExecution_resolvedTargets,
+    automationExecution_executionStartTime,
     automationExecution_targetLocations,
     automationExecution_targetParameterName,
-    automationExecution_executionStartTime,
     automationExecution_currentStepName,
-    automationExecution_associationId,
     automationExecution_opsItemId,
+    automationExecution_associationId,
     automationExecution_scheduledTime,
-    automationExecution_maxConcurrency,
     automationExecution_stepExecutionsTruncated,
+    automationExecution_maxConcurrency,
     automationExecution_target,
     automationExecution_automationExecutionStatus,
     automationExecution_targetMaps,
     automationExecution_runbooks,
-    automationExecution_stepExecutions,
     automationExecution_automationSubtype,
+    automationExecution_stepExecutions,
     automationExecution_documentVersion,
     automationExecution_parameters,
 
@@ -1471,21 +1519,21 @@ module Network.AWS.SSM.Lens
     automationExecutionMetadata_currentAction,
     automationExecutionMetadata_parentAutomationExecutionId,
     automationExecutionMetadata_outputs,
-    automationExecutionMetadata_mode,
     automationExecutionMetadata_failureMessage,
+    automationExecutionMetadata_mode,
     automationExecutionMetadata_executionEndTime,
-    automationExecutionMetadata_documentName,
-    automationExecutionMetadata_automationExecutionId,
     automationExecutionMetadata_changeRequestName,
+    automationExecutionMetadata_automationExecutionId,
     automationExecutionMetadata_executedBy,
-    automationExecutionMetadata_resolvedTargets,
+    automationExecutionMetadata_documentName,
     automationExecutionMetadata_targets,
+    automationExecutionMetadata_resolvedTargets,
+    automationExecutionMetadata_executionStartTime,
     automationExecutionMetadata_automationType,
     automationExecutionMetadata_targetParameterName,
-    automationExecutionMetadata_executionStartTime,
     automationExecutionMetadata_currentStepName,
-    automationExecutionMetadata_associationId,
     automationExecutionMetadata_opsItemId,
+    automationExecutionMetadata_associationId,
     automationExecutionMetadata_scheduledTime,
     automationExecutionMetadata_maxConcurrency,
     automationExecutionMetadata_target,
@@ -1497,8 +1545,8 @@ module Network.AWS.SSM.Lens
     automationExecutionMetadata_logFile,
 
     -- ** BaselineOverride
-    baselineOverride_sources,
     baselineOverride_rejectedPatches,
+    baselineOverride_sources,
     baselineOverride_approvedPatchesEnableNonSecurity,
     baselineOverride_approvedPatchesComplianceLevel,
     baselineOverride_approvedPatches,
@@ -1512,30 +1560,30 @@ module Network.AWS.SSM.Lens
     cloudWatchOutputConfig_cloudWatchOutputEnabled,
 
     -- ** Command
-    command_notificationConfig,
     command_instanceIds,
     command_maxErrors,
-    command_expiresAfter,
+    command_notificationConfig,
     command_status,
-    command_serviceRole,
+    command_expiresAfter,
     command_requestedDateTime,
+    command_serviceRole,
     command_statusDetails,
     command_completedCount,
     command_outputS3BucketName,
-    command_comment,
     command_errorCount,
+    command_comment,
     command_documentName,
     command_commandId,
     command_targets,
     command_outputS3Region,
     command_maxConcurrency,
-    command_outputS3KeyPrefix,
-    command_timeoutSeconds,
     command_deliveryTimedOutCount,
+    command_timeoutSeconds,
+    command_outputS3KeyPrefix,
     command_cloudWatchOutputConfig,
     command_documentVersion,
-    command_parameters,
     command_targetCount,
+    command_parameters,
 
     -- ** CommandFilter
     commandFilter_key,
@@ -1546,8 +1594,8 @@ module Network.AWS.SSM.Lens
     commandInvocation_standardOutputUrl,
     commandInvocation_status,
     commandInvocation_instanceId,
-    commandInvocation_serviceRole,
     commandInvocation_requestedDateTime,
+    commandInvocation_serviceRole,
     commandInvocation_statusDetails,
     commandInvocation_instanceName,
     commandInvocation_comment,
@@ -1555,8 +1603,8 @@ module Network.AWS.SSM.Lens
     commandInvocation_documentName,
     commandInvocation_commandId,
     commandInvocation_traceOutput,
-    commandInvocation_cloudWatchOutputConfig,
     commandInvocation_commandPlugins,
+    commandInvocation_cloudWatchOutputConfig,
     commandInvocation_documentVersion,
 
     -- ** CommandPlugin
@@ -1565,9 +1613,9 @@ module Network.AWS.SSM.Lens
     commandPlugin_statusDetails,
     commandPlugin_outputS3BucketName,
     commandPlugin_standardErrorUrl,
-    commandPlugin_output,
-    commandPlugin_outputS3Region,
     commandPlugin_name,
+    commandPlugin_outputS3Region,
+    commandPlugin_output,
     commandPlugin_responseFinishDateTime,
     commandPlugin_responseCode,
     commandPlugin_outputS3KeyPrefix,
@@ -1583,8 +1631,8 @@ module Network.AWS.SSM.Lens
     complianceItem_status,
     complianceItem_severity,
     complianceItem_title,
-    complianceItem_id,
     complianceItem_complianceType,
+    complianceItem_id,
     complianceItem_resourceType,
     complianceItem_details,
     complianceItem_executionSummary,
@@ -1616,15 +1664,16 @@ module Network.AWS.SSM.Lens
     createAssociationBatchRequestEntry_complianceSeverity,
     createAssociationBatchRequestEntry_automationTargetParameterName,
     createAssociationBatchRequestEntry_targets,
-    createAssociationBatchRequestEntry_targetLocations,
     createAssociationBatchRequestEntry_scheduleExpression,
+    createAssociationBatchRequestEntry_targetLocations,
     createAssociationBatchRequestEntry_maxConcurrency,
+    createAssociationBatchRequestEntry_calendarNames,
     createAssociationBatchRequestEntry_associationName,
     createAssociationBatchRequestEntry_documentVersion,
     createAssociationBatchRequestEntry_parameters,
+    createAssociationBatchRequestEntry_syncCompliance,
     createAssociationBatchRequestEntry_outputLocation,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
-    createAssociationBatchRequestEntry_syncCompliance,
     createAssociationBatchRequestEntry_name,
 
     -- ** DescribeActivationsFilter
@@ -1638,32 +1687,33 @@ module Network.AWS.SSM.Lens
 
     -- ** DocumentDescription
     documentDescription_documentType,
-    documentDescription_status,
-    documentDescription_createdDate,
     documentDescription_platformTypes,
+    documentDescription_createdDate,
+    documentDescription_status,
+    documentDescription_approvedVersion,
     documentDescription_defaultVersion,
     documentDescription_latestVersion,
     documentDescription_targetType,
-    documentDescription_approvedVersion,
     documentDescription_requires,
     documentDescription_sha1,
     documentDescription_statusInformation,
-    documentDescription_versionName,
     documentDescription_author,
+    documentDescription_versionName,
     documentDescription_hash,
-    documentDescription_pendingReviewVersion,
     documentDescription_name,
+    documentDescription_pendingReviewVersion,
     documentDescription_documentFormat,
     documentDescription_tags,
     documentDescription_owner,
-    documentDescription_reviewStatus,
-    documentDescription_reviewInformation,
     documentDescription_attachmentsInformation,
+    documentDescription_reviewInformation,
     documentDescription_description,
+    documentDescription_reviewStatus,
     documentDescription_schemaVersion,
     documentDescription_documentVersion,
-    documentDescription_parameters,
+    documentDescription_displayName,
     documentDescription_hashType,
+    documentDescription_parameters,
 
     -- ** DocumentFilter
     documentFilter_key,
@@ -1672,10 +1722,11 @@ module Network.AWS.SSM.Lens
     -- ** DocumentIdentifier
     documentIdentifier_documentType,
     documentIdentifier_platformTypes,
+    documentIdentifier_createdDate,
     documentIdentifier_targetType,
     documentIdentifier_requires,
-    documentIdentifier_versionName,
     documentIdentifier_author,
+    documentIdentifier_versionName,
     documentIdentifier_name,
     documentIdentifier_documentFormat,
     documentIdentifier_tags,
@@ -1683,6 +1734,7 @@ module Network.AWS.SSM.Lens
     documentIdentifier_reviewStatus,
     documentIdentifier_schemaVersion,
     documentIdentifier_documentVersion,
+    documentIdentifier_displayName,
 
     -- ** DocumentKeyValuesFilter
     documentKeyValuesFilter_key,
@@ -1694,8 +1746,8 @@ module Network.AWS.SSM.Lens
     -- ** DocumentParameter
     documentParameter_name,
     documentParameter_description,
-    documentParameter_type,
     documentParameter_defaultValue,
+    documentParameter_type,
 
     -- ** DocumentRequires
     documentRequires_version,
@@ -1717,8 +1769,8 @@ module Network.AWS.SSM.Lens
     documentReviews_action,
 
     -- ** DocumentVersionInfo
-    documentVersionInfo_status,
     documentVersionInfo_createdDate,
+    documentVersionInfo_status,
     documentVersionInfo_statusInformation,
     documentVersionInfo_versionName,
     documentVersionInfo_name,
@@ -1726,6 +1778,7 @@ module Network.AWS.SSM.Lens
     documentVersionInfo_reviewStatus,
     documentVersionInfo_isDefaultVersion,
     documentVersionInfo_documentVersion,
+    documentVersionInfo_displayName,
 
     -- ** EffectivePatch
     effectivePatch_patch,
@@ -1762,35 +1815,35 @@ module Network.AWS.SSM.Lens
     instanceAssociationStatusInfo_instanceId,
     instanceAssociationStatusInfo_detailedStatus,
     instanceAssociationStatusInfo_name,
-    instanceAssociationStatusInfo_outputUrl,
     instanceAssociationStatusInfo_associationId,
-    instanceAssociationStatusInfo_associationName,
+    instanceAssociationStatusInfo_outputUrl,
     instanceAssociationStatusInfo_executionDate,
     instanceAssociationStatusInfo_executionSummary,
+    instanceAssociationStatusInfo_associationName,
     instanceAssociationStatusInfo_associationVersion,
-    instanceAssociationStatusInfo_documentVersion,
     instanceAssociationStatusInfo_errorCode,
+    instanceAssociationStatusInfo_documentVersion,
 
     -- ** InstanceInformation
     instanceInformation_instanceId,
     instanceInformation_pingStatus,
-    instanceInformation_activationId,
     instanceInformation_iamRole,
+    instanceInformation_activationId,
     instanceInformation_lastSuccessfulAssociationExecutionDate,
-    instanceInformation_lastPingDateTime,
     instanceInformation_agentVersion,
+    instanceInformation_lastPingDateTime,
     instanceInformation_platformVersion,
     instanceInformation_lastAssociationExecutionDate,
     instanceInformation_resourceType,
     instanceInformation_associationOverview,
-    instanceInformation_iPAddress,
     instanceInformation_name,
+    instanceInformation_iPAddress,
     instanceInformation_platformType,
     instanceInformation_isLatestVersion,
-    instanceInformation_computerName,
     instanceInformation_platformName,
-    instanceInformation_registrationDate,
+    instanceInformation_computerName,
     instanceInformation_associationStatus,
+    instanceInformation_registrationDate,
 
     -- ** InstanceInformationFilter
     instanceInformationFilter_key,
@@ -1801,19 +1854,22 @@ module Network.AWS.SSM.Lens
     instanceInformationStringFilter_values,
 
     -- ** InstancePatchState
-    instancePatchState_installOverrideList,
+    instancePatchState_otherNonCompliantCount,
     instancePatchState_unreportedNotApplicableCount,
     instancePatchState_installedOtherCount,
+    instancePatchState_installOverrideList,
+    instancePatchState_criticalNonCompliantCount,
     instancePatchState_installedPendingRebootCount,
+    instancePatchState_securityNonCompliantCount,
     instancePatchState_rebootOption,
     instancePatchState_missingCount,
     instancePatchState_snapshotId,
-    instancePatchState_installedCount,
     instancePatchState_lastNoRebootInstallOperationTime,
+    instancePatchState_installedCount,
     instancePatchState_notApplicableCount,
     instancePatchState_failedCount,
-    instancePatchState_ownerInformation,
     instancePatchState_installedRejectedCount,
+    instancePatchState_ownerInformation,
     instancePatchState_instanceId,
     instancePatchState_patchGroup,
     instancePatchState_baselineId,
@@ -1835,8 +1891,8 @@ module Network.AWS.SSM.Lens
     inventoryDeletionStatusItem_typeName,
     inventoryDeletionStatusItem_lastStatusMessage,
     inventoryDeletionStatusItem_lastStatusUpdateTime,
-    inventoryDeletionStatusItem_deletionId,
     inventoryDeletionStatusItem_deletionStartTime,
+    inventoryDeletionStatusItem_deletionId,
     inventoryDeletionStatusItem_lastStatus,
     inventoryDeletionStatusItem_deletionSummary,
 
@@ -1923,9 +1979,9 @@ module Network.AWS.SSM.Lens
     maintenanceWindowExecutionTaskInvocationIdentity_endTime,
     maintenanceWindowExecutionTaskInvocationIdentity_executionId,
     maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId,
+    maintenanceWindowExecutionTaskInvocationIdentity_invocationId,
     maintenanceWindowExecutionTaskInvocationIdentity_ownerInformation,
     maintenanceWindowExecutionTaskInvocationIdentity_taskType,
-    maintenanceWindowExecutionTaskInvocationIdentity_invocationId,
     maintenanceWindowExecutionTaskInvocationIdentity_parameters,
     maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId,
 
@@ -1941,8 +1997,8 @@ module Network.AWS.SSM.Lens
     maintenanceWindowIdentity_cutoff,
     maintenanceWindowIdentity_name,
     maintenanceWindowIdentity_windowId,
-    maintenanceWindowIdentity_description,
     maintenanceWindowIdentity_scheduleTimezone,
+    maintenanceWindowIdentity_description,
     maintenanceWindowIdentity_endDate,
     maintenanceWindowIdentity_nextExecutionTime,
     maintenanceWindowIdentity_schedule,
@@ -1962,11 +2018,11 @@ module Network.AWS.SSM.Lens
     maintenanceWindowRunCommandParameters_outputS3BucketName,
     maintenanceWindowRunCommandParameters_comment,
     maintenanceWindowRunCommandParameters_documentHash,
-    maintenanceWindowRunCommandParameters_outputS3KeyPrefix,
     maintenanceWindowRunCommandParameters_timeoutSeconds,
+    maintenanceWindowRunCommandParameters_outputS3KeyPrefix,
     maintenanceWindowRunCommandParameters_cloudWatchOutputConfig,
-    maintenanceWindowRunCommandParameters_documentHashType,
     maintenanceWindowRunCommandParameters_documentVersion,
+    maintenanceWindowRunCommandParameters_documentHashType,
     maintenanceWindowRunCommandParameters_parameters,
 
     -- ** MaintenanceWindowStepFunctionsParameters
@@ -1985,16 +2041,17 @@ module Network.AWS.SSM.Lens
     -- ** MaintenanceWindowTask
     maintenanceWindowTask_maxErrors,
     maintenanceWindowTask_taskParameters,
-    maintenanceWindowTask_windowTaskId,
     maintenanceWindowTask_serviceRoleArn,
-    maintenanceWindowTask_priority,
+    maintenanceWindowTask_windowTaskId,
+    maintenanceWindowTask_cutoffBehavior,
     maintenanceWindowTask_targets,
+    maintenanceWindowTask_priority,
     maintenanceWindowTask_name,
-    maintenanceWindowTask_maxConcurrency,
     maintenanceWindowTask_windowId,
+    maintenanceWindowTask_maxConcurrency,
     maintenanceWindowTask_description,
-    maintenanceWindowTask_type,
     maintenanceWindowTask_taskArn,
+    maintenanceWindowTask_type,
     maintenanceWindowTask_loggingInfo,
 
     -- ** MaintenanceWindowTaskInvocationParameters
@@ -2031,8 +2088,8 @@ module Network.AWS.SSM.Lens
     opsEntity_id,
 
     -- ** OpsEntityItem
-    opsEntityItem_captureTime,
     opsEntityItem_content,
+    opsEntityItem_captureTime,
 
     -- ** OpsFilter
     opsFilter_type,
@@ -2053,10 +2110,10 @@ module Network.AWS.SSM.Lens
     opsItem_priority,
     opsItem_actualEndTime,
     opsItem_opsItemId,
-    opsItem_opsItemType,
     opsItem_plannedStartTime,
-    opsItem_lastModifiedTime,
+    opsItem_opsItemType,
     opsItem_notifications,
+    opsItem_lastModifiedTime,
     opsItem_description,
     opsItem_createdBy,
     opsItem_lastModifiedBy,
@@ -2072,8 +2129,8 @@ module Network.AWS.SSM.Lens
     opsItemEventFilter_operator,
 
     -- ** OpsItemEventSummary
-    opsItemEventSummary_eventId,
     opsItemEventSummary_detailType,
+    opsItemEventSummary_eventId,
     opsItemEventSummary_source,
     opsItemEventSummary_createdTime,
     opsItemEventSummary_opsItemId,
@@ -2091,6 +2148,22 @@ module Network.AWS.SSM.Lens
     -- ** OpsItemNotification
     opsItemNotification_arn,
 
+    -- ** OpsItemRelatedItemSummary
+    opsItemRelatedItemSummary_createdTime,
+    opsItemRelatedItemSummary_resourceType,
+    opsItemRelatedItemSummary_opsItemId,
+    opsItemRelatedItemSummary_associationId,
+    opsItemRelatedItemSummary_resourceUri,
+    opsItemRelatedItemSummary_associationType,
+    opsItemRelatedItemSummary_lastModifiedTime,
+    opsItemRelatedItemSummary_createdBy,
+    opsItemRelatedItemSummary_lastModifiedBy,
+
+    -- ** OpsItemRelatedItemsFilter
+    opsItemRelatedItemsFilter_key,
+    opsItemRelatedItemsFilter_values,
+    opsItemRelatedItemsFilter_operator,
+
     -- ** OpsItemSummary
     opsItemSummary_status,
     opsItemSummary_plannedEndTime,
@@ -2104,15 +2177,15 @@ module Network.AWS.SSM.Lens
     opsItemSummary_priority,
     opsItemSummary_actualEndTime,
     opsItemSummary_opsItemId,
-    opsItemSummary_opsItemType,
     opsItemSummary_plannedStartTime,
+    opsItemSummary_opsItemType,
     opsItemSummary_lastModifiedTime,
     opsItemSummary_createdBy,
     opsItemSummary_lastModifiedBy,
 
     -- ** OpsMetadata
-    opsMetadata_resourceId,
     opsMetadata_lastModifiedDate,
+    opsMetadata_resourceId,
     opsMetadata_opsMetadataArn,
     opsMetadata_creationDate,
     opsMetadata_lastModifiedUser,
@@ -2135,8 +2208,8 @@ module Network.AWS.SSM.Lens
     parameter_name,
     parameter_sourceResult,
     parameter_value,
-    parameter_type,
     parameter_dataType,
+    parameter_type,
     parameter_selector,
 
     -- ** ParameterHistory
@@ -2147,9 +2220,9 @@ module Network.AWS.SSM.Lens
     parameterHistory_name,
     parameterHistory_description,
     parameterHistory_value,
-    parameterHistory_type,
     parameterHistory_dataType,
     parameterHistory_allowedPattern,
+    parameterHistory_type,
     parameterHistory_lastModifiedUser,
     parameterHistory_tier,
     parameterHistory_keyId,
@@ -2165,9 +2238,9 @@ module Network.AWS.SSM.Lens
     parameterMetadata_version,
     parameterMetadata_name,
     parameterMetadata_description,
-    parameterMetadata_type,
     parameterMetadata_dataType,
     parameterMetadata_allowedPattern,
+    parameterMetadata_type,
     parameterMetadata_lastModifiedUser,
     parameterMetadata_tier,
     parameterMetadata_keyId,
@@ -2190,15 +2263,15 @@ module Network.AWS.SSM.Lens
     patch_title,
     patch_id,
     patch_productFamily,
-    patch_version,
     patch_repository,
+    patch_version,
     patch_name,
     patch_bugzillaIds,
     patch_msrcNumber,
     patch_release,
     patch_cVEIds,
-    patch_classification,
     patch_description,
+    patch_classification,
     patch_advisoryIds,
     patch_arch,
     patch_releaseDate,
@@ -2261,8 +2334,8 @@ module Network.AWS.SSM.Lens
     progressCounters_cancelledSteps,
     progressCounters_timedOutSteps,
     progressCounters_totalSteps,
-    progressCounters_successSteps,
     progressCounters_failedSteps,
+    progressCounters_successSteps,
 
     -- ** RelatedOpsItem
     relatedOpsItem_opsItemId,
@@ -2292,8 +2365,8 @@ module Network.AWS.SSM.Lens
     resourceDataSyncItem_syncType,
     resourceDataSyncItem_s3Destination,
     resourceDataSyncItem_syncLastModifiedTime,
-    resourceDataSyncItem_lastSyncTime,
     resourceDataSyncItem_syncName,
+    resourceDataSyncItem_lastSyncTime,
     resourceDataSyncItem_syncSource,
     resourceDataSyncItem_lastSuccessfulSyncTime,
     resourceDataSyncItem_lastStatus,
@@ -2314,6 +2387,7 @@ module Network.AWS.SSM.Lens
     -- ** ResourceDataSyncSource
     resourceDataSyncSource_includeFutureRegions,
     resourceDataSyncSource_awsOrganizationsSource,
+    resourceDataSyncSource_enableAllOpsDataSources,
     resourceDataSyncSource_sourceType,
     resourceDataSyncSource_sourceRegions,
 
@@ -2323,6 +2397,7 @@ module Network.AWS.SSM.Lens
     resourceDataSyncSourceWithState_sourceRegions,
     resourceDataSyncSourceWithState_awsOrganizationsSource,
     resourceDataSyncSourceWithState_sourceType,
+    resourceDataSyncSourceWithState_enableAllOpsDataSources,
 
     -- ** ResultAttribute
     resultAttribute_typeName,
@@ -2358,8 +2433,8 @@ module Network.AWS.SSM.Lens
     -- ** ServiceSetting
     serviceSetting_lastModifiedDate,
     serviceSetting_status,
-    serviceSetting_arn,
     serviceSetting_settingValue,
+    serviceSetting_arn,
     serviceSetting_settingId,
     serviceSetting_lastModifiedUser,
 
@@ -2370,8 +2445,8 @@ module Network.AWS.SSM.Lens
     session_documentName,
     session_details,
     session_outputUrl,
-    session_target,
     session_owner,
+    session_target,
     session_endDate,
 
     -- ** SessionFilter
@@ -2393,8 +2468,8 @@ module Network.AWS.SSM.Lens
     -- ** StepExecution
     stepExecution_outputs,
     stepExecution_onFailure,
-    stepExecution_response,
     stepExecution_failureMessage,
+    stepExecution_response,
     stepExecution_executionEndTime,
     stepExecution_nextStep,
     stepExecution_isEnd,
@@ -2405,14 +2480,14 @@ module Network.AWS.SSM.Lens
     stepExecution_targetLocation,
     stepExecution_overriddenParameters,
     stepExecution_isCritical,
+    stepExecution_action,
     stepExecution_responseCode,
     stepExecution_stepStatus,
-    stepExecution_action,
-    stepExecution_validNextSteps,
     stepExecution_timeoutSeconds,
-    stepExecution_inputs,
+    stepExecution_validNextSteps,
     stepExecution_stepExecutionId,
     stepExecution_stepName,
+    stepExecution_inputs,
 
     -- ** StepExecutionFilter
     stepExecutionFilter_key,
@@ -2436,6 +2511,7 @@ module Network.AWS.SSM.Lens
 where
 
 import Network.AWS.SSM.AddTagsToResource
+import Network.AWS.SSM.AssociateOpsItemRelatedItem
 import Network.AWS.SSM.CancelCommand
 import Network.AWS.SSM.CancelMaintenanceWindowExecution
 import Network.AWS.SSM.CreateActivation
@@ -2493,6 +2569,7 @@ import Network.AWS.SSM.DescribePatchGroupState
 import Network.AWS.SSM.DescribePatchGroups
 import Network.AWS.SSM.DescribePatchProperties
 import Network.AWS.SSM.DescribeSessions
+import Network.AWS.SSM.DisassociateOpsItemRelatedItem
 import Network.AWS.SSM.GetAutomationExecution
 import Network.AWS.SSM.GetCalendarState
 import Network.AWS.SSM.GetCommandInvocation
@@ -2529,6 +2606,7 @@ import Network.AWS.SSM.ListDocumentVersions
 import Network.AWS.SSM.ListDocuments
 import Network.AWS.SSM.ListInventoryEntries
 import Network.AWS.SSM.ListOpsItemEvents
+import Network.AWS.SSM.ListOpsItemRelatedItems
 import Network.AWS.SSM.ListOpsMetadata
 import Network.AWS.SSM.ListResourceComplianceSummaries
 import Network.AWS.SSM.ListResourceDataSync
@@ -2649,6 +2727,8 @@ import Network.AWS.SSM.Types.OpsItemEventSummary
 import Network.AWS.SSM.Types.OpsItemFilter
 import Network.AWS.SSM.Types.OpsItemIdentity
 import Network.AWS.SSM.Types.OpsItemNotification
+import Network.AWS.SSM.Types.OpsItemRelatedItemSummary
+import Network.AWS.SSM.Types.OpsItemRelatedItemsFilter
 import Network.AWS.SSM.Types.OpsItemSummary
 import Network.AWS.SSM.Types.OpsMetadata
 import Network.AWS.SSM.Types.OpsMetadataFilter
@@ -2698,6 +2778,7 @@ import Network.AWS.SSM.Types.StepExecutionFilter
 import Network.AWS.SSM.Types.Tag
 import Network.AWS.SSM.Types.Target
 import Network.AWS.SSM.Types.TargetLocation
+import Network.AWS.SSM.UnlabelParameterVersion
 import Network.AWS.SSM.UpdateAssociation
 import Network.AWS.SSM.UpdateAssociationStatus
 import Network.AWS.SSM.UpdateDocument

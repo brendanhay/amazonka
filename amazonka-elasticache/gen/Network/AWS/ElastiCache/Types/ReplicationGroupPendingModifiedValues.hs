@@ -22,6 +22,7 @@ module Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
 import Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
+import Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
 import Network.AWS.ElastiCache.Types.ReshardingStatus
 import Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
 import qualified Network.AWS.Lens as Lens
@@ -40,11 +41,13 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
     primaryClusterId :: Prelude.Maybe Prelude.Text,
     -- | The auth token status
     authTokenStatus :: Prelude.Maybe AuthTokenUpdateStatus,
-    -- | The user groups being modified.
-    userGroups :: Prelude.Maybe UserGroupsUpdateStatus,
+    -- | The log delivery configurations being modified
+    logDeliveryConfigurations :: Prelude.Maybe [PendingLogDeliveryConfiguration],
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
-    automaticFailoverStatus :: Prelude.Maybe PendingAutomaticFailoverStatus
+    automaticFailoverStatus :: Prelude.Maybe PendingAutomaticFailoverStatus,
+    -- | The user group being modified.
+    userGroups :: Prelude.Maybe UserGroupsUpdateStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,10 +67,12 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
 --
 -- 'authTokenStatus', 'replicationGroupPendingModifiedValues_authTokenStatus' - The auth token status
 --
--- 'userGroups', 'replicationGroupPendingModifiedValues_userGroups' - The user groups being modified.
+-- 'logDeliveryConfigurations', 'replicationGroupPendingModifiedValues_logDeliveryConfigurations' - The log delivery configurations being modified
 --
 -- 'automaticFailoverStatus', 'replicationGroupPendingModifiedValues_automaticFailoverStatus' - Indicates the status of automatic failover for this Redis replication
 -- group.
+--
+-- 'userGroups', 'replicationGroupPendingModifiedValues_userGroups' - The user group being modified.
 newReplicationGroupPendingModifiedValues ::
   ReplicationGroupPendingModifiedValues
 newReplicationGroupPendingModifiedValues =
@@ -76,9 +81,11 @@ newReplicationGroupPendingModifiedValues =
         Prelude.Nothing,
       primaryClusterId = Prelude.Nothing,
       authTokenStatus = Prelude.Nothing,
-      userGroups = Prelude.Nothing,
+      logDeliveryConfigurations =
+        Prelude.Nothing,
       automaticFailoverStatus =
-        Prelude.Nothing
+        Prelude.Nothing,
+      userGroups = Prelude.Nothing
     }
 
 -- | The status of an online resharding operation.
@@ -95,14 +102,18 @@ replicationGroupPendingModifiedValues_primaryClusterId = Lens.lens (\Replication
 replicationGroupPendingModifiedValues_authTokenStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe AuthTokenUpdateStatus)
 replicationGroupPendingModifiedValues_authTokenStatus = Lens.lens (\ReplicationGroupPendingModifiedValues' {authTokenStatus} -> authTokenStatus) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {authTokenStatus = a} :: ReplicationGroupPendingModifiedValues)
 
--- | The user groups being modified.
-replicationGroupPendingModifiedValues_userGroups :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe UserGroupsUpdateStatus)
-replicationGroupPendingModifiedValues_userGroups = Lens.lens (\ReplicationGroupPendingModifiedValues' {userGroups} -> userGroups) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {userGroups = a} :: ReplicationGroupPendingModifiedValues)
+-- | The log delivery configurations being modified
+replicationGroupPendingModifiedValues_logDeliveryConfigurations :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe [PendingLogDeliveryConfiguration])
+replicationGroupPendingModifiedValues_logDeliveryConfigurations = Lens.lens (\ReplicationGroupPendingModifiedValues' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {logDeliveryConfigurations = a} :: ReplicationGroupPendingModifiedValues) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates the status of automatic failover for this Redis replication
 -- group.
 replicationGroupPendingModifiedValues_automaticFailoverStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe PendingAutomaticFailoverStatus)
 replicationGroupPendingModifiedValues_automaticFailoverStatus = Lens.lens (\ReplicationGroupPendingModifiedValues' {automaticFailoverStatus} -> automaticFailoverStatus) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {automaticFailoverStatus = a} :: ReplicationGroupPendingModifiedValues)
+
+-- | The user group being modified.
+replicationGroupPendingModifiedValues_userGroups :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe UserGroupsUpdateStatus)
+replicationGroupPendingModifiedValues_userGroups = Lens.lens (\ReplicationGroupPendingModifiedValues' {userGroups} -> userGroups) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {userGroups = a} :: ReplicationGroupPendingModifiedValues)
 
 instance
   Core.FromXML
@@ -113,8 +124,12 @@ instance
       Prelude.<$> (x Core..@? "Resharding")
       Prelude.<*> (x Core..@? "PrimaryClusterId")
       Prelude.<*> (x Core..@? "AuthTokenStatus")
-      Prelude.<*> (x Core..@? "UserGroups")
+      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
       Prelude.<*> (x Core..@? "AutomaticFailoverStatus")
+      Prelude.<*> (x Core..@? "UserGroups")
 
 instance
   Prelude.Hashable

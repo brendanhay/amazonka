@@ -11,14 +11,15 @@
 --
 -- Derived from API version @2017-03-14@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Cloud Map lets you configure public DNS, private DNS, or HTTP
+-- Cloud Map
+--
+-- With Cloud Map, you can configure public DNS, private DNS, or HTTP
 -- namespaces that your microservice applications run in. When an instance
--- of the service becomes available, you can call the AWS Cloud Map API to
--- register the instance with AWS Cloud Map. For public or private DNS
--- namespaces, AWS Cloud Map automatically creates DNS records and an
--- optional health check. Clients that submit public or private DNS
--- queries, or HTTP requests, for the service receive an answer that
--- contains up to eight healthy records.
+-- becomes available, you can call the Cloud Map API to register the
+-- instance with Cloud Map. For public or private DNS namespaces, Cloud Map
+-- automatically creates DNS records and an optional health check. Clients
+-- that submit public or private DNS queries, or HTTP requests, for the
+-- service receive an answer that contains up to eight healthy records.
 module Network.AWS.Route53AutoNaming
   ( -- * Service Configuration
     defaultService,
@@ -44,20 +45,20 @@ module Network.AWS.Route53AutoNaming
     -- ** RequestLimitExceeded
     _RequestLimitExceeded,
 
+    -- ** CustomHealthNotFound
+    _CustomHealthNotFound,
+
     -- ** ResourceLimitExceeded
     _ResourceLimitExceeded,
 
-    -- ** CustomHealthNotFound
-    _CustomHealthNotFound,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** OperationNotFound
     _OperationNotFound,
 
     -- ** ServiceNotFound
     _ServiceNotFound,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** NamespaceNotFound
     _NamespaceNotFound,
@@ -80,17 +81,17 @@ module Network.AWS.Route53AutoNaming
     CreatePublicDnsNamespaceResponse (CreatePublicDnsNamespaceResponse'),
     newCreatePublicDnsNamespaceResponse,
 
-    -- ** ListServices (Paginated)
-    ListServices (ListServices'),
-    newListServices,
-    ListServicesResponse (ListServicesResponse'),
-    newListServicesResponse,
-
     -- ** ListOperations (Paginated)
     ListOperations (ListOperations'),
     newListOperations,
     ListOperationsResponse (ListOperationsResponse'),
     newListOperationsResponse,
+
+    -- ** ListServices (Paginated)
+    ListServices (ListServices'),
+    newListServices,
+    ListServicesResponse (ListServicesResponse'),
+    newListServicesResponse,
 
     -- ** CreateService
     CreateService (CreateService'),
@@ -110,17 +111,17 @@ module Network.AWS.Route53AutoNaming
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListInstances (Paginated)
-    ListInstances (ListInstances'),
-    newListInstances,
-    ListInstancesResponse (ListInstancesResponse'),
-    newListInstancesResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
 
     -- ** GetNamespace
     GetNamespace (GetNamespace'),
@@ -128,23 +129,35 @@ module Network.AWS.Route53AutoNaming
     GetNamespaceResponse (GetNamespaceResponse'),
     newGetNamespaceResponse,
 
+    -- ** UpdatePublicDnsNamespace
+    UpdatePublicDnsNamespace (UpdatePublicDnsNamespace'),
+    newUpdatePublicDnsNamespace,
+    UpdatePublicDnsNamespaceResponse (UpdatePublicDnsNamespaceResponse'),
+    newUpdatePublicDnsNamespaceResponse,
+
     -- ** ListNamespaces (Paginated)
     ListNamespaces (ListNamespaces'),
     newListNamespaces,
     ListNamespacesResponse (ListNamespacesResponse'),
     newListNamespacesResponse,
 
-    -- ** CreateHttpNamespace
-    CreateHttpNamespace (CreateHttpNamespace'),
-    newCreateHttpNamespace,
-    CreateHttpNamespaceResponse (CreateHttpNamespaceResponse'),
-    newCreateHttpNamespaceResponse,
+    -- ** UpdateHttpNamespace
+    UpdateHttpNamespace (UpdateHttpNamespace'),
+    newUpdateHttpNamespace,
+    UpdateHttpNamespaceResponse (UpdateHttpNamespaceResponse'),
+    newUpdateHttpNamespaceResponse,
 
     -- ** GetInstance
     GetInstance (GetInstance'),
     newGetInstance,
     GetInstanceResponse (GetInstanceResponse'),
     newGetInstanceResponse,
+
+    -- ** CreateHttpNamespace
+    CreateHttpNamespace (CreateHttpNamespace'),
+    newCreateHttpNamespace,
+    CreateHttpNamespaceResponse (CreateHttpNamespaceResponse'),
+    newCreateHttpNamespaceResponse,
 
     -- ** GetInstancesHealthStatus
     GetInstancesHealthStatus (GetInstancesHealthStatus'),
@@ -176,23 +189,29 @@ module Network.AWS.Route53AutoNaming
     DeregisterInstanceResponse (DeregisterInstanceResponse'),
     newDeregisterInstanceResponse,
 
+    -- ** UpdatePrivateDnsNamespace
+    UpdatePrivateDnsNamespace (UpdatePrivateDnsNamespace'),
+    newUpdatePrivateDnsNamespace,
+    UpdatePrivateDnsNamespaceResponse (UpdatePrivateDnsNamespaceResponse'),
+    newUpdatePrivateDnsNamespaceResponse,
+
     -- ** GetOperation
     GetOperation (GetOperation'),
     newGetOperation,
     GetOperationResponse (GetOperationResponse'),
     newGetOperationResponse,
 
-    -- ** GetService
-    GetService (GetService'),
-    newGetService,
-    GetServiceResponse (GetServiceResponse'),
-    newGetServiceResponse,
-
     -- ** UpdateInstanceCustomHealthStatus
     UpdateInstanceCustomHealthStatus (UpdateInstanceCustomHealthStatus'),
     newUpdateInstanceCustomHealthStatus,
     UpdateInstanceCustomHealthStatusResponse (UpdateInstanceCustomHealthStatusResponse'),
     newUpdateInstanceCustomHealthStatusResponse,
+
+    -- ** GetService
+    GetService (GetService'),
+    newGetService,
+    GetServiceResponse (GetServiceResponse'),
+    newGetServiceResponse,
 
     -- ** RegisterInstance
     RegisterInstance (RegisterInstance'),
@@ -290,6 +309,10 @@ module Network.AWS.Route53AutoNaming
     HttpInstanceSummary (HttpInstanceSummary'),
     newHttpInstanceSummary,
 
+    -- ** HttpNamespaceChange
+    HttpNamespaceChange (HttpNamespaceChange'),
+    newHttpNamespaceChange,
+
     -- ** HttpProperties
     HttpProperties (HttpProperties'),
     newHttpProperties,
@@ -329,6 +352,54 @@ module Network.AWS.Route53AutoNaming
     -- ** OperationSummary
     OperationSummary (OperationSummary'),
     newOperationSummary,
+
+    -- ** PrivateDnsNamespaceChange
+    PrivateDnsNamespaceChange (PrivateDnsNamespaceChange'),
+    newPrivateDnsNamespaceChange,
+
+    -- ** PrivateDnsNamespaceProperties
+    PrivateDnsNamespaceProperties (PrivateDnsNamespaceProperties'),
+    newPrivateDnsNamespaceProperties,
+
+    -- ** PrivateDnsNamespacePropertiesChange
+    PrivateDnsNamespacePropertiesChange (PrivateDnsNamespacePropertiesChange'),
+    newPrivateDnsNamespacePropertiesChange,
+
+    -- ** PrivateDnsPropertiesMutable
+    PrivateDnsPropertiesMutable (PrivateDnsPropertiesMutable'),
+    newPrivateDnsPropertiesMutable,
+
+    -- ** PrivateDnsPropertiesMutableChange
+    PrivateDnsPropertiesMutableChange (PrivateDnsPropertiesMutableChange'),
+    newPrivateDnsPropertiesMutableChange,
+
+    -- ** PublicDnsNamespaceChange
+    PublicDnsNamespaceChange (PublicDnsNamespaceChange'),
+    newPublicDnsNamespaceChange,
+
+    -- ** PublicDnsNamespaceProperties
+    PublicDnsNamespaceProperties (PublicDnsNamespaceProperties'),
+    newPublicDnsNamespaceProperties,
+
+    -- ** PublicDnsNamespacePropertiesChange
+    PublicDnsNamespacePropertiesChange (PublicDnsNamespacePropertiesChange'),
+    newPublicDnsNamespacePropertiesChange,
+
+    -- ** PublicDnsPropertiesMutable
+    PublicDnsPropertiesMutable (PublicDnsPropertiesMutable'),
+    newPublicDnsPropertiesMutable,
+
+    -- ** PublicDnsPropertiesMutableChange
+    PublicDnsPropertiesMutableChange (PublicDnsPropertiesMutableChange'),
+    newPublicDnsPropertiesMutableChange,
+
+    -- ** SOA
+    SOA (SOA'),
+    newSOA,
+
+    -- ** SOAChange
+    SOAChange (SOAChange'),
+    newSOAChange,
 
     -- ** ServiceChange
     ServiceChange (ServiceChange'),
@@ -375,7 +446,10 @@ import Network.AWS.Route53AutoNaming.RegisterInstance
 import Network.AWS.Route53AutoNaming.TagResource
 import Network.AWS.Route53AutoNaming.Types
 import Network.AWS.Route53AutoNaming.UntagResource
+import Network.AWS.Route53AutoNaming.UpdateHttpNamespace
 import Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+import Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
+import Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
 import Network.AWS.Route53AutoNaming.UpdateService
 import Network.AWS.Route53AutoNaming.Waiters
 

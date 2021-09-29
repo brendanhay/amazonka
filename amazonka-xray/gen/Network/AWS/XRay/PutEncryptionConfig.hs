@@ -49,13 +49,13 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newPutEncryptionConfig' smart constructor.
 data PutEncryptionConfig = PutEncryptionConfig'
-  { -- | An AWS KMS customer master key (CMK) in one of the following formats:
+  { -- | An Amazon Web Services KMS key in one of the following formats:
     --
     -- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
     --
     -- -   __Key ID__ - The KMS key ID of the key. For example,
-    --     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
-    --     asymmetric CMKs.
+    --     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray
+    --     does not support asymmetric KMS keys.
     --
     -- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
     --     example,
@@ -78,13 +78,13 @@ data PutEncryptionConfig = PutEncryptionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'putEncryptionConfig_keyId' - An AWS KMS customer master key (CMK) in one of the following formats:
+-- 'keyId', 'putEncryptionConfig_keyId' - An Amazon Web Services KMS key in one of the following formats:
 --
 -- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
 --
 -- -   __Key ID__ - The KMS key ID of the key. For example,
---     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
---     asymmetric CMKs.
+--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray
+--     does not support asymmetric KMS keys.
 --
 -- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
 --     example,
@@ -105,13 +105,13 @@ newPutEncryptionConfig pType_ =
       type' = pType_
     }
 
--- | An AWS KMS customer master key (CMK) in one of the following formats:
+-- | An Amazon Web Services KMS key in one of the following formats:
 --
 -- -   __Alias__ - The name of the key. For example, @alias\/MyKey@.
 --
 -- -   __Key ID__ - The KMS key ID of the key. For example,
---     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. AWS X-Ray does not support
---     asymmetric CMKs.
+--     @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@. Amazon Web Services X-Ray
+--     does not support asymmetric KMS keys.
 --
 -- -   __ARN__ - The full Amazon Resource Name of the key ID or alias. For
 --     example,

@@ -30,6 +30,8 @@
 -- response. Limit and next token are not applicable if you specify
 -- organization config rule names. It is only applicable, when you request
 -- all the organization config rules.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeOrganizationConfigRuleStatuses
   ( -- * Creating a Request
     DescribeOrganizationConfigRuleStatuses (..),
@@ -64,11 +66,11 @@ data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStat
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of organization config rules for which you want status
-    -- details. If you do not specify any names, AWS Config returns details for
-    -- all your organization AWS Confg rules.
+    -- details. If you do not specify any names, Config returns details for all
+    -- your organization Config rules.
     organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each
-    -- page. If you do no specify a number, AWS Config uses the default. The
+    -- page. If you do no specify a number, Config uses the default. The
     -- default is 100.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -86,11 +88,11 @@ data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStat
 -- the next page of results in a paginated response.
 --
 -- 'organizationConfigRuleNames', 'describeOrganizationConfigRuleStatuses_organizationConfigRuleNames' - The names of organization config rules for which you want status
--- details. If you do not specify any names, AWS Config returns details for
--- all your organization AWS Confg rules.
+-- details. If you do not specify any names, Config returns details for all
+-- your organization Config rules.
 --
 -- 'limit', 'describeOrganizationConfigRuleStatuses_limit' - The maximum number of @OrganizationConfigRuleStatuses@ returned on each
--- page. If you do no specify a number, AWS Config uses the default. The
+-- page. If you do no specify a number, Config uses the default. The
 -- default is 100.
 newDescribeOrganizationConfigRuleStatuses ::
   DescribeOrganizationConfigRuleStatuses
@@ -109,16 +111,41 @@ describeOrganizationConfigRuleStatuses_nextToken :: Lens.Lens' DescribeOrganizat
 describeOrganizationConfigRuleStatuses_nextToken = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRuleStatuses)
 
 -- | The names of organization config rules for which you want status
--- details. If you do not specify any names, AWS Config returns details for
--- all your organization AWS Confg rules.
+-- details. If you do not specify any names, Config returns details for all
+-- your organization Config rules.
 describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe [Prelude.Text])
 describeOrganizationConfigRuleStatuses_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRuleStatuses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each
--- page. If you do no specify a number, AWS Config uses the default. The
+-- page. If you do no specify a number, Config uses the default. The
 -- default is 100.
 describeOrganizationConfigRuleStatuses_limit :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRuleStatuses_limit = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {limit} -> limit) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {limit = a} :: DescribeOrganizationConfigRuleStatuses)
+
+instance
+  Core.AWSPager
+    DescribeOrganizationConfigRuleStatuses
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeOrganizationConfigRuleStatuses_nextToken
+          Lens..~ rs
+            Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

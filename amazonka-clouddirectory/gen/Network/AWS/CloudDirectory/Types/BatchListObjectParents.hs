@@ -24,9 +24,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | /See:/ 'newBatchListObjectParents' smart constructor.
+-- | Lists parent objects that are associated with a given object in
+-- pagination fashion.
+--
+-- /See:/ 'newBatchListObjectParents' smart constructor.
 data BatchListObjectParents = BatchListObjectParents'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to be retrieved in a single call. This is an
+    -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
     objectReference :: ObjectReference
   }
@@ -40,9 +46,10 @@ data BatchListObjectParents = BatchListObjectParents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListObjectParents_nextToken' - Undocumented member.
+-- 'nextToken', 'batchListObjectParents_nextToken' - The pagination token.
 --
--- 'maxResults', 'batchListObjectParents_maxResults' - Undocumented member.
+-- 'maxResults', 'batchListObjectParents_maxResults' - The maximum number of items to be retrieved in a single call. This is an
+-- approximate number.
 --
 -- 'objectReference', 'batchListObjectParents_objectReference' - Undocumented member.
 newBatchListObjectParents ::
@@ -57,11 +64,12 @@ newBatchListObjectParents pObjectReference_ =
       objectReference = pObjectReference_
     }
 
--- | Undocumented member.
+-- | The pagination token.
 batchListObjectParents_nextToken :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Text)
 batchListObjectParents_nextToken = Lens.lens (\BatchListObjectParents' {nextToken} -> nextToken) (\s@BatchListObjectParents' {} a -> s {nextToken = a} :: BatchListObjectParents)
 
--- | Undocumented member.
+-- | The maximum number of items to be retrieved in a single call. This is an
+-- approximate number.
 batchListObjectParents_maxResults :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Natural)
 batchListObjectParents_maxResults = Lens.lens (\BatchListObjectParents' {maxResults} -> maxResults) (\s@BatchListObjectParents' {} a -> s {maxResults = a} :: BatchListObjectParents)
 

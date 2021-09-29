@@ -26,7 +26,7 @@ import Network.AWS.CostExplorer.Types.MetricValue
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The result that is associated with a time period.
+-- | The result that\'s associated with a time period.
 --
 -- /See:/ 'newResultByTime' smart constructor.
 data ResultByTime = ResultByTime'
@@ -34,7 +34,7 @@ data ResultByTime = ResultByTime'
     groups :: Prelude.Maybe [Group],
     -- | The time period that the result covers.
     timePeriod :: Prelude.Maybe DateInterval,
-    -- | Whether the result is estimated.
+    -- | Determines whether the result is estimated.
     estimated :: Prelude.Maybe Prelude.Bool,
     -- | The total amount of cost or usage accrued during the time period.
     total :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue)
@@ -53,7 +53,7 @@ data ResultByTime = ResultByTime'
 --
 -- 'timePeriod', 'resultByTime_timePeriod' - The time period that the result covers.
 --
--- 'estimated', 'resultByTime_estimated' - Whether the result is estimated.
+-- 'estimated', 'resultByTime_estimated' - Determines whether the result is estimated.
 --
 -- 'total', 'resultByTime_total' - The total amount of cost or usage accrued during the time period.
 newResultByTime ::
@@ -74,7 +74,7 @@ resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultBy
 resultByTime_timePeriod :: Lens.Lens' ResultByTime (Prelude.Maybe DateInterval)
 resultByTime_timePeriod = Lens.lens (\ResultByTime' {timePeriod} -> timePeriod) (\s@ResultByTime' {} a -> s {timePeriod = a} :: ResultByTime)
 
--- | Whether the result is estimated.
+-- | Determines whether the result is estimated.
 resultByTime_estimated :: Lens.Lens' ResultByTime (Prelude.Maybe Prelude.Bool)
 resultByTime_estimated = Lens.lens (\ResultByTime' {estimated} -> estimated) (\s@ResultByTime' {} a -> s {estimated = a} :: ResultByTime)
 

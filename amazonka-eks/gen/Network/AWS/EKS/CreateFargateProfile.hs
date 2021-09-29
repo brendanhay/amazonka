@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Fargate profile for your Amazon EKS cluster. You must
--- have at least one Fargate profile in a cluster to be able to run pods on
+-- Creates an Fargate profile for your Amazon EKS cluster. You must have at
+-- least one Fargate profile in a cluster to be able to run pods on
 -- Fargate.
 --
 -- The Fargate profile allows an administrator to declare which pods run on
@@ -54,7 +54,7 @@
 -- create any other profiles in that cluster.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html AWS Fargate Profile>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html Fargate Profile>
 -- in the /Amazon EKS User Guide/.
 module Network.AWS.EKS.CreateFargateProfile
   ( -- * Creating a Request

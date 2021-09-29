@@ -42,16 +42,16 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
     origin :: Prelude.Maybe Prelude.Text,
     -- | The ID of a VPC peering connection.
     vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The prefix of the AWS service.
+    -- | The prefix of the Amazon Web Service.
     destinationPrefixListId :: Prelude.Maybe Prelude.Text,
     -- | The destination IPv4 address, in CIDR notation.
     destinationCidr :: Prelude.Maybe Prelude.Text,
     -- | The ID of an egress-only internet gateway.
     egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the gateway, such as an internet gateway or virtual private
     -- gateway.
     gatewayId :: Prelude.Maybe Prelude.Text,
@@ -82,15 +82,15 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
 --
 -- 'vpcPeeringConnectionId', 'analysisRouteTableRoute_vpcPeeringConnectionId' - The ID of a VPC peering connection.
 --
--- 'destinationPrefixListId', 'analysisRouteTableRoute_destinationPrefixListId' - The prefix of the AWS service.
+-- 'destinationPrefixListId', 'analysisRouteTableRoute_destinationPrefixListId' - The prefix of the Amazon Web Service.
 --
 -- 'destinationCidr', 'analysisRouteTableRoute_destinationCidr' - The destination IPv4 address, in CIDR notation.
 --
 -- 'egressOnlyInternetGatewayId', 'analysisRouteTableRoute_egressOnlyInternetGatewayId' - The ID of an egress-only internet gateway.
 --
--- 'networkInterfaceId', 'analysisRouteTableRoute_networkInterfaceId' - The ID of a network interface.
---
 -- 'natGatewayId', 'analysisRouteTableRoute_natGatewayId' - The ID of a NAT gateway.
+--
+-- 'networkInterfaceId', 'analysisRouteTableRoute_networkInterfaceId' - The ID of a network interface.
 --
 -- 'gatewayId', 'analysisRouteTableRoute_gatewayId' - The ID of the gateway, such as an internet gateway or virtual private
 -- gateway.
@@ -107,8 +107,8 @@ newAnalysisRouteTableRoute =
       destinationPrefixListId = Prelude.Nothing,
       destinationCidr = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
       transitGatewayId = Prelude.Nothing
     }
@@ -133,7 +133,7 @@ analysisRouteTableRoute_origin = Lens.lens (\AnalysisRouteTableRoute' {origin} -
 analysisRouteTableRoute_vpcPeeringConnectionId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_vpcPeeringConnectionId = Lens.lens (\AnalysisRouteTableRoute' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AnalysisRouteTableRoute' {} a -> s {vpcPeeringConnectionId = a} :: AnalysisRouteTableRoute)
 
--- | The prefix of the AWS service.
+-- | The prefix of the Amazon Web Service.
 analysisRouteTableRoute_destinationPrefixListId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_destinationPrefixListId = Lens.lens (\AnalysisRouteTableRoute' {destinationPrefixListId} -> destinationPrefixListId) (\s@AnalysisRouteTableRoute' {} a -> s {destinationPrefixListId = a} :: AnalysisRouteTableRoute)
 
@@ -145,13 +145,13 @@ analysisRouteTableRoute_destinationCidr = Lens.lens (\AnalysisRouteTableRoute' {
 analysisRouteTableRoute_egressOnlyInternetGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_egressOnlyInternetGatewayId = Lens.lens (\AnalysisRouteTableRoute' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {egressOnlyInternetGatewayId = a} :: AnalysisRouteTableRoute)
 
--- | The ID of a network interface.
-analysisRouteTableRoute_networkInterfaceId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
-analysisRouteTableRoute_networkInterfaceId = Lens.lens (\AnalysisRouteTableRoute' {networkInterfaceId} -> networkInterfaceId) (\s@AnalysisRouteTableRoute' {} a -> s {networkInterfaceId = a} :: AnalysisRouteTableRoute)
-
 -- | The ID of a NAT gateway.
 analysisRouteTableRoute_natGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_natGatewayId = Lens.lens (\AnalysisRouteTableRoute' {natGatewayId} -> natGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {natGatewayId = a} :: AnalysisRouteTableRoute)
+
+-- | The ID of a network interface.
+analysisRouteTableRoute_networkInterfaceId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_networkInterfaceId = Lens.lens (\AnalysisRouteTableRoute' {networkInterfaceId} -> networkInterfaceId) (\s@AnalysisRouteTableRoute' {} a -> s {networkInterfaceId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of the gateway, such as an internet gateway or virtual private
 -- gateway.
@@ -171,8 +171,8 @@ instance Core.FromXML AnalysisRouteTableRoute where
       Prelude.<*> (x Core..@? "destinationPrefixListId")
       Prelude.<*> (x Core..@? "destinationCidr")
       Prelude.<*> (x Core..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "natGatewayId")
+      Prelude.<*> (x Core..@? "networkInterfaceId")
       Prelude.<*> (x Core..@? "gatewayId")
       Prelude.<*> (x Core..@? "transitGatewayId")
 

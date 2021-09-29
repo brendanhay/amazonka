@@ -41,30 +41,30 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     --
     -- Default: @28800@
     phase1LifetimeSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The IKE versions that are permitted for the VPN tunnel.
+    --
+    -- Valid values: @ikev1@ | @ikev2@
+    iKEVersions :: Prelude.Maybe [IKEVersionsRequestListValue],
+    -- | One or more integrity algorithms that are permitted for the VPN tunnel
+    -- for phase 2 IKE negotiations.
+    --
+    -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+    phase2IntegrityAlgorithms :: Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue],
+    -- | One or more encryption algorithms that are permitted for the VPN tunnel
+    -- for phase 2 IKE negotiations.
+    --
+    -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+    phase2EncryptionAlgorithms :: Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue],
     -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
     -- tunnel for phase 2 IKE negotiations.
     --
     -- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
     -- | @21@ | @22@ | @23@ | @24@
     phase2DHGroupNumbers :: Prelude.Maybe [Phase2DHGroupNumbersRequestListValue],
-    -- | The IKE versions that are permitted for the VPN tunnel.
-    --
-    -- Valid values: @ikev1@ | @ikev2@
-    iKEVersions :: Prelude.Maybe [IKEVersionsRequestListValue],
-    -- | One or more encryption algorithms that are permitted for the VPN tunnel
-    -- for phase 2 IKE negotiations.
-    --
-    -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-    phase2EncryptionAlgorithms :: Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue],
-    -- | One or more integrity algorithms that are permitted for the VPN tunnel
-    -- for phase 2 IKE negotiations.
-    --
-    -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
-    phase2IntegrityAlgorithms :: Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue],
     -- | The action to take when the establishing the tunnel for the VPN
     -- connection. By default, your customer gateway device must initiate the
-    -- IKE negotiation and bring up the tunnel. Specify @start@ for AWS to
-    -- initiate the IKE negotiation.
+    -- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+    -- Services to initiate the IKE negotiation.
     --
     -- Valid Values: @add@ | @start@
     --
@@ -115,9 +115,9 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     -- Default: @100@
     rekeyFuzzPercentage :: Prelude.Maybe Prelude.Int,
     -- | The margin time, in seconds, before the phase 2 lifetime expires, during
-    -- which the AWS side of the VPN connection performs an IKE rekey. The
-    -- exact time of the rekey is randomly selected based on the value for
-    -- @RekeyFuzzPercentage@.
+    -- which the Amazon Web Services side of the VPN connection performs an IKE
+    -- rekey. The exact time of the rekey is randomly selected based on the
+    -- value for @RekeyFuzzPercentage@.
     --
     -- Constraints: A value between 60 and half of @Phase2LifetimeSeconds@.
     --
@@ -180,30 +180,30 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 --
 -- Default: @28800@
 --
--- 'phase2DHGroupNumbers', 'vpnTunnelOptionsSpecification_phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN
--- tunnel for phase 2 IKE negotiations.
---
--- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
--- | @21@ | @22@ | @23@ | @24@
---
 -- 'iKEVersions', 'vpnTunnelOptionsSpecification_iKEVersions' - The IKE versions that are permitted for the VPN tunnel.
 --
 -- Valid values: @ikev1@ | @ikev2@
---
--- 'phase2EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
 --
 -- 'phase2IntegrityAlgorithms', 'vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel
 -- for phase 2 IKE negotiations.
 --
 -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
 --
+-- 'phase2EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
+-- for phase 2 IKE negotiations.
+--
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+--
+-- 'phase2DHGroupNumbers', 'vpnTunnelOptionsSpecification_phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN
+-- tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
+-- | @21@ | @22@ | @23@ | @24@
+--
 -- 'startupAction', 'vpnTunnelOptionsSpecification_startupAction' - The action to take when the establishing the tunnel for the VPN
 -- connection. By default, your customer gateway device must initiate the
--- IKE negotiation and bring up the tunnel. Specify @start@ for AWS to
--- initiate the IKE negotiation.
+-- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+-- Services to initiate the IKE negotiation.
 --
 -- Valid Values: @add@ | @start@
 --
@@ -254,9 +254,9 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 -- Default: @100@
 --
 -- 'rekeyMarginTimeSeconds', 'vpnTunnelOptionsSpecification_rekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during
--- which the AWS side of the VPN connection performs an IKE rekey. The
--- exact time of the rekey is randomly selected based on the value for
--- @RekeyFuzzPercentage@.
+-- which the Amazon Web Services side of the VPN connection performs an IKE
+-- rekey. The exact time of the rekey is randomly selected based on the
+-- value for @RekeyFuzzPercentage@.
 --
 -- Constraints: A value between 60 and half of @Phase2LifetimeSeconds@.
 --
@@ -307,10 +307,10 @@ newVpnTunnelOptionsSpecification =
   VpnTunnelOptionsSpecification'
     { phase1LifetimeSeconds =
         Prelude.Nothing,
-      phase2DHGroupNumbers = Prelude.Nothing,
       iKEVersions = Prelude.Nothing,
-      phase2EncryptionAlgorithms = Prelude.Nothing,
       phase2IntegrityAlgorithms = Prelude.Nothing,
+      phase2EncryptionAlgorithms = Prelude.Nothing,
+      phase2DHGroupNumbers = Prelude.Nothing,
       startupAction = Prelude.Nothing,
       dPDTimeoutSeconds = Prelude.Nothing,
       phase1DHGroupNumbers = Prelude.Nothing,
@@ -334,26 +334,11 @@ newVpnTunnelOptionsSpecification =
 vpnTunnelOptionsSpecification_phase1LifetimeSeconds :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
 vpnTunnelOptionsSpecification_phase1LifetimeSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {phase1LifetimeSeconds} -> phase1LifetimeSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase1LifetimeSeconds = a} :: VpnTunnelOptionsSpecification)
 
--- | One or more Diffie-Hellman group numbers that are permitted for the VPN
--- tunnel for phase 2 IKE negotiations.
---
--- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
--- | @21@ | @22@ | @23@ | @24@
-vpnTunnelOptionsSpecification_phase2DHGroupNumbers :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2DHGroupNumbersRequestListValue])
-vpnTunnelOptionsSpecification_phase2DHGroupNumbers = Lens.lens (\VpnTunnelOptionsSpecification' {phase2DHGroupNumbers} -> phase2DHGroupNumbers) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2DHGroupNumbers = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The IKE versions that are permitted for the VPN tunnel.
 --
 -- Valid values: @ikev1@ | @ikev2@
 vpnTunnelOptionsSpecification_iKEVersions :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [IKEVersionsRequestListValue])
 vpnTunnelOptionsSpecification_iKEVersions = Lens.lens (\VpnTunnelOptionsSpecification' {iKEVersions} -> iKEVersions) (\s@VpnTunnelOptionsSpecification' {} a -> s {iKEVersions = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue])
-vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more integrity algorithms that are permitted for the VPN tunnel
 -- for phase 2 IKE negotiations.
@@ -362,10 +347,25 @@ vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms = Lens.lens (\VpnTunnel
 vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue])
 vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2IntegrityAlgorithms} -> phase2IntegrityAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2IntegrityAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
 
+-- | One or more encryption algorithms that are permitted for the VPN tunnel
+-- for phase 2 IKE negotiations.
+--
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue])
+vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
+
+-- | One or more Diffie-Hellman group numbers that are permitted for the VPN
+-- tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
+-- | @21@ | @22@ | @23@ | @24@
+vpnTunnelOptionsSpecification_phase2DHGroupNumbers :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2DHGroupNumbersRequestListValue])
+vpnTunnelOptionsSpecification_phase2DHGroupNumbers = Lens.lens (\VpnTunnelOptionsSpecification' {phase2DHGroupNumbers} -> phase2DHGroupNumbers) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2DHGroupNumbers = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The action to take when the establishing the tunnel for the VPN
 -- connection. By default, your customer gateway device must initiate the
--- IKE negotiation and bring up the tunnel. Specify @start@ for AWS to
--- initiate the IKE negotiation.
+-- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+-- Services to initiate the IKE negotiation.
 --
 -- Valid Values: @add@ | @start@
 --
@@ -432,9 +432,9 @@ vpnTunnelOptionsSpecification_rekeyFuzzPercentage :: Lens.Lens' VpnTunnelOptions
 vpnTunnelOptionsSpecification_rekeyFuzzPercentage = Lens.lens (\VpnTunnelOptionsSpecification' {rekeyFuzzPercentage} -> rekeyFuzzPercentage) (\s@VpnTunnelOptionsSpecification' {} a -> s {rekeyFuzzPercentage = a} :: VpnTunnelOptionsSpecification)
 
 -- | The margin time, in seconds, before the phase 2 lifetime expires, during
--- which the AWS side of the VPN connection performs an IKE rekey. The
--- exact time of the rekey is randomly selected based on the value for
--- @RekeyFuzzPercentage@.
+-- which the Amazon Web Services side of the VPN connection performs an IKE
+-- rekey. The exact time of the rekey is randomly selected based on the
+-- value for @RekeyFuzzPercentage@.
 --
 -- Constraints: A value between 60 and half of @Phase2LifetimeSeconds@.
 --
@@ -502,20 +502,20 @@ instance Core.ToQuery VpnTunnelOptionsSpecification where
       [ "Phase1LifetimeSeconds"
           Core.=: phase1LifetimeSeconds,
         Core.toQuery
-          ( Core.toQueryList "Phase2DHGroupNumber"
-              Prelude.<$> phase2DHGroupNumbers
-          ),
-        Core.toQuery
           ( Core.toQueryList "IKEVersion"
               Prelude.<$> iKEVersions
+          ),
+        Core.toQuery
+          ( Core.toQueryList "Phase2IntegrityAlgorithm"
+              Prelude.<$> phase2IntegrityAlgorithms
           ),
         Core.toQuery
           ( Core.toQueryList "Phase2EncryptionAlgorithm"
               Prelude.<$> phase2EncryptionAlgorithms
           ),
         Core.toQuery
-          ( Core.toQueryList "Phase2IntegrityAlgorithm"
-              Prelude.<$> phase2IntegrityAlgorithms
+          ( Core.toQueryList "Phase2DHGroupNumber"
+              Prelude.<$> phase2DHGroupNumbers
           ),
         "StartupAction" Core.=: startupAction,
         "DPDTimeoutSeconds" Core.=: dPDTimeoutSeconds,

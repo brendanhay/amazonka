@@ -43,8 +43,8 @@ module Network.AWS.Glue.CreateSchema
     createSchema_schemaDefinition,
     createSchema_registryId,
     createSchema_tags,
-    createSchema_description,
     createSchema_compatibility,
+    createSchema_description,
     createSchema_schemaName,
     createSchema_dataFormat,
 
@@ -61,9 +61,9 @@ module Network.AWS.Glue.CreateSchema
     createSchemaResponse_registryName,
     createSchemaResponse_schemaVersionStatus,
     createSchemaResponse_tags,
-    createSchemaResponse_schemaName,
-    createSchemaResponse_description,
     createSchemaResponse_compatibility,
+    createSchemaResponse_description,
+    createSchemaResponse_schemaName,
     createSchemaResponse_registryArn,
     createSchemaResponse_latestSchemaVersion,
     createSchemaResponse_schemaStatus,
@@ -87,13 +87,10 @@ data CreateSchema = CreateSchema'
     -- the same will be:
     -- @arn:aws:glue:us-east-2:\<customer id>:registry\/default-registry:random-5-letter-id@.
     registryId :: Prelude.Maybe RegistryId,
-    -- | AWS tags that contain a key value pair and may be searched by console,
-    -- command line, or API. If specified, follows the AWS tags-on-create
-    -- pattern.
+    -- | Amazon Web Services tags that contain a key value pair and may be
+    -- searched by console, command line, or API. If specified, follows the
+    -- Amazon Web Services tags-on-create pattern.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description of the schema. If description is not provided,
-    -- there will not be any automatic default value for this.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The compatibility mode of the schema. The possible values are:
     --
     -- -   /NONE/: No compatibility mode applies. You can use this choice in
@@ -138,12 +135,15 @@ data CreateSchema = CreateSchema'
     --     can use this choice when you need to add or remove optional fields,
     --     and check compatibility against all previous schema versions.
     compatibility :: Prelude.Maybe Compatibility,
+    -- | An optional description of the schema. If description is not provided,
+    -- there will not be any automatic default value for this.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Name of the schema to be created of max length of 255, and may only
     -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
     -- No whitespace.
     schemaName :: Prelude.Text,
-    -- | The data format of the schema definition. Currently only @AVRO@ is
-    -- supported.
+    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+    -- are supported.
     dataFormat :: DataFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -163,12 +163,9 @@ data CreateSchema = CreateSchema'
 -- the same will be:
 -- @arn:aws:glue:us-east-2:\<customer id>:registry\/default-registry:random-5-letter-id@.
 --
--- 'tags', 'createSchema_tags' - AWS tags that contain a key value pair and may be searched by console,
--- command line, or API. If specified, follows the AWS tags-on-create
--- pattern.
---
--- 'description', 'createSchema_description' - An optional description of the schema. If description is not provided,
--- there will not be any automatic default value for this.
+-- 'tags', 'createSchema_tags' - Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API. If specified, follows the
+-- Amazon Web Services tags-on-create pattern.
 --
 -- 'compatibility', 'createSchema_compatibility' - The compatibility mode of the schema. The possible values are:
 --
@@ -214,12 +211,15 @@ data CreateSchema = CreateSchema'
 --     can use this choice when you need to add or remove optional fields,
 --     and check compatibility against all previous schema versions.
 --
+-- 'description', 'createSchema_description' - An optional description of the schema. If description is not provided,
+-- there will not be any automatic default value for this.
+--
 -- 'schemaName', 'createSchema_schemaName' - Name of the schema to be created of max length of 255, and may only
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 -- No whitespace.
 --
--- 'dataFormat', 'createSchema_dataFormat' - The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- 'dataFormat', 'createSchema_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 newCreateSchema ::
   -- | 'schemaName'
   Prelude.Text ->
@@ -231,8 +231,8 @@ newCreateSchema pSchemaName_ pDataFormat_ =
     { schemaDefinition = Prelude.Nothing,
       registryId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      description = Prelude.Nothing,
       compatibility = Prelude.Nothing,
+      description = Prelude.Nothing,
       schemaName = pSchemaName_,
       dataFormat = pDataFormat_
     }
@@ -248,16 +248,11 @@ createSchema_schemaDefinition = Lens.lens (\CreateSchema' {schemaDefinition} -> 
 createSchema_registryId :: Lens.Lens' CreateSchema (Prelude.Maybe RegistryId)
 createSchema_registryId = Lens.lens (\CreateSchema' {registryId} -> registryId) (\s@CreateSchema' {} a -> s {registryId = a} :: CreateSchema)
 
--- | AWS tags that contain a key value pair and may be searched by console,
--- command line, or API. If specified, follows the AWS tags-on-create
--- pattern.
+-- | Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API. If specified, follows the
+-- Amazon Web Services tags-on-create pattern.
 createSchema_tags :: Lens.Lens' CreateSchema (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSchema_tags = Lens.lens (\CreateSchema' {tags} -> tags) (\s@CreateSchema' {} a -> s {tags = a} :: CreateSchema) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional description of the schema. If description is not provided,
--- there will not be any automatic default value for this.
-createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
-createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
 
 -- | The compatibility mode of the schema. The possible values are:
 --
@@ -305,14 +300,19 @@ createSchema_description = Lens.lens (\CreateSchema' {description} -> descriptio
 createSchema_compatibility :: Lens.Lens' CreateSchema (Prelude.Maybe Compatibility)
 createSchema_compatibility = Lens.lens (\CreateSchema' {compatibility} -> compatibility) (\s@CreateSchema' {} a -> s {compatibility = a} :: CreateSchema)
 
+-- | An optional description of the schema. If description is not provided,
+-- there will not be any automatic default value for this.
+createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
+createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
+
 -- | Name of the schema to be created of max length of 255, and may only
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 -- No whitespace.
 createSchema_schemaName :: Lens.Lens' CreateSchema Prelude.Text
 createSchema_schemaName = Lens.lens (\CreateSchema' {schemaName} -> schemaName) (\s@CreateSchema' {} a -> s {schemaName = a} :: CreateSchema)
 
--- | The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 createSchema_dataFormat :: Lens.Lens' CreateSchema DataFormat
 createSchema_dataFormat = Lens.lens (\CreateSchema' {dataFormat} -> dataFormat) (\s@CreateSchema' {} a -> s {dataFormat = a} :: CreateSchema)
 
@@ -331,9 +331,9 @@ instance Core.AWSRequest CreateSchema where
             Prelude.<*> (x Core..?> "RegistryName")
             Prelude.<*> (x Core..?> "SchemaVersionStatus")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "Compatibility")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "SchemaName")
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (x Core..?> "LatestSchemaVersion")
             Prelude.<*> (x Core..?> "SchemaStatus")
@@ -365,8 +365,8 @@ instance Core.ToJSON CreateSchema where
               Prelude.<$> schemaDefinition,
             ("RegistryId" Core..=) Prelude.<$> registryId,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
             ("Compatibility" Core..=) Prelude.<$> compatibility,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("SchemaName" Core..= schemaName),
             Prelude.Just ("DataFormat" Core..= dataFormat)
           ]
@@ -390,8 +390,8 @@ data CreateSchemaResponse = CreateSchemaResponse'
     -- | The version number of the checkpoint (the last time the compatibility
     -- mode was changed).
     schemaCheckpoint :: Prelude.Maybe Prelude.Natural,
-    -- | The data format of the schema definition. Currently only @AVRO@ is
-    -- supported.
+    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+    -- are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
@@ -399,12 +399,12 @@ data CreateSchemaResponse = CreateSchemaResponse'
     schemaVersionStatus :: Prelude.Maybe SchemaVersionStatus,
     -- | The tags for the schema.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the schema if specified when created.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The schema compatibility mode.
     compatibility :: Prelude.Maybe Compatibility,
+    -- | A description of the schema if specified when created.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry.
     registryArn :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the schema associated with the returned schema
@@ -435,8 +435,8 @@ data CreateSchemaResponse = CreateSchemaResponse'
 -- 'schemaCheckpoint', 'createSchemaResponse_schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility
 -- mode was changed).
 --
--- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- 'dataFormat', 'createSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 --
 -- 'registryName', 'createSchemaResponse_registryName' - The name of the registry.
 --
@@ -444,11 +444,11 @@ data CreateSchemaResponse = CreateSchemaResponse'
 --
 -- 'tags', 'createSchemaResponse_tags' - The tags for the schema.
 --
--- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
+-- 'compatibility', 'createSchemaResponse_compatibility' - The schema compatibility mode.
 --
 -- 'description', 'createSchemaResponse_description' - A description of the schema if specified when created.
 --
--- 'compatibility', 'createSchemaResponse_compatibility' - The schema compatibility mode.
+-- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
 --
 -- 'registryArn', 'createSchemaResponse_registryArn' - The Amazon Resource Name (ARN) of the registry.
 --
@@ -472,9 +472,9 @@ newCreateSchemaResponse pHttpStatus_ =
       registryName = Prelude.Nothing,
       schemaVersionStatus = Prelude.Nothing,
       tags = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
-      description = Prelude.Nothing,
       compatibility = Prelude.Nothing,
+      description = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       registryArn = Prelude.Nothing,
       latestSchemaVersion = Prelude.Nothing,
       schemaStatus = Prelude.Nothing,
@@ -499,8 +499,8 @@ createSchemaResponse_schemaVersionId = Lens.lens (\CreateSchemaResponse' {schema
 createSchemaResponse_schemaCheckpoint :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Natural)
 createSchemaResponse_schemaCheckpoint = Lens.lens (\CreateSchemaResponse' {schemaCheckpoint} -> schemaCheckpoint) (\s@CreateSchemaResponse' {} a -> s {schemaCheckpoint = a} :: CreateSchemaResponse)
 
--- | The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 createSchemaResponse_dataFormat :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe DataFormat)
 createSchemaResponse_dataFormat = Lens.lens (\CreateSchemaResponse' {dataFormat} -> dataFormat) (\s@CreateSchemaResponse' {} a -> s {dataFormat = a} :: CreateSchemaResponse)
 
@@ -516,17 +516,17 @@ createSchemaResponse_schemaVersionStatus = Lens.lens (\CreateSchemaResponse' {sc
 createSchemaResponse_tags :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\s@CreateSchemaResponse' {} a -> s {tags = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the schema.
-createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
+-- | The schema compatibility mode.
+createSchemaResponse_compatibility :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Compatibility)
+createSchemaResponse_compatibility = Lens.lens (\CreateSchemaResponse' {compatibility} -> compatibility) (\s@CreateSchemaResponse' {} a -> s {compatibility = a} :: CreateSchemaResponse)
 
 -- | A description of the schema if specified when created.
 createSchemaResponse_description :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
 createSchemaResponse_description = Lens.lens (\CreateSchemaResponse' {description} -> description) (\s@CreateSchemaResponse' {} a -> s {description = a} :: CreateSchemaResponse)
 
--- | The schema compatibility mode.
-createSchemaResponse_compatibility :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Compatibility)
-createSchemaResponse_compatibility = Lens.lens (\CreateSchemaResponse' {compatibility} -> compatibility) (\s@CreateSchemaResponse' {} a -> s {compatibility = a} :: CreateSchemaResponse)
+-- | The name of the schema.
+createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
 
 -- | The Amazon Resource Name (ARN) of the registry.
 createSchemaResponse_registryArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)

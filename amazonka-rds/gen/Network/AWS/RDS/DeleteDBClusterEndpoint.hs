@@ -37,8 +37,8 @@ module Network.AWS.RDS.DeleteDBClusterEndpoint
     newDBClusterEndpoint,
 
     -- * Response Lenses
-    dbClusterEndpoint_dbClusterEndpointIdentifier,
     dbClusterEndpoint_status,
+    dbClusterEndpoint_dbClusterEndpointIdentifier,
     dbClusterEndpoint_excludedMembers,
     dbClusterEndpoint_endpointType,
     dbClusterEndpoint_customEndpointType,

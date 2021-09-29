@@ -83,9 +83,9 @@ data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
     -- returns up to  100 results and a @nextToken@ value, if  applicable. This
     -- option cannot be used when you specify images with @imageIds@.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that filters results based on image tag status and
     -- all tags, if tagged.
@@ -124,9 +124,9 @@ data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
 -- returns up to  100 results and a @nextToken@ value, if  applicable. This
 -- option cannot be used when you specify images with @imageIds@.
 --
--- 'registryId', 'getLifecyclePolicyPreview_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'getLifecyclePolicyPreview_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'filter'', 'getLifecyclePolicyPreview_filter' - An optional parameter that filters results based on image tag status and
 -- all tags, if tagged.
@@ -174,9 +174,9 @@ getLifecyclePolicyPreview_imageIds = Lens.lens (\GetLifecyclePolicyPreview' {ima
 getLifecyclePolicyPreview_maxResults :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe Prelude.Natural)
 getLifecyclePolicyPreview_maxResults = Lens.lens (\GetLifecyclePolicyPreview' {maxResults} -> maxResults) (\s@GetLifecyclePolicyPreview' {} a -> s {maxResults = a} :: GetLifecyclePolicyPreview)
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 getLifecyclePolicyPreview_registryId :: Lens.Lens' GetLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyPreview_registryId = Lens.lens (\GetLifecyclePolicyPreview' {registryId} -> registryId) (\s@GetLifecyclePolicyPreview' {} a -> s {registryId = a} :: GetLifecyclePolicyPreview)
 

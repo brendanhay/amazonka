@@ -66,7 +66,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketPolicyStatus' smart constructor.
 data GetBucketPolicyStatus = GetBucketPolicyStatus'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data GetBucketPolicyStatus = GetBucketPolicyStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketPolicyStatus_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketPolicyStatus_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -101,7 +101,7 @@ newGetBucketPolicyStatus pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketPolicyStatus_expectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Prelude.Maybe Prelude.Text)

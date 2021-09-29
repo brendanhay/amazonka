@@ -40,10 +40,10 @@ data Usage = Usage'
     -- of the format @[used quota, remaining quota]@.
     items :: Prelude.Maybe (Prelude.HashMap Prelude.Text [[Prelude.Integer]]),
     position :: Prelude.Maybe Prelude.Text,
-    -- | The plan Id associated with this usage data.
-    usagePlanId :: Prelude.Maybe Prelude.Text,
     -- | The ending date of the usage data.
-    endDate :: Prelude.Maybe Prelude.Text
+    endDate :: Prelude.Maybe Prelude.Text,
+    -- | The plan Id associated with this usage data.
+    usagePlanId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,9 @@ data Usage = Usage'
 --
 -- 'position', 'usage_position' - Undocumented member.
 --
--- 'usagePlanId', 'usage_usagePlanId' - The plan Id associated with this usage data.
---
 -- 'endDate', 'usage_endDate' - The ending date of the usage data.
+--
+-- 'usagePlanId', 'usage_usagePlanId' - The plan Id associated with this usage data.
 newUsage ::
   Usage
 newUsage =
@@ -76,8 +76,8 @@ newUsage =
     { startDate = Prelude.Nothing,
       items = Prelude.Nothing,
       position = Prelude.Nothing,
-      usagePlanId = Prelude.Nothing,
-      endDate = Prelude.Nothing
+      endDate = Prelude.Nothing,
+      usagePlanId = Prelude.Nothing
     }
 
 -- | The starting date of the usage data.
@@ -97,13 +97,13 @@ usage_items = Lens.lens (\Usage' {items} -> items) (\s@Usage' {} a -> s {items =
 usage_position :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_position = Lens.lens (\Usage' {position} -> position) (\s@Usage' {} a -> s {position = a} :: Usage)
 
--- | The plan Id associated with this usage data.
-usage_usagePlanId :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
-usage_usagePlanId = Lens.lens (\Usage' {usagePlanId} -> usagePlanId) (\s@Usage' {} a -> s {usagePlanId = a} :: Usage)
-
 -- | The ending date of the usage data.
 usage_endDate :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_endDate = Lens.lens (\Usage' {endDate} -> endDate) (\s@Usage' {} a -> s {endDate = a} :: Usage)
+
+-- | The plan Id associated with this usage data.
+usage_usagePlanId :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
+usage_usagePlanId = Lens.lens (\Usage' {usagePlanId} -> usagePlanId) (\s@Usage' {} a -> s {usagePlanId = a} :: Usage)
 
 instance Core.FromJSON Usage where
   parseJSON =
@@ -114,8 +114,8 @@ instance Core.FromJSON Usage where
             Prelude.<$> (x Core..:? "startDate")
             Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "position")
-            Prelude.<*> (x Core..:? "usagePlanId")
             Prelude.<*> (x Core..:? "endDate")
+            Prelude.<*> (x Core..:? "usagePlanId")
       )
 
 instance Prelude.Hashable Usage

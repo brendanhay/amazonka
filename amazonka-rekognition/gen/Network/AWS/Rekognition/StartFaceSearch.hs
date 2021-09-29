@@ -66,7 +66,10 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartFaceSearch' smart constructor.
 data StartFaceSearch = StartFaceSearch'
   { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
-    -- Video to publish the completion status of the search.
+    -- Video to publish the completion status of the search. The Amazon SNS
+    -- topic must have a topic name that begins with /AmazonRekognition/ if you
+    -- are using the AmazonRekognitionServiceRole permissions policy to access
+    -- the topic.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
@@ -99,7 +102,10 @@ data StartFaceSearch = StartFaceSearch'
 -- for backwards compatibility:
 --
 -- 'notificationChannel', 'startFaceSearch_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
--- Video to publish the completion status of the search.
+-- Video to publish the completion status of the search. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
 --
 -- 'clientRequestToken', 'startFaceSearch_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
@@ -137,7 +143,10 @@ newStartFaceSearch pVideo_ pCollectionId_ =
     }
 
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
--- Video to publish the completion status of the search.
+-- Video to publish the completion status of the search. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
 startFaceSearch_notificationChannel :: Lens.Lens' StartFaceSearch (Prelude.Maybe NotificationChannel)
 startFaceSearch_notificationChannel = Lens.lens (\StartFaceSearch' {notificationChannel} -> notificationChannel) (\s@StartFaceSearch' {} a -> s {notificationChannel = a} :: StartFaceSearch)
 

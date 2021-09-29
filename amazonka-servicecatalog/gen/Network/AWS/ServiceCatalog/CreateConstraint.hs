@@ -43,8 +43,8 @@ module Network.AWS.ServiceCatalog.CreateConstraint
 
     -- * Response Lenses
     createConstraintResponse_constraintParameters,
-    createConstraintResponse_status,
     createConstraintResponse_constraintDetail,
+    createConstraintResponse_status,
     createConstraintResponse_httpStatus,
   )
 where
@@ -390,8 +390,8 @@ instance Core.AWSRequest CreateConstraint where
       ( \s h x ->
           CreateConstraintResponse'
             Prelude.<$> (x Core..?> "ConstraintParameters")
-            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ConstraintDetail")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -440,10 +440,10 @@ instance Core.ToQuery CreateConstraint where
 data CreateConstraintResponse = CreateConstraintResponse'
   { -- | The constraint parameters.
     constraintParameters :: Prelude.Maybe Prelude.Text,
-    -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
     -- | Information about the constraint.
     constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -459,9 +459,9 @@ data CreateConstraintResponse = CreateConstraintResponse'
 --
 -- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.
 --
--- 'status', 'createConstraintResponse_status' - The status of the current request.
---
 -- 'constraintDetail', 'createConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'status', 'createConstraintResponse_status' - The status of the current request.
 --
 -- 'httpStatus', 'createConstraintResponse_httpStatus' - The response's http status code.
 newCreateConstraintResponse ::
@@ -472,8 +472,8 @@ newCreateConstraintResponse pHttpStatus_ =
   CreateConstraintResponse'
     { constraintParameters =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       constraintDetail = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -481,13 +481,13 @@ newCreateConstraintResponse pHttpStatus_ =
 createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
 createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@CreateConstraintResponse' {} a -> s {constraintParameters = a} :: CreateConstraintResponse)
 
--- | The status of the current request.
-createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
-createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
-
 -- | Information about the constraint.
 createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe ConstraintDetail)
 createConstraintResponse_constraintDetail = Lens.lens (\CreateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@CreateConstraintResponse' {} a -> s {constraintDetail = a} :: CreateConstraintResponse)
+
+-- | The status of the current request.
+createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
+createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
 
 -- | The response's http status code.
 createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Prelude.Int

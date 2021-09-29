@@ -48,8 +48,8 @@ module Network.AWS.MigrationHub.ListCreatedArtifacts
     newListCreatedArtifactsResponse,
 
     -- * Response Lenses
-    listCreatedArtifactsResponse_nextToken,
     listCreatedArtifactsResponse_createdArtifactList,
+    listCreatedArtifactsResponse_nextToken,
     listCreatedArtifactsResponse_httpStatus,
   )
 where
@@ -161,10 +161,10 @@ instance Core.AWSRequest ListCreatedArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListCreatedArtifactsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CreatedArtifactList"
+            Prelude.<$> ( x Core..?> "CreatedArtifactList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,13 +210,13 @@ instance Core.ToQuery ListCreatedArtifacts where
 
 -- | /See:/ 'newListCreatedArtifactsResponse' smart constructor.
 data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
-  { -- | If there are more created artifacts than the max result, return the next
+  { -- | List of created artifacts up to the maximum number of results specified
+    -- in the request.
+    createdArtifactList :: Prelude.Maybe [CreatedArtifact],
+    -- | If there are more created artifacts than the max result, return the next
     -- token to be passed to the next call as a bookmark of where to start
     -- from.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of created artifacts up to the maximum number of results specified
-    -- in the request.
-    createdArtifactList :: Prelude.Maybe [CreatedArtifact],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,12 +230,12 @@ data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdArtifactList', 'listCreatedArtifactsResponse_createdArtifactList' - List of created artifacts up to the maximum number of results specified
+-- in the request.
+--
 -- 'nextToken', 'listCreatedArtifactsResponse_nextToken' - If there are more created artifacts than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
---
--- 'createdArtifactList', 'listCreatedArtifactsResponse_createdArtifactList' - List of created artifacts up to the maximum number of results specified
--- in the request.
 --
 -- 'httpStatus', 'listCreatedArtifactsResponse_httpStatus' - The response's http status code.
 newListCreatedArtifactsResponse ::
@@ -244,22 +244,22 @@ newListCreatedArtifactsResponse ::
   ListCreatedArtifactsResponse
 newListCreatedArtifactsResponse pHttpStatus_ =
   ListCreatedArtifactsResponse'
-    { nextToken =
+    { createdArtifactList =
         Prelude.Nothing,
-      createdArtifactList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of created artifacts up to the maximum number of results specified
+-- in the request.
+listCreatedArtifactsResponse_createdArtifactList :: Lens.Lens' ListCreatedArtifactsResponse (Prelude.Maybe [CreatedArtifact])
+listCreatedArtifactsResponse_createdArtifactList = Lens.lens (\ListCreatedArtifactsResponse' {createdArtifactList} -> createdArtifactList) (\s@ListCreatedArtifactsResponse' {} a -> s {createdArtifactList = a} :: ListCreatedArtifactsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are more created artifacts than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
 listCreatedArtifactsResponse_nextToken :: Lens.Lens' ListCreatedArtifactsResponse (Prelude.Maybe Prelude.Text)
 listCreatedArtifactsResponse_nextToken = Lens.lens (\ListCreatedArtifactsResponse' {nextToken} -> nextToken) (\s@ListCreatedArtifactsResponse' {} a -> s {nextToken = a} :: ListCreatedArtifactsResponse)
-
--- | List of created artifacts up to the maximum number of results specified
--- in the request.
-listCreatedArtifactsResponse_createdArtifactList :: Lens.Lens' ListCreatedArtifactsResponse (Prelude.Maybe [CreatedArtifact])
-listCreatedArtifactsResponse_createdArtifactList = Lens.lens (\ListCreatedArtifactsResponse' {createdArtifactList} -> createdArtifactList) (\s@ListCreatedArtifactsResponse' {} a -> s {createdArtifactList = a} :: ListCreatedArtifactsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listCreatedArtifactsResponse_httpStatus :: Lens.Lens' ListCreatedArtifactsResponse Prelude.Int

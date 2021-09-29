@@ -11,16 +11,15 @@
 --
 -- Derived from API version @2012-10-25@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Direct Connect links your internal network to an AWS Direct Connect
--- location over a standard Ethernet fiber-optic cable. One end of the
--- cable is connected to your router, the other to an AWS Direct Connect
--- router. With this connection in place, you can create virtual interfaces
--- directly to the AWS cloud (for example, to Amazon EC2 and Amazon S3) and
--- to Amazon VPC, bypassing Internet service providers in your network
--- path. A connection provides access to all AWS Regions except the China
--- (Beijing) and (China) Ningxia Regions. AWS resources in the China
--- Regions can only be accessed through locations associated with those
--- Regions.
+-- Direct Connect links your internal network to an Direct Connect location
+-- over a standard Ethernet fiber-optic cable. One end of the cable is
+-- connected to your router, the other to an Direct Connect router. With
+-- this connection in place, you can create virtual interfaces directly to
+-- the Cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon VPC,
+-- bypassing Internet service providers in your network path. A connection
+-- provides access to all Regions except the China (Beijing) and (China)
+-- Ningxia Regions. Amazon Web Services resources in the China Regions can
+-- only be accessed through locations associated with those Regions.
 module Network.AWS.DirectConnect
   ( -- * Service Configuration
     defaultService,
@@ -28,11 +27,11 @@ module Network.AWS.DirectConnect
     -- * Errors
     -- $errors
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
     -- ** DirectConnectServerException
     _DirectConnectServerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** DuplicateTagKeysException
     _DuplicateTagKeysException,
@@ -46,11 +45,11 @@ module Network.AWS.DirectConnect
     -- * Operations
     -- $operations
 
-    -- ** ConfirmPublicVirtualInterface
-    ConfirmPublicVirtualInterface (ConfirmPublicVirtualInterface'),
-    newConfirmPublicVirtualInterface,
-    ConfirmPublicVirtualInterfaceResponse (ConfirmPublicVirtualInterfaceResponse'),
-    newConfirmPublicVirtualInterfaceResponse,
+    -- ** UpdateConnection
+    UpdateConnection (UpdateConnection'),
+    newUpdateConnection,
+    Connection (Connection'),
+    newConnection,
 
     -- ** StartBgpFailoverTest
     StartBgpFailoverTest (StartBgpFailoverTest'),
@@ -58,17 +57,17 @@ module Network.AWS.DirectConnect
     StartBgpFailoverTestResponse (StartBgpFailoverTestResponse'),
     newStartBgpFailoverTestResponse,
 
-    -- ** DeleteConnection
-    DeleteConnection (DeleteConnection'),
-    newDeleteConnection,
-    Connection (Connection'),
-    newConnection,
-
     -- ** DeleteDirectConnectGatewayAssociationProposal
     DeleteDirectConnectGatewayAssociationProposal (DeleteDirectConnectGatewayAssociationProposal'),
     newDeleteDirectConnectGatewayAssociationProposal,
     DeleteDirectConnectGatewayAssociationProposalResponse (DeleteDirectConnectGatewayAssociationProposalResponse'),
     newDeleteDirectConnectGatewayAssociationProposalResponse,
+
+    -- ** DescribeVirtualGateways
+    DescribeVirtualGateways (DescribeVirtualGateways'),
+    newDescribeVirtualGateways,
+    DescribeVirtualGatewaysResponse (DescribeVirtualGatewaysResponse'),
+    newDescribeVirtualGatewaysResponse,
 
     -- ** StopBgpFailoverTest
     StopBgpFailoverTest (StopBgpFailoverTest'),
@@ -76,11 +75,17 @@ module Network.AWS.DirectConnect
     StopBgpFailoverTestResponse (StopBgpFailoverTestResponse'),
     newStopBgpFailoverTestResponse,
 
-    -- ** DescribeVirtualGateways
-    DescribeVirtualGateways (DescribeVirtualGateways'),
-    newDescribeVirtualGateways,
-    DescribeVirtualGatewaysResponse (DescribeVirtualGatewaysResponse'),
-    newDescribeVirtualGatewaysResponse,
+    -- ** DeleteConnection
+    DeleteConnection (DeleteConnection'),
+    newDeleteConnection,
+    Connection (Connection'),
+    newConnection,
+
+    -- ** ConfirmPublicVirtualInterface
+    ConfirmPublicVirtualInterface (ConfirmPublicVirtualInterface'),
+    newConfirmPublicVirtualInterface,
+    ConfirmPublicVirtualInterfaceResponse (ConfirmPublicVirtualInterfaceResponse'),
+    newConfirmPublicVirtualInterfaceResponse,
 
     -- ** AllocatePrivateVirtualInterface
     AllocatePrivateVirtualInterface (AllocatePrivateVirtualInterface'),
@@ -112,17 +117,23 @@ module Network.AWS.DirectConnect
     DescribeDirectConnectGatewayAttachmentsResponse (DescribeDirectConnectGatewayAttachmentsResponse'),
     newDescribeDirectConnectGatewayAttachmentsResponse,
 
-    -- ** DescribeHostedConnections
-    DescribeHostedConnections (DescribeHostedConnections'),
-    newDescribeHostedConnections,
-    Connections (Connections'),
-    newConnections,
-
     -- ** CreatePublicVirtualInterface
     CreatePublicVirtualInterface (CreatePublicVirtualInterface'),
     newCreatePublicVirtualInterface,
     VirtualInterface (VirtualInterface'),
     newVirtualInterface,
+
+    -- ** AssociateMacSecKey
+    AssociateMacSecKey (AssociateMacSecKey'),
+    newAssociateMacSecKey,
+    AssociateMacSecKeyResponse (AssociateMacSecKeyResponse'),
+    newAssociateMacSecKeyResponse,
+
+    -- ** DescribeHostedConnections
+    DescribeHostedConnections (DescribeHostedConnections'),
+    newDescribeHostedConnections,
+    Connections (Connections'),
+    newConnections,
 
     -- ** AcceptDirectConnectGatewayAssociationProposal
     AcceptDirectConnectGatewayAssociationProposal (AcceptDirectConnectGatewayAssociationProposal'),
@@ -130,27 +141,21 @@ module Network.AWS.DirectConnect
     AcceptDirectConnectGatewayAssociationProposalResponse (AcceptDirectConnectGatewayAssociationProposalResponse'),
     newAcceptDirectConnectGatewayAssociationProposalResponse,
 
-    -- ** CreateDirectConnectGatewayAssociation
-    CreateDirectConnectGatewayAssociation (CreateDirectConnectGatewayAssociation'),
-    newCreateDirectConnectGatewayAssociation,
-    CreateDirectConnectGatewayAssociationResponse (CreateDirectConnectGatewayAssociationResponse'),
-    newCreateDirectConnectGatewayAssociationResponse,
-
     -- ** CreateInterconnect
     CreateInterconnect (CreateInterconnect'),
     newCreateInterconnect,
     Interconnect (Interconnect'),
     newInterconnect,
 
-    -- ** ConfirmPrivateVirtualInterface
-    ConfirmPrivateVirtualInterface (ConfirmPrivateVirtualInterface'),
-    newConfirmPrivateVirtualInterface,
-    ConfirmPrivateVirtualInterfaceResponse (ConfirmPrivateVirtualInterfaceResponse'),
-    newConfirmPrivateVirtualInterfaceResponse,
+    -- ** CreateDirectConnectGatewayAssociation
+    CreateDirectConnectGatewayAssociation (CreateDirectConnectGatewayAssociation'),
+    newCreateDirectConnectGatewayAssociation,
+    CreateDirectConnectGatewayAssociationResponse (CreateDirectConnectGatewayAssociationResponse'),
+    newCreateDirectConnectGatewayAssociationResponse,
 
-    -- ** UpdateLag
-    UpdateLag (UpdateLag'),
-    newUpdateLag,
+    -- ** DeleteLag
+    DeleteLag (DeleteLag'),
+    newDeleteLag,
     Lag (Lag'),
     newLag,
 
@@ -159,12 +164,6 @@ module Network.AWS.DirectConnect
     newDeleteInterconnect,
     DeleteInterconnectResponse (DeleteInterconnectResponse'),
     newDeleteInterconnectResponse,
-
-    -- ** DeleteLag
-    DeleteLag (DeleteLag'),
-    newDeleteLag,
-    Lag (Lag'),
-    newLag,
 
     -- ** AssociateHostedConnection
     AssociateHostedConnection (AssociateHostedConnection'),
@@ -178,11 +177,23 @@ module Network.AWS.DirectConnect
     CreateBGPPeerResponse (CreateBGPPeerResponse'),
     newCreateBGPPeerResponse,
 
+    -- ** UpdateLag
+    UpdateLag (UpdateLag'),
+    newUpdateLag,
+    Lag (Lag'),
+    newLag,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** ConfirmPrivateVirtualInterface
+    ConfirmPrivateVirtualInterface (ConfirmPrivateVirtualInterface'),
+    newConfirmPrivateVirtualInterface,
+    ConfirmPrivateVirtualInterfaceResponse (ConfirmPrivateVirtualInterfaceResponse'),
+    newConfirmPrivateVirtualInterfaceResponse,
 
     -- ** DisassociateConnectionFromLag
     DisassociateConnectionFromLag (DisassociateConnectionFromLag'),
@@ -208,17 +219,17 @@ module Network.AWS.DirectConnect
     DescribeDirectConnectGatewaysResponse (DescribeDirectConnectGatewaysResponse'),
     newDescribeDirectConnectGatewaysResponse,
 
+    -- ** DescribeVirtualInterfaces
+    DescribeVirtualInterfaces (DescribeVirtualInterfaces'),
+    newDescribeVirtualInterfaces,
+    DescribeVirtualInterfacesResponse (DescribeVirtualInterfacesResponse'),
+    newDescribeVirtualInterfacesResponse,
+
     -- ** UpdateVirtualInterfaceAttributes
     UpdateVirtualInterfaceAttributes (UpdateVirtualInterfaceAttributes'),
     newUpdateVirtualInterfaceAttributes,
     VirtualInterface (VirtualInterface'),
     newVirtualInterface,
-
-    -- ** AssociateConnectionWithLag
-    AssociateConnectionWithLag (AssociateConnectionWithLag'),
-    newAssociateConnectionWithLag,
-    Connection (Connection'),
-    newConnection,
 
     -- ** CreateConnection
     CreateConnection (CreateConnection'),
@@ -226,11 +237,11 @@ module Network.AWS.DirectConnect
     Connection (Connection'),
     newConnection,
 
-    -- ** DescribeVirtualInterfaces
-    DescribeVirtualInterfaces (DescribeVirtualInterfaces'),
-    newDescribeVirtualInterfaces,
-    DescribeVirtualInterfacesResponse (DescribeVirtualInterfacesResponse'),
-    newDescribeVirtualInterfacesResponse,
+    -- ** AssociateConnectionWithLag
+    AssociateConnectionWithLag (AssociateConnectionWithLag'),
+    newAssociateConnectionWithLag,
+    Connection (Connection'),
+    newConnection,
 
     -- ** ListVirtualInterfaceTestHistory
     ListVirtualInterfaceTestHistory (ListVirtualInterfaceTestHistory'),
@@ -238,17 +249,23 @@ module Network.AWS.DirectConnect
     ListVirtualInterfaceTestHistoryResponse (ListVirtualInterfaceTestHistoryResponse'),
     newListVirtualInterfaceTestHistoryResponse,
 
-    -- ** CreateTransitVirtualInterface
-    CreateTransitVirtualInterface (CreateTransitVirtualInterface'),
-    newCreateTransitVirtualInterface,
-    CreateTransitVirtualInterfaceResponse (CreateTransitVirtualInterfaceResponse'),
-    newCreateTransitVirtualInterfaceResponse,
+    -- ** DisassociateMacSecKey
+    DisassociateMacSecKey (DisassociateMacSecKey'),
+    newDisassociateMacSecKey,
+    DisassociateMacSecKeyResponse (DisassociateMacSecKeyResponse'),
+    newDisassociateMacSecKeyResponse,
 
     -- ** DescribeLoa
     DescribeLoa (DescribeLoa'),
     newDescribeLoa,
     DescribeLoaResponse (DescribeLoaResponse'),
     newDescribeLoaResponse,
+
+    -- ** CreateTransitVirtualInterface
+    CreateTransitVirtualInterface (CreateTransitVirtualInterface'),
+    newCreateTransitVirtualInterface,
+    CreateTransitVirtualInterfaceResponse (CreateTransitVirtualInterfaceResponse'),
+    newCreateTransitVirtualInterfaceResponse,
 
     -- ** CreateDirectConnectGateway
     CreateDirectConnectGateway (CreateDirectConnectGateway'),
@@ -292,12 +309,6 @@ module Network.AWS.DirectConnect
     AllocateTransitVirtualInterfaceResponse (AllocateTransitVirtualInterfaceResponse'),
     newAllocateTransitVirtualInterfaceResponse,
 
-    -- ** DescribeLocations
-    DescribeLocations (DescribeLocations'),
-    newDescribeLocations,
-    DescribeLocationsResponse (DescribeLocationsResponse'),
-    newDescribeLocationsResponse,
-
     -- ** DeleteDirectConnectGatewayAssociation
     DeleteDirectConnectGatewayAssociation (DeleteDirectConnectGatewayAssociation'),
     newDeleteDirectConnectGatewayAssociation,
@@ -310,17 +321,23 @@ module Network.AWS.DirectConnect
     UpdateDirectConnectGatewayAssociationResponse (UpdateDirectConnectGatewayAssociationResponse'),
     newUpdateDirectConnectGatewayAssociationResponse,
 
-    -- ** AllocatePublicVirtualInterface
-    AllocatePublicVirtualInterface (AllocatePublicVirtualInterface'),
-    newAllocatePublicVirtualInterface,
-    VirtualInterface (VirtualInterface'),
-    newVirtualInterface,
+    -- ** DescribeLocations
+    DescribeLocations (DescribeLocations'),
+    newDescribeLocations,
+    DescribeLocationsResponse (DescribeLocationsResponse'),
+    newDescribeLocationsResponse,
 
     -- ** DescribeConnections
     DescribeConnections (DescribeConnections'),
     newDescribeConnections,
     Connections (Connections'),
     newConnections,
+
+    -- ** AllocatePublicVirtualInterface
+    AllocatePublicVirtualInterface (AllocatePublicVirtualInterface'),
+    newAllocatePublicVirtualInterface,
+    VirtualInterface (VirtualInterface'),
+    newVirtualInterface,
 
     -- ** AssociateVirtualInterface
     AssociateVirtualInterface (AssociateVirtualInterface'),
@@ -340,12 +357,6 @@ module Network.AWS.DirectConnect
     VirtualInterface (VirtualInterface'),
     newVirtualInterface,
 
-    -- ** AllocateHostedConnection
-    AllocateHostedConnection (AllocateHostedConnection'),
-    newAllocateHostedConnection,
-    Connection (Connection'),
-    newConnection,
-
     -- ** CreateDirectConnectGatewayAssociationProposal
     CreateDirectConnectGatewayAssociationProposal (CreateDirectConnectGatewayAssociationProposal'),
     newCreateDirectConnectGatewayAssociationProposal,
@@ -357,6 +368,12 @@ module Network.AWS.DirectConnect
     newDeleteDirectConnectGateway,
     DeleteDirectConnectGatewayResponse (DeleteDirectConnectGatewayResponse'),
     newDeleteDirectConnectGatewayResponse,
+
+    -- ** AllocateHostedConnection
+    AllocateHostedConnection (AllocateHostedConnection'),
+    newAllocateHostedConnection,
+    Connection (Connection'),
+    newConnection,
 
     -- * Types
 
@@ -449,6 +466,10 @@ module Network.AWS.DirectConnect
     Location (Location'),
     newLocation,
 
+    -- ** MacSecKey
+    MacSecKey (MacSecKey'),
+    newMacSecKey,
+
     -- ** NewBGPPeer
     NewBGPPeer (NewBGPPeer'),
     newNewBGPPeer,
@@ -510,6 +531,7 @@ import Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 import Network.AWS.DirectConnect.AllocateTransitVirtualInterface
 import Network.AWS.DirectConnect.AssociateConnectionWithLag
 import Network.AWS.DirectConnect.AssociateHostedConnection
+import Network.AWS.DirectConnect.AssociateMacSecKey
 import Network.AWS.DirectConnect.AssociateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmConnection
 import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
@@ -547,6 +569,7 @@ import Network.AWS.DirectConnect.DescribeTags
 import Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.DirectConnect.DescribeVirtualInterfaces
 import Network.AWS.DirectConnect.DisassociateConnectionFromLag
+import Network.AWS.DirectConnect.DisassociateMacSecKey
 import Network.AWS.DirectConnect.Lens
 import Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
 import Network.AWS.DirectConnect.StartBgpFailoverTest
@@ -554,6 +577,7 @@ import Network.AWS.DirectConnect.StopBgpFailoverTest
 import Network.AWS.DirectConnect.TagResource
 import Network.AWS.DirectConnect.Types
 import Network.AWS.DirectConnect.UntagResource
+import Network.AWS.DirectConnect.UpdateConnection
 import Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.UpdateLag
 import Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes

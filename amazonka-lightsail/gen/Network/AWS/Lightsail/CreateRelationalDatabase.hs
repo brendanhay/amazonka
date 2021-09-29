@@ -24,7 +24,7 @@
 --
 -- The @create relational database@ operation supports tag-based access
 -- control via request tags. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateRelationalDatabase
   ( -- * Creating a Request
     CreateRelationalDatabase (..),
@@ -84,10 +84,17 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | The password for the master user of your new database. The password can
-    -- include any printable ASCII character except \"\/\", \"\"\", or \"\@\".
+    -- | The password for the master user. The password can include any printable
+    -- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+    -- spaces.
     --
-    -- Constraints: Must contain 8 to 41 characters.
+    -- __MySQL__
+    --
+    -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __PostgreSQL__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
     masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies the accessibility options for your new database. A value of
     -- @true@ specifies a database that is available to resources outside of
@@ -146,32 +153,94 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- You can get a list of database bundle IDs by using the
     -- @get relational database bundles@ operation.
     relationalDatabaseBundleId :: Prelude.Text,
-    -- | The name of the master database created when the Lightsail database
-    -- resource is created.
+    -- | The meaning of this parameter differs according to the database engine
+    -- you use.
+    --
+    -- __MySQL__
+    --
+    -- The name of the database to create when the Lightsail database resource
+    -- is created. If this parameter isn\'t specified, no database is created
+    -- in the database resource.
     --
     -- Constraints:
     --
-    -- -   Must contain from 1 to 64 alphanumeric characters.
+    -- -   Must contain 1 to 64 letters or numbers.
     --
-    -- -   Cannot be a word reserved by the specified database engine
+    -- -   Must begin with a letter. Subsequent characters can be letters,
+    --     underscores, or digits (0- 9).
+    --
+    -- -   Can\'t be a word reserved by the specified database engine.
+    --
+    --     For more information about reserved words in MySQL, see the Keywords
+    --     and Reserved Words articles for
+    --     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+    --     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+    --     and
+    --     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+    --
+    -- __PostgreSQL__
+    --
+    -- The name of the database to create when the Lightsail database resource
+    -- is created. If this parameter isn\'t specified, a database named
+    -- @postgres@ is created in the database resource.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain 1 to 63 letters or numbers.
+    --
+    -- -   Must begin with a letter. Subsequent characters can be letters,
+    --     underscores, or digits (0- 9).
+    --
+    -- -   Can\'t be a word reserved by the specified database engine.
+    --
+    --     For more information about reserved words in PostgreSQL, see the SQL
+    --     Key Words articles for
+    --     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+    --     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+    --     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+    --     and
+    --     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
     masterDatabaseName :: Prelude.Text,
-    -- | The master user name for your new database.
+    -- | The name for the master user.
+    --
+    -- __MySQL__
     --
     -- Constraints:
     --
-    -- -   Master user name is required.
+    -- -   Required for MySQL.
     --
-    -- -   Must contain from 1 to 16 alphanumeric characters.
+    -- -   Must be 1 to 16 letters or numbers. Can contain underscores.
     --
-    -- -   The first character must be a letter.
+    -- -   First character must be a letter.
     --
-    -- -   Cannot be a reserved word for the database engine you choose.
+    -- -   Can\'t be a reserved word for the chosen database engine.
     --
     --     For more information about reserved words in MySQL 5.6 or 5.7, see
     --     the Keywords and Reserved Words articles for
-    --     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or
-    --     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>
-    --     respectively.
+    --     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+    --     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+    --     or
+    --     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+    --
+    -- __PostgreSQL__
+    --
+    -- Constraints:
+    --
+    -- -   Required for PostgreSQL.
+    --
+    -- -   Must be 1 to 63 letters or numbers. Can contain underscores.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Can\'t be a reserved word for the chosen database engine.
+    --
+    --     For more information about reserved words in MySQL 5.6 or 5.7, see
+    --     the Keywords and Reserved Words articles for
+    --     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+    --     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+    --     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+    --     and
+    --     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
     masterUsername :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -206,10 +275,17 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --
 -- -   Must be at least 30 minutes.
 --
--- 'masterUserPassword', 'createRelationalDatabase_masterUserPassword' - The password for the master user of your new database. The password can
--- include any printable ASCII character except \"\/\", \"\"\", or \"\@\".
+-- 'masterUserPassword', 'createRelationalDatabase_masterUserPassword' - The password for the master user. The password can include any printable
+-- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+-- spaces.
 --
--- Constraints: Must contain 8 to 41 characters.
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
 --
 -- 'publiclyAccessible', 'createRelationalDatabase_publiclyAccessible' - Specifies the accessibility options for your new database. A value of
 -- @true@ specifies a database that is available to resources outside of
@@ -268,32 +344,94 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 -- You can get a list of database bundle IDs by using the
 -- @get relational database bundles@ operation.
 --
--- 'masterDatabaseName', 'createRelationalDatabase_masterDatabaseName' - The name of the master database created when the Lightsail database
--- resource is created.
+-- 'masterDatabaseName', 'createRelationalDatabase_masterDatabaseName' - The meaning of this parameter differs according to the database engine
+-- you use.
+--
+-- __MySQL__
+--
+-- The name of the database to create when the Lightsail database resource
+-- is created. If this parameter isn\'t specified, no database is created
+-- in the database resource.
 --
 -- Constraints:
 --
--- -   Must contain from 1 to 64 alphanumeric characters.
+-- -   Must contain 1 to 64 letters or numbers.
 --
--- -   Cannot be a word reserved by the specified database engine
+-- -   Must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0- 9).
 --
--- 'masterUsername', 'createRelationalDatabase_masterUsername' - The master user name for your new database.
+-- -   Can\'t be a word reserved by the specified database engine.
+--
+--     For more information about reserved words in MySQL, see the Keywords
+--     and Reserved Words articles for
+--     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+--     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+--     and
+--     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+--
+-- __PostgreSQL__
+--
+-- The name of the database to create when the Lightsail database resource
+-- is created. If this parameter isn\'t specified, a database named
+-- @postgres@ is created in the database resource.
 --
 -- Constraints:
 --
--- -   Master user name is required.
+-- -   Must contain 1 to 63 letters or numbers.
 --
--- -   Must contain from 1 to 16 alphanumeric characters.
+-- -   Must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0- 9).
 --
--- -   The first character must be a letter.
+-- -   Can\'t be a word reserved by the specified database engine.
 --
--- -   Cannot be a reserved word for the database engine you choose.
+--     For more information about reserved words in PostgreSQL, see the SQL
+--     Key Words articles for
+--     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+--     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+--     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+--     and
+--     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
+--
+-- 'masterUsername', 'createRelationalDatabase_masterUsername' - The name for the master user.
+--
+-- __MySQL__
+--
+-- Constraints:
+--
+-- -   Required for MySQL.
+--
+-- -   Must be 1 to 16 letters or numbers. Can contain underscores.
+--
+-- -   First character must be a letter.
+--
+-- -   Can\'t be a reserved word for the chosen database engine.
 --
 --     For more information about reserved words in MySQL 5.6 or 5.7, see
 --     the Keywords and Reserved Words articles for
---     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or
---     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>
---     respectively.
+--     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+--     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+--     or
+--     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+--
+-- __PostgreSQL__
+--
+-- Constraints:
+--
+-- -   Required for PostgreSQL.
+--
+-- -   Must be 1 to 63 letters or numbers. Can contain underscores.
+--
+-- -   First character must be a letter.
+--
+-- -   Can\'t be a reserved word for the chosen database engine.
+--
+--     For more information about reserved words in MySQL 5.6 or 5.7, see
+--     the Keywords and Reserved Words articles for
+--     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+--     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+--     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+--     and
+--     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
 newCreateRelationalDatabase ::
   -- | 'relationalDatabaseName'
   Prelude.Text ->
@@ -353,10 +491,17 @@ newCreateRelationalDatabase
 createRelationalDatabase_preferredBackupWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
 createRelationalDatabase_preferredBackupWindow = Lens.lens (\CreateRelationalDatabase' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredBackupWindow = a} :: CreateRelationalDatabase)
 
--- | The password for the master user of your new database. The password can
--- include any printable ASCII character except \"\/\", \"\"\", or \"\@\".
+-- | The password for the master user. The password can include any printable
+-- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+-- spaces.
 --
--- Constraints: Must contain 8 to 41 characters.
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
 createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
 createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Core._Sensitive
 
@@ -431,34 +576,96 @@ createRelationalDatabase_relationalDatabaseBlueprintId = Lens.lens (\CreateRelat
 createRelationalDatabase_relationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabase Prelude.Text
 createRelationalDatabase_relationalDatabaseBundleId = Lens.lens (\CreateRelationalDatabase' {relationalDatabaseBundleId} -> relationalDatabaseBundleId) (\s@CreateRelationalDatabase' {} a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabase)
 
--- | The name of the master database created when the Lightsail database
--- resource is created.
+-- | The meaning of this parameter differs according to the database engine
+-- you use.
+--
+-- __MySQL__
+--
+-- The name of the database to create when the Lightsail database resource
+-- is created. If this parameter isn\'t specified, no database is created
+-- in the database resource.
 --
 -- Constraints:
 --
--- -   Must contain from 1 to 64 alphanumeric characters.
+-- -   Must contain 1 to 64 letters or numbers.
 --
--- -   Cannot be a word reserved by the specified database engine
+-- -   Must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0- 9).
+--
+-- -   Can\'t be a word reserved by the specified database engine.
+--
+--     For more information about reserved words in MySQL, see the Keywords
+--     and Reserved Words articles for
+--     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+--     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+--     and
+--     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+--
+-- __PostgreSQL__
+--
+-- The name of the database to create when the Lightsail database resource
+-- is created. If this parameter isn\'t specified, a database named
+-- @postgres@ is created in the database resource.
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 63 letters or numbers.
+--
+-- -   Must begin with a letter. Subsequent characters can be letters,
+--     underscores, or digits (0- 9).
+--
+-- -   Can\'t be a word reserved by the specified database engine.
+--
+--     For more information about reserved words in PostgreSQL, see the SQL
+--     Key Words articles for
+--     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+--     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+--     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+--     and
+--     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
 createRelationalDatabase_masterDatabaseName :: Lens.Lens' CreateRelationalDatabase Prelude.Text
 createRelationalDatabase_masterDatabaseName = Lens.lens (\CreateRelationalDatabase' {masterDatabaseName} -> masterDatabaseName) (\s@CreateRelationalDatabase' {} a -> s {masterDatabaseName = a} :: CreateRelationalDatabase)
 
--- | The master user name for your new database.
+-- | The name for the master user.
+--
+-- __MySQL__
 --
 -- Constraints:
 --
--- -   Master user name is required.
+-- -   Required for MySQL.
 --
--- -   Must contain from 1 to 16 alphanumeric characters.
+-- -   Must be 1 to 16 letters or numbers. Can contain underscores.
 --
--- -   The first character must be a letter.
+-- -   First character must be a letter.
 --
--- -   Cannot be a reserved word for the database engine you choose.
+-- -   Can\'t be a reserved word for the chosen database engine.
 --
 --     For more information about reserved words in MySQL 5.6 or 5.7, see
 --     the Keywords and Reserved Words articles for
---     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or
---     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>
---     respectively.
+--     <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6>,
+--     <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7>,
+--     or
+--     <https://dev.mysql.com/doc/refman/8.0/en/keywords.html MySQL 8.0>.
+--
+-- __PostgreSQL__
+--
+-- Constraints:
+--
+-- -   Required for PostgreSQL.
+--
+-- -   Must be 1 to 63 letters or numbers. Can contain underscores.
+--
+-- -   First character must be a letter.
+--
+-- -   Can\'t be a reserved word for the chosen database engine.
+--
+--     For more information about reserved words in MySQL 5.6 or 5.7, see
+--     the Keywords and Reserved Words articles for
+--     <https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html PostgreSQL 9.6>,
+--     <https://www.postgresql.org/docs/10/sql-keywords-appendix.html PostgreSQL 10>,
+--     <https://www.postgresql.org/docs/11/sql-keywords-appendix.html PostgreSQL 11>,
+--     and
+--     <https://www.postgresql.org/docs/12/sql-keywords-appendix.html PostgreSQL 12>.
 createRelationalDatabase_masterUsername :: Lens.Lens' CreateRelationalDatabase Prelude.Text
 createRelationalDatabase_masterUsername = Lens.lens (\CreateRelationalDatabase' {masterUsername} -> masterUsername) (\s@CreateRelationalDatabase' {} a -> s {masterUsername = a} :: CreateRelationalDatabase)
 

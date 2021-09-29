@@ -51,9 +51,9 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,
     restoreDBClusterFromSnapshot_optionGroupName,
     restoreDBClusterFromSnapshot_domain,
-    restoreDBClusterFromSnapshot_engineMode,
     restoreDBClusterFromSnapshot_scalingConfiguration,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
+    restoreDBClusterFromSnapshot_engineMode,
     restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
     restoreDBClusterFromSnapshot_kmsKeyId,
     restoreDBClusterFromSnapshot_engineVersion,
@@ -96,9 +96,9 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- | Provides the list of Availability Zones (AZs) where instances in the
     -- restored DB cluster can be created.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | A value that indicates whether to enable mapping of AWS Identity and
-    -- Access Management (IAM) accounts to database accounts. By default,
-    -- mapping is disabled.
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -121,12 +121,6 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon RDS User Guide/.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | The DB engine mode of the DB cluster, either @provisioned@,
-    -- @serverless@, @parallelquery@, @global@, or @multimaster@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
-    engineMode :: Prelude.Maybe Prelude.Text,
     -- | For DB clusters in @serverless@ DB engine mode, the scaling properties
     -- of the DB cluster.
     scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
@@ -137,22 +131,29 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The DB engine mode of the DB cluster, either @provisioned@,
+    -- @serverless@, @parallelquery@, @global@, or @multimaster@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
+    engineMode :: Prelude.Maybe Prelude.Text,
     -- | A list of VPC security groups that the new DB cluster will belong to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS KMS key identifier to use when restoring an encrypted DB cluster
-    -- from a DB snapshot or DB cluster snapshot.
+    -- | The Amazon Web Services KMS key identifier to use when restoring an
+    -- encrypted DB cluster from a DB snapshot or DB cluster snapshot.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK). To use a CMK in a
-    -- different AWS account, specify the key ARN or alias ARN.
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
+    -- the key ARN or alias ARN.
     --
     -- When you don\'t specify a value for the @KmsKeyId@ parameter, then the
     -- following occurs:
     --
     -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@ is
-    --     encrypted, then the restored DB cluster is encrypted using the AWS
-    --     KMS CMK that was used to encrypt the DB snapshot or DB cluster
-    --     snapshot.
+    --     encrypted, then the restored DB cluster is encrypted using the
+    --     Amazon Web Services KMS CMK that was used to encrypt the DB snapshot
+    --     or DB cluster snapshot.
     --
     -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@
     --     isn\'t encrypted, then the restored DB cluster isn\'t encrypted.
@@ -278,9 +279,9 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- 'availabilityZones', 'restoreDBClusterFromSnapshot_availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the
 -- restored DB cluster can be created.
 --
--- 'enableIAMDatabaseAuthentication', 'restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- 'enableIAMDatabaseAuthentication', 'restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -303,12 +304,6 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
 --
--- 'engineMode', 'restoreDBClusterFromSnapshot_engineMode' - The DB engine mode of the DB cluster, either @provisioned@,
--- @serverless@, @parallelquery@, @global@, or @multimaster@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
---
 -- 'scalingConfiguration', 'restoreDBClusterFromSnapshot_scalingConfiguration' - For DB clusters in @serverless@ DB engine mode, the scaling properties
 -- of the DB cluster.
 --
@@ -319,22 +314,29 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- Example: @mySubnetgroup@
 --
+-- 'engineMode', 'restoreDBClusterFromSnapshot_engineMode' - The DB engine mode of the DB cluster, either @provisioned@,
+-- @serverless@, @parallelquery@, @global@, or @multimaster@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
+--
 -- 'vpcSecurityGroupIds', 'restoreDBClusterFromSnapshot_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster will belong to.
 --
--- 'kmsKeyId', 'restoreDBClusterFromSnapshot_kmsKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster
--- from a DB snapshot or DB cluster snapshot.
+-- 'kmsKeyId', 'restoreDBClusterFromSnapshot_kmsKeyId' - The Amazon Web Services KMS key identifier to use when restoring an
+-- encrypted DB cluster from a DB snapshot or DB cluster snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- When you don\'t specify a value for the @KmsKeyId@ parameter, then the
 -- following occurs:
 --
 -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@ is
---     encrypted, then the restored DB cluster is encrypted using the AWS
---     KMS CMK that was used to encrypt the DB snapshot or DB cluster
---     snapshot.
+--     encrypted, then the restored DB cluster is encrypted using the
+--     Amazon Web Services KMS CMK that was used to encrypt the DB snapshot
+--     or DB cluster snapshot.
 --
 -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@
 --     isn\'t encrypted, then the restored DB cluster isn\'t encrypted.
@@ -462,9 +464,9 @@ newRestoreDBClusterFromSnapshot
         enableCloudwatchLogsExports = Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
         domain = Prelude.Nothing,
-        engineMode = Prelude.Nothing,
         scalingConfiguration = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
+        engineMode = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
@@ -491,9 +493,9 @@ restoreDBClusterFromSnapshot_deletionProtection = Lens.lens (\RestoreDBClusterFr
 restoreDBClusterFromSnapshot_availabilityZones :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromSnapshot_availabilityZones = Lens.lens (\RestoreDBClusterFromSnapshot' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromSnapshot' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
--- | A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication>
@@ -524,14 +526,6 @@ restoreDBClusterFromSnapshot_optionGroupName = Lens.lens (\RestoreDBClusterFromS
 restoreDBClusterFromSnapshot_domain :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromSnapshot_domain = Lens.lens (\RestoreDBClusterFromSnapshot' {domain} -> domain) (\s@RestoreDBClusterFromSnapshot' {} a -> s {domain = a} :: RestoreDBClusterFromSnapshot)
 
--- | The DB engine mode of the DB cluster, either @provisioned@,
--- @serverless@, @parallelquery@, @global@, or @multimaster@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
-restoreDBClusterFromSnapshot_engineMode :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromSnapshot_engineMode = Lens.lens (\RestoreDBClusterFromSnapshot' {engineMode} -> engineMode) (\s@RestoreDBClusterFromSnapshot' {} a -> s {engineMode = a} :: RestoreDBClusterFromSnapshot)
-
 -- | For DB clusters in @serverless@ DB engine mode, the scaling properties
 -- of the DB cluster.
 restoreDBClusterFromSnapshot_scalingConfiguration :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe ScalingConfiguration)
@@ -546,24 +540,33 @@ restoreDBClusterFromSnapshot_scalingConfiguration = Lens.lens (\RestoreDBCluster
 restoreDBClusterFromSnapshot_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromSnapshot_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromSnapshot' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterFromSnapshot' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterFromSnapshot)
 
+-- | The DB engine mode of the DB cluster, either @provisioned@,
+-- @serverless@, @parallelquery@, @global@, or @multimaster@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
+restoreDBClusterFromSnapshot_engineMode :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromSnapshot_engineMode = Lens.lens (\RestoreDBClusterFromSnapshot' {engineMode} -> engineMode) (\s@RestoreDBClusterFromSnapshot' {} a -> s {engineMode = a} :: RestoreDBClusterFromSnapshot)
+
 -- | A list of VPC security groups that the new DB cluster will belong to.
 restoreDBClusterFromSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS KMS key identifier to use when restoring an encrypted DB cluster
--- from a DB snapshot or DB cluster snapshot.
+-- | The Amazon Web Services KMS key identifier to use when restoring an
+-- encrypted DB cluster from a DB snapshot or DB cluster snapshot.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK). To use a CMK in a
--- different AWS account, specify the key ARN or alias ARN.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
 --
 -- When you don\'t specify a value for the @KmsKeyId@ parameter, then the
 -- following occurs:
 --
 -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@ is
---     encrypted, then the restored DB cluster is encrypted using the AWS
---     KMS CMK that was used to encrypt the DB snapshot or DB cluster
---     snapshot.
+--     encrypted, then the restored DB cluster is encrypted using the
+--     Amazon Web Services KMS CMK that was used to encrypt the DB snapshot
+--     or DB cluster snapshot.
 --
 -- -   If the DB snapshot or DB cluster snapshot in @SnapshotIdentifier@
 --     isn\'t encrypted, then the restored DB cluster isn\'t encrypted.
@@ -745,9 +748,9 @@ instance Core.ToQuery RestoreDBClusterFromSnapshot where
             ),
         "OptionGroupName" Core.=: optionGroupName,
         "Domain" Core.=: domain,
-        "EngineMode" Core.=: engineMode,
         "ScalingConfiguration" Core.=: scalingConfiguration,
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "EngineMode" Core.=: engineMode,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"

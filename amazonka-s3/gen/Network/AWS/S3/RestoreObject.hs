@@ -34,10 +34,10 @@
 -- @s3:RestoreObject@ action. The bucket owner has this permission by
 -- default and can grant this permission to others. For more information
 -- about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
+-- in the /Amazon S3 User Guide/.
 --
 -- __Querying Archives with Select Requests__
 --
@@ -48,19 +48,19 @@
 -- without having to restore your data to a hotter Amazon S3 tier. For an
 -- overview about select requests, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html Querying Archived Objects>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- When making a select request, do the following:
 --
 -- -   Define an output location for the select query\'s output. This must
---     be an Amazon S3 bucket in the same AWS Region as the bucket that
---     contains the archive object that is being queried. The AWS account
---     that initiates the job must have permissions to write to the S3
---     bucket. You can specify the storage class and encryption for the
---     output objects stored in the bucket. For more information about
---     output, see
+--     be an Amazon S3 bucket in the same Amazon Web Services Region as the
+--     bucket that contains the archive object that is being queried. The
+--     Amazon Web Services account that initiates the job must have
+--     permissions to write to the S3 bucket. You can specify the storage
+--     class and encryption for the output objects stored in the bucket.
+--     For more information about output, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html Querying Archived Objects>
---     in the /Amazon Simple Storage Service Developer Guide/.
+--     in the /Amazon S3 User Guide/.
 --
 --     For more information about the @S3@ structure in the request body,
 --     see the following:
@@ -68,10 +68,10 @@
 --     -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
 --
 --     -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html Managing Access with ACLs>
---         in the /Amazon Simple Storage Service Developer Guide/
+--         in the /Amazon S3 User Guide/
 --
 --     -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Protecting Data Using Server-Side Encryption>
---         in the /Amazon Simple Storage Service Developer Guide/
+--         in the /Amazon S3 User Guide/
 --
 -- -   Define the SQL expression for the @SELECT@ type of restoration for
 --     your query in the request body\'s @SelectParameters@ structure. You
@@ -97,7 +97,7 @@
 --
 -- For more information about using SQL with S3 Glacier Select restore, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html SQL Reference for Amazon S3 Select and S3 Glacier Select>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- When making a select request, you can also do the following:
 --
@@ -175,12 +175,12 @@
 -- For more information about archive retrieval options and provisioned
 -- capacity for @Expedited@ data access, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html Restoring Archived Objects>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- You can use Amazon S3 restore speed upgrade to change the restore speed
 -- to a faster speed while it is in progress. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html Upgrading the speed of an in-progress restore>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- To get the status of object restoration, you can send a @HEAD@ request.
 -- Operations return the @x-amz-restore@ header, which provides information
@@ -188,7 +188,7 @@
 -- event notifications to notify you when a restore is initiated or
 -- completed. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Amazon S3 Event Notifications>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- After restoring an archived object, you can update the restoration
 -- period by reissuing the request with a new period. Amazon S3 updates the
@@ -206,12 +206,12 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration>
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html Object Lifecycle Management>
--- in /Amazon Simple Storage Service Developer Guide/.
+-- in /Amazon S3 User Guide/.
 --
 -- __Responses__
 --
--- A successful operation returns either the @200 OK@ or @202 Accepted@
--- status code.
+-- A successful action returns either the @200 OK@ or @202 Accepted@ status
+-- code.
 --
 -- -   If the object is not previously restored, then Amazon S3 returns
 --     @202 Accepted@ in the response.
@@ -249,7 +249,7 @@
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html GetBucketNotificationConfiguration>
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html SQL Reference for Amazon S3 Select and S3 Glacier Select>
---     in the /Amazon Simple Storage Service Developer Guide/
+--     in the /Amazon S3 User Guide/
 module Network.AWS.S3.RestoreObject
   ( -- * Creating a Request
     RestoreObject (..),
@@ -283,7 +283,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -293,26 +293,26 @@ data RestoreObject = RestoreObject'
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object to restore.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     --
-    -- When using this API with Amazon S3 on Outposts, you must direct requests
-    -- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
-    -- form
+    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+    -- takes the form
     -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this operation using S3 on Outposts through the AWS SDKs, you
-    -- provide the Outposts bucket ARN in place of the bucket name. For more
-    -- information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action using S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- bucket name. For more information about S3 on Outposts ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
-    -- | Object key for which the operation was initiated.
+    -- | Object key for which the action was initiated.
     key :: ObjectKey
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -325,7 +325,7 @@ data RestoreObject = RestoreObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'restoreObject_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'restoreObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -337,26 +337,26 @@ data RestoreObject = RestoreObject'
 --
 -- 'bucket', 'restoreObject_bucket' - The bucket name containing the object to restore.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 --
--- 'key', 'restoreObject_key' - Object key for which the operation was initiated.
+-- 'key', 'restoreObject_key' - Object key for which the action was initiated.
 newRestoreObject ::
   -- | 'bucket'
   BucketName ->
@@ -374,7 +374,7 @@ newRestoreObject pBucket_ pKey_ =
       key = pKey_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 restoreObject_expectedBucketOwner :: Lens.Lens' RestoreObject (Prelude.Maybe Prelude.Text)
@@ -394,28 +394,28 @@ restoreObject_requestPayer = Lens.lens (\RestoreObject' {requestPayer} -> reques
 
 -- | The bucket name containing the object to restore.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 restoreObject_bucket :: Lens.Lens' RestoreObject BucketName
 restoreObject_bucket = Lens.lens (\RestoreObject' {bucket} -> bucket) (\s@RestoreObject' {} a -> s {bucket = a} :: RestoreObject)
 
--- | Object key for which the operation was initiated.
+-- | Object key for which the action was initiated.
 restoreObject_key :: Lens.Lens' RestoreObject ObjectKey
 restoreObject_key = Lens.lens (\RestoreObject' {key} -> key) (\s@RestoreObject' {} a -> s {key = a} :: RestoreObject)
 

@@ -33,11 +33,11 @@ data BuildGroup = BuildGroup'
   { -- | An array of strings that contain the identifiers of the build groups
     -- that this build group depends on.
     dependsOn :: Prelude.Maybe [Prelude.Text],
+    -- | Contains the identifier of the build group.
+    identifier :: Prelude.Maybe Prelude.Text,
     -- | A @BuildSummary@ object that contains a summary of the current build
     -- group.
     currentBuildSummary :: Prelude.Maybe BuildSummary,
-    -- | Contains the identifier of the build group.
-    identifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies if failures in this build group can be ignored.
     ignoreFailure :: Prelude.Maybe Prelude.Bool,
     -- | An array of @BuildSummary@ objects that contain summaries of previous
@@ -57,10 +57,10 @@ data BuildGroup = BuildGroup'
 -- 'dependsOn', 'buildGroup_dependsOn' - An array of strings that contain the identifiers of the build groups
 -- that this build group depends on.
 --
+-- 'identifier', 'buildGroup_identifier' - Contains the identifier of the build group.
+--
 -- 'currentBuildSummary', 'buildGroup_currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build
 -- group.
---
--- 'identifier', 'buildGroup_identifier' - Contains the identifier of the build group.
 --
 -- 'ignoreFailure', 'buildGroup_ignoreFailure' - Specifies if failures in this build group can be ignored.
 --
@@ -71,8 +71,8 @@ newBuildGroup ::
 newBuildGroup =
   BuildGroup'
     { dependsOn = Prelude.Nothing,
-      currentBuildSummary = Prelude.Nothing,
       identifier = Prelude.Nothing,
+      currentBuildSummary = Prelude.Nothing,
       ignoreFailure = Prelude.Nothing,
       priorBuildSummaryList = Prelude.Nothing
     }
@@ -82,14 +82,14 @@ newBuildGroup =
 buildGroup_dependsOn :: Lens.Lens' BuildGroup (Prelude.Maybe [Prelude.Text])
 buildGroup_dependsOn = Lens.lens (\BuildGroup' {dependsOn} -> dependsOn) (\s@BuildGroup' {} a -> s {dependsOn = a} :: BuildGroup) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Contains the identifier of the build group.
+buildGroup_identifier :: Lens.Lens' BuildGroup (Prelude.Maybe Prelude.Text)
+buildGroup_identifier = Lens.lens (\BuildGroup' {identifier} -> identifier) (\s@BuildGroup' {} a -> s {identifier = a} :: BuildGroup)
+
 -- | A @BuildSummary@ object that contains a summary of the current build
 -- group.
 buildGroup_currentBuildSummary :: Lens.Lens' BuildGroup (Prelude.Maybe BuildSummary)
 buildGroup_currentBuildSummary = Lens.lens (\BuildGroup' {currentBuildSummary} -> currentBuildSummary) (\s@BuildGroup' {} a -> s {currentBuildSummary = a} :: BuildGroup)
-
--- | Contains the identifier of the build group.
-buildGroup_identifier :: Lens.Lens' BuildGroup (Prelude.Maybe Prelude.Text)
-buildGroup_identifier = Lens.lens (\BuildGroup' {identifier} -> identifier) (\s@BuildGroup' {} a -> s {identifier = a} :: BuildGroup)
 
 -- | Specifies if failures in this build group can be ignored.
 buildGroup_ignoreFailure :: Lens.Lens' BuildGroup (Prelude.Maybe Prelude.Bool)
@@ -107,8 +107,8 @@ instance Core.FromJSON BuildGroup where
       ( \x ->
           BuildGroup'
             Prelude.<$> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "currentBuildSummary")
             Prelude.<*> (x Core..:? "identifier")
+            Prelude.<*> (x Core..:? "currentBuildSummary")
             Prelude.<*> (x Core..:? "ignoreFailure")
             Prelude.<*> ( x Core..:? "priorBuildSummaryList"
                             Core..!= Prelude.mempty

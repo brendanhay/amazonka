@@ -25,14 +25,14 @@ module Network.AWS.Rekognition.Types
     _ResourceNotReadyException,
     _InvalidS3ObjectException,
     _ResourceAlreadyExistsException,
-    _ThrottlingException,
     _InternalServerError,
+    _ThrottlingException,
     _InvalidParameterException,
     _AccessDeniedException,
-    _ResourceInUseException,
     _LimitExceededException,
-    _ProvisionedThroughputExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
+    _ProvisionedThroughputExceededException,
     _IdempotentParameterMismatchException,
     _InvalidImageFormatException,
 
@@ -62,6 +62,9 @@ module Network.AWS.Rekognition.Types
 
     -- * GenderType
     GenderType (..),
+
+    -- * KnownGenderType
+    KnownGenderType (..),
 
     -- * LabelDetectionSortBy
     LabelDetectionSortBy (..),
@@ -102,6 +105,9 @@ module Network.AWS.Rekognition.Types
     -- * TextTypes
     TextTypes (..),
 
+    -- * VideoColorRange
+    VideoColorRange (..),
+
     -- * VideoJobStatus
     VideoJobStatus (..),
 
@@ -130,21 +136,28 @@ module Network.AWS.Rekognition.Types
     beard_confidence,
     beard_value,
 
+    -- * BlackFrame
+    BlackFrame (..),
+    newBlackFrame,
+    blackFrame_minCoveragePercentage,
+    blackFrame_maxPixelThreshold,
+
     -- * BoundingBox
     BoundingBox (..),
     newBoundingBox,
     boundingBox_height,
     boundingBox_width,
-    boundingBox_top,
     boundingBox_left,
+    boundingBox_top,
 
     -- * Celebrity
     Celebrity (..),
     newCelebrity,
+    celebrity_knownGender,
     celebrity_urls,
     celebrity_id,
-    celebrity_matchConfidence,
     celebrity_name,
+    celebrity_matchConfidence,
     celebrity_face,
 
     -- * CelebrityDetail
@@ -152,8 +165,8 @@ module Network.AWS.Rekognition.Types
     newCelebrityDetail,
     celebrityDetail_urls,
     celebrityDetail_id,
-    celebrityDetail_boundingBox,
     celebrityDetail_name,
+    celebrityDetail_boundingBox,
     celebrityDetail_confidence,
     celebrityDetail_face,
 
@@ -172,10 +185,12 @@ module Network.AWS.Rekognition.Types
     -- * ComparedFace
     ComparedFace (..),
     newComparedFace,
-    comparedFace_pose,
     comparedFace_landmarks,
+    comparedFace_pose,
+    comparedFace_emotions,
     comparedFace_boundingBox,
     comparedFace_confidence,
+    comparedFace_smile,
     comparedFace_quality,
 
     -- * ComparedSourceImageFace
@@ -262,14 +277,14 @@ module Network.AWS.Rekognition.Types
     newFaceDetail,
     faceDetail_sunglasses,
     faceDetail_ageRange,
-    faceDetail_pose,
     faceDetail_landmarks,
+    faceDetail_pose,
     faceDetail_beard,
     faceDetail_emotions,
     faceDetail_eyeglasses,
+    faceDetail_mouthOpen,
     faceDetail_gender,
     faceDetail_boundingBox,
-    faceDetail_mouthOpen,
     faceDetail_confidence,
     faceDetail_smile,
     faceDetail_eyesOpen,
@@ -364,6 +379,11 @@ module Network.AWS.Rekognition.Types
     newKinesisVideoStream,
     kinesisVideoStream_arn,
 
+    -- * KnownGender
+    KnownGender (..),
+    newKnownGender,
+    knownGender_type,
+
     -- * Label
     Label (..),
     newLabel,
@@ -375,8 +395,8 @@ module Network.AWS.Rekognition.Types
     -- * LabelDetection
     LabelDetection (..),
     newLabelDetection,
-    labelDetection_label,
     labelDetection_timestamp,
+    labelDetection_label,
 
     -- * Landmark
     Landmark (..),
@@ -464,14 +484,15 @@ module Network.AWS.Rekognition.Types
     -- * ProjectVersionDescription
     ProjectVersionDescription (..),
     newProjectVersionDescription,
-    projectVersionDescription_creationTimestamp,
-    projectVersionDescription_statusMessage,
     projectVersionDescription_testingDataResult,
     projectVersionDescription_evaluationResult,
+    projectVersionDescription_creationTimestamp,
+    projectVersionDescription_statusMessage,
     projectVersionDescription_status,
     projectVersionDescription_billableTrainingTimeInSeconds,
     projectVersionDescription_outputConfig,
     projectVersionDescription_projectVersionArn,
+    projectVersionDescription_kmsKeyId,
     projectVersionDescription_minInferenceUnits,
     projectVersionDescription_trainingDataResult,
     projectVersionDescription_trainingEndTimestamp,
@@ -520,15 +541,18 @@ module Network.AWS.Rekognition.Types
     -- * SegmentDetection
     SegmentDetection (..),
     newSegmentDetection,
+    segmentDetection_endFrameNumber,
+    segmentDetection_startFrameNumber,
     segmentDetection_shotSegment,
     segmentDetection_endTimestampMillis,
     segmentDetection_startTimecodeSMPTE,
     segmentDetection_durationSMPTE,
     segmentDetection_technicalCueSegment,
-    segmentDetection_type,
     segmentDetection_durationMillis,
-    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_durationFrames,
     segmentDetection_startTimestampMillis,
+    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_type,
 
     -- * SegmentTypeInfo
     SegmentTypeInfo (..),
@@ -563,6 +587,7 @@ module Network.AWS.Rekognition.Types
     StartTechnicalCueDetectionFilter (..),
     newStartTechnicalCueDetectionFilter,
     startTechnicalCueDetectionFilter_minSegmentConfidence,
+    startTechnicalCueDetectionFilter_blackFrame,
 
     -- * StartTextDetectionFilters
     StartTextDetectionFilters (..),
@@ -670,6 +695,7 @@ module Network.AWS.Rekognition.Types
     newVideoMetadata,
     videoMetadata_codec,
     videoMetadata_format,
+    videoMetadata_colorRange,
     videoMetadata_frameHeight,
     videoMetadata_frameRate,
     videoMetadata_frameWidth,
@@ -685,6 +711,7 @@ import Network.AWS.Rekognition.Types.Asset
 import Network.AWS.Rekognition.Types.Attribute
 import Network.AWS.Rekognition.Types.AudioMetadata
 import Network.AWS.Rekognition.Types.Beard
+import Network.AWS.Rekognition.Types.BlackFrame
 import Network.AWS.Rekognition.Types.BodyPart
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.Celebrity
@@ -727,6 +754,8 @@ import Network.AWS.Rekognition.Types.ImageQuality
 import Network.AWS.Rekognition.Types.Instance
 import Network.AWS.Rekognition.Types.KinesisDataStream
 import Network.AWS.Rekognition.Types.KinesisVideoStream
+import Network.AWS.Rekognition.Types.KnownGender
+import Network.AWS.Rekognition.Types.KnownGenderType
 import Network.AWS.Rekognition.Types.Label
 import Network.AWS.Rekognition.Types.LabelDetection
 import Network.AWS.Rekognition.Types.LabelDetectionSortBy
@@ -786,6 +815,7 @@ import Network.AWS.Rekognition.Types.TrainingDataResult
 import Network.AWS.Rekognition.Types.UnindexedFace
 import Network.AWS.Rekognition.Types.ValidationData
 import Network.AWS.Rekognition.Types.Video
+import Network.AWS.Rekognition.Types.VideoColorRange
 import Network.AWS.Rekognition.Types.VideoJobStatus
 import Network.AWS.Rekognition.Types.VideoMetadata
 import qualified Network.AWS.Sign.V4 as Sign
@@ -893,9 +923,10 @@ _HumanLoopQuotaExceededException =
     defaultService
     "HumanLoopQuotaExceededException"
 
--- | The input image size exceeds the allowed limit. For more information,
--- see Limits in Amazon Rekognition in the Amazon Rekognition Developer
--- Guide.
+-- | The input image size exceeds the allowed limit. If you are calling
+-- DetectProtectiveEquipment, the image size or resolution exceeds the
+-- allowed limit. For more information, see Limits in Amazon Rekognition in
+-- the Amazon Rekognition Developer Guide.
 _ImageTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageTooLargeException =
   Core._MatchServiceError
@@ -919,12 +950,19 @@ _InvalidS3ObjectException =
     defaultService
     "InvalidS3ObjectException"
 
--- | A collection with the specified ID already exists.
+-- | A resource with the specified ID already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
+
+-- | Amazon Rekognition experienced a service issue. Try your call again.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
 
 -- | Amazon Rekognition is temporarily unable to process the request. Try
 -- your call again.
@@ -933,13 +971,6 @@ _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
-
--- | Amazon Rekognition experienced a service issue. Try your call again.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
 
 -- | Input parameter violated a constraint. Validate your parameter before
 -- calling the API operation again.
@@ -956,13 +987,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | The specified resource is already being used.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
 -- | An Amazon Rekognition service limit was exceeded. For example, if you
 -- start too many Amazon Rekognition Video jobs concurrently, calls to
 -- start operations (@StartLabelDetection@, for example) will raise a
@@ -975,6 +999,20 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
+-- | The specified resource is already being used.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The resource specified in the request cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
 -- | The number of requests exceeded your throughput limit. If you want to
 -- increase this limit, contact Amazon Rekognition.
 _ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -982,13 +1020,6 @@ _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
-
--- | The collection specified in the request cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | A @ClientRequestToken@ input parameter was reused with an operation, but
 -- at least one of the other input parameters is different from the

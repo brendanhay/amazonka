@@ -36,10 +36,10 @@ data SchemaListItem = SchemaListItem'
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | the name of the registry where the schema resides.
     registryName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
     -- | A description for the schema.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The status of the schema.
     schemaStatus :: Prelude.Maybe SchemaStatus
   }
@@ -61,9 +61,9 @@ data SchemaListItem = SchemaListItem'
 --
 -- 'registryName', 'schemaListItem_registryName' - the name of the registry where the schema resides.
 --
--- 'schemaName', 'schemaListItem_schemaName' - The name of the schema.
---
 -- 'description', 'schemaListItem_description' - A description for the schema.
+--
+-- 'schemaName', 'schemaListItem_schemaName' - The name of the schema.
 --
 -- 'schemaStatus', 'schemaListItem_schemaStatus' - The status of the schema.
 newSchemaListItem ::
@@ -74,8 +74,8 @@ newSchemaListItem =
       updatedTime = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       registryName = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
       description = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       schemaStatus = Prelude.Nothing
     }
 
@@ -95,13 +95,13 @@ schemaListItem_createdTime = Lens.lens (\SchemaListItem' {createdTime} -> create
 schemaListItem_registryName :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_registryName = Lens.lens (\SchemaListItem' {registryName} -> registryName) (\s@SchemaListItem' {} a -> s {registryName = a} :: SchemaListItem)
 
--- | The name of the schema.
-schemaListItem_schemaName :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
-schemaListItem_schemaName = Lens.lens (\SchemaListItem' {schemaName} -> schemaName) (\s@SchemaListItem' {} a -> s {schemaName = a} :: SchemaListItem)
-
 -- | A description for the schema.
 schemaListItem_description :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_description = Lens.lens (\SchemaListItem' {description} -> description) (\s@SchemaListItem' {} a -> s {description = a} :: SchemaListItem)
+
+-- | The name of the schema.
+schemaListItem_schemaName :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
+schemaListItem_schemaName = Lens.lens (\SchemaListItem' {schemaName} -> schemaName) (\s@SchemaListItem' {} a -> s {schemaName = a} :: SchemaListItem)
 
 -- | The status of the schema.
 schemaListItem_schemaStatus :: Lens.Lens' SchemaListItem (Prelude.Maybe SchemaStatus)
@@ -117,8 +117,8 @@ instance Core.FromJSON SchemaListItem where
             Prelude.<*> (x Core..:? "UpdatedTime")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "RegistryName")
-            Prelude.<*> (x Core..:? "SchemaName")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "SchemaName")
             Prelude.<*> (x Core..:? "SchemaStatus")
       )
 

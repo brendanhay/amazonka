@@ -29,6 +29,7 @@ module Network.AWS.SageMaker.Types.ResourceType
         ResourceType_ModelPackageGroup,
         ResourceType_Pipeline,
         ResourceType_PipelineExecution,
+        ResourceType_Project,
         ResourceType_TrainingJob
       ),
   )
@@ -92,6 +93,9 @@ pattern ResourceType_Pipeline = ResourceType' "Pipeline"
 pattern ResourceType_PipelineExecution :: ResourceType
 pattern ResourceType_PipelineExecution = ResourceType' "PipelineExecution"
 
+pattern ResourceType_Project :: ResourceType
+pattern ResourceType_Project = ResourceType' "Project"
+
 pattern ResourceType_TrainingJob :: ResourceType
 pattern ResourceType_TrainingJob = ResourceType' "TrainingJob"
 
@@ -105,6 +109,7 @@ pattern ResourceType_TrainingJob = ResourceType' "TrainingJob"
   ResourceType_ModelPackageGroup,
   ResourceType_Pipeline,
   ResourceType_PipelineExecution,
+  ResourceType_Project,
   ResourceType_TrainingJob,
   ResourceType'
   #-}

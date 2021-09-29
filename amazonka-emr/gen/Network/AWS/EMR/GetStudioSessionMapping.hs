@@ -56,16 +56,16 @@ data GetStudioSessionMapping = GetStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
-    -- @IdentityId@ must be specified.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The globally unique identifier (GUID) of the user or group. For more
     -- information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
-    -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
-    -- @IdentityId@ must be specified.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Text,
@@ -86,16 +86,16 @@ data GetStudioSessionMapping = GetStudioSessionMapping'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'identityId', 'getStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group. For more
 -- information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'studioId', 'getStudioSessionMapping_studioId' - The ID of the Amazon EMR Studio.
 --
@@ -119,8 +119,8 @@ newGetStudioSessionMapping pStudioId_ pIdentityType_ =
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
 getStudioSessionMapping_identityName :: Lens.Lens' GetStudioSessionMapping (Prelude.Maybe Prelude.Text)
 getStudioSessionMapping_identityName = Lens.lens (\GetStudioSessionMapping' {identityName} -> identityName) (\s@GetStudioSessionMapping' {} a -> s {identityName = a} :: GetStudioSessionMapping)
 
@@ -129,8 +129,8 @@ getStudioSessionMapping_identityName = Lens.lens (\GetStudioSessionMapping' {ide
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
--- @IdentityId@ must be specified.
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
 getStudioSessionMapping_identityId :: Lens.Lens' GetStudioSessionMapping (Prelude.Maybe Prelude.Text)
 getStudioSessionMapping_identityId = Lens.lens (\GetStudioSessionMapping' {identityId} -> identityId) (\s@GetStudioSessionMapping' {} a -> s {identityId = a} :: GetStudioSessionMapping)
 

@@ -40,8 +40,8 @@ module Network.AWS.CloudDirectory.ListObjectParents
     newListObjectParentsResponse,
 
     -- * Response Lenses
-    listObjectParentsResponse_parents,
     listObjectParentsResponse_parentLinks,
+    listObjectParentsResponse_parents,
     listObjectParentsResponse_nextToken,
     listObjectParentsResponse_httpStatus,
   )
@@ -157,8 +157,8 @@ instance Core.AWSRequest ListObjectParents where
     Response.receiveJSON
       ( \s h x ->
           ListObjectParentsResponse'
-            Prelude.<$> (x Core..?> "Parents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ParentLinks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ParentLinks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Parents" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -197,11 +197,11 @@ instance Core.ToQuery ListObjectParents where
 
 -- | /See:/ 'newListObjectParentsResponse' smart constructor.
 data ListObjectParentsResponse = ListObjectParentsResponse'
-  { -- | The parent structure, which is a map with key as the @ObjectIdentifier@
+  { -- | Returns a list of parent reference and LinkName Tuples.
+    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
+    -- | The parent structure, which is a map with key as the @ObjectIdentifier@
     -- and LinkName as the value.
     parents :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Returns a list of parent reference and LinkName Tuples.
-    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
     -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -217,10 +217,10 @@ data ListObjectParentsResponse = ListObjectParentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parentLinks', 'listObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
+--
 -- 'parents', 'listObjectParentsResponse_parents' - The parent structure, which is a map with key as the @ObjectIdentifier@
 -- and LinkName as the value.
---
--- 'parentLinks', 'listObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
 --
 -- 'nextToken', 'listObjectParentsResponse_nextToken' - The pagination token.
 --
@@ -231,21 +231,21 @@ newListObjectParentsResponse ::
   ListObjectParentsResponse
 newListObjectParentsResponse pHttpStatus_ =
   ListObjectParentsResponse'
-    { parents =
+    { parentLinks =
         Prelude.Nothing,
-      parentLinks = Prelude.Nothing,
+      parents = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns a list of parent reference and LinkName Tuples.
+listObjectParentsResponse_parentLinks :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
+listObjectParentsResponse_parentLinks = Lens.lens (\ListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@ListObjectParentsResponse' {} a -> s {parentLinks = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The parent structure, which is a map with key as the @ObjectIdentifier@
 -- and LinkName as the value.
 listObjectParentsResponse_parents :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listObjectParentsResponse_parents = Lens.lens (\ListObjectParentsResponse' {parents} -> parents) (\s@ListObjectParentsResponse' {} a -> s {parents = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Returns a list of parent reference and LinkName Tuples.
-listObjectParentsResponse_parentLinks :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
-listObjectParentsResponse_parentLinks = Lens.lens (\ListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@ListObjectParentsResponse' {} a -> s {parentLinks = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
 listObjectParentsResponse_nextToken :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe Prelude.Text)

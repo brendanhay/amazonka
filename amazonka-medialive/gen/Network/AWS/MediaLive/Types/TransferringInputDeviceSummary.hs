@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransferringInputDeviceSummary' smart constructor.
 data TransferringInputDeviceSummary = TransferringInputDeviceSummary'
-  { -- | The type (direction) of the input device transfer.
-    transferType :: Prelude.Maybe InputDeviceTransferType,
-    -- | The optional message that the sender has attached to the transfer.
+  { -- | The optional message that the sender has attached to the transfer.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The type (direction) of the input device transfer.
+    transferType :: Prelude.Maybe InputDeviceTransferType,
     -- | The unique ID of the input device.
     id :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID for the recipient of the input device transfer.
@@ -47,9 +47,9 @@ data TransferringInputDeviceSummary = TransferringInputDeviceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transferType', 'transferringInputDeviceSummary_transferType' - The type (direction) of the input device transfer.
---
 -- 'message', 'transferringInputDeviceSummary_message' - The optional message that the sender has attached to the transfer.
+--
+-- 'transferType', 'transferringInputDeviceSummary_transferType' - The type (direction) of the input device transfer.
 --
 -- 'id', 'transferringInputDeviceSummary_id' - The unique ID of the input device.
 --
@@ -58,20 +58,20 @@ newTransferringInputDeviceSummary ::
   TransferringInputDeviceSummary
 newTransferringInputDeviceSummary =
   TransferringInputDeviceSummary'
-    { transferType =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing,
+      transferType = Prelude.Nothing,
       id = Prelude.Nothing,
       targetCustomerId = Prelude.Nothing
     }
 
--- | The type (direction) of the input device transfer.
-transferringInputDeviceSummary_transferType :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe InputDeviceTransferType)
-transferringInputDeviceSummary_transferType = Lens.lens (\TransferringInputDeviceSummary' {transferType} -> transferType) (\s@TransferringInputDeviceSummary' {} a -> s {transferType = a} :: TransferringInputDeviceSummary)
-
 -- | The optional message that the sender has attached to the transfer.
 transferringInputDeviceSummary_message :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
 transferringInputDeviceSummary_message = Lens.lens (\TransferringInputDeviceSummary' {message} -> message) (\s@TransferringInputDeviceSummary' {} a -> s {message = a} :: TransferringInputDeviceSummary)
+
+-- | The type (direction) of the input device transfer.
+transferringInputDeviceSummary_transferType :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe InputDeviceTransferType)
+transferringInputDeviceSummary_transferType = Lens.lens (\TransferringInputDeviceSummary' {transferType} -> transferType) (\s@TransferringInputDeviceSummary' {} a -> s {transferType = a} :: TransferringInputDeviceSummary)
 
 -- | The unique ID of the input device.
 transferringInputDeviceSummary_id :: Lens.Lens' TransferringInputDeviceSummary (Prelude.Maybe Prelude.Text)
@@ -87,8 +87,8 @@ instance Core.FromJSON TransferringInputDeviceSummary where
       "TransferringInputDeviceSummary"
       ( \x ->
           TransferringInputDeviceSummary'
-            Prelude.<$> (x Core..:? "transferType")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "transferType")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "targetCustomerId")
       )

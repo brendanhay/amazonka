@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a compliance type and other compliance details on a designated
--- resource. This action lets you register custom compliance details with a
--- resource. This call overwrites existing compliance information on the
--- resource, so you must provide a full list of compliance items each time
--- that you send the request.
+-- resource. This operation lets you register custom compliance details
+-- with a resource. This call overwrites existing compliance information on
+-- the resource, so you must provide a full list of compliance items each
+-- time that you send the request.
 --
 -- ComplianceType can be one of the following:
 --
@@ -45,8 +45,8 @@
 --
 -- -   Severity: A patch severity. For example, @critical@.
 --
--- -   DocumentName: A SSM document name. For example,
---     AWS-RunPatchBaseline.
+-- -   DocumentName: An SSM document name. For example,
+--     @AWS-RunPatchBaseline@.
 --
 -- -   DocumentVersion: An SSM document version number. For example, 4.
 --

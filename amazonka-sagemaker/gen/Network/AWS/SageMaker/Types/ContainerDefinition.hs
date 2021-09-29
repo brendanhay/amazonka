@@ -30,9 +30,7 @@ import Network.AWS.SageMaker.Types.MultiModelConfig
 --
 -- /See:/ 'newContainerDefinition' smart constructor.
 data ContainerDefinition = ContainerDefinition'
-  { -- | Specifies additional configuration for multi-model endpoints.
-    multiModelConfig :: Prelude.Maybe MultiModelConfig,
-    -- | The S3 path where the model artifacts, which result from model training,
+  { -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
     -- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
     -- algorithms, but not if you use your own algorithms. For more information
@@ -42,18 +40,21 @@ data ContainerDefinition = ContainerDefinition'
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the model or endpoint you are creating.
     --
-    -- If you provide a value for this parameter, Amazon SageMaker uses AWS
-    -- Security Token Service to download model artifacts from the S3 path you
-    -- provide. AWS STS is activated in your IAM user account by default. If
-    -- you previously deactivated AWS STS for a region, you need to reactivate
-    -- AWS STS for that region. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
-    -- in the /AWS Identity and Access Management User Guide/.
+    -- If you provide a value for this parameter, Amazon SageMaker uses Amazon
+    -- Web Services Security Token Service to download model artifacts from the
+    -- S3 path you provide. Amazon Web Services STS is activated in your IAM
+    -- user account by default. If you previously deactivated Amazon Web
+    -- Services STS for a region, you need to reactivate Amazon Web Services
+    -- STS for that region. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
+    -- in the /Amazon Web Services Identity and Access Management User Guide/.
     --
     -- If you use a built-in algorithm to create a model, Amazon SageMaker
     -- requires that you provide a S3 path to the model artifacts in
     -- @ModelDataUrl@.
     modelDataUrl :: Prelude.Maybe Prelude.Text,
+    -- | Specifies additional configuration for multi-model endpoints.
+    multiModelConfig :: Prelude.Maybe MultiModelConfig,
     -- | Whether the container hosts a single model or multiple models.
     mode :: Prelude.Maybe ContainerMode,
     -- | This parameter is ignored for models that contain only a
@@ -105,8 +106,6 @@ data ContainerDefinition = ContainerDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiModelConfig', 'containerDefinition_multiModelConfig' - Specifies additional configuration for multi-model endpoints.
---
 -- 'modelDataUrl', 'containerDefinition_modelDataUrl' - The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
 -- (.tar.gz suffix). The S3 path is required for Amazon SageMaker built-in
@@ -117,17 +116,20 @@ data ContainerDefinition = ContainerDefinition'
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model or endpoint you are creating.
 --
--- If you provide a value for this parameter, Amazon SageMaker uses AWS
--- Security Token Service to download model artifacts from the S3 path you
--- provide. AWS STS is activated in your IAM user account by default. If
--- you previously deactivated AWS STS for a region, you need to reactivate
--- AWS STS for that region. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
--- in the /AWS Identity and Access Management User Guide/.
+-- If you provide a value for this parameter, Amazon SageMaker uses Amazon
+-- Web Services Security Token Service to download model artifacts from the
+-- S3 path you provide. Amazon Web Services STS is activated in your IAM
+-- user account by default. If you previously deactivated Amazon Web
+-- Services STS for a region, you need to reactivate Amazon Web Services
+-- STS for that region. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
+-- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
 -- If you use a built-in algorithm to create a model, Amazon SageMaker
 -- requires that you provide a S3 path to the model artifacts in
 -- @ModelDataUrl@.
+--
+-- 'multiModelConfig', 'containerDefinition_multiModelConfig' - Specifies additional configuration for multi-model endpoints.
 --
 -- 'mode', 'containerDefinition_mode' - Whether the container hosts a single model or multiple models.
 --
@@ -172,9 +174,9 @@ newContainerDefinition ::
   ContainerDefinition
 newContainerDefinition =
   ContainerDefinition'
-    { multiModelConfig =
+    { modelDataUrl =
         Prelude.Nothing,
-      modelDataUrl = Prelude.Nothing,
+      multiModelConfig = Prelude.Nothing,
       mode = Prelude.Nothing,
       containerHostname = Prelude.Nothing,
       imageConfig = Prelude.Nothing,
@@ -182,10 +184,6 @@ newContainerDefinition =
       modelPackageName = Prelude.Nothing,
       image = Prelude.Nothing
     }
-
--- | Specifies additional configuration for multi-model endpoints.
-containerDefinition_multiModelConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe MultiModelConfig)
-containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiModelConfig} -> multiModelConfig) (\s@ContainerDefinition' {} a -> s {multiModelConfig = a} :: ContainerDefinition)
 
 -- | The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
@@ -197,19 +195,24 @@ containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiMo
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model or endpoint you are creating.
 --
--- If you provide a value for this parameter, Amazon SageMaker uses AWS
--- Security Token Service to download model artifacts from the S3 path you
--- provide. AWS STS is activated in your IAM user account by default. If
--- you previously deactivated AWS STS for a region, you need to reactivate
--- AWS STS for that region. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
--- in the /AWS Identity and Access Management User Guide/.
+-- If you provide a value for this parameter, Amazon SageMaker uses Amazon
+-- Web Services Security Token Service to download model artifacts from the
+-- S3 path you provide. Amazon Web Services STS is activated in your IAM
+-- user account by default. If you previously deactivated Amazon Web
+-- Services STS for a region, you need to reactivate Amazon Web Services
+-- STS for that region. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
+-- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
 -- If you use a built-in algorithm to create a model, Amazon SageMaker
 -- requires that you provide a S3 path to the model artifacts in
 -- @ModelDataUrl@.
 containerDefinition_modelDataUrl :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_modelDataUrl = Lens.lens (\ContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ContainerDefinition' {} a -> s {modelDataUrl = a} :: ContainerDefinition)
+
+-- | Specifies additional configuration for multi-model endpoints.
+containerDefinition_multiModelConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe MultiModelConfig)
+containerDefinition_multiModelConfig = Lens.lens (\ContainerDefinition' {multiModelConfig} -> multiModelConfig) (\s@ContainerDefinition' {} a -> s {multiModelConfig = a} :: ContainerDefinition)
 
 -- | Whether the container hosts a single model or multiple models.
 containerDefinition_mode :: Lens.Lens' ContainerDefinition (Prelude.Maybe ContainerMode)
@@ -269,8 +272,8 @@ instance Core.FromJSON ContainerDefinition where
       "ContainerDefinition"
       ( \x ->
           ContainerDefinition'
-            Prelude.<$> (x Core..:? "MultiModelConfig")
-            Prelude.<*> (x Core..:? "ModelDataUrl")
+            Prelude.<$> (x Core..:? "ModelDataUrl")
+            Prelude.<*> (x Core..:? "MultiModelConfig")
             Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "ContainerHostname")
             Prelude.<*> (x Core..:? "ImageConfig")
@@ -287,9 +290,9 @@ instance Core.ToJSON ContainerDefinition where
   toJSON ContainerDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MultiModelConfig" Core..=)
+          [ ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+            ("MultiModelConfig" Core..=)
               Prelude.<$> multiModelConfig,
-            ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
             ("Mode" Core..=) Prelude.<$> mode,
             ("ContainerHostname" Core..=)
               Prelude.<$> containerHostname,

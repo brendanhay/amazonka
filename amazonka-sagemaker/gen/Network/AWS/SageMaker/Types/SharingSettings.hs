@@ -24,16 +24,17 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.NotebookOutputOption
 
--- | Specifies options when sharing an Amazon SageMaker Studio notebook.
--- These settings are specified as part of @DefaultUserSettings@ when the
--- CreateDomain API is called, and as part of @UserSettings@ when the
--- CreateUserProfile API is called.
+-- | Specifies options for sharing SageMaker Studio notebooks. These settings
+-- are specified as part of @DefaultUserSettings@ when the @CreateDomain@
+-- API is called, and as part of @UserSettings@ when the
+-- @CreateUserProfile@ API is called. When @SharingSettings@ is not
+-- specified, notebook sharing isn\'t allowed.
 --
 -- /See:/ 'newSharingSettings' smart constructor.
 data SharingSettings = SharingSettings'
-  { -- | When @NotebookOutputOption@ is @Allowed@, the AWS Key Management Service
-    -- (KMS) encryption key ID used to encrypt the notebook cell output in the
-    -- Amazon S3 bucket.
+  { -- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+    -- Management Service (KMS) encryption key ID used to encrypt the notebook
+    -- cell output in the Amazon S3 bucket.
     s3KmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
     -- store the shared notebook snapshots.
@@ -52,9 +53,9 @@ data SharingSettings = SharingSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KmsKeyId', 'sharingSettings_s3KmsKeyId' - When @NotebookOutputOption@ is @Allowed@, the AWS Key Management Service
--- (KMS) encryption key ID used to encrypt the notebook cell output in the
--- Amazon S3 bucket.
+-- 's3KmsKeyId', 'sharingSettings_s3KmsKeyId' - When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+-- Management Service (KMS) encryption key ID used to encrypt the notebook
+-- cell output in the Amazon S3 bucket.
 --
 -- 's3OutputPath', 'sharingSettings_s3OutputPath' - When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
 -- store the shared notebook snapshots.
@@ -70,9 +71,9 @@ newSharingSettings =
       notebookOutputOption = Prelude.Nothing
     }
 
--- | When @NotebookOutputOption@ is @Allowed@, the AWS Key Management Service
--- (KMS) encryption key ID used to encrypt the notebook cell output in the
--- Amazon S3 bucket.
+-- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+-- Management Service (KMS) encryption key ID used to encrypt the notebook
+-- cell output in the Amazon S3 bucket.
 sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
 sharingSettings_s3KmsKeyId = Lens.lens (\SharingSettings' {s3KmsKeyId} -> s3KmsKeyId) (\s@SharingSettings' {} a -> s {s3KmsKeyId = a} :: SharingSettings)
 

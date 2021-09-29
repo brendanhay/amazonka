@@ -26,21 +26,15 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The routing configuration for a fleet alias.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- /See:/ 'newRoutingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
-  { -- | The unique identifier for a fleet that the alias points to. This value
+  { -- | A unique identifier for the fleet that the alias points to. This value
     -- is the fleet ID, not the fleet ARN.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | The message text to be used with a terminal routing strategy.
@@ -68,7 +62,7 @@ data RoutingStrategy = RoutingStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'routingStrategy_fleetId' - The unique identifier for a fleet that the alias points to. This value
+-- 'fleetId', 'routingStrategy_fleetId' - A unique identifier for the fleet that the alias points to. This value
 -- is the fleet ID, not the fleet ARN.
 --
 -- 'message', 'routingStrategy_message' - The message text to be used with a terminal routing strategy.
@@ -93,7 +87,7 @@ newRoutingStrategy =
       type' = Prelude.Nothing
     }
 
--- | The unique identifier for a fleet that the alias points to. This value
+-- | A unique identifier for the fleet that the alias points to. This value
 -- is the fleet ID, not the fleet ARN.
 routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
 routingStrategy_fleetId = Lens.lens (\RoutingStrategy' {fleetId} -> fleetId) (\s@RoutingStrategy' {} a -> s {fleetId = a} :: RoutingStrategy)

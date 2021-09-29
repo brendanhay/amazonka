@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a logging level.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteV2LoggingLevel>
+-- action.
 module Network.AWS.IoT.DeleteV2LoggingLevel
   ( -- * Creating a Request
     DeleteV2LoggingLevel (..),

@@ -35,8 +35,8 @@ module Network.AWS.Glue.UpdateCrawler
     updateCrawler_lineageConfiguration,
     updateCrawler_targets,
     updateCrawler_role,
-    updateCrawler_tablePrefix,
     updateCrawler_description,
+    updateCrawler_tablePrefix,
     updateCrawler_schedule,
     updateCrawler_crawlerSecurityConfiguration,
     updateCrawler_databaseName,
@@ -82,10 +82,10 @@ data UpdateCrawler = UpdateCrawler'
     -- | The IAM role or Amazon Resource Name (ARN) of an IAM role that is used
     -- by the new crawler to access customer resources.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The table prefix used for catalog tables that are created.
-    tablePrefix :: Prelude.Maybe Prelude.Text,
     -- | A description of the new crawler.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The table prefix used for catalog tables that are created.
+    tablePrefix :: Prelude.Maybe Prelude.Text,
     -- | A @cron@ expression used to specify the schedule (see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
@@ -94,7 +94,7 @@ data UpdateCrawler = UpdateCrawler'
     -- | The name of the @SecurityConfiguration@ structure to be used by this
     -- crawler.
     crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Glue database where results are stored, such as:
+    -- | The Glue database where results are stored, such as:
     -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | Name of the new crawler.
@@ -132,9 +132,9 @@ data UpdateCrawler = UpdateCrawler'
 -- 'role'', 'updateCrawler_role' - The IAM role or Amazon Resource Name (ARN) of an IAM role that is used
 -- by the new crawler to access customer resources.
 --
--- 'tablePrefix', 'updateCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
---
 -- 'description', 'updateCrawler_description' - A description of the new crawler.
+--
+-- 'tablePrefix', 'updateCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
 --
 -- 'schedule', 'updateCrawler_schedule' - A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -144,7 +144,7 @@ data UpdateCrawler = UpdateCrawler'
 -- 'crawlerSecurityConfiguration', 'updateCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
 -- crawler.
 --
--- 'databaseName', 'updateCrawler_databaseName' - The AWS Glue database where results are stored, such as:
+-- 'databaseName', 'updateCrawler_databaseName' - The Glue database where results are stored, such as:
 -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
 --
 -- 'name', 'updateCrawler_name' - Name of the new crawler.
@@ -162,8 +162,8 @@ newUpdateCrawler pName_ =
       lineageConfiguration = Prelude.Nothing,
       targets = Prelude.Nothing,
       role' = Prelude.Nothing,
-      tablePrefix = Prelude.Nothing,
       description = Prelude.Nothing,
+      tablePrefix = Prelude.Nothing,
       schedule = Prelude.Nothing,
       crawlerSecurityConfiguration = Prelude.Nothing,
       databaseName = Prelude.Nothing,
@@ -206,13 +206,13 @@ updateCrawler_targets = Lens.lens (\UpdateCrawler' {targets} -> targets) (\s@Upd
 updateCrawler_role :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_role = Lens.lens (\UpdateCrawler' {role'} -> role') (\s@UpdateCrawler' {} a -> s {role' = a} :: UpdateCrawler)
 
--- | The table prefix used for catalog tables that are created.
-updateCrawler_tablePrefix :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
-updateCrawler_tablePrefix = Lens.lens (\UpdateCrawler' {tablePrefix} -> tablePrefix) (\s@UpdateCrawler' {} a -> s {tablePrefix = a} :: UpdateCrawler)
-
 -- | A description of the new crawler.
 updateCrawler_description :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_description = Lens.lens (\UpdateCrawler' {description} -> description) (\s@UpdateCrawler' {} a -> s {description = a} :: UpdateCrawler)
+
+-- | The table prefix used for catalog tables that are created.
+updateCrawler_tablePrefix :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
+updateCrawler_tablePrefix = Lens.lens (\UpdateCrawler' {tablePrefix} -> tablePrefix) (\s@UpdateCrawler' {} a -> s {tablePrefix = a} :: UpdateCrawler)
 
 -- | A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -226,7 +226,7 @@ updateCrawler_schedule = Lens.lens (\UpdateCrawler' {schedule} -> schedule) (\s@
 updateCrawler_crawlerSecurityConfiguration :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_crawlerSecurityConfiguration = Lens.lens (\UpdateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@UpdateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: UpdateCrawler)
 
--- | The AWS Glue database where results are stored, such as:
+-- | The Glue database where results are stored, such as:
 -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
 updateCrawler_databaseName :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_databaseName = Lens.lens (\UpdateCrawler' {databaseName} -> databaseName) (\s@UpdateCrawler' {} a -> s {databaseName = a} :: UpdateCrawler)
@@ -277,8 +277,8 @@ instance Core.ToJSON UpdateCrawler where
               Prelude.<$> lineageConfiguration,
             ("Targets" Core..=) Prelude.<$> targets,
             ("Role" Core..=) Prelude.<$> role',
-            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
             ("Description" Core..=) Prelude.<$> description,
+            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
             ("Schedule" Core..=) Prelude.<$> schedule,
             ("CrawlerSecurityConfiguration" Core..=)
               Prelude.<$> crawlerSecurityConfiguration,

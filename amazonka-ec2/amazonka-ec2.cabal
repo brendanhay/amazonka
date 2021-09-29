@@ -63,10 +63,12 @@ library
     Network.AWS.EC2.AssociateDhcpOptions
     Network.AWS.EC2.AssociateEnclaveCertificateIamRole
     Network.AWS.EC2.AssociateIamInstanceProfile
+    Network.AWS.EC2.AssociateInstanceEventWindow
     Network.AWS.EC2.AssociateRouteTable
     Network.AWS.EC2.AssociateSubnetCidrBlock
     Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
     Network.AWS.EC2.AssociateTransitGatewayRouteTable
+    Network.AWS.EC2.AssociateTrunkInterface
     Network.AWS.EC2.AssociateVpcCidrBlock
     Network.AWS.EC2.AttachClassicLinkVpc
     Network.AWS.EC2.AttachInternetGateway
@@ -102,6 +104,7 @@ library
     Network.AWS.EC2.CreateFlowLogs
     Network.AWS.EC2.CreateFpgaImage
     Network.AWS.EC2.CreateImage
+    Network.AWS.EC2.CreateInstanceEventWindow
     Network.AWS.EC2.CreateInstanceExportTask
     Network.AWS.EC2.CreateInternetGateway
     Network.AWS.EC2.CreateKeyPair
@@ -117,14 +120,18 @@ library
     Network.AWS.EC2.CreateNetworkInterface
     Network.AWS.EC2.CreateNetworkInterfacePermission
     Network.AWS.EC2.CreatePlacementGroup
+    Network.AWS.EC2.CreateReplaceRootVolumeTask
     Network.AWS.EC2.CreateReservedInstancesListing
+    Network.AWS.EC2.CreateRestoreImageTask
     Network.AWS.EC2.CreateRoute
     Network.AWS.EC2.CreateRouteTable
     Network.AWS.EC2.CreateSecurityGroup
     Network.AWS.EC2.CreateSnapshot
     Network.AWS.EC2.CreateSnapshots
     Network.AWS.EC2.CreateSpotDatafeedSubscription
+    Network.AWS.EC2.CreateStoreImageTask
     Network.AWS.EC2.CreateSubnet
+    Network.AWS.EC2.CreateSubnetCidrReservation
     Network.AWS.EC2.CreateTags
     Network.AWS.EC2.CreateTrafficMirrorFilter
     Network.AWS.EC2.CreateTrafficMirrorFilterRule
@@ -157,6 +164,7 @@ library
     Network.AWS.EC2.DeleteFleets
     Network.AWS.EC2.DeleteFlowLogs
     Network.AWS.EC2.DeleteFpgaImage
+    Network.AWS.EC2.DeleteInstanceEventWindow
     Network.AWS.EC2.DeleteInternetGateway
     Network.AWS.EC2.DeleteKeyPair
     Network.AWS.EC2.DeleteLaunchTemplate
@@ -179,6 +187,7 @@ library
     Network.AWS.EC2.DeleteSnapshot
     Network.AWS.EC2.DeleteSpotDatafeedSubscription
     Network.AWS.EC2.DeleteSubnet
+    Network.AWS.EC2.DeleteSubnetCidrReservation
     Network.AWS.EC2.DeleteTags
     Network.AWS.EC2.DeleteTrafficMirrorFilter
     Network.AWS.EC2.DeleteTrafficMirrorFilterRule
@@ -250,6 +259,7 @@ library
     Network.AWS.EC2.DescribeInstanceAttribute
     Network.AWS.EC2.DescribeInstanceCreditSpecifications
     Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
+    Network.AWS.EC2.DescribeInstanceEventWindows
     Network.AWS.EC2.DescribeInstances
     Network.AWS.EC2.DescribeInstanceStatus
     Network.AWS.EC2.DescribeInstanceTypeOfferings
@@ -279,6 +289,7 @@ library
     Network.AWS.EC2.DescribePrincipalIdFormat
     Network.AWS.EC2.DescribePublicIpv4Pools
     Network.AWS.EC2.DescribeRegions
+    Network.AWS.EC2.DescribeReplaceRootVolumeTasks
     Network.AWS.EC2.DescribeReservedInstances
     Network.AWS.EC2.DescribeReservedInstancesListings
     Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -287,6 +298,7 @@ library
     Network.AWS.EC2.DescribeScheduledInstanceAvailability
     Network.AWS.EC2.DescribeScheduledInstances
     Network.AWS.EC2.DescribeSecurityGroupReferences
+    Network.AWS.EC2.DescribeSecurityGroupRules
     Network.AWS.EC2.DescribeSecurityGroups
     Network.AWS.EC2.DescribeSnapshotAttribute
     Network.AWS.EC2.DescribeSnapshots
@@ -297,6 +309,7 @@ library
     Network.AWS.EC2.DescribeSpotInstanceRequests
     Network.AWS.EC2.DescribeSpotPriceHistory
     Network.AWS.EC2.DescribeStaleSecurityGroups
+    Network.AWS.EC2.DescribeStoreImageTasks
     Network.AWS.EC2.DescribeSubnets
     Network.AWS.EC2.DescribeTags
     Network.AWS.EC2.DescribeTrafficMirrorFilters
@@ -310,6 +323,7 @@ library
     Network.AWS.EC2.DescribeTransitGatewayRouteTables
     Network.AWS.EC2.DescribeTransitGateways
     Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
+    Network.AWS.EC2.DescribeTrunkInterfaceAssociations
     Network.AWS.EC2.DescribeVolumeAttribute
     Network.AWS.EC2.DescribeVolumes
     Network.AWS.EC2.DescribeVolumesModifications
@@ -334,6 +348,8 @@ library
     Network.AWS.EC2.DetachVpnGateway
     Network.AWS.EC2.DisableEbsEncryptionByDefault
     Network.AWS.EC2.DisableFastSnapshotRestores
+    Network.AWS.EC2.DisableImageDeprecation
+    Network.AWS.EC2.DisableSerialConsoleAccess
     Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
     Network.AWS.EC2.DisableVgwRoutePropagation
     Network.AWS.EC2.DisableVpcClassicLink
@@ -342,13 +358,17 @@ library
     Network.AWS.EC2.DisassociateClientVpnTargetNetwork
     Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
     Network.AWS.EC2.DisassociateIamInstanceProfile
+    Network.AWS.EC2.DisassociateInstanceEventWindow
     Network.AWS.EC2.DisassociateRouteTable
     Network.AWS.EC2.DisassociateSubnetCidrBlock
     Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
     Network.AWS.EC2.DisassociateTransitGatewayRouteTable
+    Network.AWS.EC2.DisassociateTrunkInterface
     Network.AWS.EC2.DisassociateVpcCidrBlock
     Network.AWS.EC2.EnableEbsEncryptionByDefault
     Network.AWS.EC2.EnableFastSnapshotRestores
+    Network.AWS.EC2.EnableImageDeprecation
+    Network.AWS.EC2.EnableSerialConsoleAccess
     Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
     Network.AWS.EC2.EnableVgwRoutePropagation
     Network.AWS.EC2.EnableVolumeIO
@@ -367,6 +387,7 @@ library
     Network.AWS.EC2.GetDefaultCreditSpecification
     Network.AWS.EC2.GetEbsDefaultKmsKeyId
     Network.AWS.EC2.GetEbsEncryptionByDefault
+    Network.AWS.EC2.GetFlowLogsIntegrationTemplate
     Network.AWS.EC2.GetGroupsForCapacityReservation
     Network.AWS.EC2.GetHostReservationPurchasePreview
     Network.AWS.EC2.GetLaunchTemplateData
@@ -374,11 +395,15 @@ library
     Network.AWS.EC2.GetManagedPrefixListEntries
     Network.AWS.EC2.GetPasswordData
     Network.AWS.EC2.GetReservedInstancesExchangeQuote
+    Network.AWS.EC2.GetSerialConsoleAccessStatus
+    Network.AWS.EC2.GetSubnetCidrReservations
     Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
     Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
     Network.AWS.EC2.GetTransitGatewayPrefixListReferences
     Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
     Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
+    Network.AWS.EC2.GetVpnConnectionDeviceSampleConfiguration
+    Network.AWS.EC2.GetVpnConnectionDeviceTypes
     Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
     Network.AWS.EC2.ImportImage
     Network.AWS.EC2.ImportInstance
@@ -403,12 +428,14 @@ library
     Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
     Network.AWS.EC2.ModifyInstanceCreditSpecification
     Network.AWS.EC2.ModifyInstanceEventStartTime
+    Network.AWS.EC2.ModifyInstanceEventWindow
     Network.AWS.EC2.ModifyInstanceMetadataOptions
     Network.AWS.EC2.ModifyInstancePlacement
     Network.AWS.EC2.ModifyLaunchTemplate
     Network.AWS.EC2.ModifyManagedPrefixList
     Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     Network.AWS.EC2.ModifyReservedInstances
+    Network.AWS.EC2.ModifySecurityGroupRules
     Network.AWS.EC2.ModifySnapshotAttribute
     Network.AWS.EC2.ModifySpotFleetRequest
     Network.AWS.EC2.ModifySubnetAttribute
@@ -516,6 +543,7 @@ library
     Network.AWS.EC2.Types.AssociatedTargetNetwork
     Network.AWS.EC2.Types.AssociationStatus
     Network.AWS.EC2.Types.AssociationStatusCode
+    Network.AWS.EC2.Types.AthenaIntegration
     Network.AWS.EC2.Types.AttachmentStatus
     Network.AWS.EC2.Types.AttributeBooleanValue
     Network.AWS.EC2.Types.AttributeValue
@@ -532,6 +560,8 @@ library
     Network.AWS.EC2.Types.BgpStatus
     Network.AWS.EC2.Types.BlobAttributeValue
     Network.AWS.EC2.Types.BlockDeviceMapping
+    Network.AWS.EC2.Types.BootModeType
+    Network.AWS.EC2.Types.BootModeValues
     Network.AWS.EC2.Types.BundleTask
     Network.AWS.EC2.Types.BundleTaskError
     Network.AWS.EC2.Types.BundleTaskState
@@ -593,6 +623,7 @@ library
     Network.AWS.EC2.Types.ConnectionNotification
     Network.AWS.EC2.Types.ConnectionNotificationState
     Network.AWS.EC2.Types.ConnectionNotificationType
+    Network.AWS.EC2.Types.ConnectivityType
     Network.AWS.EC2.Types.ContainerFormat
     Network.AWS.EC2.Types.ConversionTask
     Network.AWS.EC2.Types.ConversionTaskState
@@ -655,6 +686,7 @@ library
     Network.AWS.EC2.Types.EbsNvmeSupport
     Network.AWS.EC2.Types.EbsOptimizedInfo
     Network.AWS.EC2.Types.EbsOptimizedSupport
+    Network.AWS.EC2.Types.EfaInfo
     Network.AWS.EC2.Types.EgressOnlyInternetGateway
     Network.AWS.EC2.Types.ElasticGpuAssociation
     Network.AWS.EC2.Types.ElasticGpuHealth
@@ -771,12 +803,22 @@ library
     Network.AWS.EC2.Types.InstanceCount
     Network.AWS.EC2.Types.InstanceCreditSpecification
     Network.AWS.EC2.Types.InstanceCreditSpecificationRequest
+    Network.AWS.EC2.Types.InstanceEventWindow
+    Network.AWS.EC2.Types.InstanceEventWindowAssociationRequest
+    Network.AWS.EC2.Types.InstanceEventWindowAssociationTarget
+    Network.AWS.EC2.Types.InstanceEventWindowDisassociationRequest
+    Network.AWS.EC2.Types.InstanceEventWindowState
+    Network.AWS.EC2.Types.InstanceEventWindowStateChange
+    Network.AWS.EC2.Types.InstanceEventWindowTimeRange
+    Network.AWS.EC2.Types.InstanceEventWindowTimeRangeRequest
     Network.AWS.EC2.Types.InstanceExportDetails
     Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
     Network.AWS.EC2.Types.InstanceHealthStatus
     Network.AWS.EC2.Types.InstanceInterruptionBehavior
+    Network.AWS.EC2.Types.InstanceIpv4Prefix
     Network.AWS.EC2.Types.InstanceIpv6Address
     Network.AWS.EC2.Types.InstanceIpv6AddressRequest
+    Network.AWS.EC2.Types.InstanceIpv6Prefix
     Network.AWS.EC2.Types.InstanceLifecycle
     Network.AWS.EC2.Types.InstanceLifecycleType
     Network.AWS.EC2.Types.InstanceMarketOptionsRequest
@@ -785,6 +827,7 @@ library
     Network.AWS.EC2.Types.InstanceMetadataOptionsRequest
     Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
     Network.AWS.EC2.Types.InstanceMetadataOptionsState
+    Network.AWS.EC2.Types.InstanceMetadataProtocolState
     Network.AWS.EC2.Types.InstanceMonitoring
     Network.AWS.EC2.Types.InstanceNetworkInterface
     Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
@@ -806,17 +849,26 @@ library
     Network.AWS.EC2.Types.InstanceTypeInfo
     Network.AWS.EC2.Types.InstanceTypeOffering
     Network.AWS.EC2.Types.InstanceUsage
+    Network.AWS.EC2.Types.IntegrateServices
     Network.AWS.EC2.Types.InterfacePermissionType
+    Network.AWS.EC2.Types.InterfaceProtocolType
     Network.AWS.EC2.Types.InternetGateway
     Network.AWS.EC2.Types.InternetGatewayAttachment
     Network.AWS.EC2.Types.IpPermission
     Network.AWS.EC2.Types.IpRange
+    Network.AWS.EC2.Types.Ipv4PrefixSpecification
+    Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest
+    Network.AWS.EC2.Types.Ipv4PrefixSpecificationResponse
     Network.AWS.EC2.Types.Ipv6CidrAssociation
     Network.AWS.EC2.Types.Ipv6CidrBlock
     Network.AWS.EC2.Types.Ipv6Pool
+    Network.AWS.EC2.Types.Ipv6PrefixSpecification
+    Network.AWS.EC2.Types.Ipv6PrefixSpecificationRequest
+    Network.AWS.EC2.Types.Ipv6PrefixSpecificationResponse
     Network.AWS.EC2.Types.Ipv6Range
     Network.AWS.EC2.Types.Ipv6SupportValue
     Network.AWS.EC2.Types.KeyPairInfo
+    Network.AWS.EC2.Types.KeyType
     Network.AWS.EC2.Types.LastError
     Network.AWS.EC2.Types.LaunchPermission
     Network.AWS.EC2.Types.LaunchPermissionModifications
@@ -848,6 +900,7 @@ library
     Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptions
     Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
     Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
+    Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
     Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
     Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
     Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
@@ -925,6 +978,7 @@ library
     Network.AWS.EC2.Types.OnDemandOptions
     Network.AWS.EC2.Types.OnDemandOptionsRequest
     Network.AWS.EC2.Types.OperationType
+    Network.AWS.EC2.Types.PartitionLoadFrequency
     Network.AWS.EC2.Types.PathComponent
     Network.AWS.EC2.Types.PaymentOption
     Network.AWS.EC2.Types.PciId
@@ -982,10 +1036,13 @@ library
     Network.AWS.EC2.Types.PurchaseRequest
     Network.AWS.EC2.Types.RecurringCharge
     Network.AWS.EC2.Types.RecurringChargeFrequency
+    Network.AWS.EC2.Types.ReferencedSecurityGroup
     Network.AWS.EC2.Types.RegionInfo
     Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest
     Network.AWS.EC2.Types.RemovePrefixListEntry
     Network.AWS.EC2.Types.ReplacementStrategy
+    Network.AWS.EC2.Types.ReplaceRootVolumeTask
+    Network.AWS.EC2.Types.ReplaceRootVolumeTaskState
     Network.AWS.EC2.Types.ReportInstanceReasonCodes
     Network.AWS.EC2.Types.ReportStatusType
     Network.AWS.EC2.Types.RequestLaunchTemplateData
@@ -1019,6 +1076,7 @@ library
     Network.AWS.EC2.Types.RouteTableAssociationStateCode
     Network.AWS.EC2.Types.RuleAction
     Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
+    Network.AWS.EC2.Types.S3ObjectTag
     Network.AWS.EC2.Types.S3Storage
     Network.AWS.EC2.Types.ScheduledInstance
     Network.AWS.EC2.Types.ScheduledInstanceAvailability
@@ -1037,6 +1095,10 @@ library
     Network.AWS.EC2.Types.SecurityGroup
     Network.AWS.EC2.Types.SecurityGroupIdentifier
     Network.AWS.EC2.Types.SecurityGroupReference
+    Network.AWS.EC2.Types.SecurityGroupRule
+    Network.AWS.EC2.Types.SecurityGroupRuleDescription
+    Network.AWS.EC2.Types.SecurityGroupRuleRequest
+    Network.AWS.EC2.Types.SecurityGroupRuleUpdate
     Network.AWS.EC2.Types.SelfServicePortal
     Network.AWS.EC2.Types.ServiceConfiguration
     Network.AWS.EC2.Types.ServiceDetail
@@ -1082,10 +1144,13 @@ library
     Network.AWS.EC2.Types.StatusType
     Network.AWS.EC2.Types.Storage
     Network.AWS.EC2.Types.StorageLocation
+    Network.AWS.EC2.Types.StoreImageTaskResult
     Network.AWS.EC2.Types.Subnet
     Network.AWS.EC2.Types.SubnetAssociation
     Network.AWS.EC2.Types.SubnetCidrBlockState
     Network.AWS.EC2.Types.SubnetCidrBlockStateCode
+    Network.AWS.EC2.Types.SubnetCidrReservation
+    Network.AWS.EC2.Types.SubnetCidrReservationType
     Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation
     Network.AWS.EC2.Types.SubnetState
     Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
@@ -1164,6 +1229,7 @@ library
     Network.AWS.EC2.Types.TransitGatewayVpcAttachment
     Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
     Network.AWS.EC2.Types.TransportProtocol
+    Network.AWS.EC2.Types.TrunkInterfaceAssociation
     Network.AWS.EC2.Types.TunnelInsideIpVersion
     Network.AWS.EC2.Types.TunnelOption
     Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
@@ -1218,6 +1284,7 @@ library
     Network.AWS.EC2.Types.VpcState
     Network.AWS.EC2.Types.VpcTenancy
     Network.AWS.EC2.Types.VpnConnection
+    Network.AWS.EC2.Types.VpnConnectionDeviceType
     Network.AWS.EC2.Types.VpnConnectionOptions
     Network.AWS.EC2.Types.VpnConnectionOptionsSpecification
     Network.AWS.EC2.Types.VpnEcmpSupportValue
@@ -1227,6 +1294,7 @@ library
     Network.AWS.EC2.Types.VpnStaticRoute
     Network.AWS.EC2.Types.VpnStaticRouteSource
     Network.AWS.EC2.Types.VpnTunnelOptionsSpecification
+    Network.AWS.EC2.Types.WeekDay
     Network.AWS.EC2.UnassignIpv6Addresses
     Network.AWS.EC2.UnassignPrivateIpAddresses
     Network.AWS.EC2.UnmonitorInstances

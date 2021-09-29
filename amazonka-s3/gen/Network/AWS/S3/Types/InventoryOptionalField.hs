@@ -20,6 +20,7 @@
 module Network.AWS.S3.Types.InventoryOptionalField
   ( InventoryOptionalField
       ( ..,
+        InventoryOptionalField_BucketKeyStatus,
         InventoryOptionalField_ETag,
         InventoryOptionalField_EncryptionStatus,
         InventoryOptionalField_IntelligentTieringAccessTier,
@@ -67,6 +68,9 @@ newtype InventoryOptionalField = InventoryOptionalField'
       Core.ToXML
     )
 
+pattern InventoryOptionalField_BucketKeyStatus :: InventoryOptionalField
+pattern InventoryOptionalField_BucketKeyStatus = InventoryOptionalField' "BucketKeyStatus"
+
 pattern InventoryOptionalField_ETag :: InventoryOptionalField
 pattern InventoryOptionalField_ETag = InventoryOptionalField' "ETag"
 
@@ -101,6 +105,7 @@ pattern InventoryOptionalField_StorageClass :: InventoryOptionalField
 pattern InventoryOptionalField_StorageClass = InventoryOptionalField' "StorageClass"
 
 {-# COMPLETE
+  InventoryOptionalField_BucketKeyStatus,
   InventoryOptionalField_ETag,
   InventoryOptionalField_EncryptionStatus,
   InventoryOptionalField_IntelligentTieringAccessTier,

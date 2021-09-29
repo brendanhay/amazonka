@@ -111,7 +111,7 @@ instance Core.ToQuery GetCallerIdentity where
 --
 -- /See:/ 'newGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-  { -- | The AWS ARN associated with the calling entity.
+  { -- | The Amazon Web Services ARN associated with the calling entity.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the calling entity. The exact value depends on
     -- the type of entity that is making the call. The values returned are
@@ -120,8 +120,8 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
     -- found on the __Policy Variables__ reference page in the /IAM User
     -- Guide/.
     userId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID number of the account that owns or contains the
-    -- calling entity.
+    -- | The Amazon Web Services account ID number of the account that owns or
+    -- contains the calling entity.
     account :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,7 +136,7 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getCallerIdentityResponse_arn' - The AWS ARN associated with the calling entity.
+-- 'arn', 'getCallerIdentityResponse_arn' - The Amazon Web Services ARN associated with the calling entity.
 --
 -- 'userId', 'getCallerIdentityResponse_userId' - The unique identifier of the calling entity. The exact value depends on
 -- the type of entity that is making the call. The values returned are
@@ -145,8 +145,8 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 -- found on the __Policy Variables__ reference page in the /IAM User
 -- Guide/.
 --
--- 'account', 'getCallerIdentityResponse_account' - The AWS account ID number of the account that owns or contains the
--- calling entity.
+-- 'account', 'getCallerIdentityResponse_account' - The Amazon Web Services account ID number of the account that owns or
+-- contains the calling entity.
 --
 -- 'httpStatus', 'getCallerIdentityResponse_httpStatus' - The response's http status code.
 newGetCallerIdentityResponse ::
@@ -161,7 +161,7 @@ newGetCallerIdentityResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS ARN associated with the calling entity.
+-- | The Amazon Web Services ARN associated with the calling entity.
 getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> arn) (\s@GetCallerIdentityResponse' {} a -> s {arn = a} :: GetCallerIdentityResponse)
 
@@ -174,8 +174,8 @@ getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> 
 getCallerIdentityResponse_userId :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_userId = Lens.lens (\GetCallerIdentityResponse' {userId} -> userId) (\s@GetCallerIdentityResponse' {} a -> s {userId = a} :: GetCallerIdentityResponse)
 
--- | The AWS account ID number of the account that owns or contains the
--- calling entity.
+-- | The Amazon Web Services account ID number of the account that owns or
+-- contains the calling entity.
 getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_account = Lens.lens (\GetCallerIdentityResponse' {account} -> account) (\s@GetCallerIdentityResponse' {} a -> s {account = a} :: GetCallerIdentityResponse)
 

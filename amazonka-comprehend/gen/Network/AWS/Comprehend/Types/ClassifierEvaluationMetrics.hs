@@ -28,7 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClassifierEvaluationMetrics' smart constructor.
 data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
-  { -- | A measure of how complete the classifier results are for the test data.
+  { -- | A measure of how accurate the classifier results are for the test data.
+    -- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
+    -- the harmonic average of the two scores. The highest score is 1, and the
+    -- worst score is 0.
+    f1Score :: Prelude.Maybe Prelude.Double,
+    -- | A measure of how complete the classifier results are for the test data.
     -- High recall means that the classifier returned most of the relevant
     -- results. Specifically, this indicates how many of the correct categories
     -- in the text that the model can predict. It is a percentage of correct
@@ -36,11 +41,6 @@ data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
     -- scores of all labels (as with Recall), micro Recall is based on the
     -- overall score of all recall scores added together.
     microRecall :: Prelude.Maybe Prelude.Double,
-    -- | A measure of how accurate the classifier results are for the test data.
-    -- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
-    -- the harmonic average of the two scores. The highest score is 1, and the
-    -- worst score is 0.
-    f1Score :: Prelude.Maybe Prelude.Double,
     -- | A measure of the usefulness of the recognizer results in the test data.
     -- High precision means that the recognizer returned substantially more
     -- relevant results than irrelevant ones. Unlike the Precision metric which
@@ -80,6 +80,11 @@ data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'f1Score', 'classifierEvaluationMetrics_f1Score' - A measure of how accurate the classifier results are for the test data.
+-- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
+-- the harmonic average of the two scores. The highest score is 1, and the
+-- worst score is 0.
+--
 -- 'microRecall', 'classifierEvaluationMetrics_microRecall' - A measure of how complete the classifier results are for the test data.
 -- High recall means that the classifier returned most of the relevant
 -- results. Specifically, this indicates how many of the correct categories
@@ -87,11 +92,6 @@ data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
 -- categories in the text that can found. Instead of averaging the recall
 -- scores of all labels (as with Recall), micro Recall is based on the
 -- overall score of all recall scores added together.
---
--- 'f1Score', 'classifierEvaluationMetrics_f1Score' - A measure of how accurate the classifier results are for the test data.
--- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
--- the harmonic average of the two scores. The highest score is 1, and the
--- worst score is 0.
 --
 -- 'microPrecision', 'classifierEvaluationMetrics_microPrecision' - A measure of the usefulness of the recognizer results in the test data.
 -- High precision means that the recognizer returned substantially more
@@ -124,9 +124,9 @@ newClassifierEvaluationMetrics ::
   ClassifierEvaluationMetrics
 newClassifierEvaluationMetrics =
   ClassifierEvaluationMetrics'
-    { microRecall =
+    { f1Score =
         Prelude.Nothing,
-      f1Score = Prelude.Nothing,
+      microRecall = Prelude.Nothing,
       microPrecision = Prelude.Nothing,
       precision = Prelude.Nothing,
       accuracy = Prelude.Nothing,
@@ -134,6 +134,13 @@ newClassifierEvaluationMetrics =
       recall = Prelude.Nothing,
       microF1Score = Prelude.Nothing
     }
+
+-- | A measure of how accurate the classifier results are for the test data.
+-- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
+-- the harmonic average of the two scores. The highest score is 1, and the
+-- worst score is 0.
+classifierEvaluationMetrics_f1Score :: Lens.Lens' ClassifierEvaluationMetrics (Prelude.Maybe Prelude.Double)
+classifierEvaluationMetrics_f1Score = Lens.lens (\ClassifierEvaluationMetrics' {f1Score} -> f1Score) (\s@ClassifierEvaluationMetrics' {} a -> s {f1Score = a} :: ClassifierEvaluationMetrics)
 
 -- | A measure of how complete the classifier results are for the test data.
 -- High recall means that the classifier returned most of the relevant
@@ -144,13 +151,6 @@ newClassifierEvaluationMetrics =
 -- overall score of all recall scores added together.
 classifierEvaluationMetrics_microRecall :: Lens.Lens' ClassifierEvaluationMetrics (Prelude.Maybe Prelude.Double)
 classifierEvaluationMetrics_microRecall = Lens.lens (\ClassifierEvaluationMetrics' {microRecall} -> microRecall) (\s@ClassifierEvaluationMetrics' {} a -> s {microRecall = a} :: ClassifierEvaluationMetrics)
-
--- | A measure of how accurate the classifier results are for the test data.
--- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
--- the harmonic average of the two scores. The highest score is 1, and the
--- worst score is 0.
-classifierEvaluationMetrics_f1Score :: Lens.Lens' ClassifierEvaluationMetrics (Prelude.Maybe Prelude.Double)
-classifierEvaluationMetrics_f1Score = Lens.lens (\ClassifierEvaluationMetrics' {f1Score} -> f1Score) (\s@ClassifierEvaluationMetrics' {} a -> s {f1Score = a} :: ClassifierEvaluationMetrics)
 
 -- | A measure of the usefulness of the recognizer results in the test data.
 -- High precision means that the recognizer returned substantially more
@@ -198,8 +198,8 @@ instance Core.FromJSON ClassifierEvaluationMetrics where
       "ClassifierEvaluationMetrics"
       ( \x ->
           ClassifierEvaluationMetrics'
-            Prelude.<$> (x Core..:? "MicroRecall")
-            Prelude.<*> (x Core..:? "F1Score")
+            Prelude.<$> (x Core..:? "F1Score")
+            Prelude.<*> (x Core..:? "MicroRecall")
             Prelude.<*> (x Core..:? "MicroPrecision")
             Prelude.<*> (x Core..:? "Precision")
             Prelude.<*> (x Core..:? "Accuracy")

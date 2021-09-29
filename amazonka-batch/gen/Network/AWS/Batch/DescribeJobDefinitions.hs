@@ -70,17 +70,19 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status used to filter job definitions.
     status :: Prelude.Maybe Prelude.Text,
-    -- | A list of up to 100 job definition names or full Amazon Resource Name
-    -- (ARN) entries.
+    -- | A list of up to 100 job definitions. Each entry in the list can either
+    -- be an ARN of the form
+    -- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
+    -- or a short version using the form @${JobDefinitionName}:${Revision}@.
     jobDefinitions :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results returned by @DescribeJobDefinitions@ in
     -- paginated output. When this parameter is used, @DescribeJobDefinitions@
-    -- only returns @maxResults@ results in a single page along with a
-    -- @nextToken@ response element. The remaining results of the initial
-    -- request can be seen by sending another @DescribeJobDefinitions@ request
-    -- with the returned @nextToken@ value. This value can be between 1 and
-    -- 100. If this parameter isn\'t used, then @DescribeJobDefinitions@
-    -- returns up to 100 results and a @nextToken@ value if applicable.
+    -- only returns @maxResults@ results in a single page and a @nextToken@
+    -- response element. The remaining results of the initial request can be
+    -- seen by sending another @DescribeJobDefinitions@ request with the
+    -- returned @nextToken@ value. This value can be between 1 and 100. If this
+    -- parameter isn\'t used, then @DescribeJobDefinitions@ returns up to 100
+    -- results and a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the job definition to describe.
     jobDefinitionName :: Prelude.Maybe Prelude.Text
@@ -107,17 +109,19 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 --
 -- 'status', 'describeJobDefinitions_status' - The status used to filter job definitions.
 --
--- 'jobDefinitions', 'describeJobDefinitions_jobDefinitions' - A list of up to 100 job definition names or full Amazon Resource Name
--- (ARN) entries.
+-- 'jobDefinitions', 'describeJobDefinitions_jobDefinitions' - A list of up to 100 job definitions. Each entry in the list can either
+-- be an ARN of the form
+-- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
+-- or a short version using the form @${JobDefinitionName}:${Revision}@.
 --
 -- 'maxResults', 'describeJobDefinitions_maxResults' - The maximum number of results returned by @DescribeJobDefinitions@ in
 -- paginated output. When this parameter is used, @DescribeJobDefinitions@
--- only returns @maxResults@ results in a single page along with a
--- @nextToken@ response element. The remaining results of the initial
--- request can be seen by sending another @DescribeJobDefinitions@ request
--- with the returned @nextToken@ value. This value can be between 1 and
--- 100. If this parameter isn\'t used, then @DescribeJobDefinitions@
--- returns up to 100 results and a @nextToken@ value if applicable.
+-- only returns @maxResults@ results in a single page and a @nextToken@
+-- response element. The remaining results of the initial request can be
+-- seen by sending another @DescribeJobDefinitions@ request with the
+-- returned @nextToken@ value. This value can be between 1 and 100. If this
+-- parameter isn\'t used, then @DescribeJobDefinitions@ returns up to 100
+-- results and a @nextToken@ value if applicable.
 --
 -- 'jobDefinitionName', 'describeJobDefinitions_jobDefinitionName' - The name of the job definition to describe.
 newDescribeJobDefinitions ::
@@ -148,19 +152,21 @@ describeJobDefinitions_nextToken = Lens.lens (\DescribeJobDefinitions' {nextToke
 describeJobDefinitions_status :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
 describeJobDefinitions_status = Lens.lens (\DescribeJobDefinitions' {status} -> status) (\s@DescribeJobDefinitions' {} a -> s {status = a} :: DescribeJobDefinitions)
 
--- | A list of up to 100 job definition names or full Amazon Resource Name
--- (ARN) entries.
+-- | A list of up to 100 job definitions. Each entry in the list can either
+-- be an ARN of the form
+-- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
+-- or a short version using the form @${JobDefinitionName}:${Revision}@.
 describeJobDefinitions_jobDefinitions :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe [Prelude.Text])
 describeJobDefinitions_jobDefinitions = Lens.lens (\DescribeJobDefinitions' {jobDefinitions} -> jobDefinitions) (\s@DescribeJobDefinitions' {} a -> s {jobDefinitions = a} :: DescribeJobDefinitions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results returned by @DescribeJobDefinitions@ in
 -- paginated output. When this parameter is used, @DescribeJobDefinitions@
--- only returns @maxResults@ results in a single page along with a
--- @nextToken@ response element. The remaining results of the initial
--- request can be seen by sending another @DescribeJobDefinitions@ request
--- with the returned @nextToken@ value. This value can be between 1 and
--- 100. If this parameter isn\'t used, then @DescribeJobDefinitions@
--- returns up to 100 results and a @nextToken@ value if applicable.
+-- only returns @maxResults@ results in a single page and a @nextToken@
+-- response element. The remaining results of the initial request can be
+-- seen by sending another @DescribeJobDefinitions@ request with the
+-- returned @nextToken@ value. This value can be between 1 and 100. If this
+-- parameter isn\'t used, then @DescribeJobDefinitions@ returns up to 100
+-- results and a @nextToken@ value if applicable.
 describeJobDefinitions_maxResults :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Int)
 describeJobDefinitions_maxResults = Lens.lens (\DescribeJobDefinitions' {maxResults} -> maxResults) (\s@DescribeJobDefinitions' {} a -> s {maxResults = a} :: DescribeJobDefinitions)
 

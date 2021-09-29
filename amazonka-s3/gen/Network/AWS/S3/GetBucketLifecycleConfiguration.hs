@@ -26,7 +26,7 @@
 -- The response describes the new filter element that you can use to
 -- specify a filter to select a subset of objects to which the rule
 -- applies. If you are using a previous version of the lifecycle
--- configuration, it still works. For the earlier API description, see
+-- configuration, it still works. For the earlier action, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html GetBucketLifecycle>.
 --
 -- Returns the lifecycle configuration information set on the bucket. For
@@ -37,9 +37,9 @@
 -- @s3:GetLifecycleConfiguration@ action. The bucket owner has this
 -- permission, by default. The bucket owner can grant this permission to
 -- others. For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- @GetBucketLifecycleConfiguration@ has the following special error:
 --
@@ -87,7 +87,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketLifecycleConfiguration' smart constructor.
 data GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -104,7 +104,7 @@ data GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketLifecycleConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketLifecycleConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -120,7 +120,7 @@ newGetBucketLifecycleConfiguration pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)

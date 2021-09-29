@@ -23,16 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A CA certificate for an AWS account.
+-- | A CA certificate for an Amazon Web Services account.
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'
   { -- | The unique key that identifies a certificate.
     certificateIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The starting date from which the certificate is valid.
-    validFrom :: Prelude.Maybe Core.ISO8601,
     -- | Whether there is an override for the default certificate identifier.
     customerOverride :: Prelude.Maybe Prelude.Bool,
+    -- | The starting date from which the certificate is valid.
+    validFrom :: Prelude.Maybe Core.ISO8601,
     -- | The Amazon Resource Name (ARN) for the certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The type of the certificate.
@@ -57,9 +57,9 @@ data Certificate = Certificate'
 --
 -- 'certificateIdentifier', 'certificate_certificateIdentifier' - The unique key that identifies a certificate.
 --
--- 'validFrom', 'certificate_validFrom' - The starting date from which the certificate is valid.
---
 -- 'customerOverride', 'certificate_customerOverride' - Whether there is an override for the default certificate identifier.
+--
+-- 'validFrom', 'certificate_validFrom' - The starting date from which the certificate is valid.
 --
 -- 'certificateArn', 'certificate_certificateArn' - The Amazon Resource Name (ARN) for the certificate.
 --
@@ -77,8 +77,8 @@ newCertificate =
   Certificate'
     { certificateIdentifier =
         Prelude.Nothing,
-      validFrom = Prelude.Nothing,
       customerOverride = Prelude.Nothing,
+      validFrom = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
       certificateType = Prelude.Nothing,
       thumbprint = Prelude.Nothing,
@@ -90,13 +90,13 @@ newCertificate =
 certificate_certificateIdentifier :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_certificateIdentifier = Lens.lens (\Certificate' {certificateIdentifier} -> certificateIdentifier) (\s@Certificate' {} a -> s {certificateIdentifier = a} :: Certificate)
 
--- | The starting date from which the certificate is valid.
-certificate_validFrom :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validFrom = Lens.lens (\Certificate' {validFrom} -> validFrom) (\s@Certificate' {} a -> s {validFrom = a} :: Certificate) Prelude.. Lens.mapping Core._Time
-
 -- | Whether there is an override for the default certificate identifier.
 certificate_customerOverride :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Bool)
 certificate_customerOverride = Lens.lens (\Certificate' {customerOverride} -> customerOverride) (\s@Certificate' {} a -> s {customerOverride = a} :: Certificate)
+
+-- | The starting date from which the certificate is valid.
+certificate_validFrom :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_validFrom = Lens.lens (\Certificate' {validFrom} -> validFrom) (\s@Certificate' {} a -> s {validFrom = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) for the certificate.
 certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
@@ -123,8 +123,8 @@ instance Core.FromXML Certificate where
   parseXML x =
     Certificate'
       Prelude.<$> (x Core..@? "CertificateIdentifier")
-      Prelude.<*> (x Core..@? "ValidFrom")
       Prelude.<*> (x Core..@? "CustomerOverride")
+      Prelude.<*> (x Core..@? "ValidFrom")
       Prelude.<*> (x Core..@? "CertificateArn")
       Prelude.<*> (x Core..@? "CertificateType")
       Prelude.<*> (x Core..@? "Thumbprint")

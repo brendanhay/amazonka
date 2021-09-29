@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An SaaS partner can use this operation to display the AWS account ID
--- that a particular partner event source name is associated with. This
--- operation is not used by AWS customers.
+-- An SaaS partner can use this operation to display the Amazon Web
+-- Services account ID that a particular partner event source name is
+-- associated with. This operation is not used by Amazon Web Services
+-- customers.
 module Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
   ( -- * Creating a Request
     ListPartnerEventSourceAccounts (..),

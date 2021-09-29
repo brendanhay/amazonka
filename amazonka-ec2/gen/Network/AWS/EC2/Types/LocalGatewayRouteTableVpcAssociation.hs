@@ -39,10 +39,10 @@ data LocalGatewayRouteTableVpcAssociation = LocalGatewayRouteTableVpcAssociation
     -- | The Amazon Resource Name (ARN) of the local gateway route table for the
     -- association.
     localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the association.
-    state :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the association.
+    state :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the association.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the VPC.
@@ -68,9 +68,9 @@ data LocalGatewayRouteTableVpcAssociation = LocalGatewayRouteTableVpcAssociation
 -- 'localGatewayRouteTableArn', 'localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table for the
 -- association.
 --
--- 'state', 'localGatewayRouteTableVpcAssociation_state' - The state of the association.
---
 -- 'localGatewayRouteTableId', 'localGatewayRouteTableVpcAssociation_localGatewayRouteTableId' - The ID of the local gateway route table.
+--
+-- 'state', 'localGatewayRouteTableVpcAssociation_state' - The state of the association.
 --
 -- 'tags', 'localGatewayRouteTableVpcAssociation_tags' - The tags assigned to the association.
 --
@@ -86,9 +86,9 @@ newLocalGatewayRouteTableVpcAssociation =
       localGatewayId = Prelude.Nothing,
       localGatewayRouteTableArn =
         Prelude.Nothing,
-      state = Prelude.Nothing,
       localGatewayRouteTableId =
         Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
@@ -111,13 +111,13 @@ localGatewayRouteTableVpcAssociation_localGatewayId = Lens.lens (\LocalGatewayRo
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTableVpcAssociation)
 
--- | The state of the association.
-localGatewayRouteTableVpcAssociation_state :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
-localGatewayRouteTableVpcAssociation_state = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {state} -> state) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {state = a} :: LocalGatewayRouteTableVpcAssociation)
-
 -- | The ID of the local gateway route table.
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
 localGatewayRouteTableVpcAssociation_localGatewayRouteTableId = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTableVpcAssociation)
+
+-- | The state of the association.
+localGatewayRouteTableVpcAssociation_state :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe Prelude.Text)
+localGatewayRouteTableVpcAssociation_state = Lens.lens (\LocalGatewayRouteTableVpcAssociation' {state} -> state) (\s@LocalGatewayRouteTableVpcAssociation' {} a -> s {state = a} :: LocalGatewayRouteTableVpcAssociation)
 
 -- | The tags assigned to the association.
 localGatewayRouteTableVpcAssociation_tags :: Lens.Lens' LocalGatewayRouteTableVpcAssociation (Prelude.Maybe [Tag])
@@ -137,8 +137,8 @@ instance
       Prelude.<*> (x Core..@? "localGatewayRouteTableVpcAssociationId")
       Prelude.<*> (x Core..@? "localGatewayId")
       Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

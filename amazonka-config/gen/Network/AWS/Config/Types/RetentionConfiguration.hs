@@ -25,13 +25,13 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | An object with the name of the retention configuration and the retention
 -- period in days. The object stores the configuration for data retention
--- in AWS Config.
+-- in Config.
 --
 -- /See:/ 'newRetentionConfiguration' smart constructor.
 data RetentionConfiguration = RetentionConfiguration'
   { -- | The name of the retention configuration object.
     name :: Prelude.Text,
-    -- | Number of days AWS Config stores your historical information.
+    -- | Number of days Config stores your historical information.
     --
     -- Currently, only applicable to the configuration item history.
     retentionPeriodInDays :: Prelude.Natural
@@ -48,7 +48,7 @@ data RetentionConfiguration = RetentionConfiguration'
 --
 -- 'name', 'retentionConfiguration_name' - The name of the retention configuration object.
 --
--- 'retentionPeriodInDays', 'retentionConfiguration_retentionPeriodInDays' - Number of days AWS Config stores your historical information.
+-- 'retentionPeriodInDays', 'retentionConfiguration_retentionPeriodInDays' - Number of days Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
 newRetentionConfiguration ::
@@ -69,7 +69,7 @@ newRetentionConfiguration
 retentionConfiguration_name :: Lens.Lens' RetentionConfiguration Prelude.Text
 retentionConfiguration_name = Lens.lens (\RetentionConfiguration' {name} -> name) (\s@RetentionConfiguration' {} a -> s {name = a} :: RetentionConfiguration)
 
--- | Number of days AWS Config stores your historical information.
+-- | Number of days Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
 retentionConfiguration_retentionPeriodInDays :: Lens.Lens' RetentionConfiguration Prelude.Natural

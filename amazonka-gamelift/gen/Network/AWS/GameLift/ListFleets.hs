@@ -20,30 +20,46 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a collection of fleet resources for this AWS account. You can
--- filter the result set to find only those fleets that are deployed with a
--- specific build or script. Use the pagination parameters to retrieve
--- results in sequential pages.
+-- Retrieves a collection of fleet resources in an AWS Region. You can call
+-- this operation to get fleets in a previously selected default Region
+-- (see
+-- <https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html>or
+-- specify a Region in your request. You can filter the result set to find
+-- only those fleets that are deployed with a specific build or script. For
+-- fleets that have multiple locations, this operation retrieves fleets
+-- based on their home Region only.
+--
+-- This operation can be used in the following ways:
+--
+-- -   To get a list of all fleets in a Region, don\'t provide a build or
+--     script identifier.
+--
+-- -   To get a list of all fleets where a specific custom game build is
+--     deployed, provide the build ID.
+--
+-- -   To get a list of all Realtime Servers fleets with a specific
+--     configuration script, provide the script ID.
+--
+-- Use the pagination parameters to retrieve results as a set of sequential
+-- pages.
+--
+-- If successful, a list of fleet IDs that match the request parameters is
+-- returned. A NextToken value is also returned if there are more result
+-- pages to retrieve.
 --
 -- Fleet resources are not listed in a particular order.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateFleet
---
--- -   ListFleets
---
--- -   DeleteFleet
---
--- -   DescribeFleetAttributes
---
--- -   UpdateFleetAttributes
---
--- -   StartFleetActions or StopFleetActions
+-- CreateFleet | UpdateFleetCapacity | PutScalingPolicy |
+-- DescribeEC2InstanceLimits | DescribeFleetAttributes |
+-- DescribeFleetLocationAttributes | UpdateFleetAttributes |
+-- StopFleetActions | DeleteFleet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListFleets
@@ -79,22 +95,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListFleets' smart constructor.
 data ListFleets = ListFleets'
-  { -- | Token that indicates the start of the next sequential page of results.
+  { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a build to return fleets for. Use this parameter
-    -- to return only fleets using a specified build. Use either the build ID
-    -- or ARN value. To retrieve all fleets, do not include either a BuildId
-    -- and ScriptID parameter.
+    -- | A unique identifier for the build to request fleets for. Use this
+    -- parameter to return only fleets using a specified build. Use either the
+    -- build ID or ARN value.
     buildId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for a Realtime script to return fleets for. Use this
-    -- parameter to return only fleets using a specified script. Use either the
-    -- script ID or ARN value. To retrieve all fleets, leave this parameter
-    -- empty.
+    -- | A unique identifier for the Realtime script to request fleets for. Use
+    -- this parameter to return only fleets using a specified script. Use
+    -- either the script ID or ARN value.
     scriptId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,22 +121,20 @@ data ListFleets = ListFleets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFleets_nextToken' - Token that indicates the start of the next sequential page of results.
+-- 'nextToken', 'listFleets_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'buildId', 'listFleets_buildId' - A unique identifier for a build to return fleets for. Use this parameter
--- to return only fleets using a specified build. Use either the build ID
--- or ARN value. To retrieve all fleets, do not include either a BuildId
--- and ScriptID parameter.
+-- 'buildId', 'listFleets_buildId' - A unique identifier for the build to request fleets for. Use this
+-- parameter to return only fleets using a specified build. Use either the
+-- build ID or ARN value.
 --
 -- 'limit', 'listFleets_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
--- 'scriptId', 'listFleets_scriptId' - A unique identifier for a Realtime script to return fleets for. Use this
--- parameter to return only fleets using a specified script. Use either the
--- script ID or ARN value. To retrieve all fleets, leave this parameter
--- empty.
+-- 'scriptId', 'listFleets_scriptId' - A unique identifier for the Realtime script to request fleets for. Use
+-- this parameter to return only fleets using a specified script. Use
+-- either the script ID or ARN value.
 newListFleets ::
   ListFleets
 newListFleets =
@@ -133,16 +145,15 @@ newListFleets =
       scriptId = Prelude.Nothing
     }
 
--- | Token that indicates the start of the next sequential page of results.
+-- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 listFleets_nextToken :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
 listFleets_nextToken = Lens.lens (\ListFleets' {nextToken} -> nextToken) (\s@ListFleets' {} a -> s {nextToken = a} :: ListFleets)
 
--- | A unique identifier for a build to return fleets for. Use this parameter
--- to return only fleets using a specified build. Use either the build ID
--- or ARN value. To retrieve all fleets, do not include either a BuildId
--- and ScriptID parameter.
+-- | A unique identifier for the build to request fleets for. Use this
+-- parameter to return only fleets using a specified build. Use either the
+-- build ID or ARN value.
 listFleets_buildId :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
 listFleets_buildId = Lens.lens (\ListFleets' {buildId} -> buildId) (\s@ListFleets' {} a -> s {buildId = a} :: ListFleets)
 
@@ -151,10 +162,9 @@ listFleets_buildId = Lens.lens (\ListFleets' {buildId} -> buildId) (\s@ListFleet
 listFleets_limit :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Natural)
 listFleets_limit = Lens.lens (\ListFleets' {limit} -> limit) (\s@ListFleets' {} a -> s {limit = a} :: ListFleets)
 
--- | A unique identifier for a Realtime script to return fleets for. Use this
--- parameter to return only fleets using a specified script. Use either the
--- script ID or ARN value. To retrieve all fleets, leave this parameter
--- empty.
+-- | A unique identifier for the Realtime script to request fleets for. Use
+-- this parameter to return only fleets using a specified script. Use
+-- either the script ID or ARN value.
 listFleets_scriptId :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
 listFleets_scriptId = Lens.lens (\ListFleets' {scriptId} -> scriptId) (\s@ListFleets' {} a -> s {scriptId = a} :: ListFleets)
 
@@ -228,14 +238,14 @@ instance Core.ToQuery ListFleets where
 --
 -- /See:/ 'newListFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call
-    -- to this operation. If no token is returned, these results represent the
-    -- end of the list.
+  { -- | A token that indicates where to resume retrieving results on the next
+    -- call to this operation. If no token is returned, these results represent
+    -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set of fleet IDs matching the list request. You can retrieve additional
-    -- information about all returned fleets by passing this result set to a
-    -- call to DescribeFleetAttributes, DescribeFleetCapacity, or
-    -- DescribeFleetUtilization.
+    -- | A set of fleet IDs that match the list request. You can retrieve
+    -- additional information about all returned fleets by passing this result
+    -- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
+    -- DescribeFleetUtilization call.
     fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -250,14 +260,14 @@ data ListFleetsResponse = ListFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFleetsResponse_nextToken' - Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- 'nextToken', 'listFleetsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 --
--- 'fleetIds', 'listFleetsResponse_fleetIds' - Set of fleet IDs matching the list request. You can retrieve additional
--- information about all returned fleets by passing this result set to a
--- call to DescribeFleetAttributes, DescribeFleetCapacity, or
--- DescribeFleetUtilization.
+-- 'fleetIds', 'listFleetsResponse_fleetIds' - A set of fleet IDs that match the list request. You can retrieve
+-- additional information about all returned fleets by passing this result
+-- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
+-- DescribeFleetUtilization call.
 --
 -- 'httpStatus', 'listFleetsResponse_httpStatus' - The response's http status code.
 newListFleetsResponse ::
@@ -271,16 +281,16 @@ newListFleetsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- | A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 listFleetsResponse_nextToken :: Lens.Lens' ListFleetsResponse (Prelude.Maybe Prelude.Text)
 listFleetsResponse_nextToken = Lens.lens (\ListFleetsResponse' {nextToken} -> nextToken) (\s@ListFleetsResponse' {} a -> s {nextToken = a} :: ListFleetsResponse)
 
--- | Set of fleet IDs matching the list request. You can retrieve additional
--- information about all returned fleets by passing this result set to a
--- call to DescribeFleetAttributes, DescribeFleetCapacity, or
--- DescribeFleetUtilization.
+-- | A set of fleet IDs that match the list request. You can retrieve
+-- additional information about all returned fleets by passing this result
+-- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
+-- DescribeFleetUtilization call.
 listFleetsResponse_fleetIds :: Lens.Lens' ListFleetsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listFleetsResponse_fleetIds = Lens.lens (\ListFleetsResponse' {fleetIds} -> fleetIds) (\s@ListFleetsResponse' {} a -> s {fleetIds = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
 

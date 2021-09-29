@@ -29,8 +29,8 @@ module Network.AWS.Redshift.CreateSnapshotSchedule
 
     -- * Request Lenses
     createSnapshotSchedule_nextInvocations,
-    createSnapshotSchedule_dryRun,
     createSnapshotSchedule_scheduleIdentifier,
+    createSnapshotSchedule_dryRun,
     createSnapshotSchedule_scheduleDescription,
     createSnapshotSchedule_scheduleDefinitions,
     createSnapshotSchedule_tags,
@@ -45,8 +45,8 @@ module Network.AWS.Redshift.CreateSnapshotSchedule
     snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_scheduleDescription,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_associatedClusterCount,
     snapshotSchedule_tags,
+    snapshotSchedule_associatedClusterCount,
   )
 where
 
@@ -60,10 +60,10 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateSnapshotSchedule' smart constructor.
 data CreateSnapshotSchedule = CreateSnapshotSchedule'
   { nextInvocations :: Prelude.Maybe Prelude.Int,
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A unique identifier for a snapshot schedule. Only alphanumeric
     -- characters are allowed for the identifier.
     scheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The description of the snapshot schedule.
     scheduleDescription :: Prelude.Maybe Prelude.Text,
     -- | The definition of the snapshot schedule. The definition is made up of
@@ -85,10 +85,10 @@ data CreateSnapshotSchedule = CreateSnapshotSchedule'
 --
 -- 'nextInvocations', 'createSnapshotSchedule_nextInvocations' -
 --
--- 'dryRun', 'createSnapshotSchedule_dryRun' -
---
 -- 'scheduleIdentifier', 'createSnapshotSchedule_scheduleIdentifier' - A unique identifier for a snapshot schedule. Only alphanumeric
 -- characters are allowed for the identifier.
+--
+-- 'dryRun', 'createSnapshotSchedule_dryRun' -
 --
 -- 'scheduleDescription', 'createSnapshotSchedule_scheduleDescription' - The description of the snapshot schedule.
 --
@@ -103,8 +103,8 @@ newCreateSnapshotSchedule =
   CreateSnapshotSchedule'
     { nextInvocations =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       scheduleIdentifier = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       scheduleDescription = Prelude.Nothing,
       scheduleDefinitions = Prelude.Nothing,
       tags = Prelude.Nothing
@@ -114,14 +114,14 @@ newCreateSnapshotSchedule =
 createSnapshotSchedule_nextInvocations :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Int)
 createSnapshotSchedule_nextInvocations = Lens.lens (\CreateSnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@CreateSnapshotSchedule' {} a -> s {nextInvocations = a} :: CreateSnapshotSchedule)
 
--- |
-createSnapshotSchedule_dryRun :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Bool)
-createSnapshotSchedule_dryRun = Lens.lens (\CreateSnapshotSchedule' {dryRun} -> dryRun) (\s@CreateSnapshotSchedule' {} a -> s {dryRun = a} :: CreateSnapshotSchedule)
-
 -- | A unique identifier for a snapshot schedule. Only alphanumeric
 -- characters are allowed for the identifier.
 createSnapshotSchedule_scheduleIdentifier :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Text)
 createSnapshotSchedule_scheduleIdentifier = Lens.lens (\CreateSnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@CreateSnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: CreateSnapshotSchedule)
+
+-- |
+createSnapshotSchedule_dryRun :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Bool)
+createSnapshotSchedule_dryRun = Lens.lens (\CreateSnapshotSchedule' {dryRun} -> dryRun) (\s@CreateSnapshotSchedule' {} a -> s {dryRun = a} :: CreateSnapshotSchedule)
 
 -- | The description of the snapshot schedule.
 createSnapshotSchedule_scheduleDescription :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Text)
@@ -165,8 +165,8 @@ instance Core.ToQuery CreateSnapshotSchedule where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "NextInvocations" Core.=: nextInvocations,
-        "DryRun" Core.=: dryRun,
         "ScheduleIdentifier" Core.=: scheduleIdentifier,
+        "DryRun" Core.=: dryRun,
         "ScheduleDescription" Core.=: scheduleDescription,
         "ScheduleDefinitions"
           Core.=: Core.toQuery

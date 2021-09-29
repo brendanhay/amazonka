@@ -22,6 +22,10 @@
 --
 -- Lists your Device Defender audit listings.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListAuditSuppressions>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditSuppressions
   ( -- * Creating a Request

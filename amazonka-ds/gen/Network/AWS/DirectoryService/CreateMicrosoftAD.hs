@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Microsoft AD directory in the AWS Cloud. For more information,
--- see
--- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Managed Microsoft AD>
--- in the /AWS Directory Service Admin Guide/.
+-- Creates a Microsoft AD directory in the Amazon Web Services Cloud. For
+-- more information, see
+-- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html Managed Microsoft AD>
+-- in the /Directory Service Admin Guide/.
 --
 -- Before you call /CreateMicrosoftAD/, ensure that all of the required
 -- permissions have been explicitly granted through a policy. For details
 -- about what permissions are required to run the /CreateMicrosoftAD/
 -- operation, see
--- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
+-- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
 module Network.AWS.DirectoryService.CreateMicrosoftAD
   ( -- * Creating a Request
     CreateMicrosoftAD (..),
@@ -61,7 +61,7 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Creates an AWS Managed Microsoft AD directory.
+-- | Creates an Managed Microsoft AD directory.
 --
 -- /See:/ 'newCreateMicrosoftAD' smart constructor.
 data CreateMicrosoftAD = CreateMicrosoftAD'
@@ -69,17 +69,18 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
     -- a NetBIOS name, it will default to the first part of your directory DNS.
     -- For example, @CORP@ for the directory DNS @corp.example.com@.
     shortName :: Prelude.Maybe Prelude.Text,
-    -- | AWS Managed Microsoft AD is available in two editions: @Standard@ and
+    -- | Managed Microsoft AD is available in two editions: @Standard@ and
     -- @Enterprise@. @Enterprise@ is the default.
     edition :: Prelude.Maybe DirectoryEdition,
-    -- | The tags to be assigned to the AWS Managed Microsoft AD directory.
+    -- | The tags to be assigned to the Managed Microsoft AD directory.
     tags :: Prelude.Maybe [Tag],
-    -- | A description for the directory. This label will appear on the AWS
-    -- console @Directory Details@ page after the directory is created.
+    -- | A description for the directory. This label will appear on the Amazon
+    -- Web Services console @Directory Details@ page after the directory is
+    -- created.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified domain name for the AWS Managed Microsoft AD
-    -- directory, such as @corp.example.com@. This name will resolve inside
-    -- your VPC only. It does not need to be publicly resolvable.
+    -- | The fully qualified domain name for the Managed Microsoft AD directory,
+    -- such as @corp.example.com@. This name will resolve inside your VPC only.
+    -- It does not need to be publicly resolvable.
     name :: Prelude.Text,
     -- | The password for the default administrative user named @Admin@.
     --
@@ -104,17 +105,18 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 -- a NetBIOS name, it will default to the first part of your directory DNS.
 -- For example, @CORP@ for the directory DNS @corp.example.com@.
 --
--- 'edition', 'createMicrosoftAD_edition' - AWS Managed Microsoft AD is available in two editions: @Standard@ and
+-- 'edition', 'createMicrosoftAD_edition' - Managed Microsoft AD is available in two editions: @Standard@ and
 -- @Enterprise@. @Enterprise@ is the default.
 --
--- 'tags', 'createMicrosoftAD_tags' - The tags to be assigned to the AWS Managed Microsoft AD directory.
+-- 'tags', 'createMicrosoftAD_tags' - The tags to be assigned to the Managed Microsoft AD directory.
 --
--- 'description', 'createMicrosoftAD_description' - A description for the directory. This label will appear on the AWS
--- console @Directory Details@ page after the directory is created.
+-- 'description', 'createMicrosoftAD_description' - A description for the directory. This label will appear on the Amazon
+-- Web Services console @Directory Details@ page after the directory is
+-- created.
 --
--- 'name', 'createMicrosoftAD_name' - The fully qualified domain name for the AWS Managed Microsoft AD
--- directory, such as @corp.example.com@. This name will resolve inside
--- your VPC only. It does not need to be publicly resolvable.
+-- 'name', 'createMicrosoftAD_name' - The fully qualified domain name for the Managed Microsoft AD directory,
+-- such as @corp.example.com@. This name will resolve inside your VPC only.
+-- It does not need to be publicly resolvable.
 --
 -- 'password', 'createMicrosoftAD_password' - The password for the default administrative user named @Admin@.
 --
@@ -148,23 +150,24 @@ newCreateMicrosoftAD pName_ pPassword_ pVpcSettings_ =
 createMicrosoftAD_shortName :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
 createMicrosoftAD_shortName = Lens.lens (\CreateMicrosoftAD' {shortName} -> shortName) (\s@CreateMicrosoftAD' {} a -> s {shortName = a} :: CreateMicrosoftAD)
 
--- | AWS Managed Microsoft AD is available in two editions: @Standard@ and
+-- | Managed Microsoft AD is available in two editions: @Standard@ and
 -- @Enterprise@. @Enterprise@ is the default.
 createMicrosoftAD_edition :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe DirectoryEdition)
 createMicrosoftAD_edition = Lens.lens (\CreateMicrosoftAD' {edition} -> edition) (\s@CreateMicrosoftAD' {} a -> s {edition = a} :: CreateMicrosoftAD)
 
--- | The tags to be assigned to the AWS Managed Microsoft AD directory.
+-- | The tags to be assigned to the Managed Microsoft AD directory.
 createMicrosoftAD_tags :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe [Tag])
 createMicrosoftAD_tags = Lens.lens (\CreateMicrosoftAD' {tags} -> tags) (\s@CreateMicrosoftAD' {} a -> s {tags = a} :: CreateMicrosoftAD) Prelude.. Lens.mapping Lens._Coerce
 
--- | A description for the directory. This label will appear on the AWS
--- console @Directory Details@ page after the directory is created.
+-- | A description for the directory. This label will appear on the Amazon
+-- Web Services console @Directory Details@ page after the directory is
+-- created.
 createMicrosoftAD_description :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
 createMicrosoftAD_description = Lens.lens (\CreateMicrosoftAD' {description} -> description) (\s@CreateMicrosoftAD' {} a -> s {description = a} :: CreateMicrosoftAD)
 
--- | The fully qualified domain name for the AWS Managed Microsoft AD
--- directory, such as @corp.example.com@. This name will resolve inside
--- your VPC only. It does not need to be publicly resolvable.
+-- | The fully qualified domain name for the Managed Microsoft AD directory,
+-- such as @corp.example.com@. This name will resolve inside your VPC only.
+-- It does not need to be publicly resolvable.
 createMicrosoftAD_name :: Lens.Lens' CreateMicrosoftAD Prelude.Text
 createMicrosoftAD_name = Lens.lens (\CreateMicrosoftAD' {name} -> name) (\s@CreateMicrosoftAD' {} a -> s {name = a} :: CreateMicrosoftAD)
 

@@ -35,16 +35,16 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp indicating when the attachment initiated.
     attachTime :: Prelude.Maybe Core.ISO8601,
+    -- | Indicates whether the network interface is deleted when the instance is
+    -- terminated.
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface attachment.
     attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The index of the network card.
     networkCardIndex :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the network interface is deleted when the instance is
-    -- terminated.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The device index of the network interface attachment on the instance.
     deviceIndex :: Prelude.Maybe Prelude.Int,
-    -- | The AWS account ID of the owner of the instance.
+    -- | The Amazon Web Services account ID of the owner of the instance.
     instanceOwnerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,16 +63,16 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
 --
 -- 'attachTime', 'networkInterfaceAttachment_attachTime' - The timestamp indicating when the attachment initiated.
 --
+-- 'deleteOnTermination', 'networkInterfaceAttachment_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
+-- terminated.
+--
 -- 'attachmentId', 'networkInterfaceAttachment_attachmentId' - The ID of the network interface attachment.
 --
 -- 'networkCardIndex', 'networkInterfaceAttachment_networkCardIndex' - The index of the network card.
 --
--- 'deleteOnTermination', 'networkInterfaceAttachment_deleteOnTermination' - Indicates whether the network interface is deleted when the instance is
--- terminated.
---
 -- 'deviceIndex', 'networkInterfaceAttachment_deviceIndex' - The device index of the network interface attachment on the instance.
 --
--- 'instanceOwnerId', 'networkInterfaceAttachment_instanceOwnerId' - The AWS account ID of the owner of the instance.
+-- 'instanceOwnerId', 'networkInterfaceAttachment_instanceOwnerId' - The Amazon Web Services account ID of the owner of the instance.
 newNetworkInterfaceAttachment ::
   NetworkInterfaceAttachment
 newNetworkInterfaceAttachment =
@@ -81,9 +81,9 @@ newNetworkInterfaceAttachment =
         Prelude.Nothing,
       instanceId = Prelude.Nothing,
       attachTime = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
       attachmentId = Prelude.Nothing,
       networkCardIndex = Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing,
       deviceIndex = Prelude.Nothing,
       instanceOwnerId = Prelude.Nothing
     }
@@ -100,6 +100,11 @@ networkInterfaceAttachment_instanceId = Lens.lens (\NetworkInterfaceAttachment' 
 networkInterfaceAttachment_attachTime :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.UTCTime)
 networkInterfaceAttachment_attachTime = Lens.lens (\NetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@NetworkInterfaceAttachment' {} a -> s {attachTime = a} :: NetworkInterfaceAttachment) Prelude.. Lens.mapping Core._Time
 
+-- | Indicates whether the network interface is deleted when the instance is
+-- terminated.
+networkInterfaceAttachment_deleteOnTermination :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Bool)
+networkInterfaceAttachment_deleteOnTermination = Lens.lens (\NetworkInterfaceAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@NetworkInterfaceAttachment' {} a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachment)
+
 -- | The ID of the network interface attachment.
 networkInterfaceAttachment_attachmentId :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 networkInterfaceAttachment_attachmentId = Lens.lens (\NetworkInterfaceAttachment' {attachmentId} -> attachmentId) (\s@NetworkInterfaceAttachment' {} a -> s {attachmentId = a} :: NetworkInterfaceAttachment)
@@ -108,16 +113,11 @@ networkInterfaceAttachment_attachmentId = Lens.lens (\NetworkInterfaceAttachment
 networkInterfaceAttachment_networkCardIndex :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
 networkInterfaceAttachment_networkCardIndex = Lens.lens (\NetworkInterfaceAttachment' {networkCardIndex} -> networkCardIndex) (\s@NetworkInterfaceAttachment' {} a -> s {networkCardIndex = a} :: NetworkInterfaceAttachment)
 
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
-networkInterfaceAttachment_deleteOnTermination :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Bool)
-networkInterfaceAttachment_deleteOnTermination = Lens.lens (\NetworkInterfaceAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@NetworkInterfaceAttachment' {} a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachment)
-
 -- | The device index of the network interface attachment on the instance.
 networkInterfaceAttachment_deviceIndex :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
 networkInterfaceAttachment_deviceIndex = Lens.lens (\NetworkInterfaceAttachment' {deviceIndex} -> deviceIndex) (\s@NetworkInterfaceAttachment' {} a -> s {deviceIndex = a} :: NetworkInterfaceAttachment)
 
--- | The AWS account ID of the owner of the instance.
+-- | The Amazon Web Services account ID of the owner of the instance.
 networkInterfaceAttachment_instanceOwnerId :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 networkInterfaceAttachment_instanceOwnerId = Lens.lens (\NetworkInterfaceAttachment' {instanceOwnerId} -> instanceOwnerId) (\s@NetworkInterfaceAttachment' {} a -> s {instanceOwnerId = a} :: NetworkInterfaceAttachment)
 
@@ -127,9 +127,9 @@ instance Core.FromXML NetworkInterfaceAttachment where
       Prelude.<$> (x Core..@? "status")
       Prelude.<*> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "attachTime")
+      Prelude.<*> (x Core..@? "deleteOnTermination")
       Prelude.<*> (x Core..@? "attachmentId")
       Prelude.<*> (x Core..@? "networkCardIndex")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
       Prelude.<*> (x Core..@? "deviceIndex")
       Prelude.<*> (x Core..@? "instanceOwnerId")
 

@@ -43,8 +43,8 @@ module Network.AWS.SDB.ListDomains
     newListDomainsResponse,
 
     -- * Response Lenses
-    listDomainsResponse_nextToken,
     listDomainsResponse_domainNames,
+    listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest ListDomains where
       "ListDomainsResult"
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> (Core.may (Core.parseXMLList "DomainName") x)
+            Prelude.<$> (Core.may (Core.parseXMLList "DomainName") x)
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,11 +153,11 @@ instance Core.ToQuery ListDomains where
 
 -- | /See:/ 'newListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { -- | An opaque token indicating that there are more domains than the
+  { -- | A list of domain names that match the expression.
+    domainNames :: Prelude.Maybe [Prelude.Text],
+    -- | An opaque token indicating that there are more domains than the
     -- specified @MaxNumberOfDomains@ still available.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of domain names that match the expression.
-    domainNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListDomainsResponse = ListDomainsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainNames', 'listDomainsResponse_domainNames' - A list of domain names that match the expression.
+--
 -- 'nextToken', 'listDomainsResponse_nextToken' - An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.
---
--- 'domainNames', 'listDomainsResponse_domainNames' - A list of domain names that match the expression.
 --
 -- 'httpStatus', 'listDomainsResponse_httpStatus' - The response's http status code.
 newListDomainsResponse ::
@@ -183,19 +183,19 @@ newListDomainsResponse ::
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextToken = Prelude.Nothing,
-      domainNames = Prelude.Nothing,
+    { domainNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of domain names that match the expression.
+listDomainsResponse_domainNames :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [Prelude.Text])
+listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.
 listDomainsResponse_nextToken :: Lens.Lens' ListDomainsResponse (Prelude.Maybe Prelude.Text)
 listDomainsResponse_nextToken = Lens.lens (\ListDomainsResponse' {nextToken} -> nextToken) (\s@ListDomainsResponse' {} a -> s {nextToken = a} :: ListDomainsResponse)
-
--- | A list of domain names that match the expression.
-listDomainsResponse_domainNames :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [Prelude.Text])
-listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int

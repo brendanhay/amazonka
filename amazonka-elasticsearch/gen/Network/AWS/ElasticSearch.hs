@@ -53,11 +53,11 @@ module Network.AWS.ElasticSearch
     -- ** ValidationException
     _ValidationException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -83,11 +83,11 @@ module Network.AWS.ElasticSearch
     RemoveTagsResponse (RemoveTagsResponse'),
     newRemoveTagsResponse,
 
-    -- ** CreateOutboundCrossClusterSearchConnection
-    CreateOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection'),
-    newCreateOutboundCrossClusterSearchConnection,
-    CreateOutboundCrossClusterSearchConnectionResponse (CreateOutboundCrossClusterSearchConnectionResponse'),
-    newCreateOutboundCrossClusterSearchConnectionResponse,
+    -- ** DescribeElasticsearchDomainConfig
+    DescribeElasticsearchDomainConfig (DescribeElasticsearchDomainConfig'),
+    newDescribeElasticsearchDomainConfig,
+    DescribeElasticsearchDomainConfigResponse (DescribeElasticsearchDomainConfigResponse'),
+    newDescribeElasticsearchDomainConfigResponse,
 
     -- ** GetUpgradeHistory (Paginated)
     GetUpgradeHistory (GetUpgradeHistory'),
@@ -95,17 +95,11 @@ module Network.AWS.ElasticSearch
     GetUpgradeHistoryResponse (GetUpgradeHistoryResponse'),
     newGetUpgradeHistoryResponse,
 
-    -- ** DescribeElasticsearchDomainConfig
-    DescribeElasticsearchDomainConfig (DescribeElasticsearchDomainConfig'),
-    newDescribeElasticsearchDomainConfig,
-    DescribeElasticsearchDomainConfigResponse (DescribeElasticsearchDomainConfigResponse'),
-    newDescribeElasticsearchDomainConfigResponse,
-
-    -- ** AcceptInboundCrossClusterSearchConnection
-    AcceptInboundCrossClusterSearchConnection (AcceptInboundCrossClusterSearchConnection'),
-    newAcceptInboundCrossClusterSearchConnection,
-    AcceptInboundCrossClusterSearchConnectionResponse (AcceptInboundCrossClusterSearchConnectionResponse'),
-    newAcceptInboundCrossClusterSearchConnectionResponse,
+    -- ** CreateOutboundCrossClusterSearchConnection
+    CreateOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection'),
+    newCreateOutboundCrossClusterSearchConnection,
+    CreateOutboundCrossClusterSearchConnectionResponse (CreateOutboundCrossClusterSearchConnectionResponse'),
+    newCreateOutboundCrossClusterSearchConnectionResponse,
 
     -- ** DeleteOutboundCrossClusterSearchConnection
     DeleteOutboundCrossClusterSearchConnection (DeleteOutboundCrossClusterSearchConnection'),
@@ -113,11 +107,17 @@ module Network.AWS.ElasticSearch
     DeleteOutboundCrossClusterSearchConnectionResponse (DeleteOutboundCrossClusterSearchConnectionResponse'),
     newDeleteOutboundCrossClusterSearchConnectionResponse,
 
-    -- ** ListDomainNames
-    ListDomainNames (ListDomainNames'),
-    newListDomainNames,
-    ListDomainNamesResponse (ListDomainNamesResponse'),
-    newListDomainNamesResponse,
+    -- ** AcceptInboundCrossClusterSearchConnection
+    AcceptInboundCrossClusterSearchConnection (AcceptInboundCrossClusterSearchConnection'),
+    newAcceptInboundCrossClusterSearchConnection,
+    AcceptInboundCrossClusterSearchConnectionResponse (AcceptInboundCrossClusterSearchConnectionResponse'),
+    newAcceptInboundCrossClusterSearchConnectionResponse,
+
+    -- ** DescribeElasticsearchDomain
+    DescribeElasticsearchDomain (DescribeElasticsearchDomain'),
+    newDescribeElasticsearchDomain,
+    DescribeElasticsearchDomainResponse (DescribeElasticsearchDomainResponse'),
+    newDescribeElasticsearchDomainResponse,
 
     -- ** CancelElasticsearchServiceSoftwareUpdate
     CancelElasticsearchServiceSoftwareUpdate (CancelElasticsearchServiceSoftwareUpdate'),
@@ -125,11 +125,23 @@ module Network.AWS.ElasticSearch
     CancelElasticsearchServiceSoftwareUpdateResponse (CancelElasticsearchServiceSoftwareUpdateResponse'),
     newCancelElasticsearchServiceSoftwareUpdateResponse,
 
-    -- ** DescribeElasticsearchDomain
-    DescribeElasticsearchDomain (DescribeElasticsearchDomain'),
-    newDescribeElasticsearchDomain,
-    DescribeElasticsearchDomainResponse (DescribeElasticsearchDomainResponse'),
-    newDescribeElasticsearchDomainResponse,
+    -- ** ListDomainNames
+    ListDomainNames (ListDomainNames'),
+    newListDomainNames,
+    ListDomainNamesResponse (ListDomainNamesResponse'),
+    newListDomainNamesResponse,
+
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
+
+    -- ** UpdatePackage
+    UpdatePackage (UpdatePackage'),
+    newUpdatePackage,
+    UpdatePackageResponse (UpdatePackageResponse'),
+    newUpdatePackageResponse,
 
     -- ** DeleteElasticsearchServiceRole
     DeleteElasticsearchServiceRole (DeleteElasticsearchServiceRole'),
@@ -142,24 +154,6 @@ module Network.AWS.ElasticSearch
     newListElasticsearchInstanceTypes,
     ListElasticsearchInstanceTypesResponse (ListElasticsearchInstanceTypesResponse'),
     newListElasticsearchInstanceTypesResponse,
-
-    -- ** UpdatePackage
-    UpdatePackage (UpdatePackage'),
-    newUpdatePackage,
-    UpdatePackageResponse (UpdatePackageResponse'),
-    newUpdatePackageResponse,
-
-    -- ** DeletePackage
-    DeletePackage (DeletePackage'),
-    newDeletePackage,
-    DeletePackageResponse (DeletePackageResponse'),
-    newDeletePackageResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
 
     -- ** DeleteInboundCrossClusterSearchConnection
     DeleteInboundCrossClusterSearchConnection (DeleteInboundCrossClusterSearchConnection'),
@@ -179,23 +173,29 @@ module Network.AWS.ElasticSearch
     ListElasticsearchVersionsResponse (ListElasticsearchVersionsResponse'),
     newListElasticsearchVersionsResponse,
 
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
+
     -- ** DeleteElasticsearchDomain
     DeleteElasticsearchDomain (DeleteElasticsearchDomain'),
     newDeleteElasticsearchDomain,
     DeleteElasticsearchDomainResponse (DeleteElasticsearchDomainResponse'),
     newDeleteElasticsearchDomainResponse,
 
-    -- ** GetCompatibleElasticsearchVersions
-    GetCompatibleElasticsearchVersions (GetCompatibleElasticsearchVersions'),
-    newGetCompatibleElasticsearchVersions,
-    GetCompatibleElasticsearchVersionsResponse (GetCompatibleElasticsearchVersionsResponse'),
-    newGetCompatibleElasticsearchVersionsResponse,
-
     -- ** DissociatePackage
     DissociatePackage (DissociatePackage'),
     newDissociatePackage,
     DissociatePackageResponse (DissociatePackageResponse'),
     newDissociatePackageResponse,
+
+    -- ** GetCompatibleElasticsearchVersions
+    GetCompatibleElasticsearchVersions (GetCompatibleElasticsearchVersions'),
+    newGetCompatibleElasticsearchVersions,
+    GetCompatibleElasticsearchVersionsResponse (GetCompatibleElasticsearchVersionsResponse'),
+    newGetCompatibleElasticsearchVersionsResponse,
 
     -- ** CreateElasticsearchDomain
     CreateElasticsearchDomain (CreateElasticsearchDomain'),
@@ -221,6 +221,18 @@ module Network.AWS.ElasticSearch
     DescribeElasticsearchInstanceTypeLimitsResponse (DescribeElasticsearchInstanceTypeLimitsResponse'),
     newDescribeElasticsearchInstanceTypeLimitsResponse,
 
+    -- ** RejectInboundCrossClusterSearchConnection
+    RejectInboundCrossClusterSearchConnection (RejectInboundCrossClusterSearchConnection'),
+    newRejectInboundCrossClusterSearchConnection,
+    RejectInboundCrossClusterSearchConnectionResponse (RejectInboundCrossClusterSearchConnectionResponse'),
+    newRejectInboundCrossClusterSearchConnectionResponse,
+
+    -- ** CreatePackage
+    CreatePackage (CreatePackage'),
+    newCreatePackage,
+    CreatePackageResponse (CreatePackageResponse'),
+    newCreatePackageResponse,
+
     -- ** DescribeOutboundCrossClusterSearchConnections
     DescribeOutboundCrossClusterSearchConnections (DescribeOutboundCrossClusterSearchConnections'),
     newDescribeOutboundCrossClusterSearchConnections,
@@ -233,29 +245,17 @@ module Network.AWS.ElasticSearch
     AssociatePackageResponse (AssociatePackageResponse'),
     newAssociatePackageResponse,
 
-    -- ** CreatePackage
-    CreatePackage (CreatePackage'),
-    newCreatePackage,
-    CreatePackageResponse (CreatePackageResponse'),
-    newCreatePackageResponse,
-
-    -- ** RejectInboundCrossClusterSearchConnection
-    RejectInboundCrossClusterSearchConnection (RejectInboundCrossClusterSearchConnection'),
-    newRejectInboundCrossClusterSearchConnection,
-    RejectInboundCrossClusterSearchConnectionResponse (RejectInboundCrossClusterSearchConnectionResponse'),
-    newRejectInboundCrossClusterSearchConnectionResponse,
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** DescribeDomainAutoTunes
     DescribeDomainAutoTunes (DescribeDomainAutoTunes'),
     newDescribeDomainAutoTunes,
     DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
     newDescribeDomainAutoTunesResponse,
-
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
 
     -- ** UpgradeElasticsearchDomain
     UpgradeElasticsearchDomain (UpgradeElasticsearchDomain'),
@@ -275,17 +275,17 @@ module Network.AWS.ElasticSearch
     DescribeReservedElasticsearchInstancesResponse (DescribeReservedElasticsearchInstancesResponse'),
     newDescribeReservedElasticsearchInstancesResponse,
 
-    -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
-    DescribeReservedElasticsearchInstanceOfferings (DescribeReservedElasticsearchInstanceOfferings'),
-    newDescribeReservedElasticsearchInstanceOfferings,
-    DescribeReservedElasticsearchInstanceOfferingsResponse (DescribeReservedElasticsearchInstanceOfferingsResponse'),
-    newDescribeReservedElasticsearchInstanceOfferingsResponse,
-
     -- ** StartElasticsearchServiceSoftwareUpdate
     StartElasticsearchServiceSoftwareUpdate (StartElasticsearchServiceSoftwareUpdate'),
     newStartElasticsearchServiceSoftwareUpdate,
     StartElasticsearchServiceSoftwareUpdateResponse (StartElasticsearchServiceSoftwareUpdateResponse'),
     newStartElasticsearchServiceSoftwareUpdateResponse,
+
+    -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
+    DescribeReservedElasticsearchInstanceOfferings (DescribeReservedElasticsearchInstanceOfferings'),
+    newDescribeReservedElasticsearchInstanceOfferings,
+    DescribeReservedElasticsearchInstanceOfferingsResponse (DescribeReservedElasticsearchInstanceOfferingsResponse'),
+    newDescribeReservedElasticsearchInstanceOfferingsResponse,
 
     -- ** ListDomainsForPackage
     ListDomainsForPackage (ListDomainsForPackage'),
@@ -293,17 +293,17 @@ module Network.AWS.ElasticSearch
     ListDomainsForPackageResponse (ListDomainsForPackageResponse'),
     newListDomainsForPackageResponse,
 
-    -- ** DescribeElasticsearchDomains
-    DescribeElasticsearchDomains (DescribeElasticsearchDomains'),
-    newDescribeElasticsearchDomains,
-    DescribeElasticsearchDomainsResponse (DescribeElasticsearchDomainsResponse'),
-    newDescribeElasticsearchDomainsResponse,
-
     -- ** PurchaseReservedElasticsearchInstanceOffering
     PurchaseReservedElasticsearchInstanceOffering (PurchaseReservedElasticsearchInstanceOffering'),
     newPurchaseReservedElasticsearchInstanceOffering,
     PurchaseReservedElasticsearchInstanceOfferingResponse (PurchaseReservedElasticsearchInstanceOfferingResponse'),
     newPurchaseReservedElasticsearchInstanceOfferingResponse,
+
+    -- ** DescribeElasticsearchDomains
+    DescribeElasticsearchDomains (DescribeElasticsearchDomains'),
+    newDescribeElasticsearchDomains,
+    DescribeElasticsearchDomainsResponse (DescribeElasticsearchDomainsResponse'),
+    newDescribeElasticsearchDomainsResponse,
 
     -- ** GetUpgradeStatus
     GetUpgradeStatus (GetUpgradeStatus'),
@@ -336,6 +336,9 @@ module Network.AWS.ElasticSearch
 
     -- ** ESWarmPartitionInstanceType
     ESWarmPartitionInstanceType (..),
+
+    -- ** EngineType
+    EngineType (..),
 
     -- ** InboundCrossClusterSearchConnectionStatusCode
     InboundCrossClusterSearchConnectionStatusCode (..),
@@ -445,6 +448,10 @@ module Network.AWS.ElasticSearch
     -- ** CognitoOptionsStatus
     CognitoOptionsStatus (CognitoOptionsStatus'),
     newCognitoOptionsStatus,
+
+    -- ** ColdStorageOptions
+    ColdStorageOptions (ColdStorageOptions'),
+    newColdStorageOptions,
 
     -- ** CompatibleVersionsMap
     CompatibleVersionsMap (CompatibleVersionsMap'),

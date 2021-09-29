@@ -26,29 +26,29 @@ module Network.AWS.CloudDirectory.Types
     _DirectoryDeletedException,
     _InvalidRuleException,
     _InternalServiceException,
-    _NotPolicyException,
-    _InvalidNextTokenException,
-    _InvalidTaggingRequestException,
     _LinkNameAlreadyInUseException,
+    _InvalidTaggingRequestException,
+    _InvalidNextTokenException,
+    _NotPolicyException,
     _CannotListParentOfRootException,
     _InvalidSchemaDocException,
-    _AccessDeniedException,
-    _ValidationException,
-    _FacetAlreadyExistsException,
-    _NotIndexException,
     _UnsupportedIndexTypeException,
-    _LimitExceededException,
+    _AccessDeniedException,
+    _NotIndexException,
+    _FacetAlreadyExistsException,
+    _ValidationException,
     _ObjectNotDetachedException,
-    _StillContainsLinksException,
     _FacetNotFoundException,
+    _LimitExceededException,
+    _StillContainsLinksException,
     _DirectoryNotEnabledException,
     _ResourceNotFoundException,
-    _DirectoryNotDisabledException,
     _RetryableConflictException,
-    _DirectoryAlreadyExistsException,
-    _IndexedAttributeMissingException,
+    _DirectoryNotDisabledException,
     _SchemaAlreadyExistsException,
+    _DirectoryAlreadyExistsException,
     _SchemaAlreadyPublishedException,
+    _IndexedAttributeMissingException,
     _NotNodeException,
     _ObjectAlreadyDetachedException,
     _InvalidFacetUpdateException,
@@ -162,8 +162,8 @@ module Network.AWS.CloudDirectory.Types
     -- * BatchCreateIndex
     BatchCreateIndex (..),
     newBatchCreateIndex,
-    batchCreateIndex_parentReference,
     batchCreateIndex_linkName,
+    batchCreateIndex_parentReference,
     batchCreateIndex_batchReferenceName,
     batchCreateIndex_orderedIndexedAttributeList,
     batchCreateIndex_isUnique,
@@ -176,8 +176,8 @@ module Network.AWS.CloudDirectory.Types
     -- * BatchCreateObject
     BatchCreateObject (..),
     newBatchCreateObject,
-    batchCreateObject_parentReference,
     batchCreateObject_linkName,
+    batchCreateObject_parentReference,
     batchCreateObject_batchReferenceName,
     batchCreateObject_schemaFacet,
     batchCreateObject_objectAttributeList,
@@ -439,8 +439,8 @@ module Network.AWS.CloudDirectory.Types
     batchReadOperation_listObjectParentPaths,
     batchReadOperation_lookupPolicy,
     batchReadOperation_listAttachedIndices,
-    batchReadOperation_listIndex,
     batchReadOperation_listObjectChildren,
+    batchReadOperation_listIndex,
     batchReadOperation_listObjectPolicies,
     batchReadOperation_getLinkAttributes,
     batchReadOperation_listOutgoingTypedLinks,
@@ -463,8 +463,8 @@ module Network.AWS.CloudDirectory.Types
     batchReadSuccessfulResponse_listObjectParentPaths,
     batchReadSuccessfulResponse_lookupPolicy,
     batchReadSuccessfulResponse_listAttachedIndices,
-    batchReadSuccessfulResponse_listIndex,
     batchReadSuccessfulResponse_listObjectChildren,
+    batchReadSuccessfulResponse_listIndex,
     batchReadSuccessfulResponse_listObjectPolicies,
     batchReadSuccessfulResponse_getLinkAttributes,
     batchReadSuccessfulResponse_listOutgoingTypedLinks,
@@ -509,15 +509,15 @@ module Network.AWS.CloudDirectory.Types
     batchWriteOperation_updateLinkAttributes,
     batchWriteOperation_detachTypedLink,
     batchWriteOperation_createIndex,
-    batchWriteOperation_detachPolicy,
     batchWriteOperation_detachFromIndex,
+    batchWriteOperation_detachPolicy,
     batchWriteOperation_attachObject,
     batchWriteOperation_attachToIndex,
-    batchWriteOperation_updateObjectAttributes,
     batchWriteOperation_attachPolicy,
+    batchWriteOperation_updateObjectAttributes,
     batchWriteOperation_removeFacetFromObject,
-    batchWriteOperation_addFacetToObject,
     batchWriteOperation_detachObject,
+    batchWriteOperation_addFacetToObject,
 
     -- * BatchWriteOperationResponse
     BatchWriteOperationResponse (..),
@@ -528,22 +528,22 @@ module Network.AWS.CloudDirectory.Types
     batchWriteOperationResponse_updateLinkAttributes,
     batchWriteOperationResponse_detachTypedLink,
     batchWriteOperationResponse_createIndex,
-    batchWriteOperationResponse_detachPolicy,
     batchWriteOperationResponse_detachFromIndex,
+    batchWriteOperationResponse_detachPolicy,
     batchWriteOperationResponse_attachObject,
     batchWriteOperationResponse_attachToIndex,
-    batchWriteOperationResponse_updateObjectAttributes,
     batchWriteOperationResponse_attachPolicy,
+    batchWriteOperationResponse_updateObjectAttributes,
     batchWriteOperationResponse_removeFacetFromObject,
-    batchWriteOperationResponse_addFacetToObject,
     batchWriteOperationResponse_detachObject,
+    batchWriteOperationResponse_addFacetToObject,
 
     -- * Directory
     Directory (..),
     newDirectory,
     directory_directoryArn,
-    directory_state,
     directory_name,
+    directory_state,
     directory_creationDateTime,
 
     -- * Facet
@@ -991,21 +991,13 @@ _InternalServiceException =
     "InternalServiceException"
     Prelude.. Core.hasStatus 500
 
--- | Indicates that the requested operation can only operate on policy
--- objects.
-_NotPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotPolicyException =
+-- | Indicates that a link could not be created due to a naming conflict.
+-- Choose a different name and then try again.
+_LinkNameAlreadyInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LinkNameAlreadyInUseException =
   Core._MatchServiceError
     defaultService
-    "NotPolicyException"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the @NextToken@ value is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
+    "LinkNameAlreadyInUseException"
     Prelude.. Core.hasStatus 400
 
 -- | Can occur for multiple reasons such as when you tag a resource that
@@ -1018,13 +1010,21 @@ _InvalidTaggingRequestException =
     "InvalidTaggingRequestException"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that a link could not be created due to a naming conflict.
--- Choose a different name and then try again.
-_LinkNameAlreadyInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LinkNameAlreadyInUseException =
+-- | Indicates that the @NextToken@ value is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "LinkNameAlreadyInUseException"
+    "InvalidNextTokenException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the requested operation can only operate on policy
+-- objects.
+_NotPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "NotPolicyException"
     Prelude.. Core.hasStatus 400
 
 -- | Cannot list the parents of a Directory root.
@@ -1043,30 +1043,23 @@ _InvalidSchemaDocException =
     "InvalidSchemaDocException"
     Prelude.. Core.hasStatus 400
 
--- | Access denied. Check your permissions.
+-- | Indicates that the requested index type is not supported.
+_UnsupportedIndexTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedIndexTypeException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedIndexTypeException"
+    Prelude.. Core.hasStatus 400
+
+-- | Access denied or directory not found. Either you don\'t have permissions
+-- for this directory or the directory does not exist. Try calling
+-- ListDirectories and check your permissions.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | Indicates that your request is malformed in some manner. See the
--- exception message.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | A facet with the same name already exists.
-_FacetAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FacetAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "FacetAlreadyExistsException"
-    Prelude.. Core.hasStatus 400
 
 -- | Indicates that the requested operation can only operate on index
 -- objects.
@@ -1077,12 +1070,38 @@ _NotIndexException =
     "NotIndexException"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the requested index type is not supported.
-_UnsupportedIndexTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedIndexTypeException =
+-- | A facet with the same name already exists.
+_FacetAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FacetAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedIndexTypeException"
+    "FacetAlreadyExistsException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that your request is malformed in some manner. See the
+-- exception message.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the requested operation cannot be completed because the
+-- object has not been detached from the tree.
+_ObjectNotDetachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotDetachedException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotDetachedException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified Facet could not be found.
+_FacetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FacetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "FacetNotFoundException"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that limits are exceeded. See
@@ -1095,15 +1114,6 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the requested operation cannot be completed because the
--- object has not been detached from the tree.
-_ObjectNotDetachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotDetachedException =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotDetachedException"
-    Prelude.. Core.hasStatus 400
-
 -- | The object could not be deleted because links still exist. Remove the
 -- links and then try the operation again.
 _StillContainsLinksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1111,14 +1121,6 @@ _StillContainsLinksException =
   Core._MatchServiceError
     defaultService
     "StillContainsLinksException"
-    Prelude.. Core.hasStatus 400
-
--- | The specified Facet could not be found.
-_FacetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FacetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "FacetNotFoundException"
     Prelude.. Core.hasStatus 400
 
 -- | Operations are only permitted on enabled directories.
@@ -1137,14 +1139,6 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | An operation can only operate on a disabled directory.
-_DirectoryNotDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryNotDisabledException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryNotDisabledException"
-    Prelude.. Core.hasStatus 400
-
 -- | Occurs when a conflict with a previous successful write is detected. For
 -- example, if a write operation occurs on an object and then an attempt is
 -- made to read the object using “SERIALIZABLE” consistency, this exception
@@ -1159,22 +1153,12 @@ _RetryableConflictException =
     "RetryableConflictException"
     Prelude.. Core.hasStatus 409
 
--- | Indicates that a Directory could not be created due to a naming
--- conflict. Choose a different name and try again.
-_DirectoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryAlreadyExistsException =
+-- | An operation can only operate on a disabled directory.
+_DirectoryNotDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotDisabledException =
   Core._MatchServiceError
     defaultService
-    "DirectoryAlreadyExistsException"
-    Prelude.. Core.hasStatus 400
-
--- | An object has been attempted to be attached to an object that does not
--- have the appropriate attribute value.
-_IndexedAttributeMissingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IndexedAttributeMissingException =
-  Core._MatchServiceError
-    defaultService
-    "IndexedAttributeMissingException"
+    "DirectoryNotDisabledException"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that a schema could not be created due to a naming conflict.
@@ -1186,12 +1170,30 @@ _SchemaAlreadyExistsException =
     "SchemaAlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that a Directory could not be created due to a naming
+-- conflict. Choose a different name and try again.
+_DirectoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryAlreadyExistsException"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that a schema is already published.
 _SchemaAlreadyPublishedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SchemaAlreadyPublishedException =
   Core._MatchServiceError
     defaultService
     "SchemaAlreadyPublishedException"
+    Prelude.. Core.hasStatus 400
+
+-- | An object has been attempted to be attached to an object that does not
+-- have the appropriate attribute value.
+_IndexedAttributeMissingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IndexedAttributeMissingException =
+  Core._MatchServiceError
+    defaultService
+    "IndexedAttributeMissingException"
     Prelude.. Core.hasStatus 400
 
 -- | Occurs when any invalid operations are performed on an object that is

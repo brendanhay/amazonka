@@ -20,22 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shares a specified directory (@DirectoryId@) in your AWS account
--- (directory owner) with another AWS account (directory consumer). With
--- this operation you can use your directory from any AWS account and from
--- any Amazon VPC within an AWS Region.
+-- Shares a specified directory (@DirectoryId@) in your Amazon Web Services
+-- account (directory owner) with another Amazon Web Services account
+-- (directory consumer). With this operation you can use your directory
+-- from any Amazon Web Services account and from any Amazon VPC within an
+-- Amazon Web Services Region.
 --
--- When you share your AWS Managed Microsoft AD directory, AWS Directory
--- Service creates a shared directory in the directory consumer account.
--- This shared directory contains the metadata to provide access to the
+-- When you share your Managed Microsoft AD directory, Directory Service
+-- creates a shared directory in the directory consumer account. This
+-- shared directory contains the metadata to provide access to the
 -- directory within the directory owner account. The shared directory is
 -- visible in all VPCs in the directory consumer account.
 --
 -- The @ShareMethod@ parameter determines whether the specified directory
--- can be shared between AWS accounts inside the same AWS organization
--- (@ORGANIZATIONS@). It also determines whether you can share the
--- directory with any other AWS account either inside or outside of the
--- organization (@HANDSHAKE@).
+-- can be shared between Amazon Web Services accounts inside the same
+-- Amazon Web Services organization (@ORGANIZATIONS@). It also determines
+-- whether you can share the directory with any other Amazon Web Services
+-- account either inside or outside of the organization (@HANDSHAKE@).
 --
 -- The @ShareNotes@ parameter is only used when @HANDSHAKE@ is called,
 -- which sends a directory sharing request to the directory consumer.
@@ -74,16 +75,16 @@ data ShareDirectory = ShareDirectory'
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
     shareNotes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Identifier of the AWS Managed Microsoft AD directory that you want to
-    -- share with other AWS accounts.
+    -- | Identifier of the Managed Microsoft AD directory that you want to share
+    -- with other Amazon Web Services accounts.
     directoryId :: Prelude.Text,
     -- | Identifier for the directory consumer account with whom the directory is
     -- to be shared.
     shareTarget :: ShareTarget,
     -- | The method used when sharing a directory to determine whether the
-    -- directory should be shared within your AWS organization
-    -- (@ORGANIZATIONS@) or with any AWS account by sending a directory sharing
-    -- request (@HANDSHAKE@).
+    -- directory should be shared within your Amazon Web Services organization
+    -- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a
+    -- directory sharing request (@HANDSHAKE@).
     shareMethod :: ShareMethod
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -101,16 +102,16 @@ data ShareDirectory = ShareDirectory'
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
 --
--- 'directoryId', 'shareDirectory_directoryId' - Identifier of the AWS Managed Microsoft AD directory that you want to
--- share with other AWS accounts.
+-- 'directoryId', 'shareDirectory_directoryId' - Identifier of the Managed Microsoft AD directory that you want to share
+-- with other Amazon Web Services accounts.
 --
 -- 'shareTarget', 'shareDirectory_shareTarget' - Identifier for the directory consumer account with whom the directory is
 -- to be shared.
 --
 -- 'shareMethod', 'shareDirectory_shareMethod' - The method used when sharing a directory to determine whether the
--- directory should be shared within your AWS organization
--- (@ORGANIZATIONS@) or with any AWS account by sending a directory sharing
--- request (@HANDSHAKE@).
+-- directory should be shared within your Amazon Web Services organization
+-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a
+-- directory sharing request (@HANDSHAKE@).
 newShareDirectory ::
   -- | 'directoryId'
   Prelude.Text ->
@@ -137,8 +138,8 @@ newShareDirectory
 shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Prelude.Maybe Prelude.Text)
 shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Prelude.. Lens.mapping Core._Sensitive
 
--- | Identifier of the AWS Managed Microsoft AD directory that you want to
--- share with other AWS accounts.
+-- | Identifier of the Managed Microsoft AD directory that you want to share
+-- with other Amazon Web Services accounts.
 shareDirectory_directoryId :: Lens.Lens' ShareDirectory Prelude.Text
 shareDirectory_directoryId = Lens.lens (\ShareDirectory' {directoryId} -> directoryId) (\s@ShareDirectory' {} a -> s {directoryId = a} :: ShareDirectory)
 
@@ -148,9 +149,9 @@ shareDirectory_shareTarget :: Lens.Lens' ShareDirectory ShareTarget
 shareDirectory_shareTarget = Lens.lens (\ShareDirectory' {shareTarget} -> shareTarget) (\s@ShareDirectory' {} a -> s {shareTarget = a} :: ShareDirectory)
 
 -- | The method used when sharing a directory to determine whether the
--- directory should be shared within your AWS organization
--- (@ORGANIZATIONS@) or with any AWS account by sending a directory sharing
--- request (@HANDSHAKE@).
+-- directory should be shared within your Amazon Web Services organization
+-- (@ORGANIZATIONS@) or with any Amazon Web Services account by sending a
+-- directory sharing request (@HANDSHAKE@).
 shareDirectory_shareMethod :: Lens.Lens' ShareDirectory ShareMethod
 shareDirectory_shareMethod = Lens.lens (\ShareDirectory' {shareMethod} -> shareMethod) (\s@ShareDirectory' {} a -> s {shareMethod = a} :: ShareDirectory)
 

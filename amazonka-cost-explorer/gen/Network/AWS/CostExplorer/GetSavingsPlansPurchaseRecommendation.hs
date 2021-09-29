@@ -301,9 +301,9 @@ instance
 data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseRecommendationResponse'
   { -- | Information regarding this specific recommendation set.
     metadata :: Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata,
-    -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+    -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Contains your request parameters, Savings Plan Recommendations Summary,
     -- and Details.
@@ -323,9 +323,9 @@ data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseReco
 --
 -- 'metadata', 'getSavingsPlansPurchaseRecommendationResponse_metadata' - Information regarding this specific recommendation set.
 --
--- 'nextPageToken', 'getSavingsPlansPurchaseRecommendationResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- 'nextPageToken', 'getSavingsPlansPurchaseRecommendationResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'savingsPlansPurchaseRecommendation', 'getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation' - Contains your request parameters, Savings Plan Recommendations Summary,
 -- and Details.
@@ -351,9 +351,9 @@ newGetSavingsPlansPurchaseRecommendationResponse
 getSavingsPlansPurchaseRecommendationResponse_metadata :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe SavingsPlansPurchaseRecommendationMetadata)
 getSavingsPlansPurchaseRecommendationResponse_metadata = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {metadata} -> metadata) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {metadata = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getSavingsPlansPurchaseRecommendationResponse_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendationResponse (Prelude.Maybe Prelude.Text)
 getSavingsPlansPurchaseRecommendationResponse_nextPageToken = Lens.lens (\GetSavingsPlansPurchaseRecommendationResponse' {nextPageToken} -> nextPageToken) (\s@GetSavingsPlansPurchaseRecommendationResponse' {} a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendationResponse)
 

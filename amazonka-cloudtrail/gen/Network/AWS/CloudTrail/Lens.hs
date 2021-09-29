@@ -14,18 +14,18 @@
 module Network.AWS.CloudTrail.Lens
   ( -- * Operations
 
-    -- ** RemoveTags
-    removeTags_tagsList,
-    removeTags_resourceId,
-    removeTagsResponse_httpStatus,
-
     -- ** ListPublicKeys
     listPublicKeys_nextToken,
     listPublicKeys_startTime,
     listPublicKeys_endTime,
-    listPublicKeysResponse_nextToken,
     listPublicKeysResponse_publicKeyList,
+    listPublicKeysResponse_nextToken,
     listPublicKeysResponse_httpStatus,
+
+    -- ** RemoveTags
+    removeTags_tagsList,
+    removeTags_resourceId,
+    removeTagsResponse_httpStatus,
 
     -- ** GetEventSelectors
     getEventSelectors_trailName,
@@ -59,11 +59,11 @@ module Network.AWS.CloudTrail.Lens
     createTrailResponse_snsTopicName,
     createTrailResponse_includeGlobalServiceEvents,
     createTrailResponse_kmsKeyId,
-    createTrailResponse_s3KeyPrefix,
     createTrailResponse_name,
+    createTrailResponse_s3KeyPrefix,
     createTrailResponse_cloudWatchLogsLogGroupArn,
-    createTrailResponse_isMultiRegionTrail,
     createTrailResponse_s3BucketName,
+    createTrailResponse_isMultiRegionTrail,
     createTrailResponse_cloudWatchLogsRoleArn,
     createTrailResponse_snsTopicARN,
     createTrailResponse_httpStatus,
@@ -100,17 +100,26 @@ module Network.AWS.CloudTrail.Lens
     getInsightSelectorsResponse_insightSelectors,
     getInsightSelectorsResponse_httpStatus,
 
-    -- ** StopLogging
-    stopLogging_name,
-    stopLoggingResponse_httpStatus,
+    -- ** ListTrails
+    listTrails_nextToken,
+    listTrailsResponse_nextToken,
+    listTrailsResponse_trails,
+    listTrailsResponse_httpStatus,
 
     -- ** DeleteTrail
     deleteTrail_name,
     deleteTrailResponse_httpStatus,
 
-    -- ** StartLogging
-    startLogging_name,
-    startLoggingResponse_httpStatus,
+    -- ** ListTags
+    listTags_nextToken,
+    listTags_resourceIdList,
+    listTagsResponse_nextToken,
+    listTagsResponse_resourceTagList,
+    listTagsResponse_httpStatus,
+
+    -- ** StopLogging
+    stopLogging_name,
+    stopLoggingResponse_httpStatus,
 
     -- ** UpdateTrail
     updateTrail_isOrganizationTrail,
@@ -119,8 +128,8 @@ module Network.AWS.CloudTrail.Lens
     updateTrail_kmsKeyId,
     updateTrail_s3KeyPrefix,
     updateTrail_cloudWatchLogsLogGroupArn,
-    updateTrail_isMultiRegionTrail,
     updateTrail_s3BucketName,
+    updateTrail_isMultiRegionTrail,
     updateTrail_cloudWatchLogsRoleArn,
     updateTrail_enableLogFileValidation,
     updateTrail_name,
@@ -130,45 +139,36 @@ module Network.AWS.CloudTrail.Lens
     updateTrailResponse_snsTopicName,
     updateTrailResponse_includeGlobalServiceEvents,
     updateTrailResponse_kmsKeyId,
-    updateTrailResponse_s3KeyPrefix,
     updateTrailResponse_name,
+    updateTrailResponse_s3KeyPrefix,
     updateTrailResponse_cloudWatchLogsLogGroupArn,
-    updateTrailResponse_isMultiRegionTrail,
     updateTrailResponse_s3BucketName,
+    updateTrailResponse_isMultiRegionTrail,
     updateTrailResponse_cloudWatchLogsRoleArn,
     updateTrailResponse_snsTopicARN,
     updateTrailResponse_httpStatus,
 
-    -- ** ListTags
-    listTags_nextToken,
-    listTags_resourceIdList,
-    listTagsResponse_nextToken,
-    listTagsResponse_resourceTagList,
-    listTagsResponse_httpStatus,
-
-    -- ** ListTrails
-    listTrails_nextToken,
-    listTrailsResponse_nextToken,
-    listTrailsResponse_trails,
-    listTrailsResponse_httpStatus,
+    -- ** StartLogging
+    startLogging_name,
+    startLoggingResponse_httpStatus,
 
     -- ** GetTrailStatus
     getTrailStatus_name,
-    getTrailStatusResponse_latestDigestDeliveryError,
     getTrailStatusResponse_timeLoggingStopped,
     getTrailStatusResponse_latestDeliveryAttemptTime,
+    getTrailStatusResponse_latestDigestDeliveryError,
     getTrailStatusResponse_latestDeliveryAttemptSucceeded,
     getTrailStatusResponse_latestNotificationError,
     getTrailStatusResponse_latestCloudWatchLogsDeliveryError,
     getTrailStatusResponse_latestNotificationAttemptSucceeded,
     getTrailStatusResponse_latestCloudWatchLogsDeliveryTime,
     getTrailStatusResponse_latestDigestDeliveryTime,
-    getTrailStatusResponse_latestDeliveryError,
     getTrailStatusResponse_timeLoggingStarted,
+    getTrailStatusResponse_latestDeliveryError,
     getTrailStatusResponse_isLogging,
-    getTrailStatusResponse_stopLoggingTime,
     getTrailStatusResponse_latestNotificationAttemptTime,
     getTrailStatusResponse_startLoggingTime,
+    getTrailStatusResponse_stopLoggingTime,
     getTrailStatusResponse_latestNotificationTime,
     getTrailStatusResponse_latestDeliveryTime,
     getTrailStatusResponse_httpStatus,
@@ -205,18 +205,18 @@ module Network.AWS.CloudTrail.Lens
 
     -- ** Event
     event_cloudTrailEvent,
-    event_eventId,
     event_eventSource,
+    event_eventId,
     event_readOnly,
     event_eventName,
-    event_resources,
     event_eventTime,
+    event_resources,
     event_accessKeyId,
     event_username,
 
     -- ** EventSelector
-    eventSelector_readWriteType,
     eventSelector_excludeManagementEventSources,
+    eventSelector_readWriteType,
     eventSelector_includeManagementEvents,
     eventSelector_dataResources,
 
@@ -248,25 +248,25 @@ module Network.AWS.CloudTrail.Lens
     -- ** Trail
     trail_trailARN,
     trail_logFileValidationEnabled,
-    trail_isOrganizationTrail,
     trail_hasCustomEventSelectors,
+    trail_isOrganizationTrail,
     trail_snsTopicName,
     trail_includeGlobalServiceEvents,
-    trail_homeRegion,
     trail_kmsKeyId,
-    trail_s3KeyPrefix,
     trail_name,
+    trail_s3KeyPrefix,
+    trail_homeRegion,
     trail_cloudWatchLogsLogGroupArn,
-    trail_isMultiRegionTrail,
     trail_s3BucketName,
+    trail_isMultiRegionTrail,
     trail_cloudWatchLogsRoleArn,
-    trail_snsTopicARN,
     trail_hasInsightSelectors,
+    trail_snsTopicARN,
 
     -- ** TrailInfo
     trailInfo_trailARN,
-    trailInfo_homeRegion,
     trailInfo_name,
+    trailInfo_homeRegion,
   )
 where
 

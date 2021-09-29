@@ -71,14 +71,13 @@ data GetMetricData = GetMetricData'
     -- values returned apply to the metrics for each queue rather than
     -- aggregated for all queues.
     --
-    -- The only supported grouping is @QUEUE@.
-    --
     -- If no grouping is specified, a summary of metrics for all queues is
     -- returned.
     groupings :: Prelude.Maybe [Grouping],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The timestamp, in UNIX Epoch time format, at which to start the
     -- reporting interval for the retrieval of historical metrics data. The
@@ -101,12 +100,18 @@ data GetMetricData = GetMetricData'
     -- with the queues or channels included in the filter. You can include both
     -- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
     -- channels are supported.
+    --
+    -- To filter by @Queues@, enter the queue ID\/ARN, not the name of the
+    -- queue.
     filters :: Filters,
     -- | The metrics to retrieve. Specify the name, unit, and statistic for each
     -- metric. The following historical metrics are available. For a
     -- description of each metric, see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html Historical Metrics Definitions>
     -- in the /Amazon Connect Administrator Guide/.
+    --
+    -- This API does not support a contacts incoming metric (there\'s no
+    -- CONTACTS_INCOMING metric missing from the documented list).
     --
     -- [ABANDON_TIME]
     --     Unit: SECONDS
@@ -229,13 +234,15 @@ data GetMetricData = GetMetricData'
     --     Statistic: MAX
     --
     -- [SERVICE_LEVEL]
+    --     You can include up to 20 SERVICE_LEVEL metrics in a request.
+    --
     --     Unit: PERCENT
     --
     --     Statistic: AVG
     --
-    --     Threshold: Only \"Less than\" comparisons are supported, with the
-    --     following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120,
-    --     180, 240, 300, 600
+    --     Threshold: For @ThresholdValue@, enter any whole number from 1 to
+    --     604800 (inclusive), in seconds. For @Comparison@, you must enter
+    --     @LT@ (for \"Less than\").
     historicalMetrics :: [HistoricalMetric]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -257,14 +264,13 @@ data GetMetricData = GetMetricData'
 -- values returned apply to the metrics for each queue rather than
 -- aggregated for all queues.
 --
--- The only supported grouping is @QUEUE@.
---
 -- If no grouping is specified, a summary of metrics for all queues is
 -- returned.
 --
 -- 'maxResults', 'getMetricData_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'getMetricData_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'getMetricData_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'startTime', 'getMetricData_startTime' - The timestamp, in UNIX Epoch time format, at which to start the
 -- reporting interval for the retrieval of historical metrics data. The
@@ -288,11 +294,17 @@ data GetMetricData = GetMetricData'
 -- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
 -- channels are supported.
 --
+-- To filter by @Queues@, enter the queue ID\/ARN, not the name of the
+-- queue.
+--
 -- 'historicalMetrics', 'getMetricData_historicalMetrics' - The metrics to retrieve. Specify the name, unit, and statistic for each
 -- metric. The following historical metrics are available. For a
 -- description of each metric, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html Historical Metrics Definitions>
 -- in the /Amazon Connect Administrator Guide/.
+--
+-- This API does not support a contacts incoming metric (there\'s no
+-- CONTACTS_INCOMING metric missing from the documented list).
 --
 -- [ABANDON_TIME]
 --     Unit: SECONDS
@@ -415,13 +427,15 @@ data GetMetricData = GetMetricData'
 --     Statistic: MAX
 --
 -- [SERVICE_LEVEL]
+--     You can include up to 20 SERVICE_LEVEL metrics in a request.
+--
 --     Unit: PERCENT
 --
 --     Statistic: AVG
 --
---     Threshold: Only \"Less than\" comparisons are supported, with the
---     following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120,
---     180, 240, 300, 600
+--     Threshold: For @ThresholdValue@, enter any whole number from 1 to
+--     604800 (inclusive), in seconds. For @Comparison@, you must enter
+--     @LT@ (for \"Less than\").
 newGetMetricData ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -459,8 +473,6 @@ getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (
 -- values returned apply to the metrics for each queue rather than
 -- aggregated for all queues.
 --
--- The only supported grouping is @QUEUE@.
---
 -- If no grouping is specified, a summary of metrics for all queues is
 -- returned.
 getMetricData_groupings :: Lens.Lens' GetMetricData (Prelude.Maybe [Grouping])
@@ -470,7 +482,8 @@ getMetricData_groupings = Lens.lens (\GetMetricData' {groupings} -> groupings) (
 getMetricData_maxResults :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Natural)
 getMetricData_maxResults = Lens.lens (\GetMetricData' {maxResults} -> maxResults) (\s@GetMetricData' {} a -> s {maxResults = a} :: GetMetricData)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 getMetricData_instanceId :: Lens.Lens' GetMetricData Prelude.Text
 getMetricData_instanceId = Lens.lens (\GetMetricData' {instanceId} -> instanceId) (\s@GetMetricData' {} a -> s {instanceId = a} :: GetMetricData)
 
@@ -499,6 +512,9 @@ getMetricData_endTime = Lens.lens (\GetMetricData' {endTime} -> endTime) (\s@Get
 -- with the queues or channels included in the filter. You can include both
 -- queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK
 -- channels are supported.
+--
+-- To filter by @Queues@, enter the queue ID\/ARN, not the name of the
+-- queue.
 getMetricData_filters :: Lens.Lens' GetMetricData Filters
 getMetricData_filters = Lens.lens (\GetMetricData' {filters} -> filters) (\s@GetMetricData' {} a -> s {filters = a} :: GetMetricData)
 
@@ -507,6 +523,9 @@ getMetricData_filters = Lens.lens (\GetMetricData' {filters} -> filters) (\s@Get
 -- description of each metric, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html Historical Metrics Definitions>
 -- in the /Amazon Connect Administrator Guide/.
+--
+-- This API does not support a contacts incoming metric (there\'s no
+-- CONTACTS_INCOMING metric missing from the documented list).
 --
 -- [ABANDON_TIME]
 --     Unit: SECONDS
@@ -629,13 +648,15 @@ getMetricData_filters = Lens.lens (\GetMetricData' {filters} -> filters) (\s@Get
 --     Statistic: MAX
 --
 -- [SERVICE_LEVEL]
+--     You can include up to 20 SERVICE_LEVEL metrics in a request.
+--
 --     Unit: PERCENT
 --
 --     Statistic: AVG
 --
---     Threshold: Only \"Less than\" comparisons are supported, with the
---     following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120,
---     180, 240, 300, 600
+--     Threshold: For @ThresholdValue@, enter any whole number from 1 to
+--     604800 (inclusive), in seconds. For @Comparison@, you must enter
+--     @LT@ (for \"Less than\").
 getMetricData_historicalMetrics :: Lens.Lens' GetMetricData [HistoricalMetric]
 getMetricData_historicalMetrics = Lens.lens (\GetMetricData' {historicalMetrics} -> historicalMetrics) (\s@GetMetricData' {} a -> s {historicalMetrics = a} :: GetMetricData) Prelude.. Lens._Coerce
 

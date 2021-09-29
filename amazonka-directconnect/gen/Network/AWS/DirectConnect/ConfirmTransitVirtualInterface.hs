@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts ownership of a transit virtual interface created by another AWS
+-- Accepts ownership of a transit virtual interface created by another
 -- account.
 --
 -- After the owner of the transit virtual interface makes this call, the

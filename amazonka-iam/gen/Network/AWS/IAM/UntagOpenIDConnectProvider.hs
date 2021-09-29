@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 data UntagOpenIDConnectProvider = UntagOpenIDConnectProvider'
   { -- | The ARN of the OIDC provider in IAM from which you want to remove tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     openIDConnectProviderArn :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified OIDC provider.
@@ -74,10 +74,10 @@ data UntagOpenIDConnectProvider = UntagOpenIDConnectProvider'
 --
 -- 'openIDConnectProviderArn', 'untagOpenIDConnectProvider_openIDConnectProviderArn' - The ARN of the OIDC provider in IAM from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagOpenIDConnectProvider_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified OIDC provider.
@@ -95,10 +95,10 @@ newUntagOpenIDConnectProvider
 
 -- | The ARN of the OIDC provider in IAM from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' UntagOpenIDConnectProvider Prelude.Text
 untagOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\UntagOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@UntagOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: UntagOpenIDConnectProvider)
 

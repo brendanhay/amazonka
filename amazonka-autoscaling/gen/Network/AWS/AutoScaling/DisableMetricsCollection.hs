@@ -73,6 +73,20 @@ data DisableMetricsCollection = DisableMetricsCollection'
     --
     -- -   @GroupTotalCapacity@
     --
+    -- -   @WarmPoolDesiredCapacity@
+    --
+    -- -   @WarmPoolWarmedCapacity@
+    --
+    -- -   @WarmPoolPendingCapacity@
+    --
+    -- -   @WarmPoolTerminatingCapacity@
+    --
+    -- -   @WarmPoolTotalCapacity@
+    --
+    -- -   @GroupAndWarmPoolDesiredCapacity@
+    --
+    -- -   @GroupAndWarmPoolTotalCapacity@
+    --
     -- If you omit this parameter, all metrics are disabled.
     metrics :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
@@ -116,6 +130,20 @@ data DisableMetricsCollection = DisableMetricsCollection'
 --
 -- -   @GroupTotalCapacity@
 --
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
+--
 -- If you omit this parameter, all metrics are disabled.
 --
 -- 'autoScalingGroupName', 'disableMetricsCollection_autoScalingGroupName' - The name of the Auto Scaling group.
@@ -157,6 +185,20 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 --
 -- If you omit this parameter, all metrics are disabled.
 disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Prelude.Maybe [Prelude.Text])

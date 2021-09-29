@@ -36,10 +36,10 @@ data EventDescription = EventDescription'
     message :: Prelude.Maybe Prelude.Text,
     -- | The date when the event occurred.
     eventDate :: Prelude.Maybe Core.ISO8601,
-    -- | The name of the environment associated with this event.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment associated with this event.
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The release label for the application version associated with this
     -- event.
     versionLabel :: Prelude.Maybe Prelude.Text,
@@ -66,9 +66,9 @@ data EventDescription = EventDescription'
 --
 -- 'eventDate', 'eventDescription_eventDate' - The date when the event occurred.
 --
--- 'environmentName', 'eventDescription_environmentName' - The name of the environment associated with this event.
---
 -- 'platformArn', 'eventDescription_platformArn' - The ARN of the platform version.
+--
+-- 'environmentName', 'eventDescription_environmentName' - The name of the environment associated with this event.
 --
 -- 'versionLabel', 'eventDescription_versionLabel' - The release label for the application version associated with this
 -- event.
@@ -84,8 +84,8 @@ newEventDescription =
       severity = Prelude.Nothing,
       message = Prelude.Nothing,
       eventDate = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       platformArn = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       versionLabel = Prelude.Nothing,
       requestId = Prelude.Nothing,
       applicationName = Prelude.Nothing
@@ -107,13 +107,13 @@ eventDescription_message = Lens.lens (\EventDescription' {message} -> message) (
 eventDescription_eventDate :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.UTCTime)
 eventDescription_eventDate = Lens.lens (\EventDescription' {eventDate} -> eventDate) (\s@EventDescription' {} a -> s {eventDate = a} :: EventDescription) Prelude.. Lens.mapping Core._Time
 
--- | The name of the environment associated with this event.
-eventDescription_environmentName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
-eventDescription_environmentName = Lens.lens (\EventDescription' {environmentName} -> environmentName) (\s@EventDescription' {} a -> s {environmentName = a} :: EventDescription)
-
 -- | The ARN of the platform version.
 eventDescription_platformArn :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_platformArn = Lens.lens (\EventDescription' {platformArn} -> platformArn) (\s@EventDescription' {} a -> s {platformArn = a} :: EventDescription)
+
+-- | The name of the environment associated with this event.
+eventDescription_environmentName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_environmentName = Lens.lens (\EventDescription' {environmentName} -> environmentName) (\s@EventDescription' {} a -> s {environmentName = a} :: EventDescription)
 
 -- | The release label for the application version associated with this
 -- event.
@@ -135,8 +135,8 @@ instance Core.FromXML EventDescription where
       Prelude.<*> (x Core..@? "Severity")
       Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "EventDate")
-      Prelude.<*> (x Core..@? "EnvironmentName")
       Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Core..@? "EnvironmentName")
       Prelude.<*> (x Core..@? "VersionLabel")
       Prelude.<*> (x Core..@? "RequestId")
       Prelude.<*> (x Core..@? "ApplicationName")

@@ -31,11 +31,11 @@ module Network.AWS.MediaLive
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** GatewayTimeoutException
-    _GatewayTimeoutException,
-
     -- ** ForbiddenException
     _ForbiddenException,
+
+    -- ** GatewayTimeoutException
+    _GatewayTimeoutException,
 
     -- ** ConflictException
     _ConflictException,
@@ -70,11 +70,11 @@ module Network.AWS.MediaLive
     -- ** ChannelCreated
     newChannelCreated,
 
-    -- ** MultiplexCreated
-    newMultiplexCreated,
-
     -- ** InputDetached
     newInputDetached,
+
+    -- ** MultiplexCreated
+    newMultiplexCreated,
 
     -- ** MultiplexDeleted
     newMultiplexDeleted,
@@ -85,29 +85,11 @@ module Network.AWS.MediaLive
     -- * Operations
     -- $operations
 
-    -- ** DescribeInputDeviceThumbnail
-    DescribeInputDeviceThumbnail (DescribeInputDeviceThumbnail'),
-    newDescribeInputDeviceThumbnail,
-    DescribeInputDeviceThumbnailResponse (DescribeInputDeviceThumbnailResponse'),
-    newDescribeInputDeviceThumbnailResponse,
-
-    -- ** UpdateInputDevice
-    UpdateInputDevice' (UpdateInputDevice''),
-    newUpdateInputDevice',
-    UpdateInputDeviceResponse (UpdateInputDeviceResponse'),
-    newUpdateInputDeviceResponse,
-
-    -- ** ListInputs (Paginated)
-    ListInputs (ListInputs'),
-    newListInputs,
-    ListInputsResponse (ListInputsResponse'),
-    newListInputsResponse,
-
-    -- ** CreateChannel
-    CreateChannel' (CreateChannel''),
-    newCreateChannel',
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
+    -- ** ListInputDevices (Paginated)
+    ListInputDevices (ListInputDevices'),
+    newListInputDevices,
+    ListInputDevicesResponse (ListInputDevicesResponse'),
+    newListInputDevicesResponse,
 
     -- ** DeleteInput
     DeleteInput (DeleteInput'),
@@ -115,11 +97,17 @@ module Network.AWS.MediaLive
     DeleteInputResponse (DeleteInputResponse'),
     newDeleteInputResponse,
 
-    -- ** ListInputDevices (Paginated)
-    ListInputDevices (ListInputDevices'),
-    newListInputDevices,
-    ListInputDevicesResponse (ListInputDevicesResponse'),
-    newListInputDevicesResponse,
+    -- ** UpdateInputDevice
+    UpdateInputDevice' (UpdateInputDevice''),
+    newUpdateInputDevice',
+    UpdateInputDeviceResponse (UpdateInputDeviceResponse'),
+    newUpdateInputDeviceResponse,
+
+    -- ** CreateChannel
+    CreateChannel' (CreateChannel''),
+    newCreateChannel',
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
 
     -- ** UpdateInput
     UpdateInput' (UpdateInput''),
@@ -127,11 +115,17 @@ module Network.AWS.MediaLive
     UpdateInputResponse (UpdateInputResponse'),
     newUpdateInputResponse,
 
-    -- ** ListInputDeviceTransfers (Paginated)
-    ListInputDeviceTransfers (ListInputDeviceTransfers'),
-    newListInputDeviceTransfers,
-    ListInputDeviceTransfersResponse (ListInputDeviceTransfersResponse'),
-    newListInputDeviceTransfersResponse,
+    -- ** ListInputs (Paginated)
+    ListInputs (ListInputs'),
+    newListInputs,
+    ListInputsResponse (ListInputsResponse'),
+    newListInputsResponse,
+
+    -- ** DescribeInputDeviceThumbnail
+    DescribeInputDeviceThumbnail (DescribeInputDeviceThumbnail'),
+    newDescribeInputDeviceThumbnail,
+    DescribeInputDeviceThumbnailResponse (DescribeInputDeviceThumbnailResponse'),
+    newDescribeInputDeviceThumbnailResponse,
 
     -- ** BatchStop
     BatchStop' (BatchStop''),
@@ -151,17 +145,17 @@ module Network.AWS.MediaLive
     BatchStartResponse (BatchStartResponse'),
     newBatchStartResponse,
 
+    -- ** ListInputDeviceTransfers (Paginated)
+    ListInputDeviceTransfers (ListInputDeviceTransfers'),
+    newListInputDeviceTransfers,
+    ListInputDeviceTransfersResponse (ListInputDeviceTransfersResponse'),
+    newListInputDeviceTransfersResponse,
+
     -- ** ListOfferings (Paginated)
     ListOfferings (ListOfferings'),
     newListOfferings,
     ListOfferingsResponse (ListOfferingsResponse'),
     newListOfferingsResponse,
-
-    -- ** UpdateMultiplex
-    UpdateMultiplex' (UpdateMultiplex''),
-    newUpdateMultiplex',
-    UpdateMultiplexResponse (UpdateMultiplexResponse'),
-    newUpdateMultiplexResponse,
 
     -- ** DeleteMultiplex
     DeleteMultiplex (DeleteMultiplex'),
@@ -169,11 +163,11 @@ module Network.AWS.MediaLive
     DeleteMultiplexResponse (DeleteMultiplexResponse'),
     newDeleteMultiplexResponse,
 
-    -- ** DeleteInputSecurityGroup
-    DeleteInputSecurityGroup (DeleteInputSecurityGroup'),
-    newDeleteInputSecurityGroup,
-    DeleteInputSecurityGroupResponse (DeleteInputSecurityGroupResponse'),
-    newDeleteInputSecurityGroupResponse,
+    -- ** UpdateMultiplex
+    UpdateMultiplex' (UpdateMultiplex''),
+    newUpdateMultiplex',
+    UpdateMultiplexResponse (UpdateMultiplexResponse'),
+    newUpdateMultiplexResponse,
 
     -- ** UpdateInputSecurityGroup
     UpdateInputSecurityGroup (UpdateInputSecurityGroup'),
@@ -187,23 +181,23 @@ module Network.AWS.MediaLive
     ListInputSecurityGroupsResponse (ListInputSecurityGroupsResponse'),
     newListInputSecurityGroupsResponse,
 
-    -- ** DescribeInput
-    DescribeInput (DescribeInput'),
-    newDescribeInput,
-    DescribeInputResponse (DescribeInputResponse'),
-    newDescribeInputResponse,
-
-    -- ** CreateInputSecurityGroup
-    CreateInputSecurityGroup (CreateInputSecurityGroup'),
-    newCreateInputSecurityGroup,
-    CreateInputSecurityGroupResponse (CreateInputSecurityGroupResponse'),
-    newCreateInputSecurityGroupResponse,
+    -- ** DeleteInputSecurityGroup
+    DeleteInputSecurityGroup (DeleteInputSecurityGroup'),
+    newDeleteInputSecurityGroup,
+    DeleteInputSecurityGroupResponse (DeleteInputSecurityGroupResponse'),
+    newDeleteInputSecurityGroupResponse,
 
     -- ** StartChannel
     StartChannel (StartChannel'),
     newStartChannel,
     StartChannelResponse (StartChannelResponse'),
     newStartChannelResponse,
+
+    -- ** CreateInputSecurityGroup
+    CreateInputSecurityGroup (CreateInputSecurityGroup'),
+    newCreateInputSecurityGroup,
+    CreateInputSecurityGroupResponse (CreateInputSecurityGroupResponse'),
+    newCreateInputSecurityGroupResponse,
 
     -- ** DescribeInputDevice
     DescribeInputDevice (DescribeInputDevice'),
@@ -217,6 +211,12 @@ module Network.AWS.MediaLive
     StopChannelResponse (StopChannelResponse'),
     newStopChannelResponse,
 
+    -- ** DescribeInput
+    DescribeInput (DescribeInput'),
+    newDescribeInput,
+    DescribeInputResponse (DescribeInputResponse'),
+    newDescribeInputResponse,
+
     -- ** DeleteTags
     DeleteTags (DeleteTags'),
     newDeleteTags,
@@ -229,11 +229,17 @@ module Network.AWS.MediaLive
     BatchUpdateScheduleResponse (BatchUpdateScheduleResponse'),
     newBatchUpdateScheduleResponse,
 
-    -- ** DescribeOffering
-    DescribeOffering (DescribeOffering'),
-    newDescribeOffering,
-    DescribeOfferingResponse (DescribeOfferingResponse'),
-    newDescribeOfferingResponse,
+    -- ** DescribeReservation
+    DescribeReservation (DescribeReservation'),
+    newDescribeReservation,
+    DescribeReservationResponse (DescribeReservationResponse'),
+    newDescribeReservationResponse,
+
+    -- ** UpdateMultiplexProgram
+    UpdateMultiplexProgram' (UpdateMultiplexProgram''),
+    newUpdateMultiplexProgram',
+    UpdateMultiplexProgramResponse (UpdateMultiplexProgramResponse'),
+    newUpdateMultiplexProgramResponse,
 
     -- ** AcceptInputDeviceTransfer
     AcceptInputDeviceTransfer (AcceptInputDeviceTransfer'),
@@ -247,17 +253,17 @@ module Network.AWS.MediaLive
     DeleteMultiplexProgramResponse (DeleteMultiplexProgramResponse'),
     newDeleteMultiplexProgramResponse,
 
-    -- ** UpdateMultiplexProgram
-    UpdateMultiplexProgram' (UpdateMultiplexProgram''),
-    newUpdateMultiplexProgram',
-    UpdateMultiplexProgramResponse (UpdateMultiplexProgramResponse'),
-    newUpdateMultiplexProgramResponse,
+    -- ** DescribeOffering
+    DescribeOffering (DescribeOffering'),
+    newDescribeOffering,
+    DescribeOfferingResponse (DescribeOfferingResponse'),
+    newDescribeOfferingResponse,
 
-    -- ** DescribeReservation
-    DescribeReservation (DescribeReservation'),
-    newDescribeReservation,
-    DescribeReservationResponse (DescribeReservationResponse'),
-    newDescribeReservationResponse,
+    -- ** RejectInputDeviceTransfer
+    RejectInputDeviceTransfer (RejectInputDeviceTransfer'),
+    newRejectInputDeviceTransfer,
+    RejectInputDeviceTransferResponse (RejectInputDeviceTransferResponse'),
+    newRejectInputDeviceTransferResponse,
 
     -- ** DescribeInputSecurityGroup
     DescribeInputSecurityGroup (DescribeInputSecurityGroup'),
@@ -271,17 +277,11 @@ module Network.AWS.MediaLive
     ListChannelsResponse (ListChannelsResponse'),
     newListChannelsResponse,
 
-    -- ** RejectInputDeviceTransfer
-    RejectInputDeviceTransfer (RejectInputDeviceTransfer'),
-    newRejectInputDeviceTransfer,
-    RejectInputDeviceTransferResponse (RejectInputDeviceTransferResponse'),
-    newRejectInputDeviceTransferResponse,
-
-    -- ** CreateMultiplex
-    CreateMultiplex' (CreateMultiplex''),
-    newCreateMultiplex',
-    CreateMultiplexResponse (CreateMultiplexResponse'),
-    newCreateMultiplexResponse,
+    -- ** DeleteSchedule
+    DeleteSchedule (DeleteSchedule'),
+    newDeleteSchedule,
+    DeleteScheduleResponse (DeleteScheduleResponse'),
+    newDeleteScheduleResponse,
 
     -- ** CreatePartnerInput
     CreatePartnerInput' (CreatePartnerInput''),
@@ -289,29 +289,29 @@ module Network.AWS.MediaLive
     CreatePartnerInputResponse (CreatePartnerInputResponse'),
     newCreatePartnerInputResponse,
 
-    -- ** DeleteSchedule
-    DeleteSchedule (DeleteSchedule'),
-    newDeleteSchedule,
-    DeleteScheduleResponse (DeleteScheduleResponse'),
-    newDeleteScheduleResponse,
-
     -- ** ListMultiplexes (Paginated)
     ListMultiplexes (ListMultiplexes'),
     newListMultiplexes,
     ListMultiplexesResponse (ListMultiplexesResponse'),
     newListMultiplexesResponse,
 
-    -- ** UpdateReservation
-    UpdateReservation' (UpdateReservation''),
-    newUpdateReservation',
-    UpdateReservationResponse (UpdateReservationResponse'),
-    newUpdateReservationResponse,
+    -- ** CreateMultiplex
+    CreateMultiplex' (CreateMultiplex''),
+    newCreateMultiplex',
+    CreateMultiplexResponse (CreateMultiplexResponse'),
+    newCreateMultiplexResponse,
 
     -- ** DeleteReservation
     DeleteReservation (DeleteReservation'),
     newDeleteReservation,
     DeleteReservationResponse (DeleteReservationResponse'),
     newDeleteReservationResponse,
+
+    -- ** UpdateReservation
+    UpdateReservation' (UpdateReservation''),
+    newUpdateReservation',
+    UpdateReservationResponse (UpdateReservationResponse'),
+    newUpdateReservationResponse,
 
     -- ** DescribeMultiplexProgram
     DescribeMultiplexProgram (DescribeMultiplexProgram'),
@@ -355,17 +355,29 @@ module Network.AWS.MediaLive
     StopMultiplexResponse (StopMultiplexResponse'),
     newStopMultiplexResponse,
 
+    -- ** CreateMultiplexProgram
+    CreateMultiplexProgram' (CreateMultiplexProgram''),
+    newCreateMultiplexProgram',
+    CreateMultiplexProgramResponse (CreateMultiplexProgramResponse'),
+    newCreateMultiplexProgramResponse,
+
     -- ** DescribeSchedule (Paginated)
     DescribeSchedule (DescribeSchedule'),
     newDescribeSchedule,
     DescribeScheduleResponse (DescribeScheduleResponse'),
     newDescribeScheduleResponse,
 
-    -- ** CreateMultiplexProgram
-    CreateMultiplexProgram' (CreateMultiplexProgram''),
-    newCreateMultiplexProgram',
-    CreateMultiplexProgramResponse (CreateMultiplexProgramResponse'),
-    newCreateMultiplexProgramResponse,
+    -- ** DescribeMultiplex
+    DescribeMultiplex (DescribeMultiplex'),
+    newDescribeMultiplex,
+    DescribeMultiplexResponse (DescribeMultiplexResponse'),
+    newDescribeMultiplexResponse,
+
+    -- ** BatchDelete
+    BatchDelete' (BatchDelete''),
+    newBatchDelete',
+    BatchDeleteResponse (BatchDeleteResponse'),
+    newBatchDeleteResponse,
 
     -- ** CreateTags
     CreateTags (CreateTags'),
@@ -385,17 +397,17 @@ module Network.AWS.MediaLive
     ListMultiplexProgramsResponse (ListMultiplexProgramsResponse'),
     newListMultiplexProgramsResponse,
 
-    -- ** DescribeMultiplex
-    DescribeMultiplex (DescribeMultiplex'),
-    newDescribeMultiplex,
-    DescribeMultiplexResponse (DescribeMultiplexResponse'),
-    newDescribeMultiplexResponse,
+    -- ** UpdateChannel
+    UpdateChannel' (UpdateChannel''),
+    newUpdateChannel',
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
-    -- ** BatchDelete
-    BatchDelete' (BatchDelete''),
-    newBatchDelete',
-    BatchDeleteResponse (BatchDeleteResponse'),
-    newBatchDeleteResponse,
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
 
     -- ** CreateInput
     CreateInput' (CreateInput''),
@@ -408,18 +420,6 @@ module Network.AWS.MediaLive
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
-
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
-
-    -- ** UpdateChannel
-    UpdateChannel' (UpdateChannel''),
-    newUpdateChannel',
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
 
     -- * Types
 
@@ -557,6 +557,9 @@ module Network.AWS.MediaLive
 
     -- ** DvbSubDestinationTeletextGridControl
     DvbSubDestinationTeletextGridControl (..),
+
+    -- ** DvbSubOcrLanguage
+    DvbSubOcrLanguage (..),
 
     -- ** Eac3AttenuationControl
     Eac3AttenuationControl (..),
@@ -807,6 +810,9 @@ module Network.AWS.MediaLive
     -- ** HlsRedundantManifest
     HlsRedundantManifest (..),
 
+    -- ** HlsScte35SourceType
+    HlsScte35SourceType (..),
+
     -- ** HlsSegmentationMode
     HlsSegmentationMode (..),
 
@@ -981,6 +987,9 @@ module Network.AWS.MediaLive
     -- ** M3u8TimedMetadataBehavior
     M3u8TimedMetadataBehavior (..),
 
+    -- ** MotionGraphicsInsertion
+    MotionGraphicsInsertion (..),
+
     -- ** Mp2CodingMode
     Mp2CodingMode (..),
 
@@ -1068,8 +1077,14 @@ module Network.AWS.MediaLive
     -- ** RtmpOutputCertificateMode
     RtmpOutputCertificateMode (..),
 
+    -- ** S3CannedAcl
+    S3CannedAcl (..),
+
     -- ** Scte20Convert608To708
     Scte20Convert608To708 (..),
+
+    -- ** Scte27OcrLanguage
+    Scte27OcrLanguage (..),
 
     -- ** Scte35AposNoRegionalBlackoutBehavior
     Scte35AposNoRegionalBlackoutBehavior (..),
@@ -1155,6 +1170,9 @@ module Network.AWS.MediaLive
     -- ** WavCodingMode
     WavCodingMode (..),
 
+    -- ** WebvttDestinationStyleControl
+    WebvttDestinationStyleControl (..),
+
     -- ** AacSettings
     AacSettings (AacSettings'),
     newAacSettings,
@@ -1167,6 +1185,10 @@ module Network.AWS.MediaLive
     AncillarySourceSettings (AncillarySourceSettings'),
     newAncillarySourceSettings,
 
+    -- ** ArchiveCdnSettings
+    ArchiveCdnSettings (ArchiveCdnSettings'),
+    newArchiveCdnSettings,
+
     -- ** ArchiveContainerSettings
     ArchiveContainerSettings (ArchiveContainerSettings'),
     newArchiveContainerSettings,
@@ -1178,6 +1200,10 @@ module Network.AWS.MediaLive
     -- ** ArchiveOutputSettings
     ArchiveOutputSettings (ArchiveOutputSettings'),
     newArchiveOutputSettings,
+
+    -- ** ArchiveS3Settings
+    ArchiveS3Settings (ArchiveS3Settings'),
+    newArchiveS3Settings,
 
     -- ** AribDestinationSettings
     AribDestinationSettings (AribDestinationSettings'),
@@ -1198,6 +1224,10 @@ module Network.AWS.MediaLive
     -- ** AudioDescription
     AudioDescription (AudioDescription'),
     newAudioDescription,
+
+    -- ** AudioHlsRenditionSelection
+    AudioHlsRenditionSelection (AudioHlsRenditionSelection'),
+    newAudioHlsRenditionSelection,
 
     -- ** AudioLanguageSelection
     AudioLanguageSelection (AudioLanguageSelection'),
@@ -1294,6 +1324,10 @@ module Network.AWS.MediaLive
     -- ** CaptionLanguageMapping
     CaptionLanguageMapping (CaptionLanguageMapping'),
     newCaptionLanguageMapping,
+
+    -- ** CaptionRectangle
+    CaptionRectangle (CaptionRectangle'),
+    newCaptionRectangle,
 
     -- ** CaptionSelector
     CaptionSelector (CaptionSelector'),
@@ -1395,6 +1429,10 @@ module Network.AWS.MediaLive
     FollowModeScheduleActionStartSettings (FollowModeScheduleActionStartSettings'),
     newFollowModeScheduleActionStartSettings,
 
+    -- ** FrameCaptureCdnSettings
+    FrameCaptureCdnSettings (FrameCaptureCdnSettings'),
+    newFrameCaptureCdnSettings,
+
     -- ** FrameCaptureGroupSettings
     FrameCaptureGroupSettings (FrameCaptureGroupSettings'),
     newFrameCaptureGroupSettings,
@@ -1406,6 +1444,10 @@ module Network.AWS.MediaLive
     -- ** FrameCaptureOutputSettings
     FrameCaptureOutputSettings (FrameCaptureOutputSettings'),
     newFrameCaptureOutputSettings,
+
+    -- ** FrameCaptureS3Settings
+    FrameCaptureS3Settings (FrameCaptureS3Settings'),
+    newFrameCaptureS3Settings,
 
     -- ** FrameCaptureSettings
     FrameCaptureSettings (FrameCaptureSettings'),
@@ -1475,6 +1517,10 @@ module Network.AWS.MediaLive
     HlsOutputSettings (HlsOutputSettings'),
     newHlsOutputSettings,
 
+    -- ** HlsS3Settings
+    HlsS3Settings (HlsS3Settings'),
+    newHlsS3Settings,
+
     -- ** HlsSettings
     HlsSettings (HlsSettings'),
     newHlsSettings,
@@ -1486,6 +1532,10 @@ module Network.AWS.MediaLive
     -- ** HlsWebdavSettings
     HlsWebdavSettings (HlsWebdavSettings'),
     newHlsWebdavSettings,
+
+    -- ** HtmlMotionGraphicsSettings
+    HtmlMotionGraphicsSettings (HtmlMotionGraphicsSettings'),
+    newHtmlMotionGraphicsSettings,
 
     -- ** ImmediateModeScheduleActionStartSettings
     ImmediateModeScheduleActionStartSettings (ImmediateModeScheduleActionStartSettings'),
@@ -1630,6 +1680,22 @@ module Network.AWS.MediaLive
     -- ** MediaPackageOutputSettings
     MediaPackageOutputSettings (MediaPackageOutputSettings'),
     newMediaPackageOutputSettings,
+
+    -- ** MotionGraphicsActivateScheduleActionSettings
+    MotionGraphicsActivateScheduleActionSettings (MotionGraphicsActivateScheduleActionSettings'),
+    newMotionGraphicsActivateScheduleActionSettings,
+
+    -- ** MotionGraphicsConfiguration
+    MotionGraphicsConfiguration (MotionGraphicsConfiguration'),
+    newMotionGraphicsConfiguration,
+
+    -- ** MotionGraphicsDeactivateScheduleActionSettings
+    MotionGraphicsDeactivateScheduleActionSettings (MotionGraphicsDeactivateScheduleActionSettings'),
+    newMotionGraphicsDeactivateScheduleActionSettings,
+
+    -- ** MotionGraphicsSettings
+    MotionGraphicsSettings (MotionGraphicsSettings'),
+    newMotionGraphicsSettings,
 
     -- ** Mp2Settings
     Mp2Settings (Mp2Settings'),
@@ -1955,6 +2021,10 @@ module Network.AWS.MediaLive
     VideoSelector (VideoSelector'),
     newVideoSelector,
 
+    -- ** VideoSelectorColorSpaceSettings
+    VideoSelectorColorSpaceSettings (VideoSelectorColorSpaceSettings'),
+    newVideoSelectorColorSpaceSettings,
+
     -- ** VideoSelectorPid
     VideoSelectorPid (VideoSelectorPid'),
     newVideoSelectorPid,
@@ -1970,6 +2040,10 @@ module Network.AWS.MediaLive
     -- ** VpcOutputSettings
     VpcOutputSettings (VpcOutputSettings'),
     newVpcOutputSettings,
+
+    -- ** VpcOutputSettingsDescription
+    VpcOutputSettingsDescription (VpcOutputSettingsDescription'),
+    newVpcOutputSettingsDescription,
 
     -- ** WavSettings
     WavSettings (WavSettings'),

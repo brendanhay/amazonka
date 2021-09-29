@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkAcl' smart constructor.
 data NetworkAcl = NetworkAcl'
-  { -- | The ID of the AWS account that owns the network ACL.
+  { -- | The ID of the Amazon Web Services account that owns the network ACL.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this is the default network ACL for the VPC.
     isDefault :: Prelude.Maybe Prelude.Bool,
@@ -56,7 +56,7 @@ data NetworkAcl = NetworkAcl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'networkAcl_ownerId' - The ID of the AWS account that owns the network ACL.
+-- 'ownerId', 'networkAcl_ownerId' - The ID of the Amazon Web Services account that owns the network ACL.
 --
 -- 'isDefault', 'networkAcl_isDefault' - Indicates whether this is the default network ACL for the VPC.
 --
@@ -82,7 +82,7 @@ newNetworkAcl =
       entries = Prelude.Nothing
     }
 
--- | The ID of the AWS account that owns the network ACL.
+-- | The ID of the Amazon Web Services account that owns the network ACL.
 networkAcl_ownerId :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Text)
 networkAcl_ownerId = Lens.lens (\NetworkAcl' {ownerId} -> ownerId) (\s@NetworkAcl' {} a -> s {ownerId = a} :: NetworkAcl)
 

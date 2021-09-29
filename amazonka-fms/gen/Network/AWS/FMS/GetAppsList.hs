@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified AWS Firewall Manager
--- applications list.
+-- Returns information about the specified Firewall Manager applications
+-- list.
 module Network.AWS.FMS.GetAppsList
   ( -- * Creating a Request
     GetAppsList (..),
@@ -51,10 +51,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAppsList' smart constructor.
 data GetAppsList = GetAppsList'
-  { -- | Specifies whether the list to retrieve is a default list owned by AWS
+  { -- | Specifies whether the list to retrieve is a default list owned by
     -- Firewall Manager.
     defaultList :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the AWS Firewall Manager applications list that you want the
+    -- | The ID of the Firewall Manager applications list that you want the
     -- details for.
     listId :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data GetAppsList = GetAppsList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultList', 'getAppsList_defaultList' - Specifies whether the list to retrieve is a default list owned by AWS
+-- 'defaultList', 'getAppsList_defaultList' - Specifies whether the list to retrieve is a default list owned by
 -- Firewall Manager.
 --
--- 'listId', 'getAppsList_listId' - The ID of the AWS Firewall Manager applications list that you want the
+-- 'listId', 'getAppsList_listId' - The ID of the Firewall Manager applications list that you want the
 -- details for.
 newGetAppsList ::
   -- | 'listId'
@@ -83,12 +83,12 @@ newGetAppsList pListId_ =
       listId = pListId_
     }
 
--- | Specifies whether the list to retrieve is a default list owned by AWS
+-- | Specifies whether the list to retrieve is a default list owned by
 -- Firewall Manager.
 getAppsList_defaultList :: Lens.Lens' GetAppsList (Prelude.Maybe Prelude.Bool)
 getAppsList_defaultList = Lens.lens (\GetAppsList' {defaultList} -> defaultList) (\s@GetAppsList' {} a -> s {defaultList = a} :: GetAppsList)
 
--- | The ID of the AWS Firewall Manager applications list that you want the
+-- | The ID of the Firewall Manager applications list that you want the
 -- details for.
 getAppsList_listId :: Lens.Lens' GetAppsList Prelude.Text
 getAppsList_listId = Lens.lens (\GetAppsList' {listId} -> listId) (\s@GetAppsList' {} a -> s {listId = a} :: GetAppsList)
@@ -141,7 +141,7 @@ instance Core.ToQuery GetAppsList where
 
 -- | /See:/ 'newGetAppsListResponse' smart constructor.
 data GetAppsListResponse = GetAppsListResponse'
-  { -- | Information about the specified AWS Firewall Manager applications list.
+  { -- | Information about the specified Firewall Manager applications list.
     appsList :: Prelude.Maybe AppsListData,
     -- | The Amazon Resource Name (ARN) of the applications list.
     appsListArn :: Prelude.Maybe Prelude.Text,
@@ -158,7 +158,7 @@ data GetAppsListResponse = GetAppsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appsList', 'getAppsListResponse_appsList' - Information about the specified AWS Firewall Manager applications list.
+-- 'appsList', 'getAppsListResponse_appsList' - Information about the specified Firewall Manager applications list.
 --
 -- 'appsListArn', 'getAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.
 --
@@ -174,7 +174,7 @@ newGetAppsListResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the specified AWS Firewall Manager applications list.
+-- | Information about the specified Firewall Manager applications list.
 getAppsListResponse_appsList :: Lens.Lens' GetAppsListResponse (Prelude.Maybe AppsListData)
 getAppsListResponse_appsList = Lens.lens (\GetAppsListResponse' {appsList} -> appsList) (\s@GetAppsListResponse' {} a -> s {appsList = a} :: GetAppsListResponse)
 

@@ -61,9 +61,9 @@ data ListInstances = ListInstances'
     -- results. Specify the value of @NextToken@ from the previous response in
     -- the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that you want AWS Cloud Map to return in
-    -- the response to a @ListInstances@ request. If you don\'t specify a value
-    -- for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+    -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @ListInstances@ request. If you don\'t specify a value for
+    -- @MaxResults@, Cloud Map returns up to 100 instances.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the service that you want to list instances for.
     serviceId :: Prelude.Text
@@ -85,9 +85,9 @@ data ListInstances = ListInstances'
 -- results. Specify the value of @NextToken@ from the previous response in
 -- the next request.
 --
--- 'maxResults', 'listInstances_maxResults' - The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @ListInstances@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+-- 'maxResults', 'listInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @ListInstances@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 instances.
 --
 -- 'serviceId', 'listInstances_serviceId' - The ID of the service that you want to list instances for.
 newListInstances ::
@@ -110,9 +110,9 @@ newListInstances pServiceId_ =
 listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
 listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
 
--- | The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @ListInstances@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @ListInstances@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 instances.
 listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
 listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 

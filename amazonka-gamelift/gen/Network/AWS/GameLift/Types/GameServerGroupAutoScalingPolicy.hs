@@ -24,8 +24,8 @@ import Network.AWS.GameLift.Types.TargetTrackingConfiguration
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | __This data type is used with the Amazon GameLift FleetIQ and game
--- server groups.__
+-- | __This data type is used with the GameLift FleetIQ and game server
+-- groups.__
 --
 -- Configuration settings for intelligent automatic scaling that uses
 -- target tracking. These settings are used to add an Auto Scaling policy

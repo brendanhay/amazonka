@@ -62,9 +62,9 @@ data BatchGetImage = BatchGetImage'
     -- @application\/vnd.docker.distribution.manifest.v2+json@ |
     -- @application\/vnd.oci.image.manifest.v1+json@
     acceptedMediaTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The AWS account ID associated with the registry that contains the images
-    -- to describe. If you do not specify a registry, the default registry is
-    -- assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the images to describe. If you do not specify a registry, the
+    -- default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository that contains the images to describe.
     repositoryName :: Prelude.Text,
@@ -89,9 +89,9 @@ data BatchGetImage = BatchGetImage'
 -- @application\/vnd.docker.distribution.manifest.v2+json@ |
 -- @application\/vnd.oci.image.manifest.v1+json@
 --
--- 'registryId', 'batchGetImage_registryId' - The AWS account ID associated with the registry that contains the images
--- to describe. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'batchGetImage_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the images to describe. If you do not specify a registry, the
+-- default registry is assumed.
 --
 -- 'repositoryName', 'batchGetImage_repositoryName' - The repository that contains the images to describe.
 --
@@ -119,9 +119,9 @@ newBatchGetImage pRepositoryName_ =
 batchGetImage_acceptedMediaTypes :: Lens.Lens' BatchGetImage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 batchGetImage_acceptedMediaTypes = Lens.lens (\BatchGetImage' {acceptedMediaTypes} -> acceptedMediaTypes) (\s@BatchGetImage' {} a -> s {acceptedMediaTypes = a} :: BatchGetImage) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS account ID associated with the registry that contains the images
--- to describe. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the images to describe. If you do not specify a registry, the
+-- default registry is assumed.
 batchGetImage_registryId :: Lens.Lens' BatchGetImage (Prelude.Maybe Prelude.Text)
 batchGetImage_registryId = Lens.lens (\BatchGetImage' {registryId} -> registryId) (\s@BatchGetImage' {} a -> s {registryId = a} :: BatchGetImage)
 

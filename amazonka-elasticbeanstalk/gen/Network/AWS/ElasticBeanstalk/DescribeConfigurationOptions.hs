@@ -34,8 +34,8 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     describeConfigurationOptions_templateName,
     describeConfigurationOptions_options,
     describeConfigurationOptions_solutionStackName,
-    describeConfigurationOptions_environmentName,
     describeConfigurationOptions_platformArn,
+    describeConfigurationOptions_environmentName,
     describeConfigurationOptions_applicationName,
 
     -- * Destructuring the Response
@@ -69,11 +69,11 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
     -- | The name of the solution stack whose configuration options you want to
     -- describe.
     solutionStackName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the custom platform.
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment whose configuration options you want to
     -- describe.
     environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the custom platform.
-    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with the configuration template
     -- or environment. Only needed if you want to describe the configuration
     -- options associated with either the configuration template or
@@ -98,10 +98,10 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
 -- 'solutionStackName', 'describeConfigurationOptions_solutionStackName' - The name of the solution stack whose configuration options you want to
 -- describe.
 --
+-- 'platformArn', 'describeConfigurationOptions_platformArn' - The ARN of the custom platform.
+--
 -- 'environmentName', 'describeConfigurationOptions_environmentName' - The name of the environment whose configuration options you want to
 -- describe.
---
--- 'platformArn', 'describeConfigurationOptions_platformArn' - The ARN of the custom platform.
 --
 -- 'applicationName', 'describeConfigurationOptions_applicationName' - The name of the application associated with the configuration template
 -- or environment. Only needed if you want to describe the configuration
@@ -115,8 +115,8 @@ newDescribeConfigurationOptions =
         Prelude.Nothing,
       options = Prelude.Nothing,
       solutionStackName = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       platformArn = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       applicationName = Prelude.Nothing
     }
 
@@ -134,14 +134,14 @@ describeConfigurationOptions_options = Lens.lens (\DescribeConfigurationOptions'
 describeConfigurationOptions_solutionStackName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_solutionStackName = Lens.lens (\DescribeConfigurationOptions' {solutionStackName} -> solutionStackName) (\s@DescribeConfigurationOptions' {} a -> s {solutionStackName = a} :: DescribeConfigurationOptions)
 
+-- | The ARN of the custom platform.
+describeConfigurationOptions_platformArn :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeConfigurationOptions_platformArn = Lens.lens (\DescribeConfigurationOptions' {platformArn} -> platformArn) (\s@DescribeConfigurationOptions' {} a -> s {platformArn = a} :: DescribeConfigurationOptions)
+
 -- | The name of the environment whose configuration options you want to
 -- describe.
 describeConfigurationOptions_environmentName :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeConfigurationOptions_environmentName = Lens.lens (\DescribeConfigurationOptions' {environmentName} -> environmentName) (\s@DescribeConfigurationOptions' {} a -> s {environmentName = a} :: DescribeConfigurationOptions)
-
--- | The ARN of the custom platform.
-describeConfigurationOptions_platformArn :: Lens.Lens' DescribeConfigurationOptions (Prelude.Maybe Prelude.Text)
-describeConfigurationOptions_platformArn = Lens.lens (\DescribeConfigurationOptions' {platformArn} -> platformArn) (\s@DescribeConfigurationOptions' {} a -> s {platformArn = a} :: DescribeConfigurationOptions)
 
 -- | The name of the application associated with the configuration template
 -- or environment. Only needed if you want to describe the configuration
@@ -194,8 +194,8 @@ instance Core.ToQuery DescribeConfigurationOptions where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> options),
         "SolutionStackName" Core.=: solutionStackName,
-        "EnvironmentName" Core.=: environmentName,
         "PlatformArn" Core.=: platformArn,
+        "EnvironmentName" Core.=: environmentName,
         "ApplicationName" Core.=: applicationName
       ]
 

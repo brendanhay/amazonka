@@ -32,6 +32,7 @@ module Network.AWS.SSM.Types.OpsItemFilterKey
         OpsItemFilterKey_ChangeRequestByTemplate,
         OpsItemFilterKey_CreatedBy,
         OpsItemFilterKey_CreatedTime,
+        OpsItemFilterKey_InsightByType,
         OpsItemFilterKey_LastModifiedTime,
         OpsItemFilterKey_OperationalData,
         OpsItemFilterKey_OperationalDataKey,
@@ -117,6 +118,9 @@ pattern OpsItemFilterKey_CreatedBy = OpsItemFilterKey' "CreatedBy"
 pattern OpsItemFilterKey_CreatedTime :: OpsItemFilterKey
 pattern OpsItemFilterKey_CreatedTime = OpsItemFilterKey' "CreatedTime"
 
+pattern OpsItemFilterKey_InsightByType :: OpsItemFilterKey
+pattern OpsItemFilterKey_InsightByType = OpsItemFilterKey' "InsightByType"
+
 pattern OpsItemFilterKey_LastModifiedTime :: OpsItemFilterKey
 pattern OpsItemFilterKey_LastModifiedTime = OpsItemFilterKey' "LastModifiedTime"
 
@@ -172,6 +176,7 @@ pattern OpsItemFilterKey_Title = OpsItemFilterKey' "Title"
   OpsItemFilterKey_ChangeRequestByTemplate,
   OpsItemFilterKey_CreatedBy,
   OpsItemFilterKey_CreatedTime,
+  OpsItemFilterKey_InsightByType,
   OpsItemFilterKey_LastModifiedTime,
   OpsItemFilterKey_OperationalData,
   OpsItemFilterKey_OperationalDataKey,

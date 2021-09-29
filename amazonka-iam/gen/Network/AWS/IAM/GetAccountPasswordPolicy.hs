@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the password policy for the AWS account. This tells you the
--- complexity requirements and mandatory rotation periods for the IAM user
--- passwords in your account. For more information about using a password
--- policy, see
+-- Retrieves the password policy for the Amazon Web Services account. This
+-- tells you the complexity requirements and mandatory rotation periods for
+-- the IAM user passwords in your account. For more information about using
+-- a password policy, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM password policy>.
 module Network.AWS.IAM.GetAccountPasswordPolicy
   ( -- * Creating a Request

@@ -118,7 +118,7 @@ data ListEntitiesForPolicy = ListEntitiesForPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -181,7 +181,7 @@ data ListEntitiesForPolicy = ListEntitiesForPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newListEntitiesForPolicy ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -257,7 +257,7 @@ listEntitiesForPolicy_marker = Lens.lens (\ListEntitiesForPolicy' {marker} -> ma
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 listEntitiesForPolicy_policyArn :: Lens.Lens' ListEntitiesForPolicy Prelude.Text
 listEntitiesForPolicy_policyArn = Lens.lens (\ListEntitiesForPolicy' {policyArn} -> policyArn) (\s@ListEntitiesForPolicy' {} a -> s {policyArn = a} :: ListEntitiesForPolicy)
 

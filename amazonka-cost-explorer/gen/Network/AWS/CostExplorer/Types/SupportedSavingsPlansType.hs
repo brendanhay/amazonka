@@ -21,7 +21,8 @@ module Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
   ( SupportedSavingsPlansType
       ( ..,
         SupportedSavingsPlansType_COMPUTE_SP,
-        SupportedSavingsPlansType_EC2_INSTANCE_SP
+        SupportedSavingsPlansType_EC2_INSTANCE_SP,
+        SupportedSavingsPlansType_SAGEMAKER_SP
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern SupportedSavingsPlansType_COMPUTE_SP = SupportedSavingsPlansType' "COMPU
 pattern SupportedSavingsPlansType_EC2_INSTANCE_SP :: SupportedSavingsPlansType
 pattern SupportedSavingsPlansType_EC2_INSTANCE_SP = SupportedSavingsPlansType' "EC2_INSTANCE_SP"
 
+pattern SupportedSavingsPlansType_SAGEMAKER_SP :: SupportedSavingsPlansType
+pattern SupportedSavingsPlansType_SAGEMAKER_SP = SupportedSavingsPlansType' "SAGEMAKER_SP"
+
 {-# COMPLETE
   SupportedSavingsPlansType_COMPUTE_SP,
   SupportedSavingsPlansType_EC2_INSTANCE_SP,
+  SupportedSavingsPlansType_SAGEMAKER_SP,
   SupportedSavingsPlansType'
   #-}

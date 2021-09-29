@@ -29,9 +29,10 @@ module Network.AWS.Snowball.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
+    createCluster_remoteManagement,
     createCluster_kmsKeyARN,
+    createCluster_onDeviceServiceConfiguration,
     createCluster_taxDocuments,
-    createCluster_snowballType,
     createCluster_description,
     createCluster_forwardingAddressId,
     createCluster_notification,
@@ -39,6 +40,7 @@ module Network.AWS.Snowball.CreateCluster
     createCluster_resources,
     createCluster_addressId,
     createCluster_roleARN,
+    createCluster_snowballType,
     createCluster_shippingOption,
 
     -- * Destructuring the Response
@@ -60,18 +62,23 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The @KmsKeyARN@ value that you want to associate with this cluster.
+  { -- | Allows you to securely operate and manage Snow devices in a cluster
+    -- remotely from outside of your internal network. When set to
+    -- @INSTALLED_AUTOSTART@, remote management will automatically be available
+    -- when the device arrives at your location. Otherwise, you need to use the
+    -- Snowball Client to manage the device.
+    remoteManagement :: Prelude.Maybe RemoteManagement,
+    -- | The @KmsKeyARN@ value that you want to associate with this cluster.
     -- @KmsKeyARN@ values are created by using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
     -- API action in AWS Key Management Service (AWS KMS).
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the service or services on the Snow Family device that your
+    -- transferred data will be exported from or imported into. AWS Snow Family
+    -- supports Amazon S3 and NFS (Network File System).
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The tax documents required in your AWS Region.
     taxDocuments :: Prelude.Maybe TaxDocuments,
-    -- | The type of AWS Snow Family device to use for this cluster.
-    --
-    -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
-    -- device type.
-    snowballType :: Prelude.Maybe SnowballType,
     -- | An optional description of this specific cluster, for example
     -- @Environmental Data Cluster-01@.
     description :: Prelude.Maybe Prelude.Text,
@@ -83,6 +90,12 @@ data CreateCluster = CreateCluster'
     notification :: Prelude.Maybe Notification,
     -- | The type of job for this cluster. Currently, the only job type supported
     -- for clusters is @LOCAL_USE@.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
     jobType :: JobType,
     -- | The resources associated with the cluster job. These resources include
     -- Amazon S3 buckets and optional AWS Lambda functions written in the
@@ -95,6 +108,17 @@ data CreateCluster = CreateCluster'
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
     -- API action in AWS Identity and Access Management (IAM).
     roleARN :: Prelude.Text,
+    -- | The type of AWS Snow Family device to use for this cluster.
+    --
+    -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
+    -- device type.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+    snowballType :: SnowballType,
     -- | The shipping speed for each node in this cluster. This speed doesn\'t
     -- dictate how soon you\'ll get each Snowball Edge device, rather it
     -- represents how quickly each device moves to its destination while in
@@ -108,7 +132,7 @@ data CreateCluster = CreateCluster'
     --     day. In addition, most countries in the EU have access to standard
     --     shipping, which typically takes less than a week, one way.
     --
-    -- -   In India, Snow device are delivered in one to seven days.
+    -- -   In India, Snow devices are delivered in one to seven days.
     --
     -- -   In the United States of America (US), you have access to one-day
     --     shipping and two-day shipping.
@@ -121,7 +145,7 @@ data CreateCluster = CreateCluster'
     --     day. In addition, most countries in the EU have access to standard
     --     shipping, which typically takes less than a week, one way.
     --
-    -- -   In India, Snow device are delivered in one to seven days.
+    -- -   In India, Snow devices are delivered in one to seven days.
     --
     -- -   In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: ShippingOption
@@ -136,17 +160,22 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'remoteManagement', 'createCluster_remoteManagement' - Allows you to securely operate and manage Snow devices in a cluster
+-- remotely from outside of your internal network. When set to
+-- @INSTALLED_AUTOSTART@, remote management will automatically be available
+-- when the device arrives at your location. Otherwise, you need to use the
+-- Snowball Client to manage the device.
+--
 -- 'kmsKeyARN', 'createCluster_kmsKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster.
 -- @KmsKeyARN@ values are created by using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
 -- API action in AWS Key Management Service (AWS KMS).
 --
+-- 'onDeviceServiceConfiguration', 'createCluster_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+--
 -- 'taxDocuments', 'createCluster_taxDocuments' - The tax documents required in your AWS Region.
---
--- 'snowballType', 'createCluster_snowballType' - The type of AWS Snow Family device to use for this cluster.
---
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
 --
 -- 'description', 'createCluster_description' - An optional description of this specific cluster, for example
 -- @Environmental Data Cluster-01@.
@@ -160,6 +189,12 @@ data CreateCluster = CreateCluster'
 -- 'jobType', 'createCluster_jobType' - The type of job for this cluster. Currently, the only job type supported
 -- for clusters is @LOCAL_USE@.
 --
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+--
 -- 'resources', 'createCluster_resources' - The resources associated with the cluster job. These resources include
 -- Amazon S3 buckets and optional AWS Lambda functions written in the
 -- Python language.
@@ -170,6 +205,17 @@ data CreateCluster = CreateCluster'
 -- values are created by using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
 -- API action in AWS Identity and Access Management (IAM).
+--
+-- 'snowballType', 'createCluster_snowballType' - The type of AWS Snow Family device to use for this cluster.
+--
+-- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
+-- device type.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 --
 -- 'shippingOption', 'createCluster_shippingOption' - The shipping speed for each node in this cluster. This speed doesn\'t
 -- dictate how soon you\'ll get each Snowball Edge device, rather it
@@ -184,7 +230,7 @@ data CreateCluster = CreateCluster'
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
@@ -197,7 +243,7 @@ data CreateCluster = CreateCluster'
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the US, you have access to one-day shipping and two-day shipping.
 newCreateCluster ::
@@ -209,6 +255,8 @@ newCreateCluster ::
   Prelude.Text ->
   -- | 'roleARN'
   Prelude.Text ->
+  -- | 'snowballType'
+  SnowballType ->
   -- | 'shippingOption'
   ShippingOption ->
   CreateCluster
@@ -217,11 +265,13 @@ newCreateCluster
   pResources_
   pAddressId_
   pRoleARN_
+  pSnowballType_
   pShippingOption_ =
     CreateCluster'
-      { kmsKeyARN = Prelude.Nothing,
+      { remoteManagement = Prelude.Nothing,
+        kmsKeyARN = Prelude.Nothing,
+        onDeviceServiceConfiguration = Prelude.Nothing,
         taxDocuments = Prelude.Nothing,
-        snowballType = Prelude.Nothing,
         description = Prelude.Nothing,
         forwardingAddressId = Prelude.Nothing,
         notification = Prelude.Nothing,
@@ -229,8 +279,17 @@ newCreateCluster
         resources = pResources_,
         addressId = pAddressId_,
         roleARN = pRoleARN_,
+        snowballType = pSnowballType_,
         shippingOption = pShippingOption_
       }
+
+-- | Allows you to securely operate and manage Snow devices in a cluster
+-- remotely from outside of your internal network. When set to
+-- @INSTALLED_AUTOSTART@, remote management will automatically be available
+-- when the device arrives at your location. Otherwise, you need to use the
+-- Snowball Client to manage the device.
+createCluster_remoteManagement :: Lens.Lens' CreateCluster (Prelude.Maybe RemoteManagement)
+createCluster_remoteManagement = Lens.lens (\CreateCluster' {remoteManagement} -> remoteManagement) (\s@CreateCluster' {} a -> s {remoteManagement = a} :: CreateCluster)
 
 -- | The @KmsKeyARN@ value that you want to associate with this cluster.
 -- @KmsKeyARN@ values are created by using the
@@ -239,16 +298,15 @@ newCreateCluster
 createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (\s@CreateCluster' {} a -> s {kmsKeyARN = a} :: CreateCluster)
 
+-- | Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+createCluster_onDeviceServiceConfiguration :: Lens.Lens' CreateCluster (Prelude.Maybe OnDeviceServiceConfiguration)
+createCluster_onDeviceServiceConfiguration = Lens.lens (\CreateCluster' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@CreateCluster' {} a -> s {onDeviceServiceConfiguration = a} :: CreateCluster)
+
 -- | The tax documents required in your AWS Region.
 createCluster_taxDocuments :: Lens.Lens' CreateCluster (Prelude.Maybe TaxDocuments)
 createCluster_taxDocuments = Lens.lens (\CreateCluster' {taxDocuments} -> taxDocuments) (\s@CreateCluster' {} a -> s {taxDocuments = a} :: CreateCluster)
-
--- | The type of AWS Snow Family device to use for this cluster.
---
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
-createCluster_snowballType :: Lens.Lens' CreateCluster (Prelude.Maybe SnowballType)
-createCluster_snowballType = Lens.lens (\CreateCluster' {snowballType} -> snowballType) (\s@CreateCluster' {} a -> s {snowballType = a} :: CreateCluster)
 
 -- | An optional description of this specific cluster, for example
 -- @Environmental Data Cluster-01@.
@@ -267,6 +325,12 @@ createCluster_notification = Lens.lens (\CreateCluster' {notification} -> notifi
 
 -- | The type of job for this cluster. Currently, the only job type supported
 -- for clusters is @LOCAL_USE@.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 createCluster_jobType :: Lens.Lens' CreateCluster JobType
 createCluster_jobType = Lens.lens (\CreateCluster' {jobType} -> jobType) (\s@CreateCluster' {} a -> s {jobType = a} :: CreateCluster)
 
@@ -287,6 +351,19 @@ createCluster_addressId = Lens.lens (\CreateCluster' {addressId} -> addressId) (
 createCluster_roleARN :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@CreateCluster' {} a -> s {roleARN = a} :: CreateCluster)
 
+-- | The type of AWS Snow Family device to use for this cluster.
+--
+-- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
+-- device type.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+createCluster_snowballType :: Lens.Lens' CreateCluster SnowballType
+createCluster_snowballType = Lens.lens (\CreateCluster' {snowballType} -> snowballType) (\s@CreateCluster' {} a -> s {snowballType = a} :: CreateCluster)
+
 -- | The shipping speed for each node in this cluster. This speed doesn\'t
 -- dictate how soon you\'ll get each Snowball Edge device, rather it
 -- represents how quickly each device moves to its destination while in
@@ -300,7 +377,7 @@ createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@Cre
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
@@ -313,7 +390,7 @@ createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@Cre
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the US, you have access to one-day shipping and two-day shipping.
 createCluster_shippingOption :: Lens.Lens' CreateCluster ShippingOption
@@ -355,9 +432,12 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
+          [ ("RemoteManagement" Core..=)
+              Prelude.<$> remoteManagement,
+            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration,
             ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
-            ("SnowballType" Core..=) Prelude.<$> snowballType,
             ("Description" Core..=) Prelude.<$> description,
             ("ForwardingAddressId" Core..=)
               Prelude.<$> forwardingAddressId,
@@ -366,6 +446,7 @@ instance Core.ToJSON CreateCluster where
             Prelude.Just ("Resources" Core..= resources),
             Prelude.Just ("AddressId" Core..= addressId),
             Prelude.Just ("RoleARN" Core..= roleARN),
+            Prelude.Just ("SnowballType" Core..= snowballType),
             Prelude.Just
               ("ShippingOption" Core..= shippingOption)
           ]

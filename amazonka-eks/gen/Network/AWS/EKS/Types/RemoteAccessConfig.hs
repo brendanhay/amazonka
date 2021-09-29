@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data RemoteAccessConfig = RemoteAccessConfig'
   { -- | The Amazon EC2 SSH key that provides access for SSH communication with
     -- the nodes in the managed node group. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs and Linux instances>
     -- in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/.
     ec2SshKey :: Prelude.Maybe Prelude.Text,
     -- | The security groups that are allowed SSH access (port 22) to the nodes.
@@ -53,7 +53,7 @@ data RemoteAccessConfig = RemoteAccessConfig'
 --
 -- 'ec2SshKey', 'remoteAccessConfig_ec2SshKey' - The Amazon EC2 SSH key that provides access for SSH communication with
 -- the nodes in the managed node group. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs and Linux instances>
 -- in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/.
 --
 -- 'sourceSecurityGroups', 'remoteAccessConfig_sourceSecurityGroups' - The security groups that are allowed SSH access (port 22) to the nodes.
@@ -72,7 +72,7 @@ newRemoteAccessConfig =
 
 -- | The Amazon EC2 SSH key that provides access for SSH communication with
 -- the nodes in the managed node group. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 key pairs and Linux instances>
 -- in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/.
 remoteAccessConfig_ec2SshKey :: Lens.Lens' RemoteAccessConfig (Prelude.Maybe Prelude.Text)
 remoteAccessConfig_ec2SshKey = Lens.lens (\RemoteAccessConfig' {ec2SshKey} -> ec2SshKey) (\s@RemoteAccessConfig' {} a -> s {ec2SshKey = a} :: RemoteAccessConfig)

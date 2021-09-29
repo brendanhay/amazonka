@@ -36,7 +36,7 @@ data NoncurrentVersionExpiration = NoncurrentVersionExpiration'
     -- can perform the associated action. For information about the noncurrent
     -- days calculations, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     noncurrentDays :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,7 +53,7 @@ data NoncurrentVersionExpiration = NoncurrentVersionExpiration'
 -- can perform the associated action. For information about the noncurrent
 -- days calculations, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 newNoncurrentVersionExpiration ::
   -- | 'noncurrentDays'
   Prelude.Int ->
@@ -68,7 +68,7 @@ newNoncurrentVersionExpiration pNoncurrentDays_ =
 -- can perform the associated action. For information about the noncurrent
 -- days calculations, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 noncurrentVersionExpiration_noncurrentDays :: Lens.Lens' NoncurrentVersionExpiration Prelude.Int
 noncurrentVersionExpiration_noncurrentDays = Lens.lens (\NoncurrentVersionExpiration' {noncurrentDays} -> noncurrentDays) (\s@NoncurrentVersionExpiration' {} a -> s {noncurrentDays = a} :: NoncurrentVersionExpiration)
 

@@ -22,26 +22,29 @@
 --
 -- Sets the tags for a bucket.
 --
--- Use tags to organize your AWS bill to reflect your own cost structure.
--- To do this, sign up to get your AWS account bill with tag key values
--- included. Then, to see the cost of combined resources, organize your
--- billing information according to resources with the same tag key values.
--- For example, you can tag several resources with a specific application
--- name, and then organize your billing information to see the total cost
--- of that application across several services. For more information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Cost Allocation and Tagging>.
---
--- Within a bucket, if you add a tag that has the same key as an existing
--- tag, the new value overwrites the old value. For more information, see
+-- Use tags to organize your Amazon Web Services bill to reflect your own
+-- cost structure. To do this, sign up to get your Amazon Web Services
+-- account bill with tag key values included. Then, to see the cost of
+-- combined resources, organize your billing information according to
+-- resources with the same tag key values. For example, you can tag several
+-- resources with a specific application name, and then organize your
+-- billing information to see the total cost of that application across
+-- several services. For more information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Cost Allocation and Tagging>
+-- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html Using Cost Allocation in Amazon S3 Bucket Tags>.
+--
+-- When this operation sets the tags for a bucket, it will overwrite any
+-- current tags the bucket already has. You cannot use this operation to
+-- add tags to an existing list of tags.
 --
 -- To use this operation, you must have permissions to perform the
 -- @s3:PutBucketTagging@ action. The bucket owner has this permission by
 -- default and can grant this permission to others. For more information
 -- about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- @PutBucketTagging@ has the following special errors:
 --
@@ -52,7 +55,7 @@
 --         information about tag restrictions, see
 --         <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions>
 --         and
---         <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html AWS-Generated Cost Allocation Tag Restrictions>.
+--         <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html Amazon Web Services-Generated Cost Allocation Tag Restrictions>.
 --
 -- -   Error code: @MalformedXMLError@
 --
@@ -60,7 +63,7 @@
 --
 -- -   Error code: @OperationAbortedError @
 --
---     -   Description: A conflicting conditional operation is currently in
+--     -   Description: A conflicting conditional action is currently in
 --         progress against this resource. Please try again.
 --
 -- -   Error code: @InternalError@
@@ -99,7 +102,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -108,8 +111,9 @@ data PutBucketTagging = PutBucketTagging'
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
@@ -126,7 +130,7 @@ data PutBucketTagging = PutBucketTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketTagging_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -135,8 +139,9 @@ data PutBucketTagging = PutBucketTagging'
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketTagging_bucket' - The bucket name.
 --
@@ -156,7 +161,7 @@ newPutBucketTagging pBucket_ pTagging_ =
       tagging = pTagging_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketTagging_expectedBucketOwner :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
@@ -167,8 +172,9 @@ putBucketTagging_expectedBucketOwner = Lens.lens (\PutBucketTagging' {expectedBu
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketTagging_contentMD5 :: Lens.Lens' PutBucketTagging (Prelude.Maybe Prelude.Text)
 putBucketTagging_contentMD5 = Lens.lens (\PutBucketTagging' {contentMD5} -> contentMD5) (\s@PutBucketTagging' {} a -> s {contentMD5 = a} :: PutBucketTagging)
 

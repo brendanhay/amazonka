@@ -33,21 +33,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGameSessionConnectionInfo' smart constructor.
 data GameSessionConnectionInfo = GameSessionConnectionInfo'
-  { -- | Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
-    -- that is assigned to a game session and uniquely identifies it.
+  { -- | A unique identifier for the game session. Use the game session ID.
     gameSessionArn :: Prelude.Maybe Prelude.Text,
-    -- | IP address of the instance that is running the game session. When
-    -- connecting to a Amazon GameLift game server, a client needs to reference
-    -- an IP address (or DNS name) and port number.
+    -- | The IP address of the game session. To connect to a GameLift game
+    -- server, an app needs both the IP address and port number.
     ipAddress :: Prelude.Maybe Prelude.Text,
     -- | A collection of player session IDs, one for each player ID that was
     -- included in the original matchmaking request.
     matchedPlayerSessions :: Prelude.Maybe [MatchedPlayerSession],
-    -- | Port number for the game session. To connect to a Amazon GameLift game
+    -- | The port number for the game session. To connect to a GameLift game
     -- server, an app needs both the IP address and port number.
     port :: Prelude.Maybe Prelude.Natural,
-    -- | DNS identifier assigned to the instance that is running the game
+    -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
     -- -   TLS-enabled fleets:
@@ -71,21 +68,18 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameSessionArn', 'gameSessionConnectionInfo_gameSessionArn' - Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
--- that is assigned to a game session and uniquely identifies it.
+-- 'gameSessionArn', 'gameSessionConnectionInfo_gameSessionArn' - A unique identifier for the game session. Use the game session ID.
 --
--- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - IP address of the instance that is running the game session. When
--- connecting to a Amazon GameLift game server, a client needs to reference
--- an IP address (or DNS name) and port number.
+-- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - The IP address of the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number.
 --
 -- 'matchedPlayerSessions', 'gameSessionConnectionInfo_matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was
 -- included in the original matchmaking request.
 --
--- 'port', 'gameSessionConnectionInfo_port' - Port number for the game session. To connect to a Amazon GameLift game
+-- 'port', 'gameSessionConnectionInfo_port' - The port number for the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number.
 --
--- 'dnsName', 'gameSessionConnectionInfo_dnsName' - DNS identifier assigned to the instance that is running the game
+-- 'dnsName', 'gameSessionConnectionInfo_dnsName' - The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
 --
 -- -   TLS-enabled fleets:
@@ -109,15 +103,12 @@ newGameSessionConnectionInfo =
       dnsName = Prelude.Nothing
     }
 
--- | Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
--- that is assigned to a game session and uniquely identifies it.
+-- | A unique identifier for the game session. Use the game session ID.
 gameSessionConnectionInfo_gameSessionArn :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
 gameSessionConnectionInfo_gameSessionArn = Lens.lens (\GameSessionConnectionInfo' {gameSessionArn} -> gameSessionArn) (\s@GameSessionConnectionInfo' {} a -> s {gameSessionArn = a} :: GameSessionConnectionInfo)
 
--- | IP address of the instance that is running the game session. When
--- connecting to a Amazon GameLift game server, a client needs to reference
--- an IP address (or DNS name) and port number.
+-- | The IP address of the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number.
 gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
 gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ipAddress} -> ipAddress) (\s@GameSessionConnectionInfo' {} a -> s {ipAddress = a} :: GameSessionConnectionInfo)
 
@@ -126,12 +117,12 @@ gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ip
 gameSessionConnectionInfo_matchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe [MatchedPlayerSession])
 gameSessionConnectionInfo_matchedPlayerSessions = Lens.lens (\GameSessionConnectionInfo' {matchedPlayerSessions} -> matchedPlayerSessions) (\s@GameSessionConnectionInfo' {} a -> s {matchedPlayerSessions = a} :: GameSessionConnectionInfo) Prelude.. Lens.mapping Lens._Coerce
 
--- | Port number for the game session. To connect to a Amazon GameLift game
+-- | The port number for the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number.
 gameSessionConnectionInfo_port :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Natural)
 gameSessionConnectionInfo_port = Lens.lens (\GameSessionConnectionInfo' {port} -> port) (\s@GameSessionConnectionInfo' {} a -> s {port = a} :: GameSessionConnectionInfo)
 
--- | DNS identifier assigned to the instance that is running the game
+-- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
 --
 -- -   TLS-enabled fleets:

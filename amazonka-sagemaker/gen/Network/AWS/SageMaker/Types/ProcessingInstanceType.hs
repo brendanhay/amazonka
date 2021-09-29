@@ -29,6 +29,12 @@ module Network.AWS.SageMaker.Types.ProcessingInstanceType
         ProcessingInstanceType_Ml_c5_4xlarge,
         ProcessingInstanceType_Ml_c5_9xlarge,
         ProcessingInstanceType_Ml_c5_xlarge,
+        ProcessingInstanceType_Ml_g4dn_12xlarge,
+        ProcessingInstanceType_Ml_g4dn_16xlarge,
+        ProcessingInstanceType_Ml_g4dn_2xlarge,
+        ProcessingInstanceType_Ml_g4dn_4xlarge,
+        ProcessingInstanceType_Ml_g4dn_8xlarge,
+        ProcessingInstanceType_Ml_g4dn_xlarge,
         ProcessingInstanceType_Ml_m4_10xlarge,
         ProcessingInstanceType_Ml_m4_16xlarge,
         ProcessingInstanceType_Ml_m4_2xlarge,
@@ -119,6 +125,24 @@ pattern ProcessingInstanceType_Ml_c5_9xlarge = ProcessingInstanceType' "ml.c5.9x
 
 pattern ProcessingInstanceType_Ml_c5_xlarge :: ProcessingInstanceType
 pattern ProcessingInstanceType_Ml_c5_xlarge = ProcessingInstanceType' "ml.c5.xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_12xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_12xlarge = ProcessingInstanceType' "ml.g4dn.12xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_16xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_16xlarge = ProcessingInstanceType' "ml.g4dn.16xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_2xlarge = ProcessingInstanceType' "ml.g4dn.2xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_4xlarge = ProcessingInstanceType' "ml.g4dn.4xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_8xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_8xlarge = ProcessingInstanceType' "ml.g4dn.8xlarge"
+
+pattern ProcessingInstanceType_Ml_g4dn_xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceType_Ml_g4dn_xlarge = ProcessingInstanceType' "ml.g4dn.xlarge"
 
 pattern ProcessingInstanceType_Ml_m4_10xlarge :: ProcessingInstanceType
 pattern ProcessingInstanceType_Ml_m4_10xlarge = ProcessingInstanceType' "ml.m4.10xlarge"
@@ -217,6 +241,12 @@ pattern ProcessingInstanceType_Ml_t3_xlarge = ProcessingInstanceType' "ml.t3.xla
   ProcessingInstanceType_Ml_c5_4xlarge,
   ProcessingInstanceType_Ml_c5_9xlarge,
   ProcessingInstanceType_Ml_c5_xlarge,
+  ProcessingInstanceType_Ml_g4dn_12xlarge,
+  ProcessingInstanceType_Ml_g4dn_16xlarge,
+  ProcessingInstanceType_Ml_g4dn_2xlarge,
+  ProcessingInstanceType_Ml_g4dn_4xlarge,
+  ProcessingInstanceType_Ml_g4dn_8xlarge,
+  ProcessingInstanceType_Ml_g4dn_xlarge,
   ProcessingInstanceType_Ml_m4_10xlarge,
   ProcessingInstanceType_Ml_m4_16xlarge,
   ProcessingInstanceType_Ml_m4_2xlarge,

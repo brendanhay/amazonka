@@ -17,40 +17,40 @@ module Network.AWS.SES.Types
     defaultService,
 
     -- * Errors
-    _ConfigurationSetSendingPausedException,
     _CustomVerificationEmailTemplateAlreadyExistsException,
+    _ConfigurationSetSendingPausedException,
     _InvalidConfigurationSetException,
+    _InvalidSNSDestinationException,
     _AccountSendingPausedException,
     _EventDestinationDoesNotExistException,
-    _InvalidSNSDestinationException,
     _CustomVerificationEmailInvalidContentException,
     _InvalidTemplateException,
     _InvalidPolicyException,
     _ConfigurationSetAlreadyExistsException,
     _MailFromDomainNotVerifiedException,
-    _FromEmailAddressNotVerifiedException,
     _RuleSetDoesNotExistException,
+    _FromEmailAddressNotVerifiedException,
     _MessageRejected,
-    _InvalidDeliveryOptionsException,
     _InvalidCloudWatchDestinationException,
+    _InvalidDeliveryOptionsException,
     _CannotDeleteException,
     _TemplateDoesNotExistException,
-    _LimitExceededException,
-    _InvalidTrackingOptionsException,
-    _InvalidSnsTopicException,
-    _EventDestinationAlreadyExistsException,
     _AlreadyExistsException,
+    _InvalidTrackingOptionsException,
+    _LimitExceededException,
+    _EventDestinationAlreadyExistsException,
+    _InvalidSnsTopicException,
     _InvalidS3ConfigurationException,
-    _ConfigurationSetDoesNotExistException,
     _TrackingOptionsAlreadyExistsException,
+    _ConfigurationSetDoesNotExistException,
     _TrackingOptionsDoesNotExistException,
-    _InvalidFirehoseDestinationException,
     _InvalidLambdaFunctionException,
-    _MissingRenderingAttributeException,
+    _InvalidFirehoseDestinationException,
     _InvalidRenderingParameterException,
+    _MissingRenderingAttributeException,
     _CustomVerificationEmailTemplateDoesNotExistException,
-    _ProductionAccessNotGrantedException,
     _RuleDoesNotExistException,
+    _ProductionAccessNotGrantedException,
 
     -- * BehaviorOnMXFailure
     BehaviorOnMXFailure (..),
@@ -275,10 +275,10 @@ module Network.AWS.SES.Types
     ReceiptAction (..),
     newReceiptAction,
     receiptAction_lambdaAction,
-    receiptAction_stopAction,
     receiptAction_s3Action,
-    receiptAction_bounceAction,
+    receiptAction_stopAction,
     receiptAction_workmailAction,
+    receiptAction_bounceAction,
     receiptAction_addHeaderAction,
     receiptAction_sNSAction,
 
@@ -521,6 +521,15 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Indicates that a custom verification email template with the name you
+-- specified already exists.
+_CustomVerificationEmailTemplateAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomVerificationEmailTemplateAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "CustomVerificationEmailTemplateAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that email sending is disabled for the configuration set.
 --
 -- You can enable or disable email sending for a configuration set using
@@ -532,15 +541,6 @@ _ConfigurationSetSendingPausedException =
     "ConfigurationSetSendingPausedException"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that a custom verification email template with the name you
--- specified already exists.
-_CustomVerificationEmailTemplateAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomVerificationEmailTemplateAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "CustomVerificationEmailTemplateAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
 -- | Indicates that the configuration set is invalid. See the error message
 -- for details.
 _InvalidConfigurationSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -548,6 +548,15 @@ _InvalidConfigurationSetException =
   Core._MatchServiceError
     defaultService
     "InvalidConfigurationSet"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the Amazon Simple Notification Service (Amazon SNS)
+-- destination is invalid. See the error message for details.
+_InvalidSNSDestinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSNSDestinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSNSDestination"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that email sending is disabled for your entire Amazon SES
@@ -568,15 +577,6 @@ _EventDestinationDoesNotExistException =
   Core._MatchServiceError
     defaultService
     "EventDestinationDoesNotExist"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the Amazon Simple Notification Service (Amazon SNS)
--- destination is invalid. See the error message for details.
-_InvalidSNSDestinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSNSDestinationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSNSDestination"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that custom verification email template provided content is
@@ -628,6 +628,14 @@ _MailFromDomainNotVerifiedException =
     "MailFromDomainNotVerifiedException"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that the provided receipt rule set does not exist.
+_RuleSetDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RuleSetDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "RuleSetDoesNotExist"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that the sender address specified for a custom verification
 -- email is not verified, and is therefore not eligible to send the custom
 -- verification email.
@@ -636,14 +644,6 @@ _FromEmailAddressNotVerifiedException =
   Core._MatchServiceError
     defaultService
     "FromEmailAddressNotVerified"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the provided receipt rule set does not exist.
-_RuleSetDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RuleSetDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "RuleSetDoesNotExist"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the action failed, and the message could not be sent.
@@ -655,14 +655,6 @@ _MessageRejected =
     "MessageRejected"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that provided delivery option is invalid.
-_InvalidDeliveryOptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeliveryOptionsException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeliveryOptions"
-    Prelude.. Core.hasStatus 400
-
 -- | Indicates that the Amazon CloudWatch destination is invalid. See the
 -- error message for details.
 _InvalidCloudWatchDestinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -670,6 +662,14 @@ _InvalidCloudWatchDestinationException =
   Core._MatchServiceError
     defaultService
     "InvalidCloudWatchDestination"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that provided delivery option is invalid.
+_InvalidDeliveryOptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeliveryOptionsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeliveryOptions"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the delete operation could not be completed.
@@ -689,14 +689,13 @@ _TemplateDoesNotExistException =
     "TemplateDoesNotExist"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that a resource could not be created because of service
--- limits. For a list of Amazon SES limits, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | Indicates that a resource could not be created because of a naming
+-- conflict.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "LimitExceeded"
+    "AlreadyExists"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the custom domain to be used for open and click tracking
@@ -715,15 +714,14 @@ _InvalidTrackingOptionsException =
     "InvalidTrackingOptions"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon
--- SES could not publish to the topic, possibly due to permissions issues.
--- For information about giving permissions, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
-_InvalidSnsTopicException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSnsTopicException =
+-- | Indicates that a resource could not be created because of service
+-- limits. For a list of Amazon SES limits, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidSnsTopic"
+    "LimitExceeded"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the event destination could not be created because of a
@@ -735,13 +733,15 @@ _EventDestinationAlreadyExistsException =
     "EventDestinationAlreadyExists"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that a resource could not be created because of a naming
--- conflict.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
+-- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon
+-- SES could not publish to the topic, possibly due to permissions issues.
+-- For information about giving permissions, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
+_InvalidSnsTopicException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSnsTopicException =
   Core._MatchServiceError
     defaultService
-    "AlreadyExists"
+    "InvalidSnsTopic"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided Amazon S3 bucket or AWS KMS encryption key
@@ -756,14 +756,6 @@ _InvalidS3ConfigurationException =
     "InvalidS3Configuration"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the configuration set does not exist.
-_ConfigurationSetDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConfigurationSetDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "ConfigurationSetDoesNotExist"
-    Prelude.. Core.hasStatus 400
-
 -- | Indicates that the configuration set you specified already contains a
 -- TrackingOptions object.
 _TrackingOptionsAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -773,21 +765,20 @@ _TrackingOptionsAlreadyExistsException =
     "TrackingOptionsAlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that the configuration set does not exist.
+_ConfigurationSetDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConfigurationSetDoesNotExistException =
+  Core._MatchServiceError
+    defaultService
+    "ConfigurationSetDoesNotExist"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that the TrackingOptions object you specified does not exist.
 _TrackingOptionsDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TrackingOptionsDoesNotExistException =
   Core._MatchServiceError
     defaultService
     "TrackingOptionsDoesNotExistException"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the Amazon Kinesis Firehose destination is invalid. See
--- the error message for details.
-_InvalidFirehoseDestinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFirehoseDestinationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFirehoseDestination"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided AWS Lambda function is invalid, or that
@@ -801,14 +792,13 @@ _InvalidLambdaFunctionException =
     "InvalidLambdaFunction"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that one or more of the replacement values for the specified
--- template was not specified. Ensure that the TemplateData object contains
--- references to all of the replacement tags in the specified template.
-_MissingRenderingAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingRenderingAttributeException =
+-- | Indicates that the Amazon Kinesis Firehose destination is invalid. See
+-- the error message for details.
+_InvalidFirehoseDestinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFirehoseDestinationException =
   Core._MatchServiceError
     defaultService
-    "MissingRenderingAttribute"
+    "InvalidFirehoseDestination"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that one or more of the replacement values you provided is
@@ -821,6 +811,16 @@ _InvalidRenderingParameterException =
     "InvalidRenderingParameter"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that one or more of the replacement values for the specified
+-- template was not specified. Ensure that the TemplateData object contains
+-- references to all of the replacement tags in the specified template.
+_MissingRenderingAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRenderingAttributeException =
+  Core._MatchServiceError
+    defaultService
+    "MissingRenderingAttribute"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that a custom verification email template with the name you
 -- specified does not exist.
 _CustomVerificationEmailTemplateDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -830,18 +830,18 @@ _CustomVerificationEmailTemplateDoesNotExistException =
     "CustomVerificationEmailTemplateDoesNotExist"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the account has not been granted production access.
-_ProductionAccessNotGrantedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProductionAccessNotGrantedException =
-  Core._MatchServiceError
-    defaultService
-    "ProductionAccessNotGranted"
-    Prelude.. Core.hasStatus 400
-
 -- | Indicates that the provided receipt rule does not exist.
 _RuleDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RuleDoesNotExistException =
   Core._MatchServiceError
     defaultService
     "RuleDoesNotExist"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the account has not been granted production access.
+_ProductionAccessNotGrantedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProductionAccessNotGrantedException =
+  Core._MatchServiceError
+    defaultService
+    "ProductionAccessNotGranted"
     Prelude.. Core.hasStatus 400

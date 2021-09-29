@@ -24,14 +24,15 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of information about the configuration.
+--
 -- Does not apply to RabbitMQ brokers.
 --
 -- /See:/ 'newConfigurationId' smart constructor.
 data ConfigurationId = ConfigurationId'
-  { -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The revision number of the configuration.
-    revision :: Prelude.Maybe Prelude.Int
+  { -- | The revision number of the configuration.
+    revision :: Prelude.Maybe Prelude.Int,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +44,26 @@ data ConfigurationId = ConfigurationId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'configurationId_id' - Required. The unique ID that Amazon MQ generates for the configuration.
---
 -- 'revision', 'configurationId_revision' - The revision number of the configuration.
+--
+-- 'id', 'configurationId_id' - Required. The unique ID that Amazon MQ generates for the configuration.
 newConfigurationId ::
+  -- | 'id'
+  Prelude.Text ->
   ConfigurationId
-newConfigurationId =
+newConfigurationId pId_ =
   ConfigurationId'
-    { id = Prelude.Nothing,
-      revision = Prelude.Nothing
+    { revision = Prelude.Nothing,
+      id = pId_
     }
-
--- | Required. The unique ID that Amazon MQ generates for the configuration.
-configurationId_id :: Lens.Lens' ConfigurationId (Prelude.Maybe Prelude.Text)
-configurationId_id = Lens.lens (\ConfigurationId' {id} -> id) (\s@ConfigurationId' {} a -> s {id = a} :: ConfigurationId)
 
 -- | The revision number of the configuration.
 configurationId_revision :: Lens.Lens' ConfigurationId (Prelude.Maybe Prelude.Int)
 configurationId_revision = Lens.lens (\ConfigurationId' {revision} -> revision) (\s@ConfigurationId' {} a -> s {revision = a} :: ConfigurationId)
+
+-- | Required. The unique ID that Amazon MQ generates for the configuration.
+configurationId_id :: Lens.Lens' ConfigurationId Prelude.Text
+configurationId_id = Lens.lens (\ConfigurationId' {id} -> id) (\s@ConfigurationId' {} a -> s {id = a} :: ConfigurationId)
 
 instance Core.FromJSON ConfigurationId where
   parseJSON =
@@ -68,8 +71,7 @@ instance Core.FromJSON ConfigurationId where
       "ConfigurationId"
       ( \x ->
           ConfigurationId'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "revision")
+            Prelude.<$> (x Core..:? "revision") Prelude.<*> (x Core..: "id")
       )
 
 instance Prelude.Hashable ConfigurationId
@@ -80,7 +82,7 @@ instance Core.ToJSON ConfigurationId where
   toJSON ConfigurationId' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("id" Core..=) Prelude.<$> id,
-            ("revision" Core..=) Prelude.<$> revision
+          [ ("revision" Core..=) Prelude.<$> revision,
+            Prelude.Just ("id" Core..= id)
           ]
       )

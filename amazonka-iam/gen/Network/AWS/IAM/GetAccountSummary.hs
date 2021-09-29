@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about IAM entity usage and IAM quotas in the AWS
--- account.
+-- Retrieves information about IAM entity usage and IAM quotas in the
+-- Amazon Web Services account.
 --
 -- For information about IAM quotas, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html IAM and STS quotas>

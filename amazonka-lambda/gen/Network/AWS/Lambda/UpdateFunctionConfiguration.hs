@@ -37,7 +37,8 @@
 -- published version, only the unpublished version.
 --
 -- To configure function concurrency, use PutFunctionConcurrency. To grant
--- invoke permissions to an account or AWS service, use AddPermission.
+-- invoke permissions to an account or Amazon Web Services service, use
+-- AddPermission.
 module Network.AWS.Lambda.UpdateFunctionConfiguration
   ( -- * Creating a Request
     UpdateFunctionConfiguration (..),
@@ -55,8 +56,8 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     updateFunctionConfiguration_kmsKeyArn,
     updateFunctionConfiguration_runtime,
     updateFunctionConfiguration_role,
-    updateFunctionConfiguration_tracingConfig,
     updateFunctionConfiguration_description,
+    updateFunctionConfiguration_tracingConfig,
     updateFunctionConfiguration_layers,
     updateFunctionConfiguration_fileSystemConfigs,
     updateFunctionConfiguration_functionName,
@@ -66,9 +67,9 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     newFunctionConfiguration,
 
     -- * Response Lenses
+    functionConfiguration_vpcConfig,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_lastUpdateStatus,
-    functionConfiguration_vpcConfig,
     functionConfiguration_memorySize,
     functionConfiguration_masterArn,
     functionConfiguration_revisionId,
@@ -78,23 +79,23 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     functionConfiguration_timeout,
     functionConfiguration_handler,
     functionConfiguration_deadLetterConfig,
-    functionConfiguration_functionName,
     functionConfiguration_environment,
+    functionConfiguration_functionName,
     functionConfiguration_version,
-    functionConfiguration_functionArn,
-    functionConfiguration_state,
     functionConfiguration_kmsKeyArn,
+    functionConfiguration_state,
+    functionConfiguration_functionArn,
     functionConfiguration_runtime,
     functionConfiguration_role,
     functionConfiguration_signingJobArn,
     functionConfiguration_stateReasonCode,
+    functionConfiguration_description,
     functionConfiguration_imageConfigResponse,
     functionConfiguration_tracingConfig,
-    functionConfiguration_description,
-    functionConfiguration_lastModified,
     functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_layers,
+    functionConfiguration_lastModified,
     functionConfiguration_codeSize,
+    functionConfiguration_layers,
     functionConfiguration_fileSystemConfigs,
     functionConfiguration_packageType,
   )
@@ -109,15 +110,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-  { -- | For network connectivity to AWS resources in a VPC, specify a list of
-    -- security groups and subnets in the VPC. When you connect a function to a
-    -- VPC, it can only access resources and the internet through that VPC. For
-    -- more information, see
+  { -- | For network connectivity to Amazon Web Services resources in a VPC,
+    -- specify a list of security groups and subnets in the VPC. When you
+    -- connect a function to a VPC, it can only access resources and the
+    -- internet through that VPC. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The amount of memory available to the function at runtime. Increasing
-    -- the function\'s memory also increases its CPU allocation. The default
-    -- value is 128 MB. The value can be any multiple of 1 MB.
+    -- | The amount of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+    -- at runtime. Increasing the function memory also increases its CPU
+    -- allocation. The default value is 128 MB. The value can be any multiple
+    -- of 1 MB.
     memorySize :: Prelude.Maybe Prelude.Natural,
     -- | Only update the function if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a function that has
@@ -125,6 +128,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     revisionId :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that Lambda allows a function to run before stopping
     -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+    -- For additional information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The name of the method within your code that Lambda calls to execute
     -- your function. The format includes the file name. It can also include
@@ -143,20 +148,21 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     -- | Environment variables that are accessible from function code during
     -- execution.
     environment :: Prelude.Maybe Environment,
-    -- | The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
-    -- encrypt your function\'s environment variables. If it\'s not provided,
-    -- AWS Lambda uses a default service key.
+    -- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+    -- that\'s used to encrypt your function\'s environment variables. If it\'s
+    -- not provided, Lambda uses a default service key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
     runtime :: Prelude.Maybe Runtime,
     -- | The Amazon Resource Name (ARN) of the function\'s execution role.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
-    -- with AWS X-Ray.
-    tracingConfig :: Prelude.Maybe TracingConfig,
     -- | A description of the function.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+    -- with
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+    tracingConfig :: Prelude.Maybe TracingConfig,
     -- | A list of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
     -- to add to the function\'s execution environment. Specify each layer by
@@ -189,15 +195,17 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'updateFunctionConfiguration_vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of
--- security groups and subnets in the VPC. When you connect a function to a
--- VPC, it can only access resources and the internet through that VPC. For
--- more information, see
+-- 'vpcConfig', 'updateFunctionConfiguration_vpcConfig' - For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 --
--- 'memorySize', 'updateFunctionConfiguration_memorySize' - The amount of memory available to the function at runtime. Increasing
--- the function\'s memory also increases its CPU allocation. The default
--- value is 128 MB. The value can be any multiple of 1 MB.
+-- 'memorySize', 'updateFunctionConfiguration_memorySize' - The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
 --
 -- 'revisionId', 'updateFunctionConfiguration_revisionId' - Only update the function if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a function that has
@@ -205,6 +213,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- 'timeout', 'updateFunctionConfiguration_timeout' - The amount of time that Lambda allows a function to run before stopping
 -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 --
 -- 'handler', 'updateFunctionConfiguration_handler' - The name of the method within your code that Lambda calls to execute
 -- your function. The format includes the file name. It can also include
@@ -223,19 +233,20 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- 'environment', 'updateFunctionConfiguration_environment' - Environment variables that are accessible from function code during
 -- execution.
 --
--- 'kmsKeyArn', 'updateFunctionConfiguration_kmsKeyArn' - The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
--- encrypt your function\'s environment variables. If it\'s not provided,
--- AWS Lambda uses a default service key.
+-- 'kmsKeyArn', 'updateFunctionConfiguration_kmsKeyArn' - The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 --
 -- 'runtime', 'updateFunctionConfiguration_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 --
 -- 'role'', 'updateFunctionConfiguration_role' - The Amazon Resource Name (ARN) of the function\'s execution role.
 --
--- 'tracingConfig', 'updateFunctionConfiguration_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with AWS X-Ray.
---
 -- 'description', 'updateFunctionConfiguration_description' - A description of the function.
+--
+-- 'tracingConfig', 'updateFunctionConfiguration_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
 --
 -- 'layers', 'updateFunctionConfiguration_layers' - A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -275,24 +286,26 @@ newUpdateFunctionConfiguration pFunctionName_ =
       kmsKeyArn = Prelude.Nothing,
       runtime = Prelude.Nothing,
       role' = Prelude.Nothing,
-      tracingConfig = Prelude.Nothing,
       description = Prelude.Nothing,
+      tracingConfig = Prelude.Nothing,
       layers = Prelude.Nothing,
       fileSystemConfigs = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
--- | For network connectivity to AWS resources in a VPC, specify a list of
--- security groups and subnets in the VPC. When you connect a function to a
--- VPC, it can only access resources and the internet through that VPC. For
--- more information, see
+-- | For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 updateFunctionConfiguration_vpcConfig :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe VpcConfig)
 updateFunctionConfiguration_vpcConfig = Lens.lens (\UpdateFunctionConfiguration' {vpcConfig} -> vpcConfig) (\s@UpdateFunctionConfiguration' {} a -> s {vpcConfig = a} :: UpdateFunctionConfiguration)
 
--- | The amount of memory available to the function at runtime. Increasing
--- the function\'s memory also increases its CPU allocation. The default
--- value is 128 MB. The value can be any multiple of 1 MB.
+-- | The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
 updateFunctionConfiguration_memorySize :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Natural)
 updateFunctionConfiguration_memorySize = Lens.lens (\UpdateFunctionConfiguration' {memorySize} -> memorySize) (\s@UpdateFunctionConfiguration' {} a -> s {memorySize = a} :: UpdateFunctionConfiguration)
 
@@ -304,6 +317,8 @@ updateFunctionConfiguration_revisionId = Lens.lens (\UpdateFunctionConfiguration
 
 -- | The amount of time that Lambda allows a function to run before stopping
 -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 updateFunctionConfiguration_timeout :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Natural)
 updateFunctionConfiguration_timeout = Lens.lens (\UpdateFunctionConfiguration' {timeout} -> timeout) (\s@UpdateFunctionConfiguration' {} a -> s {timeout = a} :: UpdateFunctionConfiguration)
 
@@ -332,9 +347,9 @@ updateFunctionConfiguration_imageConfig = Lens.lens (\UpdateFunctionConfiguratio
 updateFunctionConfiguration_environment :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Environment)
 updateFunctionConfiguration_environment = Lens.lens (\UpdateFunctionConfiguration' {environment} -> environment) (\s@UpdateFunctionConfiguration' {} a -> s {environment = a} :: UpdateFunctionConfiguration)
 
--- | The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
--- encrypt your function\'s environment variables. If it\'s not provided,
--- AWS Lambda uses a default service key.
+-- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 updateFunctionConfiguration_kmsKeyArn :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Text)
 updateFunctionConfiguration_kmsKeyArn = Lens.lens (\UpdateFunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateFunctionConfiguration' {} a -> s {kmsKeyArn = a} :: UpdateFunctionConfiguration)
 
@@ -347,14 +362,15 @@ updateFunctionConfiguration_runtime = Lens.lens (\UpdateFunctionConfiguration' {
 updateFunctionConfiguration_role :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Text)
 updateFunctionConfiguration_role = Lens.lens (\UpdateFunctionConfiguration' {role'} -> role') (\s@UpdateFunctionConfiguration' {} a -> s {role' = a} :: UpdateFunctionConfiguration)
 
--- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with AWS X-Ray.
-updateFunctionConfiguration_tracingConfig :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe TracingConfig)
-updateFunctionConfiguration_tracingConfig = Lens.lens (\UpdateFunctionConfiguration' {tracingConfig} -> tracingConfig) (\s@UpdateFunctionConfiguration' {} a -> s {tracingConfig = a} :: UpdateFunctionConfiguration)
-
 -- | A description of the function.
 updateFunctionConfiguration_description :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Text)
 updateFunctionConfiguration_description = Lens.lens (\UpdateFunctionConfiguration' {description} -> description) (\s@UpdateFunctionConfiguration' {} a -> s {description = a} :: UpdateFunctionConfiguration)
+
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+updateFunctionConfiguration_tracingConfig :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe TracingConfig)
+updateFunctionConfiguration_tracingConfig = Lens.lens (\UpdateFunctionConfiguration' {tracingConfig} -> tracingConfig) (\s@UpdateFunctionConfiguration' {} a -> s {tracingConfig = a} :: UpdateFunctionConfiguration)
 
 -- | A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -415,8 +431,8 @@ instance Core.ToJSON UpdateFunctionConfiguration where
             ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
             ("Runtime" Core..=) Prelude.<$> runtime,
             ("Role" Core..=) Prelude.<$> role',
-            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
             ("Description" Core..=) Prelude.<$> description,
+            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
             ("Layers" Core..=) Prelude.<$> layers,
             ("FileSystemConfigs" Core..=)
               Prelude.<$> fileSystemConfigs

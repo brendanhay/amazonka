@@ -27,56 +27,56 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetDataCatalogEncryptionSettings $
---             newGetDataCatalogEncryptionSettings
+--         [ requestUpdateConnection $
+--             newUpdateConnection
 --
 --         , requestUpdateColumnStatisticsForTable $
 --             newUpdateColumnStatisticsForTable
 --
---         , requestStartMLLabelingSetGenerationTaskRun $
---             newStartMLLabelingSetGenerationTaskRun
---
---         , requestDeleteColumnStatisticsForTable $
---             newDeleteColumnStatisticsForTable
---
---         , requestGetSchema $
---             newGetSchema
---
---         , requestDeleteConnection $
---             newDeleteConnection
---
---         , requestUpdateConnection $
---             newUpdateConnection
---
---         , requestCheckSchemaVersionValidity $
---             newCheckSchemaVersionValidity
+--         , requestDeleteSecurityConfiguration $
+--             newDeleteSecurityConfiguration
 --
 --         , requestCreateWorkflow $
 --             newCreateWorkflow
 --
+--         , requestStartMLLabelingSetGenerationTaskRun $
+--             newStartMLLabelingSetGenerationTaskRun
+--
 --         , requestGetPartitions $
 --             newGetPartitions
 --
---         , requestDeleteSecurityConfiguration $
---             newDeleteSecurityConfiguration
+--         , requestDeleteColumnStatisticsForTable $
+--             newDeleteColumnStatisticsForTable
 --
---         , requestGetPartition $
---             newGetPartition
+--         , requestGetDataCatalogEncryptionSettings $
+--             newGetDataCatalogEncryptionSettings
 --
---         , requestUpdateRegistry $
---             newUpdateRegistry
+--         , requestDeleteConnection $
+--             newDeleteConnection
 --
---         , requestListMLTransforms $
---             newListMLTransforms
+--         , requestGetSchema $
+--             newGetSchema
 --
---         , requestStopCrawler $
---             newStopCrawler
+--         , requestCheckSchemaVersionValidity $
+--             newCheckSchemaVersionValidity
+--
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
 --
 --         , requestStartImportLabelsTaskRun $
 --             newStartImportLabelsTaskRun
 --
---         , requestGetResourcePolicy $
---             newGetResourcePolicy
+--         , requestGetPartitionIndexes $
+--             newGetPartitionIndexes
+--
+--         , requestGetCatalogImportStatus $
+--             newGetCatalogImportStatus
+--
+--         , requestStopCrawler $
+--             newStopCrawler
+--
+--         , requestUpdateRegistry $
+--             newUpdateRegistry
 --
 --         , requestQuerySchemaVersionMetadata $
 --             newQuerySchemaVersionMetadata
@@ -84,23 +84,32 @@ import Test.Tasty
 --         , requestDeleteRegistry $
 --             newDeleteRegistry
 --
---         , requestGetPartitionIndexes $
---             newGetPartitionIndexes
+--         , requestGetPartition $
+--             newGetPartition
+--
+--         , requestListMLTransforms $
+--             newListMLTransforms
 --
 --         , requestStartCrawler $
 --             newStartCrawler
 --
---         , requestGetCatalogImportStatus $
---             newGetCatalogImportStatus
---
 --         , requestGetColumnStatisticsForPartition $
 --             newGetColumnStatisticsForPartition
+--
+--         , requestListRegistries $
+--             newListRegistries
 --
 --         , requestCreateRegistry $
 --             newCreateRegistry
 --
---         , requestListTriggers $
---             newListTriggers
+--         , requestStartCrawlerSchedule $
+--             newStartCrawlerSchedule
+--
+--         , requestGetJob $
+--             newGetJob
+--
+--         , requestDeleteTrigger $
+--             newDeleteTrigger
 --
 --         , requestCreateMLTransform $
 --             newCreateMLTransform
@@ -111,32 +120,29 @@ import Test.Tasty
 --         , requestUpdateTrigger $
 --             newUpdateTrigger
 --
+--         , requestListTriggers $
+--             newListTriggers
+--
 --         , requestGetSchemaByDefinition $
 --             newGetSchemaByDefinition
---
---         , requestListRegistries $
---             newListRegistries
---
---         , requestStartCrawlerSchedule $
---             newStartCrawlerSchedule
---
---         , requestDeleteTrigger $
---             newDeleteTrigger
---
---         , requestGetJob $
---             newGetJob
---
---         , requestUpdateClassifier $
---             newUpdateClassifier
 --
 --         , requestDeleteClassifier $
 --             newDeleteClassifier
 --
---         , requestDeleteJob $
---             newDeleteJob
+--         , requestStartBlueprintRun $
+--             newStartBlueprintRun
 --
 --         , requestUpdateJob $
 --             newUpdateJob
+--
+--         , requestDeleteJob $
+--             newDeleteJob
+--
+--         , requestUpdateClassifier $
+--             newUpdateClassifier
+--
+--         , requestListBlueprints $
+--             newListBlueprints
 --
 --         , requestCreateUserDefinedFunction $
 --             newCreateUserDefinedFunction
@@ -147,14 +153,23 @@ import Test.Tasty
 --         , requestBatchGetJobs $
 --             newBatchGetJobs
 --
---         , requestCreateClassifier $
---             newCreateClassifier
---
---         , requestGetSecurityConfigurations $
---             newGetSecurityConfigurations
+--         , requestGetDatabase $
+--             newGetDatabase
 --
 --         , requestPutResourcePolicy $
 --             newPutResourcePolicy
+--
+--         , requestStartMLEvaluationTaskRun $
+--             newStartMLEvaluationTaskRun
+--
+--         , requestDeletePartition $
+--             newDeletePartition
+--
+--         , requestCreateBlueprint $
+--             newCreateBlueprint
+--
+--         , requestBatchDeleteTable $
+--             newBatchDeleteTable
 --
 --         , requestUpdatePartition $
 --             newUpdatePartition
@@ -162,23 +177,23 @@ import Test.Tasty
 --         , requestGetSchemaVersionsDiff $
 --             newGetSchemaVersionsDiff
 --
+--         , requestGetJobRuns $
+--             newGetJobRuns
+--
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestBatchDeleteTable $
---             newBatchDeleteTable
+--         , requestGetSecurityConfigurations $
+--             newGetSecurityConfigurations
 --
---         , requestStartMLEvaluationTaskRun $
---             newStartMLEvaluationTaskRun
+--         , requestCreateClassifier $
+--             newCreateClassifier
 --
---         , requestGetDatabase $
---             newGetDatabase
+--         , requestCreatePartitionIndex $
+--             newCreatePartitionIndex
 --
---         , requestDeletePartition $
---             newDeletePartition
---
---         , requestGetJobRuns $
---             newGetJobRuns
+--         , requestGetSecurityConfiguration $
+--             newGetSecurityConfiguration
 --
 --         , requestGetMLTransforms $
 --             newGetMLTransforms
@@ -186,77 +201,50 @@ import Test.Tasty
 --         , requestGetJobRun $
 --             newGetJobRun
 --
---         , requestCreateDevEndpoint $
---             newCreateDevEndpoint
---
---         , requestCreatePartitionIndex $
---             newCreatePartitionIndex
---
 --         , requestTagResource $
 --             newTagResource
---
---         , requestGetSecurityConfiguration $
---             newGetSecurityConfiguration
 --
 --         , requestCreateCrawler $
 --             newCreateCrawler
 --
+--         , requestCreateDevEndpoint $
+--             newCreateDevEndpoint
+--
 --         , requestGetMLTaskRuns $
 --             newGetMLTaskRuns
---
---         , requestListCrawlers $
---             newListCrawlers
---
---         , requestUpdateDevEndpoint $
---             newUpdateDevEndpoint
---
---         , requestCreateSchema $
---             newCreateSchema
---
---         , requestListDevEndpoints $
---             newListDevEndpoints
 --
 --         , requestDeleteCrawler $
 --             newDeleteCrawler
 --
+--         , requestListDevEndpoints $
+--             newListDevEndpoints
+--
 --         , requestDeleteDevEndpoint $
 --             newDeleteDevEndpoint
 --
---         , requestGetWorkflow $
---             newGetWorkflow
---
---         , requestGetSchemaVersion $
---             newGetSchemaVersion
+--         , requestUpdateDevEndpoint $
+--             newUpdateDevEndpoint
 --
 --         , requestUpdateCrawler $
 --             newUpdateCrawler
 --
---         , requestDeleteWorkflow $
---             newDeleteWorkflow
+--         , requestGetSchemaVersion $
+--             newGetSchemaVersion
 --
---         , requestRegisterSchemaVersion $
---             newRegisterSchemaVersion
+--         , requestCreateSchema $
+--             newCreateSchema
 --
---         , requestGetMapping $
---             newGetMapping
+--         , requestGetWorkflow $
+--             newGetWorkflow
 --
---         , requestStopWorkflowRun $
---             newStopWorkflowRun
---
---         , requestCreateConnection $
---             newCreateConnection
---
---         , requestBatchCreatePartition $
---             newBatchCreatePartition
+--         , requestListCrawlers $
+--             newListCrawlers
 --
 --         , requestCreateTable $
 --             newCreateTable
 --
---         , requestUpdateWorkflow $
---             newUpdateWorkflow
---
---         , requestGetClassifiers $
---             newGetClassifiers
+--         , requestGetMapping $
+--             newGetMapping
 --
 --         , requestBatchStopJobRun $
 --             newBatchStopJobRun
@@ -264,17 +252,38 @@ import Test.Tasty
 --         , requestStartWorkflowRun $
 --             newStartWorkflowRun
 --
+--         , requestCreateConnection $
+--             newCreateConnection
+--
+--         , requestGetClassifiers $
+--             newGetClassifiers
+--
+--         , requestBatchCreatePartition $
+--             newBatchCreatePartition
+--
 --         , requestListWorkflows $
 --             newListWorkflows
+--
+--         , requestUpdateWorkflow $
+--             newUpdateWorkflow
+--
+--         , requestRegisterSchemaVersion $
+--             newRegisterSchemaVersion
+--
+--         , requestStopWorkflowRun $
+--             newStopWorkflowRun
+--
+--         , requestDeleteWorkflow $
+--             newDeleteWorkflow
 --
 --         , requestListSchemaVersions $
 --             newListSchemaVersions
 --
+--         , requestBatchUpdatePartition $
+--             newBatchUpdatePartition
+--
 --         , requestBatchDeletePartition $
 --             newBatchDeletePartition
---
---         , requestPutSchemaVersionMetadata $
---             newPutSchemaVersionMetadata
 --
 --         , requestGetWorkflowRuns $
 --             newGetWorkflowRuns
@@ -282,20 +291,17 @@ import Test.Tasty
 --         , requestGetTags $
 --             newGetTags
 --
---         , requestBatchUpdatePartition $
---             newBatchUpdatePartition
---
---         , requestGetUserDefinedFunctions $
---             newGetUserDefinedFunctions
---
 --         , requestUpdateTable $
 --             newUpdateTable
 --
 --         , requestDeleteTable $
 --             newDeleteTable
 --
---         , requestDeleteDatabase $
---             newDeleteDatabase
+--         , requestGetUserDefinedFunctions $
+--             newGetUserDefinedFunctions
+--
+--         , requestPutSchemaVersionMetadata $
+--             newPutSchemaVersionMetadata
 --
 --         , requestUpdateDatabase $
 --             newUpdateDatabase
@@ -303,23 +309,23 @@ import Test.Tasty
 --         , requestGetUserDefinedFunction $
 --             newGetUserDefinedFunction
 --
+--         , requestCreateTrigger $
+--             newCreateTrigger
+--
+--         , requestDeleteDatabase $
+--             newDeleteDatabase
+--
 --         , requestUpdateMLTransform $
 --             newUpdateMLTransform
---
---         , requestGetWorkflowRun $
---             newGetWorkflowRun
 --
 --         , requestDeleteMLTransform $
 --             newDeleteMLTransform
 --
---         , requestCreateTrigger $
---             newCreateTrigger
+--         , requestGetWorkflowRun $
+--             newGetWorkflowRun
 --
---         , requestCreateDatabase $
---             newCreateDatabase
---
---         , requestGetClassifier $
---             newGetClassifier
+--         , requestGetTableVersions $
+--             newGetTableVersions
 --
 --         , requestDeleteSchemaVersions $
 --             newDeleteSchemaVersions
@@ -327,17 +333,26 @@ import Test.Tasty
 --         , requestBatchGetTriggers $
 --             newBatchGetTriggers
 --
---         , requestBatchDeleteTableVersion $
---             newBatchDeleteTableVersion
+--         , requestGetClassifier $
+--             newGetClassifier
 --
---         , requestGetTableVersions $
---             newGetTableVersions
+--         , requestCreateDatabase $
+--             newCreateDatabase
+--
+--         , requestGetCrawlers $
+--             newGetCrawlers
+--
+--         , requestGetBlueprint $
+--             newGetBlueprint
 --
 --         , requestGetDevEndpoints $
 --             newGetDevEndpoints
 --
---         , requestGetCrawlers $
---             newGetCrawlers
+--         , requestBatchDeleteTableVersion $
+--             newBatchDeleteTableVersion
+--
+--         , requestDeleteBlueprint $
+--             newDeleteBlueprint
 --
 --         , requestStartJobRun $
 --             newStartJobRun
@@ -348,47 +363,17 @@ import Test.Tasty
 --         , requestCreatePartition $
 --             newCreatePartition
 --
---         , requestResetJobBookmark $
---             newResetJobBookmark
+--         , requestUpdateBlueprint $
+--             newUpdateBlueprint
 --
 --         , requestListJobs $
 --             newListJobs
 --
---         , requestBatchDeleteConnection $
---             newBatchDeleteConnection
+--         , requestResetJobBookmark $
+--             newResetJobBookmark
 --
---         , requestGetTables $
---             newGetTables
---
---         , requestDeleteColumnStatisticsForPartition $
---             newDeleteColumnStatisticsForPartition
---
---         , requestDeleteResourcePolicy $
---             newDeleteResourcePolicy
---
---         , requestGetRegistry $
---             newGetRegistry
---
---         , requestResumeWorkflowRun $
---             newResumeWorkflowRun
---
---         , requestCancelMLTaskRun $
---             newCancelMLTaskRun
---
---         , requestCreateJob $
---             newCreateJob
---
---         , requestSearchTables $
---             newSearchTables
---
---         , requestUpdateUserDefinedFunction $
---             newUpdateUserDefinedFunction
---
---         , requestUpdateColumnStatisticsForPartition $
---             newUpdateColumnStatisticsForPartition
---
---         , requestGetConnections $
---             newGetConnections
+--         , requestBatchGetBlueprints $
+--             newBatchGetBlueprints
 --
 --         , requestGetMLTransform $
 --             newGetMLTransform
@@ -396,32 +381,77 @@ import Test.Tasty
 --         , requestCreateScript $
 --             newCreateScript
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
+--         , requestGetRegistry $
+--             newGetRegistry
+--
 --         , requestGetMLTaskRun $
 --             newGetMLTaskRun
+--
+--         , requestCreateJob $
+--             newCreateJob
+--
+--         , requestUpdateUserDefinedFunction $
+--             newUpdateUserDefinedFunction
+--
+--         , requestDeleteColumnStatisticsForPartition $
+--             newDeleteColumnStatisticsForPartition
 --
 --         , requestDeleteUserDefinedFunction $
 --             newDeleteUserDefinedFunction
 --
---         , requestStartTrigger $
---             newStartTrigger
+--         , requestCancelMLTaskRun $
+--             newCancelMLTaskRun
 --
---         , requestPutDataCatalogEncryptionSettings $
---             newPutDataCatalogEncryptionSettings
+--         , requestSearchTables $
+--             newSearchTables
 --
---         , requestRemoveSchemaVersionMetadata $
---             newRemoveSchemaVersionMetadata
+--         , requestUpdateColumnStatisticsForPartition $
+--             newUpdateColumnStatisticsForPartition
 --
---         , requestBatchGetPartition $
---             newBatchGetPartition
+--         , requestGetTables $
+--             newGetTables
 --
---         , requestGetTable $
---             newGetTable
+--         , requestBatchDeleteConnection $
+--             newBatchDeleteConnection
+--
+--         , requestGetConnections $
+--             newGetConnections
+--
+--         , requestGetBlueprintRuns $
+--             newGetBlueprintRuns
+--
+--         , requestResumeWorkflowRun $
+--             newResumeWorkflowRun
 --
 --         , requestUpdateCrawlerSchedule $
 --             newUpdateCrawlerSchedule
 --
---         , requestGetColumnStatisticsForTable $
---             newGetColumnStatisticsForTable
+--         , requestStartTrigger $
+--             newStartTrigger
+--
+--         , requestGetConnection $
+--             newGetConnection
+--
+--         , requestRemoveSchemaVersionMetadata $
+--             newRemoveSchemaVersionMetadata
+--
+--         , requestGetTable $
+--             newGetTable
+--
+--         , requestDeleteSchema $
+--             newDeleteSchema
+--
+--         , requestPutDataCatalogEncryptionSettings $
+--             newPutDataCatalogEncryptionSettings
+--
+--         , requestGetBlueprintRun $
+--             newGetBlueprintRun
+--
+--         , requestUpdateSchema $
+--             newUpdateSchema
 --
 --         , requestStopTrigger $
 --             newStopTrigger
@@ -429,26 +459,20 @@ import Test.Tasty
 --         , requestListSchemas $
 --             newListSchemas
 --
---         , requestGetConnection $
---             newGetConnection
+--         , requestGetDataflowGraph $
+--             newGetDataflowGraph
+--
+--         , requestBatchGetPartition $
+--             newBatchGetPartition
+--
+--         , requestGetColumnStatisticsForTable $
+--             newGetColumnStatisticsForTable
 --
 --         , requestGetDatabases $
 --             newGetDatabases
 --
---         , requestDeleteSchema $
---             newDeleteSchema
---
---         , requestUpdateSchema $
---             newUpdateSchema
---
---         , requestGetDataflowGraph $
---             newGetDataflowGraph
---
---         , requestBatchGetDevEndpoints $
---             newBatchGetDevEndpoints
---
---         , requestStartExportLabelsTaskRun $
---             newStartExportLabelsTaskRun
+--         , requestDeleteTableVersion $
+--             newDeleteTableVersion
 --
 --         , requestGetTriggers $
 --             newGetTriggers
@@ -456,26 +480,35 @@ import Test.Tasty
 --         , requestBatchGetCrawlers $
 --             newBatchGetCrawlers
 --
---         , requestGetPlan $
---             newGetPlan
+--         , requestGetJobBookmark $
+--             newGetJobBookmark
 --
---         , requestGetCrawlerMetrics $
---             newGetCrawlerMetrics
+--         , requestStartExportLabelsTaskRun $
+--             newStartExportLabelsTaskRun
 --
 --         , requestGetWorkflowRunProperties $
 --             newGetWorkflowRunProperties
 --
+--         , requestGetCrawlerMetrics $
+--             newGetCrawlerMetrics
+--
 --         , requestDeletePartitionIndex $
 --             newDeletePartitionIndex
 --
---         , requestGetJobBookmark $
---             newGetJobBookmark
+--         , requestBatchGetDevEndpoints $
+--             newBatchGetDevEndpoints
 --
---         , requestDeleteTableVersion $
---             newDeleteTableVersion
+--         , requestGetPlan $
+--             newGetPlan
 --
---         , requestGetTableVersion $
---             newGetTableVersion
+--         , requestCreateSecurityConfiguration $
+--             newCreateSecurityConfiguration
+--
+--         , requestGetResourcePolicies $
+--             newGetResourcePolicies
+--
+--         , requestGetDevEndpoint $
+--             newGetDevEndpoint
 --
 --         , requestPutWorkflowRunProperties $
 --             newPutWorkflowRunProperties
@@ -483,74 +516,68 @@ import Test.Tasty
 --         , requestBatchGetWorkflows $
 --             newBatchGetWorkflows
 --
---         , requestGetResourcePolicies $
---             newGetResourcePolicies
+--         , requestGetTableVersion $
+--             newGetTableVersion
 --
 --         , requestGetJobs $
 --             newGetJobs
 --
---         , requestGetDevEndpoint $
---             newGetDevEndpoint
---
 --         , requestGetCrawler $
 --             newGetCrawler
---
---         , requestCreateSecurityConfiguration $
---             newCreateSecurityConfiguration
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetDataCatalogEncryptionSettings $
---             newGetDataCatalogEncryptionSettingsResponse
+--         [ responseUpdateConnection $
+--             newUpdateConnectionResponse
 --
 --         , responseUpdateColumnStatisticsForTable $
 --             newUpdateColumnStatisticsForTableResponse
 --
---         , responseStartMLLabelingSetGenerationTaskRun $
---             newStartMLLabelingSetGenerationTaskRunResponse
---
---         , responseDeleteColumnStatisticsForTable $
---             newDeleteColumnStatisticsForTableResponse
---
---         , responseGetSchema $
---             newGetSchemaResponse
---
---         , responseDeleteConnection $
---             newDeleteConnectionResponse
---
---         , responseUpdateConnection $
---             newUpdateConnectionResponse
---
---         , responseCheckSchemaVersionValidity $
---             newCheckSchemaVersionValidityResponse
+--         , responseDeleteSecurityConfiguration $
+--             newDeleteSecurityConfigurationResponse
 --
 --         , responseCreateWorkflow $
 --             newCreateWorkflowResponse
 --
+--         , responseStartMLLabelingSetGenerationTaskRun $
+--             newStartMLLabelingSetGenerationTaskRunResponse
+--
 --         , responseGetPartitions $
 --             newGetPartitionsResponse
 --
---         , responseDeleteSecurityConfiguration $
---             newDeleteSecurityConfigurationResponse
+--         , responseDeleteColumnStatisticsForTable $
+--             newDeleteColumnStatisticsForTableResponse
 --
---         , responseGetPartition $
---             newGetPartitionResponse
+--         , responseGetDataCatalogEncryptionSettings $
+--             newGetDataCatalogEncryptionSettingsResponse
 --
---         , responseUpdateRegistry $
---             newUpdateRegistryResponse
+--         , responseDeleteConnection $
+--             newDeleteConnectionResponse
 --
---         , responseListMLTransforms $
---             newListMLTransformsResponse
+--         , responseGetSchema $
+--             newGetSchemaResponse
 --
---         , responseStopCrawler $
---             newStopCrawlerResponse
+--         , responseCheckSchemaVersionValidity $
+--             newCheckSchemaVersionValidityResponse
+--
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
 --
 --         , responseStartImportLabelsTaskRun $
 --             newStartImportLabelsTaskRunResponse
 --
---         , responseGetResourcePolicy $
---             newGetResourcePolicyResponse
+--         , responseGetPartitionIndexes $
+--             newGetPartitionIndexesResponse
+--
+--         , responseGetCatalogImportStatus $
+--             newGetCatalogImportStatusResponse
+--
+--         , responseStopCrawler $
+--             newStopCrawlerResponse
+--
+--         , responseUpdateRegistry $
+--             newUpdateRegistryResponse
 --
 --         , responseQuerySchemaVersionMetadata $
 --             newQuerySchemaVersionMetadataResponse
@@ -558,23 +585,32 @@ import Test.Tasty
 --         , responseDeleteRegistry $
 --             newDeleteRegistryResponse
 --
---         , responseGetPartitionIndexes $
---             newGetPartitionIndexesResponse
+--         , responseGetPartition $
+--             newGetPartitionResponse
+--
+--         , responseListMLTransforms $
+--             newListMLTransformsResponse
 --
 --         , responseStartCrawler $
 --             newStartCrawlerResponse
 --
---         , responseGetCatalogImportStatus $
---             newGetCatalogImportStatusResponse
---
 --         , responseGetColumnStatisticsForPartition $
 --             newGetColumnStatisticsForPartitionResponse
+--
+--         , responseListRegistries $
+--             newListRegistriesResponse
 --
 --         , responseCreateRegistry $
 --             newCreateRegistryResponse
 --
---         , responseListTriggers $
---             newListTriggersResponse
+--         , responseStartCrawlerSchedule $
+--             newStartCrawlerScheduleResponse
+--
+--         , responseGetJob $
+--             newGetJobResponse
+--
+--         , responseDeleteTrigger $
+--             newDeleteTriggerResponse
 --
 --         , responseCreateMLTransform $
 --             newCreateMLTransformResponse
@@ -585,32 +621,29 @@ import Test.Tasty
 --         , responseUpdateTrigger $
 --             newUpdateTriggerResponse
 --
+--         , responseListTriggers $
+--             newListTriggersResponse
+--
 --         , responseGetSchemaByDefinition $
 --             newGetSchemaByDefinitionResponse
---
---         , responseListRegistries $
---             newListRegistriesResponse
---
---         , responseStartCrawlerSchedule $
---             newStartCrawlerScheduleResponse
---
---         , responseDeleteTrigger $
---             newDeleteTriggerResponse
---
---         , responseGetJob $
---             newGetJobResponse
---
---         , responseUpdateClassifier $
---             newUpdateClassifierResponse
 --
 --         , responseDeleteClassifier $
 --             newDeleteClassifierResponse
 --
---         , responseDeleteJob $
---             newDeleteJobResponse
+--         , responseStartBlueprintRun $
+--             newStartBlueprintRunResponse
 --
 --         , responseUpdateJob $
 --             newUpdateJobResponse
+--
+--         , responseDeleteJob $
+--             newDeleteJobResponse
+--
+--         , responseUpdateClassifier $
+--             newUpdateClassifierResponse
+--
+--         , responseListBlueprints $
+--             newListBlueprintsResponse
 --
 --         , responseCreateUserDefinedFunction $
 --             newCreateUserDefinedFunctionResponse
@@ -621,14 +654,23 @@ import Test.Tasty
 --         , responseBatchGetJobs $
 --             newBatchGetJobsResponse
 --
---         , responseCreateClassifier $
---             newCreateClassifierResponse
---
---         , responseGetSecurityConfigurations $
---             newGetSecurityConfigurationsResponse
+--         , responseGetDatabase $
+--             newGetDatabaseResponse
 --
 --         , responsePutResourcePolicy $
 --             newPutResourcePolicyResponse
+--
+--         , responseStartMLEvaluationTaskRun $
+--             newStartMLEvaluationTaskRunResponse
+--
+--         , responseDeletePartition $
+--             newDeletePartitionResponse
+--
+--         , responseCreateBlueprint $
+--             newCreateBlueprintResponse
+--
+--         , responseBatchDeleteTable $
+--             newBatchDeleteTableResponse
 --
 --         , responseUpdatePartition $
 --             newUpdatePartitionResponse
@@ -636,23 +678,23 @@ import Test.Tasty
 --         , responseGetSchemaVersionsDiff $
 --             newGetSchemaVersionsDiffResponse
 --
+--         , responseGetJobRuns $
+--             newGetJobRunsResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseBatchDeleteTable $
---             newBatchDeleteTableResponse
+--         , responseGetSecurityConfigurations $
+--             newGetSecurityConfigurationsResponse
 --
---         , responseStartMLEvaluationTaskRun $
---             newStartMLEvaluationTaskRunResponse
+--         , responseCreateClassifier $
+--             newCreateClassifierResponse
 --
---         , responseGetDatabase $
---             newGetDatabaseResponse
+--         , responseCreatePartitionIndex $
+--             newCreatePartitionIndexResponse
 --
---         , responseDeletePartition $
---             newDeletePartitionResponse
---
---         , responseGetJobRuns $
---             newGetJobRunsResponse
+--         , responseGetSecurityConfiguration $
+--             newGetSecurityConfigurationResponse
 --
 --         , responseGetMLTransforms $
 --             newGetMLTransformsResponse
@@ -660,77 +702,50 @@ import Test.Tasty
 --         , responseGetJobRun $
 --             newGetJobRunResponse
 --
---         , responseCreateDevEndpoint $
---             newCreateDevEndpointResponse
---
---         , responseCreatePartitionIndex $
---             newCreatePartitionIndexResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
---
---         , responseGetSecurityConfiguration $
---             newGetSecurityConfigurationResponse
 --
 --         , responseCreateCrawler $
 --             newCreateCrawlerResponse
 --
+--         , responseCreateDevEndpoint $
+--             newCreateDevEndpointResponse
+--
 --         , responseGetMLTaskRuns $
 --             newGetMLTaskRunsResponse
---
---         , responseListCrawlers $
---             newListCrawlersResponse
---
---         , responseUpdateDevEndpoint $
---             newUpdateDevEndpointResponse
---
---         , responseCreateSchema $
---             newCreateSchemaResponse
---
---         , responseListDevEndpoints $
---             newListDevEndpointsResponse
 --
 --         , responseDeleteCrawler $
 --             newDeleteCrawlerResponse
 --
+--         , responseListDevEndpoints $
+--             newListDevEndpointsResponse
+--
 --         , responseDeleteDevEndpoint $
 --             newDeleteDevEndpointResponse
 --
---         , responseGetWorkflow $
---             newGetWorkflowResponse
---
---         , responseGetSchemaVersion $
---             newGetSchemaVersionResponse
+--         , responseUpdateDevEndpoint $
+--             newUpdateDevEndpointResponse
 --
 --         , responseUpdateCrawler $
 --             newUpdateCrawlerResponse
 --
---         , responseDeleteWorkflow $
---             newDeleteWorkflowResponse
+--         , responseGetSchemaVersion $
+--             newGetSchemaVersionResponse
 --
---         , responseRegisterSchemaVersion $
---             newRegisterSchemaVersionResponse
+--         , responseCreateSchema $
+--             newCreateSchemaResponse
 --
---         , responseGetMapping $
---             newGetMappingResponse
+--         , responseGetWorkflow $
+--             newGetWorkflowResponse
 --
---         , responseStopWorkflowRun $
---             newStopWorkflowRunResponse
---
---         , responseCreateConnection $
---             newCreateConnectionResponse
---
---         , responseBatchCreatePartition $
---             newBatchCreatePartitionResponse
+--         , responseListCrawlers $
+--             newListCrawlersResponse
 --
 --         , responseCreateTable $
 --             newCreateTableResponse
 --
---         , responseUpdateWorkflow $
---             newUpdateWorkflowResponse
---
---         , responseGetClassifiers $
---             newGetClassifiersResponse
+--         , responseGetMapping $
+--             newGetMappingResponse
 --
 --         , responseBatchStopJobRun $
 --             newBatchStopJobRunResponse
@@ -738,17 +753,38 @@ import Test.Tasty
 --         , responseStartWorkflowRun $
 --             newStartWorkflowRunResponse
 --
+--         , responseCreateConnection $
+--             newCreateConnectionResponse
+--
+--         , responseGetClassifiers $
+--             newGetClassifiersResponse
+--
+--         , responseBatchCreatePartition $
+--             newBatchCreatePartitionResponse
+--
 --         , responseListWorkflows $
 --             newListWorkflowsResponse
+--
+--         , responseUpdateWorkflow $
+--             newUpdateWorkflowResponse
+--
+--         , responseRegisterSchemaVersion $
+--             newRegisterSchemaVersionResponse
+--
+--         , responseStopWorkflowRun $
+--             newStopWorkflowRunResponse
+--
+--         , responseDeleteWorkflow $
+--             newDeleteWorkflowResponse
 --
 --         , responseListSchemaVersions $
 --             newListSchemaVersionsResponse
 --
+--         , responseBatchUpdatePartition $
+--             newBatchUpdatePartitionResponse
+--
 --         , responseBatchDeletePartition $
 --             newBatchDeletePartitionResponse
---
---         , responsePutSchemaVersionMetadata $
---             newPutSchemaVersionMetadataResponse
 --
 --         , responseGetWorkflowRuns $
 --             newGetWorkflowRunsResponse
@@ -756,20 +792,17 @@ import Test.Tasty
 --         , responseGetTags $
 --             newGetTagsResponse
 --
---         , responseBatchUpdatePartition $
---             newBatchUpdatePartitionResponse
---
---         , responseGetUserDefinedFunctions $
---             newGetUserDefinedFunctionsResponse
---
 --         , responseUpdateTable $
 --             newUpdateTableResponse
 --
 --         , responseDeleteTable $
 --             newDeleteTableResponse
 --
---         , responseDeleteDatabase $
---             newDeleteDatabaseResponse
+--         , responseGetUserDefinedFunctions $
+--             newGetUserDefinedFunctionsResponse
+--
+--         , responsePutSchemaVersionMetadata $
+--             newPutSchemaVersionMetadataResponse
 --
 --         , responseUpdateDatabase $
 --             newUpdateDatabaseResponse
@@ -777,23 +810,23 @@ import Test.Tasty
 --         , responseGetUserDefinedFunction $
 --             newGetUserDefinedFunctionResponse
 --
+--         , responseCreateTrigger $
+--             newCreateTriggerResponse
+--
+--         , responseDeleteDatabase $
+--             newDeleteDatabaseResponse
+--
 --         , responseUpdateMLTransform $
 --             newUpdateMLTransformResponse
---
---         , responseGetWorkflowRun $
---             newGetWorkflowRunResponse
 --
 --         , responseDeleteMLTransform $
 --             newDeleteMLTransformResponse
 --
---         , responseCreateTrigger $
---             newCreateTriggerResponse
+--         , responseGetWorkflowRun $
+--             newGetWorkflowRunResponse
 --
---         , responseCreateDatabase $
---             newCreateDatabaseResponse
---
---         , responseGetClassifier $
---             newGetClassifierResponse
+--         , responseGetTableVersions $
+--             newGetTableVersionsResponse
 --
 --         , responseDeleteSchemaVersions $
 --             newDeleteSchemaVersionsResponse
@@ -801,17 +834,26 @@ import Test.Tasty
 --         , responseBatchGetTriggers $
 --             newBatchGetTriggersResponse
 --
---         , responseBatchDeleteTableVersion $
---             newBatchDeleteTableVersionResponse
+--         , responseGetClassifier $
+--             newGetClassifierResponse
 --
---         , responseGetTableVersions $
---             newGetTableVersionsResponse
+--         , responseCreateDatabase $
+--             newCreateDatabaseResponse
+--
+--         , responseGetCrawlers $
+--             newGetCrawlersResponse
+--
+--         , responseGetBlueprint $
+--             newGetBlueprintResponse
 --
 --         , responseGetDevEndpoints $
 --             newGetDevEndpointsResponse
 --
---         , responseGetCrawlers $
---             newGetCrawlersResponse
+--         , responseBatchDeleteTableVersion $
+--             newBatchDeleteTableVersionResponse
+--
+--         , responseDeleteBlueprint $
+--             newDeleteBlueprintResponse
 --
 --         , responseStartJobRun $
 --             newStartJobRunResponse
@@ -822,47 +864,17 @@ import Test.Tasty
 --         , responseCreatePartition $
 --             newCreatePartitionResponse
 --
---         , responseResetJobBookmark $
---             newResetJobBookmarkResponse
+--         , responseUpdateBlueprint $
+--             newUpdateBlueprintResponse
 --
 --         , responseListJobs $
 --             newListJobsResponse
 --
---         , responseBatchDeleteConnection $
---             newBatchDeleteConnectionResponse
+--         , responseResetJobBookmark $
+--             newResetJobBookmarkResponse
 --
---         , responseGetTables $
---             newGetTablesResponse
---
---         , responseDeleteColumnStatisticsForPartition $
---             newDeleteColumnStatisticsForPartitionResponse
---
---         , responseDeleteResourcePolicy $
---             newDeleteResourcePolicyResponse
---
---         , responseGetRegistry $
---             newGetRegistryResponse
---
---         , responseResumeWorkflowRun $
---             newResumeWorkflowRunResponse
---
---         , responseCancelMLTaskRun $
---             newCancelMLTaskRunResponse
---
---         , responseCreateJob $
---             newCreateJobResponse
---
---         , responseSearchTables $
---             newSearchTablesResponse
---
---         , responseUpdateUserDefinedFunction $
---             newUpdateUserDefinedFunctionResponse
---
---         , responseUpdateColumnStatisticsForPartition $
---             newUpdateColumnStatisticsForPartitionResponse
---
---         , responseGetConnections $
---             newGetConnectionsResponse
+--         , responseBatchGetBlueprints $
+--             newBatchGetBlueprintsResponse
 --
 --         , responseGetMLTransform $
 --             newGetMLTransformResponse
@@ -870,32 +882,77 @@ import Test.Tasty
 --         , responseCreateScript $
 --             newCreateScriptResponse
 --
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
+--         , responseGetRegistry $
+--             newGetRegistryResponse
+--
 --         , responseGetMLTaskRun $
 --             newGetMLTaskRunResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
+--
+--         , responseUpdateUserDefinedFunction $
+--             newUpdateUserDefinedFunctionResponse
+--
+--         , responseDeleteColumnStatisticsForPartition $
+--             newDeleteColumnStatisticsForPartitionResponse
 --
 --         , responseDeleteUserDefinedFunction $
 --             newDeleteUserDefinedFunctionResponse
 --
---         , responseStartTrigger $
---             newStartTriggerResponse
+--         , responseCancelMLTaskRun $
+--             newCancelMLTaskRunResponse
 --
---         , responsePutDataCatalogEncryptionSettings $
---             newPutDataCatalogEncryptionSettingsResponse
+--         , responseSearchTables $
+--             newSearchTablesResponse
 --
---         , responseRemoveSchemaVersionMetadata $
---             newRemoveSchemaVersionMetadataResponse
+--         , responseUpdateColumnStatisticsForPartition $
+--             newUpdateColumnStatisticsForPartitionResponse
 --
---         , responseBatchGetPartition $
---             newBatchGetPartitionResponse
+--         , responseGetTables $
+--             newGetTablesResponse
 --
---         , responseGetTable $
---             newGetTableResponse
+--         , responseBatchDeleteConnection $
+--             newBatchDeleteConnectionResponse
+--
+--         , responseGetConnections $
+--             newGetConnectionsResponse
+--
+--         , responseGetBlueprintRuns $
+--             newGetBlueprintRunsResponse
+--
+--         , responseResumeWorkflowRun $
+--             newResumeWorkflowRunResponse
 --
 --         , responseUpdateCrawlerSchedule $
 --             newUpdateCrawlerScheduleResponse
 --
---         , responseGetColumnStatisticsForTable $
---             newGetColumnStatisticsForTableResponse
+--         , responseStartTrigger $
+--             newStartTriggerResponse
+--
+--         , responseGetConnection $
+--             newGetConnectionResponse
+--
+--         , responseRemoveSchemaVersionMetadata $
+--             newRemoveSchemaVersionMetadataResponse
+--
+--         , responseGetTable $
+--             newGetTableResponse
+--
+--         , responseDeleteSchema $
+--             newDeleteSchemaResponse
+--
+--         , responsePutDataCatalogEncryptionSettings $
+--             newPutDataCatalogEncryptionSettingsResponse
+--
+--         , responseGetBlueprintRun $
+--             newGetBlueprintRunResponse
+--
+--         , responseUpdateSchema $
+--             newUpdateSchemaResponse
 --
 --         , responseStopTrigger $
 --             newStopTriggerResponse
@@ -903,26 +960,20 @@ import Test.Tasty
 --         , responseListSchemas $
 --             newListSchemasResponse
 --
---         , responseGetConnection $
---             newGetConnectionResponse
+--         , responseGetDataflowGraph $
+--             newGetDataflowGraphResponse
+--
+--         , responseBatchGetPartition $
+--             newBatchGetPartitionResponse
+--
+--         , responseGetColumnStatisticsForTable $
+--             newGetColumnStatisticsForTableResponse
 --
 --         , responseGetDatabases $
 --             newGetDatabasesResponse
 --
---         , responseDeleteSchema $
---             newDeleteSchemaResponse
---
---         , responseUpdateSchema $
---             newUpdateSchemaResponse
---
---         , responseGetDataflowGraph $
---             newGetDataflowGraphResponse
---
---         , responseBatchGetDevEndpoints $
---             newBatchGetDevEndpointsResponse
---
---         , responseStartExportLabelsTaskRun $
---             newStartExportLabelsTaskRunResponse
+--         , responseDeleteTableVersion $
+--             newDeleteTableVersionResponse
 --
 --         , responseGetTriggers $
 --             newGetTriggersResponse
@@ -930,26 +981,35 @@ import Test.Tasty
 --         , responseBatchGetCrawlers $
 --             newBatchGetCrawlersResponse
 --
---         , responseGetPlan $
---             newGetPlanResponse
+--         , responseGetJobBookmark $
+--             newGetJobBookmarkResponse
 --
---         , responseGetCrawlerMetrics $
---             newGetCrawlerMetricsResponse
+--         , responseStartExportLabelsTaskRun $
+--             newStartExportLabelsTaskRunResponse
 --
 --         , responseGetWorkflowRunProperties $
 --             newGetWorkflowRunPropertiesResponse
 --
+--         , responseGetCrawlerMetrics $
+--             newGetCrawlerMetricsResponse
+--
 --         , responseDeletePartitionIndex $
 --             newDeletePartitionIndexResponse
 --
---         , responseGetJobBookmark $
---             newGetJobBookmarkResponse
+--         , responseBatchGetDevEndpoints $
+--             newBatchGetDevEndpointsResponse
 --
---         , responseDeleteTableVersion $
---             newDeleteTableVersionResponse
+--         , responseGetPlan $
+--             newGetPlanResponse
 --
---         , responseGetTableVersion $
---             newGetTableVersionResponse
+--         , responseCreateSecurityConfiguration $
+--             newCreateSecurityConfigurationResponse
+--
+--         , responseGetResourcePolicies $
+--             newGetResourcePoliciesResponse
+--
+--         , responseGetDevEndpoint $
+--             newGetDevEndpointResponse
 --
 --         , responsePutWorkflowRunProperties $
 --             newPutWorkflowRunPropertiesResponse
@@ -957,61 +1017,19 @@ import Test.Tasty
 --         , responseBatchGetWorkflows $
 --             newBatchGetWorkflowsResponse
 --
---         , responseGetResourcePolicies $
---             newGetResourcePoliciesResponse
+--         , responseGetTableVersion $
+--             newGetTableVersionResponse
 --
 --         , responseGetJobs $
 --             newGetJobsResponse
 --
---         , responseGetDevEndpoint $
---             newGetDevEndpointResponse
---
 --         , responseGetCrawler $
 --             newGetCrawlerResponse
---
---         , responseCreateSecurityConfiguration $
---             newCreateSecurityConfigurationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettings -> TestTree
-requestGetDataCatalogEncryptionSettings =
-  req
-    "GetDataCatalogEncryptionSettings"
-    "fixture/GetDataCatalogEncryptionSettings.yaml"
-
-requestUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTable -> TestTree
-requestUpdateColumnStatisticsForTable =
-  req
-    "UpdateColumnStatisticsForTable"
-    "fixture/UpdateColumnStatisticsForTable.yaml"
-
-requestStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRun -> TestTree
-requestStartMLLabelingSetGenerationTaskRun =
-  req
-    "StartMLLabelingSetGenerationTaskRun"
-    "fixture/StartMLLabelingSetGenerationTaskRun.yaml"
-
-requestDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTable -> TestTree
-requestDeleteColumnStatisticsForTable =
-  req
-    "DeleteColumnStatisticsForTable"
-    "fixture/DeleteColumnStatisticsForTable.yaml"
-
-requestGetSchema :: GetSchema -> TestTree
-requestGetSchema =
-  req
-    "GetSchema"
-    "fixture/GetSchema.yaml"
-
-requestDeleteConnection :: DeleteConnection -> TestTree
-requestDeleteConnection =
-  req
-    "DeleteConnection"
-    "fixture/DeleteConnection.yaml"
 
 requestUpdateConnection :: UpdateConnection -> TestTree
 requestUpdateConnection =
@@ -1019,23 +1037,11 @@ requestUpdateConnection =
     "UpdateConnection"
     "fixture/UpdateConnection.yaml"
 
-requestCheckSchemaVersionValidity :: CheckSchemaVersionValidity -> TestTree
-requestCheckSchemaVersionValidity =
+requestUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTable -> TestTree
+requestUpdateColumnStatisticsForTable =
   req
-    "CheckSchemaVersionValidity"
-    "fixture/CheckSchemaVersionValidity.yaml"
-
-requestCreateWorkflow :: CreateWorkflow -> TestTree
-requestCreateWorkflow =
-  req
-    "CreateWorkflow"
-    "fixture/CreateWorkflow.yaml"
-
-requestGetPartitions :: GetPartitions -> TestTree
-requestGetPartitions =
-  req
-    "GetPartitions"
-    "fixture/GetPartitions.yaml"
+    "UpdateColumnStatisticsForTable"
+    "fixture/UpdateColumnStatisticsForTable.yaml"
 
 requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
 requestDeleteSecurityConfiguration =
@@ -1043,29 +1049,59 @@ requestDeleteSecurityConfiguration =
     "DeleteSecurityConfiguration"
     "fixture/DeleteSecurityConfiguration.yaml"
 
-requestGetPartition :: GetPartition -> TestTree
-requestGetPartition =
+requestCreateWorkflow :: CreateWorkflow -> TestTree
+requestCreateWorkflow =
   req
-    "GetPartition"
-    "fixture/GetPartition.yaml"
+    "CreateWorkflow"
+    "fixture/CreateWorkflow.yaml"
 
-requestUpdateRegistry :: UpdateRegistry -> TestTree
-requestUpdateRegistry =
+requestStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRun -> TestTree
+requestStartMLLabelingSetGenerationTaskRun =
   req
-    "UpdateRegistry"
-    "fixture/UpdateRegistry.yaml"
+    "StartMLLabelingSetGenerationTaskRun"
+    "fixture/StartMLLabelingSetGenerationTaskRun.yaml"
 
-requestListMLTransforms :: ListMLTransforms -> TestTree
-requestListMLTransforms =
+requestGetPartitions :: GetPartitions -> TestTree
+requestGetPartitions =
   req
-    "ListMLTransforms"
-    "fixture/ListMLTransforms.yaml"
+    "GetPartitions"
+    "fixture/GetPartitions.yaml"
 
-requestStopCrawler :: StopCrawler -> TestTree
-requestStopCrawler =
+requestDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTable -> TestTree
+requestDeleteColumnStatisticsForTable =
   req
-    "StopCrawler"
-    "fixture/StopCrawler.yaml"
+    "DeleteColumnStatisticsForTable"
+    "fixture/DeleteColumnStatisticsForTable.yaml"
+
+requestGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettings -> TestTree
+requestGetDataCatalogEncryptionSettings =
+  req
+    "GetDataCatalogEncryptionSettings"
+    "fixture/GetDataCatalogEncryptionSettings.yaml"
+
+requestDeleteConnection :: DeleteConnection -> TestTree
+requestDeleteConnection =
+  req
+    "DeleteConnection"
+    "fixture/DeleteConnection.yaml"
+
+requestGetSchema :: GetSchema -> TestTree
+requestGetSchema =
+  req
+    "GetSchema"
+    "fixture/GetSchema.yaml"
+
+requestCheckSchemaVersionValidity :: CheckSchemaVersionValidity -> TestTree
+requestCheckSchemaVersionValidity =
+  req
+    "CheckSchemaVersionValidity"
+    "fixture/CheckSchemaVersionValidity.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
 
 requestStartImportLabelsTaskRun :: StartImportLabelsTaskRun -> TestTree
 requestStartImportLabelsTaskRun =
@@ -1073,11 +1109,29 @@ requestStartImportLabelsTaskRun =
     "StartImportLabelsTaskRun"
     "fixture/StartImportLabelsTaskRun.yaml"
 
-requestGetResourcePolicy :: GetResourcePolicy -> TestTree
-requestGetResourcePolicy =
+requestGetPartitionIndexes :: GetPartitionIndexes -> TestTree
+requestGetPartitionIndexes =
   req
-    "GetResourcePolicy"
-    "fixture/GetResourcePolicy.yaml"
+    "GetPartitionIndexes"
+    "fixture/GetPartitionIndexes.yaml"
+
+requestGetCatalogImportStatus :: GetCatalogImportStatus -> TestTree
+requestGetCatalogImportStatus =
+  req
+    "GetCatalogImportStatus"
+    "fixture/GetCatalogImportStatus.yaml"
+
+requestStopCrawler :: StopCrawler -> TestTree
+requestStopCrawler =
+  req
+    "StopCrawler"
+    "fixture/StopCrawler.yaml"
+
+requestUpdateRegistry :: UpdateRegistry -> TestTree
+requestUpdateRegistry =
+  req
+    "UpdateRegistry"
+    "fixture/UpdateRegistry.yaml"
 
 requestQuerySchemaVersionMetadata :: QuerySchemaVersionMetadata -> TestTree
 requestQuerySchemaVersionMetadata =
@@ -1091,11 +1145,17 @@ requestDeleteRegistry =
     "DeleteRegistry"
     "fixture/DeleteRegistry.yaml"
 
-requestGetPartitionIndexes :: GetPartitionIndexes -> TestTree
-requestGetPartitionIndexes =
+requestGetPartition :: GetPartition -> TestTree
+requestGetPartition =
   req
-    "GetPartitionIndexes"
-    "fixture/GetPartitionIndexes.yaml"
+    "GetPartition"
+    "fixture/GetPartition.yaml"
+
+requestListMLTransforms :: ListMLTransforms -> TestTree
+requestListMLTransforms =
+  req
+    "ListMLTransforms"
+    "fixture/ListMLTransforms.yaml"
 
 requestStartCrawler :: StartCrawler -> TestTree
 requestStartCrawler =
@@ -1103,17 +1163,17 @@ requestStartCrawler =
     "StartCrawler"
     "fixture/StartCrawler.yaml"
 
-requestGetCatalogImportStatus :: GetCatalogImportStatus -> TestTree
-requestGetCatalogImportStatus =
-  req
-    "GetCatalogImportStatus"
-    "fixture/GetCatalogImportStatus.yaml"
-
 requestGetColumnStatisticsForPartition :: GetColumnStatisticsForPartition -> TestTree
 requestGetColumnStatisticsForPartition =
   req
     "GetColumnStatisticsForPartition"
     "fixture/GetColumnStatisticsForPartition.yaml"
+
+requestListRegistries :: ListRegistries -> TestTree
+requestListRegistries =
+  req
+    "ListRegistries"
+    "fixture/ListRegistries.yaml"
 
 requestCreateRegistry :: CreateRegistry -> TestTree
 requestCreateRegistry =
@@ -1121,11 +1181,23 @@ requestCreateRegistry =
     "CreateRegistry"
     "fixture/CreateRegistry.yaml"
 
-requestListTriggers :: ListTriggers -> TestTree
-requestListTriggers =
+requestStartCrawlerSchedule :: StartCrawlerSchedule -> TestTree
+requestStartCrawlerSchedule =
   req
-    "ListTriggers"
-    "fixture/ListTriggers.yaml"
+    "StartCrawlerSchedule"
+    "fixture/StartCrawlerSchedule.yaml"
+
+requestGetJob :: GetJob -> TestTree
+requestGetJob =
+  req
+    "GetJob"
+    "fixture/GetJob.yaml"
+
+requestDeleteTrigger :: DeleteTrigger -> TestTree
+requestDeleteTrigger =
+  req
+    "DeleteTrigger"
+    "fixture/DeleteTrigger.yaml"
 
 requestCreateMLTransform :: CreateMLTransform -> TestTree
 requestCreateMLTransform =
@@ -1145,41 +1217,17 @@ requestUpdateTrigger =
     "UpdateTrigger"
     "fixture/UpdateTrigger.yaml"
 
+requestListTriggers :: ListTriggers -> TestTree
+requestListTriggers =
+  req
+    "ListTriggers"
+    "fixture/ListTriggers.yaml"
+
 requestGetSchemaByDefinition :: GetSchemaByDefinition -> TestTree
 requestGetSchemaByDefinition =
   req
     "GetSchemaByDefinition"
     "fixture/GetSchemaByDefinition.yaml"
-
-requestListRegistries :: ListRegistries -> TestTree
-requestListRegistries =
-  req
-    "ListRegistries"
-    "fixture/ListRegistries.yaml"
-
-requestStartCrawlerSchedule :: StartCrawlerSchedule -> TestTree
-requestStartCrawlerSchedule =
-  req
-    "StartCrawlerSchedule"
-    "fixture/StartCrawlerSchedule.yaml"
-
-requestDeleteTrigger :: DeleteTrigger -> TestTree
-requestDeleteTrigger =
-  req
-    "DeleteTrigger"
-    "fixture/DeleteTrigger.yaml"
-
-requestGetJob :: GetJob -> TestTree
-requestGetJob =
-  req
-    "GetJob"
-    "fixture/GetJob.yaml"
-
-requestUpdateClassifier :: UpdateClassifier -> TestTree
-requestUpdateClassifier =
-  req
-    "UpdateClassifier"
-    "fixture/UpdateClassifier.yaml"
 
 requestDeleteClassifier :: DeleteClassifier -> TestTree
 requestDeleteClassifier =
@@ -1187,17 +1235,35 @@ requestDeleteClassifier =
     "DeleteClassifier"
     "fixture/DeleteClassifier.yaml"
 
-requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob =
+requestStartBlueprintRun :: StartBlueprintRun -> TestTree
+requestStartBlueprintRun =
   req
-    "DeleteJob"
-    "fixture/DeleteJob.yaml"
+    "StartBlueprintRun"
+    "fixture/StartBlueprintRun.yaml"
 
 requestUpdateJob :: UpdateJob -> TestTree
 requestUpdateJob =
   req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
+
+requestDeleteJob :: DeleteJob -> TestTree
+requestDeleteJob =
+  req
+    "DeleteJob"
+    "fixture/DeleteJob.yaml"
+
+requestUpdateClassifier :: UpdateClassifier -> TestTree
+requestUpdateClassifier =
+  req
+    "UpdateClassifier"
+    "fixture/UpdateClassifier.yaml"
+
+requestListBlueprints :: ListBlueprints -> TestTree
+requestListBlueprints =
+  req
+    "ListBlueprints"
+    "fixture/ListBlueprints.yaml"
 
 requestCreateUserDefinedFunction :: CreateUserDefinedFunction -> TestTree
 requestCreateUserDefinedFunction =
@@ -1217,23 +1283,41 @@ requestBatchGetJobs =
     "BatchGetJobs"
     "fixture/BatchGetJobs.yaml"
 
-requestCreateClassifier :: CreateClassifier -> TestTree
-requestCreateClassifier =
+requestGetDatabase :: GetDatabase -> TestTree
+requestGetDatabase =
   req
-    "CreateClassifier"
-    "fixture/CreateClassifier.yaml"
-
-requestGetSecurityConfigurations :: GetSecurityConfigurations -> TestTree
-requestGetSecurityConfigurations =
-  req
-    "GetSecurityConfigurations"
-    "fixture/GetSecurityConfigurations.yaml"
+    "GetDatabase"
+    "fixture/GetDatabase.yaml"
 
 requestPutResourcePolicy :: PutResourcePolicy -> TestTree
 requestPutResourcePolicy =
   req
     "PutResourcePolicy"
     "fixture/PutResourcePolicy.yaml"
+
+requestStartMLEvaluationTaskRun :: StartMLEvaluationTaskRun -> TestTree
+requestStartMLEvaluationTaskRun =
+  req
+    "StartMLEvaluationTaskRun"
+    "fixture/StartMLEvaluationTaskRun.yaml"
+
+requestDeletePartition :: DeletePartition -> TestTree
+requestDeletePartition =
+  req
+    "DeletePartition"
+    "fixture/DeletePartition.yaml"
+
+requestCreateBlueprint :: CreateBlueprint -> TestTree
+requestCreateBlueprint =
+  req
+    "CreateBlueprint"
+    "fixture/CreateBlueprint.yaml"
+
+requestBatchDeleteTable :: BatchDeleteTable -> TestTree
+requestBatchDeleteTable =
+  req
+    "BatchDeleteTable"
+    "fixture/BatchDeleteTable.yaml"
 
 requestUpdatePartition :: UpdatePartition -> TestTree
 requestUpdatePartition =
@@ -1247,41 +1331,41 @@ requestGetSchemaVersionsDiff =
     "GetSchemaVersionsDiff"
     "fixture/GetSchemaVersionsDiff.yaml"
 
+requestGetJobRuns :: GetJobRuns -> TestTree
+requestGetJobRuns =
+  req
+    "GetJobRuns"
+    "fixture/GetJobRuns.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestBatchDeleteTable :: BatchDeleteTable -> TestTree
-requestBatchDeleteTable =
+requestGetSecurityConfigurations :: GetSecurityConfigurations -> TestTree
+requestGetSecurityConfigurations =
   req
-    "BatchDeleteTable"
-    "fixture/BatchDeleteTable.yaml"
+    "GetSecurityConfigurations"
+    "fixture/GetSecurityConfigurations.yaml"
 
-requestStartMLEvaluationTaskRun :: StartMLEvaluationTaskRun -> TestTree
-requestStartMLEvaluationTaskRun =
+requestCreateClassifier :: CreateClassifier -> TestTree
+requestCreateClassifier =
   req
-    "StartMLEvaluationTaskRun"
-    "fixture/StartMLEvaluationTaskRun.yaml"
+    "CreateClassifier"
+    "fixture/CreateClassifier.yaml"
 
-requestGetDatabase :: GetDatabase -> TestTree
-requestGetDatabase =
+requestCreatePartitionIndex :: CreatePartitionIndex -> TestTree
+requestCreatePartitionIndex =
   req
-    "GetDatabase"
-    "fixture/GetDatabase.yaml"
+    "CreatePartitionIndex"
+    "fixture/CreatePartitionIndex.yaml"
 
-requestDeletePartition :: DeletePartition -> TestTree
-requestDeletePartition =
+requestGetSecurityConfiguration :: GetSecurityConfiguration -> TestTree
+requestGetSecurityConfiguration =
   req
-    "DeletePartition"
-    "fixture/DeletePartition.yaml"
-
-requestGetJobRuns :: GetJobRuns -> TestTree
-requestGetJobRuns =
-  req
-    "GetJobRuns"
-    "fixture/GetJobRuns.yaml"
+    "GetSecurityConfiguration"
+    "fixture/GetSecurityConfiguration.yaml"
 
 requestGetMLTransforms :: GetMLTransforms -> TestTree
 requestGetMLTransforms =
@@ -1295,29 +1379,11 @@ requestGetJobRun =
     "GetJobRun"
     "fixture/GetJobRun.yaml"
 
-requestCreateDevEndpoint :: CreateDevEndpoint -> TestTree
-requestCreateDevEndpoint =
-  req
-    "CreateDevEndpoint"
-    "fixture/CreateDevEndpoint.yaml"
-
-requestCreatePartitionIndex :: CreatePartitionIndex -> TestTree
-requestCreatePartitionIndex =
-  req
-    "CreatePartitionIndex"
-    "fixture/CreatePartitionIndex.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
-
-requestGetSecurityConfiguration :: GetSecurityConfiguration -> TestTree
-requestGetSecurityConfiguration =
-  req
-    "GetSecurityConfiguration"
-    "fixture/GetSecurityConfiguration.yaml"
 
 requestCreateCrawler :: CreateCrawler -> TestTree
 requestCreateCrawler =
@@ -1325,35 +1391,17 @@ requestCreateCrawler =
     "CreateCrawler"
     "fixture/CreateCrawler.yaml"
 
+requestCreateDevEndpoint :: CreateDevEndpoint -> TestTree
+requestCreateDevEndpoint =
+  req
+    "CreateDevEndpoint"
+    "fixture/CreateDevEndpoint.yaml"
+
 requestGetMLTaskRuns :: GetMLTaskRuns -> TestTree
 requestGetMLTaskRuns =
   req
     "GetMLTaskRuns"
     "fixture/GetMLTaskRuns.yaml"
-
-requestListCrawlers :: ListCrawlers -> TestTree
-requestListCrawlers =
-  req
-    "ListCrawlers"
-    "fixture/ListCrawlers.yaml"
-
-requestUpdateDevEndpoint :: UpdateDevEndpoint -> TestTree
-requestUpdateDevEndpoint =
-  req
-    "UpdateDevEndpoint"
-    "fixture/UpdateDevEndpoint.yaml"
-
-requestCreateSchema :: CreateSchema -> TestTree
-requestCreateSchema =
-  req
-    "CreateSchema"
-    "fixture/CreateSchema.yaml"
-
-requestListDevEndpoints :: ListDevEndpoints -> TestTree
-requestListDevEndpoints =
-  req
-    "ListDevEndpoints"
-    "fixture/ListDevEndpoints.yaml"
 
 requestDeleteCrawler :: DeleteCrawler -> TestTree
 requestDeleteCrawler =
@@ -1361,23 +1409,23 @@ requestDeleteCrawler =
     "DeleteCrawler"
     "fixture/DeleteCrawler.yaml"
 
+requestListDevEndpoints :: ListDevEndpoints -> TestTree
+requestListDevEndpoints =
+  req
+    "ListDevEndpoints"
+    "fixture/ListDevEndpoints.yaml"
+
 requestDeleteDevEndpoint :: DeleteDevEndpoint -> TestTree
 requestDeleteDevEndpoint =
   req
     "DeleteDevEndpoint"
     "fixture/DeleteDevEndpoint.yaml"
 
-requestGetWorkflow :: GetWorkflow -> TestTree
-requestGetWorkflow =
+requestUpdateDevEndpoint :: UpdateDevEndpoint -> TestTree
+requestUpdateDevEndpoint =
   req
-    "GetWorkflow"
-    "fixture/GetWorkflow.yaml"
-
-requestGetSchemaVersion :: GetSchemaVersion -> TestTree
-requestGetSchemaVersion =
-  req
-    "GetSchemaVersion"
-    "fixture/GetSchemaVersion.yaml"
+    "UpdateDevEndpoint"
+    "fixture/UpdateDevEndpoint.yaml"
 
 requestUpdateCrawler :: UpdateCrawler -> TestTree
 requestUpdateCrawler =
@@ -1385,41 +1433,29 @@ requestUpdateCrawler =
     "UpdateCrawler"
     "fixture/UpdateCrawler.yaml"
 
-requestDeleteWorkflow :: DeleteWorkflow -> TestTree
-requestDeleteWorkflow =
+requestGetSchemaVersion :: GetSchemaVersion -> TestTree
+requestGetSchemaVersion =
   req
-    "DeleteWorkflow"
-    "fixture/DeleteWorkflow.yaml"
+    "GetSchemaVersion"
+    "fixture/GetSchemaVersion.yaml"
 
-requestRegisterSchemaVersion :: RegisterSchemaVersion -> TestTree
-requestRegisterSchemaVersion =
+requestCreateSchema :: CreateSchema -> TestTree
+requestCreateSchema =
   req
-    "RegisterSchemaVersion"
-    "fixture/RegisterSchemaVersion.yaml"
+    "CreateSchema"
+    "fixture/CreateSchema.yaml"
 
-requestGetMapping :: GetMapping -> TestTree
-requestGetMapping =
+requestGetWorkflow :: GetWorkflow -> TestTree
+requestGetWorkflow =
   req
-    "GetMapping"
-    "fixture/GetMapping.yaml"
+    "GetWorkflow"
+    "fixture/GetWorkflow.yaml"
 
-requestStopWorkflowRun :: StopWorkflowRun -> TestTree
-requestStopWorkflowRun =
+requestListCrawlers :: ListCrawlers -> TestTree
+requestListCrawlers =
   req
-    "StopWorkflowRun"
-    "fixture/StopWorkflowRun.yaml"
-
-requestCreateConnection :: CreateConnection -> TestTree
-requestCreateConnection =
-  req
-    "CreateConnection"
-    "fixture/CreateConnection.yaml"
-
-requestBatchCreatePartition :: BatchCreatePartition -> TestTree
-requestBatchCreatePartition =
-  req
-    "BatchCreatePartition"
-    "fixture/BatchCreatePartition.yaml"
+    "ListCrawlers"
+    "fixture/ListCrawlers.yaml"
 
 requestCreateTable :: CreateTable -> TestTree
 requestCreateTable =
@@ -1427,17 +1463,11 @@ requestCreateTable =
     "CreateTable"
     "fixture/CreateTable.yaml"
 
-requestUpdateWorkflow :: UpdateWorkflow -> TestTree
-requestUpdateWorkflow =
+requestGetMapping :: GetMapping -> TestTree
+requestGetMapping =
   req
-    "UpdateWorkflow"
-    "fixture/UpdateWorkflow.yaml"
-
-requestGetClassifiers :: GetClassifiers -> TestTree
-requestGetClassifiers =
-  req
-    "GetClassifiers"
-    "fixture/GetClassifiers.yaml"
+    "GetMapping"
+    "fixture/GetMapping.yaml"
 
 requestBatchStopJobRun :: BatchStopJobRun -> TestTree
 requestBatchStopJobRun =
@@ -1451,11 +1481,53 @@ requestStartWorkflowRun =
     "StartWorkflowRun"
     "fixture/StartWorkflowRun.yaml"
 
+requestCreateConnection :: CreateConnection -> TestTree
+requestCreateConnection =
+  req
+    "CreateConnection"
+    "fixture/CreateConnection.yaml"
+
+requestGetClassifiers :: GetClassifiers -> TestTree
+requestGetClassifiers =
+  req
+    "GetClassifiers"
+    "fixture/GetClassifiers.yaml"
+
+requestBatchCreatePartition :: BatchCreatePartition -> TestTree
+requestBatchCreatePartition =
+  req
+    "BatchCreatePartition"
+    "fixture/BatchCreatePartition.yaml"
+
 requestListWorkflows :: ListWorkflows -> TestTree
 requestListWorkflows =
   req
     "ListWorkflows"
     "fixture/ListWorkflows.yaml"
+
+requestUpdateWorkflow :: UpdateWorkflow -> TestTree
+requestUpdateWorkflow =
+  req
+    "UpdateWorkflow"
+    "fixture/UpdateWorkflow.yaml"
+
+requestRegisterSchemaVersion :: RegisterSchemaVersion -> TestTree
+requestRegisterSchemaVersion =
+  req
+    "RegisterSchemaVersion"
+    "fixture/RegisterSchemaVersion.yaml"
+
+requestStopWorkflowRun :: StopWorkflowRun -> TestTree
+requestStopWorkflowRun =
+  req
+    "StopWorkflowRun"
+    "fixture/StopWorkflowRun.yaml"
+
+requestDeleteWorkflow :: DeleteWorkflow -> TestTree
+requestDeleteWorkflow =
+  req
+    "DeleteWorkflow"
+    "fixture/DeleteWorkflow.yaml"
 
 requestListSchemaVersions :: ListSchemaVersions -> TestTree
 requestListSchemaVersions =
@@ -1463,17 +1535,17 @@ requestListSchemaVersions =
     "ListSchemaVersions"
     "fixture/ListSchemaVersions.yaml"
 
+requestBatchUpdatePartition :: BatchUpdatePartition -> TestTree
+requestBatchUpdatePartition =
+  req
+    "BatchUpdatePartition"
+    "fixture/BatchUpdatePartition.yaml"
+
 requestBatchDeletePartition :: BatchDeletePartition -> TestTree
 requestBatchDeletePartition =
   req
     "BatchDeletePartition"
     "fixture/BatchDeletePartition.yaml"
-
-requestPutSchemaVersionMetadata :: PutSchemaVersionMetadata -> TestTree
-requestPutSchemaVersionMetadata =
-  req
-    "PutSchemaVersionMetadata"
-    "fixture/PutSchemaVersionMetadata.yaml"
 
 requestGetWorkflowRuns :: GetWorkflowRuns -> TestTree
 requestGetWorkflowRuns =
@@ -1487,18 +1559,6 @@ requestGetTags =
     "GetTags"
     "fixture/GetTags.yaml"
 
-requestBatchUpdatePartition :: BatchUpdatePartition -> TestTree
-requestBatchUpdatePartition =
-  req
-    "BatchUpdatePartition"
-    "fixture/BatchUpdatePartition.yaml"
-
-requestGetUserDefinedFunctions :: GetUserDefinedFunctions -> TestTree
-requestGetUserDefinedFunctions =
-  req
-    "GetUserDefinedFunctions"
-    "fixture/GetUserDefinedFunctions.yaml"
-
 requestUpdateTable :: UpdateTable -> TestTree
 requestUpdateTable =
   req
@@ -1511,11 +1571,17 @@ requestDeleteTable =
     "DeleteTable"
     "fixture/DeleteTable.yaml"
 
-requestDeleteDatabase :: DeleteDatabase -> TestTree
-requestDeleteDatabase =
+requestGetUserDefinedFunctions :: GetUserDefinedFunctions -> TestTree
+requestGetUserDefinedFunctions =
   req
-    "DeleteDatabase"
-    "fixture/DeleteDatabase.yaml"
+    "GetUserDefinedFunctions"
+    "fixture/GetUserDefinedFunctions.yaml"
+
+requestPutSchemaVersionMetadata :: PutSchemaVersionMetadata -> TestTree
+requestPutSchemaVersionMetadata =
+  req
+    "PutSchemaVersionMetadata"
+    "fixture/PutSchemaVersionMetadata.yaml"
 
 requestUpdateDatabase :: UpdateDatabase -> TestTree
 requestUpdateDatabase =
@@ -1529,17 +1595,23 @@ requestGetUserDefinedFunction =
     "GetUserDefinedFunction"
     "fixture/GetUserDefinedFunction.yaml"
 
+requestCreateTrigger :: CreateTrigger -> TestTree
+requestCreateTrigger =
+  req
+    "CreateTrigger"
+    "fixture/CreateTrigger.yaml"
+
+requestDeleteDatabase :: DeleteDatabase -> TestTree
+requestDeleteDatabase =
+  req
+    "DeleteDatabase"
+    "fixture/DeleteDatabase.yaml"
+
 requestUpdateMLTransform :: UpdateMLTransform -> TestTree
 requestUpdateMLTransform =
   req
     "UpdateMLTransform"
     "fixture/UpdateMLTransform.yaml"
-
-requestGetWorkflowRun :: GetWorkflowRun -> TestTree
-requestGetWorkflowRun =
-  req
-    "GetWorkflowRun"
-    "fixture/GetWorkflowRun.yaml"
 
 requestDeleteMLTransform :: DeleteMLTransform -> TestTree
 requestDeleteMLTransform =
@@ -1547,23 +1619,17 @@ requestDeleteMLTransform =
     "DeleteMLTransform"
     "fixture/DeleteMLTransform.yaml"
 
-requestCreateTrigger :: CreateTrigger -> TestTree
-requestCreateTrigger =
+requestGetWorkflowRun :: GetWorkflowRun -> TestTree
+requestGetWorkflowRun =
   req
-    "CreateTrigger"
-    "fixture/CreateTrigger.yaml"
+    "GetWorkflowRun"
+    "fixture/GetWorkflowRun.yaml"
 
-requestCreateDatabase :: CreateDatabase -> TestTree
-requestCreateDatabase =
+requestGetTableVersions :: GetTableVersions -> TestTree
+requestGetTableVersions =
   req
-    "CreateDatabase"
-    "fixture/CreateDatabase.yaml"
-
-requestGetClassifier :: GetClassifier -> TestTree
-requestGetClassifier =
-  req
-    "GetClassifier"
-    "fixture/GetClassifier.yaml"
+    "GetTableVersions"
+    "fixture/GetTableVersions.yaml"
 
 requestDeleteSchemaVersions :: DeleteSchemaVersions -> TestTree
 requestDeleteSchemaVersions =
@@ -1577,17 +1643,29 @@ requestBatchGetTriggers =
     "BatchGetTriggers"
     "fixture/BatchGetTriggers.yaml"
 
-requestBatchDeleteTableVersion :: BatchDeleteTableVersion -> TestTree
-requestBatchDeleteTableVersion =
+requestGetClassifier :: GetClassifier -> TestTree
+requestGetClassifier =
   req
-    "BatchDeleteTableVersion"
-    "fixture/BatchDeleteTableVersion.yaml"
+    "GetClassifier"
+    "fixture/GetClassifier.yaml"
 
-requestGetTableVersions :: GetTableVersions -> TestTree
-requestGetTableVersions =
+requestCreateDatabase :: CreateDatabase -> TestTree
+requestCreateDatabase =
   req
-    "GetTableVersions"
-    "fixture/GetTableVersions.yaml"
+    "CreateDatabase"
+    "fixture/CreateDatabase.yaml"
+
+requestGetCrawlers :: GetCrawlers -> TestTree
+requestGetCrawlers =
+  req
+    "GetCrawlers"
+    "fixture/GetCrawlers.yaml"
+
+requestGetBlueprint :: GetBlueprint -> TestTree
+requestGetBlueprint =
+  req
+    "GetBlueprint"
+    "fixture/GetBlueprint.yaml"
 
 requestGetDevEndpoints :: GetDevEndpoints -> TestTree
 requestGetDevEndpoints =
@@ -1595,11 +1673,17 @@ requestGetDevEndpoints =
     "GetDevEndpoints"
     "fixture/GetDevEndpoints.yaml"
 
-requestGetCrawlers :: GetCrawlers -> TestTree
-requestGetCrawlers =
+requestBatchDeleteTableVersion :: BatchDeleteTableVersion -> TestTree
+requestBatchDeleteTableVersion =
   req
-    "GetCrawlers"
-    "fixture/GetCrawlers.yaml"
+    "BatchDeleteTableVersion"
+    "fixture/BatchDeleteTableVersion.yaml"
+
+requestDeleteBlueprint :: DeleteBlueprint -> TestTree
+requestDeleteBlueprint =
+  req
+    "DeleteBlueprint"
+    "fixture/DeleteBlueprint.yaml"
 
 requestStartJobRun :: StartJobRun -> TestTree
 requestStartJobRun =
@@ -1619,11 +1703,11 @@ requestCreatePartition =
     "CreatePartition"
     "fixture/CreatePartition.yaml"
 
-requestResetJobBookmark :: ResetJobBookmark -> TestTree
-requestResetJobBookmark =
+requestUpdateBlueprint :: UpdateBlueprint -> TestTree
+requestUpdateBlueprint =
   req
-    "ResetJobBookmark"
-    "fixture/ResetJobBookmark.yaml"
+    "UpdateBlueprint"
+    "fixture/UpdateBlueprint.yaml"
 
 requestListJobs :: ListJobs -> TestTree
 requestListJobs =
@@ -1631,77 +1715,17 @@ requestListJobs =
     "ListJobs"
     "fixture/ListJobs.yaml"
 
-requestBatchDeleteConnection :: BatchDeleteConnection -> TestTree
-requestBatchDeleteConnection =
+requestResetJobBookmark :: ResetJobBookmark -> TestTree
+requestResetJobBookmark =
   req
-    "BatchDeleteConnection"
-    "fixture/BatchDeleteConnection.yaml"
+    "ResetJobBookmark"
+    "fixture/ResetJobBookmark.yaml"
 
-requestGetTables :: GetTables -> TestTree
-requestGetTables =
+requestBatchGetBlueprints :: BatchGetBlueprints -> TestTree
+requestBatchGetBlueprints =
   req
-    "GetTables"
-    "fixture/GetTables.yaml"
-
-requestDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartition -> TestTree
-requestDeleteColumnStatisticsForPartition =
-  req
-    "DeleteColumnStatisticsForPartition"
-    "fixture/DeleteColumnStatisticsForPartition.yaml"
-
-requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
-requestDeleteResourcePolicy =
-  req
-    "DeleteResourcePolicy"
-    "fixture/DeleteResourcePolicy.yaml"
-
-requestGetRegistry :: GetRegistry -> TestTree
-requestGetRegistry =
-  req
-    "GetRegistry"
-    "fixture/GetRegistry.yaml"
-
-requestResumeWorkflowRun :: ResumeWorkflowRun -> TestTree
-requestResumeWorkflowRun =
-  req
-    "ResumeWorkflowRun"
-    "fixture/ResumeWorkflowRun.yaml"
-
-requestCancelMLTaskRun :: CancelMLTaskRun -> TestTree
-requestCancelMLTaskRun =
-  req
-    "CancelMLTaskRun"
-    "fixture/CancelMLTaskRun.yaml"
-
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
-
-requestSearchTables :: SearchTables -> TestTree
-requestSearchTables =
-  req
-    "SearchTables"
-    "fixture/SearchTables.yaml"
-
-requestUpdateUserDefinedFunction :: UpdateUserDefinedFunction -> TestTree
-requestUpdateUserDefinedFunction =
-  req
-    "UpdateUserDefinedFunction"
-    "fixture/UpdateUserDefinedFunction.yaml"
-
-requestUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartition -> TestTree
-requestUpdateColumnStatisticsForPartition =
-  req
-    "UpdateColumnStatisticsForPartition"
-    "fixture/UpdateColumnStatisticsForPartition.yaml"
-
-requestGetConnections :: GetConnections -> TestTree
-requestGetConnections =
-  req
-    "GetConnections"
-    "fixture/GetConnections.yaml"
+    "BatchGetBlueprints"
+    "fixture/BatchGetBlueprints.yaml"
 
 requestGetMLTransform :: GetMLTransform -> TestTree
 requestGetMLTransform =
@@ -1715,11 +1739,41 @@ requestCreateScript =
     "CreateScript"
     "fixture/CreateScript.yaml"
 
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestGetRegistry :: GetRegistry -> TestTree
+requestGetRegistry =
+  req
+    "GetRegistry"
+    "fixture/GetRegistry.yaml"
+
 requestGetMLTaskRun :: GetMLTaskRun -> TestTree
 requestGetMLTaskRun =
   req
     "GetMLTaskRun"
     "fixture/GetMLTaskRun.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
+
+requestUpdateUserDefinedFunction :: UpdateUserDefinedFunction -> TestTree
+requestUpdateUserDefinedFunction =
+  req
+    "UpdateUserDefinedFunction"
+    "fixture/UpdateUserDefinedFunction.yaml"
+
+requestDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartition -> TestTree
+requestDeleteColumnStatisticsForPartition =
+  req
+    "DeleteColumnStatisticsForPartition"
+    "fixture/DeleteColumnStatisticsForPartition.yaml"
 
 requestDeleteUserDefinedFunction :: DeleteUserDefinedFunction -> TestTree
 requestDeleteUserDefinedFunction =
@@ -1727,35 +1781,53 @@ requestDeleteUserDefinedFunction =
     "DeleteUserDefinedFunction"
     "fixture/DeleteUserDefinedFunction.yaml"
 
-requestStartTrigger :: StartTrigger -> TestTree
-requestStartTrigger =
+requestCancelMLTaskRun :: CancelMLTaskRun -> TestTree
+requestCancelMLTaskRun =
   req
-    "StartTrigger"
-    "fixture/StartTrigger.yaml"
+    "CancelMLTaskRun"
+    "fixture/CancelMLTaskRun.yaml"
 
-requestPutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettings -> TestTree
-requestPutDataCatalogEncryptionSettings =
+requestSearchTables :: SearchTables -> TestTree
+requestSearchTables =
   req
-    "PutDataCatalogEncryptionSettings"
-    "fixture/PutDataCatalogEncryptionSettings.yaml"
+    "SearchTables"
+    "fixture/SearchTables.yaml"
 
-requestRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadata -> TestTree
-requestRemoveSchemaVersionMetadata =
+requestUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartition -> TestTree
+requestUpdateColumnStatisticsForPartition =
   req
-    "RemoveSchemaVersionMetadata"
-    "fixture/RemoveSchemaVersionMetadata.yaml"
+    "UpdateColumnStatisticsForPartition"
+    "fixture/UpdateColumnStatisticsForPartition.yaml"
 
-requestBatchGetPartition :: BatchGetPartition -> TestTree
-requestBatchGetPartition =
+requestGetTables :: GetTables -> TestTree
+requestGetTables =
   req
-    "BatchGetPartition"
-    "fixture/BatchGetPartition.yaml"
+    "GetTables"
+    "fixture/GetTables.yaml"
 
-requestGetTable :: GetTable -> TestTree
-requestGetTable =
+requestBatchDeleteConnection :: BatchDeleteConnection -> TestTree
+requestBatchDeleteConnection =
   req
-    "GetTable"
-    "fixture/GetTable.yaml"
+    "BatchDeleteConnection"
+    "fixture/BatchDeleteConnection.yaml"
+
+requestGetConnections :: GetConnections -> TestTree
+requestGetConnections =
+  req
+    "GetConnections"
+    "fixture/GetConnections.yaml"
+
+requestGetBlueprintRuns :: GetBlueprintRuns -> TestTree
+requestGetBlueprintRuns =
+  req
+    "GetBlueprintRuns"
+    "fixture/GetBlueprintRuns.yaml"
+
+requestResumeWorkflowRun :: ResumeWorkflowRun -> TestTree
+requestResumeWorkflowRun =
+  req
+    "ResumeWorkflowRun"
+    "fixture/ResumeWorkflowRun.yaml"
 
 requestUpdateCrawlerSchedule :: UpdateCrawlerSchedule -> TestTree
 requestUpdateCrawlerSchedule =
@@ -1763,11 +1835,53 @@ requestUpdateCrawlerSchedule =
     "UpdateCrawlerSchedule"
     "fixture/UpdateCrawlerSchedule.yaml"
 
-requestGetColumnStatisticsForTable :: GetColumnStatisticsForTable -> TestTree
-requestGetColumnStatisticsForTable =
+requestStartTrigger :: StartTrigger -> TestTree
+requestStartTrigger =
   req
-    "GetColumnStatisticsForTable"
-    "fixture/GetColumnStatisticsForTable.yaml"
+    "StartTrigger"
+    "fixture/StartTrigger.yaml"
+
+requestGetConnection :: GetConnection -> TestTree
+requestGetConnection =
+  req
+    "GetConnection"
+    "fixture/GetConnection.yaml"
+
+requestRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadata -> TestTree
+requestRemoveSchemaVersionMetadata =
+  req
+    "RemoveSchemaVersionMetadata"
+    "fixture/RemoveSchemaVersionMetadata.yaml"
+
+requestGetTable :: GetTable -> TestTree
+requestGetTable =
+  req
+    "GetTable"
+    "fixture/GetTable.yaml"
+
+requestDeleteSchema :: DeleteSchema -> TestTree
+requestDeleteSchema =
+  req
+    "DeleteSchema"
+    "fixture/DeleteSchema.yaml"
+
+requestPutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettings -> TestTree
+requestPutDataCatalogEncryptionSettings =
+  req
+    "PutDataCatalogEncryptionSettings"
+    "fixture/PutDataCatalogEncryptionSettings.yaml"
+
+requestGetBlueprintRun :: GetBlueprintRun -> TestTree
+requestGetBlueprintRun =
+  req
+    "GetBlueprintRun"
+    "fixture/GetBlueprintRun.yaml"
+
+requestUpdateSchema :: UpdateSchema -> TestTree
+requestUpdateSchema =
+  req
+    "UpdateSchema"
+    "fixture/UpdateSchema.yaml"
 
 requestStopTrigger :: StopTrigger -> TestTree
 requestStopTrigger =
@@ -1781,11 +1895,23 @@ requestListSchemas =
     "ListSchemas"
     "fixture/ListSchemas.yaml"
 
-requestGetConnection :: GetConnection -> TestTree
-requestGetConnection =
+requestGetDataflowGraph :: GetDataflowGraph -> TestTree
+requestGetDataflowGraph =
   req
-    "GetConnection"
-    "fixture/GetConnection.yaml"
+    "GetDataflowGraph"
+    "fixture/GetDataflowGraph.yaml"
+
+requestBatchGetPartition :: BatchGetPartition -> TestTree
+requestBatchGetPartition =
+  req
+    "BatchGetPartition"
+    "fixture/BatchGetPartition.yaml"
+
+requestGetColumnStatisticsForTable :: GetColumnStatisticsForTable -> TestTree
+requestGetColumnStatisticsForTable =
+  req
+    "GetColumnStatisticsForTable"
+    "fixture/GetColumnStatisticsForTable.yaml"
 
 requestGetDatabases :: GetDatabases -> TestTree
 requestGetDatabases =
@@ -1793,35 +1919,11 @@ requestGetDatabases =
     "GetDatabases"
     "fixture/GetDatabases.yaml"
 
-requestDeleteSchema :: DeleteSchema -> TestTree
-requestDeleteSchema =
+requestDeleteTableVersion :: DeleteTableVersion -> TestTree
+requestDeleteTableVersion =
   req
-    "DeleteSchema"
-    "fixture/DeleteSchema.yaml"
-
-requestUpdateSchema :: UpdateSchema -> TestTree
-requestUpdateSchema =
-  req
-    "UpdateSchema"
-    "fixture/UpdateSchema.yaml"
-
-requestGetDataflowGraph :: GetDataflowGraph -> TestTree
-requestGetDataflowGraph =
-  req
-    "GetDataflowGraph"
-    "fixture/GetDataflowGraph.yaml"
-
-requestBatchGetDevEndpoints :: BatchGetDevEndpoints -> TestTree
-requestBatchGetDevEndpoints =
-  req
-    "BatchGetDevEndpoints"
-    "fixture/BatchGetDevEndpoints.yaml"
-
-requestStartExportLabelsTaskRun :: StartExportLabelsTaskRun -> TestTree
-requestStartExportLabelsTaskRun =
-  req
-    "StartExportLabelsTaskRun"
-    "fixture/StartExportLabelsTaskRun.yaml"
+    "DeleteTableVersion"
+    "fixture/DeleteTableVersion.yaml"
 
 requestGetTriggers :: GetTriggers -> TestTree
 requestGetTriggers =
@@ -1835,17 +1937,17 @@ requestBatchGetCrawlers =
     "BatchGetCrawlers"
     "fixture/BatchGetCrawlers.yaml"
 
-requestGetPlan :: GetPlan -> TestTree
-requestGetPlan =
+requestGetJobBookmark :: GetJobBookmark -> TestTree
+requestGetJobBookmark =
   req
-    "GetPlan"
-    "fixture/GetPlan.yaml"
+    "GetJobBookmark"
+    "fixture/GetJobBookmark.yaml"
 
-requestGetCrawlerMetrics :: GetCrawlerMetrics -> TestTree
-requestGetCrawlerMetrics =
+requestStartExportLabelsTaskRun :: StartExportLabelsTaskRun -> TestTree
+requestStartExportLabelsTaskRun =
   req
-    "GetCrawlerMetrics"
-    "fixture/GetCrawlerMetrics.yaml"
+    "StartExportLabelsTaskRun"
+    "fixture/StartExportLabelsTaskRun.yaml"
 
 requestGetWorkflowRunProperties :: GetWorkflowRunProperties -> TestTree
 requestGetWorkflowRunProperties =
@@ -1853,29 +1955,47 @@ requestGetWorkflowRunProperties =
     "GetWorkflowRunProperties"
     "fixture/GetWorkflowRunProperties.yaml"
 
+requestGetCrawlerMetrics :: GetCrawlerMetrics -> TestTree
+requestGetCrawlerMetrics =
+  req
+    "GetCrawlerMetrics"
+    "fixture/GetCrawlerMetrics.yaml"
+
 requestDeletePartitionIndex :: DeletePartitionIndex -> TestTree
 requestDeletePartitionIndex =
   req
     "DeletePartitionIndex"
     "fixture/DeletePartitionIndex.yaml"
 
-requestGetJobBookmark :: GetJobBookmark -> TestTree
-requestGetJobBookmark =
+requestBatchGetDevEndpoints :: BatchGetDevEndpoints -> TestTree
+requestBatchGetDevEndpoints =
   req
-    "GetJobBookmark"
-    "fixture/GetJobBookmark.yaml"
+    "BatchGetDevEndpoints"
+    "fixture/BatchGetDevEndpoints.yaml"
 
-requestDeleteTableVersion :: DeleteTableVersion -> TestTree
-requestDeleteTableVersion =
+requestGetPlan :: GetPlan -> TestTree
+requestGetPlan =
   req
-    "DeleteTableVersion"
-    "fixture/DeleteTableVersion.yaml"
+    "GetPlan"
+    "fixture/GetPlan.yaml"
 
-requestGetTableVersion :: GetTableVersion -> TestTree
-requestGetTableVersion =
+requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
+requestCreateSecurityConfiguration =
   req
-    "GetTableVersion"
-    "fixture/GetTableVersion.yaml"
+    "CreateSecurityConfiguration"
+    "fixture/CreateSecurityConfiguration.yaml"
+
+requestGetResourcePolicies :: GetResourcePolicies -> TestTree
+requestGetResourcePolicies =
+  req
+    "GetResourcePolicies"
+    "fixture/GetResourcePolicies.yaml"
+
+requestGetDevEndpoint :: GetDevEndpoint -> TestTree
+requestGetDevEndpoint =
+  req
+    "GetDevEndpoint"
+    "fixture/GetDevEndpoint.yaml"
 
 requestPutWorkflowRunProperties :: PutWorkflowRunProperties -> TestTree
 requestPutWorkflowRunProperties =
@@ -1889,11 +2009,11 @@ requestBatchGetWorkflows =
     "BatchGetWorkflows"
     "fixture/BatchGetWorkflows.yaml"
 
-requestGetResourcePolicies :: GetResourcePolicies -> TestTree
-requestGetResourcePolicies =
+requestGetTableVersion :: GetTableVersion -> TestTree
+requestGetTableVersion =
   req
-    "GetResourcePolicies"
-    "fixture/GetResourcePolicies.yaml"
+    "GetTableVersion"
+    "fixture/GetTableVersion.yaml"
 
 requestGetJobs :: GetJobs -> TestTree
 requestGetJobs =
@@ -1901,73 +2021,13 @@ requestGetJobs =
     "GetJobs"
     "fixture/GetJobs.yaml"
 
-requestGetDevEndpoint :: GetDevEndpoint -> TestTree
-requestGetDevEndpoint =
-  req
-    "GetDevEndpoint"
-    "fixture/GetDevEndpoint.yaml"
-
 requestGetCrawler :: GetCrawler -> TestTree
 requestGetCrawler =
   req
     "GetCrawler"
     "fixture/GetCrawler.yaml"
 
-requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
-requestCreateSecurityConfiguration =
-  req
-    "CreateSecurityConfiguration"
-    "fixture/CreateSecurityConfiguration.yaml"
-
 -- Responses
-
-responseGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> TestTree
-responseGetDataCatalogEncryptionSettings =
-  res
-    "GetDataCatalogEncryptionSettingsResponse"
-    "fixture/GetDataCatalogEncryptionSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDataCatalogEncryptionSettings)
-
-responseUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTableResponse -> TestTree
-responseUpdateColumnStatisticsForTable =
-  res
-    "UpdateColumnStatisticsForTableResponse"
-    "fixture/UpdateColumnStatisticsForTableResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateColumnStatisticsForTable)
-
-responseStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRunResponse -> TestTree
-responseStartMLLabelingSetGenerationTaskRun =
-  res
-    "StartMLLabelingSetGenerationTaskRunResponse"
-    "fixture/StartMLLabelingSetGenerationTaskRunResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartMLLabelingSetGenerationTaskRun)
-
-responseDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTableResponse -> TestTree
-responseDeleteColumnStatisticsForTable =
-  res
-    "DeleteColumnStatisticsForTableResponse"
-    "fixture/DeleteColumnStatisticsForTableResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteColumnStatisticsForTable)
-
-responseGetSchema :: GetSchemaResponse -> TestTree
-responseGetSchema =
-  res
-    "GetSchemaResponse"
-    "fixture/GetSchemaResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSchema)
-
-responseDeleteConnection :: DeleteConnectionResponse -> TestTree
-responseDeleteConnection =
-  res
-    "DeleteConnectionResponse"
-    "fixture/DeleteConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
 responseUpdateConnection =
@@ -1977,29 +2037,13 @@ responseUpdateConnection =
     defaultService
     (Proxy :: Proxy UpdateConnection)
 
-responseCheckSchemaVersionValidity :: CheckSchemaVersionValidityResponse -> TestTree
-responseCheckSchemaVersionValidity =
+responseUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTableResponse -> TestTree
+responseUpdateColumnStatisticsForTable =
   res
-    "CheckSchemaVersionValidityResponse"
-    "fixture/CheckSchemaVersionValidityResponse.proto"
+    "UpdateColumnStatisticsForTableResponse"
+    "fixture/UpdateColumnStatisticsForTableResponse.proto"
     defaultService
-    (Proxy :: Proxy CheckSchemaVersionValidity)
-
-responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
-responseCreateWorkflow =
-  res
-    "CreateWorkflowResponse"
-    "fixture/CreateWorkflowResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateWorkflow)
-
-responseGetPartitions :: GetPartitionsResponse -> TestTree
-responseGetPartitions =
-  res
-    "GetPartitionsResponse"
-    "fixture/GetPartitionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetPartitions)
+    (Proxy :: Proxy UpdateColumnStatisticsForTable)
 
 responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
 responseDeleteSecurityConfiguration =
@@ -2009,37 +2053,77 @@ responseDeleteSecurityConfiguration =
     defaultService
     (Proxy :: Proxy DeleteSecurityConfiguration)
 
-responseGetPartition :: GetPartitionResponse -> TestTree
-responseGetPartition =
+responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
+responseCreateWorkflow =
   res
-    "GetPartitionResponse"
-    "fixture/GetPartitionResponse.proto"
+    "CreateWorkflowResponse"
+    "fixture/CreateWorkflowResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPartition)
+    (Proxy :: Proxy CreateWorkflow)
 
-responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
-responseUpdateRegistry =
+responseStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRunResponse -> TestTree
+responseStartMLLabelingSetGenerationTaskRun =
   res
-    "UpdateRegistryResponse"
-    "fixture/UpdateRegistryResponse.proto"
+    "StartMLLabelingSetGenerationTaskRunResponse"
+    "fixture/StartMLLabelingSetGenerationTaskRunResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRegistry)
+    (Proxy :: Proxy StartMLLabelingSetGenerationTaskRun)
 
-responseListMLTransforms :: ListMLTransformsResponse -> TestTree
-responseListMLTransforms =
+responseGetPartitions :: GetPartitionsResponse -> TestTree
+responseGetPartitions =
   res
-    "ListMLTransformsResponse"
-    "fixture/ListMLTransformsResponse.proto"
+    "GetPartitionsResponse"
+    "fixture/GetPartitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListMLTransforms)
+    (Proxy :: Proxy GetPartitions)
 
-responseStopCrawler :: StopCrawlerResponse -> TestTree
-responseStopCrawler =
+responseDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTableResponse -> TestTree
+responseDeleteColumnStatisticsForTable =
   res
-    "StopCrawlerResponse"
-    "fixture/StopCrawlerResponse.proto"
+    "DeleteColumnStatisticsForTableResponse"
+    "fixture/DeleteColumnStatisticsForTableResponse.proto"
     defaultService
-    (Proxy :: Proxy StopCrawler)
+    (Proxy :: Proxy DeleteColumnStatisticsForTable)
+
+responseGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> TestTree
+responseGetDataCatalogEncryptionSettings =
+  res
+    "GetDataCatalogEncryptionSettingsResponse"
+    "fixture/GetDataCatalogEncryptionSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDataCatalogEncryptionSettings)
+
+responseDeleteConnection :: DeleteConnectionResponse -> TestTree
+responseDeleteConnection =
+  res
+    "DeleteConnectionResponse"
+    "fixture/DeleteConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConnection)
+
+responseGetSchema :: GetSchemaResponse -> TestTree
+responseGetSchema =
+  res
+    "GetSchemaResponse"
+    "fixture/GetSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSchema)
+
+responseCheckSchemaVersionValidity :: CheckSchemaVersionValidityResponse -> TestTree
+responseCheckSchemaVersionValidity =
+  res
+    "CheckSchemaVersionValidityResponse"
+    "fixture/CheckSchemaVersionValidityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CheckSchemaVersionValidity)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetResourcePolicy)
 
 responseStartImportLabelsTaskRun :: StartImportLabelsTaskRunResponse -> TestTree
 responseStartImportLabelsTaskRun =
@@ -2049,13 +2133,37 @@ responseStartImportLabelsTaskRun =
     defaultService
     (Proxy :: Proxy StartImportLabelsTaskRun)
 
-responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
-responseGetResourcePolicy =
+responseGetPartitionIndexes :: GetPartitionIndexesResponse -> TestTree
+responseGetPartitionIndexes =
   res
-    "GetResourcePolicyResponse"
-    "fixture/GetResourcePolicyResponse.proto"
+    "GetPartitionIndexesResponse"
+    "fixture/GetPartitionIndexesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicy)
+    (Proxy :: Proxy GetPartitionIndexes)
+
+responseGetCatalogImportStatus :: GetCatalogImportStatusResponse -> TestTree
+responseGetCatalogImportStatus =
+  res
+    "GetCatalogImportStatusResponse"
+    "fixture/GetCatalogImportStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCatalogImportStatus)
+
+responseStopCrawler :: StopCrawlerResponse -> TestTree
+responseStopCrawler =
+  res
+    "StopCrawlerResponse"
+    "fixture/StopCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopCrawler)
+
+responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
+responseUpdateRegistry =
+  res
+    "UpdateRegistryResponse"
+    "fixture/UpdateRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRegistry)
 
 responseQuerySchemaVersionMetadata :: QuerySchemaVersionMetadataResponse -> TestTree
 responseQuerySchemaVersionMetadata =
@@ -2073,13 +2181,21 @@ responseDeleteRegistry =
     defaultService
     (Proxy :: Proxy DeleteRegistry)
 
-responseGetPartitionIndexes :: GetPartitionIndexesResponse -> TestTree
-responseGetPartitionIndexes =
+responseGetPartition :: GetPartitionResponse -> TestTree
+responseGetPartition =
   res
-    "GetPartitionIndexesResponse"
-    "fixture/GetPartitionIndexesResponse.proto"
+    "GetPartitionResponse"
+    "fixture/GetPartitionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPartitionIndexes)
+    (Proxy :: Proxy GetPartition)
+
+responseListMLTransforms :: ListMLTransformsResponse -> TestTree
+responseListMLTransforms =
+  res
+    "ListMLTransformsResponse"
+    "fixture/ListMLTransformsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMLTransforms)
 
 responseStartCrawler :: StartCrawlerResponse -> TestTree
 responseStartCrawler =
@@ -2089,14 +2205,6 @@ responseStartCrawler =
     defaultService
     (Proxy :: Proxy StartCrawler)
 
-responseGetCatalogImportStatus :: GetCatalogImportStatusResponse -> TestTree
-responseGetCatalogImportStatus =
-  res
-    "GetCatalogImportStatusResponse"
-    "fixture/GetCatalogImportStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCatalogImportStatus)
-
 responseGetColumnStatisticsForPartition :: GetColumnStatisticsForPartitionResponse -> TestTree
 responseGetColumnStatisticsForPartition =
   res
@@ -2104,6 +2212,14 @@ responseGetColumnStatisticsForPartition =
     "fixture/GetColumnStatisticsForPartitionResponse.proto"
     defaultService
     (Proxy :: Proxy GetColumnStatisticsForPartition)
+
+responseListRegistries :: ListRegistriesResponse -> TestTree
+responseListRegistries =
+  res
+    "ListRegistriesResponse"
+    "fixture/ListRegistriesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRegistries)
 
 responseCreateRegistry :: CreateRegistryResponse -> TestTree
 responseCreateRegistry =
@@ -2113,13 +2229,29 @@ responseCreateRegistry =
     defaultService
     (Proxy :: Proxy CreateRegistry)
 
-responseListTriggers :: ListTriggersResponse -> TestTree
-responseListTriggers =
+responseStartCrawlerSchedule :: StartCrawlerScheduleResponse -> TestTree
+responseStartCrawlerSchedule =
   res
-    "ListTriggersResponse"
-    "fixture/ListTriggersResponse.proto"
+    "StartCrawlerScheduleResponse"
+    "fixture/StartCrawlerScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTriggers)
+    (Proxy :: Proxy StartCrawlerSchedule)
+
+responseGetJob :: GetJobResponse -> TestTree
+responseGetJob =
+  res
+    "GetJobResponse"
+    "fixture/GetJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJob)
+
+responseDeleteTrigger :: DeleteTriggerResponse -> TestTree
+responseDeleteTrigger =
+  res
+    "DeleteTriggerResponse"
+    "fixture/DeleteTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTrigger)
 
 responseCreateMLTransform :: CreateMLTransformResponse -> TestTree
 responseCreateMLTransform =
@@ -2145,6 +2277,14 @@ responseUpdateTrigger =
     defaultService
     (Proxy :: Proxy UpdateTrigger)
 
+responseListTriggers :: ListTriggersResponse -> TestTree
+responseListTriggers =
+  res
+    "ListTriggersResponse"
+    "fixture/ListTriggersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTriggers)
+
 responseGetSchemaByDefinition :: GetSchemaByDefinitionResponse -> TestTree
 responseGetSchemaByDefinition =
   res
@@ -2152,46 +2292,6 @@ responseGetSchemaByDefinition =
     "fixture/GetSchemaByDefinitionResponse.proto"
     defaultService
     (Proxy :: Proxy GetSchemaByDefinition)
-
-responseListRegistries :: ListRegistriesResponse -> TestTree
-responseListRegistries =
-  res
-    "ListRegistriesResponse"
-    "fixture/ListRegistriesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListRegistries)
-
-responseStartCrawlerSchedule :: StartCrawlerScheduleResponse -> TestTree
-responseStartCrawlerSchedule =
-  res
-    "StartCrawlerScheduleResponse"
-    "fixture/StartCrawlerScheduleResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartCrawlerSchedule)
-
-responseDeleteTrigger :: DeleteTriggerResponse -> TestTree
-responseDeleteTrigger =
-  res
-    "DeleteTriggerResponse"
-    "fixture/DeleteTriggerResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTrigger)
-
-responseGetJob :: GetJobResponse -> TestTree
-responseGetJob =
-  res
-    "GetJobResponse"
-    "fixture/GetJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetJob)
-
-responseUpdateClassifier :: UpdateClassifierResponse -> TestTree
-responseUpdateClassifier =
-  res
-    "UpdateClassifierResponse"
-    "fixture/UpdateClassifierResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateClassifier)
 
 responseDeleteClassifier :: DeleteClassifierResponse -> TestTree
 responseDeleteClassifier =
@@ -2201,13 +2301,13 @@ responseDeleteClassifier =
     defaultService
     (Proxy :: Proxy DeleteClassifier)
 
-responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob =
+responseStartBlueprintRun :: StartBlueprintRunResponse -> TestTree
+responseStartBlueprintRun =
   res
-    "DeleteJobResponse"
-    "fixture/DeleteJobResponse.proto"
+    "StartBlueprintRunResponse"
+    "fixture/StartBlueprintRunResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteJob)
+    (Proxy :: Proxy StartBlueprintRun)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
 responseUpdateJob =
@@ -2216,6 +2316,30 @@ responseUpdateJob =
     "fixture/UpdateJobResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateJob)
+
+responseDeleteJob :: DeleteJobResponse -> TestTree
+responseDeleteJob =
+  res
+    "DeleteJobResponse"
+    "fixture/DeleteJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteJob)
+
+responseUpdateClassifier :: UpdateClassifierResponse -> TestTree
+responseUpdateClassifier =
+  res
+    "UpdateClassifierResponse"
+    "fixture/UpdateClassifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateClassifier)
+
+responseListBlueprints :: ListBlueprintsResponse -> TestTree
+responseListBlueprints =
+  res
+    "ListBlueprintsResponse"
+    "fixture/ListBlueprintsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListBlueprints)
 
 responseCreateUserDefinedFunction :: CreateUserDefinedFunctionResponse -> TestTree
 responseCreateUserDefinedFunction =
@@ -2241,21 +2365,13 @@ responseBatchGetJobs =
     defaultService
     (Proxy :: Proxy BatchGetJobs)
 
-responseCreateClassifier :: CreateClassifierResponse -> TestTree
-responseCreateClassifier =
+responseGetDatabase :: GetDatabaseResponse -> TestTree
+responseGetDatabase =
   res
-    "CreateClassifierResponse"
-    "fixture/CreateClassifierResponse.proto"
+    "GetDatabaseResponse"
+    "fixture/GetDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateClassifier)
-
-responseGetSecurityConfigurations :: GetSecurityConfigurationsResponse -> TestTree
-responseGetSecurityConfigurations =
-  res
-    "GetSecurityConfigurationsResponse"
-    "fixture/GetSecurityConfigurationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSecurityConfigurations)
+    (Proxy :: Proxy GetDatabase)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
 responsePutResourcePolicy =
@@ -2264,6 +2380,38 @@ responsePutResourcePolicy =
     "fixture/PutResourcePolicyResponse.proto"
     defaultService
     (Proxy :: Proxy PutResourcePolicy)
+
+responseStartMLEvaluationTaskRun :: StartMLEvaluationTaskRunResponse -> TestTree
+responseStartMLEvaluationTaskRun =
+  res
+    "StartMLEvaluationTaskRunResponse"
+    "fixture/StartMLEvaluationTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMLEvaluationTaskRun)
+
+responseDeletePartition :: DeletePartitionResponse -> TestTree
+responseDeletePartition =
+  res
+    "DeletePartitionResponse"
+    "fixture/DeletePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePartition)
+
+responseCreateBlueprint :: CreateBlueprintResponse -> TestTree
+responseCreateBlueprint =
+  res
+    "CreateBlueprintResponse"
+    "fixture/CreateBlueprintResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateBlueprint)
+
+responseBatchDeleteTable :: BatchDeleteTableResponse -> TestTree
+responseBatchDeleteTable =
+  res
+    "BatchDeleteTableResponse"
+    "fixture/BatchDeleteTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeleteTable)
 
 responseUpdatePartition :: UpdatePartitionResponse -> TestTree
 responseUpdatePartition =
@@ -2281,6 +2429,14 @@ responseGetSchemaVersionsDiff =
     defaultService
     (Proxy :: Proxy GetSchemaVersionsDiff)
 
+responseGetJobRuns :: GetJobRunsResponse -> TestTree
+responseGetJobRuns =
+  res
+    "GetJobRunsResponse"
+    "fixture/GetJobRunsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobRuns)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -2289,45 +2445,37 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseBatchDeleteTable :: BatchDeleteTableResponse -> TestTree
-responseBatchDeleteTable =
+responseGetSecurityConfigurations :: GetSecurityConfigurationsResponse -> TestTree
+responseGetSecurityConfigurations =
   res
-    "BatchDeleteTableResponse"
-    "fixture/BatchDeleteTableResponse.proto"
+    "GetSecurityConfigurationsResponse"
+    "fixture/GetSecurityConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteTable)
+    (Proxy :: Proxy GetSecurityConfigurations)
 
-responseStartMLEvaluationTaskRun :: StartMLEvaluationTaskRunResponse -> TestTree
-responseStartMLEvaluationTaskRun =
+responseCreateClassifier :: CreateClassifierResponse -> TestTree
+responseCreateClassifier =
   res
-    "StartMLEvaluationTaskRunResponse"
-    "fixture/StartMLEvaluationTaskRunResponse.proto"
+    "CreateClassifierResponse"
+    "fixture/CreateClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy StartMLEvaluationTaskRun)
+    (Proxy :: Proxy CreateClassifier)
 
-responseGetDatabase :: GetDatabaseResponse -> TestTree
-responseGetDatabase =
+responseCreatePartitionIndex :: CreatePartitionIndexResponse -> TestTree
+responseCreatePartitionIndex =
   res
-    "GetDatabaseResponse"
-    "fixture/GetDatabaseResponse.proto"
+    "CreatePartitionIndexResponse"
+    "fixture/CreatePartitionIndexResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDatabase)
+    (Proxy :: Proxy CreatePartitionIndex)
 
-responseDeletePartition :: DeletePartitionResponse -> TestTree
-responseDeletePartition =
+responseGetSecurityConfiguration :: GetSecurityConfigurationResponse -> TestTree
+responseGetSecurityConfiguration =
   res
-    "DeletePartitionResponse"
-    "fixture/DeletePartitionResponse.proto"
+    "GetSecurityConfigurationResponse"
+    "fixture/GetSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePartition)
-
-responseGetJobRuns :: GetJobRunsResponse -> TestTree
-responseGetJobRuns =
-  res
-    "GetJobRunsResponse"
-    "fixture/GetJobRunsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetJobRuns)
+    (Proxy :: Proxy GetSecurityConfiguration)
 
 responseGetMLTransforms :: GetMLTransformsResponse -> TestTree
 responseGetMLTransforms =
@@ -2345,22 +2493,6 @@ responseGetJobRun =
     defaultService
     (Proxy :: Proxy GetJobRun)
 
-responseCreateDevEndpoint :: CreateDevEndpointResponse -> TestTree
-responseCreateDevEndpoint =
-  res
-    "CreateDevEndpointResponse"
-    "fixture/CreateDevEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDevEndpoint)
-
-responseCreatePartitionIndex :: CreatePartitionIndexResponse -> TestTree
-responseCreatePartitionIndex =
-  res
-    "CreatePartitionIndexResponse"
-    "fixture/CreatePartitionIndexResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreatePartitionIndex)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -2368,14 +2500,6 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy TagResource)
-
-responseGetSecurityConfiguration :: GetSecurityConfigurationResponse -> TestTree
-responseGetSecurityConfiguration =
-  res
-    "GetSecurityConfigurationResponse"
-    "fixture/GetSecurityConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSecurityConfiguration)
 
 responseCreateCrawler :: CreateCrawlerResponse -> TestTree
 responseCreateCrawler =
@@ -2385,6 +2509,14 @@ responseCreateCrawler =
     defaultService
     (Proxy :: Proxy CreateCrawler)
 
+responseCreateDevEndpoint :: CreateDevEndpointResponse -> TestTree
+responseCreateDevEndpoint =
+  res
+    "CreateDevEndpointResponse"
+    "fixture/CreateDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDevEndpoint)
+
 responseGetMLTaskRuns :: GetMLTaskRunsResponse -> TestTree
 responseGetMLTaskRuns =
   res
@@ -2392,38 +2524,6 @@ responseGetMLTaskRuns =
     "fixture/GetMLTaskRunsResponse.proto"
     defaultService
     (Proxy :: Proxy GetMLTaskRuns)
-
-responseListCrawlers :: ListCrawlersResponse -> TestTree
-responseListCrawlers =
-  res
-    "ListCrawlersResponse"
-    "fixture/ListCrawlersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCrawlers)
-
-responseUpdateDevEndpoint :: UpdateDevEndpointResponse -> TestTree
-responseUpdateDevEndpoint =
-  res
-    "UpdateDevEndpointResponse"
-    "fixture/UpdateDevEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDevEndpoint)
-
-responseCreateSchema :: CreateSchemaResponse -> TestTree
-responseCreateSchema =
-  res
-    "CreateSchemaResponse"
-    "fixture/CreateSchemaResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateSchema)
-
-responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
-responseListDevEndpoints =
-  res
-    "ListDevEndpointsResponse"
-    "fixture/ListDevEndpointsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDevEndpoints)
 
 responseDeleteCrawler :: DeleteCrawlerResponse -> TestTree
 responseDeleteCrawler =
@@ -2433,6 +2533,14 @@ responseDeleteCrawler =
     defaultService
     (Proxy :: Proxy DeleteCrawler)
 
+responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
+responseListDevEndpoints =
+  res
+    "ListDevEndpointsResponse"
+    "fixture/ListDevEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDevEndpoints)
+
 responseDeleteDevEndpoint :: DeleteDevEndpointResponse -> TestTree
 responseDeleteDevEndpoint =
   res
@@ -2441,21 +2549,13 @@ responseDeleteDevEndpoint =
     defaultService
     (Proxy :: Proxy DeleteDevEndpoint)
 
-responseGetWorkflow :: GetWorkflowResponse -> TestTree
-responseGetWorkflow =
+responseUpdateDevEndpoint :: UpdateDevEndpointResponse -> TestTree
+responseUpdateDevEndpoint =
   res
-    "GetWorkflowResponse"
-    "fixture/GetWorkflowResponse.proto"
+    "UpdateDevEndpointResponse"
+    "fixture/UpdateDevEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkflow)
-
-responseGetSchemaVersion :: GetSchemaVersionResponse -> TestTree
-responseGetSchemaVersion =
-  res
-    "GetSchemaVersionResponse"
-    "fixture/GetSchemaVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSchemaVersion)
+    (Proxy :: Proxy UpdateDevEndpoint)
 
 responseUpdateCrawler :: UpdateCrawlerResponse -> TestTree
 responseUpdateCrawler =
@@ -2465,53 +2565,37 @@ responseUpdateCrawler =
     defaultService
     (Proxy :: Proxy UpdateCrawler)
 
-responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
-responseDeleteWorkflow =
+responseGetSchemaVersion :: GetSchemaVersionResponse -> TestTree
+responseGetSchemaVersion =
   res
-    "DeleteWorkflowResponse"
-    "fixture/DeleteWorkflowResponse.proto"
+    "GetSchemaVersionResponse"
+    "fixture/GetSchemaVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkflow)
+    (Proxy :: Proxy GetSchemaVersion)
 
-responseRegisterSchemaVersion :: RegisterSchemaVersionResponse -> TestTree
-responseRegisterSchemaVersion =
+responseCreateSchema :: CreateSchemaResponse -> TestTree
+responseCreateSchema =
   res
-    "RegisterSchemaVersionResponse"
-    "fixture/RegisterSchemaVersionResponse.proto"
+    "CreateSchemaResponse"
+    "fixture/CreateSchemaResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterSchemaVersion)
+    (Proxy :: Proxy CreateSchema)
 
-responseGetMapping :: GetMappingResponse -> TestTree
-responseGetMapping =
+responseGetWorkflow :: GetWorkflowResponse -> TestTree
+responseGetWorkflow =
   res
-    "GetMappingResponse"
-    "fixture/GetMappingResponse.proto"
+    "GetWorkflowResponse"
+    "fixture/GetWorkflowResponse.proto"
     defaultService
-    (Proxy :: Proxy GetMapping)
+    (Proxy :: Proxy GetWorkflow)
 
-responseStopWorkflowRun :: StopWorkflowRunResponse -> TestTree
-responseStopWorkflowRun =
+responseListCrawlers :: ListCrawlersResponse -> TestTree
+responseListCrawlers =
   res
-    "StopWorkflowRunResponse"
-    "fixture/StopWorkflowRunResponse.proto"
+    "ListCrawlersResponse"
+    "fixture/ListCrawlersResponse.proto"
     defaultService
-    (Proxy :: Proxy StopWorkflowRun)
-
-responseCreateConnection :: CreateConnectionResponse -> TestTree
-responseCreateConnection =
-  res
-    "CreateConnectionResponse"
-    "fixture/CreateConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateConnection)
-
-responseBatchCreatePartition :: BatchCreatePartitionResponse -> TestTree
-responseBatchCreatePartition =
-  res
-    "BatchCreatePartitionResponse"
-    "fixture/BatchCreatePartitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchCreatePartition)
+    (Proxy :: Proxy ListCrawlers)
 
 responseCreateTable :: CreateTableResponse -> TestTree
 responseCreateTable =
@@ -2521,21 +2605,13 @@ responseCreateTable =
     defaultService
     (Proxy :: Proxy CreateTable)
 
-responseUpdateWorkflow :: UpdateWorkflowResponse -> TestTree
-responseUpdateWorkflow =
+responseGetMapping :: GetMappingResponse -> TestTree
+responseGetMapping =
   res
-    "UpdateWorkflowResponse"
-    "fixture/UpdateWorkflowResponse.proto"
+    "GetMappingResponse"
+    "fixture/GetMappingResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkflow)
-
-responseGetClassifiers :: GetClassifiersResponse -> TestTree
-responseGetClassifiers =
-  res
-    "GetClassifiersResponse"
-    "fixture/GetClassifiersResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetClassifiers)
+    (Proxy :: Proxy GetMapping)
 
 responseBatchStopJobRun :: BatchStopJobRunResponse -> TestTree
 responseBatchStopJobRun =
@@ -2553,6 +2629,30 @@ responseStartWorkflowRun =
     defaultService
     (Proxy :: Proxy StartWorkflowRun)
 
+responseCreateConnection :: CreateConnectionResponse -> TestTree
+responseCreateConnection =
+  res
+    "CreateConnectionResponse"
+    "fixture/CreateConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConnection)
+
+responseGetClassifiers :: GetClassifiersResponse -> TestTree
+responseGetClassifiers =
+  res
+    "GetClassifiersResponse"
+    "fixture/GetClassifiersResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetClassifiers)
+
+responseBatchCreatePartition :: BatchCreatePartitionResponse -> TestTree
+responseBatchCreatePartition =
+  res
+    "BatchCreatePartitionResponse"
+    "fixture/BatchCreatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchCreatePartition)
+
 responseListWorkflows :: ListWorkflowsResponse -> TestTree
 responseListWorkflows =
   res
@@ -2560,6 +2660,38 @@ responseListWorkflows =
     "fixture/ListWorkflowsResponse.proto"
     defaultService
     (Proxy :: Proxy ListWorkflows)
+
+responseUpdateWorkflow :: UpdateWorkflowResponse -> TestTree
+responseUpdateWorkflow =
+  res
+    "UpdateWorkflowResponse"
+    "fixture/UpdateWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkflow)
+
+responseRegisterSchemaVersion :: RegisterSchemaVersionResponse -> TestTree
+responseRegisterSchemaVersion =
+  res
+    "RegisterSchemaVersionResponse"
+    "fixture/RegisterSchemaVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterSchemaVersion)
+
+responseStopWorkflowRun :: StopWorkflowRunResponse -> TestTree
+responseStopWorkflowRun =
+  res
+    "StopWorkflowRunResponse"
+    "fixture/StopWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopWorkflowRun)
+
+responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
+responseDeleteWorkflow =
+  res
+    "DeleteWorkflowResponse"
+    "fixture/DeleteWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkflow)
 
 responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
 responseListSchemaVersions =
@@ -2569,6 +2701,14 @@ responseListSchemaVersions =
     defaultService
     (Proxy :: Proxy ListSchemaVersions)
 
+responseBatchUpdatePartition :: BatchUpdatePartitionResponse -> TestTree
+responseBatchUpdatePartition =
+  res
+    "BatchUpdatePartitionResponse"
+    "fixture/BatchUpdatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchUpdatePartition)
+
 responseBatchDeletePartition :: BatchDeletePartitionResponse -> TestTree
 responseBatchDeletePartition =
   res
@@ -2576,14 +2716,6 @@ responseBatchDeletePartition =
     "fixture/BatchDeletePartitionResponse.proto"
     defaultService
     (Proxy :: Proxy BatchDeletePartition)
-
-responsePutSchemaVersionMetadata :: PutSchemaVersionMetadataResponse -> TestTree
-responsePutSchemaVersionMetadata =
-  res
-    "PutSchemaVersionMetadataResponse"
-    "fixture/PutSchemaVersionMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutSchemaVersionMetadata)
 
 responseGetWorkflowRuns :: GetWorkflowRunsResponse -> TestTree
 responseGetWorkflowRuns =
@@ -2601,22 +2733,6 @@ responseGetTags =
     defaultService
     (Proxy :: Proxy GetTags)
 
-responseBatchUpdatePartition :: BatchUpdatePartitionResponse -> TestTree
-responseBatchUpdatePartition =
-  res
-    "BatchUpdatePartitionResponse"
-    "fixture/BatchUpdatePartitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchUpdatePartition)
-
-responseGetUserDefinedFunctions :: GetUserDefinedFunctionsResponse -> TestTree
-responseGetUserDefinedFunctions =
-  res
-    "GetUserDefinedFunctionsResponse"
-    "fixture/GetUserDefinedFunctionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetUserDefinedFunctions)
-
 responseUpdateTable :: UpdateTableResponse -> TestTree
 responseUpdateTable =
   res
@@ -2633,13 +2749,21 @@ responseDeleteTable =
     defaultService
     (Proxy :: Proxy DeleteTable)
 
-responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
-responseDeleteDatabase =
+responseGetUserDefinedFunctions :: GetUserDefinedFunctionsResponse -> TestTree
+responseGetUserDefinedFunctions =
   res
-    "DeleteDatabaseResponse"
-    "fixture/DeleteDatabaseResponse.proto"
+    "GetUserDefinedFunctionsResponse"
+    "fixture/GetUserDefinedFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDatabase)
+    (Proxy :: Proxy GetUserDefinedFunctions)
+
+responsePutSchemaVersionMetadata :: PutSchemaVersionMetadataResponse -> TestTree
+responsePutSchemaVersionMetadata =
+  res
+    "PutSchemaVersionMetadataResponse"
+    "fixture/PutSchemaVersionMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutSchemaVersionMetadata)
 
 responseUpdateDatabase :: UpdateDatabaseResponse -> TestTree
 responseUpdateDatabase =
@@ -2657,6 +2781,22 @@ responseGetUserDefinedFunction =
     defaultService
     (Proxy :: Proxy GetUserDefinedFunction)
 
+responseCreateTrigger :: CreateTriggerResponse -> TestTree
+responseCreateTrigger =
+  res
+    "CreateTriggerResponse"
+    "fixture/CreateTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTrigger)
+
+responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
+responseDeleteDatabase =
+  res
+    "DeleteDatabaseResponse"
+    "fixture/DeleteDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDatabase)
+
 responseUpdateMLTransform :: UpdateMLTransformResponse -> TestTree
 responseUpdateMLTransform =
   res
@@ -2664,14 +2804,6 @@ responseUpdateMLTransform =
     "fixture/UpdateMLTransformResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateMLTransform)
-
-responseGetWorkflowRun :: GetWorkflowRunResponse -> TestTree
-responseGetWorkflowRun =
-  res
-    "GetWorkflowRunResponse"
-    "fixture/GetWorkflowRunResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetWorkflowRun)
 
 responseDeleteMLTransform :: DeleteMLTransformResponse -> TestTree
 responseDeleteMLTransform =
@@ -2681,29 +2813,21 @@ responseDeleteMLTransform =
     defaultService
     (Proxy :: Proxy DeleteMLTransform)
 
-responseCreateTrigger :: CreateTriggerResponse -> TestTree
-responseCreateTrigger =
+responseGetWorkflowRun :: GetWorkflowRunResponse -> TestTree
+responseGetWorkflowRun =
   res
-    "CreateTriggerResponse"
-    "fixture/CreateTriggerResponse.proto"
+    "GetWorkflowRunResponse"
+    "fixture/GetWorkflowRunResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateTrigger)
+    (Proxy :: Proxy GetWorkflowRun)
 
-responseCreateDatabase :: CreateDatabaseResponse -> TestTree
-responseCreateDatabase =
+responseGetTableVersions :: GetTableVersionsResponse -> TestTree
+responseGetTableVersions =
   res
-    "CreateDatabaseResponse"
-    "fixture/CreateDatabaseResponse.proto"
+    "GetTableVersionsResponse"
+    "fixture/GetTableVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDatabase)
-
-responseGetClassifier :: GetClassifierResponse -> TestTree
-responseGetClassifier =
-  res
-    "GetClassifierResponse"
-    "fixture/GetClassifierResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetClassifier)
+    (Proxy :: Proxy GetTableVersions)
 
 responseDeleteSchemaVersions :: DeleteSchemaVersionsResponse -> TestTree
 responseDeleteSchemaVersions =
@@ -2721,21 +2845,37 @@ responseBatchGetTriggers =
     defaultService
     (Proxy :: Proxy BatchGetTriggers)
 
-responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
-responseBatchDeleteTableVersion =
+responseGetClassifier :: GetClassifierResponse -> TestTree
+responseGetClassifier =
   res
-    "BatchDeleteTableVersionResponse"
-    "fixture/BatchDeleteTableVersionResponse.proto"
+    "GetClassifierResponse"
+    "fixture/GetClassifierResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteTableVersion)
+    (Proxy :: Proxy GetClassifier)
 
-responseGetTableVersions :: GetTableVersionsResponse -> TestTree
-responseGetTableVersions =
+responseCreateDatabase :: CreateDatabaseResponse -> TestTree
+responseCreateDatabase =
   res
-    "GetTableVersionsResponse"
-    "fixture/GetTableVersionsResponse.proto"
+    "CreateDatabaseResponse"
+    "fixture/CreateDatabaseResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTableVersions)
+    (Proxy :: Proxy CreateDatabase)
+
+responseGetCrawlers :: GetCrawlersResponse -> TestTree
+responseGetCrawlers =
+  res
+    "GetCrawlersResponse"
+    "fixture/GetCrawlersResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCrawlers)
+
+responseGetBlueprint :: GetBlueprintResponse -> TestTree
+responseGetBlueprint =
+  res
+    "GetBlueprintResponse"
+    "fixture/GetBlueprintResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBlueprint)
 
 responseGetDevEndpoints :: GetDevEndpointsResponse -> TestTree
 responseGetDevEndpoints =
@@ -2745,13 +2885,21 @@ responseGetDevEndpoints =
     defaultService
     (Proxy :: Proxy GetDevEndpoints)
 
-responseGetCrawlers :: GetCrawlersResponse -> TestTree
-responseGetCrawlers =
+responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
+responseBatchDeleteTableVersion =
   res
-    "GetCrawlersResponse"
-    "fixture/GetCrawlersResponse.proto"
+    "BatchDeleteTableVersionResponse"
+    "fixture/BatchDeleteTableVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCrawlers)
+    (Proxy :: Proxy BatchDeleteTableVersion)
+
+responseDeleteBlueprint :: DeleteBlueprintResponse -> TestTree
+responseDeleteBlueprint =
+  res
+    "DeleteBlueprintResponse"
+    "fixture/DeleteBlueprintResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBlueprint)
 
 responseStartJobRun :: StartJobRunResponse -> TestTree
 responseStartJobRun =
@@ -2777,13 +2925,13 @@ responseCreatePartition =
     defaultService
     (Proxy :: Proxy CreatePartition)
 
-responseResetJobBookmark :: ResetJobBookmarkResponse -> TestTree
-responseResetJobBookmark =
+responseUpdateBlueprint :: UpdateBlueprintResponse -> TestTree
+responseUpdateBlueprint =
   res
-    "ResetJobBookmarkResponse"
-    "fixture/ResetJobBookmarkResponse.proto"
+    "UpdateBlueprintResponse"
+    "fixture/UpdateBlueprintResponse.proto"
     defaultService
-    (Proxy :: Proxy ResetJobBookmark)
+    (Proxy :: Proxy UpdateBlueprint)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -2793,101 +2941,21 @@ responseListJobs =
     defaultService
     (Proxy :: Proxy ListJobs)
 
-responseBatchDeleteConnection :: BatchDeleteConnectionResponse -> TestTree
-responseBatchDeleteConnection =
+responseResetJobBookmark :: ResetJobBookmarkResponse -> TestTree
+responseResetJobBookmark =
   res
-    "BatchDeleteConnectionResponse"
-    "fixture/BatchDeleteConnectionResponse.proto"
+    "ResetJobBookmarkResponse"
+    "fixture/ResetJobBookmarkResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchDeleteConnection)
+    (Proxy :: Proxy ResetJobBookmark)
 
-responseGetTables :: GetTablesResponse -> TestTree
-responseGetTables =
+responseBatchGetBlueprints :: BatchGetBlueprintsResponse -> TestTree
+responseBatchGetBlueprints =
   res
-    "GetTablesResponse"
-    "fixture/GetTablesResponse.proto"
+    "BatchGetBlueprintsResponse"
+    "fixture/BatchGetBlueprintsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTables)
-
-responseDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartitionResponse -> TestTree
-responseDeleteColumnStatisticsForPartition =
-  res
-    "DeleteColumnStatisticsForPartitionResponse"
-    "fixture/DeleteColumnStatisticsForPartitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteColumnStatisticsForPartition)
-
-responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
-responseDeleteResourcePolicy =
-  res
-    "DeleteResourcePolicyResponse"
-    "fixture/DeleteResourcePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteResourcePolicy)
-
-responseGetRegistry :: GetRegistryResponse -> TestTree
-responseGetRegistry =
-  res
-    "GetRegistryResponse"
-    "fixture/GetRegistryResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRegistry)
-
-responseResumeWorkflowRun :: ResumeWorkflowRunResponse -> TestTree
-responseResumeWorkflowRun =
-  res
-    "ResumeWorkflowRunResponse"
-    "fixture/ResumeWorkflowRunResponse.proto"
-    defaultService
-    (Proxy :: Proxy ResumeWorkflowRun)
-
-responseCancelMLTaskRun :: CancelMLTaskRunResponse -> TestTree
-responseCancelMLTaskRun =
-  res
-    "CancelMLTaskRunResponse"
-    "fixture/CancelMLTaskRunResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelMLTaskRun)
-
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateJob)
-
-responseSearchTables :: SearchTablesResponse -> TestTree
-responseSearchTables =
-  res
-    "SearchTablesResponse"
-    "fixture/SearchTablesResponse.proto"
-    defaultService
-    (Proxy :: Proxy SearchTables)
-
-responseUpdateUserDefinedFunction :: UpdateUserDefinedFunctionResponse -> TestTree
-responseUpdateUserDefinedFunction =
-  res
-    "UpdateUserDefinedFunctionResponse"
-    "fixture/UpdateUserDefinedFunctionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateUserDefinedFunction)
-
-responseUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartitionResponse -> TestTree
-responseUpdateColumnStatisticsForPartition =
-  res
-    "UpdateColumnStatisticsForPartitionResponse"
-    "fixture/UpdateColumnStatisticsForPartitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateColumnStatisticsForPartition)
-
-responseGetConnections :: GetConnectionsResponse -> TestTree
-responseGetConnections =
-  res
-    "GetConnectionsResponse"
-    "fixture/GetConnectionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetConnections)
+    (Proxy :: Proxy BatchGetBlueprints)
 
 responseGetMLTransform :: GetMLTransformResponse -> TestTree
 responseGetMLTransform =
@@ -2905,6 +2973,22 @@ responseCreateScript =
     defaultService
     (Proxy :: Proxy CreateScript)
 
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteResourcePolicy)
+
+responseGetRegistry :: GetRegistryResponse -> TestTree
+responseGetRegistry =
+  res
+    "GetRegistryResponse"
+    "fixture/GetRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRegistry)
+
 responseGetMLTaskRun :: GetMLTaskRunResponse -> TestTree
 responseGetMLTaskRun =
   res
@@ -2912,6 +2996,30 @@ responseGetMLTaskRun =
     "fixture/GetMLTaskRunResponse.proto"
     defaultService
     (Proxy :: Proxy GetMLTaskRun)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJob)
+
+responseUpdateUserDefinedFunction :: UpdateUserDefinedFunctionResponse -> TestTree
+responseUpdateUserDefinedFunction =
+  res
+    "UpdateUserDefinedFunctionResponse"
+    "fixture/UpdateUserDefinedFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserDefinedFunction)
+
+responseDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartitionResponse -> TestTree
+responseDeleteColumnStatisticsForPartition =
+  res
+    "DeleteColumnStatisticsForPartitionResponse"
+    "fixture/DeleteColumnStatisticsForPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteColumnStatisticsForPartition)
 
 responseDeleteUserDefinedFunction :: DeleteUserDefinedFunctionResponse -> TestTree
 responseDeleteUserDefinedFunction =
@@ -2921,45 +3029,69 @@ responseDeleteUserDefinedFunction =
     defaultService
     (Proxy :: Proxy DeleteUserDefinedFunction)
 
-responseStartTrigger :: StartTriggerResponse -> TestTree
-responseStartTrigger =
+responseCancelMLTaskRun :: CancelMLTaskRunResponse -> TestTree
+responseCancelMLTaskRun =
   res
-    "StartTriggerResponse"
-    "fixture/StartTriggerResponse.proto"
+    "CancelMLTaskRunResponse"
+    "fixture/CancelMLTaskRunResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTrigger)
+    (Proxy :: Proxy CancelMLTaskRun)
 
-responsePutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettingsResponse -> TestTree
-responsePutDataCatalogEncryptionSettings =
+responseSearchTables :: SearchTablesResponse -> TestTree
+responseSearchTables =
   res
-    "PutDataCatalogEncryptionSettingsResponse"
-    "fixture/PutDataCatalogEncryptionSettingsResponse.proto"
+    "SearchTablesResponse"
+    "fixture/SearchTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDataCatalogEncryptionSettings)
+    (Proxy :: Proxy SearchTables)
 
-responseRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadataResponse -> TestTree
-responseRemoveSchemaVersionMetadata =
+responseUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartitionResponse -> TestTree
+responseUpdateColumnStatisticsForPartition =
   res
-    "RemoveSchemaVersionMetadataResponse"
-    "fixture/RemoveSchemaVersionMetadataResponse.proto"
+    "UpdateColumnStatisticsForPartitionResponse"
+    "fixture/UpdateColumnStatisticsForPartitionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveSchemaVersionMetadata)
+    (Proxy :: Proxy UpdateColumnStatisticsForPartition)
 
-responseBatchGetPartition :: BatchGetPartitionResponse -> TestTree
-responseBatchGetPartition =
+responseGetTables :: GetTablesResponse -> TestTree
+responseGetTables =
   res
-    "BatchGetPartitionResponse"
-    "fixture/BatchGetPartitionResponse.proto"
+    "GetTablesResponse"
+    "fixture/GetTablesResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchGetPartition)
+    (Proxy :: Proxy GetTables)
 
-responseGetTable :: GetTableResponse -> TestTree
-responseGetTable =
+responseBatchDeleteConnection :: BatchDeleteConnectionResponse -> TestTree
+responseBatchDeleteConnection =
   res
-    "GetTableResponse"
-    "fixture/GetTableResponse.proto"
+    "BatchDeleteConnectionResponse"
+    "fixture/BatchDeleteConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTable)
+    (Proxy :: Proxy BatchDeleteConnection)
+
+responseGetConnections :: GetConnectionsResponse -> TestTree
+responseGetConnections =
+  res
+    "GetConnectionsResponse"
+    "fixture/GetConnectionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetConnections)
+
+responseGetBlueprintRuns :: GetBlueprintRunsResponse -> TestTree
+responseGetBlueprintRuns =
+  res
+    "GetBlueprintRunsResponse"
+    "fixture/GetBlueprintRunsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBlueprintRuns)
+
+responseResumeWorkflowRun :: ResumeWorkflowRunResponse -> TestTree
+responseResumeWorkflowRun =
+  res
+    "ResumeWorkflowRunResponse"
+    "fixture/ResumeWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResumeWorkflowRun)
 
 responseUpdateCrawlerSchedule :: UpdateCrawlerScheduleResponse -> TestTree
 responseUpdateCrawlerSchedule =
@@ -2969,13 +3101,69 @@ responseUpdateCrawlerSchedule =
     defaultService
     (Proxy :: Proxy UpdateCrawlerSchedule)
 
-responseGetColumnStatisticsForTable :: GetColumnStatisticsForTableResponse -> TestTree
-responseGetColumnStatisticsForTable =
+responseStartTrigger :: StartTriggerResponse -> TestTree
+responseStartTrigger =
   res
-    "GetColumnStatisticsForTableResponse"
-    "fixture/GetColumnStatisticsForTableResponse.proto"
+    "StartTriggerResponse"
+    "fixture/StartTriggerResponse.proto"
     defaultService
-    (Proxy :: Proxy GetColumnStatisticsForTable)
+    (Proxy :: Proxy StartTrigger)
+
+responseGetConnection :: GetConnectionResponse -> TestTree
+responseGetConnection =
+  res
+    "GetConnectionResponse"
+    "fixture/GetConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetConnection)
+
+responseRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadataResponse -> TestTree
+responseRemoveSchemaVersionMetadata =
+  res
+    "RemoveSchemaVersionMetadataResponse"
+    "fixture/RemoveSchemaVersionMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveSchemaVersionMetadata)
+
+responseGetTable :: GetTableResponse -> TestTree
+responseGetTable =
+  res
+    "GetTableResponse"
+    "fixture/GetTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTable)
+
+responseDeleteSchema :: DeleteSchemaResponse -> TestTree
+responseDeleteSchema =
+  res
+    "DeleteSchemaResponse"
+    "fixture/DeleteSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSchema)
+
+responsePutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettingsResponse -> TestTree
+responsePutDataCatalogEncryptionSettings =
+  res
+    "PutDataCatalogEncryptionSettingsResponse"
+    "fixture/PutDataCatalogEncryptionSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDataCatalogEncryptionSettings)
+
+responseGetBlueprintRun :: GetBlueprintRunResponse -> TestTree
+responseGetBlueprintRun =
+  res
+    "GetBlueprintRunResponse"
+    "fixture/GetBlueprintRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBlueprintRun)
+
+responseUpdateSchema :: UpdateSchemaResponse -> TestTree
+responseUpdateSchema =
+  res
+    "UpdateSchemaResponse"
+    "fixture/UpdateSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSchema)
 
 responseStopTrigger :: StopTriggerResponse -> TestTree
 responseStopTrigger =
@@ -2993,13 +3181,29 @@ responseListSchemas =
     defaultService
     (Proxy :: Proxy ListSchemas)
 
-responseGetConnection :: GetConnectionResponse -> TestTree
-responseGetConnection =
+responseGetDataflowGraph :: GetDataflowGraphResponse -> TestTree
+responseGetDataflowGraph =
   res
-    "GetConnectionResponse"
-    "fixture/GetConnectionResponse.proto"
+    "GetDataflowGraphResponse"
+    "fixture/GetDataflowGraphResponse.proto"
     defaultService
-    (Proxy :: Proxy GetConnection)
+    (Proxy :: Proxy GetDataflowGraph)
+
+responseBatchGetPartition :: BatchGetPartitionResponse -> TestTree
+responseBatchGetPartition =
+  res
+    "BatchGetPartitionResponse"
+    "fixture/BatchGetPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetPartition)
+
+responseGetColumnStatisticsForTable :: GetColumnStatisticsForTableResponse -> TestTree
+responseGetColumnStatisticsForTable =
+  res
+    "GetColumnStatisticsForTableResponse"
+    "fixture/GetColumnStatisticsForTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetColumnStatisticsForTable)
 
 responseGetDatabases :: GetDatabasesResponse -> TestTree
 responseGetDatabases =
@@ -3009,45 +3213,13 @@ responseGetDatabases =
     defaultService
     (Proxy :: Proxy GetDatabases)
 
-responseDeleteSchema :: DeleteSchemaResponse -> TestTree
-responseDeleteSchema =
+responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
+responseDeleteTableVersion =
   res
-    "DeleteSchemaResponse"
-    "fixture/DeleteSchemaResponse.proto"
+    "DeleteTableVersionResponse"
+    "fixture/DeleteTableVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteSchema)
-
-responseUpdateSchema :: UpdateSchemaResponse -> TestTree
-responseUpdateSchema =
-  res
-    "UpdateSchemaResponse"
-    "fixture/UpdateSchemaResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateSchema)
-
-responseGetDataflowGraph :: GetDataflowGraphResponse -> TestTree
-responseGetDataflowGraph =
-  res
-    "GetDataflowGraphResponse"
-    "fixture/GetDataflowGraphResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDataflowGraph)
-
-responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
-responseBatchGetDevEndpoints =
-  res
-    "BatchGetDevEndpointsResponse"
-    "fixture/BatchGetDevEndpointsResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchGetDevEndpoints)
-
-responseStartExportLabelsTaskRun :: StartExportLabelsTaskRunResponse -> TestTree
-responseStartExportLabelsTaskRun =
-  res
-    "StartExportLabelsTaskRunResponse"
-    "fixture/StartExportLabelsTaskRunResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartExportLabelsTaskRun)
+    (Proxy :: Proxy DeleteTableVersion)
 
 responseGetTriggers :: GetTriggersResponse -> TestTree
 responseGetTriggers =
@@ -3065,21 +3237,21 @@ responseBatchGetCrawlers =
     defaultService
     (Proxy :: Proxy BatchGetCrawlers)
 
-responseGetPlan :: GetPlanResponse -> TestTree
-responseGetPlan =
+responseGetJobBookmark :: GetJobBookmarkResponse -> TestTree
+responseGetJobBookmark =
   res
-    "GetPlanResponse"
-    "fixture/GetPlanResponse.proto"
+    "GetJobBookmarkResponse"
+    "fixture/GetJobBookmarkResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPlan)
+    (Proxy :: Proxy GetJobBookmark)
 
-responseGetCrawlerMetrics :: GetCrawlerMetricsResponse -> TestTree
-responseGetCrawlerMetrics =
+responseStartExportLabelsTaskRun :: StartExportLabelsTaskRunResponse -> TestTree
+responseStartExportLabelsTaskRun =
   res
-    "GetCrawlerMetricsResponse"
-    "fixture/GetCrawlerMetricsResponse.proto"
+    "StartExportLabelsTaskRunResponse"
+    "fixture/StartExportLabelsTaskRunResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCrawlerMetrics)
+    (Proxy :: Proxy StartExportLabelsTaskRun)
 
 responseGetWorkflowRunProperties :: GetWorkflowRunPropertiesResponse -> TestTree
 responseGetWorkflowRunProperties =
@@ -3089,6 +3261,14 @@ responseGetWorkflowRunProperties =
     defaultService
     (Proxy :: Proxy GetWorkflowRunProperties)
 
+responseGetCrawlerMetrics :: GetCrawlerMetricsResponse -> TestTree
+responseGetCrawlerMetrics =
+  res
+    "GetCrawlerMetricsResponse"
+    "fixture/GetCrawlerMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCrawlerMetrics)
+
 responseDeletePartitionIndex :: DeletePartitionIndexResponse -> TestTree
 responseDeletePartitionIndex =
   res
@@ -3097,29 +3277,45 @@ responseDeletePartitionIndex =
     defaultService
     (Proxy :: Proxy DeletePartitionIndex)
 
-responseGetJobBookmark :: GetJobBookmarkResponse -> TestTree
-responseGetJobBookmark =
+responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
+responseBatchGetDevEndpoints =
   res
-    "GetJobBookmarkResponse"
-    "fixture/GetJobBookmarkResponse.proto"
+    "BatchGetDevEndpointsResponse"
+    "fixture/BatchGetDevEndpointsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetJobBookmark)
+    (Proxy :: Proxy BatchGetDevEndpoints)
 
-responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
-responseDeleteTableVersion =
+responseGetPlan :: GetPlanResponse -> TestTree
+responseGetPlan =
   res
-    "DeleteTableVersionResponse"
-    "fixture/DeleteTableVersionResponse.proto"
+    "GetPlanResponse"
+    "fixture/GetPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTableVersion)
+    (Proxy :: Proxy GetPlan)
 
-responseGetTableVersion :: GetTableVersionResponse -> TestTree
-responseGetTableVersion =
+responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
+responseCreateSecurityConfiguration =
   res
-    "GetTableVersionResponse"
-    "fixture/GetTableVersionResponse.proto"
+    "CreateSecurityConfigurationResponse"
+    "fixture/CreateSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy GetTableVersion)
+    (Proxy :: Proxy CreateSecurityConfiguration)
+
+responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
+responseGetResourcePolicies =
+  res
+    "GetResourcePoliciesResponse"
+    "fixture/GetResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetResourcePolicies)
+
+responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
+responseGetDevEndpoint =
+  res
+    "GetDevEndpointResponse"
+    "fixture/GetDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDevEndpoint)
 
 responsePutWorkflowRunProperties :: PutWorkflowRunPropertiesResponse -> TestTree
 responsePutWorkflowRunProperties =
@@ -3137,13 +3333,13 @@ responseBatchGetWorkflows =
     defaultService
     (Proxy :: Proxy BatchGetWorkflows)
 
-responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
-responseGetResourcePolicies =
+responseGetTableVersion :: GetTableVersionResponse -> TestTree
+responseGetTableVersion =
   res
-    "GetResourcePoliciesResponse"
-    "fixture/GetResourcePoliciesResponse.proto"
+    "GetTableVersionResponse"
+    "fixture/GetTableVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy GetResourcePolicies)
+    (Proxy :: Proxy GetTableVersion)
 
 responseGetJobs :: GetJobsResponse -> TestTree
 responseGetJobs =
@@ -3153,14 +3349,6 @@ responseGetJobs =
     defaultService
     (Proxy :: Proxy GetJobs)
 
-responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
-responseGetDevEndpoint =
-  res
-    "GetDevEndpointResponse"
-    "fixture/GetDevEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDevEndpoint)
-
 responseGetCrawler :: GetCrawlerResponse -> TestTree
 responseGetCrawler =
   res
@@ -3168,11 +3356,3 @@ responseGetCrawler =
     "fixture/GetCrawlerResponse.proto"
     defaultService
     (Proxy :: Proxy GetCrawler)
-
-responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
-responseCreateSecurityConfiguration =
-  res
-    "CreateSecurityConfigurationResponse"
-    "fixture/CreateSecurityConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateSecurityConfiguration)

@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An edge represents a directed connection between two AWS Glue components
--- that are part of the workflow the edge belongs to.
+-- | An edge represents a directed connection between two components on a
+-- workflow graph.
 --
 -- /See:/ 'newEdge' smart constructor.
 data Edge = Edge'

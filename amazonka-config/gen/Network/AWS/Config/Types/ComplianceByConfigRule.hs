@@ -24,15 +24,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether an AWS Config rule is compliant. A rule is compliant
--- if all of the resources that the rule evaluated comply with it. A rule
--- is noncompliant if any of these resources do not comply.
+-- | Indicates whether an Config rule is compliant. A rule is compliant if
+-- all of the resources that the rule evaluated comply with it. A rule is
+-- noncompliant if any of these resources do not comply.
 --
 -- /See:/ 'newComplianceByConfigRule' smart constructor.
 data ComplianceByConfigRule = ComplianceByConfigRule'
-  { -- | The name of the AWS Config rule.
+  { -- | The name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the AWS Config rule is compliant.
+    -- | Indicates whether the Config rule is compliant.
     compliance :: Prelude.Maybe Compliance
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +45,9 @@ data ComplianceByConfigRule = ComplianceByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'complianceByConfigRule_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'complianceByConfigRule_configRuleName' - The name of the Config rule.
 --
--- 'compliance', 'complianceByConfigRule_compliance' - Indicates whether the AWS Config rule is compliant.
+-- 'compliance', 'complianceByConfigRule_compliance' - Indicates whether the Config rule is compliant.
 newComplianceByConfigRule ::
   ComplianceByConfigRule
 newComplianceByConfigRule =
@@ -57,11 +57,11 @@ newComplianceByConfigRule =
       compliance = Prelude.Nothing
     }
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 complianceByConfigRule_configRuleName :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Prelude.Text)
 complianceByConfigRule_configRuleName = Lens.lens (\ComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@ComplianceByConfigRule' {} a -> s {configRuleName = a} :: ComplianceByConfigRule)
 
--- | Indicates whether the AWS Config rule is compliant.
+-- | Indicates whether the Config rule is compliant.
 complianceByConfigRule_compliance :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Compliance)
 complianceByConfigRule_compliance = Lens.lens (\ComplianceByConfigRule' {compliance} -> compliance) (\s@ComplianceByConfigRule' {} a -> s {compliance = a} :: ComplianceByConfigRule)
 

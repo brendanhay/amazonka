@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a dynamic thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteDynamicThingGroup>
+-- action.
 module Network.AWS.IoT.DeleteDynamicThingGroup
   ( -- * Creating a Request
     DeleteDynamicThingGroup (..),

@@ -21,12 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a journal export job, including the ledger
--- name, export ID, when it was created, current status, and its start and
--- end time export parameters.
+-- name, export ID, creation time, current status, and the parameters of
+-- the original export creation request.
 --
 -- This action does not return any expired export jobs. For more
 -- information, see
--- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export Job Expiration>
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export job expiration>
 -- in the /Amazon QLDB Developer Guide/.
 --
 -- If the export job with the given @ExportId@ doesn\'t exist, then throws
@@ -64,7 +64,8 @@ import qualified Network.AWS.Response as Response
 data DescribeJournalS3Export = DescribeJournalS3Export'
   { -- | The name of the ledger.
     name :: Prelude.Text,
-    -- | The unique ID of the journal export job that you want to describe.
+    -- | The UUID (represented in Base62-encoded text) of the journal export job
+    -- to describe.
     exportId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +80,8 @@ data DescribeJournalS3Export = DescribeJournalS3Export'
 --
 -- 'name', 'describeJournalS3Export_name' - The name of the ledger.
 --
--- 'exportId', 'describeJournalS3Export_exportId' - The unique ID of the journal export job that you want to describe.
+-- 'exportId', 'describeJournalS3Export_exportId' - The UUID (represented in Base62-encoded text) of the journal export job
+-- to describe.
 newDescribeJournalS3Export ::
   -- | 'name'
   Prelude.Text ->
@@ -96,7 +98,8 @@ newDescribeJournalS3Export pName_ pExportId_ =
 describeJournalS3Export_name :: Lens.Lens' DescribeJournalS3Export Prelude.Text
 describeJournalS3Export_name = Lens.lens (\DescribeJournalS3Export' {name} -> name) (\s@DescribeJournalS3Export' {} a -> s {name = a} :: DescribeJournalS3Export)
 
--- | The unique ID of the journal export job that you want to describe.
+-- | The UUID (represented in Base62-encoded text) of the journal export job
+-- to describe.
 describeJournalS3Export_exportId :: Lens.Lens' DescribeJournalS3Export Prelude.Text
 describeJournalS3Export_exportId = Lens.lens (\DescribeJournalS3Export' {exportId} -> exportId) (\s@DescribeJournalS3Export' {} a -> s {exportId = a} :: DescribeJournalS3Export)
 

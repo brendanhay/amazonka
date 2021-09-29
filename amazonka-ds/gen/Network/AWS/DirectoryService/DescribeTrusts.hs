@@ -56,17 +56,17 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Describes the trust relationships for a particular AWS Managed Microsoft
--- AD directory. If no input parameters are are provided, such as directory
--- ID or trust ID, this request describes all the trust relationships.
+-- | Describes the trust relationships for a particular Managed Microsoft AD
+-- directory. If no input parameters are provided, such as directory ID or
+-- trust ID, this request describes all the trust relationships.
 --
 -- /See:/ 'newDescribeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
   { -- | The /DescribeTrustsResult.NextToken/ value from a previous call to
     -- DescribeTrusts. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Directory ID of the AWS directory that is a part of the requested
-    -- trust relationship.
+    -- | The Directory ID of the Amazon Web Services directory that is a part of
+    -- the requested trust relationship.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -90,8 +90,8 @@ data DescribeTrusts = DescribeTrusts'
 -- 'nextToken', 'describeTrusts_nextToken' - The /DescribeTrustsResult.NextToken/ value from a previous call to
 -- DescribeTrusts. Pass null if this is the first call.
 --
--- 'directoryId', 'describeTrusts_directoryId' - The Directory ID of the AWS directory that is a part of the requested
--- trust relationship.
+-- 'directoryId', 'describeTrusts_directoryId' - The Directory ID of the Amazon Web Services directory that is a part of
+-- the requested trust relationship.
 --
 -- 'limit', 'describeTrusts_limit' - The maximum number of objects to return.
 --
@@ -115,8 +115,8 @@ newDescribeTrusts =
 describeTrusts_nextToken :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Text)
 describeTrusts_nextToken = Lens.lens (\DescribeTrusts' {nextToken} -> nextToken) (\s@DescribeTrusts' {} a -> s {nextToken = a} :: DescribeTrusts)
 
--- | The Directory ID of the AWS directory that is a part of the requested
--- trust relationship.
+-- | The Directory ID of the Amazon Web Services directory that is a part of
+-- the requested trust relationship.
 describeTrusts_directoryId :: Lens.Lens' DescribeTrusts (Prelude.Maybe Prelude.Text)
 describeTrusts_directoryId = Lens.lens (\DescribeTrusts' {directoryId} -> directoryId) (\s@DescribeTrusts' {} a -> s {directoryId = a} :: DescribeTrusts)
 

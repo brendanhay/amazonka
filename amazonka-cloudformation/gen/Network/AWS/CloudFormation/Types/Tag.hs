@@ -24,13 +24,13 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | The Tag type enables you to specify a key-value pair that can be used to
--- store information about an AWS CloudFormation stack.
+-- store information about an CloudFormation stack.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | /Required/. A string used to identify this tag. You can specify a
     -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
-    -- Services (AWS) have the reserved prefix: @aws:@.
+    -- Services (Amazon Web Services) have the reserved prefix: @aws:@.
     key :: Prelude.Text,
     -- | /Required/. A string containing the value for this tag. You can specify
     -- a maximum of 256 characters for a tag value.
@@ -48,7 +48,7 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - /Required/. A string used to identify this tag. You can specify a
 -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
--- Services (AWS) have the reserved prefix: @aws:@.
+-- Services (Amazon Web Services) have the reserved prefix: @aws:@.
 --
 -- 'value', 'tag_value' - /Required/. A string containing the value for this tag. You can specify
 -- a maximum of 256 characters for a tag value.
@@ -63,7 +63,7 @@ newTag pKey_ pValue_ =
 
 -- | /Required/. A string used to identify this tag. You can specify a
 -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
--- Services (AWS) have the reserved prefix: @aws:@.
+-- Services (Amazon Web Services) have the reserved prefix: @aws:@.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 

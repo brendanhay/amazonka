@@ -30,6 +30,7 @@ module Network.AWS.CloudFormation.ListTypeVersions
     listTypeVersions_typeName,
     listTypeVersions_nextToken,
     listTypeVersions_maxResults,
+    listTypeVersions_publisherId,
     listTypeVersions_arn,
     listTypeVersions_deprecatedStatus,
     listTypeVersions_type,
@@ -71,6 +72,10 @@ data ListTypeVersions = ListTypeVersions'
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The publisher ID of the extension publisher.
+    --
+    -- Extensions published by Amazon are not assigned a publisher ID.
+    publisherId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the extension for which you want
     -- version summary information.
     --
@@ -122,6 +127,10 @@ data ListTypeVersions = ListTypeVersions'
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
 --
+-- 'publisherId', 'listTypeVersions_publisherId' - The publisher ID of the extension publisher.
+--
+-- Extensions published by Amazon are not assigned a publisher ID.
+--
 -- 'arn', 'listTypeVersions_arn' - The Amazon Resource Name (ARN) of the extension for which you want
 -- version summary information.
 --
@@ -151,6 +160,7 @@ newListTypeVersions =
     { typeName = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      publisherId = Prelude.Nothing,
       arn = Prelude.Nothing,
       deprecatedStatus = Prelude.Nothing,
       type' = Prelude.Nothing
@@ -178,6 +188,12 @@ listTypeVersions_nextToken = Lens.lens (\ListTypeVersions' {nextToken} -> nextTo
 -- parameter to get the next set of results.
 listTypeVersions_maxResults :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Natural)
 listTypeVersions_maxResults = Lens.lens (\ListTypeVersions' {maxResults} -> maxResults) (\s@ListTypeVersions' {} a -> s {maxResults = a} :: ListTypeVersions)
+
+-- | The publisher ID of the extension publisher.
+--
+-- Extensions published by Amazon are not assigned a publisher ID.
+listTypeVersions_publisherId :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Text)
+listTypeVersions_publisherId = Lens.lens (\ListTypeVersions' {publisherId} -> publisherId) (\s@ListTypeVersions' {} a -> s {publisherId = a} :: ListTypeVersions)
 
 -- | The Amazon Resource Name (ARN) of the extension for which you want
 -- version summary information.
@@ -246,6 +262,7 @@ instance Core.ToQuery ListTypeVersions where
         "TypeName" Core.=: typeName,
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
+        "PublisherId" Core.=: publisherId,
         "Arn" Core.=: arn,
         "DeprecatedStatus" Core.=: deprecatedStatus,
         "Type" Core.=: type'

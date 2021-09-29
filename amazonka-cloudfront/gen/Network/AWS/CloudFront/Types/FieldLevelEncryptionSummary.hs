@@ -29,7 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFieldLevelEncryptionSummary' smart constructor.
 data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
-  { -- | An optional comment about the field-level encryption item.
+  { -- | An optional comment about the field-level encryption item. The comment
+    -- cannot be longer than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A summary of a content type-profile mapping.
     contentTypeProfileConfig :: Prelude.Maybe ContentTypeProfileConfig,
@@ -51,7 +52,8 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item.
+-- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
 --
 -- 'contentTypeProfileConfig', 'fieldLevelEncryptionSummary_contentTypeProfileConfig' - A summary of a content type-profile mapping.
 --
@@ -80,7 +82,8 @@ newFieldLevelEncryptionSummary
           Core._Time Lens.# pLastModifiedTime_
       }
 
--- | An optional comment about the field-level encryption item.
+-- | An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
 fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
 fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
 

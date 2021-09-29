@@ -50,8 +50,8 @@ module Network.AWS.Redshift.DescribeUsageLimits
     describeUsageLimits_clusterIdentifier,
     describeUsageLimits_usageLimitId,
     describeUsageLimits_tagValues,
-    describeUsageLimits_marker,
     describeUsageLimits_maxRecords,
+    describeUsageLimits_marker,
 
     -- * Destructuring the Response
     DescribeUsageLimitsResponse (..),
@@ -95,13 +95,6 @@ data DescribeUsageLimits = DescribeUsageLimits'
     -- the usage limit objects that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeUsageLimits request
-    -- exceed the value specified in @MaxRecords@, AWS returns a value in the
-    -- @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -111,7 +104,14 @@ data DescribeUsageLimits = DescribeUsageLimits'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeUsageLimits request
+    -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+    -- a value in the @Marker@ field of the response. You can retrieve the next
+    -- set of response records by providing the returned marker value in the
+    -- @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,13 +145,6 @@ data DescribeUsageLimits = DescribeUsageLimits'
 -- the usage limit objects that have either or both of these tag values
 -- associated with them.
 --
--- 'marker', 'describeUsageLimits_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeUsageLimits request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
---
 -- 'maxRecords', 'describeUsageLimits_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -161,6 +154,13 @@ data DescribeUsageLimits = DescribeUsageLimits'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeUsageLimits_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeUsageLimits request
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
 newDescribeUsageLimits ::
   DescribeUsageLimits
 newDescribeUsageLimits =
@@ -170,8 +170,8 @@ newDescribeUsageLimits =
       clusterIdentifier = Prelude.Nothing,
       usageLimitId = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The feature type for which you want to describe usage limits.
@@ -206,15 +206,6 @@ describeUsageLimits_usageLimitId = Lens.lens (\DescribeUsageLimits' {usageLimitI
 describeUsageLimits_tagValues :: Lens.Lens' DescribeUsageLimits (Prelude.Maybe [Prelude.Text])
 describeUsageLimits_tagValues = Lens.lens (\DescribeUsageLimits' {tagValues} -> tagValues) (\s@DescribeUsageLimits' {} a -> s {tagValues = a} :: DescribeUsageLimits) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeUsageLimits request
--- exceed the value specified in @MaxRecords@, AWS returns a value in the
--- @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeUsageLimits_marker :: Lens.Lens' DescribeUsageLimits (Prelude.Maybe Prelude.Text)
-describeUsageLimits_marker = Lens.lens (\DescribeUsageLimits' {marker} -> marker) (\s@DescribeUsageLimits' {} a -> s {marker = a} :: DescribeUsageLimits)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -226,6 +217,15 @@ describeUsageLimits_marker = Lens.lens (\DescribeUsageLimits' {marker} -> marker
 -- Constraints: minimum 20, maximum 100.
 describeUsageLimits_maxRecords :: Lens.Lens' DescribeUsageLimits (Prelude.Maybe Prelude.Int)
 describeUsageLimits_maxRecords = Lens.lens (\DescribeUsageLimits' {maxRecords} -> maxRecords) (\s@DescribeUsageLimits' {} a -> s {maxRecords = a} :: DescribeUsageLimits)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeUsageLimits request
+-- exceed the value specified in @MaxRecords@, Amazon Web Services returns
+-- a value in the @Marker@ field of the response. You can retrieve the next
+-- set of response records by providing the returned marker value in the
+-- @Marker@ parameter and retrying the request.
+describeUsageLimits_marker :: Lens.Lens' DescribeUsageLimits (Prelude.Maybe Prelude.Text)
+describeUsageLimits_marker = Lens.lens (\DescribeUsageLimits' {marker} -> marker) (\s@DescribeUsageLimits' {} a -> s {marker = a} :: DescribeUsageLimits)
 
 instance Core.AWSPager DescribeUsageLimits where
   page rq rs
@@ -292,8 +292,8 @@ instance Core.ToQuery DescribeUsageLimits where
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeUsageLimitsResponse' smart constructor.

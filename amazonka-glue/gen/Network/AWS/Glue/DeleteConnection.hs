@@ -49,7 +49,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
   { -- | The ID of the Data Catalog in which the connection resides. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection to delete.
     connectionName :: Prelude.Text
@@ -65,7 +65,7 @@ data DeleteConnection = DeleteConnection'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'connectionName', 'deleteConnection_connectionName' - The name of the connection to delete.
 newDeleteConnection ::
@@ -79,7 +79,7 @@ newDeleteConnection pConnectionName_ =
     }
 
 -- | The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 deleteConnection_catalogId :: Lens.Lens' DeleteConnection (Prelude.Maybe Prelude.Text)
 deleteConnection_catalogId = Lens.lens (\DeleteConnection' {catalogId} -> catalogId) (\s@DeleteConnection' {} a -> s {catalogId = a} :: DeleteConnection)
 

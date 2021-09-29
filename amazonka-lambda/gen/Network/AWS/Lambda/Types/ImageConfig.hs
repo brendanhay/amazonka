@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImageConfig' smart constructor.
 data ImageConfig = ImageConfig'
-  { -- | Specifies the working directory.
-    workingDirectory :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the entry point to their application, which is typically the
+  { -- | Specifies the entry point to their application, which is typically the
     -- location of the runtime executable.
     entryPoint :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the working directory.
+    workingDirectory :: Prelude.Maybe Prelude.Text,
     -- | Specifies parameters that you want to pass in with ENTRYPOINT.
     command :: Prelude.Maybe [Prelude.Text]
   }
@@ -47,29 +47,29 @@ data ImageConfig = ImageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workingDirectory', 'imageConfig_workingDirectory' - Specifies the working directory.
---
 -- 'entryPoint', 'imageConfig_entryPoint' - Specifies the entry point to their application, which is typically the
 -- location of the runtime executable.
+--
+-- 'workingDirectory', 'imageConfig_workingDirectory' - Specifies the working directory.
 --
 -- 'command', 'imageConfig_command' - Specifies parameters that you want to pass in with ENTRYPOINT.
 newImageConfig ::
   ImageConfig
 newImageConfig =
   ImageConfig'
-    { workingDirectory = Prelude.Nothing,
-      entryPoint = Prelude.Nothing,
+    { entryPoint = Prelude.Nothing,
+      workingDirectory = Prelude.Nothing,
       command = Prelude.Nothing
     }
-
--- | Specifies the working directory.
-imageConfig_workingDirectory :: Lens.Lens' ImageConfig (Prelude.Maybe Prelude.Text)
-imageConfig_workingDirectory = Lens.lens (\ImageConfig' {workingDirectory} -> workingDirectory) (\s@ImageConfig' {} a -> s {workingDirectory = a} :: ImageConfig)
 
 -- | Specifies the entry point to their application, which is typically the
 -- location of the runtime executable.
 imageConfig_entryPoint :: Lens.Lens' ImageConfig (Prelude.Maybe [Prelude.Text])
 imageConfig_entryPoint = Lens.lens (\ImageConfig' {entryPoint} -> entryPoint) (\s@ImageConfig' {} a -> s {entryPoint = a} :: ImageConfig) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies the working directory.
+imageConfig_workingDirectory :: Lens.Lens' ImageConfig (Prelude.Maybe Prelude.Text)
+imageConfig_workingDirectory = Lens.lens (\ImageConfig' {workingDirectory} -> workingDirectory) (\s@ImageConfig' {} a -> s {workingDirectory = a} :: ImageConfig)
 
 -- | Specifies parameters that you want to pass in with ENTRYPOINT.
 imageConfig_command :: Lens.Lens' ImageConfig (Prelude.Maybe [Prelude.Text])
@@ -81,8 +81,8 @@ instance Core.FromJSON ImageConfig where
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Prelude.<$> (x Core..:? "WorkingDirectory")
-            Prelude.<*> (x Core..:? "EntryPoint" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "EntryPoint" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "WorkingDirectory")
             Prelude.<*> (x Core..:? "Command" Core..!= Prelude.mempty)
       )
 
@@ -94,9 +94,9 @@ instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WorkingDirectory" Core..=)
+          [ ("EntryPoint" Core..=) Prelude.<$> entryPoint,
+            ("WorkingDirectory" Core..=)
               Prelude.<$> workingDirectory,
-            ("EntryPoint" Core..=) Prelude.<$> entryPoint,
             ("Command" Core..=) Prelude.<$> command
           ]
       )

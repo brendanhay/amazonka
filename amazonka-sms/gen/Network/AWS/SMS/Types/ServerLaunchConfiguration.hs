@@ -35,11 +35,11 @@ data ServerLaunchConfiguration = ServerLaunchConfiguration'
     -- | The name of the Amazon EC2 SSH key to be used for connecting to the
     -- launched server.
     ec2KeyName :: Prelude.Maybe Prelude.Text,
-    -- | The instance type to use when launching the server.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Location of the user-data script to be executed when launching the
     -- server.
     userData :: Prelude.Maybe UserData,
+    -- | The instance type to use when launching the server.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The logical ID of the server in the AWS CloudFormation template.
     logicalId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet the server should be launched into.
@@ -73,10 +73,10 @@ data ServerLaunchConfiguration = ServerLaunchConfiguration'
 -- 'ec2KeyName', 'serverLaunchConfiguration_ec2KeyName' - The name of the Amazon EC2 SSH key to be used for connecting to the
 -- launched server.
 --
--- 'instanceType', 'serverLaunchConfiguration_instanceType' - The instance type to use when launching the server.
---
 -- 'userData', 'serverLaunchConfiguration_userData' - Location of the user-data script to be executed when launching the
 -- server.
+--
+-- 'instanceType', 'serverLaunchConfiguration_instanceType' - The instance type to use when launching the server.
 --
 -- 'logicalId', 'serverLaunchConfiguration_logicalId' - The logical ID of the server in the AWS CloudFormation template.
 --
@@ -101,8 +101,8 @@ newServerLaunchConfiguration =
     { configureScript =
         Prelude.Nothing,
       ec2KeyName = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       userData = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       logicalId = Prelude.Nothing,
       subnet = Prelude.Nothing,
       iamInstanceProfileName = Prelude.Nothing,
@@ -122,14 +122,14 @@ serverLaunchConfiguration_configureScript = Lens.lens (\ServerLaunchConfiguratio
 serverLaunchConfiguration_ec2KeyName :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
 serverLaunchConfiguration_ec2KeyName = Lens.lens (\ServerLaunchConfiguration' {ec2KeyName} -> ec2KeyName) (\s@ServerLaunchConfiguration' {} a -> s {ec2KeyName = a} :: ServerLaunchConfiguration)
 
--- | The instance type to use when launching the server.
-serverLaunchConfiguration_instanceType :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
-serverLaunchConfiguration_instanceType = Lens.lens (\ServerLaunchConfiguration' {instanceType} -> instanceType) (\s@ServerLaunchConfiguration' {} a -> s {instanceType = a} :: ServerLaunchConfiguration)
-
 -- | Location of the user-data script to be executed when launching the
 -- server.
 serverLaunchConfiguration_userData :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe UserData)
 serverLaunchConfiguration_userData = Lens.lens (\ServerLaunchConfiguration' {userData} -> userData) (\s@ServerLaunchConfiguration' {} a -> s {userData = a} :: ServerLaunchConfiguration)
+
+-- | The instance type to use when launching the server.
+serverLaunchConfiguration_instanceType :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverLaunchConfiguration_instanceType = Lens.lens (\ServerLaunchConfiguration' {instanceType} -> instanceType) (\s@ServerLaunchConfiguration' {} a -> s {instanceType = a} :: ServerLaunchConfiguration)
 
 -- | The logical ID of the server in the AWS CloudFormation template.
 serverLaunchConfiguration_logicalId :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
@@ -172,8 +172,8 @@ instance Core.FromJSON ServerLaunchConfiguration where
           ServerLaunchConfiguration'
             Prelude.<$> (x Core..:? "configureScript")
             Prelude.<*> (x Core..:? "ec2KeyName")
-            Prelude.<*> (x Core..:? "instanceType")
             Prelude.<*> (x Core..:? "userData")
+            Prelude.<*> (x Core..:? "instanceType")
             Prelude.<*> (x Core..:? "logicalId")
             Prelude.<*> (x Core..:? "subnet")
             Prelude.<*> (x Core..:? "iamInstanceProfileName")
@@ -195,8 +195,8 @@ instance Core.ToJSON ServerLaunchConfiguration where
           [ ("configureScript" Core..=)
               Prelude.<$> configureScript,
             ("ec2KeyName" Core..=) Prelude.<$> ec2KeyName,
-            ("instanceType" Core..=) Prelude.<$> instanceType,
             ("userData" Core..=) Prelude.<$> userData,
+            ("instanceType" Core..=) Prelude.<$> instanceType,
             ("logicalId" Core..=) Prelude.<$> logicalId,
             ("subnet" Core..=) Prelude.<$> subnet,
             ("iamInstanceProfileName" Core..=)

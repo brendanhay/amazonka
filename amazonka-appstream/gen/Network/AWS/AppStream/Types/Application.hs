@@ -31,15 +31,15 @@ data Application = Application'
     iconURL :: Prelude.Maybe Prelude.Text,
     -- | The path to the application executable in the instance.
     launchPath :: Prelude.Maybe Prelude.Text,
+    -- | Additional attributes that describe the application.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | If there is a problem, the application can be disabled after image
     -- creation.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Additional attributes that describe the application.
-    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The arguments that are passed to the application at launch.
-    launchParameters :: Prelude.Maybe Prelude.Text,
     -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The arguments that are passed to the application at launch.
+    launchParameters :: Prelude.Maybe Prelude.Text,
     -- | The application name to display.
     displayName :: Prelude.Maybe Prelude.Text
   }
@@ -57,14 +57,14 @@ data Application = Application'
 --
 -- 'launchPath', 'application_launchPath' - The path to the application executable in the instance.
 --
+-- 'metadata', 'application_metadata' - Additional attributes that describe the application.
+--
 -- 'enabled', 'application_enabled' - If there is a problem, the application can be disabled after image
 -- creation.
 --
--- 'metadata', 'application_metadata' - Additional attributes that describe the application.
+-- 'name', 'application_name' - The name of the application.
 --
 -- 'launchParameters', 'application_launchParameters' - The arguments that are passed to the application at launch.
---
--- 'name', 'application_name' - The name of the application.
 --
 -- 'displayName', 'application_displayName' - The application name to display.
 newApplication ::
@@ -73,10 +73,10 @@ newApplication =
   Application'
     { iconURL = Prelude.Nothing,
       launchPath = Prelude.Nothing,
-      enabled = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      launchParameters = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       name = Prelude.Nothing,
+      launchParameters = Prelude.Nothing,
       displayName = Prelude.Nothing
     }
 
@@ -88,22 +88,22 @@ application_iconURL = Lens.lens (\Application' {iconURL} -> iconURL) (\s@Applica
 application_launchPath :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_launchPath = Lens.lens (\Application' {launchPath} -> launchPath) (\s@Application' {} a -> s {launchPath = a} :: Application)
 
+-- | Additional attributes that describe the application.
+application_metadata :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Prelude.. Lens.mapping Lens._Coerce
+
 -- | If there is a problem, the application can be disabled after image
 -- creation.
 application_enabled :: Lens.Lens' Application (Prelude.Maybe Prelude.Bool)
 application_enabled = Lens.lens (\Application' {enabled} -> enabled) (\s@Application' {} a -> s {enabled = a} :: Application)
 
--- | Additional attributes that describe the application.
-application_metadata :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the application.
+application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
 
 -- | The arguments that are passed to the application at launch.
 application_launchParameters :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_launchParameters = Lens.lens (\Application' {launchParameters} -> launchParameters) (\s@Application' {} a -> s {launchParameters = a} :: Application)
-
--- | The name of the application.
-application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
 
 -- | The application name to display.
 application_displayName :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
@@ -117,10 +117,10 @@ instance Core.FromJSON Application where
           Application'
             Prelude.<$> (x Core..:? "IconURL")
             Prelude.<*> (x Core..:? "LaunchPath")
-            Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LaunchParameters")
+            Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LaunchParameters")
             Prelude.<*> (x Core..:? "DisplayName")
       )
 

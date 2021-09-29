@@ -39,8 +39,6 @@ import qualified Network.AWS.Prelude as Prelude
 data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecification'
   { -- | The IDs of the security groups.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The instance type.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the instances are optimized for EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -49,10 +47,12 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
     --
     -- Default: @false@
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | The base64-encoded MIME user data.
-    userData :: Prelude.Maybe Prelude.Text,
     -- | The placement information.
     placement :: Prelude.Maybe ScheduledInstancesPlacement,
+    -- | The base64-encoded MIME user data.
+    userData :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the RAM disk.
     ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The IAM instance profile.
@@ -65,10 +65,10 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the kernel.
     kernelId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the key pair.
-    keyName :: Prelude.Maybe Prelude.Text,
     -- | The network interfaces.
     networkInterfaces :: Prelude.Maybe [ScheduledInstancesNetworkInterface],
+    -- | The name of the key pair.
+    keyName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Machine Image (AMI).
     imageId :: Prelude.Text
   }
@@ -84,8 +84,6 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
 --
 -- 'securityGroupIds', 'scheduledInstancesLaunchSpecification_securityGroupIds' - The IDs of the security groups.
 --
--- 'instanceType', 'scheduledInstancesLaunchSpecification_instanceType' - The instance type.
---
 -- 'ebsOptimized', 'scheduledInstancesLaunchSpecification_ebsOptimized' - Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -94,9 +92,11 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
 --
 -- Default: @false@
 --
+-- 'placement', 'scheduledInstancesLaunchSpecification_placement' - The placement information.
+--
 -- 'userData', 'scheduledInstancesLaunchSpecification_userData' - The base64-encoded MIME user data.
 --
--- 'placement', 'scheduledInstancesLaunchSpecification_placement' - The placement information.
+-- 'instanceType', 'scheduledInstancesLaunchSpecification_instanceType' - The instance type.
 --
 -- 'ramdiskId', 'scheduledInstancesLaunchSpecification_ramdiskId' - The ID of the RAM disk.
 --
@@ -110,9 +110,9 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
 --
 -- 'kernelId', 'scheduledInstancesLaunchSpecification_kernelId' - The ID of the kernel.
 --
--- 'keyName', 'scheduledInstancesLaunchSpecification_keyName' - The name of the key pair.
---
 -- 'networkInterfaces', 'scheduledInstancesLaunchSpecification_networkInterfaces' - The network interfaces.
+--
+-- 'keyName', 'scheduledInstancesLaunchSpecification_keyName' - The name of the key pair.
 --
 -- 'imageId', 'scheduledInstancesLaunchSpecification_imageId' - The ID of the Amazon Machine Image (AMI).
 newScheduledInstancesLaunchSpecification ::
@@ -123,10 +123,10 @@ newScheduledInstancesLaunchSpecification pImageId_ =
   ScheduledInstancesLaunchSpecification'
     { securityGroupIds =
         Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
-      userData = Prelude.Nothing,
       placement = Prelude.Nothing,
+      userData = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       iamInstanceProfile = Prelude.Nothing,
       monitoring = Prelude.Nothing,
@@ -134,18 +134,14 @@ newScheduledInstancesLaunchSpecification pImageId_ =
         Prelude.Nothing,
       subnetId = Prelude.Nothing,
       kernelId = Prelude.Nothing,
-      keyName = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
+      keyName = Prelude.Nothing,
       imageId = pImageId_
     }
 
 -- | The IDs of the security groups.
 scheduledInstancesLaunchSpecification_securityGroupIds :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe [Prelude.Text])
 scheduledInstancesLaunchSpecification_securityGroupIds = Lens.lens (\ScheduledInstancesLaunchSpecification' {securityGroupIds} -> securityGroupIds) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {securityGroupIds = a} :: ScheduledInstancesLaunchSpecification) Prelude.. Lens.mapping Lens._Coerce
-
--- | The instance type.
-scheduledInstancesLaunchSpecification_instanceType :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
-scheduledInstancesLaunchSpecification_instanceType = Lens.lens (\ScheduledInstancesLaunchSpecification' {instanceType} -> instanceType) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {instanceType = a} :: ScheduledInstancesLaunchSpecification)
 
 -- | Indicates whether the instances are optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -157,13 +153,17 @@ scheduledInstancesLaunchSpecification_instanceType = Lens.lens (\ScheduledInstan
 scheduledInstancesLaunchSpecification_ebsOptimized :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Bool)
 scheduledInstancesLaunchSpecification_ebsOptimized = Lens.lens (\ScheduledInstancesLaunchSpecification' {ebsOptimized} -> ebsOptimized) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {ebsOptimized = a} :: ScheduledInstancesLaunchSpecification)
 
+-- | The placement information.
+scheduledInstancesLaunchSpecification_placement :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe ScheduledInstancesPlacement)
+scheduledInstancesLaunchSpecification_placement = Lens.lens (\ScheduledInstancesLaunchSpecification' {placement} -> placement) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {placement = a} :: ScheduledInstancesLaunchSpecification)
+
 -- | The base64-encoded MIME user data.
 scheduledInstancesLaunchSpecification_userData :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
 scheduledInstancesLaunchSpecification_userData = Lens.lens (\ScheduledInstancesLaunchSpecification' {userData} -> userData) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {userData = a} :: ScheduledInstancesLaunchSpecification)
 
--- | The placement information.
-scheduledInstancesLaunchSpecification_placement :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe ScheduledInstancesPlacement)
-scheduledInstancesLaunchSpecification_placement = Lens.lens (\ScheduledInstancesLaunchSpecification' {placement} -> placement) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {placement = a} :: ScheduledInstancesLaunchSpecification)
+-- | The instance type.
+scheduledInstancesLaunchSpecification_instanceType :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
+scheduledInstancesLaunchSpecification_instanceType = Lens.lens (\ScheduledInstancesLaunchSpecification' {instanceType} -> instanceType) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {instanceType = a} :: ScheduledInstancesLaunchSpecification)
 
 -- | The ID of the RAM disk.
 scheduledInstancesLaunchSpecification_ramdiskId :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
@@ -189,13 +189,13 @@ scheduledInstancesLaunchSpecification_subnetId = Lens.lens (\ScheduledInstancesL
 scheduledInstancesLaunchSpecification_kernelId :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
 scheduledInstancesLaunchSpecification_kernelId = Lens.lens (\ScheduledInstancesLaunchSpecification' {kernelId} -> kernelId) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {kernelId = a} :: ScheduledInstancesLaunchSpecification)
 
--- | The name of the key pair.
-scheduledInstancesLaunchSpecification_keyName :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
-scheduledInstancesLaunchSpecification_keyName = Lens.lens (\ScheduledInstancesLaunchSpecification' {keyName} -> keyName) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {keyName = a} :: ScheduledInstancesLaunchSpecification)
-
 -- | The network interfaces.
 scheduledInstancesLaunchSpecification_networkInterfaces :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe [ScheduledInstancesNetworkInterface])
 scheduledInstancesLaunchSpecification_networkInterfaces = Lens.lens (\ScheduledInstancesLaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {networkInterfaces = a} :: ScheduledInstancesLaunchSpecification) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the key pair.
+scheduledInstancesLaunchSpecification_keyName :: Lens.Lens' ScheduledInstancesLaunchSpecification (Prelude.Maybe Prelude.Text)
+scheduledInstancesLaunchSpecification_keyName = Lens.lens (\ScheduledInstancesLaunchSpecification' {keyName} -> keyName) (\s@ScheduledInstancesLaunchSpecification' {} a -> s {keyName = a} :: ScheduledInstancesLaunchSpecification)
 
 -- | The ID of the Amazon Machine Image (AMI).
 scheduledInstancesLaunchSpecification_imageId :: Lens.Lens' ScheduledInstancesLaunchSpecification Prelude.Text
@@ -219,10 +219,10 @@ instance
           ( Core.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "InstanceType" Core.=: instanceType,
         "EbsOptimized" Core.=: ebsOptimized,
-        "UserData" Core.=: userData,
         "Placement" Core.=: placement,
+        "UserData" Core.=: userData,
+        "InstanceType" Core.=: instanceType,
         "RamdiskId" Core.=: ramdiskId,
         "IamInstanceProfile" Core.=: iamInstanceProfile,
         "Monitoring" Core.=: monitoring,
@@ -232,10 +232,10 @@ instance
           ),
         "SubnetId" Core.=: subnetId,
         "KernelId" Core.=: kernelId,
-        "KeyName" Core.=: keyName,
         Core.toQuery
           ( Core.toQueryList "NetworkInterface"
               Prelude.<$> networkInterfaces
           ),
+        "KeyName" Core.=: keyName,
         "ImageId" Core.=: imageId
       ]

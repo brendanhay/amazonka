@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newPutDataCatalogEncryptionSettings' smart constructor.
 data PutDataCatalogEncryptionSettings = PutDataCatalogEncryptionSettings'
   { -- | The ID of the Data Catalog to set the security configuration for. If
-    -- none is provided, the AWS account ID is used by default.
+    -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The security configuration to set.
     dataCatalogEncryptionSettings :: DataCatalogEncryptionSettings
@@ -67,7 +67,7 @@ data PutDataCatalogEncryptionSettings = PutDataCatalogEncryptionSettings'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'putDataCatalogEncryptionSettings_catalogId' - The ID of the Data Catalog to set the security configuration for. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'dataCatalogEncryptionSettings', 'putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings' - The security configuration to set.
 newPutDataCatalogEncryptionSettings ::
@@ -84,7 +84,7 @@ newPutDataCatalogEncryptionSettings
       }
 
 -- | The ID of the Data Catalog to set the security configuration for. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 putDataCatalogEncryptionSettings_catalogId :: Lens.Lens' PutDataCatalogEncryptionSettings (Prelude.Maybe Prelude.Text)
 putDataCatalogEncryptionSettings_catalogId = Lens.lens (\PutDataCatalogEncryptionSettings' {catalogId} -> catalogId) (\s@PutDataCatalogEncryptionSettings' {} a -> s {catalogId = a} :: PutDataCatalogEncryptionSettings)
 

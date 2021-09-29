@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchCreatePartition' smart constructor.
 data BatchCreatePartition = BatchCreatePartition'
   { -- | The ID of the catalog in which the partition is to be created.
-    -- Currently, this should be the AWS account ID.
+    -- Currently, this should be the Amazon Web Services account ID.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the metadata database in which the partition is to be
     -- created.
@@ -74,7 +74,7 @@ data BatchCreatePartition = BatchCreatePartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchCreatePartition_catalogId' - The ID of the catalog in which the partition is to be created.
--- Currently, this should be the AWS account ID.
+-- Currently, this should be the Amazon Web Services account ID.
 --
 -- 'databaseName', 'batchCreatePartition_databaseName' - The name of the metadata database in which the partition is to be
 -- created.
@@ -98,7 +98,7 @@ newBatchCreatePartition pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the catalog in which the partition is to be created.
--- Currently, this should be the AWS account ID.
+-- Currently, this should be the Amazon Web Services account ID.
 batchCreatePartition_catalogId :: Lens.Lens' BatchCreatePartition (Prelude.Maybe Prelude.Text)
 batchCreatePartition_catalogId = Lens.lens (\BatchCreatePartition' {catalogId} -> catalogId) (\s@BatchCreatePartition' {} a -> s {catalogId = a} :: BatchCreatePartition)
 

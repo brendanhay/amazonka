@@ -40,7 +40,7 @@ data TopicConfiguration = TopicConfiguration'
     -- | The Amazon S3 bucket event about which to send notifications. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     events :: [Event]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data TopicConfiguration = TopicConfiguration'
 -- 'events', 'topicConfiguration_events' - The Amazon S3 bucket event about which to send notifications. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 newTopicConfiguration ::
   -- | 'topicArn'
   Prelude.Text ->
@@ -92,7 +92,7 @@ topicConfiguration_topicArn = Lens.lens (\TopicConfiguration' {topicArn} -> topi
 -- | The Amazon S3 bucket event about which to send notifications. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 topicConfiguration_events :: Lens.Lens' TopicConfiguration [Event]
 topicConfiguration_events = Lens.lens (\TopicConfiguration' {events} -> events) (\s@TopicConfiguration' {} a -> s {events = a} :: TopicConfiguration) Prelude.. Lens._Coerce
 

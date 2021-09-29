@@ -28,6 +28,7 @@ module Network.AWS.MediaLive.TransferInputDevice
     newTransferInputDevice',
 
     -- * Request Lenses
+    transferInputDevice'_targetRegion,
     transferInputDevice'_transferMessage,
     transferInputDevice'_targetCustomerId,
     transferInputDevice'_inputDeviceId,
@@ -52,7 +53,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newTransferInputDevice'' smart constructor.
 data TransferInputDevice' = TransferInputDevice''
-  { -- | An optional message for the recipient. Maximum 280 characters.
+  { -- | The target AWS region to transfer the device.
+    targetRegion :: Prelude.Maybe Prelude.Text,
+    -- | An optional message for the recipient. Maximum 280 characters.
     transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID (12 digits) for the recipient of the device transfer.
     targetCustomerId :: Prelude.Maybe Prelude.Text,
@@ -69,6 +72,8 @@ data TransferInputDevice' = TransferInputDevice''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetRegion', 'transferInputDevice'_targetRegion' - The target AWS region to transfer the device.
+--
 -- 'transferMessage', 'transferInputDevice'_transferMessage' - An optional message for the recipient. Maximum 280 characters.
 --
 -- 'targetCustomerId', 'transferInputDevice'_targetCustomerId' - The AWS account ID (12 digits) for the recipient of the device transfer.
@@ -80,11 +85,16 @@ newTransferInputDevice' ::
   TransferInputDevice'
 newTransferInputDevice' pInputDeviceId_ =
   TransferInputDevice''
-    { transferMessage =
+    { targetRegion =
         Prelude.Nothing,
+      transferMessage = Prelude.Nothing,
       targetCustomerId = Prelude.Nothing,
       inputDeviceId = pInputDeviceId_
     }
+
+-- | The target AWS region to transfer the device.
+transferInputDevice'_targetRegion :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
+transferInputDevice'_targetRegion = Lens.lens (\TransferInputDevice'' {targetRegion} -> targetRegion) (\s@TransferInputDevice'' {} a -> s {targetRegion = a} :: TransferInputDevice')
 
 -- | An optional message for the recipient. Maximum 280 characters.
 transferInputDevice'_transferMessage :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
@@ -129,7 +139,8 @@ instance Core.ToJSON TransferInputDevice' where
   toJSON TransferInputDevice'' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("transferMessage" Core..=)
+          [ ("targetRegion" Core..=) Prelude.<$> targetRegion,
+            ("transferMessage" Core..=)
               Prelude.<$> transferMessage,
             ("targetCustomerId" Core..=)
               Prelude.<$> targetCustomerId

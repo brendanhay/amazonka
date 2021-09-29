@@ -54,8 +54,8 @@ module Network.AWS.SWF.ListActivityTypes
     newListActivityTypes,
 
     -- * Request Lenses
-    listActivityTypes_name,
     listActivityTypes_nextPageToken,
+    listActivityTypes_name,
     listActivityTypes_maximumPageSize,
     listActivityTypes_reverseOrder,
     listActivityTypes_domain,
@@ -81,9 +81,7 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'newListActivityTypes' smart constructor.
 data ListActivityTypes = ListActivityTypes'
-  { -- | If specified, only lists the activity types that have this name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If @NextPageToken@ is returned there are more results available. The
+  { -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
@@ -93,6 +91,8 @@ data ListActivityTypes = ListActivityTypes'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | If specified, only lists the activity types that have this name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
@@ -115,8 +115,6 @@ data ListActivityTypes = ListActivityTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listActivityTypes_name' - If specified, only lists the activity types that have this name.
---
 -- 'nextPageToken', 'listActivityTypes_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
@@ -126,6 +124,8 @@ data ListActivityTypes = ListActivityTypes'
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
+--
+-- 'name', 'listActivityTypes_name' - If specified, only lists the activity types that have this name.
 --
 -- 'maximumPageSize', 'listActivityTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
@@ -145,17 +145,13 @@ newListActivityTypes ::
   ListActivityTypes
 newListActivityTypes pDomain_ pRegistrationStatus_ =
   ListActivityTypes'
-    { name = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
+      name = Prelude.Nothing,
       maximumPageSize = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
-
--- | If specified, only lists the activity types that have this name.
-listActivityTypes_name :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
-listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@ListActivityTypes' {} a -> s {name = a} :: ListActivityTypes)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -168,6 +164,10 @@ listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@List
 -- returned in a single call.
 listActivityTypes_nextPageToken :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
 listActivityTypes_nextPageToken = Lens.lens (\ListActivityTypes' {nextPageToken} -> nextPageToken) (\s@ListActivityTypes' {} a -> s {nextPageToken = a} :: ListActivityTypes)
+
+-- | If specified, only lists the activity types that have this name.
+listActivityTypes_name :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
+listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@ListActivityTypes' {} a -> s {name = a} :: ListActivityTypes)
 
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
@@ -244,8 +244,8 @@ instance Core.ToJSON ListActivityTypes where
   toJSON ListActivityTypes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+          [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("name" Core..=) Prelude.<$> name,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
             ("reverseOrder" Core..=) Prelude.<$> reverseOrder,

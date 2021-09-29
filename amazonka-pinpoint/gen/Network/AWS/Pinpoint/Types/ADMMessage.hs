@@ -42,6 +42,10 @@ data ADMMessage = ADMMessage'
     -- the expiresAfter parameter when it sends the notification message to
     -- ADM.
     expiresAfter :: Prelude.Maybe Prelude.Text,
+    -- | The body of the notification message.
+    body :: Prelude.Maybe Prelude.Text,
+    -- | The icon image name of the asset saved in your app.
+    iconReference :: Prelude.Maybe Prelude.Text,
     -- | The JSON data payload to use for the push notification, if the
     -- notification is a silent push notification. This payload is added to the
     -- data.pinpoint.jsonBody object of the notification.
@@ -49,22 +53,18 @@ data ADMMessage = ADMMessage'
     -- | The title to display above the notification message on the recipient\'s
     -- device.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The icon image name of the asset saved in your app.
-    iconReference :: Prelude.Maybe Prelude.Text,
-    -- | The body of the notification message.
-    body :: Prelude.Maybe Prelude.Text,
     -- | An arbitrary string that indicates that multiple messages are logically
     -- the same and that Amazon Device Messaging (ADM) can drop previously
     -- enqueued messages in favor of this message.
     consolidationKey :: Prelude.Maybe Prelude.Text,
-    -- | The default message variables to use in the notification message. You
-    -- can override the default variables with individual address variables.
-    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The URL of an image to display in the push notification.
     imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded, MD5 checksum of the value specified by the Data
     -- property. ADM uses the MD5 value to verify the integrity of the data.
     md5 :: Prelude.Maybe Prelude.Text,
+    -- | The default message variables to use in the notification message. You
+    -- can override the default variables with individual address variables.
+    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The action to occur if the recipient taps the push notification. Valid
     -- values are:
     --
@@ -78,15 +78,15 @@ data ADMMessage = ADMMessage'
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
     action :: Prelude.Maybe Action,
+    -- | The URL to open in the recipient\'s default mobile browser, if a
+    -- recipient taps the push notification and the value of the Action
+    -- property is URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The sound to play when the recipient receives the push notification. You
     -- can use the default stream or specify the file name of a sound resource
     -- that\'s bundled in your app. On an Android platform, the sound file must
     -- reside in \/res\/raw\/.
     sound :: Prelude.Maybe Prelude.Text,
-    -- | The URL to open in the recipient\'s default mobile browser, if a
-    -- recipient taps the push notification and the value of the Action
-    -- property is URL.
-    url :: Prelude.Maybe Prelude.Text,
     -- | The URL of the small icon image to display in the status bar and the
     -- content view of the push notification.
     smallImageIconUrl :: Prelude.Maybe Prelude.Text,
@@ -118,6 +118,10 @@ data ADMMessage = ADMMessage'
 -- the expiresAfter parameter when it sends the notification message to
 -- ADM.
 --
+-- 'body', 'aDMMessage_body' - The body of the notification message.
+--
+-- 'iconReference', 'aDMMessage_iconReference' - The icon image name of the asset saved in your app.
+--
 -- 'data'', 'aDMMessage_data' - The JSON data payload to use for the push notification, if the
 -- notification is a silent push notification. This payload is added to the
 -- data.pinpoint.jsonBody object of the notification.
@@ -125,21 +129,17 @@ data ADMMessage = ADMMessage'
 -- 'title', 'aDMMessage_title' - The title to display above the notification message on the recipient\'s
 -- device.
 --
--- 'iconReference', 'aDMMessage_iconReference' - The icon image name of the asset saved in your app.
---
--- 'body', 'aDMMessage_body' - The body of the notification message.
---
 -- 'consolidationKey', 'aDMMessage_consolidationKey' - An arbitrary string that indicates that multiple messages are logically
 -- the same and that Amazon Device Messaging (ADM) can drop previously
 -- enqueued messages in favor of this message.
---
--- 'substitutions', 'aDMMessage_substitutions' - The default message variables to use in the notification message. You
--- can override the default variables with individual address variables.
 --
 -- 'imageUrl', 'aDMMessage_imageUrl' - The URL of an image to display in the push notification.
 --
 -- 'md5', 'aDMMessage_md5' - The base64-encoded, MD5 checksum of the value specified by the Data
 -- property. ADM uses the MD5 value to verify the integrity of the data.
+--
+-- 'substitutions', 'aDMMessage_substitutions' - The default message variables to use in the notification message. You
+-- can override the default variables with individual address variables.
 --
 -- 'action', 'aDMMessage_action' - The action to occur if the recipient taps the push notification. Valid
 -- values are:
@@ -154,14 +154,14 @@ data ADMMessage = ADMMessage'
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
 --
+-- 'url', 'aDMMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+--
 -- 'sound', 'aDMMessage_sound' - The sound to play when the recipient receives the push notification. You
 -- can use the default stream or specify the file name of a sound resource
 -- that\'s bundled in your app. On an Android platform, the sound file must
 -- reside in \/res\/raw\/.
---
--- 'url', 'aDMMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
 --
 -- 'smallImageIconUrl', 'aDMMessage_smallImageIconUrl' - The URL of the small icon image to display in the status bar and the
 -- content view of the push notification.
@@ -176,17 +176,17 @@ newADMMessage =
     { silentPush = Prelude.Nothing,
       imageIconUrl = Prelude.Nothing,
       expiresAfter = Prelude.Nothing,
+      body = Prelude.Nothing,
+      iconReference = Prelude.Nothing,
       data' = Prelude.Nothing,
       title = Prelude.Nothing,
-      iconReference = Prelude.Nothing,
-      body = Prelude.Nothing,
       consolidationKey = Prelude.Nothing,
-      substitutions = Prelude.Nothing,
       imageUrl = Prelude.Nothing,
       md5 = Prelude.Nothing,
+      substitutions = Prelude.Nothing,
       action = Prelude.Nothing,
-      sound = Prelude.Nothing,
       url = Prelude.Nothing,
+      sound = Prelude.Nothing,
       smallImageIconUrl = Prelude.Nothing,
       rawContent = Prelude.Nothing
     }
@@ -210,6 +210,14 @@ aDMMessage_imageIconUrl = Lens.lens (\ADMMessage' {imageIconUrl} -> imageIconUrl
 aDMMessage_expiresAfter :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_expiresAfter = Lens.lens (\ADMMessage' {expiresAfter} -> expiresAfter) (\s@ADMMessage' {} a -> s {expiresAfter = a} :: ADMMessage)
 
+-- | The body of the notification message.
+aDMMessage_body :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
+aDMMessage_body = Lens.lens (\ADMMessage' {body} -> body) (\s@ADMMessage' {} a -> s {body = a} :: ADMMessage)
+
+-- | The icon image name of the asset saved in your app.
+aDMMessage_iconReference :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
+aDMMessage_iconReference = Lens.lens (\ADMMessage' {iconReference} -> iconReference) (\s@ADMMessage' {} a -> s {iconReference = a} :: ADMMessage)
+
 -- | The JSON data payload to use for the push notification, if the
 -- notification is a silent push notification. This payload is added to the
 -- data.pinpoint.jsonBody object of the notification.
@@ -221,24 +229,11 @@ aDMMessage_data = Lens.lens (\ADMMessage' {data'} -> data') (\s@ADMMessage' {} a
 aDMMessage_title :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_title = Lens.lens (\ADMMessage' {title} -> title) (\s@ADMMessage' {} a -> s {title = a} :: ADMMessage)
 
--- | The icon image name of the asset saved in your app.
-aDMMessage_iconReference :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
-aDMMessage_iconReference = Lens.lens (\ADMMessage' {iconReference} -> iconReference) (\s@ADMMessage' {} a -> s {iconReference = a} :: ADMMessage)
-
--- | The body of the notification message.
-aDMMessage_body :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
-aDMMessage_body = Lens.lens (\ADMMessage' {body} -> body) (\s@ADMMessage' {} a -> s {body = a} :: ADMMessage)
-
 -- | An arbitrary string that indicates that multiple messages are logically
 -- the same and that Amazon Device Messaging (ADM) can drop previously
 -- enqueued messages in favor of this message.
 aDMMessage_consolidationKey :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_consolidationKey = Lens.lens (\ADMMessage' {consolidationKey} -> consolidationKey) (\s@ADMMessage' {} a -> s {consolidationKey = a} :: ADMMessage)
-
--- | The default message variables to use in the notification message. You
--- can override the default variables with individual address variables.
-aDMMessage_substitutions :: Lens.Lens' ADMMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-aDMMessage_substitutions = Lens.lens (\ADMMessage' {substitutions} -> substitutions) (\s@ADMMessage' {} a -> s {substitutions = a} :: ADMMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL of an image to display in the push notification.
 aDMMessage_imageUrl :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
@@ -248,6 +243,11 @@ aDMMessage_imageUrl = Lens.lens (\ADMMessage' {imageUrl} -> imageUrl) (\s@ADMMes
 -- property. ADM uses the MD5 value to verify the integrity of the data.
 aDMMessage_md5 :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_md5 = Lens.lens (\ADMMessage' {md5} -> md5) (\s@ADMMessage' {} a -> s {md5 = a} :: ADMMessage)
+
+-- | The default message variables to use in the notification message. You
+-- can override the default variables with individual address variables.
+aDMMessage_substitutions :: Lens.Lens' ADMMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+aDMMessage_substitutions = Lens.lens (\ADMMessage' {substitutions} -> substitutions) (\s@ADMMessage' {} a -> s {substitutions = a} :: ADMMessage) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The action to occur if the recipient taps the push notification. Valid
 -- values are:
@@ -264,18 +264,18 @@ aDMMessage_md5 = Lens.lens (\ADMMessage' {md5} -> md5) (\s@ADMMessage' {} a -> s
 aDMMessage_action :: Lens.Lens' ADMMessage (Prelude.Maybe Action)
 aDMMessage_action = Lens.lens (\ADMMessage' {action} -> action) (\s@ADMMessage' {} a -> s {action = a} :: ADMMessage)
 
+-- | The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+aDMMessage_url :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
+aDMMessage_url = Lens.lens (\ADMMessage' {url} -> url) (\s@ADMMessage' {} a -> s {url = a} :: ADMMessage)
+
 -- | The sound to play when the recipient receives the push notification. You
 -- can use the default stream or specify the file name of a sound resource
 -- that\'s bundled in your app. On an Android platform, the sound file must
 -- reside in \/res\/raw\/.
 aDMMessage_sound :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
 aDMMessage_sound = Lens.lens (\ADMMessage' {sound} -> sound) (\s@ADMMessage' {} a -> s {sound = a} :: ADMMessage)
-
--- | The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
-aDMMessage_url :: Lens.Lens' ADMMessage (Prelude.Maybe Prelude.Text)
-aDMMessage_url = Lens.lens (\ADMMessage' {url} -> url) (\s@ADMMessage' {} a -> s {url = a} :: ADMMessage)
 
 -- | The URL of the small icon image to display in the status bar and the
 -- content view of the push notification.
@@ -299,18 +299,18 @@ instance Core.ToJSON ADMMessage where
           [ ("SilentPush" Core..=) Prelude.<$> silentPush,
             ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
             ("ExpiresAfter" Core..=) Prelude.<$> expiresAfter,
+            ("Body" Core..=) Prelude.<$> body,
+            ("IconReference" Core..=) Prelude.<$> iconReference,
             ("Data" Core..=) Prelude.<$> data',
             ("Title" Core..=) Prelude.<$> title,
-            ("IconReference" Core..=) Prelude.<$> iconReference,
-            ("Body" Core..=) Prelude.<$> body,
             ("ConsolidationKey" Core..=)
               Prelude.<$> consolidationKey,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("ImageUrl" Core..=) Prelude.<$> imageUrl,
             ("MD5" Core..=) Prelude.<$> md5,
+            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("Action" Core..=) Prelude.<$> action,
-            ("Sound" Core..=) Prelude.<$> sound,
             ("Url" Core..=) Prelude.<$> url,
+            ("Sound" Core..=) Prelude.<$> sound,
             ("SmallImageIconUrl" Core..=)
               Prelude.<$> smallImageIconUrl,
             ("RawContent" Core..=) Prelude.<$> rawContent

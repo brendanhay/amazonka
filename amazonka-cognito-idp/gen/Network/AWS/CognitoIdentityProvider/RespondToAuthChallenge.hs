@@ -21,6 +21,26 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Responds to the authentication challenge.
+--
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
 module Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
   ( -- * Creating a Request
     RespondToAuthChallenge (..),
@@ -62,17 +82,17 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
   { -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
-    -- You create custom workflows by assigning AWS Lambda functions to user
-    -- pool triggers. When you use the RespondToAuthChallenge API action,
-    -- Amazon Cognito invokes any functions that are assigned to the following
+    -- You create custom workflows by assigning Lambda functions to user pool
+    -- triggers. When you use the RespondToAuthChallenge API action, Amazon
+    -- Cognito invokes any functions that are assigned to the following
     -- triggers: /post authentication/, /pre token generation/, /define auth
     -- challenge/, /create auth challenge/, and /verify auth challenge/. When
     -- Amazon Cognito invokes any of these functions, it passes a JSON payload,
     -- which the function receives as input. This payload contains a
     -- @clientMetadata@ attribute, which provides the data that you assigned to
     -- the ClientMetadata parameter in your RespondToAuthChallenge request. In
-    -- your function code in AWS Lambda, you can process the @clientMetadata@
-    -- value to enhance your workflow for your specific needs.
+    -- your function code in Lambda, you can process the @clientMetadata@ value
+    -- to enhance your workflow for your specific needs.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -82,9 +102,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     -- ClientMetadata parameter:
     --
     -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to AWS Lambda triggers that are assigned to a user
-    --     pool to support custom workflows. If your user pool configuration
-    --     does not include triggers, the ClientMetadata parameter serves no
+    --     available only to Lambda triggers that are assigned to a user pool
+    --     to support custom workflows. If your user pool configuration does
+    --     not include triggers, the ClientMetadata parameter serves no
     --     purpose.
     --
     -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -118,6 +138,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     --
     -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
     --     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+    --
+    -- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+    --     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
     challengeResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
@@ -149,17 +172,17 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- 'clientMetadata', 'respondToAuthChallenge_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the RespondToAuthChallenge API action,
--- Amazon Cognito invokes any functions that are assigned to the following
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the RespondToAuthChallenge API action, Amazon
+-- Cognito invokes any functions that are assigned to the following
 -- triggers: /post authentication/, /pre token generation/, /define auth
 -- challenge/, /create auth challenge/, and /verify auth challenge/. When
 -- Amazon Cognito invokes any of these functions, it passes a JSON payload,
 -- which the function receives as input. This payload contains a
 -- @clientMetadata@ attribute, which provides the data that you assigned to
 -- the ClientMetadata parameter in your RespondToAuthChallenge request. In
--- your function code in AWS Lambda, you can process the @clientMetadata@
--- value to enhance your workflow for your specific needs.
+-- your function code in Lambda, you can process the @clientMetadata@ value
+-- to enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -169,9 +192,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -205,6 +228,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --
 -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
 --     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+--
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+--     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
 --
 -- 'session', 'respondToAuthChallenge_session' - The session which should be passed both ways in challenge-response calls
 -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
@@ -242,17 +268,17 @@ newRespondToAuthChallenge pClientId_ pChallengeName_ =
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the RespondToAuthChallenge API action,
--- Amazon Cognito invokes any functions that are assigned to the following
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the RespondToAuthChallenge API action, Amazon
+-- Cognito invokes any functions that are assigned to the following
 -- triggers: /post authentication/, /pre token generation/, /define auth
 -- challenge/, /create auth challenge/, and /verify auth challenge/. When
 -- Amazon Cognito invokes any of these functions, it passes a JSON payload,
 -- which the function receives as input. This payload contains a
 -- @clientMetadata@ attribute, which provides the data that you assigned to
 -- the ClientMetadata parameter in your RespondToAuthChallenge request. In
--- your function code in AWS Lambda, you can process the @clientMetadata@
--- value to enhance your workflow for your specific needs.
+-- your function code in Lambda, you can process the @clientMetadata@ value
+-- to enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -262,9 +288,9 @@ newRespondToAuthChallenge pClientId_ pChallengeName_ =
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -302,6 +328,9 @@ respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {us
 --
 -- -   @DEVICE_PASSWORD_VERIFIER@ requires everything that
 --     @PASSWORD_VERIFIER@ requires plus @DEVICE_KEY@.
+--
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+--     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
 respondToAuthChallenge_challengeResponses :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 respondToAuthChallenge_challengeResponses = Lens.lens (\RespondToAuthChallenge' {challengeResponses} -> challengeResponses) (\s@RespondToAuthChallenge' {} a -> s {challengeResponses = a} :: RespondToAuthChallenge) Prelude.. Lens.mapping Lens._Coerce
 

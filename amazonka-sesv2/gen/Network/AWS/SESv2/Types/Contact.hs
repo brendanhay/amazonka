@@ -28,11 +28,11 @@ import Network.AWS.SESv2.Types.TopicPreference
 --
 -- /See:/ 'newContact' smart constructor.
 data Contact = Contact'
-  { -- | A boolean value status noting if the contact is unsubscribed from all
+  { -- | The default topic preferences applied to the contact.
+    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
+    -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
-    -- | The default topic preferences applied to the contact.
-    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
     -- | The contact\'s preference for being opted-in to or opted-out of a topic.
     topicPreferences :: Prelude.Maybe [TopicPreference],
     -- | A timestamp noting the last time the contact\'s information was updated.
@@ -50,10 +50,10 @@ data Contact = Contact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'topicDefaultPreferences', 'contact_topicDefaultPreferences' - The default topic preferences applied to the contact.
+--
 -- 'unsubscribeAll', 'contact_unsubscribeAll' - A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
---
--- 'topicDefaultPreferences', 'contact_topicDefaultPreferences' - The default topic preferences applied to the contact.
 --
 -- 'topicPreferences', 'contact_topicPreferences' - The contact\'s preference for being opted-in to or opted-out of a topic.
 --
@@ -64,21 +64,21 @@ newContact ::
   Contact
 newContact =
   Contact'
-    { unsubscribeAll = Prelude.Nothing,
-      topicDefaultPreferences = Prelude.Nothing,
+    { topicDefaultPreferences = Prelude.Nothing,
+      unsubscribeAll = Prelude.Nothing,
       topicPreferences = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       emailAddress = Prelude.Nothing
     }
 
+-- | The default topic preferences applied to the contact.
+contact_topicDefaultPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
+contact_topicDefaultPreferences = Lens.lens (\Contact' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@Contact' {} a -> s {topicDefaultPreferences = a} :: Contact) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
 contact_unsubscribeAll :: Lens.Lens' Contact (Prelude.Maybe Prelude.Bool)
 contact_unsubscribeAll = Lens.lens (\Contact' {unsubscribeAll} -> unsubscribeAll) (\s@Contact' {} a -> s {unsubscribeAll = a} :: Contact)
-
--- | The default topic preferences applied to the contact.
-contact_topicDefaultPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
-contact_topicDefaultPreferences = Lens.lens (\Contact' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@Contact' {} a -> s {topicDefaultPreferences = a} :: Contact) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The contact\'s preference for being opted-in to or opted-out of a topic.
 contact_topicPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
@@ -98,10 +98,10 @@ instance Core.FromJSON Contact where
       "Contact"
       ( \x ->
           Contact'
-            Prelude.<$> (x Core..:? "UnsubscribeAll")
-            Prelude.<*> ( x Core..:? "TopicDefaultPreferences"
+            Prelude.<$> ( x Core..:? "TopicDefaultPreferences"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "UnsubscribeAll")
             Prelude.<*> ( x Core..:? "TopicPreferences"
                             Core..!= Prelude.mempty
                         )

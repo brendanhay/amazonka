@@ -24,7 +24,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details that identify a resource that is discovered by AWS Config,
+-- | The details that identify a resource that is discovered by Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
 --

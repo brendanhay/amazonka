@@ -54,8 +54,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRegistry' smart constructor.
 data CreateRegistry = CreateRegistry'
-  { -- | AWS tags that contain a key value pair and may be searched by console,
-    -- command line, or API.
+  { -- | Amazon Web Services tags that contain a key value pair and may be
+    -- searched by console, command line, or API.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A description of the registry. If description is not provided, there
     -- will not be any default value for this.
@@ -75,8 +75,8 @@ data CreateRegistry = CreateRegistry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRegistry_tags' - AWS tags that contain a key value pair and may be searched by console,
--- command line, or API.
+-- 'tags', 'createRegistry_tags' - Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API.
 --
 -- 'description', 'createRegistry_description' - A description of the registry. If description is not provided, there
 -- will not be any default value for this.
@@ -95,8 +95,8 @@ newCreateRegistry pRegistryName_ =
       registryName = pRegistryName_
     }
 
--- | AWS tags that contain a key value pair and may be searched by console,
--- command line, or API.
+-- | Amazon Web Services tags that contain a key value pair and may be
+-- searched by console, command line, or API.
 createRegistry_tags :: Lens.Lens' CreateRegistry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRegistry_tags = Lens.lens (\CreateRegistry' {tags} -> tags) (\s@CreateRegistry' {} a -> s {tags = a} :: CreateRegistry) Prelude.. Lens.mapping Lens._Coerce
 

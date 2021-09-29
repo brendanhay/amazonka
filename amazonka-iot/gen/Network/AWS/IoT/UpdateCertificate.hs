@@ -23,13 +23,17 @@
 -- Updates the status of the specified certificate. This operation is
 -- idempotent.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateCertificate>
+-- action.
+--
 -- Certificates must be in the ACTIVE state to authenticate devices that
--- use a certificate to connect to AWS IoT.
+-- use a certificate to connect to IoT.
 --
 -- Within a few minutes of updating a certificate from the ACTIVE state to
--- any other state, AWS IoT disconnects all devices that used that
--- certificate to connect. Devices cannot use a certificate that is not in
--- the ACTIVE state to reconnect.
+-- any other state, IoT disconnects all devices that used that certificate
+-- to connect. Devices cannot use a certificate that is not in the ACTIVE
+-- state to reconnect.
 module Network.AWS.IoT.UpdateCertificate
   ( -- * Creating a Request
     UpdateCertificate (..),
@@ -63,7 +67,7 @@ data UpdateCertificate = UpdateCertificate'
     --
     -- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION
     -- will result in an exception being thrown. PENDING_TRANSFER and
-    -- PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not
+    -- PENDING_ACTIVATION are statuses used internally by IoT. They are not
     -- intended for developer use.
     --
     -- __Note:__ The status value REGISTER_INACTIVE is deprecated and should
@@ -87,7 +91,7 @@ data UpdateCertificate = UpdateCertificate'
 --
 -- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION
 -- will result in an exception being thrown. PENDING_TRANSFER and
--- PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not
+-- PENDING_ACTIVATION are statuses used internally by IoT. They are not
 -- intended for developer use.
 --
 -- __Note:__ The status value REGISTER_INACTIVE is deprecated and should
@@ -113,7 +117,7 @@ updateCertificate_certificateId = Lens.lens (\UpdateCertificate' {certificateId}
 --
 -- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION
 -- will result in an exception being thrown. PENDING_TRANSFER and
--- PENDING_ACTIVATION are statuses used internally by AWS IoT. They are not
+-- PENDING_ACTIVATION are statuses used internally by IoT. They are not
 -- intended for developer use.
 --
 -- __Note:__ The status value REGISTER_INACTIVE is deprecated and should

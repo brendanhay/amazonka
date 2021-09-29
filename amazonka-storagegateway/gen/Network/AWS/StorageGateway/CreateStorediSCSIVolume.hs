@@ -41,8 +41,8 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     -- * Request Lenses
     createStorediSCSIVolume_kmsEncrypted,
     createStorediSCSIVolume_kmsKey,
-    createStorediSCSIVolume_snapshotId,
     createStorediSCSIVolume_tags,
+    createStorediSCSIVolume_snapshotId,
     createStorediSCSIVolume_gatewayARN,
     createStorediSCSIVolume_diskId,
     createStorediSCSIVolume_preserveExistingData,
@@ -82,8 +82,8 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newCreateStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
-    -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
@@ -92,13 +92,6 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
-    -- the new stored volume. Specify this field if you want to create the
-    -- iSCSI storage volume from a snapshot; otherwise, do not include this
-    -- field. To list snapshots for your account use
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
-    -- in the /Amazon Elastic Compute Cloud API Reference/.
-    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags that can be assigned to a stored volume. Each
     -- tag is a key-value pair.
     --
@@ -107,13 +100,20 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
     tags :: Prelude.Maybe [Tag],
+    -- | The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
+    -- the new stored volume. Specify this field if you want to create the
+    -- iSCSI storage volume from a snapshot; otherwise, do not include this
+    -- field. To list snapshots for your account use
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+    -- in the /Amazon Elastic Compute Cloud API Reference/.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Text,
     -- | The unique identifier for the gateway local disk that is configured as a
     -- stored volume. Use
     -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks>
     -- to list disk IDs for a gateway.
     diskId :: Prelude.Text,
-    -- | Set to true @true@ if you want to preserve the data on the local disk.
+    -- | Set to @true@ if you want to preserve the data on the local disk.
     -- Otherwise, set to @false@ to create an empty volume.
     --
     -- Valid Values: @true@ | @false@
@@ -144,8 +144,8 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsEncrypted', 'createStorediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- 'kmsEncrypted', 'createStorediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 --
@@ -153,13 +153,6 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
---
--- 'snapshotId', 'createStorediSCSIVolume_snapshotId' - The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
--- the new stored volume. Specify this field if you want to create the
--- iSCSI storage volume from a snapshot; otherwise, do not include this
--- field. To list snapshots for your account use
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
--- in the /Amazon Elastic Compute Cloud API Reference/.
 --
 -- 'tags', 'createStorediSCSIVolume_tags' - A list of up to 50 tags that can be assigned to a stored volume. Each
 -- tag is a key-value pair.
@@ -169,6 +162,13 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 --
+-- 'snapshotId', 'createStorediSCSIVolume_snapshotId' - The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
+-- the new stored volume. Specify this field if you want to create the
+-- iSCSI storage volume from a snapshot; otherwise, do not include this
+-- field. To list snapshots for your account use
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+-- in the /Amazon Elastic Compute Cloud API Reference/.
+--
 -- 'gatewayARN', 'createStorediSCSIVolume_gatewayARN' - Undocumented member.
 --
 -- 'diskId', 'createStorediSCSIVolume_diskId' - The unique identifier for the gateway local disk that is configured as a
@@ -176,7 +176,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks>
 -- to list disk IDs for a gateway.
 --
--- 'preserveExistingData', 'createStorediSCSIVolume_preserveExistingData' - Set to true @true@ if you want to preserve the data on the local disk.
+-- 'preserveExistingData', 'createStorediSCSIVolume_preserveExistingData' - Set to @true@ if you want to preserve the data on the local disk.
 -- Otherwise, set to @false@ to create an empty volume.
 --
 -- Valid Values: @true@ | @false@
@@ -217,8 +217,8 @@ newCreateStorediSCSIVolume
       { kmsEncrypted =
           Prelude.Nothing,
         kmsKey = Prelude.Nothing,
-        snapshotId = Prelude.Nothing,
         tags = Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         diskId = pDiskId_,
         preserveExistingData = pPreserveExistingData_,
@@ -226,8 +226,8 @@ newCreateStorediSCSIVolume
         networkInterfaceId = pNetworkInterfaceId_
       }
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 createStorediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Bool)
@@ -240,15 +240,6 @@ createStorediSCSIVolume_kmsEncrypted = Lens.lens (\CreateStorediSCSIVolume' {kms
 createStorediSCSIVolume_kmsKey :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolume_kmsKey = Lens.lens (\CreateStorediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateStorediSCSIVolume' {} a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
 
--- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
--- the new stored volume. Specify this field if you want to create the
--- iSCSI storage volume from a snapshot; otherwise, do not include this
--- field. To list snapshots for your account use
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
--- in the /Amazon Elastic Compute Cloud API Reference/.
-createStorediSCSIVolume_snapshotId :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
-createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateStorediSCSIVolume' {} a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
-
 -- | A list of up to 50 tags that can be assigned to a stored volume. Each
 -- tag is a key-value pair.
 --
@@ -258,6 +249,15 @@ createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snaps
 -- the maximum length for a tag\'s value is 256.
 createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe [Tag])
 createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
+-- the new stored volume. Specify this field if you want to create the
+-- iSCSI storage volume from a snapshot; otherwise, do not include this
+-- field. To list snapshots for your account use
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+-- in the /Amazon Elastic Compute Cloud API Reference/.
+createStorediSCSIVolume_snapshotId :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
+createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateStorediSCSIVolume' {} a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
 
 -- | Undocumented member.
 createStorediSCSIVolume_gatewayARN :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
@@ -270,7 +270,7 @@ createStorediSCSIVolume_gatewayARN = Lens.lens (\CreateStorediSCSIVolume' {gatew
 createStorediSCSIVolume_diskId :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
 createStorediSCSIVolume_diskId = Lens.lens (\CreateStorediSCSIVolume' {diskId} -> diskId) (\s@CreateStorediSCSIVolume' {} a -> s {diskId = a} :: CreateStorediSCSIVolume)
 
--- | Set to true @true@ if you want to preserve the data on the local disk.
+-- | Set to @true@ if you want to preserve the data on the local disk.
 -- Otherwise, set to @false@ to create an empty volume.
 --
 -- Valid Values: @true@ | @false@
@@ -336,8 +336,8 @@ instance Core.ToJSON CreateStorediSCSIVolume where
       ( Prelude.catMaybes
           [ ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
             ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("Tags" Core..=) Prelude.<$> tags,
+            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             Prelude.Just ("GatewayARN" Core..= gatewayARN),
             Prelude.Just ("DiskId" Core..= diskId),
             Prelude.Just

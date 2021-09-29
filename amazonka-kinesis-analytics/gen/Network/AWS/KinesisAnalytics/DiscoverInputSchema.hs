@@ -46,8 +46,8 @@ module Network.AWS.KinesisAnalytics.DiscoverInputSchema
     newDiscoverInputSchema,
 
     -- * Request Lenses
-    discoverInputSchema_resourceARN,
     discoverInputSchema_inputStartingPositionConfiguration,
+    discoverInputSchema_resourceARN,
     discoverInputSchema_roleARN,
     discoverInputSchema_s3Configuration,
     discoverInputSchema_inputProcessingConfiguration,
@@ -74,11 +74,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDiscoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-  { -- | Amazon Resource Name (ARN) of the streaming source.
-    resourceARN :: Prelude.Maybe Prelude.Text,
-    -- | Point at which you want Amazon Kinesis Analytics to start reading
+  { -- | Point at which you want Amazon Kinesis Analytics to start reading
     -- records from the specified streaming source discovery purposes.
     inputStartingPositionConfiguration :: Prelude.Maybe InputStartingPositionConfiguration,
+    -- | Amazon Resource Name (ARN) of the streaming source.
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream on your behalf.
     roleARN :: Prelude.Maybe Prelude.Text,
@@ -101,10 +101,10 @@ data DiscoverInputSchema = DiscoverInputSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'discoverInputSchema_resourceARN' - Amazon Resource Name (ARN) of the streaming source.
---
 -- 'inputStartingPositionConfiguration', 'discoverInputSchema_inputStartingPositionConfiguration' - Point at which you want Amazon Kinesis Analytics to start reading
 -- records from the specified streaming source discovery purposes.
+--
+-- 'resourceARN', 'discoverInputSchema_resourceARN' - Amazon Resource Name (ARN) of the streaming source.
 --
 -- 'roleARN', 'discoverInputSchema_roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf.
@@ -120,21 +120,22 @@ newDiscoverInputSchema ::
   DiscoverInputSchema
 newDiscoverInputSchema =
   DiscoverInputSchema'
-    { resourceARN = Prelude.Nothing,
-      inputStartingPositionConfiguration = Prelude.Nothing,
+    { inputStartingPositionConfiguration =
+        Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
       roleARN = Prelude.Nothing,
       s3Configuration = Prelude.Nothing,
       inputProcessingConfiguration = Prelude.Nothing
     }
 
--- | Amazon Resource Name (ARN) of the streaming source.
-discoverInputSchema_resourceARN :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe Prelude.Text)
-discoverInputSchema_resourceARN = Lens.lens (\DiscoverInputSchema' {resourceARN} -> resourceARN) (\s@DiscoverInputSchema' {} a -> s {resourceARN = a} :: DiscoverInputSchema)
-
 -- | Point at which you want Amazon Kinesis Analytics to start reading
 -- records from the specified streaming source discovery purposes.
 discoverInputSchema_inputStartingPositionConfiguration :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe InputStartingPositionConfiguration)
 discoverInputSchema_inputStartingPositionConfiguration = Lens.lens (\DiscoverInputSchema' {inputStartingPositionConfiguration} -> inputStartingPositionConfiguration) (\s@DiscoverInputSchema' {} a -> s {inputStartingPositionConfiguration = a} :: DiscoverInputSchema)
+
+-- | Amazon Resource Name (ARN) of the streaming source.
+discoverInputSchema_resourceARN :: Lens.Lens' DiscoverInputSchema (Prelude.Maybe Prelude.Text)
+discoverInputSchema_resourceARN = Lens.lens (\DiscoverInputSchema' {resourceARN} -> resourceARN) (\s@DiscoverInputSchema' {} a -> s {resourceARN = a} :: DiscoverInputSchema)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream on your behalf.
@@ -198,9 +199,9 @@ instance Core.ToJSON DiscoverInputSchema where
   toJSON DiscoverInputSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceARN" Core..=) Prelude.<$> resourceARN,
-            ("InputStartingPositionConfiguration" Core..=)
+          [ ("InputStartingPositionConfiguration" Core..=)
               Prelude.<$> inputStartingPositionConfiguration,
+            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("S3Configuration" Core..=)
               Prelude.<$> s3Configuration,

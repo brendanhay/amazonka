@@ -25,15 +25,15 @@ import Network.AWS.IoTAnalytics.Types.TriggeringDataset
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The @DatasetTrigger@ that specifies when the data set is automatically
+-- | The @DatasetTrigger@ that specifies when the dataset is automatically
 -- updated.
 --
 -- /See:/ 'newDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
   { -- | The Schedule when the trigger is initiated.
     schedule :: Prelude.Maybe Schedule,
-    -- | The data set whose content creation triggers the creation of this data
-    -- set\'s contents.
+    -- | The dataset whose content creation triggers the creation of this
+    -- dataset\'s contents.
     dataset :: Prelude.Maybe TriggeringDataset
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,8 +48,8 @@ data DatasetTrigger = DatasetTrigger'
 --
 -- 'schedule', 'datasetTrigger_schedule' - The Schedule when the trigger is initiated.
 --
--- 'dataset', 'datasetTrigger_dataset' - The data set whose content creation triggers the creation of this data
--- set\'s contents.
+-- 'dataset', 'datasetTrigger_dataset' - The dataset whose content creation triggers the creation of this
+-- dataset\'s contents.
 newDatasetTrigger ::
   DatasetTrigger
 newDatasetTrigger =
@@ -62,8 +62,8 @@ newDatasetTrigger =
 datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Prelude.Maybe Schedule)
 datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\s@DatasetTrigger' {} a -> s {schedule = a} :: DatasetTrigger)
 
--- | The data set whose content creation triggers the creation of this data
--- set\'s contents.
+-- | The dataset whose content creation triggers the creation of this
+-- dataset\'s contents.
 datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Prelude.Maybe TriggeringDataset)
 datasetTrigger_dataset = Lens.lens (\DatasetTrigger' {dataset} -> dataset) (\s@DatasetTrigger' {} a -> s {dataset = a} :: DatasetTrigger)
 

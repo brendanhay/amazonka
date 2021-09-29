@@ -92,7 +92,7 @@ data CreateAddon = CreateAddon'
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
-    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
     addonName :: Prelude.Text
   }
@@ -137,7 +137,7 @@ data CreateAddon = CreateAddon'
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
 -- 'addonName', 'createAddon_addonName' - The name of the add-on. The name must match one of the names returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
 newCreateAddon ::
   -- | 'clusterName'
@@ -199,7 +199,7 @@ createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
 createAddon_clusterName = Lens.lens (\CreateAddon' {clusterName} -> clusterName) (\s@CreateAddon' {} a -> s {clusterName = a} :: CreateAddon)
 
 -- | The name of the add-on. The name must match one of the names returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
 createAddon_addonName :: Lens.Lens' CreateAddon Prelude.Text
 createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@CreateAddon' {} a -> s {addonName = a} :: CreateAddon)

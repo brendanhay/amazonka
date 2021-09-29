@@ -184,6 +184,7 @@ library
     Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
     Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
     Network.AWS.DeviceFarm.Types.TestGridSessionStatus
+    Network.AWS.DeviceFarm.Types.TestGridVpcConfig
     Network.AWS.DeviceFarm.Types.TestType
     Network.AWS.DeviceFarm.Types.TrialMinutes
     Network.AWS.DeviceFarm.Types.UniqueProblem

@@ -60,7 +60,7 @@ data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A @ConformancePackComplianceFilters@ object.
     filters :: Prelude.Maybe ConformancePackComplianceFilters,
-    -- | The maximum number of AWS Config rules within a conformance pack are
+    -- | The maximum number of Config rules within a conformance pack are
     -- returned on each page.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | Name of the conformance pack.
@@ -81,7 +81,7 @@ data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
 --
 -- 'filters', 'describeConformancePackCompliance_filters' - A @ConformancePackComplianceFilters@ object.
 --
--- 'limit', 'describeConformancePackCompliance_limit' - The maximum number of AWS Config rules within a conformance pack are
+-- 'limit', 'describeConformancePackCompliance_limit' - The maximum number of Config rules within a conformance pack are
 -- returned on each page.
 --
 -- 'conformancePackName', 'describeConformancePackCompliance_conformancePackName' - Name of the conformance pack.
@@ -109,7 +109,7 @@ describeConformancePackCompliance_nextToken = Lens.lens (\DescribeConformancePac
 describeConformancePackCompliance_filters :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe ConformancePackComplianceFilters)
 describeConformancePackCompliance_filters = Lens.lens (\DescribeConformancePackCompliance' {filters} -> filters) (\s@DescribeConformancePackCompliance' {} a -> s {filters = a} :: DescribeConformancePackCompliance)
 
--- | The maximum number of AWS Config rules within a conformance pack are
+-- | The maximum number of Config rules within a conformance pack are
 -- returned on each page.
 describeConformancePackCompliance_limit :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Natural)
 describeConformancePackCompliance_limit = Lens.lens (\DescribeConformancePackCompliance' {limit} -> limit) (\s@DescribeConformancePackCompliance' {} a -> s {limit = a} :: DescribeConformancePackCompliance)

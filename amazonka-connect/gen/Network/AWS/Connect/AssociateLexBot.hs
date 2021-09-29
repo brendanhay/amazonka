@@ -49,9 +49,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateLexBot' smart constructor.
 data AssociateLexBot = AssociateLexBot'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The Amazon Lex box to associate with the instance.
+    -- | The Amazon Lex bot to associate with the instance.
     lexBot :: LexBot
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +65,10 @@ data AssociateLexBot = AssociateLexBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateLexBot_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateLexBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
--- 'lexBot', 'associateLexBot_lexBot' - The Amazon Lex box to associate with the instance.
+-- 'lexBot', 'associateLexBot_lexBot' - The Amazon Lex bot to associate with the instance.
 newAssociateLexBot ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -79,11 +81,12 @@ newAssociateLexBot pInstanceId_ pLexBot_ =
       lexBot = pLexBot_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Prelude.Text
 associateLexBot_instanceId = Lens.lens (\AssociateLexBot' {instanceId} -> instanceId) (\s@AssociateLexBot' {} a -> s {instanceId = a} :: AssociateLexBot)
 
--- | The Amazon Lex box to associate with the instance.
+-- | The Amazon Lex bot to associate with the instance.
 associateLexBot_lexBot :: Lens.Lens' AssociateLexBot LexBot
 associateLexBot_lexBot = Lens.lens (\AssociateLexBot' {lexBot} -> lexBot) (\s@AssociateLexBot' {} a -> s {lexBot = a} :: AssociateLexBot)
 

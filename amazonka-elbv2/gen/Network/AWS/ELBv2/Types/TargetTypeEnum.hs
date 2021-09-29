@@ -20,6 +20,7 @@
 module Network.AWS.ELBv2.Types.TargetTypeEnum
   ( TargetTypeEnum
       ( ..,
+        TargetTypeEnum_Alb,
         TargetTypeEnum_Instance,
         TargetTypeEnum_Ip,
         TargetTypeEnum_Lambda
@@ -58,6 +59,9 @@ newtype TargetTypeEnum = TargetTypeEnum'
       Core.ToXML
     )
 
+pattern TargetTypeEnum_Alb :: TargetTypeEnum
+pattern TargetTypeEnum_Alb = TargetTypeEnum' "alb"
+
 pattern TargetTypeEnum_Instance :: TargetTypeEnum
 pattern TargetTypeEnum_Instance = TargetTypeEnum' "instance"
 
@@ -68,6 +72,7 @@ pattern TargetTypeEnum_Lambda :: TargetTypeEnum
 pattern TargetTypeEnum_Lambda = TargetTypeEnum' "lambda"
 
 {-# COMPLETE
+  TargetTypeEnum_Alb,
   TargetTypeEnum_Instance,
   TargetTypeEnum_Ip,
   TargetTypeEnum_Lambda,

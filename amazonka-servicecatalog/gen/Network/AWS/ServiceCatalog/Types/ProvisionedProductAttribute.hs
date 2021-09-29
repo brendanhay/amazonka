@@ -29,9 +29,7 @@ import Network.AWS.ServiceCatalog.Types.Tag
 --
 -- /See:/ 'newProvisionedProductAttribute' smart constructor.
 data ProvisionedProductAttribute = ProvisionedProductAttribute'
-  { -- | The current status message of the provisioned product.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The record identifier of the last successful request performed on this
+  { -- | The record identifier of the last successful request performed on this
     -- provisioned product of the following types:
     --
     -- -   ProvisionedProduct
@@ -42,10 +40,8 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     --
     -- -   TerminateProvisionedProduct
     lastSuccessfulProvisioningRecordId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier that you provide to ensure idempotency. If multiple
-    -- requests differ only by the idempotency token, the same response is
-    -- returned for each repeated request.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status message of the provisioned product.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The current status of the provisioned product.
     --
     -- -   @AVAILABLE@ - Stable state, ready to perform any operation. The most
@@ -71,6 +67,10 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     --     execute the plan. Wait for an @AVAILABLE@ status before performing
     --     operations.
     status :: Prelude.Maybe ProvisionedProductStatus,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple
+    -- requests differ only by the idempotency token, the same response is
+    -- returned for each repeated request.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM user.
     userArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the provisioning artifact.
@@ -102,18 +102,18 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     --
     -- -   TerminateProvisionedProduct
     lastProvisioningRecordId :: Prelude.Maybe Prelude.Text,
-    -- | The type of provisioned product. The supported values are @CFN_STACK@
-    -- and @CFN_STACKSET@.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | The assigned identifier for the resource, such as an EC2 instance ID or
     -- an S3 bucket name.
     physicalId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM user in the session. This ARN might contain a session
-    -- ID.
-    userArnSession :: Prelude.Maybe Prelude.Text,
+    -- | The type of provisioned product. The supported values are @CFN_STACK@
+    -- and @CFN_STACKSET@.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the last request performed on this provisioned
     -- product.
-    lastRecordId :: Prelude.Maybe Prelude.Text
+    lastRecordId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM user in the session. This ARN might contain a session
+    -- ID.
+    userArnSession :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,8 +124,6 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'statusMessage', 'provisionedProductAttribute_statusMessage' - The current status message of the provisioned product.
 --
 -- 'lastSuccessfulProvisioningRecordId', 'provisionedProductAttribute_lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
@@ -138,9 +136,7 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --
 -- -   TerminateProvisionedProduct
 --
--- 'idempotencyToken', 'provisionedProductAttribute_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
+-- 'statusMessage', 'provisionedProductAttribute_statusMessage' - The current status message of the provisioned product.
 --
 -- 'status', 'provisionedProductAttribute_status' - The current status of the provisioned product.
 --
@@ -166,6 +162,10 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --     been created. After reviewing the list of resources to be created,
 --     execute the plan. Wait for an @AVAILABLE@ status before performing
 --     operations.
+--
+-- 'idempotencyToken', 'provisionedProductAttribute_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
 --
 -- 'userArn', 'provisionedProductAttribute_userArn' - The Amazon Resource Name (ARN) of the IAM user.
 --
@@ -198,27 +198,26 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --
 -- -   TerminateProvisionedProduct
 --
--- 'type'', 'provisionedProductAttribute_type' - The type of provisioned product. The supported values are @CFN_STACK@
--- and @CFN_STACKSET@.
---
 -- 'physicalId', 'provisionedProductAttribute_physicalId' - The assigned identifier for the resource, such as an EC2 instance ID or
 -- an S3 bucket name.
 --
--- 'userArnSession', 'provisionedProductAttribute_userArnSession' - The ARN of the IAM user in the session. This ARN might contain a session
--- ID.
+-- 'type'', 'provisionedProductAttribute_type' - The type of provisioned product. The supported values are @CFN_STACK@
+-- and @CFN_STACKSET@.
 --
 -- 'lastRecordId', 'provisionedProductAttribute_lastRecordId' - The record identifier of the last request performed on this provisioned
 -- product.
+--
+-- 'userArnSession', 'provisionedProductAttribute_userArnSession' - The ARN of the IAM user in the session. This ARN might contain a session
+-- ID.
 newProvisionedProductAttribute ::
   ProvisionedProductAttribute
 newProvisionedProductAttribute =
   ProvisionedProductAttribute'
-    { statusMessage =
+    { lastSuccessfulProvisioningRecordId =
         Prelude.Nothing,
-      lastSuccessfulProvisioningRecordId =
-        Prelude.Nothing,
-      idempotencyToken = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       userArn = Prelude.Nothing,
       provisioningArtifactName = Prelude.Nothing,
       arn = Prelude.Nothing,
@@ -230,15 +229,11 @@ newProvisionedProductAttribute =
       tags = Prelude.Nothing,
       productId = Prelude.Nothing,
       lastProvisioningRecordId = Prelude.Nothing,
-      type' = Prelude.Nothing,
       physicalId = Prelude.Nothing,
-      userArnSession = Prelude.Nothing,
-      lastRecordId = Prelude.Nothing
+      type' = Prelude.Nothing,
+      lastRecordId = Prelude.Nothing,
+      userArnSession = Prelude.Nothing
     }
-
--- | The current status message of the provisioned product.
-provisionedProductAttribute_statusMessage :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
-provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttribute' {statusMessage} -> statusMessage) (\s@ProvisionedProductAttribute' {} a -> s {statusMessage = a} :: ProvisionedProductAttribute)
 
 -- | The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
@@ -253,11 +248,9 @@ provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttrib
 provisionedProductAttribute_lastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastSuccessfulProvisioningRecordId = Lens.lens (\ProvisionedProductAttribute' {lastSuccessfulProvisioningRecordId} -> lastSuccessfulProvisioningRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductAttribute)
 
--- | A unique identifier that you provide to ensure idempotency. If multiple
--- requests differ only by the idempotency token, the same response is
--- returned for each repeated request.
-provisionedProductAttribute_idempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
-provisionedProductAttribute_idempotencyToken = Lens.lens (\ProvisionedProductAttribute' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductAttribute' {} a -> s {idempotencyToken = a} :: ProvisionedProductAttribute)
+-- | The current status message of the provisioned product.
+provisionedProductAttribute_statusMessage :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
+provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttribute' {statusMessage} -> statusMessage) (\s@ProvisionedProductAttribute' {} a -> s {statusMessage = a} :: ProvisionedProductAttribute)
 
 -- | The current status of the provisioned product.
 --
@@ -285,6 +278,12 @@ provisionedProductAttribute_idempotencyToken = Lens.lens (\ProvisionedProductAtt
 --     operations.
 provisionedProductAttribute_status :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe ProvisionedProductStatus)
 provisionedProductAttribute_status = Lens.lens (\ProvisionedProductAttribute' {status} -> status) (\s@ProvisionedProductAttribute' {} a -> s {status = a} :: ProvisionedProductAttribute)
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
+provisionedProductAttribute_idempotencyToken :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
+provisionedProductAttribute_idempotencyToken = Lens.lens (\ProvisionedProductAttribute' {idempotencyToken} -> idempotencyToken) (\s@ProvisionedProductAttribute' {} a -> s {idempotencyToken = a} :: ProvisionedProductAttribute)
 
 -- | The Amazon Resource Name (ARN) of the IAM user.
 provisionedProductAttribute_userArn :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
@@ -339,25 +338,25 @@ provisionedProductAttribute_productId = Lens.lens (\ProvisionedProductAttribute'
 provisionedProductAttribute_lastProvisioningRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastProvisioningRecordId = Lens.lens (\ProvisionedProductAttribute' {lastProvisioningRecordId} -> lastProvisioningRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastProvisioningRecordId = a} :: ProvisionedProductAttribute)
 
--- | The type of provisioned product. The supported values are @CFN_STACK@
--- and @CFN_STACKSET@.
-provisionedProductAttribute_type :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
-provisionedProductAttribute_type = Lens.lens (\ProvisionedProductAttribute' {type'} -> type') (\s@ProvisionedProductAttribute' {} a -> s {type' = a} :: ProvisionedProductAttribute)
-
 -- | The assigned identifier for the resource, such as an EC2 instance ID or
 -- an S3 bucket name.
 provisionedProductAttribute_physicalId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_physicalId = Lens.lens (\ProvisionedProductAttribute' {physicalId} -> physicalId) (\s@ProvisionedProductAttribute' {} a -> s {physicalId = a} :: ProvisionedProductAttribute)
 
--- | The ARN of the IAM user in the session. This ARN might contain a session
--- ID.
-provisionedProductAttribute_userArnSession :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
-provisionedProductAttribute_userArnSession = Lens.lens (\ProvisionedProductAttribute' {userArnSession} -> userArnSession) (\s@ProvisionedProductAttribute' {} a -> s {userArnSession = a} :: ProvisionedProductAttribute)
+-- | The type of provisioned product. The supported values are @CFN_STACK@
+-- and @CFN_STACKSET@.
+provisionedProductAttribute_type :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
+provisionedProductAttribute_type = Lens.lens (\ProvisionedProductAttribute' {type'} -> type') (\s@ProvisionedProductAttribute' {} a -> s {type' = a} :: ProvisionedProductAttribute)
 
 -- | The record identifier of the last request performed on this provisioned
 -- product.
 provisionedProductAttribute_lastRecordId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_lastRecordId = Lens.lens (\ProvisionedProductAttribute' {lastRecordId} -> lastRecordId) (\s@ProvisionedProductAttribute' {} a -> s {lastRecordId = a} :: ProvisionedProductAttribute)
+
+-- | The ARN of the IAM user in the session. This ARN might contain a session
+-- ID.
+provisionedProductAttribute_userArnSession :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
+provisionedProductAttribute_userArnSession = Lens.lens (\ProvisionedProductAttribute' {userArnSession} -> userArnSession) (\s@ProvisionedProductAttribute' {} a -> s {userArnSession = a} :: ProvisionedProductAttribute)
 
 instance Core.FromJSON ProvisionedProductAttribute where
   parseJSON =
@@ -365,10 +364,10 @@ instance Core.FromJSON ProvisionedProductAttribute where
       "ProvisionedProductAttribute"
       ( \x ->
           ProvisionedProductAttribute'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Prelude.<*> (x Core..:? "IdempotencyToken")
+            Prelude.<$> (x Core..:? "LastSuccessfulProvisioningRecordId")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "IdempotencyToken")
             Prelude.<*> (x Core..:? "UserArn")
             Prelude.<*> (x Core..:? "ProvisioningArtifactName")
             Prelude.<*> (x Core..:? "Arn")
@@ -380,10 +379,10 @@ instance Core.FromJSON ProvisionedProductAttribute where
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ProductId")
             Prelude.<*> (x Core..:? "LastProvisioningRecordId")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "PhysicalId")
-            Prelude.<*> (x Core..:? "UserArnSession")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "LastRecordId")
+            Prelude.<*> (x Core..:? "UserArnSession")
       )
 
 instance Prelude.Hashable ProvisionedProductAttribute

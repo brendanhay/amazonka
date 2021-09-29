@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRemediationExecutionStep' smart constructor.
 data RemediationExecutionStep = RemediationExecutionStep'
-  { -- | The time when the step started.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The time when the step stopped.
+  { -- | The time when the step stopped.
     stopTime :: Prelude.Maybe Core.POSIX,
-    -- | The valid status of the step.
-    state :: Prelude.Maybe RemediationExecutionStepState,
+    -- | The time when the step started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The details of the step.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The valid status of the step.
+    state :: Prelude.Maybe RemediationExecutionStepState,
     -- | An error message if the step was interrupted during execution.
     errorMessage :: Prelude.Maybe Prelude.Text
   }
@@ -49,42 +49,42 @@ data RemediationExecutionStep = RemediationExecutionStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'remediationExecutionStep_startTime' - The time when the step started.
---
 -- 'stopTime', 'remediationExecutionStep_stopTime' - The time when the step stopped.
 --
--- 'state', 'remediationExecutionStep_state' - The valid status of the step.
+-- 'startTime', 'remediationExecutionStep_startTime' - The time when the step started.
 --
 -- 'name', 'remediationExecutionStep_name' - The details of the step.
+--
+-- 'state', 'remediationExecutionStep_state' - The valid status of the step.
 --
 -- 'errorMessage', 'remediationExecutionStep_errorMessage' - An error message if the step was interrupted during execution.
 newRemediationExecutionStep ::
   RemediationExecutionStep
 newRemediationExecutionStep =
   RemediationExecutionStep'
-    { startTime =
+    { stopTime =
         Prelude.Nothing,
-      stopTime = Prelude.Nothing,
-      state = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       name = Prelude.Nothing,
+      state = Prelude.Nothing,
       errorMessage = Prelude.Nothing
     }
-
--- | The time when the step started.
-remediationExecutionStep_startTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
-remediationExecutionStep_startTime = Lens.lens (\RemediationExecutionStep' {startTime} -> startTime) (\s@RemediationExecutionStep' {} a -> s {startTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Core._Time
 
 -- | The time when the step stopped.
 remediationExecutionStep_stopTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
 remediationExecutionStep_stopTime = Lens.lens (\RemediationExecutionStep' {stopTime} -> stopTime) (\s@RemediationExecutionStep' {} a -> s {stopTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Core._Time
 
--- | The valid status of the step.
-remediationExecutionStep_state :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe RemediationExecutionStepState)
-remediationExecutionStep_state = Lens.lens (\RemediationExecutionStep' {state} -> state) (\s@RemediationExecutionStep' {} a -> s {state = a} :: RemediationExecutionStep)
+-- | The time when the step started.
+remediationExecutionStep_startTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
+remediationExecutionStep_startTime = Lens.lens (\RemediationExecutionStep' {startTime} -> startTime) (\s@RemediationExecutionStep' {} a -> s {startTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Core._Time
 
 -- | The details of the step.
 remediationExecutionStep_name :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.Text)
 remediationExecutionStep_name = Lens.lens (\RemediationExecutionStep' {name} -> name) (\s@RemediationExecutionStep' {} a -> s {name = a} :: RemediationExecutionStep)
+
+-- | The valid status of the step.
+remediationExecutionStep_state :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe RemediationExecutionStepState)
+remediationExecutionStep_state = Lens.lens (\RemediationExecutionStep' {state} -> state) (\s@RemediationExecutionStep' {} a -> s {state = a} :: RemediationExecutionStep)
 
 -- | An error message if the step was interrupted during execution.
 remediationExecutionStep_errorMessage :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.Text)
@@ -96,10 +96,10 @@ instance Core.FromJSON RemediationExecutionStep where
       "RemediationExecutionStep"
       ( \x ->
           RemediationExecutionStep'
-            Prelude.<$> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "StopTime")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "StopTime")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ErrorMessage")
       )
 

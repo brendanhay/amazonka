@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteTableVersion' smart constructor.
 data DeleteTableVersion = DeleteTableVersion'
   { -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
@@ -74,7 +74,7 @@ data DeleteTableVersion = DeleteTableVersion'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteTableVersion_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'deleteTableVersion_databaseName' - The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -104,7 +104,7 @@ newDeleteTableVersion
       }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 deleteTableVersion_catalogId :: Lens.Lens' DeleteTableVersion (Prelude.Maybe Prelude.Text)
 deleteTableVersion_catalogId = Lens.lens (\DeleteTableVersion' {catalogId} -> catalogId) (\s@DeleteTableVersion' {} a -> s {catalogId = a} :: DeleteTableVersion)
 

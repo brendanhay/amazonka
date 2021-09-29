@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPasswordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
-  { -- | The number of days that an IAM user password is valid.
-    maxPasswordAge :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether IAM user passwords must contain at least one lowercase
+  { -- | Specifies whether IAM user passwords must contain at least one lowercase
     -- character (a to z).
     requireLowercaseCharacters :: Prelude.Maybe Prelude.Bool,
-    -- | Minimum length to require for IAM user passwords.
-    minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
+    -- | The number of days that an IAM user password is valid.
+    maxPasswordAge :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the number of previous passwords that IAM users are prevented
     -- from reusing.
     passwordReusePrevention :: Prelude.Maybe Prelude.Natural,
+    -- | Minimum length to require for IAM user passwords.
+    minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether passwords in the account expire. Returns true if
     -- @MaxPasswordAge@ contains a value greater than 0. Returns false if
     -- MaxPasswordAge is 0 or not present.
@@ -71,15 +71,15 @@ data PasswordPolicy = PasswordPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxPasswordAge', 'passwordPolicy_maxPasswordAge' - The number of days that an IAM user password is valid.
---
 -- 'requireLowercaseCharacters', 'passwordPolicy_requireLowercaseCharacters' - Specifies whether IAM user passwords must contain at least one lowercase
 -- character (a to z).
 --
--- 'minimumPasswordLength', 'passwordPolicy_minimumPasswordLength' - Minimum length to require for IAM user passwords.
+-- 'maxPasswordAge', 'passwordPolicy_maxPasswordAge' - The number of days that an IAM user password is valid.
 --
 -- 'passwordReusePrevention', 'passwordPolicy_passwordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
+--
+-- 'minimumPasswordLength', 'passwordPolicy_minimumPasswordLength' - Minimum length to require for IAM user passwords.
 --
 -- 'expirePasswords', 'passwordPolicy_expirePasswords' - Indicates whether passwords in the account expire. Returns true if
 -- @MaxPasswordAge@ contains a value greater than 0. Returns false if
@@ -104,10 +104,11 @@ newPasswordPolicy ::
   PasswordPolicy
 newPasswordPolicy =
   PasswordPolicy'
-    { maxPasswordAge = Prelude.Nothing,
-      requireLowercaseCharacters = Prelude.Nothing,
-      minimumPasswordLength = Prelude.Nothing,
+    { requireLowercaseCharacters =
+        Prelude.Nothing,
+      maxPasswordAge = Prelude.Nothing,
       passwordReusePrevention = Prelude.Nothing,
+      minimumPasswordLength = Prelude.Nothing,
       expirePasswords = Prelude.Nothing,
       requireUppercaseCharacters = Prelude.Nothing,
       allowUsersToChangePassword = Prelude.Nothing,
@@ -116,23 +117,23 @@ newPasswordPolicy =
       requireNumbers = Prelude.Nothing
     }
 
--- | The number of days that an IAM user password is valid.
-passwordPolicy_maxPasswordAge :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Natural)
-passwordPolicy_maxPasswordAge = Lens.lens (\PasswordPolicy' {maxPasswordAge} -> maxPasswordAge) (\s@PasswordPolicy' {} a -> s {maxPasswordAge = a} :: PasswordPolicy)
-
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character (a to z).
 passwordPolicy_requireLowercaseCharacters :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Bool)
 passwordPolicy_requireLowercaseCharacters = Lens.lens (\PasswordPolicy' {requireLowercaseCharacters} -> requireLowercaseCharacters) (\s@PasswordPolicy' {} a -> s {requireLowercaseCharacters = a} :: PasswordPolicy)
 
--- | Minimum length to require for IAM user passwords.
-passwordPolicy_minimumPasswordLength :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Natural)
-passwordPolicy_minimumPasswordLength = Lens.lens (\PasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@PasswordPolicy' {} a -> s {minimumPasswordLength = a} :: PasswordPolicy)
+-- | The number of days that an IAM user password is valid.
+passwordPolicy_maxPasswordAge :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Natural)
+passwordPolicy_maxPasswordAge = Lens.lens (\PasswordPolicy' {maxPasswordAge} -> maxPasswordAge) (\s@PasswordPolicy' {} a -> s {maxPasswordAge = a} :: PasswordPolicy)
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
 passwordPolicy_passwordReusePrevention :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Natural)
 passwordPolicy_passwordReusePrevention = Lens.lens (\PasswordPolicy' {passwordReusePrevention} -> passwordReusePrevention) (\s@PasswordPolicy' {} a -> s {passwordReusePrevention = a} :: PasswordPolicy)
+
+-- | Minimum length to require for IAM user passwords.
+passwordPolicy_minimumPasswordLength :: Lens.Lens' PasswordPolicy (Prelude.Maybe Prelude.Natural)
+passwordPolicy_minimumPasswordLength = Lens.lens (\PasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@PasswordPolicy' {} a -> s {minimumPasswordLength = a} :: PasswordPolicy)
 
 -- | Indicates whether passwords in the account expire. Returns true if
 -- @MaxPasswordAge@ contains a value greater than 0. Returns false if
@@ -169,10 +170,10 @@ passwordPolicy_requireNumbers = Lens.lens (\PasswordPolicy' {requireNumbers} -> 
 instance Core.FromXML PasswordPolicy where
   parseXML x =
     PasswordPolicy'
-      Prelude.<$> (x Core..@? "MaxPasswordAge")
-      Prelude.<*> (x Core..@? "RequireLowercaseCharacters")
-      Prelude.<*> (x Core..@? "MinimumPasswordLength")
+      Prelude.<$> (x Core..@? "RequireLowercaseCharacters")
+      Prelude.<*> (x Core..@? "MaxPasswordAge")
       Prelude.<*> (x Core..@? "PasswordReusePrevention")
+      Prelude.<*> (x Core..@? "MinimumPasswordLength")
       Prelude.<*> (x Core..@? "ExpirePasswords")
       Prelude.<*> (x Core..@? "RequireUppercaseCharacters")
       Prelude.<*> (x Core..@? "AllowUsersToChangePassword")

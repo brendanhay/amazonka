@@ -20,45 +20,45 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Batch compute environment. You can create @MANAGED@ or
+-- Creates an Batch compute environment. You can create @MANAGED@ or
 -- @UNMANAGED@ compute environments. @MANAGED@ compute environments can use
--- Amazon EC2 or AWS Fargate resources. @UNMANAGED@ compute environments
--- can only use EC2 resources.
+-- Amazon EC2 or Fargate resources. @UNMANAGED@ compute environments can
+-- only use EC2 resources.
 --
--- In a managed compute environment, AWS Batch manages the capacity and
+-- In a managed compute environment, Batch manages the capacity and
 -- instance types of the compute resources within the environment. This is
 -- based on the compute resource specification that you define or the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html launch template>
--- that you specify when you create the compute environment. You can choose
--- either to use EC2 On-Demand Instances and EC2 Spot Instances, or to use
--- Fargate and Fargate Spot capacity in your managed compute environment.
--- You can optionally set a maximum price so that Spot Instances only
--- launch when the Spot Instance price is less than a specified percentage
--- of the On-Demand price.
+-- that you specify when you create the compute environment. Either, you
+-- can choose to use EC2 On-Demand Instances and EC2 Spot Instances. Or,
+-- you can use Fargate and Fargate Spot capacity in your managed compute
+-- environment. You can optionally set a maximum price so that Spot
+-- Instances only launch when the Spot Instance price is less than a
+-- specified percentage of the On-Demand price.
 --
--- Multi-node parallel jobs are not supported on Spot Instances.
+-- Multi-node parallel jobs aren\'t supported on Spot Instances.
 --
 -- In an unmanaged compute environment, you can manage your own EC2 compute
 -- resources and have a lot of flexibility with how you configure your
--- compute resources. For example, you can use custom AMI. However, you
--- need to verify that your AMI meets the Amazon ECS container instance AMI
--- specification. For more information, see
+-- compute resources. For example, you can use custom AMIs. However, you
+-- must verify that each of your AMIs meet the Amazon ECS container
+-- instance AMI specification. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html container instance AMIs>
 -- in the /Amazon Elastic Container Service Developer Guide/. After you
--- have created your unmanaged compute environment, you can use the
+-- created your unmanaged compute environment, you can use the
 -- DescribeComputeEnvironments operation to find the Amazon ECS cluster
--- that\'s associated with it. Then, manually launch your container
--- instances into that Amazon ECS cluster. For more information, see
+-- that\'s associated with it. Then, launch your container instances into
+-- that Amazon ECS cluster. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html Launching an Amazon ECS container instance>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- AWS Batch doesn\'t upgrade the AMIs in a compute environment after it\'s
--- created. For example, it doesn\'t update the AMIs when a newer version
--- of the Amazon ECS-optimized AMI is available. Therefore, you\'re
--- responsible for the management of the guest operating system (including
--- updates and security patches) and any additional application software or
--- utilities that you install on the compute resources. To use a new AMI
--- for your AWS Batch jobs, complete these steps:
+-- Batch doesn\'t upgrade the AMIs in a compute environment after the
+-- environment is created. For example, it doesn\'t update the AMIs when a
+-- newer version of the Amazon ECS optimized AMI is available. Therefore,
+-- you\'re responsible for managing the guest operating system (including
+-- its updates and security patches) and any additional application
+-- software or utilities that you install on the compute resources. To use
+-- a new AMI for your Batch jobs, complete these steps:
 --
 -- 1.  Create a new compute environment with the new AMI.
 --
@@ -73,12 +73,12 @@ module Network.AWS.Batch.CreateComputeEnvironment
     newCreateComputeEnvironment,
 
     -- * Request Lenses
+    createComputeEnvironment_serviceRole,
     createComputeEnvironment_state,
     createComputeEnvironment_computeResources,
     createComputeEnvironment_tags,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
-    createComputeEnvironment_serviceRole,
 
     -- * Destructuring the Response
     CreateComputeEnvironmentResponse (..),
@@ -102,33 +102,59 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-  { -- | The state of the compute environment. If the state is @ENABLED@, then
+  { -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+    -- make calls to other Amazon Web Services services on your behalf. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+    -- in the /Batch User Guide/.
+    --
+    -- If your account already created the Batch service-linked role, that role
+    -- is used by default for your compute environment unless you specify a
+    -- different role here. If the Batch service-linked role doesn\'t exist in
+    -- your account, and no role is specified here, the service attempts to
+    -- create the Batch service-linked role in your account.
+    --
+    -- If your specified role has a path other than @\/@, then you must specify
+    -- either the full role ARN (recommended) or prefix the role name with the
+    -- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
+    -- then you would specify @\/foo\/bar@ as the role name. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+    -- in the /IAM User Guide/.
+    --
+    -- Depending on how you created your Batch service role, its ARN might
+    -- contain the @service-role@ path prefix. When you only specify the name
+    -- of the service role, Batch assumes that your ARN doesn\'t use the
+    -- @service-role@ path prefix. Because of this, we recommend that you
+    -- specify the full ARN of your service role when you create compute
+    -- environments.
+    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | The state of the compute environment. If the state is @ENABLED@, then
     -- the compute environment accepts jobs from a queue and can scale out
     -- automatically based on queues.
     --
-    -- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
-    -- place jobs from an associated job queue on the compute resources within
-    -- the environment. If the compute environment is managed, then it can
-    -- scale its instances out or in automatically, based on the job queue
-    -- demand.
+    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+    -- jobs from an associated job queue on the compute resources within the
+    -- environment. If the compute environment is managed, then it can scale
+    -- its instances out or in automatically, based on the job queue demand.
     --
-    -- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
-    -- attempt to place jobs within the environment. Jobs in a @STARTING@ or
-    -- @RUNNING@ state continue to progress normally. Managed compute
-    -- environments in the @DISABLED@ state don\'t scale out. However, they
-    -- scale in to @minvCpus@ value after instances become idle.
+    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+    -- state continue to progress normally. Managed compute environments in the
+    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+    -- value after instances become idle.
     state :: Prelude.Maybe CEState,
     -- | Details about the compute resources managed by the compute environment.
     -- This parameter is required for managed compute environments. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     computeResources :: Prelude.Maybe ComputeResource,
     -- | The tags that you apply to the compute environment to help you
     -- categorize and organize your resources. Each tag consists of a key and
     -- an optional value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
     --
     -- These tags can be updated or removed using the
     -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
@@ -143,25 +169,8 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
     -- information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /AWS Batch User Guide/.
-    type' :: CEType,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS
-    -- Batch to make calls to other AWS services on your behalf. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
-    -- in the /AWS Batch User Guide/.
-    --
-    -- If your specified role has a path other than @\/@, then you must either
-    -- specify the full role ARN (this is recommended) or prefix the role name
-    -- with the path.
-    --
-    -- Depending on how you created your AWS Batch service role, its ARN might
-    -- contain the @service-role@ path prefix. When you only specify the name
-    -- of the service role, AWS Batch assumes that your ARN doesn\'t use the
-    -- @service-role@ path prefix. Because of this, we recommend that you
-    -- specify the full ARN of your service role when you create compute
-    -- environments.
-    serviceRole :: Prelude.Text
+    -- in the /Batch User Guide/.
+    type' :: CEType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -173,33 +182,59 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'serviceRole', 'createComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+-- make calls to other Amazon Web Services services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+-- in the /Batch User Guide/.
+--
+-- If your account already created the Batch service-linked role, that role
+-- is used by default for your compute environment unless you specify a
+-- different role here. If the Batch service-linked role doesn\'t exist in
+-- your account, and no role is specified here, the service attempts to
+-- create the Batch service-linked role in your account.
+--
+-- If your specified role has a path other than @\/@, then you must specify
+-- either the full role ARN (recommended) or prefix the role name with the
+-- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
+-- then you would specify @\/foo\/bar@ as the role name. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+-- in the /IAM User Guide/.
+--
+-- Depending on how you created your Batch service role, its ARN might
+-- contain the @service-role@ path prefix. When you only specify the name
+-- of the service role, Batch assumes that your ARN doesn\'t use the
+-- @service-role@ path prefix. Because of this, we recommend that you
+-- specify the full ARN of your service role when you create compute
+-- environments.
+--
 -- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
 -- the compute environment accepts jobs from a queue and can scale out
 -- automatically based on queues.
 --
--- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
--- place jobs from an associated job queue on the compute resources within
--- the environment. If the compute environment is managed, then it can
--- scale its instances out or in automatically, based on the job queue
--- demand.
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
 --
--- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
--- attempt to place jobs within the environment. Jobs in a @STARTING@ or
--- @RUNNING@ state continue to progress normally. Managed compute
--- environments in the @DISABLED@ state don\'t scale out. However, they
--- scale in to @minvCpus@ value after instances become idle.
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
 --
 -- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
 -- This parameter is required for managed compute environments. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
 -- categorize and organize your resources. Each tag consists of a key and
 -- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 --
 -- These tags can be updated or removed using the
 -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
@@ -214,60 +249,69 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- 'type'', 'createComputeEnvironment_type' - The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
---
--- 'serviceRole', 'createComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows AWS
--- Batch to make calls to other AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
--- in the /AWS Batch User Guide/.
---
--- If your specified role has a path other than @\/@, then you must either
--- specify the full role ARN (this is recommended) or prefix the role name
--- with the path.
---
--- Depending on how you created your AWS Batch service role, its ARN might
--- contain the @service-role@ path prefix. When you only specify the name
--- of the service role, AWS Batch assumes that your ARN doesn\'t use the
--- @service-role@ path prefix. Because of this, we recommend that you
--- specify the full ARN of your service role when you create compute
--- environments.
+-- in the /Batch User Guide/.
 newCreateComputeEnvironment ::
   -- | 'computeEnvironmentName'
   Prelude.Text ->
   -- | 'type''
   CEType ->
-  -- | 'serviceRole'
-  Prelude.Text ->
   CreateComputeEnvironment
 newCreateComputeEnvironment
   pComputeEnvironmentName_
-  pType_
-  pServiceRole_ =
+  pType_ =
     CreateComputeEnvironment'
-      { state = Prelude.Nothing,
+      { serviceRole =
+          Prelude.Nothing,
+        state = Prelude.Nothing,
         computeResources = Prelude.Nothing,
         tags = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
-        type' = pType_,
-        serviceRole = pServiceRole_
+        type' = pType_
       }
+
+-- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+-- make calls to other Amazon Web Services services on your behalf. For
+-- more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
+-- in the /Batch User Guide/.
+--
+-- If your account already created the Batch service-linked role, that role
+-- is used by default for your compute environment unless you specify a
+-- different role here. If the Batch service-linked role doesn\'t exist in
+-- your account, and no role is specified here, the service attempts to
+-- create the Batch service-linked role in your account.
+--
+-- If your specified role has a path other than @\/@, then you must specify
+-- either the full role ARN (recommended) or prefix the role name with the
+-- path. For example, if a role with the name @bar@ has a path of @\/foo\/@
+-- then you would specify @\/foo\/bar@ as the role name. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+-- in the /IAM User Guide/.
+--
+-- Depending on how you created your Batch service role, its ARN might
+-- contain the @service-role@ path prefix. When you only specify the name
+-- of the service role, Batch assumes that your ARN doesn\'t use the
+-- @service-role@ path prefix. Because of this, we recommend that you
+-- specify the full ARN of your service role when you create compute
+-- environments.
+createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Text)
+createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
 -- | The state of the compute environment. If the state is @ENABLED@, then
 -- the compute environment accepts jobs from a queue and can scale out
 -- automatically based on queues.
 --
--- If the state is @ENABLED@, then the AWS Batch scheduler can attempt to
--- place jobs from an associated job queue on the compute resources within
--- the environment. If the compute environment is managed, then it can
--- scale its instances out or in automatically, based on the job queue
--- demand.
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
 --
--- If the state is @DISABLED@, then the AWS Batch scheduler doesn\'t
--- attempt to place jobs within the environment. Jobs in a @STARTING@ or
--- @RUNNING@ state continue to progress normally. Managed compute
--- environments in the @DISABLED@ state don\'t scale out. However, they
--- scale in to @minvCpus@ value after instances become idle.
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
 createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
 createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
 
@@ -275,15 +319,15 @@ createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -
 -- This parameter is required for managed compute environments. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
 createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
 -- | The tags that you apply to the compute environment to help you
 -- categorize and organize your resources. Each tag consists of a key and
 -- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
 --
 -- These tags can be updated or removed using the
 -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
@@ -302,28 +346,9 @@ createComputeEnvironment_computeEnvironmentName = Lens.lens (\CreateComputeEnvir
 -- | The type of the compute environment: @MANAGED@ or @UNMANAGED@. For more
 -- information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 createComputeEnvironment_type :: Lens.Lens' CreateComputeEnvironment CEType
 createComputeEnvironment_type = Lens.lens (\CreateComputeEnvironment' {type'} -> type') (\s@CreateComputeEnvironment' {} a -> s {type' = a} :: CreateComputeEnvironment)
-
--- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS
--- Batch to make calls to other AWS services on your behalf. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html AWS Batch service IAM role>
--- in the /AWS Batch User Guide/.
---
--- If your specified role has a path other than @\/@, then you must either
--- specify the full role ARN (this is recommended) or prefix the role name
--- with the path.
---
--- Depending on how you created your AWS Batch service role, its ARN might
--- contain the @service-role@ path prefix. When you only specify the name
--- of the service role, AWS Batch assumes that your ARN doesn\'t use the
--- @service-role@ path prefix. Because of this, we recommend that you
--- specify the full ARN of your service role when you create compute
--- environments.
-createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment Prelude.Text
-createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
 instance Core.AWSRequest CreateComputeEnvironment where
   type
@@ -358,7 +383,8 @@ instance Core.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
+          [ ("serviceRole" Core..=) Prelude.<$> serviceRole,
+            ("state" Core..=) Prelude.<$> state,
             ("computeResources" Core..=)
               Prelude.<$> computeResources,
             ("tags" Core..=) Prelude.<$> tags,
@@ -366,8 +392,7 @@ instance Core.ToJSON CreateComputeEnvironment where
               ( "computeEnvironmentName"
                   Core..= computeEnvironmentName
               ),
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("serviceRole" Core..= serviceRole)
+            Prelude.Just ("type" Core..= type')
           ]
       )
 

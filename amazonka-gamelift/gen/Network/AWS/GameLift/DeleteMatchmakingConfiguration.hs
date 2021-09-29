@@ -24,23 +24,13 @@
 -- specify the configuration name. A matchmaking configuration cannot be
 -- deleted if it is being used in any active matchmaking tickets.
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteMatchmakingConfiguration
   ( -- * Creating a Request
     DeleteMatchmakingConfiguration (..),
@@ -69,8 +59,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteMatchmakingConfiguration' smart constructor.
 data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
-  { -- | A unique identifier for a matchmaking configuration. You can use either
-    -- the configuration name or ARN value.
+  { -- | A unique identifier for the matchmaking configuration. You can use
+    -- either the configuration name or ARN value.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,8 +73,8 @@ data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteMatchmakingConfiguration_name' - A unique identifier for a matchmaking configuration. You can use either
--- the configuration name or ARN value.
+-- 'name', 'deleteMatchmakingConfiguration_name' - A unique identifier for the matchmaking configuration. You can use
+-- either the configuration name or ARN value.
 newDeleteMatchmakingConfiguration ::
   -- | 'name'
   Prelude.Text ->
@@ -92,8 +82,8 @@ newDeleteMatchmakingConfiguration ::
 newDeleteMatchmakingConfiguration pName_ =
   DeleteMatchmakingConfiguration' {name = pName_}
 
--- | A unique identifier for a matchmaking configuration. You can use either
--- the configuration name or ARN value.
+-- | A unique identifier for the matchmaking configuration. You can use
+-- either the configuration name or ARN value.
 deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Prelude.Text
 deleteMatchmakingConfiguration_name = Lens.lens (\DeleteMatchmakingConfiguration' {name} -> name) (\s@DeleteMatchmakingConfiguration' {} a -> s {name = a} :: DeleteMatchmakingConfiguration)
 

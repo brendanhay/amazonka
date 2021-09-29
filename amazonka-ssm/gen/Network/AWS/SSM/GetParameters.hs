@@ -20,8 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get details of a parameter. Don\'t confuse this API action with the
--- GetParameter API action.
+-- Get information about one or more parameters by specifying multiple
+-- parameter names.
+--
+-- To get information about a single parameter, you can use the
+-- GetParameter operation instead.
 module Network.AWS.SSM.GetParameters
   ( -- * Creating a Request
     GetParameters (..),
@@ -52,10 +55,13 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetParameters' smart constructor.
 data GetParameters = GetParameters'
   { -- | Return decrypted secure string value. Return decrypted values for secure
-    -- string parameters. This flag is ignored for String and StringList
+    -- string parameters. This flag is ignored for @String@ and @StringList@
     -- parameter types.
     withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | Names of the parameters for which you want to query information.
+    --
+    -- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+    -- parameter version, use @\"Name\": \"name:version\"@.
     names :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,10 +75,13 @@ data GetParameters = GetParameters'
 -- for backwards compatibility:
 --
 -- 'withDecryption', 'getParameters_withDecryption' - Return decrypted secure string value. Return decrypted values for secure
--- string parameters. This flag is ignored for String and StringList
+-- string parameters. This flag is ignored for @String@ and @StringList@
 -- parameter types.
 --
 -- 'names', 'getParameters_names' - Names of the parameters for which you want to query information.
+--
+-- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+-- parameter version, use @\"Name\": \"name:version\"@.
 newGetParameters ::
   -- | 'names'
   Prelude.NonEmpty Prelude.Text ->
@@ -84,12 +93,15 @@ newGetParameters pNames_ =
     }
 
 -- | Return decrypted secure string value. Return decrypted values for secure
--- string parameters. This flag is ignored for String and StringList
+-- string parameters. This flag is ignored for @String@ and @StringList@
 -- parameter types.
 getParameters_withDecryption :: Lens.Lens' GetParameters (Prelude.Maybe Prelude.Bool)
 getParameters_withDecryption = Lens.lens (\GetParameters' {withDecryption} -> withDecryption) (\s@GetParameters' {} a -> s {withDecryption = a} :: GetParameters)
 
 -- | Names of the parameters for which you want to query information.
+--
+-- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
+-- parameter version, use @\"Name\": \"name:version\"@.
 getParameters_names :: Lens.Lens' GetParameters (Prelude.NonEmpty Prelude.Text)
 getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Prelude.. Lens._Coerce
 
@@ -144,7 +156,7 @@ instance Core.ToQuery GetParameters where
 
 -- | /See:/ 'newGetParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-  { -- | A list of parameters that are not formatted correctly or do not run
+  { -- | A list of parameters that aren\'t formatted correctly or don\'t run
     -- during an execution.
     invalidParameters :: Prelude.Maybe [Prelude.Text],
     -- | A list of details for a parameter.
@@ -152,7 +164,7 @@ data GetParametersResponse = GetParametersResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParametersResponse' with all optional fields omitted.
@@ -162,7 +174,7 @@ data GetParametersResponse = GetParametersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invalidParameters', 'getParametersResponse_invalidParameters' - A list of parameters that are not formatted correctly or do not run
+-- 'invalidParameters', 'getParametersResponse_invalidParameters' - A list of parameters that aren\'t formatted correctly or don\'t run
 -- during an execution.
 --
 -- 'parameters', 'getParametersResponse_parameters' - A list of details for a parameter.
@@ -180,7 +192,7 @@ newGetParametersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of parameters that are not formatted correctly or do not run
+-- | A list of parameters that aren\'t formatted correctly or don\'t run
 -- during an execution.
 getParametersResponse_invalidParameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Prelude.Text])
 getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens._Coerce

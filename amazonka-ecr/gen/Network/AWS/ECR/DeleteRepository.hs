@@ -52,9 +52,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository to delete. If you do not specify a registry, the default
-    -- registry is assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository to delete. If you do not specify a registry, the
+    -- default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | If a repository contains images, forces the deletion.
     force :: Prelude.Maybe Prelude.Bool,
@@ -71,9 +71,9 @@ data DeleteRepository = DeleteRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'deleteRepository_registryId' - The AWS account ID associated with the registry that contains the
--- repository to delete. If you do not specify a registry, the default
--- registry is assumed.
+-- 'registryId', 'deleteRepository_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository to delete. If you do not specify a registry, the
+-- default registry is assumed.
 --
 -- 'force', 'deleteRepository_force' - If a repository contains images, forces the deletion.
 --
@@ -89,9 +89,9 @@ newDeleteRepository pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository to delete. If you do not specify a registry, the default
--- registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository to delete. If you do not specify a registry, the
+-- default registry is assumed.
 deleteRepository_registryId :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Text)
 deleteRepository_registryId = Lens.lens (\DeleteRepository' {registryId} -> registryId) (\s@DeleteRepository' {} a -> s {registryId = a} :: DeleteRepository)
 

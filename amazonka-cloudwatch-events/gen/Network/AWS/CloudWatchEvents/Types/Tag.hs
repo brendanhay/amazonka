@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A key-value pair associated with an AWS resource. In EventBridge, rules
--- and event buses support tagging.
+-- | A key-value pair associated with an Amazon Web Services resource. In
+-- EventBridge, rules and event buses support tagging.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

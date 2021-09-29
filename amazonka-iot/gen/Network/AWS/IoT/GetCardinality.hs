@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the approximate count of unique values that match the query.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetCardinality>
+-- action.
 module Network.AWS.IoT.GetCardinality
   ( -- * Creating a Request
     GetCardinality (..),
@@ -57,7 +61,7 @@ data GetCardinality = GetCardinality'
     queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The field to aggregate.
     aggregationField :: Prelude.Maybe Prelude.Text,
-    -- | The search query.
+    -- | The search query string.
     queryString :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +80,7 @@ data GetCardinality = GetCardinality'
 --
 -- 'aggregationField', 'getCardinality_aggregationField' - The field to aggregate.
 --
--- 'queryString', 'getCardinality_queryString' - The search query.
+-- 'queryString', 'getCardinality_queryString' - The search query string.
 newGetCardinality ::
   -- | 'queryString'
   Prelude.Text ->
@@ -101,7 +105,7 @@ getCardinality_queryVersion = Lens.lens (\GetCardinality' {queryVersion} -> quer
 getCardinality_aggregationField :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
 getCardinality_aggregationField = Lens.lens (\GetCardinality' {aggregationField} -> aggregationField) (\s@GetCardinality' {} a -> s {aggregationField = a} :: GetCardinality)
 
--- | The search query.
+-- | The search query string.
 getCardinality_queryString :: Lens.Lens' GetCardinality Prelude.Text
 getCardinality_queryString = Lens.lens (\GetCardinality' {queryString} -> queryString) (\s@GetCardinality' {} a -> s {queryString = a} :: GetCardinality)
 

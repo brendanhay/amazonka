@@ -64,8 +64,8 @@ data CreateGroup = CreateGroup'
     filterExpression :: Prelude.Maybe Prelude.Text,
     -- | A map that contains one or more tag keys and tag values to attach to an
     -- X-Ray group. For more information about ways to use tags, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- The following restrictions apply to tags:
     --
@@ -80,7 +80,8 @@ data CreateGroup = CreateGroup'
     --
     -- -   Tag keys and values are case sensitive.
     --
-    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+    --     Web Services use.
     tags :: Prelude.Maybe [Tag],
     -- | The case-sensitive name of the new group. Default is a reserved name and
     -- names must be unique.
@@ -109,8 +110,8 @@ data CreateGroup = CreateGroup'
 --
 -- 'tags', 'createGroup_tags' - A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group. For more information about ways to use tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -125,7 +126,8 @@ data CreateGroup = CreateGroup'
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use.
 --
 -- 'groupName', 'createGroup_groupName' - The case-sensitive name of the new group. Default is a reserved name and
 -- names must be unique.
@@ -159,8 +161,8 @@ createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> fi
 
 -- | A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group. For more information about ways to use tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -175,7 +177,8 @@ createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> fi
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use.
 createGroup_tags :: Lens.Lens' CreateGroup (Prelude.Maybe [Tag])
 createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} a -> s {tags = a} :: CreateGroup) Prelude.. Lens.mapping Lens._Coerce
 

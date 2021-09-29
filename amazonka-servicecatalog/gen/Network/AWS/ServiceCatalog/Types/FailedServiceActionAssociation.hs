@@ -32,10 +32,10 @@ data FailedServiceActionAssociation = FailedServiceActionAssociation'
   { -- | The identifier of the provisioning artifact. For example,
     -- @pa-4abcdjnxjj6ne@.
     provisioningArtifactId :: Prelude.Maybe Prelude.Text,
-    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-    serviceActionId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
     productId :: Prelude.Maybe Prelude.Text,
+    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
+    serviceActionId :: Prelude.Maybe Prelude.Text,
     -- | A text description of the error.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code. Valid values are listed below.
@@ -54,9 +54,9 @@ data FailedServiceActionAssociation = FailedServiceActionAssociation'
 -- 'provisioningArtifactId', 'failedServiceActionAssociation_provisioningArtifactId' - The identifier of the provisioning artifact. For example,
 -- @pa-4abcdjnxjj6ne@.
 --
--- 'serviceActionId', 'failedServiceActionAssociation_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.
---
 -- 'productId', 'failedServiceActionAssociation_productId' - The product identifier. For example, @prod-abcdzk7xy33qa@.
+--
+-- 'serviceActionId', 'failedServiceActionAssociation_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.
 --
 -- 'errorMessage', 'failedServiceActionAssociation_errorMessage' - A text description of the error.
 --
@@ -67,8 +67,8 @@ newFailedServiceActionAssociation =
   FailedServiceActionAssociation'
     { provisioningArtifactId =
         Prelude.Nothing,
-      serviceActionId = Prelude.Nothing,
       productId = Prelude.Nothing,
+      serviceActionId = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       errorCode = Prelude.Nothing
     }
@@ -78,13 +78,13 @@ newFailedServiceActionAssociation =
 failedServiceActionAssociation_provisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_provisioningArtifactId = Lens.lens (\FailedServiceActionAssociation' {provisioningArtifactId} -> provisioningArtifactId) (\s@FailedServiceActionAssociation' {} a -> s {provisioningArtifactId = a} :: FailedServiceActionAssociation)
 
--- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
-failedServiceActionAssociation_serviceActionId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
-failedServiceActionAssociation_serviceActionId = Lens.lens (\FailedServiceActionAssociation' {serviceActionId} -> serviceActionId) (\s@FailedServiceActionAssociation' {} a -> s {serviceActionId = a} :: FailedServiceActionAssociation)
-
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@.
 failedServiceActionAssociation_productId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
 failedServiceActionAssociation_productId = Lens.lens (\FailedServiceActionAssociation' {productId} -> productId) (\s@FailedServiceActionAssociation' {} a -> s {productId = a} :: FailedServiceActionAssociation)
+
+-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
+failedServiceActionAssociation_serviceActionId :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
+failedServiceActionAssociation_serviceActionId = Lens.lens (\FailedServiceActionAssociation' {serviceActionId} -> serviceActionId) (\s@FailedServiceActionAssociation' {} a -> s {serviceActionId = a} :: FailedServiceActionAssociation)
 
 -- | A text description of the error.
 failedServiceActionAssociation_errorMessage :: Lens.Lens' FailedServiceActionAssociation (Prelude.Maybe Prelude.Text)
@@ -101,8 +101,8 @@ instance Core.FromJSON FailedServiceActionAssociation where
       ( \x ->
           FailedServiceActionAssociation'
             Prelude.<$> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "ServiceActionId")
             Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "ServiceActionId")
             Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
       )

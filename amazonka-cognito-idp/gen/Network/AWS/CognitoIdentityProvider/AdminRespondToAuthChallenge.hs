@@ -22,6 +22,26 @@
 --
 -- Responds to an authentication challenge, as an administrator.
 --
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
+--
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
   ( -- * Creating a Request
@@ -66,8 +86,8 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
   { -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
-    -- You create custom workflows by assigning AWS Lambda functions to user
-    -- pool triggers. When you use the AdminRespondToAuthChallenge API action,
+    -- You create custom workflows by assigning Lambda functions to user pool
+    -- triggers. When you use the AdminRespondToAuthChallenge API action,
     -- Amazon Cognito invokes any functions that are assigned to the following
     -- triggers: /pre sign-up/, /custom message/, /post authentication/, /user
     -- migration/, /pre token generation/, /define auth challenge/, /create
@@ -76,8 +96,8 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     -- the function receives as input. This payload contains a @clientMetadata@
     -- attribute, which provides the data that you assigned to the
     -- ClientMetadata parameter in your AdminRespondToAuthChallenge request. In
-    -- your function code in AWS Lambda, you can process the @clientMetadata@
-    -- value to enhance your workflow for your specific needs.
+    -- your function code in Lambda, you can process the @clientMetadata@ value
+    -- to enhance your workflow for your specific needs.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -87,9 +107,9 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     -- ClientMetadata parameter:
     --
     -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to AWS Lambda triggers that are assigned to a user
-    --     pool to support custom workflows. If your user pool configuration
-    --     does not include triggers, the ClientMetadata parameter serves no
+    --     available only to Lambda triggers that are assigned to a user pool
+    --     to support custom workflows. If your user pool configuration does
+    --     not include triggers, the ClientMetadata parameter serves no
     --     purpose.
     --
     -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -113,6 +133,9 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     -- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
     --     attributes, @USERNAME@, @SECRET_HASH@ (if app client is configured
     --     with client secret).
+    --
+    -- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+    --     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
     --
     -- The value of the @USERNAME@ attribute must be the user\'s actual
     -- username, not an alias (such as email address or phone number). To make
@@ -154,8 +177,8 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
 -- 'clientMetadata', 'adminRespondToAuthChallenge_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the AdminRespondToAuthChallenge API action,
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the AdminRespondToAuthChallenge API action,
 -- Amazon Cognito invokes any functions that are assigned to the following
 -- triggers: /pre sign-up/, /custom message/, /post authentication/, /user
 -- migration/, /pre token generation/, /define auth challenge/, /create
@@ -164,8 +187,8 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
 -- the function receives as input. This payload contains a @clientMetadata@
 -- attribute, which provides the data that you assigned to the
 -- ClientMetadata parameter in your AdminRespondToAuthChallenge request. In
--- your function code in AWS Lambda, you can process the @clientMetadata@
--- value to enhance your workflow for your specific needs.
+-- your function code in Lambda, you can process the @clientMetadata@ value
+-- to enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -175,9 +198,9 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -201,6 +224,9 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
 -- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
 --     attributes, @USERNAME@, @SECRET_HASH@ (if app client is configured
 --     with client secret).
+--
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+--     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
 --
 -- The value of the @USERNAME@ attribute must be the user\'s actual
 -- username, not an alias (such as email address or phone number). To make
@@ -254,8 +280,8 @@ newAdminRespondToAuthChallenge
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the AdminRespondToAuthChallenge API action,
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the AdminRespondToAuthChallenge API action,
 -- Amazon Cognito invokes any functions that are assigned to the following
 -- triggers: /pre sign-up/, /custom message/, /post authentication/, /user
 -- migration/, /pre token generation/, /define auth challenge/, /create
@@ -264,8 +290,8 @@ newAdminRespondToAuthChallenge
 -- the function receives as input. This payload contains a @clientMetadata@
 -- attribute, which provides the data that you assigned to the
 -- ClientMetadata parameter in your AdminRespondToAuthChallenge request. In
--- your function code in AWS Lambda, you can process the @clientMetadata@
--- value to enhance your workflow for your specific needs.
+-- your function code in Lambda, you can process the @clientMetadata@ value
+-- to enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -275,9 +301,9 @@ newAdminRespondToAuthChallenge
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -303,6 +329,9 @@ adminRespondToAuthChallenge_clientMetadata = Lens.lens (\AdminRespondToAuthChall
 -- -   @NEW_PASSWORD_REQUIRED@: @NEW_PASSWORD@, any other required
 --     attributes, @USERNAME@, @SECRET_HASH@ (if app client is configured
 --     with client secret).
+--
+-- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
+--     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
 --
 -- The value of the @USERNAME@ attribute must be the user\'s actual
 -- username, not an alias (such as email address or phone number). To make

@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Updates the name and description of a quick connect. The request accepts
 -- the following data in JSON format. At least @Name@ or @Description@ must
 -- be provided.
@@ -56,7 +53,8 @@ data UpdateQuickConnectName = UpdateQuickConnectName'
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the quick connect.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text
@@ -75,7 +73,8 @@ data UpdateQuickConnectName = UpdateQuickConnectName'
 --
 -- 'description', 'updateQuickConnectName_description' - The description of the quick connect.
 --
--- 'instanceId', 'updateQuickConnectName_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateQuickConnectName_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'quickConnectId', 'updateQuickConnectName_quickConnectId' - The identifier for the quick connect.
 newUpdateQuickConnectName ::
@@ -102,7 +101,8 @@ updateQuickConnectName_name = Lens.lens (\UpdateQuickConnectName' {name} -> name
 updateQuickConnectName_description :: Lens.Lens' UpdateQuickConnectName (Prelude.Maybe Prelude.Text)
 updateQuickConnectName_description = Lens.lens (\UpdateQuickConnectName' {description} -> description) (\s@UpdateQuickConnectName' {} a -> s {description = a} :: UpdateQuickConnectName)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateQuickConnectName_instanceId :: Lens.Lens' UpdateQuickConnectName Prelude.Text
 updateQuickConnectName_instanceId = Lens.lens (\UpdateQuickConnectName' {instanceId} -> instanceId) (\s@UpdateQuickConnectName' {} a -> s {instanceId = a} :: UpdateQuickConnectName)
 

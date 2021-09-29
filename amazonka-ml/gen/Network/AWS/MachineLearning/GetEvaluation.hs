@@ -41,11 +41,11 @@ module Network.AWS.MachineLearning.GetEvaluation
     getEvaluationResponse_evaluationDataSourceId,
     getEvaluationResponse_message,
     getEvaluationResponse_createdAt,
-    getEvaluationResponse_finishedAt,
-    getEvaluationResponse_createdByIamUser,
     getEvaluationResponse_name,
-    getEvaluationResponse_evaluationId,
+    getEvaluationResponse_createdByIamUser,
+    getEvaluationResponse_finishedAt,
     getEvaluationResponse_mLModelId,
+    getEvaluationResponse_evaluationId,
     getEvaluationResponse_inputDataLocationS3,
     getEvaluationResponse_computeTime,
     getEvaluationResponse_lastUpdatedAt,
@@ -109,11 +109,11 @@ instance Core.AWSRequest GetEvaluation where
             Prelude.<*> (x Core..?> "EvaluationDataSourceId")
             Prelude.<*> (x Core..?> "Message")
             Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "FinishedAt")
-            Prelude.<*> (x Core..?> "CreatedByIamUser")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "EvaluationId")
+            Prelude.<*> (x Core..?> "CreatedByIamUser")
+            Prelude.<*> (x Core..?> "FinishedAt")
             Prelude.<*> (x Core..?> "MLModelId")
+            Prelude.<*> (x Core..?> "EvaluationId")
             Prelude.<*> (x Core..?> "InputDataLocationS3")
             Prelude.<*> (x Core..?> "ComputeTime")
             Prelude.<*> (x Core..?> "LastUpdatedAt")
@@ -174,17 +174,21 @@ data GetEvaluationResponse = GetEvaluationResponse'
     --     technique to measure performance.
     --
     -- For more information about performance metrics, please see the
-    -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+    -- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     performanceMetrics :: Prelude.Maybe PerformanceMetrics,
     -- | The status of the evaluation. This element can have one of the following
     -- values:
     --
     -- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
     --     to evaluate an @MLModel@.
+    --
     -- -   @INPROGRESS@ - The evaluation is underway.
+    --
     -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
     --     completion. It is not usable.
+    --
     -- -   @COMPLETED@ - The evaluation process completed successfully.
+    --
     -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
     status :: Prelude.Maybe EntityStatus,
     -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
@@ -198,20 +202,20 @@ data GetEvaluationResponse = GetEvaluationResponse'
     -- | The time that the @Evaluation@ was created. The time is expressed in
     -- epoch time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
-    -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
-    -- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    -- | A user-supplied name or description of the @Evaluation@.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS user account that invoked the evaluation. The account type can
     -- be either an AWS root account or an AWS Identity and Access Management
     -- (IAM) user account.
     createdByIamUser :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @Evaluation@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The evaluation ID which is same as the @EvaluationId@ in the request.
-    evaluationId :: Prelude.Maybe Prelude.Text,
+    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+    -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+    -- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Prelude.Maybe Core.POSIX,
     -- | The ID of the @MLModel@ that was the focus of the evaluation.
     mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The evaluation ID which is same as the @EvaluationId@ in the request.
+    evaluationId :: Prelude.Maybe Prelude.Text,
     -- | The location of the data file or directory in Amazon Simple Storage
     -- Service (Amazon S3).
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -255,17 +259,21 @@ data GetEvaluationResponse = GetEvaluationResponse'
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
 -- 'status', 'getEvaluationResponse_status' - The status of the evaluation. This element can have one of the following
 -- values:
 --
 -- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
 --     to evaluate an @MLModel@.
+--
 -- -   @INPROGRESS@ - The evaluation is underway.
+--
 -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The evaluation process completed successfully.
+--
 -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 --
 -- 'startedAt', 'getEvaluationResponse_startedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as
@@ -279,19 +287,19 @@ data GetEvaluationResponse = GetEvaluationResponse'
 -- 'createdAt', 'getEvaluationResponse_createdAt' - The time that the @Evaluation@ was created. The time is expressed in
 -- epoch time.
 --
--- 'finishedAt', 'getEvaluationResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as
--- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+-- 'name', 'getEvaluationResponse_name' - A user-supplied name or description of the @Evaluation@.
 --
 -- 'createdByIamUser', 'getEvaluationResponse_createdByIamUser' - The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
 -- (IAM) user account.
 --
--- 'name', 'getEvaluationResponse_name' - A user-supplied name or description of the @Evaluation@.
---
--- 'evaluationId', 'getEvaluationResponse_evaluationId' - The evaluation ID which is same as the @EvaluationId@ in the request.
+-- 'finishedAt', 'getEvaluationResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
 --
 -- 'mLModelId', 'getEvaluationResponse_mLModelId' - The ID of the @MLModel@ that was the focus of the evaluation.
+--
+-- 'evaluationId', 'getEvaluationResponse_evaluationId' - The evaluation ID which is same as the @EvaluationId@ in the request.
 --
 -- 'inputDataLocationS3', 'getEvaluationResponse_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
@@ -321,11 +329,11 @@ newGetEvaluationResponse pHttpStatus_ =
       evaluationDataSourceId = Prelude.Nothing,
       message = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
       name = Prelude.Nothing,
-      evaluationId = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
       mLModelId = Prelude.Nothing,
+      evaluationId = Prelude.Nothing,
       inputDataLocationS3 = Prelude.Nothing,
       computeTime = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
@@ -349,7 +357,7 @@ newGetEvaluationResponse pHttpStatus_ =
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 getEvaluationResponse_performanceMetrics :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe PerformanceMetrics)
 getEvaluationResponse_performanceMetrics = Lens.lens (\GetEvaluationResponse' {performanceMetrics} -> performanceMetrics) (\s@GetEvaluationResponse' {} a -> s {performanceMetrics = a} :: GetEvaluationResponse)
 
@@ -358,10 +366,14 @@ getEvaluationResponse_performanceMetrics = Lens.lens (\GetEvaluationResponse' {p
 --
 -- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
 --     to evaluate an @MLModel@.
+--
 -- -   @INPROGRESS@ - The evaluation is underway.
+--
 -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The evaluation process completed successfully.
+--
 -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 getEvaluationResponse_status :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe EntityStatus)
 getEvaluationResponse_status = Lens.lens (\GetEvaluationResponse' {status} -> status) (\s@GetEvaluationResponse' {} a -> s {status = a} :: GetEvaluationResponse)
@@ -385,11 +397,9 @@ getEvaluationResponse_message = Lens.lens (\GetEvaluationResponse' {message} -> 
 getEvaluationResponse_createdAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
 getEvaluationResponse_createdAt = Lens.lens (\GetEvaluationResponse' {createdAt} -> createdAt) (\s@GetEvaluationResponse' {} a -> s {createdAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
 
--- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
--- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
-getEvaluationResponse_finishedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
-getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedAt} -> finishedAt) (\s@GetEvaluationResponse' {} a -> s {finishedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
+-- | A user-supplied name or description of the @Evaluation@.
+getEvaluationResponse_name :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_name = Lens.lens (\GetEvaluationResponse' {name} -> name) (\s@GetEvaluationResponse' {} a -> s {name = a} :: GetEvaluationResponse)
 
 -- | The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
@@ -397,17 +407,19 @@ getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedA
 getEvaluationResponse_createdByIamUser :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
 getEvaluationResponse_createdByIamUser = Lens.lens (\GetEvaluationResponse' {createdByIamUser} -> createdByIamUser) (\s@GetEvaluationResponse' {} a -> s {createdByIamUser = a} :: GetEvaluationResponse)
 
--- | A user-supplied name or description of the @Evaluation@.
-getEvaluationResponse_name :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
-getEvaluationResponse_name = Lens.lens (\GetEvaluationResponse' {name} -> name) (\s@GetEvaluationResponse' {} a -> s {name = a} :: GetEvaluationResponse)
-
--- | The evaluation ID which is same as the @EvaluationId@ in the request.
-getEvaluationResponse_evaluationId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
-getEvaluationResponse_evaluationId = Lens.lens (\GetEvaluationResponse' {evaluationId} -> evaluationId) (\s@GetEvaluationResponse' {} a -> s {evaluationId = a} :: GetEvaluationResponse)
+-- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+getEvaluationResponse_finishedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
+getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedAt} -> finishedAt) (\s@GetEvaluationResponse' {} a -> s {finishedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the @MLModel@ that was the focus of the evaluation.
 getEvaluationResponse_mLModelId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
 getEvaluationResponse_mLModelId = Lens.lens (\GetEvaluationResponse' {mLModelId} -> mLModelId) (\s@GetEvaluationResponse' {} a -> s {mLModelId = a} :: GetEvaluationResponse)
+
+-- | The evaluation ID which is same as the @EvaluationId@ in the request.
+getEvaluationResponse_evaluationId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_evaluationId = Lens.lens (\GetEvaluationResponse' {evaluationId} -> evaluationId) (\s@GetEvaluationResponse' {} a -> s {evaluationId = a} :: GetEvaluationResponse)
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).

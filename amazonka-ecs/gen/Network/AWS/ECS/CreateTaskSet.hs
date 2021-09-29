@@ -31,15 +31,15 @@ module Network.AWS.ECS.CreateTaskSet
     newCreateTaskSet,
 
     -- * Request Lenses
-    createTaskSet_networkConfiguration,
     createTaskSet_capacityProviderStrategy,
+    createTaskSet_networkConfiguration,
     createTaskSet_launchType,
     createTaskSet_platformVersion,
     createTaskSet_loadBalancers,
     createTaskSet_tags,
     createTaskSet_serviceRegistries,
-    createTaskSet_externalId,
     createTaskSet_scale,
+    createTaskSet_externalId,
     createTaskSet_clientToken,
     createTaskSet_service,
     createTaskSet_cluster,
@@ -64,8 +64,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTaskSet' smart constructor.
 data CreateTaskSet = CreateTaskSet'
-  { networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The capacity provider strategy to use for the task set.
+  { -- | The capacity provider strategy to use for the task set.
     --
     -- A capacity provider strategy consists of one or more capacity providers
     -- along with the @base@ and @weight@ to assign to them. A capacity
@@ -83,15 +82,17 @@ data CreateTaskSet = CreateTaskSet'
     -- capacity provider must already be created. New capacity providers can be
     -- created with the CreateCapacityProvider API operation.
     --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
+    -- To use a Fargate capacity provider, specify either the @FARGATE@ or
+    -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+    -- available to all accounts and only need to be associated with a cluster
+    -- to be used.
     --
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    -- | An object representing the network configuration for a task set.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The launch type that new tasks in the task set will use. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
@@ -134,22 +135,24 @@ data CreateTaskSet = CreateTaskSet'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The details of the service discovery registries to assign to this task
     -- set. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
     serviceRegistries :: Prelude.Maybe [ServiceRegistry],
+    -- | A floating-point percentage of the desired number of tasks to place and
+    -- keep running in the task set.
+    scale :: Prelude.Maybe Scale,
     -- | An optional non-unique tag that identifies this task set in external
     -- systems. If the task set is associated with a service discovery
     -- registry, the tasks in this task set will have the
-    -- @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided
+    -- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
     -- value.
     externalId :: Prelude.Maybe Prelude.Text,
-    scale :: Prelude.Maybe Scale,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 32 ASCII characters are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -172,8 +175,6 @@ data CreateTaskSet = CreateTaskSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfiguration', 'createTaskSet_networkConfiguration' - Undocumented member.
---
 -- 'capacityProviderStrategy', 'createTaskSet_capacityProviderStrategy' - The capacity provider strategy to use for the task set.
 --
 -- A capacity provider strategy consists of one or more capacity providers
@@ -192,14 +193,16 @@ data CreateTaskSet = CreateTaskSet'
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
+--
+-- 'networkConfiguration', 'createTaskSet_networkConfiguration' - An object representing the network configuration for a task set.
 --
 -- 'launchType', 'createTaskSet_launchType' - The launch type that new tasks in the task set will use. For more
 -- information, see
@@ -243,22 +246,23 @@ data CreateTaskSet = CreateTaskSet'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 --
 -- 'serviceRegistries', 'createTaskSet_serviceRegistries' - The details of the service discovery registries to assign to this task
 -- set. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
 --
+-- 'scale', 'createTaskSet_scale' - A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
+--
 -- 'externalId', 'createTaskSet_externalId' - An optional non-unique tag that identifies this task set in external
 -- systems. If the task set is associated with a service discovery
 -- registry, the tasks in this task set will have the
--- @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided
+-- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
 -- value.
---
--- 'scale', 'createTaskSet_scale' - Undocumented member.
 --
 -- 'clientToken', 'createTaskSet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 32 ASCII characters are allowed.
@@ -280,25 +284,21 @@ newCreateTaskSet ::
   CreateTaskSet
 newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
   CreateTaskSet'
-    { networkConfiguration =
+    { capacityProviderStrategy =
         Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
       launchType = Prelude.Nothing,
       platformVersion = Prelude.Nothing,
       loadBalancers = Prelude.Nothing,
       tags = Prelude.Nothing,
       serviceRegistries = Prelude.Nothing,
-      externalId = Prelude.Nothing,
       scale = Prelude.Nothing,
+      externalId = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       service = pService_,
       cluster = pCluster_,
       taskDefinition = pTaskDefinition_
     }
-
--- | Undocumented member.
-createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Prelude.Maybe NetworkConfiguration)
-createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfiguration} -> networkConfiguration) (\s@CreateTaskSet' {} a -> s {networkConfiguration = a} :: CreateTaskSet)
 
 -- | The capacity provider strategy to use for the task set.
 --
@@ -318,16 +318,20 @@ createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfigur
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
 createTaskSet_capacityProviderStrategy :: Lens.Lens' CreateTaskSet (Prelude.Maybe [CapacityProviderStrategyItem])
 createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateTaskSet' {} a -> s {capacityProviderStrategy = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An object representing the network configuration for a task set.
+createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Prelude.Maybe NetworkConfiguration)
+createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfiguration} -> networkConfiguration) (\s@CreateTaskSet' {} a -> s {networkConfiguration = a} :: CreateTaskSet)
 
 -- | The launch type that new tasks in the task set will use. For more
 -- information, see
@@ -377,10 +381,10 @@ createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> load
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 createTaskSet_tags :: Lens.Lens' CreateTaskSet (Prelude.Maybe [Tag])
 createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
@@ -390,17 +394,18 @@ createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSe
 createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Prelude.Maybe [ServiceRegistry])
 createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
+createTaskSet_scale :: Lens.Lens' CreateTaskSet (Prelude.Maybe Scale)
+createTaskSet_scale = Lens.lens (\CreateTaskSet' {scale} -> scale) (\s@CreateTaskSet' {} a -> s {scale = a} :: CreateTaskSet)
+
 -- | An optional non-unique tag that identifies this task set in external
 -- systems. If the task set is associated with a service discovery
 -- registry, the tasks in this task set will have the
--- @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided
+-- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
 -- value.
 createTaskSet_externalId :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_externalId = Lens.lens (\CreateTaskSet' {externalId} -> externalId) (\s@CreateTaskSet' {} a -> s {externalId = a} :: CreateTaskSet)
-
--- | Undocumented member.
-createTaskSet_scale :: Lens.Lens' CreateTaskSet (Prelude.Maybe Scale)
-createTaskSet_scale = Lens.lens (\CreateTaskSet' {scale} -> scale) (\s@CreateTaskSet' {} a -> s {scale = a} :: CreateTaskSet)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 32 ASCII characters are allowed.
@@ -457,10 +462,10 @@ instance Core.ToJSON CreateTaskSet where
   toJSON CreateTaskSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("networkConfiguration" Core..=)
-              Prelude.<$> networkConfiguration,
-            ("capacityProviderStrategy" Core..=)
+          [ ("capacityProviderStrategy" Core..=)
               Prelude.<$> capacityProviderStrategy,
+            ("networkConfiguration" Core..=)
+              Prelude.<$> networkConfiguration,
             ("launchType" Core..=) Prelude.<$> launchType,
             ("platformVersion" Core..=)
               Prelude.<$> platformVersion,
@@ -468,8 +473,8 @@ instance Core.ToJSON CreateTaskSet where
             ("tags" Core..=) Prelude.<$> tags,
             ("serviceRegistries" Core..=)
               Prelude.<$> serviceRegistries,
-            ("externalId" Core..=) Prelude.<$> externalId,
             ("scale" Core..=) Prelude.<$> scale,
+            ("externalId" Core..=) Prelude.<$> externalId,
             ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("service" Core..= service),
             Prelude.Just ("cluster" Core..= cluster),
@@ -486,7 +491,11 @@ instance Core.ToQuery CreateTaskSet where
 
 -- | /See:/ 'newCreateTaskSetResponse' smart constructor.
 data CreateTaskSetResponse = CreateTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { -- | Information about a set of Amazon ECS tasks in either an CodeDeploy or
+    -- an @EXTERNAL@ deployment. A task set includes details such as the
+    -- desired number of tasks, how many tasks are running, and whether the
+    -- task set serves production traffic.
+    taskSet :: Prelude.Maybe TaskSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -500,7 +509,10 @@ data CreateTaskSetResponse = CreateTaskSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskSet', 'createTaskSetResponse_taskSet' - Undocumented member.
+-- 'taskSet', 'createTaskSetResponse_taskSet' - Information about a set of Amazon ECS tasks in either an CodeDeploy or
+-- an @EXTERNAL@ deployment. A task set includes details such as the
+-- desired number of tasks, how many tasks are running, and whether the
+-- task set serves production traffic.
 --
 -- 'httpStatus', 'createTaskSetResponse_httpStatus' - The response's http status code.
 newCreateTaskSetResponse ::
@@ -513,7 +525,10 @@ newCreateTaskSetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about a set of Amazon ECS tasks in either an CodeDeploy or
+-- an @EXTERNAL@ deployment. A task set includes details such as the
+-- desired number of tasks, how many tasks are running, and whether the
+-- task set serves production traffic.
 createTaskSetResponse_taskSet :: Lens.Lens' CreateTaskSetResponse (Prelude.Maybe TaskSet)
 createTaskSetResponse_taskSet = Lens.lens (\CreateTaskSetResponse' {taskSet} -> taskSet) (\s@CreateTaskSetResponse' {} a -> s {taskSet = a} :: CreateTaskSetResponse)
 

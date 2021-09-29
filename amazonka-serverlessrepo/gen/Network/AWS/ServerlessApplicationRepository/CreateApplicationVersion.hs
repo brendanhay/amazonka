@@ -39,10 +39,10 @@ module Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
     newCreateApplicationVersionResponse,
 
     -- * Response Lenses
-    createApplicationVersionResponse_parameterDefinitions,
     createApplicationVersionResponse_applicationId,
     createApplicationVersionResponse_requiredCapabilities,
     createApplicationVersionResponse_resourcesSupported,
+    createApplicationVersionResponse_parameterDefinitions,
     createApplicationVersionResponse_creationTime,
     createApplicationVersionResponse_templateUrl,
     createApplicationVersionResponse_sourceCodeArchiveUrl,
@@ -159,14 +159,14 @@ instance Core.AWSRequest CreateApplicationVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationVersionResponse'
-            Prelude.<$> ( x Core..?> "parameterDefinitions"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Core..?> "applicationId")
+            Prelude.<$> (x Core..?> "applicationId")
             Prelude.<*> ( x Core..?> "requiredCapabilities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "resourcesSupported")
+            Prelude.<*> ( x Core..?> "parameterDefinitions"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (x Core..?> "templateUrl")
             Prelude.<*> (x Core..?> "sourceCodeArchiveUrl")
@@ -216,9 +216,7 @@ instance Core.ToQuery CreateApplicationVersion where
 
 -- | /See:/ 'newCreateApplicationVersionResponse' smart constructor.
 data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
-  { -- | An array of parameter types supported by the application.
-    parameterDefinitions :: Prelude.Maybe [ParameterDefinition],
-    -- | The application Amazon Resource Name (ARN).
+  { -- | The application Amazon Resource Name (ARN).
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | A list of values that you must specify before you can deploy certain
     -- applications. Some applications might include resources that can affect
@@ -262,6 +260,8 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
     -- | Whether all of the AWS resources contained in this application are
     -- supported in the region in which it is being retrieved.
     resourcesSupported :: Prelude.Maybe Prelude.Bool,
+    -- | An array of parameter types supported by the application.
+    parameterDefinitions :: Prelude.Maybe [ParameterDefinition],
     -- | The date and time this resource was created.
     creationTime :: Prelude.Maybe Prelude.Text,
     -- | A link to the packaged AWS SAM template of your application.
@@ -290,8 +290,6 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'parameterDefinitions', 'createApplicationVersionResponse_parameterDefinitions' - An array of parameter types supported by the application.
 --
 -- 'applicationId', 'createApplicationVersionResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
@@ -337,6 +335,8 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
 -- 'resourcesSupported', 'createApplicationVersionResponse_resourcesSupported' - Whether all of the AWS resources contained in this application are
 -- supported in the region in which it is being retrieved.
 --
+-- 'parameterDefinitions', 'createApplicationVersionResponse_parameterDefinitions' - An array of parameter types supported by the application.
+--
 -- 'creationTime', 'createApplicationVersionResponse_creationTime' - The date and time this resource was created.
 --
 -- 'templateUrl', 'createApplicationVersionResponse_templateUrl' - A link to the packaged AWS SAM template of your application.
@@ -360,11 +360,11 @@ newCreateApplicationVersionResponse ::
   CreateApplicationVersionResponse
 newCreateApplicationVersionResponse pHttpStatus_ =
   CreateApplicationVersionResponse'
-    { parameterDefinitions =
+    { applicationId =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing,
       requiredCapabilities = Prelude.Nothing,
       resourcesSupported = Prelude.Nothing,
+      parameterDefinitions = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       templateUrl = Prelude.Nothing,
       sourceCodeArchiveUrl = Prelude.Nothing,
@@ -372,10 +372,6 @@ newCreateApplicationVersionResponse pHttpStatus_ =
       semanticVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of parameter types supported by the application.
-createApplicationVersionResponse_parameterDefinitions :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe [ParameterDefinition])
-createApplicationVersionResponse_parameterDefinitions = Lens.lens (\CreateApplicationVersionResponse' {parameterDefinitions} -> parameterDefinitions) (\s@CreateApplicationVersionResponse' {} a -> s {parameterDefinitions = a} :: CreateApplicationVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The application Amazon Resource Name (ARN).
 createApplicationVersionResponse_applicationId :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
@@ -426,6 +422,10 @@ createApplicationVersionResponse_requiredCapabilities = Lens.lens (\CreateApplic
 -- supported in the region in which it is being retrieved.
 createApplicationVersionResponse_resourcesSupported :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Bool)
 createApplicationVersionResponse_resourcesSupported = Lens.lens (\CreateApplicationVersionResponse' {resourcesSupported} -> resourcesSupported) (\s@CreateApplicationVersionResponse' {} a -> s {resourcesSupported = a} :: CreateApplicationVersionResponse)
+
+-- | An array of parameter types supported by the application.
+createApplicationVersionResponse_parameterDefinitions :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe [ParameterDefinition])
+createApplicationVersionResponse_parameterDefinitions = Lens.lens (\CreateApplicationVersionResponse' {parameterDefinitions} -> parameterDefinitions) (\s@CreateApplicationVersionResponse' {} a -> s {parameterDefinitions = a} :: CreateApplicationVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time this resource was created.
 createApplicationVersionResponse_creationTime :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)

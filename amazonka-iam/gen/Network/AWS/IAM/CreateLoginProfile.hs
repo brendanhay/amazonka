@@ -21,12 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a password for the specified IAM user. A password allows an IAM
--- user to access AWS services through the AWS Management Console.
+-- user to access Amazon Web Services services through the Amazon Web
+-- Services Management Console.
 --
--- You can use the AWS CLI, the AWS API, or the __Users__ page in the IAM
--- console to create a password for any IAM user. Use ChangePassword to
--- update your own existing password in the __My Security Credentials__
--- page in the AWS Management Console.
+-- You can use the CLI, the Amazon Web Services API, or the __Users__ page
+-- in the IAM console to create a password for any IAM user. Use
+-- ChangePassword to update your own existing password in the __My Security
+-- Credentials__ page in the Amazon Web Services Management Console.
 --
 -- For more information about managing passwords, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing passwords>
@@ -79,9 +80,9 @@ data CreateLoginProfile = CreateLoginProfile'
     -- through the end of the ASCII character range (@\\u00FF@). You can also
     -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
     -- (@\\u000D@) characters. Any of these characters are valid in a password.
-    -- However, many tools, such as the AWS Management Console, might restrict
-    -- the ability to type certain characters because they have special meaning
-    -- within that tool.
+    -- However, many tools, such as the Amazon Web Services Management Console,
+    -- might restrict the ability to type certain characters because they have
+    -- special meaning within that tool.
     password :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -113,9 +114,9 @@ data CreateLoginProfile = CreateLoginProfile'
 -- through the end of the ASCII character range (@\\u00FF@). You can also
 -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
 -- (@\\u000D@) characters. Any of these characters are valid in a password.
--- However, many tools, such as the AWS Management Console, might restrict
--- the ability to type certain characters because they have special meaning
--- within that tool.
+-- However, many tools, such as the Amazon Web Services Management Console,
+-- might restrict the ability to type certain characters because they have
+-- special meaning within that tool.
 newCreateLoginProfile ::
   -- | 'userName'
   Prelude.Text ->
@@ -153,9 +154,9 @@ createLoginProfile_userName = Lens.lens (\CreateLoginProfile' {userName} -> user
 -- through the end of the ASCII character range (@\\u00FF@). You can also
 -- include the tab (@\\u0009@), line feed (@\\u000A@), and carriage return
 -- (@\\u000D@) characters. Any of these characters are valid in a password.
--- However, many tools, such as the AWS Management Console, might restrict
--- the ability to type certain characters because they have special meaning
--- within that tool.
+-- However, many tools, such as the Amazon Web Services Management Console,
+-- might restrict the ability to type certain characters because they have
+-- special meaning within that tool.
 createLoginProfile_password :: Lens.Lens' CreateLoginProfile Prelude.Text
 createLoginProfile_password = Lens.lens (\CreateLoginProfile' {password} -> password) (\s@CreateLoginProfile' {} a -> s {password = a} :: CreateLoginProfile) Prelude.. Core._Sensitive
 

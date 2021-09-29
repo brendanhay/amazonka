@@ -34,24 +34,24 @@ import qualified Network.AWS.Prelude as Prelude
 data VolumeModification = VolumeModification'
   { -- | A status message about the modification progress or failure.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The target EBS volume type of the volume.
-    targetVolumeType :: Prelude.Maybe VolumeType,
     -- | The original EBS volume type of the volume.
     originalVolumeType :: Prelude.Maybe VolumeType,
+    -- | The target EBS volume type of the volume.
+    targetVolumeType :: Prelude.Maybe VolumeType,
     -- | The modification start time.
     startTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the volume.
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | The modification completion or failure time.
     endTime :: Prelude.Maybe Core.ISO8601,
-    -- | The original IOPS rate of the volume.
-    originalIops :: Prelude.Maybe Prelude.Int,
-    -- | The target size of the volume, in GiB.
-    targetSize :: Prelude.Maybe Prelude.Int,
-    -- | The original size of the volume, in GiB.
-    originalSize :: Prelude.Maybe Prelude.Int,
     -- | The target IOPS rate of the volume.
     targetIops :: Prelude.Maybe Prelude.Int,
+    -- | The original size of the volume, in GiB.
+    originalSize :: Prelude.Maybe Prelude.Int,
+    -- | The target size of the volume, in GiB.
+    targetSize :: Prelude.Maybe Prelude.Int,
+    -- | The original IOPS rate of the volume.
+    originalIops :: Prelude.Maybe Prelude.Int,
     -- | The current modification state. The modification state is null for
     -- unmodified volumes.
     modificationState :: Prelude.Maybe VolumeModificationState,
@@ -59,10 +59,10 @@ data VolumeModification = VolumeModification'
     targetMultiAttachEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The original setting for Amazon EBS Multi-Attach.
     originalMultiAttachEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The target throughput of the volume, in MiB\/s.
-    targetThroughput :: Prelude.Maybe Prelude.Int,
     -- | The original throughput of the volume, in MiB\/s.
     originalThroughput :: Prelude.Maybe Prelude.Int,
+    -- | The target throughput of the volume, in MiB\/s.
+    targetThroughput :: Prelude.Maybe Prelude.Int,
     -- | The modification progress, from 0 to 100 percent complete.
     progress :: Prelude.Maybe Prelude.Integer
   }
@@ -78,9 +78,9 @@ data VolumeModification = VolumeModification'
 --
 -- 'statusMessage', 'volumeModification_statusMessage' - A status message about the modification progress or failure.
 --
--- 'targetVolumeType', 'volumeModification_targetVolumeType' - The target EBS volume type of the volume.
---
 -- 'originalVolumeType', 'volumeModification_originalVolumeType' - The original EBS volume type of the volume.
+--
+-- 'targetVolumeType', 'volumeModification_targetVolumeType' - The target EBS volume type of the volume.
 --
 -- 'startTime', 'volumeModification_startTime' - The modification start time.
 --
@@ -88,13 +88,13 @@ data VolumeModification = VolumeModification'
 --
 -- 'endTime', 'volumeModification_endTime' - The modification completion or failure time.
 --
--- 'originalIops', 'volumeModification_originalIops' - The original IOPS rate of the volume.
---
--- 'targetSize', 'volumeModification_targetSize' - The target size of the volume, in GiB.
+-- 'targetIops', 'volumeModification_targetIops' - The target IOPS rate of the volume.
 --
 -- 'originalSize', 'volumeModification_originalSize' - The original size of the volume, in GiB.
 --
--- 'targetIops', 'volumeModification_targetIops' - The target IOPS rate of the volume.
+-- 'targetSize', 'volumeModification_targetSize' - The target size of the volume, in GiB.
+--
+-- 'originalIops', 'volumeModification_originalIops' - The original IOPS rate of the volume.
 --
 -- 'modificationState', 'volumeModification_modificationState' - The current modification state. The modification state is null for
 -- unmodified volumes.
@@ -103,9 +103,9 @@ data VolumeModification = VolumeModification'
 --
 -- 'originalMultiAttachEnabled', 'volumeModification_originalMultiAttachEnabled' - The original setting for Amazon EBS Multi-Attach.
 --
--- 'targetThroughput', 'volumeModification_targetThroughput' - The target throughput of the volume, in MiB\/s.
---
 -- 'originalThroughput', 'volumeModification_originalThroughput' - The original throughput of the volume, in MiB\/s.
+--
+-- 'targetThroughput', 'volumeModification_targetThroughput' - The target throughput of the volume, in MiB\/s.
 --
 -- 'progress', 'volumeModification_progress' - The modification progress, from 0 to 100 percent complete.
 newVolumeModification ::
@@ -114,20 +114,20 @@ newVolumeModification =
   VolumeModification'
     { statusMessage =
         Prelude.Nothing,
-      targetVolumeType = Prelude.Nothing,
       originalVolumeType = Prelude.Nothing,
+      targetVolumeType = Prelude.Nothing,
       startTime = Prelude.Nothing,
       volumeId = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      originalIops = Prelude.Nothing,
-      targetSize = Prelude.Nothing,
-      originalSize = Prelude.Nothing,
       targetIops = Prelude.Nothing,
+      originalSize = Prelude.Nothing,
+      targetSize = Prelude.Nothing,
+      originalIops = Prelude.Nothing,
       modificationState = Prelude.Nothing,
       targetMultiAttachEnabled = Prelude.Nothing,
       originalMultiAttachEnabled = Prelude.Nothing,
-      targetThroughput = Prelude.Nothing,
       originalThroughput = Prelude.Nothing,
+      targetThroughput = Prelude.Nothing,
       progress = Prelude.Nothing
     }
 
@@ -135,13 +135,13 @@ newVolumeModification =
 volumeModification_statusMessage :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Text)
 volumeModification_statusMessage = Lens.lens (\VolumeModification' {statusMessage} -> statusMessage) (\s@VolumeModification' {} a -> s {statusMessage = a} :: VolumeModification)
 
--- | The target EBS volume type of the volume.
-volumeModification_targetVolumeType :: Lens.Lens' VolumeModification (Prelude.Maybe VolumeType)
-volumeModification_targetVolumeType = Lens.lens (\VolumeModification' {targetVolumeType} -> targetVolumeType) (\s@VolumeModification' {} a -> s {targetVolumeType = a} :: VolumeModification)
-
 -- | The original EBS volume type of the volume.
 volumeModification_originalVolumeType :: Lens.Lens' VolumeModification (Prelude.Maybe VolumeType)
 volumeModification_originalVolumeType = Lens.lens (\VolumeModification' {originalVolumeType} -> originalVolumeType) (\s@VolumeModification' {} a -> s {originalVolumeType = a} :: VolumeModification)
+
+-- | The target EBS volume type of the volume.
+volumeModification_targetVolumeType :: Lens.Lens' VolumeModification (Prelude.Maybe VolumeType)
+volumeModification_targetVolumeType = Lens.lens (\VolumeModification' {targetVolumeType} -> targetVolumeType) (\s@VolumeModification' {} a -> s {targetVolumeType = a} :: VolumeModification)
 
 -- | The modification start time.
 volumeModification_startTime :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.UTCTime)
@@ -155,21 +155,21 @@ volumeModification_volumeId = Lens.lens (\VolumeModification' {volumeId} -> volu
 volumeModification_endTime :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.UTCTime)
 volumeModification_endTime = Lens.lens (\VolumeModification' {endTime} -> endTime) (\s@VolumeModification' {} a -> s {endTime = a} :: VolumeModification) Prelude.. Lens.mapping Core._Time
 
--- | The original IOPS rate of the volume.
-volumeModification_originalIops :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
-volumeModification_originalIops = Lens.lens (\VolumeModification' {originalIops} -> originalIops) (\s@VolumeModification' {} a -> s {originalIops = a} :: VolumeModification)
-
--- | The target size of the volume, in GiB.
-volumeModification_targetSize :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
-volumeModification_targetSize = Lens.lens (\VolumeModification' {targetSize} -> targetSize) (\s@VolumeModification' {} a -> s {targetSize = a} :: VolumeModification)
+-- | The target IOPS rate of the volume.
+volumeModification_targetIops :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
+volumeModification_targetIops = Lens.lens (\VolumeModification' {targetIops} -> targetIops) (\s@VolumeModification' {} a -> s {targetIops = a} :: VolumeModification)
 
 -- | The original size of the volume, in GiB.
 volumeModification_originalSize :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
 volumeModification_originalSize = Lens.lens (\VolumeModification' {originalSize} -> originalSize) (\s@VolumeModification' {} a -> s {originalSize = a} :: VolumeModification)
 
--- | The target IOPS rate of the volume.
-volumeModification_targetIops :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
-volumeModification_targetIops = Lens.lens (\VolumeModification' {targetIops} -> targetIops) (\s@VolumeModification' {} a -> s {targetIops = a} :: VolumeModification)
+-- | The target size of the volume, in GiB.
+volumeModification_targetSize :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
+volumeModification_targetSize = Lens.lens (\VolumeModification' {targetSize} -> targetSize) (\s@VolumeModification' {} a -> s {targetSize = a} :: VolumeModification)
+
+-- | The original IOPS rate of the volume.
+volumeModification_originalIops :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
+volumeModification_originalIops = Lens.lens (\VolumeModification' {originalIops} -> originalIops) (\s@VolumeModification' {} a -> s {originalIops = a} :: VolumeModification)
 
 -- | The current modification state. The modification state is null for
 -- unmodified volumes.
@@ -184,13 +184,13 @@ volumeModification_targetMultiAttachEnabled = Lens.lens (\VolumeModification' {t
 volumeModification_originalMultiAttachEnabled :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Bool)
 volumeModification_originalMultiAttachEnabled = Lens.lens (\VolumeModification' {originalMultiAttachEnabled} -> originalMultiAttachEnabled) (\s@VolumeModification' {} a -> s {originalMultiAttachEnabled = a} :: VolumeModification)
 
--- | The target throughput of the volume, in MiB\/s.
-volumeModification_targetThroughput :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
-volumeModification_targetThroughput = Lens.lens (\VolumeModification' {targetThroughput} -> targetThroughput) (\s@VolumeModification' {} a -> s {targetThroughput = a} :: VolumeModification)
-
 -- | The original throughput of the volume, in MiB\/s.
 volumeModification_originalThroughput :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
 volumeModification_originalThroughput = Lens.lens (\VolumeModification' {originalThroughput} -> originalThroughput) (\s@VolumeModification' {} a -> s {originalThroughput = a} :: VolumeModification)
+
+-- | The target throughput of the volume, in MiB\/s.
+volumeModification_targetThroughput :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
+volumeModification_targetThroughput = Lens.lens (\VolumeModification' {targetThroughput} -> targetThroughput) (\s@VolumeModification' {} a -> s {targetThroughput = a} :: VolumeModification)
 
 -- | The modification progress, from 0 to 100 percent complete.
 volumeModification_progress :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Integer)
@@ -200,20 +200,20 @@ instance Core.FromXML VolumeModification where
   parseXML x =
     VolumeModification'
       Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "targetVolumeType")
       Prelude.<*> (x Core..@? "originalVolumeType")
+      Prelude.<*> (x Core..@? "targetVolumeType")
       Prelude.<*> (x Core..@? "startTime")
       Prelude.<*> (x Core..@? "volumeId")
       Prelude.<*> (x Core..@? "endTime")
-      Prelude.<*> (x Core..@? "originalIops")
-      Prelude.<*> (x Core..@? "targetSize")
-      Prelude.<*> (x Core..@? "originalSize")
       Prelude.<*> (x Core..@? "targetIops")
+      Prelude.<*> (x Core..@? "originalSize")
+      Prelude.<*> (x Core..@? "targetSize")
+      Prelude.<*> (x Core..@? "originalIops")
       Prelude.<*> (x Core..@? "modificationState")
       Prelude.<*> (x Core..@? "targetMultiAttachEnabled")
       Prelude.<*> (x Core..@? "originalMultiAttachEnabled")
-      Prelude.<*> (x Core..@? "targetThroughput")
       Prelude.<*> (x Core..@? "originalThroughput")
+      Prelude.<*> (x Core..@? "targetThroughput")
       Prelude.<*> (x Core..@? "progress")
 
 instance Prelude.Hashable VolumeModification

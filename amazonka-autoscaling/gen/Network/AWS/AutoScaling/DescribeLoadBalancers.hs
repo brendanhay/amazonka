@@ -20,11 +20,36 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the load balancers for the specified Auto Scaling group.
+-- Gets information about the load balancers for the specified Auto Scaling
+-- group.
 --
 -- This operation describes only Classic Load Balancers. If you have
 -- Application Load Balancers, Network Load Balancers, or Gateway Load
 -- Balancers, use the DescribeLoadBalancerTargetGroups API instead.
+--
+-- To determine the availability of registered instances, use the @State@
+-- element in the response. When you attach a load balancer to an Auto
+-- Scaling group, the initial @State@ value is @Adding@. The state
+-- transitions to @Added@ after all Auto Scaling instances are registered
+-- with the load balancer. If Elastic Load Balancing health checks are
+-- enabled for the Auto Scaling group, the state transitions to @InService@
+-- after at least one Auto Scaling instance passes the health check. When
+-- the load balancer is in the @InService@ state, Amazon EC2 Auto Scaling
+-- can terminate and replace any instances that are reported as unhealthy.
+-- If no registered instances pass the health checks, the load balancer
+-- doesn\'t enter the @InService@ state.
+--
+-- Load balancers also have an @InService@ state if you attach them in the
+-- CreateAutoScalingGroup API call. If your load balancer state is
+-- @InService@, but it is not working properly, check the scaling
+-- activities by calling DescribeScalingActivities and take any corrective
+-- actions necessary.
+--
+-- For help with failed health checks, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html Troubleshooting Amazon EC2 Auto Scaling: Health checks>
+-- in the /Amazon EC2 Auto Scaling User Guide/. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLoadBalancers

@@ -49,7 +49,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetDataCatalogEncryptionSettings' smart constructor.
 data GetDataCatalogEncryptionSettings = GetDataCatalogEncryptionSettings'
   { -- | The ID of the Data Catalog to retrieve the security configuration for.
-    -- If none is provided, the AWS account ID is used by default.
+    -- If none is provided, the Amazon Web Services account ID is used by
+    -- default.
     catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +64,8 @@ data GetDataCatalogEncryptionSettings = GetDataCatalogEncryptionSettings'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getDataCatalogEncryptionSettings_catalogId' - The ID of the Data Catalog to retrieve the security configuration for.
--- If none is provided, the AWS account ID is used by default.
+-- If none is provided, the Amazon Web Services account ID is used by
+-- default.
 newGetDataCatalogEncryptionSettings ::
   GetDataCatalogEncryptionSettings
 newGetDataCatalogEncryptionSettings =
@@ -73,7 +75,8 @@ newGetDataCatalogEncryptionSettings =
     }
 
 -- | The ID of the Data Catalog to retrieve the security configuration for.
--- If none is provided, the AWS account ID is used by default.
+-- If none is provided, the Amazon Web Services account ID is used by
+-- default.
 getDataCatalogEncryptionSettings_catalogId :: Lens.Lens' GetDataCatalogEncryptionSettings (Prelude.Maybe Prelude.Text)
 getDataCatalogEncryptionSettings_catalogId = Lens.lens (\GetDataCatalogEncryptionSettings' {catalogId} -> catalogId) (\s@GetDataCatalogEncryptionSettings' {} a -> s {catalogId = a} :: GetDataCatalogEncryptionSettings)
 

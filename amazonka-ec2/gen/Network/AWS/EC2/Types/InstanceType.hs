@@ -133,8 +133,10 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_G3_8xlarge,
         InstanceType_G3s_xlarge,
         InstanceType_G4ad_16xlarge,
+        InstanceType_G4ad_2xlarge,
         InstanceType_G4ad_4xlarge,
         InstanceType_G4ad_8xlarge,
+        InstanceType_G4ad_xlarge,
         InstanceType_G4dn_12xlarge,
         InstanceType_G4dn_16xlarge,
         InstanceType_G4dn_2xlarge,
@@ -229,6 +231,7 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_M5dn_4xlarge,
         InstanceType_M5dn_8xlarge,
         InstanceType_M5dn_large,
+        InstanceType_M5dn_metal,
         InstanceType_M5dn_xlarge,
         InstanceType_M5n_12xlarge,
         InstanceType_M5n_16xlarge,
@@ -237,6 +240,7 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_M5n_4xlarge,
         InstanceType_M5n_8xlarge,
         InstanceType_M5n_large,
+        InstanceType_M5n_metal,
         InstanceType_M5n_xlarge,
         InstanceType_M5zn_12xlarge,
         InstanceType_M5zn_2xlarge,
@@ -263,6 +267,15 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_M6gd_medium,
         InstanceType_M6gd_metal,
         InstanceType_M6gd_xlarge,
+        InstanceType_M6i_12xlarge,
+        InstanceType_M6i_16xlarge,
+        InstanceType_M6i_24xlarge,
+        InstanceType_M6i_2xlarge,
+        InstanceType_M6i_32xlarge,
+        InstanceType_M6i_4xlarge,
+        InstanceType_M6i_8xlarge,
+        InstanceType_M6i_large,
+        InstanceType_M6i_xlarge,
         InstanceType_Mac1_metal,
         InstanceType_P2_16xlarge,
         InstanceType_P2_8xlarge,
@@ -333,6 +346,7 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_R5dn_4xlarge,
         InstanceType_R5dn_8xlarge,
         InstanceType_R5dn_large,
+        InstanceType_R5dn_metal,
         InstanceType_R5dn_xlarge,
         InstanceType_R5n_12xlarge,
         InstanceType_R5n_16xlarge,
@@ -341,6 +355,7 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_R5n_4xlarge,
         InstanceType_R5n_8xlarge,
         InstanceType_R5n_large,
+        InstanceType_R5n_metal,
         InstanceType_R5n_xlarge,
         InstanceType_R6g_12xlarge,
         InstanceType_R6g_16xlarge,
@@ -389,11 +404,18 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_T4g_nano,
         InstanceType_T4g_small,
         InstanceType_T4g_xlarge,
+        InstanceType_U_12tb1_112xlarge,
         InstanceType_U_12tb1_metal,
         InstanceType_U_18tb1_metal,
         InstanceType_U_24tb1_metal,
+        InstanceType_U_6tb1_112xlarge,
+        InstanceType_U_6tb1_56xlarge,
         InstanceType_U_6tb1_metal,
+        InstanceType_U_9tb1_112xlarge,
         InstanceType_U_9tb1_metal,
+        InstanceType_Vt1_24xlarge,
+        InstanceType_Vt1_3xlarge,
+        InstanceType_Vt1_6xlarge,
         InstanceType_X1_16xlarge,
         InstanceType_X1_32xlarge,
         InstanceType_X1e_16xlarge,
@@ -402,6 +424,15 @@ module Network.AWS.EC2.Types.InstanceType
         InstanceType_X1e_4xlarge,
         InstanceType_X1e_8xlarge,
         InstanceType_X1e_xlarge,
+        InstanceType_X2gd_12xlarge,
+        InstanceType_X2gd_16xlarge,
+        InstanceType_X2gd_2xlarge,
+        InstanceType_X2gd_4xlarge,
+        InstanceType_X2gd_8xlarge,
+        InstanceType_X2gd_large,
+        InstanceType_X2gd_medium,
+        InstanceType_X2gd_metal,
+        InstanceType_X2gd_xlarge,
         InstanceType_Z1d_12xlarge,
         InstanceType_Z1d_2xlarge,
         InstanceType_Z1d_3xlarge,
@@ -784,11 +815,17 @@ pattern InstanceType_G3s_xlarge = InstanceType' "g3s.xlarge"
 pattern InstanceType_G4ad_16xlarge :: InstanceType
 pattern InstanceType_G4ad_16xlarge = InstanceType' "g4ad.16xlarge"
 
+pattern InstanceType_G4ad_2xlarge :: InstanceType
+pattern InstanceType_G4ad_2xlarge = InstanceType' "g4ad.2xlarge"
+
 pattern InstanceType_G4ad_4xlarge :: InstanceType
 pattern InstanceType_G4ad_4xlarge = InstanceType' "g4ad.4xlarge"
 
 pattern InstanceType_G4ad_8xlarge :: InstanceType
 pattern InstanceType_G4ad_8xlarge = InstanceType' "g4ad.8xlarge"
+
+pattern InstanceType_G4ad_xlarge :: InstanceType
+pattern InstanceType_G4ad_xlarge = InstanceType' "g4ad.xlarge"
 
 pattern InstanceType_G4dn_12xlarge :: InstanceType
 pattern InstanceType_G4dn_12xlarge = InstanceType' "g4dn.12xlarge"
@@ -1072,6 +1109,9 @@ pattern InstanceType_M5dn_8xlarge = InstanceType' "m5dn.8xlarge"
 pattern InstanceType_M5dn_large :: InstanceType
 pattern InstanceType_M5dn_large = InstanceType' "m5dn.large"
 
+pattern InstanceType_M5dn_metal :: InstanceType
+pattern InstanceType_M5dn_metal = InstanceType' "m5dn.metal"
+
 pattern InstanceType_M5dn_xlarge :: InstanceType
 pattern InstanceType_M5dn_xlarge = InstanceType' "m5dn.xlarge"
 
@@ -1095,6 +1135,9 @@ pattern InstanceType_M5n_8xlarge = InstanceType' "m5n.8xlarge"
 
 pattern InstanceType_M5n_large :: InstanceType
 pattern InstanceType_M5n_large = InstanceType' "m5n.large"
+
+pattern InstanceType_M5n_metal :: InstanceType
+pattern InstanceType_M5n_metal = InstanceType' "m5n.metal"
 
 pattern InstanceType_M5n_xlarge :: InstanceType
 pattern InstanceType_M5n_xlarge = InstanceType' "m5n.xlarge"
@@ -1173,6 +1216,33 @@ pattern InstanceType_M6gd_metal = InstanceType' "m6gd.metal"
 
 pattern InstanceType_M6gd_xlarge :: InstanceType
 pattern InstanceType_M6gd_xlarge = InstanceType' "m6gd.xlarge"
+
+pattern InstanceType_M6i_12xlarge :: InstanceType
+pattern InstanceType_M6i_12xlarge = InstanceType' "m6i.12xlarge"
+
+pattern InstanceType_M6i_16xlarge :: InstanceType
+pattern InstanceType_M6i_16xlarge = InstanceType' "m6i.16xlarge"
+
+pattern InstanceType_M6i_24xlarge :: InstanceType
+pattern InstanceType_M6i_24xlarge = InstanceType' "m6i.24xlarge"
+
+pattern InstanceType_M6i_2xlarge :: InstanceType
+pattern InstanceType_M6i_2xlarge = InstanceType' "m6i.2xlarge"
+
+pattern InstanceType_M6i_32xlarge :: InstanceType
+pattern InstanceType_M6i_32xlarge = InstanceType' "m6i.32xlarge"
+
+pattern InstanceType_M6i_4xlarge :: InstanceType
+pattern InstanceType_M6i_4xlarge = InstanceType' "m6i.4xlarge"
+
+pattern InstanceType_M6i_8xlarge :: InstanceType
+pattern InstanceType_M6i_8xlarge = InstanceType' "m6i.8xlarge"
+
+pattern InstanceType_M6i_large :: InstanceType
+pattern InstanceType_M6i_large = InstanceType' "m6i.large"
+
+pattern InstanceType_M6i_xlarge :: InstanceType
+pattern InstanceType_M6i_xlarge = InstanceType' "m6i.xlarge"
 
 pattern InstanceType_Mac1_metal :: InstanceType
 pattern InstanceType_Mac1_metal = InstanceType' "mac1.metal"
@@ -1384,6 +1454,9 @@ pattern InstanceType_R5dn_8xlarge = InstanceType' "r5dn.8xlarge"
 pattern InstanceType_R5dn_large :: InstanceType
 pattern InstanceType_R5dn_large = InstanceType' "r5dn.large"
 
+pattern InstanceType_R5dn_metal :: InstanceType
+pattern InstanceType_R5dn_metal = InstanceType' "r5dn.metal"
+
 pattern InstanceType_R5dn_xlarge :: InstanceType
 pattern InstanceType_R5dn_xlarge = InstanceType' "r5dn.xlarge"
 
@@ -1407,6 +1480,9 @@ pattern InstanceType_R5n_8xlarge = InstanceType' "r5n.8xlarge"
 
 pattern InstanceType_R5n_large :: InstanceType
 pattern InstanceType_R5n_large = InstanceType' "r5n.large"
+
+pattern InstanceType_R5n_metal :: InstanceType
+pattern InstanceType_R5n_metal = InstanceType' "r5n.metal"
 
 pattern InstanceType_R5n_xlarge :: InstanceType
 pattern InstanceType_R5n_xlarge = InstanceType' "r5n.xlarge"
@@ -1552,6 +1628,9 @@ pattern InstanceType_T4g_small = InstanceType' "t4g.small"
 pattern InstanceType_T4g_xlarge :: InstanceType
 pattern InstanceType_T4g_xlarge = InstanceType' "t4g.xlarge"
 
+pattern InstanceType_U_12tb1_112xlarge :: InstanceType
+pattern InstanceType_U_12tb1_112xlarge = InstanceType' "u-12tb1.112xlarge"
+
 pattern InstanceType_U_12tb1_metal :: InstanceType
 pattern InstanceType_U_12tb1_metal = InstanceType' "u-12tb1.metal"
 
@@ -1561,11 +1640,29 @@ pattern InstanceType_U_18tb1_metal = InstanceType' "u-18tb1.metal"
 pattern InstanceType_U_24tb1_metal :: InstanceType
 pattern InstanceType_U_24tb1_metal = InstanceType' "u-24tb1.metal"
 
+pattern InstanceType_U_6tb1_112xlarge :: InstanceType
+pattern InstanceType_U_6tb1_112xlarge = InstanceType' "u-6tb1.112xlarge"
+
+pattern InstanceType_U_6tb1_56xlarge :: InstanceType
+pattern InstanceType_U_6tb1_56xlarge = InstanceType' "u-6tb1.56xlarge"
+
 pattern InstanceType_U_6tb1_metal :: InstanceType
 pattern InstanceType_U_6tb1_metal = InstanceType' "u-6tb1.metal"
 
+pattern InstanceType_U_9tb1_112xlarge :: InstanceType
+pattern InstanceType_U_9tb1_112xlarge = InstanceType' "u-9tb1.112xlarge"
+
 pattern InstanceType_U_9tb1_metal :: InstanceType
 pattern InstanceType_U_9tb1_metal = InstanceType' "u-9tb1.metal"
+
+pattern InstanceType_Vt1_24xlarge :: InstanceType
+pattern InstanceType_Vt1_24xlarge = InstanceType' "vt1.24xlarge"
+
+pattern InstanceType_Vt1_3xlarge :: InstanceType
+pattern InstanceType_Vt1_3xlarge = InstanceType' "vt1.3xlarge"
+
+pattern InstanceType_Vt1_6xlarge :: InstanceType
+pattern InstanceType_Vt1_6xlarge = InstanceType' "vt1.6xlarge"
 
 pattern InstanceType_X1_16xlarge :: InstanceType
 pattern InstanceType_X1_16xlarge = InstanceType' "x1.16xlarge"
@@ -1590,6 +1687,33 @@ pattern InstanceType_X1e_8xlarge = InstanceType' "x1e.8xlarge"
 
 pattern InstanceType_X1e_xlarge :: InstanceType
 pattern InstanceType_X1e_xlarge = InstanceType' "x1e.xlarge"
+
+pattern InstanceType_X2gd_12xlarge :: InstanceType
+pattern InstanceType_X2gd_12xlarge = InstanceType' "x2gd.12xlarge"
+
+pattern InstanceType_X2gd_16xlarge :: InstanceType
+pattern InstanceType_X2gd_16xlarge = InstanceType' "x2gd.16xlarge"
+
+pattern InstanceType_X2gd_2xlarge :: InstanceType
+pattern InstanceType_X2gd_2xlarge = InstanceType' "x2gd.2xlarge"
+
+pattern InstanceType_X2gd_4xlarge :: InstanceType
+pattern InstanceType_X2gd_4xlarge = InstanceType' "x2gd.4xlarge"
+
+pattern InstanceType_X2gd_8xlarge :: InstanceType
+pattern InstanceType_X2gd_8xlarge = InstanceType' "x2gd.8xlarge"
+
+pattern InstanceType_X2gd_large :: InstanceType
+pattern InstanceType_X2gd_large = InstanceType' "x2gd.large"
+
+pattern InstanceType_X2gd_medium :: InstanceType
+pattern InstanceType_X2gd_medium = InstanceType' "x2gd.medium"
+
+pattern InstanceType_X2gd_metal :: InstanceType
+pattern InstanceType_X2gd_metal = InstanceType' "x2gd.metal"
+
+pattern InstanceType_X2gd_xlarge :: InstanceType
+pattern InstanceType_X2gd_xlarge = InstanceType' "x2gd.xlarge"
 
 pattern InstanceType_Z1d_12xlarge :: InstanceType
 pattern InstanceType_Z1d_12xlarge = InstanceType' "z1d.12xlarge"
@@ -1726,8 +1850,10 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_G3_8xlarge,
   InstanceType_G3s_xlarge,
   InstanceType_G4ad_16xlarge,
+  InstanceType_G4ad_2xlarge,
   InstanceType_G4ad_4xlarge,
   InstanceType_G4ad_8xlarge,
+  InstanceType_G4ad_xlarge,
   InstanceType_G4dn_12xlarge,
   InstanceType_G4dn_16xlarge,
   InstanceType_G4dn_2xlarge,
@@ -1822,6 +1948,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_M5dn_4xlarge,
   InstanceType_M5dn_8xlarge,
   InstanceType_M5dn_large,
+  InstanceType_M5dn_metal,
   InstanceType_M5dn_xlarge,
   InstanceType_M5n_12xlarge,
   InstanceType_M5n_16xlarge,
@@ -1830,6 +1957,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_M5n_4xlarge,
   InstanceType_M5n_8xlarge,
   InstanceType_M5n_large,
+  InstanceType_M5n_metal,
   InstanceType_M5n_xlarge,
   InstanceType_M5zn_12xlarge,
   InstanceType_M5zn_2xlarge,
@@ -1856,6 +1984,15 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_M6gd_medium,
   InstanceType_M6gd_metal,
   InstanceType_M6gd_xlarge,
+  InstanceType_M6i_12xlarge,
+  InstanceType_M6i_16xlarge,
+  InstanceType_M6i_24xlarge,
+  InstanceType_M6i_2xlarge,
+  InstanceType_M6i_32xlarge,
+  InstanceType_M6i_4xlarge,
+  InstanceType_M6i_8xlarge,
+  InstanceType_M6i_large,
+  InstanceType_M6i_xlarge,
   InstanceType_Mac1_metal,
   InstanceType_P2_16xlarge,
   InstanceType_P2_8xlarge,
@@ -1926,6 +2063,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_R5dn_4xlarge,
   InstanceType_R5dn_8xlarge,
   InstanceType_R5dn_large,
+  InstanceType_R5dn_metal,
   InstanceType_R5dn_xlarge,
   InstanceType_R5n_12xlarge,
   InstanceType_R5n_16xlarge,
@@ -1934,6 +2072,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_R5n_4xlarge,
   InstanceType_R5n_8xlarge,
   InstanceType_R5n_large,
+  InstanceType_R5n_metal,
   InstanceType_R5n_xlarge,
   InstanceType_R6g_12xlarge,
   InstanceType_R6g_16xlarge,
@@ -1982,11 +2121,18 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_T4g_nano,
   InstanceType_T4g_small,
   InstanceType_T4g_xlarge,
+  InstanceType_U_12tb1_112xlarge,
   InstanceType_U_12tb1_metal,
   InstanceType_U_18tb1_metal,
   InstanceType_U_24tb1_metal,
+  InstanceType_U_6tb1_112xlarge,
+  InstanceType_U_6tb1_56xlarge,
   InstanceType_U_6tb1_metal,
+  InstanceType_U_9tb1_112xlarge,
   InstanceType_U_9tb1_metal,
+  InstanceType_Vt1_24xlarge,
+  InstanceType_Vt1_3xlarge,
+  InstanceType_Vt1_6xlarge,
   InstanceType_X1_16xlarge,
   InstanceType_X1_32xlarge,
   InstanceType_X1e_16xlarge,
@@ -1995,6 +2141,15 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_X1e_4xlarge,
   InstanceType_X1e_8xlarge,
   InstanceType_X1e_xlarge,
+  InstanceType_X2gd_12xlarge,
+  InstanceType_X2gd_16xlarge,
+  InstanceType_X2gd_2xlarge,
+  InstanceType_X2gd_4xlarge,
+  InstanceType_X2gd_8xlarge,
+  InstanceType_X2gd_large,
+  InstanceType_X2gd_medium,
+  InstanceType_X2gd_metal,
+  InstanceType_X2gd_xlarge,
   InstanceType_Z1d_12xlarge,
   InstanceType_Z1d_2xlarge,
   InstanceType_Z1d_3xlarge,

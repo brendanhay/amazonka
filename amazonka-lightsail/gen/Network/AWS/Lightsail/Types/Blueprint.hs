@@ -42,18 +42,18 @@ data Blueprint = Blueprint'
     licenseUrl :: Prelude.Maybe Prelude.Text,
     -- | The product URL to learn more about the image or blueprint.
     productUrl :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the operating system, application, or stack (e.g.,
-    -- @2016.03.0@).
-    version :: Prelude.Maybe Prelude.Text,
     -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
     -- or @app_lamp_7_0@).
     blueprintId :: Prelude.Maybe Prelude.Text,
-    -- | The version code.
-    versionCode :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the operating system, application, or stack (e.g.,
+    -- @2016.03.0@).
+    version :: Prelude.Maybe Prelude.Text,
     -- | The group name of the blueprint (e.g., @amazon-linux@).
     group' :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version code.
+    versionCode :: Prelude.Maybe Prelude.Text,
     -- | The description of the blueprint.
     description :: Prelude.Maybe Prelude.Text,
     -- | The type of the blueprint (e.g., @os@ or @app@).
@@ -87,17 +87,17 @@ data Blueprint = Blueprint'
 --
 -- 'productUrl', 'blueprint_productUrl' - The product URL to learn more about the image or blueprint.
 --
--- 'version', 'blueprint_version' - The version number of the operating system, application, or stack (e.g.,
--- @2016.03.0@).
---
 -- 'blueprintId', 'blueprint_blueprintId' - The ID for the virtual private server image (e.g., @app_wordpress_4_4@
 -- or @app_lamp_7_0@).
 --
--- 'versionCode', 'blueprint_versionCode' - The version code.
+-- 'version', 'blueprint_version' - The version number of the operating system, application, or stack (e.g.,
+-- @2016.03.0@).
+--
+-- 'group'', 'blueprint_group' - The group name of the blueprint (e.g., @amazon-linux@).
 --
 -- 'name', 'blueprint_name' - The friendly name of the blueprint (e.g., @Amazon Linux@).
 --
--- 'group'', 'blueprint_group' - The group name of the blueprint (e.g., @amazon-linux@).
+-- 'versionCode', 'blueprint_versionCode' - The version code.
 --
 -- 'description', 'blueprint_description' - The description of the blueprint.
 --
@@ -115,11 +115,11 @@ newBlueprint =
       isActive = Prelude.Nothing,
       licenseUrl = Prelude.Nothing,
       productUrl = Prelude.Nothing,
-      version = Prelude.Nothing,
       blueprintId = Prelude.Nothing,
-      versionCode = Prelude.Nothing,
-      name = Prelude.Nothing,
+      version = Prelude.Nothing,
       group' = Prelude.Nothing,
+      name = Prelude.Nothing,
+      versionCode = Prelude.Nothing,
       description = Prelude.Nothing,
       type' = Prelude.Nothing,
       minPower = Prelude.Nothing
@@ -146,27 +146,27 @@ blueprint_licenseUrl = Lens.lens (\Blueprint' {licenseUrl} -> licenseUrl) (\s@Bl
 blueprint_productUrl :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_productUrl = Lens.lens (\Blueprint' {productUrl} -> productUrl) (\s@Blueprint' {} a -> s {productUrl = a} :: Blueprint)
 
--- | The version number of the operating system, application, or stack (e.g.,
--- @2016.03.0@).
-blueprint_version :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_version = Lens.lens (\Blueprint' {version} -> version) (\s@Blueprint' {} a -> s {version = a} :: Blueprint)
-
 -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
 -- or @app_lamp_7_0@).
 blueprint_blueprintId :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_blueprintId = Lens.lens (\Blueprint' {blueprintId} -> blueprintId) (\s@Blueprint' {} a -> s {blueprintId = a} :: Blueprint)
 
--- | The version code.
-blueprint_versionCode :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_versionCode = Lens.lens (\Blueprint' {versionCode} -> versionCode) (\s@Blueprint' {} a -> s {versionCode = a} :: Blueprint)
+-- | The version number of the operating system, application, or stack (e.g.,
+-- @2016.03.0@).
+blueprint_version :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_version = Lens.lens (\Blueprint' {version} -> version) (\s@Blueprint' {} a -> s {version = a} :: Blueprint)
+
+-- | The group name of the blueprint (e.g., @amazon-linux@).
+blueprint_group :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_group = Lens.lens (\Blueprint' {group'} -> group') (\s@Blueprint' {} a -> s {group' = a} :: Blueprint)
 
 -- | The friendly name of the blueprint (e.g., @Amazon Linux@).
 blueprint_name :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_name = Lens.lens (\Blueprint' {name} -> name) (\s@Blueprint' {} a -> s {name = a} :: Blueprint)
 
--- | The group name of the blueprint (e.g., @amazon-linux@).
-blueprint_group :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_group = Lens.lens (\Blueprint' {group'} -> group') (\s@Blueprint' {} a -> s {group' = a} :: Blueprint)
+-- | The version code.
+blueprint_versionCode :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_versionCode = Lens.lens (\Blueprint' {versionCode} -> versionCode) (\s@Blueprint' {} a -> s {versionCode = a} :: Blueprint)
 
 -- | The description of the blueprint.
 blueprint_description :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
@@ -193,11 +193,11 @@ instance Core.FromJSON Blueprint where
             Prelude.<*> (x Core..:? "isActive")
             Prelude.<*> (x Core..:? "licenseUrl")
             Prelude.<*> (x Core..:? "productUrl")
-            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "blueprintId")
-            Prelude.<*> (x Core..:? "versionCode")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "group")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "versionCode")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "minPower")

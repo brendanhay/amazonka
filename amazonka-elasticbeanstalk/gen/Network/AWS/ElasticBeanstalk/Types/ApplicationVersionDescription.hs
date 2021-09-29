@@ -69,10 +69,10 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     description :: Prelude.Maybe Prelude.Text,
     -- | Reference to the artifact from the AWS CodeBuild build.
     buildArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application version.
-    applicationVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the application to which the application version belongs.
-    applicationName :: Prelude.Maybe Prelude.Text
+    applicationName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the application version.
+    applicationVersionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,9 +123,9 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- 'buildArn', 'applicationVersionDescription_buildArn' - Reference to the artifact from the AWS CodeBuild build.
 --
--- 'applicationVersionArn', 'applicationVersionDescription_applicationVersionArn' - The Amazon Resource Name (ARN) of the application version.
---
 -- 'applicationName', 'applicationVersionDescription_applicationName' - The name of the application to which the application version belongs.
+--
+-- 'applicationVersionArn', 'applicationVersionDescription_applicationVersionArn' - The Amazon Resource Name (ARN) of the application version.
 newApplicationVersionDescription ::
   ApplicationVersionDescription
 newApplicationVersionDescription =
@@ -139,8 +139,8 @@ newApplicationVersionDescription =
       dateUpdated = Prelude.Nothing,
       description = Prelude.Nothing,
       buildArn = Prelude.Nothing,
-      applicationVersionArn = Prelude.Nothing,
-      applicationName = Prelude.Nothing
+      applicationName = Prelude.Nothing,
+      applicationVersionArn = Prelude.Nothing
     }
 
 -- | The processing status of the application version. Reflects the state of
@@ -198,13 +198,13 @@ applicationVersionDescription_description = Lens.lens (\ApplicationVersionDescri
 applicationVersionDescription_buildArn :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_buildArn = Lens.lens (\ApplicationVersionDescription' {buildArn} -> buildArn) (\s@ApplicationVersionDescription' {} a -> s {buildArn = a} :: ApplicationVersionDescription)
 
--- | The Amazon Resource Name (ARN) of the application version.
-applicationVersionDescription_applicationVersionArn :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
-applicationVersionDescription_applicationVersionArn = Lens.lens (\ApplicationVersionDescription' {applicationVersionArn} -> applicationVersionArn) (\s@ApplicationVersionDescription' {} a -> s {applicationVersionArn = a} :: ApplicationVersionDescription)
-
 -- | The name of the application to which the application version belongs.
 applicationVersionDescription_applicationName :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
 applicationVersionDescription_applicationName = Lens.lens (\ApplicationVersionDescription' {applicationName} -> applicationName) (\s@ApplicationVersionDescription' {} a -> s {applicationName = a} :: ApplicationVersionDescription)
+
+-- | The Amazon Resource Name (ARN) of the application version.
+applicationVersionDescription_applicationVersionArn :: Lens.Lens' ApplicationVersionDescription (Prelude.Maybe Prelude.Text)
+applicationVersionDescription_applicationVersionArn = Lens.lens (\ApplicationVersionDescription' {applicationVersionArn} -> applicationVersionArn) (\s@ApplicationVersionDescription' {} a -> s {applicationVersionArn = a} :: ApplicationVersionDescription)
 
 instance Core.FromXML ApplicationVersionDescription where
   parseXML x =
@@ -217,8 +217,8 @@ instance Core.FromXML ApplicationVersionDescription where
       Prelude.<*> (x Core..@? "DateUpdated")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "BuildArn")
-      Prelude.<*> (x Core..@? "ApplicationVersionArn")
       Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<*> (x Core..@? "ApplicationVersionArn")
 
 instance
   Prelude.Hashable

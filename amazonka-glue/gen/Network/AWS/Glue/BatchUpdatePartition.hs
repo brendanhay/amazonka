@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchUpdatePartition' smart constructor.
 data BatchUpdatePartition = BatchUpdatePartition'
   { -- | The ID of the catalog in which the partition is to be updated.
-    -- Currently, this should be the AWS account ID.
+    -- Currently, this should be the Amazon Web Services account ID.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the metadata database in which the partition is to be
     -- updated.
@@ -74,7 +74,7 @@ data BatchUpdatePartition = BatchUpdatePartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchUpdatePartition_catalogId' - The ID of the catalog in which the partition is to be updated.
--- Currently, this should be the AWS account ID.
+-- Currently, this should be the Amazon Web Services account ID.
 --
 -- 'databaseName', 'batchUpdatePartition_databaseName' - The name of the metadata database in which the partition is to be
 -- updated.
@@ -103,7 +103,7 @@ newBatchUpdatePartition
       }
 
 -- | The ID of the catalog in which the partition is to be updated.
--- Currently, this should be the AWS account ID.
+-- Currently, this should be the Amazon Web Services account ID.
 batchUpdatePartition_catalogId :: Lens.Lens' BatchUpdatePartition (Prelude.Maybe Prelude.Text)
 batchUpdatePartition_catalogId = Lens.lens (\BatchUpdatePartition' {catalogId} -> catalogId) (\s@BatchUpdatePartition' {} a -> s {catalogId = a} :: BatchUpdatePartition)
 

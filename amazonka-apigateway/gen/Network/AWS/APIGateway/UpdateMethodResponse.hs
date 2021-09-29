@@ -39,8 +39,8 @@ module Network.AWS.APIGateway.UpdateMethodResponse
 
     -- * Response Lenses
     methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
   )
 where
 

@@ -42,19 +42,19 @@ data ParameterStringFilter = ParameterStringFilter'
     -- | The name of the filter.
     --
     -- The @ParameterStringFilter@ object is used by the DescribeParameters and
-    -- GetParametersByPath API actions. However, not all of the pattern values
-    -- listed for @Key@ can be used with both actions.
+    -- GetParametersByPath API operations. However, not all of the pattern
+    -- values listed for @Key@ can be used with both operations.
     --
-    -- For @DescribeActions@, all of the listed patterns are valid, with the
-    -- exception of @Label@.
+    -- For @DescribeActions@, all of the listed patterns are valid except
+    -- @Label@.
     --
-    -- For @GetParametersByPath@, the following patterns listed for @Key@ are
-    -- not valid: @tag@, @Name@, @Path@, and @Tier@.
+    -- For @GetParametersByPath@, the following patterns listed for @Key@
+    -- aren\'t valid: @tag@, @DataType@, @Name@, @Path@, and @Tier@.
     --
-    -- For examples of CLI commands demonstrating valid parameter filter
-    -- constructions, see
+    -- For examples of Amazon Web Services CLI commands demonstrating valid
+    -- parameter filter constructions, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html Searching for Systems Manager parameters>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     key :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,19 +81,19 @@ data ParameterStringFilter = ParameterStringFilter'
 -- 'key', 'parameterStringFilter_key' - The name of the filter.
 --
 -- The @ParameterStringFilter@ object is used by the DescribeParameters and
--- GetParametersByPath API actions. However, not all of the pattern values
--- listed for @Key@ can be used with both actions.
+-- GetParametersByPath API operations. However, not all of the pattern
+-- values listed for @Key@ can be used with both operations.
 --
--- For @DescribeActions@, all of the listed patterns are valid, with the
--- exception of @Label@.
+-- For @DescribeActions@, all of the listed patterns are valid except
+-- @Label@.
 --
--- For @GetParametersByPath@, the following patterns listed for @Key@ are
--- not valid: @tag@, @Name@, @Path@, and @Tier@.
+-- For @GetParametersByPath@, the following patterns listed for @Key@
+-- aren\'t valid: @tag@, @DataType@, @Name@, @Path@, and @Tier@.
 --
--- For examples of CLI commands demonstrating valid parameter filter
--- constructions, see
+-- For examples of Amazon Web Services CLI commands demonstrating valid
+-- parameter filter constructions, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html Searching for Systems Manager parameters>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 newParameterStringFilter ::
   -- | 'key'
   Prelude.Text ->
@@ -123,19 +123,19 @@ parameterStringFilter_option = Lens.lens (\ParameterStringFilter' {option} -> op
 -- | The name of the filter.
 --
 -- The @ParameterStringFilter@ object is used by the DescribeParameters and
--- GetParametersByPath API actions. However, not all of the pattern values
--- listed for @Key@ can be used with both actions.
+-- GetParametersByPath API operations. However, not all of the pattern
+-- values listed for @Key@ can be used with both operations.
 --
--- For @DescribeActions@, all of the listed patterns are valid, with the
--- exception of @Label@.
+-- For @DescribeActions@, all of the listed patterns are valid except
+-- @Label@.
 --
--- For @GetParametersByPath@, the following patterns listed for @Key@ are
--- not valid: @tag@, @Name@, @Path@, and @Tier@.
+-- For @GetParametersByPath@, the following patterns listed for @Key@
+-- aren\'t valid: @tag@, @DataType@, @Name@, @Path@, and @Tier@.
 --
--- For examples of CLI commands demonstrating valid parameter filter
--- constructions, see
+-- For examples of Amazon Web Services CLI commands demonstrating valid
+-- parameter filter constructions, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html Searching for Systems Manager parameters>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 parameterStringFilter_key :: Lens.Lens' ParameterStringFilter Prelude.Text
 parameterStringFilter_key = Lens.lens (\ParameterStringFilter' {key} -> key) (\s@ParameterStringFilter' {} a -> s {key = a} :: ParameterStringFilter)
 

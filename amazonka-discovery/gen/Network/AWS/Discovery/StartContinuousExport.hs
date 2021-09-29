@@ -33,8 +33,8 @@ module Network.AWS.Discovery.StartContinuousExport
 
     -- * Response Lenses
     startContinuousExportResponse_s3Bucket,
-    startContinuousExportResponse_dataSource,
     startContinuousExportResponse_startTime,
+    startContinuousExportResponse_dataSource,
     startContinuousExportResponse_schemaStorageConfig,
     startContinuousExportResponse_exportId,
     startContinuousExportResponse_httpStatus,
@@ -72,8 +72,8 @@ instance Core.AWSRequest StartContinuousExport where
       ( \s h x ->
           StartContinuousExportResponse'
             Prelude.<$> (x Core..?> "s3Bucket")
-            Prelude.<*> (x Core..?> "dataSource")
             Prelude.<*> (x Core..?> "startTime")
+            Prelude.<*> (x Core..?> "dataSource")
             Prelude.<*> ( x Core..?> "schemaStorageConfig"
                             Core..!@ Prelude.mempty
                         )
@@ -114,11 +114,11 @@ data StartContinuousExportResponse = StartContinuousExportResponse'
   { -- | The name of the s3 bucket where the export data parquet files are
     -- stored.
     s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp representing when the continuous export was started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The type of data collector used to gather this data (currently only
     -- offered for AGENT).
     dataSource :: Prelude.Maybe DataSource,
-    -- | The timestamp representing when the continuous export was started.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | A dictionary which describes how the data is stored.
     --
     -- -   @databaseName@ - the name of the Glue database used to store the
@@ -142,10 +142,10 @@ data StartContinuousExportResponse = StartContinuousExportResponse'
 -- 's3Bucket', 'startContinuousExportResponse_s3Bucket' - The name of the s3 bucket where the export data parquet files are
 -- stored.
 --
+-- 'startTime', 'startContinuousExportResponse_startTime' - The timestamp representing when the continuous export was started.
+--
 -- 'dataSource', 'startContinuousExportResponse_dataSource' - The type of data collector used to gather this data (currently only
 -- offered for AGENT).
---
--- 'startTime', 'startContinuousExportResponse_startTime' - The timestamp representing when the continuous export was started.
 --
 -- 'schemaStorageConfig', 'startContinuousExportResponse_schemaStorageConfig' - A dictionary which describes how the data is stored.
 --
@@ -163,8 +163,8 @@ newStartContinuousExportResponse pHttpStatus_ =
   StartContinuousExportResponse'
     { s3Bucket =
         Prelude.Nothing,
-      dataSource = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
       schemaStorageConfig = Prelude.Nothing,
       exportId = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -175,14 +175,14 @@ newStartContinuousExportResponse pHttpStatus_ =
 startContinuousExportResponse_s3Bucket :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.Text)
 startContinuousExportResponse_s3Bucket = Lens.lens (\StartContinuousExportResponse' {s3Bucket} -> s3Bucket) (\s@StartContinuousExportResponse' {} a -> s {s3Bucket = a} :: StartContinuousExportResponse)
 
+-- | The timestamp representing when the continuous export was started.
+startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
+startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The type of data collector used to gather this data (currently only
 -- offered for AGENT).
 startContinuousExportResponse_dataSource :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe DataSource)
 startContinuousExportResponse_dataSource = Lens.lens (\StartContinuousExportResponse' {dataSource} -> dataSource) (\s@StartContinuousExportResponse' {} a -> s {dataSource = a} :: StartContinuousExportResponse)
-
--- | The timestamp representing when the continuous export was started.
-startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A dictionary which describes how the data is stored.
 --

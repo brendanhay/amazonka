@@ -55,11 +55,11 @@ module Network.AWS.MediaPackage
     CreateHarvestJobResponse (CreateHarvestJobResponse'),
     newCreateHarvestJobResponse,
 
-    -- ** UpdateOriginEndpoint
-    UpdateOriginEndpoint (UpdateOriginEndpoint'),
-    newUpdateOriginEndpoint,
-    UpdateOriginEndpointResponse (UpdateOriginEndpointResponse'),
-    newUpdateOriginEndpointResponse,
+    -- ** ListOriginEndpoints (Paginated)
+    ListOriginEndpoints (ListOriginEndpoints'),
+    newListOriginEndpoints,
+    ListOriginEndpointsResponse (ListOriginEndpointsResponse'),
+    newListOriginEndpointsResponse,
 
     -- ** DeleteOriginEndpoint
     DeleteOriginEndpoint (DeleteOriginEndpoint'),
@@ -67,17 +67,11 @@ module Network.AWS.MediaPackage
     DeleteOriginEndpointResponse (DeleteOriginEndpointResponse'),
     newDeleteOriginEndpointResponse,
 
-    -- ** ListOriginEndpoints (Paginated)
-    ListOriginEndpoints (ListOriginEndpoints'),
-    newListOriginEndpoints,
-    ListOriginEndpointsResponse (ListOriginEndpointsResponse'),
-    newListOriginEndpointsResponse,
-
-    -- ** CreateOriginEndpoint
-    CreateOriginEndpoint (CreateOriginEndpoint'),
-    newCreateOriginEndpoint,
-    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
-    newCreateOriginEndpointResponse,
+    -- ** UpdateOriginEndpoint
+    UpdateOriginEndpoint (UpdateOriginEndpoint'),
+    newUpdateOriginEndpoint,
+    UpdateOriginEndpointResponse (UpdateOriginEndpointResponse'),
+    newUpdateOriginEndpointResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -85,23 +79,29 @@ module Network.AWS.MediaPackage
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** CreateOriginEndpoint
+    CreateOriginEndpoint (CreateOriginEndpoint'),
+    newCreateOriginEndpoint,
+    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
+    newCreateOriginEndpointResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** DescribeOriginEndpoint
-    DescribeOriginEndpoint (DescribeOriginEndpoint'),
-    newDescribeOriginEndpoint,
-    DescribeOriginEndpointResponse (DescribeOriginEndpointResponse'),
-    newDescribeOriginEndpointResponse,
-
     -- ** ListChannels (Paginated)
     ListChannels (ListChannels'),
     newListChannels,
     ListChannelsResponse (ListChannelsResponse'),
     newListChannelsResponse,
+
+    -- ** DescribeOriginEndpoint
+    DescribeOriginEndpoint (DescribeOriginEndpoint'),
+    newDescribeOriginEndpoint,
+    DescribeOriginEndpointResponse (DescribeOriginEndpointResponse'),
+    newDescribeOriginEndpointResponse,
 
     -- ** ConfigureLogs
     ConfigureLogs (ConfigureLogs'),
@@ -133,11 +133,11 @@ module Network.AWS.MediaPackage
     DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
     newDescribeHarvestJobResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
     -- ** DeleteChannel
     DeleteChannel (DeleteChannel'),
@@ -145,11 +145,11 @@ module Network.AWS.MediaPackage
     DeleteChannelResponse (DeleteChannelResponse'),
     newDeleteChannelResponse,
 
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 
@@ -176,6 +176,12 @@ module Network.AWS.MediaPackage
 
     -- ** PlaylistType
     PlaylistType (..),
+
+    -- ** PresetSpeke20Audio
+    PresetSpeke20Audio (..),
+
+    -- ** PresetSpeke20Video
+    PresetSpeke20Video (..),
 
     -- ** Profile
     Profile (..),
@@ -223,6 +229,10 @@ module Network.AWS.MediaPackage
     -- ** EgressAccessLogs
     EgressAccessLogs (EgressAccessLogs'),
     newEgressAccessLogs,
+
+    -- ** EncryptionContractConfiguration
+    EncryptionContractConfiguration (EncryptionContractConfiguration'),
+    newEncryptionContractConfiguration,
 
     -- ** HarvestJob
     HarvestJob (HarvestJob'),

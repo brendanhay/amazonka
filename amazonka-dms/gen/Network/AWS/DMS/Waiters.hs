@@ -607,19 +607,6 @@ newReplicationTaskStopped =
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "running"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
             "failed"
             Core.AcceptFailure
             ( Lens.folding

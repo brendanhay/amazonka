@@ -30,22 +30,23 @@
 -- snapshot of a volume on an Outpost, the snapshot can be stored on the
 -- same Outpost as the volume, or in the Region for that Outpost.
 --
--- When a snapshot is created, any AWS Marketplace product codes that are
--- associated with the source volume are propagated to the snapshot.
+-- When a snapshot is created, any Amazon Web Services Marketplace product
+-- codes that are associated with the source volume are propagated to the
+-- snapshot.
 --
 -- You can take a snapshot of an attached volume that is in use. However,
--- snapshots only capture data that has been written to your EBS volume at
--- the time the snapshot command is issued; this might exclude any data
--- that has been cached by any applications or the operating system. If you
--- can pause any file systems on the volume long enough to take a snapshot,
--- your snapshot should be complete. However, if you cannot pause all file
--- writes to the volume, you should unmount the volume from within the
--- instance, issue the snapshot command, and then remount the volume to
--- ensure a consistent and complete snapshot. You may remount and use your
--- volume while the snapshot status is @pending@.
+-- snapshots only capture data that has been written to your Amazon EBS
+-- volume at the time the snapshot command is issued; this might exclude
+-- any data that has been cached by any applications or the operating
+-- system. If you can pause any file systems on the volume long enough to
+-- take a snapshot, your snapshot should be complete. However, if you
+-- cannot pause all file writes to the volume, you should unmount the
+-- volume from within the instance, issue the snapshot command, and then
+-- remount the volume to ensure a consistent and complete snapshot. You may
+-- remount and use your volume while the snapshot status is @pending@.
 --
--- To create a snapshot for EBS volumes that serve as root devices, you
--- should stop the instance before taking the snapshot.
+-- To create a snapshot for Amazon EBS volumes that serve as root devices,
+-- you should stop the instance before taking the snapshot.
 --
 -- Snapshots that are taken from encrypted volumes are automatically
 -- encrypted. Volumes that are created from encrypted snapshots are also
@@ -53,7 +54,7 @@
 -- snapshots always remain protected.
 --
 -- You can tag your snapshots during creation. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging your Amazon EC2 resources>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tag your Amazon EC2 resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For more information, see
@@ -112,8 +113,8 @@ data CreateSnapshot = CreateSnapshot'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
-    -- local snapshot.
+    -- | The Amazon Resource Name (ARN) of the Outpost on which to create a local
+    -- snapshot.
     --
     -- -   To create a snapshot of a volume in a Region, omit this parameter.
     --     The snapshot is created in the same Region as the volume.
@@ -127,12 +128,12 @@ data CreateSnapshot = CreateSnapshot'
     --     The snapshot must be created on the same Outpost as the volume.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Creating local snapshots from volumes on an Outpost>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | A description for the snapshot.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the EBS volume.
+    -- | The ID of the Amazon EBS volume.
     volumeId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -152,8 +153,8 @@ data CreateSnapshot = CreateSnapshot'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'outpostArn', 'createSnapshot_outpostArn' - The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
--- local snapshot.
+-- 'outpostArn', 'createSnapshot_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create a local
+-- snapshot.
 --
 -- -   To create a snapshot of a volume in a Region, omit this parameter.
 --     The snapshot is created in the same Region as the volume.
@@ -167,12 +168,12 @@ data CreateSnapshot = CreateSnapshot'
 --     The snapshot must be created on the same Outpost as the volume.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Creating local snapshots from volumes on an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'description', 'createSnapshot_description' - A description for the snapshot.
 --
--- 'volumeId', 'createSnapshot_volumeId' - The ID of the EBS volume.
+-- 'volumeId', 'createSnapshot_volumeId' - The ID of the Amazon EBS volume.
 newCreateSnapshot ::
   -- | 'volumeId'
   Prelude.Text ->
@@ -198,8 +199,8 @@ createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecification
 createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Bool)
 createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@CreateSnapshot' {} a -> s {dryRun = a} :: CreateSnapshot)
 
--- | The Amazon Resource Name (ARN) of the AWS Outpost on which to create a
--- local snapshot.
+-- | The Amazon Resource Name (ARN) of the Outpost on which to create a local
+-- snapshot.
 --
 -- -   To create a snapshot of a volume in a Region, omit this parameter.
 --     The snapshot is created in the same Region as the volume.
@@ -213,7 +214,7 @@ createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@Crea
 --     The snapshot must be created on the same Outpost as the volume.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Creating local snapshots from volumes on an Outpost>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 createSnapshot_outpostArn :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_outpostArn = Lens.lens (\CreateSnapshot' {outpostArn} -> outpostArn) (\s@CreateSnapshot' {} a -> s {outpostArn = a} :: CreateSnapshot)
@@ -222,7 +223,7 @@ createSnapshot_outpostArn = Lens.lens (\CreateSnapshot' {outpostArn} -> outpostA
 createSnapshot_description :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_description = Lens.lens (\CreateSnapshot' {description} -> description) (\s@CreateSnapshot' {} a -> s {description = a} :: CreateSnapshot)
 
--- | The ID of the EBS volume.
+-- | The ID of the Amazon EBS volume.
 createSnapshot_volumeId :: Lens.Lens' CreateSnapshot Prelude.Text
 createSnapshot_volumeId = Lens.lens (\CreateSnapshot' {volumeId} -> volumeId) (\s@CreateSnapshot' {} a -> s {volumeId = a} :: CreateSnapshot)
 

@@ -28,7 +28,7 @@
 -- return the subnet ID for implicit associations.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route Tables>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Request Lenses
     describeRouteTables_nextToken,
     describeRouteTables_routeTableIds,
-    describeRouteTables_dryRun,
     describeRouteTables_maxResults,
+    describeRouteTables_dryRun,
     describeRouteTables_filters,
 
     -- * Destructuring the Response
@@ -49,8 +49,8 @@ module Network.AWS.EC2.DescribeRouteTables
     newDescribeRouteTablesResponse,
 
     -- * Response Lenses
-    describeRouteTablesResponse_nextToken,
     describeRouteTablesResponse_routeTables,
+    describeRouteTablesResponse_nextToken,
     describeRouteTablesResponse_httpStatus,
   )
 where
@@ -70,15 +70,15 @@ data DescribeRouteTables = DescribeRouteTables'
     --
     -- Default: Describes all your route tables.
     routeTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @association.route-table-association-id@ - The ID of an association
@@ -94,7 +94,8 @@ data DescribeRouteTables = DescribeRouteTables'
     --     route table for the VPC (@true@ | @false@). Route tables that do not
     --     have an association ID are not returned in the response.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the route table.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     route table.
     --
     -- -   @route-table-id@ - The ID of the route table.
     --
@@ -104,8 +105,8 @@ data DescribeRouteTables = DescribeRouteTables'
     -- -   @route.destination-ipv6-cidr-block@ - The IPv6 CIDR range specified
     --     in a route in the route table.
     --
-    -- -   @route.destination-prefix-list-id@ - The ID (prefix) of the AWS
-    --     service specified in a route in the table.
+    -- -   @route.destination-prefix-list-id@ - The ID (prefix) of the Amazon
+    --     Web Service specified in a route in the table.
     --
     -- -   @route.egress-only-internet-gateway-id@ - The ID of an egress-only
     --     Internet gateway specified in a route in the route table.
@@ -165,14 +166,14 @@ data DescribeRouteTables = DescribeRouteTables'
 --
 -- Default: Describes all your route tables.
 --
+-- 'maxResults', 'describeRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeRouteTables_filters' - One or more filters.
 --
@@ -189,7 +190,8 @@ data DescribeRouteTables = DescribeRouteTables'
 --     route table for the VPC (@true@ | @false@). Route tables that do not
 --     have an association ID are not returned in the response.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the route table.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     route table.
 --
 -- -   @route-table-id@ - The ID of the route table.
 --
@@ -199,8 +201,8 @@ data DescribeRouteTables = DescribeRouteTables'
 -- -   @route.destination-ipv6-cidr-block@ - The IPv6 CIDR range specified
 --     in a route in the route table.
 --
--- -   @route.destination-prefix-list-id@ - The ID (prefix) of the AWS
---     service specified in a route in the table.
+-- -   @route.destination-prefix-list-id@ - The ID (prefix) of the Amazon
+--     Web Service specified in a route in the table.
 --
 -- -   @route.egress-only-internet-gateway-id@ - The ID of an egress-only
 --     Internet gateway specified in a route in the route table.
@@ -248,8 +250,8 @@ newDescribeRouteTables =
   DescribeRouteTables'
     { nextToken = Prelude.Nothing,
       routeTableIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -263,18 +265,18 @@ describeRouteTables_nextToken = Lens.lens (\DescribeRouteTables' {nextToken} -> 
 describeRouteTables_routeTableIds :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Prelude.Text])
 describeRouteTables_routeTableIds = Lens.lens (\DescribeRouteTables' {routeTableIds} -> routeTableIds) (\s@DescribeRouteTables' {} a -> s {routeTableIds = a} :: DescribeRouteTables) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeRouteTables_maxResults :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Natural)
+describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -> maxResults) (\s@DescribeRouteTables' {} a -> s {maxResults = a} :: DescribeRouteTables)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeRouteTables_dryRun :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Bool)
 describeRouteTables_dryRun = Lens.lens (\DescribeRouteTables' {dryRun} -> dryRun) (\s@DescribeRouteTables' {} a -> s {dryRun = a} :: DescribeRouteTables)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeRouteTables_maxResults :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Natural)
-describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -> maxResults) (\s@DescribeRouteTables' {} a -> s {maxResults = a} :: DescribeRouteTables)
 
 -- | One or more filters.
 --
@@ -291,7 +293,8 @@ describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -
 --     route table for the VPC (@true@ | @false@). Route tables that do not
 --     have an association ID are not returned in the response.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the route table.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     route table.
 --
 -- -   @route-table-id@ - The ID of the route table.
 --
@@ -301,8 +304,8 @@ describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -
 -- -   @route.destination-ipv6-cidr-block@ - The IPv6 CIDR range specified
 --     in a route in the route table.
 --
--- -   @route.destination-prefix-list-id@ - The ID (prefix) of the AWS
---     service specified in a route in the table.
+-- -   @route.destination-prefix-list-id@ - The ID (prefix) of the Amazon
+--     Web Service specified in a route in the table.
 --
 -- -   @route.egress-only-internet-gateway-id@ - The ID of an egress-only
 --     Internet gateway specified in a route in the route table.
@@ -378,10 +381,10 @@ instance Core.AWSRequest DescribeRouteTables where
     Response.receiveXML
       ( \s h x ->
           DescribeRouteTablesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "routeTableSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "routeTableSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -407,8 +410,8 @@ instance Core.ToQuery DescribeRouteTables where
           ( Core.toQueryList "RouteTableId"
               Prelude.<$> routeTableIds
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
@@ -417,11 +420,11 @@ instance Core.ToQuery DescribeRouteTables where
 --
 -- /See:/ 'newDescribeRouteTablesResponse' smart constructor.
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about one or more route tables.
+    routeTables :: Prelude.Maybe [RouteTable],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about one or more route tables.
-    routeTables :: Prelude.Maybe [RouteTable],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -435,10 +438,10 @@ data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'routeTables', 'describeRouteTablesResponse_routeTables' - Information about one or more route tables.
+--
 -- 'nextToken', 'describeRouteTablesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'routeTables', 'describeRouteTablesResponse_routeTables' - Information about one or more route tables.
 --
 -- 'httpStatus', 'describeRouteTablesResponse_httpStatus' - The response's http status code.
 newDescribeRouteTablesResponse ::
@@ -447,20 +450,20 @@ newDescribeRouteTablesResponse ::
   DescribeRouteTablesResponse
 newDescribeRouteTablesResponse pHttpStatus_ =
   DescribeRouteTablesResponse'
-    { nextToken =
+    { routeTables =
         Prelude.Nothing,
-      routeTables = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about one or more route tables.
+describeRouteTablesResponse_routeTables :: Lens.Lens' DescribeRouteTablesResponse (Prelude.Maybe [RouteTable])
+describeRouteTablesResponse_routeTables = Lens.lens (\DescribeRouteTablesResponse' {routeTables} -> routeTables) (\s@DescribeRouteTablesResponse' {} a -> s {routeTables = a} :: DescribeRouteTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeRouteTablesResponse_nextToken :: Lens.Lens' DescribeRouteTablesResponse (Prelude.Maybe Prelude.Text)
 describeRouteTablesResponse_nextToken = Lens.lens (\DescribeRouteTablesResponse' {nextToken} -> nextToken) (\s@DescribeRouteTablesResponse' {} a -> s {nextToken = a} :: DescribeRouteTablesResponse)
-
--- | Information about one or more route tables.
-describeRouteTablesResponse_routeTables :: Lens.Lens' DescribeRouteTablesResponse (Prelude.Maybe [RouteTable])
-describeRouteTablesResponse_routeTables = Lens.lens (\DescribeRouteTablesResponse' {routeTables} -> routeTables) (\s@DescribeRouteTablesResponse' {} a -> s {routeTables = a} :: DescribeRouteTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeRouteTablesResponse_httpStatus :: Lens.Lens' DescribeRouteTablesResponse Prelude.Int

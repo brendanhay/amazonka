@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the list of AWS Identity and Access Management (IAM) roles that
--- can be used by the cluster to access other AWS services.
+-- Modifies the list of Identity and Access Management (IAM) roles that can
+-- be used by the cluster to access other Amazon Web Services services.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
 module Network.AWS.Redshift.ModifyClusterIamRoles

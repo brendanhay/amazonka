@@ -47,13 +47,16 @@ library
   exposed-modules:
     Network.AWS.Connect
     Network.AWS.Connect.AssociateApprovedOrigin
+    Network.AWS.Connect.AssociateBot
     Network.AWS.Connect.AssociateInstanceStorageConfig
     Network.AWS.Connect.AssociateLambdaFunction
     Network.AWS.Connect.AssociateLexBot
     Network.AWS.Connect.AssociateQueueQuickConnects
     Network.AWS.Connect.AssociateRoutingProfileQueues
     Network.AWS.Connect.AssociateSecurityKey
+    Network.AWS.Connect.CreateAgentStatus
     Network.AWS.Connect.CreateContactFlow
+    Network.AWS.Connect.CreateHoursOfOperation
     Network.AWS.Connect.CreateInstance
     Network.AWS.Connect.CreateIntegrationAssociation
     Network.AWS.Connect.CreateQueue
@@ -62,12 +65,14 @@ library
     Network.AWS.Connect.CreateUseCase
     Network.AWS.Connect.CreateUser
     Network.AWS.Connect.CreateUserHierarchyGroup
+    Network.AWS.Connect.DeleteHoursOfOperation
     Network.AWS.Connect.DeleteInstance
     Network.AWS.Connect.DeleteIntegrationAssociation
     Network.AWS.Connect.DeleteQuickConnect
     Network.AWS.Connect.DeleteUseCase
     Network.AWS.Connect.DeleteUser
     Network.AWS.Connect.DeleteUserHierarchyGroup
+    Network.AWS.Connect.DescribeAgentStatus
     Network.AWS.Connect.DescribeContactFlow
     Network.AWS.Connect.DescribeHoursOfOperation
     Network.AWS.Connect.DescribeInstance
@@ -80,6 +85,7 @@ library
     Network.AWS.Connect.DescribeUserHierarchyGroup
     Network.AWS.Connect.DescribeUserHierarchyStructure
     Network.AWS.Connect.DisassociateApprovedOrigin
+    Network.AWS.Connect.DisassociateBot
     Network.AWS.Connect.DisassociateInstanceStorageConfig
     Network.AWS.Connect.DisassociateLambdaFunction
     Network.AWS.Connect.DisassociateLexBot
@@ -91,7 +97,9 @@ library
     Network.AWS.Connect.GetFederationToken
     Network.AWS.Connect.GetMetricData
     Network.AWS.Connect.Lens
+    Network.AWS.Connect.ListAgentStatuses
     Network.AWS.Connect.ListApprovedOrigins
+    Network.AWS.Connect.ListBots
     Network.AWS.Connect.ListContactFlows
     Network.AWS.Connect.ListHoursOfOperations
     Network.AWS.Connect.ListInstanceAttributes
@@ -123,6 +131,11 @@ library
     Network.AWS.Connect.SuspendContactRecording
     Network.AWS.Connect.TagResource
     Network.AWS.Connect.Types
+    Network.AWS.Connect.Types.AgentStatus
+    Network.AWS.Connect.Types.AgentStatusState
+    Network.AWS.Connect.Types.AgentStatusSummary
+    Network.AWS.Connect.Types.AgentStatusType
+    Network.AWS.Connect.Types.AnswerMachineDetectionConfig
     Network.AWS.Connect.Types.Attribute
     Network.AWS.Connect.Types.Channel
     Network.AWS.Connect.Types.ChatMessage
@@ -170,6 +183,9 @@ library
     Network.AWS.Connect.Types.KinesisStreamConfig
     Network.AWS.Connect.Types.KinesisVideoStreamConfig
     Network.AWS.Connect.Types.LexBot
+    Network.AWS.Connect.Types.LexBotConfig
+    Network.AWS.Connect.Types.LexV2Bot
+    Network.AWS.Connect.Types.LexVersion
     Network.AWS.Connect.Types.MediaConcurrency
     Network.AWS.Connect.Types.OutboundCallerConfig
     Network.AWS.Connect.Types.ParticipantDetails
@@ -203,6 +219,7 @@ library
     Network.AWS.Connect.Types.Statistic
     Network.AWS.Connect.Types.StorageType
     Network.AWS.Connect.Types.Threshold
+    Network.AWS.Connect.Types.TrafficType
     Network.AWS.Connect.Types.Unit
     Network.AWS.Connect.Types.UseCase
     Network.AWS.Connect.Types.UseCaseType
@@ -214,9 +231,11 @@ library
     Network.AWS.Connect.Types.VoiceRecordingConfiguration
     Network.AWS.Connect.Types.VoiceRecordingTrack
     Network.AWS.Connect.UntagResource
+    Network.AWS.Connect.UpdateAgentStatus
     Network.AWS.Connect.UpdateContactAttributes
     Network.AWS.Connect.UpdateContactFlowContent
     Network.AWS.Connect.UpdateContactFlowName
+    Network.AWS.Connect.UpdateHoursOfOperation
     Network.AWS.Connect.UpdateInstanceAttribute
     Network.AWS.Connect.UpdateInstanceStorageConfig
     Network.AWS.Connect.UpdateQueueHoursOfOperation

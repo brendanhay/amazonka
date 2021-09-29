@@ -46,12 +46,14 @@ library
 
   exposed-modules:
     Network.AWS.CloudFront
+    Network.AWS.CloudFront.AssociateAlias
     Network.AWS.CloudFront.CreateCachePolicy
     Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     Network.AWS.CloudFront.CreateDistribution
     Network.AWS.CloudFront.CreateDistributionWithTags
     Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
     Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.CreateFunction
     Network.AWS.CloudFront.CreateInvalidation
     Network.AWS.CloudFront.CreateKeyGroup
     Network.AWS.CloudFront.CreateMonitoringSubscription
@@ -65,12 +67,14 @@ library
     Network.AWS.CloudFront.DeleteDistribution
     Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
     Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.DeleteFunction
     Network.AWS.CloudFront.DeleteKeyGroup
     Network.AWS.CloudFront.DeleteMonitoringSubscription
     Network.AWS.CloudFront.DeleteOriginRequestPolicy
     Network.AWS.CloudFront.DeletePublicKey
     Network.AWS.CloudFront.DeleteRealtimeLogConfig
     Network.AWS.CloudFront.DeleteStreamingDistribution
+    Network.AWS.CloudFront.DescribeFunction
     Network.AWS.CloudFront.GetCachePolicy
     Network.AWS.CloudFront.GetCachePolicyConfig
     Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
@@ -81,6 +85,7 @@ library
     Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
     Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
     Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
+    Network.AWS.CloudFront.GetFunction
     Network.AWS.CloudFront.GetInvalidation
     Network.AWS.CloudFront.GetKeyGroup
     Network.AWS.CloudFront.GetKeyGroupConfig
@@ -95,6 +100,7 @@ library
     Network.AWS.CloudFront.Lens
     Network.AWS.CloudFront.ListCachePolicies
     Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+    Network.AWS.CloudFront.ListConflictingAliases
     Network.AWS.CloudFront.ListDistributions
     Network.AWS.CloudFront.ListDistributionsByCachePolicyId
     Network.AWS.CloudFront.ListDistributionsByKeyGroup
@@ -103,6 +109,7 @@ library
     Network.AWS.CloudFront.ListDistributionsByWebACLId
     Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
     Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
+    Network.AWS.CloudFront.ListFunctions
     Network.AWS.CloudFront.ListInvalidations
     Network.AWS.CloudFront.ListKeyGroups
     Network.AWS.CloudFront.ListOriginRequestPolicies
@@ -110,7 +117,9 @@ library
     Network.AWS.CloudFront.ListRealtimeLogConfigs
     Network.AWS.CloudFront.ListStreamingDistributions
     Network.AWS.CloudFront.ListTagsForResource
+    Network.AWS.CloudFront.PublishFunction
     Network.AWS.CloudFront.TagResource
+    Network.AWS.CloudFront.TestFunction
     Network.AWS.CloudFront.Types
     Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups
     Network.AWS.CloudFront.Types.ActiveTrustedSigners
@@ -136,6 +145,8 @@ library
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
+    Network.AWS.CloudFront.Types.ConflictingAlias
+    Network.AWS.CloudFront.Types.ConflictingAliasesList
     Network.AWS.CloudFront.Types.ContentTypeProfile
     Network.AWS.CloudFront.Types.ContentTypeProfileConfig
     Network.AWS.CloudFront.Types.ContentTypeProfiles
@@ -167,6 +178,14 @@ library
     Network.AWS.CloudFront.Types.FieldPatterns
     Network.AWS.CloudFront.Types.Format
     Network.AWS.CloudFront.Types.ForwardedValues
+    Network.AWS.CloudFront.Types.FunctionAssociation
+    Network.AWS.CloudFront.Types.FunctionAssociations
+    Network.AWS.CloudFront.Types.FunctionConfig
+    Network.AWS.CloudFront.Types.FunctionList
+    Network.AWS.CloudFront.Types.FunctionMetadata
+    Network.AWS.CloudFront.Types.FunctionRuntime
+    Network.AWS.CloudFront.Types.FunctionStage
+    Network.AWS.CloudFront.Types.FunctionSummary
     Network.AWS.CloudFront.Types.GeoRestriction
     Network.AWS.CloudFront.Types.GeoRestrictionType
     Network.AWS.CloudFront.Types.Headers
@@ -244,6 +263,7 @@ library
     Network.AWS.CloudFront.Types.Tag
     Network.AWS.CloudFront.Types.TagKeys
     Network.AWS.CloudFront.Types.Tags
+    Network.AWS.CloudFront.Types.TestResult
     Network.AWS.CloudFront.Types.TrustedKeyGroups
     Network.AWS.CloudFront.Types.TrustedSigners
     Network.AWS.CloudFront.Types.ViewerCertificate
@@ -254,6 +274,7 @@ library
     Network.AWS.CloudFront.UpdateDistribution
     Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
     Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.UpdateFunction
     Network.AWS.CloudFront.UpdateKeyGroup
     Network.AWS.CloudFront.UpdateOriginRequestPolicy
     Network.AWS.CloudFront.UpdatePublicKey

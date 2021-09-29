@@ -11,18 +11,18 @@
 --
 -- Derived from API version @2015-10-07@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon EventBridge helps you to respond to state changes in your AWS
--- resources. When your resources change state, they automatically send
--- events into an event stream. You can create rules that match selected
--- events in the stream and route them to targets to take action. You can
--- also use rules to take action on a predetermined schedule. For example,
--- you can configure rules to:
+-- Amazon EventBridge helps you to respond to state changes in your Amazon
+-- Web Services resources. When your resources change state, they
+-- automatically send events to an event stream. You can create rules that
+-- match selected events in the stream and route them to targets to take
+-- action. You can also use rules to take action on a predetermined
+-- schedule. For example, you can configure rules to:
 --
--- -   Automatically invoke an AWS Lambda function to update DNS entries
---     when an event notifies you that Amazon EC2 instance enters the
---     running state.
+-- -   Automatically invoke an Lambda function to update DNS entries when
+--     an event notifies you that Amazon EC2 instance enters the running
+--     state.
 --
--- -   Direct specific API records from AWS CloudTrail to an Amazon Kinesis
+-- -   Direct specific API records from CloudTrail to an Amazon Kinesis
 --     data stream for detailed analysis of potential security or
 --     availability risks.
 --
@@ -83,12 +83,6 @@ module Network.AWS.CloudWatchEvents
     ListPartnerEventSourceAccountsResponse (ListPartnerEventSourceAccountsResponse'),
     newListPartnerEventSourceAccountsResponse,
 
-    -- ** DeleteConnection
-    DeleteConnection (DeleteConnection'),
-    newDeleteConnection,
-    DeleteConnectionResponse (DeleteConnectionResponse'),
-    newDeleteConnectionResponse,
-
     -- ** UpdateConnection
     UpdateConnection (UpdateConnection'),
     newUpdateConnection,
@@ -106,6 +100,12 @@ module Network.AWS.CloudWatchEvents
     newDescribeArchive,
     DescribeArchiveResponse (DescribeArchiveResponse'),
     newDescribeArchiveResponse,
+
+    -- ** DeleteConnection
+    DeleteConnection (DeleteConnection'),
+    newDeleteConnection,
+    DeleteConnectionResponse (DeleteConnectionResponse'),
+    newDeleteConnectionResponse,
 
     -- ** DescribeEventSource
     DescribeEventSource (DescribeEventSource'),
@@ -125,17 +125,11 @@ module Network.AWS.CloudWatchEvents
     DeactivateEventSourceResponse (DeactivateEventSourceResponse'),
     newDeactivateEventSourceResponse,
 
-    -- ** UpdateArchive
-    UpdateArchive (UpdateArchive'),
-    newUpdateArchive,
-    UpdateArchiveResponse (UpdateArchiveResponse'),
-    newUpdateArchiveResponse,
-
-    -- ** DescribeConnection
-    DescribeConnection (DescribeConnection'),
-    newDescribeConnection,
-    DescribeConnectionResponse (DescribeConnectionResponse'),
-    newDescribeConnectionResponse,
+    -- ** ListArchives
+    ListArchives (ListArchives'),
+    newListArchives,
+    ListArchivesResponse (ListArchivesResponse'),
+    newListArchivesResponse,
 
     -- ** DeleteArchive
     DeleteArchive (DeleteArchive'),
@@ -143,23 +137,29 @@ module Network.AWS.CloudWatchEvents
     DeleteArchiveResponse (DeleteArchiveResponse'),
     newDeleteArchiveResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** DescribeRule
     DescribeRule (DescribeRule'),
     newDescribeRule,
     DescribeRuleResponse (DescribeRuleResponse'),
     newDescribeRuleResponse,
 
-    -- ** ListArchives
-    ListArchives (ListArchives'),
-    newListArchives,
-    ListArchivesResponse (ListArchivesResponse'),
-    newListArchivesResponse,
+    -- ** UpdateArchive
+    UpdateArchive (UpdateArchive'),
+    newUpdateArchive,
+    UpdateArchiveResponse (UpdateArchiveResponse'),
+    newUpdateArchiveResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DescribeConnection
+    DescribeConnection (DescribeConnection'),
+    newDescribeConnection,
+    DescribeConnectionResponse (DescribeConnectionResponse'),
+    newDescribeConnectionResponse,
 
     -- ** PutPartnerEvents
     PutPartnerEvents (PutPartnerEvents'),
@@ -167,23 +167,17 @@ module Network.AWS.CloudWatchEvents
     PutPartnerEventsResponse (PutPartnerEventsResponse'),
     newPutPartnerEventsResponse,
 
-    -- ** CreateApiDestination
-    CreateApiDestination (CreateApiDestination'),
-    newCreateApiDestination,
-    CreateApiDestinationResponse (CreateApiDestinationResponse'),
-    newCreateApiDestinationResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListApiDestinations
-    ListApiDestinations (ListApiDestinations'),
-    newListApiDestinations,
-    ListApiDestinationsResponse (ListApiDestinationsResponse'),
-    newListApiDestinationsResponse,
+    -- ** CreateApiDestination
+    CreateApiDestination (CreateApiDestination'),
+    newCreateApiDestination,
+    CreateApiDestinationResponse (CreateApiDestinationResponse'),
+    newCreateApiDestinationResponse,
 
     -- ** DescribeEventBus
     DescribeEventBus (DescribeEventBus'),
@@ -197,11 +191,11 @@ module Network.AWS.CloudWatchEvents
     ListTargetsByRuleResponse (ListTargetsByRuleResponse'),
     newListTargetsByRuleResponse,
 
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    CreateConnectionResponse (CreateConnectionResponse'),
-    newCreateConnectionResponse,
+    -- ** ListApiDestinations
+    ListApiDestinations (ListApiDestinations'),
+    newListApiDestinations,
+    ListApiDestinationsResponse (ListApiDestinationsResponse'),
+    newListApiDestinationsResponse,
 
     -- ** ListRuleNamesByTarget (Paginated)
     ListRuleNamesByTarget (ListRuleNamesByTarget'),
@@ -209,17 +203,11 @@ module Network.AWS.CloudWatchEvents
     ListRuleNamesByTargetResponse (ListRuleNamesByTargetResponse'),
     newListRuleNamesByTargetResponse,
 
-    -- ** ListRules (Paginated)
-    ListRules (ListRules'),
-    newListRules,
-    ListRulesResponse (ListRulesResponse'),
-    newListRulesResponse,
-
-    -- ** PutRule
-    PutRule (PutRule'),
-    newPutRule,
-    PutRuleResponse (PutRuleResponse'),
-    newPutRuleResponse,
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    CreateConnectionResponse (CreateConnectionResponse'),
+    newCreateConnectionResponse,
 
     -- ** EnableRule
     EnableRule (EnableRule'),
@@ -227,17 +215,23 @@ module Network.AWS.CloudWatchEvents
     EnableRuleResponse (EnableRuleResponse'),
     newEnableRuleResponse,
 
+    -- ** PutRule
+    PutRule (PutRule'),
+    newPutRule,
+    PutRuleResponse (PutRuleResponse'),
+    newPutRuleResponse,
+
+    -- ** ListRules (Paginated)
+    ListRules (ListRules'),
+    newListRules,
+    ListRulesResponse (ListRulesResponse'),
+    newListRulesResponse,
+
     -- ** ListConnections
     ListConnections (ListConnections'),
     newListConnections,
     ListConnectionsResponse (ListConnectionsResponse'),
     newListConnectionsResponse,
-
-    -- ** DeauthorizeConnection
-    DeauthorizeConnection (DeauthorizeConnection'),
-    newDeauthorizeConnection,
-    DeauthorizeConnectionResponse (DeauthorizeConnectionResponse'),
-    newDeauthorizeConnectionResponse,
 
     -- ** CreateEventBus
     CreateEventBus (CreateEventBus'),
@@ -245,11 +239,11 @@ module Network.AWS.CloudWatchEvents
     CreateEventBusResponse (CreateEventBusResponse'),
     newCreateEventBusResponse,
 
-    -- ** RemoveTargets
-    RemoveTargets (RemoveTargets'),
-    newRemoveTargets,
-    RemoveTargetsResponse (RemoveTargetsResponse'),
-    newRemoveTargetsResponse,
+    -- ** DeauthorizeConnection
+    DeauthorizeConnection (DeauthorizeConnection'),
+    newDeauthorizeConnection,
+    DeauthorizeConnectionResponse (DeauthorizeConnectionResponse'),
+    newDeauthorizeConnectionResponse,
 
     -- ** ListEventBuses
     ListEventBuses (ListEventBuses'),
@@ -257,11 +251,23 @@ module Network.AWS.CloudWatchEvents
     ListEventBusesResponse (ListEventBusesResponse'),
     newListEventBusesResponse,
 
+    -- ** RemoveTargets
+    RemoveTargets (RemoveTargets'),
+    newRemoveTargets,
+    RemoveTargetsResponse (RemoveTargetsResponse'),
+    newRemoveTargetsResponse,
+
     -- ** DeleteEventBus
     DeleteEventBus (DeleteEventBus'),
     newDeleteEventBus,
     DeleteEventBusResponse (DeleteEventBusResponse'),
     newDeleteEventBusResponse,
+
+    -- ** DeletePartnerEventSource
+    DeletePartnerEventSource (DeletePartnerEventSource'),
+    newDeletePartnerEventSource,
+    DeletePartnerEventSourceResponse (DeletePartnerEventSourceResponse'),
+    newDeletePartnerEventSourceResponse,
 
     -- ** PutEvents
     PutEvents (PutEvents'),
@@ -269,11 +275,11 @@ module Network.AWS.CloudWatchEvents
     PutEventsResponse (PutEventsResponse'),
     newPutEventsResponse,
 
-    -- ** CreateArchive
-    CreateArchive (CreateArchive'),
-    newCreateArchive,
-    CreateArchiveResponse (CreateArchiveResponse'),
-    newCreateArchiveResponse,
+    -- ** DescribeReplay
+    DescribeReplay (DescribeReplay'),
+    newDescribeReplay,
+    DescribeReplayResponse (DescribeReplayResponse'),
+    newDescribeReplayResponse,
 
     -- ** ListPartnerEventSources
     ListPartnerEventSources (ListPartnerEventSources'),
@@ -281,17 +287,17 @@ module Network.AWS.CloudWatchEvents
     ListPartnerEventSourcesResponse (ListPartnerEventSourcesResponse'),
     newListPartnerEventSourcesResponse,
 
-    -- ** DescribeReplay
-    DescribeReplay (DescribeReplay'),
-    newDescribeReplay,
-    DescribeReplayResponse (DescribeReplayResponse'),
-    newDescribeReplayResponse,
+    -- ** CreateArchive
+    CreateArchive (CreateArchive'),
+    newCreateArchive,
+    CreateArchiveResponse (CreateArchiveResponse'),
+    newCreateArchiveResponse,
 
-    -- ** DeletePartnerEventSource
-    DeletePartnerEventSource (DeletePartnerEventSource'),
-    newDeletePartnerEventSource,
-    DeletePartnerEventSourceResponse (DeletePartnerEventSourceResponse'),
-    newDeletePartnerEventSourceResponse,
+    -- ** PutTargets
+    PutTargets (PutTargets'),
+    newPutTargets,
+    PutTargetsResponse (PutTargetsResponse'),
+    newPutTargetsResponse,
 
     -- ** CreatePartnerEventSource
     CreatePartnerEventSource (CreatePartnerEventSource'),
@@ -305,11 +311,11 @@ module Network.AWS.CloudWatchEvents
     StartReplayResponse (StartReplayResponse'),
     newStartReplayResponse,
 
-    -- ** PutTargets
-    PutTargets (PutTargets'),
-    newPutTargets,
-    PutTargetsResponse (PutTargetsResponse'),
-    newPutTargetsResponse,
+    -- ** ActivateEventSource
+    ActivateEventSource (ActivateEventSource'),
+    newActivateEventSource,
+    ActivateEventSourceResponse (ActivateEventSourceResponse'),
+    newActivateEventSourceResponse,
 
     -- ** ListEventSources
     ListEventSources (ListEventSources'),
@@ -317,17 +323,11 @@ module Network.AWS.CloudWatchEvents
     ListEventSourcesResponse (ListEventSourcesResponse'),
     newListEventSourcesResponse,
 
-    -- ** ActivateEventSource
-    ActivateEventSource (ActivateEventSource'),
-    newActivateEventSource,
-    ActivateEventSourceResponse (ActivateEventSourceResponse'),
-    newActivateEventSourceResponse,
-
-    -- ** DeleteApiDestination
-    DeleteApiDestination (DeleteApiDestination'),
-    newDeleteApiDestination,
-    DeleteApiDestinationResponse (DeleteApiDestinationResponse'),
-    newDeleteApiDestinationResponse,
+    -- ** UpdateApiDestination
+    UpdateApiDestination (UpdateApiDestination'),
+    newUpdateApiDestination,
+    UpdateApiDestinationResponse (UpdateApiDestinationResponse'),
+    newUpdateApiDestinationResponse,
 
     -- ** CancelReplay
     CancelReplay (CancelReplay'),
@@ -335,17 +335,17 @@ module Network.AWS.CloudWatchEvents
     CancelReplayResponse (CancelReplayResponse'),
     newCancelReplayResponse,
 
-    -- ** UpdateApiDestination
-    UpdateApiDestination (UpdateApiDestination'),
-    newUpdateApiDestination,
-    UpdateApiDestinationResponse (UpdateApiDestinationResponse'),
-    newUpdateApiDestinationResponse,
-
     -- ** RemovePermission
     RemovePermission (RemovePermission'),
     newRemovePermission,
     RemovePermissionResponse (RemovePermissionResponse'),
     newRemovePermissionResponse,
+
+    -- ** DeleteApiDestination
+    DeleteApiDestination (DeleteApiDestination'),
+    newDeleteApiDestination,
+    DeleteApiDestinationResponse (DeleteApiDestinationResponse'),
+    newDeleteApiDestinationResponse,
 
     -- ** TestEventPattern
     TestEventPattern (TestEventPattern'),
@@ -353,23 +353,11 @@ module Network.AWS.CloudWatchEvents
     TestEventPatternResponse (TestEventPatternResponse'),
     newTestEventPatternResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** DisableRule
     DisableRule (DisableRule'),
     newDisableRule,
     DisableRuleResponse (DisableRuleResponse'),
     newDisableRuleResponse,
-
-    -- ** ListReplays
-    ListReplays (ListReplays'),
-    newListReplays,
-    ListReplaysResponse (ListReplaysResponse'),
-    newListReplaysResponse,
 
     -- ** DescribePartnerEventSource
     DescribePartnerEventSource (DescribePartnerEventSource'),
@@ -377,11 +365,23 @@ module Network.AWS.CloudWatchEvents
     DescribePartnerEventSourceResponse (DescribePartnerEventSourceResponse'),
     newDescribePartnerEventSourceResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** PutPermission
     PutPermission (PutPermission'),
     newPutPermission,
     PutPermissionResponse (PutPermissionResponse'),
     newPutPermissionResponse,
+
+    -- ** ListReplays
+    ListReplays (ListReplays'),
+    newListReplays,
+    ListReplaysResponse (ListReplaysResponse'),
+    newListReplaysResponse,
 
     -- * Types
 
@@ -412,6 +412,15 @@ module Network.AWS.CloudWatchEvents
     -- ** LaunchType
     LaunchType (..),
 
+    -- ** PlacementConstraintType
+    PlacementConstraintType (..),
+
+    -- ** PlacementStrategyType
+    PlacementStrategyType (..),
+
+    -- ** PropagateTags
+    PropagateTags (..),
+
     -- ** ReplayState
     ReplayState (..),
 
@@ -441,6 +450,10 @@ module Network.AWS.CloudWatchEvents
     -- ** BatchRetryStrategy
     BatchRetryStrategy (BatchRetryStrategy'),
     newBatchRetryStrategy,
+
+    -- ** CapacityProviderStrategyItem
+    CapacityProviderStrategyItem (CapacityProviderStrategyItem'),
+    newCapacityProviderStrategyItem,
 
     -- ** Condition
     Condition (Condition'),
@@ -546,6 +559,14 @@ module Network.AWS.CloudWatchEvents
     PartnerEventSourceAccount (PartnerEventSourceAccount'),
     newPartnerEventSourceAccount,
 
+    -- ** PlacementConstraint
+    PlacementConstraint (PlacementConstraint'),
+    newPlacementConstraint,
+
+    -- ** PlacementStrategy
+    PlacementStrategy (PlacementStrategy'),
+    newPlacementStrategy,
+
     -- ** PutEventsRequestEntry
     PutEventsRequestEntry (PutEventsRequestEntry'),
     newPutEventsRequestEntry,
@@ -597,6 +618,14 @@ module Network.AWS.CloudWatchEvents
     -- ** RunCommandTarget
     RunCommandTarget (RunCommandTarget'),
     newRunCommandTarget,
+
+    -- ** SageMakerPipelineParameter
+    SageMakerPipelineParameter (SageMakerPipelineParameter'),
+    newSageMakerPipelineParameter,
+
+    -- ** SageMakerPipelineParameters
+    SageMakerPipelineParameters (SageMakerPipelineParameters'),
+    newSageMakerPipelineParameters,
 
     -- ** SqsParameters
     SqsParameters (SqsParameters'),

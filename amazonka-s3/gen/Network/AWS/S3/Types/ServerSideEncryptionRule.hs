@@ -37,7 +37,7 @@ data ServerSideEncryptionRule = ServerSideEncryptionRule'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the default server-side encryption to apply to new objects in
     -- the bucket. If a PUT Object request doesn\'t specify any server-side
@@ -62,7 +62,7 @@ data ServerSideEncryptionRule = ServerSideEncryptionRule'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'applyServerSideEncryptionByDefault', 'serverSideEncryptionRule_applyServerSideEncryptionByDefault' - Specifies the default server-side encryption to apply to new objects in
 -- the bucket. If a PUT Object request doesn\'t specify any server-side
@@ -85,7 +85,7 @@ newServerSideEncryptionRule =
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 serverSideEncryptionRule_bucketKeyEnabled :: Lens.Lens' ServerSideEncryptionRule (Prelude.Maybe Prelude.Bool)
 serverSideEncryptionRule_bucketKeyEnabled = Lens.lens (\ServerSideEncryptionRule' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@ServerSideEncryptionRule' {} a -> s {bucketKeyEnabled = a} :: ServerSideEncryptionRule)
 

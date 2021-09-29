@@ -63,9 +63,9 @@ import qualified Network.AWS.Response as Response
 data PutImage = PutImage'
   { -- | The image digest of the image manifest corresponding to the image.
     imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to put the image. If you do not specify a registry,
-    -- the default registry is assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to put the image. If you do not specify
+    -- a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The tag to associate with the image. This parameter is required for
     -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
@@ -92,9 +92,9 @@ data PutImage = PutImage'
 --
 -- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
 --
--- 'registryId', 'putImage_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to put the image. If you do not specify a registry,
--- the default registry is assumed.
+-- 'registryId', 'putImage_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to put the image. If you do not specify
+-- a registry, the default registry is assumed.
 --
 -- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
 -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
@@ -127,9 +127,9 @@ newPutImage pRepositoryName_ pImageManifest_ =
 putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to put the image. If you do not specify a registry,
--- the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to put the image. If you do not specify
+-- a registry, the default registry is assumed.
 putImage_registryId :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_registryId = Lens.lens (\PutImage' {registryId} -> registryId) (\s@PutImage' {} a -> s {registryId = a} :: PutImage)
 

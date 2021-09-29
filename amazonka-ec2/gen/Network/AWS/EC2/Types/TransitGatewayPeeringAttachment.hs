@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPeeringAttachment' smart constructor.
 data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
-  { -- | The status of the transit gateway peering attachment.
-    status :: Prelude.Maybe PeeringAttachmentStatus,
-    -- | The time the transit gateway peering attachment was created.
+  { -- | The time the transit gateway peering attachment was created.
     creationTime :: Prelude.Maybe Core.ISO8601,
     -- | Information about the requester transit gateway.
     requesterTgwInfo :: Prelude.Maybe PeeringTgwInfo,
+    -- | The status of the transit gateway peering attachment.
+    status :: Prelude.Maybe PeeringAttachmentStatus,
     -- | Information about the accepter transit gateway.
     accepterTgwInfo :: Prelude.Maybe PeeringTgwInfo,
     -- | The state of the transit gateway peering attachment. Note that the
@@ -58,11 +58,11 @@ data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.
---
 -- 'creationTime', 'transitGatewayPeeringAttachment_creationTime' - The time the transit gateway peering attachment was created.
 --
 -- 'requesterTgwInfo', 'transitGatewayPeeringAttachment_requesterTgwInfo' - Information about the requester transit gateway.
+--
+-- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.
 --
 -- 'accepterTgwInfo', 'transitGatewayPeeringAttachment_accepterTgwInfo' - Information about the accepter transit gateway.
 --
@@ -76,20 +76,16 @@ newTransitGatewayPeeringAttachment ::
   TransitGatewayPeeringAttachment
 newTransitGatewayPeeringAttachment =
   TransitGatewayPeeringAttachment'
-    { status =
+    { creationTime =
         Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       requesterTgwInfo = Prelude.Nothing,
+      status = Prelude.Nothing,
       accepterTgwInfo = Prelude.Nothing,
       state = Prelude.Nothing,
       tags = Prelude.Nothing,
       transitGatewayAttachmentId =
         Prelude.Nothing
     }
-
--- | The status of the transit gateway peering attachment.
-transitGatewayPeeringAttachment_status :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringAttachmentStatus)
-transitGatewayPeeringAttachment_status = Lens.lens (\TransitGatewayPeeringAttachment' {status} -> status) (\s@TransitGatewayPeeringAttachment' {} a -> s {status = a} :: TransitGatewayPeeringAttachment)
 
 -- | The time the transit gateway peering attachment was created.
 transitGatewayPeeringAttachment_creationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.UTCTime)
@@ -98,6 +94,10 @@ transitGatewayPeeringAttachment_creationTime = Lens.lens (\TransitGatewayPeering
 -- | Information about the requester transit gateway.
 transitGatewayPeeringAttachment_requesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
 transitGatewayPeeringAttachment_requesterTgwInfo = Lens.lens (\TransitGatewayPeeringAttachment' {requesterTgwInfo} -> requesterTgwInfo) (\s@TransitGatewayPeeringAttachment' {} a -> s {requesterTgwInfo = a} :: TransitGatewayPeeringAttachment)
+
+-- | The status of the transit gateway peering attachment.
+transitGatewayPeeringAttachment_status :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringAttachmentStatus)
+transitGatewayPeeringAttachment_status = Lens.lens (\TransitGatewayPeeringAttachment' {status} -> status) (\s@TransitGatewayPeeringAttachment' {} a -> s {status = a} :: TransitGatewayPeeringAttachment)
 
 -- | Information about the accepter transit gateway.
 transitGatewayPeeringAttachment_accepterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
@@ -119,9 +119,9 @@ transitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\Transit
 instance Core.FromXML TransitGatewayPeeringAttachment where
   parseXML x =
     TransitGatewayPeeringAttachment'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<$> (x Core..@? "creationTime")
       Prelude.<*> (x Core..@? "requesterTgwInfo")
+      Prelude.<*> (x Core..@? "status")
       Prelude.<*> (x Core..@? "accepterTgwInfo")
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty

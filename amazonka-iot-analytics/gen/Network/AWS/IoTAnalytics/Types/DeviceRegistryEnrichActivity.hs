@@ -23,8 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An activity that adds data from the AWS IoT device registry to your
--- message.
+-- | An activity that adds data from the IoT device registry to your message.
 --
 -- /See:/ 'newDeviceRegistryEnrichActivity' smart constructor.
 data DeviceRegistryEnrichActivity = DeviceRegistryEnrichActivity'

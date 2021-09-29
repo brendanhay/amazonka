@@ -39,7 +39,11 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
     modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | The DNS host name for the Docker container.
     containerHostname :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Marketplace product ID of the model package.
+    -- | The environment variables to set in the Docker container. Each key and
+    -- value in the @Environment@ string to string map can have length of up to
+    -- 1024. We support up to 16 entries in the map.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Web Services Marketplace product ID of the model package.
     productId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
     -- is stored.
@@ -74,7 +78,11 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 --
 -- 'containerHostname', 'modelPackageContainerDefinition_containerHostname' - The DNS host name for the Docker container.
 --
--- 'productId', 'modelPackageContainerDefinition_productId' - The AWS Marketplace product ID of the model package.
+-- 'environment', 'modelPackageContainerDefinition_environment' - The environment variables to set in the Docker container. Each key and
+-- value in the @Environment@ string to string map can have length of up to
+-- 1024. We support up to 16 entries in the map.
+--
+-- 'productId', 'modelPackageContainerDefinition_productId' - The Amazon Web Services Marketplace product ID of the model package.
 --
 -- 'image', 'modelPackageContainerDefinition_image' - The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 -- is stored.
@@ -95,6 +103,7 @@ newModelPackageContainerDefinition pImage_ =
         Prelude.Nothing,
       modelDataUrl = Prelude.Nothing,
       containerHostname = Prelude.Nothing,
+      environment = Prelude.Nothing,
       productId = Prelude.Nothing,
       image = pImage_
     }
@@ -117,7 +126,13 @@ modelPackageContainerDefinition_modelDataUrl = Lens.lens (\ModelPackageContainer
 modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
 
--- | The AWS Marketplace product ID of the model package.
+-- | The environment variables to set in the Docker container. Each key and
+-- value in the @Environment@ string to string map can have length of up to
+-- 1024. We support up to 16 entries in the map.
+modelPackageContainerDefinition_environment :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+modelPackageContainerDefinition_environment = Lens.lens (\ModelPackageContainerDefinition' {environment} -> environment) (\s@ModelPackageContainerDefinition' {} a -> s {environment = a} :: ModelPackageContainerDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Web Services Marketplace product ID of the model package.
 modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDefinition' {productId} -> productId) (\s@ModelPackageContainerDefinition' {} a -> s {productId = a} :: ModelPackageContainerDefinition)
 
@@ -145,6 +160,7 @@ instance
             Prelude.<$> (x Core..:? "ImageDigest")
             Prelude.<*> (x Core..:? "ModelDataUrl")
             Prelude.<*> (x Core..:? "ContainerHostname")
+            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ProductId")
             Prelude.<*> (x Core..: "Image")
       )
@@ -165,6 +181,7 @@ instance Core.ToJSON ModelPackageContainerDefinition where
             ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
             ("ContainerHostname" Core..=)
               Prelude.<$> containerHostname,
+            ("Environment" Core..=) Prelude.<$> environment,
             ("ProductId" Core..=) Prelude.<$> productId,
             Prelude.Just ("Image" Core..= image)
           ]

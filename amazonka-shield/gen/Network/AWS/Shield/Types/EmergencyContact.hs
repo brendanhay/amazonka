@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contact information that the DRT can use to contact you if you have
--- proactive engagement enabled, for escalations to the DRT and to initiate
+-- | Contact information that the SRT can use to contact you if you have
+-- proactive engagement enabled, for escalations to the SRT and to initiate
 -- proactive customer support.
 --
 -- /See:/ 'newEmergencyContact' smart constructor.

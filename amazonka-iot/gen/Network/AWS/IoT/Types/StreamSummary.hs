@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data StreamSummary = StreamSummary'
   { -- | The stream version.
     streamVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The stream ARN.
     streamArn :: Prelude.Maybe Prelude.Text,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | A description of the stream.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -48,9 +48,9 @@ data StreamSummary = StreamSummary'
 --
 -- 'streamVersion', 'streamSummary_streamVersion' - The stream version.
 --
--- 'streamId', 'streamSummary_streamId' - The stream ID.
---
 -- 'streamArn', 'streamSummary_streamArn' - The stream ARN.
+--
+-- 'streamId', 'streamSummary_streamId' - The stream ID.
 --
 -- 'description', 'streamSummary_description' - A description of the stream.
 newStreamSummary ::
@@ -58,8 +58,8 @@ newStreamSummary ::
 newStreamSummary =
   StreamSummary'
     { streamVersion = Prelude.Nothing,
-      streamId = Prelude.Nothing,
       streamArn = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
@@ -67,13 +67,13 @@ newStreamSummary =
 streamSummary_streamVersion :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Natural)
 streamSummary_streamVersion = Lens.lens (\StreamSummary' {streamVersion} -> streamVersion) (\s@StreamSummary' {} a -> s {streamVersion = a} :: StreamSummary)
 
--- | The stream ID.
-streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
-streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
-
 -- | The stream ARN.
 streamSummary_streamArn :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
 streamSummary_streamArn = Lens.lens (\StreamSummary' {streamArn} -> streamArn) (\s@StreamSummary' {} a -> s {streamArn = a} :: StreamSummary)
+
+-- | The stream ID.
+streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
 
 -- | A description of the stream.
 streamSummary_description :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
@@ -86,8 +86,8 @@ instance Core.FromJSON StreamSummary where
       ( \x ->
           StreamSummary'
             Prelude.<$> (x Core..:? "streamVersion")
-            Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "streamArn")
+            Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "description")
       )
 

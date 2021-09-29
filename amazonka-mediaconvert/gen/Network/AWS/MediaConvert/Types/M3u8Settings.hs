@@ -22,22 +22,24 @@ module Network.AWS.MediaConvert.Types.M3u8Settings where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.M3u8AudioDuration
+import Network.AWS.MediaConvert.Types.M3u8DataPtsControl
 import Network.AWS.MediaConvert.Types.M3u8NielsenId3
 import Network.AWS.MediaConvert.Types.M3u8PcrControl
 import Network.AWS.MediaConvert.Types.M3u8Scte35Source
 import Network.AWS.MediaConvert.Types.TimedMetadata
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for TS segments in HLS
+-- | These settings relate to the MPEG-2 transport stream (MPEG2-TS)
+-- container for the MPEG2-TS segments in your HLS outputs.
 --
 -- /See:/ 'newM3u8Settings' smart constructor.
 data M3u8Settings = M3u8Settings'
-  { -- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport
-    -- stream.
-    pmtPid :: Prelude.Maybe Prelude.Natural,
-    -- | Applies only to HLS outputs. Use this setting to specify whether the
+  { -- | Applies only to HLS outputs. Use this setting to specify whether the
     -- service inserts the ID3 timed metadata from the input in this output.
     timedMetadata :: Prelude.Maybe TimedMetadata,
+    -- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport
+    -- stream.
+    pmtPid :: Prelude.Maybe Prelude.Natural,
     -- | Packet Identifier (PID) of the elementary video stream in the transport
     -- stream.
     videoPid :: Prelude.Maybe Prelude.Natural,
@@ -59,6 +61,9 @@ data M3u8Settings = M3u8Settings'
     -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
     patInterval :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the maximum time, in milliseconds, between Program Clock
+    -- References (PCRs) inserted into the transport stream.
+    maxPcrInterval :: Prelude.Maybe Prelude.Natural,
     -- | The value of the program number field in the Program Map Table.
     programNumber :: Prelude.Maybe Prelude.Natural,
     -- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the
@@ -67,6 +72,16 @@ data M3u8Settings = M3u8Settings'
     pcrPid :: Prelude.Maybe Prelude.Natural,
     -- | The number of audio frames to insert for each PES packet.
     audioFramesPerPes :: Prelude.Maybe Prelude.Natural,
+    -- | If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data
+    -- packets with Presentation Timestamp (PTS) values greater than or equal
+    -- to the first video packet PTS (MediaConvert drops captions and data
+    -- packets with lesser PTS values). Keep the default value (AUTO) to allow
+    -- all PTS values.
+    dataPTSControl :: Prelude.Maybe M3u8DataPtsControl,
+    -- | If INSERT, Nielsen inaudible tones for media tracking will be detected
+    -- in the input audio and an equivalent ID3 tag will be inserted in the
+    -- output.
+    nielsenId3 :: Prelude.Maybe M3u8NielsenId3,
     -- | Specify this setting only when your output will be consumed by a
     -- downstream repackaging workflow that is sensitive to very small duration
     -- differences between video and audio. For this situation, choose Match
@@ -82,13 +97,13 @@ data M3u8Settings = M3u8Settings'
     -- the file. When you keep the default value, any minor discrepancies
     -- between audio and video duration will depend on your output audio codec.
     audioDuration :: Prelude.Maybe M3u8AudioDuration,
-    -- | If INSERT, Nielsen inaudible tones for media tracking will be detected
-    -- in the input audio and an equivalent ID3 tag will be inserted in the
-    -- output.
-    nielsenId3 :: Prelude.Maybe M3u8NielsenId3,
     -- | Packet Identifier (PID) of the private metadata stream in the transport
     -- stream.
     privateMetadataPid :: Prelude.Maybe Prelude.Natural,
+    -- | The value of the transport stream ID field in the Program Map Table.
+    transportStreamId :: Prelude.Maybe Prelude.Natural,
+    -- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
+    scte35Pid :: Prelude.Maybe Prelude.Natural,
     -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH)
     -- if you want SCTE-35 markers that appear in your input to also appear in
     -- this output. Choose None (NONE) if you don\'t want SCTE-35 markers in
@@ -97,11 +112,7 @@ data M3u8Settings = M3u8Settings'
     -- (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest
     -- conditioning. In both cases, also provide the ESAM XML as a string in
     -- the setting Signal processing notification XML (sccXml).
-    scte35Source :: Prelude.Maybe M3u8Scte35Source,
-    -- | The value of the transport stream ID field in the Program Map Table.
-    transportStreamId :: Prelude.Maybe Prelude.Natural,
-    -- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
-    scte35Pid :: Prelude.Maybe Prelude.Natural
+    scte35Source :: Prelude.Maybe M3u8Scte35Source
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,11 +124,11 @@ data M3u8Settings = M3u8Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pmtPid', 'm3u8Settings_pmtPid' - Packet Identifier (PID) for the Program Map Table (PMT) in the transport
--- stream.
---
 -- 'timedMetadata', 'm3u8Settings_timedMetadata' - Applies only to HLS outputs. Use this setting to specify whether the
 -- service inserts the ID3 timed metadata from the input in this output.
+--
+-- 'pmtPid', 'm3u8Settings_pmtPid' - Packet Identifier (PID) for the Program Map Table (PMT) in the transport
+-- stream.
 --
 -- 'videoPid', 'm3u8Settings_videoPid' - Packet Identifier (PID) of the elementary video stream in the transport
 -- stream.
@@ -140,6 +151,9 @@ data M3u8Settings = M3u8Settings'
 -- 'patInterval', 'm3u8Settings_patInterval' - The number of milliseconds between instances of this table in the output
 -- transport stream.
 --
+-- 'maxPcrInterval', 'm3u8Settings_maxPcrInterval' - Specify the maximum time, in milliseconds, between Program Clock
+-- References (PCRs) inserted into the transport stream.
+--
 -- 'programNumber', 'm3u8Settings_programNumber' - The value of the program number field in the Program Map Table.
 --
 -- 'pcrPid', 'm3u8Settings_pcrPid' - Packet Identifier (PID) of the Program Clock Reference (PCR) in the
@@ -147,6 +161,16 @@ data M3u8Settings = M3u8Settings'
 -- same value as the Video PID.
 --
 -- 'audioFramesPerPes', 'm3u8Settings_audioFramesPerPes' - The number of audio frames to insert for each PES packet.
+--
+-- 'dataPTSControl', 'm3u8Settings_dataPTSControl' - If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data
+-- packets with Presentation Timestamp (PTS) values greater than or equal
+-- to the first video packet PTS (MediaConvert drops captions and data
+-- packets with lesser PTS values). Keep the default value (AUTO) to allow
+-- all PTS values.
+--
+-- 'nielsenId3', 'm3u8Settings_nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected
+-- in the input audio and an equivalent ID3 tag will be inserted in the
+-- output.
 --
 -- 'audioDuration', 'm3u8Settings_audioDuration' - Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -163,12 +187,12 @@ data M3u8Settings = M3u8Settings'
 -- the file. When you keep the default value, any minor discrepancies
 -- between audio and video duration will depend on your output audio codec.
 --
--- 'nielsenId3', 'm3u8Settings_nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected
--- in the input audio and an equivalent ID3 tag will be inserted in the
--- output.
---
 -- 'privateMetadataPid', 'm3u8Settings_privateMetadataPid' - Packet Identifier (PID) of the private metadata stream in the transport
 -- stream.
+--
+-- 'transportStreamId', 'm3u8Settings_transportStreamId' - The value of the transport stream ID field in the Program Map Table.
+--
+-- 'scte35Pid', 'm3u8Settings_scte35Pid' - Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
 --
 -- 'scte35Source', 'm3u8Settings_scte35Source' - For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH)
 -- if you want SCTE-35 markers that appear in your input to also appear in
@@ -178,42 +202,40 @@ data M3u8Settings = M3u8Settings'
 -- (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest
 -- conditioning. In both cases, also provide the ESAM XML as a string in
 -- the setting Signal processing notification XML (sccXml).
---
--- 'transportStreamId', 'm3u8Settings_transportStreamId' - The value of the transport stream ID field in the Program Map Table.
---
--- 'scte35Pid', 'm3u8Settings_scte35Pid' - Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
 newM3u8Settings ::
   M3u8Settings
 newM3u8Settings =
   M3u8Settings'
-    { pmtPid = Prelude.Nothing,
-      timedMetadata = Prelude.Nothing,
+    { timedMetadata = Prelude.Nothing,
+      pmtPid = Prelude.Nothing,
       videoPid = Prelude.Nothing,
       timedMetadataPid = Prelude.Nothing,
       pcrControl = Prelude.Nothing,
       pmtInterval = Prelude.Nothing,
       audioPids = Prelude.Nothing,
       patInterval = Prelude.Nothing,
+      maxPcrInterval = Prelude.Nothing,
       programNumber = Prelude.Nothing,
       pcrPid = Prelude.Nothing,
       audioFramesPerPes = Prelude.Nothing,
-      audioDuration = Prelude.Nothing,
+      dataPTSControl = Prelude.Nothing,
       nielsenId3 = Prelude.Nothing,
+      audioDuration = Prelude.Nothing,
       privateMetadataPid = Prelude.Nothing,
-      scte35Source = Prelude.Nothing,
       transportStreamId = Prelude.Nothing,
-      scte35Pid = Prelude.Nothing
+      scte35Pid = Prelude.Nothing,
+      scte35Source = Prelude.Nothing
     }
-
--- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport
--- stream.
-m3u8Settings_pmtPid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
-m3u8Settings_pmtPid = Lens.lens (\M3u8Settings' {pmtPid} -> pmtPid) (\s@M3u8Settings' {} a -> s {pmtPid = a} :: M3u8Settings)
 
 -- | Applies only to HLS outputs. Use this setting to specify whether the
 -- service inserts the ID3 timed metadata from the input in this output.
 m3u8Settings_timedMetadata :: Lens.Lens' M3u8Settings (Prelude.Maybe TimedMetadata)
 m3u8Settings_timedMetadata = Lens.lens (\M3u8Settings' {timedMetadata} -> timedMetadata) (\s@M3u8Settings' {} a -> s {timedMetadata = a} :: M3u8Settings)
+
+-- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport
+-- stream.
+m3u8Settings_pmtPid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
+m3u8Settings_pmtPid = Lens.lens (\M3u8Settings' {pmtPid} -> pmtPid) (\s@M3u8Settings' {} a -> s {pmtPid = a} :: M3u8Settings)
 
 -- | Packet Identifier (PID) of the elementary video stream in the transport
 -- stream.
@@ -248,6 +270,11 @@ m3u8Settings_audioPids = Lens.lens (\M3u8Settings' {audioPids} -> audioPids) (\s
 m3u8Settings_patInterval :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_patInterval = Lens.lens (\M3u8Settings' {patInterval} -> patInterval) (\s@M3u8Settings' {} a -> s {patInterval = a} :: M3u8Settings)
 
+-- | Specify the maximum time, in milliseconds, between Program Clock
+-- References (PCRs) inserted into the transport stream.
+m3u8Settings_maxPcrInterval :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
+m3u8Settings_maxPcrInterval = Lens.lens (\M3u8Settings' {maxPcrInterval} -> maxPcrInterval) (\s@M3u8Settings' {} a -> s {maxPcrInterval = a} :: M3u8Settings)
+
 -- | The value of the program number field in the Program Map Table.
 m3u8Settings_programNumber :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_programNumber = Lens.lens (\M3u8Settings' {programNumber} -> programNumber) (\s@M3u8Settings' {} a -> s {programNumber = a} :: M3u8Settings)
@@ -261,6 +288,20 @@ m3u8Settings_pcrPid = Lens.lens (\M3u8Settings' {pcrPid} -> pcrPid) (\s@M3u8Sett
 -- | The number of audio frames to insert for each PES packet.
 m3u8Settings_audioFramesPerPes :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_audioFramesPerPes = Lens.lens (\M3u8Settings' {audioFramesPerPes} -> audioFramesPerPes) (\s@M3u8Settings' {} a -> s {audioFramesPerPes = a} :: M3u8Settings)
+
+-- | If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data
+-- packets with Presentation Timestamp (PTS) values greater than or equal
+-- to the first video packet PTS (MediaConvert drops captions and data
+-- packets with lesser PTS values). Keep the default value (AUTO) to allow
+-- all PTS values.
+m3u8Settings_dataPTSControl :: Lens.Lens' M3u8Settings (Prelude.Maybe M3u8DataPtsControl)
+m3u8Settings_dataPTSControl = Lens.lens (\M3u8Settings' {dataPTSControl} -> dataPTSControl) (\s@M3u8Settings' {} a -> s {dataPTSControl = a} :: M3u8Settings)
+
+-- | If INSERT, Nielsen inaudible tones for media tracking will be detected
+-- in the input audio and an equivalent ID3 tag will be inserted in the
+-- output.
+m3u8Settings_nielsenId3 :: Lens.Lens' M3u8Settings (Prelude.Maybe M3u8NielsenId3)
+m3u8Settings_nielsenId3 = Lens.lens (\M3u8Settings' {nielsenId3} -> nielsenId3) (\s@M3u8Settings' {} a -> s {nielsenId3 = a} :: M3u8Settings)
 
 -- | Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -279,16 +320,18 @@ m3u8Settings_audioFramesPerPes = Lens.lens (\M3u8Settings' {audioFramesPerPes} -
 m3u8Settings_audioDuration :: Lens.Lens' M3u8Settings (Prelude.Maybe M3u8AudioDuration)
 m3u8Settings_audioDuration = Lens.lens (\M3u8Settings' {audioDuration} -> audioDuration) (\s@M3u8Settings' {} a -> s {audioDuration = a} :: M3u8Settings)
 
--- | If INSERT, Nielsen inaudible tones for media tracking will be detected
--- in the input audio and an equivalent ID3 tag will be inserted in the
--- output.
-m3u8Settings_nielsenId3 :: Lens.Lens' M3u8Settings (Prelude.Maybe M3u8NielsenId3)
-m3u8Settings_nielsenId3 = Lens.lens (\M3u8Settings' {nielsenId3} -> nielsenId3) (\s@M3u8Settings' {} a -> s {nielsenId3 = a} :: M3u8Settings)
-
 -- | Packet Identifier (PID) of the private metadata stream in the transport
 -- stream.
 m3u8Settings_privateMetadataPid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_privateMetadataPid = Lens.lens (\M3u8Settings' {privateMetadataPid} -> privateMetadataPid) (\s@M3u8Settings' {} a -> s {privateMetadataPid = a} :: M3u8Settings)
+
+-- | The value of the transport stream ID field in the Program Map Table.
+m3u8Settings_transportStreamId :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
+m3u8Settings_transportStreamId = Lens.lens (\M3u8Settings' {transportStreamId} -> transportStreamId) (\s@M3u8Settings' {} a -> s {transportStreamId = a} :: M3u8Settings)
+
+-- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
+m3u8Settings_scte35Pid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
+m3u8Settings_scte35Pid = Lens.lens (\M3u8Settings' {scte35Pid} -> scte35Pid) (\s@M3u8Settings' {} a -> s {scte35Pid = a} :: M3u8Settings)
 
 -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH)
 -- if you want SCTE-35 markers that appear in your input to also appear in
@@ -301,37 +344,31 @@ m3u8Settings_privateMetadataPid = Lens.lens (\M3u8Settings' {privateMetadataPid}
 m3u8Settings_scte35Source :: Lens.Lens' M3u8Settings (Prelude.Maybe M3u8Scte35Source)
 m3u8Settings_scte35Source = Lens.lens (\M3u8Settings' {scte35Source} -> scte35Source) (\s@M3u8Settings' {} a -> s {scte35Source = a} :: M3u8Settings)
 
--- | The value of the transport stream ID field in the Program Map Table.
-m3u8Settings_transportStreamId :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
-m3u8Settings_transportStreamId = Lens.lens (\M3u8Settings' {transportStreamId} -> transportStreamId) (\s@M3u8Settings' {} a -> s {transportStreamId = a} :: M3u8Settings)
-
--- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
-m3u8Settings_scte35Pid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
-m3u8Settings_scte35Pid = Lens.lens (\M3u8Settings' {scte35Pid} -> scte35Pid) (\s@M3u8Settings' {} a -> s {scte35Pid = a} :: M3u8Settings)
-
 instance Core.FromJSON M3u8Settings where
   parseJSON =
     Core.withObject
       "M3u8Settings"
       ( \x ->
           M3u8Settings'
-            Prelude.<$> (x Core..:? "pmtPid")
-            Prelude.<*> (x Core..:? "timedMetadata")
+            Prelude.<$> (x Core..:? "timedMetadata")
+            Prelude.<*> (x Core..:? "pmtPid")
             Prelude.<*> (x Core..:? "videoPid")
             Prelude.<*> (x Core..:? "timedMetadataPid")
             Prelude.<*> (x Core..:? "pcrControl")
             Prelude.<*> (x Core..:? "pmtInterval")
             Prelude.<*> (x Core..:? "audioPids" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "patInterval")
+            Prelude.<*> (x Core..:? "maxPcrInterval")
             Prelude.<*> (x Core..:? "programNumber")
             Prelude.<*> (x Core..:? "pcrPid")
             Prelude.<*> (x Core..:? "audioFramesPerPes")
-            Prelude.<*> (x Core..:? "audioDuration")
+            Prelude.<*> (x Core..:? "dataPTSControl")
             Prelude.<*> (x Core..:? "nielsenId3")
+            Prelude.<*> (x Core..:? "audioDuration")
             Prelude.<*> (x Core..:? "privateMetadataPid")
-            Prelude.<*> (x Core..:? "scte35Source")
             Prelude.<*> (x Core..:? "transportStreamId")
             Prelude.<*> (x Core..:? "scte35Pid")
+            Prelude.<*> (x Core..:? "scte35Source")
       )
 
 instance Prelude.Hashable M3u8Settings
@@ -342,8 +379,8 @@ instance Core.ToJSON M3u8Settings where
   toJSON M3u8Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pmtPid" Core..=) Prelude.<$> pmtPid,
-            ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
+          [ ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
+            ("pmtPid" Core..=) Prelude.<$> pmtPid,
             ("videoPid" Core..=) Prelude.<$> videoPid,
             ("timedMetadataPid" Core..=)
               Prelude.<$> timedMetadataPid,
@@ -351,17 +388,21 @@ instance Core.ToJSON M3u8Settings where
             ("pmtInterval" Core..=) Prelude.<$> pmtInterval,
             ("audioPids" Core..=) Prelude.<$> audioPids,
             ("patInterval" Core..=) Prelude.<$> patInterval,
+            ("maxPcrInterval" Core..=)
+              Prelude.<$> maxPcrInterval,
             ("programNumber" Core..=) Prelude.<$> programNumber,
             ("pcrPid" Core..=) Prelude.<$> pcrPid,
             ("audioFramesPerPes" Core..=)
               Prelude.<$> audioFramesPerPes,
-            ("audioDuration" Core..=) Prelude.<$> audioDuration,
+            ("dataPTSControl" Core..=)
+              Prelude.<$> dataPTSControl,
             ("nielsenId3" Core..=) Prelude.<$> nielsenId3,
+            ("audioDuration" Core..=) Prelude.<$> audioDuration,
             ("privateMetadataPid" Core..=)
               Prelude.<$> privateMetadataPid,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source,
             ("transportStreamId" Core..=)
               Prelude.<$> transportStreamId,
-            ("scte35Pid" Core..=) Prelude.<$> scte35Pid
+            ("scte35Pid" Core..=) Prelude.<$> scte35Pid,
+            ("scte35Source" Core..=) Prelude.<$> scte35Source
           ]
       )

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUdpGroupSettings' smart constructor.
 data UdpGroupSettings = UdpGroupSettings'
-  { -- | Timed Metadata interval in seconds.
-    timedMetadataId3Period :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates ID3 frame that has the timecode.
+  { -- | Indicates ID3 frame that has the timecode.
     timedMetadataId3Frame :: Prelude.Maybe UdpTimedMetadataId3Frame,
+    -- | Timed Metadata interval in seconds.
+    timedMetadataId3Period :: Prelude.Maybe Prelude.Natural,
     -- | Specifies behavior of last resort when input video is lost, and no more
     -- backup inputs are available. When dropTs is selected the entire
     -- transport stream will stop being emitted. When dropProgram is selected
@@ -53,9 +53,9 @@ data UdpGroupSettings = UdpGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timedMetadataId3Period', 'udpGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
---
 -- 'timedMetadataId3Frame', 'udpGroupSettings_timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+--
+-- 'timedMetadataId3Period', 'udpGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
 --
 -- 'inputLossAction', 'udpGroupSettings_inputLossAction' - Specifies behavior of last resort when input video is lost, and no more
 -- backup inputs are available. When dropTs is selected the entire
@@ -69,19 +69,19 @@ newUdpGroupSettings ::
   UdpGroupSettings
 newUdpGroupSettings =
   UdpGroupSettings'
-    { timedMetadataId3Period =
+    { timedMetadataId3Frame =
         Prelude.Nothing,
-      timedMetadataId3Frame = Prelude.Nothing,
+      timedMetadataId3Period = Prelude.Nothing,
       inputLossAction = Prelude.Nothing
     }
-
--- | Timed Metadata interval in seconds.
-udpGroupSettings_timedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Prelude.Maybe Prelude.Natural)
-udpGroupSettings_timedMetadataId3Period = Lens.lens (\UdpGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
 
 -- | Indicates ID3 frame that has the timecode.
 udpGroupSettings_timedMetadataId3Frame :: Lens.Lens' UdpGroupSettings (Prelude.Maybe UdpTimedMetadataId3Frame)
 udpGroupSettings_timedMetadataId3Frame = Lens.lens (\UdpGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: UdpGroupSettings)
+
+-- | Timed Metadata interval in seconds.
+udpGroupSettings_timedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Prelude.Maybe Prelude.Natural)
+udpGroupSettings_timedMetadataId3Period = Lens.lens (\UdpGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
 
 -- | Specifies behavior of last resort when input video is lost, and no more
 -- backup inputs are available. When dropTs is selected the entire
@@ -100,8 +100,8 @@ instance Core.FromJSON UdpGroupSettings where
       "UdpGroupSettings"
       ( \x ->
           UdpGroupSettings'
-            Prelude.<$> (x Core..:? "timedMetadataId3Period")
-            Prelude.<*> (x Core..:? "timedMetadataId3Frame")
+            Prelude.<$> (x Core..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Core..:? "timedMetadataId3Period")
             Prelude.<*> (x Core..:? "inputLossAction")
       )
 
@@ -113,10 +113,10 @@ instance Core.ToJSON UdpGroupSettings where
   toJSON UdpGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timedMetadataId3Period" Core..=)
-              Prelude.<$> timedMetadataId3Period,
-            ("timedMetadataId3Frame" Core..=)
+          [ ("timedMetadataId3Frame" Core..=)
               Prelude.<$> timedMetadataId3Frame,
+            ("timedMetadataId3Period" Core..=)
+              Prelude.<$> timedMetadataId3Period,
             ("inputLossAction" Core..=)
               Prelude.<$> inputLossAction
           ]

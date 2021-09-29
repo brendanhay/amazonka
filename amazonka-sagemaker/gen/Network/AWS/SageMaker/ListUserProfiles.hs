@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListUserProfiles
     newListUserProfiles,
 
     -- * Request Lenses
-    listUserProfiles_sortOrder,
     listUserProfiles_nextToken,
+    listUserProfiles_sortOrder,
     listUserProfiles_userProfileNameContains,
     listUserProfiles_maxResults,
     listUserProfiles_domainIdEquals,
@@ -56,11 +56,11 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-  { -- | The sort order for the results. The default is Ascending.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous response was truncated, you will receive this token. Use
+  { -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the results. The default is Ascending.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A parameter by which to filter the results.
     userProfileNameContains :: Prelude.Maybe Prelude.Text,
     -- | Returns a list up to a specified limit.
@@ -80,10 +80,10 @@ data ListUserProfiles = ListUserProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listUserProfiles_sortOrder' - The sort order for the results. The default is Ascending.
---
 -- 'nextToken', 'listUserProfiles_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
+--
+-- 'sortOrder', 'listUserProfiles_sortOrder' - The sort order for the results. The default is Ascending.
 --
 -- 'userProfileNameContains', 'listUserProfiles_userProfileNameContains' - A parameter by which to filter the results.
 --
@@ -96,22 +96,22 @@ newListUserProfiles ::
   ListUserProfiles
 newListUserProfiles =
   ListUserProfiles'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       userProfileNameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       domainIdEquals = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
 
--- | The sort order for the results. The default is Ascending.
-listUserProfiles_sortOrder :: Lens.Lens' ListUserProfiles (Prelude.Maybe SortOrder)
-listUserProfiles_sortOrder = Lens.lens (\ListUserProfiles' {sortOrder} -> sortOrder) (\s@ListUserProfiles' {} a -> s {sortOrder = a} :: ListUserProfiles)
-
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
 listUserProfiles_nextToken :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
 listUserProfiles_nextToken = Lens.lens (\ListUserProfiles' {nextToken} -> nextToken) (\s@ListUserProfiles' {} a -> s {nextToken = a} :: ListUserProfiles)
+
+-- | The sort order for the results. The default is Ascending.
+listUserProfiles_sortOrder :: Lens.Lens' ListUserProfiles (Prelude.Maybe SortOrder)
+listUserProfiles_sortOrder = Lens.lens (\ListUserProfiles' {sortOrder} -> sortOrder) (\s@ListUserProfiles' {} a -> s {sortOrder = a} :: ListUserProfiles)
 
 -- | A parameter by which to filter the results.
 listUserProfiles_userProfileNameContains :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
@@ -186,8 +186,8 @@ instance Core.ToJSON ListUserProfiles where
   toJSON ListUserProfiles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("UserProfileNameContains" Core..=)
               Prelude.<$> userProfileNameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

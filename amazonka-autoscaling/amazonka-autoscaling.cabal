@@ -63,6 +63,7 @@ library
     Network.AWS.AutoScaling.DeletePolicy
     Network.AWS.AutoScaling.DeleteScheduledAction
     Network.AWS.AutoScaling.DeleteTags
+    Network.AWS.AutoScaling.DeleteWarmPool
     Network.AWS.AutoScaling.DescribeAccountLimits
     Network.AWS.AutoScaling.DescribeAdjustmentTypes
     Network.AWS.AutoScaling.DescribeAutoScalingGroups
@@ -82,6 +83,7 @@ library
     Network.AWS.AutoScaling.DescribeScheduledActions
     Network.AWS.AutoScaling.DescribeTags
     Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
+    Network.AWS.AutoScaling.DescribeWarmPool
     Network.AWS.AutoScaling.DetachInstances
     Network.AWS.AutoScaling.DetachLoadBalancers
     Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
@@ -90,11 +92,13 @@ library
     Network.AWS.AutoScaling.EnterStandby
     Network.AWS.AutoScaling.ExecutePolicy
     Network.AWS.AutoScaling.ExitStandby
+    Network.AWS.AutoScaling.GetPredictiveScalingForecast
     Network.AWS.AutoScaling.Lens
     Network.AWS.AutoScaling.PutLifecycleHook
     Network.AWS.AutoScaling.PutNotificationConfiguration
     Network.AWS.AutoScaling.PutScalingPolicy
     Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
+    Network.AWS.AutoScaling.PutWarmPool
     Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     Network.AWS.AutoScaling.ResumeProcesses
     Network.AWS.AutoScaling.SetDesiredCapacity
@@ -110,7 +114,9 @@ library
     Network.AWS.AutoScaling.Types.AutoScalingGroup
     Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails
     Network.AWS.AutoScaling.Types.BlockDeviceMapping
+    Network.AWS.AutoScaling.Types.CapacityForecast
     Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
+    Network.AWS.AutoScaling.Types.DesiredConfiguration
     Network.AWS.AutoScaling.Types.Ebs
     Network.AWS.AutoScaling.Types.EnabledMetric
     Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
@@ -121,7 +127,10 @@ library
     Network.AWS.AutoScaling.Types.InstanceMetadataOptions
     Network.AWS.AutoScaling.Types.InstanceMonitoring
     Network.AWS.AutoScaling.Types.InstanceRefresh
+    Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress
+    Network.AWS.AutoScaling.Types.InstanceRefreshProgressDetails
     Network.AWS.AutoScaling.Types.InstanceRefreshStatus
+    Network.AWS.AutoScaling.Types.InstanceRefreshWarmPoolProgress
     Network.AWS.AutoScaling.Types.InstancesDistribution
     Network.AWS.AutoScaling.Types.LaunchConfiguration
     Network.AWS.AutoScaling.Types.LaunchTemplate
@@ -132,6 +141,7 @@ library
     Network.AWS.AutoScaling.Types.LifecycleState
     Network.AWS.AutoScaling.Types.LoadBalancerState
     Network.AWS.AutoScaling.Types.LoadBalancerTargetGroupState
+    Network.AWS.AutoScaling.Types.LoadForecast
     Network.AWS.AutoScaling.Types.MetricCollectionType
     Network.AWS.AutoScaling.Types.MetricDimension
     Network.AWS.AutoScaling.Types.MetricGranularityType
@@ -139,7 +149,17 @@ library
     Network.AWS.AutoScaling.Types.MetricType
     Network.AWS.AutoScaling.Types.MixedInstancesPolicy
     Network.AWS.AutoScaling.Types.NotificationConfiguration
+    Network.AWS.AutoScaling.Types.PredefinedLoadMetricType
+    Network.AWS.AutoScaling.Types.PredefinedMetricPairType
     Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
+    Network.AWS.AutoScaling.Types.PredefinedScalingMetricType
+    Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
+    Network.AWS.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
+    Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification
+    Network.AWS.AutoScaling.Types.PredictiveScalingMode
+    Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
+    Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
+    Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
     Network.AWS.AutoScaling.Types.ProcessType
     Network.AWS.AutoScaling.Types.RefreshPreferences
     Network.AWS.AutoScaling.Types.RefreshStrategy
@@ -153,6 +173,9 @@ library
     Network.AWS.AutoScaling.Types.Tag
     Network.AWS.AutoScaling.Types.TagDescription
     Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
+    Network.AWS.AutoScaling.Types.WarmPoolConfiguration
+    Network.AWS.AutoScaling.Types.WarmPoolState
+    Network.AWS.AutoScaling.Types.WarmPoolStatus
     Network.AWS.AutoScaling.UpdateAutoScalingGroup
     Network.AWS.AutoScaling.Waiters
 

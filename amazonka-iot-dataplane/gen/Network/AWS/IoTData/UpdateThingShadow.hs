@@ -22,9 +22,13 @@
 --
 -- Updates the shadow for the specified thing.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateThingShadow>
+-- action.
+--
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow>
--- in the AWS IoT Developer Guide.
+-- in the IoT Developer Guide.
 module Network.AWS.IoTData.UpdateThingShadow
   ( -- * Creating a Request
     UpdateThingShadow (..),
@@ -112,7 +116,7 @@ instance Core.AWSRequest UpdateThingShadow where
     Response.receiveBytes
       ( \s h x ->
           UpdateThingShadowResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

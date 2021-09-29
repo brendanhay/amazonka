@@ -46,7 +46,9 @@ data ContainerServiceHealthCheckConfig = ContainerServiceHealthCheckConfig'
     -- default value is @\/@.
     path :: Prelude.Maybe Prelude.Text,
     -- | The HTTP codes to use when checking for a successful response from a
-    -- container. You can specify values between 200 and 499.
+    -- container. You can specify values between @200@ and @499@. You can
+    -- specify multiple values (for example, @200,202@) or a range of values
+    -- (for example, @200-299@).
     successCodes :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +79,9 @@ data ContainerServiceHealthCheckConfig = ContainerServiceHealthCheckConfig'
 -- default value is @\/@.
 --
 -- 'successCodes', 'containerServiceHealthCheckConfig_successCodes' - The HTTP codes to use when checking for a successful response from a
--- container. You can specify values between 200 and 499.
+-- container. You can specify values between @200@ and @499@. You can
+-- specify multiple values (for example, @200,202@) or a range of values
+-- (for example, @200-299@).
 newContainerServiceHealthCheckConfig ::
   ContainerServiceHealthCheckConfig
 newContainerServiceHealthCheckConfig =
@@ -119,7 +123,9 @@ containerServiceHealthCheckConfig_path :: Lens.Lens' ContainerServiceHealthCheck
 containerServiceHealthCheckConfig_path = Lens.lens (\ContainerServiceHealthCheckConfig' {path} -> path) (\s@ContainerServiceHealthCheckConfig' {} a -> s {path = a} :: ContainerServiceHealthCheckConfig)
 
 -- | The HTTP codes to use when checking for a successful response from a
--- container. You can specify values between 200 and 499.
+-- container. You can specify values between @200@ and @499@. You can
+-- specify multiple values (for example, @200,202@) or a range of values
+-- (for example, @200-299@).
 containerServiceHealthCheckConfig_successCodes :: Lens.Lens' ContainerServiceHealthCheckConfig (Prelude.Maybe Prelude.Text)
 containerServiceHealthCheckConfig_successCodes = Lens.lens (\ContainerServiceHealthCheckConfig' {successCodes} -> successCodes) (\s@ContainerServiceHealthCheckConfig' {} a -> s {successCodes = a} :: ContainerServiceHealthCheckConfig)
 

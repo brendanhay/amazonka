@@ -29,8 +29,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The type of broker engine. Note: Currently, Amazon MQ supports ActiveMQ
--- and RabbitMQ.
+-- | The type of broker engine. Amazon MQ supports ActiveMQ and RabbitMQ.
 newtype EngineType = EngineType'
   { fromEngineType ::
       Core.Text

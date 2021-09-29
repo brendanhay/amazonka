@@ -30,12 +30,11 @@ import Network.AWS.SSM.Types.PatchDeploymentStatus
 -- /See:/ 'newPatchStatus' smart constructor.
 data PatchStatus = PatchStatus'
   { -- | The date the patch was approved (or will be approved if the status is
-    -- PENDING_APPROVAL).
+    -- @PENDING_APPROVAL@).
     approvalDate :: Prelude.Maybe Core.POSIX,
     -- | The compliance severity level for a patch.
     complianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | The approval status of a patch (APPROVED, PENDING_APPROVAL,
-    -- EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+    -- | The approval status of a patch.
     deploymentStatus :: Prelude.Maybe PatchDeploymentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,12 +48,11 @@ data PatchStatus = PatchStatus'
 -- for backwards compatibility:
 --
 -- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
--- PENDING_APPROVAL).
+-- @PENDING_APPROVAL@).
 --
 -- 'complianceLevel', 'patchStatus_complianceLevel' - The compliance severity level for a patch.
 --
--- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch (APPROVED, PENDING_APPROVAL,
--- EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+-- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch.
 newPatchStatus ::
   PatchStatus
 newPatchStatus =
@@ -65,7 +63,7 @@ newPatchStatus =
     }
 
 -- | The date the patch was approved (or will be approved if the status is
--- PENDING_APPROVAL).
+-- @PENDING_APPROVAL@).
 patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
 patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Core._Time
 
@@ -73,8 +71,7 @@ patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDa
 patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
 patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
 
--- | The approval status of a patch (APPROVED, PENDING_APPROVAL,
--- EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+-- | The approval status of a patch.
 patchStatus_deploymentStatus :: Lens.Lens' PatchStatus (Prelude.Maybe PatchDeploymentStatus)
 patchStatus_deploymentStatus = Lens.lens (\PatchStatus' {deploymentStatus} -> deploymentStatus) (\s@PatchStatus' {} a -> s {deploymentStatus = a} :: PatchStatus)
 

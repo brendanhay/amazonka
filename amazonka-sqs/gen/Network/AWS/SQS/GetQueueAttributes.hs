@@ -57,6 +57,9 @@ import Network.AWS.SQS.Types
 data GetQueueAttributes = GetQueueAttributes'
   { -- | A list of attributes for which to retrieve information.
     --
+    -- The @AttributeName.N@ parameter is optional, but if you don\'t specify
+    -- values for this parameter, the request returns empty results.
+    --
     -- In the future, new attributes might be added. If you write code that
     -- calls this action, we recommend that you structure your code so that it
     -- can handle new attributes gracefully.
@@ -108,12 +111,17 @@ data GetQueueAttributes = GetQueueAttributes'
     --     seconds, for which the @ReceiveMessage@ action waits for a message
     --     to arrive.
     --
+    -- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
+    --     For more information about the visibility timeout, see
+    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
+    --     in the /Amazon SQS Developer Guide/.
+    --
+    -- The following attributes apply only to
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html dead-letter queues:>
+    --
     -- -   @RedrivePolicy@ – The string that includes the parameters for the
     --     dead-letter queue functionality of the source queue as a JSON
-    --     object. For more information about the redrive policy and
-    --     dead-letter queues, see
-    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
-    --     in the /Amazon Simple Queue Service Developer Guide/.
+    --     object. The parameters are as follows:
     --
     --     -   @deadLetterTargetArn@ – The Amazon Resource Name (ARN) of the
     --         dead-letter queue to which Amazon SQS moves messages after the
@@ -125,22 +133,48 @@ data GetQueueAttributes = GetQueueAttributes'
     --         @maxReceiveCount@ for a queue, Amazon SQS moves the message to
     --         the dead-letter-queue.
     --
-    -- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
-    --     For more information about the visibility timeout, see
-    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
-    --     in the /Amazon Simple Queue Service Developer Guide/.
+    -- -   @RedriveAllowPolicy@ – The string that includes the parameters for
+    --     the permissions for the dead-letter queue redrive permission and
+    --     which source queues can specify dead-letter queues as a JSON object.
+    --     The parameters are as follows:
+    --
+    --     -   @redrivePermission@ – The permission type that defines which
+    --         source queues can specify the current queue as the dead-letter
+    --         queue. Valid values are:
+    --
+    --         -   @allowAll@ – (Default) Any source queues in this Amazon Web
+    --             Services account in the same Region can specify this queue
+    --             as the dead-letter queue.
+    --
+    --         -   @denyAll@ – No source queues can specify this queue as the
+    --             dead-letter queue.
+    --
+    --         -   @byQueue@ – Only queues specified by the @sourceQueueArns@
+    --             parameter can specify this queue as the dead-letter queue.
+    --
+    --     -   @sourceQueueArns@ – The Amazon Resource Names (ARN)s of the
+    --         source queues that can specify this queue as the dead-letter
+    --         queue and redrive messages. You can specify this parameter only
+    --         when the @redrivePermission@ parameter is set to @byQueue@. You
+    --         can specify up to 10 source queue ARNs. To allow more than 10
+    --         source queues to specify dead-letter queues, set the
+    --         @redrivePermission@ parameter to @allowAll@.
+    --
+    -- The dead-letter queue of a FIFO queue must also be a FIFO queue.
+    -- Similarly, the dead-letter queue of a standard queue must also be a
+    -- standard queue.
     --
     -- The following attributes apply only to
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html server-side-encryption>:
     --
-    -- -   @KmsMasterKeyId@ – Returns the ID of an AWS-managed customer master
-    --     key (CMK) for Amazon SQS or a custom CMK. For more information, see
+    -- -   @KmsMasterKeyId@ – Returns the ID of an Amazon Web Services managed
+    --     customer master key (CMK) for Amazon SQS or a custom CMK. For more
+    --     information, see
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
     --
     -- -   @KmsDataKeyReusePeriodSeconds@ – Returns the length of time, in
     --     seconds, for which Amazon SQS can reuse a data key to encrypt or
-    --     decrypt messages before calling AWS KMS again. For more information,
-    --     see
+    --     decrypt messages before calling KMS again. For more information, see
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work How Does the Data Key Reuse Period Work?>.
     --
     -- The following attributes apply only to
@@ -148,8 +182,8 @@ data GetQueueAttributes = GetQueueAttributes'
     --
     -- -   @FifoQueue@ – Returns information about whether the queue is FIFO.
     --     For more information, see
-    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic FIFO Queue Logic>
-    --     in the /Amazon Simple Queue Service Developer Guide/.
+    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html FIFO queue logic>
+    --     in the /Amazon SQS Developer Guide/.
     --
     --     To determine whether a queue is
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html FIFO>,
@@ -157,19 +191,11 @@ data GetQueueAttributes = GetQueueAttributes'
     --
     -- -   @ContentBasedDeduplication@ – Returns whether content-based
     --     deduplication is enabled for the queue. For more information, see
-    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing>
-    --     in the /Amazon Simple Queue Service Developer Guide/.
+    --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html Exactly-once processing>
+    --     in the /Amazon SQS Developer Guide/.
     --
-    -- __Preview: High throughput for FIFO queues__
-    --
-    -- __High throughput for Amazon SQS FIFO queues is in preview release and
-    -- is subject to change.__ This feature provides a high number of
-    -- transactions per second (TPS) for messages in FIFO queues. For
-    -- information on throughput quotas, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
-    --
-    -- This preview includes two new attributes:
+    -- The following attributes apply only to
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html high throughput for FIFO queues>:
     --
     -- -   @DeduplicationScope@ – Specifies whether message deduplication
     --     occurs at the message group or queue level. Valid values are
@@ -188,22 +214,12 @@ data GetQueueAttributes = GetQueueAttributes'
     -- -   Set @FifoThroughputLimit@ to @perMessageGroupId@.
     --
     -- If you set these attributes to anything other than the values shown for
-    -- enabling high throughput, standard throughput is in effect and
+    -- enabling high throughput, normal throughput is in effect and
     -- deduplication occurs as specified.
     --
-    -- This preview is available in the following AWS Regions:
-    --
-    -- -   US East (Ohio); us-east-2
-    --
-    -- -   US East (N. Virginia); us-east-1
-    --
-    -- -   US West (Oregon); us-west-2
-    --
-    -- -   Europe (Ireland); eu-west-1
-    --
-    -- For more information about high throughput for FIFO queues, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
+    -- For information on throughput quotas, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
+    -- in the /Amazon SQS Developer Guide/.
     attributeNames :: Prelude.Maybe [QueueAttributeName],
     -- | The URL of the Amazon SQS queue whose attribute information is
     -- retrieved.
@@ -223,6 +239,9 @@ data GetQueueAttributes = GetQueueAttributes'
 --
 -- 'attributeNames', 'getQueueAttributes_attributeNames' - A list of attributes for which to retrieve information.
 --
+-- The @AttributeName.N@ parameter is optional, but if you don\'t specify
+-- values for this parameter, the request returns empty results.
+--
 -- In the future, new attributes might be added. If you write code that
 -- calls this action, we recommend that you structure your code so that it
 -- can handle new attributes gracefully.
@@ -274,12 +293,17 @@ data GetQueueAttributes = GetQueueAttributes'
 --     seconds, for which the @ReceiveMessage@ action waits for a message
 --     to arrive.
 --
+-- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
+--     For more information about the visibility timeout, see
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
+--     in the /Amazon SQS Developer Guide/.
+--
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html dead-letter queues:>
+--
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
---     object. For more information about the redrive policy and
---     dead-letter queues, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     object. The parameters are as follows:
 --
 --     -   @deadLetterTargetArn@ – The Amazon Resource Name (ARN) of the
 --         dead-letter queue to which Amazon SQS moves messages after the
@@ -291,22 +315,48 @@ data GetQueueAttributes = GetQueueAttributes'
 --         @maxReceiveCount@ for a queue, Amazon SQS moves the message to
 --         the dead-letter-queue.
 --
--- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
---     For more information about the visibility timeout, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
---     in the /Amazon Simple Queue Service Developer Guide/.
+-- -   @RedriveAllowPolicy@ – The string that includes the parameters for
+--     the permissions for the dead-letter queue redrive permission and
+--     which source queues can specify dead-letter queues as a JSON object.
+--     The parameters are as follows:
+--
+--     -   @redrivePermission@ – The permission type that defines which
+--         source queues can specify the current queue as the dead-letter
+--         queue. Valid values are:
+--
+--         -   @allowAll@ – (Default) Any source queues in this Amazon Web
+--             Services account in the same Region can specify this queue
+--             as the dead-letter queue.
+--
+--         -   @denyAll@ – No source queues can specify this queue as the
+--             dead-letter queue.
+--
+--         -   @byQueue@ – Only queues specified by the @sourceQueueArns@
+--             parameter can specify this queue as the dead-letter queue.
+--
+--     -   @sourceQueueArns@ – The Amazon Resource Names (ARN)s of the
+--         source queues that can specify this queue as the dead-letter
+--         queue and redrive messages. You can specify this parameter only
+--         when the @redrivePermission@ parameter is set to @byQueue@. You
+--         can specify up to 10 source queue ARNs. To allow more than 10
+--         source queues to specify dead-letter queues, set the
+--         @redrivePermission@ parameter to @allowAll@.
+--
+-- The dead-letter queue of a FIFO queue must also be a FIFO queue.
+-- Similarly, the dead-letter queue of a standard queue must also be a
+-- standard queue.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ – Returns the ID of an AWS-managed customer master
---     key (CMK) for Amazon SQS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – Returns the ID of an Amazon Web Services managed
+--     customer master key (CMK) for Amazon SQS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --
 -- -   @KmsDataKeyReusePeriodSeconds@ – Returns the length of time, in
 --     seconds, for which Amazon SQS can reuse a data key to encrypt or
---     decrypt messages before calling AWS KMS again. For more information,
---     see
+--     decrypt messages before calling KMS again. For more information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work How Does the Data Key Reuse Period Work?>.
 --
 -- The following attributes apply only to
@@ -314,8 +364,8 @@ data GetQueueAttributes = GetQueueAttributes'
 --
 -- -   @FifoQueue@ – Returns information about whether the queue is FIFO.
 --     For more information, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic FIFO Queue Logic>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html FIFO queue logic>
+--     in the /Amazon SQS Developer Guide/.
 --
 --     To determine whether a queue is
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html FIFO>,
@@ -323,19 +373,11 @@ data GetQueueAttributes = GetQueueAttributes'
 --
 -- -   @ContentBasedDeduplication@ – Returns whether content-based
 --     deduplication is enabled for the queue. For more information, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html Exactly-once processing>
+--     in the /Amazon SQS Developer Guide/.
 --
--- __Preview: High throughput for FIFO queues__
---
--- __High throughput for Amazon SQS FIFO queues is in preview release and
--- is subject to change.__ This feature provides a high number of
--- transactions per second (TPS) for messages in FIFO queues. For
--- information on throughput quotas, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
--- in the /Amazon Simple Queue Service Developer Guide/.
---
--- This preview includes two new attributes:
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html high throughput for FIFO queues>:
 --
 -- -   @DeduplicationScope@ – Specifies whether message deduplication
 --     occurs at the message group or queue level. Valid values are
@@ -354,22 +396,12 @@ data GetQueueAttributes = GetQueueAttributes'
 -- -   Set @FifoThroughputLimit@ to @perMessageGroupId@.
 --
 -- If you set these attributes to anything other than the values shown for
--- enabling high throughput, standard throughput is in effect and
+-- enabling high throughput, normal throughput is in effect and
 -- deduplication occurs as specified.
 --
--- This preview is available in the following AWS Regions:
---
--- -   US East (Ohio); us-east-2
---
--- -   US East (N. Virginia); us-east-1
---
--- -   US West (Oregon); us-west-2
---
--- -   Europe (Ireland); eu-west-1
---
--- For more information about high throughput for FIFO queues, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- For information on throughput quotas, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- 'queueUrl', 'getQueueAttributes_queueUrl' - The URL of the Amazon SQS queue whose attribute information is
 -- retrieved.
@@ -388,6 +420,9 @@ newGetQueueAttributes pQueueUrl_ =
 
 -- | A list of attributes for which to retrieve information.
 --
+-- The @AttributeName.N@ parameter is optional, but if you don\'t specify
+-- values for this parameter, the request returns empty results.
+--
 -- In the future, new attributes might be added. If you write code that
 -- calls this action, we recommend that you structure your code so that it
 -- can handle new attributes gracefully.
@@ -439,12 +474,17 @@ newGetQueueAttributes pQueueUrl_ =
 --     seconds, for which the @ReceiveMessage@ action waits for a message
 --     to arrive.
 --
+-- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
+--     For more information about the visibility timeout, see
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
+--     in the /Amazon SQS Developer Guide/.
+--
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html dead-letter queues:>
+--
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
---     object. For more information about the redrive policy and
---     dead-letter queues, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     object. The parameters are as follows:
 --
 --     -   @deadLetterTargetArn@ – The Amazon Resource Name (ARN) of the
 --         dead-letter queue to which Amazon SQS moves messages after the
@@ -456,22 +496,48 @@ newGetQueueAttributes pQueueUrl_ =
 --         @maxReceiveCount@ for a queue, Amazon SQS moves the message to
 --         the dead-letter-queue.
 --
--- -   @VisibilityTimeout@ – Returns the visibility timeout for the queue.
---     For more information about the visibility timeout, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
---     in the /Amazon Simple Queue Service Developer Guide/.
+-- -   @RedriveAllowPolicy@ – The string that includes the parameters for
+--     the permissions for the dead-letter queue redrive permission and
+--     which source queues can specify dead-letter queues as a JSON object.
+--     The parameters are as follows:
+--
+--     -   @redrivePermission@ – The permission type that defines which
+--         source queues can specify the current queue as the dead-letter
+--         queue. Valid values are:
+--
+--         -   @allowAll@ – (Default) Any source queues in this Amazon Web
+--             Services account in the same Region can specify this queue
+--             as the dead-letter queue.
+--
+--         -   @denyAll@ – No source queues can specify this queue as the
+--             dead-letter queue.
+--
+--         -   @byQueue@ – Only queues specified by the @sourceQueueArns@
+--             parameter can specify this queue as the dead-letter queue.
+--
+--     -   @sourceQueueArns@ – The Amazon Resource Names (ARN)s of the
+--         source queues that can specify this queue as the dead-letter
+--         queue and redrive messages. You can specify this parameter only
+--         when the @redrivePermission@ parameter is set to @byQueue@. You
+--         can specify up to 10 source queue ARNs. To allow more than 10
+--         source queues to specify dead-letter queues, set the
+--         @redrivePermission@ parameter to @allowAll@.
+--
+-- The dead-letter queue of a FIFO queue must also be a FIFO queue.
+-- Similarly, the dead-letter queue of a standard queue must also be a
+-- standard queue.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ – Returns the ID of an AWS-managed customer master
---     key (CMK) for Amazon SQS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ – Returns the ID of an Amazon Web Services managed
+--     customer master key (CMK) for Amazon SQS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --
 -- -   @KmsDataKeyReusePeriodSeconds@ – Returns the length of time, in
 --     seconds, for which Amazon SQS can reuse a data key to encrypt or
---     decrypt messages before calling AWS KMS again. For more information,
---     see
+--     decrypt messages before calling KMS again. For more information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work How Does the Data Key Reuse Period Work?>.
 --
 -- The following attributes apply only to
@@ -479,8 +545,8 @@ newGetQueueAttributes pQueueUrl_ =
 --
 -- -   @FifoQueue@ – Returns information about whether the queue is FIFO.
 --     For more information, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic FIFO Queue Logic>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html FIFO queue logic>
+--     in the /Amazon SQS Developer Guide/.
 --
 --     To determine whether a queue is
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html FIFO>,
@@ -488,19 +554,11 @@ newGetQueueAttributes pQueueUrl_ =
 --
 -- -   @ContentBasedDeduplication@ – Returns whether content-based
 --     deduplication is enabled for the queue. For more information, see
---     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html Exactly-once processing>
+--     in the /Amazon SQS Developer Guide/.
 --
--- __Preview: High throughput for FIFO queues__
---
--- __High throughput for Amazon SQS FIFO queues is in preview release and
--- is subject to change.__ This feature provides a high number of
--- transactions per second (TPS) for messages in FIFO queues. For
--- information on throughput quotas, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
--- in the /Amazon Simple Queue Service Developer Guide/.
---
--- This preview includes two new attributes:
+-- The following attributes apply only to
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html high throughput for FIFO queues>:
 --
 -- -   @DeduplicationScope@ – Specifies whether message deduplication
 --     occurs at the message group or queue level. Valid values are
@@ -519,22 +577,12 @@ newGetQueueAttributes pQueueUrl_ =
 -- -   Set @FifoThroughputLimit@ to @perMessageGroupId@.
 --
 -- If you set these attributes to anything other than the values shown for
--- enabling high throughput, standard throughput is in effect and
+-- enabling high throughput, normal throughput is in effect and
 -- deduplication occurs as specified.
 --
--- This preview is available in the following AWS Regions:
---
--- -   US East (Ohio); us-east-2
---
--- -   US East (N. Virginia); us-east-1
---
--- -   US West (Oregon); us-west-2
---
--- -   Europe (Ireland); eu-west-1
---
--- For more information about high throughput for FIFO queues, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- For information on throughput quotas, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
+-- in the /Amazon SQS Developer Guide/.
 getQueueAttributes_attributeNames :: Lens.Lens' GetQueueAttributes (Prelude.Maybe [QueueAttributeName])
 getQueueAttributes_attributeNames = Lens.lens (\GetQueueAttributes' {attributeNames} -> attributeNames) (\s@GetQueueAttributes' {} a -> s {attributeNames = a} :: GetQueueAttributes) Prelude.. Lens.mapping Lens._Coerce
 

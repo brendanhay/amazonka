@@ -26,9 +26,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- | The name of an Availability Zone for use during database migration.
 -- @AvailabilityZone@ is an optional parameter to the
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html CreateReplicationInstance>
--- operation, and it’s value relates to the AWS Region of an endpoint. For
--- example, the availability zone of an endpoint in the us-east-1 region
--- might be us-east-1a, us-east-1b, us-east-1c, or us-east-1d.
+-- operation, and it’s value relates to the Amazon Web Services Region of
+-- an endpoint. For example, the availability zone of an endpoint in the
+-- us-east-1 region might be us-east-1a, us-east-1b, us-east-1c, or
+-- us-east-1d.
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'

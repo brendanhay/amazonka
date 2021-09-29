@@ -65,10 +65,10 @@ module Network.AWS.MechanicalTurk.UpdateQualificationType
     updateQualificationType_autoGranted,
     updateQualificationType_qualificationTypeStatus,
     updateQualificationType_testDurationInSeconds,
-    updateQualificationType_description,
     updateQualificationType_test,
-    updateQualificationType_answerKey,
+    updateQualificationType_description,
     updateQualificationType_autoGrantedValue,
+    updateQualificationType_answerKey,
     updateQualificationType_qualificationTypeId,
 
     -- * Destructuring the Response
@@ -110,8 +110,6 @@ data UpdateQualificationType = UpdateQualificationType'
     -- | The number of seconds the Worker has to complete the Qualification test,
     -- starting from the time the Worker requests the Qualification.
     testDurationInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The new description of the Qualification type.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The questions for the Qualification test a Worker must answer correctly
     -- to obtain a Qualification of this type. If this parameter is specified,
     -- @TestDurationInSeconds@ must also be specified.
@@ -123,12 +121,14 @@ data UpdateQualificationType = UpdateQualificationType'
     -- Constraints: None. If not specified, the Worker may request the
     -- Qualification without answering any questions.
     test :: Prelude.Maybe Prelude.Text,
-    -- | The answers to the Qualification test specified in the Test parameter,
-    -- in the form of an AnswerKey data structure.
-    answerKey :: Prelude.Maybe Prelude.Text,
+    -- | The new description of the Qualification type.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Qualification value to use for automatically granted Qualifications.
     -- This parameter is used only if the AutoGranted parameter is true.
     autoGrantedValue :: Prelude.Maybe Prelude.Int,
+    -- | The answers to the Qualification test specified in the Test parameter,
+    -- in the form of an AnswerKey data structure.
+    answerKey :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Qualification type to update.
     qualificationTypeId :: Prelude.Text
   }
@@ -162,8 +162,6 @@ data UpdateQualificationType = UpdateQualificationType'
 -- 'testDurationInSeconds', 'updateQualificationType_testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test,
 -- starting from the time the Worker requests the Qualification.
 --
--- 'description', 'updateQualificationType_description' - The new description of the Qualification type.
---
 -- 'test', 'updateQualificationType_test' - The questions for the Qualification test a Worker must answer correctly
 -- to obtain a Qualification of this type. If this parameter is specified,
 -- @TestDurationInSeconds@ must also be specified.
@@ -175,11 +173,13 @@ data UpdateQualificationType = UpdateQualificationType'
 -- Constraints: None. If not specified, the Worker may request the
 -- Qualification without answering any questions.
 --
--- 'answerKey', 'updateQualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter,
--- in the form of an AnswerKey data structure.
+-- 'description', 'updateQualificationType_description' - The new description of the Qualification type.
 --
 -- 'autoGrantedValue', 'updateQualificationType_autoGrantedValue' - The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
+--
+-- 'answerKey', 'updateQualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter,
+-- in the form of an AnswerKey data structure.
 --
 -- 'qualificationTypeId', 'updateQualificationType_qualificationTypeId' - The ID of the Qualification type to update.
 newUpdateQualificationType ::
@@ -193,10 +193,10 @@ newUpdateQualificationType pQualificationTypeId_ =
       autoGranted = Prelude.Nothing,
       qualificationTypeStatus = Prelude.Nothing,
       testDurationInSeconds = Prelude.Nothing,
-      description = Prelude.Nothing,
       test = Prelude.Nothing,
-      answerKey = Prelude.Nothing,
+      description = Prelude.Nothing,
       autoGrantedValue = Prelude.Nothing,
+      answerKey = Prelude.Nothing,
       qualificationTypeId = pQualificationTypeId_
     }
 
@@ -228,10 +228,6 @@ updateQualificationType_qualificationTypeStatus = Lens.lens (\UpdateQualificatio
 updateQualificationType_testDurationInSeconds :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Integer)
 updateQualificationType_testDurationInSeconds = Lens.lens (\UpdateQualificationType' {testDurationInSeconds} -> testDurationInSeconds) (\s@UpdateQualificationType' {} a -> s {testDurationInSeconds = a} :: UpdateQualificationType)
 
--- | The new description of the Qualification type.
-updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
-updateQualificationType_description = Lens.lens (\UpdateQualificationType' {description} -> description) (\s@UpdateQualificationType' {} a -> s {description = a} :: UpdateQualificationType)
-
 -- | The questions for the Qualification test a Worker must answer correctly
 -- to obtain a Qualification of this type. If this parameter is specified,
 -- @TestDurationInSeconds@ must also be specified.
@@ -245,15 +241,19 @@ updateQualificationType_description = Lens.lens (\UpdateQualificationType' {desc
 updateQualificationType_test :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
 updateQualificationType_test = Lens.lens (\UpdateQualificationType' {test} -> test) (\s@UpdateQualificationType' {} a -> s {test = a} :: UpdateQualificationType)
 
--- | The answers to the Qualification test specified in the Test parameter,
--- in the form of an AnswerKey data structure.
-updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
-updateQualificationType_answerKey = Lens.lens (\UpdateQualificationType' {answerKey} -> answerKey) (\s@UpdateQualificationType' {} a -> s {answerKey = a} :: UpdateQualificationType)
+-- | The new description of the Qualification type.
+updateQualificationType_description :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
+updateQualificationType_description = Lens.lens (\UpdateQualificationType' {description} -> description) (\s@UpdateQualificationType' {} a -> s {description = a} :: UpdateQualificationType)
 
 -- | The Qualification value to use for automatically granted Qualifications.
 -- This parameter is used only if the AutoGranted parameter is true.
 updateQualificationType_autoGrantedValue :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Int)
 updateQualificationType_autoGrantedValue = Lens.lens (\UpdateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@UpdateQualificationType' {} a -> s {autoGrantedValue = a} :: UpdateQualificationType)
+
+-- | The answers to the Qualification test specified in the Test parameter,
+-- in the form of an AnswerKey data structure.
+updateQualificationType_answerKey :: Lens.Lens' UpdateQualificationType (Prelude.Maybe Prelude.Text)
+updateQualificationType_answerKey = Lens.lens (\UpdateQualificationType' {answerKey} -> answerKey) (\s@UpdateQualificationType' {} a -> s {answerKey = a} :: UpdateQualificationType)
 
 -- | The ID of the Qualification type to update.
 updateQualificationType_qualificationTypeId :: Lens.Lens' UpdateQualificationType Prelude.Text
@@ -302,11 +302,11 @@ instance Core.ToJSON UpdateQualificationType where
               Prelude.<$> qualificationTypeStatus,
             ("TestDurationInSeconds" Core..=)
               Prelude.<$> testDurationInSeconds,
-            ("Description" Core..=) Prelude.<$> description,
             ("Test" Core..=) Prelude.<$> test,
-            ("AnswerKey" Core..=) Prelude.<$> answerKey,
+            ("Description" Core..=) Prelude.<$> description,
             ("AutoGrantedValue" Core..=)
               Prelude.<$> autoGrantedValue,
+            ("AnswerKey" Core..=) Prelude.<$> answerKey,
             Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId)
           ]

@@ -40,8 +40,8 @@ module Network.AWS.StepFunctions.StartSyncExecution
     startSyncExecutionResponse_stateMachineArn,
     startSyncExecutionResponse_inputDetails,
     startSyncExecutionResponse_input,
-    startSyncExecutionResponse_name,
     startSyncExecutionResponse_output,
+    startSyncExecutionResponse_name,
     startSyncExecutionResponse_cause,
     startSyncExecutionResponse_billingDetails,
     startSyncExecutionResponse_traceHeader,
@@ -160,8 +160,8 @@ instance Core.AWSRequest StartSyncExecution where
             Prelude.<$> (x Core..?> "stateMachineArn")
             Prelude.<*> (x Core..?> "inputDetails")
             Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "output")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "cause")
             Prelude.<*> (x Core..?> "billingDetails")
             Prelude.<*> (x Core..?> "traceHeader")
@@ -220,14 +220,14 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the execution.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The JSON output data of the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
     --
     -- This field is set only if the execution succeeds. If the execution
     -- fails, this field is null.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the execution.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | An object that describes workflow billing details, including billed
@@ -267,13 +267,13 @@ data StartSyncExecutionResponse = StartSyncExecutionResponse'
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 --
--- 'name', 'startSyncExecutionResponse_name' - The name of the execution.
---
 -- 'output', 'startSyncExecutionResponse_output' - The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- This field is set only if the execution succeeds. If the execution
 -- fails, this field is null.
+--
+-- 'name', 'startSyncExecutionResponse_name' - The name of the execution.
 --
 -- 'cause', 'startSyncExecutionResponse_cause' - A more detailed explanation of the cause of the failure.
 --
@@ -318,8 +318,8 @@ newStartSyncExecutionResponse
           Prelude.Nothing,
         inputDetails = Prelude.Nothing,
         input = Prelude.Nothing,
-        name = Prelude.Nothing,
         output = Prelude.Nothing,
+        name = Prelude.Nothing,
         cause = Prelude.Nothing,
         billingDetails = Prelude.Nothing,
         traceHeader = Prelude.Nothing,
@@ -346,10 +346,6 @@ startSyncExecutionResponse_inputDetails = Lens.lens (\StartSyncExecutionResponse
 startSyncExecutionResponse_input :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
 startSyncExecutionResponse_input = Lens.lens (\StartSyncExecutionResponse' {input} -> input) (\s@StartSyncExecutionResponse' {} a -> s {input = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The name of the execution.
-startSyncExecutionResponse_name :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
-startSyncExecutionResponse_name = Lens.lens (\StartSyncExecutionResponse' {name} -> name) (\s@StartSyncExecutionResponse' {} a -> s {name = a} :: StartSyncExecutionResponse)
-
 -- | The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 --
@@ -357,6 +353,10 @@ startSyncExecutionResponse_name = Lens.lens (\StartSyncExecutionResponse' {name}
 -- fails, this field is null.
 startSyncExecutionResponse_output :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
 startSyncExecutionResponse_output = Lens.lens (\StartSyncExecutionResponse' {output} -> output) (\s@StartSyncExecutionResponse' {} a -> s {output = a} :: StartSyncExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the execution.
+startSyncExecutionResponse_name :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)
+startSyncExecutionResponse_name = Lens.lens (\StartSyncExecutionResponse' {name} -> name) (\s@StartSyncExecutionResponse' {} a -> s {name = a} :: StartSyncExecutionResponse)
 
 -- | A more detailed explanation of the cause of the failure.
 startSyncExecutionResponse_cause :: Lens.Lens' StartSyncExecutionResponse (Prelude.Maybe Prelude.Text)

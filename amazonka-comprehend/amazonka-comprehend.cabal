@@ -52,6 +52,7 @@ library
     Network.AWS.Comprehend.BatchDetectSentiment
     Network.AWS.Comprehend.BatchDetectSyntax
     Network.AWS.Comprehend.ClassifyDocument
+    Network.AWS.Comprehend.ContainsPiiEntities
     Network.AWS.Comprehend.CreateDocumentClassifier
     Network.AWS.Comprehend.CreateEndpoint
     Network.AWS.Comprehend.CreateEntityRecognizer
@@ -78,10 +79,12 @@ library
     Network.AWS.Comprehend.Lens
     Network.AWS.Comprehend.ListDocumentClassificationJobs
     Network.AWS.Comprehend.ListDocumentClassifiers
+    Network.AWS.Comprehend.ListDocumentClassifierSummaries
     Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
     Network.AWS.Comprehend.ListEndpoints
     Network.AWS.Comprehend.ListEntitiesDetectionJobs
     Network.AWS.Comprehend.ListEntityRecognizers
+    Network.AWS.Comprehend.ListEntityRecognizerSummaries
     Network.AWS.Comprehend.ListEventsDetectionJobs
     Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
     Network.AWS.Comprehend.ListPiiEntitiesDetectionJobs
@@ -106,6 +109,7 @@ library
     Network.AWS.Comprehend.StopTrainingEntityRecognizer
     Network.AWS.Comprehend.TagResource
     Network.AWS.Comprehend.Types
+    Network.AWS.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
     Network.AWS.Comprehend.Types.AugmentedManifestsListItem
     Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
     Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
@@ -124,7 +128,12 @@ library
     Network.AWS.Comprehend.Types.DocumentClassifierMode
     Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
     Network.AWS.Comprehend.Types.DocumentClassifierProperties
+    Network.AWS.Comprehend.Types.DocumentClassifierSummary
     Network.AWS.Comprehend.Types.DocumentLabel
+    Network.AWS.Comprehend.Types.DocumentReadAction
+    Network.AWS.Comprehend.Types.DocumentReaderConfig
+    Network.AWS.Comprehend.Types.DocumentReadFeatureTypes
+    Network.AWS.Comprehend.Types.DocumentReadMode
     Network.AWS.Comprehend.Types.DominantLanguage
     Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
     Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -134,6 +143,7 @@ library
     Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
     Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
     Network.AWS.Comprehend.Types.Entity
+    Network.AWS.Comprehend.Types.EntityLabel
     Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
     Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
     Network.AWS.Comprehend.Types.EntityRecognizerDocuments
@@ -144,6 +154,7 @@ library
     Network.AWS.Comprehend.Types.EntityRecognizerMetadata
     Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
     Network.AWS.Comprehend.Types.EntityRecognizerProperties
+    Network.AWS.Comprehend.Types.EntityRecognizerSummary
     Network.AWS.Comprehend.Types.EntityType
     Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
     Network.AWS.Comprehend.Types.EntityTypesListItem
@@ -172,6 +183,7 @@ library
     Network.AWS.Comprehend.Types.SentimentDetectionJobProperties
     Network.AWS.Comprehend.Types.SentimentScore
     Network.AWS.Comprehend.Types.SentimentType
+    Network.AWS.Comprehend.Types.Split
     Network.AWS.Comprehend.Types.SyntaxLanguageCode
     Network.AWS.Comprehend.Types.SyntaxToken
     Network.AWS.Comprehend.Types.Tag

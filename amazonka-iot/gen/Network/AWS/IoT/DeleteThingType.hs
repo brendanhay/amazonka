@@ -25,6 +25,10 @@
 -- deprecated by calling DeprecateThingType, then remove any associated
 -- things by calling UpdateThing to change the thing type on any associated
 -- thing, and finally use DeleteThingType to delete the thing type.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteThingType>
+-- action.
 module Network.AWS.IoT.DeleteThingType
   ( -- * Creating a Request
     DeleteThingType (..),

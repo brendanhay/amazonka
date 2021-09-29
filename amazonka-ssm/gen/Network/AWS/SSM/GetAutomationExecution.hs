@@ -50,7 +50,7 @@ import Network.AWS.SSM.Types
 data GetAutomationExecution = GetAutomationExecution'
   { -- | The unique identifier for an existing automation execution to examine.
     -- The execution ID is returned by StartAutomationExecution when the
-    -- execution of an Automation document is initiated.
+    -- execution of an Automation runbook is initiated.
     automationExecutionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data GetAutomationExecution = GetAutomationExecution'
 --
 -- 'automationExecutionId', 'getAutomationExecution_automationExecutionId' - The unique identifier for an existing automation execution to examine.
 -- The execution ID is returned by StartAutomationExecution when the
--- execution of an Automation document is initiated.
+-- execution of an Automation runbook is initiated.
 newGetAutomationExecution ::
   -- | 'automationExecutionId'
   Prelude.Text ->
@@ -78,7 +78,7 @@ newGetAutomationExecution pAutomationExecutionId_ =
 
 -- | The unique identifier for an existing automation execution to examine.
 -- The execution ID is returned by StartAutomationExecution when the
--- execution of an Automation document is initiated.
+-- execution of an Automation runbook is initiated.
 getAutomationExecution_automationExecutionId :: Lens.Lens' GetAutomationExecution Prelude.Text
 getAutomationExecution_automationExecutionId = Lens.lens (\GetAutomationExecution' {automationExecutionId} -> automationExecutionId) (\s@GetAutomationExecution' {} a -> s {automationExecutionId = a} :: GetAutomationExecution)
 

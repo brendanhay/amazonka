@@ -24,7 +24,9 @@ module Network.AWS.CloudWatchLogs.Types.QueryStatus
         QueryStatus_Complete,
         QueryStatus_Failed,
         QueryStatus_Running,
-        QueryStatus_Scheduled
+        QueryStatus_Scheduled,
+        QueryStatus_Timeout,
+        QueryStatus_Unknown
       ),
   )
 where
@@ -75,11 +77,19 @@ pattern QueryStatus_Running = QueryStatus' "Running"
 pattern QueryStatus_Scheduled :: QueryStatus
 pattern QueryStatus_Scheduled = QueryStatus' "Scheduled"
 
+pattern QueryStatus_Timeout :: QueryStatus
+pattern QueryStatus_Timeout = QueryStatus' "Timeout"
+
+pattern QueryStatus_Unknown :: QueryStatus
+pattern QueryStatus_Unknown = QueryStatus' "Unknown"
+
 {-# COMPLETE
   QueryStatus_Cancelled,
   QueryStatus_Complete,
   QueryStatus_Failed,
   QueryStatus_Running,
   QueryStatus_Scheduled,
+  QueryStatus_Timeout,
+  QueryStatus_Unknown,
   QueryStatus'
   #-}

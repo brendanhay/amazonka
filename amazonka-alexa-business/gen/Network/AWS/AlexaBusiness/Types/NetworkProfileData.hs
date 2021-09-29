@@ -38,11 +38,11 @@ data NetworkProfileData = NetworkProfileData'
     eapMethod :: Prelude.Maybe NetworkEapMethod,
     -- | The name of the network profile associated with a device.
     networkProfileName :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about a device\'s network profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
     -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: Prelude.Maybe NetworkSecurityType,
-    -- | Detailed information about a device\'s network profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
     networkProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The SSID of the Wi-Fi network.
@@ -67,10 +67,10 @@ data NetworkProfileData = NetworkProfileData'
 --
 -- 'networkProfileName', 'networkProfileData_networkProfileName' - The name of the network profile associated with a device.
 --
+-- 'description', 'networkProfileData_description' - Detailed information about a device\'s network profile.
+--
 -- 'securityType', 'networkProfileData_securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
---
--- 'description', 'networkProfileData_description' - Detailed information about a device\'s network profile.
 --
 -- 'networkProfileArn', 'networkProfileData_networkProfileArn' - The ARN of the network profile associated with a device.
 --
@@ -83,8 +83,8 @@ newNetworkProfileData =
         Prelude.Nothing,
       eapMethod = Prelude.Nothing,
       networkProfileName = Prelude.Nothing,
-      securityType = Prelude.Nothing,
       description = Prelude.Nothing,
+      securityType = Prelude.Nothing,
       networkProfileArn = Prelude.Nothing,
       ssid = Prelude.Nothing
     }
@@ -104,14 +104,14 @@ networkProfileData_eapMethod = Lens.lens (\NetworkProfileData' {eapMethod} -> ea
 networkProfileData_networkProfileName :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
 networkProfileData_networkProfileName = Lens.lens (\NetworkProfileData' {networkProfileName} -> networkProfileName) (\s@NetworkProfileData' {} a -> s {networkProfileName = a} :: NetworkProfileData)
 
+-- | Detailed information about a device\'s network profile.
+networkProfileData_description :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_description = Lens.lens (\NetworkProfileData' {description} -> description) (\s@NetworkProfileData' {} a -> s {description = a} :: NetworkProfileData)
+
 -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
 networkProfileData_securityType :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkSecurityType)
 networkProfileData_securityType = Lens.lens (\NetworkProfileData' {securityType} -> securityType) (\s@NetworkProfileData' {} a -> s {securityType = a} :: NetworkProfileData)
-
--- | Detailed information about a device\'s network profile.
-networkProfileData_description :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
-networkProfileData_description = Lens.lens (\NetworkProfileData' {description} -> description) (\s@NetworkProfileData' {} a -> s {description = a} :: NetworkProfileData)
 
 -- | The ARN of the network profile associated with a device.
 networkProfileData_networkProfileArn :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
@@ -130,8 +130,8 @@ instance Core.FromJSON NetworkProfileData where
             Prelude.<$> (x Core..:? "CertificateAuthorityArn")
             Prelude.<*> (x Core..:? "EapMethod")
             Prelude.<*> (x Core..:? "NetworkProfileName")
-            Prelude.<*> (x Core..:? "SecurityType")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "SecurityType")
             Prelude.<*> (x Core..:? "NetworkProfileArn")
             Prelude.<*> (x Core..:? "Ssid")
       )

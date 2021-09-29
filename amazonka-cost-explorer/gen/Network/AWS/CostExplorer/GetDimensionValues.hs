@@ -31,8 +31,8 @@ module Network.AWS.CostExplorer.GetDimensionValues
     -- * Request Lenses
     getDimensionValues_maxResults,
     getDimensionValues_searchString,
-    getDimensionValues_nextPageToken,
     getDimensionValues_context,
+    getDimensionValues_nextPageToken,
     getDimensionValues_sortBy,
     getDimensionValues_filter,
     getDimensionValues_timePeriod,
@@ -69,10 +69,6 @@ data GetDimensionValues = GetDimensionValues'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value that you want to search the filter values for.
     searchString :: Prelude.Maybe Prelude.Text,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The context for the call to @GetDimensionValues@. This can be
     -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
     -- @COST_AND_USAGE@. If the context is set to @RESERVATIONS@, the resulting
@@ -91,12 +87,12 @@ data GetDimensionValues = GetDimensionValues'
     -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
     --     @m4.xlarge@.
     --
-    -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
-    --     services, such as Amazon Web Services.
+    -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+    --     Amazon Web Services services, such as Amazon Web Services.
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
     --     Linux.
@@ -111,7 +107,7 @@ data GetDimensionValues = GetDimensionValues'
     --     usage is related. Examples include On-Demand Instances and Standard
     --     Reserved Instances.
     --
-    -- -   SERVICE - The AWS service such as Amazon DynamoDB.
+    -- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
     --
     -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
     --     The response for the @GetDimensionValues@ operation includes a unit
@@ -121,7 +117,7 @@ data GetDimensionValues = GetDimensionValues'
     --     Amazon EC2: CloudWatch – Alarms. The response for this operation
     --     includes a unit attribute.
     --
-    -- -   REGION - The AWS Region.
+    -- -   REGION - The Amazon Web Services Region.
     --
     -- -   RECORD_TYPE - The different types of charges such as RI fees, usage
     --     costs, tax refunds, and credits.
@@ -146,12 +142,12 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
     --     Linux.
     --
-    -- -   REGION - The AWS Region.
+    -- -   REGION - The Amazon Web Services Region.
     --
     -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
     --     Values are regional or a single Availability Zone.
@@ -170,16 +166,20 @@ data GetDimensionValues = GetDimensionValues'
     -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
     --     example, All Upfront)
     --
-    -- -   REGION - The AWS Region.
+    -- -   REGION - The Amazon Web Services Region.
     --
     -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
     context :: Prelude.Maybe Context,
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -206,8 +206,8 @@ data GetDimensionValues = GetDimensionValues'
     -- @SearchString@ are not supported.
     sortBy :: Prelude.Maybe [SortDefinition],
     filter' :: Prelude.Maybe Expression,
-    -- | The start and end dates for retrieving the dimension values. The start
-    -- date is inclusive, but the end date is exclusive. For example, if
+    -- | The start date and end date for retrieving the dimension values. The
+    -- start date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
     -- usage data is retrieved from @2017-01-01@ up to and including
     -- @2017-04-30@ but not including @2017-05-01@.
@@ -235,10 +235,6 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
 --
--- 'nextPageToken', 'getDimensionValues_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
---
 -- 'context', 'getDimensionValues_context' - The context for the call to @GetDimensionValues@. This can be
 -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
 -- @COST_AND_USAGE@. If the context is set to @RESERVATIONS@, the resulting
@@ -257,12 +253,12 @@ data GetDimensionValues = GetDimensionValues'
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
 --
--- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
---     services, such as Amazon Web Services.
+-- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+--     Amazon Web Services services, such as Amazon Web Services.
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
 --     Linux.
@@ -277,7 +273,7 @@ data GetDimensionValues = GetDimensionValues'
 --     usage is related. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
--- -   SERVICE - The AWS service such as Amazon DynamoDB.
+-- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -287,7 +283,7 @@ data GetDimensionValues = GetDimensionValues'
 --     Amazon EC2: CloudWatch – Alarms. The response for this operation
 --     includes a unit attribute.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   RECORD_TYPE - The different types of charges such as RI fees, usage
 --     costs, tax refunds, and credits.
@@ -312,12 +308,12 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
 --     Values are regional or a single Availability Zone.
@@ -336,15 +332,19 @@ data GetDimensionValues = GetDimensionValues'
 -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
+--
+-- 'nextPageToken', 'getDimensionValues_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'sortBy', 'getDimensionValues_sortBy' - The value by which you want to sort the data.
 --
@@ -373,8 +373,8 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- 'filter'', 'getDimensionValues_filter' - Undocumented member.
 --
--- 'timePeriod', 'getDimensionValues_timePeriod' - The start and end dates for retrieving the dimension values. The start
--- date is inclusive, but the end date is exclusive. For example, if
+-- 'timePeriod', 'getDimensionValues_timePeriod' - The start date and end date for retrieving the dimension values. The
+-- start date is inclusive, but the end date is exclusive. For example, if
 -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
 -- usage data is retrieved from @2017-01-01@ up to and including
 -- @2017-04-30@ but not including @2017-05-01@.
@@ -391,8 +391,8 @@ newGetDimensionValues pTimePeriod_ pDimension_ =
   GetDimensionValues'
     { maxResults = Prelude.Nothing,
       searchString = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
       context = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_,
@@ -412,12 +412,6 @@ getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> 
 getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
 getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
-getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
-getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToken} -> nextPageToken) (\s@GetDimensionValues' {} a -> s {nextPageToken = a} :: GetDimensionValues)
-
 -- | The context for the call to @GetDimensionValues@. This can be
 -- @RESERVATIONS@ or @COST_AND_USAGE@. The default value is
 -- @COST_AND_USAGE@. If the context is set to @RESERVATIONS@, the resulting
@@ -436,12 +430,12 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
 --
--- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
---     services, such as Amazon Web Services.
+-- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+--     Amazon Web Services services, such as Amazon Web Services.
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
 --     Linux.
@@ -456,7 +450,7 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --     usage is related. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
--- -   SERVICE - The AWS service such as Amazon DynamoDB.
+-- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -466,7 +460,7 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --     Amazon EC2: CloudWatch – Alarms. The response for this operation
 --     includes a unit attribute.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   RECORD_TYPE - The different types of charges such as RI fees, usage
 --     costs, tax refunds, and credits.
@@ -491,12 +485,12 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
 --     Values are regional or a single Availability Zone.
@@ -515,17 +509,23 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 getDimensionValues_context :: Lens.Lens' GetDimensionValues (Prelude.Maybe Context)
 getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> context) (\s@GetDimensionValues' {} a -> s {context = a} :: GetDimensionValues)
+
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getDimensionValues_nextPageToken :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
+getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToken} -> nextPageToken) (\s@GetDimensionValues' {} a -> s {nextPageToken = a} :: GetDimensionValues)
 
 -- | The value by which you want to sort the data.
 --
@@ -558,8 +558,8 @@ getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) 
 getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
 getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
 
--- | The start and end dates for retrieving the dimension values. The start
--- date is inclusive, but the end date is exclusive. For example, if
+-- | The start date and end date for retrieving the dimension values. The
+-- start date is inclusive, but the end date is exclusive. For example, if
 -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
 -- usage data is retrieved from @2017-01-01@ up to and including
 -- @2017-04-30@ but not including @2017-05-01@.
@@ -614,8 +614,8 @@ instance Core.ToJSON GetDimensionValues where
       ( Prelude.catMaybes
           [ ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SearchString" Core..=) Prelude.<$> searchString,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("Context" Core..=) Prelude.<$> context,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("SortBy" Core..=) Prelude.<$> sortBy,
             ("Filter" Core..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Core..= timePeriod),
@@ -631,9 +631,9 @@ instance Core.ToQuery GetDimensionValues where
 
 -- | /See:/ 'newGetDimensionValuesResponse' smart constructor.
 data GetDimensionValuesResponse = GetDimensionValuesResponse'
-  { -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+  { -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -651,12 +651,12 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
     --     @m4.xlarge@.
     --
-    -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
-    --     services, such as Amazon Web Services.
+    -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+    --     Amazon Web Services services, such as Amazon Web Services.
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
     --     Linux.
@@ -671,7 +671,7 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     --     usage is related. Examples include On-Demand Instances and Standard
     --     Reserved Instances.
     --
-    -- -   SERVICE - The AWS service such as Amazon DynamoDB.
+    -- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
     --
     -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
     --     The response for the @GetDimensionValues@ operation includes a unit
@@ -704,12 +704,12 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
     --     Linux.
     --
-    -- -   REGION - The AWS Region.
+    -- -   REGION - The Amazon Web Services Region.
     --
     -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
     --     Values are regional or a single Availability Zone.
@@ -728,17 +728,17 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
     -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
     --     example, All Upfront)
     --
-    -- -   REGION - The AWS Region.
+    -- -   REGION - The Amazon Web Services Region.
     --
     -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
     --
     -- -   LINKED_ACCOUNT - The description in the attribute map that includes
     --     the full name of the member account. The value field contains the
-    --     AWS ID of the member account.
+    --     Amazon Web Services ID of the member account.
     --
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
     dimensionValues :: [DimensionValuesWithAttributes],
-    -- | The number of results that AWS returned at one time.
+    -- | The number of results that Amazon Web Services returned at one time.
     returnSize :: Prelude.Int,
     -- | The total number of search results.
     totalSize :: Prelude.Int
@@ -753,9 +753,9 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getDimensionValuesResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- 'nextPageToken', 'getDimensionValuesResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getDimensionValuesResponse_httpStatus' - The response's http status code.
 --
@@ -773,12 +773,12 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
 --
--- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
---     services, such as Amazon Web Services.
+-- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+--     Amazon Web Services services, such as Amazon Web Services.
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
 --     Linux.
@@ -793,7 +793,7 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 --     usage is related. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
--- -   SERVICE - The AWS service such as Amazon DynamoDB.
+-- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -826,12 +826,12 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
 --     Values are regional or a single Availability Zone.
@@ -850,17 +850,17 @@ data GetDimensionValuesResponse = GetDimensionValuesResponse'
 -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 --
--- 'returnSize', 'getDimensionValuesResponse_returnSize' - The number of results that AWS returned at one time.
+-- 'returnSize', 'getDimensionValuesResponse_returnSize' - The number of results that Amazon Web Services returned at one time.
 --
 -- 'totalSize', 'getDimensionValuesResponse_totalSize' - The total number of search results.
 newGetDimensionValuesResponse ::
@@ -884,9 +884,9 @@ newGetDimensionValuesResponse
         totalSize = pTotalSize_
       }
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getDimensionValuesResponse_nextPageToken :: Lens.Lens' GetDimensionValuesResponse (Prelude.Maybe Prelude.Text)
 getDimensionValuesResponse_nextPageToken = Lens.lens (\GetDimensionValuesResponse' {nextPageToken} -> nextPageToken) (\s@GetDimensionValuesResponse' {} a -> s {nextPageToken = a} :: GetDimensionValuesResponse)
 
@@ -908,12 +908,12 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
 --
--- -   LEGAL_ENTITY_NAME - The name of the organization that sells you AWS
---     services, such as Amazon Web Services.
+-- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
+--     Amazon Web Services services, such as Amazon Web Services.
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   OPERATING_SYSTEM - The operating system. Examples are Windows or
 --     Linux.
@@ -928,7 +928,7 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 --     usage is related. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
--- -   SERVICE - The AWS service such as Amazon DynamoDB.
+-- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -961,12 +961,12 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   SCOPE (Utilization only) - The scope of a Reserved Instance (RI).
 --     Values are regional or a single Availability Zone.
@@ -985,19 +985,19 @@ getDimensionValuesResponse_httpStatus = Lens.lens (\GetDimensionValuesResponse' 
 -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
--- -   REGION - The AWS Region.
+-- -   REGION - The Amazon Web Services Region.
 --
 -- -   INSTANCE_TYPE_FAMILY - The family of instances (For example, @m5@)
 --
 -- -   LINKED_ACCOUNT - The description in the attribute map that includes
 --     the full name of the member account. The value field contains the
---     AWS ID of the member account.
+--     Amazon Web Services ID of the member account.
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 getDimensionValuesResponse_dimensionValues :: Lens.Lens' GetDimensionValuesResponse [DimensionValuesWithAttributes]
 getDimensionValuesResponse_dimensionValues = Lens.lens (\GetDimensionValuesResponse' {dimensionValues} -> dimensionValues) (\s@GetDimensionValuesResponse' {} a -> s {dimensionValues = a} :: GetDimensionValuesResponse) Prelude.. Lens._Coerce
 
--- | The number of results that AWS returned at one time.
+-- | The number of results that Amazon Web Services returned at one time.
 getDimensionValuesResponse_returnSize :: Lens.Lens' GetDimensionValuesResponse Prelude.Int
 getDimensionValuesResponse_returnSize = Lens.lens (\GetDimensionValuesResponse' {returnSize} -> returnSize) (\s@GetDimensionValuesResponse' {} a -> s {returnSize = a} :: GetDimensionValuesResponse)
 

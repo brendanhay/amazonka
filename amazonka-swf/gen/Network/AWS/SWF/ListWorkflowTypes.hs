@@ -51,8 +51,8 @@ module Network.AWS.SWF.ListWorkflowTypes
     newListWorkflowTypes,
 
     -- * Request Lenses
-    listWorkflowTypes_name,
     listWorkflowTypes_nextPageToken,
+    listWorkflowTypes_name,
     listWorkflowTypes_maximumPageSize,
     listWorkflowTypes_reverseOrder,
     listWorkflowTypes_domain,
@@ -78,9 +78,7 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'newListWorkflowTypes' smart constructor.
 data ListWorkflowTypes = ListWorkflowTypes'
-  { -- | If specified, lists the workflow type with this name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If @NextPageToken@ is returned there are more results available. The
+  { -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
@@ -90,6 +88,8 @@ data ListWorkflowTypes = ListWorkflowTypes'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | If specified, lists the workflow type with this name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
@@ -112,8 +112,6 @@ data ListWorkflowTypes = ListWorkflowTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listWorkflowTypes_name' - If specified, lists the workflow type with this name.
---
 -- 'nextPageToken', 'listWorkflowTypes_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
@@ -123,6 +121,8 @@ data ListWorkflowTypes = ListWorkflowTypes'
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
+--
+-- 'name', 'listWorkflowTypes_name' - If specified, lists the workflow type with this name.
 --
 -- 'maximumPageSize', 'listWorkflowTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
@@ -142,17 +142,13 @@ newListWorkflowTypes ::
   ListWorkflowTypes
 newListWorkflowTypes pDomain_ pRegistrationStatus_ =
   ListWorkflowTypes'
-    { name = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
+      name = Prelude.Nothing,
       maximumPageSize = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
-
--- | If specified, lists the workflow type with this name.
-listWorkflowTypes_name :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
-listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@ListWorkflowTypes' {} a -> s {name = a} :: ListWorkflowTypes)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -165,6 +161,10 @@ listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@List
 -- returned in a single call.
 listWorkflowTypes_nextPageToken :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
 listWorkflowTypes_nextPageToken = Lens.lens (\ListWorkflowTypes' {nextPageToken} -> nextPageToken) (\s@ListWorkflowTypes' {} a -> s {nextPageToken = a} :: ListWorkflowTypes)
+
+-- | If specified, lists the workflow type with this name.
+listWorkflowTypes_name :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
+listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@ListWorkflowTypes' {} a -> s {name = a} :: ListWorkflowTypes)
 
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
@@ -241,8 +241,8 @@ instance Core.ToJSON ListWorkflowTypes where
   toJSON ListWorkflowTypes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+          [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("name" Core..=) Prelude.<$> name,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
             ("reverseOrder" Core..=) Prelude.<$> reverseOrder,

@@ -30,17 +30,17 @@ import Network.AWS.S3.Types.ServerSideEncryption
 -- encryption, this default encryption will be applied. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html PUT Bucket encryption>
--- in the /Amazon Simple Storage Service API Reference/.
+-- in the /Amazon S3 API Reference/.
 --
 -- /See:/ 'newServerSideEncryptionByDefault' smart constructor.
 data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
-  { -- | AWS Key Management Service (KMS) customer master key ID to use for the
-    -- default encryption. This parameter is allowed if and only if
-    -- @SSEAlgorithm@ is set to @aws:kms@.
+  { -- | Amazon Web Services Key Management Service (KMS) customer Amazon Web
+    -- Services KMS key ID to use for the default encryption. This parameter is
+    -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
     --
-    -- You can specify the key ID or the Amazon Resource Name (ARN) of the CMK.
-    -- However, if you are using encryption with cross-account operations, you
-    -- must use a fully qualified CMK ARN. For more information, see
+    -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
+    -- key. However, if you are using encryption with cross-account operations,
+    -- you must use a fully qualified KMS key ARN. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
     --
     -- __For example:__
@@ -50,10 +50,10 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsMasterKeyID :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Server-side encryption algorithm to use for the default encryption.
     sSEAlgorithm :: ServerSideEncryption
@@ -68,13 +68,13 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsMasterKeyID', 'serverSideEncryptionByDefault_kmsMasterKeyID' - AWS Key Management Service (KMS) customer master key ID to use for the
--- default encryption. This parameter is allowed if and only if
--- @SSEAlgorithm@ is set to @aws:kms@.
+-- 'kmsMasterKeyID', 'serverSideEncryptionByDefault_kmsMasterKeyID' - Amazon Web Services Key Management Service (KMS) customer Amazon Web
+-- Services KMS key ID to use for the default encryption. This parameter is
+-- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
--- You can specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- However, if you are using encryption with cross-account operations, you
--- must use a fully qualified CMK ARN. For more information, see
+-- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
+-- key. However, if you are using encryption with cross-account operations,
+-- you must use a fully qualified KMS key ARN. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- __For example:__
@@ -84,10 +84,10 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'sSEAlgorithm', 'serverSideEncryptionByDefault_sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
 newServerSideEncryptionByDefault ::
@@ -101,13 +101,13 @@ newServerSideEncryptionByDefault pSSEAlgorithm_ =
       sSEAlgorithm = pSSEAlgorithm_
     }
 
--- | AWS Key Management Service (KMS) customer master key ID to use for the
--- default encryption. This parameter is allowed if and only if
--- @SSEAlgorithm@ is set to @aws:kms@.
+-- | Amazon Web Services Key Management Service (KMS) customer Amazon Web
+-- Services KMS key ID to use for the default encryption. This parameter is
+-- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
--- You can specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- However, if you are using encryption with cross-account operations, you
--- must use a fully qualified CMK ARN. For more information, see
+-- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
+-- key. However, if you are using encryption with cross-account operations,
+-- you must use a fully qualified KMS key ARN. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- __For example:__
@@ -117,10 +117,10 @@ newServerSideEncryptionByDefault pSSEAlgorithm_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 serverSideEncryptionByDefault_kmsMasterKeyID :: Lens.Lens' ServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
 serverSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\ServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@ServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: ServerSideEncryptionByDefault) Prelude.. Lens.mapping Core._Sensitive
 

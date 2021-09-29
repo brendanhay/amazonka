@@ -28,7 +28,7 @@ import Network.AWS.Route53.Types.HealthCheckConfig
 import Network.AWS.Route53.Types.LinkedService
 
 -- | A complex type that contains information about one health check that is
--- associated with the current AWS account.
+-- associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'

@@ -20,20 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates the contact attributes associated with the specified
--- contact.
+-- Creates or updates user-defined contact attributes associated with the
+-- specified contact.
 --
--- You can add or update attributes for both ongoing and completed
--- contacts. For example, while the call is active, you can update the
--- customer\'s name or the reason the customer called. You can add notes
--- about steps that the agent took during the call that display to the next
--- agent that takes the call. You can also update attributes for a contact
--- using data from your CRM application and save the data with the contact
--- in Amazon Connect. You could also flag calls for additional analysis,
--- such as legal review or to identify abusive callers.
+-- You can create or update user-defined attributes for both ongoing and
+-- completed contacts. For example, while the call is active, you can
+-- update the customer\'s name or the reason the customer called. You can
+-- add notes about steps that the agent took during the call that display
+-- to the next agent that takes the call. You can also update attributes
+-- for a contact using data from your CRM application and save the data
+-- with the contact in Amazon Connect. You could also flag calls for
+-- additional analysis, such as legal review or to identify abusive
+-- callers.
 --
 -- Contact attributes are available in Amazon Connect for 24 months, and
--- are then deleted.
+-- are then deleted. For information about CTR retention and the maximum
+-- size of the CTR attributes section, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- in the /Amazon Connect Administrator Guide/.
 --
 -- __Important:__ You cannot use the operation to update attributes for
 -- contacts that occurred prior to the release of the API, which was
@@ -74,7 +78,8 @@ data UpdateContactAttributes = UpdateContactAttributes'
   { -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
     initialContactId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The Amazon Connect attributes. These attributes can be accessed in
     -- contact flows just like any other contact attributes.
@@ -97,7 +102,8 @@ data UpdateContactAttributes = UpdateContactAttributes'
 -- 'initialContactId', 'updateContactAttributes_initialContactId' - The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
 --
--- 'instanceId', 'updateContactAttributes_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateContactAttributes_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'attributes', 'updateContactAttributes_attributes' - The Amazon Connect attributes. These attributes can be accessed in
 -- contact flows just like any other contact attributes.
@@ -126,7 +132,8 @@ newUpdateContactAttributes
 updateContactAttributes_initialContactId :: Lens.Lens' UpdateContactAttributes Prelude.Text
 updateContactAttributes_initialContactId = Lens.lens (\UpdateContactAttributes' {initialContactId} -> initialContactId) (\s@UpdateContactAttributes' {} a -> s {initialContactId = a} :: UpdateContactAttributes)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateContactAttributes_instanceId :: Lens.Lens' UpdateContactAttributes Prelude.Text
 updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {instanceId} -> instanceId) (\s@UpdateContactAttributes' {} a -> s {instanceId = a} :: UpdateContactAttributes)
 

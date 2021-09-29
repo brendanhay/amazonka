@@ -24,6 +24,13 @@
 -- filter the results by prefix. The results are ASCII-sorted by log group
 -- name.
 --
+-- CloudWatch Logs doesn’t support IAM policies that control access to the
+-- @DescribeLogGroups@ action by using the @aws:ResourceTag\/key-name @
+-- condition key. Other CloudWatch Logs actions do support the use of the
+-- @aws:ResourceTag\/key-name @ condition key to control access. For more
+-- information about using tags to control access, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
+--
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
   ( -- * Creating a Request

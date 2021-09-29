@@ -55,7 +55,7 @@ data ModifyVpnTunnelCertificate = ModifyVpnTunnelCertificate'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the AWS Site-to-Site VPN connection.
+    -- | The ID of the Amazon Web Services Site-to-Site VPN connection.
     vpnConnectionId :: Prelude.Text,
     -- | The external IP address of the VPN tunnel.
     vpnTunnelOutsideIpAddress :: Prelude.Text
@@ -75,7 +75,7 @@ data ModifyVpnTunnelCertificate = ModifyVpnTunnelCertificate'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'vpnConnectionId', 'modifyVpnTunnelCertificate_vpnConnectionId' - The ID of the AWS Site-to-Site VPN connection.
+-- 'vpnConnectionId', 'modifyVpnTunnelCertificate_vpnConnectionId' - The ID of the Amazon Web Services Site-to-Site VPN connection.
 --
 -- 'vpnTunnelOutsideIpAddress', 'modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress' - The external IP address of the VPN tunnel.
 newModifyVpnTunnelCertificate ::
@@ -102,7 +102,7 @@ newModifyVpnTunnelCertificate
 modifyVpnTunnelCertificate_dryRun :: Lens.Lens' ModifyVpnTunnelCertificate (Prelude.Maybe Prelude.Bool)
 modifyVpnTunnelCertificate_dryRun = Lens.lens (\ModifyVpnTunnelCertificate' {dryRun} -> dryRun) (\s@ModifyVpnTunnelCertificate' {} a -> s {dryRun = a} :: ModifyVpnTunnelCertificate)
 
--- | The ID of the AWS Site-to-Site VPN connection.
+-- | The ID of the Amazon Web Services Site-to-Site VPN connection.
 modifyVpnTunnelCertificate_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelCertificate Prelude.Text
 modifyVpnTunnelCertificate_vpnConnectionId = Lens.lens (\ModifyVpnTunnelCertificate' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnTunnelCertificate' {} a -> s {vpnConnectionId = a} :: ModifyVpnTunnelCertificate)
 

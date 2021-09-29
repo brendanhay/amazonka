@@ -75,10 +75,10 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- new hyperparameter tuning jobs count against the limit of training jobs
     -- for the tuning job.
     warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     --
     -- Tags that you specify for the tuning job are also added to all training
     -- jobs that the tuning job launches.
@@ -93,9 +93,9 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
     -- | The name of the tuning job. This name is the prefix for the names of all
     -- training jobs that this tuning job launches. The name must be unique
-    -- within the same AWS account and AWS Region. The name must have 1 to 32
-    -- characters. Valid characters are a-z, A-Z, 0-9, and : + = \@ _ % -
-    -- (hyphen). The name is not case sensitive.
+    -- within the same Amazon Web Services account and Amazon Web Services
+    -- Region. The name must have 1 to 32 characters. Valid characters are a-z,
+    -- A-Z, 0-9, and : + = \@ _ % - (hyphen). The name is not case sensitive.
     hyperParameterTuningJobName :: Prelude.Text,
     -- | The HyperParameterTuningJobConfig object that describes the tuning job,
     -- including the search strategy, the objective metric used to evaluate
@@ -131,10 +131,10 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- new hyperparameter tuning jobs count against the limit of training jobs
 -- for the tuning job.
 --
--- 'tags', 'createHyperParameterTuningJob_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createHyperParameterTuningJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- Tags that you specify for the tuning job are also added to all training
 -- jobs that the tuning job launches.
@@ -149,9 +149,9 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 --
 -- 'hyperParameterTuningJobName', 'createHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job. This name is the prefix for the names of all
 -- training jobs that this tuning job launches. The name must be unique
--- within the same AWS account and AWS Region. The name must have 1 to 32
--- characters. Valid characters are a-z, A-Z, 0-9, and : + = \@ _ % -
--- (hyphen). The name is not case sensitive.
+-- within the same Amazon Web Services account and Amazon Web Services
+-- Region. The name must have 1 to 32 characters. Valid characters are a-z,
+-- A-Z, 0-9, and : + = \@ _ % - (hyphen). The name is not case sensitive.
 --
 -- 'hyperParameterTuningJobConfig', 'createHyperParameterTuningJob_hyperParameterTuningJobConfig' - The HyperParameterTuningJobConfig object that describes the tuning job,
 -- including the search strategy, the objective metric used to evaluate
@@ -198,10 +198,10 @@ newCreateHyperParameterTuningJob
 createHyperParameterTuningJob_warmStartConfig :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTuningJobWarmStartConfig)
 createHyperParameterTuningJob_warmStartConfig = Lens.lens (\CreateHyperParameterTuningJob' {warmStartConfig} -> warmStartConfig) (\s@CreateHyperParameterTuningJob' {} a -> s {warmStartConfig = a} :: CreateHyperParameterTuningJob)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- Tags that you specify for the tuning job are also added to all training
 -- jobs that the tuning job launches.
@@ -222,9 +222,9 @@ createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperPar
 
 -- | The name of the tuning job. This name is the prefix for the names of all
 -- training jobs that this tuning job launches. The name must be unique
--- within the same AWS account and AWS Region. The name must have 1 to 32
--- characters. Valid characters are a-z, A-Z, 0-9, and : + = \@ _ % -
--- (hyphen). The name is not case sensitive.
+-- within the same Amazon Web Services account and Amazon Web Services
+-- Region. The name must have 1 to 32 characters. Valid characters are a-z,
+-- A-Z, 0-9, and : + = \@ _ % - (hyphen). The name is not case sensitive.
 createHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Prelude.Text
 createHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\CreateHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@CreateHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: CreateHyperParameterTuningJob)
 

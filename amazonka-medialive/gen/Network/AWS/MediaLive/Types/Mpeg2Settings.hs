@@ -47,25 +47,25 @@ data Mpeg2Settings = Mpeg2Settings'
     -- describes the color space that applies to the video (the colorSpace
     -- field). We recommend that you insert the metadata.
     colorMetadata :: Prelude.Maybe Mpeg2ColorMetadata,
-    -- | Relates to the GOP structure. If you do not know what GOP is, use the
-    -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
-    -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
-    -- in each sub-GOP, to improve visual quality.
-    subgopLength :: Prelude.Maybe Mpeg2SubGopLength,
     -- | Relates to the GOP structure. Specifies whether the gopSize is specified
     -- in frames or seconds. If you do not plan to change the default gopSize,
     -- leave the default. If you specify SECONDS, MediaLive will internally
     -- convert the gop size to a frame count.
     gopSizeUnits :: Prelude.Maybe Mpeg2GopSizeUnits,
+    -- | Relates to the GOP structure. If you do not know what GOP is, use the
+    -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
+    -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
+    -- in each sub-GOP, to improve visual quality.
+    subgopLength :: Prelude.Maybe Mpeg2SubGopLength,
+    -- | Complete this field only when afdSignaling is set to FIXED. Enter the
+    -- AFD value (4 bits) to write on all frames of the video encode.
+    fixedAfd :: Prelude.Maybe FixedAfd,
     -- | Relates to the GOP structure. The GOP size (keyframe interval) in the
     -- units specified in gopSizeUnits. If you do not know what GOP is, use the
     -- default. If gopSizeUnits is frames, then the gopSize must be an integer
     -- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
     -- gopSize must be greater than 0, but does not need to be an integer.
     gopSize :: Prelude.Maybe Prelude.Double,
-    -- | Complete this field only when afdSignaling is set to FIXED. Enter the
-    -- AFD value (4 bits) to write on all frames of the video encode.
-    fixedAfd :: Prelude.Maybe FixedAfd,
     -- | Optionally specify a noise reduction filter, which can improve quality
     -- of compressed content. If you do not choose a filter, no filter will be
     -- applied. TEMPORAL: This filter is useful for both source content that is
@@ -135,24 +135,24 @@ data Mpeg2Settings = Mpeg2Settings'
 -- describes the color space that applies to the video (the colorSpace
 -- field). We recommend that you insert the metadata.
 --
+-- 'gopSizeUnits', 'mpeg2Settings_gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified
+-- in frames or seconds. If you do not plan to change the default gopSize,
+-- leave the default. If you specify SECONDS, MediaLive will internally
+-- convert the gop size to a frame count.
+--
 -- 'subgopLength', 'mpeg2Settings_subgopLength' - Relates to the GOP structure. If you do not know what GOP is, use the
 -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
 -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
 -- in each sub-GOP, to improve visual quality.
 --
--- 'gopSizeUnits', 'mpeg2Settings_gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified
--- in frames or seconds. If you do not plan to change the default gopSize,
--- leave the default. If you specify SECONDS, MediaLive will internally
--- convert the gop size to a frame count.
+-- 'fixedAfd', 'mpeg2Settings_fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the
+-- AFD value (4 bits) to write on all frames of the video encode.
 --
 -- 'gopSize', 'mpeg2Settings_gopSize' - Relates to the GOP structure. The GOP size (keyframe interval) in the
 -- units specified in gopSizeUnits. If you do not know what GOP is, use the
 -- default. If gopSizeUnits is frames, then the gopSize must be an integer
 -- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
 -- gopSize must be greater than 0, but does not need to be an integer.
---
--- 'fixedAfd', 'mpeg2Settings_fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the
--- AFD value (4 bits) to write on all frames of the video encode.
 --
 -- 'filterSettings', 'mpeg2Settings_filterSettings' - Optionally specify a noise reduction filter, which can improve quality
 -- of compressed content. If you do not choose a filter, no filter will be
@@ -215,10 +215,10 @@ newMpeg2Settings
       { scanType = Prelude.Nothing,
         displayAspectRatio = Prelude.Nothing,
         colorMetadata = Prelude.Nothing,
-        subgopLength = Prelude.Nothing,
         gopSizeUnits = Prelude.Nothing,
-        gopSize = Prelude.Nothing,
+        subgopLength = Prelude.Nothing,
         fixedAfd = Prelude.Nothing,
+        gopSize = Prelude.Nothing,
         filterSettings = Prelude.Nothing,
         gopNumBFrames = Prelude.Nothing,
         timecodeInsertion = Prelude.Nothing,
@@ -245,6 +245,13 @@ mpeg2Settings_displayAspectRatio = Lens.lens (\Mpeg2Settings' {displayAspectRati
 mpeg2Settings_colorMetadata :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ColorMetadata)
 mpeg2Settings_colorMetadata = Lens.lens (\Mpeg2Settings' {colorMetadata} -> colorMetadata) (\s@Mpeg2Settings' {} a -> s {colorMetadata = a} :: Mpeg2Settings)
 
+-- | Relates to the GOP structure. Specifies whether the gopSize is specified
+-- in frames or seconds. If you do not plan to change the default gopSize,
+-- leave the default. If you specify SECONDS, MediaLive will internally
+-- convert the gop size to a frame count.
+mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2GopSizeUnits)
+mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSizeUnits) (\s@Mpeg2Settings' {} a -> s {gopSizeUnits = a} :: Mpeg2Settings)
+
 -- | Relates to the GOP structure. If you do not know what GOP is, use the
 -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
 -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
@@ -252,12 +259,10 @@ mpeg2Settings_colorMetadata = Lens.lens (\Mpeg2Settings' {colorMetadata} -> colo
 mpeg2Settings_subgopLength :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SubGopLength)
 mpeg2Settings_subgopLength = Lens.lens (\Mpeg2Settings' {subgopLength} -> subgopLength) (\s@Mpeg2Settings' {} a -> s {subgopLength = a} :: Mpeg2Settings)
 
--- | Relates to the GOP structure. Specifies whether the gopSize is specified
--- in frames or seconds. If you do not plan to change the default gopSize,
--- leave the default. If you specify SECONDS, MediaLive will internally
--- convert the gop size to a frame count.
-mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2GopSizeUnits)
-mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSizeUnits) (\s@Mpeg2Settings' {} a -> s {gopSizeUnits = a} :: Mpeg2Settings)
+-- | Complete this field only when afdSignaling is set to FIXED. Enter the
+-- AFD value (4 bits) to write on all frames of the video encode.
+mpeg2Settings_fixedAfd :: Lens.Lens' Mpeg2Settings (Prelude.Maybe FixedAfd)
+mpeg2Settings_fixedAfd = Lens.lens (\Mpeg2Settings' {fixedAfd} -> fixedAfd) (\s@Mpeg2Settings' {} a -> s {fixedAfd = a} :: Mpeg2Settings)
 
 -- | Relates to the GOP structure. The GOP size (keyframe interval) in the
 -- units specified in gopSizeUnits. If you do not know what GOP is, use the
@@ -266,11 +271,6 @@ mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSiz
 -- gopSize must be greater than 0, but does not need to be an integer.
 mpeg2Settings_gopSize :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Double)
 mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpeg2Settings' {} a -> s {gopSize = a} :: Mpeg2Settings)
-
--- | Complete this field only when afdSignaling is set to FIXED. Enter the
--- AFD value (4 bits) to write on all frames of the video encode.
-mpeg2Settings_fixedAfd :: Lens.Lens' Mpeg2Settings (Prelude.Maybe FixedAfd)
-mpeg2Settings_fixedAfd = Lens.lens (\Mpeg2Settings' {fixedAfd} -> fixedAfd) (\s@Mpeg2Settings' {} a -> s {fixedAfd = a} :: Mpeg2Settings)
 
 -- | Optionally specify a noise reduction filter, which can improve quality
 -- of compressed content. If you do not choose a filter, no filter will be
@@ -348,10 +348,10 @@ instance Core.FromJSON Mpeg2Settings where
             Prelude.<$> (x Core..:? "scanType")
             Prelude.<*> (x Core..:? "displayAspectRatio")
             Prelude.<*> (x Core..:? "colorMetadata")
-            Prelude.<*> (x Core..:? "subgopLength")
             Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "gopSize")
+            Prelude.<*> (x Core..:? "subgopLength")
             Prelude.<*> (x Core..:? "fixedAfd")
+            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..:? "filterSettings")
             Prelude.<*> (x Core..:? "gopNumBFrames")
             Prelude.<*> (x Core..:? "timecodeInsertion")
@@ -375,10 +375,10 @@ instance Core.ToJSON Mpeg2Settings where
             ("displayAspectRatio" Core..=)
               Prelude.<$> displayAspectRatio,
             ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
-            ("subgopLength" Core..=) Prelude.<$> subgopLength,
             ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
+            ("subgopLength" Core..=) Prelude.<$> subgopLength,
             ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
+            ("gopSize" Core..=) Prelude.<$> gopSize,
             ("filterSettings" Core..=)
               Prelude.<$> filterSettings,
             ("gopNumBFrames" Core..=) Prelude.<$> gopNumBFrames,

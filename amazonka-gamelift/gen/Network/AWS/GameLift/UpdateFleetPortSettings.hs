@@ -20,38 +20,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates port settings for a fleet. To update settings, specify the fleet
--- ID to be updated and list the permissions you want to update. List the
--- permissions you want to add in @InboundPermissionAuthorizations@, and
--- permissions you want to remove in @InboundPermissionRevocations@.
--- Permissions to be removed must match existing fleet permissions. If
--- successful, the fleet ID for the updated fleet is returned.
+-- Updates permissions that allow inbound traffic to connect to game
+-- sessions that are being hosted on instances in the fleet.
+--
+-- To update settings, specify the fleet ID to be updated and specify the
+-- changes to be made. List the permissions you want to add in
+-- @InboundPermissionAuthorizations@, and permissions you want to remove in
+-- @InboundPermissionRevocations@. Permissions to be removed must match
+-- existing fleet permissions.
+--
+-- If successful, the fleet ID for the updated fleet is returned. For
+-- fleets with remote locations, port setting updates can take time to
+-- propagate across all locations. You can check the status of updates in
+-- each location by calling @DescribeFleetPortSettings@ with a location
+-- name.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateFleet
---
--- -   ListFleets
---
--- -   DeleteFleet
---
--- -   DescribeFleetAttributes
---
--- -   Update fleets:
---
---     -   UpdateFleetAttributes
---
---     -   UpdateFleetCapacity
---
---     -   UpdateFleetPortSettings
---
---     -   UpdateRuntimeConfiguration
---
--- -   StartFleetActions or StopFleetActions
+-- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |
+-- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions
+-- | StartFleetActions | PutScalingPolicy | DeleteFleet |
+-- DeleteFleetLocations | DeleteScalingPolicy |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateFleetPortSettings
   ( -- * Creating a Request
     UpdateFleetPortSettings (..),
@@ -87,8 +81,8 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
     inboundPermissionAuthorizations :: Prelude.Maybe [IpPermission],
     -- | A collection of port settings to be removed from the fleet resource.
     inboundPermissionRevocations :: Prelude.Maybe [IpPermission],
-    -- | A unique identifier for a fleet to update port settings for. You can use
-    -- either the fleet ID or ARN value.
+    -- | A unique identifier for the fleet to update port settings for. You can
+    -- use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,8 +99,8 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 --
 -- 'inboundPermissionRevocations', 'updateFleetPortSettings_inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
 --
--- 'fleetId', 'updateFleetPortSettings_fleetId' - A unique identifier for a fleet to update port settings for. You can use
--- either the fleet ID or ARN value.
+-- 'fleetId', 'updateFleetPortSettings_fleetId' - A unique identifier for the fleet to update port settings for. You can
+-- use either the fleet ID or ARN value.
 newUpdateFleetPortSettings ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -127,8 +121,8 @@ updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFlee
 updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
 updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens._Coerce
 
--- | A unique identifier for a fleet to update port settings for. You can use
--- either the fleet ID or ARN value.
+-- | A unique identifier for the fleet to update port settings for. You can
+-- use either the fleet ID or ARN value.
 updateFleetPortSettings_fleetId :: Lens.Lens' UpdateFleetPortSettings Prelude.Text
 updateFleetPortSettings_fleetId = Lens.lens (\UpdateFleetPortSettings' {fleetId} -> fleetId) (\s@UpdateFleetPortSettings' {} a -> s {fleetId = a} :: UpdateFleetPortSettings)
 
@@ -186,7 +180,7 @@ instance Core.ToQuery UpdateFleetPortSettings where
 --
 -- /See:/ 'newUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { -- | A unique identifier for a fleet that was updated.
+  { -- | A unique identifier for the fleet that was updated.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -201,7 +195,7 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'updateFleetPortSettingsResponse_fleetId' - A unique identifier for a fleet that was updated.
+-- 'fleetId', 'updateFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was updated.
 --
 -- 'httpStatus', 'updateFleetPortSettingsResponse_httpStatus' - The response's http status code.
 newUpdateFleetPortSettingsResponse ::
@@ -215,7 +209,7 @@ newUpdateFleetPortSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique identifier for a fleet that was updated.
+-- | A unique identifier for the fleet that was updated.
 updateFleetPortSettingsResponse_fleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
 updateFleetPortSettingsResponse_fleetId = Lens.lens (\UpdateFleetPortSettingsResponse' {fleetId} -> fleetId) (\s@UpdateFleetPortSettingsResponse' {} a -> s {fleetId = a} :: UpdateFleetPortSettingsResponse)
 

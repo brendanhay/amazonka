@@ -25,9 +25,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details of an AWS Config evaluation. Provides the AWS resource that
--- was evaluated, the compliance of the resource, related time stamps, and
--- supplementary information.
+-- | The details of an Config evaluation. Provides the Amazon Web Services
+-- resource that was evaluated, the compliance of the resource, related
+-- time stamps, and supplementary information.
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
@@ -36,21 +36,22 @@ data EvaluationResult = EvaluationResult'
     annotation :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies the evaluation result.
     evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
-    -- | The time when AWS Config recorded the evaluation result.
+    -- | The time when Config recorded the evaluation result.
     resultRecordedTime :: Prelude.Maybe Core.POSIX,
-    -- | Indicates whether the AWS resource complies with the AWS Config rule
-    -- that evaluated it.
+    -- | Indicates whether the Amazon Web Services resource complies with the
+    -- Config rule that evaluated it.
     --
-    -- For the @EvaluationResult@ data type, AWS Config supports only the
-    -- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. AWS Config
-    -- does not support the @INSUFFICIENT_DATA@ value for the
-    -- @EvaluationResult@ data type.
+    -- For the @EvaluationResult@ data type, Config supports only the
+    -- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. Config does
+    -- not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@
+    -- data type.
     complianceType :: Prelude.Maybe ComplianceType,
-    -- | The time when the AWS Config rule evaluated the AWS resource.
+    -- | The time when the Config rule evaluated the Amazon Web Services
+    -- resource.
     configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
-    -- | An encrypted token that associates an evaluation with an AWS Config
-    -- rule. The token identifies the rule, the AWS resource being evaluated,
-    -- and the event that triggered the evaluation.
+    -- | An encrypted token that associates an evaluation with an Config rule.
+    -- The token identifies the rule, the Amazon Web Services resource being
+    -- evaluated, and the event that triggered the evaluation.
     resultToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,21 +69,22 @@ data EvaluationResult = EvaluationResult'
 --
 -- 'evaluationResultIdentifier', 'evaluationResult_evaluationResultIdentifier' - Uniquely identifies the evaluation result.
 --
--- 'resultRecordedTime', 'evaluationResult_resultRecordedTime' - The time when AWS Config recorded the evaluation result.
+-- 'resultRecordedTime', 'evaluationResult_resultRecordedTime' - The time when Config recorded the evaluation result.
 --
--- 'complianceType', 'evaluationResult_complianceType' - Indicates whether the AWS resource complies with the AWS Config rule
--- that evaluated it.
+-- 'complianceType', 'evaluationResult_complianceType' - Indicates whether the Amazon Web Services resource complies with the
+-- Config rule that evaluated it.
 --
--- For the @EvaluationResult@ data type, AWS Config supports only the
--- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. AWS Config
--- does not support the @INSUFFICIENT_DATA@ value for the
--- @EvaluationResult@ data type.
+-- For the @EvaluationResult@ data type, Config supports only the
+-- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. Config does
+-- not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@
+-- data type.
 --
--- 'configRuleInvokedTime', 'evaluationResult_configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
+-- 'configRuleInvokedTime', 'evaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services
+-- resource.
 --
--- 'resultToken', 'evaluationResult_resultToken' - An encrypted token that associates an evaluation with an AWS Config
--- rule. The token identifies the rule, the AWS resource being evaluated,
--- and the event that triggered the evaluation.
+-- 'resultToken', 'evaluationResult_resultToken' - An encrypted token that associates an evaluation with an Config rule.
+-- The token identifies the rule, the Amazon Web Services resource being
+-- evaluated, and the event that triggered the evaluation.
 newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
@@ -104,27 +106,28 @@ evaluationResult_annotation = Lens.lens (\EvaluationResult' {annotation} -> anno
 evaluationResult_evaluationResultIdentifier :: Lens.Lens' EvaluationResult (Prelude.Maybe EvaluationResultIdentifier)
 evaluationResult_evaluationResultIdentifier = Lens.lens (\EvaluationResult' {evaluationResultIdentifier} -> evaluationResultIdentifier) (\s@EvaluationResult' {} a -> s {evaluationResultIdentifier = a} :: EvaluationResult)
 
--- | The time when AWS Config recorded the evaluation result.
+-- | The time when Config recorded the evaluation result.
 evaluationResult_resultRecordedTime :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.UTCTime)
 evaluationResult_resultRecordedTime = Lens.lens (\EvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@EvaluationResult' {} a -> s {resultRecordedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Core._Time
 
--- | Indicates whether the AWS resource complies with the AWS Config rule
--- that evaluated it.
+-- | Indicates whether the Amazon Web Services resource complies with the
+-- Config rule that evaluated it.
 --
--- For the @EvaluationResult@ data type, AWS Config supports only the
--- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. AWS Config
--- does not support the @INSUFFICIENT_DATA@ value for the
--- @EvaluationResult@ data type.
+-- For the @EvaluationResult@ data type, Config supports only the
+-- @COMPLIANT@, @NON_COMPLIANT@, and @NOT_APPLICABLE@ values. Config does
+-- not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@
+-- data type.
 evaluationResult_complianceType :: Lens.Lens' EvaluationResult (Prelude.Maybe ComplianceType)
 evaluationResult_complianceType = Lens.lens (\EvaluationResult' {complianceType} -> complianceType) (\s@EvaluationResult' {} a -> s {complianceType = a} :: EvaluationResult)
 
--- | The time when the AWS Config rule evaluated the AWS resource.
+-- | The time when the Config rule evaluated the Amazon Web Services
+-- resource.
 evaluationResult_configRuleInvokedTime :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.UTCTime)
 evaluationResult_configRuleInvokedTime = Lens.lens (\EvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@EvaluationResult' {} a -> s {configRuleInvokedTime = a} :: EvaluationResult) Prelude.. Lens.mapping Core._Time
 
--- | An encrypted token that associates an evaluation with an AWS Config
--- rule. The token identifies the rule, the AWS resource being evaluated,
--- and the event that triggered the evaluation.
+-- | An encrypted token that associates an evaluation with an Config rule.
+-- The token identifies the rule, the Amazon Web Services resource being
+-- evaluated, and the event that triggered the evaluation.
 evaluationResult_resultToken :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
 evaluationResult_resultToken = Lens.lens (\EvaluationResult' {resultToken} -> resultToken) (\s@EvaluationResult' {} a -> s {resultToken = a} :: EvaluationResult)
 

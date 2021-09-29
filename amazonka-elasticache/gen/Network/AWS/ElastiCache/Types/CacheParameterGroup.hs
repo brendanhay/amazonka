@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
   { -- | Indicates whether the parameter group is associated with a Global
-    -- Datastore
+    -- datastore
     isGlobal :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN (Amazon Resource Name) of the cache parameter group.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group.
     cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN (Amazon Resource Name) of the cache parameter group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group family that this cache parameter
     -- group is compatible with.
     --
@@ -55,11 +55,11 @@ data CacheParameterGroup = CacheParameterGroup'
 -- for backwards compatibility:
 --
 -- 'isGlobal', 'cacheParameterGroup_isGlobal' - Indicates whether the parameter group is associated with a Global
--- Datastore
---
--- 'arn', 'cacheParameterGroup_arn' - The ARN (Amazon Resource Name) of the cache parameter group.
+-- datastore
 --
 -- 'cacheParameterGroupName', 'cacheParameterGroup_cacheParameterGroupName' - The name of the cache parameter group.
+--
+-- 'arn', 'cacheParameterGroup_arn' - The ARN (Amazon Resource Name) of the cache parameter group.
 --
 -- 'cacheParameterGroupFamily', 'cacheParameterGroup_cacheParameterGroupFamily' - The name of the cache parameter group family that this cache parameter
 -- group is compatible with.
@@ -74,24 +74,24 @@ newCacheParameterGroup ::
 newCacheParameterGroup =
   CacheParameterGroup'
     { isGlobal = Prelude.Nothing,
-      arn = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
+      arn = Prelude.Nothing,
       cacheParameterGroupFamily = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
 -- | Indicates whether the parameter group is associated with a Global
--- Datastore
+-- datastore
 cacheParameterGroup_isGlobal :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Bool)
 cacheParameterGroup_isGlobal = Lens.lens (\CacheParameterGroup' {isGlobal} -> isGlobal) (\s@CacheParameterGroup' {} a -> s {isGlobal = a} :: CacheParameterGroup)
-
--- | The ARN (Amazon Resource Name) of the cache parameter group.
-cacheParameterGroup_arn :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Text)
-cacheParameterGroup_arn = Lens.lens (\CacheParameterGroup' {arn} -> arn) (\s@CacheParameterGroup' {} a -> s {arn = a} :: CacheParameterGroup)
 
 -- | The name of the cache parameter group.
 cacheParameterGroup_cacheParameterGroupName :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Text)
 cacheParameterGroup_cacheParameterGroupName = Lens.lens (\CacheParameterGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@CacheParameterGroup' {} a -> s {cacheParameterGroupName = a} :: CacheParameterGroup)
+
+-- | The ARN (Amazon Resource Name) of the cache parameter group.
+cacheParameterGroup_arn :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Text)
+cacheParameterGroup_arn = Lens.lens (\CacheParameterGroup' {arn} -> arn) (\s@CacheParameterGroup' {} a -> s {arn = a} :: CacheParameterGroup)
 
 -- | The name of the cache parameter group family that this cache parameter
 -- group is compatible with.
@@ -110,8 +110,8 @@ instance Core.FromXML CacheParameterGroup where
   parseXML x =
     CacheParameterGroup'
       Prelude.<$> (x Core..@? "IsGlobal")
-      Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "CacheParameterGroupName")
+      Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
       Prelude.<*> (x Core..@? "Description")
 

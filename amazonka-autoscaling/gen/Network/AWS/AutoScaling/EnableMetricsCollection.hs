@@ -81,6 +81,22 @@ data EnableMetricsCollection = EnableMetricsCollection'
     --
     -- -   @GroupTotalCapacity@
     --
+    -- The warm pools feature supports the following additional metrics:
+    --
+    -- -   @WarmPoolDesiredCapacity@
+    --
+    -- -   @WarmPoolWarmedCapacity@
+    --
+    -- -   @WarmPoolPendingCapacity@
+    --
+    -- -   @WarmPoolTerminatingCapacity@
+    --
+    -- -   @WarmPoolTotalCapacity@
+    --
+    -- -   @GroupAndWarmPoolDesiredCapacity@
+    --
+    -- -   @GroupAndWarmPoolTotalCapacity@
+    --
     -- If you omit this parameter, all metrics are enabled.
     metrics :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
@@ -130,6 +146,22 @@ data EnableMetricsCollection = EnableMetricsCollection'
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- The warm pools feature supports the following additional metrics:
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 --
 -- If you omit this parameter, all metrics are enabled.
 --
@@ -183,6 +215,22 @@ newEnableMetricsCollection
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- The warm pools feature supports the following additional metrics:
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 --
 -- If you omit this parameter, all metrics are enabled.
 enableMetricsCollection_metrics :: Lens.Lens' EnableMetricsCollection (Prelude.Maybe [Prelude.Text])

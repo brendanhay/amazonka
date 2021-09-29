@@ -50,10 +50,10 @@ import qualified Network.AWS.Response as Response
 data UntagUser = UntagUser'
   { -- | The name of the IAM user from which you want to remove tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified user.
@@ -71,10 +71,10 @@ data UntagUser = UntagUser'
 --
 -- 'userName', 'untagUser_userName' - The name of the IAM user from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagUser_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified user.
@@ -90,10 +90,10 @@ newUntagUser pUserName_ =
 
 -- | The name of the IAM user from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagUser_userName :: Lens.Lens' UntagUser Prelude.Text
 untagUser_userName = Lens.lens (\UntagUser' {userName} -> userName) (\s@UntagUser' {} a -> s {userName = a} :: UntagUser)
 

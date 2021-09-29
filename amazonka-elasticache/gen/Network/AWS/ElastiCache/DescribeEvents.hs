@@ -40,8 +40,8 @@ module Network.AWS.ElastiCache.DescribeEvents
     describeEvents_endTime,
     describeEvents_sourceIdentifier,
     describeEvents_sourceType,
-    describeEvents_marker,
     describeEvents_maxRecords,
+    describeEvents_marker,
 
     -- * Destructuring the Response
     DescribeEventsResponse (..),
@@ -83,11 +83,6 @@ data DescribeEvents = DescribeEvents'
     -- | The event source to retrieve events for. If no value is specified, all
     -- events are returned.
     sourceType :: Prelude.Maybe SourceType,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -95,7 +90,12 @@ data DescribeEvents = DescribeEvents'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,11 +125,6 @@ data DescribeEvents = DescribeEvents'
 -- 'sourceType', 'describeEvents_sourceType' - The event source to retrieve events for. If no value is specified, all
 -- events are returned.
 --
--- 'marker', 'describeEvents_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -137,6 +132,11 @@ data DescribeEvents = DescribeEvents'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeEvents_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
@@ -146,8 +146,8 @@ newDescribeEvents =
       endTime = Prelude.Nothing,
       sourceIdentifier = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The number of minutes worth of events to retrieve.
@@ -178,13 +178,6 @@ describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier}
 describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -194,6 +187,13 @@ describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@Desc
 -- Constraints: minimum 20; maximum 100.
 describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -253,8 +253,8 @@ instance Core.ToQuery DescribeEvents where
         "EndTime" Core.=: endTime,
         "SourceIdentifier" Core.=: sourceIdentifier,
         "SourceType" Core.=: sourceType,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Represents the output of a @DescribeEvents@ operation.

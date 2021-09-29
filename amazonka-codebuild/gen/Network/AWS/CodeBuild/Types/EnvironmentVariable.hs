@@ -31,31 +31,31 @@ import qualified Network.AWS.Prelude as Prelude
 data EnvironmentVariable = EnvironmentVariable'
   { -- | The type of environment variable. Valid values include:
     --
-    -- -   @PARAMETER_STORE@: An environment variable stored in Amazon EC2
-    --     Systems Manager Parameter Store. To learn how to specify a parameter
-    --     store environment variable, see
+    -- -   @PARAMETER_STORE@: An environment variable stored in Systems Manager
+    --     Parameter Store. To learn how to specify a parameter store
+    --     environment variable, see
     --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store env\/parameter-store>
-    --     in the /AWS CodeBuild User Guide/.
+    --     in the /CodeBuild User Guide/.
     --
     -- -   @PLAINTEXT@: An environment variable in plain text format. This is
     --     the default value.
     --
-    -- -   @SECRETS_MANAGER@: An environment variable stored in AWS Secrets
+    -- -   @SECRETS_MANAGER@: An environment variable stored in Secrets
     --     Manager. To learn how to specify a secrets manager environment
     --     variable, see
     --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager env\/secrets-manager>
-    --     in the /AWS CodeBuild User Guide/.
+    --     in the /CodeBuild User Guide/.
     type' :: Prelude.Maybe EnvironmentVariableType,
     -- | The name or key of the environment variable.
     name :: Prelude.Text,
     -- | The value of the environment variable.
     --
     -- We strongly discourage the use of @PLAINTEXT@ environment variables to
-    -- store sensitive values, especially AWS secret key IDs and secret access
-    -- keys. @PLAINTEXT@ environment variables can be displayed in plain text
-    -- using the AWS CodeBuild console and the AWS Command Line Interface (AWS
-    -- CLI). For sensitive values, we recommend you use an environment variable
-    -- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
+    -- store sensitive values, especially Amazon Web Services secret key IDs
+    -- and secret access keys. @PLAINTEXT@ environment variables can be
+    -- displayed in plain text using the CodeBuild console and the CLI. For
+    -- sensitive values, we recommend you use an environment variable of type
+    -- @PARAMETER_STORE@ or @SECRETS_MANAGER@.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,31 +70,31 @@ data EnvironmentVariable = EnvironmentVariable'
 --
 -- 'type'', 'environmentVariable_type' - The type of environment variable. Valid values include:
 --
--- -   @PARAMETER_STORE@: An environment variable stored in Amazon EC2
---     Systems Manager Parameter Store. To learn how to specify a parameter
---     store environment variable, see
+-- -   @PARAMETER_STORE@: An environment variable stored in Systems Manager
+--     Parameter Store. To learn how to specify a parameter store
+--     environment variable, see
 --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store env\/parameter-store>
---     in the /AWS CodeBuild User Guide/.
+--     in the /CodeBuild User Guide/.
 --
 -- -   @PLAINTEXT@: An environment variable in plain text format. This is
 --     the default value.
 --
--- -   @SECRETS_MANAGER@: An environment variable stored in AWS Secrets
+-- -   @SECRETS_MANAGER@: An environment variable stored in Secrets
 --     Manager. To learn how to specify a secrets manager environment
 --     variable, see
 --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager env\/secrets-manager>
---     in the /AWS CodeBuild User Guide/.
+--     in the /CodeBuild User Guide/.
 --
 -- 'name', 'environmentVariable_name' - The name or key of the environment variable.
 --
 -- 'value', 'environmentVariable_value' - The value of the environment variable.
 --
 -- We strongly discourage the use of @PLAINTEXT@ environment variables to
--- store sensitive values, especially AWS secret key IDs and secret access
--- keys. @PLAINTEXT@ environment variables can be displayed in plain text
--- using the AWS CodeBuild console and the AWS Command Line Interface (AWS
--- CLI). For sensitive values, we recommend you use an environment variable
--- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
+-- store sensitive values, especially Amazon Web Services secret key IDs
+-- and secret access keys. @PLAINTEXT@ environment variables can be
+-- displayed in plain text using the CodeBuild console and the CLI. For
+-- sensitive values, we recommend you use an environment variable of type
+-- @PARAMETER_STORE@ or @SECRETS_MANAGER@.
 newEnvironmentVariable ::
   -- | 'name'
   Prelude.Text ->
@@ -110,20 +110,20 @@ newEnvironmentVariable pName_ pValue_ =
 
 -- | The type of environment variable. Valid values include:
 --
--- -   @PARAMETER_STORE@: An environment variable stored in Amazon EC2
---     Systems Manager Parameter Store. To learn how to specify a parameter
---     store environment variable, see
+-- -   @PARAMETER_STORE@: An environment variable stored in Systems Manager
+--     Parameter Store. To learn how to specify a parameter store
+--     environment variable, see
 --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store env\/parameter-store>
---     in the /AWS CodeBuild User Guide/.
+--     in the /CodeBuild User Guide/.
 --
 -- -   @PLAINTEXT@: An environment variable in plain text format. This is
 --     the default value.
 --
--- -   @SECRETS_MANAGER@: An environment variable stored in AWS Secrets
+-- -   @SECRETS_MANAGER@: An environment variable stored in Secrets
 --     Manager. To learn how to specify a secrets manager environment
 --     variable, see
 --     <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager env\/secrets-manager>
---     in the /AWS CodeBuild User Guide/.
+--     in the /CodeBuild User Guide/.
 environmentVariable_type :: Lens.Lens' EnvironmentVariable (Prelude.Maybe EnvironmentVariableType)
 environmentVariable_type = Lens.lens (\EnvironmentVariable' {type'} -> type') (\s@EnvironmentVariable' {} a -> s {type' = a} :: EnvironmentVariable)
 
@@ -134,11 +134,11 @@ environmentVariable_name = Lens.lens (\EnvironmentVariable' {name} -> name) (\s@
 -- | The value of the environment variable.
 --
 -- We strongly discourage the use of @PLAINTEXT@ environment variables to
--- store sensitive values, especially AWS secret key IDs and secret access
--- keys. @PLAINTEXT@ environment variables can be displayed in plain text
--- using the AWS CodeBuild console and the AWS Command Line Interface (AWS
--- CLI). For sensitive values, we recommend you use an environment variable
--- of type @PARAMETER_STORE@ or @SECRETS_MANAGER@.
+-- store sensitive values, especially Amazon Web Services secret key IDs
+-- and secret access keys. @PLAINTEXT@ environment variables can be
+-- displayed in plain text using the CodeBuild console and the CLI. For
+-- sensitive values, we recommend you use an environment variable of type
+-- @PARAMETER_STORE@ or @SECRETS_MANAGER@.
 environmentVariable_value :: Lens.Lens' EnvironmentVariable Prelude.Text
 environmentVariable_value = Lens.lens (\EnvironmentVariable' {value} -> value) (\s@EnvironmentVariable' {} a -> s {value = a} :: EnvironmentVariable)
 

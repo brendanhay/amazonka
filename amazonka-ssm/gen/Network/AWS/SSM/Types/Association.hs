@@ -25,22 +25,24 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationOverview
 import Network.AWS.SSM.Types.Target
 
--- | Describes an association of a Systems Manager document and an instance.
+-- | Describes an association of a Amazon Web Services Systems Manager
+-- document (SSM document) and an instance.
 --
 -- /See:/ 'newAssociation' smart constructor.
 data Association = Association'
-  { -- | The date on which the association was last run.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the instance.
+  { -- | The instance ID.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The date on which the association was last run.
+    lastExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | Information about the association.
     overview :: Prelude.Maybe AssociationOverview,
     -- | The instances targeted by the request to create an association.
     targets :: Prelude.Maybe [Target],
-    -- | A cron expression that specifies a schedule when the association runs.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Systems Manager document.
+    -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A cron expression that specifies a schedule when the association runs.
+    -- The schedule runs in Coordinated Universal Time (UTC).
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The ID created by the system when you create an association. An
     -- association is a binding between a document and a set of targets with a
     -- schedule.
@@ -62,17 +64,18 @@ data Association = Association'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastExecutionDate', 'association_lastExecutionDate' - The date on which the association was last run.
+-- 'instanceId', 'association_instanceId' - The instance ID.
 --
--- 'instanceId', 'association_instanceId' - The ID of the instance.
+-- 'lastExecutionDate', 'association_lastExecutionDate' - The date on which the association was last run.
 --
 -- 'overview', 'association_overview' - Information about the association.
 --
 -- 'targets', 'association_targets' - The instances targeted by the request to create an association.
 --
--- 'scheduleExpression', 'association_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+-- 'name', 'association_name' - The name of the SSM document.
 --
--- 'name', 'association_name' - The name of the Systems Manager document.
+-- 'scheduleExpression', 'association_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+-- The schedule runs in Coordinated Universal Time (UTC).
 --
 -- 'associationId', 'association_associationId' - The ID created by the system when you create an association. An
 -- association is a binding between a document and a set of targets with a
@@ -87,25 +90,25 @@ newAssociation ::
   Association
 newAssociation =
   Association'
-    { lastExecutionDate = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      lastExecutionDate = Prelude.Nothing,
       overview = Prelude.Nothing,
       targets = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
       name = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
       associationId = Prelude.Nothing,
       associationName = Prelude.Nothing,
       associationVersion = Prelude.Nothing,
       documentVersion = Prelude.Nothing
     }
 
+-- | The instance ID.
+association_instanceId :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_instanceId = Lens.lens (\Association' {instanceId} -> instanceId) (\s@Association' {} a -> s {instanceId = a} :: Association)
+
 -- | The date on which the association was last run.
 association_lastExecutionDate :: Lens.Lens' Association (Prelude.Maybe Prelude.UTCTime)
 association_lastExecutionDate = Lens.lens (\Association' {lastExecutionDate} -> lastExecutionDate) (\s@Association' {} a -> s {lastExecutionDate = a} :: Association) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the instance.
-association_instanceId :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_instanceId = Lens.lens (\Association' {instanceId} -> instanceId) (\s@Association' {} a -> s {instanceId = a} :: Association)
 
 -- | Information about the association.
 association_overview :: Lens.Lens' Association (Prelude.Maybe AssociationOverview)
@@ -115,13 +118,14 @@ association_overview = Lens.lens (\Association' {overview} -> overview) (\s@Asso
 association_targets :: Lens.Lens' Association (Prelude.Maybe [Target])
 association_targets = Lens.lens (\Association' {targets} -> targets) (\s@Association' {} a -> s {targets = a} :: Association) Prelude.. Lens.mapping Lens._Coerce
 
--- | A cron expression that specifies a schedule when the association runs.
-association_scheduleExpression :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_scheduleExpression = Lens.lens (\Association' {scheduleExpression} -> scheduleExpression) (\s@Association' {} a -> s {scheduleExpression = a} :: Association)
-
--- | The name of the Systems Manager document.
+-- | The name of the SSM document.
 association_name :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
 association_name = Lens.lens (\Association' {name} -> name) (\s@Association' {} a -> s {name = a} :: Association)
+
+-- | A cron expression that specifies a schedule when the association runs.
+-- The schedule runs in Coordinated Universal Time (UTC).
+association_scheduleExpression :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_scheduleExpression = Lens.lens (\Association' {scheduleExpression} -> scheduleExpression) (\s@Association' {} a -> s {scheduleExpression = a} :: Association)
 
 -- | The ID created by the system when you create an association. An
 -- association is a binding between a document and a set of targets with a
@@ -147,12 +151,12 @@ instance Core.FromJSON Association where
       "Association"
       ( \x ->
           Association'
-            Prelude.<$> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "LastExecutionDate")
             Prelude.<*> (x Core..:? "Overview")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "AssociationId")
             Prelude.<*> (x Core..:? "AssociationName")
             Prelude.<*> (x Core..:? "AssociationVersion")

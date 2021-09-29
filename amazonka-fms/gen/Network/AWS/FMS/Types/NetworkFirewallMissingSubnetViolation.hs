@@ -23,14 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Violation details for AWS Network Firewall for an Availability Zone
--- that\'s missing the expected Firewall Manager managed subnet.
+-- | Violation detail for Network Firewall for an Availability Zone that\'s
+-- missing the expected Firewall Manager managed subnet.
 --
 -- /See:/ 'newNetworkFirewallMissingSubnetViolation' smart constructor.
 data NetworkFirewallMissingSubnetViolation = NetworkFirewallMissingSubnetViolation'
   { -- | The reason the resource has this violation, if one is available.
     targetViolationReason :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+    -- | The ID of the Network Firewall or VPC resource that\'s in violation.
     violationTarget :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of a violating subnet.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -49,7 +49,7 @@ data NetworkFirewallMissingSubnetViolation = NetworkFirewallMissingSubnetViolati
 --
 -- 'targetViolationReason', 'networkFirewallMissingSubnetViolation_targetViolationReason' - The reason the resource has this violation, if one is available.
 --
--- 'violationTarget', 'networkFirewallMissingSubnetViolation_violationTarget' - The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+-- 'violationTarget', 'networkFirewallMissingSubnetViolation_violationTarget' - The ID of the Network Firewall or VPC resource that\'s in violation.
 --
 -- 'availabilityZone', 'networkFirewallMissingSubnetViolation_availabilityZone' - The Availability Zone of a violating subnet.
 --
@@ -69,7 +69,7 @@ newNetworkFirewallMissingSubnetViolation =
 networkFirewallMissingSubnetViolation_targetViolationReason :: Lens.Lens' NetworkFirewallMissingSubnetViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingSubnetViolation_targetViolationReason = Lens.lens (\NetworkFirewallMissingSubnetViolation' {targetViolationReason} -> targetViolationReason) (\s@NetworkFirewallMissingSubnetViolation' {} a -> s {targetViolationReason = a} :: NetworkFirewallMissingSubnetViolation)
 
--- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+-- | The ID of the Network Firewall or VPC resource that\'s in violation.
 networkFirewallMissingSubnetViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingSubnetViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingSubnetViolation_violationTarget = Lens.lens (\NetworkFirewallMissingSubnetViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingSubnetViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingSubnetViolation)
 

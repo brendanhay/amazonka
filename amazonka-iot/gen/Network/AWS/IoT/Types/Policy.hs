@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes an AWS IoT policy.
+-- | Describes an IoT policy.
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'

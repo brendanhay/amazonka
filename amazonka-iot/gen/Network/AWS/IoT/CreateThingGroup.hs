@@ -25,6 +25,10 @@
 -- This is a control plane operation. See
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html Authorization>
 -- for information about authorizing control plane actions.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateThingGroup>
+-- action.
 module Network.AWS.IoT.CreateThingGroup
   ( -- * Creating a Request
     CreateThingGroup (..),

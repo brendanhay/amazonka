@@ -14,11 +14,14 @@
 -- Amazon Elastic File System
 --
 -- Amazon Elastic File System (Amazon EFS) provides simple, scalable file
--- storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon
--- EFS, storage capacity is elastic, growing and shrinking automatically as
--- you add and remove files, so your applications have the storage they
--- need, when they need it. For more information, see the
--- <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide>.
+-- storage for use with Amazon EC2 instances in the Amazon Web Services
+-- Cloud. With Amazon EFS, storage capacity is elastic, growing and
+-- shrinking automatically as you add and remove files, so your
+-- applications have the storage they need, when they need it. For more
+-- information, see the
+-- <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html Amazon Elastic File System API Reference>
+-- and the
+-- <https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html Amazon Elastic File System User Guide>.
 module Network.AWS.EFS
   ( -- * Service Configuration
     defaultService,
@@ -32,20 +35,20 @@ module Network.AWS.EFS
     -- ** FileSystemInUse
     _FileSystemInUse,
 
-    -- ** DependencyTimeout
-    _DependencyTimeout,
-
     -- ** ThroughputLimitExceeded
     _ThroughputLimitExceeded,
+
+    -- ** DependencyTimeout
+    _DependencyTimeout,
 
     -- ** AccessPointAlreadyExists
     _AccessPointAlreadyExists,
 
-    -- ** AccessPointLimitExceeded
-    _AccessPointLimitExceeded,
-
     -- ** InvalidPolicyException
     _InvalidPolicyException,
+
+    -- ** AccessPointLimitExceeded
+    _AccessPointLimitExceeded,
 
     -- ** AccessPointNotFound
     _AccessPointNotFound,
@@ -56,23 +59,23 @@ module Network.AWS.EFS
     -- ** SubnetNotFound
     _SubnetNotFound,
 
+    -- ** TooManyRequests
+    _TooManyRequests,
+
     -- ** NetworkInterfaceLimitExceeded
     _NetworkInterfaceLimitExceeded,
 
     -- ** FileSystemAlreadyExists
     _FileSystemAlreadyExists,
 
-    -- ** TooManyRequests
-    _TooManyRequests,
-
     -- ** FileSystemLimitExceeded
     _FileSystemLimitExceeded,
 
-    -- ** IncorrectMountTargetState
-    _IncorrectMountTargetState,
-
     -- ** InternalServerError
     _InternalServerError,
+
+    -- ** IncorrectMountTargetState
+    _IncorrectMountTargetState,
 
     -- ** MountTargetNotFound
     _MountTargetNotFound,
@@ -86,23 +89,26 @@ module Network.AWS.EFS
     -- ** BadRequest
     _BadRequest,
 
+    -- ** IncorrectFileSystemLifeCycleState
+    _IncorrectFileSystemLifeCycleState,
+
     -- ** InsufficientThroughputCapacity
     _InsufficientThroughputCapacity,
 
     -- ** PolicyNotFound
     _PolicyNotFound,
 
-    -- ** IncorrectFileSystemLifeCycleState
-    _IncorrectFileSystemLifeCycleState,
-
     -- ** IpAddressInUse
     _IpAddressInUse,
 
-    -- ** MountTargetConflict
-    _MountTargetConflict,
+    -- ** AvailabilityZonesMismatch
+    _AvailabilityZonesMismatch,
 
     -- ** SecurityGroupNotFound
     _SecurityGroupNotFound,
+
+    -- ** MountTargetConflict
+    _MountTargetConflict,
 
     -- ** UnsupportedAvailabilityZone
     _UnsupportedAvailabilityZone,
@@ -113,17 +119,23 @@ module Network.AWS.EFS
     -- * Operations
     -- $operations
 
+    -- ** PutLifecycleConfiguration
+    PutLifecycleConfiguration (PutLifecycleConfiguration'),
+    newPutLifecycleConfiguration,
+    LifecycleConfigurationDescription (LifecycleConfigurationDescription'),
+    newLifecycleConfigurationDescription,
+
     -- ** PutBackupPolicy
     PutBackupPolicy (PutBackupPolicy'),
     newPutBackupPolicy,
     BackupPolicyDescription (BackupPolicyDescription'),
     newBackupPolicyDescription,
 
-    -- ** PutLifecycleConfiguration
-    PutLifecycleConfiguration (PutLifecycleConfiguration'),
-    newPutLifecycleConfiguration,
-    LifecycleConfigurationDescription (LifecycleConfigurationDescription'),
-    newLifecycleConfigurationDescription,
+    -- ** DescribeAccountPreferences
+    DescribeAccountPreferences (DescribeAccountPreferences'),
+    newDescribeAccountPreferences,
+    DescribeAccountPreferencesResponse (DescribeAccountPreferencesResponse'),
+    newDescribeAccountPreferencesResponse,
 
     -- ** DeleteAccessPoint
     DeleteAccessPoint (DeleteAccessPoint'),
@@ -131,17 +143,17 @@ module Network.AWS.EFS
     DeleteAccessPointResponse (DeleteAccessPointResponse'),
     newDeleteAccessPointResponse,
 
-    -- ** ModifyMountTargetSecurityGroups
-    ModifyMountTargetSecurityGroups (ModifyMountTargetSecurityGroups'),
-    newModifyMountTargetSecurityGroups,
-    ModifyMountTargetSecurityGroupsResponse (ModifyMountTargetSecurityGroupsResponse'),
-    newModifyMountTargetSecurityGroupsResponse,
-
     -- ** DescribeFileSystemPolicy
     DescribeFileSystemPolicy (DescribeFileSystemPolicy'),
     newDescribeFileSystemPolicy,
     FileSystemPolicyDescription (FileSystemPolicyDescription'),
     newFileSystemPolicyDescription,
+
+    -- ** ModifyMountTargetSecurityGroups
+    ModifyMountTargetSecurityGroups (ModifyMountTargetSecurityGroups'),
+    newModifyMountTargetSecurityGroups,
+    ModifyMountTargetSecurityGroupsResponse (ModifyMountTargetSecurityGroupsResponse'),
+    newModifyMountTargetSecurityGroupsResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -149,17 +161,17 @@ module Network.AWS.EFS
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
     -- ** CreateMountTarget
     CreateMountTarget (CreateMountTarget'),
     newCreateMountTarget,
     MountTargetDescription (MountTargetDescription'),
     newMountTargetDescription,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** DeleteMountTarget
     DeleteMountTarget (DeleteMountTarget'),
@@ -203,6 +215,12 @@ module Network.AWS.EFS
     DescribeAccessPointsResponse (DescribeAccessPointsResponse'),
     newDescribeAccessPointsResponse,
 
+    -- ** DescribeBackupPolicy
+    DescribeBackupPolicy (DescribeBackupPolicy'),
+    newDescribeBackupPolicy,
+    BackupPolicyDescription (BackupPolicyDescription'),
+    newBackupPolicyDescription,
+
     -- ** DescribeLifecycleConfiguration
     DescribeLifecycleConfiguration (DescribeLifecycleConfiguration'),
     newDescribeLifecycleConfiguration,
@@ -215,11 +233,11 @@ module Network.AWS.EFS
     DescribeMountTargetSecurityGroupsResponse (DescribeMountTargetSecurityGroupsResponse'),
     newDescribeMountTargetSecurityGroupsResponse,
 
-    -- ** DescribeBackupPolicy
-    DescribeBackupPolicy (DescribeBackupPolicy'),
-    newDescribeBackupPolicy,
-    BackupPolicyDescription (BackupPolicyDescription'),
-    newBackupPolicyDescription,
+    -- ** PutAccountPreferences
+    PutAccountPreferences (PutAccountPreferences'),
+    newPutAccountPreferences,
+    PutAccountPreferencesResponse (PutAccountPreferencesResponse'),
+    newPutAccountPreferencesResponse,
 
     -- ** UpdateFileSystem
     UpdateFileSystem (UpdateFileSystem'),
@@ -227,17 +245,17 @@ module Network.AWS.EFS
     FileSystemDescription (FileSystemDescription'),
     newFileSystemDescription,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** DeleteFileSystem
     DeleteFileSystem (DeleteFileSystem'),
     newDeleteFileSystem,
     DeleteFileSystemResponse (DeleteFileSystemResponse'),
     newDeleteFileSystemResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** PutFileSystemPolicy
     PutFileSystemPolicy (PutFileSystemPolicy'),
@@ -256,11 +274,20 @@ module Network.AWS.EFS
     -- ** PerformanceMode
     PerformanceMode (..),
 
+    -- ** Resource
+    Resource (..),
+
+    -- ** ResourceIdType
+    ResourceIdType (..),
+
     -- ** ThroughputMode
     ThroughputMode (..),
 
     -- ** TransitionToIARules
     TransitionToIARules (..),
+
+    -- ** TransitionToPrimaryStorageClassRules
+    TransitionToPrimaryStorageClassRules (..),
 
     -- ** AccessPointDescription
     AccessPointDescription (AccessPointDescription'),
@@ -306,6 +333,10 @@ module Network.AWS.EFS
     PosixUser (PosixUser'),
     newPosixUser,
 
+    -- ** ResourceIdPreference
+    ResourceIdPreference (ResourceIdPreference'),
+    newResourceIdPreference,
+
     -- ** RootDirectory
     RootDirectory (RootDirectory'),
     newRootDirectory,
@@ -324,6 +355,7 @@ import Network.AWS.EFS.DeleteFileSystem
 import Network.AWS.EFS.DeleteFileSystemPolicy
 import Network.AWS.EFS.DeleteMountTarget
 import Network.AWS.EFS.DescribeAccessPoints
+import Network.AWS.EFS.DescribeAccountPreferences
 import Network.AWS.EFS.DescribeBackupPolicy
 import Network.AWS.EFS.DescribeFileSystemPolicy
 import Network.AWS.EFS.DescribeFileSystems
@@ -333,6 +365,7 @@ import Network.AWS.EFS.DescribeMountTargets
 import Network.AWS.EFS.Lens
 import Network.AWS.EFS.ListTagsForResource
 import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.PutAccountPreferences
 import Network.AWS.EFS.PutBackupPolicy
 import Network.AWS.EFS.PutFileSystemPolicy
 import Network.AWS.EFS.PutLifecycleConfiguration

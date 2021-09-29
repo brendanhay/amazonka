@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
   { -- | The ID of the Data Catalog in which the metadata database resides. If
-    -- none is provided, the AWS account ID is used by default.
+    -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database to update in the catalog. For Hive
     -- compatibility, this is folded to lowercase.
@@ -70,7 +70,7 @@ data UpdateDatabase = UpdateDatabase'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'updateDatabase_catalogId' - The ID of the Data Catalog in which the metadata database resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'name', 'updateDatabase_name' - The name of the database to update in the catalog. For Hive
 -- compatibility, this is folded to lowercase.
@@ -91,7 +91,7 @@ newUpdateDatabase pName_ pDatabaseInput_ =
     }
 
 -- | The ID of the Data Catalog in which the metadata database resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 updateDatabase_catalogId :: Lens.Lens' UpdateDatabase (Prelude.Maybe Prelude.Text)
 updateDatabase_catalogId = Lens.lens (\UpdateDatabase' {catalogId} -> catalogId) (\s@UpdateDatabase' {} a -> s {catalogId = a} :: UpdateDatabase)
 

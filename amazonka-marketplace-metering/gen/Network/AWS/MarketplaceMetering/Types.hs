@@ -20,19 +20,19 @@ module Network.AWS.MarketplaceMetering.Types
     _TimestampOutOfBoundsException,
     _CustomerNotEntitledException,
     _InvalidRegionException,
-    _InvalidUsageDimensionException,
     _ExpiredTokenException,
+    _InvalidUsageDimensionException,
     _ThrottlingException,
     _DisabledApiException,
     _InvalidTagException,
-    _DuplicateRequestException,
     _InvalidCustomerIdentifierException,
+    _DuplicateRequestException,
     _PlatformNotSupportedException,
     _InvalidProductCodeException,
     _InvalidUsageAllocationsException,
     _InternalServiceErrorException,
-    _InvalidEndpointRegionException,
     _InvalidTokenException,
+    _InvalidEndpointRegionException,
     _InvalidPublicKeyVersionException,
 
     -- * UsageRecordResultStatus
@@ -174,14 +174,6 @@ _InvalidRegionException =
     defaultService
     "InvalidRegionException"
 
--- | The usage dimension does not match one of the UsageDimensions associated
--- with products.
-_InvalidUsageDimensionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUsageDimensionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidUsageDimensionException"
-
 -- | The submitted registration token has expired. This can happen if the
 -- buyer\'s browser takes too long to redirect to your page, the buyer has
 -- resubmitted the registration token, or your application has held on to
@@ -193,6 +185,14 @@ _ExpiredTokenException =
   Core._MatchServiceError
     defaultService
     "ExpiredTokenException"
+
+-- | The usage dimension does not match one of the UsageDimensions associated
+-- with products.
+_InvalidUsageDimensionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUsageDimensionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidUsageDimensionException"
 
 -- | The calls to the API are throttled.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -215,6 +215,13 @@ _InvalidTagException =
     defaultService
     "InvalidTagException"
 
+-- | You have metered usage for a CustomerIdentifier that does not exist.
+_InvalidCustomerIdentifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCustomerIdentifierException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCustomerIdentifierException"
+
 -- | A metering record has already been emitted by the same EC2 instance, ECS
 -- task, or EKS pod for the given {usageDimension, timestamp} with a
 -- different usageQuantity.
@@ -223,13 +230,6 @@ _DuplicateRequestException =
   Core._MatchServiceError
     defaultService
     "DuplicateRequestException"
-
--- | You have metered usage for a CustomerIdentifier that does not exist.
-_InvalidCustomerIdentifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCustomerIdentifierException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCustomerIdentifierException"
 
 -- | AWS Marketplace does not support metering usage from the underlying
 -- platform. Currently, Amazon ECS, Amazon EKS, and AWS Fargate are
@@ -264,6 +264,13 @@ _InternalServiceErrorException =
     defaultService
     "InternalServiceErrorException"
 
+-- | Registration token is invalid.
+_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTokenException"
+
 -- | The endpoint being called is in a AWS Region different from your EC2
 -- instance, ECS task, or EKS pod. The Region of the Metering Service
 -- endpoint and the AWS Region of the resource must match.
@@ -272,13 +279,6 @@ _InvalidEndpointRegionException =
   Core._MatchServiceError
     defaultService
     "InvalidEndpointRegionException"
-
--- | Registration token is invalid.
-_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTokenException"
 
 -- | Public Key version is invalid.
 _InvalidPublicKeyVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the given thing from the billing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RemoveThingFromBillingGroup>
+-- action.
 module Network.AWS.IoT.RemoveThingFromBillingGroup
   ( -- * Creating a Request
     RemoveThingFromBillingGroup (..),

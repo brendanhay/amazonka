@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new role for your AWS account. For more information about
--- roles, see
+-- Creates a new role for your Amazon Web Services account. For more
+-- information about roles, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html IAM roles>.
 -- For information about quotas for role names and the number of roles you
 -- can create, see
@@ -65,7 +65,7 @@ data CreateRole = CreateRole'
     -- default maximum of one hour is applied. This setting can have a value
     -- from 1 hour to 12 hours.
     --
-    -- Anyone who assumes the role from the AWS CLI or API can use the
+    -- Anyone who assumes the role from the or API can use the
     -- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
     -- to request a longer session. The @MaxSessionDuration@ setting determines
     -- the maximum duration that can be requested using the @DurationSeconds@
@@ -117,8 +117,8 @@ data CreateRole = CreateRole'
     -- to assume the role.
     --
     -- In IAM, you must provide a JSON policy that has been converted to a
-    -- string. However, for AWS CloudFormation templates formatted in YAML, you
-    -- can provide the policy in JSON or YAML format. AWS CloudFormation always
+    -- string. However, for CloudFormation templates formatted in YAML, you can
+    -- provide the policy in JSON or YAML format. CloudFormation always
     -- converts a YAML policy to JSON format before submitting it to IAM.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -152,7 +152,7 @@ data CreateRole = CreateRole'
 -- default maximum of one hour is applied. This setting can have a value
 -- from 1 hour to 12 hours.
 --
--- Anyone who assumes the role from the AWS CLI or API can use the
+-- Anyone who assumes the role from the or API can use the
 -- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
 -- to request a longer session. The @MaxSessionDuration@ setting determines
 -- the maximum duration that can be requested using the @DurationSeconds@
@@ -204,8 +204,8 @@ data CreateRole = CreateRole'
 -- to assume the role.
 --
 -- In IAM, you must provide a JSON policy that has been converted to a
--- string. However, for AWS CloudFormation templates formatted in YAML, you
--- can provide the policy in JSON or YAML format. AWS CloudFormation always
+-- string. However, for CloudFormation templates formatted in YAML, you can
+-- provide the policy in JSON or YAML format. CloudFormation always
 -- converts a YAML policy to JSON format before submitting it to IAM.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
@@ -245,7 +245,7 @@ newCreateRole pRoleName_ pAssumeRolePolicyDocument_ =
 -- default maximum of one hour is applied. This setting can have a value
 -- from 1 hour to 12 hours.
 --
--- Anyone who assumes the role from the AWS CLI or API can use the
+-- Anyone who assumes the role from the or API can use the
 -- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
 -- to request a longer session. The @MaxSessionDuration@ setting determines
 -- the maximum duration that can be requested using the @DurationSeconds@
@@ -309,8 +309,8 @@ createRole_roleName = Lens.lens (\CreateRole' {roleName} -> roleName) (\s@Create
 -- to assume the role.
 --
 -- In IAM, you must provide a JSON policy that has been converted to a
--- string. However, for AWS CloudFormation templates formatted in YAML, you
--- can provide the policy in JSON or YAML format. AWS CloudFormation always
+-- string. However, for CloudFormation templates formatted in YAML, you can
+-- provide the policy in JSON or YAML format. CloudFormation always
 -- converts a YAML policy to JSON format before submitting it to IAM.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate

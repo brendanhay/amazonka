@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates an Amazon EMR block public access configuration for
--- your AWS account in the current Region. For more information see
+-- your Amazon Web Services account in the current Region. For more
+-- information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html Configure Block Public Access for Amazon EMR>
 -- in the /Amazon EMR Management Guide/.
 module Network.AWS.EMR.PutBlockPublicAccessConfiguration

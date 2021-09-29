@@ -26,9 +26,6 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Describes information used for one or more scheduled scaling action
 -- updates in a BatchPutScheduledUpdateGroupAction operation.
 --
--- When updating a scheduled scaling action, all optional parameters are
--- left unchanged if not specified.
---
 -- /See:/ 'newScheduledUpdateGroupActionRequest' smart constructor.
 data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
   { -- | The minimum size of the Auto Scaling group.
@@ -48,8 +45,7 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
     -- returns an error message.
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
-    -- Scaling does not perform the action after this time.
+    -- | The date and time for the recurring schedule to end, in UTC.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | The recurring schedule for the action, in Unix cron syntax format. This
     -- format consists of five fields separated by white spaces: [Minute]
@@ -59,9 +55,19 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     --
     -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
     -- form the boundaries of when the recurring action starts and stops.
+    --
+    -- Cron expressions use Universal Coordinated Time (UTC) by default.
     recurrence :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of the Auto Scaling group.
     maxSize :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the time zone for a cron expression. If a time zone is not
+    -- provided, UTC is used by default.
+    --
+    -- Valid values are the canonical names of the IANA time zones, derived
+    -- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+    -- @Pacific\/Tahiti@). For more information, see
+    -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+    timeZone :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling action.
     scheduledActionName :: Prelude.Text
   }
@@ -92,8 +98,7 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
 -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
 -- returns an error message.
 --
--- 'endTime', 'scheduledUpdateGroupActionRequest_endTime' - The date and time for the recurring schedule to end. Amazon EC2 Auto
--- Scaling does not perform the action after this time.
+-- 'endTime', 'scheduledUpdateGroupActionRequest_endTime' - The date and time for the recurring schedule to end, in UTC.
 --
 -- 'recurrence', 'scheduledUpdateGroupActionRequest_recurrence' - The recurring schedule for the action, in Unix cron syntax format. This
 -- format consists of five fields separated by white spaces: [Minute]
@@ -104,7 +109,17 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
 --
+-- Cron expressions use Universal Coordinated Time (UTC) by default.
+--
 -- 'maxSize', 'scheduledUpdateGroupActionRequest_maxSize' - The maximum size of the Auto Scaling group.
+--
+-- 'timeZone', 'scheduledUpdateGroupActionRequest_timeZone' - Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
 --
 -- 'scheduledActionName', 'scheduledUpdateGroupActionRequest_scheduledActionName' - The name of the scaling action.
 newScheduledUpdateGroupActionRequest ::
@@ -121,6 +136,7 @@ newScheduledUpdateGroupActionRequest
         endTime = Prelude.Nothing,
         recurrence = Prelude.Nothing,
         maxSize = Prelude.Nothing,
+        timeZone = Prelude.Nothing,
         scheduledActionName =
           pScheduledActionName_
       }
@@ -148,8 +164,7 @@ scheduledUpdateGroupActionRequest_desiredCapacity = Lens.lens (\ScheduledUpdateG
 scheduledUpdateGroupActionRequest_startTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
 scheduledUpdateGroupActionRequest_startTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {startTime} -> startTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Core._Time
 
--- | The date and time for the recurring schedule to end. Amazon EC2 Auto
--- Scaling does not perform the action after this time.
+-- | The date and time for the recurring schedule to end, in UTC.
 scheduledUpdateGroupActionRequest_endTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
 scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {endTime} -> endTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Core._Time
 
@@ -161,12 +176,24 @@ scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActi
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
+--
+-- Cron expressions use Universal Coordinated Time (UTC) by default.
 scheduledUpdateGroupActionRequest_recurrence :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
 scheduledUpdateGroupActionRequest_recurrence = Lens.lens (\ScheduledUpdateGroupActionRequest' {recurrence} -> recurrence) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {recurrence = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The maximum size of the Auto Scaling group.
 scheduledUpdateGroupActionRequest_maxSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Int)
 scheduledUpdateGroupActionRequest_maxSize = Lens.lens (\ScheduledUpdateGroupActionRequest' {maxSize} -> maxSize) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {maxSize = a} :: ScheduledUpdateGroupActionRequest)
+
+-- | Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+scheduledUpdateGroupActionRequest_timeZone :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
+scheduledUpdateGroupActionRequest_timeZone = Lens.lens (\ScheduledUpdateGroupActionRequest' {timeZone} -> timeZone) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {timeZone = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The name of the scaling action.
 scheduledUpdateGroupActionRequest_scheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Prelude.Text
@@ -192,5 +219,6 @@ instance
         "EndTime" Core.=: endTime,
         "Recurrence" Core.=: recurrence,
         "MaxSize" Core.=: maxSize,
+        "TimeZone" Core.=: timeZone,
         "ScheduledActionName" Core.=: scheduledActionName
       ]

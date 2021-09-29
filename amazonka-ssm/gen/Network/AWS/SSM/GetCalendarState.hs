@@ -20,21 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the state of the AWS Systems Manager Change Calendar at an
--- optional, specified time. If you specify a time, @GetCalendarState@
--- returns the state of the calendar at a specific time, and returns the
--- next time that the Change Calendar state will transition. If you do not
--- specify a time, @GetCalendarState@ assumes the current time. Change
--- Calendar entries have two possible states: @OPEN@ or @CLOSED@.
+-- Gets the state of a Amazon Web Services Systems Manager change calendar
+-- at the current time or a specified time. If you specify a time,
+-- @GetCalendarState@ returns the state of the calendar at that specific
+-- time, and returns the next time that the change calendar state will
+-- transition. If you don\'t specify a time, @GetCalendarState@ uses the
+-- current time. Change Calendar entries have two possible states: @OPEN@
+-- or @CLOSED@.
 --
 -- If you specify more than one calendar in a request, the command returns
 -- the status of @OPEN@ only if all calendars in the request are open. If
 -- one or more calendars in the request are closed, the status returned is
 -- @CLOSED@.
 --
--- For more information about Systems Manager Change Calendar, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html AWS Systems Manager Change Calendar>
--- in the /AWS Systems Manager User Guide/.
+-- For more information about Change Calendar, a capability of Amazon Web
+-- Services Systems Manager, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html Amazon Web Services Systems Manager Change Calendar>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 module Network.AWS.SSM.GetCalendarState
   ( -- * Creating a Request
     GetCalendarState (..),
@@ -67,11 +69,12 @@ import Network.AWS.SSM.Types
 data GetCalendarState = GetCalendarState'
   { -- | (Optional) The specific time for which you want to get calendar state
     -- information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
-    -- format. If you do not add @AtTime@, the current time is assumed.
+    -- format. If you don\'t specify a value or @AtTime@, the current time is
+    -- used.
     atTime :: Prelude.Maybe Prelude.Text,
     -- | The names or Amazon Resource Names (ARNs) of the Systems Manager
-    -- documents that represent the calendar entries for which you want to get
-    -- the state.
+    -- documents (SSM documents) that represent the calendar entries for which
+    -- you want to get the state.
     calendarNames :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,11 +89,12 @@ data GetCalendarState = GetCalendarState'
 --
 -- 'atTime', 'getCalendarState_atTime' - (Optional) The specific time for which you want to get calendar state
 -- information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
--- format. If you do not add @AtTime@, the current time is assumed.
+-- format. If you don\'t specify a value or @AtTime@, the current time is
+-- used.
 --
 -- 'calendarNames', 'getCalendarState_calendarNames' - The names or Amazon Resource Names (ARNs) of the Systems Manager
--- documents that represent the calendar entries for which you want to get
--- the state.
+-- documents (SSM documents) that represent the calendar entries for which
+-- you want to get the state.
 newGetCalendarState ::
   GetCalendarState
 newGetCalendarState =
@@ -101,13 +105,14 @@ newGetCalendarState =
 
 -- | (Optional) The specific time for which you want to get calendar state
 -- information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
--- format. If you do not add @AtTime@, the current time is assumed.
+-- format. If you don\'t specify a value or @AtTime@, the current time is
+-- used.
 getCalendarState_atTime :: Lens.Lens' GetCalendarState (Prelude.Maybe Prelude.Text)
 getCalendarState_atTime = Lens.lens (\GetCalendarState' {atTime} -> atTime) (\s@GetCalendarState' {} a -> s {atTime = a} :: GetCalendarState)
 
 -- | The names or Amazon Resource Names (ARNs) of the Systems Manager
--- documents that represent the calendar entries for which you want to get
--- the state.
+-- documents (SSM documents) that represent the calendar entries for which
+-- you want to get the state.
 getCalendarState_calendarNames :: Lens.Lens' GetCalendarState [Prelude.Text]
 getCalendarState_calendarNames = Lens.lens (\GetCalendarState' {calendarNames} -> calendarNames) (\s@GetCalendarState' {} a -> s {calendarNames = a} :: GetCalendarState) Prelude.. Lens._Coerce
 
@@ -162,12 +167,12 @@ instance Core.ToQuery GetCalendarState where
 -- | /See:/ 'newGetCalendarStateResponse' smart constructor.
 data GetCalendarStateResponse = GetCalendarStateResponse'
   { -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
-    -- string, that you specified in your command. If you did not specify a
+    -- string, that you specified in your command. If you don\'t specify a
     -- time, @GetCalendarState@ uses the current time.
     atTime :: Prelude.Maybe Prelude.Text,
     -- | The state of the calendar. An @OPEN@ calendar indicates that actions are
-    -- allowed to proceed, and a @CLOSED@ calendar indicates that actions are
-    -- not allowed to proceed.
+    -- allowed to proceed, and a @CLOSED@ calendar indicates that actions
+    -- aren\'t allowed to proceed.
     state :: Prelude.Maybe CalendarState,
     -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
     -- string, that the calendar state will change. If the current calendar
@@ -188,12 +193,12 @@ data GetCalendarStateResponse = GetCalendarStateResponse'
 -- for backwards compatibility:
 --
 -- 'atTime', 'getCalendarStateResponse_atTime' - The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
--- string, that you specified in your command. If you did not specify a
+-- string, that you specified in your command. If you don\'t specify a
 -- time, @GetCalendarState@ uses the current time.
 --
 -- 'state', 'getCalendarStateResponse_state' - The state of the calendar. An @OPEN@ calendar indicates that actions are
--- allowed to proceed, and a @CLOSED@ calendar indicates that actions are
--- not allowed to proceed.
+-- allowed to proceed, and a @CLOSED@ calendar indicates that actions
+-- aren\'t allowed to proceed.
 --
 -- 'nextTransitionTime', 'getCalendarStateResponse_nextTransitionTime' - The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
 -- string, that the calendar state will change. If the current calendar
@@ -214,14 +219,14 @@ newGetCalendarStateResponse pHttpStatus_ =
     }
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601>
--- string, that you specified in your command. If you did not specify a
+-- string, that you specified in your command. If you don\'t specify a
 -- time, @GetCalendarState@ uses the current time.
 getCalendarStateResponse_atTime :: Lens.Lens' GetCalendarStateResponse (Prelude.Maybe Prelude.Text)
 getCalendarStateResponse_atTime = Lens.lens (\GetCalendarStateResponse' {atTime} -> atTime) (\s@GetCalendarStateResponse' {} a -> s {atTime = a} :: GetCalendarStateResponse)
 
 -- | The state of the calendar. An @OPEN@ calendar indicates that actions are
--- allowed to proceed, and a @CLOSED@ calendar indicates that actions are
--- not allowed to proceed.
+-- allowed to proceed, and a @CLOSED@ calendar indicates that actions
+-- aren\'t allowed to proceed.
 getCalendarStateResponse_state :: Lens.Lens' GetCalendarStateResponse (Prelude.Maybe CalendarState)
 getCalendarStateResponse_state = Lens.lens (\GetCalendarStateResponse' {state} -> state) (\s@GetCalendarStateResponse' {} a -> s {state = a} :: GetCalendarStateResponse)
 

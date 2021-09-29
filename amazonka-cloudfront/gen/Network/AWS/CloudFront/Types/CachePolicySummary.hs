@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCachePolicySummary' smart constructor.
 data CachePolicySummary = CachePolicySummary'
-  { -- | The type of cache policy, either @managed@ (created by AWS) or @custom@
-    -- (created in this AWS account).
+  { -- | The type of cache policy, either @managed@ (created by Amazon Web
+    -- Services) or @custom@ (created in this account).
     type' :: CachePolicyType,
     -- | The cache policy.
     cachePolicy :: CachePolicy
@@ -45,8 +45,8 @@ data CachePolicySummary = CachePolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'cachePolicySummary_type' - The type of cache policy, either @managed@ (created by AWS) or @custom@
--- (created in this AWS account).
+-- 'type'', 'cachePolicySummary_type' - The type of cache policy, either @managed@ (created by Amazon Web
+-- Services) or @custom@ (created in this account).
 --
 -- 'cachePolicy', 'cachePolicySummary_cachePolicy' - The cache policy.
 newCachePolicySummary ::
@@ -61,8 +61,8 @@ newCachePolicySummary pType_ pCachePolicy_ =
       cachePolicy = pCachePolicy_
     }
 
--- | The type of cache policy, either @managed@ (created by AWS) or @custom@
--- (created in this AWS account).
+-- | The type of cache policy, either @managed@ (created by Amazon Web
+-- Services) or @custom@ (created in this account).
 cachePolicySummary_type :: Lens.Lens' CachePolicySummary CachePolicyType
 cachePolicySummary_type = Lens.lens (\CachePolicySummary' {type'} -> type') (\s@CachePolicySummary' {} a -> s {type' = a} :: CachePolicySummary)
 

@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the account alias associated with the AWS account (Note: you can
--- have only one). For information about using an AWS account alias, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your AWS account ID>
+-- Lists the account alias associated with the Amazon Web Services account
+-- (Note: you can have only one). For information about using an Amazon Web
+-- Services account alias, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your Amazon Web Services account ID>
 -- in the /IAM User Guide/.
 --
 -- This operation returns paginated results.
@@ -202,8 +203,8 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of aliases associated with the account. AWS supports only one
-    -- alias per account.
+    -- | A list of aliases associated with the account. Amazon Web Services
+    -- supports only one alias per account.
     accountAliases :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -230,8 +231,8 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 --
 -- 'httpStatus', 'listAccountAliasesResponse_httpStatus' - The response's http status code.
 --
--- 'accountAliases', 'listAccountAliasesResponse_accountAliases' - A list of aliases associated with the account. AWS supports only one
--- alias per account.
+-- 'accountAliases', 'listAccountAliasesResponse_accountAliases' - A list of aliases associated with the account. Amazon Web Services
+-- supports only one alias per account.
 newListAccountAliasesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -265,8 +266,8 @@ listAccountAliasesResponse_marker = Lens.lens (\ListAccountAliasesResponse' {mar
 listAccountAliasesResponse_httpStatus :: Lens.Lens' ListAccountAliasesResponse Prelude.Int
 listAccountAliasesResponse_httpStatus = Lens.lens (\ListAccountAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAccountAliasesResponse' {} a -> s {httpStatus = a} :: ListAccountAliasesResponse)
 
--- | A list of aliases associated with the account. AWS supports only one
--- alias per account.
+-- | A list of aliases associated with the account. Amazon Web Services
+-- supports only one alias per account.
 listAccountAliasesResponse_accountAliases :: Lens.Lens' ListAccountAliasesResponse [Prelude.Text]
 listAccountAliasesResponse_accountAliases = Lens.lens (\ListAccountAliasesResponse' {accountAliases} -> accountAliases) (\s@ListAccountAliasesResponse' {} a -> s {accountAliases = a} :: ListAccountAliasesResponse) Prelude.. Lens._Coerce
 

@@ -20,8 +20,8 @@ module Network.AWS.S3.Types
     _ObjectNotInActiveTierError,
     _NoSuchKey,
     _ObjectAlreadyInActiveTierError,
-    _BucketAlreadyOwnedByYou,
     _NoSuchUpload,
+    _BucketAlreadyOwnedByYou,
     _InvalidObjectState,
     _BucketAlreadyExists,
     _NoSuchBucket,
@@ -270,6 +270,7 @@ module Network.AWS.S3.Types
     CORSRule (..),
     newCORSRule,
     cORSRule_allowedHeaders,
+    cORSRule_id,
     cORSRule_maxAgeSeconds,
     cORSRule_exposeHeaders,
     cORSRule_allowedMethods,
@@ -591,6 +592,7 @@ module Network.AWS.S3.Types
     MetricsAndOperator (..),
     newMetricsAndOperator,
     metricsAndOperator_prefix,
+    metricsAndOperator_accessPointArn,
     metricsAndOperator_tags,
 
     -- * MetricsConfiguration
@@ -603,6 +605,7 @@ module Network.AWS.S3.Types
     MetricsFilter (..),
     newMetricsFilter,
     metricsFilter_prefix,
+    metricsFilter_accessPointArn,
     metricsFilter_and,
     metricsFilter_tag,
 
@@ -669,8 +672,8 @@ module Network.AWS.S3.Types
     -- * ObjectLockRetention
     ObjectLockRetention (..),
     newObjectLockRetention,
-    objectLockRetention_mode,
     objectLockRetention_retainUntilDate,
+    objectLockRetention_mode,
 
     -- * ObjectLockRule
     ObjectLockRule (..),
@@ -680,11 +683,11 @@ module Network.AWS.S3.Types
     -- * ObjectVersion
     ObjectVersion (..),
     newObjectVersion,
-    objectVersion_eTag,
     objectVersion_key,
+    objectVersion_eTag,
     objectVersion_isLatest,
-    objectVersion_storageClass,
     objectVersion_versionId,
+    objectVersion_storageClass,
     objectVersion_owner,
     objectVersion_lastModified,
     objectVersion_size,
@@ -771,8 +774,8 @@ module Network.AWS.S3.Types
     newRedirect,
     redirect_hostName,
     redirect_httpRedirectCode,
-    redirect_replaceKeyPrefixWith,
     redirect_replaceKeyWith,
+    redirect_replaceKeyPrefixWith,
     redirect_protocol,
 
     -- * RedirectAllRequestsTo
@@ -846,9 +849,9 @@ module Network.AWS.S3.Types
     restoreRequest_selectParameters,
     restoreRequest_description,
     restoreRequest_type,
-    restoreRequest_outputLocation,
-    restoreRequest_tier,
     restoreRequest_glacierJobParameters,
+    restoreRequest_tier,
+    restoreRequest_outputLocation,
 
     -- * RoutingRule
     RoutingRule (..),
@@ -1243,14 +1246,14 @@ defaultService =
         Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "BadDigest"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "contentmd5"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1287,7 +1290,7 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The source object of the COPY operation is not in the active tier and is
+-- | The source object of the COPY action is not in the active tier and is
 -- only stored in Amazon S3 Glacier.
 _ObjectNotInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ObjectNotInActiveTierError =
@@ -1300,23 +1303,12 @@ _NoSuchKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a
 _NoSuchKey =
   Core._MatchServiceError defaultService "NoSuchKey"
 
--- | This operation is not allowed against this storage tier.
+-- | This action is not allowed against this storage tier.
 _ObjectAlreadyInActiveTierError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ObjectAlreadyInActiveTierError =
   Core._MatchServiceError
     defaultService
     "ObjectAlreadyInActiveTierError"
-
--- | The bucket you tried to create already exists, and you own it. Amazon S3
--- returns this error in all AWS Regions except in the North Virginia
--- Region. For legacy compatibility, if you re-create an existing bucket
--- that you already own in the North Virginia Region, Amazon S3 returns 200
--- OK and resets the bucket access control lists (ACLs).
-_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BucketAlreadyOwnedByYou =
-  Core._MatchServiceError
-    defaultService
-    "BucketAlreadyOwnedByYou"
 
 -- | The specified multipart upload does not exist.
 _NoSuchUpload :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1324,6 +1316,18 @@ _NoSuchUpload =
   Core._MatchServiceError
     defaultService
     "NoSuchUpload"
+
+-- | The bucket you tried to create already exists, and you own it. Amazon S3
+-- returns this error in all Amazon Web Services Regions except in the
+-- North Virginia Region. For legacy compatibility, if you re-create an
+-- existing bucket that you already own in the North Virginia Region,
+-- Amazon S3 returns 200 OK and resets the bucket access control lists
+-- (ACLs).
+_BucketAlreadyOwnedByYou :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketAlreadyOwnedByYou =
+  Core._MatchServiceError
+    defaultService
+    "BucketAlreadyOwnedByYou"
 
 -- | Object is archived and inaccessible until restored.
 _InvalidObjectState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -58,9 +58,9 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
     cacheSecurityGroupName :: Prelude.Text,
     -- | The name of the Amazon EC2 security group to revoke access from.
     eC2SecurityGroupName :: Prelude.Text,
-    -- | The AWS account number of the Amazon EC2 security group owner. Note that
-    -- this is not the same thing as an AWS access key ID - you must provide a
-    -- valid AWS account number for this parameter.
+    -- | The Amazon account number of the Amazon EC2 security group owner. Note
+    -- that this is not the same thing as an Amazon access key ID - you must
+    -- provide a valid Amazon account number for this parameter.
     eC2SecurityGroupOwnerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,9 +77,9 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
 --
 -- 'eC2SecurityGroupName', 'revokeCacheSecurityGroupIngress_eC2SecurityGroupName' - The name of the Amazon EC2 security group to revoke access from.
 --
--- 'eC2SecurityGroupOwnerId', 'revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId' - The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- 'eC2SecurityGroupOwnerId', 'revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon account number of the Amazon EC2 security group owner. Note
+-- that this is not the same thing as an Amazon access key ID - you must
+-- provide a valid Amazon account number for this parameter.
 newRevokeCacheSecurityGroupIngress ::
   -- | 'cacheSecurityGroupName'
   Prelude.Text ->
@@ -109,9 +109,9 @@ revokeCacheSecurityGroupIngress_cacheSecurityGroupName = Lens.lens (\RevokeCache
 revokeCacheSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeCacheSecurityGroupIngress Prelude.Text
 revokeCacheSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\RevokeCacheSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@RevokeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: RevokeCacheSecurityGroupIngress)
 
--- | The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- | The Amazon account number of the Amazon EC2 security group owner. Note
+-- that this is not the same thing as an Amazon access key ID - you must
+-- provide a valid Amazon account number for this parameter.
 revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeCacheSecurityGroupIngress Prelude.Text
 revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\RevokeCacheSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@RevokeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: RevokeCacheSecurityGroupIngress)
 

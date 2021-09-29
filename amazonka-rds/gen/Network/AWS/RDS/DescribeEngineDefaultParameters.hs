@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
 
     -- * Request Lenses
     describeEngineDefaultParameters_filters,
-    describeEngineDefaultParameters_marker,
     describeEngineDefaultParameters_maxRecords,
+    describeEngineDefaultParameters_marker,
     describeEngineDefaultParameters_dbParameterGroupFamily,
 
     -- * Destructuring the Response
@@ -58,11 +58,6 @@ import qualified Network.AWS.Response as Response
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
   { -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeEngineDefaultParameters@ request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -72,6 +67,11 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeEngineDefaultParameters@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group family.
     dbParameterGroupFamily :: Prelude.Text
   }
@@ -87,11 +87,6 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- 'filters', 'describeEngineDefaultParameters_filters' - This parameter isn\'t currently supported.
 --
--- 'marker', 'describeEngineDefaultParameters_marker' - An optional pagination token provided by a previous
--- @DescribeEngineDefaultParameters@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeEngineDefaultParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -100,6 +95,11 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeEngineDefaultParameters_marker' - An optional pagination token provided by a previous
+-- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 --
 -- 'dbParameterGroupFamily', 'describeEngineDefaultParameters_dbParameterGroupFamily' - The name of the DB parameter group family.
 newDescribeEngineDefaultParameters ::
@@ -111,8 +111,8 @@ newDescribeEngineDefaultParameters
     DescribeEngineDefaultParameters'
       { filters =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
         maxRecords = Prelude.Nothing,
+        marker = Prelude.Nothing,
         dbParameterGroupFamily =
           pDBParameterGroupFamily_
       }
@@ -120,13 +120,6 @@ newDescribeEngineDefaultParameters
 -- | This parameter isn\'t currently supported.
 describeEngineDefaultParameters_filters :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe [Filter])
 describeEngineDefaultParameters_filters = Lens.lens (\DescribeEngineDefaultParameters' {filters} -> filters) (\s@DescribeEngineDefaultParameters' {} a -> s {filters = a} :: DescribeEngineDefaultParameters) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional pagination token provided by a previous
--- @DescribeEngineDefaultParameters@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
-describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -138,6 +131,13 @@ describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParame
 -- Constraints: Minimum 20, maximum 100.
 describeEngineDefaultParameters_maxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Int)
 describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultParameters' {maxRecords} -> maxRecords) (\s@DescribeEngineDefaultParameters' {} a -> s {maxRecords = a} :: DescribeEngineDefaultParameters)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
+describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
 -- | The name of the DB parameter group family.
 describeEngineDefaultParameters_dbParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Prelude.Text
@@ -217,8 +217,8 @@ instance Core.ToQuery DescribeEngineDefaultParameters where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "DBParameterGroupFamily"
           Core.=: dbParameterGroupFamily
       ]

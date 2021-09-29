@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes everything related to a fleet. Before deleting a fleet, you must
--- set the fleet\'s desired capacity to zero. See UpdateFleetCapacity.
+-- Deletes all resources and information related a fleet. Any current fleet
+-- instances, including those in remote locations, are shut down. You
+-- don\'t need to call @DeleteFleetLocations@ separately.
 --
 -- If the fleet being deleted has a VPC peering connection, you first need
 -- to get a valid authorization (good for 24 hours) by calling
@@ -29,26 +30,22 @@
 -- VPC peering connection--this is done as part of the delete fleet
 -- process.
 --
--- This operation removes the fleet and its resources. Once a fleet is
--- deleted, you can no longer use any of the resource in that fleet.
+-- To delete a fleet, specify the fleet ID to be terminated. During the
+-- deletion process the fleet status is changed to @DELETING@. When
+-- completed, the status switches to @TERMINATED@ and the fleet event
+-- @FLEET_DELETED@ is sent.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateFleet
---
--- -   ListFleets
---
--- -   DeleteFleet
---
--- -   DescribeFleetAttributes
---
--- -   UpdateFleetAttributes
---
--- -   StartFleetActions or StopFleetActions
+-- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |
+-- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions
+-- | StartFleetActions | PutScalingPolicy | DeleteFleet |
+-- DeleteFleetLocations | DeleteScalingPolicy |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteFleet
   ( -- * Creating a Request
     DeleteFleet (..),
@@ -74,7 +71,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteFleet' smart constructor.
 data DeleteFleet = DeleteFleet'
-  { -- | A unique identifier for a fleet to be deleted. You can use either the
+  { -- | A unique identifier for the fleet to be deleted. You can use either the
     -- fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
@@ -88,7 +85,7 @@ data DeleteFleet = DeleteFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'deleteFleet_fleetId' - A unique identifier for a fleet to be deleted. You can use either the
+-- 'fleetId', 'deleteFleet_fleetId' - A unique identifier for the fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
 newDeleteFleet ::
   -- | 'fleetId'
@@ -97,7 +94,7 @@ newDeleteFleet ::
 newDeleteFleet pFleetId_ =
   DeleteFleet' {fleetId = pFleetId_}
 
--- | A unique identifier for a fleet to be deleted. You can use either the
+-- | A unique identifier for the fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
 deleteFleet_fleetId :: Lens.Lens' DeleteFleet Prelude.Text
 deleteFleet_fleetId = Lens.lens (\DeleteFleet' {fleetId} -> fleetId) (\s@DeleteFleet' {} a -> s {fleetId = a} :: DeleteFleet)

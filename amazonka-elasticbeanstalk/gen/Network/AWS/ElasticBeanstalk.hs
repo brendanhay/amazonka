@@ -48,14 +48,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** TooManyApplicationsException
     _TooManyApplicationsException,
 
-    -- ** ResourceTypeNotSupportedException
-    _ResourceTypeNotSupportedException,
-
     -- ** TooManyEnvironmentsException
     _TooManyEnvironmentsException,
 
     -- ** InsufficientPrivilegesException
     _InsufficientPrivilegesException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
 
     -- ** TooManyConfigurationTemplatesException
     _TooManyConfigurationTemplatesException,
@@ -81,14 +81,14 @@ module Network.AWS.ElasticBeanstalk
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** TooManyApplicationVersionsException
+    _TooManyApplicationVersionsException,
+
     -- ** CodeBuildNotInServiceRegionException
     _CodeBuildNotInServiceRegionException,
 
     -- ** PlatformVersionStillReferencedException
     _PlatformVersionStillReferencedException,
-
-    -- ** TooManyApplicationVersionsException
-    _TooManyApplicationVersionsException,
 
     -- ** S3LocationNotInServiceRegionException
     _S3LocationNotInServiceRegionException,
@@ -111,23 +111,41 @@ module Network.AWS.ElasticBeanstalk
     -- * Operations
     -- $operations
 
-    -- ** SwapEnvironmentCNAMEs
-    SwapEnvironmentCNAMEs (SwapEnvironmentCNAMEs'),
-    newSwapEnvironmentCNAMEs,
-    SwapEnvironmentCNAMEsResponse (SwapEnvironmentCNAMEsResponse'),
-    newSwapEnvironmentCNAMEsResponse,
-
     -- ** ListPlatformBranches
     ListPlatformBranches (ListPlatformBranches'),
     newListPlatformBranches,
     ListPlatformBranchesResponse (ListPlatformBranchesResponse'),
     newListPlatformBranchesResponse,
 
+    -- ** SwapEnvironmentCNAMEs
+    SwapEnvironmentCNAMEs (SwapEnvironmentCNAMEs'),
+    newSwapEnvironmentCNAMEs,
+    SwapEnvironmentCNAMEsResponse (SwapEnvironmentCNAMEsResponse'),
+    newSwapEnvironmentCNAMEsResponse,
+
     -- ** ListAvailableSolutionStacks
     ListAvailableSolutionStacks (ListAvailableSolutionStacks'),
     newListAvailableSolutionStacks,
     ListAvailableSolutionStacksResponse (ListAvailableSolutionStacksResponse'),
     newListAvailableSolutionStacksResponse,
+
+    -- ** ListPlatformVersions (Paginated)
+    ListPlatformVersions (ListPlatformVersions'),
+    newListPlatformVersions,
+    ListPlatformVersionsResponse (ListPlatformVersionsResponse'),
+    newListPlatformVersionsResponse,
+
+    -- ** DescribeApplications
+    DescribeApplications (DescribeApplications'),
+    newDescribeApplications,
+    DescribeApplicationsResponse (DescribeApplicationsResponse'),
+    newDescribeApplicationsResponse,
+
+    -- ** CreateApplicationVersion
+    CreateApplicationVersion (CreateApplicationVersion'),
+    newCreateApplicationVersion,
+    ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
+    newApplicationVersionDescriptionMessage,
 
     -- ** DescribeEnvironmentHealth
     DescribeEnvironmentHealth (DescribeEnvironmentHealth'),
@@ -141,29 +159,23 @@ module Network.AWS.ElasticBeanstalk
     ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
     newConfigurationSettingsDescription,
 
-    -- ** DescribeApplications
-    DescribeApplications (DescribeApplications'),
-    newDescribeApplications,
-    DescribeApplicationsResponse (DescribeApplicationsResponse'),
-    newDescribeApplicationsResponse,
-
-    -- ** ListPlatformVersions (Paginated)
-    ListPlatformVersions (ListPlatformVersions'),
-    newListPlatformVersions,
-    ListPlatformVersionsResponse (ListPlatformVersionsResponse'),
-    newListPlatformVersionsResponse,
-
-    -- ** CreateApplicationVersion
-    CreateApplicationVersion (CreateApplicationVersion'),
-    newCreateApplicationVersion,
-    ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
-    newApplicationVersionDescriptionMessage,
-
     -- ** TerminateEnvironment
     TerminateEnvironment (TerminateEnvironment'),
     newTerminateEnvironment,
     EnvironmentDescription (EnvironmentDescription'),
     newEnvironmentDescription,
+
+    -- ** CreateEnvironment
+    CreateEnvironment (CreateEnvironment'),
+    newCreateEnvironment,
+    EnvironmentDescription (EnvironmentDescription'),
+    newEnvironmentDescription,
+
+    -- ** CreatePlatformVersion
+    CreatePlatformVersion (CreatePlatformVersion'),
+    newCreatePlatformVersion,
+    CreatePlatformVersionResponse (CreatePlatformVersionResponse'),
+    newCreatePlatformVersionResponse,
 
     -- ** DescribeEnvironmentResources
     DescribeEnvironmentResources (DescribeEnvironmentResources'),
@@ -177,29 +189,17 @@ module Network.AWS.ElasticBeanstalk
     ApplicationVersionDescriptionMessage (ApplicationVersionDescriptionMessage'),
     newApplicationVersionDescriptionMessage,
 
-    -- ** CreatePlatformVersion
-    CreatePlatformVersion (CreatePlatformVersion'),
-    newCreatePlatformVersion,
-    CreatePlatformVersionResponse (CreatePlatformVersionResponse'),
-    newCreatePlatformVersionResponse,
-
     -- ** DeleteApplicationVersion
     DeleteApplicationVersion (DeleteApplicationVersion'),
     newDeleteApplicationVersion,
     DeleteApplicationVersionResponse (DeleteApplicationVersionResponse'),
     newDeleteApplicationVersionResponse,
 
-    -- ** CreateEnvironment
-    CreateEnvironment (CreateEnvironment'),
-    newCreateEnvironment,
-    EnvironmentDescription (EnvironmentDescription'),
-    newEnvironmentDescription,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
-    newApplicationDescriptionMessage,
+    -- ** CheckDNSAvailability
+    CheckDNSAvailability (CheckDNSAvailability'),
+    newCheckDNSAvailability,
+    CheckDNSAvailabilityResponse (CheckDNSAvailabilityResponse'),
+    newCheckDNSAvailabilityResponse,
 
     -- ** ComposeEnvironments
     ComposeEnvironments (ComposeEnvironments'),
@@ -207,11 +207,11 @@ module Network.AWS.ElasticBeanstalk
     EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
     newEnvironmentDescriptionsMessage,
 
-    -- ** CheckDNSAvailability
-    CheckDNSAvailability (CheckDNSAvailability'),
-    newCheckDNSAvailability,
-    CheckDNSAvailabilityResponse (CheckDNSAvailabilityResponse'),
-    newCheckDNSAvailabilityResponse,
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
+    newApplicationDescriptionMessage,
 
     -- ** DescribeAccountAttributes
     DescribeAccountAttributes (DescribeAccountAttributes'),
@@ -225,17 +225,17 @@ module Network.AWS.ElasticBeanstalk
     ValidateConfigurationSettingsResponse (ValidateConfigurationSettingsResponse'),
     newValidateConfigurationSettingsResponse,
 
-    -- ** CreateStorageLocation
-    CreateStorageLocation (CreateStorageLocation'),
-    newCreateStorageLocation,
-    CreateStorageLocationResponse (CreateStorageLocationResponse'),
-    newCreateStorageLocationResponse,
-
     -- ** DescribeEnvironmentManagedActions
     DescribeEnvironmentManagedActions (DescribeEnvironmentManagedActions'),
     newDescribeEnvironmentManagedActions,
     DescribeEnvironmentManagedActionsResponse (DescribeEnvironmentManagedActionsResponse'),
     newDescribeEnvironmentManagedActionsResponse,
+
+    -- ** CreateStorageLocation
+    CreateStorageLocation (CreateStorageLocation'),
+    newCreateStorageLocation,
+    CreateStorageLocationResponse (CreateStorageLocationResponse'),
+    newCreateStorageLocationResponse,
 
     -- ** DescribeConfigurationSettings
     DescribeConfigurationSettings (DescribeConfigurationSettings'),
@@ -243,29 +243,29 @@ module Network.AWS.ElasticBeanstalk
     DescribeConfigurationSettingsResponse (DescribeConfigurationSettingsResponse'),
     newDescribeConfigurationSettingsResponse,
 
-    -- ** DescribeConfigurationOptions
-    DescribeConfigurationOptions (DescribeConfigurationOptions'),
-    newDescribeConfigurationOptions,
-    DescribeConfigurationOptionsResponse (DescribeConfigurationOptionsResponse'),
-    newDescribeConfigurationOptionsResponse,
-
     -- ** RetrieveEnvironmentInfo
     RetrieveEnvironmentInfo (RetrieveEnvironmentInfo'),
     newRetrieveEnvironmentInfo,
     RetrieveEnvironmentInfoResponse (RetrieveEnvironmentInfoResponse'),
     newRetrieveEnvironmentInfoResponse,
 
-    -- ** RequestEnvironmentInfo
-    RequestEnvironmentInfo (RequestEnvironmentInfo'),
-    newRequestEnvironmentInfo,
-    RequestEnvironmentInfoResponse (RequestEnvironmentInfoResponse'),
-    newRequestEnvironmentInfoResponse,
+    -- ** DescribeConfigurationOptions
+    DescribeConfigurationOptions (DescribeConfigurationOptions'),
+    newDescribeConfigurationOptions,
+    DescribeConfigurationOptionsResponse (DescribeConfigurationOptionsResponse'),
+    newDescribeConfigurationOptionsResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
+
+    -- ** RequestEnvironmentInfo
+    RequestEnvironmentInfo (RequestEnvironmentInfo'),
+    newRequestEnvironmentInfo,
+    RequestEnvironmentInfoResponse (RequestEnvironmentInfoResponse'),
+    newRequestEnvironmentInfoResponse,
 
     -- ** ApplyEnvironmentManagedAction
     ApplyEnvironmentManagedAction (ApplyEnvironmentManagedAction'),
@@ -285,11 +285,11 @@ module Network.AWS.ElasticBeanstalk
     RebuildEnvironmentResponse (RebuildEnvironmentResponse'),
     newRebuildEnvironmentResponse,
 
-    -- ** UpdateEnvironment
-    UpdateEnvironment (UpdateEnvironment'),
-    newUpdateEnvironment,
-    EnvironmentDescription (EnvironmentDescription'),
-    newEnvironmentDescription,
+    -- ** DeleteEnvironmentConfiguration
+    DeleteEnvironmentConfiguration (DeleteEnvironmentConfiguration'),
+    newDeleteEnvironmentConfiguration,
+    DeleteEnvironmentConfigurationResponse (DeleteEnvironmentConfigurationResponse'),
+    newDeleteEnvironmentConfigurationResponse,
 
     -- ** DeletePlatformVersion
     DeletePlatformVersion (DeletePlatformVersion'),
@@ -297,17 +297,17 @@ module Network.AWS.ElasticBeanstalk
     DeletePlatformVersionResponse (DeletePlatformVersionResponse'),
     newDeletePlatformVersionResponse,
 
-    -- ** DeleteEnvironmentConfiguration
-    DeleteEnvironmentConfiguration (DeleteEnvironmentConfiguration'),
-    newDeleteEnvironmentConfiguration,
-    DeleteEnvironmentConfigurationResponse (DeleteEnvironmentConfigurationResponse'),
-    newDeleteEnvironmentConfigurationResponse,
+    -- ** UpdateEnvironment
+    UpdateEnvironment (UpdateEnvironment'),
+    newUpdateEnvironment,
+    EnvironmentDescription (EnvironmentDescription'),
+    newEnvironmentDescription,
 
-    -- ** DescribeEnvironmentManagedActionHistory (Paginated)
-    DescribeEnvironmentManagedActionHistory (DescribeEnvironmentManagedActionHistory'),
-    newDescribeEnvironmentManagedActionHistory,
-    DescribeEnvironmentManagedActionHistoryResponse (DescribeEnvironmentManagedActionHistoryResponse'),
-    newDescribeEnvironmentManagedActionHistoryResponse,
+    -- ** UpdateTagsForResource
+    UpdateTagsForResource (UpdateTagsForResource'),
+    newUpdateTagsForResource,
+    UpdateTagsForResourceResponse (UpdateTagsForResourceResponse'),
+    newUpdateTagsForResourceResponse,
 
     -- ** UpdateConfigurationTemplate
     UpdateConfigurationTemplate (UpdateConfigurationTemplate'),
@@ -315,17 +315,17 @@ module Network.AWS.ElasticBeanstalk
     ConfigurationSettingsDescription (ConfigurationSettingsDescription'),
     newConfigurationSettingsDescription,
 
+    -- ** DescribeEnvironmentManagedActionHistory (Paginated)
+    DescribeEnvironmentManagedActionHistory (DescribeEnvironmentManagedActionHistory'),
+    newDescribeEnvironmentManagedActionHistory,
+    DescribeEnvironmentManagedActionHistoryResponse (DescribeEnvironmentManagedActionHistoryResponse'),
+    newDescribeEnvironmentManagedActionHistoryResponse,
+
     -- ** DeleteConfigurationTemplate
     DeleteConfigurationTemplate (DeleteConfigurationTemplate'),
     newDeleteConfigurationTemplate,
     DeleteConfigurationTemplateResponse (DeleteConfigurationTemplateResponse'),
     newDeleteConfigurationTemplateResponse,
-
-    -- ** UpdateTagsForResource
-    UpdateTagsForResource (UpdateTagsForResource'),
-    newUpdateTagsForResource,
-    UpdateTagsForResourceResponse (UpdateTagsForResourceResponse'),
-    newUpdateTagsForResourceResponse,
 
     -- ** DescribeApplicationVersions (Paginated)
     DescribeApplicationVersions (DescribeApplicationVersions'),
@@ -338,24 +338,6 @@ module Network.AWS.ElasticBeanstalk
     newAbortEnvironmentUpdate,
     AbortEnvironmentUpdateResponse (AbortEnvironmentUpdateResponse'),
     newAbortEnvironmentUpdateResponse,
-
-    -- ** DescribeEnvironments (Paginated)
-    DescribeEnvironments (DescribeEnvironments'),
-    newDescribeEnvironments,
-    EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
-    newEnvironmentDescriptionsMessage,
-
-    -- ** RestartAppServer
-    RestartAppServer (RestartAppServer'),
-    newRestartAppServer,
-    RestartAppServerResponse (RestartAppServerResponse'),
-    newRestartAppServerResponse,
-
-    -- ** AssociateEnvironmentOperationsRole
-    AssociateEnvironmentOperationsRole (AssociateEnvironmentOperationsRole'),
-    newAssociateEnvironmentOperationsRole,
-    AssociateEnvironmentOperationsRoleResponse (AssociateEnvironmentOperationsRoleResponse'),
-    newAssociateEnvironmentOperationsRoleResponse,
 
     -- ** DeleteApplication
     DeleteApplication (DeleteApplication'),
@@ -374,6 +356,24 @@ module Network.AWS.ElasticBeanstalk
     newUpdateApplication,
     ApplicationDescriptionMessage (ApplicationDescriptionMessage'),
     newApplicationDescriptionMessage,
+
+    -- ** RestartAppServer
+    RestartAppServer (RestartAppServer'),
+    newRestartAppServer,
+    RestartAppServerResponse (RestartAppServerResponse'),
+    newRestartAppServerResponse,
+
+    -- ** DescribeEnvironments (Paginated)
+    DescribeEnvironments (DescribeEnvironments'),
+    newDescribeEnvironments,
+    EnvironmentDescriptionsMessage (EnvironmentDescriptionsMessage'),
+    newEnvironmentDescriptionsMessage,
+
+    -- ** AssociateEnvironmentOperationsRole
+    AssociateEnvironmentOperationsRole (AssociateEnvironmentOperationsRole'),
+    newAssociateEnvironmentOperationsRole,
+    AssociateEnvironmentOperationsRoleResponse (AssociateEnvironmentOperationsRoleResponse'),
+    newAssociateEnvironmentOperationsRoleResponse,
 
     -- ** DescribePlatformVersion
     DescribePlatformVersion (DescribePlatformVersion'),

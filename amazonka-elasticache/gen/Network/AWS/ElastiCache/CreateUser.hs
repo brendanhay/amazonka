@@ -31,6 +31,7 @@ module Network.AWS.ElastiCache.CreateUser
     -- * Request Lenses
     createUser_passwords,
     createUser_noPasswordRequired,
+    createUser_tags,
     createUser_userId,
     createUser_userName,
     createUser_engine,
@@ -66,6 +67,9 @@ data CreateUser = CreateUser'
     passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Indicates a password is not required for this user.
     noPasswordRequired :: Prelude.Maybe Prelude.Bool,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the user.
     userId :: Prelude.Text,
     -- | The username of the user.
@@ -89,6 +93,9 @@ data CreateUser = CreateUser'
 -- each user.
 --
 -- 'noPasswordRequired', 'createUser_noPasswordRequired' - Indicates a password is not required for this user.
+--
+-- 'tags', 'createUser_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 --
 -- 'userId', 'createUser_userId' - The ID of the user.
 --
@@ -115,6 +122,7 @@ newCreateUser
     CreateUser'
       { passwords = Prelude.Nothing,
         noPasswordRequired = Prelude.Nothing,
+        tags = Prelude.Nothing,
         userId = pUserId_,
         userName = pUserName_,
         engine = pEngine_,
@@ -129,6 +137,11 @@ createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@Cre
 -- | Indicates a password is not required for this user.
 createUser_noPasswordRequired :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
 createUser_noPasswordRequired = Lens.lens (\CreateUser' {noPasswordRequired} -> noPasswordRequired) (\s@CreateUser' {} a -> s {noPasswordRequired = a} :: CreateUser)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the user.
 createUser_userId :: Lens.Lens' CreateUser Prelude.Text
@@ -175,6 +188,9 @@ instance Core.ToQuery CreateUser where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> passwords),
         "NoPasswordRequired" Core.=: noPasswordRequired,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "UserId" Core.=: userId,
         "UserName" Core.=: userName,
         "Engine" Core.=: engine,

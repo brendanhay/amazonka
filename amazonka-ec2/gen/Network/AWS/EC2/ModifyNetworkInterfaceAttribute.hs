@@ -67,12 +67,12 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether source\/destination checking is enabled. A value of
-    -- @true@ means checking is enabled, and @false@ means checking is
-    -- disabled. This value must be @false@ for a NAT instance to perform NAT.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
-    -- in the /Amazon Virtual Private Cloud User Guide/.
+    -- | Enable or disable source\/destination checks, which ensure that the
+    -- instance is either the source or the destination of any traffic that it
+    -- receives. If the value is @true@, source\/destination checks are
+    -- enabled; otherwise, they are disabled. The default value is @true@. You
+    -- must disable source\/destination checks if the instance runs services
+    -- such as network address translation, routing, or firewalls.
     sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
     -- | A description for the network interface.
     description :: Prelude.Maybe AttributeValue,
@@ -103,12 +103,12 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'sourceDestCheck', 'modifyNetworkInterfaceAttribute_sourceDestCheck' - Indicates whether source\/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- 'sourceDestCheck', 'modifyNetworkInterfaceAttribute_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
 --
 -- 'description', 'modifyNetworkInterfaceAttribute_description' - A description for the network interface.
 --
@@ -149,12 +149,12 @@ modifyNetworkInterfaceAttribute_attachment = Lens.lens (\ModifyNetworkInterfaceA
 modifyNetworkInterfaceAttribute_dryRun :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
 modifyNetworkInterfaceAttribute_dryRun = Lens.lens (\ModifyNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: ModifyNetworkInterfaceAttribute)
 
--- | Indicates whether source\/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- | Enable or disable source\/destination checks, which ensure that the
+-- instance is either the source or the destination of any traffic that it
+-- receives. If the value is @true@, source\/destination checks are
+-- enabled; otherwise, they are disabled. The default value is @true@. You
+-- must disable source\/destination checks if the instance runs services
+-- such as network address translation, routing, or firewalls.
 modifyNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ModifyNetworkInterfaceAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyNetworkInterfaceAttribute_sourceDestCheck = Lens.lens (\ModifyNetworkInterfaceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ModifyNetworkInterfaceAttribute' {} a -> s {sourceDestCheck = a} :: ModifyNetworkInterfaceAttribute)
 

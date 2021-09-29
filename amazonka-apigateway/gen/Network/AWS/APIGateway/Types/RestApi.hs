@@ -54,15 +54,15 @@ data RestApi = RestApi'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The API\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A stringified JSON policy document that applies to this RestApi
+    -- regardless of the caller and Method configuration.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
     -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
     -- To require that clients use a custom domain name to invoke your API,
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
-    -- | A stringified JSON policy document that applies to this RestApi
-    -- regardless of the caller and Method configuration.
-    policy :: Prelude.Maybe Prelude.Text,
     -- | A nullable integer that is used to enable compression (with non-negative
     -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
     -- (with a null value) on an API. When compression is enabled, compression
@@ -112,14 +112,14 @@ data RestApi = RestApi'
 --
 -- 'description', 'restApi_description' - The API\'s description.
 --
+-- 'policy', 'restApi_policy' - A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+--
 -- 'disableExecuteApiEndpoint', 'restApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
 -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
 -- To require that clients use a custom domain name to invoke your API,
 -- disable the default endpoint.
---
--- 'policy', 'restApi_policy' - A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
 --
 -- 'minimumCompressionSize', 'restApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -148,8 +148,8 @@ newRestApi =
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      disableExecuteApiEndpoint = Prelude.Nothing,
       policy = Prelude.Nothing,
+      disableExecuteApiEndpoint = Prelude.Nothing,
       minimumCompressionSize = Prelude.Nothing,
       apiKeySource = Prelude.Nothing
     }
@@ -195,6 +195,11 @@ restApi_tags = Lens.lens (\RestApi' {tags} -> tags) (\s@RestApi' {} a -> s {tags
 restApi_description :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
 restApi_description = Lens.lens (\RestApi' {description} -> description) (\s@RestApi' {} a -> s {description = a} :: RestApi)
 
+-- | A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+restApi_policy :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
+restApi_policy = Lens.lens (\RestApi' {policy} -> policy) (\s@RestApi' {} a -> s {policy = a} :: RestApi)
+
 -- | Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
 -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
@@ -202,11 +207,6 @@ restApi_description = Lens.lens (\RestApi' {description} -> description) (\s@Res
 -- disable the default endpoint.
 restApi_disableExecuteApiEndpoint :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Bool)
 restApi_disableExecuteApiEndpoint = Lens.lens (\RestApi' {disableExecuteApiEndpoint} -> disableExecuteApiEndpoint) (\s@RestApi' {} a -> s {disableExecuteApiEndpoint = a} :: RestApi)
-
--- | A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
-restApi_policy :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
-restApi_policy = Lens.lens (\RestApi' {policy} -> policy) (\s@RestApi' {} a -> s {policy = a} :: RestApi)
 
 -- | A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -244,8 +244,8 @@ instance Core.FromJSON RestApi where
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "disableExecuteApiEndpoint")
             Prelude.<*> (x Core..:? "policy")
+            Prelude.<*> (x Core..:? "disableExecuteApiEndpoint")
             Prelude.<*> (x Core..:? "minimumCompressionSize")
             Prelude.<*> (x Core..:? "apiKeySource")
       )

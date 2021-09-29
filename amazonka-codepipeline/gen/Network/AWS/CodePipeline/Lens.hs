@@ -22,6 +22,13 @@ module Network.AWS.CodePipeline.Lens
     listActionTypesResponse_httpStatus,
     listActionTypesResponse_actionTypes,
 
+    -- ** PutJobSuccessResult
+    putJobSuccessResult_executionDetails,
+    putJobSuccessResult_currentRevision,
+    putJobSuccessResult_continuationToken,
+    putJobSuccessResult_outputVariables,
+    putJobSuccessResult_jobId,
+
     -- ** DeregisterWebhookWithThirdParty
     deregisterWebhookWithThirdParty_webhookName,
     deregisterWebhookWithThirdPartyResponse_httpStatus,
@@ -35,26 +42,12 @@ module Network.AWS.CodePipeline.Lens
     putActionRevisionResponse_pipelineExecutionId,
     putActionRevisionResponse_httpStatus,
 
-    -- ** PutJobSuccessResult
-    putJobSuccessResult_executionDetails,
-    putJobSuccessResult_currentRevision,
-    putJobSuccessResult_outputVariables,
-    putJobSuccessResult_continuationToken,
-    putJobSuccessResult_jobId,
-
     -- ** PutThirdPartyJobSuccessResult
     putThirdPartyJobSuccessResult_executionDetails,
     putThirdPartyJobSuccessResult_currentRevision,
     putThirdPartyJobSuccessResult_continuationToken,
     putThirdPartyJobSuccessResult_jobId,
     putThirdPartyJobSuccessResult_clientToken,
-
-    -- ** CreatePipeline
-    createPipeline_tags,
-    createPipeline_pipeline,
-    createPipelineResponse_tags,
-    createPipelineResponse_pipeline,
-    createPipelineResponse_httpStatus,
 
     -- ** RetryStageExecution
     retryStageExecution_pipelineName,
@@ -64,6 +57,16 @@ module Network.AWS.CodePipeline.Lens
     retryStageExecutionResponse_pipelineExecutionId,
     retryStageExecutionResponse_httpStatus,
 
+    -- ** CreatePipeline
+    createPipeline_tags,
+    createPipeline_pipeline,
+    createPipelineResponse_tags,
+    createPipelineResponse_pipeline,
+    createPipelineResponse_httpStatus,
+
+    -- ** DeletePipeline
+    deletePipeline_name,
+
     -- ** UpdatePipeline
     updatePipeline_pipeline,
     updatePipelineResponse_pipeline,
@@ -72,10 +75,10 @@ module Network.AWS.CodePipeline.Lens
     -- ** GetPipelineState
     getPipelineState_name,
     getPipelineStateResponse_stageStates,
-    getPipelineStateResponse_created,
     getPipelineStateResponse_pipelineVersion,
-    getPipelineStateResponse_updated,
+    getPipelineStateResponse_created,
     getPipelineStateResponse_pipelineName,
+    getPipelineStateResponse_updated,
     getPipelineStateResponse_httpStatus,
 
     -- ** UntagResource
@@ -83,14 +86,13 @@ module Network.AWS.CodePipeline.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DeletePipeline
-    deletePipeline_name,
-
-    -- ** StartPipelineExecution
-    startPipelineExecution_clientRequestToken,
-    startPipelineExecution_name,
-    startPipelineExecutionResponse_pipelineExecutionId,
-    startPipelineExecutionResponse_httpStatus,
+    -- ** StopPipelineExecution
+    stopPipelineExecution_reason,
+    stopPipelineExecution_abandon,
+    stopPipelineExecution_pipelineName,
+    stopPipelineExecution_pipelineExecutionId,
+    stopPipelineExecutionResponse_pipelineExecutionId,
+    stopPipelineExecutionResponse_httpStatus,
 
     -- ** GetActionType
     getActionType_category,
@@ -105,17 +107,17 @@ module Network.AWS.CodePipeline.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** StopPipelineExecution
-    stopPipelineExecution_reason,
-    stopPipelineExecution_abandon,
-    stopPipelineExecution_pipelineName,
-    stopPipelineExecution_pipelineExecutionId,
-    stopPipelineExecutionResponse_pipelineExecutionId,
-    stopPipelineExecutionResponse_httpStatus,
+    -- ** StartPipelineExecution
+    startPipelineExecution_clientRequestToken,
+    startPipelineExecution_name,
+    startPipelineExecutionResponse_pipelineExecutionId,
+    startPipelineExecutionResponse_httpStatus,
 
-    -- ** RegisterWebhookWithThirdParty
-    registerWebhookWithThirdParty_webhookName,
-    registerWebhookWithThirdPartyResponse_httpStatus,
+    -- ** PollForThirdPartyJobs
+    pollForThirdPartyJobs_maxBatchSize,
+    pollForThirdPartyJobs_actionTypeId,
+    pollForThirdPartyJobsResponse_jobs,
+    pollForThirdPartyJobsResponse_httpStatus,
 
     -- ** ListActionExecutions
     listActionExecutions_nextToken,
@@ -126,20 +128,14 @@ module Network.AWS.CodePipeline.Lens
     listActionExecutionsResponse_actionExecutionDetails,
     listActionExecutionsResponse_httpStatus,
 
-    -- ** PollForThirdPartyJobs
-    pollForThirdPartyJobs_maxBatchSize,
-    pollForThirdPartyJobs_actionTypeId,
-    pollForThirdPartyJobsResponse_jobs,
-    pollForThirdPartyJobsResponse_httpStatus,
+    -- ** RegisterWebhookWithThirdParty
+    registerWebhookWithThirdParty_webhookName,
+    registerWebhookWithThirdPartyResponse_httpStatus,
 
     -- ** EnableStageTransition
     enableStageTransition_pipelineName,
     enableStageTransition_stageName,
     enableStageTransition_transitionType,
-
-    -- ** DeleteWebhook
-    deleteWebhook_name,
-    deleteWebhookResponse_httpStatus,
 
     -- ** AcknowledgeThirdPartyJob
     acknowledgeThirdPartyJob_jobId,
@@ -148,20 +144,13 @@ module Network.AWS.CodePipeline.Lens
     acknowledgeThirdPartyJobResponse_status,
     acknowledgeThirdPartyJobResponse_httpStatus,
 
-    -- ** AcknowledgeJob
-    acknowledgeJob_jobId,
-    acknowledgeJob_nonce,
-    acknowledgeJobResponse_status,
-    acknowledgeJobResponse_httpStatus,
+    -- ** DeleteWebhook
+    deleteWebhook_name,
+    deleteWebhookResponse_httpStatus,
 
-    -- ** DisableStageTransition
-    disableStageTransition_pipelineName,
-    disableStageTransition_stageName,
-    disableStageTransition_transitionType,
-    disableStageTransition_reason,
-
-    -- ** UpdateActionType
-    updateActionType_actionType,
+    -- ** PutJobFailureResult
+    putJobFailureResult_jobId,
+    putJobFailureResult_failureDetails,
 
     -- ** PutApprovalResult
     putApprovalResult_pipelineName,
@@ -172,9 +161,20 @@ module Network.AWS.CodePipeline.Lens
     putApprovalResultResponse_approvedAt,
     putApprovalResultResponse_httpStatus,
 
-    -- ** PutJobFailureResult
-    putJobFailureResult_jobId,
-    putJobFailureResult_failureDetails,
+    -- ** AcknowledgeJob
+    acknowledgeJob_jobId,
+    acknowledgeJob_nonce,
+    acknowledgeJobResponse_status,
+    acknowledgeJobResponse_httpStatus,
+
+    -- ** UpdateActionType
+    updateActionType_actionType,
+
+    -- ** DisableStageTransition
+    disableStageTransition_pipelineName,
+    disableStageTransition_stageName,
+    disableStageTransition_transitionType,
+    disableStageTransition_reason,
 
     -- ** DeleteCustomActionType
     deleteCustomActionType_category,
@@ -209,17 +209,17 @@ module Network.AWS.CodePipeline.Lens
     listPipelineExecutionsResponse_pipelineExecutionSummaries,
     listPipelineExecutionsResponse_httpStatus,
 
-    -- ** GetThirdPartyJobDetails
-    getThirdPartyJobDetails_jobId,
-    getThirdPartyJobDetails_clientToken,
-    getThirdPartyJobDetailsResponse_jobDetails,
-    getThirdPartyJobDetailsResponse_httpStatus,
-
     -- ** GetPipelineExecution
     getPipelineExecution_pipelineName,
     getPipelineExecution_pipelineExecutionId,
     getPipelineExecutionResponse_pipelineExecution,
     getPipelineExecutionResponse_httpStatus,
+
+    -- ** GetThirdPartyJobDetails
+    getThirdPartyJobDetails_jobId,
+    getThirdPartyJobDetails_clientToken,
+    getThirdPartyJobDetailsResponse_jobDetails,
+    getThirdPartyJobDetailsResponse_httpStatus,
 
     -- ** GetJobDetails
     getJobDetails_jobId,
@@ -240,6 +240,11 @@ module Network.AWS.CodePipeline.Lens
     pollForJobsResponse_jobs,
     pollForJobsResponse_httpStatus,
 
+    -- ** PutThirdPartyJobFailureResult
+    putThirdPartyJobFailureResult_jobId,
+    putThirdPartyJobFailureResult_clientToken,
+    putThirdPartyJobFailureResult_failureDetails,
+
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_maxResults,
@@ -248,23 +253,18 @@ module Network.AWS.CodePipeline.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** PutWebhook
-    putWebhook_tags,
-    putWebhook_webhook,
-    putWebhookResponse_webhook,
-    putWebhookResponse_httpStatus,
-
-    -- ** PutThirdPartyJobFailureResult
-    putThirdPartyJobFailureResult_jobId,
-    putThirdPartyJobFailureResult_clientToken,
-    putThirdPartyJobFailureResult_failureDetails,
-
     -- ** ListWebhooks
     listWebhooks_nextToken,
     listWebhooks_maxResults,
     listWebhooksResponse_nextToken,
     listWebhooksResponse_webhooks,
     listWebhooksResponse_httpStatus,
+
+    -- ** PutWebhook
+    putWebhook_tags,
+    putWebhook_webhook,
+    putWebhookResponse_webhook,
+    putWebhookResponse_httpStatus,
 
     -- * Types
 
@@ -293,8 +293,8 @@ module Network.AWS.CodePipeline.Lens
     actionDeclaration_roleArn,
     actionDeclaration_configuration,
     actionDeclaration_runOrder,
-    actionDeclaration_namespace,
     actionDeclaration_inputArtifacts,
+    actionDeclaration_namespace,
     actionDeclaration_region,
     actionDeclaration_outputArtifacts,
     actionDeclaration_name,
@@ -316,8 +316,8 @@ module Network.AWS.CodePipeline.Lens
     actionExecutionDetail_status,
     actionExecutionDetail_actionName,
     actionExecutionDetail_actionExecutionId,
-    actionExecutionDetail_input,
     actionExecutionDetail_lastUpdateTime,
+    actionExecutionDetail_input,
     actionExecutionDetail_stageName,
     actionExecutionDetail_startTime,
     actionExecutionDetail_output,
@@ -329,17 +329,17 @@ module Network.AWS.CodePipeline.Lens
 
     -- ** ActionExecutionInput
     actionExecutionInput_roleArn,
-    actionExecutionInput_configuration,
     actionExecutionInput_resolvedConfiguration,
-    actionExecutionInput_namespace,
-    actionExecutionInput_actionTypeId,
+    actionExecutionInput_configuration,
     actionExecutionInput_inputArtifacts,
+    actionExecutionInput_actionTypeId,
+    actionExecutionInput_namespace,
     actionExecutionInput_region,
 
     -- ** ActionExecutionOutput
     actionExecutionOutput_executionResult,
-    actionExecutionOutput_outputVariables,
     actionExecutionOutput_outputArtifacts,
+    actionExecutionOutput_outputVariables,
 
     -- ** ActionExecutionResult
     actionExecutionResult_externalExecutionId,
@@ -355,8 +355,8 @@ module Network.AWS.CodePipeline.Lens
     actionState_actionName,
     actionState_latestExecution,
     actionState_currentRevision,
-    actionState_entityUrl,
     actionState_revisionUrl,
+    actionState_entityUrl,
 
     -- ** ActionType
     actionType_actionConfigurationProperties,
@@ -370,8 +370,8 @@ module Network.AWS.CodePipeline.Lens
     actionTypeArtifactDetails_maximumCount,
 
     -- ** ActionTypeDeclaration
-    actionTypeDeclaration_permissions,
     actionTypeDeclaration_urls,
+    actionTypeDeclaration_permissions,
     actionTypeDeclaration_properties,
     actionTypeDeclaration_description,
     actionTypeDeclaration_executor,
@@ -410,14 +410,14 @@ module Network.AWS.CodePipeline.Lens
 
     -- ** ActionTypeSettings
     actionTypeSettings_executionUrlTemplate,
-    actionTypeSettings_entityUrlTemplate,
     actionTypeSettings_revisionUrlTemplate,
+    actionTypeSettings_entityUrlTemplate,
     actionTypeSettings_thirdPartyConfigurationUrl,
 
     -- ** ActionTypeUrls
     actionTypeUrls_executionUrlTemplate,
-    actionTypeUrls_entityUrlTemplate,
     actionTypeUrls_revisionUrlTemplate,
+    actionTypeUrls_entityUrlTemplate,
     actionTypeUrls_configurationUrl,
 
     -- ** ApprovalResult
@@ -442,12 +442,12 @@ module Network.AWS.CodePipeline.Lens
     artifactLocation_type,
 
     -- ** ArtifactRevision
-    artifactRevision_revisionId,
     artifactRevision_revisionChangeIdentifier,
-    artifactRevision_name,
+    artifactRevision_revisionId,
     artifactRevision_revisionSummary,
-    artifactRevision_created,
+    artifactRevision_name,
     artifactRevision_revisionUrl,
+    artifactRevision_created,
 
     -- ** ArtifactStore
     artifactStore_encryptionKey,
@@ -503,11 +503,11 @@ module Network.AWS.CodePipeline.Lens
     jobData_artifactCredentials,
     jobData_encryptionKey,
     jobData_actionConfiguration,
-    jobData_actionTypeId,
     jobData_inputArtifacts,
+    jobData_actionTypeId,
     jobData_pipelineContext,
-    jobData_continuationToken,
     jobData_outputArtifacts,
+    jobData_continuationToken,
 
     -- ** JobDetails
     jobDetails_accountId,
@@ -624,11 +624,11 @@ module Network.AWS.CodePipeline.Lens
     thirdPartyJobData_artifactCredentials,
     thirdPartyJobData_encryptionKey,
     thirdPartyJobData_actionConfiguration,
-    thirdPartyJobData_actionTypeId,
     thirdPartyJobData_inputArtifacts,
+    thirdPartyJobData_actionTypeId,
     thirdPartyJobData_pipelineContext,
-    thirdPartyJobData_continuationToken,
     thirdPartyJobData_outputArtifacts,
+    thirdPartyJobData_continuationToken,
 
     -- ** ThirdPartyJobDetails
     thirdPartyJobDetails_nonce,

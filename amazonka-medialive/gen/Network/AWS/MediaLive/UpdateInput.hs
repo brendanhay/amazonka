@@ -31,8 +31,8 @@ module Network.AWS.MediaLive.UpdateInput
     updateInput'_roleArn,
     updateInput'_sources,
     updateInput'_mediaConnectFlows,
-    updateInput'_destinations,
     updateInput'_name,
+    updateInput'_destinations,
     updateInput'_inputDevices,
     updateInput'_inputId,
 
@@ -72,10 +72,10 @@ data UpdateInput' = UpdateInput''
     -- Flow is in a separate Availability Zone as this ensures your EML input
     -- is redundant to AZ issues.
     mediaConnectFlows :: Prelude.Maybe [MediaConnectFlowRequest],
-    -- | Destination settings for PUSH type inputs.
-    destinations :: Prelude.Maybe [InputDestinationRequest],
     -- | Name of the input.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Destination settings for PUSH type inputs.
+    destinations :: Prelude.Maybe [InputDestinationRequest],
     -- | Settings for the devices.
     inputDevices :: Prelude.Maybe [InputDeviceRequest],
     -- | Unique ID of the input.
@@ -106,9 +106,9 @@ data UpdateInput' = UpdateInput''
 -- Flow is in a separate Availability Zone as this ensures your EML input
 -- is redundant to AZ issues.
 --
--- 'destinations', 'updateInput'_destinations' - Destination settings for PUSH type inputs.
---
 -- 'name', 'updateInput'_name' - Name of the input.
+--
+-- 'destinations', 'updateInput'_destinations' - Destination settings for PUSH type inputs.
 --
 -- 'inputDevices', 'updateInput'_inputDevices' - Settings for the devices.
 --
@@ -124,8 +124,8 @@ newUpdateInput' pInputId_ =
       roleArn = Prelude.Nothing,
       sources = Prelude.Nothing,
       mediaConnectFlows = Prelude.Nothing,
-      destinations = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       inputDevices = Prelude.Nothing,
       inputId = pInputId_
     }
@@ -153,13 +153,13 @@ updateInput'_sources = Lens.lens (\UpdateInput'' {sources} -> sources) (\s@Updat
 updateInput'_mediaConnectFlows :: Lens.Lens' UpdateInput' (Prelude.Maybe [MediaConnectFlowRequest])
 updateInput'_mediaConnectFlows = Lens.lens (\UpdateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@UpdateInput'' {} a -> s {mediaConnectFlows = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
 
--- | Destination settings for PUSH type inputs.
-updateInput'_destinations :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputDestinationRequest])
-updateInput'_destinations = Lens.lens (\UpdateInput'' {destinations} -> destinations) (\s@UpdateInput'' {} a -> s {destinations = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
-
 -- | Name of the input.
 updateInput'_name :: Lens.Lens' UpdateInput' (Prelude.Maybe Prelude.Text)
 updateInput'_name = Lens.lens (\UpdateInput'' {name} -> name) (\s@UpdateInput'' {} a -> s {name = a} :: UpdateInput')
+
+-- | Destination settings for PUSH type inputs.
+updateInput'_destinations :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputDestinationRequest])
+updateInput'_destinations = Lens.lens (\UpdateInput'' {destinations} -> destinations) (\s@UpdateInput'' {} a -> s {destinations = a} :: UpdateInput') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Settings for the devices.
 updateInput'_inputDevices :: Lens.Lens' UpdateInput' (Prelude.Maybe [InputDeviceRequest])
@@ -205,8 +205,8 @@ instance Core.ToJSON UpdateInput' where
             ("sources" Core..=) Prelude.<$> sources,
             ("mediaConnectFlows" Core..=)
               Prelude.<$> mediaConnectFlows,
-            ("destinations" Core..=) Prelude.<$> destinations,
             ("name" Core..=) Prelude.<$> name,
+            ("destinations" Core..=) Prelude.<$> destinations,
             ("inputDevices" Core..=) Prelude.<$> inputDevices
           ]
       )

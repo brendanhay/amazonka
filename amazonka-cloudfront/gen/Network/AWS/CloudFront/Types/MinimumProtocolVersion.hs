@@ -25,7 +25,8 @@ module Network.AWS.CloudFront.Types.MinimumProtocolVersion
         MinimumProtocolVersion_TLSv1_1_2016,
         MinimumProtocolVersion_TLSv1_2016,
         MinimumProtocolVersion_TLSv1_2_2018,
-        MinimumProtocolVersion_TLSv1_2_2019
+        MinimumProtocolVersion_TLSv1_2_2019,
+        MinimumProtocolVersion_TLSv1_2_2021
       ),
   )
 where
@@ -79,6 +80,9 @@ pattern MinimumProtocolVersion_TLSv1_2_2018 = MinimumProtocolVersion' "TLSv1.2_2
 pattern MinimumProtocolVersion_TLSv1_2_2019 :: MinimumProtocolVersion
 pattern MinimumProtocolVersion_TLSv1_2_2019 = MinimumProtocolVersion' "TLSv1.2_2019"
 
+pattern MinimumProtocolVersion_TLSv1_2_2021 :: MinimumProtocolVersion
+pattern MinimumProtocolVersion_TLSv1_2_2021 = MinimumProtocolVersion' "TLSv1.2_2021"
+
 {-# COMPLETE
   MinimumProtocolVersion_SSLv3,
   MinimumProtocolVersion_TLSv1,
@@ -86,5 +90,6 @@ pattern MinimumProtocolVersion_TLSv1_2_2019 = MinimumProtocolVersion' "TLSv1.2_2
   MinimumProtocolVersion_TLSv1_2016,
   MinimumProtocolVersion_TLSv1_2_2018,
   MinimumProtocolVersion_TLSv1_2_2019,
+  MinimumProtocolVersion_TLSv1_2_2021,
   MinimumProtocolVersion'
   #-}

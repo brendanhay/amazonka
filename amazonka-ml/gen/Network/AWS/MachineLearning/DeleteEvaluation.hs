@@ -26,9 +26,8 @@
 -- @GetEvaluation@ operation to verify that the status of the @Evaluation@
 -- changed to @DELETED@.
 --
--- Caution
---
--- The results of the @DeleteEvaluation@ operation are irreversible.
+-- __Caution:__ The results of the @DeleteEvaluation@ operation are
+-- irreversible.
 module Network.AWS.MachineLearning.DeleteEvaluation
   ( -- * Creating a Request
     DeleteEvaluation (..),

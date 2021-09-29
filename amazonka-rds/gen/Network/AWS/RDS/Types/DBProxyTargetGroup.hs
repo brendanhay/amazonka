@@ -33,19 +33,20 @@ import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
 --
 -- /See:/ 'newDBProxyTargetGroup' smart constructor.
 data DBProxyTargetGroup = DBProxyTargetGroup'
-  { -- | The current status of this target group. A status of @available@ means
+  { -- | The date and time when the target group was first created.
+    createdDate :: Prelude.Maybe Core.ISO8601,
+    -- | The current status of this target group. A status of @available@ means
     -- the target group is correctly associated with a database. Other values
     -- indicate that you must wait for the target group to be ready, or take
     -- some action to resolve an issue.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the target group was first created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
     -- | Whether this target group is the first one used for connection requests
     -- by the associated proxy. Because each proxy is currently associated with
     -- a single target group, currently this setting is always @true@.
     isDefault :: Prelude.Maybe Prelude.Bool,
     -- | The identifier for the target group. This name must be unique for all
-    -- target groups owned by your AWS account in the specified AWS Region.
+    -- target groups owned by your Amazon Web Services account in the specified
+    -- Amazon Web Services Region.
     targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) representing the target group.
     targetGroupArn :: Prelude.Maybe Prelude.Text,
@@ -67,19 +68,20 @@ data DBProxyTargetGroup = DBProxyTargetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdDate', 'dbProxyTargetGroup_createdDate' - The date and time when the target group was first created.
+--
 -- 'status', 'dbProxyTargetGroup_status' - The current status of this target group. A status of @available@ means
 -- the target group is correctly associated with a database. Other values
 -- indicate that you must wait for the target group to be ready, or take
 -- some action to resolve an issue.
---
--- 'createdDate', 'dbProxyTargetGroup_createdDate' - The date and time when the target group was first created.
 --
 -- 'isDefault', 'dbProxyTargetGroup_isDefault' - Whether this target group is the first one used for connection requests
 -- by the associated proxy. Because each proxy is currently associated with
 -- a single target group, currently this setting is always @true@.
 --
 -- 'targetGroupName', 'dbProxyTargetGroup_targetGroupName' - The identifier for the target group. This name must be unique for all
--- target groups owned by your AWS account in the specified AWS Region.
+-- target groups owned by your Amazon Web Services account in the specified
+-- Amazon Web Services Region.
 --
 -- 'targetGroupArn', 'dbProxyTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) representing the target group.
 --
@@ -93,8 +95,8 @@ newDBProxyTargetGroup ::
   DBProxyTargetGroup
 newDBProxyTargetGroup =
   DBProxyTargetGroup'
-    { status = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
+      status = Prelude.Nothing,
       isDefault = Prelude.Nothing,
       targetGroupName = Prelude.Nothing,
       targetGroupArn = Prelude.Nothing,
@@ -103,16 +105,16 @@ newDBProxyTargetGroup =
       dbProxyName = Prelude.Nothing
     }
 
+-- | The date and time when the target group was first created.
+dbProxyTargetGroup_createdDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
+dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Core._Time
+
 -- | The current status of this target group. A status of @available@ means
 -- the target group is correctly associated with a database. Other values
 -- indicate that you must wait for the target group to be ready, or take
 -- some action to resolve an issue.
 dbProxyTargetGroup_status :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
 dbProxyTargetGroup_status = Lens.lens (\DBProxyTargetGroup' {status} -> status) (\s@DBProxyTargetGroup' {} a -> s {status = a} :: DBProxyTargetGroup)
-
--- | The date and time when the target group was first created.
-dbProxyTargetGroup_createdDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
-dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Core._Time
 
 -- | Whether this target group is the first one used for connection requests
 -- by the associated proxy. Because each proxy is currently associated with
@@ -121,7 +123,8 @@ dbProxyTargetGroup_isDefault :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Pre
 dbProxyTargetGroup_isDefault = Lens.lens (\DBProxyTargetGroup' {isDefault} -> isDefault) (\s@DBProxyTargetGroup' {} a -> s {isDefault = a} :: DBProxyTargetGroup)
 
 -- | The identifier for the target group. This name must be unique for all
--- target groups owned by your AWS account in the specified AWS Region.
+-- target groups owned by your Amazon Web Services account in the specified
+-- Amazon Web Services Region.
 dbProxyTargetGroup_targetGroupName :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
 dbProxyTargetGroup_targetGroupName = Lens.lens (\DBProxyTargetGroup' {targetGroupName} -> targetGroupName) (\s@DBProxyTargetGroup' {} a -> s {targetGroupName = a} :: DBProxyTargetGroup)
 
@@ -145,8 +148,8 @@ dbProxyTargetGroup_dbProxyName = Lens.lens (\DBProxyTargetGroup' {dbProxyName} -
 instance Core.FromXML DBProxyTargetGroup where
   parseXML x =
     DBProxyTargetGroup'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CreatedDate")
+      Prelude.<$> (x Core..@? "CreatedDate")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "IsDefault")
       Prelude.<*> (x Core..@? "TargetGroupName")
       Prelude.<*> (x Core..@? "TargetGroupArn")

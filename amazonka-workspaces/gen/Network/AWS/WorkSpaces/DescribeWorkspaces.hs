@@ -238,8 +238,8 @@ instance Core.ToQuery DescribeWorkspaces where
 
 -- | /See:/ 'newDescribeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the WorkSpaces.
     --
@@ -259,8 +259,8 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspacesResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'describeWorkspacesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'workspaces', 'describeWorkspacesResponse_workspaces' - Information about the WorkSpaces.
 --
@@ -280,8 +280,8 @@ newDescribeWorkspacesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 describeWorkspacesResponse_nextToken :: Lens.Lens' DescribeWorkspacesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspacesResponse_nextToken = Lens.lens (\DescribeWorkspacesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspacesResponse' {} a -> s {nextToken = a} :: DescribeWorkspacesResponse)
 

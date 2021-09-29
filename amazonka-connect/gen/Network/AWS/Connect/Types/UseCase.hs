@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 data UseCase = UseCase'
   { -- | The Amazon Resource Name (ARN) for the use case.
     useCaseArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of use case to associate to the AppIntegration association.
-    -- Each AppIntegration association can have only one of each use case type.
+    -- | The type of use case to associate to the integration association. Each
+    -- integration association can have only one of each use case type.
     useCaseType :: Prelude.Maybe UseCaseType,
     -- | The identifier for the use case.
     useCaseId :: Prelude.Maybe Prelude.Text
@@ -48,8 +48,8 @@ data UseCase = UseCase'
 --
 -- 'useCaseArn', 'useCase_useCaseArn' - The Amazon Resource Name (ARN) for the use case.
 --
--- 'useCaseType', 'useCase_useCaseType' - The type of use case to associate to the AppIntegration association.
--- Each AppIntegration association can have only one of each use case type.
+-- 'useCaseType', 'useCase_useCaseType' - The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
 --
 -- 'useCaseId', 'useCase_useCaseId' - The identifier for the use case.
 newUseCase ::
@@ -65,8 +65,8 @@ newUseCase =
 useCase_useCaseArn :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
 useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCase' {} a -> s {useCaseArn = a} :: UseCase)
 
--- | The type of use case to associate to the AppIntegration association.
--- Each AppIntegration association can have only one of each use case type.
+-- | The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
 useCase_useCaseType :: Lens.Lens' UseCase (Prelude.Maybe UseCaseType)
 useCase_useCaseType = Lens.lens (\UseCase' {useCaseType} -> useCaseType) (\s@UseCase' {} a -> s {useCaseType = a} :: UseCase)
 

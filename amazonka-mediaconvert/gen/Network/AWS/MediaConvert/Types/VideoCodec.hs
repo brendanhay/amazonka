@@ -29,7 +29,8 @@ module Network.AWS.MediaConvert.Types.VideoCodec
         VideoCodec_PRORES,
         VideoCodec_VC3,
         VideoCodec_VP8,
-        VideoCodec_VP9
+        VideoCodec_VP9,
+        VideoCodec_XAVC
       ),
   )
 where
@@ -96,6 +97,9 @@ pattern VideoCodec_VP8 = VideoCodec' "VP8"
 pattern VideoCodec_VP9 :: VideoCodec
 pattern VideoCodec_VP9 = VideoCodec' "VP9"
 
+pattern VideoCodec_XAVC :: VideoCodec
+pattern VideoCodec_XAVC = VideoCodec' "XAVC"
+
 {-# COMPLETE
   VideoCodec_AV1,
   VideoCodec_AVC_INTRA,
@@ -107,5 +111,6 @@ pattern VideoCodec_VP9 = VideoCodec' "VP9"
   VideoCodec_VC3,
   VideoCodec_VP8,
   VideoCodec_VP9,
+  VideoCodec_XAVC,
   VideoCodec'
   #-}

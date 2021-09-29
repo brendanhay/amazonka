@@ -35,30 +35,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceFilter' smart constructor.
 data DeviceFilter = DeviceFilter'
-  { -- | Specifies how Device Farm compares the filter\'s attribute to the value.
-    -- See the attribute descriptions.
-    operator :: Prelude.Maybe RuleOperator,
-    -- | An array of one or more filter values used in a device filter.
-    --
-    -- __Operator Values__
-    --
-    -- -   The IN and NOT_IN operators can take a values array that has more
-    --     than one element.
-    --
-    -- -   The other operators require an array with a single element.
-    --
-    -- __Attribute Values__
-    --
-    -- -   The PLATFORM attribute can be set to ANDROID or IOS.
-    --
-    -- -   The AVAILABILITY attribute can be set to AVAILABLE,
-    --     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
-    --
-    -- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
-    --
-    -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The aspect of a device such as platform or model used as the selection
+  { -- | The aspect of a device such as platform or model used as the selection
     -- criteria in a device filter.
     --
     -- The supported operators for each attribute are provided in the following
@@ -133,7 +110,30 @@ data DeviceFilter = DeviceFilter'
     --     The fleet type. Valid values are PUBLIC or PRIVATE.
     --
     --     Supported operators: @EQUALS@
-    attribute :: Prelude.Maybe DeviceFilterAttribute
+    attribute :: DeviceFilterAttribute,
+    -- | Specifies how Device Farm compares the filter\'s attribute to the value.
+    -- See the attribute descriptions.
+    operator :: RuleOperator,
+    -- | An array of one or more filter values used in a device filter.
+    --
+    -- __Operator Values__
+    --
+    -- -   The IN and NOT_IN operators can take a values array that has more
+    --     than one element.
+    --
+    -- -   The other operators require an array with a single element.
+    --
+    -- __Attribute Values__
+    --
+    -- -   The PLATFORM attribute can be set to ANDROID or IOS.
+    --
+    -- -   The AVAILABILITY attribute can be set to AVAILABLE,
+    --     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+    --
+    -- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
+    --
+    -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
+    values :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -144,29 +144,6 @@ data DeviceFilter = DeviceFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'operator', 'deviceFilter_operator' - Specifies how Device Farm compares the filter\'s attribute to the value.
--- See the attribute descriptions.
---
--- 'values', 'deviceFilter_values' - An array of one or more filter values used in a device filter.
---
--- __Operator Values__
---
--- -   The IN and NOT_IN operators can take a values array that has more
---     than one element.
---
--- -   The other operators require an array with a single element.
---
--- __Attribute Values__
---
--- -   The PLATFORM attribute can be set to ANDROID or IOS.
---
--- -   The AVAILABILITY attribute can be set to AVAILABLE,
---     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
---
--- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
---
--- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
 --
 -- 'attribute', 'deviceFilter_attribute' - The aspect of a device such as platform or model used as the selection
 -- criteria in a device filter.
@@ -243,21 +220,11 @@ data DeviceFilter = DeviceFilter'
 --     The fleet type. Valid values are PUBLIC or PRIVATE.
 --
 --     Supported operators: @EQUALS@
-newDeviceFilter ::
-  DeviceFilter
-newDeviceFilter =
-  DeviceFilter'
-    { operator = Prelude.Nothing,
-      values = Prelude.Nothing,
-      attribute = Prelude.Nothing
-    }
-
--- | Specifies how Device Farm compares the filter\'s attribute to the value.
+--
+-- 'operator', 'deviceFilter_operator' - Specifies how Device Farm compares the filter\'s attribute to the value.
 -- See the attribute descriptions.
-deviceFilter_operator :: Lens.Lens' DeviceFilter (Prelude.Maybe RuleOperator)
-deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@DeviceFilter' {} a -> s {operator = a} :: DeviceFilter)
-
--- | An array of one or more filter values used in a device filter.
+--
+-- 'values', 'deviceFilter_values' - An array of one or more filter values used in a device filter.
 --
 -- __Operator Values__
 --
@@ -276,8 +243,18 @@ deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@De
 -- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
 --
 -- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
-deviceFilter_values :: Lens.Lens' DeviceFilter (Prelude.Maybe [Prelude.Text])
-deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Prelude.. Lens.mapping Lens._Coerce
+newDeviceFilter ::
+  -- | 'attribute'
+  DeviceFilterAttribute ->
+  -- | 'operator'
+  RuleOperator ->
+  DeviceFilter
+newDeviceFilter pAttribute_ pOperator_ =
+  DeviceFilter'
+    { attribute = pAttribute_,
+      operator = pOperator_,
+      values = Prelude.mempty
+    }
 
 -- | The aspect of a device such as platform or model used as the selection
 -- criteria in a device filter.
@@ -354,8 +331,35 @@ deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFi
 --     The fleet type. Valid values are PUBLIC or PRIVATE.
 --
 --     Supported operators: @EQUALS@
-deviceFilter_attribute :: Lens.Lens' DeviceFilter (Prelude.Maybe DeviceFilterAttribute)
+deviceFilter_attribute :: Lens.Lens' DeviceFilter DeviceFilterAttribute
 deviceFilter_attribute = Lens.lens (\DeviceFilter' {attribute} -> attribute) (\s@DeviceFilter' {} a -> s {attribute = a} :: DeviceFilter)
+
+-- | Specifies how Device Farm compares the filter\'s attribute to the value.
+-- See the attribute descriptions.
+deviceFilter_operator :: Lens.Lens' DeviceFilter RuleOperator
+deviceFilter_operator = Lens.lens (\DeviceFilter' {operator} -> operator) (\s@DeviceFilter' {} a -> s {operator = a} :: DeviceFilter)
+
+-- | An array of one or more filter values used in a device filter.
+--
+-- __Operator Values__
+--
+-- -   The IN and NOT_IN operators can take a values array that has more
+--     than one element.
+--
+-- -   The other operators require an array with a single element.
+--
+-- __Attribute Values__
+--
+-- -   The PLATFORM attribute can be set to ANDROID or IOS.
+--
+-- -   The AVAILABILITY attribute can be set to AVAILABLE,
+--     HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+--
+-- -   The FORM_FACTOR attribute can be set to PHONE or TABLET.
+--
+-- -   The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
+deviceFilter_values :: Lens.Lens' DeviceFilter [Prelude.Text]
+deviceFilter_values = Lens.lens (\DeviceFilter' {values} -> values) (\s@DeviceFilter' {} a -> s {values = a} :: DeviceFilter) Prelude.. Lens._Coerce
 
 instance Core.FromJSON DeviceFilter where
   parseJSON =
@@ -363,9 +367,9 @@ instance Core.FromJSON DeviceFilter where
       "DeviceFilter"
       ( \x ->
           DeviceFilter'
-            Prelude.<$> (x Core..:? "operator")
+            Prelude.<$> (x Core..: "attribute")
+            Prelude.<*> (x Core..: "operator")
             Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "attribute")
       )
 
 instance Prelude.Hashable DeviceFilter
@@ -376,8 +380,8 @@ instance Core.ToJSON DeviceFilter where
   toJSON DeviceFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("operator" Core..=) Prelude.<$> operator,
-            ("values" Core..=) Prelude.<$> values,
-            ("attribute" Core..=) Prelude.<$> attribute
+          [ Prelude.Just ("attribute" Core..= attribute),
+            Prelude.Just ("operator" Core..= operator),
+            Prelude.Just ("values" Core..= values)
           ]
       )

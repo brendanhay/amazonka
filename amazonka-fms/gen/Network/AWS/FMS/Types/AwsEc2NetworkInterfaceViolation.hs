@@ -23,14 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Violations for network interfaces associated with an EC2 instance.
+-- | Violation detail for network interfaces associated with an EC2 instance.
 --
 -- /See:/ 'newAwsEc2NetworkInterfaceViolation' smart constructor.
 data AwsEc2NetworkInterfaceViolation = AwsEc2NetworkInterfaceViolation'
   { -- | The resource ID of the network interface.
     violationTarget :: Prelude.Maybe Prelude.Text,
-    -- | List of security groups that violate the rules specified in the master
-    -- security group of the AWS Firewall Manager policy.
+    -- | List of security groups that violate the rules specified in the primary
+    -- security group of the Firewall Manager policy.
     violatingSecurityGroups :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,8 +45,8 @@ data AwsEc2NetworkInterfaceViolation = AwsEc2NetworkInterfaceViolation'
 --
 -- 'violationTarget', 'awsEc2NetworkInterfaceViolation_violationTarget' - The resource ID of the network interface.
 --
--- 'violatingSecurityGroups', 'awsEc2NetworkInterfaceViolation_violatingSecurityGroups' - List of security groups that violate the rules specified in the master
--- security group of the AWS Firewall Manager policy.
+-- 'violatingSecurityGroups', 'awsEc2NetworkInterfaceViolation_violatingSecurityGroups' - List of security groups that violate the rules specified in the primary
+-- security group of the Firewall Manager policy.
 newAwsEc2NetworkInterfaceViolation ::
   AwsEc2NetworkInterfaceViolation
 newAwsEc2NetworkInterfaceViolation =
@@ -60,8 +60,8 @@ newAwsEc2NetworkInterfaceViolation =
 awsEc2NetworkInterfaceViolation_violationTarget :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceViolation_violationTarget = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violationTarget} -> violationTarget) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violationTarget = a} :: AwsEc2NetworkInterfaceViolation)
 
--- | List of security groups that violate the rules specified in the master
--- security group of the AWS Firewall Manager policy.
+-- | List of security groups that violate the rules specified in the primary
+-- security group of the Firewall Manager policy.
 awsEc2NetworkInterfaceViolation_violatingSecurityGroups :: Lens.Lens' AwsEc2NetworkInterfaceViolation (Prelude.Maybe [Prelude.Text])
 awsEc2NetworkInterfaceViolation_violatingSecurityGroups = Lens.lens (\AwsEc2NetworkInterfaceViolation' {violatingSecurityGroups} -> violatingSecurityGroups) (\s@AwsEc2NetworkInterfaceViolation' {} a -> s {violatingSecurityGroups = a} :: AwsEc2NetworkInterfaceViolation) Prelude.. Lens.mapping Lens._Coerce
 

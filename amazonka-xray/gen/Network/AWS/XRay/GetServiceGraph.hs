@@ -24,9 +24,9 @@
 -- requests, and downstream services that they call as a result. Root
 -- services process incoming requests and make calls to downstream
 -- services. Root services are applications that use the
--- <https://docs.aws.amazon.com/xray/index.html AWS X-Ray SDK>. Downstream
--- services can be other applications, AWS resources, HTTP web APIs, or SQL
--- databases.
+-- <https://docs.aws.amazon.com/xray/index.html Amazon Web Services X-Ray SDK>.
+-- Downstream services can be other applications, Amazon Web Services
+-- resources, HTTP web APIs, or SQL databases.
 --
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetServiceGraph
@@ -49,8 +49,8 @@ module Network.AWS.XRay.GetServiceGraph
     getServiceGraphResponse_nextToken,
     getServiceGraphResponse_services,
     getServiceGraphResponse_startTime,
-    getServiceGraphResponse_containsOldGroupVersions,
     getServiceGraphResponse_endTime,
+    getServiceGraphResponse_containsOldGroupVersions,
     getServiceGraphResponse_httpStatus,
   )
 where
@@ -166,8 +166,8 @@ instance Core.AWSRequest GetServiceGraph where
             Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "ContainsOldGroupVersions")
             Prelude.<*> (x Core..?> "EndTime")
+            Prelude.<*> (x Core..?> "ContainsOldGroupVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,12 +205,12 @@ data GetServiceGraphResponse = GetServiceGraphResponse'
     services :: Prelude.Maybe [ServiceInfo],
     -- | The start of the time frame for which the graph was generated.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The end of the time frame for which the graph was generated.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | A flag indicating whether the group\'s filter expression has been
     -- consistent, or if the returned service graph may show traces from an
     -- older version of the group\'s filter expression.
     containsOldGroupVersions :: Prelude.Maybe Prelude.Bool,
-    -- | The end of the time frame for which the graph was generated.
-    endTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,11 +231,11 @@ data GetServiceGraphResponse = GetServiceGraphResponse'
 --
 -- 'startTime', 'getServiceGraphResponse_startTime' - The start of the time frame for which the graph was generated.
 --
+-- 'endTime', 'getServiceGraphResponse_endTime' - The end of the time frame for which the graph was generated.
+--
 -- 'containsOldGroupVersions', 'getServiceGraphResponse_containsOldGroupVersions' - A flag indicating whether the group\'s filter expression has been
 -- consistent, or if the returned service graph may show traces from an
 -- older version of the group\'s filter expression.
---
--- 'endTime', 'getServiceGraphResponse_endTime' - The end of the time frame for which the graph was generated.
 --
 -- 'httpStatus', 'getServiceGraphResponse_httpStatus' - The response's http status code.
 newGetServiceGraphResponse ::
@@ -248,8 +248,8 @@ newGetServiceGraphResponse pHttpStatus_ =
         Prelude.Nothing,
       services = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      containsOldGroupVersions = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      containsOldGroupVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -266,15 +266,15 @@ getServiceGraphResponse_services = Lens.lens (\GetServiceGraphResponse' {service
 getServiceGraphResponse_startTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
 getServiceGraphResponse_startTime = Lens.lens (\GetServiceGraphResponse' {startTime} -> startTime) (\s@GetServiceGraphResponse' {} a -> s {startTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The end of the time frame for which the graph was generated.
+getServiceGraphResponse_endTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
+getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Core._Time
+
 -- | A flag indicating whether the group\'s filter expression has been
 -- consistent, or if the returned service graph may show traces from an
 -- older version of the group\'s filter expression.
 getServiceGraphResponse_containsOldGroupVersions :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.Bool)
 getServiceGraphResponse_containsOldGroupVersions = Lens.lens (\GetServiceGraphResponse' {containsOldGroupVersions} -> containsOldGroupVersions) (\s@GetServiceGraphResponse' {} a -> s {containsOldGroupVersions = a} :: GetServiceGraphResponse)
-
--- | The end of the time frame for which the graph was generated.
-getServiceGraphResponse_endTime :: Lens.Lens' GetServiceGraphResponse (Prelude.Maybe Prelude.UTCTime)
-getServiceGraphResponse_endTime = Lens.lens (\GetServiceGraphResponse' {endTime} -> endTime) (\s@GetServiceGraphResponse' {} a -> s {endTime = a} :: GetServiceGraphResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getServiceGraphResponse_httpStatus :: Lens.Lens' GetServiceGraphResponse Prelude.Int

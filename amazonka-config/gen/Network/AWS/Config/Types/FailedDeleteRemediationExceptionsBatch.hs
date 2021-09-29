@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFailedDeleteRemediationExceptionsBatch' smart constructor.
 data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsBatch'
   { -- | Returns a failure message for delete remediation exception. For example,
-    -- AWS Config creates an exception due to an internal error.
+    -- Config creates an exception due to an internal error.
     failureMessage :: Prelude.Maybe Prelude.Text,
     -- | Returns remediation exception resource key object of the failed items.
     failedItems :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey)
@@ -46,7 +46,7 @@ data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsB
 -- for backwards compatibility:
 --
 -- 'failureMessage', 'failedDeleteRemediationExceptionsBatch_failureMessage' - Returns a failure message for delete remediation exception. For example,
--- AWS Config creates an exception due to an internal error.
+-- Config creates an exception due to an internal error.
 --
 -- 'failedItems', 'failedDeleteRemediationExceptionsBatch_failedItems' - Returns remediation exception resource key object of the failed items.
 newFailedDeleteRemediationExceptionsBatch ::
@@ -59,7 +59,7 @@ newFailedDeleteRemediationExceptionsBatch =
     }
 
 -- | Returns a failure message for delete remediation exception. For example,
--- AWS Config creates an exception due to an internal error.
+-- Config creates an exception due to an internal error.
 failedDeleteRemediationExceptionsBatch_failureMessage :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe Prelude.Text)
 failedDeleteRemediationExceptionsBatch_failureMessage = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failureMessage} -> failureMessage) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failureMessage = a} :: FailedDeleteRemediationExceptionsBatch)
 

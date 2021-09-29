@@ -33,10 +33,10 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     newDescribeSpotFleetRequestHistory,
 
     -- * Request Lenses
-    describeSpotFleetRequestHistory_nextToken,
     describeSpotFleetRequestHistory_eventType,
-    describeSpotFleetRequestHistory_dryRun,
+    describeSpotFleetRequestHistory_nextToken,
     describeSpotFleetRequestHistory_maxResults,
+    describeSpotFleetRequestHistory_dryRun,
     describeSpotFleetRequestHistory_spotFleetRequestId,
     describeSpotFleetRequestHistory_startTime,
 
@@ -65,20 +65,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSpotFleetRequestHistory' smart constructor.
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of events to describe. By default, all events are described.
+  { -- | The type of events to describe. By default, all events are described.
     eventType :: Prelude.Maybe EventType,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Prelude.Text,
     -- | The starting date and time for the events, in UTC format (for example,
@@ -95,19 +95,19 @@ data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotFleetRequestHistory_nextToken' - The token for the next set of results.
---
 -- 'eventType', 'describeSpotFleetRequestHistory_eventType' - The type of events to describe. By default, all events are described.
 --
--- 'dryRun', 'describeSpotFleetRequestHistory_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'nextToken', 'describeSpotFleetRequestHistory_nextToken' - The token for the next set of results.
 --
 -- 'maxResults', 'describeSpotFleetRequestHistory_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeSpotFleetRequestHistory_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'spotFleetRequestId', 'describeSpotFleetRequestHistory_spotFleetRequestId' - The ID of the Spot Fleet request.
 --
@@ -123,29 +123,22 @@ newDescribeSpotFleetRequestHistory
   pSpotFleetRequestId_
   pStartTime_ =
     DescribeSpotFleetRequestHistory'
-      { nextToken =
+      { eventType =
           Prelude.Nothing,
-        eventType = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         spotFleetRequestId = pSpotFleetRequestId_,
         startTime = Core._Time Lens.# pStartTime_
       }
-
--- | The token for the next set of results.
-describeSpotFleetRequestHistory_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Text)
-describeSpotFleetRequestHistory_nextToken = Lens.lens (\DescribeSpotFleetRequestHistory' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequestHistory' {} a -> s {nextToken = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The type of events to describe. By default, all events are described.
 describeSpotFleetRequestHistory_eventType :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe EventType)
 describeSpotFleetRequestHistory_eventType = Lens.lens (\DescribeSpotFleetRequestHistory' {eventType} -> eventType) (\s@DescribeSpotFleetRequestHistory' {} a -> s {eventType = a} :: DescribeSpotFleetRequestHistory)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSpotFleetRequestHistory_dryRun :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Bool)
-describeSpotFleetRequestHistory_dryRun = Lens.lens (\DescribeSpotFleetRequestHistory' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequestHistory' {} a -> s {dryRun = a} :: DescribeSpotFleetRequestHistory)
+-- | The token for the next set of results.
+describeSpotFleetRequestHistory_nextToken :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Text)
+describeSpotFleetRequestHistory_nextToken = Lens.lens (\DescribeSpotFleetRequestHistory' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequestHistory' {} a -> s {nextToken = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
@@ -153,6 +146,13 @@ describeSpotFleetRequestHistory_dryRun = Lens.lens (\DescribeSpotFleetRequestHis
 -- value.
 describeSpotFleetRequestHistory_maxResults :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Natural)
 describeSpotFleetRequestHistory_maxResults = Lens.lens (\DescribeSpotFleetRequestHistory' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequestHistory' {} a -> s {maxResults = a} :: DescribeSpotFleetRequestHistory)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotFleetRequestHistory_dryRun :: Lens.Lens' DescribeSpotFleetRequestHistory (Prelude.Maybe Prelude.Bool)
+describeSpotFleetRequestHistory_dryRun = Lens.lens (\DescribeSpotFleetRequestHistory' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequestHistory' {} a -> s {dryRun = a} :: DescribeSpotFleetRequestHistory)
 
 -- | The ID of the Spot Fleet request.
 describeSpotFleetRequestHistory_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistory Prelude.Text
@@ -212,10 +212,10 @@ instance Core.ToQuery DescribeSpotFleetRequestHistory where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         "EventType" Core.=: eventType,
-        "DryRun" Core.=: dryRun,
+        "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "SpotFleetRequestId" Core.=: spotFleetRequestId,
         "StartTime" Core.=: startTime
       ]

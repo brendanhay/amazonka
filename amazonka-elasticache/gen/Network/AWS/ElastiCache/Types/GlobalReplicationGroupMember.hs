@@ -24,8 +24,8 @@ import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A member of a Global Datastore. It contains the Replication Group Id,
--- the AWS region and the role of the replication group.
+-- | A member of a Global datastore. It contains the Replication Group Id,
+-- the Amazon region and the role of the replication group.
 --
 -- /See:/ 'newGlobalReplicationGroupMember' smart constructor.
 data GlobalReplicationGroupMember = GlobalReplicationGroupMember'
@@ -34,9 +34,9 @@ data GlobalReplicationGroupMember = GlobalReplicationGroupMember'
     -- | Indicates whether automatic failover is enabled for the replication
     -- group.
     automaticFailover :: Prelude.Maybe AutomaticFailoverStatus,
-    -- | The replication group id of the Global Datastore member.
+    -- | The replication group id of the Global datastore member.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS region of the Global Datastore member.
+    -- | The Amazon region of the Global datastore member.
     replicationGroupRegion :: Prelude.Maybe Prelude.Text,
     -- | Indicates the role of the replication group, primary or secondary.
     role' :: Prelude.Maybe Prelude.Text
@@ -56,9 +56,9 @@ data GlobalReplicationGroupMember = GlobalReplicationGroupMember'
 -- 'automaticFailover', 'globalReplicationGroupMember_automaticFailover' - Indicates whether automatic failover is enabled for the replication
 -- group.
 --
--- 'replicationGroupId', 'globalReplicationGroupMember_replicationGroupId' - The replication group id of the Global Datastore member.
+-- 'replicationGroupId', 'globalReplicationGroupMember_replicationGroupId' - The replication group id of the Global datastore member.
 --
--- 'replicationGroupRegion', 'globalReplicationGroupMember_replicationGroupRegion' - The AWS region of the Global Datastore member.
+-- 'replicationGroupRegion', 'globalReplicationGroupMember_replicationGroupRegion' - The Amazon region of the Global datastore member.
 --
 -- 'role'', 'globalReplicationGroupMember_role' - Indicates the role of the replication group, primary or secondary.
 newGlobalReplicationGroupMember ::
@@ -82,11 +82,11 @@ globalReplicationGroupMember_status = Lens.lens (\GlobalReplicationGroupMember' 
 globalReplicationGroupMember_automaticFailover :: Lens.Lens' GlobalReplicationGroupMember (Prelude.Maybe AutomaticFailoverStatus)
 globalReplicationGroupMember_automaticFailover = Lens.lens (\GlobalReplicationGroupMember' {automaticFailover} -> automaticFailover) (\s@GlobalReplicationGroupMember' {} a -> s {automaticFailover = a} :: GlobalReplicationGroupMember)
 
--- | The replication group id of the Global Datastore member.
+-- | The replication group id of the Global datastore member.
 globalReplicationGroupMember_replicationGroupId :: Lens.Lens' GlobalReplicationGroupMember (Prelude.Maybe Prelude.Text)
 globalReplicationGroupMember_replicationGroupId = Lens.lens (\GlobalReplicationGroupMember' {replicationGroupId} -> replicationGroupId) (\s@GlobalReplicationGroupMember' {} a -> s {replicationGroupId = a} :: GlobalReplicationGroupMember)
 
--- | The AWS region of the Global Datastore member.
+-- | The Amazon region of the Global datastore member.
 globalReplicationGroupMember_replicationGroupRegion :: Lens.Lens' GlobalReplicationGroupMember (Prelude.Maybe Prelude.Text)
 globalReplicationGroupMember_replicationGroupRegion = Lens.lens (\GlobalReplicationGroupMember' {replicationGroupRegion} -> replicationGroupRegion) (\s@GlobalReplicationGroupMember' {} a -> s {replicationGroupRegion = a} :: GlobalReplicationGroupMember)
 

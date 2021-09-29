@@ -34,10 +34,10 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
     -- created.
     subnetIds :: [Prelude.Text],
     -- | A list of one or more IP addresses of DNS servers or domain controllers
-    -- in the on-premises directory.
+    -- in your self-managed directory.
     customerDnsIps :: [Prelude.Text],
-    -- | The user name of an account in the on-premises directory that is used to
-    -- connect to the directory. This account must have the following
+    -- | The user name of an account in your self-managed directory that is used
+    -- to connect to the directory. This account must have the following
     -- permissions:
     --
     -- -   Read users and groups
@@ -63,10 +63,10 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
 -- created.
 --
 -- 'customerDnsIps', 'directoryConnectSettings_customerDnsIps' - A list of one or more IP addresses of DNS servers or domain controllers
--- in the on-premises directory.
+-- in your self-managed directory.
 --
--- 'customerUserName', 'directoryConnectSettings_customerUserName' - The user name of an account in the on-premises directory that is used to
--- connect to the directory. This account must have the following
+-- 'customerUserName', 'directoryConnectSettings_customerUserName' - The user name of an account in your self-managed directory that is used
+-- to connect to the directory. This account must have the following
 -- permissions:
 --
 -- -   Read users and groups
@@ -100,12 +100,12 @@ directoryConnectSettings_subnetIds :: Lens.Lens' DirectoryConnectSettings [Prelu
 directoryConnectSettings_subnetIds = Lens.lens (\DirectoryConnectSettings' {subnetIds} -> subnetIds) (\s@DirectoryConnectSettings' {} a -> s {subnetIds = a} :: DirectoryConnectSettings) Prelude.. Lens._Coerce
 
 -- | A list of one or more IP addresses of DNS servers or domain controllers
--- in the on-premises directory.
+-- in your self-managed directory.
 directoryConnectSettings_customerDnsIps :: Lens.Lens' DirectoryConnectSettings [Prelude.Text]
 directoryConnectSettings_customerDnsIps = Lens.lens (\DirectoryConnectSettings' {customerDnsIps} -> customerDnsIps) (\s@DirectoryConnectSettings' {} a -> s {customerDnsIps = a} :: DirectoryConnectSettings) Prelude.. Lens._Coerce
 
--- | The user name of an account in the on-premises directory that is used to
--- connect to the directory. This account must have the following
+-- | The user name of an account in your self-managed directory that is used
+-- to connect to the directory. This account must have the following
 -- permissions:
 --
 -- -   Read users and groups

@@ -11,16 +11,16 @@
 --
 -- Derived from API version @2015-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Lambda
+-- Lambda
 --
 -- __Overview__
 --
--- This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide
--- provides additional information. For the service overview, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>,
+-- This is the /Lambda API Reference/. The Lambda Developer Guide provides
+-- additional information. For the service overview, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is Lambda>,
 -- and for information about how the service works, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
--- in the __AWS Lambda Developer Guide__.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html Lambda: How it Works>
+-- in the __Lambda Developer Guide__.
 module Network.AWS.Lambda
   ( -- * Service Configuration
     defaultService,
@@ -37,11 +37,11 @@ module Network.AWS.Lambda
     -- ** KMSNotFoundException
     _KMSNotFoundException,
 
-    -- ** EC2UnexpectedException
-    _EC2UnexpectedException,
-
     -- ** UnsupportedMediaTypeException
     _UnsupportedMediaTypeException,
+
+    -- ** EC2UnexpectedException
+    _EC2UnexpectedException,
 
     -- ** InvalidZipFileException
     _InvalidZipFileException,
@@ -67,44 +67,38 @@ module Network.AWS.Lambda
     -- ** InvalidSecurityGroupIDException
     _InvalidSecurityGroupIDException,
 
-    -- ** EC2ThrottledException
-    _EC2ThrottledException,
-
     -- ** RequestTooLargeException
     _RequestTooLargeException,
+
+    -- ** EC2ThrottledException
+    _EC2ThrottledException,
 
     -- ** EFSMountConnectivityException
     _EFSMountConnectivityException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
     -- ** ENILimitReachedException
     _ENILimitReachedException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** EFSMountTimeoutException
-    _EFSMountTimeoutException,
-
-    -- ** EFSIOException
-    _EFSIOException,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** KMSAccessDeniedException
     _KMSAccessDeniedException,
 
-    -- ** InvalidRequestContentException
-    _InvalidRequestContentException,
+    -- ** EFSMountTimeoutException
+    _EFSMountTimeoutException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** EFSIOException
+    _EFSIOException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** PolicyLengthExceededException
-    _PolicyLengthExceededException,
-
-    -- ** CodeSigningConfigNotFoundException
-    _CodeSigningConfigNotFoundException,
+    -- ** InvalidRequestContentException
+    _InvalidRequestContentException,
 
     -- ** CodeVerificationFailedException
     _CodeVerificationFailedException,
@@ -112,23 +106,29 @@ module Network.AWS.Lambda
     -- ** CodeStorageExceededException
     _CodeStorageExceededException,
 
+    -- ** PolicyLengthExceededException
+    _PolicyLengthExceededException,
+
     -- ** PreconditionFailedException
     _PreconditionFailedException,
 
-    -- ** KMSDisabledException
-    _KMSDisabledException,
+    -- ** CodeSigningConfigNotFoundException
+    _CodeSigningConfigNotFoundException,
 
     -- ** SubnetIPAddressLimitReachedException
     _SubnetIPAddressLimitReachedException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
     -- ** ServiceException
     _ServiceException,
 
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
     -- ** InvalidRuntimeException
     _InvalidRuntimeException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -151,29 +151,23 @@ module Network.AWS.Lambda
     DeleteAliasResponse (DeleteAliasResponse'),
     newDeleteAliasResponse,
 
-    -- ** PutFunctionCodeSigningConfig
-    PutFunctionCodeSigningConfig (PutFunctionCodeSigningConfig'),
-    newPutFunctionCodeSigningConfig,
-    PutFunctionCodeSigningConfigResponse (PutFunctionCodeSigningConfigResponse'),
-    newPutFunctionCodeSigningConfigResponse,
-
     -- ** GetLayerVersionPolicy
     GetLayerVersionPolicy (GetLayerVersionPolicy'),
     newGetLayerVersionPolicy,
     GetLayerVersionPolicyResponse (GetLayerVersionPolicyResponse'),
     newGetLayerVersionPolicyResponse,
 
+    -- ** PutFunctionCodeSigningConfig
+    PutFunctionCodeSigningConfig (PutFunctionCodeSigningConfig'),
+    newPutFunctionCodeSigningConfig,
+    PutFunctionCodeSigningConfigResponse (PutFunctionCodeSigningConfigResponse'),
+    newPutFunctionCodeSigningConfigResponse,
+
     -- ** UpdateAlias
     UpdateAlias (UpdateAlias'),
     newUpdateAlias,
     AliasConfiguration (AliasConfiguration'),
     newAliasConfiguration,
-
-    -- ** GetFunctionConfiguration
-    GetFunctionConfiguration (GetFunctionConfiguration'),
-    newGetFunctionConfiguration,
-    FunctionConfiguration (FunctionConfiguration'),
-    newFunctionConfiguration,
 
     -- ** UpdateEventSourceMapping
     UpdateEventSourceMapping (UpdateEventSourceMapping'),
@@ -193,6 +187,12 @@ module Network.AWS.Lambda
     ListEventSourceMappingsResponse (ListEventSourceMappingsResponse'),
     newListEventSourceMappingsResponse,
 
+    -- ** GetFunctionConfiguration
+    GetFunctionConfiguration (GetFunctionConfiguration'),
+    newGetFunctionConfiguration,
+    FunctionConfiguration (FunctionConfiguration'),
+    newFunctionConfiguration,
+
     -- ** DeleteEventSourceMapping
     DeleteEventSourceMapping (DeleteEventSourceMapping'),
     newDeleteEventSourceMapping,
@@ -205,17 +205,23 @@ module Network.AWS.Lambda
     GetLayerVersionResponse (GetLayerVersionResponse'),
     newGetLayerVersionResponse,
 
+    -- ** CreateEventSourceMapping
+    CreateEventSourceMapping (CreateEventSourceMapping'),
+    newCreateEventSourceMapping,
+    EventSourceMappingConfiguration (EventSourceMappingConfiguration'),
+    newEventSourceMappingConfiguration,
+
     -- ** GetFunctionConcurrency
     GetFunctionConcurrency (GetFunctionConcurrency'),
     newGetFunctionConcurrency,
     GetFunctionConcurrencyResponse (GetFunctionConcurrencyResponse'),
     newGetFunctionConcurrencyResponse,
 
-    -- ** CreateEventSourceMapping
-    CreateEventSourceMapping (CreateEventSourceMapping'),
-    newCreateEventSourceMapping,
-    EventSourceMappingConfiguration (EventSourceMappingConfiguration'),
-    newEventSourceMappingConfiguration,
+    -- ** UpdateFunctionCode
+    UpdateFunctionCode (UpdateFunctionCode'),
+    newUpdateFunctionCode,
+    FunctionConfiguration (FunctionConfiguration'),
+    newFunctionConfiguration,
 
     -- ** DeleteFunctionConcurrency
     DeleteFunctionConcurrency (DeleteFunctionConcurrency'),
@@ -235,17 +241,11 @@ module Network.AWS.Lambda
     DeleteProvisionedConcurrencyConfigResponse (DeleteProvisionedConcurrencyConfigResponse'),
     newDeleteProvisionedConcurrencyConfigResponse,
 
-    -- ** UpdateFunctionCode
-    UpdateFunctionCode (UpdateFunctionCode'),
-    newUpdateFunctionCode,
-    FunctionConfiguration (FunctionConfiguration'),
-    newFunctionConfiguration,
-
-    -- ** UpdateFunctionConfiguration
-    UpdateFunctionConfiguration (UpdateFunctionConfiguration'),
-    newUpdateFunctionConfiguration,
-    FunctionConfiguration (FunctionConfiguration'),
-    newFunctionConfiguration,
+    -- ** ListFunctions (Paginated)
+    ListFunctions (ListFunctions'),
+    newListFunctions,
+    ListFunctionsResponse (ListFunctionsResponse'),
+    newListFunctionsResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -253,35 +253,11 @@ module Network.AWS.Lambda
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListFunctions (Paginated)
-    ListFunctions (ListFunctions'),
-    newListFunctions,
-    ListFunctionsResponse (ListFunctionsResponse'),
-    newListFunctionsResponse,
-
-    -- ** ListLayerVersions (Paginated)
-    ListLayerVersions (ListLayerVersions'),
-    newListLayerVersions,
-    ListLayerVersionsResponse (ListLayerVersionsResponse'),
-    newListLayerVersionsResponse,
-
-    -- ** Invoke
-    Invoke (Invoke'),
-    newInvoke,
-    InvokeResponse (InvokeResponse'),
-    newInvokeResponse,
-
-    -- ** DeleteLayerVersion
-    DeleteLayerVersion (DeleteLayerVersion'),
-    newDeleteLayerVersion,
-    DeleteLayerVersionResponse (DeleteLayerVersionResponse'),
-    newDeleteLayerVersionResponse,
-
-    -- ** CreateCodeSigningConfig
-    CreateCodeSigningConfig (CreateCodeSigningConfig'),
-    newCreateCodeSigningConfig,
-    CreateCodeSigningConfigResponse (CreateCodeSigningConfigResponse'),
-    newCreateCodeSigningConfigResponse,
+    -- ** UpdateFunctionConfiguration
+    UpdateFunctionConfiguration (UpdateFunctionConfiguration'),
+    newUpdateFunctionConfiguration,
+    FunctionConfiguration (FunctionConfiguration'),
+    newFunctionConfiguration,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -289,29 +265,41 @@ module Network.AWS.Lambda
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** Invoke
+    Invoke (Invoke'),
+    newInvoke,
+    InvokeResponse (InvokeResponse'),
+    newInvokeResponse,
+
+    -- ** ListLayerVersions (Paginated)
+    ListLayerVersions (ListLayerVersions'),
+    newListLayerVersions,
+    ListLayerVersionsResponse (ListLayerVersionsResponse'),
+    newListLayerVersionsResponse,
+
+    -- ** CreateCodeSigningConfig
+    CreateCodeSigningConfig (CreateCodeSigningConfig'),
+    newCreateCodeSigningConfig,
+    CreateCodeSigningConfigResponse (CreateCodeSigningConfigResponse'),
+    newCreateCodeSigningConfigResponse,
+
+    -- ** DeleteLayerVersion
+    DeleteLayerVersion (DeleteLayerVersion'),
+    newDeleteLayerVersion,
+    DeleteLayerVersionResponse (DeleteLayerVersionResponse'),
+    newDeleteLayerVersionResponse,
+
     -- ** GetAlias
     GetAlias (GetAlias'),
     newGetAlias,
     AliasConfiguration (AliasConfiguration'),
     newAliasConfiguration,
 
-    -- ** DeleteCodeSigningConfig
-    DeleteCodeSigningConfig (DeleteCodeSigningConfig'),
-    newDeleteCodeSigningConfig,
-    DeleteCodeSigningConfigResponse (DeleteCodeSigningConfigResponse'),
-    newDeleteCodeSigningConfigResponse,
-
-    -- ** UpdateCodeSigningConfig
-    UpdateCodeSigningConfig (UpdateCodeSigningConfig'),
-    newUpdateCodeSigningConfig,
-    UpdateCodeSigningConfigResponse (UpdateCodeSigningConfigResponse'),
-    newUpdateCodeSigningConfigResponse,
-
-    -- ** ListCodeSigningConfigs (Paginated)
-    ListCodeSigningConfigs (ListCodeSigningConfigs'),
-    newListCodeSigningConfigs,
-    ListCodeSigningConfigsResponse (ListCodeSigningConfigsResponse'),
-    newListCodeSigningConfigsResponse,
+    -- ** ListFunctionEventInvokeConfigs (Paginated)
+    ListFunctionEventInvokeConfigs (ListFunctionEventInvokeConfigs'),
+    newListFunctionEventInvokeConfigs,
+    ListFunctionEventInvokeConfigsResponse (ListFunctionEventInvokeConfigsResponse'),
+    newListFunctionEventInvokeConfigsResponse,
 
     -- ** DeleteFunctionEventInvokeConfig
     DeleteFunctionEventInvokeConfig (DeleteFunctionEventInvokeConfig'),
@@ -325,11 +313,23 @@ module Network.AWS.Lambda
     FunctionEventInvokeConfig (FunctionEventInvokeConfig'),
     newFunctionEventInvokeConfig,
 
-    -- ** ListFunctionEventInvokeConfigs (Paginated)
-    ListFunctionEventInvokeConfigs (ListFunctionEventInvokeConfigs'),
-    newListFunctionEventInvokeConfigs,
-    ListFunctionEventInvokeConfigsResponse (ListFunctionEventInvokeConfigsResponse'),
-    newListFunctionEventInvokeConfigsResponse,
+    -- ** DeleteCodeSigningConfig
+    DeleteCodeSigningConfig (DeleteCodeSigningConfig'),
+    newDeleteCodeSigningConfig,
+    DeleteCodeSigningConfigResponse (DeleteCodeSigningConfigResponse'),
+    newDeleteCodeSigningConfigResponse,
+
+    -- ** ListCodeSigningConfigs (Paginated)
+    ListCodeSigningConfigs (ListCodeSigningConfigs'),
+    newListCodeSigningConfigs,
+    ListCodeSigningConfigsResponse (ListCodeSigningConfigsResponse'),
+    newListCodeSigningConfigsResponse,
+
+    -- ** UpdateCodeSigningConfig
+    UpdateCodeSigningConfig (UpdateCodeSigningConfig'),
+    newUpdateCodeSigningConfig,
+    UpdateCodeSigningConfigResponse (UpdateCodeSigningConfigResponse'),
+    newUpdateCodeSigningConfigResponse,
 
     -- ** ListVersionsByFunction (Paginated)
     ListVersionsByFunction (ListVersionsByFunction'),
@@ -355,17 +355,17 @@ module Network.AWS.Lambda
     DeleteFunctionCodeSigningConfigResponse (DeleteFunctionCodeSigningConfigResponse'),
     newDeleteFunctionCodeSigningConfigResponse,
 
-    -- ** ListFunctionsByCodeSigningConfig (Paginated)
-    ListFunctionsByCodeSigningConfig (ListFunctionsByCodeSigningConfig'),
-    newListFunctionsByCodeSigningConfig,
-    ListFunctionsByCodeSigningConfigResponse (ListFunctionsByCodeSigningConfigResponse'),
-    newListFunctionsByCodeSigningConfigResponse,
-
     -- ** RemoveLayerVersionPermission
     RemoveLayerVersionPermission (RemoveLayerVersionPermission'),
     newRemoveLayerVersionPermission,
     RemoveLayerVersionPermissionResponse (RemoveLayerVersionPermissionResponse'),
     newRemoveLayerVersionPermissionResponse,
+
+    -- ** ListFunctionsByCodeSigningConfig (Paginated)
+    ListFunctionsByCodeSigningConfig (ListFunctionsByCodeSigningConfig'),
+    newListFunctionsByCodeSigningConfig,
+    ListFunctionsByCodeSigningConfigResponse (ListFunctionsByCodeSigningConfigResponse'),
+    newListFunctionsByCodeSigningConfigResponse,
 
     -- ** GetProvisionedConcurrencyConfig
     GetProvisionedConcurrencyConfig (GetProvisionedConcurrencyConfig'),
@@ -373,23 +373,17 @@ module Network.AWS.Lambda
     GetProvisionedConcurrencyConfigResponse (GetProvisionedConcurrencyConfigResponse'),
     newGetProvisionedConcurrencyConfigResponse,
 
-    -- ** CreateFunction
-    CreateFunction (CreateFunction'),
-    newCreateFunction,
-    FunctionConfiguration (FunctionConfiguration'),
-    newFunctionConfiguration,
-
-    -- ** PutFunctionConcurrency
-    PutFunctionConcurrency (PutFunctionConcurrency'),
-    newPutFunctionConcurrency,
-    Concurrency (Concurrency'),
-    newConcurrency,
-
     -- ** GetPolicy
     GetPolicy (GetPolicy'),
     newGetPolicy,
     GetPolicyResponse (GetPolicyResponse'),
     newGetPolicyResponse,
+
+    -- ** CreateFunction
+    CreateFunction (CreateFunction'),
+    newCreateFunction,
+    FunctionConfiguration (FunctionConfiguration'),
+    newFunctionConfiguration,
 
     -- ** PutProvisionedConcurrencyConfig
     PutProvisionedConcurrencyConfig (PutProvisionedConcurrencyConfig'),
@@ -397,17 +391,17 @@ module Network.AWS.Lambda
     PutProvisionedConcurrencyConfigResponse (PutProvisionedConcurrencyConfigResponse'),
     newPutProvisionedConcurrencyConfigResponse,
 
-    -- ** AddLayerVersionPermission
-    AddLayerVersionPermission (AddLayerVersionPermission'),
-    newAddLayerVersionPermission,
-    AddLayerVersionPermissionResponse (AddLayerVersionPermissionResponse'),
-    newAddLayerVersionPermissionResponse,
+    -- ** PutFunctionConcurrency
+    PutFunctionConcurrency (PutFunctionConcurrency'),
+    newPutFunctionConcurrency,
+    Concurrency (Concurrency'),
+    newConcurrency,
 
-    -- ** PublishVersion
-    PublishVersion (PublishVersion'),
-    newPublishVersion,
-    FunctionConfiguration (FunctionConfiguration'),
-    newFunctionConfiguration,
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** DeleteFunction
     DeleteFunction (DeleteFunction'),
@@ -421,23 +415,29 @@ module Network.AWS.Lambda
     EventSourceMappingConfiguration (EventSourceMappingConfiguration'),
     newEventSourceMappingConfiguration,
 
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** PublishVersion
+    PublishVersion (PublishVersion'),
+    newPublishVersion,
+    FunctionConfiguration (FunctionConfiguration'),
+    newFunctionConfiguration,
 
-    -- ** PublishLayerVersion
-    PublishLayerVersion (PublishLayerVersion'),
-    newPublishLayerVersion,
-    PublishLayerVersionResponse (PublishLayerVersionResponse'),
-    newPublishLayerVersionResponse,
+    -- ** AddLayerVersionPermission
+    AddLayerVersionPermission (AddLayerVersionPermission'),
+    newAddLayerVersionPermission,
+    AddLayerVersionPermissionResponse (AddLayerVersionPermissionResponse'),
+    newAddLayerVersionPermissionResponse,
 
     -- ** GetFunctionCodeSigningConfig
     GetFunctionCodeSigningConfig (GetFunctionCodeSigningConfig'),
     newGetFunctionCodeSigningConfig,
     GetFunctionCodeSigningConfigResponse (GetFunctionCodeSigningConfigResponse'),
     newGetFunctionCodeSigningConfigResponse,
+
+    -- ** PublishLayerVersion
+    PublishLayerVersion (PublishLayerVersion'),
+    newPublishLayerVersion,
+    PublishLayerVersionResponse (PublishLayerVersionResponse'),
+    newPublishLayerVersionResponse,
 
     -- ** PutFunctionEventInvokeConfig
     PutFunctionEventInvokeConfig (PutFunctionEventInvokeConfig'),
@@ -451,17 +451,17 @@ module Network.AWS.Lambda
     RemovePermissionResponse (RemovePermissionResponse'),
     newRemovePermissionResponse,
 
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
+
     -- ** CreateAlias
     CreateAlias (CreateAlias'),
     newCreateAlias,
     AliasConfiguration (AliasConfiguration'),
     newAliasConfiguration,
-
-    -- ** GetCodeSigningConfig
-    GetCodeSigningConfig (GetCodeSigningConfig'),
-    newGetCodeSigningConfig,
-    GetCodeSigningConfigResponse (GetCodeSigningConfigResponse'),
-    newGetCodeSigningConfigResponse,
 
     -- ** GetFunctionEventInvokeConfig
     GetFunctionEventInvokeConfig (GetFunctionEventInvokeConfig'),
@@ -469,23 +469,23 @@ module Network.AWS.Lambda
     FunctionEventInvokeConfig (FunctionEventInvokeConfig'),
     newFunctionEventInvokeConfig,
 
-    -- ** ListLayers (Paginated)
-    ListLayers (ListLayers'),
-    newListLayers,
-    ListLayersResponse (ListLayersResponse'),
-    newListLayersResponse,
-
-    -- ** ListAliases (Paginated)
-    ListAliases (ListAliases'),
-    newListAliases,
-    ListAliasesResponse (ListAliasesResponse'),
-    newListAliasesResponse,
-
     -- ** GetAccountSettings
     GetAccountSettings (GetAccountSettings'),
     newGetAccountSettings,
     GetAccountSettingsResponse (GetAccountSettingsResponse'),
     newGetAccountSettingsResponse,
+
+    -- ** GetCodeSigningConfig
+    GetCodeSigningConfig (GetCodeSigningConfig'),
+    newGetCodeSigningConfig,
+    GetCodeSigningConfigResponse (GetCodeSigningConfigResponse'),
+    newGetCodeSigningConfigResponse,
+
+    -- ** ListLayers (Paginated)
+    ListLayers (ListLayers'),
+    newListLayers,
+    ListLayersResponse (ListLayersResponse'),
+    newListLayersResponse,
 
     -- * Types
 

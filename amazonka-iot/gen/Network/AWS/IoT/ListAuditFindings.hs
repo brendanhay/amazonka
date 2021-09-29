@@ -24,6 +24,10 @@
 -- performed during a specified time period. (Findings are retained for 90
 -- days.)
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListAuditFindings>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditFindings
   ( -- * Creating a Request

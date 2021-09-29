@@ -24,7 +24,8 @@ import Network.AWS.EMR.Types.NotebookExecutionStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- |
+-- | Details for a notebook execution. The details include information such
+-- as the unique ID and status of the notebook execution.
 --
 -- /See:/ 'newNotebookExecutionSummary' smart constructor.
 data NotebookExecutionSummary = NotebookExecutionSummary'

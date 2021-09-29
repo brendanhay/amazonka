@@ -54,6 +54,16 @@ data ParameterDefinition = ParameterDefinition'
     -- Malformed input-Parameter MyParameter must contain only uppercase and
     -- lowercase letters and numbers.
     constraintDescription :: Prelude.Maybe Prelude.Text,
+    -- | An integer value that determines the largest number of characters that
+    -- you want to allow for String types.
+    maxLength :: Prelude.Maybe Prelude.Int,
+    -- | A value of the appropriate type for the template to use if no value is
+    -- specified when a stack is created. If you define constraints for the
+    -- parameter, you must specify a value that adheres to those constraints.
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | A regular expression that represents the patterns to allow for String
+    -- types.
+    allowedPattern :: Prelude.Maybe Prelude.Text,
     -- | The type of the parameter.
     --
     -- Valid values: String | Number | List\<Number> | CommaDelimitedList
@@ -89,16 +99,6 @@ data ParameterDefinition = ParameterDefinition'
     -- describes the stack. If you set the value to true, the parameter value
     -- is masked with asterisks (*****).
     noEcho :: Prelude.Maybe Prelude.Bool,
-    -- | An integer value that determines the largest number of characters that
-    -- you want to allow for String types.
-    maxLength :: Prelude.Maybe Prelude.Int,
-    -- | A regular expression that represents the patterns to allow for String
-    -- types.
-    allowedPattern :: Prelude.Maybe Prelude.Text,
-    -- | A value of the appropriate type for the template to use if no value is
-    -- specified when a stack is created. If you define constraints for the
-    -- parameter, you must specify a value that adheres to those constraints.
-    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | A list of AWS SAM resources that use this parameter.
     referencedByResources :: [Prelude.Text],
     -- | The name of the parameter.
@@ -141,6 +141,16 @@ data ParameterDefinition = ParameterDefinition'
 -- Malformed input-Parameter MyParameter must contain only uppercase and
 -- lowercase letters and numbers.
 --
+-- 'maxLength', 'parameterDefinition_maxLength' - An integer value that determines the largest number of characters that
+-- you want to allow for String types.
+--
+-- 'defaultValue', 'parameterDefinition_defaultValue' - A value of the appropriate type for the template to use if no value is
+-- specified when a stack is created. If you define constraints for the
+-- parameter, you must specify a value that adheres to those constraints.
+--
+-- 'allowedPattern', 'parameterDefinition_allowedPattern' - A regular expression that represents the patterns to allow for String
+-- types.
+--
 -- 'type'', 'parameterDefinition_type' - The type of the parameter.
 --
 -- Valid values: String | Number | List\<Number> | CommaDelimitedList
@@ -176,16 +186,6 @@ data ParameterDefinition = ParameterDefinition'
 -- describes the stack. If you set the value to true, the parameter value
 -- is masked with asterisks (*****).
 --
--- 'maxLength', 'parameterDefinition_maxLength' - An integer value that determines the largest number of characters that
--- you want to allow for String types.
---
--- 'allowedPattern', 'parameterDefinition_allowedPattern' - A regular expression that represents the patterns to allow for String
--- types.
---
--- 'defaultValue', 'parameterDefinition_defaultValue' - A value of the appropriate type for the template to use if no value is
--- specified when a stack is created. If you define constraints for the
--- parameter, you must specify a value that adheres to those constraints.
---
 -- 'referencedByResources', 'parameterDefinition_referencedByResources' - A list of AWS SAM resources that use this parameter.
 --
 -- 'name', 'parameterDefinition_name' - The name of the parameter.
@@ -201,11 +201,11 @@ newParameterDefinition pName_ =
       minValue = Prelude.Nothing,
       description = Prelude.Nothing,
       constraintDescription = Prelude.Nothing,
+      maxLength = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
+      allowedPattern = Prelude.Nothing,
       type' = Prelude.Nothing,
       noEcho = Prelude.Nothing,
-      maxLength = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
       referencedByResources = Prelude.mempty,
       name = pName_
     }
@@ -249,6 +249,22 @@ parameterDefinition_description = Lens.lens (\ParameterDefinition' {description}
 parameterDefinition_constraintDescription :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
 parameterDefinition_constraintDescription = Lens.lens (\ParameterDefinition' {constraintDescription} -> constraintDescription) (\s@ParameterDefinition' {} a -> s {constraintDescription = a} :: ParameterDefinition)
 
+-- | An integer value that determines the largest number of characters that
+-- you want to allow for String types.
+parameterDefinition_maxLength :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
+parameterDefinition_maxLength = Lens.lens (\ParameterDefinition' {maxLength} -> maxLength) (\s@ParameterDefinition' {} a -> s {maxLength = a} :: ParameterDefinition)
+
+-- | A value of the appropriate type for the template to use if no value is
+-- specified when a stack is created. If you define constraints for the
+-- parameter, you must specify a value that adheres to those constraints.
+parameterDefinition_defaultValue :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_defaultValue = Lens.lens (\ParameterDefinition' {defaultValue} -> defaultValue) (\s@ParameterDefinition' {} a -> s {defaultValue = a} :: ParameterDefinition)
+
+-- | A regular expression that represents the patterns to allow for String
+-- types.
+parameterDefinition_allowedPattern :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_allowedPattern = Lens.lens (\ParameterDefinition' {allowedPattern} -> allowedPattern) (\s@ParameterDefinition' {} a -> s {allowedPattern = a} :: ParameterDefinition)
+
 -- | The type of the parameter.
 --
 -- Valid values: String | Number | List\<Number> | CommaDelimitedList
@@ -288,22 +304,6 @@ parameterDefinition_type = Lens.lens (\ParameterDefinition' {type'} -> type') (\
 parameterDefinition_noEcho :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Bool)
 parameterDefinition_noEcho = Lens.lens (\ParameterDefinition' {noEcho} -> noEcho) (\s@ParameterDefinition' {} a -> s {noEcho = a} :: ParameterDefinition)
 
--- | An integer value that determines the largest number of characters that
--- you want to allow for String types.
-parameterDefinition_maxLength :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
-parameterDefinition_maxLength = Lens.lens (\ParameterDefinition' {maxLength} -> maxLength) (\s@ParameterDefinition' {} a -> s {maxLength = a} :: ParameterDefinition)
-
--- | A regular expression that represents the patterns to allow for String
--- types.
-parameterDefinition_allowedPattern :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
-parameterDefinition_allowedPattern = Lens.lens (\ParameterDefinition' {allowedPattern} -> allowedPattern) (\s@ParameterDefinition' {} a -> s {allowedPattern = a} :: ParameterDefinition)
-
--- | A value of the appropriate type for the template to use if no value is
--- specified when a stack is created. If you define constraints for the
--- parameter, you must specify a value that adheres to those constraints.
-parameterDefinition_defaultValue :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
-parameterDefinition_defaultValue = Lens.lens (\ParameterDefinition' {defaultValue} -> defaultValue) (\s@ParameterDefinition' {} a -> s {defaultValue = a} :: ParameterDefinition)
-
 -- | A list of AWS SAM resources that use this parameter.
 parameterDefinition_referencedByResources :: Lens.Lens' ParameterDefinition [Prelude.Text]
 parameterDefinition_referencedByResources = Lens.lens (\ParameterDefinition' {referencedByResources} -> referencedByResources) (\s@ParameterDefinition' {} a -> s {referencedByResources = a} :: ParameterDefinition) Prelude.. Lens._Coerce
@@ -324,11 +324,11 @@ instance Core.FromJSON ParameterDefinition where
             Prelude.<*> (x Core..:? "minValue")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "constraintDescription")
+            Prelude.<*> (x Core..:? "maxLength")
+            Prelude.<*> (x Core..:? "defaultValue")
+            Prelude.<*> (x Core..:? "allowedPattern")
             Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "noEcho")
-            Prelude.<*> (x Core..:? "maxLength")
-            Prelude.<*> (x Core..:? "allowedPattern")
-            Prelude.<*> (x Core..:? "defaultValue")
             Prelude.<*> ( x Core..:? "referencedByResources"
                             Core..!= Prelude.mempty
                         )

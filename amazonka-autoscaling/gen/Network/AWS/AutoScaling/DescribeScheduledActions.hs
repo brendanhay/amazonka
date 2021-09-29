@@ -20,9 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the actions scheduled for your Auto Scaling group that
--- haven\'t run or that have not reached their end time. To describe the
--- actions that have already run, call the DescribeScalingActivities API.
+-- Gets information about the scheduled actions that haven\'t run or that
+-- have not reached their end time.
+--
+-- To describe the scaling activities for scheduled actions that have
+-- already run, call the DescribeScalingActivities API.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
@@ -35,8 +37,8 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     describeScheduledActions_startTime,
     describeScheduledActions_endTime,
     describeScheduledActions_scheduledActionNames,
-    describeScheduledActions_autoScalingGroupName,
     describeScheduledActions_maxRecords,
+    describeScheduledActions_autoScalingGroupName,
 
     -- * Destructuring the Response
     DescribeScheduledActionsResponse (..),
@@ -67,16 +69,17 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- | The latest scheduled start time to return. If scheduled action names are
     -- provided, this parameter is ignored.
     endTime :: Prelude.Maybe Core.ISO8601,
-    -- | The names of one or more scheduled actions. You can specify up to 50
-    -- actions. If you omit this parameter, all scheduled actions are
-    -- described. If you specify an unknown scheduled action, it is ignored
-    -- with no error.
+    -- | The names of one or more scheduled actions. If you omit this parameter,
+    -- all scheduled actions are described. If you specify an unknown scheduled
+    -- action, it is ignored with no error.
+    --
+    -- Array Members: Maximum number of 50 actions.
     scheduledActionNames :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,15 +100,16 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- 'endTime', 'describeScheduledActions_endTime' - The latest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
 --
--- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of one or more scheduled actions. You can specify up to 50
--- actions. If you omit this parameter, all scheduled actions are
--- described. If you specify an unknown scheduled action, it is ignored
--- with no error.
+-- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of one or more scheduled actions. If you omit this parameter,
+-- all scheduled actions are described. If you specify an unknown scheduled
+-- action, it is ignored with no error.
 --
--- 'autoScalingGroupName', 'describeScheduledActions_autoScalingGroupName' - The name of the Auto Scaling group.
+-- Array Members: Maximum number of 50 actions.
 --
 -- 'maxRecords', 'describeScheduledActions_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
+--
+-- 'autoScalingGroupName', 'describeScheduledActions_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions =
@@ -115,8 +119,8 @@ newDescribeScheduledActions =
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       scheduledActionNames = Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
@@ -134,21 +138,22 @@ describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {star
 describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
 describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
 
--- | The names of one or more scheduled actions. You can specify up to 50
--- actions. If you omit this parameter, all scheduled actions are
--- described. If you specify an unknown scheduled action, it is ignored
--- with no error.
+-- | The names of one or more scheduled actions. If you omit this parameter,
+-- all scheduled actions are described. If you specify an unknown scheduled
+-- action, it is ignored with no error.
+--
+-- Array Members: Maximum number of 50 actions.
 describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
 describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the Auto Scaling group.
-describeScheduledActions_autoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
-describeScheduledActions_autoScalingGroupName = Lens.lens (\DescribeScheduledActions' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScheduledActions' {} a -> s {autoScalingGroupName = a} :: DescribeScheduledActions)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
 describeScheduledActions_maxRecords :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
 describeScheduledActions_maxRecords = Lens.lens (\DescribeScheduledActions' {maxRecords} -> maxRecords) (\s@DescribeScheduledActions' {} a -> s {maxRecords = a} :: DescribeScheduledActions)
+
+-- | The name of the Auto Scaling group.
+describeScheduledActions_autoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
+describeScheduledActions_autoScalingGroupName = Lens.lens (\DescribeScheduledActions' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScheduledActions' {} a -> s {autoScalingGroupName = a} :: DescribeScheduledActions)
 
 instance Core.AWSPager DescribeScheduledActions where
   page rq rs
@@ -215,8 +220,8 @@ instance Core.ToQuery DescribeScheduledActions where
             ( Core.toQueryList "member"
                 Prelude.<$> scheduledActionNames
             ),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.

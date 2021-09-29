@@ -30,8 +30,8 @@ module Network.AWS.Redshift.DescribeClusterDbRevisions
 
     -- * Request Lenses
     describeClusterDbRevisions_clusterIdentifier,
-    describeClusterDbRevisions_marker,
     describeClusterDbRevisions_maxRecords,
+    describeClusterDbRevisions_marker,
 
     -- * Destructuring the Response
     DescribeClusterDbRevisionsResponse (..),
@@ -57,6 +57,16 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
     -- requesting. This parameter is case sensitive. All clusters defined for
     -- an account are returned by default.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified MaxRecords
+    -- value, a value is returned in the @marker@ field of the response. You
+    -- can retrieve the next set of response records by providing the returned
+    -- @marker@ value in the @marker@ parameter and retrying the request.
+    --
+    -- Default: 100
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional parameter that specifies the starting point for returning a
     -- set of response records. When the results of a
     -- @DescribeClusterDbRevisions@ request exceed the value specified in
@@ -67,17 +77,7 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
     --
     -- Constraints: You can specify either the @ClusterIdentifier@ parameter,
     -- or the @marker@ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of response records to return in each call. If the
-    -- number of remaining response records exceeds the specified MaxRecords
-    -- value, a value is returned in the @marker@ field of the response. You
-    -- can retrieve the next set of response records by providing the returned
-    -- @marker@ value in the @marker@ parameter and retrying the request.
-    --
-    -- Default: 100
-    --
-    -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +93,16 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
 -- requesting. This parameter is case sensitive. All clusters defined for
 -- an account are returned by default.
 --
+-- 'maxRecords', 'describeClusterDbRevisions_maxRecords' - The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified MaxRecords
+-- value, a value is returned in the @marker@ field of the response. You
+-- can retrieve the next set of response records by providing the returned
+-- @marker@ value in the @marker@ parameter and retrying the request.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20, maximum 100.
+--
 -- 'marker', 'describeClusterDbRevisions_marker' - An optional parameter that specifies the starting point for returning a
 -- set of response records. When the results of a
 -- @DescribeClusterDbRevisions@ request exceed the value specified in
@@ -103,8 +113,23 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
 --
 -- Constraints: You can specify either the @ClusterIdentifier@ parameter,
 -- or the @marker@ parameter, but not both.
---
--- 'maxRecords', 'describeClusterDbRevisions_maxRecords' - The maximum number of response records to return in each call. If the
+newDescribeClusterDbRevisions ::
+  DescribeClusterDbRevisions
+newDescribeClusterDbRevisions =
+  DescribeClusterDbRevisions'
+    { clusterIdentifier =
+        Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
+
+-- | A unique identifier for a cluster whose @ClusterDbRevisions@ you are
+-- requesting. This parameter is case sensitive. All clusters defined for
+-- an account are returned by default.
+describeClusterDbRevisions_clusterIdentifier :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Text)
+describeClusterDbRevisions_clusterIdentifier = Lens.lens (\DescribeClusterDbRevisions' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterDbRevisions' {} a -> s {clusterIdentifier = a} :: DescribeClusterDbRevisions)
+
+-- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in the @marker@ field of the response. You
 -- can retrieve the next set of response records by providing the returned
@@ -113,21 +138,8 @@ data DescribeClusterDbRevisions = DescribeClusterDbRevisions'
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100.
-newDescribeClusterDbRevisions ::
-  DescribeClusterDbRevisions
-newDescribeClusterDbRevisions =
-  DescribeClusterDbRevisions'
-    { clusterIdentifier =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
-    }
-
--- | A unique identifier for a cluster whose @ClusterDbRevisions@ you are
--- requesting. This parameter is case sensitive. All clusters defined for
--- an account are returned by default.
-describeClusterDbRevisions_clusterIdentifier :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Text)
-describeClusterDbRevisions_clusterIdentifier = Lens.lens (\DescribeClusterDbRevisions' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterDbRevisions' {} a -> s {clusterIdentifier = a} :: DescribeClusterDbRevisions)
+describeClusterDbRevisions_maxRecords :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Int)
+describeClusterDbRevisions_maxRecords = Lens.lens (\DescribeClusterDbRevisions' {maxRecords} -> maxRecords) (\s@DescribeClusterDbRevisions' {} a -> s {maxRecords = a} :: DescribeClusterDbRevisions)
 
 -- | An optional parameter that specifies the starting point for returning a
 -- set of response records. When the results of a
@@ -141,18 +153,6 @@ describeClusterDbRevisions_clusterIdentifier = Lens.lens (\DescribeClusterDbRevi
 -- or the @marker@ parameter, but not both.
 describeClusterDbRevisions_marker :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Text)
 describeClusterDbRevisions_marker = Lens.lens (\DescribeClusterDbRevisions' {marker} -> marker) (\s@DescribeClusterDbRevisions' {} a -> s {marker = a} :: DescribeClusterDbRevisions)
-
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified MaxRecords
--- value, a value is returned in the @marker@ field of the response. You
--- can retrieve the next set of response records by providing the returned
--- @marker@ value in the @marker@ parameter and retrying the request.
---
--- Default: 100
---
--- Constraints: minimum 20, maximum 100.
-describeClusterDbRevisions_maxRecords :: Lens.Lens' DescribeClusterDbRevisions (Prelude.Maybe Prelude.Int)
-describeClusterDbRevisions_maxRecords = Lens.lens (\DescribeClusterDbRevisions' {maxRecords} -> maxRecords) (\s@DescribeClusterDbRevisions' {} a -> s {maxRecords = a} :: DescribeClusterDbRevisions)
 
 instance Core.AWSPager DescribeClusterDbRevisions where
   page rq rs
@@ -212,8 +212,8 @@ instance Core.ToQuery DescribeClusterDbRevisions where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeClusterDbRevisionsResponse' smart constructor.

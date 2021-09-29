@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a role alias.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateRoleAlias>
+-- action.
 module Network.AWS.IoT.UpdateRoleAlias
   ( -- * Creating a Request
     UpdateRoleAlias (..),

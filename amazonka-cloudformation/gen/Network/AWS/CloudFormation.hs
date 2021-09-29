@@ -13,27 +13,28 @@
 --
 -- AWS CloudFormation
 --
--- AWS CloudFormation allows you to create and manage AWS infrastructure
--- deployments predictably and repeatedly. You can use AWS CloudFormation
--- to leverage AWS products, such as Amazon Elastic Compute Cloud, Amazon
--- Elastic Block Store, Amazon Simple Notification Service, Elastic Load
--- Balancing, and Auto Scaling to build highly-reliable, highly scalable,
--- cost-effective applications without creating or configuring the
--- underlying AWS infrastructure.
+-- CloudFormation allows you to create and manage Amazon Web Services
+-- infrastructure deployments predictably and repeatedly. You can use
+-- CloudFormation to leverage Amazon Web Services products, such as Amazon
+-- Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple
+-- Notification Service, Elastic Load Balancing, and Auto Scaling to build
+-- highly-reliable, highly scalable, cost-effective applications without
+-- creating or configuring the underlying Amazon Web Services
+-- infrastructure.
 --
--- With AWS CloudFormation, you declare all of your resources and
--- dependencies in a template file. The template defines a collection of
--- resources as a single unit called a stack. AWS CloudFormation creates
--- and deletes all member resources of the stack together and manages all
--- dependencies between the resources for you.
+-- With CloudFormation, you declare all of your resources and dependencies
+-- in a template file. The template defines a collection of resources as a
+-- single unit called a stack. CloudFormation creates and deletes all
+-- member resources of the stack together and manages all dependencies
+-- between the resources for you.
 --
--- For more information about AWS CloudFormation, see the
--- <http://aws.amazon.com/cloudformation/ AWS CloudFormation Product Page>.
+-- For more information about CloudFormation, see the
+-- <http://aws.amazon.com/cloudformation/ CloudFormation Product Page>.
 --
--- Amazon CloudFormation makes use of other AWS products. If you need
--- additional technical information about a specific AWS product, you can
--- find the product\'s technical documentation at
--- <https://docs.aws.amazon.com/ docs.aws.amazon.com>.
+-- CloudFormation makes use of other Amazon Web Services products. If you
+-- need additional technical information about a specific Amazon Web
+-- Services product, you can find the product\'s technical documentation at
+-- <https://docs.aws.amazon.com/ docs.aws.amazon.com> .
 module Network.AWS.CloudFormation
   ( -- * Service Configuration
     defaultService,
@@ -50,29 +51,29 @@ module Network.AWS.CloudFormation
     -- ** OperationNotFoundException
     _OperationNotFoundException,
 
-    -- ** InvalidChangeSetStatusException
-    _InvalidChangeSetStatusException,
-
     -- ** NameAlreadyExistsException
     _NameAlreadyExistsException,
 
-    -- ** StackSetNotEmptyException
-    _StackSetNotEmptyException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
+    -- ** InvalidChangeSetStatusException
+    _InvalidChangeSetStatusException,
 
     -- ** OperationStatusCheckFailedException
     _OperationStatusCheckFailedException,
 
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** StackSetNotEmptyException
+    _StackSetNotEmptyException,
+
     -- ** ChangeSetNotFoundException
     _ChangeSetNotFoundException,
 
-    -- ** StackSetNotFoundException
-    _StackSetNotFoundException,
-
     -- ** OperationInProgressException
     _OperationInProgressException,
+
+    -- ** StackSetNotFoundException
+    _StackSetNotFoundException,
 
     -- ** CreatedButModifiedException
     _CreatedButModifiedException,
@@ -80,8 +81,17 @@ module Network.AWS.CloudFormation
     -- ** TokenAlreadyExistsException
     _TokenAlreadyExistsException,
 
+    -- ** TypeConfigurationNotFoundException
+    _TypeConfigurationNotFoundException,
+
     -- ** TypeNotFoundException
     _TypeNotFoundException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** OperationIdAlreadyExistsException
+    _OperationIdAlreadyExistsException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -89,17 +99,14 @@ module Network.AWS.CloudFormation
     -- ** CFNRegistryException
     _CFNRegistryException,
 
-    -- ** OperationIdAlreadyExistsException
-    _OperationIdAlreadyExistsException,
-
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
-
     -- ** InvalidStateTransitionException
     _InvalidStateTransitionException,
 
     -- ** StackInstanceNotFoundException
     _StackInstanceNotFoundException,
+
+    -- ** StackNotFoundException
+    _StackNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -110,14 +117,14 @@ module Network.AWS.CloudFormation
     -- ** StackRollbackComplete
     newStackRollbackComplete,
 
-    -- ** StackDeleteComplete
-    newStackDeleteComplete,
-
     -- ** StackExists
     newStackExists,
 
     -- ** StackUpdateComplete
     newStackUpdateComplete,
+
+    -- ** StackDeleteComplete
+    newStackDeleteComplete,
 
     -- ** StackCreateComplete
     newStackCreateComplete,
@@ -131,17 +138,23 @@ module Network.AWS.CloudFormation
     -- * Operations
     -- $operations
 
+    -- ** RegisterPublisher
+    RegisterPublisher (RegisterPublisher'),
+    newRegisterPublisher,
+    RegisterPublisherResponse (RegisterPublisherResponse'),
+    newRegisterPublisherResponse,
+
+    -- ** ImportStacksToStackSet
+    ImportStacksToStackSet (ImportStacksToStackSet'),
+    newImportStacksToStackSet,
+    ImportStacksToStackSetResponse (ImportStacksToStackSetResponse'),
+    newImportStacksToStackSetResponse,
+
     -- ** DescribeStackResourceDrifts
     DescribeStackResourceDrifts (DescribeStackResourceDrifts'),
     newDescribeStackResourceDrifts,
     DescribeStackResourceDriftsResponse (DescribeStackResourceDriftsResponse'),
     newDescribeStackResourceDriftsResponse,
-
-    -- ** ListImports (Paginated)
-    ListImports (ListImports'),
-    newListImports,
-    ListImportsResponse (ListImportsResponse'),
-    newListImportsResponse,
 
     -- ** DescribeStackEvents (Paginated)
     DescribeStackEvents (DescribeStackEvents'),
@@ -149,11 +162,11 @@ module Network.AWS.CloudFormation
     DescribeStackEventsResponse (DescribeStackEventsResponse'),
     newDescribeStackEventsResponse,
 
-    -- ** StopStackSetOperation
-    StopStackSetOperation (StopStackSetOperation'),
-    newStopStackSetOperation,
-    StopStackSetOperationResponse (StopStackSetOperationResponse'),
-    newStopStackSetOperationResponse,
+    -- ** ListImports (Paginated)
+    ListImports (ListImports'),
+    newListImports,
+    ListImportsResponse (ListImportsResponse'),
+    newListImportsResponse,
 
     -- ** DescribeChangeSet (Paginated)
     DescribeChangeSet (DescribeChangeSet'),
@@ -161,11 +174,23 @@ module Network.AWS.CloudFormation
     DescribeChangeSetResponse (DescribeChangeSetResponse'),
     newDescribeChangeSetResponse,
 
+    -- ** StopStackSetOperation
+    StopStackSetOperation (StopStackSetOperation'),
+    newStopStackSetOperation,
+    StopStackSetOperationResponse (StopStackSetOperationResponse'),
+    newStopStackSetOperationResponse,
+
     -- ** DescribeStackResource
     DescribeStackResource (DescribeStackResource'),
     newDescribeStackResource,
     DescribeStackResourceResponse (DescribeStackResourceResponse'),
     newDescribeStackResourceResponse,
+
+    -- ** TestType
+    TestType (TestType'),
+    newTestType,
+    TestTypeResponse (TestTypeResponse'),
+    newTestTypeResponse,
 
     -- ** DetectStackResourceDrift
     DetectStackResourceDrift (DetectStackResourceDrift'),
@@ -173,17 +198,41 @@ module Network.AWS.CloudFormation
     DetectStackResourceDriftResponse (DetectStackResourceDriftResponse'),
     newDetectStackResourceDriftResponse,
 
+    -- ** SetTypeDefaultVersion
+    SetTypeDefaultVersion (SetTypeDefaultVersion'),
+    newSetTypeDefaultVersion,
+    SetTypeDefaultVersionResponse (SetTypeDefaultVersionResponse'),
+    newSetTypeDefaultVersionResponse,
+
     -- ** ExecuteChangeSet
     ExecuteChangeSet (ExecuteChangeSet'),
     newExecuteChangeSet,
     ExecuteChangeSetResponse (ExecuteChangeSetResponse'),
     newExecuteChangeSetResponse,
 
-    -- ** SetTypeDefaultVersion
-    SetTypeDefaultVersion (SetTypeDefaultVersion'),
-    newSetTypeDefaultVersion,
-    SetTypeDefaultVersionResponse (SetTypeDefaultVersionResponse'),
-    newSetTypeDefaultVersionResponse,
+    -- ** RollbackStack
+    RollbackStack (RollbackStack'),
+    newRollbackStack,
+    RollbackStackResponse (RollbackStackResponse'),
+    newRollbackStackResponse,
+
+    -- ** GetStackPolicy
+    GetStackPolicy (GetStackPolicy'),
+    newGetStackPolicy,
+    GetStackPolicyResponse (GetStackPolicyResponse'),
+    newGetStackPolicyResponse,
+
+    -- ** CreateStackInstances
+    CreateStackInstances (CreateStackInstances'),
+    newCreateStackInstances,
+    CreateStackInstancesResponse (CreateStackInstancesResponse'),
+    newCreateStackInstancesResponse,
+
+    -- ** DescribeStacks (Paginated)
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
 
     -- ** RecordHandlerProgress
     RecordHandlerProgress (RecordHandlerProgress'),
@@ -197,29 +246,11 @@ module Network.AWS.CloudFormation
     ListStackSetOperationsResponse (ListStackSetOperationsResponse'),
     newListStackSetOperationsResponse,
 
-    -- ** CreateStackInstances
-    CreateStackInstances (CreateStackInstances'),
-    newCreateStackInstances,
-    CreateStackInstancesResponse (CreateStackInstancesResponse'),
-    newCreateStackInstancesResponse,
-
-    -- ** GetStackPolicy
-    GetStackPolicy (GetStackPolicy'),
-    newGetStackPolicy,
-    GetStackPolicyResponse (GetStackPolicyResponse'),
-    newGetStackPolicyResponse,
-
-    -- ** DescribeStacks (Paginated)
-    DescribeStacks (DescribeStacks'),
-    newDescribeStacks,
-    DescribeStacksResponse (DescribeStacksResponse'),
-    newDescribeStacksResponse,
-
-    -- ** DeleteStackSet
-    DeleteStackSet (DeleteStackSet'),
-    newDeleteStackSet,
-    DeleteStackSetResponse (DeleteStackSetResponse'),
-    newDeleteStackSetResponse,
+    -- ** UpdateStackSet
+    UpdateStackSet (UpdateStackSet'),
+    newUpdateStackSet,
+    UpdateStackSetResponse (UpdateStackSetResponse'),
+    newUpdateStackSetResponse,
 
     -- ** EstimateTemplateCost
     EstimateTemplateCost (EstimateTemplateCost'),
@@ -227,17 +258,11 @@ module Network.AWS.CloudFormation
     EstimateTemplateCostResponse (EstimateTemplateCostResponse'),
     newEstimateTemplateCostResponse,
 
-    -- ** UpdateStackSet
-    UpdateStackSet (UpdateStackSet'),
-    newUpdateStackSet,
-    UpdateStackSetResponse (UpdateStackSetResponse'),
-    newUpdateStackSetResponse,
-
-    -- ** DescribeAccountLimits (Paginated)
-    DescribeAccountLimits (DescribeAccountLimits'),
-    newDescribeAccountLimits,
-    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
-    newDescribeAccountLimitsResponse,
+    -- ** DeleteStackSet
+    DeleteStackSet (DeleteStackSet'),
+    newDeleteStackSet,
+    DeleteStackSetResponse (DeleteStackSetResponse'),
+    newDeleteStackSetResponse,
 
     -- ** CreateStack
     CreateStack (CreateStack'),
@@ -245,11 +270,11 @@ module Network.AWS.CloudFormation
     CreateStackResponse (CreateStackResponse'),
     newCreateStackResponse,
 
-    -- ** DescribeStackInstance
-    DescribeStackInstance (DescribeStackInstance'),
-    newDescribeStackInstance,
-    DescribeStackInstanceResponse (DescribeStackInstanceResponse'),
-    newDescribeStackInstanceResponse,
+    -- ** DescribeAccountLimits (Paginated)
+    DescribeAccountLimits (DescribeAccountLimits'),
+    newDescribeAccountLimits,
+    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
+    newDescribeAccountLimitsResponse,
 
     -- ** GetTemplateSummary
     GetTemplateSummary (GetTemplateSummary'),
@@ -257,11 +282,17 @@ module Network.AWS.CloudFormation
     GetTemplateSummaryResponse (GetTemplateSummaryResponse'),
     newGetTemplateSummaryResponse,
 
-    -- ** ListStacks (Paginated)
-    ListStacks (ListStacks'),
-    newListStacks,
-    ListStacksResponse (ListStacksResponse'),
-    newListStacksResponse,
+    -- ** SetTypeConfiguration
+    SetTypeConfiguration (SetTypeConfiguration'),
+    newSetTypeConfiguration,
+    SetTypeConfigurationResponse (SetTypeConfigurationResponse'),
+    newSetTypeConfigurationResponse,
+
+    -- ** DescribeStackInstance
+    DescribeStackInstance (DescribeStackInstance'),
+    newDescribeStackInstance,
+    DescribeStackInstanceResponse (DescribeStackInstanceResponse'),
+    newDescribeStackInstanceResponse,
 
     -- ** DeleteStack
     DeleteStack (DeleteStack'),
@@ -275,11 +306,29 @@ module Network.AWS.CloudFormation
     UpdateStackResponse (UpdateStackResponse'),
     newUpdateStackResponse,
 
+    -- ** ListStacks (Paginated)
+    ListStacks (ListStacks'),
+    newListStacks,
+    ListStacksResponse (ListStacksResponse'),
+    newListStacksResponse,
+
+    -- ** SignalResource
+    SignalResource (SignalResource'),
+    newSignalResource,
+    SignalResourceResponse (SignalResourceResponse'),
+    newSignalResourceResponse,
+
     -- ** DetectStackDrift
     DetectStackDrift (DetectStackDrift'),
     newDetectStackDrift,
     DetectStackDriftResponse (DetectStackDriftResponse'),
     newDetectStackDriftResponse,
+
+    -- ** SetStackPolicy
+    SetStackPolicy (SetStackPolicy'),
+    newSetStackPolicy,
+    SetStackPolicyResponse (SetStackPolicyResponse'),
+    newSetStackPolicyResponse,
 
     -- ** DescribeStackSetOperation
     DescribeStackSetOperation (DescribeStackSetOperation'),
@@ -293,17 +342,11 @@ module Network.AWS.CloudFormation
     DescribeTypeRegistrationResponse (DescribeTypeRegistrationResponse'),
     newDescribeTypeRegistrationResponse,
 
-    -- ** SetStackPolicy
-    SetStackPolicy (SetStackPolicy'),
-    newSetStackPolicy,
-    SetStackPolicyResponse (SetStackPolicyResponse'),
-    newSetStackPolicyResponse,
-
-    -- ** SignalResource
-    SignalResource (SignalResource'),
-    newSignalResource,
-    SignalResourceResponse (SignalResourceResponse'),
-    newSignalResourceResponse,
+    -- ** ListTypes (Paginated)
+    ListTypes (ListTypes'),
+    newListTypes,
+    ListTypesResponse (ListTypesResponse'),
+    newListTypesResponse,
 
     -- ** DescribeStackSet
     DescribeStackSet (DescribeStackSet'),
@@ -317,41 +360,29 @@ module Network.AWS.CloudFormation
     ListStackSetOperationResultsResponse (ListStackSetOperationResultsResponse'),
     newListStackSetOperationResultsResponse,
 
-    -- ** CancelUpdateStack
-    CancelUpdateStack (CancelUpdateStack'),
-    newCancelUpdateStack,
-    CancelUpdateStackResponse (CancelUpdateStackResponse'),
-    newCancelUpdateStackResponse,
-
-    -- ** ListTypes
-    ListTypes (ListTypes'),
-    newListTypes,
-    ListTypesResponse (ListTypesResponse'),
-    newListTypesResponse,
-
     -- ** RegisterType
     RegisterType (RegisterType'),
     newRegisterType,
     RegisterTypeResponse (RegisterTypeResponse'),
     newRegisterTypeResponse,
 
-    -- ** ListStackInstances (Paginated)
-    ListStackInstances (ListStackInstances'),
-    newListStackInstances,
-    ListStackInstancesResponse (ListStackInstancesResponse'),
-    newListStackInstancesResponse,
+    -- ** PublishType
+    PublishType (PublishType'),
+    newPublishType,
+    PublishTypeResponse (PublishTypeResponse'),
+    newPublishTypeResponse,
 
-    -- ** DetectStackSetDrift
-    DetectStackSetDrift (DetectStackSetDrift'),
-    newDetectStackSetDrift,
-    DetectStackSetDriftResponse (DetectStackSetDriftResponse'),
-    newDetectStackSetDriftResponse,
+    -- ** CancelUpdateStack
+    CancelUpdateStack (CancelUpdateStack'),
+    newCancelUpdateStack,
+    CancelUpdateStackResponse (CancelUpdateStackResponse'),
+    newCancelUpdateStackResponse,
 
-    -- ** ContinueUpdateRollback
-    ContinueUpdateRollback (ContinueUpdateRollback'),
-    newContinueUpdateRollback,
-    ContinueUpdateRollbackResponse (ContinueUpdateRollbackResponse'),
-    newContinueUpdateRollbackResponse,
+    -- ** ActivateType
+    ActivateType (ActivateType'),
+    newActivateType,
+    ActivateTypeResponse (ActivateTypeResponse'),
+    newActivateTypeResponse,
 
     -- ** ValidateTemplate
     ValidateTemplate (ValidateTemplate'),
@@ -359,11 +390,29 @@ module Network.AWS.CloudFormation
     ValidateTemplateResponse (ValidateTemplateResponse'),
     newValidateTemplateResponse,
 
+    -- ** DetectStackSetDrift
+    DetectStackSetDrift (DetectStackSetDrift'),
+    newDetectStackSetDrift,
+    DetectStackSetDriftResponse (DetectStackSetDriftResponse'),
+    newDetectStackSetDriftResponse,
+
     -- ** GetTemplate
     GetTemplate (GetTemplate'),
     newGetTemplate,
     GetTemplateResponse (GetTemplateResponse'),
     newGetTemplateResponse,
+
+    -- ** ListStackInstances (Paginated)
+    ListStackInstances (ListStackInstances'),
+    newListStackInstances,
+    ListStackInstancesResponse (ListStackInstancesResponse'),
+    newListStackInstancesResponse,
+
+    -- ** ContinueUpdateRollback
+    ContinueUpdateRollback (ContinueUpdateRollback'),
+    newContinueUpdateRollback,
+    ContinueUpdateRollbackResponse (ContinueUpdateRollbackResponse'),
+    newContinueUpdateRollbackResponse,
 
     -- ** UpdateTerminationProtection
     UpdateTerminationProtection (UpdateTerminationProtection'),
@@ -377,17 +426,23 @@ module Network.AWS.CloudFormation
     ListTypeVersionsResponse (ListTypeVersionsResponse'),
     newListTypeVersionsResponse,
 
+    -- ** DescribePublisher
+    DescribePublisher (DescribePublisher'),
+    newDescribePublisher,
+    DescribePublisherResponse (DescribePublisherResponse'),
+    newDescribePublisherResponse,
+
+    -- ** DeactivateType
+    DeactivateType (DeactivateType'),
+    newDeactivateType,
+    DeactivateTypeResponse (DeactivateTypeResponse'),
+    newDeactivateTypeResponse,
+
     -- ** ListTypeRegistrations
     ListTypeRegistrations (ListTypeRegistrations'),
     newListTypeRegistrations,
     ListTypeRegistrationsResponse (ListTypeRegistrationsResponse'),
     newListTypeRegistrationsResponse,
-
-    -- ** DeregisterType
-    DeregisterType (DeregisterType'),
-    newDeregisterType,
-    DeregisterTypeResponse (DeregisterTypeResponse'),
-    newDeregisterTypeResponse,
 
     -- ** CreateStackSet
     CreateStackSet (CreateStackSet'),
@@ -401,47 +456,17 @@ module Network.AWS.CloudFormation
     CreateChangeSetResponse (CreateChangeSetResponse'),
     newCreateChangeSetResponse,
 
-    -- ** ListExports (Paginated)
-    ListExports (ListExports'),
-    newListExports,
-    ListExportsResponse (ListExportsResponse'),
-    newListExportsResponse,
+    -- ** DeregisterType
+    DeregisterType (DeregisterType'),
+    newDeregisterType,
+    DeregisterTypeResponse (DeregisterTypeResponse'),
+    newDeregisterTypeResponse,
 
     -- ** DescribeType
     DescribeType (DescribeType'),
     newDescribeType,
     DescribeTypeResponse (DescribeTypeResponse'),
     newDescribeTypeResponse,
-
-    -- ** ListStackResources (Paginated)
-    ListStackResources (ListStackResources'),
-    newListStackResources,
-    ListStackResourcesResponse (ListStackResourcesResponse'),
-    newListStackResourcesResponse,
-
-    -- ** DeleteStackInstances
-    DeleteStackInstances (DeleteStackInstances'),
-    newDeleteStackInstances,
-    DeleteStackInstancesResponse (DeleteStackInstancesResponse'),
-    newDeleteStackInstancesResponse,
-
-    -- ** ListStackSets (Paginated)
-    ListStackSets (ListStackSets'),
-    newListStackSets,
-    ListStackSetsResponse (ListStackSetsResponse'),
-    newListStackSetsResponse,
-
-    -- ** DescribeStackDriftDetectionStatus
-    DescribeStackDriftDetectionStatus (DescribeStackDriftDetectionStatus'),
-    newDescribeStackDriftDetectionStatus,
-    DescribeStackDriftDetectionStatusResponse (DescribeStackDriftDetectionStatusResponse'),
-    newDescribeStackDriftDetectionStatusResponse,
-
-    -- ** UpdateStackInstances
-    UpdateStackInstances (UpdateStackInstances'),
-    newUpdateStackInstances,
-    UpdateStackInstancesResponse (UpdateStackInstancesResponse'),
-    newUpdateStackInstancesResponse,
 
     -- ** ListChangeSets (Paginated)
     ListChangeSets (ListChangeSets'),
@@ -455,11 +480,53 @@ module Network.AWS.CloudFormation
     DeleteChangeSetResponse (DeleteChangeSetResponse'),
     newDeleteChangeSetResponse,
 
+    -- ** DeleteStackInstances
+    DeleteStackInstances (DeleteStackInstances'),
+    newDeleteStackInstances,
+    DeleteStackInstancesResponse (DeleteStackInstancesResponse'),
+    newDeleteStackInstancesResponse,
+
+    -- ** ListStackResources (Paginated)
+    ListStackResources (ListStackResources'),
+    newListStackResources,
+    ListStackResourcesResponse (ListStackResourcesResponse'),
+    newListStackResourcesResponse,
+
+    -- ** UpdateStackInstances
+    UpdateStackInstances (UpdateStackInstances'),
+    newUpdateStackInstances,
+    UpdateStackInstancesResponse (UpdateStackInstancesResponse'),
+    newUpdateStackInstancesResponse,
+
+    -- ** DescribeStackDriftDetectionStatus
+    DescribeStackDriftDetectionStatus (DescribeStackDriftDetectionStatus'),
+    newDescribeStackDriftDetectionStatus,
+    DescribeStackDriftDetectionStatusResponse (DescribeStackDriftDetectionStatusResponse'),
+    newDescribeStackDriftDetectionStatusResponse,
+
+    -- ** ListStackSets (Paginated)
+    ListStackSets (ListStackSets'),
+    newListStackSets,
+    ListStackSetsResponse (ListStackSetsResponse'),
+    newListStackSetsResponse,
+
+    -- ** ListExports (Paginated)
+    ListExports (ListExports'),
+    newListExports,
+    ListExportsResponse (ListExportsResponse'),
+    newListExportsResponse,
+
     -- ** DescribeStackResources
     DescribeStackResources (DescribeStackResources'),
     newDescribeStackResources,
     DescribeStackResourcesResponse (DescribeStackResourcesResponse'),
     newDescribeStackResourcesResponse,
+
+    -- ** BatchDescribeTypeConfigurations
+    BatchDescribeTypeConfigurations (BatchDescribeTypeConfigurations'),
+    newBatchDescribeTypeConfigurations,
+    BatchDescribeTypeConfigurationsResponse (BatchDescribeTypeConfigurationsResponse'),
+    newBatchDescribeTypeConfigurationsResponse,
 
     -- * Types
 
@@ -471,6 +538,9 @@ module Network.AWS.CloudFormation
 
     -- ** Capability
     Capability (..),
+
+    -- ** Category
+    Category (..),
 
     -- ** ChangeAction
     ChangeAction (..),
@@ -502,6 +572,9 @@ module Network.AWS.CloudFormation
     -- ** HandlerErrorCode
     HandlerErrorCode (..),
 
+    -- ** IdentityProvider
+    IdentityProvider (..),
+
     -- ** OnFailure
     OnFailure (..),
 
@@ -513,6 +586,12 @@ module Network.AWS.CloudFormation
 
     -- ** ProvisioningType
     ProvisioningType (..),
+
+    -- ** PublisherStatus
+    PublisherStatus (..),
+
+    -- ** RegionConcurrencyType
+    RegionConcurrencyType (..),
 
     -- ** RegistrationStatus
     RegistrationStatus (..),
@@ -577,6 +656,15 @@ module Network.AWS.CloudFormation
     -- ** TemplateStage
     TemplateStage (..),
 
+    -- ** ThirdPartyType
+    ThirdPartyType (..),
+
+    -- ** TypeTestsStatus
+    TypeTestsStatus (..),
+
+    -- ** VersionBump
+    VersionBump (..),
+
     -- ** Visibility
     Visibility (..),
 
@@ -591,6 +679,10 @@ module Network.AWS.CloudFormation
     -- ** AutoDeployment
     AutoDeployment (AutoDeployment'),
     newAutoDeployment,
+
+    -- ** BatchDescribeTypeConfigurationsError
+    BatchDescribeTypeConfigurationsError (BatchDescribeTypeConfigurationsError'),
+    newBatchDescribeTypeConfigurationsError,
 
     -- ** Change
     Change (Change'),
@@ -639,6 +731,10 @@ module Network.AWS.CloudFormation
     -- ** PropertyDifference
     PropertyDifference (PropertyDifference'),
     newPropertyDifference,
+
+    -- ** RequiredActivatedType
+    RequiredActivatedType (RequiredActivatedType'),
+    newRequiredActivatedType,
 
     -- ** ResourceChange
     ResourceChange (ResourceChange'),
@@ -764,6 +860,18 @@ module Network.AWS.CloudFormation
     TemplateParameter (TemplateParameter'),
     newTemplateParameter,
 
+    -- ** TypeConfigurationDetails
+    TypeConfigurationDetails (TypeConfigurationDetails'),
+    newTypeConfigurationDetails,
+
+    -- ** TypeConfigurationIdentifier
+    TypeConfigurationIdentifier (TypeConfigurationIdentifier'),
+    newTypeConfigurationIdentifier,
+
+    -- ** TypeFilters
+    TypeFilters (TypeFilters'),
+    newTypeFilters,
+
     -- ** TypeSummary
     TypeSummary (TypeSummary'),
     newTypeSummary,
@@ -774,12 +882,15 @@ module Network.AWS.CloudFormation
   )
 where
 
+import Network.AWS.CloudFormation.ActivateType
+import Network.AWS.CloudFormation.BatchDescribeTypeConfigurations
 import Network.AWS.CloudFormation.CancelUpdateStack
 import Network.AWS.CloudFormation.ContinueUpdateRollback
 import Network.AWS.CloudFormation.CreateChangeSet
 import Network.AWS.CloudFormation.CreateStack
 import Network.AWS.CloudFormation.CreateStackInstances
 import Network.AWS.CloudFormation.CreateStackSet
+import Network.AWS.CloudFormation.DeactivateType
 import Network.AWS.CloudFormation.DeleteChangeSet
 import Network.AWS.CloudFormation.DeleteStack
 import Network.AWS.CloudFormation.DeleteStackInstances
@@ -787,6 +898,7 @@ import Network.AWS.CloudFormation.DeleteStackSet
 import Network.AWS.CloudFormation.DeregisterType
 import Network.AWS.CloudFormation.DescribeAccountLimits
 import Network.AWS.CloudFormation.DescribeChangeSet
+import Network.AWS.CloudFormation.DescribePublisher
 import Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
 import Network.AWS.CloudFormation.DescribeStackEvents
 import Network.AWS.CloudFormation.DescribeStackInstance
@@ -806,6 +918,7 @@ import Network.AWS.CloudFormation.ExecuteChangeSet
 import Network.AWS.CloudFormation.GetStackPolicy
 import Network.AWS.CloudFormation.GetTemplate
 import Network.AWS.CloudFormation.GetTemplateSummary
+import Network.AWS.CloudFormation.ImportStacksToStackSet
 import Network.AWS.CloudFormation.Lens
 import Network.AWS.CloudFormation.ListChangeSets
 import Network.AWS.CloudFormation.ListExports
@@ -819,12 +932,17 @@ import Network.AWS.CloudFormation.ListStacks
 import Network.AWS.CloudFormation.ListTypeRegistrations
 import Network.AWS.CloudFormation.ListTypeVersions
 import Network.AWS.CloudFormation.ListTypes
+import Network.AWS.CloudFormation.PublishType
 import Network.AWS.CloudFormation.RecordHandlerProgress
+import Network.AWS.CloudFormation.RegisterPublisher
 import Network.AWS.CloudFormation.RegisterType
+import Network.AWS.CloudFormation.RollbackStack
 import Network.AWS.CloudFormation.SetStackPolicy
+import Network.AWS.CloudFormation.SetTypeConfiguration
 import Network.AWS.CloudFormation.SetTypeDefaultVersion
 import Network.AWS.CloudFormation.SignalResource
 import Network.AWS.CloudFormation.StopStackSetOperation
+import Network.AWS.CloudFormation.TestType
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.UpdateStack
 import Network.AWS.CloudFormation.UpdateStackInstances

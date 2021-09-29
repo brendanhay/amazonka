@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Tape = Tape'
   { -- | The date that the tape enters a custom tape pool.
     poolEntryDate :: Prelude.Maybe Core.POSIX,
-    -- | The current state of the virtual tape.
-    tapeStatus :: Prelude.Maybe Prelude.Text,
     -- | The date the virtual tape was created.
     tapeCreatedDate :: Prelude.Maybe Core.POSIX,
+    -- | The current state of the virtual tape.
+    tapeStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of the pool that contains tapes that will be archived. The tapes
     -- in this pool are archived in the S3 storage class that is associated
     -- with the pool. When you use your backup application to eject the tape,
@@ -79,9 +79,9 @@ data Tape = Tape'
 --
 -- 'poolEntryDate', 'tape_poolEntryDate' - The date that the tape enters a custom tape pool.
 --
--- 'tapeStatus', 'tape_tapeStatus' - The current state of the virtual tape.
---
 -- 'tapeCreatedDate', 'tape_tapeCreatedDate' - The date the virtual tape was created.
+--
+-- 'tapeStatus', 'tape_tapeStatus' - The current state of the virtual tape.
 --
 -- 'poolId', 'tape_poolId' - The ID of the pool that contains tapes that will be archived. The tapes
 -- in this pool are archived in the S3 storage class that is associated
@@ -121,8 +121,8 @@ newTape ::
 newTape =
   Tape'
     { poolEntryDate = Prelude.Nothing,
-      tapeStatus = Prelude.Nothing,
       tapeCreatedDate = Prelude.Nothing,
+      tapeStatus = Prelude.Nothing,
       poolId = Prelude.Nothing,
       vTLDevice = Prelude.Nothing,
       tapeARN = Prelude.Nothing,
@@ -139,13 +139,13 @@ newTape =
 tape_poolEntryDate :: Lens.Lens' Tape (Prelude.Maybe Prelude.UTCTime)
 tape_poolEntryDate = Lens.lens (\Tape' {poolEntryDate} -> poolEntryDate) (\s@Tape' {} a -> s {poolEntryDate = a} :: Tape) Prelude.. Lens.mapping Core._Time
 
--- | The current state of the virtual tape.
-tape_tapeStatus :: Lens.Lens' Tape (Prelude.Maybe Prelude.Text)
-tape_tapeStatus = Lens.lens (\Tape' {tapeStatus} -> tapeStatus) (\s@Tape' {} a -> s {tapeStatus = a} :: Tape)
-
 -- | The date the virtual tape was created.
 tape_tapeCreatedDate :: Lens.Lens' Tape (Prelude.Maybe Prelude.UTCTime)
 tape_tapeCreatedDate = Lens.lens (\Tape' {tapeCreatedDate} -> tapeCreatedDate) (\s@Tape' {} a -> s {tapeCreatedDate = a} :: Tape) Prelude.. Lens.mapping Core._Time
+
+-- | The current state of the virtual tape.
+tape_tapeStatus :: Lens.Lens' Tape (Prelude.Maybe Prelude.Text)
+tape_tapeStatus = Lens.lens (\Tape' {tapeStatus} -> tapeStatus) (\s@Tape' {} a -> s {tapeStatus = a} :: Tape)
 
 -- | The ID of the pool that contains tapes that will be archived. The tapes
 -- in this pool are archived in the S3 storage class that is associated
@@ -208,8 +208,8 @@ instance Core.FromJSON Tape where
       ( \x ->
           Tape'
             Prelude.<$> (x Core..:? "PoolEntryDate")
-            Prelude.<*> (x Core..:? "TapeStatus")
             Prelude.<*> (x Core..:? "TapeCreatedDate")
+            Prelude.<*> (x Core..:? "TapeStatus")
             Prelude.<*> (x Core..:? "PoolId")
             Prelude.<*> (x Core..:? "VTLDevice")
             Prelude.<*> (x Core..:? "TapeARN")

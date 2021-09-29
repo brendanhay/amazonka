@@ -31,8 +31,8 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
 
     -- * Request Lenses
     getUsagePlanKeys_position,
-    getUsagePlanKeys_limit,
     getUsagePlanKeys_nameQuery,
+    getUsagePlanKeys_limit,
     getUsagePlanKeys_usagePlanId,
 
     -- * Destructuring the Response
@@ -60,12 +60,12 @@ import qualified Network.AWS.Response as Response
 data GetUsagePlanKeys = GetUsagePlanKeys'
   { -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
-    -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
     -- | A query parameter specifying the name of the to-be-returned usage plan
     -- keys.
     nameQuery :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of returned results per page. The default value is 25
+    -- and the maximum value is 500.
+    limit :: Prelude.Maybe Prelude.Int,
     -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-retrieved UsagePlanKey resource representing a plan
     -- customer.
@@ -83,11 +83,11 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 --
 -- 'position', 'getUsagePlanKeys_position' - The current pagination position in the paged result set.
 --
--- 'limit', 'getUsagePlanKeys_limit' - The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
---
 -- 'nameQuery', 'getUsagePlanKeys_nameQuery' - A query parameter specifying the name of the to-be-returned usage plan
 -- keys.
+--
+-- 'limit', 'getUsagePlanKeys_limit' - The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
 --
 -- 'usagePlanId', 'getUsagePlanKeys_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-retrieved UsagePlanKey resource representing a plan
@@ -99,8 +99,8 @@ newGetUsagePlanKeys ::
 newGetUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
     { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
       nameQuery = Prelude.Nothing,
+      limit = Prelude.Nothing,
       usagePlanId = pUsagePlanId_
     }
 
@@ -108,15 +108,15 @@ newGetUsagePlanKeys pUsagePlanId_ =
 getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
 getUsagePlanKeys_position = Lens.lens (\GetUsagePlanKeys' {position} -> position) (\s@GetUsagePlanKeys' {} a -> s {position = a} :: GetUsagePlanKeys)
 
--- | The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
-getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Int)
-getUsagePlanKeys_limit = Lens.lens (\GetUsagePlanKeys' {limit} -> limit) (\s@GetUsagePlanKeys' {} a -> s {limit = a} :: GetUsagePlanKeys)
-
 -- | A query parameter specifying the name of the to-be-returned usage plan
 -- keys.
 getUsagePlanKeys_nameQuery :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
 getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQuery) (\s@GetUsagePlanKeys' {} a -> s {nameQuery = a} :: GetUsagePlanKeys)
+
+-- | The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Int)
+getUsagePlanKeys_limit = Lens.lens (\GetUsagePlanKeys' {limit} -> limit) (\s@GetUsagePlanKeys' {} a -> s {limit = a} :: GetUsagePlanKeys)
 
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-retrieved UsagePlanKey resource representing a plan
@@ -181,8 +181,8 @@ instance Core.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
     Prelude.mconcat
       [ "position" Core.=: position,
-        "limit" Core.=: limit,
-        "name" Core.=: nameQuery
+        "name" Core.=: nameQuery,
+        "limit" Core.=: limit
       ]
 
 -- | Represents the collection of usage plan keys added to usage plans for

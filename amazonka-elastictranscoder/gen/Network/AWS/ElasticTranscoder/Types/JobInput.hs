@@ -31,15 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobInput' smart constructor.
 data JobInput = JobInput'
-  { -- | The container type for the input file. If you want Elastic Transcoder to
-    -- automatically detect the container type of the input file, specify
-    -- @auto@. If you want to specify the container type for the input file,
-    -- enter one of the following values:
-    --
-    -- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
-    -- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
-    container :: Prelude.Maybe Prelude.Text,
-    -- | The name of the file to transcode. Elsewhere in the body of the JSON
+  { -- | The name of the file to transcode. Elsewhere in the body of the JSON
     -- block is the the ID of the pipeline to use for processing the job. The
     -- @InputBucket@ object in that pipeline tells Elastic Transcoder which
     -- Amazon S3 bucket to get the file from.
@@ -48,6 +40,14 @@ data JobInput = JobInput'
     -- include the prefix in the key. If the file isn\'t in the specified
     -- bucket, Elastic Transcoder returns an error.
     key :: Prelude.Maybe Prelude.Text,
+    -- | The container type for the input file. If you want Elastic Transcoder to
+    -- automatically detect the container type of the input file, specify
+    -- @auto@. If you want to specify the container type for the input file,
+    -- enter one of the following values:
+    --
+    -- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
+    -- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
+    container :: Prelude.Maybe Prelude.Text,
     -- | Settings for clipping an input. Each input can have different clip
     -- settings.
     timeSpan :: Prelude.Maybe TimeSpan,
@@ -152,14 +152,6 @@ data JobInput = JobInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'container', 'jobInput_container' - The container type for the input file. If you want Elastic Transcoder to
--- automatically detect the container type of the input file, specify
--- @auto@. If you want to specify the container type for the input file,
--- enter one of the following values:
---
--- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
--- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
---
 -- 'key', 'jobInput_key' - The name of the file to transcode. Elsewhere in the body of the JSON
 -- block is the the ID of the pipeline to use for processing the job. The
 -- @InputBucket@ object in that pipeline tells Elastic Transcoder which
@@ -168,6 +160,14 @@ data JobInput = JobInput'
 -- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
+--
+-- 'container', 'jobInput_container' - The container type for the input file. If you want Elastic Transcoder to
+-- automatically detect the container type of the input file, specify
+-- @auto@. If you want to specify the container type for the input file,
+-- enter one of the following values:
+--
+-- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
+-- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
 --
 -- 'timeSpan', 'jobInput_timeSpan' - Settings for clipping an input. Each input can have different clip
 -- settings.
@@ -265,8 +265,8 @@ newJobInput ::
   JobInput
 newJobInput =
   JobInput'
-    { container = Prelude.Nothing,
-      key = Prelude.Nothing,
+    { key = Prelude.Nothing,
+      container = Prelude.Nothing,
       timeSpan = Prelude.Nothing,
       inputCaptions = Prelude.Nothing,
       encryption = Prelude.Nothing,
@@ -276,16 +276,6 @@ newJobInput =
       resolution = Prelude.Nothing,
       interlaced = Prelude.Nothing
     }
-
--- | The container type for the input file. If you want Elastic Transcoder to
--- automatically detect the container type of the input file, specify
--- @auto@. If you want to specify the container type for the input file,
--- enter one of the following values:
---
--- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
--- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
-jobInput_container :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
-jobInput_container = Lens.lens (\JobInput' {container} -> container) (\s@JobInput' {} a -> s {container = a} :: JobInput)
 
 -- | The name of the file to transcode. Elsewhere in the body of the JSON
 -- block is the the ID of the pipeline to use for processing the job. The
@@ -297,6 +287,16 @@ jobInput_container = Lens.lens (\JobInput' {container} -> container) (\s@JobInpu
 -- bucket, Elastic Transcoder returns an error.
 jobInput_key :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
 jobInput_key = Lens.lens (\JobInput' {key} -> key) (\s@JobInput' {} a -> s {key = a} :: JobInput)
+
+-- | The container type for the input file. If you want Elastic Transcoder to
+-- automatically detect the container type of the input file, specify
+-- @auto@. If you want to specify the container type for the input file,
+-- enter one of the following values:
+--
+-- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
+-- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
+jobInput_container :: Lens.Lens' JobInput (Prelude.Maybe Prelude.Text)
+jobInput_container = Lens.lens (\JobInput' {container} -> container) (\s@JobInput' {} a -> s {container = a} :: JobInput)
 
 -- | Settings for clipping an input. Each input can have different clip
 -- settings.
@@ -413,8 +413,8 @@ instance Core.FromJSON JobInput where
       "JobInput"
       ( \x ->
           JobInput'
-            Prelude.<$> (x Core..:? "Container")
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Container")
             Prelude.<*> (x Core..:? "TimeSpan")
             Prelude.<*> (x Core..:? "InputCaptions")
             Prelude.<*> (x Core..:? "Encryption")
@@ -433,8 +433,8 @@ instance Core.ToJSON JobInput where
   toJSON JobInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Container" Core..=) Prelude.<$> container,
-            ("Key" Core..=) Prelude.<$> key,
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Container" Core..=) Prelude.<$> container,
             ("TimeSpan" Core..=) Prelude.<$> timeSpan,
             ("InputCaptions" Core..=) Prelude.<$> inputCaptions,
             ("Encryption" Core..=) Prelude.<$> encryption,

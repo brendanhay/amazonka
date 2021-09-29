@@ -53,9 +53,9 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ AccountProblem
     --
-    --     -   /Description:/ There is a problem with your AWS account that
-    --         prevents the operation from completing successfully. Contact AWS
-    --         Support for further assistance.
+    --     -   /Description:/ There is a problem with your Amazon Web Services
+    --         account that prevents the action from completing successfully.
+    --         Contact Amazon Web Services Support for further assistance.
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -64,7 +64,8 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ AllAccessDisabled
     --
     --     -   /Description:/ All access to this Amazon S3 resource has been
-    --         disabled. Contact AWS Support for further assistance.
+    --         disabled. Contact Amazon Web Services Support for further
+    --         assistance.
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -109,11 +110,11 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ BucketAlreadyOwnedByYou
     --
     --     -   /Description:/ The bucket you tried to create already exists,
-    --         and you own it. Amazon S3 returns this error in all AWS Regions
-    --         except in the North Virginia Region. For legacy compatibility,
-    --         if you re-create an existing bucket that you already own in the
-    --         North Virginia Region, Amazon S3 returns 200 OK and resets the
-    --         bucket access control lists (ACLs).
+    --         and you own it. Amazon S3 returns this error in all Amazon Web
+    --         Services Regions except in the North Virginia Region. For legacy
+    --         compatibility, if you re-create an existing bucket that you
+    --         already own in the North Virginia Region, Amazon S3 returns 200
+    --         OK and resets the bucket access control lists (ACLs).
     --
     --     -   /Code:/ 409 Conflict (in all Regions except the North Virginia
     --         Region)
@@ -218,8 +219,8 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ InvalidAccessKeyId
     --
-    --     -   /Description:/ The AWS access key ID you provided does not exist
-    --         in our records.
+    --     -   /Description:/ The Amazon Web Services access key ID you
+    --         provided does not exist in our records.
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -287,8 +288,8 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ InvalidObjectState
     --
-    --     -   /Description:/ The operation is not valid for the current state
-    --         of the object.
+    --     -   /Description:/ The action is not valid for the current state of
+    --         the object.
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -316,7 +317,8 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ InvalidPayer
     --
     --     -   /Description:/ All access to this object has been disabled.
-    --         Please contact AWS Support for further assistance.
+    --         Please contact Amazon Web Services Support for further
+    --         assistance.
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -341,7 +343,7 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ InvalidRequest
     --
-    --     -   /Description:/ Please use AWS4-HMAC-SHA256.
+    --     -   /Description:/ Please use @AWS4-HMAC-SHA256@.
     --
     --     -   /HTTP Status Code:/ 400 Bad Request
     --
@@ -404,7 +406,8 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ InvalidRequest
     --
     --     -   /Description:/ Amazon S3 Transfer Acceleration is not supported
-    --         on this bucket. Contact AWS Support for more information.
+    --         on this bucket. Contact Amazon Web Services Support for more
+    --         information.
     --
     --     -   /HTTP Status Code:/ 400 Bad Request
     --
@@ -413,7 +416,8 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ InvalidRequest
     --
     --     -   /Description:/ Amazon S3 Transfer Acceleration cannot be enabled
-    --         on this bucket. Contact AWS Support for more information.
+    --         on this bucket. Contact Amazon Web Services Support for more
+    --         information.
     --
     --     -   /HTTP Status Code:/ 400 Bad Request
     --
@@ -661,7 +665,8 @@ data S3ServiceError = S3ServiceError'
     --
     --     -   /Description:/ Your account is not signed up for the Amazon S3
     --         service. You must sign up before you can use Amazon S3. You can
-    --         sign up at the following URL: https:\/\/aws.amazon.com\/s3
+    --         sign up at the following URL:
+    --         <http://aws.amazon.com/s3 Amazon S3>
     --
     --     -   /HTTP Status Code:/ 403 Forbidden
     --
@@ -669,8 +674,8 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ OperationAborted
     --
-    --     -   /Description:/ A conflicting conditional operation is currently
-    --         in progress against this resource. Try again.
+    --     -   /Description:/ A conflicting conditional action is currently in
+    --         progress against this resource. Try again.
     --
     --     -   /HTTP Status Code:/ 409 Conflict
     --
@@ -750,8 +755,8 @@ data S3ServiceError = S3ServiceError'
     -- -   -   /Code:/ SignatureDoesNotMatch
     --
     --     -   /Description:/ The request signature we calculated does not
-    --         match the signature you provided. Check your AWS secret access
-    --         key and signing method. For more information, see
+    --         match the signature you provided. Check your Amazon Web Services
+    --         secret access key and signing method. For more information, see
     --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>
     --         and
     --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html SOAP Authentication>
@@ -867,9 +872,9 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ AccountProblem
 --
---     -   /Description:/ There is a problem with your AWS account that
---         prevents the operation from completing successfully. Contact AWS
---         Support for further assistance.
+--     -   /Description:/ There is a problem with your Amazon Web Services
+--         account that prevents the action from completing successfully.
+--         Contact Amazon Web Services Support for further assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -878,7 +883,8 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ AllAccessDisabled
 --
 --     -   /Description:/ All access to this Amazon S3 resource has been
---         disabled. Contact AWS Support for further assistance.
+--         disabled. Contact Amazon Web Services Support for further
+--         assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -923,11 +929,11 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ BucketAlreadyOwnedByYou
 --
 --     -   /Description:/ The bucket you tried to create already exists,
---         and you own it. Amazon S3 returns this error in all AWS Regions
---         except in the North Virginia Region. For legacy compatibility,
---         if you re-create an existing bucket that you already own in the
---         North Virginia Region, Amazon S3 returns 200 OK and resets the
---         bucket access control lists (ACLs).
+--         and you own it. Amazon S3 returns this error in all Amazon Web
+--         Services Regions except in the North Virginia Region. For legacy
+--         compatibility, if you re-create an existing bucket that you
+--         already own in the North Virginia Region, Amazon S3 returns 200
+--         OK and resets the bucket access control lists (ACLs).
 --
 --     -   /Code:/ 409 Conflict (in all Regions except the North Virginia
 --         Region)
@@ -1032,8 +1038,8 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ InvalidAccessKeyId
 --
---     -   /Description:/ The AWS access key ID you provided does not exist
---         in our records.
+--     -   /Description:/ The Amazon Web Services access key ID you
+--         provided does not exist in our records.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1101,8 +1107,8 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ InvalidObjectState
 --
---     -   /Description:/ The operation is not valid for the current state
---         of the object.
+--     -   /Description:/ The action is not valid for the current state of
+--         the object.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1130,7 +1136,8 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ InvalidPayer
 --
 --     -   /Description:/ All access to this object has been disabled.
---         Please contact AWS Support for further assistance.
+--         Please contact Amazon Web Services Support for further
+--         assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1155,7 +1162,7 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ InvalidRequest
 --
---     -   /Description:/ Please use AWS4-HMAC-SHA256.
+--     -   /Description:/ Please use @AWS4-HMAC-SHA256@.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -1218,7 +1225,8 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ InvalidRequest
 --
 --     -   /Description:/ Amazon S3 Transfer Acceleration is not supported
---         on this bucket. Contact AWS Support for more information.
+--         on this bucket. Contact Amazon Web Services Support for more
+--         information.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -1227,7 +1235,8 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ InvalidRequest
 --
 --     -   /Description:/ Amazon S3 Transfer Acceleration cannot be enabled
---         on this bucket. Contact AWS Support for more information.
+--         on this bucket. Contact Amazon Web Services Support for more
+--         information.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -1475,7 +1484,8 @@ data S3ServiceError = S3ServiceError'
 --
 --     -   /Description:/ Your account is not signed up for the Amazon S3
 --         service. You must sign up before you can use Amazon S3. You can
---         sign up at the following URL: https:\/\/aws.amazon.com\/s3
+--         sign up at the following URL:
+--         <http://aws.amazon.com/s3 Amazon S3>
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1483,8 +1493,8 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ OperationAborted
 --
---     -   /Description:/ A conflicting conditional operation is currently
---         in progress against this resource. Try again.
+--     -   /Description:/ A conflicting conditional action is currently in
+--         progress against this resource. Try again.
 --
 --     -   /HTTP Status Code:/ 409 Conflict
 --
@@ -1564,8 +1574,8 @@ data S3ServiceError = S3ServiceError'
 -- -   -   /Code:/ SignatureDoesNotMatch
 --
 --     -   /Description:/ The request signature we calculated does not
---         match the signature you provided. Check your AWS secret access
---         key and signing method. For more information, see
+--         match the signature you provided. Check your Amazon Web Services
+--         secret access key and signing method. For more information, see
 --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>
 --         and
 --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html SOAP Authentication>
@@ -1683,9 +1693,9 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 -- -   -   /Code:/ AccountProblem
 --
---     -   /Description:/ There is a problem with your AWS account that
---         prevents the operation from completing successfully. Contact AWS
---         Support for further assistance.
+--     -   /Description:/ There is a problem with your Amazon Web Services
+--         account that prevents the action from completing successfully.
+--         Contact Amazon Web Services Support for further assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1694,7 +1704,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ AllAccessDisabled
 --
 --     -   /Description:/ All access to this Amazon S3 resource has been
---         disabled. Contact AWS Support for further assistance.
+--         disabled. Contact Amazon Web Services Support for further
+--         assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1739,11 +1750,11 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ BucketAlreadyOwnedByYou
 --
 --     -   /Description:/ The bucket you tried to create already exists,
---         and you own it. Amazon S3 returns this error in all AWS Regions
---         except in the North Virginia Region. For legacy compatibility,
---         if you re-create an existing bucket that you already own in the
---         North Virginia Region, Amazon S3 returns 200 OK and resets the
---         bucket access control lists (ACLs).
+--         and you own it. Amazon S3 returns this error in all Amazon Web
+--         Services Regions except in the North Virginia Region. For legacy
+--         compatibility, if you re-create an existing bucket that you
+--         already own in the North Virginia Region, Amazon S3 returns 200
+--         OK and resets the bucket access control lists (ACLs).
 --
 --     -   /Code:/ 409 Conflict (in all Regions except the North Virginia
 --         Region)
@@ -1848,8 +1859,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 -- -   -   /Code:/ InvalidAccessKeyId
 --
---     -   /Description:/ The AWS access key ID you provided does not exist
---         in our records.
+--     -   /Description:/ The Amazon Web Services access key ID you
+--         provided does not exist in our records.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1917,8 +1928,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 -- -   -   /Code:/ InvalidObjectState
 --
---     -   /Description:/ The operation is not valid for the current state
---         of the object.
+--     -   /Description:/ The action is not valid for the current state of
+--         the object.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1946,7 +1957,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ InvalidPayer
 --
 --     -   /Description:/ All access to this object has been disabled.
---         Please contact AWS Support for further assistance.
+--         Please contact Amazon Web Services Support for further
+--         assistance.
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -1971,7 +1983,7 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 -- -   -   /Code:/ InvalidRequest
 --
---     -   /Description:/ Please use AWS4-HMAC-SHA256.
+--     -   /Description:/ Please use @AWS4-HMAC-SHA256@.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -2034,7 +2046,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ InvalidRequest
 --
 --     -   /Description:/ Amazon S3 Transfer Acceleration is not supported
---         on this bucket. Contact AWS Support for more information.
+--         on this bucket. Contact Amazon Web Services Support for more
+--         information.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -2043,7 +2056,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ InvalidRequest
 --
 --     -   /Description:/ Amazon S3 Transfer Acceleration cannot be enabled
---         on this bucket. Contact AWS Support for more information.
+--         on this bucket. Contact Amazon Web Services Support for more
+--         information.
 --
 --     -   /HTTP Status Code:/ 400 Bad Request
 --
@@ -2291,7 +2305,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 --     -   /Description:/ Your account is not signed up for the Amazon S3
 --         service. You must sign up before you can use Amazon S3. You can
---         sign up at the following URL: https:\/\/aws.amazon.com\/s3
+--         sign up at the following URL:
+--         <http://aws.amazon.com/s3 Amazon S3>
 --
 --     -   /HTTP Status Code:/ 403 Forbidden
 --
@@ -2299,8 +2314,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 --
 -- -   -   /Code:/ OperationAborted
 --
---     -   /Description:/ A conflicting conditional operation is currently
---         in progress against this resource. Try again.
+--     -   /Description:/ A conflicting conditional action is currently in
+--         progress against this resource. Try again.
 --
 --     -   /HTTP Status Code:/ 409 Conflict
 --
@@ -2380,8 +2395,8 @@ s3ServiceError_message = Lens.lens (\S3ServiceError' {message} -> message) (\s@S
 -- -   -   /Code:/ SignatureDoesNotMatch
 --
 --     -   /Description:/ The request signature we calculated does not
---         match the signature you provided. Check your AWS secret access
---         key and signing method. For more information, see
+--         match the signature you provided. Check your Amazon Web Services
+--         secret access key and signing method. For more information, see
 --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>
 --         and
 --         <https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html SOAP Authentication>

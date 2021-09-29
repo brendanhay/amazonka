@@ -23,7 +23,7 @@
 -- Describes one or more of your subnets.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and Subnets>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Your VPC and subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeSubnets
 
     -- * Request Lenses
     describeSubnets_nextToken,
-    describeSubnets_dryRun,
     describeSubnets_maxResults,
+    describeSubnets_dryRun,
     describeSubnets_subnetIds,
     describeSubnets_filters,
 
@@ -61,15 +61,15 @@ import qualified Network.AWS.Response as Response
 data DescribeSubnets = DescribeSubnets'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more subnet IDs.
     --
     -- Default: Describes all your subnets.
@@ -103,7 +103,10 @@ data DescribeSubnets = DescribeSubnets'
     -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
     --     block associated with the subnet.
     --
-    -- -   @owner-id@ - The ID of the AWS account that owns the subnet.
+    -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+    --
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     subnet.
     --
     -- -   @state@ - The state of the subnet (@pending@ | @available@).
     --
@@ -136,14 +139,14 @@ data DescribeSubnets = DescribeSubnets'
 --
 -- 'nextToken', 'describeSubnets_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeSubnets_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeSubnets_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeSubnets_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'subnetIds', 'describeSubnets_subnetIds' - One or more subnet IDs.
 --
@@ -178,7 +181,10 @@ data DescribeSubnets = DescribeSubnets'
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the subnet.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the subnet.
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     subnet.
 --
 -- -   @state@ - The state of the subnet (@pending@ | @available@).
 --
@@ -202,8 +208,8 @@ newDescribeSubnets ::
 newDescribeSubnets =
   DescribeSubnets'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -212,18 +218,18 @@ newDescribeSubnets =
 describeSubnets_nextToken :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Text)
 describeSubnets_nextToken = Lens.lens (\DescribeSubnets' {nextToken} -> nextToken) (\s@DescribeSubnets' {} a -> s {nextToken = a} :: DescribeSubnets)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeSubnets_maxResults :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Natural)
+describeSubnets_maxResults = Lens.lens (\DescribeSubnets' {maxResults} -> maxResults) (\s@DescribeSubnets' {} a -> s {maxResults = a} :: DescribeSubnets)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeSubnets_dryRun :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Bool)
 describeSubnets_dryRun = Lens.lens (\DescribeSubnets' {dryRun} -> dryRun) (\s@DescribeSubnets' {} a -> s {dryRun = a} :: DescribeSubnets)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeSubnets_maxResults :: Lens.Lens' DescribeSubnets (Prelude.Maybe Prelude.Natural)
-describeSubnets_maxResults = Lens.lens (\DescribeSubnets' {maxResults} -> maxResults) (\s@DescribeSubnets' {} a -> s {maxResults = a} :: DescribeSubnets)
 
 -- | One or more subnet IDs.
 --
@@ -260,7 +266,10 @@ describeSubnets_subnetIds = Lens.lens (\DescribeSubnets' {subnetIds} -> subnetId
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the subnet.
 --
--- -   @owner-id@ - The ID of the AWS account that owns the subnet.
+-- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+--
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     subnet.
 --
 -- -   @state@ - The state of the subnet (@pending@ | @available@).
 --
@@ -337,8 +346,8 @@ instance Core.ToQuery DescribeSubnets where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
         Core.toQuery

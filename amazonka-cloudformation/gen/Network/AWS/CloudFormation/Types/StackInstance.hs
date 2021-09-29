@@ -27,8 +27,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An AWS CloudFormation stack, in a specific account and Region, that\'s
--- part of a stack set operation. A stack instance is a reference to an
+-- | An CloudFormation stack, in a specific account and Region, that\'s part
+-- of a stack set operation. A stack instance is a reference to an
 -- attempted or actual stack in a given account within a given Region. A
 -- stack instance can exist without a stack—for example, if the stack
 -- couldn\'t be created for some reason. A stack instance is associated
@@ -75,6 +75,9 @@ data StackInstance = StackInstance'
     -- operation on the stack instance. This value will be @NULL@ for any stack
     -- instance on which drift detection has not yet been performed.
     lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The name or unique ID of the stack set that the stack instance is
+    -- associated with.
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | Status of the stack instance\'s actual configuration compared to the
     -- expected template and parameter configuration of the stack set to which
     -- it belongs.
@@ -84,21 +87,19 @@ data StackInstance = StackInstance'
     --     stack instance is considered to have drifted if one or more of the
     --     resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
-    --     instance differs from its expected stack set configuration.
+    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+    --     differs from its expected stack set configuration.
     --
     -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
     --     expected stack set configuration.
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
     driftStatus :: Prelude.Maybe StackDriftStatus,
-    -- | [Self-managed permissions] The name of the AWS account that the stack
-    -- instance is associated with.
+    -- | [Self-managed permissions] The name of the Amazon Web Services account
+    -- that the stack instance is associated with.
     account :: Prelude.Maybe Prelude.Text,
-    -- | The name or unique ID of the stack set that the stack instance is
+    -- | The name of the Amazon Web Services Region that the stack instance is
     -- associated with.
-    stackSetId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Region that the stack instance is associated with.
     region :: Prelude.Maybe Prelude.Text,
     -- | The explanation for the specific status code that is assigned to this
     -- stack instance.
@@ -151,6 +152,9 @@ data StackInstance = StackInstance'
 -- operation on the stack instance. This value will be @NULL@ for any stack
 -- instance on which drift detection has not yet been performed.
 --
+-- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is
+-- associated with.
+--
 -- 'driftStatus', 'stackInstance_driftStatus' - Status of the stack instance\'s actual configuration compared to the
 -- expected template and parameter configuration of the stack set to which
 -- it belongs.
@@ -160,21 +164,19 @@ data StackInstance = StackInstance'
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     instance differs from its expected stack set configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+--     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
 --     expected stack set configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
 --
--- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the AWS account that the stack
--- instance is associated with.
+-- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account
+-- that the stack instance is associated with.
 --
--- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is
+-- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
 -- associated with.
---
--- 'region', 'stackInstance_region' - The name of the AWS Region that the stack instance is associated with.
 --
 -- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that is assigned to this
 -- stack instance.
@@ -188,9 +190,9 @@ newStackInstance =
       stackInstanceStatus = Prelude.Nothing,
       organizationalUnitId = Prelude.Nothing,
       lastDriftCheckTimestamp = Prelude.Nothing,
+      stackSetId = Prelude.Nothing,
       driftStatus = Prelude.Nothing,
       account = Prelude.Nothing,
-      stackSetId = Prelude.Nothing,
       region = Prelude.Nothing,
       statusReason = Prelude.Nothing
     }
@@ -244,6 +246,11 @@ stackInstance_organizationalUnitId = Lens.lens (\StackInstance' {organizationalU
 stackInstance_lastDriftCheckTimestamp :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.UTCTime)
 stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Core._Time
 
+-- | The name or unique ID of the stack set that the stack instance is
+-- associated with.
+stackInstance_stackSetId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_stackSetId = Lens.lens (\StackInstance' {stackSetId} -> stackSetId) (\s@StackInstance' {} a -> s {stackSetId = a} :: StackInstance)
+
 -- | Status of the stack instance\'s actual configuration compared to the
 -- expected template and parameter configuration of the stack set to which
 -- it belongs.
@@ -253,8 +260,8 @@ stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftChe
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     instance differs from its expected stack set configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+--     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
 --     expected stack set configuration.
@@ -263,17 +270,13 @@ stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftChe
 stackInstance_driftStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackDriftStatus)
 stackInstance_driftStatus = Lens.lens (\StackInstance' {driftStatus} -> driftStatus) (\s@StackInstance' {} a -> s {driftStatus = a} :: StackInstance)
 
--- | [Self-managed permissions] The name of the AWS account that the stack
--- instance is associated with.
+-- | [Self-managed permissions] The name of the Amazon Web Services account
+-- that the stack instance is associated with.
 stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
 
--- | The name or unique ID of the stack set that the stack instance is
+-- | The name of the Amazon Web Services Region that the stack instance is
 -- associated with.
-stackInstance_stackSetId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_stackSetId = Lens.lens (\StackInstance' {stackSetId} -> stackSetId) (\s@StackInstance' {} a -> s {stackSetId = a} :: StackInstance)
-
--- | The name of the AWS Region that the stack instance is associated with.
 stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
 stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
@@ -294,9 +297,9 @@ instance Core.FromXML StackInstance where
       Prelude.<*> (x Core..@? "StackInstanceStatus")
       Prelude.<*> (x Core..@? "OrganizationalUnitId")
       Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Core..@? "StackSetId")
       Prelude.<*> (x Core..@? "DriftStatus")
       Prelude.<*> (x Core..@? "Account")
-      Prelude.<*> (x Core..@? "StackSetId")
       Prelude.<*> (x Core..@? "Region")
       Prelude.<*> (x Core..@? "StatusReason")
 

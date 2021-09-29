@@ -37,8 +37,8 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
     -- * Request Lenses
     describeDBClusterBacktracks_backtrackIdentifier,
     describeDBClusterBacktracks_filters,
-    describeDBClusterBacktracks_marker,
     describeDBClusterBacktracks_maxRecords,
+    describeDBClusterBacktracks_marker,
     describeDBClusterBacktracks_dbClusterIdentifier,
 
     -- * Destructuring the Response
@@ -95,11 +95,6 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --     The results list includes information about only the backtracks
     --     identified by these values.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -109,6 +104,11 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier of the DB cluster to be described. This
     -- parameter is stored as a lowercase string.
     --
@@ -165,11 +165,6 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 --     The results list includes information about only the backtracks
 --     identified by these values.
 --
--- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeDBClusterBacktracks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -178,6 +173,11 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'dbClusterIdentifier', 'describeDBClusterBacktracks_dbClusterIdentifier' - The DB cluster identifier of the DB cluster to be described. This
 -- parameter is stored as a lowercase string.
@@ -200,8 +200,8 @@ newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
     { backtrackIdentifier =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -241,13 +241,6 @@ describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterB
 describeDBClusterBacktracks_filters :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe [Filter])
 describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
-describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -258,6 +251,13 @@ describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {m
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusterBacktracks_maxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Int)
 describeDBClusterBacktracks_maxRecords = Lens.lens (\DescribeDBClusterBacktracks' {maxRecords} -> maxRecords) (\s@DescribeDBClusterBacktracks' {} a -> s {maxRecords = a} :: DescribeDBClusterBacktracks)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
+describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
 
 -- | The DB cluster identifier of the DB cluster to be described. This
 -- parameter is stored as a lowercase string.
@@ -337,8 +337,8 @@ instance Core.ToQuery DescribeDBClusterBacktracks where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the services that are running in a specified cluster.
+-- Returns a list of services. You can filter the results by cluster,
+-- launch type, and scheduling strategy.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListServices
@@ -73,13 +74,14 @@ data ListServices = ListServices'
     -- parameter is not used, then @ListServices@ returns up to 10 results and
     -- a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The launch type for the services to list.
+    -- | The launch type to use when filtering the @ListServices@ results.
     launchType :: Prelude.Maybe LaunchType,
-    -- | The scheduling strategy for services to list.
+    -- | The scheduling strategy to use when filtering the @ListServices@
+    -- results.
     schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- hosts the services to list. If you do not specify a cluster, the default
-    -- cluster is assumed.
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
+    -- when filtering the @ListServices@ results. If you do not specify a
+    -- cluster, the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,13 +112,14 @@ data ListServices = ListServices'
 -- parameter is not used, then @ListServices@ returns up to 10 results and
 -- a @nextToken@ value if applicable.
 --
--- 'launchType', 'listServices_launchType' - The launch type for the services to list.
+-- 'launchType', 'listServices_launchType' - The launch type to use when filtering the @ListServices@ results.
 --
--- 'schedulingStrategy', 'listServices_schedulingStrategy' - The scheduling strategy for services to list.
+-- 'schedulingStrategy', 'listServices_schedulingStrategy' - The scheduling strategy to use when filtering the @ListServices@
+-- results.
 --
--- 'cluster', 'listServices_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the services to list. If you do not specify a cluster, the default
--- cluster is assumed.
+-- 'cluster', 'listServices_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to use
+-- when filtering the @ListServices@ results. If you do not specify a
+-- cluster, the default cluster is assumed.
 newListServices ::
   ListServices
 newListServices =
@@ -150,17 +153,18 @@ listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s
 listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Int)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
 
--- | The launch type for the services to list.
+-- | The launch type to use when filtering the @ListServices@ results.
 listServices_launchType :: Lens.Lens' ListServices (Prelude.Maybe LaunchType)
 listServices_launchType = Lens.lens (\ListServices' {launchType} -> launchType) (\s@ListServices' {} a -> s {launchType = a} :: ListServices)
 
--- | The scheduling strategy for services to list.
+-- | The scheduling strategy to use when filtering the @ListServices@
+-- results.
 listServices_schedulingStrategy :: Lens.Lens' ListServices (Prelude.Maybe SchedulingStrategy)
 listServices_schedulingStrategy = Lens.lens (\ListServices' {schedulingStrategy} -> schedulingStrategy) (\s@ListServices' {} a -> s {schedulingStrategy = a} :: ListServices)
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the services to list. If you do not specify a cluster, the default
--- cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to use
+-- when filtering the @ListServices@ results. If you do not specify a
+-- cluster, the default cluster is assumed.
 listServices_cluster :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_cluster = Lens.lens (\ListServices' {cluster} -> cluster) (\s@ListServices' {} a -> s {cluster = a} :: ListServices)
 

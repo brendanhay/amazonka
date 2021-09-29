@@ -60,7 +60,7 @@ import qualified Network.AWS.Prelude as Prelude
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 --     in the /Amazon Elastic Container Service Developer Guide/.
 --
--- -   For tasks on AWS Fargate, because you do not have access to the
+-- -   For tasks on Fargate, because you do not have access to the
 --     underlying infrastructure your tasks are hosted on, any additional
 --     software needed will have to be installed outside of the task. For
 --     example, the Fluentd output aggregators or a remote host running
@@ -81,8 +81,8 @@ data LogConfiguration = LogConfiguration'
     secretOptions :: Prelude.Maybe [Secret],
     -- | The log driver to use for the container.
     --
-    -- For tasks on AWS Fargate, the supported log drivers are @awslogs@,
-    -- @splunk@, and @awsfirelens@.
+    -- For tasks on Fargate, the supported log drivers are @awslogs@, @splunk@,
+    -- and @awsfirelens@.
     --
     -- For tasks hosted on Amazon EC2 instances, the supported log drivers are
     -- @awslogs@, @fluentd@, @gelf@, @json-file@, @journald@,
@@ -128,8 +128,8 @@ data LogConfiguration = LogConfiguration'
 --
 -- 'logDriver', 'logConfiguration_logDriver' - The log driver to use for the container.
 --
--- For tasks on AWS Fargate, the supported log drivers are @awslogs@,
--- @splunk@, and @awsfirelens@.
+-- For tasks on Fargate, the supported log drivers are @awslogs@, @splunk@,
+-- and @awsfirelens@.
 --
 -- For tasks hosted on Amazon EC2 instances, the supported log drivers are
 -- @awslogs@, @fluentd@, @gelf@, @json-file@, @journald@,
@@ -178,8 +178,8 @@ logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -
 
 -- | The log driver to use for the container.
 --
--- For tasks on AWS Fargate, the supported log drivers are @awslogs@,
--- @splunk@, and @awsfirelens@.
+-- For tasks on Fargate, the supported log drivers are @awslogs@, @splunk@,
+-- and @awsfirelens@.
 --
 -- For tasks hosted on Amazon EC2 instances, the supported log drivers are
 -- @awslogs@, @fluentd@, @gelf@, @json-file@, @journald@,

@@ -25,43 +25,6 @@ import Network.AWS.MachineLearning.Lens
 import Network.AWS.MachineLearning.Types
 import qualified Network.AWS.Prelude as Prelude
 
--- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newMLModelAvailable :: Core.Wait DescribeMLModels
-newMLModelAvailable =
-  Core.Wait
-    { Core._waitName = "MLModelAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "COMPLETED"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeMLModelsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeMLModelsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newEvaluationAvailable :: Core.Wait DescribeEvaluations
 newEvaluationAvailable =
@@ -93,6 +56,43 @@ newEvaluationAvailable =
                     )
                 )
                 Prelude.. evaluation_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newMLModelAvailable :: Core.Wait DescribeMLModels
+newMLModelAvailable =
+  Core.Wait
+    { Core._waitName = "MLModelAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "COMPLETED"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeMLModelsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. mLModel_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeMLModelsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. mLModel_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

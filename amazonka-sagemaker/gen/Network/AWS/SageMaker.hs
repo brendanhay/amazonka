@@ -52,11 +52,26 @@ module Network.AWS.SageMaker
     -- ** NotebookInstanceInService
     newNotebookInstanceInService,
 
+    -- ** ImageUpdated
+    newImageUpdated,
+
+    -- ** ImageDeleted
+    newImageDeleted,
+
+    -- ** ImageCreated
+    newImageCreated,
+
     -- ** EndpointInService
     newEndpointInService,
 
     -- ** TrainingJobCompletedOrStopped
     newTrainingJobCompletedOrStopped,
+
+    -- ** ImageVersionDeleted
+    newImageVersionDeleted,
+
+    -- ** ImageVersionCreated
+    newImageVersionCreated,
 
     -- ** ProcessingJobCompletedOrStopped
     newProcessingJobCompletedOrStopped,
@@ -67,23 +82,17 @@ module Network.AWS.SageMaker
     -- * Operations
     -- $operations
 
-    -- ** DisassociateTrialComponent
-    DisassociateTrialComponent (DisassociateTrialComponent'),
-    newDisassociateTrialComponent,
-    DisassociateTrialComponentResponse (DisassociateTrialComponentResponse'),
-    newDisassociateTrialComponentResponse,
+    -- ** CreateEdgePackagingJob
+    CreateEdgePackagingJob (CreateEdgePackagingJob'),
+    newCreateEdgePackagingJob,
+    CreateEdgePackagingJobResponse (CreateEdgePackagingJobResponse'),
+    newCreateEdgePackagingJobResponse,
 
-    -- ** DeleteArtifact
-    DeleteArtifact (DeleteArtifact'),
-    newDeleteArtifact,
-    DeleteArtifactResponse (DeleteArtifactResponse'),
-    newDeleteArtifactResponse,
-
-    -- ** CreateTransformJob
-    CreateTransformJob (CreateTransformJob'),
-    newCreateTransformJob,
-    CreateTransformJobResponse (CreateTransformJobResponse'),
-    newCreateTransformJobResponse,
+    -- ** DescribeUserProfile
+    DescribeUserProfile (DescribeUserProfile'),
+    newDescribeUserProfile,
+    DescribeUserProfileResponse (DescribeUserProfileResponse'),
+    newDescribeUserProfileResponse,
 
     -- ** ListHumanTaskUis (Paginated)
     ListHumanTaskUis (ListHumanTaskUis'),
@@ -103,6 +112,30 @@ module Network.AWS.SageMaker
     UpdateActionResponse (UpdateActionResponse'),
     newUpdateActionResponse,
 
+    -- ** CreateEndpoint
+    CreateEndpoint (CreateEndpoint'),
+    newCreateEndpoint,
+    CreateEndpointResponse (CreateEndpointResponse'),
+    newCreateEndpointResponse,
+
+    -- ** DeleteArtifact
+    DeleteArtifact (DeleteArtifact'),
+    newDeleteArtifact,
+    DeleteArtifactResponse (DeleteArtifactResponse'),
+    newDeleteArtifactResponse,
+
+    -- ** CreateTransformJob
+    CreateTransformJob (CreateTransformJob'),
+    newCreateTransformJob,
+    CreateTransformJobResponse (CreateTransformJobResponse'),
+    newCreateTransformJobResponse,
+
+    -- ** DeleteAction
+    DeleteAction (DeleteAction'),
+    newDeleteAction,
+    DeleteActionResponse (DeleteActionResponse'),
+    newDeleteActionResponse,
+
     -- ** DescribePipeline
     DescribePipeline (DescribePipeline'),
     newDescribePipeline,
@@ -115,23 +148,17 @@ module Network.AWS.SageMaker
     UpdateArtifactResponse (UpdateArtifactResponse'),
     newUpdateArtifactResponse,
 
-    -- ** DescribeUserProfile
-    DescribeUserProfile (DescribeUserProfile'),
-    newDescribeUserProfile,
-    DescribeUserProfileResponse (DescribeUserProfileResponse'),
-    newDescribeUserProfileResponse,
-
     -- ** StopTrainingJob
     StopTrainingJob (StopTrainingJob'),
     newStopTrainingJob,
     StopTrainingJobResponse (StopTrainingJobResponse'),
     newStopTrainingJobResponse,
 
-    -- ** CreateEndpoint
-    CreateEndpoint (CreateEndpoint'),
-    newCreateEndpoint,
-    CreateEndpointResponse (CreateEndpointResponse'),
-    newCreateEndpointResponse,
+    -- ** DisassociateTrialComponent
+    DisassociateTrialComponent (DisassociateTrialComponent'),
+    newDisassociateTrialComponent,
+    DisassociateTrialComponentResponse (DisassociateTrialComponentResponse'),
+    newDisassociateTrialComponentResponse,
 
     -- ** GetSearchSuggestions
     GetSearchSuggestions (GetSearchSuggestions'),
@@ -139,65 +166,11 @@ module Network.AWS.SageMaker
     GetSearchSuggestionsResponse (GetSearchSuggestionsResponse'),
     newGetSearchSuggestionsResponse,
 
-    -- ** DeleteAction
-    DeleteAction (DeleteAction'),
-    newDeleteAction,
-    DeleteActionResponse (DeleteActionResponse'),
-    newDeleteActionResponse,
-
-    -- ** CreateEdgePackagingJob
-    CreateEdgePackagingJob (CreateEdgePackagingJob'),
-    newCreateEdgePackagingJob,
-    CreateEdgePackagingJobResponse (CreateEdgePackagingJobResponse'),
-    newCreateEdgePackagingJobResponse,
-
-    -- ** DescribeEndpointConfig
-    DescribeEndpointConfig (DescribeEndpointConfig'),
-    newDescribeEndpointConfig,
-    DescribeEndpointConfigResponse (DescribeEndpointConfigResponse'),
-    newDescribeEndpointConfigResponse,
-
-    -- ** ListModelPackages (Paginated)
-    ListModelPackages (ListModelPackages'),
-    newListModelPackages,
-    ListModelPackagesResponse (ListModelPackagesResponse'),
-    newListModelPackagesResponse,
-
-    -- ** GetModelPackageGroupPolicy
-    GetModelPackageGroupPolicy (GetModelPackageGroupPolicy'),
-    newGetModelPackageGroupPolicy,
-    GetModelPackageGroupPolicyResponse (GetModelPackageGroupPolicyResponse'),
-    newGetModelPackageGroupPolicyResponse,
-
-    -- ** DescribeMonitoringSchedule
-    DescribeMonitoringSchedule (DescribeMonitoringSchedule'),
-    newDescribeMonitoringSchedule,
-    DescribeMonitoringScheduleResponse (DescribeMonitoringScheduleResponse'),
-    newDescribeMonitoringScheduleResponse,
-
-    -- ** CreateModelExplainabilityJobDefinition
-    CreateModelExplainabilityJobDefinition (CreateModelExplainabilityJobDefinition'),
-    newCreateModelExplainabilityJobDefinition,
-    CreateModelExplainabilityJobDefinitionResponse (CreateModelExplainabilityJobDefinitionResponse'),
-    newCreateModelExplainabilityJobDefinitionResponse,
-
-    -- ** DescribeLabelingJob
-    DescribeLabelingJob (DescribeLabelingJob'),
-    newDescribeLabelingJob,
-    DescribeLabelingJobResponse (DescribeLabelingJobResponse'),
-    newDescribeLabelingJobResponse,
-
-    -- ** CreateNotebookInstance
-    CreateNotebookInstance (CreateNotebookInstance'),
-    newCreateNotebookInstance,
-    CreateNotebookInstanceResponse (CreateNotebookInstanceResponse'),
-    newCreateNotebookInstanceResponse,
-
-    -- ** UpdateModelPackage
-    UpdateModelPackage (UpdateModelPackage'),
-    newUpdateModelPackage,
-    UpdateModelPackageResponse (UpdateModelPackageResponse'),
-    newUpdateModelPackageResponse,
+    -- ** DeleteModelPackage
+    DeleteModelPackage (DeleteModelPackage'),
+    newDeleteModelPackage,
+    DeleteModelPackageResponse (DeleteModelPackageResponse'),
+    newDeleteModelPackageResponse,
 
     -- ** CreateModelQualityJobDefinition
     CreateModelQualityJobDefinition (CreateModelQualityJobDefinition'),
@@ -205,11 +178,11 @@ module Network.AWS.SageMaker
     CreateModelQualityJobDefinitionResponse (CreateModelQualityJobDefinitionResponse'),
     newCreateModelQualityJobDefinitionResponse,
 
-    -- ** DeleteModelPackage
-    DeleteModelPackage (DeleteModelPackage'),
-    newDeleteModelPackage,
-    DeleteModelPackageResponse (DeleteModelPackageResponse'),
-    newDeleteModelPackageResponse,
+    -- ** ListModelPackages (Paginated)
+    ListModelPackages (ListModelPackages'),
+    newListModelPackages,
+    ListModelPackagesResponse (ListModelPackagesResponse'),
+    newListModelPackagesResponse,
 
     -- ** ListProjects
     ListProjects (ListProjects'),
@@ -217,41 +190,47 @@ module Network.AWS.SageMaker
     ListProjectsResponse (ListProjectsResponse'),
     newListProjectsResponse,
 
-    -- ** ListSubscribedWorkteams (Paginated)
-    ListSubscribedWorkteams (ListSubscribedWorkteams'),
-    newListSubscribedWorkteams,
-    ListSubscribedWorkteamsResponse (ListSubscribedWorkteamsResponse'),
-    newListSubscribedWorkteamsResponse,
+    -- ** CreateModelExplainabilityJobDefinition
+    CreateModelExplainabilityJobDefinition (CreateModelExplainabilityJobDefinition'),
+    newCreateModelExplainabilityJobDefinition,
+    CreateModelExplainabilityJobDefinitionResponse (CreateModelExplainabilityJobDefinitionResponse'),
+    newCreateModelExplainabilityJobDefinitionResponse,
 
-    -- ** DeleteNotebookInstance
-    DeleteNotebookInstance (DeleteNotebookInstance'),
-    newDeleteNotebookInstance,
-    DeleteNotebookInstanceResponse (DeleteNotebookInstanceResponse'),
-    newDeleteNotebookInstanceResponse,
+    -- ** DescribeEndpointConfig
+    DescribeEndpointConfig (DescribeEndpointConfig'),
+    newDescribeEndpointConfig,
+    DescribeEndpointConfigResponse (DescribeEndpointConfigResponse'),
+    newDescribeEndpointConfigResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** DescribeMonitoringSchedule
+    DescribeMonitoringSchedule (DescribeMonitoringSchedule'),
+    newDescribeMonitoringSchedule,
+    DescribeMonitoringScheduleResponse (DescribeMonitoringScheduleResponse'),
+    newDescribeMonitoringScheduleResponse,
 
-    -- ** DescribeProcessingJob
-    DescribeProcessingJob (DescribeProcessingJob'),
-    newDescribeProcessingJob,
-    DescribeProcessingJobResponse (DescribeProcessingJobResponse'),
-    newDescribeProcessingJobResponse,
+    -- ** DescribeLabelingJob
+    DescribeLabelingJob (DescribeLabelingJob'),
+    newDescribeLabelingJob,
+    DescribeLabelingJobResponse (DescribeLabelingJobResponse'),
+    newDescribeLabelingJobResponse,
 
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
+    -- ** GetModelPackageGroupPolicy
+    GetModelPackageGroupPolicy (GetModelPackageGroupPolicy'),
+    newGetModelPackageGroupPolicy,
+    GetModelPackageGroupPolicyResponse (GetModelPackageGroupPolicyResponse'),
+    newGetModelPackageGroupPolicyResponse,
 
-    -- ** DeleteModelExplainabilityJobDefinition
-    DeleteModelExplainabilityJobDefinition (DeleteModelExplainabilityJobDefinition'),
-    newDeleteModelExplainabilityJobDefinition,
-    DeleteModelExplainabilityJobDefinitionResponse (DeleteModelExplainabilityJobDefinitionResponse'),
-    newDeleteModelExplainabilityJobDefinitionResponse,
+    -- ** UpdateModelPackage
+    UpdateModelPackage (UpdateModelPackage'),
+    newUpdateModelPackage,
+    UpdateModelPackageResponse (UpdateModelPackageResponse'),
+    newUpdateModelPackageResponse,
+
+    -- ** CreateNotebookInstance
+    CreateNotebookInstance (CreateNotebookInstance'),
+    newCreateNotebookInstance,
+    CreateNotebookInstanceResponse (CreateNotebookInstanceResponse'),
+    newCreateNotebookInstanceResponse,
 
     -- ** StopMonitoringSchedule
     StopMonitoringSchedule (StopMonitoringSchedule'),
@@ -259,23 +238,11 @@ module Network.AWS.SageMaker
     StopMonitoringScheduleResponse (StopMonitoringScheduleResponse'),
     newStopMonitoringScheduleResponse,
 
-    -- ** ListDevices (Paginated)
-    ListDevices (ListDevices'),
-    newListDevices,
-    ListDevicesResponse (ListDevicesResponse'),
-    newListDevicesResponse,
-
     -- ** CreateModelPackage
     CreateModelPackage (CreateModelPackage'),
     newCreateModelPackage,
     CreateModelPackageResponse (CreateModelPackageResponse'),
     newCreateModelPackageResponse,
-
-    -- ** UpdateNotebookInstance
-    UpdateNotebookInstance (UpdateNotebookInstance'),
-    newUpdateNotebookInstance,
-    UpdateNotebookInstanceResponse (UpdateNotebookInstanceResponse'),
-    newUpdateNotebookInstanceResponse,
 
     -- ** StopAutoMLJob
     StopAutoMLJob (StopAutoMLJob'),
@@ -283,11 +250,47 @@ module Network.AWS.SageMaker
     StopAutoMLJobResponse (StopAutoMLJobResponse'),
     newStopAutoMLJobResponse,
 
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
+
     -- ** DescribeAppImageConfig
     DescribeAppImageConfig (DescribeAppImageConfig'),
     newDescribeAppImageConfig,
     DescribeAppImageConfigResponse (DescribeAppImageConfigResponse'),
     newDescribeAppImageConfigResponse,
+
+    -- ** ListSubscribedWorkteams (Paginated)
+    ListSubscribedWorkteams (ListSubscribedWorkteams'),
+    newListSubscribedWorkteams,
+    ListSubscribedWorkteamsResponse (ListSubscribedWorkteamsResponse'),
+    newListSubscribedWorkteamsResponse,
+
+    -- ** ListDevices (Paginated)
+    ListDevices (ListDevices'),
+    newListDevices,
+    ListDevicesResponse (ListDevicesResponse'),
+    newListDevicesResponse,
+
+    -- ** UpdateNotebookInstance
+    UpdateNotebookInstance (UpdateNotebookInstance'),
+    newUpdateNotebookInstance,
+    UpdateNotebookInstanceResponse (UpdateNotebookInstanceResponse'),
+    newUpdateNotebookInstanceResponse,
+
+    -- ** DeleteModelExplainabilityJobDefinition
+    DeleteModelExplainabilityJobDefinition (DeleteModelExplainabilityJobDefinition'),
+    newDeleteModelExplainabilityJobDefinition,
+    DeleteModelExplainabilityJobDefinitionResponse (DeleteModelExplainabilityJobDefinitionResponse'),
+    newDeleteModelExplainabilityJobDefinitionResponse,
+
+    -- ** DescribeProcessingJob
+    DescribeProcessingJob (DescribeProcessingJob'),
+    newDescribeProcessingJob,
+    DescribeProcessingJobResponse (DescribeProcessingJobResponse'),
+    newDescribeProcessingJobResponse,
 
     -- ** StartMonitoringSchedule
     StartMonitoringSchedule (StartMonitoringSchedule'),
@@ -295,11 +298,17 @@ module Network.AWS.SageMaker
     StartMonitoringScheduleResponse (StartMonitoringScheduleResponse'),
     newStartMonitoringScheduleResponse,
 
-    -- ** StopCompilationJob
-    StopCompilationJob (StopCompilationJob'),
-    newStopCompilationJob,
-    StopCompilationJobResponse (StopCompilationJobResponse'),
-    newStopCompilationJobResponse,
+    -- ** DeleteNotebookInstance
+    DeleteNotebookInstance (DeleteNotebookInstance'),
+    newDeleteNotebookInstance,
+    DeleteNotebookInstanceResponse (DeleteNotebookInstanceResponse'),
+    newDeleteNotebookInstanceResponse,
+
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
 
     -- ** CreateTrial
     CreateTrial (CreateTrial'),
@@ -307,23 +316,17 @@ module Network.AWS.SageMaker
     CreateTrialResponse (CreateTrialResponse'),
     newCreateTrialResponse,
 
-    -- ** GetSagemakerServicecatalogPortfolioStatus
-    GetSagemakerServicecatalogPortfolioStatus (GetSagemakerServicecatalogPortfolioStatus'),
-    newGetSagemakerServicecatalogPortfolioStatus,
-    GetSagemakerServicecatalogPortfolioStatusResponse (GetSagemakerServicecatalogPortfolioStatusResponse'),
-    newGetSagemakerServicecatalogPortfolioStatusResponse,
+    -- ** DescribeTransformJob
+    DescribeTransformJob (DescribeTransformJob'),
+    newDescribeTransformJob,
+    DescribeTransformJobResponse (DescribeTransformJobResponse'),
+    newDescribeTransformJobResponse,
 
-    -- ** UpdateCodeRepository
-    UpdateCodeRepository (UpdateCodeRepository'),
-    newUpdateCodeRepository,
-    UpdateCodeRepositoryResponse (UpdateCodeRepositoryResponse'),
-    newUpdateCodeRepositoryResponse,
-
-    -- ** Search (Paginated)
-    Search (Search'),
-    newSearch,
-    SearchResponse (SearchResponse'),
-    newSearchResponse,
+    -- ** DescribeEdgePackagingJob
+    DescribeEdgePackagingJob (DescribeEdgePackagingJob'),
+    newDescribeEdgePackagingJob,
+    DescribeEdgePackagingJobResponse (DescribeEdgePackagingJobResponse'),
+    newDescribeEdgePackagingJobResponse,
 
     -- ** DeleteModel
     DeleteModel (DeleteModel'),
@@ -331,41 +334,41 @@ module Network.AWS.SageMaker
     DeleteModelResponse (DeleteModelResponse'),
     newDeleteModelResponse,
 
-    -- ** DeleteDataQualityJobDefinition
-    DeleteDataQualityJobDefinition (DeleteDataQualityJobDefinition'),
-    newDeleteDataQualityJobDefinition,
-    DeleteDataQualityJobDefinitionResponse (DeleteDataQualityJobDefinitionResponse'),
-    newDeleteDataQualityJobDefinitionResponse,
-
-    -- ** ListImages (Paginated)
-    ListImages (ListImages'),
-    newListImages,
-    ListImagesResponse (ListImagesResponse'),
-    newListImagesResponse,
-
     -- ** ListTrainingJobs (Paginated)
     ListTrainingJobs (ListTrainingJobs'),
     newListTrainingJobs,
     ListTrainingJobsResponse (ListTrainingJobsResponse'),
     newListTrainingJobsResponse,
 
-    -- ** DescribeTransformJob
-    DescribeTransformJob (DescribeTransformJob'),
-    newDescribeTransformJob,
-    DescribeTransformJobResponse (DescribeTransformJobResponse'),
-    newDescribeTransformJobResponse,
+    -- ** ListDataQualityJobDefinitions (Paginated)
+    ListDataQualityJobDefinitions (ListDataQualityJobDefinitions'),
+    newListDataQualityJobDefinitions,
+    ListDataQualityJobDefinitionsResponse (ListDataQualityJobDefinitionsResponse'),
+    newListDataQualityJobDefinitionsResponse,
 
-    -- ** CreatePipeline
-    CreatePipeline (CreatePipeline'),
-    newCreatePipeline,
-    CreatePipelineResponse (CreatePipelineResponse'),
-    newCreatePipelineResponse,
+    -- ** GetSagemakerServicecatalogPortfolioStatus
+    GetSagemakerServicecatalogPortfolioStatus (GetSagemakerServicecatalogPortfolioStatus'),
+    newGetSagemakerServicecatalogPortfolioStatus,
+    GetSagemakerServicecatalogPortfolioStatusResponse (GetSagemakerServicecatalogPortfolioStatusResponse'),
+    newGetSagemakerServicecatalogPortfolioStatusResponse,
 
-    -- ** CreateModelPackageGroup
-    CreateModelPackageGroup (CreateModelPackageGroup'),
-    newCreateModelPackageGroup,
-    CreateModelPackageGroupResponse (CreateModelPackageGroupResponse'),
-    newCreateModelPackageGroupResponse,
+    -- ** Search (Paginated)
+    Search (Search'),
+    newSearch,
+    SearchResponse (SearchResponse'),
+    newSearchResponse,
+
+    -- ** StopCompilationJob
+    StopCompilationJob (StopCompilationJob'),
+    newStopCompilationJob,
+    StopCompilationJobResponse (StopCompilationJobResponse'),
+    newStopCompilationJobResponse,
+
+    -- ** ListImages (Paginated)
+    ListImages (ListImages'),
+    newListImages,
+    ListImagesResponse (ListImagesResponse'),
+    newListImagesResponse,
 
     -- ** ListCandidatesForAutoMLJob (Paginated)
     ListCandidatesForAutoMLJob (ListCandidatesForAutoMLJob'),
@@ -385,17 +388,35 @@ module Network.AWS.SageMaker
     GetDeviceFleetReportResponse (GetDeviceFleetReportResponse'),
     newGetDeviceFleetReportResponse,
 
-    -- ** ListDataQualityJobDefinitions (Paginated)
-    ListDataQualityJobDefinitions (ListDataQualityJobDefinitions'),
-    newListDataQualityJobDefinitions,
-    ListDataQualityJobDefinitionsResponse (ListDataQualityJobDefinitionsResponse'),
-    newListDataQualityJobDefinitionsResponse,
+    -- ** DeleteDataQualityJobDefinition
+    DeleteDataQualityJobDefinition (DeleteDataQualityJobDefinition'),
+    newDeleteDataQualityJobDefinition,
+    DeleteDataQualityJobDefinitionResponse (DeleteDataQualityJobDefinitionResponse'),
+    newDeleteDataQualityJobDefinitionResponse,
 
-    -- ** DescribeEdgePackagingJob
-    DescribeEdgePackagingJob (DescribeEdgePackagingJob'),
-    newDescribeEdgePackagingJob,
-    DescribeEdgePackagingJobResponse (DescribeEdgePackagingJobResponse'),
-    newDescribeEdgePackagingJobResponse,
+    -- ** CreateModelPackageGroup
+    CreateModelPackageGroup (CreateModelPackageGroup'),
+    newCreateModelPackageGroup,
+    CreateModelPackageGroupResponse (CreateModelPackageGroupResponse'),
+    newCreateModelPackageGroupResponse,
+
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
+
+    -- ** UpdateCodeRepository
+    UpdateCodeRepository (UpdateCodeRepository'),
+    newUpdateCodeRepository,
+    UpdateCodeRepositoryResponse (UpdateCodeRepositoryResponse'),
+    newUpdateCodeRepositoryResponse,
+
+    -- ** DeleteCodeRepository
+    DeleteCodeRepository (DeleteCodeRepository'),
+    newDeleteCodeRepository,
+    DeleteCodeRepositoryResponse (DeleteCodeRepositoryResponse'),
+    newDeleteCodeRepositoryResponse,
 
     -- ** ListContexts (Paginated)
     ListContexts (ListContexts'),
@@ -409,35 +430,11 @@ module Network.AWS.SageMaker
     DescribeEndpointResponse (DescribeEndpointResponse'),
     newDescribeEndpointResponse,
 
-    -- ** DeleteCodeRepository
-    DeleteCodeRepository (DeleteCodeRepository'),
-    newDeleteCodeRepository,
-    DeleteCodeRepositoryResponse (DeleteCodeRepositoryResponse'),
-    newDeleteCodeRepositoryResponse,
-
-    -- ** DeleteModelPackageGroupPolicy
-    DeleteModelPackageGroupPolicy (DeleteModelPackageGroupPolicy'),
-    newDeleteModelPackageGroupPolicy,
-    DeleteModelPackageGroupPolicyResponse (DeleteModelPackageGroupPolicyResponse'),
-    newDeleteModelPackageGroupPolicyResponse,
-
-    -- ** ListUserProfiles (Paginated)
-    ListUserProfiles (ListUserProfiles'),
-    newListUserProfiles,
-    ListUserProfilesResponse (ListUserProfilesResponse'),
-    newListUserProfilesResponse,
-
-    -- ** DescribeCompilationJob
-    DescribeCompilationJob (DescribeCompilationJob'),
-    newDescribeCompilationJob,
-    DescribeCompilationJobResponse (DescribeCompilationJobResponse'),
-    newDescribeCompilationJobResponse,
-
-    -- ** UpdatePipeline
-    UpdatePipeline (UpdatePipeline'),
-    newUpdatePipeline,
-    UpdatePipelineResponse (UpdatePipelineResponse'),
-    newUpdatePipelineResponse,
+    -- ** DeregisterDevices
+    DeregisterDevices (DeregisterDevices'),
+    newDeregisterDevices,
+    DeregisterDevicesResponse (DeregisterDevicesResponse'),
+    newDeregisterDevicesResponse,
 
     -- ** CreateCodeRepository
     CreateCodeRepository (CreateCodeRepository'),
@@ -445,59 +442,17 @@ module Network.AWS.SageMaker
     CreateCodeRepositoryResponse (CreateCodeRepositoryResponse'),
     newCreateCodeRepositoryResponse,
 
-    -- ** DescribeArtifact
-    DescribeArtifact (DescribeArtifact'),
-    newDescribeArtifact,
-    DescribeArtifactResponse (DescribeArtifactResponse'),
-    newDescribeArtifactResponse,
-
-    -- ** DescribeHumanTaskUi
-    DescribeHumanTaskUi (DescribeHumanTaskUi'),
-    newDescribeHumanTaskUi,
-    DescribeHumanTaskUiResponse (DescribeHumanTaskUiResponse'),
-    newDescribeHumanTaskUiResponse,
-
-    -- ** ListPipelineExecutionSteps (Paginated)
-    ListPipelineExecutionSteps (ListPipelineExecutionSteps'),
-    newListPipelineExecutionSteps,
-    ListPipelineExecutionStepsResponse (ListPipelineExecutionStepsResponse'),
-    newListPipelineExecutionStepsResponse,
-
-    -- ** ListCodeRepositories (Paginated)
-    ListCodeRepositories (ListCodeRepositories'),
-    newListCodeRepositories,
-    ListCodeRepositoriesResponse (ListCodeRepositoriesResponse'),
-    newListCodeRepositoriesResponse,
-
-    -- ** UpdateUserProfile
-    UpdateUserProfile (UpdateUserProfile'),
-    newUpdateUserProfile,
-    UpdateUserProfileResponse (UpdateUserProfileResponse'),
-    newUpdateUserProfileResponse,
-
-    -- ** DescribeAction
-    DescribeAction (DescribeAction'),
-    newDescribeAction,
-    DescribeActionResponse (DescribeActionResponse'),
-    newDescribeActionResponse,
-
-    -- ** StopTransformJob
-    StopTransformJob (StopTransformJob'),
-    newStopTransformJob,
-    StopTransformJobResponse (StopTransformJobResponse'),
-    newStopTransformJobResponse,
-
     -- ** CreateTrainingJob
     CreateTrainingJob (CreateTrainingJob'),
     newCreateTrainingJob,
     CreateTrainingJobResponse (CreateTrainingJobResponse'),
     newCreateTrainingJobResponse,
 
-    -- ** DeleteUserProfile
-    DeleteUserProfile (DeleteUserProfile'),
-    newDeleteUserProfile,
-    DeleteUserProfileResponse (DeleteUserProfileResponse'),
-    newDeleteUserProfileResponse,
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
 
     -- ** CreateContext
     CreateContext (CreateContext'),
@@ -511,17 +466,71 @@ module Network.AWS.SageMaker
     StopEdgePackagingJobResponse (StopEdgePackagingJobResponse'),
     newStopEdgePackagingJobResponse,
 
-    -- ** CreateImage
-    CreateImage (CreateImage'),
-    newCreateImage,
-    CreateImageResponse (CreateImageResponse'),
-    newCreateImageResponse,
+    -- ** UpdateUserProfile
+    UpdateUserProfile (UpdateUserProfile'),
+    newUpdateUserProfile,
+    UpdateUserProfileResponse (UpdateUserProfileResponse'),
+    newUpdateUserProfileResponse,
 
-    -- ** DeregisterDevices
-    DeregisterDevices (DeregisterDevices'),
-    newDeregisterDevices,
-    DeregisterDevicesResponse (DeregisterDevicesResponse'),
-    newDeregisterDevicesResponse,
+    -- ** DescribeCompilationJob
+    DescribeCompilationJob (DescribeCompilationJob'),
+    newDescribeCompilationJob,
+    DescribeCompilationJobResponse (DescribeCompilationJobResponse'),
+    newDescribeCompilationJobResponse,
+
+    -- ** ListPipelineExecutionSteps (Paginated)
+    ListPipelineExecutionSteps (ListPipelineExecutionSteps'),
+    newListPipelineExecutionSteps,
+    ListPipelineExecutionStepsResponse (ListPipelineExecutionStepsResponse'),
+    newListPipelineExecutionStepsResponse,
+
+    -- ** ListUserProfiles (Paginated)
+    ListUserProfiles (ListUserProfiles'),
+    newListUserProfiles,
+    ListUserProfilesResponse (ListUserProfilesResponse'),
+    newListUserProfilesResponse,
+
+    -- ** DescribeHumanTaskUi
+    DescribeHumanTaskUi (DescribeHumanTaskUi'),
+    newDescribeHumanTaskUi,
+    DescribeHumanTaskUiResponse (DescribeHumanTaskUiResponse'),
+    newDescribeHumanTaskUiResponse,
+
+    -- ** ListCodeRepositories (Paginated)
+    ListCodeRepositories (ListCodeRepositories'),
+    newListCodeRepositories,
+    ListCodeRepositoriesResponse (ListCodeRepositoriesResponse'),
+    newListCodeRepositoriesResponse,
+
+    -- ** DescribeAction
+    DescribeAction (DescribeAction'),
+    newDescribeAction,
+    DescribeActionResponse (DescribeActionResponse'),
+    newDescribeActionResponse,
+
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
+
+    -- ** DescribeArtifact
+    DescribeArtifact (DescribeArtifact'),
+    newDescribeArtifact,
+    DescribeArtifactResponse (DescribeArtifactResponse'),
+    newDescribeArtifactResponse,
+
+    -- ** DeleteUserProfile
+    DeleteUserProfile (DeleteUserProfile'),
+    newDeleteUserProfile,
+    DeleteUserProfileResponse (DeleteUserProfileResponse'),
+    newDeleteUserProfileResponse,
+
+    -- ** StopTransformJob
+    StopTransformJob (StopTransformJob'),
+    newStopTransformJob,
+    StopTransformJobResponse (StopTransformJobResponse'),
+    newStopTransformJobResponse,
 
     -- ** CreateDataQualityJobDefinition
     CreateDataQualityJobDefinition (CreateDataQualityJobDefinition'),
@@ -529,71 +538,17 @@ module Network.AWS.SageMaker
     CreateDataQualityJobDefinitionResponse (CreateDataQualityJobDefinitionResponse'),
     newCreateDataQualityJobDefinitionResponse,
 
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
+    -- ** DeleteModelPackageGroupPolicy
+    DeleteModelPackageGroupPolicy (DeleteModelPackageGroupPolicy'),
+    newDeleteModelPackageGroupPolicy,
+    DeleteModelPackageGroupPolicyResponse (DeleteModelPackageGroupPolicyResponse'),
+    newDeleteModelPackageGroupPolicyResponse,
 
-    -- ** CreateAppImageConfig
-    CreateAppImageConfig (CreateAppImageConfig'),
-    newCreateAppImageConfig,
-    CreateAppImageConfigResponse (CreateAppImageConfigResponse'),
-    newCreateAppImageConfigResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DisableSagemakerServicecatalogPortfolio
-    DisableSagemakerServicecatalogPortfolio (DisableSagemakerServicecatalogPortfolio'),
-    newDisableSagemakerServicecatalogPortfolio,
-    DisableSagemakerServicecatalogPortfolioResponse (DisableSagemakerServicecatalogPortfolioResponse'),
-    newDisableSagemakerServicecatalogPortfolioResponse,
-
-    -- ** DeleteAssociation
-    DeleteAssociation (DeleteAssociation'),
-    newDeleteAssociation,
-    DeleteAssociationResponse (DeleteAssociationResponse'),
-    newDeleteAssociationResponse,
-
-    -- ** UpdateMonitoringSchedule
-    UpdateMonitoringSchedule (UpdateMonitoringSchedule'),
-    newUpdateMonitoringSchedule,
-    UpdateMonitoringScheduleResponse (UpdateMonitoringScheduleResponse'),
-    newUpdateMonitoringScheduleResponse,
-
-    -- ** ListMonitoringSchedules (Paginated)
-    ListMonitoringSchedules (ListMonitoringSchedules'),
-    newListMonitoringSchedules,
-    ListMonitoringSchedulesResponse (ListMonitoringSchedulesResponse'),
-    newListMonitoringSchedulesResponse,
-
-    -- ** StopNotebookInstance
-    StopNotebookInstance (StopNotebookInstance'),
-    newStopNotebookInstance,
-    StopNotebookInstanceResponse (StopNotebookInstanceResponse'),
-    newStopNotebookInstanceResponse,
-
-    -- ** DeleteMonitoringSchedule
-    DeleteMonitoringSchedule (DeleteMonitoringSchedule'),
-    newDeleteMonitoringSchedule,
-    DeleteMonitoringScheduleResponse (DeleteMonitoringScheduleResponse'),
-    newDeleteMonitoringScheduleResponse,
-
-    -- ** DeleteEndpointConfig
-    DeleteEndpointConfig (DeleteEndpointConfig'),
-    newDeleteEndpointConfig,
-    DeleteEndpointConfigResponse (DeleteEndpointConfigResponse'),
-    newDeleteEndpointConfigResponse,
-
-    -- ** StartPipelineExecution
-    StartPipelineExecution (StartPipelineExecution'),
-    newStartPipelineExecution,
-    StartPipelineExecutionResponse (StartPipelineExecutionResponse'),
-    newStartPipelineExecutionResponse,
+    -- ** CreateImage
+    CreateImage (CreateImage'),
+    newCreateImage,
+    CreateImageResponse (CreateImageResponse'),
+    newCreateImageResponse,
 
     -- ** DescribeModelPackage
     DescribeModelPackage (DescribeModelPackage'),
@@ -601,23 +556,23 @@ module Network.AWS.SageMaker
     DescribeModelPackageResponse (DescribeModelPackageResponse'),
     newDescribeModelPackageResponse,
 
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
+    -- ** RetryPipelineExecution
+    RetryPipelineExecution (RetryPipelineExecution'),
+    newRetryPipelineExecution,
+    RetryPipelineExecutionResponse (RetryPipelineExecutionResponse'),
+    newRetryPipelineExecutionResponse,
 
-    -- ** AddAssociation
-    AddAssociation (AddAssociation'),
-    newAddAssociation,
-    AddAssociationResponse (AddAssociationResponse'),
-    newAddAssociationResponse,
+    -- ** DeleteEndpointConfig
+    DeleteEndpointConfig (DeleteEndpointConfig'),
+    newDeleteEndpointConfig,
+    DeleteEndpointConfigResponse (DeleteEndpointConfigResponse'),
+    newDeleteEndpointConfigResponse,
 
-    -- ** CreateNotebookInstanceLifecycleConfig
-    CreateNotebookInstanceLifecycleConfig (CreateNotebookInstanceLifecycleConfig'),
-    newCreateNotebookInstanceLifecycleConfig,
-    CreateNotebookInstanceLifecycleConfigResponse (CreateNotebookInstanceLifecycleConfigResponse'),
-    newCreateNotebookInstanceLifecycleConfigResponse,
+    -- ** StopPipelineExecution
+    StopPipelineExecution (StopPipelineExecution'),
+    newStopPipelineExecution,
+    StopPipelineExecutionResponse (StopPipelineExecutionResponse'),
+    newStopPipelineExecutionResponse,
 
     -- ** ListApps (Paginated)
     ListApps (ListApps'),
@@ -630,6 +585,12 @@ module Network.AWS.SageMaker
     newCreateWorkforce,
     CreateWorkforceResponse (CreateWorkforceResponse'),
     newCreateWorkforceResponse,
+
+    -- ** CreateStudioLifecycleConfig
+    CreateStudioLifecycleConfig (CreateStudioLifecycleConfig'),
+    newCreateStudioLifecycleConfig,
+    CreateStudioLifecycleConfigResponse (CreateStudioLifecycleConfigResponse'),
+    newCreateStudioLifecycleConfigResponse,
 
     -- ** ListAutoMLJobs (Paginated)
     ListAutoMLJobs (ListAutoMLJobs'),
@@ -649,11 +610,35 @@ module Network.AWS.SageMaker
     StartNotebookInstanceResponse (StartNotebookInstanceResponse'),
     newStartNotebookInstanceResponse,
 
-    -- ** StopPipelineExecution
-    StopPipelineExecution (StopPipelineExecution'),
-    newStopPipelineExecution,
-    StopPipelineExecutionResponse (StopPipelineExecutionResponse'),
-    newStopPipelineExecutionResponse,
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** CreateAppImageConfig
+    CreateAppImageConfig (CreateAppImageConfig'),
+    newCreateAppImageConfig,
+    CreateAppImageConfigResponse (CreateAppImageConfigResponse'),
+    newCreateAppImageConfigResponse,
+
+    -- ** DeleteAssociation
+    DeleteAssociation (DeleteAssociation'),
+    newDeleteAssociation,
+    DeleteAssociationResponse (DeleteAssociationResponse'),
+    newDeleteAssociationResponse,
+
+    -- ** ListMonitoringSchedules (Paginated)
+    ListMonitoringSchedules (ListMonitoringSchedules'),
+    newListMonitoringSchedules,
+    ListMonitoringSchedulesResponse (ListMonitoringSchedulesResponse'),
+    newListMonitoringSchedulesResponse,
+
+    -- ** DeleteMonitoringSchedule
+    DeleteMonitoringSchedule (DeleteMonitoringSchedule'),
+    newDeleteMonitoringSchedule,
+    DeleteMonitoringScheduleResponse (DeleteMonitoringScheduleResponse'),
+    newDeleteMonitoringScheduleResponse,
 
     -- ** ListEndpointConfigs (Paginated)
     ListEndpointConfigs (ListEndpointConfigs'),
@@ -661,89 +646,47 @@ module Network.AWS.SageMaker
     ListEndpointConfigsResponse (ListEndpointConfigsResponse'),
     newListEndpointConfigsResponse,
 
-    -- ** DeleteWorkteam
-    DeleteWorkteam (DeleteWorkteam'),
-    newDeleteWorkteam,
-    DeleteWorkteamResponse (DeleteWorkteamResponse'),
-    newDeleteWorkteamResponse,
+    -- ** StartPipelineExecution
+    StartPipelineExecution (StartPipelineExecution'),
+    newStartPipelineExecution,
+    StartPipelineExecutionResponse (StartPipelineExecutionResponse'),
+    newStartPipelineExecutionResponse,
 
-    -- ** DeleteWorkforce
-    DeleteWorkforce (DeleteWorkforce'),
-    newDeleteWorkforce,
-    DeleteWorkforceResponse (DeleteWorkforceResponse'),
-    newDeleteWorkforceResponse,
+    -- ** StopNotebookInstance
+    StopNotebookInstance (StopNotebookInstance'),
+    newStopNotebookInstance,
+    StopNotebookInstanceResponse (StopNotebookInstanceResponse'),
+    newStopNotebookInstanceResponse,
 
-    -- ** DeleteModelBiasJobDefinition
-    DeleteModelBiasJobDefinition (DeleteModelBiasJobDefinition'),
-    newDeleteModelBiasJobDefinition,
-    DeleteModelBiasJobDefinitionResponse (DeleteModelBiasJobDefinitionResponse'),
-    newDeleteModelBiasJobDefinitionResponse,
+    -- ** UpdateMonitoringSchedule
+    UpdateMonitoringSchedule (UpdateMonitoringSchedule'),
+    newUpdateMonitoringSchedule,
+    UpdateMonitoringScheduleResponse (UpdateMonitoringScheduleResponse'),
+    newUpdateMonitoringScheduleResponse,
 
-    -- ** UpdateWorkforce
-    UpdateWorkforce (UpdateWorkforce'),
-    newUpdateWorkforce,
-    UpdateWorkforceResponse (UpdateWorkforceResponse'),
-    newUpdateWorkforceResponse,
+    -- ** AddAssociation
+    AddAssociation (AddAssociation'),
+    newAddAssociation,
+    AddAssociationResponse (AddAssociationResponse'),
+    newAddAssociationResponse,
 
-    -- ** DescribeDevice
-    DescribeDevice (DescribeDevice'),
-    newDescribeDevice,
-    DescribeDeviceResponse (DescribeDeviceResponse'),
-    newDescribeDeviceResponse,
+    -- ** CreateNotebookInstanceLifecycleConfig
+    CreateNotebookInstanceLifecycleConfig (CreateNotebookInstanceLifecycleConfig'),
+    newCreateNotebookInstanceLifecycleConfig,
+    CreateNotebookInstanceLifecycleConfigResponse (CreateNotebookInstanceLifecycleConfigResponse'),
+    newCreateNotebookInstanceLifecycleConfigResponse,
 
-    -- ** DescribeDomain
-    DescribeDomain (DescribeDomain'),
-    newDescribeDomain,
-    DescribeDomainResponse (DescribeDomainResponse'),
-    newDescribeDomainResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
-    -- ** DeleteNotebookInstanceLifecycleConfig
-    DeleteNotebookInstanceLifecycleConfig (DeleteNotebookInstanceLifecycleConfig'),
-    newDeleteNotebookInstanceLifecycleConfig,
-    DeleteNotebookInstanceLifecycleConfigResponse (DeleteNotebookInstanceLifecycleConfigResponse'),
-    newDeleteNotebookInstanceLifecycleConfigResponse,
-
-    -- ** DescribePipelineExecution
-    DescribePipelineExecution (DescribePipelineExecution'),
-    newDescribePipelineExecution,
-    DescribePipelineExecutionResponse (DescribePipelineExecutionResponse'),
-    newDescribePipelineExecutionResponse,
-
-    -- ** UpdateWorkteam
-    UpdateWorkteam (UpdateWorkteam'),
-    newUpdateWorkteam,
-    UpdateWorkteamResponse (UpdateWorkteamResponse'),
-    newUpdateWorkteamResponse,
-
-    -- ** CreateLabelingJob
-    CreateLabelingJob (CreateLabelingJob'),
-    newCreateLabelingJob,
-    CreateLabelingJobResponse (CreateLabelingJobResponse'),
-    newCreateLabelingJobResponse,
-
-    -- ** DescribeModelQualityJobDefinition
-    DescribeModelQualityJobDefinition (DescribeModelQualityJobDefinition'),
-    newDescribeModelQualityJobDefinition,
-    DescribeModelQualityJobDefinitionResponse (DescribeModelQualityJobDefinitionResponse'),
-    newDescribeModelQualityJobDefinitionResponse,
-
-    -- ** CreateExperiment
-    CreateExperiment (CreateExperiment'),
-    newCreateExperiment,
-    CreateExperimentResponse (CreateExperimentResponse'),
-    newCreateExperimentResponse,
-
-    -- ** ListWorkforces (Paginated)
-    ListWorkforces (ListWorkforces'),
-    newListWorkforces,
-    ListWorkforcesResponse (ListWorkforcesResponse'),
-    newListWorkforcesResponse,
-
-    -- ** ListAppImageConfigs (Paginated)
-    ListAppImageConfigs (ListAppImageConfigs'),
-    newListAppImageConfigs,
-    ListAppImageConfigsResponse (ListAppImageConfigsResponse'),
-    newListAppImageConfigsResponse,
+    -- ** DisableSagemakerServicecatalogPortfolio
+    DisableSagemakerServicecatalogPortfolio (DisableSagemakerServicecatalogPortfolio'),
+    newDisableSagemakerServicecatalogPortfolio,
+    DisableSagemakerServicecatalogPortfolioResponse (DisableSagemakerServicecatalogPortfolioResponse'),
+    newDisableSagemakerServicecatalogPortfolioResponse,
 
     -- ** UpdateNotebookInstanceLifecycleConfig
     UpdateNotebookInstanceLifecycleConfig (UpdateNotebookInstanceLifecycleConfig'),
@@ -751,11 +694,35 @@ module Network.AWS.SageMaker
     UpdateNotebookInstanceLifecycleConfigResponse (UpdateNotebookInstanceLifecycleConfigResponse'),
     newUpdateNotebookInstanceLifecycleConfigResponse,
 
-    -- ** DescribeSubscribedWorkteam
-    DescribeSubscribedWorkteam (DescribeSubscribedWorkteam'),
-    newDescribeSubscribedWorkteam,
-    DescribeSubscribedWorkteamResponse (DescribeSubscribedWorkteamResponse'),
-    newDescribeSubscribedWorkteamResponse,
+    -- ** DescribeDomain
+    DescribeDomain (DescribeDomain'),
+    newDescribeDomain,
+    DescribeDomainResponse (DescribeDomainResponse'),
+    newDescribeDomainResponse,
+
+    -- ** ListStudioLifecycleConfigs (Paginated)
+    ListStudioLifecycleConfigs (ListStudioLifecycleConfigs'),
+    newListStudioLifecycleConfigs,
+    ListStudioLifecycleConfigsResponse (ListStudioLifecycleConfigsResponse'),
+    newListStudioLifecycleConfigsResponse,
+
+    -- ** ListAppImageConfigs (Paginated)
+    ListAppImageConfigs (ListAppImageConfigs'),
+    newListAppImageConfigs,
+    ListAppImageConfigsResponse (ListAppImageConfigsResponse'),
+    newListAppImageConfigsResponse,
+
+    -- ** DescribeModelQualityJobDefinition
+    DescribeModelQualityJobDefinition (DescribeModelQualityJobDefinition'),
+    newDescribeModelQualityJobDefinition,
+    DescribeModelQualityJobDefinitionResponse (DescribeModelQualityJobDefinitionResponse'),
+    newDescribeModelQualityJobDefinitionResponse,
+
+    -- ** DescribeDevice
+    DescribeDevice (DescribeDevice'),
+    newDescribeDevice,
+    DescribeDeviceResponse (DescribeDeviceResponse'),
+    newDescribeDeviceResponse,
 
     -- ** ListNotebookInstanceLifecycleConfigs (Paginated)
     ListNotebookInstanceLifecycleConfigs (ListNotebookInstanceLifecycleConfigs'),
@@ -763,65 +730,83 @@ module Network.AWS.SageMaker
     ListNotebookInstanceLifecycleConfigsResponse (ListNotebookInstanceLifecycleConfigsResponse'),
     newListNotebookInstanceLifecycleConfigsResponse,
 
+    -- ** ListWorkforces (Paginated)
+    ListWorkforces (ListWorkforces'),
+    newListWorkforces,
+    ListWorkforcesResponse (ListWorkforcesResponse'),
+    newListWorkforcesResponse,
+
+    -- ** DeleteStudioLifecycleConfig
+    DeleteStudioLifecycleConfig (DeleteStudioLifecycleConfig'),
+    newDeleteStudioLifecycleConfig,
+    DeleteStudioLifecycleConfigResponse (DeleteStudioLifecycleConfigResponse'),
+    newDeleteStudioLifecycleConfigResponse,
+
+    -- ** CreateLabelingJob
+    CreateLabelingJob (CreateLabelingJob'),
+    newCreateLabelingJob,
+    CreateLabelingJobResponse (CreateLabelingJobResponse'),
+    newCreateLabelingJobResponse,
+
+    -- ** DeleteModelBiasJobDefinition
+    DeleteModelBiasJobDefinition (DeleteModelBiasJobDefinition'),
+    newDeleteModelBiasJobDefinition,
+    DeleteModelBiasJobDefinitionResponse (DeleteModelBiasJobDefinitionResponse'),
+    newDeleteModelBiasJobDefinitionResponse,
+
+    -- ** CreateExperiment
+    CreateExperiment (CreateExperiment'),
+    newCreateExperiment,
+    CreateExperimentResponse (CreateExperimentResponse'),
+    newCreateExperimentResponse,
+
+    -- ** DescribePipelineExecution
+    DescribePipelineExecution (DescribePipelineExecution'),
+    newDescribePipelineExecution,
+    DescribePipelineExecutionResponse (DescribePipelineExecutionResponse'),
+    newDescribePipelineExecutionResponse,
+
+    -- ** DeleteWorkforce
+    DeleteWorkforce (DeleteWorkforce'),
+    newDeleteWorkforce,
+    DeleteWorkforceResponse (DeleteWorkforceResponse'),
+    newDeleteWorkforceResponse,
+
+    -- ** UpdateWorkforce
+    UpdateWorkforce (UpdateWorkforce'),
+    newUpdateWorkforce,
+    UpdateWorkforceResponse (UpdateWorkforceResponse'),
+    newUpdateWorkforceResponse,
+
+    -- ** UpdateWorkteam
+    UpdateWorkteam (UpdateWorkteam'),
+    newUpdateWorkteam,
+    UpdateWorkteamResponse (UpdateWorkteamResponse'),
+    newUpdateWorkteamResponse,
+
+    -- ** DescribeSubscribedWorkteam
+    DescribeSubscribedWorkteam (DescribeSubscribedWorkteam'),
+    newDescribeSubscribedWorkteam,
+    DescribeSubscribedWorkteamResponse (DescribeSubscribedWorkteamResponse'),
+    newDescribeSubscribedWorkteamResponse,
+
+    -- ** DeleteWorkteam
+    DeleteWorkteam (DeleteWorkteam'),
+    newDeleteWorkteam,
+    DeleteWorkteamResponse (DeleteWorkteamResponse'),
+    newDeleteWorkteamResponse,
+
+    -- ** DeleteNotebookInstanceLifecycleConfig
+    DeleteNotebookInstanceLifecycleConfig (DeleteNotebookInstanceLifecycleConfig'),
+    newDeleteNotebookInstanceLifecycleConfig,
+    DeleteNotebookInstanceLifecycleConfigResponse (DeleteNotebookInstanceLifecycleConfigResponse'),
+    newDeleteNotebookInstanceLifecycleConfigResponse,
+
     -- ** ListEdgePackagingJobs (Paginated)
     ListEdgePackagingJobs (ListEdgePackagingJobs'),
     newListEdgePackagingJobs,
     ListEdgePackagingJobsResponse (ListEdgePackagingJobsResponse'),
     newListEdgePackagingJobsResponse,
-
-    -- ** DescribeCodeRepository
-    DescribeCodeRepository (DescribeCodeRepository'),
-    newDescribeCodeRepository,
-    DescribeCodeRepositoryResponse (DescribeCodeRepositoryResponse'),
-    newDescribeCodeRepositoryResponse,
-
-    -- ** ListEndpoints (Paginated)
-    ListEndpoints (ListEndpoints'),
-    newListEndpoints,
-    ListEndpointsResponse (ListEndpointsResponse'),
-    newListEndpointsResponse,
-
-    -- ** DescribeDataQualityJobDefinition
-    DescribeDataQualityJobDefinition (DescribeDataQualityJobDefinition'),
-    newDescribeDataQualityJobDefinition,
-    DescribeDataQualityJobDefinitionResponse (DescribeDataQualityJobDefinitionResponse'),
-    newDescribeDataQualityJobDefinitionResponse,
-
-    -- ** DescribeAlgorithm
-    DescribeAlgorithm (DescribeAlgorithm'),
-    newDescribeAlgorithm,
-    DescribeAlgorithmResponse (DescribeAlgorithmResponse'),
-    newDescribeAlgorithmResponse,
-
-    -- ** CreateAction
-    CreateAction (CreateAction'),
-    newCreateAction,
-    CreateActionResponse (CreateActionResponse'),
-    newCreateActionResponse,
-
-    -- ** DeleteEndpoint
-    DeleteEndpoint (DeleteEndpoint'),
-    newDeleteEndpoint,
-    DeleteEndpointResponse (DeleteEndpointResponse'),
-    newDeleteEndpointResponse,
-
-    -- ** CreatePresignedDomainUrl
-    CreatePresignedDomainUrl (CreatePresignedDomainUrl'),
-    newCreatePresignedDomainUrl,
-    CreatePresignedDomainUrlResponse (CreatePresignedDomainUrlResponse'),
-    newCreatePresignedDomainUrlResponse,
-
-    -- ** ListTransformJobs (Paginated)
-    ListTransformJobs (ListTransformJobs'),
-    newListTransformJobs,
-    ListTransformJobsResponse (ListTransformJobsResponse'),
-    newListTransformJobsResponse,
-
-    -- ** DescribeHyperParameterTuningJob
-    DescribeHyperParameterTuningJob (DescribeHyperParameterTuningJob'),
-    newDescribeHyperParameterTuningJob,
-    DescribeHyperParameterTuningJobResponse (DescribeHyperParameterTuningJobResponse'),
-    newDescribeHyperParameterTuningJobResponse,
 
     -- ** CreateCompilationJob
     CreateCompilationJob (CreateCompilationJob'),
@@ -829,23 +814,11 @@ module Network.AWS.SageMaker
     CreateCompilationJobResponse (CreateCompilationJobResponse'),
     newCreateCompilationJobResponse,
 
-    -- ** UpdateEndpoint
-    UpdateEndpoint (UpdateEndpoint'),
-    newUpdateEndpoint,
-    UpdateEndpointResponse (UpdateEndpointResponse'),
-    newUpdateEndpointResponse,
-
-    -- ** DescribeModel
-    DescribeModel (DescribeModel'),
-    newDescribeModel,
-    DescribeModelResponse (DescribeModelResponse'),
-    newDescribeModelResponse,
-
-    -- ** CreateDeviceFleet
-    CreateDeviceFleet (CreateDeviceFleet'),
-    newCreateDeviceFleet,
-    CreateDeviceFleetResponse (CreateDeviceFleetResponse'),
-    newCreateDeviceFleetResponse,
+    -- ** CreateAction
+    CreateAction (CreateAction'),
+    newCreateAction,
+    CreateActionResponse (CreateActionResponse'),
+    newCreateActionResponse,
 
     -- ** CreateArtifact
     CreateArtifact (CreateArtifact'),
@@ -853,71 +826,83 @@ module Network.AWS.SageMaker
     CreateArtifactResponse (CreateArtifactResponse'),
     newCreateArtifactResponse,
 
+    -- ** DeleteEndpoint
+    DeleteEndpoint (DeleteEndpoint'),
+    newDeleteEndpoint,
+    DeleteEndpointResponse (DeleteEndpointResponse'),
+    newDeleteEndpointResponse,
+
+    -- ** ListTransformJobs (Paginated)
+    ListTransformJobs (ListTransformJobs'),
+    newListTransformJobs,
+    ListTransformJobsResponse (ListTransformJobsResponse'),
+    newListTransformJobsResponse,
+
+    -- ** DescribeCodeRepository
+    DescribeCodeRepository (DescribeCodeRepository'),
+    newDescribeCodeRepository,
+    DescribeCodeRepositoryResponse (DescribeCodeRepositoryResponse'),
+    newDescribeCodeRepositoryResponse,
+
+    -- ** CreateDeviceFleet
+    CreateDeviceFleet (CreateDeviceFleet'),
+    newCreateDeviceFleet,
+    CreateDeviceFleetResponse (CreateDeviceFleetResponse'),
+    newCreateDeviceFleetResponse,
+
+    -- ** DescribeModel
+    DescribeModel (DescribeModel'),
+    newDescribeModel,
+    DescribeModelResponse (DescribeModelResponse'),
+    newDescribeModelResponse,
+
+    -- ** DescribeDataQualityJobDefinition
+    DescribeDataQualityJobDefinition (DescribeDataQualityJobDefinition'),
+    newDescribeDataQualityJobDefinition,
+    DescribeDataQualityJobDefinitionResponse (DescribeDataQualityJobDefinitionResponse'),
+    newDescribeDataQualityJobDefinitionResponse,
+
+    -- ** UpdateEndpoint
+    UpdateEndpoint (UpdateEndpoint'),
+    newUpdateEndpoint,
+    UpdateEndpointResponse (UpdateEndpointResponse'),
+    newUpdateEndpointResponse,
+
+    -- ** CreatePresignedDomainUrl
+    CreatePresignedDomainUrl (CreatePresignedDomainUrl'),
+    newCreatePresignedDomainUrl,
+    CreatePresignedDomainUrlResponse (CreatePresignedDomainUrlResponse'),
+    newCreatePresignedDomainUrlResponse,
+
+    -- ** DescribeHyperParameterTuningJob
+    DescribeHyperParameterTuningJob (DescribeHyperParameterTuningJob'),
+    newDescribeHyperParameterTuningJob,
+    DescribeHyperParameterTuningJobResponse (DescribeHyperParameterTuningJobResponse'),
+    newDescribeHyperParameterTuningJobResponse,
+
+    -- ** ListEndpoints (Paginated)
+    ListEndpoints (ListEndpoints'),
+    newListEndpoints,
+    ListEndpointsResponse (ListEndpointsResponse'),
+    newListEndpointsResponse,
+
+    -- ** DescribeAlgorithm
+    DescribeAlgorithm (DescribeAlgorithm'),
+    newDescribeAlgorithm,
+    DescribeAlgorithmResponse (DescribeAlgorithmResponse'),
+    newDescribeAlgorithmResponse,
+
     -- ** UpdateDevices
     UpdateDevices (UpdateDevices'),
     newUpdateDevices,
     UpdateDevicesResponse (UpdateDevicesResponse'),
     newUpdateDevicesResponse,
 
-    -- ** ListArtifacts (Paginated)
-    ListArtifacts (ListArtifacts'),
-    newListArtifacts,
-    ListArtifactsResponse (ListArtifactsResponse'),
-    newListArtifactsResponse,
-
-    -- ** DeleteDeviceFleet
-    DeleteDeviceFleet (DeleteDeviceFleet'),
-    newDeleteDeviceFleet,
-    DeleteDeviceFleetResponse (DeleteDeviceFleetResponse'),
-    newDeleteDeviceFleetResponse,
-
-    -- ** ListMonitoringExecutions (Paginated)
-    ListMonitoringExecutions (ListMonitoringExecutions'),
-    newListMonitoringExecutions,
-    ListMonitoringExecutionsResponse (ListMonitoringExecutionsResponse'),
-    newListMonitoringExecutionsResponse,
-
-    -- ** ListCompilationJobs (Paginated)
-    ListCompilationJobs (ListCompilationJobs'),
-    newListCompilationJobs,
-    ListCompilationJobsResponse (ListCompilationJobsResponse'),
-    newListCompilationJobsResponse,
-
-    -- ** ListActions (Paginated)
-    ListActions (ListActions'),
-    newListActions,
-    ListActionsResponse (ListActionsResponse'),
-    newListActionsResponse,
-
     -- ** ListDeviceFleets (Paginated)
     ListDeviceFleets (ListDeviceFleets'),
     newListDeviceFleets,
     ListDeviceFleetsResponse (ListDeviceFleetsResponse'),
     newListDeviceFleetsResponse,
-
-    -- ** DescribeModelPackageGroup
-    DescribeModelPackageGroup (DescribeModelPackageGroup'),
-    newDescribeModelPackageGroup,
-    DescribeModelPackageGroupResponse (DescribeModelPackageGroupResponse'),
-    newDescribeModelPackageGroupResponse,
-
-    -- ** StopHyperParameterTuningJob
-    StopHyperParameterTuningJob (StopHyperParameterTuningJob'),
-    newStopHyperParameterTuningJob,
-    StopHyperParameterTuningJobResponse (StopHyperParameterTuningJobResponse'),
-    newStopHyperParameterTuningJobResponse,
-
-    -- ** DescribeTrial
-    DescribeTrial (DescribeTrial'),
-    newDescribeTrial,
-    DescribeTrialResponse (DescribeTrialResponse'),
-    newDescribeTrialResponse,
-
-    -- ** UpdateDeviceFleet
-    UpdateDeviceFleet (UpdateDeviceFleet'),
-    newUpdateDeviceFleet,
-    UpdateDeviceFleetResponse (UpdateDeviceFleetResponse'),
-    newUpdateDeviceFleetResponse,
 
     -- ** ListLabelingJobsForWorkteam (Paginated)
     ListLabelingJobsForWorkteam (ListLabelingJobsForWorkteam'),
@@ -931,11 +916,107 @@ module Network.AWS.SageMaker
     CreateFeatureGroupResponse (CreateFeatureGroupResponse'),
     newCreateFeatureGroupResponse,
 
+    -- ** ListMonitoringExecutions (Paginated)
+    ListMonitoringExecutions (ListMonitoringExecutions'),
+    newListMonitoringExecutions,
+    ListMonitoringExecutionsResponse (ListMonitoringExecutionsResponse'),
+    newListMonitoringExecutionsResponse,
+
+    -- ** DescribeModelPackageGroup
+    DescribeModelPackageGroup (DescribeModelPackageGroup'),
+    newDescribeModelPackageGroup,
+    DescribeModelPackageGroupResponse (DescribeModelPackageGroupResponse'),
+    newDescribeModelPackageGroupResponse,
+
+    -- ** UpdateDeviceFleet
+    UpdateDeviceFleet (UpdateDeviceFleet'),
+    newUpdateDeviceFleet,
+    UpdateDeviceFleetResponse (UpdateDeviceFleetResponse'),
+    newUpdateDeviceFleetResponse,
+
+    -- ** StopHyperParameterTuningJob
+    StopHyperParameterTuningJob (StopHyperParameterTuningJob'),
+    newStopHyperParameterTuningJob,
+    StopHyperParameterTuningJobResponse (StopHyperParameterTuningJobResponse'),
+    newStopHyperParameterTuningJobResponse,
+
+    -- ** DeleteDeviceFleet
+    DeleteDeviceFleet (DeleteDeviceFleet'),
+    newDeleteDeviceFleet,
+    DeleteDeviceFleetResponse (DeleteDeviceFleetResponse'),
+    newDeleteDeviceFleetResponse,
+
+    -- ** ListActions (Paginated)
+    ListActions (ListActions'),
+    newListActions,
+    ListActionsResponse (ListActionsResponse'),
+    newListActionsResponse,
+
+    -- ** ListArtifacts (Paginated)
+    ListArtifacts (ListArtifacts'),
+    newListArtifacts,
+    ListArtifactsResponse (ListArtifactsResponse'),
+    newListArtifactsResponse,
+
+    -- ** ListCompilationJobs (Paginated)
+    ListCompilationJobs (ListCompilationJobs'),
+    newListCompilationJobs,
+    ListCompilationJobsResponse (ListCompilationJobsResponse'),
+    newListCompilationJobsResponse,
+
+    -- ** DescribeTrial
+    DescribeTrial (DescribeTrial'),
+    newDescribeTrial,
+    DescribeTrialResponse (DescribeTrialResponse'),
+    newDescribeTrialResponse,
+
+    -- ** DeleteImageVersion
+    DeleteImageVersion (DeleteImageVersion'),
+    newDeleteImageVersion,
+    DeleteImageVersionResponse (DeleteImageVersionResponse'),
+    newDeleteImageVersionResponse,
+
+    -- ** DeleteTrialComponent
+    DeleteTrialComponent (DeleteTrialComponent'),
+    newDeleteTrialComponent,
+    DeleteTrialComponentResponse (DeleteTrialComponentResponse'),
+    newDeleteTrialComponentResponse,
+
+    -- ** ListTrialComponents (Paginated)
+    ListTrialComponents (ListTrialComponents'),
+    newListTrialComponents,
+    ListTrialComponentsResponse (ListTrialComponentsResponse'),
+    newListTrialComponentsResponse,
+
+    -- ** DescribeAutoMLJob
+    DescribeAutoMLJob (DescribeAutoMLJob'),
+    newDescribeAutoMLJob,
+    DescribeAutoMLJobResponse (DescribeAutoMLJobResponse'),
+    newDescribeAutoMLJobResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
+    -- ** DescribeApp
+    DescribeApp (DescribeApp'),
+    newDescribeApp,
+    DescribeAppResponse (DescribeAppResponse'),
+    newDescribeAppResponse,
+
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
     newCreateDomain,
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
+
+    -- ** DescribeExperiment
+    DescribeExperiment (DescribeExperiment'),
+    newDescribeExperiment,
+    DescribeExperimentResponse (DescribeExperimentResponse'),
+    newDescribeExperimentResponse,
 
     -- ** ListImageVersions (Paginated)
     ListImageVersions (ListImageVersions'),
@@ -949,131 +1030,11 @@ module Network.AWS.SageMaker
     StopProcessingJobResponse (StopProcessingJobResponse'),
     newStopProcessingJobResponse,
 
-    -- ** DeleteImageVersion
-    DeleteImageVersion (DeleteImageVersion'),
-    newDeleteImageVersion,
-    DeleteImageVersionResponse (DeleteImageVersionResponse'),
-    newDeleteImageVersionResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** DescribeExperiment
-    DescribeExperiment (DescribeExperiment'),
-    newDescribeExperiment,
-    DescribeExperimentResponse (DescribeExperimentResponse'),
-    newDescribeExperimentResponse,
-
-    -- ** DescribeAutoMLJob
-    DescribeAutoMLJob (DescribeAutoMLJob'),
-    newDescribeAutoMLJob,
-    DescribeAutoMLJobResponse (DescribeAutoMLJobResponse'),
-    newDescribeAutoMLJobResponse,
-
-    -- ** DescribeApp
-    DescribeApp (DescribeApp'),
-    newDescribeApp,
-    DescribeAppResponse (DescribeAppResponse'),
-    newDescribeAppResponse,
-
-    -- ** ListTrialComponents (Paginated)
-    ListTrialComponents (ListTrialComponents'),
-    newListTrialComponents,
-    ListTrialComponentsResponse (ListTrialComponentsResponse'),
-    newListTrialComponentsResponse,
-
     -- ** UpdateTrialComponent
     UpdateTrialComponent (UpdateTrialComponent'),
     newUpdateTrialComponent,
     UpdateTrialComponentResponse (UpdateTrialComponentResponse'),
     newUpdateTrialComponentResponse,
-
-    -- ** DeleteTrialComponent
-    DeleteTrialComponent (DeleteTrialComponent'),
-    newDeleteTrialComponent,
-    DeleteTrialComponentResponse (DeleteTrialComponentResponse'),
-    newDeleteTrialComponentResponse,
-
-    -- ** CreateTrialComponent
-    CreateTrialComponent (CreateTrialComponent'),
-    newCreateTrialComponent,
-    CreateTrialComponentResponse (CreateTrialComponentResponse'),
-    newCreateTrialComponentResponse,
-
-    -- ** DescribeWorkforce
-    DescribeWorkforce (DescribeWorkforce'),
-    newDescribeWorkforce,
-    DescribeWorkforceResponse (DescribeWorkforceResponse'),
-    newDescribeWorkforceResponse,
-
-    -- ** ListNotebookInstances (Paginated)
-    ListNotebookInstances (ListNotebookInstances'),
-    newListNotebookInstances,
-    ListNotebookInstancesResponse (ListNotebookInstancesResponse'),
-    newListNotebookInstancesResponse,
-
-    -- ** ListModelExplainabilityJobDefinitions (Paginated)
-    ListModelExplainabilityJobDefinitions (ListModelExplainabilityJobDefinitions'),
-    newListModelExplainabilityJobDefinitions,
-    ListModelExplainabilityJobDefinitionsResponse (ListModelExplainabilityJobDefinitionsResponse'),
-    newListModelExplainabilityJobDefinitionsResponse,
-
-    -- ** DeleteModelQualityJobDefinition
-    DeleteModelQualityJobDefinition (DeleteModelQualityJobDefinition'),
-    newDeleteModelQualityJobDefinition,
-    DeleteModelQualityJobDefinitionResponse (DeleteModelQualityJobDefinitionResponse'),
-    newDeleteModelQualityJobDefinitionResponse,
-
-    -- ** StopLabelingJob
-    StopLabelingJob (StopLabelingJob'),
-    newStopLabelingJob,
-    StopLabelingJobResponse (StopLabelingJobResponse'),
-    newStopLabelingJobResponse,
-
-    -- ** ListModelQualityJobDefinitions (Paginated)
-    ListModelQualityJobDefinitions (ListModelQualityJobDefinitions'),
-    newListModelQualityJobDefinitions,
-    ListModelQualityJobDefinitionsResponse (ListModelQualityJobDefinitionsResponse'),
-    newListModelQualityJobDefinitionsResponse,
-
-    -- ** DescribeModelBiasJobDefinition
-    DescribeModelBiasJobDefinition (DescribeModelBiasJobDefinition'),
-    newDescribeModelBiasJobDefinition,
-    DescribeModelBiasJobDefinitionResponse (DescribeModelBiasJobDefinitionResponse'),
-    newDescribeModelBiasJobDefinitionResponse,
-
-    -- ** DescribeWorkteam
-    DescribeWorkteam (DescribeWorkteam'),
-    newDescribeWorkteam,
-    DescribeWorkteamResponse (DescribeWorkteamResponse'),
-    newDescribeWorkteamResponse,
-
-    -- ** DescribeNotebookInstanceLifecycleConfig
-    DescribeNotebookInstanceLifecycleConfig (DescribeNotebookInstanceLifecycleConfig'),
-    newDescribeNotebookInstanceLifecycleConfig,
-    DescribeNotebookInstanceLifecycleConfigResponse (DescribeNotebookInstanceLifecycleConfigResponse'),
-    newDescribeNotebookInstanceLifecycleConfigResponse,
-
-    -- ** ListPipelineExecutions (Paginated)
-    ListPipelineExecutions (ListPipelineExecutions'),
-    newListPipelineExecutions,
-    ListPipelineExecutionsResponse (ListPipelineExecutionsResponse'),
-    newListPipelineExecutionsResponse,
-
-    -- ** UpdateDomain
-    UpdateDomain (UpdateDomain'),
-    newUpdateDomain,
-    UpdateDomainResponse (UpdateDomainResponse'),
-    newUpdateDomainResponse,
-
-    -- ** AssociateTrialComponent
-    AssociateTrialComponent (AssociateTrialComponent'),
-    newAssociateTrialComponent,
-    AssociateTrialComponentResponse (AssociateTrialComponentResponse'),
-    newAssociateTrialComponentResponse,
 
     -- ** UpdatePipelineExecution
     UpdatePipelineExecution (UpdatePipelineExecution'),
@@ -1081,11 +1042,41 @@ module Network.AWS.SageMaker
     UpdatePipelineExecutionResponse (UpdatePipelineExecutionResponse'),
     newUpdatePipelineExecutionResponse,
 
-    -- ** CreateImageVersion
-    CreateImageVersion (CreateImageVersion'),
-    newCreateImageVersion,
-    CreateImageVersionResponse (CreateImageVersionResponse'),
-    newCreateImageVersionResponse,
+    -- ** CreateTrialComponent
+    CreateTrialComponent (CreateTrialComponent'),
+    newCreateTrialComponent,
+    CreateTrialComponentResponse (CreateTrialComponentResponse'),
+    newCreateTrialComponentResponse,
+
+    -- ** ListPipelineExecutions (Paginated)
+    ListPipelineExecutions (ListPipelineExecutions'),
+    newListPipelineExecutions,
+    ListPipelineExecutionsResponse (ListPipelineExecutionsResponse'),
+    newListPipelineExecutionsResponse,
+
+    -- ** ListModelExplainabilityJobDefinitions (Paginated)
+    ListModelExplainabilityJobDefinitions (ListModelExplainabilityJobDefinitions'),
+    newListModelExplainabilityJobDefinitions,
+    ListModelExplainabilityJobDefinitionsResponse (ListModelExplainabilityJobDefinitionsResponse'),
+    newListModelExplainabilityJobDefinitionsResponse,
+
+    -- ** AssociateTrialComponent
+    AssociateTrialComponent (AssociateTrialComponent'),
+    newAssociateTrialComponent,
+    AssociateTrialComponentResponse (AssociateTrialComponentResponse'),
+    newAssociateTrialComponentResponse,
+
+    -- ** DescribeModelBiasJobDefinition
+    DescribeModelBiasJobDefinition (DescribeModelBiasJobDefinition'),
+    newDescribeModelBiasJobDefinition,
+    DescribeModelBiasJobDefinitionResponse (DescribeModelBiasJobDefinitionResponse'),
+    newDescribeModelBiasJobDefinitionResponse,
+
+    -- ** DescribeStudioLifecycleConfig
+    DescribeStudioLifecycleConfig (DescribeStudioLifecycleConfig'),
+    newDescribeStudioLifecycleConfig,
+    DescribeStudioLifecycleConfigResponse (DescribeStudioLifecycleConfigResponse'),
+    newDescribeStudioLifecycleConfigResponse,
 
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
@@ -1093,17 +1084,59 @@ module Network.AWS.SageMaker
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
 
-    -- ** UpdateTrainingJob
-    UpdateTrainingJob (UpdateTrainingJob'),
-    newUpdateTrainingJob,
-    UpdateTrainingJobResponse (UpdateTrainingJobResponse'),
-    newUpdateTrainingJobResponse,
+    -- ** ListNotebookInstances (Paginated)
+    ListNotebookInstances (ListNotebookInstances'),
+    newListNotebookInstances,
+    ListNotebookInstancesResponse (ListNotebookInstancesResponse'),
+    newListNotebookInstancesResponse,
 
-    -- ** UpdateImage
-    UpdateImage (UpdateImage'),
-    newUpdateImage,
-    UpdateImageResponse (UpdateImageResponse'),
-    newUpdateImageResponse,
+    -- ** DescribeNotebookInstanceLifecycleConfig
+    DescribeNotebookInstanceLifecycleConfig (DescribeNotebookInstanceLifecycleConfig'),
+    newDescribeNotebookInstanceLifecycleConfig,
+    DescribeNotebookInstanceLifecycleConfigResponse (DescribeNotebookInstanceLifecycleConfigResponse'),
+    newDescribeNotebookInstanceLifecycleConfigResponse,
+
+    -- ** StopLabelingJob
+    StopLabelingJob (StopLabelingJob'),
+    newStopLabelingJob,
+    StopLabelingJobResponse (StopLabelingJobResponse'),
+    newStopLabelingJobResponse,
+
+    -- ** UpdateDomain
+    UpdateDomain (UpdateDomain'),
+    newUpdateDomain,
+    UpdateDomainResponse (UpdateDomainResponse'),
+    newUpdateDomainResponse,
+
+    -- ** DescribeWorkforce
+    DescribeWorkforce (DescribeWorkforce'),
+    newDescribeWorkforce,
+    DescribeWorkforceResponse (DescribeWorkforceResponse'),
+    newDescribeWorkforceResponse,
+
+    -- ** CreateImageVersion
+    CreateImageVersion (CreateImageVersion'),
+    newCreateImageVersion,
+    CreateImageVersionResponse (CreateImageVersionResponse'),
+    newCreateImageVersionResponse,
+
+    -- ** DeleteModelQualityJobDefinition
+    DeleteModelQualityJobDefinition (DeleteModelQualityJobDefinition'),
+    newDeleteModelQualityJobDefinition,
+    DeleteModelQualityJobDefinitionResponse (DeleteModelQualityJobDefinitionResponse'),
+    newDeleteModelQualityJobDefinitionResponse,
+
+    -- ** DescribeWorkteam
+    DescribeWorkteam (DescribeWorkteam'),
+    newDescribeWorkteam,
+    DescribeWorkteamResponse (DescribeWorkteamResponse'),
+    newDescribeWorkteamResponse,
+
+    -- ** ListModelQualityJobDefinitions (Paginated)
+    ListModelQualityJobDefinitions (ListModelQualityJobDefinitions'),
+    newListModelQualityJobDefinitions,
+    ListModelQualityJobDefinitionsResponse (ListModelQualityJobDefinitionsResponse'),
+    newListModelQualityJobDefinitionsResponse,
 
     -- ** UpdateContext
     UpdateContext (UpdateContext'),
@@ -1111,47 +1144,11 @@ module Network.AWS.SageMaker
     UpdateContextResponse (UpdateContextResponse'),
     newUpdateContextResponse,
 
-    -- ** DeleteImage
-    DeleteImage (DeleteImage'),
-    newDeleteImage,
-    DeleteImageResponse (DeleteImageResponse'),
-    newDeleteImageResponse,
-
-    -- ** ListFlowDefinitions (Paginated)
-    ListFlowDefinitions (ListFlowDefinitions'),
-    newListFlowDefinitions,
-    ListFlowDefinitionsResponse (ListFlowDefinitionsResponse'),
-    newListFlowDefinitionsResponse,
-
     -- ** ListModels (Paginated)
     ListModels (ListModels'),
     newListModels,
     ListModelsResponse (ListModelsResponse'),
     newListModelsResponse,
-
-    -- ** CreateUserProfile
-    CreateUserProfile (CreateUserProfile'),
-    newCreateUserProfile,
-    CreateUserProfileResponse (CreateUserProfileResponse'),
-    newCreateUserProfileResponse,
-
-    -- ** RenderUiTemplate
-    RenderUiTemplate (RenderUiTemplate'),
-    newRenderUiTemplate,
-    RenderUiTemplateResponse (RenderUiTemplateResponse'),
-    newRenderUiTemplateResponse,
-
-    -- ** DescribeFeatureGroup
-    DescribeFeatureGroup (DescribeFeatureGroup'),
-    newDescribeFeatureGroup,
-    DescribeFeatureGroupResponse (DescribeFeatureGroupResponse'),
-    newDescribeFeatureGroupResponse,
-
-    -- ** DeleteContext
-    DeleteContext (DeleteContext'),
-    newDeleteContext,
-    DeleteContextResponse (DeleteContextResponse'),
-    newDeleteContextResponse,
 
     -- ** ListHyperParameterTuningJobs (Paginated)
     ListHyperParameterTuningJobs (ListHyperParameterTuningJobs'),
@@ -1159,11 +1156,29 @@ module Network.AWS.SageMaker
     ListHyperParameterTuningJobsResponse (ListHyperParameterTuningJobsResponse'),
     newListHyperParameterTuningJobsResponse,
 
-    -- ** DeleteFlowDefinition
-    DeleteFlowDefinition (DeleteFlowDefinition'),
-    newDeleteFlowDefinition,
-    DeleteFlowDefinitionResponse (DeleteFlowDefinitionResponse'),
-    newDeleteFlowDefinitionResponse,
+    -- ** SendPipelineExecutionStepFailure
+    SendPipelineExecutionStepFailure (SendPipelineExecutionStepFailure'),
+    newSendPipelineExecutionStepFailure,
+    SendPipelineExecutionStepFailureResponse (SendPipelineExecutionStepFailureResponse'),
+    newSendPipelineExecutionStepFailureResponse,
+
+    -- ** DescribeFeatureGroup
+    DescribeFeatureGroup (DescribeFeatureGroup'),
+    newDescribeFeatureGroup,
+    DescribeFeatureGroupResponse (DescribeFeatureGroupResponse'),
+    newDescribeFeatureGroupResponse,
+
+    -- ** UpdateImage
+    UpdateImage (UpdateImage'),
+    newUpdateImage,
+    UpdateImageResponse (UpdateImageResponse'),
+    newUpdateImageResponse,
+
+    -- ** ListFlowDefinitions (Paginated)
+    ListFlowDefinitions (ListFlowDefinitions'),
+    newListFlowDefinitions,
+    ListFlowDefinitionsResponse (ListFlowDefinitionsResponse'),
+    newListFlowDefinitionsResponse,
 
     -- ** ListAlgorithms (Paginated)
     ListAlgorithms (ListAlgorithms'),
@@ -1171,23 +1186,53 @@ module Network.AWS.SageMaker
     ListAlgorithmsResponse (ListAlgorithmsResponse'),
     newListAlgorithmsResponse,
 
-    -- ** CreateAlgorithm
-    CreateAlgorithm (CreateAlgorithm'),
-    newCreateAlgorithm,
-    CreateAlgorithmResponse (CreateAlgorithmResponse'),
-    newCreateAlgorithmResponse,
+    -- ** UpdateTrainingJob
+    UpdateTrainingJob (UpdateTrainingJob'),
+    newUpdateTrainingJob,
+    UpdateTrainingJobResponse (UpdateTrainingJobResponse'),
+    newUpdateTrainingJobResponse,
 
-    -- ** CreateFlowDefinition
-    CreateFlowDefinition (CreateFlowDefinition'),
-    newCreateFlowDefinition,
-    CreateFlowDefinitionResponse (CreateFlowDefinitionResponse'),
-    newCreateFlowDefinitionResponse,
+    -- ** DeleteFlowDefinition
+    DeleteFlowDefinition (DeleteFlowDefinition'),
+    newDeleteFlowDefinition,
+    DeleteFlowDefinitionResponse (DeleteFlowDefinitionResponse'),
+    newDeleteFlowDefinitionResponse,
 
-    -- ** ListPipelineParametersForExecution (Paginated)
-    ListPipelineParametersForExecution (ListPipelineParametersForExecution'),
-    newListPipelineParametersForExecution,
-    ListPipelineParametersForExecutionResponse (ListPipelineParametersForExecutionResponse'),
-    newListPipelineParametersForExecutionResponse,
+    -- ** DeleteImage
+    DeleteImage (DeleteImage'),
+    newDeleteImage,
+    DeleteImageResponse (DeleteImageResponse'),
+    newDeleteImageResponse,
+
+    -- ** RenderUiTemplate
+    RenderUiTemplate (RenderUiTemplate'),
+    newRenderUiTemplate,
+    RenderUiTemplateResponse (RenderUiTemplateResponse'),
+    newRenderUiTemplateResponse,
+
+    -- ** CreateUserProfile
+    CreateUserProfile (CreateUserProfile'),
+    newCreateUserProfile,
+    CreateUserProfileResponse (CreateUserProfileResponse'),
+    newCreateUserProfileResponse,
+
+    -- ** DeleteContext
+    DeleteContext (DeleteContext'),
+    newDeleteContext,
+    DeleteContextResponse (DeleteContextResponse'),
+    newDeleteContextResponse,
+
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** PutModelPackageGroupPolicy
+    PutModelPackageGroupPolicy (PutModelPackageGroupPolicy'),
+    newPutModelPackageGroupPolicy,
+    PutModelPackageGroupPolicyResponse (PutModelPackageGroupPolicyResponse'),
+    newPutModelPackageGroupPolicyResponse,
 
     -- ** ListTrials (Paginated)
     ListTrials (ListTrials'),
@@ -1195,17 +1240,41 @@ module Network.AWS.SageMaker
     ListTrialsResponse (ListTrialsResponse'),
     newListTrialsResponse,
 
-    -- ** CreateHyperParameterTuningJob
-    CreateHyperParameterTuningJob (CreateHyperParameterTuningJob'),
-    newCreateHyperParameterTuningJob,
-    CreateHyperParameterTuningJobResponse (CreateHyperParameterTuningJobResponse'),
-    newCreateHyperParameterTuningJobResponse,
+    -- ** DescribePipelineDefinitionForExecution
+    DescribePipelineDefinitionForExecution (DescribePipelineDefinitionForExecution'),
+    newDescribePipelineDefinitionForExecution,
+    DescribePipelineDefinitionForExecutionResponse (DescribePipelineDefinitionForExecutionResponse'),
+    newDescribePipelineDefinitionForExecutionResponse,
 
-    -- ** CreateModel
-    CreateModel (CreateModel'),
-    newCreateModel,
-    CreateModelResponse (CreateModelResponse'),
-    newCreateModelResponse,
+    -- ** ListModelPackageGroups (Paginated)
+    ListModelPackageGroups (ListModelPackageGroups'),
+    newListModelPackageGroups,
+    ListModelPackageGroupsResponse (ListModelPackageGroupsResponse'),
+    newListModelPackageGroupsResponse,
+
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
+    -- ** ListPipelineParametersForExecution (Paginated)
+    ListPipelineParametersForExecution (ListPipelineParametersForExecution'),
+    newListPipelineParametersForExecution,
+    ListPipelineParametersForExecutionResponse (ListPipelineParametersForExecutionResponse'),
+    newListPipelineParametersForExecutionResponse,
+
+    -- ** DeleteTrial
+    DeleteTrial (DeleteTrial'),
+    newDeleteTrial,
+    DeleteTrialResponse (DeleteTrialResponse'),
+    newDeleteTrialResponse,
+
+    -- ** CreateAlgorithm
+    CreateAlgorithm (CreateAlgorithm'),
+    newCreateAlgorithm,
+    CreateAlgorithmResponse (CreateAlgorithmResponse'),
+    newCreateAlgorithmResponse,
 
     -- ** UpdateTrial
     UpdateTrial (UpdateTrial'),
@@ -1225,53 +1294,29 @@ module Network.AWS.SageMaker
     DescribeDeviceFleetResponse (DescribeDeviceFleetResponse'),
     newDescribeDeviceFleetResponse,
 
-    -- ** ListModelPackageGroups (Paginated)
-    ListModelPackageGroups (ListModelPackageGroups'),
-    newListModelPackageGroups,
-    ListModelPackageGroupsResponse (ListModelPackageGroupsResponse'),
-    newListModelPackageGroupsResponse,
+    -- ** CreateHyperParameterTuningJob
+    CreateHyperParameterTuningJob (CreateHyperParameterTuningJob'),
+    newCreateHyperParameterTuningJob,
+    CreateHyperParameterTuningJobResponse (CreateHyperParameterTuningJobResponse'),
+    newCreateHyperParameterTuningJobResponse,
 
-    -- ** ListPipelines (Paginated)
-    ListPipelines (ListPipelines'),
-    newListPipelines,
-    ListPipelinesResponse (ListPipelinesResponse'),
-    newListPipelinesResponse,
+    -- ** CreateModel
+    CreateModel (CreateModel'),
+    newCreateModel,
+    CreateModelResponse (CreateModelResponse'),
+    newCreateModelResponse,
 
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** CreateFlowDefinition
+    CreateFlowDefinition (CreateFlowDefinition'),
+    newCreateFlowDefinition,
+    CreateFlowDefinitionResponse (CreateFlowDefinitionResponse'),
+    newCreateFlowDefinitionResponse,
 
-    -- ** DescribePipelineDefinitionForExecution
-    DescribePipelineDefinitionForExecution (DescribePipelineDefinitionForExecution'),
-    newDescribePipelineDefinitionForExecution,
-    DescribePipelineDefinitionForExecutionResponse (DescribePipelineDefinitionForExecutionResponse'),
-    newDescribePipelineDefinitionForExecutionResponse,
-
-    -- ** DeleteTrial
-    DeleteTrial (DeleteTrial'),
-    newDeleteTrial,
-    DeleteTrialResponse (DeleteTrialResponse'),
-    newDeleteTrialResponse,
-
-    -- ** PutModelPackageGroupPolicy
-    PutModelPackageGroupPolicy (PutModelPackageGroupPolicy'),
-    newPutModelPackageGroupPolicy,
-    PutModelPackageGroupPolicyResponse (PutModelPackageGroupPolicyResponse'),
-    newPutModelPackageGroupPolicyResponse,
-
-    -- ** ListExperiments (Paginated)
-    ListExperiments (ListExperiments'),
-    newListExperiments,
-    ListExperimentsResponse (ListExperimentsResponse'),
-    newListExperimentsResponse,
-
-    -- ** UpdateExperiment
-    UpdateExperiment (UpdateExperiment'),
-    newUpdateExperiment,
-    UpdateExperimentResponse (UpdateExperimentResponse'),
-    newUpdateExperimentResponse,
+    -- ** ListAssociations (Paginated)
+    ListAssociations (ListAssociations'),
+    newListAssociations,
+    ListAssociationsResponse (ListAssociationsResponse'),
+    newListAssociationsResponse,
 
     -- ** DeleteExperiment
     DeleteExperiment (DeleteExperiment'),
@@ -1279,11 +1324,11 @@ module Network.AWS.SageMaker
     DeleteExperimentResponse (DeleteExperimentResponse'),
     newDeleteExperimentResponse,
 
-    -- ** ListLabelingJobs (Paginated)
-    ListLabelingJobs (ListLabelingJobs'),
-    newListLabelingJobs,
-    ListLabelingJobsResponse (ListLabelingJobsResponse'),
-    newListLabelingJobsResponse,
+    -- ** DescribeProject
+    DescribeProject (DescribeProject'),
+    newDescribeProject,
+    DescribeProjectResponse (DescribeProjectResponse'),
+    newDescribeProjectResponse,
 
     -- ** DescribeImageVersion
     DescribeImageVersion (DescribeImageVersion'),
@@ -1291,17 +1336,23 @@ module Network.AWS.SageMaker
     DescribeImageVersionResponse (DescribeImageVersionResponse'),
     newDescribeImageVersionResponse,
 
-    -- ** DeleteApp
-    DeleteApp (DeleteApp'),
-    newDeleteApp,
-    DeleteAppResponse (DeleteAppResponse'),
-    newDeleteAppResponse,
+    -- ** ListExperiments (Paginated)
+    ListExperiments (ListExperiments'),
+    newListExperiments,
+    ListExperimentsResponse (ListExperimentsResponse'),
+    newListExperimentsResponse,
 
     -- ** CreateModelBiasJobDefinition
     CreateModelBiasJobDefinition (CreateModelBiasJobDefinition'),
     newCreateModelBiasJobDefinition,
     CreateModelBiasJobDefinitionResponse (CreateModelBiasJobDefinitionResponse'),
     newCreateModelBiasJobDefinitionResponse,
+
+    -- ** UpdateExperiment
+    UpdateExperiment (UpdateExperiment'),
+    newUpdateExperiment,
+    UpdateExperimentResponse (UpdateExperimentResponse'),
+    newUpdateExperimentResponse,
 
     -- ** DescribeTrialComponent
     DescribeTrialComponent (DescribeTrialComponent'),
@@ -1315,89 +1366,23 @@ module Network.AWS.SageMaker
     CreateWorkteamResponse (CreateWorkteamResponse'),
     newCreateWorkteamResponse,
 
-    -- ** DescribeProject
-    DescribeProject (DescribeProject'),
-    newDescribeProject,
-    DescribeProjectResponse (DescribeProjectResponse'),
-    newDescribeProjectResponse,
-
     -- ** CreateProcessingJob
     CreateProcessingJob (CreateProcessingJob'),
     newCreateProcessingJob,
     CreateProcessingJobResponse (CreateProcessingJobResponse'),
     newCreateProcessingJobResponse,
 
-    -- ** ListAssociations (Paginated)
-    ListAssociations (ListAssociations'),
-    newListAssociations,
-    ListAssociationsResponse (ListAssociationsResponse'),
-    newListAssociationsResponse,
+    -- ** DeleteApp
+    DeleteApp (DeleteApp'),
+    newDeleteApp,
+    DeleteAppResponse (DeleteAppResponse'),
+    newDeleteAppResponse,
 
-    -- ** EnableSagemakerServicecatalogPortfolio
-    EnableSagemakerServicecatalogPortfolio (EnableSagemakerServicecatalogPortfolio'),
-    newEnableSagemakerServicecatalogPortfolio,
-    EnableSagemakerServicecatalogPortfolioResponse (EnableSagemakerServicecatalogPortfolioResponse'),
-    newEnableSagemakerServicecatalogPortfolioResponse,
-
-    -- ** UpdateAppImageConfig
-    UpdateAppImageConfig (UpdateAppImageConfig'),
-    newUpdateAppImageConfig,
-    UpdateAppImageConfigResponse (UpdateAppImageConfigResponse'),
-    newUpdateAppImageConfigResponse,
-
-    -- ** ListModelBiasJobDefinitions (Paginated)
-    ListModelBiasJobDefinitions (ListModelBiasJobDefinitions'),
-    newListModelBiasJobDefinitions,
-    ListModelBiasJobDefinitionsResponse (ListModelBiasJobDefinitionsResponse'),
-    newListModelBiasJobDefinitionsResponse,
-
-    -- ** CreateAutoMLJob
-    CreateAutoMLJob (CreateAutoMLJob'),
-    newCreateAutoMLJob,
-    CreateAutoMLJobResponse (CreateAutoMLJobResponse'),
-    newCreateAutoMLJobResponse,
-
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
-
-    -- ** DescribeNotebookInstance
-    DescribeNotebookInstance (DescribeNotebookInstance'),
-    newDescribeNotebookInstance,
-    DescribeNotebookInstanceResponse (DescribeNotebookInstanceResponse'),
-    newDescribeNotebookInstanceResponse,
-
-    -- ** DeleteAppImageConfig
-    DeleteAppImageConfig (DeleteAppImageConfig'),
-    newDeleteAppImageConfig,
-    DeleteAppImageConfigResponse (DeleteAppImageConfigResponse'),
-    newDeleteAppImageConfigResponse,
-
-    -- ** CreateEndpointConfig
-    CreateEndpointConfig (CreateEndpointConfig'),
-    newCreateEndpointConfig,
-    CreateEndpointConfigResponse (CreateEndpointConfigResponse'),
-    newCreateEndpointConfigResponse,
-
-    -- ** ListProcessingJobs (Paginated)
-    ListProcessingJobs (ListProcessingJobs'),
-    newListProcessingJobs,
-    ListProcessingJobsResponse (ListProcessingJobsResponse'),
-    newListProcessingJobsResponse,
-
-    -- ** CreateMonitoringSchedule
-    CreateMonitoringSchedule (CreateMonitoringSchedule'),
-    newCreateMonitoringSchedule,
-    CreateMonitoringScheduleResponse (CreateMonitoringScheduleResponse'),
-    newCreateMonitoringScheduleResponse,
-
-    -- ** DescribeModelExplainabilityJobDefinition
-    DescribeModelExplainabilityJobDefinition (DescribeModelExplainabilityJobDefinition'),
-    newDescribeModelExplainabilityJobDefinition,
-    DescribeModelExplainabilityJobDefinitionResponse (DescribeModelExplainabilityJobDefinitionResponse'),
-    newDescribeModelExplainabilityJobDefinitionResponse,
+    -- ** ListLabelingJobs (Paginated)
+    ListLabelingJobs (ListLabelingJobs'),
+    newListLabelingJobs,
+    ListLabelingJobsResponse (ListLabelingJobsResponse'),
+    newListLabelingJobsResponse,
 
     -- ** ListWorkteams (Paginated)
     ListWorkteams (ListWorkteams'),
@@ -1405,17 +1390,119 @@ module Network.AWS.SageMaker
     ListWorkteamsResponse (ListWorkteamsResponse'),
     newListWorkteamsResponse,
 
-    -- ** DescribeFlowDefinition
-    DescribeFlowDefinition (DescribeFlowDefinition'),
-    newDescribeFlowDefinition,
-    DescribeFlowDefinitionResponse (DescribeFlowDefinitionResponse'),
-    newDescribeFlowDefinitionResponse,
+    -- ** DeleteAppImageConfig
+    DeleteAppImageConfig (DeleteAppImageConfig'),
+    newDeleteAppImageConfig,
+    DeleteAppImageConfigResponse (DeleteAppImageConfigResponse'),
+    newDeleteAppImageConfigResponse,
+
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
+
+    -- ** EnableSagemakerServicecatalogPortfolio
+    EnableSagemakerServicecatalogPortfolio (EnableSagemakerServicecatalogPortfolio'),
+    newEnableSagemakerServicecatalogPortfolio,
+    EnableSagemakerServicecatalogPortfolioResponse (EnableSagemakerServicecatalogPortfolioResponse'),
+    newEnableSagemakerServicecatalogPortfolioResponse,
+
+    -- ** DescribeNotebookInstance
+    DescribeNotebookInstance (DescribeNotebookInstance'),
+    newDescribeNotebookInstance,
+    DescribeNotebookInstanceResponse (DescribeNotebookInstanceResponse'),
+    newDescribeNotebookInstanceResponse,
+
+    -- ** DescribeModelExplainabilityJobDefinition
+    DescribeModelExplainabilityJobDefinition (DescribeModelExplainabilityJobDefinition'),
+    newDescribeModelExplainabilityJobDefinition,
+    DescribeModelExplainabilityJobDefinitionResponse (DescribeModelExplainabilityJobDefinitionResponse'),
+    newDescribeModelExplainabilityJobDefinitionResponse,
+
+    -- ** CreateAutoMLJob
+    CreateAutoMLJob (CreateAutoMLJob'),
+    newCreateAutoMLJob,
+    CreateAutoMLJobResponse (CreateAutoMLJobResponse'),
+    newCreateAutoMLJobResponse,
+
+    -- ** CreateEndpointConfig
+    CreateEndpointConfig (CreateEndpointConfig'),
+    newCreateEndpointConfig,
+    CreateEndpointConfigResponse (CreateEndpointConfigResponse'),
+    newCreateEndpointConfigResponse,
+
+    -- ** ListModelBiasJobDefinitions (Paginated)
+    ListModelBiasJobDefinitions (ListModelBiasJobDefinitions'),
+    newListModelBiasJobDefinitions,
+    ListModelBiasJobDefinitionsResponse (ListModelBiasJobDefinitionsResponse'),
+    newListModelBiasJobDefinitionsResponse,
+
+    -- ** SendPipelineExecutionStepSuccess
+    SendPipelineExecutionStepSuccess (SendPipelineExecutionStepSuccess'),
+    newSendPipelineExecutionStepSuccess,
+    SendPipelineExecutionStepSuccessResponse (SendPipelineExecutionStepSuccessResponse'),
+    newSendPipelineExecutionStepSuccessResponse,
+
+    -- ** CreateMonitoringSchedule
+    CreateMonitoringSchedule (CreateMonitoringSchedule'),
+    newCreateMonitoringSchedule,
+    CreateMonitoringScheduleResponse (CreateMonitoringScheduleResponse'),
+    newCreateMonitoringScheduleResponse,
+
+    -- ** ListProcessingJobs (Paginated)
+    ListProcessingJobs (ListProcessingJobs'),
+    newListProcessingJobs,
+    ListProcessingJobsResponse (ListProcessingJobsResponse'),
+    newListProcessingJobsResponse,
+
+    -- ** UpdateAppImageConfig
+    UpdateAppImageConfig (UpdateAppImageConfig'),
+    newUpdateAppImageConfig,
+    UpdateAppImageConfigResponse (UpdateAppImageConfigResponse'),
+    newUpdateAppImageConfigResponse,
 
     -- ** DescribeContext
     DescribeContext (DescribeContext'),
     newDescribeContext,
     DescribeContextResponse (DescribeContextResponse'),
     newDescribeContextResponse,
+
+    -- ** CreateHumanTaskUi
+    CreateHumanTaskUi (CreateHumanTaskUi'),
+    newCreateHumanTaskUi,
+    CreateHumanTaskUiResponse (CreateHumanTaskUiResponse'),
+    newCreateHumanTaskUiResponse,
+
+    -- ** DeleteFeatureGroup
+    DeleteFeatureGroup (DeleteFeatureGroup'),
+    newDeleteFeatureGroup,
+    DeleteFeatureGroupResponse (DeleteFeatureGroupResponse'),
+    newDeleteFeatureGroupResponse,
+
+    -- ** DescribeTrainingJob
+    DescribeTrainingJob (DescribeTrainingJob'),
+    newDescribeTrainingJob,
+    DescribeTrainingJobResponse (DescribeTrainingJobResponse'),
+    newDescribeTrainingJobResponse,
+
+    -- ** DescribeFlowDefinition
+    DescribeFlowDefinition (DescribeFlowDefinition'),
+    newDescribeFlowDefinition,
+    DescribeFlowDefinitionResponse (DescribeFlowDefinitionResponse'),
+    newDescribeFlowDefinitionResponse,
+
+    -- ** ListTrainingJobsForHyperParameterTuningJob (Paginated)
+    ListTrainingJobsForHyperParameterTuningJob (ListTrainingJobsForHyperParameterTuningJob'),
+    newListTrainingJobsForHyperParameterTuningJob,
+    ListTrainingJobsForHyperParameterTuningJobResponse (ListTrainingJobsForHyperParameterTuningJobResponse'),
+    newListTrainingJobsForHyperParameterTuningJobResponse,
+
+    -- ** CreatePresignedNotebookInstanceUrl
+    CreatePresignedNotebookInstanceUrl (CreatePresignedNotebookInstanceUrl'),
+    newCreatePresignedNotebookInstanceUrl,
+    CreatePresignedNotebookInstanceUrlResponse (CreatePresignedNotebookInstanceUrlResponse'),
+    newCreatePresignedNotebookInstanceUrlResponse,
 
     -- ** RegisterDevices
     RegisterDevices (RegisterDevices'),
@@ -1429,41 +1516,11 @@ module Network.AWS.SageMaker
     ListFeatureGroupsResponse (ListFeatureGroupsResponse'),
     newListFeatureGroupsResponse,
 
-    -- ** CreatePresignedNotebookInstanceUrl
-    CreatePresignedNotebookInstanceUrl (CreatePresignedNotebookInstanceUrl'),
-    newCreatePresignedNotebookInstanceUrl,
-    CreatePresignedNotebookInstanceUrlResponse (CreatePresignedNotebookInstanceUrlResponse'),
-    newCreatePresignedNotebookInstanceUrlResponse,
-
-    -- ** DescribeTrainingJob
-    DescribeTrainingJob (DescribeTrainingJob'),
-    newDescribeTrainingJob,
-    DescribeTrainingJobResponse (DescribeTrainingJobResponse'),
-    newDescribeTrainingJobResponse,
-
-    -- ** CreateHumanTaskUi
-    CreateHumanTaskUi (CreateHumanTaskUi'),
-    newCreateHumanTaskUi,
-    CreateHumanTaskUiResponse (CreateHumanTaskUiResponse'),
-    newCreateHumanTaskUiResponse,
-
-    -- ** ListTrainingJobsForHyperParameterTuningJob (Paginated)
-    ListTrainingJobsForHyperParameterTuningJob (ListTrainingJobsForHyperParameterTuningJob'),
-    newListTrainingJobsForHyperParameterTuningJob,
-    ListTrainingJobsForHyperParameterTuningJobResponse (ListTrainingJobsForHyperParameterTuningJobResponse'),
-    newListTrainingJobsForHyperParameterTuningJobResponse,
-
     -- ** DescribeImage
     DescribeImage (DescribeImage'),
     newDescribeImage,
     DescribeImageResponse (DescribeImageResponse'),
     newDescribeImageResponse,
-
-    -- ** DeleteFeatureGroup
-    DeleteFeatureGroup (DeleteFeatureGroup'),
-    newDeleteFeatureGroup,
-    DeleteFeatureGroupResponse (DeleteFeatureGroupResponse'),
-    newDeleteFeatureGroupResponse,
 
     -- * Types
 
@@ -1599,6 +1656,12 @@ module Network.AWS.SageMaker
     -- ** EdgePackagingJobStatus
     EdgePackagingJobStatus (..),
 
+    -- ** EdgePresetDeploymentStatus
+    EdgePresetDeploymentStatus (..),
+
+    -- ** EdgePresetDeploymentType
+    EdgePresetDeploymentType (..),
+
     -- ** EndpointConfigSortKey
     EndpointConfigSortKey (..),
 
@@ -1706,6 +1769,9 @@ module Network.AWS.SageMaker
 
     -- ** ListWorkteamsSortByOptions
     ListWorkteamsSortByOptions (..),
+
+    -- ** MetricSetSource
+    MetricSetSource (..),
 
     -- ** ModelApprovalStatus
     ModelApprovalStatus (..),
@@ -1911,6 +1977,12 @@ module Network.AWS.SageMaker
     -- ** StepStatus
     StepStatus (..),
 
+    -- ** StudioLifecycleConfigAppType
+    StudioLifecycleConfigAppType (..),
+
+    -- ** StudioLifecycleConfigSortKey
+    StudioLifecycleConfigSortKey (..),
+
     -- ** TargetDevice
     TargetDevice (..),
 
@@ -2031,6 +2103,22 @@ module Network.AWS.SageMaker
     AssociationSummary (AssociationSummary'),
     newAssociationSummary,
 
+    -- ** AsyncInferenceClientConfig
+    AsyncInferenceClientConfig (AsyncInferenceClientConfig'),
+    newAsyncInferenceClientConfig,
+
+    -- ** AsyncInferenceConfig
+    AsyncInferenceConfig (AsyncInferenceConfig'),
+    newAsyncInferenceConfig,
+
+    -- ** AsyncInferenceNotificationConfig
+    AsyncInferenceNotificationConfig (AsyncInferenceNotificationConfig'),
+    newAsyncInferenceNotificationConfig,
+
+    -- ** AsyncInferenceOutputConfig
+    AsyncInferenceOutputConfig (AsyncInferenceOutputConfig'),
+    newAsyncInferenceOutputConfig,
+
     -- ** AthenaDatasetDefinition
     AthenaDatasetDefinition (AthenaDatasetDefinition'),
     newAthenaDatasetDefinition,
@@ -2079,6 +2167,10 @@ module Network.AWS.SageMaker
     AutoMLOutputDataConfig (AutoMLOutputDataConfig'),
     newAutoMLOutputDataConfig,
 
+    -- ** AutoMLPartialFailureReason
+    AutoMLPartialFailureReason (AutoMLPartialFailureReason'),
+    newAutoMLPartialFailureReason,
+
     -- ** AutoMLS3DataSource
     AutoMLS3DataSource (AutoMLS3DataSource'),
     newAutoMLS3DataSource,
@@ -2102,6 +2194,18 @@ module Network.AWS.SageMaker
     -- ** CacheHitResult
     CacheHitResult (CacheHitResult'),
     newCacheHitResult,
+
+    -- ** CallbackStepMetadata
+    CallbackStepMetadata (CallbackStepMetadata'),
+    newCallbackStepMetadata,
+
+    -- ** CandidateArtifactLocations
+    CandidateArtifactLocations (CandidateArtifactLocations'),
+    newCandidateArtifactLocations,
+
+    -- ** CandidateProperties
+    CandidateProperties (CandidateProperties'),
+    newCandidateProperties,
 
     -- ** CapacitySize
     CapacitySize (CapacitySize'),
@@ -2282,6 +2386,10 @@ module Network.AWS.SageMaker
     -- ** EdgePackagingJobSummary
     EdgePackagingJobSummary (EdgePackagingJobSummary'),
     newEdgePackagingJobSummary,
+
+    -- ** EdgePresetDeploymentOutput
+    EdgePresetDeploymentOutput (EdgePresetDeploymentOutput'),
+    newEdgePresetDeploymentOutput,
 
     -- ** Endpoint
     Endpoint (Endpoint'),
@@ -2527,6 +2635,10 @@ module Network.AWS.SageMaker
     LabelingJobSummary (LabelingJobSummary'),
     newLabelingJobSummary,
 
+    -- ** LambdaStepMetadata
+    LambdaStepMetadata (LambdaStepMetadata'),
+    newLambdaStepMetadata,
+
     -- ** MemberDefinition
     MemberDefinition (MemberDefinition'),
     newMemberDefinition,
@@ -2538,6 +2650,10 @@ module Network.AWS.SageMaker
     -- ** MetricData
     MetricData (MetricData'),
     newMetricData,
+
+    -- ** MetricDatum
+    MetricDatum (MetricDatum'),
+    newMetricDatum,
 
     -- ** MetricDefinition
     MetricDefinition (MetricDefinition'),
@@ -2570,6 +2686,14 @@ module Network.AWS.SageMaker
     -- ** ModelDataQuality
     ModelDataQuality (ModelDataQuality'),
     newModelDataQuality,
+
+    -- ** ModelDeployConfig
+    ModelDeployConfig (ModelDeployConfig'),
+    newModelDeployConfig,
+
+    -- ** ModelDeployResult
+    ModelDeployResult (ModelDeployResult'),
+    newModelDeployResult,
 
     -- ** ModelDigests
     ModelDigests (ModelDigests'),
@@ -2731,6 +2855,10 @@ module Network.AWS.SageMaker
     MultiModelConfig (MultiModelConfig'),
     newMultiModelConfig,
 
+    -- ** NeoVpcConfig
+    NeoVpcConfig (NeoVpcConfig'),
+    newNeoVpcConfig,
+
     -- ** NestedFilters
     NestedFilters (NestedFilters'),
     newNestedFilters,
@@ -2795,6 +2923,10 @@ module Network.AWS.SageMaker
     OutputDataConfig (OutputDataConfig'),
     newOutputDataConfig,
 
+    -- ** OutputParameter
+    OutputParameter (OutputParameter'),
+    newOutputParameter,
+
     -- ** Parameter
     Parameter (Parameter'),
     newParameter,
@@ -2834,6 +2966,10 @@ module Network.AWS.SageMaker
     -- ** PipelineExecutionSummary
     PipelineExecutionSummary (PipelineExecutionSummary'),
     newPipelineExecutionSummary,
+
+    -- ** PipelineExperimentConfig
+    PipelineExperimentConfig (PipelineExperimentConfig'),
+    newPipelineExperimentConfig,
 
     -- ** PipelineSummary
     PipelineSummary (PipelineSummary'),
@@ -2915,6 +3051,10 @@ module Network.AWS.SageMaker
     ProfilerRuleEvaluationStatus (ProfilerRuleEvaluationStatus'),
     newProfilerRuleEvaluationStatus,
 
+    -- ** Project
+    Project (Project'),
+    newProject,
+
     -- ** ProjectSummary
     ProjectSummary (ProjectSummary'),
     newProjectSummary,
@@ -2951,6 +3091,10 @@ module Network.AWS.SageMaker
     RenderingError (RenderingError'),
     newRenderingError,
 
+    -- ** RepositoryAuthConfig
+    RepositoryAuthConfig (RepositoryAuthConfig'),
+    newRepositoryAuthConfig,
+
     -- ** ResolvedAttributes
     ResolvedAttributes (ResolvedAttributes'),
     newResolvedAttributes,
@@ -2970,6 +3114,10 @@ module Network.AWS.SageMaker
     -- ** RetentionPolicy
     RetentionPolicy (RetentionPolicy'),
     newRetentionPolicy,
+
+    -- ** RetryStrategy
+    RetryStrategy (RetryStrategy'),
+    newRetryStrategy,
 
     -- ** S3DataSource
     S3DataSource (S3DataSource'),
@@ -3026,6 +3174,10 @@ module Network.AWS.SageMaker
     -- ** StoppingCondition
     StoppingCondition (StoppingCondition'),
     newStoppingCondition,
+
+    -- ** StudioLifecycleConfigDetails
+    StudioLifecycleConfigDetails (StudioLifecycleConfigDetails'),
+    newStudioLifecycleConfigDetails,
 
     -- ** SubscribedWorkteam
     SubscribedWorkteam (SubscribedWorkteam'),
@@ -3167,6 +3319,10 @@ module Network.AWS.SageMaker
     TuningJobCompletionCriteria (TuningJobCompletionCriteria'),
     newTuningJobCompletionCriteria,
 
+    -- ** TuningJobStepMetaData
+    TuningJobStepMetaData (TuningJobStepMetaData'),
+    newTuningJobStepMetaData,
+
     -- ** USD
     USD (USD'),
     newUSD,
@@ -3253,6 +3409,7 @@ import Network.AWS.SageMaker.CreatePresignedDomainUrl
 import Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
 import Network.AWS.SageMaker.CreateProcessingJob
 import Network.AWS.SageMaker.CreateProject
+import Network.AWS.SageMaker.CreateStudioLifecycleConfig
 import Network.AWS.SageMaker.CreateTrainingJob
 import Network.AWS.SageMaker.CreateTransformJob
 import Network.AWS.SageMaker.CreateTrial
@@ -3291,6 +3448,7 @@ import Network.AWS.SageMaker.DeleteNotebookInstance
 import Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
 import Network.AWS.SageMaker.DeletePipeline
 import Network.AWS.SageMaker.DeleteProject
+import Network.AWS.SageMaker.DeleteStudioLifecycleConfig
 import Network.AWS.SageMaker.DeleteTags
 import Network.AWS.SageMaker.DeleteTrial
 import Network.AWS.SageMaker.DeleteTrialComponent
@@ -3336,6 +3494,7 @@ import Network.AWS.SageMaker.DescribePipelineDefinitionForExecution
 import Network.AWS.SageMaker.DescribePipelineExecution
 import Network.AWS.SageMaker.DescribeProcessingJob
 import Network.AWS.SageMaker.DescribeProject
+import Network.AWS.SageMaker.DescribeStudioLifecycleConfig
 import Network.AWS.SageMaker.DescribeSubscribedWorkteam
 import Network.AWS.SageMaker.DescribeTrainingJob
 import Network.AWS.SageMaker.DescribeTransformJob
@@ -3395,6 +3554,7 @@ import Network.AWS.SageMaker.ListPipelineParametersForExecution
 import Network.AWS.SageMaker.ListPipelines
 import Network.AWS.SageMaker.ListProcessingJobs
 import Network.AWS.SageMaker.ListProjects
+import Network.AWS.SageMaker.ListStudioLifecycleConfigs
 import Network.AWS.SageMaker.ListSubscribedWorkteams
 import Network.AWS.SageMaker.ListTags
 import Network.AWS.SageMaker.ListTrainingJobs
@@ -3408,7 +3568,10 @@ import Network.AWS.SageMaker.ListWorkteams
 import Network.AWS.SageMaker.PutModelPackageGroupPolicy
 import Network.AWS.SageMaker.RegisterDevices
 import Network.AWS.SageMaker.RenderUiTemplate
+import Network.AWS.SageMaker.RetryPipelineExecution
 import Network.AWS.SageMaker.Search
+import Network.AWS.SageMaker.SendPipelineExecutionStepFailure
+import Network.AWS.SageMaker.SendPipelineExecutionStepSuccess
 import Network.AWS.SageMaker.StartMonitoringSchedule
 import Network.AWS.SageMaker.StartNotebookInstance
 import Network.AWS.SageMaker.StartPipelineExecution

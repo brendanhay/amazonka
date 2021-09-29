@@ -22,7 +22,7 @@
 --
 -- Deletes the record of a single premigration assessment run.
 --
--- This operation removes all metadata that AWS DMS maintains about this
+-- This operation removes all metadata that DMS maintains about this
 -- assessment run. However, the operation leaves untouched all information
 -- about this assessment run that is stored in your Amazon S3 bucket.
 module Network.AWS.DMS.DeleteReplicationTaskAssessmentRun

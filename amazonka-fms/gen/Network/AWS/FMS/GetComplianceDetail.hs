@@ -22,17 +22,25 @@
 --
 -- Returns detailed compliance information about the specified member
 -- account. Details include resources that are in and out of compliance
--- with the specified policy. Resources are considered noncompliant for AWS
--- WAF and Shield Advanced policies if the specified policy has not been
--- applied to them. Resources are considered noncompliant for security
--- group policies if they are in scope of the policy, they violate one or
--- more of the policy rules, and remediation is disabled or not possible.
--- Resources are considered noncompliant for Network Firewall policies if a
--- firewall is missing in the VPC, if the firewall endpoint isn\'t set up
--- in an expected Availability Zone and subnet, if a subnet created by the
--- Firewall Manager doesn\'t have the expected route table, and for
--- modifications to a firewall policy that violate the Firewall Manager
--- policy\'s rules.
+-- with the specified policy.
+--
+-- -   Resources are considered noncompliant for WAF and Shield Advanced
+--     policies if the specified policy has not been applied to them.
+--
+-- -   Resources are considered noncompliant for security group policies if
+--     they are in scope of the policy, they violate one or more of the
+--     policy rules, and remediation is disabled or not possible.
+--
+-- -   Resources are considered noncompliant for Network Firewall policies
+--     if a firewall is missing in the VPC, if the firewall endpoint isn\'t
+--     set up in an expected Availability Zone and subnet, if a subnet
+--     created by the Firewall Manager doesn\'t have the expected route
+--     table, and for modifications to a firewall policy that violate the
+--     Firewall Manager policy\'s rules.
+--
+-- -   Resources are considered noncompliant for DNS Firewall policies if a
+--     DNS Firewall rule group is missing from the rule group associations
+--     for the VPC.
 module Network.AWS.FMS.GetComplianceDetail
   ( -- * Creating a Request
     GetComplianceDetail (..),
@@ -64,8 +72,8 @@ data GetComplianceDetail = GetComplianceDetail'
   { -- | The ID of the policy that you want to get the details for. @PolicyId@ is
     -- returned by @PutPolicy@ and by @ListPolicies@.
     policyId :: Prelude.Text,
-    -- | The AWS account that owns the resources that you want to get the details
-    -- for.
+    -- | The Amazon Web Services account that owns the resources that you want to
+    -- get the details for.
     memberAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,8 +89,8 @@ data GetComplianceDetail = GetComplianceDetail'
 -- 'policyId', 'getComplianceDetail_policyId' - The ID of the policy that you want to get the details for. @PolicyId@ is
 -- returned by @PutPolicy@ and by @ListPolicies@.
 --
--- 'memberAccount', 'getComplianceDetail_memberAccount' - The AWS account that owns the resources that you want to get the details
--- for.
+-- 'memberAccount', 'getComplianceDetail_memberAccount' - The Amazon Web Services account that owns the resources that you want to
+-- get the details for.
 newGetComplianceDetail ::
   -- | 'policyId'
   Prelude.Text ->
@@ -100,8 +108,8 @@ newGetComplianceDetail pPolicyId_ pMemberAccount_ =
 getComplianceDetail_policyId :: Lens.Lens' GetComplianceDetail Prelude.Text
 getComplianceDetail_policyId = Lens.lens (\GetComplianceDetail' {policyId} -> policyId) (\s@GetComplianceDetail' {} a -> s {policyId = a} :: GetComplianceDetail)
 
--- | The AWS account that owns the resources that you want to get the details
--- for.
+-- | The Amazon Web Services account that owns the resources that you want to
+-- get the details for.
 getComplianceDetail_memberAccount :: Lens.Lens' GetComplianceDetail Prelude.Text
 getComplianceDetail_memberAccount = Lens.lens (\GetComplianceDetail' {memberAccount} -> memberAccount) (\s@GetComplianceDetail' {} a -> s {memberAccount = a} :: GetComplianceDetail)
 

@@ -33,12 +33,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputUpdate' smart constructor.
 data InputUpdate = InputUpdate'
-  { -- | Name prefix for in-application streams that Amazon Kinesis Analytics
-    -- creates for the specific streaming source.
-    namePrefixUpdate :: Prelude.Maybe Prelude.Text,
-    -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
+  { -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
     -- be updated, provides an updated stream ARN and IAM role ARN.
     kinesisFirehoseInputUpdate :: Prelude.Maybe KinesisFirehoseInputUpdate,
+    -- | Name prefix for in-application streams that Amazon Kinesis Analytics
+    -- creates for the specific streaming source.
+    namePrefixUpdate :: Prelude.Maybe Prelude.Text,
     -- | If an Amazon Kinesis stream is the streaming source to be updated,
     -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
     kinesisStreamsInputUpdate :: Prelude.Maybe KinesisStreamsInputUpdate,
@@ -64,11 +64,11 @@ data InputUpdate = InputUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namePrefixUpdate', 'inputUpdate_namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics
--- creates for the specific streaming source.
---
 -- 'kinesisFirehoseInputUpdate', 'inputUpdate_kinesisFirehoseInputUpdate' - If an Amazon Kinesis Firehose delivery stream is the streaming source to
 -- be updated, provides an updated stream ARN and IAM role ARN.
+--
+-- 'namePrefixUpdate', 'inputUpdate_namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics
+-- creates for the specific streaming source.
 --
 -- 'kinesisStreamsInputUpdate', 'inputUpdate_kinesisStreamsInputUpdate' - If an Amazon Kinesis stream is the streaming source to be updated,
 -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
@@ -89,8 +89,9 @@ newInputUpdate ::
   InputUpdate
 newInputUpdate pInputId_ =
   InputUpdate'
-    { namePrefixUpdate = Prelude.Nothing,
-      kinesisFirehoseInputUpdate = Prelude.Nothing,
+    { kinesisFirehoseInputUpdate =
+        Prelude.Nothing,
+      namePrefixUpdate = Prelude.Nothing,
       kinesisStreamsInputUpdate = Prelude.Nothing,
       inputProcessingConfigurationUpdate = Prelude.Nothing,
       inputSchemaUpdate = Prelude.Nothing,
@@ -98,15 +99,15 @@ newInputUpdate pInputId_ =
       inputId = pInputId_
     }
 
--- | Name prefix for in-application streams that Amazon Kinesis Analytics
--- creates for the specific streaming source.
-inputUpdate_namePrefixUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe Prelude.Text)
-inputUpdate_namePrefixUpdate = Lens.lens (\InputUpdate' {namePrefixUpdate} -> namePrefixUpdate) (\s@InputUpdate' {} a -> s {namePrefixUpdate = a} :: InputUpdate)
-
 -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to
 -- be updated, provides an updated stream ARN and IAM role ARN.
 inputUpdate_kinesisFirehoseInputUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe KinesisFirehoseInputUpdate)
 inputUpdate_kinesisFirehoseInputUpdate = Lens.lens (\InputUpdate' {kinesisFirehoseInputUpdate} -> kinesisFirehoseInputUpdate) (\s@InputUpdate' {} a -> s {kinesisFirehoseInputUpdate = a} :: InputUpdate)
+
+-- | Name prefix for in-application streams that Amazon Kinesis Analytics
+-- creates for the specific streaming source.
+inputUpdate_namePrefixUpdate :: Lens.Lens' InputUpdate (Prelude.Maybe Prelude.Text)
+inputUpdate_namePrefixUpdate = Lens.lens (\InputUpdate' {namePrefixUpdate} -> namePrefixUpdate) (\s@InputUpdate' {} a -> s {namePrefixUpdate = a} :: InputUpdate)
 
 -- | If an Amazon Kinesis stream is the streaming source to be updated,
 -- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
@@ -140,10 +141,10 @@ instance Core.ToJSON InputUpdate where
   toJSON InputUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NamePrefixUpdate" Core..=)
-              Prelude.<$> namePrefixUpdate,
-            ("KinesisFirehoseInputUpdate" Core..=)
+          [ ("KinesisFirehoseInputUpdate" Core..=)
               Prelude.<$> kinesisFirehoseInputUpdate,
+            ("NamePrefixUpdate" Core..=)
+              Prelude.<$> namePrefixUpdate,
             ("KinesisStreamsInputUpdate" Core..=)
               Prelude.<$> kinesisStreamsInputUpdate,
             ("InputProcessingConfigurationUpdate" Core..=)

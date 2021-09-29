@@ -52,18 +52,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | The ARN of the AWS Glue resource for the resource policy to be set. For
-    -- more information about AWS Glue resource ARNs, see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+  { -- | Do not use. For internal use only.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Allows you to specify if you want to use both resource-level and
-    -- account\/catalog-level resource policies. A resource-level policy is a
-    -- policy attached to an individual resource such as a database or a table.
+    -- | If @\'TRUE\'@, indicates that you are using both methods to grant
+    -- cross-account access to Data Catalog resources:
     --
-    -- The default value of @NO@ indicates that resource-level policies cannot
-    -- co-exist with an account-level policy. A value of @YES@ means the use of
-    -- both resource-level and account\/catalog-level resource policies is
-    -- allowed.
+    -- -   By directly updating the resource policy with @PutResourePolicy@
+    --
+    -- -   By using the __Grant permissions__ command on the Amazon Web
+    --     Services Management Console.
+    --
+    -- Must be set to @\'TRUE\'@ if you have already used the Management
+    -- Console to grant cross-account access, otherwise the call fails. Default
+    -- is \'FALSE\'.
     enableHybrid :: Prelude.Maybe EnableHybridValues,
     -- | The hash value returned when the previous policy was set using
     -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
@@ -72,7 +73,7 @@ data PutResourcePolicy = PutResourcePolicy'
     policyHashCondition :: Prelude.Maybe Prelude.Text,
     -- | A value of @MUST_EXIST@ is used to update a policy. A value of
     -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
-    -- null value is used, the call will not depend on the existence of a
+    -- null value is used, the call does not depend on the existence of a
     -- policy.
     policyExistsCondition :: Prelude.Maybe ExistCondition,
     -- | Contains the policy document to set, in JSON format.
@@ -88,18 +89,19 @@ data PutResourcePolicy = PutResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'putResourcePolicy_resourceArn' - The ARN of the AWS Glue resource for the resource policy to be set. For
--- more information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+-- 'resourceArn', 'putResourcePolicy_resourceArn' - Do not use. For internal use only.
 --
--- 'enableHybrid', 'putResourcePolicy_enableHybrid' - Allows you to specify if you want to use both resource-level and
--- account\/catalog-level resource policies. A resource-level policy is a
--- policy attached to an individual resource such as a database or a table.
+-- 'enableHybrid', 'putResourcePolicy_enableHybrid' - If @\'TRUE\'@, indicates that you are using both methods to grant
+-- cross-account access to Data Catalog resources:
 --
--- The default value of @NO@ indicates that resource-level policies cannot
--- co-exist with an account-level policy. A value of @YES@ means the use of
--- both resource-level and account\/catalog-level resource policies is
--- allowed.
+-- -   By directly updating the resource policy with @PutResourePolicy@
+--
+-- -   By using the __Grant permissions__ command on the Amazon Web
+--     Services Management Console.
+--
+-- Must be set to @\'TRUE\'@ if you have already used the Management
+-- Console to grant cross-account access, otherwise the call fails. Default
+-- is \'FALSE\'.
 --
 -- 'policyHashCondition', 'putResourcePolicy_policyHashCondition' - The hash value returned when the previous policy was set using
 -- @PutResourcePolicy@. Its purpose is to prevent concurrent modifications
@@ -108,7 +110,7 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- 'policyExistsCondition', 'putResourcePolicy_policyExistsCondition' - A value of @MUST_EXIST@ is used to update a policy. A value of
 -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
--- null value is used, the call will not depend on the existence of a
+-- null value is used, the call does not depend on the existence of a
 -- policy.
 --
 -- 'policyInJson', 'putResourcePolicy_policyInJson' - Contains the policy document to set, in JSON format.
@@ -125,20 +127,21 @@ newPutResourcePolicy pPolicyInJson_ =
       policyInJson = pPolicyInJson_
     }
 
--- | The ARN of the AWS Glue resource for the resource policy to be set. For
--- more information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+-- | Do not use. For internal use only.
 putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
--- | Allows you to specify if you want to use both resource-level and
--- account\/catalog-level resource policies. A resource-level policy is a
--- policy attached to an individual resource such as a database or a table.
+-- | If @\'TRUE\'@, indicates that you are using both methods to grant
+-- cross-account access to Data Catalog resources:
 --
--- The default value of @NO@ indicates that resource-level policies cannot
--- co-exist with an account-level policy. A value of @YES@ means the use of
--- both resource-level and account\/catalog-level resource policies is
--- allowed.
+-- -   By directly updating the resource policy with @PutResourePolicy@
+--
+-- -   By using the __Grant permissions__ command on the Amazon Web
+--     Services Management Console.
+--
+-- Must be set to @\'TRUE\'@ if you have already used the Management
+-- Console to grant cross-account access, otherwise the call fails. Default
+-- is \'FALSE\'.
 putResourcePolicy_enableHybrid :: Lens.Lens' PutResourcePolicy (Prelude.Maybe EnableHybridValues)
 putResourcePolicy_enableHybrid = Lens.lens (\PutResourcePolicy' {enableHybrid} -> enableHybrid) (\s@PutResourcePolicy' {} a -> s {enableHybrid = a} :: PutResourcePolicy)
 
@@ -151,7 +154,7 @@ putResourcePolicy_policyHashCondition = Lens.lens (\PutResourcePolicy' {policyHa
 
 -- | A value of @MUST_EXIST@ is used to update a policy. A value of
 -- @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a
--- null value is used, the call will not depend on the existence of a
+-- null value is used, the call does not depend on the existence of a
 -- policy.
 putResourcePolicy_policyExistsCondition :: Lens.Lens' PutResourcePolicy (Prelude.Maybe ExistCondition)
 putResourcePolicy_policyExistsCondition = Lens.lens (\PutResourcePolicy' {policyExistsCondition} -> policyExistsCondition) (\s@PutResourcePolicy' {} a -> s {policyExistsCondition = a} :: PutResourcePolicy)

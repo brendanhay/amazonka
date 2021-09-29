@@ -39,26 +39,26 @@ data Queue = Queue'
     -- begin processing jobs in that queue. Jobs that are running when you
     -- pause the queue continue to run until they finish or result in an error.
     status :: Prelude.Maybe QueueStatus,
-    -- | An identifier for this resource that is unique within all of AWS.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for when you created the queue.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | An identifier for this resource that is unique within all of AWS.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for when you most recently updated the
     -- queue.
     lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | The estimated number of jobs with a SUBMITTED status.
-    submittedJobsCount :: Prelude.Maybe Prelude.Int,
     -- | An optional description that you create for each queue.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The estimated number of jobs with a SUBMITTED status.
+    submittedJobsCount :: Prelude.Maybe Prelude.Int,
+    -- | Details about the pricing plan for your reserved queue. Required for
+    -- reserved queues and not applicable to on-demand queues.
+    reservationPlan :: Prelude.Maybe ReservationPlan,
     -- | Specifies whether the pricing plan for the queue is on-demand or
     -- reserved. For on-demand, you pay per minute, billed in increments of .01
     -- minute. For reserved, you pay for the transcoding capacity of the entire
     -- queue, regardless of how much or how little you use it. Reserved pricing
     -- requires a 12-month commitment.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Details about the pricing plan for your reserved queue. Required for
-    -- reserved queues and not applicable to on-demand queues.
-    reservationPlan :: Prelude.Maybe ReservationPlan,
     -- | Specifies whether this on-demand queue is system or custom. System
     -- queues are built in. You can\'t modify or delete system queues. You can
     -- create and modify custom queues.
@@ -83,25 +83,25 @@ data Queue = Queue'
 -- begin processing jobs in that queue. Jobs that are running when you
 -- pause the queue continue to run until they finish or result in an error.
 --
--- 'arn', 'queue_arn' - An identifier for this resource that is unique within all of AWS.
---
 -- 'createdAt', 'queue_createdAt' - The timestamp in epoch seconds for when you created the queue.
+--
+-- 'arn', 'queue_arn' - An identifier for this resource that is unique within all of AWS.
 --
 -- 'lastUpdated', 'queue_lastUpdated' - The timestamp in epoch seconds for when you most recently updated the
 -- queue.
 --
+-- 'description', 'queue_description' - An optional description that you create for each queue.
+--
 -- 'submittedJobsCount', 'queue_submittedJobsCount' - The estimated number of jobs with a SUBMITTED status.
 --
--- 'description', 'queue_description' - An optional description that you create for each queue.
+-- 'reservationPlan', 'queue_reservationPlan' - Details about the pricing plan for your reserved queue. Required for
+-- reserved queues and not applicable to on-demand queues.
 --
 -- 'pricingPlan', 'queue_pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or
 -- reserved. For on-demand, you pay per minute, billed in increments of .01
 -- minute. For reserved, you pay for the transcoding capacity of the entire
 -- queue, regardless of how much or how little you use it. Reserved pricing
 -- requires a 12-month commitment.
---
--- 'reservationPlan', 'queue_reservationPlan' - Details about the pricing plan for your reserved queue. Required for
--- reserved queues and not applicable to on-demand queues.
 --
 -- 'type'', 'queue_type' - Specifies whether this on-demand queue is system or custom. System
 -- queues are built in. You can\'t modify or delete system queues. You can
@@ -118,13 +118,13 @@ newQueue ::
 newQueue pName_ =
   Queue'
     { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
-      submittedJobsCount = Prelude.Nothing,
       description = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
+      submittedJobsCount = Prelude.Nothing,
       reservationPlan = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       type' = Prelude.Nothing,
       progressingJobsCount = Prelude.Nothing,
       name = pName_
@@ -136,26 +136,31 @@ newQueue pName_ =
 queue_status :: Lens.Lens' Queue (Prelude.Maybe QueueStatus)
 queue_status = Lens.lens (\Queue' {status} -> status) (\s@Queue' {} a -> s {status = a} :: Queue)
 
--- | An identifier for this resource that is unique within all of AWS.
-queue_arn :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
-queue_arn = Lens.lens (\Queue' {arn} -> arn) (\s@Queue' {} a -> s {arn = a} :: Queue)
-
 -- | The timestamp in epoch seconds for when you created the queue.
 queue_createdAt :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
 queue_createdAt = Lens.lens (\Queue' {createdAt} -> createdAt) (\s@Queue' {} a -> s {createdAt = a} :: Queue) Prelude.. Lens.mapping Core._Time
+
+-- | An identifier for this resource that is unique within all of AWS.
+queue_arn :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_arn = Lens.lens (\Queue' {arn} -> arn) (\s@Queue' {} a -> s {arn = a} :: Queue)
 
 -- | The timestamp in epoch seconds for when you most recently updated the
 -- queue.
 queue_lastUpdated :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
 queue_lastUpdated = Lens.lens (\Queue' {lastUpdated} -> lastUpdated) (\s@Queue' {} a -> s {lastUpdated = a} :: Queue) Prelude.. Lens.mapping Core._Time
 
+-- | An optional description that you create for each queue.
+queue_description :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' {} a -> s {description = a} :: Queue)
+
 -- | The estimated number of jobs with a SUBMITTED status.
 queue_submittedJobsCount :: Lens.Lens' Queue (Prelude.Maybe Prelude.Int)
 queue_submittedJobsCount = Lens.lens (\Queue' {submittedJobsCount} -> submittedJobsCount) (\s@Queue' {} a -> s {submittedJobsCount = a} :: Queue)
 
--- | An optional description that you create for each queue.
-queue_description :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
-queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' {} a -> s {description = a} :: Queue)
+-- | Details about the pricing plan for your reserved queue. Required for
+-- reserved queues and not applicable to on-demand queues.
+queue_reservationPlan :: Lens.Lens' Queue (Prelude.Maybe ReservationPlan)
+queue_reservationPlan = Lens.lens (\Queue' {reservationPlan} -> reservationPlan) (\s@Queue' {} a -> s {reservationPlan = a} :: Queue)
 
 -- | Specifies whether the pricing plan for the queue is on-demand or
 -- reserved. For on-demand, you pay per minute, billed in increments of .01
@@ -164,11 +169,6 @@ queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' 
 -- requires a 12-month commitment.
 queue_pricingPlan :: Lens.Lens' Queue (Prelude.Maybe PricingPlan)
 queue_pricingPlan = Lens.lens (\Queue' {pricingPlan} -> pricingPlan) (\s@Queue' {} a -> s {pricingPlan = a} :: Queue)
-
--- | Details about the pricing plan for your reserved queue. Required for
--- reserved queues and not applicable to on-demand queues.
-queue_reservationPlan :: Lens.Lens' Queue (Prelude.Maybe ReservationPlan)
-queue_reservationPlan = Lens.lens (\Queue' {reservationPlan} -> reservationPlan) (\s@Queue' {} a -> s {reservationPlan = a} :: Queue)
 
 -- | Specifies whether this on-demand queue is system or custom. System
 -- queues are built in. You can\'t modify or delete system queues. You can
@@ -192,13 +192,13 @@ instance Core.FromJSON Queue where
       ( \x ->
           Queue'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "lastUpdated")
-            Prelude.<*> (x Core..:? "submittedJobsCount")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "pricingPlan")
+            Prelude.<*> (x Core..:? "submittedJobsCount")
             Prelude.<*> (x Core..:? "reservationPlan")
+            Prelude.<*> (x Core..:? "pricingPlan")
             Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "progressingJobsCount")
             Prelude.<*> (x Core..: "name")

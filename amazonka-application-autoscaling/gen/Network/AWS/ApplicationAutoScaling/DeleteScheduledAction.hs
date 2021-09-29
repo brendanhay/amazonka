@@ -55,9 +55,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-  { -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+  { -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Text,
@@ -121,6 +121,10 @@ data DeleteScheduledAction = DeleteScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -128,11 +132,11 @@ data DeleteScheduledAction = DeleteScheduledAction'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -178,6 +182,12 @@ data DeleteScheduledAction = DeleteScheduledAction'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -190,9 +200,9 @@ data DeleteScheduledAction = DeleteScheduledAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceNamespace', 'deleteScheduledAction_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'deleteScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 --
 -- 'scheduledActionName', 'deleteScheduledAction_scheduledActionName' - The name of the scheduled action.
 --
@@ -257,17 +267,21 @@ data DeleteScheduledAction = DeleteScheduledAction'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'deleteScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -313,6 +327,12 @@ data DeleteScheduledAction = DeleteScheduledAction'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 newDeleteScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -336,9 +356,9 @@ newDeleteScheduledAction
         scalableDimension = pScalableDimension_
       }
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 deleteScheduledAction_serviceNamespace :: Lens.Lens' DeleteScheduledAction ServiceNamespace
 deleteScheduledAction_serviceNamespace = Lens.lens (\DeleteScheduledAction' {serviceNamespace} -> serviceNamespace) (\s@DeleteScheduledAction' {} a -> s {serviceNamespace = a} :: DeleteScheduledAction)
 
@@ -406,6 +426,10 @@ deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 deleteScheduledAction_resourceId :: Lens.Lens' DeleteScheduledAction Prelude.Text
 deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceId} -> resourceId) (\s@DeleteScheduledAction' {} a -> s {resourceId = a} :: DeleteScheduledAction)
 
@@ -415,11 +439,11 @@ deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceI
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -465,6 +489,12 @@ deleteScheduledAction_resourceId = Lens.lens (\DeleteScheduledAction' {resourceI
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 deleteScheduledAction_scalableDimension :: Lens.Lens' DeleteScheduledAction ScalableDimension
 deleteScheduledAction_scalableDimension = Lens.lens (\DeleteScheduledAction' {scalableDimension} -> scalableDimension) (\s@DeleteScheduledAction' {} a -> s {scalableDimension = a} :: DeleteScheduledAction)
 

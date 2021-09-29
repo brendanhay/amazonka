@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the contents of a data set as presigned URIs.
+-- Retrieves the contents of a dataset as presigned URIs.
 module Network.AWS.IoTAnalytics.GetDatasetContent
   ( -- * Creating a Request
     GetDatasetContent (..),
@@ -51,12 +51,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDatasetContent' smart constructor.
 data GetDatasetContent = GetDatasetContent'
-  { -- | The version of the data set whose contents are retrieved. You can also
+  { -- | The version of the dataset whose contents are retrieved. You can also
     -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
-    -- contents of the latest or latest successfully completed data set. If not
+    -- contents of the latest or latest successfully completed dataset. If not
     -- specified, \"$LATEST_SUCCEEDED\" is the default.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the data set whose contents are retrieved.
+    -- | The name of the dataset whose contents are retrieved.
     datasetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,12 +69,12 @@ data GetDatasetContent = GetDatasetContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'getDatasetContent_versionId' - The version of the data set whose contents are retrieved. You can also
+-- 'versionId', 'getDatasetContent_versionId' - The version of the dataset whose contents are retrieved. You can also
 -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
--- contents of the latest or latest successfully completed data set. If not
+-- contents of the latest or latest successfully completed dataset. If not
 -- specified, \"$LATEST_SUCCEEDED\" is the default.
 --
--- 'datasetName', 'getDatasetContent_datasetName' - The name of the data set whose contents are retrieved.
+-- 'datasetName', 'getDatasetContent_datasetName' - The name of the dataset whose contents are retrieved.
 newGetDatasetContent ::
   -- | 'datasetName'
   Prelude.Text ->
@@ -85,14 +85,14 @@ newGetDatasetContent pDatasetName_ =
       datasetName = pDatasetName_
     }
 
--- | The version of the data set whose contents are retrieved. You can also
+-- | The version of the dataset whose contents are retrieved. You can also
 -- use the strings \"$LATEST\" or \"$LATEST_SUCCEEDED\" to retrieve the
--- contents of the latest or latest successfully completed data set. If not
+-- contents of the latest or latest successfully completed dataset. If not
 -- specified, \"$LATEST_SUCCEEDED\" is the default.
 getDatasetContent_versionId :: Lens.Lens' GetDatasetContent (Prelude.Maybe Prelude.Text)
 getDatasetContent_versionId = Lens.lens (\GetDatasetContent' {versionId} -> versionId) (\s@GetDatasetContent' {} a -> s {versionId = a} :: GetDatasetContent)
 
--- | The name of the data set whose contents are retrieved.
+-- | The name of the dataset whose contents are retrieved.
 getDatasetContent_datasetName :: Lens.Lens' GetDatasetContent Prelude.Text
 getDatasetContent_datasetName = Lens.lens (\GetDatasetContent' {datasetName} -> datasetName) (\s@GetDatasetContent' {} a -> s {datasetName = a} :: GetDatasetContent)
 
@@ -129,7 +129,7 @@ instance Core.ToQuery GetDatasetContent where
 
 -- | /See:/ 'newGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
-  { -- | The status of the data set content.
+  { -- | The status of the dataset content.
     status :: Prelude.Maybe DatasetContentStatus,
     -- | The time when the request was made.
     timestamp :: Prelude.Maybe Core.POSIX,
@@ -148,7 +148,7 @@ data GetDatasetContentResponse = GetDatasetContentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getDatasetContentResponse_status' - The status of the data set content.
+-- 'status', 'getDatasetContentResponse_status' - The status of the dataset content.
 --
 -- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
 --
@@ -168,7 +168,7 @@ newGetDatasetContentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The status of the data set content.
+-- | The status of the dataset content.
 getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)
 getDatasetContentResponse_status = Lens.lens (\GetDatasetContentResponse' {status} -> status) (\s@GetDatasetContentResponse' {} a -> s {status = a} :: GetDatasetContentResponse)
 

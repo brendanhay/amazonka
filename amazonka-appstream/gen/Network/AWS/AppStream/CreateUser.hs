@@ -28,8 +28,8 @@ module Network.AWS.AppStream.CreateUser
 
     -- * Request Lenses
     createUser_messageAction,
-    createUser_firstName,
     createUser_lastName,
+    createUser_firstName,
     createUser_userName,
     createUser_authenticationType,
 
@@ -60,10 +60,10 @@ data CreateUser = CreateUser'
     -- users don’t set their passwords within 7 days, you must send them a new
     -- welcome email.
     messageAction :: Prelude.Maybe MessageAction,
-    -- | The first name, or given name, of the user.
-    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The last name, or surname, of the user.
     lastName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The first name, or given name, of the user.
+    firstName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive. During login, if they
@@ -93,9 +93,9 @@ data CreateUser = CreateUser'
 -- users don’t set their passwords within 7 days, you must send them a new
 -- welcome email.
 --
--- 'firstName', 'createUser_firstName' - The first name, or given name, of the user.
---
 -- 'lastName', 'createUser_lastName' - The last name, or surname, of the user.
+--
+-- 'firstName', 'createUser_firstName' - The first name, or given name, of the user.
 --
 -- 'userName', 'createUser_userName' - The email address of the user.
 --
@@ -114,8 +114,8 @@ newCreateUser ::
 newCreateUser pUserName_ pAuthenticationType_ =
   CreateUser'
     { messageAction = Prelude.Nothing,
-      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      firstName = Prelude.Nothing,
       userName = Core._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
@@ -131,13 +131,13 @@ newCreateUser pUserName_ pAuthenticationType_ =
 createUser_messageAction :: Lens.Lens' CreateUser (Prelude.Maybe MessageAction)
 createUser_messageAction = Lens.lens (\CreateUser' {messageAction} -> messageAction) (\s@CreateUser' {} a -> s {messageAction = a} :: CreateUser)
 
--- | The first name, or given name, of the user.
-createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The last name, or surname, of the user.
 createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The first name, or given name, of the user.
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The email address of the user.
 --
@@ -186,8 +186,8 @@ instance Core.ToJSON CreateUser where
     Core.object
       ( Prelude.catMaybes
           [ ("MessageAction" Core..=) Prelude.<$> messageAction,
-            ("FirstName" Core..=) Prelude.<$> firstName,
             ("LastName" Core..=) Prelude.<$> lastName,
+            ("FirstName" Core..=) Prelude.<$> firstName,
             Prelude.Just ("UserName" Core..= userName),
             Prelude.Just
               ("AuthenticationType" Core..= authenticationType)

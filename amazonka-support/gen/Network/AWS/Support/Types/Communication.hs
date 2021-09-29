@@ -24,15 +24,15 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.AttachmentDetails
 
--- | A communication associated with an AWS Support case. The communication
+-- | A communication associated with a support case. The communication
 -- consists of the case ID, the message body, attachment information, the
 -- submitter of the communication, and the date and time of the
 -- communication.
 --
 -- /See:/ 'newCommunication' smart constructor.
 data Communication = Communication'
-  { -- | The AWS Support case ID requested or returned in the call. The case ID
-    -- is an alphanumeric string formatted as shown in this example:
+  { -- | The support case ID requested or returned in the call. The case ID is an
+    -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
     -- | Information about the attachments to the case communication.
@@ -41,9 +41,9 @@ data Communication = Communication'
     body :: Prelude.Maybe Prelude.Text,
     -- | The identity of the account that submitted, or responded to, the support
     -- case. Customer entries include the role or IAM user as well as the email
-    -- address. For example, \"AdminRole (Role) \<someone\@example.com>.
+    -- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
     -- Entries from the AWS Support team display \"Amazon Web Services,\" and
-    -- do not show an email address.
+    -- don\'t show an email address.
     submittedBy :: Prelude.Maybe Prelude.Text,
     -- | The time the communication was created.
     timeCreated :: Prelude.Maybe Prelude.Text
@@ -58,8 +58,8 @@ data Communication = Communication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'caseId', 'communication_caseId' - The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- 'caseId', 'communication_caseId' - The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- 'attachmentSet', 'communication_attachmentSet' - Information about the attachments to the case communication.
@@ -68,9 +68,9 @@ data Communication = Communication'
 --
 -- 'submittedBy', 'communication_submittedBy' - The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
--- address. For example, \"AdminRole (Role) \<someone\@example.com>.
+-- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
 -- Entries from the AWS Support team display \"Amazon Web Services,\" and
--- do not show an email address.
+-- don\'t show an email address.
 --
 -- 'timeCreated', 'communication_timeCreated' - The time the communication was created.
 newCommunication ::
@@ -84,8 +84,8 @@ newCommunication =
       timeCreated = Prelude.Nothing
     }
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- | The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 communication_caseId :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_caseId = Lens.lens (\Communication' {caseId} -> caseId) (\s@Communication' {} a -> s {caseId = a} :: Communication)
@@ -100,9 +100,9 @@ communication_body = Lens.lens (\Communication' {body} -> body) (\s@Communicatio
 
 -- | The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
--- address. For example, \"AdminRole (Role) \<someone\@example.com>.
+-- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
 -- Entries from the AWS Support team display \"Amazon Web Services,\" and
--- do not show an email address.
+-- don\'t show an email address.
 communication_submittedBy :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_submittedBy = Lens.lens (\Communication' {submittedBy} -> submittedBy) (\s@Communication' {} a -> s {submittedBy = a} :: Communication)
 

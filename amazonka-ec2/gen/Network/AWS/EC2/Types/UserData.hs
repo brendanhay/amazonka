@@ -28,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserData' smart constructor.
 data UserData = UserData'
-  { -- | The user data. If you are using an AWS SDK or command line tool,
-    -- Base64-encoding is performed for you, and you can load the text from a
-    -- file. Otherwise, you must provide Base64-encoded text.
+  { -- | The user data. If you are using an Amazon Web Services SDK or command
+    -- line tool, Base64-encoding is performed for you, and you can load the
+    -- text from a file. Otherwise, you must provide Base64-encoded text.
     data' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -43,16 +43,16 @@ data UserData = UserData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'data'', 'userData_data' - The user data. If you are using an AWS SDK or command line tool,
--- Base64-encoding is performed for you, and you can load the text from a
--- file. Otherwise, you must provide Base64-encoded text.
+-- 'data'', 'userData_data' - The user data. If you are using an Amazon Web Services SDK or command
+-- line tool, Base64-encoding is performed for you, and you can load the
+-- text from a file. Otherwise, you must provide Base64-encoded text.
 newUserData ::
   UserData
 newUserData = UserData' {data' = Prelude.Nothing}
 
--- | The user data. If you are using an AWS SDK or command line tool,
--- Base64-encoding is performed for you, and you can load the text from a
--- file. Otherwise, you must provide Base64-encoded text.
+-- | The user data. If you are using an Amazon Web Services SDK or command
+-- line tool, Base64-encoding is performed for you, and you can load the
+-- text from a file. Otherwise, you must provide Base64-encoded text.
 userData_data :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
 userData_data = Lens.lens (\UserData' {data'} -> data') (\s@UserData' {} a -> s {data' = a} :: UserData)
 

@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes an AWS Lambda data source configuration.
+-- | Describes an Amazon Web Services Lambda data source configuration.
 --
 -- /See:/ 'newLambdaDataSourceConfig' smart constructor.
 data LambdaDataSourceConfig = LambdaDataSourceConfig'

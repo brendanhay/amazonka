@@ -22,16 +22,16 @@
 --
 -- Modifies the default credit option for CPU usage of burstable
 -- performance instances. The default credit option is set at the account
--- level per AWS Region, and is specified per instance family. All new
--- burstable performance instances in the account launch using the default
--- credit option.
+-- level per Amazon Web Services Region, and is specified per instance
+-- family. All new burstable performance instances in the account launch
+-- using the default credit option.
 --
 -- @ModifyDefaultCreditSpecification@ is an asynchronous operation, which
--- works at an AWS Region level and modifies the credit option for each
--- Availability Zone. All zones in a Region are updated within five
--- minutes. But if instances are launched during this operation, they might
--- not get the new credit option until the zone is updated. To verify
--- whether the update has occurred, you can call
+-- works at an Amazon Web Services Region level and modifies the credit
+-- option for each Availability Zone. All zones in a Region are updated
+-- within five minutes. But if instances are launched during this
+-- operation, they might not get the new credit option until the zone is
+-- updated. To verify whether the update has occurred, you can call
 -- @GetDefaultCreditSpecification@ and check @DefaultCreditSpecification@
 -- for updates.
 --

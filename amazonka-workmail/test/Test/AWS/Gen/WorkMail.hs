@@ -27,23 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateOrganization $
---             newCreateOrganization
+--         [ requestDescribeResource $
+--             newDescribeResource
 --
 --         , requestDeleteAlias $
 --             newDeleteAlias
 --
+--         , requestCreateOrganization $
+--             newCreateOrganization
+--
 --         , requestStartMailboxExportJob $
 --             newStartMailboxExportJob
 --
---         , requestDescribeResource $
---             newDescribeResource
+--         , requestDeleteAccessControlRule $
+--             newDeleteAccessControlRule
 --
 --         , requestListResourceDelegates $
 --             newListResourceDelegates
---
---         , requestDeleteAccessControlRule $
---             newDeleteAccessControlRule
 --
 --         , requestDisassociateDelegateFromResource $
 --             newDisassociateDelegateFromResource
@@ -54,26 +54,29 @@ import Test.Tasty
 --         , requestListGroups $
 --             newListGroups
 --
+--         , requestCreateResource $
+--             newCreateResource
+--
 --         , requestListMailboxExportJobs $
 --             newListMailboxExportJobs
 --
 --         , requestDescribeOrganization $
 --             newDescribeOrganization
 --
---         , requestCreateResource $
---             newCreateResource
---
 --         , requestUpdateResource $
 --             newUpdateResource
---
---         , requestUntagResource $
---             newUntagResource
 --
 --         , requestDeleteResource $
 --             newDeleteResource
 --
+--         , requestListMobileDeviceAccessRules $
+--             newListMobileDeviceAccessRules
+--
 --         , requestCreateGroup $
 --             newCreateGroup
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -81,17 +84,17 @@ import Test.Tasty
 --         , requestAssociateMemberToGroup $
 --             newAssociateMemberToGroup
 --
---         , requestCreateUser $
---             newCreateUser
---
 --         , requestPutRetentionPolicy $
 --             newPutRetentionPolicy
+--
+--         , requestCreateUser $
+--             newCreateUser
 --
 --         , requestPutMailboxPermissions $
 --             newPutMailboxPermissions
 --
---         , requestAssociateDelegateToResource $
---             newAssociateDelegateToResource
+--         , requestGetMobileDeviceAccessEffect $
+--             newGetMobileDeviceAccessEffect
 --
 --         , requestRegisterToWorkMail $
 --             newRegisterToWorkMail
@@ -101,6 +104,9 @@ import Test.Tasty
 --
 --         , requestDescribeMailboxExportJob $
 --             newDescribeMailboxExportJob
+--
+--         , requestAssociateDelegateToResource $
+--             newAssociateDelegateToResource
 --
 --         , requestListOrganizations $
 --             newListOrganizations
@@ -120,41 +126,56 @@ import Test.Tasty
 --         , requestCancelMailboxExportJob $
 --             newCancelMailboxExportJob
 --
---         , requestDeregisterFromWorkMail $
---             newDeregisterFromWorkMail
---
---         , requestListGroupMembers $
---             newListGroupMembers
+--         , requestCreateMobileDeviceAccessRule $
+--             newCreateMobileDeviceAccessRule
 --
 --         , requestDeleteGroup $
 --             newDeleteGroup
 --
+--         , requestListGroupMembers $
+--             newListGroupMembers
+--
 --         , requestListMailboxPermissions $
 --             newListMailboxPermissions
 --
---         , requestDisassociateMemberFromGroup $
---             newDisassociateMemberFromGroup
+--         , requestDeregisterFromWorkMail $
+--             newDeregisterFromWorkMail
 --
 --         , requestUpdateMailboxQuota $
 --             newUpdateMailboxQuota
 --
+--         , requestUpdateMobileDeviceAccessRule $
+--             newUpdateMobileDeviceAccessRule
+--
+--         , requestDeleteMobileDeviceAccessRule $
+--             newDeleteMobileDeviceAccessRule
+--
+--         , requestDisassociateMemberFromGroup $
+--             newDisassociateMemberFromGroup
+--
 --         , requestListResources $
 --             newListResources
---
---         , requestDeleteUser $
---             newDeleteUser
---
---         , requestListUsers $
---             newListUsers
 --
 --         , requestGetMailboxDetails $
 --             newGetMailboxDetails
 --
---         , requestDeleteMailboxPermissions $
---             newDeleteMailboxPermissions
+--         , requestListUsers $
+--             newListUsers
+--
+--         , requestDeleteUser $
+--             newDeleteUser
 --
 --         , requestDeleteRetentionPolicy $
 --             newDeleteRetentionPolicy
+--
+--         , requestDeleteMailboxPermissions $
+--             newDeleteMailboxPermissions
+--
+--         , requestResetPassword $
+--             newResetPassword
+--
+--         , requestListAliases $
+--             newListAliases
 --
 --         , requestDescribeGroup $
 --             newDescribeGroup
@@ -162,38 +183,32 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
---         , requestCreateAlias $
---             newCreateAlias
---
 --         , requestGetAccessControlEffect $
 --             newGetAccessControlEffect
 --
---         , requestListAliases $
---             newListAliases
---
---         , requestResetPassword $
---             newResetPassword
+--         , requestCreateAlias $
+--             newCreateAlias
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateOrganization $
---             newCreateOrganizationResponse
+--         [ responseDescribeResource $
+--             newDescribeResourceResponse
 --
 --         , responseDeleteAlias $
 --             newDeleteAliasResponse
 --
+--         , responseCreateOrganization $
+--             newCreateOrganizationResponse
+--
 --         , responseStartMailboxExportJob $
 --             newStartMailboxExportJobResponse
 --
---         , responseDescribeResource $
---             newDescribeResourceResponse
+--         , responseDeleteAccessControlRule $
+--             newDeleteAccessControlRuleResponse
 --
 --         , responseListResourceDelegates $
 --             newListResourceDelegatesResponse
---
---         , responseDeleteAccessControlRule $
---             newDeleteAccessControlRuleResponse
 --
 --         , responseDisassociateDelegateFromResource $
 --             newDisassociateDelegateFromResourceResponse
@@ -204,26 +219,29 @@ import Test.Tasty
 --         , responseListGroups $
 --             newListGroupsResponse
 --
+--         , responseCreateResource $
+--             newCreateResourceResponse
+--
 --         , responseListMailboxExportJobs $
 --             newListMailboxExportJobsResponse
 --
 --         , responseDescribeOrganization $
 --             newDescribeOrganizationResponse
 --
---         , responseCreateResource $
---             newCreateResourceResponse
---
 --         , responseUpdateResource $
 --             newUpdateResourceResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
 --
 --         , responseDeleteResource $
 --             newDeleteResourceResponse
 --
+--         , responseListMobileDeviceAccessRules $
+--             newListMobileDeviceAccessRulesResponse
+--
 --         , responseCreateGroup $
 --             newCreateGroupResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -231,17 +249,17 @@ import Test.Tasty
 --         , responseAssociateMemberToGroup $
 --             newAssociateMemberToGroupResponse
 --
---         , responseCreateUser $
---             newCreateUserResponse
---
 --         , responsePutRetentionPolicy $
 --             newPutRetentionPolicyResponse
+--
+--         , responseCreateUser $
+--             newCreateUserResponse
 --
 --         , responsePutMailboxPermissions $
 --             newPutMailboxPermissionsResponse
 --
---         , responseAssociateDelegateToResource $
---             newAssociateDelegateToResourceResponse
+--         , responseGetMobileDeviceAccessEffect $
+--             newGetMobileDeviceAccessEffectResponse
 --
 --         , responseRegisterToWorkMail $
 --             newRegisterToWorkMailResponse
@@ -251,6 +269,9 @@ import Test.Tasty
 --
 --         , responseDescribeMailboxExportJob $
 --             newDescribeMailboxExportJobResponse
+--
+--         , responseAssociateDelegateToResource $
+--             newAssociateDelegateToResourceResponse
 --
 --         , responseListOrganizations $
 --             newListOrganizationsResponse
@@ -270,41 +291,56 @@ import Test.Tasty
 --         , responseCancelMailboxExportJob $
 --             newCancelMailboxExportJobResponse
 --
---         , responseDeregisterFromWorkMail $
---             newDeregisterFromWorkMailResponse
---
---         , responseListGroupMembers $
---             newListGroupMembersResponse
+--         , responseCreateMobileDeviceAccessRule $
+--             newCreateMobileDeviceAccessRuleResponse
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
 --
+--         , responseListGroupMembers $
+--             newListGroupMembersResponse
+--
 --         , responseListMailboxPermissions $
 --             newListMailboxPermissionsResponse
 --
---         , responseDisassociateMemberFromGroup $
---             newDisassociateMemberFromGroupResponse
+--         , responseDeregisterFromWorkMail $
+--             newDeregisterFromWorkMailResponse
 --
 --         , responseUpdateMailboxQuota $
 --             newUpdateMailboxQuotaResponse
 --
+--         , responseUpdateMobileDeviceAccessRule $
+--             newUpdateMobileDeviceAccessRuleResponse
+--
+--         , responseDeleteMobileDeviceAccessRule $
+--             newDeleteMobileDeviceAccessRuleResponse
+--
+--         , responseDisassociateMemberFromGroup $
+--             newDisassociateMemberFromGroupResponse
+--
 --         , responseListResources $
 --             newListResourcesResponse
---
---         , responseDeleteUser $
---             newDeleteUserResponse
---
---         , responseListUsers $
---             newListUsersResponse
 --
 --         , responseGetMailboxDetails $
 --             newGetMailboxDetailsResponse
 --
---         , responseDeleteMailboxPermissions $
---             newDeleteMailboxPermissionsResponse
+--         , responseListUsers $
+--             newListUsersResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
 --
 --         , responseDeleteRetentionPolicy $
 --             newDeleteRetentionPolicyResponse
+--
+--         , responseDeleteMailboxPermissions $
+--             newDeleteMailboxPermissionsResponse
+--
+--         , responseResetPassword $
+--             newResetPasswordResponse
+--
+--         , responseListAliases $
+--             newListAliasesResponse
 --
 --         , responseDescribeGroup $
 --             newDescribeGroupResponse
@@ -312,40 +348,16 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseCreateAlias $
---             newCreateAliasResponse
---
 --         , responseGetAccessControlEffect $
 --             newGetAccessControlEffectResponse
 --
---         , responseListAliases $
---             newListAliasesResponse
---
---         , responseResetPassword $
---             newResetPasswordResponse
+--         , responseCreateAlias $
+--             newCreateAliasResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateOrganization :: CreateOrganization -> TestTree
-requestCreateOrganization =
-  req
-    "CreateOrganization"
-    "fixture/CreateOrganization.yaml"
-
-requestDeleteAlias :: DeleteAlias -> TestTree
-requestDeleteAlias =
-  req
-    "DeleteAlias"
-    "fixture/DeleteAlias.yaml"
-
-requestStartMailboxExportJob :: StartMailboxExportJob -> TestTree
-requestStartMailboxExportJob =
-  req
-    "StartMailboxExportJob"
-    "fixture/StartMailboxExportJob.yaml"
 
 requestDescribeResource :: DescribeResource -> TestTree
 requestDescribeResource =
@@ -353,17 +365,35 @@ requestDescribeResource =
     "DescribeResource"
     "fixture/DescribeResource.yaml"
 
-requestListResourceDelegates :: ListResourceDelegates -> TestTree
-requestListResourceDelegates =
+requestDeleteAlias :: DeleteAlias -> TestTree
+requestDeleteAlias =
   req
-    "ListResourceDelegates"
-    "fixture/ListResourceDelegates.yaml"
+    "DeleteAlias"
+    "fixture/DeleteAlias.yaml"
+
+requestCreateOrganization :: CreateOrganization -> TestTree
+requestCreateOrganization =
+  req
+    "CreateOrganization"
+    "fixture/CreateOrganization.yaml"
+
+requestStartMailboxExportJob :: StartMailboxExportJob -> TestTree
+requestStartMailboxExportJob =
+  req
+    "StartMailboxExportJob"
+    "fixture/StartMailboxExportJob.yaml"
 
 requestDeleteAccessControlRule :: DeleteAccessControlRule -> TestTree
 requestDeleteAccessControlRule =
   req
     "DeleteAccessControlRule"
     "fixture/DeleteAccessControlRule.yaml"
+
+requestListResourceDelegates :: ListResourceDelegates -> TestTree
+requestListResourceDelegates =
+  req
+    "ListResourceDelegates"
+    "fixture/ListResourceDelegates.yaml"
 
 requestDisassociateDelegateFromResource :: DisassociateDelegateFromResource -> TestTree
 requestDisassociateDelegateFromResource =
@@ -383,6 +413,12 @@ requestListGroups =
     "ListGroups"
     "fixture/ListGroups.yaml"
 
+requestCreateResource :: CreateResource -> TestTree
+requestCreateResource =
+  req
+    "CreateResource"
+    "fixture/CreateResource.yaml"
+
 requestListMailboxExportJobs :: ListMailboxExportJobs -> TestTree
 requestListMailboxExportJobs =
   req
@@ -395,23 +431,11 @@ requestDescribeOrganization =
     "DescribeOrganization"
     "fixture/DescribeOrganization.yaml"
 
-requestCreateResource :: CreateResource -> TestTree
-requestCreateResource =
-  req
-    "CreateResource"
-    "fixture/CreateResource.yaml"
-
 requestUpdateResource :: UpdateResource -> TestTree
 requestUpdateResource =
   req
     "UpdateResource"
     "fixture/UpdateResource.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
 
 requestDeleteResource :: DeleteResource -> TestTree
 requestDeleteResource =
@@ -419,11 +443,23 @@ requestDeleteResource =
     "DeleteResource"
     "fixture/DeleteResource.yaml"
 
+requestListMobileDeviceAccessRules :: ListMobileDeviceAccessRules -> TestTree
+requestListMobileDeviceAccessRules =
+  req
+    "ListMobileDeviceAccessRules"
+    "fixture/ListMobileDeviceAccessRules.yaml"
+
 requestCreateGroup :: CreateGroup -> TestTree
 requestCreateGroup =
   req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -437,17 +473,17 @@ requestAssociateMemberToGroup =
     "AssociateMemberToGroup"
     "fixture/AssociateMemberToGroup.yaml"
 
-requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
-    "CreateUser"
-    "fixture/CreateUser.yaml"
-
 requestPutRetentionPolicy :: PutRetentionPolicy -> TestTree
 requestPutRetentionPolicy =
   req
     "PutRetentionPolicy"
     "fixture/PutRetentionPolicy.yaml"
+
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
+  req
+    "CreateUser"
+    "fixture/CreateUser.yaml"
 
 requestPutMailboxPermissions :: PutMailboxPermissions -> TestTree
 requestPutMailboxPermissions =
@@ -455,11 +491,11 @@ requestPutMailboxPermissions =
     "PutMailboxPermissions"
     "fixture/PutMailboxPermissions.yaml"
 
-requestAssociateDelegateToResource :: AssociateDelegateToResource -> TestTree
-requestAssociateDelegateToResource =
+requestGetMobileDeviceAccessEffect :: GetMobileDeviceAccessEffect -> TestTree
+requestGetMobileDeviceAccessEffect =
   req
-    "AssociateDelegateToResource"
-    "fixture/AssociateDelegateToResource.yaml"
+    "GetMobileDeviceAccessEffect"
+    "fixture/GetMobileDeviceAccessEffect.yaml"
 
 requestRegisterToWorkMail :: RegisterToWorkMail -> TestTree
 requestRegisterToWorkMail =
@@ -478,6 +514,12 @@ requestDescribeMailboxExportJob =
   req
     "DescribeMailboxExportJob"
     "fixture/DescribeMailboxExportJob.yaml"
+
+requestAssociateDelegateToResource :: AssociateDelegateToResource -> TestTree
+requestAssociateDelegateToResource =
+  req
+    "AssociateDelegateToResource"
+    "fixture/AssociateDelegateToResource.yaml"
 
 requestListOrganizations :: ListOrganizations -> TestTree
 requestListOrganizations =
@@ -515,17 +557,11 @@ requestCancelMailboxExportJob =
     "CancelMailboxExportJob"
     "fixture/CancelMailboxExportJob.yaml"
 
-requestDeregisterFromWorkMail :: DeregisterFromWorkMail -> TestTree
-requestDeregisterFromWorkMail =
+requestCreateMobileDeviceAccessRule :: CreateMobileDeviceAccessRule -> TestTree
+requestCreateMobileDeviceAccessRule =
   req
-    "DeregisterFromWorkMail"
-    "fixture/DeregisterFromWorkMail.yaml"
-
-requestListGroupMembers :: ListGroupMembers -> TestTree
-requestListGroupMembers =
-  req
-    "ListGroupMembers"
-    "fixture/ListGroupMembers.yaml"
+    "CreateMobileDeviceAccessRule"
+    "fixture/CreateMobileDeviceAccessRule.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
 requestDeleteGroup =
@@ -533,17 +569,23 @@ requestDeleteGroup =
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
 
+requestListGroupMembers :: ListGroupMembers -> TestTree
+requestListGroupMembers =
+  req
+    "ListGroupMembers"
+    "fixture/ListGroupMembers.yaml"
+
 requestListMailboxPermissions :: ListMailboxPermissions -> TestTree
 requestListMailboxPermissions =
   req
     "ListMailboxPermissions"
     "fixture/ListMailboxPermissions.yaml"
 
-requestDisassociateMemberFromGroup :: DisassociateMemberFromGroup -> TestTree
-requestDisassociateMemberFromGroup =
+requestDeregisterFromWorkMail :: DeregisterFromWorkMail -> TestTree
+requestDeregisterFromWorkMail =
   req
-    "DisassociateMemberFromGroup"
-    "fixture/DisassociateMemberFromGroup.yaml"
+    "DeregisterFromWorkMail"
+    "fixture/DeregisterFromWorkMail.yaml"
 
 requestUpdateMailboxQuota :: UpdateMailboxQuota -> TestTree
 requestUpdateMailboxQuota =
@@ -551,23 +593,29 @@ requestUpdateMailboxQuota =
     "UpdateMailboxQuota"
     "fixture/UpdateMailboxQuota.yaml"
 
+requestUpdateMobileDeviceAccessRule :: UpdateMobileDeviceAccessRule -> TestTree
+requestUpdateMobileDeviceAccessRule =
+  req
+    "UpdateMobileDeviceAccessRule"
+    "fixture/UpdateMobileDeviceAccessRule.yaml"
+
+requestDeleteMobileDeviceAccessRule :: DeleteMobileDeviceAccessRule -> TestTree
+requestDeleteMobileDeviceAccessRule =
+  req
+    "DeleteMobileDeviceAccessRule"
+    "fixture/DeleteMobileDeviceAccessRule.yaml"
+
+requestDisassociateMemberFromGroup :: DisassociateMemberFromGroup -> TestTree
+requestDisassociateMemberFromGroup =
+  req
+    "DisassociateMemberFromGroup"
+    "fixture/DisassociateMemberFromGroup.yaml"
+
 requestListResources :: ListResources -> TestTree
 requestListResources =
   req
     "ListResources"
     "fixture/ListResources.yaml"
-
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
 
 requestGetMailboxDetails :: GetMailboxDetails -> TestTree
 requestGetMailboxDetails =
@@ -575,17 +623,41 @@ requestGetMailboxDetails =
     "GetMailboxDetails"
     "fixture/GetMailboxDetails.yaml"
 
-requestDeleteMailboxPermissions :: DeleteMailboxPermissions -> TestTree
-requestDeleteMailboxPermissions =
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
   req
-    "DeleteMailboxPermissions"
-    "fixture/DeleteMailboxPermissions.yaml"
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
 
 requestDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
 requestDeleteRetentionPolicy =
   req
     "DeleteRetentionPolicy"
     "fixture/DeleteRetentionPolicy.yaml"
+
+requestDeleteMailboxPermissions :: DeleteMailboxPermissions -> TestTree
+requestDeleteMailboxPermissions =
+  req
+    "DeleteMailboxPermissions"
+    "fixture/DeleteMailboxPermissions.yaml"
+
+requestResetPassword :: ResetPassword -> TestTree
+requestResetPassword =
+  req
+    "ResetPassword"
+    "fixture/ResetPassword.yaml"
+
+requestListAliases :: ListAliases -> TestTree
+requestListAliases =
+  req
+    "ListAliases"
+    "fixture/ListAliases.yaml"
 
 requestDescribeGroup :: DescribeGroup -> TestTree
 requestDescribeGroup =
@@ -599,55 +671,19 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-requestCreateAlias :: CreateAlias -> TestTree
-requestCreateAlias =
-  req
-    "CreateAlias"
-    "fixture/CreateAlias.yaml"
-
 requestGetAccessControlEffect :: GetAccessControlEffect -> TestTree
 requestGetAccessControlEffect =
   req
     "GetAccessControlEffect"
     "fixture/GetAccessControlEffect.yaml"
 
-requestListAliases :: ListAliases -> TestTree
-requestListAliases =
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias =
   req
-    "ListAliases"
-    "fixture/ListAliases.yaml"
-
-requestResetPassword :: ResetPassword -> TestTree
-requestResetPassword =
-  req
-    "ResetPassword"
-    "fixture/ResetPassword.yaml"
+    "CreateAlias"
+    "fixture/CreateAlias.yaml"
 
 -- Responses
-
-responseCreateOrganization :: CreateOrganizationResponse -> TestTree
-responseCreateOrganization =
-  res
-    "CreateOrganizationResponse"
-    "fixture/CreateOrganizationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateOrganization)
-
-responseDeleteAlias :: DeleteAliasResponse -> TestTree
-responseDeleteAlias =
-  res
-    "DeleteAliasResponse"
-    "fixture/DeleteAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAlias)
-
-responseStartMailboxExportJob :: StartMailboxExportJobResponse -> TestTree
-responseStartMailboxExportJob =
-  res
-    "StartMailboxExportJobResponse"
-    "fixture/StartMailboxExportJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartMailboxExportJob)
 
 responseDescribeResource :: DescribeResourceResponse -> TestTree
 responseDescribeResource =
@@ -657,13 +693,29 @@ responseDescribeResource =
     defaultService
     (Proxy :: Proxy DescribeResource)
 
-responseListResourceDelegates :: ListResourceDelegatesResponse -> TestTree
-responseListResourceDelegates =
+responseDeleteAlias :: DeleteAliasResponse -> TestTree
+responseDeleteAlias =
   res
-    "ListResourceDelegatesResponse"
-    "fixture/ListResourceDelegatesResponse.proto"
+    "DeleteAliasResponse"
+    "fixture/DeleteAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListResourceDelegates)
+    (Proxy :: Proxy DeleteAlias)
+
+responseCreateOrganization :: CreateOrganizationResponse -> TestTree
+responseCreateOrganization =
+  res
+    "CreateOrganizationResponse"
+    "fixture/CreateOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateOrganization)
+
+responseStartMailboxExportJob :: StartMailboxExportJobResponse -> TestTree
+responseStartMailboxExportJob =
+  res
+    "StartMailboxExportJobResponse"
+    "fixture/StartMailboxExportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMailboxExportJob)
 
 responseDeleteAccessControlRule :: DeleteAccessControlRuleResponse -> TestTree
 responseDeleteAccessControlRule =
@@ -672,6 +724,14 @@ responseDeleteAccessControlRule =
     "fixture/DeleteAccessControlRuleResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteAccessControlRule)
+
+responseListResourceDelegates :: ListResourceDelegatesResponse -> TestTree
+responseListResourceDelegates =
+  res
+    "ListResourceDelegatesResponse"
+    "fixture/ListResourceDelegatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListResourceDelegates)
 
 responseDisassociateDelegateFromResource :: DisassociateDelegateFromResourceResponse -> TestTree
 responseDisassociateDelegateFromResource =
@@ -697,6 +757,14 @@ responseListGroups =
     defaultService
     (Proxy :: Proxy ListGroups)
 
+responseCreateResource :: CreateResourceResponse -> TestTree
+responseCreateResource =
+  res
+    "CreateResourceResponse"
+    "fixture/CreateResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateResource)
+
 responseListMailboxExportJobs :: ListMailboxExportJobsResponse -> TestTree
 responseListMailboxExportJobs =
   res
@@ -713,14 +781,6 @@ responseDescribeOrganization =
     defaultService
     (Proxy :: Proxy DescribeOrganization)
 
-responseCreateResource :: CreateResourceResponse -> TestTree
-responseCreateResource =
-  res
-    "CreateResourceResponse"
-    "fixture/CreateResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateResource)
-
 responseUpdateResource :: UpdateResourceResponse -> TestTree
 responseUpdateResource =
   res
@@ -728,14 +788,6 @@ responseUpdateResource =
     "fixture/UpdateResourceResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateResource)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
 
 responseDeleteResource :: DeleteResourceResponse -> TestTree
 responseDeleteResource =
@@ -745,6 +797,14 @@ responseDeleteResource =
     defaultService
     (Proxy :: Proxy DeleteResource)
 
+responseListMobileDeviceAccessRules :: ListMobileDeviceAccessRulesResponse -> TestTree
+responseListMobileDeviceAccessRules =
+  res
+    "ListMobileDeviceAccessRulesResponse"
+    "fixture/ListMobileDeviceAccessRulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMobileDeviceAccessRules)
+
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
   res
@@ -752,6 +812,14 @@ responseCreateGroup =
     "fixture/CreateGroupResponse.proto"
     defaultService
     (Proxy :: Proxy CreateGroup)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -769,14 +837,6 @@ responseAssociateMemberToGroup =
     defaultService
     (Proxy :: Proxy AssociateMemberToGroup)
 
-responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
-    "CreateUserResponse"
-    "fixture/CreateUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateUser)
-
 responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
 responsePutRetentionPolicy =
   res
@@ -784,6 +844,14 @@ responsePutRetentionPolicy =
     "fixture/PutRetentionPolicyResponse.proto"
     defaultService
     (Proxy :: Proxy PutRetentionPolicy)
+
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
+  res
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUser)
 
 responsePutMailboxPermissions :: PutMailboxPermissionsResponse -> TestTree
 responsePutMailboxPermissions =
@@ -793,13 +861,13 @@ responsePutMailboxPermissions =
     defaultService
     (Proxy :: Proxy PutMailboxPermissions)
 
-responseAssociateDelegateToResource :: AssociateDelegateToResourceResponse -> TestTree
-responseAssociateDelegateToResource =
+responseGetMobileDeviceAccessEffect :: GetMobileDeviceAccessEffectResponse -> TestTree
+responseGetMobileDeviceAccessEffect =
   res
-    "AssociateDelegateToResourceResponse"
-    "fixture/AssociateDelegateToResourceResponse.proto"
+    "GetMobileDeviceAccessEffectResponse"
+    "fixture/GetMobileDeviceAccessEffectResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateDelegateToResource)
+    (Proxy :: Proxy GetMobileDeviceAccessEffect)
 
 responseRegisterToWorkMail :: RegisterToWorkMailResponse -> TestTree
 responseRegisterToWorkMail =
@@ -824,6 +892,14 @@ responseDescribeMailboxExportJob =
     "fixture/DescribeMailboxExportJobResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeMailboxExportJob)
+
+responseAssociateDelegateToResource :: AssociateDelegateToResourceResponse -> TestTree
+responseAssociateDelegateToResource =
+  res
+    "AssociateDelegateToResourceResponse"
+    "fixture/AssociateDelegateToResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateDelegateToResource)
 
 responseListOrganizations :: ListOrganizationsResponse -> TestTree
 responseListOrganizations =
@@ -873,21 +949,13 @@ responseCancelMailboxExportJob =
     defaultService
     (Proxy :: Proxy CancelMailboxExportJob)
 
-responseDeregisterFromWorkMail :: DeregisterFromWorkMailResponse -> TestTree
-responseDeregisterFromWorkMail =
+responseCreateMobileDeviceAccessRule :: CreateMobileDeviceAccessRuleResponse -> TestTree
+responseCreateMobileDeviceAccessRule =
   res
-    "DeregisterFromWorkMailResponse"
-    "fixture/DeregisterFromWorkMailResponse.proto"
+    "CreateMobileDeviceAccessRuleResponse"
+    "fixture/CreateMobileDeviceAccessRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterFromWorkMail)
-
-responseListGroupMembers :: ListGroupMembersResponse -> TestTree
-responseListGroupMembers =
-  res
-    "ListGroupMembersResponse"
-    "fixture/ListGroupMembersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListGroupMembers)
+    (Proxy :: Proxy CreateMobileDeviceAccessRule)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -897,6 +965,14 @@ responseDeleteGroup =
     defaultService
     (Proxy :: Proxy DeleteGroup)
 
+responseListGroupMembers :: ListGroupMembersResponse -> TestTree
+responseListGroupMembers =
+  res
+    "ListGroupMembersResponse"
+    "fixture/ListGroupMembersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListGroupMembers)
+
 responseListMailboxPermissions :: ListMailboxPermissionsResponse -> TestTree
 responseListMailboxPermissions =
   res
@@ -905,13 +981,13 @@ responseListMailboxPermissions =
     defaultService
     (Proxy :: Proxy ListMailboxPermissions)
 
-responseDisassociateMemberFromGroup :: DisassociateMemberFromGroupResponse -> TestTree
-responseDisassociateMemberFromGroup =
+responseDeregisterFromWorkMail :: DeregisterFromWorkMailResponse -> TestTree
+responseDeregisterFromWorkMail =
   res
-    "DisassociateMemberFromGroupResponse"
-    "fixture/DisassociateMemberFromGroupResponse.proto"
+    "DeregisterFromWorkMailResponse"
+    "fixture/DeregisterFromWorkMailResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateMemberFromGroup)
+    (Proxy :: Proxy DeregisterFromWorkMail)
 
 responseUpdateMailboxQuota :: UpdateMailboxQuotaResponse -> TestTree
 responseUpdateMailboxQuota =
@@ -921,6 +997,30 @@ responseUpdateMailboxQuota =
     defaultService
     (Proxy :: Proxy UpdateMailboxQuota)
 
+responseUpdateMobileDeviceAccessRule :: UpdateMobileDeviceAccessRuleResponse -> TestTree
+responseUpdateMobileDeviceAccessRule =
+  res
+    "UpdateMobileDeviceAccessRuleResponse"
+    "fixture/UpdateMobileDeviceAccessRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateMobileDeviceAccessRule)
+
+responseDeleteMobileDeviceAccessRule :: DeleteMobileDeviceAccessRuleResponse -> TestTree
+responseDeleteMobileDeviceAccessRule =
+  res
+    "DeleteMobileDeviceAccessRuleResponse"
+    "fixture/DeleteMobileDeviceAccessRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMobileDeviceAccessRule)
+
+responseDisassociateMemberFromGroup :: DisassociateMemberFromGroupResponse -> TestTree
+responseDisassociateMemberFromGroup =
+  res
+    "DisassociateMemberFromGroupResponse"
+    "fixture/DisassociateMemberFromGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateMemberFromGroup)
+
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
   res
@@ -928,22 +1028,6 @@ responseListResources =
     "fixture/ListResourcesResponse.proto"
     defaultService
     (Proxy :: Proxy ListResources)
-
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteUser)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListUsers)
 
 responseGetMailboxDetails :: GetMailboxDetailsResponse -> TestTree
 responseGetMailboxDetails =
@@ -953,13 +1037,21 @@ responseGetMailboxDetails =
     defaultService
     (Proxy :: Proxy GetMailboxDetails)
 
-responseDeleteMailboxPermissions :: DeleteMailboxPermissionsResponse -> TestTree
-responseDeleteMailboxPermissions =
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
   res
-    "DeleteMailboxPermissionsResponse"
-    "fixture/DeleteMailboxPermissionsResponse.proto"
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteMailboxPermissions)
+    (Proxy :: Proxy ListUsers)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUser)
 
 responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
 responseDeleteRetentionPolicy =
@@ -968,6 +1060,30 @@ responseDeleteRetentionPolicy =
     "fixture/DeleteRetentionPolicyResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteRetentionPolicy)
+
+responseDeleteMailboxPermissions :: DeleteMailboxPermissionsResponse -> TestTree
+responseDeleteMailboxPermissions =
+  res
+    "DeleteMailboxPermissionsResponse"
+    "fixture/DeleteMailboxPermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMailboxPermissions)
+
+responseResetPassword :: ResetPasswordResponse -> TestTree
+responseResetPassword =
+  res
+    "ResetPasswordResponse"
+    "fixture/ResetPasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResetPassword)
+
+responseListAliases :: ListAliasesResponse -> TestTree
+responseListAliases =
+  res
+    "ListAliasesResponse"
+    "fixture/ListAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAliases)
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
 responseDescribeGroup =
@@ -985,14 +1101,6 @@ responseListTagsForResource =
     defaultService
     (Proxy :: Proxy ListTagsForResource)
 
-responseCreateAlias :: CreateAliasResponse -> TestTree
-responseCreateAlias =
-  res
-    "CreateAliasResponse"
-    "fixture/CreateAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateAlias)
-
 responseGetAccessControlEffect :: GetAccessControlEffectResponse -> TestTree
 responseGetAccessControlEffect =
   res
@@ -1001,18 +1109,10 @@ responseGetAccessControlEffect =
     defaultService
     (Proxy :: Proxy GetAccessControlEffect)
 
-responseListAliases :: ListAliasesResponse -> TestTree
-responseListAliases =
+responseCreateAlias :: CreateAliasResponse -> TestTree
+responseCreateAlias =
   res
-    "ListAliasesResponse"
-    "fixture/ListAliasesResponse.proto"
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAliases)
-
-responseResetPassword :: ResetPasswordResponse -> TestTree
-responseResetPassword =
-  res
-    "ResetPasswordResponse"
-    "fixture/ResetPasswordResponse.proto"
-    defaultService
-    (Proxy :: Proxy ResetPassword)
+    (Proxy :: Proxy CreateAlias)

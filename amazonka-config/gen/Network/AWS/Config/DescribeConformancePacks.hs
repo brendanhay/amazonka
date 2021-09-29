@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of one or more conformance packs.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConformancePacks
   ( -- * Creating a Request
     DescribeConformancePacks (..),
@@ -55,8 +57,8 @@ data DescribeConformancePacks = DescribeConformancePacks'
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Comma-separated list of conformance pack names for which you want
-    -- details. If you do not specify any names, AWS Config returns details for
-    -- all your conformance packs.
+    -- details. If you do not specify any names, Config returns details for all
+    -- your conformance packs.
     conformancePackNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of conformance packs returned on each page.
     limit :: Prelude.Maybe Prelude.Natural
@@ -75,8 +77,8 @@ data DescribeConformancePacks = DescribeConformancePacks'
 -- request the next page of results in a paginated response.
 --
 -- 'conformancePackNames', 'describeConformancePacks_conformancePackNames' - Comma-separated list of conformance pack names for which you want
--- details. If you do not specify any names, AWS Config returns details for
--- all your conformance packs.
+-- details. If you do not specify any names, Config returns details for all
+-- your conformance packs.
 --
 -- 'limit', 'describeConformancePacks_limit' - The maximum number of conformance packs returned on each page.
 newDescribeConformancePacks ::
@@ -95,14 +97,36 @@ describeConformancePacks_nextToken :: Lens.Lens' DescribeConformancePacks (Prelu
 describeConformancePacks_nextToken = Lens.lens (\DescribeConformancePacks' {nextToken} -> nextToken) (\s@DescribeConformancePacks' {} a -> s {nextToken = a} :: DescribeConformancePacks)
 
 -- | Comma-separated list of conformance pack names for which you want
--- details. If you do not specify any names, AWS Config returns details for
--- all your conformance packs.
+-- details. If you do not specify any names, Config returns details for all
+-- your conformance packs.
 describeConformancePacks_conformancePackNames :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe [Prelude.Text])
 describeConformancePacks_conformancePackNames = Lens.lens (\DescribeConformancePacks' {conformancePackNames} -> conformancePackNames) (\s@DescribeConformancePacks' {} a -> s {conformancePackNames = a} :: DescribeConformancePacks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of conformance packs returned on each page.
 describeConformancePacks_limit :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe Prelude.Natural)
 describeConformancePacks_limit = Lens.lens (\DescribeConformancePacks' {limit} -> limit) (\s@DescribeConformancePacks' {} a -> s {limit = a} :: DescribeConformancePacks)
+
+instance Core.AWSPager DescribeConformancePacks where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeConformancePacksResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeConformancePacksResponse_conformancePackDetails
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeConformancePacks_nextToken
+          Lens..~ rs
+          Lens.^? describeConformancePacksResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConformancePacks where
   type

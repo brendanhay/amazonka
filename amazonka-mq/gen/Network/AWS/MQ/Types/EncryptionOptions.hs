@@ -23,16 +23,19 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Encryption options for the broker.
+-- | Does not apply to RabbitMQ brokers.
+--
+-- Encryption options for the broker.
 --
 -- /See:/ 'newEncryptionOptions' smart constructor.
 data EncryptionOptions = EncryptionOptions'
-  { -- | The symmetric customer master key (CMK) to use for the AWS Key
-    -- Management Service (KMS). This key is used to encrypt your data at rest.
-    -- If not provided, Amazon MQ will use a default CMK to encrypt your data.
+  { -- | The customer master key (CMK) to use for the AWS Key Management Service
+    -- (KMS). This key is used to encrypt your data at rest. If not provided,
+    -- Amazon MQ will use a default CMK to encrypt your data.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Enables the use of an AWS owned CMK using AWS Key Management Service
-    -- (KMS).
+    -- (KMS). Set to true by default, if no value is provided, for example, for
+    -- RabbitMQ brokers.
     useAwsOwnedKey :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,12 +48,13 @@ data EncryptionOptions = EncryptionOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'encryptionOptions_kmsKeyId' - The symmetric customer master key (CMK) to use for the AWS Key
--- Management Service (KMS). This key is used to encrypt your data at rest.
--- If not provided, Amazon MQ will use a default CMK to encrypt your data.
+-- 'kmsKeyId', 'encryptionOptions_kmsKeyId' - The customer master key (CMK) to use for the AWS Key Management Service
+-- (KMS). This key is used to encrypt your data at rest. If not provided,
+-- Amazon MQ will use a default CMK to encrypt your data.
 --
 -- 'useAwsOwnedKey', 'encryptionOptions_useAwsOwnedKey' - Enables the use of an AWS owned CMK using AWS Key Management Service
--- (KMS).
+-- (KMS). Set to true by default, if no value is provided, for example, for
+-- RabbitMQ brokers.
 newEncryptionOptions ::
   -- | 'useAwsOwnedKey'
   Prelude.Bool ->
@@ -61,14 +65,15 @@ newEncryptionOptions pUseAwsOwnedKey_ =
       useAwsOwnedKey = pUseAwsOwnedKey_
     }
 
--- | The symmetric customer master key (CMK) to use for the AWS Key
--- Management Service (KMS). This key is used to encrypt your data at rest.
--- If not provided, Amazon MQ will use a default CMK to encrypt your data.
+-- | The customer master key (CMK) to use for the AWS Key Management Service
+-- (KMS). This key is used to encrypt your data at rest. If not provided,
+-- Amazon MQ will use a default CMK to encrypt your data.
 encryptionOptions_kmsKeyId :: Lens.Lens' EncryptionOptions (Prelude.Maybe Prelude.Text)
 encryptionOptions_kmsKeyId = Lens.lens (\EncryptionOptions' {kmsKeyId} -> kmsKeyId) (\s@EncryptionOptions' {} a -> s {kmsKeyId = a} :: EncryptionOptions)
 
 -- | Enables the use of an AWS owned CMK using AWS Key Management Service
--- (KMS).
+-- (KMS). Set to true by default, if no value is provided, for example, for
+-- RabbitMQ brokers.
 encryptionOptions_useAwsOwnedKey :: Lens.Lens' EncryptionOptions Prelude.Bool
 encryptionOptions_useAwsOwnedKey = Lens.lens (\EncryptionOptions' {useAwsOwnedKey} -> useAwsOwnedKey) (\s@EncryptionOptions' {} a -> s {useAwsOwnedKey = a} :: EncryptionOptions)
 

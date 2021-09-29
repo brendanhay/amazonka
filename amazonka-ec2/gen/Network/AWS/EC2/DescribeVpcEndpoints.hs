@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeVpcEndpoints
 
     -- * Request Lenses
     describeVpcEndpoints_nextToken,
-    describeVpcEndpoints_dryRun,
     describeVpcEndpoints_maxResults,
+    describeVpcEndpoints_dryRun,
     describeVpcEndpoints_filters,
     describeVpcEndpoints_vpcEndpointIds,
 
@@ -60,11 +60,6 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
   { -- | The token for the next set of items to return. (You received this token
     -- from a prior call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of items to return for this request. The request
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -72,6 +67,11 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
     -- Constraint: If the value is greater than 1,000, we return only 1,000
     -- items.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @service-name@ - The name of the service.
@@ -113,17 +113,17 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 -- 'nextToken', 'describeVpcEndpoints_nextToken' - The token for the next set of items to return. (You received this token
 -- from a prior call.)
 --
--- 'dryRun', 'describeVpcEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeVpcEndpoints_maxResults' - The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
 -- Constraint: If the value is greater than 1,000, we return only 1,000
 -- items.
+--
+-- 'dryRun', 'describeVpcEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcEndpoints_filters' - One or more filters.
 --
@@ -156,8 +156,8 @@ newDescribeVpcEndpoints ::
 newDescribeVpcEndpoints =
   DescribeVpcEndpoints'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       vpcEndpointIds = Prelude.Nothing
     }
@@ -167,13 +167,6 @@ newDescribeVpcEndpoints =
 describeVpcEndpoints_nextToken :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Text)
 describeVpcEndpoints_nextToken = Lens.lens (\DescribeVpcEndpoints' {nextToken} -> nextToken) (\s@DescribeVpcEndpoints' {} a -> s {nextToken = a} :: DescribeVpcEndpoints)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpoints_dryRun :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Bool)
-describeVpcEndpoints_dryRun = Lens.lens (\DescribeVpcEndpoints' {dryRun} -> dryRun) (\s@DescribeVpcEndpoints' {} a -> s {dryRun = a} :: DescribeVpcEndpoints)
-
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
@@ -182,6 +175,13 @@ describeVpcEndpoints_dryRun = Lens.lens (\DescribeVpcEndpoints' {dryRun} -> dryR
 -- items.
 describeVpcEndpoints_maxResults :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Int)
 describeVpcEndpoints_maxResults = Lens.lens (\DescribeVpcEndpoints' {maxResults} -> maxResults) (\s@DescribeVpcEndpoints' {} a -> s {maxResults = a} :: DescribeVpcEndpoints)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcEndpoints_dryRun :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Bool)
+describeVpcEndpoints_dryRun = Lens.lens (\DescribeVpcEndpoints' {dryRun} -> dryRun) (\s@DescribeVpcEndpoints' {} a -> s {dryRun = a} :: DescribeVpcEndpoints)
 
 -- | One or more filters.
 --
@@ -270,8 +270,8 @@ instance Core.ToQuery DescribeVpcEndpoints where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery

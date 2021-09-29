@@ -28,11 +28,11 @@ import Network.AWS.RDS.Types.Option
 --
 -- /See:/ 'newOptionGroup' smart constructor.
 data OptionGroup = OptionGroup'
-  { -- | Indicates the name of the engine that this option group can be applied
+  { -- | The Amazon Resource Name (ARN) for the option group.
+    optionGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the name of the engine that this option group can be applied
     -- to.
     engineName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the option group.
-    optionGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this option group can be applied to both VPC and
     -- non-VPC instances. The value @true@ indicates the option group can be
     -- applied to both VPC and non-VPC instances.
@@ -63,10 +63,10 @@ data OptionGroup = OptionGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'optionGroupArn', 'optionGroup_optionGroupArn' - The Amazon Resource Name (ARN) for the option group.
+--
 -- 'engineName', 'optionGroup_engineName' - Indicates the name of the engine that this option group can be applied
 -- to.
---
--- 'optionGroupArn', 'optionGroup_optionGroupArn' - The Amazon Resource Name (ARN) for the option group.
 --
 -- 'allowsVpcAndNonVpcInstanceMemberships', 'optionGroup_allowsVpcAndNonVpcInstanceMemberships' - Indicates whether this option group can be applied to both VPC and
 -- non-VPC instances. The value @true@ indicates the option group can be
@@ -90,8 +90,8 @@ newOptionGroup ::
   OptionGroup
 newOptionGroup =
   OptionGroup'
-    { engineName = Prelude.Nothing,
-      optionGroupArn = Prelude.Nothing,
+    { optionGroupArn = Prelude.Nothing,
+      engineName = Prelude.Nothing,
       allowsVpcAndNonVpcInstanceMemberships =
         Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
@@ -101,14 +101,14 @@ newOptionGroup =
       vpcId = Prelude.Nothing
     }
 
+-- | The Amazon Resource Name (ARN) for the option group.
+optionGroup_optionGroupArn :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
+optionGroup_optionGroupArn = Lens.lens (\OptionGroup' {optionGroupArn} -> optionGroupArn) (\s@OptionGroup' {} a -> s {optionGroupArn = a} :: OptionGroup)
+
 -- | Indicates the name of the engine that this option group can be applied
 -- to.
 optionGroup_engineName :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
 optionGroup_engineName = Lens.lens (\OptionGroup' {engineName} -> engineName) (\s@OptionGroup' {} a -> s {engineName = a} :: OptionGroup)
-
--- | The Amazon Resource Name (ARN) for the option group.
-optionGroup_optionGroupArn :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
-optionGroup_optionGroupArn = Lens.lens (\OptionGroup' {optionGroupArn} -> optionGroupArn) (\s@OptionGroup' {} a -> s {optionGroupArn = a} :: OptionGroup)
 
 -- | Indicates whether this option group can be applied to both VPC and
 -- non-VPC instances. The value @true@ indicates the option group can be
@@ -144,8 +144,8 @@ optionGroup_vpcId = Lens.lens (\OptionGroup' {vpcId} -> vpcId) (\s@OptionGroup' 
 instance Core.FromXML OptionGroup where
   parseXML x =
     OptionGroup'
-      Prelude.<$> (x Core..@? "EngineName")
-      Prelude.<*> (x Core..@? "OptionGroupArn")
+      Prelude.<$> (x Core..@? "OptionGroupArn")
+      Prelude.<*> (x Core..@? "EngineName")
       Prelude.<*> (x Core..@? "AllowsVpcAndNonVpcInstanceMemberships")
       Prelude.<*> (x Core..@? "OptionGroupName")
       Prelude.<*> ( x Core..@? "Options" Core..!@ Prelude.mempty

@@ -44,13 +44,13 @@ data EbsBlockDevice = EbsBlockDevice'
     -- volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
     -- specified in the AMI attributes to set IOPS to 50 x (volume size).
     volumeType :: Prelude.Maybe VolumeType,
-    -- | The volume size, in GiB. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
-    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS) that the volume
     -- supports. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The volume size, in GiB. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+    volumeSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,11 +75,11 @@ data EbsBlockDevice = EbsBlockDevice'
 -- volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
 -- specified in the AMI attributes to set IOPS to 50 x (volume size).
 --
--- 'volumeSize', 'ebsBlockDevice_volumeSize' - The volume size, in GiB. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
---
 -- 'iops', 'ebsBlockDevice_iops' - The number of I\/O operations per second (IOPS) that the volume
 -- supports. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+--
+-- 'volumeSize', 'ebsBlockDevice_volumeSize' - The volume size, in GiB. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
 newEbsBlockDevice ::
   EbsBlockDevice
@@ -89,8 +89,8 @@ newEbsBlockDevice =
         Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iops = Prelude.Nothing,
+      volumeSize = Prelude.Nothing
     }
 
 -- | Whether the volume is deleted on instance termination.
@@ -112,16 +112,16 @@ ebsBlockDevice_snapshotId = Lens.lens (\EbsBlockDevice' {snapshotId} -> snapshot
 ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeType)
 ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeType) (\s@EbsBlockDevice' {} a -> s {volumeType = a} :: EbsBlockDevice)
 
--- | The volume size, in GiB. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
-ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
-ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
-
 -- | The number of I\/O operations per second (IOPS) that the volume
 -- supports. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
 ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
+
+-- | The volume size, in GiB. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
+ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
 
 instance Core.FromJSON EbsBlockDevice where
   parseJSON =
@@ -132,8 +132,8 @@ instance Core.FromJSON EbsBlockDevice where
             Prelude.<$> (x Core..:? "DeleteOnTermination")
             Prelude.<*> (x Core..:? "SnapshotId")
             Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeSize")
             Prelude.<*> (x Core..:? "Iops")
+            Prelude.<*> (x Core..:? "VolumeSize")
       )
 
 instance Prelude.Hashable EbsBlockDevice
@@ -148,7 +148,7 @@ instance Core.ToJSON EbsBlockDevice where
               Prelude.<$> deleteOnTermination,
             ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("VolumeSize" Core..=) Prelude.<$> volumeSize,
-            ("Iops" Core..=) Prelude.<$> iops
+            ("Iops" Core..=) Prelude.<$> iops,
+            ("VolumeSize" Core..=) Prelude.<$> volumeSize
           ]
       )

@@ -25,10 +25,11 @@
 -- user\'s signing certificate as part of a certificate rotation work flow.
 --
 -- If the @UserName@ field is not specified, the user name is determined
--- implicitly based on the AWS access key ID used to sign the request. This
--- operation works for access keys under the AWS account. Consequently, you
--- can use this operation to manage AWS account root user credentials even
--- if the AWS account has no associated users.
+-- implicitly based on the Amazon Web Services access key ID used to sign
+-- the request. This operation works for access keys under the Amazon Web
+-- Services account. Consequently, you can use this operation to manage
+-- Amazon Web Services account root user credentials even if the Amazon Web
+-- Services account has no associated users.
 module Network.AWS.IAM.UpdateSigningCertificate
   ( -- * Creating a Request
     UpdateSigningCertificate (..),
@@ -68,8 +69,8 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
     -- that can consist of any upper or lowercased letter or digit.
     certificateId :: Prelude.Text,
     -- | The status you want to assign to the certificate. @Active@ means that
-    -- the certificate can be used for programmatic calls to AWS @Inactive@
-    -- means that the certificate cannot be used.
+    -- the certificate can be used for programmatic calls to Amazon Web
+    -- Services @Inactive@ means that the certificate cannot be used.
     status :: StatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,8 +97,8 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
 -- that can consist of any upper or lowercased letter or digit.
 --
 -- 'status', 'updateSigningCertificate_status' - The status you want to assign to the certificate. @Active@ means that
--- the certificate can be used for programmatic calls to AWS @Inactive@
--- means that the certificate cannot be used.
+-- the certificate can be used for programmatic calls to Amazon Web
+-- Services @Inactive@ means that the certificate cannot be used.
 newUpdateSigningCertificate ::
   -- | 'certificateId'
   Prelude.Text ->
@@ -130,8 +131,8 @@ updateSigningCertificate_certificateId :: Lens.Lens' UpdateSigningCertificate Pr
 updateSigningCertificate_certificateId = Lens.lens (\UpdateSigningCertificate' {certificateId} -> certificateId) (\s@UpdateSigningCertificate' {} a -> s {certificateId = a} :: UpdateSigningCertificate)
 
 -- | The status you want to assign to the certificate. @Active@ means that
--- the certificate can be used for programmatic calls to AWS @Inactive@
--- means that the certificate cannot be used.
+-- the certificate can be used for programmatic calls to Amazon Web
+-- Services @Inactive@ means that the certificate cannot be used.
 updateSigningCertificate_status :: Lens.Lens' UpdateSigningCertificate StatusType
 updateSigningCertificate_status = Lens.lens (\UpdateSigningCertificate' {status} -> status) (\s@UpdateSigningCertificate' {} a -> s {status = a} :: UpdateSigningCertificate)
 

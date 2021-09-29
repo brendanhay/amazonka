@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A parameter label is a user-defined alias to help you manage different
--- versions of a parameter. When you modify a parameter, Systems Manager
--- automatically saves a new version and increments the version number by
--- one. A label can help you remember the purpose of a parameter when there
--- are multiple versions.
+-- versions of a parameter. When you modify a parameter, Amazon Web
+-- Services Systems Manager automatically saves a new version and
+-- increments the version number by one. A label can help you remember the
+-- purpose of a parameter when there are multiple versions.
 --
 -- Parameter labels have the following requirements and restrictions.
 --
@@ -39,18 +39,17 @@
 -- -   You can\'t create a label when you create a new parameter. You must
 --     attach a label to a specific version of a parameter.
 --
--- -   You can\'t delete a parameter label. If you no longer want to use a
---     parameter label, then you must move it to a different version of a
---     parameter.
+-- -   If you no longer want to use a parameter label, then you can either
+--     delete it or move it to a different version of a parameter.
 --
 -- -   A label can have a maximum of 100 characters.
 --
 -- -   Labels can contain letters (case sensitive), numbers, periods (.),
 --     hyphens (-), or underscores (_).
 --
--- -   Labels can\'t begin with a number, \"aws,\" or \"ssm\" (not case
+-- -   Labels can\'t begin with a number, \"@aws@\" or \"@ssm@\" (not case
 --     sensitive). If a label fails to meet these requirements, then the
---     label is not associated with a parameter and the system displays it
+--     label isn\'t associated with a parameter and the system displays it
 --     in the list of InvalidLabels.
 module Network.AWS.SSM.LabelParameterVersion
   ( -- * Creating a Request
@@ -188,10 +187,10 @@ instance Core.ToQuery LabelParameterVersion where
 
 -- | /See:/ 'newLabelParameterVersionResponse' smart constructor.
 data LabelParameterVersionResponse = LabelParameterVersionResponse'
-  { -- | The label does not meet the requirements. For information about
+  { -- | The label doesn\'t meet the requirements. For information about
     -- parameter label requirements, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     invalidLabels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The version of the parameter that has been labeled.
     parameterVersion :: Prelude.Maybe Prelude.Integer,
@@ -208,10 +207,10 @@ data LabelParameterVersionResponse = LabelParameterVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invalidLabels', 'labelParameterVersionResponse_invalidLabels' - The label does not meet the requirements. For information about
+-- 'invalidLabels', 'labelParameterVersionResponse_invalidLabels' - The label doesn\'t meet the requirements. For information about
 -- parameter label requirements, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'parameterVersion', 'labelParameterVersionResponse_parameterVersion' - The version of the parameter that has been labeled.
 --
@@ -228,10 +227,10 @@ newLabelParameterVersionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The label does not meet the requirements. For information about
+-- | The label doesn\'t meet the requirements. For information about
 -- parameter label requirements, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 labelParameterVersionResponse_invalidLabels :: Lens.Lens' LabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 labelParameterVersionResponse_invalidLabels = Lens.lens (\LabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@LabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: LabelParameterVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 

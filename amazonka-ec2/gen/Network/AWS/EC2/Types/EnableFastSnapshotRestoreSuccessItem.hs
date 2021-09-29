@@ -29,12 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEnableFastSnapshotRestoreSuccessItem' smart constructor.
 data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem'
-  { -- | The AWS owner alias that enabled fast snapshot restores on the snapshot.
-    -- This is intended for future use.
+  { -- | The Amazon Web Services owner alias that enabled fast snapshot restores
+    -- on the snapshot. This is intended for future use.
     ownerAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account that enabled fast snapshot restores on the
-    -- snapshot.
-    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The reason for the state transition. The possible values are as follows:
     --
     -- -   @Client.UserInitiated@ - The state successfully transitioned to
@@ -43,12 +40,15 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
     -- -   @Client.UserInitiated - Lifecycle state transition@ - The state
     --     successfully transitioned to @optimizing@, @enabled@, or @disabled@.
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that enabled fast snapshot
+    -- restores on the snapshot.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The time at which fast snapshot restores entered the @optimizing@ state.
     optimizingTime :: Prelude.Maybe Core.ISO8601,
-    -- | The state of fast snapshot restores.
-    state :: Prelude.Maybe FastSnapshotRestoreStateCode,
     -- | The Availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The state of fast snapshot restores.
+    state :: Prelude.Maybe FastSnapshotRestoreStateCode,
     -- | The time at which fast snapshot restores entered the @disabling@ state.
     disablingTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the snapshot.
@@ -70,11 +70,8 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerAlias', 'enableFastSnapshotRestoreSuccessItem_ownerAlias' - The AWS owner alias that enabled fast snapshot restores on the snapshot.
--- This is intended for future use.
---
--- 'ownerId', 'enableFastSnapshotRestoreSuccessItem_ownerId' - The ID of the AWS account that enabled fast snapshot restores on the
--- snapshot.
+-- 'ownerAlias', 'enableFastSnapshotRestoreSuccessItem_ownerAlias' - The Amazon Web Services owner alias that enabled fast snapshot restores
+-- on the snapshot. This is intended for future use.
 --
 -- 'stateTransitionReason', 'enableFastSnapshotRestoreSuccessItem_stateTransitionReason' - The reason for the state transition. The possible values are as follows:
 --
@@ -84,11 +81,14 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
 -- -   @Client.UserInitiated - Lifecycle state transition@ - The state
 --     successfully transitioned to @optimizing@, @enabled@, or @disabled@.
 --
+-- 'ownerId', 'enableFastSnapshotRestoreSuccessItem_ownerId' - The ID of the Amazon Web Services account that enabled fast snapshot
+-- restores on the snapshot.
+--
 -- 'optimizingTime', 'enableFastSnapshotRestoreSuccessItem_optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.
 --
--- 'state', 'enableFastSnapshotRestoreSuccessItem_state' - The state of fast snapshot restores.
---
 -- 'availabilityZone', 'enableFastSnapshotRestoreSuccessItem_availabilityZone' - The Availability Zone.
+--
+-- 'state', 'enableFastSnapshotRestoreSuccessItem_state' - The state of fast snapshot restores.
 --
 -- 'disablingTime', 'enableFastSnapshotRestoreSuccessItem_disablingTime' - The time at which fast snapshot restores entered the @disabling@ state.
 --
@@ -105,12 +105,12 @@ newEnableFastSnapshotRestoreSuccessItem =
   EnableFastSnapshotRestoreSuccessItem'
     { ownerAlias =
         Prelude.Nothing,
-      ownerId = Prelude.Nothing,
       stateTransitionReason =
         Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       optimizingTime = Prelude.Nothing,
-      state = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      state = Prelude.Nothing,
       disablingTime = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       enablingTime = Prelude.Nothing,
@@ -118,15 +118,10 @@ newEnableFastSnapshotRestoreSuccessItem =
       disabledTime = Prelude.Nothing
     }
 
--- | The AWS owner alias that enabled fast snapshot restores on the snapshot.
--- This is intended for future use.
+-- | The Amazon Web Services owner alias that enabled fast snapshot restores
+-- on the snapshot. This is intended for future use.
 enableFastSnapshotRestoreSuccessItem_ownerAlias :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreSuccessItem_ownerAlias = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {ownerAlias} -> ownerAlias) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {ownerAlias = a} :: EnableFastSnapshotRestoreSuccessItem)
-
--- | The ID of the AWS account that enabled fast snapshot restores on the
--- snapshot.
-enableFastSnapshotRestoreSuccessItem_ownerId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
-enableFastSnapshotRestoreSuccessItem_ownerId = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {ownerId} -> ownerId) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {ownerId = a} :: EnableFastSnapshotRestoreSuccessItem)
 
 -- | The reason for the state transition. The possible values are as follows:
 --
@@ -138,17 +133,22 @@ enableFastSnapshotRestoreSuccessItem_ownerId = Lens.lens (\EnableFastSnapshotRes
 enableFastSnapshotRestoreSuccessItem_stateTransitionReason :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreSuccessItem_stateTransitionReason = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {stateTransitionReason} -> stateTransitionReason) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {stateTransitionReason = a} :: EnableFastSnapshotRestoreSuccessItem)
 
+-- | The ID of the Amazon Web Services account that enabled fast snapshot
+-- restores on the snapshot.
+enableFastSnapshotRestoreSuccessItem_ownerId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
+enableFastSnapshotRestoreSuccessItem_ownerId = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {ownerId} -> ownerId) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {ownerId = a} :: EnableFastSnapshotRestoreSuccessItem)
+
 -- | The time at which fast snapshot restores entered the @optimizing@ state.
 enableFastSnapshotRestoreSuccessItem_optimizingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
 enableFastSnapshotRestoreSuccessItem_optimizingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {optimizingTime} -> optimizingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {optimizingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
 
--- | The state of fast snapshot restores.
-enableFastSnapshotRestoreSuccessItem_state :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe FastSnapshotRestoreStateCode)
-enableFastSnapshotRestoreSuccessItem_state = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {state} -> state) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {state = a} :: EnableFastSnapshotRestoreSuccessItem)
-
 -- | The Availability Zone.
 enableFastSnapshotRestoreSuccessItem_availabilityZone :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreSuccessItem_availabilityZone = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {availabilityZone} -> availabilityZone) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {availabilityZone = a} :: EnableFastSnapshotRestoreSuccessItem)
+
+-- | The state of fast snapshot restores.
+enableFastSnapshotRestoreSuccessItem_state :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe FastSnapshotRestoreStateCode)
+enableFastSnapshotRestoreSuccessItem_state = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {state} -> state) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {state = a} :: EnableFastSnapshotRestoreSuccessItem)
 
 -- | The time at which fast snapshot restores entered the @disabling@ state.
 enableFastSnapshotRestoreSuccessItem_disablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
@@ -177,11 +177,11 @@ instance
   parseXML x =
     EnableFastSnapshotRestoreSuccessItem'
       Prelude.<$> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "stateTransitionReason")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "optimizingTime")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "disablingTime")
       Prelude.<*> (x Core..@? "snapshotId")
       Prelude.<*> (x Core..@? "enablingTime")

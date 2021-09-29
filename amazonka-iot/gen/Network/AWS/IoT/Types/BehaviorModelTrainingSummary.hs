@@ -36,10 +36,10 @@ data BehaviorModelTrainingSummary = BehaviorModelTrainingSummary'
     modelStatus :: Prelude.Maybe ModelStatus,
     -- | The name of the behavior.
     behaviorName :: Prelude.Maybe Prelude.Text,
-    -- | The date a training model started collecting data.
-    trainingDataCollectionStartDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the security profile.
-    securityProfileName :: Prelude.Maybe Prelude.Text
+    securityProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The date a training model started collecting data.
+    trainingDataCollectionStartDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,9 +59,9 @@ data BehaviorModelTrainingSummary = BehaviorModelTrainingSummary'
 --
 -- 'behaviorName', 'behaviorModelTrainingSummary_behaviorName' - The name of the behavior.
 --
--- 'trainingDataCollectionStartDate', 'behaviorModelTrainingSummary_trainingDataCollectionStartDate' - The date a training model started collecting data.
---
 -- 'securityProfileName', 'behaviorModelTrainingSummary_securityProfileName' - The name of the security profile.
+--
+-- 'trainingDataCollectionStartDate', 'behaviorModelTrainingSummary_trainingDataCollectionStartDate' - The date a training model started collecting data.
 newBehaviorModelTrainingSummary ::
   BehaviorModelTrainingSummary
 newBehaviorModelTrainingSummary =
@@ -72,9 +72,9 @@ newBehaviorModelTrainingSummary =
         Prelude.Nothing,
       modelStatus = Prelude.Nothing,
       behaviorName = Prelude.Nothing,
+      securityProfileName = Prelude.Nothing,
       trainingDataCollectionStartDate =
-        Prelude.Nothing,
-      securityProfileName = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The date the model was last refreshed.
@@ -93,13 +93,13 @@ behaviorModelTrainingSummary_modelStatus = Lens.lens (\BehaviorModelTrainingSumm
 behaviorModelTrainingSummary_behaviorName :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.Text)
 behaviorModelTrainingSummary_behaviorName = Lens.lens (\BehaviorModelTrainingSummary' {behaviorName} -> behaviorName) (\s@BehaviorModelTrainingSummary' {} a -> s {behaviorName = a} :: BehaviorModelTrainingSummary)
 
--- | The date a training model started collecting data.
-behaviorModelTrainingSummary_trainingDataCollectionStartDate :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.UTCTime)
-behaviorModelTrainingSummary_trainingDataCollectionStartDate = Lens.lens (\BehaviorModelTrainingSummary' {trainingDataCollectionStartDate} -> trainingDataCollectionStartDate) (\s@BehaviorModelTrainingSummary' {} a -> s {trainingDataCollectionStartDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The name of the security profile.
 behaviorModelTrainingSummary_securityProfileName :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.Text)
 behaviorModelTrainingSummary_securityProfileName = Lens.lens (\BehaviorModelTrainingSummary' {securityProfileName} -> securityProfileName) (\s@BehaviorModelTrainingSummary' {} a -> s {securityProfileName = a} :: BehaviorModelTrainingSummary)
+
+-- | The date a training model started collecting data.
+behaviorModelTrainingSummary_trainingDataCollectionStartDate :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.UTCTime)
+behaviorModelTrainingSummary_trainingDataCollectionStartDate = Lens.lens (\BehaviorModelTrainingSummary' {trainingDataCollectionStartDate} -> trainingDataCollectionStartDate) (\s@BehaviorModelTrainingSummary' {} a -> s {trainingDataCollectionStartDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON BehaviorModelTrainingSummary where
   parseJSON =
@@ -111,8 +111,8 @@ instance Core.FromJSON BehaviorModelTrainingSummary where
             Prelude.<*> (x Core..:? "datapointsCollectionPercentage")
             Prelude.<*> (x Core..:? "modelStatus")
             Prelude.<*> (x Core..:? "behaviorName")
-            Prelude.<*> (x Core..:? "trainingDataCollectionStartDate")
             Prelude.<*> (x Core..:? "securityProfileName")
+            Prelude.<*> (x Core..:? "trainingDataCollectionStartDate")
       )
 
 instance

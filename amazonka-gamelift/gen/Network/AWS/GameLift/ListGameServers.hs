@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Retrieves information on all game servers that are currently active in a
 -- specified game server group. You can opt to sort the list by game server
@@ -32,19 +32,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   RegisterGameServer
---
--- -   ListGameServers
---
--- -   ClaimGameServer
---
--- -   DescribeGameServer
---
--- -   UpdateGameServer
---
--- -   DeregisterGameServer
+-- RegisterGameServer | ListGameServers | ClaimGameServer |
+-- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListGameServers
@@ -53,8 +45,8 @@ module Network.AWS.GameLift.ListGameServers
     newListGameServers,
 
     -- * Request Lenses
-    listGameServers_sortOrder,
     listGameServers_nextToken,
+    listGameServers_sortOrder,
     listGameServers_limit,
     listGameServers_gameServerGroupName,
 
@@ -78,19 +70,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListGameServers' smart constructor.
 data ListGameServers = ListGameServers'
-  { -- | Indicates how to sort the returned data based on game server
-    -- registration timestamp. Use ASCENDING to retrieve oldest game servers
-    -- first, or use DESCENDING to retrieve newest game servers first. If this
-    -- parameter is left empty, game servers are returned in no particular
+  { -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates how to sort the returned data based on game server
+    -- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
+    -- first, or use @DESCENDING@ to retrieve newest game servers first. If
+    -- this parameter is left empty, game servers are returned in no particular
     -- order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token that indicates the start of the next sequential segment of
-    -- results. Use the token returned with the previous call to this
-    -- operation. To start at the beginning of the result set, do not specify a
-    -- value.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential segments.
+    -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | An identifier for the game server group to retrieve a list of game
     -- servers from. Use either the GameServerGroup name or ARN value.
@@ -106,19 +97,18 @@ data ListGameServers = ListGameServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listGameServers_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+--
 -- 'sortOrder', 'listGameServers_sortOrder' - Indicates how to sort the returned data based on game server
--- registration timestamp. Use ASCENDING to retrieve oldest game servers
--- first, or use DESCENDING to retrieve newest game servers first. If this
--- parameter is left empty, game servers are returned in no particular
+-- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
+-- first, or use @DESCENDING@ to retrieve newest game servers first. If
+-- this parameter is left empty, game servers are returned in no particular
 -- order.
 --
--- 'nextToken', 'listGameServers_nextToken' - A token that indicates the start of the next sequential segment of
--- results. Use the token returned with the previous call to this
--- operation. To start at the beginning of the result set, do not specify a
--- value.
---
 -- 'limit', 'listGameServers_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential segments.
+-- @NextToken@ to get results as a set of sequential pages.
 --
 -- 'gameServerGroupName', 'listGameServers_gameServerGroupName' - An identifier for the game server group to retrieve a list of game
 -- servers from. Use either the GameServerGroup name or ARN value.
@@ -128,29 +118,28 @@ newListGameServers ::
   ListGameServers
 newListGameServers pGameServerGroupName_ =
   ListGameServers'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       limit = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
 
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+listGameServers_nextToken :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Text)
+listGameServers_nextToken = Lens.lens (\ListGameServers' {nextToken} -> nextToken) (\s@ListGameServers' {} a -> s {nextToken = a} :: ListGameServers)
+
 -- | Indicates how to sort the returned data based on game server
--- registration timestamp. Use ASCENDING to retrieve oldest game servers
--- first, or use DESCENDING to retrieve newest game servers first. If this
--- parameter is left empty, game servers are returned in no particular
+-- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
+-- first, or use @DESCENDING@ to retrieve newest game servers first. If
+-- this parameter is left empty, game servers are returned in no particular
 -- order.
 listGameServers_sortOrder :: Lens.Lens' ListGameServers (Prelude.Maybe SortOrder)
 listGameServers_sortOrder = Lens.lens (\ListGameServers' {sortOrder} -> sortOrder) (\s@ListGameServers' {} a -> s {sortOrder = a} :: ListGameServers)
 
--- | A token that indicates the start of the next sequential segment of
--- results. Use the token returned with the previous call to this
--- operation. To start at the beginning of the result set, do not specify a
--- value.
-listGameServers_nextToken :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Text)
-listGameServers_nextToken = Lens.lens (\ListGameServers' {nextToken} -> nextToken) (\s@ListGameServers' {} a -> s {nextToken = a} :: ListGameServers)
-
 -- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential segments.
+-- @NextToken@ to get results as a set of sequential pages.
 listGameServers_limit :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Natural)
 listGameServers_limit = Lens.lens (\ListGameServers' {limit} -> limit) (\s@ListGameServers' {} a -> s {limit = a} :: ListGameServers)
 
@@ -216,8 +205,8 @@ instance Core.ToJSON ListGameServers where
   toJSON ListGameServers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)

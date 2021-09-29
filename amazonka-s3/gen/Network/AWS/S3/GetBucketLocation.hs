@@ -28,6 +28,9 @@
 -- To use this implementation of the operation, you must be the bucket
 -- owner.
 --
+-- To use this API against an access point, provide the alias of the access
+-- point in place of the bucket name.
+--
 -- The following operations are related to @GetBucketLocation@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
@@ -61,7 +64,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketLocation' smart constructor.
 data GetBucketLocation = GetBucketLocation'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -78,7 +81,7 @@ data GetBucketLocation = GetBucketLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketLocation_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketLocation_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -94,7 +97,7 @@ newGetBucketLocation pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketLocation_expectedBucketOwner :: Lens.Lens' GetBucketLocation (Prelude.Maybe Prelude.Text)

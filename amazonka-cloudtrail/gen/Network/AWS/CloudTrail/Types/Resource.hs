@@ -30,9 +30,9 @@ data Resource = Resource'
   { -- | The type of a resource referenced by the event returned. When the
     -- resource type cannot be determined, null is returned. Some examples of
     -- resource types are: __Instance__ for EC2, __Trail__ for CloudTrail,
-    -- __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about
-    -- how to look up and filter events by the resource types supported for a
-    -- service, see
+    -- __DBInstance__ for Amazon RDS, and __AccessKey__ for IAM. To learn more
+    -- about how to look up and filter events by the resource types supported
+    -- for a service, see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events>.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource referenced by the event returned. These are
@@ -54,9 +54,9 @@ data Resource = Resource'
 -- 'resourceType', 'resource_resourceType' - The type of a resource referenced by the event returned. When the
 -- resource type cannot be determined, null is returned. Some examples of
 -- resource types are: __Instance__ for EC2, __Trail__ for CloudTrail,
--- __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about
--- how to look up and filter events by the resource types supported for a
--- service, see
+-- __DBInstance__ for Amazon RDS, and __AccessKey__ for IAM. To learn more
+-- about how to look up and filter events by the resource types supported
+-- for a service, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events>.
 --
 -- 'resourceName', 'resource_resourceName' - The name of the resource referenced by the event returned. These are
@@ -74,9 +74,9 @@ newResource =
 -- | The type of a resource referenced by the event returned. When the
 -- resource type cannot be determined, null is returned. Some examples of
 -- resource types are: __Instance__ for EC2, __Trail__ for CloudTrail,
--- __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about
--- how to look up and filter events by the resource types supported for a
--- service, see
+-- __DBInstance__ for Amazon RDS, and __AccessKey__ for IAM. To learn more
+-- about how to look up and filter events by the resource types supported
+-- for a service, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events>.
 resource_resourceType :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\s@Resource' {} a -> s {resourceType = a} :: Resource)

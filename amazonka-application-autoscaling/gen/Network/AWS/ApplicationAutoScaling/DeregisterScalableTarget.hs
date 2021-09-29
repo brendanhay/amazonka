@@ -54,9 +54,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterScalableTarget' smart constructor.
 data DeregisterScalableTarget = DeregisterScalableTarget'
-  { -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+  { -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
@@ -118,6 +118,10 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -125,11 +129,11 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -175,6 +179,12 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -187,9 +197,9 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceNamespace', 'deregisterScalableTarget_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'deregisterScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 --
 -- 'resourceId', 'deregisterScalableTarget_resourceId' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
@@ -252,17 +262,21 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'deregisterScalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -308,6 +322,12 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 newDeregisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -327,9 +347,9 @@ newDeregisterScalableTarget
         scalableDimension = pScalableDimension_
       }
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 deregisterScalableTarget_serviceNamespace :: Lens.Lens' DeregisterScalableTarget ServiceNamespace
 deregisterScalableTarget_serviceNamespace = Lens.lens (\DeregisterScalableTarget' {serviceNamespace} -> serviceNamespace) (\s@DeregisterScalableTarget' {} a -> s {serviceNamespace = a} :: DeregisterScalableTarget)
 
@@ -393,6 +413,10 @@ deregisterScalableTarget_serviceNamespace = Lens.lens (\DeregisterScalableTarget
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 deregisterScalableTarget_resourceId :: Lens.Lens' DeregisterScalableTarget Prelude.Text
 deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {resourceId} -> resourceId) (\s@DeregisterScalableTarget' {} a -> s {resourceId = a} :: DeregisterScalableTarget)
 
@@ -402,11 +426,11 @@ deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {res
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -452,6 +476,12 @@ deregisterScalableTarget_resourceId = Lens.lens (\DeregisterScalableTarget' {res
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 deregisterScalableTarget_scalableDimension :: Lens.Lens' DeregisterScalableTarget ScalableDimension
 deregisterScalableTarget_scalableDimension = Lens.lens (\DeregisterScalableTarget' {scalableDimension} -> scalableDimension) (\s@DeregisterScalableTarget' {} a -> s {scalableDimension = a} :: DeregisterScalableTarget)
 

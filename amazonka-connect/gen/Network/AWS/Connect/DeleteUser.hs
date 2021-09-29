@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the user.
     userId :: Prelude.Text
@@ -65,7 +66,8 @@ data DeleteUser = DeleteUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteUser_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'deleteUser_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'userId', 'deleteUser_userId' - The identifier of the user.
 newDeleteUser ::
@@ -80,7 +82,8 @@ newDeleteUser pInstanceId_ pUserId_ =
       userId = pUserId_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 deleteUser_instanceId :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_instanceId = Lens.lens (\DeleteUser' {instanceId} -> instanceId) (\s@DeleteUser' {} a -> s {instanceId = a} :: DeleteUser)
 

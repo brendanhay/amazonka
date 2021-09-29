@@ -29,9 +29,9 @@
 --
 -- You can specify an IAM role for your task with the @taskRoleArn@
 -- parameter. When you specify an IAM role for a task, its containers can
--- then use the latest versions of the AWS CLI or SDKs to make API requests
--- to the AWS services that are specified in the IAM policy associated with
--- the role. For more information, see
+-- then use the latest versions of the CLI or SDKs to make API requests to
+-- the Amazon Web Services services that are specified in the IAM policy
+-- associated with the role. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -53,15 +53,16 @@ module Network.AWS.ECS.RegisterTaskDefinition
     -- * Request Lenses
     registerTaskDefinition_taskRoleArn,
     registerTaskDefinition_memory,
-    registerTaskDefinition_pidMode,
     registerTaskDefinition_requiresCompatibilities,
-    registerTaskDefinition_executionRoleArn,
+    registerTaskDefinition_pidMode,
     registerTaskDefinition_volumes,
-    registerTaskDefinition_inferenceAccelerators,
+    registerTaskDefinition_executionRoleArn,
     registerTaskDefinition_placementConstraints,
+    registerTaskDefinition_inferenceAccelerators,
     registerTaskDefinition_proxyConfiguration,
     registerTaskDefinition_ipcMode,
     registerTaskDefinition_tags,
+    registerTaskDefinition_ephemeralStorage,
     registerTaskDefinition_cpu,
     registerTaskDefinition_networkMode,
     registerTaskDefinition_family,
@@ -125,6 +126,11 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
     --     Available @cpu@ values: 4096 (4 vCPU)
     memory :: Prelude.Maybe Prelude.Text,
+    -- | The task launch type that Amazon ECS should validate the task definition
+    -- against. A client exception is returned if the task definition doesn\'t
+    -- validate against the compatibilities specified. If no value is
+    -- specified, the parameter is omitted from the response.
+    requiresCompatibilities :: Prelude.Maybe [Compatibility],
     -- | The process namespace to use for the containers in the task. The valid
     -- values are @host@ or @task@. If @host@ is specified, then all containers
     -- within the tasks that specified the @host@ PID mode on the same
@@ -139,31 +145,37 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- of undesired process namespace expose. For more information, see
     -- <https://docs.docker.com/engine/security/security/ Docker security>.
     --
-    -- This parameter is not supported for Windows containers or tasks using
-    -- the Fargate launch type.
+    -- This parameter is not supported for Windows containers or tasks run on
+    -- Fargate.
     pidMode :: Prelude.Maybe PidMode,
-    -- | The task launch type that Amazon ECS should validate the task definition
-    -- against. This ensures that the task definition parameters are compatible
-    -- with the specified launch type. If no value is specified, it defaults to
-    -- @EC2@.
-    requiresCompatibilities :: Prelude.Maybe [Compatibility],
-    -- | The Amazon Resource Name (ARN) of the task execution role that grants
-    -- the Amazon ECS container agent permission to make AWS API calls on your
-    -- behalf. The task execution IAM role is required depending on the
-    -- requirements of your task. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of volume definitions in JSON format that containers in your task
     -- may use.
     volumes :: Prelude.Maybe [Volume],
-    -- | The Elastic Inference accelerators to use for the containers in the
-    -- task.
-    inferenceAccelerators :: Prelude.Maybe [InferenceAccelerator],
+    -- | The Amazon Resource Name (ARN) of the task execution role that grants
+    -- the Amazon ECS container agent permission to make Amazon Web Services
+    -- API calls on your behalf. The task execution IAM role is required
+    -- depending on the requirements of your task. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An array of placement constraint objects to use for the task. You can
     -- specify a maximum of 10 constraints per task (this limit includes
     -- constraints in the task definition and those specified at runtime).
     placementConstraints :: Prelude.Maybe [TaskDefinitionPlacementConstraint],
+    -- | The Elastic Inference accelerators to use for the containers in the
+    -- task.
+    inferenceAccelerators :: Prelude.Maybe [InferenceAccelerator],
+    -- | The configuration details for the App Mesh proxy.
+    --
+    -- For tasks hosted on Amazon EC2 instances, the container instances
+    -- require at least version @1.26.0@ of the container agent and at least
+    -- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+    -- configuration. If your container instances are launched from the Amazon
+    -- ECS-optimized AMI version @20190301@ or later, then they contain the
+    -- required versions of the container agent and @ecs-init@. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html Amazon ECS-optimized AMI versions>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
     proxyConfiguration :: Prelude.Maybe ProxyConfiguration,
     -- | The IPC resource namespace to use for the containers in the task. The
     -- valid values are @host@, @task@, or @none@. If @host@ is specified, then
@@ -195,8 +207,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- -   For tasks that use the @task@ IPC mode, IPC namespace related
     --     @systemControls@ will apply to all containers within a task.
     --
-    -- This parameter is not supported for Windows containers or tasks using
-    -- the Fargate launch type.
+    -- This parameter is not supported for Windows containers or tasks run on
+    -- Fargate.
     ipcMode :: Prelude.Maybe IpcMode,
     -- | The metadata that you apply to the task definition to help you
     -- categorize and organize them. Each tag consists of a key and an optional
@@ -222,11 +234,21 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | The amount of ephemeral storage to allocate for the task. This parameter
+    -- is used to expand the total amount of ephemeral storage available,
+    -- beyond the default amount, for tasks hosted on Fargate. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
+    -- in the /Amazon ECS User Guide for Fargate/.
+    --
+    -- This parameter is only supported for tasks hosted on Fargate using
+    -- platform version @1.4.0@ or later.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The number of CPU units used by the task. It can be expressed as an
     -- integer using CPU units, for example @1024@, or as a string using vCPUs,
     -- for example @1 vCPU@ or @1 vcpu@, in a task definition. String values
@@ -265,13 +287,14 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- mode is specified, the default is @bridge@.
     --
     -- For Amazon ECS tasks on Fargate, the @awsvpc@ network mode is required.
-    -- For Amazon ECS tasks on Amazon EC2 instances, any network mode can be
-    -- used. If the network mode is set to @none@, you cannot specify port
-    -- mappings in your container definitions, and the tasks containers do not
-    -- have external connectivity. The @host@ and @awsvpc@ network modes offer
-    -- the highest networking performance for containers because they use the
-    -- EC2 network stack instead of the virtualized network stack provided by
-    -- the @bridge@ mode.
+    -- For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can
+    -- be used. For Amazon ECS tasks on Amazon EC2 Windows instances,
+    -- @\<default>@ or @awsvpc@ can be used. If the network mode is set to
+    -- @none@, you cannot specify port mappings in your container definitions,
+    -- and the tasks containers do not have external connectivity. The @host@
+    -- and @awsvpc@ network modes offer the highest networking performance for
+    -- containers because they use the EC2 network stack instead of the
+    -- virtualized network stack provided by the @bridge@ mode.
     --
     -- With the @host@ and @awsvpc@ network modes, exposed container ports are
     -- mapped directly to the corresponding host port (for the @host@ network
@@ -290,19 +313,9 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
-    -- Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants
-    -- with the @ecs-init@ package, or AWS Fargate infrastructure support the
-    -- @awsvpc@ network mode.
-    --
     -- If the network mode is @host@, you cannot run multiple instantiations of
     -- the same task on a single container instance when port mappings are
     -- used.
-    --
-    -- Docker for Windows uses different network modes than Docker for Linux.
-    -- When you register a task definition with Windows containers, you must
-    -- not specify a network mode. If you use the console to register a task
-    -- definition with Windows containers, you must choose the @\<default>@
-    -- network mode object.
     --
     -- For more information, see
     -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
@@ -311,7 +324,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- | You must specify a @family@ for a task definition, which allows you to
     -- track multiple versions of the same task definition. The @family@ is
     -- used as a name for your task definition. Up to 255 letters (uppercase
-    -- and lowercase), numbers, and hyphens are allowed.
+    -- and lowercase), numbers, underscores, and hyphens are allowed.
     family :: Prelude.Text,
     -- | A list of container definitions in JSON format that describe the
     -- different containers that make up your task.
@@ -365,6 +378,11 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
 --
+-- 'requiresCompatibilities', 'registerTaskDefinition_requiresCompatibilities' - The task launch type that Amazon ECS should validate the task definition
+-- against. A client exception is returned if the task definition doesn\'t
+-- validate against the compatibilities specified. If no value is
+-- specified, the parameter is omitted from the response.
+--
 -- 'pidMode', 'registerTaskDefinition_pidMode' - The process namespace to use for the containers in the task. The valid
 -- values are @host@ or @task@. If @host@ is specified, then all containers
 -- within the tasks that specified the @host@ PID mode on the same
@@ -379,32 +397,37 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- of undesired process namespace expose. For more information, see
 -- <https://docs.docker.com/engine/security/security/ Docker security>.
 --
--- This parameter is not supported for Windows containers or tasks using
--- the Fargate launch type.
---
--- 'requiresCompatibilities', 'registerTaskDefinition_requiresCompatibilities' - The task launch type that Amazon ECS should validate the task definition
--- against. This ensures that the task definition parameters are compatible
--- with the specified launch type. If no value is specified, it defaults to
--- @EC2@.
---
--- 'executionRoleArn', 'registerTaskDefinition_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution role that grants
--- the Amazon ECS container agent permission to make AWS API calls on your
--- behalf. The task execution IAM role is required depending on the
--- requirements of your task. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
--- in the /Amazon Elastic Container Service Developer Guide/.
+-- This parameter is not supported for Windows containers or tasks run on
+-- Fargate.
 --
 -- 'volumes', 'registerTaskDefinition_volumes' - A list of volume definitions in JSON format that containers in your task
 -- may use.
 --
--- 'inferenceAccelerators', 'registerTaskDefinition_inferenceAccelerators' - The Elastic Inference accelerators to use for the containers in the
--- task.
+-- 'executionRoleArn', 'registerTaskDefinition_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution role that grants
+-- the Amazon ECS container agent permission to make Amazon Web Services
+-- API calls on your behalf. The task execution IAM role is required
+-- depending on the requirements of your task. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'placementConstraints', 'registerTaskDefinition_placementConstraints' - An array of placement constraint objects to use for the task. You can
 -- specify a maximum of 10 constraints per task (this limit includes
 -- constraints in the task definition and those specified at runtime).
 --
--- 'proxyConfiguration', 'registerTaskDefinition_proxyConfiguration' - Undocumented member.
+-- 'inferenceAccelerators', 'registerTaskDefinition_inferenceAccelerators' - The Elastic Inference accelerators to use for the containers in the
+-- task.
+--
+-- 'proxyConfiguration', 'registerTaskDefinition_proxyConfiguration' - The configuration details for the App Mesh proxy.
+--
+-- For tasks hosted on Amazon EC2 instances, the container instances
+-- require at least version @1.26.0@ of the container agent and at least
+-- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+-- configuration. If your container instances are launched from the Amazon
+-- ECS-optimized AMI version @20190301@ or later, then they contain the
+-- required versions of the container agent and @ecs-init@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html Amazon ECS-optimized AMI versions>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'ipcMode', 'registerTaskDefinition_ipcMode' - The IPC resource namespace to use for the containers in the task. The
 -- valid values are @host@, @task@, or @none@. If @host@ is specified, then
@@ -436,8 +459,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- -   For tasks that use the @task@ IPC mode, IPC namespace related
 --     @systemControls@ will apply to all containers within a task.
 --
--- This parameter is not supported for Windows containers or tasks using
--- the Fargate launch type.
+-- This parameter is not supported for Windows containers or tasks run on
+-- Fargate.
 --
 -- 'tags', 'registerTaskDefinition_tags' - The metadata that you apply to the task definition to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -463,10 +486,20 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
+--
+-- 'ephemeralStorage', 'registerTaskDefinition_ephemeralStorage' - The amount of ephemeral storage to allocate for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
+-- in the /Amazon ECS User Guide for Fargate/.
+--
+-- This parameter is only supported for tasks hosted on Fargate using
+-- platform version @1.4.0@ or later.
 --
 -- 'cpu', 'registerTaskDefinition_cpu' - The number of CPU units used by the task. It can be expressed as an
 -- integer using CPU units, for example @1024@, or as a string using vCPUs,
@@ -506,13 +539,14 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- mode is specified, the default is @bridge@.
 --
 -- For Amazon ECS tasks on Fargate, the @awsvpc@ network mode is required.
--- For Amazon ECS tasks on Amazon EC2 instances, any network mode can be
--- used. If the network mode is set to @none@, you cannot specify port
--- mappings in your container definitions, and the tasks containers do not
--- have external connectivity. The @host@ and @awsvpc@ network modes offer
--- the highest networking performance for containers because they use the
--- EC2 network stack instead of the virtualized network stack provided by
--- the @bridge@ mode.
+-- For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can
+-- be used. For Amazon ECS tasks on Amazon EC2 Windows instances,
+-- @\<default>@ or @awsvpc@ can be used. If the network mode is set to
+-- @none@, you cannot specify port mappings in your container definitions,
+-- and the tasks containers do not have external connectivity. The @host@
+-- and @awsvpc@ network modes offer the highest networking performance for
+-- containers because they use the EC2 network stack instead of the
+-- virtualized network stack provided by the @bridge@ mode.
 --
 -- With the @host@ and @awsvpc@ network modes, exposed container ports are
 -- mapped directly to the corresponding host port (for the @host@ network
@@ -531,19 +565,9 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants
--- with the @ecs-init@ package, or AWS Fargate infrastructure support the
--- @awsvpc@ network mode.
---
 -- If the network mode is @host@, you cannot run multiple instantiations of
 -- the same task on a single container instance when port mappings are
 -- used.
---
--- Docker for Windows uses different network modes than Docker for Linux.
--- When you register a task definition with Windows containers, you must
--- not specify a network mode. If you use the console to register a task
--- definition with Windows containers, you must choose the @\<default>@
--- network mode object.
 --
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
@@ -552,7 +576,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- 'family', 'registerTaskDefinition_family' - You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. The @family@ is
 -- used as a name for your task definition. Up to 255 letters (uppercase
--- and lowercase), numbers, and hyphens are allowed.
+-- and lowercase), numbers, underscores, and hyphens are allowed.
 --
 -- 'containerDefinitions', 'registerTaskDefinition_containerDefinitions' - A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
@@ -565,15 +589,16 @@ newRegisterTaskDefinition pFamily_ =
     { taskRoleArn =
         Prelude.Nothing,
       memory = Prelude.Nothing,
-      pidMode = Prelude.Nothing,
       requiresCompatibilities = Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
+      pidMode = Prelude.Nothing,
       volumes = Prelude.Nothing,
-      inferenceAccelerators = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
       placementConstraints = Prelude.Nothing,
+      inferenceAccelerators = Prelude.Nothing,
       proxyConfiguration = Prelude.Nothing,
       ipcMode = Prelude.Nothing,
       tags = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       cpu = Prelude.Nothing,
       networkMode = Prelude.Nothing,
       family = pFamily_,
@@ -622,6 +647,13 @@ registerTaskDefinition_taskRoleArn = Lens.lens (\RegisterTaskDefinition' {taskRo
 registerTaskDefinition_memory :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
 registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> memory) (\s@RegisterTaskDefinition' {} a -> s {memory = a} :: RegisterTaskDefinition)
 
+-- | The task launch type that Amazon ECS should validate the task definition
+-- against. A client exception is returned if the task definition doesn\'t
+-- validate against the compatibilities specified. If no value is
+-- specified, the parameter is omitted from the response.
+registerTaskDefinition_requiresCompatibilities :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Compatibility])
+registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@RegisterTaskDefinition' {} a -> s {requiresCompatibilities = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The process namespace to use for the containers in the task. The valid
 -- values are @host@ or @task@. If @host@ is specified, then all containers
 -- within the tasks that specified the @host@ PID mode on the same
@@ -636,36 +668,24 @@ registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> 
 -- of undesired process namespace expose. For more information, see
 -- <https://docs.docker.com/engine/security/security/ Docker security>.
 --
--- This parameter is not supported for Windows containers or tasks using
--- the Fargate launch type.
+-- This parameter is not supported for Windows containers or tasks run on
+-- Fargate.
 registerTaskDefinition_pidMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe PidMode)
 registerTaskDefinition_pidMode = Lens.lens (\RegisterTaskDefinition' {pidMode} -> pidMode) (\s@RegisterTaskDefinition' {} a -> s {pidMode = a} :: RegisterTaskDefinition)
-
--- | The task launch type that Amazon ECS should validate the task definition
--- against. This ensures that the task definition parameters are compatible
--- with the specified launch type. If no value is specified, it defaults to
--- @EC2@.
-registerTaskDefinition_requiresCompatibilities :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Compatibility])
-registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@RegisterTaskDefinition' {} a -> s {requiresCompatibilities = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Name (ARN) of the task execution role that grants
--- the Amazon ECS container agent permission to make AWS API calls on your
--- behalf. The task execution IAM role is required depending on the
--- requirements of your task. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
--- in the /Amazon Elastic Container Service Developer Guide/.
-registerTaskDefinition_executionRoleArn :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
-registerTaskDefinition_executionRoleArn = Lens.lens (\RegisterTaskDefinition' {executionRoleArn} -> executionRoleArn) (\s@RegisterTaskDefinition' {} a -> s {executionRoleArn = a} :: RegisterTaskDefinition)
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
 registerTaskDefinition_volumes :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Volume])
 registerTaskDefinition_volumes = Lens.lens (\RegisterTaskDefinition' {volumes} -> volumes) (\s@RegisterTaskDefinition' {} a -> s {volumes = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Elastic Inference accelerators to use for the containers in the
--- task.
-registerTaskDefinition_inferenceAccelerators :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [InferenceAccelerator])
-registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@RegisterTaskDefinition' {} a -> s {inferenceAccelerators = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of the task execution role that grants
+-- the Amazon ECS container agent permission to make Amazon Web Services
+-- API calls on your behalf. The task execution IAM role is required
+-- depending on the requirements of your task. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+registerTaskDefinition_executionRoleArn :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
+registerTaskDefinition_executionRoleArn = Lens.lens (\RegisterTaskDefinition' {executionRoleArn} -> executionRoleArn) (\s@RegisterTaskDefinition' {} a -> s {executionRoleArn = a} :: RegisterTaskDefinition)
 
 -- | An array of placement constraint objects to use for the task. You can
 -- specify a maximum of 10 constraints per task (this limit includes
@@ -673,7 +693,22 @@ registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinitio
 registerTaskDefinition_placementConstraints :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [TaskDefinitionPlacementConstraint])
 registerTaskDefinition_placementConstraints = Lens.lens (\RegisterTaskDefinition' {placementConstraints} -> placementConstraints) (\s@RegisterTaskDefinition' {} a -> s {placementConstraints = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
+-- | The Elastic Inference accelerators to use for the containers in the
+-- task.
+registerTaskDefinition_inferenceAccelerators :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [InferenceAccelerator])
+registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@RegisterTaskDefinition' {} a -> s {inferenceAccelerators = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The configuration details for the App Mesh proxy.
+--
+-- For tasks hosted on Amazon EC2 instances, the container instances
+-- require at least version @1.26.0@ of the container agent and at least
+-- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+-- configuration. If your container instances are launched from the Amazon
+-- ECS-optimized AMI version @20190301@ or later, then they contain the
+-- required versions of the container agent and @ecs-init@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html Amazon ECS-optimized AMI versions>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 registerTaskDefinition_proxyConfiguration :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe ProxyConfiguration)
 registerTaskDefinition_proxyConfiguration = Lens.lens (\RegisterTaskDefinition' {proxyConfiguration} -> proxyConfiguration) (\s@RegisterTaskDefinition' {} a -> s {proxyConfiguration = a} :: RegisterTaskDefinition)
 
@@ -707,8 +742,8 @@ registerTaskDefinition_proxyConfiguration = Lens.lens (\RegisterTaskDefinition' 
 -- -   For tasks that use the @task@ IPC mode, IPC namespace related
 --     @systemControls@ will apply to all containers within a task.
 --
--- This parameter is not supported for Windows containers or tasks using
--- the Fargate launch type.
+-- This parameter is not supported for Windows containers or tasks run on
+-- Fargate.
 registerTaskDefinition_ipcMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe IpcMode)
 registerTaskDefinition_ipcMode = Lens.lens (\RegisterTaskDefinition' {ipcMode} -> ipcMode) (\s@RegisterTaskDefinition' {} a -> s {ipcMode = a} :: RegisterTaskDefinition)
 
@@ -736,12 +771,24 @@ registerTaskDefinition_ipcMode = Lens.lens (\RegisterTaskDefinition' {ipcMode} -
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 registerTaskDefinition_tags :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Tag])
 registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags) (\s@RegisterTaskDefinition' {} a -> s {tags = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The amount of ephemeral storage to allocate for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
+-- in the /Amazon ECS User Guide for Fargate/.
+--
+-- This parameter is only supported for tasks hosted on Fargate using
+-- platform version @1.4.0@ or later.
+registerTaskDefinition_ephemeralStorage :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe EphemeralStorage)
+registerTaskDefinition_ephemeralStorage = Lens.lens (\RegisterTaskDefinition' {ephemeralStorage} -> ephemeralStorage) (\s@RegisterTaskDefinition' {} a -> s {ephemeralStorage = a} :: RegisterTaskDefinition)
 
 -- | The number of CPU units used by the task. It can be expressed as an
 -- integer using CPU units, for example @1024@, or as a string using vCPUs,
@@ -783,13 +830,14 @@ registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (
 -- mode is specified, the default is @bridge@.
 --
 -- For Amazon ECS tasks on Fargate, the @awsvpc@ network mode is required.
--- For Amazon ECS tasks on Amazon EC2 instances, any network mode can be
--- used. If the network mode is set to @none@, you cannot specify port
--- mappings in your container definitions, and the tasks containers do not
--- have external connectivity. The @host@ and @awsvpc@ network modes offer
--- the highest networking performance for containers because they use the
--- EC2 network stack instead of the virtualized network stack provided by
--- the @bridge@ mode.
+-- For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can
+-- be used. For Amazon ECS tasks on Amazon EC2 Windows instances,
+-- @\<default>@ or @awsvpc@ can be used. If the network mode is set to
+-- @none@, you cannot specify port mappings in your container definitions,
+-- and the tasks containers do not have external connectivity. The @host@
+-- and @awsvpc@ network modes offer the highest networking performance for
+-- containers because they use the EC2 network stack instead of the
+-- virtualized network stack provided by the @bridge@ mode.
 --
 -- With the @host@ and @awsvpc@ network modes, exposed container ports are
 -- mapped directly to the corresponding host port (for the @host@ network
@@ -808,19 +856,9 @@ registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- Currently, only Amazon ECS-optimized AMIs, other Amazon Linux variants
--- with the @ecs-init@ package, or AWS Fargate infrastructure support the
--- @awsvpc@ network mode.
---
 -- If the network mode is @host@, you cannot run multiple instantiations of
 -- the same task on a single container instance when port mappings are
 -- used.
---
--- Docker for Windows uses different network modes than Docker for Linux.
--- When you register a task definition with Windows containers, you must
--- not specify a network mode. If you use the console to register a task
--- definition with Windows containers, you must choose the @\<default>@
--- network mode object.
 --
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
@@ -831,7 +869,7 @@ registerTaskDefinition_networkMode = Lens.lens (\RegisterTaskDefinition' {networ
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. The @family@ is
 -- used as a name for your task definition. Up to 255 letters (uppercase
--- and lowercase), numbers, and hyphens are allowed.
+-- and lowercase), numbers, underscores, and hyphens are allowed.
 registerTaskDefinition_family :: Lens.Lens' RegisterTaskDefinition Prelude.Text
 registerTaskDefinition_family = Lens.lens (\RegisterTaskDefinition' {family} -> family) (\s@RegisterTaskDefinition' {} a -> s {family = a} :: RegisterTaskDefinition)
 
@@ -879,20 +917,22 @@ instance Core.ToJSON RegisterTaskDefinition where
       ( Prelude.catMaybes
           [ ("taskRoleArn" Core..=) Prelude.<$> taskRoleArn,
             ("memory" Core..=) Prelude.<$> memory,
-            ("pidMode" Core..=) Prelude.<$> pidMode,
             ("requiresCompatibilities" Core..=)
               Prelude.<$> requiresCompatibilities,
+            ("pidMode" Core..=) Prelude.<$> pidMode,
+            ("volumes" Core..=) Prelude.<$> volumes,
             ("executionRoleArn" Core..=)
               Prelude.<$> executionRoleArn,
-            ("volumes" Core..=) Prelude.<$> volumes,
-            ("inferenceAccelerators" Core..=)
-              Prelude.<$> inferenceAccelerators,
             ("placementConstraints" Core..=)
               Prelude.<$> placementConstraints,
+            ("inferenceAccelerators" Core..=)
+              Prelude.<$> inferenceAccelerators,
             ("proxyConfiguration" Core..=)
               Prelude.<$> proxyConfiguration,
             ("ipcMode" Core..=) Prelude.<$> ipcMode,
             ("tags" Core..=) Prelude.<$> tags,
+            ("ephemeralStorage" Core..=)
+              Prelude.<$> ephemeralStorage,
             ("cpu" Core..=) Prelude.<$> cpu,
             ("networkMode" Core..=) Prelude.<$> networkMode,
             Prelude.Just ("family" Core..= family),

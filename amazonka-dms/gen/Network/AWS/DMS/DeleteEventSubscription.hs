@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS DMS event subscription.
+-- Deletes an DMS event subscription.
 module Network.AWS.DMS.DeleteEventSubscription
   ( -- * Creating a Request
     DeleteEventSubscription (..),

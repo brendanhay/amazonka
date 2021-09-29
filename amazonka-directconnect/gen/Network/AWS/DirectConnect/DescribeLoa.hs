@@ -24,10 +24,11 @@
 -- group (LAG).
 --
 -- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA)
--- is a document that is used when establishing your cross connect to AWS
--- at the colocation facility. For more information, see
--- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations>
--- in the /AWS Direct Connect User Guide/.
+-- is a document that is used when establishing your cross connect to
+-- Amazon Web Services at the colocation facility. For more information,
+-- see
+-- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at Direct Connect Locations>
+-- in the /Direct Connect User Guide/.
 module Network.AWS.DirectConnect.DescribeLoa
   ( -- * Creating a Request
     DescribeLoa (..),

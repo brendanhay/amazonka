@@ -32,9 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 data StackSetOperationSummary = StackSetOperationSummary'
   { -- | The time at which the operation was initiated. Note that the creation
     -- times for the stack set operation might differ from the creation time of
-    -- the individual stacks themselves. This is because AWS CloudFormation
-    -- needs to perform preparatory work for the operation, such as dispatching
-    -- the work to the requested Regions, before actually creating the first
+    -- the individual stacks themselves. This is because CloudFormation needs
+    -- to perform preparatory work for the operation, such as dispatching the
+    -- work to the requested Regions, before actually creating the first
     -- stacks.
     creationTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The overall status of the operation.
@@ -45,14 +45,14 @@ data StackSetOperationSummary = StackSetOperationSummary'
     --     If the number of failed stacks within a Region exceeds the failure
     --     tolerance, the status of the operation in the Region is set to
     --     @FAILED@. This in turn sets the status of the operation as a whole
-    --     to @FAILED@, and AWS CloudFormation cancels the operation in any
+    --     to @FAILED@, and CloudFormation cancels the operation in any
     --     remaining Regions.
     --
     -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
     --     that require a sequence of operations, the operation is queued to be
     --     performed. For more information, see the
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
-    --     in the AWS CloudFormation User Guide.
+    --     in the CloudFormation User Guide.
     --
     -- -   @RUNNING@: The operation is currently being performed.
     --
@@ -90,9 +90,9 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --
 -- 'creationTimestamp', 'stackSetOperationSummary_creationTimestamp' - The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
--- the individual stacks themselves. This is because AWS CloudFormation
--- needs to perform preparatory work for the operation, such as dispatching
--- the work to the requested Regions, before actually creating the first
+-- the individual stacks themselves. This is because CloudFormation needs
+-- to perform preparatory work for the operation, such as dispatching the
+-- work to the requested Regions, before actually creating the first
 -- stacks.
 --
 -- 'status', 'stackSetOperationSummary_status' - The overall status of the operation.
@@ -103,14 +103,14 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --     If the number of failed stacks within a Region exceeds the failure
 --     tolerance, the status of the operation in the Region is set to
 --     @FAILED@. This in turn sets the status of the operation as a whole
---     to @FAILED@, and AWS CloudFormation cancels the operation in any
+--     to @FAILED@, and CloudFormation cancels the operation in any
 --     remaining Regions.
 --
 -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
 --     that require a sequence of operations, the operation is queued to be
 --     performed. For more information, see the
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
@@ -148,9 +148,9 @@ newStackSetOperationSummary =
 
 -- | The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
--- the individual stacks themselves. This is because AWS CloudFormation
--- needs to perform preparatory work for the operation, such as dispatching
--- the work to the requested Regions, before actually creating the first
+-- the individual stacks themselves. This is because CloudFormation needs
+-- to perform preparatory work for the operation, such as dispatching the
+-- work to the requested Regions, before actually creating the first
 -- stacks.
 stackSetOperationSummary_creationTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
 stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummary' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperationSummary' {} a -> s {creationTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
@@ -163,14 +163,14 @@ stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummar
 --     If the number of failed stacks within a Region exceeds the failure
 --     tolerance, the status of the operation in the Region is set to
 --     @FAILED@. This in turn sets the status of the operation as a whole
---     to @FAILED@, and AWS CloudFormation cancels the operation in any
+--     to @FAILED@, and CloudFormation cancels the operation in any
 --     remaining Regions.
 --
 -- -   @QUEUED@: [Service-managed permissions] For automatic deployments
 --     that require a sequence of operations, the operation is queued to be
 --     performed. For more information, see the
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes stack set operation status codes>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --

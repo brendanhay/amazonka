@@ -53,10 +53,10 @@ import Network.AWS.SageMaker.Types
 data CreateMonitoringSchedule = CreateMonitoringSchedule'
   { -- | (Optional) An array of key-value pairs. For more information, see
     -- <%20https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the monitoring schedule. The name must be unique within an
-    -- AWS Region within an AWS account.
+    -- Amazon Web Services Region within an Amazon Web Services account.
     monitoringScheduleName :: Prelude.Text,
     -- | The configuration object that specifies the monitoring schedule and
     -- defines the monitoring job.
@@ -74,10 +74,10 @@ data CreateMonitoringSchedule = CreateMonitoringSchedule'
 --
 -- 'tags', 'createMonitoringSchedule_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <%20https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'monitoringScheduleName', 'createMonitoringSchedule_monitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an
--- AWS Region within an AWS account.
+-- Amazon Web Services Region within an Amazon Web Services account.
 --
 -- 'monitoringScheduleConfig', 'createMonitoringSchedule_monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and
 -- defines the monitoring job.
@@ -99,12 +99,12 @@ newCreateMonitoringSchedule
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <%20https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createMonitoringSchedule_tags :: Lens.Lens' CreateMonitoringSchedule (Prelude.Maybe [Tag])
 createMonitoringSchedule_tags = Lens.lens (\CreateMonitoringSchedule' {tags} -> tags) (\s@CreateMonitoringSchedule' {} a -> s {tags = a} :: CreateMonitoringSchedule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the monitoring schedule. The name must be unique within an
--- AWS Region within an AWS account.
+-- Amazon Web Services Region within an Amazon Web Services account.
 createMonitoringSchedule_monitoringScheduleName :: Lens.Lens' CreateMonitoringSchedule Prelude.Text
 createMonitoringSchedule_monitoringScheduleName = Lens.lens (\CreateMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@CreateMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: CreateMonitoringSchedule)
 

@@ -27,17 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListDedicatedIpPools $
---             newListDedicatedIpPools
---
---         , requestPutEmailIdentityDkimAttributes $
+--         [ requestPutEmailIdentityDkimAttributes $
 --             newPutEmailIdentityDkimAttributes
+--
+--         , requestPutConfigurationSetDeliveryOptions $
+--             newPutConfigurationSetDeliveryOptions
+--
+--         , requestListDedicatedIpPools $
+--             newListDedicatedIpPools
 --
 --         , requestDeleteDedicatedIpPool $
 --             newDeleteDedicatedIpPool
 --
---         , requestPutConfigurationSetDeliveryOptions $
---             newPutConfigurationSetDeliveryOptions
+--         , requestGetImportJob $
+--             newGetImportJob
 --
 --         , requestCreateContact $
 --             newCreateContact
@@ -45,23 +48,11 @@ import Test.Tasty
 --         , requestPutConfigurationSetTrackingOptions $
 --             newPutConfigurationSetTrackingOptions
 --
---         , requestGetImportJob $
---             newGetImportJob
---
---         , requestPutAccountDedicatedIpWarmupAttributes $
---             newPutAccountDedicatedIpWarmupAttributes
---
 --         , requestGetDeliverabilityTestReport $
 --             newGetDeliverabilityTestReport
 --
---         , requestPutEmailIdentityConfigurationSetAttributes $
---             newPutEmailIdentityConfigurationSetAttributes
---
---         , requestCreateConfigurationSetEventDestination $
---             newCreateConfigurationSetEventDestination
---
---         , requestListEmailIdentities $
---             newListEmailIdentities
+--         , requestPutAccountDedicatedIpWarmupAttributes $
+--             newPutAccountDedicatedIpWarmupAttributes
 --
 --         , requestCreateEmailIdentity $
 --             newCreateEmailIdentity
@@ -69,35 +60,41 @@ import Test.Tasty
 --         , requestGetBlacklistReports $
 --             newGetBlacklistReports
 --
---         , requestCreateConfigurationSet $
---             newCreateConfigurationSet
+--         , requestCreateConfigurationSetEventDestination $
+--             newCreateConfigurationSetEventDestination
+--
+--         , requestListEmailIdentities $
+--             newListEmailIdentities
 --
 --         , requestCreateContactList $
 --             newCreateContactList
 --
+--         , requestCreateConfigurationSet $
+--             newCreateConfigurationSet
+--
+--         , requestPutEmailIdentityConfigurationSetAttributes $
+--             newPutEmailIdentityConfigurationSetAttributes
+--
 --         , requestDeleteConfigurationSet $
 --             newDeleteConfigurationSet
---
---         , requestListImportJobs $
---             newListImportJobs
---
---         , requestUpdateEmailIdentityPolicy $
---             newUpdateEmailIdentityPolicy
---
---         , requestUntagResource $
---             newUntagResource
 --
 --         , requestDeleteEmailIdentityPolicy $
 --             newDeleteEmailIdentityPolicy
 --
+--         , requestUpdateEmailIdentityPolicy $
+--             newUpdateEmailIdentityPolicy
+--
 --         , requestUpdateConfigurationSetEventDestination $
 --             newUpdateConfigurationSetEventDestination
 --
+--         , requestListImportJobs $
+--             newListImportJobs
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --         , requestDeleteConfigurationSetEventDestination $
 --             newDeleteConfigurationSetEventDestination
---
---         , requestTestRenderEmailTemplate $
---             newTestRenderEmailTemplate
 --
 --         , requestSendEmail $
 --             newSendEmail
@@ -105,14 +102,17 @@ import Test.Tasty
 --         , requestPutConfigurationSetReputationOptions $
 --             newPutConfigurationSetReputationOptions
 --
---         , requestPutDedicatedIpInPool $
---             newPutDedicatedIpInPool
---
 --         , requestSendBulkEmail $
 --             newSendBulkEmail
 --
+--         , requestTestRenderEmailTemplate $
+--             newTestRenderEmailTemplate
+--
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestPutDedicatedIpInPool $
+--             newPutDedicatedIpInPool
 --
 --         , requestListDomainDeliverabilityCampaigns $
 --             newListDomainDeliverabilityCampaigns
@@ -126,14 +126,26 @@ import Test.Tasty
 --         , requestCreateCustomVerificationEmailTemplate $
 --             newCreateCustomVerificationEmailTemplate
 --
---         , requestPutConfigurationSetSuppressionOptions $
---             newPutConfigurationSetSuppressionOptions
---
 --         , requestGetSuppressedDestination $
 --             newGetSuppressedDestination
 --
 --         , requestGetEmailTemplate $
 --             newGetEmailTemplate
+--
+--         , requestPutConfigurationSetSuppressionOptions $
+--             newPutConfigurationSetSuppressionOptions
+--
+--         , requestDeleteCustomVerificationEmailTemplate $
+--             newDeleteCustomVerificationEmailTemplate
+--
+--         , requestGetDomainDeliverabilityCampaign $
+--             newGetDomainDeliverabilityCampaign
+--
+--         , requestUpdateCustomVerificationEmailTemplate $
+--             newUpdateCustomVerificationEmailTemplate
+--
+--         , requestGetConfigurationSetEventDestinations $
+--             newGetConfigurationSetEventDestinations
 --
 --         , requestListCustomVerificationEmailTemplates $
 --             newListCustomVerificationEmailTemplates
@@ -141,38 +153,26 @@ import Test.Tasty
 --         , requestGetDedicatedIps $
 --             newGetDedicatedIps
 --
---         , requestDeleteCustomVerificationEmailTemplate $
---             newDeleteCustomVerificationEmailTemplate
---
---         , requestGetConfigurationSetEventDestinations $
---             newGetConfigurationSetEventDestinations
+--         , requestGetAccount $
+--             newGetAccount
 --
 --         , requestPutConfigurationSetSendingOptions $
 --             newPutConfigurationSetSendingOptions
 --
---         , requestGetAccount $
---             newGetAccount
---
---         , requestUpdateCustomVerificationEmailTemplate $
---             newUpdateCustomVerificationEmailTemplate
---
---         , requestGetDomainDeliverabilityCampaign $
---             newGetDomainDeliverabilityCampaign
+--         , requestGetConfigurationSet $
+--             newGetConfigurationSet
 --
 --         , requestGetDedicatedIp $
 --             newGetDedicatedIp
 --
+--         , requestGetEmailIdentity $
+--             newGetEmailIdentity
+--
 --         , requestPutEmailIdentityDkimSigningAttributes $
 --             newPutEmailIdentityDkimSigningAttributes
 --
---         , requestGetConfigurationSet $
---             newGetConfigurationSet
---
 --         , requestGetContactList $
 --             newGetContactList
---
---         , requestGetEmailIdentity $
---             newGetEmailIdentity
 --
 --         , requestUpdateContact $
 --             newUpdateContact
@@ -189,35 +189,26 @@ import Test.Tasty
 --         , requestListDeliverabilityTestReports $
 --             newListDeliverabilityTestReports
 --
---         , requestCreateEmailIdentityPolicy $
---             newCreateEmailIdentityPolicy
---
---         , requestPutAccountSuppressionAttributes $
---             newPutAccountSuppressionAttributes
---
 --         , requestCreateImportJob $
 --             newCreateImportJob
 --
 --         , requestGetContact $
 --             newGetContact
 --
---         , requestListConfigurationSets $
---             newListConfigurationSets
+--         , requestPutAccountSuppressionAttributes $
+--             newPutAccountSuppressionAttributes
 --
---         , requestUpdateContactList $
---             newUpdateContactList
+--         , requestCreateEmailIdentityPolicy $
+--             newCreateEmailIdentityPolicy
 --
 --         , requestPutAccountSendingAttributes $
 --             newPutAccountSendingAttributes
 --
---         , requestPutEmailIdentityMailFromAttributes $
---             newPutEmailIdentityMailFromAttributes
+--         , requestUpdateContactList $
+--             newUpdateContactList
 --
---         , requestCreateDeliverabilityTestReport $
---             newCreateDeliverabilityTestReport
---
---         , requestDeleteEmailIdentity $
---             newDeleteEmailIdentity
+--         , requestListConfigurationSets $
+--             newListConfigurationSets
 --
 --         , requestListContactLists $
 --             newListContactLists
@@ -225,65 +216,77 @@ import Test.Tasty
 --         , requestDeleteContactList $
 --             newDeleteContactList
 --
---         , requestPutDedicatedIpWarmupAttributes $
---             newPutDedicatedIpWarmupAttributes
+--         , requestCreateDeliverabilityTestReport $
+--             newCreateDeliverabilityTestReport
+--
+--         , requestDeleteEmailIdentity $
+--             newDeleteEmailIdentity
+--
+--         , requestPutEmailIdentityMailFromAttributes $
+--             newPutEmailIdentityMailFromAttributes
 --
 --         , requestGetCustomVerificationEmailTemplate $
 --             newGetCustomVerificationEmailTemplate
 --
+--         , requestPutDedicatedIpWarmupAttributes $
+--             newPutDedicatedIpWarmupAttributes
+--
 --         , requestCreateEmailTemplate $
 --             newCreateEmailTemplate
---
---         , requestListEmailTemplates $
---             newListEmailTemplates
---
---         , requestUpdateEmailTemplate $
---             newUpdateEmailTemplate
 --
 --         , requestGetDomainStatisticsReport $
 --             newGetDomainStatisticsReport
 --
---         , requestDeleteEmailTemplate $
---             newDeleteEmailTemplate
---
 --         , requestPutEmailIdentityFeedbackAttributes $
 --             newPutEmailIdentityFeedbackAttributes
---
---         , requestListSuppressedDestinations $
---             newListSuppressedDestinations
---
---         , requestDeleteSuppressedDestination $
---             newDeleteSuppressedDestination
 --
 --         , requestGetDeliverabilityDashboardOptions $
 --             newGetDeliverabilityDashboardOptions
 --
---         , requestCreateDedicatedIpPool $
---             newCreateDedicatedIpPool
+--         , requestListEmailTemplates $
+--             newListEmailTemplates
 --
---         , requestSendCustomVerificationEmail $
---             newSendCustomVerificationEmail
+--         , requestDeleteEmailTemplate $
+--             newDeleteEmailTemplate
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestListSuppressedDestinations $
+--             newListSuppressedDestinations
+--
+--         , requestUpdateEmailTemplate $
+--             newUpdateEmailTemplate
+--
+--         , requestDeleteSuppressedDestination $
+--             newDeleteSuppressedDestination
 --
 --         , requestGetEmailIdentityPolicies $
 --             newGetEmailIdentityPolicies
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestSendCustomVerificationEmail $
+--             newSendCustomVerificationEmail
+--
+--         , requestCreateDedicatedIpPool $
+--             newCreateDedicatedIpPool
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListDedicatedIpPools $
---             newListDedicatedIpPoolsResponse
---
---         , responsePutEmailIdentityDkimAttributes $
+--         [ responsePutEmailIdentityDkimAttributes $
 --             newPutEmailIdentityDkimAttributesResponse
+--
+--         , responsePutConfigurationSetDeliveryOptions $
+--             newPutConfigurationSetDeliveryOptionsResponse
+--
+--         , responseListDedicatedIpPools $
+--             newListDedicatedIpPoolsResponse
 --
 --         , responseDeleteDedicatedIpPool $
 --             newDeleteDedicatedIpPoolResponse
 --
---         , responsePutConfigurationSetDeliveryOptions $
---             newPutConfigurationSetDeliveryOptionsResponse
+--         , responseGetImportJob $
+--             newGetImportJobResponse
 --
 --         , responseCreateContact $
 --             newCreateContactResponse
@@ -291,23 +294,11 @@ import Test.Tasty
 --         , responsePutConfigurationSetTrackingOptions $
 --             newPutConfigurationSetTrackingOptionsResponse
 --
---         , responseGetImportJob $
---             newGetImportJobResponse
---
---         , responsePutAccountDedicatedIpWarmupAttributes $
---             newPutAccountDedicatedIpWarmupAttributesResponse
---
 --         , responseGetDeliverabilityTestReport $
 --             newGetDeliverabilityTestReportResponse
 --
---         , responsePutEmailIdentityConfigurationSetAttributes $
---             newPutEmailIdentityConfigurationSetAttributesResponse
---
---         , responseCreateConfigurationSetEventDestination $
---             newCreateConfigurationSetEventDestinationResponse
---
---         , responseListEmailIdentities $
---             newListEmailIdentitiesResponse
+--         , responsePutAccountDedicatedIpWarmupAttributes $
+--             newPutAccountDedicatedIpWarmupAttributesResponse
 --
 --         , responseCreateEmailIdentity $
 --             newCreateEmailIdentityResponse
@@ -315,35 +306,41 @@ import Test.Tasty
 --         , responseGetBlacklistReports $
 --             newGetBlacklistReportsResponse
 --
---         , responseCreateConfigurationSet $
---             newCreateConfigurationSetResponse
+--         , responseCreateConfigurationSetEventDestination $
+--             newCreateConfigurationSetEventDestinationResponse
+--
+--         , responseListEmailIdentities $
+--             newListEmailIdentitiesResponse
 --
 --         , responseCreateContactList $
 --             newCreateContactListResponse
 --
+--         , responseCreateConfigurationSet $
+--             newCreateConfigurationSetResponse
+--
+--         , responsePutEmailIdentityConfigurationSetAttributes $
+--             newPutEmailIdentityConfigurationSetAttributesResponse
+--
 --         , responseDeleteConfigurationSet $
 --             newDeleteConfigurationSetResponse
---
---         , responseListImportJobs $
---             newListImportJobsResponse
---
---         , responseUpdateEmailIdentityPolicy $
---             newUpdateEmailIdentityPolicyResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
 --
 --         , responseDeleteEmailIdentityPolicy $
 --             newDeleteEmailIdentityPolicyResponse
 --
+--         , responseUpdateEmailIdentityPolicy $
+--             newUpdateEmailIdentityPolicyResponse
+--
 --         , responseUpdateConfigurationSetEventDestination $
 --             newUpdateConfigurationSetEventDestinationResponse
 --
+--         , responseListImportJobs $
+--             newListImportJobsResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
 --         , responseDeleteConfigurationSetEventDestination $
 --             newDeleteConfigurationSetEventDestinationResponse
---
---         , responseTestRenderEmailTemplate $
---             newTestRenderEmailTemplateResponse
 --
 --         , responseSendEmail $
 --             newSendEmailResponse
@@ -351,14 +348,17 @@ import Test.Tasty
 --         , responsePutConfigurationSetReputationOptions $
 --             newPutConfigurationSetReputationOptionsResponse
 --
---         , responsePutDedicatedIpInPool $
---             newPutDedicatedIpInPoolResponse
---
 --         , responseSendBulkEmail $
 --             newSendBulkEmailResponse
 --
+--         , responseTestRenderEmailTemplate $
+--             newTestRenderEmailTemplateResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responsePutDedicatedIpInPool $
+--             newPutDedicatedIpInPoolResponse
 --
 --         , responseListDomainDeliverabilityCampaigns $
 --             newListDomainDeliverabilityCampaignsResponse
@@ -372,14 +372,26 @@ import Test.Tasty
 --         , responseCreateCustomVerificationEmailTemplate $
 --             newCreateCustomVerificationEmailTemplateResponse
 --
---         , responsePutConfigurationSetSuppressionOptions $
---             newPutConfigurationSetSuppressionOptionsResponse
---
 --         , responseGetSuppressedDestination $
 --             newGetSuppressedDestinationResponse
 --
 --         , responseGetEmailTemplate $
 --             newGetEmailTemplateResponse
+--
+--         , responsePutConfigurationSetSuppressionOptions $
+--             newPutConfigurationSetSuppressionOptionsResponse
+--
+--         , responseDeleteCustomVerificationEmailTemplate $
+--             newDeleteCustomVerificationEmailTemplateResponse
+--
+--         , responseGetDomainDeliverabilityCampaign $
+--             newGetDomainDeliverabilityCampaignResponse
+--
+--         , responseUpdateCustomVerificationEmailTemplate $
+--             newUpdateCustomVerificationEmailTemplateResponse
+--
+--         , responseGetConfigurationSetEventDestinations $
+--             newGetConfigurationSetEventDestinationsResponse
 --
 --         , responseListCustomVerificationEmailTemplates $
 --             newListCustomVerificationEmailTemplatesResponse
@@ -387,38 +399,26 @@ import Test.Tasty
 --         , responseGetDedicatedIps $
 --             newGetDedicatedIpsResponse
 --
---         , responseDeleteCustomVerificationEmailTemplate $
---             newDeleteCustomVerificationEmailTemplateResponse
---
---         , responseGetConfigurationSetEventDestinations $
---             newGetConfigurationSetEventDestinationsResponse
+--         , responseGetAccount $
+--             newGetAccountResponse
 --
 --         , responsePutConfigurationSetSendingOptions $
 --             newPutConfigurationSetSendingOptionsResponse
 --
---         , responseGetAccount $
---             newGetAccountResponse
---
---         , responseUpdateCustomVerificationEmailTemplate $
---             newUpdateCustomVerificationEmailTemplateResponse
---
---         , responseGetDomainDeliverabilityCampaign $
---             newGetDomainDeliverabilityCampaignResponse
+--         , responseGetConfigurationSet $
+--             newGetConfigurationSetResponse
 --
 --         , responseGetDedicatedIp $
 --             newGetDedicatedIpResponse
 --
+--         , responseGetEmailIdentity $
+--             newGetEmailIdentityResponse
+--
 --         , responsePutEmailIdentityDkimSigningAttributes $
 --             newPutEmailIdentityDkimSigningAttributesResponse
 --
---         , responseGetConfigurationSet $
---             newGetConfigurationSetResponse
---
 --         , responseGetContactList $
 --             newGetContactListResponse
---
---         , responseGetEmailIdentity $
---             newGetEmailIdentityResponse
 --
 --         , responseUpdateContact $
 --             newUpdateContactResponse
@@ -435,35 +435,26 @@ import Test.Tasty
 --         , responseListDeliverabilityTestReports $
 --             newListDeliverabilityTestReportsResponse
 --
---         , responseCreateEmailIdentityPolicy $
---             newCreateEmailIdentityPolicyResponse
---
---         , responsePutAccountSuppressionAttributes $
---             newPutAccountSuppressionAttributesResponse
---
 --         , responseCreateImportJob $
 --             newCreateImportJobResponse
 --
 --         , responseGetContact $
 --             newGetContactResponse
 --
---         , responseListConfigurationSets $
---             newListConfigurationSetsResponse
+--         , responsePutAccountSuppressionAttributes $
+--             newPutAccountSuppressionAttributesResponse
 --
---         , responseUpdateContactList $
---             newUpdateContactListResponse
+--         , responseCreateEmailIdentityPolicy $
+--             newCreateEmailIdentityPolicyResponse
 --
 --         , responsePutAccountSendingAttributes $
 --             newPutAccountSendingAttributesResponse
 --
---         , responsePutEmailIdentityMailFromAttributes $
---             newPutEmailIdentityMailFromAttributesResponse
+--         , responseUpdateContactList $
+--             newUpdateContactListResponse
 --
---         , responseCreateDeliverabilityTestReport $
---             newCreateDeliverabilityTestReportResponse
---
---         , responseDeleteEmailIdentity $
---             newDeleteEmailIdentityResponse
+--         , responseListConfigurationSets $
+--             newListConfigurationSetsResponse
 --
 --         , responseListContactLists $
 --             newListContactListsResponse
@@ -471,61 +462,64 @@ import Test.Tasty
 --         , responseDeleteContactList $
 --             newDeleteContactListResponse
 --
---         , responsePutDedicatedIpWarmupAttributes $
---             newPutDedicatedIpWarmupAttributesResponse
+--         , responseCreateDeliverabilityTestReport $
+--             newCreateDeliverabilityTestReportResponse
+--
+--         , responseDeleteEmailIdentity $
+--             newDeleteEmailIdentityResponse
+--
+--         , responsePutEmailIdentityMailFromAttributes $
+--             newPutEmailIdentityMailFromAttributesResponse
 --
 --         , responseGetCustomVerificationEmailTemplate $
 --             newGetCustomVerificationEmailTemplateResponse
 --
+--         , responsePutDedicatedIpWarmupAttributes $
+--             newPutDedicatedIpWarmupAttributesResponse
+--
 --         , responseCreateEmailTemplate $
 --             newCreateEmailTemplateResponse
---
---         , responseListEmailTemplates $
---             newListEmailTemplatesResponse
---
---         , responseUpdateEmailTemplate $
---             newUpdateEmailTemplateResponse
 --
 --         , responseGetDomainStatisticsReport $
 --             newGetDomainStatisticsReportResponse
 --
---         , responseDeleteEmailTemplate $
---             newDeleteEmailTemplateResponse
---
 --         , responsePutEmailIdentityFeedbackAttributes $
 --             newPutEmailIdentityFeedbackAttributesResponse
---
---         , responseListSuppressedDestinations $
---             newListSuppressedDestinationsResponse
---
---         , responseDeleteSuppressedDestination $
---             newDeleteSuppressedDestinationResponse
 --
 --         , responseGetDeliverabilityDashboardOptions $
 --             newGetDeliverabilityDashboardOptionsResponse
 --
---         , responseCreateDedicatedIpPool $
---             newCreateDedicatedIpPoolResponse
+--         , responseListEmailTemplates $
+--             newListEmailTemplatesResponse
 --
---         , responseSendCustomVerificationEmail $
---             newSendCustomVerificationEmailResponse
+--         , responseDeleteEmailTemplate $
+--             newDeleteEmailTemplateResponse
+--
+--         , responseListSuppressedDestinations $
+--             newListSuppressedDestinationsResponse
+--
+--         , responseUpdateEmailTemplate $
+--             newUpdateEmailTemplateResponse
+--
+--         , responseDeleteSuppressedDestination $
+--             newDeleteSuppressedDestinationResponse
+--
+--         , responseGetEmailIdentityPolicies $
+--             newGetEmailIdentityPoliciesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseGetEmailIdentityPolicies $
---             newGetEmailIdentityPoliciesResponse
+--         , responseSendCustomVerificationEmail $
+--             newSendCustomVerificationEmailResponse
+--
+--         , responseCreateDedicatedIpPool $
+--             newCreateDedicatedIpPoolResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListDedicatedIpPools :: ListDedicatedIpPools -> TestTree
-requestListDedicatedIpPools =
-  req
-    "ListDedicatedIpPools"
-    "fixture/ListDedicatedIpPools.yaml"
 
 requestPutEmailIdentityDkimAttributes :: PutEmailIdentityDkimAttributes -> TestTree
 requestPutEmailIdentityDkimAttributes =
@@ -533,17 +527,29 @@ requestPutEmailIdentityDkimAttributes =
     "PutEmailIdentityDkimAttributes"
     "fixture/PutEmailIdentityDkimAttributes.yaml"
 
+requestPutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptions -> TestTree
+requestPutConfigurationSetDeliveryOptions =
+  req
+    "PutConfigurationSetDeliveryOptions"
+    "fixture/PutConfigurationSetDeliveryOptions.yaml"
+
+requestListDedicatedIpPools :: ListDedicatedIpPools -> TestTree
+requestListDedicatedIpPools =
+  req
+    "ListDedicatedIpPools"
+    "fixture/ListDedicatedIpPools.yaml"
+
 requestDeleteDedicatedIpPool :: DeleteDedicatedIpPool -> TestTree
 requestDeleteDedicatedIpPool =
   req
     "DeleteDedicatedIpPool"
     "fixture/DeleteDedicatedIpPool.yaml"
 
-requestPutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptions -> TestTree
-requestPutConfigurationSetDeliveryOptions =
+requestGetImportJob :: GetImportJob -> TestTree
+requestGetImportJob =
   req
-    "PutConfigurationSetDeliveryOptions"
-    "fixture/PutConfigurationSetDeliveryOptions.yaml"
+    "GetImportJob"
+    "fixture/GetImportJob.yaml"
 
 requestCreateContact :: CreateContact -> TestTree
 requestCreateContact =
@@ -557,41 +563,17 @@ requestPutConfigurationSetTrackingOptions =
     "PutConfigurationSetTrackingOptions"
     "fixture/PutConfigurationSetTrackingOptions.yaml"
 
-requestGetImportJob :: GetImportJob -> TestTree
-requestGetImportJob =
-  req
-    "GetImportJob"
-    "fixture/GetImportJob.yaml"
-
-requestPutAccountDedicatedIpWarmupAttributes :: PutAccountDedicatedIpWarmupAttributes -> TestTree
-requestPutAccountDedicatedIpWarmupAttributes =
-  req
-    "PutAccountDedicatedIpWarmupAttributes"
-    "fixture/PutAccountDedicatedIpWarmupAttributes.yaml"
-
 requestGetDeliverabilityTestReport :: GetDeliverabilityTestReport -> TestTree
 requestGetDeliverabilityTestReport =
   req
     "GetDeliverabilityTestReport"
     "fixture/GetDeliverabilityTestReport.yaml"
 
-requestPutEmailIdentityConfigurationSetAttributes :: PutEmailIdentityConfigurationSetAttributes -> TestTree
-requestPutEmailIdentityConfigurationSetAttributes =
+requestPutAccountDedicatedIpWarmupAttributes :: PutAccountDedicatedIpWarmupAttributes -> TestTree
+requestPutAccountDedicatedIpWarmupAttributes =
   req
-    "PutEmailIdentityConfigurationSetAttributes"
-    "fixture/PutEmailIdentityConfigurationSetAttributes.yaml"
-
-requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
-requestCreateConfigurationSetEventDestination =
-  req
-    "CreateConfigurationSetEventDestination"
-    "fixture/CreateConfigurationSetEventDestination.yaml"
-
-requestListEmailIdentities :: ListEmailIdentities -> TestTree
-requestListEmailIdentities =
-  req
-    "ListEmailIdentities"
-    "fixture/ListEmailIdentities.yaml"
+    "PutAccountDedicatedIpWarmupAttributes"
+    "fixture/PutAccountDedicatedIpWarmupAttributes.yaml"
 
 requestCreateEmailIdentity :: CreateEmailIdentity -> TestTree
 requestCreateEmailIdentity =
@@ -605,11 +587,17 @@ requestGetBlacklistReports =
     "GetBlacklistReports"
     "fixture/GetBlacklistReports.yaml"
 
-requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
-requestCreateConfigurationSet =
+requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
+requestCreateConfigurationSetEventDestination =
   req
-    "CreateConfigurationSet"
-    "fixture/CreateConfigurationSet.yaml"
+    "CreateConfigurationSetEventDestination"
+    "fixture/CreateConfigurationSetEventDestination.yaml"
+
+requestListEmailIdentities :: ListEmailIdentities -> TestTree
+requestListEmailIdentities =
+  req
+    "ListEmailIdentities"
+    "fixture/ListEmailIdentities.yaml"
 
 requestCreateContactList :: CreateContactList -> TestTree
 requestCreateContactList =
@@ -617,29 +605,23 @@ requestCreateContactList =
     "CreateContactList"
     "fixture/CreateContactList.yaml"
 
+requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
+requestCreateConfigurationSet =
+  req
+    "CreateConfigurationSet"
+    "fixture/CreateConfigurationSet.yaml"
+
+requestPutEmailIdentityConfigurationSetAttributes :: PutEmailIdentityConfigurationSetAttributes -> TestTree
+requestPutEmailIdentityConfigurationSetAttributes =
+  req
+    "PutEmailIdentityConfigurationSetAttributes"
+    "fixture/PutEmailIdentityConfigurationSetAttributes.yaml"
+
 requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
 requestDeleteConfigurationSet =
   req
     "DeleteConfigurationSet"
     "fixture/DeleteConfigurationSet.yaml"
-
-requestListImportJobs :: ListImportJobs -> TestTree
-requestListImportJobs =
-  req
-    "ListImportJobs"
-    "fixture/ListImportJobs.yaml"
-
-requestUpdateEmailIdentityPolicy :: UpdateEmailIdentityPolicy -> TestTree
-requestUpdateEmailIdentityPolicy =
-  req
-    "UpdateEmailIdentityPolicy"
-    "fixture/UpdateEmailIdentityPolicy.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
 
 requestDeleteEmailIdentityPolicy :: DeleteEmailIdentityPolicy -> TestTree
 requestDeleteEmailIdentityPolicy =
@@ -647,23 +629,35 @@ requestDeleteEmailIdentityPolicy =
     "DeleteEmailIdentityPolicy"
     "fixture/DeleteEmailIdentityPolicy.yaml"
 
+requestUpdateEmailIdentityPolicy :: UpdateEmailIdentityPolicy -> TestTree
+requestUpdateEmailIdentityPolicy =
+  req
+    "UpdateEmailIdentityPolicy"
+    "fixture/UpdateEmailIdentityPolicy.yaml"
+
 requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
 requestUpdateConfigurationSetEventDestination =
   req
     "UpdateConfigurationSetEventDestination"
     "fixture/UpdateConfigurationSetEventDestination.yaml"
 
+requestListImportJobs :: ListImportJobs -> TestTree
+requestListImportJobs =
+  req
+    "ListImportJobs"
+    "fixture/ListImportJobs.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
 requestDeleteConfigurationSetEventDestination =
   req
     "DeleteConfigurationSetEventDestination"
     "fixture/DeleteConfigurationSetEventDestination.yaml"
-
-requestTestRenderEmailTemplate :: TestRenderEmailTemplate -> TestTree
-requestTestRenderEmailTemplate =
-  req
-    "TestRenderEmailTemplate"
-    "fixture/TestRenderEmailTemplate.yaml"
 
 requestSendEmail :: SendEmail -> TestTree
 requestSendEmail =
@@ -677,23 +671,29 @@ requestPutConfigurationSetReputationOptions =
     "PutConfigurationSetReputationOptions"
     "fixture/PutConfigurationSetReputationOptions.yaml"
 
-requestPutDedicatedIpInPool :: PutDedicatedIpInPool -> TestTree
-requestPutDedicatedIpInPool =
-  req
-    "PutDedicatedIpInPool"
-    "fixture/PutDedicatedIpInPool.yaml"
-
 requestSendBulkEmail :: SendBulkEmail -> TestTree
 requestSendBulkEmail =
   req
     "SendBulkEmail"
     "fixture/SendBulkEmail.yaml"
 
+requestTestRenderEmailTemplate :: TestRenderEmailTemplate -> TestTree
+requestTestRenderEmailTemplate =
+  req
+    "TestRenderEmailTemplate"
+    "fixture/TestRenderEmailTemplate.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestPutDedicatedIpInPool :: PutDedicatedIpInPool -> TestTree
+requestPutDedicatedIpInPool =
+  req
+    "PutDedicatedIpInPool"
+    "fixture/PutDedicatedIpInPool.yaml"
 
 requestListDomainDeliverabilityCampaigns :: ListDomainDeliverabilityCampaigns -> TestTree
 requestListDomainDeliverabilityCampaigns =
@@ -719,12 +719,6 @@ requestCreateCustomVerificationEmailTemplate =
     "CreateCustomVerificationEmailTemplate"
     "fixture/CreateCustomVerificationEmailTemplate.yaml"
 
-requestPutConfigurationSetSuppressionOptions :: PutConfigurationSetSuppressionOptions -> TestTree
-requestPutConfigurationSetSuppressionOptions =
-  req
-    "PutConfigurationSetSuppressionOptions"
-    "fixture/PutConfigurationSetSuppressionOptions.yaml"
-
 requestGetSuppressedDestination :: GetSuppressedDestination -> TestTree
 requestGetSuppressedDestination =
   req
@@ -736,6 +730,36 @@ requestGetEmailTemplate =
   req
     "GetEmailTemplate"
     "fixture/GetEmailTemplate.yaml"
+
+requestPutConfigurationSetSuppressionOptions :: PutConfigurationSetSuppressionOptions -> TestTree
+requestPutConfigurationSetSuppressionOptions =
+  req
+    "PutConfigurationSetSuppressionOptions"
+    "fixture/PutConfigurationSetSuppressionOptions.yaml"
+
+requestDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplate -> TestTree
+requestDeleteCustomVerificationEmailTemplate =
+  req
+    "DeleteCustomVerificationEmailTemplate"
+    "fixture/DeleteCustomVerificationEmailTemplate.yaml"
+
+requestGetDomainDeliverabilityCampaign :: GetDomainDeliverabilityCampaign -> TestTree
+requestGetDomainDeliverabilityCampaign =
+  req
+    "GetDomainDeliverabilityCampaign"
+    "fixture/GetDomainDeliverabilityCampaign.yaml"
+
+requestUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplate -> TestTree
+requestUpdateCustomVerificationEmailTemplate =
+  req
+    "UpdateCustomVerificationEmailTemplate"
+    "fixture/UpdateCustomVerificationEmailTemplate.yaml"
+
+requestGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinations -> TestTree
+requestGetConfigurationSetEventDestinations =
+  req
+    "GetConfigurationSetEventDestinations"
+    "fixture/GetConfigurationSetEventDestinations.yaml"
 
 requestListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplates -> TestTree
 requestListCustomVerificationEmailTemplates =
@@ -749,17 +773,11 @@ requestGetDedicatedIps =
     "GetDedicatedIps"
     "fixture/GetDedicatedIps.yaml"
 
-requestDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplate -> TestTree
-requestDeleteCustomVerificationEmailTemplate =
+requestGetAccount :: GetAccount -> TestTree
+requestGetAccount =
   req
-    "DeleteCustomVerificationEmailTemplate"
-    "fixture/DeleteCustomVerificationEmailTemplate.yaml"
-
-requestGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinations -> TestTree
-requestGetConfigurationSetEventDestinations =
-  req
-    "GetConfigurationSetEventDestinations"
-    "fixture/GetConfigurationSetEventDestinations.yaml"
+    "GetAccount"
+    "fixture/GetAccount.yaml"
 
 requestPutConfigurationSetSendingOptions :: PutConfigurationSetSendingOptions -> TestTree
 requestPutConfigurationSetSendingOptions =
@@ -767,23 +785,11 @@ requestPutConfigurationSetSendingOptions =
     "PutConfigurationSetSendingOptions"
     "fixture/PutConfigurationSetSendingOptions.yaml"
 
-requestGetAccount :: GetAccount -> TestTree
-requestGetAccount =
+requestGetConfigurationSet :: GetConfigurationSet -> TestTree
+requestGetConfigurationSet =
   req
-    "GetAccount"
-    "fixture/GetAccount.yaml"
-
-requestUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplate -> TestTree
-requestUpdateCustomVerificationEmailTemplate =
-  req
-    "UpdateCustomVerificationEmailTemplate"
-    "fixture/UpdateCustomVerificationEmailTemplate.yaml"
-
-requestGetDomainDeliverabilityCampaign :: GetDomainDeliverabilityCampaign -> TestTree
-requestGetDomainDeliverabilityCampaign =
-  req
-    "GetDomainDeliverabilityCampaign"
-    "fixture/GetDomainDeliverabilityCampaign.yaml"
+    "GetConfigurationSet"
+    "fixture/GetConfigurationSet.yaml"
 
 requestGetDedicatedIp :: GetDedicatedIp -> TestTree
 requestGetDedicatedIp =
@@ -791,29 +797,23 @@ requestGetDedicatedIp =
     "GetDedicatedIp"
     "fixture/GetDedicatedIp.yaml"
 
+requestGetEmailIdentity :: GetEmailIdentity -> TestTree
+requestGetEmailIdentity =
+  req
+    "GetEmailIdentity"
+    "fixture/GetEmailIdentity.yaml"
+
 requestPutEmailIdentityDkimSigningAttributes :: PutEmailIdentityDkimSigningAttributes -> TestTree
 requestPutEmailIdentityDkimSigningAttributes =
   req
     "PutEmailIdentityDkimSigningAttributes"
     "fixture/PutEmailIdentityDkimSigningAttributes.yaml"
 
-requestGetConfigurationSet :: GetConfigurationSet -> TestTree
-requestGetConfigurationSet =
-  req
-    "GetConfigurationSet"
-    "fixture/GetConfigurationSet.yaml"
-
 requestGetContactList :: GetContactList -> TestTree
 requestGetContactList =
   req
     "GetContactList"
     "fixture/GetContactList.yaml"
-
-requestGetEmailIdentity :: GetEmailIdentity -> TestTree
-requestGetEmailIdentity =
-  req
-    "GetEmailIdentity"
-    "fixture/GetEmailIdentity.yaml"
 
 requestUpdateContact :: UpdateContact -> TestTree
 requestUpdateContact =
@@ -845,18 +845,6 @@ requestListDeliverabilityTestReports =
     "ListDeliverabilityTestReports"
     "fixture/ListDeliverabilityTestReports.yaml"
 
-requestCreateEmailIdentityPolicy :: CreateEmailIdentityPolicy -> TestTree
-requestCreateEmailIdentityPolicy =
-  req
-    "CreateEmailIdentityPolicy"
-    "fixture/CreateEmailIdentityPolicy.yaml"
-
-requestPutAccountSuppressionAttributes :: PutAccountSuppressionAttributes -> TestTree
-requestPutAccountSuppressionAttributes =
-  req
-    "PutAccountSuppressionAttributes"
-    "fixture/PutAccountSuppressionAttributes.yaml"
-
 requestCreateImportJob :: CreateImportJob -> TestTree
 requestCreateImportJob =
   req
@@ -869,17 +857,17 @@ requestGetContact =
     "GetContact"
     "fixture/GetContact.yaml"
 
-requestListConfigurationSets :: ListConfigurationSets -> TestTree
-requestListConfigurationSets =
+requestPutAccountSuppressionAttributes :: PutAccountSuppressionAttributes -> TestTree
+requestPutAccountSuppressionAttributes =
   req
-    "ListConfigurationSets"
-    "fixture/ListConfigurationSets.yaml"
+    "PutAccountSuppressionAttributes"
+    "fixture/PutAccountSuppressionAttributes.yaml"
 
-requestUpdateContactList :: UpdateContactList -> TestTree
-requestUpdateContactList =
+requestCreateEmailIdentityPolicy :: CreateEmailIdentityPolicy -> TestTree
+requestCreateEmailIdentityPolicy =
   req
-    "UpdateContactList"
-    "fixture/UpdateContactList.yaml"
+    "CreateEmailIdentityPolicy"
+    "fixture/CreateEmailIdentityPolicy.yaml"
 
 requestPutAccountSendingAttributes :: PutAccountSendingAttributes -> TestTree
 requestPutAccountSendingAttributes =
@@ -887,23 +875,17 @@ requestPutAccountSendingAttributes =
     "PutAccountSendingAttributes"
     "fixture/PutAccountSendingAttributes.yaml"
 
-requestPutEmailIdentityMailFromAttributes :: PutEmailIdentityMailFromAttributes -> TestTree
-requestPutEmailIdentityMailFromAttributes =
+requestUpdateContactList :: UpdateContactList -> TestTree
+requestUpdateContactList =
   req
-    "PutEmailIdentityMailFromAttributes"
-    "fixture/PutEmailIdentityMailFromAttributes.yaml"
+    "UpdateContactList"
+    "fixture/UpdateContactList.yaml"
 
-requestCreateDeliverabilityTestReport :: CreateDeliverabilityTestReport -> TestTree
-requestCreateDeliverabilityTestReport =
+requestListConfigurationSets :: ListConfigurationSets -> TestTree
+requestListConfigurationSets =
   req
-    "CreateDeliverabilityTestReport"
-    "fixture/CreateDeliverabilityTestReport.yaml"
-
-requestDeleteEmailIdentity :: DeleteEmailIdentity -> TestTree
-requestDeleteEmailIdentity =
-  req
-    "DeleteEmailIdentity"
-    "fixture/DeleteEmailIdentity.yaml"
+    "ListConfigurationSets"
+    "fixture/ListConfigurationSets.yaml"
 
 requestListContactLists :: ListContactLists -> TestTree
 requestListContactLists =
@@ -917,11 +899,23 @@ requestDeleteContactList =
     "DeleteContactList"
     "fixture/DeleteContactList.yaml"
 
-requestPutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributes -> TestTree
-requestPutDedicatedIpWarmupAttributes =
+requestCreateDeliverabilityTestReport :: CreateDeliverabilityTestReport -> TestTree
+requestCreateDeliverabilityTestReport =
   req
-    "PutDedicatedIpWarmupAttributes"
-    "fixture/PutDedicatedIpWarmupAttributes.yaml"
+    "CreateDeliverabilityTestReport"
+    "fixture/CreateDeliverabilityTestReport.yaml"
+
+requestDeleteEmailIdentity :: DeleteEmailIdentity -> TestTree
+requestDeleteEmailIdentity =
+  req
+    "DeleteEmailIdentity"
+    "fixture/DeleteEmailIdentity.yaml"
+
+requestPutEmailIdentityMailFromAttributes :: PutEmailIdentityMailFromAttributes -> TestTree
+requestPutEmailIdentityMailFromAttributes =
+  req
+    "PutEmailIdentityMailFromAttributes"
+    "fixture/PutEmailIdentityMailFromAttributes.yaml"
 
 requestGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplate -> TestTree
 requestGetCustomVerificationEmailTemplate =
@@ -929,23 +923,17 @@ requestGetCustomVerificationEmailTemplate =
     "GetCustomVerificationEmailTemplate"
     "fixture/GetCustomVerificationEmailTemplate.yaml"
 
+requestPutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributes -> TestTree
+requestPutDedicatedIpWarmupAttributes =
+  req
+    "PutDedicatedIpWarmupAttributes"
+    "fixture/PutDedicatedIpWarmupAttributes.yaml"
+
 requestCreateEmailTemplate :: CreateEmailTemplate -> TestTree
 requestCreateEmailTemplate =
   req
     "CreateEmailTemplate"
     "fixture/CreateEmailTemplate.yaml"
-
-requestListEmailTemplates :: ListEmailTemplates -> TestTree
-requestListEmailTemplates =
-  req
-    "ListEmailTemplates"
-    "fixture/ListEmailTemplates.yaml"
-
-requestUpdateEmailTemplate :: UpdateEmailTemplate -> TestTree
-requestUpdateEmailTemplate =
-  req
-    "UpdateEmailTemplate"
-    "fixture/UpdateEmailTemplate.yaml"
 
 requestGetDomainStatisticsReport :: GetDomainStatisticsReport -> TestTree
 requestGetDomainStatisticsReport =
@@ -953,29 +941,11 @@ requestGetDomainStatisticsReport =
     "GetDomainStatisticsReport"
     "fixture/GetDomainStatisticsReport.yaml"
 
-requestDeleteEmailTemplate :: DeleteEmailTemplate -> TestTree
-requestDeleteEmailTemplate =
-  req
-    "DeleteEmailTemplate"
-    "fixture/DeleteEmailTemplate.yaml"
-
 requestPutEmailIdentityFeedbackAttributes :: PutEmailIdentityFeedbackAttributes -> TestTree
 requestPutEmailIdentityFeedbackAttributes =
   req
     "PutEmailIdentityFeedbackAttributes"
     "fixture/PutEmailIdentityFeedbackAttributes.yaml"
-
-requestListSuppressedDestinations :: ListSuppressedDestinations -> TestTree
-requestListSuppressedDestinations =
-  req
-    "ListSuppressedDestinations"
-    "fixture/ListSuppressedDestinations.yaml"
-
-requestDeleteSuppressedDestination :: DeleteSuppressedDestination -> TestTree
-requestDeleteSuppressedDestination =
-  req
-    "DeleteSuppressedDestination"
-    "fixture/DeleteSuppressedDestination.yaml"
 
 requestGetDeliverabilityDashboardOptions :: GetDeliverabilityDashboardOptions -> TestTree
 requestGetDeliverabilityDashboardOptions =
@@ -983,23 +953,35 @@ requestGetDeliverabilityDashboardOptions =
     "GetDeliverabilityDashboardOptions"
     "fixture/GetDeliverabilityDashboardOptions.yaml"
 
-requestCreateDedicatedIpPool :: CreateDedicatedIpPool -> TestTree
-requestCreateDedicatedIpPool =
+requestListEmailTemplates :: ListEmailTemplates -> TestTree
+requestListEmailTemplates =
   req
-    "CreateDedicatedIpPool"
-    "fixture/CreateDedicatedIpPool.yaml"
+    "ListEmailTemplates"
+    "fixture/ListEmailTemplates.yaml"
 
-requestSendCustomVerificationEmail :: SendCustomVerificationEmail -> TestTree
-requestSendCustomVerificationEmail =
+requestDeleteEmailTemplate :: DeleteEmailTemplate -> TestTree
+requestDeleteEmailTemplate =
   req
-    "SendCustomVerificationEmail"
-    "fixture/SendCustomVerificationEmail.yaml"
+    "DeleteEmailTemplate"
+    "fixture/DeleteEmailTemplate.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestListSuppressedDestinations :: ListSuppressedDestinations -> TestTree
+requestListSuppressedDestinations =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "ListSuppressedDestinations"
+    "fixture/ListSuppressedDestinations.yaml"
+
+requestUpdateEmailTemplate :: UpdateEmailTemplate -> TestTree
+requestUpdateEmailTemplate =
+  req
+    "UpdateEmailTemplate"
+    "fixture/UpdateEmailTemplate.yaml"
+
+requestDeleteSuppressedDestination :: DeleteSuppressedDestination -> TestTree
+requestDeleteSuppressedDestination =
+  req
+    "DeleteSuppressedDestination"
+    "fixture/DeleteSuppressedDestination.yaml"
 
 requestGetEmailIdentityPolicies :: GetEmailIdentityPolicies -> TestTree
 requestGetEmailIdentityPolicies =
@@ -1007,15 +989,25 @@ requestGetEmailIdentityPolicies =
     "GetEmailIdentityPolicies"
     "fixture/GetEmailIdentityPolicies.yaml"
 
--- Responses
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-responseListDedicatedIpPools :: ListDedicatedIpPoolsResponse -> TestTree
-responseListDedicatedIpPools =
-  res
-    "ListDedicatedIpPoolsResponse"
-    "fixture/ListDedicatedIpPoolsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDedicatedIpPools)
+requestSendCustomVerificationEmail :: SendCustomVerificationEmail -> TestTree
+requestSendCustomVerificationEmail =
+  req
+    "SendCustomVerificationEmail"
+    "fixture/SendCustomVerificationEmail.yaml"
+
+requestCreateDedicatedIpPool :: CreateDedicatedIpPool -> TestTree
+requestCreateDedicatedIpPool =
+  req
+    "CreateDedicatedIpPool"
+    "fixture/CreateDedicatedIpPool.yaml"
+
+-- Responses
 
 responsePutEmailIdentityDkimAttributes :: PutEmailIdentityDkimAttributesResponse -> TestTree
 responsePutEmailIdentityDkimAttributes =
@@ -1025,6 +1017,22 @@ responsePutEmailIdentityDkimAttributes =
     defaultService
     (Proxy :: Proxy PutEmailIdentityDkimAttributes)
 
+responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
+responsePutConfigurationSetDeliveryOptions =
+  res
+    "PutConfigurationSetDeliveryOptionsResponse"
+    "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
+
+responseListDedicatedIpPools :: ListDedicatedIpPoolsResponse -> TestTree
+responseListDedicatedIpPools =
+  res
+    "ListDedicatedIpPoolsResponse"
+    "fixture/ListDedicatedIpPoolsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDedicatedIpPools)
+
 responseDeleteDedicatedIpPool :: DeleteDedicatedIpPoolResponse -> TestTree
 responseDeleteDedicatedIpPool =
   res
@@ -1033,13 +1041,13 @@ responseDeleteDedicatedIpPool =
     defaultService
     (Proxy :: Proxy DeleteDedicatedIpPool)
 
-responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
-responsePutConfigurationSetDeliveryOptions =
+responseGetImportJob :: GetImportJobResponse -> TestTree
+responseGetImportJob =
   res
-    "PutConfigurationSetDeliveryOptionsResponse"
-    "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
+    "GetImportJobResponse"
+    "fixture/GetImportJobResponse.proto"
     defaultService
-    (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
+    (Proxy :: Proxy GetImportJob)
 
 responseCreateContact :: CreateContactResponse -> TestTree
 responseCreateContact =
@@ -1057,22 +1065,6 @@ responsePutConfigurationSetTrackingOptions =
     defaultService
     (Proxy :: Proxy PutConfigurationSetTrackingOptions)
 
-responseGetImportJob :: GetImportJobResponse -> TestTree
-responseGetImportJob =
-  res
-    "GetImportJobResponse"
-    "fixture/GetImportJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetImportJob)
-
-responsePutAccountDedicatedIpWarmupAttributes :: PutAccountDedicatedIpWarmupAttributesResponse -> TestTree
-responsePutAccountDedicatedIpWarmupAttributes =
-  res
-    "PutAccountDedicatedIpWarmupAttributesResponse"
-    "fixture/PutAccountDedicatedIpWarmupAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutAccountDedicatedIpWarmupAttributes)
-
 responseGetDeliverabilityTestReport :: GetDeliverabilityTestReportResponse -> TestTree
 responseGetDeliverabilityTestReport =
   res
@@ -1081,29 +1073,13 @@ responseGetDeliverabilityTestReport =
     defaultService
     (Proxy :: Proxy GetDeliverabilityTestReport)
 
-responsePutEmailIdentityConfigurationSetAttributes :: PutEmailIdentityConfigurationSetAttributesResponse -> TestTree
-responsePutEmailIdentityConfigurationSetAttributes =
+responsePutAccountDedicatedIpWarmupAttributes :: PutAccountDedicatedIpWarmupAttributesResponse -> TestTree
+responsePutAccountDedicatedIpWarmupAttributes =
   res
-    "PutEmailIdentityConfigurationSetAttributesResponse"
-    "fixture/PutEmailIdentityConfigurationSetAttributesResponse.proto"
+    "PutAccountDedicatedIpWarmupAttributesResponse"
+    "fixture/PutAccountDedicatedIpWarmupAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEmailIdentityConfigurationSetAttributes)
-
-responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
-responseCreateConfigurationSetEventDestination =
-  res
-    "CreateConfigurationSetEventDestinationResponse"
-    "fixture/CreateConfigurationSetEventDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateConfigurationSetEventDestination)
-
-responseListEmailIdentities :: ListEmailIdentitiesResponse -> TestTree
-responseListEmailIdentities =
-  res
-    "ListEmailIdentitiesResponse"
-    "fixture/ListEmailIdentitiesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListEmailIdentities)
+    (Proxy :: Proxy PutAccountDedicatedIpWarmupAttributes)
 
 responseCreateEmailIdentity :: CreateEmailIdentityResponse -> TestTree
 responseCreateEmailIdentity =
@@ -1121,13 +1097,21 @@ responseGetBlacklistReports =
     defaultService
     (Proxy :: Proxy GetBlacklistReports)
 
-responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
-responseCreateConfigurationSet =
+responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
+responseCreateConfigurationSetEventDestination =
   res
-    "CreateConfigurationSetResponse"
-    "fixture/CreateConfigurationSetResponse.proto"
+    "CreateConfigurationSetEventDestinationResponse"
+    "fixture/CreateConfigurationSetEventDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConfigurationSet)
+    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+
+responseListEmailIdentities :: ListEmailIdentitiesResponse -> TestTree
+responseListEmailIdentities =
+  res
+    "ListEmailIdentitiesResponse"
+    "fixture/ListEmailIdentitiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListEmailIdentities)
 
 responseCreateContactList :: CreateContactListResponse -> TestTree
 responseCreateContactList =
@@ -1137,6 +1121,22 @@ responseCreateContactList =
     defaultService
     (Proxy :: Proxy CreateContactList)
 
+responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
+responseCreateConfigurationSet =
+  res
+    "CreateConfigurationSetResponse"
+    "fixture/CreateConfigurationSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConfigurationSet)
+
+responsePutEmailIdentityConfigurationSetAttributes :: PutEmailIdentityConfigurationSetAttributesResponse -> TestTree
+responsePutEmailIdentityConfigurationSetAttributes =
+  res
+    "PutEmailIdentityConfigurationSetAttributesResponse"
+    "fixture/PutEmailIdentityConfigurationSetAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutEmailIdentityConfigurationSetAttributes)
+
 responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
 responseDeleteConfigurationSet =
   res
@@ -1144,30 +1144,6 @@ responseDeleteConfigurationSet =
     "fixture/DeleteConfigurationSetResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteConfigurationSet)
-
-responseListImportJobs :: ListImportJobsResponse -> TestTree
-responseListImportJobs =
-  res
-    "ListImportJobsResponse"
-    "fixture/ListImportJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListImportJobs)
-
-responseUpdateEmailIdentityPolicy :: UpdateEmailIdentityPolicyResponse -> TestTree
-responseUpdateEmailIdentityPolicy =
-  res
-    "UpdateEmailIdentityPolicyResponse"
-    "fixture/UpdateEmailIdentityPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateEmailIdentityPolicy)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
 
 responseDeleteEmailIdentityPolicy :: DeleteEmailIdentityPolicyResponse -> TestTree
 responseDeleteEmailIdentityPolicy =
@@ -1177,6 +1153,14 @@ responseDeleteEmailIdentityPolicy =
     defaultService
     (Proxy :: Proxy DeleteEmailIdentityPolicy)
 
+responseUpdateEmailIdentityPolicy :: UpdateEmailIdentityPolicyResponse -> TestTree
+responseUpdateEmailIdentityPolicy =
+  res
+    "UpdateEmailIdentityPolicyResponse"
+    "fixture/UpdateEmailIdentityPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEmailIdentityPolicy)
+
 responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
 responseUpdateConfigurationSetEventDestination =
   res
@@ -1185,6 +1169,22 @@ responseUpdateConfigurationSetEventDestination =
     defaultService
     (Proxy :: Proxy UpdateConfigurationSetEventDestination)
 
+responseListImportJobs :: ListImportJobsResponse -> TestTree
+responseListImportJobs =
+  res
+    "ListImportJobsResponse"
+    "fixture/ListImportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListImportJobs)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
 responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
 responseDeleteConfigurationSetEventDestination =
   res
@@ -1192,14 +1192,6 @@ responseDeleteConfigurationSetEventDestination =
     "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteConfigurationSetEventDestination)
-
-responseTestRenderEmailTemplate :: TestRenderEmailTemplateResponse -> TestTree
-responseTestRenderEmailTemplate =
-  res
-    "TestRenderEmailTemplateResponse"
-    "fixture/TestRenderEmailTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy TestRenderEmailTemplate)
 
 responseSendEmail :: SendEmailResponse -> TestTree
 responseSendEmail =
@@ -1217,14 +1209,6 @@ responsePutConfigurationSetReputationOptions =
     defaultService
     (Proxy :: Proxy PutConfigurationSetReputationOptions)
 
-responsePutDedicatedIpInPool :: PutDedicatedIpInPoolResponse -> TestTree
-responsePutDedicatedIpInPool =
-  res
-    "PutDedicatedIpInPoolResponse"
-    "fixture/PutDedicatedIpInPoolResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutDedicatedIpInPool)
-
 responseSendBulkEmail :: SendBulkEmailResponse -> TestTree
 responseSendBulkEmail =
   res
@@ -1233,6 +1217,14 @@ responseSendBulkEmail =
     defaultService
     (Proxy :: Proxy SendBulkEmail)
 
+responseTestRenderEmailTemplate :: TestRenderEmailTemplateResponse -> TestTree
+responseTestRenderEmailTemplate =
+  res
+    "TestRenderEmailTemplateResponse"
+    "fixture/TestRenderEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy TestRenderEmailTemplate)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -1240,6 +1232,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy TagResource)
+
+responsePutDedicatedIpInPool :: PutDedicatedIpInPoolResponse -> TestTree
+responsePutDedicatedIpInPool =
+  res
+    "PutDedicatedIpInPoolResponse"
+    "fixture/PutDedicatedIpInPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDedicatedIpInPool)
 
 responseListDomainDeliverabilityCampaigns :: ListDomainDeliverabilityCampaignsResponse -> TestTree
 responseListDomainDeliverabilityCampaigns =
@@ -1273,14 +1273,6 @@ responseCreateCustomVerificationEmailTemplate =
     defaultService
     (Proxy :: Proxy CreateCustomVerificationEmailTemplate)
 
-responsePutConfigurationSetSuppressionOptions :: PutConfigurationSetSuppressionOptionsResponse -> TestTree
-responsePutConfigurationSetSuppressionOptions =
-  res
-    "PutConfigurationSetSuppressionOptionsResponse"
-    "fixture/PutConfigurationSetSuppressionOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutConfigurationSetSuppressionOptions)
-
 responseGetSuppressedDestination :: GetSuppressedDestinationResponse -> TestTree
 responseGetSuppressedDestination =
   res
@@ -1296,6 +1288,46 @@ responseGetEmailTemplate =
     "fixture/GetEmailTemplateResponse.proto"
     defaultService
     (Proxy :: Proxy GetEmailTemplate)
+
+responsePutConfigurationSetSuppressionOptions :: PutConfigurationSetSuppressionOptionsResponse -> TestTree
+responsePutConfigurationSetSuppressionOptions =
+  res
+    "PutConfigurationSetSuppressionOptionsResponse"
+    "fixture/PutConfigurationSetSuppressionOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutConfigurationSetSuppressionOptions)
+
+responseDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplateResponse -> TestTree
+responseDeleteCustomVerificationEmailTemplate =
+  res
+    "DeleteCustomVerificationEmailTemplateResponse"
+    "fixture/DeleteCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCustomVerificationEmailTemplate)
+
+responseGetDomainDeliverabilityCampaign :: GetDomainDeliverabilityCampaignResponse -> TestTree
+responseGetDomainDeliverabilityCampaign =
+  res
+    "GetDomainDeliverabilityCampaignResponse"
+    "fixture/GetDomainDeliverabilityCampaignResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDomainDeliverabilityCampaign)
+
+responseUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplateResponse -> TestTree
+responseUpdateCustomVerificationEmailTemplate =
+  res
+    "UpdateCustomVerificationEmailTemplateResponse"
+    "fixture/UpdateCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCustomVerificationEmailTemplate)
+
+responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
+responseGetConfigurationSetEventDestinations =
+  res
+    "GetConfigurationSetEventDestinationsResponse"
+    "fixture/GetConfigurationSetEventDestinationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetConfigurationSetEventDestinations)
 
 responseListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplatesResponse -> TestTree
 responseListCustomVerificationEmailTemplates =
@@ -1313,21 +1345,13 @@ responseGetDedicatedIps =
     defaultService
     (Proxy :: Proxy GetDedicatedIps)
 
-responseDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplateResponse -> TestTree
-responseDeleteCustomVerificationEmailTemplate =
+responseGetAccount :: GetAccountResponse -> TestTree
+responseGetAccount =
   res
-    "DeleteCustomVerificationEmailTemplateResponse"
-    "fixture/DeleteCustomVerificationEmailTemplateResponse.proto"
+    "GetAccountResponse"
+    "fixture/GetAccountResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCustomVerificationEmailTemplate)
-
-responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
-responseGetConfigurationSetEventDestinations =
-  res
-    "GetConfigurationSetEventDestinationsResponse"
-    "fixture/GetConfigurationSetEventDestinationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetConfigurationSetEventDestinations)
+    (Proxy :: Proxy GetAccount)
 
 responsePutConfigurationSetSendingOptions :: PutConfigurationSetSendingOptionsResponse -> TestTree
 responsePutConfigurationSetSendingOptions =
@@ -1337,29 +1361,13 @@ responsePutConfigurationSetSendingOptions =
     defaultService
     (Proxy :: Proxy PutConfigurationSetSendingOptions)
 
-responseGetAccount :: GetAccountResponse -> TestTree
-responseGetAccount =
+responseGetConfigurationSet :: GetConfigurationSetResponse -> TestTree
+responseGetConfigurationSet =
   res
-    "GetAccountResponse"
-    "fixture/GetAccountResponse.proto"
+    "GetConfigurationSetResponse"
+    "fixture/GetConfigurationSetResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAccount)
-
-responseUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplateResponse -> TestTree
-responseUpdateCustomVerificationEmailTemplate =
-  res
-    "UpdateCustomVerificationEmailTemplateResponse"
-    "fixture/UpdateCustomVerificationEmailTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCustomVerificationEmailTemplate)
-
-responseGetDomainDeliverabilityCampaign :: GetDomainDeliverabilityCampaignResponse -> TestTree
-responseGetDomainDeliverabilityCampaign =
-  res
-    "GetDomainDeliverabilityCampaignResponse"
-    "fixture/GetDomainDeliverabilityCampaignResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDomainDeliverabilityCampaign)
+    (Proxy :: Proxy GetConfigurationSet)
 
 responseGetDedicatedIp :: GetDedicatedIpResponse -> TestTree
 responseGetDedicatedIp =
@@ -1369,6 +1377,14 @@ responseGetDedicatedIp =
     defaultService
     (Proxy :: Proxy GetDedicatedIp)
 
+responseGetEmailIdentity :: GetEmailIdentityResponse -> TestTree
+responseGetEmailIdentity =
+  res
+    "GetEmailIdentityResponse"
+    "fixture/GetEmailIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEmailIdentity)
+
 responsePutEmailIdentityDkimSigningAttributes :: PutEmailIdentityDkimSigningAttributesResponse -> TestTree
 responsePutEmailIdentityDkimSigningAttributes =
   res
@@ -1377,14 +1393,6 @@ responsePutEmailIdentityDkimSigningAttributes =
     defaultService
     (Proxy :: Proxy PutEmailIdentityDkimSigningAttributes)
 
-responseGetConfigurationSet :: GetConfigurationSetResponse -> TestTree
-responseGetConfigurationSet =
-  res
-    "GetConfigurationSetResponse"
-    "fixture/GetConfigurationSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetConfigurationSet)
-
 responseGetContactList :: GetContactListResponse -> TestTree
 responseGetContactList =
   res
@@ -1392,14 +1400,6 @@ responseGetContactList =
     "fixture/GetContactListResponse.proto"
     defaultService
     (Proxy :: Proxy GetContactList)
-
-responseGetEmailIdentity :: GetEmailIdentityResponse -> TestTree
-responseGetEmailIdentity =
-  res
-    "GetEmailIdentityResponse"
-    "fixture/GetEmailIdentityResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetEmailIdentity)
 
 responseUpdateContact :: UpdateContactResponse -> TestTree
 responseUpdateContact =
@@ -1441,22 +1441,6 @@ responseListDeliverabilityTestReports =
     defaultService
     (Proxy :: Proxy ListDeliverabilityTestReports)
 
-responseCreateEmailIdentityPolicy :: CreateEmailIdentityPolicyResponse -> TestTree
-responseCreateEmailIdentityPolicy =
-  res
-    "CreateEmailIdentityPolicyResponse"
-    "fixture/CreateEmailIdentityPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateEmailIdentityPolicy)
-
-responsePutAccountSuppressionAttributes :: PutAccountSuppressionAttributesResponse -> TestTree
-responsePutAccountSuppressionAttributes =
-  res
-    "PutAccountSuppressionAttributesResponse"
-    "fixture/PutAccountSuppressionAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutAccountSuppressionAttributes)
-
 responseCreateImportJob :: CreateImportJobResponse -> TestTree
 responseCreateImportJob =
   res
@@ -1473,21 +1457,21 @@ responseGetContact =
     defaultService
     (Proxy :: Proxy GetContact)
 
-responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
-responseListConfigurationSets =
+responsePutAccountSuppressionAttributes :: PutAccountSuppressionAttributesResponse -> TestTree
+responsePutAccountSuppressionAttributes =
   res
-    "ListConfigurationSetsResponse"
-    "fixture/ListConfigurationSetsResponse.proto"
+    "PutAccountSuppressionAttributesResponse"
+    "fixture/PutAccountSuppressionAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy ListConfigurationSets)
+    (Proxy :: Proxy PutAccountSuppressionAttributes)
 
-responseUpdateContactList :: UpdateContactListResponse -> TestTree
-responseUpdateContactList =
+responseCreateEmailIdentityPolicy :: CreateEmailIdentityPolicyResponse -> TestTree
+responseCreateEmailIdentityPolicy =
   res
-    "UpdateContactListResponse"
-    "fixture/UpdateContactListResponse.proto"
+    "CreateEmailIdentityPolicyResponse"
+    "fixture/CreateEmailIdentityPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateContactList)
+    (Proxy :: Proxy CreateEmailIdentityPolicy)
 
 responsePutAccountSendingAttributes :: PutAccountSendingAttributesResponse -> TestTree
 responsePutAccountSendingAttributes =
@@ -1497,29 +1481,21 @@ responsePutAccountSendingAttributes =
     defaultService
     (Proxy :: Proxy PutAccountSendingAttributes)
 
-responsePutEmailIdentityMailFromAttributes :: PutEmailIdentityMailFromAttributesResponse -> TestTree
-responsePutEmailIdentityMailFromAttributes =
+responseUpdateContactList :: UpdateContactListResponse -> TestTree
+responseUpdateContactList =
   res
-    "PutEmailIdentityMailFromAttributesResponse"
-    "fixture/PutEmailIdentityMailFromAttributesResponse.proto"
+    "UpdateContactListResponse"
+    "fixture/UpdateContactListResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEmailIdentityMailFromAttributes)
+    (Proxy :: Proxy UpdateContactList)
 
-responseCreateDeliverabilityTestReport :: CreateDeliverabilityTestReportResponse -> TestTree
-responseCreateDeliverabilityTestReport =
+responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
+responseListConfigurationSets =
   res
-    "CreateDeliverabilityTestReportResponse"
-    "fixture/CreateDeliverabilityTestReportResponse.proto"
+    "ListConfigurationSetsResponse"
+    "fixture/ListConfigurationSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDeliverabilityTestReport)
-
-responseDeleteEmailIdentity :: DeleteEmailIdentityResponse -> TestTree
-responseDeleteEmailIdentity =
-  res
-    "DeleteEmailIdentityResponse"
-    "fixture/DeleteEmailIdentityResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteEmailIdentity)
+    (Proxy :: Proxy ListConfigurationSets)
 
 responseListContactLists :: ListContactListsResponse -> TestTree
 responseListContactLists =
@@ -1537,13 +1513,29 @@ responseDeleteContactList =
     defaultService
     (Proxy :: Proxy DeleteContactList)
 
-responsePutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributesResponse -> TestTree
-responsePutDedicatedIpWarmupAttributes =
+responseCreateDeliverabilityTestReport :: CreateDeliverabilityTestReportResponse -> TestTree
+responseCreateDeliverabilityTestReport =
   res
-    "PutDedicatedIpWarmupAttributesResponse"
-    "fixture/PutDedicatedIpWarmupAttributesResponse.proto"
+    "CreateDeliverabilityTestReportResponse"
+    "fixture/CreateDeliverabilityTestReportResponse.proto"
     defaultService
-    (Proxy :: Proxy PutDedicatedIpWarmupAttributes)
+    (Proxy :: Proxy CreateDeliverabilityTestReport)
+
+responseDeleteEmailIdentity :: DeleteEmailIdentityResponse -> TestTree
+responseDeleteEmailIdentity =
+  res
+    "DeleteEmailIdentityResponse"
+    "fixture/DeleteEmailIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEmailIdentity)
+
+responsePutEmailIdentityMailFromAttributes :: PutEmailIdentityMailFromAttributesResponse -> TestTree
+responsePutEmailIdentityMailFromAttributes =
+  res
+    "PutEmailIdentityMailFromAttributesResponse"
+    "fixture/PutEmailIdentityMailFromAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutEmailIdentityMailFromAttributes)
 
 responseGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplateResponse -> TestTree
 responseGetCustomVerificationEmailTemplate =
@@ -1553,6 +1545,14 @@ responseGetCustomVerificationEmailTemplate =
     defaultService
     (Proxy :: Proxy GetCustomVerificationEmailTemplate)
 
+responsePutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributesResponse -> TestTree
+responsePutDedicatedIpWarmupAttributes =
+  res
+    "PutDedicatedIpWarmupAttributesResponse"
+    "fixture/PutDedicatedIpWarmupAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDedicatedIpWarmupAttributes)
+
 responseCreateEmailTemplate :: CreateEmailTemplateResponse -> TestTree
 responseCreateEmailTemplate =
   res
@@ -1560,22 +1560,6 @@ responseCreateEmailTemplate =
     "fixture/CreateEmailTemplateResponse.proto"
     defaultService
     (Proxy :: Proxy CreateEmailTemplate)
-
-responseListEmailTemplates :: ListEmailTemplatesResponse -> TestTree
-responseListEmailTemplates =
-  res
-    "ListEmailTemplatesResponse"
-    "fixture/ListEmailTemplatesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListEmailTemplates)
-
-responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
-responseUpdateEmailTemplate =
-  res
-    "UpdateEmailTemplateResponse"
-    "fixture/UpdateEmailTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateEmailTemplate)
 
 responseGetDomainStatisticsReport :: GetDomainStatisticsReportResponse -> TestTree
 responseGetDomainStatisticsReport =
@@ -1585,14 +1569,6 @@ responseGetDomainStatisticsReport =
     defaultService
     (Proxy :: Proxy GetDomainStatisticsReport)
 
-responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
-responseDeleteEmailTemplate =
-  res
-    "DeleteEmailTemplateResponse"
-    "fixture/DeleteEmailTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteEmailTemplate)
-
 responsePutEmailIdentityFeedbackAttributes :: PutEmailIdentityFeedbackAttributesResponse -> TestTree
 responsePutEmailIdentityFeedbackAttributes =
   res
@@ -1600,22 +1576,6 @@ responsePutEmailIdentityFeedbackAttributes =
     "fixture/PutEmailIdentityFeedbackAttributesResponse.proto"
     defaultService
     (Proxy :: Proxy PutEmailIdentityFeedbackAttributes)
-
-responseListSuppressedDestinations :: ListSuppressedDestinationsResponse -> TestTree
-responseListSuppressedDestinations =
-  res
-    "ListSuppressedDestinationsResponse"
-    "fixture/ListSuppressedDestinationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListSuppressedDestinations)
-
-responseDeleteSuppressedDestination :: DeleteSuppressedDestinationResponse -> TestTree
-responseDeleteSuppressedDestination =
-  res
-    "DeleteSuppressedDestinationResponse"
-    "fixture/DeleteSuppressedDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteSuppressedDestination)
 
 responseGetDeliverabilityDashboardOptions :: GetDeliverabilityDashboardOptionsResponse -> TestTree
 responseGetDeliverabilityDashboardOptions =
@@ -1625,21 +1585,53 @@ responseGetDeliverabilityDashboardOptions =
     defaultService
     (Proxy :: Proxy GetDeliverabilityDashboardOptions)
 
-responseCreateDedicatedIpPool :: CreateDedicatedIpPoolResponse -> TestTree
-responseCreateDedicatedIpPool =
+responseListEmailTemplates :: ListEmailTemplatesResponse -> TestTree
+responseListEmailTemplates =
   res
-    "CreateDedicatedIpPoolResponse"
-    "fixture/CreateDedicatedIpPoolResponse.proto"
+    "ListEmailTemplatesResponse"
+    "fixture/ListEmailTemplatesResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDedicatedIpPool)
+    (Proxy :: Proxy ListEmailTemplates)
 
-responseSendCustomVerificationEmail :: SendCustomVerificationEmailResponse -> TestTree
-responseSendCustomVerificationEmail =
+responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
+responseDeleteEmailTemplate =
   res
-    "SendCustomVerificationEmailResponse"
-    "fixture/SendCustomVerificationEmailResponse.proto"
+    "DeleteEmailTemplateResponse"
+    "fixture/DeleteEmailTemplateResponse.proto"
     defaultService
-    (Proxy :: Proxy SendCustomVerificationEmail)
+    (Proxy :: Proxy DeleteEmailTemplate)
+
+responseListSuppressedDestinations :: ListSuppressedDestinationsResponse -> TestTree
+responseListSuppressedDestinations =
+  res
+    "ListSuppressedDestinationsResponse"
+    "fixture/ListSuppressedDestinationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSuppressedDestinations)
+
+responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
+responseUpdateEmailTemplate =
+  res
+    "UpdateEmailTemplateResponse"
+    "fixture/UpdateEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEmailTemplate)
+
+responseDeleteSuppressedDestination :: DeleteSuppressedDestinationResponse -> TestTree
+responseDeleteSuppressedDestination =
+  res
+    "DeleteSuppressedDestinationResponse"
+    "fixture/DeleteSuppressedDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSuppressedDestination)
+
+responseGetEmailIdentityPolicies :: GetEmailIdentityPoliciesResponse -> TestTree
+responseGetEmailIdentityPolicies =
+  res
+    "GetEmailIdentityPoliciesResponse"
+    "fixture/GetEmailIdentityPoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEmailIdentityPolicies)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1649,10 +1641,18 @@ responseListTagsForResource =
     defaultService
     (Proxy :: Proxy ListTagsForResource)
 
-responseGetEmailIdentityPolicies :: GetEmailIdentityPoliciesResponse -> TestTree
-responseGetEmailIdentityPolicies =
+responseSendCustomVerificationEmail :: SendCustomVerificationEmailResponse -> TestTree
+responseSendCustomVerificationEmail =
   res
-    "GetEmailIdentityPoliciesResponse"
-    "fixture/GetEmailIdentityPoliciesResponse.proto"
+    "SendCustomVerificationEmailResponse"
+    "fixture/SendCustomVerificationEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEmailIdentityPolicies)
+    (Proxy :: Proxy SendCustomVerificationEmail)
+
+responseCreateDedicatedIpPool :: CreateDedicatedIpPoolResponse -> TestTree
+responseCreateDedicatedIpPool =
+  res
+    "CreateDedicatedIpPoolResponse"
+    "fixture/CreateDedicatedIpPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDedicatedIpPool)

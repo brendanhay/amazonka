@@ -23,12 +23,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Provides the Amazon Resource Name (ARN) of the AWS Identity and Access
+-- | Provides the Amazon Resource Name (ARN) of the Identity and Access
 -- Management (IAM) role used to define an Amazon DynamoDB target endpoint.
 --
 -- /See:/ 'newDynamoDbSettings' smart constructor.
 data DynamoDbSettings = DynamoDbSettings'
-  { -- | The Amazon Resource Name (ARN) used by the service access IAM role.
+  { -- | The Amazon Resource Name (ARN) used by the service to access the IAM
+    -- role. The role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +42,8 @@ data DynamoDbSettings = DynamoDbSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceAccessRoleArn', 'dynamoDbSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role.
+-- 'serviceAccessRoleArn', 'dynamoDbSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action.
 newDynamoDbSettings ::
   -- | 'serviceAccessRoleArn'
   Prelude.Text ->
@@ -52,7 +54,8 @@ newDynamoDbSettings pServiceAccessRoleArn_ =
         pServiceAccessRoleArn_
     }
 
--- | The Amazon Resource Name (ARN) used by the service access IAM role.
+-- | The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action.
 dynamoDbSettings_serviceAccessRoleArn :: Lens.Lens' DynamoDbSettings Prelude.Text
 dynamoDbSettings_serviceAccessRoleArn = Lens.lens (\DynamoDbSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DynamoDbSettings' {} a -> s {serviceAccessRoleArn = a} :: DynamoDbSettings)
 

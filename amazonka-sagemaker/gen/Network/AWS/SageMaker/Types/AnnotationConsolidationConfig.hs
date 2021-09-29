@@ -155,7 +155,7 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
     -- approach to estimate the true class of text based on annotations from
     -- individual workers.
     --
-    -- -   @rn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
     --
     -- -   @arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass@
     --
@@ -813,7 +813,7 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
 -- approach to estimate the true class of text based on annotations from
 -- individual workers.
 --
--- -   @rn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
 --
 -- -   @arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass@
 --
@@ -1470,7 +1470,7 @@ newAnnotationConsolidationConfig
 -- approach to estimate the true class of text based on annotations from
 -- individual workers.
 --
--- -   @rn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass@
 --
 -- -   @arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass@
 --

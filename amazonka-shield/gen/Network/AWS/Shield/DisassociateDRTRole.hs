@@ -20,14 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the DDoS Response Team\'s (DRT) access to your AWS account.
+-- Removes the Shield Response Team\'s (SRT) access to your Amazon Web
+-- Services account.
 --
 -- To make a @DisassociateDRTRole@ request, you must be subscribed to the
 -- <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan>
 -- or the
 -- <https://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan>.
 -- However, if you are not subscribed to one of these support plans, but
--- had been previously and had granted the DRT access to your account, you
+-- had been previously and had granted the SRT access to your account, you
 -- can submit a @DisassociateDRTRole@ request to remove this access.
 module Network.AWS.Shield.DisassociateDRTRole
   ( -- * Creating a Request

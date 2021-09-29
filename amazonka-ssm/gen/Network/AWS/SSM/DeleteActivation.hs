@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an activation. You are not required to delete an activation. If
+-- Deletes an activation. You aren\'t required to delete an activation. If
 -- you delete an activation, you can no longer use it to register
--- additional managed instances. Deleting an activation does not
+-- additional managed instances. Deleting an activation doesn\'t
 -- de-register managed instances. You must manually de-register managed
 -- instances.
 module Network.AWS.SSM.DeleteActivation

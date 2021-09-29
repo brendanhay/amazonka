@@ -20,16 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
--- Creates a use case for an AppIntegration association.
+-- Creates a use case for an integration association.
 module Network.AWS.Connect.CreateUseCase
   ( -- * Creating a Request
     CreateUseCase (..),
     newCreateUseCase,
 
     -- * Request Lenses
+    createUseCase_tags,
     createUseCase_instanceId,
     createUseCase_integrationAssociationId,
     createUseCase_useCaseType,
@@ -54,12 +52,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUseCase' smart constructor.
 data CreateUseCase = CreateUseCase'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The identifier for the AppIntegration association.
+    -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text,
-    -- | The type of use case to associate to the AppIntegration association.
-    -- Each AppIntegration association can have only one of each use case type.
+    -- | The type of use case to associate to the integration association. Each
+    -- integration association can have only one of each use case type.
     useCaseType :: UseCaseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +73,15 @@ data CreateUseCase = CreateUseCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'createUseCase_instanceId' - The identifier of the Amazon Connect instance.
+-- 'tags', 'createUseCase_tags' - One or more tags.
 --
--- 'integrationAssociationId', 'createUseCase_integrationAssociationId' - The identifier for the AppIntegration association.
+-- 'instanceId', 'createUseCase_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
--- 'useCaseType', 'createUseCase_useCaseType' - The type of use case to associate to the AppIntegration association.
--- Each AppIntegration association can have only one of each use case type.
+-- 'integrationAssociationId', 'createUseCase_integrationAssociationId' - The identifier for the integration association.
+--
+-- 'useCaseType', 'createUseCase_useCaseType' - The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
 newCreateUseCase ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -91,22 +95,28 @@ newCreateUseCase
   pIntegrationAssociationId_
   pUseCaseType_ =
     CreateUseCase'
-      { instanceId = pInstanceId_,
+      { tags = Prelude.Nothing,
+        instanceId = pInstanceId_,
         integrationAssociationId =
           pIntegrationAssociationId_,
         useCaseType = pUseCaseType_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | One or more tags.
+createUseCase_tags :: Lens.Lens' CreateUseCase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createUseCase_tags = Lens.lens (\CreateUseCase' {tags} -> tags) (\s@CreateUseCase' {} a -> s {tags = a} :: CreateUseCase) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 createUseCase_instanceId :: Lens.Lens' CreateUseCase Prelude.Text
 createUseCase_instanceId = Lens.lens (\CreateUseCase' {instanceId} -> instanceId) (\s@CreateUseCase' {} a -> s {instanceId = a} :: CreateUseCase)
 
--- | The identifier for the AppIntegration association.
+-- | The identifier for the integration association.
 createUseCase_integrationAssociationId :: Lens.Lens' CreateUseCase Prelude.Text
 createUseCase_integrationAssociationId = Lens.lens (\CreateUseCase' {integrationAssociationId} -> integrationAssociationId) (\s@CreateUseCase' {} a -> s {integrationAssociationId = a} :: CreateUseCase)
 
--- | The type of use case to associate to the AppIntegration association.
--- Each AppIntegration association can have only one of each use case type.
+-- | The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
 createUseCase_useCaseType :: Lens.Lens' CreateUseCase UseCaseType
 createUseCase_useCaseType = Lens.lens (\CreateUseCase' {useCaseType} -> useCaseType) (\s@CreateUseCase' {} a -> s {useCaseType = a} :: CreateUseCase)
 
@@ -143,7 +153,9 @@ instance Core.ToJSON CreateUseCase where
   toJSON CreateUseCase' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("UseCaseType" Core..= useCaseType)]
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("UseCaseType" Core..= useCaseType)
+          ]
       )
 
 instance Core.ToPath CreateUseCase where

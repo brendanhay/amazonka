@@ -20,10 +20,10 @@ module Network.AWS.LexRuntime.Types
     _NotFoundException,
     _BadRequestException,
     _UnsupportedMediaTypeException,
-    _BadGatewayException,
     _NotAcceptableException,
-    _LimitExceededException,
+    _BadGatewayException,
     _ConflictException,
+    _LimitExceededException,
     _DependencyFailedException,
     _InternalFailureException,
     _LoopDetectedException,
@@ -69,8 +69,8 @@ module Network.AWS.LexRuntime.Types
     -- * DialogAction
     DialogAction (..),
     newDialogAction,
-    dialogAction_message,
     dialogAction_intentName,
+    dialogAction_message,
     dialogAction_messageFormat,
     dialogAction_fulfillmentState,
     dialogAction_slots,
@@ -242,6 +242,14 @@ _UnsupportedMediaTypeException =
     "UnsupportedMediaTypeException"
     Prelude.. Core.hasStatus 415
 
+-- | The accept header in the request does not have a valid value.
+_NotAcceptableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAcceptableException =
+  Core._MatchServiceError
+    defaultService
+    "NotAcceptableException"
+    Prelude.. Core.hasStatus 406
+
 -- | Either the Amazon Lex bot is still building, or one of the dependent
 -- services (Amazon Polly, AWS Lambda) failed with an internal service
 -- error.
@@ -252,13 +260,13 @@ _BadGatewayException =
     "BadGatewayException"
     Prelude.. Core.hasStatus 502
 
--- | The accept header in the request does not have a valid value.
-_NotAcceptableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAcceptableException =
+-- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "NotAcceptableException"
-    Prelude.. Core.hasStatus 406
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Exceeded a limit.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -267,14 +275,6 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 429
-
--- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
 -- exception. For example,

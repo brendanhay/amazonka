@@ -47,7 +47,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileQueues' smart constructor.
 data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text,
@@ -66,7 +67,8 @@ data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'updateRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 --
@@ -93,7 +95,8 @@ newUpdateRoutingProfileQueues
           Lens._Coerce Lens.# pQueueConfigs_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateRoutingProfileQueues_instanceId :: Lens.Lens' UpdateRoutingProfileQueues Prelude.Text
 updateRoutingProfileQueues_instanceId = Lens.lens (\UpdateRoutingProfileQueues' {instanceId} -> instanceId) (\s@UpdateRoutingProfileQueues' {} a -> s {instanceId = a} :: UpdateRoutingProfileQueues)
 

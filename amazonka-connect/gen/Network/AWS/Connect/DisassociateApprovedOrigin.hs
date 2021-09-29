@@ -48,7 +48,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateApprovedOrigin' smart constructor.
 data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The domain URL of the integrated application.
     origin :: Prelude.Text
@@ -63,7 +64,8 @@ data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'disassociateApprovedOrigin_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'origin', 'disassociateApprovedOrigin_origin' - The domain URL of the integrated application.
 newDisassociateApprovedOrigin ::
@@ -79,7 +81,8 @@ newDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
       origin = pOrigin_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 disassociateApprovedOrigin_instanceId :: Lens.Lens' DisassociateApprovedOrigin Prelude.Text
 disassociateApprovedOrigin_instanceId = Lens.lens (\DisassociateApprovedOrigin' {instanceId} -> instanceId) (\s@DisassociateApprovedOrigin' {} a -> s {instanceId = a} :: DisassociateApprovedOrigin)
 

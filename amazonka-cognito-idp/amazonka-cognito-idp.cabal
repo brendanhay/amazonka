@@ -126,6 +126,7 @@ library
     Network.AWS.CognitoIdentityProvider.ListUsersInGroup
     Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
     Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
+    Network.AWS.CognitoIdentityProvider.RevokeToken
     Network.AWS.CognitoIdentityProvider.SetRiskConfiguration
     Network.AWS.CognitoIdentityProvider.SetUICustomization
     Network.AWS.CognitoIdentityProvider.SetUserMFAPreference

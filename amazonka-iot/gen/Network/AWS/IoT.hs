@@ -11,31 +11,30 @@
 --
 -- Derived from API version @2015-05-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT
+-- IoT
 --
--- AWS IoT provides secure, bi-directional communication between
+-- IoT provides secure, bi-directional communication between
 -- Internet-connected devices (such as sensors, actuators, embedded
--- devices, or smart appliances) and the AWS cloud. You can discover your
--- custom IoT-Data endpoint to communicate with, configure rules for data
--- processing and integration with other services, organize resources
--- associated with each device (Registry), configure logging, and create
--- and manage policies and credentials to authenticate devices.
+-- devices, or smart appliances) and the Amazon Web Services cloud. You can
+-- discover your custom IoT-Data endpoint to communicate with, configure
+-- rules for data processing and integration with other services, organize
+-- resources associated with each device (Registry), configure logging, and
+-- create and manage policies and credentials to authenticate devices.
 --
 -- The service endpoints that expose this API are listed in
--- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html AWS IoT Core Endpoints and Quotas>.
+-- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html Amazon Web Services IoT Core Endpoints and Quotas>.
 -- You must use the endpoint for the region that has the resources you want
 -- to access.
 --
 -- The service name used by
--- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html AWS Signature Version 4>
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Amazon Web Services Signature Version 4>
 -- to sign the request is: /execute-api/.
 --
--- For more information about how AWS IoT works, see the
+-- For more information about how IoT works, see the
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
 --
--- For information about how to use the credentials provider for AWS IoT,
--- see
--- <https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html Authorizing Direct Calls to AWS Services>.
+-- For information about how to use the credentials provider for IoT, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html Authorizing Direct Calls to Amazon Web Services Services>.
 module Network.AWS.IoT
   ( -- * Service Configuration
     defaultService,
@@ -67,14 +66,14 @@ module Network.AWS.IoT
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** InternalException
-    _InternalException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** MalformedPolicyException
     _MalformedPolicyException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** InternalException
+    _InternalException,
 
     -- ** CertificateStateException
     _CertificateStateException,
@@ -94,8 +93,14 @@ module Network.AWS.IoT
     -- ** SqlParseException
     _SqlParseException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** InvalidStateTransitionException
     _InvalidStateTransitionException,
@@ -103,20 +108,17 @@ module Network.AWS.IoT
     -- ** NotConfiguredException
     _NotConfiguredException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** VersionConflictException
     _VersionConflictException,
 
     -- ** RegistrationCodeValidationException
     _RegistrationCodeValidationException,
 
-    -- ** VersionsLimitExceededException
-    _VersionsLimitExceededException,
-
     -- ** InternalFailureException
     _InternalFailureException,
+
+    -- ** VersionsLimitExceededException
+    _VersionsLimitExceededException,
 
     -- ** DeleteConflictException
     _DeleteConflictException,
@@ -136,17 +138,11 @@ module Network.AWS.IoT
     -- * Operations
     -- $operations
 
-    -- ** ListThingRegistrationTaskReports (Paginated)
-    ListThingRegistrationTaskReports (ListThingRegistrationTaskReports'),
-    newListThingRegistrationTaskReports,
-    ListThingRegistrationTaskReportsResponse (ListThingRegistrationTaskReportsResponse'),
-    newListThingRegistrationTaskReportsResponse,
-
-    -- ** CreateProvisioningClaim
-    CreateProvisioningClaim (CreateProvisioningClaim'),
-    newCreateProvisioningClaim,
-    CreateProvisioningClaimResponse (CreateProvisioningClaimResponse'),
-    newCreateProvisioningClaimResponse,
+    -- ** GetBucketsAggregation
+    GetBucketsAggregation (GetBucketsAggregation'),
+    newGetBucketsAggregation,
+    GetBucketsAggregationResponse (GetBucketsAggregationResponse'),
+    newGetBucketsAggregationResponse,
 
     -- ** UpdateIndexingConfiguration
     UpdateIndexingConfiguration (UpdateIndexingConfiguration'),
@@ -154,23 +150,47 @@ module Network.AWS.IoT
     UpdateIndexingConfigurationResponse (UpdateIndexingConfigurationResponse'),
     newUpdateIndexingConfigurationResponse,
 
-    -- ** CreatePolicy
-    CreatePolicy (CreatePolicy'),
-    newCreatePolicy,
-    CreatePolicyResponse (CreatePolicyResponse'),
-    newCreatePolicyResponse,
+    -- ** PutVerificationStateOnViolation
+    PutVerificationStateOnViolation (PutVerificationStateOnViolation'),
+    newPutVerificationStateOnViolation,
+    PutVerificationStateOnViolationResponse (PutVerificationStateOnViolationResponse'),
+    newPutVerificationStateOnViolationResponse,
 
-    -- ** DeleteCertificate
-    DeleteCertificate (DeleteCertificate'),
-    newDeleteCertificate,
-    DeleteCertificateResponse (DeleteCertificateResponse'),
-    newDeleteCertificateResponse,
+    -- ** ListThingRegistrationTaskReports (Paginated)
+    ListThingRegistrationTaskReports (ListThingRegistrationTaskReports'),
+    newListThingRegistrationTaskReports,
+    ListThingRegistrationTaskReportsResponse (ListThingRegistrationTaskReportsResponse'),
+    newListThingRegistrationTaskReportsResponse,
 
-    -- ** ListSecurityProfiles (Paginated)
-    ListSecurityProfiles (ListSecurityProfiles'),
-    newListSecurityProfiles,
-    ListSecurityProfilesResponse (ListSecurityProfilesResponse'),
-    newListSecurityProfilesResponse,
+    -- ** DescribeFleetMetric
+    DescribeFleetMetric (DescribeFleetMetric'),
+    newDescribeFleetMetric,
+    DescribeFleetMetricResponse (DescribeFleetMetricResponse'),
+    newDescribeFleetMetricResponse,
+
+    -- ** CreateProvisioningClaim
+    CreateProvisioningClaim (CreateProvisioningClaim'),
+    newCreateProvisioningClaim,
+    CreateProvisioningClaimResponse (CreateProvisioningClaimResponse'),
+    newCreateProvisioningClaimResponse,
+
+    -- ** UpdateCertificate
+    UpdateCertificate (UpdateCertificate'),
+    newUpdateCertificate,
+    UpdateCertificateResponse (UpdateCertificateResponse'),
+    newUpdateCertificateResponse,
+
+    -- ** ListMitigationActions (Paginated)
+    ListMitigationActions (ListMitigationActions'),
+    newListMitigationActions,
+    ListMitigationActionsResponse (ListMitigationActionsResponse'),
+    newListMitigationActionsResponse,
+
+    -- ** DescribeProvisioningTemplate
+    DescribeProvisioningTemplate (DescribeProvisioningTemplate'),
+    newDescribeProvisioningTemplate,
+    DescribeProvisioningTemplateResponse (DescribeProvisioningTemplateResponse'),
+    newDescribeProvisioningTemplateResponse,
 
     -- ** DeleteJobExecution
     DeleteJobExecution (DeleteJobExecution'),
@@ -178,11 +198,29 @@ module Network.AWS.IoT
     DeleteJobExecutionResponse (DeleteJobExecutionResponse'),
     newDeleteJobExecutionResponse,
 
-    -- ** ListMitigationActions (Paginated)
-    ListMitigationActions (ListMitigationActions'),
-    newListMitigationActions,
-    ListMitigationActionsResponse (ListMitigationActionsResponse'),
-    newListMitigationActionsResponse,
+    -- ** ListSecurityProfiles (Paginated)
+    ListSecurityProfiles (ListSecurityProfiles'),
+    newListSecurityProfiles,
+    ListSecurityProfilesResponse (ListSecurityProfilesResponse'),
+    newListSecurityProfilesResponse,
+
+    -- ** UpdateMitigationAction
+    UpdateMitigationAction (UpdateMitigationAction'),
+    newUpdateMitigationAction,
+    UpdateMitigationActionResponse (UpdateMitigationActionResponse'),
+    newUpdateMitigationActionResponse,
+
+    -- ** DeleteMitigationAction
+    DeleteMitigationAction (DeleteMitigationAction'),
+    newDeleteMitigationAction,
+    DeleteMitigationActionResponse (DeleteMitigationActionResponse'),
+    newDeleteMitigationActionResponse,
+
+    -- ** ListPolicies (Paginated)
+    ListPolicies (ListPolicies'),
+    newListPolicies,
+    ListPoliciesResponse (ListPoliciesResponse'),
+    newListPoliciesResponse,
 
     -- ** StartDetectMitigationActionsTask
     StartDetectMitigationActionsTask (StartDetectMitigationActionsTask'),
@@ -196,41 +234,23 @@ module Network.AWS.IoT
     GetCardinalityResponse (GetCardinalityResponse'),
     newGetCardinalityResponse,
 
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
+
+    -- ** CreatePolicy
+    CreatePolicy (CreatePolicy'),
+    newCreatePolicy,
+    CreatePolicyResponse (CreatePolicyResponse'),
+    newCreatePolicyResponse,
+
     -- ** ListViolationEvents (Paginated)
     ListViolationEvents (ListViolationEvents'),
     newListViolationEvents,
     ListViolationEventsResponse (ListViolationEventsResponse'),
     newListViolationEventsResponse,
-
-    -- ** UpdateCertificate
-    UpdateCertificate (UpdateCertificate'),
-    newUpdateCertificate,
-    UpdateCertificateResponse (UpdateCertificateResponse'),
-    newUpdateCertificateResponse,
-
-    -- ** DeleteMitigationAction
-    DeleteMitigationAction (DeleteMitigationAction'),
-    newDeleteMitigationAction,
-    DeleteMitigationActionResponse (DeleteMitigationActionResponse'),
-    newDeleteMitigationActionResponse,
-
-    -- ** UpdateMitigationAction
-    UpdateMitigationAction (UpdateMitigationAction'),
-    newUpdateMitigationAction,
-    UpdateMitigationActionResponse (UpdateMitigationActionResponse'),
-    newUpdateMitigationActionResponse,
-
-    -- ** DescribeProvisioningTemplate
-    DescribeProvisioningTemplate (DescribeProvisioningTemplate'),
-    newDescribeProvisioningTemplate,
-    DescribeProvisioningTemplateResponse (DescribeProvisioningTemplateResponse'),
-    newDescribeProvisioningTemplateResponse,
-
-    -- ** ListPolicies (Paginated)
-    ListPolicies (ListPolicies'),
-    newListPolicies,
-    ListPoliciesResponse (ListPoliciesResponse'),
-    newListPoliciesResponse,
 
     -- ** CreateDimension
     CreateDimension (CreateDimension'),
@@ -238,53 +258,11 @@ module Network.AWS.IoT
     CreateDimensionResponse (CreateDimensionResponse'),
     newCreateDimensionResponse,
 
-    -- ** UpdateDomainConfiguration
-    UpdateDomainConfiguration (UpdateDomainConfiguration'),
-    newUpdateDomainConfiguration,
-    UpdateDomainConfigurationResponse (UpdateDomainConfigurationResponse'),
-    newUpdateDomainConfigurationResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
-
     -- ** ListAuditTasks (Paginated)
     ListAuditTasks (ListAuditTasks'),
     newListAuditTasks,
     ListAuditTasksResponse (ListAuditTasksResponse'),
     newListAuditTasksResponse,
-
-    -- ** RejectCertificateTransfer
-    RejectCertificateTransfer (RejectCertificateTransfer'),
-    newRejectCertificateTransfer,
-    RejectCertificateTransferResponse (RejectCertificateTransferResponse'),
-    newRejectCertificateTransferResponse,
-
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
-
-    -- ** SetLoggingOptions
-    SetLoggingOptions (SetLoggingOptions'),
-    newSetLoggingOptions,
-    SetLoggingOptionsResponse (SetLoggingOptionsResponse'),
-    newSetLoggingOptionsResponse,
-
-    -- ** CreateMitigationAction
-    CreateMitigationAction (CreateMitigationAction'),
-    newCreateMitigationAction,
-    CreateMitigationActionResponse (CreateMitigationActionResponse'),
-    newCreateMitigationActionResponse,
-
-    -- ** GetTopicRule
-    GetTopicRule (GetTopicRule'),
-    newGetTopicRule,
-    GetTopicRuleResponse (GetTopicRuleResponse'),
-    newGetTopicRuleResponse,
 
     -- ** DescribeThingType
     DescribeThingType (DescribeThingType'),
@@ -292,23 +270,17 @@ module Network.AWS.IoT
     DescribeThingTypeResponse (DescribeThingTypeResponse'),
     newDescribeThingTypeResponse,
 
-    -- ** ListThingsInThingGroup (Paginated)
-    ListThingsInThingGroup (ListThingsInThingGroup'),
-    newListThingsInThingGroup,
-    ListThingsInThingGroupResponse (ListThingsInThingGroupResponse'),
-    newListThingsInThingGroupResponse,
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
 
-    -- ** DescribeScheduledAudit
-    DescribeScheduledAudit (DescribeScheduledAudit'),
-    newDescribeScheduledAudit,
-    DescribeScheduledAuditResponse (DescribeScheduledAuditResponse'),
-    newDescribeScheduledAuditResponse,
-
-    -- ** ListDomainConfigurations (Paginated)
-    ListDomainConfigurations (ListDomainConfigurations'),
-    newListDomainConfigurations,
-    ListDomainConfigurationsResponse (ListDomainConfigurationsResponse'),
-    newListDomainConfigurationsResponse,
+    -- ** CreateMitigationAction
+    CreateMitigationAction (CreateMitigationAction'),
+    newCreateMitigationAction,
+    CreateMitigationActionResponse (CreateMitigationActionResponse'),
+    newCreateMitigationActionResponse,
 
     -- ** DeleteDomainConfiguration
     DeleteDomainConfiguration (DeleteDomainConfiguration'),
@@ -316,11 +288,29 @@ module Network.AWS.IoT
     DeleteDomainConfigurationResponse (DeleteDomainConfigurationResponse'),
     newDeleteDomainConfigurationResponse,
 
-    -- ** GetV2LoggingOptions
-    GetV2LoggingOptions (GetV2LoggingOptions'),
-    newGetV2LoggingOptions,
-    GetV2LoggingOptionsResponse (GetV2LoggingOptionsResponse'),
-    newGetV2LoggingOptionsResponse,
+    -- ** GetTopicRule
+    GetTopicRule (GetTopicRule'),
+    newGetTopicRule,
+    GetTopicRuleResponse (GetTopicRuleResponse'),
+    newGetTopicRuleResponse,
+
+    -- ** UpdateDomainConfiguration
+    UpdateDomainConfiguration (UpdateDomainConfiguration'),
+    newUpdateDomainConfiguration,
+    UpdateDomainConfigurationResponse (UpdateDomainConfigurationResponse'),
+    newUpdateDomainConfigurationResponse,
+
+    -- ** RejectCertificateTransfer
+    RejectCertificateTransfer (RejectCertificateTransfer'),
+    newRejectCertificateTransfer,
+    RejectCertificateTransferResponse (RejectCertificateTransferResponse'),
+    newRejectCertificateTransferResponse,
+
+    -- ** SetLoggingOptions
+    SetLoggingOptions (SetLoggingOptions'),
+    newSetLoggingOptions,
+    SetLoggingOptionsResponse (SetLoggingOptionsResponse'),
+    newSetLoggingOptionsResponse,
 
     -- ** CreateSecurityProfile
     CreateSecurityProfile (CreateSecurityProfile'),
@@ -328,11 +318,59 @@ module Network.AWS.IoT
     CreateSecurityProfileResponse (CreateSecurityProfileResponse'),
     newCreateSecurityProfileResponse,
 
-    -- ** DeleteTopicRule
-    DeleteTopicRule (DeleteTopicRule'),
-    newDeleteTopicRule,
-    DeleteTopicRuleResponse (DeleteTopicRuleResponse'),
-    newDeleteTopicRuleResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** ListDomainConfigurations (Paginated)
+    ListDomainConfigurations (ListDomainConfigurations'),
+    newListDomainConfigurations,
+    ListDomainConfigurationsResponse (ListDomainConfigurationsResponse'),
+    newListDomainConfigurationsResponse,
+
+    -- ** DescribeScheduledAudit
+    DescribeScheduledAudit (DescribeScheduledAudit'),
+    newDescribeScheduledAudit,
+    DescribeScheduledAuditResponse (DescribeScheduledAuditResponse'),
+    newDescribeScheduledAuditResponse,
+
+    -- ** GetV2LoggingOptions
+    GetV2LoggingOptions (GetV2LoggingOptions'),
+    newGetV2LoggingOptions,
+    GetV2LoggingOptionsResponse (GetV2LoggingOptionsResponse'),
+    newGetV2LoggingOptionsResponse,
+
+    -- ** ListThingsInThingGroup (Paginated)
+    ListThingsInThingGroup (ListThingsInThingGroup'),
+    newListThingsInThingGroup,
+    ListThingsInThingGroupResponse (ListThingsInThingGroupResponse'),
+    newListThingsInThingGroupResponse,
+
+    -- ** ListCustomMetrics (Paginated)
+    ListCustomMetrics (ListCustomMetrics'),
+    newListCustomMetrics,
+    ListCustomMetricsResponse (ListCustomMetricsResponse'),
+    newListCustomMetricsResponse,
+
+    -- ** AttachSecurityProfile
+    AttachSecurityProfile (AttachSecurityProfile'),
+    newAttachSecurityProfile,
+    AttachSecurityProfileResponse (AttachSecurityProfileResponse'),
+    newAttachSecurityProfileResponse,
+
+    -- ** UpdateJob
+    UpdateJob (UpdateJob'),
+    newUpdateJob,
+    UpdateJobResponse (UpdateJobResponse'),
+    newUpdateJobResponse,
+
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
 
     -- ** DeleteCACertificate
     DeleteCACertificate (DeleteCACertificate'),
@@ -346,17 +384,11 @@ module Network.AWS.IoT
     DeleteCustomMetricResponse (DeleteCustomMetricResponse'),
     newDeleteCustomMetricResponse,
 
-    -- ** UpdateCustomMetric
-    UpdateCustomMetric (UpdateCustomMetric'),
-    newUpdateCustomMetric,
-    UpdateCustomMetricResponse (UpdateCustomMetricResponse'),
-    newUpdateCustomMetricResponse,
-
-    -- ** CancelAuditTask
-    CancelAuditTask (CancelAuditTask'),
-    newCancelAuditTask,
-    CancelAuditTaskResponse (CancelAuditTaskResponse'),
-    newCancelAuditTaskResponse,
+    -- ** CreatePolicyVersion
+    CreatePolicyVersion (CreatePolicyVersion'),
+    newCreatePolicyVersion,
+    CreatePolicyVersionResponse (CreatePolicyVersionResponse'),
+    newCreatePolicyVersionResponse,
 
     -- ** ListRoleAliases (Paginated)
     ListRoleAliases (ListRoleAliases'),
@@ -364,29 +396,29 @@ module Network.AWS.IoT
     ListRoleAliasesResponse (ListRoleAliasesResponse'),
     newListRoleAliasesResponse,
 
-    -- ** StartAuditMitigationActionsTask
-    StartAuditMitigationActionsTask (StartAuditMitigationActionsTask'),
-    newStartAuditMitigationActionsTask,
-    StartAuditMitigationActionsTaskResponse (StartAuditMitigationActionsTaskResponse'),
-    newStartAuditMitigationActionsTaskResponse,
+    -- ** CancelAuditTask
+    CancelAuditTask (CancelAuditTask'),
+    newCancelAuditTask,
+    CancelAuditTaskResponse (CancelAuditTaskResponse'),
+    newCancelAuditTaskResponse,
 
-    -- ** AttachSecurityProfile
-    AttachSecurityProfile (AttachSecurityProfile'),
-    newAttachSecurityProfile,
-    AttachSecurityProfileResponse (AttachSecurityProfileResponse'),
-    newAttachSecurityProfileResponse,
+    -- ** CreateRoleAlias
+    CreateRoleAlias (CreateRoleAlias'),
+    newCreateRoleAlias,
+    CreateRoleAliasResponse (CreateRoleAliasResponse'),
+    newCreateRoleAliasResponse,
 
-    -- ** DeleteJob
-    DeleteJob (DeleteJob'),
-    newDeleteJob,
-    DeleteJobResponse (DeleteJobResponse'),
-    newDeleteJobResponse,
+    -- ** ListJobTemplates (Paginated)
+    ListJobTemplates (ListJobTemplates'),
+    newListJobTemplates,
+    ListJobTemplatesResponse (ListJobTemplatesResponse'),
+    newListJobTemplatesResponse,
 
-    -- ** TransferCertificate
-    TransferCertificate (TransferCertificate'),
-    newTransferCertificate,
-    TransferCertificateResponse (TransferCertificateResponse'),
-    newTransferCertificateResponse,
+    -- ** DescribeProvisioningTemplateVersion
+    DescribeProvisioningTemplateVersion (DescribeProvisioningTemplateVersion'),
+    newDescribeProvisioningTemplateVersion,
+    DescribeProvisioningTemplateVersionResponse (DescribeProvisioningTemplateVersionResponse'),
+    newDescribeProvisioningTemplateVersionResponse,
 
     -- ** CreateKeysAndCertificate
     CreateKeysAndCertificate (CreateKeysAndCertificate'),
@@ -400,41 +432,23 @@ module Network.AWS.IoT
     UpdateCACertificateResponse (UpdateCACertificateResponse'),
     newUpdateCACertificateResponse,
 
-    -- ** UpdateJob
-    UpdateJob (UpdateJob'),
-    newUpdateJob,
-    UpdateJobResponse (UpdateJobResponse'),
-    newUpdateJobResponse,
+    -- ** UpdateCustomMetric
+    UpdateCustomMetric (UpdateCustomMetric'),
+    newUpdateCustomMetric,
+    UpdateCustomMetricResponse (UpdateCustomMetricResponse'),
+    newUpdateCustomMetricResponse,
 
-    -- ** CreateRoleAlias
-    CreateRoleAlias (CreateRoleAlias'),
-    newCreateRoleAlias,
-    CreateRoleAliasResponse (CreateRoleAliasResponse'),
-    newCreateRoleAliasResponse,
+    -- ** StartAuditMitigationActionsTask
+    StartAuditMitigationActionsTask (StartAuditMitigationActionsTask'),
+    newStartAuditMitigationActionsTask,
+    StartAuditMitigationActionsTaskResponse (StartAuditMitigationActionsTaskResponse'),
+    newStartAuditMitigationActionsTaskResponse,
 
-    -- ** ListThingsInBillingGroup (Paginated)
-    ListThingsInBillingGroup (ListThingsInBillingGroup'),
-    newListThingsInBillingGroup,
-    ListThingsInBillingGroupResponse (ListThingsInBillingGroupResponse'),
-    newListThingsInBillingGroupResponse,
-
-    -- ** ListTargetsForSecurityProfile (Paginated)
-    ListTargetsForSecurityProfile (ListTargetsForSecurityProfile'),
-    newListTargetsForSecurityProfile,
-    ListTargetsForSecurityProfileResponse (ListTargetsForSecurityProfileResponse'),
-    newListTargetsForSecurityProfileResponse,
-
-    -- ** ListCustomMetrics (Paginated)
-    ListCustomMetrics (ListCustomMetrics'),
-    newListCustomMetrics,
-    ListCustomMetricsResponse (ListCustomMetricsResponse'),
-    newListCustomMetricsResponse,
-
-    -- ** DescribeProvisioningTemplateVersion
-    DescribeProvisioningTemplateVersion (DescribeProvisioningTemplateVersion'),
-    newDescribeProvisioningTemplateVersion,
-    DescribeProvisioningTemplateVersionResponse (DescribeProvisioningTemplateVersionResponse'),
-    newDescribeProvisioningTemplateVersionResponse,
+    -- ** TransferCertificate
+    TransferCertificate (TransferCertificate'),
+    newTransferCertificate,
+    TransferCertificateResponse (TransferCertificateResponse'),
+    newTransferCertificateResponse,
 
     -- ** GetPercentiles
     GetPercentiles (GetPercentiles'),
@@ -442,17 +456,41 @@ module Network.AWS.IoT
     GetPercentilesResponse (GetPercentilesResponse'),
     newGetPercentilesResponse,
 
-    -- ** CreatePolicyVersion
-    CreatePolicyVersion (CreatePolicyVersion'),
-    newCreatePolicyVersion,
-    CreatePolicyVersionResponse (CreatePolicyVersionResponse'),
-    newCreatePolicyVersionResponse,
+    -- ** DeleteTopicRule
+    DeleteTopicRule (DeleteTopicRule'),
+    newDeleteTopicRule,
+    DeleteTopicRuleResponse (DeleteTopicRuleResponse'),
+    newDeleteTopicRuleResponse,
+
+    -- ** ListTargetsForSecurityProfile (Paginated)
+    ListTargetsForSecurityProfile (ListTargetsForSecurityProfile'),
+    newListTargetsForSecurityProfile,
+    ListTargetsForSecurityProfileResponse (ListTargetsForSecurityProfileResponse'),
+    newListTargetsForSecurityProfileResponse,
 
     -- ** DescribeEndpoint
     DescribeEndpoint (DescribeEndpoint'),
     newDescribeEndpoint,
     DescribeEndpointResponse (DescribeEndpointResponse'),
     newDescribeEndpointResponse,
+
+    -- ** ListThingsInBillingGroup (Paginated)
+    ListThingsInBillingGroup (ListThingsInBillingGroup'),
+    newListThingsInBillingGroup,
+    ListThingsInBillingGroupResponse (ListThingsInBillingGroupResponse'),
+    newListThingsInBillingGroupResponse,
+
+    -- ** SetV2LoggingLevel
+    SetV2LoggingLevel (SetV2LoggingLevel'),
+    newSetV2LoggingLevel,
+    SetV2LoggingLevelResponse (SetV2LoggingLevelResponse'),
+    newSetV2LoggingLevelResponse,
+
+    -- ** CreateJobTemplate
+    CreateJobTemplate (CreateJobTemplate'),
+    newCreateJobTemplate,
+    CreateJobTemplateResponse (CreateJobTemplateResponse'),
+    newCreateJobTemplateResponse,
 
     -- ** SetDefaultPolicyVersion
     SetDefaultPolicyVersion (SetDefaultPolicyVersion'),
@@ -466,11 +504,17 @@ module Network.AWS.IoT
     CreateCustomMetricResponse (CreateCustomMetricResponse'),
     newCreateCustomMetricResponse,
 
-    -- ** DisableTopicRule
-    DisableTopicRule (DisableTopicRule'),
-    newDisableTopicRule,
-    DisableTopicRuleResponse (DisableTopicRuleResponse'),
-    newDisableTopicRuleResponse,
+    -- ** ListFleetMetrics (Paginated)
+    ListFleetMetrics (ListFleetMetrics'),
+    newListFleetMetrics,
+    ListFleetMetricsResponse (ListFleetMetricsResponse'),
+    newListFleetMetricsResponse,
+
+    -- ** UpdateFleetMetric
+    UpdateFleetMetric (UpdateFleetMetric'),
+    newUpdateFleetMetric,
+    UpdateFleetMetricResponse (UpdateFleetMetricResponse'),
+    newUpdateFleetMetricResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -478,23 +522,29 @@ module Network.AWS.IoT
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeAuditMitigationActionsTask
-    DescribeAuditMitigationActionsTask (DescribeAuditMitigationActionsTask'),
-    newDescribeAuditMitigationActionsTask,
-    DescribeAuditMitigationActionsTaskResponse (DescribeAuditMitigationActionsTaskResponse'),
-    newDescribeAuditMitigationActionsTaskResponse,
-
-    -- ** SetV2LoggingLevel
-    SetV2LoggingLevel (SetV2LoggingLevel'),
-    newSetV2LoggingLevel,
-    SetV2LoggingLevelResponse (SetV2LoggingLevelResponse'),
-    newSetV2LoggingLevelResponse,
-
     -- ** ListJobExecutionsForThing (Paginated)
     ListJobExecutionsForThing (ListJobExecutionsForThing'),
     newListJobExecutionsForThing,
     ListJobExecutionsForThingResponse (ListJobExecutionsForThingResponse'),
     newListJobExecutionsForThingResponse,
+
+    -- ** DeleteFleetMetric
+    DeleteFleetMetric (DeleteFleetMetric'),
+    newDeleteFleetMetric,
+    DeleteFleetMetricResponse (DeleteFleetMetricResponse'),
+    newDeleteFleetMetricResponse,
+
+    -- ** DisableTopicRule
+    DisableTopicRule (DisableTopicRule'),
+    newDisableTopicRule,
+    DisableTopicRuleResponse (DisableTopicRuleResponse'),
+    newDisableTopicRuleResponse,
+
+    -- ** DescribeAuditMitigationActionsTask
+    DescribeAuditMitigationActionsTask (DescribeAuditMitigationActionsTask'),
+    newDescribeAuditMitigationActionsTask,
+    DescribeAuditMitigationActionsTaskResponse (DescribeAuditMitigationActionsTaskResponse'),
+    newDescribeAuditMitigationActionsTaskResponse,
 
     -- ** CreateThing
     CreateThing (CreateThing'),
@@ -502,17 +552,23 @@ module Network.AWS.IoT
     CreateThingResponse (CreateThingResponse'),
     newCreateThingResponse,
 
-    -- ** DescribeCertificate
-    DescribeCertificate (DescribeCertificate'),
-    newDescribeCertificate,
-    DescribeCertificateResponse (DescribeCertificateResponse'),
-    newDescribeCertificateResponse,
+    -- ** ListV2LoggingLevels (Paginated)
+    ListV2LoggingLevels (ListV2LoggingLevels'),
+    newListV2LoggingLevels,
+    ListV2LoggingLevelsResponse (ListV2LoggingLevelsResponse'),
+    newListV2LoggingLevelsResponse,
 
-    -- ** UpdateProvisioningTemplate
-    UpdateProvisioningTemplate (UpdateProvisioningTemplate'),
-    newUpdateProvisioningTemplate,
-    UpdateProvisioningTemplateResponse (UpdateProvisioningTemplateResponse'),
-    newUpdateProvisioningTemplateResponse,
+    -- ** ListAuditMitigationActionsExecutions (Paginated)
+    ListAuditMitigationActionsExecutions (ListAuditMitigationActionsExecutions'),
+    newListAuditMitigationActionsExecutions,
+    ListAuditMitigationActionsExecutionsResponse (ListAuditMitigationActionsExecutionsResponse'),
+    newListAuditMitigationActionsExecutionsResponse,
+
+    -- ** ListProvisioningTemplates (Paginated)
+    ListProvisioningTemplates (ListProvisioningTemplates'),
+    newListProvisioningTemplates,
+    ListProvisioningTemplatesResponse (ListProvisioningTemplatesResponse'),
+    newListProvisioningTemplatesResponse,
 
     -- ** StartThingRegistrationTask
     StartThingRegistrationTask (StartThingRegistrationTask'),
@@ -520,11 +576,23 @@ module Network.AWS.IoT
     StartThingRegistrationTaskResponse (StartThingRegistrationTaskResponse'),
     newStartThingRegistrationTaskResponse,
 
-    -- ** SetDefaultAuthorizer
-    SetDefaultAuthorizer (SetDefaultAuthorizer'),
-    newSetDefaultAuthorizer,
-    SetDefaultAuthorizerResponse (SetDefaultAuthorizerResponse'),
-    newSetDefaultAuthorizerResponse,
+    -- ** DescribeJobExecution
+    DescribeJobExecution (DescribeJobExecution'),
+    newDescribeJobExecution,
+    DescribeJobExecutionResponse (DescribeJobExecutionResponse'),
+    newDescribeJobExecutionResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
 
     -- ** DeleteProvisioningTemplate
     DeleteProvisioningTemplate (DeleteProvisioningTemplate'),
@@ -532,23 +600,17 @@ module Network.AWS.IoT
     DeleteProvisioningTemplateResponse (DeleteProvisioningTemplateResponse'),
     newDeleteProvisioningTemplateResponse,
 
-    -- ** DescribeMitigationAction
-    DescribeMitigationAction (DescribeMitigationAction'),
-    newDescribeMitigationAction,
-    DescribeMitigationActionResponse (DescribeMitigationActionResponse'),
-    newDescribeMitigationActionResponse,
+    -- ** UpdateProvisioningTemplate
+    UpdateProvisioningTemplate (UpdateProvisioningTemplate'),
+    newUpdateProvisioningTemplate,
+    UpdateProvisioningTemplateResponse (UpdateProvisioningTemplateResponse'),
+    newUpdateProvisioningTemplateResponse,
 
-    -- ** DeleteV2LoggingLevel
-    DeleteV2LoggingLevel (DeleteV2LoggingLevel'),
-    newDeleteV2LoggingLevel,
-    DeleteV2LoggingLevelResponse (DeleteV2LoggingLevelResponse'),
-    newDeleteV2LoggingLevelResponse,
-
-    -- ** DescribeJobExecution
-    DescribeJobExecution (DescribeJobExecution'),
-    newDescribeJobExecution,
-    DescribeJobExecutionResponse (DescribeJobExecutionResponse'),
-    newDescribeJobExecutionResponse,
+    -- ** GetIndexingConfiguration
+    GetIndexingConfiguration (GetIndexingConfiguration'),
+    newGetIndexingConfiguration,
+    GetIndexingConfigurationResponse (GetIndexingConfigurationResponse'),
+    newGetIndexingConfigurationResponse,
 
     -- ** StopThingRegistrationTask
     StopThingRegistrationTask (StopThingRegistrationTask'),
@@ -562,65 +624,23 @@ module Network.AWS.IoT
     CreateScheduledAuditResponse (CreateScheduledAuditResponse'),
     newCreateScheduledAuditResponse,
 
-    -- ** GetIndexingConfiguration
-    GetIndexingConfiguration (GetIndexingConfiguration'),
-    newGetIndexingConfiguration,
-    GetIndexingConfigurationResponse (GetIndexingConfigurationResponse'),
-    newGetIndexingConfigurationResponse,
+    -- ** SetDefaultAuthorizer
+    SetDefaultAuthorizer (SetDefaultAuthorizer'),
+    newSetDefaultAuthorizer,
+    SetDefaultAuthorizerResponse (SetDefaultAuthorizerResponse'),
+    newSetDefaultAuthorizerResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DeleteV2LoggingLevel
+    DeleteV2LoggingLevel (DeleteV2LoggingLevel'),
+    newDeleteV2LoggingLevel,
+    DeleteV2LoggingLevelResponse (DeleteV2LoggingLevelResponse'),
+    newDeleteV2LoggingLevelResponse,
 
-    -- ** ListV2LoggingLevels (Paginated)
-    ListV2LoggingLevels (ListV2LoggingLevels'),
-    newListV2LoggingLevels,
-    ListV2LoggingLevelsResponse (ListV2LoggingLevelsResponse'),
-    newListV2LoggingLevelsResponse,
-
-    -- ** ListProvisioningTemplates (Paginated)
-    ListProvisioningTemplates (ListProvisioningTemplates'),
-    newListProvisioningTemplates,
-    ListProvisioningTemplatesResponse (ListProvisioningTemplatesResponse'),
-    newListProvisioningTemplatesResponse,
-
-    -- ** ListAuditMitigationActionsExecutions (Paginated)
-    ListAuditMitigationActionsExecutions (ListAuditMitigationActionsExecutions'),
-    newListAuditMitigationActionsExecutions,
-    ListAuditMitigationActionsExecutionsResponse (ListAuditMitigationActionsExecutionsResponse'),
-    newListAuditMitigationActionsExecutionsResponse,
-
-    -- ** DeleteAuditSuppression
-    DeleteAuditSuppression (DeleteAuditSuppression'),
-    newDeleteAuditSuppression,
-    DeleteAuditSuppressionResponse (DeleteAuditSuppressionResponse'),
-    newDeleteAuditSuppressionResponse,
-
-    -- ** ListDetectMitigationActionsTasks (Paginated)
-    ListDetectMitigationActionsTasks (ListDetectMitigationActionsTasks'),
-    newListDetectMitigationActionsTasks,
-    ListDetectMitigationActionsTasksResponse (ListDetectMitigationActionsTasksResponse'),
-    newListDetectMitigationActionsTasksResponse,
-
-    -- ** UpdateStream
-    UpdateStream (UpdateStream'),
-    newUpdateStream,
-    UpdateStreamResponse (UpdateStreamResponse'),
-    newUpdateStreamResponse,
-
-    -- ** DeleteRegistrationCode
-    DeleteRegistrationCode (DeleteRegistrationCode'),
-    newDeleteRegistrationCode,
-    DeleteRegistrationCodeResponse (DeleteRegistrationCodeResponse'),
-    newDeleteRegistrationCodeResponse,
-
-    -- ** CreateAuthorizer
-    CreateAuthorizer (CreateAuthorizer'),
-    newCreateAuthorizer,
-    CreateAuthorizerResponse (CreateAuthorizerResponse'),
-    newCreateAuthorizerResponse,
+    -- ** DescribeMitigationAction
+    DescribeMitigationAction (DescribeMitigationAction'),
+    newDescribeMitigationAction,
+    DescribeMitigationActionResponse (DescribeMitigationActionResponse'),
+    newDescribeMitigationActionResponse,
 
     -- ** DescribeDimension
     DescribeDimension (DescribeDimension'),
@@ -628,23 +648,11 @@ module Network.AWS.IoT
     DescribeDimensionResponse (DescribeDimensionResponse'),
     newDescribeDimensionResponse,
 
-    -- ** DeleteStream
-    DeleteStream (DeleteStream'),
-    newDeleteStream,
-    DeleteStreamResponse (DeleteStreamResponse'),
-    newDeleteStreamResponse,
-
-    -- ** DeleteAccountAuditConfiguration
-    DeleteAccountAuditConfiguration (DeleteAccountAuditConfiguration'),
-    newDeleteAccountAuditConfiguration,
-    DeleteAccountAuditConfigurationResponse (DeleteAccountAuditConfigurationResponse'),
-    newDeleteAccountAuditConfigurationResponse,
-
-    -- ** ListThings (Paginated)
-    ListThings (ListThings'),
-    newListThings,
-    ListThingsResponse (ListThingsResponse'),
-    newListThingsResponse,
+    -- ** CreateAuthorizer
+    CreateAuthorizer (CreateAuthorizer'),
+    newCreateAuthorizer,
+    CreateAuthorizerResponse (CreateAuthorizerResponse'),
+    newCreateAuthorizerResponse,
 
     -- ** SetV2LoggingOptions
     SetV2LoggingOptions (SetV2LoggingOptions'),
@@ -652,23 +660,17 @@ module Network.AWS.IoT
     SetV2LoggingOptionsResponse (SetV2LoggingOptionsResponse'),
     newSetV2LoggingOptionsResponse,
 
-    -- ** UpdateThing
-    UpdateThing (UpdateThing'),
-    newUpdateThing,
-    UpdateThingResponse (UpdateThingResponse'),
-    newUpdateThingResponse,
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
 
-    -- ** AddThingToThingGroup
-    AddThingToThingGroup (AddThingToThingGroup'),
-    newAddThingToThingGroup,
-    AddThingToThingGroupResponse (AddThingToThingGroupResponse'),
-    newAddThingToThingGroupResponse,
-
-    -- ** GetLoggingOptions
-    GetLoggingOptions (GetLoggingOptions'),
-    newGetLoggingOptions,
-    GetLoggingOptionsResponse (GetLoggingOptionsResponse'),
-    newGetLoggingOptionsResponse,
+    -- ** ListDetectMitigationActionsTasks (Paginated)
+    ListDetectMitigationActionsTasks (ListDetectMitigationActionsTasks'),
+    newListDetectMitigationActionsTasks,
+    ListDetectMitigationActionsTasksResponse (ListDetectMitigationActionsTasksResponse'),
+    newListDetectMitigationActionsTasksResponse,
 
     -- ** UpdateAuditSuppression
     UpdateAuditSuppression (UpdateAuditSuppression'),
@@ -676,53 +678,17 @@ module Network.AWS.IoT
     UpdateAuditSuppressionResponse (UpdateAuditSuppressionResponse'),
     newUpdateAuditSuppressionResponse,
 
-    -- ** ListScheduledAudits (Paginated)
-    ListScheduledAudits (ListScheduledAudits'),
-    newListScheduledAudits,
-    ListScheduledAuditsResponse (ListScheduledAuditsResponse'),
-    newListScheduledAuditsResponse,
+    -- ** UpdateStream
+    UpdateStream (UpdateStream'),
+    newUpdateStream,
+    UpdateStreamResponse (UpdateStreamResponse'),
+    newUpdateStreamResponse,
 
-    -- ** AttachThingPrincipal
-    AttachThingPrincipal (AttachThingPrincipal'),
-    newAttachThingPrincipal,
-    AttachThingPrincipalResponse (AttachThingPrincipalResponse'),
-    newAttachThingPrincipalResponse,
-
-    -- ** DeleteThing
-    DeleteThing (DeleteThing'),
-    newDeleteThing,
-    DeleteThingResponse (DeleteThingResponse'),
-    newDeleteThingResponse,
-
-    -- ** ListCertificatesByCA (Paginated)
-    ListCertificatesByCA (ListCertificatesByCA'),
-    newListCertificatesByCA,
-    ListCertificatesByCAResponse (ListCertificatesByCAResponse'),
-    newListCertificatesByCAResponse,
-
-    -- ** ListThingGroupsForThing (Paginated)
-    ListThingGroupsForThing (ListThingGroupsForThing'),
-    newListThingGroupsForThing,
-    ListThingGroupsForThingResponse (ListThingGroupsForThingResponse'),
-    newListThingGroupsForThingResponse,
-
-    -- ** UpdateBillingGroup
-    UpdateBillingGroup (UpdateBillingGroup'),
-    newUpdateBillingGroup,
-    UpdateBillingGroupResponse (UpdateBillingGroupResponse'),
-    newUpdateBillingGroupResponse,
-
-    -- ** DeleteBillingGroup
-    DeleteBillingGroup (DeleteBillingGroup'),
-    newDeleteBillingGroup,
-    DeleteBillingGroupResponse (DeleteBillingGroupResponse'),
-    newDeleteBillingGroupResponse,
-
-    -- ** UpdateAccountAuditConfiguration
-    UpdateAccountAuditConfiguration (UpdateAccountAuditConfiguration'),
-    newUpdateAccountAuditConfiguration,
-    UpdateAccountAuditConfigurationResponse (UpdateAccountAuditConfigurationResponse'),
-    newUpdateAccountAuditConfigurationResponse,
+    -- ** UpdateThing
+    UpdateThing (UpdateThing'),
+    newUpdateThing,
+    UpdateThingResponse (UpdateThingResponse'),
+    newUpdateThingResponse,
 
     -- ** DescribeThingRegistrationTask
     DescribeThingRegistrationTask (DescribeThingRegistrationTask'),
@@ -730,11 +696,131 @@ module Network.AWS.IoT
     DescribeThingRegistrationTaskResponse (DescribeThingRegistrationTaskResponse'),
     newDescribeThingRegistrationTaskResponse,
 
+    -- ** DeleteAccountAuditConfiguration
+    DeleteAccountAuditConfiguration (DeleteAccountAuditConfiguration'),
+    newDeleteAccountAuditConfiguration,
+    DeleteAccountAuditConfigurationResponse (DeleteAccountAuditConfigurationResponse'),
+    newDeleteAccountAuditConfigurationResponse,
+
+    -- ** ListThingGroupsForThing (Paginated)
+    ListThingGroupsForThing (ListThingGroupsForThing'),
+    newListThingGroupsForThing,
+    ListThingGroupsForThingResponse (ListThingGroupsForThingResponse'),
+    newListThingGroupsForThingResponse,
+
+    -- ** ListCertificatesByCA (Paginated)
+    ListCertificatesByCA (ListCertificatesByCA'),
+    newListCertificatesByCA,
+    ListCertificatesByCAResponse (ListCertificatesByCAResponse'),
+    newListCertificatesByCAResponse,
+
+    -- ** ListThings (Paginated)
+    ListThings (ListThings'),
+    newListThings,
+    ListThingsResponse (ListThingsResponse'),
+    newListThingsResponse,
+
+    -- ** AddThingToThingGroup
+    AddThingToThingGroup (AddThingToThingGroup'),
+    newAddThingToThingGroup,
+    AddThingToThingGroupResponse (AddThingToThingGroupResponse'),
+    newAddThingToThingGroupResponse,
+
+    -- ** DeleteBillingGroup
+    DeleteBillingGroup (DeleteBillingGroup'),
+    newDeleteBillingGroup,
+    DeleteBillingGroupResponse (DeleteBillingGroupResponse'),
+    newDeleteBillingGroupResponse,
+
+    -- ** ListScheduledAudits (Paginated)
+    ListScheduledAudits (ListScheduledAudits'),
+    newListScheduledAudits,
+    ListScheduledAuditsResponse (ListScheduledAuditsResponse'),
+    newListScheduledAuditsResponse,
+
+    -- ** DeleteRegistrationCode
+    DeleteRegistrationCode (DeleteRegistrationCode'),
+    newDeleteRegistrationCode,
+    DeleteRegistrationCodeResponse (DeleteRegistrationCodeResponse'),
+    newDeleteRegistrationCodeResponse,
+
+    -- ** DeleteThing
+    DeleteThing (DeleteThing'),
+    newDeleteThing,
+    DeleteThingResponse (DeleteThingResponse'),
+    newDeleteThingResponse,
+
+    -- ** AttachThingPrincipal
+    AttachThingPrincipal (AttachThingPrincipal'),
+    newAttachThingPrincipal,
+    AttachThingPrincipalResponse (AttachThingPrincipalResponse'),
+    newAttachThingPrincipalResponse,
+
+    -- ** UpdateBillingGroup
+    UpdateBillingGroup (UpdateBillingGroup'),
+    newUpdateBillingGroup,
+    UpdateBillingGroupResponse (UpdateBillingGroupResponse'),
+    newUpdateBillingGroupResponse,
+
+    -- ** UpdateAccountAuditConfiguration
+    UpdateAccountAuditConfiguration (UpdateAccountAuditConfiguration'),
+    newUpdateAccountAuditConfiguration,
+    UpdateAccountAuditConfigurationResponse (UpdateAccountAuditConfigurationResponse'),
+    newUpdateAccountAuditConfigurationResponse,
+
+    -- ** GetLoggingOptions
+    GetLoggingOptions (GetLoggingOptions'),
+    newGetLoggingOptions,
+    GetLoggingOptionsResponse (GetLoggingOptionsResponse'),
+    newGetLoggingOptionsResponse,
+
+    -- ** DeleteAuditSuppression
+    DeleteAuditSuppression (DeleteAuditSuppression'),
+    newDeleteAuditSuppression,
+    DeleteAuditSuppressionResponse (DeleteAuditSuppressionResponse'),
+    newDeleteAuditSuppressionResponse,
+
     -- ** DescribeCustomMetric
     DescribeCustomMetric (DescribeCustomMetric'),
     newDescribeCustomMetric,
     DescribeCustomMetricResponse (DescribeCustomMetricResponse'),
     newDescribeCustomMetricResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** DeleteOTAUpdate
+    DeleteOTAUpdate (DeleteOTAUpdate'),
+    newDeleteOTAUpdate,
+    DeleteOTAUpdateResponse (DeleteOTAUpdateResponse'),
+    newDeleteOTAUpdateResponse,
+
+    -- ** GetRegistrationCode
+    GetRegistrationCode (GetRegistrationCode'),
+    newGetRegistrationCode,
+    GetRegistrationCodeResponse (GetRegistrationCodeResponse'),
+    newGetRegistrationCodeResponse,
+
+    -- ** ListDetectMitigationActionsExecutions (Paginated)
+    ListDetectMitigationActionsExecutions (ListDetectMitigationActionsExecutions'),
+    newListDetectMitigationActionsExecutions,
+    ListDetectMitigationActionsExecutionsResponse (ListDetectMitigationActionsExecutionsResponse'),
+    newListDetectMitigationActionsExecutionsResponse,
+
+    -- ** RegisterCertificateWithoutCA
+    RegisterCertificateWithoutCA (RegisterCertificateWithoutCA'),
+    newRegisterCertificateWithoutCA,
+    RegisterCertificateWithoutCAResponse (RegisterCertificateWithoutCAResponse'),
+    newRegisterCertificateWithoutCAResponse,
+
+    -- ** CreateDynamicThingGroup
+    CreateDynamicThingGroup (CreateDynamicThingGroup'),
+    newCreateDynamicThingGroup,
+    CreateDynamicThingGroupResponse (CreateDynamicThingGroupResponse'),
+    newCreateDynamicThingGroupResponse,
 
     -- ** DescribeCACertificate
     DescribeCACertificate (DescribeCACertificate'),
@@ -748,53 +834,17 @@ module Network.AWS.IoT
     DeleteProvisioningTemplateVersionResponse (DeleteProvisioningTemplateVersionResponse'),
     newDeleteProvisioningTemplateVersionResponse,
 
-    -- ** DeleteOTAUpdate
-    DeleteOTAUpdate (DeleteOTAUpdate'),
-    newDeleteOTAUpdate,
-    DeleteOTAUpdateResponse (DeleteOTAUpdateResponse'),
-    newDeleteOTAUpdateResponse,
-
-    -- ** RegisterCertificateWithoutCA
-    RegisterCertificateWithoutCA (RegisterCertificateWithoutCA'),
-    newRegisterCertificateWithoutCA,
-    RegisterCertificateWithoutCAResponse (RegisterCertificateWithoutCAResponse'),
-    newRegisterCertificateWithoutCAResponse,
-
-    -- ** ListDetectMitigationActionsExecutions (Paginated)
-    ListDetectMitigationActionsExecutions (ListDetectMitigationActionsExecutions'),
-    newListDetectMitigationActionsExecutions,
-    ListDetectMitigationActionsExecutionsResponse (ListDetectMitigationActionsExecutionsResponse'),
-    newListDetectMitigationActionsExecutionsResponse,
-
-    -- ** CreateDynamicThingGroup
-    CreateDynamicThingGroup (CreateDynamicThingGroup'),
-    newCreateDynamicThingGroup,
-    CreateDynamicThingGroupResponse (CreateDynamicThingGroupResponse'),
-    newCreateDynamicThingGroupResponse,
-
-    -- ** GetRegistrationCode
-    GetRegistrationCode (GetRegistrationCode'),
-    newGetRegistrationCode,
-    GetRegistrationCodeResponse (GetRegistrationCodeResponse'),
-    newGetRegistrationCodeResponse,
-
-    -- ** DescribeJob
-    DescribeJob (DescribeJob'),
-    newDescribeJob,
-    DescribeJobResponse (DescribeJobResponse'),
-    newDescribeJobResponse,
-
     -- ** DetachSecurityProfile
     DetachSecurityProfile (DetachSecurityProfile'),
     newDetachSecurityProfile,
     DetachSecurityProfileResponse (DetachSecurityProfileResponse'),
     newDetachSecurityProfileResponse,
 
-    -- ** TestInvokeAuthorizer
-    TestInvokeAuthorizer (TestInvokeAuthorizer'),
-    newTestInvokeAuthorizer,
-    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
-    newTestInvokeAuthorizerResponse,
+    -- ** ListThingPrincipals (Paginated)
+    ListThingPrincipals (ListThingPrincipals'),
+    newListThingPrincipals,
+    ListThingPrincipalsResponse (ListThingPrincipalsResponse'),
+    newListThingPrincipalsResponse,
 
     -- ** RemoveThingFromThingGroup
     RemoveThingFromThingGroup (RemoveThingFromThingGroup'),
@@ -808,29 +858,11 @@ module Network.AWS.IoT
     GetBehaviorModelTrainingSummariesResponse (GetBehaviorModelTrainingSummariesResponse'),
     newGetBehaviorModelTrainingSummariesResponse,
 
-    -- ** CreateProvisioningTemplateVersion
-    CreateProvisioningTemplateVersion (CreateProvisioningTemplateVersion'),
-    newCreateProvisioningTemplateVersion,
-    CreateProvisioningTemplateVersionResponse (CreateProvisioningTemplateVersionResponse'),
-    newCreateProvisioningTemplateVersionResponse,
-
-    -- ** ListPrincipalThings (Paginated)
-    ListPrincipalThings (ListPrincipalThings'),
-    newListPrincipalThings,
-    ListPrincipalThingsResponse (ListPrincipalThingsResponse'),
-    newListPrincipalThingsResponse,
-
-    -- ** ListAuditMitigationActionsTasks (Paginated)
-    ListAuditMitigationActionsTasks (ListAuditMitigationActionsTasks'),
-    newListAuditMitigationActionsTasks,
-    ListAuditMitigationActionsTasksResponse (ListAuditMitigationActionsTasksResponse'),
-    newListAuditMitigationActionsTasksResponse,
-
-    -- ** DescribeRoleAlias
-    DescribeRoleAlias (DescribeRoleAlias'),
-    newDescribeRoleAlias,
-    DescribeRoleAliasResponse (DescribeRoleAliasResponse'),
-    newDescribeRoleAliasResponse,
+    -- ** UpdateDynamicThingGroup
+    UpdateDynamicThingGroup (UpdateDynamicThingGroup'),
+    newUpdateDynamicThingGroup,
+    UpdateDynamicThingGroupResponse (UpdateDynamicThingGroupResponse'),
+    newUpdateDynamicThingGroupResponse,
 
     -- ** CreateTopicRuleDestination
     CreateTopicRuleDestination (CreateTopicRuleDestination'),
@@ -838,11 +870,23 @@ module Network.AWS.IoT
     CreateTopicRuleDestinationResponse (CreateTopicRuleDestinationResponse'),
     newCreateTopicRuleDestinationResponse,
 
-    -- ** CreateOTAUpdate
-    CreateOTAUpdate (CreateOTAUpdate'),
-    newCreateOTAUpdate,
-    CreateOTAUpdateResponse (CreateOTAUpdateResponse'),
-    newCreateOTAUpdateResponse,
+    -- ** ListPrincipalThings (Paginated)
+    ListPrincipalThings (ListPrincipalThings'),
+    newListPrincipalThings,
+    ListPrincipalThingsResponse (ListPrincipalThingsResponse'),
+    newListPrincipalThingsResponse,
+
+    -- ** CreateProvisioningTemplateVersion
+    CreateProvisioningTemplateVersion (CreateProvisioningTemplateVersion'),
+    newCreateProvisioningTemplateVersion,
+    CreateProvisioningTemplateVersionResponse (CreateProvisioningTemplateVersionResponse'),
+    newCreateProvisioningTemplateVersionResponse,
+
+    -- ** DescribeRoleAlias
+    DescribeRoleAlias (DescribeRoleAlias'),
+    newDescribeRoleAlias,
+    DescribeRoleAliasResponse (DescribeRoleAliasResponse'),
+    newDescribeRoleAliasResponse,
 
     -- ** DeleteDynamicThingGroup
     DeleteDynamicThingGroup (DeleteDynamicThingGroup'),
@@ -850,23 +894,23 @@ module Network.AWS.IoT
     DeleteDynamicThingGroupResponse (DeleteDynamicThingGroupResponse'),
     newDeleteDynamicThingGroupResponse,
 
-    -- ** UpdateDynamicThingGroup
-    UpdateDynamicThingGroup (UpdateDynamicThingGroup'),
-    newUpdateDynamicThingGroup,
-    UpdateDynamicThingGroupResponse (UpdateDynamicThingGroupResponse'),
-    newUpdateDynamicThingGroupResponse,
+    -- ** CreateThingGroup
+    CreateThingGroup (CreateThingGroup'),
+    newCreateThingGroup,
+    CreateThingGroupResponse (CreateThingGroupResponse'),
+    newCreateThingGroupResponse,
 
-    -- ** DetachPolicy
-    DetachPolicy (DetachPolicy'),
-    newDetachPolicy,
-    DetachPolicyResponse (DetachPolicyResponse'),
-    newDetachPolicyResponse,
+    -- ** TestInvokeAuthorizer
+    TestInvokeAuthorizer (TestInvokeAuthorizer'),
+    newTestInvokeAuthorizer,
+    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
+    newTestInvokeAuthorizerResponse,
 
-    -- ** ListThingPrincipals (Paginated)
-    ListThingPrincipals (ListThingPrincipals'),
-    newListThingPrincipals,
-    ListThingPrincipalsResponse (ListThingPrincipalsResponse'),
-    newListThingPrincipalsResponse,
+    -- ** CreateOTAUpdate
+    CreateOTAUpdate (CreateOTAUpdate'),
+    newCreateOTAUpdate,
+    CreateOTAUpdateResponse (CreateOTAUpdateResponse'),
+    newCreateOTAUpdateResponse,
 
     -- ** DescribeDefaultAuthorizer
     DescribeDefaultAuthorizer (DescribeDefaultAuthorizer'),
@@ -874,17 +918,47 @@ module Network.AWS.IoT
     DescribeDefaultAuthorizerResponse (DescribeDefaultAuthorizerResponse'),
     newDescribeDefaultAuthorizerResponse,
 
-    -- ** CreateThingGroup
-    CreateThingGroup (CreateThingGroup'),
-    newCreateThingGroup,
-    CreateThingGroupResponse (CreateThingGroupResponse'),
-    newCreateThingGroupResponse,
+    -- ** DetachPolicy
+    DetachPolicy (DetachPolicy'),
+    newDetachPolicy,
+    DetachPolicyResponse (DetachPolicyResponse'),
+    newDetachPolicyResponse,
+
+    -- ** ListAuditMitigationActionsTasks (Paginated)
+    ListAuditMitigationActionsTasks (ListAuditMitigationActionsTasks'),
+    newListAuditMitigationActionsTasks,
+    ListAuditMitigationActionsTasksResponse (ListAuditMitigationActionsTasksResponse'),
+    newListAuditMitigationActionsTasksResponse,
 
     -- ** RegisterCertificate
     RegisterCertificate (RegisterCertificate'),
     newRegisterCertificate,
     RegisterCertificateResponse (RegisterCertificateResponse'),
     newRegisterCertificateResponse,
+
+    -- ** UpdateSecurityProfile
+    UpdateSecurityProfile (UpdateSecurityProfile'),
+    newUpdateSecurityProfile,
+    UpdateSecurityProfileResponse (UpdateSecurityProfileResponse'),
+    newUpdateSecurityProfileResponse,
+
+    -- ** DescribeAuthorizer
+    DescribeAuthorizer (DescribeAuthorizer'),
+    newDescribeAuthorizer,
+    DescribeAuthorizerResponse (DescribeAuthorizerResponse'),
+    newDescribeAuthorizerResponse,
+
+    -- ** GetPolicyVersion
+    GetPolicyVersion (GetPolicyVersion'),
+    newGetPolicyVersion,
+    GetPolicyVersionResponse (GetPolicyVersionResponse'),
+    newGetPolicyVersionResponse,
+
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
 
     -- ** DeleteSecurityProfile
     DeleteSecurityProfile (DeleteSecurityProfile'),
@@ -904,35 +978,35 @@ module Network.AWS.IoT
     CreateDomainConfigurationResponse (CreateDomainConfigurationResponse'),
     newCreateDomainConfigurationResponse,
 
-    -- ** GetPolicyVersion
-    GetPolicyVersion (GetPolicyVersion'),
-    newGetPolicyVersion,
-    GetPolicyVersionResponse (GetPolicyVersionResponse'),
-    newGetPolicyVersionResponse,
-
-    -- ** ListCertificates (Paginated)
-    ListCertificates (ListCertificates'),
-    newListCertificates,
-    ListCertificatesResponse (ListCertificatesResponse'),
-    newListCertificatesResponse,
-
-    -- ** UpdateSecurityProfile
-    UpdateSecurityProfile (UpdateSecurityProfile'),
-    newUpdateSecurityProfile,
-    UpdateSecurityProfileResponse (UpdateSecurityProfileResponse'),
-    newUpdateSecurityProfileResponse,
-
     -- ** ListActiveViolations (Paginated)
     ListActiveViolations (ListActiveViolations'),
     newListActiveViolations,
     ListActiveViolationsResponse (ListActiveViolationsResponse'),
     newListActiveViolationsResponse,
 
-    -- ** DescribeAuthorizer
-    DescribeAuthorizer (DescribeAuthorizer'),
-    newDescribeAuthorizer,
-    DescribeAuthorizerResponse (DescribeAuthorizerResponse'),
-    newDescribeAuthorizerResponse,
+    -- ** DescribeBillingGroup
+    DescribeBillingGroup (DescribeBillingGroup'),
+    newDescribeBillingGroup,
+    DescribeBillingGroupResponse (DescribeBillingGroupResponse'),
+    newDescribeBillingGroupResponse,
+
+    -- ** ListThingRegistrationTasks (Paginated)
+    ListThingRegistrationTasks (ListThingRegistrationTasks'),
+    newListThingRegistrationTasks,
+    ListThingRegistrationTasksResponse (ListThingRegistrationTasksResponse'),
+    newListThingRegistrationTasksResponse,
+
+    -- ** UpdateDimension
+    UpdateDimension (UpdateDimension'),
+    newUpdateDimension,
+    UpdateDimensionResponse (UpdateDimensionResponse'),
+    newUpdateDimensionResponse,
+
+    -- ** DescribeAuditSuppression
+    DescribeAuditSuppression (DescribeAuditSuppression'),
+    newDescribeAuditSuppression,
+    DescribeAuditSuppressionResponse (DescribeAuditSuppressionResponse'),
+    newDescribeAuditSuppressionResponse,
 
     -- ** DescribeAccountAuditConfiguration
     DescribeAccountAuditConfiguration (DescribeAccountAuditConfiguration'),
@@ -946,53 +1020,17 @@ module Network.AWS.IoT
     DeprecateThingTypeResponse (DeprecateThingTypeResponse'),
     newDeprecateThingTypeResponse,
 
-    -- ** DeleteDimension
-    DeleteDimension (DeleteDimension'),
-    newDeleteDimension,
-    DeleteDimensionResponse (DeleteDimensionResponse'),
-    newDeleteDimensionResponse,
-
-    -- ** DescribeBillingGroup
-    DescribeBillingGroup (DescribeBillingGroup'),
-    newDescribeBillingGroup,
-    DescribeBillingGroupResponse (DescribeBillingGroupResponse'),
-    newDescribeBillingGroupResponse,
-
-    -- ** UpdateDimension
-    UpdateDimension (UpdateDimension'),
-    newUpdateDimension,
-    UpdateDimensionResponse (UpdateDimensionResponse'),
-    newUpdateDimensionResponse,
-
-    -- ** ConfirmTopicRuleDestination
-    ConfirmTopicRuleDestination (ConfirmTopicRuleDestination'),
-    newConfirmTopicRuleDestination,
-    ConfirmTopicRuleDestinationResponse (ConfirmTopicRuleDestinationResponse'),
-    newConfirmTopicRuleDestinationResponse,
-
     -- ** DescribeDetectMitigationActionsTask
     DescribeDetectMitigationActionsTask (DescribeDetectMitigationActionsTask'),
     newDescribeDetectMitigationActionsTask,
     DescribeDetectMitigationActionsTaskResponse (DescribeDetectMitigationActionsTaskResponse'),
     newDescribeDetectMitigationActionsTaskResponse,
 
-    -- ** ListThingRegistrationTasks (Paginated)
-    ListThingRegistrationTasks (ListThingRegistrationTasks'),
-    newListThingRegistrationTasks,
-    ListThingRegistrationTasksResponse (ListThingRegistrationTasksResponse'),
-    newListThingRegistrationTasksResponse,
-
-    -- ** ListDimensions (Paginated)
-    ListDimensions (ListDimensions'),
-    newListDimensions,
-    ListDimensionsResponse (ListDimensionsResponse'),
-    newListDimensionsResponse,
-
-    -- ** DescribeAuditSuppression
-    DescribeAuditSuppression (DescribeAuditSuppression'),
-    newDescribeAuditSuppression,
-    DescribeAuditSuppressionResponse (DescribeAuditSuppressionResponse'),
-    newDescribeAuditSuppressionResponse,
+    -- ** DeleteDimension
+    DeleteDimension (DeleteDimension'),
+    newDeleteDimension,
+    DeleteDimensionResponse (DeleteDimensionResponse'),
+    newDeleteDimensionResponse,
 
     -- ** ListAuditFindings (Paginated)
     ListAuditFindings (ListAuditFindings'),
@@ -1006,11 +1044,11 @@ module Network.AWS.IoT
     DescribeThingResponse (DescribeThingResponse'),
     newDescribeThingResponse,
 
-    -- ** DescribeStream
-    DescribeStream (DescribeStream'),
-    newDescribeStream,
-    DescribeStreamResponse (DescribeStreamResponse'),
-    newDescribeStreamResponse,
+    -- ** ListDimensions (Paginated)
+    ListDimensions (ListDimensions'),
+    newListDimensions,
+    ListDimensionsResponse (ListDimensionsResponse'),
+    newListDimensionsResponse,
 
     -- ** DetachThingPrincipal
     DetachThingPrincipal (DetachThingPrincipal'),
@@ -1018,17 +1056,17 @@ module Network.AWS.IoT
     DetachThingPrincipalResponse (DetachThingPrincipalResponse'),
     newDetachThingPrincipalResponse,
 
-    -- ** StartOnDemandAuditTask
-    StartOnDemandAuditTask (StartOnDemandAuditTask'),
-    newStartOnDemandAuditTask,
-    StartOnDemandAuditTaskResponse (StartOnDemandAuditTaskResponse'),
-    newStartOnDemandAuditTaskResponse,
+    -- ** DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
 
-    -- ** ListAttachedPolicies (Paginated)
-    ListAttachedPolicies (ListAttachedPolicies'),
-    newListAttachedPolicies,
-    ListAttachedPoliciesResponse (ListAttachedPoliciesResponse'),
-    newListAttachedPoliciesResponse,
+    -- ** ConfirmTopicRuleDestination
+    ConfirmTopicRuleDestination (ConfirmTopicRuleDestination'),
+    newConfirmTopicRuleDestination,
+    ConfirmTopicRuleDestinationResponse (ConfirmTopicRuleDestinationResponse'),
+    newConfirmTopicRuleDestinationResponse,
 
     -- ** GetPolicy
     GetPolicy (GetPolicy'),
@@ -1036,35 +1074,23 @@ module Network.AWS.IoT
     GetPolicyResponse (GetPolicyResponse'),
     newGetPolicyResponse,
 
+    -- ** ListTopicRules (Paginated)
+    ListTopicRules (ListTopicRules'),
+    newListTopicRules,
+    ListTopicRulesResponse (ListTopicRulesResponse'),
+    newListTopicRulesResponse,
+
     -- ** ListCACertificates (Paginated)
     ListCACertificates (ListCACertificates'),
     newListCACertificates,
     ListCACertificatesResponse (ListCACertificatesResponse'),
     newListCACertificatesResponse,
 
-    -- ** EnableTopicRule
-    EnableTopicRule (EnableTopicRule'),
-    newEnableTopicRule,
-    EnableTopicRuleResponse (EnableTopicRuleResponse'),
-    newEnableTopicRuleResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** RegisterCACertificate
-    RegisterCACertificate (RegisterCACertificate'),
-    newRegisterCACertificate,
-    RegisterCACertificateResponse (RegisterCACertificateResponse'),
-    newRegisterCACertificateResponse,
-
-    -- ** ListSecurityProfilesForTarget (Paginated)
-    ListSecurityProfilesForTarget (ListSecurityProfilesForTarget'),
-    newListSecurityProfilesForTarget,
-    ListSecurityProfilesForTargetResponse (ListSecurityProfilesForTargetResponse'),
-    newListSecurityProfilesForTargetResponse,
+    -- ** StartOnDemandAuditTask
+    StartOnDemandAuditTask (StartOnDemandAuditTask'),
+    newStartOnDemandAuditTask,
+    StartOnDemandAuditTaskResponse (StartOnDemandAuditTaskResponse'),
+    newStartOnDemandAuditTaskResponse,
 
     -- ** UpdateEventConfigurations
     UpdateEventConfigurations (UpdateEventConfigurations'),
@@ -1072,23 +1098,29 @@ module Network.AWS.IoT
     UpdateEventConfigurationsResponse (UpdateEventConfigurationsResponse'),
     newUpdateEventConfigurationsResponse,
 
-    -- ** GetJobDocument
-    GetJobDocument (GetJobDocument'),
-    newGetJobDocument,
-    GetJobDocumentResponse (GetJobDocumentResponse'),
-    newGetJobDocumentResponse,
+    -- ** UpdateThingGroupsForThing
+    UpdateThingGroupsForThing (UpdateThingGroupsForThing'),
+    newUpdateThingGroupsForThing,
+    UpdateThingGroupsForThingResponse (UpdateThingGroupsForThingResponse'),
+    newUpdateThingGroupsForThingResponse,
 
-    -- ** ListTopicRules (Paginated)
-    ListTopicRules (ListTopicRules'),
-    newListTopicRules,
-    ListTopicRulesResponse (ListTopicRulesResponse'),
-    newListTopicRulesResponse,
+    -- ** ListSecurityProfilesForTarget (Paginated)
+    ListSecurityProfilesForTarget (ListSecurityProfilesForTarget'),
+    newListSecurityProfilesForTarget,
+    ListSecurityProfilesForTargetResponse (ListSecurityProfilesForTargetResponse'),
+    newListSecurityProfilesForTargetResponse,
 
-    -- ** DescribeThingGroup
-    DescribeThingGroup (DescribeThingGroup'),
-    newDescribeThingGroup,
-    DescribeThingGroupResponse (DescribeThingGroupResponse'),
-    newDescribeThingGroupResponse,
+    -- ** DeleteJobTemplate
+    DeleteJobTemplate (DeleteJobTemplate'),
+    newDeleteJobTemplate,
+    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
+    newDeleteJobTemplateResponse,
+
+    -- ** EnableTopicRule
+    EnableTopicRule (EnableTopicRule'),
+    newEnableTopicRule,
+    EnableTopicRuleResponse (EnableTopicRuleResponse'),
+    newEnableTopicRuleResponse,
 
     -- ** AcceptCertificateTransfer
     AcceptCertificateTransfer (AcceptCertificateTransfer'),
@@ -1096,17 +1128,41 @@ module Network.AWS.IoT
     AcceptCertificateTransferResponse (AcceptCertificateTransferResponse'),
     newAcceptCertificateTransferResponse,
 
-    -- ** UpdateThingGroupsForThing
-    UpdateThingGroupsForThing (UpdateThingGroupsForThing'),
-    newUpdateThingGroupsForThing,
-    UpdateThingGroupsForThingResponse (UpdateThingGroupsForThingResponse'),
-    newUpdateThingGroupsForThingResponse,
+    -- ** GetJobDocument
+    GetJobDocument (GetJobDocument'),
+    newGetJobDocument,
+    GetJobDocumentResponse (GetJobDocumentResponse'),
+    newGetJobDocumentResponse,
 
-    -- ** ListTargetsForPolicy (Paginated)
-    ListTargetsForPolicy (ListTargetsForPolicy'),
-    newListTargetsForPolicy,
-    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
-    newListTargetsForPolicyResponse,
+    -- ** ListAttachedPolicies (Paginated)
+    ListAttachedPolicies (ListAttachedPolicies'),
+    newListAttachedPolicies,
+    ListAttachedPoliciesResponse (ListAttachedPoliciesResponse'),
+    newListAttachedPoliciesResponse,
+
+    -- ** DescribeThingGroup
+    DescribeThingGroup (DescribeThingGroup'),
+    newDescribeThingGroup,
+    DescribeThingGroupResponse (DescribeThingGroupResponse'),
+    newDescribeThingGroupResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** CreateFleetMetric
+    CreateFleetMetric (CreateFleetMetric'),
+    newCreateFleetMetric,
+    CreateFleetMetricResponse (CreateFleetMetricResponse'),
+    newCreateFleetMetricResponse,
+
+    -- ** RegisterCACertificate
+    RegisterCACertificate (RegisterCACertificate'),
+    newRegisterCACertificate,
+    RegisterCACertificateResponse (RegisterCACertificateResponse'),
+    newRegisterCACertificateResponse,
 
     -- ** ReplaceTopicRule
     ReplaceTopicRule (ReplaceTopicRule'),
@@ -1114,23 +1170,29 @@ module Network.AWS.IoT
     ReplaceTopicRuleResponse (ReplaceTopicRuleResponse'),
     newReplaceTopicRuleResponse,
 
+    -- ** GetStatistics
+    GetStatistics (GetStatistics'),
+    newGetStatistics,
+    GetStatisticsResponse (GetStatisticsResponse'),
+    newGetStatisticsResponse,
+
     -- ** DescribeIndex
     DescribeIndex (DescribeIndex'),
     newDescribeIndex,
     DescribeIndexResponse (DescribeIndexResponse'),
     newDescribeIndexResponse,
 
-    -- ** DeletePolicyVersion
-    DeletePolicyVersion (DeletePolicyVersion'),
-    newDeletePolicyVersion,
-    DeletePolicyVersionResponse (DeletePolicyVersionResponse'),
-    newDeletePolicyVersionResponse,
-
     -- ** AttachPolicy
     AttachPolicy (AttachPolicy'),
     newAttachPolicy,
     AttachPolicyResponse (AttachPolicyResponse'),
     newAttachPolicyResponse,
+
+    -- ** UpdateRoleAlias
+    UpdateRoleAlias (UpdateRoleAlias'),
+    newUpdateRoleAlias,
+    UpdateRoleAliasResponse (UpdateRoleAliasResponse'),
+    newUpdateRoleAliasResponse,
 
     -- ** ClearDefaultAuthorizer
     ClearDefaultAuthorizer (ClearDefaultAuthorizer'),
@@ -1144,29 +1206,17 @@ module Network.AWS.IoT
     CreateTopicRuleResponse (CreateTopicRuleResponse'),
     newCreateTopicRuleResponse,
 
+    -- ** CancelJobExecution
+    CancelJobExecution (CancelJobExecution'),
+    newCancelJobExecution,
+    CancelJobExecutionResponse (CancelJobExecutionResponse'),
+    newCancelJobExecutionResponse,
+
     -- ** CreateJob
     CreateJob (CreateJob'),
     newCreateJob,
     CreateJobResponse (CreateJobResponse'),
     newCreateJobResponse,
-
-    -- ** UpdateRoleAlias
-    UpdateRoleAlias (UpdateRoleAlias'),
-    newUpdateRoleAlias,
-    UpdateRoleAliasResponse (UpdateRoleAliasResponse'),
-    newUpdateRoleAliasResponse,
-
-    -- ** DeleteRoleAlias
-    DeleteRoleAlias (DeleteRoleAlias'),
-    newDeleteRoleAlias,
-    DeleteRoleAliasResponse (DeleteRoleAliasResponse'),
-    newDeleteRoleAliasResponse,
-
-    -- ** GetStatistics
-    GetStatistics (GetStatistics'),
-    newGetStatistics,
-    GetStatisticsResponse (GetStatisticsResponse'),
-    newGetStatisticsResponse,
 
     -- ** AssociateTargetsWithJob
     AssociateTargetsWithJob (AssociateTargetsWithJob'),
@@ -1174,23 +1224,41 @@ module Network.AWS.IoT
     AssociateTargetsWithJobResponse (AssociateTargetsWithJobResponse'),
     newAssociateTargetsWithJobResponse,
 
+    -- ** DeletePolicyVersion
+    DeletePolicyVersion (DeletePolicyVersion'),
+    newDeletePolicyVersion,
+    DeletePolicyVersionResponse (DeletePolicyVersionResponse'),
+    newDeletePolicyVersionResponse,
+
+    -- ** DeleteRoleAlias
+    DeleteRoleAlias (DeleteRoleAlias'),
+    newDeleteRoleAlias,
+    DeleteRoleAliasResponse (DeleteRoleAliasResponse'),
+    newDeleteRoleAliasResponse,
+
     -- ** ListPolicyVersions
     ListPolicyVersions (ListPolicyVersions'),
     newListPolicyVersions,
     ListPolicyVersionsResponse (ListPolicyVersionsResponse'),
     newListPolicyVersionsResponse,
 
-    -- ** CancelJobExecution
-    CancelJobExecution (CancelJobExecution'),
-    newCancelJobExecution,
-    CancelJobExecutionResponse (CancelJobExecutionResponse'),
-    newCancelJobExecutionResponse,
+    -- ** ListTargetsForPolicy (Paginated)
+    ListTargetsForPolicy (ListTargetsForPolicy'),
+    newListTargetsForPolicy,
+    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
+    newListTargetsForPolicyResponse,
 
     -- ** CancelCertificateTransfer
     CancelCertificateTransfer (CancelCertificateTransfer'),
     newCancelCertificateTransfer,
     CancelCertificateTransferResponse (CancelCertificateTransferResponse'),
     newCancelCertificateTransferResponse,
+
+    -- ** ListAuthorizers (Paginated)
+    ListAuthorizers (ListAuthorizers'),
+    newListAuthorizers,
+    ListAuthorizersResponse (ListAuthorizersResponse'),
+    newListAuthorizersResponse,
 
     -- ** CreateThingType
     CreateThingType (CreateThingType'),
@@ -1204,17 +1272,11 @@ module Network.AWS.IoT
     UpdateAuthorizerResponse (UpdateAuthorizerResponse'),
     newUpdateAuthorizerResponse,
 
-    -- ** SearchIndex
-    SearchIndex (SearchIndex'),
-    newSearchIndex,
-    SearchIndexResponse (SearchIndexResponse'),
-    newSearchIndexResponse,
-
-    -- ** DescribeSecurityProfile
-    DescribeSecurityProfile (DescribeSecurityProfile'),
-    newDescribeSecurityProfile,
-    DescribeSecurityProfileResponse (DescribeSecurityProfileResponse'),
-    newDescribeSecurityProfileResponse,
+    -- ** CreateAuditSuppression
+    CreateAuditSuppression (CreateAuditSuppression'),
+    newCreateAuditSuppression,
+    CreateAuditSuppressionResponse (CreateAuditSuppressionResponse'),
+    newCreateAuditSuppressionResponse,
 
     -- ** ListJobExecutionsForJob (Paginated)
     ListJobExecutionsForJob (ListJobExecutionsForJob'),
@@ -1222,23 +1284,11 @@ module Network.AWS.IoT
     ListJobExecutionsForJobResponse (ListJobExecutionsForJobResponse'),
     newListJobExecutionsForJobResponse,
 
-    -- ** CreateBillingGroup
-    CreateBillingGroup (CreateBillingGroup'),
-    newCreateBillingGroup,
-    CreateBillingGroupResponse (CreateBillingGroupResponse'),
-    newCreateBillingGroupResponse,
-
-    -- ** CancelAuditMitigationActionsTask
-    CancelAuditMitigationActionsTask (CancelAuditMitigationActionsTask'),
-    newCancelAuditMitigationActionsTask,
-    CancelAuditMitigationActionsTaskResponse (CancelAuditMitigationActionsTaskResponse'),
-    newCancelAuditMitigationActionsTaskResponse,
-
-    -- ** CreateStream
-    CreateStream (CreateStream'),
-    newCreateStream,
-    CreateStreamResponse (CreateStreamResponse'),
-    newCreateStreamResponse,
+    -- ** DescribeSecurityProfile
+    DescribeSecurityProfile (DescribeSecurityProfile'),
+    newDescribeSecurityProfile,
+    DescribeSecurityProfileResponse (DescribeSecurityProfileResponse'),
+    newDescribeSecurityProfileResponse,
 
     -- ** RemoveThingFromBillingGroup
     RemoveThingFromBillingGroup (RemoveThingFromBillingGroup'),
@@ -1246,11 +1296,23 @@ module Network.AWS.IoT
     RemoveThingFromBillingGroupResponse (RemoveThingFromBillingGroupResponse'),
     newRemoveThingFromBillingGroupResponse,
 
-    -- ** ListAuthorizers (Paginated)
-    ListAuthorizers (ListAuthorizers'),
-    newListAuthorizers,
-    ListAuthorizersResponse (ListAuthorizersResponse'),
-    newListAuthorizersResponse,
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
+
+    -- ** SearchIndex
+    SearchIndex (SearchIndex'),
+    newSearchIndex,
+    SearchIndexResponse (SearchIndexResponse'),
+    newSearchIndexResponse,
+
+    -- ** CancelAuditMitigationActionsTask
+    CancelAuditMitigationActionsTask (CancelAuditMitigationActionsTask'),
+    newCancelAuditMitigationActionsTask,
+    CancelAuditMitigationActionsTaskResponse (CancelAuditMitigationActionsTaskResponse'),
+    newCancelAuditMitigationActionsTaskResponse,
 
     -- ** DeleteAuthorizer
     DeleteAuthorizer (DeleteAuthorizer'),
@@ -1258,71 +1320,11 @@ module Network.AWS.IoT
     DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
     newDeleteAuthorizerResponse,
 
-    -- ** CreateAuditSuppression
-    CreateAuditSuppression (CreateAuditSuppression'),
-    newCreateAuditSuppression,
-    CreateAuditSuppressionResponse (CreateAuditSuppressionResponse'),
-    newCreateAuditSuppressionResponse,
-
-    -- ** CreateProvisioningTemplate
-    CreateProvisioningTemplate (CreateProvisioningTemplate'),
-    newCreateProvisioningTemplate,
-    CreateProvisioningTemplateResponse (CreateProvisioningTemplateResponse'),
-    newCreateProvisioningTemplateResponse,
-
-    -- ** GetTopicRuleDestination
-    GetTopicRuleDestination (GetTopicRuleDestination'),
-    newGetTopicRuleDestination,
-    GetTopicRuleDestinationResponse (GetTopicRuleDestinationResponse'),
-    newGetTopicRuleDestinationResponse,
-
-    -- ** DescribeAuditTask
-    DescribeAuditTask (DescribeAuditTask'),
-    newDescribeAuditTask,
-    DescribeAuditTaskResponse (DescribeAuditTaskResponse'),
-    newDescribeAuditTaskResponse,
-
-    -- ** DescribeDomainConfiguration
-    DescribeDomainConfiguration (DescribeDomainConfiguration'),
-    newDescribeDomainConfiguration,
-    DescribeDomainConfigurationResponse (DescribeDomainConfigurationResponse'),
-    newDescribeDomainConfigurationResponse,
-
-    -- ** ListStreams (Paginated)
-    ListStreams (ListStreams'),
-    newListStreams,
-    ListStreamsResponse (ListStreamsResponse'),
-    newListStreamsResponse,
-
-    -- ** ListAuditSuppressions (Paginated)
-    ListAuditSuppressions (ListAuditSuppressions'),
-    newListAuditSuppressions,
-    ListAuditSuppressionsResponse (ListAuditSuppressionsResponse'),
-    newListAuditSuppressionsResponse,
-
-    -- ** CreateCertificateFromCsr
-    CreateCertificateFromCsr (CreateCertificateFromCsr'),
-    newCreateCertificateFromCsr,
-    CreateCertificateFromCsrResponse (CreateCertificateFromCsrResponse'),
-    newCreateCertificateFromCsrResponse,
-
-    -- ** GetOTAUpdate
-    GetOTAUpdate (GetOTAUpdate'),
-    newGetOTAUpdate,
-    GetOTAUpdateResponse (GetOTAUpdateResponse'),
-    newGetOTAUpdateResponse,
-
-    -- ** GetEffectivePolicies
-    GetEffectivePolicies (GetEffectivePolicies'),
-    newGetEffectivePolicies,
-    GetEffectivePoliciesResponse (GetEffectivePoliciesResponse'),
-    newGetEffectivePoliciesResponse,
-
-    -- ** UpdateScheduledAudit
-    UpdateScheduledAudit (UpdateScheduledAudit'),
-    newUpdateScheduledAudit,
-    UpdateScheduledAuditResponse (UpdateScheduledAuditResponse'),
-    newUpdateScheduledAuditResponse,
+    -- ** CreateBillingGroup
+    CreateBillingGroup (CreateBillingGroup'),
+    newCreateBillingGroup,
+    CreateBillingGroupResponse (CreateBillingGroupResponse'),
+    newCreateBillingGroupResponse,
 
     -- ** DescribeAuditFinding
     DescribeAuditFinding (DescribeAuditFinding'),
@@ -1336,29 +1338,29 @@ module Network.AWS.IoT
     DeleteScheduledAuditResponse (DeleteScheduledAuditResponse'),
     newDeleteScheduledAuditResponse,
 
-    -- ** ListBillingGroups (Paginated)
-    ListBillingGroups (ListBillingGroups'),
-    newListBillingGroups,
-    ListBillingGroupsResponse (ListBillingGroupsResponse'),
-    newListBillingGroupsResponse,
+    -- ** GetEffectivePolicies
+    GetEffectivePolicies (GetEffectivePolicies'),
+    newGetEffectivePolicies,
+    GetEffectivePoliciesResponse (GetEffectivePoliciesResponse'),
+    newGetEffectivePoliciesResponse,
 
-    -- ** TestAuthorization
-    TestAuthorization (TestAuthorization'),
-    newTestAuthorization,
-    TestAuthorizationResponse (TestAuthorizationResponse'),
-    newTestAuthorizationResponse,
+    -- ** GetOTAUpdate
+    GetOTAUpdate (GetOTAUpdate'),
+    newGetOTAUpdate,
+    GetOTAUpdateResponse (GetOTAUpdateResponse'),
+    newGetOTAUpdateResponse,
+
+    -- ** CreateProvisioningTemplate
+    CreateProvisioningTemplate (CreateProvisioningTemplate'),
+    newCreateProvisioningTemplate,
+    CreateProvisioningTemplateResponse (CreateProvisioningTemplateResponse'),
+    newCreateProvisioningTemplateResponse,
 
     -- ** ListThingTypes (Paginated)
     ListThingTypes (ListThingTypes'),
     newListThingTypes,
     ListThingTypesResponse (ListThingTypesResponse'),
     newListThingTypesResponse,
-
-    -- ** ListIndices (Paginated)
-    ListIndices (ListIndices'),
-    newListIndices,
-    ListIndicesResponse (ListIndicesResponse'),
-    newListIndicesResponse,
 
     -- ** DeleteThingType
     DeleteThingType (DeleteThingType'),
@@ -1372,11 +1374,65 @@ module Network.AWS.IoT
     RegisterThingResponse (RegisterThingResponse'),
     newRegisterThingResponse,
 
-    -- ** ListOutgoingCertificates (Paginated)
-    ListOutgoingCertificates (ListOutgoingCertificates'),
-    newListOutgoingCertificates,
-    ListOutgoingCertificatesResponse (ListOutgoingCertificatesResponse'),
-    newListOutgoingCertificatesResponse,
+    -- ** ListBillingGroups (Paginated)
+    ListBillingGroups (ListBillingGroups'),
+    newListBillingGroups,
+    ListBillingGroupsResponse (ListBillingGroupsResponse'),
+    newListBillingGroupsResponse,
+
+    -- ** ListStreams (Paginated)
+    ListStreams (ListStreams'),
+    newListStreams,
+    ListStreamsResponse (ListStreamsResponse'),
+    newListStreamsResponse,
+
+    -- ** TestAuthorization
+    TestAuthorization (TestAuthorization'),
+    newTestAuthorization,
+    TestAuthorizationResponse (TestAuthorizationResponse'),
+    newTestAuthorizationResponse,
+
+    -- ** ListIndices (Paginated)
+    ListIndices (ListIndices'),
+    newListIndices,
+    ListIndicesResponse (ListIndicesResponse'),
+    newListIndicesResponse,
+
+    -- ** DescribeAuditTask
+    DescribeAuditTask (DescribeAuditTask'),
+    newDescribeAuditTask,
+    DescribeAuditTaskResponse (DescribeAuditTaskResponse'),
+    newDescribeAuditTaskResponse,
+
+    -- ** CreateCertificateFromCsr
+    CreateCertificateFromCsr (CreateCertificateFromCsr'),
+    newCreateCertificateFromCsr,
+    CreateCertificateFromCsrResponse (CreateCertificateFromCsrResponse'),
+    newCreateCertificateFromCsrResponse,
+
+    -- ** ListAuditSuppressions (Paginated)
+    ListAuditSuppressions (ListAuditSuppressions'),
+    newListAuditSuppressions,
+    ListAuditSuppressionsResponse (ListAuditSuppressionsResponse'),
+    newListAuditSuppressionsResponse,
+
+    -- ** DescribeDomainConfiguration
+    DescribeDomainConfiguration (DescribeDomainConfiguration'),
+    newDescribeDomainConfiguration,
+    DescribeDomainConfigurationResponse (DescribeDomainConfigurationResponse'),
+    newDescribeDomainConfigurationResponse,
+
+    -- ** UpdateScheduledAudit
+    UpdateScheduledAudit (UpdateScheduledAudit'),
+    newUpdateScheduledAudit,
+    UpdateScheduledAuditResponse (UpdateScheduledAuditResponse'),
+    newUpdateScheduledAuditResponse,
+
+    -- ** GetTopicRuleDestination
+    GetTopicRuleDestination (GetTopicRuleDestination'),
+    newGetTopicRuleDestination,
+    GetTopicRuleDestinationResponse (GetTopicRuleDestinationResponse'),
+    newGetTopicRuleDestinationResponse,
 
     -- ** DeleteTopicRuleDestination
     DeleteTopicRuleDestination (DeleteTopicRuleDestination'),
@@ -1384,23 +1440,17 @@ module Network.AWS.IoT
     DeleteTopicRuleDestinationResponse (DeleteTopicRuleDestinationResponse'),
     newDeleteTopicRuleDestinationResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListOutgoingCertificates (Paginated)
+    ListOutgoingCertificates (ListOutgoingCertificates'),
+    newListOutgoingCertificates,
+    ListOutgoingCertificatesResponse (ListOutgoingCertificatesResponse'),
+    newListOutgoingCertificatesResponse,
 
-    -- ** ListTopicRuleDestinations (Paginated)
-    ListTopicRuleDestinations (ListTopicRuleDestinations'),
-    newListTopicRuleDestinations,
-    ListTopicRuleDestinationsResponse (ListTopicRuleDestinationsResponse'),
-    newListTopicRuleDestinationsResponse,
-
-    -- ** CancelDetectMitigationActionsTask
-    CancelDetectMitigationActionsTask (CancelDetectMitigationActionsTask'),
-    newCancelDetectMitigationActionsTask,
-    CancelDetectMitigationActionsTaskResponse (CancelDetectMitigationActionsTaskResponse'),
-    newCancelDetectMitigationActionsTaskResponse,
+    -- ** DescribeJobTemplate
+    DescribeJobTemplate (DescribeJobTemplate'),
+    newDescribeJobTemplate,
+    DescribeJobTemplateResponse (DescribeJobTemplateResponse'),
+    newDescribeJobTemplateResponse,
 
     -- ** AddThingToBillingGroup
     AddThingToBillingGroup (AddThingToBillingGroup'),
@@ -1408,11 +1458,29 @@ module Network.AWS.IoT
     AddThingToBillingGroupResponse (AddThingToBillingGroupResponse'),
     newAddThingToBillingGroupResponse,
 
+    -- ** ListOTAUpdates (Paginated)
+    ListOTAUpdates (ListOTAUpdates'),
+    newListOTAUpdates,
+    ListOTAUpdatesResponse (ListOTAUpdatesResponse'),
+    newListOTAUpdatesResponse,
+
+    -- ** UpdateThingGroup
+    UpdateThingGroup (UpdateThingGroup'),
+    newUpdateThingGroup,
+    UpdateThingGroupResponse (UpdateThingGroupResponse'),
+    newUpdateThingGroupResponse,
+
     -- ** DeleteThingGroup
     DeleteThingGroup (DeleteThingGroup'),
     newDeleteThingGroup,
     DeleteThingGroupResponse (DeleteThingGroupResponse'),
     newDeleteThingGroupResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** DescribeEventConfigurations
     DescribeEventConfigurations (DescribeEventConfigurations'),
@@ -1420,23 +1488,11 @@ module Network.AWS.IoT
     DescribeEventConfigurationsResponse (DescribeEventConfigurationsResponse'),
     newDescribeEventConfigurationsResponse,
 
-    -- ** UpdateTopicRuleDestination
-    UpdateTopicRuleDestination (UpdateTopicRuleDestination'),
-    newUpdateTopicRuleDestination,
-    UpdateTopicRuleDestinationResponse (UpdateTopicRuleDestinationResponse'),
-    newUpdateTopicRuleDestinationResponse,
-
-    -- ** ListOTAUpdates (Paginated)
-    ListOTAUpdates (ListOTAUpdates'),
-    newListOTAUpdates,
-    ListOTAUpdatesResponse (ListOTAUpdatesResponse'),
-    newListOTAUpdatesResponse,
-
-    -- ** ListThingGroups (Paginated)
-    ListThingGroups (ListThingGroups'),
-    newListThingGroups,
-    ListThingGroupsResponse (ListThingGroupsResponse'),
-    newListThingGroupsResponse,
+    -- ** ListTopicRuleDestinations (Paginated)
+    ListTopicRuleDestinations (ListTopicRuleDestinations'),
+    newListTopicRuleDestinations,
+    ListTopicRuleDestinationsResponse (ListTopicRuleDestinationsResponse'),
+    newListTopicRuleDestinationsResponse,
 
     -- ** ListProvisioningTemplateVersions (Paginated)
     ListProvisioningTemplateVersions (ListProvisioningTemplateVersions'),
@@ -1444,11 +1500,23 @@ module Network.AWS.IoT
     ListProvisioningTemplateVersionsResponse (ListProvisioningTemplateVersionsResponse'),
     newListProvisioningTemplateVersionsResponse,
 
-    -- ** UpdateThingGroup
-    UpdateThingGroup (UpdateThingGroup'),
-    newUpdateThingGroup,
-    UpdateThingGroupResponse (UpdateThingGroupResponse'),
-    newUpdateThingGroupResponse,
+    -- ** UpdateTopicRuleDestination
+    UpdateTopicRuleDestination (UpdateTopicRuleDestination'),
+    newUpdateTopicRuleDestination,
+    UpdateTopicRuleDestinationResponse (UpdateTopicRuleDestinationResponse'),
+    newUpdateTopicRuleDestinationResponse,
+
+    -- ** ListThingGroups (Paginated)
+    ListThingGroups (ListThingGroups'),
+    newListThingGroups,
+    ListThingGroupsResponse (ListThingGroupsResponse'),
+    newListThingGroupsResponse,
+
+    -- ** CancelDetectMitigationActionsTask
+    CancelDetectMitigationActionsTask (CancelDetectMitigationActionsTask'),
+    newCancelDetectMitigationActionsTask,
+    CancelDetectMitigationActionsTaskResponse (CancelDetectMitigationActionsTaskResponse'),
+    newCancelDetectMitigationActionsTaskResponse,
 
     -- * Types
 
@@ -1457,6 +1525,9 @@ module Network.AWS.IoT
 
     -- ** ActionType
     ActionType (..),
+
+    -- ** AggregationTypeName
+    AggregationTypeName (..),
 
     -- ** AlertTargetType
     AlertTargetType (..),
@@ -1563,6 +1634,9 @@ module Network.AWS.IoT
     -- ** FieldType
     FieldType (..),
 
+    -- ** FleetMetricUnit
+    FleetMetricUnit (..),
+
     -- ** IndexStatus
     IndexStatus (..),
 
@@ -1629,6 +1703,9 @@ module Network.AWS.IoT
     -- ** TopicRuleDestinationStatus
     TopicRuleDestinationStatus (..),
 
+    -- ** VerificationState
+    VerificationState (..),
+
     -- ** ViolationEventType
     ViolationEventType (..),
 
@@ -1651,6 +1728,10 @@ module Network.AWS.IoT
     -- ** AddThingsToThingGroupParams
     AddThingsToThingGroupParams (AddThingsToThingGroupParams'),
     newAddThingsToThingGroupParams,
+
+    -- ** AggregationType
+    AggregationType (AggregationType'),
+    newAggregationType,
 
     -- ** AlertTarget
     AlertTarget (AlertTarget'),
@@ -1780,6 +1861,14 @@ module Network.AWS.IoT
     BillingGroupProperties (BillingGroupProperties'),
     newBillingGroupProperties,
 
+    -- ** Bucket
+    Bucket (Bucket'),
+    newBucket,
+
+    -- ** BucketsAggregationType
+    BucketsAggregationType (BucketsAggregationType'),
+    newBucketsAggregationType,
+
     -- ** CACertificate
     CACertificate (CACertificate'),
     newCACertificate,
@@ -1904,6 +1993,10 @@ module Network.AWS.IoT
     FirehoseAction (FirehoseAction'),
     newFirehoseAction,
 
+    -- ** FleetMetricNameAndArn
+    FleetMetricNameAndArn (FleetMetricNameAndArn'),
+    newFleetMetricNameAndArn,
+
     -- ** GroupNameAndArn
     GroupNameAndArn (GroupNameAndArn'),
     newGroupNameAndArn,
@@ -1988,6 +2081,10 @@ module Network.AWS.IoT
     JobSummary (JobSummary'),
     newJobSummary,
 
+    -- ** JobTemplateSummary
+    JobTemplateSummary (JobTemplateSummary'),
+    newJobTemplateSummary,
+
     -- ** KafkaAction
     KafkaAction (KafkaAction'),
     newKafkaAction,
@@ -2063,6 +2160,10 @@ module Network.AWS.IoT
     -- ** OTAUpdateSummary
     OTAUpdateSummary (OTAUpdateSummary'),
     newOTAUpdateSummary,
+
+    -- ** OpenSearchAction
+    OpenSearchAction (OpenSearchAction'),
+    newOpenSearchAction,
 
     -- ** OutgoingCertificate
     OutgoingCertificate (OutgoingCertificate'),
@@ -2236,6 +2337,10 @@ module Network.AWS.IoT
     TaskStatisticsForAuditCheck (TaskStatisticsForAuditCheck'),
     newTaskStatisticsForAuditCheck,
 
+    -- ** TermsAggregation
+    TermsAggregation (TermsAggregation'),
+    newTermsAggregation,
+
     -- ** ThingAttribute
     ThingAttribute (ThingAttribute'),
     newThingAttribute,
@@ -2389,7 +2494,9 @@ import Network.AWS.IoT.CreateCustomMetric
 import Network.AWS.IoT.CreateDimension
 import Network.AWS.IoT.CreateDomainConfiguration
 import Network.AWS.IoT.CreateDynamicThingGroup
+import Network.AWS.IoT.CreateFleetMetric
 import Network.AWS.IoT.CreateJob
+import Network.AWS.IoT.CreateJobTemplate
 import Network.AWS.IoT.CreateKeysAndCertificate
 import Network.AWS.IoT.CreateMitigationAction
 import Network.AWS.IoT.CreateOTAUpdate
@@ -2417,8 +2524,10 @@ import Network.AWS.IoT.DeleteCustomMetric
 import Network.AWS.IoT.DeleteDimension
 import Network.AWS.IoT.DeleteDomainConfiguration
 import Network.AWS.IoT.DeleteDynamicThingGroup
+import Network.AWS.IoT.DeleteFleetMetric
 import Network.AWS.IoT.DeleteJob
 import Network.AWS.IoT.DeleteJobExecution
+import Network.AWS.IoT.DeleteJobTemplate
 import Network.AWS.IoT.DeleteMitigationAction
 import Network.AWS.IoT.DeleteOTAUpdate
 import Network.AWS.IoT.DeletePolicy
@@ -2453,9 +2562,11 @@ import Network.AWS.IoT.DescribeDimension
 import Network.AWS.IoT.DescribeDomainConfiguration
 import Network.AWS.IoT.DescribeEndpoint
 import Network.AWS.IoT.DescribeEventConfigurations
+import Network.AWS.IoT.DescribeFleetMetric
 import Network.AWS.IoT.DescribeIndex
 import Network.AWS.IoT.DescribeJob
 import Network.AWS.IoT.DescribeJobExecution
+import Network.AWS.IoT.DescribeJobTemplate
 import Network.AWS.IoT.DescribeMitigationAction
 import Network.AWS.IoT.DescribeProvisioningTemplate
 import Network.AWS.IoT.DescribeProvisioningTemplateVersion
@@ -2473,6 +2584,7 @@ import Network.AWS.IoT.DetachThingPrincipal
 import Network.AWS.IoT.DisableTopicRule
 import Network.AWS.IoT.EnableTopicRule
 import Network.AWS.IoT.GetBehaviorModelTrainingSummaries
+import Network.AWS.IoT.GetBucketsAggregation
 import Network.AWS.IoT.GetCardinality
 import Network.AWS.IoT.GetEffectivePolicies
 import Network.AWS.IoT.GetIndexingConfiguration
@@ -2505,9 +2617,11 @@ import Network.AWS.IoT.ListDetectMitigationActionsExecutions
 import Network.AWS.IoT.ListDetectMitigationActionsTasks
 import Network.AWS.IoT.ListDimensions
 import Network.AWS.IoT.ListDomainConfigurations
+import Network.AWS.IoT.ListFleetMetrics
 import Network.AWS.IoT.ListIndices
 import Network.AWS.IoT.ListJobExecutionsForJob
 import Network.AWS.IoT.ListJobExecutionsForThing
+import Network.AWS.IoT.ListJobTemplates
 import Network.AWS.IoT.ListJobs
 import Network.AWS.IoT.ListMitigationActions
 import Network.AWS.IoT.ListOTAUpdates
@@ -2538,6 +2652,7 @@ import Network.AWS.IoT.ListTopicRuleDestinations
 import Network.AWS.IoT.ListTopicRules
 import Network.AWS.IoT.ListV2LoggingLevels
 import Network.AWS.IoT.ListViolationEvents
+import Network.AWS.IoT.PutVerificationStateOnViolation
 import Network.AWS.IoT.RegisterCACertificate
 import Network.AWS.IoT.RegisterCertificate
 import Network.AWS.IoT.RegisterCertificateWithoutCA
@@ -2574,6 +2689,7 @@ import Network.AWS.IoT.UpdateDimension
 import Network.AWS.IoT.UpdateDomainConfiguration
 import Network.AWS.IoT.UpdateDynamicThingGroup
 import Network.AWS.IoT.UpdateEventConfigurations
+import Network.AWS.IoT.UpdateFleetMetric
 import Network.AWS.IoT.UpdateIndexingConfiguration
 import Network.AWS.IoT.UpdateJob
 import Network.AWS.IoT.UpdateMitigationAction

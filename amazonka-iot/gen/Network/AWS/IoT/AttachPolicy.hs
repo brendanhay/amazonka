@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches a policy to the specified target.
+-- Attaches the specified policy to the specified principal (certificate or
+-- other credential).
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AttachPolicy>
+-- action.
 module Network.AWS.IoT.AttachPolicy
   ( -- * Creating a Request
     AttachPolicy (..),
@@ -49,7 +54,8 @@ data AttachPolicy = AttachPolicy'
     policyName :: Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity>
-    -- to which the policy is attached.
+    -- to which the policy is attached. For example, a thing group or a
+    -- certificate.
     target :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +72,8 @@ data AttachPolicy = AttachPolicy'
 --
 -- 'target', 'attachPolicy_target' - The
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity>
--- to which the policy is attached.
+-- to which the policy is attached. For example, a thing group or a
+-- certificate.
 newAttachPolicy ::
   -- | 'policyName'
   Prelude.Text ->
@@ -85,7 +92,8 @@ attachPolicy_policyName = Lens.lens (\AttachPolicy' {policyName} -> policyName) 
 
 -- | The
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html identity>
--- to which the policy is attached.
+-- to which the policy is attached. For example, a thing group or a
+-- certificate.
 attachPolicy_target :: Lens.Lens' AttachPolicy Prelude.Text
 attachPolicy_target = Lens.lens (\AttachPolicy' {target} -> target) (\s@AttachPolicy' {} a -> s {target = a} :: AttachPolicy)
 

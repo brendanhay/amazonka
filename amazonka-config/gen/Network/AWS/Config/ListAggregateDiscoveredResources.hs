@@ -71,12 +71,12 @@ data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
     -- | Filters the results based on the @ResourceFilters@ object.
     filters :: Prelude.Maybe ResourceFilters,
     -- | The maximum number of resource identifiers returned on each page. You
-    -- cannot specify a number greater than 100. If you specify 0, AWS Config
-    -- uses the default.
+    -- cannot specify a number greater than 100. If you specify 0, Config uses
+    -- the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text,
-    -- | The type of resources that you want AWS Config to list in the response.
+    -- | The type of resources that you want Config to list in the response.
     resourceType :: ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,12 +95,12 @@ data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
 -- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.
 --
 -- 'limit', 'listAggregateDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. You
--- cannot specify a number greater than 100. If you specify 0, AWS Config
--- uses the default.
+-- cannot specify a number greater than 100. If you specify 0, Config uses
+-- the default.
 --
 -- 'configurationAggregatorName', 'listAggregateDiscoveredResources_configurationAggregatorName' - The name of the configuration aggregator.
 --
--- 'resourceType', 'listAggregateDiscoveredResources_resourceType' - The type of resources that you want AWS Config to list in the response.
+-- 'resourceType', 'listAggregateDiscoveredResources_resourceType' - The type of resources that you want Config to list in the response.
 newListAggregateDiscoveredResources ::
   -- | 'configurationAggregatorName'
   Prelude.Text ->
@@ -130,8 +130,8 @@ listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredRe
 listAggregateDiscoveredResources_filters = Lens.lens (\ListAggregateDiscoveredResources' {filters} -> filters) (\s@ListAggregateDiscoveredResources' {} a -> s {filters = a} :: ListAggregateDiscoveredResources)
 
 -- | The maximum number of resource identifiers returned on each page. You
--- cannot specify a number greater than 100. If you specify 0, AWS Config
--- uses the default.
+-- cannot specify a number greater than 100. If you specify 0, Config uses
+-- the default.
 listAggregateDiscoveredResources_limit :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Natural)
 listAggregateDiscoveredResources_limit = Lens.lens (\ListAggregateDiscoveredResources' {limit} -> limit) (\s@ListAggregateDiscoveredResources' {} a -> s {limit = a} :: ListAggregateDiscoveredResources)
 
@@ -139,7 +139,7 @@ listAggregateDiscoveredResources_limit = Lens.lens (\ListAggregateDiscoveredReso
 listAggregateDiscoveredResources_configurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Prelude.Text
 listAggregateDiscoveredResources_configurationAggregatorName = Lens.lens (\ListAggregateDiscoveredResources' {configurationAggregatorName} -> configurationAggregatorName) (\s@ListAggregateDiscoveredResources' {} a -> s {configurationAggregatorName = a} :: ListAggregateDiscoveredResources)
 
--- | The type of resources that you want AWS Config to list in the response.
+-- | The type of resources that you want Config to list in the response.
 listAggregateDiscoveredResources_resourceType :: Lens.Lens' ListAggregateDiscoveredResources ResourceType
 listAggregateDiscoveredResources_resourceType = Lens.lens (\ListAggregateDiscoveredResources' {resourceType} -> resourceType) (\s@ListAggregateDiscoveredResources' {} a -> s {resourceType = a} :: ListAggregateDiscoveredResources)
 

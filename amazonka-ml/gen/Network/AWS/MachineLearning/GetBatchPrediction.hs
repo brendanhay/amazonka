@@ -35,15 +35,15 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     newGetBatchPredictionResponse,
 
     -- * Response Lenses
-    getBatchPredictionResponse_batchPredictionId,
     getBatchPredictionResponse_status,
+    getBatchPredictionResponse_batchPredictionId,
     getBatchPredictionResponse_startedAt,
     getBatchPredictionResponse_outputUri,
     getBatchPredictionResponse_message,
     getBatchPredictionResponse_createdAt,
-    getBatchPredictionResponse_finishedAt,
-    getBatchPredictionResponse_createdByIamUser,
     getBatchPredictionResponse_name,
+    getBatchPredictionResponse_createdByIamUser,
+    getBatchPredictionResponse_finishedAt,
     getBatchPredictionResponse_invalidRecordCount,
     getBatchPredictionResponse_totalRecordCount,
     getBatchPredictionResponse_batchPredictionDataSourceId,
@@ -102,15 +102,15 @@ instance Core.AWSRequest GetBatchPrediction where
     Response.receiveJSON
       ( \s h x ->
           GetBatchPredictionResponse'
-            Prelude.<$> (x Core..?> "BatchPredictionId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "BatchPredictionId")
             Prelude.<*> (x Core..?> "StartedAt")
             Prelude.<*> (x Core..?> "OutputUri")
             Prelude.<*> (x Core..?> "Message")
             Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "FinishedAt")
-            Prelude.<*> (x Core..?> "CreatedByIamUser")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreatedByIamUser")
+            Prelude.<*> (x Core..?> "FinishedAt")
             Prelude.<*> (x Core..?> "InvalidRecordCount")
             Prelude.<*> (x Core..?> "TotalRecordCount")
             Prelude.<*> (x Core..?> "BatchPredictionDataSourceId")
@@ -161,21 +161,25 @@ instance Core.ToQuery GetBatchPrediction where
 --
 -- /See:/ 'newGetBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-  { -- | An ID assigned to the @BatchPrediction@ at creation. This value should
-    -- be identical to the value of the @BatchPredictionID@ in the request.
-    batchPredictionId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the @BatchPrediction@, which can be one of the following
+  { -- | The status of the @BatchPrediction@, which can be one of the following
     -- values:
     --
     -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
     --     to generate batch predictions.
+    --
     -- -   @INPROGRESS@ - The batch predictions are in progress.
+    --
     -- -   @FAILED@ - The request to perform a batch prediction did not run to
     --     completion. It is not usable.
+    --
     -- -   @COMPLETED@ - The batch prediction process completed successfully.
+    --
     -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
     --     usable.
     status :: Prelude.Maybe EntityStatus,
+    -- | An ID assigned to the @BatchPrediction@ at creation. This value should
+    -- be identical to the value of the @BatchPredictionID@ in the request.
+    batchPredictionId :: Prelude.Maybe Prelude.Text,
     -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
     -- as @INPROGRESS@. @StartedAt@ isn\'t available if the @BatchPrediction@
     -- is in the @PENDING@ state.
@@ -189,16 +193,16 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     -- | The time when the @BatchPrediction@ was created. The time is expressed
     -- in epoch time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
-    -- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
-    -- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    -- | A user-supplied name or description of the @BatchPrediction@.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS user account that invoked the @BatchPrediction@. The account
     -- type can be either an AWS root account or an AWS Identity and Access
     -- Management (IAM) user account.
     createdByIamUser :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @BatchPrediction@.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
+    -- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+    -- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Prelude.Maybe Core.POSIX,
     -- | The number of invalid records that Amazon Machine Learning saw while
     -- processing the @BatchPrediction@.
     invalidRecordCount :: Prelude.Maybe Prelude.Integer,
@@ -238,20 +242,24 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'batchPredictionId', 'getBatchPredictionResponse_batchPredictionId' - An ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
---
 -- 'status', 'getBatchPredictionResponse_status' - The status of the @BatchPrediction@, which can be one of the following
 -- values:
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to generate batch predictions.
+--
 -- -   @INPROGRESS@ - The batch predictions are in progress.
+--
 -- -   @FAILED@ - The request to perform a batch prediction did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The batch prediction process completed successfully.
+--
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
+--
+-- 'batchPredictionId', 'getBatchPredictionResponse_batchPredictionId' - An ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
 --
 -- 'startedAt', 'getBatchPredictionResponse_startedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@
 -- as @INPROGRESS@. @StartedAt@ isn\'t available if the @BatchPrediction@
@@ -266,15 +274,15 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 -- 'createdAt', 'getBatchPredictionResponse_createdAt' - The time when the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
 --
--- 'finishedAt', 'getBatchPredictionResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@
--- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
+-- 'name', 'getBatchPredictionResponse_name' - A user-supplied name or description of the @BatchPrediction@.
 --
 -- 'createdByIamUser', 'getBatchPredictionResponse_createdByIamUser' - The AWS user account that invoked the @BatchPrediction@. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 --
--- 'name', 'getBatchPredictionResponse_name' - A user-supplied name or description of the @BatchPrediction@.
+-- 'finishedAt', 'getBatchPredictionResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@
+-- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
 --
 -- 'invalidRecordCount', 'getBatchPredictionResponse_invalidRecordCount' - The number of invalid records that Amazon Machine Learning saw while
 -- processing the @BatchPrediction@.
@@ -309,16 +317,16 @@ newGetBatchPredictionResponse ::
   GetBatchPredictionResponse
 newGetBatchPredictionResponse pHttpStatus_ =
   GetBatchPredictionResponse'
-    { batchPredictionId =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      batchPredictionId = Prelude.Nothing,
       startedAt = Prelude.Nothing,
       outputUri = Prelude.Nothing,
       message = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
       name = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
       invalidRecordCount = Prelude.Nothing,
       totalRecordCount = Prelude.Nothing,
       batchPredictionDataSourceId = Prelude.Nothing,
@@ -330,24 +338,28 @@ newGetBatchPredictionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
-getBatchPredictionResponse_batchPredictionId :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
-getBatchPredictionResponse_batchPredictionId = Lens.lens (\GetBatchPredictionResponse' {batchPredictionId} -> batchPredictionId) (\s@GetBatchPredictionResponse' {} a -> s {batchPredictionId = a} :: GetBatchPredictionResponse)
-
 -- | The status of the @BatchPrediction@, which can be one of the following
 -- values:
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to generate batch predictions.
+--
 -- -   @INPROGRESS@ - The batch predictions are in progress.
+--
 -- -   @FAILED@ - The request to perform a batch prediction did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The batch prediction process completed successfully.
+--
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
 getBatchPredictionResponse_status :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe EntityStatus)
 getBatchPredictionResponse_status = Lens.lens (\GetBatchPredictionResponse' {status} -> status) (\s@GetBatchPredictionResponse' {} a -> s {status = a} :: GetBatchPredictionResponse)
+
+-- | An ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
+getBatchPredictionResponse_batchPredictionId :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_batchPredictionId = Lens.lens (\GetBatchPredictionResponse' {batchPredictionId} -> batchPredictionId) (\s@GetBatchPredictionResponse' {} a -> s {batchPredictionId = a} :: GetBatchPredictionResponse)
 
 -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
 -- as @INPROGRESS@. @StartedAt@ isn\'t available if the @BatchPrediction@
@@ -370,11 +382,9 @@ getBatchPredictionResponse_message = Lens.lens (\GetBatchPredictionResponse' {me
 getBatchPredictionResponse_createdAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
 getBatchPredictionResponse_createdAt = Lens.lens (\GetBatchPredictionResponse' {createdAt} -> createdAt) (\s@GetBatchPredictionResponse' {} a -> s {createdAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
--- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
-getBatchPredictionResponse_finishedAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchPredictionResponse_finishedAt = Lens.lens (\GetBatchPredictionResponse' {finishedAt} -> finishedAt) (\s@GetBatchPredictionResponse' {} a -> s {finishedAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Core._Time
+-- | A user-supplied name or description of the @BatchPrediction@.
+getBatchPredictionResponse_name :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionResponse_name = Lens.lens (\GetBatchPredictionResponse' {name} -> name) (\s@GetBatchPredictionResponse' {} a -> s {name = a} :: GetBatchPredictionResponse)
 
 -- | The AWS user account that invoked the @BatchPrediction@. The account
 -- type can be either an AWS root account or an AWS Identity and Access
@@ -382,9 +392,11 @@ getBatchPredictionResponse_finishedAt = Lens.lens (\GetBatchPredictionResponse' 
 getBatchPredictionResponse_createdByIamUser :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
 getBatchPredictionResponse_createdByIamUser = Lens.lens (\GetBatchPredictionResponse' {createdByIamUser} -> createdByIamUser) (\s@GetBatchPredictionResponse' {} a -> s {createdByIamUser = a} :: GetBatchPredictionResponse)
 
--- | A user-supplied name or description of the @BatchPrediction@.
-getBatchPredictionResponse_name :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.Text)
-getBatchPredictionResponse_name = Lens.lens (\GetBatchPredictionResponse' {name} -> name) (\s@GetBatchPredictionResponse' {} a -> s {name = a} :: GetBatchPredictionResponse)
+-- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@
+-- as @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
+getBatchPredictionResponse_finishedAt :: Lens.Lens' GetBatchPredictionResponse (Prelude.Maybe Prelude.UTCTime)
+getBatchPredictionResponse_finishedAt = Lens.lens (\GetBatchPredictionResponse' {finishedAt} -> finishedAt) (\s@GetBatchPredictionResponse' {} a -> s {finishedAt = a} :: GetBatchPredictionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The number of invalid records that Amazon Machine Learning saw while
 -- processing the @BatchPrediction@.

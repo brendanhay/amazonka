@@ -33,14 +33,14 @@ import Test.Tasty
 --         , requestListDomainNames $
 --             newListDomainNames
 --
+--         , requestDescribeDomainEndpointOptions $
+--             newDescribeDomainEndpointOptions
+--
 --         , requestDefineSuggester $
 --             newDefineSuggester
 --
 --         , requestDescribeDomains $
 --             newDescribeDomains
---
---         , requestDescribeDomainEndpointOptions $
---             newDescribeDomainEndpointOptions
 --
 --         , requestDeleteExpression $
 --             newDeleteExpression
@@ -48,17 +48,14 @@ import Test.Tasty
 --         , requestDeleteIndexField $
 --             newDeleteIndexField
 --
---         , requestDeleteSuggester $
---             newDeleteSuggester
---
 --         , requestUpdateDomainEndpointOptions $
 --             newUpdateDomainEndpointOptions
 --
 --         , requestDescribeIndexFields $
 --             newDescribeIndexFields
 --
---         , requestCreateDomain $
---             newCreateDomain
+--         , requestDeleteSuggester $
+--             newDeleteSuggester
 --
 --         , requestDescribeExpressions $
 --             newDescribeExpressions
@@ -66,20 +63,20 @@ import Test.Tasty
 --         , requestDescribeAvailabilityOptions $
 --             newDescribeAvailabilityOptions
 --
+--         , requestCreateDomain $
+--             newCreateDomain
+--
 --         , requestDefineIndexField $
 --             newDefineIndexField
---
---         , requestDescribeAnalysisSchemes $
---             newDescribeAnalysisSchemes
 --
 --         , requestDeleteDomain $
 --             newDeleteDomain
 --
+--         , requestDescribeAnalysisSchemes $
+--             newDescribeAnalysisSchemes
+--
 --         , requestDeleteAnalysisScheme $
 --             newDeleteAnalysisScheme
---
---         , requestUpdateScalingParameters $
---             newUpdateScalingParameters
 --
 --         , requestBuildSuggesters $
 --             newBuildSuggesters
@@ -87,20 +84,23 @@ import Test.Tasty
 --         , requestUpdateServiceAccessPolicies $
 --             newUpdateServiceAccessPolicies
 --
+--         , requestUpdateScalingParameters $
+--             newUpdateScalingParameters
+--
 --         , requestUpdateAvailabilityOptions $
 --             newUpdateAvailabilityOptions
 --
 --         , requestDescribeSuggesters $
 --             newDescribeSuggesters
 --
+--         , requestIndexDocuments $
+--             newIndexDocuments
+--
 --         , requestDescribeServiceAccessPolicies $
 --             newDescribeServiceAccessPolicies
 --
 --         , requestDefineAnalysisScheme $
 --             newDefineAnalysisScheme
---
---         , requestIndexDocuments $
---             newIndexDocuments
 --
 --         , requestDescribeScalingParameters $
 --             newDescribeScalingParameters
@@ -114,14 +114,14 @@ import Test.Tasty
 --         , responseListDomainNames $
 --             newListDomainNamesResponse
 --
+--         , responseDescribeDomainEndpointOptions $
+--             newDescribeDomainEndpointOptionsResponse
+--
 --         , responseDefineSuggester $
 --             newDefineSuggesterResponse
 --
 --         , responseDescribeDomains $
 --             newDescribeDomainsResponse
---
---         , responseDescribeDomainEndpointOptions $
---             newDescribeDomainEndpointOptionsResponse
 --
 --         , responseDeleteExpression $
 --             newDeleteExpressionResponse
@@ -129,17 +129,14 @@ import Test.Tasty
 --         , responseDeleteIndexField $
 --             newDeleteIndexFieldResponse
 --
---         , responseDeleteSuggester $
---             newDeleteSuggesterResponse
---
 --         , responseUpdateDomainEndpointOptions $
 --             newUpdateDomainEndpointOptionsResponse
 --
 --         , responseDescribeIndexFields $
 --             newDescribeIndexFieldsResponse
 --
---         , responseCreateDomain $
---             newCreateDomainResponse
+--         , responseDeleteSuggester $
+--             newDeleteSuggesterResponse
 --
 --         , responseDescribeExpressions $
 --             newDescribeExpressionsResponse
@@ -147,20 +144,20 @@ import Test.Tasty
 --         , responseDescribeAvailabilityOptions $
 --             newDescribeAvailabilityOptionsResponse
 --
+--         , responseCreateDomain $
+--             newCreateDomainResponse
+--
 --         , responseDefineIndexField $
 --             newDefineIndexFieldResponse
---
---         , responseDescribeAnalysisSchemes $
---             newDescribeAnalysisSchemesResponse
 --
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
 --
+--         , responseDescribeAnalysisSchemes $
+--             newDescribeAnalysisSchemesResponse
+--
 --         , responseDeleteAnalysisScheme $
 --             newDeleteAnalysisSchemeResponse
---
---         , responseUpdateScalingParameters $
---             newUpdateScalingParametersResponse
 --
 --         , responseBuildSuggesters $
 --             newBuildSuggestersResponse
@@ -168,20 +165,23 @@ import Test.Tasty
 --         , responseUpdateServiceAccessPolicies $
 --             newUpdateServiceAccessPoliciesResponse
 --
+--         , responseUpdateScalingParameters $
+--             newUpdateScalingParametersResponse
+--
 --         , responseUpdateAvailabilityOptions $
 --             newUpdateAvailabilityOptionsResponse
 --
 --         , responseDescribeSuggesters $
 --             newDescribeSuggestersResponse
 --
+--         , responseIndexDocuments $
+--             newIndexDocumentsResponse
+--
 --         , responseDescribeServiceAccessPolicies $
 --             newDescribeServiceAccessPoliciesResponse
 --
 --         , responseDefineAnalysisScheme $
 --             newDefineAnalysisSchemeResponse
---
---         , responseIndexDocuments $
---             newIndexDocumentsResponse
 --
 --         , responseDescribeScalingParameters $
 --             newDescribeScalingParametersResponse
@@ -203,6 +203,12 @@ requestListDomainNames =
     "ListDomainNames"
     "fixture/ListDomainNames.yaml"
 
+requestDescribeDomainEndpointOptions :: DescribeDomainEndpointOptions -> TestTree
+requestDescribeDomainEndpointOptions =
+  req
+    "DescribeDomainEndpointOptions"
+    "fixture/DescribeDomainEndpointOptions.yaml"
+
 requestDefineSuggester :: DefineSuggester -> TestTree
 requestDefineSuggester =
   req
@@ -214,12 +220,6 @@ requestDescribeDomains =
   req
     "DescribeDomains"
     "fixture/DescribeDomains.yaml"
-
-requestDescribeDomainEndpointOptions :: DescribeDomainEndpointOptions -> TestTree
-requestDescribeDomainEndpointOptions =
-  req
-    "DescribeDomainEndpointOptions"
-    "fixture/DescribeDomainEndpointOptions.yaml"
 
 requestDeleteExpression :: DeleteExpression -> TestTree
 requestDeleteExpression =
@@ -233,12 +233,6 @@ requestDeleteIndexField =
     "DeleteIndexField"
     "fixture/DeleteIndexField.yaml"
 
-requestDeleteSuggester :: DeleteSuggester -> TestTree
-requestDeleteSuggester =
-  req
-    "DeleteSuggester"
-    "fixture/DeleteSuggester.yaml"
-
 requestUpdateDomainEndpointOptions :: UpdateDomainEndpointOptions -> TestTree
 requestUpdateDomainEndpointOptions =
   req
@@ -251,11 +245,11 @@ requestDescribeIndexFields =
     "DescribeIndexFields"
     "fixture/DescribeIndexFields.yaml"
 
-requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
+requestDeleteSuggester :: DeleteSuggester -> TestTree
+requestDeleteSuggester =
   req
-    "CreateDomain"
-    "fixture/CreateDomain.yaml"
+    "DeleteSuggester"
+    "fixture/DeleteSuggester.yaml"
 
 requestDescribeExpressions :: DescribeExpressions -> TestTree
 requestDescribeExpressions =
@@ -269,17 +263,17 @@ requestDescribeAvailabilityOptions =
     "DescribeAvailabilityOptions"
     "fixture/DescribeAvailabilityOptions.yaml"
 
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain =
+  req
+    "CreateDomain"
+    "fixture/CreateDomain.yaml"
+
 requestDefineIndexField :: DefineIndexField -> TestTree
 requestDefineIndexField =
   req
     "DefineIndexField"
     "fixture/DefineIndexField.yaml"
-
-requestDescribeAnalysisSchemes :: DescribeAnalysisSchemes -> TestTree
-requestDescribeAnalysisSchemes =
-  req
-    "DescribeAnalysisSchemes"
-    "fixture/DescribeAnalysisSchemes.yaml"
 
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
@@ -287,17 +281,17 @@ requestDeleteDomain =
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
+requestDescribeAnalysisSchemes :: DescribeAnalysisSchemes -> TestTree
+requestDescribeAnalysisSchemes =
+  req
+    "DescribeAnalysisSchemes"
+    "fixture/DescribeAnalysisSchemes.yaml"
+
 requestDeleteAnalysisScheme :: DeleteAnalysisScheme -> TestTree
 requestDeleteAnalysisScheme =
   req
     "DeleteAnalysisScheme"
     "fixture/DeleteAnalysisScheme.yaml"
-
-requestUpdateScalingParameters :: UpdateScalingParameters -> TestTree
-requestUpdateScalingParameters =
-  req
-    "UpdateScalingParameters"
-    "fixture/UpdateScalingParameters.yaml"
 
 requestBuildSuggesters :: BuildSuggesters -> TestTree
 requestBuildSuggesters =
@@ -311,6 +305,12 @@ requestUpdateServiceAccessPolicies =
     "UpdateServiceAccessPolicies"
     "fixture/UpdateServiceAccessPolicies.yaml"
 
+requestUpdateScalingParameters :: UpdateScalingParameters -> TestTree
+requestUpdateScalingParameters =
+  req
+    "UpdateScalingParameters"
+    "fixture/UpdateScalingParameters.yaml"
+
 requestUpdateAvailabilityOptions :: UpdateAvailabilityOptions -> TestTree
 requestUpdateAvailabilityOptions =
   req
@@ -323,6 +323,12 @@ requestDescribeSuggesters =
     "DescribeSuggesters"
     "fixture/DescribeSuggesters.yaml"
 
+requestIndexDocuments :: IndexDocuments -> TestTree
+requestIndexDocuments =
+  req
+    "IndexDocuments"
+    "fixture/IndexDocuments.yaml"
+
 requestDescribeServiceAccessPolicies :: DescribeServiceAccessPolicies -> TestTree
 requestDescribeServiceAccessPolicies =
   req
@@ -334,12 +340,6 @@ requestDefineAnalysisScheme =
   req
     "DefineAnalysisScheme"
     "fixture/DefineAnalysisScheme.yaml"
-
-requestIndexDocuments :: IndexDocuments -> TestTree
-requestIndexDocuments =
-  req
-    "IndexDocuments"
-    "fixture/IndexDocuments.yaml"
 
 requestDescribeScalingParameters :: DescribeScalingParameters -> TestTree
 requestDescribeScalingParameters =
@@ -365,6 +365,14 @@ responseListDomainNames =
     defaultService
     (Proxy :: Proxy ListDomainNames)
 
+responseDescribeDomainEndpointOptions :: DescribeDomainEndpointOptionsResponse -> TestTree
+responseDescribeDomainEndpointOptions =
+  res
+    "DescribeDomainEndpointOptionsResponse"
+    "fixture/DescribeDomainEndpointOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDomainEndpointOptions)
+
 responseDefineSuggester :: DefineSuggesterResponse -> TestTree
 responseDefineSuggester =
   res
@@ -380,14 +388,6 @@ responseDescribeDomains =
     "fixture/DescribeDomainsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeDomains)
-
-responseDescribeDomainEndpointOptions :: DescribeDomainEndpointOptionsResponse -> TestTree
-responseDescribeDomainEndpointOptions =
-  res
-    "DescribeDomainEndpointOptionsResponse"
-    "fixture/DescribeDomainEndpointOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDomainEndpointOptions)
 
 responseDeleteExpression :: DeleteExpressionResponse -> TestTree
 responseDeleteExpression =
@@ -405,14 +405,6 @@ responseDeleteIndexField =
     defaultService
     (Proxy :: Proxy DeleteIndexField)
 
-responseDeleteSuggester :: DeleteSuggesterResponse -> TestTree
-responseDeleteSuggester =
-  res
-    "DeleteSuggesterResponse"
-    "fixture/DeleteSuggesterResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteSuggester)
-
 responseUpdateDomainEndpointOptions :: UpdateDomainEndpointOptionsResponse -> TestTree
 responseUpdateDomainEndpointOptions =
   res
@@ -429,13 +421,13 @@ responseDescribeIndexFields =
     defaultService
     (Proxy :: Proxy DescribeIndexFields)
 
-responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
+responseDeleteSuggester :: DeleteSuggesterResponse -> TestTree
+responseDeleteSuggester =
   res
-    "CreateDomainResponse"
-    "fixture/CreateDomainResponse.proto"
+    "DeleteSuggesterResponse"
+    "fixture/DeleteSuggesterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDomain)
+    (Proxy :: Proxy DeleteSuggester)
 
 responseDescribeExpressions :: DescribeExpressionsResponse -> TestTree
 responseDescribeExpressions =
@@ -453,6 +445,14 @@ responseDescribeAvailabilityOptions =
     defaultService
     (Proxy :: Proxy DescribeAvailabilityOptions)
 
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain =
+  res
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDomain)
+
 responseDefineIndexField :: DefineIndexFieldResponse -> TestTree
 responseDefineIndexField =
   res
@@ -460,14 +460,6 @@ responseDefineIndexField =
     "fixture/DefineIndexFieldResponse.proto"
     defaultService
     (Proxy :: Proxy DefineIndexField)
-
-responseDescribeAnalysisSchemes :: DescribeAnalysisSchemesResponse -> TestTree
-responseDescribeAnalysisSchemes =
-  res
-    "DescribeAnalysisSchemesResponse"
-    "fixture/DescribeAnalysisSchemesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAnalysisSchemes)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -477,6 +469,14 @@ responseDeleteDomain =
     defaultService
     (Proxy :: Proxy DeleteDomain)
 
+responseDescribeAnalysisSchemes :: DescribeAnalysisSchemesResponse -> TestTree
+responseDescribeAnalysisSchemes =
+  res
+    "DescribeAnalysisSchemesResponse"
+    "fixture/DescribeAnalysisSchemesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAnalysisSchemes)
+
 responseDeleteAnalysisScheme :: DeleteAnalysisSchemeResponse -> TestTree
 responseDeleteAnalysisScheme =
   res
@@ -484,14 +484,6 @@ responseDeleteAnalysisScheme =
     "fixture/DeleteAnalysisSchemeResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteAnalysisScheme)
-
-responseUpdateScalingParameters :: UpdateScalingParametersResponse -> TestTree
-responseUpdateScalingParameters =
-  res
-    "UpdateScalingParametersResponse"
-    "fixture/UpdateScalingParametersResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateScalingParameters)
 
 responseBuildSuggesters :: BuildSuggestersResponse -> TestTree
 responseBuildSuggesters =
@@ -509,6 +501,14 @@ responseUpdateServiceAccessPolicies =
     defaultService
     (Proxy :: Proxy UpdateServiceAccessPolicies)
 
+responseUpdateScalingParameters :: UpdateScalingParametersResponse -> TestTree
+responseUpdateScalingParameters =
+  res
+    "UpdateScalingParametersResponse"
+    "fixture/UpdateScalingParametersResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateScalingParameters)
+
 responseUpdateAvailabilityOptions :: UpdateAvailabilityOptionsResponse -> TestTree
 responseUpdateAvailabilityOptions =
   res
@@ -525,6 +525,14 @@ responseDescribeSuggesters =
     defaultService
     (Proxy :: Proxy DescribeSuggesters)
 
+responseIndexDocuments :: IndexDocumentsResponse -> TestTree
+responseIndexDocuments =
+  res
+    "IndexDocumentsResponse"
+    "fixture/IndexDocumentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy IndexDocuments)
+
 responseDescribeServiceAccessPolicies :: DescribeServiceAccessPoliciesResponse -> TestTree
 responseDescribeServiceAccessPolicies =
   res
@@ -540,14 +548,6 @@ responseDefineAnalysisScheme =
     "fixture/DefineAnalysisSchemeResponse.proto"
     defaultService
     (Proxy :: Proxy DefineAnalysisScheme)
-
-responseIndexDocuments :: IndexDocumentsResponse -> TestTree
-responseIndexDocuments =
-  res
-    "IndexDocumentsResponse"
-    "fixture/IndexDocumentsResponse.proto"
-    defaultService
-    (Proxy :: Proxy IndexDocuments)
 
 responseDescribeScalingParameters :: DescribeScalingParametersResponse -> TestTree
 responseDescribeScalingParameters =

@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Query a set of OpsItems. You must have permission in AWS Identity and
--- Access Management (IAM) to query a list of OpsItems. For more
--- information, see
+-- Query a set of OpsItems. You must have permission in Identity and Access
+-- Management (IAM) to query a list of OpsItems. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Operations engineers and IT professionals use OpsCenter to view,
--- investigate, and remediate operational issues impacting the performance
--- and health of their AWS resources. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html AWS Systems Manager OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- Operations engineers and IT professionals use Amazon Web Services
+-- Systems Manager OpsCenter to view, investigate, and remediate
+-- operational issues impacting the performance and health of their Amazon
+-- Web Services resources. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeOpsItems
@@ -96,11 +96,11 @@ data DescribeOpsItems = DescribeOpsItems'
     --
     --     Operations: Equals
     --
-    -- -   Key: Title
+    -- -   Key: Title*
     --
-    --     Operations: Contains
+    --     Operations: Equals,Contains
     --
-    -- -   Key: OperationalData*
+    -- -   Key: OperationalData**
     --
     --     Operations: Equals
     --
@@ -124,7 +124,11 @@ data DescribeOpsItems = DescribeOpsItems'
     --
     --     Operations: Equals
     --
-    -- *If you filter the response by using the OperationalData operator,
+    -- *The Equals operator for Title matches the first 100 characters. If you
+    -- specify more than 100 characters, they system returns an error that the
+    -- filter value exceeds the length limit.
+    --
+    -- **If you filter the response by using the OperationalData operator,
     -- specify a key-value pair by using the following JSON format:
     -- {\"key\":\"key_name\",\"value\":\"a_value\"}
     opsItemFilters :: Prelude.Maybe [OpsItemFilter]
@@ -172,11 +176,11 @@ data DescribeOpsItems = DescribeOpsItems'
 --
 --     Operations: Equals
 --
--- -   Key: Title
+-- -   Key: Title*
 --
---     Operations: Contains
+--     Operations: Equals,Contains
 --
--- -   Key: OperationalData*
+-- -   Key: OperationalData**
 --
 --     Operations: Equals
 --
@@ -200,7 +204,11 @@ data DescribeOpsItems = DescribeOpsItems'
 --
 --     Operations: Equals
 --
--- *If you filter the response by using the OperationalData operator,
+-- *The Equals operator for Title matches the first 100 characters. If you
+-- specify more than 100 characters, they system returns an error that the
+-- filter value exceeds the length limit.
+--
+-- **If you filter the response by using the OperationalData operator,
 -- specify a key-value pair by using the following JSON format:
 -- {\"key\":\"key_name\",\"value\":\"a_value\"}
 newDescribeOpsItems ::
@@ -249,11 +257,11 @@ describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxR
 --
 --     Operations: Equals
 --
--- -   Key: Title
+-- -   Key: Title*
 --
---     Operations: Contains
+--     Operations: Equals,Contains
 --
--- -   Key: OperationalData*
+-- -   Key: OperationalData**
 --
 --     Operations: Equals
 --
@@ -277,7 +285,11 @@ describeOpsItems_maxResults = Lens.lens (\DescribeOpsItems' {maxResults} -> maxR
 --
 --     Operations: Equals
 --
--- *If you filter the response by using the OperationalData operator,
+-- *The Equals operator for Title matches the first 100 characters. If you
+-- specify more than 100 characters, they system returns an error that the
+-- filter value exceeds the length limit.
+--
+-- **If you filter the response by using the OperationalData operator,
 -- specify a key-value pair by using the following JSON format:
 -- {\"key\":\"key_name\",\"value\":\"a_value\"}
 describeOpsItems_opsItemFilters :: Lens.Lens' DescribeOpsItems (Prelude.Maybe [OpsItemFilter])

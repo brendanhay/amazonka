@@ -50,9 +50,6 @@ data IntegrationResponse = IntegrationResponse'
     -- Response templates are represented as a key\/value map, with a
     -- content-type as the key and a template as the value.
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the status code that is used to map the integration response
-    -- to an existing MethodResponse.
-    statusCode :: Prelude.Maybe Prelude.Text,
     -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
@@ -65,6 +62,9 @@ data IntegrationResponse = IntegrationResponse'
     -- and unique response header name and @JSON-expression@ is a valid JSON
     -- expression without the @$@ prefix.
     responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the status code that is used to map the integration response
+    -- to an existing MethodResponse.
+    statusCode :: Prelude.Maybe Prelude.Text,
     -- | Specifies the regular expression (regex) pattern used to choose an
     -- integration response based on the response from the back end. For
     -- example, if the success response returns nothing and the error response
@@ -103,9 +103,6 @@ data IntegrationResponse = IntegrationResponse'
 -- Response templates are represented as a key\/value map, with a
 -- content-type as the key and a template as the value.
 --
--- 'statusCode', 'integrationResponse_statusCode' - Specifies the status code that is used to map the integration response
--- to an existing MethodResponse.
---
 -- 'responseParameters', 'integrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
 -- parameter name and the mapped value is an integration response header
@@ -117,6 +114,9 @@ data IntegrationResponse = IntegrationResponse'
 -- @integration.response.body.{JSON-expression}@, where @name@ is a valid
 -- and unique response header name and @JSON-expression@ is a valid JSON
 -- expression without the @$@ prefix.
+--
+-- 'statusCode', 'integrationResponse_statusCode' - Specifies the status code that is used to map the integration response
+-- to an existing MethodResponse.
 --
 -- 'selectionPattern', 'integrationResponse_selectionPattern' - Specifies the regular expression (regex) pattern used to choose an
 -- integration response based on the response from the back end. For
@@ -133,8 +133,8 @@ newIntegrationResponse =
     { contentHandling =
         Prelude.Nothing,
       responseTemplates = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
       responseParameters = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
       selectionPattern = Prelude.Nothing
     }
 
@@ -160,11 +160,6 @@ integrationResponse_contentHandling = Lens.lens (\IntegrationResponse' {contentH
 integrationResponse_responseTemplates :: Lens.Lens' IntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 integrationResponse_responseTemplates = Lens.lens (\IntegrationResponse' {responseTemplates} -> responseTemplates) (\s@IntegrationResponse' {} a -> s {responseTemplates = a} :: IntegrationResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies the status code that is used to map the integration response
--- to an existing MethodResponse.
-integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
-integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -> statusCode) (\s@IntegrationResponse' {} a -> s {statusCode = a} :: IntegrationResponse)
-
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
 -- parameter name and the mapped value is an integration response header
@@ -178,6 +173,11 @@ integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -
 -- expression without the @$@ prefix.
 integrationResponse_responseParameters :: Lens.Lens' IntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 integrationResponse_responseParameters = Lens.lens (\IntegrationResponse' {responseParameters} -> responseParameters) (\s@IntegrationResponse' {} a -> s {responseParameters = a} :: IntegrationResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies the status code that is used to map the integration response
+-- to an existing MethodResponse.
+integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
+integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -> statusCode) (\s@IntegrationResponse' {} a -> s {statusCode = a} :: IntegrationResponse)
 
 -- | Specifies the regular expression (regex) pattern used to choose an
 -- integration response based on the response from the back end. For
@@ -200,10 +200,10 @@ instance Core.FromJSON IntegrationResponse where
             Prelude.<*> ( x Core..:? "responseTemplates"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> ( x Core..:? "responseParameters"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> (x Core..:? "selectionPattern")
       )
 

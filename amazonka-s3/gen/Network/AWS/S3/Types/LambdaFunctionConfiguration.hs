@@ -26,20 +26,19 @@ import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Event
 import Network.AWS.S3.Types.NotificationConfigurationFilter
 
--- | A container for specifying the configuration for AWS Lambda
--- notifications.
+-- | A container for specifying the configuration for Lambda notifications.
 --
 -- /See:/ 'newLambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
   { id :: Prelude.Maybe Prelude.Text,
     filter' :: Prelude.Maybe NotificationConfigurationFilter,
-    -- | The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
+    -- | The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
     -- invokes when the specified event type occurs.
     lambdaFunctionArn :: Prelude.Text,
-    -- | The Amazon S3 bucket event for which to invoke the AWS Lambda function.
-    -- For more information, see
+    -- | The Amazon S3 bucket event for which to invoke the Lambda function. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     events :: [Event]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,13 +55,13 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 --
 -- 'filter'', 'lambdaFunctionConfiguration_filter' - Undocumented member.
 --
--- 'lambdaFunctionArn', 'lambdaFunctionConfiguration_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
+-- 'lambdaFunctionArn', 'lambdaFunctionConfiguration_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
 -- invokes when the specified event type occurs.
 --
--- 'events', 'lambdaFunctionConfiguration_events' - The Amazon S3 bucket event for which to invoke the AWS Lambda function.
--- For more information, see
+-- 'events', 'lambdaFunctionConfiguration_events' - The Amazon S3 bucket event for which to invoke the Lambda function. For
+-- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 newLambdaFunctionConfiguration ::
   -- | 'lambdaFunctionArn'
   Prelude.Text ->
@@ -83,15 +82,15 @@ lambdaFunctionConfiguration_id = Lens.lens (\LambdaFunctionConfiguration' {id} -
 lambdaFunctionConfiguration_filter :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe NotificationConfigurationFilter)
 lambdaFunctionConfiguration_filter = Lens.lens (\LambdaFunctionConfiguration' {filter'} -> filter') (\s@LambdaFunctionConfiguration' {} a -> s {filter' = a} :: LambdaFunctionConfiguration)
 
--- | The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
+-- | The Amazon Resource Name (ARN) of the Lambda function that Amazon S3
 -- invokes when the specified event type occurs.
 lambdaFunctionConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaFunctionConfiguration Prelude.Text
 lambdaFunctionConfiguration_lambdaFunctionArn = Lens.lens (\LambdaFunctionConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaFunctionConfiguration' {} a -> s {lambdaFunctionArn = a} :: LambdaFunctionConfiguration)
 
--- | The Amazon S3 bucket event for which to invoke the AWS Lambda function.
--- For more information, see
+-- | The Amazon S3 bucket event for which to invoke the Lambda function. For
+-- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 lambdaFunctionConfiguration_events :: Lens.Lens' LambdaFunctionConfiguration [Event]
 lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Prelude.. Lens._Coerce
 

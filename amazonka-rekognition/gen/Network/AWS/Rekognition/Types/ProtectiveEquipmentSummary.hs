@@ -51,7 +51,7 @@ data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
     -- they are wearing personal protective equipment.
     personsIndeterminate :: Prelude.Maybe [Prelude.Natural],
     -- | An array of IDs for persons who are not wearing all of the types of PPE
-    -- specified in the RequiredEquipmentTypes field of the detected personal
+    -- specified in the @RequiredEquipmentTypes@ field of the detected personal
     -- protective equipment.
     personsWithoutRequiredEquipment :: Prelude.Maybe [Prelude.Natural]
   }
@@ -72,7 +72,7 @@ data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
 -- they are wearing personal protective equipment.
 --
 -- 'personsWithoutRequiredEquipment', 'protectiveEquipmentSummary_personsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE
--- specified in the RequiredEquipmentTypes field of the detected personal
+-- specified in the @RequiredEquipmentTypes@ field of the detected personal
 -- protective equipment.
 newProtectiveEquipmentSummary ::
   ProtectiveEquipmentSummary
@@ -96,7 +96,7 @@ protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmen
 protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of IDs for persons who are not wearing all of the types of PPE
--- specified in the RequiredEquipmentTypes field of the detected personal
+-- specified in the @RequiredEquipmentTypes@ field of the detected personal
 -- protective equipment.
 protectiveEquipmentSummary_personsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
 protectiveEquipmentSummary_personsWithoutRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithoutRequiredEquipment} -> personsWithoutRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens._Coerce

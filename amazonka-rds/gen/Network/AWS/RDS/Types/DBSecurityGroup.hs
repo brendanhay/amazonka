@@ -32,7 +32,8 @@ import Network.AWS.RDS.Types.IPRange
 --
 -- /See:/ 'newDBSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
-  { -- | Provides the AWS ID of the owner of a specific DB security group.
+  { -- | Provides the Amazon Web Services ID of the owner of a specific DB
+    -- security group.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the DB security group.
     dbSecurityGroupName :: Prelude.Maybe Prelude.Text,
@@ -57,7 +58,8 @@ data DBSecurityGroup = DBSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'dbSecurityGroup_ownerId' - Provides the AWS ID of the owner of a specific DB security group.
+-- 'ownerId', 'dbSecurityGroup_ownerId' - Provides the Amazon Web Services ID of the owner of a specific DB
+-- security group.
 --
 -- 'dbSecurityGroupName', 'dbSecurityGroup_dbSecurityGroupName' - Specifies the name of the DB security group.
 --
@@ -83,7 +85,8 @@ newDBSecurityGroup =
       dbSecurityGroupArn = Prelude.Nothing
     }
 
--- | Provides the AWS ID of the owner of a specific DB security group.
+-- | Provides the Amazon Web Services ID of the owner of a specific DB
+-- security group.
 dbSecurityGroup_ownerId :: Lens.Lens' DBSecurityGroup (Prelude.Maybe Prelude.Text)
 dbSecurityGroup_ownerId = Lens.lens (\DBSecurityGroup' {ownerId} -> ownerId) (\s@DBSecurityGroup' {} a -> s {ownerId = a} :: DBSecurityGroup)
 

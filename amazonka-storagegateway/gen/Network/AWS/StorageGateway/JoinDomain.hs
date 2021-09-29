@@ -70,7 +70,7 @@ data JoinDomain = JoinDomain'
     -- complete. The default is 20 seconds.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
-    -- operation to return a list of gateways for your account and AWS Region.
+    -- operation to return a list of gateways for your account and Region.
     gatewayARN :: Prelude.Text,
     -- | The name of the domain that you want the gateway to join.
     domainName :: Prelude.Text,
@@ -106,7 +106,7 @@ data JoinDomain = JoinDomain'
 -- complete. The default is 20 seconds.
 --
 -- 'gatewayARN', 'joinDomain_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
--- operation to return a list of gateways for your account and AWS Region.
+-- operation to return a list of gateways for your account and Region.
 --
 -- 'domainName', 'joinDomain_domainName' - The name of the domain that you want the gateway to join.
 --
@@ -161,7 +161,7 @@ joinDomain_timeoutInSeconds :: Lens.Lens' JoinDomain (Prelude.Maybe Prelude.Natu
 joinDomain_timeoutInSeconds = Lens.lens (\JoinDomain' {timeoutInSeconds} -> timeoutInSeconds) (\s@JoinDomain' {} a -> s {timeoutInSeconds = a} :: JoinDomain)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
--- operation to return a list of gateways for your account and AWS Region.
+-- operation to return a list of gateways for your account and Region.
 joinDomain_gatewayARN :: Lens.Lens' JoinDomain Prelude.Text
 joinDomain_gatewayARN = Lens.lens (\JoinDomain' {gatewayARN} -> gatewayARN) (\s@JoinDomain' {} a -> s {gatewayARN = a} :: JoinDomain)
 

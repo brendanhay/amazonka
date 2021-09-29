@@ -22,7 +22,7 @@
 --
 -- Applies a repository policy to the specified repository to control
 -- access permissions. For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html Amazon ECR Repository Policies>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html Amazon ECR Repository policies>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.SetRepositoryPolicy
   ( -- * Creating a Request
@@ -41,8 +41,8 @@ module Network.AWS.ECR.SetRepositoryPolicy
 
     -- * Response Lenses
     setRepositoryPolicyResponse_registryId,
-    setRepositoryPolicyResponse_policyText,
     setRepositoryPolicyResponse_repositoryName,
+    setRepositoryPolicyResponse_policyText,
     setRepositoryPolicyResponse_httpStatus,
   )
 where
@@ -56,9 +56,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | If the policy you are attempting to set on a repository policy would
     -- prevent you from setting another policy in the future, you must force
@@ -69,7 +69,7 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
     repositoryName :: Prelude.Text,
     -- | The JSON repository policy text to apply to the repository. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies>
+    -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR repository policies>
     -- in the /Amazon Elastic Container Registry User Guide/.
     policyText :: Prelude.Text
   }
@@ -83,9 +83,9 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'setRepositoryPolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'setRepositoryPolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'force', 'setRepositoryPolicy_force' - If the policy you are attempting to set on a repository policy would
 -- prevent you from setting another policy in the future, you must force
@@ -96,7 +96,7 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
 --
 -- 'policyText', 'setRepositoryPolicy_policyText' - The JSON repository policy text to apply to the repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR repository policies>
 -- in the /Amazon Elastic Container Registry User Guide/.
 newSetRepositoryPolicy ::
   -- | 'repositoryName'
@@ -112,9 +112,9 @@ newSetRepositoryPolicy pRepositoryName_ pPolicyText_ =
       policyText = pPolicyText_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 setRepositoryPolicy_registryId :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Text)
 setRepositoryPolicy_registryId = Lens.lens (\SetRepositoryPolicy' {registryId} -> registryId) (\s@SetRepositoryPolicy' {} a -> s {registryId = a} :: SetRepositoryPolicy)
 
@@ -131,7 +131,7 @@ setRepositoryPolicy_repositoryName = Lens.lens (\SetRepositoryPolicy' {repositor
 
 -- | The JSON repository policy text to apply to the repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR repository policies>
 -- in the /Amazon Elastic Container Registry User Guide/.
 setRepositoryPolicy_policyText :: Lens.Lens' SetRepositoryPolicy Prelude.Text
 setRepositoryPolicy_policyText = Lens.lens (\SetRepositoryPolicy' {policyText} -> policyText) (\s@SetRepositoryPolicy' {} a -> s {policyText = a} :: SetRepositoryPolicy)
@@ -146,8 +146,8 @@ instance Core.AWSRequest SetRepositoryPolicy where
       ( \s h x ->
           SetRepositoryPolicyResponse'
             Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "policyText")
             Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "policyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,10 +192,10 @@ instance Core.ToQuery SetRepositoryPolicy where
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
   { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON repository policy text applied to the repository.
-    policyText :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The JSON repository policy text applied to the repository.
+    policyText :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,9 +211,9 @@ data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
 --
 -- 'registryId', 'setRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
 --
--- 'policyText', 'setRepositoryPolicyResponse_policyText' - The JSON repository policy text applied to the repository.
---
 -- 'repositoryName', 'setRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'policyText', 'setRepositoryPolicyResponse_policyText' - The JSON repository policy text applied to the repository.
 --
 -- 'httpStatus', 'setRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newSetRepositoryPolicyResponse ::
@@ -224,8 +224,8 @@ newSetRepositoryPolicyResponse pHttpStatus_ =
   SetRepositoryPolicyResponse'
     { registryId =
         Prelude.Nothing,
-      policyText = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
+      policyText = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -233,13 +233,13 @@ newSetRepositoryPolicyResponse pHttpStatus_ =
 setRepositoryPolicyResponse_registryId :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_registryId = Lens.lens (\SetRepositoryPolicyResponse' {registryId} -> registryId) (\s@SetRepositoryPolicyResponse' {} a -> s {registryId = a} :: SetRepositoryPolicyResponse)
 
--- | The JSON repository policy text applied to the repository.
-setRepositoryPolicyResponse_policyText :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
-setRepositoryPolicyResponse_policyText = Lens.lens (\SetRepositoryPolicyResponse' {policyText} -> policyText) (\s@SetRepositoryPolicyResponse' {} a -> s {policyText = a} :: SetRepositoryPolicyResponse)
-
 -- | The repository name associated with the request.
 setRepositoryPolicyResponse_repositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_repositoryName = Lens.lens (\SetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@SetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: SetRepositoryPolicyResponse)
+
+-- | The JSON repository policy text applied to the repository.
+setRepositoryPolicyResponse_policyText :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+setRepositoryPolicyResponse_policyText = Lens.lens (\SetRepositoryPolicyResponse' {policyText} -> policyText) (\s@SetRepositoryPolicyResponse' {} a -> s {policyText = a} :: SetRepositoryPolicyResponse)
 
 -- | The response's http status code.
 setRepositoryPolicyResponse_httpStatus :: Lens.Lens' SetRepositoryPolicyResponse Prelude.Int

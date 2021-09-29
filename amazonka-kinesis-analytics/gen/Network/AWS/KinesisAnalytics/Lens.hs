@@ -59,14 +59,14 @@ module Network.AWS.KinesisAnalytics.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** StopApplication
-    stopApplication_applicationName,
-    stopApplicationResponse_httpStatus,
-
     -- ** StartApplication
     startApplication_applicationName,
     startApplication_inputConfigurations,
     startApplicationResponse_httpStatus,
+
+    -- ** StopApplication
+    stopApplication_applicationName,
+    stopApplicationResponse_httpStatus,
 
     -- ** DescribeApplication
     describeApplication_applicationName,
@@ -74,8 +74,8 @@ module Network.AWS.KinesisAnalytics.Lens
     describeApplicationResponse_applicationDetail,
 
     -- ** DiscoverInputSchema
-    discoverInputSchema_resourceARN,
     discoverInputSchema_inputStartingPositionConfiguration,
+    discoverInputSchema_resourceARN,
     discoverInputSchema_roleARN,
     discoverInputSchema_s3Configuration,
     discoverInputSchema_inputProcessingConfiguration,
@@ -85,23 +85,18 @@ module Network.AWS.KinesisAnalytics.Lens
     discoverInputSchemaResponse_parsedInputRecords,
     discoverInputSchemaResponse_httpStatus,
 
-    -- ** AddApplicationInputProcessingConfiguration
-    addApplicationInputProcessingConfiguration_applicationName,
-    addApplicationInputProcessingConfiguration_currentApplicationVersionId,
-    addApplicationInputProcessingConfiguration_inputId,
-    addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
-    addApplicationInputProcessingConfigurationResponse_httpStatus,
-
     -- ** DeleteApplicationInputProcessingConfiguration
     deleteApplicationInputProcessingConfiguration_applicationName,
     deleteApplicationInputProcessingConfiguration_currentApplicationVersionId,
     deleteApplicationInputProcessingConfiguration_inputId,
     deleteApplicationInputProcessingConfigurationResponse_httpStatus,
 
-    -- ** DeleteApplication
-    deleteApplication_applicationName,
-    deleteApplication_createTimestamp,
-    deleteApplicationResponse_httpStatus,
+    -- ** AddApplicationInputProcessingConfiguration
+    addApplicationInputProcessingConfiguration_applicationName,
+    addApplicationInputProcessingConfiguration_currentApplicationVersionId,
+    addApplicationInputProcessingConfiguration_inputId,
+    addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
+    addApplicationInputProcessingConfigurationResponse_httpStatus,
 
     -- ** ListApplications
     listApplications_exclusiveStartApplicationName,
@@ -110,17 +105,16 @@ module Network.AWS.KinesisAnalytics.Lens
     listApplicationsResponse_applicationSummaries,
     listApplicationsResponse_hasMoreApplications,
 
+    -- ** DeleteApplication
+    deleteApplication_applicationName,
+    deleteApplication_createTimestamp,
+    deleteApplicationResponse_httpStatus,
+
     -- ** UpdateApplication
     updateApplication_applicationName,
     updateApplication_currentApplicationVersionId,
     updateApplication_applicationUpdate,
     updateApplicationResponse_httpStatus,
-
-    -- ** AddApplicationInput
-    addApplicationInput_applicationName,
-    addApplicationInput_currentApplicationVersionId,
-    addApplicationInput_input,
-    addApplicationInputResponse_httpStatus,
 
     -- ** AddApplicationReferenceDataSource
     addApplicationReferenceDataSource_applicationName,
@@ -134,6 +128,12 @@ module Network.AWS.KinesisAnalytics.Lens
     deleteApplicationReferenceDataSource_referenceId,
     deleteApplicationReferenceDataSourceResponse_httpStatus,
 
+    -- ** AddApplicationInput
+    addApplicationInput_applicationName,
+    addApplicationInput_currentApplicationVersionId,
+    addApplicationInput_input,
+    addApplicationInputResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_resourceARN,
     listTagsForResourceResponse_tags,
@@ -145,10 +145,10 @@ module Network.AWS.KinesisAnalytics.Lens
     applicationDetail_applicationCode,
     applicationDetail_applicationDescription,
     applicationDetail_cloudWatchLoggingOptionDescriptions,
-    applicationDetail_createTimestamp,
     applicationDetail_outputDescriptions,
-    applicationDetail_referenceDataSourceDescriptions,
+    applicationDetail_createTimestamp,
     applicationDetail_inputDescriptions,
+    applicationDetail_referenceDataSourceDescriptions,
     applicationDetail_lastUpdateTimestamp,
     applicationDetail_applicationName,
     applicationDetail_applicationARN,
@@ -161,8 +161,8 @@ module Network.AWS.KinesisAnalytics.Lens
     applicationSummary_applicationStatus,
 
     -- ** ApplicationUpdate
-    applicationUpdate_referenceDataSourceUpdates,
     applicationUpdate_inputUpdates,
+    applicationUpdate_referenceDataSourceUpdates,
     applicationUpdate_cloudWatchLoggingOptionUpdates,
     applicationUpdate_applicationCodeUpdate,
     applicationUpdate_outputUpdates,
@@ -247,8 +247,8 @@ module Network.AWS.KinesisAnalytics.Lens
     inputStartingPositionConfiguration_inputStartingPosition,
 
     -- ** InputUpdate
-    inputUpdate_namePrefixUpdate,
     inputUpdate_kinesisFirehoseInputUpdate,
+    inputUpdate_namePrefixUpdate,
     inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputProcessingConfigurationUpdate,
     inputUpdate_inputSchemaUpdate,

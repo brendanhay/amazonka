@@ -63,9 +63,10 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
     -- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
     -- set of jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of medical transcription jobs to return in the
-    -- response. IF there are fewer results in the list, this response contains
-    -- only the actual results.
+    -- | The maximum number of medical transcription jobs to return in each page
+    -- of results. If there are fewer results than the value you specify, only
+    -- the actual results are returned. If you do not specify a value, the
+    -- default of 5 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, the jobs returned in the list are limited to jobs whose
     -- name contains the specified string.
@@ -90,9 +91,10 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
 -- @ListMedicalTranscriptionJobs@, include @NextToken@ to fetch the next
 -- set of jobs.
 --
--- 'maxResults', 'listMedicalTranscriptionJobs_maxResults' - The maximum number of medical transcription jobs to return in the
--- response. IF there are fewer results in the list, this response contains
--- only the actual results.
+-- 'maxResults', 'listMedicalTranscriptionJobs_maxResults' - The maximum number of medical transcription jobs to return in each page
+-- of results. If there are fewer results than the value you specify, only
+-- the actual results are returned. If you do not specify a value, the
+-- default of 5 is used.
 --
 -- 'jobNameContains', 'listMedicalTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
 -- name contains the specified string.
@@ -120,9 +122,10 @@ listMedicalTranscriptionJobs_status = Lens.lens (\ListMedicalTranscriptionJobs' 
 listMedicalTranscriptionJobs_nextToken :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
 listMedicalTranscriptionJobs_nextToken = Lens.lens (\ListMedicalTranscriptionJobs' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobs' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobs)
 
--- | The maximum number of medical transcription jobs to return in the
--- response. IF there are fewer results in the list, this response contains
--- only the actual results.
+-- | The maximum number of medical transcription jobs to return in each page
+-- of results. If there are fewer results than the value you specify, only
+-- the actual results are returned. If you do not specify a value, the
+-- default of 5 is used.
 listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Natural)
 listMedicalTranscriptionJobs_maxResults = Lens.lens (\ListMedicalTranscriptionJobs' {maxResults} -> maxResults) (\s@ListMedicalTranscriptionJobs' {} a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
 

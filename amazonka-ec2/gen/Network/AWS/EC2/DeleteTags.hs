@@ -63,8 +63,8 @@ data DeleteTags = DeleteTags'
     -- its value is an empty string.
     --
     -- If you omit this parameter, we delete all user-defined tags for the
-    -- specified resources. We do not delete AWS-generated tags (tags that have
-    -- the @aws:@ prefix).
+    -- specified resources. We do not delete Amazon Web Services-generated tags
+    -- (tags that have the @aws:@ prefix).
     tags :: Prelude.Maybe [Tag],
     -- | The IDs of the resources, separated by spaces.
     --
@@ -94,8 +94,8 @@ data DeleteTags = DeleteTags'
 -- its value is an empty string.
 --
 -- If you omit this parameter, we delete all user-defined tags for the
--- specified resources. We do not delete AWS-generated tags (tags that have
--- the @aws:@ prefix).
+-- specified resources. We do not delete Amazon Web Services-generated tags
+-- (tags that have the @aws:@ prefix).
 --
 -- 'resources', 'deleteTags_resources' - The IDs of the resources, separated by spaces.
 --
@@ -124,8 +124,8 @@ deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' 
 -- its value is an empty string.
 --
 -- If you omit this parameter, we delete all user-defined tags for the
--- specified resources. We do not delete AWS-generated tags (tags that have
--- the @aws:@ prefix).
+-- specified resources. We do not delete Amazon Web Services-generated tags
+-- (tags that have the @aws:@ prefix).
 deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
 deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens._Coerce
 

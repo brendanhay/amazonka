@@ -20,16 +20,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes the specified grant for the specified customer master key (CMK).
--- You can revoke a grant to actively deny operations that depend on it.
+-- Deletes the specified grant. You revoke a grant to terminate the
+-- permissions that the grant allows. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete Retiring and revoking grants>
+-- in the //Key Management Service Developer Guide// .
 --
--- __Cross-account use__: Yes. To perform this operation on a CMK in a
--- different AWS account, specify the key ARN in the value of the @KeyId@
--- parameter.
+-- When you create, retire, or revoke a grant, there might be a brief
+-- delay, usually less than five minutes, until the grant is available
+-- throughout KMS. This state is known as /eventual consistency/. For
+-- details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency>
+-- in the //Key Management Service Developer Guide// .
+--
+-- For detailed information about grants, including grant terminology, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- in the //Key Management Service Developer Guide// . For examples of
+-- working with grants in several programming languages, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.
+--
+-- __Cross-account use__: Yes. To perform this operation on a KMS key in a
+-- different Amazon Web Services account, specify the key ARN in the value
+-- of the @KeyId@ parameter.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:RevokeGrant>
--- (key policy)
+-- (key policy).
 --
 -- __Related operations:__
 --
@@ -64,11 +79,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRevokeGrant' smart constructor.
 data RevokeGrant = RevokeGrant'
-  { -- | A unique identifier for the customer master key associated with the
-    -- grant.
+  { -- | A unique identifier for the KMS key associated with the grant. To get
+    -- the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
-    -- specify a CMK in a different AWS account, you must use the key ARN.
+    -- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+    -- different Amazon Web Services account, you must use the key ARN.
     --
     -- For example:
     --
@@ -77,9 +92,11 @@ data RevokeGrant = RevokeGrant'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
-    -- | Identifier of the grant to be revoked.
+    -- | Identifies the grant to revoke. To get the grant ID, use CreateGrant,
+    -- ListGrants, or ListRetirableGrants.
     grantId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,11 +109,11 @@ data RevokeGrant = RevokeGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'revokeGrant_keyId' - A unique identifier for the customer master key associated with the
--- grant.
+-- 'keyId', 'revokeGrant_keyId' - A unique identifier for the KMS key associated with the grant. To get
+-- the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -105,9 +122,11 @@ data RevokeGrant = RevokeGrant'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
--- 'grantId', 'revokeGrant_grantId' - Identifier of the grant to be revoked.
+-- 'grantId', 'revokeGrant_grantId' - Identifies the grant to revoke. To get the grant ID, use CreateGrant,
+-- ListGrants, or ListRetirableGrants.
 newRevokeGrant ::
   -- | 'keyId'
   Prelude.Text ->
@@ -117,11 +136,11 @@ newRevokeGrant ::
 newRevokeGrant pKeyId_ pGrantId_ =
   RevokeGrant' {keyId = pKeyId_, grantId = pGrantId_}
 
--- | A unique identifier for the customer master key associated with the
--- grant.
+-- | A unique identifier for the KMS key associated with the grant. To get
+-- the key ID and key ARN for a KMS key, use ListKeys or DescribeKey.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -130,11 +149,13 @@ newRevokeGrant pKeyId_ pGrantId_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 revokeGrant_keyId :: Lens.Lens' RevokeGrant Prelude.Text
 revokeGrant_keyId = Lens.lens (\RevokeGrant' {keyId} -> keyId) (\s@RevokeGrant' {} a -> s {keyId = a} :: RevokeGrant)
 
--- | Identifier of the grant to be revoked.
+-- | Identifies the grant to revoke. To get the grant ID, use CreateGrant,
+-- ListGrants, or ListRetirableGrants.
 revokeGrant_grantId :: Lens.Lens' RevokeGrant Prelude.Text
 revokeGrant_grantId = Lens.lens (\RevokeGrant' {grantId} -> grantId) (\s@RevokeGrant' {} a -> s {grantId = a} :: RevokeGrant)
 

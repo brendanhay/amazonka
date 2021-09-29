@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the streams in your AWS account.
+-- Lists all of the streams in your Amazon Web Services account.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListStreams>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListStreams

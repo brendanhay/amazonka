@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryExecutionStatus = QueryExecutionStatus'
   { -- | The date and time that the query was submitted.
     submissionDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Further detail about the status of the query.
-    stateChangeReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the query completed.
     completionDateTime :: Prelude.Maybe Core.POSIX,
+    -- | Further detail about the status of the query.
+    stateChangeReason :: Prelude.Maybe Prelude.Text,
     -- | The state of query execution. @QUEUED@ indicates that the query has been
     -- submitted to the service, and Athena will execute the query as soon as
     -- resources are available. @RUNNING@ indicates that the query is in
@@ -60,9 +60,9 @@ data QueryExecutionStatus = QueryExecutionStatus'
 --
 -- 'submissionDateTime', 'queryExecutionStatus_submissionDateTime' - The date and time that the query was submitted.
 --
--- 'stateChangeReason', 'queryExecutionStatus_stateChangeReason' - Further detail about the status of the query.
---
 -- 'completionDateTime', 'queryExecutionStatus_completionDateTime' - The date and time that the query completed.
+--
+-- 'stateChangeReason', 'queryExecutionStatus_stateChangeReason' - Further detail about the status of the query.
 --
 -- 'state', 'queryExecutionStatus_state' - The state of query execution. @QUEUED@ indicates that the query has been
 -- submitted to the service, and Athena will execute the query as soon as
@@ -81,8 +81,8 @@ newQueryExecutionStatus =
   QueryExecutionStatus'
     { submissionDateTime =
         Prelude.Nothing,
-      stateChangeReason = Prelude.Nothing,
       completionDateTime = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
       state = Prelude.Nothing
     }
 
@@ -90,13 +90,13 @@ newQueryExecutionStatus =
 queryExecutionStatus_submissionDateTime :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.UTCTime)
 queryExecutionStatus_submissionDateTime = Lens.lens (\QueryExecutionStatus' {submissionDateTime} -> submissionDateTime) (\s@QueryExecutionStatus' {} a -> s {submissionDateTime = a} :: QueryExecutionStatus) Prelude.. Lens.mapping Core._Time
 
--- | Further detail about the status of the query.
-queryExecutionStatus_stateChangeReason :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.Text)
-queryExecutionStatus_stateChangeReason = Lens.lens (\QueryExecutionStatus' {stateChangeReason} -> stateChangeReason) (\s@QueryExecutionStatus' {} a -> s {stateChangeReason = a} :: QueryExecutionStatus)
-
 -- | The date and time that the query completed.
 queryExecutionStatus_completionDateTime :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.UTCTime)
 queryExecutionStatus_completionDateTime = Lens.lens (\QueryExecutionStatus' {completionDateTime} -> completionDateTime) (\s@QueryExecutionStatus' {} a -> s {completionDateTime = a} :: QueryExecutionStatus) Prelude.. Lens.mapping Core._Time
+
+-- | Further detail about the status of the query.
+queryExecutionStatus_stateChangeReason :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.Text)
+queryExecutionStatus_stateChangeReason = Lens.lens (\QueryExecutionStatus' {stateChangeReason} -> stateChangeReason) (\s@QueryExecutionStatus' {} a -> s {stateChangeReason = a} :: QueryExecutionStatus)
 
 -- | The state of query execution. @QUEUED@ indicates that the query has been
 -- submitted to the service, and Athena will execute the query as soon as
@@ -119,8 +119,8 @@ instance Core.FromJSON QueryExecutionStatus where
       ( \x ->
           QueryExecutionStatus'
             Prelude.<$> (x Core..:? "SubmissionDateTime")
-            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "CompletionDateTime")
+            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "State")
       )
 

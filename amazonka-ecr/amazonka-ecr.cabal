@@ -55,6 +55,7 @@ library
     Network.AWS.ECR.DeleteRegistryPolicy
     Network.AWS.ECR.DeleteRepository
     Network.AWS.ECR.DeleteRepositoryPolicy
+    Network.AWS.ECR.DescribeImageReplicationStatus
     Network.AWS.ECR.DescribeImages
     Network.AWS.ECR.DescribeImageScanFindings
     Network.AWS.ECR.DescribeRegistry
@@ -92,6 +93,7 @@ library
     Network.AWS.ECR.Types.ImageFailure
     Network.AWS.ECR.Types.ImageFailureCode
     Network.AWS.ECR.Types.ImageIdentifier
+    Network.AWS.ECR.Types.ImageReplicationStatus
     Network.AWS.ECR.Types.ImageScanFinding
     Network.AWS.ECR.Types.ImageScanFindings
     Network.AWS.ECR.Types.ImageScanFindingsSummary
@@ -111,7 +113,10 @@ library
     Network.AWS.ECR.Types.ReplicationConfiguration
     Network.AWS.ECR.Types.ReplicationDestination
     Network.AWS.ECR.Types.ReplicationRule
+    Network.AWS.ECR.Types.ReplicationStatus
     Network.AWS.ECR.Types.Repository
+    Network.AWS.ECR.Types.RepositoryFilter
+    Network.AWS.ECR.Types.RepositoryFilterType
     Network.AWS.ECR.Types.ScanStatus
     Network.AWS.ECR.Types.Tag
     Network.AWS.ECR.Types.TagStatus

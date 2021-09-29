@@ -60,8 +60,6 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
     -- | The IDs of one or more subnets to remove.
     removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The new VPC attachment options.
-    --
-    -- You cannot modify the IPv6 options.
     options :: Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions,
     -- | The IDs of one or more subnets to add. You can specify at most one
     -- subnet per Availability Zone.
@@ -87,8 +85,6 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
 -- 'removeSubnetIds', 'modifyTransitGatewayVpcAttachment_removeSubnetIds' - The IDs of one or more subnets to remove.
 --
 -- 'options', 'modifyTransitGatewayVpcAttachment_options' - The new VPC attachment options.
---
--- You cannot modify the IPv6 options.
 --
 -- 'addSubnetIds', 'modifyTransitGatewayVpcAttachment_addSubnetIds' - The IDs of one or more subnets to add. You can specify at most one
 -- subnet per Availability Zone.
@@ -122,8 +118,6 @@ modifyTransitGatewayVpcAttachment_removeSubnetIds :: Lens.Lens' ModifyTransitGat
 modifyTransitGatewayVpcAttachment_removeSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {removeSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The new VPC attachment options.
---
--- You cannot modify the IPv6 options.
 modifyTransitGatewayVpcAttachment_options :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
 modifyTransitGatewayVpcAttachment_options = Lens.lens (\ModifyTransitGatewayVpcAttachment' {options} -> options) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {options = a} :: ModifyTransitGatewayVpcAttachment)
 

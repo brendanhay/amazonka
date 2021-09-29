@@ -31,14 +31,14 @@ data LambdaFunctionInfo = LambdaFunctionInfo'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases>
     -- in the /AWS Lambda Developer Guide/.
     functionAlias :: Prelude.Maybe Prelude.Text,
+    -- | The version of a Lambda function that production traffic points to.
+    currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The version of a Lambda function that production traffic points to after
     -- the Lambda function is deployed.
     targetVersion :: Prelude.Maybe Prelude.Text,
     -- | The percentage of production traffic that the target version of a Lambda
     -- function receives.
     targetVersionWeight :: Prelude.Maybe Prelude.Double,
-    -- | The version of a Lambda function that production traffic points to.
-    currentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of a Lambda function.
     functionName :: Prelude.Maybe Prelude.Text
   }
@@ -56,13 +56,13 @@ data LambdaFunctionInfo = LambdaFunctionInfo'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases>
 -- in the /AWS Lambda Developer Guide/.
 --
+-- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.
+--
 -- 'targetVersion', 'lambdaFunctionInfo_targetVersion' - The version of a Lambda function that production traffic points to after
 -- the Lambda function is deployed.
 --
 -- 'targetVersionWeight', 'lambdaFunctionInfo_targetVersionWeight' - The percentage of production traffic that the target version of a Lambda
 -- function receives.
---
--- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.
 --
 -- 'functionName', 'lambdaFunctionInfo_functionName' - The name of a Lambda function.
 newLambdaFunctionInfo ::
@@ -71,9 +71,9 @@ newLambdaFunctionInfo =
   LambdaFunctionInfo'
     { functionAlias =
         Prelude.Nothing,
+      currentVersion = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
       targetVersionWeight = Prelude.Nothing,
-      currentVersion = Prelude.Nothing,
       functionName = Prelude.Nothing
     }
 
@@ -82,6 +82,10 @@ newLambdaFunctionInfo =
 -- in the /AWS Lambda Developer Guide/.
 lambdaFunctionInfo_functionAlias :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
 lambdaFunctionInfo_functionAlias = Lens.lens (\LambdaFunctionInfo' {functionAlias} -> functionAlias) (\s@LambdaFunctionInfo' {} a -> s {functionAlias = a} :: LambdaFunctionInfo)
+
+-- | The version of a Lambda function that production traffic points to.
+lambdaFunctionInfo_currentVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
+lambdaFunctionInfo_currentVersion = Lens.lens (\LambdaFunctionInfo' {currentVersion} -> currentVersion) (\s@LambdaFunctionInfo' {} a -> s {currentVersion = a} :: LambdaFunctionInfo)
 
 -- | The version of a Lambda function that production traffic points to after
 -- the Lambda function is deployed.
@@ -92,10 +96,6 @@ lambdaFunctionInfo_targetVersion = Lens.lens (\LambdaFunctionInfo' {targetVersio
 -- function receives.
 lambdaFunctionInfo_targetVersionWeight :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Double)
 lambdaFunctionInfo_targetVersionWeight = Lens.lens (\LambdaFunctionInfo' {targetVersionWeight} -> targetVersionWeight) (\s@LambdaFunctionInfo' {} a -> s {targetVersionWeight = a} :: LambdaFunctionInfo)
-
--- | The version of a Lambda function that production traffic points to.
-lambdaFunctionInfo_currentVersion :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
-lambdaFunctionInfo_currentVersion = Lens.lens (\LambdaFunctionInfo' {currentVersion} -> currentVersion) (\s@LambdaFunctionInfo' {} a -> s {currentVersion = a} :: LambdaFunctionInfo)
 
 -- | The name of a Lambda function.
 lambdaFunctionInfo_functionName :: Lens.Lens' LambdaFunctionInfo (Prelude.Maybe Prelude.Text)
@@ -108,9 +108,9 @@ instance Core.FromJSON LambdaFunctionInfo where
       ( \x ->
           LambdaFunctionInfo'
             Prelude.<$> (x Core..:? "functionAlias")
+            Prelude.<*> (x Core..:? "currentVersion")
             Prelude.<*> (x Core..:? "targetVersion")
             Prelude.<*> (x Core..:? "targetVersionWeight")
-            Prelude.<*> (x Core..:? "currentVersion")
             Prelude.<*> (x Core..:? "functionName")
       )
 

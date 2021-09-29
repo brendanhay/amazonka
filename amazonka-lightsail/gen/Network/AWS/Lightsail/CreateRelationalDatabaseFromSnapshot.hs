@@ -31,7 +31,7 @@
 -- tag-based access control via request tags and resource tags applied to
 -- the resource identified by relationalDatabaseSnapshotName. For more
 -- information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
   ( -- * Creating a Request
     CreateRelationalDatabaseFromSnapshot (..),
@@ -123,7 +123,7 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
     -- Constraints: Cannot be specified if the @restore time@ parameter is
     -- provided.
     useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
-    -- | The name to use for your new database.
+    -- | The name to use for your new Lightsail database resource.
     --
     -- Constraints:
     --
@@ -198,7 +198,7 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 -- Constraints: Cannot be specified if the @restore time@ parameter is
 -- provided.
 --
--- 'relationalDatabaseName', 'createRelationalDatabaseFromSnapshot_relationalDatabaseName' - The name to use for your new database.
+-- 'relationalDatabaseName', 'createRelationalDatabaseFromSnapshot_relationalDatabaseName' - The name to use for your new Lightsail database resource.
 --
 -- Constraints:
 --
@@ -300,7 +300,7 @@ createRelationalDatabaseFromSnapshot_tags = Lens.lens (\CreateRelationalDatabase
 createRelationalDatabaseFromSnapshot_useLatestRestorableTime :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Prelude.Maybe Prelude.Bool)
 createRelationalDatabaseFromSnapshot_useLatestRestorableTime = Lens.lens (\CreateRelationalDatabaseFromSnapshot' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@CreateRelationalDatabaseFromSnapshot' {} a -> s {useLatestRestorableTime = a} :: CreateRelationalDatabaseFromSnapshot)
 
--- | The name to use for your new database.
+-- | The name to use for your new Lightsail database resource.
 --
 -- Constraints:
 --

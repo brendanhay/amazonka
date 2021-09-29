@@ -34,6 +34,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 
     -- * Request Lenses
     purchaseReservedCacheNodesOffering_cacheNodeCount,
+    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_reservedCacheNodeId,
     purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId,
 
@@ -63,6 +64,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     --
     -- Default: @1@
     cacheNodeCount :: Prelude.Maybe Prelude.Int,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | A customer-specified identifier to track this reservation.
     --
     -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -90,6 +94,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 --
 -- Default: @1@
 --
+-- 'tags', 'purchaseReservedCacheNodesOffering_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'reservedCacheNodeId', 'purchaseReservedCacheNodesOffering_reservedCacheNodeId' - A customer-specified identifier to track this reservation.
 --
 -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -110,6 +117,7 @@ newPurchaseReservedCacheNodesOffering
     PurchaseReservedCacheNodesOffering'
       { cacheNodeCount =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         reservedCacheNodeId = Prelude.Nothing,
         reservedCacheNodesOfferingId =
           pReservedCacheNodesOfferingId_
@@ -120,6 +128,11 @@ newPurchaseReservedCacheNodesOffering
 -- Default: @1@
 purchaseReservedCacheNodesOffering_cacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
 purchaseReservedCacheNodesOffering_cacheNodeCount = Lens.lens (\PurchaseReservedCacheNodesOffering' {cacheNodeCount} -> cacheNodeCount) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {cacheNodeCount = a} :: PurchaseReservedCacheNodesOffering)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+purchaseReservedCacheNodesOffering_tags :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe [Tag])
+purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodesOffering' {tags} -> tags) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {tags = a} :: PurchaseReservedCacheNodesOffering) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A customer-specified identifier to track this reservation.
 --
@@ -187,6 +200,9 @@ instance
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheNodeCount" Core.=: cacheNodeCount,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "ReservedCacheNodeId" Core.=: reservedCacheNodeId,
         "ReservedCacheNodesOfferingId"
           Core.=: reservedCacheNodesOfferingId

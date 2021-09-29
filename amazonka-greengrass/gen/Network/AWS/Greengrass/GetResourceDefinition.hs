@@ -41,8 +41,8 @@ module Network.AWS.Greengrass.GetResourceDefinition
     getResourceDefinitionResponse_arn,
     getResourceDefinitionResponse_id,
     getResourceDefinitionResponse_name,
-    getResourceDefinitionResponse_lastUpdatedTimestamp,
     getResourceDefinitionResponse_tags,
+    getResourceDefinitionResponse_lastUpdatedTimestamp,
     getResourceDefinitionResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetResourceDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,11 +144,11 @@ data GetResourceDefinitionResponse = GetResourceDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data GetResourceDefinitionResponse = GetResourceDefinitionResponse'
 --
 -- 'name', 'getResourceDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getResourceDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getResourceDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getResourceDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getResourceDefinitionResponse_httpStatus' - The response's http status code.
 newGetResourceDefinitionResponse ::
@@ -194,8 +194,8 @@ newGetResourceDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -224,14 +224,14 @@ getResourceDefinitionResponse_id = Lens.lens (\GetResourceDefinitionResponse' {i
 getResourceDefinitionResponse_name :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
 getResourceDefinitionResponse_name = Lens.lens (\GetResourceDefinitionResponse' {name} -> name) (\s@GetResourceDefinitionResponse' {} a -> s {name = a} :: GetResourceDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getResourceDefinitionResponse_tags :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getResourceDefinitionResponse_tags = Lens.lens (\GetResourceDefinitionResponse' {tags} -> tags) (\s@GetResourceDefinitionResponse' {} a -> s {tags = a} :: GetResourceDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getResourceDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
 getResourceDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetResourceDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetResourceDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetResourceDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getResourceDefinitionResponse_tags :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getResourceDefinitionResponse_tags = Lens.lens (\GetResourceDefinitionResponse' {tags} -> tags) (\s@GetResourceDefinitionResponse' {} a -> s {tags = a} :: GetResourceDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getResourceDefinitionResponse_httpStatus :: Lens.Lens' GetResourceDefinitionResponse Prelude.Int

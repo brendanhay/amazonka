@@ -49,7 +49,9 @@ data DataProcessing = DataProcessing'
     -- valid values are @None@ and @Input@. The default value is @None@, which
     -- specifies not to join the input with the transformed data. If you want
     -- the batch transform job to join the original input data with the
-    -- transformed data, set @JoinSource@ to @Input@.
+    -- transformed data, set @JoinSource@ to @Input@. You can specify
+    -- @OutputFilter@ as an additional filter to select a portion of the joined
+    -- dataset and store it in the output file.
     --
     -- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
     -- adds the transformed data to the input JSON object in an attribute
@@ -59,10 +61,13 @@ data DataProcessing = DataProcessing'
     -- data is stored under the @SageMakerInput@ key and the results are stored
     -- in @SageMakerOutput@.
     --
-    -- For CSV files, Amazon SageMaker combines the transformed data with the
-    -- input data at the end of the input data and stores it in the output
-    -- file. The joined data has the joined input data followed by the
-    -- transformed data and the output is a CSV file.
+    -- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
+    -- the transformed data with the input by appending each transformed row to
+    -- the end of the input. The joined data has the original input data
+    -- followed by the transformed data and the output is a CSV file.
+    --
+    -- For information on how joining in applied, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
     joinSource :: Prelude.Maybe JoinSource,
     -- | A
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
@@ -98,7 +103,9 @@ data DataProcessing = DataProcessing'
 -- valid values are @None@ and @Input@. The default value is @None@, which
 -- specifies not to join the input with the transformed data. If you want
 -- the batch transform job to join the original input data with the
--- transformed data, set @JoinSource@ to @Input@.
+-- transformed data, set @JoinSource@ to @Input@. You can specify
+-- @OutputFilter@ as an additional filter to select a portion of the joined
+-- dataset and store it in the output file.
 --
 -- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
 -- adds the transformed data to the input JSON object in an attribute
@@ -108,10 +115,13 @@ data DataProcessing = DataProcessing'
 -- data is stored under the @SageMakerInput@ key and the results are stored
 -- in @SageMakerOutput@.
 --
--- For CSV files, Amazon SageMaker combines the transformed data with the
--- input data at the end of the input data and stores it in the output
--- file. The joined data has the joined input data followed by the
--- transformed data and the output is a CSV file.
+-- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
+-- the transformed data with the input by appending each transformed row to
+-- the end of the input. The joined data has the original input data
+-- followed by the transformed data and the output is a CSV file.
+--
+-- For information on how joining in applied, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
 --
 -- 'inputFilter', 'dataProcessing_inputFilter' - A
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
@@ -146,7 +156,9 @@ dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outp
 -- valid values are @None@ and @Input@. The default value is @None@, which
 -- specifies not to join the input with the transformed data. If you want
 -- the batch transform job to join the original input data with the
--- transformed data, set @JoinSource@ to @Input@.
+-- transformed data, set @JoinSource@ to @Input@. You can specify
+-- @OutputFilter@ as an additional filter to select a portion of the joined
+-- dataset and store it in the output file.
 --
 -- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
 -- adds the transformed data to the input JSON object in an attribute
@@ -156,10 +168,13 @@ dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outp
 -- data is stored under the @SageMakerInput@ key and the results are stored
 -- in @SageMakerOutput@.
 --
--- For CSV files, Amazon SageMaker combines the transformed data with the
--- input data at the end of the input data and stores it in the output
--- file. The joined data has the joined input data followed by the
--- transformed data and the output is a CSV file.
+-- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
+-- the transformed data with the input by appending each transformed row to
+-- the end of the input. The joined data has the original input data
+-- followed by the transformed data and the output is a CSV file.
+--
+-- For information on how joining in applied, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
 dataProcessing_joinSource :: Lens.Lens' DataProcessing (Prelude.Maybe JoinSource)
 dataProcessing_joinSource = Lens.lens (\DataProcessing' {joinSource} -> joinSource) (\s@DataProcessing' {} a -> s {joinSource = a} :: DataProcessing)
 

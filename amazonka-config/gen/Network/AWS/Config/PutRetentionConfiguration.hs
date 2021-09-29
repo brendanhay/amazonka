@@ -21,14 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates and updates the retention configuration with details about
--- retention period (number of days) that AWS Config stores your historical
+-- retention period (number of days) that Config stores your historical
 -- information. The API creates the @RetentionConfiguration@ object and
 -- names the object as __default__. When you have a
 -- @RetentionConfiguration@ object named __default__, calling the API
 -- modifies the default object.
 --
--- Currently, AWS Config supports only one retention configuration per
--- region in your account.
+-- Currently, Config supports only one retention configuration per region
+-- in your account.
 module Network.AWS.Config.PutRetentionConfiguration
   ( -- * Creating a Request
     PutRetentionConfiguration (..),
@@ -56,7 +56,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRetentionConfiguration' smart constructor.
 data PutRetentionConfiguration = PutRetentionConfiguration'
-  { -- | Number of days AWS Config stores your historical information.
+  { -- | Number of days Config stores your historical information.
     --
     -- Currently, only applicable to the configuration item history.
     retentionPeriodInDays :: Prelude.Natural
@@ -71,7 +71,7 @@ data PutRetentionConfiguration = PutRetentionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retentionPeriodInDays', 'putRetentionConfiguration_retentionPeriodInDays' - Number of days AWS Config stores your historical information.
+-- 'retentionPeriodInDays', 'putRetentionConfiguration_retentionPeriodInDays' - Number of days Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
 newPutRetentionConfiguration ::
@@ -84,7 +84,7 @@ newPutRetentionConfiguration pRetentionPeriodInDays_ =
         pRetentionPeriodInDays_
     }
 
--- | Number of days AWS Config stores your historical information.
+-- | Number of days Config stores your historical information.
 --
 -- Currently, only applicable to the configuration item history.
 putRetentionConfiguration_retentionPeriodInDays :: Lens.Lens' PutRetentionConfiguration Prelude.Natural

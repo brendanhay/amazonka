@@ -20,9 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the user name and password creation date for the specified IAM
--- user. If the user has not been assigned a password, the operation
--- returns a 404 (@NoSuchEntity@) error.
+-- Retrieves the user name for the specified IAM user. A login profile is
+-- created when you create a password for the user to access the Amazon Web
+-- Services Management Console. If the user does not exist or does not have
+-- a password, the operation returns a 404 (@NoSuchEntity@) error.
+--
+-- If you create an IAM user with access to the console, the @CreateDate@
+-- reflects the date you created the initial password for the user.
+--
+-- If you create an IAM user with programmatic access, and then later add a
+-- password for the user to access the Amazon Web Services Management
+-- Console, the @CreateDate@ reflects the initial password creation date. A
+-- user with programmatic access does not have a login profile unless you
+-- create a password for the user to access the Amazon Web Services
+-- Management Console.
 module Network.AWS.IAM.GetLoginProfile
   ( -- * Creating a Request
     GetLoginProfile (..),
@@ -130,8 +141,8 @@ instance Core.ToQuery GetLoginProfile where
 data GetLoginProfileResponse = GetLoginProfileResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A structure containing the user name and password create date for the
-    -- user.
+    -- | A structure containing the user name and the profile creation date for
+    -- the user.
     loginProfile :: LoginProfile
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -146,8 +157,8 @@ data GetLoginProfileResponse = GetLoginProfileResponse'
 --
 -- 'httpStatus', 'getLoginProfileResponse_httpStatus' - The response's http status code.
 --
--- 'loginProfile', 'getLoginProfileResponse_loginProfile' - A structure containing the user name and password create date for the
--- user.
+-- 'loginProfile', 'getLoginProfileResponse_loginProfile' - A structure containing the user name and the profile creation date for
+-- the user.
 newGetLoginProfileResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -166,8 +177,8 @@ newGetLoginProfileResponse
 getLoginProfileResponse_httpStatus :: Lens.Lens' GetLoginProfileResponse Prelude.Int
 getLoginProfileResponse_httpStatus = Lens.lens (\GetLoginProfileResponse' {httpStatus} -> httpStatus) (\s@GetLoginProfileResponse' {} a -> s {httpStatus = a} :: GetLoginProfileResponse)
 
--- | A structure containing the user name and password create date for the
--- user.
+-- | A structure containing the user name and the profile creation date for
+-- the user.
 getLoginProfileResponse_loginProfile :: Lens.Lens' GetLoginProfileResponse LoginProfile
 getLoginProfileResponse_loginProfile = Lens.lens (\GetLoginProfileResponse' {loginProfile} -> loginProfile) (\s@GetLoginProfileResponse' {} a -> s {loginProfile = a} :: GetLoginProfileResponse)
 

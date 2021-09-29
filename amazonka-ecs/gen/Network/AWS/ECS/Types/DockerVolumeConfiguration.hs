@@ -44,6 +44,19 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- the task starts and destroyed when the task stops. Docker volumes that
     -- are scoped as @shared@ persist after the task stops.
     scope :: Prelude.Maybe Scope,
+    -- | A map of Docker driver-specific options passed through. This parameter
+    -- maps to @DriverOpts@ in the
+    -- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
+    -- section of the
+    -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+    -- @xxopt@ option to
+    -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
+    driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | If this value is @true@, the Docker volume is created if it does not
+    -- already exist.
+    --
+    -- This field is only used if the @scope@ is @shared@.
+    autoprovision :: Prelude.Maybe Prelude.Bool,
     -- | The Docker volume driver to use. The driver value must match the driver
     -- name provided by Docker because it is used for task placement. If the
     -- driver was installed using the Docker plugin CLI, use @docker plugin ls@
@@ -57,20 +70,7 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
     -- @xxdriver@ option to
     -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-    driver :: Prelude.Maybe Prelude.Text,
-    -- | A map of Docker driver-specific options passed through. This parameter
-    -- maps to @DriverOpts@ in the
-    -- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
-    -- section of the
-    -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
-    -- @xxopt@ option to
-    -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-    driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | If this value is @true@, the Docker volume is created if it does not
-    -- already exist.
-    --
-    -- This field is only used if the @scope@ is @shared@.
-    autoprovision :: Prelude.Maybe Prelude.Bool
+    driver :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,19 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
 -- the task starts and destroyed when the task stops. Docker volumes that
 -- are scoped as @shared@ persist after the task stops.
 --
+-- 'driverOpts', 'dockerVolumeConfiguration_driverOpts' - A map of Docker driver-specific options passed through. This parameter
+-- maps to @DriverOpts@ in the
+-- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+-- @xxopt@ option to
+-- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
+--
+-- 'autoprovision', 'dockerVolumeConfiguration_autoprovision' - If this value is @true@, the Docker volume is created if it does not
+-- already exist.
+--
+-- This field is only used if the @scope@ is @shared@.
+--
 -- 'driver', 'dockerVolumeConfiguration_driver' - The Docker volume driver to use. The driver value must match the driver
 -- name provided by Docker because it is used for task placement. If the
 -- driver was installed using the Docker plugin CLI, use @docker plugin ls@
@@ -108,19 +121,6 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
 -- @xxdriver@ option to
 -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
---
--- 'driverOpts', 'dockerVolumeConfiguration_driverOpts' - A map of Docker driver-specific options passed through. This parameter
--- maps to @DriverOpts@ in the
--- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
--- section of the
--- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
--- @xxopt@ option to
--- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
---
--- 'autoprovision', 'dockerVolumeConfiguration_autoprovision' - If this value is @true@, the Docker volume is created if it does not
--- already exist.
---
--- This field is only used if the @scope@ is @shared@.
 newDockerVolumeConfiguration ::
   DockerVolumeConfiguration
 newDockerVolumeConfiguration =
@@ -128,9 +128,9 @@ newDockerVolumeConfiguration =
     { labels =
         Prelude.Nothing,
       scope = Prelude.Nothing,
-      driver = Prelude.Nothing,
       driverOpts = Prelude.Nothing,
-      autoprovision = Prelude.Nothing
+      autoprovision = Prelude.Nothing,
+      driver = Prelude.Nothing
     }
 
 -- | Custom metadata to add to your Docker volume. This parameter maps to
@@ -150,22 +150,6 @@ dockerVolumeConfiguration_labels = Lens.lens (\DockerVolumeConfiguration' {label
 dockerVolumeConfiguration_scope :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Scope)
 dockerVolumeConfiguration_scope = Lens.lens (\DockerVolumeConfiguration' {scope} -> scope) (\s@DockerVolumeConfiguration' {} a -> s {scope = a} :: DockerVolumeConfiguration)
 
--- | The Docker volume driver to use. The driver value must match the driver
--- name provided by Docker because it is used for task placement. If the
--- driver was installed using the Docker plugin CLI, use @docker plugin ls@
--- to retrieve the driver name from your container instance. If the driver
--- was installed using another method, use Docker plugin discovery to
--- retrieve the driver name. For more information, see
--- <https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery Docker plugin discovery>.
--- This parameter maps to @Driver@ in the
--- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
--- section of the
--- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
--- @xxdriver@ option to
--- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
-dockerVolumeConfiguration_driver :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Text)
-dockerVolumeConfiguration_driver = Lens.lens (\DockerVolumeConfiguration' {driver} -> driver) (\s@DockerVolumeConfiguration' {} a -> s {driver = a} :: DockerVolumeConfiguration)
-
 -- | A map of Docker driver-specific options passed through. This parameter
 -- maps to @DriverOpts@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
@@ -183,6 +167,22 @@ dockerVolumeConfiguration_driverOpts = Lens.lens (\DockerVolumeConfiguration' {d
 dockerVolumeConfiguration_autoprovision :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Bool)
 dockerVolumeConfiguration_autoprovision = Lens.lens (\DockerVolumeConfiguration' {autoprovision} -> autoprovision) (\s@DockerVolumeConfiguration' {} a -> s {autoprovision = a} :: DockerVolumeConfiguration)
 
+-- | The Docker volume driver to use. The driver value must match the driver
+-- name provided by Docker because it is used for task placement. If the
+-- driver was installed using the Docker plugin CLI, use @docker plugin ls@
+-- to retrieve the driver name from your container instance. If the driver
+-- was installed using another method, use Docker plugin discovery to
+-- retrieve the driver name. For more information, see
+-- <https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery Docker plugin discovery>.
+-- This parameter maps to @Driver@ in the
+-- <https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate Create a volume>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+-- @xxdriver@ option to
+-- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
+dockerVolumeConfiguration_driver :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe Prelude.Text)
+dockerVolumeConfiguration_driver = Lens.lens (\DockerVolumeConfiguration' {driver} -> driver) (\s@DockerVolumeConfiguration' {} a -> s {driver = a} :: DockerVolumeConfiguration)
+
 instance Core.FromJSON DockerVolumeConfiguration where
   parseJSON =
     Core.withObject
@@ -191,9 +191,9 @@ instance Core.FromJSON DockerVolumeConfiguration where
           DockerVolumeConfiguration'
             Prelude.<$> (x Core..:? "labels" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "scope")
-            Prelude.<*> (x Core..:? "driver")
             Prelude.<*> (x Core..:? "driverOpts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "autoprovision")
+            Prelude.<*> (x Core..:? "driver")
       )
 
 instance Prelude.Hashable DockerVolumeConfiguration
@@ -206,8 +206,8 @@ instance Core.ToJSON DockerVolumeConfiguration where
       ( Prelude.catMaybes
           [ ("labels" Core..=) Prelude.<$> labels,
             ("scope" Core..=) Prelude.<$> scope,
-            ("driver" Core..=) Prelude.<$> driver,
             ("driverOpts" Core..=) Prelude.<$> driverOpts,
-            ("autoprovision" Core..=) Prelude.<$> autoprovision
+            ("autoprovision" Core..=) Prelude.<$> autoprovision,
+            ("driver" Core..=) Prelude.<$> driver
           ]
       )

@@ -20,11 +20,14 @@
 module Network.AWS.KMS.Types.KeyState
   ( KeyState
       ( ..,
+        KeyState_Creating,
         KeyState_Disabled,
         KeyState_Enabled,
         KeyState_PendingDeletion,
         KeyState_PendingImport,
-        KeyState_Unavailable
+        KeyState_PendingReplicaDeletion,
+        KeyState_Unavailable,
+        KeyState_Updating
       ),
   )
 where
@@ -60,6 +63,9 @@ newtype KeyState = KeyState'
       Core.ToXML
     )
 
+pattern KeyState_Creating :: KeyState
+pattern KeyState_Creating = KeyState' "Creating"
+
 pattern KeyState_Disabled :: KeyState
 pattern KeyState_Disabled = KeyState' "Disabled"
 
@@ -72,14 +78,23 @@ pattern KeyState_PendingDeletion = KeyState' "PendingDeletion"
 pattern KeyState_PendingImport :: KeyState
 pattern KeyState_PendingImport = KeyState' "PendingImport"
 
+pattern KeyState_PendingReplicaDeletion :: KeyState
+pattern KeyState_PendingReplicaDeletion = KeyState' "PendingReplicaDeletion"
+
 pattern KeyState_Unavailable :: KeyState
 pattern KeyState_Unavailable = KeyState' "Unavailable"
 
+pattern KeyState_Updating :: KeyState
+pattern KeyState_Updating = KeyState' "Updating"
+
 {-# COMPLETE
+  KeyState_Creating,
   KeyState_Disabled,
   KeyState_Enabled,
   KeyState_PendingDeletion,
   KeyState_PendingImport,
+  KeyState_PendingReplicaDeletion,
   KeyState_Unavailable,
+  KeyState_Updating,
   KeyState'
   #-}

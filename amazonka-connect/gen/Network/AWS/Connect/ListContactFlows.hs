@@ -70,7 +70,8 @@ data ListContactFlows = ListContactFlows'
     contactFlowTypes :: Prelude.Maybe [ContactFlowType],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +92,8 @@ data ListContactFlows = ListContactFlows'
 --
 -- 'maxResults', 'listContactFlows_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listContactFlows_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listContactFlows_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListContactFlows ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -118,7 +120,8 @@ listContactFlows_contactFlowTypes = Lens.lens (\ListContactFlows' {contactFlowTy
 listContactFlows_maxResults :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Natural)
 listContactFlows_maxResults = Lens.lens (\ListContactFlows' {maxResults} -> maxResults) (\s@ListContactFlows' {} a -> s {maxResults = a} :: ListContactFlows)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listContactFlows_instanceId :: Lens.Lens' ListContactFlows Prelude.Text
 listContactFlows_instanceId = Lens.lens (\ListContactFlows' {instanceId} -> instanceId) (\s@ListContactFlows' {} a -> s {instanceId = a} :: ListContactFlows)
 

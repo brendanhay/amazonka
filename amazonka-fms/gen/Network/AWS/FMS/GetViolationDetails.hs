@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves violations for a resource based on the specified AWS Firewall
--- Manager policy and AWS account.
+-- Retrieves violations for a resource based on the specified Firewall
+-- Manager policy and Amazon Web Services account.
 module Network.AWS.FMS.GetViolationDetails
   ( -- * Creating a Request
     GetViolationDetails (..),
@@ -52,15 +52,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetViolationDetails' smart constructor.
 data GetViolationDetails = GetViolationDetails'
-  { -- | The ID of the AWS Firewall Manager policy that you want the details for.
+  { -- | The ID of the Firewall Manager policy that you want the details for.
     -- This currently only supports security group content audit policies.
     policyId :: Prelude.Text,
-    -- | The AWS account ID that you want the details for.
+    -- | The Amazon Web Services account ID that you want the details for.
     memberAccount :: Prelude.Text,
     -- | The ID of the resource that has violations.
     resourceId :: Prelude.Text,
     -- | The resource type. This is in the format shown in the
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
     -- Supported resource types are: @AWS::EC2::Instance@,
     -- @AWS::EC2::NetworkInterface@, @AWS::EC2::SecurityGroup@,
     -- @AWS::NetworkFirewall::FirewallPolicy@, and @AWS::EC2::Subnet@.
@@ -76,15 +76,15 @@ data GetViolationDetails = GetViolationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyId', 'getViolationDetails_policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+-- 'policyId', 'getViolationDetails_policyId' - The ID of the Firewall Manager policy that you want the details for.
 -- This currently only supports security group content audit policies.
 --
--- 'memberAccount', 'getViolationDetails_memberAccount' - The AWS account ID that you want the details for.
+-- 'memberAccount', 'getViolationDetails_memberAccount' - The Amazon Web Services account ID that you want the details for.
 --
 -- 'resourceId', 'getViolationDetails_resourceId' - The ID of the resource that has violations.
 --
 -- 'resourceType', 'getViolationDetails_resourceType' - The resource type. This is in the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
 -- Supported resource types are: @AWS::EC2::Instance@,
 -- @AWS::EC2::NetworkInterface@, @AWS::EC2::SecurityGroup@,
 -- @AWS::NetworkFirewall::FirewallPolicy@, and @AWS::EC2::Subnet@.
@@ -110,12 +110,12 @@ newGetViolationDetails
         resourceType = pResourceType_
       }
 
--- | The ID of the AWS Firewall Manager policy that you want the details for.
+-- | The ID of the Firewall Manager policy that you want the details for.
 -- This currently only supports security group content audit policies.
 getViolationDetails_policyId :: Lens.Lens' GetViolationDetails Prelude.Text
 getViolationDetails_policyId = Lens.lens (\GetViolationDetails' {policyId} -> policyId) (\s@GetViolationDetails' {} a -> s {policyId = a} :: GetViolationDetails)
 
--- | The AWS account ID that you want the details for.
+-- | The Amazon Web Services account ID that you want the details for.
 getViolationDetails_memberAccount :: Lens.Lens' GetViolationDetails Prelude.Text
 getViolationDetails_memberAccount = Lens.lens (\GetViolationDetails' {memberAccount} -> memberAccount) (\s@GetViolationDetails' {} a -> s {memberAccount = a} :: GetViolationDetails)
 
@@ -124,7 +124,7 @@ getViolationDetails_resourceId :: Lens.Lens' GetViolationDetails Prelude.Text
 getViolationDetails_resourceId = Lens.lens (\GetViolationDetails' {resourceId} -> resourceId) (\s@GetViolationDetails' {} a -> s {resourceId = a} :: GetViolationDetails)
 
 -- | The resource type. This is in the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
 -- Supported resource types are: @AWS::EC2::Instance@,
 -- @AWS::EC2::NetworkInterface@, @AWS::EC2::SecurityGroup@,
 -- @AWS::NetworkFirewall::FirewallPolicy@, and @AWS::EC2::Subnet@.

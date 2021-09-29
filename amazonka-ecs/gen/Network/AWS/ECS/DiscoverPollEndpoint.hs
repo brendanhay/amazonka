@@ -55,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
   { -- | The container instance ID or full ARN of the container instance. The ARN
     -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
-    -- container instance, the AWS account ID of the container instance owner,
-    -- the @container-instance@ namespace, and then the container instance ID.
-    -- For example,
+    -- container instance, the Amazon Web Services account ID of the container
+    -- instance owner, the @container-instance@ namespace, and then the
+    -- container instance ID. For example,
     -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
     containerInstance :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster to
@@ -76,9 +76,9 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 --
 -- 'containerInstance', 'discoverPollEndpoint_containerInstance' - The container instance ID or full ARN of the container instance. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- container instance, the AWS account ID of the container instance owner,
--- the @container-instance@ namespace, and then the container instance ID.
--- For example,
+-- container instance, the Amazon Web Services account ID of the container
+-- instance owner, the @container-instance@ namespace, and then the
+-- container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 --
 -- 'cluster', 'discoverPollEndpoint_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to
@@ -94,9 +94,9 @@ newDiscoverPollEndpoint =
 
 -- | The container instance ID or full ARN of the container instance. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- container instance, the AWS account ID of the container instance owner,
--- the @container-instance@ namespace, and then the container instance ID.
--- For example,
+-- container instance, the Amazon Web Services account ID of the container
+-- instance owner, the @container-instance@ namespace, and then the
+-- container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 discoverPollEndpoint_containerInstance :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
 discoverPollEndpoint_containerInstance = Lens.lens (\DiscoverPollEndpoint' {containerInstance} -> containerInstance) (\s@DiscoverPollEndpoint' {} a -> s {containerInstance = a} :: DiscoverPollEndpoint)

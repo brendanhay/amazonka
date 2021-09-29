@@ -28,13 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDateInterval' smart constructor.
 data DateInterval = DateInterval'
   { -- | The beginning of the time period. The start date is inclusive. For
-    -- example, if @start@ is @2017-01-01@, AWS retrieves cost and usage data
-    -- starting at @2017-01-01@ up to the end date. The start date must be
-    -- equal to or no later than the current date to avoid a validation error.
+    -- example, if @start@ is @2017-01-01@, Amazon Web Services retrieves cost
+    -- and usage data starting at @2017-01-01@ up to the end date. The start
+    -- date must be equal to or no later than the current date to avoid a
+    -- validation error.
     start :: Prelude.Text,
     -- | The end of the time period. The end date is exclusive. For example, if
-    -- @end@ is @2017-05-01@, AWS retrieves cost and usage data from the start
-    -- date up to, but not including, @2017-05-01@.
+    -- @end@ is @2017-05-01@, Amazon Web Services retrieves cost and usage data
+    -- from the start date up to, but not including, @2017-05-01@.
     end :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +49,14 @@ data DateInterval = DateInterval'
 -- for backwards compatibility:
 --
 -- 'start', 'dateInterval_start' - The beginning of the time period. The start date is inclusive. For
--- example, if @start@ is @2017-01-01@, AWS retrieves cost and usage data
--- starting at @2017-01-01@ up to the end date. The start date must be
--- equal to or no later than the current date to avoid a validation error.
+-- example, if @start@ is @2017-01-01@, Amazon Web Services retrieves cost
+-- and usage data starting at @2017-01-01@ up to the end date. The start
+-- date must be equal to or no later than the current date to avoid a
+-- validation error.
 --
 -- 'end', 'dateInterval_end' - The end of the time period. The end date is exclusive. For example, if
--- @end@ is @2017-05-01@, AWS retrieves cost and usage data from the start
--- date up to, but not including, @2017-05-01@.
+-- @end@ is @2017-05-01@, Amazon Web Services retrieves cost and usage data
+-- from the start date up to, but not including, @2017-05-01@.
 newDateInterval ::
   -- | 'start'
   Prelude.Text ->
@@ -65,15 +67,16 @@ newDateInterval pStart_ pEnd_ =
   DateInterval' {start = pStart_, end = pEnd_}
 
 -- | The beginning of the time period. The start date is inclusive. For
--- example, if @start@ is @2017-01-01@, AWS retrieves cost and usage data
--- starting at @2017-01-01@ up to the end date. The start date must be
--- equal to or no later than the current date to avoid a validation error.
+-- example, if @start@ is @2017-01-01@, Amazon Web Services retrieves cost
+-- and usage data starting at @2017-01-01@ up to the end date. The start
+-- date must be equal to or no later than the current date to avoid a
+-- validation error.
 dateInterval_start :: Lens.Lens' DateInterval Prelude.Text
 dateInterval_start = Lens.lens (\DateInterval' {start} -> start) (\s@DateInterval' {} a -> s {start = a} :: DateInterval)
 
 -- | The end of the time period. The end date is exclusive. For example, if
--- @end@ is @2017-05-01@, AWS retrieves cost and usage data from the start
--- date up to, but not including, @2017-05-01@.
+-- @end@ is @2017-05-01@, Amazon Web Services retrieves cost and usage data
+-- from the start date up to, but not including, @2017-05-01@.
 dateInterval_end :: Lens.Lens' DateInterval Prelude.Text
 dateInterval_end = Lens.lens (\DateInterval' {end} -> end) (\s@DateInterval' {} a -> s {end = a} :: DateInterval)
 

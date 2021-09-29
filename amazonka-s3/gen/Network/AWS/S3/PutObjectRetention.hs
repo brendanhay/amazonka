@@ -20,13 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Places an Object Retention configuration on an object.
+-- Places an Object Retention configuration on an object. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>.
+-- Users or accounts require the @s3:PutObjectRetention@ permission in
+-- order to place an Object Retention configuration on objects. Bypassing a
+-- Governance Retention configuration requires the
+-- @s3:BypassGovernanceRetention@ permission.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- __Related Resources__
+-- __Permissions__
 --
--- -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>
+-- When the Object Lock retention mode is set to compliance, you need
+-- @s3:PutObjectRetention@ and @s3:BypassGovernanceRetention@ permissions.
+-- For other requests to @PutObjectRetention@, only @s3:PutObjectRetention@
+-- permissions are required.
 module Network.AWS.S3.PutObjectRetention
   ( -- * Creating a Request
     PutObjectRetention (..),
@@ -61,17 +70,18 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutObjectRetention' smart constructor.
 data PutObjectRetention = PutObjectRetention'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether this operation should bypass Governance-mode
+    -- | Indicates whether this action should bypass Governance-mode
     -- restrictions.
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The MD5 hash for the request body.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The version ID for the object that you want to apply this Object
     -- Retention configuration to.
@@ -82,14 +92,14 @@ data PutObjectRetention = PutObjectRetention'
     -- | The bucket name that contains the object you want to apply this Object
     -- Retention configuration to.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The key name for the object that you want to apply this Object Retention
     -- configuration to.
@@ -105,17 +115,18 @@ data PutObjectRetention = PutObjectRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putObjectRetention_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putObjectRetention_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
--- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this operation should bypass Governance-mode
+-- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this action should bypass Governance-mode
 -- restrictions.
 --
 -- 'contentMD5', 'putObjectRetention_contentMD5' - The MD5 hash for the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'versionId', 'putObjectRetention_versionId' - The version ID for the object that you want to apply this Object
 -- Retention configuration to.
@@ -127,14 +138,14 @@ data PutObjectRetention = PutObjectRetention'
 -- 'bucket', 'putObjectRetention_bucket' - The bucket name that contains the object you want to apply this Object
 -- Retention configuration to.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'putObjectRetention_key' - The key name for the object that you want to apply this Object Retention
 -- configuration to.
@@ -157,21 +168,22 @@ newPutObjectRetention pBucket_ pKey_ =
       key = pKey_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putObjectRetention_expectedBucketOwner :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
 putObjectRetention_expectedBucketOwner = Lens.lens (\PutObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectRetention' {} a -> s {expectedBucketOwner = a} :: PutObjectRetention)
 
--- | Indicates whether this operation should bypass Governance-mode
+-- | Indicates whether this action should bypass Governance-mode
 -- restrictions.
 putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
 putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
 
 -- | The MD5 hash for the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putObjectRetention_contentMD5 :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
 putObjectRetention_contentMD5 = Lens.lens (\PutObjectRetention' {contentMD5} -> contentMD5) (\s@PutObjectRetention' {} a -> s {contentMD5 = a} :: PutObjectRetention)
 
@@ -191,14 +203,14 @@ putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer}
 -- | The bucket name that contains the object you want to apply this Object
 -- Retention configuration to.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 putObjectRetention_bucket :: Lens.Lens' PutObjectRetention BucketName
 putObjectRetention_bucket = Lens.lens (\PutObjectRetention' {bucket} -> bucket) (\s@PutObjectRetention' {} a -> s {bucket = a} :: PutObjectRetention)
 

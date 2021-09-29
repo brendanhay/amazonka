@@ -22,6 +22,8 @@
 --
 -- Returns detailed status for each member account within an organization
 -- for a given organization conformance pack.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
   ( -- * Creating a Request
     GetOrganizationConformancePackDetailedStatus (..),
@@ -59,8 +61,8 @@ data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePa
     -- | An @OrganizationResourceDetailedStatusFilters@ object.
     filters :: Prelude.Maybe OrganizationResourceDetailedStatusFilters,
     -- | The maximum number of @OrganizationConformancePackDetailedStatuses@
-    -- returned on each page. If you do not specify a number, AWS Config uses
-    -- the default. The default is 100.
+    -- returned on each page. If you do not specify a number, Config uses the
+    -- default. The default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of organization conformance pack for which you want status
     -- details for member accounts.
@@ -82,8 +84,8 @@ data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePa
 -- 'filters', 'getOrganizationConformancePackDetailedStatus_filters' - An @OrganizationResourceDetailedStatusFilters@ object.
 --
 -- 'limit', 'getOrganizationConformancePackDetailedStatus_limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@
--- returned on each page. If you do not specify a number, AWS Config uses
--- the default. The default is 100.
+-- returned on each page. If you do not specify a number, Config uses the
+-- default. The default is 100.
 --
 -- 'organizationConformancePackName', 'getOrganizationConformancePackDetailedStatus_organizationConformancePackName' - The name of organization conformance pack for which you want status
 -- details for member accounts.
@@ -112,8 +114,8 @@ getOrganizationConformancePackDetailedStatus_filters :: Lens.Lens' GetOrganizati
 getOrganizationConformancePackDetailedStatus_filters = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {filters} -> filters) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConformancePackDetailedStatus)
 
 -- | The maximum number of @OrganizationConformancePackDetailedStatuses@
--- returned on each page. If you do not specify a number, AWS Config uses
--- the default. The default is 100.
+-- returned on each page. If you do not specify a number, Config uses the
+-- default. The default is 100.
 getOrganizationConformancePackDetailedStatus_limit :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Natural)
 getOrganizationConformancePackDetailedStatus_limit = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {limit} -> limit) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {limit = a} :: GetOrganizationConformancePackDetailedStatus)
 
@@ -121,6 +123,31 @@ getOrganizationConformancePackDetailedStatus_limit = Lens.lens (\GetOrganization
 -- details for member accounts.
 getOrganizationConformancePackDetailedStatus_organizationConformancePackName :: Lens.Lens' GetOrganizationConformancePackDetailedStatus Prelude.Text
 getOrganizationConformancePackDetailedStatus_organizationConformancePackName = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {organizationConformancePackName} -> organizationConformancePackName) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {organizationConformancePackName = a} :: GetOrganizationConformancePackDetailedStatus)
+
+instance
+  Core.AWSPager
+    GetOrganizationConformancePackDetailedStatus
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getOrganizationConformancePackDetailedStatusResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getOrganizationConformancePackDetailedStatus_nextToken
+          Lens..~ rs
+            Lens.^? getOrganizationConformancePackDetailedStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

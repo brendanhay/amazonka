@@ -31,18 +31,18 @@ import Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource
 --
 -- @NoPermissions@ (The system can\'t locate the service-linked role. This
 -- role is automatically created when a user creates a resource data sync
--- in Explorer.)
+-- in Amazon Web Services Systems Manager Explorer.)
 --
 -- @InvalidOrganizationalUnit@ (You specified or selected an invalid unit
 -- in the resource data sync configuration.)
 --
 -- @TrustedAccessDisabled@ (You disabled Systems Manager access in the
--- organization in AWS Organizations.)
+-- organization in Organizations.)
 --
 -- /See:/ 'newResourceDataSyncSourceWithState' smart constructor.
 data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
-  { -- | Whether to automatically synchronize and aggregate data from new AWS
-    -- Regions when those Regions come online.
+  { -- | Whether to automatically synchronize and aggregate data from new Amazon
+    -- Web Services Regions when those Regions come online.
     includeFutureRegions :: Prelude.Maybe Prelude.Bool,
     -- | The data type name for including resource data sync state. There are
     -- four sync states:
@@ -57,17 +57,26 @@ data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
     -- in the resource data sync configuration.
     --
     -- @TrustedAccessDisabled@: You disabled Systems Manager access in the
-    -- organization in AWS Organizations.
+    -- organization in Organizations.
     state :: Prelude.Maybe Prelude.Text,
-    -- | The @SyncSource@ AWS Regions included in the resource data sync.
+    -- | The @SyncSource@ Amazon Web Services Regions included in the resource
+    -- data sync.
     sourceRegions :: Prelude.Maybe [Prelude.Text],
     -- | The field name in @SyncSource@ for the
     -- @ResourceDataSyncAwsOrganizationsSource@ type.
     awsOrganizationsSource :: Prelude.Maybe ResourceDataSyncAwsOrganizationsSource,
     -- | The type of data source for the resource data sync. @SourceType@ is
-    -- either @AwsOrganizations@ (if an organization is present in AWS
+    -- either @AwsOrganizations@ (if an organization is present in
     -- Organizations) or @singleAccountMultiRegions@.
-    sourceType :: Prelude.Maybe Prelude.Text
+    sourceType :: Prelude.Maybe Prelude.Text,
+    -- | When you create a resource data sync, if you choose one of the
+    -- Organizations options, then Systems Manager automatically enables all
+    -- OpsData sources in the selected Amazon Web Services Regions for all
+    -- Amazon Web Services accounts in your organization (or in the selected
+    -- organization units). For more information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    enableAllOpsDataSources :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,8 +88,8 @@ data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeFutureRegions', 'resourceDataSyncSourceWithState_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS
--- Regions when those Regions come online.
+-- 'includeFutureRegions', 'resourceDataSyncSourceWithState_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new Amazon
+-- Web Services Regions when those Regions come online.
 --
 -- 'state', 'resourceDataSyncSourceWithState_state' - The data type name for including resource data sync state. There are
 -- four sync states:
@@ -95,16 +104,25 @@ data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
 -- in the resource data sync configuration.
 --
 -- @TrustedAccessDisabled@: You disabled Systems Manager access in the
--- organization in AWS Organizations.
+-- organization in Organizations.
 --
--- 'sourceRegions', 'resourceDataSyncSourceWithState_sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
+-- 'sourceRegions', 'resourceDataSyncSourceWithState_sourceRegions' - The @SyncSource@ Amazon Web Services Regions included in the resource
+-- data sync.
 --
 -- 'awsOrganizationsSource', 'resourceDataSyncSourceWithState_awsOrganizationsSource' - The field name in @SyncSource@ for the
 -- @ResourceDataSyncAwsOrganizationsSource@ type.
 --
 -- 'sourceType', 'resourceDataSyncSourceWithState_sourceType' - The type of data source for the resource data sync. @SourceType@ is
--- either @AwsOrganizations@ (if an organization is present in AWS
+-- either @AwsOrganizations@ (if an organization is present in
 -- Organizations) or @singleAccountMultiRegions@.
+--
+-- 'enableAllOpsDataSources', 'resourceDataSyncSourceWithState_enableAllOpsDataSources' - When you create a resource data sync, if you choose one of the
+-- Organizations options, then Systems Manager automatically enables all
+-- OpsData sources in the selected Amazon Web Services Regions for all
+-- Amazon Web Services accounts in your organization (or in the selected
+-- organization units). For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 newResourceDataSyncSourceWithState ::
   ResourceDataSyncSourceWithState
 newResourceDataSyncSourceWithState =
@@ -114,11 +132,12 @@ newResourceDataSyncSourceWithState =
       state = Prelude.Nothing,
       sourceRegions = Prelude.Nothing,
       awsOrganizationsSource = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+      sourceType = Prelude.Nothing,
+      enableAllOpsDataSources = Prelude.Nothing
     }
 
--- | Whether to automatically synchronize and aggregate data from new AWS
--- Regions when those Regions come online.
+-- | Whether to automatically synchronize and aggregate data from new Amazon
+-- Web Services Regions when those Regions come online.
 resourceDataSyncSourceWithState_includeFutureRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Bool)
 resourceDataSyncSourceWithState_includeFutureRegions = Lens.lens (\ResourceDataSyncSourceWithState' {includeFutureRegions} -> includeFutureRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {includeFutureRegions = a} :: ResourceDataSyncSourceWithState)
 
@@ -135,11 +154,12 @@ resourceDataSyncSourceWithState_includeFutureRegions = Lens.lens (\ResourceDataS
 -- in the resource data sync configuration.
 --
 -- @TrustedAccessDisabled@: You disabled Systems Manager access in the
--- organization in AWS Organizations.
+-- organization in Organizations.
 resourceDataSyncSourceWithState_state :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Text)
 resourceDataSyncSourceWithState_state = Lens.lens (\ResourceDataSyncSourceWithState' {state} -> state) (\s@ResourceDataSyncSourceWithState' {} a -> s {state = a} :: ResourceDataSyncSourceWithState)
 
--- | The @SyncSource@ AWS Regions included in the resource data sync.
+-- | The @SyncSource@ Amazon Web Services Regions included in the resource
+-- data sync.
 resourceDataSyncSourceWithState_sourceRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe [Prelude.Text])
 resourceDataSyncSourceWithState_sourceRegions = Lens.lens (\ResourceDataSyncSourceWithState' {sourceRegions} -> sourceRegions) (\s@ResourceDataSyncSourceWithState' {} a -> s {sourceRegions = a} :: ResourceDataSyncSourceWithState) Prelude.. Lens.mapping Lens._Coerce
 
@@ -149,10 +169,20 @@ resourceDataSyncSourceWithState_awsOrganizationsSource :: Lens.Lens' ResourceDat
 resourceDataSyncSourceWithState_awsOrganizationsSource = Lens.lens (\ResourceDataSyncSourceWithState' {awsOrganizationsSource} -> awsOrganizationsSource) (\s@ResourceDataSyncSourceWithState' {} a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSourceWithState)
 
 -- | The type of data source for the resource data sync. @SourceType@ is
--- either @AwsOrganizations@ (if an organization is present in AWS
+-- either @AwsOrganizations@ (if an organization is present in
 -- Organizations) or @singleAccountMultiRegions@.
 resourceDataSyncSourceWithState_sourceType :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Text)
 resourceDataSyncSourceWithState_sourceType = Lens.lens (\ResourceDataSyncSourceWithState' {sourceType} -> sourceType) (\s@ResourceDataSyncSourceWithState' {} a -> s {sourceType = a} :: ResourceDataSyncSourceWithState)
+
+-- | When you create a resource data sync, if you choose one of the
+-- Organizations options, then Systems Manager automatically enables all
+-- OpsData sources in the selected Amazon Web Services Regions for all
+-- Amazon Web Services accounts in your organization (or in the selected
+-- organization units). For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+resourceDataSyncSourceWithState_enableAllOpsDataSources :: Lens.Lens' ResourceDataSyncSourceWithState (Prelude.Maybe Prelude.Bool)
+resourceDataSyncSourceWithState_enableAllOpsDataSources = Lens.lens (\ResourceDataSyncSourceWithState' {enableAllOpsDataSources} -> enableAllOpsDataSources) (\s@ResourceDataSyncSourceWithState' {} a -> s {enableAllOpsDataSources = a} :: ResourceDataSyncSourceWithState)
 
 instance
   Core.FromJSON
@@ -168,6 +198,7 @@ instance
             Prelude.<*> (x Core..:? "SourceRegions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AwsOrganizationsSource")
             Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..:? "EnableAllOpsDataSources")
       )
 
 instance

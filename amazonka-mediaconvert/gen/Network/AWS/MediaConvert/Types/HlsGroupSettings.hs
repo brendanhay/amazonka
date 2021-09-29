@@ -31,64 +31,92 @@ import Network.AWS.MediaConvert.Types.HlsClientCache
 import Network.AWS.MediaConvert.Types.HlsCodecSpecification
 import Network.AWS.MediaConvert.Types.HlsDirectoryStructure
 import Network.AWS.MediaConvert.Types.HlsEncryptionSettings
+import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay
+import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlaySettings
 import Network.AWS.MediaConvert.Types.HlsManifestCompression
 import Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
 import Network.AWS.MediaConvert.Types.HlsOutputSelection
 import Network.AWS.MediaConvert.Types.HlsProgramDateTime
 import Network.AWS.MediaConvert.Types.HlsSegmentControl
+import Network.AWS.MediaConvert.Types.HlsSegmentLengthControl
 import Network.AWS.MediaConvert.Types.HlsStreamInfResolution
+import Network.AWS.MediaConvert.Types.HlsTargetDurationCompatibilityMode
 import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
 import qualified Network.AWS.Prelude as Prelude
 
--- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings)
--- to HLS_GROUP_SETTINGS.
+-- | Settings related to your HLS output package. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set Type, under
+-- OutputGroupSettings, to HLS_GROUP_SETTINGS.
 --
 -- /See:/ 'newHlsGroupSettings' smart constructor.
 data HlsGroupSettings = HlsGroupSettings'
-  { -- | Indicates whether the .m3u8 manifest file should be generated for this
+  { -- | Specify the length, in whole seconds, of each segment. When you don\'t
+    -- specify a value, MediaConvert defaults to 10. Related settings: Use
+    -- Segment length control (SegmentLengthControl) to specify whether the
+    -- encoder enforces this value strictly. Use Segment control
+    -- (HlsSegmentControl) to specify whether MediaConvert creates separate
+    -- segment files or one content file that has metadata to mark the segment
+    -- boundaries.
+    segmentLength :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates ID3 frame that has the timecode.
+    timedMetadataId3Frame :: Prelude.Maybe HlsTimedMetadataId3Frame,
+    -- | Indicates whether the .m3u8 manifest file should be generated for this
     -- HLS output group.
     outputSelection :: Prelude.Maybe HlsOutputSelection,
     -- | Timed Metadata interval in seconds.
     timedMetadataId3Period :: Prelude.Maybe Prelude.Int,
-    -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
-    -- that segments will end on the next keyframe after this number of
-    -- seconds, so actual segment length may be longer.
-    segmentLength :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates ID3 frame that has the timecode.
-    timedMetadataId3Frame :: Prelude.Maybe HlsTimedMetadataId3Frame,
-    -- | Choose one or more ad marker types to decorate your Apple HLS manifest.
-    -- This setting does not determine whether SCTE-35 markers appear in the
-    -- outputs themselves.
-    adMarkers :: Prelude.Maybe [HlsAdMarkers],
     -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
     -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
     segmentControl :: Prelude.Maybe HlsSegmentControl,
     -- | Indicates whether segments should be placed in subdirectories.
     directoryStructure :: Prelude.Maybe HlsDirectoryStructure,
+    -- | Choose one or more ad marker types to decorate your Apple HLS manifest.
+    -- This setting does not determine whether SCTE-35 markers appear in the
+    -- outputs themselves.
+    adMarkers :: Prelude.Maybe [HlsAdMarkers],
     -- | When set to GZIP, compresses HLS playlist.
     manifestCompression :: Prelude.Maybe HlsManifestCompression,
     -- | A partial URI prefix that will be prepended to each output in the media
     -- .m3u8 file. Can be used if base manifest is delivered from a different
     -- URL than the main .m3u8 file.
     baseUrl :: Prelude.Maybe Prelude.Text,
-    -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
-    -- tag of variant manifest.
-    streamInfResolution :: Prelude.Maybe HlsStreamInfResolution,
     -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
     -- playlist generation.
     codecSpecification :: Prelude.Maybe HlsCodecSpecification,
-    -- | By default, the service creates one top-level .m3u8 HLS manifest for
-    -- each HLS output group in your job. This default manifest references
-    -- every output in the output group. To create additional top-level
-    -- manifests that reference a subset of the outputs in the output group,
-    -- specify a list of them here.
-    additionalManifests :: Prelude.Maybe [HlsAdditionalManifest],
+    -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
+    -- tag of variant manifest.
+    streamInfResolution :: Prelude.Maybe HlsStreamInfResolution,
+    -- | Specify how you want MediaConvert to determine the segment length.
+    -- Choose Exact (EXACT) to have the encoder use the exact length that you
+    -- specify with the setting Segment length (SegmentLength). This might
+    -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+    -- the encoder round up the segment lengths to match the next GOP boundary.
+    segmentLengthControl :: Prelude.Maybe HlsSegmentLengthControl,
     -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
     -- files. The value is calculated as follows: either the program date and
     -- time are initialized using the input timecode source, or the time is
     -- initialized using the input timecode source and the date is initialized
     -- using the timestamp_offset.
     programDateTime :: Prelude.Maybe HlsProgramDateTime,
+    -- | By default, the service creates one top-level .m3u8 HLS manifest for
+    -- each HLS output group in your job. This default manifest references
+    -- every output in the output group. To create additional top-level
+    -- manifests that reference a subset of the outputs in the output group,
+    -- specify a list of them here.
+    additionalManifests :: Prelude.Maybe [HlsAdditionalManifest],
+    -- | Specify whether MediaConvert generates images for trick play. Keep the
+    -- default value, None (NONE), to not generate any images. Choose Thumbnail
+    -- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+    -- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+    -- full-resolution images of single frames. MediaConvert creates a child
+    -- manifest for each set of images that you generate and adds corresponding
+    -- entries to the parent manifest. A common application for these images is
+    -- Roku trick mode. The thumbnails and full-frame images that MediaConvert
+    -- creates with this feature are compatible with this Roku specification:
+    -- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
+    imageBasedTrickPlay :: Prelude.Maybe HlsImageBasedTrickPlay,
     -- | Number of segments to write to a subdirectory before starting a new one.
     -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
     -- effect.
@@ -121,6 +149,9 @@ data HlsGroupSettings = HlsGroupSettings'
     captionLanguageMappings :: Prelude.Maybe [HlsCaptionLanguageMapping],
     -- | Provides an extra millisecond delta offset to fine tune the timestamps.
     timestampDeltaMilliseconds :: Prelude.Maybe Prelude.Int,
+    -- | Tile and thumbnail settings applicable when imageBasedTrickPlay is
+    -- ADVANCED
+    imageBasedTrickPlaySettings :: Prelude.Maybe HlsImageBasedTrickPlaySettings,
     -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
     programDateTimePeriod :: Prelude.Maybe Prelude.Natural,
     -- | Disable this setting only when your workflow requires the
@@ -137,9 +168,6 @@ data HlsGroupSettings = HlsGroupSettings'
     -- within the specified range for a nearby avail and extending the segment
     -- size if needed.
     minSegmentLength :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether the output manifest should use floating point values
-    -- for segment duration.
-    manifestDurationFormat :: Prelude.Maybe HlsManifestDurationFormat,
     -- | Applies only to 608 Embedded output captions. Insert: Include
     -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
     -- the CC1 Language Code field. One CLOSED-CAPTION line is added for each
@@ -150,7 +178,20 @@ data HlsGroupSettings = HlsGroupSettings'
     -- match up properly with the output captions. None: Include
     -- CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any
     -- CLOSED-CAPTIONS line from the manifest.
-    captionLanguageSetting :: Prelude.Maybe HlsCaptionLanguageSetting
+    captionLanguageSetting :: Prelude.Maybe HlsCaptionLanguageSetting,
+    -- | When set to LEGACY, the segment target duration is always rounded up to
+    -- the nearest integer value above its current value in seconds. When set
+    -- to SPEC\\\\_COMPLIANT, the segment target duration is rounded up to the
+    -- nearest integer value if fraction seconds are greater than or equal to
+    -- 0.5 (>= 0.5) and rounded down if less than 0.5 (\< 0.5). You may need to
+    -- use LEGACY if your client needs to ensure that the target duration is
+    -- always longer than the actual duration of the segment. Some older
+    -- players may experience interrupted playback when the actual duration of
+    -- a track in a segment is longer than the target duration.
+    targetDurationCompatibilityMode :: Prelude.Maybe HlsTargetDurationCompatibilityMode,
+    -- | Indicates whether the output manifest should use floating point values
+    -- for segment duration.
+    manifestDurationFormat :: Prelude.Maybe HlsManifestDurationFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -162,25 +203,29 @@ data HlsGroupSettings = HlsGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'segmentLength', 'hlsGroupSettings_segmentLength' - Specify the length, in whole seconds, of each segment. When you don\'t
+-- specify a value, MediaConvert defaults to 10. Related settings: Use
+-- Segment length control (SegmentLengthControl) to specify whether the
+-- encoder enforces this value strictly. Use Segment control
+-- (HlsSegmentControl) to specify whether MediaConvert creates separate
+-- segment files or one content file that has metadata to mark the segment
+-- boundaries.
+--
+-- 'timedMetadataId3Frame', 'hlsGroupSettings_timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+--
 -- 'outputSelection', 'hlsGroupSettings_outputSelection' - Indicates whether the .m3u8 manifest file should be generated for this
 -- HLS output group.
 --
 -- 'timedMetadataId3Period', 'hlsGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
 --
--- 'segmentLength', 'hlsGroupSettings_segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note
--- that segments will end on the next keyframe after this number of
--- seconds, so actual segment length may be longer.
---
--- 'timedMetadataId3Frame', 'hlsGroupSettings_timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
---
--- 'adMarkers', 'hlsGroupSettings_adMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest.
--- This setting does not determine whether SCTE-35 markers appear in the
--- outputs themselves.
---
 -- 'segmentControl', 'hlsGroupSettings_segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 --
 -- 'directoryStructure', 'hlsGroupSettings_directoryStructure' - Indicates whether segments should be placed in subdirectories.
+--
+-- 'adMarkers', 'hlsGroupSettings_adMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest.
+-- This setting does not determine whether SCTE-35 markers appear in the
+-- outputs themselves.
 --
 -- 'manifestCompression', 'hlsGroupSettings_manifestCompression' - When set to GZIP, compresses HLS playlist.
 --
@@ -188,11 +233,23 @@ data HlsGroupSettings = HlsGroupSettings'
 -- .m3u8 file. Can be used if base manifest is delivered from a different
 -- URL than the main .m3u8 file.
 --
+-- 'codecSpecification', 'hlsGroupSettings_codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8
+-- playlist generation.
+--
 -- 'streamInfResolution', 'hlsGroupSettings_streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
 --
--- 'codecSpecification', 'hlsGroupSettings_codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8
--- playlist generation.
+-- 'segmentLengthControl', 'hlsGroupSettings_segmentLengthControl' - Specify how you want MediaConvert to determine the segment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Segment length (SegmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+--
+-- 'programDateTime', 'hlsGroupSettings_programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
+-- files. The value is calculated as follows: either the program date and
+-- time are initialized using the input timecode source, or the time is
+-- initialized using the input timecode source and the date is initialized
+-- using the timestamp_offset.
 --
 -- 'additionalManifests', 'hlsGroupSettings_additionalManifests' - By default, the service creates one top-level .m3u8 HLS manifest for
 -- each HLS output group in your job. This default manifest references
@@ -200,11 +257,16 @@ data HlsGroupSettings = HlsGroupSettings'
 -- manifests that reference a subset of the outputs in the output group,
 -- specify a list of them here.
 --
--- 'programDateTime', 'hlsGroupSettings_programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
--- files. The value is calculated as follows: either the program date and
--- time are initialized using the input timecode source, or the time is
--- initialized using the input timecode source and the date is initialized
--- using the timestamp_offset.
+-- 'imageBasedTrickPlay', 'hlsGroupSettings_imageBasedTrickPlay' - Specify whether MediaConvert generates images for trick play. Keep the
+-- default value, None (NONE), to not generate any images. Choose Thumbnail
+-- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+-- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+-- full-resolution images of single frames. MediaConvert creates a child
+-- manifest for each set of images that you generate and adds corresponding
+-- entries to the parent manifest. A common application for these images is
+-- Roku trick mode. The thumbnails and full-frame images that MediaConvert
+-- creates with this feature are compatible with this Roku specification:
+-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
 --
 -- 'segmentsPerSubdirectory', 'hlsGroupSettings_segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one.
 -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
@@ -238,6 +300,9 @@ data HlsGroupSettings = HlsGroupSettings'
 --
 -- 'timestampDeltaMilliseconds', 'hlsGroupSettings_timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
 --
+-- 'imageBasedTrickPlaySettings', 'hlsGroupSettings_imageBasedTrickPlaySettings' - Tile and thumbnail settings applicable when imageBasedTrickPlay is
+-- ADVANCED
+--
 -- 'programDateTimePeriod', 'hlsGroupSettings_programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
 --
 -- 'clientCache', 'hlsGroupSettings_clientCache' - Disable this setting only when your workflow requires the
@@ -254,9 +319,6 @@ data HlsGroupSettings = HlsGroupSettings'
 -- within the specified range for a nearby avail and extending the segment
 -- size if needed.
 --
--- 'manifestDurationFormat', 'hlsGroupSettings_manifestDurationFormat' - Indicates whether the output manifest should use floating point values
--- for segment duration.
---
 -- 'captionLanguageSetting', 'hlsGroupSettings_captionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include
 -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
 -- the CC1 Language Code field. One CLOSED-CAPTION line is added for each
@@ -267,24 +329,38 @@ data HlsGroupSettings = HlsGroupSettings'
 -- match up properly with the output captions. None: Include
 -- CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any
 -- CLOSED-CAPTIONS line from the manifest.
+--
+-- 'targetDurationCompatibilityMode', 'hlsGroupSettings_targetDurationCompatibilityMode' - When set to LEGACY, the segment target duration is always rounded up to
+-- the nearest integer value above its current value in seconds. When set
+-- to SPEC\\\\_COMPLIANT, the segment target duration is rounded up to the
+-- nearest integer value if fraction seconds are greater than or equal to
+-- 0.5 (>= 0.5) and rounded down if less than 0.5 (\< 0.5). You may need to
+-- use LEGACY if your client needs to ensure that the target duration is
+-- always longer than the actual duration of the segment. Some older
+-- players may experience interrupted playback when the actual duration of
+-- a track in a segment is longer than the target duration.
+--
+-- 'manifestDurationFormat', 'hlsGroupSettings_manifestDurationFormat' - Indicates whether the output manifest should use floating point values
+-- for segment duration.
 newHlsGroupSettings ::
   HlsGroupSettings
 newHlsGroupSettings =
   HlsGroupSettings'
-    { outputSelection =
-        Prelude.Nothing,
-      timedMetadataId3Period = Prelude.Nothing,
-      segmentLength = Prelude.Nothing,
+    { segmentLength = Prelude.Nothing,
       timedMetadataId3Frame = Prelude.Nothing,
-      adMarkers = Prelude.Nothing,
+      outputSelection = Prelude.Nothing,
+      timedMetadataId3Period = Prelude.Nothing,
       segmentControl = Prelude.Nothing,
       directoryStructure = Prelude.Nothing,
+      adMarkers = Prelude.Nothing,
       manifestCompression = Prelude.Nothing,
       baseUrl = Prelude.Nothing,
-      streamInfResolution = Prelude.Nothing,
       codecSpecification = Prelude.Nothing,
-      additionalManifests = Prelude.Nothing,
+      streamInfResolution = Prelude.Nothing,
+      segmentLengthControl = Prelude.Nothing,
       programDateTime = Prelude.Nothing,
+      additionalManifests = Prelude.Nothing,
+      imageBasedTrickPlay = Prelude.Nothing,
       segmentsPerSubdirectory = Prelude.Nothing,
       encryption = Prelude.Nothing,
       destination = Prelude.Nothing,
@@ -292,13 +368,29 @@ newHlsGroupSettings =
       destinationSettings = Prelude.Nothing,
       captionLanguageMappings = Prelude.Nothing,
       timestampDeltaMilliseconds = Prelude.Nothing,
+      imageBasedTrickPlaySettings = Prelude.Nothing,
       programDateTimePeriod = Prelude.Nothing,
       clientCache = Prelude.Nothing,
       audioOnlyHeader = Prelude.Nothing,
       minSegmentLength = Prelude.Nothing,
-      manifestDurationFormat = Prelude.Nothing,
-      captionLanguageSetting = Prelude.Nothing
+      captionLanguageSetting = Prelude.Nothing,
+      targetDurationCompatibilityMode = Prelude.Nothing,
+      manifestDurationFormat = Prelude.Nothing
     }
+
+-- | Specify the length, in whole seconds, of each segment. When you don\'t
+-- specify a value, MediaConvert defaults to 10. Related settings: Use
+-- Segment length control (SegmentLengthControl) to specify whether the
+-- encoder enforces this value strictly. Use Segment control
+-- (HlsSegmentControl) to specify whether MediaConvert creates separate
+-- segment files or one content file that has metadata to mark the segment
+-- boundaries.
+hlsGroupSettings_segmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
+hlsGroupSettings_segmentLength = Lens.lens (\HlsGroupSettings' {segmentLength} -> segmentLength) (\s@HlsGroupSettings' {} a -> s {segmentLength = a} :: HlsGroupSettings)
+
+-- | Indicates ID3 frame that has the timecode.
+hlsGroupSettings_timedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsTimedMetadataId3Frame)
+hlsGroupSettings_timedMetadataId3Frame = Lens.lens (\HlsGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: HlsGroupSettings)
 
 -- | Indicates whether the .m3u8 manifest file should be generated for this
 -- HLS output group.
@@ -309,22 +401,6 @@ hlsGroupSettings_outputSelection = Lens.lens (\HlsGroupSettings' {outputSelectio
 hlsGroupSettings_timedMetadataId3Period :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Int)
 hlsGroupSettings_timedMetadataId3Period = Lens.lens (\HlsGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Period = a} :: HlsGroupSettings)
 
--- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note
--- that segments will end on the next keyframe after this number of
--- seconds, so actual segment length may be longer.
-hlsGroupSettings_segmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
-hlsGroupSettings_segmentLength = Lens.lens (\HlsGroupSettings' {segmentLength} -> segmentLength) (\s@HlsGroupSettings' {} a -> s {segmentLength = a} :: HlsGroupSettings)
-
--- | Indicates ID3 frame that has the timecode.
-hlsGroupSettings_timedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsTimedMetadataId3Frame)
-hlsGroupSettings_timedMetadataId3Frame = Lens.lens (\HlsGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@HlsGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: HlsGroupSettings)
-
--- | Choose one or more ad marker types to decorate your Apple HLS manifest.
--- This setting does not determine whether SCTE-35 markers appear in the
--- outputs themselves.
-hlsGroupSettings_adMarkers :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsAdMarkers])
-hlsGroupSettings_adMarkers = Lens.lens (\HlsGroupSettings' {adMarkers} -> adMarkers) (\s@HlsGroupSettings' {} a -> s {adMarkers = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
-
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 hlsGroupSettings_segmentControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentControl)
@@ -333,6 +409,12 @@ hlsGroupSettings_segmentControl = Lens.lens (\HlsGroupSettings' {segmentControl}
 -- | Indicates whether segments should be placed in subdirectories.
 hlsGroupSettings_directoryStructure :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsDirectoryStructure)
 hlsGroupSettings_directoryStructure = Lens.lens (\HlsGroupSettings' {directoryStructure} -> directoryStructure) (\s@HlsGroupSettings' {} a -> s {directoryStructure = a} :: HlsGroupSettings)
+
+-- | Choose one or more ad marker types to decorate your Apple HLS manifest.
+-- This setting does not determine whether SCTE-35 markers appear in the
+-- outputs themselves.
+hlsGroupSettings_adMarkers :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsAdMarkers])
+hlsGroupSettings_adMarkers = Lens.lens (\HlsGroupSettings' {adMarkers} -> adMarkers) (\s@HlsGroupSettings' {} a -> s {adMarkers = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When set to GZIP, compresses HLS playlist.
 hlsGroupSettings_manifestCompression :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestCompression)
@@ -344,15 +426,31 @@ hlsGroupSettings_manifestCompression = Lens.lens (\HlsGroupSettings' {manifestCo
 hlsGroupSettings_baseUrl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Text)
 hlsGroupSettings_baseUrl = Lens.lens (\HlsGroupSettings' {baseUrl} -> baseUrl) (\s@HlsGroupSettings' {} a -> s {baseUrl = a} :: HlsGroupSettings)
 
+-- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
+-- playlist generation.
+hlsGroupSettings_codecSpecification :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCodecSpecification)
+hlsGroupSettings_codecSpecification = Lens.lens (\HlsGroupSettings' {codecSpecification} -> codecSpecification) (\s@HlsGroupSettings' {} a -> s {codecSpecification = a} :: HlsGroupSettings)
+
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
 hlsGroupSettings_streamInfResolution :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsStreamInfResolution)
 hlsGroupSettings_streamInfResolution = Lens.lens (\HlsGroupSettings' {streamInfResolution} -> streamInfResolution) (\s@HlsGroupSettings' {} a -> s {streamInfResolution = a} :: HlsGroupSettings)
 
--- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
--- playlist generation.
-hlsGroupSettings_codecSpecification :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCodecSpecification)
-hlsGroupSettings_codecSpecification = Lens.lens (\HlsGroupSettings' {codecSpecification} -> codecSpecification) (\s@HlsGroupSettings' {} a -> s {codecSpecification = a} :: HlsGroupSettings)
+-- | Specify how you want MediaConvert to determine the segment length.
+-- Choose Exact (EXACT) to have the encoder use the exact length that you
+-- specify with the setting Segment length (SegmentLength). This might
+-- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
+-- the encoder round up the segment lengths to match the next GOP boundary.
+hlsGroupSettings_segmentLengthControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentLengthControl)
+hlsGroupSettings_segmentLengthControl = Lens.lens (\HlsGroupSettings' {segmentLengthControl} -> segmentLengthControl) (\s@HlsGroupSettings' {} a -> s {segmentLengthControl = a} :: HlsGroupSettings)
+
+-- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
+-- files. The value is calculated as follows: either the program date and
+-- time are initialized using the input timecode source, or the time is
+-- initialized using the input timecode source and the date is initialized
+-- using the timestamp_offset.
+hlsGroupSettings_programDateTime :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgramDateTime)
+hlsGroupSettings_programDateTime = Lens.lens (\HlsGroupSettings' {programDateTime} -> programDateTime) (\s@HlsGroupSettings' {} a -> s {programDateTime = a} :: HlsGroupSettings)
 
 -- | By default, the service creates one top-level .m3u8 HLS manifest for
 -- each HLS output group in your job. This default manifest references
@@ -362,13 +460,18 @@ hlsGroupSettings_codecSpecification = Lens.lens (\HlsGroupSettings' {codecSpecif
 hlsGroupSettings_additionalManifests :: Lens.Lens' HlsGroupSettings (Prelude.Maybe [HlsAdditionalManifest])
 hlsGroupSettings_additionalManifests = Lens.lens (\HlsGroupSettings' {additionalManifests} -> additionalManifests) (\s@HlsGroupSettings' {} a -> s {additionalManifests = a} :: HlsGroupSettings) Prelude.. Lens.mapping Lens._Coerce
 
--- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
--- files. The value is calculated as follows: either the program date and
--- time are initialized using the input timecode source, or the time is
--- initialized using the input timecode source and the date is initialized
--- using the timestamp_offset.
-hlsGroupSettings_programDateTime :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgramDateTime)
-hlsGroupSettings_programDateTime = Lens.lens (\HlsGroupSettings' {programDateTime} -> programDateTime) (\s@HlsGroupSettings' {} a -> s {programDateTime = a} :: HlsGroupSettings)
+-- | Specify whether MediaConvert generates images for trick play. Keep the
+-- default value, None (NONE), to not generate any images. Choose Thumbnail
+-- (THUMBNAIL) to generate tiled thumbnails. Choose Thumbnail and full
+-- frame (THUMBNAIL_AND_FULLFRAME) to generate tiled thumbnails and
+-- full-resolution images of single frames. MediaConvert creates a child
+-- manifest for each set of images that you generate and adds corresponding
+-- entries to the parent manifest. A common application for these images is
+-- Roku trick mode. The thumbnails and full-frame images that MediaConvert
+-- creates with this feature are compatible with this Roku specification:
+-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md
+hlsGroupSettings_imageBasedTrickPlay :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsImageBasedTrickPlay)
+hlsGroupSettings_imageBasedTrickPlay = Lens.lens (\HlsGroupSettings' {imageBasedTrickPlay} -> imageBasedTrickPlay) (\s@HlsGroupSettings' {} a -> s {imageBasedTrickPlay = a} :: HlsGroupSettings)
 
 -- | Number of segments to write to a subdirectory before starting a new one.
 -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
@@ -416,6 +519,11 @@ hlsGroupSettings_captionLanguageMappings = Lens.lens (\HlsGroupSettings' {captio
 hlsGroupSettings_timestampDeltaMilliseconds :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Int)
 hlsGroupSettings_timestampDeltaMilliseconds = Lens.lens (\HlsGroupSettings' {timestampDeltaMilliseconds} -> timestampDeltaMilliseconds) (\s@HlsGroupSettings' {} a -> s {timestampDeltaMilliseconds = a} :: HlsGroupSettings)
 
+-- | Tile and thumbnail settings applicable when imageBasedTrickPlay is
+-- ADVANCED
+hlsGroupSettings_imageBasedTrickPlaySettings :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsImageBasedTrickPlaySettings)
+hlsGroupSettings_imageBasedTrickPlaySettings = Lens.lens (\HlsGroupSettings' {imageBasedTrickPlaySettings} -> imageBasedTrickPlaySettings) (\s@HlsGroupSettings' {} a -> s {imageBasedTrickPlaySettings = a} :: HlsGroupSettings)
+
 -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
 hlsGroupSettings_programDateTimePeriod :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_programDateTimePeriod = Lens.lens (\HlsGroupSettings' {programDateTimePeriod} -> programDateTimePeriod) (\s@HlsGroupSettings' {} a -> s {programDateTimePeriod = a} :: HlsGroupSettings)
@@ -440,11 +548,6 @@ hlsGroupSettings_audioOnlyHeader = Lens.lens (\HlsGroupSettings' {audioOnlyHeade
 hlsGroupSettings_minSegmentLength :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_minSegmentLength = Lens.lens (\HlsGroupSettings' {minSegmentLength} -> minSegmentLength) (\s@HlsGroupSettings' {} a -> s {minSegmentLength = a} :: HlsGroupSettings)
 
--- | Indicates whether the output manifest should use floating point values
--- for segment duration.
-hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestDurationFormat)
-hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@HlsGroupSettings' {} a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
-
 -- | Applies only to 608 Embedded output captions. Insert: Include
 -- CLOSED-CAPTIONS lines in the manifest. Specify at least one language in
 -- the CC1 Language Code field. One CLOSED-CAPTION line is added for each
@@ -458,27 +561,46 @@ hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifes
 hlsGroupSettings_captionLanguageSetting :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsCaptionLanguageSetting)
 hlsGroupSettings_captionLanguageSetting = Lens.lens (\HlsGroupSettings' {captionLanguageSetting} -> captionLanguageSetting) (\s@HlsGroupSettings' {} a -> s {captionLanguageSetting = a} :: HlsGroupSettings)
 
+-- | When set to LEGACY, the segment target duration is always rounded up to
+-- the nearest integer value above its current value in seconds. When set
+-- to SPEC\\\\_COMPLIANT, the segment target duration is rounded up to the
+-- nearest integer value if fraction seconds are greater than or equal to
+-- 0.5 (>= 0.5) and rounded down if less than 0.5 (\< 0.5). You may need to
+-- use LEGACY if your client needs to ensure that the target duration is
+-- always longer than the actual duration of the segment. Some older
+-- players may experience interrupted playback when the actual duration of
+-- a track in a segment is longer than the target duration.
+hlsGroupSettings_targetDurationCompatibilityMode :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsTargetDurationCompatibilityMode)
+hlsGroupSettings_targetDurationCompatibilityMode = Lens.lens (\HlsGroupSettings' {targetDurationCompatibilityMode} -> targetDurationCompatibilityMode) (\s@HlsGroupSettings' {} a -> s {targetDurationCompatibilityMode = a} :: HlsGroupSettings)
+
+-- | Indicates whether the output manifest should use floating point values
+-- for segment duration.
+hlsGroupSettings_manifestDurationFormat :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsManifestDurationFormat)
+hlsGroupSettings_manifestDurationFormat = Lens.lens (\HlsGroupSettings' {manifestDurationFormat} -> manifestDurationFormat) (\s@HlsGroupSettings' {} a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
+
 instance Core.FromJSON HlsGroupSettings where
   parseJSON =
     Core.withObject
       "HlsGroupSettings"
       ( \x ->
           HlsGroupSettings'
-            Prelude.<$> (x Core..:? "outputSelection")
-            Prelude.<*> (x Core..:? "timedMetadataId3Period")
-            Prelude.<*> (x Core..:? "segmentLength")
+            Prelude.<$> (x Core..:? "segmentLength")
             Prelude.<*> (x Core..:? "timedMetadataId3Frame")
-            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "outputSelection")
+            Prelude.<*> (x Core..:? "timedMetadataId3Period")
             Prelude.<*> (x Core..:? "segmentControl")
             Prelude.<*> (x Core..:? "directoryStructure")
+            Prelude.<*> (x Core..:? "adMarkers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "manifestCompression")
             Prelude.<*> (x Core..:? "baseUrl")
-            Prelude.<*> (x Core..:? "streamInfResolution")
             Prelude.<*> (x Core..:? "codecSpecification")
+            Prelude.<*> (x Core..:? "streamInfResolution")
+            Prelude.<*> (x Core..:? "segmentLengthControl")
+            Prelude.<*> (x Core..:? "programDateTime")
             Prelude.<*> ( x Core..:? "additionalManifests"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "programDateTime")
+            Prelude.<*> (x Core..:? "imageBasedTrickPlay")
             Prelude.<*> (x Core..:? "segmentsPerSubdirectory")
             Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "destination")
@@ -488,12 +610,14 @@ instance Core.FromJSON HlsGroupSettings where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "timestampDeltaMilliseconds")
+            Prelude.<*> (x Core..:? "imageBasedTrickPlaySettings")
             Prelude.<*> (x Core..:? "programDateTimePeriod")
             Prelude.<*> (x Core..:? "clientCache")
             Prelude.<*> (x Core..:? "audioOnlyHeader")
             Prelude.<*> (x Core..:? "minSegmentLength")
-            Prelude.<*> (x Core..:? "manifestDurationFormat")
             Prelude.<*> (x Core..:? "captionLanguageSetting")
+            Prelude.<*> (x Core..:? "targetDurationCompatibilityMode")
+            Prelude.<*> (x Core..:? "manifestDurationFormat")
       )
 
 instance Prelude.Hashable HlsGroupSettings
@@ -504,29 +628,33 @@ instance Core.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("outputSelection" Core..=)
+          [ ("segmentLength" Core..=) Prelude.<$> segmentLength,
+            ("timedMetadataId3Frame" Core..=)
+              Prelude.<$> timedMetadataId3Frame,
+            ("outputSelection" Core..=)
               Prelude.<$> outputSelection,
             ("timedMetadataId3Period" Core..=)
               Prelude.<$> timedMetadataId3Period,
-            ("segmentLength" Core..=) Prelude.<$> segmentLength,
-            ("timedMetadataId3Frame" Core..=)
-              Prelude.<$> timedMetadataId3Frame,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
             ("segmentControl" Core..=)
               Prelude.<$> segmentControl,
             ("directoryStructure" Core..=)
               Prelude.<$> directoryStructure,
+            ("adMarkers" Core..=) Prelude.<$> adMarkers,
             ("manifestCompression" Core..=)
               Prelude.<$> manifestCompression,
             ("baseUrl" Core..=) Prelude.<$> baseUrl,
-            ("streamInfResolution" Core..=)
-              Prelude.<$> streamInfResolution,
             ("codecSpecification" Core..=)
               Prelude.<$> codecSpecification,
-            ("additionalManifests" Core..=)
-              Prelude.<$> additionalManifests,
+            ("streamInfResolution" Core..=)
+              Prelude.<$> streamInfResolution,
+            ("segmentLengthControl" Core..=)
+              Prelude.<$> segmentLengthControl,
             ("programDateTime" Core..=)
               Prelude.<$> programDateTime,
+            ("additionalManifests" Core..=)
+              Prelude.<$> additionalManifests,
+            ("imageBasedTrickPlay" Core..=)
+              Prelude.<$> imageBasedTrickPlay,
             ("segmentsPerSubdirectory" Core..=)
               Prelude.<$> segmentsPerSubdirectory,
             ("encryption" Core..=) Prelude.<$> encryption,
@@ -539,6 +667,8 @@ instance Core.ToJSON HlsGroupSettings where
               Prelude.<$> captionLanguageMappings,
             ("timestampDeltaMilliseconds" Core..=)
               Prelude.<$> timestampDeltaMilliseconds,
+            ("imageBasedTrickPlaySettings" Core..=)
+              Prelude.<$> imageBasedTrickPlaySettings,
             ("programDateTimePeriod" Core..=)
               Prelude.<$> programDateTimePeriod,
             ("clientCache" Core..=) Prelude.<$> clientCache,
@@ -546,9 +676,11 @@ instance Core.ToJSON HlsGroupSettings where
               Prelude.<$> audioOnlyHeader,
             ("minSegmentLength" Core..=)
               Prelude.<$> minSegmentLength,
-            ("manifestDurationFormat" Core..=)
-              Prelude.<$> manifestDurationFormat,
             ("captionLanguageSetting" Core..=)
-              Prelude.<$> captionLanguageSetting
+              Prelude.<$> captionLanguageSetting,
+            ("targetDurationCompatibilityMode" Core..=)
+              Prelude.<$> targetDurationCompatibilityMode,
+            ("manifestDurationFormat" Core..=)
+              Prelude.<$> manifestDurationFormat
           ]
       )

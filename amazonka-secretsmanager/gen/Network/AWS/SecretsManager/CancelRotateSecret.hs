@@ -77,8 +77,8 @@ module Network.AWS.SecretsManager.CancelRotateSecret
 
     -- * Response Lenses
     cancelRotateSecretResponse_arn,
-    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_name,
+    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_httpStatus,
   )
 where
@@ -190,8 +190,8 @@ instance Core.AWSRequest CancelRotateSecret where
       ( \s h x ->
           CancelRotateSecretResponse'
             Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,6 +231,8 @@ instance Core.ToQuery CancelRotateSecret where
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
   { -- | The ARN of the secret for which rotation was canceled.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret for which rotation was canceled.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. At the very least, you should remove the
@@ -238,8 +240,6 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
     -- Failing to clean up a cancelled rotation can block you from successfully
     -- starting future rotations.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret for which rotation was canceled.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,14 +255,14 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 --
 -- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
 --
+-- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
+--
 -- 'versionId', 'cancelRotateSecretResponse_versionId' - The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
 -- for possible deletion. At the very least, you should remove the
 -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
 -- Failing to clean up a cancelled rotation can block you from successfully
 -- starting future rotations.
---
--- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
 --
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
@@ -272,14 +272,18 @@ newCancelRotateSecretResponse ::
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
     { arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret for which rotation was canceled.
 cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
+
+-- | The friendly name of the secret for which rotation was canceled.
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
@@ -289,10 +293,6 @@ cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -
 -- starting future rotations.
 cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
-
--- | The friendly name of the secret for which rotation was canceled.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The response's http status code.
 cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int

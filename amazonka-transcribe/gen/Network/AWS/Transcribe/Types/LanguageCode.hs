@@ -32,8 +32,10 @@ module Network.AWS.Transcribe.Types.LanguageCode
         LanguageCode_En_GB,
         LanguageCode_En_IE,
         LanguageCode_En_IN,
+        LanguageCode_En_NZ,
         LanguageCode_En_US,
         LanguageCode_En_WL,
+        LanguageCode_En_ZA,
         LanguageCode_Es_ES,
         LanguageCode_Es_US,
         LanguageCode_Fa_IR,
@@ -54,8 +56,10 @@ module Network.AWS.Transcribe.Types.LanguageCode
         LanguageCode_Ru_RU,
         LanguageCode_Ta_IN,
         LanguageCode_Te_IN,
+        LanguageCode_Th_TH,
         LanguageCode_Tr_TR,
-        LanguageCode_Zh_CN
+        LanguageCode_Zh_CN,
+        LanguageCode_Zh_TW
       ),
   )
 where
@@ -127,11 +131,17 @@ pattern LanguageCode_En_IE = LanguageCode' "en-IE"
 pattern LanguageCode_En_IN :: LanguageCode
 pattern LanguageCode_En_IN = LanguageCode' "en-IN"
 
+pattern LanguageCode_En_NZ :: LanguageCode
+pattern LanguageCode_En_NZ = LanguageCode' "en-NZ"
+
 pattern LanguageCode_En_US :: LanguageCode
 pattern LanguageCode_En_US = LanguageCode' "en-US"
 
 pattern LanguageCode_En_WL :: LanguageCode
 pattern LanguageCode_En_WL = LanguageCode' "en-WL"
+
+pattern LanguageCode_En_ZA :: LanguageCode
+pattern LanguageCode_En_ZA = LanguageCode' "en-ZA"
 
 pattern LanguageCode_Es_ES :: LanguageCode
 pattern LanguageCode_Es_ES = LanguageCode' "es-ES"
@@ -193,11 +203,17 @@ pattern LanguageCode_Ta_IN = LanguageCode' "ta-IN"
 pattern LanguageCode_Te_IN :: LanguageCode
 pattern LanguageCode_Te_IN = LanguageCode' "te-IN"
 
+pattern LanguageCode_Th_TH :: LanguageCode
+pattern LanguageCode_Th_TH = LanguageCode' "th-TH"
+
 pattern LanguageCode_Tr_TR :: LanguageCode
 pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
 
 pattern LanguageCode_Zh_CN :: LanguageCode
 pattern LanguageCode_Zh_CN = LanguageCode' "zh-CN"
+
+pattern LanguageCode_Zh_TW :: LanguageCode
+pattern LanguageCode_Zh_TW = LanguageCode' "zh-TW"
 
 {-# COMPLETE
   LanguageCode_Af_ZA,
@@ -212,8 +228,10 @@ pattern LanguageCode_Zh_CN = LanguageCode' "zh-CN"
   LanguageCode_En_GB,
   LanguageCode_En_IE,
   LanguageCode_En_IN,
+  LanguageCode_En_NZ,
   LanguageCode_En_US,
   LanguageCode_En_WL,
+  LanguageCode_En_ZA,
   LanguageCode_Es_ES,
   LanguageCode_Es_US,
   LanguageCode_Fa_IR,
@@ -234,7 +252,9 @@ pattern LanguageCode_Zh_CN = LanguageCode' "zh-CN"
   LanguageCode_Ru_RU,
   LanguageCode_Ta_IN,
   LanguageCode_Te_IN,
+  LanguageCode_Th_TH,
   LanguageCode_Tr_TR,
   LanguageCode_Zh_CN,
+  LanguageCode_Zh_TW,
   LanguageCode'
   #-}

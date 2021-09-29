@@ -29,12 +29,6 @@ module Network.AWS.Translate.Lens
     describeTextTranslationJobResponse_textTranslationJobProperties,
     describeTextTranslationJobResponse_httpStatus,
 
-    -- ** StopTextTranslationJob
-    stopTextTranslationJob_jobId,
-    stopTextTranslationJobResponse_jobStatus,
-    stopTextTranslationJobResponse_jobId,
-    stopTextTranslationJobResponse_httpStatus,
-
     -- ** StartTextTranslationJob
     startTextTranslationJob_parallelDataNames,
     startTextTranslationJob_terminologyNames,
@@ -48,6 +42,12 @@ module Network.AWS.Translate.Lens
     startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_jobId,
     startTextTranslationJobResponse_httpStatus,
+
+    -- ** StopTextTranslationJob
+    stopTextTranslationJob_jobId,
+    stopTextTranslationJobResponse_jobStatus,
+    stopTextTranslationJobResponse_jobId,
+    stopTextTranslationJobResponse_httpStatus,
 
     -- ** ImportTerminology
     importTerminology_encryptionKey,
@@ -74,12 +74,6 @@ module Network.AWS.Translate.Lens
     getParallelDataResponse_dataLocation,
     getParallelDataResponse_httpStatus,
 
-    -- ** DeleteParallelData
-    deleteParallelData_name,
-    deleteParallelDataResponse_status,
-    deleteParallelDataResponse_name,
-    deleteParallelDataResponse_httpStatus,
-
     -- ** UpdateParallelData
     updateParallelData_description,
     updateParallelData_name,
@@ -90,6 +84,12 @@ module Network.AWS.Translate.Lens
     updateParallelDataResponse_latestUpdateAttemptAt,
     updateParallelDataResponse_name,
     updateParallelDataResponse_httpStatus,
+
+    -- ** DeleteParallelData
+    deleteParallelData_name,
+    deleteParallelDataResponse_status,
+    deleteParallelDataResponse_name,
+    deleteParallelDataResponse_httpStatus,
 
     -- ** DeleteTerminology
     deleteTerminology_name,
@@ -163,17 +163,17 @@ module Network.AWS.Translate.Lens
     parallelDataProperties_latestUpdateAttemptStatus,
     parallelDataProperties_message,
     parallelDataProperties_encryptionKey,
-    parallelDataProperties_arn,
-    parallelDataProperties_targetLanguageCodes,
     parallelDataProperties_createdAt,
+    parallelDataProperties_arn,
     parallelDataProperties_failedRecordCount,
+    parallelDataProperties_targetLanguageCodes,
     parallelDataProperties_latestUpdateAttemptAt,
     parallelDataProperties_name,
     parallelDataProperties_parallelDataConfig,
     parallelDataProperties_description,
     parallelDataProperties_sourceLanguageCode,
-    parallelDataProperties_importedRecordCount,
     parallelDataProperties_lastUpdatedAt,
+    parallelDataProperties_importedRecordCount,
 
     -- ** Term
     term_targetText,
@@ -189,9 +189,9 @@ module Network.AWS.Translate.Lens
 
     -- ** TerminologyProperties
     terminologyProperties_encryptionKey,
+    terminologyProperties_createdAt,
     terminologyProperties_arn,
     terminologyProperties_targetLanguageCodes,
-    terminologyProperties_createdAt,
     terminologyProperties_name,
     terminologyProperties_sizeBytes,
     terminologyProperties_description,
@@ -207,19 +207,19 @@ module Network.AWS.Translate.Lens
 
     -- ** TextTranslationJobProperties
     textTranslationJobProperties_parallelDataNames,
-    textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_submittedTime,
+    textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_message,
     textTranslationJobProperties_jobStatus,
-    textTranslationJobProperties_jobDetails,
     textTranslationJobProperties_outputDataConfig,
+    textTranslationJobProperties_jobDetails,
     textTranslationJobProperties_targetLanguageCodes,
     textTranslationJobProperties_endTime,
     textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_jobName,
     textTranslationJobProperties_dataAccessRoleArn,
-    textTranslationJobProperties_jobId,
     textTranslationJobProperties_sourceLanguageCode,
+    textTranslationJobProperties_jobId,
   )
 where
 

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the password for the specified IAM user. You can use the AWS
--- CLI, the AWS API, or the __Users__ page in the IAM console to change the
--- password for any IAM user. Use ChangePassword to change your own
--- password in the __My Security Credentials__ page in the AWS Management
--- Console.
+-- Changes the password for the specified IAM user. You can use the CLI,
+-- the Amazon Web Services API, or the __Users__ page in the IAM console to
+-- change the password for any IAM user. Use ChangePassword to change your
+-- own password in the __My Security Credentials__ page in the Amazon Web
+-- Services Management Console.
 --
 -- For more information about modifying passwords, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing passwords>
@@ -72,8 +72,8 @@ data UpdateLoginProfile = UpdateLoginProfile'
     --     carriage return (@\\u000D@)
     --
     -- However, the format can be further restricted by the account
-    -- administrator by setting a password policy on the AWS account. For more
-    -- information, see UpdateAccountPasswordPolicy.
+    -- administrator by setting a password policy on the Amazon Web Services
+    -- account. For more information, see UpdateAccountPasswordPolicy.
     password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the user whose password you want to update.
     --
@@ -111,8 +111,8 @@ data UpdateLoginProfile = UpdateLoginProfile'
 --     carriage return (@\\u000D@)
 --
 -- However, the format can be further restricted by the account
--- administrator by setting a password policy on the AWS account. For more
--- information, see UpdateAccountPasswordPolicy.
+-- administrator by setting a password policy on the Amazon Web Services
+-- account. For more information, see UpdateAccountPasswordPolicy.
 --
 -- 'userName', 'updateLoginProfile_userName' - The name of the user whose password you want to update.
 --
@@ -152,8 +152,8 @@ updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {pass
 --     carriage return (@\\u000D@)
 --
 -- However, the format can be further restricted by the account
--- administrator by setting a password policy on the AWS account. For more
--- information, see UpdateAccountPasswordPolicy.
+-- administrator by setting a password policy on the Amazon Web Services
+-- account. For more information, see UpdateAccountPasswordPolicy.
 updateLoginProfile_password :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Text)
 updateLoginProfile_password = Lens.lens (\UpdateLoginProfile' {password} -> password) (\s@UpdateLoginProfile' {} a -> s {password = a} :: UpdateLoginProfile) Prelude.. Lens.mapping Core._Sensitive
 

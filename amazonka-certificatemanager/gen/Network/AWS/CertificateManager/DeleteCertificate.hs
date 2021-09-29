@@ -24,11 +24,11 @@
 -- succeeds, the certificate no longer appears in the list that can be
 -- displayed by calling the ListCertificates action or be retrieved by
 -- calling the GetCertificate action. The certificate will not be available
--- for use by AWS services integrated with ACM.
+-- for use by Amazon Web Services services integrated with ACM.
 --
--- You cannot delete an ACM certificate that is being used by another AWS
--- service. To delete a certificate that is in use, the certificate
--- association must first be removed.
+-- You cannot delete an ACM certificate that is being used by another
+-- Amazon Web Services service. To delete a certificate that is in use, the
+-- certificate association must first be removed.
 module Network.AWS.CertificateManager.DeleteCertificate
   ( -- * Creating a Request
     DeleteCertificate (..),

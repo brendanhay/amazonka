@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags for an AWS Batch resource. AWS Batch resources that
--- support tags are compute environments, jobs, job definitions, and job
--- queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs
--- are not supported.
+-- Lists the tags for an Batch resource. Batch resources that support tags
+-- are compute environments, jobs, job definitions, and job queues. ARNs
+-- for child jobs of array and multi-node parallel (MNP) jobs are not
+-- supported.
 module Network.AWS.Batch.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource that tags
-    -- are listed for. AWS Batch resources that support tags are compute
+    -- are listed for. Batch resources that support tags are compute
     -- environments, jobs, job definitions, and job queues. ARNs for child jobs
     -- of array and multi-node parallel (MNP) jobs are not supported.
     resourceArn :: Prelude.Text
@@ -68,7 +68,7 @@ data ListTagsForResource = ListTagsForResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource that tags
--- are listed for. AWS Batch resources that support tags are compute
+-- are listed for. Batch resources that support tags are compute
 -- environments, jobs, job definitions, and job queues. ARNs for child jobs
 -- of array and multi-node parallel (MNP) jobs are not supported.
 newListTagsForResource ::
@@ -79,7 +79,7 @@ newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
 -- | The Amazon Resource Name (ARN) that identifies the resource that tags
--- are listed for. AWS Batch resources that support tags are compute
+-- are listed for. Batch resources that support tags are compute
 -- environments, jobs, job definitions, and job queues. ARNs for child jobs
 -- of array and multi-node parallel (MNP) jobs are not supported.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text

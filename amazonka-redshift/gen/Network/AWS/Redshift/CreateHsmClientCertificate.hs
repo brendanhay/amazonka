@@ -29,8 +29,8 @@
 -- Redshift HSM configuration that provides a cluster the information
 -- needed to store and use encryption keys in the HSM. For more
 -- information, go to
--- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
--- in the Amazon Redshift Cluster Management Guide.
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM Hardware Security Modules>
+-- in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateHsmClientCertificate
   ( -- * Creating a Request
     CreateHsmClientCertificate (..),

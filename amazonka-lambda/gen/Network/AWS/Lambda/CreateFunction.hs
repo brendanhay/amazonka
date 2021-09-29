@@ -26,8 +26,19 @@
 -- <https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role execution role>.
 -- The deployment package is a .zip file archive or container image that
 -- contains your function code. The execution role grants the function
--- permission to use AWS services, such as Amazon CloudWatch Logs for log
--- streaming and AWS X-Ray for request tracing.
+-- permission to use Amazon Web Services services, such as Amazon
+-- CloudWatch Logs for log streaming and X-Ray for request tracing.
+--
+-- You set the package type to @Image@ if the deployment package is a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>.
+-- For a container image, the code property must include the URI of a
+-- container image in the Amazon ECR registry. You do not need to specify
+-- the handler and runtime properties.
+--
+-- You set the package type to @Zip@ if the deployment package is a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip .zip file archive>.
+-- For a .zip file archive, the code property specifies the location of the
+-- .zip file. You must also specify the handler and runtime properties.
 --
 -- When you create a function, Lambda provisions an instance of the
 -- function and its supporting resources. If your function connects to a
@@ -60,15 +71,15 @@
 -- configuration includes set set of signing profiles, which define the
 -- trusted publishers for this function.
 --
--- If another account or an AWS service invokes your function, use
--- AddPermission to grant permission by creating a resource-based IAM
--- policy. You can grant permissions at the function level, on a version,
--- or on an alias.
+-- If another account or an Amazon Web Services service invokes your
+-- function, use AddPermission to grant permission by creating a
+-- resource-based IAM policy. You can grant permissions at the function
+-- level, on a version, or on an alias.
 --
 -- To invoke your function directly, use Invoke. To invoke your function in
--- response to events in other AWS services, create an event source mapping
--- (CreateEventSourceMapping), or configure a function trigger in the other
--- service. For more information, see
+-- response to events in other Amazon Web Services services, create an
+-- event source mapping (CreateEventSourceMapping), or configure a function
+-- trigger in the other service. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html Invoking Functions>.
 module Network.AWS.Lambda.CreateFunction
   ( -- * Creating a Request
@@ -88,8 +99,8 @@ module Network.AWS.Lambda.CreateFunction
     createFunction_kmsKeyArn,
     createFunction_runtime,
     createFunction_tags,
-    createFunction_tracingConfig,
     createFunction_description,
+    createFunction_tracingConfig,
     createFunction_layers,
     createFunction_fileSystemConfigs,
     createFunction_packageType,
@@ -102,9 +113,9 @@ module Network.AWS.Lambda.CreateFunction
     newFunctionConfiguration,
 
     -- * Response Lenses
+    functionConfiguration_vpcConfig,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_lastUpdateStatus,
-    functionConfiguration_vpcConfig,
     functionConfiguration_memorySize,
     functionConfiguration_masterArn,
     functionConfiguration_revisionId,
@@ -114,23 +125,23 @@ module Network.AWS.Lambda.CreateFunction
     functionConfiguration_timeout,
     functionConfiguration_handler,
     functionConfiguration_deadLetterConfig,
-    functionConfiguration_functionName,
     functionConfiguration_environment,
+    functionConfiguration_functionName,
     functionConfiguration_version,
-    functionConfiguration_functionArn,
-    functionConfiguration_state,
     functionConfiguration_kmsKeyArn,
+    functionConfiguration_state,
+    functionConfiguration_functionArn,
     functionConfiguration_runtime,
     functionConfiguration_role,
     functionConfiguration_signingJobArn,
     functionConfiguration_stateReasonCode,
+    functionConfiguration_description,
     functionConfiguration_imageConfigResponse,
     functionConfiguration_tracingConfig,
-    functionConfiguration_description,
-    functionConfiguration_lastModified,
     functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_layers,
+    functionConfiguration_lastModified,
     functionConfiguration_codeSize,
+    functionConfiguration_layers,
     functionConfiguration_fileSystemConfigs,
     functionConfiguration_packageType,
   )
@@ -145,15 +156,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { -- | For network connectivity to AWS resources in a VPC, specify a list of
-    -- security groups and subnets in the VPC. When you connect a function to a
-    -- VPC, it can only access resources and the internet through that VPC. For
-    -- more information, see
+  { -- | For network connectivity to Amazon Web Services resources in a VPC,
+    -- specify a list of security groups and subnets in the VPC. When you
+    -- connect a function to a VPC, it can only access resources and the
+    -- internet through that VPC. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The amount of memory available to the function at runtime. Increasing
-    -- the function\'s memory also increases its CPU allocation. The default
-    -- value is 128 MB. The value can be any multiple of 1 MB.
+    -- | The amount of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+    -- at runtime. Increasing the function memory also increases its CPU
+    -- allocation. The default value is 128 MB. The value can be any multiple
+    -- of 1 MB.
     memorySize :: Prelude.Maybe Prelude.Natural,
     -- | Set to true to publish the first version of the function during
     -- creation.
@@ -165,6 +178,8 @@ data CreateFunction = CreateFunction'
     codeSigningConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that Lambda allows a function to run before stopping
     -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+    -- For additional information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The name of the method within your code that Lambda calls to execute
     -- your function. The format includes the file name. It can also include
@@ -177,15 +192,16 @@ data CreateFunction = CreateFunction'
     -- more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
     deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
-    -- | <https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html Container image configuration values>
+    -- | Container image
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
     -- that override the values in the container image Dockerfile.
     imageConfig :: Prelude.Maybe ImageConfig,
     -- | Environment variables that are accessible from function code during
     -- execution.
     environment :: Prelude.Maybe Environment,
-    -- | The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
-    -- encrypt your function\'s environment variables. If it\'s not provided,
-    -- AWS Lambda uses a default service key.
+    -- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+    -- that\'s used to encrypt your function\'s environment variables. If it\'s
+    -- not provided, Lambda uses a default service key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
@@ -194,11 +210,12 @@ data CreateFunction = CreateFunction'
     -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
     -- apply to the function.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
-    -- with AWS X-Ray.
-    tracingConfig :: Prelude.Maybe TracingConfig,
     -- | A description of the function.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+    -- with
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+    tracingConfig :: Prelude.Maybe TracingConfig,
     -- | A list of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
     -- to add to the function\'s execution environment. Specify each layer by
@@ -238,15 +255,17 @@ data CreateFunction = CreateFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createFunction_vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of
--- security groups and subnets in the VPC. When you connect a function to a
--- VPC, it can only access resources and the internet through that VPC. For
--- more information, see
+-- 'vpcConfig', 'createFunction_vpcConfig' - For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 --
--- 'memorySize', 'createFunction_memorySize' - The amount of memory available to the function at runtime. Increasing
--- the function\'s memory also increases its CPU allocation. The default
--- value is 128 MB. The value can be any multiple of 1 MB.
+-- 'memorySize', 'createFunction_memorySize' - The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
 --
 -- 'publish', 'createFunction_publish' - Set to true to publish the first version of the function during
 -- creation.
@@ -258,6 +277,8 @@ data CreateFunction = CreateFunction'
 --
 -- 'timeout', 'createFunction_timeout' - The amount of time that Lambda allows a function to run before stopping
 -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 --
 -- 'handler', 'createFunction_handler' - The name of the method within your code that Lambda calls to execute
 -- your function. The format includes the file name. It can also include
@@ -270,15 +291,16 @@ data CreateFunction = CreateFunction'
 -- more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
 --
--- 'imageConfig', 'createFunction_imageConfig' - <https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html Container image configuration values>
+-- 'imageConfig', 'createFunction_imageConfig' - Container image
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
 -- that override the values in the container image Dockerfile.
 --
 -- 'environment', 'createFunction_environment' - Environment variables that are accessible from function code during
 -- execution.
 --
--- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
--- encrypt your function\'s environment variables. If it\'s not provided,
--- AWS Lambda uses a default service key.
+-- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 --
 -- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
@@ -287,10 +309,11 @@ data CreateFunction = CreateFunction'
 -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
 -- apply to the function.
 --
--- 'tracingConfig', 'createFunction_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with AWS X-Ray.
---
 -- 'description', 'createFunction_description' - A description of the function.
+--
+-- 'tracingConfig', 'createFunction_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
 --
 -- 'layers', 'createFunction_layers' - A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -341,8 +364,8 @@ newCreateFunction pFunctionName_ pRole_ pCode_ =
       kmsKeyArn = Prelude.Nothing,
       runtime = Prelude.Nothing,
       tags = Prelude.Nothing,
-      tracingConfig = Prelude.Nothing,
       description = Prelude.Nothing,
+      tracingConfig = Prelude.Nothing,
       layers = Prelude.Nothing,
       fileSystemConfigs = Prelude.Nothing,
       packageType = Prelude.Nothing,
@@ -351,17 +374,19 @@ newCreateFunction pFunctionName_ pRole_ pCode_ =
       code = pCode_
     }
 
--- | For network connectivity to AWS resources in a VPC, specify a list of
--- security groups and subnets in the VPC. When you connect a function to a
--- VPC, it can only access resources and the internet through that VPC. For
--- more information, see
+-- | For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 createFunction_vpcConfig :: Lens.Lens' CreateFunction (Prelude.Maybe VpcConfig)
 createFunction_vpcConfig = Lens.lens (\CreateFunction' {vpcConfig} -> vpcConfig) (\s@CreateFunction' {} a -> s {vpcConfig = a} :: CreateFunction)
 
--- | The amount of memory available to the function at runtime. Increasing
--- the function\'s memory also increases its CPU allocation. The default
--- value is 128 MB. The value can be any multiple of 1 MB.
+-- | The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
 createFunction_memorySize :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
 createFunction_memorySize = Lens.lens (\CreateFunction' {memorySize} -> memorySize) (\s@CreateFunction' {} a -> s {memorySize = a} :: CreateFunction)
 
@@ -379,6 +404,8 @@ createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningCo
 
 -- | The amount of time that Lambda allows a function to run before stopping
 -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 createFunction_timeout :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
 createFunction_timeout = Lens.lens (\CreateFunction' {timeout} -> timeout) (\s@CreateFunction' {} a -> s {timeout = a} :: CreateFunction)
 
@@ -397,7 +424,8 @@ createFunction_handler = Lens.lens (\CreateFunction' {handler} -> handler) (\s@C
 createFunction_deadLetterConfig :: Lens.Lens' CreateFunction (Prelude.Maybe DeadLetterConfig)
 createFunction_deadLetterConfig = Lens.lens (\CreateFunction' {deadLetterConfig} -> deadLetterConfig) (\s@CreateFunction' {} a -> s {deadLetterConfig = a} :: CreateFunction)
 
--- | <https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html Container image configuration values>
+-- | Container image
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
 -- that override the values in the container image Dockerfile.
 createFunction_imageConfig :: Lens.Lens' CreateFunction (Prelude.Maybe ImageConfig)
 createFunction_imageConfig = Lens.lens (\CreateFunction' {imageConfig} -> imageConfig) (\s@CreateFunction' {} a -> s {imageConfig = a} :: CreateFunction)
@@ -407,9 +435,9 @@ createFunction_imageConfig = Lens.lens (\CreateFunction' {imageConfig} -> imageC
 createFunction_environment :: Lens.Lens' CreateFunction (Prelude.Maybe Environment)
 createFunction_environment = Lens.lens (\CreateFunction' {environment} -> environment) (\s@CreateFunction' {} a -> s {environment = a} :: CreateFunction)
 
--- | The ARN of the AWS Key Management Service (AWS KMS) key that\'s used to
--- encrypt your function\'s environment variables. If it\'s not provided,
--- AWS Lambda uses a default service key.
+-- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
 
@@ -424,14 +452,15 @@ createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@C
 createFunction_tags :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFunction_tags = Lens.lens (\CreateFunction' {tags} -> tags) (\s@CreateFunction' {} a -> s {tags = a} :: CreateFunction) Prelude.. Lens.mapping Lens._Coerce
 
--- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with AWS X-Ray.
-createFunction_tracingConfig :: Lens.Lens' CreateFunction (Prelude.Maybe TracingConfig)
-createFunction_tracingConfig = Lens.lens (\CreateFunction' {tracingConfig} -> tracingConfig) (\s@CreateFunction' {} a -> s {tracingConfig = a} :: CreateFunction)
-
 -- | A description of the function.
 createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
+
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+createFunction_tracingConfig :: Lens.Lens' CreateFunction (Prelude.Maybe TracingConfig)
+createFunction_tracingConfig = Lens.lens (\CreateFunction' {tracingConfig} -> tracingConfig) (\s@CreateFunction' {} a -> s {tracingConfig = a} :: CreateFunction)
 
 -- | A list of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
@@ -507,8 +536,8 @@ instance Core.ToJSON CreateFunction where
             ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
             ("Runtime" Core..=) Prelude.<$> runtime,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
             ("Description" Core..=) Prelude.<$> description,
+            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
             ("Layers" Core..=) Prelude.<$> layers,
             ("FileSystemConfigs" Core..=)
               Prelude.<$> fileSystemConfigs,

@@ -40,7 +40,7 @@ data SynthesisTask = SynthesisTask'
     -- Indian English (en-IN) or Hindi (hi-IN).
     --
     -- If a bilingual voice is used and no language code is specified, Amazon
-    -- Polly will use the default language of the bilingual voice. The default
+    -- Polly uses the default language of the bilingual voice. The default
     -- language for any voice is the one returned by the
     -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
     -- operation for the @LanguageCode@ parameter. For example, if no language
@@ -50,12 +50,12 @@ data SynthesisTask = SynthesisTask'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | Pathway for the output speech file.
     outputUri :: Prelude.Maybe Prelude.Text,
-    -- | The type of speech marks returned for the input text.
-    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | List of one or more pronunciation lexicon names you want the service to
     -- apply during synthesis. Lexicons are applied only if the language of the
     -- lexicon is the same as the language of the voice.
     lexiconNames :: Prelude.Maybe [Prelude.Text],
+    -- | The type of speech marks returned for the input text.
+    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | Voice ID to use for the synthesis.
     voiceId :: Prelude.Maybe VoiceId,
     -- | The Amazon Polly generated identifier for a speech synthesis task.
@@ -106,7 +106,7 @@ data SynthesisTask = SynthesisTask'
 -- Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
@@ -116,11 +116,11 @@ data SynthesisTask = SynthesisTask'
 --
 -- 'outputUri', 'synthesisTask_outputUri' - Pathway for the output speech file.
 --
--- 'speechMarkTypes', 'synthesisTask_speechMarkTypes' - The type of speech marks returned for the input text.
---
 -- 'lexiconNames', 'synthesisTask_lexiconNames' - List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice.
+--
+-- 'speechMarkTypes', 'synthesisTask_speechMarkTypes' - The type of speech marks returned for the input text.
 --
 -- 'voiceId', 'synthesisTask_voiceId' - Voice ID to use for the synthesis.
 --
@@ -162,8 +162,8 @@ newSynthesisTask =
     { languageCode = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       outputUri = Prelude.Nothing,
-      speechMarkTypes = Prelude.Nothing,
       lexiconNames = Prelude.Nothing,
+      speechMarkTypes = Prelude.Nothing,
       voiceId = Prelude.Nothing,
       taskId = Prelude.Nothing,
       textType = Prelude.Nothing,
@@ -181,7 +181,7 @@ newSynthesisTask =
 -- Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
@@ -197,15 +197,15 @@ synthesisTask_creationTime = Lens.lens (\SynthesisTask' {creationTime} -> creati
 synthesisTask_outputUri :: Lens.Lens' SynthesisTask (Prelude.Maybe Prelude.Text)
 synthesisTask_outputUri = Lens.lens (\SynthesisTask' {outputUri} -> outputUri) (\s@SynthesisTask' {} a -> s {outputUri = a} :: SynthesisTask)
 
--- | The type of speech marks returned for the input text.
-synthesisTask_speechMarkTypes :: Lens.Lens' SynthesisTask (Prelude.Maybe [SpeechMarkType])
-synthesisTask_speechMarkTypes = Lens.lens (\SynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@SynthesisTask' {} a -> s {speechMarkTypes = a} :: SynthesisTask) Prelude.. Lens.mapping Lens._Coerce
-
 -- | List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice.
 synthesisTask_lexiconNames :: Lens.Lens' SynthesisTask (Prelude.Maybe [Prelude.Text])
 synthesisTask_lexiconNames = Lens.lens (\SynthesisTask' {lexiconNames} -> lexiconNames) (\s@SynthesisTask' {} a -> s {lexiconNames = a} :: SynthesisTask) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of speech marks returned for the input text.
+synthesisTask_speechMarkTypes :: Lens.Lens' SynthesisTask (Prelude.Maybe [SpeechMarkType])
+synthesisTask_speechMarkTypes = Lens.lens (\SynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@SynthesisTask' {} a -> s {speechMarkTypes = a} :: SynthesisTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Voice ID to use for the synthesis.
 synthesisTask_voiceId :: Lens.Lens' SynthesisTask (Prelude.Maybe VoiceId)
@@ -270,10 +270,10 @@ instance Core.FromJSON SynthesisTask where
             Prelude.<$> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "OutputUri")
+            Prelude.<*> (x Core..:? "LexiconNames" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "SpeechMarkTypes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LexiconNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VoiceId")
             Prelude.<*> (x Core..:? "TaskId")
             Prelude.<*> (x Core..:? "TextType")

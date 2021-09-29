@@ -22,6 +22,10 @@
 --
 -- Gets the status of audit mitigation action tasks that were executed.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListAuditMitigationActionsExecutions>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditMitigationActionsExecutions
   ( -- * Creating a Request

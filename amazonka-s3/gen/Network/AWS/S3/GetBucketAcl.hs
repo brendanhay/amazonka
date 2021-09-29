@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This implementation of the @GET@ operation uses the @acl@ subresource to
+-- This implementation of the @GET@ action uses the @acl@ subresource to
 -- return the access control list (ACL) of a bucket. To use @GET@ to return
 -- the ACL of the bucket, you must have @READ_ACP@ access to the bucket. If
 -- @READ_ACP@ permission is granted to the anonymous user, you can return
@@ -58,7 +58,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketAcl' smart constructor.
 data GetBucketAcl = GetBucketAcl'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -75,7 +75,7 @@ data GetBucketAcl = GetBucketAcl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketAcl_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -91,7 +91,7 @@ newGetBucketAcl pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketAcl_expectedBucketOwner :: Lens.Lens' GetBucketAcl (Prelude.Maybe Prelude.Text)

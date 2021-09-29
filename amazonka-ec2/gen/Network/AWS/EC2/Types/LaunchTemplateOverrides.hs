@@ -34,13 +34,22 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The priority for the launch template override. If
-    -- __OnDemandAllocationStrategy__ is set to @prioritized@, Spot Fleet uses
+    -- | The priority for the launch template override. The highest priority is
+    -- launched first.
+    --
+    -- If @OnDemandAllocationStrategy@ is set to @prioritized@, Spot Fleet uses
     -- priority to determine which launch template override to use first in
-    -- fulfilling On-Demand capacity. The highest priority is launched first.
+    -- fulfilling On-Demand capacity.
+    --
+    -- If the Spot @AllocationStrategy@ is set to
+    -- @capacityOptimizedPrioritized@, Spot Fleet uses priority on a
+    -- best-effort basis to determine which launch template override to use in
+    -- fulfilling Spot capacity, but optimizes for capacity first.
+    --
     -- Valid values are whole numbers starting at @0@. The lower the number,
     -- the higher the priority. If no number is set, the launch template
-    -- override has the lowest priority.
+    -- override has the lowest priority. You can set the same priority for
+    -- different launch template overrides.
     priority :: Prelude.Maybe Prelude.Double,
     -- | The Availability Zone in which to launch the instances.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -64,13 +73,22 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- 'spotPrice', 'launchTemplateOverrides_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance.
 --
--- 'priority', 'launchTemplateOverrides_priority' - The priority for the launch template override. If
--- __OnDemandAllocationStrategy__ is set to @prioritized@, Spot Fleet uses
+-- 'priority', 'launchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is
+-- launched first.
+--
+-- If @OnDemandAllocationStrategy@ is set to @prioritized@, Spot Fleet uses
 -- priority to determine which launch template override to use first in
--- fulfilling On-Demand capacity. The highest priority is launched first.
+-- fulfilling On-Demand capacity.
+--
+-- If the Spot @AllocationStrategy@ is set to
+-- @capacityOptimizedPrioritized@, Spot Fleet uses priority on a
+-- best-effort basis to determine which launch template override to use in
+-- fulfilling Spot capacity, but optimizes for capacity first.
+--
 -- Valid values are whole numbers starting at @0@. The lower the number,
 -- the higher the priority. If no number is set, the launch template
--- override has the lowest priority.
+-- override has the lowest priority. You can set the same priority for
+-- different launch template overrides.
 --
 -- 'availabilityZone', 'launchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.
 --
@@ -99,13 +117,22 @@ launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {ins
 launchTemplateOverrides_spotPrice :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 launchTemplateOverrides_spotPrice = Lens.lens (\LaunchTemplateOverrides' {spotPrice} -> spotPrice) (\s@LaunchTemplateOverrides' {} a -> s {spotPrice = a} :: LaunchTemplateOverrides)
 
--- | The priority for the launch template override. If
--- __OnDemandAllocationStrategy__ is set to @prioritized@, Spot Fleet uses
+-- | The priority for the launch template override. The highest priority is
+-- launched first.
+--
+-- If @OnDemandAllocationStrategy@ is set to @prioritized@, Spot Fleet uses
 -- priority to determine which launch template override to use first in
--- fulfilling On-Demand capacity. The highest priority is launched first.
+-- fulfilling On-Demand capacity.
+--
+-- If the Spot @AllocationStrategy@ is set to
+-- @capacityOptimizedPrioritized@, Spot Fleet uses priority on a
+-- best-effort basis to determine which launch template override to use in
+-- fulfilling Spot capacity, but optimizes for capacity first.
+--
 -- Valid values are whole numbers starting at @0@. The lower the number,
 -- the higher the priority. If no number is set, the launch template
--- override has the lowest priority.
+-- override has the lowest priority. You can set the same priority for
+-- different launch template overrides.
 launchTemplateOverrides_priority :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 launchTemplateOverrides_priority = Lens.lens (\LaunchTemplateOverrides' {priority} -> priority) (\s@LaunchTemplateOverrides' {} a -> s {priority = a} :: LaunchTemplateOverrides)
 

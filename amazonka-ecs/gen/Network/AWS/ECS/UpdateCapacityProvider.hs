@@ -145,7 +145,8 @@ instance Core.ToQuery UpdateCapacityProvider where
 
 -- | /See:/ 'newUpdateCapacityProviderResponse' smart constructor.
 data UpdateCapacityProviderResponse = UpdateCapacityProviderResponse'
-  { capacityProvider :: Prelude.Maybe CapacityProvider,
+  { -- | Details about the capacity provider.
+    capacityProvider :: Prelude.Maybe CapacityProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,7 +160,7 @@ data UpdateCapacityProviderResponse = UpdateCapacityProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityProvider', 'updateCapacityProviderResponse_capacityProvider' - Undocumented member.
+-- 'capacityProvider', 'updateCapacityProviderResponse_capacityProvider' - Details about the capacity provider.
 --
 -- 'httpStatus', 'updateCapacityProviderResponse_httpStatus' - The response's http status code.
 newUpdateCapacityProviderResponse ::
@@ -173,7 +174,7 @@ newUpdateCapacityProviderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the capacity provider.
 updateCapacityProviderResponse_capacityProvider :: Lens.Lens' UpdateCapacityProviderResponse (Prelude.Maybe CapacityProvider)
 updateCapacityProviderResponse_capacityProvider = Lens.lens (\UpdateCapacityProviderResponse' {capacityProvider} -> capacityProvider) (\s@UpdateCapacityProviderResponse' {} a -> s {capacityProvider = a} :: UpdateCapacityProviderResponse)
 

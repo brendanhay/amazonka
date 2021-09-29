@@ -40,18 +40,6 @@ data InstanceAccessDetails = InstanceAccessDetails'
     -- | For SSH access, the temporary private key. For OpenSSH clients (e.g.,
     -- command line SSH), you should save this value to @tempkey@).
     privateKey :: Prelude.Maybe Prelude.Text,
-    -- | For SSH access, the public key to use when accessing your instance For
-    -- OpenSSH clients (e.g., command line SSH), you should save this value to
-    -- @tempkey-cert.pub@.
-    certKey :: Prelude.Maybe Prelude.Text,
-    -- | For a Windows Server-based instance, an object with the data you can use
-    -- to retrieve your password. This is only needed if @password@ is empty
-    -- and the instance is not new (and therefore the password is not ready
-    -- yet). When you create an instance, it can take up to 15 minutes for the
-    -- instance to be ready.
-    passwordData :: Prelude.Maybe PasswordData,
-    -- | The public IP address of the Amazon Lightsail instance.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | For RDP access, the password for your Amazon Lightsail instance.
     -- Password will be an empty string if the password for your new instance
     -- is not ready yet. When you create an instance, it can take up to 15
@@ -65,6 +53,18 @@ data InstanceAccessDetails = InstanceAccessDetails'
     -- instance using RDP, you need to manually enter the Administrator
     -- password after changing it from the default.
     password :: Prelude.Maybe Prelude.Text,
+    -- | For a Windows Server-based instance, an object with the data you can use
+    -- to retrieve your password. This is only needed if @password@ is empty
+    -- and the instance is not new (and therefore the password is not ready
+    -- yet). When you create an instance, it can take up to 15 minutes for the
+    -- instance to be ready.
+    passwordData :: Prelude.Maybe PasswordData,
+    -- | The public IP address of the Amazon Lightsail instance.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | For SSH access, the public key to use when accessing your instance For
+    -- OpenSSH clients (e.g., command line SSH), you should save this value to
+    -- @tempkey-cert.pub@.
+    certKey :: Prelude.Maybe Prelude.Text,
     -- | The user name to use when logging in to the Amazon Lightsail instance.
     username :: Prelude.Maybe Prelude.Text,
     -- | The protocol for these Amazon Lightsail instance access details.
@@ -89,18 +89,6 @@ data InstanceAccessDetails = InstanceAccessDetails'
 -- 'privateKey', 'instanceAccessDetails_privateKey' - For SSH access, the temporary private key. For OpenSSH clients (e.g.,
 -- command line SSH), you should save this value to @tempkey@).
 --
--- 'certKey', 'instanceAccessDetails_certKey' - For SSH access, the public key to use when accessing your instance For
--- OpenSSH clients (e.g., command line SSH), you should save this value to
--- @tempkey-cert.pub@.
---
--- 'passwordData', 'instanceAccessDetails_passwordData' - For a Windows Server-based instance, an object with the data you can use
--- to retrieve your password. This is only needed if @password@ is empty
--- and the instance is not new (and therefore the password is not ready
--- yet). When you create an instance, it can take up to 15 minutes for the
--- instance to be ready.
---
--- 'ipAddress', 'instanceAccessDetails_ipAddress' - The public IP address of the Amazon Lightsail instance.
---
 -- 'password', 'instanceAccessDetails_password' - For RDP access, the password for your Amazon Lightsail instance.
 -- Password will be an empty string if the password for your new instance
 -- is not ready yet. When you create an instance, it can take up to 15
@@ -114,6 +102,18 @@ data InstanceAccessDetails = InstanceAccessDetails'
 -- instance using RDP, you need to manually enter the Administrator
 -- password after changing it from the default.
 --
+-- 'passwordData', 'instanceAccessDetails_passwordData' - For a Windows Server-based instance, an object with the data you can use
+-- to retrieve your password. This is only needed if @password@ is empty
+-- and the instance is not new (and therefore the password is not ready
+-- yet). When you create an instance, it can take up to 15 minutes for the
+-- instance to be ready.
+--
+-- 'ipAddress', 'instanceAccessDetails_ipAddress' - The public IP address of the Amazon Lightsail instance.
+--
+-- 'certKey', 'instanceAccessDetails_certKey' - For SSH access, the public key to use when accessing your instance For
+-- OpenSSH clients (e.g., command line SSH), you should save this value to
+-- @tempkey-cert.pub@.
+--
 -- 'username', 'instanceAccessDetails_username' - The user name to use when logging in to the Amazon Lightsail instance.
 --
 -- 'protocol', 'instanceAccessDetails_protocol' - The protocol for these Amazon Lightsail instance access details.
@@ -125,10 +125,10 @@ newInstanceAccessDetails =
       instanceName = Prelude.Nothing,
       expiresAt = Prelude.Nothing,
       privateKey = Prelude.Nothing,
-      certKey = Prelude.Nothing,
+      password = Prelude.Nothing,
       passwordData = Prelude.Nothing,
       ipAddress = Prelude.Nothing,
-      password = Prelude.Nothing,
+      certKey = Prelude.Nothing,
       username = Prelude.Nothing,
       protocol = Prelude.Nothing
     }
@@ -150,24 +150,6 @@ instanceAccessDetails_expiresAt = Lens.lens (\InstanceAccessDetails' {expiresAt}
 instanceAccessDetails_privateKey :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
 instanceAccessDetails_privateKey = Lens.lens (\InstanceAccessDetails' {privateKey} -> privateKey) (\s@InstanceAccessDetails' {} a -> s {privateKey = a} :: InstanceAccessDetails)
 
--- | For SSH access, the public key to use when accessing your instance For
--- OpenSSH clients (e.g., command line SSH), you should save this value to
--- @tempkey-cert.pub@.
-instanceAccessDetails_certKey :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
-instanceAccessDetails_certKey = Lens.lens (\InstanceAccessDetails' {certKey} -> certKey) (\s@InstanceAccessDetails' {} a -> s {certKey = a} :: InstanceAccessDetails)
-
--- | For a Windows Server-based instance, an object with the data you can use
--- to retrieve your password. This is only needed if @password@ is empty
--- and the instance is not new (and therefore the password is not ready
--- yet). When you create an instance, it can take up to 15 minutes for the
--- instance to be ready.
-instanceAccessDetails_passwordData :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe PasswordData)
-instanceAccessDetails_passwordData = Lens.lens (\InstanceAccessDetails' {passwordData} -> passwordData) (\s@InstanceAccessDetails' {} a -> s {passwordData = a} :: InstanceAccessDetails)
-
--- | The public IP address of the Amazon Lightsail instance.
-instanceAccessDetails_ipAddress :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
-instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress} -> ipAddress) (\s@InstanceAccessDetails' {} a -> s {ipAddress = a} :: InstanceAccessDetails)
-
 -- | For RDP access, the password for your Amazon Lightsail instance.
 -- Password will be an empty string if the password for your new instance
 -- is not ready yet. When you create an instance, it can take up to 15
@@ -182,6 +164,24 @@ instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress}
 -- password after changing it from the default.
 instanceAccessDetails_password :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
 instanceAccessDetails_password = Lens.lens (\InstanceAccessDetails' {password} -> password) (\s@InstanceAccessDetails' {} a -> s {password = a} :: InstanceAccessDetails)
+
+-- | For a Windows Server-based instance, an object with the data you can use
+-- to retrieve your password. This is only needed if @password@ is empty
+-- and the instance is not new (and therefore the password is not ready
+-- yet). When you create an instance, it can take up to 15 minutes for the
+-- instance to be ready.
+instanceAccessDetails_passwordData :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe PasswordData)
+instanceAccessDetails_passwordData = Lens.lens (\InstanceAccessDetails' {passwordData} -> passwordData) (\s@InstanceAccessDetails' {} a -> s {passwordData = a} :: InstanceAccessDetails)
+
+-- | The public IP address of the Amazon Lightsail instance.
+instanceAccessDetails_ipAddress :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress} -> ipAddress) (\s@InstanceAccessDetails' {} a -> s {ipAddress = a} :: InstanceAccessDetails)
+
+-- | For SSH access, the public key to use when accessing your instance For
+-- OpenSSH clients (e.g., command line SSH), you should save this value to
+-- @tempkey-cert.pub@.
+instanceAccessDetails_certKey :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_certKey = Lens.lens (\InstanceAccessDetails' {certKey} -> certKey) (\s@InstanceAccessDetails' {} a -> s {certKey = a} :: InstanceAccessDetails)
 
 -- | The user name to use when logging in to the Amazon Lightsail instance.
 instanceAccessDetails_username :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
@@ -201,10 +201,10 @@ instance Core.FromJSON InstanceAccessDetails where
             Prelude.<*> (x Core..:? "instanceName")
             Prelude.<*> (x Core..:? "expiresAt")
             Prelude.<*> (x Core..:? "privateKey")
-            Prelude.<*> (x Core..:? "certKey")
+            Prelude.<*> (x Core..:? "password")
             Prelude.<*> (x Core..:? "passwordData")
             Prelude.<*> (x Core..:? "ipAddress")
-            Prelude.<*> (x Core..:? "password")
+            Prelude.<*> (x Core..:? "certKey")
             Prelude.<*> (x Core..:? "username")
             Prelude.<*> (x Core..:? "protocol")
       )

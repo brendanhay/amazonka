@@ -57,7 +57,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSuspendContactRecording' smart constructor.
 data SuspendContactRecording = SuspendContactRecording'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
     contactId :: Prelude.Text,
@@ -75,7 +76,8 @@ data SuspendContactRecording = SuspendContactRecording'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'suspendContactRecording_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'suspendContactRecording_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'contactId', 'suspendContactRecording_contactId' - The identifier of the contact.
 --
@@ -99,7 +101,8 @@ newSuspendContactRecording
         initialContactId = pInitialContactId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 suspendContactRecording_instanceId :: Lens.Lens' SuspendContactRecording Prelude.Text
 suspendContactRecording_instanceId = Lens.lens (\SuspendContactRecording' {instanceId} -> instanceId) (\s@SuspendContactRecording' {} a -> s {instanceId = a} :: SuspendContactRecording)
 

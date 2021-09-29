@@ -180,9 +180,16 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
   { -- | Details about each unrecognized face in the image.
     unrecognizedFaces :: Prelude.Maybe [ComparedFace],
     -- | Details about each celebrity found in the image. Amazon Rekognition can
-    -- detect a maximum of 64 celebrities in an image.
+    -- detect a maximum of 64 celebrities in an image. Each celebrity object
+    -- includes the following attributes: @Face@, @Confidence@, @Emotions@,
+    -- @Landmarks@, @Pose@, @Quality@, @Smile@, @Id@, @KnownGender@,
+    -- @MatchConfidence@, @Name@, @Urls@.
     celebrityFaces :: Prelude.Maybe [Celebrity],
-    -- | The orientation of the input image (counterclockwise direction). If your
+    -- | Support for estimating image orientation using the the
+    -- OrientationCorrection field has ceased as of August 2021. Any returned
+    -- values for this field included in an API response will always be NULL.
+    --
+    -- The orientation of the input image (counterclockwise direction). If your
     -- application displays the image, you can use this value to correct the
     -- orientation. The bounding box coordinates returned in @CelebrityFaces@
     -- and @UnrecognizedFaces@ represent face locations before the image
@@ -212,9 +219,16 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
 -- 'unrecognizedFaces', 'recognizeCelebritiesResponse_unrecognizedFaces' - Details about each unrecognized face in the image.
 --
 -- 'celebrityFaces', 'recognizeCelebritiesResponse_celebrityFaces' - Details about each celebrity found in the image. Amazon Rekognition can
--- detect a maximum of 64 celebrities in an image.
+-- detect a maximum of 64 celebrities in an image. Each celebrity object
+-- includes the following attributes: @Face@, @Confidence@, @Emotions@,
+-- @Landmarks@, @Pose@, @Quality@, @Smile@, @Id@, @KnownGender@,
+-- @MatchConfidence@, @Name@, @Urls@.
 --
--- 'orientationCorrection', 'recognizeCelebritiesResponse_orientationCorrection' - The orientation of the input image (counterclockwise direction). If your
+-- 'orientationCorrection', 'recognizeCelebritiesResponse_orientationCorrection' - Support for estimating image orientation using the the
+-- OrientationCorrection field has ceased as of August 2021. Any returned
+-- values for this field included in an API response will always be NULL.
+--
+-- The orientation of the input image (counterclockwise direction). If your
 -- application displays the image, you can use this value to correct the
 -- orientation. The bounding box coordinates returned in @CelebrityFaces@
 -- and @UnrecognizedFaces@ represent face locations before the image
@@ -247,11 +261,18 @@ recognizeCelebritiesResponse_unrecognizedFaces :: Lens.Lens' RecognizeCelebritie
 recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritiesResponse' {unrecognizedFaces} -> unrecognizedFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Details about each celebrity found in the image. Amazon Rekognition can
--- detect a maximum of 64 celebrities in an image.
+-- detect a maximum of 64 celebrities in an image. Each celebrity object
+-- includes the following attributes: @Face@, @Confidence@, @Emotions@,
+-- @Landmarks@, @Pose@, @Quality@, @Smile@, @Id@, @KnownGender@,
+-- @MatchConfidence@, @Name@, @Urls@.
 recognizeCelebritiesResponse_celebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [Celebrity])
 recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesResponse' {celebrityFaces} -> celebrityFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The orientation of the input image (counterclockwise direction). If your
+-- | Support for estimating image orientation using the the
+-- OrientationCorrection field has ceased as of August 2021. Any returned
+-- values for this field included in an API response will always be NULL.
+--
+-- The orientation of the input image (counterclockwise direction). If your
 -- application displays the image, you can use this value to correct the
 -- orientation. The bounding box coordinates returned in @CelebrityFaces@
 -- and @UnrecognizedFaces@ represent face locations before the image

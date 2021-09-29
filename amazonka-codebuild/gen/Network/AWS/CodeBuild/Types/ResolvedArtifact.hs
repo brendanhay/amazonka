@@ -24,7 +24,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Represents a resolved build artifact. A resolve artifact is an artifact
+-- | Represents a resolved build artifact. A resolved artifact is an artifact
 -- that is built and deployed to the destination, such as Amazon S3.
 --
 -- /See:/ 'newResolvedArtifact' smart constructor.

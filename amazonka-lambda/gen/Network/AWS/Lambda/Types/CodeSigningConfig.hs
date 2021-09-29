@@ -25,7 +25,8 @@ import Network.AWS.Lambda.Types.CodeSigningPolicies
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Details about a Code signing configuration.
+-- | Details about a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html Code signing configuration>.
 --
 -- /See:/ 'newCodeSigningConfig' smart constructor.
 data CodeSigningConfig = CodeSigningConfig'

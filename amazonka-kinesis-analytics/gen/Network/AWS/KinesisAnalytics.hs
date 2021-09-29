@@ -49,14 +49,14 @@ module Network.AWS.KinesisAnalytics
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** CodeValidationException
+    _CodeValidationException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** CodeValidationException
-    _CodeValidationException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -112,17 +112,17 @@ module Network.AWS.KinesisAnalytics
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** StopApplication
-    StopApplication (StopApplication'),
-    newStopApplication,
-    StopApplicationResponse (StopApplicationResponse'),
-    newStopApplicationResponse,
-
     -- ** StartApplication
     StartApplication (StartApplication'),
     newStartApplication,
     StartApplicationResponse (StartApplicationResponse'),
     newStartApplicationResponse,
+
+    -- ** StopApplication
+    StopApplication (StopApplication'),
+    newStopApplication,
+    StopApplicationResponse (StopApplicationResponse'),
+    newStopApplicationResponse,
 
     -- ** DescribeApplication
     DescribeApplication (DescribeApplication'),
@@ -136,23 +136,17 @@ module Network.AWS.KinesisAnalytics
     DiscoverInputSchemaResponse (DiscoverInputSchemaResponse'),
     newDiscoverInputSchemaResponse,
 
-    -- ** AddApplicationInputProcessingConfiguration
-    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
-    newAddApplicationInputProcessingConfiguration,
-    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
-    newAddApplicationInputProcessingConfigurationResponse,
-
     -- ** DeleteApplicationInputProcessingConfiguration
     DeleteApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration'),
     newDeleteApplicationInputProcessingConfiguration,
     DeleteApplicationInputProcessingConfigurationResponse (DeleteApplicationInputProcessingConfigurationResponse'),
     newDeleteApplicationInputProcessingConfigurationResponse,
 
-    -- ** DeleteApplication
-    DeleteApplication (DeleteApplication'),
-    newDeleteApplication,
-    DeleteApplicationResponse (DeleteApplicationResponse'),
-    newDeleteApplicationResponse,
+    -- ** AddApplicationInputProcessingConfiguration
+    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
+    newAddApplicationInputProcessingConfiguration,
+    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
+    newAddApplicationInputProcessingConfigurationResponse,
 
     -- ** ListApplications
     ListApplications (ListApplications'),
@@ -160,17 +154,17 @@ module Network.AWS.KinesisAnalytics
     ListApplicationsResponse (ListApplicationsResponse'),
     newListApplicationsResponse,
 
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
+
     -- ** UpdateApplication
     UpdateApplication (UpdateApplication'),
     newUpdateApplication,
     UpdateApplicationResponse (UpdateApplicationResponse'),
     newUpdateApplicationResponse,
-
-    -- ** AddApplicationInput
-    AddApplicationInput (AddApplicationInput'),
-    newAddApplicationInput,
-    AddApplicationInputResponse (AddApplicationInputResponse'),
-    newAddApplicationInputResponse,
 
     -- ** AddApplicationReferenceDataSource
     AddApplicationReferenceDataSource (AddApplicationReferenceDataSource'),
@@ -183,6 +177,12 @@ module Network.AWS.KinesisAnalytics
     newDeleteApplicationReferenceDataSource,
     DeleteApplicationReferenceDataSourceResponse (DeleteApplicationReferenceDataSourceResponse'),
     newDeleteApplicationReferenceDataSourceResponse,
+
+    -- ** AddApplicationInput
+    AddApplicationInput (AddApplicationInput'),
+    newAddApplicationInput,
+    AddApplicationInputResponse (AddApplicationInputResponse'),
+    newAddApplicationInputResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),

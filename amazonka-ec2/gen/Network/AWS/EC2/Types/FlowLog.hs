@@ -61,10 +61,12 @@ data FlowLog = FlowLog'
     trafficType :: Prelude.Maybe TrafficType,
     -- | The format of the flow log record.
     logFormat :: Prelude.Maybe Prelude.Text,
-    -- | The name of the flow log group.
-    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that posts logs to CloudWatch Logs.
     deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the flow log group.
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the flow log.
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the error that occurred. @Rate limited@ indicates that
     -- CloudWatch Logs throttling has been applied for one or more network
     -- interfaces, or that you\'ve reached the limit on the number of log
@@ -72,8 +74,6 @@ data FlowLog = FlowLog'
     -- associated with the flow log does not have sufficient permissions to
     -- publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
     deliverLogsErrorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the flow log.
-    tags :: Prelude.Maybe [Tag],
     -- | Specifies the type of destination to which the flow log data is
     -- published. Flow log data can be published to CloudWatch Logs or Amazon
     -- S3.
@@ -121,9 +121,11 @@ data FlowLog = FlowLog'
 --
 -- 'logFormat', 'flowLog_logFormat' - The format of the flow log record.
 --
+-- 'deliverLogsPermissionArn', 'flowLog_deliverLogsPermissionArn' - The ARN of the IAM role that posts logs to CloudWatch Logs.
+--
 -- 'logGroupName', 'flowLog_logGroupName' - The name of the flow log group.
 --
--- 'deliverLogsPermissionArn', 'flowLog_deliverLogsPermissionArn' - The ARN of the IAM role that posts logs to CloudWatch Logs.
+-- 'tags', 'flowLog_tags' - The tags for the flow log.
 --
 -- 'deliverLogsErrorMessage', 'flowLog_deliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that
 -- CloudWatch Logs throttling has been applied for one or more network
@@ -131,8 +133,6 @@ data FlowLog = FlowLog'
 -- groups that you can create. @Access error@ indicates that the IAM role
 -- associated with the flow log does not have sufficient permissions to
 -- publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
---
--- 'tags', 'flowLog_tags' - The tags for the flow log.
 --
 -- 'logDestinationType', 'flowLog_logDestinationType' - Specifies the type of destination to which the flow log data is
 -- published. Flow log data can be published to CloudWatch Logs or Amazon
@@ -151,10 +151,10 @@ newFlowLog =
       logDestination = Prelude.Nothing,
       trafficType = Prelude.Nothing,
       logFormat = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
       deliverLogsPermissionArn = Prelude.Nothing,
-      deliverLogsErrorMessage = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
       tags = Prelude.Nothing,
+      deliverLogsErrorMessage = Prelude.Nothing,
       logDestinationType = Prelude.Nothing,
       flowLogStatus = Prelude.Nothing
     }
@@ -205,13 +205,17 @@ flowLog_trafficType = Lens.lens (\FlowLog' {trafficType} -> trafficType) (\s@Flo
 flowLog_logFormat :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_logFormat = Lens.lens (\FlowLog' {logFormat} -> logFormat) (\s@FlowLog' {} a -> s {logFormat = a} :: FlowLog)
 
+-- | The ARN of the IAM role that posts logs to CloudWatch Logs.
+flowLog_deliverLogsPermissionArn :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
+flowLog_deliverLogsPermissionArn = Lens.lens (\FlowLog' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@FlowLog' {} a -> s {deliverLogsPermissionArn = a} :: FlowLog)
+
 -- | The name of the flow log group.
 flowLog_logGroupName :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_logGroupName = Lens.lens (\FlowLog' {logGroupName} -> logGroupName) (\s@FlowLog' {} a -> s {logGroupName = a} :: FlowLog)
 
--- | The ARN of the IAM role that posts logs to CloudWatch Logs.
-flowLog_deliverLogsPermissionArn :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
-flowLog_deliverLogsPermissionArn = Lens.lens (\FlowLog' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@FlowLog' {} a -> s {deliverLogsPermissionArn = a} :: FlowLog)
+-- | The tags for the flow log.
+flowLog_tags :: Lens.Lens' FlowLog (Prelude.Maybe [Tag])
+flowLog_tags = Lens.lens (\FlowLog' {tags} -> tags) (\s@FlowLog' {} a -> s {tags = a} :: FlowLog) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the error that occurred. @Rate limited@ indicates that
 -- CloudWatch Logs throttling has been applied for one or more network
@@ -221,10 +225,6 @@ flowLog_deliverLogsPermissionArn = Lens.lens (\FlowLog' {deliverLogsPermissionAr
 -- publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
 flowLog_deliverLogsErrorMessage :: Lens.Lens' FlowLog (Prelude.Maybe Prelude.Text)
 flowLog_deliverLogsErrorMessage = Lens.lens (\FlowLog' {deliverLogsErrorMessage} -> deliverLogsErrorMessage) (\s@FlowLog' {} a -> s {deliverLogsErrorMessage = a} :: FlowLog)
-
--- | The tags for the flow log.
-flowLog_tags :: Lens.Lens' FlowLog (Prelude.Maybe [Tag])
-flowLog_tags = Lens.lens (\FlowLog' {tags} -> tags) (\s@FlowLog' {} a -> s {tags = a} :: FlowLog) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of destination to which the flow log data is
 -- published. Flow log data can be published to CloudWatch Logs or Amazon
@@ -247,12 +247,12 @@ instance Core.FromXML FlowLog where
       Prelude.<*> (x Core..@? "logDestination")
       Prelude.<*> (x Core..@? "trafficType")
       Prelude.<*> (x Core..@? "logFormat")
-      Prelude.<*> (x Core..@? "logGroupName")
       Prelude.<*> (x Core..@? "deliverLogsPermissionArn")
-      Prelude.<*> (x Core..@? "deliverLogsErrorMessage")
+      Prelude.<*> (x Core..@? "logGroupName")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "deliverLogsErrorMessage")
       Prelude.<*> (x Core..@? "logDestinationType")
       Prelude.<*> (x Core..@? "flowLogStatus")
 

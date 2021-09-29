@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeIpv6Pools
 
     -- * Request Lenses
     describeIpv6Pools_nextToken,
-    describeIpv6Pools_dryRun,
     describeIpv6Pools_maxResults,
+    describeIpv6Pools_dryRun,
     describeIpv6Pools_filters,
     describeIpv6Pools_poolIds,
 
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data DescribeIpv6Pools = DescribeIpv6Pools'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
@@ -93,14 +93,14 @@ data DescribeIpv6Pools = DescribeIpv6Pools'
 --
 -- 'nextToken', 'describeIpv6Pools_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeIpv6Pools_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeIpv6Pools_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeIpv6Pools_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'describeIpv6Pools_filters' - One or more filters.
 --
@@ -120,8 +120,8 @@ newDescribeIpv6Pools ::
 newDescribeIpv6Pools =
   DescribeIpv6Pools'
     { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       poolIds = Prelude.Nothing
     }
@@ -130,18 +130,18 @@ newDescribeIpv6Pools =
 describeIpv6Pools_nextToken :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Text)
 describeIpv6Pools_nextToken = Lens.lens (\DescribeIpv6Pools' {nextToken} -> nextToken) (\s@DescribeIpv6Pools' {} a -> s {nextToken = a} :: DescribeIpv6Pools)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeIpv6Pools_maxResults :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Natural)
+describeIpv6Pools_maxResults = Lens.lens (\DescribeIpv6Pools' {maxResults} -> maxResults) (\s@DescribeIpv6Pools' {} a -> s {maxResults = a} :: DescribeIpv6Pools)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeIpv6Pools_dryRun :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Bool)
 describeIpv6Pools_dryRun = Lens.lens (\DescribeIpv6Pools' {dryRun} -> dryRun) (\s@DescribeIpv6Pools' {} a -> s {dryRun = a} :: DescribeIpv6Pools)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeIpv6Pools_maxResults :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Natural)
-describeIpv6Pools_maxResults = Lens.lens (\DescribeIpv6Pools' {maxResults} -> maxResults) (\s@DescribeIpv6Pools' {} a -> s {maxResults = a} :: DescribeIpv6Pools)
 
 -- | One or more filters.
 --
@@ -217,8 +217,8 @@ instance Core.ToQuery DescribeIpv6Pools where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery

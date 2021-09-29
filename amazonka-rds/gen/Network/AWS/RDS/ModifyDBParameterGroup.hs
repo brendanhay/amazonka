@@ -25,10 +25,6 @@
 -- @ParameterValue@, and @ApplyMethod@. A maximum of 20 parameters can be
 -- modified in a single request.
 --
--- Changes to dynamic parameters are applied immediately. Changes to static
--- parameters require a reboot without failover to the DB instance
--- associated with the parameter group before the change can take effect.
---
 -- After you modify a DB parameter group, you should wait at least 5
 -- minutes before creating your first DB instance that uses that DB
 -- parameter group as the default parameter group. This allows Amazon RDS
@@ -76,16 +72,22 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
     --
     -- -   If supplied, must match the name of an existing @DBParameterGroup@.
     dbParameterGroupName :: Prelude.Text,
-    -- | An array of parameter names, values, and the apply method for the
-    -- parameter update. At least one parameter name, value, and apply method
-    -- must be supplied; later arguments are optional. A maximum of 20
-    -- parameters can be modified in a single request.
+    -- | An array of parameter names, values, and the application methods for the
+    -- parameter update. At least one parameter name, value, and application
+    -- method method must be supplied; later arguments are optional. A maximum
+    -- of 20 parameters can be modified in a single request.
     --
     -- Valid Values (for the application method): @immediate | pending-reboot@
     --
-    -- You can use the immediate value with dynamic parameters only. You can
-    -- use the pending-reboot value for both dynamic and static parameters, and
-    -- changes are applied when you reboot the DB instance without failover.
+    -- You can use the @immediate@ value with dynamic parameters only. You can
+    -- use the @pending-reboot@ value for both dynamic and static parameters.
+    --
+    -- When the application method is @immediate@, changes to dynamic
+    -- parameters are applied immediately to the DB instances associated with
+    -- the parameter group. When the application method is @pending-reboot@,
+    -- changes to dynamic and static parameters are applied after a reboot
+    -- without failover to the DB instances associated with the parameter
+    -- group.
     parameters :: [Parameter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,16 +106,22 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
 --
 -- -   If supplied, must match the name of an existing @DBParameterGroup@.
 --
--- 'parameters', 'modifyDBParameterGroup_parameters' - An array of parameter names, values, and the apply method for the
--- parameter update. At least one parameter name, value, and apply method
--- must be supplied; later arguments are optional. A maximum of 20
--- parameters can be modified in a single request.
+-- 'parameters', 'modifyDBParameterGroup_parameters' - An array of parameter names, values, and the application methods for the
+-- parameter update. At least one parameter name, value, and application
+-- method method must be supplied; later arguments are optional. A maximum
+-- of 20 parameters can be modified in a single request.
 --
 -- Valid Values (for the application method): @immediate | pending-reboot@
 --
--- You can use the immediate value with dynamic parameters only. You can
--- use the pending-reboot value for both dynamic and static parameters, and
--- changes are applied when you reboot the DB instance without failover.
+-- You can use the @immediate@ value with dynamic parameters only. You can
+-- use the @pending-reboot@ value for both dynamic and static parameters.
+--
+-- When the application method is @immediate@, changes to dynamic
+-- parameters are applied immediately to the DB instances associated with
+-- the parameter group. When the application method is @pending-reboot@,
+-- changes to dynamic and static parameters are applied after a reboot
+-- without failover to the DB instances associated with the parameter
+-- group.
 newModifyDBParameterGroup ::
   -- | 'dbParameterGroupName'
   Prelude.Text ->
@@ -133,16 +141,22 @@ newModifyDBParameterGroup pDBParameterGroupName_ =
 modifyDBParameterGroup_dbParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Prelude.Text
 modifyDBParameterGroup_dbParameterGroupName = Lens.lens (\ModifyDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@ModifyDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: ModifyDBParameterGroup)
 
--- | An array of parameter names, values, and the apply method for the
--- parameter update. At least one parameter name, value, and apply method
--- must be supplied; later arguments are optional. A maximum of 20
--- parameters can be modified in a single request.
+-- | An array of parameter names, values, and the application methods for the
+-- parameter update. At least one parameter name, value, and application
+-- method method must be supplied; later arguments are optional. A maximum
+-- of 20 parameters can be modified in a single request.
 --
 -- Valid Values (for the application method): @immediate | pending-reboot@
 --
--- You can use the immediate value with dynamic parameters only. You can
--- use the pending-reboot value for both dynamic and static parameters, and
--- changes are applied when you reboot the DB instance without failover.
+-- You can use the @immediate@ value with dynamic parameters only. You can
+-- use the @pending-reboot@ value for both dynamic and static parameters.
+--
+-- When the application method is @immediate@, changes to dynamic
+-- parameters are applied immediately to the DB instances associated with
+-- the parameter group. When the application method is @pending-reboot@,
+-- changes to dynamic and static parameters are applied after a reboot
+-- without failover to the DB instances associated with the parameter
+-- group.
 modifyDBParameterGroup_parameters :: Lens.Lens' ModifyDBParameterGroup [Parameter]
 modifyDBParameterGroup_parameters = Lens.lens (\ModifyDBParameterGroup' {parameters} -> parameters) (\s@ModifyDBParameterGroup' {} a -> s {parameters = a} :: ModifyDBParameterGroup) Prelude.. Lens._Coerce
 

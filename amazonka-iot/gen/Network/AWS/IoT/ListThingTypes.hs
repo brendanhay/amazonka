@@ -22,6 +22,10 @@
 --
 -- Lists the existing thing types.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingTypes>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingTypes
   ( -- * Creating a Request

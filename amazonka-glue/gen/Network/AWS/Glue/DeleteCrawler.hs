@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a specified crawler from the AWS Glue Data Catalog, unless the
+-- Removes a specified crawler from the Glue Data Catalog, unless the
 -- crawler state is @RUNNING@.
 module Network.AWS.Glue.DeleteCrawler
   ( -- * Creating a Request

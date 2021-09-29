@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSegmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
-  { -- | The date and time when the segment was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | A list of one or more segment groups that apply to the segment. Each
+  { -- | A list of one or more segment groups that apply to the segment. Each
     -- segment group consists of zero or more base segments and the dimensions
     -- that are applied to those base segments.
     segmentGroups :: Prelude.Maybe SegmentGroupList,
+    -- | The date and time when the segment was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | The version number of the segment.
     version :: Prelude.Maybe Prelude.Int,
     -- | The name of the segment.
@@ -81,11 +81,11 @@ data SegmentResponse = SegmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'segmentResponse_lastModifiedDate' - The date and time when the segment was last modified.
---
 -- 'segmentGroups', 'segmentResponse_segmentGroups' - A list of one or more segment groups that apply to the segment. Each
 -- segment group consists of zero or more base segments and the dimensions
 -- that are applied to those base segments.
+--
+-- 'lastModifiedDate', 'segmentResponse_lastModifiedDate' - The date and time when the segment was last modified.
 --
 -- 'version', 'segmentResponse_version' - The version number of the segment.
 --
@@ -137,9 +137,8 @@ newSegmentResponse
   pArn_
   pApplicationId_ =
     SegmentResponse'
-      { lastModifiedDate =
-          Prelude.Nothing,
-        segmentGroups = Prelude.Nothing,
+      { segmentGroups = Prelude.Nothing,
+        lastModifiedDate = Prelude.Nothing,
         version = Prelude.Nothing,
         name = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -152,15 +151,15 @@ newSegmentResponse
         applicationId = pApplicationId_
       }
 
--- | The date and time when the segment was last modified.
-segmentResponse_lastModifiedDate :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
-segmentResponse_lastModifiedDate = Lens.lens (\SegmentResponse' {lastModifiedDate} -> lastModifiedDate) (\s@SegmentResponse' {} a -> s {lastModifiedDate = a} :: SegmentResponse)
-
 -- | A list of one or more segment groups that apply to the segment. Each
 -- segment group consists of zero or more base segments and the dimensions
 -- that are applied to those base segments.
 segmentResponse_segmentGroups :: Lens.Lens' SegmentResponse (Prelude.Maybe SegmentGroupList)
 segmentResponse_segmentGroups = Lens.lens (\SegmentResponse' {segmentGroups} -> segmentGroups) (\s@SegmentResponse' {} a -> s {segmentGroups = a} :: SegmentResponse)
+
+-- | The date and time when the segment was last modified.
+segmentResponse_lastModifiedDate :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Text)
+segmentResponse_lastModifiedDate = Lens.lens (\SegmentResponse' {lastModifiedDate} -> lastModifiedDate) (\s@SegmentResponse' {} a -> s {lastModifiedDate = a} :: SegmentResponse)
 
 -- | The version number of the segment.
 segmentResponse_version :: Lens.Lens' SegmentResponse (Prelude.Maybe Prelude.Int)
@@ -220,8 +219,8 @@ instance Core.FromJSON SegmentResponse where
       "SegmentResponse"
       ( \x ->
           SegmentResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "SegmentGroups")
+            Prelude.<$> (x Core..:? "SegmentGroups")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)

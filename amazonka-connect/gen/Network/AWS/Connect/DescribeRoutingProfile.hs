@@ -49,7 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text
@@ -64,7 +65,8 @@ data DescribeRoutingProfile = DescribeRoutingProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeRoutingProfile_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'describeRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'describeRoutingProfile_routingProfileId' - The identifier of the routing profile.
 newDescribeRoutingProfile ::
@@ -81,7 +83,8 @@ newDescribeRoutingProfile
         routingProfileId = pRoutingProfileId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 describeRoutingProfile_instanceId :: Lens.Lens' DescribeRoutingProfile Prelude.Text
 describeRoutingProfile_instanceId = Lens.lens (\DescribeRoutingProfile' {instanceId} -> instanceId) (\s@DescribeRoutingProfile' {} a -> s {instanceId = a} :: DescribeRoutingProfile)
 

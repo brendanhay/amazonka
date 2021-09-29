@@ -1,0 +1,72 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.EFS.Types.ResourceIdType
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.EFS.Types.ResourceIdType
+  ( ResourceIdType
+      ( ..,
+        ResourceIdType_LONG_ID,
+        ResourceIdType_SHORT_ID
+      ),
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
+
+-- | A preference indicating a choice to use 63bit\/32bit IDs for all
+-- applicable resources.
+newtype ResourceIdType = ResourceIdType'
+  { fromResourceIdType ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern ResourceIdType_LONG_ID :: ResourceIdType
+pattern ResourceIdType_LONG_ID = ResourceIdType' "LONG_ID"
+
+pattern ResourceIdType_SHORT_ID :: ResourceIdType
+pattern ResourceIdType_SHORT_ID = ResourceIdType' "SHORT_ID"
+
+{-# COMPLETE
+  ResourceIdType_LONG_ID,
+  ResourceIdType_SHORT_ID,
+  ResourceIdType'
+  #-}

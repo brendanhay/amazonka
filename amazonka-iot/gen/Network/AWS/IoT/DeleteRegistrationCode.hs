@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a CA certificate registration code.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteRegistrationCode>
+-- action.
 module Network.AWS.IoT.DeleteRegistrationCode
   ( -- * Creating a Request
     DeleteRegistrationCode (..),

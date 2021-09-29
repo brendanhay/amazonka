@@ -24,14 +24,14 @@ module Network.AWS.MediaStore.Lens
     putCorsPolicy_corsPolicy,
     putCorsPolicyResponse_httpStatus,
 
+    -- ** DeleteContainer
+    deleteContainer_containerName,
+    deleteContainerResponse_httpStatus,
+
     -- ** PutContainerPolicy
     putContainerPolicy_containerName,
     putContainerPolicy_policy,
     putContainerPolicyResponse_httpStatus,
-
-    -- ** DeleteContainer
-    deleteContainer_containerName,
-    deleteContainerResponse_httpStatus,
 
     -- ** GetCorsPolicy
     getCorsPolicy_containerName,
@@ -62,6 +62,10 @@ module Network.AWS.MediaStore.Lens
     getMetricPolicyResponse_httpStatus,
     getMetricPolicyResponse_metricPolicy,
 
+    -- ** StopAccessLogging
+    stopAccessLogging_containerName,
+    stopAccessLoggingResponse_httpStatus,
+
     -- ** StartAccessLogging
     startAccessLogging_containerName,
     startAccessLoggingResponse_httpStatus,
@@ -69,10 +73,6 @@ module Network.AWS.MediaStore.Lens
     -- ** DeleteLifecyclePolicy
     deleteLifecyclePolicy_containerName,
     deleteLifecyclePolicyResponse_httpStatus,
-
-    -- ** StopAccessLogging
-    stopAccessLogging_containerName,
-    stopAccessLoggingResponse_httpStatus,
 
     -- ** DeleteCorsPolicy
     deleteCorsPolicy_containerName,
@@ -118,8 +118,8 @@ module Network.AWS.MediaStore.Lens
     -- * Types
 
     -- ** Container
-    container_status,
     container_creationTime,
+    container_status,
     container_arn,
     container_accessLoggingEnabled,
     container_name,

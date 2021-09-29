@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the ability of the specified AWS customer account to restore the
--- specified snapshot. If the account is currently restoring the snapshot,
--- the restore will run to completion.
+-- Removes the ability of the specified Amazon Web Services account to
+-- restore the specified snapshot. If the account is currently restoring
+-- the snapshot, the restore will run to completion.
 --
 -- For more information about working with snapshots, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
@@ -65,8 +65,8 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the snapshot that the account can no longer access.
     snapshotIdentifier :: Prelude.Text,
-    -- | The identifier of the AWS customer account that can no longer restore
-    -- the specified snapshot.
+    -- | The identifier of the Amazon Web Services account that can no longer
+    -- restore the specified snapshot.
     accountWithRestoreAccess :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,8 +86,8 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
 --
 -- 'snapshotIdentifier', 'revokeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
 --
--- 'accountWithRestoreAccess', 'revokeSnapshotAccess_accountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore
--- the specified snapshot.
+-- 'accountWithRestoreAccess', 'revokeSnapshotAccess_accountWithRestoreAccess' - The identifier of the Amazon Web Services account that can no longer
+-- restore the specified snapshot.
 newRevokeSnapshotAccess ::
   -- | 'snapshotIdentifier'
   Prelude.Text ->
@@ -116,8 +116,8 @@ revokeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\RevokeSnapshotAcces
 revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
 revokeSnapshotAccess_snapshotIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
 
--- | The identifier of the AWS customer account that can no longer restore
--- the specified snapshot.
+-- | The identifier of the Amazon Web Services account that can no longer
+-- restore the specified snapshot.
 revokeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
 revokeSnapshotAccess_accountWithRestoreAccess = Lens.lens (\RevokeSnapshotAccess' {accountWithRestoreAccess} -> accountWithRestoreAccess) (\s@RevokeSnapshotAccess' {} a -> s {accountWithRestoreAccess = a} :: RevokeSnapshotAccess)
 

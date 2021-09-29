@@ -34,7 +34,7 @@ data RemediationException = RemediationException'
     expirationTime :: Prelude.Maybe Core.POSIX,
     -- | An explanation of an remediation exception.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Config rule.
+    -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of a resource.
     resourceType :: Prelude.Text,
@@ -55,7 +55,7 @@ data RemediationException = RemediationException'
 --
 -- 'message', 'remediationException_message' - An explanation of an remediation exception.
 --
--- 'configRuleName', 'remediationException_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'remediationException_configRuleName' - The name of the Config rule.
 --
 -- 'resourceType', 'remediationException_resourceType' - The type of a resource.
 --
@@ -89,7 +89,7 @@ remediationException_expirationTime = Lens.lens (\RemediationException' {expirat
 remediationException_message :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.Text)
 remediationException_message = Lens.lens (\RemediationException' {message} -> message) (\s@RemediationException' {} a -> s {message = a} :: RemediationException)
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 remediationException_configRuleName :: Lens.Lens' RemediationException Prelude.Text
 remediationException_configRuleName = Lens.lens (\RemediationException' {configRuleName} -> configRuleName) (\s@RemediationException' {} a -> s {configRuleName = a} :: RemediationException)
 

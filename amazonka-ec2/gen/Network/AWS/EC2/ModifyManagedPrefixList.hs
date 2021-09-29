@@ -35,6 +35,7 @@ module Network.AWS.EC2.ModifyManagedPrefixList
 
     -- * Request Lenses
     modifyManagedPrefixList_removeEntries,
+    modifyManagedPrefixList_maxEntries,
     modifyManagedPrefixList_dryRun,
     modifyManagedPrefixList_currentVersion,
     modifyManagedPrefixList_prefixListName,
@@ -62,6 +63,15 @@ import qualified Network.AWS.Response as Response
 data ModifyManagedPrefixList = ModifyManagedPrefixList'
   { -- | One or more entries to remove from the prefix list.
     removeEntries :: Prelude.Maybe [RemovePrefixListEntry],
+    -- | The maximum number of entries for the prefix list. You cannot modify the
+    -- entries of a prefix list and modify the size of a prefix list at the
+    -- same time.
+    --
+    -- If any of the resources that reference the prefix list cannot support
+    -- the new maximum size, the modify operation fails. Check the state
+    -- message for the IDs of the first ten resources that do not support the
+    -- new maximum size.
+    maxEntries :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -88,6 +98,15 @@ data ModifyManagedPrefixList = ModifyManagedPrefixList'
 --
 -- 'removeEntries', 'modifyManagedPrefixList_removeEntries' - One or more entries to remove from the prefix list.
 --
+-- 'maxEntries', 'modifyManagedPrefixList_maxEntries' - The maximum number of entries for the prefix list. You cannot modify the
+-- entries of a prefix list and modify the size of a prefix list at the
+-- same time.
+--
+-- If any of the resources that reference the prefix list cannot support
+-- the new maximum size, the modify operation fails. Check the state
+-- message for the IDs of the first ten resources that do not support the
+-- new maximum size.
+--
 -- 'dryRun', 'modifyManagedPrefixList_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -108,6 +127,7 @@ newModifyManagedPrefixList pPrefixListId_ =
   ModifyManagedPrefixList'
     { removeEntries =
         Prelude.Nothing,
+      maxEntries = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       currentVersion = Prelude.Nothing,
       prefixListName = Prelude.Nothing,
@@ -118,6 +138,17 @@ newModifyManagedPrefixList pPrefixListId_ =
 -- | One or more entries to remove from the prefix list.
 modifyManagedPrefixList_removeEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [RemovePrefixListEntry])
 modifyManagedPrefixList_removeEntries = Lens.lens (\ModifyManagedPrefixList' {removeEntries} -> removeEntries) (\s@ModifyManagedPrefixList' {} a -> s {removeEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The maximum number of entries for the prefix list. You cannot modify the
+-- entries of a prefix list and modify the size of a prefix list at the
+-- same time.
+--
+-- If any of the resources that reference the prefix list cannot support
+-- the new maximum size, the modify operation fails. Check the state
+-- message for the IDs of the first ten resources that do not support the
+-- new maximum size.
+modifyManagedPrefixList_maxEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Int)
+modifyManagedPrefixList_maxEntries = Lens.lens (\ModifyManagedPrefixList' {maxEntries} -> maxEntries) (\s@ModifyManagedPrefixList' {} a -> s {maxEntries = a} :: ModifyManagedPrefixList)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -176,6 +207,7 @@ instance Core.ToQuery ModifyManagedPrefixList where
           ( Core.toQueryList "RemoveEntry"
               Prelude.<$> removeEntries
           ),
+        "MaxEntries" Core.=: maxEntries,
         "DryRun" Core.=: dryRun,
         "CurrentVersion" Core.=: currentVersion,
         "PrefixListName" Core.=: prefixListName,

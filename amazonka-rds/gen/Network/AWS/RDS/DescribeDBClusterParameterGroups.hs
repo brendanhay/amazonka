@@ -40,8 +40,8 @@ module Network.AWS.RDS.DescribeDBClusterParameterGroups
     -- * Request Lenses
     describeDBClusterParameterGroups_filters,
     describeDBClusterParameterGroups_dbClusterParameterGroupName,
-    describeDBClusterParameterGroups_marker,
     describeDBClusterParameterGroups_maxRecords,
+    describeDBClusterParameterGroups_marker,
 
     -- * Destructuring the Response
     DescribeDBClusterParameterGroupsResponse (..),
@@ -74,11 +74,6 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
     -- -   If supplied, must match the name of an existing
     --     DBClusterParameterGroup.
     dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterParameterGroups@ request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -87,7 +82,12 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterParameterGroups@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,11 +108,6 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
 -- -   If supplied, must match the name of an existing
 --     DBClusterParameterGroup.
 --
--- 'marker', 'describeDBClusterParameterGroups_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterParameterGroups@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeDBClusterParameterGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -121,6 +116,11 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBClusterParameterGroups_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeDBClusterParameterGroups ::
   DescribeDBClusterParameterGroups
 newDescribeDBClusterParameterGroups =
@@ -129,8 +129,8 @@ newDescribeDBClusterParameterGroups =
         Prelude.Nothing,
       dbClusterParameterGroupName =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | This parameter isn\'t currently supported.
@@ -146,13 +146,6 @@ describeDBClusterParameterGroups_filters = Lens.lens (\DescribeDBClusterParamete
 describeDBClusterParameterGroups_dbClusterParameterGroupName :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
 describeDBClusterParameterGroups_dbClusterParameterGroupName = Lens.lens (\DescribeDBClusterParameterGroups' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DescribeDBClusterParameterGroups' {} a -> s {dbClusterParameterGroupName = a} :: DescribeDBClusterParameterGroups)
 
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterParameterGroups@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeDBClusterParameterGroups_marker :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
-describeDBClusterParameterGroups_marker = Lens.lens (\DescribeDBClusterParameterGroups' {marker} -> marker) (\s@DescribeDBClusterParameterGroups' {} a -> s {marker = a} :: DescribeDBClusterParameterGroups)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -163,6 +156,13 @@ describeDBClusterParameterGroups_marker = Lens.lens (\DescribeDBClusterParameter
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusterParameterGroups_maxRecords :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Int)
 describeDBClusterParameterGroups_maxRecords = Lens.lens (\DescribeDBClusterParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeDBClusterParameterGroups' {} a -> s {maxRecords = a} :: DescribeDBClusterParameterGroups)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeDBClusterParameterGroups_marker :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBClusterParameterGroups_marker = Lens.lens (\DescribeDBClusterParameterGroups' {marker} -> marker) (\s@DescribeDBClusterParameterGroups' {} a -> s {marker = a} :: DescribeDBClusterParameterGroups)
 
 instance
   Core.AWSPager
@@ -245,8 +245,8 @@ instance
             (Core.toQueryList "Filter" Prelude.<$> filters),
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- |

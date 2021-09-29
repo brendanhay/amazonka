@@ -26,29 +26,29 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the noncompliant resources in a member account for a specific
--- AWS Firewall Manager policy. A maximum of 100 entries are displayed. If
--- more than 100 resources are noncompliant, @EvaluationLimitExceeded@ is
--- set to @True@.
+-- Firewall Manager policy. A maximum of 100 entries are displayed. If more
+-- than 100 resources are noncompliant, @EvaluationLimitExceeded@ is set to
+-- @True@.
 --
 -- /See:/ 'newPolicyComplianceDetail' smart constructor.
 data PolicyComplianceDetail = PolicyComplianceDetail'
-  { -- | An array of resources that aren\'t protected by the AWS WAF or Shield
+  { -- | An array of resources that aren\'t protected by the WAF or Shield
     -- Advanced policy or that aren\'t in compliance with the security group
     -- policy.
     violators :: Prelude.Maybe [ComplianceViolator],
-    -- | The AWS account that created the AWS Firewall Manager policy.
+    -- | The Amazon Web Services account that created the Firewall Manager
+    -- policy.
     policyOwner :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID.
+    -- | The Amazon Web Services account ID.
     memberAccount :: Prelude.Maybe Prelude.Text,
-    -- | Indicates if over 100 resources are noncompliant with the AWS Firewall
+    -- | Indicates if over 100 resources are noncompliant with the Firewall
     -- Manager policy.
     evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
-    -- | Details about problems with dependent services, such as AWS WAF or AWS
-    -- Config, that are causing a resource to be noncompliant. The details
-    -- include the name of the dependent service and the error message received
-    -- that indicates the problem with the service.
+    -- | Details about problems with dependent services, such as WAF or Config,
+    -- and the error message received that indicates the problem with the
+    -- service.
     issueInfoMap :: Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text),
-    -- | The ID of the AWS Firewall Manager policy.
+    -- | The ID of the Firewall Manager policy.
     policyId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the returned information should be
     -- considered out of date.
@@ -64,23 +64,23 @@ data PolicyComplianceDetail = PolicyComplianceDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violators', 'policyComplianceDetail_violators' - An array of resources that aren\'t protected by the AWS WAF or Shield
+-- 'violators', 'policyComplianceDetail_violators' - An array of resources that aren\'t protected by the WAF or Shield
 -- Advanced policy or that aren\'t in compliance with the security group
 -- policy.
 --
--- 'policyOwner', 'policyComplianceDetail_policyOwner' - The AWS account that created the AWS Firewall Manager policy.
+-- 'policyOwner', 'policyComplianceDetail_policyOwner' - The Amazon Web Services account that created the Firewall Manager
+-- policy.
 --
--- 'memberAccount', 'policyComplianceDetail_memberAccount' - The AWS account ID.
+-- 'memberAccount', 'policyComplianceDetail_memberAccount' - The Amazon Web Services account ID.
 --
--- 'evaluationLimitExceeded', 'policyComplianceDetail_evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the AWS Firewall
+-- 'evaluationLimitExceeded', 'policyComplianceDetail_evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the Firewall
 -- Manager policy.
 --
--- 'issueInfoMap', 'policyComplianceDetail_issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS
--- Config, that are causing a resource to be noncompliant. The details
--- include the name of the dependent service and the error message received
--- that indicates the problem with the service.
+-- 'issueInfoMap', 'policyComplianceDetail_issueInfoMap' - Details about problems with dependent services, such as WAF or Config,
+-- and the error message received that indicates the problem with the
+-- service.
 --
--- 'policyId', 'policyComplianceDetail_policyId' - The ID of the AWS Firewall Manager policy.
+-- 'policyId', 'policyComplianceDetail_policyId' - The ID of the Firewall Manager policy.
 --
 -- 'expiredAt', 'policyComplianceDetail_expiredAt' - A timestamp that indicates when the returned information should be
 -- considered out of date.
@@ -98,33 +98,33 @@ newPolicyComplianceDetail =
       expiredAt = Prelude.Nothing
     }
 
--- | An array of resources that aren\'t protected by the AWS WAF or Shield
+-- | An array of resources that aren\'t protected by the WAF or Shield
 -- Advanced policy or that aren\'t in compliance with the security group
 -- policy.
 policyComplianceDetail_violators :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe [ComplianceViolator])
 policyComplianceDetail_violators = Lens.lens (\PolicyComplianceDetail' {violators} -> violators) (\s@PolicyComplianceDetail' {} a -> s {violators = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS account that created the AWS Firewall Manager policy.
+-- | The Amazon Web Services account that created the Firewall Manager
+-- policy.
 policyComplianceDetail_policyOwner :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
 policyComplianceDetail_policyOwner = Lens.lens (\PolicyComplianceDetail' {policyOwner} -> policyOwner) (\s@PolicyComplianceDetail' {} a -> s {policyOwner = a} :: PolicyComplianceDetail)
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 policyComplianceDetail_memberAccount :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
 policyComplianceDetail_memberAccount = Lens.lens (\PolicyComplianceDetail' {memberAccount} -> memberAccount) (\s@PolicyComplianceDetail' {} a -> s {memberAccount = a} :: PolicyComplianceDetail)
 
--- | Indicates if over 100 resources are noncompliant with the AWS Firewall
+-- | Indicates if over 100 resources are noncompliant with the Firewall
 -- Manager policy.
 policyComplianceDetail_evaluationLimitExceeded :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Bool)
 policyComplianceDetail_evaluationLimitExceeded = Lens.lens (\PolicyComplianceDetail' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@PolicyComplianceDetail' {} a -> s {evaluationLimitExceeded = a} :: PolicyComplianceDetail)
 
--- | Details about problems with dependent services, such as AWS WAF or AWS
--- Config, that are causing a resource to be noncompliant. The details
--- include the name of the dependent service and the error message received
--- that indicates the problem with the service.
+-- | Details about problems with dependent services, such as WAF or Config,
+-- and the error message received that indicates the problem with the
+-- service.
 policyComplianceDetail_issueInfoMap :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text))
 policyComplianceDetail_issueInfoMap = Lens.lens (\PolicyComplianceDetail' {issueInfoMap} -> issueInfoMap) (\s@PolicyComplianceDetail' {} a -> s {issueInfoMap = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the AWS Firewall Manager policy.
+-- | The ID of the Firewall Manager policy.
 policyComplianceDetail_policyId :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
 policyComplianceDetail_policyId = Lens.lens (\PolicyComplianceDetail' {policyId} -> policyId) (\s@PolicyComplianceDetail' {} a -> s {policyId = a} :: PolicyComplianceDetail)
 

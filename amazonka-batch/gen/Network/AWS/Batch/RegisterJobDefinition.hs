@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an AWS Batch job definition.
+-- Registers an Batch job definition.
 module Network.AWS.Batch.RegisterJobDefinition
   ( -- * Creating a Request
     RegisterJobDefinition (..),
@@ -66,20 +66,20 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- specify @FARGATE@.
     platformCapabilities :: Prelude.Maybe [PlatformCapability],
     -- | The timeout configuration for jobs that are submitted with this job
-    -- definition, after which AWS Batch terminates your jobs if they have not
+    -- definition, after which Batch terminates your jobs if they have not
     -- finished. If a job is terminated due to a timeout, it isn\'t retried.
     -- The minimum value for the timeout is 60 seconds. Any timeout
     -- configuration that\'s specified during a SubmitJob operation overrides
     -- the timeout configuration defined here. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     timeout :: Prelude.Maybe JobTimeout,
     -- | An object with various properties specific to multi-node parallel jobs.
     -- If you specify node properties for a job, it becomes a multi-node
     -- parallel job. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
-    -- in the /AWS Batch User Guide/. If the job definition\'s @type@ parameter
-    -- is @container@, then you must specify either @containerProperties@ or
+    -- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+    -- @container@, then you must specify either @containerProperties@ or
     -- @nodeProperties@.
     --
     -- If the job runs on Fargate resources, then you must not specify
@@ -88,8 +88,8 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- | The tags that you apply to the job definition to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging AWS Resources>
-    -- in /AWS Batch User Guide/.
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+    -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An object with various properties specific to single-node
     -- container-based jobs. If the job definition\'s @type@ parameter is
@@ -122,7 +122,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- | The type of job definition. For more information about multi-node
     -- parallel jobs, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     --
     -- If the job is run on Fargate resources, then @multinode@ isn\'t
     -- supported.
@@ -143,20 +143,20 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- specify @FARGATE@.
 --
 -- 'timeout', 'registerJobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
--- definition, after which AWS Batch terminates your jobs if they have not
+-- definition, after which Batch terminates your jobs if they have not
 -- finished. If a job is terminated due to a timeout, it isn\'t retried.
 -- The minimum value for the timeout is 60 seconds. Any timeout
 -- configuration that\'s specified during a SubmitJob operation overrides
 -- the timeout configuration defined here. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'nodeProperties', 'registerJobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
 -- If you specify node properties for a job, it becomes a multi-node
 -- parallel job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
--- in the /AWS Batch User Guide/. If the job definition\'s @type@ parameter
--- is @container@, then you must specify either @containerProperties@ or
+-- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+-- @container@, then you must specify either @containerProperties@ or
 -- @nodeProperties@.
 --
 -- If the job runs on Fargate resources, then you must not specify
@@ -165,8 +165,8 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- 'tags', 'registerJobDefinition_tags' - The tags that you apply to the job definition to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging AWS Resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
 --
 -- 'containerProperties', 'registerJobDefinition_containerProperties' - An object with various properties specific to single-node
 -- container-based jobs. If the job definition\'s @type@ parameter is
@@ -199,7 +199,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- 'type'', 'registerJobDefinition_type' - The type of job definition. For more information about multi-node
 -- parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- If the job is run on Fargate resources, then @multinode@ isn\'t
 -- supported.
@@ -231,13 +231,13 @@ registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (
 registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for jobs that are submitted with this job
--- definition, after which AWS Batch terminates your jobs if they have not
+-- definition, after which Batch terminates your jobs if they have not
 -- finished. If a job is terminated due to a timeout, it isn\'t retried.
 -- The minimum value for the timeout is 60 seconds. Any timeout
 -- configuration that\'s specified during a SubmitJob operation overrides
 -- the timeout configuration defined here. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe JobTimeout)
 registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> timeout) (\s@RegisterJobDefinition' {} a -> s {timeout = a} :: RegisterJobDefinition)
 
@@ -245,8 +245,8 @@ registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> 
 -- If you specify node properties for a job, it becomes a multi-node
 -- parallel job. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
--- in the /AWS Batch User Guide/. If the job definition\'s @type@ parameter
--- is @container@, then you must specify either @containerProperties@ or
+-- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+-- @container@, then you must specify either @containerProperties@ or
 -- @nodeProperties@.
 --
 -- If the job runs on Fargate resources, then you must not specify
@@ -257,8 +257,8 @@ registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeP
 -- | The tags that you apply to the job definition to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging AWS Resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
 registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
@@ -303,7 +303,7 @@ registerJobDefinition_jobDefinitionName = Lens.lens (\RegisterJobDefinition' {jo
 -- | The type of job definition. For more information about multi-node
 -- parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- If the job is run on Fargate resources, then @multinode@ isn\'t
 -- supported.

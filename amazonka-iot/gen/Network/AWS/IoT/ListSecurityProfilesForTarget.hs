@@ -23,6 +23,10 @@
 -- Lists the Device Defender security profiles attached to a target (thing
 -- group).
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListSecurityProfilesForTarget>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListSecurityProfilesForTarget
   ( -- * Creating a Request

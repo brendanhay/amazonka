@@ -20,23 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs an on-demand evaluation for the specified AWS Config rules against
--- the last known configuration state of the resources. Use
+-- Runs an on-demand evaluation for the specified Config rules against the
+-- last known configuration state of the resources. Use
 -- @StartConfigRulesEvaluation@ when you want to test that a rule you
 -- updated is working as expected. @StartConfigRulesEvaluation@ does not
 -- re-record the latest configuration state for your resources. It re-runs
 -- an evaluation against the last known state of your resources.
 --
--- You can specify up to 25 AWS Config rules per request.
+-- You can specify up to 25 Config rules per request.
 --
 -- An existing @StartConfigRulesEvaluation@ call for the specified rules
 -- must complete before you can call the API again. If you chose to have
--- AWS Config stream to an Amazon SNS topic, you will receive a
+-- Config stream to an Amazon SNS topic, you will receive a
 -- @ConfigRuleEvaluationStarted@ notification when the evaluation starts.
 --
 -- You don\'t need to call the @StartConfigRulesEvaluation@ API to run an
--- evaluation for a new rule. When you create a rule, AWS Config evaluates
--- your resources against the rule automatically.
+-- evaluation for a new rule. When you create a rule, Config evaluates your
+-- resources against the rule automatically.
 --
 -- The @StartConfigRulesEvaluation@ API is useful if you want to run
 -- on-demand evaluations, such as the following example:
@@ -50,7 +50,7 @@
 -- 3.  Instead of waiting for the next periodic evaluation, you call the
 --     @StartConfigRulesEvaluation@ API.
 --
--- 4.  AWS Config invokes your Lambda function and evaluates your IAM
+-- 4.  Config invokes your Lambda function and evaluates your IAM
 --     resources.
 --
 -- 5.  Your custom rule will still run periodic evaluations every 24 hours.
@@ -82,8 +82,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newStartConfigRulesEvaluation' smart constructor.
 data StartConfigRulesEvaluation = StartConfigRulesEvaluation'
-  { -- | The list of names of AWS Config rules that you want to run evaluations
-    -- for.
+  { -- | The list of names of Config rules that you want to run evaluations for.
     configRuleNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,8 +95,7 @@ data StartConfigRulesEvaluation = StartConfigRulesEvaluation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleNames', 'startConfigRulesEvaluation_configRuleNames' - The list of names of AWS Config rules that you want to run evaluations
--- for.
+-- 'configRuleNames', 'startConfigRulesEvaluation_configRuleNames' - The list of names of Config rules that you want to run evaluations for.
 newStartConfigRulesEvaluation ::
   StartConfigRulesEvaluation
 newStartConfigRulesEvaluation =
@@ -106,8 +104,7 @@ newStartConfigRulesEvaluation =
         Prelude.Nothing
     }
 
--- | The list of names of AWS Config rules that you want to run evaluations
--- for.
+-- | The list of names of Config rules that you want to run evaluations for.
 startConfigRulesEvaluation_configRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 startConfigRulesEvaluation_configRuleNames = Lens.lens (\StartConfigRulesEvaluation' {configRuleNames} -> configRuleNames) (\s@StartConfigRulesEvaluation' {} a -> s {configRuleNames = a} :: StartConfigRulesEvaluation) Prelude.. Lens.mapping Lens._Coerce
 
@@ -157,8 +154,7 @@ instance Core.ToPath StartConfigRulesEvaluation where
 instance Core.ToQuery StartConfigRulesEvaluation where
   toQuery = Prelude.const Prelude.mempty
 
--- | The output when you start the evaluation for the specified AWS Config
--- rule.
+-- | The output when you start the evaluation for the specified Config rule.
 --
 -- /See:/ 'newStartConfigRulesEvaluationResponse' smart constructor.
 data StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'

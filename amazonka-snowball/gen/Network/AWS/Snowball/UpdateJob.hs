@@ -32,8 +32,9 @@ module Network.AWS.Snowball.UpdateJob
     -- * Request Lenses
     updateJob_roleARN,
     updateJob_shippingOption,
-    updateJob_resources,
+    updateJob_onDeviceServiceConfiguration,
     updateJob_snowballCapacityPreference,
+    updateJob_resources,
     updateJob_description,
     updateJob_addressId,
     updateJob_forwardingAddressId,
@@ -65,11 +66,21 @@ data UpdateJob = UpdateJob'
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | The updated shipping option value of this job\'s ShippingDetails object.
     shippingOption :: Prelude.Maybe ShippingOption,
-    -- | The updated @JobResource@ object, or the updated JobResource object.
-    resources :: Prelude.Maybe JobResource,
+    -- | Specifies the service or services on the Snow Family device that your
+    -- transferred data will be exported from or imported into. AWS Snow Family
+    -- supports Amazon S3 and NFS (Network File System).
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
     -- object. The 50 TB Snowballs are only available in the US regions.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
     snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
+    -- | The updated @JobResource@ object, or the updated JobResource object.
+    resources :: Prelude.Maybe JobResource,
     -- | The updated description of this job\'s JobMetadata object.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the updated Address object.
@@ -100,10 +111,20 @@ data UpdateJob = UpdateJob'
 --
 -- 'shippingOption', 'updateJob_shippingOption' - The updated shipping option value of this job\'s ShippingDetails object.
 --
--- 'resources', 'updateJob_resources' - The updated @JobResource@ object, or the updated JobResource object.
+-- 'onDeviceServiceConfiguration', 'updateJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
 --
 -- 'snowballCapacityPreference', 'updateJob_snowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
 -- object. The 50 TB Snowballs are only available in the US regions.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+--
+-- 'resources', 'updateJob_resources' - The updated @JobResource@ object, or the updated JobResource object.
 --
 -- 'description', 'updateJob_description' - The updated description of this job\'s JobMetadata object.
 --
@@ -124,8 +145,9 @@ newUpdateJob pJobId_ =
   UpdateJob'
     { roleARN = Prelude.Nothing,
       shippingOption = Prelude.Nothing,
-      resources = Prelude.Nothing,
+      onDeviceServiceConfiguration = Prelude.Nothing,
       snowballCapacityPreference = Prelude.Nothing,
+      resources = Prelude.Nothing,
       description = Prelude.Nothing,
       addressId = Prelude.Nothing,
       forwardingAddressId = Prelude.Nothing,
@@ -144,14 +166,26 @@ updateJob_roleARN = Lens.lens (\UpdateJob' {roleARN} -> roleARN) (\s@UpdateJob' 
 updateJob_shippingOption :: Lens.Lens' UpdateJob (Prelude.Maybe ShippingOption)
 updateJob_shippingOption = Lens.lens (\UpdateJob' {shippingOption} -> shippingOption) (\s@UpdateJob' {} a -> s {shippingOption = a} :: UpdateJob)
 
--- | The updated @JobResource@ object, or the updated JobResource object.
-updateJob_resources :: Lens.Lens' UpdateJob (Prelude.Maybe JobResource)
-updateJob_resources = Lens.lens (\UpdateJob' {resources} -> resources) (\s@UpdateJob' {} a -> s {resources = a} :: UpdateJob)
+-- | Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+updateJob_onDeviceServiceConfiguration :: Lens.Lens' UpdateJob (Prelude.Maybe OnDeviceServiceConfiguration)
+updateJob_onDeviceServiceConfiguration = Lens.lens (\UpdateJob' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@UpdateJob' {} a -> s {onDeviceServiceConfiguration = a} :: UpdateJob)
 
 -- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
 -- object. The 50 TB Snowballs are only available in the US regions.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 updateJob_snowballCapacityPreference :: Lens.Lens' UpdateJob (Prelude.Maybe SnowballCapacity)
 updateJob_snowballCapacityPreference = Lens.lens (\UpdateJob' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@UpdateJob' {} a -> s {snowballCapacityPreference = a} :: UpdateJob)
+
+-- | The updated @JobResource@ object, or the updated JobResource object.
+updateJob_resources :: Lens.Lens' UpdateJob (Prelude.Maybe JobResource)
+updateJob_resources = Lens.lens (\UpdateJob' {resources} -> resources) (\s@UpdateJob' {} a -> s {resources = a} :: UpdateJob)
 
 -- | The updated description of this job\'s JobMetadata object.
 updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
@@ -211,9 +245,11 @@ instance Core.ToJSON UpdateJob where
           [ ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("ShippingOption" Core..=)
               Prelude.<$> shippingOption,
-            ("Resources" Core..=) Prelude.<$> resources,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration,
             ("SnowballCapacityPreference" Core..=)
               Prelude.<$> snowballCapacityPreference,
+            ("Resources" Core..=) Prelude.<$> resources,
             ("Description" Core..=) Prelude.<$> description,
             ("AddressId" Core..=) Prelude.<$> addressId,
             ("ForwardingAddressId" Core..=)

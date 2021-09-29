@@ -63,7 +63,10 @@ data ListMedicalVocabularies = ListMedicalVocabularies'
     -- search is not case sensitive. @ListMedicalVocabularies@ returns both
     -- \"@vocabularyname@\" and \"@VocabularyName@\".
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of vocabularies to return in the response.
+    -- | The maximum number of vocabularies to return in each page of results. If
+    -- there are fewer results than the value you specify, only the actual
+    -- results are returned. If you do not specify a value, the default of 5 is
+    -- used.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, returns only vocabularies with the @VocabularyState@
     -- equal to the specified vocabulary state. Use this field to see which
@@ -88,7 +91,10 @@ data ListMedicalVocabularies = ListMedicalVocabularies'
 -- search is not case sensitive. @ListMedicalVocabularies@ returns both
 -- \"@vocabularyname@\" and \"@VocabularyName@\".
 --
--- 'maxResults', 'listMedicalVocabularies_maxResults' - The maximum number of vocabularies to return in the response.
+-- 'maxResults', 'listMedicalVocabularies_maxResults' - The maximum number of vocabularies to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 --
 -- 'stateEquals', 'listMedicalVocabularies_stateEquals' - When specified, returns only vocabularies with the @VocabularyState@
 -- equal to the specified vocabulary state. Use this field to see which
@@ -116,7 +122,10 @@ listMedicalVocabularies_nextToken = Lens.lens (\ListMedicalVocabularies' {nextTo
 listMedicalVocabularies_nameContains :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
 listMedicalVocabularies_nameContains = Lens.lens (\ListMedicalVocabularies' {nameContains} -> nameContains) (\s@ListMedicalVocabularies' {} a -> s {nameContains = a} :: ListMedicalVocabularies)
 
--- | The maximum number of vocabularies to return in the response.
+-- | The maximum number of vocabularies to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 listMedicalVocabularies_maxResults :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Natural)
 listMedicalVocabularies_maxResults = Lens.lens (\ListMedicalVocabularies' {maxResults} -> maxResults) (\s@ListMedicalVocabularies' {} a -> s {maxResults = a} :: ListMedicalVocabularies)
 

@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this API action to view information about a specific execution of a
--- specific association.
+-- Views information about a specific execution of a specific association.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeAssociationExecutionTargets

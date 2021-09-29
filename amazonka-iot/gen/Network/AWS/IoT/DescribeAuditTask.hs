@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a Device Defender audit.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeAuditTask>
+-- action.
 module Network.AWS.IoT.DescribeAuditTask
   ( -- * Creating a Request
     DescribeAuditTask (..),

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns compliance details of a conformance pack for all AWS resources
--- that are monitered by conformance pack.
+-- Returns compliance details of a conformance pack for all Amazon Web
+-- Services resources that are monitered by conformance pack.
 module Network.AWS.Config.GetConformancePackComplianceDetails
   ( -- * Creating a Request
     GetConformancePackComplianceDetails (..),
@@ -60,7 +60,7 @@ data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
     -- | A @ConformancePackEvaluationFilters@ object.
     filters :: Prelude.Maybe ConformancePackEvaluationFilters,
     -- | The maximum number of evaluation results returned on each page. If you
-    -- do no specify a number, AWS Config uses the default. The default is 100.
+    -- do no specify a number, Config uses the default. The default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | Name of the conformance pack.
     conformancePackName :: Prelude.Text
@@ -81,7 +81,7 @@ data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
 -- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.
 --
 -- 'limit', 'getConformancePackComplianceDetails_limit' - The maximum number of evaluation results returned on each page. If you
--- do no specify a number, AWS Config uses the default. The default is 100.
+-- do no specify a number, Config uses the default. The default is 100.
 --
 -- 'conformancePackName', 'getConformancePackComplianceDetails_conformancePackName' - Name of the conformance pack.
 newGetConformancePackComplianceDetails ::
@@ -109,7 +109,7 @@ getConformancePackComplianceDetails_filters :: Lens.Lens' GetConformancePackComp
 getConformancePackComplianceDetails_filters = Lens.lens (\GetConformancePackComplianceDetails' {filters} -> filters) (\s@GetConformancePackComplianceDetails' {} a -> s {filters = a} :: GetConformancePackComplianceDetails)
 
 -- | The maximum number of evaluation results returned on each page. If you
--- do no specify a number, AWS Config uses the default. The default is 100.
+-- do no specify a number, Config uses the default. The default is 100.
 getConformancePackComplianceDetails_limit :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe Prelude.Natural)
 getConformancePackComplianceDetails_limit = Lens.lens (\GetConformancePackComplianceDetails' {limit} -> limit) (\s@GetConformancePackComplianceDetails' {} a -> s {limit = a} :: GetConformancePackComplianceDetails)
 

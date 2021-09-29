@@ -132,10 +132,11 @@ instance Core.ToQuery DescribeConfiguration where
 
 -- | /See:/ 'newDescribeConfigurationResponse' smart constructor.
 data DescribeConfigurationResponse = DescribeConfigurationResponse'
-  { -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
+  { -- | Required. The type of broker engine. Currently, Amazon MQ supports
     -- ACTIVEMQ and RABBITMQ.
     engineType :: Prelude.Maybe EngineType,
-    -- | The authentication strategy associated with the configuration.
+    -- | Optional. The authentication strategy associated with the configuration.
+    -- The default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | Required. The latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
@@ -147,9 +148,9 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Required. The version of the broker engine. For a list of supported
-    -- engine versions, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+    -- | Required. The broker engine\'s version. For a list of supported engine
+    -- versions, see,
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The list of all tags associated with this configuration.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -170,10 +171,11 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineType', 'describeConfigurationResponse_engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports
+-- 'engineType', 'describeConfigurationResponse_engineType' - Required. The type of broker engine. Currently, Amazon MQ supports
 -- ACTIVEMQ and RABBITMQ.
 --
--- 'authenticationStrategy', 'describeConfigurationResponse_authenticationStrategy' - The authentication strategy associated with the configuration.
+-- 'authenticationStrategy', 'describeConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 --
 -- 'latestRevision', 'describeConfigurationResponse_latestRevision' - Required. The latest revision of the configuration.
 --
@@ -185,9 +187,9 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
 --
--- 'engineVersion', 'describeConfigurationResponse_engineVersion' - Required. The version of the broker engine. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- 'engineVersion', 'describeConfigurationResponse_engineVersion' - Required. The broker engine\'s version. For a list of supported engine
+-- versions, see,
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 --
 -- 'tags', 'describeConfigurationResponse_tags' - The list of all tags associated with this configuration.
 --
@@ -216,12 +218,13 @@ newDescribeConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Required. The type of broker engine. Note: Currently, Amazon MQ supports
+-- | Required. The type of broker engine. Currently, Amazon MQ supports
 -- ACTIVEMQ and RABBITMQ.
 describeConfigurationResponse_engineType :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe EngineType)
 describeConfigurationResponse_engineType = Lens.lens (\DescribeConfigurationResponse' {engineType} -> engineType) (\s@DescribeConfigurationResponse' {} a -> s {engineType = a} :: DescribeConfigurationResponse)
 
--- | The authentication strategy associated with the configuration.
+-- | Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 describeConfigurationResponse_authenticationStrategy :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe AuthenticationStrategy)
 describeConfigurationResponse_authenticationStrategy = Lens.lens (\DescribeConfigurationResponse' {authenticationStrategy} -> authenticationStrategy) (\s@DescribeConfigurationResponse' {} a -> s {authenticationStrategy = a} :: DescribeConfigurationResponse)
 
@@ -243,9 +246,9 @@ describeConfigurationResponse_id = Lens.lens (\DescribeConfigurationResponse' {i
 describeConfigurationResponse_name :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationResponse_name = Lens.lens (\DescribeConfigurationResponse' {name} -> name) (\s@DescribeConfigurationResponse' {} a -> s {name = a} :: DescribeConfigurationResponse)
 
--- | Required. The version of the broker engine. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- | Required. The broker engine\'s version. For a list of supported engine
+-- versions, see,
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 describeConfigurationResponse_engineVersion :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationResponse_engineVersion = Lens.lens (\DescribeConfigurationResponse' {engineVersion} -> engineVersion) (\s@DescribeConfigurationResponse' {} a -> s {engineVersion = a} :: DescribeConfigurationResponse)
 

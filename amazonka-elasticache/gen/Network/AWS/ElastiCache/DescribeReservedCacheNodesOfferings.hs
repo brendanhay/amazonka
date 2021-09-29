@@ -29,13 +29,13 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     newDescribeReservedCacheNodesOfferings,
 
     -- * Request Lenses
-    describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId,
     describeReservedCacheNodesOfferings_duration,
+    describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId,
     describeReservedCacheNodesOfferings_cacheNodeType,
     describeReservedCacheNodesOfferings_offeringType,
     describeReservedCacheNodesOfferings_productDescription,
-    describeReservedCacheNodesOfferings_marker,
     describeReservedCacheNodesOfferings_maxRecords,
+    describeReservedCacheNodesOfferings_marker,
 
     -- * Destructuring the Response
     DescribeReservedCacheNodesOfferingsResponse (..),
@@ -60,17 +60,17 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeReservedCacheNodesOfferings' smart constructor.
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-  { -- | The offering identifier filter value. Use this parameter to show only
+  { -- | Duration filter value, specified in years or seconds. Use this parameter
+    -- to show only reservations for a given duration.
+    --
+    -- Valid Values: @1 | 3 | 31536000 | 94608000@
+    duration :: Prelude.Maybe Prelude.Text,
+    -- | The offering identifier filter value. Use this parameter to show only
     -- the available offering that matches the specified reservation
     -- identifier.
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
     reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | Duration filter value, specified in years or seconds. Use this parameter
-    -- to show only reservations for a given duration.
-    --
-    -- Valid Values: @1 | 3 | 31536000 | 94608000@
-    duration :: Prelude.Maybe Prelude.Text,
     -- | The cache node type filter value. Use this parameter to show only the
     -- available offerings matching the specified cache node type.
     --
@@ -175,11 +175,6 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     -- | The product description filter value. Use this parameter to show only
     -- the available offerings matching the specified product description.
     productDescription :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -187,7 +182,12 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -199,16 +199,16 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'duration', 'describeReservedCacheNodesOfferings_duration' - Duration filter value, specified in years or seconds. Use this parameter
+-- to show only reservations for a given duration.
+--
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
+--
 -- 'reservedCacheNodesOfferingId', 'describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId' - The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
 -- identifier.
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
---
--- 'duration', 'describeReservedCacheNodesOfferings_duration' - Duration filter value, specified in years or seconds. Use this parameter
--- to show only reservations for a given duration.
---
--- Valid Values: @1 | 3 | 31536000 | 94608000@
 --
 -- 'cacheNodeType', 'describeReservedCacheNodesOfferings_cacheNodeType' - The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
@@ -314,11 +314,6 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 -- 'productDescription', 'describeReservedCacheNodesOfferings_productDescription' - The product description filter value. Use this parameter to show only
 -- the available offerings matching the specified product description.
 --
--- 'marker', 'describeReservedCacheNodesOfferings_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReservedCacheNodesOfferings_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -326,19 +321,32 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeReservedCacheNodesOfferings_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeReservedCacheNodesOfferings ::
   DescribeReservedCacheNodesOfferings
 newDescribeReservedCacheNodesOfferings =
   DescribeReservedCacheNodesOfferings'
-    { reservedCacheNodesOfferingId =
+    { duration =
         Prelude.Nothing,
-      duration = Prelude.Nothing,
+      reservedCacheNodesOfferingId =
+        Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       offeringType = Prelude.Nothing,
       productDescription = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
+
+-- | Duration filter value, specified in years or seconds. Use this parameter
+-- to show only reservations for a given duration.
+--
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
+describeReservedCacheNodesOfferings_duration :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_duration = Lens.lens (\DescribeReservedCacheNodesOfferings' {duration} -> duration) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {duration = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
@@ -347,13 +355,6 @@ newDescribeReservedCacheNodesOfferings =
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
 describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
 describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId = Lens.lens (\DescribeReservedCacheNodesOfferings' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {reservedCacheNodesOfferingId = a} :: DescribeReservedCacheNodesOfferings)
-
--- | Duration filter value, specified in years or seconds. Use this parameter
--- to show only reservations for a given duration.
---
--- Valid Values: @1 | 3 | 31536000 | 94608000@
-describeReservedCacheNodesOfferings_duration :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
-describeReservedCacheNodesOfferings_duration = Lens.lens (\DescribeReservedCacheNodesOfferings' {duration} -> duration) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {duration = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
@@ -465,13 +466,6 @@ describeReservedCacheNodesOfferings_offeringType = Lens.lens (\DescribeReservedC
 describeReservedCacheNodesOfferings_productDescription :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
 describeReservedCacheNodesOfferings_productDescription = Lens.lens (\DescribeReservedCacheNodesOfferings' {productDescription} -> productDescription) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {productDescription = a} :: DescribeReservedCacheNodesOfferings)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeReservedCacheNodesOfferings_marker :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
-describeReservedCacheNodesOfferings_marker = Lens.lens (\DescribeReservedCacheNodesOfferings' {marker} -> marker) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {marker = a} :: DescribeReservedCacheNodesOfferings)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -481,6 +475,13 @@ describeReservedCacheNodesOfferings_marker = Lens.lens (\DescribeReservedCacheNo
 -- Constraints: minimum 20; maximum 100.
 describeReservedCacheNodesOfferings_maxRecords :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Int)
 describeReservedCacheNodesOfferings_maxRecords = Lens.lens (\DescribeReservedCacheNodesOfferings' {maxRecords} -> maxRecords) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {maxRecords = a} :: DescribeReservedCacheNodesOfferings)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeReservedCacheNodesOfferings_marker :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_marker = Lens.lens (\DescribeReservedCacheNodesOfferings' {marker} -> marker) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {marker = a} :: DescribeReservedCacheNodesOfferings)
 
 instance
   Core.AWSPager
@@ -561,14 +562,14 @@ instance
                   ),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "Duration" Core.=: duration,
         "ReservedCacheNodesOfferingId"
           Core.=: reservedCacheNodesOfferingId,
-        "Duration" Core.=: duration,
         "CacheNodeType" Core.=: cacheNodeType,
         "OfferingType" Core.=: offeringType,
         "ProductDescription" Core.=: productDescription,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Represents the output of a @DescribeReservedCacheNodesOfferings@

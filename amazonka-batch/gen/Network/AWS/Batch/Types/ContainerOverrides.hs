@@ -29,22 +29,33 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainerOverrides' smart constructor.
 data ContainerOverrides = ContainerOverrides'
-  { -- | This parameter is deprecated and not supported for jobs run on Fargate
-    -- resources, use @ResourceRequirement@. For jobs run on EC2 resource, the
-    -- number of MiB of memory reserved for the job. This value overrides the
-    -- value set in the job definition.
+  { -- | This parameter indicates the amount of memory (in MiB) that\'s reserved
+    -- for the job. It overrides the @memory@ parameter set in the job
+    -- definition, but doesn\'t override any memory requirement specified in
+    -- the @ResourceRequirement@ structure in the job definition. To override
+    -- memory requirements that are specified in the @ResourceRequirement@
+    -- structure in the job definition, @ResourceRequirement@ must be specified
+    -- in the @SubmitJob@ request, with @type@ set to @MEMORY@ and @value@ set
+    -- to the new value.
+    --
+    -- This parameter is supported for jobs that run on EC2 resources, but
+    -- isn\'t supported for jobs that run on Fargate resources. For these
+    -- resources, use @resourceRequirement@ instead.
     memory :: Prelude.Maybe Prelude.Int,
     -- | The instance type to use for a multi-node parallel job.
     --
-    -- This parameter isn\'t applicable to single-node container jobs or for
-    -- jobs running on Fargate resources and shouldn\'t be provided.
+    -- This parameter isn\'t applicable to single-node container jobs or jobs
+    -- that run on Fargate resources, and shouldn\'t be provided.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is deprecated and not supported for jobs run on Fargate
-    -- resources, see @resourceRequirement@. For jobs run on EC2 resources, the
-    -- number of vCPUs to reserve for the container. This value overrides the
-    -- value set in the job definition. Jobs run on EC2 resources can specify
-    -- the vCPU requirement using @resourceRequirement@ but the vCPU
-    -- requirements can\'t be specified both here and in @resourceRequirement@.
+    -- | This parameter indicates the number of vCPUs reserved for the
+    -- container.It overrides the @vcpus@ parameter that\'s set in the job
+    -- definition, but doesn\'t override any vCPU requirement specified in the
+    -- @resourceRequirement@ structure in the job definition. To override vCPU
+    -- requirements that are specified in the @ResourceRequirement@ structure
+    -- in the job definition, @ResourceRequirement@ must be specified in the
+    -- @SubmitJob@ request, with @type@ set to @VCPU@ and @value@ set to the
+    -- new value.
+    --
     -- This parameter maps to @CpuShares@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
@@ -53,9 +64,10 @@ data ContainerOverrides = ContainerOverrides'
     -- <https://docs.docker.com/engine/reference/run/ docker run>. Each vCPU is
     -- equivalent to 1,024 CPU shares. You must specify at least one vCPU.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided. Jobs running on Fargate resources must
-    -- specify the vCPU requirement for the job using @resourceRequirements@.
+    -- This parameter is supported for jobs that run on EC2 resources, but
+    -- isn\'t supported for jobs that run on Fargate resources. For Fargate
+    -- resources, you can only use @resourceRequirement@. For EC2 resources,
+    -- you can use either this parameter or @resourceRequirement@ but not both.
     vcpus :: Prelude.Maybe Prelude.Int,
     -- | The environment variables to send to the container. You can add new
     -- environment variables, which are added to the container at launch, or
@@ -63,8 +75,7 @@ data ContainerOverrides = ContainerOverrides'
     -- image or the job definition.
     --
     -- Environment variables must not start with @AWS_BATCH@; this naming
-    -- convention is reserved for variables that are set by the AWS Batch
-    -- service.
+    -- convention is reserved for variables that are set by the Batch service.
     environment :: Prelude.Maybe [KeyValuePair],
     -- | The command to send to the container that overrides the default command
     -- from the Docker image or the job definition.
@@ -84,22 +95,33 @@ data ContainerOverrides = ContainerOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memory', 'containerOverrides_memory' - This parameter is deprecated and not supported for jobs run on Fargate
--- resources, use @ResourceRequirement@. For jobs run on EC2 resource, the
--- number of MiB of memory reserved for the job. This value overrides the
--- value set in the job definition.
+-- 'memory', 'containerOverrides_memory' - This parameter indicates the amount of memory (in MiB) that\'s reserved
+-- for the job. It overrides the @memory@ parameter set in the job
+-- definition, but doesn\'t override any memory requirement specified in
+-- the @ResourceRequirement@ structure in the job definition. To override
+-- memory requirements that are specified in the @ResourceRequirement@
+-- structure in the job definition, @ResourceRequirement@ must be specified
+-- in the @SubmitJob@ request, with @type@ set to @MEMORY@ and @value@ set
+-- to the new value.
+--
+-- This parameter is supported for jobs that run on EC2 resources, but
+-- isn\'t supported for jobs that run on Fargate resources. For these
+-- resources, use @resourceRequirement@ instead.
 --
 -- 'instanceType', 'containerOverrides_instanceType' - The instance type to use for a multi-node parallel job.
 --
--- This parameter isn\'t applicable to single-node container jobs or for
--- jobs running on Fargate resources and shouldn\'t be provided.
+-- This parameter isn\'t applicable to single-node container jobs or jobs
+-- that run on Fargate resources, and shouldn\'t be provided.
 --
--- 'vcpus', 'containerOverrides_vcpus' - This parameter is deprecated and not supported for jobs run on Fargate
--- resources, see @resourceRequirement@. For jobs run on EC2 resources, the
--- number of vCPUs to reserve for the container. This value overrides the
--- value set in the job definition. Jobs run on EC2 resources can specify
--- the vCPU requirement using @resourceRequirement@ but the vCPU
--- requirements can\'t be specified both here and in @resourceRequirement@.
+-- 'vcpus', 'containerOverrides_vcpus' - This parameter indicates the number of vCPUs reserved for the
+-- container.It overrides the @vcpus@ parameter that\'s set in the job
+-- definition, but doesn\'t override any vCPU requirement specified in the
+-- @resourceRequirement@ structure in the job definition. To override vCPU
+-- requirements that are specified in the @ResourceRequirement@ structure
+-- in the job definition, @ResourceRequirement@ must be specified in the
+-- @SubmitJob@ request, with @type@ set to @VCPU@ and @value@ set to the
+-- new value.
+--
 -- This parameter maps to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
@@ -108,9 +130,10 @@ data ContainerOverrides = ContainerOverrides'
 -- <https://docs.docker.com/engine/reference/run/ docker run>. Each vCPU is
 -- equivalent to 1,024 CPU shares. You must specify at least one vCPU.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided. Jobs running on Fargate resources must
--- specify the vCPU requirement for the job using @resourceRequirements@.
+-- This parameter is supported for jobs that run on EC2 resources, but
+-- isn\'t supported for jobs that run on Fargate resources. For Fargate
+-- resources, you can only use @resourceRequirement@. For EC2 resources,
+-- you can use either this parameter or @resourceRequirement@ but not both.
 --
 -- 'environment', 'containerOverrides_environment' - The environment variables to send to the container. You can add new
 -- environment variables, which are added to the container at launch, or
@@ -118,8 +141,7 @@ data ContainerOverrides = ContainerOverrides'
 -- image or the job definition.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the AWS Batch
--- service.
+-- convention is reserved for variables that are set by the Batch service.
 --
 -- 'command', 'containerOverrides_command' - The command to send to the container that overrides the default command
 -- from the Docker image or the job definition.
@@ -139,26 +161,37 @@ newContainerOverrides =
       resourceRequirements = Prelude.Nothing
     }
 
--- | This parameter is deprecated and not supported for jobs run on Fargate
--- resources, use @ResourceRequirement@. For jobs run on EC2 resource, the
--- number of MiB of memory reserved for the job. This value overrides the
--- value set in the job definition.
+-- | This parameter indicates the amount of memory (in MiB) that\'s reserved
+-- for the job. It overrides the @memory@ parameter set in the job
+-- definition, but doesn\'t override any memory requirement specified in
+-- the @ResourceRequirement@ structure in the job definition. To override
+-- memory requirements that are specified in the @ResourceRequirement@
+-- structure in the job definition, @ResourceRequirement@ must be specified
+-- in the @SubmitJob@ request, with @type@ set to @MEMORY@ and @value@ set
+-- to the new value.
+--
+-- This parameter is supported for jobs that run on EC2 resources, but
+-- isn\'t supported for jobs that run on Fargate resources. For these
+-- resources, use @resourceRequirement@ instead.
 containerOverrides_memory :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Int)
 containerOverrides_memory = Lens.lens (\ContainerOverrides' {memory} -> memory) (\s@ContainerOverrides' {} a -> s {memory = a} :: ContainerOverrides)
 
 -- | The instance type to use for a multi-node parallel job.
 --
--- This parameter isn\'t applicable to single-node container jobs or for
--- jobs running on Fargate resources and shouldn\'t be provided.
+-- This parameter isn\'t applicable to single-node container jobs or jobs
+-- that run on Fargate resources, and shouldn\'t be provided.
 containerOverrides_instanceType :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Text)
 containerOverrides_instanceType = Lens.lens (\ContainerOverrides' {instanceType} -> instanceType) (\s@ContainerOverrides' {} a -> s {instanceType = a} :: ContainerOverrides)
 
--- | This parameter is deprecated and not supported for jobs run on Fargate
--- resources, see @resourceRequirement@. For jobs run on EC2 resources, the
--- number of vCPUs to reserve for the container. This value overrides the
--- value set in the job definition. Jobs run on EC2 resources can specify
--- the vCPU requirement using @resourceRequirement@ but the vCPU
--- requirements can\'t be specified both here and in @resourceRequirement@.
+-- | This parameter indicates the number of vCPUs reserved for the
+-- container.It overrides the @vcpus@ parameter that\'s set in the job
+-- definition, but doesn\'t override any vCPU requirement specified in the
+-- @resourceRequirement@ structure in the job definition. To override vCPU
+-- requirements that are specified in the @ResourceRequirement@ structure
+-- in the job definition, @ResourceRequirement@ must be specified in the
+-- @SubmitJob@ request, with @type@ set to @VCPU@ and @value@ set to the
+-- new value.
+--
 -- This parameter maps to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
@@ -167,9 +200,10 @@ containerOverrides_instanceType = Lens.lens (\ContainerOverrides' {instanceType}
 -- <https://docs.docker.com/engine/reference/run/ docker run>. Each vCPU is
 -- equivalent to 1,024 CPU shares. You must specify at least one vCPU.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided. Jobs running on Fargate resources must
--- specify the vCPU requirement for the job using @resourceRequirements@.
+-- This parameter is supported for jobs that run on EC2 resources, but
+-- isn\'t supported for jobs that run on Fargate resources. For Fargate
+-- resources, you can only use @resourceRequirement@. For EC2 resources,
+-- you can use either this parameter or @resourceRequirement@ but not both.
 containerOverrides_vcpus :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Int)
 containerOverrides_vcpus = Lens.lens (\ContainerOverrides' {vcpus} -> vcpus) (\s@ContainerOverrides' {} a -> s {vcpus = a} :: ContainerOverrides)
 
@@ -179,8 +213,7 @@ containerOverrides_vcpus = Lens.lens (\ContainerOverrides' {vcpus} -> vcpus) (\s
 -- image or the job definition.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the AWS Batch
--- service.
+-- convention is reserved for variables that are set by the Batch service.
 containerOverrides_environment :: Lens.Lens' ContainerOverrides (Prelude.Maybe [KeyValuePair])
 containerOverrides_environment = Lens.lens (\ContainerOverrides' {environment} -> environment) (\s@ContainerOverrides' {} a -> s {environment = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens._Coerce
 

@@ -54,8 +54,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateEdgePackagingJob' smart constructor.
 data CreateEdgePackagingJob = CreateEdgePackagingJob'
-  { -- | The CMK to use when encrypting the EBS volume the edge packaging job
-    -- runs on.
+  { -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
+    -- the edge packaging job runs on.
     resourceKey :: Prelude.Maybe Prelude.Text,
     -- | Creates tags for the packaging job.
     tags :: Prelude.Maybe [Tag],
@@ -85,8 +85,8 @@ data CreateEdgePackagingJob = CreateEdgePackagingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceKey', 'createEdgePackagingJob_resourceKey' - The CMK to use when encrypting the EBS volume the edge packaging job
--- runs on.
+-- 'resourceKey', 'createEdgePackagingJob_resourceKey' - The Amazon Web Services KMS key to use when encrypting the EBS volume
+-- the edge packaging job runs on.
 --
 -- 'tags', 'createEdgePackagingJob_tags' - Creates tags for the packaging job.
 --
@@ -137,8 +137,8 @@ newCreateEdgePackagingJob
         outputConfig = pOutputConfig_
       }
 
--- | The CMK to use when encrypting the EBS volume the edge packaging job
--- runs on.
+-- | The Amazon Web Services KMS key to use when encrypting the EBS volume
+-- the edge packaging job runs on.
 createEdgePackagingJob_resourceKey :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe Prelude.Text)
 createEdgePackagingJob_resourceKey = Lens.lens (\CreateEdgePackagingJob' {resourceKey} -> resourceKey) (\s@CreateEdgePackagingJob' {} a -> s {resourceKey = a} :: CreateEdgePackagingJob)
 

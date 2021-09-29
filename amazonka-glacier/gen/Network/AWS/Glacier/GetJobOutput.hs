@@ -85,8 +85,8 @@ module Network.AWS.Glacier.GetJobOutput
     -- * Response Lenses
     getJobOutputResponse_contentType,
     getJobOutputResponse_contentRange,
-    getJobOutputResponse_archiveDescription,
     getJobOutputResponse_acceptRanges,
+    getJobOutputResponse_archiveDescription,
     getJobOutputResponse_checksum,
     getJobOutputResponse_status,
     getJobOutputResponse_body,
@@ -275,8 +275,8 @@ instance Core.AWSRequest GetJobOutput where
           GetJobOutputResponse'
             Prelude.<$> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Range")
-            Prelude.<*> (h Core..#? "x-amz-archive-description")
             Prelude.<*> (h Core..#? "Accept-Ranges")
+            Prelude.<*> (h Core..#? "x-amz-archive-description")
             Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
@@ -321,11 +321,11 @@ data GetJobOutputResponse = GetJobOutputResponse'
     -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
     -- first 1 MB from 8 MB.
     contentRange :: Prelude.Maybe Prelude.Text,
-    -- | The description of an archive.
-    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | Indicates the range units accepted. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
     acceptRanges :: Prelude.Maybe Prelude.Text,
+    -- | The description of an archive.
+    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The checksum of the data in the response. This header is returned only
     -- when retrieving the output for an archive retrieval job. Furthermore,
     -- this header appears only under the following conditions:
@@ -371,10 +371,10 @@ data GetJobOutputResponse = GetJobOutputResponse'
 -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
 -- first 1 MB from 8 MB.
 --
--- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
---
 -- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+--
+-- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
 --
 -- 'checksum', 'getJobOutputResponse_checksum' - The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -408,8 +408,8 @@ newGetJobOutputResponse pStatus_ pBody_ =
     { contentType =
         Prelude.Nothing,
       contentRange = Prelude.Nothing,
-      archiveDescription = Prelude.Nothing,
       acceptRanges = Prelude.Nothing,
+      archiveDescription = Prelude.Nothing,
       checksum = Prelude.Nothing,
       status = pStatus_,
       body = pBody_
@@ -431,14 +431,14 @@ getJobOutputResponse_contentType = Lens.lens (\GetJobOutputResponse' {contentTyp
 getJobOutputResponse_contentRange :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_contentRange = Lens.lens (\GetJobOutputResponse' {contentRange} -> contentRange) (\s@GetJobOutputResponse' {} a -> s {contentRange = a} :: GetJobOutputResponse)
 
--- | The description of an archive.
-getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
-
 -- | Indicates the range units accepted. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
 getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
+
+-- | The description of an archive.
+getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,

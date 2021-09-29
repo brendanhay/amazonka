@@ -32,8 +32,8 @@ module Network.AWS.EC2.DescribeAddressesAttribute
 
     -- * Request Lenses
     describeAddressesAttribute_nextToken,
-    describeAddressesAttribute_dryRun,
     describeAddressesAttribute_maxResults,
+    describeAddressesAttribute_dryRun,
     describeAddressesAttribute_attribute,
     describeAddressesAttribute_allocationIds,
 
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 data DescribeAddressesAttribute = DescribeAddressesAttribute'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The attribute of the IP address.
     attribute :: Prelude.Maybe AddressAttributeName,
     -- | [EC2-VPC] The allocation IDs.
@@ -85,14 +85,14 @@ data DescribeAddressesAttribute = DescribeAddressesAttribute'
 --
 -- 'nextToken', 'describeAddressesAttribute_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'describeAddressesAttribute_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'describeAddressesAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeAddressesAttribute_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'attribute', 'describeAddressesAttribute_attribute' - The attribute of the IP address.
 --
@@ -103,8 +103,8 @@ newDescribeAddressesAttribute =
   DescribeAddressesAttribute'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       attribute = Prelude.Nothing,
       allocationIds = Prelude.Nothing
     }
@@ -113,18 +113,18 @@ newDescribeAddressesAttribute =
 describeAddressesAttribute_nextToken :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Text)
 describeAddressesAttribute_nextToken = Lens.lens (\DescribeAddressesAttribute' {nextToken} -> nextToken) (\s@DescribeAddressesAttribute' {} a -> s {nextToken = a} :: DescribeAddressesAttribute)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeAddressesAttribute_maxResults :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Natural)
+describeAddressesAttribute_maxResults = Lens.lens (\DescribeAddressesAttribute' {maxResults} -> maxResults) (\s@DescribeAddressesAttribute' {} a -> s {maxResults = a} :: DescribeAddressesAttribute)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeAddressesAttribute_dryRun :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Bool)
 describeAddressesAttribute_dryRun = Lens.lens (\DescribeAddressesAttribute' {dryRun} -> dryRun) (\s@DescribeAddressesAttribute' {} a -> s {dryRun = a} :: DescribeAddressesAttribute)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeAddressesAttribute_maxResults :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Natural)
-describeAddressesAttribute_maxResults = Lens.lens (\DescribeAddressesAttribute' {maxResults} -> maxResults) (\s@DescribeAddressesAttribute' {} a -> s {maxResults = a} :: DescribeAddressesAttribute)
 
 -- | The attribute of the IP address.
 describeAddressesAttribute_attribute :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe AddressAttributeName)
@@ -190,8 +190,8 @@ instance Core.ToQuery DescribeAddressesAttribute where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "Attribute" Core.=: attribute,
         Core.toQuery
           ( Core.toQueryList "AllocationId"

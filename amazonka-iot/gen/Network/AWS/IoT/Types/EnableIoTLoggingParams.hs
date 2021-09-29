@@ -24,8 +24,8 @@ import Network.AWS.IoT.Types.LogLevel
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Parameters used when defining a mitigation action that enable AWS IoT
--- logging.
+-- | Parameters used when defining a mitigation action that enable Amazon Web
+-- Services IoT Core logging.
 --
 -- /See:/ 'newEnableIoTLoggingParams' smart constructor.
 data EnableIoTLoggingParams = EnableIoTLoggingParams'

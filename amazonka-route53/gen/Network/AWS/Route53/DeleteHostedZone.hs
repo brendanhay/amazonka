@@ -22,8 +22,8 @@
 --
 -- Deletes a hosted zone.
 --
--- If the hosted zone was created by another service, such as AWS Cloud
--- Map, see
+-- If the hosted zone was created by another service, such as Cloud Map,
+-- see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service Deleting Public Hosted Zones That Were Created by Another Service>
 -- in the /Amazon Route 53 Developer Guide/ for information about how to
 -- delete it. (The process is the same for public and private hosted zones
@@ -70,7 +70,7 @@
 --     hosted zone.
 --
 -- -   Use the @ListHostedZones@ action to get a list of the hosted zones
---     associated with the current AWS account.
+--     associated with the current Amazon Web Services account.
 module Network.AWS.Route53.DeleteHostedZone
   ( -- * Creating a Request
     DeleteHostedZone (..),

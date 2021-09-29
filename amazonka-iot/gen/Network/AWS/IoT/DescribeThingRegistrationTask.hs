@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a bulk thing provisioning task.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeThingRegistrationTask>
+-- action.
 module Network.AWS.IoT.DescribeThingRegistrationTask
   ( -- * Creating a Request
     DescribeThingRegistrationTask (..),
@@ -40,8 +44,8 @@ module Network.AWS.IoT.DescribeThingRegistrationTask
     describeThingRegistrationTaskResponse_roleArn,
     describeThingRegistrationTaskResponse_message,
     describeThingRegistrationTaskResponse_taskId,
-    describeThingRegistrationTaskResponse_percentageProgress,
     describeThingRegistrationTaskResponse_creationDate,
+    describeThingRegistrationTaskResponse_percentageProgress,
     describeThingRegistrationTaskResponse_inputFileBucket,
     describeThingRegistrationTaskResponse_failureCount,
     describeThingRegistrationTaskResponse_successCount,
@@ -102,8 +106,8 @@ instance
             Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (x Core..?> "message")
             Prelude.<*> (x Core..?> "taskId")
-            Prelude.<*> (x Core..?> "percentageProgress")
             Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<*> (x Core..?> "percentageProgress")
             Prelude.<*> (x Core..?> "inputFileBucket")
             Prelude.<*> (x Core..?> "failureCount")
             Prelude.<*> (x Core..?> "successCount")
@@ -142,10 +146,10 @@ data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskRespon
     message :: Prelude.Maybe Prelude.Text,
     -- | The task ID.
     taskId :: Prelude.Maybe Prelude.Text,
-    -- | The progress of the bulk provisioning task expressed as a percentage.
-    percentageProgress :: Prelude.Maybe Prelude.Natural,
     -- | The task creation date.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The progress of the bulk provisioning task expressed as a percentage.
+    percentageProgress :: Prelude.Maybe Prelude.Natural,
     -- | The S3 bucket that contains the input file.
     inputFileBucket :: Prelude.Maybe Prelude.Text,
     -- | The number of things that failed to be provisioned.
@@ -179,9 +183,9 @@ data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskRespon
 --
 -- 'taskId', 'describeThingRegistrationTaskResponse_taskId' - The task ID.
 --
--- 'percentageProgress', 'describeThingRegistrationTaskResponse_percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
---
 -- 'creationDate', 'describeThingRegistrationTaskResponse_creationDate' - The task creation date.
+--
+-- 'percentageProgress', 'describeThingRegistrationTaskResponse_percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
 --
 -- 'inputFileBucket', 'describeThingRegistrationTaskResponse_inputFileBucket' - The S3 bucket that contains the input file.
 --
@@ -205,8 +209,8 @@ newDescribeThingRegistrationTaskResponse pHttpStatus_ =
       roleArn = Prelude.Nothing,
       message = Prelude.Nothing,
       taskId = Prelude.Nothing,
-      percentageProgress = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      percentageProgress = Prelude.Nothing,
       inputFileBucket = Prelude.Nothing,
       failureCount = Prelude.Nothing,
       successCount = Prelude.Nothing,
@@ -238,13 +242,13 @@ describeThingRegistrationTaskResponse_message = Lens.lens (\DescribeThingRegistr
 describeThingRegistrationTaskResponse_taskId :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
 describeThingRegistrationTaskResponse_taskId = Lens.lens (\DescribeThingRegistrationTaskResponse' {taskId} -> taskId) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {taskId = a} :: DescribeThingRegistrationTaskResponse)
 
--- | The progress of the bulk provisioning task expressed as a percentage.
-describeThingRegistrationTaskResponse_percentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Natural)
-describeThingRegistrationTaskResponse_percentageProgress = Lens.lens (\DescribeThingRegistrationTaskResponse' {percentageProgress} -> percentageProgress) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
-
 -- | The task creation date.
 describeThingRegistrationTaskResponse_creationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
 describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The progress of the bulk provisioning task expressed as a percentage.
+describeThingRegistrationTaskResponse_percentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Natural)
+describeThingRegistrationTaskResponse_percentageProgress = Lens.lens (\DescribeThingRegistrationTaskResponse' {percentageProgress} -> percentageProgress) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The S3 bucket that contains the input file.
 describeThingRegistrationTaskResponse_inputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)

@@ -34,8 +34,8 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     newDescribeDefaultClusterParameters,
 
     -- * Request Lenses
-    describeDefaultClusterParameters_marker,
     describeDefaultClusterParameters_maxRecords,
+    describeDefaultClusterParameters_marker,
     describeDefaultClusterParameters_parameterGroupFamily,
 
     -- * Destructuring the Response
@@ -59,15 +59,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-  { -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a
-    -- DescribeDefaultClusterParameters request exceed the value specified in
-    -- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
-    -- You can retrieve the next set of response records by providing the
-    -- returned marker value in the @Marker@ parameter and retrying the
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of response records to return in each call. If the
+  { -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
@@ -77,6 +69,14 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
     --
     -- Constraints: minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a
+    -- DescribeDefaultClusterParameters request exceed the value specified in
+    -- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+    -- of the response. You can retrieve the next set of response records by
+    -- providing the returned marker value in the @Marker@ parameter and
+    -- retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster parameter group family.
     parameterGroupFamily :: Prelude.Text
   }
@@ -90,14 +90,6 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeDefaultClusterParameters_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeDefaultClusterParameters request exceed the value specified in
--- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the @Marker@ parameter and retrying the
--- request.
---
 -- 'maxRecords', 'describeDefaultClusterParameters_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -108,6 +100,14 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
 --
 -- Constraints: minimum 20, maximum 100.
 --
+-- 'marker', 'describeDefaultClusterParameters_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeDefaultClusterParameters request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
+--
 -- 'parameterGroupFamily', 'describeDefaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family.
 newDescribeDefaultClusterParameters ::
   -- | 'parameterGroupFamily'
@@ -116,22 +116,12 @@ newDescribeDefaultClusterParameters ::
 newDescribeDefaultClusterParameters
   pParameterGroupFamily_ =
     DescribeDefaultClusterParameters'
-      { marker =
+      { maxRecords =
           Prelude.Nothing,
-        maxRecords = Prelude.Nothing,
+        marker = Prelude.Nothing,
         parameterGroupFamily =
           pParameterGroupFamily_
       }
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeDefaultClusterParameters request exceed the value specified in
--- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the @Marker@ parameter and retrying the
--- request.
-describeDefaultClusterParameters_marker :: Lens.Lens' DescribeDefaultClusterParameters (Prelude.Maybe Prelude.Text)
-describeDefaultClusterParameters_marker = Lens.lens (\DescribeDefaultClusterParameters' {marker} -> marker) (\s@DescribeDefaultClusterParameters' {} a -> s {marker = a} :: DescribeDefaultClusterParameters)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -144,6 +134,16 @@ describeDefaultClusterParameters_marker = Lens.lens (\DescribeDefaultClusterPara
 -- Constraints: minimum 20, maximum 100.
 describeDefaultClusterParameters_maxRecords :: Lens.Lens' DescribeDefaultClusterParameters (Prelude.Maybe Prelude.Int)
 describeDefaultClusterParameters_maxRecords = Lens.lens (\DescribeDefaultClusterParameters' {maxRecords} -> maxRecords) (\s@DescribeDefaultClusterParameters' {} a -> s {maxRecords = a} :: DescribeDefaultClusterParameters)
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeDefaultClusterParameters request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
+describeDefaultClusterParameters_marker :: Lens.Lens' DescribeDefaultClusterParameters (Prelude.Maybe Prelude.Text)
+describeDefaultClusterParameters_marker = Lens.lens (\DescribeDefaultClusterParameters' {marker} -> marker) (\s@DescribeDefaultClusterParameters' {} a -> s {marker = a} :: DescribeDefaultClusterParameters)
 
 -- | The name of the cluster parameter group family.
 describeDefaultClusterParameters_parameterGroupFamily :: Lens.Lens' DescribeDefaultClusterParameters Prelude.Text
@@ -223,8 +223,8 @@ instance
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "ParameterGroupFamily" Core.=: parameterGroupFamily
       ]
 

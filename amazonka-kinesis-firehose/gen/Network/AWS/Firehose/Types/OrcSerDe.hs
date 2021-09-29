@@ -56,10 +56,6 @@ data OrcSerDe = OrcSerDe'
     -- HDFS block boundaries. This is useful if you intend to copy the data
     -- from Amazon S3 to HDFS before querying. The default is @false@.
     enablePadding :: Prelude.Maybe Prelude.Bool,
-    -- | The Bloom filter false positive probability (FPP). The lower the FPP,
-    -- the bigger the Bloom filter. The default value is 0.05, the minimum is
-    -- 0, and the maximum is 1.
-    bloomFilterFalsePositiveProbability :: Prelude.Maybe Prelude.Double,
     -- | A number between 0 and 1 that defines the tolerance for block padding as
     -- a decimal fraction of stripe size. The default value is 0.05, which
     -- means 5 percent of stripe size.
@@ -75,6 +71,10 @@ data OrcSerDe = OrcSerDe'
     -- Kinesis Data Firehose ignores this parameter when OrcSerDe$EnablePadding
     -- is @false@.
     paddingTolerance :: Prelude.Maybe Prelude.Double,
+    -- | The Bloom filter false positive probability (FPP). The lower the FPP,
+    -- the bigger the Bloom filter. The default value is 0.05, the minimum is
+    -- 0, and the maximum is 1.
+    bloomFilterFalsePositiveProbability :: Prelude.Maybe Prelude.Double,
     -- | The number of bytes in each stripe. The default is 64 MiB and the
     -- minimum is 8 MiB.
     stripeSizeBytes :: Prelude.Maybe Prelude.Natural
@@ -114,10 +114,6 @@ data OrcSerDe = OrcSerDe'
 -- HDFS block boundaries. This is useful if you intend to copy the data
 -- from Amazon S3 to HDFS before querying. The default is @false@.
 --
--- 'bloomFilterFalsePositiveProbability', 'orcSerDe_bloomFilterFalsePositiveProbability' - The Bloom filter false positive probability (FPP). The lower the FPP,
--- the bigger the Bloom filter. The default value is 0.05, the minimum is
--- 0, and the maximum is 1.
---
 -- 'paddingTolerance', 'orcSerDe_paddingTolerance' - A number between 0 and 1 that defines the tolerance for block padding as
 -- a decimal fraction of stripe size. The default value is 0.05, which
 -- means 5 percent of stripe size.
@@ -133,6 +129,10 @@ data OrcSerDe = OrcSerDe'
 -- Kinesis Data Firehose ignores this parameter when OrcSerDe$EnablePadding
 -- is @false@.
 --
+-- 'bloomFilterFalsePositiveProbability', 'orcSerDe_bloomFilterFalsePositiveProbability' - The Bloom filter false positive probability (FPP). The lower the FPP,
+-- the bigger the Bloom filter. The default value is 0.05, the minimum is
+-- 0, and the maximum is 1.
+--
 -- 'stripeSizeBytes', 'orcSerDe_stripeSizeBytes' - The number of bytes in each stripe. The default is 64 MiB and the
 -- minimum is 8 MiB.
 newOrcSerDe ::
@@ -146,9 +146,9 @@ newOrcSerDe =
       formatVersion = Prelude.Nothing,
       bloomFilterColumns = Prelude.Nothing,
       enablePadding = Prelude.Nothing,
+      paddingTolerance = Prelude.Nothing,
       bloomFilterFalsePositiveProbability =
         Prelude.Nothing,
-      paddingTolerance = Prelude.Nothing,
       stripeSizeBytes = Prelude.Nothing
     }
 
@@ -191,12 +191,6 @@ orcSerDe_bloomFilterColumns = Lens.lens (\OrcSerDe' {bloomFilterColumns} -> bloo
 orcSerDe_enablePadding :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Bool)
 orcSerDe_enablePadding = Lens.lens (\OrcSerDe' {enablePadding} -> enablePadding) (\s@OrcSerDe' {} a -> s {enablePadding = a} :: OrcSerDe)
 
--- | The Bloom filter false positive probability (FPP). The lower the FPP,
--- the bigger the Bloom filter. The default value is 0.05, the minimum is
--- 0, and the maximum is 1.
-orcSerDe_bloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
-orcSerDe_bloomFilterFalsePositiveProbability = Lens.lens (\OrcSerDe' {bloomFilterFalsePositiveProbability} -> bloomFilterFalsePositiveProbability) (\s@OrcSerDe' {} a -> s {bloomFilterFalsePositiveProbability = a} :: OrcSerDe)
-
 -- | A number between 0 and 1 that defines the tolerance for block padding as
 -- a decimal fraction of stripe size. The default value is 0.05, which
 -- means 5 percent of stripe size.
@@ -213,6 +207,12 @@ orcSerDe_bloomFilterFalsePositiveProbability = Lens.lens (\OrcSerDe' {bloomFilte
 -- is @false@.
 orcSerDe_paddingTolerance :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
 orcSerDe_paddingTolerance = Lens.lens (\OrcSerDe' {paddingTolerance} -> paddingTolerance) (\s@OrcSerDe' {} a -> s {paddingTolerance = a} :: OrcSerDe)
+
+-- | The Bloom filter false positive probability (FPP). The lower the FPP,
+-- the bigger the Bloom filter. The default value is 0.05, the minimum is
+-- 0, and the maximum is 1.
+orcSerDe_bloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Double)
+orcSerDe_bloomFilterFalsePositiveProbability = Lens.lens (\OrcSerDe' {bloomFilterFalsePositiveProbability} -> bloomFilterFalsePositiveProbability) (\s@OrcSerDe' {} a -> s {bloomFilterFalsePositiveProbability = a} :: OrcSerDe)
 
 -- | The number of bytes in each stripe. The default is 64 MiB and the
 -- minimum is 8 MiB.
@@ -234,8 +234,8 @@ instance Core.FromJSON OrcSerDe where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "EnablePadding")
-            Prelude.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
             Prelude.<*> (x Core..:? "PaddingTolerance")
+            Prelude.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
             Prelude.<*> (x Core..:? "StripeSizeBytes")
       )
 
@@ -258,10 +258,10 @@ instance Core.ToJSON OrcSerDe where
             ("BloomFilterColumns" Core..=)
               Prelude.<$> bloomFilterColumns,
             ("EnablePadding" Core..=) Prelude.<$> enablePadding,
-            ("BloomFilterFalsePositiveProbability" Core..=)
-              Prelude.<$> bloomFilterFalsePositiveProbability,
             ("PaddingTolerance" Core..=)
               Prelude.<$> paddingTolerance,
+            ("BloomFilterFalsePositiveProbability" Core..=)
+              Prelude.<$> bloomFilterFalsePositiveProbability,
             ("StripeSizeBytes" Core..=)
               Prelude.<$> stripeSizeBytes
           ]

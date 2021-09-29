@@ -28,6 +28,7 @@ import Network.AWS.MediaLive.Types.BlackoutSlate
 import Network.AWS.MediaLive.Types.CaptionDescription
 import Network.AWS.MediaLive.Types.FeatureActivations
 import Network.AWS.MediaLive.Types.GlobalConfiguration
+import Network.AWS.MediaLive.Types.MotionGraphicsConfiguration
 import Network.AWS.MediaLive.Types.NielsenConfiguration
 import Network.AWS.MediaLive.Types.OutputGroup
 import Network.AWS.MediaLive.Types.TimecodeConfig
@@ -38,10 +39,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEncoderSettings' smart constructor.
 data EncoderSettings = EncoderSettings'
-  { -- | Configuration settings that apply to the event as a whole.
-    globalConfiguration :: Prelude.Maybe GlobalConfiguration,
+  { -- | Settings for motion graphics.
+    motionGraphicsConfiguration :: Prelude.Maybe MotionGraphicsConfiguration,
     -- | Feature Activations
     featureActivations :: Prelude.Maybe FeatureActivations,
+    -- | Configuration settings that apply to the event as a whole.
+    globalConfiguration :: Prelude.Maybe GlobalConfiguration,
     -- | Event-wide configuration settings for ad avail insertion.
     availConfiguration :: Prelude.Maybe AvailConfiguration,
     -- | Settings for ad avail blanking.
@@ -69,9 +72,11 @@ data EncoderSettings = EncoderSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalConfiguration', 'encoderSettings_globalConfiguration' - Configuration settings that apply to the event as a whole.
+-- 'motionGraphicsConfiguration', 'encoderSettings_motionGraphicsConfiguration' - Settings for motion graphics.
 --
 -- 'featureActivations', 'encoderSettings_featureActivations' - Feature Activations
+--
+-- 'globalConfiguration', 'encoderSettings_globalConfiguration' - Configuration settings that apply to the event as a whole.
 --
 -- 'availConfiguration', 'encoderSettings_availConfiguration' - Event-wide configuration settings for ad avail insertion.
 --
@@ -97,9 +102,10 @@ newEncoderSettings ::
   EncoderSettings
 newEncoderSettings pTimecodeConfig_ =
   EncoderSettings'
-    { globalConfiguration =
+    { motionGraphicsConfiguration =
         Prelude.Nothing,
       featureActivations = Prelude.Nothing,
+      globalConfiguration = Prelude.Nothing,
       availConfiguration = Prelude.Nothing,
       availBlanking = Prelude.Nothing,
       nielsenConfiguration = Prelude.Nothing,
@@ -111,13 +117,17 @@ newEncoderSettings pTimecodeConfig_ =
       timecodeConfig = pTimecodeConfig_
     }
 
--- | Configuration settings that apply to the event as a whole.
-encoderSettings_globalConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe GlobalConfiguration)
-encoderSettings_globalConfiguration = Lens.lens (\EncoderSettings' {globalConfiguration} -> globalConfiguration) (\s@EncoderSettings' {} a -> s {globalConfiguration = a} :: EncoderSettings)
+-- | Settings for motion graphics.
+encoderSettings_motionGraphicsConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe MotionGraphicsConfiguration)
+encoderSettings_motionGraphicsConfiguration = Lens.lens (\EncoderSettings' {motionGraphicsConfiguration} -> motionGraphicsConfiguration) (\s@EncoderSettings' {} a -> s {motionGraphicsConfiguration = a} :: EncoderSettings)
 
 -- | Feature Activations
 encoderSettings_featureActivations :: Lens.Lens' EncoderSettings (Prelude.Maybe FeatureActivations)
 encoderSettings_featureActivations = Lens.lens (\EncoderSettings' {featureActivations} -> featureActivations) (\s@EncoderSettings' {} a -> s {featureActivations = a} :: EncoderSettings)
+
+-- | Configuration settings that apply to the event as a whole.
+encoderSettings_globalConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe GlobalConfiguration)
+encoderSettings_globalConfiguration = Lens.lens (\EncoderSettings' {globalConfiguration} -> globalConfiguration) (\s@EncoderSettings' {} a -> s {globalConfiguration = a} :: EncoderSettings)
 
 -- | Event-wide configuration settings for ad avail insertion.
 encoderSettings_availConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe AvailConfiguration)
@@ -162,8 +172,9 @@ instance Core.FromJSON EncoderSettings where
       "EncoderSettings"
       ( \x ->
           EncoderSettings'
-            Prelude.<$> (x Core..:? "globalConfiguration")
+            Prelude.<$> (x Core..:? "motionGraphicsConfiguration")
             Prelude.<*> (x Core..:? "featureActivations")
+            Prelude.<*> (x Core..:? "globalConfiguration")
             Prelude.<*> (x Core..:? "availConfiguration")
             Prelude.<*> (x Core..:? "availBlanking")
             Prelude.<*> (x Core..:? "nielsenConfiguration")
@@ -189,10 +200,12 @@ instance Core.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("globalConfiguration" Core..=)
-              Prelude.<$> globalConfiguration,
+          [ ("motionGraphicsConfiguration" Core..=)
+              Prelude.<$> motionGraphicsConfiguration,
             ("featureActivations" Core..=)
               Prelude.<$> featureActivations,
+            ("globalConfiguration" Core..=)
+              Prelude.<$> globalConfiguration,
             ("availConfiguration" Core..=)
               Prelude.<$> availConfiguration,
             ("availBlanking" Core..=) Prelude.<$> availBlanking,

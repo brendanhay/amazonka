@@ -27,25 +27,16 @@ module Network.AWS.Organizations.Lens
     createOrganizationResponse_organization,
     createOrganizationResponse_httpStatus,
 
-    -- ** CreatePolicy
-    createPolicy_tags,
-    createPolicy_content,
-    createPolicy_description,
-    createPolicy_name,
-    createPolicy_type,
-    createPolicyResponse_policy,
-    createPolicyResponse_httpStatus,
+    -- ** DescribeCreateAccountStatus
+    describeCreateAccountStatus_createAccountRequestId,
+    describeCreateAccountStatusResponse_createAccountStatus,
+    describeCreateAccountStatusResponse_httpStatus,
 
     -- ** DisablePolicyType
     disablePolicyType_rootId,
     disablePolicyType_policyType,
     disablePolicyTypeResponse_root,
     disablePolicyTypeResponse_httpStatus,
-
-    -- ** DescribeCreateAccountStatus
-    describeCreateAccountStatus_createAccountRequestId,
-    describeCreateAccountStatusResponse_createAccountStatus,
-    describeCreateAccountStatusResponse_httpStatus,
 
     -- ** ListPolicies
     listPolicies_nextToken,
@@ -55,22 +46,30 @@ module Network.AWS.Organizations.Lens
     listPoliciesResponse_policies,
     listPoliciesResponse_httpStatus,
 
+    -- ** CreatePolicy
+    createPolicy_tags,
+    createPolicy_content,
+    createPolicy_description,
+    createPolicy_name,
+    createPolicy_type,
+    createPolicyResponse_policy,
+    createPolicyResponse_httpStatus,
+
     -- ** ListHandshakesForAccount
     listHandshakesForAccount_nextToken,
     listHandshakesForAccount_maxResults,
     listHandshakesForAccount_filter,
-    listHandshakesForAccountResponse_handshakes,
     listHandshakesForAccountResponse_nextToken,
+    listHandshakesForAccountResponse_handshakes,
     listHandshakesForAccountResponse_httpStatus,
 
-    -- ** ListChildren
-    listChildren_nextToken,
-    listChildren_maxResults,
-    listChildren_parentId,
-    listChildren_childType,
-    listChildrenResponse_nextToken,
-    listChildrenResponse_children,
-    listChildrenResponse_httpStatus,
+    -- ** UpdatePolicy
+    updatePolicy_name,
+    updatePolicy_content,
+    updatePolicy_description,
+    updatePolicy_policyId,
+    updatePolicyResponse_policy,
+    updatePolicyResponse_httpStatus,
 
     -- ** DeletePolicy
     deletePolicy_policyId,
@@ -81,13 +80,14 @@ module Network.AWS.Organizations.Lens
     enablePolicyTypeResponse_root,
     enablePolicyTypeResponse_httpStatus,
 
-    -- ** UpdatePolicy
-    updatePolicy_name,
-    updatePolicy_content,
-    updatePolicy_description,
-    updatePolicy_policyId,
-    updatePolicyResponse_policy,
-    updatePolicyResponse_httpStatus,
+    -- ** ListChildren
+    listChildren_nextToken,
+    listChildren_maxResults,
+    listChildren_parentId,
+    listChildren_childType,
+    listChildrenResponse_nextToken,
+    listChildrenResponse_children,
+    listChildrenResponse_httpStatus,
 
     -- ** ListAWSServiceAccessForOrganization
     listAWSServiceAccessForOrganization_nextToken,
@@ -100,17 +100,21 @@ module Network.AWS.Organizations.Lens
     describeOrganizationResponse_organization,
     describeOrganizationResponse_httpStatus,
 
+    -- ** UntagResource
+    untagResource_resourceId,
+    untagResource_tagKeys,
+
     -- ** ListCreateAccountStatus
-    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_states,
+    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_maxResults,
     listCreateAccountStatusResponse_nextToken,
     listCreateAccountStatusResponse_createAccountStatuses,
     listCreateAccountStatusResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceId,
-    untagResource_tagKeys,
+    -- ** TagResource
+    tagResource_resourceId,
+    tagResource_tags,
 
     -- ** ListAccounts
     listAccounts_nextToken,
@@ -118,13 +122,6 @@ module Network.AWS.Organizations.Lens
     listAccountsResponse_nextToken,
     listAccountsResponse_accounts,
     listAccountsResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceId,
-    tagResource_tags,
-
-    -- ** EnableAWSServiceAccess
-    enableAWSServiceAccess_servicePrincipal,
 
     -- ** DescribeOrganizationalUnit
     describeOrganizationalUnit_organizationalUnitId,
@@ -139,8 +136,8 @@ module Network.AWS.Organizations.Lens
     listDelegatedServicesForAccountResponse_delegatedServices,
     listDelegatedServicesForAccountResponse_httpStatus,
 
-    -- ** RemoveAccountFromOrganization
-    removeAccountFromOrganization_accountId,
+    -- ** EnableAWSServiceAccess
+    enableAWSServiceAccess_servicePrincipal,
 
     -- ** CreateGovCloudAccount
     createGovCloudAccount_roleName,
@@ -153,6 +150,14 @@ module Network.AWS.Organizations.Lens
 
     -- ** DeleteOrganization
 
+    -- ** RemoveAccountFromOrganization
+    removeAccountFromOrganization_accountId,
+
+    -- ** AcceptHandshake
+    acceptHandshake_handshakeId,
+    acceptHandshakeResponse_handshake,
+    acceptHandshakeResponse_httpStatus,
+
     -- ** ListRoots
     listRoots_nextToken,
     listRoots_maxResults,
@@ -164,14 +169,14 @@ module Network.AWS.Organizations.Lens
     enableAllFeaturesResponse_handshake,
     enableAllFeaturesResponse_httpStatus,
 
-    -- ** AcceptHandshake
-    acceptHandshake_handshakeId,
-    acceptHandshakeResponse_handshake,
-    acceptHandshakeResponse_httpStatus,
-
     -- ** DetachPolicy
     detachPolicy_policyId,
     detachPolicy_targetId,
+
+    -- ** DescribeAccount
+    describeAccount_accountId,
+    describeAccountResponse_account,
+    describeAccountResponse_httpStatus,
 
     -- ** CreateOrganizationalUnit
     createOrganizationalUnit_tags,
@@ -180,10 +185,17 @@ module Network.AWS.Organizations.Lens
     createOrganizationalUnitResponse_organizationalUnit,
     createOrganizationalUnitResponse_httpStatus,
 
-    -- ** DescribeAccount
-    describeAccount_accountId,
-    describeAccountResponse_account,
-    describeAccountResponse_httpStatus,
+    -- ** RegisterDelegatedAdministrator
+    registerDelegatedAdministrator_accountId,
+    registerDelegatedAdministrator_servicePrincipal,
+
+    -- ** CancelHandshake
+    cancelHandshake_handshakeId,
+    cancelHandshakeResponse_handshake,
+    cancelHandshakeResponse_httpStatus,
+
+    -- ** DeleteOrganizationalUnit
+    deleteOrganizationalUnit_organizationalUnitId,
 
     -- ** ListDelegatedAdministrators
     listDelegatedAdministrators_servicePrincipal,
@@ -199,25 +211,13 @@ module Network.AWS.Organizations.Lens
     updateOrganizationalUnitResponse_organizationalUnit,
     updateOrganizationalUnitResponse_httpStatus,
 
-    -- ** DeleteOrganizationalUnit
-    deleteOrganizationalUnit_organizationalUnitId,
-
-    -- ** CancelHandshake
-    cancelHandshake_handshakeId,
-    cancelHandshakeResponse_handshake,
-    cancelHandshakeResponse_httpStatus,
-
-    -- ** RegisterDelegatedAdministrator
-    registerDelegatedAdministrator_accountId,
-    registerDelegatedAdministrator_servicePrincipal,
-
-    -- ** ListHandshakesForOrganization
-    listHandshakesForOrganization_nextToken,
-    listHandshakesForOrganization_maxResults,
-    listHandshakesForOrganization_filter,
-    listHandshakesForOrganizationResponse_handshakes,
-    listHandshakesForOrganizationResponse_nextToken,
-    listHandshakesForOrganizationResponse_httpStatus,
+    -- ** ListOrganizationalUnitsForParent
+    listOrganizationalUnitsForParent_nextToken,
+    listOrganizationalUnitsForParent_maxResults,
+    listOrganizationalUnitsForParent_parentId,
+    listOrganizationalUnitsForParentResponse_nextToken,
+    listOrganizationalUnitsForParentResponse_organizationalUnits,
+    listOrganizationalUnitsForParentResponse_httpStatus,
 
     -- ** ListPoliciesForTarget
     listPoliciesForTarget_nextToken,
@@ -228,21 +228,13 @@ module Network.AWS.Organizations.Lens
     listPoliciesForTargetResponse_policies,
     listPoliciesForTargetResponse_httpStatus,
 
-    -- ** ListOrganizationalUnitsForParent
-    listOrganizationalUnitsForParent_nextToken,
-    listOrganizationalUnitsForParent_maxResults,
-    listOrganizationalUnitsForParent_parentId,
-    listOrganizationalUnitsForParentResponse_nextToken,
-    listOrganizationalUnitsForParentResponse_organizationalUnits,
-    listOrganizationalUnitsForParentResponse_httpStatus,
-
-    -- ** ListTargetsForPolicy
-    listTargetsForPolicy_nextToken,
-    listTargetsForPolicy_maxResults,
-    listTargetsForPolicy_policyId,
-    listTargetsForPolicyResponse_nextToken,
-    listTargetsForPolicyResponse_targets,
-    listTargetsForPolicyResponse_httpStatus,
+    -- ** ListHandshakesForOrganization
+    listHandshakesForOrganization_nextToken,
+    listHandshakesForOrganization_maxResults,
+    listHandshakesForOrganization_filter,
+    listHandshakesForOrganizationResponse_nextToken,
+    listHandshakesForOrganizationResponse_handshakes,
+    listHandshakesForOrganizationResponse_httpStatus,
 
     -- ** AttachPolicy
     attachPolicy_policyId,
@@ -253,20 +245,19 @@ module Network.AWS.Organizations.Lens
     declineHandshakeResponse_handshake,
     declineHandshakeResponse_httpStatus,
 
+    -- ** ListTargetsForPolicy
+    listTargetsForPolicy_nextToken,
+    listTargetsForPolicy_maxResults,
+    listTargetsForPolicy_policyId,
+    listTargetsForPolicyResponse_nextToken,
+    listTargetsForPolicyResponse_targets,
+    listTargetsForPolicyResponse_httpStatus,
+
     -- ** DescribeEffectivePolicy
     describeEffectivePolicy_targetId,
     describeEffectivePolicy_policyType,
     describeEffectivePolicyResponse_effectivePolicy,
     describeEffectivePolicyResponse_httpStatus,
-
-    -- ** DeregisterDelegatedAdministrator
-    deregisterDelegatedAdministrator_accountId,
-    deregisterDelegatedAdministrator_servicePrincipal,
-
-    -- ** MoveAccount
-    moveAccount_accountId,
-    moveAccount_sourceParentId,
-    moveAccount_destinationParentId,
 
     -- ** InviteAccountToOrganization
     inviteAccountToOrganization_notes,
@@ -275,10 +266,28 @@ module Network.AWS.Organizations.Lens
     inviteAccountToOrganizationResponse_handshake,
     inviteAccountToOrganizationResponse_httpStatus,
 
-    -- ** LeaveOrganization
-
     -- ** DisableAWSServiceAccess
     disableAWSServiceAccess_servicePrincipal,
+
+    -- ** MoveAccount
+    moveAccount_accountId,
+    moveAccount_sourceParentId,
+    moveAccount_destinationParentId,
+
+    -- ** LeaveOrganization
+
+    -- ** DeregisterDelegatedAdministrator
+    deregisterDelegatedAdministrator_accountId,
+    deregisterDelegatedAdministrator_servicePrincipal,
+
+    -- ** CreateAccount
+    createAccount_roleName,
+    createAccount_iamUserAccessToBilling,
+    createAccount_tags,
+    createAccount_email,
+    createAccount_accountName,
+    createAccountResponse_createAccountStatus,
+    createAccountResponse_httpStatus,
 
     -- ** ListParents
     listParents_nextToken,
@@ -293,14 +302,10 @@ module Network.AWS.Organizations.Lens
     describePolicyResponse_policy,
     describePolicyResponse_httpStatus,
 
-    -- ** CreateAccount
-    createAccount_roleName,
-    createAccount_iamUserAccessToBilling,
-    createAccount_tags,
-    createAccount_email,
-    createAccount_accountName,
-    createAccountResponse_createAccountStatus,
-    createAccountResponse_httpStatus,
+    -- ** DescribeHandshake
+    describeHandshake_handshakeId,
+    describeHandshakeResponse_handshake,
+    describeHandshakeResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
@@ -308,11 +313,6 @@ module Network.AWS.Organizations.Lens
     listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeHandshake
-    describeHandshake_handshakeId,
-    describeHandshakeResponse_handshake,
-    describeHandshakeResponse_httpStatus,
 
     -- * Types
 
@@ -331,8 +331,8 @@ module Network.AWS.Organizations.Lens
 
     -- ** CreateAccountStatus
     createAccountStatus_accountId,
-    createAccountStatus_requestedTimestamp,
     createAccountStatus_accountName,
+    createAccountStatus_requestedTimestamp,
     createAccountStatus_govCloudAccountId,
     createAccountStatus_completedTimestamp,
     createAccountStatus_id,
@@ -374,8 +374,8 @@ module Network.AWS.Organizations.Lens
     handshake_expirationTimestamp,
 
     -- ** HandshakeFilter
-    handshakeFilter_actionType,
     handshakeFilter_parentHandshakeId,
+    handshakeFilter_actionType,
 
     -- ** HandshakeParty
     handshakeParty_id,

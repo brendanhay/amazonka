@@ -38,13 +38,14 @@ data ResourceRequirement = ResourceRequirement'
     --     number of available GPUs on the compute resource that the job is
     --     launched on.
     --
-    --     GPUs are not available for jobs running on Fargate resources.
+    --     GPUs are not available for jobs that are running on Fargate
+    --     resources.
     --
     -- [type=\"MEMORY\"]
-    --     For jobs running on EC2 resources, the hard limit (in MiB) of memory
-    --     to present to the container. If your container attempts to exceed
-    --     the memory specified here, the container is killed. This parameter
-    --     maps to @Memory@ in the
+    --     The memory hard limit (in MiB) present to the container. This
+    --     parameter is supported for jobs that are running on EC2 resources.
+    --     If your container attempts to exceed the memory specified, the
+    --     container is terminated. This parameter maps to @Memory@ in the
     --     <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     --     section of the
     --     <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and
@@ -64,12 +65,12 @@ data ResourceRequirement = ResourceRequirement'
     --     your jobs as much memory as possible for a particular instance type,
     --     see
     --     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
-    --     in the /AWS Batch User Guide/.
+    --     in the /Batch User Guide/.
     --
-    --     For jobs running on Fargate resources, then @value@ is the hard
-    --     limit (in MiB), and must match one of the supported values and the
-    --     @VCPU@ values must be one of the values supported for that memory
-    --     value.
+    --     For jobs that are running on Fargate resources, then @value@ is the
+    --     hard limit (in MiB), and must match one of the supported values and
+    --     the @VCPU@ values must be one of the values supported for that
+    --     memory value.
     --
     --     [value = 512]
     --         @VCPU@ = 0.25
@@ -110,10 +111,10 @@ data ResourceRequirement = ResourceRequirement'
     --     specify at least one vCPU. This is required but can be specified in
     --     several places; it must be specified for each node at least once.
     --
-    --     For jobs running on Fargate resources, then @value@ must match one
-    --     of the supported values and the @MEMORY@ values must be one of the
-    --     values supported for that VCPU value. The supported values are 0.25,
-    --     0.5, 1, 2, and 4
+    --     For jobs that are running on Fargate resources, then @value@ must
+    --     match one of the supported values and the @MEMORY@ values must be
+    --     one of the values supported for that VCPU value. The supported
+    --     values are 0.25, 0.5, 1, 2, and 4
     --
     --     [value = 0.25]
     --         @MEMORY@ = 512, 1024, or 2048
@@ -156,13 +157,14 @@ data ResourceRequirement = ResourceRequirement'
 --     number of available GPUs on the compute resource that the job is
 --     launched on.
 --
---     GPUs are not available for jobs running on Fargate resources.
+--     GPUs are not available for jobs that are running on Fargate
+--     resources.
 --
 -- [type=\"MEMORY\"]
---     For jobs running on EC2 resources, the hard limit (in MiB) of memory
---     to present to the container. If your container attempts to exceed
---     the memory specified here, the container is killed. This parameter
---     maps to @Memory@ in the
+--     The memory hard limit (in MiB) present to the container. This
+--     parameter is supported for jobs that are running on EC2 resources.
+--     If your container attempts to exceed the memory specified, the
+--     container is terminated. This parameter maps to @Memory@ in the
 --     <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 --     section of the
 --     <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and
@@ -182,12 +184,12 @@ data ResourceRequirement = ResourceRequirement'
 --     your jobs as much memory as possible for a particular instance type,
 --     see
 --     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
---     in the /AWS Batch User Guide/.
+--     in the /Batch User Guide/.
 --
---     For jobs running on Fargate resources, then @value@ is the hard
---     limit (in MiB), and must match one of the supported values and the
---     @VCPU@ values must be one of the values supported for that memory
---     value.
+--     For jobs that are running on Fargate resources, then @value@ is the
+--     hard limit (in MiB), and must match one of the supported values and
+--     the @VCPU@ values must be one of the values supported for that
+--     memory value.
 --
 --     [value = 512]
 --         @VCPU@ = 0.25
@@ -228,10 +230,10 @@ data ResourceRequirement = ResourceRequirement'
 --     specify at least one vCPU. This is required but can be specified in
 --     several places; it must be specified for each node at least once.
 --
---     For jobs running on Fargate resources, then @value@ must match one
---     of the supported values and the @MEMORY@ values must be one of the
---     values supported for that VCPU value. The supported values are 0.25,
---     0.5, 1, 2, and 4
+--     For jobs that are running on Fargate resources, then @value@ must
+--     match one of the supported values and the @MEMORY@ values must be
+--     one of the values supported for that VCPU value. The supported
+--     values are 0.25, 0.5, 1, 2, and 4
 --
 --     [value = 0.25]
 --         @MEMORY@ = 512, 1024, or 2048
@@ -274,13 +276,14 @@ newResourceRequirement pValue_ pType_ =
 --     number of available GPUs on the compute resource that the job is
 --     launched on.
 --
---     GPUs are not available for jobs running on Fargate resources.
+--     GPUs are not available for jobs that are running on Fargate
+--     resources.
 --
 -- [type=\"MEMORY\"]
---     For jobs running on EC2 resources, the hard limit (in MiB) of memory
---     to present to the container. If your container attempts to exceed
---     the memory specified here, the container is killed. This parameter
---     maps to @Memory@ in the
+--     The memory hard limit (in MiB) present to the container. This
+--     parameter is supported for jobs that are running on EC2 resources.
+--     If your container attempts to exceed the memory specified, the
+--     container is terminated. This parameter maps to @Memory@ in the
 --     <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 --     section of the
 --     <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and
@@ -300,12 +303,12 @@ newResourceRequirement pValue_ pType_ =
 --     your jobs as much memory as possible for a particular instance type,
 --     see
 --     <https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html Memory Management>
---     in the /AWS Batch User Guide/.
+--     in the /Batch User Guide/.
 --
---     For jobs running on Fargate resources, then @value@ is the hard
---     limit (in MiB), and must match one of the supported values and the
---     @VCPU@ values must be one of the values supported for that memory
---     value.
+--     For jobs that are running on Fargate resources, then @value@ is the
+--     hard limit (in MiB), and must match one of the supported values and
+--     the @VCPU@ values must be one of the values supported for that
+--     memory value.
 --
 --     [value = 512]
 --         @VCPU@ = 0.25
@@ -346,10 +349,10 @@ newResourceRequirement pValue_ pType_ =
 --     specify at least one vCPU. This is required but can be specified in
 --     several places; it must be specified for each node at least once.
 --
---     For jobs running on Fargate resources, then @value@ must match one
---     of the supported values and the @MEMORY@ values must be one of the
---     values supported for that VCPU value. The supported values are 0.25,
---     0.5, 1, 2, and 4
+--     For jobs that are running on Fargate resources, then @value@ must
+--     match one of the supported values and the @MEMORY@ values must be
+--     one of the values supported for that VCPU value. The supported
+--     values are 0.25, 0.5, 1, 2, and 4
 --
 --     [value = 0.25]
 --         @MEMORY@ = 512, 1024, or 2048

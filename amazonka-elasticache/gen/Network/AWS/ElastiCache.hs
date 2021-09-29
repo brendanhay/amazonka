@@ -35,38 +35,38 @@ module Network.AWS.ElastiCache
     -- ** SubnetInUse
     _SubnetInUse,
 
-    -- ** CacheSubnetGroupQuotaExceededFault
-    _CacheSubnetGroupQuotaExceededFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
     -- ** CacheClusterNotFoundFault
     _CacheClusterNotFoundFault,
 
     -- ** InvalidReplicationGroupStateFault
     _InvalidReplicationGroupStateFault,
 
-    -- ** SubnetNotAllowedFault
-    _SubnetNotAllowedFault,
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** CacheSubnetGroupQuotaExceededFault
+    _CacheSubnetGroupQuotaExceededFault,
 
     -- ** CacheSubnetGroupAlreadyExistsFault
     _CacheSubnetGroupAlreadyExistsFault,
 
-    -- ** TestFailoverNotAvailableFault
-    _TestFailoverNotAvailableFault,
+    -- ** SubnetNotAllowedFault
+    _SubnetNotAllowedFault,
 
     -- ** GlobalReplicationGroupAlreadyExistsFault
     _GlobalReplicationGroupAlreadyExistsFault,
 
-    -- ** SnapshotFeatureNotSupportedFault
-    _SnapshotFeatureNotSupportedFault,
+    -- ** TestFailoverNotAvailableFault
+    _TestFailoverNotAvailableFault,
+
+    -- ** InvalidKMSKeyFault
+    _InvalidKMSKeyFault,
 
     -- ** UserGroupQuotaExceededFault
     _UserGroupQuotaExceededFault,
 
-    -- ** InvalidKMSKeyFault
-    _InvalidKMSKeyFault,
+    -- ** SnapshotFeatureNotSupportedFault
+    _SnapshotFeatureNotSupportedFault,
 
     -- ** InvalidCacheSecurityGroupStateFault
     _InvalidCacheSecurityGroupStateFault,
@@ -77,23 +77,23 @@ module Network.AWS.ElastiCache
     -- ** ServiceLinkedRoleNotFoundFault
     _ServiceLinkedRoleNotFoundFault,
 
-    -- ** APICallRateForCustomerExceededFault
-    _APICallRateForCustomerExceededFault,
-
-    -- ** InvalidCacheParameterGroupStateFault
-    _InvalidCacheParameterGroupStateFault,
-
     -- ** UserQuotaExceededFault
     _UserQuotaExceededFault,
 
-    -- ** NoOperationFault
-    _NoOperationFault,
+    -- ** APICallRateForCustomerExceededFault
+    _APICallRateForCustomerExceededFault,
 
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
+    -- ** InvalidCacheParameterGroupStateFault
+    _InvalidCacheParameterGroupStateFault,
+
     -- ** CacheParameterGroupAlreadyExistsFault
     _CacheParameterGroupAlreadyExistsFault,
+
+    -- ** NoOperationFault
+    _NoOperationFault,
 
     -- ** SnapshotQuotaExceededFault
     _SnapshotQuotaExceededFault,
@@ -101,23 +101,17 @@ module Network.AWS.ElastiCache
     -- ** TagNotFoundFault
     _TagNotFoundFault,
 
-    -- ** CacheSubnetQuotaExceededFault
-    _CacheSubnetQuotaExceededFault,
-
     -- ** SnapshotAlreadyExistsFault
     _SnapshotAlreadyExistsFault,
-
-    -- ** NodeQuotaForCustomerExceededFault
-    _NodeQuotaForCustomerExceededFault,
 
     -- ** UserNotFoundFault
     _UserNotFoundFault,
 
-    -- ** InsufficientCacheClusterCapacityFault
-    _InsufficientCacheClusterCapacityFault,
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
 
-    -- ** InvalidUserStateFault
-    _InvalidUserStateFault,
+    -- ** CacheSubnetQuotaExceededFault
+    _CacheSubnetQuotaExceededFault,
 
     -- ** ServiceUpdateNotFoundFault
     _ServiceUpdateNotFoundFault,
@@ -125,14 +119,29 @@ module Network.AWS.ElastiCache
     -- ** SnapshotNotFoundFault
     _SnapshotNotFoundFault,
 
+    -- ** InsufficientCacheClusterCapacityFault
+    _InsufficientCacheClusterCapacityFault,
+
+    -- ** InvalidUserStateFault
+    _InvalidUserStateFault,
+
+    -- ** InvalidCacheClusterStateFault
+    _InvalidCacheClusterStateFault,
+
     -- ** UserGroupAlreadyExistsFault
     _UserGroupAlreadyExistsFault,
 
     -- ** InvalidUserGroupStateFault
     _InvalidUserGroupStateFault,
 
-    -- ** InvalidCacheClusterStateFault
-    _InvalidCacheClusterStateFault,
+    -- ** ReplicationGroupAlreadyExistsFault
+    _ReplicationGroupAlreadyExistsFault,
+
+    -- ** ReservedCacheNodeQuotaExceededFault
+    _ReservedCacheNodeQuotaExceededFault,
+
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
 
     -- ** UserGroupNotFoundFault
     _UserGroupNotFoundFault,
@@ -140,20 +149,8 @@ module Network.AWS.ElastiCache
     -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
     _NodeGroupsPerReplicationGroupQuotaExceededFault,
 
-    -- ** ReplicationGroupAlreadyExistsFault
-    _ReplicationGroupAlreadyExistsFault,
-
-    -- ** AuthorizationAlreadyExistsFault
-    _AuthorizationAlreadyExistsFault,
-
-    -- ** ReservedCacheNodeQuotaExceededFault
-    _ReservedCacheNodeQuotaExceededFault,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** CacheSecurityGroupNotFoundFault
-    _CacheSecurityGroupNotFoundFault,
+    -- ** InvalidGlobalReplicationGroupStateFault
+    _InvalidGlobalReplicationGroupStateFault,
 
     -- ** ReservedCacheNodeAlreadyExistsFault
     _ReservedCacheNodeAlreadyExistsFault,
@@ -161,32 +158,29 @@ module Network.AWS.ElastiCache
     -- ** CacheSubnetGroupInUse
     _CacheSubnetGroupInUse,
 
-    -- ** InvalidGlobalReplicationGroupStateFault
-    _InvalidGlobalReplicationGroupStateFault,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** CacheSecurityGroupNotFoundFault
+    _CacheSecurityGroupNotFoundFault,
 
     -- ** GlobalReplicationGroupNotFoundFault
     _GlobalReplicationGroupNotFoundFault,
 
-    -- ** CacheSubnetGroupNotFoundFault
-    _CacheSubnetGroupNotFoundFault,
-
     -- ** CacheSecurityGroupAlreadyExistsFault
     _CacheSecurityGroupAlreadyExistsFault,
 
-    -- ** InvalidARNFault
-    _InvalidARNFault,
-
-    -- ** NodeGroupNotFoundFault
-    _NodeGroupNotFoundFault,
+    -- ** CacheSubnetGroupNotFoundFault
+    _CacheSubnetGroupNotFoundFault,
 
     -- ** NodeQuotaForClusterExceededFault
     _NodeQuotaForClusterExceededFault,
 
-    -- ** ReplicationGroupAlreadyUnderMigrationFault
-    _ReplicationGroupAlreadyUnderMigrationFault,
+    -- ** NodeGroupNotFoundFault
+    _NodeGroupNotFoundFault,
 
-    -- ** DefaultUserRequired
-    _DefaultUserRequired,
+    -- ** InvalidARNFault
+    _InvalidARNFault,
 
     -- ** CacheParameterGroupNotFoundFault
     _CacheParameterGroupNotFoundFault,
@@ -194,29 +188,38 @@ module Network.AWS.ElastiCache
     -- ** DuplicateUserNameFault
     _DuplicateUserNameFault,
 
-    -- ** InvalidSnapshotStateFault
-    _InvalidSnapshotStateFault,
+    -- ** DefaultUserRequired
+    _DefaultUserRequired,
+
+    -- ** ReplicationGroupAlreadyUnderMigrationFault
+    _ReplicationGroupAlreadyUnderMigrationFault,
 
     -- ** ReplicationGroupNotUnderMigrationFault
     _ReplicationGroupNotUnderMigrationFault,
 
+    -- ** InvalidSnapshotStateFault
+    _InvalidSnapshotStateFault,
+
     -- ** UserAlreadyExistsFault
     _UserAlreadyExistsFault,
-
-    -- ** DefaultUserAssociatedToUserGroupFault
-    _DefaultUserAssociatedToUserGroupFault,
 
     -- ** CacheParameterGroupQuotaExceededFault
     _CacheParameterGroupQuotaExceededFault,
 
-    -- ** AuthorizationNotFoundFault
-    _AuthorizationNotFoundFault,
+    -- ** DefaultUserAssociatedToUserGroupFault
+    _DefaultUserAssociatedToUserGroupFault,
+
+    -- ** CacheClusterAlreadyExistsFault
+    _CacheClusterAlreadyExistsFault,
 
     -- ** ReservedCacheNodesOfferingNotFoundFault
     _ReservedCacheNodesOfferingNotFoundFault,
 
-    -- ** InvalidSubnet
-    _InvalidSubnet,
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
 
     -- ** ClusterQuotaForCustomerExceededFault
     _ClusterQuotaForCustomerExceededFault,
@@ -224,11 +227,8 @@ module Network.AWS.ElastiCache
     -- ** ReplicationGroupNotFoundFault
     _ReplicationGroupNotFoundFault,
 
-    -- ** CacheClusterAlreadyExistsFault
-    _CacheClusterAlreadyExistsFault,
-
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
+    -- ** InvalidSubnet
+    _InvalidSubnet,
 
     -- ** CacheSecurityGroupQuotaExceededFault
     _CacheSecurityGroupQuotaExceededFault,
@@ -263,6 +263,12 @@ module Network.AWS.ElastiCache
     DeleteCacheClusterResponse (DeleteCacheClusterResponse'),
     newDeleteCacheClusterResponse,
 
+    -- ** DeleteUserGroup
+    DeleteUserGroup (DeleteUserGroup'),
+    newDeleteUserGroup,
+    UserGroup (UserGroup'),
+    newUserGroup,
+
     -- ** RebootCacheCluster
     RebootCacheCluster (RebootCacheCluster'),
     newRebootCacheCluster,
@@ -275,11 +281,11 @@ module Network.AWS.ElastiCache
     IncreaseNodeGroupsInGlobalReplicationGroupResponse (IncreaseNodeGroupsInGlobalReplicationGroupResponse'),
     newIncreaseNodeGroupsInGlobalReplicationGroupResponse,
 
-    -- ** DeleteUserGroup
-    DeleteUserGroup (DeleteUserGroup'),
-    newDeleteUserGroup,
-    UserGroup (UserGroup'),
-    newUserGroup,
+    -- ** StartMigration
+    StartMigration (StartMigration'),
+    newStartMigration,
+    StartMigrationResponse (StartMigrationResponse'),
+    newStartMigrationResponse,
 
     -- ** DeleteCacheSecurityGroup
     DeleteCacheSecurityGroup (DeleteCacheSecurityGroup'),
@@ -287,23 +293,11 @@ module Network.AWS.ElastiCache
     DeleteCacheSecurityGroupResponse (DeleteCacheSecurityGroupResponse'),
     newDeleteCacheSecurityGroupResponse,
 
-    -- ** StartMigration
-    StartMigration (StartMigration'),
-    newStartMigration,
-    StartMigrationResponse (StartMigrationResponse'),
-    newStartMigrationResponse,
-
     -- ** AuthorizeCacheSecurityGroupIngress
     AuthorizeCacheSecurityGroupIngress (AuthorizeCacheSecurityGroupIngress'),
     newAuthorizeCacheSecurityGroupIngress,
     AuthorizeCacheSecurityGroupIngressResponse (AuthorizeCacheSecurityGroupIngressResponse'),
     newAuthorizeCacheSecurityGroupIngressResponse,
-
-    -- ** CopySnapshot
-    CopySnapshot (CopySnapshot'),
-    newCopySnapshot,
-    CopySnapshotResponse (CopySnapshotResponse'),
-    newCopySnapshotResponse,
 
     -- ** DecreaseReplicaCount
     DecreaseReplicaCount (DecreaseReplicaCount'),
@@ -311,17 +305,29 @@ module Network.AWS.ElastiCache
     DecreaseReplicaCountResponse (DecreaseReplicaCountResponse'),
     newDecreaseReplicaCountResponse,
 
+    -- ** CreateCacheSecurityGroup
+    CreateCacheSecurityGroup (CreateCacheSecurityGroup'),
+    newCreateCacheSecurityGroup,
+    CreateCacheSecurityGroupResponse (CreateCacheSecurityGroupResponse'),
+    newCreateCacheSecurityGroupResponse,
+
     -- ** RebalanceSlotsInGlobalReplicationGroup
     RebalanceSlotsInGlobalReplicationGroup (RebalanceSlotsInGlobalReplicationGroup'),
     newRebalanceSlotsInGlobalReplicationGroup,
     RebalanceSlotsInGlobalReplicationGroupResponse (RebalanceSlotsInGlobalReplicationGroupResponse'),
     newRebalanceSlotsInGlobalReplicationGroupResponse,
 
-    -- ** CreateCacheSecurityGroup
-    CreateCacheSecurityGroup (CreateCacheSecurityGroup'),
-    newCreateCacheSecurityGroup,
-    CreateCacheSecurityGroupResponse (CreateCacheSecurityGroupResponse'),
-    newCreateCacheSecurityGroupResponse,
+    -- ** CopySnapshot
+    CopySnapshot (CopySnapshot'),
+    newCopySnapshot,
+    CopySnapshotResponse (CopySnapshotResponse'),
+    newCopySnapshotResponse,
+
+    -- ** ModifyCacheCluster
+    ModifyCacheCluster (ModifyCacheCluster'),
+    newModifyCacheCluster,
+    ModifyCacheClusterResponse (ModifyCacheClusterResponse'),
+    newModifyCacheClusterResponse,
 
     -- ** DescribeCacheSubnetGroups (Paginated)
     DescribeCacheSubnetGroups (DescribeCacheSubnetGroups'),
@@ -334,12 +340,6 @@ module Network.AWS.ElastiCache
     newDescribeGlobalReplicationGroups,
     DescribeGlobalReplicationGroupsResponse (DescribeGlobalReplicationGroupsResponse'),
     newDescribeGlobalReplicationGroupsResponse,
-
-    -- ** ModifyCacheCluster
-    ModifyCacheCluster (ModifyCacheCluster'),
-    newModifyCacheCluster,
-    ModifyCacheClusterResponse (ModifyCacheClusterResponse'),
-    newModifyCacheClusterResponse,
 
     -- ** DescribeReservedCacheNodes (Paginated)
     DescribeReservedCacheNodes (DescribeReservedCacheNodes'),
@@ -365,17 +365,17 @@ module Network.AWS.ElastiCache
     DescribeCacheSecurityGroupsResponse (DescribeCacheSecurityGroupsResponse'),
     newDescribeCacheSecurityGroupsResponse,
 
-    -- ** BatchStopUpdateAction
-    BatchStopUpdateAction (BatchStopUpdateAction'),
-    newBatchStopUpdateAction,
-    UpdateActionResultsMessage (UpdateActionResultsMessage'),
-    newUpdateActionResultsMessage,
-
     -- ** ModifyReplicationGroup
     ModifyReplicationGroup (ModifyReplicationGroup'),
     newModifyReplicationGroup,
     ModifyReplicationGroupResponse (ModifyReplicationGroupResponse'),
     newModifyReplicationGroupResponse,
+
+    -- ** BatchStopUpdateAction
+    BatchStopUpdateAction (BatchStopUpdateAction'),
+    newBatchStopUpdateAction,
+    UpdateActionResultsMessage (UpdateActionResultsMessage'),
+    newUpdateActionResultsMessage,
 
     -- ** PurchaseReservedCacheNodesOffering
     PurchaseReservedCacheNodesOffering (PurchaseReservedCacheNodesOffering'),
@@ -383,17 +383,17 @@ module Network.AWS.ElastiCache
     PurchaseReservedCacheNodesOfferingResponse (PurchaseReservedCacheNodesOfferingResponse'),
     newPurchaseReservedCacheNodesOfferingResponse,
 
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    User (User'),
-    newUser,
-
     -- ** DeleteSnapshot
     DeleteSnapshot (DeleteSnapshot'),
     newDeleteSnapshot,
     DeleteSnapshotResponse (DeleteSnapshotResponse'),
     newDeleteSnapshotResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    User (User'),
+    newUser,
 
     -- ** CompleteMigration
     CompleteMigration (CompleteMigration'),
@@ -401,35 +401,11 @@ module Network.AWS.ElastiCache
     CompleteMigrationResponse (CompleteMigrationResponse'),
     newCompleteMigrationResponse,
 
-    -- ** CreateCacheCluster
-    CreateCacheCluster (CreateCacheCluster'),
-    newCreateCacheCluster,
-    CreateCacheClusterResponse (CreateCacheClusterResponse'),
-    newCreateCacheClusterResponse,
-
-    -- ** DisassociateGlobalReplicationGroup
-    DisassociateGlobalReplicationGroup (DisassociateGlobalReplicationGroup'),
-    newDisassociateGlobalReplicationGroup,
-    DisassociateGlobalReplicationGroupResponse (DisassociateGlobalReplicationGroupResponse'),
-    newDisassociateGlobalReplicationGroupResponse,
-
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
-
-    -- ** DeleteReplicationGroup
-    DeleteReplicationGroup (DeleteReplicationGroup'),
-    newDeleteReplicationGroup,
-    DeleteReplicationGroupResponse (DeleteReplicationGroupResponse'),
-    newDeleteReplicationGroupResponse,
-
-    -- ** DescribeSnapshots (Paginated)
-    DescribeSnapshots (DescribeSnapshots'),
-    newDescribeSnapshots,
-    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
-    newDescribeSnapshotsResponse,
 
     -- ** TestFailover
     TestFailover (TestFailover'),
@@ -437,17 +413,53 @@ module Network.AWS.ElastiCache
     TestFailoverResponse (TestFailoverResponse'),
     newTestFailoverResponse,
 
+    -- ** DescribeSnapshots (Paginated)
+    DescribeSnapshots (DescribeSnapshots'),
+    newDescribeSnapshots,
+    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
+    newDescribeSnapshotsResponse,
+
+    -- ** DisassociateGlobalReplicationGroup
+    DisassociateGlobalReplicationGroup (DisassociateGlobalReplicationGroup'),
+    newDisassociateGlobalReplicationGroup,
+    DisassociateGlobalReplicationGroupResponse (DisassociateGlobalReplicationGroupResponse'),
+    newDisassociateGlobalReplicationGroupResponse,
+
+    -- ** DeleteReplicationGroup
+    DeleteReplicationGroup (DeleteReplicationGroup'),
+    newDeleteReplicationGroup,
+    DeleteReplicationGroupResponse (DeleteReplicationGroupResponse'),
+    newDeleteReplicationGroupResponse,
+
+    -- ** CreateCacheCluster
+    CreateCacheCluster (CreateCacheCluster'),
+    newCreateCacheCluster,
+    CreateCacheClusterResponse (CreateCacheClusterResponse'),
+    newCreateCacheClusterResponse,
+
     -- ** BatchApplyUpdateAction
     BatchApplyUpdateAction (BatchApplyUpdateAction'),
     newBatchApplyUpdateAction,
     UpdateActionResultsMessage (UpdateActionResultsMessage'),
     newUpdateActionResultsMessage,
 
+    -- ** ListAllowedNodeTypeModifications
+    ListAllowedNodeTypeModifications (ListAllowedNodeTypeModifications'),
+    newListAllowedNodeTypeModifications,
+    ListAllowedNodeTypeModificationsResponse (ListAllowedNodeTypeModificationsResponse'),
+    newListAllowedNodeTypeModificationsResponse,
+
     -- ** IncreaseReplicaCount
     IncreaseReplicaCount (IncreaseReplicaCount'),
     newIncreaseReplicaCount,
     IncreaseReplicaCountResponse (IncreaseReplicaCountResponse'),
     newIncreaseReplicaCountResponse,
+
+    -- ** ResetCacheParameterGroup
+    ResetCacheParameterGroup (ResetCacheParameterGroup'),
+    newResetCacheParameterGroup,
+    CacheParameterGroupNameMessage (CacheParameterGroupNameMessage'),
+    newCacheParameterGroupNameMessage,
 
     -- ** ModifyReplicationGroupShardConfiguration
     ModifyReplicationGroupShardConfiguration (ModifyReplicationGroupShardConfiguration'),
@@ -460,18 +472,6 @@ module Network.AWS.ElastiCache
     newDescribeUsers,
     DescribeUsersResponse (DescribeUsersResponse'),
     newDescribeUsersResponse,
-
-    -- ** ListAllowedNodeTypeModifications
-    ListAllowedNodeTypeModifications (ListAllowedNodeTypeModifications'),
-    newListAllowedNodeTypeModifications,
-    ListAllowedNodeTypeModificationsResponse (ListAllowedNodeTypeModificationsResponse'),
-    newListAllowedNodeTypeModificationsResponse,
-
-    -- ** ResetCacheParameterGroup
-    ResetCacheParameterGroup (ResetCacheParameterGroup'),
-    newResetCacheParameterGroup,
-    CacheParameterGroupNameMessage (CacheParameterGroupNameMessage'),
-    newCacheParameterGroupNameMessage,
 
     -- ** CreateCacheSubnetGroup
     CreateCacheSubnetGroup (CreateCacheSubnetGroup'),
@@ -509,11 +509,11 @@ module Network.AWS.ElastiCache
     DecreaseNodeGroupsInGlobalReplicationGroupResponse (DecreaseNodeGroupsInGlobalReplicationGroupResponse'),
     newDecreaseNodeGroupsInGlobalReplicationGroupResponse,
 
-    -- ** DescribeUpdateActions (Paginated)
-    DescribeUpdateActions (DescribeUpdateActions'),
-    newDescribeUpdateActions,
-    DescribeUpdateActionsResponse (DescribeUpdateActionsResponse'),
-    newDescribeUpdateActionsResponse,
+    -- ** DeleteGlobalReplicationGroup
+    DeleteGlobalReplicationGroup (DeleteGlobalReplicationGroup'),
+    newDeleteGlobalReplicationGroup,
+    DeleteGlobalReplicationGroupResponse (DeleteGlobalReplicationGroupResponse'),
+    newDeleteGlobalReplicationGroupResponse,
 
     -- ** ModifyUser
     ModifyUser (ModifyUser'),
@@ -527,17 +527,11 @@ module Network.AWS.ElastiCache
     DeleteCacheSubnetGroupResponse (DeleteCacheSubnetGroupResponse'),
     newDeleteCacheSubnetGroupResponse,
 
-    -- ** DeleteGlobalReplicationGroup
-    DeleteGlobalReplicationGroup (DeleteGlobalReplicationGroup'),
-    newDeleteGlobalReplicationGroup,
-    DeleteGlobalReplicationGroupResponse (DeleteGlobalReplicationGroupResponse'),
-    newDeleteGlobalReplicationGroupResponse,
-
-    -- ** CreateCacheParameterGroup
-    CreateCacheParameterGroup (CreateCacheParameterGroup'),
-    newCreateCacheParameterGroup,
-    CreateCacheParameterGroupResponse (CreateCacheParameterGroupResponse'),
-    newCreateCacheParameterGroupResponse,
+    -- ** DescribeUpdateActions (Paginated)
+    DescribeUpdateActions (DescribeUpdateActions'),
+    newDescribeUpdateActions,
+    DescribeUpdateActionsResponse (DescribeUpdateActionsResponse'),
+    newDescribeUpdateActionsResponse,
 
     -- ** DescribeCacheEngineVersions (Paginated)
     DescribeCacheEngineVersions (DescribeCacheEngineVersions'),
@@ -551,11 +545,35 @@ module Network.AWS.ElastiCache
     UserGroup (UserGroup'),
     newUserGroup,
 
+    -- ** CreateCacheParameterGroup
+    CreateCacheParameterGroup (CreateCacheParameterGroup'),
+    newCreateCacheParameterGroup,
+    CreateCacheParameterGroupResponse (CreateCacheParameterGroupResponse'),
+    newCreateCacheParameterGroupResponse,
+
     -- ** DescribeCacheParameters (Paginated)
     DescribeCacheParameters (DescribeCacheParameters'),
     newDescribeCacheParameters,
     DescribeCacheParametersResponse (DescribeCacheParametersResponse'),
     newDescribeCacheParametersResponse,
+
+    -- ** DescribeUserGroups (Paginated)
+    DescribeUserGroups (DescribeUserGroups'),
+    newDescribeUserGroups,
+    DescribeUserGroupsResponse (DescribeUserGroupsResponse'),
+    newDescribeUserGroupsResponse,
+
+    -- ** DescribeCacheClusters (Paginated)
+    DescribeCacheClusters (DescribeCacheClusters'),
+    newDescribeCacheClusters,
+    DescribeCacheClustersResponse (DescribeCacheClustersResponse'),
+    newDescribeCacheClustersResponse,
+
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    CreateSnapshotResponse (CreateSnapshotResponse'),
+    newCreateSnapshotResponse,
 
     -- ** ModifyGlobalReplicationGroup
     ModifyGlobalReplicationGroup (ModifyGlobalReplicationGroup'),
@@ -575,23 +593,11 @@ module Network.AWS.ElastiCache
     User (User'),
     newUser,
 
-    -- ** DescribeUserGroups (Paginated)
-    DescribeUserGroups (DescribeUserGroups'),
-    newDescribeUserGroups,
-    DescribeUserGroupsResponse (DescribeUserGroupsResponse'),
-    newDescribeUserGroupsResponse,
-
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    CreateSnapshotResponse (CreateSnapshotResponse'),
-    newCreateSnapshotResponse,
-
-    -- ** DescribeCacheClusters (Paginated)
-    DescribeCacheClusters (DescribeCacheClusters'),
-    newDescribeCacheClusters,
-    DescribeCacheClustersResponse (DescribeCacheClustersResponse'),
-    newDescribeCacheClustersResponse,
+    -- ** DescribeReplicationGroups (Paginated)
+    DescribeReplicationGroups (DescribeReplicationGroups'),
+    newDescribeReplicationGroups,
+    DescribeReplicationGroupsResponse (DescribeReplicationGroupsResponse'),
+    newDescribeReplicationGroupsResponse,
 
     -- ** DescribeReservedCacheNodesOfferings (Paginated)
     DescribeReservedCacheNodesOfferings (DescribeReservedCacheNodesOfferings'),
@@ -599,17 +605,29 @@ module Network.AWS.ElastiCache
     DescribeReservedCacheNodesOfferingsResponse (DescribeReservedCacheNodesOfferingsResponse'),
     newDescribeReservedCacheNodesOfferingsResponse,
 
-    -- ** DescribeReplicationGroups (Paginated)
-    DescribeReplicationGroups (DescribeReplicationGroups'),
-    newDescribeReplicationGroups,
-    DescribeReplicationGroupsResponse (DescribeReplicationGroupsResponse'),
-    newDescribeReplicationGroupsResponse,
+    -- ** DescribeEngineDefaultParameters (Paginated)
+    DescribeEngineDefaultParameters (DescribeEngineDefaultParameters'),
+    newDescribeEngineDefaultParameters,
+    DescribeEngineDefaultParametersResponse (DescribeEngineDefaultParametersResponse'),
+    newDescribeEngineDefaultParametersResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     TagListMessage (TagListMessage'),
     newTagListMessage,
+
+    -- ** RevokeCacheSecurityGroupIngress
+    RevokeCacheSecurityGroupIngress (RevokeCacheSecurityGroupIngress'),
+    newRevokeCacheSecurityGroupIngress,
+    RevokeCacheSecurityGroupIngressResponse (RevokeCacheSecurityGroupIngressResponse'),
+    newRevokeCacheSecurityGroupIngressResponse,
+
+    -- ** CreateUserGroup
+    CreateUserGroup (CreateUserGroup'),
+    newCreateUserGroup,
+    UserGroup (UserGroup'),
+    newUserGroup,
 
     -- ** ModifyCacheParameterGroup
     ModifyCacheParameterGroup (ModifyCacheParameterGroup'),
@@ -622,24 +640,6 @@ module Network.AWS.ElastiCache
     newDescribeServiceUpdates,
     DescribeServiceUpdatesResponse (DescribeServiceUpdatesResponse'),
     newDescribeServiceUpdatesResponse,
-
-    -- ** DescribeEngineDefaultParameters (Paginated)
-    DescribeEngineDefaultParameters (DescribeEngineDefaultParameters'),
-    newDescribeEngineDefaultParameters,
-    DescribeEngineDefaultParametersResponse (DescribeEngineDefaultParametersResponse'),
-    newDescribeEngineDefaultParametersResponse,
-
-    -- ** CreateUserGroup
-    CreateUserGroup (CreateUserGroup'),
-    newCreateUserGroup,
-    UserGroup (UserGroup'),
-    newUserGroup,
-
-    -- ** RevokeCacheSecurityGroupIngress
-    RevokeCacheSecurityGroupIngress (RevokeCacheSecurityGroupIngress'),
-    newRevokeCacheSecurityGroupIngress,
-    RevokeCacheSecurityGroupIngressResponse (RevokeCacheSecurityGroupIngressResponse'),
-    newRevokeCacheSecurityGroupIngressResponse,
 
     -- * Types
 
@@ -660,6 +660,18 @@ module Network.AWS.ElastiCache
 
     -- ** ChangeType
     ChangeType (..),
+
+    -- ** DestinationType
+    DestinationType (..),
+
+    -- ** LogDeliveryConfigurationStatus
+    LogDeliveryConfigurationStatus (..),
+
+    -- ** LogFormat
+    LogFormat (..),
+
+    -- ** LogType
+    LogType (..),
 
     -- ** MultiAZStatus
     MultiAZStatus (..),
@@ -750,6 +762,10 @@ module Network.AWS.ElastiCache
     CacheSubnetGroup (CacheSubnetGroup'),
     newCacheSubnetGroup,
 
+    -- ** CloudWatchLogsDestinationDetails
+    CloudWatchLogsDestinationDetails (CloudWatchLogsDestinationDetails'),
+    newCloudWatchLogsDestinationDetails,
+
     -- ** ConfigureShard
     ConfigureShard (ConfigureShard'),
     newConfigureShard,
@@ -757,6 +773,10 @@ module Network.AWS.ElastiCache
     -- ** CustomerNodeEndpoint
     CustomerNodeEndpoint (CustomerNodeEndpoint'),
     newCustomerNodeEndpoint,
+
+    -- ** DestinationDetails
+    DestinationDetails (DestinationDetails'),
+    newDestinationDetails,
 
     -- ** EC2SecurityGroup
     EC2SecurityGroup (EC2SecurityGroup'),
@@ -794,6 +814,18 @@ module Network.AWS.ElastiCache
     GlobalReplicationGroupMember (GlobalReplicationGroupMember'),
     newGlobalReplicationGroupMember,
 
+    -- ** KinesisFirehoseDestinationDetails
+    KinesisFirehoseDestinationDetails (KinesisFirehoseDestinationDetails'),
+    newKinesisFirehoseDestinationDetails,
+
+    -- ** LogDeliveryConfiguration
+    LogDeliveryConfiguration (LogDeliveryConfiguration'),
+    newLogDeliveryConfiguration,
+
+    -- ** LogDeliveryConfigurationRequest
+    LogDeliveryConfigurationRequest (LogDeliveryConfigurationRequest'),
+    newLogDeliveryConfigurationRequest,
+
     -- ** NodeGroup
     NodeGroup (NodeGroup'),
     newNodeGroup,
@@ -829,6 +861,10 @@ module Network.AWS.ElastiCache
     -- ** ParameterNameValue
     ParameterNameValue (ParameterNameValue'),
     newParameterNameValue,
+
+    -- ** PendingLogDeliveryConfiguration
+    PendingLogDeliveryConfiguration (PendingLogDeliveryConfiguration'),
+    newPendingLogDeliveryConfiguration,
 
     -- ** PendingModifiedValues
     PendingModifiedValues (PendingModifiedValues'),

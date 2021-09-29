@@ -22,6 +22,10 @@
 --
 -- Lists the rules for the specific topic.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListTopicRules>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListTopicRules
   ( -- * Creating a Request

@@ -11,8 +11,9 @@
 --
 -- Derived from API version @2016-04-12@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS X-Ray provides APIs for managing debug traces and retrieving service
--- maps and other data created by processing those traces.
+-- Amazon Web Services X-Ray provides APIs for managing debug traces and
+-- retrieving service maps and other data created by processing those
+-- traces.
 module Network.AWS.XRay
   ( -- * Service Configuration
     defaultService,
@@ -65,23 +66,17 @@ module Network.AWS.XRay
     GetTraceGraphResponse (GetTraceGraphResponse'),
     newGetTraceGraphResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** CreateGroup
     CreateGroup (CreateGroup'),
     newCreateGroup,
     CreateGroupResponse (CreateGroupResponse'),
     newCreateGroupResponse,
 
-    -- ** GetInsight
-    GetInsight (GetInsight'),
-    newGetInsight,
-    GetInsightResponse (GetInsightResponse'),
-    newGetInsightResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** PutTraceSegments
     PutTraceSegments (PutTraceSegments'),
@@ -89,17 +84,23 @@ module Network.AWS.XRay
     PutTraceSegmentsResponse (PutTraceSegmentsResponse'),
     newPutTraceSegmentsResponse,
 
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** GetTimeSeriesServiceStatistics (Paginated)
     GetTimeSeriesServiceStatistics (GetTimeSeriesServiceStatistics'),
     newGetTimeSeriesServiceStatistics,
     GetTimeSeriesServiceStatisticsResponse (GetTimeSeriesServiceStatisticsResponse'),
     newGetTimeSeriesServiceStatisticsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** GetInsight
+    GetInsight (GetInsight'),
+    newGetInsight,
+    GetInsightResponse (GetInsightResponse'),
+    newGetInsightResponse,
 
     -- ** PutTelemetryRecords
     PutTelemetryRecords (PutTelemetryRecords'),
@@ -119,23 +120,17 @@ module Network.AWS.XRay
     GetTraceSummariesResponse (GetTraceSummariesResponse'),
     newGetTraceSummariesResponse,
 
-    -- ** GetInsightSummaries
-    GetInsightSummaries (GetInsightSummaries'),
-    newGetInsightSummaries,
-    GetInsightSummariesResponse (GetInsightSummariesResponse'),
-    newGetInsightSummariesResponse,
-
     -- ** GetGroups (Paginated)
     GetGroups (GetGroups'),
     newGetGroups,
     GetGroupsResponse (GetGroupsResponse'),
     newGetGroupsResponse,
 
-    -- ** GetInsightEvents
-    GetInsightEvents (GetInsightEvents'),
-    newGetInsightEvents,
-    GetInsightEventsResponse (GetInsightEventsResponse'),
-    newGetInsightEventsResponse,
+    -- ** GetInsightSummaries
+    GetInsightSummaries (GetInsightSummaries'),
+    newGetInsightSummaries,
+    GetInsightSummariesResponse (GetInsightSummariesResponse'),
+    newGetInsightSummariesResponse,
 
     -- ** GetServiceGraph (Paginated)
     GetServiceGraph (GetServiceGraph'),
@@ -143,11 +138,11 @@ module Network.AWS.XRay
     GetServiceGraphResponse (GetServiceGraphResponse'),
     newGetServiceGraphResponse,
 
-    -- ** PutEncryptionConfig
-    PutEncryptionConfig (PutEncryptionConfig'),
-    newPutEncryptionConfig,
-    PutEncryptionConfigResponse (PutEncryptionConfigResponse'),
-    newPutEncryptionConfigResponse,
+    -- ** GetInsightEvents
+    GetInsightEvents (GetInsightEvents'),
+    newGetInsightEvents,
+    GetInsightEventsResponse (GetInsightEventsResponse'),
+    newGetInsightEventsResponse,
 
     -- ** DeleteSamplingRule
     DeleteSamplingRule (DeleteSamplingRule'),
@@ -161,11 +156,11 @@ module Network.AWS.XRay
     UpdateSamplingRuleResponse (UpdateSamplingRuleResponse'),
     newUpdateSamplingRuleResponse,
 
-    -- ** GetGroup
-    GetGroup (GetGroup'),
-    newGetGroup,
-    GetGroupResponse (GetGroupResponse'),
-    newGetGroupResponse,
+    -- ** PutEncryptionConfig
+    PutEncryptionConfig (PutEncryptionConfig'),
+    newPutEncryptionConfig,
+    PutEncryptionConfigResponse (PutEncryptionConfigResponse'),
+    newPutEncryptionConfigResponse,
 
     -- ** CreateSamplingRule
     CreateSamplingRule (CreateSamplingRule'),
@@ -173,17 +168,23 @@ module Network.AWS.XRay
     CreateSamplingRuleResponse (CreateSamplingRuleResponse'),
     newCreateSamplingRuleResponse,
 
-    -- ** UpdateGroup
-    UpdateGroup (UpdateGroup'),
-    newUpdateGroup,
-    UpdateGroupResponse (UpdateGroupResponse'),
-    newUpdateGroupResponse,
+    -- ** GetGroup
+    GetGroup (GetGroup'),
+    newGetGroup,
+    GetGroupResponse (GetGroupResponse'),
+    newGetGroupResponse,
 
     -- ** DeleteGroup
     DeleteGroup (DeleteGroup'),
     newDeleteGroup,
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
+
+    -- ** UpdateGroup
+    UpdateGroup (UpdateGroup'),
+    newUpdateGroup,
+    UpdateGroupResponse (UpdateGroupResponse'),
+    newUpdateGroupResponse,
 
     -- ** GetEncryptionConfig
     GetEncryptionConfig (GetEncryptionConfig'),

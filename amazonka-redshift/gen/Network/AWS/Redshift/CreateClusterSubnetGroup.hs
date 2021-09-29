@@ -70,8 +70,8 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
     --
     -- -   Must not be \"Default\".
     --
-    -- -   Must be unique for all subnet groups that are created by your AWS
-    --     account.
+    -- -   Must be unique for all subnet groups that are created by your Amazon
+    --     Web Services account.
     --
     -- Example: @examplesubnetgroup@
     clusterSubnetGroupName :: Prelude.Text,
@@ -102,8 +102,8 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
 --
 -- -   Must not be \"Default\".
 --
--- -   Must be unique for all subnet groups that are created by your AWS
---     account.
+-- -   Must be unique for all subnet groups that are created by your Amazon
+--     Web Services account.
 --
 -- Example: @examplesubnetgroup@
 --
@@ -140,8 +140,8 @@ createClusterSubnetGroup_tags = Lens.lens (\CreateClusterSubnetGroup' {tags} -> 
 --
 -- -   Must not be \"Default\".
 --
--- -   Must be unique for all subnet groups that are created by your AWS
---     account.
+-- -   Must be unique for all subnet groups that are created by your Amazon
+--     Web Services account.
 --
 -- Example: @examplesubnetgroup@
 createClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' CreateClusterSubnetGroup Prelude.Text

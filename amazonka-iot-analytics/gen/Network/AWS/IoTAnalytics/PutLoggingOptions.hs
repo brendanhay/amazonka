@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets or updates the AWS IoT Analytics logging options.
+-- Sets or updates the IoT Analytics logging options.
 --
 -- If you update the value of any @loggingOptions@ field, it takes up to
 -- one minute for the change to take effect. Also, if you change the policy
@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutLoggingOptions' smart constructor.
 data PutLoggingOptions = PutLoggingOptions'
-  { -- | The new values of the AWS IoT Analytics logging options.
+  { -- | The new values of the IoT Analytics logging options.
     loggingOptions :: LoggingOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data PutLoggingOptions = PutLoggingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingOptions', 'putLoggingOptions_loggingOptions' - The new values of the AWS IoT Analytics logging options.
+-- 'loggingOptions', 'putLoggingOptions_loggingOptions' - The new values of the IoT Analytics logging options.
 newPutLoggingOptions ::
   -- | 'loggingOptions'
   LoggingOptions ->
@@ -74,7 +74,7 @@ newPutLoggingOptions pLoggingOptions_ =
         pLoggingOptions_
     }
 
--- | The new values of the AWS IoT Analytics logging options.
+-- | The new values of the IoT Analytics logging options.
 putLoggingOptions_loggingOptions :: Lens.Lens' PutLoggingOptions LoggingOptions
 putLoggingOptions_loggingOptions = Lens.lens (\PutLoggingOptions' {loggingOptions} -> loggingOptions) (\s@PutLoggingOptions' {} a -> s {loggingOptions = a} :: PutLoggingOptions)
 

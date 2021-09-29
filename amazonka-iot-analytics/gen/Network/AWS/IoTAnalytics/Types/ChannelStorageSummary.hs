@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newChannelStorageSummary' smart constructor.
 data ChannelStorageSummary = ChannelStorageSummary'
-  { -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+  { -- | Used to store channel data in an S3 bucket managed by IoT Analytics.
     serviceManagedS3 :: Prelude.Maybe ServiceManagedChannelS3StorageSummary,
     -- | Used to store channel data in an S3 bucket that you manage.
     customerManagedS3 :: Prelude.Maybe CustomerManagedChannelS3StorageSummary
@@ -44,7 +44,7 @@ data ChannelStorageSummary = ChannelStorageSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceManagedS3', 'channelStorageSummary_serviceManagedS3' - Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+-- 'serviceManagedS3', 'channelStorageSummary_serviceManagedS3' - Used to store channel data in an S3 bucket managed by IoT Analytics.
 --
 -- 'customerManagedS3', 'channelStorageSummary_customerManagedS3' - Used to store channel data in an S3 bucket that you manage.
 newChannelStorageSummary ::
@@ -56,7 +56,7 @@ newChannelStorageSummary =
       customerManagedS3 = Prelude.Nothing
     }
 
--- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+-- | Used to store channel data in an S3 bucket managed by IoT Analytics.
 channelStorageSummary_serviceManagedS3 :: Lens.Lens' ChannelStorageSummary (Prelude.Maybe ServiceManagedChannelS3StorageSummary)
 channelStorageSummary_serviceManagedS3 = Lens.lens (\ChannelStorageSummary' {serviceManagedS3} -> serviceManagedS3) (\s@ChannelStorageSummary' {} a -> s {serviceManagedS3 = a} :: ChannelStorageSummary)
 

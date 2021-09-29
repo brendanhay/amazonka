@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Query inventory information.
+-- Query inventory information. This includes instance status, such as
+-- @Stopped@ or @Terminated@.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.GetInventory

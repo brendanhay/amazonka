@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.FrameCaptureGroupSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.FrameCaptureCdnSettings
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import qualified Network.AWS.Prelude as Prelude
 
@@ -28,7 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFrameCaptureGroupSettings' smart constructor.
 data FrameCaptureGroupSettings = FrameCaptureGroupSettings'
-  { -- | The destination for the frame capture files. Either the URI for an
+  { -- | Parameters that control interactions with the CDN.
+    frameCaptureCdnSettings :: Prelude.Maybe FrameCaptureCdnSettings,
+    -- | The destination for the frame capture files. Either the URI for an
     -- Amazon S3 bucket and object, plus a file name prefix (for example,
     -- s3ssl:\/\/sportsDelivery\/highlights\/20180820\/curling-) or the URI for
     -- a MediaStore container, plus a file name prefix (for example,
@@ -49,6 +52,8 @@ data FrameCaptureGroupSettings = FrameCaptureGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'frameCaptureCdnSettings', 'frameCaptureGroupSettings_frameCaptureCdnSettings' - Parameters that control interactions with the CDN.
+--
 -- 'destination', 'frameCaptureGroupSettings_destination' - The destination for the frame capture files. Either the URI for an
 -- Amazon S3 bucket and object, plus a file name prefix (for example,
 -- s3ssl:\/\/sportsDelivery\/highlights\/20180820\/curling-) or the URI for
@@ -64,9 +69,14 @@ newFrameCaptureGroupSettings ::
   FrameCaptureGroupSettings
 newFrameCaptureGroupSettings pDestination_ =
   FrameCaptureGroupSettings'
-    { destination =
-        pDestination_
+    { frameCaptureCdnSettings =
+        Prelude.Nothing,
+      destination = pDestination_
     }
+
+-- | Parameters that control interactions with the CDN.
+frameCaptureGroupSettings_frameCaptureCdnSettings :: Lens.Lens' FrameCaptureGroupSettings (Prelude.Maybe FrameCaptureCdnSettings)
+frameCaptureGroupSettings_frameCaptureCdnSettings = Lens.lens (\FrameCaptureGroupSettings' {frameCaptureCdnSettings} -> frameCaptureCdnSettings) (\s@FrameCaptureGroupSettings' {} a -> s {frameCaptureCdnSettings = a} :: FrameCaptureGroupSettings)
 
 -- | The destination for the frame capture files. Either the URI for an
 -- Amazon S3 bucket and object, plus a file name prefix (for example,
@@ -86,7 +96,8 @@ instance Core.FromJSON FrameCaptureGroupSettings where
       "FrameCaptureGroupSettings"
       ( \x ->
           FrameCaptureGroupSettings'
-            Prelude.<$> (x Core..: "destination")
+            Prelude.<$> (x Core..:? "frameCaptureCdnSettings")
+            Prelude.<*> (x Core..: "destination")
       )
 
 instance Prelude.Hashable FrameCaptureGroupSettings
@@ -97,5 +108,8 @@ instance Core.ToJSON FrameCaptureGroupSettings where
   toJSON FrameCaptureGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("destination" Core..= destination)]
+          [ ("frameCaptureCdnSettings" Core..=)
+              Prelude.<$> frameCaptureCdnSettings,
+            Prelude.Just ("destination" Core..= destination)
+          ]
       )

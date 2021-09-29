@@ -36,10 +36,10 @@ data VolumeStatusItem = VolumeStatusItem'
     volumeStatus :: Prelude.Maybe VolumeStatusInfo,
     -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The volume ID.
-    volumeId :: Prelude.Maybe Prelude.Text,
     -- | The details of the operation.
     actions :: Prelude.Maybe [VolumeStatusAction],
+    -- | The volume ID.
+    volumeId :: Prelude.Maybe Prelude.Text,
     -- | A list of events associated with the volume.
     events :: Prelude.Maybe [VolumeStatusEvent],
     -- | The Availability Zone of the volume.
@@ -61,9 +61,9 @@ data VolumeStatusItem = VolumeStatusItem'
 --
 -- 'outpostArn', 'volumeStatusItem_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.
 --
--- 'volumeId', 'volumeStatusItem_volumeId' - The volume ID.
---
 -- 'actions', 'volumeStatusItem_actions' - The details of the operation.
+--
+-- 'volumeId', 'volumeStatusItem_volumeId' - The volume ID.
 --
 -- 'events', 'volumeStatusItem_events' - A list of events associated with the volume.
 --
@@ -76,8 +76,8 @@ newVolumeStatusItem =
   VolumeStatusItem'
     { volumeStatus = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
-      volumeId = Prelude.Nothing,
       actions = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
       events = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       attachmentStatuses = Prelude.Nothing
@@ -91,13 +91,13 @@ volumeStatusItem_volumeStatus = Lens.lens (\VolumeStatusItem' {volumeStatus} -> 
 volumeStatusItem_outpostArn :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
 volumeStatusItem_outpostArn = Lens.lens (\VolumeStatusItem' {outpostArn} -> outpostArn) (\s@VolumeStatusItem' {} a -> s {outpostArn = a} :: VolumeStatusItem)
 
--- | The volume ID.
-volumeStatusItem_volumeId :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
-volumeStatusItem_volumeId = Lens.lens (\VolumeStatusItem' {volumeId} -> volumeId) (\s@VolumeStatusItem' {} a -> s {volumeId = a} :: VolumeStatusItem)
-
 -- | The details of the operation.
 volumeStatusItem_actions :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusAction])
 volumeStatusItem_actions = Lens.lens (\VolumeStatusItem' {actions} -> actions) (\s@VolumeStatusItem' {} a -> s {actions = a} :: VolumeStatusItem) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The volume ID.
+volumeStatusItem_volumeId :: Lens.Lens' VolumeStatusItem (Prelude.Maybe Prelude.Text)
+volumeStatusItem_volumeId = Lens.lens (\VolumeStatusItem' {volumeId} -> volumeId) (\s@VolumeStatusItem' {} a -> s {volumeId = a} :: VolumeStatusItem)
 
 -- | A list of events associated with the volume.
 volumeStatusItem_events :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusEvent])
@@ -116,10 +116,10 @@ instance Core.FromXML VolumeStatusItem where
     VolumeStatusItem'
       Prelude.<$> (x Core..@? "volumeStatus")
       Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "volumeId")
       Prelude.<*> ( x Core..@? "actionsSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "volumeId")
       Prelude.<*> ( x Core..@? "eventsSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

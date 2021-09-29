@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Add or updates the evaluations for process checks. This API checks if
--- the rule is a process check when the name of the AWS Config rule is
+-- the rule is a process check when the name of the Config rule is
 -- provided.
 module Network.AWS.Config.PutExternalEvaluation
   ( -- * Creating a Request
@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutExternalEvaluation' smart constructor.
 data PutExternalEvaluation = PutExternalEvaluation'
-  { -- | The name of the AWS Config rule.
+  { -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | An @ExternalEvaluation@ object that provides details about compliance.
     externalEvaluation :: ExternalEvaluation
@@ -65,7 +65,7 @@ data PutExternalEvaluation = PutExternalEvaluation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'putExternalEvaluation_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'putExternalEvaluation_configRuleName' - The name of the Config rule.
 --
 -- 'externalEvaluation', 'putExternalEvaluation_externalEvaluation' - An @ExternalEvaluation@ object that provides details about compliance.
 newPutExternalEvaluation ::
@@ -83,7 +83,7 @@ newPutExternalEvaluation
         externalEvaluation = pExternalEvaluation_
       }
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 putExternalEvaluation_configRuleName :: Lens.Lens' PutExternalEvaluation Prelude.Text
 putExternalEvaluation_configRuleName = Lens.lens (\PutExternalEvaluation' {configRuleName} -> configRuleName) (\s@PutExternalEvaluation' {} a -> s {configRuleName = a} :: PutExternalEvaluation)
 

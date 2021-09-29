@@ -42,8 +42,8 @@ module Network.AWS.StorageGateway.DescribeCache
     describeCacheResponse_cacheDirtyPercentage,
     describeCacheResponse_cacheAllocatedInBytes,
     describeCacheResponse_cacheMissPercentage,
-    describeCacheResponse_diskIds,
     describeCacheResponse_cacheUsedPercentage,
+    describeCacheResponse_diskIds,
     describeCacheResponse_gatewayARN,
     describeCacheResponse_httpStatus,
   )
@@ -95,8 +95,8 @@ instance Core.AWSRequest DescribeCache where
             Prelude.<*> (x Core..?> "CacheDirtyPercentage")
             Prelude.<*> (x Core..?> "CacheAllocatedInBytes")
             Prelude.<*> (x Core..?> "CacheMissPercentage")
-            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CacheUsedPercentage")
+            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -140,8 +140,8 @@ data DescribeCacheResponse = DescribeCacheResponse'
     -- period.
     cacheHitPercentage :: Prelude.Maybe Prelude.Double,
     -- | The file share\'s contribution to the overall percentage of the
-    -- gateway\'s cache that has not been persisted to AWS. The sample is taken
-    -- at the end of the reporting period.
+    -- gateway\'s cache that has not been persisted to Amazon Web Services. The
+    -- sample is taken at the end of the reporting period.
     cacheDirtyPercentage :: Prelude.Maybe Prelude.Double,
     -- | The amount of cache in bytes allocated to a gateway.
     cacheAllocatedInBytes :: Prelude.Maybe Prelude.Integer,
@@ -149,14 +149,14 @@ data DescribeCacheResponse = DescribeCacheResponse'
     -- served from cache. The sample is taken at the end of the reporting
     -- period.
     cacheMissPercentage :: Prelude.Maybe Prelude.Double,
-    -- | An array of strings that identify disks that are to be configured as
-    -- working storage. Each string has a minimum length of 1 and maximum
-    -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-    diskIds :: Prelude.Maybe [Prelude.Text],
     -- | Percent use of the gateway\'s cache storage. This metric applies only to
     -- the gateway-cached volume setup. The sample is taken at the end of the
     -- reporting period.
     cacheUsedPercentage :: Prelude.Maybe Prelude.Double,
+    -- | An array of strings that identify disks that are to be configured as
+    -- working storage. Each string has a minimum length of 1 and maximum
+    -- length of 300. You can get the disk IDs from the ListLocalDisks API.
+    diskIds :: Prelude.Maybe [Prelude.Text],
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -176,8 +176,8 @@ data DescribeCacheResponse = DescribeCacheResponse'
 -- period.
 --
 -- 'cacheDirtyPercentage', 'describeCacheResponse_cacheDirtyPercentage' - The file share\'s contribution to the overall percentage of the
--- gateway\'s cache that has not been persisted to AWS. The sample is taken
--- at the end of the reporting period.
+-- gateway\'s cache that has not been persisted to Amazon Web Services. The
+-- sample is taken at the end of the reporting period.
 --
 -- 'cacheAllocatedInBytes', 'describeCacheResponse_cacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
 --
@@ -185,13 +185,13 @@ data DescribeCacheResponse = DescribeCacheResponse'
 -- served from cache. The sample is taken at the end of the reporting
 -- period.
 --
--- 'diskIds', 'describeCacheResponse_diskIds' - An array of strings that identify disks that are to be configured as
--- working storage. Each string has a minimum length of 1 and maximum
--- length of 300. You can get the disk IDs from the ListLocalDisks API.
---
 -- 'cacheUsedPercentage', 'describeCacheResponse_cacheUsedPercentage' - Percent use of the gateway\'s cache storage. This metric applies only to
 -- the gateway-cached volume setup. The sample is taken at the end of the
 -- reporting period.
+--
+-- 'diskIds', 'describeCacheResponse_diskIds' - An array of strings that identify disks that are to be configured as
+-- working storage. Each string has a minimum length of 1 and maximum
+-- length of 300. You can get the disk IDs from the ListLocalDisks API.
 --
 -- 'gatewayARN', 'describeCacheResponse_gatewayARN' - Undocumented member.
 --
@@ -207,8 +207,8 @@ newDescribeCacheResponse pHttpStatus_ =
       cacheDirtyPercentage = Prelude.Nothing,
       cacheAllocatedInBytes = Prelude.Nothing,
       cacheMissPercentage = Prelude.Nothing,
-      diskIds = Prelude.Nothing,
       cacheUsedPercentage = Prelude.Nothing,
+      diskIds = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -220,8 +220,8 @@ describeCacheResponse_cacheHitPercentage :: Lens.Lens' DescribeCacheResponse (Pr
 describeCacheResponse_cacheHitPercentage = Lens.lens (\DescribeCacheResponse' {cacheHitPercentage} -> cacheHitPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheHitPercentage = a} :: DescribeCacheResponse)
 
 -- | The file share\'s contribution to the overall percentage of the
--- gateway\'s cache that has not been persisted to AWS. The sample is taken
--- at the end of the reporting period.
+-- gateway\'s cache that has not been persisted to Amazon Web Services. The
+-- sample is taken at the end of the reporting period.
 describeCacheResponse_cacheDirtyPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
 describeCacheResponse_cacheDirtyPercentage = Lens.lens (\DescribeCacheResponse' {cacheDirtyPercentage} -> cacheDirtyPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheDirtyPercentage = a} :: DescribeCacheResponse)
 
@@ -235,17 +235,17 @@ describeCacheResponse_cacheAllocatedInBytes = Lens.lens (\DescribeCacheResponse'
 describeCacheResponse_cacheMissPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
 describeCacheResponse_cacheMissPercentage = Lens.lens (\DescribeCacheResponse' {cacheMissPercentage} -> cacheMissPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheMissPercentage = a} :: DescribeCacheResponse)
 
--- | An array of strings that identify disks that are to be configured as
--- working storage. Each string has a minimum length of 1 and maximum
--- length of 300. You can get the disk IDs from the ListLocalDisks API.
-describeCacheResponse_diskIds :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe [Prelude.Text])
-describeCacheResponse_diskIds = Lens.lens (\DescribeCacheResponse' {diskIds} -> diskIds) (\s@DescribeCacheResponse' {} a -> s {diskIds = a} :: DescribeCacheResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Percent use of the gateway\'s cache storage. This metric applies only to
 -- the gateway-cached volume setup. The sample is taken at the end of the
 -- reporting period.
 describeCacheResponse_cacheUsedPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
 describeCacheResponse_cacheUsedPercentage = Lens.lens (\DescribeCacheResponse' {cacheUsedPercentage} -> cacheUsedPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheUsedPercentage = a} :: DescribeCacheResponse)
+
+-- | An array of strings that identify disks that are to be configured as
+-- working storage. Each string has a minimum length of 1 and maximum
+-- length of 300. You can get the disk IDs from the ListLocalDisks API.
+describeCacheResponse_diskIds :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe [Prelude.Text])
+describeCacheResponse_diskIds = Lens.lens (\DescribeCacheResponse' {diskIds} -> diskIds) (\s@DescribeCacheResponse' {} a -> s {diskIds = a} :: DescribeCacheResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 describeCacheResponse_gatewayARN :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Text)

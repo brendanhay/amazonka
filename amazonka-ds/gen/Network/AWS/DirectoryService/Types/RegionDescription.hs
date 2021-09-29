@@ -36,12 +36,12 @@ data RegionDescription = RegionDescription'
     status :: Prelude.Maybe DirectoryStage,
     -- | The date and time that the Region description was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
+    -- | Specifies when the Region replication began.
+    launchTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether the Region is the primary Region or an additional
     -- Region.
     regionType :: Prelude.Maybe RegionType,
-    -- | Specifies when the Region replication began.
-    launchTime :: Prelude.Maybe Core.POSIX,
+    vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
     -- | The date and time that the Region status was last updated.
     statusLastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the directory.
@@ -66,12 +66,12 @@ data RegionDescription = RegionDescription'
 --
 -- 'lastUpdatedDateTime', 'regionDescription_lastUpdatedDateTime' - The date and time that the Region description was last updated.
 --
--- 'vpcSettings', 'regionDescription_vpcSettings' - Undocumented member.
+-- 'launchTime', 'regionDescription_launchTime' - Specifies when the Region replication began.
 --
 -- 'regionType', 'regionDescription_regionType' - Specifies whether the Region is the primary Region or an additional
 -- Region.
 --
--- 'launchTime', 'regionDescription_launchTime' - Specifies when the Region replication began.
+-- 'vpcSettings', 'regionDescription_vpcSettings' - Undocumented member.
 --
 -- 'statusLastUpdatedDateTime', 'regionDescription_statusLastUpdatedDateTime' - The date and time that the Region status was last updated.
 --
@@ -86,9 +86,9 @@ newRegionDescription =
     { regionName = Prelude.Nothing,
       status = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      vpcSettings = Prelude.Nothing,
-      regionType = Prelude.Nothing,
       launchTime = Prelude.Nothing,
+      regionType = Prelude.Nothing,
+      vpcSettings = Prelude.Nothing,
       statusLastUpdatedDateTime = Prelude.Nothing,
       directoryId = Prelude.Nothing,
       desiredNumberOfDomainControllers = Prelude.Nothing
@@ -106,18 +106,18 @@ regionDescription_status = Lens.lens (\RegionDescription' {status} -> status) (\
 regionDescription_lastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
 regionDescription_lastUpdatedDateTime = Lens.lens (\RegionDescription' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RegionDescription' {} a -> s {lastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
-regionDescription_vpcSettings :: Lens.Lens' RegionDescription (Prelude.Maybe DirectoryVpcSettings)
-regionDescription_vpcSettings = Lens.lens (\RegionDescription' {vpcSettings} -> vpcSettings) (\s@RegionDescription' {} a -> s {vpcSettings = a} :: RegionDescription)
+-- | Specifies when the Region replication began.
+regionDescription_launchTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
+regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether the Region is the primary Region or an additional
 -- Region.
 regionDescription_regionType :: Lens.Lens' RegionDescription (Prelude.Maybe RegionType)
 regionDescription_regionType = Lens.lens (\RegionDescription' {regionType} -> regionType) (\s@RegionDescription' {} a -> s {regionType = a} :: RegionDescription)
 
--- | Specifies when the Region replication began.
-regionDescription_launchTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Prelude.. Lens.mapping Core._Time
+-- | Undocumented member.
+regionDescription_vpcSettings :: Lens.Lens' RegionDescription (Prelude.Maybe DirectoryVpcSettings)
+regionDescription_vpcSettings = Lens.lens (\RegionDescription' {vpcSettings} -> vpcSettings) (\s@RegionDescription' {} a -> s {vpcSettings = a} :: RegionDescription)
 
 -- | The date and time that the Region status was last updated.
 regionDescription_statusLastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
@@ -141,9 +141,9 @@ instance Core.FromJSON RegionDescription where
             Prelude.<$> (x Core..:? "RegionName")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "LastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "VpcSettings")
-            Prelude.<*> (x Core..:? "RegionType")
             Prelude.<*> (x Core..:? "LaunchTime")
+            Prelude.<*> (x Core..:? "RegionType")
+            Prelude.<*> (x Core..:? "VpcSettings")
             Prelude.<*> (x Core..:? "StatusLastUpdatedDateTime")
             Prelude.<*> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "DesiredNumberOfDomainControllers")

@@ -25,11 +25,11 @@
 --
 -- Allocates a VLAN number and a specified amount of capacity (bandwidth)
 -- for use by a hosted connection on the specified interconnect or LAG of
--- interconnects. AWS polices the hosted connection for the specified
--- capacity and the AWS Direct Connect Partner must also police the hosted
--- connection for the specified capacity.
+-- interconnects. Amazon Web Services polices the hosted connection for the
+-- specified capacity and the Direct Connect Partner must also police the
+-- hosted connection for the specified capacity.
 --
--- Intended for use by AWS Direct Connect Partners only.
+-- Intended for use by Direct Connect Partners only.
 module Network.AWS.DirectConnect.AllocateHostedConnection
   ( -- * Creating a Request
     AllocateHostedConnection (..),
@@ -49,22 +49,27 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
 
     -- * Response Lenses
     connection_bandwidth,
-    connection_connectionState,
     connection_awsDeviceV2,
+    connection_connectionState,
     connection_connectionName,
+    connection_macSecKeys,
     connection_providerName,
     connection_connectionId,
+    connection_awsLogicalDeviceId,
     connection_hasLogicalRedundancy,
     connection_awsDevice,
     connection_jumboFrameCapable,
+    connection_portEncryptionStatus,
     connection_lagId,
+    connection_encryptionMode,
     connection_partnerName,
     connection_tags,
     connection_loaIssueTime,
     connection_ownerAccount,
     connection_region,
-    connection_location,
     connection_vlan,
+    connection_location,
+    connection_macSecCapable,
   )
 where
 
@@ -81,11 +86,11 @@ data AllocateHostedConnection = AllocateHostedConnection'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the interconnect or LAG.
     connectionId :: Prelude.Text,
-    -- | The ID of the AWS account ID of the customer for the connection.
+    -- | The ID of the account ID of the customer for the connection.
     ownerAccount :: Prelude.Text,
     -- | The bandwidth of the connection. The possible values are 50Mbps,
     -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
-    -- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+    -- 10Gbps. Note that only those Direct Connect Partners who have met
     -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
     -- 10Gbps hosted connection.
     bandwidth :: Prelude.Text,
@@ -108,11 +113,11 @@ data AllocateHostedConnection = AllocateHostedConnection'
 --
 -- 'connectionId', 'allocateHostedConnection_connectionId' - The ID of the interconnect or LAG.
 --
--- 'ownerAccount', 'allocateHostedConnection_ownerAccount' - The ID of the AWS account ID of the customer for the connection.
+-- 'ownerAccount', 'allocateHostedConnection_ownerAccount' - The ID of the account ID of the customer for the connection.
 --
 -- 'bandwidth', 'allocateHostedConnection_bandwidth' - The bandwidth of the connection. The possible values are 50Mbps,
 -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
--- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+-- 10Gbps. Note that only those Direct Connect Partners who have met
 -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
 -- 10Gbps hosted connection.
 --
@@ -154,13 +159,13 @@ allocateHostedConnection_tags = Lens.lens (\AllocateHostedConnection' {tags} -> 
 allocateHostedConnection_connectionId :: Lens.Lens' AllocateHostedConnection Prelude.Text
 allocateHostedConnection_connectionId = Lens.lens (\AllocateHostedConnection' {connectionId} -> connectionId) (\s@AllocateHostedConnection' {} a -> s {connectionId = a} :: AllocateHostedConnection)
 
--- | The ID of the AWS account ID of the customer for the connection.
+-- | The ID of the account ID of the customer for the connection.
 allocateHostedConnection_ownerAccount :: Lens.Lens' AllocateHostedConnection Prelude.Text
 allocateHostedConnection_ownerAccount = Lens.lens (\AllocateHostedConnection' {ownerAccount} -> ownerAccount) (\s@AllocateHostedConnection' {} a -> s {ownerAccount = a} :: AllocateHostedConnection)
 
 -- | The bandwidth of the connection. The possible values are 50Mbps,
 -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
--- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+-- 10Gbps. Note that only those Direct Connect Partners who have met
 -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
 -- 10Gbps hosted connection.
 allocateHostedConnection_bandwidth :: Lens.Lens' AllocateHostedConnection Prelude.Text

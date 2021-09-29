@@ -39,6 +39,14 @@ data Job = Job'
     -- | The status of the job, one of @IN_PROGRESS@, @CANCELED@,
     -- @DELETION_IN_PROGRESS@ or @COMPLETED@.
     status :: Prelude.Maybe JobStatus,
+    -- | If the job was updated, provides the reason code for the update.
+    reasonCode :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the amount of time each device has to finish its execution of
+    -- the job. A timer is started when the job execution status is set to
+    -- @IN_PROGRESS@. If the job execution status is not set to another
+    -- terminal state before the timer expires, it will be automatically set to
+    -- @TIMED_OUT@.
+    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
     -- complete after all those things specified as targets have completed the
     -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
@@ -46,19 +54,11 @@ data Job = Job'
     -- when the thing representing the device is added to a target group, even
     -- after the job was completed by all things originally in the group.
     targetSelection :: Prelude.Maybe TargetSelection,
-    -- | Specifies the amount of time each device has to finish its execution of
-    -- the job. A timer is started when the job execution status is set to
-    -- @IN_PROGRESS@. If the job execution status is not set to another
-    -- terminal state before the timer expires, it will be automatically set to
-    -- @TIMED_OUT@.
-    timeoutConfig :: Prelude.Maybe TimeoutConfig,
-    -- | If the job was updated, provides the reason code for the update.
-    reasonCode :: Prelude.Maybe Prelude.Text,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
@@ -72,24 +72,26 @@ data Job = Job'
     completedAt :: Prelude.Maybe Core.POSIX,
     -- | The time, in seconds since the epoch, when the job was created.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | Will be @true@ if the job was canceled with the optional @force@
+    -- parameter set to @true@.
+    forceCanceled :: Prelude.Maybe Prelude.Bool,
     -- | An ARN identifying the job with format
     -- \"arn:aws:iot:region:account:job\/jobId\".
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | A list of IoT things and thing groups to which the job should be sent.
     targets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Will be @true@ if the job was canceled with the optional @force@
-    -- parameter set to @true@.
-    forceCanceled :: Prelude.Maybe Prelude.Bool,
     -- | Configuration for pre-signed S3 URLs.
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
     -- | Configuration for criteria to abort the job.
     abortConfig :: Prelude.Maybe AbortConfig,
-    -- | The time, in seconds since the epoch, when the job was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the job template used to create the job.
+    jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The time, in seconds since the epoch, when the job was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,12 +108,7 @@ data Job = Job'
 -- 'status', 'job_status' - The status of the job, one of @IN_PROGRESS@, @CANCELED@,
 -- @DELETION_IN_PROGRESS@ or @COMPLETED@.
 --
--- 'targetSelection', 'job_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
--- complete after all those things specified as targets have completed the
--- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
--- change is detected in a target. For example, a job will run on a device
--- when the thing representing the device is added to a target group, even
--- after the job was completed by all things originally in the group.
+-- 'reasonCode', 'job_reasonCode' - If the job was updated, provides the reason code for the update.
 --
 -- 'timeoutConfig', 'job_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
 -- the job. A timer is started when the job execution status is set to
@@ -119,13 +116,18 @@ data Job = Job'
 -- terminal state before the timer expires, it will be automatically set to
 -- @TIMED_OUT@.
 --
--- 'reasonCode', 'job_reasonCode' - If the job was updated, provides the reason code for the update.
+-- 'targetSelection', 'job_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
+-- complete after all those things specified as targets have completed the
+-- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
+-- change is detected in a target. For example, a job will run on a device
+-- when the thing representing the device is added to a target group, even
+-- after the job was completed by all things originally in the group.
 --
 -- 'namespaceId', 'job_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
@@ -139,13 +141,13 @@ data Job = Job'
 --
 -- 'createdAt', 'job_createdAt' - The time, in seconds since the epoch, when the job was created.
 --
+-- 'forceCanceled', 'job_forceCanceled' - Will be @true@ if the job was canceled with the optional @force@
+-- parameter set to @true@.
+--
 -- 'jobArn', 'job_jobArn' - An ARN identifying the job with format
 -- \"arn:aws:iot:region:account:job\/jobId\".
 --
 -- 'targets', 'job_targets' - A list of IoT things and thing groups to which the job should be sent.
---
--- 'forceCanceled', 'job_forceCanceled' - Will be @true@ if the job was canceled with the optional @force@
--- parameter set to @true@.
 --
 -- 'presignedUrlConfig', 'job_presignedUrlConfig' - Configuration for pre-signed S3 URLs.
 --
@@ -153,31 +155,34 @@ data Job = Job'
 --
 -- 'abortConfig', 'job_abortConfig' - Configuration for criteria to abort the job.
 --
--- 'lastUpdatedAt', 'job_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
+-- 'jobTemplateArn', 'job_jobTemplateArn' - The ARN of the job template used to create the job.
 --
 -- 'jobId', 'job_jobId' - The unique identifier you assigned to this job when it was created.
+--
+-- 'lastUpdatedAt', 'job_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
 newJob ::
   Job
 newJob =
   Job'
     { jobExecutionsRolloutConfig = Prelude.Nothing,
       status = Prelude.Nothing,
-      targetSelection = Prelude.Nothing,
-      timeoutConfig = Prelude.Nothing,
       reasonCode = Prelude.Nothing,
+      timeoutConfig = Prelude.Nothing,
+      targetSelection = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
       jobProcessDetails = Prelude.Nothing,
       comment = Prelude.Nothing,
       completedAt = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      forceCanceled = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       targets = Prelude.Nothing,
-      forceCanceled = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       description = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobTemplateArn = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
 
 -- | Allows you to create a staged rollout of a job.
@@ -189,14 +194,9 @@ job_jobExecutionsRolloutConfig = Lens.lens (\Job' {jobExecutionsRolloutConfig} -
 job_status :: Lens.Lens' Job (Prelude.Maybe JobStatus)
 job_status = Lens.lens (\Job' {status} -> status) (\s@Job' {} a -> s {status = a} :: Job)
 
--- | Specifies whether the job will continue to run (CONTINUOUS), or will be
--- complete after all those things specified as targets have completed the
--- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
--- change is detected in a target. For example, a job will run on a device
--- when the thing representing the device is added to a target group, even
--- after the job was completed by all things originally in the group.
-job_targetSelection :: Lens.Lens' Job (Prelude.Maybe TargetSelection)
-job_targetSelection = Lens.lens (\Job' {targetSelection} -> targetSelection) (\s@Job' {} a -> s {targetSelection = a} :: Job)
+-- | If the job was updated, provides the reason code for the update.
+job_reasonCode :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_reasonCode = Lens.lens (\Job' {reasonCode} -> reasonCode) (\s@Job' {} a -> s {reasonCode = a} :: Job)
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. A timer is started when the job execution status is set to
@@ -206,15 +206,20 @@ job_targetSelection = Lens.lens (\Job' {targetSelection} -> targetSelection) (\s
 job_timeoutConfig :: Lens.Lens' Job (Prelude.Maybe TimeoutConfig)
 job_timeoutConfig = Lens.lens (\Job' {timeoutConfig} -> timeoutConfig) (\s@Job' {} a -> s {timeoutConfig = a} :: Job)
 
--- | If the job was updated, provides the reason code for the update.
-job_reasonCode :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_reasonCode = Lens.lens (\Job' {reasonCode} -> reasonCode) (\s@Job' {} a -> s {reasonCode = a} :: Job)
+-- | Specifies whether the job will continue to run (CONTINUOUS), or will be
+-- complete after all those things specified as targets have completed the
+-- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
+-- change is detected in a target. For example, a job will run on a device
+-- when the thing representing the device is added to a target group, even
+-- after the job was completed by all things originally in the group.
+job_targetSelection :: Lens.Lens' Job (Prelude.Maybe TargetSelection)
+job_targetSelection = Lens.lens (\Job' {targetSelection} -> targetSelection) (\s@Job' {} a -> s {targetSelection = a} :: Job)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
@@ -238,6 +243,11 @@ job_completedAt = Lens.lens (\Job' {completedAt} -> completedAt) (\s@Job' {} a -
 job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
 job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Core._Time
 
+-- | Will be @true@ if the job was canceled with the optional @force@
+-- parameter set to @true@.
+job_forceCanceled :: Lens.Lens' Job (Prelude.Maybe Prelude.Bool)
+job_forceCanceled = Lens.lens (\Job' {forceCanceled} -> forceCanceled) (\s@Job' {} a -> s {forceCanceled = a} :: Job)
+
 -- | An ARN identifying the job with format
 -- \"arn:aws:iot:region:account:job\/jobId\".
 job_jobArn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
@@ -246,11 +256,6 @@ job_jobArn = Lens.lens (\Job' {jobArn} -> jobArn) (\s@Job' {} a -> s {jobArn = a
 -- | A list of IoT things and thing groups to which the job should be sent.
 job_targets :: Lens.Lens' Job (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 job_targets = Lens.lens (\Job' {targets} -> targets) (\s@Job' {} a -> s {targets = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
-
--- | Will be @true@ if the job was canceled with the optional @force@
--- parameter set to @true@.
-job_forceCanceled :: Lens.Lens' Job (Prelude.Maybe Prelude.Bool)
-job_forceCanceled = Lens.lens (\Job' {forceCanceled} -> forceCanceled) (\s@Job' {} a -> s {forceCanceled = a} :: Job)
 
 -- | Configuration for pre-signed S3 URLs.
 job_presignedUrlConfig :: Lens.Lens' Job (Prelude.Maybe PresignedUrlConfig)
@@ -264,13 +269,17 @@ job_description = Lens.lens (\Job' {description} -> description) (\s@Job' {} a -
 job_abortConfig :: Lens.Lens' Job (Prelude.Maybe AbortConfig)
 job_abortConfig = Lens.lens (\Job' {abortConfig} -> abortConfig) (\s@Job' {} a -> s {abortConfig = a} :: Job)
 
--- | The time, in seconds since the epoch, when the job was last updated.
-job_lastUpdatedAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' {} a -> s {lastUpdatedAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+-- | The ARN of the job template used to create the job.
+job_jobTemplateArn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_jobTemplateArn = Lens.lens (\Job' {jobTemplateArn} -> jobTemplateArn) (\s@Job' {} a -> s {jobTemplateArn = a} :: Job)
 
 -- | The unique identifier you assigned to this job when it was created.
 job_jobId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_jobId = Lens.lens (\Job' {jobId} -> jobId) (\s@Job' {} a -> s {jobId = a} :: Job)
+
+-- | The time, in seconds since the epoch, when the job was last updated.
+job_lastUpdatedAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' {} a -> s {lastUpdatedAt = a} :: Job) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Job where
   parseJSON =
@@ -280,22 +289,23 @@ instance Core.FromJSON Job where
           Job'
             Prelude.<$> (x Core..:? "jobExecutionsRolloutConfig")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targetSelection")
-            Prelude.<*> (x Core..:? "timeoutConfig")
             Prelude.<*> (x Core..:? "reasonCode")
+            Prelude.<*> (x Core..:? "timeoutConfig")
+            Prelude.<*> (x Core..:? "targetSelection")
             Prelude.<*> (x Core..:? "namespaceId")
             Prelude.<*> (x Core..:? "jobProcessDetails")
             Prelude.<*> (x Core..:? "comment")
             Prelude.<*> (x Core..:? "completedAt")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "forceCanceled")
             Prelude.<*> (x Core..:? "jobArn")
             Prelude.<*> (x Core..:? "targets")
-            Prelude.<*> (x Core..:? "forceCanceled")
             Prelude.<*> (x Core..:? "presignedUrlConfig")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "abortConfig")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "jobTemplateArn")
             Prelude.<*> (x Core..:? "jobId")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
       )
 
 instance Prelude.Hashable Job

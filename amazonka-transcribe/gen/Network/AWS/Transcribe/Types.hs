@@ -19,8 +19,8 @@ module Network.AWS.Transcribe.Types
     -- * Errors
     _NotFoundException,
     _BadRequestException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _InternalFailureException,
 
     -- * BaseModelName
@@ -29,11 +29,17 @@ module Network.AWS.Transcribe.Types
     -- * CLMLanguageCode
     CLMLanguageCode (..),
 
+    -- * CallAnalyticsJobStatus
+    CallAnalyticsJobStatus (..),
+
     -- * LanguageCode
     LanguageCode (..),
 
     -- * MediaFormat
     MediaFormat (..),
+
+    -- * MedicalContentIdentificationType
+    MedicalContentIdentificationType (..),
 
     -- * ModelStatus
     ModelStatus (..),
@@ -41,14 +47,26 @@ module Network.AWS.Transcribe.Types
     -- * OutputLocationType
     OutputLocationType (..),
 
+    -- * ParticipantRole
+    ParticipantRole (..),
+
     -- * RedactionOutput
     RedactionOutput (..),
 
     -- * RedactionType
     RedactionType (..),
 
+    -- * SentimentValue
+    SentimentValue (..),
+
     -- * Specialty
     Specialty (..),
+
+    -- * SubtitleFormat
+    SubtitleFormat (..),
+
+    -- * TranscriptFilterType
+    TranscriptFilterType (..),
 
     -- * TranscriptionJobStatus
     TranscriptionJobStatus (..),
@@ -61,6 +79,68 @@ module Network.AWS.Transcribe.Types
 
     -- * VocabularyState
     VocabularyState (..),
+
+    -- * AbsoluteTimeRange
+    AbsoluteTimeRange (..),
+    newAbsoluteTimeRange,
+    absoluteTimeRange_startTime,
+    absoluteTimeRange_endTime,
+    absoluteTimeRange_last,
+    absoluteTimeRange_first,
+
+    -- * CallAnalyticsJob
+    CallAnalyticsJob (..),
+    newCallAnalyticsJob,
+    callAnalyticsJob_languageCode,
+    callAnalyticsJob_mediaFormat,
+    callAnalyticsJob_callAnalyticsJobStatus,
+    callAnalyticsJob_creationTime,
+    callAnalyticsJob_media,
+    callAnalyticsJob_completionTime,
+    callAnalyticsJob_transcript,
+    callAnalyticsJob_startTime,
+    callAnalyticsJob_channelDefinitions,
+    callAnalyticsJob_identifiedLanguageScore,
+    callAnalyticsJob_callAnalyticsJobName,
+    callAnalyticsJob_failureReason,
+    callAnalyticsJob_mediaSampleRateHertz,
+    callAnalyticsJob_dataAccessRoleArn,
+    callAnalyticsJob_settings,
+
+    -- * CallAnalyticsJobSettings
+    CallAnalyticsJobSettings (..),
+    newCallAnalyticsJobSettings,
+    callAnalyticsJobSettings_contentRedaction,
+    callAnalyticsJobSettings_vocabularyFilterName,
+    callAnalyticsJobSettings_vocabularyFilterMethod,
+    callAnalyticsJobSettings_languageModelName,
+    callAnalyticsJobSettings_vocabularyName,
+    callAnalyticsJobSettings_languageOptions,
+
+    -- * CallAnalyticsJobSummary
+    CallAnalyticsJobSummary (..),
+    newCallAnalyticsJobSummary,
+    callAnalyticsJobSummary_languageCode,
+    callAnalyticsJobSummary_callAnalyticsJobStatus,
+    callAnalyticsJobSummary_creationTime,
+    callAnalyticsJobSummary_completionTime,
+    callAnalyticsJobSummary_startTime,
+    callAnalyticsJobSummary_callAnalyticsJobName,
+    callAnalyticsJobSummary_failureReason,
+
+    -- * CategoryProperties
+    CategoryProperties (..),
+    newCategoryProperties,
+    categoryProperties_lastUpdateTime,
+    categoryProperties_rules,
+    categoryProperties_categoryName,
+    categoryProperties_createTime,
+
+    -- * ChannelDefinition
+    ChannelDefinition (..),
+    newChannelDefinition,
+    channelDefinition_channelId,
+    channelDefinition_participantRole,
 
     -- * ContentRedaction
     ContentRedaction (..),
@@ -75,6 +155,15 @@ module Network.AWS.Transcribe.Types
     inputDataConfig_s3Uri,
     inputDataConfig_dataAccessRoleArn,
 
+    -- * InterruptionFilter
+    InterruptionFilter (..),
+    newInterruptionFilter,
+    interruptionFilter_threshold,
+    interruptionFilter_relativeTimeRange,
+    interruptionFilter_negate,
+    interruptionFilter_participantRole,
+    interruptionFilter_absoluteTimeRange,
+
     -- * JobExecutionSettings
     JobExecutionSettings (..),
     newJobExecutionSettings,
@@ -88,8 +177,8 @@ module Network.AWS.Transcribe.Types
     languageModel_inputDataConfig,
     languageModel_modelStatus,
     languageModel_failureReason,
-    languageModel_upgradeAvailability,
     languageModel_createTime,
+    languageModel_upgradeAvailability,
     languageModel_lastModifiedTime,
     languageModel_modelName,
     languageModel_baseModelName,
@@ -98,6 +187,7 @@ module Network.AWS.Transcribe.Types
     Media (..),
     newMedia,
     media_mediaFileUri,
+    media_redactedMediaFileUri,
 
     -- * MedicalTranscript
     MedicalTranscript (..),
@@ -109,14 +199,16 @@ module Network.AWS.Transcribe.Types
     newMedicalTranscriptionJob,
     medicalTranscriptionJob_languageCode,
     medicalTranscriptionJob_mediaFormat,
-    medicalTranscriptionJob_media,
     medicalTranscriptionJob_creationTime,
+    medicalTranscriptionJob_media,
     medicalTranscriptionJob_completionTime,
     medicalTranscriptionJob_transcript,
-    medicalTranscriptionJob_startTime,
+    medicalTranscriptionJob_contentIdentificationType,
     medicalTranscriptionJob_transcriptionJobStatus,
+    medicalTranscriptionJob_startTime,
     medicalTranscriptionJob_specialty,
     medicalTranscriptionJob_failureReason,
+    medicalTranscriptionJob_tags,
     medicalTranscriptionJob_mediaSampleRateHertz,
     medicalTranscriptionJob_type,
     medicalTranscriptionJob_medicalTranscriptionJobName,
@@ -128,8 +220,9 @@ module Network.AWS.Transcribe.Types
     medicalTranscriptionJobSummary_languageCode,
     medicalTranscriptionJobSummary_creationTime,
     medicalTranscriptionJobSummary_completionTime,
-    medicalTranscriptionJobSummary_startTime,
+    medicalTranscriptionJobSummary_contentIdentificationType,
     medicalTranscriptionJobSummary_transcriptionJobStatus,
+    medicalTranscriptionJobSummary_startTime,
     medicalTranscriptionJobSummary_outputLocationType,
     medicalTranscriptionJobSummary_specialty,
     medicalTranscriptionJobSummary_failureReason,
@@ -151,11 +244,44 @@ module Network.AWS.Transcribe.Types
     newModelSettings,
     modelSettings_languageModelName,
 
+    -- * NonTalkTimeFilter
+    NonTalkTimeFilter (..),
+    newNonTalkTimeFilter,
+    nonTalkTimeFilter_threshold,
+    nonTalkTimeFilter_relativeTimeRange,
+    nonTalkTimeFilter_negate,
+    nonTalkTimeFilter_absoluteTimeRange,
+
+    -- * RelativeTimeRange
+    RelativeTimeRange (..),
+    newRelativeTimeRange,
+    relativeTimeRange_startPercentage,
+    relativeTimeRange_endPercentage,
+    relativeTimeRange_last,
+    relativeTimeRange_first,
+
+    -- * Rule
+    Rule (..),
+    newRule,
+    rule_sentimentFilter,
+    rule_interruptionFilter,
+    rule_transcriptFilter,
+    rule_nonTalkTimeFilter,
+
+    -- * SentimentFilter
+    SentimentFilter (..),
+    newSentimentFilter,
+    sentimentFilter_relativeTimeRange,
+    sentimentFilter_negate,
+    sentimentFilter_participantRole,
+    sentimentFilter_absoluteTimeRange,
+    sentimentFilter_sentiments,
+
     -- * Settings
     Settings (..),
     newSettings,
-    settings_vocabularyFilterMethod,
     settings_vocabularyFilterName,
+    settings_vocabularyFilterMethod,
     settings_showAlternatives,
     settings_channelIdentification,
     settings_maxAlternatives,
@@ -163,11 +289,38 @@ module Network.AWS.Transcribe.Types
     settings_vocabularyName,
     settings_maxSpeakerLabels,
 
+    -- * Subtitles
+    Subtitles (..),
+    newSubtitles,
+    subtitles_formats,
+
+    -- * SubtitlesOutput
+    SubtitlesOutput (..),
+    newSubtitlesOutput,
+    subtitlesOutput_subtitleFileUris,
+    subtitlesOutput_formats,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+
     -- * Transcript
     Transcript (..),
     newTranscript,
     transcript_transcriptFileUri,
     transcript_redactedTranscriptFileUri,
+
+    -- * TranscriptFilter
+    TranscriptFilter (..),
+    newTranscriptFilter,
+    transcriptFilter_relativeTimeRange,
+    transcriptFilter_negate,
+    transcriptFilter_participantRole,
+    transcriptFilter_absoluteTimeRange,
+    transcriptFilter_transcriptFilterType,
+    transcriptFilter_targets,
 
     -- * TranscriptionJob
     TranscriptionJob (..),
@@ -175,17 +328,19 @@ module Network.AWS.Transcribe.Types
     transcriptionJob_languageCode,
     transcriptionJob_mediaFormat,
     transcriptionJob_contentRedaction,
-    transcriptionJob_media,
     transcriptionJob_creationTime,
+    transcriptionJob_media,
     transcriptionJob_completionTime,
-    transcriptionJob_transcriptionJobName,
     transcriptionJob_transcript,
     transcriptionJob_identifyLanguage,
-    transcriptionJob_startTime,
+    transcriptionJob_transcriptionJobName,
     transcriptionJob_transcriptionJobStatus,
+    transcriptionJob_startTime,
     transcriptionJob_modelSettings,
     transcriptionJob_identifiedLanguageScore,
+    transcriptionJob_subtitles,
     transcriptionJob_failureReason,
+    transcriptionJob_tags,
     transcriptionJob_mediaSampleRateHertz,
     transcriptionJob_jobExecutionSettings,
     transcriptionJob_settings,
@@ -198,12 +353,12 @@ module Network.AWS.Transcribe.Types
     transcriptionJobSummary_contentRedaction,
     transcriptionJobSummary_creationTime,
     transcriptionJobSummary_completionTime,
-    transcriptionJobSummary_transcriptionJobName,
     transcriptionJobSummary_identifyLanguage,
-    transcriptionJobSummary_startTime,
+    transcriptionJobSummary_transcriptionJobName,
     transcriptionJobSummary_transcriptionJobStatus,
-    transcriptionJobSummary_modelSettings,
+    transcriptionJobSummary_startTime,
     transcriptionJobSummary_outputLocationType,
+    transcriptionJobSummary_modelSettings,
     transcriptionJobSummary_identifiedLanguageScore,
     transcriptionJobSummary_failureReason,
 
@@ -219,8 +374,8 @@ module Network.AWS.Transcribe.Types
     newVocabularyInfo,
     vocabularyInfo_languageCode,
     vocabularyInfo_lastModifiedTime,
-    vocabularyInfo_vocabularyState,
     vocabularyInfo_vocabularyName,
+    vocabularyInfo_vocabularyState,
   )
 where
 
@@ -228,27 +383,48 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
+import Network.AWS.Transcribe.Types.AbsoluteTimeRange
 import Network.AWS.Transcribe.Types.BaseModelName
 import Network.AWS.Transcribe.Types.CLMLanguageCode
+import Network.AWS.Transcribe.Types.CallAnalyticsJob
+import Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
+import Network.AWS.Transcribe.Types.CallAnalyticsJobStatus
+import Network.AWS.Transcribe.Types.CallAnalyticsJobSummary
+import Network.AWS.Transcribe.Types.CategoryProperties
+import Network.AWS.Transcribe.Types.ChannelDefinition
 import Network.AWS.Transcribe.Types.ContentRedaction
 import Network.AWS.Transcribe.Types.InputDataConfig
+import Network.AWS.Transcribe.Types.InterruptionFilter
 import Network.AWS.Transcribe.Types.JobExecutionSettings
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.LanguageModel
 import Network.AWS.Transcribe.Types.Media
 import Network.AWS.Transcribe.Types.MediaFormat
+import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
 import Network.AWS.Transcribe.Types.MedicalTranscript
 import Network.AWS.Transcribe.Types.MedicalTranscriptionJob
 import Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
 import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
 import Network.AWS.Transcribe.Types.ModelSettings
 import Network.AWS.Transcribe.Types.ModelStatus
+import Network.AWS.Transcribe.Types.NonTalkTimeFilter
 import Network.AWS.Transcribe.Types.OutputLocationType
+import Network.AWS.Transcribe.Types.ParticipantRole
 import Network.AWS.Transcribe.Types.RedactionOutput
 import Network.AWS.Transcribe.Types.RedactionType
+import Network.AWS.Transcribe.Types.RelativeTimeRange
+import Network.AWS.Transcribe.Types.Rule
+import Network.AWS.Transcribe.Types.SentimentFilter
+import Network.AWS.Transcribe.Types.SentimentValue
 import Network.AWS.Transcribe.Types.Settings
 import Network.AWS.Transcribe.Types.Specialty
+import Network.AWS.Transcribe.Types.SubtitleFormat
+import Network.AWS.Transcribe.Types.Subtitles
+import Network.AWS.Transcribe.Types.SubtitlesOutput
+import Network.AWS.Transcribe.Types.Tag
 import Network.AWS.Transcribe.Types.Transcript
+import Network.AWS.Transcribe.Types.TranscriptFilter
+import Network.AWS.Transcribe.Types.TranscriptFilterType
 import Network.AWS.Transcribe.Types.TranscriptionJob
 import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 import Network.AWS.Transcribe.Types.TranscriptionJobSummary
@@ -347,6 +523,13 @@ _BadRequestException =
     defaultService
     "BadRequestException"
 
+-- | There is already a resource with that name.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
 -- | Either you have sent too many requests or your input file is too long.
 -- Wait before you resend your request, or use a smaller file and resend
 -- the request.
@@ -355,13 +538,6 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | There is already a resource with that name.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
 
 -- | There was an internal error. Check the error message and try your
 -- request again.

@@ -22,7 +22,7 @@
 --
 -- Retrieves details about your account\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html limits> and
--- usage in an AWS Region.
+-- usage in an Amazon Web Services Region.
 module Network.AWS.Lambda.GetAccountSettings
   ( -- * Creating a Request
     GetAccountSettings (..),

@@ -29,14 +29,17 @@ module Network.AWS.LexModels
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** InternalFailureException
     _InternalFailureException,
@@ -56,11 +59,23 @@ module Network.AWS.LexModels
     DeleteSlotTypeVersionResponse (DeleteSlotTypeVersionResponse'),
     newDeleteSlotTypeVersionResponse,
 
+    -- ** StartMigration
+    StartMigration (StartMigration'),
+    newStartMigration,
+    StartMigrationResponse (StartMigrationResponse'),
+    newStartMigrationResponse,
+
     -- ** GetBots (Paginated)
     GetBots (GetBots'),
     newGetBots,
     GetBotsResponse (GetBotsResponse'),
     newGetBotsResponse,
+
+    -- ** GetBotAlias
+    GetBotAlias (GetBotAlias'),
+    newGetBotAlias,
+    GetBotAliasResponse (GetBotAliasResponse'),
+    newGetBotAliasResponse,
 
     -- ** GetSlotTypes (Paginated)
     GetSlotTypes (GetSlotTypes'),
@@ -74,12 +89,6 @@ module Network.AWS.LexModels
     DeleteUtterancesResponse (DeleteUtterancesResponse'),
     newDeleteUtterancesResponse,
 
-    -- ** GetBotAlias
-    GetBotAlias (GetBotAlias'),
-    newGetBotAlias,
-    GetBotAliasResponse (GetBotAliasResponse'),
-    newGetBotAliasResponse,
-
     -- ** GetBotChannelAssociations (Paginated)
     GetBotChannelAssociations (GetBotChannelAssociations'),
     newGetBotChannelAssociations,
@@ -92,17 +101,11 @@ module Network.AWS.LexModels
     PutBotAliasResponse (PutBotAliasResponse'),
     newPutBotAliasResponse,
 
-    -- ** GetUtterancesView
-    GetUtterancesView (GetUtterancesView'),
-    newGetUtterancesView,
-    GetUtterancesViewResponse (GetUtterancesViewResponse'),
-    newGetUtterancesViewResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** GetSlotTypeVersions (Paginated)
+    GetSlotTypeVersions (GetSlotTypeVersions'),
+    newGetSlotTypeVersions,
+    GetSlotTypeVersionsResponse (GetSlotTypeVersionsResponse'),
+    newGetSlotTypeVersionsResponse,
 
     -- ** GetBuiltinIntent
     GetBuiltinIntent (GetBuiltinIntent'),
@@ -110,11 +113,23 @@ module Network.AWS.LexModels
     GetBuiltinIntentResponse (GetBuiltinIntentResponse'),
     newGetBuiltinIntentResponse,
 
-    -- ** GetSlotTypeVersions (Paginated)
-    GetSlotTypeVersions (GetSlotTypeVersions'),
-    newGetSlotTypeVersions,
-    GetSlotTypeVersionsResponse (GetSlotTypeVersionsResponse'),
-    newGetSlotTypeVersionsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** GetUtterancesView
+    GetUtterancesView (GetUtterancesView'),
+    newGetUtterancesView,
+    GetUtterancesViewResponse (GetUtterancesViewResponse'),
+    newGetUtterancesViewResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** GetBuiltinSlotTypes (Paginated)
     GetBuiltinSlotTypes (GetBuiltinSlotTypes'),
@@ -128,18 +143,6 @@ module Network.AWS.LexModels
     PutBotResponse (PutBotResponse'),
     newPutBotResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteSlotType
-    DeleteSlotType (DeleteSlotType'),
-    newDeleteSlotType,
-    DeleteSlotTypeResponse (DeleteSlotTypeResponse'),
-    newDeleteSlotTypeResponse,
-
     -- ** PutIntent
     PutIntent (PutIntent'),
     newPutIntent,
@@ -152,11 +155,11 @@ module Network.AWS.LexModels
     GetBotChannelAssociationResponse (GetBotChannelAssociationResponse'),
     newGetBotChannelAssociationResponse,
 
-    -- ** CreateIntentVersion
-    CreateIntentVersion (CreateIntentVersion'),
-    newCreateIntentVersion,
-    CreateIntentVersionResponse (CreateIntentVersionResponse'),
-    newCreateIntentVersionResponse,
+    -- ** DeleteSlotType
+    DeleteSlotType (DeleteSlotType'),
+    newDeleteSlotType,
+    DeleteSlotTypeResponse (DeleteSlotTypeResponse'),
+    newDeleteSlotTypeResponse,
 
     -- ** GetExport
     GetExport (GetExport'),
@@ -170,17 +173,11 @@ module Network.AWS.LexModels
     GetSlotTypeResponse (GetSlotTypeResponse'),
     newGetSlotTypeResponse,
 
-    -- ** DeleteIntentVersion
-    DeleteIntentVersion (DeleteIntentVersion'),
-    newDeleteIntentVersion,
-    DeleteIntentVersionResponse (DeleteIntentVersionResponse'),
-    newDeleteIntentVersionResponse,
-
-    -- ** CreateBotVersion
-    CreateBotVersion (CreateBotVersion'),
-    newCreateBotVersion,
-    CreateBotVersionResponse (CreateBotVersionResponse'),
-    newCreateBotVersionResponse,
+    -- ** CreateIntentVersion
+    CreateIntentVersion (CreateIntentVersion'),
+    newCreateIntentVersion,
+    CreateIntentVersionResponse (CreateIntentVersionResponse'),
+    newCreateIntentVersionResponse,
 
     -- ** GetBot
     GetBot (GetBot'),
@@ -194,11 +191,29 @@ module Network.AWS.LexModels
     GetBotAliasesResponse (GetBotAliasesResponse'),
     newGetBotAliasesResponse,
 
+    -- ** DeleteIntentVersion
+    DeleteIntentVersion (DeleteIntentVersion'),
+    newDeleteIntentVersion,
+    DeleteIntentVersionResponse (DeleteIntentVersionResponse'),
+    newDeleteIntentVersionResponse,
+
+    -- ** CreateBotVersion
+    CreateBotVersion (CreateBotVersion'),
+    newCreateBotVersion,
+    CreateBotVersionResponse (CreateBotVersionResponse'),
+    newCreateBotVersionResponse,
+
     -- ** GetIntents (Paginated)
     GetIntents (GetIntents'),
     newGetIntents,
     GetIntentsResponse (GetIntentsResponse'),
     newGetIntentsResponse,
+
+    -- ** GetMigrations
+    GetMigrations (GetMigrations'),
+    newGetMigrations,
+    GetMigrationsResponse (GetMigrationsResponse'),
+    newGetMigrationsResponse,
 
     -- ** GetBotVersions (Paginated)
     GetBotVersions (GetBotVersions'),
@@ -212,17 +227,17 @@ module Network.AWS.LexModels
     DeleteBotAliasResponse (DeleteBotAliasResponse'),
     newDeleteBotAliasResponse,
 
-    -- ** GetImport
-    GetImport (GetImport'),
-    newGetImport,
-    GetImportResponse (GetImportResponse'),
-    newGetImportResponse,
-
     -- ** GetIntentVersions (Paginated)
     GetIntentVersions (GetIntentVersions'),
     newGetIntentVersions,
     GetIntentVersionsResponse (GetIntentVersionsResponse'),
     newGetIntentVersionsResponse,
+
+    -- ** GetImport
+    GetImport (GetImport'),
+    newGetImport,
+    GetImportResponse (GetImportResponse'),
+    newGetImportResponse,
 
     -- ** GetBuiltinIntents (Paginated)
     GetBuiltinIntents (GetBuiltinIntents'),
@@ -236,17 +251,17 @@ module Network.AWS.LexModels
     DeleteBotResponse (DeleteBotResponse'),
     newDeleteBotResponse,
 
-    -- ** PutSlotType
-    PutSlotType (PutSlotType'),
-    newPutSlotType,
-    PutSlotTypeResponse (PutSlotTypeResponse'),
-    newPutSlotTypeResponse,
-
     -- ** StartImport
     StartImport (StartImport'),
     newStartImport,
     StartImportResponse (StartImportResponse'),
     newStartImportResponse,
+
+    -- ** PutSlotType
+    PutSlotType (PutSlotType'),
+    newPutSlotType,
+    PutSlotTypeResponse (PutSlotTypeResponse'),
+    newPutSlotTypeResponse,
 
     -- ** DeleteIntent
     DeleteIntent (DeleteIntent'),
@@ -254,17 +269,29 @@ module Network.AWS.LexModels
     DeleteIntentResponse (DeleteIntentResponse'),
     newDeleteIntentResponse,
 
+    -- ** CreateSlotTypeVersion
+    CreateSlotTypeVersion (CreateSlotTypeVersion'),
+    newCreateSlotTypeVersion,
+    CreateSlotTypeVersionResponse (CreateSlotTypeVersionResponse'),
+    newCreateSlotTypeVersionResponse,
+
+    -- ** DeleteBotChannelAssociation
+    DeleteBotChannelAssociation (DeleteBotChannelAssociation'),
+    newDeleteBotChannelAssociation,
+    DeleteBotChannelAssociationResponse (DeleteBotChannelAssociationResponse'),
+    newDeleteBotChannelAssociationResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** CreateSlotTypeVersion
-    CreateSlotTypeVersion (CreateSlotTypeVersion'),
-    newCreateSlotTypeVersion,
-    CreateSlotTypeVersionResponse (CreateSlotTypeVersionResponse'),
-    newCreateSlotTypeVersionResponse,
+    -- ** GetMigration
+    GetMigration (GetMigration'),
+    newGetMigration,
+    GetMigrationResponse (GetMigrationResponse'),
+    newGetMigrationResponse,
 
     -- ** GetIntent
     GetIntent (GetIntent'),
@@ -277,12 +304,6 @@ module Network.AWS.LexModels
     newDeleteBotVersion,
     DeleteBotVersionResponse (DeleteBotVersionResponse'),
     newDeleteBotVersionResponse,
-
-    -- ** DeleteBotChannelAssociation
-    DeleteBotChannelAssociation (DeleteBotChannelAssociation'),
-    newDeleteBotChannelAssociation,
-    DeleteBotChannelAssociationResponse (DeleteBotChannelAssociationResponse'),
-    newDeleteBotChannelAssociationResponse,
 
     -- * Types
 
@@ -322,6 +343,18 @@ module Network.AWS.LexModels
     -- ** MergeStrategy
     MergeStrategy (..),
 
+    -- ** MigrationAlertType
+    MigrationAlertType (..),
+
+    -- ** MigrationSortAttribute
+    MigrationSortAttribute (..),
+
+    -- ** MigrationStatus
+    MigrationStatus (..),
+
+    -- ** MigrationStrategy
+    MigrationStrategy (..),
+
     -- ** ObfuscationSetting
     ObfuscationSetting (..),
 
@@ -336,6 +369,9 @@ module Network.AWS.LexModels
 
     -- ** SlotValueSelectionStrategy
     SlotValueSelectionStrategy (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** StatusType
     StatusType (..),
@@ -416,6 +452,14 @@ module Network.AWS.LexModels
     Message (Message'),
     newMessage,
 
+    -- ** MigrationAlert
+    MigrationAlert (MigrationAlert'),
+    newMigrationAlert,
+
+    -- ** MigrationSummary
+    MigrationSummary (MigrationSummary'),
+    newMigrationSummary,
+
     -- ** OutputContext
     OutputContext (OutputContext'),
     newOutputContext,
@@ -493,6 +537,8 @@ import Network.AWS.LexModels.GetImport
 import Network.AWS.LexModels.GetIntent
 import Network.AWS.LexModels.GetIntentVersions
 import Network.AWS.LexModels.GetIntents
+import Network.AWS.LexModels.GetMigration
+import Network.AWS.LexModels.GetMigrations
 import Network.AWS.LexModels.GetSlotType
 import Network.AWS.LexModels.GetSlotTypeVersions
 import Network.AWS.LexModels.GetSlotTypes
@@ -504,6 +550,7 @@ import Network.AWS.LexModels.PutBotAlias
 import Network.AWS.LexModels.PutIntent
 import Network.AWS.LexModels.PutSlotType
 import Network.AWS.LexModels.StartImport
+import Network.AWS.LexModels.StartMigration
 import Network.AWS.LexModels.TagResource
 import Network.AWS.LexModels.Types
 import Network.AWS.LexModels.UntagResource

@@ -23,17 +23,17 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Lists refresh cache information.
+-- | The refresh cache information for the file share or FSx file systems.
 --
 -- /See:/ 'newCacheAttributes' smart constructor.
 data CacheAttributes = CacheAttributes'
   { -- | Refreshes a file share\'s cache by using Time To Live (TTL). TTL is the
     -- length of time since the last refresh after which access to the
     -- directory would cause the file gateway to first refresh that
-    -- directory\'s contents from the Amazon S3 bucket. The TTL duration is in
-    -- seconds.
+    -- directory\'s contents from the Amazon S3 bucket or Amazon FSx file
+    -- system. The TTL duration is in seconds.
     --
-    -- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+    -- Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)
     cacheStaleTimeoutInSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,10 +49,10 @@ data CacheAttributes = CacheAttributes'
 -- 'cacheStaleTimeoutInSeconds', 'cacheAttributes_cacheStaleTimeoutInSeconds' - Refreshes a file share\'s cache by using Time To Live (TTL). TTL is the
 -- length of time since the last refresh after which access to the
 -- directory would cause the file gateway to first refresh that
--- directory\'s contents from the Amazon S3 bucket. The TTL duration is in
--- seconds.
+-- directory\'s contents from the Amazon S3 bucket or Amazon FSx file
+-- system. The TTL duration is in seconds.
 --
--- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+-- Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)
 newCacheAttributes ::
   CacheAttributes
 newCacheAttributes =
@@ -64,10 +64,10 @@ newCacheAttributes =
 -- | Refreshes a file share\'s cache by using Time To Live (TTL). TTL is the
 -- length of time since the last refresh after which access to the
 -- directory would cause the file gateway to first refresh that
--- directory\'s contents from the Amazon S3 bucket. The TTL duration is in
--- seconds.
+-- directory\'s contents from the Amazon S3 bucket or Amazon FSx file
+-- system. The TTL duration is in seconds.
 --
--- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+-- Valid Values:0, 300 to 2,592,000 seconds (5 minutes to 30 days)
 cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Prelude.Maybe Prelude.Int)
 cacheAttributes_cacheStaleTimeoutInSeconds = Lens.lens (\CacheAttributes' {cacheStaleTimeoutInSeconds} -> cacheStaleTimeoutInSeconds) (\s@CacheAttributes' {} a -> s {cacheStaleTimeoutInSeconds = a} :: CacheAttributes)
 

@@ -20,9 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Amazon Elastic Container Service container instances. Returns
--- metadata about registered and remaining resources on each container
--- instance requested.
+-- Describes one or more container instances. Returns metadata about each
+-- container instance requested.
 module Network.AWS.ECS.DescribeContainerInstances
   ( -- * Creating a Request
     DescribeContainerInstances (..),

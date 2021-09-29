@@ -31,10 +31,10 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'newAssociationSummary' smart constructor.
 data AssociationSummary = AssociationSummary'
-  { -- | The destination type.
-    destinationType :: Prelude.Maybe Prelude.Text,
-    -- | When the association was created.
+  { -- | When the association was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The destination type.
+    destinationType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the destination.
     destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the destination.
@@ -59,9 +59,9 @@ data AssociationSummary = AssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationType', 'associationSummary_destinationType' - The destination type.
---
 -- 'creationTime', 'associationSummary_creationTime' - When the association was created.
+--
+-- 'destinationType', 'associationSummary_destinationType' - The destination type.
 --
 -- 'destinationArn', 'associationSummary_destinationArn' - The Amazon Resource Name (ARN) of the destination.
 --
@@ -80,9 +80,8 @@ newAssociationSummary ::
   AssociationSummary
 newAssociationSummary =
   AssociationSummary'
-    { destinationType =
-        Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      destinationType = Prelude.Nothing,
       destinationArn = Prelude.Nothing,
       destinationName = Prelude.Nothing,
       sourceName = Prelude.Nothing,
@@ -92,13 +91,13 @@ newAssociationSummary =
       sourceType = Prelude.Nothing
     }
 
--- | The destination type.
-associationSummary_destinationType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
-associationSummary_destinationType = Lens.lens (\AssociationSummary' {destinationType} -> destinationType) (\s@AssociationSummary' {} a -> s {destinationType = a} :: AssociationSummary)
-
 -- | When the association was created.
 associationSummary_creationTime :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.UTCTime)
 associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The destination type.
+associationSummary_destinationType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
+associationSummary_destinationType = Lens.lens (\AssociationSummary' {destinationType} -> destinationType) (\s@AssociationSummary' {} a -> s {destinationType = a} :: AssociationSummary)
 
 -- | The Amazon Resource Name (ARN) of the destination.
 associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
@@ -134,8 +133,8 @@ instance Core.FromJSON AssociationSummary where
       "AssociationSummary"
       ( \x ->
           AssociationSummary'
-            Prelude.<$> (x Core..:? "DestinationType")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "DestinationType")
             Prelude.<*> (x Core..:? "DestinationArn")
             Prelude.<*> (x Core..:? "DestinationName")
             Prelude.<*> (x Core..:? "SourceName")

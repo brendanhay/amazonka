@@ -20,18 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an IAM role that is linked to a specific AWS service. The
--- service controls the attached policies and when the role can be deleted.
--- This helps ensure that the service is not broken by an unexpectedly
--- changed or deleted role, which could put your AWS resources into an
--- unknown state. Allowing the service to control the role helps improve
--- service stability and proper cleanup when a service and its role are no
--- longer needed. For more information, see
+-- Creates an IAM role that is linked to a specific Amazon Web Services
+-- service. The service controls the attached policies and when the role
+-- can be deleted. This helps ensure that the service is not broken by an
+-- unexpectedly changed or deleted role, which could put your Amazon Web
+-- Services resources into an unknown state. Allowing the service to
+-- control the role helps improve service stability and proper cleanup when
+-- a service and its role are no longer needed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html Using service-linked roles>
 -- in the /IAM User Guide/.
 --
 -- To attach a policy to this service-linked role, you must make the
--- request using the AWS service that depends on this role.
+-- request using the Amazon Web Services service that depends on this role.
 module Network.AWS.IAM.CreateServiceLinkedRole
   ( -- * Creating a Request
     CreateServiceLinkedRole (..),
@@ -73,13 +73,13 @@ data CreateServiceLinkedRole = CreateServiceLinkedRole'
     customSuffix :: Prelude.Maybe Prelude.Text,
     -- | The description of the role.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The service principal for the AWS service to which this role is
-    -- attached. You use a string similar to a URL but without the http:\/\/ in
-    -- front. For example: @elasticbeanstalk.amazonaws.com@.
+    -- | The service principal for the Amazon Web Services service to which this
+    -- role is attached. You use a string similar to a URL but without the
+    -- http:\/\/ in front. For example: @elasticbeanstalk.amazonaws.com@.
     --
     -- Service principals are unique and case-sensitive. To find the exact
     -- service principal for your service-linked role, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS services that work with IAM>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html Amazon Web Services services that work with IAM>
     -- in the /IAM User Guide/. Look for the services that have __Yes__ in the
     -- __Service-Linked Role__ column. Choose the __Yes__ link to view the
     -- service-linked role documentation for that service.
@@ -107,13 +107,13 @@ data CreateServiceLinkedRole = CreateServiceLinkedRole'
 --
 -- 'description', 'createServiceLinkedRole_description' - The description of the role.
 --
--- 'aWSServiceName', 'createServiceLinkedRole_aWSServiceName' - The service principal for the AWS service to which this role is
--- attached. You use a string similar to a URL but without the http:\/\/ in
--- front. For example: @elasticbeanstalk.amazonaws.com@.
+-- 'aWSServiceName', 'createServiceLinkedRole_aWSServiceName' - The service principal for the Amazon Web Services service to which this
+-- role is attached. You use a string similar to a URL but without the
+-- http:\/\/ in front. For example: @elasticbeanstalk.amazonaws.com@.
 --
 -- Service principals are unique and case-sensitive. To find the exact
 -- service principal for your service-linked role, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS services that work with IAM>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html Amazon Web Services services that work with IAM>
 -- in the /IAM User Guide/. Look for the services that have __Yes__ in the
 -- __Service-Linked Role__ column. Choose the __Yes__ link to view the
 -- service-linked role documentation for that service.
@@ -145,13 +145,13 @@ createServiceLinkedRole_customSuffix = Lens.lens (\CreateServiceLinkedRole' {cus
 createServiceLinkedRole_description :: Lens.Lens' CreateServiceLinkedRole (Prelude.Maybe Prelude.Text)
 createServiceLinkedRole_description = Lens.lens (\CreateServiceLinkedRole' {description} -> description) (\s@CreateServiceLinkedRole' {} a -> s {description = a} :: CreateServiceLinkedRole)
 
--- | The service principal for the AWS service to which this role is
--- attached. You use a string similar to a URL but without the http:\/\/ in
--- front. For example: @elasticbeanstalk.amazonaws.com@.
+-- | The service principal for the Amazon Web Services service to which this
+-- role is attached. You use a string similar to a URL but without the
+-- http:\/\/ in front. For example: @elasticbeanstalk.amazonaws.com@.
 --
 -- Service principals are unique and case-sensitive. To find the exact
 -- service principal for your service-linked role, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS services that work with IAM>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html Amazon Web Services services that work with IAM>
 -- in the /IAM User Guide/. Look for the services that have __Yes__ in the
 -- __Service-Linked Role__ column. Choose the __Yes__ link to view the
 -- service-linked role documentation for that service.

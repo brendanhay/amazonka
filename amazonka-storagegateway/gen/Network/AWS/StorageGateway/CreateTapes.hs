@@ -73,8 +73,8 @@ data CreateTapes = CreateTapes'
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
-    -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
@@ -96,7 +96,7 @@ data CreateTapes = CreateTapes'
     tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tapes with. Use the ListGateways operation to
-    -- return a list of gateways for your account and AWS Region.
+    -- return a list of gateways for your account and Region.
     gatewayARN :: Prelude.Text,
     -- | The size, in bytes, of the virtual tapes that you want to create.
     --
@@ -113,7 +113,7 @@ data CreateTapes = CreateTapes'
     -- | A prefix that you append to the barcode of the virtual tape you are
     -- creating. This prefix makes the barcode unique.
     --
-    -- The prefix must be 1 to 4 characters in length and must be one of the
+    -- The prefix must be 1-4 characters in length and must be one of the
     -- uppercase letters from A to Z.
     tapeBarcodePrefix :: Prelude.Text
   }
@@ -135,8 +135,8 @@ data CreateTapes = CreateTapes'
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
--- 'kmsEncrypted', 'createTapes_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- 'kmsEncrypted', 'createTapes_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 --
@@ -158,7 +158,7 @@ data CreateTapes = CreateTapes'
 --
 -- 'gatewayARN', 'createTapes_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
--- return a list of gateways for your account and AWS Region.
+-- return a list of gateways for your account and Region.
 --
 -- 'tapeSizeInBytes', 'createTapes_tapeSizeInBytes' - The size, in bytes, of the virtual tapes that you want to create.
 --
@@ -175,7 +175,7 @@ data CreateTapes = CreateTapes'
 -- 'tapeBarcodePrefix', 'createTapes_tapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape you are
 -- creating. This prefix makes the barcode unique.
 --
--- The prefix must be 1 to 4 characters in length and must be one of the
+-- The prefix must be 1-4 characters in length and must be one of the
 -- uppercase letters from A to Z.
 newCreateTapes ::
   -- | 'gatewayARN'
@@ -218,8 +218,8 @@ newCreateTapes
 createTapes_poolId :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
 createTapes_poolId = Lens.lens (\CreateTapes' {poolId} -> poolId) (\s@CreateTapes' {} a -> s {poolId = a} :: CreateTapes)
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 createTapes_kmsEncrypted :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
@@ -249,7 +249,7 @@ createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} 
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
--- return a list of gateways for your account and AWS Region.
+-- return a list of gateways for your account and Region.
 createTapes_gatewayARN :: Lens.Lens' CreateTapes Prelude.Text
 createTapes_gatewayARN = Lens.lens (\CreateTapes' {gatewayARN} -> gatewayARN) (\s@CreateTapes' {} a -> s {gatewayARN = a} :: CreateTapes)
 
@@ -274,7 +274,7 @@ createTapes_numTapesToCreate = Lens.lens (\CreateTapes' {numTapesToCreate} -> nu
 -- | A prefix that you append to the barcode of the virtual tape you are
 -- creating. This prefix makes the barcode unique.
 --
--- The prefix must be 1 to 4 characters in length and must be one of the
+-- The prefix must be 1-4 characters in length and must be one of the
 -- uppercase letters from A to Z.
 createTapes_tapeBarcodePrefix :: Lens.Lens' CreateTapes Prelude.Text
 createTapes_tapeBarcodePrefix = Lens.lens (\CreateTapes' {tapeBarcodePrefix} -> tapeBarcodePrefix) (\s@CreateTapes' {} a -> s {tapeBarcodePrefix = a} :: CreateTapes)

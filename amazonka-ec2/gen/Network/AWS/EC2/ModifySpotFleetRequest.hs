@@ -61,6 +61,7 @@ module Network.AWS.EC2.ModifySpotFleetRequest
     -- * Request Lenses
     modifySpotFleetRequest_launchTemplateConfigs,
     modifySpotFleetRequest_onDemandTargetCapacity,
+    modifySpotFleetRequest_context,
     modifySpotFleetRequest_excessCapacityTerminationPolicy,
     modifySpotFleetRequest_targetCapacity,
     modifySpotFleetRequest_spotFleetRequestId,
@@ -93,6 +94,8 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
     launchTemplateConfigs :: Prelude.Maybe [LaunchTemplateConfig],
     -- | The number of On-Demand Instances in the fleet.
     onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether running Spot Instances should be terminated if the
     -- target capacity of the Spot Fleet request is decreased below the current
     -- size of the Spot Fleet.
@@ -119,6 +122,8 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
 --
 -- 'onDemandTargetCapacity', 'modifySpotFleetRequest_onDemandTargetCapacity' - The number of On-Demand Instances in the fleet.
 --
+-- 'context', 'modifySpotFleetRequest_context' - Reserved.
+--
 -- 'excessCapacityTerminationPolicy', 'modifySpotFleetRequest_excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if the
 -- target capacity of the Spot Fleet request is decreased below the current
 -- size of the Spot Fleet.
@@ -135,6 +140,7 @@ newModifySpotFleetRequest pSpotFleetRequestId_ =
     { launchTemplateConfigs =
         Prelude.Nothing,
       onDemandTargetCapacity = Prelude.Nothing,
+      context = Prelude.Nothing,
       excessCapacityTerminationPolicy = Prelude.Nothing,
       targetCapacity = Prelude.Nothing,
       spotFleetRequestId = pSpotFleetRequestId_
@@ -150,6 +156,10 @@ modifySpotFleetRequest_launchTemplateConfigs = Lens.lens (\ModifySpotFleetReques
 -- | The number of On-Demand Instances in the fleet.
 modifySpotFleetRequest_onDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
 modifySpotFleetRequest_onDemandTargetCapacity = Lens.lens (\ModifySpotFleetRequest' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {onDemandTargetCapacity = a} :: ModifySpotFleetRequest)
+
+-- | Reserved.
+modifySpotFleetRequest_context :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Text)
+modifySpotFleetRequest_context = Lens.lens (\ModifySpotFleetRequest' {context} -> context) (\s@ModifySpotFleetRequest' {} a -> s {context = a} :: ModifySpotFleetRequest)
 
 -- | Indicates whether running Spot Instances should be terminated if the
 -- target capacity of the Spot Fleet request is decreased below the current
@@ -201,6 +211,7 @@ instance Core.ToQuery ModifySpotFleetRequest where
           ),
         "OnDemandTargetCapacity"
           Core.=: onDemandTargetCapacity,
+        "Context" Core.=: context,
         "ExcessCapacityTerminationPolicy"
           Core.=: excessCapacityTerminationPolicy,
         "TargetCapacity" Core.=: targetCapacity,

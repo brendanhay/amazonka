@@ -37,9 +37,9 @@ module Network.AWS.MediaPackage.CreateChannel
 
     -- * Response Lenses
     createChannelResponse_egressAccessLogs,
-    createChannelResponse_hlsIngest,
     createChannelResponse_arn,
     createChannelResponse_id,
+    createChannelResponse_hlsIngest,
     createChannelResponse_ingressAccessLogs,
     createChannelResponse_tags,
     createChannelResponse_description,
@@ -115,9 +115,9 @@ instance Core.AWSRequest CreateChannel where
       ( \s h x ->
           CreateChannelResponse'
             Prelude.<$> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "description")
@@ -158,11 +158,11 @@ instance Core.ToQuery CreateChannel where
 -- | /See:/ 'newCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
   { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
     id :: Prelude.Maybe Prelude.Text,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
@@ -182,11 +182,11 @@ data CreateChannelResponse = CreateChannelResponse'
 --
 -- 'egressAccessLogs', 'createChannelResponse_egressAccessLogs' - Undocumented member.
 --
--- 'hlsIngest', 'createChannelResponse_hlsIngest' - Undocumented member.
---
 -- 'arn', 'createChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
 -- 'id', 'createChannelResponse_id' - The ID of the Channel.
+--
+-- 'hlsIngest', 'createChannelResponse_hlsIngest' - Undocumented member.
 --
 -- 'ingressAccessLogs', 'createChannelResponse_ingressAccessLogs' - Undocumented member.
 --
@@ -203,9 +203,9 @@ newCreateChannelResponse pHttpStatus_ =
   CreateChannelResponse'
     { egressAccessLogs =
         Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       ingressAccessLogs = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -216,10 +216,6 @@ newCreateChannelResponse pHttpStatus_ =
 createChannelResponse_egressAccessLogs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe EgressAccessLogs)
 createChannelResponse_egressAccessLogs = Lens.lens (\CreateChannelResponse' {egressAccessLogs} -> egressAccessLogs) (\s@CreateChannelResponse' {} a -> s {egressAccessLogs = a} :: CreateChannelResponse)
 
--- | Undocumented member.
-createChannelResponse_hlsIngest :: Lens.Lens' CreateChannelResponse (Prelude.Maybe HlsIngest)
-createChannelResponse_hlsIngest = Lens.lens (\CreateChannelResponse' {hlsIngest} -> hlsIngest) (\s@CreateChannelResponse' {} a -> s {hlsIngest = a} :: CreateChannelResponse)
-
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 createChannelResponse_arn :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s@CreateChannelResponse' {} a -> s {arn = a} :: CreateChannelResponse)
@@ -227,6 +223,10 @@ createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s
 -- | The ID of the Channel.
 createChannelResponse_id :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
 createChannelResponse_id = Lens.lens (\CreateChannelResponse' {id} -> id) (\s@CreateChannelResponse' {} a -> s {id = a} :: CreateChannelResponse)
+
+-- | Undocumented member.
+createChannelResponse_hlsIngest :: Lens.Lens' CreateChannelResponse (Prelude.Maybe HlsIngest)
+createChannelResponse_hlsIngest = Lens.lens (\CreateChannelResponse' {hlsIngest} -> hlsIngest) (\s@CreateChannelResponse' {} a -> s {hlsIngest = a} :: CreateChannelResponse)
 
 -- | Undocumented member.
 createChannelResponse_ingressAccessLogs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe IngressAccessLogs)

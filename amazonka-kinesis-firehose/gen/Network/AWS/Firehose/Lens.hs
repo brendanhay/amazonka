@@ -31,6 +31,14 @@ module Network.AWS.Firehose.Lens
     listDeliveryStreamsResponse_deliveryStreamNames,
     listDeliveryStreamsResponse_hasMoreDeliveryStreams,
 
+    -- ** ListTagsForDeliveryStream
+    listTagsForDeliveryStream_exclusiveStartTagKey,
+    listTagsForDeliveryStream_limit,
+    listTagsForDeliveryStream_deliveryStreamName,
+    listTagsForDeliveryStreamResponse_httpStatus,
+    listTagsForDeliveryStreamResponse_tags,
+    listTagsForDeliveryStreamResponse_hasMoreTags,
+
     -- ** PutRecordBatch
     putRecordBatch_deliveryStreamName,
     putRecordBatch_records,
@@ -39,13 +47,12 @@ module Network.AWS.Firehose.Lens
     putRecordBatchResponse_failedPutCount,
     putRecordBatchResponse_requestResponses,
 
-    -- ** ListTagsForDeliveryStream
-    listTagsForDeliveryStream_exclusiveStartTagKey,
-    listTagsForDeliveryStream_limit,
-    listTagsForDeliveryStream_deliveryStreamName,
-    listTagsForDeliveryStreamResponse_httpStatus,
-    listTagsForDeliveryStreamResponse_tags,
-    listTagsForDeliveryStreamResponse_hasMoreTags,
+    -- ** DescribeDeliveryStream
+    describeDeliveryStream_exclusiveStartDestinationId,
+    describeDeliveryStream_limit,
+    describeDeliveryStream_deliveryStreamName,
+    describeDeliveryStreamResponse_httpStatus,
+    describeDeliveryStreamResponse_deliveryStreamDescription,
 
     -- ** UpdateDestination
     updateDestination_redshiftDestinationUpdate,
@@ -58,13 +65,6 @@ module Network.AWS.Firehose.Lens
     updateDestination_currentDeliveryStreamVersionId,
     updateDestination_destinationId,
     updateDestinationResponse_httpStatus,
-
-    -- ** DescribeDeliveryStream
-    describeDeliveryStream_exclusiveStartDestinationId,
-    describeDeliveryStream_limit,
-    describeDeliveryStream_deliveryStreamName,
-    describeDeliveryStreamResponse_httpStatus,
-    describeDeliveryStreamResponse_deliveryStreamDescription,
 
     -- ** CreateDeliveryStream
     createDeliveryStream_redshiftDestinationConfiguration,
@@ -88,15 +88,15 @@ module Network.AWS.Firehose.Lens
     putRecordResponse_httpStatus,
     putRecordResponse_recordId,
 
-    -- ** DeleteDeliveryStream
-    deleteDeliveryStream_allowForceDelete,
-    deleteDeliveryStream_deliveryStreamName,
-    deleteDeliveryStreamResponse_httpStatus,
-
     -- ** UntagDeliveryStream
     untagDeliveryStream_deliveryStreamName,
     untagDeliveryStream_tagKeys,
     untagDeliveryStreamResponse_httpStatus,
+
+    -- ** DeleteDeliveryStream
+    deleteDeliveryStream_allowForceDelete,
+    deleteDeliveryStream_deliveryStreamName,
+    deleteDeliveryStreamResponse_httpStatus,
 
     -- ** TagDeliveryStream
     tagDeliveryStream_deliveryStreamName,
@@ -154,13 +154,17 @@ module Network.AWS.Firehose.Lens
     deserializer_openXJsonSerDe,
 
     -- ** DestinationDescription
-    destinationDescription_elasticsearchDestinationDescription,
     destinationDescription_httpEndpointDestinationDescription,
+    destinationDescription_elasticsearchDestinationDescription,
     destinationDescription_extendedS3DestinationDescription,
     destinationDescription_redshiftDestinationDescription,
     destinationDescription_splunkDestinationDescription,
     destinationDescription_s3DestinationDescription,
     destinationDescription_destinationId,
+
+    -- ** DynamicPartitioningConfiguration
+    dynamicPartitioningConfiguration_enabled,
+    dynamicPartitioningConfiguration_retryOptions,
 
     -- ** ElasticsearchBufferingHints
     elasticsearchBufferingHints_sizeInMBs,
@@ -221,9 +225,10 @@ module Network.AWS.Firehose.Lens
     extendedS3DestinationConfiguration_encryptionConfiguration,
     extendedS3DestinationConfiguration_s3BackupConfiguration,
     extendedS3DestinationConfiguration_processingConfiguration,
-    extendedS3DestinationConfiguration_dataFormatConversionConfiguration,
     extendedS3DestinationConfiguration_cloudWatchLoggingOptions,
+    extendedS3DestinationConfiguration_dataFormatConversionConfiguration,
     extendedS3DestinationConfiguration_prefix,
+    extendedS3DestinationConfiguration_dynamicPartitioningConfiguration,
     extendedS3DestinationConfiguration_bufferingHints,
     extendedS3DestinationConfiguration_s3BackupMode,
     extendedS3DestinationConfiguration_compressionFormat,
@@ -233,9 +238,10 @@ module Network.AWS.Firehose.Lens
     -- ** ExtendedS3DestinationDescription
     extendedS3DestinationDescription_errorOutputPrefix,
     extendedS3DestinationDescription_processingConfiguration,
-    extendedS3DestinationDescription_dataFormatConversionConfiguration,
     extendedS3DestinationDescription_cloudWatchLoggingOptions,
+    extendedS3DestinationDescription_dataFormatConversionConfiguration,
     extendedS3DestinationDescription_prefix,
+    extendedS3DestinationDescription_dynamicPartitioningConfiguration,
     extendedS3DestinationDescription_s3BackupDescription,
     extendedS3DestinationDescription_s3BackupMode,
     extendedS3DestinationDescription_roleARN,
@@ -248,11 +254,12 @@ module Network.AWS.Firehose.Lens
     extendedS3DestinationUpdate_errorOutputPrefix,
     extendedS3DestinationUpdate_encryptionConfiguration,
     extendedS3DestinationUpdate_roleARN,
-    extendedS3DestinationUpdate_bucketARN,
     extendedS3DestinationUpdate_processingConfiguration,
-    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
+    extendedS3DestinationUpdate_bucketARN,
     extendedS3DestinationUpdate_cloudWatchLoggingOptions,
+    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
     extendedS3DestinationUpdate_prefix,
+    extendedS3DestinationUpdate_dynamicPartitioningConfiguration,
     extendedS3DestinationUpdate_s3BackupUpdate,
     extendedS3DestinationUpdate_bufferingHints,
     extendedS3DestinationUpdate_s3BackupMode,
@@ -295,8 +302,8 @@ module Network.AWS.Firehose.Lens
 
     -- ** HttpEndpointDestinationDescription
     httpEndpointDestinationDescription_roleARN,
-    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_endpointConfiguration,
+    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_cloudWatchLoggingOptions,
     httpEndpointDestinationDescription_requestConfiguration,
     httpEndpointDestinationDescription_bufferingHints,
@@ -307,8 +314,8 @@ module Network.AWS.Firehose.Lens
     -- ** HttpEndpointDestinationUpdate
     httpEndpointDestinationUpdate_roleARN,
     httpEndpointDestinationUpdate_s3Update,
-    httpEndpointDestinationUpdate_processingConfiguration,
     httpEndpointDestinationUpdate_endpointConfiguration,
+    httpEndpointDestinationUpdate_processingConfiguration,
     httpEndpointDestinationUpdate_cloudWatchLoggingOptions,
     httpEndpointDestinationUpdate_requestConfiguration,
     httpEndpointDestinationUpdate_bufferingHints,
@@ -316,8 +323,8 @@ module Network.AWS.Firehose.Lens
     httpEndpointDestinationUpdate_s3BackupMode,
 
     -- ** HttpEndpointRequestConfiguration
-    httpEndpointRequestConfiguration_contentEncoding,
     httpEndpointRequestConfiguration_commonAttributes,
+    httpEndpointRequestConfiguration_contentEncoding,
 
     -- ** HttpEndpointRetryOptions
     httpEndpointRetryOptions_durationInSeconds,
@@ -350,8 +357,8 @@ module Network.AWS.Firehose.Lens
     orcSerDe_formatVersion,
     orcSerDe_bloomFilterColumns,
     orcSerDe_enablePadding,
-    orcSerDe_bloomFilterFalsePositiveProbability,
     orcSerDe_paddingTolerance,
+    orcSerDe_bloomFilterFalsePositiveProbability,
     orcSerDe_stripeSizeBytes,
 
     -- ** OutputFormatConfiguration
@@ -417,14 +424,17 @@ module Network.AWS.Firehose.Lens
     redshiftDestinationUpdate_processingConfiguration,
     redshiftDestinationUpdate_cloudWatchLoggingOptions,
     redshiftDestinationUpdate_copyCommand,
-    redshiftDestinationUpdate_s3BackupUpdate,
     redshiftDestinationUpdate_password,
+    redshiftDestinationUpdate_s3BackupUpdate,
     redshiftDestinationUpdate_username,
     redshiftDestinationUpdate_retryOptions,
     redshiftDestinationUpdate_s3BackupMode,
 
     -- ** RedshiftRetryOptions
     redshiftRetryOptions_durationInSeconds,
+
+    -- ** RetryOptions
+    retryOptions_durationInSeconds,
 
     -- ** S3DestinationConfiguration
     s3DestinationConfiguration_errorOutputPrefix,
@@ -465,8 +475,8 @@ module Network.AWS.Firehose.Lens
     schemaConfiguration_databaseName,
 
     -- ** Serializer
-    serializer_orcSerDe,
     serializer_parquetSerDe,
+    serializer_orcSerDe,
 
     -- ** SourceDescription
     sourceDescription_kinesisStreamSourceDescription,
@@ -543,6 +553,7 @@ import Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
 import Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
 import Network.AWS.Firehose.Types.Deserializer
 import Network.AWS.Firehose.Types.DestinationDescription
+import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
 import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
 import Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
 import Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
@@ -580,6 +591,7 @@ import Network.AWS.Firehose.Types.RedshiftDestinationConfiguration
 import Network.AWS.Firehose.Types.RedshiftDestinationDescription
 import Network.AWS.Firehose.Types.RedshiftDestinationUpdate
 import Network.AWS.Firehose.Types.RedshiftRetryOptions
+import Network.AWS.Firehose.Types.RetryOptions
 import Network.AWS.Firehose.Types.S3DestinationConfiguration
 import Network.AWS.Firehose.Types.S3DestinationDescription
 import Network.AWS.Firehose.Types.S3DestinationUpdate

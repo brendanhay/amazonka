@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Updates the configuration settings for the specified quick connect.
 module Network.AWS.Connect.UpdateQuickConnectConfig
   ( -- * Creating a Request
@@ -49,7 +46,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQuickConnectConfig' smart constructor.
 data UpdateQuickConnectConfig = UpdateQuickConnectConfig'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the quick connect.
     quickConnectId :: Prelude.Text,
@@ -66,7 +64,8 @@ data UpdateQuickConnectConfig = UpdateQuickConnectConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateQuickConnectConfig_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateQuickConnectConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'quickConnectId', 'updateQuickConnectConfig_quickConnectId' - The identifier for the quick connect.
 --
@@ -90,7 +89,8 @@ newUpdateQuickConnectConfig
         quickConnectConfig = pQuickConnectConfig_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateQuickConnectConfig_instanceId :: Lens.Lens' UpdateQuickConnectConfig Prelude.Text
 updateQuickConnectConfig_instanceId = Lens.lens (\UpdateQuickConnectConfig' {instanceId} -> instanceId) (\s@UpdateQuickConnectConfig' {} a -> s {instanceId = a} :: UpdateQuickConnectConfig)
 

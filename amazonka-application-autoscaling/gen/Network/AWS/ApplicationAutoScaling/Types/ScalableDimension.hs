@@ -32,6 +32,8 @@ module Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
         ScalableDimension_Dynamodb_table_WriteCapacityUnits,
         ScalableDimension_Ec2_spot_fleet_request_TargetCapacity,
         ScalableDimension_Ecs_service_DesiredCount,
+        ScalableDimension_Elasticache_replication_group_NodeGroups,
+        ScalableDimension_Elasticache_replication_group_Replicas,
         ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount,
         ScalableDimension_Kafka_broker_storage_VolumeSize,
         ScalableDimension_Lambda_function_ProvisionedConcurrency,
@@ -108,6 +110,12 @@ pattern ScalableDimension_Ec2_spot_fleet_request_TargetCapacity = ScalableDimens
 pattern ScalableDimension_Ecs_service_DesiredCount :: ScalableDimension
 pattern ScalableDimension_Ecs_service_DesiredCount = ScalableDimension' "ecs:service:DesiredCount"
 
+pattern ScalableDimension_Elasticache_replication_group_NodeGroups :: ScalableDimension
+pattern ScalableDimension_Elasticache_replication_group_NodeGroups = ScalableDimension' "elasticache:replication-group:NodeGroups"
+
+pattern ScalableDimension_Elasticache_replication_group_Replicas :: ScalableDimension
+pattern ScalableDimension_Elasticache_replication_group_Replicas = ScalableDimension' "elasticache:replication-group:Replicas"
+
 pattern ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount :: ScalableDimension
 pattern ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount = ScalableDimension' "elasticmapreduce:instancegroup:InstanceCount"
 
@@ -136,6 +144,8 @@ pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount = ScalableDimen
   ScalableDimension_Dynamodb_table_WriteCapacityUnits,
   ScalableDimension_Ec2_spot_fleet_request_TargetCapacity,
   ScalableDimension_Ecs_service_DesiredCount,
+  ScalableDimension_Elasticache_replication_group_NodeGroups,
+  ScalableDimension_Elasticache_replication_group_Replicas,
   ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount,
   ScalableDimension_Kafka_broker_storage_VolumeSize,
   ScalableDimension_Lambda_function_ProvisionedConcurrency,

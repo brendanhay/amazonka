@@ -62,10 +62,10 @@ data StopStackSetOperation = StopStackSetOperation'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
     -- | The name or unique ID of the stack set that you want to stop the
     -- operation for.
@@ -95,10 +95,10 @@ data StopStackSetOperation = StopStackSetOperation'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 --
 -- 'stackSetName', 'stopStackSetOperation_stackSetName' - The name or unique ID of the stack set that you want to stop the
 -- operation for.
@@ -129,10 +129,10 @@ newStopStackSetOperation pStackSetName_ pOperationId_ =
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 stopStackSetOperation_callAs :: Lens.Lens' StopStackSetOperation (Prelude.Maybe CallAs)
 stopStackSetOperation_callAs = Lens.lens (\StopStackSetOperation' {callAs} -> callAs) (\s@StopStackSetOperation' {} a -> s {callAs = a} :: StopStackSetOperation)
 

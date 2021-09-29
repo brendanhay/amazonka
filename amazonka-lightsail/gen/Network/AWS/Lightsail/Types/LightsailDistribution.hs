@@ -43,36 +43,36 @@ data LightsailDistribution = LightsailDistribution'
     -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
     -- and IPv6.
     ipAddressType :: Prelude.Maybe IpAddressType,
+    -- | The status of the distribution.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The public DNS of the origin.
+    originPublicDNS :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the origin resource of the distribution, such
     -- as a Lightsail instance or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
     origin :: Prelude.Maybe Origin,
-    -- | The status of the distribution.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The public DNS of the origin.
-    originPublicDNS :: Prelude.Maybe Prelude.Text,
     -- | The ID of the bundle currently applied to the distribution.
     bundleId :: Prelude.Maybe Prelude.Text,
     -- | The alternate domain names of the distribution.
     alternativeDomainNames :: Prelude.Maybe [Prelude.Text],
     -- | The timestamp when the distribution was created.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the distribution.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the cache behavior settings of the
     -- distribution.
     cacheBehaviorSettings :: Prelude.Maybe CacheSettings,
-    -- | The Amazon Resource Name (ARN) of the distribution.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type (e.g., @Distribution@).
-    resourceType :: Prelude.Maybe ResourceType,
     -- | The support code. Include this code in your email to support when you
     -- have questions about your Lightsail distribution. This code enables our
     -- support team to look up your Lightsail information more easily.
     supportCode :: Prelude.Maybe Prelude.Text,
-    -- | The name of the distribution.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type (e.g., @Distribution@).
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The domain name of the distribution.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the distribution.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the bundle that is currently applied to your
     -- distribution, specified using the @distributionName@ parameter, can be
     -- changed to another bundle.
@@ -82,7 +82,7 @@ data LightsailDistribution = LightsailDistribution'
     ableToUpdateBundle :: Prelude.Maybe Prelude.Bool,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | An array of objects that describe the per-path cache behavior of the
     -- distribution.
@@ -117,14 +117,14 @@ data LightsailDistribution = LightsailDistribution'
 -- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4
 -- and IPv6.
 --
+-- 'status', 'lightsailDistribution_status' - The status of the distribution.
+--
+-- 'originPublicDNS', 'lightsailDistribution_originPublicDNS' - The public DNS of the origin.
+--
 -- 'origin', 'lightsailDistribution_origin' - An object that describes the origin resource of the distribution, such
 -- as a Lightsail instance or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
---
--- 'status', 'lightsailDistribution_status' - The status of the distribution.
---
--- 'originPublicDNS', 'lightsailDistribution_originPublicDNS' - The public DNS of the origin.
 --
 -- 'bundleId', 'lightsailDistribution_bundleId' - The ID of the bundle currently applied to the distribution.
 --
@@ -132,20 +132,20 @@ data LightsailDistribution = LightsailDistribution'
 --
 -- 'createdAt', 'lightsailDistribution_createdAt' - The timestamp when the distribution was created.
 --
--- 'cacheBehaviorSettings', 'lightsailDistribution_cacheBehaviorSettings' - An object that describes the cache behavior settings of the
--- distribution.
---
 -- 'arn', 'lightsailDistribution_arn' - The Amazon Resource Name (ARN) of the distribution.
 --
--- 'resourceType', 'lightsailDistribution_resourceType' - The Lightsail resource type (e.g., @Distribution@).
+-- 'cacheBehaviorSettings', 'lightsailDistribution_cacheBehaviorSettings' - An object that describes the cache behavior settings of the
+-- distribution.
 --
 -- 'supportCode', 'lightsailDistribution_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about your Lightsail distribution. This code enables our
 -- support team to look up your Lightsail information more easily.
 --
--- 'name', 'lightsailDistribution_name' - The name of the distribution.
+-- 'resourceType', 'lightsailDistribution_resourceType' - The Lightsail resource type (e.g., @Distribution@).
 --
 -- 'domainName', 'lightsailDistribution_domainName' - The domain name of the distribution.
+--
+-- 'name', 'lightsailDistribution_name' - The name of the distribution.
 --
 -- 'ableToUpdateBundle', 'lightsailDistribution_ableToUpdateBundle' - Indicates whether the bundle that is currently applied to your
 -- distribution, specified using the @distributionName@ parameter, can be
@@ -156,7 +156,7 @@ data LightsailDistribution = LightsailDistribution'
 --
 -- 'tags', 'lightsailDistribution_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'cacheBehaviors', 'lightsailDistribution_cacheBehaviors' - An array of objects that describe the per-path cache behavior of the
 -- distribution.
@@ -178,18 +178,18 @@ newLightsailDistribution =
   LightsailDistribution'
     { isEnabled = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
-      origin = Prelude.Nothing,
       status = Prelude.Nothing,
       originPublicDNS = Prelude.Nothing,
+      origin = Prelude.Nothing,
       bundleId = Prelude.Nothing,
       alternativeDomainNames = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      cacheBehaviorSettings = Prelude.Nothing,
       arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+      cacheBehaviorSettings = Prelude.Nothing,
       supportCode = Prelude.Nothing,
-      name = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      name = Prelude.Nothing,
       ableToUpdateBundle = Prelude.Nothing,
       tags = Prelude.Nothing,
       cacheBehaviors = Prelude.Nothing,
@@ -209,13 +209,6 @@ lightsailDistribution_isEnabled = Lens.lens (\LightsailDistribution' {isEnabled}
 lightsailDistribution_ipAddressType :: Lens.Lens' LightsailDistribution (Prelude.Maybe IpAddressType)
 lightsailDistribution_ipAddressType = Lens.lens (\LightsailDistribution' {ipAddressType} -> ipAddressType) (\s@LightsailDistribution' {} a -> s {ipAddressType = a} :: LightsailDistribution)
 
--- | An object that describes the origin resource of the distribution, such
--- as a Lightsail instance or load balancer.
---
--- The distribution pulls, caches, and serves content from the origin.
-lightsailDistribution_origin :: Lens.Lens' LightsailDistribution (Prelude.Maybe Origin)
-lightsailDistribution_origin = Lens.lens (\LightsailDistribution' {origin} -> origin) (\s@LightsailDistribution' {} a -> s {origin = a} :: LightsailDistribution)
-
 -- | The status of the distribution.
 lightsailDistribution_status :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
 lightsailDistribution_status = Lens.lens (\LightsailDistribution' {status} -> status) (\s@LightsailDistribution' {} a -> s {status = a} :: LightsailDistribution)
@@ -223,6 +216,13 @@ lightsailDistribution_status = Lens.lens (\LightsailDistribution' {status} -> st
 -- | The public DNS of the origin.
 lightsailDistribution_originPublicDNS :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
 lightsailDistribution_originPublicDNS = Lens.lens (\LightsailDistribution' {originPublicDNS} -> originPublicDNS) (\s@LightsailDistribution' {} a -> s {originPublicDNS = a} :: LightsailDistribution)
+
+-- | An object that describes the origin resource of the distribution, such
+-- as a Lightsail instance or load balancer.
+--
+-- The distribution pulls, caches, and serves content from the origin.
+lightsailDistribution_origin :: Lens.Lens' LightsailDistribution (Prelude.Maybe Origin)
+lightsailDistribution_origin = Lens.lens (\LightsailDistribution' {origin} -> origin) (\s@LightsailDistribution' {} a -> s {origin = a} :: LightsailDistribution)
 
 -- | The ID of the bundle currently applied to the distribution.
 lightsailDistribution_bundleId :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
@@ -236,18 +236,14 @@ lightsailDistribution_alternativeDomainNames = Lens.lens (\LightsailDistribution
 lightsailDistribution_createdAt :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.UTCTime)
 lightsailDistribution_createdAt = Lens.lens (\LightsailDistribution' {createdAt} -> createdAt) (\s@LightsailDistribution' {} a -> s {createdAt = a} :: LightsailDistribution) Prelude.. Lens.mapping Core._Time
 
--- | An object that describes the cache behavior settings of the
--- distribution.
-lightsailDistribution_cacheBehaviorSettings :: Lens.Lens' LightsailDistribution (Prelude.Maybe CacheSettings)
-lightsailDistribution_cacheBehaviorSettings = Lens.lens (\LightsailDistribution' {cacheBehaviorSettings} -> cacheBehaviorSettings) (\s@LightsailDistribution' {} a -> s {cacheBehaviorSettings = a} :: LightsailDistribution)
-
 -- | The Amazon Resource Name (ARN) of the distribution.
 lightsailDistribution_arn :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
 lightsailDistribution_arn = Lens.lens (\LightsailDistribution' {arn} -> arn) (\s@LightsailDistribution' {} a -> s {arn = a} :: LightsailDistribution)
 
--- | The Lightsail resource type (e.g., @Distribution@).
-lightsailDistribution_resourceType :: Lens.Lens' LightsailDistribution (Prelude.Maybe ResourceType)
-lightsailDistribution_resourceType = Lens.lens (\LightsailDistribution' {resourceType} -> resourceType) (\s@LightsailDistribution' {} a -> s {resourceType = a} :: LightsailDistribution)
+-- | An object that describes the cache behavior settings of the
+-- distribution.
+lightsailDistribution_cacheBehaviorSettings :: Lens.Lens' LightsailDistribution (Prelude.Maybe CacheSettings)
+lightsailDistribution_cacheBehaviorSettings = Lens.lens (\LightsailDistribution' {cacheBehaviorSettings} -> cacheBehaviorSettings) (\s@LightsailDistribution' {} a -> s {cacheBehaviorSettings = a} :: LightsailDistribution)
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about your Lightsail distribution. This code enables our
@@ -255,13 +251,17 @@ lightsailDistribution_resourceType = Lens.lens (\LightsailDistribution' {resourc
 lightsailDistribution_supportCode :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
 lightsailDistribution_supportCode = Lens.lens (\LightsailDistribution' {supportCode} -> supportCode) (\s@LightsailDistribution' {} a -> s {supportCode = a} :: LightsailDistribution)
 
--- | The name of the distribution.
-lightsailDistribution_name :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
-lightsailDistribution_name = Lens.lens (\LightsailDistribution' {name} -> name) (\s@LightsailDistribution' {} a -> s {name = a} :: LightsailDistribution)
+-- | The Lightsail resource type (e.g., @Distribution@).
+lightsailDistribution_resourceType :: Lens.Lens' LightsailDistribution (Prelude.Maybe ResourceType)
+lightsailDistribution_resourceType = Lens.lens (\LightsailDistribution' {resourceType} -> resourceType) (\s@LightsailDistribution' {} a -> s {resourceType = a} :: LightsailDistribution)
 
 -- | The domain name of the distribution.
 lightsailDistribution_domainName :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
 lightsailDistribution_domainName = Lens.lens (\LightsailDistribution' {domainName} -> domainName) (\s@LightsailDistribution' {} a -> s {domainName = a} :: LightsailDistribution)
+
+-- | The name of the distribution.
+lightsailDistribution_name :: Lens.Lens' LightsailDistribution (Prelude.Maybe Prelude.Text)
+lightsailDistribution_name = Lens.lens (\LightsailDistribution' {name} -> name) (\s@LightsailDistribution' {} a -> s {name = a} :: LightsailDistribution)
 
 -- | Indicates whether the bundle that is currently applied to your
 -- distribution, specified using the @distributionName@ parameter, can be
@@ -274,7 +274,7 @@ lightsailDistribution_ableToUpdateBundle = Lens.lens (\LightsailDistribution' {a
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 lightsailDistribution_tags :: Lens.Lens' LightsailDistribution (Prelude.Maybe [Tag])
 lightsailDistribution_tags = Lens.lens (\LightsailDistribution' {tags} -> tags) (\s@LightsailDistribution' {} a -> s {tags = a} :: LightsailDistribution) Prelude.. Lens.mapping Lens._Coerce
 
@@ -309,20 +309,20 @@ instance Core.FromJSON LightsailDistribution where
           LightsailDistribution'
             Prelude.<$> (x Core..:? "isEnabled")
             Prelude.<*> (x Core..:? "ipAddressType")
-            Prelude.<*> (x Core..:? "origin")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "originPublicDNS")
+            Prelude.<*> (x Core..:? "origin")
             Prelude.<*> (x Core..:? "bundleId")
             Prelude.<*> ( x Core..:? "alternativeDomainNames"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "cacheBehaviorSettings")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "cacheBehaviorSettings")
             Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "domainName")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "ableToUpdateBundle")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "cacheBehaviors" Core..!= Prelude.mempty)

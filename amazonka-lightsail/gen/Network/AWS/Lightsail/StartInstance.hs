@@ -27,12 +27,12 @@
 -- address to the instance. To use the same IP address after stopping and
 -- starting an instance, create a static IP address and attach it to the
 -- instance. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip Amazon Lightsail Developer Guide>.
 --
 -- The @start instance@ operation supports tag-based access control via
 -- resource tags applied to the resource identified by @instance name@. For
 -- more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.StartInstance
   ( -- * Creating a Request
     StartInstance (..),

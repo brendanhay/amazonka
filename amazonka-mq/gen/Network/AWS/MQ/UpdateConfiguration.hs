@@ -27,9 +27,9 @@ module Network.AWS.MQ.UpdateConfiguration
     newUpdateConfiguration,
 
     -- * Request Lenses
-    updateConfiguration_data,
     updateConfiguration_description,
     updateConfiguration_configurationId,
+    updateConfiguration_data,
 
     -- * Destructuring the Response
     UpdateConfigurationResponse (..),
@@ -57,12 +57,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateConfiguration' smart constructor.
 data UpdateConfiguration = UpdateConfiguration'
-  { -- | Required. The base64-encoded XML configuration.
-    data' :: Prelude.Maybe Prelude.Text,
-    -- | The description of the configuration.
+  { -- | The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Prelude.Text
+    configurationId :: Prelude.Text,
+    -- | Required. The base64-encoded XML configuration.
+    data' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,25 +74,23 @@ data UpdateConfiguration = UpdateConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'data'', 'updateConfiguration_data' - Required. The base64-encoded XML configuration.
---
 -- 'description', 'updateConfiguration_description' - The description of the configuration.
 --
 -- 'configurationId', 'updateConfiguration_configurationId' - The unique ID that Amazon MQ generates for the configuration.
+--
+-- 'data'', 'updateConfiguration_data' - Required. The base64-encoded XML configuration.
 newUpdateConfiguration ::
   -- | 'configurationId'
   Prelude.Text ->
+  -- | 'data''
+  Prelude.Text ->
   UpdateConfiguration
-newUpdateConfiguration pConfigurationId_ =
+newUpdateConfiguration pConfigurationId_ pData_ =
   UpdateConfiguration'
-    { data' = Prelude.Nothing,
-      description = Prelude.Nothing,
-      configurationId = pConfigurationId_
+    { description = Prelude.Nothing,
+      configurationId = pConfigurationId_,
+      data' = pData_
     }
-
--- | Required. The base64-encoded XML configuration.
-updateConfiguration_data :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
-updateConfiguration_data = Lens.lens (\UpdateConfiguration' {data'} -> data') (\s@UpdateConfiguration' {} a -> s {data' = a} :: UpdateConfiguration)
 
 -- | The description of the configuration.
 updateConfiguration_description :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
@@ -101,6 +99,10 @@ updateConfiguration_description = Lens.lens (\UpdateConfiguration' {description}
 -- | The unique ID that Amazon MQ generates for the configuration.
 updateConfiguration_configurationId :: Lens.Lens' UpdateConfiguration Prelude.Text
 updateConfiguration_configurationId = Lens.lens (\UpdateConfiguration' {configurationId} -> configurationId) (\s@UpdateConfiguration' {} a -> s {configurationId = a} :: UpdateConfiguration)
+
+-- | Required. The base64-encoded XML configuration.
+updateConfiguration_data :: Lens.Lens' UpdateConfiguration Prelude.Text
+updateConfiguration_data = Lens.lens (\UpdateConfiguration' {data'} -> data') (\s@UpdateConfiguration' {} a -> s {data' = a} :: UpdateConfiguration)
 
 instance Core.AWSRequest UpdateConfiguration where
   type
@@ -139,8 +141,8 @@ instance Core.ToJSON UpdateConfiguration where
   toJSON UpdateConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("data" Core..=) Prelude.<$> data',
-            ("description" Core..=) Prelude.<$> description
+          [ ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("data" Core..= data')
           ]
       )
 

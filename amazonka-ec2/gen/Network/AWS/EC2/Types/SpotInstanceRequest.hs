@@ -36,9 +36,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSpotInstanceRequest' smart constructor.
 data SpotInstanceRequest = SpotInstanceRequest'
-  { -- | If you specified a duration and your Spot Instance request was
-    -- fulfilled, this is the fixed hourly price in effect for the Spot
-    -- Instance while it runs.
+  { -- | Deprecated.
     actualBlockHourlyPrice :: Prelude.Maybe Prelude.Text,
     -- | The status code and status message describing the Spot Instance request.
     status :: Prelude.Maybe SpotInstanceStatus,
@@ -54,13 +52,13 @@ data SpotInstanceRequest = SpotInstanceRequest'
     -- | The maximum price per hour that you are willing to pay for a Spot
     -- Instance.
     spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The fault codes for the Spot Instance request, if any.
-    fault :: Prelude.Maybe SpotInstanceStateFault,
-    -- | The duration for the Spot Instance, in minutes.
-    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The instance launch group. Launch groups are Spot Instances that launch
     -- together and terminate together.
     launchGroup :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated.
+    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The fault codes for the Spot Instance request, if any.
+    fault :: Prelude.Maybe SpotInstanceStateFault,
     -- | The behavior when a Spot Instance is interrupted.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The state of the Spot Instance request. Spot status information helps
@@ -80,23 +78,23 @@ data SpotInstanceRequest = SpotInstanceRequest'
     --     and time is reached. By default, the request is valid for 7 days
     --     from the date the request was created.
     validUntil :: Prelude.Maybe Core.ISO8601,
-    -- | Any tags assigned to the resource.
-    tags :: Prelude.Maybe [Tag],
     -- | The date and time when the Spot Instance request was created, in UTC
     -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     createTime :: Prelude.Maybe Core.ISO8601,
+    -- | Any tags assigned to the resource.
+    tags :: Prelude.Maybe [Tag],
     -- | Additional information for launching instances.
     launchSpecification :: Prelude.Maybe LaunchSpecification,
-    -- | The Spot Instance request type.
-    type' :: Prelude.Maybe SpotInstanceType,
     -- | The Availability Zone group. If you specify the same Availability Zone
     -- group for all Spot Instance requests, all Spot Instances are launched in
     -- the same Availability Zone.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
-    -- | The product description associated with the Spot Instance.
-    productDescription :: Prelude.Maybe RIProductDescription,
+    -- | The Spot Instance request type.
+    type' :: Prelude.Maybe SpotInstanceType,
     -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Prelude.Maybe Prelude.Text
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The product description associated with the Spot Instance.
+    productDescription :: Prelude.Maybe RIProductDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,9 +106,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actualBlockHourlyPrice', 'spotInstanceRequest_actualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was
--- fulfilled, this is the fixed hourly price in effect for the Spot
--- Instance while it runs.
+-- 'actualBlockHourlyPrice', 'spotInstanceRequest_actualBlockHourlyPrice' - Deprecated.
 --
 -- 'status', 'spotInstanceRequest_status' - The status code and status message describing the Spot Instance request.
 --
@@ -126,12 +122,12 @@ data SpotInstanceRequest = SpotInstanceRequest'
 -- 'spotPrice', 'spotInstanceRequest_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
 -- Instance.
 --
--- 'fault', 'spotInstanceRequest_fault' - The fault codes for the Spot Instance request, if any.
---
--- 'blockDurationMinutes', 'spotInstanceRequest_blockDurationMinutes' - The duration for the Spot Instance, in minutes.
---
 -- 'launchGroup', 'spotInstanceRequest_launchGroup' - The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
+--
+-- 'blockDurationMinutes', 'spotInstanceRequest_blockDurationMinutes' - Deprecated.
+--
+-- 'fault', 'spotInstanceRequest_fault' - The fault codes for the Spot Instance request, if any.
 --
 -- 'instanceInterruptionBehavior', 'spotInstanceRequest_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
 --
@@ -152,22 +148,22 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --     and time is reached. By default, the request is valid for 7 days
 --     from the date the request was created.
 --
--- 'tags', 'spotInstanceRequest_tags' - Any tags assigned to the resource.
---
 -- 'createTime', 'spotInstanceRequest_createTime' - The date and time when the Spot Instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
--- 'launchSpecification', 'spotInstanceRequest_launchSpecification' - Additional information for launching instances.
+-- 'tags', 'spotInstanceRequest_tags' - Any tags assigned to the resource.
 --
--- 'type'', 'spotInstanceRequest_type' - The Spot Instance request type.
+-- 'launchSpecification', 'spotInstanceRequest_launchSpecification' - Additional information for launching instances.
 --
 -- 'availabilityZoneGroup', 'spotInstanceRequest_availabilityZoneGroup' - The Availability Zone group. If you specify the same Availability Zone
 -- group for all Spot Instance requests, all Spot Instances are launched in
 -- the same Availability Zone.
 --
--- 'productDescription', 'spotInstanceRequest_productDescription' - The product description associated with the Spot Instance.
+-- 'type'', 'spotInstanceRequest_type' - The Spot Instance request type.
 --
 -- 'spotInstanceRequestId', 'spotInstanceRequest_spotInstanceRequestId' - The ID of the Spot Instance request.
+--
+-- 'productDescription', 'spotInstanceRequest_productDescription' - The product description associated with the Spot Instance.
 newSpotInstanceRequest ::
   SpotInstanceRequest
 newSpotInstanceRequest =
@@ -179,24 +175,22 @@ newSpotInstanceRequest =
       launchedAvailabilityZone = Prelude.Nothing,
       validFrom = Prelude.Nothing,
       spotPrice = Prelude.Nothing,
-      fault = Prelude.Nothing,
-      blockDurationMinutes = Prelude.Nothing,
       launchGroup = Prelude.Nothing,
+      blockDurationMinutes = Prelude.Nothing,
+      fault = Prelude.Nothing,
       instanceInterruptionBehavior = Prelude.Nothing,
       state = Prelude.Nothing,
       validUntil = Prelude.Nothing,
-      tags = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
       launchSpecification = Prelude.Nothing,
-      type' = Prelude.Nothing,
       availabilityZoneGroup = Prelude.Nothing,
-      productDescription = Prelude.Nothing,
-      spotInstanceRequestId = Prelude.Nothing
+      type' = Prelude.Nothing,
+      spotInstanceRequestId = Prelude.Nothing,
+      productDescription = Prelude.Nothing
     }
 
--- | If you specified a duration and your Spot Instance request was
--- fulfilled, this is the fixed hourly price in effect for the Spot
--- Instance while it runs.
+-- | Deprecated.
 spotInstanceRequest_actualBlockHourlyPrice :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_actualBlockHourlyPrice = Lens.lens (\SpotInstanceRequest' {actualBlockHourlyPrice} -> actualBlockHourlyPrice) (\s@SpotInstanceRequest' {} a -> s {actualBlockHourlyPrice = a} :: SpotInstanceRequest)
 
@@ -224,18 +218,18 @@ spotInstanceRequest_validFrom = Lens.lens (\SpotInstanceRequest' {validFrom} -> 
 spotInstanceRequest_spotPrice :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_spotPrice = Lens.lens (\SpotInstanceRequest' {spotPrice} -> spotPrice) (\s@SpotInstanceRequest' {} a -> s {spotPrice = a} :: SpotInstanceRequest)
 
--- | The fault codes for the Spot Instance request, if any.
-spotInstanceRequest_fault :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe SpotInstanceStateFault)
-spotInstanceRequest_fault = Lens.lens (\SpotInstanceRequest' {fault} -> fault) (\s@SpotInstanceRequest' {} a -> s {fault = a} :: SpotInstanceRequest)
-
--- | The duration for the Spot Instance, in minutes.
-spotInstanceRequest_blockDurationMinutes :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Int)
-spotInstanceRequest_blockDurationMinutes = Lens.lens (\SpotInstanceRequest' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotInstanceRequest' {} a -> s {blockDurationMinutes = a} :: SpotInstanceRequest)
-
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
 spotInstanceRequest_launchGroup :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_launchGroup = Lens.lens (\SpotInstanceRequest' {launchGroup} -> launchGroup) (\s@SpotInstanceRequest' {} a -> s {launchGroup = a} :: SpotInstanceRequest)
+
+-- | Deprecated.
+spotInstanceRequest_blockDurationMinutes :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Int)
+spotInstanceRequest_blockDurationMinutes = Lens.lens (\SpotInstanceRequest' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotInstanceRequest' {} a -> s {blockDurationMinutes = a} :: SpotInstanceRequest)
+
+-- | The fault codes for the Spot Instance request, if any.
+spotInstanceRequest_fault :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe SpotInstanceStateFault)
+spotInstanceRequest_fault = Lens.lens (\SpotInstanceRequest' {fault} -> fault) (\s@SpotInstanceRequest' {} a -> s {fault = a} :: SpotInstanceRequest)
 
 -- | The behavior when a Spot Instance is interrupted.
 spotInstanceRequest_instanceInterruptionBehavior :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe InstanceInterruptionBehavior)
@@ -262,22 +256,18 @@ spotInstanceRequest_state = Lens.lens (\SpotInstanceRequest' {state} -> state) (
 spotInstanceRequest_validUntil :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.UTCTime)
 spotInstanceRequest_validUntil = Lens.lens (\SpotInstanceRequest' {validUntil} -> validUntil) (\s@SpotInstanceRequest' {} a -> s {validUntil = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Core._Time
 
--- | Any tags assigned to the resource.
-spotInstanceRequest_tags :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe [Tag])
-spotInstanceRequest_tags = Lens.lens (\SpotInstanceRequest' {tags} -> tags) (\s@SpotInstanceRequest' {} a -> s {tags = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The date and time when the Spot Instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 spotInstanceRequest_createTime :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.UTCTime)
 spotInstanceRequest_createTime = Lens.lens (\SpotInstanceRequest' {createTime} -> createTime) (\s@SpotInstanceRequest' {} a -> s {createTime = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Core._Time
 
+-- | Any tags assigned to the resource.
+spotInstanceRequest_tags :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe [Tag])
+spotInstanceRequest_tags = Lens.lens (\SpotInstanceRequest' {tags} -> tags) (\s@SpotInstanceRequest' {} a -> s {tags = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Additional information for launching instances.
 spotInstanceRequest_launchSpecification :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe LaunchSpecification)
 spotInstanceRequest_launchSpecification = Lens.lens (\SpotInstanceRequest' {launchSpecification} -> launchSpecification) (\s@SpotInstanceRequest' {} a -> s {launchSpecification = a} :: SpotInstanceRequest)
-
--- | The Spot Instance request type.
-spotInstanceRequest_type :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe SpotInstanceType)
-spotInstanceRequest_type = Lens.lens (\SpotInstanceRequest' {type'} -> type') (\s@SpotInstanceRequest' {} a -> s {type' = a} :: SpotInstanceRequest)
 
 -- | The Availability Zone group. If you specify the same Availability Zone
 -- group for all Spot Instance requests, all Spot Instances are launched in
@@ -285,13 +275,17 @@ spotInstanceRequest_type = Lens.lens (\SpotInstanceRequest' {type'} -> type') (\
 spotInstanceRequest_availabilityZoneGroup :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_availabilityZoneGroup = Lens.lens (\SpotInstanceRequest' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@SpotInstanceRequest' {} a -> s {availabilityZoneGroup = a} :: SpotInstanceRequest)
 
--- | The product description associated with the Spot Instance.
-spotInstanceRequest_productDescription :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe RIProductDescription)
-spotInstanceRequest_productDescription = Lens.lens (\SpotInstanceRequest' {productDescription} -> productDescription) (\s@SpotInstanceRequest' {} a -> s {productDescription = a} :: SpotInstanceRequest)
+-- | The Spot Instance request type.
+spotInstanceRequest_type :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe SpotInstanceType)
+spotInstanceRequest_type = Lens.lens (\SpotInstanceRequest' {type'} -> type') (\s@SpotInstanceRequest' {} a -> s {type' = a} :: SpotInstanceRequest)
 
 -- | The ID of the Spot Instance request.
 spotInstanceRequest_spotInstanceRequestId :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_spotInstanceRequestId = Lens.lens (\SpotInstanceRequest' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@SpotInstanceRequest' {} a -> s {spotInstanceRequestId = a} :: SpotInstanceRequest)
+
+-- | The product description associated with the Spot Instance.
+spotInstanceRequest_productDescription :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe RIProductDescription)
+spotInstanceRequest_productDescription = Lens.lens (\SpotInstanceRequest' {productDescription} -> productDescription) (\s@SpotInstanceRequest' {} a -> s {productDescription = a} :: SpotInstanceRequest)
 
 instance Core.FromXML SpotInstanceRequest where
   parseXML x =
@@ -302,21 +296,21 @@ instance Core.FromXML SpotInstanceRequest where
       Prelude.<*> (x Core..@? "launchedAvailabilityZone")
       Prelude.<*> (x Core..@? "validFrom")
       Prelude.<*> (x Core..@? "spotPrice")
-      Prelude.<*> (x Core..@? "fault")
-      Prelude.<*> (x Core..@? "blockDurationMinutes")
       Prelude.<*> (x Core..@? "launchGroup")
+      Prelude.<*> (x Core..@? "blockDurationMinutes")
+      Prelude.<*> (x Core..@? "fault")
       Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "validUntil")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> (x Core..@? "launchSpecification")
-      Prelude.<*> (x Core..@? "type")
       Prelude.<*> (x Core..@? "availabilityZoneGroup")
-      Prelude.<*> (x Core..@? "productDescription")
+      Prelude.<*> (x Core..@? "type")
       Prelude.<*> (x Core..@? "spotInstanceRequestId")
+      Prelude.<*> (x Core..@? "productDescription")
 
 instance Prelude.Hashable SpotInstanceRequest
 

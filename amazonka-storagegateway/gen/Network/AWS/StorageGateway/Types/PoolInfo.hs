@@ -32,7 +32,7 @@ import Network.AWS.StorageGateway.Types.TapeStorageClass
 data PoolInfo = PoolInfo'
   { -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
     -- ListTapePools operation to return a list of custom tape pools for your
-    -- account and AWS Region.
+    -- account and Region.
     poolARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom tape pool. @PoolName@ can use all ASCII
     -- characters, except \'\/\' and \'\\\'.
@@ -43,11 +43,10 @@ data PoolInfo = PoolInfo'
     -- corresponds to the pool.
     storageClass :: Prelude.Maybe TapeStorageClass,
     -- | Tape retention lock type, which can be configured in two modes. When
-    -- configured in governance mode, AWS accounts with specific IAM
-    -- permissions are authorized to remove the tape retention lock from
-    -- archived virtual tapes. When configured in compliance mode, the tape
-    -- retention lock cannot be removed by any user, including the root AWS
-    -- account.
+    -- configured in governance mode, accounts with specific IAM permissions
+    -- are authorized to remove the tape retention lock from archived virtual
+    -- tapes. When configured in compliance mode, the tape retention lock
+    -- cannot be removed by any user, including the root account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
     -- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
     poolStatus :: Prelude.Maybe PoolStatus,
@@ -67,7 +66,7 @@ data PoolInfo = PoolInfo'
 --
 -- 'poolARN', 'poolInfo_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the
 -- ListTapePools operation to return a list of custom tape pools for your
--- account and AWS Region.
+-- account and Region.
 --
 -- 'poolName', 'poolInfo_poolName' - The name of the custom tape pool. @PoolName@ can use all ASCII
 -- characters, except \'\/\' and \'\\\'.
@@ -78,11 +77,10 @@ data PoolInfo = PoolInfo'
 -- corresponds to the pool.
 --
 -- 'retentionLockType', 'poolInfo_retentionLockType' - Tape retention lock type, which can be configured in two modes. When
--- configured in governance mode, AWS accounts with specific IAM
--- permissions are authorized to remove the tape retention lock from
--- archived virtual tapes. When configured in compliance mode, the tape
--- retention lock cannot be removed by any user, including the root AWS
--- account.
+-- configured in governance mode, accounts with specific IAM permissions
+-- are authorized to remove the tape retention lock from archived virtual
+-- tapes. When configured in compliance mode, the tape retention lock
+-- cannot be removed by any user, including the root account.
 --
 -- 'poolStatus', 'poolInfo_poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
 --
@@ -102,7 +100,7 @@ newPoolInfo =
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 -- ListTapePools operation to return a list of custom tape pools for your
--- account and AWS Region.
+-- account and Region.
 poolInfo_poolARN :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Text)
 poolInfo_poolARN = Lens.lens (\PoolInfo' {poolARN} -> poolARN) (\s@PoolInfo' {} a -> s {poolARN = a} :: PoolInfo)
 
@@ -119,11 +117,10 @@ poolInfo_storageClass :: Lens.Lens' PoolInfo (Prelude.Maybe TapeStorageClass)
 poolInfo_storageClass = Lens.lens (\PoolInfo' {storageClass} -> storageClass) (\s@PoolInfo' {} a -> s {storageClass = a} :: PoolInfo)
 
 -- | Tape retention lock type, which can be configured in two modes. When
--- configured in governance mode, AWS accounts with specific IAM
--- permissions are authorized to remove the tape retention lock from
--- archived virtual tapes. When configured in compliance mode, the tape
--- retention lock cannot be removed by any user, including the root AWS
--- account.
+-- configured in governance mode, accounts with specific IAM permissions
+-- are authorized to remove the tape retention lock from archived virtual
+-- tapes. When configured in compliance mode, the tape retention lock
+-- cannot be removed by any user, including the root account.
 poolInfo_retentionLockType :: Lens.Lens' PoolInfo (Prelude.Maybe RetentionLockType)
 poolInfo_retentionLockType = Lens.lens (\PoolInfo' {retentionLockType} -> retentionLockType) (\s@PoolInfo' {} a -> s {retentionLockType = a} :: PoolInfo)
 

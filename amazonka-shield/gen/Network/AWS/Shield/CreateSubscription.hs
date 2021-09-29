@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Activates AWS Shield Advanced for an account.
+-- Activates Shield Advanced for an account.
 --
 -- When you initally create a subscription, your subscription is set to be
 -- automatically renewed at the end of the existing subscription period.

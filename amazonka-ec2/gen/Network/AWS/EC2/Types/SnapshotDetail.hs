@@ -37,10 +37,10 @@ data SnapshotDetail = SnapshotDetail'
     status :: Prelude.Maybe Prelude.Text,
     -- | The format of the disk image from which the snapshot is created.
     format :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Prelude.Maybe UserBucketDetails,
     -- | The block device mapping for the snapshot.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 bucket for the disk image.
+    userBucket :: Prelude.Maybe UserBucketDetails,
     -- | The snapshot ID of the disk being imported.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | A description for the snapshot.
@@ -68,9 +68,9 @@ data SnapshotDetail = SnapshotDetail'
 --
 -- 'format', 'snapshotDetail_format' - The format of the disk image from which the snapshot is created.
 --
--- 'userBucket', 'snapshotDetail_userBucket' - The Amazon S3 bucket for the disk image.
---
 -- 'deviceName', 'snapshotDetail_deviceName' - The block device mapping for the snapshot.
+--
+-- 'userBucket', 'snapshotDetail_userBucket' - The Amazon S3 bucket for the disk image.
 --
 -- 'snapshotId', 'snapshotDetail_snapshotId' - The snapshot ID of the disk being imported.
 --
@@ -87,8 +87,8 @@ newSnapshotDetail =
       statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
       format = Prelude.Nothing,
-      userBucket = Prelude.Nothing,
       deviceName = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       description = Prelude.Nothing,
       url = Prelude.Nothing,
@@ -111,13 +111,13 @@ snapshotDetail_status = Lens.lens (\SnapshotDetail' {status} -> status) (\s@Snap
 snapshotDetail_format :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_format = Lens.lens (\SnapshotDetail' {format} -> format) (\s@SnapshotDetail' {} a -> s {format = a} :: SnapshotDetail)
 
--- | The Amazon S3 bucket for the disk image.
-snapshotDetail_userBucket :: Lens.Lens' SnapshotDetail (Prelude.Maybe UserBucketDetails)
-snapshotDetail_userBucket = Lens.lens (\SnapshotDetail' {userBucket} -> userBucket) (\s@SnapshotDetail' {} a -> s {userBucket = a} :: SnapshotDetail)
-
 -- | The block device mapping for the snapshot.
 snapshotDetail_deviceName :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
 snapshotDetail_deviceName = Lens.lens (\SnapshotDetail' {deviceName} -> deviceName) (\s@SnapshotDetail' {} a -> s {deviceName = a} :: SnapshotDetail)
+
+-- | The Amazon S3 bucket for the disk image.
+snapshotDetail_userBucket :: Lens.Lens' SnapshotDetail (Prelude.Maybe UserBucketDetails)
+snapshotDetail_userBucket = Lens.lens (\SnapshotDetail' {userBucket} -> userBucket) (\s@SnapshotDetail' {} a -> s {userBucket = a} :: SnapshotDetail)
 
 -- | The snapshot ID of the disk being imported.
 snapshotDetail_snapshotId :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
@@ -142,8 +142,8 @@ instance Core.FromXML SnapshotDetail where
       Prelude.<*> (x Core..@? "statusMessage")
       Prelude.<*> (x Core..@? "status")
       Prelude.<*> (x Core..@? "format")
-      Prelude.<*> (x Core..@? "userBucket")
       Prelude.<*> (x Core..@? "deviceName")
+      Prelude.<*> (x Core..@? "userBucket")
       Prelude.<*> (x Core..@? "snapshotId")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "url")

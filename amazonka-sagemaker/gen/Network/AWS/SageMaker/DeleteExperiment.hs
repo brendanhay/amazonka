@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon SageMaker experiment. All trials associated with the
+-- Deletes an SageMaker experiment. All trials associated with the
 -- experiment must be deleted first. Use the ListTrials API to get a list
 -- of the trials associated with the experiment.
 module Network.AWS.SageMaker.DeleteExperiment

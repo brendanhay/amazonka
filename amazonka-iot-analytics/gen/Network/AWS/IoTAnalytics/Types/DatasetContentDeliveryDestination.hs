@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
   { -- | Configuration information for delivery of dataset contents to Amazon S3.
     s3DestinationConfiguration :: Prelude.Maybe S3DestinationConfiguration,
-    -- | Configuration information for delivery of dataset contents to AWS IoT
+    -- | Configuration information for delivery of dataset contents to IoT
     -- Events.
     iotEventsDestinationConfiguration :: Prelude.Maybe IotEventsDestinationConfiguration
   }
@@ -47,7 +47,7 @@ data DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
 --
 -- 's3DestinationConfiguration', 'datasetContentDeliveryDestination_s3DestinationConfiguration' - Configuration information for delivery of dataset contents to Amazon S3.
 --
--- 'iotEventsDestinationConfiguration', 'datasetContentDeliveryDestination_iotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to AWS IoT
+-- 'iotEventsDestinationConfiguration', 'datasetContentDeliveryDestination_iotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to IoT
 -- Events.
 newDatasetContentDeliveryDestination ::
   DatasetContentDeliveryDestination
@@ -63,7 +63,7 @@ newDatasetContentDeliveryDestination =
 datasetContentDeliveryDestination_s3DestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Prelude.Maybe S3DestinationConfiguration)
 datasetContentDeliveryDestination_s3DestinationConfiguration = Lens.lens (\DatasetContentDeliveryDestination' {s3DestinationConfiguration} -> s3DestinationConfiguration) (\s@DatasetContentDeliveryDestination' {} a -> s {s3DestinationConfiguration = a} :: DatasetContentDeliveryDestination)
 
--- | Configuration information for delivery of dataset contents to AWS IoT
+-- | Configuration information for delivery of dataset contents to IoT
 -- Events.
 datasetContentDeliveryDestination_iotEventsDestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Prelude.Maybe IotEventsDestinationConfiguration)
 datasetContentDeliveryDestination_iotEventsDestinationConfiguration = Lens.lens (\DatasetContentDeliveryDestination' {iotEventsDestinationConfiguration} -> iotEventsDestinationConfiguration) (\s@DatasetContentDeliveryDestination' {} a -> s {iotEventsDestinationConfiguration = a} :: DatasetContentDeliveryDestination)

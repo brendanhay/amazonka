@@ -21,6 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a token for federation.
+--
+-- This API doesn\'t support root users. If you try to invoke
+-- GetFederationToken with root credentials, an error message similar to
+-- the following one appears:
+--
+-- @Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect@
 module Network.AWS.Connect.GetFederationToken
   ( -- * Creating a Request
     GetFederationToken (..),
@@ -48,7 +54,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetFederationToken' smart constructor.
 data GetFederationToken = GetFederationToken'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +68,8 @@ data GetFederationToken = GetFederationToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'getFederationToken_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'getFederationToken_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newGetFederationToken ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -69,7 +77,8 @@ newGetFederationToken ::
 newGetFederationToken pInstanceId_ =
   GetFederationToken' {instanceId = pInstanceId_}
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 getFederationToken_instanceId :: Lens.Lens' GetFederationToken Prelude.Text
 getFederationToken_instanceId = Lens.lens (\GetFederationToken' {instanceId} -> instanceId) (\s@GetFederationToken' {} a -> s {instanceId = a} :: GetFederationToken)
 

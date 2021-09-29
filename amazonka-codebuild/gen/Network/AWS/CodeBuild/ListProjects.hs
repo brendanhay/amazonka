@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_sortOrder,
     listProjects_nextToken,
+    listProjects_sortOrder,
     listProjects_sortBy,
 
     -- * Destructuring the Response
@@ -54,7 +54,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The order in which to list build projects. Valid values include:
+  { -- | During a previous call, if there are more than 100 items in the list,
+    -- only the first 100 items are returned, along with a unique string called
+    -- a /nextToken/. To get the next batch of items in the list, call this
+    -- operation again, adding the next token to the call. To get all of the
+    -- items in the list, keep calling this operation with each subsequent next
+    -- token that is returned, until no more next tokens are returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order in which to list build projects. Valid values include:
     --
     -- -   @ASCENDING@: List in ascending order.
     --
@@ -63,13 +70,6 @@ data ListProjects = ListProjects'
     -- Use @sortBy@ to specify the criterion to be used to list build project
     -- names.
     sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, if there are more than 100 items in the list,
-    -- only the first 100 items are returned, along with a unique string called
-    -- a /nextToken/. To get the next batch of items in the list, call this
-    -- operation again, adding the next token to the call. To get all of the
-    -- items in the list, keep calling this operation with each subsequent next
-    -- token that is returned, until no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The criterion to be used to list build project names. Valid values
     -- include:
     --
@@ -94,6 +94,13 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listProjects_nextToken' - During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+--
 -- 'sortOrder', 'listProjects_sortOrder' - The order in which to list build projects. Valid values include:
 --
 -- -   @ASCENDING@: List in ascending order.
@@ -102,13 +109,6 @@ data ListProjects = ListProjects'
 --
 -- Use @sortBy@ to specify the criterion to be used to list build project
 -- names.
---
--- 'nextToken', 'listProjects_nextToken' - During a previous call, if there are more than 100 items in the list,
--- only the first 100 items are returned, along with a unique string called
--- a /nextToken/. To get the next batch of items in the list, call this
--- operation again, adding the next token to the call. To get all of the
--- items in the list, keep calling this operation with each subsequent next
--- token that is returned, until no more next tokens are returned.
 --
 -- 'sortBy', 'listProjects_sortBy' - The criterion to be used to list build project names. Valid values
 -- include:
@@ -126,10 +126,19 @@ newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
+
+-- | During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | The order in which to list build projects. Valid values include:
 --
@@ -141,15 +150,6 @@ newListProjects =
 -- names.
 listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe SortOrderType)
 listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
-
--- | During a previous call, if there are more than 100 items in the list,
--- only the first 100 items are returned, along with a unique string called
--- a /nextToken/. To get the next batch of items in the list, call this
--- operation again, adding the next token to the call. To get all of the
--- items in the list, keep calling this operation with each subsequent next
--- token that is returned, until no more next tokens are returned.
-listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
-listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | The criterion to be used to list build project names. Valid values
 -- include:
@@ -221,8 +221,8 @@ instance Core.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("sortBy" Core..=) Prelude.<$> sortBy
           ]
       )

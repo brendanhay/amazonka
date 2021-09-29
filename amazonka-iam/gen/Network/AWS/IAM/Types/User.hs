@@ -44,8 +44,9 @@ data User = User'
     permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- user\'s password was last used to sign in to an AWS website. For a list
-    -- of AWS websites that capture a user\'s last sign-in time, see the
+    -- user\'s password was last used to sign in to an Amazon Web Services
+    -- website. For a list of Amazon Web Services websites that capture a
+    -- user\'s last sign-in time, see the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential reports>
     -- topic in the /IAM User Guide/. If a password is used more than once in a
     -- five-minute span, only the first use is returned in this field. If the
@@ -74,7 +75,7 @@ data User = User'
     -- in the /IAM User Guide/.
     --
     -- The ARN of the policy used to set the permissions boundary for the user.
-    path :: Prelude.Text,
+    path :: Prelude.Maybe Prelude.Text,
     -- | The friendly name identifying the user.
     userName :: Prelude.Text,
     -- | The stable and unique string identifying the user. For more information
@@ -108,8 +109,9 @@ data User = User'
 --
 -- 'passwordLastUsed', 'user_passwordLastUsed' - The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user\'s password was last used to sign in to an AWS website. For a list
--- of AWS websites that capture a user\'s last sign-in time, see the
+-- user\'s password was last used to sign in to an Amazon Web Services
+-- website. For a list of Amazon Web Services websites that capture a
+-- user\'s last sign-in time, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential reports>
 -- topic in the /IAM User Guide/. If a password is used more than once in a
 -- five-minute span, only the first use is returned in this field. If the
@@ -155,8 +157,6 @@ data User = User'
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- user was created.
 newUser ::
-  -- | 'path'
-  Prelude.Text ->
   -- | 'userName'
   Prelude.Text ->
   -- | 'userId'
@@ -166,12 +166,12 @@ newUser ::
   -- | 'createDate'
   Prelude.UTCTime ->
   User
-newUser pPath_ pUserName_ pUserId_ pArn_ pCreateDate_ =
+newUser pUserName_ pUserId_ pArn_ pCreateDate_ =
   User'
     { permissionsBoundary = Prelude.Nothing,
       passwordLastUsed = Prelude.Nothing,
       tags = Prelude.Nothing,
-      path = pPath_,
+      path = Prelude.Nothing,
       userName = pUserName_,
       userId = pUserId_,
       arn = pArn_,
@@ -186,8 +186,9 @@ user_permissionsBoundary = Lens.lens (\User' {permissionsBoundary} -> permission
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user\'s password was last used to sign in to an AWS website. For a list
--- of AWS websites that capture a user\'s last sign-in time, see the
+-- user\'s password was last used to sign in to an Amazon Web Services
+-- website. For a list of Amazon Web Services websites that capture a
+-- user\'s last sign-in time, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential reports>
 -- topic in the /IAM User Guide/. If a password is used more than once in a
 -- five-minute span, only the first use is returned in this field. If the
@@ -220,7 +221,7 @@ user_tags = Lens.lens (\User' {tags} -> tags) (\s@User' {} a -> s {tags = a} :: 
 -- in the /IAM User Guide/.
 --
 -- The ARN of the policy used to set the permissions boundary for the user.
-user_path :: Lens.Lens' User Prelude.Text
+user_path :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_path = Lens.lens (\User' {path} -> path) (\s@User' {} a -> s {path = a} :: User)
 
 -- | The friendly name identifying the user.
@@ -255,7 +256,7 @@ instance Core.FromXML User where
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "Path")
+      Prelude.<*> (x Core..@? "Path")
       Prelude.<*> (x Core..@ "UserName")
       Prelude.<*> (x Core..@ "UserId")
       Prelude.<*> (x Core..@ "Arn")

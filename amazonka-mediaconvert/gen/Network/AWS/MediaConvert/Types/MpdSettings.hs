@@ -28,7 +28,8 @@ import Network.AWS.MediaConvert.Types.MpdScte35Esam
 import Network.AWS.MediaConvert.Types.MpdScte35Source
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for MP4 segments in DASH
+-- | These settings relate to the fragmented MP4 container for the segments
+-- in your DASH outputs.
 --
 -- /See:/ 'newMpdSettings' smart constructor.
 data MpdSettings = MpdSettings'

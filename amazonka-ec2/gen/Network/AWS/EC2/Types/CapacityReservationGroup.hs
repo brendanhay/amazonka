@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
-  { -- | The ID of the AWS account that owns the resource group.
+  { -- | The ID of the Amazon Web Services account that owns the resource group.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource group.
     groupArn :: Prelude.Maybe Prelude.Text
@@ -44,7 +44,7 @@ data CapacityReservationGroup = CapacityReservationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'capacityReservationGroup_ownerId' - The ID of the AWS account that owns the resource group.
+-- 'ownerId', 'capacityReservationGroup_ownerId' - The ID of the Amazon Web Services account that owns the resource group.
 --
 -- 'groupArn', 'capacityReservationGroup_groupArn' - The ARN of the resource group.
 newCapacityReservationGroup ::
@@ -56,7 +56,7 @@ newCapacityReservationGroup =
       groupArn = Prelude.Nothing
     }
 
--- | The ID of the AWS account that owns the resource group.
+-- | The ID of the Amazon Web Services account that owns the resource group.
 capacityReservationGroup_ownerId :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
 capacityReservationGroup_ownerId = Lens.lens (\CapacityReservationGroup' {ownerId} -> ownerId) (\s@CapacityReservationGroup' {} a -> s {ownerId = a} :: CapacityReservationGroup)
 

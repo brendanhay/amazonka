@@ -49,9 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateStudio' smart constructor.
 data UpdateStudio = UpdateStudio'
-  { -- | A default Amazon S3 location to back up Workspaces and notebook files
-    -- for the Amazon EMR Studio. A Studio user can select an alternative
-    -- Amazon S3 location when creating a Workspace.
+  { -- | The Amazon S3 location to back up Workspaces and notebook files for the
+    -- Amazon EMR Studio.
     defaultS3Location :: Prelude.Maybe Prelude.Text,
     -- | A list of subnet IDs to associate with the Amazon EMR Studio. The list
     -- can include new subnet IDs, but must also include all of the subnet IDs
@@ -76,9 +75,8 @@ data UpdateStudio = UpdateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultS3Location', 'updateStudio_defaultS3Location' - A default Amazon S3 location to back up Workspaces and notebook files
--- for the Amazon EMR Studio. A Studio user can select an alternative
--- Amazon S3 location when creating a Workspace.
+-- 'defaultS3Location', 'updateStudio_defaultS3Location' - The Amazon S3 location to back up Workspaces and notebook files for the
+-- Amazon EMR Studio.
 --
 -- 'subnetIds', 'updateStudio_subnetIds' - A list of subnet IDs to associate with the Amazon EMR Studio. The list
 -- can include new subnet IDs, but must also include all of the subnet IDs
@@ -104,9 +102,8 @@ newUpdateStudio pStudioId_ =
       studioId = pStudioId_
     }
 
--- | A default Amazon S3 location to back up Workspaces and notebook files
--- for the Amazon EMR Studio. A Studio user can select an alternative
--- Amazon S3 location when creating a Workspace.
+-- | The Amazon S3 location to back up Workspaces and notebook files for the
+-- Amazon EMR Studio.
 updateStudio_defaultS3Location :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_defaultS3Location = Lens.lens (\UpdateStudio' {defaultS3Location} -> defaultS3Location) (\s@UpdateStudio' {} a -> s {defaultS3Location = a} :: UpdateStudio)
 

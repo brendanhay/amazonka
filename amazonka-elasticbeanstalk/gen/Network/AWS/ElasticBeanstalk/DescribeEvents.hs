@@ -38,9 +38,9 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     describeEvents_severity,
     describeEvents_environmentId,
     describeEvents_startTime,
-    describeEvents_environmentName,
-    describeEvents_endTime,
     describeEvents_platformArn,
+    describeEvents_endTime,
+    describeEvents_environmentName,
     describeEvents_versionLabel,
     describeEvents_requestId,
     describeEvents_applicationName,
@@ -83,16 +83,16 @@ data DescribeEvents = DescribeEvents'
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that occur on or after this time.
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
-    -- to those associated with this environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
-    -- to those that occur up to, but not including, the @EndTime@.
-    endTime :: Prelude.Maybe Core.ISO8601,
     -- | The ARN of a custom platform version. If specified, AWS Elastic
     -- Beanstalk restricts the returned descriptions to those associated with
     -- this custom platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to those that occur up to, but not including, the @EndTime@.
+    endTime :: Prelude.Maybe Core.ISO8601,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to those associated with this environment.
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those associated with this application version.
     versionLabel :: Prelude.Maybe Prelude.Text,
@@ -131,15 +131,15 @@ data DescribeEvents = DescribeEvents'
 -- 'startTime', 'describeEvents_startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur on or after this time.
 --
--- 'environmentName', 'describeEvents_environmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this environment.
+-- 'platformArn', 'describeEvents_platformArn' - The ARN of a custom platform version. If specified, AWS Elastic
+-- Beanstalk restricts the returned descriptions to those associated with
+-- this custom platform version.
 --
 -- 'endTime', 'describeEvents_endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the @EndTime@.
 --
--- 'platformArn', 'describeEvents_platformArn' - The ARN of a custom platform version. If specified, AWS Elastic
--- Beanstalk restricts the returned descriptions to those associated with
--- this custom platform version.
+-- 'environmentName', 'describeEvents_environmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this environment.
 --
 -- 'versionLabel', 'describeEvents_versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this application version.
@@ -161,9 +161,9 @@ newDescribeEvents =
       severity = Prelude.Nothing,
       environmentId = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      endTime = Prelude.Nothing,
       platformArn = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       versionLabel = Prelude.Nothing,
       requestId = Prelude.Nothing,
       applicationName = Prelude.Nothing,
@@ -195,21 +195,21 @@ describeEvents_environmentId = Lens.lens (\DescribeEvents' {environmentId} -> en
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this environment.
-describeEvents_environmentName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_environmentName = Lens.lens (\DescribeEvents' {environmentName} -> environmentName) (\s@DescribeEvents' {} a -> s {environmentName = a} :: DescribeEvents)
+-- | The ARN of a custom platform version. If specified, AWS Elastic
+-- Beanstalk restricts the returned descriptions to those associated with
+-- this custom platform version.
+describeEvents_platformArn :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_platformArn = Lens.lens (\DescribeEvents' {platformArn} -> platformArn) (\s@DescribeEvents' {} a -> s {platformArn = a} :: DescribeEvents)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the @EndTime@.
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
--- | The ARN of a custom platform version. If specified, AWS Elastic
--- Beanstalk restricts the returned descriptions to those associated with
--- this custom platform version.
-describeEvents_platformArn :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_platformArn = Lens.lens (\DescribeEvents' {platformArn} -> platformArn) (\s@DescribeEvents' {} a -> s {platformArn = a} :: DescribeEvents)
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this environment.
+describeEvents_environmentName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_environmentName = Lens.lens (\DescribeEvents' {environmentName} -> environmentName) (\s@DescribeEvents' {} a -> s {environmentName = a} :: DescribeEvents)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this application version.
@@ -290,9 +290,9 @@ instance Core.ToQuery DescribeEvents where
         "Severity" Core.=: severity,
         "EnvironmentId" Core.=: environmentId,
         "StartTime" Core.=: startTime,
-        "EnvironmentName" Core.=: environmentName,
-        "EndTime" Core.=: endTime,
         "PlatformArn" Core.=: platformArn,
+        "EndTime" Core.=: endTime,
+        "EnvironmentName" Core.=: environmentName,
         "VersionLabel" Core.=: versionLabel,
         "RequestId" Core.=: requestId,
         "ApplicationName" Core.=: applicationName,

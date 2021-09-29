@@ -93,8 +93,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetReservationCoverage' smart constructor.
 data GetReservationCoverage = GetReservationCoverage'
-  { -- | The granularity of the AWS cost data for the reservation. Valid values
-    -- are @MONTHLY@ and @DAILY@.
+  { -- | The granularity of the Amazon Web Services cost data for the
+    -- reservation. Valid values are @MONTHLY@ and @DAILY@.
     --
     -- If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
     -- isn\'t set, the response object doesn\'t include @Granularity@, either
@@ -104,13 +104,13 @@ data GetReservationCoverage = GetReservationCoverage'
     -- @MONTHLY@ granularities.
     granularity :: Prelude.Maybe Granularity,
     -- | The maximum number of objects that you returned for this request. If
-    -- more objects are available, in the response, AWS provides a
-    -- NextPageToken value that you can use in a subsequent call to get the
-    -- next batch of objects.
+    -- more objects are available, in the response, Amazon Web Services
+    -- provides a NextPageToken value that you can use in a subsequent call to
+    -- get the next batch of objects.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The measurement that you want your reservation coverage reported in.
     --
@@ -221,8 +221,8 @@ data GetReservationCoverage = GetReservationCoverage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'granularity', 'getReservationCoverage_granularity' - The granularity of the AWS cost data for the reservation. Valid values
--- are @MONTHLY@ and @DAILY@.
+-- 'granularity', 'getReservationCoverage_granularity' - The granularity of the Amazon Web Services cost data for the
+-- reservation. Valid values are @MONTHLY@ and @DAILY@.
 --
 -- If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
 -- isn\'t set, the response object doesn\'t include @Granularity@, either
@@ -232,13 +232,13 @@ data GetReservationCoverage = GetReservationCoverage'
 -- @MONTHLY@ granularities.
 --
 -- 'maxResults', 'getReservationCoverage_maxResults' - The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, AWS provides a
--- NextPageToken value that you can use in a subsequent call to get the
--- next batch of objects.
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
 --
--- 'nextPageToken', 'getReservationCoverage_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getReservationCoverage_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'metrics', 'getReservationCoverage_metrics' - The measurement that you want your reservation coverage reported in.
 --
@@ -354,8 +354,8 @@ newGetReservationCoverage pTimePeriod_ =
       timePeriod = pTimePeriod_
     }
 
--- | The granularity of the AWS cost data for the reservation. Valid values
--- are @MONTHLY@ and @DAILY@.
+-- | The granularity of the Amazon Web Services cost data for the
+-- reservation. Valid values are @MONTHLY@ and @DAILY@.
 --
 -- If @GroupBy@ is set, @Granularity@ can\'t be set. If @Granularity@
 -- isn\'t set, the response object doesn\'t include @Granularity@, either
@@ -367,15 +367,15 @@ getReservationCoverage_granularity :: Lens.Lens' GetReservationCoverage (Prelude
 getReservationCoverage_granularity = Lens.lens (\GetReservationCoverage' {granularity} -> granularity) (\s@GetReservationCoverage' {} a -> s {granularity = a} :: GetReservationCoverage)
 
 -- | The maximum number of objects that you returned for this request. If
--- more objects are available, in the response, AWS provides a
--- NextPageToken value that you can use in a subsequent call to get the
--- next batch of objects.
+-- more objects are available, in the response, Amazon Web Services
+-- provides a NextPageToken value that you can use in a subsequent call to
+-- get the next batch of objects.
 getReservationCoverage_maxResults :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Prelude.Natural)
 getReservationCoverage_maxResults = Lens.lens (\GetReservationCoverage' {maxResults} -> maxResults) (\s@GetReservationCoverage' {} a -> s {maxResults = a} :: GetReservationCoverage)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getReservationCoverage_nextPageToken :: Lens.Lens' GetReservationCoverage (Prelude.Maybe Prelude.Text)
 getReservationCoverage_nextPageToken = Lens.lens (\GetReservationCoverage' {nextPageToken} -> nextPageToken) (\s@GetReservationCoverage' {} a -> s {nextPageToken = a} :: GetReservationCoverage)
 
@@ -548,9 +548,9 @@ instance Core.ToQuery GetReservationCoverage where
 data GetReservationCoverageResponse = GetReservationCoverageResponse'
   { -- | The total amount of instance usage that a reservation covered.
     total :: Prelude.Maybe Coverage,
-    -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+    -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -569,9 +569,9 @@ data GetReservationCoverageResponse = GetReservationCoverageResponse'
 --
 -- 'total', 'getReservationCoverageResponse_total' - The total amount of instance usage that a reservation covered.
 --
--- 'nextPageToken', 'getReservationCoverageResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- 'nextPageToken', 'getReservationCoverageResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getReservationCoverageResponse_httpStatus' - The response's http status code.
 --
@@ -593,9 +593,9 @@ newGetReservationCoverageResponse pHttpStatus_ =
 getReservationCoverageResponse_total :: Lens.Lens' GetReservationCoverageResponse (Prelude.Maybe Coverage)
 getReservationCoverageResponse_total = Lens.lens (\GetReservationCoverageResponse' {total} -> total) (\s@GetReservationCoverageResponse' {} a -> s {total = a} :: GetReservationCoverageResponse)
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getReservationCoverageResponse_nextPageToken :: Lens.Lens' GetReservationCoverageResponse (Prelude.Maybe Prelude.Text)
 getReservationCoverageResponse_nextPageToken = Lens.lens (\GetReservationCoverageResponse' {nextPageToken} -> nextPageToken) (\s@GetReservationCoverageResponse' {} a -> s {nextPageToken = a} :: GetReservationCoverageResponse)
 

@@ -31,10 +31,10 @@ data GroupType = GroupType'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The role ARN for the group.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The date the group was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | A string containing the description of the group.
@@ -71,9 +71,9 @@ data GroupType = GroupType'
 --
 -- 'roleArn', 'groupType_roleArn' - The role ARN for the group.
 --
--- 'groupName', 'groupType_groupName' - The name of the group.
---
 -- 'userPoolId', 'groupType_userPoolId' - The user pool ID for the user pool.
+--
+-- 'groupName', 'groupType_groupName' - The name of the group.
 --
 -- 'creationDate', 'groupType_creationDate' - The date the group was created.
 --
@@ -101,8 +101,8 @@ newGroupType =
   GroupType'
     { lastModifiedDate = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      groupName = Prelude.Nothing,
       userPoolId = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       description = Prelude.Nothing,
       precedence = Prelude.Nothing
@@ -116,13 +116,13 @@ groupType_lastModifiedDate = Lens.lens (\GroupType' {lastModifiedDate} -> lastMo
 groupType_roleArn :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
 groupType_roleArn = Lens.lens (\GroupType' {roleArn} -> roleArn) (\s@GroupType' {} a -> s {roleArn = a} :: GroupType)
 
--- | The name of the group.
-groupType_groupName :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
-groupType_groupName = Lens.lens (\GroupType' {groupName} -> groupName) (\s@GroupType' {} a -> s {groupName = a} :: GroupType)
-
 -- | The user pool ID for the user pool.
 groupType_userPoolId :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
 groupType_userPoolId = Lens.lens (\GroupType' {userPoolId} -> userPoolId) (\s@GroupType' {} a -> s {userPoolId = a} :: GroupType)
+
+-- | The name of the group.
+groupType_groupName :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
+groupType_groupName = Lens.lens (\GroupType' {groupName} -> groupName) (\s@GroupType' {} a -> s {groupName = a} :: GroupType)
 
 -- | The date the group was created.
 groupType_creationDate :: Lens.Lens' GroupType (Prelude.Maybe Prelude.UTCTime)
@@ -159,8 +159,8 @@ instance Core.FromJSON GroupType where
           GroupType'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "GroupName")
             Prelude.<*> (x Core..:? "UserPoolId")
+            Prelude.<*> (x Core..:? "GroupName")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "Precedence")

@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Transfers the specified certificate to the specified AWS account.
+-- Transfers the specified certificate to the specified Amazon Web Services
+-- account.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions TransferCertificate>
+-- action.
 --
 -- You can cancel the transfer until it is acknowledged by the recipient.
 --
@@ -28,10 +33,10 @@
 -- to the caller to notify the transfer target.
 --
 -- The certificate being transferred must not be in the ACTIVE state. You
--- can use the UpdateCertificate API to deactivate it.
+-- can use the UpdateCertificate action to deactivate it.
 --
 -- The certificate must not have any policies attached to it. You can use
--- the DetachPrincipalPolicy API to detach them.
+-- the DetachPolicy action to detach them.
 module Network.AWS.IoT.TransferCertificate
   ( -- * Creating a Request
     TransferCertificate (..),
@@ -68,7 +73,7 @@ data TransferCertificate = TransferCertificate'
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
     certificateId :: Prelude.Text,
-    -- | The AWS account.
+    -- | The Amazon Web Services account.
     targetAwsAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,7 +91,7 @@ data TransferCertificate = TransferCertificate'
 -- 'certificateId', 'transferCertificate_certificateId' - The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
 --
--- 'targetAwsAccount', 'transferCertificate_targetAwsAccount' - The AWS account.
+-- 'targetAwsAccount', 'transferCertificate_targetAwsAccount' - The Amazon Web Services account.
 newTransferCertificate ::
   -- | 'certificateId'
   Prelude.Text ->
@@ -112,7 +117,7 @@ transferCertificate_transferMessage = Lens.lens (\TransferCertificate' {transfer
 transferCertificate_certificateId :: Lens.Lens' TransferCertificate Prelude.Text
 transferCertificate_certificateId = Lens.lens (\TransferCertificate' {certificateId} -> certificateId) (\s@TransferCertificate' {} a -> s {certificateId = a} :: TransferCertificate)
 
--- | The AWS account.
+-- | The Amazon Web Services account.
 transferCertificate_targetAwsAccount :: Lens.Lens' TransferCertificate Prelude.Text
 transferCertificate_targetAwsAccount = Lens.lens (\TransferCertificate' {targetAwsAccount} -> targetAwsAccount) (\s@TransferCertificate' {} a -> s {targetAwsAccount = a} :: TransferCertificate)
 

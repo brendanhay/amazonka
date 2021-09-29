@@ -40,8 +40,8 @@ module Network.AWS.Greengrass.GetConnectorDefinition
     getConnectorDefinitionResponse_arn,
     getConnectorDefinitionResponse_id,
     getConnectorDefinitionResponse_name,
-    getConnectorDefinitionResponse_lastUpdatedTimestamp,
     getConnectorDefinitionResponse_tags,
+    getConnectorDefinitionResponse_lastUpdatedTimestamp,
     getConnectorDefinitionResponse_httpStatus,
   )
 where
@@ -98,8 +98,8 @@ instance Core.AWSRequest GetConnectorDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,11 +143,11 @@ data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
 --
 -- 'name', 'getConnectorDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getConnectorDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getConnectorDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getConnectorDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getConnectorDefinitionResponse_httpStatus' - The response's http status code.
 newGetConnectorDefinitionResponse ::
@@ -193,8 +193,8 @@ newGetConnectorDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -223,14 +223,14 @@ getConnectorDefinitionResponse_id = Lens.lens (\GetConnectorDefinitionResponse' 
 getConnectorDefinitionResponse_name :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_name = Lens.lens (\GetConnectorDefinitionResponse' {name} -> name) (\s@GetConnectorDefinitionResponse' {} a -> s {name = a} :: GetConnectorDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getConnectorDefinitionResponse_tags :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getConnectorDefinitionResponse_tags = Lens.lens (\GetConnectorDefinitionResponse' {tags} -> tags) (\s@GetConnectorDefinitionResponse' {} a -> s {tags = a} :: GetConnectorDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getConnectorDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe Prelude.Text)
 getConnectorDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetConnectorDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetConnectorDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetConnectorDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getConnectorDefinitionResponse_tags :: Lens.Lens' GetConnectorDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getConnectorDefinitionResponse_tags = Lens.lens (\GetConnectorDefinitionResponse' {tags} -> tags) (\s@GetConnectorDefinitionResponse' {} a -> s {tags = a} :: GetConnectorDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getConnectorDefinitionResponse_httpStatus :: Lens.Lens' GetConnectorDefinitionResponse Prelude.Int

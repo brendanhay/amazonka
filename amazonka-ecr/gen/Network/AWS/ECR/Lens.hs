@@ -54,22 +54,12 @@ module Network.AWS.ECR.Lens
 
     -- ** DescribeRepositories
     describeRepositories_nextToken,
-    describeRepositories_maxResults,
     describeRepositories_repositoryNames,
+    describeRepositories_maxResults,
     describeRepositories_registryId,
     describeRepositoriesResponse_nextToken,
     describeRepositoriesResponse_repositories,
     describeRepositoriesResponse_httpStatus,
-
-    -- ** ListImages
-    listImages_nextToken,
-    listImages_maxResults,
-    listImages_registryId,
-    listImages_filter,
-    listImages_repositoryName,
-    listImagesResponse_nextToken,
-    listImagesResponse_imageIds,
-    listImagesResponse_httpStatus,
 
     -- ** PutImage
     putImage_imageDigest,
@@ -81,6 +71,21 @@ module Network.AWS.ECR.Lens
     putImageResponse_image,
     putImageResponse_httpStatus,
 
+    -- ** ListImages
+    listImages_nextToken,
+    listImages_maxResults,
+    listImages_registryId,
+    listImages_filter,
+    listImages_repositoryName,
+    listImagesResponse_nextToken,
+    listImagesResponse_imageIds,
+    listImagesResponse_httpStatus,
+
+    -- ** GetRegistryPolicy
+    getRegistryPolicyResponse_registryId,
+    getRegistryPolicyResponse_policyText,
+    getRegistryPolicyResponse_httpStatus,
+
     -- ** InitiateLayerUpload
     initiateLayerUpload_registryId,
     initiateLayerUpload_repositoryName,
@@ -88,37 +93,37 @@ module Network.AWS.ECR.Lens
     initiateLayerUploadResponse_partSize,
     initiateLayerUploadResponse_httpStatus,
 
-    -- ** GetRegistryPolicy
-    getRegistryPolicyResponse_registryId,
-    getRegistryPolicyResponse_policyText,
-    getRegistryPolicyResponse_httpStatus,
-
-    -- ** DeleteRepositoryPolicy
-    deleteRepositoryPolicy_registryId,
-    deleteRepositoryPolicy_repositoryName,
-    deleteRepositoryPolicyResponse_registryId,
-    deleteRepositoryPolicyResponse_policyText,
-    deleteRepositoryPolicyResponse_repositoryName,
-    deleteRepositoryPolicyResponse_httpStatus,
-
     -- ** DescribeImageScanFindings
     describeImageScanFindings_nextToken,
     describeImageScanFindings_maxResults,
     describeImageScanFindings_registryId,
     describeImageScanFindings_repositoryName,
     describeImageScanFindings_imageId,
-    describeImageScanFindingsResponse_nextToken,
     describeImageScanFindingsResponse_imageScanStatus,
+    describeImageScanFindingsResponse_nextToken,
     describeImageScanFindingsResponse_imageScanFindings,
     describeImageScanFindingsResponse_registryId,
     describeImageScanFindingsResponse_repositoryName,
     describeImageScanFindingsResponse_imageId,
     describeImageScanFindingsResponse_httpStatus,
 
+    -- ** DeleteRepositoryPolicy
+    deleteRepositoryPolicy_registryId,
+    deleteRepositoryPolicy_repositoryName,
+    deleteRepositoryPolicyResponse_registryId,
+    deleteRepositoryPolicyResponse_repositoryName,
+    deleteRepositoryPolicyResponse_policyText,
+    deleteRepositoryPolicyResponse_httpStatus,
+
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** SetRepositoryPolicy
     setRepositoryPolicy_registryId,
@@ -126,19 +131,14 @@ module Network.AWS.ECR.Lens
     setRepositoryPolicy_repositoryName,
     setRepositoryPolicy_policyText,
     setRepositoryPolicyResponse_registryId,
-    setRepositoryPolicyResponse_policyText,
     setRepositoryPolicyResponse_repositoryName,
+    setRepositoryPolicyResponse_policyText,
     setRepositoryPolicyResponse_httpStatus,
 
     -- ** DescribeRegistry
     describeRegistryResponse_replicationConfiguration,
     describeRegistryResponse_registryId,
     describeRegistryResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
 
     -- ** BatchDeleteImage
     batchDeleteImage_registryId,
@@ -175,28 +175,9 @@ module Network.AWS.ECR.Lens
     getRepositoryPolicy_registryId,
     getRepositoryPolicy_repositoryName,
     getRepositoryPolicyResponse_registryId,
-    getRepositoryPolicyResponse_policyText,
     getRepositoryPolicyResponse_repositoryName,
+    getRepositoryPolicyResponse_policyText,
     getRepositoryPolicyResponse_httpStatus,
-
-    -- ** DescribeImages
-    describeImages_nextToken,
-    describeImages_imageIds,
-    describeImages_maxResults,
-    describeImages_registryId,
-    describeImages_filter,
-    describeImages_repositoryName,
-    describeImagesResponse_nextToken,
-    describeImagesResponse_imageDetails,
-    describeImagesResponse_httpStatus,
-
-    -- ** GetDownloadUrlForLayer
-    getDownloadUrlForLayer_registryId,
-    getDownloadUrlForLayer_repositoryName,
-    getDownloadUrlForLayer_layerDigest,
-    getDownloadUrlForLayerResponse_downloadUrl,
-    getDownloadUrlForLayerResponse_layerDigest,
-    getDownloadUrlForLayerResponse_httpStatus,
 
     -- ** CompleteLayerUpload
     completeLayerUpload_registryId,
@@ -209,6 +190,25 @@ module Network.AWS.ECR.Lens
     completeLayerUploadResponse_layerDigest,
     completeLayerUploadResponse_httpStatus,
 
+    -- ** GetDownloadUrlForLayer
+    getDownloadUrlForLayer_registryId,
+    getDownloadUrlForLayer_repositoryName,
+    getDownloadUrlForLayer_layerDigest,
+    getDownloadUrlForLayerResponse_downloadUrl,
+    getDownloadUrlForLayerResponse_layerDigest,
+    getDownloadUrlForLayerResponse_httpStatus,
+
+    -- ** DescribeImages
+    describeImages_nextToken,
+    describeImages_imageIds,
+    describeImages_maxResults,
+    describeImages_registryId,
+    describeImages_filter,
+    describeImages_repositoryName,
+    describeImagesResponse_nextToken,
+    describeImagesResponse_imageDetails,
+    describeImagesResponse_httpStatus,
+
     -- ** GetAuthorizationToken
     getAuthorizationToken_registryIds,
     getAuthorizationTokenResponse_authorizationData,
@@ -216,6 +216,7 @@ module Network.AWS.ECR.Lens
 
     -- ** CreateRepository
     createRepository_encryptionConfiguration,
+    createRepository_registryId,
     createRepository_tags,
     createRepository_imageScanningConfiguration,
     createRepository_imageTagMutability,
@@ -229,14 +230,6 @@ module Network.AWS.ECR.Lens
     deleteRepository_repositoryName,
     deleteRepositoryResponse_repository,
     deleteRepositoryResponse_httpStatus,
-
-    -- ** BatchCheckLayerAvailability
-    batchCheckLayerAvailability_registryId,
-    batchCheckLayerAvailability_repositoryName,
-    batchCheckLayerAvailability_layerDigests,
-    batchCheckLayerAvailabilityResponse_failures,
-    batchCheckLayerAvailabilityResponse_layers,
-    batchCheckLayerAvailabilityResponse_httpStatus,
 
     -- ** GetLifecyclePolicy
     getLifecyclePolicy_registryId,
@@ -257,10 +250,13 @@ module Network.AWS.ECR.Lens
     startImageScanResponse_imageId,
     startImageScanResponse_httpStatus,
 
-    -- ** PutReplicationConfiguration
-    putReplicationConfiguration_replicationConfiguration,
-    putReplicationConfigurationResponse_replicationConfiguration,
-    putReplicationConfigurationResponse_httpStatus,
+    -- ** BatchCheckLayerAvailability
+    batchCheckLayerAvailability_registryId,
+    batchCheckLayerAvailability_repositoryName,
+    batchCheckLayerAvailability_layerDigests,
+    batchCheckLayerAvailabilityResponse_failures,
+    batchCheckLayerAvailabilityResponse_layers,
+    batchCheckLayerAvailabilityResponse_httpStatus,
 
     -- ** BatchGetImage
     batchGetImage_acceptedMediaTypes,
@@ -271,10 +267,10 @@ module Network.AWS.ECR.Lens
     batchGetImageResponse_failures,
     batchGetImageResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** PutReplicationConfiguration
+    putReplicationConfiguration_replicationConfiguration,
+    putReplicationConfigurationResponse_replicationConfiguration,
+    putReplicationConfigurationResponse_httpStatus,
 
     -- ** PutImageTagMutability
     putImageTagMutability_registryId,
@@ -284,6 +280,20 @@ module Network.AWS.ECR.Lens
     putImageTagMutabilityResponse_repositoryName,
     putImageTagMutabilityResponse_imageTagMutability,
     putImageTagMutabilityResponse_httpStatus,
+
+    -- ** DescribeImageReplicationStatus
+    describeImageReplicationStatus_registryId,
+    describeImageReplicationStatus_repositoryName,
+    describeImageReplicationStatus_imageId,
+    describeImageReplicationStatusResponse_repositoryName,
+    describeImageReplicationStatusResponse_imageId,
+    describeImageReplicationStatusResponse_replicationStatuses,
+    describeImageReplicationStatusResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** GetLifecyclePolicyPreview
     getLifecyclePolicyPreview_nextToken,
@@ -320,8 +330,8 @@ module Network.AWS.ECR.Lens
     encryptionConfiguration_encryptionType,
 
     -- ** Image
-    image_imageManifest,
     image_registryId,
+    image_imageManifest,
     image_repositoryName,
     image_imageId,
     image_imageManifestMediaType,
@@ -346,6 +356,12 @@ module Network.AWS.ECR.Lens
     -- ** ImageIdentifier
     imageIdentifier_imageDigest,
     imageIdentifier_imageTag,
+
+    -- ** ImageReplicationStatus
+    imageReplicationStatus_status,
+    imageReplicationStatus_registryId,
+    imageReplicationStatus_failureCode,
+    imageReplicationStatus_region,
 
     -- ** ImageScanFinding
     imageScanFinding_uri,
@@ -410,6 +426,7 @@ module Network.AWS.ECR.Lens
     replicationDestination_registryId,
 
     -- ** ReplicationRule
+    replicationRule_repositoryFilters,
     replicationRule_destinations,
 
     -- ** Repository
@@ -421,6 +438,10 @@ module Network.AWS.ECR.Lens
     repository_repositoryArn,
     repository_imageScanningConfiguration,
     repository_imageTagMutability,
+
+    -- ** RepositoryFilter
+    repositoryFilter_filter,
+    repositoryFilter_filterType,
 
     -- ** Tag
     tag_key,
@@ -437,6 +458,7 @@ import Network.AWS.ECR.DeleteLifecyclePolicy
 import Network.AWS.ECR.DeleteRegistryPolicy
 import Network.AWS.ECR.DeleteRepository
 import Network.AWS.ECR.DeleteRepositoryPolicy
+import Network.AWS.ECR.DescribeImageReplicationStatus
 import Network.AWS.ECR.DescribeImageScanFindings
 import Network.AWS.ECR.DescribeImages
 import Network.AWS.ECR.DescribeRegistry
@@ -468,6 +490,7 @@ import Network.AWS.ECR.Types.Image
 import Network.AWS.ECR.Types.ImageDetail
 import Network.AWS.ECR.Types.ImageFailure
 import Network.AWS.ECR.Types.ImageIdentifier
+import Network.AWS.ECR.Types.ImageReplicationStatus
 import Network.AWS.ECR.Types.ImageScanFinding
 import Network.AWS.ECR.Types.ImageScanFindings
 import Network.AWS.ECR.Types.ImageScanFindingsSummary
@@ -484,6 +507,7 @@ import Network.AWS.ECR.Types.ReplicationConfiguration
 import Network.AWS.ECR.Types.ReplicationDestination
 import Network.AWS.ECR.Types.ReplicationRule
 import Network.AWS.ECR.Types.Repository
+import Network.AWS.ECR.Types.RepositoryFilter
 import Network.AWS.ECR.Types.Tag
 import Network.AWS.ECR.UntagResource
 import Network.AWS.ECR.UploadLayerPart

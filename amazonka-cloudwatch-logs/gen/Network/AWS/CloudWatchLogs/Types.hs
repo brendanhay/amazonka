@@ -41,6 +41,9 @@ module Network.AWS.CloudWatchLogs.Types
     -- * QueryStatus
     QueryStatus (..),
 
+    -- * StandardUnit
+    StandardUnit (..),
+
     -- * Destination
     Destination (..),
     newDestination,
@@ -48,20 +51,20 @@ module Network.AWS.CloudWatchLogs.Types
     destination_roleArn,
     destination_destinationName,
     destination_arn,
-    destination_targetArn,
     destination_accessPolicy,
+    destination_targetArn,
 
     -- * ExportTask
     ExportTask (..),
     newExportTask,
-    exportTask_status,
     exportTask_executionInfo,
+    exportTask_status,
     exportTask_to,
     exportTask_taskId,
     exportTask_taskName,
-    exportTask_logGroupName,
-    exportTask_destination,
     exportTask_destinationPrefix,
+    exportTask_destination,
+    exportTask_logGroupName,
     exportTask_from,
 
     -- * ExportTaskExecutionInfo
@@ -98,8 +101,8 @@ module Network.AWS.CloudWatchLogs.Types
     logGroup_creationTime,
     logGroup_arn,
     logGroup_storedBytes,
-    logGroup_metricFilterCount,
     logGroup_kmsKeyId,
+    logGroup_metricFilterCount,
     logGroup_logGroupName,
 
     -- * LogGroupField
@@ -116,8 +119,8 @@ module Network.AWS.CloudWatchLogs.Types
     logStream_arn,
     logStream_storedBytes,
     logStream_uploadSequenceToken,
-    logStream_firstEventTimestamp,
     logStream_lastEventTimestamp,
+    logStream_firstEventTimestamp,
     logStream_lastIngestionTime,
 
     -- * MetricFilter
@@ -139,6 +142,8 @@ module Network.AWS.CloudWatchLogs.Types
     -- * MetricTransformation
     MetricTransformation (..),
     newMetricTransformation,
+    metricTransformation_unit,
+    metricTransformation_dimensions,
     metricTransformation_defaultValue,
     metricTransformation_metricName,
     metricTransformation_metricNamespace,
@@ -186,8 +191,8 @@ module Network.AWS.CloudWatchLogs.Types
     -- * ResourcePolicy
     ResourcePolicy (..),
     newResourcePolicy,
-    resourcePolicy_policyName,
     resourcePolicy_policyDocument,
+    resourcePolicy_policyName,
     resourcePolicy_lastUpdatedTime,
 
     -- * ResultField
@@ -239,6 +244,7 @@ import Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
 import Network.AWS.CloudWatchLogs.Types.ResourcePolicy
 import Network.AWS.CloudWatchLogs.Types.ResultField
 import Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+import Network.AWS.CloudWatchLogs.Types.StandardUnit
 import Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -338,7 +344,8 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
 
--- | The most likely cause is an invalid AWS access key ID or secret key.
+-- | The most likely cause is an invalid Amazon Web Services access key ID or
+-- secret key.
 _UnrecognizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnrecognizedClientException =
   Core._MatchServiceError

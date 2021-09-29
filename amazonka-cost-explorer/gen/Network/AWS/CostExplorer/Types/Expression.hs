@@ -33,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 --     for @REGION==us-east-1 OR REGION==us-west-1@. For
 --     @GetRightsizingRecommendation@, the Region is a full name (for
 --     example, @REGION==US East (N. Virginia)@. The @Expression@ example
---     looks like:
+--     is as follows:
 --
 --     @{ \"Dimensions\": { \"Key\": \"REGION\", \"Values\": [ \"us-east-1\", “us-west-1” ] } }@
 --
@@ -44,11 +44,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   Compound dimension values with logical operations - You can use
 --     multiple @Expression@ types and the logical operators @AND\/OR\/NOT@
---     to create a list of one or more @Expression@ objects. This allows
---     you to filter on more advanced options. For example, you can filter
+--     to create a list of one or more @Expression@ objects. By doing this,
+--     you can filter on more advanced options. For example, you can filter
 --     on
 --     @((REGION == us-east-1 OR REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE != DataTransfer)@.
---     The @Expression@ for that looks like this:
+--     The @Expression@ for that is as follows:
 --
 --     @{ \"And\": [ {\"Or\": [ {\"Dimensions\": { \"Key\": \"REGION\", \"Values\": [ \"us-east-1\", \"us-west-1\" ] }}, {\"Tags\": { \"Key\": \"TagName\", \"Values\": [\"Value1\"] } } ]}, {\"Not\": {\"Dimensions\": { \"Key\": \"USAGE_TYPE\", \"Values\": [\"DataTransfer\"] }}} ] } @
 --
@@ -59,22 +59,22 @@ import qualified Network.AWS.Prelude as Prelude
 --     @ { \"And\": [ ... ], \"DimensionValues\": { \"Dimension\": \"USAGE_TYPE\", \"Values\": [ \"DataTransfer\" ] } } @
 --
 -- For the @GetRightsizingRecommendation@ action, a combination of OR and
--- NOT is not supported. OR is not supported between different dimensions,
+-- NOT isn\'t supported. OR isn\'t supported between different dimensions,
 -- or dimensions and tags. NOT operators aren\'t supported. Dimensions are
 -- also limited to @LINKED_ACCOUNT@, @REGION@, or @RIGHTSIZING_TYPE@.
 --
 -- For the @GetReservationPurchaseRecommendation@ action, only NOT is
--- supported. AND and OR are not supported. Dimensions are limited to
+-- supported. AND and OR aren\'t supported. Dimensions are limited to
 -- @LINKED_ACCOUNT@.
 --
 -- /See:/ 'newExpression' smart constructor.
 data Expression = Expression'
-  { -- | Return results that don\'t match a @Dimension@ object.
+  { -- | The filter that\'s based on @CostCategory@ values.
+    costCategories :: Prelude.Maybe CostCategoryValues,
+    -- | Return results that don\'t match a @Dimension@ object.
     not :: Prelude.Maybe Expression,
     -- | Return results that match either @Dimension@ object.
     or :: Prelude.Maybe [Expression],
-    -- | The filter based on @CostCategory@ values.
-    costCategories :: Prelude.Maybe CostCategoryValues,
     -- | The specific @Tag@ to use for @Expression@.
     tags :: Prelude.Maybe TagValues,
     -- | Return results that match both @Dimension@ objects.
@@ -92,11 +92,11 @@ data Expression = Expression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'costCategories', 'expression_costCategories' - The filter that\'s based on @CostCategory@ values.
+--
 -- 'not', 'expression_not' - Return results that don\'t match a @Dimension@ object.
 --
 -- 'or', 'expression_or' - Return results that match either @Dimension@ object.
---
--- 'costCategories', 'expression_costCategories' - The filter based on @CostCategory@ values.
 --
 -- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.
 --
@@ -107,13 +107,17 @@ newExpression ::
   Expression
 newExpression =
   Expression'
-    { not = Prelude.Nothing,
+    { costCategories = Prelude.Nothing,
+      not = Prelude.Nothing,
       or = Prelude.Nothing,
-      costCategories = Prelude.Nothing,
       tags = Prelude.Nothing,
       and = Prelude.Nothing,
       dimensions = Prelude.Nothing
     }
+
+-- | The filter that\'s based on @CostCategory@ values.
+expression_costCategories :: Lens.Lens' Expression (Prelude.Maybe CostCategoryValues)
+expression_costCategories = Lens.lens (\Expression' {costCategories} -> costCategories) (\s@Expression' {} a -> s {costCategories = a} :: Expression)
 
 -- | Return results that don\'t match a @Dimension@ object.
 expression_not :: Lens.Lens' Expression (Prelude.Maybe Expression)
@@ -122,10 +126,6 @@ expression_not = Lens.lens (\Expression' {not} -> not) (\s@Expression' {} a -> s
 -- | Return results that match either @Dimension@ object.
 expression_or :: Lens.Lens' Expression (Prelude.Maybe [Expression])
 expression_or = Lens.lens (\Expression' {or} -> or) (\s@Expression' {} a -> s {or = a} :: Expression) Prelude.. Lens.mapping Lens._Coerce
-
--- | The filter based on @CostCategory@ values.
-expression_costCategories :: Lens.Lens' Expression (Prelude.Maybe CostCategoryValues)
-expression_costCategories = Lens.lens (\Expression' {costCategories} -> costCategories) (\s@Expression' {} a -> s {costCategories = a} :: Expression)
 
 -- | The specific @Tag@ to use for @Expression@.
 expression_tags :: Lens.Lens' Expression (Prelude.Maybe TagValues)
@@ -145,9 +145,9 @@ instance Core.FromJSON Expression where
       "Expression"
       ( \x ->
           Expression'
-            Prelude.<$> (x Core..:? "Not")
+            Prelude.<$> (x Core..:? "CostCategories")
+            Prelude.<*> (x Core..:? "Not")
             Prelude.<*> (x Core..:? "Or" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CostCategories")
             Prelude.<*> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "And" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Dimensions")
@@ -161,10 +161,10 @@ instance Core.ToJSON Expression where
   toJSON Expression' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Not" Core..=) Prelude.<$> not,
-            ("Or" Core..=) Prelude.<$> or,
-            ("CostCategories" Core..=)
+          [ ("CostCategories" Core..=)
               Prelude.<$> costCategories,
+            ("Not" Core..=) Prelude.<$> not,
+            ("Or" Core..=) Prelude.<$> or,
             ("Tags" Core..=) Prelude.<$> tags,
             ("And" Core..=) Prelude.<$> and,
             ("Dimensions" Core..=) Prelude.<$> dimensions

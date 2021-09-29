@@ -39,13 +39,13 @@ module Network.AWS.AWSHealth.Types
     -- * AffectedEntity
     AffectedEntity (..),
     newAffectedEntity,
-    affectedEntity_eventArn,
     affectedEntity_awsAccountId,
+    affectedEntity_eventArn,
     affectedEntity_statusCode,
     affectedEntity_tags,
     affectedEntity_entityArn,
-    affectedEntity_entityValue,
     affectedEntity_entityUrl,
+    affectedEntity_entityValue,
     affectedEntity_lastUpdatedTime,
 
     -- * DateTimeRange
@@ -76,8 +76,8 @@ module Network.AWS.AWSHealth.Types
     event_eventTypeCategory,
     event_eventScopeCode,
     event_startTime,
-    event_service,
     event_arn,
+    event_service,
     event_endTime,
     event_availabilityZone,
     event_statusCode,
@@ -128,10 +128,10 @@ module Network.AWS.AWSHealth.Types
     eventFilter_lastUpdatedTimes,
     eventFilter_tags,
     eventFilter_eventStatusCodes,
-    eventFilter_entityValues,
     eventFilter_regions,
-    eventFilter_eventArns,
+    eventFilter_entityValues,
     eventFilter_eventTypeCategories,
+    eventFilter_eventArns,
 
     -- * EventType
     EventType (..),
@@ -151,8 +151,8 @@ module Network.AWS.AWSHealth.Types
     OrganizationAffectedEntitiesErrorItem (..),
     newOrganizationAffectedEntitiesErrorItem,
     organizationAffectedEntitiesErrorItem_errorName,
-    organizationAffectedEntitiesErrorItem_eventArn,
     organizationAffectedEntitiesErrorItem_awsAccountId,
+    organizationAffectedEntitiesErrorItem_eventArn,
     organizationAffectedEntitiesErrorItem_errorMessage,
 
     -- * OrganizationEvent
@@ -161,8 +161,8 @@ module Network.AWS.AWSHealth.Types
     organizationEvent_eventTypeCategory,
     organizationEvent_eventScopeCode,
     organizationEvent_startTime,
-    organizationEvent_service,
     organizationEvent_arn,
+    organizationEvent_service,
     organizationEvent_endTime,
     organizationEvent_statusCode,
     organizationEvent_eventTypeCode,
@@ -181,8 +181,8 @@ module Network.AWS.AWSHealth.Types
     OrganizationEventDetailsErrorItem (..),
     newOrganizationEventDetailsErrorItem,
     organizationEventDetailsErrorItem_errorName,
-    organizationEventDetailsErrorItem_eventArn,
     organizationEventDetailsErrorItem_awsAccountId,
+    organizationEventDetailsErrorItem_eventArn,
     organizationEventDetailsErrorItem_errorMessage,
 
     -- * OrganizationEventFilter
@@ -194,11 +194,11 @@ module Network.AWS.AWSHealth.Types
     organizationEventFilter_eventTypeCodes,
     organizationEventFilter_endTime,
     organizationEventFilter_eventStatusCodes,
-    organizationEventFilter_entityValues,
     organizationEventFilter_regions,
+    organizationEventFilter_entityValues,
     organizationEventFilter_eventTypeCategories,
-    organizationEventFilter_awsAccountIds,
     organizationEventFilter_lastUpdatedTime,
+    organizationEventFilter_awsAccountIds,
   )
 where
 

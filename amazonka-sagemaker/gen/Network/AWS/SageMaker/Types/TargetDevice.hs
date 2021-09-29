@@ -22,8 +22,10 @@ module Network.AWS.SageMaker.Types.TargetDevice
       ( ..,
         TargetDevice_Aisage,
         TargetDevice_Amba_cv22,
+        TargetDevice_Amba_cv25,
         TargetDevice_Coreml,
         TargetDevice_Deeplens,
+        TargetDevice_Imx8mplus,
         TargetDevice_Imx8qm,
         TargetDevice_Jacinto_tda4vm,
         TargetDevice_Jetson_nano,
@@ -33,6 +35,7 @@ module Network.AWS.SageMaker.Types.TargetDevice
         TargetDevice_Lambda,
         TargetDevice_Ml_c4,
         TargetDevice_Ml_c5,
+        TargetDevice_Ml_eia2,
         TargetDevice_Ml_g4dn,
         TargetDevice_Ml_inf1,
         TargetDevice_Ml_m4,
@@ -89,11 +92,17 @@ pattern TargetDevice_Aisage = TargetDevice' "aisage"
 pattern TargetDevice_Amba_cv22 :: TargetDevice
 pattern TargetDevice_Amba_cv22 = TargetDevice' "amba_cv22"
 
+pattern TargetDevice_Amba_cv25 :: TargetDevice
+pattern TargetDevice_Amba_cv25 = TargetDevice' "amba_cv25"
+
 pattern TargetDevice_Coreml :: TargetDevice
 pattern TargetDevice_Coreml = TargetDevice' "coreml"
 
 pattern TargetDevice_Deeplens :: TargetDevice
 pattern TargetDevice_Deeplens = TargetDevice' "deeplens"
+
+pattern TargetDevice_Imx8mplus :: TargetDevice
+pattern TargetDevice_Imx8mplus = TargetDevice' "imx8mplus"
 
 pattern TargetDevice_Imx8qm :: TargetDevice
 pattern TargetDevice_Imx8qm = TargetDevice' "imx8qm"
@@ -121,6 +130,9 @@ pattern TargetDevice_Ml_c4 = TargetDevice' "ml_c4"
 
 pattern TargetDevice_Ml_c5 :: TargetDevice
 pattern TargetDevice_Ml_c5 = TargetDevice' "ml_c5"
+
+pattern TargetDevice_Ml_eia2 :: TargetDevice
+pattern TargetDevice_Ml_eia2 = TargetDevice' "ml_eia2"
 
 pattern TargetDevice_Ml_g4dn :: TargetDevice
 pattern TargetDevice_Ml_g4dn = TargetDevice' "ml_g4dn"
@@ -170,8 +182,10 @@ pattern TargetDevice_X86_win64 = TargetDevice' "x86_win64"
 {-# COMPLETE
   TargetDevice_Aisage,
   TargetDevice_Amba_cv22,
+  TargetDevice_Amba_cv25,
   TargetDevice_Coreml,
   TargetDevice_Deeplens,
+  TargetDevice_Imx8mplus,
   TargetDevice_Imx8qm,
   TargetDevice_Jacinto_tda4vm,
   TargetDevice_Jetson_nano,
@@ -181,6 +195,7 @@ pattern TargetDevice_X86_win64 = TargetDevice' "x86_win64"
   TargetDevice_Lambda,
   TargetDevice_Ml_c4,
   TargetDevice_Ml_c5,
+  TargetDevice_Ml_eia2,
   TargetDevice_Ml_g4dn,
   TargetDevice_Ml_inf1,
   TargetDevice_Ml_m4,

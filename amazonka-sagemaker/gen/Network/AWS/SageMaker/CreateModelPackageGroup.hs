@@ -54,8 +54,8 @@ data CreateModelPackageGroup = CreateModelPackageGroup'
     modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of key value pairs associated with the model group. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference Guide/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the model group.
     modelPackageGroupName :: Prelude.Text
@@ -74,8 +74,8 @@ data CreateModelPackageGroup = CreateModelPackageGroup'
 --
 -- 'tags', 'createModelPackageGroup_tags' - A list of key value pairs associated with the model group. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'modelPackageGroupName', 'createModelPackageGroup_modelPackageGroupName' - The name of the model group.
 newCreateModelPackageGroup ::
@@ -96,8 +96,8 @@ createModelPackageGroup_modelPackageGroupDescription = Lens.lens (\CreateModelPa
 
 -- | A list of key value pairs associated with the model group. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 createModelPackageGroup_tags :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe [Tag])
 createModelPackageGroup_tags = Lens.lens (\CreateModelPackageGroup' {tags} -> tags) (\s@CreateModelPackageGroup' {} a -> s {tags = a} :: CreateModelPackageGroup) Prelude.. Lens.mapping Lens._Coerce
 

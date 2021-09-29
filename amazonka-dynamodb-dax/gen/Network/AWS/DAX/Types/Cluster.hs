@@ -20,6 +20,7 @@
 module Network.AWS.DAX.Types.Cluster where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.DAX.Types.ClusterEndpointEncryptionType
 import Network.AWS.DAX.Types.Endpoint
 import Network.AWS.DAX.Types.Node
 import Network.AWS.DAX.Types.NotificationConfiguration
@@ -35,18 +36,24 @@ import qualified Network.AWS.Prelude as Prelude
 data Cluster = Cluster'
   { -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The subnet group where the DAX cluster is running.
-    subnetGroup :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the cluster.
+    status :: Prelude.Maybe Prelude.Text,
     -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At
     -- runtime, DAX will assume this role and use the role\'s permissions to
     -- access DynamoDB on your behalf.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the cluster.
-    status :: Prelude.Maybe Prelude.Text,
+    -- | The subnet group where the DAX cluster is running.
+    subnetGroup :: Prelude.Maybe Prelude.Text,
     -- | The total number of nodes in the cluster.
     totalNodes :: Prelude.Maybe Prelude.Int,
     -- | The parameter group being used by nodes in the cluster.
     parameterGroup :: Prelude.Maybe ParameterGroupStatus,
+    -- | The type of encryption supported by the cluster\'s endpoint. Values are:
+    --
+    -- -   @NONE@ for no encryption
+    --
+    --     @TLS@ for Transport Layer Security
+    clusterEndpointEncryptionType :: Prelude.Maybe ClusterEndpointEncryptionType,
     -- | A list of nodes that are currently in the cluster.
     nodes :: Prelude.Maybe [Node],
     -- | Describes a notification topic and its status. Notification topics are
@@ -69,14 +76,12 @@ data Cluster = Cluster'
     -- | The description of the server-side encryption status on the specified
     -- DAX cluster.
     sSEDescription :: Prelude.Maybe SSEDescription,
-    -- | The configuration endpoint for this DAX cluster, consisting of a DNS
-    -- name and a port number. Client applications can specify this endpoint,
-    -- rather than an individual node endpoint, and allow the DAX client
-    -- software to intelligently route requests and responses to nodes in the
-    -- DAX cluster.
-    clusterDiscoveryEndpoint :: Prelude.Maybe Endpoint,
     -- | A list of nodes to be removed from the cluster.
     nodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The endpoint for this DAX cluster, consisting of a DNS name, a port
+    -- number, and a URL. Applications should use the URL to configure the DAX
+    -- client to find their cluster.
+    clusterDiscoveryEndpoint :: Prelude.Maybe Endpoint,
     -- | The node type for the nodes in the cluster. (All nodes in a DAX cluster
     -- are of the same type.)
     nodeType :: Prelude.Maybe Prelude.Text,
@@ -95,17 +100,23 @@ data Cluster = Cluster'
 --
 -- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 --
--- 'subnetGroup', 'cluster_subnetGroup' - The subnet group where the DAX cluster is running.
+-- 'status', 'cluster_status' - The current status of the cluster.
 --
 -- 'iamRoleArn', 'cluster_iamRoleArn' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At
 -- runtime, DAX will assume this role and use the role\'s permissions to
 -- access DynamoDB on your behalf.
 --
--- 'status', 'cluster_status' - The current status of the cluster.
+-- 'subnetGroup', 'cluster_subnetGroup' - The subnet group where the DAX cluster is running.
 --
 -- 'totalNodes', 'cluster_totalNodes' - The total number of nodes in the cluster.
 --
 -- 'parameterGroup', 'cluster_parameterGroup' - The parameter group being used by nodes in the cluster.
+--
+-- 'clusterEndpointEncryptionType', 'cluster_clusterEndpointEncryptionType' - The type of encryption supported by the cluster\'s endpoint. Values are:
+--
+-- -   @NONE@ for no encryption
+--
+--     @TLS@ for Transport Layer Security
 --
 -- 'nodes', 'cluster_nodes' - A list of nodes that are currently in the cluster.
 --
@@ -129,13 +140,11 @@ data Cluster = Cluster'
 -- 'sSEDescription', 'cluster_sSEDescription' - The description of the server-side encryption status on the specified
 -- DAX cluster.
 --
--- 'clusterDiscoveryEndpoint', 'cluster_clusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS
--- name and a port number. Client applications can specify this endpoint,
--- rather than an individual node endpoint, and allow the DAX client
--- software to intelligently route requests and responses to nodes in the
--- DAX cluster.
---
 -- 'nodeIdsToRemove', 'cluster_nodeIdsToRemove' - A list of nodes to be removed from the cluster.
+--
+-- 'clusterDiscoveryEndpoint', 'cluster_clusterDiscoveryEndpoint' - The endpoint for this DAX cluster, consisting of a DNS name, a port
+-- number, and a URL. Applications should use the URL to configure the DAX
+-- client to find their cluster.
 --
 -- 'nodeType', 'cluster_nodeType' - The node type for the nodes in the cluster. (All nodes in a DAX cluster
 -- are of the same type.)
@@ -146,11 +155,12 @@ newCluster ::
 newCluster =
   Cluster'
     { clusterArn = Prelude.Nothing,
-      subnetGroup = Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing,
       status = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      subnetGroup = Prelude.Nothing,
       totalNodes = Prelude.Nothing,
       parameterGroup = Prelude.Nothing,
+      clusterEndpointEncryptionType = Prelude.Nothing,
       nodes = Prelude.Nothing,
       notificationConfiguration = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
@@ -158,8 +168,8 @@ newCluster =
       preferredMaintenanceWindow = Prelude.Nothing,
       description = Prelude.Nothing,
       sSEDescription = Prelude.Nothing,
-      clusterDiscoveryEndpoint = Prelude.Nothing,
       nodeIdsToRemove = Prelude.Nothing,
+      clusterDiscoveryEndpoint = Prelude.Nothing,
       nodeType = Prelude.Nothing,
       clusterName = Prelude.Nothing
     }
@@ -168,9 +178,9 @@ newCluster =
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
 
--- | The subnet group where the DAX cluster is running.
-cluster_subnetGroup :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_subnetGroup = Lens.lens (\Cluster' {subnetGroup} -> subnetGroup) (\s@Cluster' {} a -> s {subnetGroup = a} :: Cluster)
+-- | The current status of the cluster.
+cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
 -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At
 -- runtime, DAX will assume this role and use the role\'s permissions to
@@ -178,9 +188,9 @@ cluster_subnetGroup = Lens.lens (\Cluster' {subnetGroup} -> subnetGroup) (\s@Clu
 cluster_iamRoleArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_iamRoleArn = Lens.lens (\Cluster' {iamRoleArn} -> iamRoleArn) (\s@Cluster' {} a -> s {iamRoleArn = a} :: Cluster)
 
--- | The current status of the cluster.
-cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
+-- | The subnet group where the DAX cluster is running.
+cluster_subnetGroup :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_subnetGroup = Lens.lens (\Cluster' {subnetGroup} -> subnetGroup) (\s@Cluster' {} a -> s {subnetGroup = a} :: Cluster)
 
 -- | The total number of nodes in the cluster.
 cluster_totalNodes :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
@@ -189,6 +199,14 @@ cluster_totalNodes = Lens.lens (\Cluster' {totalNodes} -> totalNodes) (\s@Cluste
 -- | The parameter group being used by nodes in the cluster.
 cluster_parameterGroup :: Lens.Lens' Cluster (Prelude.Maybe ParameterGroupStatus)
 cluster_parameterGroup = Lens.lens (\Cluster' {parameterGroup} -> parameterGroup) (\s@Cluster' {} a -> s {parameterGroup = a} :: Cluster)
+
+-- | The type of encryption supported by the cluster\'s endpoint. Values are:
+--
+-- -   @NONE@ for no encryption
+--
+--     @TLS@ for Transport Layer Security
+cluster_clusterEndpointEncryptionType :: Lens.Lens' Cluster (Prelude.Maybe ClusterEndpointEncryptionType)
+cluster_clusterEndpointEncryptionType = Lens.lens (\Cluster' {clusterEndpointEncryptionType} -> clusterEndpointEncryptionType) (\s@Cluster' {} a -> s {clusterEndpointEncryptionType = a} :: Cluster)
 
 -- | A list of nodes that are currently in the cluster.
 cluster_nodes :: Lens.Lens' Cluster (Prelude.Maybe [Node])
@@ -226,17 +244,15 @@ cluster_description = Lens.lens (\Cluster' {description} -> description) (\s@Clu
 cluster_sSEDescription :: Lens.Lens' Cluster (Prelude.Maybe SSEDescription)
 cluster_sSEDescription = Lens.lens (\Cluster' {sSEDescription} -> sSEDescription) (\s@Cluster' {} a -> s {sSEDescription = a} :: Cluster)
 
--- | The configuration endpoint for this DAX cluster, consisting of a DNS
--- name and a port number. Client applications can specify this endpoint,
--- rather than an individual node endpoint, and allow the DAX client
--- software to intelligently route requests and responses to nodes in the
--- DAX cluster.
-cluster_clusterDiscoveryEndpoint :: Lens.Lens' Cluster (Prelude.Maybe Endpoint)
-cluster_clusterDiscoveryEndpoint = Lens.lens (\Cluster' {clusterDiscoveryEndpoint} -> clusterDiscoveryEndpoint) (\s@Cluster' {} a -> s {clusterDiscoveryEndpoint = a} :: Cluster)
-
 -- | A list of nodes to be removed from the cluster.
 cluster_nodeIdsToRemove :: Lens.Lens' Cluster (Prelude.Maybe [Prelude.Text])
 cluster_nodeIdsToRemove = Lens.lens (\Cluster' {nodeIdsToRemove} -> nodeIdsToRemove) (\s@Cluster' {} a -> s {nodeIdsToRemove = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The endpoint for this DAX cluster, consisting of a DNS name, a port
+-- number, and a URL. Applications should use the URL to configure the DAX
+-- client to find their cluster.
+cluster_clusterDiscoveryEndpoint :: Lens.Lens' Cluster (Prelude.Maybe Endpoint)
+cluster_clusterDiscoveryEndpoint = Lens.lens (\Cluster' {clusterDiscoveryEndpoint} -> clusterDiscoveryEndpoint) (\s@Cluster' {} a -> s {clusterDiscoveryEndpoint = a} :: Cluster)
 
 -- | The node type for the nodes in the cluster. (All nodes in a DAX cluster
 -- are of the same type.)
@@ -254,11 +270,12 @@ instance Core.FromJSON Cluster where
       ( \x ->
           Cluster'
             Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "SubnetGroup")
-            Prelude.<*> (x Core..:? "IamRoleArn")
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<*> (x Core..:? "SubnetGroup")
             Prelude.<*> (x Core..:? "TotalNodes")
             Prelude.<*> (x Core..:? "ParameterGroup")
+            Prelude.<*> (x Core..:? "ClusterEndpointEncryptionType")
             Prelude.<*> (x Core..:? "Nodes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "NotificationConfiguration")
             Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
@@ -266,10 +283,10 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "PreferredMaintenanceWindow")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SSEDescription")
-            Prelude.<*> (x Core..:? "ClusterDiscoveryEndpoint")
             Prelude.<*> ( x Core..:? "NodeIdsToRemove"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ClusterDiscoveryEndpoint")
             Prelude.<*> (x Core..:? "NodeType")
             Prelude.<*> (x Core..:? "ClusterName")
       )

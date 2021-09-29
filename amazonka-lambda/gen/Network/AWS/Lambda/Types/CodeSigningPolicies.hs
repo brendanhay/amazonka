@@ -24,8 +24,9 @@ import Network.AWS.Lambda.Types.CodeSigningPolicy
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Code signing configuration policies specifies the validation failure
--- action for signature mismatch or expiry.
+-- | Code signing configuration
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies policies>
+-- specify the validation failure action for signature mismatch or expiry.
 --
 -- /See:/ 'newCodeSigningPolicies' smart constructor.
 data CodeSigningPolicies = CodeSigningPolicies'

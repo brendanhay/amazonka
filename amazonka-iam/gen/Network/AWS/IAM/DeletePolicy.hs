@@ -71,7 +71,7 @@ data DeletePolicy = DeletePolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data DeletePolicy = DeletePolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newDeletePolicy ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -100,7 +100,7 @@ newDeletePolicy pPolicyArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 deletePolicy_policyArn :: Lens.Lens' DeletePolicy Prelude.Text
 deletePolicy_policyArn = Lens.lens (\DeletePolicy' {policyArn} -> policyArn) (\s@DeletePolicy' {} a -> s {policyArn = a} :: DeletePolicy)
 

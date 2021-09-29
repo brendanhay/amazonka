@@ -59,7 +59,8 @@ data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
     identityInfo :: UserIdentityInfo,
     -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +77,8 @@ data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
 --
 -- 'userId', 'updateUserIdentityInfo_userId' - The identifier of the user account.
 --
--- 'instanceId', 'updateUserIdentityInfo_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateUserIdentityInfo_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newUpdateUserIdentityInfo ::
   -- | 'identityInfo'
   UserIdentityInfo ->
@@ -104,7 +106,8 @@ updateUserIdentityInfo_identityInfo = Lens.lens (\UpdateUserIdentityInfo' {ident
 updateUserIdentityInfo_userId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
 updateUserIdentityInfo_userId = Lens.lens (\UpdateUserIdentityInfo' {userId} -> userId) (\s@UpdateUserIdentityInfo' {} a -> s {userId = a} :: UpdateUserIdentityInfo)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateUserIdentityInfo_instanceId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
 updateUserIdentityInfo_instanceId = Lens.lens (\UpdateUserIdentityInfo' {instanceId} -> instanceId) (\s@UpdateUserIdentityInfo' {} a -> s {instanceId = a} :: UpdateUserIdentityInfo)
 

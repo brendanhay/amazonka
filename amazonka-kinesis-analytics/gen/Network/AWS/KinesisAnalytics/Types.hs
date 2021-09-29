@@ -24,9 +24,9 @@ module Network.AWS.KinesisAnalytics.Types
     _ServiceUnavailableException,
     _ConcurrentModificationException,
     _UnsupportedOperationException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _CodeValidationException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
     _InvalidArgumentException,
 
@@ -45,10 +45,10 @@ module Network.AWS.KinesisAnalytics.Types
     applicationDetail_applicationCode,
     applicationDetail_applicationDescription,
     applicationDetail_cloudWatchLoggingOptionDescriptions,
-    applicationDetail_createTimestamp,
     applicationDetail_outputDescriptions,
-    applicationDetail_referenceDataSourceDescriptions,
+    applicationDetail_createTimestamp,
     applicationDetail_inputDescriptions,
+    applicationDetail_referenceDataSourceDescriptions,
     applicationDetail_lastUpdateTimestamp,
     applicationDetail_applicationName,
     applicationDetail_applicationARN,
@@ -65,8 +65,8 @@ module Network.AWS.KinesisAnalytics.Types
     -- * ApplicationUpdate
     ApplicationUpdate (..),
     newApplicationUpdate,
-    applicationUpdate_referenceDataSourceUpdates,
     applicationUpdate_inputUpdates,
+    applicationUpdate_referenceDataSourceUpdates,
     applicationUpdate_cloudWatchLoggingOptionUpdates,
     applicationUpdate_applicationCodeUpdate,
     applicationUpdate_outputUpdates,
@@ -189,8 +189,8 @@ module Network.AWS.KinesisAnalytics.Types
     -- * InputUpdate
     InputUpdate (..),
     newInputUpdate,
-    inputUpdate_namePrefixUpdate,
     inputUpdate_kinesisFirehoseInputUpdate,
+    inputUpdate_namePrefixUpdate,
     inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputProcessingConfigurationUpdate,
     inputUpdate_inputSchemaUpdate,
@@ -598,12 +598,13 @@ _UnsupportedOperationException =
     defaultService
     "UnsupportedOperationException"
 
--- | Application is not available for this operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | User-provided application code (query) is invalid. This can be a simple
+-- syntax error.
+_CodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeValidationException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "CodeValidationException"
 
 -- | Exceeded the number of applications allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -612,13 +613,12 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | User-provided application code (query) is invalid. This can be a simple
--- syntax error.
-_CodeValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeValidationException =
+-- | Application is not available for this operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "CodeValidationException"
+    "ResourceInUseException"
 
 -- | Specified application can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

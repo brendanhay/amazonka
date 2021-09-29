@@ -133,7 +133,7 @@ instance Core.ToQuery DescribeProtectionGroup where
 data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A grouping of protected resources that you and AWS Shield Advanced can
+    -- | A grouping of protected resources that you and Shield Advanced can
     -- monitor as a collective. This resource grouping improves the accuracy of
     -- detection and reduces false positives.
     protectionGroup :: ProtectionGroup
@@ -150,7 +150,7 @@ data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
 --
 -- 'httpStatus', 'describeProtectionGroupResponse_httpStatus' - The response's http status code.
 --
--- 'protectionGroup', 'describeProtectionGroupResponse_protectionGroup' - A grouping of protected resources that you and AWS Shield Advanced can
+-- 'protectionGroup', 'describeProtectionGroupResponse_protectionGroup' - A grouping of protected resources that you and Shield Advanced can
 -- monitor as a collective. This resource grouping improves the accuracy of
 -- detection and reduces false positives.
 newDescribeProtectionGroupResponse ::
@@ -172,7 +172,7 @@ newDescribeProtectionGroupResponse
 describeProtectionGroupResponse_httpStatus :: Lens.Lens' DescribeProtectionGroupResponse Prelude.Int
 describeProtectionGroupResponse_httpStatus = Lens.lens (\DescribeProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeProtectionGroupResponse' {} a -> s {httpStatus = a} :: DescribeProtectionGroupResponse)
 
--- | A grouping of protected resources that you and AWS Shield Advanced can
+-- | A grouping of protected resources that you and Shield Advanced can
 -- monitor as a collective. This resource grouping improves the accuracy of
 -- detection and reduces false positives.
 describeProtectionGroupResponse_protectionGroup :: Lens.Lens' DescribeProtectionGroupResponse ProtectionGroup

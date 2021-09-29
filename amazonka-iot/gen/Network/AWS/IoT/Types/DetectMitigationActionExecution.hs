@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDetectMitigationActionExecution' smart constructor.
 data DetectMitigationActionExecution = DetectMitigationActionExecution'
-  { -- | The unique identifier of the violation.
-    violationId :: Prelude.Maybe Prelude.Text,
-    -- | The status of a mitigation action.
+  { -- | The status of a mitigation action.
     status :: Prelude.Maybe DetectMitigationActionExecutionStatus,
+    -- | The unique identifier of the violation.
+    violationId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name that uniquely identifies the mitigation action.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The date a mitigation action was started.
@@ -57,9 +57,9 @@ data DetectMitigationActionExecution = DetectMitigationActionExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violationId', 'detectMitigationActionExecution_violationId' - The unique identifier of the violation.
---
 -- 'status', 'detectMitigationActionExecution_status' - The status of a mitigation action.
+--
+-- 'violationId', 'detectMitigationActionExecution_violationId' - The unique identifier of the violation.
 --
 -- 'actionName', 'detectMitigationActionExecution_actionName' - The friendly name that uniquely identifies the mitigation action.
 --
@@ -78,9 +78,9 @@ newDetectMitigationActionExecution ::
   DetectMitigationActionExecution
 newDetectMitigationActionExecution =
   DetectMitigationActionExecution'
-    { violationId =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      violationId = Prelude.Nothing,
       actionName = Prelude.Nothing,
       executionStartDate = Prelude.Nothing,
       message = Prelude.Nothing,
@@ -90,13 +90,13 @@ newDetectMitigationActionExecution =
       errorCode = Prelude.Nothing
     }
 
--- | The unique identifier of the violation.
-detectMitigationActionExecution_violationId :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.Text)
-detectMitigationActionExecution_violationId = Lens.lens (\DetectMitigationActionExecution' {violationId} -> violationId) (\s@DetectMitigationActionExecution' {} a -> s {violationId = a} :: DetectMitigationActionExecution)
-
 -- | The status of a mitigation action.
 detectMitigationActionExecution_status :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe DetectMitigationActionExecutionStatus)
 detectMitigationActionExecution_status = Lens.lens (\DetectMitigationActionExecution' {status} -> status) (\s@DetectMitigationActionExecution' {} a -> s {status = a} :: DetectMitigationActionExecution)
+
+-- | The unique identifier of the violation.
+detectMitigationActionExecution_violationId :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.Text)
+detectMitigationActionExecution_violationId = Lens.lens (\DetectMitigationActionExecution' {violationId} -> violationId) (\s@DetectMitigationActionExecution' {} a -> s {violationId = a} :: DetectMitigationActionExecution)
 
 -- | The friendly name that uniquely identifies the mitigation action.
 detectMitigationActionExecution_actionName :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.Text)
@@ -135,8 +135,8 @@ instance
       "DetectMitigationActionExecution"
       ( \x ->
           DetectMitigationActionExecution'
-            Prelude.<$> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "violationId")
             Prelude.<*> (x Core..:? "actionName")
             Prelude.<*> (x Core..:? "executionStartDate")
             Prelude.<*> (x Core..:? "message")

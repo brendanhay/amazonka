@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Parameter
 import Network.AWS.SageMaker.Types.PipelineExecutionStatus
+import Network.AWS.SageMaker.Types.PipelineExperimentConfig
 import Network.AWS.SageMaker.Types.UserContext
 
 -- | An execution of a pipeline.
@@ -42,6 +43,9 @@ data PipelineExecution = PipelineExecution'
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the pipeline status.
     pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
+    -- | If the execution failed, a message describing why.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    pipelineExperimentConfig :: Prelude.Maybe PipelineExperimentConfig,
     -- | The time that the pipeline execution was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     createdBy :: Prelude.Maybe UserContext,
@@ -71,6 +75,10 @@ data PipelineExecution = PipelineExecution'
 --
 -- 'pipelineExecutionStatus', 'pipelineExecution_pipelineExecutionStatus' - The status of the pipeline status.
 --
+-- 'failureReason', 'pipelineExecution_failureReason' - If the execution failed, a message describing why.
+--
+-- 'pipelineExperimentConfig', 'pipelineExecution_pipelineExperimentConfig' - Undocumented member.
+--
 -- 'lastModifiedTime', 'pipelineExecution_lastModifiedTime' - The time that the pipeline execution was last modified.
 --
 -- 'createdBy', 'pipelineExecution_createdBy' - Undocumented member.
@@ -88,6 +96,8 @@ newPipelineExecution =
       pipelineParameters = Prelude.Nothing,
       pipelineExecutionDisplayName = Prelude.Nothing,
       pipelineExecutionStatus = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      pipelineExperimentConfig = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
@@ -117,6 +127,14 @@ pipelineExecution_pipelineExecutionDisplayName = Lens.lens (\PipelineExecution' 
 -- | The status of the pipeline status.
 pipelineExecution_pipelineExecutionStatus :: Lens.Lens' PipelineExecution (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecution_pipelineExecutionStatus = Lens.lens (\PipelineExecution' {pipelineExecutionStatus} -> pipelineExecutionStatus) (\s@PipelineExecution' {} a -> s {pipelineExecutionStatus = a} :: PipelineExecution)
+
+-- | If the execution failed, a message describing why.
+pipelineExecution_failureReason :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_failureReason = Lens.lens (\PipelineExecution' {failureReason} -> failureReason) (\s@PipelineExecution' {} a -> s {failureReason = a} :: PipelineExecution)
+
+-- | Undocumented member.
+pipelineExecution_pipelineExperimentConfig :: Lens.Lens' PipelineExecution (Prelude.Maybe PipelineExperimentConfig)
+pipelineExecution_pipelineExperimentConfig = Lens.lens (\PipelineExecution' {pipelineExperimentConfig} -> pipelineExperimentConfig) (\s@PipelineExecution' {} a -> s {pipelineExperimentConfig = a} :: PipelineExecution)
 
 -- | The time that the pipeline execution was last modified.
 pipelineExecution_lastModifiedTime :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.UTCTime)
@@ -148,6 +166,8 @@ instance Core.FromJSON PipelineExecution where
                         )
             Prelude.<*> (x Core..:? "PipelineExecutionDisplayName")
             Prelude.<*> (x Core..:? "PipelineExecutionStatus")
+            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "PipelineExperimentConfig")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastModifiedBy")

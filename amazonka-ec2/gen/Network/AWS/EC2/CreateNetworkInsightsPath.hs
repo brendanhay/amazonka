@@ -68,21 +68,23 @@ data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IP address of the AWS resource that is the destination of the path.
+    -- | The IP address of the Amazon Web Services resource that is the
+    -- destination of the path.
     destinationIp :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the AWS resource that is the source of the path.
+    -- | The IP address of the Amazon Web Services resource that is the source of
+    -- the path.
     sourceIp :: Prelude.Maybe Prelude.Text,
     -- | The destination port.
     destinationPort :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS resource that is the source of the path.
+    -- | The Amazon Web Services resource that is the source of the path.
     source :: Prelude.Text,
-    -- | The AWS resource that is the destination of the path.
+    -- | The Amazon Web Services resource that is the destination of the path.
     destination :: Prelude.Text,
     -- | The protocol.
     protocol :: Protocol,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,21 +104,23 @@ data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'destinationIp', 'createNetworkInsightsPath_destinationIp' - The IP address of the AWS resource that is the destination of the path.
+-- 'destinationIp', 'createNetworkInsightsPath_destinationIp' - The IP address of the Amazon Web Services resource that is the
+-- destination of the path.
 --
--- 'sourceIp', 'createNetworkInsightsPath_sourceIp' - The IP address of the AWS resource that is the source of the path.
+-- 'sourceIp', 'createNetworkInsightsPath_sourceIp' - The IP address of the Amazon Web Services resource that is the source of
+-- the path.
 --
 -- 'destinationPort', 'createNetworkInsightsPath_destinationPort' - The destination port.
 --
--- 'source', 'createNetworkInsightsPath_source' - The AWS resource that is the source of the path.
+-- 'source', 'createNetworkInsightsPath_source' - The Amazon Web Services resource that is the source of the path.
 --
--- 'destination', 'createNetworkInsightsPath_destination' - The AWS resource that is the destination of the path.
+-- 'destination', 'createNetworkInsightsPath_destination' - The Amazon Web Services resource that is the destination of the path.
 --
 -- 'protocol', 'createNetworkInsightsPath_protocol' - The protocol.
 --
 -- 'clientToken', 'createNetworkInsightsPath_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 newCreateNetworkInsightsPath ::
   -- | 'source'
   Prelude.Text ->
@@ -156,11 +160,13 @@ createNetworkInsightsPath_tagSpecifications = Lens.lens (\CreateNetworkInsightsP
 createNetworkInsightsPath_dryRun :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Bool)
 createNetworkInsightsPath_dryRun = Lens.lens (\CreateNetworkInsightsPath' {dryRun} -> dryRun) (\s@CreateNetworkInsightsPath' {} a -> s {dryRun = a} :: CreateNetworkInsightsPath)
 
--- | The IP address of the AWS resource that is the destination of the path.
+-- | The IP address of the Amazon Web Services resource that is the
+-- destination of the path.
 createNetworkInsightsPath_destinationIp :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
 createNetworkInsightsPath_destinationIp = Lens.lens (\CreateNetworkInsightsPath' {destinationIp} -> destinationIp) (\s@CreateNetworkInsightsPath' {} a -> s {destinationIp = a} :: CreateNetworkInsightsPath)
 
--- | The IP address of the AWS resource that is the source of the path.
+-- | The IP address of the Amazon Web Services resource that is the source of
+-- the path.
 createNetworkInsightsPath_sourceIp :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
 createNetworkInsightsPath_sourceIp = Lens.lens (\CreateNetworkInsightsPath' {sourceIp} -> sourceIp) (\s@CreateNetworkInsightsPath' {} a -> s {sourceIp = a} :: CreateNetworkInsightsPath)
 
@@ -168,11 +174,11 @@ createNetworkInsightsPath_sourceIp = Lens.lens (\CreateNetworkInsightsPath' {sou
 createNetworkInsightsPath_destinationPort :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Natural)
 createNetworkInsightsPath_destinationPort = Lens.lens (\CreateNetworkInsightsPath' {destinationPort} -> destinationPort) (\s@CreateNetworkInsightsPath' {} a -> s {destinationPort = a} :: CreateNetworkInsightsPath)
 
--- | The AWS resource that is the source of the path.
+-- | The Amazon Web Services resource that is the source of the path.
 createNetworkInsightsPath_source :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
 createNetworkInsightsPath_source = Lens.lens (\CreateNetworkInsightsPath' {source} -> source) (\s@CreateNetworkInsightsPath' {} a -> s {source = a} :: CreateNetworkInsightsPath)
 
--- | The AWS resource that is the destination of the path.
+-- | The Amazon Web Services resource that is the destination of the path.
 createNetworkInsightsPath_destination :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
 createNetworkInsightsPath_destination = Lens.lens (\CreateNetworkInsightsPath' {destination} -> destination) (\s@CreateNetworkInsightsPath' {} a -> s {destination = a} :: CreateNetworkInsightsPath)
 
@@ -182,7 +188,7 @@ createNetworkInsightsPath_protocol = Lens.lens (\CreateNetworkInsightsPath' {pro
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 createNetworkInsightsPath_clientToken :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
 createNetworkInsightsPath_clientToken = Lens.lens (\CreateNetworkInsightsPath' {clientToken} -> clientToken) (\s@CreateNetworkInsightsPath' {} a -> s {clientToken = a} :: CreateNetworkInsightsPath)
 

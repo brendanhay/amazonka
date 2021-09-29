@@ -35,7 +35,7 @@ import Network.AWS.S3.Types.Tag
 --     filters in an @And@ tag.
 --
 -- -   If you specify a filter based on multiple tags, wrap the @Tag@
---     elements in an @And@ tag
+--     elements in an @And@ tag.
 --
 -- /See:/ 'newReplicationRuleAndOperator' smart constructor.
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'

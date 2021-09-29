@@ -21,11 +21,11 @@ module Network.AWS.SMS.Types
     _NoConnectorsAvailableException,
     _ReplicationRunLimitExceededException,
     _UnauthorizedOperationException,
-    _MissingRequiredParameterException,
     _TemporarilyUnavailableException,
+    _MissingRequiredParameterException,
     _OperationNotPermittedException,
-    _ReplicationJobNotFoundException,
     _InvalidParameterException,
+    _ReplicationJobNotFoundException,
     _DryRunOperationException,
     _ServerCannotBeReplicatedException,
     _ReplicationJobAlreadyExistsException,
@@ -91,23 +91,23 @@ module Network.AWS.SMS.Types
     AppSummary (..),
     newAppSummary,
     appSummary_statusMessage,
+    appSummary_totalServers,
     appSummary_appId,
     appSummary_status,
     appSummary_creationTime,
-    appSummary_totalServers,
     appSummary_launchStatus,
     appSummary_replicationStatusMessage,
     appSummary_roleName,
+    appSummary_replicationConfigurationStatus,
     appSummary_replicationStatus,
     appSummary_importedAppId,
-    appSummary_replicationConfigurationStatus,
     appSummary_latestReplicationTime,
-    appSummary_launchDetails,
     appSummary_name,
+    appSummary_launchDetails,
     appSummary_launchConfigurationStatus,
     appSummary_description,
-    appSummary_lastModified,
     appSummary_totalServerGroups,
+    appSummary_lastModified,
     appSummary_launchStatusMessage,
 
     -- * AppValidationConfiguration
@@ -127,8 +127,8 @@ module Network.AWS.SMS.Types
     Connector (..),
     newConnector,
     connector_status,
-    connector_macAddress,
     connector_associatedOn,
+    connector_macAddress,
     connector_connectorId,
     connector_vmManagerId,
     connector_version,
@@ -155,20 +155,20 @@ module Network.AWS.SMS.Types
     ReplicationJob (..),
     newReplicationJob,
     replicationJob_nextReplicationRunStartTime,
-    replicationJob_statusMessage,
     replicationJob_numberOfRecentAmisToKeep,
+    replicationJob_statusMessage,
     replicationJob_encrypted,
     replicationJob_latestAmiId,
     replicationJob_roleName,
     replicationJob_serverId,
     replicationJob_state,
-    replicationJob_replicationRunList,
     replicationJob_kmsKeyId,
+    replicationJob_replicationRunList,
     replicationJob_frequency,
-    replicationJob_runOnce,
-    replicationJob_description,
     replicationJob_replicationJobId,
+    replicationJob_runOnce,
     replicationJob_seedReplicationTime,
+    replicationJob_description,
     replicationJob_vmServer,
     replicationJob_licenseType,
     replicationJob_serverType,
@@ -179,8 +179,8 @@ module Network.AWS.SMS.Types
     replicationRun_statusMessage,
     replicationRun_encrypted,
     replicationRun_replicationRunId,
-    replicationRun_amiId,
     replicationRun_completedTime,
+    replicationRun_amiId,
     replicationRun_state,
     replicationRun_kmsKeyId,
     replicationRun_scheduledStartTime,
@@ -228,8 +228,8 @@ module Network.AWS.SMS.Types
     ServerGroup (..),
     newServerGroup,
     serverGroup_serverGroupId,
-    serverGroup_name,
     serverGroup_serverList,
+    serverGroup_name,
 
     -- * ServerGroupLaunchConfiguration
     ServerGroupLaunchConfiguration (..),
@@ -255,8 +255,8 @@ module Network.AWS.SMS.Types
     newServerLaunchConfiguration,
     serverLaunchConfiguration_configureScript,
     serverLaunchConfiguration_ec2KeyName,
-    serverLaunchConfiguration_instanceType,
     serverLaunchConfiguration_userData,
+    serverLaunchConfiguration_instanceType,
     serverLaunchConfiguration_logicalId,
     serverLaunchConfiguration_subnet,
     serverLaunchConfiguration_iamInstanceProfileName,
@@ -500,19 +500,19 @@ _UnauthorizedOperationException =
     defaultService
     "UnauthorizedOperationException"
 
--- | A required parameter is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingRequiredParameterException =
-  Core._MatchServiceError
-    defaultService
-    "MissingRequiredParameterException"
-
 -- | The service is temporarily unavailable.
 _TemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
     "TemporarilyUnavailableException"
+
+-- | A required parameter is missing.
+_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException =
+  Core._MatchServiceError
+    defaultService
+    "MissingRequiredParameterException"
 
 -- | This operation is not allowed.
 _OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -521,19 +521,19 @@ _OperationNotPermittedException =
     defaultService
     "OperationNotPermittedException"
 
--- | The specified replication job does not exist.
-_ReplicationJobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicationJobNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ReplicationJobNotFoundException"
-
 -- | A specified parameter is not valid.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
+
+-- | The specified replication job does not exist.
+_ReplicationJobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationJobNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationJobNotFoundException"
 
 -- | The user has the required permissions, so the request would have
 -- succeeded, but a dry run was performed.

@@ -38,11 +38,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- files are specified that contain the same variable, they are processed
 -- from the top down. It is recommended to use unique variable names. For
 -- more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html Specifying Environment Variables>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html Specifying environment variables>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- This field is not valid for containers in tasks using the Fargate launch
--- type.
+-- This field is only valid for containers in Fargate tasks that use
+-- platform version @1.4.0@ or later.
 --
 -- /See:/ 'newEnvironmentFile' smart constructor.
 data EnvironmentFile = EnvironmentFile'

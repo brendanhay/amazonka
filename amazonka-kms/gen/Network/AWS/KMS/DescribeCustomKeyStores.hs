@@ -22,22 +22,21 @@
 --
 -- Gets information about
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key stores>
--- in the account and region.
+-- in the account and Region.
 --
 -- This operation is part of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
--- feature in AWS KMS, which combines the convenience and extensive
--- integration of AWS KMS with the isolation and control of a single-tenant
--- key store.
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a single-tenant key store.
 --
 -- By default, this operation returns information about all custom key
--- stores in the account and region. To get only information about a
+-- stores in the account and Region. To get only information about a
 -- particular custom key store, use either the @CustomKeyStoreName@ or
 -- @CustomKeyStoreId@ parameter (but not both).
 --
--- To determine whether the custom key store is connected to its AWS
--- CloudHSM cluster, use the @ConnectionState@ element in the response. If
--- an attempt to connect the custom key store failed, the @ConnectionState@
+-- To determine whether the custom key store is connected to its CloudHSM
+-- cluster, use the @ConnectionState@ element in the response. If an
+-- attempt to connect the custom key store failed, the @ConnectionState@
 -- value is @FAILED@ and the @ConnectionErrorCode@ element in the response
 -- indicates the cause of the failure. For help interpreting the
 -- @ConnectionErrorCode@, see CustomKeyStoresListEntry.
@@ -46,15 +45,15 @@
 -- store has never been connected or you use the DisconnectCustomKeyStore
 -- operation to disconnect it. If your custom key store state is
 -- @CONNECTED@ but you are having trouble using it, make sure that its
--- associated AWS CloudHSM cluster is active and contains the minimum
--- number of HSMs required for the operation, if any.
+-- associated CloudHSM cluster is active and contains the minimum number of
+-- HSMs required for the operation, if any.
 --
 -- For help repairing your custom key store, see the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting Custom Key Stores>
--- topic in the /AWS Key Management Service Developer Guide/.
+-- topic in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
--- key store in a different AWS account.
+-- key store in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DescribeCustomKeyStores>
@@ -107,7 +106,7 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
     -- friendly name of the custom key store.
     --
     -- By default, this operation gets information about all custom key stores
-    -- in the account and region. To limit the output to a particular custom
+    -- in the account and Region. To limit the output to a particular custom
     -- key store, you can use either the @CustomKeyStoreId@ or
     -- @CustomKeyStoreName@ parameter, but not both.
     customKeyStoreName :: Prelude.Maybe Prelude.Text,
@@ -115,13 +114,13 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
     -- key store ID.
     --
     -- By default, this operation gets information about all custom key stores
-    -- in the account and region. To limit the output to a particular custom
+    -- in the account and Region. To limit the output to a particular custom
     -- key store, you can use either the @CustomKeyStoreId@ or
     -- @CustomKeyStoreName@ parameter, but not both.
     customKeyStoreId :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, AWS KMS does not return more than the
-    -- specified number of items, but it might return fewer.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
@@ -142,7 +141,7 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
 -- friendly name of the custom key store.
 --
 -- By default, this operation gets information about all custom key stores
--- in the account and region. To limit the output to a particular custom
+-- in the account and Region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
 --
@@ -150,13 +149,13 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
 -- key store ID.
 --
 -- By default, this operation gets information about all custom key stores
--- in the account and region. To limit the output to a particular custom
+-- in the account and Region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
 --
 -- 'limit', 'describeCustomKeyStores_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- 'marker', 'describeCustomKeyStores_marker' - Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
@@ -176,7 +175,7 @@ newDescribeCustomKeyStores =
 -- friendly name of the custom key store.
 --
 -- By default, this operation gets information about all custom key stores
--- in the account and region. To limit the output to a particular custom
+-- in the account and Region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
 describeCustomKeyStores_customKeyStoreName :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
@@ -186,15 +185,15 @@ describeCustomKeyStores_customKeyStoreName = Lens.lens (\DescribeCustomKeyStores
 -- key store ID.
 --
 -- By default, this operation gets information about all custom key stores
--- in the account and region. To limit the output to a particular custom
+-- in the account and Region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
 describeCustomKeyStores_customKeyStoreId :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
 describeCustomKeyStores_customKeyStoreId = Lens.lens (\DescribeCustomKeyStores' {customKeyStoreId} -> customKeyStoreId) (\s@DescribeCustomKeyStores' {} a -> s {customKeyStoreId = a} :: DescribeCustomKeyStores)
 
 -- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 describeCustomKeyStores_limit :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Natural)
 describeCustomKeyStores_limit = Lens.lens (\DescribeCustomKeyStores' {limit} -> limit) (\s@DescribeCustomKeyStores' {} a -> s {limit = a} :: DescribeCustomKeyStores)
 

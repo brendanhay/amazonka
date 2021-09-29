@@ -34,8 +34,8 @@ module Network.AWS.SageMaker.DescribeArtifact
     newDescribeArtifactResponse,
 
     -- * Response Lenses
-    describeArtifactResponse_metadataProperties,
     describeArtifactResponse_creationTime,
+    describeArtifactResponse_metadataProperties,
     describeArtifactResponse_artifactName,
     describeArtifactResponse_artifactType,
     describeArtifactResponse_artifactArn,
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeArtifact where
     Response.receiveJSON
       ( \s h x ->
           DescribeArtifactResponse'
-            Prelude.<$> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "MetadataProperties")
             Prelude.<*> (x Core..?> "ArtifactName")
             Prelude.<*> (x Core..?> "ArtifactType")
             Prelude.<*> (x Core..?> "ArtifactArn")
@@ -136,9 +136,9 @@ instance Core.ToQuery DescribeArtifact where
 
 -- | /See:/ 'newDescribeArtifactResponse' smart constructor.
 data DescribeArtifactResponse = DescribeArtifactResponse'
-  { metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | When the artifact was created.
+  { -- | When the artifact was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | The name of the artifact.
     artifactName :: Prelude.Maybe Prelude.Text,
     -- | The type of the artifact.
@@ -166,9 +166,9 @@ data DescribeArtifactResponse = DescribeArtifactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataProperties', 'describeArtifactResponse_metadataProperties' - Undocumented member.
---
 -- 'creationTime', 'describeArtifactResponse_creationTime' - When the artifact was created.
+--
+-- 'metadataProperties', 'describeArtifactResponse_metadataProperties' - Undocumented member.
 --
 -- 'artifactName', 'describeArtifactResponse_artifactName' - The name of the artifact.
 --
@@ -193,9 +193,9 @@ newDescribeArtifactResponse ::
   DescribeArtifactResponse
 newDescribeArtifactResponse pHttpStatus_ =
   DescribeArtifactResponse'
-    { metadataProperties =
+    { creationTime =
         Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
       artifactName = Prelude.Nothing,
       artifactType = Prelude.Nothing,
       artifactArn = Prelude.Nothing,
@@ -207,13 +207,13 @@ newDescribeArtifactResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-describeArtifactResponse_metadataProperties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe MetadataProperties)
-describeArtifactResponse_metadataProperties = Lens.lens (\DescribeArtifactResponse' {metadataProperties} -> metadataProperties) (\s@DescribeArtifactResponse' {} a -> s {metadataProperties = a} :: DescribeArtifactResponse)
-
 -- | When the artifact was created.
 describeArtifactResponse_creationTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
 describeArtifactResponse_creationTime = Lens.lens (\DescribeArtifactResponse' {creationTime} -> creationTime) (\s@DescribeArtifactResponse' {} a -> s {creationTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+describeArtifactResponse_metadataProperties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe MetadataProperties)
+describeArtifactResponse_metadataProperties = Lens.lens (\DescribeArtifactResponse' {metadataProperties} -> metadataProperties) (\s@DescribeArtifactResponse' {} a -> s {metadataProperties = a} :: DescribeArtifactResponse)
 
 -- | The name of the artifact.
 describeArtifactResponse_artifactName :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)

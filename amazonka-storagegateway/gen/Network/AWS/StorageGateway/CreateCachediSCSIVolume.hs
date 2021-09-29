@@ -47,8 +47,8 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- * Request Lenses
     createCachediSCSIVolume_kmsEncrypted,
     createCachediSCSIVolume_kmsKey,
-    createCachediSCSIVolume_snapshotId,
     createCachediSCSIVolume_tags,
+    createCachediSCSIVolume_snapshotId,
     createCachediSCSIVolume_sourceVolumeARN,
     createCachediSCSIVolume_gatewayARN,
     createCachediSCSIVolume_volumeSizeInBytes,
@@ -76,8 +76,8 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newCreateCachediSCSIVolume' smart constructor.
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
-    -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
@@ -86,13 +86,6 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
-    -- the new cached volume. Specify this field if you want to create the
-    -- iSCSI storage volume from a snapshot; otherwise, do not include this
-    -- field. To list snapshots for your account use
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
-    -- in the /Amazon Elastic Compute Cloud API Reference/.
-    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags that you can assign to a cached volume. Each tag
     -- is a key-value pair.
     --
@@ -101,6 +94,13 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
     -- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,
     -- and the maximum length for a tag\'s value is 256 characters.
     tags :: Prelude.Maybe [Tag],
+    -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
+    -- the new cached volume. Specify this field if you want to create the
+    -- iSCSI storage volume from a snapshot; otherwise, do not include this
+    -- field. To list snapshots for your account use
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+    -- in the /Amazon Elastic Compute Cloud API Reference/.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The ARN for an existing volume. Specifying this ARN makes the new volume
     -- into an exact copy of the specified existing volume\'s latest recovery
     -- point. The @VolumeSizeInBytes@ value for this new volume must be equal
@@ -139,8 +139,8 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsEncrypted', 'createCachediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- 'kmsEncrypted', 'createCachediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 --
@@ -149,13 +149,6 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
 --
--- 'snapshotId', 'createCachediSCSIVolume_snapshotId' - The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
--- the new cached volume. Specify this field if you want to create the
--- iSCSI storage volume from a snapshot; otherwise, do not include this
--- field. To list snapshots for your account use
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
--- in the /Amazon Elastic Compute Cloud API Reference/.
---
 -- 'tags', 'createCachediSCSIVolume_tags' - A list of up to 50 tags that you can assign to a cached volume. Each tag
 -- is a key-value pair.
 --
@@ -163,6 +156,13 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- you can represent in UTF-8 format, and the following special characters:
 -- + - = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters,
 -- and the maximum length for a tag\'s value is 256 characters.
+--
+-- 'snapshotId', 'createCachediSCSIVolume_snapshotId' - The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
+-- the new cached volume. Specify this field if you want to create the
+-- iSCSI storage volume from a snapshot; otherwise, do not include this
+-- field. To list snapshots for your account use
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+-- in the /Amazon Elastic Compute Cloud API Reference/.
 --
 -- 'sourceVolumeARN', 'createCachediSCSIVolume_sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume
 -- into an exact copy of the specified existing volume\'s latest recovery
@@ -213,8 +213,8 @@ newCreateCachediSCSIVolume
       { kmsEncrypted =
           Prelude.Nothing,
         kmsKey = Prelude.Nothing,
-        snapshotId = Prelude.Nothing,
         tags = Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
         sourceVolumeARN = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         volumeSizeInBytes = pVolumeSizeInBytes_,
@@ -223,8 +223,8 @@ newCreateCachediSCSIVolume
         clientToken = pClientToken_
       }
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 createCachediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Bool)
@@ -237,15 +237,6 @@ createCachediSCSIVolume_kmsEncrypted = Lens.lens (\CreateCachediSCSIVolume' {kms
 createCachediSCSIVolume_kmsKey :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
 createCachediSCSIVolume_kmsKey = Lens.lens (\CreateCachediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateCachediSCSIVolume' {} a -> s {kmsKey = a} :: CreateCachediSCSIVolume)
 
--- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
--- the new cached volume. Specify this field if you want to create the
--- iSCSI storage volume from a snapshot; otherwise, do not include this
--- field. To list snapshots for your account use
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
--- in the /Amazon Elastic Compute Cloud API Reference/.
-createCachediSCSIVolume_snapshotId :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
-createCachediSCSIVolume_snapshotId = Lens.lens (\CreateCachediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateCachediSCSIVolume' {} a -> s {snapshotId = a} :: CreateCachediSCSIVolume)
-
 -- | A list of up to 50 tags that you can assign to a cached volume. Each tag
 -- is a key-value pair.
 --
@@ -255,6 +246,15 @@ createCachediSCSIVolume_snapshotId = Lens.lens (\CreateCachediSCSIVolume' {snaps
 -- and the maximum length for a tag\'s value is 256 characters.
 createCachediSCSIVolume_tags :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe [Tag])
 createCachediSCSIVolume_tags = Lens.lens (\CreateCachediSCSIVolume' {tags} -> tags) (\s@CreateCachediSCSIVolume' {} a -> s {tags = a} :: CreateCachediSCSIVolume) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
+-- the new cached volume. Specify this field if you want to create the
+-- iSCSI storage volume from a snapshot; otherwise, do not include this
+-- field. To list snapshots for your account use
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
+-- in the /Amazon Elastic Compute Cloud API Reference/.
+createCachediSCSIVolume_snapshotId :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
+createCachediSCSIVolume_snapshotId = Lens.lens (\CreateCachediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateCachediSCSIVolume' {} a -> s {snapshotId = a} :: CreateCachediSCSIVolume)
 
 -- | The ARN for an existing volume. Specifying this ARN makes the new volume
 -- into an exact copy of the specified existing volume\'s latest recovery
@@ -335,8 +335,8 @@ instance Core.ToJSON CreateCachediSCSIVolume where
       ( Prelude.catMaybes
           [ ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
             ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("Tags" Core..=) Prelude.<$> tags,
+            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("SourceVolumeARN" Core..=)
               Prelude.<$> sourceVolumeARN,
             Prelude.Just ("GatewayARN" Core..= gatewayARN),

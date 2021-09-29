@@ -28,8 +28,8 @@ import Network.AWS.SSM.Types.InstanceAssociationOutputLocation
 import Network.AWS.SSM.Types.Target
 import Network.AWS.SSM.Types.TargetLocation
 
--- | Describes the association of a Systems Manager SSM document and an
--- instance.
+-- | Describes the association of a Amazon Web Services Systems Manager
+-- document (SSM document) and an instance.
 --
 -- /See:/ 'newCreateAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
@@ -39,56 +39,63 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- the target set, for example 10%. If you specify 3, for example, the
     -- system stops sending requests when the fourth error is received. If you
     -- specify 0, then the system stops sending requests after the first error
-    -- is returned. If you run an association on 50 instances and set MaxError
-    -- to 10%, then the system stops sending the request when the sixth error
-    -- is received.
+    -- is returned. If you run an association on 50 instances and set
+    -- @MaxError@ to 10%, then the system stops sending the request when the
+    -- sixth error is received.
     --
-    -- Executions that are already running an association when MaxErrors is
+    -- Executions that are already running an association when @MaxErrors@ is
     -- reached are allowed to complete, but some of these executions may fail
     -- as well. If you need to ensure that there won\'t be more than max-errors
-    -- failed executions, set MaxConcurrency to 1 so that executions proceed
+    -- failed executions, set @MaxConcurrency@ to 1 so that executions proceed
     -- one at a time.
     maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
+    -- | The instance ID.
+    --
+    -- @InstanceId@ has been deprecated. To specify an instance ID for an
+    -- association, use the @Targets@ parameter. Requests that include the
+    -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+    -- that use schema version 2.0 or later will fail. In addition, if you use
+    -- the parameter @InstanceId@, you can\'t use the parameters
+    -- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+    -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+    -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The severity level to assign to the association.
     complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
     -- | Specify the target for the association. This target is required for
-    -- associations that use an Automation document and target resources by
-    -- using rate controls.
+    -- associations that use an Automation runbook and target resources by
+    -- using rate controls. Automation is a capability of Amazon Web Services
+    -- Systems Manager.
     automationTargetParameterName :: Prelude.Maybe Prelude.Text,
     -- | The instances targeted by the request.
     targets :: Prelude.Maybe [Target],
+    -- | A cron expression that specifies a schedule when the association runs.
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | Use this action to create an association in multiple Regions and
     -- multiple accounts.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | A cron expression that specifies a schedule when the association runs.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
     -- targets run the association at the same time.
     --
     -- If a new instance starts and attempts to run an association while
-    -- Systems Manager is running MaxConcurrency associations, the association
-    -- is allowed to run. During the next association interval, the new
-    -- instance will process its association within the limit specified for
-    -- MaxConcurrency.
+    -- Systems Manager is running @MaxConcurrency@ associations, the
+    -- association is allowed to run. During the next association interval, the
+    -- new instance will process its association within the limit specified for
+    -- @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | The names or Amazon Resource Names (ARNs) of the Change Calendar type
+    -- documents your associations are gated under. The associations only run
+    -- when that Change Calendar is open. For more information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar Amazon Web Services Systems Manager Change Calendar>.
+    calendarNames :: Prelude.Maybe [Prelude.Text],
     -- | Specify a descriptive name for the association.
     associationName :: Prelude.Maybe Prelude.Text,
     -- | The document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | An S3 bucket where you want to store the results of this request.
-    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
-    -- | By default, when you create a new associations, the system runs it
-    -- immediately after it is created and then according to the schedule you
-    -- specified. Specify this option if you don\'t want an association to run
-    -- immediately after you create it. This parameter is not supported for
-    -- rate expressions.
-    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -97,20 +104,30 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- association is @NON-COMPLIANT@.
     --
     -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter
-    -- for the PutComplianceItems API action. In this case, compliance data is
-    -- not managed by State Manager. It is managed by your direct call to the
-    -- PutComplianceItems API action.
+    -- for the PutComplianceItems API operation. In this case, compliance data
+    -- isn\'t managed by State Manager, a capability of Amazon Web Services
+    -- Systems Manager. It is managed by your direct call to the
+    -- PutComplianceItems API operation.
     --
     -- By default, all associations use @AUTO@ mode.
     syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
+    -- | An S3 bucket where you want to store the results of this request.
+    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
+    -- | By default, when you create a new associations, the system runs it
+    -- immediately after it is created and then according to the schedule you
+    -- specified. Specify this option if you don\'t want an association to run
+    -- immediately after you create it. This parameter isn\'t supported for
+    -- rate expressions.
+    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The name of the SSM document that contains the configuration information
-    -- for the instance. You can specify Command or Automation documents.
+    -- for the instance. You can specify Command or Automation runbooks.
     --
-    -- You can specify AWS-predefined documents, documents you created, or a
-    -- document that is shared with you from another account.
+    -- You can specify Amazon Web Services-predefined documents, documents you
+    -- created, or a document that is shared with you from another account.
     --
-    -- For SSM documents that are shared with you from other AWS accounts, you
-    -- must specify the complete SSM document ARN, in the following format:
+    -- For SSM documents that are shared with you from other Amazon Web
+    -- Services accounts, you must specify the complete SSM document ARN, in
+    -- the following format:
     --
     -- @arn:aws:ssm:region:account-id:document\/document-name @
     --
@@ -118,9 +135,9 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     --
     -- @arn:aws:ssm:us-east-2:12345678912:document\/My-Shared-Document@
     --
-    -- For AWS-predefined documents and SSM documents you created in your
-    -- account, you only need to specify the document name. For example,
-    -- @AWS-ApplyPatchBaseline@ or @My-Document@.
+    -- For Amazon Web Services-predefined documents and SSM documents you
+    -- created in your account, you only need to specify the document name. For
+    -- example, @AWS-ApplyPatchBaseline@ or @My-Document@.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,30 +156,40 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set MaxError
--- to 10%, then the system stops sending the request when the sixth error
--- is received.
+-- is returned. If you run an association on 50 instances and set
+-- @MaxError@ to 10%, then the system stops sending the request when the
+-- sixth error is received.
 --
--- Executions that are already running an association when MaxErrors is
+-- Executions that are already running an association when @MaxErrors@ is
 -- reached are allowed to complete, but some of these executions may fail
 -- as well. If you need to ensure that there won\'t be more than max-errors
--- failed executions, set MaxConcurrency to 1 so that executions proceed
+-- failed executions, set @MaxConcurrency@ to 1 so that executions proceed
 -- one at a time.
 --
--- 'instanceId', 'createAssociationBatchRequestEntry_instanceId' - The ID of the instance.
+-- 'instanceId', 'createAssociationBatchRequestEntry_instanceId' - The instance ID.
+--
+-- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- association, use the @Targets@ parameter. Requests that include the
+-- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+-- that use schema version 2.0 or later will fail. In addition, if you use
+-- the parameter @InstanceId@, you can\'t use the parameters
+-- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+-- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+-- must use the @Targets@ parameter.
 --
 -- 'complianceSeverity', 'createAssociationBatchRequestEntry_complianceSeverity' - The severity level to assign to the association.
 --
 -- 'automationTargetParameterName', 'createAssociationBatchRequestEntry_automationTargetParameterName' - Specify the target for the association. This target is required for
--- associations that use an Automation document and target resources by
--- using rate controls.
+-- associations that use an Automation runbook and target resources by
+-- using rate controls. Automation is a capability of Amazon Web Services
+-- Systems Manager.
 --
 -- 'targets', 'createAssociationBatchRequestEntry_targets' - The instances targeted by the request.
 --
+-- 'scheduleExpression', 'createAssociationBatchRequestEntry_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+--
 -- 'targetLocations', 'createAssociationBatchRequestEntry_targetLocations' - Use this action to create an association in multiple Regions and
 -- multiple accounts.
---
--- 'scheduleExpression', 'createAssociationBatchRequestEntry_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
 -- 'maxConcurrency', 'createAssociationBatchRequestEntry_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -170,24 +197,21 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- targets run the association at the same time.
 --
 -- If a new instance starts and attempts to run an association while
--- Systems Manager is running MaxConcurrency associations, the association
--- is allowed to run. During the next association interval, the new
--- instance will process its association within the limit specified for
--- MaxConcurrency.
+-- Systems Manager is running @MaxConcurrency@ associations, the
+-- association is allowed to run. During the next association interval, the
+-- new instance will process its association within the limit specified for
+-- @MaxConcurrency@.
+--
+-- 'calendarNames', 'createAssociationBatchRequestEntry_calendarNames' - The names or Amazon Resource Names (ARNs) of the Change Calendar type
+-- documents your associations are gated under. The associations only run
+-- when that Change Calendar is open. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar Amazon Web Services Systems Manager Change Calendar>.
 --
 -- 'associationName', 'createAssociationBatchRequestEntry_associationName' - Specify a descriptive name for the association.
 --
 -- 'documentVersion', 'createAssociationBatchRequestEntry_documentVersion' - The document version.
 --
 -- 'parameters', 'createAssociationBatchRequestEntry_parameters' - A description of the parameters for a document.
---
--- 'outputLocation', 'createAssociationBatchRequestEntry_outputLocation' - An S3 bucket where you want to store the results of this request.
---
--- 'applyOnlyAtCronInterval', 'createAssociationBatchRequestEntry_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
--- immediately after it is created and then according to the schedule you
--- specified. Specify this option if you don\'t want an association to run
--- immediately after you create it. This parameter is not supported for
--- rate expressions.
 --
 -- 'syncCompliance', 'createAssociationBatchRequestEntry_syncCompliance' - The mode for generating association compliance. You can specify @AUTO@
 -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
@@ -197,20 +221,30 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- association is @NON-COMPLIANT@.
 --
 -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter
--- for the PutComplianceItems API action. In this case, compliance data is
--- not managed by State Manager. It is managed by your direct call to the
--- PutComplianceItems API action.
+-- for the PutComplianceItems API operation. In this case, compliance data
+-- isn\'t managed by State Manager, a capability of Amazon Web Services
+-- Systems Manager. It is managed by your direct call to the
+-- PutComplianceItems API operation.
 --
 -- By default, all associations use @AUTO@ mode.
 --
+-- 'outputLocation', 'createAssociationBatchRequestEntry_outputLocation' - An S3 bucket where you want to store the results of this request.
+--
+-- 'applyOnlyAtCronInterval', 'createAssociationBatchRequestEntry_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
+-- immediately after it is created and then according to the schedule you
+-- specified. Specify this option if you don\'t want an association to run
+-- immediately after you create it. This parameter isn\'t supported for
+-- rate expressions.
+--
 -- 'name', 'createAssociationBatchRequestEntry_name' - The name of the SSM document that contains the configuration information
--- for the instance. You can specify Command or Automation documents.
+-- for the instance. You can specify Command or Automation runbooks.
 --
--- You can specify AWS-predefined documents, documents you created, or a
--- document that is shared with you from another account.
+-- You can specify Amazon Web Services-predefined documents, documents you
+-- created, or a document that is shared with you from another account.
 --
--- For SSM documents that are shared with you from other AWS accounts, you
--- must specify the complete SSM document ARN, in the following format:
+-- For SSM documents that are shared with you from other Amazon Web
+-- Services accounts, you must specify the complete SSM document ARN, in
+-- the following format:
 --
 -- @arn:aws:ssm:region:account-id:document\/document-name @
 --
@@ -218,9 +252,9 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 --
 -- @arn:aws:ssm:us-east-2:12345678912:document\/My-Shared-Document@
 --
--- For AWS-predefined documents and SSM documents you created in your
--- account, you only need to specify the document name. For example,
--- @AWS-ApplyPatchBaseline@ or @My-Document@.
+-- For Amazon Web Services-predefined documents and SSM documents you
+-- created in your account, you only need to specify the document name. For
+-- example, @AWS-ApplyPatchBaseline@ or @My-Document@.
 newCreateAssociationBatchRequestEntry ::
   -- | 'name'
   Prelude.Text ->
@@ -234,16 +268,17 @@ newCreateAssociationBatchRequestEntry pName_ =
       automationTargetParameterName =
         Prelude.Nothing,
       targets = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
+      targetLocations = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
+      calendarNames = Prelude.Nothing,
       associationName = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      syncCompliance = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       applyOnlyAtCronInterval =
         Prelude.Nothing,
-      syncCompliance = Prelude.Nothing,
       name = pName_
     }
 
@@ -253,19 +288,28 @@ newCreateAssociationBatchRequestEntry pName_ =
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set MaxError
--- to 10%, then the system stops sending the request when the sixth error
--- is received.
+-- is returned. If you run an association on 50 instances and set
+-- @MaxError@ to 10%, then the system stops sending the request when the
+-- sixth error is received.
 --
--- Executions that are already running an association when MaxErrors is
+-- Executions that are already running an association when @MaxErrors@ is
 -- reached are allowed to complete, but some of these executions may fail
 -- as well. If you need to ensure that there won\'t be more than max-errors
--- failed executions, set MaxConcurrency to 1 so that executions proceed
+-- failed executions, set @MaxConcurrency@ to 1 so that executions proceed
 -- one at a time.
 createAssociationBatchRequestEntry_maxErrors :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_maxErrors = Lens.lens (\CreateAssociationBatchRequestEntry' {maxErrors} -> maxErrors) (\s@CreateAssociationBatchRequestEntry' {} a -> s {maxErrors = a} :: CreateAssociationBatchRequestEntry)
 
--- | The ID of the instance.
+-- | The instance ID.
+--
+-- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- association, use the @Targets@ parameter. Requests that include the
+-- parameter @InstanceID@ with Systems Manager documents (SSM documents)
+-- that use schema version 2.0 or later will fail. In addition, if you use
+-- the parameter @InstanceId@, you can\'t use the parameters
+-- @AssociationName@, @DocumentVersion@, @MaxErrors@, @MaxConcurrency@,
+-- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
+-- must use the @Targets@ parameter.
 createAssociationBatchRequestEntry_instanceId :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_instanceId = Lens.lens (\CreateAssociationBatchRequestEntry' {instanceId} -> instanceId) (\s@CreateAssociationBatchRequestEntry' {} a -> s {instanceId = a} :: CreateAssociationBatchRequestEntry)
 
@@ -274,8 +318,9 @@ createAssociationBatchRequestEntry_complianceSeverity :: Lens.Lens' CreateAssoci
 createAssociationBatchRequestEntry_complianceSeverity = Lens.lens (\CreateAssociationBatchRequestEntry' {complianceSeverity} -> complianceSeverity) (\s@CreateAssociationBatchRequestEntry' {} a -> s {complianceSeverity = a} :: CreateAssociationBatchRequestEntry)
 
 -- | Specify the target for the association. This target is required for
--- associations that use an Automation document and target resources by
--- using rate controls.
+-- associations that use an Automation runbook and target resources by
+-- using rate controls. Automation is a capability of Amazon Web Services
+-- Systems Manager.
 createAssociationBatchRequestEntry_automationTargetParameterName :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_automationTargetParameterName = Lens.lens (\CreateAssociationBatchRequestEntry' {automationTargetParameterName} -> automationTargetParameterName) (\s@CreateAssociationBatchRequestEntry' {} a -> s {automationTargetParameterName = a} :: CreateAssociationBatchRequestEntry)
 
@@ -283,14 +328,14 @@ createAssociationBatchRequestEntry_automationTargetParameterName = Lens.lens (\C
 createAssociationBatchRequestEntry_targets :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe [Target])
 createAssociationBatchRequestEntry_targets = Lens.lens (\CreateAssociationBatchRequestEntry' {targets} -> targets) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targets = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A cron expression that specifies a schedule when the association runs.
+createAssociationBatchRequestEntry_scheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
+createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssociationBatchRequestEntry' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociationBatchRequestEntry' {} a -> s {scheduleExpression = a} :: CreateAssociationBatchRequestEntry)
+
 -- | Use this action to create an association in multiple Regions and
 -- multiple accounts.
 createAssociationBatchRequestEntry_targetLocations :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 createAssociationBatchRequestEntry_targetLocations = Lens.lens (\CreateAssociationBatchRequestEntry' {targetLocations} -> targetLocations) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targetLocations = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | A cron expression that specifies a schedule when the association runs.
-createAssociationBatchRequestEntry_scheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
-createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssociationBatchRequestEntry' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociationBatchRequestEntry' {} a -> s {scheduleExpression = a} :: CreateAssociationBatchRequestEntry)
 
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
@@ -298,12 +343,19 @@ createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssoci
 -- targets run the association at the same time.
 --
 -- If a new instance starts and attempts to run an association while
--- Systems Manager is running MaxConcurrency associations, the association
--- is allowed to run. During the next association interval, the new
--- instance will process its association within the limit specified for
--- MaxConcurrency.
+-- Systems Manager is running @MaxConcurrency@ associations, the
+-- association is allowed to run. During the next association interval, the
+-- new instance will process its association within the limit specified for
+-- @MaxConcurrency@.
 createAssociationBatchRequestEntry_maxConcurrency :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_maxConcurrency = Lens.lens (\CreateAssociationBatchRequestEntry' {maxConcurrency} -> maxConcurrency) (\s@CreateAssociationBatchRequestEntry' {} a -> s {maxConcurrency = a} :: CreateAssociationBatchRequestEntry)
+
+-- | The names or Amazon Resource Names (ARNs) of the Change Calendar type
+-- documents your associations are gated under. The associations only run
+-- when that Change Calendar is open. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar Amazon Web Services Systems Manager Change Calendar>.
+createAssociationBatchRequestEntry_calendarNames :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe [Prelude.Text])
+createAssociationBatchRequestEntry_calendarNames = Lens.lens (\CreateAssociationBatchRequestEntry' {calendarNames} -> calendarNames) (\s@CreateAssociationBatchRequestEntry' {} a -> s {calendarNames = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specify a descriptive name for the association.
 createAssociationBatchRequestEntry_associationName :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
@@ -317,18 +369,6 @@ createAssociationBatchRequestEntry_documentVersion = Lens.lens (\CreateAssociati
 createAssociationBatchRequestEntry_parameters :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
 
--- | An S3 bucket where you want to store the results of this request.
-createAssociationBatchRequestEntry_outputLocation :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe InstanceAssociationOutputLocation)
-createAssociationBatchRequestEntry_outputLocation = Lens.lens (\CreateAssociationBatchRequestEntry' {outputLocation} -> outputLocation) (\s@CreateAssociationBatchRequestEntry' {} a -> s {outputLocation = a} :: CreateAssociationBatchRequestEntry)
-
--- | By default, when you create a new associations, the system runs it
--- immediately after it is created and then according to the schedule you
--- specified. Specify this option if you don\'t want an association to run
--- immediately after you create it. This parameter is not supported for
--- rate expressions.
-createAssociationBatchRequestEntry_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Bool)
-createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateAssociationBatchRequestEntry' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@CreateAssociationBatchRequestEntry' {} a -> s {applyOnlyAtCronInterval = a} :: CreateAssociationBatchRequestEntry)
-
 -- | The mode for generating association compliance. You can specify @AUTO@
 -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
 -- association execution to determine the compliance status. If the
@@ -337,22 +377,36 @@ createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateA
 -- association is @NON-COMPLIANT@.
 --
 -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter
--- for the PutComplianceItems API action. In this case, compliance data is
--- not managed by State Manager. It is managed by your direct call to the
--- PutComplianceItems API action.
+-- for the PutComplianceItems API operation. In this case, compliance data
+-- isn\'t managed by State Manager, a capability of Amazon Web Services
+-- Systems Manager. It is managed by your direct call to the
+-- PutComplianceItems API operation.
 --
 -- By default, all associations use @AUTO@ mode.
 createAssociationBatchRequestEntry_syncCompliance :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe AssociationSyncCompliance)
 createAssociationBatchRequestEntry_syncCompliance = Lens.lens (\CreateAssociationBatchRequestEntry' {syncCompliance} -> syncCompliance) (\s@CreateAssociationBatchRequestEntry' {} a -> s {syncCompliance = a} :: CreateAssociationBatchRequestEntry)
 
+-- | An S3 bucket where you want to store the results of this request.
+createAssociationBatchRequestEntry_outputLocation :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe InstanceAssociationOutputLocation)
+createAssociationBatchRequestEntry_outputLocation = Lens.lens (\CreateAssociationBatchRequestEntry' {outputLocation} -> outputLocation) (\s@CreateAssociationBatchRequestEntry' {} a -> s {outputLocation = a} :: CreateAssociationBatchRequestEntry)
+
+-- | By default, when you create a new associations, the system runs it
+-- immediately after it is created and then according to the schedule you
+-- specified. Specify this option if you don\'t want an association to run
+-- immediately after you create it. This parameter isn\'t supported for
+-- rate expressions.
+createAssociationBatchRequestEntry_applyOnlyAtCronInterval :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Bool)
+createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateAssociationBatchRequestEntry' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@CreateAssociationBatchRequestEntry' {} a -> s {applyOnlyAtCronInterval = a} :: CreateAssociationBatchRequestEntry)
+
 -- | The name of the SSM document that contains the configuration information
--- for the instance. You can specify Command or Automation documents.
+-- for the instance. You can specify Command or Automation runbooks.
 --
--- You can specify AWS-predefined documents, documents you created, or a
--- document that is shared with you from another account.
+-- You can specify Amazon Web Services-predefined documents, documents you
+-- created, or a document that is shared with you from another account.
 --
--- For SSM documents that are shared with you from other AWS accounts, you
--- must specify the complete SSM document ARN, in the following format:
+-- For SSM documents that are shared with you from other Amazon Web
+-- Services accounts, you must specify the complete SSM document ARN, in
+-- the following format:
 --
 -- @arn:aws:ssm:region:account-id:document\/document-name @
 --
@@ -360,9 +414,9 @@ createAssociationBatchRequestEntry_syncCompliance = Lens.lens (\CreateAssociatio
 --
 -- @arn:aws:ssm:us-east-2:12345678912:document\/My-Shared-Document@
 --
--- For AWS-predefined documents and SSM documents you created in your
--- account, you only need to specify the document name. For example,
--- @AWS-ApplyPatchBaseline@ or @My-Document@.
+-- For Amazon Web Services-predefined documents and SSM documents you
+-- created in your account, you only need to specify the document name. For
+-- example, @AWS-ApplyPatchBaseline@ or @My-Document@.
 createAssociationBatchRequestEntry_name :: Lens.Lens' CreateAssociationBatchRequestEntry Prelude.Text
 createAssociationBatchRequestEntry_name = Lens.lens (\CreateAssociationBatchRequestEntry' {name} -> name) (\s@CreateAssociationBatchRequestEntry' {} a -> s {name = a} :: CreateAssociationBatchRequestEntry)
 
@@ -380,15 +434,16 @@ instance
             Prelude.<*> (x Core..:? "ComplianceSeverity")
             Prelude.<*> (x Core..:? "AutomationTargetParameterName")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TargetLocations")
             Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<*> (x Core..:? "TargetLocations")
             Prelude.<*> (x Core..:? "MaxConcurrency")
+            Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AssociationName")
             Prelude.<*> (x Core..:? "DocumentVersion")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SyncCompliance")
             Prelude.<*> (x Core..:? "OutputLocation")
             Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
-            Prelude.<*> (x Core..:? "SyncCompliance")
             Prelude.<*> (x Core..: "Name")
       )
 
@@ -414,23 +469,24 @@ instance
             ("AutomationTargetParameterName" Core..=)
               Prelude.<$> automationTargetParameterName,
             ("Targets" Core..=) Prelude.<$> targets,
-            ("TargetLocations" Core..=)
-              Prelude.<$> targetLocations,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
+            ("TargetLocations" Core..=)
+              Prelude.<$> targetLocations,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
+            ("CalendarNames" Core..=) Prelude.<$> calendarNames,
             ("AssociationName" Core..=)
               Prelude.<$> associationName,
             ("DocumentVersion" Core..=)
               Prelude.<$> documentVersion,
             ("Parameters" Core..=) Prelude.<$> parameters,
+            ("SyncCompliance" Core..=)
+              Prelude.<$> syncCompliance,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
             ("ApplyOnlyAtCronInterval" Core..=)
               Prelude.<$> applyOnlyAtCronInterval,
-            ("SyncCompliance" Core..=)
-              Prelude.<$> syncCompliance,
             Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -84,6 +84,7 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     -- -   DatabaseInformation -
     --
     --     -   @DatabaseName@ - The name of the Amazon RDS database.
+    --
     --     -   @InstanceIdentifier @ - A unique identifier for the Amazon RDS
     --         database instance.
     --
@@ -93,13 +94,13 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     -- -   ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by
     --     an EC2 instance to carry out the copy task from Amazon RDS to Amazon
     --     Simple Storage Service (Amazon S3). For more information, see
-    --     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+    --     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     --     for data pipelines.
     --
     -- -   ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS
     --     Data Pipeline service to monitor the progress of the copy task from
     --     Amazon RDS to Amazon S3. For more information, see
-    --     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+    --     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     --     for data pipelines.
     --
     -- -   SecurityInfo - The security information to use to access an RDS DB
@@ -157,6 +158,7 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 -- -   DatabaseInformation -
 --
 --     -   @DatabaseName@ - The name of the Amazon RDS database.
+--
 --     -   @InstanceIdentifier @ - A unique identifier for the Amazon RDS
 --         database instance.
 --
@@ -166,13 +168,13 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 -- -   ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by
 --     an EC2 instance to carry out the copy task from Amazon RDS to Amazon
 --     Simple Storage Service (Amazon S3). For more information, see
---     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+--     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 --     for data pipelines.
 --
 -- -   ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS
 --     Data Pipeline service to monitor the progress of the copy task from
 --     Amazon RDS to Amazon S3. For more information, see
---     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+--     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 --     for data pipelines.
 --
 -- -   SecurityInfo - The security information to use to access an RDS DB
@@ -245,6 +247,7 @@ createDataSourceFromRDS_dataSourceId = Lens.lens (\CreateDataSourceFromRDS' {dat
 -- -   DatabaseInformation -
 --
 --     -   @DatabaseName@ - The name of the Amazon RDS database.
+--
 --     -   @InstanceIdentifier @ - A unique identifier for the Amazon RDS
 --         database instance.
 --
@@ -254,13 +257,13 @@ createDataSourceFromRDS_dataSourceId = Lens.lens (\CreateDataSourceFromRDS' {dat
 -- -   ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by
 --     an EC2 instance to carry out the copy task from Amazon RDS to Amazon
 --     Simple Storage Service (Amazon S3). For more information, see
---     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+--     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 --     for data pipelines.
 --
 -- -   ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS
 --     Data Pipeline service to monitor the progress of the copy task from
 --     Amazon RDS to Amazon S3. For more information, see
---     <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+--     <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 --     for data pipelines.
 --
 -- -   SecurityInfo - The security information to use to access an RDS DB

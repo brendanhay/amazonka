@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [VPC only] Adds the specified egress rules to a security group for use
--- with a VPC.
+-- [VPC only] Adds the specified outbound (egress) rules to a security
+-- group for use with a VPC.
 --
 -- An outbound rule permits instances to send traffic to the specified IPv4
--- or IPv6 CIDR address ranges, or to the instances associated with the
--- specified destination security groups.
+-- or IPv6 CIDR address ranges, or to the instances that are associated
+-- with the specified destination security groups.
 --
 -- You specify a protocol for each rule (for example, TCP). For the TCP and
 -- UDP protocols, you must also specify the destination port or port range.
@@ -35,8 +35,8 @@
 -- Rule changes are propagated to affected instances as quickly as
 -- possible. However, a small delay might occur.
 --
--- For more information about VPC security group limits, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC Limits>.
+-- For information about VPC security group quotas, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC quotas>.
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
   ( -- * Creating a Request
     AuthorizeSecurityGroupEgress (..),
@@ -44,6 +44,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
 
     -- * Request Lenses
     authorizeSecurityGroupEgress_fromPort,
+    authorizeSecurityGroupEgress_tagSpecifications,
     authorizeSecurityGroupEgress_dryRun,
     authorizeSecurityGroupEgress_sourceSecurityGroupName,
     authorizeSecurityGroupEgress_cidrIp,
@@ -56,6 +57,11 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     -- * Destructuring the Response
     AuthorizeSecurityGroupEgressResponse (..),
     newAuthorizeSecurityGroupEgressResponse,
+
+    -- * Response Lenses
+    authorizeSecurityGroupEgressResponse_return,
+    authorizeSecurityGroupEgressResponse_securityGroupRules,
+    authorizeSecurityGroupEgressResponse_httpStatus,
   )
 where
 
@@ -70,6 +76,8 @@ import qualified Network.AWS.Response as Response
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
   { -- | Not supported. Use a set of IP permissions to specify the port.
     fromPort :: Prelude.Maybe Prelude.Int,
+    -- | The tags applied to the security group rule.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -106,6 +114,8 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 --
 -- 'fromPort', 'authorizeSecurityGroupEgress_fromPort' - Not supported. Use a set of IP permissions to specify the port.
 --
+-- 'tagSpecifications', 'authorizeSecurityGroupEgress_tagSpecifications' - The tags applied to the security group rule.
+--
 -- 'dryRun', 'authorizeSecurityGroupEgress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -136,6 +146,7 @@ newAuthorizeSecurityGroupEgress pGroupId_ =
   AuthorizeSecurityGroupEgress'
     { fromPort =
         Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       sourceSecurityGroupName = Prelude.Nothing,
       cidrIp = Prelude.Nothing,
@@ -149,6 +160,10 @@ newAuthorizeSecurityGroupEgress pGroupId_ =
 -- | Not supported. Use a set of IP permissions to specify the port.
 authorizeSecurityGroupEgress_fromPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
 authorizeSecurityGroupEgress_fromPort = Lens.lens (\AuthorizeSecurityGroupEgress' {fromPort} -> fromPort) (\s@AuthorizeSecurityGroupEgress' {} a -> s {fromPort = a} :: AuthorizeSecurityGroupEgress)
+
+-- | The tags applied to the security group rule.
+authorizeSecurityGroupEgress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe [TagSpecification])
+authorizeSecurityGroupEgress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupEgress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupEgress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupEgress) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -195,8 +210,16 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
       AuthorizeSecurityGroupEgressResponse
   request = Request.postQuery defaultService
   response =
-    Response.receiveNull
-      AuthorizeSecurityGroupEgressResponse'
+    Response.receiveXML
+      ( \s h x ->
+          AuthorizeSecurityGroupEgressResponse'
+            Prelude.<$> (x Core..@? "return")
+            Prelude.<*> ( x Core..@? "securityGroupRuleSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
 instance
   Prelude.Hashable
@@ -220,6 +243,10 @@ instance Core.ToQuery AuthorizeSecurityGroupEgress where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "FromPort" Core.=: fromPort,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
         "DryRun" Core.=: dryRun,
         "SourceSecurityGroupName"
           Core.=: sourceSecurityGroupName,
@@ -237,7 +264,13 @@ instance Core.ToQuery AuthorizeSecurityGroupEgress where
 
 -- | /See:/ 'newAuthorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
-  {
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    return' :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the outbound (egress) security group rules that were
+    -- added.
+    securityGroupRules :: Prelude.Maybe [SecurityGroupRule],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -245,10 +278,40 @@ data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 -- Create a value of 'AuthorizeSecurityGroupEgressResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'return'', 'authorizeSecurityGroupEgressResponse_return' - Returns @true@ if the request succeeds; otherwise, returns an error.
+--
+-- 'securityGroupRules', 'authorizeSecurityGroupEgressResponse_securityGroupRules' - Information about the outbound (egress) security group rules that were
+-- added.
+--
+-- 'httpStatus', 'authorizeSecurityGroupEgressResponse_httpStatus' - The response's http status code.
 newAuthorizeSecurityGroupEgressResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
   AuthorizeSecurityGroupEgressResponse
-newAuthorizeSecurityGroupEgressResponse =
+newAuthorizeSecurityGroupEgressResponse pHttpStatus_ =
   AuthorizeSecurityGroupEgressResponse'
+    { return' =
+        Prelude.Nothing,
+      securityGroupRules = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Returns @true@ if the request succeeds; otherwise, returns an error.
+authorizeSecurityGroupEgressResponse_return :: Lens.Lens' AuthorizeSecurityGroupEgressResponse (Prelude.Maybe Prelude.Bool)
+authorizeSecurityGroupEgressResponse_return = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {return'} -> return') (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {return' = a} :: AuthorizeSecurityGroupEgressResponse)
+
+-- | Information about the outbound (egress) security group rules that were
+-- added.
+authorizeSecurityGroupEgressResponse_securityGroupRules :: Lens.Lens' AuthorizeSecurityGroupEgressResponse (Prelude.Maybe [SecurityGroupRule])
+authorizeSecurityGroupEgressResponse_securityGroupRules = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {securityGroupRules} -> securityGroupRules) (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {securityGroupRules = a} :: AuthorizeSecurityGroupEgressResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+authorizeSecurityGroupEgressResponse_httpStatus :: Lens.Lens' AuthorizeSecurityGroupEgressResponse Prelude.Int
+authorizeSecurityGroupEgressResponse_httpStatus = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {httpStatus = a} :: AuthorizeSecurityGroupEgressResponse)
 
 instance
   Prelude.NFData

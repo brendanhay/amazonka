@@ -36,12 +36,45 @@ module Network.AWS.DynamoDB.Lens
     deleteBackupResponse_backupDescription,
     deleteBackupResponse_httpStatus,
 
+    -- ** DisableKinesisStreamingDestination
+    disableKinesisStreamingDestination_tableName,
+    disableKinesisStreamingDestination_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_destinationStatus,
+
+    -- ** ListContributorInsights
+    listContributorInsights_nextToken,
+    listContributorInsights_tableName,
+    listContributorInsights_maxResults,
+    listContributorInsightsResponse_contributorInsightsSummaries,
+    listContributorInsightsResponse_nextToken,
+    listContributorInsightsResponse_httpStatus,
+
+    -- ** UpdateItem
+    updateItem_returnItemCollectionMetrics,
+    updateItem_expected,
+    updateItem_expressionAttributeValues,
+    updateItem_updateExpression,
+    updateItem_returnValues,
+    updateItem_expressionAttributeNames,
+    updateItem_conditionExpression,
+    updateItem_returnConsumedCapacity,
+    updateItem_conditionalOperator,
+    updateItem_attributeUpdates,
+    updateItem_tableName,
+    updateItem_key,
+    updateItemResponse_itemCollectionMetrics,
+    updateItemResponse_attributes,
+    updateItemResponse_consumedCapacity,
+    updateItemResponse_httpStatus,
+
     -- ** DeleteItem
+    deleteItem_returnItemCollectionMetrics,
     deleteItem_expected,
     deleteItem_expressionAttributeValues,
-    deleteItem_returnItemCollectionMetrics,
-    deleteItem_expressionAttributeNames,
     deleteItem_returnValues,
+    deleteItem_expressionAttributeNames,
     deleteItem_conditionExpression,
     deleteItem_returnConsumedCapacity,
     deleteItem_conditionalOperator,
@@ -52,32 +85,6 @@ module Network.AWS.DynamoDB.Lens
     deleteItemResponse_consumedCapacity,
     deleteItemResponse_httpStatus,
 
-    -- ** UpdateItem
-    updateItem_expected,
-    updateItem_expressionAttributeValues,
-    updateItem_returnItemCollectionMetrics,
-    updateItem_updateExpression,
-    updateItem_expressionAttributeNames,
-    updateItem_returnValues,
-    updateItem_conditionExpression,
-    updateItem_attributeUpdates,
-    updateItem_returnConsumedCapacity,
-    updateItem_conditionalOperator,
-    updateItem_tableName,
-    updateItem_key,
-    updateItemResponse_itemCollectionMetrics,
-    updateItemResponse_attributes,
-    updateItemResponse_consumedCapacity,
-    updateItemResponse_httpStatus,
-
-    -- ** ListContributorInsights
-    listContributorInsights_nextToken,
-    listContributorInsights_tableName,
-    listContributorInsights_maxResults,
-    listContributorInsightsResponse_contributorInsightsSummaries,
-    listContributorInsightsResponse_nextToken,
-    listContributorInsightsResponse_httpStatus,
-
     -- ** ListGlobalTables
     listGlobalTables_regionName,
     listGlobalTables_exclusiveStartGlobalTableName,
@@ -85,13 +92,6 @@ module Network.AWS.DynamoDB.Lens
     listGlobalTablesResponse_lastEvaluatedGlobalTableName,
     listGlobalTablesResponse_globalTables,
     listGlobalTablesResponse_httpStatus,
-
-    -- ** DisableKinesisStreamingDestination
-    disableKinesisStreamingDestination_tableName,
-    disableKinesisStreamingDestination_streamArn,
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
-    kinesisStreamingDestinationOutput_destinationStatus,
 
     -- ** UpdateContinuousBackups
     updateContinuousBackups_tableName,
@@ -105,11 +105,6 @@ module Network.AWS.DynamoDB.Lens
     createGlobalTableResponse_globalTableDescription,
     createGlobalTableResponse_httpStatus,
 
-    -- ** BatchExecuteStatement
-    batchExecuteStatement_statements,
-    batchExecuteStatementResponse_responses,
-    batchExecuteStatementResponse_httpStatus,
-
     -- ** RestoreTableFromBackup
     restoreTableFromBackup_provisionedThroughputOverride,
     restoreTableFromBackup_globalSecondaryIndexOverride,
@@ -121,12 +116,26 @@ module Network.AWS.DynamoDB.Lens
     restoreTableFromBackupResponse_tableDescription,
     restoreTableFromBackupResponse_httpStatus,
 
-    -- ** DescribeLimits
-    describeLimitsResponse_accountMaxWriteCapacityUnits,
-    describeLimitsResponse_tableMaxReadCapacityUnits,
-    describeLimitsResponse_accountMaxReadCapacityUnits,
-    describeLimitsResponse_tableMaxWriteCapacityUnits,
-    describeLimitsResponse_httpStatus,
+    -- ** BatchExecuteStatement
+    batchExecuteStatement_statements,
+    batchExecuteStatementResponse_responses,
+    batchExecuteStatementResponse_httpStatus,
+
+    -- ** DescribeContributorInsights
+    describeContributorInsights_indexName,
+    describeContributorInsights_tableName,
+    describeContributorInsightsResponse_tableName,
+    describeContributorInsightsResponse_indexName,
+    describeContributorInsightsResponse_contributorInsightsStatus,
+    describeContributorInsightsResponse_failureException,
+    describeContributorInsightsResponse_contributorInsightsRuleList,
+    describeContributorInsightsResponse_lastUpdateDateTime,
+    describeContributorInsightsResponse_httpStatus,
+
+    -- ** DescribeBackup
+    describeBackup_backupArn,
+    describeBackupResponse_backupDescription,
+    describeBackupResponse_httpStatus,
 
     -- ** ExecuteTransaction
     executeTransaction_clientRequestToken,
@@ -148,25 +157,16 @@ module Network.AWS.DynamoDB.Lens
     restoreTableToPointInTimeResponse_tableDescription,
     restoreTableToPointInTimeResponse_httpStatus,
 
+    -- ** DescribeLimits
+    describeLimitsResponse_accountMaxWriteCapacityUnits,
+    describeLimitsResponse_tableMaxReadCapacityUnits,
+    describeLimitsResponse_accountMaxReadCapacityUnits,
+    describeLimitsResponse_tableMaxWriteCapacityUnits,
+    describeLimitsResponse_httpStatus,
+
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
-
-    -- ** DescribeContributorInsights
-    describeContributorInsights_indexName,
-    describeContributorInsights_tableName,
-    describeContributorInsightsResponse_tableName,
-    describeContributorInsightsResponse_indexName,
-    describeContributorInsightsResponse_contributorInsightsStatus,
-    describeContributorInsightsResponse_failureException,
-    describeContributorInsightsResponse_contributorInsightsRuleList,
-    describeContributorInsightsResponse_lastUpdateDateTime,
-    describeContributorInsightsResponse_httpStatus,
-
-    -- ** DescribeBackup
-    describeBackup_backupArn,
-    describeBackupResponse_backupDescription,
-    describeBackupResponse_httpStatus,
 
     -- ** ListTagsOfResource
     listTagsOfResource_nextToken,
@@ -198,35 +198,10 @@ module Network.AWS.DynamoDB.Lens
     describeTimeToLiveResponse_timeToLiveDescription,
     describeTimeToLiveResponse_httpStatus,
 
-    -- ** Query
-    query_projectionExpression,
-    query_exclusiveStartKey,
-    query_indexName,
-    query_expressionAttributeValues,
-    query_keyConditionExpression,
-    query_consistentRead,
-    query_expressionAttributeNames,
-    query_filterExpression,
-    query_keyConditions,
-    query_returnConsumedCapacity,
-    query_conditionalOperator,
-    query_select,
-    query_limit,
-    query_attributesToGet,
-    query_scanIndexForward,
-    query_queryFilter,
-    query_tableName,
-    queryResponse_items,
-    queryResponse_scannedCount,
-    queryResponse_lastEvaluatedKey,
-    queryResponse_consumedCapacity,
-    queryResponse_count,
-    queryResponse_httpStatus,
-
     -- ** CreateTable
     createTable_localSecondaryIndexes,
-    createTable_streamSpecification,
     createTable_globalSecondaryIndexes,
+    createTable_streamSpecification,
     createTable_sSESpecification,
     createTable_billingMode,
     createTable_tags,
@@ -243,12 +218,30 @@ module Network.AWS.DynamoDB.Lens
     createBackupResponse_backupDetails,
     createBackupResponse_httpStatus,
 
-    -- ** ListTables
-    listTables_exclusiveStartTableName,
-    listTables_limit,
-    listTablesResponse_lastEvaluatedTableName,
-    listTablesResponse_tableNames,
-    listTablesResponse_httpStatus,
+    -- ** Query
+    query_projectionExpression,
+    query_exclusiveStartKey,
+    query_indexName,
+    query_keyConditionExpression,
+    query_expressionAttributeValues,
+    query_filterExpression,
+    query_expressionAttributeNames,
+    query_consistentRead,
+    query_keyConditions,
+    query_returnConsumedCapacity,
+    query_conditionalOperator,
+    query_select,
+    query_limit,
+    query_scanIndexForward,
+    query_queryFilter,
+    query_attributesToGet,
+    query_tableName,
+    queryResponse_items,
+    queryResponse_scannedCount,
+    queryResponse_lastEvaluatedKey,
+    queryResponse_consumedCapacity,
+    queryResponse_count,
+    queryResponse_httpStatus,
 
     -- ** Scan
     scan_scanFilter,
@@ -257,15 +250,15 @@ module Network.AWS.DynamoDB.Lens
     scan_indexName,
     scan_expressionAttributeValues,
     scan_segment,
-    scan_consistentRead,
-    scan_expressionAttributeNames,
     scan_filterExpression,
+    scan_expressionAttributeNames,
+    scan_consistentRead,
     scan_returnConsumedCapacity,
     scan_conditionalOperator,
     scan_select,
     scan_limit,
-    scan_attributesToGet,
     scan_totalSegments,
+    scan_attributesToGet,
     scan_tableName,
     scanResponse_items,
     scanResponse_scannedCount,
@@ -280,11 +273,22 @@ module Network.AWS.DynamoDB.Lens
     updateTable_billingMode,
     updateTable_attributeDefinitions,
     updateTable_globalSecondaryIndexUpdates,
-    updateTable_provisionedThroughput,
     updateTable_replicaUpdates,
+    updateTable_provisionedThroughput,
     updateTable_tableName,
     updateTableResponse_tableDescription,
     updateTableResponse_httpStatus,
+
+    -- ** ListBackups
+    listBackups_tableName,
+    listBackups_backupType,
+    listBackups_timeRangeLowerBound,
+    listBackups_exclusiveStartBackupArn,
+    listBackups_limit,
+    listBackups_timeRangeUpperBound,
+    listBackupsResponse_lastEvaluatedBackupArn,
+    listBackupsResponse_backupSummaries,
+    listBackupsResponse_httpStatus,
 
     -- ** DeleteTable
     deleteTable_tableName,
@@ -300,42 +304,25 @@ module Network.AWS.DynamoDB.Lens
     transactWriteItemsResponse_consumedCapacity,
     transactWriteItemsResponse_httpStatus,
 
+    -- ** ListTables
+    listTables_exclusiveStartTableName,
+    listTables_limit,
+    listTablesResponse_lastEvaluatedTableName,
+    listTablesResponse_tableNames,
+    listTablesResponse_httpStatus,
+
     -- ** ExportTableToPointInTime
     exportTableToPointInTime_exportFormat,
     exportTableToPointInTime_exportTime,
     exportTableToPointInTime_s3BucketOwner,
     exportTableToPointInTime_s3Prefix,
-    exportTableToPointInTime_s3SseKmsKeyId,
-    exportTableToPointInTime_clientToken,
     exportTableToPointInTime_s3SseAlgorithm,
+    exportTableToPointInTime_clientToken,
+    exportTableToPointInTime_s3SseKmsKeyId,
     exportTableToPointInTime_tableArn,
     exportTableToPointInTime_s3Bucket,
     exportTableToPointInTimeResponse_exportDescription,
     exportTableToPointInTimeResponse_httpStatus,
-
-    -- ** ListBackups
-    listBackups_tableName,
-    listBackups_backupType,
-    listBackups_timeRangeLowerBound,
-    listBackups_limit,
-    listBackups_exclusiveStartBackupArn,
-    listBackups_timeRangeUpperBound,
-    listBackupsResponse_lastEvaluatedBackupArn,
-    listBackupsResponse_backupSummaries,
-    listBackupsResponse_httpStatus,
-
-    -- ** TransactGetItems
-    transactGetItems_returnConsumedCapacity,
-    transactGetItems_transactItems,
-    transactGetItemsResponse_consumedCapacity,
-    transactGetItemsResponse_responses,
-    transactGetItemsResponse_httpStatus,
-
-    -- ** UpdateGlobalTable
-    updateGlobalTable_globalTableName,
-    updateGlobalTable_replicaUpdates,
-    updateGlobalTableResponse_globalTableDescription,
-    updateGlobalTableResponse_httpStatus,
 
     -- ** BatchWriteItem
     batchWriteItem_returnItemCollectionMetrics,
@@ -346,12 +333,25 @@ module Network.AWS.DynamoDB.Lens
     batchWriteItemResponse_consumedCapacity,
     batchWriteItemResponse_httpStatus,
 
+    -- ** UpdateGlobalTable
+    updateGlobalTable_globalTableName,
+    updateGlobalTable_replicaUpdates,
+    updateGlobalTableResponse_globalTableDescription,
+    updateGlobalTableResponse_httpStatus,
+
+    -- ** TransactGetItems
+    transactGetItems_returnConsumedCapacity,
+    transactGetItems_transactItems,
+    transactGetItemsResponse_consumedCapacity,
+    transactGetItemsResponse_responses,
+    transactGetItemsResponse_httpStatus,
+
     -- ** PutItem
+    putItem_returnItemCollectionMetrics,
     putItem_expected,
     putItem_expressionAttributeValues,
-    putItem_returnItemCollectionMetrics,
-    putItem_expressionAttributeNames,
     putItem_returnValues,
+    putItem_expressionAttributeNames,
     putItem_conditionExpression,
     putItem_returnConsumedCapacity,
     putItem_conditionalOperator,
@@ -362,11 +362,28 @@ module Network.AWS.DynamoDB.Lens
     putItemResponse_consumedCapacity,
     putItemResponse_httpStatus,
 
+    -- ** DescribeExport
+    describeExport_exportArn,
+    describeExportResponse_exportDescription,
+    describeExportResponse_httpStatus,
+
+    -- ** DescribeTableReplicaAutoScaling
+    describeTableReplicaAutoScaling_tableName,
+    describeTableReplicaAutoScalingResponse_tableAutoScalingDescription,
+    describeTableReplicaAutoScalingResponse_httpStatus,
+
     -- ** UpdateTimeToLive
     updateTimeToLive_tableName,
     updateTimeToLive_timeToLiveSpecification,
     updateTimeToLiveResponse_timeToLiveSpecification,
     updateTimeToLiveResponse_httpStatus,
+
+    -- ** EnableKinesisStreamingDestination
+    enableKinesisStreamingDestination_tableName,
+    enableKinesisStreamingDestination_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_destinationStatus,
 
     -- ** UpdateGlobalTableSettings
     updateGlobalTableSettings_replicaSettingsUpdate,
@@ -379,27 +396,15 @@ module Network.AWS.DynamoDB.Lens
     updateGlobalTableSettingsResponse_globalTableName,
     updateGlobalTableSettingsResponse_httpStatus,
 
-    -- ** EnableKinesisStreamingDestination
-    enableKinesisStreamingDestination_tableName,
-    enableKinesisStreamingDestination_streamArn,
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
-    kinesisStreamingDestinationOutput_destinationStatus,
-
-    -- ** DescribeExport
-    describeExport_exportArn,
-    describeExportResponse_exportDescription,
-    describeExportResponse_httpStatus,
-
-    -- ** DescribeTableReplicaAutoScaling
-    describeTableReplicaAutoScaling_tableName,
-    describeTableReplicaAutoScalingResponse_tableAutoScalingDescription,
-    describeTableReplicaAutoScalingResponse_httpStatus,
+    -- ** DescribeTable
+    describeTable_tableName,
+    describeTableResponse_table,
+    describeTableResponse_httpStatus,
 
     -- ** GetItem
     getItem_projectionExpression,
-    getItem_consistentRead,
     getItem_expressionAttributeNames,
+    getItem_consistentRead,
     getItem_returnConsumedCapacity,
     getItem_attributesToGet,
     getItem_tableName,
@@ -408,15 +413,19 @@ module Network.AWS.DynamoDB.Lens
     getItemResponse_consumedCapacity,
     getItemResponse_httpStatus,
 
-    -- ** DescribeTable
-    describeTable_tableName,
-    describeTableResponse_table,
-    describeTableResponse_httpStatus,
-
     -- ** DescribeGlobalTable
     describeGlobalTable_globalTableName,
     describeGlobalTableResponse_globalTableDescription,
     describeGlobalTableResponse_httpStatus,
+
+    -- ** DescribeContinuousBackups
+    describeContinuousBackups_tableName,
+    describeContinuousBackupsResponse_continuousBackupsDescription,
+    describeContinuousBackupsResponse_httpStatus,
+
+    -- ** DescribeEndpoints
+    describeEndpointsResponse_httpStatus,
+    describeEndpointsResponse_endpoints,
 
     -- ** ListExports
     listExports_nextToken,
@@ -426,20 +435,11 @@ module Network.AWS.DynamoDB.Lens
     listExportsResponse_exportSummaries,
     listExportsResponse_httpStatus,
 
-    -- ** DescribeContinuousBackups
-    describeContinuousBackups_tableName,
-    describeContinuousBackupsResponse_continuousBackupsDescription,
-    describeContinuousBackupsResponse_httpStatus,
-
     -- ** DescribeKinesisStreamingDestination
     describeKinesisStreamingDestination_tableName,
     describeKinesisStreamingDestinationResponse_tableName,
     describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations,
     describeKinesisStreamingDestinationResponse_httpStatus,
-
-    -- ** DescribeEndpoints
-    describeEndpointsResponse_httpStatus,
-    describeEndpointsResponse_endpoints,
 
     -- ** ExecuteStatement
     executeStatement_nextToken,
@@ -463,10 +463,10 @@ module Network.AWS.DynamoDB.Lens
 
     -- ** AttributeValue
     attributeValue_bs,
-    attributeValue_bool,
     attributeValue_n,
-    attributeValue_s,
+    attributeValue_bool,
     attributeValue_null,
+    attributeValue_s,
     attributeValue_m,
     attributeValue_b,
     attributeValue_l,
@@ -486,8 +486,8 @@ module Network.AWS.DynamoDB.Lens
     autoScalingPolicyUpdate_targetTrackingScalingPolicyConfiguration,
 
     -- ** AutoScalingSettingsDescription
-    autoScalingSettingsDescription_scalingPolicies,
     autoScalingSettingsDescription_minimumUnits,
+    autoScalingSettingsDescription_scalingPolicies,
     autoScalingSettingsDescription_maximumUnits,
     autoScalingSettingsDescription_autoScalingRoleArn,
     autoScalingSettingsDescription_autoScalingDisabled,
@@ -528,11 +528,11 @@ module Network.AWS.DynamoDB.Lens
     -- ** BackupSummary
     backupSummary_tableName,
     backupSummary_backupName,
-    backupSummary_backupType,
     backupSummary_backupCreationDateTime,
-    backupSummary_tableArn,
+    backupSummary_backupType,
     backupSummary_tableId,
     backupSummary_backupArn,
+    backupSummary_tableArn,
     backupSummary_backupExpiryDateTime,
     backupSummary_backupSizeBytes,
     backupSummary_backupStatus,
@@ -565,8 +565,8 @@ module Network.AWS.DynamoDB.Lens
     condition_comparisonOperator,
 
     -- ** ConditionCheck
-    conditionCheck_expressionAttributeValues,
     conditionCheck_returnValuesOnConditionCheckFailure,
+    conditionCheck_expressionAttributeValues,
     conditionCheck_expressionAttributeNames,
     conditionCheck_key,
     conditionCheck_tableName,
@@ -606,8 +606,8 @@ module Network.AWS.DynamoDB.Lens
     createReplicationGroupMemberAction_regionName,
 
     -- ** Delete
-    delete_expressionAttributeValues,
     delete_returnValuesOnConditionCheckFailure,
+    delete_expressionAttributeValues,
     delete_expressionAttributeNames,
     delete_conditionExpression,
     delete_key,
@@ -638,23 +638,23 @@ module Network.AWS.DynamoDB.Lens
     -- ** ExportDescription
     exportDescription_exportFormat,
     exportDescription_exportTime,
-    exportDescription_billedSizeBytes,
     exportDescription_s3Bucket,
-    exportDescription_tableArn,
-    exportDescription_tableId,
+    exportDescription_billedSizeBytes,
     exportDescription_failureMessage,
+    exportDescription_tableId,
+    exportDescription_tableArn,
     exportDescription_exportStatus,
-    exportDescription_startTime,
     exportDescription_failureCode,
+    exportDescription_startTime,
     exportDescription_endTime,
     exportDescription_s3BucketOwner,
     exportDescription_exportArn,
     exportDescription_itemCount,
     exportDescription_exportManifest,
     exportDescription_s3Prefix,
-    exportDescription_s3SseKmsKeyId,
-    exportDescription_clientToken,
     exportDescription_s3SseAlgorithm,
+    exportDescription_clientToken,
+    exportDescription_s3SseKmsKeyId,
 
     -- ** ExportSummary
     exportSummary_exportStatus,
@@ -688,8 +688,8 @@ module Network.AWS.DynamoDB.Lens
     globalSecondaryIndexDescription_indexSizeBytes,
     globalSecondaryIndexDescription_backfilling,
     globalSecondaryIndexDescription_itemCount,
-    globalSecondaryIndexDescription_provisionedThroughput,
     globalSecondaryIndexDescription_indexStatus,
+    globalSecondaryIndexDescription_provisionedThroughput,
 
     -- ** GlobalSecondaryIndexInfo
     globalSecondaryIndexInfo_indexName,
@@ -731,8 +731,8 @@ module Network.AWS.DynamoDB.Lens
 
     -- ** KeysAndAttributes
     keysAndAttributes_projectionExpression,
-    keysAndAttributes_consistentRead,
     keysAndAttributes_expressionAttributeNames,
+    keysAndAttributes_consistentRead,
     keysAndAttributes_attributesToGet,
     keysAndAttributes_keys,
 
@@ -799,8 +799,8 @@ module Network.AWS.DynamoDB.Lens
     provisionedThroughputOverride_readCapacityUnits,
 
     -- ** Put
-    put_expressionAttributeValues,
     put_returnValuesOnConditionCheckFailure,
+    put_expressionAttributeValues,
     put_expressionAttributeNames,
     put_conditionExpression,
     put_item,
@@ -814,8 +814,8 @@ module Network.AWS.DynamoDB.Lens
 
     -- ** ReplicaAutoScalingDescription
     replicaAutoScalingDescription_regionName,
-    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_globalSecondaryIndexes,
+    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaStatus,
 
@@ -870,8 +870,8 @@ module Network.AWS.DynamoDB.Lens
     replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaStatus,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaProvisionedReadCapacityUnits,
     replicaSettingsDescription_regionName,
 
@@ -935,27 +935,27 @@ module Network.AWS.DynamoDB.Lens
     tableAutoScalingDescription_tableStatus,
 
     -- ** TableDescription
-    tableDescription_globalTableVersion,
     tableDescription_localSecondaryIndexes,
+    tableDescription_globalTableVersion,
     tableDescription_restoreSummary,
-    tableDescription_streamSpecification,
     tableDescription_globalSecondaryIndexes,
     tableDescription_tableName,
+    tableDescription_streamSpecification,
     tableDescription_keySchema,
-    tableDescription_tableArn,
     tableDescription_tableId,
-    tableDescription_attributeDefinitions,
+    tableDescription_tableArn,
     tableDescription_tableSizeBytes,
+    tableDescription_attributeDefinitions,
     tableDescription_billingModeSummary,
     tableDescription_latestStreamLabel,
     tableDescription_archivalSummary,
     tableDescription_itemCount,
-    tableDescription_sSEDescription,
     tableDescription_replicas,
+    tableDescription_sSEDescription,
     tableDescription_creationDateTime,
-    tableDescription_tableStatus,
-    tableDescription_provisionedThroughput,
     tableDescription_latestStreamArn,
+    tableDescription_provisionedThroughput,
+    tableDescription_tableStatus,
 
     -- ** Tag
     tag_key,
@@ -979,8 +979,8 @@ module Network.AWS.DynamoDB.Lens
     transactWriteItem_delete,
 
     -- ** Update
-    update_expressionAttributeValues,
     update_returnValuesOnConditionCheckFailure,
+    update_expressionAttributeValues,
     update_expressionAttributeNames,
     update_conditionExpression,
     update_key,

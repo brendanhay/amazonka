@@ -68,7 +68,8 @@ data CreateAction = CreateAction'
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the action.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the action. Must be unique to your account in an AWS Region.
+    -- | The name of the action. Must be unique to your account in an Amazon Web
+    -- Services Region.
     actionName :: Prelude.Text,
     -- | The source type, ID, and URI.
     source :: ActionSource,
@@ -95,7 +96,8 @@ data CreateAction = CreateAction'
 --
 -- 'description', 'createAction_description' - The description of the action.
 --
--- 'actionName', 'createAction_actionName' - The name of the action. Must be unique to your account in an AWS Region.
+-- 'actionName', 'createAction_actionName' - The name of the action. Must be unique to your account in an Amazon Web
+-- Services Region.
 --
 -- 'source', 'createAction_source' - The source type, ID, and URI.
 --
@@ -140,7 +142,8 @@ createAction_properties = Lens.lens (\CreateAction' {properties} -> properties) 
 createAction_description :: Lens.Lens' CreateAction (Prelude.Maybe Prelude.Text)
 createAction_description = Lens.lens (\CreateAction' {description} -> description) (\s@CreateAction' {} a -> s {description = a} :: CreateAction)
 
--- | The name of the action. Must be unique to your account in an AWS Region.
+-- | The name of the action. Must be unique to your account in an Amazon Web
+-- Services Region.
 createAction_actionName :: Lens.Lens' CreateAction Prelude.Text
 createAction_actionName = Lens.lens (\CreateAction' {actionName} -> actionName) (\s@CreateAction' {} a -> s {actionName = a} :: CreateAction)
 

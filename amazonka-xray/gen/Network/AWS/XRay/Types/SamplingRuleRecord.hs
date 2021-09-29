@@ -24,7 +24,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.SamplingRule
 
--- | A SamplingRule and its metadata.
+-- | A
+-- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html SamplingRule>
+-- and its metadata.
 --
 -- /See:/ 'newSamplingRuleRecord' smart constructor.
 data SamplingRuleRecord = SamplingRuleRecord'

@@ -23,12 +23,12 @@
 -- Remove cost allocation tags from the specified Amazon SQS queue. For an
 -- overview, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.UntagQueue
   ( -- * Creating a Request
     UntagQueue (..),

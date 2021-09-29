@@ -33,6 +33,7 @@ import Network.AWS.SageMaker.Types.MetricData
 import Network.AWS.SageMaker.Types.ModelArtifacts
 import Network.AWS.SageMaker.Types.OutputDataConfig
 import Network.AWS.SageMaker.Types.ResourceConfig
+import Network.AWS.SageMaker.Types.RetryStrategy
 import Network.AWS.SageMaker.Types.SecondaryStatus
 import Network.AWS.SageMaker.Types.SecondaryStatusTransition
 import Network.AWS.SageMaker.Types.StoppingCondition
@@ -49,12 +50,6 @@ data TrainingJob = TrainingJob'
     -- access to. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Information about the debug rule configuration.
-    debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
-    -- | An array of @Channel@ objects that describes each data input channel.
-    inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
-    -- | Algorithm-specific parameters.
-    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | When true, enables managed spot training using Amazon EC2 Spot instances
     -- to run training jobs instead of on-demand instances. For more
     -- information, see
@@ -64,11 +59,17 @@ data TrainingJob = TrainingJob'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the labeling job.
     labelingJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Identity and Access Management (IAM) role configured for the
-    -- training job.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Algorithm-specific parameters.
+    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Information about the debug rule configuration.
+    debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
+    -- | An array of @Channel@ objects that describes each data input channel.
+    inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
     -- | The training time in seconds.
     trainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Web Services Identity and Access Management (IAM) role
+    -- configured for the training job.
+    roleArn :: Prelude.Maybe Prelude.Text,
     experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | If the @TrainingJob@ was created with network isolation, the value is
     -- set to @true@. If network isolation is enabled, nodes can\'t communicate
@@ -84,30 +85,35 @@ data TrainingJob = TrainingJob'
     -- | The name of the training job.
     trainingJobName :: Prelude.Maybe Prelude.Text,
     checkpointConfig :: Prelude.Maybe CheckpointConfig,
-    -- | The S3 path where model artifacts that you configured when creating the
-    -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
-    outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
     -- job if the training job was launched by a hyperparameter tuning job.
     tuningJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The S3 path where model artifacts that you configured when creating the
+    -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
+    outputDataConfig :: Prelude.Maybe OutputDataConfig,
+    -- | The environment variables to set in the Docker container.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information about the Amazon S3 location that is configured for storing
     -- model artifacts.
     modelArtifacts :: Prelude.Maybe ModelArtifacts,
-    -- | A history of all of the secondary statuses that the training job has
-    -- transitioned through.
-    secondaryStatusTransitions :: Prelude.Maybe [SecondaryStatusTransition],
     -- | A list of final metric values that are set when the training job
     -- completes. Used only if the training job was configured to use metrics.
     finalMetricDataList :: Prelude.Maybe [MetricData],
+    -- | A history of all of the secondary statuses that the training job has
+    -- transitioned through.
+    secondaryStatusTransitions :: Prelude.Maybe [SecondaryStatusTransition],
     -- | The Amazon Resource Name (ARN) of the job.
     autoMLJobArn :: Prelude.Maybe Prelude.Text,
     -- | If the training job failed, the reason it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
+    -- | A timestamp that indicates when the status of the training job was last
+    -- modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | Provides detailed information about the state of the training job. For
     -- detailed information about the secondary status of the training job, see
     -- @StatusMessage@ under SecondaryStatusTransition.
@@ -154,22 +160,20 @@ data TrainingJob = TrainingJob'
     --
     -- -   @DownloadingTrainingImage@
     secondaryStatus :: Prelude.Maybe SecondaryStatus,
-    -- | A timestamp that indicates when the status of the training job was last
-    -- modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
-    -- | Specifies a limit to how long a model training job can run. When the job
-    -- reaches the time limit, Amazon SageMaker ends the training job. Use this
-    -- API to cap model training costs.
+    -- | Information about the evaluation status of the rules for the training
+    -- job.
+    debugRuleEvaluationStatuses :: Prelude.Maybe [DebugRuleEvaluationStatus],
+    -- | Specifies a limit to how long a model training job can run. It also
+    -- specifies how long a managed Spot training job has to complete. When the
+    -- job reaches the time limit, Amazon SageMaker ends the training job. Use
+    -- this API to cap model training costs.
     --
     -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
     -- signal, which delays job termination for 120 seconds. Algorithms can use
     -- this 120-second window to save the model artifacts, so the results of
     -- training are not lost.
     stoppingCondition :: Prelude.Maybe StoppingCondition,
-    -- | Information about the evaluation status of the rules for the training
-    -- job.
-    debugRuleEvaluationStatuses :: Prelude.Maybe [DebugRuleEvaluationStatus],
     -- | The status of the training job.
     --
     -- Training job statuses are:
@@ -188,18 +192,23 @@ data TrainingJob = TrainingJob'
     --
     -- For more detailed information, see @SecondaryStatus@.
     trainingJobStatus :: Prelude.Maybe TrainingJobStatus,
-    debugHookConfig :: Prelude.Maybe DebugHookConfig,
-    -- | The billable time in seconds.
-    billableTimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The number of times to retry the job when the job fails due to an
+    -- @InternalServerError@.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
     -- | Resources, including ML compute instances and ML storage volumes, that
     -- are configured for model training.
     resourceConfig :: Prelude.Maybe ResourceConfig,
+    debugHookConfig :: Prelude.Maybe DebugHookConfig,
+    -- | The billable time in seconds.
+    billableTimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Indicates the time when the training job starts on training instances.
     -- You are billed for the time interval between this time and the value of
     -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
     -- this time. The difference is due to the time it takes to download the
     -- training data and to the size of the training container.
     trainingStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the training job.
+    trainingJobArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time when the training job ends on training instances. You
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
@@ -208,9 +217,7 @@ data TrainingJob = TrainingJob'
     trainingEndTime :: Prelude.Maybe Core.POSIX,
     -- | Information about the algorithm used for training, and algorithm
     -- metadata.
-    algorithmSpecification :: Prelude.Maybe AlgorithmSpecification,
-    -- | The Amazon Resource Name (ARN) of the training job.
-    trainingJobArn :: Prelude.Maybe Prelude.Text
+    algorithmSpecification :: Prelude.Maybe AlgorithmSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -226,12 +233,6 @@ data TrainingJob = TrainingJob'
 -- access to. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 --
--- 'debugRuleConfigurations', 'trainingJob_debugRuleConfigurations' - Information about the debug rule configuration.
---
--- 'inputDataConfig', 'trainingJob_inputDataConfig' - An array of @Channel@ objects that describes each data input channel.
---
--- 'hyperParameters', 'trainingJob_hyperParameters' - Algorithm-specific parameters.
---
 -- 'enableManagedSpotTraining', 'trainingJob_enableManagedSpotTraining' - When true, enables managed spot training using Amazon EC2 Spot instances
 -- to run training jobs instead of on-demand instances. For more
 -- information, see
@@ -241,10 +242,16 @@ data TrainingJob = TrainingJob'
 --
 -- 'labelingJobArn', 'trainingJob_labelingJobArn' - The Amazon Resource Name (ARN) of the labeling job.
 --
--- 'roleArn', 'trainingJob_roleArn' - The AWS Identity and Access Management (IAM) role configured for the
--- training job.
+-- 'hyperParameters', 'trainingJob_hyperParameters' - Algorithm-specific parameters.
+--
+-- 'debugRuleConfigurations', 'trainingJob_debugRuleConfigurations' - Information about the debug rule configuration.
+--
+-- 'inputDataConfig', 'trainingJob_inputDataConfig' - An array of @Channel@ objects that describes each data input channel.
 --
 -- 'trainingTimeInSeconds', 'trainingJob_trainingTimeInSeconds' - The training time in seconds.
+--
+-- 'roleArn', 'trainingJob_roleArn' - The Amazon Web Services Identity and Access Management (IAM) role
+-- configured for the training job.
 --
 -- 'experimentConfig', 'trainingJob_experimentConfig' - Undocumented member.
 --
@@ -263,29 +270,34 @@ data TrainingJob = TrainingJob'
 --
 -- 'checkpointConfig', 'trainingJob_checkpointConfig' - Undocumented member.
 --
+-- 'tuningJobArn', 'trainingJob_tuningJobArn' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning
+-- job if the training job was launched by a hyperparameter tuning job.
+--
 -- 'outputDataConfig', 'trainingJob_outputDataConfig' - The S3 path where model artifacts that you configured when creating the
 -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
 --
--- 'tuningJobArn', 'trainingJob_tuningJobArn' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning
--- job if the training job was launched by a hyperparameter tuning job.
+-- 'environment', 'trainingJob_environment' - The environment variables to set in the Docker container.
 --
 -- 'modelArtifacts', 'trainingJob_modelArtifacts' - Information about the Amazon S3 location that is configured for storing
 -- model artifacts.
 --
--- 'secondaryStatusTransitions', 'trainingJob_secondaryStatusTransitions' - A history of all of the secondary statuses that the training job has
--- transitioned through.
---
 -- 'finalMetricDataList', 'trainingJob_finalMetricDataList' - A list of final metric values that are set when the training job
 -- completes. Used only if the training job was configured to use metrics.
+--
+-- 'secondaryStatusTransitions', 'trainingJob_secondaryStatusTransitions' - A history of all of the secondary statuses that the training job has
+-- transitioned through.
 --
 -- 'autoMLJobArn', 'trainingJob_autoMLJobArn' - The Amazon Resource Name (ARN) of the job.
 --
 -- 'failureReason', 'trainingJob_failureReason' - If the training job failed, the reason it failed.
 --
--- 'tags', 'trainingJob_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'trainingJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+--
+-- 'lastModifiedTime', 'trainingJob_lastModifiedTime' - A timestamp that indicates when the status of the training job was last
+-- modified.
 --
 -- 'secondaryStatus', 'trainingJob_secondaryStatus' - Provides detailed information about the state of the training job. For
 -- detailed information about the secondary status of the training job, see
@@ -333,22 +345,20 @@ data TrainingJob = TrainingJob'
 --
 -- -   @DownloadingTrainingImage@
 --
--- 'lastModifiedTime', 'trainingJob_lastModifiedTime' - A timestamp that indicates when the status of the training job was last
--- modified.
---
 -- 'tensorBoardOutputConfig', 'trainingJob_tensorBoardOutputConfig' - Undocumented member.
 --
--- 'stoppingCondition', 'trainingJob_stoppingCondition' - Specifies a limit to how long a model training job can run. When the job
--- reaches the time limit, Amazon SageMaker ends the training job. Use this
--- API to cap model training costs.
+-- 'debugRuleEvaluationStatuses', 'trainingJob_debugRuleEvaluationStatuses' - Information about the evaluation status of the rules for the training
+-- job.
+--
+-- 'stoppingCondition', 'trainingJob_stoppingCondition' - Specifies a limit to how long a model training job can run. It also
+-- specifies how long a managed Spot training job has to complete. When the
+-- job reaches the time limit, Amazon SageMaker ends the training job. Use
+-- this API to cap model training costs.
 --
 -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
 -- signal, which delays job termination for 120 seconds. Algorithms can use
 -- this 120-second window to save the model artifacts, so the results of
 -- training are not lost.
---
--- 'debugRuleEvaluationStatuses', 'trainingJob_debugRuleEvaluationStatuses' - Information about the evaluation status of the rules for the training
--- job.
 --
 -- 'trainingJobStatus', 'trainingJob_trainingJobStatus' - The status of the training job.
 --
@@ -368,18 +378,23 @@ data TrainingJob = TrainingJob'
 --
 -- For more detailed information, see @SecondaryStatus@.
 --
--- 'debugHookConfig', 'trainingJob_debugHookConfig' - Undocumented member.
---
--- 'billableTimeInSeconds', 'trainingJob_billableTimeInSeconds' - The billable time in seconds.
+-- 'retryStrategy', 'trainingJob_retryStrategy' - The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
 --
 -- 'resourceConfig', 'trainingJob_resourceConfig' - Resources, including ML compute instances and ML storage volumes, that
 -- are configured for model training.
+--
+-- 'debugHookConfig', 'trainingJob_debugHookConfig' - Undocumented member.
+--
+-- 'billableTimeInSeconds', 'trainingJob_billableTimeInSeconds' - The billable time in seconds.
 --
 -- 'trainingStartTime', 'trainingJob_trainingStartTime' - Indicates the time when the training job starts on training instances.
 -- You are billed for the time interval between this time and the value of
 -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
 -- this time. The difference is due to the time it takes to download the
 -- training data and to the size of the training container.
+--
+-- 'trainingJobArn', 'trainingJob_trainingJobArn' - The Amazon Resource Name (ARN) of the training job.
 --
 -- 'trainingEndTime', 'trainingJob_trainingEndTime' - Indicates the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
@@ -389,48 +404,48 @@ data TrainingJob = TrainingJob'
 --
 -- 'algorithmSpecification', 'trainingJob_algorithmSpecification' - Information about the algorithm used for training, and algorithm
 -- metadata.
---
--- 'trainingJobArn', 'trainingJob_trainingJobArn' - The Amazon Resource Name (ARN) of the training job.
 newTrainingJob ::
   TrainingJob
 newTrainingJob =
   TrainingJob'
     { vpcConfig = Prelude.Nothing,
-      debugRuleConfigurations = Prelude.Nothing,
-      inputDataConfig = Prelude.Nothing,
-      hyperParameters = Prelude.Nothing,
       enableManagedSpotTraining = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       labelingJobArn = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      hyperParameters = Prelude.Nothing,
+      debugRuleConfigurations = Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
       trainingTimeInSeconds = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       experimentConfig = Prelude.Nothing,
       enableNetworkIsolation = Prelude.Nothing,
       enableInterContainerTrafficEncryption =
         Prelude.Nothing,
       trainingJobName = Prelude.Nothing,
       checkpointConfig = Prelude.Nothing,
-      outputDataConfig = Prelude.Nothing,
       tuningJobArn = Prelude.Nothing,
+      outputDataConfig = Prelude.Nothing,
+      environment = Prelude.Nothing,
       modelArtifacts = Prelude.Nothing,
-      secondaryStatusTransitions = Prelude.Nothing,
       finalMetricDataList = Prelude.Nothing,
+      secondaryStatusTransitions = Prelude.Nothing,
       autoMLJobArn = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       tags = Prelude.Nothing,
-      secondaryStatus = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      secondaryStatus = Prelude.Nothing,
       tensorBoardOutputConfig = Prelude.Nothing,
-      stoppingCondition = Prelude.Nothing,
       debugRuleEvaluationStatuses = Prelude.Nothing,
+      stoppingCondition = Prelude.Nothing,
       trainingJobStatus = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
+      resourceConfig = Prelude.Nothing,
       debugHookConfig = Prelude.Nothing,
       billableTimeInSeconds = Prelude.Nothing,
-      resourceConfig = Prelude.Nothing,
       trainingStartTime = Prelude.Nothing,
+      trainingJobArn = Prelude.Nothing,
       trainingEndTime = Prelude.Nothing,
-      algorithmSpecification = Prelude.Nothing,
-      trainingJobArn = Prelude.Nothing
+      algorithmSpecification = Prelude.Nothing
     }
 
 -- | A VpcConfig object that specifies the VPC that this training job has
@@ -438,18 +453,6 @@ newTrainingJob =
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 trainingJob_vpcConfig :: Lens.Lens' TrainingJob (Prelude.Maybe VpcConfig)
 trainingJob_vpcConfig = Lens.lens (\TrainingJob' {vpcConfig} -> vpcConfig) (\s@TrainingJob' {} a -> s {vpcConfig = a} :: TrainingJob)
-
--- | Information about the debug rule configuration.
-trainingJob_debugRuleConfigurations :: Lens.Lens' TrainingJob (Prelude.Maybe [DebugRuleConfiguration])
-trainingJob_debugRuleConfigurations = Lens.lens (\TrainingJob' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@TrainingJob' {} a -> s {debugRuleConfigurations = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of @Channel@ objects that describes each data input channel.
-trainingJob_inputDataConfig :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.NonEmpty Channel))
-trainingJob_inputDataConfig = Lens.lens (\TrainingJob' {inputDataConfig} -> inputDataConfig) (\s@TrainingJob' {} a -> s {inputDataConfig = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | Algorithm-specific parameters.
-trainingJob_hyperParameters :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-trainingJob_hyperParameters = Lens.lens (\TrainingJob' {hyperParameters} -> hyperParameters) (\s@TrainingJob' {} a -> s {hyperParameters = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When true, enables managed spot training using Amazon EC2 Spot instances
 -- to run training jobs instead of on-demand instances. For more
@@ -466,14 +469,26 @@ trainingJob_creationTime = Lens.lens (\TrainingJob' {creationTime} -> creationTi
 trainingJob_labelingJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
 trainingJob_labelingJobArn = Lens.lens (\TrainingJob' {labelingJobArn} -> labelingJobArn) (\s@TrainingJob' {} a -> s {labelingJobArn = a} :: TrainingJob)
 
--- | The AWS Identity and Access Management (IAM) role configured for the
--- training job.
-trainingJob_roleArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
-trainingJob_roleArn = Lens.lens (\TrainingJob' {roleArn} -> roleArn) (\s@TrainingJob' {} a -> s {roleArn = a} :: TrainingJob)
+-- | Algorithm-specific parameters.
+trainingJob_hyperParameters :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+trainingJob_hyperParameters = Lens.lens (\TrainingJob' {hyperParameters} -> hyperParameters) (\s@TrainingJob' {} a -> s {hyperParameters = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Information about the debug rule configuration.
+trainingJob_debugRuleConfigurations :: Lens.Lens' TrainingJob (Prelude.Maybe [DebugRuleConfiguration])
+trainingJob_debugRuleConfigurations = Lens.lens (\TrainingJob' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@TrainingJob' {} a -> s {debugRuleConfigurations = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An array of @Channel@ objects that describes each data input channel.
+trainingJob_inputDataConfig :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.NonEmpty Channel))
+trainingJob_inputDataConfig = Lens.lens (\TrainingJob' {inputDataConfig} -> inputDataConfig) (\s@TrainingJob' {} a -> s {inputDataConfig = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The training time in seconds.
 trainingJob_trainingTimeInSeconds :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Natural)
 trainingJob_trainingTimeInSeconds = Lens.lens (\TrainingJob' {trainingTimeInSeconds} -> trainingTimeInSeconds) (\s@TrainingJob' {} a -> s {trainingTimeInSeconds = a} :: TrainingJob)
+
+-- | The Amazon Web Services Identity and Access Management (IAM) role
+-- configured for the training job.
+trainingJob_roleArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
+trainingJob_roleArn = Lens.lens (\TrainingJob' {roleArn} -> roleArn) (\s@TrainingJob' {} a -> s {roleArn = a} :: TrainingJob)
 
 -- | Undocumented member.
 trainingJob_experimentConfig :: Lens.Lens' TrainingJob (Prelude.Maybe ExperimentConfig)
@@ -502,30 +517,34 @@ trainingJob_trainingJobName = Lens.lens (\TrainingJob' {trainingJobName} -> trai
 trainingJob_checkpointConfig :: Lens.Lens' TrainingJob (Prelude.Maybe CheckpointConfig)
 trainingJob_checkpointConfig = Lens.lens (\TrainingJob' {checkpointConfig} -> checkpointConfig) (\s@TrainingJob' {} a -> s {checkpointConfig = a} :: TrainingJob)
 
+-- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
+-- job if the training job was launched by a hyperparameter tuning job.
+trainingJob_tuningJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
+trainingJob_tuningJobArn = Lens.lens (\TrainingJob' {tuningJobArn} -> tuningJobArn) (\s@TrainingJob' {} a -> s {tuningJobArn = a} :: TrainingJob)
+
 -- | The S3 path where model artifacts that you configured when creating the
 -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
 trainingJob_outputDataConfig :: Lens.Lens' TrainingJob (Prelude.Maybe OutputDataConfig)
 trainingJob_outputDataConfig = Lens.lens (\TrainingJob' {outputDataConfig} -> outputDataConfig) (\s@TrainingJob' {} a -> s {outputDataConfig = a} :: TrainingJob)
 
--- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
--- job if the training job was launched by a hyperparameter tuning job.
-trainingJob_tuningJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
-trainingJob_tuningJobArn = Lens.lens (\TrainingJob' {tuningJobArn} -> tuningJobArn) (\s@TrainingJob' {} a -> s {tuningJobArn = a} :: TrainingJob)
+-- | The environment variables to set in the Docker container.
+trainingJob_environment :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+trainingJob_environment = Lens.lens (\TrainingJob' {environment} -> environment) (\s@TrainingJob' {} a -> s {environment = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the Amazon S3 location that is configured for storing
 -- model artifacts.
 trainingJob_modelArtifacts :: Lens.Lens' TrainingJob (Prelude.Maybe ModelArtifacts)
 trainingJob_modelArtifacts = Lens.lens (\TrainingJob' {modelArtifacts} -> modelArtifacts) (\s@TrainingJob' {} a -> s {modelArtifacts = a} :: TrainingJob)
 
--- | A history of all of the secondary statuses that the training job has
--- transitioned through.
-trainingJob_secondaryStatusTransitions :: Lens.Lens' TrainingJob (Prelude.Maybe [SecondaryStatusTransition])
-trainingJob_secondaryStatusTransitions = Lens.lens (\TrainingJob' {secondaryStatusTransitions} -> secondaryStatusTransitions) (\s@TrainingJob' {} a -> s {secondaryStatusTransitions = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of final metric values that are set when the training job
 -- completes. Used only if the training job was configured to use metrics.
 trainingJob_finalMetricDataList :: Lens.Lens' TrainingJob (Prelude.Maybe [MetricData])
 trainingJob_finalMetricDataList = Lens.lens (\TrainingJob' {finalMetricDataList} -> finalMetricDataList) (\s@TrainingJob' {} a -> s {finalMetricDataList = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A history of all of the secondary statuses that the training job has
+-- transitioned through.
+trainingJob_secondaryStatusTransitions :: Lens.Lens' TrainingJob (Prelude.Maybe [SecondaryStatusTransition])
+trainingJob_secondaryStatusTransitions = Lens.lens (\TrainingJob' {secondaryStatusTransitions} -> secondaryStatusTransitions) (\s@TrainingJob' {} a -> s {secondaryStatusTransitions = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the job.
 trainingJob_autoMLJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
@@ -535,12 +554,17 @@ trainingJob_autoMLJobArn = Lens.lens (\TrainingJob' {autoMLJobArn} -> autoMLJobA
 trainingJob_failureReason :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
 trainingJob_failureReason = Lens.lens (\TrainingJob' {failureReason} -> failureReason) (\s@TrainingJob' {} a -> s {failureReason = a} :: TrainingJob)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 trainingJob_tags :: Lens.Lens' TrainingJob (Prelude.Maybe [Tag])
 trainingJob_tags = Lens.lens (\TrainingJob' {tags} -> tags) (\s@TrainingJob' {} a -> s {tags = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A timestamp that indicates when the status of the training job was last
+-- modified.
+trainingJob_lastModifiedTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
+trainingJob_lastModifiedTime = Lens.lens (\TrainingJob' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJob' {} a -> s {lastModifiedTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
 
 -- | Provides detailed information about the state of the training job. For
 -- detailed information about the secondary status of the training job, see
@@ -590,18 +614,19 @@ trainingJob_tags = Lens.lens (\TrainingJob' {tags} -> tags) (\s@TrainingJob' {} 
 trainingJob_secondaryStatus :: Lens.Lens' TrainingJob (Prelude.Maybe SecondaryStatus)
 trainingJob_secondaryStatus = Lens.lens (\TrainingJob' {secondaryStatus} -> secondaryStatus) (\s@TrainingJob' {} a -> s {secondaryStatus = a} :: TrainingJob)
 
--- | A timestamp that indicates when the status of the training job was last
--- modified.
-trainingJob_lastModifiedTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
-trainingJob_lastModifiedTime = Lens.lens (\TrainingJob' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJob' {} a -> s {lastModifiedTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
-
 -- | Undocumented member.
 trainingJob_tensorBoardOutputConfig :: Lens.Lens' TrainingJob (Prelude.Maybe TensorBoardOutputConfig)
 trainingJob_tensorBoardOutputConfig = Lens.lens (\TrainingJob' {tensorBoardOutputConfig} -> tensorBoardOutputConfig) (\s@TrainingJob' {} a -> s {tensorBoardOutputConfig = a} :: TrainingJob)
 
--- | Specifies a limit to how long a model training job can run. When the job
--- reaches the time limit, Amazon SageMaker ends the training job. Use this
--- API to cap model training costs.
+-- | Information about the evaluation status of the rules for the training
+-- job.
+trainingJob_debugRuleEvaluationStatuses :: Lens.Lens' TrainingJob (Prelude.Maybe [DebugRuleEvaluationStatus])
+trainingJob_debugRuleEvaluationStatuses = Lens.lens (\TrainingJob' {debugRuleEvaluationStatuses} -> debugRuleEvaluationStatuses) (\s@TrainingJob' {} a -> s {debugRuleEvaluationStatuses = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Specifies a limit to how long a model training job can run. It also
+-- specifies how long a managed Spot training job has to complete. When the
+-- job reaches the time limit, Amazon SageMaker ends the training job. Use
+-- this API to cap model training costs.
 --
 -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@
 -- signal, which delays job termination for 120 seconds. Algorithms can use
@@ -609,11 +634,6 @@ trainingJob_tensorBoardOutputConfig = Lens.lens (\TrainingJob' {tensorBoardOutpu
 -- training are not lost.
 trainingJob_stoppingCondition :: Lens.Lens' TrainingJob (Prelude.Maybe StoppingCondition)
 trainingJob_stoppingCondition = Lens.lens (\TrainingJob' {stoppingCondition} -> stoppingCondition) (\s@TrainingJob' {} a -> s {stoppingCondition = a} :: TrainingJob)
-
--- | Information about the evaluation status of the rules for the training
--- job.
-trainingJob_debugRuleEvaluationStatuses :: Lens.Lens' TrainingJob (Prelude.Maybe [DebugRuleEvaluationStatus])
-trainingJob_debugRuleEvaluationStatuses = Lens.lens (\TrainingJob' {debugRuleEvaluationStatuses} -> debugRuleEvaluationStatuses) (\s@TrainingJob' {} a -> s {debugRuleEvaluationStatuses = a} :: TrainingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of the training job.
 --
@@ -635,6 +655,16 @@ trainingJob_debugRuleEvaluationStatuses = Lens.lens (\TrainingJob' {debugRuleEva
 trainingJob_trainingJobStatus :: Lens.Lens' TrainingJob (Prelude.Maybe TrainingJobStatus)
 trainingJob_trainingJobStatus = Lens.lens (\TrainingJob' {trainingJobStatus} -> trainingJobStatus) (\s@TrainingJob' {} a -> s {trainingJobStatus = a} :: TrainingJob)
 
+-- | The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
+trainingJob_retryStrategy :: Lens.Lens' TrainingJob (Prelude.Maybe RetryStrategy)
+trainingJob_retryStrategy = Lens.lens (\TrainingJob' {retryStrategy} -> retryStrategy) (\s@TrainingJob' {} a -> s {retryStrategy = a} :: TrainingJob)
+
+-- | Resources, including ML compute instances and ML storage volumes, that
+-- are configured for model training.
+trainingJob_resourceConfig :: Lens.Lens' TrainingJob (Prelude.Maybe ResourceConfig)
+trainingJob_resourceConfig = Lens.lens (\TrainingJob' {resourceConfig} -> resourceConfig) (\s@TrainingJob' {} a -> s {resourceConfig = a} :: TrainingJob)
+
 -- | Undocumented member.
 trainingJob_debugHookConfig :: Lens.Lens' TrainingJob (Prelude.Maybe DebugHookConfig)
 trainingJob_debugHookConfig = Lens.lens (\TrainingJob' {debugHookConfig} -> debugHookConfig) (\s@TrainingJob' {} a -> s {debugHookConfig = a} :: TrainingJob)
@@ -643,11 +673,6 @@ trainingJob_debugHookConfig = Lens.lens (\TrainingJob' {debugHookConfig} -> debu
 trainingJob_billableTimeInSeconds :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Natural)
 trainingJob_billableTimeInSeconds = Lens.lens (\TrainingJob' {billableTimeInSeconds} -> billableTimeInSeconds) (\s@TrainingJob' {} a -> s {billableTimeInSeconds = a} :: TrainingJob)
 
--- | Resources, including ML compute instances and ML storage volumes, that
--- are configured for model training.
-trainingJob_resourceConfig :: Lens.Lens' TrainingJob (Prelude.Maybe ResourceConfig)
-trainingJob_resourceConfig = Lens.lens (\TrainingJob' {resourceConfig} -> resourceConfig) (\s@TrainingJob' {} a -> s {resourceConfig = a} :: TrainingJob)
-
 -- | Indicates the time when the training job starts on training instances.
 -- You are billed for the time interval between this time and the value of
 -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
@@ -655,6 +680,10 @@ trainingJob_resourceConfig = Lens.lens (\TrainingJob' {resourceConfig} -> resour
 -- training data and to the size of the training container.
 trainingJob_trainingStartTime :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.UTCTime)
 trainingJob_trainingStartTime = Lens.lens (\TrainingJob' {trainingStartTime} -> trainingStartTime) (\s@TrainingJob' {} a -> s {trainingStartTime = a} :: TrainingJob) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the training job.
+trainingJob_trainingJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
+trainingJob_trainingJobArn = Lens.lens (\TrainingJob' {trainingJobArn} -> trainingJobArn) (\s@TrainingJob' {} a -> s {trainingJobArn = a} :: TrainingJob)
 
 -- | Indicates the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
@@ -669,10 +698,6 @@ trainingJob_trainingEndTime = Lens.lens (\TrainingJob' {trainingEndTime} -> trai
 trainingJob_algorithmSpecification :: Lens.Lens' TrainingJob (Prelude.Maybe AlgorithmSpecification)
 trainingJob_algorithmSpecification = Lens.lens (\TrainingJob' {algorithmSpecification} -> algorithmSpecification) (\s@TrainingJob' {} a -> s {algorithmSpecification = a} :: TrainingJob)
 
--- | The Amazon Resource Name (ARN) of the training job.
-trainingJob_trainingJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
-trainingJob_trainingJobArn = Lens.lens (\TrainingJob' {trainingJobArn} -> trainingJobArn) (\s@TrainingJob' {} a -> s {trainingJobArn = a} :: TrainingJob)
-
 instance Core.FromJSON TrainingJob where
   parseJSON =
     Core.withObject
@@ -680,50 +705,52 @@ instance Core.FromJSON TrainingJob where
       ( \x ->
           TrainingJob'
             Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LabelingJobArn")
+            Prelude.<*> ( x Core..:? "HyperParameters"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "DebugRuleConfigurations"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> ( x Core..:? "HyperParameters"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "EnableManagedSpotTraining")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LabelingJobArn")
-            Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "TrainingTimeInSeconds")
+            Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "ExperimentConfig")
             Prelude.<*> (x Core..:? "EnableNetworkIsolation")
             Prelude.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
             Prelude.<*> (x Core..:? "TrainingJobName")
             Prelude.<*> (x Core..:? "CheckpointConfig")
-            Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "TuningJobArn")
+            Prelude.<*> (x Core..:? "OutputDataConfig")
+            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ModelArtifacts")
-            Prelude.<*> ( x Core..:? "SecondaryStatusTransitions"
+            Prelude.<*> ( x Core..:? "FinalMetricDataList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "FinalMetricDataList"
+            Prelude.<*> ( x Core..:? "SecondaryStatusTransitions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "AutoMLJobArn")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SecondaryStatus")
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "SecondaryStatus")
             Prelude.<*> (x Core..:? "TensorBoardOutputConfig")
-            Prelude.<*> (x Core..:? "StoppingCondition")
             Prelude.<*> ( x Core..:? "DebugRuleEvaluationStatuses"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "StoppingCondition")
             Prelude.<*> (x Core..:? "TrainingJobStatus")
+            Prelude.<*> (x Core..:? "RetryStrategy")
+            Prelude.<*> (x Core..:? "ResourceConfig")
             Prelude.<*> (x Core..:? "DebugHookConfig")
             Prelude.<*> (x Core..:? "BillableTimeInSeconds")
-            Prelude.<*> (x Core..:? "ResourceConfig")
             Prelude.<*> (x Core..:? "TrainingStartTime")
+            Prelude.<*> (x Core..:? "TrainingJobArn")
             Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..:? "AlgorithmSpecification")
-            Prelude.<*> (x Core..:? "TrainingJobArn")
       )
 
 instance Prelude.Hashable TrainingJob

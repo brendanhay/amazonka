@@ -30,7 +30,12 @@ import Network.AWS.MediaConvert.Types.LanguageCode
 import Network.AWS.MediaConvert.Types.RemixSettings
 import qualified Network.AWS.Prelude as Prelude
 
--- | Description of audio output
+-- | Settings related to one audio tab on the MediaConvert console. In your
+-- job JSON, an instance of AudioDescription is equivalent to one audio tab
+-- in the console. Usually, one audio tab corresponds to one output audio
+-- track. Depending on how you set up your input audio selectors and
+-- whether you use audio selector groups, one audio tab can correspond to a
+-- group of output audio tracks.
 --
 -- /See:/ 'newAudioDescription' smart constructor.
 data AudioDescription = AudioDescription'
@@ -57,15 +62,8 @@ data AudioDescription = AudioDescription'
     -- Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually
     -- Impaired Commentary, 4-255 = Reserved.
     audioType :: Prelude.Maybe Prelude.Natural,
-    -- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains
-    -- the group of settings related to audio encoding. The settings in this
-    -- group vary depending on the value that you choose for Audio codec
-    -- (Codec). For each codec enum that you choose, define the corresponding
-    -- settings object. The following lists the codec enum, settings object
-    -- pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV,
-    -- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
-    -- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
-    -- OpusSettings
+    -- | Settings related to audio encoding. The settings in this group vary
+    -- depending on the value that you choose for your audio codec.
     codecSettings :: Prelude.Maybe AudioCodecSettings,
     -- | Specify which source for language code takes precedence for this audio
     -- track. When you choose Follow input (FOLLOW_INPUT), the service uses the
@@ -148,15 +146,8 @@ data AudioDescription = AudioDescription'
 -- Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually
 -- Impaired Commentary, 4-255 = Reserved.
 --
--- 'codecSettings', 'audioDescription_codecSettings' - Audio codec settings (CodecSettings) under (AudioDescriptions) contains
--- the group of settings related to audio encoding. The settings in this
--- group vary depending on the value that you choose for Audio codec
--- (Codec). For each codec enum that you choose, define the corresponding
--- settings object. The following lists the codec enum, settings object
--- pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV,
--- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
--- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
--- OpusSettings
+-- 'codecSettings', 'audioDescription_codecSettings' - Settings related to audio encoding. The settings in this group vary
+-- depending on the value that you choose for your audio codec.
 --
 -- 'languageCodeControl', 'audioDescription_languageCodeControl' - Specify which source for language code takes precedence for this audio
 -- track. When you choose Follow input (FOLLOW_INPUT), the service uses the
@@ -250,15 +241,8 @@ audioDescription_customLanguageCode = Lens.lens (\AudioDescription' {customLangu
 audioDescription_audioType :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Natural)
 audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioType) (\s@AudioDescription' {} a -> s {audioType = a} :: AudioDescription)
 
--- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains
--- the group of settings related to audio encoding. The settings in this
--- group vary depending on the value that you choose for Audio codec
--- (Codec). For each codec enum that you choose, define the corresponding
--- settings object. The following lists the codec enum, settings object
--- pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV,
--- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
--- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
--- OpusSettings
+-- | Settings related to audio encoding. The settings in this group vary
+-- depending on the value that you choose for your audio codec.
 audioDescription_codecSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioCodecSettings)
 audioDescription_codecSettings = Lens.lens (\AudioDescription' {codecSettings} -> codecSettings) (\s@AudioDescription' {} a -> s {codecSettings = a} :: AudioDescription)
 

@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the rule.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetTopicRule>
+-- action.
 module Network.AWS.IoT.GetTopicRule
   ( -- * Creating a Request
     GetTopicRule (..),

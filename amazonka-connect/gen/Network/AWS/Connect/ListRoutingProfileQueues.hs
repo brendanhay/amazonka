@@ -60,7 +60,8 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text
@@ -81,7 +82,8 @@ data ListRoutingProfileQueues = ListRoutingProfileQueues'
 --
 -- 'maxResults', 'listRoutingProfileQueues_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'listRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 newListRoutingProfileQueues ::
@@ -111,7 +113,8 @@ listRoutingProfileQueues_nextToken = Lens.lens (\ListRoutingProfileQueues' {next
 listRoutingProfileQueues_maxResults :: Lens.Lens' ListRoutingProfileQueues (Prelude.Maybe Prelude.Natural)
 listRoutingProfileQueues_maxResults = Lens.lens (\ListRoutingProfileQueues' {maxResults} -> maxResults) (\s@ListRoutingProfileQueues' {} a -> s {maxResults = a} :: ListRoutingProfileQueues)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listRoutingProfileQueues_instanceId :: Lens.Lens' ListRoutingProfileQueues Prelude.Text
 listRoutingProfileQueues_instanceId = Lens.lens (\ListRoutingProfileQueues' {instanceId} -> instanceId) (\s@ListRoutingProfileQueues' {} a -> s {instanceId = a} :: ListRoutingProfileQueues)
 

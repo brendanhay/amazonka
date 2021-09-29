@@ -41,8 +41,8 @@ module Network.AWS.Greengrass.GetFunctionDefinition
     getFunctionDefinitionResponse_arn,
     getFunctionDefinitionResponse_id,
     getFunctionDefinitionResponse_name,
-    getFunctionDefinitionResponse_lastUpdatedTimestamp,
     getFunctionDefinitionResponse_tags,
+    getFunctionDefinitionResponse_lastUpdatedTimestamp,
     getFunctionDefinitionResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetFunctionDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,11 +144,11 @@ data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
 --
 -- 'name', 'getFunctionDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getFunctionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getFunctionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getFunctionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getFunctionDefinitionResponse_httpStatus' - The response's http status code.
 newGetFunctionDefinitionResponse ::
@@ -194,8 +194,8 @@ newGetFunctionDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -224,14 +224,14 @@ getFunctionDefinitionResponse_id = Lens.lens (\GetFunctionDefinitionResponse' {i
 getFunctionDefinitionResponse_name :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
 getFunctionDefinitionResponse_name = Lens.lens (\GetFunctionDefinitionResponse' {name} -> name) (\s@GetFunctionDefinitionResponse' {} a -> s {name = a} :: GetFunctionDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getFunctionDefinitionResponse_tags :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFunctionDefinitionResponse_tags = Lens.lens (\GetFunctionDefinitionResponse' {tags} -> tags) (\s@GetFunctionDefinitionResponse' {} a -> s {tags = a} :: GetFunctionDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getFunctionDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
 getFunctionDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetFunctionDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetFunctionDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetFunctionDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getFunctionDefinitionResponse_tags :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getFunctionDefinitionResponse_tags = Lens.lens (\GetFunctionDefinitionResponse' {tags} -> tags) (\s@GetFunctionDefinitionResponse' {} a -> s {tags = a} :: GetFunctionDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getFunctionDefinitionResponse_httpStatus :: Lens.Lens' GetFunctionDefinitionResponse Prelude.Int

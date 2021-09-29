@@ -46,8 +46,8 @@ module Network.AWS.SESv2.SendEmail
     sendEmail_feedbackForwardingEmailAddressIdentityArn,
     sendEmail_fromEmailAddressIdentityArn,
     sendEmail_destination,
-    sendEmail_replyToAddresses,
     sendEmail_listManagementOptions,
+    sendEmail_replyToAddresses,
     sendEmail_feedbackForwardingEmailAddress,
     sendEmail_configurationSetName,
     sendEmail_emailTags,
@@ -115,12 +115,12 @@ data SendEmail = SendEmail'
     fromEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
     -- | An object that contains the recipients of the email message.
     destination :: Prelude.Maybe Destination,
-    -- | The \"Reply-to\" email addresses for the message. When the recipient
-    -- replies to the message, each Reply-to address receives the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | An object used to specify a list or topic to which an email belongs,
     -- which will be used when a contact chooses to unsubscribe.
     listManagementOptions :: Prelude.Maybe ListManagementOptions,
+    -- | The \"Reply-to\" email addresses for the message. When the recipient
+    -- replies to the message, each Reply-to address receives the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The address that you want bounce and complaint notifications to be sent
     -- to.
     feedbackForwardingEmailAddress :: Prelude.Maybe Prelude.Text,
@@ -185,11 +185,11 @@ data SendEmail = SendEmail'
 --
 -- 'destination', 'sendEmail_destination' - An object that contains the recipients of the email message.
 --
--- 'replyToAddresses', 'sendEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
--- replies to the message, each Reply-to address receives the reply.
---
 -- 'listManagementOptions', 'sendEmail_listManagementOptions' - An object used to specify a list or topic to which an email belongs,
 -- which will be used when a contact chooses to unsubscribe.
+--
+-- 'replyToAddresses', 'sendEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
+-- replies to the message, each Reply-to address receives the reply.
 --
 -- 'feedbackForwardingEmailAddress', 'sendEmail_feedbackForwardingEmailAddress' - The address that you want bounce and complaint notifications to be sent
 -- to.
@@ -215,8 +215,8 @@ newSendEmail pContent_ =
         Prelude.Nothing,
       fromEmailAddressIdentityArn = Prelude.Nothing,
       destination = Prelude.Nothing,
-      replyToAddresses = Prelude.Nothing,
       listManagementOptions = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
       feedbackForwardingEmailAddress = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
       emailTags = Prelude.Nothing,
@@ -270,15 +270,15 @@ sendEmail_fromEmailAddressIdentityArn = Lens.lens (\SendEmail' {fromEmailAddress
 sendEmail_destination :: Lens.Lens' SendEmail (Prelude.Maybe Destination)
 sendEmail_destination = Lens.lens (\SendEmail' {destination} -> destination) (\s@SendEmail' {} a -> s {destination = a} :: SendEmail)
 
--- | The \"Reply-to\" email addresses for the message. When the recipient
--- replies to the message, each Reply-to address receives the reply.
-sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
-sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
-
 -- | An object used to specify a list or topic to which an email belongs,
 -- which will be used when a contact chooses to unsubscribe.
 sendEmail_listManagementOptions :: Lens.Lens' SendEmail (Prelude.Maybe ListManagementOptions)
 sendEmail_listManagementOptions = Lens.lens (\SendEmail' {listManagementOptions} -> listManagementOptions) (\s@SendEmail' {} a -> s {listManagementOptions = a} :: SendEmail)
+
+-- | The \"Reply-to\" email addresses for the message. When the recipient
+-- replies to the message, each Reply-to address receives the reply.
+sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
+sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The address that you want bounce and complaint notifications to be sent
 -- to.
@@ -339,10 +339,10 @@ instance Core.ToJSON SendEmail where
             ("FromEmailAddressIdentityArn" Core..=)
               Prelude.<$> fromEmailAddressIdentityArn,
             ("Destination" Core..=) Prelude.<$> destination,
-            ("ReplyToAddresses" Core..=)
-              Prelude.<$> replyToAddresses,
             ("ListManagementOptions" Core..=)
               Prelude.<$> listManagementOptions,
+            ("ReplyToAddresses" Core..=)
+              Prelude.<$> replyToAddresses,
             ("FeedbackForwardingEmailAddress" Core..=)
               Prelude.<$> feedbackForwardingEmailAddress,
             ("ConfigurationSetName" Core..=)

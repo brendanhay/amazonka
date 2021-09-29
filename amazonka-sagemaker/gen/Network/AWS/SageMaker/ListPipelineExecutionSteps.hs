@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListPipelineExecutionSteps
     newListPipelineExecutionSteps,
 
     -- * Request Lenses
-    listPipelineExecutionSteps_sortOrder,
     listPipelineExecutionSteps_nextToken,
+    listPipelineExecutionSteps_sortOrder,
     listPipelineExecutionSteps_maxResults,
     listPipelineExecutionSteps_pipelineExecutionArn,
 
@@ -54,12 +54,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListPipelineExecutionSteps' smart constructor.
 data ListPipelineExecutionSteps = ListPipelineExecutionSteps'
-  { -- | The field by which to sort results. The default is @CreatedTime@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListPipelineExecutionSteps@ request was
+  { -- | If the result of the previous @ListPipelineExecutionSteps@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of pipeline execution steps, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The field by which to sort results. The default is @CreatedTime@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The maximum number of pipeline execution steps to return in the
     -- response.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -76,11 +76,11 @@ data ListPipelineExecutionSteps = ListPipelineExecutionSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listPipelineExecutionSteps_sortOrder' - The field by which to sort results. The default is @CreatedTime@.
---
 -- 'nextToken', 'listPipelineExecutionSteps_nextToken' - If the result of the previous @ListPipelineExecutionSteps@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of pipeline execution steps, use the token in the next request.
+--
+-- 'sortOrder', 'listPipelineExecutionSteps_sortOrder' - The field by which to sort results. The default is @CreatedTime@.
 --
 -- 'maxResults', 'listPipelineExecutionSteps_maxResults' - The maximum number of pipeline execution steps to return in the
 -- response.
@@ -90,22 +90,22 @@ newListPipelineExecutionSteps ::
   ListPipelineExecutionSteps
 newListPipelineExecutionSteps =
   ListPipelineExecutionSteps'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       pipelineExecutionArn = Prelude.Nothing
     }
-
--- | The field by which to sort results. The default is @CreatedTime@.
-listPipelineExecutionSteps_sortOrder :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe SortOrder)
-listPipelineExecutionSteps_sortOrder = Lens.lens (\ListPipelineExecutionSteps' {sortOrder} -> sortOrder) (\s@ListPipelineExecutionSteps' {} a -> s {sortOrder = a} :: ListPipelineExecutionSteps)
 
 -- | If the result of the previous @ListPipelineExecutionSteps@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of pipeline execution steps, use the token in the next request.
 listPipelineExecutionSteps_nextToken :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe Prelude.Text)
 listPipelineExecutionSteps_nextToken = Lens.lens (\ListPipelineExecutionSteps' {nextToken} -> nextToken) (\s@ListPipelineExecutionSteps' {} a -> s {nextToken = a} :: ListPipelineExecutionSteps)
+
+-- | The field by which to sort results. The default is @CreatedTime@.
+listPipelineExecutionSteps_sortOrder :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe SortOrder)
+listPipelineExecutionSteps_sortOrder = Lens.lens (\ListPipelineExecutionSteps' {sortOrder} -> sortOrder) (\s@ListPipelineExecutionSteps' {} a -> s {sortOrder = a} :: ListPipelineExecutionSteps)
 
 -- | The maximum number of pipeline execution steps to return in the
 -- response.
@@ -177,8 +177,8 @@ instance Core.ToJSON ListPipelineExecutionSteps where
   toJSON ListPipelineExecutionSteps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("PipelineExecutionArn" Core..=)
               Prelude.<$> pipelineExecutionArn

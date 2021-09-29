@@ -20,13 +20,13 @@ module Network.AWS.Translate.Types
     _InvalidFilterException,
     _DetectedLanguageLowConfidenceException,
     _ServiceUnavailableException,
-    _ConcurrentModificationException,
     _UnsupportedLanguagePairException,
+    _ConcurrentModificationException,
     _InvalidRequestException,
     _InvalidParameterValueException,
-    _LimitExceededException,
-    _ConflictException,
     _TextSizeLimitExceededException,
+    _ConflictException,
+    _LimitExceededException,
     _ResourceNotFoundException,
     _InternalServerException,
     _TooManyRequestsException,
@@ -100,17 +100,17 @@ module Network.AWS.Translate.Types
     parallelDataProperties_latestUpdateAttemptStatus,
     parallelDataProperties_message,
     parallelDataProperties_encryptionKey,
-    parallelDataProperties_arn,
-    parallelDataProperties_targetLanguageCodes,
     parallelDataProperties_createdAt,
+    parallelDataProperties_arn,
     parallelDataProperties_failedRecordCount,
+    parallelDataProperties_targetLanguageCodes,
     parallelDataProperties_latestUpdateAttemptAt,
     parallelDataProperties_name,
     parallelDataProperties_parallelDataConfig,
     parallelDataProperties_description,
     parallelDataProperties_sourceLanguageCode,
-    parallelDataProperties_importedRecordCount,
     parallelDataProperties_lastUpdatedAt,
+    parallelDataProperties_importedRecordCount,
 
     -- * Term
     Term (..),
@@ -134,9 +134,9 @@ module Network.AWS.Translate.Types
     TerminologyProperties (..),
     newTerminologyProperties,
     terminologyProperties_encryptionKey,
+    terminologyProperties_createdAt,
     terminologyProperties_arn,
     terminologyProperties_targetLanguageCodes,
-    terminologyProperties_createdAt,
     terminologyProperties_name,
     terminologyProperties_sizeBytes,
     terminologyProperties_description,
@@ -156,19 +156,19 @@ module Network.AWS.Translate.Types
     TextTranslationJobProperties (..),
     newTextTranslationJobProperties,
     textTranslationJobProperties_parallelDataNames,
-    textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_submittedTime,
+    textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_message,
     textTranslationJobProperties_jobStatus,
-    textTranslationJobProperties_jobDetails,
     textTranslationJobProperties_outputDataConfig,
+    textTranslationJobProperties_jobDetails,
     textTranslationJobProperties_targetLanguageCodes,
     textTranslationJobProperties_endTime,
     textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_jobName,
     textTranslationJobProperties_dataAccessRoleArn,
-    textTranslationJobProperties_jobId,
     textTranslationJobProperties_sourceLanguageCode,
+    textTranslationJobProperties_jobId,
   )
 where
 
@@ -295,14 +295,6 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
 
--- | Another modification is being made. That modification must complete
--- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
 -- | Amazon Translate does not support translation from the language of the
 -- source text into the requested target language. For more information,
 -- see how-to-error-msg.
@@ -311,6 +303,14 @@ _UnsupportedLanguagePairException =
   Core._MatchServiceError
     defaultService
     "UnsupportedLanguagePairException"
+
+-- | Another modification is being made. That modification must complete
+-- before you can make your change.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
 
 -- | The request that you made is invalid. Check your request to determine
 -- why it\'s invalid and then retry the request.
@@ -328,13 +328,13 @@ _InvalidParameterValueException =
     defaultService
     "InvalidParameterValueException"
 
--- | The specified limit has been exceeded. Review your request and retry it
--- with a quantity below the stated limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The size of the text you submitted exceeds the size limit. Reduce the
+-- size of the text or use a smaller document and then retry your request.
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "TextSizeLimitExceededException"
 
 -- | There was a conflict processing the request. Try your request again.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -343,13 +343,13 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The size of the text you submitted exceeds the size limit. Reduce the
--- size of the text or use a smaller document and then retry your request.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TextSizeLimitExceededException =
+-- | The specified limit has been exceeded. Review your request and retry it
+-- with a quantity below the stated limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "TextSizeLimitExceededException"
+    "LimitExceededException"
 
 -- | The resource you are looking for has not been found. Review the resource
 -- you\'re looking for and see if a different resource will accomplish your

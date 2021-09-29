@@ -11,12 +11,12 @@
 --
 -- Derived from API version @2015-12-08@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Certificate Manager
+-- Amazon Web Services Certificate Manager
 --
--- You can use AWS Certificate Manager (ACM) to manage SSL\/TLS
--- certificates for your AWS-based websites and applications. For more
--- information about using ACM, see the
--- <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide>.
+-- You can use Amazon Web Services Certificate Manager (ACM) to manage
+-- SSL\/TLS certificates for your Amazon Web Services-based websites and
+-- applications. For more information about using ACM, see the
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Amazon Web Services Certificate Manager User Guide>.
 module Network.AWS.CertificateManager
   ( -- * Service Configuration
     defaultService,
@@ -51,23 +51,23 @@ module Network.AWS.CertificateManager
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** InvalidTagException
     _InvalidTagException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** RequestInProgressException
     _RequestInProgressException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -87,6 +87,12 @@ module Network.AWS.CertificateManager
     GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
     newGetAccountConfigurationResponse,
 
+    -- ** RemoveTagsFromCertificate
+    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
+    newRemoveTagsFromCertificate,
+    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
+    newRemoveTagsFromCertificateResponse,
+
     -- ** DeleteCertificate
     DeleteCertificate (DeleteCertificate'),
     newDeleteCertificate,
@@ -98,12 +104,6 @@ module Network.AWS.CertificateManager
     newUpdateCertificateOptions,
     UpdateCertificateOptionsResponse (UpdateCertificateOptionsResponse'),
     newUpdateCertificateOptionsResponse,
-
-    -- ** RemoveTagsFromCertificate
-    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
-    newRemoveTagsFromCertificate,
-    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
-    newRemoveTagsFromCertificateResponse,
 
     -- ** ExportCertificate
     ExportCertificate (ExportCertificate'),
@@ -123,6 +123,12 @@ module Network.AWS.CertificateManager
     GetCertificateResponse (GetCertificateResponse'),
     newGetCertificateResponse,
 
+    -- ** ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
+
     -- ** DescribeCertificate
     DescribeCertificate (DescribeCertificate'),
     newDescribeCertificate,
@@ -135,11 +141,11 @@ module Network.AWS.CertificateManager
     PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
     newPutAccountConfigurationResponse,
 
-    -- ** ImportCertificate
-    ImportCertificate (ImportCertificate'),
-    newImportCertificate,
-    ImportCertificateResponse (ImportCertificateResponse'),
-    newImportCertificateResponse,
+    -- ** ResendValidationEmail
+    ResendValidationEmail (ResendValidationEmail'),
+    newResendValidationEmail,
+    ResendValidationEmailResponse (ResendValidationEmailResponse'),
+    newResendValidationEmailResponse,
 
     -- ** ListCertificates (Paginated)
     ListCertificates (ListCertificates'),
@@ -152,12 +158,6 @@ module Network.AWS.CertificateManager
     newRequestCertificate,
     RequestCertificateResponse (RequestCertificateResponse'),
     newRequestCertificateResponse,
-
-    -- ** ResendValidationEmail
-    ResendValidationEmail (ResendValidationEmail'),
-    newResendValidationEmail,
-    ResendValidationEmailResponse (ResendValidationEmailResponse'),
-    newResendValidationEmailResponse,
 
     -- ** AddTagsToCertificate
     AddTagsToCertificate (AddTagsToCertificate'),

@@ -30,7 +30,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The deployment mode of the broker.
+-- | The broker\'s deployment mode.
 newtype DeploymentMode = DeploymentMode'
   { fromDeploymentMode ::
       Core.Text

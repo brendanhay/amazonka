@@ -72,8 +72,8 @@ module Network.AWS.MechanicalTurk.Types
     assignment_submitTime,
     assignment_workerId,
     assignment_acceptTime,
-    assignment_approvalTime,
     assignment_deadline,
+    assignment_approvalTime,
 
     -- * BonusPayment
     BonusPayment (..),
@@ -94,19 +94,19 @@ module Network.AWS.MechanicalTurk.Types
     hit_question,
     hit_expiration,
     hit_hITReviewStatus,
-    hit_title,
     hit_hITId,
+    hit_title,
     hit_hITLayoutId,
-    hit_numberOfAssignmentsCompleted,
     hit_reward,
+    hit_numberOfAssignmentsCompleted,
     hit_maxAssignments,
-    hit_hITStatus,
     hit_requesterAnnotation,
+    hit_hITStatus,
     hit_description,
     hit_numberOfAssignmentsAvailable,
     hit_hITTypeId,
-    hit_qualificationRequirements,
     hit_numberOfAssignmentsPending,
+    hit_qualificationRequirements,
     hit_keywords,
 
     -- * HITLayoutParameter
@@ -132,8 +132,8 @@ module Network.AWS.MechanicalTurk.Types
     -- * NotifyWorkersFailureStatus
     NotifyWorkersFailureStatus (..),
     newNotifyWorkersFailureStatus,
-    notifyWorkersFailureStatus_workerId,
     notifyWorkersFailureStatus_notifyWorkersFailureCode,
+    notifyWorkersFailureStatus_workerId,
     notifyWorkersFailureStatus_notifyWorkersFailureMessage,
 
     -- * ParameterMapEntry
@@ -152,11 +152,11 @@ module Network.AWS.MechanicalTurk.Types
     -- * Qualification
     Qualification (..),
     newQualification,
-    qualification_qualificationTypeId,
     qualification_status,
+    qualification_qualificationTypeId,
     qualification_grantTime,
-    qualification_workerId,
     qualification_localeValue,
+    qualification_workerId,
     qualification_integerValue,
 
     -- * QualificationRequest
@@ -182,18 +182,18 @@ module Network.AWS.MechanicalTurk.Types
     -- * QualificationType
     QualificationType (..),
     newQualificationType,
-    qualificationType_qualificationTypeId,
     qualificationType_creationTime,
+    qualificationType_qualificationTypeId,
     qualificationType_isRequestable,
     qualificationType_retryDelayInSeconds,
     qualificationType_autoGranted,
     qualificationType_qualificationTypeStatus,
     qualificationType_name,
     qualificationType_testDurationInSeconds,
-    qualificationType_description,
     qualificationType_test,
-    qualificationType_answerKey,
+    qualificationType_description,
     qualificationType_autoGrantedValue,
+    qualificationType_answerKey,
     qualificationType_keywords,
 
     -- * ReviewActionDetail
@@ -201,9 +201,9 @@ module Network.AWS.MechanicalTurk.Types
     newReviewActionDetail,
     reviewActionDetail_status,
     reviewActionDetail_targetId,
+    reviewActionDetail_result,
     reviewActionDetail_actionName,
     reviewActionDetail_targetType,
-    reviewActionDetail_result,
     reviewActionDetail_actionId,
     reviewActionDetail_completeTime,
     reviewActionDetail_errorCode,

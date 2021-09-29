@@ -27,6 +27,7 @@ module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
         ServiceNamespace_Dynamodb,
         ServiceNamespace_Ec2,
         ServiceNamespace_Ecs,
+        ServiceNamespace_Elasticache,
         ServiceNamespace_Elasticmapreduce,
         ServiceNamespace_Kafka,
         ServiceNamespace_Lambda,
@@ -88,6 +89,9 @@ pattern ServiceNamespace_Ec2 = ServiceNamespace' "ec2"
 pattern ServiceNamespace_Ecs :: ServiceNamespace
 pattern ServiceNamespace_Ecs = ServiceNamespace' "ecs"
 
+pattern ServiceNamespace_Elasticache :: ServiceNamespace
+pattern ServiceNamespace_Elasticache = ServiceNamespace' "elasticache"
+
 pattern ServiceNamespace_Elasticmapreduce :: ServiceNamespace
 pattern ServiceNamespace_Elasticmapreduce = ServiceNamespace' "elasticmapreduce"
 
@@ -111,6 +115,7 @@ pattern ServiceNamespace_Sagemaker = ServiceNamespace' "sagemaker"
   ServiceNamespace_Dynamodb,
   ServiceNamespace_Ec2,
   ServiceNamespace_Ecs,
+  ServiceNamespace_Elasticache,
   ServiceNamespace_Elasticmapreduce,
   ServiceNamespace_Kafka,
   ServiceNamespace_Lambda,

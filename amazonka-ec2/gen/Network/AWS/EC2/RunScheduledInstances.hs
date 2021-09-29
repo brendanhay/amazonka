@@ -39,8 +39,8 @@ module Network.AWS.EC2.RunScheduledInstances
 
     -- * Request Lenses
     runScheduledInstances_dryRun,
-    runScheduledInstances_clientToken,
     runScheduledInstances_instanceCount,
+    runScheduledInstances_clientToken,
     runScheduledInstances_launchSpecification,
     runScheduledInstances_scheduledInstanceId,
 
@@ -70,14 +70,14 @@ data RunScheduledInstances = RunScheduledInstances'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that ensures the idempotency of the
-    -- request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The number of instances.
     --
     -- Default: 1
     instanceCount :: Prelude.Maybe Prelude.Int,
+    -- | Unique, case-sensitive identifier that ensures the idempotency of the
+    -- request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The launch specification. You must match the instance type, Availability
     -- Zone, network, and platform of the schedule that you purchased.
     launchSpecification :: ScheduledInstancesLaunchSpecification,
@@ -99,13 +99,13 @@ data RunScheduledInstances = RunScheduledInstances'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'clientToken', 'runScheduledInstances_clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
---
 -- 'instanceCount', 'runScheduledInstances_instanceCount' - The number of instances.
 --
 -- Default: 1
+--
+-- 'clientToken', 'runScheduledInstances_clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- 'launchSpecification', 'runScheduledInstances_launchSpecification' - The launch specification. You must match the instance type, Availability
 -- Zone, network, and platform of the schedule that you purchased.
@@ -122,8 +122,8 @@ newRunScheduledInstances
   pScheduledInstanceId_ =
     RunScheduledInstances'
       { dryRun = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         instanceCount = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         launchSpecification = pLaunchSpecification_,
         scheduledInstanceId = pScheduledInstanceId_
       }
@@ -135,17 +135,17 @@ newRunScheduledInstances
 runScheduledInstances_dryRun :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Bool)
 runScheduledInstances_dryRun = Lens.lens (\RunScheduledInstances' {dryRun} -> dryRun) (\s@RunScheduledInstances' {} a -> s {dryRun = a} :: RunScheduledInstances)
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Text)
-runScheduledInstances_clientToken = Lens.lens (\RunScheduledInstances' {clientToken} -> clientToken) (\s@RunScheduledInstances' {} a -> s {clientToken = a} :: RunScheduledInstances)
-
 -- | The number of instances.
 --
 -- Default: 1
 runScheduledInstances_instanceCount :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Int)
 runScheduledInstances_instanceCount = Lens.lens (\RunScheduledInstances' {instanceCount} -> instanceCount) (\s@RunScheduledInstances' {} a -> s {instanceCount = a} :: RunScheduledInstances)
+
+-- | Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Text)
+runScheduledInstances_clientToken = Lens.lens (\RunScheduledInstances' {clientToken} -> clientToken) (\s@RunScheduledInstances' {} a -> s {clientToken = a} :: RunScheduledInstances)
 
 -- | The launch specification. You must match the instance type, Availability
 -- Zone, network, and platform of the schedule that you purchased.
@@ -189,8 +189,8 @@ instance Core.ToQuery RunScheduledInstances where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
-        "ClientToken" Core.=: clientToken,
         "InstanceCount" Core.=: instanceCount,
+        "ClientToken" Core.=: clientToken,
         "LaunchSpecification" Core.=: launchSpecification,
         "ScheduledInstanceId" Core.=: scheduledInstanceId
       ]

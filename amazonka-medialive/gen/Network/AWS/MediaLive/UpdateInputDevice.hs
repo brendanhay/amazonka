@@ -38,13 +38,13 @@ module Network.AWS.MediaLive.UpdateInputDevice
 
     -- * Response Lenses
     updateInputDeviceResponse_uhdDeviceSettings,
-    updateInputDeviceResponse_hdDeviceSettings,
     updateInputDeviceResponse_macAddress,
+    updateInputDeviceResponse_hdDeviceSettings,
     updateInputDeviceResponse_connectionState,
     updateInputDeviceResponse_networkSettings,
+    updateInputDeviceResponse_deviceUpdateStatus,
     updateInputDeviceResponse_arn,
     updateInputDeviceResponse_id,
-    updateInputDeviceResponse_deviceUpdateStatus,
     updateInputDeviceResponse_name,
     updateInputDeviceResponse_serialNumber,
     updateInputDeviceResponse_type,
@@ -129,13 +129,13 @@ instance Core.AWSRequest UpdateInputDevice' where
       ( \s h x ->
           UpdateInputDeviceResponse'
             Prelude.<$> (x Core..?> "uhdDeviceSettings")
-            Prelude.<*> (x Core..?> "hdDeviceSettings")
             Prelude.<*> (x Core..?> "macAddress")
+            Prelude.<*> (x Core..?> "hdDeviceSettings")
             Prelude.<*> (x Core..?> "connectionState")
             Prelude.<*> (x Core..?> "networkSettings")
+            Prelude.<*> (x Core..?> "deviceUpdateStatus")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "deviceUpdateStatus")
             Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "serialNumber")
             Prelude.<*> (x Core..?> "type")
@@ -184,20 +184,20 @@ instance Core.ToQuery UpdateInputDevice' where
 data UpdateInputDeviceResponse = UpdateInputDeviceResponse'
   { -- | Settings that describe an input device that is type UHD.
     uhdDeviceSettings :: Prelude.Maybe InputDeviceUhdSettings,
-    -- | Settings that describe an input device that is type HD.
-    hdDeviceSettings :: Prelude.Maybe InputDeviceHdSettings,
     -- | The network MAC address of the input device.
     macAddress :: Prelude.Maybe Prelude.Text,
+    -- | Settings that describe an input device that is type HD.
+    hdDeviceSettings :: Prelude.Maybe InputDeviceHdSettings,
     -- | The state of the connection between the input device and AWS.
     connectionState :: Prelude.Maybe InputDeviceConnectionState,
     -- | The network settings for the input device.
     networkSettings :: Prelude.Maybe InputDeviceNetworkSettings,
+    -- | The status of software on the input device.
+    deviceUpdateStatus :: Prelude.Maybe DeviceUpdateStatus,
     -- | The unique ARN of the input device.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the input device.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The status of software on the input device.
-    deviceUpdateStatus :: Prelude.Maybe DeviceUpdateStatus,
     -- | A name that you specify for the input device.
     name :: Prelude.Maybe Prelude.Text,
     -- | The unique serial number of the input device.
@@ -225,19 +225,19 @@ data UpdateInputDeviceResponse = UpdateInputDeviceResponse'
 --
 -- 'uhdDeviceSettings', 'updateInputDeviceResponse_uhdDeviceSettings' - Settings that describe an input device that is type UHD.
 --
--- 'hdDeviceSettings', 'updateInputDeviceResponse_hdDeviceSettings' - Settings that describe an input device that is type HD.
---
 -- 'macAddress', 'updateInputDeviceResponse_macAddress' - The network MAC address of the input device.
+--
+-- 'hdDeviceSettings', 'updateInputDeviceResponse_hdDeviceSettings' - Settings that describe an input device that is type HD.
 --
 -- 'connectionState', 'updateInputDeviceResponse_connectionState' - The state of the connection between the input device and AWS.
 --
 -- 'networkSettings', 'updateInputDeviceResponse_networkSettings' - The network settings for the input device.
 --
+-- 'deviceUpdateStatus', 'updateInputDeviceResponse_deviceUpdateStatus' - The status of software on the input device.
+--
 -- 'arn', 'updateInputDeviceResponse_arn' - The unique ARN of the input device.
 --
 -- 'id', 'updateInputDeviceResponse_id' - The unique ID of the input device.
---
--- 'deviceUpdateStatus', 'updateInputDeviceResponse_deviceUpdateStatus' - The status of software on the input device.
 --
 -- 'name', 'updateInputDeviceResponse_name' - A name that you specify for the input device.
 --
@@ -260,13 +260,13 @@ newUpdateInputDeviceResponse pHttpStatus_ =
   UpdateInputDeviceResponse'
     { uhdDeviceSettings =
         Prelude.Nothing,
-      hdDeviceSettings = Prelude.Nothing,
       macAddress = Prelude.Nothing,
+      hdDeviceSettings = Prelude.Nothing,
       connectionState = Prelude.Nothing,
       networkSettings = Prelude.Nothing,
+      deviceUpdateStatus = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      deviceUpdateStatus = Prelude.Nothing,
       name = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -278,13 +278,13 @@ newUpdateInputDeviceResponse pHttpStatus_ =
 updateInputDeviceResponse_uhdDeviceSettings :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceUhdSettings)
 updateInputDeviceResponse_uhdDeviceSettings = Lens.lens (\UpdateInputDeviceResponse' {uhdDeviceSettings} -> uhdDeviceSettings) (\s@UpdateInputDeviceResponse' {} a -> s {uhdDeviceSettings = a} :: UpdateInputDeviceResponse)
 
--- | Settings that describe an input device that is type HD.
-updateInputDeviceResponse_hdDeviceSettings :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceHdSettings)
-updateInputDeviceResponse_hdDeviceSettings = Lens.lens (\UpdateInputDeviceResponse' {hdDeviceSettings} -> hdDeviceSettings) (\s@UpdateInputDeviceResponse' {} a -> s {hdDeviceSettings = a} :: UpdateInputDeviceResponse)
-
 -- | The network MAC address of the input device.
 updateInputDeviceResponse_macAddress :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe Prelude.Text)
 updateInputDeviceResponse_macAddress = Lens.lens (\UpdateInputDeviceResponse' {macAddress} -> macAddress) (\s@UpdateInputDeviceResponse' {} a -> s {macAddress = a} :: UpdateInputDeviceResponse)
+
+-- | Settings that describe an input device that is type HD.
+updateInputDeviceResponse_hdDeviceSettings :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceHdSettings)
+updateInputDeviceResponse_hdDeviceSettings = Lens.lens (\UpdateInputDeviceResponse' {hdDeviceSettings} -> hdDeviceSettings) (\s@UpdateInputDeviceResponse' {} a -> s {hdDeviceSettings = a} :: UpdateInputDeviceResponse)
 
 -- | The state of the connection between the input device and AWS.
 updateInputDeviceResponse_connectionState :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceConnectionState)
@@ -294,6 +294,10 @@ updateInputDeviceResponse_connectionState = Lens.lens (\UpdateInputDeviceRespons
 updateInputDeviceResponse_networkSettings :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceNetworkSettings)
 updateInputDeviceResponse_networkSettings = Lens.lens (\UpdateInputDeviceResponse' {networkSettings} -> networkSettings) (\s@UpdateInputDeviceResponse' {} a -> s {networkSettings = a} :: UpdateInputDeviceResponse)
 
+-- | The status of software on the input device.
+updateInputDeviceResponse_deviceUpdateStatus :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe DeviceUpdateStatus)
+updateInputDeviceResponse_deviceUpdateStatus = Lens.lens (\UpdateInputDeviceResponse' {deviceUpdateStatus} -> deviceUpdateStatus) (\s@UpdateInputDeviceResponse' {} a -> s {deviceUpdateStatus = a} :: UpdateInputDeviceResponse)
+
 -- | The unique ARN of the input device.
 updateInputDeviceResponse_arn :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe Prelude.Text)
 updateInputDeviceResponse_arn = Lens.lens (\UpdateInputDeviceResponse' {arn} -> arn) (\s@UpdateInputDeviceResponse' {} a -> s {arn = a} :: UpdateInputDeviceResponse)
@@ -301,10 +305,6 @@ updateInputDeviceResponse_arn = Lens.lens (\UpdateInputDeviceResponse' {arn} -> 
 -- | The unique ID of the input device.
 updateInputDeviceResponse_id :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe Prelude.Text)
 updateInputDeviceResponse_id = Lens.lens (\UpdateInputDeviceResponse' {id} -> id) (\s@UpdateInputDeviceResponse' {} a -> s {id = a} :: UpdateInputDeviceResponse)
-
--- | The status of software on the input device.
-updateInputDeviceResponse_deviceUpdateStatus :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe DeviceUpdateStatus)
-updateInputDeviceResponse_deviceUpdateStatus = Lens.lens (\UpdateInputDeviceResponse' {deviceUpdateStatus} -> deviceUpdateStatus) (\s@UpdateInputDeviceResponse' {} a -> s {deviceUpdateStatus = a} :: UpdateInputDeviceResponse)
 
 -- | A name that you specify for the input device.
 updateInputDeviceResponse_name :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe Prelude.Text)

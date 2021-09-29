@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateInstanceStorageConfig' smart constructor.
 data DisassociateInstanceStorageConfig = DisassociateInstanceStorageConfig'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
@@ -68,7 +69,8 @@ data DisassociateInstanceStorageConfig = DisassociateInstanceStorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'disassociateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'associationId', 'disassociateInstanceStorageConfig_associationId' - The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
@@ -93,7 +95,8 @@ newDisassociateInstanceStorageConfig
         resourceType = pResourceType_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 disassociateInstanceStorageConfig_instanceId :: Lens.Lens' DisassociateInstanceStorageConfig Prelude.Text
 disassociateInstanceStorageConfig_instanceId = Lens.lens (\DisassociateInstanceStorageConfig' {instanceId} -> instanceId) (\s@DisassociateInstanceStorageConfig' {} a -> s {instanceId = a} :: DisassociateInstanceStorageConfig)
 

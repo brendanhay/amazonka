@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes event configurations.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeEventConfigurations>
+-- action.
 module Network.AWS.IoT.DescribeEventConfigurations
   ( -- * Creating a Request
     DescribeEventConfigurations (..),

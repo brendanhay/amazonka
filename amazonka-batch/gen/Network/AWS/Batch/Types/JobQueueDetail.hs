@@ -26,15 +26,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing the details of an AWS Batch job queue.
+-- | An object representing the details of an Batch job queue.
 --
 -- /See:/ 'newJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
   { -- | The status of the job queue (for example, @CREATING@ or @VALID@).
     status :: Prelude.Maybe JQStatus,
     -- | The tags applied to the job queue. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
-    -- in /AWS Batch User Guide/.
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+    -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short, human-readable string to provide additional details about the
     -- current status of the job queue.
@@ -55,7 +55,7 @@ data JobQueueDetail = JobQueueDetail'
     -- value of @10@ is given scheduling preference over a job queue with a
     -- priority value of @1@. All of the compute environments must be either
     -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
-    -- Fargate compute environments cannot be mixed.
+    -- Fargate compute environments can\'t be mixed.
     priority :: Prelude.Int,
     -- | The compute environments that are attached to the job queue and the
     -- order that job placement is preferred. Compute environments are selected
@@ -75,8 +75,8 @@ data JobQueueDetail = JobQueueDetail'
 -- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
 --
 -- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 --
 -- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the
 -- current status of the job queue.
@@ -97,7 +97,7 @@ data JobQueueDetail = JobQueueDetail'
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- Fargate compute environments can\'t be mixed.
 --
 -- 'computeEnvironmentOrder', 'jobQueueDetail_computeEnvironmentOrder' - The compute environments that are attached to the job queue and the
 -- order that job placement is preferred. Compute environments are selected
@@ -133,8 +133,8 @@ jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
 jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
 
 -- | The tags applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your AWS Batch resources>
--- in /AWS Batch User Guide/.
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens._Coerce
 
@@ -165,7 +165,7 @@ jobQueueDetail_state = Lens.lens (\JobQueueDetail' {state} -> state) (\s@JobQueu
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@); EC2 and
--- Fargate compute environments cannot be mixed.
+-- Fargate compute environments can\'t be mixed.
 jobQueueDetail_priority :: Lens.Lens' JobQueueDetail Prelude.Int
 jobQueueDetail_priority = Lens.lens (\JobQueueDetail' {priority} -> priority) (\s@JobQueueDetail' {} a -> s {priority = a} :: JobQueueDetail)
 

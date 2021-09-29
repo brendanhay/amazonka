@@ -36,8 +36,8 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     describeOrderableDBInstanceOptions_filters,
     describeOrderableDBInstanceOptions_availabilityZoneGroup,
     describeOrderableDBInstanceOptions_vpc,
-    describeOrderableDBInstanceOptions_marker,
     describeOrderableDBInstanceOptions_maxRecords,
+    describeOrderableDBInstanceOptions_marker,
     describeOrderableDBInstanceOptions_engine,
 
     -- * Destructuring the Response
@@ -77,16 +77,11 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     -- parameter to retrieve available offerings for the Local Zones in the
     -- group.
     --
-    -- Omit this parameter to show the available offerings in the specified AWS
-    -- Region.
+    -- Omit this parameter to show the available offerings in the specified
+    -- Amazon Web Services Region.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to show only VPC or non-VPC offerings.
     vpc :: Prelude.Maybe Prelude.Bool,
-    -- | An optional pagination token provided by a previous
-    -- DescribeOrderableDBInstanceOptions request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@ .
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -96,6 +91,11 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- DescribeOrderableDBInstanceOptions request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@ .
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the engine to retrieve DB instance options for.
     --
     -- Valid Values:
@@ -112,11 +112,11 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- -   @oracle-ee@
     --
+    -- -   @oracle-ee-cdb@
+    --
     -- -   @oracle-se2@
     --
-    -- -   @oracle-se1@
-    --
-    -- -   @oracle-se@
+    -- -   @oracle-se2-cdb@
     --
     -- -   @postgres@
     --
@@ -154,15 +154,10 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- parameter to retrieve available offerings for the Local Zones in the
 -- group.
 --
--- Omit this parameter to show the available offerings in the specified AWS
--- Region.
+-- Omit this parameter to show the available offerings in the specified
+-- Amazon Web Services Region.
 --
 -- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - A value that indicates whether to show only VPC or non-VPC offerings.
---
--- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
 --
 -- 'maxRecords', 'describeOrderableDBInstanceOptions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -172,6 +167,11 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@ .
 --
 -- 'engine', 'describeOrderableDBInstanceOptions_engine' - The name of the engine to retrieve DB instance options for.
 --
@@ -189,11 +189,11 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -217,8 +217,8 @@ newDescribeOrderableDBInstanceOptions pEngine_ =
       filters = Prelude.Nothing,
       availabilityZoneGroup = Prelude.Nothing,
       vpc = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       engine = pEngine_
     }
 
@@ -245,21 +245,14 @@ describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInst
 -- parameter to retrieve available offerings for the Local Zones in the
 -- group.
 --
--- Omit this parameter to show the available offerings in the specified AWS
--- Region.
+-- Omit this parameter to show the available offerings in the specified
+-- Amazon Web Services Region.
 describeOrderableDBInstanceOptions_availabilityZoneGroup :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_availabilityZoneGroup = Lens.lens (\DescribeOrderableDBInstanceOptions' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {availabilityZoneGroup = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | A value that indicates whether to show only VPC or non-VPC offerings.
 describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
 describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
-
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
-describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -271,6 +264,13 @@ describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInsta
 -- Constraints: Minimum 20, maximum 100.
 describeOrderableDBInstanceOptions_maxRecords :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Int)
 describeOrderableDBInstanceOptions_maxRecords = Lens.lens (\DescribeOrderableDBInstanceOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {maxRecords = a} :: DescribeOrderableDBInstanceOptions)
+
+-- | An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@ .
+describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | The name of the engine to retrieve DB instance options for.
 --
@@ -288,11 +288,11 @@ describeOrderableDBInstanceOptions_maxRecords = Lens.lens (\DescribeOrderableDBI
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -394,8 +394,8 @@ instance
         "AvailabilityZoneGroup"
           Core.=: availabilityZoneGroup,
         "Vpc" Core.=: vpc,
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
         "Engine" Core.=: engine
       ]
 

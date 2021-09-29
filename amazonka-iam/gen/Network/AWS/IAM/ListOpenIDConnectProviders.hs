@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about the IAM OpenID Connect (OIDC) provider resource
--- objects defined in the AWS account.
+-- objects defined in the Amazon Web Services account.
 --
 -- IAM resource-listing operations return a subset of the available
 -- attributes for the resource. For example, this operation does not return
@@ -108,8 +108,8 @@ instance Core.ToQuery ListOpenIDConnectProviders where
 --
 -- /See:/ 'newListOpenIDConnectProvidersResponse' smart constructor.
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
-  { -- | The list of IAM OIDC provider resource objects defined in the AWS
-    -- account.
+  { -- | The list of IAM OIDC provider resource objects defined in the Amazon Web
+    -- Services account.
     openIDConnectProviderList :: Prelude.Maybe [OpenIDConnectProviderListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -124,8 +124,8 @@ data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openIDConnectProviderList', 'listOpenIDConnectProvidersResponse_openIDConnectProviderList' - The list of IAM OIDC provider resource objects defined in the AWS
--- account.
+-- 'openIDConnectProviderList', 'listOpenIDConnectProvidersResponse_openIDConnectProviderList' - The list of IAM OIDC provider resource objects defined in the Amazon Web
+-- Services account.
 --
 -- 'httpStatus', 'listOpenIDConnectProvidersResponse_httpStatus' - The response's http status code.
 newListOpenIDConnectProvidersResponse ::
@@ -139,8 +139,8 @@ newListOpenIDConnectProvidersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of IAM OIDC provider resource objects defined in the AWS
--- account.
+-- | The list of IAM OIDC provider resource objects defined in the Amazon Web
+-- Services account.
 listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Prelude.Maybe [OpenIDConnectProviderListEntry])
 listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
 

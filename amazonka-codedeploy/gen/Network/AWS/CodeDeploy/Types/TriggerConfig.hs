@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTriggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
-  { -- | The event type or types for which notifications are triggered.
-    triggerEvents :: Prelude.Maybe [TriggerEventType],
-    -- | The name of the notification trigger.
+  { -- | The name of the notification trigger.
     triggerName :: Prelude.Maybe Prelude.Text,
+    -- | The event type or types for which notifications are triggered.
+    triggerEvents :: Prelude.Maybe [TriggerEventType],
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- topic through which notifications about deployment or instance events
     -- are sent.
@@ -47,9 +47,9 @@ data TriggerConfig = TriggerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggerEvents', 'triggerConfig_triggerEvents' - The event type or types for which notifications are triggered.
---
 -- 'triggerName', 'triggerConfig_triggerName' - The name of the notification trigger.
+--
+-- 'triggerEvents', 'triggerConfig_triggerEvents' - The event type or types for which notifications are triggered.
 --
 -- 'triggerTargetArn', 'triggerConfig_triggerTargetArn' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- topic through which notifications about deployment or instance events
@@ -58,18 +58,18 @@ newTriggerConfig ::
   TriggerConfig
 newTriggerConfig =
   TriggerConfig'
-    { triggerEvents = Prelude.Nothing,
-      triggerName = Prelude.Nothing,
+    { triggerName = Prelude.Nothing,
+      triggerEvents = Prelude.Nothing,
       triggerTargetArn = Prelude.Nothing
     }
-
--- | The event type or types for which notifications are triggered.
-triggerConfig_triggerEvents :: Lens.Lens' TriggerConfig (Prelude.Maybe [TriggerEventType])
-triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the notification trigger.
 triggerConfig_triggerName :: Lens.Lens' TriggerConfig (Prelude.Maybe Prelude.Text)
 triggerConfig_triggerName = Lens.lens (\TriggerConfig' {triggerName} -> triggerName) (\s@TriggerConfig' {} a -> s {triggerName = a} :: TriggerConfig)
+
+-- | The event type or types for which notifications are triggered.
+triggerConfig_triggerEvents :: Lens.Lens' TriggerConfig (Prelude.Maybe [TriggerEventType])
+triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- topic through which notifications about deployment or instance events
@@ -83,8 +83,8 @@ instance Core.FromJSON TriggerConfig where
       "TriggerConfig"
       ( \x ->
           TriggerConfig'
-            Prelude.<$> (x Core..:? "triggerEvents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "triggerName")
+            Prelude.<$> (x Core..:? "triggerName")
+            Prelude.<*> (x Core..:? "triggerEvents" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "triggerTargetArn")
       )
 
@@ -96,8 +96,8 @@ instance Core.ToJSON TriggerConfig where
   toJSON TriggerConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("triggerEvents" Core..=) Prelude.<$> triggerEvents,
-            ("triggerName" Core..=) Prelude.<$> triggerName,
+          [ ("triggerName" Core..=) Prelude.<$> triggerName,
+            ("triggerEvents" Core..=) Prelude.<$> triggerEvents,
             ("triggerTargetArn" Core..=)
               Prelude.<$> triggerTargetArn
           ]

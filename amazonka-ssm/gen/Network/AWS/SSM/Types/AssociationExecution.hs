@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data AssociationExecution = AssociationExecution'
   { -- | The status of the association execution.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The date of the last execution.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | Detailed status information about the execution.
     detailedStatus :: Prelude.Maybe Prelude.Text,
+    -- | The date of the last execution.
+    lastExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | An aggregate status of the resources in the execution based on the
     -- status type.
     resourceCountByStatus :: Prelude.Maybe Prelude.Text,
@@ -57,9 +57,9 @@ data AssociationExecution = AssociationExecution'
 --
 -- 'status', 'associationExecution_status' - The status of the association execution.
 --
--- 'lastExecutionDate', 'associationExecution_lastExecutionDate' - The date of the last execution.
---
 -- 'detailedStatus', 'associationExecution_detailedStatus' - Detailed status information about the execution.
+--
+-- 'lastExecutionDate', 'associationExecution_lastExecutionDate' - The date of the last execution.
 --
 -- 'resourceCountByStatus', 'associationExecution_resourceCountByStatus' - An aggregate status of the resources in the execution based on the
 -- status type.
@@ -76,8 +76,8 @@ newAssociationExecution ::
 newAssociationExecution =
   AssociationExecution'
     { status = Prelude.Nothing,
-      lastExecutionDate = Prelude.Nothing,
       detailedStatus = Prelude.Nothing,
+      lastExecutionDate = Prelude.Nothing,
       resourceCountByStatus = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       executionId = Prelude.Nothing,
@@ -89,13 +89,13 @@ newAssociationExecution =
 associationExecution_status :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
 associationExecution_status = Lens.lens (\AssociationExecution' {status} -> status) (\s@AssociationExecution' {} a -> s {status = a} :: AssociationExecution)
 
--- | The date of the last execution.
-associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
-associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Core._Time
-
 -- | Detailed status information about the execution.
 associationExecution_detailedStatus :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
 associationExecution_detailedStatus = Lens.lens (\AssociationExecution' {detailedStatus} -> detailedStatus) (\s@AssociationExecution' {} a -> s {detailedStatus = a} :: AssociationExecution)
+
+-- | The date of the last execution.
+associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
+associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Core._Time
 
 -- | An aggregate status of the resources in the execution based on the
 -- status type.
@@ -125,8 +125,8 @@ instance Core.FromJSON AssociationExecution where
       ( \x ->
           AssociationExecution'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
             Prelude.<*> (x Core..:? "DetailedStatus")
+            Prelude.<*> (x Core..:? "LastExecutionDate")
             Prelude.<*> (x Core..:? "ResourceCountByStatus")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "ExecutionId")

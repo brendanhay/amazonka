@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
   ( DvbSubtitleAlignment
       ( ..,
+        DvbSubtitleAlignment_AUTO,
         DvbSubtitleAlignment_CENTERED,
         DvbSubtitleAlignment_LEFT
       ),
@@ -66,6 +67,9 @@ newtype DvbSubtitleAlignment = DvbSubtitleAlignment'
       Core.ToXML
     )
 
+pattern DvbSubtitleAlignment_AUTO :: DvbSubtitleAlignment
+pattern DvbSubtitleAlignment_AUTO = DvbSubtitleAlignment' "AUTO"
+
 pattern DvbSubtitleAlignment_CENTERED :: DvbSubtitleAlignment
 pattern DvbSubtitleAlignment_CENTERED = DvbSubtitleAlignment' "CENTERED"
 
@@ -73,6 +77,7 @@ pattern DvbSubtitleAlignment_LEFT :: DvbSubtitleAlignment
 pattern DvbSubtitleAlignment_LEFT = DvbSubtitleAlignment' "LEFT"
 
 {-# COMPLETE
+  DvbSubtitleAlignment_AUTO,
   DvbSubtitleAlignment_CENTERED,
   DvbSubtitleAlignment_LEFT,
   DvbSubtitleAlignment'

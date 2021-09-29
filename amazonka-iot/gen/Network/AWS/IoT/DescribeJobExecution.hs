@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a job execution.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeJobExecution>
+-- action.
 module Network.AWS.IoT.DescribeJobExecution
   ( -- * Creating a Request
     DescribeJobExecution (..),

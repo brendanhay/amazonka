@@ -65,11 +65,11 @@ data StartJobRun = StartJobRun'
     -- status. The default is 2,880 minutes (48 hours). This overrides the
     -- timeout value set in the parent job.
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of AWS Glue data processing units (DPUs) that can be
-    -- allocated when this job runs. A DPU is a relative measure of processing
-    -- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-    -- For more information, see the
-    -- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- | The number of Glue data processing units (DPUs) that can be allocated
+    -- when this job runs. A DPU is a relative measure of processing power that
+    -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+    -- information, see the
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
     -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
     --
@@ -111,25 +111,25 @@ data StartJobRun = StartJobRun'
     -- replace the default arguments set in the job definition itself.
     --
     -- You can specify arguments here that your own job-execution script
-    -- consumes, as well as arguments that AWS Glue itself consumes.
+    -- consumes, as well as arguments that Glue itself consumes.
     --
     -- For information about how to specify and consume your own Job arguments,
     -- see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
     -- topic in the developer guide.
     --
-    -- For information about the key-value pairs that AWS Glue consumes to set
-    -- up your job, see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+    -- For information about the key-value pairs that Glue consumes to set up
+    -- your job, see the
+    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
     arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | This field is deprecated. Use @MaxCapacity@ instead.
     --
-    -- The number of AWS Glue data processing units (DPUs) to allocate to this
+    -- The number of Glue data processing units (DPUs) to allocate to this
     -- JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is
     -- a relative measure of processing power that consists of 4 vCPUs of
     -- compute capacity and 16 GB of memory. For more information, see the
-    -- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     allocatedCapacity :: Prelude.Maybe Prelude.Int,
     -- | The name of the job definition to use.
     jobName :: Prelude.Text
@@ -152,11 +152,11 @@ data StartJobRun = StartJobRun'
 -- status. The default is 2,880 minutes (48 hours). This overrides the
 -- timeout value set in the parent job.
 --
--- 'maxCapacity', 'startJobRun_maxCapacity' - The number of AWS Glue data processing units (DPUs) that can be
--- allocated when this job runs. A DPU is a relative measure of processing
--- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
--- For more information, see the
--- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- 'maxCapacity', 'startJobRun_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
+-- when this job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+-- information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
@@ -198,25 +198,25 @@ data StartJobRun = StartJobRun'
 -- replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script
--- consumes, as well as arguments that AWS Glue itself consumes.
+-- consumes, as well as arguments that Glue itself consumes.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that AWS Glue consumes to set
--- up your job, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+-- For information about the key-value pairs that Glue consumes to set up
+-- your job, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 --
 -- 'allocatedCapacity', 'startJobRun_allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.
 --
--- The number of AWS Glue data processing units (DPUs) to allocate to this
+-- The number of Glue data processing units (DPUs) to allocate to this
 -- JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is
 -- a relative measure of processing power that consists of 4 vCPUs of
 -- compute capacity and 16 GB of memory. For more information, see the
--- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- 'jobName', 'startJobRun_jobName' - The name of the job definition to use.
 newStartJobRun ::
@@ -250,11 +250,11 @@ startJobRun_securityConfiguration = Lens.lens (\StartJobRun' {securityConfigurat
 startJobRun_timeout :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Natural)
 startJobRun_timeout = Lens.lens (\StartJobRun' {timeout} -> timeout) (\s@StartJobRun' {} a -> s {timeout = a} :: StartJobRun)
 
--- | The number of AWS Glue data processing units (DPUs) that can be
--- allocated when this job runs. A DPU is a relative measure of processing
--- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
--- For more information, see the
--- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- | The number of Glue data processing units (DPUs) that can be allocated
+-- when this job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+-- information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
@@ -306,27 +306,27 @@ startJobRun_jobRunId = Lens.lens (\StartJobRun' {jobRunId} -> jobRunId) (\s@Star
 -- replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script
--- consumes, as well as arguments that AWS Glue itself consumes.
+-- consumes, as well as arguments that Glue itself consumes.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that AWS Glue consumes to set
--- up your job, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+-- For information about the key-value pairs that Glue consumes to set up
+-- your job, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 startJobRun_arguments :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startJobRun_arguments = Lens.lens (\StartJobRun' {arguments} -> arguments) (\s@StartJobRun' {} a -> s {arguments = a} :: StartJobRun) Prelude.. Lens.mapping Lens._Coerce
 
 -- | This field is deprecated. Use @MaxCapacity@ instead.
 --
--- The number of AWS Glue data processing units (DPUs) to allocate to this
+-- The number of Glue data processing units (DPUs) to allocate to this
 -- JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is
 -- a relative measure of processing power that consists of 4 vCPUs of
 -- compute capacity and 16 GB of memory. For more information, see the
--- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 startJobRun_allocatedCapacity :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Int)
 startJobRun_allocatedCapacity = Lens.lens (\StartJobRun' {allocatedCapacity} -> allocatedCapacity) (\s@StartJobRun' {} a -> s {allocatedCapacity = a} :: StartJobRun)
 

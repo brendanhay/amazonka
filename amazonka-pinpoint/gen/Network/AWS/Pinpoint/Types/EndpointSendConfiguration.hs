@@ -35,6 +35,9 @@ data EndpointSendConfiguration = EndpointSendConfiguration'
     -- object. For an email or text message, this payload is added to
     -- email\/SMS delivery receipt event attributes.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The body of the message. If specified, this value overrides the default
+    -- message body.
+    bodyOverride :: Prelude.Maybe Prelude.Text,
     -- | A map of the message variables to merge with the variables specified for
     -- the default message (DefaultMessage.Substitutions). The variables
     -- specified in this map take precedence over all other variables.
@@ -42,9 +45,6 @@ data EndpointSendConfiguration = EndpointSendConfiguration'
     -- | The title or subject line of the message. If specified, this value
     -- overrides the default message title or subject line.
     titleOverride :: Prelude.Maybe Prelude.Text,
-    -- | The body of the message. If specified, this value overrides the default
-    -- message body.
-    bodyOverride :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for the message. If
     -- specified, this value overrides all other values for the message.
     rawContent :: Prelude.Maybe Prelude.Text
@@ -66,15 +66,15 @@ data EndpointSendConfiguration = EndpointSendConfiguration'
 -- object. For an email or text message, this payload is added to
 -- email\/SMS delivery receipt event attributes.
 --
+-- 'bodyOverride', 'endpointSendConfiguration_bodyOverride' - The body of the message. If specified, this value overrides the default
+-- message body.
+--
 -- 'substitutions', 'endpointSendConfiguration_substitutions' - A map of the message variables to merge with the variables specified for
 -- the default message (DefaultMessage.Substitutions). The variables
 -- specified in this map take precedence over all other variables.
 --
 -- 'titleOverride', 'endpointSendConfiguration_titleOverride' - The title or subject line of the message. If specified, this value
 -- overrides the default message title or subject line.
---
--- 'bodyOverride', 'endpointSendConfiguration_bodyOverride' - The body of the message. If specified, this value overrides the default
--- message body.
 --
 -- 'rawContent', 'endpointSendConfiguration_rawContent' - The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -84,9 +84,9 @@ newEndpointSendConfiguration =
   EndpointSendConfiguration'
     { context =
         Prelude.Nothing,
+      bodyOverride = Prelude.Nothing,
       substitutions = Prelude.Nothing,
       titleOverride = Prelude.Nothing,
-      bodyOverride = Prelude.Nothing,
       rawContent = Prelude.Nothing
     }
 
@@ -99,6 +99,11 @@ newEndpointSendConfiguration =
 endpointSendConfiguration_context :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 endpointSendConfiguration_context = Lens.lens (\EndpointSendConfiguration' {context} -> context) (\s@EndpointSendConfiguration' {} a -> s {context = a} :: EndpointSendConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The body of the message. If specified, this value overrides the default
+-- message body.
+endpointSendConfiguration_bodyOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
+endpointSendConfiguration_bodyOverride = Lens.lens (\EndpointSendConfiguration' {bodyOverride} -> bodyOverride) (\s@EndpointSendConfiguration' {} a -> s {bodyOverride = a} :: EndpointSendConfiguration)
+
 -- | A map of the message variables to merge with the variables specified for
 -- the default message (DefaultMessage.Substitutions). The variables
 -- specified in this map take precedence over all other variables.
@@ -109,11 +114,6 @@ endpointSendConfiguration_substitutions = Lens.lens (\EndpointSendConfiguration'
 -- overrides the default message title or subject line.
 endpointSendConfiguration_titleOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
 endpointSendConfiguration_titleOverride = Lens.lens (\EndpointSendConfiguration' {titleOverride} -> titleOverride) (\s@EndpointSendConfiguration' {} a -> s {titleOverride = a} :: EndpointSendConfiguration)
-
--- | The body of the message. If specified, this value overrides the default
--- message body.
-endpointSendConfiguration_bodyOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
-endpointSendConfiguration_bodyOverride = Lens.lens (\EndpointSendConfiguration' {bodyOverride} -> bodyOverride) (\s@EndpointSendConfiguration' {} a -> s {bodyOverride = a} :: EndpointSendConfiguration)
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -129,9 +129,9 @@ instance Core.ToJSON EndpointSendConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("Context" Core..=) Prelude.<$> context,
+            ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
             ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("TitleOverride" Core..=) Prelude.<$> titleOverride,
-            ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
             ("RawContent" Core..=) Prelude.<$> rawContent
           ]
       )

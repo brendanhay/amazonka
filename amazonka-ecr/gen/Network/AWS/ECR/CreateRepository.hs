@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a repository. For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html Amazon ECR Repositories>
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html Amazon ECR repositories>
 -- in the /Amazon Elastic Container Registry User Guide/.
 module Network.AWS.ECR.CreateRepository
   ( -- * Creating a Request
@@ -30,6 +30,7 @@ module Network.AWS.ECR.CreateRepository
 
     -- * Request Lenses
     createRepository_encryptionConfiguration,
+    createRepository_registryId,
     createRepository_tags,
     createRepository_imageScanningConfiguration,
     createRepository_imageTagMutability,
@@ -57,6 +58,10 @@ data CreateRepository = CreateRepository'
   { -- | The encryption configuration for the repository. This determines how the
     -- contents of your repository are encrypted at rest.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The AWS account ID associated with the registry to create the
+    -- repository. If you do not specify a registry, the default registry is
+    -- assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The metadata that you apply to the repository to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. Tag keys can have a maximum character length of 128
@@ -91,6 +96,10 @@ data CreateRepository = CreateRepository'
 -- 'encryptionConfiguration', 'createRepository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the
 -- contents of your repository are encrypted at rest.
 --
+-- 'registryId', 'createRepository_registryId' - The AWS account ID associated with the registry to create the
+-- repository. If you do not specify a registry, the default registry is
+-- assumed.
+--
 -- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define. Tag keys can have a maximum character length of 128
@@ -118,6 +127,7 @@ newCreateRepository pRepositoryName_ =
   CreateRepository'
     { encryptionConfiguration =
         Prelude.Nothing,
+      registryId = Prelude.Nothing,
       tags = Prelude.Nothing,
       imageScanningConfiguration = Prelude.Nothing,
       imageTagMutability = Prelude.Nothing,
@@ -128,6 +138,12 @@ newCreateRepository pRepositoryName_ =
 -- contents of your repository are encrypted at rest.
 createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe EncryptionConfiguration)
 createRepository_encryptionConfiguration = Lens.lens (\CreateRepository' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRepository' {} a -> s {encryptionConfiguration = a} :: CreateRepository)
+
+-- | The AWS account ID associated with the registry to create the
+-- repository. If you do not specify a registry, the default registry is
+-- assumed.
+createRepository_registryId :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
+createRepository_registryId = Lens.lens (\CreateRepository' {registryId} -> registryId) (\s@CreateRepository' {} a -> s {registryId = a} :: CreateRepository)
 
 -- | The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -195,6 +211,7 @@ instance Core.ToJSON CreateRepository where
       ( Prelude.catMaybes
           [ ("encryptionConfiguration" Core..=)
               Prelude.<$> encryptionConfiguration,
+            ("registryId" Core..=) Prelude.<$> registryId,
             ("tags" Core..=) Prelude.<$> tags,
             ("imageScanningConfiguration" Core..=)
               Prelude.<$> imageScanningConfiguration,

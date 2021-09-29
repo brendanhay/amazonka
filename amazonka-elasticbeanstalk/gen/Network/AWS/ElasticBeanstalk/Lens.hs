@@ -14,12 +14,6 @@
 module Network.AWS.ElasticBeanstalk.Lens
   ( -- * Operations
 
-    -- ** SwapEnvironmentCNAMEs
-    swapEnvironmentCNAMEs_sourceEnvironmentName,
-    swapEnvironmentCNAMEs_destinationEnvironmentId,
-    swapEnvironmentCNAMEs_destinationEnvironmentName,
-    swapEnvironmentCNAMEs_sourceEnvironmentId,
-
     -- ** ListPlatformBranches
     listPlatformBranches_nextToken,
     listPlatformBranches_filters,
@@ -28,10 +22,41 @@ module Network.AWS.ElasticBeanstalk.Lens
     listPlatformBranchesResponse_platformBranchSummaryList,
     listPlatformBranchesResponse_httpStatus,
 
+    -- ** SwapEnvironmentCNAMEs
+    swapEnvironmentCNAMEs_sourceEnvironmentName,
+    swapEnvironmentCNAMEs_destinationEnvironmentId,
+    swapEnvironmentCNAMEs_destinationEnvironmentName,
+    swapEnvironmentCNAMEs_sourceEnvironmentId,
+
     -- ** ListAvailableSolutionStacks
     listAvailableSolutionStacksResponse_solutionStacks,
     listAvailableSolutionStacksResponse_solutionStackDetails,
     listAvailableSolutionStacksResponse_httpStatus,
+
+    -- ** ListPlatformVersions
+    listPlatformVersions_nextToken,
+    listPlatformVersions_filters,
+    listPlatformVersions_maxRecords,
+    listPlatformVersionsResponse_nextToken,
+    listPlatformVersionsResponse_platformSummaryList,
+    listPlatformVersionsResponse_httpStatus,
+
+    -- ** DescribeApplications
+    describeApplications_applicationNames,
+    describeApplicationsResponse_applications,
+    describeApplicationsResponse_httpStatus,
+
+    -- ** CreateApplicationVersion
+    createApplicationVersion_sourceBundle,
+    createApplicationVersion_buildConfiguration,
+    createApplicationVersion_sourceBuildInformation,
+    createApplicationVersion_tags,
+    createApplicationVersion_autoCreateApplication,
+    createApplicationVersion_description,
+    createApplicationVersion_process,
+    createApplicationVersion_applicationName,
+    createApplicationVersion_versionLabel,
+    applicationVersionDescriptionMessage_applicationVersion,
 
     -- ** DescribeEnvironmentHealth
     describeEnvironmentHealth_environmentId,
@@ -48,8 +73,8 @@ module Network.AWS.ElasticBeanstalk.Lens
     describeEnvironmentHealthResponse_httpStatus,
 
     -- ** CreateConfigurationTemplate
-    createConfigurationTemplate_solutionStackName,
     createConfigurationTemplate_environmentId,
+    createConfigurationTemplate_solutionStackName,
     createConfigurationTemplate_platformArn,
     createConfigurationTemplate_tags,
     createConfigurationTemplate_optionSettings,
@@ -61,37 +86,12 @@ module Network.AWS.ElasticBeanstalk.Lens
     configurationSettingsDescription_dateCreated,
     configurationSettingsDescription_solutionStackName,
     configurationSettingsDescription_deploymentStatus,
-    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_platformArn,
+    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_dateUpdated,
     configurationSettingsDescription_optionSettings,
     configurationSettingsDescription_description,
     configurationSettingsDescription_applicationName,
-
-    -- ** DescribeApplications
-    describeApplications_applicationNames,
-    describeApplicationsResponse_applications,
-    describeApplicationsResponse_httpStatus,
-
-    -- ** ListPlatformVersions
-    listPlatformVersions_nextToken,
-    listPlatformVersions_filters,
-    listPlatformVersions_maxRecords,
-    listPlatformVersionsResponse_nextToken,
-    listPlatformVersionsResponse_platformSummaryList,
-    listPlatformVersionsResponse_httpStatus,
-
-    -- ** CreateApplicationVersion
-    createApplicationVersion_sourceBundle,
-    createApplicationVersion_buildConfiguration,
-    createApplicationVersion_sourceBuildInformation,
-    createApplicationVersion_tags,
-    createApplicationVersion_autoCreateApplication,
-    createApplicationVersion_description,
-    createApplicationVersion_process,
-    createApplicationVersion_applicationName,
-    createApplicationVersion_versionLabel,
-    applicationVersionDescriptionMessage_applicationVersion,
 
     -- ** TerminateEnvironment
     terminateEnvironment_forceTerminate,
@@ -103,22 +103,70 @@ module Network.AWS.ElasticBeanstalk.Lens
     environmentDescription_status,
     environmentDescription_dateCreated,
     environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
     environmentDescription_environmentId,
-    environmentDescription_environmentName,
+    environmentDescription_solutionStackName,
     environmentDescription_platformArn,
-    environmentDescription_versionLabel,
+    environmentDescription_environmentName,
     environmentDescription_health,
+    environmentDescription_versionLabel,
     environmentDescription_cname,
-    environmentDescription_resources,
     environmentDescription_dateUpdated,
+    environmentDescription_resources,
     environmentDescription_description,
+    environmentDescription_endpointURL,
     environmentDescription_healthStatus,
     environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
     environmentDescription_applicationName,
     environmentDescription_tier,
     environmentDescription_operationsRole,
+
+    -- ** CreateEnvironment
+    createEnvironment_templateName,
+    createEnvironment_solutionStackName,
+    createEnvironment_groupName,
+    createEnvironment_optionsToRemove,
+    createEnvironment_platformArn,
+    createEnvironment_environmentName,
+    createEnvironment_cNAMEPrefix,
+    createEnvironment_versionLabel,
+    createEnvironment_tags,
+    createEnvironment_optionSettings,
+    createEnvironment_description,
+    createEnvironment_tier,
+    createEnvironment_operationsRole,
+    createEnvironment_applicationName,
+    environmentDescription_abortableOperationInProgress,
+    environmentDescription_templateName,
+    environmentDescription_status,
+    environmentDescription_dateCreated,
+    environmentDescription_environmentLinks,
+    environmentDescription_environmentId,
+    environmentDescription_solutionStackName,
+    environmentDescription_platformArn,
+    environmentDescription_environmentName,
+    environmentDescription_health,
+    environmentDescription_versionLabel,
+    environmentDescription_cname,
+    environmentDescription_dateUpdated,
+    environmentDescription_resources,
+    environmentDescription_description,
+    environmentDescription_endpointURL,
+    environmentDescription_healthStatus,
+    environmentDescription_environmentArn,
+    environmentDescription_applicationName,
+    environmentDescription_tier,
+    environmentDescription_operationsRole,
+
+    -- ** CreatePlatformVersion
+    createPlatformVersion_environmentName,
+    createPlatformVersion_tags,
+    createPlatformVersion_optionSettings,
+    createPlatformVersion_platformName,
+    createPlatformVersion_platformVersion,
+    createPlatformVersion_platformDefinitionBundle,
+    createPlatformVersionResponse_platformSummary,
+    createPlatformVersionResponse_builder,
+    createPlatformVersionResponse_httpStatus,
 
     -- ** DescribeEnvironmentResources
     describeEnvironmentResources_environmentId,
@@ -132,65 +180,16 @@ module Network.AWS.ElasticBeanstalk.Lens
     updateApplicationVersion_versionLabel,
     applicationVersionDescriptionMessage_applicationVersion,
 
-    -- ** CreatePlatformVersion
-    createPlatformVersion_environmentName,
-    createPlatformVersion_tags,
-    createPlatformVersion_optionSettings,
-    createPlatformVersion_platformName,
-    createPlatformVersion_platformVersion,
-    createPlatformVersion_platformDefinitionBundle,
-    createPlatformVersionResponse_platformSummary,
-    createPlatformVersionResponse_builder,
-    createPlatformVersionResponse_httpStatus,
-
     -- ** DeleteApplicationVersion
     deleteApplicationVersion_deleteSourceBundle,
     deleteApplicationVersion_applicationName,
     deleteApplicationVersion_versionLabel,
 
-    -- ** CreateEnvironment
-    createEnvironment_templateName,
-    createEnvironment_groupName,
-    createEnvironment_solutionStackName,
-    createEnvironment_optionsToRemove,
-    createEnvironment_environmentName,
-    createEnvironment_platformArn,
-    createEnvironment_versionLabel,
-    createEnvironment_cNAMEPrefix,
-    createEnvironment_tags,
-    createEnvironment_optionSettings,
-    createEnvironment_description,
-    createEnvironment_tier,
-    createEnvironment_operationsRole,
-    createEnvironment_applicationName,
-    environmentDescription_abortableOperationInProgress,
-    environmentDescription_templateName,
-    environmentDescription_status,
-    environmentDescription_dateCreated,
-    environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
-    environmentDescription_environmentId,
-    environmentDescription_environmentName,
-    environmentDescription_platformArn,
-    environmentDescription_versionLabel,
-    environmentDescription_health,
-    environmentDescription_cname,
-    environmentDescription_resources,
-    environmentDescription_dateUpdated,
-    environmentDescription_description,
-    environmentDescription_healthStatus,
-    environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
-    environmentDescription_applicationName,
-    environmentDescription_tier,
-    environmentDescription_operationsRole,
-
-    -- ** CreateApplication
-    createApplication_tags,
-    createApplication_resourceLifecycleConfig,
-    createApplication_description,
-    createApplication_applicationName,
-    applicationDescriptionMessage_application,
+    -- ** CheckDNSAvailability
+    checkDNSAvailability_cNAMEPrefix,
+    checkDNSAvailabilityResponse_available,
+    checkDNSAvailabilityResponse_fullyQualifiedCNAME,
+    checkDNSAvailabilityResponse_httpStatus,
 
     -- ** ComposeEnvironments
     composeEnvironments_groupName,
@@ -199,11 +198,12 @@ module Network.AWS.ElasticBeanstalk.Lens
     environmentDescriptionsMessage_nextToken,
     environmentDescriptionsMessage_environments,
 
-    -- ** CheckDNSAvailability
-    checkDNSAvailability_cNAMEPrefix,
-    checkDNSAvailabilityResponse_available,
-    checkDNSAvailabilityResponse_fullyQualifiedCNAME,
-    checkDNSAvailabilityResponse_httpStatus,
+    -- ** CreateApplication
+    createApplication_tags,
+    createApplication_resourceLifecycleConfig,
+    createApplication_description,
+    createApplication_applicationName,
+    applicationDescriptionMessage_application,
 
     -- ** DescribeAccountAttributes
     describeAccountAttributesResponse_resourceQuotas,
@@ -217,16 +217,16 @@ module Network.AWS.ElasticBeanstalk.Lens
     validateConfigurationSettingsResponse_messages,
     validateConfigurationSettingsResponse_httpStatus,
 
-    -- ** CreateStorageLocation
-    createStorageLocationResponse_s3Bucket,
-    createStorageLocationResponse_httpStatus,
-
     -- ** DescribeEnvironmentManagedActions
     describeEnvironmentManagedActions_status,
     describeEnvironmentManagedActions_environmentId,
     describeEnvironmentManagedActions_environmentName,
     describeEnvironmentManagedActionsResponse_managedActions,
     describeEnvironmentManagedActionsResponse_httpStatus,
+
+    -- ** CreateStorageLocation
+    createStorageLocationResponse_s3Bucket,
+    createStorageLocationResponse_httpStatus,
 
     -- ** DescribeConfigurationSettings
     describeConfigurationSettings_templateName,
@@ -235,18 +235,6 @@ module Network.AWS.ElasticBeanstalk.Lens
     describeConfigurationSettingsResponse_configurationSettings,
     describeConfigurationSettingsResponse_httpStatus,
 
-    -- ** DescribeConfigurationOptions
-    describeConfigurationOptions_templateName,
-    describeConfigurationOptions_options,
-    describeConfigurationOptions_solutionStackName,
-    describeConfigurationOptions_environmentName,
-    describeConfigurationOptions_platformArn,
-    describeConfigurationOptions_applicationName,
-    describeConfigurationOptionsResponse_options,
-    describeConfigurationOptionsResponse_solutionStackName,
-    describeConfigurationOptionsResponse_platformArn,
-    describeConfigurationOptionsResponse_httpStatus,
-
     -- ** RetrieveEnvironmentInfo
     retrieveEnvironmentInfo_environmentId,
     retrieveEnvironmentInfo_environmentName,
@@ -254,10 +242,17 @@ module Network.AWS.ElasticBeanstalk.Lens
     retrieveEnvironmentInfoResponse_environmentInfo,
     retrieveEnvironmentInfoResponse_httpStatus,
 
-    -- ** RequestEnvironmentInfo
-    requestEnvironmentInfo_environmentId,
-    requestEnvironmentInfo_environmentName,
-    requestEnvironmentInfo_infoType,
+    -- ** DescribeConfigurationOptions
+    describeConfigurationOptions_templateName,
+    describeConfigurationOptions_options,
+    describeConfigurationOptions_solutionStackName,
+    describeConfigurationOptions_platformArn,
+    describeConfigurationOptions_environmentName,
+    describeConfigurationOptions_applicationName,
+    describeConfigurationOptionsResponse_options,
+    describeConfigurationOptionsResponse_solutionStackName,
+    describeConfigurationOptionsResponse_platformArn,
+    describeConfigurationOptionsResponse_httpStatus,
 
     -- ** DescribeEvents
     describeEvents_templateName,
@@ -265,9 +260,9 @@ module Network.AWS.ElasticBeanstalk.Lens
     describeEvents_severity,
     describeEvents_environmentId,
     describeEvents_startTime,
-    describeEvents_environmentName,
-    describeEvents_endTime,
     describeEvents_platformArn,
+    describeEvents_endTime,
+    describeEvents_environmentName,
     describeEvents_versionLabel,
     describeEvents_requestId,
     describeEvents_applicationName,
@@ -275,6 +270,11 @@ module Network.AWS.ElasticBeanstalk.Lens
     describeEventsResponse_nextToken,
     describeEventsResponse_events,
     describeEventsResponse_httpStatus,
+
+    -- ** RequestEnvironmentInfo
+    requestEnvironmentInfo_environmentId,
+    requestEnvironmentInfo_environmentName,
+    requestEnvironmentInfo_infoType,
 
     -- ** ApplyEnvironmentManagedAction
     applyEnvironmentManagedAction_environmentId,
@@ -297,14 +297,23 @@ module Network.AWS.ElasticBeanstalk.Lens
     rebuildEnvironment_environmentId,
     rebuildEnvironment_environmentName,
 
+    -- ** DeleteEnvironmentConfiguration
+    deleteEnvironmentConfiguration_applicationName,
+    deleteEnvironmentConfiguration_environmentName,
+
+    -- ** DeletePlatformVersion
+    deletePlatformVersion_platformArn,
+    deletePlatformVersionResponse_platformSummary,
+    deletePlatformVersionResponse_httpStatus,
+
     -- ** UpdateEnvironment
     updateEnvironment_templateName,
-    updateEnvironment_groupName,
-    updateEnvironment_solutionStackName,
     updateEnvironment_environmentId,
+    updateEnvironment_solutionStackName,
+    updateEnvironment_groupName,
     updateEnvironment_optionsToRemove,
-    updateEnvironment_environmentName,
     updateEnvironment_platformArn,
+    updateEnvironment_environmentName,
     updateEnvironment_versionLabel,
     updateEnvironment_optionSettings,
     updateEnvironment_description,
@@ -315,40 +324,27 @@ module Network.AWS.ElasticBeanstalk.Lens
     environmentDescription_status,
     environmentDescription_dateCreated,
     environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
     environmentDescription_environmentId,
-    environmentDescription_environmentName,
+    environmentDescription_solutionStackName,
     environmentDescription_platformArn,
-    environmentDescription_versionLabel,
+    environmentDescription_environmentName,
     environmentDescription_health,
+    environmentDescription_versionLabel,
     environmentDescription_cname,
-    environmentDescription_resources,
     environmentDescription_dateUpdated,
+    environmentDescription_resources,
     environmentDescription_description,
+    environmentDescription_endpointURL,
     environmentDescription_healthStatus,
     environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
     environmentDescription_applicationName,
     environmentDescription_tier,
     environmentDescription_operationsRole,
 
-    -- ** DeletePlatformVersion
-    deletePlatformVersion_platformArn,
-    deletePlatformVersionResponse_platformSummary,
-    deletePlatformVersionResponse_httpStatus,
-
-    -- ** DeleteEnvironmentConfiguration
-    deleteEnvironmentConfiguration_applicationName,
-    deleteEnvironmentConfiguration_environmentName,
-
-    -- ** DescribeEnvironmentManagedActionHistory
-    describeEnvironmentManagedActionHistory_nextToken,
-    describeEnvironmentManagedActionHistory_environmentId,
-    describeEnvironmentManagedActionHistory_environmentName,
-    describeEnvironmentManagedActionHistory_maxItems,
-    describeEnvironmentManagedActionHistoryResponse_nextToken,
-    describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems,
-    describeEnvironmentManagedActionHistoryResponse_httpStatus,
+    -- ** UpdateTagsForResource
+    updateTagsForResource_tagsToRemove,
+    updateTagsForResource_tagsToAdd,
+    updateTagsForResource_resourceArn,
 
     -- ** UpdateConfigurationTemplate
     updateConfigurationTemplate_optionsToRemove,
@@ -360,21 +356,25 @@ module Network.AWS.ElasticBeanstalk.Lens
     configurationSettingsDescription_dateCreated,
     configurationSettingsDescription_solutionStackName,
     configurationSettingsDescription_deploymentStatus,
-    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_platformArn,
+    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_dateUpdated,
     configurationSettingsDescription_optionSettings,
     configurationSettingsDescription_description,
     configurationSettingsDescription_applicationName,
 
+    -- ** DescribeEnvironmentManagedActionHistory
+    describeEnvironmentManagedActionHistory_nextToken,
+    describeEnvironmentManagedActionHistory_environmentId,
+    describeEnvironmentManagedActionHistory_environmentName,
+    describeEnvironmentManagedActionHistory_maxItems,
+    describeEnvironmentManagedActionHistoryResponse_nextToken,
+    describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems,
+    describeEnvironmentManagedActionHistoryResponse_httpStatus,
+
     -- ** DeleteConfigurationTemplate
     deleteConfigurationTemplate_applicationName,
     deleteConfigurationTemplate_templateName,
-
-    -- ** UpdateTagsForResource
-    updateTagsForResource_tagsToRemove,
-    updateTagsForResource_tagsToAdd,
-    updateTagsForResource_resourceArn,
 
     -- ** DescribeApplicationVersions
     describeApplicationVersions_nextToken,
@@ -388,26 +388,6 @@ module Network.AWS.ElasticBeanstalk.Lens
     -- ** AbortEnvironmentUpdate
     abortEnvironmentUpdate_environmentId,
     abortEnvironmentUpdate_environmentName,
-
-    -- ** DescribeEnvironments
-    describeEnvironments_nextToken,
-    describeEnvironments_environmentNames,
-    describeEnvironments_environmentIds,
-    describeEnvironments_versionLabel,
-    describeEnvironments_includeDeleted,
-    describeEnvironments_includedDeletedBackTo,
-    describeEnvironments_applicationName,
-    describeEnvironments_maxRecords,
-    environmentDescriptionsMessage_nextToken,
-    environmentDescriptionsMessage_environments,
-
-    -- ** RestartAppServer
-    restartAppServer_environmentId,
-    restartAppServer_environmentName,
-
-    -- ** AssociateEnvironmentOperationsRole
-    associateEnvironmentOperationsRole_environmentName,
-    associateEnvironmentOperationsRole_operationsRole,
 
     -- ** DeleteApplication
     deleteApplication_terminateEnvByForce,
@@ -427,6 +407,26 @@ module Network.AWS.ElasticBeanstalk.Lens
     updateApplication_description,
     updateApplication_applicationName,
     applicationDescriptionMessage_application,
+
+    -- ** RestartAppServer
+    restartAppServer_environmentId,
+    restartAppServer_environmentName,
+
+    -- ** DescribeEnvironments
+    describeEnvironments_nextToken,
+    describeEnvironments_environmentNames,
+    describeEnvironments_environmentIds,
+    describeEnvironments_versionLabel,
+    describeEnvironments_includeDeleted,
+    describeEnvironments_includedDeletedBackTo,
+    describeEnvironments_applicationName,
+    describeEnvironments_maxRecords,
+    environmentDescriptionsMessage_nextToken,
+    environmentDescriptionsMessage_environments,
+
+    -- ** AssociateEnvironmentOperationsRole
+    associateEnvironmentOperationsRole_environmentName,
+    associateEnvironmentOperationsRole_operationsRole,
 
     -- ** DescribePlatformVersion
     describePlatformVersion_platformArn,
@@ -459,8 +459,8 @@ module Network.AWS.ElasticBeanstalk.Lens
 
     -- ** ApplicationMetrics
     applicationMetrics_duration,
-    applicationMetrics_statusCodes,
     applicationMetrics_requestCount,
+    applicationMetrics_statusCodes,
     applicationMetrics_latency,
 
     -- ** ApplicationResourceLifecycleConfig
@@ -476,15 +476,15 @@ module Network.AWS.ElasticBeanstalk.Lens
     applicationVersionDescription_dateUpdated,
     applicationVersionDescription_description,
     applicationVersionDescription_buildArn,
-    applicationVersionDescription_applicationVersionArn,
     applicationVersionDescription_applicationName,
+    applicationVersionDescription_applicationVersionArn,
 
     -- ** ApplicationVersionDescriptionMessage
     applicationVersionDescriptionMessage_applicationVersion,
 
     -- ** ApplicationVersionLifecycleConfig
-    applicationVersionLifecycleConfig_maxAgeRule,
     applicationVersionLifecycleConfig_maxCountRule,
+    applicationVersionLifecycleConfig_maxAgeRule,
 
     -- ** AutoScalingGroup
     autoScalingGroup_name,
@@ -518,9 +518,9 @@ module Network.AWS.ElasticBeanstalk.Lens
     configurationOptionDescription_name,
     configurationOptionDescription_minValue,
     configurationOptionDescription_namespace,
-    configurationOptionDescription_userDefined,
     configurationOptionDescription_maxLength,
     configurationOptionDescription_defaultValue,
+    configurationOptionDescription_userDefined,
 
     -- ** ConfigurationOptionSetting
     configurationOptionSetting_optionName,
@@ -533,8 +533,8 @@ module Network.AWS.ElasticBeanstalk.Lens
     configurationSettingsDescription_dateCreated,
     configurationSettingsDescription_solutionStackName,
     configurationSettingsDescription_deploymentStatus,
-    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_platformArn,
+    configurationSettingsDescription_environmentName,
     configurationSettingsDescription_dateUpdated,
     configurationSettingsDescription_optionSettings,
     configurationSettingsDescription_description,
@@ -556,19 +556,19 @@ module Network.AWS.ElasticBeanstalk.Lens
     environmentDescription_status,
     environmentDescription_dateCreated,
     environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
     environmentDescription_environmentId,
-    environmentDescription_environmentName,
+    environmentDescription_solutionStackName,
     environmentDescription_platformArn,
-    environmentDescription_versionLabel,
+    environmentDescription_environmentName,
     environmentDescription_health,
+    environmentDescription_versionLabel,
     environmentDescription_cname,
-    environmentDescription_resources,
     environmentDescription_dateUpdated,
+    environmentDescription_resources,
     environmentDescription_description,
+    environmentDescription_endpointURL,
     environmentDescription_healthStatus,
     environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
     environmentDescription_applicationName,
     environmentDescription_tier,
     environmentDescription_operationsRole,
@@ -580,20 +580,20 @@ module Network.AWS.ElasticBeanstalk.Lens
     -- ** EnvironmentInfoDescription
     environmentInfoDescription_message,
     environmentInfoDescription_infoType,
-    environmentInfoDescription_ec2InstanceId,
     environmentInfoDescription_sampleTimestamp,
+    environmentInfoDescription_ec2InstanceId,
 
     -- ** EnvironmentLink
     environmentLink_environmentName,
     environmentLink_linkName,
 
     -- ** EnvironmentResourceDescription
-    environmentResourceDescription_launchConfigurations,
     environmentResourceDescription_launchTemplates,
+    environmentResourceDescription_launchConfigurations,
     environmentResourceDescription_triggers,
+    environmentResourceDescription_queues,
     environmentResourceDescription_instances,
     environmentResourceDescription_environmentName,
-    environmentResourceDescription_queues,
     environmentResourceDescription_loadBalancers,
     environmentResourceDescription_autoScalingGroups,
 
@@ -610,8 +610,8 @@ module Network.AWS.ElasticBeanstalk.Lens
     eventDescription_severity,
     eventDescription_message,
     eventDescription_eventDate,
-    eventDescription_environmentName,
     eventDescription_platformArn,
+    eventDescription_environmentName,
     eventDescription_versionLabel,
     eventDescription_requestId,
     eventDescription_applicationName,
@@ -626,16 +626,16 @@ module Network.AWS.ElasticBeanstalk.Lens
     instanceHealthSummary_severe,
     instanceHealthSummary_warning,
     instanceHealthSummary_pending,
-    instanceHealthSummary_degraded,
     instanceHealthSummary_unknown,
+    instanceHealthSummary_degraded,
 
     -- ** Latency
     latency_p95,
-    latency_p10,
     latency_p999,
+    latency_p10,
     latency_p99,
-    latency_p85,
     latency_p50,
+    latency_p85,
     latency_p90,
     latency_p75,
 
@@ -654,8 +654,8 @@ module Network.AWS.ElasticBeanstalk.Lens
 
     -- ** LoadBalancerDescription
     loadBalancerDescription_domain,
-    loadBalancerDescription_listeners,
     loadBalancerDescription_loadBalancerName,
+    loadBalancerDescription_listeners,
 
     -- ** ManagedAction
     managedAction_status,
@@ -701,24 +701,24 @@ module Network.AWS.ElasticBeanstalk.Lens
     platformBranchSummary_platformName,
 
     -- ** PlatformDescription
-    platformDescription_platformCategory,
     platformDescription_operatingSystemName,
-    platformDescription_platformBranchName,
+    platformDescription_platformCategory,
+    platformDescription_customAmiList,
     platformDescription_supportedAddonList,
     platformDescription_dateCreated,
-    platformDescription_customAmiList,
+    platformDescription_platformBranchName,
     platformDescription_platformOwner,
     platformDescription_platformStatus,
     platformDescription_solutionStackName,
     platformDescription_platformVersion,
-    platformDescription_platformBranchLifecycleState,
     platformDescription_platformArn,
+    platformDescription_platformBranchLifecycleState,
     platformDescription_frameworks,
     platformDescription_dateUpdated,
     platformDescription_supportedTierList,
-    platformDescription_platformLifecycleState,
     platformDescription_maintainer,
     platformDescription_description,
+    platformDescription_platformLifecycleState,
     platformDescription_platformName,
     platformDescription_programmingLanguages,
     platformDescription_operatingSystemVersion,
@@ -737,15 +737,15 @@ module Network.AWS.ElasticBeanstalk.Lens
     platformProgrammingLanguage_name,
 
     -- ** PlatformSummary
-    platformSummary_platformCategory,
     platformSummary_operatingSystemName,
-    platformSummary_platformBranchName,
+    platformSummary_platformCategory,
     platformSummary_supportedAddonList,
+    platformSummary_platformBranchName,
     platformSummary_platformOwner,
     platformSummary_platformStatus,
     platformSummary_platformVersion,
-    platformSummary_platformBranchLifecycleState,
     platformSummary_platformArn,
+    platformSummary_platformBranchLifecycleState,
     platformSummary_supportedTierList,
     platformSummary_platformLifecycleState,
     platformSummary_operatingSystemVersion,
@@ -759,8 +759,8 @@ module Network.AWS.ElasticBeanstalk.Lens
 
     -- ** ResourceQuotas
     resourceQuotas_applicationQuota,
-    resourceQuotas_configurationTemplateQuota,
     resourceQuotas_applicationVersionQuota,
+    resourceQuotas_configurationTemplateQuota,
     resourceQuotas_environmentQuota,
     resourceQuotas_customPlatformQuota,
 
@@ -779,8 +779,8 @@ module Network.AWS.ElasticBeanstalk.Lens
     singleInstanceHealth_color,
     singleInstanceHealth_causes,
     singleInstanceHealth_availabilityZone,
-    singleInstanceHealth_deployment,
     singleInstanceHealth_launchedAt,
+    singleInstanceHealth_deployment,
     singleInstanceHealth_healthStatus,
     singleInstanceHealth_system,
     singleInstanceHealth_applicationMetrics,

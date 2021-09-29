@@ -45,7 +45,7 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
     -- each instance in the Auto Scaling group must have instance protection
     -- from scale-in actions enabled as well. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection>
-    -- in the /AWS Auto Scaling User Guide/.
+    -- in the /Auto Scaling User Guide/.
     --
     -- When managed termination protection is disabled, your Amazon EC2
     -- instances are not protected from termination when the Auto Scaling group
@@ -80,7 +80,7 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
 -- each instance in the Auto Scaling group must have instance protection
 -- from scale-in actions enabled as well. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection>
--- in the /AWS Auto Scaling User Guide/.
+-- in the /Auto Scaling User Guide/.
 --
 -- When managed termination protection is disabled, your Amazon EC2
 -- instances are not protected from termination when the Auto Scaling group
@@ -117,7 +117,7 @@ autoScalingGroupProvider_managedScaling = Lens.lens (\AutoScalingGroupProvider' 
 -- each instance in the Auto Scaling group must have instance protection
 -- from scale-in actions enabled as well. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection>
--- in the /AWS Auto Scaling User Guide/.
+-- in the /Auto Scaling User Guide/.
 --
 -- When managed termination protection is disabled, your Amazon EC2
 -- instances are not protected from termination when the Auto Scaling group

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Revokes ingress from a DBSecurityGroup for previously authorized IP
--- ranges or EC2 or VPC Security Groups. Required parameters for this API
+-- ranges or EC2 or VPC security groups. Required parameters for this API
 -- are one of CIDRIP, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId).
@@ -62,11 +62,12 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
     -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
     -- @EC2SecurityGroupOwnerId@ can\'t be provided.
     cidrip :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account number of the owner of the EC2 security group specified
-    -- in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn\'t an
-    -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
-    -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
-    -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+    -- | The Amazon Web Services account number of the owner of the EC2 security
+    -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+    -- Services access key ID isn\'t an acceptable value. For VPC DB security
+    -- groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+    -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+    -- @EC2SecurityGroupId@ must be provided.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | The id of the EC2 security group to revoke access from. For VPC DB
     -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
@@ -95,11 +96,12 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
 -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
 -- @EC2SecurityGroupOwnerId@ can\'t be provided.
 --
--- 'eC2SecurityGroupOwnerId', 'revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId' - The AWS account number of the owner of the EC2 security group specified
--- in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn\'t an
--- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
--- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- 'eC2SecurityGroupOwnerId', 'revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon Web Services account number of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+-- Services access key ID isn\'t an acceptable value. For VPC DB security
+-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupId@ must be provided.
 --
 -- 'eC2SecurityGroupId', 'revokeDBSecurityGroupIngress_eC2SecurityGroupId' - The id of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
@@ -132,11 +134,12 @@ newRevokeDBSecurityGroupIngress pDBSecurityGroupName_ =
 revokeDBSecurityGroupIngress_cidrip :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeDBSecurityGroupIngress_cidrip = Lens.lens (\RevokeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeDBSecurityGroupIngress)
 
--- | The AWS account number of the owner of the EC2 security group specified
--- in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn\'t an
--- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
--- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- | The Amazon Web Services account number of the owner of the EC2 security
+-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
+-- Services access key ID isn\'t an acceptable value. For VPC DB security
+-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupId@ must be provided.
 revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: RevokeDBSecurityGroupIngress)
 

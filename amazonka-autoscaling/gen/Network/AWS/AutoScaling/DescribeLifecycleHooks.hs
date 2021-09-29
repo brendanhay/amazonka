@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the lifecycle hooks for the specified Auto Scaling group.
+-- Gets information about the lifecycle hooks for the specified Auto
+-- Scaling group.
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
   ( -- * Creating a Request
     DescribeLifecycleHooks (..),

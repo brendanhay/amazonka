@@ -36,11 +36,11 @@ data Voice = Voice'
     -- | Amazon Polly assigned voice ID. This is the ID that you specify when
     -- calling the @SynthesizeSpeech@ operation.
     id :: Prelude.Maybe VoiceId,
-    -- | Gender of the voice.
-    gender :: Prelude.Maybe Gender,
     -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
     -- human readable voice name that you might display in your application.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Gender of the voice.
+    gender :: Prelude.Maybe Gender,
     -- | Specifies which engines (@standard@ or @neural@) that are supported by a
     -- given voice.
     supportedEngines :: Prelude.Maybe [Engine],
@@ -70,10 +70,10 @@ data Voice = Voice'
 -- 'id', 'voice_id' - Amazon Polly assigned voice ID. This is the ID that you specify when
 -- calling the @SynthesizeSpeech@ operation.
 --
--- 'gender', 'voice_gender' - Gender of the voice.
---
 -- 'name', 'voice_name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a
 -- human readable voice name that you might display in your application.
+--
+-- 'gender', 'voice_gender' - Gender of the voice.
 --
 -- 'supportedEngines', 'voice_supportedEngines' - Specifies which engines (@standard@ or @neural@) that are supported by a
 -- given voice.
@@ -93,8 +93,8 @@ newVoice =
   Voice'
     { languageCode = Prelude.Nothing,
       id = Prelude.Nothing,
-      gender = Prelude.Nothing,
       name = Prelude.Nothing,
+      gender = Prelude.Nothing,
       supportedEngines = Prelude.Nothing,
       additionalLanguageCodes = Prelude.Nothing,
       languageName = Prelude.Nothing
@@ -109,14 +109,14 @@ voice_languageCode = Lens.lens (\Voice' {languageCode} -> languageCode) (\s@Voic
 voice_id :: Lens.Lens' Voice (Prelude.Maybe VoiceId)
 voice_id = Lens.lens (\Voice' {id} -> id) (\s@Voice' {} a -> s {id = a} :: Voice)
 
--- | Gender of the voice.
-voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
-voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
-
 -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a
 -- human readable voice name that you might display in your application.
 voice_name :: Lens.Lens' Voice (Prelude.Maybe Prelude.Text)
 voice_name = Lens.lens (\Voice' {name} -> name) (\s@Voice' {} a -> s {name = a} :: Voice)
+
+-- | Gender of the voice.
+voice_gender :: Lens.Lens' Voice (Prelude.Maybe Gender)
+voice_gender = Lens.lens (\Voice' {gender} -> gender) (\s@Voice' {} a -> s {gender = a} :: Voice)
 
 -- | Specifies which engines (@standard@ or @neural@) that are supported by a
 -- given voice.
@@ -145,8 +145,8 @@ instance Core.FromJSON Voice where
           Voice'
             Prelude.<$> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Gender")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Gender")
             Prelude.<*> ( x Core..:? "SupportedEngines"
                             Core..!= Prelude.mempty
                         )

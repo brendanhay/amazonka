@@ -108,11 +108,11 @@ data DeleteSecret = DeleteSecret'
     -- logic.
     --
     -- Use this parameter with caution. This parameter causes the operation to
-    -- skip the normal waiting period before the permanent deletion that AWS
-    -- would normally impose with the @RecoveryWindowInDays@ parameter. If you
-    -- delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you
-    -- have no opportunity to recover the secret. You lose the secret
-    -- permanently.
+    -- skip the normal waiting period before the permanent deletion that Amazon
+    -- Web Services would normally impose with the @RecoveryWindowInDays@
+    -- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+    -- parameter, then you have no opportunity to recover the secret. You lose
+    -- the secret permanently.
     --
     -- If you use this parameter and include a previously deleted or
     -- nonexistent secret, the operation does not return the error
@@ -169,11 +169,11 @@ data DeleteSecret = DeleteSecret'
 -- logic.
 --
 -- Use this parameter with caution. This parameter causes the operation to
--- skip the normal waiting period before the permanent deletion that AWS
--- would normally impose with the @RecoveryWindowInDays@ parameter. If you
--- delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you
--- have no opportunity to recover the secret. You lose the secret
--- permanently.
+-- skip the normal waiting period before the permanent deletion that Amazon
+-- Web Services would normally impose with the @RecoveryWindowInDays@
+-- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+-- parameter, then you have no opportunity to recover the secret. You lose
+-- the secret permanently.
 --
 -- If you use this parameter and include a previously deleted or
 -- nonexistent secret, the operation does not return the error
@@ -232,11 +232,11 @@ deleteSecret_recoveryWindowInDays = Lens.lens (\DeleteSecret' {recoveryWindowInD
 -- logic.
 --
 -- Use this parameter with caution. This parameter causes the operation to
--- skip the normal waiting period before the permanent deletion that AWS
--- would normally impose with the @RecoveryWindowInDays@ parameter. If you
--- delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you
--- have no opportunity to recover the secret. You lose the secret
--- permanently.
+-- skip the normal waiting period before the permanent deletion that Amazon
+-- Web Services would normally impose with the @RecoveryWindowInDays@
+-- parameter. If you delete a secret with the @ForceDeleteWithouRecovery@
+-- parameter, then you have no opportunity to recover the secret. You lose
+-- the secret permanently.
 --
 -- If you use this parameter and include a previously deleted or
 -- nonexistent secret, the operation does not return the error

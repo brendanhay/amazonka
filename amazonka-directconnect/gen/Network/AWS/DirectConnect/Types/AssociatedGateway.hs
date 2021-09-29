@@ -32,8 +32,8 @@ data AssociatedGateway = AssociatedGateway'
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of associated gateway.
     type' :: Prelude.Maybe GatewayType,
-    -- | The ID of the AWS account that owns the associated virtual private
-    -- gateway or transit gateway.
+    -- | The ID of the account that owns the associated virtual private gateway
+    -- or transit gateway.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Region where the associated gateway is located.
     region :: Prelude.Maybe Prelude.Text
@@ -52,8 +52,8 @@ data AssociatedGateway = AssociatedGateway'
 --
 -- 'type'', 'associatedGateway_type' - The type of associated gateway.
 --
--- 'ownerAccount', 'associatedGateway_ownerAccount' - The ID of the AWS account that owns the associated virtual private
--- gateway or transit gateway.
+-- 'ownerAccount', 'associatedGateway_ownerAccount' - The ID of the account that owns the associated virtual private gateway
+-- or transit gateway.
 --
 -- 'region', 'associatedGateway_region' - The Region where the associated gateway is located.
 newAssociatedGateway ::
@@ -74,8 +74,8 @@ associatedGateway_id = Lens.lens (\AssociatedGateway' {id} -> id) (\s@Associated
 associatedGateway_type :: Lens.Lens' AssociatedGateway (Prelude.Maybe GatewayType)
 associatedGateway_type = Lens.lens (\AssociatedGateway' {type'} -> type') (\s@AssociatedGateway' {} a -> s {type' = a} :: AssociatedGateway)
 
--- | The ID of the AWS account that owns the associated virtual private
--- gateway or transit gateway.
+-- | The ID of the account that owns the associated virtual private gateway
+-- or transit gateway.
 associatedGateway_ownerAccount :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_ownerAccount = Lens.lens (\AssociatedGateway' {ownerAccount} -> ownerAccount) (\s@AssociatedGateway' {} a -> s {ownerAccount = a} :: AssociatedGateway)
 

@@ -31,8 +31,8 @@ module Network.AWS.EC2.DescribeElasticGpus
     -- * Request Lenses
     describeElasticGpus_nextToken,
     describeElasticGpus_elasticGpuIds,
-    describeElasticGpus_dryRun,
     describeElasticGpus_maxResults,
+    describeElasticGpus_dryRun,
     describeElasticGpus_filters,
 
     -- * Destructuring the Response
@@ -60,15 +60,15 @@ data DescribeElasticGpus = DescribeElasticGpus'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Elastic Graphics accelerator IDs.
     elasticGpuIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 5 and 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone in which the Elastic
@@ -101,14 +101,14 @@ data DescribeElasticGpus = DescribeElasticGpus'
 --
 -- 'elasticGpuIds', 'describeElasticGpus_elasticGpuIds' - The Elastic Graphics accelerator IDs.
 --
+-- 'maxResults', 'describeElasticGpus_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000.
+--
 -- 'dryRun', 'describeElasticGpus_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeElasticGpus_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000.
 --
 -- 'filters', 'describeElasticGpus_filters' - The filters.
 --
@@ -132,8 +132,8 @@ newDescribeElasticGpus =
   DescribeElasticGpus'
     { nextToken = Prelude.Nothing,
       elasticGpuIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -145,18 +145,18 @@ describeElasticGpus_nextToken = Lens.lens (\DescribeElasticGpus' {nextToken} -> 
 describeElasticGpus_elasticGpuIds :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe [Prelude.Text])
 describeElasticGpus_elasticGpuIds = Lens.lens (\DescribeElasticGpus' {elasticGpuIds} -> elasticGpuIds) (\s@DescribeElasticGpus' {} a -> s {elasticGpuIds = a} :: DescribeElasticGpus) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000.
+describeElasticGpus_maxResults :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Natural)
+describeElasticGpus_maxResults = Lens.lens (\DescribeElasticGpus' {maxResults} -> maxResults) (\s@DescribeElasticGpus' {} a -> s {maxResults = a} :: DescribeElasticGpus)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeElasticGpus_dryRun :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Bool)
 describeElasticGpus_dryRun = Lens.lens (\DescribeElasticGpus' {dryRun} -> dryRun) (\s@DescribeElasticGpus' {} a -> s {dryRun = a} :: DescribeElasticGpus)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000.
-describeElasticGpus_maxResults :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Natural)
-describeElasticGpus_maxResults = Lens.lens (\DescribeElasticGpus' {maxResults} -> maxResults) (\s@DescribeElasticGpus' {} a -> s {maxResults = a} :: DescribeElasticGpus)
 
 -- | The filters.
 --
@@ -216,8 +216,8 @@ instance Core.ToQuery DescribeElasticGpus where
           ( Core.toQueryList "ElasticGpuId"
               Prelude.<$> elasticGpuIds
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters)
       ]

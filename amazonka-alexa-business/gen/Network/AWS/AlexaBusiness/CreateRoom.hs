@@ -28,9 +28,9 @@ module Network.AWS.AlexaBusiness.CreateRoom
 
     -- * Request Lenses
     createRoom_tags,
-    createRoom_providerCalendarId,
     createRoom_profileArn,
     createRoom_description,
+    createRoom_providerCalendarId,
     createRoom_clientRequestToken,
     createRoom_roomName,
 
@@ -55,12 +55,12 @@ import qualified Network.AWS.Response as Response
 data CreateRoom = CreateRoom'
   { -- | The tags for the room.
     tags :: Prelude.Maybe [Tag],
-    -- | The calendar ARN for the room.
-    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The profile ARN for the room. This is required.
     profileArn :: Prelude.Maybe Prelude.Text,
     -- | The description for the room.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The calendar ARN for the room.
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -79,11 +79,11 @@ data CreateRoom = CreateRoom'
 --
 -- 'tags', 'createRoom_tags' - The tags for the room.
 --
--- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.
---
 -- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.
 --
 -- 'description', 'createRoom_description' - The description for the room.
+--
+-- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.
 --
 -- 'clientRequestToken', 'createRoom_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
@@ -96,9 +96,9 @@ newCreateRoom ::
 newCreateRoom pRoomName_ =
   CreateRoom'
     { tags = Prelude.Nothing,
-      providerCalendarId = Prelude.Nothing,
       profileArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       roomName = pRoomName_
     }
@@ -107,10 +107,6 @@ newCreateRoom pRoomName_ =
 createRoom_tags :: Lens.Lens' CreateRoom (Prelude.Maybe [Tag])
 createRoom_tags = Lens.lens (\CreateRoom' {tags} -> tags) (\s@CreateRoom' {} a -> s {tags = a} :: CreateRoom) Prelude.. Lens.mapping Lens._Coerce
 
--- | The calendar ARN for the room.
-createRoom_providerCalendarId :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
-createRoom_providerCalendarId = Lens.lens (\CreateRoom' {providerCalendarId} -> providerCalendarId) (\s@CreateRoom' {} a -> s {providerCalendarId = a} :: CreateRoom)
-
 -- | The profile ARN for the room. This is required.
 createRoom_profileArn :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
 createRoom_profileArn = Lens.lens (\CreateRoom' {profileArn} -> profileArn) (\s@CreateRoom' {} a -> s {profileArn = a} :: CreateRoom)
@@ -118,6 +114,10 @@ createRoom_profileArn = Lens.lens (\CreateRoom' {profileArn} -> profileArn) (\s@
 -- | The description for the room.
 createRoom_description :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
 createRoom_description = Lens.lens (\CreateRoom' {description} -> description) (\s@CreateRoom' {} a -> s {description = a} :: CreateRoom)
+
+-- | The calendar ARN for the room.
+createRoom_providerCalendarId :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_providerCalendarId = Lens.lens (\CreateRoom' {providerCalendarId} -> providerCalendarId) (\s@CreateRoom' {} a -> s {providerCalendarId = a} :: CreateRoom)
 
 -- | A unique, user-specified identifier for this request that ensures
 -- idempotency.
@@ -163,10 +163,10 @@ instance Core.ToJSON CreateRoom where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProviderCalendarId" Core..=)
-              Prelude.<$> providerCalendarId,
             ("ProfileArn" Core..=) Prelude.<$> profileArn,
             ("Description" Core..=) Prelude.<$> description,
+            ("ProviderCalendarId" Core..=)
+              Prelude.<$> providerCalendarId,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             Prelude.Just ("RoomName" Core..= roomName)

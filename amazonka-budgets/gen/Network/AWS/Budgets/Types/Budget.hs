@@ -39,21 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBudget' smart constructor.
 data Budget = Budget'
-  { -- | The cost filters, such as service or tag, that are applied to a budget.
-    --
-    -- AWS Budgets supports the following services as a filter for RI budgets:
-    --
-    -- -   Amazon Elastic Compute Cloud - Compute
-    --
-    -- -   Amazon Redshift
-    --
-    -- -   Amazon Relational Database Service
-    --
-    -- -   Amazon ElastiCache
-    --
-    -- -   Amazon Elasticsearch Service
-    costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The period of time that is covered by a budget. The period has a start
+  { -- | The period of time that is covered by a budget. The period has a start
     -- date and an end date. The start date must come before the end date. The
     -- end date must come before @06\/15\/87 00:00 UTC@.
     --
@@ -71,6 +57,20 @@ data Budget = Budget'
     -- After the end date, AWS deletes the budget and all associated
     -- notifications and subscribers.
     timePeriod :: Prelude.Maybe TimePeriod,
+    -- | The cost filters, such as service or tag, that are applied to a budget.
+    --
+    -- AWS Budgets supports the following services as a filter for RI budgets:
+    --
+    -- -   Amazon Elastic Compute Cloud - Compute
+    --
+    -- -   Amazon Redshift
+    --
+    -- -   Amazon Relational Database Service
+    --
+    -- -   Amazon ElastiCache
+    --
+    -- -   Amazon Elasticsearch Service
+    costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The types of costs that are included in this @COST@ budget.
     --
     -- @USAGE@, @RI_UTILIZATION@, @RI_COVERAGE@, @SAVINGS_PLANS_UTILIZATION@,
@@ -145,20 +145,6 @@ data Budget = Budget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costFilters', 'budget_costFilters' - The cost filters, such as service or tag, that are applied to a budget.
---
--- AWS Budgets supports the following services as a filter for RI budgets:
---
--- -   Amazon Elastic Compute Cloud - Compute
---
--- -   Amazon Redshift
---
--- -   Amazon Relational Database Service
---
--- -   Amazon ElastiCache
---
--- -   Amazon Elasticsearch Service
---
 -- 'timePeriod', 'budget_timePeriod' - The period of time that is covered by a budget. The period has a start
 -- date and an end date. The start date must come before the end date. The
 -- end date must come before @06\/15\/87 00:00 UTC@.
@@ -176,6 +162,20 @@ data Budget = Budget'
 --
 -- After the end date, AWS deletes the budget and all associated
 -- notifications and subscribers.
+--
+-- 'costFilters', 'budget_costFilters' - The cost filters, such as service or tag, that are applied to a budget.
+--
+-- AWS Budgets supports the following services as a filter for RI budgets:
+--
+-- -   Amazon Elastic Compute Cloud - Compute
+--
+-- -   Amazon Redshift
+--
+-- -   Amazon Relational Database Service
+--
+-- -   Amazon ElastiCache
+--
+-- -   Amazon Elasticsearch Service
 --
 -- 'costTypes', 'budget_costTypes' - The types of costs that are included in this @COST@ budget.
 --
@@ -249,8 +249,8 @@ newBudget ::
   Budget
 newBudget pBudgetName_ pTimeUnit_ pBudgetType_ =
   Budget'
-    { costFilters = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
+    { timePeriod = Prelude.Nothing,
+      costFilters = Prelude.Nothing,
       costTypes = Prelude.Nothing,
       plannedBudgetLimits = Prelude.Nothing,
       calculatedSpend = Prelude.Nothing,
@@ -260,22 +260,6 @@ newBudget pBudgetName_ pTimeUnit_ pBudgetType_ =
       timeUnit = pTimeUnit_,
       budgetType = pBudgetType_
     }
-
--- | The cost filters, such as service or tag, that are applied to a budget.
---
--- AWS Budgets supports the following services as a filter for RI budgets:
---
--- -   Amazon Elastic Compute Cloud - Compute
---
--- -   Amazon Redshift
---
--- -   Amazon Relational Database Service
---
--- -   Amazon ElastiCache
---
--- -   Amazon Elasticsearch Service
-budget_costFilters :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budget' {} a -> s {costFilters = a} :: Budget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The period of time that is covered by a budget. The period has a start
 -- date and an end date. The start date must come before the end date. The
@@ -296,6 +280,22 @@ budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budge
 -- notifications and subscribers.
 budget_timePeriod :: Lens.Lens' Budget (Prelude.Maybe TimePeriod)
 budget_timePeriod = Lens.lens (\Budget' {timePeriod} -> timePeriod) (\s@Budget' {} a -> s {timePeriod = a} :: Budget)
+
+-- | The cost filters, such as service or tag, that are applied to a budget.
+--
+-- AWS Budgets supports the following services as a filter for RI budgets:
+--
+-- -   Amazon Elastic Compute Cloud - Compute
+--
+-- -   Amazon Redshift
+--
+-- -   Amazon Relational Database Service
+--
+-- -   Amazon ElastiCache
+--
+-- -   Amazon Elasticsearch Service
+budget_costFilters :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budget' {} a -> s {costFilters = a} :: Budget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The types of costs that are included in this @COST@ budget.
 --
@@ -382,8 +382,8 @@ instance Core.FromJSON Budget where
       "Budget"
       ( \x ->
           Budget'
-            Prelude.<$> (x Core..:? "CostFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TimePeriod")
+            Prelude.<$> (x Core..:? "TimePeriod")
+            Prelude.<*> (x Core..:? "CostFilters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CostTypes")
             Prelude.<*> ( x Core..:? "PlannedBudgetLimits"
                             Core..!= Prelude.mempty
@@ -404,8 +404,8 @@ instance Core.ToJSON Budget where
   toJSON Budget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CostFilters" Core..=) Prelude.<$> costFilters,
-            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
+          [ ("TimePeriod" Core..=) Prelude.<$> timePeriod,
+            ("CostFilters" Core..=) Prelude.<$> costFilters,
             ("CostTypes" Core..=) Prelude.<$> costTypes,
             ("PlannedBudgetLimits" Core..=)
               Prelude.<$> plannedBudgetLimits,

@@ -34,8 +34,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- * Request Lenses
     updatePipeline_name,
     updatePipeline_role,
-    updatePipeline_notifications,
     updatePipeline_thumbnailConfig,
+    updatePipeline_notifications,
     updatePipeline_contentConfig,
     updatePipeline_inputBucket,
     updatePipeline_awsKmsKeyArn,
@@ -71,30 +71,6 @@ data UpdatePipeline = UpdatePipeline'
     -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
     -- Transcoder to use to transcode jobs for this pipeline.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
-    -- topic that you want to notify to report job status.
-    --
-    -- To receive notifications, you must also subscribe to the new topic in
-    -- the Amazon SNS console.
-    --
-    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
-    --     Service (Amazon SNS) topic that you want to notify when Elastic
-    --     Transcoder has started to process jobs that are added to this
-    --     pipeline. This is the ARN that Amazon SNS returned when you created
-    --     the topic.
-    --
-    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
-    --     to notify when Elastic Transcoder has finished processing a job.
-    --     This is the ARN that Amazon SNS returned when you created the topic.
-    --
-    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters a warning condition. This
-    --     is the ARN that Amazon SNS returned when you created the topic.
-    --
-    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters an error condition. This
-    --     is the ARN that Amazon SNS returned when you created the topic.
-    notifications :: Prelude.Maybe Notifications,
     -- | The @ThumbnailConfig@ object specifies several values, including the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
     -- files, which users you want to have access to the files, the type of
@@ -160,6 +136,30 @@ data UpdatePipeline = UpdatePipeline'
     --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
     --     the thumbnails that it stores in your Amazon S3 bucket.
     thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
+    -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+    -- topic that you want to notify to report job status.
+    --
+    -- To receive notifications, you must also subscribe to the new topic in
+    -- the Amazon SNS console.
+    --
+    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+    --     Service (Amazon SNS) topic that you want to notify when Elastic
+    --     Transcoder has started to process jobs that are added to this
+    --     pipeline. This is the ARN that Amazon SNS returned when you created
+    --     the topic.
+    --
+    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+    --     to notify when Elastic Transcoder has finished processing a job.
+    --     This is the ARN that Amazon SNS returned when you created the topic.
+    --
+    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters a warning condition. This
+    --     is the ARN that Amazon SNS returned when you created the topic.
+    --
+    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters an error condition. This
+    --     is the ARN that Amazon SNS returned when you created the topic.
+    notifications :: Prelude.Maybe Notifications,
     -- | The optional @ContentConfig@ object specifies information about the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
     -- files and playlists: which bucket to use, which users you want to have
@@ -265,30 +265,6 @@ data UpdatePipeline = UpdatePipeline'
 -- 'role'', 'updatePipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to transcode jobs for this pipeline.
 --
--- 'notifications', 'updatePipeline_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process jobs that are added to this
---     pipeline. This is the ARN that Amazon SNS returned when you created
---     the topic.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job.
---     This is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
---
 -- 'thumbnailConfig', 'updatePipeline_thumbnailConfig' - The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
@@ -353,6 +329,30 @@ data UpdatePipeline = UpdatePipeline'
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
+--
+-- 'notifications', 'updatePipeline_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+-- topic that you want to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process jobs that are added to this
+--     pipeline. This is the ARN that Amazon SNS returned when you created
+--     the topic.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job.
+--     This is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
 --
 -- 'contentConfig', 'updatePipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -447,8 +447,8 @@ newUpdatePipeline pId_ =
   UpdatePipeline'
     { name = Prelude.Nothing,
       role' = Prelude.Nothing,
-      notifications = Prelude.Nothing,
       thumbnailConfig = Prelude.Nothing,
+      notifications = Prelude.Nothing,
       contentConfig = Prelude.Nothing,
       inputBucket = Prelude.Nothing,
       awsKmsKeyArn = Prelude.Nothing,
@@ -466,32 +466,6 @@ updatePipeline_name = Lens.lens (\UpdatePipeline' {name} -> name) (\s@UpdatePipe
 -- Transcoder to use to transcode jobs for this pipeline.
 updatePipeline_role :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
 updatePipeline_role = Lens.lens (\UpdatePipeline' {role'} -> role') (\s@UpdatePipeline' {} a -> s {role' = a} :: UpdatePipeline)
-
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process jobs that are added to this
---     pipeline. This is the ARN that Amazon SNS returned when you created
---     the topic.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job.
---     This is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
-updatePipeline_notifications :: Lens.Lens' UpdatePipeline (Prelude.Maybe Notifications)
-updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> notifications) (\s@UpdatePipeline' {} a -> s {notifications = a} :: UpdatePipeline)
 
 -- | The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
@@ -559,6 +533,32 @@ updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> no
 --     the thumbnails that it stores in your Amazon S3 bucket.
 updatePipeline_thumbnailConfig :: Lens.Lens' UpdatePipeline (Prelude.Maybe PipelineOutputConfig)
 updatePipeline_thumbnailConfig = Lens.lens (\UpdatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@UpdatePipeline' {} a -> s {thumbnailConfig = a} :: UpdatePipeline)
+
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+-- topic that you want to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process jobs that are added to this
+--     pipeline. This is the ARN that Amazon SNS returned when you created
+--     the topic.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job.
+--     This is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+updatePipeline_notifications :: Lens.Lens' UpdatePipeline (Prelude.Maybe Notifications)
+updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> notifications) (\s@UpdatePipeline' {} a -> s {notifications = a} :: UpdatePipeline)
 
 -- | The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -681,9 +681,9 @@ instance Core.ToJSON UpdatePipeline where
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
             ("Role" Core..=) Prelude.<$> role',
-            ("Notifications" Core..=) Prelude.<$> notifications,
             ("ThumbnailConfig" Core..=)
               Prelude.<$> thumbnailConfig,
+            ("Notifications" Core..=) Prelude.<$> notifications,
             ("ContentConfig" Core..=) Prelude.<$> contentConfig,
             ("InputBucket" Core..=) Prelude.<$> inputBucket,
             ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn

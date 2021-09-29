@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImportInstanceVolumeDetailItem' smart constructor.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-  { -- | The status information or errors related to the disk image.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The number of bytes converted so far.
+  { -- | The number of bytes converted so far.
     bytesConverted :: Prelude.Maybe Prelude.Integer,
+    -- | The status information or errors related to the disk image.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the import of this particular disk image.
     status :: Prelude.Maybe Prelude.Text,
     -- | The volume.
@@ -55,9 +55,9 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'importInstanceVolumeDetailItem_statusMessage' - The status information or errors related to the disk image.
---
 -- 'bytesConverted', 'importInstanceVolumeDetailItem_bytesConverted' - The number of bytes converted so far.
+--
+-- 'statusMessage', 'importInstanceVolumeDetailItem_statusMessage' - The status information or errors related to the disk image.
 --
 -- 'status', 'importInstanceVolumeDetailItem_status' - The status of the import of this particular disk image.
 --
@@ -72,9 +72,9 @@ newImportInstanceVolumeDetailItem ::
   ImportInstanceVolumeDetailItem
 newImportInstanceVolumeDetailItem =
   ImportInstanceVolumeDetailItem'
-    { statusMessage =
+    { bytesConverted =
         Prelude.Nothing,
-      bytesConverted = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
       volume = Prelude.Nothing,
       image = Prelude.Nothing,
@@ -82,13 +82,13 @@ newImportInstanceVolumeDetailItem =
       description = Prelude.Nothing
     }
 
--- | The status information or errors related to the disk image.
-importInstanceVolumeDetailItem_statusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
-importInstanceVolumeDetailItem_statusMessage = Lens.lens (\ImportInstanceVolumeDetailItem' {statusMessage} -> statusMessage) (\s@ImportInstanceVolumeDetailItem' {} a -> s {statusMessage = a} :: ImportInstanceVolumeDetailItem)
-
 -- | The number of bytes converted so far.
 importInstanceVolumeDetailItem_bytesConverted :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Integer)
 importInstanceVolumeDetailItem_bytesConverted = Lens.lens (\ImportInstanceVolumeDetailItem' {bytesConverted} -> bytesConverted) (\s@ImportInstanceVolumeDetailItem' {} a -> s {bytesConverted = a} :: ImportInstanceVolumeDetailItem)
+
+-- | The status information or errors related to the disk image.
+importInstanceVolumeDetailItem_statusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
+importInstanceVolumeDetailItem_statusMessage = Lens.lens (\ImportInstanceVolumeDetailItem' {statusMessage} -> statusMessage) (\s@ImportInstanceVolumeDetailItem' {} a -> s {statusMessage = a} :: ImportInstanceVolumeDetailItem)
 
 -- | The status of the import of this particular disk image.
 importInstanceVolumeDetailItem_status :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
@@ -113,8 +113,8 @@ importInstanceVolumeDetailItem_description = Lens.lens (\ImportInstanceVolumeDet
 instance Core.FromXML ImportInstanceVolumeDetailItem where
   parseXML x =
     ImportInstanceVolumeDetailItem'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "bytesConverted")
+      Prelude.<$> (x Core..@? "bytesConverted")
+      Prelude.<*> (x Core..@? "statusMessage")
       Prelude.<*> (x Core..@? "status")
       Prelude.<*> (x Core..@? "volume")
       Prelude.<*> (x Core..@? "image")

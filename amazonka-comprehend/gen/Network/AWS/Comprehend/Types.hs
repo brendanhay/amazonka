@@ -24,21 +24,33 @@ module Network.AWS.Comprehend.Types
     _BatchSizeLimitExceededException,
     _ConcurrentModificationException,
     _InvalidRequestException,
-    _ResourceInUseException,
     _TextSizeLimitExceededException,
+    _ResourceInUseException,
     _KmsKeyValidationException,
-    _TooManyTagKeysException,
     _ResourceNotFoundException,
+    _TooManyTagKeysException,
     _JobNotFoundException,
     _UnsupportedLanguageException,
     _InternalServerException,
     _TooManyRequestsException,
+
+    -- * AugmentedManifestsDocumentTypeFormat
+    AugmentedManifestsDocumentTypeFormat (..),
 
     -- * DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
 
     -- * DocumentClassifierMode
     DocumentClassifierMode (..),
+
+    -- * DocumentReadAction
+    DocumentReadAction (..),
+
+    -- * DocumentReadFeatureTypes
+    DocumentReadFeatureTypes (..),
+
+    -- * DocumentReadMode
+    DocumentReadMode (..),
 
     -- * EndpointStatus
     EndpointStatus (..),
@@ -76,12 +88,19 @@ module Network.AWS.Comprehend.Types
     -- * SentimentType
     SentimentType (..),
 
+    -- * Split
+    Split (..),
+
     -- * SyntaxLanguageCode
     SyntaxLanguageCode (..),
 
     -- * AugmentedManifestsListItem
     AugmentedManifestsListItem (..),
     newAugmentedManifestsListItem,
+    augmentedManifestsListItem_documentType,
+    augmentedManifestsListItem_sourceDocumentsS3Uri,
+    augmentedManifestsListItem_annotationDataS3Uri,
+    augmentedManifestsListItem_split,
     augmentedManifestsListItem_s3Uri,
     augmentedManifestsListItem_attributeNames,
 
@@ -106,8 +125,8 @@ module Network.AWS.Comprehend.Types
     -- * BatchDetectSentimentItemResult
     BatchDetectSentimentItemResult (..),
     newBatchDetectSentimentItemResult,
-    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_sentiment,
+    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_index,
 
     -- * BatchDetectSyntaxItemResult
@@ -126,8 +145,8 @@ module Network.AWS.Comprehend.Types
     -- * ClassifierEvaluationMetrics
     ClassifierEvaluationMetrics (..),
     newClassifierEvaluationMetrics,
-    classifierEvaluationMetrics_microRecall,
     classifierEvaluationMetrics_f1Score,
+    classifierEvaluationMetrics_microRecall,
     classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_precision,
     classifierEvaluationMetrics_accuracy,
@@ -167,6 +186,7 @@ module Network.AWS.Comprehend.Types
     documentClassificationJobProperties_outputDataConfig,
     documentClassificationJobProperties_documentClassifierArn,
     documentClassificationJobProperties_endTime,
+    documentClassificationJobProperties_jobArn,
     documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_submitTime,
     documentClassificationJobProperties_jobName,
@@ -179,12 +199,14 @@ module Network.AWS.Comprehend.Types
     documentClassifierFilter_status,
     documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_submitTimeAfter,
+    documentClassifierFilter_documentClassifierName,
 
     -- * DocumentClassifierInputDataConfig
     DocumentClassifierInputDataConfig (..),
     newDocumentClassifierInputDataConfig,
     documentClassifierInputDataConfig_augmentedManifests,
     documentClassifierInputDataConfig_dataFormat,
+    documentClassifierInputDataConfig_testS3Uri,
     documentClassifierInputDataConfig_labelDelimiter,
     documentClassifierInputDataConfig_s3Uri,
 
@@ -197,27 +219,45 @@ module Network.AWS.Comprehend.Types
     -- * DocumentClassifierProperties
     DocumentClassifierProperties (..),
     newDocumentClassifierProperties,
-    documentClassifierProperties_vpcConfig,
     documentClassifierProperties_languageCode,
+    documentClassifierProperties_vpcConfig,
     documentClassifierProperties_status,
     documentClassifierProperties_inputDataConfig,
-    documentClassifierProperties_mode,
     documentClassifierProperties_message,
+    documentClassifierProperties_mode,
     documentClassifierProperties_outputDataConfig,
     documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_versionName,
     documentClassifierProperties_endTime,
     documentClassifierProperties_classifierMetadata,
     documentClassifierProperties_volumeKmsKeyId,
     documentClassifierProperties_submitTime,
+    documentClassifierProperties_modelKmsKeyId,
     documentClassifierProperties_trainingStartTime,
     documentClassifierProperties_dataAccessRoleArn,
     documentClassifierProperties_trainingEndTime,
+
+    -- * DocumentClassifierSummary
+    DocumentClassifierSummary (..),
+    newDocumentClassifierSummary,
+    documentClassifierSummary_latestVersionCreatedAt,
+    documentClassifierSummary_documentClassifierName,
+    documentClassifierSummary_latestVersionName,
+    documentClassifierSummary_numberOfVersions,
+    documentClassifierSummary_latestVersionStatus,
 
     -- * DocumentLabel
     DocumentLabel (..),
     newDocumentLabel,
     documentLabel_name,
     documentLabel_score,
+
+    -- * DocumentReaderConfig
+    DocumentReaderConfig (..),
+    newDocumentReaderConfig,
+    documentReaderConfig_featureTypes,
+    documentReaderConfig_documentReadMode,
+    documentReaderConfig_documentReadAction,
 
     -- * DominantLanguage
     DominantLanguage (..),
@@ -242,6 +282,7 @@ module Network.AWS.Comprehend.Types
     dominantLanguageDetectionJobProperties_jobStatus,
     dominantLanguageDetectionJobProperties_outputDataConfig,
     dominantLanguageDetectionJobProperties_endTime,
+    dominantLanguageDetectionJobProperties_jobArn,
     dominantLanguageDetectionJobProperties_volumeKmsKeyId,
     dominantLanguageDetectionJobProperties_submitTime,
     dominantLanguageDetectionJobProperties_jobName,
@@ -260,13 +301,16 @@ module Network.AWS.Comprehend.Types
     EndpointProperties (..),
     newEndpointProperties,
     endpointProperties_currentInferenceUnits,
-    endpointProperties_status,
     endpointProperties_creationTime,
+    endpointProperties_status,
     endpointProperties_desiredInferenceUnits,
     endpointProperties_message,
+    endpointProperties_desiredDataAccessRoleArn,
     endpointProperties_modelArn,
     endpointProperties_lastModifiedTime,
     endpointProperties_endpointArn,
+    endpointProperties_dataAccessRoleArn,
+    endpointProperties_desiredModelArn,
 
     -- * EntitiesDetectionJobFilter
     EntitiesDetectionJobFilter (..),
@@ -279,13 +323,14 @@ module Network.AWS.Comprehend.Types
     -- * EntitiesDetectionJobProperties
     EntitiesDetectionJobProperties (..),
     newEntitiesDetectionJobProperties,
-    entitiesDetectionJobProperties_vpcConfig,
     entitiesDetectionJobProperties_languageCode,
+    entitiesDetectionJobProperties_vpcConfig,
     entitiesDetectionJobProperties_inputDataConfig,
     entitiesDetectionJobProperties_message,
     entitiesDetectionJobProperties_jobStatus,
     entitiesDetectionJobProperties_outputDataConfig,
     entitiesDetectionJobProperties_endTime,
+    entitiesDetectionJobProperties_jobArn,
     entitiesDetectionJobProperties_volumeKmsKeyId,
     entitiesDetectionJobProperties_submitTime,
     entitiesDetectionJobProperties_entityRecognizerArn,
@@ -302,14 +347,23 @@ module Network.AWS.Comprehend.Types
     entity_text,
     entity_beginOffset,
 
+    -- * EntityLabel
+    EntityLabel (..),
+    newEntityLabel,
+    entityLabel_name,
+    entityLabel_score,
+
     -- * EntityRecognizerAnnotations
     EntityRecognizerAnnotations (..),
     newEntityRecognizerAnnotations,
+    entityRecognizerAnnotations_testS3Uri,
     entityRecognizerAnnotations_s3Uri,
 
     -- * EntityRecognizerDocuments
     EntityRecognizerDocuments (..),
     newEntityRecognizerDocuments,
+    entityRecognizerDocuments_testS3Uri,
+    entityRecognizerDocuments_inputFormat,
     entityRecognizerDocuments_s3Uri,
 
     -- * EntityRecognizerEntityList
@@ -330,6 +384,7 @@ module Network.AWS.Comprehend.Types
     entityRecognizerFilter_status,
     entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_submitTimeAfter,
+    entityRecognizerFilter_recognizerName,
 
     -- * EntityRecognizerInputDataConfig
     EntityRecognizerInputDataConfig (..),
@@ -359,19 +414,30 @@ module Network.AWS.Comprehend.Types
     -- * EntityRecognizerProperties
     EntityRecognizerProperties (..),
     newEntityRecognizerProperties,
-    entityRecognizerProperties_vpcConfig,
     entityRecognizerProperties_languageCode,
+    entityRecognizerProperties_vpcConfig,
     entityRecognizerProperties_status,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_message,
+    entityRecognizerProperties_versionName,
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_volumeKmsKeyId,
     entityRecognizerProperties_submitTime,
     entityRecognizerProperties_recognizerMetadata,
     entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_modelKmsKeyId,
     entityRecognizerProperties_trainingStartTime,
     entityRecognizerProperties_dataAccessRoleArn,
     entityRecognizerProperties_trainingEndTime,
+
+    -- * EntityRecognizerSummary
+    EntityRecognizerSummary (..),
+    newEntityRecognizerSummary,
+    entityRecognizerSummary_latestVersionCreatedAt,
+    entityRecognizerSummary_recognizerName,
+    entityRecognizerSummary_latestVersionName,
+    entityRecognizerSummary_numberOfVersions,
+    entityRecognizerSummary_latestVersionStatus,
 
     -- * EntityTypesEvaluationMetrics
     EntityTypesEvaluationMetrics (..),
@@ -402,6 +468,7 @@ module Network.AWS.Comprehend.Types
     eventsDetectionJobProperties_jobStatus,
     eventsDetectionJobProperties_outputDataConfig,
     eventsDetectionJobProperties_endTime,
+    eventsDetectionJobProperties_jobArn,
     eventsDetectionJobProperties_submitTime,
     eventsDetectionJobProperties_targetEventTypes,
     eventsDetectionJobProperties_jobName,
@@ -411,6 +478,7 @@ module Network.AWS.Comprehend.Types
     -- * InputDataConfig
     InputDataConfig (..),
     newInputDataConfig,
+    inputDataConfig_documentReaderConfig,
     inputDataConfig_inputFormat,
     inputDataConfig_s3Uri,
 
@@ -433,13 +501,14 @@ module Network.AWS.Comprehend.Types
     -- * KeyPhrasesDetectionJobProperties
     KeyPhrasesDetectionJobProperties (..),
     newKeyPhrasesDetectionJobProperties,
-    keyPhrasesDetectionJobProperties_vpcConfig,
     keyPhrasesDetectionJobProperties_languageCode,
+    keyPhrasesDetectionJobProperties_vpcConfig,
     keyPhrasesDetectionJobProperties_inputDataConfig,
     keyPhrasesDetectionJobProperties_message,
     keyPhrasesDetectionJobProperties_jobStatus,
     keyPhrasesDetectionJobProperties_outputDataConfig,
     keyPhrasesDetectionJobProperties_endTime,
+    keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_volumeKmsKeyId,
     keyPhrasesDetectionJobProperties_submitTime,
     keyPhrasesDetectionJobProperties_jobName,
@@ -469,14 +538,15 @@ module Network.AWS.Comprehend.Types
     -- * PiiEntitiesDetectionJobProperties
     PiiEntitiesDetectionJobProperties (..),
     newPiiEntitiesDetectionJobProperties,
-    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_languageCode,
+    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_inputDataConfig,
-    piiEntitiesDetectionJobProperties_mode,
     piiEntitiesDetectionJobProperties_message,
+    piiEntitiesDetectionJobProperties_mode,
     piiEntitiesDetectionJobProperties_jobStatus,
     piiEntitiesDetectionJobProperties_outputDataConfig,
     piiEntitiesDetectionJobProperties_endTime,
+    piiEntitiesDetectionJobProperties_jobArn,
     piiEntitiesDetectionJobProperties_submitTime,
     piiEntitiesDetectionJobProperties_jobName,
     piiEntitiesDetectionJobProperties_dataAccessRoleArn,
@@ -514,13 +584,14 @@ module Network.AWS.Comprehend.Types
     -- * SentimentDetectionJobProperties
     SentimentDetectionJobProperties (..),
     newSentimentDetectionJobProperties,
-    sentimentDetectionJobProperties_vpcConfig,
     sentimentDetectionJobProperties_languageCode,
+    sentimentDetectionJobProperties_vpcConfig,
     sentimentDetectionJobProperties_inputDataConfig,
     sentimentDetectionJobProperties_message,
     sentimentDetectionJobProperties_jobStatus,
     sentimentDetectionJobProperties_outputDataConfig,
     sentimentDetectionJobProperties_endTime,
+    sentimentDetectionJobProperties_jobArn,
     sentimentDetectionJobProperties_volumeKmsKeyId,
     sentimentDetectionJobProperties_submitTime,
     sentimentDetectionJobProperties_jobName,
@@ -567,6 +638,7 @@ module Network.AWS.Comprehend.Types
     topicsDetectionJobProperties_jobStatus,
     topicsDetectionJobProperties_outputDataConfig,
     topicsDetectionJobProperties_endTime,
+    topicsDetectionJobProperties_jobArn,
     topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_submitTime,
     topicsDetectionJobProperties_numberOfTopics,
@@ -582,6 +654,7 @@ module Network.AWS.Comprehend.Types
   )
 where
 
+import Network.AWS.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
 import Network.AWS.Comprehend.Types.AugmentedManifestsListItem
 import Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
 import Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
@@ -600,7 +673,12 @@ import Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
 import Network.AWS.Comprehend.Types.DocumentClassifierMode
 import Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
 import Network.AWS.Comprehend.Types.DocumentClassifierProperties
+import Network.AWS.Comprehend.Types.DocumentClassifierSummary
 import Network.AWS.Comprehend.Types.DocumentLabel
+import Network.AWS.Comprehend.Types.DocumentReadAction
+import Network.AWS.Comprehend.Types.DocumentReadFeatureTypes
+import Network.AWS.Comprehend.Types.DocumentReadMode
+import Network.AWS.Comprehend.Types.DocumentReaderConfig
 import Network.AWS.Comprehend.Types.DominantLanguage
 import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
 import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -610,6 +688,7 @@ import Network.AWS.Comprehend.Types.EndpointStatus
 import Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
 import Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
 import Network.AWS.Comprehend.Types.Entity
+import Network.AWS.Comprehend.Types.EntityLabel
 import Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
 import Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
 import Network.AWS.Comprehend.Types.EntityRecognizerDocuments
@@ -620,6 +699,7 @@ import Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadata
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
 import Network.AWS.Comprehend.Types.EntityRecognizerProperties
+import Network.AWS.Comprehend.Types.EntityRecognizerSummary
 import Network.AWS.Comprehend.Types.EntityType
 import Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
 import Network.AWS.Comprehend.Types.EntityTypesListItem
@@ -648,6 +728,7 @@ import Network.AWS.Comprehend.Types.SentimentDetectionJobFilter
 import Network.AWS.Comprehend.Types.SentimentDetectionJobProperties
 import Network.AWS.Comprehend.Types.SentimentScore
 import Network.AWS.Comprehend.Types.SentimentType
+import Network.AWS.Comprehend.Types.Split
 import Network.AWS.Comprehend.Types.SyntaxLanguageCode
 import Network.AWS.Comprehend.Types.SyntaxToken
 import Network.AWS.Comprehend.Types.Tag
@@ -786,6 +867,13 @@ _InvalidRequestException =
     defaultService
     "InvalidRequestException"
 
+-- | The size of the input text exceeds the limit. Use a smaller document.
+_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TextSizeLimitExceededException"
+
 -- | The specified resource name is already in use. Use a different name and
 -- try your request again.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -793,13 +881,6 @@ _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-
--- | The size of the input text exceeds the limit. Use a smaller document.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TextSizeLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TextSizeLimitExceededException"
 
 -- | The KMS customer managed key (CMK) entered cannot be validated. Verify
 -- the key and re-enter it.
@@ -809,14 +890,6 @@ _KmsKeyValidationException =
     defaultService
     "KmsKeyValidationException"
 
--- | The request contains more tag keys than can be associated with a
--- resource (50 tag keys per resource).
-_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagKeysException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagKeysException"
-
 -- | The specified resource ARN was not found. Check the ARN and try your
 -- request again.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -825,6 +898,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
+-- | The request contains more tag keys than can be associated with a
+-- resource (50 tag keys per resource).
+_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagKeysException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagKeysException"
+
 -- | The specified job was not found. Check the job ID and try again.
 _JobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _JobNotFoundException =
@@ -832,12 +913,10 @@ _JobNotFoundException =
     defaultService
     "JobNotFoundException"
 
--- | Amazon Comprehend can\'t process the language of the input text. For all
--- custom entity recognition APIs (such as @CreateEntityRecognizer@), only
--- English, Spanish, French, Italian, German, or Portuguese are accepted.
--- For most other APIs, such as those for Custom Classification, Amazon
--- Comprehend accepts text in all supported languages. For a list of
--- supported languages, see supported-languages.
+-- | Amazon Comprehend can\'t process the language of the input text. For
+-- custom entity recognition APIs, only English, Spanish, French, Italian,
+-- German, or Portuguese are accepted. For a list of supported languages,
+-- see supported-languages.
 _UnsupportedLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedLanguageException =
   Core._MatchServiceError

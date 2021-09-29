@@ -30,8 +30,8 @@
 --     the data to stay within your organization or when a specific set of
 --     skills is required.
 --
--- -   One or more vendors that you select from the AWS Marketplace.
---     Vendors provide expertise in specific areas.
+-- -   One or more vendors that you select from the Amazon Web Services
+--     Marketplace. Vendors provide expertise in specific areas.
 --
 -- -   The Amazon Mechanical Turk workforce. This is the largest workforce,
 --     but it should only be used for public data or data that has been
@@ -111,6 +111,14 @@ data CreateLabelingJob = CreateLabelingJob'
     -- configuration file. To learn how, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html Create a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs>.
     --
+    -- For named entity recognition jobs, in addition to @\"labels\"@, you must
+    -- provide worker instructions in the label category configuration file
+    -- using the @\"instructions\"@ parameter:
+    -- @\"instructions\": {\"shortInstruction\":\"\<h1>Add header\<\/h1>\<p>Add Instructions\<\/p>\", \"fullInstruction\":\"\<p>Add additional instructions.\<\/p>\"}@.
+    -- For details and an example, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api Create a Named Entity Recognition Labeling Job (API)>
+    -- .
+    --
     -- For all other
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>
     -- and
@@ -148,13 +156,13 @@ data CreateLabelingJob = CreateLabelingJob'
     labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
     -- | An array of key\/value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the labeling job. This name is used to identify the job in a
-    -- list of labeling jobs. Labeling job names must be unique within an AWS
-    -- account and region. @LabelingJobName@ is not case sensitive. For
-    -- example, Example-job and example-job are considered the same labeling
-    -- job name by Ground Truth.
+    -- list of labeling jobs. Labeling job names must be unique within an
+    -- Amazon Web Services account and region. @LabelingJobName@ is not case
+    -- sensitive. For example, Example-job and example-job are considered the
+    -- same labeling job name by Ground Truth.
     labelingJobName :: Prelude.Text,
     -- | The attribute name to use for the label in the output manifest file.
     -- This is the key for the key\/value pair formed with the label that a
@@ -221,8 +229,9 @@ data CreateLabelingJob = CreateLabelingJob'
     -- health information. Use @ContentClassifiers@ to specify that your data
     -- is free of personally identifiable information and adult content.
     inputConfig :: LabelingJobInputConfig,
-    -- | The location of the output data and the AWS Key Management Service key
-    -- ID for the key used to encrypt the output data, if any.
+    -- | The location of the output data and the Amazon Web Services Key
+    -- Management Service key ID for the key used to encrypt the output data,
+    -- if any.
     outputConfig :: LabelingJobOutputConfig,
     -- | The Amazon Resource Number (ARN) that Amazon SageMaker assumes to
     -- perform tasks on your behalf during data labeling. You must grant this
@@ -255,6 +264,14 @@ data CreateLabelingJob = CreateLabelingJob'
 -- category attributes and frame attributes to your label category
 -- configuration file. To learn how, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html Create a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs>.
+--
+-- For named entity recognition jobs, in addition to @\"labels\"@, you must
+-- provide worker instructions in the label category configuration file
+-- using the @\"instructions\"@ parameter:
+-- @\"instructions\": {\"shortInstruction\":\"\<h1>Add header\<\/h1>\<p>Add Instructions\<\/p>\", \"fullInstruction\":\"\<p>Add additional instructions.\<\/p>\"}@.
+-- For details and an example, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api Create a Named Entity Recognition Labeling Job (API)>
+-- .
 --
 -- For all other
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>
@@ -293,13 +310,13 @@ data CreateLabelingJob = CreateLabelingJob'
 --
 -- 'tags', 'createLabelingJob_tags' - An array of key\/value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'labelingJobName', 'createLabelingJob_labelingJobName' - The name of the labeling job. This name is used to identify the job in a
--- list of labeling jobs. Labeling job names must be unique within an AWS
--- account and region. @LabelingJobName@ is not case sensitive. For
--- example, Example-job and example-job are considered the same labeling
--- job name by Ground Truth.
+-- list of labeling jobs. Labeling job names must be unique within an
+-- Amazon Web Services account and region. @LabelingJobName@ is not case
+-- sensitive. For example, Example-job and example-job are considered the
+-- same labeling job name by Ground Truth.
 --
 -- 'labelAttributeName', 'createLabelingJob_labelAttributeName' - The attribute name to use for the label in the output manifest file.
 -- This is the key for the key\/value pair formed with the label that a
@@ -366,8 +383,9 @@ data CreateLabelingJob = CreateLabelingJob'
 -- health information. Use @ContentClassifiers@ to specify that your data
 -- is free of personally identifiable information and adult content.
 --
--- 'outputConfig', 'createLabelingJob_outputConfig' - The location of the output data and the AWS Key Management Service key
--- ID for the key used to encrypt the output data, if any.
+-- 'outputConfig', 'createLabelingJob_outputConfig' - The location of the output data and the Amazon Web Services Key
+-- Management Service key ID for the key used to encrypt the output data,
+-- if any.
 --
 -- 'roleArn', 'createLabelingJob_roleArn' - The Amazon Resource Number (ARN) that Amazon SageMaker assumes to
 -- perform tasks on your behalf during data labeling. You must grant this
@@ -426,6 +444,14 @@ createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingC
 -- configuration file. To learn how, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html Create a Labeling Category Configuration File for 3D Point Cloud Labeling Jobs>.
 --
+-- For named entity recognition jobs, in addition to @\"labels\"@, you must
+-- provide worker instructions in the label category configuration file
+-- using the @\"instructions\"@ parameter:
+-- @\"instructions\": {\"shortInstruction\":\"\<h1>Add header\<\/h1>\<p>Add Instructions\<\/p>\", \"fullInstruction\":\"\<p>Add additional instructions.\<\/p>\"}@.
+-- For details and an example, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api Create a Named Entity Recognition Labeling Job (API)>
+-- .
+--
 -- For all other
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>
 -- and
@@ -467,15 +493,15 @@ createLabelingJob_labelingJobAlgorithmsConfig = Lens.lens (\CreateLabelingJob' {
 
 -- | An array of key\/value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createLabelingJob_tags :: Lens.Lens' CreateLabelingJob (Prelude.Maybe [Tag])
 createLabelingJob_tags = Lens.lens (\CreateLabelingJob' {tags} -> tags) (\s@CreateLabelingJob' {} a -> s {tags = a} :: CreateLabelingJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the labeling job. This name is used to identify the job in a
--- list of labeling jobs. Labeling job names must be unique within an AWS
--- account and region. @LabelingJobName@ is not case sensitive. For
--- example, Example-job and example-job are considered the same labeling
--- job name by Ground Truth.
+-- list of labeling jobs. Labeling job names must be unique within an
+-- Amazon Web Services account and region. @LabelingJobName@ is not case
+-- sensitive. For example, Example-job and example-job are considered the
+-- same labeling job name by Ground Truth.
 createLabelingJob_labelingJobName :: Lens.Lens' CreateLabelingJob Prelude.Text
 createLabelingJob_labelingJobName = Lens.lens (\CreateLabelingJob' {labelingJobName} -> labelingJobName) (\s@CreateLabelingJob' {} a -> s {labelingJobName = a} :: CreateLabelingJob)
 
@@ -548,8 +574,9 @@ createLabelingJob_labelAttributeName = Lens.lens (\CreateLabelingJob' {labelAttr
 createLabelingJob_inputConfig :: Lens.Lens' CreateLabelingJob LabelingJobInputConfig
 createLabelingJob_inputConfig = Lens.lens (\CreateLabelingJob' {inputConfig} -> inputConfig) (\s@CreateLabelingJob' {} a -> s {inputConfig = a} :: CreateLabelingJob)
 
--- | The location of the output data and the AWS Key Management Service key
--- ID for the key used to encrypt the output data, if any.
+-- | The location of the output data and the Amazon Web Services Key
+-- Management Service key ID for the key used to encrypt the output data,
+-- if any.
 createLabelingJob_outputConfig :: Lens.Lens' CreateLabelingJob LabelingJobOutputConfig
 createLabelingJob_outputConfig = Lens.lens (\CreateLabelingJob' {outputConfig} -> outputConfig) (\s@CreateLabelingJob' {} a -> s {outputConfig = a} :: CreateLabelingJob)
 

@@ -49,9 +49,9 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     windowId :: Prelude.Maybe Prelude.Text,
     -- | A description for the target.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A user-provided value that will be included in any CloudWatch events
-    -- that are raised while running tasks for these targets in this
-    -- maintenance window.
+    -- | A user-provided value that will be included in any Amazon CloudWatch
+    -- Events events that are raised while running tasks for these targets in
+    -- this maintenance window.
     ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -84,9 +84,9 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 --
 -- 'description', 'maintenanceWindowTarget_description' - A description for the target.
 --
--- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any CloudWatch events
--- that are raised while running tasks for these targets in this
--- maintenance window.
+-- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any Amazon CloudWatch
+-- Events events that are raised while running tasks for these targets in
+-- this maintenance window.
 newMaintenanceWindowTarget ::
   MaintenanceWindowTarget
 newMaintenanceWindowTarget =
@@ -133,9 +133,9 @@ maintenanceWindowTarget_windowId = Lens.lens (\MaintenanceWindowTarget' {windowI
 maintenanceWindowTarget_description :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 
--- | A user-provided value that will be included in any CloudWatch events
--- that are raised while running tasks for these targets in this
--- maintenance window.
+-- | A user-provided value that will be included in any Amazon CloudWatch
+-- Events events that are raised while running tasks for these targets in
+-- this maintenance window.
 maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 

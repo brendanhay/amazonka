@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a registered CA certificate.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeCACertificate>
+-- action.
 module Network.AWS.IoT.DescribeCACertificate
   ( -- * Creating a Request
     DescribeCACertificate (..),

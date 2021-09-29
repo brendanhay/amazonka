@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a directory with an SNS topic. This establishes the directory
--- as a publisher to the specified SNS topic. You can then receive email or
--- text (SMS) messages when the status of your directory changes. You get
--- notified if your directory goes from an Active status to an Impaired or
--- Inoperable status. You also receive a notification when the directory
--- returns to an Active status.
+-- Associates a directory with an Amazon SNS topic. This establishes the
+-- directory as a publisher to the specified Amazon SNS topic. You can then
+-- receive email or text (SMS) messages when the status of your directory
+-- changes. You get notified if your directory goes from an Active status
+-- to an Impaired or Inoperable status. You also receive a notification
+-- when the directory returns to an Active status.
 module Network.AWS.DirectoryService.RegisterEventTopic
   ( -- * Creating a Request
     RegisterEventTopic (..),
@@ -55,10 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRegisterEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
-  { -- | The Directory ID that will publish status messages to the SNS topic.
+  { -- | The Directory ID that will publish status messages to the Amazon SNS
+    -- topic.
     directoryId :: Prelude.Text,
-    -- | The SNS topic name to which the directory will publish status messages.
-    -- This SNS topic must be in the same region as the specified Directory ID.
+    -- | The Amazon SNS topic name to which the directory will publish status
+    -- messages. This Amazon SNS topic must be in the same region as the
+    -- specified Directory ID.
     topicName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,10 +73,12 @@ data RegisterEventTopic = RegisterEventTopic'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'registerEventTopic_directoryId' - The Directory ID that will publish status messages to the SNS topic.
+-- 'directoryId', 'registerEventTopic_directoryId' - The Directory ID that will publish status messages to the Amazon SNS
+-- topic.
 --
--- 'topicName', 'registerEventTopic_topicName' - The SNS topic name to which the directory will publish status messages.
--- This SNS topic must be in the same region as the specified Directory ID.
+-- 'topicName', 'registerEventTopic_topicName' - The Amazon SNS topic name to which the directory will publish status
+-- messages. This Amazon SNS topic must be in the same region as the
+-- specified Directory ID.
 newRegisterEventTopic ::
   -- | 'directoryId'
   Prelude.Text ->
@@ -87,12 +91,14 @@ newRegisterEventTopic pDirectoryId_ pTopicName_ =
       topicName = pTopicName_
     }
 
--- | The Directory ID that will publish status messages to the SNS topic.
+-- | The Directory ID that will publish status messages to the Amazon SNS
+-- topic.
 registerEventTopic_directoryId :: Lens.Lens' RegisterEventTopic Prelude.Text
 registerEventTopic_directoryId = Lens.lens (\RegisterEventTopic' {directoryId} -> directoryId) (\s@RegisterEventTopic' {} a -> s {directoryId = a} :: RegisterEventTopic)
 
--- | The SNS topic name to which the directory will publish status messages.
--- This SNS topic must be in the same region as the specified Directory ID.
+-- | The Amazon SNS topic name to which the directory will publish status
+-- messages. This Amazon SNS topic must be in the same region as the
+-- specified Directory ID.
 registerEventTopic_topicName :: Lens.Lens' RegisterEventTopic Prelude.Text
 registerEventTopic_topicName = Lens.lens (\RegisterEventTopic' {topicName} -> topicName) (\s@RegisterEventTopic' {} a -> s {topicName = a} :: RegisterEventTopic)
 

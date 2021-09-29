@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of the public and private hosted zones that are
--- associated with the current AWS account. The response includes a
--- @HostedZones@ child element for each hosted zone.
+-- associated with the current Amazon Web Services account. The response
+-- includes a @HostedZones@ child element for each hosted zone.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you
 -- have a lot of hosted zones, you can use the @maxitems@ parameter to list
@@ -61,7 +61,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | A request to retrieve a list of the public and private hosted zones that
--- are associated with the current AWS account.
+-- are associated with the current Amazon Web Services account.
 --
 -- /See:/ 'newListHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'

@@ -36,8 +36,8 @@ module Network.AWS.ECR.GetRepositoryPolicy
 
     -- * Response Lenses
     getRepositoryPolicyResponse_registryId,
-    getRepositoryPolicyResponse_policyText,
     getRepositoryPolicyResponse_repositoryName,
+    getRepositoryPolicyResponse_policyText,
     getRepositoryPolicyResponse_httpStatus,
   )
 where
@@ -51,9 +51,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRepositoryPolicy' smart constructor.
 data GetRepositoryPolicy = GetRepositoryPolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository with the policy to retrieve.
     repositoryName :: Prelude.Text
@@ -68,9 +68,9 @@ data GetRepositoryPolicy = GetRepositoryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'getRepositoryPolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'getRepositoryPolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 --
 -- 'repositoryName', 'getRepositoryPolicy_repositoryName' - The name of the repository with the policy to retrieve.
 newGetRepositoryPolicy ::
@@ -83,9 +83,9 @@ newGetRepositoryPolicy pRepositoryName_ =
       repositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
 getRepositoryPolicy_registryId :: Lens.Lens' GetRepositoryPolicy (Prelude.Maybe Prelude.Text)
 getRepositoryPolicy_registryId = Lens.lens (\GetRepositoryPolicy' {registryId} -> registryId) (\s@GetRepositoryPolicy' {} a -> s {registryId = a} :: GetRepositoryPolicy)
 
@@ -103,8 +103,8 @@ instance Core.AWSRequest GetRepositoryPolicy where
       ( \s h x ->
           GetRepositoryPolicyResponse'
             Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "policyText")
             Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "policyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,10 +147,10 @@ instance Core.ToQuery GetRepositoryPolicy where
 data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
   { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON repository policy text associated with the repository.
-    policyText :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The JSON repository policy text associated with the repository.
+    policyText :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
 --
 -- 'registryId', 'getRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
 --
--- 'policyText', 'getRepositoryPolicyResponse_policyText' - The JSON repository policy text associated with the repository.
---
 -- 'repositoryName', 'getRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'policyText', 'getRepositoryPolicyResponse_policyText' - The JSON repository policy text associated with the repository.
 --
 -- 'httpStatus', 'getRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newGetRepositoryPolicyResponse ::
@@ -179,8 +179,8 @@ newGetRepositoryPolicyResponse pHttpStatus_ =
   GetRepositoryPolicyResponse'
     { registryId =
         Prelude.Nothing,
-      policyText = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
+      policyText = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -188,13 +188,13 @@ newGetRepositoryPolicyResponse pHttpStatus_ =
 getRepositoryPolicyResponse_registryId :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 getRepositoryPolicyResponse_registryId = Lens.lens (\GetRepositoryPolicyResponse' {registryId} -> registryId) (\s@GetRepositoryPolicyResponse' {} a -> s {registryId = a} :: GetRepositoryPolicyResponse)
 
--- | The JSON repository policy text associated with the repository.
-getRepositoryPolicyResponse_policyText :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
-getRepositoryPolicyResponse_policyText = Lens.lens (\GetRepositoryPolicyResponse' {policyText} -> policyText) (\s@GetRepositoryPolicyResponse' {} a -> s {policyText = a} :: GetRepositoryPolicyResponse)
-
 -- | The repository name associated with the request.
 getRepositoryPolicyResponse_repositoryName :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 getRepositoryPolicyResponse_repositoryName = Lens.lens (\GetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@GetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: GetRepositoryPolicyResponse)
+
+-- | The JSON repository policy text associated with the repository.
+getRepositoryPolicyResponse_policyText :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+getRepositoryPolicyResponse_policyText = Lens.lens (\GetRepositoryPolicyResponse' {policyText} -> policyText) (\s@GetRepositoryPolicyResponse' {} a -> s {policyText = a} :: GetRepositoryPolicyResponse)
 
 -- | The response's http status code.
 getRepositoryPolicyResponse_httpStatus :: Lens.Lens' GetRepositoryPolicyResponse Prelude.Int

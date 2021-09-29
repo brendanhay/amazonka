@@ -31,10 +31,10 @@ data Subscription = Subscription'
     topicArn :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s owner.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | The subscription\'s ARN.
-    subscriptionArn :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s protocol.
     protocol :: Prelude.Maybe Prelude.Text,
+    -- | The subscription\'s ARN.
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s endpoint (format depends on the protocol).
     endpoint :: Prelude.Maybe Prelude.Text
   }
@@ -52,9 +52,9 @@ data Subscription = Subscription'
 --
 -- 'owner', 'subscription_owner' - The subscription\'s owner.
 --
--- 'subscriptionArn', 'subscription_subscriptionArn' - The subscription\'s ARN.
---
 -- 'protocol', 'subscription_protocol' - The subscription\'s protocol.
+--
+-- 'subscriptionArn', 'subscription_subscriptionArn' - The subscription\'s ARN.
 --
 -- 'endpoint', 'subscription_endpoint' - The subscription\'s endpoint (format depends on the protocol).
 newSubscription ::
@@ -63,8 +63,8 @@ newSubscription =
   Subscription'
     { topicArn = Prelude.Nothing,
       owner = Prelude.Nothing,
-      subscriptionArn = Prelude.Nothing,
       protocol = Prelude.Nothing,
+      subscriptionArn = Prelude.Nothing,
       endpoint = Prelude.Nothing
     }
 
@@ -76,13 +76,13 @@ subscription_topicArn = Lens.lens (\Subscription' {topicArn} -> topicArn) (\s@Su
 subscription_owner :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_owner = Lens.lens (\Subscription' {owner} -> owner) (\s@Subscription' {} a -> s {owner = a} :: Subscription)
 
--- | The subscription\'s ARN.
-subscription_subscriptionArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
-subscription_subscriptionArn = Lens.lens (\Subscription' {subscriptionArn} -> subscriptionArn) (\s@Subscription' {} a -> s {subscriptionArn = a} :: Subscription)
-
 -- | The subscription\'s protocol.
 subscription_protocol :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_protocol = Lens.lens (\Subscription' {protocol} -> protocol) (\s@Subscription' {} a -> s {protocol = a} :: Subscription)
+
+-- | The subscription\'s ARN.
+subscription_subscriptionArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
+subscription_subscriptionArn = Lens.lens (\Subscription' {subscriptionArn} -> subscriptionArn) (\s@Subscription' {} a -> s {subscriptionArn = a} :: Subscription)
 
 -- | The subscription\'s endpoint (format depends on the protocol).
 subscription_endpoint :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
@@ -93,8 +93,8 @@ instance Core.FromXML Subscription where
     Subscription'
       Prelude.<$> (x Core..@? "TopicArn")
       Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "SubscriptionArn")
       Prelude.<*> (x Core..@? "Protocol")
+      Prelude.<*> (x Core..@? "SubscriptionArn")
       Prelude.<*> (x Core..@? "Endpoint")
 
 instance Prelude.Hashable Subscription

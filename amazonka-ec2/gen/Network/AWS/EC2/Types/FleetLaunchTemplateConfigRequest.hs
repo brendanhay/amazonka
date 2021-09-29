@@ -35,6 +35,9 @@ data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
     launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecificationRequest,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
+    --
+    -- For fleets of type @request@ and @maintain@, a maximum of 300 items is
+    -- allowed across all launch templates.
     overrides :: Prelude.Maybe [FleetLaunchTemplateOverridesRequest]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,6 +55,9 @@ data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
 --
 -- 'overrides', 'fleetLaunchTemplateConfigRequest_overrides' - Any parameters that you specify override the same parameters in the
 -- launch template.
+--
+-- For fleets of type @request@ and @maintain@, a maximum of 300 items is
+-- allowed across all launch templates.
 newFleetLaunchTemplateConfigRequest ::
   FleetLaunchTemplateConfigRequest
 newFleetLaunchTemplateConfigRequest =
@@ -68,6 +74,9 @@ fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\Fleet
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
+--
+-- For fleets of type @request@ and @maintain@, a maximum of 300 items is
+-- allowed across all launch templates.
 fleetLaunchTemplateConfigRequest_overrides :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe [FleetLaunchTemplateOverridesRequest])
 fleetLaunchTemplateConfigRequest_overrides = Lens.lens (\FleetLaunchTemplateConfigRequest' {overrides} -> overrides) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {overrides = a} :: FleetLaunchTemplateConfigRequest) Prelude.. Lens.mapping Lens._Coerce
 

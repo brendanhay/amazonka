@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListFlowDefinitions
     newListFlowDefinitions,
 
     -- * Request Lenses
-    listFlowDefinitions_sortOrder,
     listFlowDefinitions_nextToken,
+    listFlowDefinitions_sortOrder,
     listFlowDefinitions_maxResults,
     listFlowDefinitions_creationTimeBefore,
     listFlowDefinitions_creationTimeAfter,
@@ -55,11 +55,11 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListFlowDefinitions' smart constructor.
 data ListFlowDefinitions = ListFlowDefinitions'
-  { -- | An optional value that specifies whether you want the results sorted in
+  { -- | A token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional value that specifies whether you want the results sorted in
     -- @Ascending@ or @Descending@ order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of items to return. If the total number of available
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ will be provided in the output that you can use to resume
@@ -82,10 +82,10 @@ data ListFlowDefinitions = ListFlowDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listFlowDefinitions_nextToken' - A token to resume pagination.
+--
 -- 'sortOrder', 'listFlowDefinitions_sortOrder' - An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
---
--- 'nextToken', 'listFlowDefinitions_nextToken' - A token to resume pagination.
 --
 -- 'maxResults', 'listFlowDefinitions_maxResults' - The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
@@ -101,21 +101,21 @@ newListFlowDefinitions ::
   ListFlowDefinitions
 newListFlowDefinitions =
   ListFlowDefinitions'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       creationTimeAfter = Prelude.Nothing
     }
 
+-- | A token to resume pagination.
+listFlowDefinitions_nextToken :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.Text)
+listFlowDefinitions_nextToken = Lens.lens (\ListFlowDefinitions' {nextToken} -> nextToken) (\s@ListFlowDefinitions' {} a -> s {nextToken = a} :: ListFlowDefinitions)
+
 -- | An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
 listFlowDefinitions_sortOrder :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe SortOrder)
 listFlowDefinitions_sortOrder = Lens.lens (\ListFlowDefinitions' {sortOrder} -> sortOrder) (\s@ListFlowDefinitions' {} a -> s {sortOrder = a} :: ListFlowDefinitions)
-
--- | A token to resume pagination.
-listFlowDefinitions_nextToken :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.Text)
-listFlowDefinitions_nextToken = Lens.lens (\ListFlowDefinitions' {nextToken} -> nextToken) (\s@ListFlowDefinitions' {} a -> s {nextToken = a} :: ListFlowDefinitions)
 
 -- | The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
@@ -194,8 +194,8 @@ instance Core.ToJSON ListFlowDefinitions where
   toJSON ListFlowDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,

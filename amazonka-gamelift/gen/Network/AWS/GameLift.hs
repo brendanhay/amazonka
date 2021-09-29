@@ -23,31 +23,41 @@
 -- __About GameLift solutions__
 --
 -- Get more information on these GameLift solutions in the
--- <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/ GameLift Developer Guide>.
 --
--- -   Managed GameLift -- GameLift offers a fully managed service to set
---     up and maintain computing machines for hosting, manage game session
---     and player session life cycle, and handle security, storage, and
---     performance tracking. You can use automatic scaling tools to balance
---     hosting costs against meeting player demand., configure your game
---     session management to minimize player latency, or add FlexMatch for
+-- -   GameLift managed hosting -- GameLift offers a fully managed service
+--     to set up and maintain computing machines for hosting, manage game
+--     session and player session life cycle, and handle security, storage,
+--     and performance tracking. You can use automatic scaling tools to
+--     balance player demand and hosting costs, configure your game session
+--     management to minimize player latency, and add FlexMatch for
 --     matchmaking.
 --
--- -   Managed GameLift with Realtime Servers – With GameLift Realtime
---     Servers, you can quickly configure and set up game servers for your
---     game. Realtime Servers provides a game server framework with core
---     Amazon GameLift infrastructure already built in.
+-- -   Managed hosting with Realtime Servers -- With GameLift Realtime
+--     Servers, you can quickly configure and set up ready-to-go game
+--     servers for your game. Realtime Servers provides a game server
+--     framework with core GameLift infrastructure already built in. Then
+--     use the full range of GameLift managed hosting features, including
+--     FlexMatch, for your game.
 --
--- -   GameLift FleetIQ – Use GameLift FleetIQ as a standalone feature
---     while managing your own EC2 instances and Auto Scaling groups for
---     game hosting. GameLift FleetIQ provides optimizations that make
---     low-cost Spot Instances viable for game hosting.
+-- -   GameLift FleetIQ -- Use GameLift FleetIQ as a standalone service
+--     while hosting your games using EC2 instances and Auto Scaling
+--     groups. GameLift FleetIQ provides optimizations for game hosting,
+--     including boosting the viability of low-cost Spot Instances gaming.
+--     For a complete solution, pair the GameLift FleetIQ and FlexMatch
+--     standalone services.
+--
+-- -   GameLift FlexMatch -- Add matchmaking to your game hosting solution.
+--     FlexMatch is a customizable matchmaking service for multiplayer
+--     games. Use FlexMatch as integrated with GameLift managed hosting or
+--     incorporate FlexMatch as a standalone service into your own hosting
+--     solution.
 --
 -- __About this API Reference__
 --
 -- This reference guide describes the low-level service API for Amazon
--- GameLift. You can find links to language-specific SDK guides and the AWS
--- CLI reference with each operation and data type topic. Useful links:
+-- GameLift. With each topic in this guide, you can find links to
+-- language-specific SDK guides and the AWS CLI reference. Useful links:
 --
 -- -   <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html GameLift API operations listed by tasks>
 --
@@ -59,11 +69,11 @@ module Network.AWS.GameLift
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** OutOfCapacityException
     _OutOfCapacityException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TaggingFailedException
     _TaggingFailedException,
@@ -92,11 +102,11 @@ module Network.AWS.GameLift
     -- ** InvalidFleetStatusException
     _InvalidFleetStatusException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
@@ -110,41 +120,11 @@ module Network.AWS.GameLift
     -- * Operations
     -- $operations
 
-    -- ** DescribeGameSessionQueues (Paginated)
-    DescribeGameSessionQueues (DescribeGameSessionQueues'),
-    newDescribeGameSessionQueues,
-    DescribeGameSessionQueuesResponse (DescribeGameSessionQueuesResponse'),
-    newDescribeGameSessionQueuesResponse,
-
-    -- ** DeleteBuild
-    DeleteBuild (DeleteBuild'),
-    newDeleteBuild,
-    DeleteBuildResponse (DeleteBuildResponse'),
-    newDeleteBuildResponse,
-
     -- ** DescribeVpcPeeringConnections
     DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
     newDescribeVpcPeeringConnections,
     DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
     newDescribeVpcPeeringConnectionsResponse,
-
-    -- ** DescribeFleetPortSettings
-    DescribeFleetPortSettings (DescribeFleetPortSettings'),
-    newDescribeFleetPortSettings,
-    DescribeFleetPortSettingsResponse (DescribeFleetPortSettingsResponse'),
-    newDescribeFleetPortSettingsResponse,
-
-    -- ** DescribeInstances (Paginated)
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
-
-    -- ** DeleteAlias
-    DeleteAlias (DeleteAlias'),
-    newDeleteAlias,
-    DeleteAliasResponse (DeleteAliasResponse'),
-    newDeleteAliasResponse,
 
     -- ** DescribeFleetCapacity (Paginated)
     DescribeFleetCapacity (DescribeFleetCapacity'),
@@ -158,11 +138,41 @@ module Network.AWS.GameLift
     ListBuildsResponse (ListBuildsResponse'),
     newListBuildsResponse,
 
+    -- ** DeleteBuild
+    DeleteBuild (DeleteBuild'),
+    newDeleteBuild,
+    DeleteBuildResponse (DeleteBuildResponse'),
+    newDeleteBuildResponse,
+
+    -- ** DescribeGameSessionQueues (Paginated)
+    DescribeGameSessionQueues (DescribeGameSessionQueues'),
+    newDescribeGameSessionQueues,
+    DescribeGameSessionQueuesResponse (DescribeGameSessionQueuesResponse'),
+    newDescribeGameSessionQueuesResponse,
+
+    -- ** DeleteAlias
+    DeleteAlias (DeleteAlias'),
+    newDeleteAlias,
+    DeleteAliasResponse (DeleteAliasResponse'),
+    newDeleteAliasResponse,
+
+    -- ** DescribeFleetPortSettings
+    DescribeFleetPortSettings (DescribeFleetPortSettings'),
+    newDescribeFleetPortSettings,
+    DescribeFleetPortSettingsResponse (DescribeFleetPortSettingsResponse'),
+    newDescribeFleetPortSettingsResponse,
+
     -- ** UpdateBuild
     UpdateBuild (UpdateBuild'),
     newUpdateBuild,
     UpdateBuildResponse (UpdateBuildResponse'),
     newUpdateBuildResponse,
+
+    -- ** DescribeInstances (Paginated)
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
 
     -- ** UpdateAlias
     UpdateAlias (UpdateAlias'),
@@ -176,23 +186,29 @@ module Network.AWS.GameLift
     DescribeFleetAttributesResponse (DescribeFleetAttributesResponse'),
     newDescribeFleetAttributesResponse,
 
-    -- ** PutScalingPolicy
-    PutScalingPolicy (PutScalingPolicy'),
-    newPutScalingPolicy,
-    PutScalingPolicyResponse (PutScalingPolicyResponse'),
-    newPutScalingPolicyResponse,
-
     -- ** DescribeFleetEvents (Paginated)
     DescribeFleetEvents (DescribeFleetEvents'),
     newDescribeFleetEvents,
     DescribeFleetEventsResponse (DescribeFleetEventsResponse'),
     newDescribeFleetEventsResponse,
 
+    -- ** PutScalingPolicy
+    PutScalingPolicy (PutScalingPolicy'),
+    newPutScalingPolicy,
+    PutScalingPolicyResponse (PutScalingPolicyResponse'),
+    newPutScalingPolicyResponse,
+
     -- ** DescribeFleetUtilization (Paginated)
     DescribeFleetUtilization (DescribeFleetUtilization'),
     newDescribeFleetUtilization,
     DescribeFleetUtilizationResponse (DescribeFleetUtilizationResponse'),
     newDescribeFleetUtilizationResponse,
+
+    -- ** DescribeRuntimeConfiguration
+    DescribeRuntimeConfiguration (DescribeRuntimeConfiguration'),
+    newDescribeRuntimeConfiguration,
+    DescribeRuntimeConfigurationResponse (DescribeRuntimeConfigurationResponse'),
+    newDescribeRuntimeConfigurationResponse,
 
     -- ** ClaimGameServer
     ClaimGameServer (ClaimGameServer'),
@@ -212,6 +228,18 @@ module Network.AWS.GameLift
     DescribeGameServerGroupResponse (DescribeGameServerGroupResponse'),
     newDescribeGameServerGroupResponse,
 
+    -- ** CreatePlayerSession
+    CreatePlayerSession (CreatePlayerSession'),
+    newCreatePlayerSession,
+    CreatePlayerSessionResponse (CreatePlayerSessionResponse'),
+    newCreatePlayerSessionResponse,
+
+    -- ** DescribeFleetLocationAttributes
+    DescribeFleetLocationAttributes (DescribeFleetLocationAttributes'),
+    newDescribeFleetLocationAttributes,
+    DescribeFleetLocationAttributesResponse (DescribeFleetLocationAttributesResponse'),
+    newDescribeFleetLocationAttributesResponse,
+
     -- ** DescribeMatchmaking
     DescribeMatchmaking (DescribeMatchmaking'),
     newDescribeMatchmaking,
@@ -224,23 +252,11 @@ module Network.AWS.GameLift
     GetGameSessionLogUrlResponse (GetGameSessionLogUrlResponse'),
     newGetGameSessionLogUrlResponse,
 
-    -- ** CreatePlayerSession
-    CreatePlayerSession (CreatePlayerSession'),
-    newCreatePlayerSession,
-    CreatePlayerSessionResponse (CreatePlayerSessionResponse'),
-    newCreatePlayerSessionResponse,
-
-    -- ** DescribeRuntimeConfiguration
-    DescribeRuntimeConfiguration (DescribeRuntimeConfiguration'),
-    newDescribeRuntimeConfiguration,
-    DescribeRuntimeConfigurationResponse (DescribeRuntimeConfigurationResponse'),
-    newDescribeRuntimeConfigurationResponse,
-
-    -- ** DescribeScalingPolicies (Paginated)
-    DescribeScalingPolicies (DescribeScalingPolicies'),
-    newDescribeScalingPolicies,
-    DescribeScalingPoliciesResponse (DescribeScalingPoliciesResponse'),
-    newDescribeScalingPoliciesResponse,
+    -- ** DescribeMatchmakingRuleSets (Paginated)
+    DescribeMatchmakingRuleSets (DescribeMatchmakingRuleSets'),
+    newDescribeMatchmakingRuleSets,
+    DescribeMatchmakingRuleSetsResponse (DescribeMatchmakingRuleSetsResponse'),
+    newDescribeMatchmakingRuleSetsResponse,
 
     -- ** SuspendGameServerGroup
     SuspendGameServerGroup (SuspendGameServerGroup'),
@@ -248,11 +264,11 @@ module Network.AWS.GameLift
     SuspendGameServerGroupResponse (SuspendGameServerGroupResponse'),
     newSuspendGameServerGroupResponse,
 
-    -- ** DescribeMatchmakingRuleSets (Paginated)
-    DescribeMatchmakingRuleSets (DescribeMatchmakingRuleSets'),
-    newDescribeMatchmakingRuleSets,
-    DescribeMatchmakingRuleSetsResponse (DescribeMatchmakingRuleSetsResponse'),
-    newDescribeMatchmakingRuleSetsResponse,
+    -- ** DescribeScalingPolicies (Paginated)
+    DescribeScalingPolicies (DescribeScalingPolicies'),
+    newDescribeScalingPolicies,
+    DescribeScalingPoliciesResponse (DescribeScalingPoliciesResponse'),
+    newDescribeScalingPoliciesResponse,
 
     -- ** ValidateMatchmakingRuleSet
     ValidateMatchmakingRuleSet (ValidateMatchmakingRuleSet'),
@@ -260,23 +276,11 @@ module Network.AWS.GameLift
     ValidateMatchmakingRuleSetResponse (ValidateMatchmakingRuleSetResponse'),
     newValidateMatchmakingRuleSetResponse,
 
-    -- ** UpdateFleetPortSettings
-    UpdateFleetPortSettings (UpdateFleetPortSettings'),
-    newUpdateFleetPortSettings,
-    UpdateFleetPortSettingsResponse (UpdateFleetPortSettingsResponse'),
-    newUpdateFleetPortSettingsResponse,
-
     -- ** DescribeBuild
     DescribeBuild (DescribeBuild'),
     newDescribeBuild,
     DescribeBuildResponse (DescribeBuildResponse'),
     newDescribeBuildResponse,
-
-    -- ** AcceptMatch
-    AcceptMatch (AcceptMatch'),
-    newAcceptMatch,
-    AcceptMatchResponse (AcceptMatchResponse'),
-    newAcceptMatchResponse,
 
     -- ** DeregisterGameServer
     DeregisterGameServer (DeregisterGameServer'),
@@ -284,11 +288,17 @@ module Network.AWS.GameLift
     DeregisterGameServerResponse (DeregisterGameServerResponse'),
     newDeregisterGameServerResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** UpdateFleetPortSettings
+    UpdateFleetPortSettings (UpdateFleetPortSettings'),
+    newUpdateFleetPortSettings,
+    UpdateFleetPortSettingsResponse (UpdateFleetPortSettingsResponse'),
+    newUpdateFleetPortSettingsResponse,
+
+    -- ** AcceptMatch
+    AcceptMatch (AcceptMatch'),
+    newAcceptMatch,
+    AcceptMatchResponse (AcceptMatchResponse'),
+    newAcceptMatchResponse,
 
     -- ** UpdateFleetCapacity
     UpdateFleetCapacity (UpdateFleetCapacity'),
@@ -302,11 +312,11 @@ module Network.AWS.GameLift
     DescribeAliasResponse (DescribeAliasResponse'),
     newDescribeAliasResponse,
 
-    -- ** DeleteVpcPeeringConnection
-    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
-    newDeleteVpcPeeringConnection,
-    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
-    newDeleteVpcPeeringConnectionResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateFleetAttributes
     UpdateFleetAttributes (UpdateFleetAttributes'),
@@ -326,17 +336,17 @@ module Network.AWS.GameLift
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** DeleteVpcPeeringConnection
+    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
+    newDeleteVpcPeeringConnection,
+    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
+    newDeleteVpcPeeringConnectionResponse,
+
     -- ** DeleteGameSessionQueue
     DeleteGameSessionQueue (DeleteGameSessionQueue'),
     newDeleteGameSessionQueue,
     DeleteGameSessionQueueResponse (DeleteGameSessionQueueResponse'),
     newDeleteGameSessionQueueResponse,
-
-    -- ** UpdateMatchmakingConfiguration
-    UpdateMatchmakingConfiguration (UpdateMatchmakingConfiguration'),
-    newUpdateMatchmakingConfiguration,
-    UpdateMatchmakingConfigurationResponse (UpdateMatchmakingConfigurationResponse'),
-    newUpdateMatchmakingConfigurationResponse,
 
     -- ** DeleteMatchmakingConfiguration
     DeleteMatchmakingConfiguration (DeleteMatchmakingConfiguration'),
@@ -344,23 +354,11 @@ module Network.AWS.GameLift
     DeleteMatchmakingConfigurationResponse (DeleteMatchmakingConfigurationResponse'),
     newDeleteMatchmakingConfigurationResponse,
 
-    -- ** DescribeMatchmakingConfigurations (Paginated)
-    DescribeMatchmakingConfigurations (DescribeMatchmakingConfigurations'),
-    newDescribeMatchmakingConfigurations,
-    DescribeMatchmakingConfigurationsResponse (DescribeMatchmakingConfigurationsResponse'),
-    newDescribeMatchmakingConfigurationsResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** RegisterGameServer
-    RegisterGameServer (RegisterGameServer'),
-    newRegisterGameServer,
-    RegisterGameServerResponse (RegisterGameServerResponse'),
-    newRegisterGameServerResponse,
+    -- ** UpdateMatchmakingConfiguration
+    UpdateMatchmakingConfiguration (UpdateMatchmakingConfiguration'),
+    newUpdateMatchmakingConfiguration,
+    UpdateMatchmakingConfigurationResponse (UpdateMatchmakingConfigurationResponse'),
+    newUpdateMatchmakingConfigurationResponse,
 
     -- ** RequestUploadCredentials
     RequestUploadCredentials (RequestUploadCredentials'),
@@ -368,17 +366,35 @@ module Network.AWS.GameLift
     RequestUploadCredentialsResponse (RequestUploadCredentialsResponse'),
     newRequestUploadCredentialsResponse,
 
+    -- ** DescribeFleetLocationCapacity
+    DescribeFleetLocationCapacity (DescribeFleetLocationCapacity'),
+    newDescribeFleetLocationCapacity,
+    DescribeFleetLocationCapacityResponse (DescribeFleetLocationCapacityResponse'),
+    newDescribeFleetLocationCapacityResponse,
+
+    -- ** RegisterGameServer
+    RegisterGameServer (RegisterGameServer'),
+    newRegisterGameServer,
+    RegisterGameServerResponse (RegisterGameServerResponse'),
+    newRegisterGameServerResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** DescribeMatchmakingConfigurations (Paginated)
+    DescribeMatchmakingConfigurations (DescribeMatchmakingConfigurations'),
+    newDescribeMatchmakingConfigurations,
+    DescribeMatchmakingConfigurationsResponse (DescribeMatchmakingConfigurationsResponse'),
+    newDescribeMatchmakingConfigurationsResponse,
+
     -- ** ResolveAlias
     ResolveAlias (ResolveAlias'),
     newResolveAlias,
     ResolveAliasResponse (ResolveAliasResponse'),
     newResolveAliasResponse,
-
-    -- ** StartMatchBackfill
-    StartMatchBackfill (StartMatchBackfill'),
-    newStartMatchBackfill,
-    StartMatchBackfillResponse (StartMatchBackfillResponse'),
-    newStartMatchBackfillResponse,
 
     -- ** DeleteFleet
     DeleteFleet (DeleteFleet'),
@@ -398,23 +414,23 @@ module Network.AWS.GameLift
     ListFleetsResponse (ListFleetsResponse'),
     newListFleetsResponse,
 
+    -- ** StartMatchBackfill
+    StartMatchBackfill (StartMatchBackfill'),
+    newStartMatchBackfill,
+    StartMatchBackfillResponse (StartMatchBackfillResponse'),
+    newStartMatchBackfillResponse,
+
     -- ** StopMatchmaking
     StopMatchmaking (StopMatchmaking'),
     newStopMatchmaking,
     StopMatchmakingResponse (StopMatchmakingResponse'),
     newStopMatchmakingResponse,
 
-    -- ** DescribeGameServerInstances (Paginated)
-    DescribeGameServerInstances (DescribeGameServerInstances'),
-    newDescribeGameServerInstances,
-    DescribeGameServerInstancesResponse (DescribeGameServerInstancesResponse'),
-    newDescribeGameServerInstancesResponse,
-
-    -- ** CreateGameSession
-    CreateGameSession (CreateGameSession'),
-    newCreateGameSession,
-    CreateGameSessionResponse (CreateGameSessionResponse'),
-    newCreateGameSessionResponse,
+    -- ** CreateFleetLocations
+    CreateFleetLocations (CreateFleetLocations'),
+    newCreateFleetLocations,
+    CreateFleetLocationsResponse (CreateFleetLocationsResponse'),
+    newCreateFleetLocationsResponse,
 
     -- ** CreateMatchmakingRuleSet
     CreateMatchmakingRuleSet (CreateMatchmakingRuleSet'),
@@ -422,17 +438,23 @@ module Network.AWS.GameLift
     CreateMatchmakingRuleSetResponse (CreateMatchmakingRuleSetResponse'),
     newCreateMatchmakingRuleSetResponse,
 
-    -- ** StartMatchmaking
-    StartMatchmaking (StartMatchmaking'),
-    newStartMatchmaking,
-    StartMatchmakingResponse (StartMatchmakingResponse'),
-    newStartMatchmakingResponse,
-
     -- ** DescribeGameSessionPlacement
     DescribeGameSessionPlacement (DescribeGameSessionPlacement'),
     newDescribeGameSessionPlacement,
     DescribeGameSessionPlacementResponse (DescribeGameSessionPlacementResponse'),
     newDescribeGameSessionPlacementResponse,
+
+    -- ** CreateGameSession
+    CreateGameSession (CreateGameSession'),
+    newCreateGameSession,
+    CreateGameSessionResponse (CreateGameSessionResponse'),
+    newCreateGameSessionResponse,
+
+    -- ** StartMatchmaking
+    StartMatchmaking (StartMatchmaking'),
+    newStartMatchmaking,
+    StartMatchmakingResponse (StartMatchmakingResponse'),
+    newStartMatchmakingResponse,
 
     -- ** DeleteScalingPolicy
     DeleteScalingPolicy (DeleteScalingPolicy'),
@@ -440,11 +462,17 @@ module Network.AWS.GameLift
     DeleteScalingPolicyResponse (DeleteScalingPolicyResponse'),
     newDeleteScalingPolicyResponse,
 
-    -- ** StopGameSessionPlacement
-    StopGameSessionPlacement (StopGameSessionPlacement'),
-    newStopGameSessionPlacement,
-    StopGameSessionPlacementResponse (StopGameSessionPlacementResponse'),
-    newStopGameSessionPlacementResponse,
+    -- ** DescribeFleetLocationUtilization
+    DescribeFleetLocationUtilization (DescribeFleetLocationUtilization'),
+    newDescribeFleetLocationUtilization,
+    DescribeFleetLocationUtilizationResponse (DescribeFleetLocationUtilizationResponse'),
+    newDescribeFleetLocationUtilizationResponse,
+
+    -- ** DescribeGameServerInstances (Paginated)
+    DescribeGameServerInstances (DescribeGameServerInstances'),
+    newDescribeGameServerInstances,
+    DescribeGameServerInstancesResponse (DescribeGameServerInstancesResponse'),
+    newDescribeGameServerInstancesResponse,
 
     -- ** StartGameSessionPlacement
     StartGameSessionPlacement (StartGameSessionPlacement'),
@@ -458,29 +486,17 @@ module Network.AWS.GameLift
     DeleteMatchmakingRuleSetResponse (DeleteMatchmakingRuleSetResponse'),
     newDeleteMatchmakingRuleSetResponse,
 
-    -- ** DescribeGameServer
-    DescribeGameServer (DescribeGameServer'),
-    newDescribeGameServer,
-    DescribeGameServerResponse (DescribeGameServerResponse'),
-    newDescribeGameServerResponse,
+    -- ** DeleteFleetLocations
+    DeleteFleetLocations (DeleteFleetLocations'),
+    newDeleteFleetLocations,
+    DeleteFleetLocationsResponse (DeleteFleetLocationsResponse'),
+    newDeleteFleetLocationsResponse,
 
-    -- ** DeleteScript
-    DeleteScript (DeleteScript'),
-    newDeleteScript,
-    DeleteScriptResponse (DeleteScriptResponse'),
-    newDeleteScriptResponse,
-
-    -- ** ListScripts (Paginated)
-    ListScripts (ListScripts'),
-    newListScripts,
-    ListScriptsResponse (ListScriptsResponse'),
-    newListScriptsResponse,
-
-    -- ** DescribeGameSessions (Paginated)
-    DescribeGameSessions (DescribeGameSessions'),
-    newDescribeGameSessions,
-    DescribeGameSessionsResponse (DescribeGameSessionsResponse'),
-    newDescribeGameSessionsResponse,
+    -- ** StopGameSessionPlacement
+    StopGameSessionPlacement (StopGameSessionPlacement'),
+    newStopGameSessionPlacement,
+    StopGameSessionPlacementResponse (StopGameSessionPlacementResponse'),
+    newStopGameSessionPlacementResponse,
 
     -- ** UpdateScript
     UpdateScript (UpdateScript'),
@@ -488,35 +504,35 @@ module Network.AWS.GameLift
     UpdateScriptResponse (UpdateScriptResponse'),
     newUpdateScriptResponse,
 
+    -- ** DescribeGameSessions (Paginated)
+    DescribeGameSessions (DescribeGameSessions'),
+    newDescribeGameSessions,
+    DescribeGameSessionsResponse (DescribeGameSessionsResponse'),
+    newDescribeGameSessionsResponse,
+
+    -- ** DeleteScript
+    DeleteScript (DeleteScript'),
+    newDeleteScript,
+    DeleteScriptResponse (DeleteScriptResponse'),
+    newDeleteScriptResponse,
+
+    -- ** DescribeGameServer
+    DescribeGameServer (DescribeGameServer'),
+    newDescribeGameServer,
+    DescribeGameServerResponse (DescribeGameServerResponse'),
+    newDescribeGameServerResponse,
+
+    -- ** ListScripts (Paginated)
+    ListScripts (ListScripts'),
+    newListScripts,
+    ListScriptsResponse (ListScriptsResponse'),
+    newListScriptsResponse,
+
     -- ** DescribeEC2InstanceLimits
     DescribeEC2InstanceLimits (DescribeEC2InstanceLimits'),
     newDescribeEC2InstanceLimits,
     DescribeEC2InstanceLimitsResponse (DescribeEC2InstanceLimitsResponse'),
     newDescribeEC2InstanceLimitsResponse,
-
-    -- ** StopFleetActions
-    StopFleetActions (StopFleetActions'),
-    newStopFleetActions,
-    StopFleetActionsResponse (StopFleetActionsResponse'),
-    newStopFleetActionsResponse,
-
-    -- ** GetInstanceAccess
-    GetInstanceAccess (GetInstanceAccess'),
-    newGetInstanceAccess,
-    GetInstanceAccessResponse (GetInstanceAccessResponse'),
-    newGetInstanceAccessResponse,
-
-    -- ** StartFleetActions
-    StartFleetActions (StartFleetActions'),
-    newStartFleetActions,
-    StartFleetActionsResponse (StartFleetActionsResponse'),
-    newStartFleetActionsResponse,
-
-    -- ** DescribePlayerSessions (Paginated)
-    DescribePlayerSessions (DescribePlayerSessions'),
-    newDescribePlayerSessions,
-    DescribePlayerSessionsResponse (DescribePlayerSessionsResponse'),
-    newDescribePlayerSessionsResponse,
 
     -- ** CreateScript
     CreateScript (CreateScript'),
@@ -524,17 +540,35 @@ module Network.AWS.GameLift
     CreateScriptResponse (CreateScriptResponse'),
     newCreateScriptResponse,
 
+    -- ** StartFleetActions
+    StartFleetActions (StartFleetActions'),
+    newStartFleetActions,
+    StartFleetActionsResponse (StartFleetActionsResponse'),
+    newStartFleetActionsResponse,
+
+    -- ** GetInstanceAccess
+    GetInstanceAccess (GetInstanceAccess'),
+    newGetInstanceAccess,
+    GetInstanceAccessResponse (GetInstanceAccessResponse'),
+    newGetInstanceAccessResponse,
+
+    -- ** DescribePlayerSessions (Paginated)
+    DescribePlayerSessions (DescribePlayerSessions'),
+    newDescribePlayerSessions,
+    DescribePlayerSessionsResponse (DescribePlayerSessionsResponse'),
+    newDescribePlayerSessionsResponse,
+
+    -- ** StopFleetActions
+    StopFleetActions (StopFleetActions'),
+    newStopFleetActions,
+    StopFleetActionsResponse (StopFleetActionsResponse'),
+    newStopFleetActionsResponse,
+
     -- ** CreateMatchmakingConfiguration
     CreateMatchmakingConfiguration (CreateMatchmakingConfiguration'),
     newCreateMatchmakingConfiguration,
     CreateMatchmakingConfigurationResponse (CreateMatchmakingConfigurationResponse'),
     newCreateMatchmakingConfigurationResponse,
-
-    -- ** CreateVpcPeeringAuthorization
-    CreateVpcPeeringAuthorization (CreateVpcPeeringAuthorization'),
-    newCreateVpcPeeringAuthorization,
-    CreateVpcPeeringAuthorizationResponse (CreateVpcPeeringAuthorizationResponse'),
-    newCreateVpcPeeringAuthorizationResponse,
 
     -- ** CreateGameServerGroup
     CreateGameServerGroup (CreateGameServerGroup'),
@@ -542,53 +576,11 @@ module Network.AWS.GameLift
     CreateGameServerGroupResponse (CreateGameServerGroupResponse'),
     newCreateGameServerGroupResponse,
 
-    -- ** UpdateGameServerGroup
-    UpdateGameServerGroup (UpdateGameServerGroup'),
-    newUpdateGameServerGroup,
-    UpdateGameServerGroupResponse (UpdateGameServerGroupResponse'),
-    newUpdateGameServerGroupResponse,
-
-    -- ** SearchGameSessions (Paginated)
-    SearchGameSessions (SearchGameSessions'),
-    newSearchGameSessions,
-    SearchGameSessionsResponse (SearchGameSessionsResponse'),
-    newSearchGameSessionsResponse,
-
-    -- ** DeleteGameServerGroup
-    DeleteGameServerGroup (DeleteGameServerGroup'),
-    newDeleteGameServerGroup,
-    DeleteGameServerGroupResponse (DeleteGameServerGroupResponse'),
-    newDeleteGameServerGroupResponse,
-
-    -- ** ListGameServerGroups (Paginated)
-    ListGameServerGroups (ListGameServerGroups'),
-    newListGameServerGroups,
-    ListGameServerGroupsResponse (ListGameServerGroupsResponse'),
-    newListGameServerGroupsResponse,
-
-    -- ** UpdateRuntimeConfiguration
-    UpdateRuntimeConfiguration (UpdateRuntimeConfiguration'),
-    newUpdateRuntimeConfiguration,
-    UpdateRuntimeConfigurationResponse (UpdateRuntimeConfigurationResponse'),
-    newUpdateRuntimeConfigurationResponse,
-
-    -- ** CreateGameSessionQueue
-    CreateGameSessionQueue (CreateGameSessionQueue'),
-    newCreateGameSessionQueue,
-    CreateGameSessionQueueResponse (CreateGameSessionQueueResponse'),
-    newCreateGameSessionQueueResponse,
-
-    -- ** ResumeGameServerGroup
-    ResumeGameServerGroup (ResumeGameServerGroup'),
-    newResumeGameServerGroup,
-    ResumeGameServerGroupResponse (ResumeGameServerGroupResponse'),
-    newResumeGameServerGroupResponse,
-
-    -- ** DeleteVpcPeeringAuthorization
-    DeleteVpcPeeringAuthorization (DeleteVpcPeeringAuthorization'),
-    newDeleteVpcPeeringAuthorization,
-    DeleteVpcPeeringAuthorizationResponse (DeleteVpcPeeringAuthorizationResponse'),
-    newDeleteVpcPeeringAuthorizationResponse,
+    -- ** CreateVpcPeeringAuthorization
+    CreateVpcPeeringAuthorization (CreateVpcPeeringAuthorization'),
+    newCreateVpcPeeringAuthorization,
+    CreateVpcPeeringAuthorizationResponse (CreateVpcPeeringAuthorizationResponse'),
+    newCreateVpcPeeringAuthorizationResponse,
 
     -- ** CreateVpcPeeringConnection
     CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
@@ -596,47 +588,59 @@ module Network.AWS.GameLift
     CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
     newCreateVpcPeeringConnectionResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ResumeGameServerGroup
+    ResumeGameServerGroup (ResumeGameServerGroup'),
+    newResumeGameServerGroup,
+    ResumeGameServerGroupResponse (ResumeGameServerGroupResponse'),
+    newResumeGameServerGroupResponse,
 
-    -- ** DescribeScript
-    DescribeScript (DescribeScript'),
-    newDescribeScript,
-    DescribeScriptResponse (DescribeScriptResponse'),
-    newDescribeScriptResponse,
+    -- ** DeleteGameServerGroup
+    DeleteGameServerGroup (DeleteGameServerGroup'),
+    newDeleteGameServerGroup,
+    DeleteGameServerGroupResponse (DeleteGameServerGroupResponse'),
+    newDeleteGameServerGroupResponse,
 
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
+    -- ** UpdateGameServerGroup
+    UpdateGameServerGroup (UpdateGameServerGroup'),
+    newUpdateGameServerGroup,
+    UpdateGameServerGroupResponse (UpdateGameServerGroupResponse'),
+    newUpdateGameServerGroupResponse,
+
+    -- ** UpdateRuntimeConfiguration
+    UpdateRuntimeConfiguration (UpdateRuntimeConfiguration'),
+    newUpdateRuntimeConfiguration,
+    UpdateRuntimeConfigurationResponse (UpdateRuntimeConfigurationResponse'),
+    newUpdateRuntimeConfigurationResponse,
+
+    -- ** DeleteVpcPeeringAuthorization
+    DeleteVpcPeeringAuthorization (DeleteVpcPeeringAuthorization'),
+    newDeleteVpcPeeringAuthorization,
+    DeleteVpcPeeringAuthorizationResponse (DeleteVpcPeeringAuthorizationResponse'),
+    newDeleteVpcPeeringAuthorizationResponse,
+
+    -- ** CreateGameSessionQueue
+    CreateGameSessionQueue (CreateGameSessionQueue'),
+    newCreateGameSessionQueue,
+    CreateGameSessionQueueResponse (CreateGameSessionQueueResponse'),
+    newCreateGameSessionQueueResponse,
+
+    -- ** SearchGameSessions (Paginated)
+    SearchGameSessions (SearchGameSessions'),
+    newSearchGameSessions,
+    SearchGameSessionsResponse (SearchGameSessionsResponse'),
+    newSearchGameSessionsResponse,
+
+    -- ** ListGameServerGroups (Paginated)
+    ListGameServerGroups (ListGameServerGroups'),
+    newListGameServerGroups,
+    ListGameServerGroupsResponse (ListGameServerGroupsResponse'),
+    newListGameServerGroupsResponse,
 
     -- ** CreatePlayerSessions
     CreatePlayerSessions (CreatePlayerSessions'),
     newCreatePlayerSessions,
     CreatePlayerSessionsResponse (CreatePlayerSessionsResponse'),
     newCreatePlayerSessionsResponse,
-
-    -- ** UpdateGameServer
-    UpdateGameServer (UpdateGameServer'),
-    newUpdateGameServer,
-    UpdateGameServerResponse (UpdateGameServerResponse'),
-    newUpdateGameServerResponse,
-
-    -- ** DescribeVpcPeeringAuthorizations
-    DescribeVpcPeeringAuthorizations (DescribeVpcPeeringAuthorizations'),
-    newDescribeVpcPeeringAuthorizations,
-    DescribeVpcPeeringAuthorizationsResponse (DescribeVpcPeeringAuthorizationsResponse'),
-    newDescribeVpcPeeringAuthorizationsResponse,
-
-    -- ** ListGameServers (Paginated)
-    ListGameServers (ListGameServers'),
-    newListGameServers,
-    ListGameServersResponse (ListGameServersResponse'),
-    newListGameServersResponse,
 
     -- ** CreateBuild
     CreateBuild (CreateBuild'),
@@ -649,6 +653,42 @@ module Network.AWS.GameLift
     newListAliases,
     ListAliasesResponse (ListAliasesResponse'),
     newListAliasesResponse,
+
+    -- ** DescribeScript
+    DescribeScript (DescribeScript'),
+    newDescribeScript,
+    DescribeScriptResponse (DescribeScriptResponse'),
+    newDescribeScriptResponse,
+
+    -- ** DescribeVpcPeeringAuthorizations
+    DescribeVpcPeeringAuthorizations (DescribeVpcPeeringAuthorizations'),
+    newDescribeVpcPeeringAuthorizations,
+    DescribeVpcPeeringAuthorizationsResponse (DescribeVpcPeeringAuthorizationsResponse'),
+    newDescribeVpcPeeringAuthorizationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
+
+    -- ** ListGameServers (Paginated)
+    ListGameServers (ListGameServers'),
+    newListGameServers,
+    ListGameServersResponse (ListGameServersResponse'),
+    newListGameServersResponse,
+
+    -- ** UpdateGameServer
+    UpdateGameServer (UpdateGameServer'),
+    newUpdateGameServer,
+    UpdateGameServerResponse (UpdateGameServerResponse'),
+    newUpdateGameServerResponse,
 
     -- * Types
 
@@ -730,6 +770,9 @@ module Network.AWS.GameLift
     -- ** IpProtocol
     IpProtocol (..),
 
+    -- ** LocationUpdateStatus
+    LocationUpdateStatus (..),
+
     -- ** MatchmakingConfigurationStatus
     MatchmakingConfigurationStatus (..),
 
@@ -747,6 +790,9 @@ module Network.AWS.GameLift
 
     -- ** PolicyType
     PolicyType (..),
+
+    -- ** PriorityType
+    PriorityType (..),
 
     -- ** ProtectionPolicy
     ProtectionPolicy (..),
@@ -798,6 +844,10 @@ module Network.AWS.GameLift
     -- ** Event
     Event (Event'),
     newEvent,
+
+    -- ** FilterConfiguration
+    FilterConfiguration (FilterConfiguration'),
+    newFilterConfiguration,
 
     -- ** FleetAttributes
     FleetAttributes (FleetAttributes'),
@@ -879,6 +929,18 @@ module Network.AWS.GameLift
     LaunchTemplateSpecification (LaunchTemplateSpecification'),
     newLaunchTemplateSpecification,
 
+    -- ** LocationAttributes
+    LocationAttributes (LocationAttributes'),
+    newLocationAttributes,
+
+    -- ** LocationConfiguration
+    LocationConfiguration (LocationConfiguration'),
+    newLocationConfiguration,
+
+    -- ** LocationState
+    LocationState (LocationState'),
+    newLocationState,
+
     -- ** MatchedPlayerSession
     MatchedPlayerSession (MatchedPlayerSession'),
     newMatchedPlayerSession,
@@ -914,6 +976,10 @@ module Network.AWS.GameLift
     -- ** PlayerSession
     PlayerSession (PlayerSession'),
     newPlayerSession,
+
+    -- ** PriorityConfiguration
+    PriorityConfiguration (PriorityConfiguration'),
+    newPriorityConfiguration,
 
     -- ** ResourceCreationLimitPolicy
     ResourceCreationLimitPolicy (ResourceCreationLimitPolicy'),
@@ -974,6 +1040,7 @@ import Network.AWS.GameLift.ClaimGameServer
 import Network.AWS.GameLift.CreateAlias
 import Network.AWS.GameLift.CreateBuild
 import Network.AWS.GameLift.CreateFleet
+import Network.AWS.GameLift.CreateFleetLocations
 import Network.AWS.GameLift.CreateGameServerGroup
 import Network.AWS.GameLift.CreateGameSession
 import Network.AWS.GameLift.CreateGameSessionQueue
@@ -987,6 +1054,7 @@ import Network.AWS.GameLift.CreateVpcPeeringConnection
 import Network.AWS.GameLift.DeleteAlias
 import Network.AWS.GameLift.DeleteBuild
 import Network.AWS.GameLift.DeleteFleet
+import Network.AWS.GameLift.DeleteFleetLocations
 import Network.AWS.GameLift.DeleteGameServerGroup
 import Network.AWS.GameLift.DeleteGameSessionQueue
 import Network.AWS.GameLift.DeleteMatchmakingConfiguration
@@ -1002,6 +1070,9 @@ import Network.AWS.GameLift.DescribeEC2InstanceLimits
 import Network.AWS.GameLift.DescribeFleetAttributes
 import Network.AWS.GameLift.DescribeFleetCapacity
 import Network.AWS.GameLift.DescribeFleetEvents
+import Network.AWS.GameLift.DescribeFleetLocationAttributes
+import Network.AWS.GameLift.DescribeFleetLocationCapacity
+import Network.AWS.GameLift.DescribeFleetLocationUtilization
 import Network.AWS.GameLift.DescribeFleetPortSettings
 import Network.AWS.GameLift.DescribeFleetUtilization
 import Network.AWS.GameLift.DescribeGameServer

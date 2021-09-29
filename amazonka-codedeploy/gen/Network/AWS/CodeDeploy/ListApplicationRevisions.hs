@@ -29,8 +29,8 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     newListApplicationRevisions,
 
     -- * Request Lenses
-    listApplicationRevisions_sortOrder,
     listApplicationRevisions_nextToken,
+    listApplicationRevisions_sortOrder,
     listApplicationRevisions_s3Bucket,
     listApplicationRevisions_deployed,
     listApplicationRevisions_s3KeyPrefix,
@@ -59,7 +59,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-  { -- | The order in which to sort the list results:
+  { -- | An identifier returned from the previous @ListApplicationRevisions@
+    -- call. It can be used to return the next set of applications in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order in which to sort the list results:
     --
     -- -   @ascending@: ascending order.
     --
@@ -69,9 +72,6 @@ data ListApplicationRevisions = ListApplicationRevisions'
     --
     -- If set to null, the results are sorted in an arbitrary order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | An identifier returned from the previous @ListApplicationRevisions@
-    -- call. It can be used to return the next set of applications in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An Amazon S3 bucket name to limit the search for revisions.
     --
     -- If set to null, all of the user\'s buckets are searched.
@@ -118,6 +118,9 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listApplicationRevisions_nextToken' - An identifier returned from the previous @ListApplicationRevisions@
+-- call. It can be used to return the next set of applications in the list.
+--
 -- 'sortOrder', 'listApplicationRevisions_sortOrder' - The order in which to sort the list results:
 --
 -- -   @ascending@: ascending order.
@@ -127,9 +130,6 @@ data ListApplicationRevisions = ListApplicationRevisions'
 -- If not specified, the results are sorted in ascending order.
 --
 -- If set to null, the results are sorted in an arbitrary order.
---
--- 'nextToken', 'listApplicationRevisions_nextToken' - An identifier returned from the previous @ListApplicationRevisions@
--- call. It can be used to return the next set of applications in the list.
 --
 -- 's3Bucket', 'listApplicationRevisions_s3Bucket' - An Amazon S3 bucket name to limit the search for revisions.
 --
@@ -171,15 +171,20 @@ newListApplicationRevisions ::
   ListApplicationRevisions
 newListApplicationRevisions pApplicationName_ =
   ListApplicationRevisions'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       s3Bucket = Prelude.Nothing,
       deployed = Prelude.Nothing,
       s3KeyPrefix = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | An identifier returned from the previous @ListApplicationRevisions@
+-- call. It can be used to return the next set of applications in the list.
+listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
+listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {nextToken} -> nextToken) (\s@ListApplicationRevisions' {} a -> s {nextToken = a} :: ListApplicationRevisions)
 
 -- | The order in which to sort the list results:
 --
@@ -192,11 +197,6 @@ newListApplicationRevisions pApplicationName_ =
 -- If set to null, the results are sorted in an arbitrary order.
 listApplicationRevisions_sortOrder :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe SortOrder)
 listApplicationRevisions_sortOrder = Lens.lens (\ListApplicationRevisions' {sortOrder} -> sortOrder) (\s@ListApplicationRevisions' {} a -> s {sortOrder = a} :: ListApplicationRevisions)
-
--- | An identifier returned from the previous @ListApplicationRevisions@
--- call. It can be used to return the next set of applications in the list.
-listApplicationRevisions_nextToken :: Lens.Lens' ListApplicationRevisions (Prelude.Maybe Prelude.Text)
-listApplicationRevisions_nextToken = Lens.lens (\ListApplicationRevisions' {nextToken} -> nextToken) (\s@ListApplicationRevisions' {} a -> s {nextToken = a} :: ListApplicationRevisions)
 
 -- | An Amazon S3 bucket name to limit the search for revisions.
 --
@@ -302,8 +302,8 @@ instance Core.ToJSON ListApplicationRevisions where
   toJSON ListApplicationRevisions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
             ("deployed" Core..=) Prelude.<$> deployed,
             ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,

@@ -28,7 +28,7 @@ import Network.AWS.MediaConvert.Types.MovPaddingControl
 import Network.AWS.MediaConvert.Types.MovReference
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for MOV Container.
+-- | These settings relate to your QuickTime MOV output container.
 --
 -- /See:/ 'newMovSettings' smart constructor.
 data MovSettings = MovSettings'
@@ -38,17 +38,17 @@ data MovSettings = MovSettings'
     -- length of the edit list atom. This might cause file rejections when a
     -- recipient of the output file doesn\'t expct this extra padding.
     paddingControl :: Prelude.Maybe MovPaddingControl,
+    -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
+    -- using XDCAM fourcc codes. This increases compatibility with Apple
+    -- editors and players, but may decrease compatibility with other players.
+    -- Only applicable when the video codec is MPEG2.
+    mpeg2FourCCControl :: Prelude.Maybe MovMpeg2FourCCControl,
     -- | When enabled, file composition times will start at zero, composition
     -- times in the \'ctts\' (composition time to sample) box for B-frames will
     -- be negative, and a \'cslg\' (composition shift least greatest) box will
     -- be included per 14496-1 amendment 1. This improves compatibility with
     -- Apple players and tools.
     cslgAtom :: Prelude.Maybe MovCslgAtom,
-    -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
-    -- using XDCAM fourcc codes. This increases compatibility with Apple
-    -- editors and players, but may decrease compatibility with other players.
-    -- Only applicable when the video codec is MPEG2.
-    mpeg2FourCCControl :: Prelude.Maybe MovMpeg2FourCCControl,
     -- | When enabled, include \'clap\' atom if appropriate for the video output
     -- settings.
     clapAtom :: Prelude.Maybe MovClapAtom,
@@ -71,16 +71,16 @@ data MovSettings = MovSettings'
 -- length of the edit list atom. This might cause file rejections when a
 -- recipient of the output file doesn\'t expct this extra padding.
 --
+-- 'mpeg2FourCCControl', 'movSettings_mpeg2FourCCControl' - When set to XDCAM, writes MPEG2 video streams into the QuickTime file
+-- using XDCAM fourcc codes. This increases compatibility with Apple
+-- editors and players, but may decrease compatibility with other players.
+-- Only applicable when the video codec is MPEG2.
+--
 -- 'cslgAtom', 'movSettings_cslgAtom' - When enabled, file composition times will start at zero, composition
 -- times in the \'ctts\' (composition time to sample) box for B-frames will
 -- be negative, and a \'cslg\' (composition shift least greatest) box will
 -- be included per 14496-1 amendment 1. This improves compatibility with
 -- Apple players and tools.
---
--- 'mpeg2FourCCControl', 'movSettings_mpeg2FourCCControl' - When set to XDCAM, writes MPEG2 video streams into the QuickTime file
--- using XDCAM fourcc codes. This increases compatibility with Apple
--- editors and players, but may decrease compatibility with other players.
--- Only applicable when the video codec is MPEG2.
 --
 -- 'clapAtom', 'movSettings_clapAtom' - When enabled, include \'clap\' atom if appropriate for the video output
 -- settings.
@@ -91,8 +91,8 @@ newMovSettings ::
 newMovSettings =
   MovSettings'
     { paddingControl = Prelude.Nothing,
-      cslgAtom = Prelude.Nothing,
       mpeg2FourCCControl = Prelude.Nothing,
+      cslgAtom = Prelude.Nothing,
       clapAtom = Prelude.Nothing,
       reference = Prelude.Nothing
     }
@@ -105,6 +105,13 @@ newMovSettings =
 movSettings_paddingControl :: Lens.Lens' MovSettings (Prelude.Maybe MovPaddingControl)
 movSettings_paddingControl = Lens.lens (\MovSettings' {paddingControl} -> paddingControl) (\s@MovSettings' {} a -> s {paddingControl = a} :: MovSettings)
 
+-- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
+-- using XDCAM fourcc codes. This increases compatibility with Apple
+-- editors and players, but may decrease compatibility with other players.
+-- Only applicable when the video codec is MPEG2.
+movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Prelude.Maybe MovMpeg2FourCCControl)
+movSettings_mpeg2FourCCControl = Lens.lens (\MovSettings' {mpeg2FourCCControl} -> mpeg2FourCCControl) (\s@MovSettings' {} a -> s {mpeg2FourCCControl = a} :: MovSettings)
+
 -- | When enabled, file composition times will start at zero, composition
 -- times in the \'ctts\' (composition time to sample) box for B-frames will
 -- be negative, and a \'cslg\' (composition shift least greatest) box will
@@ -112,13 +119,6 @@ movSettings_paddingControl = Lens.lens (\MovSettings' {paddingControl} -> paddin
 -- Apple players and tools.
 movSettings_cslgAtom :: Lens.Lens' MovSettings (Prelude.Maybe MovCslgAtom)
 movSettings_cslgAtom = Lens.lens (\MovSettings' {cslgAtom} -> cslgAtom) (\s@MovSettings' {} a -> s {cslgAtom = a} :: MovSettings)
-
--- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file
--- using XDCAM fourcc codes. This increases compatibility with Apple
--- editors and players, but may decrease compatibility with other players.
--- Only applicable when the video codec is MPEG2.
-movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Prelude.Maybe MovMpeg2FourCCControl)
-movSettings_mpeg2FourCCControl = Lens.lens (\MovSettings' {mpeg2FourCCControl} -> mpeg2FourCCControl) (\s@MovSettings' {} a -> s {mpeg2FourCCControl = a} :: MovSettings)
 
 -- | When enabled, include \'clap\' atom if appropriate for the video output
 -- settings.
@@ -136,8 +136,8 @@ instance Core.FromJSON MovSettings where
       ( \x ->
           MovSettings'
             Prelude.<$> (x Core..:? "paddingControl")
-            Prelude.<*> (x Core..:? "cslgAtom")
             Prelude.<*> (x Core..:? "mpeg2FourCCControl")
+            Prelude.<*> (x Core..:? "cslgAtom")
             Prelude.<*> (x Core..:? "clapAtom")
             Prelude.<*> (x Core..:? "reference")
       )
@@ -152,9 +152,9 @@ instance Core.ToJSON MovSettings where
       ( Prelude.catMaybes
           [ ("paddingControl" Core..=)
               Prelude.<$> paddingControl,
-            ("cslgAtom" Core..=) Prelude.<$> cslgAtom,
             ("mpeg2FourCCControl" Core..=)
               Prelude.<$> mpeg2FourCCControl,
+            ("cslgAtom" Core..=) Prelude.<$> cslgAtom,
             ("clapAtom" Core..=) Prelude.<$> clapAtom,
             ("reference" Core..=) Prelude.<$> reference
           ]

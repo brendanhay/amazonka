@@ -24,6 +24,11 @@
 -- given ledger. The output of each stream descriptor includes the same
 -- details that are returned by @DescribeJournalKinesisStream@.
 --
+-- This action does not return any expired journal streams. For more
+-- information, see
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration Expiration for terminal streams>
+-- in the /Amazon QLDB Developer Guide/.
+--
 -- This action returns a maximum of @MaxResults@ items. It is paginated so
 -- that you can retrieve all the items by calling
 -- @ListJournalKinesisStreamsForLedger@ multiple times.

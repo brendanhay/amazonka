@@ -148,8 +148,8 @@ instance Core.ToQuery ConfirmProductInstance where
 
 -- | /See:/ 'newConfirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-  { -- | The AWS account ID of the instance owner. This is only present if the
-    -- product code is attached to the instance.
+  { -- | The Amazon Web Services account ID of the instance owner. This is only
+    -- present if the product code is attached to the instance.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The return value of the request. Returns @true@ if the specified product
     -- code is owned by the requester and associated with the specified
@@ -168,8 +168,8 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'confirmProductInstanceResponse_ownerId' - The AWS account ID of the instance owner. This is only present if the
--- product code is attached to the instance.
+-- 'ownerId', 'confirmProductInstanceResponse_ownerId' - The Amazon Web Services account ID of the instance owner. This is only
+-- present if the product code is attached to the instance.
 --
 -- 'return'', 'confirmProductInstanceResponse_return' - The return value of the request. Returns @true@ if the specified product
 -- code is owned by the requester and associated with the specified
@@ -188,8 +188,8 @@ newConfirmProductInstanceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS account ID of the instance owner. This is only present if the
--- product code is attached to the instance.
+-- | The Amazon Web Services account ID of the instance owner. This is only
+-- present if the product code is attached to the instance.
 confirmProductInstanceResponse_ownerId :: Lens.Lens' ConfirmProductInstanceResponse (Prelude.Maybe Prelude.Text)
 confirmProductInstanceResponse_ownerId = Lens.lens (\ConfirmProductInstanceResponse' {ownerId} -> ownerId) (\s@ConfirmProductInstanceResponse' {} a -> s {ownerId = a} :: ConfirmProductInstanceResponse)
 

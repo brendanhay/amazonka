@@ -161,7 +161,7 @@ data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InstallToRemoteAccessSessionResponse' with all optional fields omitted.

@@ -20,62 +20,48 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a grant to a customer master key (CMK). The grant allows the
--- grantee principal to use the CMK when the conditions specified in the
--- grant are met. When setting permissions, grants are an alternative to
--- key policies.
+-- Adds a grant to a KMS key.
 --
--- To create a grant that allows a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
--- only when the request includes a particular
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context>,
--- use the @Constraints@ parameter. For details, see GrantConstraints.
+-- A /grant/ is a policy instrument that allows Amazon Web Services
+-- principals to use KMS keys in cryptographic operations. It also can
+-- allow them to view a KMS key (DescribeKey) and create and manage grants.
+-- When authorizing access to a KMS key, grants are considered along with
+-- key policies and IAM policies. Grants are often used for temporary
+-- permissions because you can create one, use its permissions, and delete
+-- it without changing your key policies or IAM policies.
 --
--- You can create grants on symmetric and asymmetric CMKs. However, if the
--- grant allows an operation that the CMK does not support, @CreateGrant@
--- fails with a @ValidationException@.
+-- For detailed information about grants, including grant terminology, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- in the //Key Management Service Developer Guide// . For examples of
+-- working with grants in several programming languages, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.
 --
--- -   Grants for symmetric CMKs cannot allow operations that are not
---     supported for symmetric CMKs, including Sign, Verify, and
---     GetPublicKey. (There are limited exceptions to this rule for legacy
---     operations, but you should not create a grant for an operation that
---     AWS KMS does not support.)
+-- The @CreateGrant@ operation returns a @GrantToken@ and a @GrantId@.
 --
--- -   Grants for asymmetric CMKs cannot allow operations that are not
---     supported for asymmetric CMKs, including operations that
---     <https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey generate data keys>
---     or
---     <https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair data key pairs>,
---     or operations related to
---     <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html automatic key rotation>,
---     <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
---     or CMKs in
---     <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key stores>.
+-- -   When you create, retire, or revoke a grant, there might be a brief
+--     delay, usually less than five minutes, until the grant is available
+--     throughout KMS. This state is known as /eventual consistency/. Once
+--     the grant has achieved eventual consistency, the grantee principal
+--     can use the permissions in the grant without identifying the grant.
 --
--- -   Grants for asymmetric CMKs with a @KeyUsage@ of @ENCRYPT_DECRYPT@
---     cannot allow the Sign or Verify operations. Grants for asymmetric
---     CMKs with a @KeyUsage@ of @SIGN_VERIFY@ cannot allow the Encrypt or
---     Decrypt operations.
+--     However, to use the permissions in the grant immediately, use the
+--     @GrantToken@ that @CreateGrant@ returns. For details, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+--     in the //Key Management Service Developer Guide// .
 --
--- -   Grants for asymmetric CMKs cannot include an encryption context
---     grant constraint. An encryption context is not supported on
---     asymmetric CMKs.
+-- -   The @CreateGrant@ operation also returns a @GrantId@. You can use
+--     the @GrantId@ and a key identifier to identify the grant in the
+--     RetireGrant and RevokeGrant operations. To find the grant ID, use
+--     the ListGrants or ListRetirableGrants operations.
 --
--- For information about symmetric and asymmetric CMKs, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric CMKs>
--- in the /AWS Key Management Service Developer Guide/. For more
--- information about grants, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>
--- in the //AWS Key Management Service Developer Guide// .
---
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: Yes. To perform this operation on a CMK in a
--- different AWS account, specify the key ARN in the value of the @KeyId@
--- parameter.
+-- __Cross-account use__: Yes. To perform this operation on a KMS key in a
+-- different Amazon Web Services account, specify the key ARN in the value
+-- of the @KeyId@ parameter.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:CreateGrant>
@@ -124,23 +110,38 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGrant' smart constructor.
 data CreateGrant = CreateGrant'
-  { -- | Allows a
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
-    -- only when the encryption context matches or includes the encryption
-    -- context specified in this structure. For more information about
-    -- encryption context, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
-    -- in the //AWS Key Management Service Developer Guide// .
+  { -- | Specifies a grant constraint.
     --
-    -- Grant constraints are not applied to operations that do not support an
-    -- encryption context, such as cryptographic operations with asymmetric
-    -- CMKs and management operations, such as DescribeKey or RetireGrant.
+    -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+    -- grant constraints. Each constraint value can include up to 8 encryption
+    -- context pairs. The encryption context value in each constraint cannot
+    -- exceed 384 characters.
+    --
+    -- These grant constraints allow the permissions in the grant only when the
+    -- encryption context in the request matches (@EncryptionContextEquals@) or
+    -- includes (@EncryptionContextSubset@) the encryption context specified in
+    -- this structure. For information about grant constraints, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+    -- in the /Key Management Service Developer Guide/. For more information
+    -- about encryption context, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- in the //Key Management Service Developer Guide// .
+    --
+    -- The encryption context grant constraints are supported only on
+    -- operations that include an encryption context. You cannot use an
+    -- encryption context grant constraint for cryptographic operations with
+    -- asymmetric KMS keys or for management operations, such as DescribeKey or
+    -- RetireGrant.
     constraints :: Prelude.Maybe GrantConstraints,
     -- | A list of grant tokens.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | A friendly name for the grant. Use this value to prevent the unintended
     -- creation of duplicate grants when retrying this request.
@@ -157,22 +158,30 @@ data CreateGrant = CreateGrant'
     -- when a duplicate @GrantId@ is returned. All grant tokens for the same
     -- grant ID can be used interchangeably.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The principal that is given permission to retire the grant by using
-    -- RetireGrant operation.
+    -- | The principal that has permission to use the RetireGrant operation to
+    -- retire the grant.
     --
     -- To specify the principal, use the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
-    -- of an AWS principal. Valid AWS principals include AWS accounts (root),
-    -- IAM users, federated users, and assumed role users. For examples of the
-    -- ARN syntax to use for specifying a principal, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
-    -- in the Example ARNs section of the /AWS General Reference/.
-    retiringPrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the customer master key (CMK) that the grant
-    -- applies to.
+    -- of an Amazon Web Services principal. Valid Amazon Web Services
+    -- principals include Amazon Web Services accounts (root), IAM users,
+    -- federated users, and assumed role users. For examples of the ARN syntax
+    -- to use for specifying a principal, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+    -- in the Example ARNs section of the /Amazon Web Services General
+    -- Reference/.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
-    -- specify a CMK in a different AWS account, you must use the key ARN.
+    -- The grant determines the retiring principal. Other principals might have
+    -- permission to retire the grant or revoke the grant. For details, see
+    -- RevokeGrant and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants>
+    -- in the /Key Management Service Developer Guide/.
+    retiringPrincipal :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the KMS key for the grant. The grant gives principals
+    -- permission to use this KMS key.
+    --
+    -- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+    -- different Amazon Web Services account, you must use the key ARN.
     --
     -- For example:
     --
@@ -181,20 +190,30 @@ data CreateGrant = CreateGrant'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
-    -- | The principal that is given permission to perform the operations that
-    -- the grant permits.
+    -- | The identity that gets the permissions specified in the grant.
     --
     -- To specify the principal, use the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
-    -- of an AWS principal. Valid AWS principals include AWS accounts (root),
-    -- IAM users, IAM roles, federated users, and assumed role users. For
-    -- examples of the ARN syntax to use for specifying a principal, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
-    -- in the Example ARNs section of the /AWS General Reference/.
+    -- of an Amazon Web Services principal. Valid Amazon Web Services
+    -- principals include Amazon Web Services accounts (root), IAM users, IAM
+    -- roles, federated users, and assumed role users. For examples of the ARN
+    -- syntax to use for specifying a principal, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+    -- in the Example ARNs section of the /Amazon Web Services General
+    -- Reference/.
     granteePrincipal :: Prelude.Text,
     -- | A list of operations that the grant permits.
+    --
+    -- The operation must be supported on the KMS key. For example, you cannot
+    -- create a grant for a symmetric KMS key that allows the Sign operation,
+    -- or a grant for an asymmetric KMS key that allows the GenerateDataKey
+    -- operation. If you try, KMS returns a @ValidationError@ exception. For
+    -- details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
+    -- in the /Key Management Service Developer Guide/.
     operations :: [GrantOperation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -207,23 +226,38 @@ data CreateGrant = CreateGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraints', 'createGrant_constraints' - Allows a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
--- only when the encryption context matches or includes the encryption
--- context specified in this structure. For more information about
--- encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the //AWS Key Management Service Developer Guide// .
+-- 'constraints', 'createGrant_constraints' - Specifies a grant constraint.
 --
--- Grant constraints are not applied to operations that do not support an
--- encryption context, such as cryptographic operations with asymmetric
--- CMKs and management operations, such as DescribeKey or RetireGrant.
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints. Each constraint value can include up to 8 encryption
+-- context pairs. The encryption context value in each constraint cannot
+-- exceed 384 characters.
+--
+-- These grant constraints allow the permissions in the grant only when the
+-- encryption context in the request matches (@EncryptionContextEquals@) or
+-- includes (@EncryptionContextSubset@) the encryption context specified in
+-- this structure. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the //Key Management Service Developer Guide// .
+--
+-- The encryption context grant constraints are supported only on
+-- operations that include an encryption context. You cannot use an
+-- encryption context grant constraint for cryptographic operations with
+-- asymmetric KMS keys or for management operations, such as DescribeKey or
+-- RetireGrant.
 --
 -- 'grantTokens', 'createGrant_grantTokens' - A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'name', 'createGrant_name' - A friendly name for the grant. Use this value to prevent the unintended
 -- creation of duplicate grants when retrying this request.
@@ -240,22 +274,30 @@ data CreateGrant = CreateGrant'
 -- when a duplicate @GrantId@ is returned. All grant tokens for the same
 -- grant ID can be used interchangeably.
 --
--- 'retiringPrincipal', 'createGrant_retiringPrincipal' - The principal that is given permission to retire the grant by using
--- RetireGrant operation.
+-- 'retiringPrincipal', 'createGrant_retiringPrincipal' - The principal that has permission to use the RetireGrant operation to
+-- retire the grant.
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an AWS principal. Valid AWS principals include AWS accounts (root),
--- IAM users, federated users, and assumed role users. For examples of the
--- ARN syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
--- in the Example ARNs section of the /AWS General Reference/.
+-- of an Amazon Web Services principal. Valid Amazon Web Services
+-- principals include Amazon Web Services accounts (root), IAM users,
+-- federated users, and assumed role users. For examples of the ARN syntax
+-- to use for specifying a principal, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /Amazon Web Services General
+-- Reference/.
 --
--- 'keyId', 'createGrant_keyId' - The unique identifier for the customer master key (CMK) that the grant
--- applies to.
+-- The grant determines the retiring principal. Other principals might have
+-- permission to retire the grant or revoke the grant. For details, see
+-- RevokeGrant and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants>
+-- in the /Key Management Service Developer Guide/.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- 'keyId', 'createGrant_keyId' - Identifies the KMS key for the grant. The grant gives principals
+-- permission to use this KMS key.
+--
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -264,20 +306,30 @@ data CreateGrant = CreateGrant'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
--- 'granteePrincipal', 'createGrant_granteePrincipal' - The principal that is given permission to perform the operations that
--- the grant permits.
+-- 'granteePrincipal', 'createGrant_granteePrincipal' - The identity that gets the permissions specified in the grant.
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an AWS principal. Valid AWS principals include AWS accounts (root),
--- IAM users, IAM roles, federated users, and assumed role users. For
--- examples of the ARN syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
--- in the Example ARNs section of the /AWS General Reference/.
+-- of an Amazon Web Services principal. Valid Amazon Web Services
+-- principals include Amazon Web Services accounts (root), IAM users, IAM
+-- roles, federated users, and assumed role users. For examples of the ARN
+-- syntax to use for specifying a principal, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /Amazon Web Services General
+-- Reference/.
 --
 -- 'operations', 'createGrant_operations' - A list of operations that the grant permits.
+--
+-- The operation must be supported on the KMS key. For example, you cannot
+-- create a grant for a symmetric KMS key that allows the Sign operation,
+-- or a grant for an asymmetric KMS key that allows the GenerateDataKey
+-- operation. If you try, KMS returns a @ValidationError@ exception. For
+-- details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
+-- in the /Key Management Service Developer Guide/.
 newCreateGrant ::
   -- | 'keyId'
   Prelude.Text ->
@@ -295,25 +347,40 @@ newCreateGrant pKeyId_ pGranteePrincipal_ =
       operations = Prelude.mempty
     }
 
--- | Allows a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
--- only when the encryption context matches or includes the encryption
--- context specified in this structure. For more information about
--- encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the //AWS Key Management Service Developer Guide// .
+-- | Specifies a grant constraint.
 --
--- Grant constraints are not applied to operations that do not support an
--- encryption context, such as cryptographic operations with asymmetric
--- CMKs and management operations, such as DescribeKey or RetireGrant.
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints. Each constraint value can include up to 8 encryption
+-- context pairs. The encryption context value in each constraint cannot
+-- exceed 384 characters.
+--
+-- These grant constraints allow the permissions in the grant only when the
+-- encryption context in the request matches (@EncryptionContextEquals@) or
+-- includes (@EncryptionContextSubset@) the encryption context specified in
+-- this structure. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the //Key Management Service Developer Guide// .
+--
+-- The encryption context grant constraints are supported only on
+-- operations that include an encryption context. You cannot use an
+-- encryption context grant constraint for cryptographic operations with
+-- asymmetric KMS keys or for management operations, such as DescribeKey or
+-- RetireGrant.
 createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
 createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
 
 -- | A list of grant tokens.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 createGrant_grantTokens :: Lens.Lens' CreateGrant (Prelude.Maybe [Prelude.Text])
 createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens) (\s@CreateGrant' {} a -> s {grantTokens = a} :: CreateGrant) Prelude.. Lens.mapping Lens._Coerce
 
@@ -334,24 +401,32 @@ createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens)
 createGrant_name :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
 createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} a -> s {name = a} :: CreateGrant)
 
--- | The principal that is given permission to retire the grant by using
--- RetireGrant operation.
+-- | The principal that has permission to use the RetireGrant operation to
+-- retire the grant.
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an AWS principal. Valid AWS principals include AWS accounts (root),
--- IAM users, federated users, and assumed role users. For examples of the
--- ARN syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
--- in the Example ARNs section of the /AWS General Reference/.
+-- of an Amazon Web Services principal. Valid Amazon Web Services
+-- principals include Amazon Web Services accounts (root), IAM users,
+-- federated users, and assumed role users. For examples of the ARN syntax
+-- to use for specifying a principal, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /Amazon Web Services General
+-- Reference/.
+--
+-- The grant determines the retiring principal. Other principals might have
+-- permission to retire the grant or revoke the grant. For details, see
+-- RevokeGrant and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants>
+-- in the /Key Management Service Developer Guide/.
 createGrant_retiringPrincipal :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
 createGrant_retiringPrincipal = Lens.lens (\CreateGrant' {retiringPrincipal} -> retiringPrincipal) (\s@CreateGrant' {} a -> s {retiringPrincipal = a} :: CreateGrant)
 
--- | The unique identifier for the customer master key (CMK) that the grant
--- applies to.
+-- | Identifies the KMS key for the grant. The grant gives principals
+-- permission to use this KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -360,24 +435,34 @@ createGrant_retiringPrincipal = Lens.lens (\CreateGrant' {retiringPrincipal} -> 
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 createGrant_keyId :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_keyId = Lens.lens (\CreateGrant' {keyId} -> keyId) (\s@CreateGrant' {} a -> s {keyId = a} :: CreateGrant)
 
--- | The principal that is given permission to perform the operations that
--- the grant permits.
+-- | The identity that gets the permissions specified in the grant.
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an AWS principal. Valid AWS principals include AWS accounts (root),
--- IAM users, IAM roles, federated users, and assumed role users. For
--- examples of the ARN syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)>
--- in the Example ARNs section of the /AWS General Reference/.
+-- of an Amazon Web Services principal. Valid Amazon Web Services
+-- principals include Amazon Web Services accounts (root), IAM users, IAM
+-- roles, federated users, and assumed role users. For examples of the ARN
+-- syntax to use for specifying a principal, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
+-- in the Example ARNs section of the /Amazon Web Services General
+-- Reference/.
 createGrant_granteePrincipal :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_granteePrincipal = Lens.lens (\CreateGrant' {granteePrincipal} -> granteePrincipal) (\s@CreateGrant' {} a -> s {granteePrincipal = a} :: CreateGrant)
 
 -- | A list of operations that the grant permits.
+--
+-- The operation must be supported on the KMS key. For example, you cannot
+-- create a grant for a symmetric KMS key that allows the Sign operation,
+-- or a grant for an asymmetric KMS key that allows the GenerateDataKey
+-- operation. If you try, KMS returns a @ValidationError@ exception. For
+-- details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations Grant operations>
+-- in the /Key Management Service Developer Guide/.
 createGrant_operations :: Lens.Lens' CreateGrant [GrantOperation]
 createGrant_operations = Lens.lens (\CreateGrant' {operations} -> operations) (\s@CreateGrant' {} a -> s {operations = a} :: CreateGrant) Prelude.. Lens._Coerce
 
@@ -436,9 +521,13 @@ instance Core.ToQuery CreateGrant where
 data CreateGrantResponse = CreateGrantResponse'
   { -- | The grant token.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
     grantToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the grant.
     --
@@ -460,9 +549,13 @@ data CreateGrantResponse = CreateGrantResponse'
 --
 -- 'grantToken', 'createGrantResponse_grantToken' - The grant token.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'grantId', 'createGrantResponse_grantId' - The unique identifier for the grant.
 --
@@ -483,9 +576,13 @@ newCreateGrantResponse pHttpStatus_ =
 
 -- | The grant token.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>
--- in the /AWS Key Management Service Developer Guide/.
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 createGrantResponse_grantToken :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
 createGrantResponse_grantToken = Lens.lens (\CreateGrantResponse' {grantToken} -> grantToken) (\s@CreateGrantResponse' {} a -> s {grantToken = a} :: CreateGrantResponse)
 

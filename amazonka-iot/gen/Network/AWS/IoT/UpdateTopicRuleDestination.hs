@@ -22,6 +22,10 @@
 --
 -- Updates a topic rule destination. You use this to change the status,
 -- endpoint URL, or confirmation URL of the destination.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateTopicRuleDestination>
+-- action.
 module Network.AWS.IoT.UpdateTopicRuleDestination
   ( -- * Creating a Request
     UpdateTopicRuleDestination (..),

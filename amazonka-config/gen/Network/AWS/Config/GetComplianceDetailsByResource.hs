@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evaluation results for the specified AWS resource. The
--- results indicate which AWS Config rules were used to evaluate the
--- resource, when each rule was last used, and whether the resource
+-- Returns the evaluation results for the specified Amazon Web Services
+-- resource. The results indicate which Config rules were used to evaluate
+-- the resource, when each rule was last used, and whether the resource
 -- complies with each rule.
 --
 -- This operation returns paginated results.
@@ -67,9 +67,11 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @NOT_APPLICABLE@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | The type of the AWS resource for which you want compliance information.
+    -- | The type of the Amazon Web Services resource for which you want
+    -- compliance information.
     resourceType :: Prelude.Text,
-    -- | The ID of the AWS resource for which you want compliance information.
+    -- | The ID of the Amazon Web Services resource for which you want compliance
+    -- information.
     resourceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,9 +92,11 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @NOT_APPLICABLE@.
 --
--- 'resourceType', 'getComplianceDetailsByResource_resourceType' - The type of the AWS resource for which you want compliance information.
+-- 'resourceType', 'getComplianceDetailsByResource_resourceType' - The type of the Amazon Web Services resource for which you want
+-- compliance information.
 --
--- 'resourceId', 'getComplianceDetailsByResource_resourceId' - The ID of the AWS resource for which you want compliance information.
+-- 'resourceId', 'getComplianceDetailsByResource_resourceId' - The ID of the Amazon Web Services resource for which you want compliance
+-- information.
 newGetComplianceDetailsByResource ::
   -- | 'resourceType'
   Prelude.Text ->
@@ -122,11 +126,13 @@ getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByRes
 getComplianceDetailsByResource_complianceTypes :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe [ComplianceType])
 getComplianceDetailsByResource_complianceTypes = Lens.lens (\GetComplianceDetailsByResource' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByResource' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByResource) Prelude.. Lens.mapping Lens._Coerce
 
--- | The type of the AWS resource for which you want compliance information.
+-- | The type of the Amazon Web Services resource for which you want
+-- compliance information.
 getComplianceDetailsByResource_resourceType :: Lens.Lens' GetComplianceDetailsByResource Prelude.Text
 getComplianceDetailsByResource_resourceType = Lens.lens (\GetComplianceDetailsByResource' {resourceType} -> resourceType) (\s@GetComplianceDetailsByResource' {} a -> s {resourceType = a} :: GetComplianceDetailsByResource)
 
--- | The ID of the AWS resource for which you want compliance information.
+-- | The ID of the Amazon Web Services resource for which you want compliance
+-- information.
 getComplianceDetailsByResource_resourceId :: Lens.Lens' GetComplianceDetailsByResource Prelude.Text
 getComplianceDetailsByResource_resourceId = Lens.lens (\GetComplianceDetailsByResource' {resourceId} -> resourceId) (\s@GetComplianceDetailsByResource' {} a -> s {resourceId = a} :: GetComplianceDetailsByResource)
 
@@ -222,8 +228,8 @@ data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResp
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the specified AWS resource complies each AWS Config
-    -- rule.
+    -- | Indicates whether the specified Amazon Web Services resource complies
+    -- each Config rule.
     evaluationResults :: Prelude.Maybe [EvaluationResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -241,8 +247,8 @@ data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResp
 -- 'nextToken', 'getComplianceDetailsByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'evaluationResults', 'getComplianceDetailsByResourceResponse_evaluationResults' - Indicates whether the specified AWS resource complies each AWS Config
--- rule.
+-- 'evaluationResults', 'getComplianceDetailsByResourceResponse_evaluationResults' - Indicates whether the specified Amazon Web Services resource complies
+-- each Config rule.
 --
 -- 'httpStatus', 'getComplianceDetailsByResourceResponse_httpStatus' - The response's http status code.
 newGetComplianceDetailsByResourceResponse ::
@@ -263,8 +269,8 @@ newGetComplianceDetailsByResourceResponse
 getComplianceDetailsByResourceResponse_nextToken :: Lens.Lens' GetComplianceDetailsByResourceResponse (Prelude.Maybe Prelude.Text)
 getComplianceDetailsByResourceResponse_nextToken = Lens.lens (\GetComplianceDetailsByResourceResponse' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResourceResponse' {} a -> s {nextToken = a} :: GetComplianceDetailsByResourceResponse)
 
--- | Indicates whether the specified AWS resource complies each AWS Config
--- rule.
+-- | Indicates whether the specified Amazon Web Services resource complies
+-- each Config rule.
 getComplianceDetailsByResourceResponse_evaluationResults :: Lens.Lens' GetComplianceDetailsByResourceResponse (Prelude.Maybe [EvaluationResult])
 getComplianceDetailsByResourceResponse_evaluationResults = Lens.lens (\GetComplianceDetailsByResourceResponse' {evaluationResults} -> evaluationResults) (\s@GetComplianceDetailsByResourceResponse' {} a -> s {evaluationResults = a} :: GetComplianceDetailsByResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 

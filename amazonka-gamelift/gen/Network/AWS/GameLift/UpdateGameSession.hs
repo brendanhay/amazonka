@@ -20,33 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates game session properties. This includes the session name, maximum
--- player count, protection policy, which controls whether or not an active
--- game session can be terminated during a scale-down event, and the player
--- session creation policy, which controls whether or not new players can
--- join the session. To update a game session, specify the game session ID
--- and the values you want to change. If successful, an updated GameSession
--- object is returned.
+-- Updates the mutable properties of a game session.
 --
--- -   CreateGameSession
+-- To update a game session, specify the game session ID and the values you
+-- want to change.
 --
--- -   DescribeGameSessions
+-- If successful, the updated @GameSession@ object is returned.
 --
--- -   DescribeGameSessionDetails
+-- __Related actions__
 --
--- -   SearchGameSessions
---
--- -   UpdateGameSession
---
--- -   GetGameSessionLogUrl
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
+-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateGameSession
   ( -- * Creating a Request
     UpdateGameSession (..),
@@ -80,7 +67,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
-  { -- | Policy determining whether or not the game session accepts new players.
+  { -- | A policy that determines whether the game session is accepting new
+    -- players.
     playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
@@ -109,7 +97,8 @@ data UpdateGameSession = UpdateGameSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - Policy determining whether or not the game session accepts new players.
+-- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - A policy that determines whether the game session is accepting new
+-- players.
 --
 -- 'maximumPlayerSessionCount', 'updateGameSession_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to
 -- the game session.
@@ -140,7 +129,8 @@ newUpdateGameSession pGameSessionId_ =
       gameSessionId = pGameSessionId_
     }
 
--- | Policy determining whether or not the game session accepts new players.
+-- | A policy that determines whether the game session is accepting new
+-- players.
 updateGameSession_playerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Prelude.Maybe PlayerSessionCreationPolicy)
 updateGameSession_playerSessionCreationPolicy = Lens.lens (\UpdateGameSession' {playerSessionCreationPolicy} -> playerSessionCreationPolicy) (\s@UpdateGameSession' {} a -> s {playerSessionCreationPolicy = a} :: UpdateGameSession)
 
@@ -224,7 +214,7 @@ instance Core.ToQuery UpdateGameSession where
 --
 -- /See:/ 'newUpdateGameSessionResponse' smart constructor.
 data UpdateGameSessionResponse = UpdateGameSessionResponse'
-  { -- | The updated game session metadata.
+  { -- | The updated game session properties.
     gameSession :: Prelude.Maybe GameSession,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -239,7 +229,7 @@ data UpdateGameSessionResponse = UpdateGameSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameSession', 'updateGameSessionResponse_gameSession' - The updated game session metadata.
+-- 'gameSession', 'updateGameSessionResponse_gameSession' - The updated game session properties.
 --
 -- 'httpStatus', 'updateGameSessionResponse_httpStatus' - The response's http status code.
 newUpdateGameSessionResponse ::
@@ -253,7 +243,7 @@ newUpdateGameSessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The updated game session metadata.
+-- | The updated game session properties.
 updateGameSessionResponse_gameSession :: Lens.Lens' UpdateGameSessionResponse (Prelude.Maybe GameSession)
 updateGameSessionResponse_gameSession = Lens.lens (\UpdateGameSessionResponse' {gameSession} -> gameSession) (\s@UpdateGameSessionResponse' {} a -> s {gameSession = a} :: UpdateGameSessionResponse)
 

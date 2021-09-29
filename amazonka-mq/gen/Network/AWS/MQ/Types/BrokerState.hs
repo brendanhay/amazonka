@@ -32,7 +32,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The status of the broker.
+-- | The broker\'s status.
 newtype BrokerState = BrokerState'
   { fromBrokerState ::
       Core.Text

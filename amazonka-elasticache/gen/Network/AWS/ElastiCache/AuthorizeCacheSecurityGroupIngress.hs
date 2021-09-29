@@ -62,9 +62,9 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
     -- | The Amazon EC2 security group to be authorized for ingress to the cache
     -- security group.
     eC2SecurityGroupName :: Prelude.Text,
-    -- | The AWS account number of the Amazon EC2 security group owner. Note that
-    -- this is not the same thing as an AWS access key ID - you must provide a
-    -- valid AWS account number for this parameter.
+    -- | The Amazon account number of the Amazon EC2 security group owner. Note
+    -- that this is not the same thing as an Amazon access key ID - you must
+    -- provide a valid Amazon account number for this parameter.
     eC2SecurityGroupOwnerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,9 +82,9 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
 -- 'eC2SecurityGroupName', 'authorizeCacheSecurityGroupIngress_eC2SecurityGroupName' - The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
 --
--- 'eC2SecurityGroupOwnerId', 'authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId' - The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- 'eC2SecurityGroupOwnerId', 'authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId' - The Amazon account number of the Amazon EC2 security group owner. Note
+-- that this is not the same thing as an Amazon access key ID - you must
+-- provide a valid Amazon account number for this parameter.
 newAuthorizeCacheSecurityGroupIngress ::
   -- | 'cacheSecurityGroupName'
   Prelude.Text ->
@@ -115,9 +115,9 @@ authorizeCacheSecurityGroupIngress_cacheSecurityGroupName = Lens.lens (\Authoriz
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Prelude.Text
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeCacheSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
 
--- | The AWS account number of the Amazon EC2 security group owner. Note that
--- this is not the same thing as an AWS access key ID - you must provide a
--- valid AWS account number for this parameter.
+-- | The Amazon account number of the Amazon EC2 security group owner. Note
+-- that this is not the same thing as an Amazon access key ID - you must
+-- provide a valid Amazon account number for this parameter.
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Prelude.Text
 authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeCacheSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeCacheSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeCacheSecurityGroupIngress)
 

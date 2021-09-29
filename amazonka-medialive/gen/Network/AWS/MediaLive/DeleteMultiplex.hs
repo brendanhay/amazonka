@@ -38,10 +38,10 @@ module Network.AWS.MediaLive.DeleteMultiplex
     deleteMultiplexResponse_arn,
     deleteMultiplexResponse_id,
     deleteMultiplexResponse_pipelinesRunningCount,
-    deleteMultiplexResponse_programCount,
-    deleteMultiplexResponse_destinations,
-    deleteMultiplexResponse_state,
     deleteMultiplexResponse_name,
+    deleteMultiplexResponse_destinations,
+    deleteMultiplexResponse_programCount,
+    deleteMultiplexResponse_state,
     deleteMultiplexResponse_tags,
     deleteMultiplexResponse_multiplexSettings,
     deleteMultiplexResponse_httpStatus,
@@ -99,10 +99,10 @@ instance Core.AWSRequest DeleteMultiplex where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "pipelinesRunningCount")
-            Prelude.<*> (x Core..?> "programCount")
-            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "programCount")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "multiplexSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -143,14 +143,14 @@ data DeleteMultiplexResponse = DeleteMultiplexResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of the multiplex output destinations.
-    destinations :: Prelude.Maybe [MultiplexOutputDestination],
-    -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
     -- | The name of the multiplex.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of the multiplex output destinations.
+    destinations :: Prelude.Maybe [MultiplexOutputDestination],
+    -- | The number of programs in the multiplex.
+    programCount :: Prelude.Maybe Prelude.Int,
+    -- | The current state of the multiplex.
+    state :: Prelude.Maybe MultiplexState,
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Configuration for a multiplex event.
@@ -176,13 +176,13 @@ data DeleteMultiplexResponse = DeleteMultiplexResponse'
 --
 -- 'pipelinesRunningCount', 'deleteMultiplexResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
--- 'programCount', 'deleteMultiplexResponse_programCount' - The number of programs in the multiplex.
+-- 'name', 'deleteMultiplexResponse_name' - The name of the multiplex.
 --
 -- 'destinations', 'deleteMultiplexResponse_destinations' - A list of the multiplex output destinations.
 --
--- 'state', 'deleteMultiplexResponse_state' - The current state of the multiplex.
+-- 'programCount', 'deleteMultiplexResponse_programCount' - The number of programs in the multiplex.
 --
--- 'name', 'deleteMultiplexResponse_name' - The name of the multiplex.
+-- 'state', 'deleteMultiplexResponse_state' - The current state of the multiplex.
 --
 -- 'tags', 'deleteMultiplexResponse_tags' - A collection of key-value pairs.
 --
@@ -200,10 +200,10 @@ newDeleteMultiplexResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      programCount = Prelude.Nothing,
+      state = Prelude.Nothing,
       tags = Prelude.Nothing,
       multiplexSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -225,21 +225,21 @@ deleteMultiplexResponse_id = Lens.lens (\DeleteMultiplexResponse' {id} -> id) (\
 deleteMultiplexResponse_pipelinesRunningCount :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Int)
 deleteMultiplexResponse_pipelinesRunningCount = Lens.lens (\DeleteMultiplexResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DeleteMultiplexResponse' {} a -> s {pipelinesRunningCount = a} :: DeleteMultiplexResponse)
 
--- | The number of programs in the multiplex.
-deleteMultiplexResponse_programCount :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Int)
-deleteMultiplexResponse_programCount = Lens.lens (\DeleteMultiplexResponse' {programCount} -> programCount) (\s@DeleteMultiplexResponse' {} a -> s {programCount = a} :: DeleteMultiplexResponse)
+-- | The name of the multiplex.
+deleteMultiplexResponse_name :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexResponse_name = Lens.lens (\DeleteMultiplexResponse' {name} -> name) (\s@DeleteMultiplexResponse' {} a -> s {name = a} :: DeleteMultiplexResponse)
 
 -- | A list of the multiplex output destinations.
 deleteMultiplexResponse_destinations :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe [MultiplexOutputDestination])
 deleteMultiplexResponse_destinations = Lens.lens (\DeleteMultiplexResponse' {destinations} -> destinations) (\s@DeleteMultiplexResponse' {} a -> s {destinations = a} :: DeleteMultiplexResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of programs in the multiplex.
+deleteMultiplexResponse_programCount :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Int)
+deleteMultiplexResponse_programCount = Lens.lens (\DeleteMultiplexResponse' {programCount} -> programCount) (\s@DeleteMultiplexResponse' {} a -> s {programCount = a} :: DeleteMultiplexResponse)
+
 -- | The current state of the multiplex.
 deleteMultiplexResponse_state :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe MultiplexState)
 deleteMultiplexResponse_state = Lens.lens (\DeleteMultiplexResponse' {state} -> state) (\s@DeleteMultiplexResponse' {} a -> s {state = a} :: DeleteMultiplexResponse)
-
--- | The name of the multiplex.
-deleteMultiplexResponse_name :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe Prelude.Text)
-deleteMultiplexResponse_name = Lens.lens (\DeleteMultiplexResponse' {name} -> name) (\s@DeleteMultiplexResponse' {} a -> s {name = a} :: DeleteMultiplexResponse)
 
 -- | A collection of key-value pairs.
 deleteMultiplexResponse_tags :: Lens.Lens' DeleteMultiplexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))

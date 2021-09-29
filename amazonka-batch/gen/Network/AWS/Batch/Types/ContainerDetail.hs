@@ -39,7 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContainerDetail' smart constructor.
 data ContainerDetail = ContainerDetail'
   { -- | The name of the CloudWatch Logs log stream associated with the
-    -- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+    -- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
     -- container attempt receives a log stream name when they reach the
     -- @RUNNING@ status.
     logStreamName :: Prelude.Maybe Prelude.Text,
@@ -51,6 +51,12 @@ data ContainerDetail = ContainerDetail'
     -- the job. For other jobs, including all run on Fargate resources, see
     -- @resourceRequirements@.
     memory :: Prelude.Maybe Prelude.Int,
+    -- | The instance type of the underlying host infrastructure of a multi-node
+    -- parallel job.
+    --
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The user name to use inside the container. This parameter maps to @User@
     -- in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -59,30 +65,26 @@ data ContainerDetail = ContainerDetail'
     -- @--user@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     user :: Prelude.Maybe Prelude.Text,
-    -- | The instance type of the underlying host infrastructure of a multi-node
-    -- parallel job.
-    --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The network configuration for jobs running on Fargate resources. Jobs
-    -- running on EC2 resources must not specify this parameter.
+    -- | The network configuration for jobs that are running on Fargate
+    -- resources. Jobs that are running on EC2 resources must not specify this
+    -- parameter.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The Amazon Resource Name (ARN) of the execution role that AWS Batch can
-    -- assume. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role>
-    -- in the /AWS Batch User Guide/.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the container instance that the
+    -- container is running on.
+    containerInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is true, the container is given elevated permissions
     -- on the host container instance (similar to the @root@ user). The default
     -- value is false.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources
-    -- and shouldn\'t be provided, or specified as false.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided, or specified as false.
     privileged :: Prelude.Maybe Prelude.Bool,
-    -- | The number of vCPUs reserved for the container. Jobs running on EC2
-    -- resources can specify the vCPU requirement for the job using
-    -- @resourceRequirements@ but the vCPU requirements can\'t be specified
-    -- both here and in the @resourceRequirement@ object. This parameter maps
+    -- | A list of volumes associated with the job.
+    volumes :: Prelude.Maybe [Volume],
+    -- | The number of vCPUs reserved for the container. For jobs that run on EC2
+    -- resources, you can specify the vCPU requirement for the job using
+    -- @resourceRequirements@, but you can\'t specify the vCPU requirements in
+    -- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
     -- to @CpuShares@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
@@ -93,36 +95,36 @@ data ContainerDetail = ContainerDetail'
     -- is required but can be specified in several places. It must be specified
     -- for each node at least once.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources.
-    -- Jobs running on Fargate resources must specify the vCPU requirement for
-    -- the job using @resourceRequirements@.
+    -- This parameter isn\'t applicable to jobs that run on Fargate resources.
+    -- For jobs that run on Fargate resources, you must specify the vCPU
+    -- requirement for the job using @resourceRequirements@.
     vcpus :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the container instance that the
-    -- container is running on.
-    containerInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of volumes associated with the job.
-    volumes :: Prelude.Maybe [Volume],
+    -- | The Amazon Resource Name (ARN) of the execution role that Batch can
+    -- assume. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html Batch execution IAM role>
+    -- in the /Batch User Guide/.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The environment variables to pass to a container.
     --
     -- Environment variables must not start with @AWS_BATCH@; this naming
-    -- convention is reserved for variables that are set by the AWS Batch
-    -- service.
+    -- convention is reserved for variables that are set by the Batch service.
     environment :: Prelude.Maybe [KeyValuePair],
-    -- | The platform configuration for jobs running on Fargate resources. Jobs
-    -- running on EC2 resources must not specify this parameter.
+    -- | The platform configuration for jobs that are running on Fargate
+    -- resources. Jobs that are running on EC2 resources must not specify this
+    -- parameter.
     fargatePlatformConfiguration :: Prelude.Maybe FargatePlatformConfiguration,
     -- | The exit code to return upon completion.
     exitCode :: Prelude.Maybe Prelude.Int,
     -- | The secrets to pass to the container. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
-    -- in the /AWS Batch User Guide/.
+    -- in the /Batch User Guide/.
     secrets :: Prelude.Maybe [Secret],
     -- | The mount points for data volumes in your container.
     mountPoints :: Prelude.Maybe [MountPoint],
-    -- | The image used to start the container.
-    image :: Prelude.Maybe Prelude.Text,
     -- | The command that\'s passed to the container.
     command :: Prelude.Maybe [Prelude.Text],
+    -- | The image used to start the container.
+    image :: Prelude.Maybe Prelude.Text,
     -- | The log configuration specification for the container.
     --
     -- This parameter maps to @LogConfig@ in the
@@ -132,7 +134,7 @@ data ContainerDetail = ContainerDetail'
     -- @--log-driver@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>. By default,
     -- containers use the same logging driver that the Docker daemon uses.
-    -- However the container might use a different logging driver than the
+    -- However, the container might use a different logging driver than the
     -- Docker daemon by specifying a log driver with this parameter in the
     -- container definition. To use a different logging driver for a container,
     -- the log system must be configured properly on the container instance.
@@ -142,10 +144,10 @@ data ContainerDetail = ContainerDetail'
     -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
     -- in the Docker documentation.
     --
-    -- AWS Batch currently supports a subset of the logging drivers available
-    -- to the Docker daemon (shown in the LogConfiguration data type).
-    -- Additional log drivers might be available in future releases of the
-    -- Amazon ECS container agent.
+    -- Batch currently supports a subset of the logging drivers available to
+    -- the Docker daemon (shown in the LogConfiguration data type). Additional
+    -- log drivers might be available in future releases of the Amazon ECS
+    -- container agent.
     --
     -- This parameter requires version 1.18 of the Docker Remote API or greater
     -- on your container instance. To check the Docker Remote API version on
@@ -168,14 +170,6 @@ data ContainerDetail = ContainerDetail'
     resourceRequirements :: Prelude.Maybe [ResourceRequirement],
     -- | The Amazon Resource Name (ARN) associated with the job upon execution.
     jobRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | When this parameter is true, the container is given read-only access to
-    -- its root file system. This parameter maps to @ReadonlyRootfs@ in the
-    -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
-    -- section of the
-    -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
-    -- @--read-only@ option to
-    -- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
-    readonlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
     -- | A list of @ulimit@ values to set in the container. This parameter maps
     -- to @Ulimits@ in the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -184,14 +178,23 @@ data ContainerDetail = ContainerDetail'
     -- @--ulimit@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
-    -- This parameter isn\'t applicable to jobs running on Fargate resources.
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources.
     ulimits :: Prelude.Maybe [Ulimit],
+    -- | When this parameter is true, the container is given read-only access to
+    -- its root file system. This parameter maps to @ReadonlyRootfs@ in the
+    -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+    -- section of the
+    -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+    -- @--read-only@ option to
+    -- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
+    readonlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
+    -- | The network interfaces associated with the job.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
     -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
     -- with the container job. Each container attempt receives a task ARN when
     -- they reach the @STARTING@ status.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | The network interfaces associated with the job.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    taskArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -204,7 +207,7 @@ data ContainerDetail = ContainerDetail'
 -- for backwards compatibility:
 --
 -- 'logStreamName', 'containerDetail_logStreamName' - The name of the CloudWatch Logs log stream associated with the
--- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
 -- container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 --
@@ -216,6 +219,12 @@ data ContainerDetail = ContainerDetail'
 -- the job. For other jobs, including all run on Fargate resources, see
 -- @resourceRequirements@.
 --
+-- 'instanceType', 'containerDetail_instanceType' - The instance type of the underlying host infrastructure of a multi-node
+-- parallel job.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources.
+--
 -- 'user', 'containerDetail_user' - The user name to use inside the container. This parameter maps to @User@
 -- in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -224,30 +233,26 @@ data ContainerDetail = ContainerDetail'
 -- @--user@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- 'instanceType', 'containerDetail_instanceType' - The instance type of the underlying host infrastructure of a multi-node
--- parallel job.
+-- 'networkConfiguration', 'containerDetail_networkConfiguration' - The network configuration for jobs that are running on Fargate
+-- resources. Jobs that are running on EC2 resources must not specify this
+-- parameter.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources.
---
--- 'networkConfiguration', 'containerDetail_networkConfiguration' - The network configuration for jobs running on Fargate resources. Jobs
--- running on EC2 resources must not specify this parameter.
---
--- 'executionRoleArn', 'containerDetail_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role that AWS Batch can
--- assume. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role>
--- in the /AWS Batch User Guide/.
+-- 'containerInstanceArn', 'containerDetail_containerInstanceArn' - The Amazon Resource Name (ARN) of the container instance that the
+-- container is running on.
 --
 -- 'privileged', 'containerDetail_privileged' - When this parameter is true, the container is given elevated permissions
 -- on the host container instance (similar to the @root@ user). The default
 -- value is false.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided, or specified as false.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided, or specified as false.
 --
--- 'vcpus', 'containerDetail_vcpus' - The number of vCPUs reserved for the container. Jobs running on EC2
--- resources can specify the vCPU requirement for the job using
--- @resourceRequirements@ but the vCPU requirements can\'t be specified
--- both here and in the @resourceRequirement@ object. This parameter maps
+-- 'volumes', 'containerDetail_volumes' - A list of volumes associated with the job.
+--
+-- 'vcpus', 'containerDetail_vcpus' - The number of vCPUs reserved for the container. For jobs that run on EC2
+-- resources, you can specify the vCPU requirement for the job using
+-- @resourceRequirements@, but you can\'t specify the vCPU requirements in
+-- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
 -- to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
@@ -258,35 +263,35 @@ data ContainerDetail = ContainerDetail'
 -- is required but can be specified in several places. It must be specified
 -- for each node at least once.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources.
--- Jobs running on Fargate resources must specify the vCPU requirement for
--- the job using @resourceRequirements@.
+-- This parameter isn\'t applicable to jobs that run on Fargate resources.
+-- For jobs that run on Fargate resources, you must specify the vCPU
+-- requirement for the job using @resourceRequirements@.
 --
--- 'containerInstanceArn', 'containerDetail_containerInstanceArn' - The Amazon Resource Name (ARN) of the container instance that the
--- container is running on.
---
--- 'volumes', 'containerDetail_volumes' - A list of volumes associated with the job.
+-- 'executionRoleArn', 'containerDetail_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role that Batch can
+-- assume. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html Batch execution IAM role>
+-- in the /Batch User Guide/.
 --
 -- 'environment', 'containerDetail_environment' - The environment variables to pass to a container.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the AWS Batch
--- service.
+-- convention is reserved for variables that are set by the Batch service.
 --
--- 'fargatePlatformConfiguration', 'containerDetail_fargatePlatformConfiguration' - The platform configuration for jobs running on Fargate resources. Jobs
--- running on EC2 resources must not specify this parameter.
+-- 'fargatePlatformConfiguration', 'containerDetail_fargatePlatformConfiguration' - The platform configuration for jobs that are running on Fargate
+-- resources. Jobs that are running on EC2 resources must not specify this
+-- parameter.
 --
 -- 'exitCode', 'containerDetail_exitCode' - The exit code to return upon completion.
 --
 -- 'secrets', 'containerDetail_secrets' - The secrets to pass to the container. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 --
 -- 'mountPoints', 'containerDetail_mountPoints' - The mount points for data volumes in your container.
 --
--- 'image', 'containerDetail_image' - The image used to start the container.
---
 -- 'command', 'containerDetail_command' - The command that\'s passed to the container.
+--
+-- 'image', 'containerDetail_image' - The image used to start the container.
 --
 -- 'logConfiguration', 'containerDetail_logConfiguration' - The log configuration specification for the container.
 --
@@ -297,7 +302,7 @@ data ContainerDetail = ContainerDetail'
 -- @--log-driver@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>. By default,
 -- containers use the same logging driver that the Docker daemon uses.
--- However the container might use a different logging driver than the
+-- However, the container might use a different logging driver than the
 -- Docker daemon by specifying a log driver with this parameter in the
 -- container definition. To use a different logging driver for a container,
 -- the log system must be configured properly on the container instance.
@@ -307,10 +312,10 @@ data ContainerDetail = ContainerDetail'
 -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
 -- in the Docker documentation.
 --
--- AWS Batch currently supports a subset of the logging drivers available
--- to the Docker daemon (shown in the LogConfiguration data type).
--- Additional log drivers might be available in future releases of the
--- Amazon ECS container agent.
+-- Batch currently supports a subset of the logging drivers available to
+-- the Docker daemon (shown in the LogConfiguration data type). Additional
+-- log drivers might be available in future releases of the Amazon ECS
+-- container agent.
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
@@ -333,14 +338,6 @@ data ContainerDetail = ContainerDetail'
 --
 -- 'jobRoleArn', 'containerDetail_jobRoleArn' - The Amazon Resource Name (ARN) associated with the job upon execution.
 --
--- 'readonlyRootFilesystem', 'containerDetail_readonlyRootFilesystem' - When this parameter is true, the container is given read-only access to
--- its root file system. This parameter maps to @ReadonlyRootfs@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--read-only@ option to
--- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
---
 -- 'ulimits', 'containerDetail_ulimits' - A list of @ulimit@ values to set in the container. This parameter maps
 -- to @Ulimits@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -349,13 +346,22 @@ data ContainerDetail = ContainerDetail'
 -- @--ulimit@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources.
+--
+-- 'readonlyRootFilesystem', 'containerDetail_readonlyRootFilesystem' - When this parameter is true, the container is given read-only access to
+-- its root file system. This parameter maps to @ReadonlyRootfs@ in the
+-- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+-- @--read-only@ option to
+-- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
+--
+-- 'networkInterfaces', 'containerDetail_networkInterfaces' - The network interfaces associated with the job.
 --
 -- 'taskArn', 'containerDetail_taskArn' - The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
 -- with the container job. Each container attempt receives a task ARN when
 -- they reach the @STARTING@ status.
---
--- 'networkInterfaces', 'containerDetail_networkInterfaces' - The network interfaces associated with the job.
 newContainerDetail ::
   ContainerDetail
 newContainerDetail =
@@ -363,33 +369,33 @@ newContainerDetail =
     { logStreamName = Prelude.Nothing,
       linuxParameters = Prelude.Nothing,
       memory = Prelude.Nothing,
-      user = Prelude.Nothing,
       instanceType = Prelude.Nothing,
+      user = Prelude.Nothing,
       networkConfiguration = Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
-      privileged = Prelude.Nothing,
-      vcpus = Prelude.Nothing,
       containerInstanceArn = Prelude.Nothing,
+      privileged = Prelude.Nothing,
       volumes = Prelude.Nothing,
+      vcpus = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
       environment = Prelude.Nothing,
       fargatePlatformConfiguration = Prelude.Nothing,
       exitCode = Prelude.Nothing,
       secrets = Prelude.Nothing,
       mountPoints = Prelude.Nothing,
-      image = Prelude.Nothing,
       command = Prelude.Nothing,
+      image = Prelude.Nothing,
       logConfiguration = Prelude.Nothing,
       reason = Prelude.Nothing,
       resourceRequirements = Prelude.Nothing,
       jobRoleArn = Prelude.Nothing,
-      readonlyRootFilesystem = Prelude.Nothing,
       ulimits = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      readonlyRootFilesystem = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing,
+      taskArn = Prelude.Nothing
     }
 
 -- | The name of the CloudWatch Logs log stream associated with the
--- container. The log group for AWS Batch jobs is @\/aws\/batch\/job@. Each
+-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each
 -- container attempt receives a log stream name when they reach the
 -- @RUNNING@ status.
 containerDetail_logStreamName :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
@@ -407,6 +413,14 @@ containerDetail_linuxParameters = Lens.lens (\ContainerDetail' {linuxParameters}
 containerDetail_memory :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_memory = Lens.lens (\ContainerDetail' {memory} -> memory) (\s@ContainerDetail' {} a -> s {memory = a} :: ContainerDetail)
 
+-- | The instance type of the underlying host infrastructure of a multi-node
+-- parallel job.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources.
+containerDetail_instanceType :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
+containerDetail_instanceType = Lens.lens (\ContainerDetail' {instanceType} -> instanceType) (\s@ContainerDetail' {} a -> s {instanceType = a} :: ContainerDetail)
+
 -- | The user name to use inside the container. This parameter maps to @User@
 -- in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -417,38 +431,34 @@ containerDetail_memory = Lens.lens (\ContainerDetail' {memory} -> memory) (\s@Co
 containerDetail_user :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_user = Lens.lens (\ContainerDetail' {user} -> user) (\s@ContainerDetail' {} a -> s {user = a} :: ContainerDetail)
 
--- | The instance type of the underlying host infrastructure of a multi-node
--- parallel job.
---
--- This parameter isn\'t applicable to jobs running on Fargate resources.
-containerDetail_instanceType :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
-containerDetail_instanceType = Lens.lens (\ContainerDetail' {instanceType} -> instanceType) (\s@ContainerDetail' {} a -> s {instanceType = a} :: ContainerDetail)
-
--- | The network configuration for jobs running on Fargate resources. Jobs
--- running on EC2 resources must not specify this parameter.
+-- | The network configuration for jobs that are running on Fargate
+-- resources. Jobs that are running on EC2 resources must not specify this
+-- parameter.
 containerDetail_networkConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe NetworkConfiguration)
 containerDetail_networkConfiguration = Lens.lens (\ContainerDetail' {networkConfiguration} -> networkConfiguration) (\s@ContainerDetail' {} a -> s {networkConfiguration = a} :: ContainerDetail)
 
--- | The Amazon Resource Name (ARN) of the execution role that AWS Batch can
--- assume. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role>
--- in the /AWS Batch User Guide/.
-containerDetail_executionRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
-containerDetail_executionRoleArn = Lens.lens (\ContainerDetail' {executionRoleArn} -> executionRoleArn) (\s@ContainerDetail' {} a -> s {executionRoleArn = a} :: ContainerDetail)
+-- | The Amazon Resource Name (ARN) of the container instance that the
+-- container is running on.
+containerDetail_containerInstanceArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
+containerDetail_containerInstanceArn = Lens.lens (\ContainerDetail' {containerInstanceArn} -> containerInstanceArn) (\s@ContainerDetail' {} a -> s {containerInstanceArn = a} :: ContainerDetail)
 
 -- | When this parameter is true, the container is given elevated permissions
 -- on the host container instance (similar to the @root@ user). The default
 -- value is false.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources
--- and shouldn\'t be provided, or specified as false.
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided, or specified as false.
 containerDetail_privileged :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Bool)
 containerDetail_privileged = Lens.lens (\ContainerDetail' {privileged} -> privileged) (\s@ContainerDetail' {} a -> s {privileged = a} :: ContainerDetail)
 
--- | The number of vCPUs reserved for the container. Jobs running on EC2
--- resources can specify the vCPU requirement for the job using
--- @resourceRequirements@ but the vCPU requirements can\'t be specified
--- both here and in the @resourceRequirement@ object. This parameter maps
+-- | A list of volumes associated with the job.
+containerDetail_volumes :: Lens.Lens' ContainerDetail (Prelude.Maybe [Volume])
+containerDetail_volumes = Lens.lens (\ContainerDetail' {volumes} -> volumes) (\s@ContainerDetail' {} a -> s {volumes = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The number of vCPUs reserved for the container. For jobs that run on EC2
+-- resources, you can specify the vCPU requirement for the job using
+-- @resourceRequirements@, but you can\'t specify the vCPU requirements in
+-- both the @vcpus@ and @resourceRequirement@ object. This parameter maps
 -- to @CpuShares@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
@@ -459,31 +469,29 @@ containerDetail_privileged = Lens.lens (\ContainerDetail' {privileged} -> privil
 -- is required but can be specified in several places. It must be specified
 -- for each node at least once.
 --
--- This parameter isn\'t applicable to jobs running on Fargate resources.
--- Jobs running on Fargate resources must specify the vCPU requirement for
--- the job using @resourceRequirements@.
+-- This parameter isn\'t applicable to jobs that run on Fargate resources.
+-- For jobs that run on Fargate resources, you must specify the vCPU
+-- requirement for the job using @resourceRequirements@.
 containerDetail_vcpus :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Int)
 containerDetail_vcpus = Lens.lens (\ContainerDetail' {vcpus} -> vcpus) (\s@ContainerDetail' {} a -> s {vcpus = a} :: ContainerDetail)
 
--- | The Amazon Resource Name (ARN) of the container instance that the
--- container is running on.
-containerDetail_containerInstanceArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
-containerDetail_containerInstanceArn = Lens.lens (\ContainerDetail' {containerInstanceArn} -> containerInstanceArn) (\s@ContainerDetail' {} a -> s {containerInstanceArn = a} :: ContainerDetail)
-
--- | A list of volumes associated with the job.
-containerDetail_volumes :: Lens.Lens' ContainerDetail (Prelude.Maybe [Volume])
-containerDetail_volumes = Lens.lens (\ContainerDetail' {volumes} -> volumes) (\s@ContainerDetail' {} a -> s {volumes = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of the execution role that Batch can
+-- assume. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html Batch execution IAM role>
+-- in the /Batch User Guide/.
+containerDetail_executionRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
+containerDetail_executionRoleArn = Lens.lens (\ContainerDetail' {executionRoleArn} -> executionRoleArn) (\s@ContainerDetail' {} a -> s {executionRoleArn = a} :: ContainerDetail)
 
 -- | The environment variables to pass to a container.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the AWS Batch
--- service.
+-- convention is reserved for variables that are set by the Batch service.
 containerDetail_environment :: Lens.Lens' ContainerDetail (Prelude.Maybe [KeyValuePair])
 containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> environment) (\s@ContainerDetail' {} a -> s {environment = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The platform configuration for jobs running on Fargate resources. Jobs
--- running on EC2 resources must not specify this parameter.
+-- | The platform configuration for jobs that are running on Fargate
+-- resources. Jobs that are running on EC2 resources must not specify this
+-- parameter.
 containerDetail_fargatePlatformConfiguration :: Lens.Lens' ContainerDetail (Prelude.Maybe FargatePlatformConfiguration)
 containerDetail_fargatePlatformConfiguration = Lens.lens (\ContainerDetail' {fargatePlatformConfiguration} -> fargatePlatformConfiguration) (\s@ContainerDetail' {} a -> s {fargatePlatformConfiguration = a} :: ContainerDetail)
 
@@ -493,7 +501,7 @@ containerDetail_exitCode = Lens.lens (\ContainerDetail' {exitCode} -> exitCode) 
 
 -- | The secrets to pass to the container. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
--- in the /AWS Batch User Guide/.
+-- in the /Batch User Guide/.
 containerDetail_secrets :: Lens.Lens' ContainerDetail (Prelude.Maybe [Secret])
 containerDetail_secrets = Lens.lens (\ContainerDetail' {secrets} -> secrets) (\s@ContainerDetail' {} a -> s {secrets = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
@@ -501,13 +509,13 @@ containerDetail_secrets = Lens.lens (\ContainerDetail' {secrets} -> secrets) (\s
 containerDetail_mountPoints :: Lens.Lens' ContainerDetail (Prelude.Maybe [MountPoint])
 containerDetail_mountPoints = Lens.lens (\ContainerDetail' {mountPoints} -> mountPoints) (\s@ContainerDetail' {} a -> s {mountPoints = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The image used to start the container.
-containerDetail_image :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
-containerDetail_image = Lens.lens (\ContainerDetail' {image} -> image) (\s@ContainerDetail' {} a -> s {image = a} :: ContainerDetail)
-
 -- | The command that\'s passed to the container.
 containerDetail_command :: Lens.Lens' ContainerDetail (Prelude.Maybe [Prelude.Text])
 containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s@ContainerDetail' {} a -> s {command = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The image used to start the container.
+containerDetail_image :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
+containerDetail_image = Lens.lens (\ContainerDetail' {image} -> image) (\s@ContainerDetail' {} a -> s {image = a} :: ContainerDetail)
 
 -- | The log configuration specification for the container.
 --
@@ -518,7 +526,7 @@ containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s
 -- @--log-driver@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>. By default,
 -- containers use the same logging driver that the Docker daemon uses.
--- However the container might use a different logging driver than the
+-- However, the container might use a different logging driver than the
 -- Docker daemon by specifying a log driver with this parameter in the
 -- container definition. To use a different logging driver for a container,
 -- the log system must be configured properly on the container instance.
@@ -528,10 +536,10 @@ containerDetail_command = Lens.lens (\ContainerDetail' {command} -> command) (\s
 -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
 -- in the Docker documentation.
 --
--- AWS Batch currently supports a subset of the logging drivers available
--- to the Docker daemon (shown in the LogConfiguration data type).
--- Additional log drivers might be available in future releases of the
--- Amazon ECS container agent.
+-- Batch currently supports a subset of the logging drivers available to
+-- the Docker daemon (shown in the LogConfiguration data type). Additional
+-- log drivers might be available in future releases of the Amazon ECS
+-- container agent.
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
@@ -562,6 +570,19 @@ containerDetail_resourceRequirements = Lens.lens (\ContainerDetail' {resourceReq
 containerDetail_jobRoleArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_jobRoleArn = Lens.lens (\ContainerDetail' {jobRoleArn} -> jobRoleArn) (\s@ContainerDetail' {} a -> s {jobRoleArn = a} :: ContainerDetail)
 
+-- | A list of @ulimit@ values to set in the container. This parameter maps
+-- to @Ulimits@ in the
+-- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+-- @--ulimit@ option to
+-- <https://docs.docker.com/engine/reference/run/ docker run>.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources.
+containerDetail_ulimits :: Lens.Lens' ContainerDetail (Prelude.Maybe [Ulimit])
+containerDetail_ulimits = Lens.lens (\ContainerDetail' {ulimits} -> ulimits) (\s@ContainerDetail' {} a -> s {ulimits = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+
 -- | When this parameter is true, the container is given read-only access to
 -- its root file system. This parameter maps to @ReadonlyRootfs@ in the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
@@ -572,27 +593,15 @@ containerDetail_jobRoleArn = Lens.lens (\ContainerDetail' {jobRoleArn} -> jobRol
 containerDetail_readonlyRootFilesystem :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Bool)
 containerDetail_readonlyRootFilesystem = Lens.lens (\ContainerDetail' {readonlyRootFilesystem} -> readonlyRootFilesystem) (\s@ContainerDetail' {} a -> s {readonlyRootFilesystem = a} :: ContainerDetail)
 
--- | A list of @ulimit@ values to set in the container. This parameter maps
--- to @Ulimits@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--ulimit@ option to
--- <https://docs.docker.com/engine/reference/run/ docker run>.
---
--- This parameter isn\'t applicable to jobs running on Fargate resources.
-containerDetail_ulimits :: Lens.Lens' ContainerDetail (Prelude.Maybe [Ulimit])
-containerDetail_ulimits = Lens.lens (\ContainerDetail' {ulimits} -> ulimits) (\s@ContainerDetail' {} a -> s {ulimits = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
+-- | The network interfaces associated with the job.
+containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Prelude.Maybe [NetworkInterface])
+containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
 -- with the container job. Each container attempt receives a task ARN when
 -- they reach the @STARTING@ status.
 containerDetail_taskArn :: Lens.Lens' ContainerDetail (Prelude.Maybe Prelude.Text)
 containerDetail_taskArn = Lens.lens (\ContainerDetail' {taskArn} -> taskArn) (\s@ContainerDetail' {} a -> s {taskArn = a} :: ContainerDetail)
-
--- | The network interfaces associated with the job.
-containerDetail_networkInterfaces :: Lens.Lens' ContainerDetail (Prelude.Maybe [NetworkInterface])
-containerDetail_networkInterfaces = Lens.lens (\ContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@ContainerDetail' {} a -> s {networkInterfaces = a} :: ContainerDetail) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ContainerDetail where
   parseJSON =
@@ -603,33 +612,33 @@ instance Core.FromJSON ContainerDetail where
             Prelude.<$> (x Core..:? "logStreamName")
             Prelude.<*> (x Core..:? "linuxParameters")
             Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "user")
             Prelude.<*> (x Core..:? "instanceType")
+            Prelude.<*> (x Core..:? "user")
             Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "executionRoleArn")
-            Prelude.<*> (x Core..:? "privileged")
-            Prelude.<*> (x Core..:? "vcpus")
             Prelude.<*> (x Core..:? "containerInstanceArn")
+            Prelude.<*> (x Core..:? "privileged")
             Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "vcpus")
+            Prelude.<*> (x Core..:? "executionRoleArn")
             Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fargatePlatformConfiguration")
             Prelude.<*> (x Core..:? "exitCode")
             Prelude.<*> (x Core..:? "secrets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "mountPoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "image")
             Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "image")
             Prelude.<*> (x Core..:? "logConfiguration")
             Prelude.<*> (x Core..:? "reason")
             Prelude.<*> ( x Core..:? "resourceRequirements"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "jobRoleArn")
-            Prelude.<*> (x Core..:? "readonlyRootFilesystem")
             Prelude.<*> (x Core..:? "ulimits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "taskArn")
+            Prelude.<*> (x Core..:? "readonlyRootFilesystem")
             Prelude.<*> ( x Core..:? "networkInterfaces"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "taskArn")
       )
 
 instance Prelude.Hashable ContainerDetail

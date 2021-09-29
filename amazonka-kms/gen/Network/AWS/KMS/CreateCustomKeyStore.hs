@@ -23,36 +23,34 @@
 -- Creates a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
 -- that is associated with an
--- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html AWS CloudHSM cluster>
+-- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html CloudHSM cluster>
 -- that you own and manage.
 --
 -- This operation is part of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
--- feature in AWS KMS, which combines the convenience and extensive
--- integration of AWS KMS with the isolation and control of a single-tenant
--- key store.
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a single-tenant key store.
 --
 -- Before you create the custom key store, you must assemble the required
--- elements, including an AWS CloudHSM cluster that fulfills the
--- requirements for a custom key store. For details about the required
--- elements, see
+-- elements, including an CloudHSM cluster that fulfills the requirements
+-- for a custom key store. For details about the required elements, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore Assemble the Prerequisites>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- When the operation completes successfully, it returns the ID of the new
 -- custom key store. Before you can use your new custom key store, you need
 -- to use the ConnectCustomKeyStore operation to connect the new key store
--- to its AWS CloudHSM cluster. Even if you are not going to use your
--- custom key store immediately, you might want to connect it to verify
--- that all settings are correct and then disconnect it until you are ready
--- to use it.
+-- to its CloudHSM cluster. Even if you are not going to use your custom
+-- key store immediately, you might want to connect it to verify that all
+-- settings are correct and then disconnect it until you are ready to use
+-- it.
 --
 -- For help with failures, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
--- key store in a different AWS account.
+-- key store in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:CreateCustomKeyStore>
@@ -100,11 +98,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateCustomKeyStore' smart constructor.
 data CreateCustomKeyStore = CreateCustomKeyStore'
   { -- | Specifies a friendly name for the custom key store. The name must be
-    -- unique in your AWS account.
+    -- unique in your Amazon Web Services account.
     customKeyStoreName :: Prelude.Text,
-    -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the
-    -- cluster ID of any active AWS CloudHSM cluster that is not already
-    -- associated with a custom key store. To find the cluster ID, use the
+    -- | Identifies the CloudHSM cluster for the custom key store. Enter the
+    -- cluster ID of any active CloudHSM cluster that is not already associated
+    -- with a custom key store. To find the cluster ID, use the
     -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
     -- operation.
     cloudHsmClusterId :: Prelude.Text,
@@ -114,14 +112,14 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
     trustAnchorCertificate :: Prelude.Text,
     -- | Enter the password of the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU) account>
-    -- in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as
-    -- this user to manage key material on your behalf.
+    -- in the specified CloudHSM cluster. KMS logs into the cluster as this
+    -- user to manage key material on your behalf.
     --
     -- The password must be a string of 7 to 32 characters. Its value is case
     -- sensitive.
     --
-    -- This parameter tells AWS KMS the @kmsuser@ account password; it does not
-    -- change the password in the AWS CloudHSM cluster.
+    -- This parameter tells KMS the @kmsuser@ account password; it does not
+    -- change the password in the CloudHSM cluster.
     keyStorePassword :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -135,11 +133,11 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 -- for backwards compatibility:
 --
 -- 'customKeyStoreName', 'createCustomKeyStore_customKeyStoreName' - Specifies a friendly name for the custom key store. The name must be
--- unique in your AWS account.
+-- unique in your Amazon Web Services account.
 --
--- 'cloudHsmClusterId', 'createCustomKeyStore_cloudHsmClusterId' - Identifies the AWS CloudHSM cluster for the custom key store. Enter the
--- cluster ID of any active AWS CloudHSM cluster that is not already
--- associated with a custom key store. To find the cluster ID, use the
+-- 'cloudHsmClusterId', 'createCustomKeyStore_cloudHsmClusterId' - Identifies the CloudHSM cluster for the custom key store. Enter the
+-- cluster ID of any active CloudHSM cluster that is not already associated
+-- with a custom key store. To find the cluster ID, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
 --
@@ -149,14 +147,14 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 --
 -- 'keyStorePassword', 'createCustomKeyStore_keyStorePassword' - Enter the password of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU) account>
--- in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as
--- this user to manage key material on your behalf.
+-- in the specified CloudHSM cluster. KMS logs into the cluster as this
+-- user to manage key material on your behalf.
 --
 -- The password must be a string of 7 to 32 characters. Its value is case
 -- sensitive.
 --
--- This parameter tells AWS KMS the @kmsuser@ account password; it does not
--- change the password in the AWS CloudHSM cluster.
+-- This parameter tells KMS the @kmsuser@ account password; it does not
+-- change the password in the CloudHSM cluster.
 newCreateCustomKeyStore ::
   -- | 'customKeyStoreName'
   Prelude.Text ->
@@ -182,13 +180,13 @@ newCreateCustomKeyStore
       }
 
 -- | Specifies a friendly name for the custom key store. The name must be
--- unique in your AWS account.
+-- unique in your Amazon Web Services account.
 createCustomKeyStore_customKeyStoreName :: Lens.Lens' CreateCustomKeyStore Prelude.Text
 createCustomKeyStore_customKeyStoreName = Lens.lens (\CreateCustomKeyStore' {customKeyStoreName} -> customKeyStoreName) (\s@CreateCustomKeyStore' {} a -> s {customKeyStoreName = a} :: CreateCustomKeyStore)
 
--- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the
--- cluster ID of any active AWS CloudHSM cluster that is not already
--- associated with a custom key store. To find the cluster ID, use the
+-- | Identifies the CloudHSM cluster for the custom key store. Enter the
+-- cluster ID of any active CloudHSM cluster that is not already associated
+-- with a custom key store. To find the cluster ID, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
 createCustomKeyStore_cloudHsmClusterId :: Lens.Lens' CreateCustomKeyStore Prelude.Text
@@ -202,14 +200,14 @@ createCustomKeyStore_trustAnchorCertificate = Lens.lens (\CreateCustomKeyStore' 
 
 -- | Enter the password of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU) account>
--- in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as
--- this user to manage key material on your behalf.
+-- in the specified CloudHSM cluster. KMS logs into the cluster as this
+-- user to manage key material on your behalf.
 --
 -- The password must be a string of 7 to 32 characters. Its value is case
 -- sensitive.
 --
--- This parameter tells AWS KMS the @kmsuser@ account password; it does not
--- change the password in the AWS CloudHSM cluster.
+-- This parameter tells KMS the @kmsuser@ account password; it does not
+-- change the password in the CloudHSM cluster.
 createCustomKeyStore_keyStorePassword :: Lens.Lens' CreateCustomKeyStore Prelude.Text
 createCustomKeyStore_keyStorePassword = Lens.lens (\CreateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@CreateCustomKeyStore' {} a -> s {keyStorePassword = a} :: CreateCustomKeyStore) Prelude.. Core._Sensitive
 

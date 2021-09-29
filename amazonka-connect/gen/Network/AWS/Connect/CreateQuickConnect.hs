@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Creates a quick connect for the specified Amazon Connect instance.
 module Network.AWS.Connect.CreateQuickConnect
   ( -- * Creating a Request
@@ -60,7 +57,8 @@ data CreateQuickConnect = CreateQuickConnect'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the quick connect.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the quick connect.
     name :: Prelude.Text,
@@ -81,7 +79,8 @@ data CreateQuickConnect = CreateQuickConnect'
 --
 -- 'description', 'createQuickConnect_description' - The description of the quick connect.
 --
--- 'instanceId', 'createQuickConnect_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'createQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'name', 'createQuickConnect_name' - The name of the quick connect.
 --
@@ -114,7 +113,8 @@ createQuickConnect_tags = Lens.lens (\CreateQuickConnect' {tags} -> tags) (\s@Cr
 createQuickConnect_description :: Lens.Lens' CreateQuickConnect (Prelude.Maybe Prelude.Text)
 createQuickConnect_description = Lens.lens (\CreateQuickConnect' {description} -> description) (\s@CreateQuickConnect' {} a -> s {description = a} :: CreateQuickConnect)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 createQuickConnect_instanceId :: Lens.Lens' CreateQuickConnect Prelude.Text
 createQuickConnect_instanceId = Lens.lens (\CreateQuickConnect' {instanceId} -> instanceId) (\s@CreateQuickConnect' {} a -> s {instanceId = a} :: CreateQuickConnect)
 

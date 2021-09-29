@@ -28,13 +28,13 @@
 -- queue. Only you, the owner of the queue, can grant or deny permissions
 -- to the queue. For more information about these permissions, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- -   @AddPermission@ generates a policy for you. You can use
 --     @ SetQueueAttributes @ to upload your policy. For more information,
 --     see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html Using Custom Policies with the Amazon SQS Access Policy Language>
---     in the /Amazon Simple Queue Service Developer Guide/.
+--     in the /Amazon SQS Developer Guide/.
 --
 -- -   An Amazon SQS policy can have a maximum of 7 actions.
 --
@@ -53,7 +53,7 @@
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.AddPermission
   ( -- * Creating a Request
     AddPermission (..),
@@ -90,20 +90,19 @@ data AddPermission = AddPermission'
     -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
     -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
     label :: Prelude.Text,
-    -- | The AWS account number of the
-    -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>
-    -- who is given permission. The principal must have an AWS account, but
-    -- does not need to be signed up for Amazon SQS. For information about
-    -- locating the AWS account identification, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
+    -- | The account numbers of the
+    -- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
+    -- who are to receive permission. For information about locating the
+    -- account identification, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
+    -- in the /Amazon SQS Developer Guide/.
     aWSAccountIds :: [Prelude.Text],
     -- | The action the client wants to allow for the specified principal. Valid
     -- values: the name of any action or @*@.
     --
     -- For more information about these actions, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
+    -- in the /Amazon SQS Developer Guide/.
     --
     -- Specifying @SendMessage@, @DeleteMessage@, or @ChangeMessageVisibility@
     -- for @ActionName.n@ also grants permissions for the corresponding batch
@@ -129,20 +128,19 @@ data AddPermission = AddPermission'
 -- example, @AliceSendMessage@). Maximum 80 characters. Allowed characters
 -- include alphanumeric characters, hyphens (@-@), and underscores (@_@).
 --
--- 'aWSAccountIds', 'addPermission_aWSAccountIds' - The AWS account number of the
--- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>
--- who is given permission. The principal must have an AWS account, but
--- does not need to be signed up for Amazon SQS. For information about
--- locating the AWS account identification, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- 'aWSAccountIds', 'addPermission_aWSAccountIds' - The account numbers of the
+-- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
+-- who are to receive permission. For information about locating the
+-- account identification, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- 'actions', 'addPermission_actions' - The action the client wants to allow for the specified principal. Valid
 -- values: the name of any action or @*@.
 --
 -- For more information about these actions, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- Specifying @SendMessage@, @DeleteMessage@, or @ChangeMessageVisibility@
 -- for @ActionName.n@ also grants permissions for the corresponding batch
@@ -174,13 +172,12 @@ addPermission_queueUrl = Lens.lens (\AddPermission' {queueUrl} -> queueUrl) (\s@
 addPermission_label :: Lens.Lens' AddPermission Prelude.Text
 addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermission' {} a -> s {label = a} :: AddPermission)
 
--- | The AWS account number of the
--- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>
--- who is given permission. The principal must have an AWS account, but
--- does not need to be signed up for Amazon SQS. For information about
--- locating the AWS account identification, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- | The account numbers of the
+-- <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principals>
+-- who are to receive permission. For information about locating the
+-- account identification, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
+-- in the /Amazon SQS Developer Guide/.
 addPermission_aWSAccountIds :: Lens.Lens' AddPermission [Prelude.Text]
 addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSAccountIds) (\s@AddPermission' {} a -> s {aWSAccountIds = a} :: AddPermission) Prelude.. Lens._Coerce
 
@@ -189,7 +186,7 @@ addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSA
 --
 -- For more information about these actions, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- Specifying @SendMessage@, @DeleteMessage@, or @ChangeMessageVisibility@
 -- for @ActionName.n@ also grants permissions for the corresponding batch

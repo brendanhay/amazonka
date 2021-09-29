@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSummarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
-  { -- | The unit of the counters.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The number of counters for a specified time period.
+  { -- | The number of counters for a specified time period.
     n :: Prelude.Maybe Prelude.Int,
+    -- | The unit of the counters.
+    unit :: Prelude.Maybe Prelude.Text,
     -- | The total of counter values for a specified time period.
     sum :: Prelude.Maybe Prelude.Double,
     -- | The counter name.
@@ -50,9 +50,9 @@ data SummarizedCounter = SummarizedCounter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'summarizedCounter_unit' - The unit of the counters.
---
 -- 'n', 'summarizedCounter_n' - The number of counters for a specified time period.
+--
+-- 'unit', 'summarizedCounter_unit' - The unit of the counters.
 --
 -- 'sum', 'summarizedCounter_sum' - The total of counter values for a specified time period.
 --
@@ -65,21 +65,21 @@ newSummarizedCounter ::
   SummarizedCounter
 newSummarizedCounter =
   SummarizedCounter'
-    { unit = Prelude.Nothing,
-      n = Prelude.Nothing,
+    { n = Prelude.Nothing,
+      unit = Prelude.Nothing,
       sum = Prelude.Nothing,
       name = Prelude.Nothing,
       max = Prelude.Nothing,
       average = Prelude.Nothing
     }
 
--- | The unit of the counters.
-summarizedCounter_unit :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Text)
-summarizedCounter_unit = Lens.lens (\SummarizedCounter' {unit} -> unit) (\s@SummarizedCounter' {} a -> s {unit = a} :: SummarizedCounter)
-
 -- | The number of counters for a specified time period.
 summarizedCounter_n :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Int)
 summarizedCounter_n = Lens.lens (\SummarizedCounter' {n} -> n) (\s@SummarizedCounter' {} a -> s {n = a} :: SummarizedCounter)
+
+-- | The unit of the counters.
+summarizedCounter_unit :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Text)
+summarizedCounter_unit = Lens.lens (\SummarizedCounter' {unit} -> unit) (\s@SummarizedCounter' {} a -> s {unit = a} :: SummarizedCounter)
 
 -- | The total of counter values for a specified time period.
 summarizedCounter_sum :: Lens.Lens' SummarizedCounter (Prelude.Maybe Prelude.Double)
@@ -103,8 +103,8 @@ instance Core.FromJSON SummarizedCounter where
       "SummarizedCounter"
       ( \x ->
           SummarizedCounter'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "N")
+            Prelude.<$> (x Core..:? "N")
+            Prelude.<*> (x Core..:? "Unit")
             Prelude.<*> (x Core..:? "Sum")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Max")

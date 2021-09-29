@@ -56,6 +56,7 @@ library
     Network.AWS.EKS.DeleteCluster
     Network.AWS.EKS.DeleteFargateProfile
     Network.AWS.EKS.DeleteNodegroup
+    Network.AWS.EKS.DeregisterCluster
     Network.AWS.EKS.DescribeAddon
     Network.AWS.EKS.DescribeAddonVersions
     Network.AWS.EKS.DescribeCluster
@@ -72,6 +73,7 @@ library
     Network.AWS.EKS.ListNodegroups
     Network.AWS.EKS.ListTagsForResource
     Network.AWS.EKS.ListUpdates
+    Network.AWS.EKS.RegisterCluster
     Network.AWS.EKS.TagResource
     Network.AWS.EKS.Types
     Network.AWS.EKS.Types.Addon
@@ -89,6 +91,9 @@ library
     Network.AWS.EKS.Types.ClusterStatus
     Network.AWS.EKS.Types.Compatibility
     Network.AWS.EKS.Types.ConfigStatus
+    Network.AWS.EKS.Types.ConnectorConfigProvider
+    Network.AWS.EKS.Types.ConnectorConfigRequest
+    Network.AWS.EKS.Types.ConnectorConfigResponse
     Network.AWS.EKS.Types.EKSErrorCode
     Network.AWS.EKS.Types.EncryptionConfig
     Network.AWS.EKS.Types.ErrorDetail
@@ -111,17 +116,21 @@ library
     Network.AWS.EKS.Types.NodegroupResources
     Network.AWS.EKS.Types.NodegroupScalingConfig
     Network.AWS.EKS.Types.NodegroupStatus
+    Network.AWS.EKS.Types.NodegroupUpdateConfig
     Network.AWS.EKS.Types.OIDC
     Network.AWS.EKS.Types.OidcIdentityProviderConfig
     Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
     Network.AWS.EKS.Types.Provider
     Network.AWS.EKS.Types.RemoteAccessConfig
     Network.AWS.EKS.Types.ResolveConflicts
+    Network.AWS.EKS.Types.Taint
+    Network.AWS.EKS.Types.TaintEffect
     Network.AWS.EKS.Types.Update
     Network.AWS.EKS.Types.UpdateLabelsPayload
     Network.AWS.EKS.Types.UpdateParam
     Network.AWS.EKS.Types.UpdateParamType
     Network.AWS.EKS.Types.UpdateStatus
+    Network.AWS.EKS.Types.UpdateTaintsPayload
     Network.AWS.EKS.Types.UpdateType
     Network.AWS.EKS.Types.VpcConfigRequest
     Network.AWS.EKS.Types.VpcConfigResponse

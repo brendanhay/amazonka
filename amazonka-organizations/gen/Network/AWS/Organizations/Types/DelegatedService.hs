@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDelegatedService' smart constructor.
 data DelegatedService = DelegatedService'
-  { -- | The name of a service that can request an operation for the specified
-    -- service. This is typically in the form of a URL, such as:
+  { -- | The name of an AWS service that can request an operation for the
+    -- specified service. This is typically in the form of a URL, such as:
     -- @ servicename.amazonaws.com@.
     servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the account became a delegated administrator for this
@@ -46,8 +46,8 @@ data DelegatedService = DelegatedService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of a service that can request an operation for the specified
--- service. This is typically in the form of a URL, such as:
+-- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of an AWS service that can request an operation for the
+-- specified service. This is typically in the form of a URL, such as:
 -- @ servicename.amazonaws.com@.
 --
 -- 'delegationEnabledDate', 'delegatedService_delegationEnabledDate' - The date that the account became a delegated administrator for this
@@ -61,8 +61,8 @@ newDelegatedService =
       delegationEnabledDate = Prelude.Nothing
     }
 
--- | The name of a service that can request an operation for the specified
--- service. This is typically in the form of a URL, such as:
+-- | The name of an AWS service that can request an operation for the
+-- specified service. This is typically in the form of a URL, such as:
 -- @ servicename.amazonaws.com@.
 delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.Text)
 delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrincipal} -> servicePrincipal) (\s@DelegatedService' {} a -> s {servicePrincipal = a} :: DelegatedService)

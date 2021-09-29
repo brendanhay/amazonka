@@ -32,97 +32,96 @@ import qualified Network.AWS.Prelude as Prelude
 data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
   { -- | The user-specified friendly name for the custom key store.
     customKeyStoreName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the custom key store is connected to its AWS CloudHSM
+    -- | Indicates whether the custom key store is connected to its CloudHSM
     -- cluster.
     --
-    -- You can create and use CMKs in your custom key stores only when its
+    -- You can create and use KMS keys in your custom key stores only when its
     -- connection state is @CONNECTED@.
     --
     -- The value is @DISCONNECTED@ if the key store has never been connected or
     -- you use the DisconnectCustomKeyStore operation to disconnect it. If the
     -- value is @CONNECTED@ but you are having trouble using the custom key
-    -- store, make sure that its associated AWS CloudHSM cluster is active and
+    -- store, make sure that its associated CloudHSM cluster is active and
     -- contains at least one active HSM.
     --
     -- A value of @FAILED@ indicates that an attempt to connect was
     -- unsuccessful. The @ConnectionErrorCode@ field in the response indicates
     -- the cause of the failure. For help resolving a connection failure, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Key Management Service Developer Guide/.
     connectionState :: Prelude.Maybe ConnectionStateType,
     -- | A unique identifier for the custom key store.
     customKeyStoreId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the AWS CloudHSM cluster that is associated with
-    -- the custom key store.
-    cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
-    -- | The trust anchor certificate of the associated AWS CloudHSM cluster.
-    -- When you
+    -- | The trust anchor certificate of the associated CloudHSM cluster. When
+    -- you
     -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
     -- you create this certificate and save it in the @customerCA.crt@ file.
     trustAnchorCertificate :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the CloudHSM cluster that is associated with the
+    -- custom key store.
+    cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the custom key store was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | Describes the connection error. This field appears in the response only
     -- when the @ConnectionState@ is @FAILED@. For help resolving these errors,
     -- see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
-    -- in /AWS Key Management Service Developer Guide/.
+    -- in /Key Management Service Developer Guide/.
     --
     -- Valid values are:
     --
-    -- -   @CLUSTER_NOT_FOUND@ - AWS KMS cannot find the AWS CloudHSM cluster
-    --     with the specified cluster ID.
+    -- -   @CLUSTER_NOT_FOUND@ - KMS cannot find the CloudHSM cluster with the
+    --     specified cluster ID.
     --
-    -- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated AWS CloudHSM cluster
-    --     does not contain any active HSMs. To connect a custom key store to
-    --     its AWS CloudHSM cluster, the cluster must contain at least one
-    --     active HSM.
+    -- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated CloudHSM cluster does
+    --     not contain any active HSMs. To connect a custom key store to its
+    --     CloudHSM cluster, the cluster must contain at least one active HSM.
     --
-    -- -   @INTERNAL_ERROR@ - AWS KMS could not complete the request due to an
+    -- -   @INTERNAL_ERROR@ - KMS could not complete the request due to an
     --     internal error. Retry the request. For @ConnectCustomKeyStore@
     --     requests, disconnect the custom key store before trying to connect
     --     again.
     --
-    -- -   @INVALID_CREDENTIALS@ - AWS KMS does not have the correct password
-    --     for the @kmsuser@ crypto user in the AWS CloudHSM cluster. Before
-    --     you can connect your custom key store to its AWS CloudHSM cluster,
-    --     you must change the @kmsuser@ account password and update the key
-    --     store password value for the custom key store.
+    -- -   @INVALID_CREDENTIALS@ - KMS does not have the correct password for
+    --     the @kmsuser@ crypto user in the CloudHSM cluster. Before you can
+    --     connect your custom key store to its CloudHSM cluster, you must
+    --     change the @kmsuser@ account password and update the key store
+    --     password value for the custom key store.
     --
-    -- -   @NETWORK_ERRORS@ - Network errors are preventing AWS KMS from
-    --     connecting to the custom key store.
+    -- -   @NETWORK_ERRORS@ - Network errors are preventing KMS from connecting
+    --     to the custom key store.
     --
-    -- -   @SUBNET_NOT_FOUND@ - A subnet in the AWS CloudHSM cluster
-    --     configuration was deleted. If AWS KMS cannot find all of the subnets
-    --     in the cluster configuration, attempts to connect the custom key
-    --     store to the AWS CloudHSM cluster fail. To fix this error, create a
-    --     cluster from a recent backup and associate it with your custom key
-    --     store. (This process creates a new cluster configuration with a VPC
-    --     and private subnets.) For details, see
+    -- -   @SUBNET_NOT_FOUND@ - A subnet in the CloudHSM cluster configuration
+    --     was deleted. If KMS cannot find all of the subnets in the cluster
+    --     configuration, attempts to connect the custom key store to the
+    --     CloudHSM cluster fail. To fix this error, create a cluster from a
+    --     recent backup and associate it with your custom key store. (This
+    --     process creates a new cluster configuration with a VPC and private
+    --     subnets.) For details, see
     --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
-    --     in the /AWS Key Management Service Developer Guide/.
+    --     in the /Key Management Service Developer Guide/.
     --
     -- -   @USER_LOCKED_OUT@ - The @kmsuser@ CU account is locked out of the
-    --     associated AWS CloudHSM cluster due to too many failed password
-    --     attempts. Before you can connect your custom key store to its AWS
+    --     associated CloudHSM cluster due to too many failed password
+    --     attempts. Before you can connect your custom key store to its
     --     CloudHSM cluster, you must change the @kmsuser@ account password and
     --     update the key store password value for the custom key store.
     --
     -- -   @USER_LOGGED_IN@ - The @kmsuser@ CU account is logged into the the
-    --     associated AWS CloudHSM cluster. This prevents AWS KMS from rotating
-    --     the @kmsuser@ account password and logging into the cluster. Before
-    --     you can connect your custom key store to its AWS CloudHSM cluster,
-    --     you must log the @kmsuser@ CU out of the cluster. If you changed the
+    --     associated CloudHSM cluster. This prevents KMS from rotating the
+    --     @kmsuser@ account password and logging into the cluster. Before you
+    --     can connect your custom key store to its CloudHSM cluster, you must
+    --     log the @kmsuser@ CU out of the cluster. If you changed the
     --     @kmsuser@ password to log into the cluster, you must also and update
     --     the key store password value for the custom key store. For help, see
     --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#login-kmsuser-2 How to Log Out and Reconnect>
-    --     in the /AWS Key Management Service Developer Guide/.
+    --     in the /Key Management Service Developer Guide/.
     --
-    -- -   @USER_NOT_FOUND@ - AWS KMS cannot find a @kmsuser@ CU account in the
-    --     associated AWS CloudHSM cluster. Before you can connect your custom
-    --     key store to its AWS CloudHSM cluster, you must create a @kmsuser@
-    --     CU account in the cluster, and then update the key store password
-    --     value for the custom key store.
+    -- -   @USER_NOT_FOUND@ - KMS cannot find a @kmsuser@ CU account in the
+    --     associated CloudHSM cluster. Before you can connect your custom key
+    --     store to its CloudHSM cluster, you must create a @kmsuser@ CU
+    --     account in the cluster, and then update the key store password value
+    --     for the custom key store.
     connectionErrorCode :: Prelude.Maybe ConnectionErrorCodeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,33 +136,33 @@ data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
 --
 -- 'customKeyStoreName', 'customKeyStoresListEntry_customKeyStoreName' - The user-specified friendly name for the custom key store.
 --
--- 'connectionState', 'customKeyStoresListEntry_connectionState' - Indicates whether the custom key store is connected to its AWS CloudHSM
+-- 'connectionState', 'customKeyStoresListEntry_connectionState' - Indicates whether the custom key store is connected to its CloudHSM
 -- cluster.
 --
--- You can create and use CMKs in your custom key stores only when its
+-- You can create and use KMS keys in your custom key stores only when its
 -- connection state is @CONNECTED@.
 --
 -- The value is @DISCONNECTED@ if the key store has never been connected or
 -- you use the DisconnectCustomKeyStore operation to disconnect it. If the
 -- value is @CONNECTED@ but you are having trouble using the custom key
--- store, make sure that its associated AWS CloudHSM cluster is active and
+-- store, make sure that its associated CloudHSM cluster is active and
 -- contains at least one active HSM.
 --
 -- A value of @FAILED@ indicates that an attempt to connect was
 -- unsuccessful. The @ConnectionErrorCode@ field in the response indicates
 -- the cause of the failure. For help resolving a connection failure, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'customKeyStoreId', 'customKeyStoresListEntry_customKeyStoreId' - A unique identifier for the custom key store.
 --
--- 'cloudHsmClusterId', 'customKeyStoresListEntry_cloudHsmClusterId' - A unique identifier for the AWS CloudHSM cluster that is associated with
--- the custom key store.
---
--- 'trustAnchorCertificate', 'customKeyStoresListEntry_trustAnchorCertificate' - The trust anchor certificate of the associated AWS CloudHSM cluster.
--- When you
+-- 'trustAnchorCertificate', 'customKeyStoresListEntry_trustAnchorCertificate' - The trust anchor certificate of the associated CloudHSM cluster. When
+-- you
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
 -- you create this certificate and save it in the @customerCA.crt@ file.
+--
+-- 'cloudHsmClusterId', 'customKeyStoresListEntry_cloudHsmClusterId' - A unique identifier for the CloudHSM cluster that is associated with the
+-- custom key store.
 --
 -- 'creationDate', 'customKeyStoresListEntry_creationDate' - The date and time when the custom key store was created.
 --
@@ -171,63 +170,62 @@ data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
 -- when the @ConnectionState@ is @FAILED@. For help resolving these errors,
 -- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
--- in /AWS Key Management Service Developer Guide/.
+-- in /Key Management Service Developer Guide/.
 --
 -- Valid values are:
 --
--- -   @CLUSTER_NOT_FOUND@ - AWS KMS cannot find the AWS CloudHSM cluster
---     with the specified cluster ID.
+-- -   @CLUSTER_NOT_FOUND@ - KMS cannot find the CloudHSM cluster with the
+--     specified cluster ID.
 --
--- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated AWS CloudHSM cluster
---     does not contain any active HSMs. To connect a custom key store to
---     its AWS CloudHSM cluster, the cluster must contain at least one
---     active HSM.
+-- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated CloudHSM cluster does
+--     not contain any active HSMs. To connect a custom key store to its
+--     CloudHSM cluster, the cluster must contain at least one active HSM.
 --
--- -   @INTERNAL_ERROR@ - AWS KMS could not complete the request due to an
+-- -   @INTERNAL_ERROR@ - KMS could not complete the request due to an
 --     internal error. Retry the request. For @ConnectCustomKeyStore@
 --     requests, disconnect the custom key store before trying to connect
 --     again.
 --
--- -   @INVALID_CREDENTIALS@ - AWS KMS does not have the correct password
---     for the @kmsuser@ crypto user in the AWS CloudHSM cluster. Before
---     you can connect your custom key store to its AWS CloudHSM cluster,
---     you must change the @kmsuser@ account password and update the key
---     store password value for the custom key store.
+-- -   @INVALID_CREDENTIALS@ - KMS does not have the correct password for
+--     the @kmsuser@ crypto user in the CloudHSM cluster. Before you can
+--     connect your custom key store to its CloudHSM cluster, you must
+--     change the @kmsuser@ account password and update the key store
+--     password value for the custom key store.
 --
--- -   @NETWORK_ERRORS@ - Network errors are preventing AWS KMS from
---     connecting to the custom key store.
+-- -   @NETWORK_ERRORS@ - Network errors are preventing KMS from connecting
+--     to the custom key store.
 --
--- -   @SUBNET_NOT_FOUND@ - A subnet in the AWS CloudHSM cluster
---     configuration was deleted. If AWS KMS cannot find all of the subnets
---     in the cluster configuration, attempts to connect the custom key
---     store to the AWS CloudHSM cluster fail. To fix this error, create a
---     cluster from a recent backup and associate it with your custom key
---     store. (This process creates a new cluster configuration with a VPC
---     and private subnets.) For details, see
+-- -   @SUBNET_NOT_FOUND@ - A subnet in the CloudHSM cluster configuration
+--     was deleted. If KMS cannot find all of the subnets in the cluster
+--     configuration, attempts to connect the custom key store to the
+--     CloudHSM cluster fail. To fix this error, create a cluster from a
+--     recent backup and associate it with your custom key store. (This
+--     process creates a new cluster configuration with a VPC and private
+--     subnets.) For details, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
 -- -   @USER_LOCKED_OUT@ - The @kmsuser@ CU account is locked out of the
---     associated AWS CloudHSM cluster due to too many failed password
---     attempts. Before you can connect your custom key store to its AWS
+--     associated CloudHSM cluster due to too many failed password
+--     attempts. Before you can connect your custom key store to its
 --     CloudHSM cluster, you must change the @kmsuser@ account password and
 --     update the key store password value for the custom key store.
 --
 -- -   @USER_LOGGED_IN@ - The @kmsuser@ CU account is logged into the the
---     associated AWS CloudHSM cluster. This prevents AWS KMS from rotating
---     the @kmsuser@ account password and logging into the cluster. Before
---     you can connect your custom key store to its AWS CloudHSM cluster,
---     you must log the @kmsuser@ CU out of the cluster. If you changed the
+--     associated CloudHSM cluster. This prevents KMS from rotating the
+--     @kmsuser@ account password and logging into the cluster. Before you
+--     can connect your custom key store to its CloudHSM cluster, you must
+--     log the @kmsuser@ CU out of the cluster. If you changed the
 --     @kmsuser@ password to log into the cluster, you must also and update
 --     the key store password value for the custom key store. For help, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#login-kmsuser-2 How to Log Out and Reconnect>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
--- -   @USER_NOT_FOUND@ - AWS KMS cannot find a @kmsuser@ CU account in the
---     associated AWS CloudHSM cluster. Before you can connect your custom
---     key store to its AWS CloudHSM cluster, you must create a @kmsuser@
---     CU account in the cluster, and then update the key store password
---     value for the custom key store.
+-- -   @USER_NOT_FOUND@ - KMS cannot find a @kmsuser@ CU account in the
+--     associated CloudHSM cluster. Before you can connect your custom key
+--     store to its CloudHSM cluster, you must create a @kmsuser@ CU
+--     account in the cluster, and then update the key store password value
+--     for the custom key store.
 newCustomKeyStoresListEntry ::
   CustomKeyStoresListEntry
 newCustomKeyStoresListEntry =
@@ -236,8 +234,8 @@ newCustomKeyStoresListEntry =
         Prelude.Nothing,
       connectionState = Prelude.Nothing,
       customKeyStoreId = Prelude.Nothing,
-      cloudHsmClusterId = Prelude.Nothing,
       trustAnchorCertificate = Prelude.Nothing,
+      cloudHsmClusterId = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       connectionErrorCode = Prelude.Nothing
     }
@@ -246,23 +244,23 @@ newCustomKeyStoresListEntry =
 customKeyStoresListEntry_customKeyStoreName :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_customKeyStoreName = Lens.lens (\CustomKeyStoresListEntry' {customKeyStoreName} -> customKeyStoreName) (\s@CustomKeyStoresListEntry' {} a -> s {customKeyStoreName = a} :: CustomKeyStoresListEntry)
 
--- | Indicates whether the custom key store is connected to its AWS CloudHSM
+-- | Indicates whether the custom key store is connected to its CloudHSM
 -- cluster.
 --
--- You can create and use CMKs in your custom key stores only when its
+-- You can create and use KMS keys in your custom key stores only when its
 -- connection state is @CONNECTED@.
 --
 -- The value is @DISCONNECTED@ if the key store has never been connected or
 -- you use the DisconnectCustomKeyStore operation to disconnect it. If the
 -- value is @CONNECTED@ but you are having trouble using the custom key
--- store, make sure that its associated AWS CloudHSM cluster is active and
+-- store, make sure that its associated CloudHSM cluster is active and
 -- contains at least one active HSM.
 --
 -- A value of @FAILED@ indicates that an attempt to connect was
 -- unsuccessful. The @ConnectionErrorCode@ field in the response indicates
 -- the cause of the failure. For help resolving a connection failure, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 customKeyStoresListEntry_connectionState :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe ConnectionStateType)
 customKeyStoresListEntry_connectionState = Lens.lens (\CustomKeyStoresListEntry' {connectionState} -> connectionState) (\s@CustomKeyStoresListEntry' {} a -> s {connectionState = a} :: CustomKeyStoresListEntry)
 
@@ -270,17 +268,17 @@ customKeyStoresListEntry_connectionState = Lens.lens (\CustomKeyStoresListEntry'
 customKeyStoresListEntry_customKeyStoreId :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_customKeyStoreId = Lens.lens (\CustomKeyStoresListEntry' {customKeyStoreId} -> customKeyStoreId) (\s@CustomKeyStoresListEntry' {} a -> s {customKeyStoreId = a} :: CustomKeyStoresListEntry)
 
--- | A unique identifier for the AWS CloudHSM cluster that is associated with
--- the custom key store.
-customKeyStoresListEntry_cloudHsmClusterId :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
-customKeyStoresListEntry_cloudHsmClusterId = Lens.lens (\CustomKeyStoresListEntry' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@CustomKeyStoresListEntry' {} a -> s {cloudHsmClusterId = a} :: CustomKeyStoresListEntry)
-
--- | The trust anchor certificate of the associated AWS CloudHSM cluster.
--- When you
+-- | The trust anchor certificate of the associated CloudHSM cluster. When
+-- you
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster>,
 -- you create this certificate and save it in the @customerCA.crt@ file.
 customKeyStoresListEntry_trustAnchorCertificate :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
 customKeyStoresListEntry_trustAnchorCertificate = Lens.lens (\CustomKeyStoresListEntry' {trustAnchorCertificate} -> trustAnchorCertificate) (\s@CustomKeyStoresListEntry' {} a -> s {trustAnchorCertificate = a} :: CustomKeyStoresListEntry)
+
+-- | A unique identifier for the CloudHSM cluster that is associated with the
+-- custom key store.
+customKeyStoresListEntry_cloudHsmClusterId :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.Text)
+customKeyStoresListEntry_cloudHsmClusterId = Lens.lens (\CustomKeyStoresListEntry' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@CustomKeyStoresListEntry' {} a -> s {cloudHsmClusterId = a} :: CustomKeyStoresListEntry)
 
 -- | The date and time when the custom key store was created.
 customKeyStoresListEntry_creationDate :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe Prelude.UTCTime)
@@ -290,63 +288,62 @@ customKeyStoresListEntry_creationDate = Lens.lens (\CustomKeyStoresListEntry' {c
 -- when the @ConnectionState@ is @FAILED@. For help resolving these errors,
 -- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
--- in /AWS Key Management Service Developer Guide/.
+-- in /Key Management Service Developer Guide/.
 --
 -- Valid values are:
 --
--- -   @CLUSTER_NOT_FOUND@ - AWS KMS cannot find the AWS CloudHSM cluster
---     with the specified cluster ID.
+-- -   @CLUSTER_NOT_FOUND@ - KMS cannot find the CloudHSM cluster with the
+--     specified cluster ID.
 --
--- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated AWS CloudHSM cluster
---     does not contain any active HSMs. To connect a custom key store to
---     its AWS CloudHSM cluster, the cluster must contain at least one
---     active HSM.
+-- -   @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated CloudHSM cluster does
+--     not contain any active HSMs. To connect a custom key store to its
+--     CloudHSM cluster, the cluster must contain at least one active HSM.
 --
--- -   @INTERNAL_ERROR@ - AWS KMS could not complete the request due to an
+-- -   @INTERNAL_ERROR@ - KMS could not complete the request due to an
 --     internal error. Retry the request. For @ConnectCustomKeyStore@
 --     requests, disconnect the custom key store before trying to connect
 --     again.
 --
--- -   @INVALID_CREDENTIALS@ - AWS KMS does not have the correct password
---     for the @kmsuser@ crypto user in the AWS CloudHSM cluster. Before
---     you can connect your custom key store to its AWS CloudHSM cluster,
---     you must change the @kmsuser@ account password and update the key
---     store password value for the custom key store.
+-- -   @INVALID_CREDENTIALS@ - KMS does not have the correct password for
+--     the @kmsuser@ crypto user in the CloudHSM cluster. Before you can
+--     connect your custom key store to its CloudHSM cluster, you must
+--     change the @kmsuser@ account password and update the key store
+--     password value for the custom key store.
 --
--- -   @NETWORK_ERRORS@ - Network errors are preventing AWS KMS from
---     connecting to the custom key store.
+-- -   @NETWORK_ERRORS@ - Network errors are preventing KMS from connecting
+--     to the custom key store.
 --
--- -   @SUBNET_NOT_FOUND@ - A subnet in the AWS CloudHSM cluster
---     configuration was deleted. If AWS KMS cannot find all of the subnets
---     in the cluster configuration, attempts to connect the custom key
---     store to the AWS CloudHSM cluster fail. To fix this error, create a
---     cluster from a recent backup and associate it with your custom key
---     store. (This process creates a new cluster configuration with a VPC
---     and private subnets.) For details, see
+-- -   @SUBNET_NOT_FOUND@ - A subnet in the CloudHSM cluster configuration
+--     was deleted. If KMS cannot find all of the subnets in the cluster
+--     configuration, attempts to connect the custom key store to the
+--     CloudHSM cluster fail. To fix this error, create a cluster from a
+--     recent backup and associate it with your custom key store. (This
+--     process creates a new cluster configuration with a VPC and private
+--     subnets.) For details, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed How to Fix a Connection Failure>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
 -- -   @USER_LOCKED_OUT@ - The @kmsuser@ CU account is locked out of the
---     associated AWS CloudHSM cluster due to too many failed password
---     attempts. Before you can connect your custom key store to its AWS
+--     associated CloudHSM cluster due to too many failed password
+--     attempts. Before you can connect your custom key store to its
 --     CloudHSM cluster, you must change the @kmsuser@ account password and
 --     update the key store password value for the custom key store.
 --
 -- -   @USER_LOGGED_IN@ - The @kmsuser@ CU account is logged into the the
---     associated AWS CloudHSM cluster. This prevents AWS KMS from rotating
---     the @kmsuser@ account password and logging into the cluster. Before
---     you can connect your custom key store to its AWS CloudHSM cluster,
---     you must log the @kmsuser@ CU out of the cluster. If you changed the
+--     associated CloudHSM cluster. This prevents KMS from rotating the
+--     @kmsuser@ account password and logging into the cluster. Before you
+--     can connect your custom key store to its CloudHSM cluster, you must
+--     log the @kmsuser@ CU out of the cluster. If you changed the
 --     @kmsuser@ password to log into the cluster, you must also and update
 --     the key store password value for the custom key store. For help, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#login-kmsuser-2 How to Log Out and Reconnect>
---     in the /AWS Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
--- -   @USER_NOT_FOUND@ - AWS KMS cannot find a @kmsuser@ CU account in the
---     associated AWS CloudHSM cluster. Before you can connect your custom
---     key store to its AWS CloudHSM cluster, you must create a @kmsuser@
---     CU account in the cluster, and then update the key store password
---     value for the custom key store.
+-- -   @USER_NOT_FOUND@ - KMS cannot find a @kmsuser@ CU account in the
+--     associated CloudHSM cluster. Before you can connect your custom key
+--     store to its CloudHSM cluster, you must create a @kmsuser@ CU
+--     account in the cluster, and then update the key store password value
+--     for the custom key store.
 customKeyStoresListEntry_connectionErrorCode :: Lens.Lens' CustomKeyStoresListEntry (Prelude.Maybe ConnectionErrorCodeType)
 customKeyStoresListEntry_connectionErrorCode = Lens.lens (\CustomKeyStoresListEntry' {connectionErrorCode} -> connectionErrorCode) (\s@CustomKeyStoresListEntry' {} a -> s {connectionErrorCode = a} :: CustomKeyStoresListEntry)
 
@@ -359,8 +356,8 @@ instance Core.FromJSON CustomKeyStoresListEntry where
             Prelude.<$> (x Core..:? "CustomKeyStoreName")
             Prelude.<*> (x Core..:? "ConnectionState")
             Prelude.<*> (x Core..:? "CustomKeyStoreId")
-            Prelude.<*> (x Core..:? "CloudHsmClusterId")
             Prelude.<*> (x Core..:? "TrustAnchorCertificate")
+            Prelude.<*> (x Core..:? "CloudHsmClusterId")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "ConnectionErrorCode")
       )

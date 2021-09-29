@@ -28,9 +28,10 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 --
 -- /See:/ 'newMonitoringClusterConfig' smart constructor.
 data MonitoringClusterConfig = MonitoringClusterConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that run the model monitoring job.
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt data on the storage volume
+    -- attached to the ML compute instance(s) that run the model monitoring
+    -- job.
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The number of ML compute instances to use in the model monitoring job.
     -- For distributed processing jobs, specify a value greater than 1. The
@@ -52,9 +53,10 @@ data MonitoringClusterConfig = MonitoringClusterConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'monitoringClusterConfig_volumeKmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume attached to the ML compute
--- instance(s) that run the model monitoring job.
+-- 'volumeKmsKeyId', 'monitoringClusterConfig_volumeKmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance(s) that run the model monitoring
+-- job.
 --
 -- 'instanceCount', 'monitoringClusterConfig_instanceCount' - The number of ML compute instances to use in the model monitoring job.
 -- For distributed processing jobs, specify a value greater than 1. The
@@ -84,9 +86,10 @@ newMonitoringClusterConfig
         volumeSizeInGB = pVolumeSizeInGB_
       }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume attached to the ML compute
--- instance(s) that run the model monitoring job.
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance(s) that run the model monitoring
+-- job.
 monitoringClusterConfig_volumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Prelude.Maybe Prelude.Text)
 monitoringClusterConfig_volumeKmsKeyId = Lens.lens (\MonitoringClusterConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@MonitoringClusterConfig' {} a -> s {volumeKmsKeyId = a} :: MonitoringClusterConfig)
 

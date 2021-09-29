@@ -34,8 +34,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- mixed.
 --
 -- All compute environments that are associated with a job queue must share
--- the same architecture. AWS Batch doesn\'t support mixing compute
--- environment architecture types in a single job queue.
+-- the same architecture. Batch doesn\'t support mixing compute environment
+-- architecture types in a single job queue.
 --
 -- /See:/ 'newComputeEnvironmentOrder' smart constructor.
 data ComputeEnvironmentOrder = ComputeEnvironmentOrder'

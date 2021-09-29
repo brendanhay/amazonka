@@ -69,9 +69,9 @@ data GetTags = GetTags'
     searchString :: Prelude.Maybe Prelude.Text,
     -- | The key of the tag that you want to return values for.
     tagKey :: Prelude.Maybe Prelude.Text,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The value by which you want to sort the data.
     --
@@ -126,9 +126,9 @@ data GetTags = GetTags'
 --
 -- 'tagKey', 'getTags_tagKey' - The key of the tag that you want to return values for.
 --
--- 'nextPageToken', 'getTags_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getTags_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'sortBy', 'getTags_sortBy' - The value by which you want to sort the data.
 --
@@ -193,9 +193,9 @@ getTags_searchString = Lens.lens (\GetTags' {searchString} -> searchString) (\s@
 getTags_tagKey :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
 getTags_tagKey = Lens.lens (\GetTags' {tagKey} -> tagKey) (\s@GetTags' {} a -> s {tagKey = a} :: GetTags)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getTags_nextPageToken :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
 getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (\s@GetTags' {} a -> s {nextPageToken = a} :: GetTags)
 
@@ -292,15 +292,15 @@ instance Core.ToQuery GetTags where
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
-  { -- | The token for the next set of retrievable results. AWS provides the
-    -- token when the response from a previous call has more results than the
-    -- maximum page size.
+  { -- | The token for the next set of retrievable results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The tags that match your request.
     tags :: [Prelude.Text],
-    -- | The number of query results that AWS returns at a time.
+    -- | The number of query results that Amazon Web Services returns at a time.
     returnSize :: Prelude.Int,
     -- | The total number of query results.
     totalSize :: Prelude.Int
@@ -315,15 +315,15 @@ data GetTagsResponse = GetTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getTagsResponse_nextPageToken' - The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- 'nextPageToken', 'getTagsResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.
 --
 -- 'tags', 'getTagsResponse_tags' - The tags that match your request.
 --
--- 'returnSize', 'getTagsResponse_returnSize' - The number of query results that AWS returns at a time.
+-- 'returnSize', 'getTagsResponse_returnSize' - The number of query results that Amazon Web Services returns at a time.
 --
 -- 'totalSize', 'getTagsResponse_totalSize' - The total number of query results.
 newGetTagsResponse ::
@@ -346,9 +346,9 @@ newGetTagsResponse
         totalSize = pTotalSize_
       }
 
--- | The token for the next set of retrievable results. AWS provides the
--- token when the response from a previous call has more results than the
--- maximum page size.
+-- | The token for the next set of retrievable results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getTagsResponse_nextPageToken :: Lens.Lens' GetTagsResponse (Prelude.Maybe Prelude.Text)
 getTagsResponse_nextPageToken = Lens.lens (\GetTagsResponse' {nextPageToken} -> nextPageToken) (\s@GetTagsResponse' {} a -> s {nextPageToken = a} :: GetTagsResponse)
 
@@ -360,7 +360,7 @@ getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpSt
 getTagsResponse_tags :: Lens.Lens' GetTagsResponse [Prelude.Text]
 getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens._Coerce
 
--- | The number of query results that AWS returns at a time.
+-- | The number of query results that Amazon Web Services returns at a time.
 getTagsResponse_returnSize :: Lens.Lens' GetTagsResponse Prelude.Int
 getTagsResponse_returnSize = Lens.lens (\GetTagsResponse' {returnSize} -> returnSize) (\s@GetTagsResponse' {} a -> s {returnSize = a} :: GetTagsResponse)
 

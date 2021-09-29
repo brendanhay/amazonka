@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an environment member from an AWS Cloud9 development
--- environment.
+-- Deletes an environment member from an Cloud9 development environment.
 module Network.AWS.Cloud9.DeleteEnvironmentMembership
   ( -- * Creating a Request
     DeleteEnvironmentMembership (..),

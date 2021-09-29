@@ -46,6 +46,9 @@
 -- the bounding box (and a confidence level that the bounding box contains
 -- a face) of the face that Amazon Rekognition used for the input image.
 --
+-- If no faces are detected in the input image, @SearchFacesByImage@
+-- returns an @InvalidParameterException@ error.
+--
 -- For an example, Searching for a Face Using an Image in the Amazon
 -- Rekognition Developer Guide.
 --

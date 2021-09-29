@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
   ( DvbSubtitleShadowColor
       ( ..,
+        DvbSubtitleShadowColor_AUTO,
         DvbSubtitleShadowColor_BLACK,
         DvbSubtitleShadowColor_NONE,
         DvbSubtitleShadowColor_WHITE
@@ -60,6 +61,9 @@ newtype DvbSubtitleShadowColor = DvbSubtitleShadowColor'
       Core.ToXML
     )
 
+pattern DvbSubtitleShadowColor_AUTO :: DvbSubtitleShadowColor
+pattern DvbSubtitleShadowColor_AUTO = DvbSubtitleShadowColor' "AUTO"
+
 pattern DvbSubtitleShadowColor_BLACK :: DvbSubtitleShadowColor
 pattern DvbSubtitleShadowColor_BLACK = DvbSubtitleShadowColor' "BLACK"
 
@@ -70,6 +74,7 @@ pattern DvbSubtitleShadowColor_WHITE :: DvbSubtitleShadowColor
 pattern DvbSubtitleShadowColor_WHITE = DvbSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
+  DvbSubtitleShadowColor_AUTO,
   DvbSubtitleShadowColor_BLACK,
   DvbSubtitleShadowColor_NONE,
   DvbSubtitleShadowColor_WHITE,

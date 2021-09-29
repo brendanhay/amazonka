@@ -23,7 +23,8 @@
 -- Describes the specified rule.
 --
 -- DescribeRule does not list the targets of a rule. To see the targets
--- associated with a rule, use ListTargetsByRule.
+-- associated with a rule, use
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html ListTargetsByRule>.
 module Network.AWS.CloudWatchEvents.DescribeRule
   ( -- * Creating a Request
     DescribeRule (..),
@@ -41,10 +42,10 @@ module Network.AWS.CloudWatchEvents.DescribeRule
     describeRuleResponse_eventPattern,
     describeRuleResponse_roleArn,
     describeRuleResponse_arn,
-    describeRuleResponse_eventBusName,
-    describeRuleResponse_state,
-    describeRuleResponse_scheduleExpression,
     describeRuleResponse_name,
+    describeRuleResponse_eventBusName,
+    describeRuleResponse_scheduleExpression,
+    describeRuleResponse_state,
     describeRuleResponse_managedBy,
     describeRuleResponse_description,
     describeRuleResponse_createdBy,
@@ -110,10 +111,10 @@ instance Core.AWSRequest DescribeRule where
             Prelude.<$> (x Core..?> "EventPattern")
             Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "EventBusName")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ScheduleExpression")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "EventBusName")
+            Prelude.<*> (x Core..?> "ScheduleExpression")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "ManagedBy")
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "CreatedBy")
@@ -162,18 +163,18 @@ data DescribeRuleResponse = DescribeRuleResponse'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the rule.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the event bus associated with the rule.
     eventBusName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the rule is enabled or disabled.
-    state :: Prelude.Maybe RuleState,
     -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
     -- minutes)\".
     scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The name of the rule.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If this is a managed rule, created by an AWS service on your behalf,
-    -- this field displays the principal name of the AWS service that created
-    -- the rule.
+    -- | Specifies whether the rule is enabled or disabled.
+    state :: Prelude.Maybe RuleState,
+    -- | If this is a managed rule, created by an Amazon Web Services service on
+    -- your behalf, this field displays the principal name of the Amazon Web
+    -- Services service that created the rule.
     managedBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the rule.
     description :: Prelude.Maybe Prelude.Text,
@@ -204,18 +205,18 @@ data DescribeRuleResponse = DescribeRuleResponse'
 --
 -- 'arn', 'describeRuleResponse_arn' - The Amazon Resource Name (ARN) of the rule.
 --
--- 'eventBusName', 'describeRuleResponse_eventBusName' - The name of the event bus associated with the rule.
+-- 'name', 'describeRuleResponse_name' - The name of the rule.
 --
--- 'state', 'describeRuleResponse_state' - Specifies whether the rule is enabled or disabled.
+-- 'eventBusName', 'describeRuleResponse_eventBusName' - The name of the event bus associated with the rule.
 --
 -- 'scheduleExpression', 'describeRuleResponse_scheduleExpression' - The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
 -- minutes)\".
 --
--- 'name', 'describeRuleResponse_name' - The name of the rule.
+-- 'state', 'describeRuleResponse_state' - Specifies whether the rule is enabled or disabled.
 --
--- 'managedBy', 'describeRuleResponse_managedBy' - If this is a managed rule, created by an AWS service on your behalf,
--- this field displays the principal name of the AWS service that created
--- the rule.
+-- 'managedBy', 'describeRuleResponse_managedBy' - If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, this field displays the principal name of the Amazon Web
+-- Services service that created the rule.
 --
 -- 'description', 'describeRuleResponse_description' - The description of the rule.
 --
@@ -236,10 +237,10 @@ newDescribeRuleResponse pHttpStatus_ =
         Prelude.Nothing,
       roleArn = Prelude.Nothing,
       arn = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      state = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
       name = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      state = Prelude.Nothing,
       managedBy = Prelude.Nothing,
       description = Prelude.Nothing,
       createdBy = Prelude.Nothing,
@@ -260,26 +261,26 @@ describeRuleResponse_roleArn = Lens.lens (\DescribeRuleResponse' {roleArn} -> ro
 describeRuleResponse_arn :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_arn = Lens.lens (\DescribeRuleResponse' {arn} -> arn) (\s@DescribeRuleResponse' {} a -> s {arn = a} :: DescribeRuleResponse)
 
+-- | The name of the rule.
+describeRuleResponse_name :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
+describeRuleResponse_name = Lens.lens (\DescribeRuleResponse' {name} -> name) (\s@DescribeRuleResponse' {} a -> s {name = a} :: DescribeRuleResponse)
+
 -- | The name of the event bus associated with the rule.
 describeRuleResponse_eventBusName :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_eventBusName = Lens.lens (\DescribeRuleResponse' {eventBusName} -> eventBusName) (\s@DescribeRuleResponse' {} a -> s {eventBusName = a} :: DescribeRuleResponse)
-
--- | Specifies whether the rule is enabled or disabled.
-describeRuleResponse_state :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe RuleState)
-describeRuleResponse_state = Lens.lens (\DescribeRuleResponse' {state} -> state) (\s@DescribeRuleResponse' {} a -> s {state = a} :: DescribeRuleResponse)
 
 -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
 -- minutes)\".
 describeRuleResponse_scheduleExpression :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_scheduleExpression = Lens.lens (\DescribeRuleResponse' {scheduleExpression} -> scheduleExpression) (\s@DescribeRuleResponse' {} a -> s {scheduleExpression = a} :: DescribeRuleResponse)
 
--- | The name of the rule.
-describeRuleResponse_name :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
-describeRuleResponse_name = Lens.lens (\DescribeRuleResponse' {name} -> name) (\s@DescribeRuleResponse' {} a -> s {name = a} :: DescribeRuleResponse)
+-- | Specifies whether the rule is enabled or disabled.
+describeRuleResponse_state :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe RuleState)
+describeRuleResponse_state = Lens.lens (\DescribeRuleResponse' {state} -> state) (\s@DescribeRuleResponse' {} a -> s {state = a} :: DescribeRuleResponse)
 
--- | If this is a managed rule, created by an AWS service on your behalf,
--- this field displays the principal name of the AWS service that created
--- the rule.
+-- | If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, this field displays the principal name of the Amazon Web
+-- Services service that created the rule.
 describeRuleResponse_managedBy :: Lens.Lens' DescribeRuleResponse (Prelude.Maybe Prelude.Text)
 describeRuleResponse_managedBy = Lens.lens (\DescribeRuleResponse' {managedBy} -> managedBy) (\s@DescribeRuleResponse' {} a -> s {managedBy = a} :: DescribeRuleResponse)
 

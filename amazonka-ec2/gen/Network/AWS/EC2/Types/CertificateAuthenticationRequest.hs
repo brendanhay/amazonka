@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCertificateAuthenticationRequest' smart constructor.
 data CertificateAuthenticationRequest = CertificateAuthenticationRequest'
   { -- | The ARN of the client certificate. The certificate must be signed by a
-    -- certificate authority (CA) and it must be provisioned in AWS Certificate
+    -- certificate authority (CA) and it must be provisioned in Certificate
     -- Manager (ACM).
     clientRootCertificateChainArn :: Prelude.Maybe Prelude.Text
   }
@@ -44,7 +44,7 @@ data CertificateAuthenticationRequest = CertificateAuthenticationRequest'
 -- for backwards compatibility:
 --
 -- 'clientRootCertificateChainArn', 'certificateAuthenticationRequest_clientRootCertificateChainArn' - The ARN of the client certificate. The certificate must be signed by a
--- certificate authority (CA) and it must be provisioned in AWS Certificate
+-- certificate authority (CA) and it must be provisioned in Certificate
 -- Manager (ACM).
 newCertificateAuthenticationRequest ::
   CertificateAuthenticationRequest
@@ -55,7 +55,7 @@ newCertificateAuthenticationRequest =
     }
 
 -- | The ARN of the client certificate. The certificate must be signed by a
--- certificate authority (CA) and it must be provisioned in AWS Certificate
+-- certificate authority (CA) and it must be provisioned in Certificate
 -- Manager (ACM).
 certificateAuthenticationRequest_clientRootCertificateChainArn :: Lens.Lens' CertificateAuthenticationRequest (Prelude.Maybe Prelude.Text)
 certificateAuthenticationRequest_clientRootCertificateChainArn = Lens.lens (\CertificateAuthenticationRequest' {clientRootCertificateChainArn} -> clientRootCertificateChainArn) (\s@CertificateAuthenticationRequest' {} a -> s {clientRootCertificateChainArn = a} :: CertificateAuthenticationRequest)

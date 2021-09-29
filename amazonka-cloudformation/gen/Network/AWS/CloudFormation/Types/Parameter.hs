@@ -34,8 +34,8 @@ data Parameter = Parameter'
     -- specify a parameter value.
     usePreviousValue :: Prelude.Maybe Prelude.Bool,
     -- | The key associated with the parameter. If you don\'t specify a key and
-    -- value for a particular parameter, AWS CloudFormation uses the default
-    -- value that is specified in your template.
+    -- value for a particular parameter, CloudFormation uses the default value
+    -- that is specified in your template.
     parameterKey :: Prelude.Maybe Prelude.Text,
     -- | Read-only. The value that corresponds to a Systems Manager parameter
     -- key. This field is returned only for
@@ -60,8 +60,8 @@ data Parameter = Parameter'
 -- specify a parameter value.
 --
 -- 'parameterKey', 'parameter_parameterKey' - The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, AWS CloudFormation uses the default
--- value that is specified in your template.
+-- value for a particular parameter, CloudFormation uses the default value
+-- that is specified in your template.
 --
 -- 'resolvedValue', 'parameter_resolvedValue' - Read-only. The value that corresponds to a Systems Manager parameter
 -- key. This field is returned only for
@@ -88,8 +88,8 @@ parameter_usePreviousValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
 parameter_usePreviousValue = Lens.lens (\Parameter' {usePreviousValue} -> usePreviousValue) (\s@Parameter' {} a -> s {usePreviousValue = a} :: Parameter)
 
 -- | The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, AWS CloudFormation uses the default
--- value that is specified in your template.
+-- value for a particular parameter, CloudFormation uses the default value
+-- that is specified in your template.
 parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
 

@@ -24,7 +24,7 @@ import Network.AWS.DirectConnect.Types.Tag
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about a tag associated with an AWS Direct Connect resource.
+-- | Information about a tag associated with an Direct Connect resource.
 --
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'

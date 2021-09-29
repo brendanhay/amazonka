@@ -30,23 +30,23 @@ module Network.AWS.SES
     -- * Errors
     -- $errors
 
-    -- ** ConfigurationSetSendingPausedException
-    _ConfigurationSetSendingPausedException,
-
     -- ** CustomVerificationEmailTemplateAlreadyExistsException
     _CustomVerificationEmailTemplateAlreadyExistsException,
 
+    -- ** ConfigurationSetSendingPausedException
+    _ConfigurationSetSendingPausedException,
+
     -- ** InvalidConfigurationSetException
     _InvalidConfigurationSetException,
+
+    -- ** InvalidSNSDestinationException
+    _InvalidSNSDestinationException,
 
     -- ** AccountSendingPausedException
     _AccountSendingPausedException,
 
     -- ** EventDestinationDoesNotExistException
     _EventDestinationDoesNotExistException,
-
-    -- ** InvalidSNSDestinationException
-    _InvalidSNSDestinationException,
 
     -- ** CustomVerificationEmailInvalidContentException
     _CustomVerificationEmailInvalidContentException,
@@ -63,20 +63,20 @@ module Network.AWS.SES
     -- ** MailFromDomainNotVerifiedException
     _MailFromDomainNotVerifiedException,
 
-    -- ** FromEmailAddressNotVerifiedException
-    _FromEmailAddressNotVerifiedException,
-
     -- ** RuleSetDoesNotExistException
     _RuleSetDoesNotExistException,
+
+    -- ** FromEmailAddressNotVerifiedException
+    _FromEmailAddressNotVerifiedException,
 
     -- ** MessageRejected
     _MessageRejected,
 
-    -- ** InvalidDeliveryOptionsException
-    _InvalidDeliveryOptionsException,
-
     -- ** InvalidCloudWatchDestinationException
     _InvalidCloudWatchDestinationException,
+
+    -- ** InvalidDeliveryOptionsException
+    _InvalidDeliveryOptionsException,
 
     -- ** CannotDeleteException
     _CannotDeleteException,
@@ -84,53 +84,53 @@ module Network.AWS.SES
     -- ** TemplateDoesNotExistException
     _TemplateDoesNotExistException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
 
     -- ** InvalidTrackingOptionsException
     _InvalidTrackingOptionsException,
 
-    -- ** InvalidSnsTopicException
-    _InvalidSnsTopicException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** EventDestinationAlreadyExistsException
     _EventDestinationAlreadyExistsException,
 
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** InvalidSnsTopicException
+    _InvalidSnsTopicException,
 
     -- ** InvalidS3ConfigurationException
     _InvalidS3ConfigurationException,
 
-    -- ** ConfigurationSetDoesNotExistException
-    _ConfigurationSetDoesNotExistException,
-
     -- ** TrackingOptionsAlreadyExistsException
     _TrackingOptionsAlreadyExistsException,
+
+    -- ** ConfigurationSetDoesNotExistException
+    _ConfigurationSetDoesNotExistException,
 
     -- ** TrackingOptionsDoesNotExistException
     _TrackingOptionsDoesNotExistException,
 
-    -- ** InvalidFirehoseDestinationException
-    _InvalidFirehoseDestinationException,
-
     -- ** InvalidLambdaFunctionException
     _InvalidLambdaFunctionException,
 
-    -- ** MissingRenderingAttributeException
-    _MissingRenderingAttributeException,
+    -- ** InvalidFirehoseDestinationException
+    _InvalidFirehoseDestinationException,
 
     -- ** InvalidRenderingParameterException
     _InvalidRenderingParameterException,
 
+    -- ** MissingRenderingAttributeException
+    _MissingRenderingAttributeException,
+
     -- ** CustomVerificationEmailTemplateDoesNotExistException
     _CustomVerificationEmailTemplateDoesNotExistException,
 
-    -- ** ProductionAccessNotGrantedException
-    _ProductionAccessNotGrantedException,
-
     -- ** RuleDoesNotExistException
     _RuleDoesNotExistException,
+
+    -- ** ProductionAccessNotGrantedException
+    _ProductionAccessNotGrantedException,
 
     -- * Waiters
     -- $waiters
@@ -138,11 +138,11 @@ module Network.AWS.SES
     -- * Operations
     -- $operations
 
-    -- ** GetSendStatistics
-    GetSendStatistics (GetSendStatistics'),
-    newGetSendStatistics,
-    GetSendStatisticsResponse (GetSendStatisticsResponse'),
-    newGetSendStatisticsResponse,
+    -- ** PutConfigurationSetDeliveryOptions
+    PutConfigurationSetDeliveryOptions (PutConfigurationSetDeliveryOptions'),
+    newPutConfigurationSetDeliveryOptions,
+    PutConfigurationSetDeliveryOptionsResponse (PutConfigurationSetDeliveryOptionsResponse'),
+    newPutConfigurationSetDeliveryOptionsResponse,
 
     -- ** DescribeConfigurationSet
     DescribeConfigurationSet (DescribeConfigurationSet'),
@@ -150,11 +150,11 @@ module Network.AWS.SES
     DescribeConfigurationSetResponse (DescribeConfigurationSetResponse'),
     newDescribeConfigurationSetResponse,
 
-    -- ** PutConfigurationSetDeliveryOptions
-    PutConfigurationSetDeliveryOptions (PutConfigurationSetDeliveryOptions'),
-    newPutConfigurationSetDeliveryOptions,
-    PutConfigurationSetDeliveryOptionsResponse (PutConfigurationSetDeliveryOptionsResponse'),
-    newPutConfigurationSetDeliveryOptionsResponse,
+    -- ** DescribeReceiptRule
+    DescribeReceiptRule (DescribeReceiptRule'),
+    newDescribeReceiptRule,
+    DescribeReceiptRuleResponse (DescribeReceiptRuleResponse'),
+    newDescribeReceiptRuleResponse,
 
     -- ** DeleteIdentityPolicy
     DeleteIdentityPolicy (DeleteIdentityPolicy'),
@@ -162,11 +162,11 @@ module Network.AWS.SES
     DeleteIdentityPolicyResponse (DeleteIdentityPolicyResponse'),
     newDeleteIdentityPolicyResponse,
 
-    -- ** DescribeReceiptRule
-    DescribeReceiptRule (DescribeReceiptRule'),
-    newDescribeReceiptRule,
-    DescribeReceiptRuleResponse (DescribeReceiptRuleResponse'),
-    newDescribeReceiptRuleResponse,
+    -- ** GetSendStatistics
+    GetSendStatistics (GetSendStatistics'),
+    newGetSendStatistics,
+    GetSendStatisticsResponse (GetSendStatisticsResponse'),
+    newGetSendStatisticsResponse,
 
     -- ** CreateTemplate
     CreateTemplate (CreateTemplate'),
@@ -174,17 +174,17 @@ module Network.AWS.SES
     CreateTemplateResponse (CreateTemplateResponse'),
     newCreateTemplateResponse,
 
+    -- ** SetIdentityHeadersInNotificationsEnabled
+    SetIdentityHeadersInNotificationsEnabled (SetIdentityHeadersInNotificationsEnabled'),
+    newSetIdentityHeadersInNotificationsEnabled,
+    SetIdentityHeadersInNotificationsEnabledResponse (SetIdentityHeadersInNotificationsEnabledResponse'),
+    newSetIdentityHeadersInNotificationsEnabledResponse,
+
     -- ** GetIdentityDkimAttributes
     GetIdentityDkimAttributes (GetIdentityDkimAttributes'),
     newGetIdentityDkimAttributes,
     GetIdentityDkimAttributesResponse (GetIdentityDkimAttributesResponse'),
     newGetIdentityDkimAttributesResponse,
-
-    -- ** CreateReceiptRuleSet
-    CreateReceiptRuleSet (CreateReceiptRuleSet'),
-    newCreateReceiptRuleSet,
-    CreateReceiptRuleSetResponse (CreateReceiptRuleSetResponse'),
-    newCreateReceiptRuleSetResponse,
 
     -- ** GetSendQuota
     GetSendQuota (GetSendQuota'),
@@ -192,29 +192,11 @@ module Network.AWS.SES
     GetSendQuotaResponse (GetSendQuotaResponse'),
     newGetSendQuotaResponse,
 
-    -- ** SetIdentityHeadersInNotificationsEnabled
-    SetIdentityHeadersInNotificationsEnabled (SetIdentityHeadersInNotificationsEnabled'),
-    newSetIdentityHeadersInNotificationsEnabled,
-    SetIdentityHeadersInNotificationsEnabledResponse (SetIdentityHeadersInNotificationsEnabledResponse'),
-    newSetIdentityHeadersInNotificationsEnabledResponse,
-
-    -- ** VerifyDomainIdentity
-    VerifyDomainIdentity (VerifyDomainIdentity'),
-    newVerifyDomainIdentity,
-    VerifyDomainIdentityResponse (VerifyDomainIdentityResponse'),
-    newVerifyDomainIdentityResponse,
-
-    -- ** UpdateTemplate
-    UpdateTemplate (UpdateTemplate'),
-    newUpdateTemplate,
-    UpdateTemplateResponse (UpdateTemplateResponse'),
-    newUpdateTemplateResponse,
-
-    -- ** DeleteTemplate
-    DeleteTemplate (DeleteTemplate'),
-    newDeleteTemplate,
-    DeleteTemplateResponse (DeleteTemplateResponse'),
-    newDeleteTemplateResponse,
+    -- ** CreateReceiptRuleSet
+    CreateReceiptRuleSet (CreateReceiptRuleSet'),
+    newCreateReceiptRuleSet,
+    CreateReceiptRuleSetResponse (CreateReceiptRuleSetResponse'),
+    newCreateReceiptRuleSetResponse,
 
     -- ** CreateConfigurationSetTrackingOptions
     CreateConfigurationSetTrackingOptions (CreateConfigurationSetTrackingOptions'),
@@ -228,11 +210,11 @@ module Network.AWS.SES
     DeleteReceiptRuleSetResponse (DeleteReceiptRuleSetResponse'),
     newDeleteReceiptRuleSetResponse,
 
-    -- ** SetReceiptRulePosition
-    SetReceiptRulePosition (SetReceiptRulePosition'),
-    newSetReceiptRulePosition,
-    SetReceiptRulePositionResponse (SetReceiptRulePositionResponse'),
-    newSetReceiptRulePositionResponse,
+    -- ** VerifyDomainIdentity
+    VerifyDomainIdentity (VerifyDomainIdentity'),
+    newVerifyDomainIdentity,
+    VerifyDomainIdentityResponse (VerifyDomainIdentityResponse'),
+    newVerifyDomainIdentityResponse,
 
     -- ** UpdateAccountSendingEnabled
     UpdateAccountSendingEnabled (UpdateAccountSendingEnabled'),
@@ -240,11 +222,23 @@ module Network.AWS.SES
     UpdateAccountSendingEnabledResponse (UpdateAccountSendingEnabledResponse'),
     newUpdateAccountSendingEnabledResponse,
 
-    -- ** GetIdentityVerificationAttributes
-    GetIdentityVerificationAttributes (GetIdentityVerificationAttributes'),
-    newGetIdentityVerificationAttributes,
-    GetIdentityVerificationAttributesResponse (GetIdentityVerificationAttributesResponse'),
-    newGetIdentityVerificationAttributesResponse,
+    -- ** DeleteTemplate
+    DeleteTemplate (DeleteTemplate'),
+    newDeleteTemplate,
+    DeleteTemplateResponse (DeleteTemplateResponse'),
+    newDeleteTemplateResponse,
+
+    -- ** UpdateTemplate
+    UpdateTemplate (UpdateTemplate'),
+    newUpdateTemplate,
+    UpdateTemplateResponse (UpdateTemplateResponse'),
+    newUpdateTemplateResponse,
+
+    -- ** SetReceiptRulePosition
+    SetReceiptRulePosition (SetReceiptRulePosition'),
+    newSetReceiptRulePosition,
+    SetReceiptRulePositionResponse (SetReceiptRulePositionResponse'),
+    newSetReceiptRulePositionResponse,
 
     -- ** GetIdentityPolicies
     GetIdentityPolicies (GetIdentityPolicies'),
@@ -252,17 +246,23 @@ module Network.AWS.SES
     GetIdentityPoliciesResponse (GetIdentityPoliciesResponse'),
     newGetIdentityPoliciesResponse,
 
-    -- ** CreateConfigurationSetEventDestination
-    CreateConfigurationSetEventDestination (CreateConfigurationSetEventDestination'),
-    newCreateConfigurationSetEventDestination,
-    CreateConfigurationSetEventDestinationResponse (CreateConfigurationSetEventDestinationResponse'),
-    newCreateConfigurationSetEventDestinationResponse,
+    -- ** GetIdentityVerificationAttributes
+    GetIdentityVerificationAttributes (GetIdentityVerificationAttributes'),
+    newGetIdentityVerificationAttributes,
+    GetIdentityVerificationAttributesResponse (GetIdentityVerificationAttributesResponse'),
+    newGetIdentityVerificationAttributesResponse,
 
     -- ** GetAccountSendingEnabled
     GetAccountSendingEnabled (GetAccountSendingEnabled'),
     newGetAccountSendingEnabled,
     GetAccountSendingEnabledResponse (GetAccountSendingEnabledResponse'),
     newGetAccountSendingEnabledResponse,
+
+    -- ** CreateConfigurationSetEventDestination
+    CreateConfigurationSetEventDestination (CreateConfigurationSetEventDestination'),
+    newCreateConfigurationSetEventDestination,
+    CreateConfigurationSetEventDestinationResponse (CreateConfigurationSetEventDestinationResponse'),
+    newCreateConfigurationSetEventDestinationResponse,
 
     -- ** CreateConfigurationSet
     CreateConfigurationSet (CreateConfigurationSet'),
@@ -276,18 +276,6 @@ module Network.AWS.SES
     DeleteConfigurationSetResponse (DeleteConfigurationSetResponse'),
     newDeleteConfigurationSetResponse,
 
-    -- ** DeleteReceiptRule
-    DeleteReceiptRule (DeleteReceiptRule'),
-    newDeleteReceiptRule,
-    DeleteReceiptRuleResponse (DeleteReceiptRuleResponse'),
-    newDeleteReceiptRuleResponse,
-
-    -- ** SetIdentityFeedbackForwardingEnabled
-    SetIdentityFeedbackForwardingEnabled (SetIdentityFeedbackForwardingEnabled'),
-    newSetIdentityFeedbackForwardingEnabled,
-    SetIdentityFeedbackForwardingEnabledResponse (SetIdentityFeedbackForwardingEnabledResponse'),
-    newSetIdentityFeedbackForwardingEnabledResponse,
-
     -- ** CloneReceiptRuleSet
     CloneReceiptRuleSet (CloneReceiptRuleSet'),
     newCloneReceiptRuleSet,
@@ -299,6 +287,12 @@ module Network.AWS.SES
     newUpdateConfigurationSetEventDestination,
     UpdateConfigurationSetEventDestinationResponse (UpdateConfigurationSetEventDestinationResponse'),
     newUpdateConfigurationSetEventDestinationResponse,
+
+    -- ** DeleteReceiptRule
+    DeleteReceiptRule (DeleteReceiptRule'),
+    newDeleteReceiptRule,
+    DeleteReceiptRuleResponse (DeleteReceiptRuleResponse'),
+    newDeleteReceiptRuleResponse,
 
     -- ** UpdateReceiptRule
     UpdateReceiptRule (UpdateReceiptRule'),
@@ -312,17 +306,17 @@ module Network.AWS.SES
     DeleteConfigurationSetEventDestinationResponse (DeleteConfigurationSetEventDestinationResponse'),
     newDeleteConfigurationSetEventDestinationResponse,
 
+    -- ** SetIdentityFeedbackForwardingEnabled
+    SetIdentityFeedbackForwardingEnabled (SetIdentityFeedbackForwardingEnabled'),
+    newSetIdentityFeedbackForwardingEnabled,
+    SetIdentityFeedbackForwardingEnabledResponse (SetIdentityFeedbackForwardingEnabledResponse'),
+    newSetIdentityFeedbackForwardingEnabledResponse,
+
     -- ** SendEmail
     SendEmail (SendEmail'),
     newSendEmail,
     SendEmailResponse (SendEmailResponse'),
     newSendEmailResponse,
-
-    -- ** DeleteVerifiedEmailAddress
-    DeleteVerifiedEmailAddress (DeleteVerifiedEmailAddress'),
-    newDeleteVerifiedEmailAddress,
-    DeleteVerifiedEmailAddressResponse (DeleteVerifiedEmailAddressResponse'),
-    newDeleteVerifiedEmailAddressResponse,
 
     -- ** VerifyEmailAddress
     VerifyEmailAddress (VerifyEmailAddress'),
@@ -330,11 +324,11 @@ module Network.AWS.SES
     VerifyEmailAddressResponse (VerifyEmailAddressResponse'),
     newVerifyEmailAddressResponse,
 
-    -- ** CreateCustomVerificationEmailTemplate
-    CreateCustomVerificationEmailTemplate (CreateCustomVerificationEmailTemplate'),
-    newCreateCustomVerificationEmailTemplate,
-    CreateCustomVerificationEmailTemplateResponse (CreateCustomVerificationEmailTemplateResponse'),
-    newCreateCustomVerificationEmailTemplateResponse,
+    -- ** DeleteVerifiedEmailAddress
+    DeleteVerifiedEmailAddress (DeleteVerifiedEmailAddress'),
+    newDeleteVerifiedEmailAddress,
+    DeleteVerifiedEmailAddressResponse (DeleteVerifiedEmailAddressResponse'),
+    newDeleteVerifiedEmailAddressResponse,
 
     -- ** ListIdentityPolicies
     ListIdentityPolicies (ListIdentityPolicies'),
@@ -354,6 +348,24 @@ module Network.AWS.SES
     UpdateConfigurationSetReputationMetricsEnabledResponse (UpdateConfigurationSetReputationMetricsEnabledResponse'),
     newUpdateConfigurationSetReputationMetricsEnabledResponse,
 
+    -- ** CreateCustomVerificationEmailTemplate
+    CreateCustomVerificationEmailTemplate (CreateCustomVerificationEmailTemplate'),
+    newCreateCustomVerificationEmailTemplate,
+    CreateCustomVerificationEmailTemplateResponse (CreateCustomVerificationEmailTemplateResponse'),
+    newCreateCustomVerificationEmailTemplateResponse,
+
+    -- ** DeleteCustomVerificationEmailTemplate
+    DeleteCustomVerificationEmailTemplate (DeleteCustomVerificationEmailTemplate'),
+    newDeleteCustomVerificationEmailTemplate,
+    DeleteCustomVerificationEmailTemplateResponse (DeleteCustomVerificationEmailTemplateResponse'),
+    newDeleteCustomVerificationEmailTemplateResponse,
+
+    -- ** UpdateCustomVerificationEmailTemplate
+    UpdateCustomVerificationEmailTemplate (UpdateCustomVerificationEmailTemplate'),
+    newUpdateCustomVerificationEmailTemplate,
+    UpdateCustomVerificationEmailTemplateResponse (UpdateCustomVerificationEmailTemplateResponse'),
+    newUpdateCustomVerificationEmailTemplateResponse,
+
     -- ** ListCustomVerificationEmailTemplates (Paginated)
     ListCustomVerificationEmailTemplates (ListCustomVerificationEmailTemplates'),
     newListCustomVerificationEmailTemplates,
@@ -366,23 +378,11 @@ module Network.AWS.SES
     DeleteIdentityResponse (DeleteIdentityResponse'),
     newDeleteIdentityResponse,
 
-    -- ** DeleteCustomVerificationEmailTemplate
-    DeleteCustomVerificationEmailTemplate (DeleteCustomVerificationEmailTemplate'),
-    newDeleteCustomVerificationEmailTemplate,
-    DeleteCustomVerificationEmailTemplateResponse (DeleteCustomVerificationEmailTemplateResponse'),
-    newDeleteCustomVerificationEmailTemplateResponse,
-
     -- ** PutIdentityPolicy
     PutIdentityPolicy (PutIdentityPolicy'),
     newPutIdentityPolicy,
     PutIdentityPolicyResponse (PutIdentityPolicyResponse'),
     newPutIdentityPolicyResponse,
-
-    -- ** UpdateCustomVerificationEmailTemplate
-    UpdateCustomVerificationEmailTemplate (UpdateCustomVerificationEmailTemplate'),
-    newUpdateCustomVerificationEmailTemplate,
-    UpdateCustomVerificationEmailTemplateResponse (UpdateCustomVerificationEmailTemplateResponse'),
-    newUpdateCustomVerificationEmailTemplateResponse,
 
     -- ** DeleteConfigurationSetTrackingOptions
     DeleteConfigurationSetTrackingOptions (DeleteConfigurationSetTrackingOptions'),
@@ -402,17 +402,17 @@ module Network.AWS.SES
     VerifyDomainDkimResponse (VerifyDomainDkimResponse'),
     newVerifyDomainDkimResponse,
 
+    -- ** SendTemplatedEmail
+    SendTemplatedEmail (SendTemplatedEmail'),
+    newSendTemplatedEmail,
+    SendTemplatedEmailResponse (SendTemplatedEmailResponse'),
+    newSendTemplatedEmailResponse,
+
     -- ** SendRawEmail
     SendRawEmail (SendRawEmail'),
     newSendRawEmail,
     SendRawEmailResponse (SendRawEmailResponse'),
     newSendRawEmailResponse,
-
-    -- ** TestRenderTemplate
-    TestRenderTemplate (TestRenderTemplate'),
-    newTestRenderTemplate,
-    TestRenderTemplateResponse (TestRenderTemplateResponse'),
-    newTestRenderTemplateResponse,
 
     -- ** SendBounce
     SendBounce (SendBounce'),
@@ -426,23 +426,23 @@ module Network.AWS.SES
     UpdateConfigurationSetTrackingOptionsResponse (UpdateConfigurationSetTrackingOptionsResponse'),
     newUpdateConfigurationSetTrackingOptionsResponse,
 
-    -- ** SendTemplatedEmail
-    SendTemplatedEmail (SendTemplatedEmail'),
-    newSendTemplatedEmail,
-    SendTemplatedEmailResponse (SendTemplatedEmailResponse'),
-    newSendTemplatedEmailResponse,
-
-    -- ** ListReceiptRuleSets (Paginated)
-    ListReceiptRuleSets (ListReceiptRuleSets'),
-    newListReceiptRuleSets,
-    ListReceiptRuleSetsResponse (ListReceiptRuleSetsResponse'),
-    newListReceiptRuleSetsResponse,
+    -- ** TestRenderTemplate
+    TestRenderTemplate (TestRenderTemplate'),
+    newTestRenderTemplate,
+    TestRenderTemplateResponse (TestRenderTemplateResponse'),
+    newTestRenderTemplateResponse,
 
     -- ** ReorderReceiptRuleSet
     ReorderReceiptRuleSet (ReorderReceiptRuleSet'),
     newReorderReceiptRuleSet,
     ReorderReceiptRuleSetResponse (ReorderReceiptRuleSetResponse'),
     newReorderReceiptRuleSetResponse,
+
+    -- ** ListReceiptRuleSets (Paginated)
+    ListReceiptRuleSets (ListReceiptRuleSets'),
+    newListReceiptRuleSets,
+    ListReceiptRuleSetsResponse (ListReceiptRuleSetsResponse'),
+    newListReceiptRuleSetsResponse,
 
     -- ** ListTemplates (Paginated)
     ListTemplates (ListTemplates'),
@@ -456,17 +456,17 @@ module Network.AWS.SES
     DescribeActiveReceiptRuleSetResponse (DescribeActiveReceiptRuleSetResponse'),
     newDescribeActiveReceiptRuleSetResponse,
 
-    -- ** CreateReceiptRule
-    CreateReceiptRule (CreateReceiptRule'),
-    newCreateReceiptRule,
-    CreateReceiptRuleResponse (CreateReceiptRuleResponse'),
-    newCreateReceiptRuleResponse,
-
     -- ** GetTemplate
     GetTemplate (GetTemplate'),
     newGetTemplate,
     GetTemplateResponse (GetTemplateResponse'),
     newGetTemplateResponse,
+
+    -- ** CreateReceiptRule
+    CreateReceiptRule (CreateReceiptRule'),
+    newCreateReceiptRule,
+    CreateReceiptRuleResponse (CreateReceiptRuleResponse'),
+    newCreateReceiptRuleResponse,
 
     -- ** SetActiveReceiptRuleSet
     SetActiveReceiptRuleSet (SetActiveReceiptRuleSet'),
@@ -492,17 +492,17 @@ module Network.AWS.SES
     GetIdentityMailFromDomainAttributesResponse (GetIdentityMailFromDomainAttributesResponse'),
     newGetIdentityMailFromDomainAttributesResponse,
 
-    -- ** SetIdentityNotificationTopic
-    SetIdentityNotificationTopic (SetIdentityNotificationTopic'),
-    newSetIdentityNotificationTopic,
-    SetIdentityNotificationTopicResponse (SetIdentityNotificationTopicResponse'),
-    newSetIdentityNotificationTopicResponse,
-
     -- ** GetCustomVerificationEmailTemplate
     GetCustomVerificationEmailTemplate (GetCustomVerificationEmailTemplate'),
     newGetCustomVerificationEmailTemplate,
     GetCustomVerificationEmailTemplateResponse (GetCustomVerificationEmailTemplateResponse'),
     newGetCustomVerificationEmailTemplateResponse,
+
+    -- ** SetIdentityNotificationTopic
+    SetIdentityNotificationTopic (SetIdentityNotificationTopic'),
+    newSetIdentityNotificationTopic,
+    SetIdentityNotificationTopicResponse (SetIdentityNotificationTopicResponse'),
+    newSetIdentityNotificationTopicResponse,
 
     -- ** CreateReceiptFilter
     CreateReceiptFilter (CreateReceiptFilter'),
@@ -516,12 +516,6 @@ module Network.AWS.SES
     ListVerifiedEmailAddressesResponse (ListVerifiedEmailAddressesResponse'),
     newListVerifiedEmailAddressesResponse,
 
-    -- ** ListReceiptFilters
-    ListReceiptFilters (ListReceiptFilters'),
-    newListReceiptFilters,
-    ListReceiptFiltersResponse (ListReceiptFiltersResponse'),
-    newListReceiptFiltersResponse,
-
     -- ** DeleteReceiptFilter
     DeleteReceiptFilter (DeleteReceiptFilter'),
     newDeleteReceiptFilter,
@@ -534,17 +528,23 @@ module Network.AWS.SES
     DescribeReceiptRuleSetResponse (DescribeReceiptRuleSetResponse'),
     newDescribeReceiptRuleSetResponse,
 
+    -- ** ListReceiptFilters
+    ListReceiptFilters (ListReceiptFilters'),
+    newListReceiptFilters,
+    ListReceiptFiltersResponse (ListReceiptFiltersResponse'),
+    newListReceiptFiltersResponse,
+
     -- ** VerifyEmailIdentity
     VerifyEmailIdentity (VerifyEmailIdentity'),
     newVerifyEmailIdentity,
     VerifyEmailIdentityResponse (VerifyEmailIdentityResponse'),
     newVerifyEmailIdentityResponse,
 
-    -- ** SendCustomVerificationEmail
-    SendCustomVerificationEmail (SendCustomVerificationEmail'),
-    newSendCustomVerificationEmail,
-    SendCustomVerificationEmailResponse (SendCustomVerificationEmailResponse'),
-    newSendCustomVerificationEmailResponse,
+    -- ** UpdateConfigurationSetSendingEnabled
+    UpdateConfigurationSetSendingEnabled (UpdateConfigurationSetSendingEnabled'),
+    newUpdateConfigurationSetSendingEnabled,
+    UpdateConfigurationSetSendingEnabledResponse (UpdateConfigurationSetSendingEnabledResponse'),
+    newUpdateConfigurationSetSendingEnabledResponse,
 
     -- ** ListIdentities (Paginated)
     ListIdentities (ListIdentities'),
@@ -558,11 +558,11 @@ module Network.AWS.SES
     GetIdentityNotificationAttributesResponse (GetIdentityNotificationAttributesResponse'),
     newGetIdentityNotificationAttributesResponse,
 
-    -- ** UpdateConfigurationSetSendingEnabled
-    UpdateConfigurationSetSendingEnabled (UpdateConfigurationSetSendingEnabled'),
-    newUpdateConfigurationSetSendingEnabled,
-    UpdateConfigurationSetSendingEnabledResponse (UpdateConfigurationSetSendingEnabledResponse'),
-    newUpdateConfigurationSetSendingEnabledResponse,
+    -- ** SendCustomVerificationEmail
+    SendCustomVerificationEmail (SendCustomVerificationEmail'),
+    newSendCustomVerificationEmail,
+    SendCustomVerificationEmailResponse (SendCustomVerificationEmailResponse'),
+    newSendCustomVerificationEmailResponse,
 
     -- * Types
 

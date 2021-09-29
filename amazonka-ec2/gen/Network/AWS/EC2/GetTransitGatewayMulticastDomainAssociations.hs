@@ -31,9 +31,9 @@ module Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
 
     -- * Request Lenses
     getTransitGatewayMulticastDomainAssociations_nextToken,
-    getTransitGatewayMulticastDomainAssociations_dryRun,
-    getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
     getTransitGatewayMulticastDomainAssociations_maxResults,
+    getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId,
+    getTransitGatewayMulticastDomainAssociations_dryRun,
     getTransitGatewayMulticastDomainAssociations_filters,
 
     -- * Destructuring the Response
@@ -58,17 +58,17 @@ import qualified Network.AWS.Response as Response
 data GetTransitGatewayMulticastDomainAssociations = GetTransitGatewayMulticastDomainAssociations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more filters. The possible values are:
     --
     -- -   @resource-id@ - The ID of the resource.
@@ -96,16 +96,16 @@ data GetTransitGatewayMulticastDomainAssociations = GetTransitGatewayMulticastDo
 --
 -- 'nextToken', 'getTransitGatewayMulticastDomainAssociations_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'getTransitGatewayMulticastDomainAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- 'transitGatewayMulticastDomainId', 'getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--
 -- 'dryRun', 'getTransitGatewayMulticastDomainAssociations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'transitGatewayMulticastDomainId', 'getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- 'maxResults', 'getTransitGatewayMulticastDomainAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'filters', 'getTransitGatewayMulticastDomainAssociations_filters' - One or more filters. The possible values are:
 --
@@ -126,10 +126,10 @@ newGetTransitGatewayMulticastDomainAssociations =
   GetTransitGatewayMulticastDomainAssociations'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       transitGatewayMulticastDomainId =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
@@ -137,22 +137,22 @@ newGetTransitGatewayMulticastDomainAssociations =
 getTransitGatewayMulticastDomainAssociations_nextToken :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
 getTransitGatewayMulticastDomainAssociations_nextToken = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayMulticastDomainAssociations)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getTransitGatewayMulticastDomainAssociations_maxResults :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Natural)
+getTransitGatewayMulticastDomainAssociations_maxResults = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayMulticastDomainAssociations)
+
+-- | The ID of the transit gateway multicast domain.
+getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
+getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayMulticastDomainId = a} :: GetTransitGatewayMulticastDomainAssociations)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getTransitGatewayMulticastDomainAssociations_dryRun :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Bool)
 getTransitGatewayMulticastDomainAssociations_dryRun = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {dryRun} -> dryRun) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {dryRun = a} :: GetTransitGatewayMulticastDomainAssociations)
-
--- | The ID of the transit gateway multicast domain.
-getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
-getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayMulticastDomainId = a} :: GetTransitGatewayMulticastDomainAssociations)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getTransitGatewayMulticastDomainAssociations_maxResults :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Natural)
-getTransitGatewayMulticastDomainAssociations_maxResults = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {maxResults} -> maxResults) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {maxResults = a} :: GetTransitGatewayMulticastDomainAssociations)
 
 -- | One or more filters. The possible values are:
 --
@@ -250,10 +250,10 @@ instance
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
           "NextToken" Core.=: nextToken,
-          "DryRun" Core.=: dryRun,
+          "MaxResults" Core.=: maxResults,
           "TransitGatewayMulticastDomainId"
             Core.=: transitGatewayMulticastDomainId,
-          "MaxResults" Core.=: maxResults,
+          "DryRun" Core.=: dryRun,
           Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters)
         ]

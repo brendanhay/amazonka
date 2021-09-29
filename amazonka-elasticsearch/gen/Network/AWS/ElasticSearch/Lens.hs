@@ -26,16 +26,10 @@ module Network.AWS.ElasticSearch.Lens
     removeTags_arn,
     removeTags_tagKeys,
 
-    -- ** CreateOutboundCrossClusterSearchConnection
-    createOutboundCrossClusterSearchConnection_sourceDomainInfo,
-    createOutboundCrossClusterSearchConnection_destinationDomainInfo,
-    createOutboundCrossClusterSearchConnection_connectionAlias,
-    createOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnectionId,
-    createOutboundCrossClusterSearchConnectionResponse_sourceDomainInfo,
-    createOutboundCrossClusterSearchConnectionResponse_connectionAlias,
-    createOutboundCrossClusterSearchConnectionResponse_destinationDomainInfo,
-    createOutboundCrossClusterSearchConnectionResponse_connectionStatus,
-    createOutboundCrossClusterSearchConnectionResponse_httpStatus,
+    -- ** DescribeElasticsearchDomainConfig
+    describeElasticsearchDomainConfig_domainName,
+    describeElasticsearchDomainConfigResponse_httpStatus,
+    describeElasticsearchDomainConfigResponse_domainConfig,
 
     -- ** GetUpgradeHistory
     getUpgradeHistory_nextToken,
@@ -45,34 +39,54 @@ module Network.AWS.ElasticSearch.Lens
     getUpgradeHistoryResponse_upgradeHistories,
     getUpgradeHistoryResponse_httpStatus,
 
-    -- ** DescribeElasticsearchDomainConfig
-    describeElasticsearchDomainConfig_domainName,
-    describeElasticsearchDomainConfigResponse_httpStatus,
-    describeElasticsearchDomainConfigResponse_domainConfig,
-
-    -- ** AcceptInboundCrossClusterSearchConnection
-    acceptInboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
-    acceptInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
-    acceptInboundCrossClusterSearchConnectionResponse_httpStatus,
+    -- ** CreateOutboundCrossClusterSearchConnection
+    createOutboundCrossClusterSearchConnection_sourceDomainInfo,
+    createOutboundCrossClusterSearchConnection_destinationDomainInfo,
+    createOutboundCrossClusterSearchConnection_connectionAlias,
+    createOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnectionId,
+    createOutboundCrossClusterSearchConnectionResponse_sourceDomainInfo,
+    createOutboundCrossClusterSearchConnectionResponse_connectionAlias,
+    createOutboundCrossClusterSearchConnectionResponse_connectionStatus,
+    createOutboundCrossClusterSearchConnectionResponse_destinationDomainInfo,
+    createOutboundCrossClusterSearchConnectionResponse_httpStatus,
 
     -- ** DeleteOutboundCrossClusterSearchConnection
     deleteOutboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     deleteOutboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
     deleteOutboundCrossClusterSearchConnectionResponse_httpStatus,
 
-    -- ** ListDomainNames
-    listDomainNamesResponse_domainNames,
-    listDomainNamesResponse_httpStatus,
+    -- ** AcceptInboundCrossClusterSearchConnection
+    acceptInboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
+    acceptInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
+    acceptInboundCrossClusterSearchConnectionResponse_httpStatus,
+
+    -- ** DescribeElasticsearchDomain
+    describeElasticsearchDomain_domainName,
+    describeElasticsearchDomainResponse_httpStatus,
+    describeElasticsearchDomainResponse_domainStatus,
 
     -- ** CancelElasticsearchServiceSoftwareUpdate
     cancelElasticsearchServiceSoftwareUpdate_domainName,
     cancelElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions,
     cancelElasticsearchServiceSoftwareUpdateResponse_httpStatus,
 
-    -- ** DescribeElasticsearchDomain
-    describeElasticsearchDomain_domainName,
-    describeElasticsearchDomainResponse_httpStatus,
-    describeElasticsearchDomainResponse_domainStatus,
+    -- ** ListDomainNames
+    listDomainNames_engineType,
+    listDomainNamesResponse_domainNames,
+    listDomainNamesResponse_httpStatus,
+
+    -- ** DeletePackage
+    deletePackage_packageID,
+    deletePackageResponse_packageDetails,
+    deletePackageResponse_httpStatus,
+
+    -- ** UpdatePackage
+    updatePackage_commitMessage,
+    updatePackage_packageDescription,
+    updatePackage_packageID,
+    updatePackage_packageSource,
+    updatePackageResponse_packageDetails,
+    updatePackageResponse_httpStatus,
 
     -- ** DeleteElasticsearchServiceRole
 
@@ -85,23 +99,6 @@ module Network.AWS.ElasticSearch.Lens
     listElasticsearchInstanceTypesResponse_elasticsearchInstanceTypes,
     listElasticsearchInstanceTypesResponse_httpStatus,
 
-    -- ** UpdatePackage
-    updatePackage_commitMessage,
-    updatePackage_packageDescription,
-    updatePackage_packageID,
-    updatePackage_packageSource,
-    updatePackageResponse_packageDetails,
-    updatePackageResponse_httpStatus,
-
-    -- ** DeletePackage
-    deletePackage_packageID,
-    deletePackageResponse_packageDetails,
-    deletePackageResponse_httpStatus,
-
-    -- ** AddTags
-    addTags_arn,
-    addTags_tagList,
-
     -- ** DeleteInboundCrossClusterSearchConnection
     deleteInboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     deleteInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
@@ -112,8 +109,8 @@ module Network.AWS.ElasticSearch.Lens
     updateElasticsearchDomainConfig_snapshotOptions,
     updateElasticsearchDomainConfig_elasticsearchClusterConfig,
     updateElasticsearchDomainConfig_domainEndpointOptions,
-    updateElasticsearchDomainConfig_vPCOptions,
     updateElasticsearchDomainConfig_autoTuneOptions,
+    updateElasticsearchDomainConfig_vPCOptions,
     updateElasticsearchDomainConfig_accessPolicies,
     updateElasticsearchDomainConfig_encryptionAtRestOptions,
     updateElasticsearchDomainConfig_cognitoOptions,
@@ -132,15 +129,14 @@ module Network.AWS.ElasticSearch.Lens
     listElasticsearchVersionsResponse_elasticsearchVersions,
     listElasticsearchVersionsResponse_httpStatus,
 
+    -- ** AddTags
+    addTags_arn,
+    addTags_tagList,
+
     -- ** DeleteElasticsearchDomain
     deleteElasticsearchDomain_domainName,
     deleteElasticsearchDomainResponse_domainStatus,
     deleteElasticsearchDomainResponse_httpStatus,
-
-    -- ** GetCompatibleElasticsearchVersions
-    getCompatibleElasticsearchVersions_domainName,
-    getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions,
-    getCompatibleElasticsearchVersionsResponse_httpStatus,
 
     -- ** DissociatePackage
     dissociatePackage_packageID,
@@ -148,13 +144,18 @@ module Network.AWS.ElasticSearch.Lens
     dissociatePackageResponse_domainPackageDetails,
     dissociatePackageResponse_httpStatus,
 
+    -- ** GetCompatibleElasticsearchVersions
+    getCompatibleElasticsearchVersions_domainName,
+    getCompatibleElasticsearchVersionsResponse_compatibleElasticsearchVersions,
+    getCompatibleElasticsearchVersionsResponse_httpStatus,
+
     -- ** CreateElasticsearchDomain
     createElasticsearchDomain_eBSOptions,
     createElasticsearchDomain_snapshotOptions,
     createElasticsearchDomain_elasticsearchClusterConfig,
     createElasticsearchDomain_domainEndpointOptions,
-    createElasticsearchDomain_vPCOptions,
     createElasticsearchDomain_autoTuneOptions,
+    createElasticsearchDomain_vPCOptions,
     createElasticsearchDomain_accessPolicies,
     createElasticsearchDomain_encryptionAtRestOptions,
     createElasticsearchDomain_cognitoOptions,
@@ -192,6 +193,19 @@ module Network.AWS.ElasticSearch.Lens
     describeElasticsearchInstanceTypeLimitsResponse_limitsByRole,
     describeElasticsearchInstanceTypeLimitsResponse_httpStatus,
 
+    -- ** RejectInboundCrossClusterSearchConnection
+    rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
+    rejectInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
+    rejectInboundCrossClusterSearchConnectionResponse_httpStatus,
+
+    -- ** CreatePackage
+    createPackage_packageDescription,
+    createPackage_packageName,
+    createPackage_packageType,
+    createPackage_packageSource,
+    createPackageResponse_packageDetails,
+    createPackageResponse_httpStatus,
+
     -- ** DescribeOutboundCrossClusterSearchConnections
     describeOutboundCrossClusterSearchConnections_nextToken,
     describeOutboundCrossClusterSearchConnections_maxResults,
@@ -206,18 +220,10 @@ module Network.AWS.ElasticSearch.Lens
     associatePackageResponse_domainPackageDetails,
     associatePackageResponse_httpStatus,
 
-    -- ** CreatePackage
-    createPackage_packageDescription,
-    createPackage_packageName,
-    createPackage_packageType,
-    createPackage_packageSource,
-    createPackageResponse_packageDetails,
-    createPackageResponse_httpStatus,
-
-    -- ** RejectInboundCrossClusterSearchConnection
-    rejectInboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
-    rejectInboundCrossClusterSearchConnectionResponse_crossClusterSearchConnection,
-    rejectInboundCrossClusterSearchConnectionResponse_httpStatus,
+    -- ** ListTags
+    listTags_arn,
+    listTagsResponse_tagList,
+    listTagsResponse_httpStatus,
 
     -- ** DescribeDomainAutoTunes
     describeDomainAutoTunes_nextToken,
@@ -226,11 +232,6 @@ module Network.AWS.ElasticSearch.Lens
     describeDomainAutoTunesResponse_nextToken,
     describeDomainAutoTunesResponse_autoTunes,
     describeDomainAutoTunesResponse_httpStatus,
-
-    -- ** ListTags
-    listTags_arn,
-    listTagsResponse_tagList,
-    listTagsResponse_httpStatus,
 
     -- ** UpgradeElasticsearchDomain
     upgradeElasticsearchDomain_performCheckOnly,
@@ -257,6 +258,11 @@ module Network.AWS.ElasticSearch.Lens
     describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances,
     describeReservedElasticsearchInstancesResponse_httpStatus,
 
+    -- ** StartElasticsearchServiceSoftwareUpdate
+    startElasticsearchServiceSoftwareUpdate_domainName,
+    startElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions,
+    startElasticsearchServiceSoftwareUpdateResponse_httpStatus,
+
     -- ** DescribeReservedElasticsearchInstanceOfferings
     describeReservedElasticsearchInstanceOfferings_nextToken,
     describeReservedElasticsearchInstanceOfferings_maxResults,
@@ -264,11 +270,6 @@ module Network.AWS.ElasticSearch.Lens
     describeReservedElasticsearchInstanceOfferingsResponse_nextToken,
     describeReservedElasticsearchInstanceOfferingsResponse_reservedElasticsearchInstanceOfferings,
     describeReservedElasticsearchInstanceOfferingsResponse_httpStatus,
-
-    -- ** StartElasticsearchServiceSoftwareUpdate
-    startElasticsearchServiceSoftwareUpdate_domainName,
-    startElasticsearchServiceSoftwareUpdateResponse_serviceSoftwareOptions,
-    startElasticsearchServiceSoftwareUpdateResponse_httpStatus,
 
     -- ** ListDomainsForPackage
     listDomainsForPackage_nextToken,
@@ -278,11 +279,6 @@ module Network.AWS.ElasticSearch.Lens
     listDomainsForPackageResponse_domainPackageDetailsList,
     listDomainsForPackageResponse_httpStatus,
 
-    -- ** DescribeElasticsearchDomains
-    describeElasticsearchDomains_domainNames,
-    describeElasticsearchDomainsResponse_httpStatus,
-    describeElasticsearchDomainsResponse_domainStatusList,
-
     -- ** PurchaseReservedElasticsearchInstanceOffering
     purchaseReservedElasticsearchInstanceOffering_instanceCount,
     purchaseReservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId,
@@ -290,6 +286,11 @@ module Network.AWS.ElasticSearch.Lens
     purchaseReservedElasticsearchInstanceOfferingResponse_reservationName,
     purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId,
     purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus,
+
+    -- ** DescribeElasticsearchDomains
+    describeElasticsearchDomains_domainNames,
+    describeElasticsearchDomainsResponse_httpStatus,
+    describeElasticsearchDomainsResponse_domainStatusList,
 
     -- ** GetUpgradeStatus
     getUpgradeStatus_domainName,
@@ -374,6 +375,9 @@ module Network.AWS.ElasticSearch.Lens
     cognitoOptionsStatus_options,
     cognitoOptionsStatus_status,
 
+    -- ** ColdStorageOptions
+    coldStorageOptions_enabled,
+
     -- ** CompatibleVersionsMap
     compatibleVersionsMap_sourceVersion,
     compatibleVersionsMap_targetVersions,
@@ -383,17 +387,18 @@ module Network.AWS.ElasticSearch.Lens
     describePackagesFilter_value,
 
     -- ** DomainEndpointOptions
-    domainEndpointOptions_customEndpointCertificateArn,
     domainEndpointOptions_customEndpoint,
-    domainEndpointOptions_enforceHTTPS,
-    domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_customEndpointCertificateArn,
     domainEndpointOptions_customEndpointEnabled,
+    domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_enforceHTTPS,
 
     -- ** DomainEndpointOptionsStatus
     domainEndpointOptionsStatus_options,
     domainEndpointOptionsStatus_status,
 
     -- ** DomainInfo
+    domainInfo_engineType,
     domainInfo_domainName,
 
     -- ** DomainInformation
@@ -405,9 +410,9 @@ module Network.AWS.ElasticSearch.Lens
     domainPackageDetails_domainPackageStatus,
     domainPackageDetails_packageVersion,
     domainPackageDetails_packageName,
-    domainPackageDetails_lastUpdated,
     domainPackageDetails_packageID,
     domainPackageDetails_domainName,
+    domainPackageDetails_lastUpdated,
     domainPackageDetails_referencePath,
     domainPackageDetails_packageType,
     domainPackageDetails_errorDetails,
@@ -419,8 +424,8 @@ module Network.AWS.ElasticSearch.Lens
     -- ** EBSOptions
     eBSOptions_eBSEnabled,
     eBSOptions_volumeType,
-    eBSOptions_volumeSize,
     eBSOptions_iops,
+    eBSOptions_volumeSize,
 
     -- ** EBSOptionsStatus
     eBSOptionsStatus_options,
@@ -436,6 +441,7 @@ module Network.AWS.ElasticSearch.Lens
     elasticsearchClusterConfig_warmCount,
     elasticsearchClusterConfig_dedicatedMasterType,
     elasticsearchClusterConfig_warmType,
+    elasticsearchClusterConfig_coldStorageOptions,
     elasticsearchClusterConfig_instanceCount,
 
     -- ** ElasticsearchClusterConfigStatus
@@ -447,8 +453,8 @@ module Network.AWS.ElasticSearch.Lens
     elasticsearchDomainConfig_snapshotOptions,
     elasticsearchDomainConfig_elasticsearchClusterConfig,
     elasticsearchDomainConfig_domainEndpointOptions,
-    elasticsearchDomainConfig_vPCOptions,
     elasticsearchDomainConfig_autoTuneOptions,
+    elasticsearchDomainConfig_vPCOptions,
     elasticsearchDomainConfig_accessPolicies,
     elasticsearchDomainConfig_encryptionAtRestOptions,
     elasticsearchDomainConfig_cognitoOptions,
@@ -464,8 +470,8 @@ module Network.AWS.ElasticSearch.Lens
     elasticsearchDomainStatus_domainEndpointOptions,
     elasticsearchDomainStatus_upgradeProcessing,
     elasticsearchDomainStatus_endpoints,
-    elasticsearchDomainStatus_vPCOptions,
     elasticsearchDomainStatus_autoTuneOptions,
+    elasticsearchDomainStatus_vPCOptions,
     elasticsearchDomainStatus_accessPolicies,
     elasticsearchDomainStatus_encryptionAtRestOptions,
     elasticsearchDomainStatus_serviceSoftwareOptions,
@@ -473,8 +479,8 @@ module Network.AWS.ElasticSearch.Lens
     elasticsearchDomainStatus_nodeToNodeEncryptionOptions,
     elasticsearchDomainStatus_elasticsearchVersion,
     elasticsearchDomainStatus_advancedOptions,
-    elasticsearchDomainStatus_processing,
     elasticsearchDomainStatus_endpoint,
+    elasticsearchDomainStatus_processing,
     elasticsearchDomainStatus_created,
     elasticsearchDomainStatus_advancedSecurityOptions,
     elasticsearchDomainStatus_logPublishingOptions,
@@ -507,8 +513,8 @@ module Network.AWS.ElasticSearch.Lens
     -- ** InboundCrossClusterSearchConnection
     inboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     inboundCrossClusterSearchConnection_sourceDomainInfo,
-    inboundCrossClusterSearchConnection_destinationDomainInfo,
     inboundCrossClusterSearchConnection_connectionStatus,
+    inboundCrossClusterSearchConnection_destinationDomainInfo,
 
     -- ** InboundCrossClusterSearchConnectionStatus
     inboundCrossClusterSearchConnectionStatus_message,
@@ -557,8 +563,8 @@ module Network.AWS.ElasticSearch.Lens
     outboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     outboundCrossClusterSearchConnection_sourceDomainInfo,
     outboundCrossClusterSearchConnection_connectionAlias,
-    outboundCrossClusterSearchConnection_destinationDomainInfo,
     outboundCrossClusterSearchConnection_connectionStatus,
+    outboundCrossClusterSearchConnection_destinationDomainInfo,
 
     -- ** OutboundCrossClusterSearchConnectionStatus
     outboundCrossClusterSearchConnectionStatus_message,
@@ -567,8 +573,8 @@ module Network.AWS.ElasticSearch.Lens
     -- ** PackageDetails
     packageDetails_availablePackageVersion,
     packageDetails_packageStatus,
-    packageDetails_packageName,
     packageDetails_createdAt,
+    packageDetails_packageName,
     packageDetails_packageID,
     packageDetails_packageDescription,
     packageDetails_lastUpdatedAt,
@@ -621,16 +627,16 @@ module Network.AWS.ElasticSearch.Lens
     sAMLOptionsInput_masterBackendRole,
     sAMLOptionsInput_rolesKey,
     sAMLOptionsInput_sessionTimeoutMinutes,
-    sAMLOptionsInput_idp,
     sAMLOptionsInput_enabled,
+    sAMLOptionsInput_idp,
     sAMLOptionsInput_masterUserName,
     sAMLOptionsInput_subjectKey,
 
     -- ** SAMLOptionsOutput
     sAMLOptionsOutput_rolesKey,
     sAMLOptionsOutput_sessionTimeoutMinutes,
-    sAMLOptionsOutput_idp,
     sAMLOptionsOutput_enabled,
+    sAMLOptionsOutput_idp,
     sAMLOptionsOutput_subjectKey,
 
     -- ** ScheduledAutoTuneDetails
@@ -642,8 +648,8 @@ module Network.AWS.ElasticSearch.Lens
     -- ** ServiceSoftwareOptions
     serviceSoftwareOptions_newVersion,
     serviceSoftwareOptions_currentVersion,
-    serviceSoftwareOptions_updateAvailable,
     serviceSoftwareOptions_cancellable,
+    serviceSoftwareOptions_updateAvailable,
     serviceSoftwareOptions_updateStatus,
     serviceSoftwareOptions_optionalDeployment,
     serviceSoftwareOptions_description,
@@ -753,6 +759,7 @@ import Network.AWS.ElasticSearch.Types.AutoTuneOptionsStatus
 import Network.AWS.ElasticSearch.Types.AutoTuneStatus
 import Network.AWS.ElasticSearch.Types.CognitoOptions
 import Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+import Network.AWS.ElasticSearch.Types.ColdStorageOptions
 import Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
 import Network.AWS.ElasticSearch.Types.DescribePackagesFilter
 import Network.AWS.ElasticSearch.Types.DomainEndpointOptions

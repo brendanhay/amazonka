@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
 import Network.AWS.ElastiCache.Types.Endpoint
 import Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
+import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
 import Network.AWS.ElastiCache.Types.MultiAZStatus
 import Network.AWS.ElastiCache.Types.NodeGroup
 import Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
@@ -55,12 +56,12 @@ data ReplicationGroup = ReplicationGroup'
     -- | The names of all the cache clusters that are part of this replication
     -- group.
     memberClusters :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Global Datastore and role of this replication group in
-    -- the Global Datastore.
-    globalReplicationGroupInfo :: Prelude.Maybe GlobalReplicationGroupInfo,
     -- | The identifier for the replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The list of user group IDs that have access to the replication group.
+    -- | The name of the Global datastore and role of this replication group in
+    -- the Global datastore.
+    globalReplicationGroupInfo :: Prelude.Maybe GlobalReplicationGroupInfo,
+    -- | The ID of the user group associated to the replication group.
     userGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The daily time range (in UTC) during which ElastiCache begins taking a
     -- daily snapshot of your node group (shard).
@@ -72,8 +73,6 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- This parameter is only valid if the @Engine@ parameter is @redis@.
     snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the replication group.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which ElastiCache retains automatic cluster
     -- snapshots before deleting them. For example, if you set
     -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
@@ -82,10 +81,19 @@ data ReplicationGroup = ReplicationGroup'
     -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
     -- turned off.
     snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    -- | The ARN (Amazon Resource Name) of the replication group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A flag indicating if you have Multi-AZ enabled to enhance fault
     -- tolerance. For more information, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
     multiAZ :: Prelude.Maybe MultiAZStatus,
+    -- | The date and time when the cluster was created.
+    replicationGroupCreateTime :: Prelude.Maybe Core.ISO8601,
+    -- | The ID of the KMS key used to encrypt the disk in the cluster.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The cluster ID that is used as the daily snapshot source for the
+    -- replication group.
+    snapshottingClusterId :: Prelude.Maybe Prelude.Text,
     -- | A flag that enables encryption at-rest when set to @true@.
     --
     -- You cannot modify the value of @AtRestEncryptionEnabled@ after the
@@ -97,29 +105,26 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- Default: @false@
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the KMS key used to encrypt the disk in the cluster.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The cluster ID that is used as the daily snapshot source for the
-    -- replication group.
-    snapshottingClusterId :: Prelude.Maybe Prelude.Text,
+    -- | The date the auth token was last modified
+    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
     -- | The name of the compute and memory capacity node type for each node in
     -- the replication group.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | The date the auth token was last modified
-    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
-    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
-    -- commands.
-    --
-    -- Default: @false@
-    authTokenEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The user supplied description of the replication group.
     description :: Prelude.Maybe Prelude.Text,
     -- | A group of settings to be applied to the replication group, either
     -- immediately or during the next maintenance window.
     pendingModifiedValues :: Prelude.Maybe ReplicationGroupPendingModifiedValues,
+    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
+    -- commands.
+    --
+    -- Default: @false@
+    authTokenEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The configuration endpoint for this replication group. Use the
     -- configuration endpoint to connect to this replication group.
     configurationEndpoint :: Prelude.Maybe Endpoint,
+    -- | Returns the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfiguration],
     -- | A flag that enables in-transit encryption when set to @true@.
     --
     -- You cannot modify the value of @TransitEncryptionEnabled@ after the
@@ -164,12 +169,12 @@ data ReplicationGroup = ReplicationGroup'
 -- 'memberClusters', 'replicationGroup_memberClusters' - The names of all the cache clusters that are part of this replication
 -- group.
 --
--- 'globalReplicationGroupInfo', 'replicationGroup_globalReplicationGroupInfo' - The name of the Global Datastore and role of this replication group in
--- the Global Datastore.
---
 -- 'replicationGroupId', 'replicationGroup_replicationGroupId' - The identifier for the replication group.
 --
--- 'userGroupIds', 'replicationGroup_userGroupIds' - The list of user group IDs that have access to the replication group.
+-- 'globalReplicationGroupInfo', 'replicationGroup_globalReplicationGroupInfo' - The name of the Global datastore and role of this replication group in
+-- the Global datastore.
+--
+-- 'userGroupIds', 'replicationGroup_userGroupIds' - The ID of the user group associated to the replication group.
 --
 -- 'snapshotWindow', 'replicationGroup_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
 -- daily snapshot of your node group (shard).
@@ -181,8 +186,6 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- This parameter is only valid if the @Engine@ parameter is @redis@.
 --
--- 'arn', 'replicationGroup_arn' - The ARN (Amazon Resource Name) of the replication group.
---
 -- 'snapshotRetentionLimit', 'replicationGroup_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster
 -- snapshots before deleting them. For example, if you set
 -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
@@ -191,9 +194,18 @@ data ReplicationGroup = ReplicationGroup'
 -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
 -- turned off.
 --
+-- 'arn', 'replicationGroup_arn' - The ARN (Amazon Resource Name) of the replication group.
+--
 -- 'multiAZ', 'replicationGroup_multiAZ' - A flag indicating if you have Multi-AZ enabled to enhance fault
 -- tolerance. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
+--
+-- 'replicationGroupCreateTime', 'replicationGroup_replicationGroupCreateTime' - The date and time when the cluster was created.
+--
+-- 'kmsKeyId', 'replicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
+--
+-- 'snapshottingClusterId', 'replicationGroup_snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the
+-- replication group.
 --
 -- 'atRestEncryptionEnabled', 'replicationGroup_atRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@.
 --
@@ -206,28 +218,25 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- Default: @false@
 --
--- 'kmsKeyId', 'replicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
---
--- 'snapshottingClusterId', 'replicationGroup_snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the
--- replication group.
+-- 'authTokenLastModifiedDate', 'replicationGroup_authTokenLastModifiedDate' - The date the auth token was last modified
 --
 -- 'cacheNodeType', 'replicationGroup_cacheNodeType' - The name of the compute and memory capacity node type for each node in
 -- the replication group.
---
--- 'authTokenLastModifiedDate', 'replicationGroup_authTokenLastModifiedDate' - The date the auth token was last modified
---
--- 'authTokenEnabled', 'replicationGroup_authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis
--- commands.
---
--- Default: @false@
 --
 -- 'description', 'replicationGroup_description' - The user supplied description of the replication group.
 --
 -- 'pendingModifiedValues', 'replicationGroup_pendingModifiedValues' - A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
 --
+-- 'authTokenEnabled', 'replicationGroup_authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis
+-- commands.
+--
+-- Default: @false@
+--
 -- 'configurationEndpoint', 'replicationGroup_configurationEndpoint' - The configuration endpoint for this replication group. Use the
 -- configuration endpoint to connect to this replication group.
+--
+-- 'logDeliveryConfigurations', 'replicationGroup_logDeliveryConfigurations' - Returns the destination, format and type of the logs.
 --
 -- 'transitEncryptionEnabled', 'replicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
@@ -249,22 +258,24 @@ newReplicationGroup =
       automaticFailover = Prelude.Nothing,
       memberClustersOutpostArns = Prelude.Nothing,
       memberClusters = Prelude.Nothing,
-      globalReplicationGroupInfo = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
+      globalReplicationGroupInfo = Prelude.Nothing,
       userGroupIds = Prelude.Nothing,
       snapshotWindow = Prelude.Nothing,
-      arn = Prelude.Nothing,
       snapshotRetentionLimit = Prelude.Nothing,
+      arn = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
-      atRestEncryptionEnabled = Prelude.Nothing,
+      replicationGroupCreateTime = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       snapshottingClusterId = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
+      atRestEncryptionEnabled = Prelude.Nothing,
       authTokenLastModifiedDate = Prelude.Nothing,
-      authTokenEnabled = Prelude.Nothing,
+      cacheNodeType = Prelude.Nothing,
       description = Prelude.Nothing,
       pendingModifiedValues = Prelude.Nothing,
+      authTokenEnabled = Prelude.Nothing,
       configurationEndpoint = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing,
       transitEncryptionEnabled = Prelude.Nothing
     }
 
@@ -302,16 +313,16 @@ replicationGroup_memberClustersOutpostArns = Lens.lens (\ReplicationGroup' {memb
 replicationGroup_memberClusters :: Lens.Lens' ReplicationGroup (Prelude.Maybe [Prelude.Text])
 replicationGroup_memberClusters = Lens.lens (\ReplicationGroup' {memberClusters} -> memberClusters) (\s@ReplicationGroup' {} a -> s {memberClusters = a} :: ReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the Global Datastore and role of this replication group in
--- the Global Datastore.
-replicationGroup_globalReplicationGroupInfo :: Lens.Lens' ReplicationGroup (Prelude.Maybe GlobalReplicationGroupInfo)
-replicationGroup_globalReplicationGroupInfo = Lens.lens (\ReplicationGroup' {globalReplicationGroupInfo} -> globalReplicationGroupInfo) (\s@ReplicationGroup' {} a -> s {globalReplicationGroupInfo = a} :: ReplicationGroup)
-
 -- | The identifier for the replication group.
 replicationGroup_replicationGroupId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
 replicationGroup_replicationGroupId = Lens.lens (\ReplicationGroup' {replicationGroupId} -> replicationGroupId) (\s@ReplicationGroup' {} a -> s {replicationGroupId = a} :: ReplicationGroup)
 
--- | The list of user group IDs that have access to the replication group.
+-- | The name of the Global datastore and role of this replication group in
+-- the Global datastore.
+replicationGroup_globalReplicationGroupInfo :: Lens.Lens' ReplicationGroup (Prelude.Maybe GlobalReplicationGroupInfo)
+replicationGroup_globalReplicationGroupInfo = Lens.lens (\ReplicationGroup' {globalReplicationGroupInfo} -> globalReplicationGroupInfo) (\s@ReplicationGroup' {} a -> s {globalReplicationGroupInfo = a} :: ReplicationGroup)
+
+-- | The ID of the user group associated to the replication group.
 replicationGroup_userGroupIds :: Lens.Lens' ReplicationGroup (Prelude.Maybe [Prelude.Text])
 replicationGroup_userGroupIds = Lens.lens (\ReplicationGroup' {userGroupIds} -> userGroupIds) (\s@ReplicationGroup' {} a -> s {userGroupIds = a} :: ReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
@@ -327,10 +338,6 @@ replicationGroup_userGroupIds = Lens.lens (\ReplicationGroup' {userGroupIds} -> 
 replicationGroup_snapshotWindow :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
 replicationGroup_snapshotWindow = Lens.lens (\ReplicationGroup' {snapshotWindow} -> snapshotWindow) (\s@ReplicationGroup' {} a -> s {snapshotWindow = a} :: ReplicationGroup)
 
--- | The ARN (Amazon Resource Name) of the replication group.
-replicationGroup_arn :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
-replicationGroup_arn = Lens.lens (\ReplicationGroup' {arn} -> arn) (\s@ReplicationGroup' {} a -> s {arn = a} :: ReplicationGroup)
-
 -- | The number of days for which ElastiCache retains automatic cluster
 -- snapshots before deleting them. For example, if you set
 -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
@@ -341,11 +348,28 @@ replicationGroup_arn = Lens.lens (\ReplicationGroup' {arn} -> arn) (\s@Replicati
 replicationGroup_snapshotRetentionLimit :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Int)
 replicationGroup_snapshotRetentionLimit = Lens.lens (\ReplicationGroup' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ReplicationGroup' {} a -> s {snapshotRetentionLimit = a} :: ReplicationGroup)
 
+-- | The ARN (Amazon Resource Name) of the replication group.
+replicationGroup_arn :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
+replicationGroup_arn = Lens.lens (\ReplicationGroup' {arn} -> arn) (\s@ReplicationGroup' {} a -> s {arn = a} :: ReplicationGroup)
+
 -- | A flag indicating if you have Multi-AZ enabled to enhance fault
 -- tolerance. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
 replicationGroup_multiAZ :: Lens.Lens' ReplicationGroup (Prelude.Maybe MultiAZStatus)
 replicationGroup_multiAZ = Lens.lens (\ReplicationGroup' {multiAZ} -> multiAZ) (\s@ReplicationGroup' {} a -> s {multiAZ = a} :: ReplicationGroup)
+
+-- | The date and time when the cluster was created.
+replicationGroup_replicationGroupCreateTime :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
+replicationGroup_replicationGroupCreateTime = Lens.lens (\ReplicationGroup' {replicationGroupCreateTime} -> replicationGroupCreateTime) (\s@ReplicationGroup' {} a -> s {replicationGroupCreateTime = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the KMS key used to encrypt the disk in the cluster.
+replicationGroup_kmsKeyId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
+replicationGroup_kmsKeyId = Lens.lens (\ReplicationGroup' {kmsKeyId} -> kmsKeyId) (\s@ReplicationGroup' {} a -> s {kmsKeyId = a} :: ReplicationGroup)
+
+-- | The cluster ID that is used as the daily snapshot source for the
+-- replication group.
+replicationGroup_snapshottingClusterId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
+replicationGroup_snapshottingClusterId = Lens.lens (\ReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ReplicationGroup)
 
 -- | A flag that enables encryption at-rest when set to @true@.
 --
@@ -360,30 +384,14 @@ replicationGroup_multiAZ = Lens.lens (\ReplicationGroup' {multiAZ} -> multiAZ) (
 replicationGroup_atRestEncryptionEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_atRestEncryptionEnabled = Lens.lens (\ReplicationGroup' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@ReplicationGroup' {} a -> s {atRestEncryptionEnabled = a} :: ReplicationGroup)
 
--- | The ID of the KMS key used to encrypt the disk in the cluster.
-replicationGroup_kmsKeyId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
-replicationGroup_kmsKeyId = Lens.lens (\ReplicationGroup' {kmsKeyId} -> kmsKeyId) (\s@ReplicationGroup' {} a -> s {kmsKeyId = a} :: ReplicationGroup)
-
--- | The cluster ID that is used as the daily snapshot source for the
--- replication group.
-replicationGroup_snapshottingClusterId :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
-replicationGroup_snapshottingClusterId = Lens.lens (\ReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ReplicationGroup)
+-- | The date the auth token was last modified
+replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
+replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the compute and memory capacity node type for each node in
 -- the replication group.
 replicationGroup_cacheNodeType :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
 replicationGroup_cacheNodeType = Lens.lens (\ReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@ReplicationGroup' {} a -> s {cacheNodeType = a} :: ReplicationGroup)
-
--- | The date the auth token was last modified
-replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
-replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Core._Time
-
--- | A flag that enables using an @AuthToken@ (password) when issuing Redis
--- commands.
---
--- Default: @false@
-replicationGroup_authTokenEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
-replicationGroup_authTokenEnabled = Lens.lens (\ReplicationGroup' {authTokenEnabled} -> authTokenEnabled) (\s@ReplicationGroup' {} a -> s {authTokenEnabled = a} :: ReplicationGroup)
 
 -- | The user supplied description of the replication group.
 replicationGroup_description :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Text)
@@ -394,10 +402,21 @@ replicationGroup_description = Lens.lens (\ReplicationGroup' {description} -> de
 replicationGroup_pendingModifiedValues :: Lens.Lens' ReplicationGroup (Prelude.Maybe ReplicationGroupPendingModifiedValues)
 replicationGroup_pendingModifiedValues = Lens.lens (\ReplicationGroup' {pendingModifiedValues} -> pendingModifiedValues) (\s@ReplicationGroup' {} a -> s {pendingModifiedValues = a} :: ReplicationGroup)
 
+-- | A flag that enables using an @AuthToken@ (password) when issuing Redis
+-- commands.
+--
+-- Default: @false@
+replicationGroup_authTokenEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
+replicationGroup_authTokenEnabled = Lens.lens (\ReplicationGroup' {authTokenEnabled} -> authTokenEnabled) (\s@ReplicationGroup' {} a -> s {authTokenEnabled = a} :: ReplicationGroup)
+
 -- | The configuration endpoint for this replication group. Use the
 -- configuration endpoint to connect to this replication group.
 replicationGroup_configurationEndpoint :: Lens.Lens' ReplicationGroup (Prelude.Maybe Endpoint)
 replicationGroup_configurationEndpoint = Lens.lens (\ReplicationGroup' {configurationEndpoint} -> configurationEndpoint) (\s@ReplicationGroup' {} a -> s {configurationEndpoint = a} :: ReplicationGroup)
+
+-- | Returns the destination, format and type of the logs.
+replicationGroup_logDeliveryConfigurations :: Lens.Lens' ReplicationGroup (Prelude.Maybe [LogDeliveryConfiguration])
+replicationGroup_logDeliveryConfigurations = Lens.lens (\ReplicationGroup' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ReplicationGroup' {} a -> s {logDeliveryConfigurations = a} :: ReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
@@ -429,24 +448,30 @@ instance Core.FromXML ReplicationGroup where
       Prelude.<*> ( x Core..@? "MemberClusters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ClusterId")
                   )
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupInfo")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
+      Prelude.<*> (x Core..@? "GlobalReplicationGroupInfo")
       Prelude.<*> ( x Core..@? "UserGroupIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "SnapshotWindow")
-      Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "SnapshotRetentionLimit")
+      Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Core..@? "ReplicationGroupCreateTime")
       Prelude.<*> (x Core..@? "KmsKeyId")
       Prelude.<*> (x Core..@? "SnapshottingClusterId")
-      Prelude.<*> (x Core..@? "CacheNodeType")
+      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
       Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
+      Prelude.<*> (x Core..@? "CacheNodeType")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "PendingModifiedValues")
+      Prelude.<*> (x Core..@? "AuthTokenEnabled")
       Prelude.<*> (x Core..@? "ConfigurationEndpoint")
+      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "LogDeliveryConfiguration")
+                  )
       Prelude.<*> (x Core..@? "TransitEncryptionEnabled")
 
 instance Prelude.Hashable ReplicationGroup

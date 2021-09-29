@@ -20,12 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a thing in the device registry. RegisterThing calls other AWS
--- IoT control plane APIs. These calls might exceed your account level
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot AWS IoT Throttling Limits>
+-- Provisions a thing in the device registry. RegisterThing calls other IoT
+-- control plane APIs. These calls might exceed your account level
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot IoT Throttling Limits>
 -- and cause throttle errors. Please contact
--- <https://console.aws.amazon.com/support/home AWS Customer Support> to
--- raise your throttling limits if necessary.
+-- <https://console.aws.amazon.com/support/home Amazon Web Services Customer Support>
+-- to raise your throttling limits if necessary.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RegisterThing>
+-- action.
 module Network.AWS.IoT.RegisterThing
   ( -- * Creating a Request
     RegisterThing (..),

@@ -32,14 +32,14 @@ import Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
 --
 -- /See:/ 'newResourceChange' smart constructor.
 data ResourceChange = ResourceChange'
-  { -- | The ID of the resource, if it was already created.
-    physicalResourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of resource.
+  { -- | The type of resource.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The change scope.
-    scope :: Prelude.Maybe [ResourceAttribute],
+    -- | The ID of the resource, if it was already created.
+    physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the resource changes.
     details :: Prelude.Maybe [ResourceChangeDetail],
+    -- | The change scope.
+    scope :: Prelude.Maybe [ResourceAttribute],
     -- | The ID of the resource, as defined in the CloudFormation template.
     logicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | The change action.
@@ -58,13 +58,13 @@ data ResourceChange = ResourceChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'physicalResourceId', 'resourceChange_physicalResourceId' - The ID of the resource, if it was already created.
---
 -- 'resourceType', 'resourceChange_resourceType' - The type of resource.
 --
--- 'scope', 'resourceChange_scope' - The change scope.
+-- 'physicalResourceId', 'resourceChange_physicalResourceId' - The ID of the resource, if it was already created.
 --
 -- 'details', 'resourceChange_details' - Information about the resource changes.
+--
+-- 'scope', 'resourceChange_scope' - The change scope.
 --
 -- 'logicalResourceId', 'resourceChange_logicalResourceId' - The ID of the resource, as defined in the CloudFormation template.
 --
@@ -76,31 +76,30 @@ newResourceChange ::
   ResourceChange
 newResourceChange =
   ResourceChange'
-    { physicalResourceId =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      scope = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
+      physicalResourceId = Prelude.Nothing,
       details = Prelude.Nothing,
+      scope = Prelude.Nothing,
       logicalResourceId = Prelude.Nothing,
       action = Prelude.Nothing,
       replacement = Prelude.Nothing
     }
 
--- | The ID of the resource, if it was already created.
-resourceChange_physicalResourceId :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
-resourceChange_physicalResourceId = Lens.lens (\ResourceChange' {physicalResourceId} -> physicalResourceId) (\s@ResourceChange' {} a -> s {physicalResourceId = a} :: ResourceChange)
-
 -- | The type of resource.
 resourceChange_resourceType :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
 resourceChange_resourceType = Lens.lens (\ResourceChange' {resourceType} -> resourceType) (\s@ResourceChange' {} a -> s {resourceType = a} :: ResourceChange)
 
--- | The change scope.
-resourceChange_scope :: Lens.Lens' ResourceChange (Prelude.Maybe [ResourceAttribute])
-resourceChange_scope = Lens.lens (\ResourceChange' {scope} -> scope) (\s@ResourceChange' {} a -> s {scope = a} :: ResourceChange) Prelude.. Lens.mapping Lens._Coerce
+-- | The ID of the resource, if it was already created.
+resourceChange_physicalResourceId :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
+resourceChange_physicalResourceId = Lens.lens (\ResourceChange' {physicalResourceId} -> physicalResourceId) (\s@ResourceChange' {} a -> s {physicalResourceId = a} :: ResourceChange)
 
 -- | Information about the resource changes.
 resourceChange_details :: Lens.Lens' ResourceChange (Prelude.Maybe [ResourceChangeDetail])
 resourceChange_details = Lens.lens (\ResourceChange' {details} -> details) (\s@ResourceChange' {} a -> s {details = a} :: ResourceChange) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The change scope.
+resourceChange_scope :: Lens.Lens' ResourceChange (Prelude.Maybe [ResourceAttribute])
+resourceChange_scope = Lens.lens (\ResourceChange' {scope} -> scope) (\s@ResourceChange' {} a -> s {scope = a} :: ResourceChange) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the resource, as defined in the CloudFormation template.
 resourceChange_logicalResourceId :: Lens.Lens' ResourceChange (Prelude.Maybe Prelude.Text)
@@ -121,10 +120,10 @@ instance Core.FromJSON ResourceChange where
       "ResourceChange"
       ( \x ->
           ResourceChange'
-            Prelude.<$> (x Core..:? "PhysicalResourceId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Scope" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "PhysicalResourceId")
             Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Scope" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LogicalResourceId")
             Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "Replacement")

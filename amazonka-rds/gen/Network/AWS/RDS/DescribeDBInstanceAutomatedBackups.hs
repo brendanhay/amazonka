@@ -40,8 +40,8 @@ module Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
     describeDBInstanceAutomatedBackups_dbiResourceId,
     describeDBInstanceAutomatedBackups_dbInstanceIdentifier,
     describeDBInstanceAutomatedBackups_filters,
-    describeDBInstanceAutomatedBackups_marker,
     describeDBInstanceAutomatedBackups_maxRecords,
+    describeDBInstanceAutomatedBackups_marker,
 
     -- * Destructuring the Response
     DescribeDBInstanceAutomatedBackupsResponse (..),
@@ -102,15 +102,15 @@ data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
     -- Returns all resources by default. The status for each resource is
     -- specified in the response.
     filters :: Prelude.Maybe [Filter],
-    -- | The pagination token provided in the previous request. If this parameter
-    -- is specified the response includes only records beyond the marker, up to
-    -- @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
     -- remaining results.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The pagination token provided in the previous request. If this parameter
+    -- is specified the response includes only records beyond the marker, up to
+    -- @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -159,14 +159,14 @@ data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
 -- Returns all resources by default. The status for each resource is
 -- specified in the response.
 --
--- 'marker', 'describeDBInstanceAutomatedBackups_marker' - The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
--- @MaxRecords@.
---
 -- 'maxRecords', 'describeDBInstanceAutomatedBackups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
 -- remaining results.
+--
+-- 'marker', 'describeDBInstanceAutomatedBackups_marker' - The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- @MaxRecords@.
 newDescribeDBInstanceAutomatedBackups ::
   DescribeDBInstanceAutomatedBackups
 newDescribeDBInstanceAutomatedBackups =
@@ -176,8 +176,8 @@ newDescribeDBInstanceAutomatedBackups =
       dbiResourceId = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the replicated automated backups, for
@@ -225,18 +225,18 @@ describeDBInstanceAutomatedBackups_dbInstanceIdentifier = Lens.lens (\DescribeDB
 describeDBInstanceAutomatedBackups_filters :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe [Filter])
 describeDBInstanceAutomatedBackups_filters = Lens.lens (\DescribeDBInstanceAutomatedBackups' {filters} -> filters) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {filters = a} :: DescribeDBInstanceAutomatedBackups) Prelude.. Lens.mapping Lens._Coerce
 
--- | The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
--- @MaxRecords@.
-describeDBInstanceAutomatedBackups_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
-describeDBInstanceAutomatedBackups_marker = Lens.lens (\DescribeDBInstanceAutomatedBackups' {marker} -> marker) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {marker = a} :: DescribeDBInstanceAutomatedBackups)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
 -- remaining results.
 describeDBInstanceAutomatedBackups_maxRecords :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Int)
 describeDBInstanceAutomatedBackups_maxRecords = Lens.lens (\DescribeDBInstanceAutomatedBackups' {maxRecords} -> maxRecords) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {maxRecords = a} :: DescribeDBInstanceAutomatedBackups)
+
+-- | The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- @MaxRecords@.
+describeDBInstanceAutomatedBackups_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackups_marker = Lens.lens (\DescribeDBInstanceAutomatedBackups' {marker} -> marker) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {marker = a} :: DescribeDBInstanceAutomatedBackups)
 
 instance
   Core.AWSPager
@@ -324,8 +324,8 @@ instance
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the result of a successful invocation of the

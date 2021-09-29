@@ -35,11 +35,11 @@ data AccountModification = AccountModification'
     -- | The timestamp when the modification of the BYOL configuration was
     -- started.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The state of the modification to the configuration of BYOL.
+    modificationState :: Prelude.Maybe DedicatedTenancyModificationStateEnum,
     -- | The IP address range, specified as an IPv4 CIDR block, for the
     -- management network interface used for the account.
     dedicatedTenancyManagementCidrRange :: Prelude.Maybe Prelude.Text,
-    -- | The state of the modification to the configuration of BYOL.
-    modificationState :: Prelude.Maybe DedicatedTenancyModificationStateEnum,
     -- | The text of the error message that is returned if the configuration of
     -- BYOL cannot be modified.
     errorMessage :: Prelude.Maybe Prelude.Text,
@@ -62,10 +62,10 @@ data AccountModification = AccountModification'
 -- 'startTime', 'accountModification_startTime' - The timestamp when the modification of the BYOL configuration was
 -- started.
 --
+-- 'modificationState', 'accountModification_modificationState' - The state of the modification to the configuration of BYOL.
+--
 -- 'dedicatedTenancyManagementCidrRange', 'accountModification_dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the
 -- management network interface used for the account.
---
--- 'modificationState', 'accountModification_modificationState' - The state of the modification to the configuration of BYOL.
 --
 -- 'errorMessage', 'accountModification_errorMessage' - The text of the error message that is returned if the configuration of
 -- BYOL cannot be modified.
@@ -79,9 +79,9 @@ newAccountModification =
     { dedicatedTenancySupport =
         Prelude.Nothing,
       startTime = Prelude.Nothing,
+      modificationState = Prelude.Nothing,
       dedicatedTenancyManagementCidrRange =
         Prelude.Nothing,
-      modificationState = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       errorCode = Prelude.Nothing
     }
@@ -95,14 +95,14 @@ accountModification_dedicatedTenancySupport = Lens.lens (\AccountModification' {
 accountModification_startTime :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.UTCTime)
 accountModification_startTime = Lens.lens (\AccountModification' {startTime} -> startTime) (\s@AccountModification' {} a -> s {startTime = a} :: AccountModification) Prelude.. Lens.mapping Core._Time
 
+-- | The state of the modification to the configuration of BYOL.
+accountModification_modificationState :: Lens.Lens' AccountModification (Prelude.Maybe DedicatedTenancyModificationStateEnum)
+accountModification_modificationState = Lens.lens (\AccountModification' {modificationState} -> modificationState) (\s@AccountModification' {} a -> s {modificationState = a} :: AccountModification)
+
 -- | The IP address range, specified as an IPv4 CIDR block, for the
 -- management network interface used for the account.
 accountModification_dedicatedTenancyManagementCidrRange :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.Text)
 accountModification_dedicatedTenancyManagementCidrRange = Lens.lens (\AccountModification' {dedicatedTenancyManagementCidrRange} -> dedicatedTenancyManagementCidrRange) (\s@AccountModification' {} a -> s {dedicatedTenancyManagementCidrRange = a} :: AccountModification)
-
--- | The state of the modification to the configuration of BYOL.
-accountModification_modificationState :: Lens.Lens' AccountModification (Prelude.Maybe DedicatedTenancyModificationStateEnum)
-accountModification_modificationState = Lens.lens (\AccountModification' {modificationState} -> modificationState) (\s@AccountModification' {} a -> s {modificationState = a} :: AccountModification)
 
 -- | The text of the error message that is returned if the configuration of
 -- BYOL cannot be modified.
@@ -122,8 +122,8 @@ instance Core.FromJSON AccountModification where
           AccountModification'
             Prelude.<$> (x Core..:? "DedicatedTenancySupport")
             Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "DedicatedTenancyManagementCidrRange")
             Prelude.<*> (x Core..:? "ModificationState")
+            Prelude.<*> (x Core..:? "DedicatedTenancyManagementCidrRange")
             Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
       )

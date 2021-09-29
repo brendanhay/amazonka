@@ -51,6 +51,7 @@ import qualified Network.AWS.Response as Response
 data TagResource = TagResource'
   { -- | The ID specifying the EFS resource that you want to create a tag for.
     resourceId :: Prelude.Text,
+    -- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,7 @@ data TagResource = TagResource'
 --
 -- 'resourceId', 'tagResource_resourceId' - The ID specifying the EFS resource that you want to create a tag for.
 --
--- 'tags', 'tagResource_tags' -
+-- 'tags', 'tagResource_tags' - An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 newTagResource ::
   -- | 'resourceId'
   Prelude.Text ->
@@ -80,7 +81,7 @@ newTagResource pResourceId_ =
 tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
 
--- |
+-- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 

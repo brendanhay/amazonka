@@ -58,7 +58,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -67,8 +67,9 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
@@ -85,7 +86,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketRequestPayment_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketRequestPayment_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -94,8 +95,9 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketRequestPayment_bucket' - The bucket name.
 --
@@ -118,7 +120,7 @@ newPutBucketRequestPayment
           pRequestPaymentConfiguration_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
@@ -129,8 +131,9 @@ putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPaymen
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketRequestPayment_contentMD5 :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
 putBucketRequestPayment_contentMD5 = Lens.lens (\PutBucketRequestPayment' {contentMD5} -> contentMD5) (\s@PutBucketRequestPayment' {} a -> s {contentMD5 = a} :: PutBucketRequestPayment)
 

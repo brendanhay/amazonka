@@ -293,14 +293,14 @@ module Network.AWS.CodeCommit
     -- * Errors
     -- $errors
 
+    -- ** InvalidConflictDetailLevelException
+    _InvalidConflictDetailLevelException,
+
     -- ** ActorDoesNotExistException
     _ActorDoesNotExistException,
 
-    -- ** InvalidPullRequestStatusUpdateException
-    _InvalidPullRequestStatusUpdateException,
-
-    -- ** NameLengthExceededException
-    _NameLengthExceededException,
+    -- ** CommitRequiredException
+    _CommitRequiredException,
 
     -- ** ApprovalRuleNameAlreadyExistsException
     _ApprovalRuleNameAlreadyExistsException,
@@ -308,8 +308,14 @@ module Network.AWS.CodeCommit
     -- ** PullRequestIdRequiredException
     _PullRequestIdRequiredException,
 
-    -- ** InvalidConflictDetailLevelException
-    _InvalidConflictDetailLevelException,
+    -- ** ReferenceDoesNotExistException
+    _ReferenceDoesNotExistException,
+
+    -- ** NameLengthExceededException
+    _NameLengthExceededException,
+
+    -- ** InvalidPullRequestStatusUpdateException
+    _InvalidPullRequestStatusUpdateException,
 
     -- ** InvalidPullRequestIdException
     _InvalidPullRequestIdException,
@@ -317,14 +323,23 @@ module Network.AWS.CodeCommit
     -- ** TargetRequiredException
     _TargetRequiredException,
 
-    -- ** CommitRequiredException
-    _CommitRequiredException,
-
     -- ** FileNameConflictsWithDirectoryNameException
     _FileNameConflictsWithDirectoryNameException,
 
-    -- ** ReferenceDoesNotExistException
-    _ReferenceDoesNotExistException,
+    -- ** InvalidTargetsException
+    _InvalidTargetsException,
+
+    -- ** CommentContentRequiredException
+    _CommentContentRequiredException,
+
+    -- ** FileEntryRequiredException
+    _FileEntryRequiredException,
+
+    -- ** InvalidSystemTagUsageException
+    _InvalidSystemTagUsageException,
+
+    -- ** BranchNameExistsException
+    _BranchNameExistsException,
 
     -- ** EncryptionKeyNotFoundException
     _EncryptionKeyNotFoundException,
@@ -332,35 +347,11 @@ module Network.AWS.CodeCommit
     -- ** TargetsRequiredException
     _TargetsRequiredException,
 
-    -- ** CommentContentRequiredException
-    _CommentContentRequiredException,
-
-    -- ** InvalidSystemTagUsageException
-    _InvalidSystemTagUsageException,
-
-    -- ** FileEntryRequiredException
-    _FileEntryRequiredException,
-
-    -- ** InvalidTargetsException
-    _InvalidTargetsException,
-
     -- ** ManualMergeRequiredException
     _ManualMergeRequiredException,
 
-    -- ** BranchNameExistsException
-    _BranchNameExistsException,
-
-    -- ** ParentCommitDoesNotExistException
-    _ParentCommitDoesNotExistException,
-
-    -- ** SamePathRequestException
-    _SamePathRequestException,
-
-    -- ** AuthorDoesNotExistException
-    _AuthorDoesNotExistException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** InvalidApprovalRuleTemplateDescriptionException
+    _InvalidApprovalRuleTemplateDescriptionException,
 
     -- ** SourceAndDestinationAreSameException
     _SourceAndDestinationAreSameException,
@@ -368,47 +359,56 @@ module Network.AWS.CodeCommit
     -- ** EncryptionIntegrityChecksFailedException
     _EncryptionIntegrityChecksFailedException,
 
-    -- ** InvalidApprovalRuleTemplateDescriptionException
-    _InvalidApprovalRuleTemplateDescriptionException,
-
-    -- ** CommentDeletedException
-    _CommentDeletedException,
-
-    -- ** InvalidReplacementContentException
-    _InvalidReplacementContentException,
-
-    -- ** RepositoryTriggerEventsListRequiredException
-    _RepositoryTriggerEventsListRequiredException,
-
-    -- ** FileContentRequiredException
-    _FileContentRequiredException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** SourceFileOrContentRequiredException
     _SourceFileOrContentRequiredException,
 
-    -- ** InvalidTitleException
-    _InvalidTitleException,
+    -- ** CommentDeletedException
+    _CommentDeletedException,
 
-    -- ** InvalidApprovalRuleContentException
-    _InvalidApprovalRuleContentException,
+    -- ** SamePathRequestException
+    _SamePathRequestException,
 
-    -- ** InvalidSourceCommitSpecifierException
-    _InvalidSourceCommitSpecifierException,
+    -- ** RepositoryTriggerEventsListRequiredException
+    _RepositoryTriggerEventsListRequiredException,
+
+    -- ** ParentCommitDoesNotExistException
+    _ParentCommitDoesNotExistException,
+
+    -- ** AuthorDoesNotExistException
+    _AuthorDoesNotExistException,
+
+    -- ** InvalidReplacementContentException
+    _InvalidReplacementContentException,
+
+    -- ** FileContentRequiredException
+    _FileContentRequiredException,
+
+    -- ** TitleRequiredException
+    _TitleRequiredException,
 
     -- ** InvalidConflictResolutionException
     _InvalidConflictResolutionException,
 
-    -- ** InvalidOverrideStatusException
-    _InvalidOverrideStatusException,
+    -- ** ApprovalRuleContentRequiredException
+    _ApprovalRuleContentRequiredException,
+
+    -- ** PullRequestApprovalRulesNotSatisfiedException
+    _PullRequestApprovalRulesNotSatisfiedException,
 
     -- ** PullRequestStatusRequiredException
     _PullRequestStatusRequiredException,
 
-    -- ** MaximumItemsToCompareExceededException
-    _MaximumItemsToCompareExceededException,
-
     -- ** InvalidPullRequestStatusException
     _InvalidPullRequestStatusException,
+
+    -- ** InvalidTitleException
+    _InvalidTitleException,
+
+    -- ** InvalidSourceCommitSpecifierException
+    _InvalidSourceCommitSpecifierException,
 
     -- ** ParentCommitIdRequiredException
     _ParentCommitIdRequiredException,
@@ -416,20 +416,14 @@ module Network.AWS.CodeCommit
     -- ** RepositoryDoesNotExistException
     _RepositoryDoesNotExistException,
 
-    -- ** PullRequestApprovalRulesNotSatisfiedException
-    _PullRequestApprovalRulesNotSatisfiedException,
+    -- ** InvalidApprovalRuleContentException
+    _InvalidApprovalRuleContentException,
 
-    -- ** ApprovalRuleContentRequiredException
-    _ApprovalRuleContentRequiredException,
+    -- ** InvalidOverrideStatusException
+    _InvalidOverrideStatusException,
 
-    -- ** TitleRequiredException
-    _TitleRequiredException,
-
-    -- ** FileContentSizeLimitExceededException
-    _FileContentSizeLimitExceededException,
-
-    -- ** InvalidRepositoryTriggerNameException
-    _InvalidRepositoryTriggerNameException,
+    -- ** MaximumItemsToCompareExceededException
+    _MaximumItemsToCompareExceededException,
 
     -- ** RepositoryTriggerNameRequiredException
     _RepositoryTriggerNameRequiredException,
@@ -446,32 +440,47 @@ module Network.AWS.CodeCommit
     -- ** InvalidRepositoryTriggerEventsException
     _InvalidRepositoryTriggerEventsException,
 
+    -- ** InvalidRepositoryTriggerNameException
+    _InvalidRepositoryTriggerNameException,
+
+    -- ** FileContentSizeLimitExceededException
+    _FileContentSizeLimitExceededException,
+
     -- ** InvalidPathException
     _InvalidPathException,
 
     -- ** InvalidTargetBranchException
     _InvalidTargetBranchException,
 
-    -- ** InvalidActorArnException
-    _InvalidActorArnException,
-
-    -- ** RevisionIdRequiredException
-    _RevisionIdRequiredException,
+    -- ** FileTooLargeException
+    _FileTooLargeException,
 
     -- ** InvalidBlobIdException
     _InvalidBlobIdException,
 
-    -- ** MaximumFileEntriesExceededException
-    _MaximumFileEntriesExceededException,
+    -- ** InvalidApprovalRuleNameException
+    _InvalidApprovalRuleNameException,
 
     -- ** ApprovalRuleTemplateNameRequiredException
     _ApprovalRuleTemplateNameRequiredException,
 
-    -- ** RepositoryNamesRequiredException
-    _RepositoryNamesRequiredException,
+    -- ** CannotDeleteApprovalRuleFromTemplateException
+    _CannotDeleteApprovalRuleFromTemplateException,
+
+    -- ** InvalidActorArnException
+    _InvalidActorArnException,
 
     -- ** PullRequestDoesNotExistException
     _PullRequestDoesNotExistException,
+
+    -- ** RepositoryNamesRequiredException
+    _RepositoryNamesRequiredException,
+
+    -- ** CommitIdDoesNotExistException
+    _CommitIdDoesNotExistException,
+
+    -- ** MaximumFileEntriesExceededException
+    _MaximumFileEntriesExceededException,
 
     -- ** ReplacementTypeRequiredException
     _ReplacementTypeRequiredException,
@@ -479,11 +488,8 @@ module Network.AWS.CodeCommit
     -- ** InvalidReplacementTypeException
     _InvalidReplacementTypeException,
 
-    -- ** FileTooLargeException
-    _FileTooLargeException,
-
-    -- ** CannotDeleteApprovalRuleFromTemplateException
-    _CannotDeleteApprovalRuleFromTemplateException,
+    -- ** RevisionIdRequiredException
+    _RevisionIdRequiredException,
 
     -- ** ReactionLimitExceededException
     _ReactionLimitExceededException,
@@ -491,38 +497,20 @@ module Network.AWS.CodeCommit
     -- ** RevisionNotCurrentException
     _RevisionNotCurrentException,
 
-    -- ** InvalidApprovalRuleNameException
-    _InvalidApprovalRuleNameException,
+    -- ** IdempotencyParameterMismatchException
+    _IdempotencyParameterMismatchException,
 
-    -- ** CommitIdDoesNotExistException
-    _CommitIdDoesNotExistException,
+    -- ** MultipleConflictResolutionEntriesException
+    _MultipleConflictResolutionEntriesException,
 
-    -- ** RepositoryTriggersListRequiredException
-    _RepositoryTriggersListRequiredException,
-
-    -- ** InvalidRelativeFileVersionEnumException
-    _InvalidRelativeFileVersionEnumException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** ApprovalRuleDoesNotExistException
-    _ApprovalRuleDoesNotExistException,
+    -- ** BranchNameRequiredException
+    _BranchNameRequiredException,
 
     -- ** RepositoryTriggerBranchNameListRequiredException
     _RepositoryTriggerBranchNameListRequiredException,
 
-    -- ** InvalidClientRequestTokenException
-    _InvalidClientRequestTokenException,
-
-    -- ** IdempotencyParameterMismatchException
-    _IdempotencyParameterMismatchException,
-
-    -- ** InvalidRepositoryTriggerDestinationArnException
-    _InvalidRepositoryTriggerDestinationArnException,
-
-    -- ** BranchNameRequiredException
-    _BranchNameRequiredException,
+    -- ** RepositoryTriggersListRequiredException
+    _RepositoryTriggersListRequiredException,
 
     -- ** RepositoryTriggerDestinationArnRequiredException
     _RepositoryTriggerDestinationArnRequiredException,
@@ -530,14 +518,35 @@ module Network.AWS.CodeCommit
     -- ** EncryptionKeyUnavailableException
     _EncryptionKeyUnavailableException,
 
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidRepositoryTriggerDestinationArnException
+    _InvalidRepositoryTriggerDestinationArnException,
+
+    -- ** InvalidRelativeFileVersionEnumException
+    _InvalidRelativeFileVersionEnumException,
+
     -- ** InvalidConflictResolutionStrategyException
     _InvalidConflictResolutionStrategyException,
 
-    -- ** MultipleConflictResolutionEntriesException
-    _MultipleConflictResolutionEntriesException,
+    -- ** ApprovalRuleDoesNotExistException
+    _ApprovalRuleDoesNotExistException,
 
-    -- ** FileDoesNotExistException
-    _FileDoesNotExistException,
+    -- ** InvalidClientRequestTokenException
+    _InvalidClientRequestTokenException,
+
+    -- ** ReferenceNameRequiredException
+    _ReferenceNameRequiredException,
+
+    -- ** MaximumNumberOfApprovalsExceededException
+    _MaximumNumberOfApprovalsExceededException,
+
+    -- ** CommitMessageLengthExceededException
+    _CommitMessageLengthExceededException,
+
+    -- ** MaximumRuleTemplatesAssociatedWithRepositoryException
+    _MaximumRuleTemplatesAssociatedWithRepositoryException,
 
     -- ** TagKeysListRequiredException
     _TagKeysListRequiredException,
@@ -545,56 +554,23 @@ module Network.AWS.CodeCommit
     -- ** InvalidReferenceNameException
     _InvalidReferenceNameException,
 
-    -- ** CommitIdRequiredException
-    _CommitIdRequiredException,
-
-    -- ** ReferenceNameRequiredException
-    _ReferenceNameRequiredException,
-
-    -- ** MaximumRuleTemplatesAssociatedWithRepositoryException
-    _MaximumRuleTemplatesAssociatedWithRepositoryException,
-
-    -- ** CommitMessageLengthExceededException
-    _CommitMessageLengthExceededException,
-
-    -- ** MaximumNumberOfApprovalsExceededException
-    _MaximumNumberOfApprovalsExceededException,
+    -- ** FileDoesNotExistException
+    _FileDoesNotExistException,
 
     -- ** InvalidTagKeysListException
     _InvalidTagKeysListException,
 
-    -- ** EncryptionKeyDisabledException
-    _EncryptionKeyDisabledException,
+    -- ** CommitIdRequiredException
+    _CommitIdRequiredException,
 
-    -- ** DirectoryNameConflictsWithFileNameException
-    _DirectoryNameConflictsWithFileNameException,
-
-    -- ** InvalidSortByException
-    _InvalidSortByException,
-
-    -- ** InvalidDestinationCommitSpecifierException
-    _InvalidDestinationCommitSpecifierException,
+    -- ** OverrideAlreadySetException
+    _OverrideAlreadySetException,
 
     -- ** CommentDoesNotExistException
     _CommentDoesNotExistException,
 
-    -- ** ApprovalRuleTemplateNameAlreadyExistsException
-    _ApprovalRuleTemplateNameAlreadyExistsException,
-
-    -- ** InvalidRepositoryTriggerBranchNameException
-    _InvalidRepositoryTriggerBranchNameException,
-
-    -- ** MaximumOpenPullRequestsExceededException
-    _MaximumOpenPullRequestsExceededException,
-
-    -- ** PullRequestAlreadyClosedException
-    _PullRequestAlreadyClosedException,
-
-    -- ** InvalidCommitException
-    _InvalidCommitException,
-
-    -- ** ReferenceTypeNotSupportedException
-    _ReferenceTypeNotSupportedException,
+    -- ** InvalidDestinationCommitSpecifierException
+    _InvalidDestinationCommitSpecifierException,
 
     -- ** CommentNotCreatedByCallerException
     _CommentNotCreatedByCallerException,
@@ -602,14 +578,41 @@ module Network.AWS.CodeCommit
     -- ** InvalidTargetException
     _InvalidTargetException,
 
+    -- ** ReferenceTypeNotSupportedException
+    _ReferenceTypeNotSupportedException,
+
+    -- ** InvalidSortByException
+    _InvalidSortByException,
+
+    -- ** EncryptionKeyDisabledException
+    _EncryptionKeyDisabledException,
+
+    -- ** InvalidCommitException
+    _InvalidCommitException,
+
+    -- ** ApprovalRuleTemplateNameAlreadyExistsException
+    _ApprovalRuleTemplateNameAlreadyExistsException,
+
     -- ** InvalidRepositoryTriggerCustomDataException
     _InvalidRepositoryTriggerCustomDataException,
 
-    -- ** OverrideAlreadySetException
-    _OverrideAlreadySetException,
+    -- ** InvalidRepositoryTriggerBranchNameException
+    _InvalidRepositoryTriggerBranchNameException,
 
-    -- ** InvalidContinuationTokenException
-    _InvalidContinuationTokenException,
+    -- ** DirectoryNameConflictsWithFileNameException
+    _DirectoryNameConflictsWithFileNameException,
+
+    -- ** MaximumOpenPullRequestsExceededException
+    _MaximumOpenPullRequestsExceededException,
+
+    -- ** PullRequestAlreadyClosedException
+    _PullRequestAlreadyClosedException,
+
+    -- ** ReactionValueRequiredException
+    _ReactionValueRequiredException,
+
+    -- ** EncryptionKeyAccessDeniedException
+    _EncryptionKeyAccessDeniedException,
 
     -- ** InvalidRepositoryTriggerRegionException
     _InvalidRepositoryTriggerRegionException,
@@ -617,32 +620,11 @@ module Network.AWS.CodeCommit
     -- ** InvalidReactionValueException
     _InvalidReactionValueException,
 
+    -- ** InvalidContinuationTokenException
+    _InvalidContinuationTokenException,
+
     -- ** TipsDivergenceExceededException
     _TipsDivergenceExceededException,
-
-    -- ** EncryptionKeyAccessDeniedException
-    _EncryptionKeyAccessDeniedException,
-
-    -- ** ReactionValueRequiredException
-    _ReactionValueRequiredException,
-
-    -- ** ResourceArnRequiredException
-    _ResourceArnRequiredException,
-
-    -- ** PathDoesNotExistException
-    _PathDoesNotExistException,
-
-    -- ** ReplacementContentRequiredException
-    _ReplacementContentRequiredException,
-
-    -- ** InvalidResourceArnException
-    _InvalidResourceArnException,
-
-    -- ** ParentCommitIdOutdatedException
-    _ParentCommitIdOutdatedException,
-
-    -- ** InvalidMaxMergeHunksException
-    _InvalidMaxMergeHunksException,
 
     -- ** RestrictedSourceFileException
     _RestrictedSourceFileException,
@@ -650,17 +632,32 @@ module Network.AWS.CodeCommit
     -- ** InvalidFilePositionException
     _InvalidFilePositionException,
 
+    -- ** InvalidMaxMergeHunksException
+    _InvalidMaxMergeHunksException,
+
+    -- ** ReplacementContentRequiredException
+    _ReplacementContentRequiredException,
+
+    -- ** ResourceArnRequiredException
+    _ResourceArnRequiredException,
+
     -- ** CannotModifyApprovalRuleFromTemplateException
     _CannotModifyApprovalRuleFromTemplateException,
+
+    -- ** ParentCommitIdOutdatedException
+    _ParentCommitIdOutdatedException,
 
     -- ** InvalidMaxConflictFilesException
     _InvalidMaxConflictFilesException,
 
-    -- ** CommentContentSizeLimitExceededException
-    _CommentContentSizeLimitExceededException,
+    -- ** PathDoesNotExistException
+    _PathDoesNotExistException,
 
-    -- ** InvalidApprovalStateException
-    _InvalidApprovalStateException,
+    -- ** InvalidResourceArnException
+    _InvalidResourceArnException,
+
+    -- ** ApprovalRuleTemplateContentRequiredException
+    _ApprovalRuleTemplateContentRequiredException,
 
     -- ** MaximumBranchesExceededException
     _MaximumBranchesExceededException,
@@ -668,77 +665,80 @@ module Network.AWS.CodeCommit
     -- ** OverrideStatusRequiredException
     _OverrideStatusRequiredException,
 
+    -- ** ApprovalStateRequiredException
+    _ApprovalStateRequiredException,
+
     -- ** InvalidPullRequestEventTypeException
     _InvalidPullRequestEventTypeException,
-
-    -- ** InvalidApprovalRuleTemplateContentException
-    _InvalidApprovalRuleTemplateContentException,
 
     -- ** CommitIdsLimitExceededException
     _CommitIdsLimitExceededException,
 
-    -- ** ApprovalStateRequiredException
-    _ApprovalStateRequiredException,
-
-    -- ** InvalidAuthorArnException
-    _InvalidAuthorArnException,
-
-    -- ** MaximumConflictResolutionEntriesExceededException
-    _MaximumConflictResolutionEntriesExceededException,
-
-    -- ** InvalidParentCommitIdException
-    _InvalidParentCommitIdException,
-
     -- ** RepositoryNotAssociatedWithPullRequestException
     _RepositoryNotAssociatedWithPullRequestException,
-
-    -- ** ApprovalRuleTemplateContentRequiredException
-    _ApprovalRuleTemplateContentRequiredException,
-
-    -- ** ConcurrentReferenceUpdateException
-    _ConcurrentReferenceUpdateException,
 
     -- ** MaximumFileContentToLoadExceededException
     _MaximumFileContentToLoadExceededException,
 
-    -- ** TagsMapRequiredException
-    _TagsMapRequiredException,
+    -- ** ConcurrentReferenceUpdateException
+    _ConcurrentReferenceUpdateException,
 
-    -- ** InvalidRepositoryNameException
-    _InvalidRepositoryNameException,
+    -- ** InvalidParentCommitIdException
+    _InvalidParentCommitIdException,
 
-    -- ** FolderContentSizeLimitExceededException
-    _FolderContentSizeLimitExceededException,
+    -- ** MaximumConflictResolutionEntriesExceededException
+    _MaximumConflictResolutionEntriesExceededException,
 
-    -- ** CommitIdsListRequiredException
-    _CommitIdsListRequiredException,
+    -- ** CommentContentSizeLimitExceededException
+    _CommentContentSizeLimitExceededException,
 
-    -- ** FileModeRequiredException
-    _FileModeRequiredException,
+    -- ** InvalidApprovalRuleTemplateContentException
+    _InvalidApprovalRuleTemplateContentException,
+
+    -- ** InvalidApprovalStateException
+    _InvalidApprovalStateException,
+
+    -- ** InvalidAuthorArnException
+    _InvalidAuthorArnException,
+
+    -- ** PathRequiredException
+    _PathRequiredException,
 
     -- ** InvalidTagsMapException
     _InvalidTagsMapException,
 
-    -- ** RepositoryLimitExceededException
-    _RepositoryLimitExceededException,
-
-    -- ** NumberOfRulesExceededException
-    _NumberOfRulesExceededException,
-
-    -- ** InvalidDeletionParameterException
-    _InvalidDeletionParameterException,
-
-    -- ** InvalidReactionUserArnException
-    _InvalidReactionUserArnException,
-
-    -- ** DefaultBranchCannotBeDeletedException
-    _DefaultBranchCannotBeDeletedException,
+    -- ** CommitIdsListRequiredException
+    _CommitIdsListRequiredException,
 
     -- ** BranchNameIsTagNameException
     _BranchNameIsTagNameException,
 
-    -- ** PathRequiredException
-    _PathRequiredException,
+    -- ** DefaultBranchCannotBeDeletedException
+    _DefaultBranchCannotBeDeletedException,
+
+    -- ** FileModeRequiredException
+    _FileModeRequiredException,
+
+    -- ** TagsMapRequiredException
+    _TagsMapRequiredException,
+
+    -- ** FolderContentSizeLimitExceededException
+    _FolderContentSizeLimitExceededException,
+
+    -- ** InvalidRepositoryNameException
+    _InvalidRepositoryNameException,
+
+    -- ** NumberOfRulesExceededException
+    _NumberOfRulesExceededException,
+
+    -- ** InvalidReactionUserArnException
+    _InvalidReactionUserArnException,
+
+    -- ** InvalidDeletionParameterException
+    _InvalidDeletionParameterException,
+
+    -- ** RepositoryLimitExceededException
+    _RepositoryLimitExceededException,
 
     -- ** FilePathConflictsWithSubmodulePathException
     _FilePathConflictsWithSubmodulePathException,
@@ -746,20 +746,14 @@ module Network.AWS.CodeCommit
     -- ** BranchDoesNotExistException
     _BranchDoesNotExistException,
 
+    -- ** InvalidDescriptionException
+    _InvalidDescriptionException,
+
     -- ** InvalidCommentIdException
     _InvalidCommentIdException,
 
-    -- ** InvalidMaxResultsException
-    _InvalidMaxResultsException,
-
-    -- ** InvalidRevisionIdException
-    _InvalidRevisionIdException,
-
-    -- ** PullRequestCannotBeApprovedByAuthorException
-    _PullRequestCannotBeApprovedByAuthorException,
-
-    -- ** ApprovalRuleNameRequiredException
-    _ApprovalRuleNameRequiredException,
+    -- ** InvalidOrderException
+    _InvalidOrderException,
 
     -- ** BlobIdRequiredException
     _BlobIdRequiredException,
@@ -767,41 +761,32 @@ module Network.AWS.CodeCommit
     -- ** InvalidApprovalRuleTemplateNameException
     _InvalidApprovalRuleTemplateNameException,
 
-    -- ** InvalidDescriptionException
-    _InvalidDescriptionException,
+    -- ** MultipleRepositoriesInPullRequestException
+    _MultipleRepositoriesInPullRequestException,
 
-    -- ** NoChangeException
-    _NoChangeException,
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
+    -- ** ApprovalRuleNameRequiredException
+    _ApprovalRuleNameRequiredException,
+
+    -- ** InvalidRevisionIdException
+    _InvalidRevisionIdException,
+
+    -- ** PullRequestCannotBeApprovedByAuthorException
+    _PullRequestCannotBeApprovedByAuthorException,
 
     -- ** CommentIdRequiredException
     _CommentIdRequiredException,
 
-    -- ** MultipleRepositoriesInPullRequestException
-    _MultipleRepositoriesInPullRequestException,
-
-    -- ** InvalidOrderException
-    _InvalidOrderException,
-
-    -- ** ClientRequestTokenRequiredException
-    _ClientRequestTokenRequiredException,
-
-    -- ** InvalidMergeOptionException
-    _InvalidMergeOptionException,
-
-    -- ** MergeOptionRequiredException
-    _MergeOptionRequiredException,
+    -- ** NoChangeException
+    _NoChangeException,
 
     -- ** InvalidBranchNameException
     _InvalidBranchNameException,
 
-    -- ** InvalidFileLocationException
-    _InvalidFileLocationException,
-
-    -- ** ApprovalRuleTemplateDoesNotExistException
-    _ApprovalRuleTemplateDoesNotExistException,
-
-    -- ** MaximumRepositoryTriggersExceededException
-    _MaximumRepositoryTriggersExceededException,
+    -- ** InvalidMergeOptionException
+    _InvalidMergeOptionException,
 
     -- ** CommitDoesNotExistException
     _CommitDoesNotExistException,
@@ -809,32 +794,50 @@ module Network.AWS.CodeCommit
     -- ** BeforeCommitIdAndAfterCommitIdAreSameException
     _BeforeCommitIdAndAfterCommitIdAreSameException,
 
-    -- ** RepositoryNameExistsException
-    _RepositoryNameExistsException,
+    -- ** MaximumRepositoryTriggersExceededException
+    _MaximumRepositoryTriggersExceededException,
+
+    -- ** MergeOptionRequiredException
+    _MergeOptionRequiredException,
+
+    -- ** InvalidFileLocationException
+    _InvalidFileLocationException,
+
+    -- ** ApprovalRuleTemplateDoesNotExistException
+    _ApprovalRuleTemplateDoesNotExistException,
+
+    -- ** ClientRequestTokenRequiredException
+    _ClientRequestTokenRequiredException,
 
     -- ** InvalidCommitIdException
     _InvalidCommitIdException,
 
-    -- ** InvalidRepositoryDescriptionException
-    _InvalidRepositoryDescriptionException,
-
-    -- ** MaximumRepositoryNamesExceededException
-    _MaximumRepositoryNamesExceededException,
+    -- ** FileContentAndSourceFileSpecifiedException
+    _FileContentAndSourceFileSpecifiedException,
 
     -- ** SameFileContentException
     _SameFileContentException,
 
-    -- ** ApprovalRuleTemplateInUseException
-    _ApprovalRuleTemplateInUseException,
+    -- ** TipOfSourceReferenceIsDifferentException
+    _TipOfSourceReferenceIsDifferentException,
 
     -- ** InvalidEmailException
     _InvalidEmailException,
 
-    -- ** TipOfSourceReferenceIsDifferentException
-    _TipOfSourceReferenceIsDifferentException,
+    -- ** MaximumRepositoryNamesExceededException
+    _MaximumRepositoryNamesExceededException,
+
+    -- ** RepositoryNameExistsException
+    _RepositoryNameExistsException,
+
+    -- ** PutFileEntryConflictException
+    _PutFileEntryConflictException,
 
     -- ** FolderDoesNotExistException
     _FolderDoesNotExistException,
+
+    -- ** InvalidRepositoryDescriptionException
+    _InvalidRepositoryDescriptionException,
 
     -- ** InvalidRuleContentSha256Exception
     _InvalidRuleContentSha256Exception,
@@ -842,23 +845,14 @@ module Network.AWS.CodeCommit
     -- ** BlobIdDoesNotExistException
     _BlobIdDoesNotExistException,
 
-    -- ** PutFileEntryConflictException
-    _PutFileEntryConflictException,
-
-    -- ** FileContentAndSourceFileSpecifiedException
-    _FileContentAndSourceFileSpecifiedException,
+    -- ** ApprovalRuleTemplateInUseException
+    _ApprovalRuleTemplateInUseException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** BatchAssociateApprovalRuleTemplateWithRepositories
-    BatchAssociateApprovalRuleTemplateWithRepositories (BatchAssociateApprovalRuleTemplateWithRepositories'),
-    newBatchAssociateApprovalRuleTemplateWithRepositories,
-    BatchAssociateApprovalRuleTemplateWithRepositoriesResponse (BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'),
-    newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse,
 
     -- ** PutFile
     PutFile (PutFile'),
@@ -872,23 +866,17 @@ module Network.AWS.CodeCommit
     GetRepositoryTriggersResponse (GetRepositoryTriggersResponse'),
     newGetRepositoryTriggersResponse,
 
+    -- ** BatchAssociateApprovalRuleTemplateWithRepositories
+    BatchAssociateApprovalRuleTemplateWithRepositories (BatchAssociateApprovalRuleTemplateWithRepositories'),
+    newBatchAssociateApprovalRuleTemplateWithRepositories,
+    BatchAssociateApprovalRuleTemplateWithRepositoriesResponse (BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'),
+    newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse,
+
     -- ** DisassociateApprovalRuleTemplateFromRepository
     DisassociateApprovalRuleTemplateFromRepository (DisassociateApprovalRuleTemplateFromRepository'),
     newDisassociateApprovalRuleTemplateFromRepository,
     DisassociateApprovalRuleTemplateFromRepositoryResponse (DisassociateApprovalRuleTemplateFromRepositoryResponse'),
     newDisassociateApprovalRuleTemplateFromRepositoryResponse,
-
-    -- ** DeletePullRequestApprovalRule
-    DeletePullRequestApprovalRule (DeletePullRequestApprovalRule'),
-    newDeletePullRequestApprovalRule,
-    DeletePullRequestApprovalRuleResponse (DeletePullRequestApprovalRuleResponse'),
-    newDeletePullRequestApprovalRuleResponse,
-
-    -- ** ListRepositoriesForApprovalRuleTemplate
-    ListRepositoriesForApprovalRuleTemplate (ListRepositoriesForApprovalRuleTemplate'),
-    newListRepositoriesForApprovalRuleTemplate,
-    ListRepositoriesForApprovalRuleTemplateResponse (ListRepositoriesForApprovalRuleTemplateResponse'),
-    newListRepositoriesForApprovalRuleTemplateResponse,
 
     -- ** UpdateRepositoryName
     UpdateRepositoryName (UpdateRepositoryName'),
@@ -902,23 +890,29 @@ module Network.AWS.CodeCommit
     BatchDescribeMergeConflictsResponse (BatchDescribeMergeConflictsResponse'),
     newBatchDescribeMergeConflictsResponse,
 
+    -- ** ListRepositoriesForApprovalRuleTemplate
+    ListRepositoriesForApprovalRuleTemplate (ListRepositoriesForApprovalRuleTemplate'),
+    newListRepositoriesForApprovalRuleTemplate,
+    ListRepositoriesForApprovalRuleTemplateResponse (ListRepositoriesForApprovalRuleTemplateResponse'),
+    newListRepositoriesForApprovalRuleTemplateResponse,
+
+    -- ** DeletePullRequestApprovalRule
+    DeletePullRequestApprovalRule (DeletePullRequestApprovalRule'),
+    newDeletePullRequestApprovalRule,
+    DeletePullRequestApprovalRuleResponse (DeletePullRequestApprovalRuleResponse'),
+    newDeletePullRequestApprovalRuleResponse,
+
     -- ** GetRepository
     GetRepository (GetRepository'),
     newGetRepository,
     GetRepositoryResponse (GetRepositoryResponse'),
     newGetRepositoryResponse,
 
-    -- ** UpdatePullRequestStatus
-    UpdatePullRequestStatus (UpdatePullRequestStatus'),
-    newUpdatePullRequestStatus,
-    UpdatePullRequestStatusResponse (UpdatePullRequestStatusResponse'),
-    newUpdatePullRequestStatusResponse,
-
-    -- ** PostCommentReply
-    PostCommentReply (PostCommentReply'),
-    newPostCommentReply,
-    PostCommentReplyResponse (PostCommentReplyResponse'),
-    newPostCommentReplyResponse,
+    -- ** GetCommentsForPullRequest (Paginated)
+    GetCommentsForPullRequest (GetCommentsForPullRequest'),
+    newGetCommentsForPullRequest,
+    GetCommentsForPullRequestResponse (GetCommentsForPullRequestResponse'),
+    newGetCommentsForPullRequestResponse,
 
     -- ** GetPullRequestOverrideState
     GetPullRequestOverrideState (GetPullRequestOverrideState'),
@@ -926,11 +920,23 @@ module Network.AWS.CodeCommit
     GetPullRequestOverrideStateResponse (GetPullRequestOverrideStateResponse'),
     newGetPullRequestOverrideStateResponse,
 
-    -- ** GetCommentsForPullRequest (Paginated)
-    GetCommentsForPullRequest (GetCommentsForPullRequest'),
-    newGetCommentsForPullRequest,
-    GetCommentsForPullRequestResponse (GetCommentsForPullRequestResponse'),
-    newGetCommentsForPullRequestResponse,
+    -- ** PostCommentReply
+    PostCommentReply (PostCommentReply'),
+    newPostCommentReply,
+    PostCommentReplyResponse (PostCommentReplyResponse'),
+    newPostCommentReplyResponse,
+
+    -- ** UpdatePullRequestStatus
+    UpdatePullRequestStatus (UpdatePullRequestStatus'),
+    newUpdatePullRequestStatus,
+    UpdatePullRequestStatusResponse (UpdatePullRequestStatusResponse'),
+    newUpdatePullRequestStatusResponse,
+
+    -- ** MergePullRequestByThreeWay
+    MergePullRequestByThreeWay (MergePullRequestByThreeWay'),
+    newMergePullRequestByThreeWay,
+    MergePullRequestByThreeWayResponse (MergePullRequestByThreeWayResponse'),
+    newMergePullRequestByThreeWayResponse,
 
     -- ** UpdateDefaultBranch
     UpdateDefaultBranch (UpdateDefaultBranch'),
@@ -950,17 +956,11 @@ module Network.AWS.CodeCommit
     GetMergeOptionsResponse (GetMergeOptionsResponse'),
     newGetMergeOptionsResponse,
 
-    -- ** MergePullRequestByThreeWay
-    MergePullRequestByThreeWay (MergePullRequestByThreeWay'),
-    newMergePullRequestByThreeWay,
-    MergePullRequestByThreeWayResponse (MergePullRequestByThreeWayResponse'),
-    newMergePullRequestByThreeWayResponse,
-
-    -- ** UpdatePullRequestDescription
-    UpdatePullRequestDescription (UpdatePullRequestDescription'),
-    newUpdatePullRequestDescription,
-    UpdatePullRequestDescriptionResponse (UpdatePullRequestDescriptionResponse'),
-    newUpdatePullRequestDescriptionResponse,
+    -- ** PutCommentReaction
+    PutCommentReaction (PutCommentReaction'),
+    newPutCommentReaction,
+    PutCommentReactionResponse (PutCommentReactionResponse'),
+    newPutCommentReactionResponse,
 
     -- ** GetMergeConflicts
     GetMergeConflicts (GetMergeConflicts'),
@@ -968,11 +968,11 @@ module Network.AWS.CodeCommit
     GetMergeConflictsResponse (GetMergeConflictsResponse'),
     newGetMergeConflictsResponse,
 
-    -- ** PutCommentReaction
-    PutCommentReaction (PutCommentReaction'),
-    newPutCommentReaction,
-    PutCommentReactionResponse (PutCommentReactionResponse'),
-    newPutCommentReactionResponse,
+    -- ** UpdatePullRequestDescription
+    UpdatePullRequestDescription (UpdatePullRequestDescription'),
+    newUpdatePullRequestDescription,
+    UpdatePullRequestDescriptionResponse (UpdatePullRequestDescriptionResponse'),
+    newUpdatePullRequestDescriptionResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -986,17 +986,35 @@ module Network.AWS.CodeCommit
     DeleteApprovalRuleTemplateResponse (DeleteApprovalRuleTemplateResponse'),
     newDeleteApprovalRuleTemplateResponse,
 
-    -- ** ListBranches (Paginated)
-    ListBranches (ListBranches'),
-    newListBranches,
-    ListBranchesResponse (ListBranchesResponse'),
-    newListBranchesResponse,
+    -- ** GetFile
+    GetFile (GetFile'),
+    newGetFile,
+    GetFileResponse (GetFileResponse'),
+    newGetFileResponse,
 
     -- ** ListApprovalRuleTemplates
     ListApprovalRuleTemplates (ListApprovalRuleTemplates'),
     newListApprovalRuleTemplates,
     ListApprovalRuleTemplatesResponse (ListApprovalRuleTemplatesResponse'),
     newListApprovalRuleTemplatesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** MergeBranchesByThreeWay
+    MergeBranchesByThreeWay (MergeBranchesByThreeWay'),
+    newMergeBranchesByThreeWay,
+    MergeBranchesByThreeWayResponse (MergeBranchesByThreeWayResponse'),
+    newMergeBranchesByThreeWayResponse,
+
+    -- ** ListBranches (Paginated)
+    ListBranches (ListBranches'),
+    newListBranches,
+    ListBranchesResponse (ListBranchesResponse'),
+    newListBranchesResponse,
 
     -- ** PutRepositoryTriggers
     PutRepositoryTriggers (PutRepositoryTriggers'),
@@ -1009,24 +1027,6 @@ module Network.AWS.CodeCommit
     newCreateBranch,
     CreateBranchResponse (CreateBranchResponse'),
     newCreateBranchResponse,
-
-    -- ** MergeBranchesByThreeWay
-    MergeBranchesByThreeWay (MergeBranchesByThreeWay'),
-    newMergeBranchesByThreeWay,
-    MergeBranchesByThreeWayResponse (MergeBranchesByThreeWayResponse'),
-    newMergeBranchesByThreeWayResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetFile
-    GetFile (GetFile'),
-    newGetFile,
-    GetFileResponse (GetFileResponse'),
-    newGetFileResponse,
 
     -- ** UpdatePullRequestApprovalRuleContent
     UpdatePullRequestApprovalRuleContent (UpdatePullRequestApprovalRuleContent'),
@@ -1046,23 +1046,11 @@ module Network.AWS.CodeCommit
     UpdateRepositoryDescriptionResponse (UpdateRepositoryDescriptionResponse'),
     newUpdateRepositoryDescriptionResponse,
 
-    -- ** OverridePullRequestApprovalRules
-    OverridePullRequestApprovalRules (OverridePullRequestApprovalRules'),
-    newOverridePullRequestApprovalRules,
-    OverridePullRequestApprovalRulesResponse (OverridePullRequestApprovalRulesResponse'),
-    newOverridePullRequestApprovalRulesResponse,
-
     -- ** GetPullRequest
     GetPullRequest (GetPullRequest'),
     newGetPullRequest,
     GetPullRequestResponse (GetPullRequestResponse'),
     newGetPullRequestResponse,
-
-    -- ** UpdateComment
-    UpdateComment (UpdateComment'),
-    newUpdateComment,
-    UpdateCommentResponse (UpdateCommentResponse'),
-    newUpdateCommentResponse,
 
     -- ** GetDifferences (Paginated)
     GetDifferences (GetDifferences'),
@@ -1070,41 +1058,17 @@ module Network.AWS.CodeCommit
     GetDifferencesResponse (GetDifferencesResponse'),
     newGetDifferencesResponse,
 
-    -- ** GetMergeCommit
-    GetMergeCommit (GetMergeCommit'),
-    newGetMergeCommit,
-    GetMergeCommitResponse (GetMergeCommitResponse'),
-    newGetMergeCommitResponse,
+    -- ** OverridePullRequestApprovalRules
+    OverridePullRequestApprovalRules (OverridePullRequestApprovalRules'),
+    newOverridePullRequestApprovalRules,
+    OverridePullRequestApprovalRulesResponse (OverridePullRequestApprovalRulesResponse'),
+    newOverridePullRequestApprovalRulesResponse,
 
-    -- ** GetApprovalRuleTemplate
-    GetApprovalRuleTemplate (GetApprovalRuleTemplate'),
-    newGetApprovalRuleTemplate,
-    GetApprovalRuleTemplateResponse (GetApprovalRuleTemplateResponse'),
-    newGetApprovalRuleTemplateResponse,
-
-    -- ** GetCommit
-    GetCommit (GetCommit'),
-    newGetCommit,
-    GetCommitResponse (GetCommitResponse'),
-    newGetCommitResponse,
-
-    -- ** UpdateApprovalRuleTemplateName
-    UpdateApprovalRuleTemplateName (UpdateApprovalRuleTemplateName'),
-    newUpdateApprovalRuleTemplateName,
-    UpdateApprovalRuleTemplateNameResponse (UpdateApprovalRuleTemplateNameResponse'),
-    newUpdateApprovalRuleTemplateNameResponse,
-
-    -- ** GetCommentReactions
-    GetCommentReactions (GetCommentReactions'),
-    newGetCommentReactions,
-    GetCommentReactionsResponse (GetCommentReactionsResponse'),
-    newGetCommentReactionsResponse,
-
-    -- ** TestRepositoryTriggers
-    TestRepositoryTriggers (TestRepositoryTriggers'),
-    newTestRepositoryTriggers,
-    TestRepositoryTriggersResponse (TestRepositoryTriggersResponse'),
-    newTestRepositoryTriggersResponse,
+    -- ** UpdateComment
+    UpdateComment (UpdateComment'),
+    newUpdateComment,
+    UpdateCommentResponse (UpdateCommentResponse'),
+    newUpdateCommentResponse,
 
     -- ** DeleteFile
     DeleteFile (DeleteFile'),
@@ -1112,23 +1076,47 @@ module Network.AWS.CodeCommit
     DeleteFileResponse (DeleteFileResponse'),
     newDeleteFileResponse,
 
+    -- ** UpdateApprovalRuleTemplateName
+    UpdateApprovalRuleTemplateName (UpdateApprovalRuleTemplateName'),
+    newUpdateApprovalRuleTemplateName,
+    UpdateApprovalRuleTemplateNameResponse (UpdateApprovalRuleTemplateNameResponse'),
+    newUpdateApprovalRuleTemplateNameResponse,
+
     -- ** GetCommentsForComparedCommit (Paginated)
     GetCommentsForComparedCommit (GetCommentsForComparedCommit'),
     newGetCommentsForComparedCommit,
     GetCommentsForComparedCommitResponse (GetCommentsForComparedCommitResponse'),
     newGetCommentsForComparedCommitResponse,
 
-    -- ** MergeBranchesBySquash
-    MergeBranchesBySquash (MergeBranchesBySquash'),
-    newMergeBranchesBySquash,
-    MergeBranchesBySquashResponse (MergeBranchesBySquashResponse'),
-    newMergeBranchesBySquashResponse,
+    -- ** TestRepositoryTriggers
+    TestRepositoryTriggers (TestRepositoryTriggers'),
+    newTestRepositoryTriggers,
+    TestRepositoryTriggersResponse (TestRepositoryTriggersResponse'),
+    newTestRepositoryTriggersResponse,
 
-    -- ** PostCommentForPullRequest
-    PostCommentForPullRequest (PostCommentForPullRequest'),
-    newPostCommentForPullRequest,
-    PostCommentForPullRequestResponse (PostCommentForPullRequestResponse'),
-    newPostCommentForPullRequestResponse,
+    -- ** GetMergeCommit
+    GetMergeCommit (GetMergeCommit'),
+    newGetMergeCommit,
+    GetMergeCommitResponse (GetMergeCommitResponse'),
+    newGetMergeCommitResponse,
+
+    -- ** GetCommit
+    GetCommit (GetCommit'),
+    newGetCommit,
+    GetCommitResponse (GetCommitResponse'),
+    newGetCommitResponse,
+
+    -- ** GetCommentReactions
+    GetCommentReactions (GetCommentReactions'),
+    newGetCommentReactions,
+    GetCommentReactionsResponse (GetCommentReactionsResponse'),
+    newGetCommentReactionsResponse,
+
+    -- ** GetApprovalRuleTemplate
+    GetApprovalRuleTemplate (GetApprovalRuleTemplate'),
+    newGetApprovalRuleTemplate,
+    GetApprovalRuleTemplateResponse (GetApprovalRuleTemplateResponse'),
+    newGetApprovalRuleTemplateResponse,
 
     -- ** MergePullRequestByFastForward
     MergePullRequestByFastForward (MergePullRequestByFastForward'),
@@ -1136,11 +1124,17 @@ module Network.AWS.CodeCommit
     MergePullRequestByFastForwardResponse (MergePullRequestByFastForwardResponse'),
     newMergePullRequestByFastForwardResponse,
 
-    -- ** CreatePullRequestApprovalRule
-    CreatePullRequestApprovalRule (CreatePullRequestApprovalRule'),
-    newCreatePullRequestApprovalRule,
-    CreatePullRequestApprovalRuleResponse (CreatePullRequestApprovalRuleResponse'),
-    newCreatePullRequestApprovalRuleResponse,
+    -- ** PostCommentForPullRequest
+    PostCommentForPullRequest (PostCommentForPullRequest'),
+    newPostCommentForPullRequest,
+    PostCommentForPullRequestResponse (PostCommentForPullRequestResponse'),
+    newPostCommentForPullRequestResponse,
+
+    -- ** MergeBranchesBySquash
+    MergeBranchesBySquash (MergeBranchesBySquash'),
+    newMergeBranchesBySquash,
+    MergeBranchesBySquashResponse (MergeBranchesBySquashResponse'),
+    newMergeBranchesBySquashResponse,
 
     -- ** CreateUnreferencedMergeCommit
     CreateUnreferencedMergeCommit (CreateUnreferencedMergeCommit'),
@@ -1148,11 +1142,11 @@ module Network.AWS.CodeCommit
     CreateUnreferencedMergeCommitResponse (CreateUnreferencedMergeCommitResponse'),
     newCreateUnreferencedMergeCommitResponse,
 
-    -- ** ListAssociatedApprovalRuleTemplatesForRepository
-    ListAssociatedApprovalRuleTemplatesForRepository (ListAssociatedApprovalRuleTemplatesForRepository'),
-    newListAssociatedApprovalRuleTemplatesForRepository,
-    ListAssociatedApprovalRuleTemplatesForRepositoryResponse (ListAssociatedApprovalRuleTemplatesForRepositoryResponse'),
-    newListAssociatedApprovalRuleTemplatesForRepositoryResponse,
+    -- ** CreatePullRequestApprovalRule
+    CreatePullRequestApprovalRule (CreatePullRequestApprovalRule'),
+    newCreatePullRequestApprovalRule,
+    CreatePullRequestApprovalRuleResponse (CreatePullRequestApprovalRuleResponse'),
+    newCreatePullRequestApprovalRuleResponse,
 
     -- ** GetPullRequestApprovalStates
     GetPullRequestApprovalStates (GetPullRequestApprovalStates'),
@@ -1160,29 +1154,17 @@ module Network.AWS.CodeCommit
     GetPullRequestApprovalStatesResponse (GetPullRequestApprovalStatesResponse'),
     newGetPullRequestApprovalStatesResponse,
 
+    -- ** ListAssociatedApprovalRuleTemplatesForRepository
+    ListAssociatedApprovalRuleTemplatesForRepository (ListAssociatedApprovalRuleTemplatesForRepository'),
+    newListAssociatedApprovalRuleTemplatesForRepository,
+    ListAssociatedApprovalRuleTemplatesForRepositoryResponse (ListAssociatedApprovalRuleTemplatesForRepositoryResponse'),
+    newListAssociatedApprovalRuleTemplatesForRepositoryResponse,
+
     -- ** UpdateApprovalRuleTemplateContent
     UpdateApprovalRuleTemplateContent (UpdateApprovalRuleTemplateContent'),
     newUpdateApprovalRuleTemplateContent,
     UpdateApprovalRuleTemplateContentResponse (UpdateApprovalRuleTemplateContentResponse'),
     newUpdateApprovalRuleTemplateContentResponse,
-
-    -- ** ListRepositories (Paginated)
-    ListRepositories (ListRepositories'),
-    newListRepositories,
-    ListRepositoriesResponse (ListRepositoriesResponse'),
-    newListRepositoriesResponse,
-
-    -- ** UpdateApprovalRuleTemplateDescription
-    UpdateApprovalRuleTemplateDescription (UpdateApprovalRuleTemplateDescription'),
-    newUpdateApprovalRuleTemplateDescription,
-    UpdateApprovalRuleTemplateDescriptionResponse (UpdateApprovalRuleTemplateDescriptionResponse'),
-    newUpdateApprovalRuleTemplateDescriptionResponse,
-
-    -- ** CreateRepository
-    CreateRepository (CreateRepository'),
-    newCreateRepository,
-    CreateRepositoryResponse (CreateRepositoryResponse'),
-    newCreateRepositoryResponse,
 
     -- ** DescribePullRequestEvents (Paginated)
     DescribePullRequestEvents (DescribePullRequestEvents'),
@@ -1190,11 +1172,23 @@ module Network.AWS.CodeCommit
     DescribePullRequestEventsResponse (DescribePullRequestEventsResponse'),
     newDescribePullRequestEventsResponse,
 
-    -- ** DeleteCommentContent
-    DeleteCommentContent (DeleteCommentContent'),
-    newDeleteCommentContent,
-    DeleteCommentContentResponse (DeleteCommentContentResponse'),
-    newDeleteCommentContentResponse,
+    -- ** ListRepositories (Paginated)
+    ListRepositories (ListRepositories'),
+    newListRepositories,
+    ListRepositoriesResponse (ListRepositoriesResponse'),
+    newListRepositoriesResponse,
+
+    -- ** CreateRepository
+    CreateRepository (CreateRepository'),
+    newCreateRepository,
+    CreateRepositoryResponse (CreateRepositoryResponse'),
+    newCreateRepositoryResponse,
+
+    -- ** UpdateApprovalRuleTemplateDescription
+    UpdateApprovalRuleTemplateDescription (UpdateApprovalRuleTemplateDescription'),
+    newUpdateApprovalRuleTemplateDescription,
+    UpdateApprovalRuleTemplateDescriptionResponse (UpdateApprovalRuleTemplateDescriptionResponse'),
+    newUpdateApprovalRuleTemplateDescriptionResponse,
 
     -- ** DeleteRepository
     DeleteRepository (DeleteRepository'),
@@ -1202,11 +1196,11 @@ module Network.AWS.CodeCommit
     DeleteRepositoryResponse (DeleteRepositoryResponse'),
     newDeleteRepositoryResponse,
 
-    -- ** DescribeMergeConflicts
-    DescribeMergeConflicts (DescribeMergeConflicts'),
-    newDescribeMergeConflicts,
-    DescribeMergeConflictsResponse (DescribeMergeConflictsResponse'),
-    newDescribeMergeConflictsResponse,
+    -- ** DeleteCommentContent
+    DeleteCommentContent (DeleteCommentContent'),
+    newDeleteCommentContent,
+    DeleteCommentContentResponse (DeleteCommentContentResponse'),
+    newDeleteCommentContentResponse,
 
     -- ** BatchGetCommits
     BatchGetCommits (BatchGetCommits'),
@@ -1214,11 +1208,11 @@ module Network.AWS.CodeCommit
     BatchGetCommitsResponse (BatchGetCommitsResponse'),
     newBatchGetCommitsResponse,
 
-    -- ** GetFolder
-    GetFolder (GetFolder'),
-    newGetFolder,
-    GetFolderResponse (GetFolderResponse'),
-    newGetFolderResponse,
+    -- ** DescribeMergeConflicts
+    DescribeMergeConflicts (DescribeMergeConflicts'),
+    newDescribeMergeConflicts,
+    DescribeMergeConflictsResponse (DescribeMergeConflictsResponse'),
+    newDescribeMergeConflictsResponse,
 
     -- ** CreatePullRequest
     CreatePullRequest (CreatePullRequest'),
@@ -1226,11 +1220,11 @@ module Network.AWS.CodeCommit
     CreatePullRequestResponse (CreatePullRequestResponse'),
     newCreatePullRequestResponse,
 
-    -- ** EvaluatePullRequestApprovalRules
-    EvaluatePullRequestApprovalRules (EvaluatePullRequestApprovalRules'),
-    newEvaluatePullRequestApprovalRules,
-    EvaluatePullRequestApprovalRulesResponse (EvaluatePullRequestApprovalRulesResponse'),
-    newEvaluatePullRequestApprovalRulesResponse,
+    -- ** GetFolder
+    GetFolder (GetFolder'),
+    newGetFolder,
+    GetFolderResponse (GetFolderResponse'),
+    newGetFolderResponse,
 
     -- ** UpdatePullRequestApprovalState
     UpdatePullRequestApprovalState (UpdatePullRequestApprovalState'),
@@ -1238,35 +1232,11 @@ module Network.AWS.CodeCommit
     UpdatePullRequestApprovalStateResponse (UpdatePullRequestApprovalStateResponse'),
     newUpdatePullRequestApprovalStateResponse,
 
-    -- ** CreateCommit
-    CreateCommit (CreateCommit'),
-    newCreateCommit,
-    CreateCommitResponse (CreateCommitResponse'),
-    newCreateCommitResponse,
-
-    -- ** AssociateApprovalRuleTemplateWithRepository
-    AssociateApprovalRuleTemplateWithRepository (AssociateApprovalRuleTemplateWithRepository'),
-    newAssociateApprovalRuleTemplateWithRepository,
-    AssociateApprovalRuleTemplateWithRepositoryResponse (AssociateApprovalRuleTemplateWithRepositoryResponse'),
-    newAssociateApprovalRuleTemplateWithRepositoryResponse,
-
-    -- ** GetBlob
-    GetBlob (GetBlob'),
-    newGetBlob,
-    GetBlobResponse (GetBlobResponse'),
-    newGetBlobResponse,
-
     -- ** CreateApprovalRuleTemplate
     CreateApprovalRuleTemplate (CreateApprovalRuleTemplate'),
     newCreateApprovalRuleTemplate,
     CreateApprovalRuleTemplateResponse (CreateApprovalRuleTemplateResponse'),
     newCreateApprovalRuleTemplateResponse,
-
-    -- ** ListPullRequests (Paginated)
-    ListPullRequests (ListPullRequests'),
-    newListPullRequests,
-    ListPullRequestsResponse (ListPullRequestsResponse'),
-    newListPullRequestsResponse,
 
     -- ** DeleteBranch
     DeleteBranch (DeleteBranch'),
@@ -1274,17 +1244,65 @@ module Network.AWS.CodeCommit
     DeleteBranchResponse (DeleteBranchResponse'),
     newDeleteBranchResponse,
 
-    -- ** BatchDisassociateApprovalRuleTemplateFromRepositories
-    BatchDisassociateApprovalRuleTemplateFromRepositories (BatchDisassociateApprovalRuleTemplateFromRepositories'),
-    newBatchDisassociateApprovalRuleTemplateFromRepositories,
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse (BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'),
-    newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse,
+    -- ** CreateCommit
+    CreateCommit (CreateCommit'),
+    newCreateCommit,
+    CreateCommitResponse (CreateCommitResponse'),
+    newCreateCommitResponse,
 
     -- ** GetComment
     GetComment (GetComment'),
     newGetComment,
     GetCommentResponse (GetCommentResponse'),
     newGetCommentResponse,
+
+    -- ** EvaluatePullRequestApprovalRules
+    EvaluatePullRequestApprovalRules (EvaluatePullRequestApprovalRules'),
+    newEvaluatePullRequestApprovalRules,
+    EvaluatePullRequestApprovalRulesResponse (EvaluatePullRequestApprovalRulesResponse'),
+    newEvaluatePullRequestApprovalRulesResponse,
+
+    -- ** AssociateApprovalRuleTemplateWithRepository
+    AssociateApprovalRuleTemplateWithRepository (AssociateApprovalRuleTemplateWithRepository'),
+    newAssociateApprovalRuleTemplateWithRepository,
+    AssociateApprovalRuleTemplateWithRepositoryResponse (AssociateApprovalRuleTemplateWithRepositoryResponse'),
+    newAssociateApprovalRuleTemplateWithRepositoryResponse,
+
+    -- ** ListPullRequests (Paginated)
+    ListPullRequests (ListPullRequests'),
+    newListPullRequests,
+    ListPullRequestsResponse (ListPullRequestsResponse'),
+    newListPullRequestsResponse,
+
+    -- ** BatchDisassociateApprovalRuleTemplateFromRepositories
+    BatchDisassociateApprovalRuleTemplateFromRepositories (BatchDisassociateApprovalRuleTemplateFromRepositories'),
+    newBatchDisassociateApprovalRuleTemplateFromRepositories,
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse (BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'),
+    newBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse,
+
+    -- ** GetBlob
+    GetBlob (GetBlob'),
+    newGetBlob,
+    GetBlobResponse (GetBlobResponse'),
+    newGetBlobResponse,
+
+    -- ** MergePullRequestBySquash
+    MergePullRequestBySquash (MergePullRequestBySquash'),
+    newMergePullRequestBySquash,
+    MergePullRequestBySquashResponse (MergePullRequestBySquashResponse'),
+    newMergePullRequestBySquashResponse,
+
+    -- ** PostCommentForComparedCommit
+    PostCommentForComparedCommit (PostCommentForComparedCommit'),
+    newPostCommentForComparedCommit,
+    PostCommentForComparedCommitResponse (PostCommentForComparedCommitResponse'),
+    newPostCommentForComparedCommitResponse,
+
+    -- ** MergeBranchesByFastForward
+    MergeBranchesByFastForward (MergeBranchesByFastForward'),
+    newMergeBranchesByFastForward,
+    MergeBranchesByFastForwardResponse (MergeBranchesByFastForwardResponse'),
+    newMergeBranchesByFastForwardResponse,
 
     -- ** GetBranch
     GetBranch (GetBranch'),
@@ -1297,24 +1315,6 @@ module Network.AWS.CodeCommit
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
-
-    -- ** MergeBranchesByFastForward
-    MergeBranchesByFastForward (MergeBranchesByFastForward'),
-    newMergeBranchesByFastForward,
-    MergeBranchesByFastForwardResponse (MergeBranchesByFastForwardResponse'),
-    newMergeBranchesByFastForwardResponse,
-
-    -- ** PostCommentForComparedCommit
-    PostCommentForComparedCommit (PostCommentForComparedCommit'),
-    newPostCommentForComparedCommit,
-    PostCommentForComparedCommitResponse (PostCommentForComparedCommitResponse'),
-    newPostCommentForComparedCommitResponse,
-
-    -- ** MergePullRequestBySquash
-    MergePullRequestBySquash (MergePullRequestBySquash'),
-    newMergePullRequestBySquash,
-    MergePullRequestBySquashResponse (MergePullRequestBySquashResponse'),
-    newMergePullRequestBySquashResponse,
 
     -- * Types
 

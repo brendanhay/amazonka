@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a credential report for the AWS account. For more information
--- about the credential report, see
+-- Retrieves a credential report for the Amazon Web Services account. For
+-- more information about the credential report, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting credential reports>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.GetCredentialReport

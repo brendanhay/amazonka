@@ -20,8 +20,8 @@ module Network.AWS.MediaStore.Types
     _ContainerInUseException,
     _InternalServerError,
     _PolicyNotFoundException,
-    _LimitExceededException,
     _CorsPolicyNotFoundException,
+    _LimitExceededException,
     _ContainerNotFoundException,
 
     -- * ContainerLevelMetrics
@@ -36,8 +36,8 @@ module Network.AWS.MediaStore.Types
     -- * Container
     Container (..),
     newContainer,
-    container_status,
     container_creationTime,
+    container_status,
     container_arn,
     container_accessLoggingEnabled,
     container_name,
@@ -178,19 +178,19 @@ _PolicyNotFoundException =
     defaultService
     "PolicyNotFoundException"
 
--- | A service limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | The CORS policy that you specified in the request does not exist.
 _CorsPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CorsPolicyNotFoundException =
   Core._MatchServiceError
     defaultService
     "CorsPolicyNotFoundException"
+
+-- | A service limit has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | The container that you specified in the request does not exist.
 _ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

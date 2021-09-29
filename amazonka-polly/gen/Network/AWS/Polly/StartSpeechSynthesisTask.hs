@@ -24,10 +24,11 @@
 -- @SpeechSynthesisTask@. This operation requires all the standard
 -- information needed for speech synthesis, plus the name of an Amazon S3
 -- bucket for the service to store the output of the synthesis task and two
--- optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the
+-- optional parameters (@OutputS3KeyPrefix@ and @SnsTopicArn@). Once the
 -- synthesis task is created, this operation will return a
--- SpeechSynthesisTask object, which will include an identifier of this
--- task as well as the current status.
+-- @SpeechSynthesisTask@ object, which will include an identifier of this
+-- task as well as the current status. The @SpeechSynthesisTask@ object is
+-- available for 72 hours after starting the asynchronous synthesis task.
 module Network.AWS.Polly.StartSpeechSynthesisTask
   ( -- * Creating a Request
     StartSpeechSynthesisTask (..),
@@ -35,8 +36,8 @@ module Network.AWS.Polly.StartSpeechSynthesisTask
 
     -- * Request Lenses
     startSpeechSynthesisTask_languageCode,
-    startSpeechSynthesisTask_speechMarkTypes,
     startSpeechSynthesisTask_lexiconNames,
+    startSpeechSynthesisTask_speechMarkTypes,
     startSpeechSynthesisTask_textType,
     startSpeechSynthesisTask_sampleRate,
     startSpeechSynthesisTask_engine,
@@ -71,18 +72,18 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
     -- for either Indian English (en-IN) or Hindi (hi-IN).
     --
     -- If a bilingual voice is used and no language code is specified, Amazon
-    -- Polly will use the default language of the bilingual voice. The default
+    -- Polly uses the default language of the bilingual voice. The default
     -- language for any voice is the one returned by the
     -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
     -- operation for the @LanguageCode@ parameter. For example, if no language
     -- code is specified, Aditi will use Indian English rather than Hindi.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The type of speech marks returned for the input text.
-    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | List of one or more pronunciation lexicon names you want the service to
     -- apply during synthesis. Lexicons are applied only if the language of the
     -- lexicon is the same as the language of the voice.
     lexiconNames :: Prelude.Maybe [Prelude.Text],
+    -- | The type of speech marks returned for the input text.
+    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | Specifies whether the input text is plain text or SSML. The default
     -- value is plain text.
     textType :: Prelude.Maybe TextType,
@@ -131,17 +132,17 @@ data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
 -- for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
 -- code is specified, Aditi will use Indian English rather than Hindi.
 --
--- 'speechMarkTypes', 'startSpeechSynthesisTask_speechMarkTypes' - The type of speech marks returned for the input text.
---
 -- 'lexiconNames', 'startSpeechSynthesisTask_lexiconNames' - List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice.
+--
+-- 'speechMarkTypes', 'startSpeechSynthesisTask_speechMarkTypes' - The type of speech marks returned for the input text.
 --
 -- 'textType', 'startSpeechSynthesisTask_textType' - Specifies whether the input text is plain text or SSML. The default
 -- value is plain text.
@@ -192,8 +193,8 @@ newStartSpeechSynthesisTask
     StartSpeechSynthesisTask'
       { languageCode =
           Prelude.Nothing,
-        speechMarkTypes = Prelude.Nothing,
         lexiconNames = Prelude.Nothing,
+        speechMarkTypes = Prelude.Nothing,
         textType = Prelude.Nothing,
         sampleRate = Prelude.Nothing,
         engine = Prelude.Nothing,
@@ -210,7 +211,7 @@ newStartSpeechSynthesisTask
 -- for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
@@ -218,15 +219,15 @@ newStartSpeechSynthesisTask
 startSpeechSynthesisTask_languageCode :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe LanguageCode)
 startSpeechSynthesisTask_languageCode = Lens.lens (\StartSpeechSynthesisTask' {languageCode} -> languageCode) (\s@StartSpeechSynthesisTask' {} a -> s {languageCode = a} :: StartSpeechSynthesisTask)
 
--- | The type of speech marks returned for the input text.
-startSpeechSynthesisTask_speechMarkTypes :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [SpeechMarkType])
-startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens._Coerce
-
 -- | List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice.
 startSpeechSynthesisTask_lexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [Prelude.Text])
 startSpeechSynthesisTask_lexiconNames = Lens.lens (\StartSpeechSynthesisTask' {lexiconNames} -> lexiconNames) (\s@StartSpeechSynthesisTask' {} a -> s {lexiconNames = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of speech marks returned for the input text.
+startSpeechSynthesisTask_speechMarkTypes :: Lens.Lens' StartSpeechSynthesisTask (Prelude.Maybe [SpeechMarkType])
+startSpeechSynthesisTask_speechMarkTypes = Lens.lens (\StartSpeechSynthesisTask' {speechMarkTypes} -> speechMarkTypes) (\s@StartSpeechSynthesisTask' {} a -> s {speechMarkTypes = a} :: StartSpeechSynthesisTask) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the input text is plain text or SSML. The default
 -- value is plain text.
@@ -303,9 +304,9 @@ instance Core.ToJSON StartSpeechSynthesisTask where
     Core.object
       ( Prelude.catMaybes
           [ ("LanguageCode" Core..=) Prelude.<$> languageCode,
+            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
             ("SpeechMarkTypes" Core..=)
               Prelude.<$> speechMarkTypes,
-            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
             ("TextType" Core..=) Prelude.<$> textType,
             ("SampleRate" Core..=) Prelude.<$> sampleRate,
             ("Engine" Core..=) Prelude.<$> engine,

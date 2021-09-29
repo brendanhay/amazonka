@@ -37,11 +37,11 @@ data MetricValue = MetricValue'
     cidrs :: Prelude.Maybe [Prelude.Text],
     -- | The string values of a metric.
     strings :: Prelude.Maybe [Prelude.Text],
+    -- | The numeral value of a metric.
+    number :: Prelude.Maybe Prelude.Double,
     -- | If the @comparisonOperator@ calls for a numeric value, use this to
     -- specify that numeric value to be compared with the @metric@.
-    count :: Prelude.Maybe Prelude.Natural,
-    -- | The numeral value of a metric.
-    number :: Prelude.Maybe Prelude.Double
+    count :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,10 +63,10 @@ data MetricValue = MetricValue'
 --
 -- 'strings', 'metricValue_strings' - The string values of a metric.
 --
+-- 'number', 'metricValue_number' - The numeral value of a metric.
+--
 -- 'count', 'metricValue_count' - If the @comparisonOperator@ calls for a numeric value, use this to
 -- specify that numeric value to be compared with the @metric@.
---
--- 'number', 'metricValue_number' - The numeral value of a metric.
 newMetricValue ::
   MetricValue
 newMetricValue =
@@ -75,8 +75,8 @@ newMetricValue =
       ports = Prelude.Nothing,
       cidrs = Prelude.Nothing,
       strings = Prelude.Nothing,
-      count = Prelude.Nothing,
-      number = Prelude.Nothing
+      number = Prelude.Nothing,
+      count = Prelude.Nothing
     }
 
 -- | The numeral values of a metric.
@@ -97,14 +97,14 @@ metricValue_cidrs = Lens.lens (\MetricValue' {cidrs} -> cidrs) (\s@MetricValue' 
 metricValue_strings :: Lens.Lens' MetricValue (Prelude.Maybe [Prelude.Text])
 metricValue_strings = Lens.lens (\MetricValue' {strings} -> strings) (\s@MetricValue' {} a -> s {strings = a} :: MetricValue) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The numeral value of a metric.
+metricValue_number :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Double)
+metricValue_number = Lens.lens (\MetricValue' {number} -> number) (\s@MetricValue' {} a -> s {number = a} :: MetricValue)
+
 -- | If the @comparisonOperator@ calls for a numeric value, use this to
 -- specify that numeric value to be compared with the @metric@.
 metricValue_count :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Natural)
 metricValue_count = Lens.lens (\MetricValue' {count} -> count) (\s@MetricValue' {} a -> s {count = a} :: MetricValue)
-
--- | The numeral value of a metric.
-metricValue_number :: Lens.Lens' MetricValue (Prelude.Maybe Prelude.Double)
-metricValue_number = Lens.lens (\MetricValue' {number} -> number) (\s@MetricValue' {} a -> s {number = a} :: MetricValue)
 
 instance Core.FromJSON MetricValue where
   parseJSON =
@@ -116,8 +116,8 @@ instance Core.FromJSON MetricValue where
             Prelude.<*> (x Core..:? "ports" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "cidrs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "strings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "count")
             Prelude.<*> (x Core..:? "number")
+            Prelude.<*> (x Core..:? "count")
       )
 
 instance Prelude.Hashable MetricValue
@@ -132,7 +132,7 @@ instance Core.ToJSON MetricValue where
             ("ports" Core..=) Prelude.<$> ports,
             ("cidrs" Core..=) Prelude.<$> cidrs,
             ("strings" Core..=) Prelude.<$> strings,
-            ("count" Core..=) Prelude.<$> count,
-            ("number" Core..=) Prelude.<$> number
+            ("number" Core..=) Prelude.<$> number,
+            ("count" Core..=) Prelude.<$> count
           ]
       )

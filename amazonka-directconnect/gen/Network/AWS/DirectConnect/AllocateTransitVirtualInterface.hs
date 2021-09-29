@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a transit virtual interface to be owned by the specified AWS
+-- Provisions a transit virtual interface to be owned by the specified
 -- account. Use this type of interface to connect a transit gateway to your
 -- Direct Connect gateway.
 --
 -- The owner of a connection provisions a transit virtual interface to be
--- owned by the specified AWS account.
+-- owned by the specified account.
 --
 -- After you create a transit virtual interface, it must be confirmed by
 -- the owner using ConfirmTransitVirtualInterface. Until this step has been
@@ -63,7 +63,7 @@ data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
   { -- | The ID of the connection on which the transit virtual interface is
     -- provisioned.
     connectionId :: Prelude.Text,
-    -- | The ID of the AWS account that owns the transit virtual interface.
+    -- | The ID of the account that owns the transit virtual interface.
     ownerAccount :: Prelude.Text,
     -- | Information about the transit virtual interface.
     newTransitVirtualInterfaceAllocation' :: NewTransitVirtualInterfaceAllocation
@@ -81,7 +81,7 @@ data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
 -- 'connectionId', 'allocateTransitVirtualInterface_connectionId' - The ID of the connection on which the transit virtual interface is
 -- provisioned.
 --
--- 'ownerAccount', 'allocateTransitVirtualInterface_ownerAccount' - The ID of the AWS account that owns the transit virtual interface.
+-- 'ownerAccount', 'allocateTransitVirtualInterface_ownerAccount' - The ID of the account that owns the transit virtual interface.
 --
 -- 'newTransitVirtualInterfaceAllocation'', 'allocateTransitVirtualInterface_newTransitVirtualInterfaceAllocation' - Information about the transit virtual interface.
 newAllocateTransitVirtualInterface ::
@@ -109,7 +109,7 @@ newAllocateTransitVirtualInterface
 allocateTransitVirtualInterface_connectionId :: Lens.Lens' AllocateTransitVirtualInterface Prelude.Text
 allocateTransitVirtualInterface_connectionId = Lens.lens (\AllocateTransitVirtualInterface' {connectionId} -> connectionId) (\s@AllocateTransitVirtualInterface' {} a -> s {connectionId = a} :: AllocateTransitVirtualInterface)
 
--- | The ID of the AWS account that owns the transit virtual interface.
+-- | The ID of the account that owns the transit virtual interface.
 allocateTransitVirtualInterface_ownerAccount :: Lens.Lens' AllocateTransitVirtualInterface Prelude.Text
 allocateTransitVirtualInterface_ownerAccount = Lens.lens (\AllocateTransitVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocateTransitVirtualInterface' {} a -> s {ownerAccount = a} :: AllocateTransitVirtualInterface)
 

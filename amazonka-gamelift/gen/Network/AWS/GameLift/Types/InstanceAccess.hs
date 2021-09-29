@@ -30,9 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceAccess' smart constructor.
 data InstanceAccess = InstanceAccess'
-  { -- | A unique identifier for an instance being accessed.
+  { -- | A unique identifier for the instance being accessed.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a fleet containing the instance being accessed.
+    -- | A unique identifier for the fleet containing the instance being
+    -- accessed.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | IP address that is assigned to the instance.
     ipAddress :: Prelude.Maybe Prelude.Text,
@@ -51,9 +52,10 @@ data InstanceAccess = InstanceAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceAccess_instanceId' - A unique identifier for an instance being accessed.
+-- 'instanceId', 'instanceAccess_instanceId' - A unique identifier for the instance being accessed.
 --
--- 'fleetId', 'instanceAccess_fleetId' - A unique identifier for a fleet containing the instance being accessed.
+-- 'fleetId', 'instanceAccess_fleetId' - A unique identifier for the fleet containing the instance being
+-- accessed.
 --
 -- 'ipAddress', 'instanceAccess_ipAddress' - IP address that is assigned to the instance.
 --
@@ -71,11 +73,12 @@ newInstanceAccess =
       credentials = Prelude.Nothing
     }
 
--- | A unique identifier for an instance being accessed.
+-- | A unique identifier for the instance being accessed.
 instanceAccess_instanceId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_instanceId = Lens.lens (\InstanceAccess' {instanceId} -> instanceId) (\s@InstanceAccess' {} a -> s {instanceId = a} :: InstanceAccess)
 
--- | A unique identifier for a fleet containing the instance being accessed.
+-- | A unique identifier for the fleet containing the instance being
+-- accessed.
 instanceAccess_fleetId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_fleetId = Lens.lens (\InstanceAccess' {fleetId} -> fleetId) (\s@InstanceAccess' {} a -> s {fleetId = a} :: InstanceAccess)
 

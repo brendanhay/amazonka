@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+  { -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @ConditionCheck@ condition fails. For
     -- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and
     -- ALL_OLD.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The primary key of the item to be checked. Each element consists of an
@@ -58,12 +58,12 @@ data ConditionCheck = ConditionCheck'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
 -- 'returnValuesOnConditionCheckFailure', 'conditionCheck_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
 -- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and
 -- ALL_OLD.
+--
+-- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'expressionAttributeNames', 'conditionCheck_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
@@ -82,19 +82,14 @@ newConditionCheck ::
   ConditionCheck
 newConditionCheck pTableName_ pConditionExpression_ =
   ConditionCheck'
-    { expressionAttributeValues =
+    { returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
-      returnValuesOnConditionCheckFailure =
-        Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
       key = Prelude.mempty,
       tableName = pTableName_,
       conditionExpression = pConditionExpression_
     }
-
--- | One or more values that can be substituted in an expression.
-conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
@@ -102,6 +97,10 @@ conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressi
 -- ALL_OLD.
 conditionCheck_returnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 conditionCheck_returnValuesOnConditionCheckFailure = Lens.lens (\ConditionCheck' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@ConditionCheck' {} a -> s {returnValuesOnConditionCheckFailure = a} :: ConditionCheck)
+
+-- | One or more values that can be substituted in an expression.
+conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more substitution tokens for attribute names in an expression.
 conditionCheck_expressionAttributeNames :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -129,10 +128,10 @@ instance Core.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+          [ ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
+            ("ExpressionAttributeValues" Core..=)
+              Prelude.<$> expressionAttributeValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
             Prelude.Just ("Key" Core..= key),

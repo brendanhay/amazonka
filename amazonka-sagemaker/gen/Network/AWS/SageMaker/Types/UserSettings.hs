@@ -28,8 +28,8 @@ import Network.AWS.SageMaker.Types.SharingSettings
 import Network.AWS.SageMaker.Types.TensorBoardAppSettings
 
 -- | A collection of settings that apply to users of Amazon SageMaker Studio.
--- These settings are specified when the CreateUserProfile API is called,
--- and as @DefaultUserSettings@ when the CreateDomain API is called.
+-- These settings are specified when the @CreateUserProfile@ API is called,
+-- and as @DefaultUserSettings@ when the @CreateDomain@ API is called.
 --
 -- @SecurityGroups@ is aggregated when specified in both calls. For all
 -- other settings in @UserSettings@, the values specified in
@@ -59,7 +59,7 @@ data UserSettings = UserSettings'
     jupyterServerAppSettings :: Prelude.Maybe JupyterServerAppSettings,
     -- | The execution role for the user.
     executionRole :: Prelude.Maybe Prelude.Text,
-    -- | The sharing settings.
+    -- | Specifies options for sharing SageMaker Studio notebooks.
     sharingSettings :: Prelude.Maybe SharingSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,7 +93,7 @@ data UserSettings = UserSettings'
 --
 -- 'executionRole', 'userSettings_executionRole' - The execution role for the user.
 --
--- 'sharingSettings', 'userSettings_sharingSettings' - The sharing settings.
+-- 'sharingSettings', 'userSettings_sharingSettings' - Specifies options for sharing SageMaker Studio notebooks.
 newUserSettings ::
   UserSettings
 newUserSettings =
@@ -138,7 +138,7 @@ userSettings_jupyterServerAppSettings = Lens.lens (\UserSettings' {jupyterServer
 userSettings_executionRole :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Text)
 userSettings_executionRole = Lens.lens (\UserSettings' {executionRole} -> executionRole) (\s@UserSettings' {} a -> s {executionRole = a} :: UserSettings)
 
--- | The sharing settings.
+-- | Specifies options for sharing SageMaker Studio notebooks.
 userSettings_sharingSettings :: Lens.Lens' UserSettings (Prelude.Maybe SharingSettings)
 userSettings_sharingSettings = Lens.lens (\UserSettings' {sharingSettings} -> sharingSettings) (\s@UserSettings' {} a -> s {sharingSettings = a} :: UserSettings)
 

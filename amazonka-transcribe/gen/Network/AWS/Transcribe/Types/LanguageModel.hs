@@ -41,12 +41,12 @@ data LanguageModel = LanguageModel'
     modelStatus :: Prelude.Maybe ModelStatus,
     -- | The reason why the custom language model couldn\'t be created.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The time the custom language model was created.
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | Whether the base model used for the custom language model is up to date.
     -- If this field is @true@ then you are running the most up-to-date version
     -- of the base model in your custom language model.
     upgradeAvailability :: Prelude.Maybe Prelude.Bool,
-    -- | The time the custom language model was created.
-    createTime :: Prelude.Maybe Core.POSIX,
     -- | The most recent time the custom language model was modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the custom language model.
@@ -75,11 +75,11 @@ data LanguageModel = LanguageModel'
 --
 -- 'failureReason', 'languageModel_failureReason' - The reason why the custom language model couldn\'t be created.
 --
+-- 'createTime', 'languageModel_createTime' - The time the custom language model was created.
+--
 -- 'upgradeAvailability', 'languageModel_upgradeAvailability' - Whether the base model used for the custom language model is up to date.
 -- If this field is @true@ then you are running the most up-to-date version
 -- of the base model in your custom language model.
---
--- 'createTime', 'languageModel_createTime' - The time the custom language model was created.
 --
 -- 'lastModifiedTime', 'languageModel_lastModifiedTime' - The most recent time the custom language model was modified.
 --
@@ -95,8 +95,8 @@ newLanguageModel =
       inputDataConfig = Prelude.Nothing,
       modelStatus = Prelude.Nothing,
       failureReason = Prelude.Nothing,
-      upgradeAvailability = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      upgradeAvailability = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       modelName = Prelude.Nothing,
       baseModelName = Prelude.Nothing
@@ -120,15 +120,15 @@ languageModel_modelStatus = Lens.lens (\LanguageModel' {modelStatus} -> modelSta
 languageModel_failureReason :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Text)
 languageModel_failureReason = Lens.lens (\LanguageModel' {failureReason} -> failureReason) (\s@LanguageModel' {} a -> s {failureReason = a} :: LanguageModel)
 
+-- | The time the custom language model was created.
+languageModel_createTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
+languageModel_createTime = Lens.lens (\LanguageModel' {createTime} -> createTime) (\s@LanguageModel' {} a -> s {createTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
+
 -- | Whether the base model used for the custom language model is up to date.
 -- If this field is @true@ then you are running the most up-to-date version
 -- of the base model in your custom language model.
 languageModel_upgradeAvailability :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.Bool)
 languageModel_upgradeAvailability = Lens.lens (\LanguageModel' {upgradeAvailability} -> upgradeAvailability) (\s@LanguageModel' {} a -> s {upgradeAvailability = a} :: LanguageModel)
-
--- | The time the custom language model was created.
-languageModel_createTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
-languageModel_createTime = Lens.lens (\LanguageModel' {createTime} -> createTime) (\s@LanguageModel' {} a -> s {createTime = a} :: LanguageModel) Prelude.. Lens.mapping Core._Time
 
 -- | The most recent time the custom language model was modified.
 languageModel_lastModifiedTime :: Lens.Lens' LanguageModel (Prelude.Maybe Prelude.UTCTime)
@@ -153,8 +153,8 @@ instance Core.FromJSON LanguageModel where
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "ModelStatus")
             Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "UpgradeAvailability")
             Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "UpgradeAvailability")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "ModelName")
             Prelude.<*> (x Core..:? "BaseModelName")

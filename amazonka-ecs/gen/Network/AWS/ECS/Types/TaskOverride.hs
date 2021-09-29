@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.TaskOverride where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.ContainerOverride
+import Network.AWS.ECS.Types.EphemeralStorage
 import Network.AWS.ECS.Types.InferenceAcceleratorOverride
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -35,13 +36,18 @@ data TaskOverride = TaskOverride'
     taskRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The memory override for the task.
     memory :: Prelude.Maybe Prelude.Text,
+    -- | The Elastic Inference accelerator override for the task.
+    inferenceAcceleratorOverrides :: Prelude.Maybe [InferenceAcceleratorOverride],
     -- | The Amazon Resource Name (ARN) of the task execution IAM role override
     -- for the task.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Elastic Inference accelerator override for the task.
-    inferenceAcceleratorOverrides :: Prelude.Maybe [InferenceAcceleratorOverride],
     -- | One or more container overrides sent to a task.
     containerOverrides :: Prelude.Maybe [ContainerOverride],
+    -- | The ephemeral storage setting override for the task.
+    --
+    -- This parameter is only supported for tasks hosted on Fargate using
+    -- platform version @1.4.0@ or later.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The cpu override for the task.
     cpu :: Prelude.Maybe Prelude.Text
   }
@@ -61,12 +67,17 @@ data TaskOverride = TaskOverride'
 --
 -- 'memory', 'taskOverride_memory' - The memory override for the task.
 --
+-- 'inferenceAcceleratorOverrides', 'taskOverride_inferenceAcceleratorOverrides' - The Elastic Inference accelerator override for the task.
+--
 -- 'executionRoleArn', 'taskOverride_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution IAM role override
 -- for the task.
 --
--- 'inferenceAcceleratorOverrides', 'taskOverride_inferenceAcceleratorOverrides' - The Elastic Inference accelerator override for the task.
---
 -- 'containerOverrides', 'taskOverride_containerOverrides' - One or more container overrides sent to a task.
+--
+-- 'ephemeralStorage', 'taskOverride_ephemeralStorage' - The ephemeral storage setting override for the task.
+--
+-- This parameter is only supported for tasks hosted on Fargate using
+-- platform version @1.4.0@ or later.
 --
 -- 'cpu', 'taskOverride_cpu' - The cpu override for the task.
 newTaskOverride ::
@@ -75,9 +86,10 @@ newTaskOverride =
   TaskOverride'
     { taskRoleArn = Prelude.Nothing,
       memory = Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
       inferenceAcceleratorOverrides = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
       containerOverrides = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       cpu = Prelude.Nothing
     }
 
@@ -91,18 +103,25 @@ taskOverride_taskRoleArn = Lens.lens (\TaskOverride' {taskRoleArn} -> taskRoleAr
 taskOverride_memory :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
 taskOverride_memory = Lens.lens (\TaskOverride' {memory} -> memory) (\s@TaskOverride' {} a -> s {memory = a} :: TaskOverride)
 
+-- | The Elastic Inference accelerator override for the task.
+taskOverride_inferenceAcceleratorOverrides :: Lens.Lens' TaskOverride (Prelude.Maybe [InferenceAcceleratorOverride])
+taskOverride_inferenceAcceleratorOverrides = Lens.lens (\TaskOverride' {inferenceAcceleratorOverrides} -> inferenceAcceleratorOverrides) (\s@TaskOverride' {} a -> s {inferenceAcceleratorOverrides = a} :: TaskOverride) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The Amazon Resource Name (ARN) of the task execution IAM role override
 -- for the task.
 taskOverride_executionRoleArn :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
 taskOverride_executionRoleArn = Lens.lens (\TaskOverride' {executionRoleArn} -> executionRoleArn) (\s@TaskOverride' {} a -> s {executionRoleArn = a} :: TaskOverride)
 
--- | The Elastic Inference accelerator override for the task.
-taskOverride_inferenceAcceleratorOverrides :: Lens.Lens' TaskOverride (Prelude.Maybe [InferenceAcceleratorOverride])
-taskOverride_inferenceAcceleratorOverrides = Lens.lens (\TaskOverride' {inferenceAcceleratorOverrides} -> inferenceAcceleratorOverrides) (\s@TaskOverride' {} a -> s {inferenceAcceleratorOverrides = a} :: TaskOverride) Prelude.. Lens.mapping Lens._Coerce
-
 -- | One or more container overrides sent to a task.
 taskOverride_containerOverrides :: Lens.Lens' TaskOverride (Prelude.Maybe [ContainerOverride])
 taskOverride_containerOverrides = Lens.lens (\TaskOverride' {containerOverrides} -> containerOverrides) (\s@TaskOverride' {} a -> s {containerOverrides = a} :: TaskOverride) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ephemeral storage setting override for the task.
+--
+-- This parameter is only supported for tasks hosted on Fargate using
+-- platform version @1.4.0@ or later.
+taskOverride_ephemeralStorage :: Lens.Lens' TaskOverride (Prelude.Maybe EphemeralStorage)
+taskOverride_ephemeralStorage = Lens.lens (\TaskOverride' {ephemeralStorage} -> ephemeralStorage) (\s@TaskOverride' {} a -> s {ephemeralStorage = a} :: TaskOverride)
 
 -- | The cpu override for the task.
 taskOverride_cpu :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
@@ -116,13 +135,14 @@ instance Core.FromJSON TaskOverride where
           TaskOverride'
             Prelude.<$> (x Core..:? "taskRoleArn")
             Prelude.<*> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "executionRoleArn")
             Prelude.<*> ( x Core..:? "inferenceAcceleratorOverrides"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "executionRoleArn")
             Prelude.<*> ( x Core..:? "containerOverrides"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ephemeralStorage")
             Prelude.<*> (x Core..:? "cpu")
       )
 
@@ -136,12 +156,14 @@ instance Core.ToJSON TaskOverride where
       ( Prelude.catMaybes
           [ ("taskRoleArn" Core..=) Prelude.<$> taskRoleArn,
             ("memory" Core..=) Prelude.<$> memory,
-            ("executionRoleArn" Core..=)
-              Prelude.<$> executionRoleArn,
             ("inferenceAcceleratorOverrides" Core..=)
               Prelude.<$> inferenceAcceleratorOverrides,
+            ("executionRoleArn" Core..=)
+              Prelude.<$> executionRoleArn,
             ("containerOverrides" Core..=)
               Prelude.<$> containerOverrides,
+            ("ephemeralStorage" Core..=)
+              Prelude.<$> ephemeralStorage,
             ("cpu" Core..=) Prelude.<$> cpu
           ]
       )

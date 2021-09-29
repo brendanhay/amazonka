@@ -47,7 +47,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'
-  { -- | The name of the data set to delete.
+  { -- | The name of the dataset to delete.
     datasetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteDataset = DeleteDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datasetName', 'deleteDataset_datasetName' - The name of the data set to delete.
+-- 'datasetName', 'deleteDataset_datasetName' - The name of the dataset to delete.
 newDeleteDataset ::
   -- | 'datasetName'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteDataset ::
 newDeleteDataset pDatasetName_ =
   DeleteDataset' {datasetName = pDatasetName_}
 
--- | The name of the data set to delete.
+-- | The name of the dataset to delete.
 deleteDataset_datasetName :: Lens.Lens' DeleteDataset Prelude.Text
 deleteDataset_datasetName = Lens.lens (\DeleteDataset' {datasetName} -> datasetName) (\s@DeleteDataset' {} a -> s {datasetName = a} :: DeleteDataset)
 

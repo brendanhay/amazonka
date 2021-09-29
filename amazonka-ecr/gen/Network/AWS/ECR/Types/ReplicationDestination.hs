@@ -23,14 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An array of objects representing the details of a replication
--- destination.
+-- | An array of objects representing the destination for a replication rule.
 --
 -- /See:/ 'newReplicationDestination' smart constructor.
 data ReplicationDestination = ReplicationDestination'
-  { -- | A Region to replicate to.
+  { -- | The Region to replicate to.
     region :: Prelude.Text,
-    -- | The account ID of the destination registry to replicate to.
+    -- | The Amazon Web Services account ID of the Amazon ECR private registry to
+    -- replicate to. When configuring cross-Region replication within your own
+    -- registry, specify your own account ID.
     registryId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +44,11 @@ data ReplicationDestination = ReplicationDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'region', 'replicationDestination_region' - A Region to replicate to.
+-- 'region', 'replicationDestination_region' - The Region to replicate to.
 --
--- 'registryId', 'replicationDestination_registryId' - The account ID of the destination registry to replicate to.
+-- 'registryId', 'replicationDestination_registryId' - The Amazon Web Services account ID of the Amazon ECR private registry to
+-- replicate to. When configuring cross-Region replication within your own
+-- registry, specify your own account ID.
 newReplicationDestination ::
   -- | 'region'
   Prelude.Text ->
@@ -58,11 +61,13 @@ newReplicationDestination pRegion_ pRegistryId_ =
       registryId = pRegistryId_
     }
 
--- | A Region to replicate to.
+-- | The Region to replicate to.
 replicationDestination_region :: Lens.Lens' ReplicationDestination Prelude.Text
 replicationDestination_region = Lens.lens (\ReplicationDestination' {region} -> region) (\s@ReplicationDestination' {} a -> s {region = a} :: ReplicationDestination)
 
--- | The account ID of the destination registry to replicate to.
+-- | The Amazon Web Services account ID of the Amazon ECR private registry to
+-- replicate to. When configuring cross-Region replication within your own
+-- registry, specify your own account ID.
 replicationDestination_registryId :: Lens.Lens' ReplicationDestination Prelude.Text
 replicationDestination_registryId = Lens.lens (\ReplicationDestination' {registryId} -> registryId) (\s@ReplicationDestination' {} a -> s {registryId = a} :: ReplicationDestination)
 

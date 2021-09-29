@@ -55,6 +55,7 @@ module Network.AWS.OpsWorksCM.RestoreServer
     newRestoreServerResponse,
 
     -- * Response Lenses
+    restoreServerResponse_server,
     restoreServerResponse_httpStatus,
   )
 where
@@ -145,10 +146,11 @@ instance Core.AWSRequest RestoreServer where
       RestoreServerResponse
   request = Request.postJSON defaultService
   response =
-    Response.receiveEmpty
+    Response.receiveJSON
       ( \s h x ->
           RestoreServerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RestoreServer
@@ -189,10 +191,11 @@ instance Core.ToQuery RestoreServer where
 
 -- | /See:/ 'newRestoreServerResponse' smart constructor.
 data RestoreServerResponse = RestoreServerResponse'
-  { -- | The response's http status code.
+  { server :: Prelude.Maybe Server,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RestoreServerResponse' with all optional fields omitted.
@@ -202,13 +205,22 @@ data RestoreServerResponse = RestoreServerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'server', 'restoreServerResponse_server' - Undocumented member.
+--
 -- 'httpStatus', 'restoreServerResponse_httpStatus' - The response's http status code.
 newRestoreServerResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   RestoreServerResponse
 newRestoreServerResponse pHttpStatus_ =
-  RestoreServerResponse' {httpStatus = pHttpStatus_}
+  RestoreServerResponse'
+    { server = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+restoreServerResponse_server :: Lens.Lens' RestoreServerResponse (Prelude.Maybe Server)
+restoreServerResponse_server = Lens.lens (\RestoreServerResponse' {server} -> server) (\s@RestoreServerResponse' {} a -> s {server = a} :: RestoreServerResponse)
 
 -- | The response's http status code.
 restoreServerResponse_httpStatus :: Lens.Lens' RestoreServerResponse Prelude.Int

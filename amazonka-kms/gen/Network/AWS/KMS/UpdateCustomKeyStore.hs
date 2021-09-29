@@ -36,32 +36,30 @@
 -- -   Use the __NewCustomKeyStoreName__ parameter to change the friendly
 --     name of the custom key store to the value that you specify.
 --
--- -   Use the __KeyStorePassword__ parameter tell AWS KMS the current
---     password of the
+-- -   Use the __KeyStorePassword__ parameter tell KMS the current password
+--     of the
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU)>
---     in the associated AWS CloudHSM cluster. You can use this parameter
---     to
+--     in the associated CloudHSM cluster. You can use this parameter to
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password fix connection failures>
---     that occur when AWS KMS cannot log into the associated cluster
---     because the @kmsuser@ password has changed. This value does not
---     change the password in the AWS CloudHSM cluster.
+--     that occur when KMS cannot log into the associated cluster because
+--     the @kmsuser@ password has changed. This value does not change the
+--     password in the CloudHSM cluster.
 --
 -- -   Use the __CloudHsmClusterId__ parameter to associate the custom key
---     store with a different, but related, AWS CloudHSM cluster. You can
---     use this parameter to repair a custom key store if its AWS CloudHSM
---     cluster becomes corrupted or is deleted, or when you need to create
---     or restore a cluster from a backup.
+--     store with a different, but related, CloudHSM cluster. You can use
+--     this parameter to repair a custom key store if its CloudHSM cluster
+--     becomes corrupted or is deleted, or when you need to create or
+--     restore a cluster from a backup.
 --
 -- If the operation succeeds, it returns a JSON object with no properties.
 --
 -- This operation is part of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
--- feature in AWS KMS, which combines the convenience and extensive
--- integration of AWS KMS with the isolation and control of a single-tenant
--- key store.
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a single-tenant key store.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
--- key store in a different AWS account.
+-- key store in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:UpdateCustomKeyStore>
@@ -107,17 +105,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCustomKeyStore' smart constructor.
 data UpdateCustomKeyStore = UpdateCustomKeyStore'
-  { -- | Enter the current password of the @kmsuser@ crypto user (CU) in the AWS
+  { -- | Enter the current password of the @kmsuser@ crypto user (CU) in the
     -- CloudHSM cluster that is associated with the custom key store.
     --
-    -- This parameter tells AWS KMS the current password of the @kmsuser@
-    -- crypto user (CU). It does not set or change the password of any users in
-    -- the AWS CloudHSM cluster.
+    -- This parameter tells KMS the current password of the @kmsuser@ crypto
+    -- user (CU). It does not set or change the password of any users in the
+    -- CloudHSM cluster.
     keyStorePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Changes the friendly name of the custom key store to the value that you
-    -- specify. The custom key store name must be unique in the AWS account.
+    -- specify. The custom key store name must be unique in the Amazon Web
+    -- Services account.
     newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
-    -- | Associates the custom key store with a related AWS CloudHSM cluster.
+    -- | Associates the custom key store with a related CloudHSM cluster.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom
     -- key store or a cluster that shares a backup history and has the same
@@ -145,17 +144,18 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyStorePassword', 'updateCustomKeyStore_keyStorePassword' - Enter the current password of the @kmsuser@ crypto user (CU) in the AWS
+-- 'keyStorePassword', 'updateCustomKeyStore_keyStorePassword' - Enter the current password of the @kmsuser@ crypto user (CU) in the
 -- CloudHSM cluster that is associated with the custom key store.
 --
--- This parameter tells AWS KMS the current password of the @kmsuser@
--- crypto user (CU). It does not set or change the password of any users in
--- the AWS CloudHSM cluster.
+-- This parameter tells KMS the current password of the @kmsuser@ crypto
+-- user (CU). It does not set or change the password of any users in the
+-- CloudHSM cluster.
 --
 -- 'newCustomKeyStoreName'', 'updateCustomKeyStore_newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the AWS account.
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
 --
--- 'cloudHsmClusterId', 'updateCustomKeyStore_cloudHsmClusterId' - Associates the custom key store with a related AWS CloudHSM cluster.
+-- 'cloudHsmClusterId', 'updateCustomKeyStore_cloudHsmClusterId' - Associates the custom key store with a related CloudHSM cluster.
 --
 -- Enter the cluster ID of the cluster that you used to create the custom
 -- key store or a cluster that shares a backup history and has the same
@@ -184,21 +184,22 @@ newUpdateCustomKeyStore pCustomKeyStoreId_ =
       customKeyStoreId = pCustomKeyStoreId_
     }
 
--- | Enter the current password of the @kmsuser@ crypto user (CU) in the AWS
+-- | Enter the current password of the @kmsuser@ crypto user (CU) in the
 -- CloudHSM cluster that is associated with the custom key store.
 --
--- This parameter tells AWS KMS the current password of the @kmsuser@
--- crypto user (CU). It does not set or change the password of any users in
--- the AWS CloudHSM cluster.
+-- This parameter tells KMS the current password of the @kmsuser@ crypto
+-- user (CU). It does not set or change the password of any users in the
+-- CloudHSM cluster.
 updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
 updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the AWS account.
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
 updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
 updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
 
--- | Associates the custom key store with a related AWS CloudHSM cluster.
+-- | Associates the custom key store with a related CloudHSM cluster.
 --
 -- Enter the cluster ID of the cluster that you used to create the custom
 -- key store or a cluster that shares a backup history and has the same

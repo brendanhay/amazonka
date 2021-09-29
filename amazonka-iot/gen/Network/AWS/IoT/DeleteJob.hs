@@ -30,6 +30,10 @@
 --
 -- Only 10 jobs may have status \"DELETION_IN_PROGRESS\" at the same time,
 -- or a LimitExceededException will occur.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteJob>
+-- action.
 module Network.AWS.IoT.DeleteJob
   ( -- * Creating a Request
     DeleteJob (..),
@@ -57,9 +61,9 @@ import qualified Network.AWS.Response as Response
 data DeleteJob = DeleteJob'
   { -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
@@ -94,9 +98,9 @@ data DeleteJob = DeleteJob'
 --
 -- 'namespaceId', 'deleteJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
@@ -130,9 +134,9 @@ newDeleteJob pJobId_ =
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the interconnects owned by the AWS account or only the specified
+-- Lists the interconnects owned by the account or only the specified
 -- interconnect.
 module Network.AWS.DirectConnect.DescribeInterconnects
   ( -- * Creating a Request

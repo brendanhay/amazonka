@@ -51,9 +51,6 @@ data CustomMessageActivity = CustomMessageActivity'
     -- maps to a type of channel that you can associate with an endpoint by
     -- using the ChannelType property of an endpoint.
     endpointTypes :: Prelude.Maybe [EndpointTypesElement],
-    -- | The unique identifier for the next activity to perform, after Amazon
-    -- Pinpoint calls the AWS Lambda function or web hook.
-    nextActivity :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the version of the message template to use for
     -- the message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
@@ -64,7 +61,10 @@ data CustomMessageActivity = CustomMessageActivity'
     -- the version of a template that\'s been most recently reviewed and
     -- approved for use, depending on your workflow. It isn\'t necessarily the
     -- latest version of a template.
-    templateVersion :: Prelude.Maybe Prelude.Text
+    templateVersion :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the next activity to perform, after Amazon
+    -- Pinpoint calls the AWS Lambda function or web hook.
+    nextActivity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,9 +97,6 @@ data CustomMessageActivity = CustomMessageActivity'
 -- maps to a type of channel that you can associate with an endpoint by
 -- using the ChannelType property of an endpoint.
 --
--- 'nextActivity', 'customMessageActivity_nextActivity' - The unique identifier for the next activity to perform, after Amazon
--- Pinpoint calls the AWS Lambda function or web hook.
---
 -- 'templateVersion', 'customMessageActivity_templateVersion' - The unique identifier for the version of the message template to use for
 -- the message. If specified, this value must match the identifier for an
 -- existing template version. To retrieve a list of versions and version
@@ -110,6 +107,9 @@ data CustomMessageActivity = CustomMessageActivity'
 -- the version of a template that\'s been most recently reviewed and
 -- approved for use, depending on your workflow. It isn\'t necessarily the
 -- latest version of a template.
+--
+-- 'nextActivity', 'customMessageActivity_nextActivity' - The unique identifier for the next activity to perform, after Amazon
+-- Pinpoint calls the AWS Lambda function or web hook.
 newCustomMessageActivity ::
   CustomMessageActivity
 newCustomMessageActivity =
@@ -119,8 +119,8 @@ newCustomMessageActivity =
       messageConfig = Prelude.Nothing,
       deliveryUri = Prelude.Nothing,
       endpointTypes = Prelude.Nothing,
-      nextActivity = Prelude.Nothing,
-      templateVersion = Prelude.Nothing
+      templateVersion = Prelude.Nothing,
+      nextActivity = Prelude.Nothing
     }
 
 -- | The name of the custom message template to use for the message. If
@@ -152,11 +152,6 @@ customMessageActivity_deliveryUri = Lens.lens (\CustomMessageActivity' {delivery
 customMessageActivity_endpointTypes :: Lens.Lens' CustomMessageActivity (Prelude.Maybe [EndpointTypesElement])
 customMessageActivity_endpointTypes = Lens.lens (\CustomMessageActivity' {endpointTypes} -> endpointTypes) (\s@CustomMessageActivity' {} a -> s {endpointTypes = a} :: CustomMessageActivity) Prelude.. Lens.mapping Lens._Coerce
 
--- | The unique identifier for the next activity to perform, after Amazon
--- Pinpoint calls the AWS Lambda function or web hook.
-customMessageActivity_nextActivity :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
-customMessageActivity_nextActivity = Lens.lens (\CustomMessageActivity' {nextActivity} -> nextActivity) (\s@CustomMessageActivity' {} a -> s {nextActivity = a} :: CustomMessageActivity)
-
 -- | The unique identifier for the version of the message template to use for
 -- the message. If specified, this value must match the identifier for an
 -- existing template version. To retrieve a list of versions and version
@@ -170,6 +165,11 @@ customMessageActivity_nextActivity = Lens.lens (\CustomMessageActivity' {nextAct
 customMessageActivity_templateVersion :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
 customMessageActivity_templateVersion = Lens.lens (\CustomMessageActivity' {templateVersion} -> templateVersion) (\s@CustomMessageActivity' {} a -> s {templateVersion = a} :: CustomMessageActivity)
 
+-- | The unique identifier for the next activity to perform, after Amazon
+-- Pinpoint calls the AWS Lambda function or web hook.
+customMessageActivity_nextActivity :: Lens.Lens' CustomMessageActivity (Prelude.Maybe Prelude.Text)
+customMessageActivity_nextActivity = Lens.lens (\CustomMessageActivity' {nextActivity} -> nextActivity) (\s@CustomMessageActivity' {} a -> s {nextActivity = a} :: CustomMessageActivity)
+
 instance Core.FromJSON CustomMessageActivity where
   parseJSON =
     Core.withObject
@@ -180,8 +180,8 @@ instance Core.FromJSON CustomMessageActivity where
             Prelude.<*> (x Core..:? "MessageConfig")
             Prelude.<*> (x Core..:? "DeliveryUri")
             Prelude.<*> (x Core..:? "EndpointTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NextActivity")
             Prelude.<*> (x Core..:? "TemplateVersion")
+            Prelude.<*> (x Core..:? "NextActivity")
       )
 
 instance Prelude.Hashable CustomMessageActivity
@@ -196,8 +196,8 @@ instance Core.ToJSON CustomMessageActivity where
             ("MessageConfig" Core..=) Prelude.<$> messageConfig,
             ("DeliveryUri" Core..=) Prelude.<$> deliveryUri,
             ("EndpointTypes" Core..=) Prelude.<$> endpointTypes,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity,
             ("TemplateVersion" Core..=)
-              Prelude.<$> templateVersion
+              Prelude.<$> templateVersion,
+            ("NextActivity" Core..=) Prelude.<$> nextActivity
           ]
       )

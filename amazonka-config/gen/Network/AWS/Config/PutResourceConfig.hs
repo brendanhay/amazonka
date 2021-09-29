@@ -21,18 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Records the configuration state for the resource provided in the
--- request. The configuration state of a resource is represented in AWS
--- Config as Configuration Items. Once this API records the configuration
--- item, you can retrieve the list of configuration items for the custom
--- resource type using existing AWS Config APIs.
+-- request. The configuration state of a resource is represented in Config
+-- as Configuration Items. Once this API records the configuration item,
+-- you can retrieve the list of configuration items for the custom resource
+-- type using existing Config APIs.
 --
--- The custom resource type must be registered with AWS CloudFormation.
--- This API accepts the configuration item registered with AWS
--- CloudFormation.
+-- The custom resource type must be registered with CloudFormation. This
+-- API accepts the configuration item registered with CloudFormation.
 --
--- When you call this API, AWS Config only stores configuration state of
--- the resource provided in the request. This API does not change or
--- remediate the configuration of the resource.
+-- When you call this API, Config only stores configuration state of the
+-- resource provided in the request. This API does not change or remediate
+-- the configuration of the resource.
 --
 -- Write-only schema properites are not recorded as part of the published
 -- configuration item.
@@ -69,19 +68,18 @@ data PutResourceConfig = PutResourceConfig'
     -- | Name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of the resource. The custom resource type must be registered
-    -- with AWS CloudFormation.
+    -- with CloudFormation.
     --
-    -- You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”,
+    -- You cannot use the organization names “amzn”, “amazon”, “alexa”,
     -- “custom” with custom resource types. It is the first part of the
     -- ResourceType up to the first ::.
     resourceType :: Prelude.Text,
-    -- | Version of the schema registered for the ResourceType in AWS
-    -- CloudFormation.
+    -- | Version of the schema registered for the ResourceType in CloudFormation.
     schemaVersionId :: Prelude.Text,
     -- | Unique identifier of the resource.
     resourceId :: Prelude.Text,
     -- | The configuration object of the resource in valid JSON format. It must
-    -- match the schema registered with AWS CloudFormation.
+    -- match the schema registered with CloudFormation.
     --
     -- The configuration JSON must not exceed 64 KB.
     configuration :: Prelude.Text
@@ -101,19 +99,18 @@ data PutResourceConfig = PutResourceConfig'
 -- 'resourceName', 'putResourceConfig_resourceName' - Name of the resource.
 --
 -- 'resourceType', 'putResourceConfig_resourceType' - The type of the resource. The custom resource type must be registered
--- with AWS CloudFormation.
+-- with CloudFormation.
 --
--- You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”,
+-- You cannot use the organization names “amzn”, “amazon”, “alexa”,
 -- “custom” with custom resource types. It is the first part of the
 -- ResourceType up to the first ::.
 --
--- 'schemaVersionId', 'putResourceConfig_schemaVersionId' - Version of the schema registered for the ResourceType in AWS
--- CloudFormation.
+-- 'schemaVersionId', 'putResourceConfig_schemaVersionId' - Version of the schema registered for the ResourceType in CloudFormation.
 --
 -- 'resourceId', 'putResourceConfig_resourceId' - Unique identifier of the resource.
 --
 -- 'configuration', 'putResourceConfig_configuration' - The configuration object of the resource in valid JSON format. It must
--- match the schema registered with AWS CloudFormation.
+-- match the schema registered with CloudFormation.
 --
 -- The configuration JSON must not exceed 64 KB.
 newPutResourceConfig ::
@@ -149,16 +146,15 @@ putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Prelude.Maybe Pr
 putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -> resourceName) (\s@PutResourceConfig' {} a -> s {resourceName = a} :: PutResourceConfig)
 
 -- | The type of the resource. The custom resource type must be registered
--- with AWS CloudFormation.
+-- with CloudFormation.
 --
--- You cannot use the organization names “aws”, “amzn”, “amazon”, “alexa”,
+-- You cannot use the organization names “amzn”, “amazon”, “alexa”,
 -- “custom” with custom resource types. It is the first part of the
 -- ResourceType up to the first ::.
 putResourceConfig_resourceType :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_resourceType = Lens.lens (\PutResourceConfig' {resourceType} -> resourceType) (\s@PutResourceConfig' {} a -> s {resourceType = a} :: PutResourceConfig)
 
--- | Version of the schema registered for the ResourceType in AWS
--- CloudFormation.
+-- | Version of the schema registered for the ResourceType in CloudFormation.
 putResourceConfig_schemaVersionId :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_schemaVersionId = Lens.lens (\PutResourceConfig' {schemaVersionId} -> schemaVersionId) (\s@PutResourceConfig' {} a -> s {schemaVersionId = a} :: PutResourceConfig)
 
@@ -167,7 +163,7 @@ putResourceConfig_resourceId :: Lens.Lens' PutResourceConfig Prelude.Text
 putResourceConfig_resourceId = Lens.lens (\PutResourceConfig' {resourceId} -> resourceId) (\s@PutResourceConfig' {} a -> s {resourceId = a} :: PutResourceConfig)
 
 -- | The configuration object of the resource in valid JSON format. It must
--- match the schema registered with AWS CloudFormation.
+-- match the schema registered with CloudFormation.
 --
 -- The configuration JSON must not exceed 64 KB.
 putResourceConfig_configuration :: Lens.Lens' PutResourceConfig Prelude.Text

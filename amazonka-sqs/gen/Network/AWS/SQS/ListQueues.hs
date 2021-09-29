@@ -36,7 +36,7 @@
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.SQS.ListQueues
@@ -46,8 +46,8 @@ module Network.AWS.SQS.ListQueues
 
     -- * Request Lenses
     listQueues_nextToken,
-    listQueues_maxResults,
     listQueues_queueNamePrefix,
+    listQueues_maxResults,
 
     -- * Destructuring the Response
     ListQueuesResponse (..),
@@ -73,15 +73,15 @@ import Network.AWS.SQS.Types
 data ListQueues = ListQueues'
   { -- | Pagination token to request the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to include in the response. Value range is 1
-    -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
-    -- the response.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | A string to use for filtering the list results. Only those queues whose
     -- name begins with the specified string are returned.
     --
     -- Queue URLs and names are case-sensitive.
-    queueNamePrefix :: Prelude.Maybe Prelude.Text
+    queueNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of results to include in the response. Value range is 1
+    -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+    -- the response.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,32 +95,26 @@ data ListQueues = ListQueues'
 --
 -- 'nextToken', 'listQueues_nextToken' - Pagination token to request the next set of results.
 --
--- 'maxResults', 'listQueues_maxResults' - Maximum number of results to include in the response. Value range is 1
--- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
--- the response.
---
 -- 'queueNamePrefix', 'listQueues_queueNamePrefix' - A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
 --
 -- Queue URLs and names are case-sensitive.
+--
+-- 'maxResults', 'listQueues_maxResults' - Maximum number of results to include in the response. Value range is 1
+-- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+-- the response.
 newListQueues ::
   ListQueues
 newListQueues =
   ListQueues'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      queueNamePrefix = Prelude.Nothing
+      queueNamePrefix = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Pagination token to request the next set of results.
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
-
--- | Maximum number of results to include in the response. Value range is 1
--- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
--- the response.
-listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Int)
-listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
@@ -128,6 +122,12 @@ listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@
 -- Queue URLs and names are case-sensitive.
 listQueues_queueNamePrefix :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_queueNamePrefix = Lens.lens (\ListQueues' {queueNamePrefix} -> queueNamePrefix) (\s@ListQueues' {} a -> s {queueNamePrefix = a} :: ListQueues)
+
+-- | Maximum number of results to include in the response. Value range is 1
+-- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+-- the response.
+listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Int)
+listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 instance Core.AWSPager ListQueues where
   page rq rs
@@ -179,8 +179,8 @@ instance Core.ToQuery ListQueues where
         "Version"
           Core.=: ("2012-11-05" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "QueueNamePrefix" Core.=: queueNamePrefix
+        "QueueNamePrefix" Core.=: queueNamePrefix,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | A list of your queues.

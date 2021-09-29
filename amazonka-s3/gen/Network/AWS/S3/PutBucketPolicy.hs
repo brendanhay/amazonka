@@ -21,22 +21,23 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are
--- using an identity other than the root user of the AWS account that owns
--- the bucket, the calling identity must have the @PutBucketPolicy@
--- permissions on the specified bucket and belong to the bucket owner\'s
--- account in order to use this operation.
+-- using an identity other than the root user of the Amazon Web Services
+-- account that owns the bucket, the calling identity must have the
+-- @PutBucketPolicy@ permissions on the specified bucket and belong to the
+-- bucket owner\'s account in order to use this operation.
 --
 -- If you don\'t have @PutBucketPolicy@ permissions, Amazon S3 returns a
 -- @403 Access Denied@ error. If you have the correct permissions, but
 -- you\'re not using an identity that belongs to the bucket owner\'s
 -- account, Amazon S3 returns a @405 Method Not Allowed@ error.
 --
--- As a security precaution, the root user of the AWS account that owns a
--- bucket can always use this operation, even if the policy explicitly
--- denies the root user the ability to perform this action.
+-- As a security precaution, the root user of the Amazon Web Services
+-- account that owns a bucket can always use this operation, even if the
+-- policy explicitly denies the root user the ability to perform this
+-- action.
 --
--- For more information about bucket policies, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and User Policies>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html Bucket policy examples>.
 --
 -- The following operations are related to @PutBucketPolicy@:
 --
@@ -70,14 +71,15 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash of the request body.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Set this parameter to true to confirm that you want to remove your
     -- permissions to change this bucket policy in the future.
@@ -97,14 +99,15 @@ data PutBucketPolicy = PutBucketPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
 -- 'contentMD5', 'putBucketPolicy_contentMD5' - The MD5 hash of the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'confirmRemoveSelfBucketAccess', 'putBucketPolicy_confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your
 -- permissions to change this bucket policy in the future.
@@ -128,7 +131,7 @@ newPutBucketPolicy pBucket_ pPolicy_ =
       policy = pPolicy_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketPolicy_expectedBucketOwner :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
@@ -136,8 +139,9 @@ putBucketPolicy_expectedBucketOwner = Lens.lens (\PutBucketPolicy' {expectedBuck
 
 -- | The MD5 hash of the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketPolicy_contentMD5 :: Lens.Lens' PutBucketPolicy (Prelude.Maybe Prelude.Text)
 putBucketPolicy_contentMD5 = Lens.lens (\PutBucketPolicy' {contentMD5} -> contentMD5) (\s@PutBucketPolicy' {} a -> s {contentMD5 = a} :: PutBucketPolicy)
 

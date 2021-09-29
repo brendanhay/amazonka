@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports an existing Amazon Athena Data Catalog to AWS Glue
+-- Imports an existing Amazon Athena Data Catalog to Glue.
 module Network.AWS.Glue.ImportCatalogToGlue
   ( -- * Creating a Request
     ImportCatalogToGlue (..),
@@ -47,8 +47,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportCatalogToGlue' smart constructor.
 data ImportCatalogToGlue = ImportCatalogToGlue'
-  { -- | The ID of the catalog to import. Currently, this should be the AWS
-    -- account ID.
+  { -- | The ID of the catalog to import. Currently, this should be the Amazon
+    -- Web Services account ID.
     catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,15 +61,15 @@ data ImportCatalogToGlue = ImportCatalogToGlue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'importCatalogToGlue_catalogId' - The ID of the catalog to import. Currently, this should be the AWS
--- account ID.
+-- 'catalogId', 'importCatalogToGlue_catalogId' - The ID of the catalog to import. Currently, this should be the Amazon
+-- Web Services account ID.
 newImportCatalogToGlue ::
   ImportCatalogToGlue
 newImportCatalogToGlue =
   ImportCatalogToGlue' {catalogId = Prelude.Nothing}
 
--- | The ID of the catalog to import. Currently, this should be the AWS
--- account ID.
+-- | The ID of the catalog to import. Currently, this should be the Amazon
+-- Web Services account ID.
 importCatalogToGlue_catalogId :: Lens.Lens' ImportCatalogToGlue (Prelude.Maybe Prelude.Text)
 importCatalogToGlue_catalogId = Lens.lens (\ImportCatalogToGlue' {catalogId} -> catalogId) (\s@ImportCatalogToGlue' {} a -> s {catalogId = a} :: ImportCatalogToGlue)
 

@@ -20,6 +20,7 @@
 module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.ElasticSearch.Types.ColdStorageOptions
 import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
 import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
@@ -57,6 +58,8 @@ data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
     dedicatedMasterType :: Prelude.Maybe ESPartitionInstanceType,
     -- | The instance type for the Elasticsearch cluster\'s warm nodes.
     warmType :: Prelude.Maybe ESWarmPartitionInstanceType,
+    -- | Specifies the @ColdStorageOptions@ config for Elasticsearch Domain
+    coldStorageOptions :: Prelude.Maybe ColdStorageOptions,
     -- | The number of instances in the specified domain cluster.
     instanceCount :: Prelude.Maybe Prelude.Int
   }
@@ -96,6 +99,8 @@ data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
 --
 -- 'warmType', 'elasticsearchClusterConfig_warmType' - The instance type for the Elasticsearch cluster\'s warm nodes.
 --
+-- 'coldStorageOptions', 'elasticsearchClusterConfig_coldStorageOptions' - Specifies the @ColdStorageOptions@ config for Elasticsearch Domain
+--
 -- 'instanceCount', 'elasticsearchClusterConfig_instanceCount' - The number of instances in the specified domain cluster.
 newElasticsearchClusterConfig ::
   ElasticsearchClusterConfig
@@ -111,6 +116,7 @@ newElasticsearchClusterConfig =
       warmCount = Prelude.Nothing,
       dedicatedMasterType = Prelude.Nothing,
       warmType = Prelude.Nothing,
+      coldStorageOptions = Prelude.Nothing,
       instanceCount = Prelude.Nothing
     }
 
@@ -158,6 +164,10 @@ elasticsearchClusterConfig_dedicatedMasterType = Lens.lens (\ElasticsearchCluste
 elasticsearchClusterConfig_warmType :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ESWarmPartitionInstanceType)
 elasticsearchClusterConfig_warmType = Lens.lens (\ElasticsearchClusterConfig' {warmType} -> warmType) (\s@ElasticsearchClusterConfig' {} a -> s {warmType = a} :: ElasticsearchClusterConfig)
 
+-- | Specifies the @ColdStorageOptions@ config for Elasticsearch Domain
+elasticsearchClusterConfig_coldStorageOptions :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe ColdStorageOptions)
+elasticsearchClusterConfig_coldStorageOptions = Lens.lens (\ElasticsearchClusterConfig' {coldStorageOptions} -> coldStorageOptions) (\s@ElasticsearchClusterConfig' {} a -> s {coldStorageOptions = a} :: ElasticsearchClusterConfig)
+
 -- | The number of instances in the specified domain cluster.
 elasticsearchClusterConfig_instanceCount :: Lens.Lens' ElasticsearchClusterConfig (Prelude.Maybe Prelude.Int)
 elasticsearchClusterConfig_instanceCount = Lens.lens (\ElasticsearchClusterConfig' {instanceCount} -> instanceCount) (\s@ElasticsearchClusterConfig' {} a -> s {instanceCount = a} :: ElasticsearchClusterConfig)
@@ -177,6 +187,7 @@ instance Core.FromJSON ElasticsearchClusterConfig where
             Prelude.<*> (x Core..:? "WarmCount")
             Prelude.<*> (x Core..:? "DedicatedMasterType")
             Prelude.<*> (x Core..:? "WarmType")
+            Prelude.<*> (x Core..:? "ColdStorageOptions")
             Prelude.<*> (x Core..:? "InstanceCount")
       )
 
@@ -202,6 +213,8 @@ instance Core.ToJSON ElasticsearchClusterConfig where
             ("DedicatedMasterType" Core..=)
               Prelude.<$> dedicatedMasterType,
             ("WarmType" Core..=) Prelude.<$> warmType,
+            ("ColdStorageOptions" Core..=)
+              Prelude.<$> coldStorageOptions,
             ("InstanceCount" Core..=) Prelude.<$> instanceCount
           ]
       )

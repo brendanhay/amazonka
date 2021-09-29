@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newKinesisStreamConfig' smart constructor.
 data KinesisStreamConfig = KinesisStreamConfig'
-  { -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
+  { -- | The Amazon Resource Name (ARN) of an Identity and Access Management
     -- (IAM) role that CloudFront can use to send real-time log data to your
     -- Kinesis data stream.
     --
@@ -50,7 +50,7 @@ data KinesisStreamConfig = KinesisStreamConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleARN', 'kinesisStreamConfig_roleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management
+-- 'roleARN', 'kinesisStreamConfig_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
 -- (IAM) role that CloudFront can use to send real-time log data to your
 -- Kinesis data stream.
 --
@@ -72,7 +72,7 @@ newKinesisStreamConfig pRoleARN_ pStreamARN_ =
       streamARN = pStreamARN_
     }
 
--- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
+-- | The Amazon Resource Name (ARN) of an Identity and Access Management
 -- (IAM) role that CloudFront can use to send real-time log data to your
 -- Kinesis data stream.
 --

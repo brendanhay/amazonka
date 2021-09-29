@@ -69,7 +69,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   Container health checks are supported for Fargate tasks if you are
 --     using platform version 1.1.0 or greater. For more information, see
---     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>.
+--     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>.
 --
 -- -   Container health checks are not supported for tasks that are part of
 --     a service that is configured to use a Classic Load Balancer.
@@ -99,9 +99,18 @@ data HealthCheck = HealthCheck'
     -- | A string array representing the command that the container runs to
     -- determine if it is healthy. The string array must start with @CMD@ to
     -- execute the command arguments directly, or @CMD-SHELL@ to run the
-    -- command with the container\'s default shell. For example:
+    -- command with the container\'s default shell.
+    --
+    -- When you use the Amazon Web Services Management Console JSON panel, the
+    -- Command Line Interface, or the APIs, you should enclose the list of
+    -- commands in brackets, as shown below.
     --
     -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
+    --
+    -- You do not need to include the brackets when you use the Amazon Web
+    -- Services Management Consoleas shown below.
+    --
+    -- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
     --
     -- An exit code of 0 indicates success, and non-zero exit code indicates
     -- failure. For more information, see @HealthCheck@ in the
@@ -143,9 +152,18 @@ data HealthCheck = HealthCheck'
 -- 'command', 'healthCheck_command' - A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
 -- execute the command arguments directly, or @CMD-SHELL@ to run the
--- command with the container\'s default shell. For example:
+-- command with the container\'s default shell.
+--
+-- When you use the Amazon Web Services Management Console JSON panel, the
+-- Command Line Interface, or the APIs, you should enclose the list of
+-- commands in brackets, as shown below.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
+--
+-- You do not need to include the brackets when you use the Amazon Web
+-- Services Management Consoleas shown below.
+--
+-- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
 --
 -- An exit code of 0 indicates success, and non-zero exit code indicates
 -- failure. For more information, see @HealthCheck@ in the
@@ -194,9 +212,18 @@ healthCheck_interval = Lens.lens (\HealthCheck' {interval} -> interval) (\s@Heal
 -- | A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
 -- execute the command arguments directly, or @CMD-SHELL@ to run the
--- command with the container\'s default shell. For example:
+-- command with the container\'s default shell.
+--
+-- When you use the Amazon Web Services Management Console JSON panel, the
+-- Command Line Interface, or the APIs, you should enclose the list of
+-- commands in brackets, as shown below.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
+--
+-- You do not need to include the brackets when you use the Amazon Web
+-- Services Management Consoleas shown below.
+--
+-- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
 --
 -- An exit code of 0 indicates success, and non-zero exit code indicates
 -- failure. For more information, see @HealthCheck@ in the

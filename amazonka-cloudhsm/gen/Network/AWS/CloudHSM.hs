@@ -17,15 +17,15 @@
 -- information, see
 -- <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs>,
 -- the
--- <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide>,
+-- <https://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide>,
 -- and the
--- <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference>.
+-- <https://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference>.
 --
 -- __For information about the current version of AWS CloudHSM__, see
 -- <http://aws.amazon.com/cloudhsm/ AWS CloudHSM>, the
--- <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>,
+-- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>,
 -- and the
--- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
+-- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 module Network.AWS.CloudHSM
   ( -- * Service Configuration
     defaultService,
@@ -48,11 +48,11 @@ module Network.AWS.CloudHSM
     -- * Operations
     -- $operations
 
-    -- ** ListHsms (Paginated)
-    ListHsms (ListHsms'),
-    newListHsms,
-    ListHsmsResponse (ListHsmsResponse'),
-    newListHsmsResponse,
+    -- ** DeleteHapg
+    DeleteHapg (DeleteHapg'),
+    newDeleteHapg,
+    DeleteHapgResponse (DeleteHapgResponse'),
+    newDeleteHapgResponse,
 
     -- ** DeleteHsm
     DeleteHsm (DeleteHsm'),
@@ -66,11 +66,11 @@ module Network.AWS.CloudHSM
     ModifyLunaClientResponse (ModifyLunaClientResponse'),
     newModifyLunaClientResponse,
 
-    -- ** DeleteHapg
-    DeleteHapg (DeleteHapg'),
-    newDeleteHapg,
-    DeleteHapgResponse (DeleteHapgResponse'),
-    newDeleteHapgResponse,
+    -- ** ListHsms (Paginated)
+    ListHsms (ListHsms'),
+    newListHsms,
+    ListHsmsResponse (ListHsmsResponse'),
+    newListHsmsResponse,
 
     -- ** GetConfig
     GetConfig (GetConfig'),
@@ -102,17 +102,17 @@ module Network.AWS.CloudHSM
     ListLunaClientsResponse (ListLunaClientsResponse'),
     newListLunaClientsResponse,
 
+    -- ** DescribeHsm
+    DescribeHsm (DescribeHsm'),
+    newDescribeHsm,
+    DescribeHsmResponse (DescribeHsmResponse'),
+    newDescribeHsmResponse,
+
     -- ** RemoveTagsFromResource
     RemoveTagsFromResource (RemoveTagsFromResource'),
     newRemoveTagsFromResource,
     RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
     newRemoveTagsFromResourceResponse,
-
-    -- ** DescribeHapg
-    DescribeHapg (DescribeHapg'),
-    newDescribeHapg,
-    DescribeHapgResponse (DescribeHapgResponse'),
-    newDescribeHapgResponse,
 
     -- ** CreateLunaClient
     CreateLunaClient (CreateLunaClient'),
@@ -120,11 +120,11 @@ module Network.AWS.CloudHSM
     CreateLunaClientResponse (CreateLunaClientResponse'),
     newCreateLunaClientResponse,
 
-    -- ** DescribeHsm
-    DescribeHsm (DescribeHsm'),
-    newDescribeHsm,
-    DescribeHsmResponse (DescribeHsmResponse'),
-    newDescribeHsmResponse,
+    -- ** DescribeHapg
+    DescribeHapg (DescribeHapg'),
+    newDescribeHapg,
+    DescribeHapgResponse (DescribeHapgResponse'),
+    newDescribeHapgResponse,
 
     -- ** CreateHapg
     CreateHapg (CreateHapg'),
@@ -156,17 +156,17 @@ module Network.AWS.CloudHSM
     ModifyHsmResponse (ModifyHsmResponse'),
     newModifyHsmResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** CreateHsm
     CreateHsm (CreateHsm'),
     newCreateHsm,
     CreateHsmResponse (CreateHsmResponse'),
     newCreateHsmResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 

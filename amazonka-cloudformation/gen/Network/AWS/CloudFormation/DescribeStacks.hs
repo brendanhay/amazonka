@@ -23,8 +23,7 @@
 -- Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
 --
--- If the stack does not exist, an @AmazonCloudFormationException@ is
--- returned.
+-- If the stack does not exist, an @ValidationError@ is returned.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStacks

@@ -23,6 +23,10 @@
 -- Associates a Device Defender security profile with a thing group or this
 -- account. Each thing group or account can have up to five security
 -- profiles associated with it.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions AttachSecurityProfile>
+-- action.
 module Network.AWS.IoT.AttachSecurityProfile
   ( -- * Creating a Request
     AttachSecurityProfile (..),

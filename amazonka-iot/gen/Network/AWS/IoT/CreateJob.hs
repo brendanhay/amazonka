@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a job.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateJob>
+-- action.
 module Network.AWS.IoT.CreateJob
   ( -- * Creating a Request
     CreateJob (..),
@@ -28,8 +32,8 @@ module Network.AWS.IoT.CreateJob
 
     -- * Request Lenses
     createJob_jobExecutionsRolloutConfig,
-    createJob_targetSelection,
     createJob_timeoutConfig,
+    createJob_targetSelection,
     createJob_namespaceId,
     createJob_documentSource,
     createJob_document,
@@ -37,6 +41,7 @@ module Network.AWS.IoT.CreateJob
     createJob_tags,
     createJob_description,
     createJob_abortConfig,
+    createJob_jobTemplateArn,
     createJob_jobId,
     createJob_targets,
 
@@ -63,6 +68,12 @@ import qualified Network.AWS.Response as Response
 data CreateJob = CreateJob'
   { -- | Allows you to create a staged rollout of the job.
     jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
+    -- | Specifies the amount of time each device has to finish its execution of
+    -- the job. The timer is started when the job execution status is set to
+    -- @IN_PROGRESS@. If the job execution status is not set to another
+    -- terminal state before the time expires, it will be automatically set to
+    -- @TIMED_OUT@.
+    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
     -- complete after all those things specified as targets have completed the
     -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
@@ -70,25 +81,18 @@ data CreateJob = CreateJob'
     -- when the thing is added to a target group, even after the job was
     -- completed by all things originally in the group.
     targetSelection :: Prelude.Maybe TargetSelection,
-    -- | Specifies the amount of time each device has to finish its execution of
-    -- the job. The timer is started when the job execution status is set to
-    -- @IN_PROGRESS@. If the job execution status is not set to another
-    -- terminal state before the time expires, it will be automatically set to
-    -- @TIMED_OUT@.
-    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | An S3 link to the job document.
-    documentSource :: Prelude.Maybe Prelude.Text,
-    -- | The job document.
+    -- | An S3 link to the job document. Required if you don\'t specify a value
+    -- for @document@.
     --
     -- If the job document resides in an S3 bucket, you must use a placeholder
     -- link when specifying the document.
@@ -99,6 +103,9 @@ data CreateJob = CreateJob'
     --
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
+    documentSource :: Prelude.Maybe Prelude.Text,
+    -- | The job document. Required if you don\'t specify a value for
+    -- @documentSource@.
     document :: Prelude.Maybe Prelude.Text,
     -- | Configuration information for pre-signed S3 URLs.
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
@@ -108,9 +115,11 @@ data CreateJob = CreateJob'
     description :: Prelude.Maybe Prelude.Text,
     -- | Allows you to create criteria to abort a job.
     abortConfig :: Prelude.Maybe AbortConfig,
-    -- | A job identifier which must be unique for your AWS account. We recommend
-    -- using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for
-    -- use here.
+    -- | The ARN of the job template used to create the job.
+    jobTemplateArn :: Prelude.Maybe Prelude.Text,
+    -- | A job identifier which must be unique for your Amazon Web Services
+    -- account. We recommend using a UUID. Alpha-numeric characters, \"-\" and
+    -- \"_\" are valid for use here.
     jobId :: Prelude.Text,
     -- | A list of things and thing groups to which the job should be sent.
     targets :: Prelude.NonEmpty Prelude.Text
@@ -127,6 +136,12 @@ data CreateJob = CreateJob'
 --
 -- 'jobExecutionsRolloutConfig', 'createJob_jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
 --
+-- 'timeoutConfig', 'createJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
+-- the job. The timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the time expires, it will be automatically set to
+-- @TIMED_OUT@.
+--
 -- 'targetSelection', 'createJob_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
 -- complete after all those things specified as targets have completed the
 -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
@@ -134,25 +149,18 @@ data CreateJob = CreateJob'
 -- when the thing is added to a target group, even after the job was
 -- completed by all things originally in the group.
 --
--- 'timeoutConfig', 'createJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
--- the job. The timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the time expires, it will be automatically set to
--- @TIMED_OUT@.
---
 -- 'namespaceId', 'createJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
--- 'documentSource', 'createJob_documentSource' - An S3 link to the job document.
---
--- 'document', 'createJob_document' - The job document.
+-- 'documentSource', 'createJob_documentSource' - An S3 link to the job document. Required if you don\'t specify a value
+-- for @document@.
 --
 -- If the job document resides in an S3 bucket, you must use a placeholder
 -- link when specifying the document.
@@ -164,6 +172,9 @@ data CreateJob = CreateJob'
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
 --
+-- 'document', 'createJob_document' - The job document. Required if you don\'t specify a value for
+-- @documentSource@.
+--
 -- 'presignedUrlConfig', 'createJob_presignedUrlConfig' - Configuration information for pre-signed S3 URLs.
 --
 -- 'tags', 'createJob_tags' - Metadata which can be used to manage the job.
@@ -172,9 +183,11 @@ data CreateJob = CreateJob'
 --
 -- 'abortConfig', 'createJob_abortConfig' - Allows you to create criteria to abort a job.
 --
--- 'jobId', 'createJob_jobId' - A job identifier which must be unique for your AWS account. We recommend
--- using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for
--- use here.
+-- 'jobTemplateArn', 'createJob_jobTemplateArn' - The ARN of the job template used to create the job.
+--
+-- 'jobId', 'createJob_jobId' - A job identifier which must be unique for your Amazon Web Services
+-- account. We recommend using a UUID. Alpha-numeric characters, \"-\" and
+-- \"_\" are valid for use here.
 --
 -- 'targets', 'createJob_targets' - A list of things and thing groups to which the job should be sent.
 newCreateJob ::
@@ -187,8 +200,8 @@ newCreateJob pJobId_ pTargets_ =
   CreateJob'
     { jobExecutionsRolloutConfig =
         Prelude.Nothing,
-      targetSelection = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
+      targetSelection = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
       documentSource = Prelude.Nothing,
       document = Prelude.Nothing,
@@ -196,6 +209,7 @@ newCreateJob pJobId_ pTargets_ =
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
+      jobTemplateArn = Prelude.Nothing,
       jobId = pJobId_,
       targets = Lens._Coerce Lens.# pTargets_
     }
@@ -203,6 +217,14 @@ newCreateJob pJobId_ pTargets_ =
 -- | Allows you to create a staged rollout of the job.
 createJob_jobExecutionsRolloutConfig :: Lens.Lens' CreateJob (Prelude.Maybe JobExecutionsRolloutConfig)
 createJob_jobExecutionsRolloutConfig = Lens.lens (\CreateJob' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@CreateJob' {} a -> s {jobExecutionsRolloutConfig = a} :: CreateJob)
+
+-- | Specifies the amount of time each device has to finish its execution of
+-- the job. The timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the time expires, it will be automatically set to
+-- @TIMED_OUT@.
+createJob_timeoutConfig :: Lens.Lens' CreateJob (Prelude.Maybe TimeoutConfig)
+createJob_timeoutConfig = Lens.lens (\CreateJob' {timeoutConfig} -> timeoutConfig) (\s@CreateJob' {} a -> s {timeoutConfig = a} :: CreateJob)
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
 -- complete after all those things specified as targets have completed the
@@ -213,19 +235,11 @@ createJob_jobExecutionsRolloutConfig = Lens.lens (\CreateJob' {jobExecutionsRoll
 createJob_targetSelection :: Lens.Lens' CreateJob (Prelude.Maybe TargetSelection)
 createJob_targetSelection = Lens.lens (\CreateJob' {targetSelection} -> targetSelection) (\s@CreateJob' {} a -> s {targetSelection = a} :: CreateJob)
 
--- | Specifies the amount of time each device has to finish its execution of
--- the job. The timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the time expires, it will be automatically set to
--- @TIMED_OUT@.
-createJob_timeoutConfig :: Lens.Lens' CreateJob (Prelude.Maybe TimeoutConfig)
-createJob_timeoutConfig = Lens.lens (\CreateJob' {timeoutConfig} -> timeoutConfig) (\s@CreateJob' {} a -> s {timeoutConfig = a} :: CreateJob)
-
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
@@ -233,11 +247,8 @@ createJob_timeoutConfig = Lens.lens (\CreateJob' {timeoutConfig} -> timeoutConfi
 createJob_namespaceId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_namespaceId = Lens.lens (\CreateJob' {namespaceId} -> namespaceId) (\s@CreateJob' {} a -> s {namespaceId = a} :: CreateJob)
 
--- | An S3 link to the job document.
-createJob_documentSource :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_documentSource = Lens.lens (\CreateJob' {documentSource} -> documentSource) (\s@CreateJob' {} a -> s {documentSource = a} :: CreateJob)
-
--- | The job document.
+-- | An S3 link to the job document. Required if you don\'t specify a value
+-- for @document@.
 --
 -- If the job document resides in an S3 bucket, you must use a placeholder
 -- link when specifying the document.
@@ -248,6 +259,11 @@ createJob_documentSource = Lens.lens (\CreateJob' {documentSource} -> documentSo
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
+createJob_documentSource :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_documentSource = Lens.lens (\CreateJob' {documentSource} -> documentSource) (\s@CreateJob' {} a -> s {documentSource = a} :: CreateJob)
+
+-- | The job document. Required if you don\'t specify a value for
+-- @documentSource@.
 createJob_document :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_document = Lens.lens (\CreateJob' {document} -> document) (\s@CreateJob' {} a -> s {document = a} :: CreateJob)
 
@@ -267,9 +283,13 @@ createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s
 createJob_abortConfig :: Lens.Lens' CreateJob (Prelude.Maybe AbortConfig)
 createJob_abortConfig = Lens.lens (\CreateJob' {abortConfig} -> abortConfig) (\s@CreateJob' {} a -> s {abortConfig = a} :: CreateJob)
 
--- | A job identifier which must be unique for your AWS account. We recommend
--- using a UUID. Alpha-numeric characters, \"-\" and \"_\" are valid for
--- use here.
+-- | The ARN of the job template used to create the job.
+createJob_jobTemplateArn :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_jobTemplateArn = Lens.lens (\CreateJob' {jobTemplateArn} -> jobTemplateArn) (\s@CreateJob' {} a -> s {jobTemplateArn = a} :: CreateJob)
+
+-- | A job identifier which must be unique for your Amazon Web Services
+-- account. We recommend using a UUID. Alpha-numeric characters, \"-\" and
+-- \"_\" are valid for use here.
 createJob_jobId :: Lens.Lens' CreateJob Prelude.Text
 createJob_jobId = Lens.lens (\CreateJob' {jobId} -> jobId) (\s@CreateJob' {} a -> s {jobId = a} :: CreateJob)
 
@@ -303,9 +323,9 @@ instance Core.ToJSON CreateJob where
       ( Prelude.catMaybes
           [ ("jobExecutionsRolloutConfig" Core..=)
               Prelude.<$> jobExecutionsRolloutConfig,
+            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
             ("targetSelection" Core..=)
               Prelude.<$> targetSelection,
-            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
             ("namespaceId" Core..=) Prelude.<$> namespaceId,
             ("documentSource" Core..=)
               Prelude.<$> documentSource,
@@ -315,6 +335,8 @@ instance Core.ToJSON CreateJob where
             ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
             ("abortConfig" Core..=) Prelude.<$> abortConfig,
+            ("jobTemplateArn" Core..=)
+              Prelude.<$> jobTemplateArn,
             Prelude.Just ("targets" Core..= targets)
           ]
       )

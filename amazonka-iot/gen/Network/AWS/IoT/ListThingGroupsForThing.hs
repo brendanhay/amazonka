@@ -22,6 +22,10 @@
 --
 -- List the thing groups to which the specified thing belongs.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListThingGroupsForThing>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingGroupsForThing
   ( -- * Creating a Request

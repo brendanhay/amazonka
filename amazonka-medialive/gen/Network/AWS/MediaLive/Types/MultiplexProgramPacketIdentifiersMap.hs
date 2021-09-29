@@ -37,9 +37,9 @@ data MultiplexProgramPacketIdentifiersMap = MultiplexProgramPacketIdentifiersMap
     pcrPid :: Prelude.Maybe Prelude.Int,
     dvbTeletextPid :: Prelude.Maybe Prelude.Int,
     privateMetadataPid :: Prelude.Maybe Prelude.Int,
-    scte27Pids :: Prelude.Maybe [Prelude.Int],
     dvbSubPids :: Prelude.Maybe [Prelude.Int],
-    scte35Pid :: Prelude.Maybe Prelude.Int
+    scte35Pid :: Prelude.Maybe Prelude.Int,
+    scte27Pids :: Prelude.Maybe [Prelude.Int]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,11 +71,11 @@ data MultiplexProgramPacketIdentifiersMap = MultiplexProgramPacketIdentifiersMap
 --
 -- 'privateMetadataPid', 'multiplexProgramPacketIdentifiersMap_privateMetadataPid' - Undocumented member.
 --
--- 'scte27Pids', 'multiplexProgramPacketIdentifiersMap_scte27Pids' - Undocumented member.
---
 -- 'dvbSubPids', 'multiplexProgramPacketIdentifiersMap_dvbSubPids' - Undocumented member.
 --
 -- 'scte35Pid', 'multiplexProgramPacketIdentifiersMap_scte35Pid' - Undocumented member.
+--
+-- 'scte27Pids', 'multiplexProgramPacketIdentifiersMap_scte27Pids' - Undocumented member.
 newMultiplexProgramPacketIdentifiersMap ::
   MultiplexProgramPacketIdentifiersMap
 newMultiplexProgramPacketIdentifiersMap =
@@ -91,9 +91,9 @@ newMultiplexProgramPacketIdentifiersMap =
       pcrPid = Prelude.Nothing,
       dvbTeletextPid = Prelude.Nothing,
       privateMetadataPid = Prelude.Nothing,
-      scte27Pids = Prelude.Nothing,
       dvbSubPids = Prelude.Nothing,
-      scte35Pid = Prelude.Nothing
+      scte35Pid = Prelude.Nothing,
+      scte27Pids = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -137,16 +137,16 @@ multiplexProgramPacketIdentifiersMap_privateMetadataPid :: Lens.Lens' MultiplexP
 multiplexProgramPacketIdentifiersMap_privateMetadataPid = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {privateMetadataPid} -> privateMetadataPid) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {privateMetadataPid = a} :: MultiplexProgramPacketIdentifiersMap)
 
 -- | Undocumented member.
-multiplexProgramPacketIdentifiersMap_scte27Pids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Prelude.Maybe [Prelude.Int])
-multiplexProgramPacketIdentifiersMap_scte27Pids = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {scte27Pids} -> scte27Pids) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {scte27Pids = a} :: MultiplexProgramPacketIdentifiersMap) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
 multiplexProgramPacketIdentifiersMap_dvbSubPids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Prelude.Maybe [Prelude.Int])
 multiplexProgramPacketIdentifiersMap_dvbSubPids = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {dvbSubPids} -> dvbSubPids) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {dvbSubPids = a} :: MultiplexProgramPacketIdentifiersMap) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 multiplexProgramPacketIdentifiersMap_scte35Pid :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Prelude.Maybe Prelude.Int)
 multiplexProgramPacketIdentifiersMap_scte35Pid = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {scte35Pid} -> scte35Pid) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {scte35Pid = a} :: MultiplexProgramPacketIdentifiersMap)
+
+-- | Undocumented member.
+multiplexProgramPacketIdentifiersMap_scte27Pids :: Lens.Lens' MultiplexProgramPacketIdentifiersMap (Prelude.Maybe [Prelude.Int])
+multiplexProgramPacketIdentifiersMap_scte27Pids = Lens.lens (\MultiplexProgramPacketIdentifiersMap' {scte27Pids} -> scte27Pids) (\s@MultiplexProgramPacketIdentifiersMap' {} a -> s {scte27Pids = a} :: MultiplexProgramPacketIdentifiersMap) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -167,9 +167,9 @@ instance
             Prelude.<*> (x Core..:? "pcrPid")
             Prelude.<*> (x Core..:? "dvbTeletextPid")
             Prelude.<*> (x Core..:? "privateMetadataPid")
-            Prelude.<*> (x Core..:? "scte27Pids" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "dvbSubPids" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "scte35Pid")
+            Prelude.<*> (x Core..:? "scte27Pids" Core..!= Prelude.mempty)
       )
 
 instance

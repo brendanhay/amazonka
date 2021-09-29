@@ -23,7 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object with identifying information for an Amazon ECR image.
+-- | An object with identifying information for an image in an Amazon ECR
+-- repository.
 --
 -- /See:/ 'newImageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'

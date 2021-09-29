@@ -21,18 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Decodes additional information about the authorization status of a
--- request from an encoded message returned in response to an AWS request.
+-- request from an encoded message returned in response to an Amazon Web
+-- Services request.
 --
 -- For example, if a user is not authorized to perform an operation that he
 -- or she has requested, the request returns a
--- @Client.UnauthorizedOperation@ response (an HTTP 403 response). Some AWS
--- operations additionally return an encoded message that can provide
--- details about this authorization failure.
+-- @Client.UnauthorizedOperation@ response (an HTTP 403 response). Some
+-- Amazon Web Services operations additionally return an encoded message
+-- that can provide details about this authorization failure.
 --
--- Only certain AWS operations return an encoded authorization message. The
--- documentation for an individual operation indicates whether that
--- operation returns an encoded message in addition to returning an HTTP
--- code.
+-- Only certain Amazon Web Services operations return an encoded
+-- authorization message. The documentation for an individual operation
+-- indicates whether that operation returns an encoded message in addition
+-- to returning an HTTP code.
 --
 -- The message is encoded because the details of the authorization status
 -- can constitute privileged information that the user who requested the
@@ -145,7 +146,7 @@ instance Core.ToQuery DecodeAuthorizationMessage where
 
 -- | A document that contains additional information about the authorization
 -- status of a request from an encoded message that is returned in response
--- to an AWS request.
+-- to an Amazon Web Services request.
 --
 -- /See:/ 'newDecodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'

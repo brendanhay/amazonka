@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a database activity stream that was started using the AWS console,
--- the @start-activity-stream@ AWS CLI command, or the
+-- Stops a database activity stream that was started using the Amazon Web
+-- Services console, the @start-activity-stream@ CLI command, or the
 -- @StartActivityStream@ action.
 --
 -- For more information, see
@@ -144,11 +144,12 @@ instance Core.ToQuery StopActivityStream where
 data StopActivityStreamResponse = StopActivityStreamResponse'
   { -- | The status of the database activity stream.
     status :: Prelude.Maybe ActivityStreamStatus,
-    -- | The AWS KMS key identifier used for encrypting messages in the database
-    -- activity stream.
+    -- | The Amazon Web Services KMS key identifier used for encrypting messages
+    -- in the database activity stream.
     --
-    -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
-    -- name for the AWS KMS customer master key (CMK).
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK).
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Kinesis data stream used for the database
     -- activity stream.
@@ -168,11 +169,12 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
 --
 -- 'status', 'stopActivityStreamResponse_status' - The status of the database activity stream.
 --
--- 'kmsKeyId', 'stopActivityStreamResponse_kmsKeyId' - The AWS KMS key identifier used for encrypting messages in the database
--- activity stream.
+-- 'kmsKeyId', 'stopActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier used for encrypting messages
+-- in the database activity stream.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
 --
 -- 'kinesisStreamName', 'stopActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database
 -- activity stream.
@@ -195,11 +197,12 @@ newStopActivityStreamResponse pHttpStatus_ =
 stopActivityStreamResponse_status :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
 stopActivityStreamResponse_status = Lens.lens (\StopActivityStreamResponse' {status} -> status) (\s@StopActivityStreamResponse' {} a -> s {status = a} :: StopActivityStreamResponse)
 
--- | The AWS KMS key identifier used for encrypting messages in the database
--- activity stream.
+-- | The Amazon Web Services KMS key identifier used for encrypting messages
+-- in the database activity stream.
 --
--- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
--- name for the AWS KMS customer master key (CMK).
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
 stopActivityStreamResponse_kmsKeyId :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
 stopActivityStreamResponse_kmsKeyId = Lens.lens (\StopActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StopActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StopActivityStreamResponse)
 

@@ -34,10 +34,10 @@ data UserPendingChanges = UserPendingChanges'
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Required. The type of change pending for the ActiveMQ user.
-    pendingChange :: Prelude.Maybe ChangeType,
     -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    -- | Required. The type of change pending for the ActiveMQ user.
+    pendingChange :: ChangeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,16 +54,18 @@ data UserPendingChanges = UserPendingChanges'
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 --
--- 'pendingChange', 'userPendingChanges_pendingChange' - Required. The type of change pending for the ActiveMQ user.
---
 -- 'consoleAccess', 'userPendingChanges_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+--
+-- 'pendingChange', 'userPendingChanges_pendingChange' - Required. The type of change pending for the ActiveMQ user.
 newUserPendingChanges ::
+  -- | 'pendingChange'
+  ChangeType ->
   UserPendingChanges
-newUserPendingChanges =
+newUserPendingChanges pPendingChange_ =
   UserPendingChanges'
     { groups = Prelude.Nothing,
-      pendingChange = Prelude.Nothing,
-      consoleAccess = Prelude.Nothing
+      consoleAccess = Prelude.Nothing,
+      pendingChange = pPendingChange_
     }
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
@@ -73,13 +75,13 @@ newUserPendingChanges =
 userPendingChanges_groups :: Lens.Lens' UserPendingChanges (Prelude.Maybe [Prelude.Text])
 userPendingChanges_groups = Lens.lens (\UserPendingChanges' {groups} -> groups) (\s@UserPendingChanges' {} a -> s {groups = a} :: UserPendingChanges) Prelude.. Lens.mapping Lens._Coerce
 
--- | Required. The type of change pending for the ActiveMQ user.
-userPendingChanges_pendingChange :: Lens.Lens' UserPendingChanges (Prelude.Maybe ChangeType)
-userPendingChanges_pendingChange = Lens.lens (\UserPendingChanges' {pendingChange} -> pendingChange) (\s@UserPendingChanges' {} a -> s {pendingChange = a} :: UserPendingChanges)
-
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 userPendingChanges_consoleAccess :: Lens.Lens' UserPendingChanges (Prelude.Maybe Prelude.Bool)
 userPendingChanges_consoleAccess = Lens.lens (\UserPendingChanges' {consoleAccess} -> consoleAccess) (\s@UserPendingChanges' {} a -> s {consoleAccess = a} :: UserPendingChanges)
+
+-- | Required. The type of change pending for the ActiveMQ user.
+userPendingChanges_pendingChange :: Lens.Lens' UserPendingChanges ChangeType
+userPendingChanges_pendingChange = Lens.lens (\UserPendingChanges' {pendingChange} -> pendingChange) (\s@UserPendingChanges' {} a -> s {pendingChange = a} :: UserPendingChanges)
 
 instance Core.FromJSON UserPendingChanges where
   parseJSON =
@@ -88,8 +90,8 @@ instance Core.FromJSON UserPendingChanges where
       ( \x ->
           UserPendingChanges'
             Prelude.<$> (x Core..:? "groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "pendingChange")
             Prelude.<*> (x Core..:? "consoleAccess")
+            Prelude.<*> (x Core..: "pendingChange")
       )
 
 instance Prelude.Hashable UserPendingChanges

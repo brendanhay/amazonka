@@ -50,6 +50,7 @@ library
     Network.AWS.CloudWatch.DeleteAnomalyDetector
     Network.AWS.CloudWatch.DeleteDashboards
     Network.AWS.CloudWatch.DeleteInsightRules
+    Network.AWS.CloudWatch.DeleteMetricStream
     Network.AWS.CloudWatch.DescribeAlarmHistory
     Network.AWS.CloudWatch.DescribeAlarms
     Network.AWS.CloudWatch.DescribeAlarmsForMetric
@@ -63,10 +64,12 @@ library
     Network.AWS.CloudWatch.GetInsightRuleReport
     Network.AWS.CloudWatch.GetMetricData
     Network.AWS.CloudWatch.GetMetricStatistics
+    Network.AWS.CloudWatch.GetMetricStream
     Network.AWS.CloudWatch.GetMetricWidgetImage
     Network.AWS.CloudWatch.Lens
     Network.AWS.CloudWatch.ListDashboards
     Network.AWS.CloudWatch.ListMetrics
+    Network.AWS.CloudWatch.ListMetricStreams
     Network.AWS.CloudWatch.ListTagsForResource
     Network.AWS.CloudWatch.PutAnomalyDetector
     Network.AWS.CloudWatch.PutCompositeAlarm
@@ -74,7 +77,10 @@ library
     Network.AWS.CloudWatch.PutInsightRule
     Network.AWS.CloudWatch.PutMetricAlarm
     Network.AWS.CloudWatch.PutMetricData
+    Network.AWS.CloudWatch.PutMetricStream
     Network.AWS.CloudWatch.SetAlarmState
+    Network.AWS.CloudWatch.StartMetricStreams
+    Network.AWS.CloudWatch.StopMetricStreams
     Network.AWS.CloudWatch.TagResource
     Network.AWS.CloudWatch.Types
     Network.AWS.CloudWatch.Types.AlarmHistoryItem
@@ -102,6 +108,9 @@ library
     Network.AWS.CloudWatch.Types.MetricDataResult
     Network.AWS.CloudWatch.Types.MetricDatum
     Network.AWS.CloudWatch.Types.MetricStat
+    Network.AWS.CloudWatch.Types.MetricStreamEntry
+    Network.AWS.CloudWatch.Types.MetricStreamFilter
+    Network.AWS.CloudWatch.Types.MetricStreamOutputFormat
     Network.AWS.CloudWatch.Types.PartialFailure
     Network.AWS.CloudWatch.Types.Range
     Network.AWS.CloudWatch.Types.RecentlyActive

@@ -34,23 +34,23 @@ module Network.AWS.MediaLive.DescribeChannel
     newDescribeChannelResponse,
 
     -- * Response Lenses
-    describeChannelResponse_encoderSettings,
     describeChannelResponse_roleArn,
+    describeChannelResponse_encoderSettings,
     describeChannelResponse_inputSpecification,
     describeChannelResponse_arn,
     describeChannelResponse_id,
     describeChannelResponse_pipelinesRunningCount,
     describeChannelResponse_channelClass,
     describeChannelResponse_logLevel,
+    describeChannelResponse_name,
     describeChannelResponse_destinations,
     describeChannelResponse_state,
-    describeChannelResponse_name,
     describeChannelResponse_inputAttachments,
     describeChannelResponse_tags,
     describeChannelResponse_pipelineDetails,
-    describeChannelResponse_egressEndpoints,
     describeChannelResponse_vpc,
     describeChannelResponse_cdiInputSpecification,
+    describeChannelResponse_egressEndpoints,
     describeChannelResponse_httpStatus,
   )
 where
@@ -100,17 +100,17 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "encoderSettings")
-            Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<$> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "encoderSettings")
             Prelude.<*> (x Core..?> "inputSpecification")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "pipelinesRunningCount")
             Prelude.<*> (x Core..?> "channelClass")
             Prelude.<*> (x Core..?> "logLevel")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> ( x Core..?> "inputAttachments"
                             Core..!@ Prelude.mempty
                         )
@@ -118,11 +118,11 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> ( x Core..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "vpc")
+            Prelude.<*> (x Core..?> "cdiInputSpecification")
             Prelude.<*> ( x Core..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "vpc")
-            Prelude.<*> (x Core..?> "cdiInputSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,10 +153,10 @@ instance Core.ToQuery DescribeChannel where
 --
 -- /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { encoderSettings :: Prelude.Maybe EncoderSettings,
-    -- | The Amazon Resource Name (ARN) of the role assumed when running the
+  { -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
+    encoderSettings :: Prelude.Maybe EncoderSettings,
     -- | Specification of network and file inputs for this channel
     inputSpecification :: Prelude.Maybe InputSpecification,
     -- | The unique arn of the channel.
@@ -170,25 +170,25 @@ data DescribeChannelResponse = DescribeChannelResponse'
     channelClass :: Prelude.Maybe ChannelClass,
     -- | The log level being written to CloudWatch Logs.
     logLevel :: Prelude.Maybe LogLevel,
+    -- | The name of the channel. (user-mutable)
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of destinations of the channel. For UDP outputs, there is one
     -- destination per output. For other types (HLS, for example), there is one
     -- destination per packager.
     destinations :: Prelude.Maybe [OutputDestination],
     state :: Prelude.Maybe ChannelState,
-    -- | The name of the channel. (user-mutable)
-    name :: Prelude.Maybe Prelude.Text,
     -- | List of input attachments for channel.
     inputAttachments :: Prelude.Maybe [InputAttachment],
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Runtime details for the pipelines of a running channel.
     pipelineDetails :: Prelude.Maybe [PipelineDetail],
-    -- | The endpoints where outgoing connections initiate from
-    egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint],
     -- | Settings for VPC output
-    vpc :: Prelude.Maybe VpcOutputSettings,
+    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
     -- | Specification of CDI inputs for this channel
     cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
+    -- | The endpoints where outgoing connections initiate from
+    egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encoderSettings', 'describeChannelResponse_encoderSettings' - Undocumented member.
---
 -- 'roleArn', 'describeChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
+--
+-- 'encoderSettings', 'describeChannelResponse_encoderSettings' - Undocumented member.
 --
 -- 'inputSpecification', 'describeChannelResponse_inputSpecification' - Specification of network and file inputs for this channel
 --
@@ -220,13 +220,13 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'logLevel', 'describeChannelResponse_logLevel' - The log level being written to CloudWatch Logs.
 --
+-- 'name', 'describeChannelResponse_name' - The name of the channel. (user-mutable)
+--
 -- 'destinations', 'describeChannelResponse_destinations' - A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
 --
 -- 'state', 'describeChannelResponse_state' - Undocumented member.
---
--- 'name', 'describeChannelResponse_name' - The name of the channel. (user-mutable)
 --
 -- 'inputAttachments', 'describeChannelResponse_inputAttachments' - List of input attachments for channel.
 --
@@ -234,11 +234,11 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'pipelineDetails', 'describeChannelResponse_pipelineDetails' - Runtime details for the pipelines of a running channel.
 --
--- 'egressEndpoints', 'describeChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
---
 -- 'vpc', 'describeChannelResponse_vpc' - Settings for VPC output
 --
 -- 'cdiInputSpecification', 'describeChannelResponse_cdiInputSpecification' - Specification of CDI inputs for this channel
+--
+-- 'egressEndpoints', 'describeChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
 --
 -- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
 newDescribeChannelResponse ::
@@ -247,35 +247,34 @@ newDescribeChannelResponse ::
   DescribeChannelResponse
 newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
-    { encoderSettings =
-        Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      encoderSettings = Prelude.Nothing,
       inputSpecification = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       pipelinesRunningCount = Prelude.Nothing,
       channelClass = Prelude.Nothing,
       logLevel = Prelude.Nothing,
+      name = Prelude.Nothing,
       destinations = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       inputAttachments = Prelude.Nothing,
       tags = Prelude.Nothing,
       pipelineDetails = Prelude.Nothing,
-      egressEndpoints = Prelude.Nothing,
       vpc = Prelude.Nothing,
       cdiInputSpecification = Prelude.Nothing,
+      egressEndpoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeChannelResponse_encoderSettings :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe EncoderSettings)
-describeChannelResponse_encoderSettings = Lens.lens (\DescribeChannelResponse' {encoderSettings} -> encoderSettings) (\s@DescribeChannelResponse' {} a -> s {encoderSettings = a} :: DescribeChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 describeChannelResponse_roleArn :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_roleArn = Lens.lens (\DescribeChannelResponse' {roleArn} -> roleArn) (\s@DescribeChannelResponse' {} a -> s {roleArn = a} :: DescribeChannelResponse)
+
+-- | Undocumented member.
+describeChannelResponse_encoderSettings :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe EncoderSettings)
+describeChannelResponse_encoderSettings = Lens.lens (\DescribeChannelResponse' {encoderSettings} -> encoderSettings) (\s@DescribeChannelResponse' {} a -> s {encoderSettings = a} :: DescribeChannelResponse)
 
 -- | Specification of network and file inputs for this channel
 describeChannelResponse_inputSpecification :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe InputSpecification)
@@ -302,6 +301,10 @@ describeChannelResponse_channelClass = Lens.lens (\DescribeChannelResponse' {cha
 describeChannelResponse_logLevel :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe LogLevel)
 describeChannelResponse_logLevel = Lens.lens (\DescribeChannelResponse' {logLevel} -> logLevel) (\s@DescribeChannelResponse' {} a -> s {logLevel = a} :: DescribeChannelResponse)
 
+-- | The name of the channel. (user-mutable)
+describeChannelResponse_name :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
+describeChannelResponse_name = Lens.lens (\DescribeChannelResponse' {name} -> name) (\s@DescribeChannelResponse' {} a -> s {name = a} :: DescribeChannelResponse)
+
 -- | A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
@@ -311,10 +314,6 @@ describeChannelResponse_destinations = Lens.lens (\DescribeChannelResponse' {des
 -- | Undocumented member.
 describeChannelResponse_state :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe ChannelState)
 describeChannelResponse_state = Lens.lens (\DescribeChannelResponse' {state} -> state) (\s@DescribeChannelResponse' {} a -> s {state = a} :: DescribeChannelResponse)
-
--- | The name of the channel. (user-mutable)
-describeChannelResponse_name :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
-describeChannelResponse_name = Lens.lens (\DescribeChannelResponse' {name} -> name) (\s@DescribeChannelResponse' {} a -> s {name = a} :: DescribeChannelResponse)
 
 -- | List of input attachments for channel.
 describeChannelResponse_inputAttachments :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe [InputAttachment])
@@ -328,17 +327,17 @@ describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> ta
 describeChannelResponse_pipelineDetails :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe [PipelineDetail])
 describeChannelResponse_pipelineDetails = Lens.lens (\DescribeChannelResponse' {pipelineDetails} -> pipelineDetails) (\s@DescribeChannelResponse' {} a -> s {pipelineDetails = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The endpoints where outgoing connections initiate from
-describeChannelResponse_egressEndpoints :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
-describeChannelResponse_egressEndpoints = Lens.lens (\DescribeChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@DescribeChannelResponse' {} a -> s {egressEndpoints = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Settings for VPC output
-describeChannelResponse_vpc :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe VpcOutputSettings)
+describeChannelResponse_vpc :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe VpcOutputSettingsDescription)
 describeChannelResponse_vpc = Lens.lens (\DescribeChannelResponse' {vpc} -> vpc) (\s@DescribeChannelResponse' {} a -> s {vpc = a} :: DescribeChannelResponse)
 
 -- | Specification of CDI inputs for this channel
 describeChannelResponse_cdiInputSpecification :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe CdiInputSpecification)
 describeChannelResponse_cdiInputSpecification = Lens.lens (\DescribeChannelResponse' {cdiInputSpecification} -> cdiInputSpecification) (\s@DescribeChannelResponse' {} a -> s {cdiInputSpecification = a} :: DescribeChannelResponse)
+
+-- | The endpoints where outgoing connections initiate from
+describeChannelResponse_egressEndpoints :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
+describeChannelResponse_egressEndpoints = Lens.lens (\DescribeChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@DescribeChannelResponse' {} a -> s {egressEndpoints = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int

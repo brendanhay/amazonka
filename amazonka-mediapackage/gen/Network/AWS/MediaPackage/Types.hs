@@ -48,6 +48,12 @@ module Network.AWS.MediaPackage.Types
     -- * PlaylistType
     PlaylistType (..),
 
+    -- * PresetSpeke20Audio
+    PresetSpeke20Audio (..),
+
+    -- * PresetSpeke20Video
+    PresetSpeke20Video (..),
+
     -- * Profile
     Profile (..),
 
@@ -73,9 +79,9 @@ module Network.AWS.MediaPackage.Types
     Channel (..),
     newChannel,
     channel_egressAccessLogs,
-    channel_hlsIngest,
     channel_arn,
     channel_id,
+    channel_hlsIngest,
     channel_ingressAccessLogs,
     channel_tags,
     channel_description,
@@ -83,6 +89,7 @@ module Network.AWS.MediaPackage.Types
     -- * CmafEncryption
     CmafEncryption (..),
     newCmafEncryption,
+    cmafEncryption_constantInitializationVector,
     cmafEncryption_keyRotationIntervalSeconds,
     cmafEncryption_spekeKeyProvider,
 
@@ -118,8 +125,8 @@ module Network.AWS.MediaPackage.Types
     dashPackage_periodTriggers,
     dashPackage_adTriggers,
     dashPackage_manifestWindowSeconds,
-    dashPackage_manifestLayout,
     dashPackage_minUpdatePeriodSeconds,
+    dashPackage_manifestLayout,
     dashPackage_encryption,
     dashPackage_adsOnDeliveryRestrictions,
     dashPackage_utcTimingUri,
@@ -134,18 +141,24 @@ module Network.AWS.MediaPackage.Types
     newEgressAccessLogs,
     egressAccessLogs_logGroupName,
 
+    -- * EncryptionContractConfiguration
+    EncryptionContractConfiguration (..),
+    newEncryptionContractConfiguration,
+    encryptionContractConfiguration_presetSpeke20Audio,
+    encryptionContractConfiguration_presetSpeke20Video,
+
     -- * HarvestJob
     HarvestJob (..),
     newHarvestJob,
-    harvestJob_status,
     harvestJob_s3Destination,
+    harvestJob_status,
     harvestJob_channelId,
-    harvestJob_startTime,
+    harvestJob_createdAt,
     harvestJob_arn,
     harvestJob_id,
-    harvestJob_createdAt,
-    harvestJob_originEndpointId,
+    harvestJob_startTime,
     harvestJob_endTime,
+    harvestJob_originEndpointId,
 
     -- * HlsEncryption
     HlsEncryption (..),
@@ -231,8 +244,8 @@ module Network.AWS.MediaPackage.Types
     OriginEndpoint (..),
     newOriginEndpoint,
     originEndpoint_dashPackage,
-    originEndpoint_startoverWindowSeconds,
     originEndpoint_origination,
+    originEndpoint_startoverWindowSeconds,
     originEndpoint_channelId,
     originEndpoint_cmafPackage,
     originEndpoint_manifestName,
@@ -242,9 +255,9 @@ module Network.AWS.MediaPackage.Types
     originEndpoint_mssPackage,
     originEndpoint_tags,
     originEndpoint_description,
+    originEndpoint_url,
     originEndpoint_timeDelaySeconds,
     originEndpoint_authorization,
-    originEndpoint_url,
     originEndpoint_hlsPackage,
 
     -- * S3Destination
@@ -258,6 +271,7 @@ module Network.AWS.MediaPackage.Types
     SpekeKeyProvider (..),
     newSpekeKeyProvider,
     spekeKeyProvider_certificateArn,
+    spekeKeyProvider_encryptionContractConfiguration,
     spekeKeyProvider_resourceId,
     spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
@@ -285,6 +299,7 @@ import Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
 import Network.AWS.MediaPackage.Types.DashEncryption
 import Network.AWS.MediaPackage.Types.DashPackage
 import Network.AWS.MediaPackage.Types.EgressAccessLogs
+import Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
 import Network.AWS.MediaPackage.Types.EncryptionMethod
 import Network.AWS.MediaPackage.Types.HarvestJob
 import Network.AWS.MediaPackage.Types.HlsEncryption
@@ -301,6 +316,8 @@ import Network.AWS.MediaPackage.Types.OriginEndpoint
 import Network.AWS.MediaPackage.Types.Origination
 import Network.AWS.MediaPackage.Types.PeriodTriggersElement
 import Network.AWS.MediaPackage.Types.PlaylistType
+import Network.AWS.MediaPackage.Types.PresetSpeke20Audio
+import Network.AWS.MediaPackage.Types.PresetSpeke20Video
 import Network.AWS.MediaPackage.Types.Profile
 import Network.AWS.MediaPackage.Types.S3Destination
 import Network.AWS.MediaPackage.Types.SegmentTemplateFormat

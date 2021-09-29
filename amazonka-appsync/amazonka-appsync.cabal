@@ -105,10 +105,12 @@ library
     Network.AWS.AppSync.Types.FunctionConfiguration
     Network.AWS.AppSync.Types.GraphqlApi
     Network.AWS.AppSync.Types.HttpDataSourceConfig
+    Network.AWS.AppSync.Types.LambdaAuthorizerConfig
     Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
     Network.AWS.AppSync.Types.LambdaDataSourceConfig
     Network.AWS.AppSync.Types.LogConfig
     Network.AWS.AppSync.Types.OpenIDConnectConfig
+    Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
     Network.AWS.AppSync.Types.OutputType
     Network.AWS.AppSync.Types.PipelineConfig
     Network.AWS.AppSync.Types.RdsHttpEndpointConfig

@@ -26,16 +26,16 @@
 -- @s3:PutReplicationConfiguration@ action. The bucket owner has these
 -- permissions by default and can grant it to others. For more information
 -- about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- It can take a while for the deletion of a replication configuration to
 -- fully propagate.
 --
 -- For information about replication configuration, see
--- <%20https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
--- in the /Amazon S3 Developer Guide/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
+-- in the /Amazon S3 User Guide/.
 --
 -- The following operations are related to @DeleteBucketReplication@:
 --
@@ -66,7 +66,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newDeleteBucketReplication' smart constructor.
 data DeleteBucketReplication = DeleteBucketReplication'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -83,7 +83,7 @@ data DeleteBucketReplication = DeleteBucketReplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'deleteBucketReplication_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'deleteBucketReplication_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -99,7 +99,7 @@ newDeleteBucketReplication pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 deleteBucketReplication_expectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Prelude.Maybe Prelude.Text)

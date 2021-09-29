@@ -14,16 +14,21 @@
 module Network.AWS.ELB.Lens
   ( -- * Operations
 
-    -- ** RemoveTags
-    removeTags_loadBalancerNames,
-    removeTags_tags,
-    removeTagsResponse_httpStatus,
-
     -- ** SetLoadBalancerListenerSSLCertificate
     setLoadBalancerListenerSSLCertificate_loadBalancerName,
     setLoadBalancerListenerSSLCertificate_loadBalancerPort,
     setLoadBalancerListenerSSLCertificate_sSLCertificateId,
     setLoadBalancerListenerSSLCertificateResponse_httpStatus,
+
+    -- ** RemoveTags
+    removeTags_loadBalancerNames,
+    removeTags_tags,
+    removeTagsResponse_httpStatus,
+
+    -- ** DescribeTags
+    describeTags_loadBalancerNames,
+    describeTagsResponse_tagDescriptions,
+    describeTagsResponse_httpStatus,
 
     -- ** SetLoadBalancerPoliciesForBackendServer
     setLoadBalancerPoliciesForBackendServer_loadBalancerName,
@@ -31,28 +36,17 @@ module Network.AWS.ELB.Lens
     setLoadBalancerPoliciesForBackendServer_policyNames,
     setLoadBalancerPoliciesForBackendServerResponse_httpStatus,
 
-    -- ** DescribeTags
-    describeTags_loadBalancerNames,
-    describeTagsResponse_tagDescriptions,
-    describeTagsResponse_httpStatus,
-
-    -- ** DescribeLoadBalancerPolicies
-    describeLoadBalancerPolicies_policyNames,
-    describeLoadBalancerPolicies_loadBalancerName,
-    describeLoadBalancerPoliciesResponse_policyDescriptions,
-    describeLoadBalancerPoliciesResponse_httpStatus,
-
     -- ** SetLoadBalancerPoliciesOfListener
     setLoadBalancerPoliciesOfListener_loadBalancerName,
     setLoadBalancerPoliciesOfListener_loadBalancerPort,
     setLoadBalancerPoliciesOfListener_policyNames,
     setLoadBalancerPoliciesOfListenerResponse_httpStatus,
 
-    -- ** DeregisterInstancesFromLoadBalancer
-    deregisterInstancesFromLoadBalancer_loadBalancerName,
-    deregisterInstancesFromLoadBalancer_instances,
-    deregisterInstancesFromLoadBalancerResponse_instances,
-    deregisterInstancesFromLoadBalancerResponse_httpStatus,
+    -- ** DescribeLoadBalancerPolicies
+    describeLoadBalancerPolicies_policyNames,
+    describeLoadBalancerPolicies_loadBalancerName,
+    describeLoadBalancerPoliciesResponse_policyDescriptions,
+    describeLoadBalancerPoliciesResponse_httpStatus,
 
     -- ** CreateLoadBalancer
     createLoadBalancer_availabilityZones,
@@ -65,17 +59,23 @@ module Network.AWS.ELB.Lens
     createLoadBalancerResponse_dNSName,
     createLoadBalancerResponse_httpStatus,
 
-    -- ** DetachLoadBalancerFromSubnets
-    detachLoadBalancerFromSubnets_loadBalancerName,
-    detachLoadBalancerFromSubnets_subnets,
-    detachLoadBalancerFromSubnetsResponse_subnets,
-    detachLoadBalancerFromSubnetsResponse_httpStatus,
+    -- ** DeregisterInstancesFromLoadBalancer
+    deregisterInstancesFromLoadBalancer_loadBalancerName,
+    deregisterInstancesFromLoadBalancer_instances,
+    deregisterInstancesFromLoadBalancerResponse_instances,
+    deregisterInstancesFromLoadBalancerResponse_httpStatus,
 
     -- ** RegisterInstancesWithLoadBalancer
     registerInstancesWithLoadBalancer_loadBalancerName,
     registerInstancesWithLoadBalancer_instances,
     registerInstancesWithLoadBalancerResponse_instances,
     registerInstancesWithLoadBalancerResponse_httpStatus,
+
+    -- ** DetachLoadBalancerFromSubnets
+    detachLoadBalancerFromSubnets_loadBalancerName,
+    detachLoadBalancerFromSubnets_subnets,
+    detachLoadBalancerFromSubnetsResponse_subnets,
+    detachLoadBalancerFromSubnetsResponse_httpStatus,
 
     -- ** CreateLoadBalancerListeners
     createLoadBalancerListeners_loadBalancerName,
@@ -98,12 +98,6 @@ module Network.AWS.ELB.Lens
     modifyLoadBalancerAttributesResponse_loadBalancerName,
     modifyLoadBalancerAttributesResponse_httpStatus,
 
-    -- ** AttachLoadBalancerToSubnets
-    attachLoadBalancerToSubnets_loadBalancerName,
-    attachLoadBalancerToSubnets_subnets,
-    attachLoadBalancerToSubnetsResponse_subnets,
-    attachLoadBalancerToSubnetsResponse_httpStatus,
-
     -- ** DescribeAccountLimits
     describeAccountLimits_pageSize,
     describeAccountLimits_marker,
@@ -117,17 +111,22 @@ module Network.AWS.ELB.Lens
     createLBCookieStickinessPolicy_policyName,
     createLBCookieStickinessPolicyResponse_httpStatus,
 
+    -- ** AttachLoadBalancerToSubnets
+    attachLoadBalancerToSubnets_loadBalancerName,
+    attachLoadBalancerToSubnets_subnets,
+    attachLoadBalancerToSubnetsResponse_subnets,
+    attachLoadBalancerToSubnetsResponse_httpStatus,
+
     -- ** ApplySecurityGroupsToLoadBalancer
     applySecurityGroupsToLoadBalancer_loadBalancerName,
     applySecurityGroupsToLoadBalancer_securityGroups,
     applySecurityGroupsToLoadBalancerResponse_securityGroups,
     applySecurityGroupsToLoadBalancerResponse_httpStatus,
 
-    -- ** EnableAvailabilityZonesForLoadBalancer
-    enableAvailabilityZonesForLoadBalancer_loadBalancerName,
-    enableAvailabilityZonesForLoadBalancer_availabilityZones,
-    enableAvailabilityZonesForLoadBalancerResponse_availabilityZones,
-    enableAvailabilityZonesForLoadBalancerResponse_httpStatus,
+    -- ** DescribeLoadBalancerPolicyTypes
+    describeLoadBalancerPolicyTypes_policyTypeNames,
+    describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions,
+    describeLoadBalancerPolicyTypesResponse_httpStatus,
 
     -- ** DescribeLoadBalancers
     describeLoadBalancers_pageSize,
@@ -137,16 +136,22 @@ module Network.AWS.ELB.Lens
     describeLoadBalancersResponse_nextMarker,
     describeLoadBalancersResponse_httpStatus,
 
-    -- ** DescribeLoadBalancerPolicyTypes
-    describeLoadBalancerPolicyTypes_policyTypeNames,
-    describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions,
-    describeLoadBalancerPolicyTypesResponse_httpStatus,
+    -- ** EnableAvailabilityZonesForLoadBalancer
+    enableAvailabilityZonesForLoadBalancer_loadBalancerName,
+    enableAvailabilityZonesForLoadBalancer_availabilityZones,
+    enableAvailabilityZonesForLoadBalancerResponse_availabilityZones,
+    enableAvailabilityZonesForLoadBalancerResponse_httpStatus,
 
     -- ** DisableAvailabilityZonesForLoadBalancer
     disableAvailabilityZonesForLoadBalancer_loadBalancerName,
     disableAvailabilityZonesForLoadBalancer_availabilityZones,
     disableAvailabilityZonesForLoadBalancerResponse_availabilityZones,
     disableAvailabilityZonesForLoadBalancerResponse_httpStatus,
+
+    -- ** DeleteLoadBalancerListeners
+    deleteLoadBalancerListeners_loadBalancerName,
+    deleteLoadBalancerListeners_loadBalancerPorts,
+    deleteLoadBalancerListenersResponse_httpStatus,
 
     -- ** CreateLoadBalancerPolicy
     createLoadBalancerPolicy_policyAttributes,
@@ -155,26 +160,21 @@ module Network.AWS.ELB.Lens
     createLoadBalancerPolicy_policyTypeName,
     createLoadBalancerPolicyResponse_httpStatus,
 
-    -- ** DeleteLoadBalancerListeners
-    deleteLoadBalancerListeners_loadBalancerName,
-    deleteLoadBalancerListeners_loadBalancerPorts,
-    deleteLoadBalancerListenersResponse_httpStatus,
-
     -- ** DeleteLoadBalancerPolicy
     deleteLoadBalancerPolicy_loadBalancerName,
     deleteLoadBalancerPolicy_policyName,
     deleteLoadBalancerPolicyResponse_httpStatus,
+
+    -- ** DescribeLoadBalancerAttributes
+    describeLoadBalancerAttributes_loadBalancerName,
+    describeLoadBalancerAttributesResponse_loadBalancerAttributes,
+    describeLoadBalancerAttributesResponse_httpStatus,
 
     -- ** DescribeInstanceHealth
     describeInstanceHealth_instances,
     describeInstanceHealth_loadBalancerName,
     describeInstanceHealthResponse_instanceStates,
     describeInstanceHealthResponse_httpStatus,
-
-    -- ** DescribeLoadBalancerAttributes
-    describeLoadBalancerAttributes_loadBalancerName,
-    describeLoadBalancerAttributesResponse_loadBalancerAttributes,
-    describeLoadBalancerAttributesResponse_httpStatus,
 
     -- ** CreateAppCookieStickinessPolicy
     createAppCookieStickinessPolicy_loadBalancerName,
@@ -262,8 +262,8 @@ module Network.AWS.ELB.Lens
 
     -- ** LoadBalancerDescription
     loadBalancerDescription_canonicalHostedZoneNameID,
-    loadBalancerDescription_backendServerDescriptions,
     loadBalancerDescription_availabilityZones,
+    loadBalancerDescription_backendServerDescriptions,
     loadBalancerDescription_policies,
     loadBalancerDescription_scheme,
     loadBalancerDescription_createdTime,

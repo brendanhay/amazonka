@@ -20,25 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables AWS Shield Advanced for a specific AWS resource. The resource
--- can be an Amazon CloudFront distribution, Elastic Load Balancing load
--- balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an
--- Amazon Route 53 hosted zone.
+-- Enables Shield Advanced for a specific Amazon Web Services resource. The
+-- resource can be an Amazon CloudFront distribution, Elastic Load
+-- Balancing load balancer, Global Accelerator accelerator, Elastic IP
+-- Address, or an Amazon Route 53 hosted zone.
 --
 -- You can add protection to only a single resource with each
 -- CreateProtection request. If you want to add protection to multiple
 -- resources at once, use the
--- <https://console.aws.amazon.com/waf/ AWS WAF console>. For more
--- information see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html Getting Started with AWS Shield Advanced>
+-- <https://console.aws.amazon.com/waf/ WAF console>. For more information
+-- see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html Getting Started with Shield Advanced>
 -- and
--- <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Add AWS Shield Advanced Protection to more AWS Resources>.
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Add Shield Advanced Protection to more Amazon Web Services Resources>.
 module Network.AWS.Shield.CreateProtection
   ( -- * Creating a Request
     CreateProtection (..),
     newCreateProtection,
 
     -- * Request Lenses
+    createProtection_tags,
     createProtection_name,
     createProtection_resourceArn,
 
@@ -61,7 +62,10 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newCreateProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { -- | Friendly name for the @Protection@ you are creating.
+  { -- | One or more tag key-value pairs for the Protection object that is
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | Friendly name for the @Protection@ you are creating.
     name :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) of the resource to be protected.
     --
@@ -73,10 +77,10 @@ data CreateProtection = CreateProtection'
     -- -   For an Elastic Load Balancer (Classic Load Balancer):
     --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
     --
-    -- -   For an AWS CloudFront distribution:
+    -- -   For an Amazon CloudFront distribution:
     --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
     --
-    -- -   For an AWS Global Accelerator accelerator:
+    -- -   For an Global Accelerator accelerator:
     --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
     --
     -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
@@ -95,6 +99,9 @@ data CreateProtection = CreateProtection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createProtection_tags' - One or more tag key-value pairs for the Protection object that is
+-- created.
+--
 -- 'name', 'createProtection_name' - Friendly name for the @Protection@ you are creating.
 --
 -- 'resourceArn', 'createProtection_resourceArn' - The ARN (Amazon Resource Name) of the resource to be protected.
@@ -107,10 +114,10 @@ data CreateProtection = CreateProtection'
 -- -   For an Elastic Load Balancer (Classic Load Balancer):
 --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
 --
--- -   For an AWS CloudFront distribution:
+-- -   For an Amazon CloudFront distribution:
 --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
 --
--- -   For an AWS Global Accelerator accelerator:
+-- -   For an Global Accelerator accelerator:
 --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
 --
 -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
@@ -125,9 +132,15 @@ newCreateProtection ::
   CreateProtection
 newCreateProtection pName_ pResourceArn_ =
   CreateProtection'
-    { name = pName_,
+    { tags = Prelude.Nothing,
+      name = pName_,
       resourceArn = pResourceArn_
     }
+
+-- | One or more tag key-value pairs for the Protection object that is
+-- created.
+createProtection_tags :: Lens.Lens' CreateProtection (Prelude.Maybe [Tag])
+createProtection_tags = Lens.lens (\CreateProtection' {tags} -> tags) (\s@CreateProtection' {} a -> s {tags = a} :: CreateProtection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Friendly name for the @Protection@ you are creating.
 createProtection_name :: Lens.Lens' CreateProtection Prelude.Text
@@ -143,10 +156,10 @@ createProtection_name = Lens.lens (\CreateProtection' {name} -> name) (\s@Create
 -- -   For an Elastic Load Balancer (Classic Load Balancer):
 --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
 --
--- -   For an AWS CloudFront distribution:
+-- -   For an Amazon CloudFront distribution:
 --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
 --
--- -   For an AWS Global Accelerator accelerator:
+-- -   For an Global Accelerator accelerator:
 --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
 --
 -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
@@ -192,7 +205,8 @@ instance Core.ToJSON CreateProtection where
   toJSON CreateProtection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Core..= name),
             Prelude.Just ("ResourceArn" Core..= resourceArn)
           ]
       )

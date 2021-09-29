@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the stack instance that\'s associated with the specified stack
--- set, AWS account, and Region.
+-- set, Amazon Web Services account, and Region.
 --
 -- For a list of stack instances that are associated with a specific stack
 -- set, use ListStackInstances.
@@ -67,15 +67,16 @@ data DescribeStackInstance = DescribeStackInstance'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
     -- | The name or the unique stack ID of the stack set that you want to get
     -- stack instance information for.
     stackSetName :: Prelude.Text,
-    -- | The ID of an AWS account that\'s associated with this stack instance.
+    -- | The ID of an Amazon Web Services account that\'s associated with this
+    -- stack instance.
     stackInstanceAccount :: Prelude.Text,
     -- | The name of a Region that\'s associated with this stack instance.
     stackInstanceRegion :: Prelude.Text
@@ -102,15 +103,16 @@ data DescribeStackInstance = DescribeStackInstance'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 --
 -- 'stackSetName', 'describeStackInstance_stackSetName' - The name or the unique stack ID of the stack set that you want to get
 -- stack instance information for.
 --
--- 'stackInstanceAccount', 'describeStackInstance_stackInstanceAccount' - The ID of an AWS account that\'s associated with this stack instance.
+-- 'stackInstanceAccount', 'describeStackInstance_stackInstanceAccount' - The ID of an Amazon Web Services account that\'s associated with this
+-- stack instance.
 --
 -- 'stackInstanceRegion', 'describeStackInstance_stackInstanceRegion' - The name of a Region that\'s associated with this stack instance.
 newDescribeStackInstance ::
@@ -144,10 +146,10 @@ newDescribeStackInstance
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 describeStackInstance_callAs :: Lens.Lens' DescribeStackInstance (Prelude.Maybe CallAs)
 describeStackInstance_callAs = Lens.lens (\DescribeStackInstance' {callAs} -> callAs) (\s@DescribeStackInstance' {} a -> s {callAs = a} :: DescribeStackInstance)
 
@@ -156,7 +158,8 @@ describeStackInstance_callAs = Lens.lens (\DescribeStackInstance' {callAs} -> ca
 describeStackInstance_stackSetName :: Lens.Lens' DescribeStackInstance Prelude.Text
 describeStackInstance_stackSetName = Lens.lens (\DescribeStackInstance' {stackSetName} -> stackSetName) (\s@DescribeStackInstance' {} a -> s {stackSetName = a} :: DescribeStackInstance)
 
--- | The ID of an AWS account that\'s associated with this stack instance.
+-- | The ID of an Amazon Web Services account that\'s associated with this
+-- stack instance.
 describeStackInstance_stackInstanceAccount :: Lens.Lens' DescribeStackInstance Prelude.Text
 describeStackInstance_stackInstanceAccount = Lens.lens (\DescribeStackInstance' {stackInstanceAccount} -> stackInstanceAccount) (\s@DescribeStackInstance' {} a -> s {stackInstanceAccount = a} :: DescribeStackInstance)
 

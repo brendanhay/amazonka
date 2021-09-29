@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables single sign-on for a directory. Single sign-on allows users in
--- your directory to access certain AWS services from a computer joined to
--- the directory without having to enter their credentials separately.
+-- your directory to access certain Amazon Web Services services from a
+-- computer joined to the directory without having to enter their
+-- credentials separately.
 module Network.AWS.DirectoryService.EnableSso
   ( -- * Creating a Request
     EnableSso (..),

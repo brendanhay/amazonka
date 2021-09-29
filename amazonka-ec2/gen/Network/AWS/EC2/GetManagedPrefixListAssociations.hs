@@ -31,8 +31,8 @@ module Network.AWS.EC2.GetManagedPrefixListAssociations
 
     -- * Request Lenses
     getManagedPrefixListAssociations_nextToken,
-    getManagedPrefixListAssociations_dryRun,
     getManagedPrefixListAssociations_maxResults,
+    getManagedPrefixListAssociations_dryRun,
     getManagedPrefixListAssociations_prefixListId,
 
     -- * Destructuring the Response
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data GetManagedPrefixListAssociations = GetManagedPrefixListAssociations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the prefix list.
     prefixListId :: Prelude.Text
   }
@@ -81,14 +81,14 @@ data GetManagedPrefixListAssociations = GetManagedPrefixListAssociations'
 --
 -- 'nextToken', 'getManagedPrefixListAssociations_nextToken' - The token for the next page of results.
 --
+-- 'maxResults', 'getManagedPrefixListAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'dryRun', 'getManagedPrefixListAssociations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'getManagedPrefixListAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'prefixListId', 'getManagedPrefixListAssociations_prefixListId' - The ID of the prefix list.
 newGetManagedPrefixListAssociations ::
@@ -99,8 +99,8 @@ newGetManagedPrefixListAssociations pPrefixListId_ =
   GetManagedPrefixListAssociations'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       prefixListId = pPrefixListId_
     }
 
@@ -108,18 +108,18 @@ newGetManagedPrefixListAssociations pPrefixListId_ =
 getManagedPrefixListAssociations_nextToken :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Text)
 getManagedPrefixListAssociations_nextToken = Lens.lens (\GetManagedPrefixListAssociations' {nextToken} -> nextToken) (\s@GetManagedPrefixListAssociations' {} a -> s {nextToken = a} :: GetManagedPrefixListAssociations)
 
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getManagedPrefixListAssociations_maxResults :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Natural)
+getManagedPrefixListAssociations_maxResults = Lens.lens (\GetManagedPrefixListAssociations' {maxResults} -> maxResults) (\s@GetManagedPrefixListAssociations' {} a -> s {maxResults = a} :: GetManagedPrefixListAssociations)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getManagedPrefixListAssociations_dryRun :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Bool)
 getManagedPrefixListAssociations_dryRun = Lens.lens (\GetManagedPrefixListAssociations' {dryRun} -> dryRun) (\s@GetManagedPrefixListAssociations' {} a -> s {dryRun = a} :: GetManagedPrefixListAssociations)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getManagedPrefixListAssociations_maxResults :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Natural)
-getManagedPrefixListAssociations_maxResults = Lens.lens (\GetManagedPrefixListAssociations' {maxResults} -> maxResults) (\s@GetManagedPrefixListAssociations' {} a -> s {maxResults = a} :: GetManagedPrefixListAssociations)
 
 -- | The ID of the prefix list.
 getManagedPrefixListAssociations_prefixListId :: Lens.Lens' GetManagedPrefixListAssociations Prelude.Text
@@ -200,8 +200,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         "PrefixListId" Core.=: prefixListId
       ]
 

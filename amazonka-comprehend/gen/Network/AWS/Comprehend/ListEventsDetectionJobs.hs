@@ -36,8 +36,8 @@ module Network.AWS.Comprehend.ListEventsDetectionJobs
     newListEventsDetectionJobsResponse,
 
     -- * Response Lenses
-    listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList,
+    listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_httpStatus,
   )
 where
@@ -110,10 +110,10 @@ instance Core.AWSRequest ListEventsDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEventsDetectionJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EventsDetectionJobPropertiesList"
+            Prelude.<$> ( x Core..?> "EventsDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,10 +154,10 @@ instance Core.ToQuery ListEventsDetectionJobs where
 
 -- | /See:/ 'newListEventsDetectionJobsResponse' smart constructor.
 data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing the properties of each job that is returned.
+  { -- | A list containing the properties of each job that is returned.
     eventsDetectionJobPropertiesList :: Prelude.Maybe [EventsDetectionJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,9 +171,9 @@ data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventsDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
---
 -- 'eventsDetectionJobPropertiesList', 'listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+--
+-- 'nextToken', 'listEventsDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listEventsDetectionJobsResponse_httpStatus' - The response's http status code.
 newListEventsDetectionJobsResponse ::
@@ -182,20 +182,19 @@ newListEventsDetectionJobsResponse ::
   ListEventsDetectionJobsResponse
 newListEventsDetectionJobsResponse pHttpStatus_ =
   ListEventsDetectionJobsResponse'
-    { nextToken =
+    { eventsDetectionJobPropertiesList =
         Prelude.Nothing,
-      eventsDetectionJobPropertiesList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Identifies the next page of results to return.
-listEventsDetectionJobsResponse_nextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe Prelude.Text)
-listEventsDetectionJobsResponse_nextToken = Lens.lens (\ListEventsDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListEventsDetectionJobsResponse' {} a -> s {nextToken = a} :: ListEventsDetectionJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
 listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe [EventsDetectionJobProperties])
 listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList = Lens.lens (\ListEventsDetectionJobsResponse' {eventsDetectionJobPropertiesList} -> eventsDetectionJobPropertiesList) (\s@ListEventsDetectionJobsResponse' {} a -> s {eventsDetectionJobPropertiesList = a} :: ListEventsDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Identifies the next page of results to return.
+listEventsDetectionJobsResponse_nextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe Prelude.Text)
+listEventsDetectionJobsResponse_nextToken = Lens.lens (\ListEventsDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListEventsDetectionJobsResponse' {} a -> s {nextToken = a} :: ListEventsDetectionJobsResponse)
 
 -- | The response's http status code.
 listEventsDetectionJobsResponse_httpStatus :: Lens.Lens' ListEventsDetectionJobsResponse Prelude.Int

@@ -22,7 +22,7 @@
 --
 -- Retrieves a list of your hosted zones in lexicographic order. The
 -- response includes a @HostedZones@ child element for each hosted zone
--- created by the current AWS account.
+-- created by the current Amazon Web Services account.
 --
 -- @ListHostedZonesByName@ sorts hosted zones by name with the labels
 -- reversed. For example:
@@ -61,7 +61,8 @@
 --     produced the current response.
 --
 -- -   If the value of @IsTruncated@ in the response is true, there are
---     more hosted zones associated with the current AWS account.
+--     more hosted zones associated with the current Amazon Web Services
+--     account.
 --
 --     If @IsTruncated@ is false, this response includes the last hosted
 --     zone that is associated with the current account. The @NextDNSName@
@@ -70,8 +71,8 @@
 --
 -- -   The @NextDNSName@ and @NextHostedZoneId@ elements in the response
 --     contain the domain name and the hosted zone ID of the next hosted
---     zone that is associated with the current AWS account. If you want to
---     list more hosted zones, make another call to
+--     zone that is associated with the current Amazon Web Services
+--     account. If you want to list more hosted zones, make another call to
 --     @ListHostedZonesByName@, and specify the value of @NextDNSName@ and
 --     @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
 --     respectively.
@@ -109,7 +110,8 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
 
 -- | Retrieves a list of the public and private hosted zones that are
--- associated with the current AWS account in ASCII order by domain name.
+-- associated with the current Amazon Web Services account in ASCII order
+-- by domain name.
 --
 -- /See:/ 'newListHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
@@ -127,10 +129,10 @@ data ListHostedZonesByName = ListHostedZonesByName'
     -- the @dnsname@ parameter only if you want to specify the name of the
     -- first hosted zone in the response. If you don\'t include the @dnsname@
     -- parameter, Amazon Route 53 returns all of the hosted zones that were
-    -- created by the current AWS account, in ASCII order. For subsequent
-    -- requests, include both @dnsname@ and @hostedzoneid@ parameters. For
-    -- @dnsname@, specify the value of @NextDNSName@ from the previous
-    -- response.
+    -- created by the current Amazon Web Services account, in ASCII order. For
+    -- subsequent requests, include both @dnsname@ and @hostedzoneid@
+    -- parameters. For @dnsname@, specify the value of @NextDNSName@ from the
+    -- previous response.
     dNSName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of hosted zones to be included in the response body
     -- for this request. If you have more than @maxitems@ hosted zones, then
@@ -163,10 +165,10 @@ data ListHostedZonesByName = ListHostedZonesByName'
 -- the @dnsname@ parameter only if you want to specify the name of the
 -- first hosted zone in the response. If you don\'t include the @dnsname@
 -- parameter, Amazon Route 53 returns all of the hosted zones that were
--- created by the current AWS account, in ASCII order. For subsequent
--- requests, include both @dnsname@ and @hostedzoneid@ parameters. For
--- @dnsname@, specify the value of @NextDNSName@ from the previous
--- response.
+-- created by the current Amazon Web Services account, in ASCII order. For
+-- subsequent requests, include both @dnsname@ and @hostedzoneid@
+-- parameters. For @dnsname@, specify the value of @NextDNSName@ from the
+-- previous response.
 --
 -- 'maxItems', 'listHostedZonesByName_maxItems' - The maximum number of hosted zones to be included in the response body
 -- for this request. If you have more than @maxitems@ hosted zones, then
@@ -199,10 +201,10 @@ listHostedZonesByName_hostedZoneId = Lens.lens (\ListHostedZonesByName' {hostedZ
 -- the @dnsname@ parameter only if you want to specify the name of the
 -- first hosted zone in the response. If you don\'t include the @dnsname@
 -- parameter, Amazon Route 53 returns all of the hosted zones that were
--- created by the current AWS account, in ASCII order. For subsequent
--- requests, include both @dnsname@ and @hostedzoneid@ parameters. For
--- @dnsname@, specify the value of @NextDNSName@ from the previous
--- response.
+-- created by the current Amazon Web Services account, in ASCII order. For
+-- subsequent requests, include both @dnsname@ and @hostedzoneid@
+-- parameters. For @dnsname@, specify the value of @NextDNSName@ from the
+-- previous response.
 listHostedZonesByName_dNSName :: Lens.Lens' ListHostedZonesByName (Prelude.Maybe Prelude.Text)
 listHostedZonesByName_dNSName = Lens.lens (\ListHostedZonesByName' {dNSName} -> dNSName) (\s@ListHostedZonesByName' {} a -> s {dNSName = a} :: ListHostedZonesByName)
 

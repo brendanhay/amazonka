@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeUsers
     describeUsers_userId,
     describeUsers_engine,
     describeUsers_filters,
-    describeUsers_marker,
     describeUsers_maxRecords,
+    describeUsers_marker,
 
     -- * Destructuring the Response
     DescribeUsersResponse (..),
@@ -61,15 +61,15 @@ data DescribeUsers = DescribeUsers'
     engine :: Prelude.Maybe Prelude.Text,
     -- | Filter to determine the list of User IDs to return.
     filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxRecords value, a marker is included
+    -- in the response so that the remaining results can be retrieved.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by MaxRecords. >
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified MaxRecords value, a marker is included
-    -- in the response so that the remaining results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,14 +87,14 @@ data DescribeUsers = DescribeUsers'
 --
 -- 'filters', 'describeUsers_filters' - Filter to determine the list of User IDs to return.
 --
+-- 'maxRecords', 'describeUsers_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
+--
 -- 'marker', 'describeUsers_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords. >
---
--- 'maxRecords', 'describeUsers_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
 newDescribeUsers ::
   DescribeUsers
 newDescribeUsers =
@@ -102,8 +102,8 @@ newDescribeUsers =
     { userId = Prelude.Nothing,
       engine = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The ID of the user.
@@ -118,18 +118,18 @@ describeUsers_engine = Lens.lens (\DescribeUsers' {engine} -> engine) (\s@Descri
 describeUsers_filters :: Lens.Lens' DescribeUsers (Prelude.Maybe [Filter])
 describeUsers_filters = Lens.lens (\DescribeUsers' {filters} -> filters) (\s@DescribeUsers' {} a -> s {filters = a} :: DescribeUsers) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
+describeUsers_maxRecords :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
+describeUsers_maxRecords = Lens.lens (\DescribeUsers' {maxRecords} -> maxRecords) (\s@DescribeUsers' {} a -> s {maxRecords = a} :: DescribeUsers)
+
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords. >
 describeUsers_marker :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_marker = Lens.lens (\DescribeUsers' {marker} -> marker) (\s@DescribeUsers' {} a -> s {marker = a} :: DescribeUsers)
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
-describeUsers_maxRecords :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
-describeUsers_maxRecords = Lens.lens (\DescribeUsers' {maxRecords} -> maxRecords) (\s@DescribeUsers' {} a -> s {maxRecords = a} :: DescribeUsers)
 
 instance Core.AWSPager DescribeUsers where
   page rq rs
@@ -189,8 +189,8 @@ instance Core.ToQuery DescribeUsers where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.

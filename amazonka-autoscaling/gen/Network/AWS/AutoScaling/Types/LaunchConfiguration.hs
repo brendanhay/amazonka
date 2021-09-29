@@ -100,14 +100,14 @@ data LaunchConfiguration = LaunchConfiguration'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     placementTenancy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the launch configuration.
+    launchConfigurationARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the key pair.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     keyName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the launch configuration.
-    launchConfigurationARN :: Prelude.Maybe Prelude.Text,
     -- | Controls whether instances in this group are launched with detailed
     -- (@true@) or basic (@false@) monitoring.
     --
@@ -215,13 +215,13 @@ data LaunchConfiguration = LaunchConfiguration'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
+-- 'launchConfigurationARN', 'launchConfiguration_launchConfigurationARN' - The Amazon Resource Name (ARN) of the launch configuration.
+--
 -- 'keyName', 'launchConfiguration_keyName' - The name of the key pair.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- 'launchConfigurationARN', 'launchConfiguration_launchConfigurationARN' - The Amazon Resource Name (ARN) of the launch configuration.
 --
 -- 'instanceMonitoring', 'launchConfiguration_instanceMonitoring' - Controls whether instances in this group are launched with detailed
 -- (@true@) or basic (@false@) monitoring.
@@ -277,8 +277,8 @@ newLaunchConfiguration
         blockDeviceMappings = Prelude.Nothing,
         kernelId = Prelude.Nothing,
         placementTenancy = Prelude.Nothing,
-        keyName = Prelude.Nothing,
         launchConfigurationARN = Prelude.Nothing,
+        keyName = Prelude.Nothing,
         instanceMonitoring = Prelude.Nothing,
         metadataOptions = Prelude.Nothing,
         launchConfigurationName = pLaunchConfigurationName_,
@@ -381,6 +381,10 @@ launchConfiguration_kernelId = Lens.lens (\LaunchConfiguration' {kernelId} -> ke
 launchConfiguration_placementTenancy :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_placementTenancy = Lens.lens (\LaunchConfiguration' {placementTenancy} -> placementTenancy) (\s@LaunchConfiguration' {} a -> s {placementTenancy = a} :: LaunchConfiguration)
 
+-- | The Amazon Resource Name (ARN) of the launch configuration.
+launchConfiguration_launchConfigurationARN :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
+launchConfiguration_launchConfigurationARN = Lens.lens (\LaunchConfiguration' {launchConfigurationARN} -> launchConfigurationARN) (\s@LaunchConfiguration' {} a -> s {launchConfigurationARN = a} :: LaunchConfiguration)
+
 -- | The name of the key pair.
 --
 -- For more information, see
@@ -388,10 +392,6 @@ launchConfiguration_placementTenancy = Lens.lens (\LaunchConfiguration' {placeme
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 launchConfiguration_keyName :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
 launchConfiguration_keyName = Lens.lens (\LaunchConfiguration' {keyName} -> keyName) (\s@LaunchConfiguration' {} a -> s {keyName = a} :: LaunchConfiguration)
-
--- | The Amazon Resource Name (ARN) of the launch configuration.
-launchConfiguration_launchConfigurationARN :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
-launchConfiguration_launchConfigurationARN = Lens.lens (\LaunchConfiguration' {launchConfigurationARN} -> launchConfigurationARN) (\s@LaunchConfiguration' {} a -> s {launchConfigurationARN = a} :: LaunchConfiguration)
 
 -- | Controls whether instances in this group are launched with detailed
 -- (@true@) or basic (@false@) monitoring.
@@ -454,8 +454,8 @@ instance Core.FromXML LaunchConfiguration where
                   )
       Prelude.<*> (x Core..@? "KernelId")
       Prelude.<*> (x Core..@? "PlacementTenancy")
-      Prelude.<*> (x Core..@? "KeyName")
       Prelude.<*> (x Core..@? "LaunchConfigurationARN")
+      Prelude.<*> (x Core..@? "KeyName")
       Prelude.<*> (x Core..@? "InstanceMonitoring")
       Prelude.<*> (x Core..@? "MetadataOptions")
       Prelude.<*> (x Core..@ "LaunchConfigurationName")

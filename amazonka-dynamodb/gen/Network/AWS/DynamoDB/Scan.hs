@@ -64,15 +64,15 @@ module Network.AWS.DynamoDB.Scan
     scan_indexName,
     scan_expressionAttributeValues,
     scan_segment,
-    scan_consistentRead,
-    scan_expressionAttributeNames,
     scan_filterExpression,
+    scan_expressionAttributeNames,
+    scan_consistentRead,
     scan_returnConsumedCapacity,
     scan_conditionalOperator,
     scan_select,
     scan_limit,
-    scan_attributesToGet,
     scan_totalSegments,
+    scan_attributesToGet,
     scan_tableName,
 
     -- * Destructuring the Response
@@ -170,23 +170,18 @@ data Scan = Scan'
     --
     -- If you provide @Segment@, you must also provide @TotalSegments@.
     segment :: Prelude.Maybe Prelude.Natural,
-    -- | A Boolean value that determines the read consistency model during the
-    -- scan:
+    -- | A string that contains conditions that DynamoDB applies after the @Scan@
+    -- operation, but before the data is returned to you. Items that do not
+    -- satisfy the @FilterExpression@ criteria are not returned.
     --
-    -- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
-    --     might not contain the results from other recently completed write
-    --     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
+    -- A @FilterExpression@ is applied after the items have already been read;
+    -- the process of filtering does not consume any additional read capacity
+    -- units.
     --
-    -- -   If @ConsistentRead@ is @true@, then all of the write operations that
-    --     completed before the @Scan@ began are guaranteed to be contained in
-    --     the @Scan@ response.
-    --
-    -- The default setting for @ConsistentRead@ is @false@.
-    --
-    -- The @ConsistentRead@ parameter is not supported on global secondary
-    -- indexes. If you scan a global secondary index with @ConsistentRead@ set
-    -- to true, you will receive a @ValidationException@.
-    consistentRead :: Prelude.Maybe Prelude.Bool,
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -225,18 +220,23 @@ data Scan = Scan'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A string that contains conditions that DynamoDB applies after the @Scan@
-    -- operation, but before the data is returned to you. Items that do not
-    -- satisfy the @FilterExpression@ criteria are not returned.
+    -- | A Boolean value that determines the read consistency model during the
+    -- scan:
     --
-    -- A @FilterExpression@ is applied after the items have already been read;
-    -- the process of filtering does not consume any additional read capacity
-    -- units.
+    -- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
+    --     might not contain the results from other recently completed write
+    --     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    -- -   If @ConsistentRead@ is @true@, then all of the write operations that
+    --     completed before the @Scan@ began are guaranteed to be contained in
+    --     the @Scan@ response.
+    --
+    -- The default setting for @ConsistentRead@ is @false@.
+    --
+    -- The @ConsistentRead@ parameter is not supported on global secondary
+    -- indexes. If you scan a global secondary index with @ConsistentRead@ set
+    -- to true, you will receive a @ValidationException@.
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @FilterExpression@ instead. For more
     -- information, see
@@ -302,11 +302,6 @@ data Scan = Scan'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Working with Queries>
     -- in the /Amazon DynamoDB Developer Guide/.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | For a parallel @Scan@ request, @TotalSegments@ represents the total
     -- number of segments into which the @Scan@ operation will be divided. The
     -- value of @TotalSegments@ corresponds to the number of application
@@ -320,6 +315,11 @@ data Scan = Scan'
     --
     -- If you specify @TotalSegments@, you must also specify @Segment@.
     totalSegments :: Prelude.Maybe Prelude.Natural,
+    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the table containing the requested items; or, if you provide
     -- @IndexName@, the name of the table to which that index belongs.
     tableName :: Prelude.Text
@@ -404,22 +404,17 @@ data Scan = Scan'
 --
 -- If you provide @Segment@, you must also provide @TotalSegments@.
 --
--- 'consistentRead', 'scan_consistentRead' - A Boolean value that determines the read consistency model during the
--- scan:
+-- 'filterExpression', 'scan_filterExpression' - A string that contains conditions that DynamoDB applies after the @Scan@
+-- operation, but before the data is returned to you. Items that do not
+-- satisfy the @FilterExpression@ criteria are not returned.
 --
--- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
---     might not contain the results from other recently completed write
---     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
+-- A @FilterExpression@ is applied after the items have already been read;
+-- the process of filtering does not consume any additional read capacity
+-- units.
 --
--- -   If @ConsistentRead@ is @true@, then all of the write operations that
---     completed before the @Scan@ began are guaranteed to be contained in
---     the @Scan@ response.
---
--- The default setting for @ConsistentRead@ is @false@.
---
--- The @ConsistentRead@ parameter is not supported on global secondary
--- indexes. If you scan a global secondary index with @ConsistentRead@ set
--- to true, you will receive a @ValidationException@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'expressionAttributeNames', 'scan_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -459,17 +454,22 @@ data Scan = Scan'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'filterExpression', 'scan_filterExpression' - A string that contains conditions that DynamoDB applies after the @Scan@
--- operation, but before the data is returned to you. Items that do not
--- satisfy the @FilterExpression@ criteria are not returned.
+-- 'consistentRead', 'scan_consistentRead' - A Boolean value that determines the read consistency model during the
+-- scan:
 --
--- A @FilterExpression@ is applied after the items have already been read;
--- the process of filtering does not consume any additional read capacity
--- units.
+-- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
+--     might not contain the results from other recently completed write
+--     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
 --
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
--- in the /Amazon DynamoDB Developer Guide/.
+-- -   If @ConsistentRead@ is @true@, then all of the write operations that
+--     completed before the @Scan@ began are guaranteed to be contained in
+--     the @Scan@ response.
+--
+-- The default setting for @ConsistentRead@ is @false@.
+--
+-- The @ConsistentRead@ parameter is not supported on global secondary
+-- indexes. If you scan a global secondary index with @ConsistentRead@ set
+-- to true, you will receive a @ValidationException@.
 --
 -- 'returnConsumedCapacity', 'scan_returnConsumedCapacity' - Undocumented member.
 --
@@ -537,11 +537,6 @@ data Scan = Scan'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Working with Queries>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'attributesToGet', 'scan_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'totalSegments', 'scan_totalSegments' - For a parallel @Scan@ request, @TotalSegments@ represents the total
 -- number of segments into which the @Scan@ operation will be divided. The
 -- value of @TotalSegments@ corresponds to the number of application
@@ -554,6 +549,11 @@ data Scan = Scan'
 -- 1, the @Scan@ operation will be sequential rather than parallel.
 --
 -- If you specify @TotalSegments@, you must also specify @Segment@.
+--
+-- 'attributesToGet', 'scan_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'tableName', 'scan_tableName' - The name of the table containing the requested items; or, if you provide
 -- @IndexName@, the name of the table to which that index belongs.
@@ -569,15 +569,15 @@ newScan pTableName_ =
       indexName = Prelude.Nothing,
       expressionAttributeValues = Prelude.Nothing,
       segment = Prelude.Nothing,
-      consistentRead = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
       filterExpression = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       returnConsumedCapacity = Prelude.Nothing,
       conditionalOperator = Prelude.Nothing,
       select = Prelude.Nothing,
       limit = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
       totalSegments = Prelude.Nothing,
+      attributesToGet = Prelude.Nothing,
       tableName = pTableName_
     }
 
@@ -663,24 +663,19 @@ scan_expressionAttributeValues = Lens.lens (\Scan' {expressionAttributeValues} -
 scan_segment :: Lens.Lens' Scan (Prelude.Maybe Prelude.Natural)
 scan_segment = Lens.lens (\Scan' {segment} -> segment) (\s@Scan' {} a -> s {segment = a} :: Scan)
 
--- | A Boolean value that determines the read consistency model during the
--- scan:
+-- | A string that contains conditions that DynamoDB applies after the @Scan@
+-- operation, but before the data is returned to you. Items that do not
+-- satisfy the @FilterExpression@ criteria are not returned.
 --
--- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
---     might not contain the results from other recently completed write
---     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
+-- A @FilterExpression@ is applied after the items have already been read;
+-- the process of filtering does not consume any additional read capacity
+-- units.
 --
--- -   If @ConsistentRead@ is @true@, then all of the write operations that
---     completed before the @Scan@ began are guaranteed to be contained in
---     the @Scan@ response.
---
--- The default setting for @ConsistentRead@ is @false@.
---
--- The @ConsistentRead@ parameter is not supported on global secondary
--- indexes. If you scan a global secondary index with @ConsistentRead@ set
--- to true, you will receive a @ValidationException@.
-scan_consistentRead :: Lens.Lens' Scan (Prelude.Maybe Prelude.Bool)
-scan_consistentRead = Lens.lens (\Scan' {consistentRead} -> consistentRead) (\s@Scan' {} a -> s {consistentRead = a} :: Scan)
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
+scan_filterExpression :: Lens.Lens' Scan (Prelude.Maybe Prelude.Text)
+scan_filterExpression = Lens.lens (\Scan' {filterExpression} -> filterExpression) (\s@Scan' {} a -> s {filterExpression = a} :: Scan)
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -722,19 +717,24 @@ scan_consistentRead = Lens.lens (\Scan' {consistentRead} -> consistentRead) (\s@
 scan_expressionAttributeNames :: Lens.Lens' Scan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 scan_expressionAttributeNames = Lens.lens (\Scan' {expressionAttributeNames} -> expressionAttributeNames) (\s@Scan' {} a -> s {expressionAttributeNames = a} :: Scan) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string that contains conditions that DynamoDB applies after the @Scan@
--- operation, but before the data is returned to you. Items that do not
--- satisfy the @FilterExpression@ criteria are not returned.
+-- | A Boolean value that determines the read consistency model during the
+-- scan:
 --
--- A @FilterExpression@ is applied after the items have already been read;
--- the process of filtering does not consume any additional read capacity
--- units.
+-- -   If @ConsistentRead@ is @false@, then the data returned from @Scan@
+--     might not contain the results from other recently completed write
+--     operations (@PutItem@, @UpdateItem@, or @DeleteItem@).
 --
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
--- in the /Amazon DynamoDB Developer Guide/.
-scan_filterExpression :: Lens.Lens' Scan (Prelude.Maybe Prelude.Text)
-scan_filterExpression = Lens.lens (\Scan' {filterExpression} -> filterExpression) (\s@Scan' {} a -> s {filterExpression = a} :: Scan)
+-- -   If @ConsistentRead@ is @true@, then all of the write operations that
+--     completed before the @Scan@ began are guaranteed to be contained in
+--     the @Scan@ response.
+--
+-- The default setting for @ConsistentRead@ is @false@.
+--
+-- The @ConsistentRead@ parameter is not supported on global secondary
+-- indexes. If you scan a global secondary index with @ConsistentRead@ set
+-- to true, you will receive a @ValidationException@.
+scan_consistentRead :: Lens.Lens' Scan (Prelude.Maybe Prelude.Bool)
+scan_consistentRead = Lens.lens (\Scan' {consistentRead} -> consistentRead) (\s@Scan' {} a -> s {consistentRead = a} :: Scan)
 
 -- | Undocumented member.
 scan_returnConsumedCapacity :: Lens.Lens' Scan (Prelude.Maybe ReturnConsumedCapacity)
@@ -810,13 +810,6 @@ scan_select = Lens.lens (\Scan' {select} -> select) (\s@Scan' {} a -> s {select 
 scan_limit :: Lens.Lens' Scan (Prelude.Maybe Prelude.Natural)
 scan_limit = Lens.lens (\Scan' {limit} -> limit) (\s@Scan' {} a -> s {limit = a} :: Scan)
 
--- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
-scan_attributesToGet :: Lens.Lens' Scan (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-scan_attributesToGet = Lens.lens (\Scan' {attributesToGet} -> attributesToGet) (\s@Scan' {} a -> s {attributesToGet = a} :: Scan) Prelude.. Lens.mapping Lens._Coerce
-
 -- | For a parallel @Scan@ request, @TotalSegments@ represents the total
 -- number of segments into which the @Scan@ operation will be divided. The
 -- value of @TotalSegments@ corresponds to the number of application
@@ -831,6 +824,13 @@ scan_attributesToGet = Lens.lens (\Scan' {attributesToGet} -> attributesToGet) (
 -- If you specify @TotalSegments@, you must also specify @Segment@.
 scan_totalSegments :: Lens.Lens' Scan (Prelude.Maybe Prelude.Natural)
 scan_totalSegments = Lens.lens (\Scan' {totalSegments} -> totalSegments) (\s@Scan' {} a -> s {totalSegments = a} :: Scan)
+
+-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+scan_attributesToGet :: Lens.Lens' Scan (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+scan_attributesToGet = Lens.lens (\Scan' {attributesToGet} -> attributesToGet) (\s@Scan' {} a -> s {attributesToGet = a} :: Scan) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the table containing the requested items; or, if you provide
 -- @IndexName@, the name of the table to which that index belongs.
@@ -898,21 +898,21 @@ instance Core.ToJSON Scan where
             ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
             ("Segment" Core..=) Prelude.<$> segment,
-            ("ConsistentRead" Core..=)
-              Prelude.<$> consistentRead,
-            ("ExpressionAttributeNames" Core..=)
-              Prelude.<$> expressionAttributeNames,
             ("FilterExpression" Core..=)
               Prelude.<$> filterExpression,
+            ("ExpressionAttributeNames" Core..=)
+              Prelude.<$> expressionAttributeNames,
+            ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
             ("ReturnConsumedCapacity" Core..=)
               Prelude.<$> returnConsumedCapacity,
             ("ConditionalOperator" Core..=)
               Prelude.<$> conditionalOperator,
             ("Select" Core..=) Prelude.<$> select,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("TotalSegments" Core..=) Prelude.<$> totalSegments,
             ("AttributesToGet" Core..=)
               Prelude.<$> attributesToGet,
-            ("TotalSegments" Core..=) Prelude.<$> totalSegments,
             Prelude.Just ("TableName" Core..= tableName)
           ]
       )

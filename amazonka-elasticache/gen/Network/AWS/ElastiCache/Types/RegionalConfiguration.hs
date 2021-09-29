@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data RegionalConfiguration = RegionalConfiguration'
   { -- | The name of the secondary cluster
     replicationGroupId :: Prelude.Text,
-    -- | The AWS region where the cluster is stored
+    -- | The Amazon region where the cluster is stored
     replicationGroupRegion :: Prelude.Text,
     -- | A list of @PreferredAvailabilityZones@ objects that specifies the
     -- configuration of a node group in the resharded cluster.
@@ -48,7 +48,7 @@ data RegionalConfiguration = RegionalConfiguration'
 --
 -- 'replicationGroupId', 'regionalConfiguration_replicationGroupId' - The name of the secondary cluster
 --
--- 'replicationGroupRegion', 'regionalConfiguration_replicationGroupRegion' - The AWS region where the cluster is stored
+-- 'replicationGroupRegion', 'regionalConfiguration_replicationGroupRegion' - The Amazon region where the cluster is stored
 --
 -- 'reshardingConfiguration', 'regionalConfiguration_reshardingConfiguration' - A list of @PreferredAvailabilityZones@ objects that specifies the
 -- configuration of a node group in the resharded cluster.
@@ -72,7 +72,7 @@ newRegionalConfiguration
 regionalConfiguration_replicationGroupId :: Lens.Lens' RegionalConfiguration Prelude.Text
 regionalConfiguration_replicationGroupId = Lens.lens (\RegionalConfiguration' {replicationGroupId} -> replicationGroupId) (\s@RegionalConfiguration' {} a -> s {replicationGroupId = a} :: RegionalConfiguration)
 
--- | The AWS region where the cluster is stored
+-- | The Amazon region where the cluster is stored
 regionalConfiguration_replicationGroupRegion :: Lens.Lens' RegionalConfiguration Prelude.Text
 regionalConfiguration_replicationGroupRegion = Lens.lens (\RegionalConfiguration' {replicationGroupRegion} -> replicationGroupRegion) (\s@RegionalConfiguration' {} a -> s {replicationGroupRegion = a} :: RegionalConfiguration)
 

@@ -20,7 +20,8 @@
 module Network.AWS.QLDB.Types.PermissionsMode
   ( PermissionsMode
       ( ..,
-        PermissionsMode_ALLOW_ALL
+        PermissionsMode_ALLOW_ALL,
+        PermissionsMode_STANDARD
       ),
   )
 where
@@ -59,7 +60,11 @@ newtype PermissionsMode = PermissionsMode'
 pattern PermissionsMode_ALLOW_ALL :: PermissionsMode
 pattern PermissionsMode_ALLOW_ALL = PermissionsMode' "ALLOW_ALL"
 
+pattern PermissionsMode_STANDARD :: PermissionsMode
+pattern PermissionsMode_STANDARD = PermissionsMode' "STANDARD"
+
 {-# COMPLETE
   PermissionsMode_ALLOW_ALL,
+  PermissionsMode_STANDARD,
   PermissionsMode'
   #-}

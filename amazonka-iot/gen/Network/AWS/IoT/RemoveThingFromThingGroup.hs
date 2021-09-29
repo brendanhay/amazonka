@@ -25,6 +25,10 @@
 -- You must specify either a @thingGroupArn@ or a @thingGroupName@ to
 -- identify the thing group and either a @thingArn@ or a @thingName@ to
 -- identify the thing to remove from the thing group.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RemoveThingFromThingGroup>
+-- action.
 module Network.AWS.IoT.RemoveThingFromThingGroup
   ( -- * Creating a Request
     RemoveThingFromThingGroup (..),

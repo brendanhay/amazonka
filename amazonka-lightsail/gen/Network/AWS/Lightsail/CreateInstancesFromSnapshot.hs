@@ -26,7 +26,7 @@
 -- The @create instances from snapshot@ operation supports tag-based access
 -- control via request tags and resource tags applied to the resource
 -- identified by @instance snapshot name@. For more information, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateInstancesFromSnapshot
   ( -- * Creating a Request
     CreateInstancesFromSnapshot (..),
@@ -88,7 +88,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     --
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     restoreDate :: Prelude.Maybe Prelude.Text,
     -- | You can create a launch script that configures a server with additional
     -- user data. For example, @apt-get -y update@.
@@ -97,7 +97,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
     -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
     -- the
-    -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
     userData :: Prelude.Maybe Prelude.Text,
     -- | An array of objects representing the add-ons to enable for the new
     -- instance.
@@ -127,7 +127,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     --
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     useLatestRestorableAutoSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The tag keys and optional values to add to the resource during create.
     --
@@ -144,7 +144,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
     --
     -- -   Define this parameter only when creating a new instance from an
     --     automatic snapshot. For more information, see the
-    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+    --     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
     sourceInstanceName :: Prelude.Maybe Prelude.Text,
     -- | The names for your new instances.
     instanceNames :: [Prelude.Text],
@@ -191,7 +191,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'userData', 'createInstancesFromSnapshot_userData' - You can create a launch script that configures a server with additional
 -- user data. For example, @apt-get -y update@.
@@ -200,7 +200,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
--- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
 --
 -- 'addOns', 'createInstancesFromSnapshot_addOns' - An array of objects representing the add-ons to enable for the new
 -- instance.
@@ -230,7 +230,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'tags', 'createInstancesFromSnapshot_tags' - The tag keys and optional values to add to the resource during create.
 --
@@ -247,7 +247,7 @@ data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 --
 -- 'instanceNames', 'createInstancesFromSnapshot_instanceNames' - The names for your new instances.
 --
@@ -311,7 +311,7 @@ createInstancesFromSnapshot_ipAddressType = Lens.lens (\CreateInstancesFromSnaps
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createInstancesFromSnapshot_restoreDate :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
 createInstancesFromSnapshot_restoreDate = Lens.lens (\CreateInstancesFromSnapshot' {restoreDate} -> restoreDate) (\s@CreateInstancesFromSnapshot' {} a -> s {restoreDate = a} :: CreateInstancesFromSnapshot)
 
@@ -322,7 +322,7 @@ createInstancesFromSnapshot_restoreDate = Lens.lens (\CreateInstancesFromSnapsho
 -- on your instance varies. Amazon Linux and CentOS use @yum@, Debian and
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
--- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image Amazon Lightsail Developer Guide>.
 createInstancesFromSnapshot_userData :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
 createInstancesFromSnapshot_userData = Lens.lens (\CreateInstancesFromSnapshot' {userData} -> userData) (\s@CreateInstancesFromSnapshot' {} a -> s {userData = a} :: CreateInstancesFromSnapshot)
 
@@ -362,7 +362,7 @@ createInstancesFromSnapshot_keyPairName = Lens.lens (\CreateInstancesFromSnapsho
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createInstancesFromSnapshot_useLatestRestorableAutoSnapshot :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Bool)
 createInstancesFromSnapshot_useLatestRestorableAutoSnapshot = Lens.lens (\CreateInstancesFromSnapshot' {useLatestRestorableAutoSnapshot} -> useLatestRestorableAutoSnapshot) (\s@CreateInstancesFromSnapshot' {} a -> s {useLatestRestorableAutoSnapshot = a} :: CreateInstancesFromSnapshot)
 
@@ -383,7 +383,7 @@ createInstancesFromSnapshot_tags = Lens.lens (\CreateInstancesFromSnapshot' {tag
 --
 -- -   Define this parameter only when creating a new instance from an
 --     automatic snapshot. For more information, see the
---     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide>.
+--     <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide>.
 createInstancesFromSnapshot_sourceInstanceName :: Lens.Lens' CreateInstancesFromSnapshot (Prelude.Maybe Prelude.Text)
 createInstancesFromSnapshot_sourceInstanceName = Lens.lens (\CreateInstancesFromSnapshot' {sourceInstanceName} -> sourceInstanceName) (\s@CreateInstancesFromSnapshot' {} a -> s {sourceInstanceName = a} :: CreateInstancesFromSnapshot)
 

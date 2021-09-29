@@ -34,7 +34,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- | The Git repository associated with the notebook instance as its default
     -- code repository. This can be either the name of a Git repository stored
     -- as a resource in your account, or the URL of a Git repository in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
@@ -52,7 +52,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- | An array of up to three Git repositories associated with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
@@ -85,7 +85,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
 -- 'defaultCodeRepository', 'notebookInstanceSummary_defaultCodeRepository' - The Git repository associated with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
@@ -103,7 +103,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
 -- 'additionalCodeRepositories', 'notebookInstanceSummary_additionalCodeRepositories' - An array of up to three Git repositories associated with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -150,7 +150,7 @@ notebookInstanceSummary_creationTime = Lens.lens (\NotebookInstanceSummary' {cre
 -- | The Git repository associated with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
@@ -174,7 +174,7 @@ notebookInstanceSummary_notebookInstanceLifecycleConfigName = Lens.lens (\Notebo
 -- | An array of up to three Git repositories associated with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see

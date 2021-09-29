@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels the execution of a job for a given thing.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CancelJobExecution>
+-- action.
 module Network.AWS.IoT.CancelJobExecution
   ( -- * Creating a Request
     CancelJobExecution (..),

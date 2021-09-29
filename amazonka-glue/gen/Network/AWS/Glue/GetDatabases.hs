@@ -30,8 +30,8 @@ module Network.AWS.Glue.GetDatabases
 
     -- * Request Lenses
     getDatabases_nextToken,
-    getDatabases_catalogId,
     getDatabases_maxResults,
+    getDatabases_catalogId,
     getDatabases_resourceShareType,
 
     -- * Destructuring the Response
@@ -56,11 +56,11 @@ import qualified Network.AWS.Response as Response
 data GetDatabases = GetDatabases'
   { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog from which to retrieve @Databases@. If none
-    -- is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of databases to return in one response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog from which to retrieve @Databases@. If none
+    -- is provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | Allows you to specify that you want to list the databases shared with
     -- your account. The allowable values are @FOREIGN@ or @ALL@.
     --
@@ -83,10 +83,10 @@ data GetDatabases = GetDatabases'
 --
 -- 'nextToken', 'getDatabases_nextToken' - A continuation token, if this is a continuation call.
 --
--- 'catalogId', 'getDatabases_catalogId' - The ID of the Data Catalog from which to retrieve @Databases@. If none
--- is provided, the AWS account ID is used by default.
---
 -- 'maxResults', 'getDatabases_maxResults' - The maximum number of databases to return in one response.
+--
+-- 'catalogId', 'getDatabases_catalogId' - The ID of the Data Catalog from which to retrieve @Databases@. If none
+-- is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'resourceShareType', 'getDatabases_resourceShareType' - Allows you to specify that you want to list the databases shared with
 -- your account. The allowable values are @FOREIGN@ or @ALL@.
@@ -101,8 +101,8 @@ newGetDatabases ::
 newGetDatabases =
   GetDatabases'
     { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       resourceShareType = Prelude.Nothing
     }
 
@@ -110,14 +110,14 @@ newGetDatabases =
 getDatabases_nextToken :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
 getDatabases_nextToken = Lens.lens (\GetDatabases' {nextToken} -> nextToken) (\s@GetDatabases' {} a -> s {nextToken = a} :: GetDatabases)
 
--- | The ID of the Data Catalog from which to retrieve @Databases@. If none
--- is provided, the AWS account ID is used by default.
-getDatabases_catalogId :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
-getDatabases_catalogId = Lens.lens (\GetDatabases' {catalogId} -> catalogId) (\s@GetDatabases' {} a -> s {catalogId = a} :: GetDatabases)
-
 -- | The maximum number of databases to return in one response.
 getDatabases_maxResults :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Natural)
 getDatabases_maxResults = Lens.lens (\GetDatabases' {maxResults} -> maxResults) (\s@GetDatabases' {} a -> s {maxResults = a} :: GetDatabases)
+
+-- | The ID of the Data Catalog from which to retrieve @Databases@. If none
+-- is provided, the Amazon Web Services account ID is used by default.
+getDatabases_catalogId :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
+getDatabases_catalogId = Lens.lens (\GetDatabases' {catalogId} -> catalogId) (\s@GetDatabases' {} a -> s {catalogId = a} :: GetDatabases)
 
 -- | Allows you to specify that you want to list the databases shared with
 -- your account. The allowable values are @FOREIGN@ or @ALL@.
@@ -181,8 +181,8 @@ instance Core.ToJSON GetDatabases where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("ResourceShareType" Core..=)
               Prelude.<$> resourceShareType
           ]

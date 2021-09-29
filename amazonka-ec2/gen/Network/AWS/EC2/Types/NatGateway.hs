@@ -21,6 +21,7 @@ module Network.AWS.EC2.Types.NatGateway where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
+import Network.AWS.EC2.Types.ConnectivityType
 import Network.AWS.EC2.Types.NatGatewayAddress
 import Network.AWS.EC2.Types.NatGatewayState
 import Network.AWS.EC2.Types.ProvisionedBandwidth
@@ -88,16 +89,19 @@ data NatGateway = NatGateway'
     state :: Prelude.Maybe NatGatewayState,
     -- | The date and time the NAT gateway was deleted, if applicable.
     deleteTime :: Prelude.Maybe Core.ISO8601,
-    -- | The tags for the NAT gateway.
-    tags :: Prelude.Maybe [Tag],
     -- | The date and time the NAT gateway was created.
     createTime :: Prelude.Maybe Core.ISO8601,
+    -- | The tags for the NAT gateway.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the subnet in which the NAT gateway is located.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC in which the NAT gateway is located.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the NAT gateway supports public or private
+    -- connectivity.
+    connectivityType :: Prelude.Maybe ConnectivityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -165,15 +169,18 @@ data NatGateway = NatGateway'
 --
 -- 'deleteTime', 'natGateway_deleteTime' - The date and time the NAT gateway was deleted, if applicable.
 --
--- 'tags', 'natGateway_tags' - The tags for the NAT gateway.
---
 -- 'createTime', 'natGateway_createTime' - The date and time the NAT gateway was created.
+--
+-- 'tags', 'natGateway_tags' - The tags for the NAT gateway.
 --
 -- 'subnetId', 'natGateway_subnetId' - The ID of the subnet in which the NAT gateway is located.
 --
 -- 'natGatewayId', 'natGateway_natGatewayId' - The ID of the NAT gateway.
 --
 -- 'vpcId', 'natGateway_vpcId' - The ID of the VPC in which the NAT gateway is located.
+--
+-- 'connectivityType', 'natGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
+-- connectivity.
 newNatGateway ::
   NatGateway
 newNatGateway =
@@ -184,11 +191,12 @@ newNatGateway =
       provisionedBandwidth = Prelude.Nothing,
       state = Prelude.Nothing,
       deleteTime = Prelude.Nothing,
-      tags = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      tags = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      connectivityType = Prelude.Nothing
     }
 
 -- | Information about the IP addresses and network interface associated with
@@ -259,13 +267,13 @@ natGateway_state = Lens.lens (\NatGateway' {state} -> state) (\s@NatGateway' {} 
 natGateway_deleteTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
 natGateway_deleteTime = Lens.lens (\NatGateway' {deleteTime} -> deleteTime) (\s@NatGateway' {} a -> s {deleteTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
 
--- | The tags for the NAT gateway.
-natGateway_tags :: Lens.Lens' NatGateway (Prelude.Maybe [Tag])
-natGateway_tags = Lens.lens (\NatGateway' {tags} -> tags) (\s@NatGateway' {} a -> s {tags = a} :: NatGateway) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The date and time the NAT gateway was created.
 natGateway_createTime :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.UTCTime)
 natGateway_createTime = Lens.lens (\NatGateway' {createTime} -> createTime) (\s@NatGateway' {} a -> s {createTime = a} :: NatGateway) Prelude.. Lens.mapping Core._Time
+
+-- | The tags for the NAT gateway.
+natGateway_tags :: Lens.Lens' NatGateway (Prelude.Maybe [Tag])
+natGateway_tags = Lens.lens (\NatGateway' {tags} -> tags) (\s@NatGateway' {} a -> s {tags = a} :: NatGateway) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the subnet in which the NAT gateway is located.
 natGateway_subnetId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
@@ -279,6 +287,11 @@ natGateway_natGatewayId = Lens.lens (\NatGateway' {natGatewayId} -> natGatewayId
 natGateway_vpcId :: Lens.Lens' NatGateway (Prelude.Maybe Prelude.Text)
 natGateway_vpcId = Lens.lens (\NatGateway' {vpcId} -> vpcId) (\s@NatGateway' {} a -> s {vpcId = a} :: NatGateway)
 
+-- | Indicates whether the NAT gateway supports public or private
+-- connectivity.
+natGateway_connectivityType :: Lens.Lens' NatGateway (Prelude.Maybe ConnectivityType)
+natGateway_connectivityType = Lens.lens (\NatGateway' {connectivityType} -> connectivityType) (\s@NatGateway' {} a -> s {connectivityType = a} :: NatGateway)
+
 instance Core.FromXML NatGateway where
   parseXML x =
     NatGateway'
@@ -291,13 +304,14 @@ instance Core.FromXML NatGateway where
       Prelude.<*> (x Core..@? "provisionedBandwidth")
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "deleteTime")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "natGatewayId")
       Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "connectivityType")
 
 instance Prelude.Hashable NatGateway
 

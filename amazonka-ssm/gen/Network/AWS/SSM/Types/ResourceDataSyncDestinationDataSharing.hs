@@ -23,10 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Synchronize Systems Manager Inventory data from multiple AWS accounts
--- defined in AWS Organizations to a centralized S3 bucket. Data is
--- synchronized to individual key prefixes in the central bucket. Each key
--- prefix represents a different AWS account ID.
+-- | Synchronize Amazon Web Services Systems Manager Inventory data from
+-- multiple Amazon Web Services accounts defined in Organizations to a
+-- centralized Amazon S3 bucket. Data is synchronized to individual key
+-- prefixes in the central bucket. Each key prefix represents a different
+-- Amazon Web Services account ID.
 --
 -- /See:/ 'newResourceDataSyncDestinationDataSharing' smart constructor.
 data ResourceDataSyncDestinationDataSharing = ResourceDataSyncDestinationDataSharing'

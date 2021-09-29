@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the topic rule destinations in your AWS account.
+-- Lists all the topic rule destinations in your Amazon Web Services
+-- account.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListTopicRuleDestinations>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListTopicRuleDestinations

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of projects that are shared with other AWS accounts or
--- users.
+-- Gets a list of projects that are shared with other Amazon Web Services
+-- accounts or users.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListSharedProjects
@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.ListSharedProjects
     newListSharedProjects,
 
     -- * Request Lenses
-    listSharedProjects_sortOrder,
     listSharedProjects_nextToken,
+    listSharedProjects_sortOrder,
     listSharedProjects_maxResults,
     listSharedProjects_sortBy,
 
@@ -55,13 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSharedProjects' smart constructor.
 data ListSharedProjects = ListSharedProjects'
-  { -- | The order in which to list shared build projects. Valid values include:
-    --
-    -- -   @ASCENDING@: List in ascending order.
-    --
-    -- -   @DESCENDING@: List in descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, the maximum number of items that can be returned
+  { -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -69,12 +63,18 @@ data ListSharedProjects = ListSharedProjects'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order in which to list shared build projects. Valid values include:
+    --
+    -- -   @ASCENDING@: List in ascending order.
+    --
+    -- -   @DESCENDING@: List in descending order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The maximum number of paginated shared build projects returned per
     -- response. Use @nextToken@ to iterate pages in the list of returned
     -- @Project@ objects. The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The criterion to be used to list build projects shared with the current
-    -- AWS account or user. Valid values include:
+    -- Amazon Web Services account or user. Valid values include:
     --
     -- -   @ARN@: List based on the ARN.
     --
@@ -92,12 +92,6 @@ data ListSharedProjects = ListSharedProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSharedProjects_sortOrder' - The order in which to list shared build projects. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
---
 -- 'nextToken', 'listSharedProjects_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -106,12 +100,18 @@ data ListSharedProjects = ListSharedProjects'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
+-- 'sortOrder', 'listSharedProjects_sortOrder' - The order in which to list shared build projects. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+--
 -- 'maxResults', 'listSharedProjects_maxResults' - The maximum number of paginated shared build projects returned per
 -- response. Use @nextToken@ to iterate pages in the list of returned
 -- @Project@ objects. The default value is 100.
 --
 -- 'sortBy', 'listSharedProjects_sortBy' - The criterion to be used to list build projects shared with the current
--- AWS account or user. Valid values include:
+-- Amazon Web Services account or user. Valid values include:
 --
 -- -   @ARN@: List based on the ARN.
 --
@@ -121,19 +121,11 @@ newListSharedProjects ::
   ListSharedProjects
 newListSharedProjects =
   ListSharedProjects'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
-
--- | The order in which to list shared build projects. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
-listSharedProjects_sortOrder :: Lens.Lens' ListSharedProjects (Prelude.Maybe SortOrderType)
-listSharedProjects_sortOrder = Lens.lens (\ListSharedProjects' {sortOrder} -> sortOrder) (\s@ListSharedProjects' {} a -> s {sortOrder = a} :: ListSharedProjects)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -145,6 +137,14 @@ listSharedProjects_sortOrder = Lens.lens (\ListSharedProjects' {sortOrder} -> so
 listSharedProjects_nextToken :: Lens.Lens' ListSharedProjects (Prelude.Maybe Prelude.Text)
 listSharedProjects_nextToken = Lens.lens (\ListSharedProjects' {nextToken} -> nextToken) (\s@ListSharedProjects' {} a -> s {nextToken = a} :: ListSharedProjects)
 
+-- | The order in which to list shared build projects. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+listSharedProjects_sortOrder :: Lens.Lens' ListSharedProjects (Prelude.Maybe SortOrderType)
+listSharedProjects_sortOrder = Lens.lens (\ListSharedProjects' {sortOrder} -> sortOrder) (\s@ListSharedProjects' {} a -> s {sortOrder = a} :: ListSharedProjects)
+
 -- | The maximum number of paginated shared build projects returned per
 -- response. Use @nextToken@ to iterate pages in the list of returned
 -- @Project@ objects. The default value is 100.
@@ -152,7 +152,7 @@ listSharedProjects_maxResults :: Lens.Lens' ListSharedProjects (Prelude.Maybe Pr
 listSharedProjects_maxResults = Lens.lens (\ListSharedProjects' {maxResults} -> maxResults) (\s@ListSharedProjects' {} a -> s {maxResults = a} :: ListSharedProjects)
 
 -- | The criterion to be used to list build projects shared with the current
--- AWS account or user. Valid values include:
+-- Amazon Web Services account or user. Valid values include:
 --
 -- -   @ARN@: List based on the ARN.
 --
@@ -221,8 +221,8 @@ instance Core.ToJSON ListSharedProjects where
   toJSON ListSharedProjects' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("sortBy" Core..=) Prelude.<$> sortBy
           ]
@@ -244,8 +244,8 @@ data ListSharedProjectsResponse = ListSharedProjectsResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of ARNs for the build projects shared with the current AWS
-    -- account or user.
+    -- | The list of ARNs for the build projects shared with the current Amazon
+    -- Web Services account or user.
     projects :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -268,8 +268,8 @@ data ListSharedProjectsResponse = ListSharedProjectsResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'projects', 'listSharedProjectsResponse_projects' - The list of ARNs for the build projects shared with the current AWS
--- account or user.
+-- 'projects', 'listSharedProjectsResponse_projects' - The list of ARNs for the build projects shared with the current Amazon
+-- Web Services account or user.
 --
 -- 'httpStatus', 'listSharedProjectsResponse_httpStatus' - The response's http status code.
 newListSharedProjectsResponse ::
@@ -294,8 +294,8 @@ newListSharedProjectsResponse pHttpStatus_ =
 listSharedProjectsResponse_nextToken :: Lens.Lens' ListSharedProjectsResponse (Prelude.Maybe Prelude.Text)
 listSharedProjectsResponse_nextToken = Lens.lens (\ListSharedProjectsResponse' {nextToken} -> nextToken) (\s@ListSharedProjectsResponse' {} a -> s {nextToken = a} :: ListSharedProjectsResponse)
 
--- | The list of ARNs for the build projects shared with the current AWS
--- account or user.
+-- | The list of ARNs for the build projects shared with the current Amazon
+-- Web Services account or user.
 listSharedProjectsResponse_projects :: Lens.Lens' ListSharedProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listSharedProjectsResponse_projects = Lens.lens (\ListSharedProjectsResponse' {projects} -> projects) (\s@ListSharedProjectsResponse' {} a -> s {projects = a} :: ListSharedProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 

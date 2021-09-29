@@ -21,8 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of the policies that have an effect on the authorization
--- behavior of the specified device when it connects to the AWS IoT device
+-- behavior of the specified device when it connects to the IoT device
 -- gateway.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetEffectivePolicies>
+-- action.
 module Network.AWS.IoT.GetEffectivePolicies
   ( -- * Creating a Request
     GetEffectivePolicies (..),

@@ -65,9 +65,9 @@ data AlgorithmSpecification = AlgorithmSpecification'
     -- SageMaker publishes each metric to Amazon CloudWatch.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
     -- | The name of the algorithm resource to use for the training job. This
-    -- must be an algorithm resource that you created or subscribe to on AWS
-    -- Marketplace. If you specify a value for this parameter, you can\'t
-    -- specify a value for @TrainingImage@.
+    -- must be an algorithm resource that you created or subscribe to on Amazon
+    -- Web Services Marketplace. If you specify a value for this parameter, you
+    -- can\'t specify a value for @TrainingImage@.
     algorithmName :: Prelude.Maybe Prelude.Text,
     -- | The input mode that the algorithm supports. For the input modes that
     -- Amazon SageMaker algorithms support, see
@@ -134,9 +134,9 @@ data AlgorithmSpecification = AlgorithmSpecification'
 -- SageMaker publishes each metric to Amazon CloudWatch.
 --
 -- 'algorithmName', 'algorithmSpecification_algorithmName' - The name of the algorithm resource to use for the training job. This
--- must be an algorithm resource that you created or subscribe to on AWS
--- Marketplace. If you specify a value for this parameter, you can\'t
--- specify a value for @TrainingImage@.
+-- must be an algorithm resource that you created or subscribe to on Amazon
+-- Web Services Marketplace. If you specify a value for this parameter, you
+-- can\'t specify a value for @TrainingImage@.
 --
 -- 'trainingInputMode', 'algorithmSpecification_trainingInputMode' - The input mode that the algorithm supports. For the input modes that
 -- Amazon SageMaker algorithms support, see
@@ -211,9 +211,9 @@ algorithmSpecification_metricDefinitions :: Lens.Lens' AlgorithmSpecification (P
 algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@AlgorithmSpecification' {} a -> s {metricDefinitions = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the algorithm resource to use for the training job. This
--- must be an algorithm resource that you created or subscribe to on AWS
--- Marketplace. If you specify a value for this parameter, you can\'t
--- specify a value for @TrainingImage@.
+-- must be an algorithm resource that you created or subscribe to on Amazon
+-- Web Services Marketplace. If you specify a value for this parameter, you
+-- can\'t specify a value for @TrainingImage@.
 algorithmSpecification_algorithmName :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
 algorithmSpecification_algorithmName = Lens.lens (\AlgorithmSpecification' {algorithmName} -> algorithmName) (\s@AlgorithmSpecification' {} a -> s {algorithmName = a} :: AlgorithmSpecification)
 

@@ -30,6 +30,7 @@ module Network.AWS.Comprehend.StartDominantLanguageDetectionJob
     -- * Request Lenses
     startDominantLanguageDetectionJob_vpcConfig,
     startDominantLanguageDetectionJob_volumeKmsKeyId,
+    startDominantLanguageDetectionJob_tags,
     startDominantLanguageDetectionJob_clientRequestToken,
     startDominantLanguageDetectionJob_jobName,
     startDominantLanguageDetectionJob_inputDataConfig,
@@ -42,6 +43,7 @@ module Network.AWS.Comprehend.StartDominantLanguageDetectionJob
 
     -- * Response Lenses
     startDominantLanguageDetectionJobResponse_jobStatus,
+    startDominantLanguageDetectionJobResponse_jobArn,
     startDominantLanguageDetectionJobResponse_jobId,
     startDominantLanguageDetectionJobResponse_httpStatus,
   )
@@ -71,6 +73,11 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Tags to be associated with the dominant language detection job. A tag is
+    -- a key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -111,6 +118,11 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
+-- 'tags', 'startDominantLanguageDetectionJob_tags' - Tags to be associated with the dominant language detection job. A tag is
+-- a key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
 -- 'clientRequestToken', 'startDominantLanguageDetectionJob_clientRequestToken' - A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
 --
@@ -140,6 +152,7 @@ newStartDominantLanguageDetectionJob
       { vpcConfig =
           Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         jobName = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
@@ -165,6 +178,13 @@ startDominantLanguageDetectionJob_vpcConfig = Lens.lens (\StartDominantLanguageD
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 startDominantLanguageDetectionJob_volumeKmsKeyId :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
 startDominantLanguageDetectionJob_volumeKmsKeyId = Lens.lens (\StartDominantLanguageDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartDominantLanguageDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartDominantLanguageDetectionJob)
+
+-- | Tags to be associated with the dominant language detection job. A tag is
+-- a key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startDominantLanguageDetectionJob_tags :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe [Tag])
+startDominantLanguageDetectionJob_tags = Lens.lens (\StartDominantLanguageDetectionJob' {tags} -> tags) (\s@StartDominantLanguageDetectionJob' {} a -> s {tags = a} :: StartDominantLanguageDetectionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
@@ -203,6 +223,7 @@ instance
       ( \s h x ->
           StartDominantLanguageDetectionJobResponse'
             Prelude.<$> (x Core..?> "JobStatus")
+              Prelude.<*> (x Core..?> "JobArn")
               Prelude.<*> (x Core..?> "JobId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -243,6 +264,7 @@ instance
           [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("JobName" Core..=) Prelude.<$> jobName,
@@ -281,6 +303,17 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
     -- -   FAILED - The job did not complete. To get details, use the
     --     operation.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The Amazon Resource Name (ARN) of the dominant language detection job.
+    -- It is a unique, fully qualified identifier for the job. It includes the
+    -- AWS account, Region, and the job ID. The format of the ARN is as
+    -- follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier generated for the job. To get the status of a job, use
     -- this identifier with the operation.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -309,6 +342,17 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
 -- -   FAILED - The job did not complete. To get details, use the
 --     operation.
 --
+-- 'jobArn', 'startDominantLanguageDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the dominant language detection job.
+-- It is a unique, fully qualified identifier for the job. It includes the
+-- AWS account, Region, and the job ID. The format of the ARN is as
+-- follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'jobId', 'startDominantLanguageDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
 --
@@ -322,6 +366,7 @@ newStartDominantLanguageDetectionJobResponse
     StartDominantLanguageDetectionJobResponse'
       { jobStatus =
           Prelude.Nothing,
+        jobArn = Prelude.Nothing,
         jobId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -339,6 +384,19 @@ newStartDominantLanguageDetectionJobResponse
 --     operation.
 startDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Prelude.Maybe JobStatus)
 startDominantLanguageDetectionJobResponse_jobStatus = Lens.lens (\StartDominantLanguageDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {jobStatus = a} :: StartDominantLanguageDetectionJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the dominant language detection job.
+-- It is a unique, fully qualified identifier for the job. It includes the
+-- AWS account, Region, and the job ID. The format of the ARN is as
+-- follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+startDominantLanguageDetectionJobResponse_jobArn :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startDominantLanguageDetectionJobResponse_jobArn = Lens.lens (\StartDominantLanguageDetectionJobResponse' {jobArn} -> jobArn) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {jobArn = a} :: StartDominantLanguageDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.

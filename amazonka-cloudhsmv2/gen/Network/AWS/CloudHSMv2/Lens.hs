@@ -54,17 +54,17 @@ module Network.AWS.CloudHSMv2.Lens
     untagResource_tagKeyList,
     untagResourceResponse_httpStatus,
 
+    -- ** TagResource
+    tagResource_resourceId,
+    tagResource_tagList,
+    tagResourceResponse_httpStatus,
+
     -- ** CopyBackupToRegion
     copyBackupToRegion_tagList,
     copyBackupToRegion_destinationRegion,
     copyBackupToRegion_backupId,
     copyBackupToRegionResponse_destinationBackup,
     copyBackupToRegionResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceId,
-    tagResource_tagList,
-    tagResourceResponse_httpStatus,
 
     -- ** ModifyCluster
     modifyCluster_backupRetentionPolicy,
@@ -78,11 +78,6 @@ module Network.AWS.CloudHSMv2.Lens
     modifyBackupAttributesResponse_backup,
     modifyBackupAttributesResponse_httpStatus,
 
-    -- ** DeleteCluster
-    deleteCluster_clusterId,
-    deleteClusterResponse_cluster,
-    deleteClusterResponse_httpStatus,
-
     -- ** ListTags
     listTags_nextToken,
     listTags_maxResults,
@@ -90,6 +85,11 @@ module Network.AWS.CloudHSMv2.Lens
     listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
     listTagsResponse_tagList,
+
+    -- ** DeleteCluster
+    deleteCluster_clusterId,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
 
     -- ** DescribeBackups
     describeBackups_nextToken,
@@ -100,13 +100,6 @@ module Network.AWS.CloudHSMv2.Lens
     describeBackupsResponse_backups,
     describeBackupsResponse_httpStatus,
 
-    -- ** CreateHsm
-    createHsm_ipAddress,
-    createHsm_clusterId,
-    createHsm_availabilityZone,
-    createHsmResponse_hsm,
-    createHsmResponse_httpStatus,
-
     -- ** InitializeCluster
     initializeCluster_clusterId,
     initializeCluster_signedCert,
@@ -115,6 +108,13 @@ module Network.AWS.CloudHSMv2.Lens
     initializeClusterResponse_state,
     initializeClusterResponse_httpStatus,
 
+    -- ** CreateHsm
+    createHsm_ipAddress,
+    createHsm_clusterId,
+    createHsm_availabilityZone,
+    createHsmResponse_hsm,
+    createHsmResponse_httpStatus,
+
     -- * Types
 
     -- ** Backup
@@ -122,10 +122,10 @@ module Network.AWS.CloudHSMv2.Lens
     backup_backupState,
     backup_sourceBackup,
     backup_copyTimestamp,
-    backup_createTimestamp,
     backup_neverExpires,
-    backup_sourceCluster,
+    backup_createTimestamp,
     backup_deleteTimestamp,
+    backup_sourceCluster,
     backup_tagList,
     backup_sourceRegion,
     backup_backupId,
@@ -150,9 +150,9 @@ module Network.AWS.CloudHSMv2.Lens
     cluster_state,
     cluster_preCoPassword,
     cluster_securityGroup,
-    cluster_hsmType,
-    cluster_sourceBackupId,
     cluster_certificates,
+    cluster_sourceBackupId,
+    cluster_hsmType,
     cluster_tagList,
     cluster_vpcId,
     cluster_hsms,
@@ -169,8 +169,8 @@ module Network.AWS.CloudHSMv2.Lens
     hsm_stateMessage,
     hsm_eniIp,
     hsm_eniId,
-    hsm_state,
     hsm_availabilityZone,
+    hsm_state,
     hsm_subnetId,
     hsm_hsmId,
 

@@ -40,17 +40,17 @@ data InstanceSnapshot = InstanceSnapshot'
     -- | The Amazon Resource Name (ARN) of the snapshot (e.g.,
     -- @arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot\/d23b5706-3322-4d83-81e5-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The support code. Include this code in your email to support when you
+    -- have questions about an instance or another resource in Lightsail. This
+    -- code enables our support team to look up your Lightsail information more
+    -- easily.
+    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the instance from which the snapshot
     -- was created (e.g.,
     -- @arn:aws:lightsail:us-east-2:123456789101:Instance\/64b8404c-ccb1-430b-8daf-12345EXAMPLE@).
     fromInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of resource (usually @InstanceSnapshot@).
     resourceType :: Prelude.Maybe ResourceType,
-    -- | The support code. Include this code in your email to support when you
-    -- have questions about an instance or another resource in Lightsail. This
-    -- code enables our support team to look up your Lightsail information more
-    -- easily.
-    supportCode :: Prelude.Maybe Prelude.Text,
     -- | The size in GB of the SSD.
     sizeInGb :: Prelude.Maybe Prelude.Int,
     -- | The bundle ID from which you created the snapshot (e.g., @micro_1_0@).
@@ -65,17 +65,17 @@ data InstanceSnapshot = InstanceSnapshot'
     fromBlueprintId :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values for the resource. For more information
     -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The instance from which the snapshot was created.
     fromInstanceName :: Prelude.Maybe Prelude.Text,
-    -- | The region name and Availability Zone where you created the snapshot.
-    location :: Prelude.Maybe ResourceLocation,
     -- | The progress of the snapshot.
     --
     -- This is populated only for disk snapshots, and is @null@ for instance
     -- snapshots.
     progress :: Prelude.Maybe Prelude.Text,
+    -- | The region name and Availability Zone where you created the snapshot.
+    location :: Prelude.Maybe ResourceLocation,
     -- | An array of disk objects containing information about all block storage
     -- disks.
     fromAttachedDisks :: Prelude.Maybe [Disk]
@@ -98,16 +98,16 @@ data InstanceSnapshot = InstanceSnapshot'
 -- 'arn', 'instanceSnapshot_arn' - The Amazon Resource Name (ARN) of the snapshot (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot\/d23b5706-3322-4d83-81e5-12345EXAMPLE@).
 --
+-- 'supportCode', 'instanceSnapshot_supportCode' - The support code. Include this code in your email to support when you
+-- have questions about an instance or another resource in Lightsail. This
+-- code enables our support team to look up your Lightsail information more
+-- easily.
+--
 -- 'fromInstanceArn', 'instanceSnapshot_fromInstanceArn' - The Amazon Resource Name (ARN) of the instance from which the snapshot
 -- was created (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:Instance\/64b8404c-ccb1-430b-8daf-12345EXAMPLE@).
 --
 -- 'resourceType', 'instanceSnapshot_resourceType' - The type of resource (usually @InstanceSnapshot@).
---
--- 'supportCode', 'instanceSnapshot_supportCode' - The support code. Include this code in your email to support when you
--- have questions about an instance or another resource in Lightsail. This
--- code enables our support team to look up your Lightsail information more
--- easily.
 --
 -- 'sizeInGb', 'instanceSnapshot_sizeInGb' - The size in GB of the SSD.
 --
@@ -123,16 +123,16 @@ data InstanceSnapshot = InstanceSnapshot'
 --
 -- 'tags', 'instanceSnapshot_tags' - The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'fromInstanceName', 'instanceSnapshot_fromInstanceName' - The instance from which the snapshot was created.
---
--- 'location', 'instanceSnapshot_location' - The region name and Availability Zone where you created the snapshot.
 --
 -- 'progress', 'instanceSnapshot_progress' - The progress of the snapshot.
 --
 -- This is populated only for disk snapshots, and is @null@ for instance
 -- snapshots.
+--
+-- 'location', 'instanceSnapshot_location' - The region name and Availability Zone where you created the snapshot.
 --
 -- 'fromAttachedDisks', 'instanceSnapshot_fromAttachedDisks' - An array of disk objects containing information about all block storage
 -- disks.
@@ -144,9 +144,9 @@ newInstanceSnapshot =
         Prelude.Nothing,
       createdAt = Prelude.Nothing,
       arn = Prelude.Nothing,
+      supportCode = Prelude.Nothing,
       fromInstanceArn = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      supportCode = Prelude.Nothing,
       sizeInGb = Prelude.Nothing,
       fromBundleId = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -154,8 +154,8 @@ newInstanceSnapshot =
       fromBlueprintId = Prelude.Nothing,
       tags = Prelude.Nothing,
       fromInstanceName = Prelude.Nothing,
-      location = Prelude.Nothing,
       progress = Prelude.Nothing,
+      location = Prelude.Nothing,
       fromAttachedDisks = Prelude.Nothing
     }
 
@@ -173,6 +173,13 @@ instanceSnapshot_createdAt = Lens.lens (\InstanceSnapshot' {createdAt} -> create
 instanceSnapshot_arn :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Text)
 instanceSnapshot_arn = Lens.lens (\InstanceSnapshot' {arn} -> arn) (\s@InstanceSnapshot' {} a -> s {arn = a} :: InstanceSnapshot)
 
+-- | The support code. Include this code in your email to support when you
+-- have questions about an instance or another resource in Lightsail. This
+-- code enables our support team to look up your Lightsail information more
+-- easily.
+instanceSnapshot_supportCode :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Text)
+instanceSnapshot_supportCode = Lens.lens (\InstanceSnapshot' {supportCode} -> supportCode) (\s@InstanceSnapshot' {} a -> s {supportCode = a} :: InstanceSnapshot)
+
 -- | The Amazon Resource Name (ARN) of the instance from which the snapshot
 -- was created (e.g.,
 -- @arn:aws:lightsail:us-east-2:123456789101:Instance\/64b8404c-ccb1-430b-8daf-12345EXAMPLE@).
@@ -182,13 +189,6 @@ instanceSnapshot_fromInstanceArn = Lens.lens (\InstanceSnapshot' {fromInstanceAr
 -- | The type of resource (usually @InstanceSnapshot@).
 instanceSnapshot_resourceType :: Lens.Lens' InstanceSnapshot (Prelude.Maybe ResourceType)
 instanceSnapshot_resourceType = Lens.lens (\InstanceSnapshot' {resourceType} -> resourceType) (\s@InstanceSnapshot' {} a -> s {resourceType = a} :: InstanceSnapshot)
-
--- | The support code. Include this code in your email to support when you
--- have questions about an instance or another resource in Lightsail. This
--- code enables our support team to look up your Lightsail information more
--- easily.
-instanceSnapshot_supportCode :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Text)
-instanceSnapshot_supportCode = Lens.lens (\InstanceSnapshot' {supportCode} -> supportCode) (\s@InstanceSnapshot' {} a -> s {supportCode = a} :: InstanceSnapshot)
 
 -- | The size in GB of the SSD.
 instanceSnapshot_sizeInGb :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Int)
@@ -214,7 +214,7 @@ instanceSnapshot_fromBlueprintId = Lens.lens (\InstanceSnapshot' {fromBlueprintI
 
 -- | The tag keys and optional values for the resource. For more information
 -- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 instanceSnapshot_tags :: Lens.Lens' InstanceSnapshot (Prelude.Maybe [Tag])
 instanceSnapshot_tags = Lens.lens (\InstanceSnapshot' {tags} -> tags) (\s@InstanceSnapshot' {} a -> s {tags = a} :: InstanceSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
@@ -222,16 +222,16 @@ instanceSnapshot_tags = Lens.lens (\InstanceSnapshot' {tags} -> tags) (\s@Instan
 instanceSnapshot_fromInstanceName :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Text)
 instanceSnapshot_fromInstanceName = Lens.lens (\InstanceSnapshot' {fromInstanceName} -> fromInstanceName) (\s@InstanceSnapshot' {} a -> s {fromInstanceName = a} :: InstanceSnapshot)
 
--- | The region name and Availability Zone where you created the snapshot.
-instanceSnapshot_location :: Lens.Lens' InstanceSnapshot (Prelude.Maybe ResourceLocation)
-instanceSnapshot_location = Lens.lens (\InstanceSnapshot' {location} -> location) (\s@InstanceSnapshot' {} a -> s {location = a} :: InstanceSnapshot)
-
 -- | The progress of the snapshot.
 --
 -- This is populated only for disk snapshots, and is @null@ for instance
 -- snapshots.
 instanceSnapshot_progress :: Lens.Lens' InstanceSnapshot (Prelude.Maybe Prelude.Text)
 instanceSnapshot_progress = Lens.lens (\InstanceSnapshot' {progress} -> progress) (\s@InstanceSnapshot' {} a -> s {progress = a} :: InstanceSnapshot)
+
+-- | The region name and Availability Zone where you created the snapshot.
+instanceSnapshot_location :: Lens.Lens' InstanceSnapshot (Prelude.Maybe ResourceLocation)
+instanceSnapshot_location = Lens.lens (\InstanceSnapshot' {location} -> location) (\s@InstanceSnapshot' {} a -> s {location = a} :: InstanceSnapshot)
 
 -- | An array of disk objects containing information about all block storage
 -- disks.
@@ -247,9 +247,9 @@ instance Core.FromJSON InstanceSnapshot where
             Prelude.<$> (x Core..:? "isFromAutoSnapshot")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "fromInstanceArn")
             Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "sizeInGb")
             Prelude.<*> (x Core..:? "fromBundleId")
             Prelude.<*> (x Core..:? "state")
@@ -257,8 +257,8 @@ instance Core.FromJSON InstanceSnapshot where
             Prelude.<*> (x Core..:? "fromBlueprintId")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fromInstanceName")
-            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "progress")
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> ( x Core..:? "fromAttachedDisks"
                             Core..!= Prelude.mempty
                         )

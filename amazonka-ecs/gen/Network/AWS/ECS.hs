@@ -17,15 +17,13 @@
 -- fast, container management service that makes it easy to run, stop, and
 -- manage Docker containers on a cluster. You can host your cluster on a
 -- serverless infrastructure that is managed by Amazon ECS by launching
--- your services or tasks using the Fargate launch type. For more control,
--- you can host your tasks on a cluster of Amazon Elastic Compute Cloud
--- (Amazon EC2) instances that you manage by using the EC2 launch type. For
--- more information about launch types, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>.
+-- your services or tasks on Fargate. For more control, you can host your
+-- tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2)
+-- instances that you manage.
 --
--- Amazon ECS lets you launch and stop container-based applications with
--- simple API calls, allows you to get the state of your cluster from a
--- centralized service, and gives you access to many familiar Amazon EC2
+-- Amazon ECS makes it easy to launch and stop container-based applications
+-- with simple API calls, allows you to get the state of your cluster from
+-- a centralized service, and gives you access to many familiar Amazon EC2
 -- features.
 --
 -- You can use Amazon ECS to schedule the placement of containers across
@@ -43,20 +41,23 @@ module Network.AWS.ECS
     -- ** UpdateInProgressException
     _UpdateInProgressException,
 
-    -- ** ServiceNotFoundException
-    _ServiceNotFoundException,
+    -- ** TargetNotConnectedException
+    _TargetNotConnectedException,
 
     -- ** PlatformTaskDefinitionIncompatibilityException
     _PlatformTaskDefinitionIncompatibilityException,
 
+    -- ** ServiceNotFoundException
+    _ServiceNotFoundException,
+
     -- ** UnsupportedFeatureException
     _UnsupportedFeatureException,
 
-    -- ** ClusterContainsContainerInstancesException
-    _ClusterContainsContainerInstancesException,
-
     -- ** TaskSetNotFoundException
     _TaskSetNotFoundException,
+
+    -- ** ClusterContainsContainerInstancesException
+    _ClusterContainsContainerInstancesException,
 
     -- ** ClusterContainsServicesException
     _ClusterContainsServicesException,
@@ -64,35 +65,35 @@ module Network.AWS.ECS
     -- ** PlatformUnknownException
     _PlatformUnknownException,
 
-    -- ** BlockedException
-    _BlockedException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** BlockedException
+    _BlockedException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** MissingVersionException
+    _MissingVersionException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** MissingVersionException
-    _MissingVersionException,
-
-    -- ** ClientException
-    _ClientException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ClusterNotFoundException
     _ClusterNotFoundException,
 
-    -- ** NoUpdateAvailableException
-    _NoUpdateAvailableException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ClientException
+    _ClientException,
+
+    -- ** NoUpdateAvailableException
+    _NoUpdateAvailableException,
 
     -- ** ServiceNotActiveException
     _ServiceNotActiveException,
@@ -100,11 +101,11 @@ module Network.AWS.ECS
     -- ** ClusterContainsTasksException
     _ClusterContainsTasksException,
 
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
-
     -- ** AttributeLimitExceededException
     _AttributeLimitExceededException,
+
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
 
     -- ** ServerException
     _ServerException,
@@ -124,18 +125,6 @@ module Network.AWS.ECS
     -- * Operations
     -- $operations
 
-    -- ** SubmitAttachmentStateChanges
-    SubmitAttachmentStateChanges (SubmitAttachmentStateChanges'),
-    newSubmitAttachmentStateChanges,
-    SubmitAttachmentStateChangesResponse (SubmitAttachmentStateChangesResponse'),
-    newSubmitAttachmentStateChangesResponse,
-
-    -- ** RegisterContainerInstance
-    RegisterContainerInstance (RegisterContainerInstance'),
-    newRegisterContainerInstance,
-    RegisterContainerInstanceResponse (RegisterContainerInstanceResponse'),
-    newRegisterContainerInstanceResponse,
-
     -- ** DiscoverPollEndpoint
     DiscoverPollEndpoint (DiscoverPollEndpoint'),
     newDiscoverPollEndpoint,
@@ -148,17 +137,17 @@ module Network.AWS.ECS
     UpdateServicePrimaryTaskSetResponse (UpdateServicePrimaryTaskSetResponse'),
     newUpdateServicePrimaryTaskSetResponse,
 
-    -- ** DescribeClusters
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
+    -- ** RegisterContainerInstance
+    RegisterContainerInstance (RegisterContainerInstance'),
+    newRegisterContainerInstance,
+    RegisterContainerInstanceResponse (RegisterContainerInstanceResponse'),
+    newRegisterContainerInstanceResponse,
 
-    -- ** ListServices (Paginated)
-    ListServices (ListServices'),
-    newListServices,
-    ListServicesResponse (ListServicesResponse'),
-    newListServicesResponse,
+    -- ** SubmitAttachmentStateChanges
+    SubmitAttachmentStateChanges (SubmitAttachmentStateChanges'),
+    newSubmitAttachmentStateChanges,
+    SubmitAttachmentStateChangesResponse (SubmitAttachmentStateChangesResponse'),
+    newSubmitAttachmentStateChangesResponse,
 
     -- ** RunTask
     RunTask (RunTask'),
@@ -166,11 +155,23 @@ module Network.AWS.ECS
     RunTaskResponse (RunTaskResponse'),
     newRunTaskResponse,
 
+    -- ** DescribeClusters
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
     -- ** ListTasks (Paginated)
     ListTasks (ListTasks'),
     newListTasks,
     ListTasksResponse (ListTasksResponse'),
     newListTasksResponse,
+
+    -- ** ListServices (Paginated)
+    ListServices (ListServices'),
+    newListServices,
+    ListServicesResponse (ListServicesResponse'),
+    newListServicesResponse,
 
     -- ** CreateService
     CreateService (CreateService'),
@@ -178,17 +179,17 @@ module Network.AWS.ECS
     CreateServiceResponse (CreateServiceResponse'),
     newCreateServiceResponse,
 
-    -- ** PutAccountSetting
-    PutAccountSetting (PutAccountSetting'),
-    newPutAccountSetting,
-    PutAccountSettingResponse (PutAccountSettingResponse'),
-    newPutAccountSettingResponse,
-
     -- ** DeleteAttributes
     DeleteAttributes (DeleteAttributes'),
     newDeleteAttributes,
     DeleteAttributesResponse (DeleteAttributesResponse'),
     newDeleteAttributesResponse,
+
+    -- ** PutAccountSetting
+    PutAccountSetting (PutAccountSetting'),
+    newPutAccountSetting,
+    PutAccountSettingResponse (PutAccountSettingResponse'),
+    newPutAccountSettingResponse,
 
     -- ** CreateCluster
     CreateCluster (CreateCluster'),
@@ -214,29 +215,29 @@ module Network.AWS.ECS
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeContainerInstances
-    DescribeContainerInstances (DescribeContainerInstances'),
-    newDescribeContainerInstances,
-    DescribeContainerInstancesResponse (DescribeContainerInstancesResponse'),
-    newDescribeContainerInstancesResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** PutAccountSettingDefault
-    PutAccountSettingDefault (PutAccountSettingDefault'),
-    newPutAccountSettingDefault,
-    PutAccountSettingDefaultResponse (PutAccountSettingDefaultResponse'),
-    newPutAccountSettingDefaultResponse,
+    -- ** DescribeContainerInstances
+    DescribeContainerInstances (DescribeContainerInstances'),
+    newDescribeContainerInstances,
+    DescribeContainerInstancesResponse (DescribeContainerInstancesResponse'),
+    newDescribeContainerInstancesResponse,
 
     -- ** ListAttributes (Paginated)
     ListAttributes (ListAttributes'),
     newListAttributes,
     ListAttributesResponse (ListAttributesResponse'),
     newListAttributesResponse,
+
+    -- ** PutAccountSettingDefault
+    PutAccountSettingDefault (PutAccountSettingDefault'),
+    newPutAccountSettingDefault,
+    PutAccountSettingDefaultResponse (PutAccountSettingDefaultResponse'),
+    newPutAccountSettingDefaultResponse,
 
     -- ** SubmitContainerStateChange
     SubmitContainerStateChange (SubmitContainerStateChange'),
@@ -256,11 +257,11 @@ module Network.AWS.ECS
     UpdateContainerAgentResponse (UpdateContainerAgentResponse'),
     newUpdateContainerAgentResponse,
 
-    -- ** UpdateCapacityProvider
-    UpdateCapacityProvider (UpdateCapacityProvider'),
-    newUpdateCapacityProvider,
-    UpdateCapacityProviderResponse (UpdateCapacityProviderResponse'),
-    newUpdateCapacityProviderResponse,
+    -- ** DeleteCapacityProvider
+    DeleteCapacityProvider (DeleteCapacityProvider'),
+    newDeleteCapacityProvider,
+    DeleteCapacityProviderResponse (DeleteCapacityProviderResponse'),
+    newDeleteCapacityProviderResponse,
 
     -- ** DeleteService
     DeleteService (DeleteService'),
@@ -274,23 +275,11 @@ module Network.AWS.ECS
     UpdateServiceResponse (UpdateServiceResponse'),
     newUpdateServiceResponse,
 
-    -- ** DeleteCapacityProvider
-    DeleteCapacityProvider (DeleteCapacityProvider'),
-    newDeleteCapacityProvider,
-    DeleteCapacityProviderResponse (DeleteCapacityProviderResponse'),
-    newDeleteCapacityProviderResponse,
-
-    -- ** DescribeTaskSets
-    DescribeTaskSets (DescribeTaskSets'),
-    newDescribeTaskSets,
-    DescribeTaskSetsResponse (DescribeTaskSetsResponse'),
-    newDescribeTaskSetsResponse,
-
-    -- ** ListTaskDefinitions (Paginated)
-    ListTaskDefinitions (ListTaskDefinitions'),
-    newListTaskDefinitions,
-    ListTaskDefinitionsResponse (ListTaskDefinitionsResponse'),
-    newListTaskDefinitionsResponse,
+    -- ** UpdateCapacityProvider
+    UpdateCapacityProvider (UpdateCapacityProvider'),
+    newUpdateCapacityProvider,
+    UpdateCapacityProviderResponse (UpdateCapacityProviderResponse'),
+    newUpdateCapacityProviderResponse,
 
     -- ** CreateCapacityProvider
     CreateCapacityProvider (CreateCapacityProvider'),
@@ -298,11 +287,29 @@ module Network.AWS.ECS
     CreateCapacityProviderResponse (CreateCapacityProviderResponse'),
     newCreateCapacityProviderResponse,
 
+    -- ** DescribeTaskSets
+    DescribeTaskSets (DescribeTaskSets'),
+    newDescribeTaskSets,
+    DescribeTaskSetsResponse (DescribeTaskSetsResponse'),
+    newDescribeTaskSetsResponse,
+
     -- ** RegisterTaskDefinition
     RegisterTaskDefinition (RegisterTaskDefinition'),
     newRegisterTaskDefinition,
     RegisterTaskDefinitionResponse (RegisterTaskDefinitionResponse'),
     newRegisterTaskDefinitionResponse,
+
+    -- ** ListTaskDefinitions (Paginated)
+    ListTaskDefinitions (ListTaskDefinitions'),
+    newListTaskDefinitions,
+    ListTaskDefinitionsResponse (ListTaskDefinitionsResponse'),
+    newListTaskDefinitionsResponse,
+
+    -- ** PutAttributes
+    PutAttributes (PutAttributes'),
+    newPutAttributes,
+    PutAttributesResponse (PutAttributesResponse'),
+    newPutAttributesResponse,
 
     -- ** DeleteTaskSet
     DeleteTaskSet (DeleteTaskSet'),
@@ -316,23 +323,17 @@ module Network.AWS.ECS
     UpdateClusterSettingsResponse (UpdateClusterSettingsResponse'),
     newUpdateClusterSettingsResponse,
 
-    -- ** UpdateTaskSet
-    UpdateTaskSet (UpdateTaskSet'),
-    newUpdateTaskSet,
-    UpdateTaskSetResponse (UpdateTaskSetResponse'),
-    newUpdateTaskSetResponse,
-
     -- ** DeregisterContainerInstance
     DeregisterContainerInstance (DeregisterContainerInstance'),
     newDeregisterContainerInstance,
     DeregisterContainerInstanceResponse (DeregisterContainerInstanceResponse'),
     newDeregisterContainerInstanceResponse,
 
-    -- ** PutAttributes
-    PutAttributes (PutAttributes'),
-    newPutAttributes,
-    PutAttributesResponse (PutAttributesResponse'),
-    newPutAttributesResponse,
+    -- ** UpdateTaskSet
+    UpdateTaskSet (UpdateTaskSet'),
+    newUpdateTaskSet,
+    UpdateTaskSetResponse (UpdateTaskSetResponse'),
+    newUpdateTaskSetResponse,
 
     -- ** DeleteAccountSetting
     DeleteAccountSetting (DeleteAccountSetting'),
@@ -346,11 +347,11 @@ module Network.AWS.ECS
     ListAccountSettingsResponse (ListAccountSettingsResponse'),
     newListAccountSettingsResponse,
 
-    -- ** DescribeServices
-    DescribeServices (DescribeServices'),
-    newDescribeServices,
-    DescribeServicesResponse (DescribeServicesResponse'),
-    newDescribeServicesResponse,
+    -- ** UpdateContainerInstancesState
+    UpdateContainerInstancesState (UpdateContainerInstancesState'),
+    newUpdateContainerInstancesState,
+    UpdateContainerInstancesStateResponse (UpdateContainerInstancesStateResponse'),
+    newUpdateContainerInstancesStateResponse,
 
     -- ** DescribeCapacityProviders
     DescribeCapacityProviders (DescribeCapacityProviders'),
@@ -358,23 +359,29 @@ module Network.AWS.ECS
     DescribeCapacityProvidersResponse (DescribeCapacityProvidersResponse'),
     newDescribeCapacityProvidersResponse,
 
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
     -- ** ListClusters (Paginated)
     ListClusters (ListClusters'),
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
 
-    -- ** UpdateContainerInstancesState
-    UpdateContainerInstancesState (UpdateContainerInstancesState'),
-    newUpdateContainerInstancesState,
-    UpdateContainerInstancesStateResponse (UpdateContainerInstancesStateResponse'),
-    newUpdateContainerInstancesStateResponse,
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** DescribeServices
+    DescribeServices (DescribeServices'),
+    newDescribeServices,
+    DescribeServicesResponse (DescribeServicesResponse'),
+    newDescribeServicesResponse,
 
     -- ** SubmitTaskStateChange
     SubmitTaskStateChange (SubmitTaskStateChange'),
@@ -382,23 +389,23 @@ module Network.AWS.ECS
     SubmitTaskStateChangeResponse (SubmitTaskStateChangeResponse'),
     newSubmitTaskStateChangeResponse,
 
+    -- ** ExecuteCommand
+    ExecuteCommand (ExecuteCommand'),
+    newExecuteCommand,
+    ExecuteCommandResponse (ExecuteCommandResponse'),
+    newExecuteCommandResponse,
+
     -- ** DeregisterTaskDefinition
     DeregisterTaskDefinition (DeregisterTaskDefinition'),
     newDeregisterTaskDefinition,
     DeregisterTaskDefinitionResponse (DeregisterTaskDefinitionResponse'),
     newDeregisterTaskDefinitionResponse,
 
-    -- ** StopTask
-    StopTask (StopTask'),
-    newStopTask,
-    StopTaskResponse (StopTaskResponse'),
-    newStopTaskResponse,
-
-    -- ** PutClusterCapacityProviders
-    PutClusterCapacityProviders (PutClusterCapacityProviders'),
-    newPutClusterCapacityProviders,
-    PutClusterCapacityProvidersResponse (PutClusterCapacityProvidersResponse'),
-    newPutClusterCapacityProvidersResponse,
+    -- ** StartTask
+    StartTask (StartTask'),
+    newStartTask,
+    StartTaskResponse (StartTaskResponse'),
+    newStartTaskResponse,
 
     -- ** DescribeTaskDefinition
     DescribeTaskDefinition (DescribeTaskDefinition'),
@@ -406,11 +413,17 @@ module Network.AWS.ECS
     DescribeTaskDefinitionResponse (DescribeTaskDefinitionResponse'),
     newDescribeTaskDefinitionResponse,
 
-    -- ** StartTask
-    StartTask (StartTask'),
-    newStartTask,
-    StartTaskResponse (StartTaskResponse'),
-    newStartTaskResponse,
+    -- ** PutClusterCapacityProviders
+    PutClusterCapacityProviders (PutClusterCapacityProviders'),
+    newPutClusterCapacityProviders,
+    PutClusterCapacityProvidersResponse (PutClusterCapacityProvidersResponse'),
+    newPutClusterCapacityProvidersResponse,
+
+    -- ** StopTask
+    StopTask (StopTask'),
+    newStopTask,
+    StopTaskResponse (StopTaskResponse'),
+    newStopTaskResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -483,6 +496,9 @@ module Network.AWS.ECS
     -- ** EnvironmentFileType
     EnvironmentFileType (..),
 
+    -- ** ExecuteCommandLogging
+    ExecuteCommandLogging (..),
+
     -- ** FirelensConfigurationType
     FirelensConfigurationType (..),
 
@@ -497,6 +513,9 @@ module Network.AWS.ECS
 
     -- ** LogDriver
     LogDriver (..),
+
+    -- ** ManagedAgentName
+    ManagedAgentName (..),
 
     -- ** ManagedScalingStatus
     ManagedScalingStatus (..),
@@ -615,6 +634,10 @@ module Network.AWS.ECS
     Cluster (Cluster'),
     newCluster,
 
+    -- ** ClusterConfiguration
+    ClusterConfiguration (ClusterConfiguration'),
+    newClusterConfiguration,
+
     -- ** ClusterSetting
     ClusterSetting (ClusterSetting'),
     newClusterSetting,
@@ -683,6 +706,18 @@ module Network.AWS.ECS
     EnvironmentFile (EnvironmentFile'),
     newEnvironmentFile,
 
+    -- ** EphemeralStorage
+    EphemeralStorage (EphemeralStorage'),
+    newEphemeralStorage,
+
+    -- ** ExecuteCommandConfiguration
+    ExecuteCommandConfiguration (ExecuteCommandConfiguration'),
+    newExecuteCommandConfiguration,
+
+    -- ** ExecuteCommandLogConfiguration
+    ExecuteCommandLogConfiguration (ExecuteCommandLogConfiguration'),
+    newExecuteCommandLogConfiguration,
+
     -- ** FSxWindowsFileServerAuthorizationConfig
     FSxWindowsFileServerAuthorizationConfig (FSxWindowsFileServerAuthorizationConfig'),
     newFSxWindowsFileServerAuthorizationConfig,
@@ -738,6 +773,14 @@ module Network.AWS.ECS
     -- ** LogConfiguration
     LogConfiguration (LogConfiguration'),
     newLogConfiguration,
+
+    -- ** ManagedAgent
+    ManagedAgent (ManagedAgent'),
+    newManagedAgent,
+
+    -- ** ManagedAgentStateChange
+    ManagedAgentStateChange (ManagedAgentStateChange'),
+    newManagedAgentStateChange,
 
     -- ** ManagedScaling
     ManagedScaling (ManagedScaling'),
@@ -806,6 +849,10 @@ module Network.AWS.ECS
     -- ** ServiceRegistry
     ServiceRegistry (ServiceRegistry'),
     newServiceRegistry,
+
+    -- ** Session
+    Session (Session'),
+    newSession,
 
     -- ** Setting
     Setting (Setting'),
@@ -881,6 +928,7 @@ import Network.AWS.ECS.DescribeTaskDefinition
 import Network.AWS.ECS.DescribeTaskSets
 import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.DiscoverPollEndpoint
+import Network.AWS.ECS.ExecuteCommand
 import Network.AWS.ECS.Lens
 import Network.AWS.ECS.ListAccountSettings
 import Network.AWS.ECS.ListAttributes
@@ -907,6 +955,7 @@ import Network.AWS.ECS.TagResource
 import Network.AWS.ECS.Types
 import Network.AWS.ECS.UntagResource
 import Network.AWS.ECS.UpdateCapacityProvider
+import Network.AWS.ECS.UpdateCluster
 import Network.AWS.ECS.UpdateClusterSettings
 import Network.AWS.ECS.UpdateContainerAgent
 import Network.AWS.ECS.UpdateContainerInstancesState

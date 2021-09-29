@@ -22,15 +22,18 @@ module Network.AWS.Route53AutoNaming.Types.DnsProperties where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Route53AutoNaming.Types.SOA
 
--- | A complex type that contains the ID for the Route 53 hosted zone that
--- AWS Cloud Map creates when you create a namespace.
+-- | A complex type that contains the ID for the Route 53 hosted zone that
+-- Cloud Map creates when you create a namespace.
 --
 -- /See:/ 'newDnsProperties' smart constructor.
 data DnsProperties = DnsProperties'
-  { -- | The ID for the Route 53 hosted zone that AWS Cloud Map creates when you
+  { -- | The ID for the Route 53 hosted zone that Cloud Map creates when you
     -- create a namespace.
-    hostedZoneId :: Prelude.Maybe Prelude.Text
+    hostedZoneId :: Prelude.Maybe Prelude.Text,
+    -- | Start of Authority (SOA) record for the hosted zone.
+    soa :: Prelude.Maybe SOA
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,17 +45,26 @@ data DnsProperties = DnsProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostedZoneId', 'dnsProperties_hostedZoneId' - The ID for the Route 53 hosted zone that AWS Cloud Map creates when you
+-- 'hostedZoneId', 'dnsProperties_hostedZoneId' - The ID for the Route 53 hosted zone that Cloud Map creates when you
 -- create a namespace.
+--
+-- 'soa', 'dnsProperties_soa' - Start of Authority (SOA) record for the hosted zone.
 newDnsProperties ::
   DnsProperties
 newDnsProperties =
-  DnsProperties' {hostedZoneId = Prelude.Nothing}
+  DnsProperties'
+    { hostedZoneId = Prelude.Nothing,
+      soa = Prelude.Nothing
+    }
 
--- | The ID for the Route 53 hosted zone that AWS Cloud Map creates when you
+-- | The ID for the Route 53 hosted zone that Cloud Map creates when you
 -- create a namespace.
 dnsProperties_hostedZoneId :: Lens.Lens' DnsProperties (Prelude.Maybe Prelude.Text)
 dnsProperties_hostedZoneId = Lens.lens (\DnsProperties' {hostedZoneId} -> hostedZoneId) (\s@DnsProperties' {} a -> s {hostedZoneId = a} :: DnsProperties)
+
+-- | Start of Authority (SOA) record for the hosted zone.
+dnsProperties_soa :: Lens.Lens' DnsProperties (Prelude.Maybe SOA)
+dnsProperties_soa = Lens.lens (\DnsProperties' {soa} -> soa) (\s@DnsProperties' {} a -> s {soa = a} :: DnsProperties)
 
 instance Core.FromJSON DnsProperties where
   parseJSON =
@@ -61,6 +73,7 @@ instance Core.FromJSON DnsProperties where
       ( \x ->
           DnsProperties'
             Prelude.<$> (x Core..:? "HostedZoneId")
+            Prelude.<*> (x Core..:? "SOA")
       )
 
 instance Prelude.Hashable DnsProperties

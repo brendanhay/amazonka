@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists gateways owned by an AWS account in an AWS Region specified in the
+-- Lists gateways owned by an account in an Region specified in the
 -- request. The returned list is ordered by gateway Amazon Resource Name
 -- (ARN).
 --

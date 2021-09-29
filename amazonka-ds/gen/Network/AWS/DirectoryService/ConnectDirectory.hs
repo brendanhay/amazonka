@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AD Connector to connect to an on-premises directory.
+-- Creates an AD Connector to connect to a self-managed directory.
 --
 -- Before you call @ConnectDirectory@, ensure that all of the required
 -- permissions have been explicitly granted through a policy. For details
 -- about what permissions are required to run the @ConnectDirectory@
 -- operation, see
--- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
+-- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
 module Network.AWS.DirectoryService.ConnectDirectory
   ( -- * Creating a Request
     ConnectDirectory (..),
@@ -62,16 +62,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newConnectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-  { -- | The NetBIOS name of the on-premises directory, such as @CORP@.
+  { -- | The NetBIOS name of your self-managed directory, such as @CORP@.
     shortName :: Prelude.Maybe Prelude.Text,
     -- | The tags to be assigned to AD Connector.
     tags :: Prelude.Maybe [Tag],
     -- | A description for the directory.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified name of the on-premises directory, such as
+    -- | The fully qualified name of your self-managed directory, such as
     -- @corp.example.com@.
     name :: Prelude.Text,
-    -- | The password for the on-premises user account.
+    -- | The password for your self-managed user account.
     password :: Core.Sensitive Prelude.Text,
     -- | The size of the directory.
     size :: DirectorySize,
@@ -89,16 +89,16 @@ data ConnectDirectory = ConnectDirectory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of the on-premises directory, such as @CORP@.
+-- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of your self-managed directory, such as @CORP@.
 --
 -- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
 --
 -- 'description', 'connectDirectory_description' - A description for the directory.
 --
--- 'name', 'connectDirectory_name' - The fully qualified name of the on-premises directory, such as
+-- 'name', 'connectDirectory_name' - The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
 --
--- 'password', 'connectDirectory_password' - The password for the on-premises user account.
+-- 'password', 'connectDirectory_password' - The password for your self-managed user account.
 --
 -- 'size', 'connectDirectory_size' - The size of the directory.
 --
@@ -129,7 +129,7 @@ newConnectDirectory
         connectSettings = pConnectSettings_
       }
 
--- | The NetBIOS name of the on-premises directory, such as @CORP@.
+-- | The NetBIOS name of your self-managed directory, such as @CORP@.
 connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
 connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
 
@@ -141,12 +141,12 @@ connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@Connec
 connectDirectory_description :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
 connectDirectory_description = Lens.lens (\ConnectDirectory' {description} -> description) (\s@ConnectDirectory' {} a -> s {description = a} :: ConnectDirectory)
 
--- | The fully qualified name of the on-premises directory, such as
+-- | The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
 connectDirectory_name :: Lens.Lens' ConnectDirectory Prelude.Text
 connectDirectory_name = Lens.lens (\ConnectDirectory' {name} -> name) (\s@ConnectDirectory' {} a -> s {name = a} :: ConnectDirectory)
 
--- | The password for the on-premises user account.
+-- | The password for your self-managed user account.
 connectDirectory_password :: Lens.Lens' ConnectDirectory Prelude.Text
 connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Prelude.. Core._Sensitive
 

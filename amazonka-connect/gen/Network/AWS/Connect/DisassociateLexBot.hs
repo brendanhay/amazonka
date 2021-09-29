@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateLexBot' smart constructor.
 data DisassociateLexBot = DisassociateLexBot'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the Amazon Lex bot. Maximum character limit of 50.
     botName :: Prelude.Text,
@@ -67,7 +68,8 @@ data DisassociateLexBot = DisassociateLexBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateLexBot_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'disassociateLexBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'botName', 'disassociateLexBot_botName' - The name of the Amazon Lex bot. Maximum character limit of 50.
 --
@@ -90,7 +92,8 @@ newDisassociateLexBot
         lexRegion = pLexRegion_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 disassociateLexBot_instanceId :: Lens.Lens' DisassociateLexBot Prelude.Text
 disassociateLexBot_instanceId = Lens.lens (\DisassociateLexBot' {instanceId} -> instanceId) (\s@DisassociateLexBot' {} a -> s {instanceId = a} :: DisassociateLexBot)
 

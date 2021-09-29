@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a topic rule destination.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteTopicRuleDestination>
+-- action.
 module Network.AWS.IoT.DeleteTopicRuleDestination
   ( -- * Creating a Request
     DeleteTopicRuleDestination (..),

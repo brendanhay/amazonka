@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
 
     -- * Request Lenses
     describeNetworkInterfaces_nextToken,
-    describeNetworkInterfaces_dryRun,
     describeNetworkInterfaces_maxResults,
+    describeNetworkInterfaces_dryRun,
     describeNetworkInterfaces_networkInterfaceIds,
     describeNetworkInterfaces_filters,
 
@@ -59,16 +59,16 @@ import qualified Network.AWS.Response as Response
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
   { -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of items to return for this request. The request
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results. You cannot specify this parameter and the network
     -- interface IDs parameter in the same request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more network interface IDs.
     --
     -- Default: Describes all your network interfaces.
@@ -141,7 +141,8 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     --
     -- -   @network-interface-id@ - The ID of the network interface.
     --
-    -- -   @owner-id@ - The AWS account ID of the network interface owner.
+    -- -   @owner-id@ - The Amazon Web Services account ID of the network
+    --     interface owner.
     --
     -- -   @private-ip-address@ - The private IPv4 address or addresses of the
     --     network interface.
@@ -149,12 +150,12 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     -- -   @private-dns-name@ - The private DNS name of the network interface
     --     (IPv4).
     --
-    -- -   @requester-id@ - The alias or AWS account ID of the principal or
-    --     service that created the network interface.
+    -- -   @requester-id@ - The alias or Amazon Web Services account ID of the
+    --     principal or service that created the network interface.
     --
     -- -   @requester-managed@ - Indicates whether the network interface is
-    --     being managed by an AWS service (for example, AWS Management
-    --     Console, Auto Scaling, and so on).
+    --     being managed by an Amazon Web Service (for example, Amazon Web
+    --     Services Management Console, Auto Scaling, and so on).
     --
     -- -   @source-dest-check@ - Indicates whether the network interface
     --     performs source\/destination checking. A value of @true@ means
@@ -194,15 +195,15 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --
 -- 'nextToken', 'describeNetworkInterfaces_nextToken' - The token to retrieve the next page of results.
 --
--- 'dryRun', 'describeNetworkInterfaces_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeNetworkInterfaces_maxResults' - The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results. You cannot specify this parameter and the network
 -- interface IDs parameter in the same request.
+--
+-- 'dryRun', 'describeNetworkInterfaces_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'networkInterfaceIds', 'describeNetworkInterfaces_networkInterfaceIds' - One or more network interface IDs.
 --
@@ -276,7 +277,8 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --
 -- -   @network-interface-id@ - The ID of the network interface.
 --
--- -   @owner-id@ - The AWS account ID of the network interface owner.
+-- -   @owner-id@ - The Amazon Web Services account ID of the network
+--     interface owner.
 --
 -- -   @private-ip-address@ - The private IPv4 address or addresses of the
 --     network interface.
@@ -284,12 +286,12 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 -- -   @private-dns-name@ - The private DNS name of the network interface
 --     (IPv4).
 --
--- -   @requester-id@ - The alias or AWS account ID of the principal or
---     service that created the network interface.
+-- -   @requester-id@ - The alias or Amazon Web Services account ID of the
+--     principal or service that created the network interface.
 --
 -- -   @requester-managed@ - Indicates whether the network interface is
---     being managed by an AWS service (for example, AWS Management
---     Console, Auto Scaling, and so on).
+--     being managed by an Amazon Web Service (for example, Amazon Web
+--     Services Management Console, Auto Scaling, and so on).
 --
 -- -   @source-dest-check@ - Indicates whether the network interface
 --     performs source\/destination checking. A value of @true@ means
@@ -321,8 +323,8 @@ newDescribeNetworkInterfaces =
   DescribeNetworkInterfaces'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       networkInterfaceIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -331,19 +333,19 @@ newDescribeNetworkInterfaces =
 describeNetworkInterfaces_nextToken :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Text)
 describeNetworkInterfaces_nextToken = Lens.lens (\DescribeNetworkInterfaces' {nextToken} -> nextToken) (\s@DescribeNetworkInterfaces' {} a -> s {nextToken = a} :: DescribeNetworkInterfaces)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeNetworkInterfaces_dryRun :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Bool)
-describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaces' {} a -> s {dryRun = a} :: DescribeNetworkInterfaces)
-
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results. You cannot specify this parameter and the network
 -- interface IDs parameter in the same request.
 describeNetworkInterfaces_maxResults :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Natural)
 describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {maxResults} -> maxResults) (\s@DescribeNetworkInterfaces' {} a -> s {maxResults = a} :: DescribeNetworkInterfaces)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeNetworkInterfaces_dryRun :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Bool)
+describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaces' {} a -> s {dryRun = a} :: DescribeNetworkInterfaces)
 
 -- | One or more network interface IDs.
 --
@@ -419,7 +421,8 @@ describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInter
 --
 -- -   @network-interface-id@ - The ID of the network interface.
 --
--- -   @owner-id@ - The AWS account ID of the network interface owner.
+-- -   @owner-id@ - The Amazon Web Services account ID of the network
+--     interface owner.
 --
 -- -   @private-ip-address@ - The private IPv4 address or addresses of the
 --     network interface.
@@ -427,12 +430,12 @@ describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInter
 -- -   @private-dns-name@ - The private DNS name of the network interface
 --     (IPv4).
 --
--- -   @requester-id@ - The alias or AWS account ID of the principal or
---     service that created the network interface.
+-- -   @requester-id@ - The alias or Amazon Web Services account ID of the
+--     principal or service that created the network interface.
 --
 -- -   @requester-managed@ - Indicates whether the network interface is
---     being managed by an AWS service (for example, AWS Management
---     Console, Auto Scaling, and so on).
+--     being managed by an Amazon Web Service (for example, Amazon Web
+--     Services Management Console, Auto Scaling, and so on).
 --
 -- -   @source-dest-check@ - Indicates whether the network interface
 --     performs source\/destination checking. A value of @true@ means
@@ -518,8 +521,8 @@ instance Core.ToQuery DescribeNetworkInterfaces where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkInterfaceId"
               Prelude.<$> networkInterfaceIds

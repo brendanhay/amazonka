@@ -24,7 +24,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether an AWS Config rule is compliant based on account ID,
+-- | Indicates whether an Config rule is compliant based on account ID,
 -- region, compliance, and rule name.
 --
 -- A rule is compliant if all of the resources that the rule evaluated
@@ -35,13 +35,14 @@ import qualified Network.AWS.Prelude as Prelude
 data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
   { -- | The 12-digit account ID of the source account.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Config rule.
+    -- | The name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether an AWS resource or AWS Config rule is compliant and
-    -- provides the number of contributors that affect the compliance.
-    compliance :: Prelude.Maybe Compliance,
     -- | The source region from where the data is aggregated.
-    awsRegion :: Prelude.Maybe Prelude.Text
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether an Amazon Web Services resource or Config rule is
+    -- compliant and provides the number of contributors that affect the
+    -- compliance.
+    compliance :: Prelude.Maybe Compliance
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,12 +56,13 @@ data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
 --
 -- 'accountId', 'aggregateComplianceByConfigRule_accountId' - The 12-digit account ID of the source account.
 --
--- 'configRuleName', 'aggregateComplianceByConfigRule_configRuleName' - The name of the AWS Config rule.
---
--- 'compliance', 'aggregateComplianceByConfigRule_compliance' - Indicates whether an AWS resource or AWS Config rule is compliant and
--- provides the number of contributors that affect the compliance.
+-- 'configRuleName', 'aggregateComplianceByConfigRule_configRuleName' - The name of the Config rule.
 --
 -- 'awsRegion', 'aggregateComplianceByConfigRule_awsRegion' - The source region from where the data is aggregated.
+--
+-- 'compliance', 'aggregateComplianceByConfigRule_compliance' - Indicates whether an Amazon Web Services resource or Config rule is
+-- compliant and provides the number of contributors that affect the
+-- compliance.
 newAggregateComplianceByConfigRule ::
   AggregateComplianceByConfigRule
 newAggregateComplianceByConfigRule =
@@ -68,26 +70,27 @@ newAggregateComplianceByConfigRule =
     { accountId =
         Prelude.Nothing,
       configRuleName = Prelude.Nothing,
-      compliance = Prelude.Nothing,
-      awsRegion = Prelude.Nothing
+      awsRegion = Prelude.Nothing,
+      compliance = Prelude.Nothing
     }
 
 -- | The 12-digit account ID of the source account.
 aggregateComplianceByConfigRule_accountId :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
 aggregateComplianceByConfigRule_accountId = Lens.lens (\AggregateComplianceByConfigRule' {accountId} -> accountId) (\s@AggregateComplianceByConfigRule' {} a -> s {accountId = a} :: AggregateComplianceByConfigRule)
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 aggregateComplianceByConfigRule_configRuleName :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
 aggregateComplianceByConfigRule_configRuleName = Lens.lens (\AggregateComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@AggregateComplianceByConfigRule' {} a -> s {configRuleName = a} :: AggregateComplianceByConfigRule)
-
--- | Indicates whether an AWS resource or AWS Config rule is compliant and
--- provides the number of contributors that affect the compliance.
-aggregateComplianceByConfigRule_compliance :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Compliance)
-aggregateComplianceByConfigRule_compliance = Lens.lens (\AggregateComplianceByConfigRule' {compliance} -> compliance) (\s@AggregateComplianceByConfigRule' {} a -> s {compliance = a} :: AggregateComplianceByConfigRule)
 
 -- | The source region from where the data is aggregated.
 aggregateComplianceByConfigRule_awsRegion :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Prelude.Text)
 aggregateComplianceByConfigRule_awsRegion = Lens.lens (\AggregateComplianceByConfigRule' {awsRegion} -> awsRegion) (\s@AggregateComplianceByConfigRule' {} a -> s {awsRegion = a} :: AggregateComplianceByConfigRule)
+
+-- | Indicates whether an Amazon Web Services resource or Config rule is
+-- compliant and provides the number of contributors that affect the
+-- compliance.
+aggregateComplianceByConfigRule_compliance :: Lens.Lens' AggregateComplianceByConfigRule (Prelude.Maybe Compliance)
+aggregateComplianceByConfigRule_compliance = Lens.lens (\AggregateComplianceByConfigRule' {compliance} -> compliance) (\s@AggregateComplianceByConfigRule' {} a -> s {compliance = a} :: AggregateComplianceByConfigRule)
 
 instance
   Core.FromJSON
@@ -100,8 +103,8 @@ instance
           AggregateComplianceByConfigRule'
             Prelude.<$> (x Core..:? "AccountId")
             Prelude.<*> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "Compliance")
             Prelude.<*> (x Core..:? "AwsRegion")
+            Prelude.<*> (x Core..:? "Compliance")
       )
 
 instance

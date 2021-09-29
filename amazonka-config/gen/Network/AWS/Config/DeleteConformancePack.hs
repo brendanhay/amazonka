@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified conformance pack and all the AWS Config rules,
+-- Deletes the specified conformance pack and all the Config rules,
 -- remediation actions, and all evaluation results within that conformance
 -- pack.
 --
--- AWS Config sets the conformance pack to @DELETE_IN_PROGRESS@ until the
+-- Config sets the conformance pack to @DELETE_IN_PROGRESS@ until the
 -- deletion is complete. You cannot update a conformance pack while it is
 -- in this state.
 module Network.AWS.Config.DeleteConformancePack

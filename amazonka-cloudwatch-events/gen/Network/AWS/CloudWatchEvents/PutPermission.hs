@@ -20,31 +20,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Running @PutPermission@ permits the specified AWS account or AWS
--- organization to put events to the specified /event bus/. Amazon
--- EventBridge (CloudWatch Events) rules in your account are triggered by
--- these events arriving to an event bus in your account.
+-- Running @PutPermission@ permits the specified Amazon Web Services
+-- account or Amazon Web Services organization to put events to the
+-- specified /event bus/. Amazon EventBridge (CloudWatch Events) rules in
+-- your account are triggered by these events arriving to an event bus in
+-- your account.
 --
 -- For another account to send events to your account, that external
 -- account must have an EventBridge rule with your account\'s event bus as
 -- a target.
 --
--- To enable multiple AWS accounts to put events to your event bus, run
--- @PutPermission@ once for each of these accounts. Or, if all the accounts
--- are members of the same AWS organization, you can run @PutPermission@
--- once specifying @Principal@ as \"*\" and specifying the AWS organization
--- ID in @Condition@, to grant permissions to all accounts in that
--- organization.
+-- To enable multiple Amazon Web Services accounts to put events to your
+-- event bus, run @PutPermission@ once for each of these accounts. Or, if
+-- all the accounts are members of the same Amazon Web Services
+-- organization, you can run @PutPermission@ once specifying @Principal@ as
+-- \"*\" and specifying the Amazon Web Services organization ID in
+-- @Condition@, to grant permissions to all accounts in that organization.
 --
 -- If you grant permissions using an organization, then accounts in that
 -- organization must specify a @RoleArn@ with proper permissions when they
 -- use @PutTarget@ to add your account\'s event bus as a target. For more
 -- information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between AWS Accounts>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between Amazon Web Services Accounts>
 -- in the /Amazon EventBridge User Guide/.
 --
--- The permission policy on the default event bus cannot exceed 10 KB in
--- size.
+-- The permission policy on the event bus cannot exceed 10 KB in size.
 module Network.AWS.CloudWatchEvents.PutPermission
   ( -- * Creating a Request
     PutPermission (..),
@@ -74,14 +74,15 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newPutPermission' smart constructor.
 data PutPermission = PutPermission'
   { -- | This parameter enables you to limit the permission to accounts that
-    -- fulfill a certain condition, such as being a member of a certain AWS
-    -- organization. For more information about AWS Organizations, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations>
-    -- in the /AWS Organizations User Guide/.
+    -- fulfill a certain condition, such as being a member of a certain Amazon
+    -- Web Services organization. For more information about Amazon Web
+    -- Services Organizations, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is Amazon Web Services Organizations>
+    -- in the /Amazon Web Services Organizations User Guide/.
     --
-    -- If you specify @Condition@ with an AWS organization ID, and specify
-    -- \"*\" as the value for @Principal@, you grant permission to all the
-    -- accounts in the named organization.
+    -- If you specify @Condition@ with an Amazon Web Services organization ID,
+    -- and specify \"*\" as the value for @Principal@, you grant permission to
+    -- all the accounts in the named organization.
     --
     -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
     -- @Value@ fields.
@@ -89,11 +90,11 @@ data PutPermission = PutPermission'
     -- | An identifier string for the external account that you are granting
     -- permissions to. If you later want to revoke the permission for this
     -- external account, specify this @StatementId@ when you run
-    -- RemovePermission.
+    -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
     statementId :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit AWS account ID that you are permitting to put events to
-    -- your default event bus. Specify \"*\" to permit any account to put
-    -- events to your default event bus.
+    -- | The 12-digit Amazon Web Services account ID that you are permitting to
+    -- put events to your default event bus. Specify \"*\" to permit any
+    -- account to put events to your default event bus.
     --
     -- If you specify \"*\" without specifying @Condition@, avoid creating
     -- rules that may match undesirable events. To create more secure rules,
@@ -105,7 +106,6 @@ data PutPermission = PutPermission'
     -- the default event bus is used.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The action that you are enabling the other account to perform.
-    -- Currently, this must be @events:PutEvents@.
     action :: Prelude.Maybe Prelude.Text,
     -- | A JSON string that describes the permission policy statement. You can
     -- include a @Policy@ parameter in the request instead of using the
@@ -123,14 +123,15 @@ data PutPermission = PutPermission'
 -- for backwards compatibility:
 --
 -- 'condition', 'putPermission_condition' - This parameter enables you to limit the permission to accounts that
--- fulfill a certain condition, such as being a member of a certain AWS
--- organization. For more information about AWS Organizations, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations>
--- in the /AWS Organizations User Guide/.
+-- fulfill a certain condition, such as being a member of a certain Amazon
+-- Web Services organization. For more information about Amazon Web
+-- Services Organizations, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is Amazon Web Services Organizations>
+-- in the /Amazon Web Services Organizations User Guide/.
 --
--- If you specify @Condition@ with an AWS organization ID, and specify
--- \"*\" as the value for @Principal@, you grant permission to all the
--- accounts in the named organization.
+-- If you specify @Condition@ with an Amazon Web Services organization ID,
+-- and specify \"*\" as the value for @Principal@, you grant permission to
+-- all the accounts in the named organization.
 --
 -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
 -- @Value@ fields.
@@ -138,11 +139,11 @@ data PutPermission = PutPermission'
 -- 'statementId', 'putPermission_statementId' - An identifier string for the external account that you are granting
 -- permissions to. If you later want to revoke the permission for this
 -- external account, specify this @StatementId@ when you run
--- RemovePermission.
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
 --
--- 'principal', 'putPermission_principal' - The 12-digit AWS account ID that you are permitting to put events to
--- your default event bus. Specify \"*\" to permit any account to put
--- events to your default event bus.
+-- 'principal', 'putPermission_principal' - The 12-digit Amazon Web Services account ID that you are permitting to
+-- put events to your default event bus. Specify \"*\" to permit any
+-- account to put events to your default event bus.
 --
 -- If you specify \"*\" without specifying @Condition@, avoid creating
 -- rules that may match undesirable events. To create more secure rules,
@@ -154,7 +155,6 @@ data PutPermission = PutPermission'
 -- the default event bus is used.
 --
 -- 'action', 'putPermission_action' - The action that you are enabling the other account to perform.
--- Currently, this must be @events:PutEvents@.
 --
 -- 'policy', 'putPermission_policy' - A JSON string that describes the permission policy statement. You can
 -- include a @Policy@ parameter in the request instead of using the
@@ -172,14 +172,15 @@ newPutPermission =
     }
 
 -- | This parameter enables you to limit the permission to accounts that
--- fulfill a certain condition, such as being a member of a certain AWS
--- organization. For more information about AWS Organizations, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations>
--- in the /AWS Organizations User Guide/.
+-- fulfill a certain condition, such as being a member of a certain Amazon
+-- Web Services organization. For more information about Amazon Web
+-- Services Organizations, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is Amazon Web Services Organizations>
+-- in the /Amazon Web Services Organizations User Guide/.
 --
--- If you specify @Condition@ with an AWS organization ID, and specify
--- \"*\" as the value for @Principal@, you grant permission to all the
--- accounts in the named organization.
+-- If you specify @Condition@ with an Amazon Web Services organization ID,
+-- and specify \"*\" as the value for @Principal@, you grant permission to
+-- all the accounts in the named organization.
 --
 -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
 -- @Value@ fields.
@@ -189,13 +190,13 @@ putPermission_condition = Lens.lens (\PutPermission' {condition} -> condition) (
 -- | An identifier string for the external account that you are granting
 -- permissions to. If you later want to revoke the permission for this
 -- external account, specify this @StatementId@ when you run
--- RemovePermission.
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
 putPermission_statementId :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
 putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statementId) (\s@PutPermission' {} a -> s {statementId = a} :: PutPermission)
 
--- | The 12-digit AWS account ID that you are permitting to put events to
--- your default event bus. Specify \"*\" to permit any account to put
--- events to your default event bus.
+-- | The 12-digit Amazon Web Services account ID that you are permitting to
+-- put events to your default event bus. Specify \"*\" to permit any
+-- account to put events to your default event bus.
 --
 -- If you specify \"*\" without specifying @Condition@, avoid creating
 -- rules that may match undesirable events. To create more secure rules,
@@ -211,7 +212,6 @@ putPermission_eventBusName :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Te
 putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventBusName) (\s@PutPermission' {} a -> s {eventBusName = a} :: PutPermission)
 
 -- | The action that you are enabling the other account to perform.
--- Currently, this must be @events:PutEvents@.
 putPermission_action :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
 putPermission_action = Lens.lens (\PutPermission' {action} -> action) (\s@PutPermission' {} a -> s {action = a} :: PutPermission)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes specified tags from an AWS Batch resource.
+-- Deletes specified tags from an Batch resource.
 module Network.AWS.Batch.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -49,8 +49,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource from which to delete
-    -- tags. AWS Batch resources that support tags are compute environments,
-    -- jobs, job definitions, and job queues. ARNs for child jobs of array and
+    -- tags. Batch resources that support tags are compute environments, jobs,
+    -- job definitions, and job queues. ARNs for child jobs of array and
     -- multi-node parallel (MNP) jobs are not supported.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
@@ -67,8 +67,8 @@ data UntagResource = UntagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. AWS Batch resources that support tags are compute environments,
--- jobs, job definitions, and job queues. ARNs for child jobs of array and
+-- tags. Batch resources that support tags are compute environments, jobs,
+-- job definitions, and job queues. ARNs for child jobs of array and
 -- multi-node parallel (MNP) jobs are not supported.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
@@ -85,8 +85,8 @@ newUntagResource pResourceArn_ pTagKeys_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the resource from which to delete
--- tags. AWS Batch resources that support tags are compute environments,
--- jobs, job definitions, and job queues. ARNs for child jobs of array and
+-- tags. Batch resources that support tags are compute environments, jobs,
+-- job definitions, and job queues. ARNs for child jobs of array and
 -- multi-node parallel (MNP) jobs are not supported.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)

@@ -22,7 +22,7 @@
 --
 -- Returns the description of the gateway volumes specified in the request.
 -- The list of gateway volumes in the request must be from one gateway. In
--- the response, AWS Storage Gateway returns volume information sorted by
+-- the response, Storage Gateway returns volume information sorted by
 -- volume ARNs. This operation is only supported in stored volume gateway
 -- type.
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes

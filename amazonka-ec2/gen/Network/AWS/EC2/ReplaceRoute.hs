@@ -26,7 +26,7 @@
 -- interface, egress-only internet gateway, or transit gateway.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route Tables>
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html Route tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.ReplaceRoute
   ( -- * Creating a Request
@@ -35,18 +35,18 @@ module Network.AWS.EC2.ReplaceRoute
 
     -- * Request Lenses
     replaceRoute_instanceId,
-    replaceRoute_localTarget,
     replaceRoute_vpcPeeringConnectionId,
+    replaceRoute_localTarget,
     replaceRoute_dryRun,
     replaceRoute_vpcEndpointId,
     replaceRoute_destinationPrefixListId,
     replaceRoute_destinationIpv6CidrBlock,
     replaceRoute_localGatewayId,
     replaceRoute_egressOnlyInternetGatewayId,
-    replaceRoute_carrierGatewayId,
     replaceRoute_destinationCidrBlock,
-    replaceRoute_networkInterfaceId,
+    replaceRoute_carrierGatewayId,
     replaceRoute_natGatewayId,
+    replaceRoute_networkInterfaceId,
     replaceRoute_gatewayId,
     replaceRoute_transitGatewayId,
     replaceRoute_routeTableId,
@@ -68,11 +68,11 @@ import qualified Network.AWS.Response as Response
 data ReplaceRoute = ReplaceRoute'
   { -- | The ID of a NAT instance in your VPC.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a VPC peering connection.
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to reset the local route to its default target
     -- (@local@).
     localTarget :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of a VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -90,15 +90,15 @@ data ReplaceRoute = ReplaceRoute'
     localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
     egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | [IPv4 traffic only] The ID of a carrier gateway.
-    carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR address block used for the destination match. The value
     -- that you provide must match the CIDR of an existing route in the table.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | [IPv4 traffic only] The ID of a carrier gateway.
+    carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | [IPv4 traffic only] The ID of a NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of an internet gateway or virtual private gateway.
     gatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a transit gateway.
@@ -118,10 +118,10 @@ data ReplaceRoute = ReplaceRoute'
 --
 -- 'instanceId', 'replaceRoute_instanceId' - The ID of a NAT instance in your VPC.
 --
+-- 'vpcPeeringConnectionId', 'replaceRoute_vpcPeeringConnectionId' - The ID of a VPC peering connection.
+--
 -- 'localTarget', 'replaceRoute_localTarget' - Specifies whether to reset the local route to its default target
 -- (@local@).
---
--- 'vpcPeeringConnectionId', 'replaceRoute_vpcPeeringConnectionId' - The ID of a VPC peering connection.
 --
 -- 'dryRun', 'replaceRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -140,14 +140,14 @@ data ReplaceRoute = ReplaceRoute'
 --
 -- 'egressOnlyInternetGatewayId', 'replaceRoute_egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
 --
--- 'carrierGatewayId', 'replaceRoute_carrierGatewayId' - [IPv4 traffic only] The ID of a carrier gateway.
---
 -- 'destinationCidrBlock', 'replaceRoute_destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. The value
 -- that you provide must match the CIDR of an existing route in the table.
 --
--- 'networkInterfaceId', 'replaceRoute_networkInterfaceId' - The ID of a network interface.
+-- 'carrierGatewayId', 'replaceRoute_carrierGatewayId' - [IPv4 traffic only] The ID of a carrier gateway.
 --
 -- 'natGatewayId', 'replaceRoute_natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
+--
+-- 'networkInterfaceId', 'replaceRoute_networkInterfaceId' - The ID of a network interface.
 --
 -- 'gatewayId', 'replaceRoute_gatewayId' - The ID of an internet gateway or virtual private gateway.
 --
@@ -161,18 +161,18 @@ newReplaceRoute ::
 newReplaceRoute pRouteTableId_ =
   ReplaceRoute'
     { instanceId = Prelude.Nothing,
-      localTarget = Prelude.Nothing,
       vpcPeeringConnectionId = Prelude.Nothing,
+      localTarget = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       vpcEndpointId = Prelude.Nothing,
       destinationPrefixListId = Prelude.Nothing,
       destinationIpv6CidrBlock = Prelude.Nothing,
       localGatewayId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
-      carrierGatewayId = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
+      carrierGatewayId = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
       transitGatewayId = Prelude.Nothing,
       routeTableId = pRouteTableId_
@@ -182,14 +182,14 @@ newReplaceRoute pRouteTableId_ =
 replaceRoute_instanceId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_instanceId = Lens.lens (\ReplaceRoute' {instanceId} -> instanceId) (\s@ReplaceRoute' {} a -> s {instanceId = a} :: ReplaceRoute)
 
+-- | The ID of a VPC peering connection.
+replaceRoute_vpcPeeringConnectionId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
+replaceRoute_vpcPeeringConnectionId = Lens.lens (\ReplaceRoute' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@ReplaceRoute' {} a -> s {vpcPeeringConnectionId = a} :: ReplaceRoute)
+
 -- | Specifies whether to reset the local route to its default target
 -- (@local@).
 replaceRoute_localTarget :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Bool)
 replaceRoute_localTarget = Lens.lens (\ReplaceRoute' {localTarget} -> localTarget) (\s@ReplaceRoute' {} a -> s {localTarget = a} :: ReplaceRoute)
-
--- | The ID of a VPC peering connection.
-replaceRoute_vpcPeeringConnectionId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
-replaceRoute_vpcPeeringConnectionId = Lens.lens (\ReplaceRoute' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@ReplaceRoute' {} a -> s {vpcPeeringConnectionId = a} :: ReplaceRoute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -220,22 +220,22 @@ replaceRoute_localGatewayId = Lens.lens (\ReplaceRoute' {localGatewayId} -> loca
 replaceRoute_egressOnlyInternetGatewayId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_egressOnlyInternetGatewayId = Lens.lens (\ReplaceRoute' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@ReplaceRoute' {} a -> s {egressOnlyInternetGatewayId = a} :: ReplaceRoute)
 
--- | [IPv4 traffic only] The ID of a carrier gateway.
-replaceRoute_carrierGatewayId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
-replaceRoute_carrierGatewayId = Lens.lens (\ReplaceRoute' {carrierGatewayId} -> carrierGatewayId) (\s@ReplaceRoute' {} a -> s {carrierGatewayId = a} :: ReplaceRoute)
-
 -- | The IPv4 CIDR address block used for the destination match. The value
 -- that you provide must match the CIDR of an existing route in the table.
 replaceRoute_destinationCidrBlock :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_destinationCidrBlock = Lens.lens (\ReplaceRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@ReplaceRoute' {} a -> s {destinationCidrBlock = a} :: ReplaceRoute)
 
--- | The ID of a network interface.
-replaceRoute_networkInterfaceId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
-replaceRoute_networkInterfaceId = Lens.lens (\ReplaceRoute' {networkInterfaceId} -> networkInterfaceId) (\s@ReplaceRoute' {} a -> s {networkInterfaceId = a} :: ReplaceRoute)
+-- | [IPv4 traffic only] The ID of a carrier gateway.
+replaceRoute_carrierGatewayId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
+replaceRoute_carrierGatewayId = Lens.lens (\ReplaceRoute' {carrierGatewayId} -> carrierGatewayId) (\s@ReplaceRoute' {} a -> s {carrierGatewayId = a} :: ReplaceRoute)
 
 -- | [IPv4 traffic only] The ID of a NAT gateway.
 replaceRoute_natGatewayId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
 replaceRoute_natGatewayId = Lens.lens (\ReplaceRoute' {natGatewayId} -> natGatewayId) (\s@ReplaceRoute' {} a -> s {natGatewayId = a} :: ReplaceRoute)
+
+-- | The ID of a network interface.
+replaceRoute_networkInterfaceId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
+replaceRoute_networkInterfaceId = Lens.lens (\ReplaceRoute' {networkInterfaceId} -> networkInterfaceId) (\s@ReplaceRoute' {} a -> s {networkInterfaceId = a} :: ReplaceRoute)
 
 -- | The ID of an internet gateway or virtual private gateway.
 replaceRoute_gatewayId :: Lens.Lens' ReplaceRoute (Prelude.Maybe Prelude.Text)
@@ -272,9 +272,9 @@ instance Core.ToQuery ReplaceRoute where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "InstanceId" Core.=: instanceId,
-        "LocalTarget" Core.=: localTarget,
         "VpcPeeringConnectionId"
           Core.=: vpcPeeringConnectionId,
+        "LocalTarget" Core.=: localTarget,
         "DryRun" Core.=: dryRun,
         "VpcEndpointId" Core.=: vpcEndpointId,
         "DestinationPrefixListId"
@@ -284,10 +284,10 @@ instance Core.ToQuery ReplaceRoute where
         "LocalGatewayId" Core.=: localGatewayId,
         "EgressOnlyInternetGatewayId"
           Core.=: egressOnlyInternetGatewayId,
-        "CarrierGatewayId" Core.=: carrierGatewayId,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
+        "CarrierGatewayId" Core.=: carrierGatewayId,
         "NatGatewayId" Core.=: natGatewayId,
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
         "GatewayId" Core.=: gatewayId,
         "TransitGatewayId" Core.=: transitGatewayId,
         "RouteTableId" Core.=: routeTableId

@@ -22,6 +22,10 @@
 --
 -- Lists the job executions for the specified thing.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListJobExecutionsForThing>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListJobExecutionsForThing
   ( -- * Creating a Request
@@ -31,8 +35,8 @@ module Network.AWS.IoT.ListJobExecutionsForThing
     -- * Request Lenses
     listJobExecutionsForThing_nextToken,
     listJobExecutionsForThing_status,
-    listJobExecutionsForThing_maxResults,
     listJobExecutionsForThing_namespaceId,
+    listJobExecutionsForThing_maxResults,
     listJobExecutionsForThing_thingName,
 
     -- * Destructuring the Response
@@ -60,18 +64,18 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
     -- | An optional filter that lets you search for jobs that have the specified
     -- status.
     status :: Prelude.Maybe JobExecutionStatus,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs
-    -- notifications to MQTT topics that contain the value in the following
-    -- format.
+    -- When you specify a value for this parameter, Amazon Web Services IoT
+    -- Core sends jobs notifications to MQTT topics that contain the value in
+    -- the following format.
     --
     -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The thing name.
     thingName :: Prelude.Text
   }
@@ -90,17 +94,17 @@ data ListJobExecutionsForThing = ListJobExecutionsForThing'
 -- 'status', 'listJobExecutionsForThing_status' - An optional filter that lets you search for jobs that have the specified
 -- status.
 --
--- 'maxResults', 'listJobExecutionsForThing_maxResults' - The maximum number of results to be returned per request.
---
 -- 'namespaceId', 'listJobExecutionsForThing_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
+--
+-- 'maxResults', 'listJobExecutionsForThing_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'thingName', 'listJobExecutionsForThing_thingName' - The thing name.
 newListJobExecutionsForThing ::
@@ -112,8 +116,8 @@ newListJobExecutionsForThing pThingName_ =
     { nextToken =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       thingName = pThingName_
     }
 
@@ -126,21 +130,21 @@ listJobExecutionsForThing_nextToken = Lens.lens (\ListJobExecutionsForThing' {ne
 listJobExecutionsForThing_status :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe JobExecutionStatus)
 listJobExecutionsForThing_status = Lens.lens (\ListJobExecutionsForThing' {status} -> status) (\s@ListJobExecutionsForThing' {} a -> s {status = a} :: ListJobExecutionsForThing)
 
--- | The maximum number of results to be returned per request.
-listJobExecutionsForThing_maxResults :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Natural)
-listJobExecutionsForThing_maxResults = Lens.lens (\ListJobExecutionsForThing' {maxResults} -> maxResults) (\s@ListJobExecutionsForThing' {} a -> s {maxResults = a} :: ListJobExecutionsForThing)
-
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
--- When you specify a value for this parameter, AWS IoT Core sends jobs
--- notifications to MQTT topics that contain the value in the following
--- format.
+-- When you specify a value for this parameter, Amazon Web Services IoT
+-- Core sends jobs notifications to MQTT topics that contain the value in
+-- the following format.
 --
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
 listJobExecutionsForThing_namespaceId :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Text)
 listJobExecutionsForThing_namespaceId = Lens.lens (\ListJobExecutionsForThing' {namespaceId} -> namespaceId) (\s@ListJobExecutionsForThing' {} a -> s {namespaceId = a} :: ListJobExecutionsForThing)
+
+-- | The maximum number of results to be returned per request.
+listJobExecutionsForThing_maxResults :: Lens.Lens' ListJobExecutionsForThing (Prelude.Maybe Prelude.Natural)
+listJobExecutionsForThing_maxResults = Lens.lens (\ListJobExecutionsForThing' {maxResults} -> maxResults) (\s@ListJobExecutionsForThing' {} a -> s {maxResults = a} :: ListJobExecutionsForThing)
 
 -- | The thing name.
 listJobExecutionsForThing_thingName :: Lens.Lens' ListJobExecutionsForThing Prelude.Text
@@ -201,8 +205,8 @@ instance Core.ToQuery ListJobExecutionsForThing where
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "namespaceId" Core.=: namespaceId
+        "namespaceId" Core.=: namespaceId,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListJobExecutionsForThingResponse' smart constructor.

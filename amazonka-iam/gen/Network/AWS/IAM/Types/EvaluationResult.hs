@@ -45,23 +45,23 @@ data EvaluationResult = EvaluationResult'
     -- is empty. If the simulation evaluates policies within the same account
     -- and specifies all resources (@*@), then the parameter is not returned.
     --
-    -- When you make a cross-account request, AWS evaluates the request in the
-    -- trusting account and the trusted account. The request is allowed only if
-    -- both evaluations return @true@. For more information about how policies
-    -- are evaluated, see
+    -- When you make a cross-account request, Amazon Web Services evaluates the
+    -- request in the trusting account and the trusted account. The request is
+    -- allowed only if both evaluations return @true@. For more information
+    -- about how policies are evaluated, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies within a single account>.
     --
-    -- If an AWS Organizations SCP included in the evaluation denies access,
-    -- the simulation ends. In this case, policy evaluation does not proceed
-    -- any further and this parameter is not returned.
+    -- If an Organizations SCP included in the evaluation denies access, the
+    -- simulation ends. In this case, policy evaluation does not proceed any
+    -- further and this parameter is not returned.
     evalDecisionDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType),
-    -- | Contains information about the effect that a permissions boundary has on
-    -- a policy simulation when the boundary is applied to an IAM entity.
-    permissionsBoundaryDecisionDetail :: Prelude.Maybe PermissionsBoundaryDecisionDetail,
     -- | A structure that details how Organizations and its service control
     -- policies affect the results of the simulation. Only applies if the
     -- simulated user\'s account is part of an organization.
     organizationsDecisionDetail :: Prelude.Maybe OrganizationsDecisionDetail,
+    -- | Contains information about the effect that a permissions boundary has on
+    -- a policy simulation when the boundary is applied to an IAM entity.
+    permissionsBoundaryDecisionDetail :: Prelude.Maybe PermissionsBoundaryDecisionDetail,
     -- | The individual results of the simulation of the API operation specified
     -- in EvalActionName on each resource.
     resourceSpecificResults :: Prelude.Maybe [ResourceSpecificResult],
@@ -107,22 +107,22 @@ data EvaluationResult = EvaluationResult'
 -- is empty. If the simulation evaluates policies within the same account
 -- and specifies all resources (@*@), then the parameter is not returned.
 --
--- When you make a cross-account request, AWS evaluates the request in the
--- trusting account and the trusted account. The request is allowed only if
--- both evaluations return @true@. For more information about how policies
--- are evaluated, see
+-- When you make a cross-account request, Amazon Web Services evaluates the
+-- request in the trusting account and the trusted account. The request is
+-- allowed only if both evaluations return @true@. For more information
+-- about how policies are evaluated, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies within a single account>.
 --
--- If an AWS Organizations SCP included in the evaluation denies access,
--- the simulation ends. In this case, policy evaluation does not proceed
--- any further and this parameter is not returned.
---
--- 'permissionsBoundaryDecisionDetail', 'evaluationResult_permissionsBoundaryDecisionDetail' - Contains information about the effect that a permissions boundary has on
--- a policy simulation when the boundary is applied to an IAM entity.
+-- If an Organizations SCP included in the evaluation denies access, the
+-- simulation ends. In this case, policy evaluation does not proceed any
+-- further and this parameter is not returned.
 --
 -- 'organizationsDecisionDetail', 'evaluationResult_organizationsDecisionDetail' - A structure that details how Organizations and its service control
 -- policies affect the results of the simulation. Only applies if the
 -- simulated user\'s account is part of an organization.
+--
+-- 'permissionsBoundaryDecisionDetail', 'evaluationResult_permissionsBoundaryDecisionDetail' - Contains information about the effect that a permissions boundary has on
+-- a policy simulation when the boundary is applied to an IAM entity.
 --
 -- 'resourceSpecificResults', 'evaluationResult_resourceSpecificResults' - The individual results of the simulation of the API operation specified
 -- in EvalActionName on each resource.
@@ -157,8 +157,8 @@ newEvaluationResult pEvalActionName_ pEvalDecision_ =
   EvaluationResult'
     { evalDecisionDetails =
         Prelude.Nothing,
-      permissionsBoundaryDecisionDetail = Prelude.Nothing,
       organizationsDecisionDetail = Prelude.Nothing,
+      permissionsBoundaryDecisionDetail = Prelude.Nothing,
       resourceSpecificResults = Prelude.Nothing,
       matchedStatements = Prelude.Nothing,
       evalResourceName = Prelude.Nothing,
@@ -177,28 +177,28 @@ newEvaluationResult pEvalActionName_ pEvalDecision_ =
 -- is empty. If the simulation evaluates policies within the same account
 -- and specifies all resources (@*@), then the parameter is not returned.
 --
--- When you make a cross-account request, AWS evaluates the request in the
--- trusting account and the trusted account. The request is allowed only if
--- both evaluations return @true@. For more information about how policies
--- are evaluated, see
+-- When you make a cross-account request, Amazon Web Services evaluates the
+-- request in the trusting account and the trusted account. The request is
+-- allowed only if both evaluations return @true@. For more information
+-- about how policies are evaluated, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies within a single account>.
 --
--- If an AWS Organizations SCP included in the evaluation denies access,
--- the simulation ends. In this case, policy evaluation does not proceed
--- any further and this parameter is not returned.
+-- If an Organizations SCP included in the evaluation denies access, the
+-- simulation ends. In this case, policy evaluation does not proceed any
+-- further and this parameter is not returned.
 evaluationResult_evalDecisionDetails :: Lens.Lens' EvaluationResult (Prelude.Maybe (Prelude.HashMap Prelude.Text PolicyEvaluationDecisionType))
 evaluationResult_evalDecisionDetails = Lens.lens (\EvaluationResult' {evalDecisionDetails} -> evalDecisionDetails) (\s@EvaluationResult' {} a -> s {evalDecisionDetails = a} :: EvaluationResult) Prelude.. Lens.mapping Lens._Coerce
-
--- | Contains information about the effect that a permissions boundary has on
--- a policy simulation when the boundary is applied to an IAM entity.
-evaluationResult_permissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Prelude.Maybe PermissionsBoundaryDecisionDetail)
-evaluationResult_permissionsBoundaryDecisionDetail = Lens.lens (\EvaluationResult' {permissionsBoundaryDecisionDetail} -> permissionsBoundaryDecisionDetail) (\s@EvaluationResult' {} a -> s {permissionsBoundaryDecisionDetail = a} :: EvaluationResult)
 
 -- | A structure that details how Organizations and its service control
 -- policies affect the results of the simulation. Only applies if the
 -- simulated user\'s account is part of an organization.
 evaluationResult_organizationsDecisionDetail :: Lens.Lens' EvaluationResult (Prelude.Maybe OrganizationsDecisionDetail)
 evaluationResult_organizationsDecisionDetail = Lens.lens (\EvaluationResult' {organizationsDecisionDetail} -> organizationsDecisionDetail) (\s@EvaluationResult' {} a -> s {organizationsDecisionDetail = a} :: EvaluationResult)
+
+-- | Contains information about the effect that a permissions boundary has on
+-- a policy simulation when the boundary is applied to an IAM entity.
+evaluationResult_permissionsBoundaryDecisionDetail :: Lens.Lens' EvaluationResult (Prelude.Maybe PermissionsBoundaryDecisionDetail)
+evaluationResult_permissionsBoundaryDecisionDetail = Lens.lens (\EvaluationResult' {permissionsBoundaryDecisionDetail} -> permissionsBoundaryDecisionDetail) (\s@EvaluationResult' {} a -> s {permissionsBoundaryDecisionDetail = a} :: EvaluationResult)
 
 -- | The individual results of the simulation of the API operation specified
 -- in EvalActionName on each resource.
@@ -243,8 +243,8 @@ instance Core.FromXML EvaluationResult where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
       Prelude.<*> (x Core..@? "OrganizationsDecisionDetail")
+      Prelude.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
       Prelude.<*> ( x Core..@? "ResourceSpecificResults"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")

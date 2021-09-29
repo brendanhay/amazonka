@@ -86,9 +86,9 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The container instance ID or full ARN of the container instance to
     -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
-    -- the Region of the container instance, the AWS account ID of the
-    -- container instance owner, the @container-instance@ namespace, and then
-    -- the container instance ID. For example,
+    -- the Region of the container instance, the Amazon Web Services account ID
+    -- of the container instance owner, the @container-instance@ namespace, and
+    -- then the container instance ID. For example,
     -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
     containerInstance :: Prelude.Text
   }
@@ -122,9 +122,9 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 --
 -- 'containerInstance', 'deregisterContainerInstance_containerInstance' - The container instance ID or full ARN of the container instance to
 -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
--- the Region of the container instance, the AWS account ID of the
--- container instance owner, the @container-instance@ namespace, and then
--- the container instance ID. For example,
+-- the Region of the container instance, the Amazon Web Services account ID
+-- of the container instance owner, the @container-instance@ namespace, and
+-- then the container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 newDeregisterContainerInstance ::
   -- | 'containerInstance'
@@ -162,9 +162,9 @@ deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {
 
 -- | The container instance ID or full ARN of the container instance to
 -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
--- the Region of the container instance, the AWS account ID of the
--- container instance owner, the @container-instance@ namespace, and then
--- the container instance ID. For example,
+-- the Region of the container instance, the Amazon Web Services account ID
+-- of the container instance owner, the @container-instance@ namespace, and
+-- then the container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 deregisterContainerInstance_containerInstance :: Lens.Lens' DeregisterContainerInstance Prelude.Text
 deregisterContainerInstance_containerInstance = Lens.lens (\DeregisterContainerInstance' {containerInstance} -> containerInstance) (\s@DeregisterContainerInstance' {} a -> s {containerInstance = a} :: DeregisterContainerInstance)

@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Fargate profile selector.
+-- | An object representing an Fargate profile selector.
 --
 -- /See:/ 'newFargateProfileSelector' smart constructor.
 data FargateProfileSelector = FargateProfileSelector'

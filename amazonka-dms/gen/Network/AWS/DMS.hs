@@ -11,19 +11,19 @@
 --
 -- Derived from API version @2016-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Database Migration Service
+-- Database Migration Service
 --
--- AWS Database Migration Service (AWS DMS) can migrate your data to and
--- from the most widely used commercial and open-source databases such as
--- Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB,
--- Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The
--- service supports homogeneous migrations such as Oracle to Oracle, as
--- well as heterogeneous migrations between different database platforms,
--- such as Oracle to MySQL or SQL Server to PostgreSQL.
+-- Database Migration Service (DMS) can migrate your data to and from the
+-- most widely used commercial and open-source databases such as Oracle,
+-- PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon
+-- Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service
+-- supports homogeneous migrations such as Oracle to Oracle, as well as
+-- heterogeneous migrations between different database platforms, such as
+-- Oracle to MySQL or SQL Server to PostgreSQL.
 --
--- For more information about AWS DMS, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is AWS Database Migration Service?>
--- in the /AWS Database Migration User Guide./
+-- For more information about DMS, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is Database Migration Service?>
+-- in the /Database Migration Service User Guide./
 module Network.AWS.DMS
   ( -- * Service Configuration
     defaultService,
@@ -52,11 +52,11 @@ module Network.AWS.DMS
     -- ** InvalidResourceStateFault
     _InvalidResourceStateFault,
 
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
     -- ** KMSKeyNotAccessibleFault
     _KMSKeyNotAccessibleFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
 
     -- ** ResourceQuotaExceededFault
     _ResourceQuotaExceededFault,
@@ -67,29 +67,29 @@ module Network.AWS.DMS
     -- ** KMSNotFoundFault
     _KMSNotFoundFault,
 
+    -- ** InsufficientResourceCapacityFault
+    _InsufficientResourceCapacityFault,
+
     -- ** KMSInvalidStateFault
     _KMSInvalidStateFault,
 
     -- ** SubnetAlreadyInUse
     _SubnetAlreadyInUse,
 
-    -- ** InsufficientResourceCapacityFault
-    _InsufficientResourceCapacityFault,
-
     -- ** S3AccessDeniedFault
     _S3AccessDeniedFault,
-
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
 
     -- ** ResourceAlreadyExistsFault
     _ResourceAlreadyExistsFault,
 
-    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
 
     -- ** S3ResourceNotFoundFault
     _S3ResourceNotFoundFault,
+
+    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
+    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
 
     -- ** UpgradeDependencyFailureFault
     _UpgradeDependencyFailureFault,
@@ -130,11 +130,11 @@ module Network.AWS.DMS
     -- * Operations
     -- $operations
 
-    -- ** DeleteReplicationTaskAssessmentRun
-    DeleteReplicationTaskAssessmentRun (DeleteReplicationTaskAssessmentRun'),
-    newDeleteReplicationTaskAssessmentRun,
-    DeleteReplicationTaskAssessmentRunResponse (DeleteReplicationTaskAssessmentRunResponse'),
-    newDeleteReplicationTaskAssessmentRunResponse,
+    -- ** CreateEndpoint
+    CreateEndpoint (CreateEndpoint'),
+    newCreateEndpoint,
+    CreateEndpointResponse (CreateEndpointResponse'),
+    newCreateEndpointResponse,
 
     -- ** DescribeEventCategories
     DescribeEventCategories (DescribeEventCategories'),
@@ -142,11 +142,23 @@ module Network.AWS.DMS
     DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
     newDescribeEventCategoriesResponse,
 
+    -- ** DescribeOrderableReplicationInstances (Paginated)
+    DescribeOrderableReplicationInstances (DescribeOrderableReplicationInstances'),
+    newDescribeOrderableReplicationInstances,
+    DescribeOrderableReplicationInstancesResponse (DescribeOrderableReplicationInstancesResponse'),
+    newDescribeOrderableReplicationInstancesResponse,
+
     -- ** StartReplicationTaskAssessment
     StartReplicationTaskAssessment (StartReplicationTaskAssessment'),
     newStartReplicationTaskAssessment,
     StartReplicationTaskAssessmentResponse (StartReplicationTaskAssessmentResponse'),
     newStartReplicationTaskAssessmentResponse,
+
+    -- ** DeleteReplicationTaskAssessmentRun
+    DeleteReplicationTaskAssessmentRun (DeleteReplicationTaskAssessmentRun'),
+    newDeleteReplicationTaskAssessmentRun,
+    DeleteReplicationTaskAssessmentRunResponse (DeleteReplicationTaskAssessmentRunResponse'),
+    newDeleteReplicationTaskAssessmentRunResponse,
 
     -- ** DeleteConnection
     DeleteConnection (DeleteConnection'),
@@ -154,23 +166,11 @@ module Network.AWS.DMS
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
-    -- ** CreateEndpoint
-    CreateEndpoint (CreateEndpoint'),
-    newCreateEndpoint,
-    CreateEndpointResponse (CreateEndpointResponse'),
-    newCreateEndpointResponse,
-
-    -- ** DescribeOrderableReplicationInstances (Paginated)
-    DescribeOrderableReplicationInstances (DescribeOrderableReplicationInstances'),
-    newDescribeOrderableReplicationInstances,
-    DescribeOrderableReplicationInstancesResponse (DescribeOrderableReplicationInstancesResponse'),
-    newDescribeOrderableReplicationInstancesResponse,
-
-    -- ** DeleteCertificate
-    DeleteCertificate (DeleteCertificate'),
-    newDeleteCertificate,
-    DeleteCertificateResponse (DeleteCertificateResponse'),
-    newDeleteCertificateResponse,
+    -- ** ReloadTables
+    ReloadTables (ReloadTables'),
+    newReloadTables,
+    ReloadTablesResponse (ReloadTablesResponse'),
+    newReloadTablesResponse,
 
     -- ** DescribeApplicableIndividualAssessments
     DescribeApplicableIndividualAssessments (DescribeApplicableIndividualAssessments'),
@@ -178,29 +178,17 @@ module Network.AWS.DMS
     DescribeApplicableIndividualAssessmentsResponse (DescribeApplicableIndividualAssessmentsResponse'),
     newDescribeApplicableIndividualAssessmentsResponse,
 
-    -- ** ReloadTables
-    ReloadTables (ReloadTables'),
-    newReloadTables,
-    ReloadTablesResponse (ReloadTablesResponse'),
-    newReloadTablesResponse,
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
 
     -- ** StartReplicationTask
     StartReplicationTask (StartReplicationTask'),
     newStartReplicationTask,
     StartReplicationTaskResponse (StartReplicationTaskResponse'),
     newStartReplicationTaskResponse,
-
-    -- ** DescribeEventSubscriptions (Paginated)
-    DescribeEventSubscriptions (DescribeEventSubscriptions'),
-    newDescribeEventSubscriptions,
-    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
-    newDescribeEventSubscriptionsResponse,
-
-    -- ** ModifyReplicationTask
-    ModifyReplicationTask (ModifyReplicationTask'),
-    newModifyReplicationTask,
-    ModifyReplicationTaskResponse (ModifyReplicationTaskResponse'),
-    newModifyReplicationTaskResponse,
 
     -- ** StopReplicationTask
     StopReplicationTask (StopReplicationTask'),
@@ -214,11 +202,17 @@ module Network.AWS.DMS
     CreateReplicationInstanceResponse (CreateReplicationInstanceResponse'),
     newCreateReplicationInstanceResponse,
 
-    -- ** DescribeReplicationSubnetGroups (Paginated)
-    DescribeReplicationSubnetGroups (DescribeReplicationSubnetGroups'),
-    newDescribeReplicationSubnetGroups,
-    DescribeReplicationSubnetGroupsResponse (DescribeReplicationSubnetGroupsResponse'),
-    newDescribeReplicationSubnetGroupsResponse,
+    -- ** ModifyReplicationTask
+    ModifyReplicationTask (ModifyReplicationTask'),
+    newModifyReplicationTask,
+    ModifyReplicationTaskResponse (ModifyReplicationTaskResponse'),
+    newModifyReplicationTaskResponse,
+
+    -- ** DescribeEventSubscriptions (Paginated)
+    DescribeEventSubscriptions (DescribeEventSubscriptions'),
+    newDescribeEventSubscriptions,
+    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
+    newDescribeEventSubscriptionsResponse,
 
     -- ** DeleteEventSubscription
     DeleteEventSubscription (DeleteEventSubscription'),
@@ -232,11 +226,11 @@ module Network.AWS.DMS
     DescribeTableStatisticsResponse (DescribeTableStatisticsResponse'),
     newDescribeTableStatisticsResponse,
 
-    -- ** StartReplicationTaskAssessmentRun
-    StartReplicationTaskAssessmentRun (StartReplicationTaskAssessmentRun'),
-    newStartReplicationTaskAssessmentRun,
-    StartReplicationTaskAssessmentRunResponse (StartReplicationTaskAssessmentRunResponse'),
-    newStartReplicationTaskAssessmentRunResponse,
+    -- ** DescribeReplicationSubnetGroups (Paginated)
+    DescribeReplicationSubnetGroups (DescribeReplicationSubnetGroups'),
+    newDescribeReplicationSubnetGroups,
+    DescribeReplicationSubnetGroupsResponse (DescribeReplicationSubnetGroupsResponse'),
+    newDescribeReplicationSubnetGroupsResponse,
 
     -- ** DescribeRefreshSchemasStatus
     DescribeRefreshSchemasStatus (DescribeRefreshSchemasStatus'),
@@ -244,11 +238,11 @@ module Network.AWS.DMS
     DescribeRefreshSchemasStatusResponse (DescribeRefreshSchemasStatusResponse'),
     newDescribeRefreshSchemasStatusResponse,
 
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
+    -- ** StartReplicationTaskAssessmentRun
+    StartReplicationTaskAssessmentRun (StartReplicationTaskAssessmentRun'),
+    newStartReplicationTaskAssessmentRun,
+    StartReplicationTaskAssessmentRunResponse (StartReplicationTaskAssessmentRunResponse'),
+    newStartReplicationTaskAssessmentRunResponse,
 
     -- ** RemoveTagsFromResource
     RemoveTagsFromResource (RemoveTagsFromResource'),
@@ -262,23 +256,23 @@ module Network.AWS.DMS
     DescribeCertificatesResponse (DescribeCertificatesResponse'),
     newDescribeCertificatesResponse,
 
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
     -- ** ModifyEndpoint
     ModifyEndpoint (ModifyEndpoint'),
     newModifyEndpoint,
     ModifyEndpointResponse (ModifyEndpointResponse'),
     newModifyEndpointResponse,
 
-    -- ** TestConnection
-    TestConnection (TestConnection'),
-    newTestConnection,
-    TestConnectionResponse (TestConnectionResponse'),
-    newTestConnectionResponse,
-
-    -- ** DescribeReplicationTaskAssessmentResults (Paginated)
-    DescribeReplicationTaskAssessmentResults (DescribeReplicationTaskAssessmentResults'),
-    newDescribeReplicationTaskAssessmentResults,
-    DescribeReplicationTaskAssessmentResultsResponse (DescribeReplicationTaskAssessmentResultsResponse'),
-    newDescribeReplicationTaskAssessmentResultsResponse,
+    -- ** DescribeEndpointSettings
+    DescribeEndpointSettings (DescribeEndpointSettings'),
+    newDescribeEndpointSettings,
+    DescribeEndpointSettingsResponse (DescribeEndpointSettingsResponse'),
+    newDescribeEndpointSettingsResponse,
 
     -- ** ApplyPendingMaintenanceAction
     ApplyPendingMaintenanceAction (ApplyPendingMaintenanceAction'),
@@ -292,23 +286,23 @@ module Network.AWS.DMS
     ImportCertificateResponse (ImportCertificateResponse'),
     newImportCertificateResponse,
 
+    -- ** DescribeReplicationTaskAssessmentResults (Paginated)
+    DescribeReplicationTaskAssessmentResults (DescribeReplicationTaskAssessmentResults'),
+    newDescribeReplicationTaskAssessmentResults,
+    DescribeReplicationTaskAssessmentResultsResponse (DescribeReplicationTaskAssessmentResultsResponse'),
+    newDescribeReplicationTaskAssessmentResultsResponse,
+
+    -- ** TestConnection
+    TestConnection (TestConnection'),
+    newTestConnection,
+    TestConnectionResponse (TestConnectionResponse'),
+    newTestConnectionResponse,
+
     -- ** DescribeEndpointTypes (Paginated)
     DescribeEndpointTypes (DescribeEndpointTypes'),
     newDescribeEndpointTypes,
     DescribeEndpointTypesResponse (DescribeEndpointTypesResponse'),
     newDescribeEndpointTypesResponse,
-
-    -- ** DescribePendingMaintenanceActions
-    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
-    newDescribePendingMaintenanceActions,
-    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
-    newDescribePendingMaintenanceActionsResponse,
-
-    -- ** DeleteEndpoint
-    DeleteEndpoint (DeleteEndpoint'),
-    newDeleteEndpoint,
-    DeleteEndpointResponse (DeleteEndpointResponse'),
-    newDeleteEndpointResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -316,11 +310,29 @@ module Network.AWS.DMS
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
+    -- ** DeleteEndpoint
+    DeleteEndpoint (DeleteEndpoint'),
+    newDeleteEndpoint,
+    DeleteEndpointResponse (DeleteEndpointResponse'),
+    newDeleteEndpointResponse,
+
+    -- ** DescribePendingMaintenanceActions
+    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
+    newDescribePendingMaintenanceActions,
+    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
+    newDescribePendingMaintenanceActionsResponse,
+
     -- ** DescribeSchemas (Paginated)
     DescribeSchemas (DescribeSchemas'),
     newDescribeSchemas,
     DescribeSchemasResponse (DescribeSchemasResponse'),
     newDescribeSchemasResponse,
+
+    -- ** RefreshSchemas
+    RefreshSchemas (RefreshSchemas'),
+    newRefreshSchemas,
+    RefreshSchemasResponse (RefreshSchemasResponse'),
+    newRefreshSchemasResponse,
 
     -- ** ModifyEventSubscription
     ModifyEventSubscription (ModifyEventSubscription'),
@@ -334,23 +346,11 @@ module Network.AWS.DMS
     DescribeReplicationTasksResponse (DescribeReplicationTasksResponse'),
     newDescribeReplicationTasksResponse,
 
-    -- ** RefreshSchemas
-    RefreshSchemas (RefreshSchemas'),
-    newRefreshSchemas,
-    RefreshSchemasResponse (RefreshSchemasResponse'),
-    newRefreshSchemasResponse,
-
     -- ** CreateReplicationSubnetGroup
     CreateReplicationSubnetGroup (CreateReplicationSubnetGroup'),
     newCreateReplicationSubnetGroup,
     CreateReplicationSubnetGroupResponse (CreateReplicationSubnetGroupResponse'),
     newCreateReplicationSubnetGroupResponse,
-
-    -- ** RebootReplicationInstance
-    RebootReplicationInstance (RebootReplicationInstance'),
-    newRebootReplicationInstance,
-    RebootReplicationInstanceResponse (RebootReplicationInstanceResponse'),
-    newRebootReplicationInstanceResponse,
 
     -- ** DeleteReplicationInstance
     DeleteReplicationInstance (DeleteReplicationInstance'),
@@ -358,17 +358,23 @@ module Network.AWS.DMS
     DeleteReplicationInstanceResponse (DeleteReplicationInstanceResponse'),
     newDeleteReplicationInstanceResponse,
 
-    -- ** DeleteReplicationSubnetGroup
-    DeleteReplicationSubnetGroup (DeleteReplicationSubnetGroup'),
-    newDeleteReplicationSubnetGroup,
-    DeleteReplicationSubnetGroupResponse (DeleteReplicationSubnetGroupResponse'),
-    newDeleteReplicationSubnetGroupResponse,
+    -- ** RebootReplicationInstance
+    RebootReplicationInstance (RebootReplicationInstance'),
+    newRebootReplicationInstance,
+    RebootReplicationInstanceResponse (RebootReplicationInstanceResponse'),
+    newRebootReplicationInstanceResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
     newAddTagsToResource,
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
+
+    -- ** DeleteReplicationSubnetGroup
+    DeleteReplicationSubnetGroup (DeleteReplicationSubnetGroup'),
+    newDeleteReplicationSubnetGroup,
+    DeleteReplicationSubnetGroupResponse (DeleteReplicationSubnetGroupResponse'),
+    newDeleteReplicationSubnetGroupResponse,
 
     -- ** CreateEventSubscription
     CreateEventSubscription (CreateEventSubscription'),
@@ -382,17 +388,11 @@ module Network.AWS.DMS
     DescribeReplicationInstancesResponse (DescribeReplicationInstancesResponse'),
     newDescribeReplicationInstancesResponse,
 
-    -- ** DescribeReplicationTaskAssessmentRuns
-    DescribeReplicationTaskAssessmentRuns (DescribeReplicationTaskAssessmentRuns'),
-    newDescribeReplicationTaskAssessmentRuns,
-    DescribeReplicationTaskAssessmentRunsResponse (DescribeReplicationTaskAssessmentRunsResponse'),
-    newDescribeReplicationTaskAssessmentRunsResponse,
-
-    -- ** CancelReplicationTaskAssessmentRun
-    CancelReplicationTaskAssessmentRun (CancelReplicationTaskAssessmentRun'),
-    newCancelReplicationTaskAssessmentRun,
-    CancelReplicationTaskAssessmentRunResponse (CancelReplicationTaskAssessmentRunResponse'),
-    newCancelReplicationTaskAssessmentRunResponse,
+    -- ** MoveReplicationTask
+    MoveReplicationTask (MoveReplicationTask'),
+    newMoveReplicationTask,
+    MoveReplicationTaskResponse (MoveReplicationTaskResponse'),
+    newMoveReplicationTaskResponse,
 
     -- ** DescribeConnections (Paginated)
     DescribeConnections (DescribeConnections'),
@@ -412,17 +412,29 @@ module Network.AWS.DMS
     DeleteReplicationTaskResponse (DeleteReplicationTaskResponse'),
     newDeleteReplicationTaskResponse,
 
-    -- ** MoveReplicationTask
-    MoveReplicationTask (MoveReplicationTask'),
-    newMoveReplicationTask,
-    MoveReplicationTaskResponse (MoveReplicationTaskResponse'),
-    newMoveReplicationTaskResponse,
+    -- ** CancelReplicationTaskAssessmentRun
+    CancelReplicationTaskAssessmentRun (CancelReplicationTaskAssessmentRun'),
+    newCancelReplicationTaskAssessmentRun,
+    CancelReplicationTaskAssessmentRunResponse (CancelReplicationTaskAssessmentRunResponse'),
+    newCancelReplicationTaskAssessmentRunResponse,
+
+    -- ** DescribeReplicationTaskAssessmentRuns
+    DescribeReplicationTaskAssessmentRuns (DescribeReplicationTaskAssessmentRuns'),
+    newDescribeReplicationTaskAssessmentRuns,
+    DescribeReplicationTaskAssessmentRunsResponse (DescribeReplicationTaskAssessmentRunsResponse'),
+    newDescribeReplicationTaskAssessmentRunsResponse,
 
     -- ** DescribeReplicationTaskIndividualAssessments
     DescribeReplicationTaskIndividualAssessments (DescribeReplicationTaskIndividualAssessments'),
     newDescribeReplicationTaskIndividualAssessments,
     DescribeReplicationTaskIndividualAssessmentsResponse (DescribeReplicationTaskIndividualAssessmentsResponse'),
     newDescribeReplicationTaskIndividualAssessmentsResponse,
+
+    -- ** CreateReplicationTask
+    CreateReplicationTask (CreateReplicationTask'),
+    newCreateReplicationTask,
+    CreateReplicationTaskResponse (CreateReplicationTaskResponse'),
+    newCreateReplicationTaskResponse,
 
     -- ** ModifyReplicationInstance
     ModifyReplicationInstance (ModifyReplicationInstance'),
@@ -435,12 +447,6 @@ module Network.AWS.DMS
     newDescribeEndpoints,
     DescribeEndpointsResponse (DescribeEndpointsResponse'),
     newDescribeEndpointsResponse,
-
-    -- ** CreateReplicationTask
-    CreateReplicationTask (CreateReplicationTask'),
-    newCreateReplicationTask,
-    CreateReplicationTaskResponse (CreateReplicationTaskResponse'),
-    newCreateReplicationTaskResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -461,6 +467,9 @@ module Network.AWS.DMS
 
     -- ** AuthTypeValue
     AuthTypeValue (..),
+
+    -- ** CannedAclForObjectsValue
+    CannedAclForObjectsValue (..),
 
     -- ** CharLengthSemantics
     CharLengthSemantics (..),
@@ -486,6 +495,12 @@ module Network.AWS.DMS
     -- ** EncryptionModeValue
     EncryptionModeValue (..),
 
+    -- ** EndpointSettingTypeValue
+    EndpointSettingTypeValue (..),
+
+    -- ** KafkaSecurityProtocol
+    KafkaSecurityProtocol (..),
+
     -- ** MessageFormatValue
     MessageFormatValue (..),
 
@@ -497,6 +512,12 @@ module Network.AWS.DMS
 
     -- ** ParquetVersionValue
     ParquetVersionValue (..),
+
+    -- ** PluginNameValue
+    PluginNameValue (..),
+
+    -- ** RedisAuthTypeValue
+    RedisAuthTypeValue (..),
 
     -- ** RefreshSchemasStatusTypeValue
     RefreshSchemasStatusTypeValue (..),
@@ -515,6 +536,9 @@ module Network.AWS.DMS
 
     -- ** SourceType
     SourceType (..),
+
+    -- ** SslSecurityProtocolValue
+    SslSecurityProtocolValue (..),
 
     -- ** StartReplicationTaskTypeValue
     StartReplicationTaskTypeValue (..),
@@ -557,6 +581,10 @@ module Network.AWS.DMS
     -- ** Endpoint
     Endpoint (Endpoint'),
     newEndpoint,
+
+    -- ** EndpointSetting
+    EndpointSetting (EndpointSetting'),
+    newEndpointSetting,
 
     -- ** Event
     Event (Event'),
@@ -617,6 +645,10 @@ module Network.AWS.DMS
     -- ** PostgreSQLSettings
     PostgreSQLSettings (PostgreSQLSettings'),
     newPostgreSQLSettings,
+
+    -- ** RedisSettings
+    RedisSettings (RedisSettings'),
+    newRedisSettings,
 
     -- ** RedshiftSettings
     RedshiftSettings (RedshiftSettings'),
@@ -724,6 +756,7 @@ import Network.AWS.DMS.DescribeAccountAttributes
 import Network.AWS.DMS.DescribeApplicableIndividualAssessments
 import Network.AWS.DMS.DescribeCertificates
 import Network.AWS.DMS.DescribeConnections
+import Network.AWS.DMS.DescribeEndpointSettings
 import Network.AWS.DMS.DescribeEndpointTypes
 import Network.AWS.DMS.DescribeEndpoints
 import Network.AWS.DMS.DescribeEventCategories

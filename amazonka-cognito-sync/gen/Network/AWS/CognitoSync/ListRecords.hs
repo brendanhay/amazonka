@@ -35,8 +35,8 @@ module Network.AWS.CognitoSync.ListRecords
 
     -- * Request Lenses
     listRecords_nextToken,
-    listRecords_lastSyncCount,
     listRecords_maxResults,
+    listRecords_lastSyncCount,
     listRecords_syncSessionToken,
     listRecords_identityPoolId,
     listRecords_identityId,
@@ -48,8 +48,8 @@ module Network.AWS.CognitoSync.ListRecords
 
     -- * Response Lenses
     listRecordsResponse_nextToken,
-    listRecordsResponse_records,
     listRecordsResponse_datasetSyncCount,
+    listRecordsResponse_records,
     listRecordsResponse_datasetDeletedAfterRequestedSyncCount,
     listRecordsResponse_count,
     listRecordsResponse_lastModifiedBy,
@@ -73,10 +73,10 @@ import qualified Network.AWS.Response as Response
 data ListRecords = ListRecords'
   { -- | A pagination token for obtaining the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The last server sync count for this record.
-    lastSyncCount :: Prelude.Maybe Prelude.Integer,
     -- | The maximum number of results to be returned.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The last server sync count for this record.
+    lastSyncCount :: Prelude.Maybe Prelude.Integer,
     -- | A token containing a session ID, identity ID, and expiration.
     syncSessionToken :: Prelude.Maybe Prelude.Text,
     -- | A name-spaced GUID (for example,
@@ -103,9 +103,9 @@ data ListRecords = ListRecords'
 --
 -- 'nextToken', 'listRecords_nextToken' - A pagination token for obtaining the next page of results.
 --
--- 'lastSyncCount', 'listRecords_lastSyncCount' - The last server sync count for this record.
---
 -- 'maxResults', 'listRecords_maxResults' - The maximum number of results to be returned.
+--
+-- 'lastSyncCount', 'listRecords_lastSyncCount' - The last server sync count for this record.
 --
 -- 'syncSessionToken', 'listRecords_syncSessionToken' - A token containing a session ID, identity ID, and expiration.
 --
@@ -133,8 +133,8 @@ newListRecords
   pDatasetName_ =
     ListRecords'
       { nextToken = Prelude.Nothing,
-        lastSyncCount = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        lastSyncCount = Prelude.Nothing,
         syncSessionToken = Prelude.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityId = pIdentityId_,
@@ -145,13 +145,13 @@ newListRecords
 listRecords_nextToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
 listRecords_nextToken = Lens.lens (\ListRecords' {nextToken} -> nextToken) (\s@ListRecords' {} a -> s {nextToken = a} :: ListRecords)
 
--- | The last server sync count for this record.
-listRecords_lastSyncCount :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Integer)
-listRecords_lastSyncCount = Lens.lens (\ListRecords' {lastSyncCount} -> lastSyncCount) (\s@ListRecords' {} a -> s {lastSyncCount = a} :: ListRecords)
-
 -- | The maximum number of results to be returned.
 listRecords_maxResults :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Int)
 listRecords_maxResults = Lens.lens (\ListRecords' {maxResults} -> maxResults) (\s@ListRecords' {} a -> s {maxResults = a} :: ListRecords)
+
+-- | The last server sync count for this record.
+listRecords_lastSyncCount :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Integer)
+listRecords_lastSyncCount = Lens.lens (\ListRecords' {lastSyncCount} -> lastSyncCount) (\s@ListRecords' {} a -> s {lastSyncCount = a} :: ListRecords)
 
 -- | A token containing a session ID, identity ID, and expiration.
 listRecords_syncSessionToken :: Lens.Lens' ListRecords (Prelude.Maybe Prelude.Text)
@@ -182,8 +182,8 @@ instance Core.AWSRequest ListRecords where
       ( \s h x ->
           ListRecordsResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "DatasetSyncCount")
+            Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "DatasetDeletedAfterRequestedSyncCount")
             Prelude.<*> (x Core..?> "Count")
             Prelude.<*> (x Core..?> "LastModifiedBy")
@@ -226,8 +226,8 @@ instance Core.ToQuery ListRecords where
   toQuery ListRecords' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "lastSyncCount" Core.=: lastSyncCount,
         "maxResults" Core.=: maxResults,
+        "lastSyncCount" Core.=: lastSyncCount,
         "syncSessionToken" Core.=: syncSessionToken
       ]
 
@@ -237,10 +237,10 @@ instance Core.ToQuery ListRecords where
 data ListRecordsResponse = ListRecordsResponse'
   { -- | A pagination token for obtaining the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of all records.
-    records :: Prelude.Maybe [Record],
     -- | Server sync count for this dataset.
     datasetSyncCount :: Prelude.Maybe Prelude.Integer,
+    -- | A list of all records.
+    records :: Prelude.Maybe [Record],
     -- | A boolean value specifying whether to delete the dataset locally.
     datasetDeletedAfterRequestedSyncCount :: Prelude.Maybe Prelude.Bool,
     -- | Total number of records.
@@ -268,9 +268,9 @@ data ListRecordsResponse = ListRecordsResponse'
 --
 -- 'nextToken', 'listRecordsResponse_nextToken' - A pagination token for obtaining the next page of results.
 --
--- 'records', 'listRecordsResponse_records' - A list of all records.
---
 -- 'datasetSyncCount', 'listRecordsResponse_datasetSyncCount' - Server sync count for this dataset.
+--
+-- 'records', 'listRecordsResponse_records' - A list of all records.
 --
 -- 'datasetDeletedAfterRequestedSyncCount', 'listRecordsResponse_datasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
 --
@@ -292,8 +292,8 @@ newListRecordsResponse ::
 newListRecordsResponse pHttpStatus_ =
   ListRecordsResponse'
     { nextToken = Prelude.Nothing,
-      records = Prelude.Nothing,
       datasetSyncCount = Prelude.Nothing,
+      records = Prelude.Nothing,
       datasetDeletedAfterRequestedSyncCount =
         Prelude.Nothing,
       count = Prelude.Nothing,
@@ -308,13 +308,13 @@ newListRecordsResponse pHttpStatus_ =
 listRecordsResponse_nextToken :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Text)
 listRecordsResponse_nextToken = Lens.lens (\ListRecordsResponse' {nextToken} -> nextToken) (\s@ListRecordsResponse' {} a -> s {nextToken = a} :: ListRecordsResponse)
 
--- | A list of all records.
-listRecordsResponse_records :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Record])
-listRecordsResponse_records = Lens.lens (\ListRecordsResponse' {records} -> records) (\s@ListRecordsResponse' {} a -> s {records = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Server sync count for this dataset.
 listRecordsResponse_datasetSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Integer)
 listRecordsResponse_datasetSyncCount = Lens.lens (\ListRecordsResponse' {datasetSyncCount} -> datasetSyncCount) (\s@ListRecordsResponse' {} a -> s {datasetSyncCount = a} :: ListRecordsResponse)
+
+-- | A list of all records.
+listRecordsResponse_records :: Lens.Lens' ListRecordsResponse (Prelude.Maybe [Record])
+listRecordsResponse_records = Lens.lens (\ListRecordsResponse' {records} -> records) (\s@ListRecordsResponse' {} a -> s {records = a} :: ListRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A boolean value specifying whether to delete the dataset locally.
 listRecordsResponse_datasetDeletedAfterRequestedSyncCount :: Lens.Lens' ListRecordsResponse (Prelude.Maybe Prelude.Bool)

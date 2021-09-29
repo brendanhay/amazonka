@@ -24,7 +24,7 @@ import Network.AWS.Lambda.Types.TracingMode
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The function\'s AWS X-Ray tracing configuration.
+-- | The function\'s X-Ray tracing configuration.
 --
 -- /See:/ 'newTracingConfigResponse' smart constructor.
 data TracingConfigResponse = TracingConfigResponse'

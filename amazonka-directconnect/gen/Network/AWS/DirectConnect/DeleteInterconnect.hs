@@ -22,7 +22,7 @@
 --
 -- Deletes the specified interconnect.
 --
--- Intended for use by AWS Direct Connect Partners only.
+-- Intended for use by Direct Connect Partners only.
 module Network.AWS.DirectConnect.DeleteInterconnect
   ( -- * Creating a Request
     DeleteInterconnect (..),

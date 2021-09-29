@@ -51,9 +51,10 @@ import Network.AWS.SSM.Types
 data RemoveTagsFromResource = RemoveTagsFromResource'
   { -- | The type of resource from which you want to remove a tag.
     --
-    -- The ManagedInstance type for this API action is only for on-premises
-    -- managed instances. Specify the name of the managed instance in the
-    -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+    -- The @ManagedInstance@ type for this API operation is only for
+    -- on-premises managed instances. Specify the name of the managed instance
+    -- in the following format: @mi-ID_number @. For example,
+    -- @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The ID of the resource from which you want to remove tags. For example:
     --
@@ -63,9 +64,17 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     --
     -- PatchBaseline: pb-012345abcde
     --
+    -- OpsMetadata object: @ResourceID@ for tagging is created from the Amazon
+    -- Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+    -- created from the strings that come after the word @opsmetadata@ in the
+    -- ARN. For example, an OpsMetadata object with an ARN of
+    -- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+    -- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+    -- @\/aws\/ssm\/MyGroup\/appmanager@.
+    --
     -- For the Document and Parameter values, use the name of the resource.
     --
-    -- The ManagedInstance type for this API action is only for on-premises
+    -- The ManagedInstance type for this API operation is only for on-premises
     -- managed instances. Specify the name of the managed instance in the
     -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
     resourceId :: Prelude.Text,
@@ -84,9 +93,10 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- 'resourceType', 'removeTagsFromResource_resourceType' - The type of resource from which you want to remove a tag.
 --
--- The ManagedInstance type for this API action is only for on-premises
--- managed instances. Specify the name of the managed instance in the
--- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed instances. Specify the name of the managed instance
+-- in the following format: @mi-ID_number @. For example,
+-- @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'removeTagsFromResource_resourceId' - The ID of the resource from which you want to remove tags. For example:
 --
@@ -96,9 +106,17 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- PatchBaseline: pb-012345abcde
 --
+-- OpsMetadata object: @ResourceID@ for tagging is created from the Amazon
+-- Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+-- created from the strings that come after the word @opsmetadata@ in the
+-- ARN. For example, an OpsMetadata object with an ARN of
+-- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+-- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+-- @\/aws\/ssm\/MyGroup\/appmanager@.
+--
 -- For the Document and Parameter values, use the name of the resource.
 --
--- The ManagedInstance type for this API action is only for on-premises
+-- The ManagedInstance type for this API operation is only for on-premises
 -- managed instances. Specify the name of the managed instance in the
 -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
 --
@@ -119,9 +137,10 @@ newRemoveTagsFromResource pResourceType_ pResourceId_ =
 
 -- | The type of resource from which you want to remove a tag.
 --
--- The ManagedInstance type for this API action is only for on-premises
--- managed instances. Specify the name of the managed instance in the
--- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
+-- The @ManagedInstance@ type for this API operation is only for
+-- on-premises managed instances. Specify the name of the managed instance
+-- in the following format: @mi-ID_number @. For example,
+-- @mi-1a2b3c4d5e6f@.
 removeTagsFromResource_resourceType :: Lens.Lens' RemoveTagsFromResource ResourceTypeForTagging
 removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resourceType} -> resourceType) (\s@RemoveTagsFromResource' {} a -> s {resourceType = a} :: RemoveTagsFromResource)
 
@@ -133,9 +152,17 @@ removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resou
 --
 -- PatchBaseline: pb-012345abcde
 --
+-- OpsMetadata object: @ResourceID@ for tagging is created from the Amazon
+-- Resource Name (ARN) for the object. Specifically, @ResourceID@ is
+-- created from the strings that come after the word @opsmetadata@ in the
+-- ARN. For example, an OpsMetadata object with an ARN of
+-- @arn:aws:ssm:us-east-2:1234567890:opsmetadata\/aws\/ssm\/MyGroup\/appmanager@
+-- has a @ResourceID@ of either @aws\/ssm\/MyGroup\/appmanager@ or
+-- @\/aws\/ssm\/MyGroup\/appmanager@.
+--
 -- For the Document and Parameter values, use the name of the resource.
 --
--- The ManagedInstance type for this API action is only for on-premises
+-- The ManagedInstance type for this API operation is only for on-premises
 -- managed instances. Specify the name of the managed instance in the
 -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
 removeTagsFromResource_resourceId :: Lens.Lens' RemoveTagsFromResource Prelude.Text

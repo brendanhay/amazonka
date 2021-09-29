@@ -38,6 +38,9 @@ data AddressConfiguration = AddressConfiguration'
     -- object. For an email or text message, this payload is added to
     -- email\/SMS delivery receipt event attributes.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The message body to use instead of the default message body. This value
+    -- overrides the default message body.
+    bodyOverride :: Prelude.Maybe Prelude.Text,
     -- | A map of the message variables to merge with the variables specified by
     -- properties of the DefaultMessage object. The variables specified in this
     -- map take precedence over all other variables.
@@ -45,9 +48,6 @@ data AddressConfiguration = AddressConfiguration'
     -- | The message title to use instead of the default message title. This
     -- value overrides the default message title.
     titleOverride :: Prelude.Maybe Prelude.Text,
-    -- | The message body to use instead of the default message body. This value
-    -- overrides the default message body.
-    bodyOverride :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for the message. If
     -- specified, this value overrides all other values for the message.
     rawContent :: Prelude.Maybe Prelude.Text
@@ -71,15 +71,15 @@ data AddressConfiguration = AddressConfiguration'
 -- object. For an email or text message, this payload is added to
 -- email\/SMS delivery receipt event attributes.
 --
+-- 'bodyOverride', 'addressConfiguration_bodyOverride' - The message body to use instead of the default message body. This value
+-- overrides the default message body.
+--
 -- 'substitutions', 'addressConfiguration_substitutions' - A map of the message variables to merge with the variables specified by
 -- properties of the DefaultMessage object. The variables specified in this
 -- map take precedence over all other variables.
 --
 -- 'titleOverride', 'addressConfiguration_titleOverride' - The message title to use instead of the default message title. This
 -- value overrides the default message title.
---
--- 'bodyOverride', 'addressConfiguration_bodyOverride' - The message body to use instead of the default message body. This value
--- overrides the default message body.
 --
 -- 'rawContent', 'addressConfiguration_rawContent' - The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -90,9 +90,9 @@ newAddressConfiguration =
     { channelType =
         Prelude.Nothing,
       context = Prelude.Nothing,
+      bodyOverride = Prelude.Nothing,
       substitutions = Prelude.Nothing,
       titleOverride = Prelude.Nothing,
-      bodyOverride = Prelude.Nothing,
       rawContent = Prelude.Nothing
     }
 
@@ -109,6 +109,11 @@ addressConfiguration_channelType = Lens.lens (\AddressConfiguration' {channelTyp
 addressConfiguration_context :: Lens.Lens' AddressConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 addressConfiguration_context = Lens.lens (\AddressConfiguration' {context} -> context) (\s@AddressConfiguration' {} a -> s {context = a} :: AddressConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The message body to use instead of the default message body. This value
+-- overrides the default message body.
+addressConfiguration_bodyOverride :: Lens.Lens' AddressConfiguration (Prelude.Maybe Prelude.Text)
+addressConfiguration_bodyOverride = Lens.lens (\AddressConfiguration' {bodyOverride} -> bodyOverride) (\s@AddressConfiguration' {} a -> s {bodyOverride = a} :: AddressConfiguration)
+
 -- | A map of the message variables to merge with the variables specified by
 -- properties of the DefaultMessage object. The variables specified in this
 -- map take precedence over all other variables.
@@ -119,11 +124,6 @@ addressConfiguration_substitutions = Lens.lens (\AddressConfiguration' {substitu
 -- value overrides the default message title.
 addressConfiguration_titleOverride :: Lens.Lens' AddressConfiguration (Prelude.Maybe Prelude.Text)
 addressConfiguration_titleOverride = Lens.lens (\AddressConfiguration' {titleOverride} -> titleOverride) (\s@AddressConfiguration' {} a -> s {titleOverride = a} :: AddressConfiguration)
-
--- | The message body to use instead of the default message body. This value
--- overrides the default message body.
-addressConfiguration_bodyOverride :: Lens.Lens' AddressConfiguration (Prelude.Maybe Prelude.Text)
-addressConfiguration_bodyOverride = Lens.lens (\AddressConfiguration' {bodyOverride} -> bodyOverride) (\s@AddressConfiguration' {} a -> s {bodyOverride = a} :: AddressConfiguration)
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -140,9 +140,9 @@ instance Core.ToJSON AddressConfiguration where
       ( Prelude.catMaybes
           [ ("ChannelType" Core..=) Prelude.<$> channelType,
             ("Context" Core..=) Prelude.<$> context,
+            ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
             ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("TitleOverride" Core..=) Prelude.<$> titleOverride,
-            ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
             ("RawContent" Core..=) Prelude.<$> rawContent
           ]
       )

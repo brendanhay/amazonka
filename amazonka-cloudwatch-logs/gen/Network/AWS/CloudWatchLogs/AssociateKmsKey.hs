@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified AWS Key Management Service (AWS KMS) customer
--- master key (CMK) with the specified log group.
+-- Associates the specified Key Management Service customer master key
+-- (CMK) with the specified log group.
 --
--- Associating an AWS KMS CMK with a log group overrides any existing
+-- Associating an KMS CMK with a log group overrides any existing
 -- associations between the log group and a CMK. After a CMK is associated
 -- with a log group, all newly ingested data for the log group is encrypted
 -- using the CMK. This association is stored as long as the data encrypted
--- with the CMK is still within Amazon CloudWatch Logs. This enables Amazon
--- CloudWatch Logs to decrypt this data whenever it is requested.
+-- with the CMK is still within CloudWatch Logs. This enables CloudWatch
+-- Logs to decrypt this data whenever it is requested.
 --
 -- CloudWatch Logs supports only symmetric CMKs. Do not use an associate an
 -- asymmetric CMK with your log group. For more information, see
@@ -67,7 +67,7 @@ data AssociateKmsKey = AssociateKmsKey'
     logGroupName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
     -- data. This must be a symmetric CMK. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>
     -- and
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
     kmsKeyId :: Prelude.Text
@@ -86,7 +86,7 @@ data AssociateKmsKey = AssociateKmsKey'
 --
 -- 'kmsKeyId', 'associateKmsKey_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data. This must be a symmetric CMK. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
 newAssociateKmsKey ::
@@ -107,7 +107,7 @@ associateKmsKey_logGroupName = Lens.lens (\AssociateKmsKey' {logGroupName} -> lo
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
 -- data. This must be a symmetric CMK. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>.
 associateKmsKey_kmsKeyId :: Lens.Lens' AssociateKmsKey Prelude.Text

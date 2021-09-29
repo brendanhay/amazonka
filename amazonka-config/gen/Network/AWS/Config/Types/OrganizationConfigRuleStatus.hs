@@ -48,7 +48,7 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
     -- account deletes OrganizationConfigRule in all the member accounts and
     -- disables service access for @config-multiaccountsetup.amazonaws.com@.
     --
-    -- AWS Config sets the state of the rule to:
+    -- Config sets the state of the rule to:
     --
     -- -   @CREATE_SUCCESSFUL@ when an organization config rule has been
     --     successfully created in all the member accounts.
@@ -108,7 +108,7 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
 -- account deletes OrganizationConfigRule in all the member accounts and
 -- disables service access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the rule to:
+-- Config sets the state of the rule to:
 --
 -- -   @CREATE_SUCCESSFUL@ when an organization config rule has been
 --     successfully created in all the member accounts.
@@ -184,7 +184,7 @@ organizationConfigRuleStatus_organizationConfigRuleName = Lens.lens (\Organizati
 -- account deletes OrganizationConfigRule in all the member accounts and
 -- disables service access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the rule to:
+-- Config sets the state of the rule to:
 --
 -- -   @CREATE_SUCCESSFUL@ when an organization config rule has been
 --     successfully created in all the member accounts.

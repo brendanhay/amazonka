@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateUserDefinedFunction' smart constructor.
 data CreateUserDefinedFunction = CreateUserDefinedFunction'
   { -- | The ID of the Data Catalog in which to create the function. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which to create the function.
     databaseName :: Prelude.Text,
@@ -69,7 +69,7 @@ data CreateUserDefinedFunction = CreateUserDefinedFunction'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'createUserDefinedFunction_catalogId' - The ID of the Data Catalog in which to create the function. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'createUserDefinedFunction_databaseName' - The name of the catalog database in which to create the function.
 --
@@ -92,7 +92,7 @@ newCreateUserDefinedFunction
       }
 
 -- | The ID of the Data Catalog in which to create the function. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 createUserDefinedFunction_catalogId :: Lens.Lens' CreateUserDefinedFunction (Prelude.Maybe Prelude.Text)
 createUserDefinedFunction_catalogId = Lens.lens (\CreateUserDefinedFunction' {catalogId} -> catalogId) (\s@CreateUserDefinedFunction' {} a -> s {catalogId = a} :: CreateUserDefinedFunction)
 

@@ -27,7 +27,7 @@ import Network.AWS.Redshift.Types.Tag
 
 -- | The snapshot copy grant that grants Amazon Redshift permission to
 -- encrypt copied snapshots with the specified customer master key (CMK)
--- from AWS KMS in the destination region.
+-- from Amazon Web Services KMS in the destination region.
 --
 -- For more information about managing snapshot copy grants, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
@@ -37,8 +37,8 @@ import Network.AWS.Redshift.Types.Tag
 data SnapshotCopyGrant = SnapshotCopyGrant'
   { -- | The name of the snapshot copy grant.
     snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the customer master key (CMK) in AWS KMS to
-    -- which Amazon Redshift is granted permission.
+    -- | The unique identifier of the customer master key (CMK) in Amazon Web
+    -- Services KMS to which Amazon Redshift is granted permission.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag]
@@ -55,8 +55,8 @@ data SnapshotCopyGrant = SnapshotCopyGrant'
 --
 -- 'snapshotCopyGrantName', 'snapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant.
 --
--- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in AWS KMS to
--- which Amazon Redshift is granted permission.
+-- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in Amazon Web
+-- Services KMS to which Amazon Redshift is granted permission.
 --
 -- 'tags', 'snapshotCopyGrant_tags' - A list of tag instances.
 newSnapshotCopyGrant ::
@@ -73,8 +73,8 @@ newSnapshotCopyGrant =
 snapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
 snapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\SnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@SnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: SnapshotCopyGrant)
 
--- | The unique identifier of the customer master key (CMK) in AWS KMS to
--- which Amazon Redshift is granted permission.
+-- | The unique identifier of the customer master key (CMK) in Amazon Web
+-- Services KMS to which Amazon Redshift is granted permission.
 snapshotCopyGrant_kmsKeyId :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
 snapshotCopyGrant_kmsKeyId = Lens.lens (\SnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@SnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: SnapshotCopyGrant)
 

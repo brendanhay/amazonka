@@ -35,13 +35,13 @@
 --
 -- -   You already migrated your applications to support the latest
 --     certificate authority (CA) certificate, but the new CA certificate
---     is not yet the RDS default CA certificate for the specified AWS
---     Region.
+--     is not yet the RDS default CA certificate for the specified Amazon
+--     Web Services Region.
 --
 -- -   RDS has already moved to a new default CA certificate for the
---     specified AWS Region, but you are still in the process of supporting
---     the new CA certificate. In this case, you temporarily need
---     additional time to finish your application changes.
+--     specified Amazon Web Services Region, but you are still in the
+--     process of supporting the new CA certificate. In this case, you
+--     temporarily need additional time to finish your application changes.
 --
 -- For more information about rotating your SSL\/TLS certificate for RDS DB
 -- engines, see
@@ -82,7 +82,7 @@ import qualified Network.AWS.Response as Response
 data ModifyCertificates = ModifyCertificates'
   { -- | The new default certificate identifier to override the current one with.
     --
-    -- To determine the valid values, use the @describe-certificates@ AWS CLI
+    -- To determine the valid values, use the @describe-certificates@ CLI
     -- command or the @DescribeCertificates@ API operation.
     certificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to remove the override for the default
@@ -102,7 +102,7 @@ data ModifyCertificates = ModifyCertificates'
 --
 -- 'certificateIdentifier', 'modifyCertificates_certificateIdentifier' - The new default certificate identifier to override the current one with.
 --
--- To determine the valid values, use the @describe-certificates@ AWS CLI
+-- To determine the valid values, use the @describe-certificates@ CLI
 -- command or the @DescribeCertificates@ API operation.
 --
 -- 'removeCustomerOverride', 'modifyCertificates_removeCustomerOverride' - A value that indicates whether to remove the override for the default
@@ -119,7 +119,7 @@ newModifyCertificates =
 
 -- | The new default certificate identifier to override the current one with.
 --
--- To determine the valid values, use the @describe-certificates@ AWS CLI
+-- To determine the valid values, use the @describe-certificates@ CLI
 -- command or the @DescribeCertificates@ API operation.
 modifyCertificates_certificateIdentifier :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Text)
 modifyCertificates_certificateIdentifier = Lens.lens (\ModifyCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@ModifyCertificates' {} a -> s {certificateIdentifier = a} :: ModifyCertificates)

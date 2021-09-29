@@ -57,14 +57,14 @@ module Network.AWS.CognitoSync
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** LambdaThrottledException
-    _LambdaThrottledException,
-
     -- ** AlreadyStreamedException
     _AlreadyStreamedException,
 
     -- ** InvalidLambdaFunctionOutputException
     _InvalidLambdaFunctionOutputException,
+
+    -- ** LambdaThrottledException
+    _LambdaThrottledException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -105,17 +105,17 @@ module Network.AWS.CognitoSync
     RegisterDeviceResponse (RegisterDeviceResponse'),
     newRegisterDeviceResponse,
 
-    -- ** SubscribeToDataset
-    SubscribeToDataset (SubscribeToDataset'),
-    newSubscribeToDataset,
-    SubscribeToDatasetResponse (SubscribeToDatasetResponse'),
-    newSubscribeToDatasetResponse,
-
     -- ** BulkPublish
     BulkPublish (BulkPublish'),
     newBulkPublish,
     BulkPublishResponse (BulkPublishResponse'),
     newBulkPublishResponse,
+
+    -- ** SubscribeToDataset
+    SubscribeToDataset (SubscribeToDataset'),
+    newSubscribeToDataset,
+    SubscribeToDatasetResponse (SubscribeToDatasetResponse'),
+    newSubscribeToDatasetResponse,
 
     -- ** DescribeIdentityUsage
     DescribeIdentityUsage (DescribeIdentityUsage'),
@@ -171,17 +171,17 @@ module Network.AWS.CognitoSync
     GetCognitoEventsResponse (GetCognitoEventsResponse'),
     newGetCognitoEventsResponse,
 
-    -- ** DeleteDataset
-    DeleteDataset (DeleteDataset'),
-    newDeleteDataset,
-    DeleteDatasetResponse (DeleteDatasetResponse'),
-    newDeleteDatasetResponse,
-
     -- ** ListDatasets
     ListDatasets (ListDatasets'),
     newListDatasets,
     ListDatasetsResponse (ListDatasetsResponse'),
     newListDatasetsResponse,
+
+    -- ** DeleteDataset
+    DeleteDataset (DeleteDataset'),
+    newDeleteDataset,
+    DeleteDatasetResponse (DeleteDatasetResponse'),
+    newDeleteDatasetResponse,
 
     -- ** DescribeIdentityPoolUsage
     DescribeIdentityPoolUsage (DescribeIdentityPoolUsage'),

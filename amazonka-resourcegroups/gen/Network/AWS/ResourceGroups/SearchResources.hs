@@ -30,6 +30,12 @@
 --
 -- -   @resource-groups:SearchResources@
 --
+-- -   @cloudformation:DescribeStacks@
+--
+-- -   @cloudformation:ListStackResources@
+--
+-- -   @tag:GetResources@
+--
 -- This operation returns paginated results.
 module Network.AWS.ResourceGroups.SearchResources
   ( -- * Creating a Request

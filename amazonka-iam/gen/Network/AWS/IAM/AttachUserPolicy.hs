@@ -25,6 +25,11 @@
 -- You use this operation to attach a /managed/ policy to a user. To embed
 -- an inline policy in a user, use PutUserPolicy.
 --
+-- As a best practice, you can validate your IAM policies. To learn more,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html Validating IAM policies>
+-- in the /IAM User Guide/.
+--
 -- For more information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
@@ -64,7 +69,7 @@ data AttachUserPolicy = AttachUserPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,7 +94,7 @@ data AttachUserPolicy = AttachUserPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newAttachUserPolicy ::
   -- | 'userName'
   Prelude.Text ->
@@ -116,7 +121,7 @@ attachUserPolicy_userName = Lens.lens (\AttachUserPolicy' {userName} -> userName
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 attachUserPolicy_policyArn :: Lens.Lens' AttachUserPolicy Prelude.Text
 attachUserPolicy_policyArn = Lens.lens (\AttachUserPolicy' {policyArn} -> policyArn) (\s@AttachUserPolicy' {} a -> s {policyArn = a} :: AttachUserPolicy)
 

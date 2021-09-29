@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayMulticastDomain' smart constructor.
 data TransitGatewayMulticastDomain = TransitGatewayMulticastDomain'
-  { -- | The ID of the AWS account that owns the transit gateway multiicast
-    -- domain.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The time the transit gateway multicast domain was created.
+  { -- | The time the transit gateway multicast domain was created.
     creationTime :: Prelude.Maybe Core.ISO8601,
+    -- | The ID of the Amazon Web Services account that owns the transit gateway
+    -- multicast domain.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway multicast domain.
     transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
     -- | The options for the transit gateway multicast domain.
@@ -59,10 +59,10 @@ data TransitGatewayMulticastDomain = TransitGatewayMulticastDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'transitGatewayMulticastDomain_ownerId' - The ID of the AWS account that owns the transit gateway multiicast
--- domain.
---
 -- 'creationTime', 'transitGatewayMulticastDomain_creationTime' - The time the transit gateway multicast domain was created.
+--
+-- 'ownerId', 'transitGatewayMulticastDomain_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain.
 --
 -- 'transitGatewayMulticastDomainId', 'transitGatewayMulticastDomain_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
 --
@@ -79,9 +79,9 @@ newTransitGatewayMulticastDomain ::
   TransitGatewayMulticastDomain
 newTransitGatewayMulticastDomain =
   TransitGatewayMulticastDomain'
-    { ownerId =
+    { creationTime =
         Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       transitGatewayMulticastDomainId =
         Prelude.Nothing,
       options = Prelude.Nothing,
@@ -92,14 +92,14 @@ newTransitGatewayMulticastDomain =
       transitGatewayId = Prelude.Nothing
     }
 
--- | The ID of the AWS account that owns the transit gateway multiicast
--- domain.
-transitGatewayMulticastDomain_ownerId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
-transitGatewayMulticastDomain_ownerId = Lens.lens (\TransitGatewayMulticastDomain' {ownerId} -> ownerId) (\s@TransitGatewayMulticastDomain' {} a -> s {ownerId = a} :: TransitGatewayMulticastDomain)
-
 -- | The time the transit gateway multicast domain was created.
 transitGatewayMulticastDomain_creationTime :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.UTCTime)
 transitGatewayMulticastDomain_creationTime = Lens.lens (\TransitGatewayMulticastDomain' {creationTime} -> creationTime) (\s@TransitGatewayMulticastDomain' {} a -> s {creationTime = a} :: TransitGatewayMulticastDomain) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the Amazon Web Services account that owns the transit gateway
+-- multicast domain.
+transitGatewayMulticastDomain_ownerId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
+transitGatewayMulticastDomain_ownerId = Lens.lens (\TransitGatewayMulticastDomain' {ownerId} -> ownerId) (\s@TransitGatewayMulticastDomain' {} a -> s {ownerId = a} :: TransitGatewayMulticastDomain)
 
 -- | The ID of the transit gateway multicast domain.
 transitGatewayMulticastDomain_transitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
@@ -128,8 +128,8 @@ transitGatewayMulticastDomain_transitGatewayId = Lens.lens (\TransitGatewayMulti
 instance Core.FromXML TransitGatewayMulticastDomain where
   parseXML x =
     TransitGatewayMulticastDomain'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<$> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "transitGatewayMulticastDomainId")
       Prelude.<*> (x Core..@? "options")
       Prelude.<*> (x Core..@? "state")

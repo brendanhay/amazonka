@@ -1,0 +1,179 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Textract.AnalyzeExpense
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Analyzes an input document for financially related relationships between
+-- text.
+--
+-- Information is returned as @ExpenseDocuments@ and seperated as follows.
+--
+-- -   @LineItemGroups@- A data set containing @LineItems@ which store
+--     information about the lines of text, such as an item purchased and
+--     its price on a receipt.
+--
+-- -   @SummaryFields@- Contains all other information a receipt, such as
+--     header information or the vendors name.
+module Network.AWS.Textract.AnalyzeExpense
+  ( -- * Creating a Request
+    AnalyzeExpense (..),
+    newAnalyzeExpense,
+
+    -- * Request Lenses
+    analyzeExpense_document,
+
+    -- * Destructuring the Response
+    AnalyzeExpenseResponse (..),
+    newAnalyzeExpenseResponse,
+
+    -- * Response Lenses
+    analyzeExpenseResponse_documentMetadata,
+    analyzeExpenseResponse_expenseDocuments,
+    analyzeExpenseResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import Network.AWS.Textract.Types
+
+-- | /See:/ 'newAnalyzeExpense' smart constructor.
+data AnalyzeExpense = AnalyzeExpense'
+  { document :: Document
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AnalyzeExpense' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'document', 'analyzeExpense_document' - Undocumented member.
+newAnalyzeExpense ::
+  -- | 'document'
+  Document ->
+  AnalyzeExpense
+newAnalyzeExpense pDocument_ =
+  AnalyzeExpense' {document = pDocument_}
+
+-- | Undocumented member.
+analyzeExpense_document :: Lens.Lens' AnalyzeExpense Document
+analyzeExpense_document = Lens.lens (\AnalyzeExpense' {document} -> document) (\s@AnalyzeExpense' {} a -> s {document = a} :: AnalyzeExpense)
+
+instance Core.AWSRequest AnalyzeExpense where
+  type
+    AWSResponse AnalyzeExpense =
+      AnalyzeExpenseResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AnalyzeExpenseResponse'
+            Prelude.<$> (x Core..?> "DocumentMetadata")
+            Prelude.<*> ( x Core..?> "ExpenseDocuments"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AnalyzeExpense
+
+instance Prelude.NFData AnalyzeExpense
+
+instance Core.ToHeaders AnalyzeExpense where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("Textract.AnalyzeExpense" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON AnalyzeExpense where
+  toJSON AnalyzeExpense' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Document" Core..= document)]
+      )
+
+instance Core.ToPath AnalyzeExpense where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AnalyzeExpense where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAnalyzeExpenseResponse' smart constructor.
+data AnalyzeExpenseResponse = AnalyzeExpenseResponse'
+  { documentMetadata :: Prelude.Maybe DocumentMetadata,
+    -- | The expenses detected by Amazon Textract.
+    expenseDocuments :: Prelude.Maybe [ExpenseDocument],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AnalyzeExpenseResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'documentMetadata', 'analyzeExpenseResponse_documentMetadata' - Undocumented member.
+--
+-- 'expenseDocuments', 'analyzeExpenseResponse_expenseDocuments' - The expenses detected by Amazon Textract.
+--
+-- 'httpStatus', 'analyzeExpenseResponse_httpStatus' - The response's http status code.
+newAnalyzeExpenseResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AnalyzeExpenseResponse
+newAnalyzeExpenseResponse pHttpStatus_ =
+  AnalyzeExpenseResponse'
+    { documentMetadata =
+        Prelude.Nothing,
+      expenseDocuments = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+analyzeExpenseResponse_documentMetadata :: Lens.Lens' AnalyzeExpenseResponse (Prelude.Maybe DocumentMetadata)
+analyzeExpenseResponse_documentMetadata = Lens.lens (\AnalyzeExpenseResponse' {documentMetadata} -> documentMetadata) (\s@AnalyzeExpenseResponse' {} a -> s {documentMetadata = a} :: AnalyzeExpenseResponse)
+
+-- | The expenses detected by Amazon Textract.
+analyzeExpenseResponse_expenseDocuments :: Lens.Lens' AnalyzeExpenseResponse (Prelude.Maybe [ExpenseDocument])
+analyzeExpenseResponse_expenseDocuments = Lens.lens (\AnalyzeExpenseResponse' {expenseDocuments} -> expenseDocuments) (\s@AnalyzeExpenseResponse' {} a -> s {expenseDocuments = a} :: AnalyzeExpenseResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+analyzeExpenseResponse_httpStatus :: Lens.Lens' AnalyzeExpenseResponse Prelude.Int
+analyzeExpenseResponse_httpStatus = Lens.lens (\AnalyzeExpenseResponse' {httpStatus} -> httpStatus) (\s@AnalyzeExpenseResponse' {} a -> s {httpStatus = a} :: AnalyzeExpenseResponse)
+
+instance Prelude.NFData AnalyzeExpenseResponse

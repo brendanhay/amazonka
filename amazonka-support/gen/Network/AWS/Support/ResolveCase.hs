@@ -23,11 +23,11 @@
 -- Resolves a support case. This operation takes a @caseId@ and returns the
 -- initial and final state of the case.
 --
--- -   You must have a Business or Enterprise support plan to use the AWS
+-- -   You must have a Business or Enterprise Support plan to use the AWS
 --     Support API.
 --
 -- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise support plan, the
+--     Business or Enterprise Support plan, the
 --     @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
 --     <http://aws.amazon.com/premiumsupport/ AWS Support>.
@@ -59,8 +59,8 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'newResolveCase' smart constructor.
 data ResolveCase = ResolveCase'
-  { -- | The AWS Support case ID requested or returned in the call. The case ID
-    -- is an alphanumeric string formatted as shown in this example:
+  { -- | The support case ID requested or returned in the call. The case ID is an
+    -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text
   }
@@ -74,16 +74,16 @@ data ResolveCase = ResolveCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'caseId', 'resolveCase_caseId' - The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- 'caseId', 'resolveCase_caseId' - The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 newResolveCase ::
   ResolveCase
 newResolveCase =
   ResolveCase' {caseId = Prelude.Nothing}
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
+-- | The support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 resolveCase_caseId :: Lens.Lens' ResolveCase (Prelude.Maybe Prelude.Text)
 resolveCase_caseId = Lens.lens (\ResolveCase' {caseId} -> caseId) (\s@ResolveCase' {} a -> s {caseId = a} :: ResolveCase)

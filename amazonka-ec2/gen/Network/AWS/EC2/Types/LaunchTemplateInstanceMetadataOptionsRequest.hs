@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateHttpTokensState
 import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
+import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -32,7 +33,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateInstanceMetadataOptionsRequest' smart constructor.
 data LaunchTemplateInstanceMetadataOptionsRequest = LaunchTemplateInstanceMetadataOptionsRequest'
-  { -- | This parameter enables or disables the HTTP metadata endpoint on your
+  { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    --
+    -- Default: @disabled@
+    httpProtocolIpv6 :: Prelude.Maybe LaunchTemplateInstanceMetadataProtocolIpv6,
+    -- | This parameter enables or disables the HTTP metadata endpoint on your
     -- instances. If the parameter is not specified, the default state is
     -- @enabled@.
     --
@@ -73,6 +78,10 @@ data LaunchTemplateInstanceMetadataOptionsRequest = LaunchTemplateInstanceMetada
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'httpProtocolIpv6', 'launchTemplateInstanceMetadataOptionsRequest_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+--
+-- Default: @disabled@
+--
 -- 'httpEndpoint', 'launchTemplateInstanceMetadataOptionsRequest_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
 -- instances. If the parameter is not specified, the default state is
 -- @enabled@.
@@ -106,12 +115,20 @@ newLaunchTemplateInstanceMetadataOptionsRequest ::
   LaunchTemplateInstanceMetadataOptionsRequest
 newLaunchTemplateInstanceMetadataOptionsRequest =
   LaunchTemplateInstanceMetadataOptionsRequest'
-    { httpEndpoint =
+    { httpProtocolIpv6 =
+        Prelude.Nothing,
+      httpEndpoint =
         Prelude.Nothing,
       httpPutResponseHopLimit =
         Prelude.Nothing,
       httpTokens = Prelude.Nothing
     }
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+--
+-- Default: @disabled@
+launchTemplateInstanceMetadataOptionsRequest_httpProtocolIpv6 :: Lens.Lens' LaunchTemplateInstanceMetadataOptionsRequest (Prelude.Maybe LaunchTemplateInstanceMetadataProtocolIpv6)
+launchTemplateInstanceMetadataOptionsRequest_httpProtocolIpv6 = Lens.lens (\LaunchTemplateInstanceMetadataOptionsRequest' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@LaunchTemplateInstanceMetadataOptionsRequest' {} a -> s {httpProtocolIpv6 = a} :: LaunchTemplateInstanceMetadataOptionsRequest)
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your
 -- instances. If the parameter is not specified, the default state is
@@ -164,7 +181,8 @@ instance
   toQuery
     LaunchTemplateInstanceMetadataOptionsRequest' {..} =
       Prelude.mconcat
-        [ "HttpEndpoint" Core.=: httpEndpoint,
+        [ "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
+          "HttpEndpoint" Core.=: httpEndpoint,
           "HttpPutResponseHopLimit"
             Core.=: httpPutResponseHopLimit,
           "HttpTokens" Core.=: httpTokens

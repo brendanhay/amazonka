@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current configuration for one or more requested resources.
+-- Returns the @BaseConfigurationItem@ for one or more requested resources.
 -- The operation also returns a list of resources that are not processed in
 -- the current request. If there are no unprocessed resources, the
 -- operation returns an empty unprocessedResourceKeys list.

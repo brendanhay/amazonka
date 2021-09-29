@@ -23,9 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A set of criteria that AWS CloudFormation uses to validate parameter
--- values. Although other constraints might be defined in the stack
--- template, AWS CloudFormation returns only the @AllowedValues@ property.
+-- | A set of criteria that CloudFormation uses to validate parameter values.
+-- Although other constraints might be defined in the stack template,
+-- CloudFormation returns only the @AllowedValues@ property.
 --
 -- /See:/ 'newParameterConstraints' smart constructor.
 data ParameterConstraints = ParameterConstraints'

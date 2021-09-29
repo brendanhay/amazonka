@@ -31,8 +31,8 @@ module Network.AWS.EC2.DescribeExportImageTasks
 
     -- * Request Lenses
     describeExportImageTasks_nextToken,
-    describeExportImageTasks_dryRun,
     describeExportImageTasks_maxResults,
+    describeExportImageTasks_dryRun,
     describeExportImageTasks_exportImageTaskIds,
     describeExportImageTasks_filters,
 
@@ -58,13 +58,13 @@ import qualified Network.AWS.Response as Response
 data DescribeExportImageTasks = DescribeExportImageTasks'
   { -- | A token that indicates the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The IDs of the export image tasks.
     exportImageTaskIds :: Prelude.Maybe [Prelude.Text],
     -- | Filter tasks using the @task-state@ filter and one of the following
@@ -83,12 +83,12 @@ data DescribeExportImageTasks = DescribeExportImageTasks'
 --
 -- 'nextToken', 'describeExportImageTasks_nextToken' - A token that indicates the next page of results.
 --
+-- 'maxResults', 'describeExportImageTasks_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'dryRun', 'describeExportImageTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeExportImageTasks_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'exportImageTaskIds', 'describeExportImageTasks_exportImageTaskIds' - The IDs of the export image tasks.
 --
@@ -100,8 +100,8 @@ newDescribeExportImageTasks =
   DescribeExportImageTasks'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       exportImageTaskIds = Prelude.Nothing,
       filters = Prelude.Nothing
     }
@@ -110,16 +110,16 @@ newDescribeExportImageTasks =
 describeExportImageTasks_nextToken :: Lens.Lens' DescribeExportImageTasks (Prelude.Maybe Prelude.Text)
 describeExportImageTasks_nextToken = Lens.lens (\DescribeExportImageTasks' {nextToken} -> nextToken) (\s@DescribeExportImageTasks' {} a -> s {nextToken = a} :: DescribeExportImageTasks)
 
+-- | The maximum number of results to return in a single call.
+describeExportImageTasks_maxResults :: Lens.Lens' DescribeExportImageTasks (Prelude.Maybe Prelude.Natural)
+describeExportImageTasks_maxResults = Lens.lens (\DescribeExportImageTasks' {maxResults} -> maxResults) (\s@DescribeExportImageTasks' {} a -> s {maxResults = a} :: DescribeExportImageTasks)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeExportImageTasks_dryRun :: Lens.Lens' DescribeExportImageTasks (Prelude.Maybe Prelude.Bool)
 describeExportImageTasks_dryRun = Lens.lens (\DescribeExportImageTasks' {dryRun} -> dryRun) (\s@DescribeExportImageTasks' {} a -> s {dryRun = a} :: DescribeExportImageTasks)
-
--- | The maximum number of results to return in a single call.
-describeExportImageTasks_maxResults :: Lens.Lens' DescribeExportImageTasks (Prelude.Maybe Prelude.Natural)
-describeExportImageTasks_maxResults = Lens.lens (\DescribeExportImageTasks' {maxResults} -> maxResults) (\s@DescribeExportImageTasks' {} a -> s {maxResults = a} :: DescribeExportImageTasks)
 
 -- | The IDs of the export image tasks.
 describeExportImageTasks_exportImageTaskIds :: Lens.Lens' DescribeExportImageTasks (Prelude.Maybe [Prelude.Text])
@@ -187,8 +187,8 @@ instance Core.ToQuery DescribeExportImageTasks where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ExportImageTaskId"
               Prelude.<$> exportImageTaskIds

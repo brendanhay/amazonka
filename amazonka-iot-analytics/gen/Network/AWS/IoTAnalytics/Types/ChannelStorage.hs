@@ -25,21 +25,20 @@ import Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Where channel data is stored. You may choose one of @serviceManagedS3@
--- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. This cannot be changed after creation of the
+-- | Where channel data is stored. You may choose one of @serviceManagedS3@,
+-- @customerManagedS3@ storage. If not specified, the default is
+-- @serviceManagedS3@. This can\'t be changed after creation of the
 -- channel.
 --
 -- /See:/ 'newChannelStorage' smart constructor.
 data ChannelStorage = ChannelStorage'
-  { -- | Use this to store channel data in an S3 bucket managed by AWS IoT
-    -- Analytics. You cannot change the choice of service-managed or
-    -- customer-managed S3 storage after the channel is created.
+  { -- | Used to store channel data in an S3 bucket managed by IoT Analytics. You
+    -- can\'t change the choice of S3 storage after the data store is created.
     serviceManagedS3 :: Prelude.Maybe ServiceManagedChannelS3Storage,
-    -- | Use this to store channel data in an S3 bucket that you manage. If
-    -- customer managed storage is selected, the @retentionPeriod@ parameter is
-    -- ignored. You cannot change the choice of service-managed or
-    -- customer-managed S3 storage after the channel is created.
+    -- | Used to store channel data in an S3 bucket that you manage. If customer
+    -- managed storage is selected, the @retentionPeriod@ parameter is ignored.
+    -- You can\'t change the choice of S3 storage after the data store is
+    -- created.
     customerManagedS3 :: Prelude.Maybe CustomerManagedChannelS3Storage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,14 +51,13 @@ data ChannelStorage = ChannelStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceManagedS3', 'channelStorage_serviceManagedS3' - Use this to store channel data in an S3 bucket managed by AWS IoT
--- Analytics. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the channel is created.
+-- 'serviceManagedS3', 'channelStorage_serviceManagedS3' - Used to store channel data in an S3 bucket managed by IoT Analytics. You
+-- can\'t change the choice of S3 storage after the data store is created.
 --
--- 'customerManagedS3', 'channelStorage_customerManagedS3' - Use this to store channel data in an S3 bucket that you manage. If
--- customer managed storage is selected, the @retentionPeriod@ parameter is
--- ignored. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the channel is created.
+-- 'customerManagedS3', 'channelStorage_customerManagedS3' - Used to store channel data in an S3 bucket that you manage. If customer
+-- managed storage is selected, the @retentionPeriod@ parameter is ignored.
+-- You can\'t change the choice of S3 storage after the data store is
+-- created.
 newChannelStorage ::
   ChannelStorage
 newChannelStorage =
@@ -68,16 +66,15 @@ newChannelStorage =
       customerManagedS3 = Prelude.Nothing
     }
 
--- | Use this to store channel data in an S3 bucket managed by AWS IoT
--- Analytics. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the channel is created.
+-- | Used to store channel data in an S3 bucket managed by IoT Analytics. You
+-- can\'t change the choice of S3 storage after the data store is created.
 channelStorage_serviceManagedS3 :: Lens.Lens' ChannelStorage (Prelude.Maybe ServiceManagedChannelS3Storage)
 channelStorage_serviceManagedS3 = Lens.lens (\ChannelStorage' {serviceManagedS3} -> serviceManagedS3) (\s@ChannelStorage' {} a -> s {serviceManagedS3 = a} :: ChannelStorage)
 
--- | Use this to store channel data in an S3 bucket that you manage. If
--- customer managed storage is selected, the @retentionPeriod@ parameter is
--- ignored. You cannot change the choice of service-managed or
--- customer-managed S3 storage after the channel is created.
+-- | Used to store channel data in an S3 bucket that you manage. If customer
+-- managed storage is selected, the @retentionPeriod@ parameter is ignored.
+-- You can\'t change the choice of S3 storage after the data store is
+-- created.
 channelStorage_customerManagedS3 :: Lens.Lens' ChannelStorage (Prelude.Maybe CustomerManagedChannelS3Storage)
 channelStorage_customerManagedS3 = Lens.lens (\ChannelStorage' {customerManagedS3} -> customerManagedS3) (\s@ChannelStorage' {} a -> s {customerManagedS3 = a} :: ChannelStorage)
 

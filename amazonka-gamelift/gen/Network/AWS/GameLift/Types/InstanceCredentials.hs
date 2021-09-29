@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceCredentials' smart constructor.
 data InstanceCredentials = InstanceCredentials'
-  { -- | Secret string. For Windows instances, the secret is a password for use
+  { -- | User login string.
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | Secret string. For Windows instances, the secret is a password for use
     -- with Windows Remote Desktop. For Linux instances, it is a private key
     -- (which must be saved as a @.pem@ file) for use with SSH.
-    secret :: Prelude.Maybe Prelude.Text,
-    -- | User login string.
-    userName :: Prelude.Maybe Prelude.Text
+    secret :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data InstanceCredentials = InstanceCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userName', 'instanceCredentials_userName' - User login string.
+--
 -- 'secret', 'instanceCredentials_secret' - Secret string. For Windows instances, the secret is a password for use
 -- with Windows Remote Desktop. For Linux instances, it is a private key
 -- (which must be saved as a @.pem@ file) for use with SSH.
---
--- 'userName', 'instanceCredentials_userName' - User login string.
 newInstanceCredentials ::
   InstanceCredentials
 newInstanceCredentials =
   InstanceCredentials'
-    { secret = Prelude.Nothing,
-      userName = Prelude.Nothing
+    { userName = Prelude.Nothing,
+      secret = Prelude.Nothing
     }
+
+-- | User login string.
+instanceCredentials_userName :: Lens.Lens' InstanceCredentials (Prelude.Maybe Prelude.Text)
+instanceCredentials_userName = Lens.lens (\InstanceCredentials' {userName} -> userName) (\s@InstanceCredentials' {} a -> s {userName = a} :: InstanceCredentials)
 
 -- | Secret string. For Windows instances, the secret is a password for use
 -- with Windows Remote Desktop. For Linux instances, it is a private key
@@ -65,18 +69,14 @@ newInstanceCredentials =
 instanceCredentials_secret :: Lens.Lens' InstanceCredentials (Prelude.Maybe Prelude.Text)
 instanceCredentials_secret = Lens.lens (\InstanceCredentials' {secret} -> secret) (\s@InstanceCredentials' {} a -> s {secret = a} :: InstanceCredentials)
 
--- | User login string.
-instanceCredentials_userName :: Lens.Lens' InstanceCredentials (Prelude.Maybe Prelude.Text)
-instanceCredentials_userName = Lens.lens (\InstanceCredentials' {userName} -> userName) (\s@InstanceCredentials' {} a -> s {userName = a} :: InstanceCredentials)
-
 instance Core.FromJSON InstanceCredentials where
   parseJSON =
     Core.withObject
       "InstanceCredentials"
       ( \x ->
           InstanceCredentials'
-            Prelude.<$> (x Core..:? "Secret")
-            Prelude.<*> (x Core..:? "UserName")
+            Prelude.<$> (x Core..:? "UserName")
+            Prelude.<*> (x Core..:? "Secret")
       )
 
 instance Prelude.Hashable InstanceCredentials

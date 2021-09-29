@@ -24,6 +24,10 @@
 -- variance, and standard deviation for the specified aggregated field. If
 -- the aggregation field is of type @String@, only the count statistic is
 -- returned.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetStatistics>
+-- action.
 module Network.AWS.IoT.GetStatistics
   ( -- * Creating a Request
     GetStatistics (..),
@@ -61,7 +65,7 @@ data GetStatistics = GetStatistics'
     -- | The aggregation field name.
     aggregationField :: Prelude.Maybe Prelude.Text,
     -- | The query used to search. You can specify \"*\" for the query string to
-    -- get the count of all indexed things in your AWS account.
+    -- get the count of all indexed things in your Amazon Web Services account.
     queryString :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +85,7 @@ data GetStatistics = GetStatistics'
 -- 'aggregationField', 'getStatistics_aggregationField' - The aggregation field name.
 --
 -- 'queryString', 'getStatistics_queryString' - The query used to search. You can specify \"*\" for the query string to
--- get the count of all indexed things in your AWS account.
+-- get the count of all indexed things in your Amazon Web Services account.
 newGetStatistics ::
   -- | 'queryString'
   Prelude.Text ->
@@ -107,7 +111,7 @@ getStatistics_aggregationField :: Lens.Lens' GetStatistics (Prelude.Maybe Prelud
 getStatistics_aggregationField = Lens.lens (\GetStatistics' {aggregationField} -> aggregationField) (\s@GetStatistics' {} a -> s {aggregationField = a} :: GetStatistics)
 
 -- | The query used to search. You can specify \"*\" for the query string to
--- get the count of all indexed things in your AWS account.
+-- get the count of all indexed things in your Amazon Web Services account.
 getStatistics_queryString :: Lens.Lens' GetStatistics Prelude.Text
 getStatistics_queryString = Lens.lens (\GetStatistics' {queryString} -> queryString) (\s@GetStatistics' {} a -> s {queryString = a} :: GetStatistics)
 

@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListLabelingJobsForWorkteam
     newListLabelingJobsForWorkteam,
 
     -- * Request Lenses
-    listLabelingJobsForWorkteam_sortOrder,
     listLabelingJobsForWorkteam_nextToken,
+    listLabelingJobsForWorkteam_sortOrder,
     listLabelingJobsForWorkteam_maxResults,
     listLabelingJobsForWorkteam_creationTimeBefore,
     listLabelingJobsForWorkteam_jobReferenceCodeContains,
@@ -58,12 +58,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListLabelingJobsForWorkteam' smart constructor.
 data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
+  { -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of labeling jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The maximum number of labeling jobs to return in each page of the
     -- response.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -92,11 +92,11 @@ data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listLabelingJobsForWorkteam_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listLabelingJobsForWorkteam_nextToken' - If the result of the previous @ListLabelingJobsForWorkteam@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of labeling jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listLabelingJobsForWorkteam_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'maxResults', 'listLabelingJobsForWorkteam_maxResults' - The maximum number of labeling jobs to return in each page of the
 -- response.
@@ -120,9 +120,9 @@ newListLabelingJobsForWorkteam ::
   ListLabelingJobsForWorkteam
 newListLabelingJobsForWorkteam pWorkteamArn_ =
   ListLabelingJobsForWorkteam'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       jobReferenceCodeContains = Prelude.Nothing,
@@ -131,15 +131,15 @@ newListLabelingJobsForWorkteam pWorkteamArn_ =
       workteamArn = pWorkteamArn_
     }
 
--- | The sort order for results. The default is @Ascending@.
-listLabelingJobsForWorkteam_sortOrder :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe SortOrder)
-listLabelingJobsForWorkteam_sortOrder = Lens.lens (\ListLabelingJobsForWorkteam' {sortOrder} -> sortOrder) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortOrder = a} :: ListLabelingJobsForWorkteam)
-
 -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of labeling jobs, use the token in the next request.
 listLabelingJobsForWorkteam_nextToken :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.Text)
 listLabelingJobsForWorkteam_nextToken = Lens.lens (\ListLabelingJobsForWorkteam' {nextToken} -> nextToken) (\s@ListLabelingJobsForWorkteam' {} a -> s {nextToken = a} :: ListLabelingJobsForWorkteam)
+
+-- | The sort order for results. The default is @Ascending@.
+listLabelingJobsForWorkteam_sortOrder :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe SortOrder)
+listLabelingJobsForWorkteam_sortOrder = Lens.lens (\ListLabelingJobsForWorkteam' {sortOrder} -> sortOrder) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortOrder = a} :: ListLabelingJobsForWorkteam)
 
 -- | The maximum number of labeling jobs to return in each page of the
 -- response.
@@ -230,8 +230,8 @@ instance Core.ToJSON ListLabelingJobsForWorkteam where
   toJSON ListLabelingJobsForWorkteam' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,

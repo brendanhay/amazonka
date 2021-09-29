@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPeeringTgwInfo' smart constructor.
 data PeeringTgwInfo = PeeringTgwInfo'
-  { -- | The AWS account ID of the owner of the transit gateway.
+  { -- | The ID of the Amazon Web Services account that owns the transit gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The Region of the transit gateway.
     region :: Prelude.Maybe Prelude.Text,
@@ -45,7 +45,7 @@ data PeeringTgwInfo = PeeringTgwInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'peeringTgwInfo_ownerId' - The AWS account ID of the owner of the transit gateway.
+-- 'ownerId', 'peeringTgwInfo_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.
 --
 -- 'region', 'peeringTgwInfo_region' - The Region of the transit gateway.
 --
@@ -59,7 +59,7 @@ newPeeringTgwInfo =
       transitGatewayId = Prelude.Nothing
     }
 
--- | The AWS account ID of the owner of the transit gateway.
+-- | The ID of the Amazon Web Services account that owns the transit gateway.
 peeringTgwInfo_ownerId :: Lens.Lens' PeeringTgwInfo (Prelude.Maybe Prelude.Text)
 peeringTgwInfo_ownerId = Lens.lens (\PeeringTgwInfo' {ownerId} -> ownerId) (\s@PeeringTgwInfo' {} a -> s {ownerId = a} :: PeeringTgwInfo)
 

@@ -45,8 +45,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCachePolicyConfig' smart constructor.
 data CachePolicyConfig = CachePolicyConfig'
-  { -- | A comment to describe the cache policy.
+  { -- | A comment to describe the cache policy. The comment cannot be longer
+    -- than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP headers, cookies, and URL query strings to include in the cache
+    -- key. The values included in the cache key are automatically included in
+    -- requests that CloudFront sends to the origin.
+    parametersInCacheKeyAndForwardedToOrigin :: Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
     -- | The maximum amount of time, in seconds, that objects stay in the
     -- CloudFront cache before CloudFront sends another request to the origin
     -- to see if the object has been updated. CloudFront uses this value only
@@ -60,10 +65,6 @@ data CachePolicyConfig = CachePolicyConfig'
     -- the default value for this field is the same as the value of
     -- @DefaultTTL@.
     maxTTL :: Prelude.Maybe Prelude.Integer,
-    -- | The HTTP headers, cookies, and URL query strings to include in the cache
-    -- key. The values included in the cache key are automatically included in
-    -- requests that CloudFront sends to the origin.
-    parametersInCacheKeyAndForwardedToOrigin :: Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
     -- | The default amount of time, in seconds, that you want objects to stay in
     -- the CloudFront cache before CloudFront sends another request to the
     -- origin to see if the object has been updated. CloudFront uses this value
@@ -96,7 +97,12 @@ data CachePolicyConfig = CachePolicyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'cachePolicyConfig_comment' - A comment to describe the cache policy.
+-- 'comment', 'cachePolicyConfig_comment' - A comment to describe the cache policy. The comment cannot be longer
+-- than 128 characters.
+--
+-- 'parametersInCacheKeyAndForwardedToOrigin', 'cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache
+-- key. The values included in the cache key are automatically included in
+-- requests that CloudFront sends to the origin.
 --
 -- 'maxTTL', 'cachePolicyConfig_maxTTL' - The maximum amount of time, in seconds, that objects stay in the
 -- CloudFront cache before CloudFront sends another request to the origin
@@ -110,10 +116,6 @@ data CachePolicyConfig = CachePolicyConfig'
 -- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
 -- the default value for this field is the same as the value of
 -- @DefaultTTL@.
---
--- 'parametersInCacheKeyAndForwardedToOrigin', 'cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache
--- key. The values included in the cache key are automatically included in
--- requests that CloudFront sends to the origin.
 --
 -- 'defaultTTL', 'cachePolicyConfig_defaultTTL' - The default amount of time, in seconds, that you want objects to stay in
 -- the CloudFront cache before CloudFront sends another request to the
@@ -144,17 +146,24 @@ newCachePolicyConfig ::
 newCachePolicyConfig pName_ pMinTTL_ =
   CachePolicyConfig'
     { comment = Prelude.Nothing,
-      maxTTL = Prelude.Nothing,
       parametersInCacheKeyAndForwardedToOrigin =
         Prelude.Nothing,
+      maxTTL = Prelude.Nothing,
       defaultTTL = Prelude.Nothing,
       name = pName_,
       minTTL = pMinTTL_
     }
 
--- | A comment to describe the cache policy.
+-- | A comment to describe the cache policy. The comment cannot be longer
+-- than 128 characters.
 cachePolicyConfig_comment :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.Text)
 cachePolicyConfig_comment = Lens.lens (\CachePolicyConfig' {comment} -> comment) (\s@CachePolicyConfig' {} a -> s {comment = a} :: CachePolicyConfig)
+
+-- | The HTTP headers, cookies, and URL query strings to include in the cache
+-- key. The values included in the cache key are automatically included in
+-- requests that CloudFront sends to the origin.
+cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin :: Lens.Lens' CachePolicyConfig (Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin)
+cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin = Lens.lens (\CachePolicyConfig' {parametersInCacheKeyAndForwardedToOrigin} -> parametersInCacheKeyAndForwardedToOrigin) (\s@CachePolicyConfig' {} a -> s {parametersInCacheKeyAndForwardedToOrigin = a} :: CachePolicyConfig)
 
 -- | The maximum amount of time, in seconds, that objects stay in the
 -- CloudFront cache before CloudFront sends another request to the origin
@@ -170,12 +179,6 @@ cachePolicyConfig_comment = Lens.lens (\CachePolicyConfig' {comment} -> comment)
 -- @DefaultTTL@.
 cachePolicyConfig_maxTTL :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.Integer)
 cachePolicyConfig_maxTTL = Lens.lens (\CachePolicyConfig' {maxTTL} -> maxTTL) (\s@CachePolicyConfig' {} a -> s {maxTTL = a} :: CachePolicyConfig)
-
--- | The HTTP headers, cookies, and URL query strings to include in the cache
--- key. The values included in the cache key are automatically included in
--- requests that CloudFront sends to the origin.
-cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin :: Lens.Lens' CachePolicyConfig (Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin)
-cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin = Lens.lens (\CachePolicyConfig' {parametersInCacheKeyAndForwardedToOrigin} -> parametersInCacheKeyAndForwardedToOrigin) (\s@CachePolicyConfig' {} a -> s {parametersInCacheKeyAndForwardedToOrigin = a} :: CachePolicyConfig)
 
 -- | The default amount of time, in seconds, that you want objects to stay in
 -- the CloudFront cache before CloudFront sends another request to the
@@ -208,10 +211,10 @@ instance Core.FromXML CachePolicyConfig where
   parseXML x =
     CachePolicyConfig'
       Prelude.<$> (x Core..@? "Comment")
-      Prelude.<*> (x Core..@? "MaxTTL")
       Prelude.<*> ( x
                       Core..@? "ParametersInCacheKeyAndForwardedToOrigin"
                   )
+      Prelude.<*> (x Core..@? "MaxTTL")
       Prelude.<*> (x Core..@? "DefaultTTL")
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "MinTTL")
@@ -224,9 +227,9 @@ instance Core.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =
     Prelude.mconcat
       [ "Comment" Core.@= comment,
-        "MaxTTL" Core.@= maxTTL,
         "ParametersInCacheKeyAndForwardedToOrigin"
           Core.@= parametersInCacheKeyAndForwardedToOrigin,
+        "MaxTTL" Core.@= maxTTL,
         "DefaultTTL" Core.@= defaultTTL,
         "Name" Core.@= name,
         "MinTTL" Core.@= minTTL

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the inputs for the change set and a list of changes that AWS
+-- Returns the inputs for the change set and a list of changes that
 -- CloudFormation will make if you execute the change set. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html Updating Stacks Using Change Sets>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeChangeSet
@@ -43,9 +43,9 @@ module Network.AWS.CloudFormation.DescribeChangeSet
 
     -- * Response Lenses
     describeChangeSetResponse_rootChangeSetId,
-    describeChangeSetResponse_nextToken,
     describeChangeSetResponse_creationTime,
     describeChangeSetResponse_includeNestedStacks,
+    describeChangeSetResponse_nextToken,
     describeChangeSetResponse_stackName,
     describeChangeSetResponse_capabilities,
     describeChangeSetResponse_executionStatus,
@@ -163,9 +163,9 @@ instance Core.AWSRequest DescribeChangeSet where
       ( \s h x ->
           DescribeChangeSetResponse'
             Prelude.<$> (x Core..@? "RootChangeSetId")
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (x Core..@? "CreationTime")
             Prelude.<*> (x Core..@? "IncludeNestedStacks")
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (x Core..@? "StackName")
             Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -224,13 +224,13 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
   { -- | Specifies the change set ID of the root change set in the current nested
     -- change set hierarchy.
     rootChangeSetId :: Prelude.Maybe Prelude.Text,
-    -- | If the output exceeds 1 MB, a string that identifies the next page of
-    -- changes. If there is no additional page, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start time when the change set was created, in UTC.
     creationTime :: Prelude.Maybe Core.ISO8601,
     -- | Verifies if @IncludeNestedStacks@ is set to @True@.
     includeNestedStacks :: Prelude.Maybe Prelude.Bool,
+    -- | If the output exceeds 1 MB, a string that identifies the next page of
+    -- changes. If there is no additional page, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the stack that is associated with the change set.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | If you execute the change set, the list of capabilities that were
@@ -239,15 +239,15 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     -- | If the change set execution status is @AVAILABLE@, you can execute the
     -- change set. If you can’t execute the change set, the status indicates
     -- why. For example, a change set might be in an @UNAVAILABLE@ state
-    -- because AWS CloudFormation is still creating it or in an @OBSOLETE@
-    -- state because the stack was already updated.
+    -- because CloudFormation is still creating it or in an @OBSOLETE@ state
+    -- because the stack was already updated.
     executionStatus :: Prelude.Maybe ExecutionStatus,
     -- | The ARN of the stack that is associated with the change set.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics
     -- that will be associated with the stack if you execute the change set.
     notificationARNs :: Prelude.Maybe [Prelude.Text],
-    -- | A list of @Change@ structures that describes the resources AWS
+    -- | A list of @Change@ structures that describes the resources
     -- CloudFormation changes if you execute the change set.
     changes :: Prelude.Maybe [Change],
     -- | Specifies the change set ID of the parent change set in the current
@@ -258,7 +258,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     tags :: Prelude.Maybe [Tag],
     -- | The ARN of the change set.
     changeSetId :: Prelude.Maybe Prelude.Text,
-    -- | The rollback triggers for AWS CloudFormation to monitor during stack
+    -- | The rollback triggers for CloudFormation to monitor during stack
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
     rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
@@ -267,8 +267,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     -- | The name of the change set.
     changeSetName :: Prelude.Maybe Prelude.Text,
     -- | A description of the change set\'s status. For example, if your attempt
-    -- to create a change set failed, AWS CloudFormation shows the error
-    -- message.
+    -- to create a change set failed, CloudFormation shows the error message.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | A list of @Parameter@ structures that describes the input parameters and
     -- their values used to create the change set. For more information, see
@@ -295,12 +294,12 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- 'rootChangeSetId', 'describeChangeSetResponse_rootChangeSetId' - Specifies the change set ID of the root change set in the current nested
 -- change set hierarchy.
 --
--- 'nextToken', 'describeChangeSetResponse_nextToken' - If the output exceeds 1 MB, a string that identifies the next page of
--- changes. If there is no additional page, this value is null.
---
 -- 'creationTime', 'describeChangeSetResponse_creationTime' - The start time when the change set was created, in UTC.
 --
 -- 'includeNestedStacks', 'describeChangeSetResponse_includeNestedStacks' - Verifies if @IncludeNestedStacks@ is set to @True@.
+--
+-- 'nextToken', 'describeChangeSetResponse_nextToken' - If the output exceeds 1 MB, a string that identifies the next page of
+-- changes. If there is no additional page, this value is null.
 --
 -- 'stackName', 'describeChangeSetResponse_stackName' - The name of the stack that is associated with the change set.
 --
@@ -310,15 +309,15 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- 'executionStatus', 'describeChangeSetResponse_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the
 -- change set. If you can’t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
--- because AWS CloudFormation is still creating it or in an @OBSOLETE@
--- state because the stack was already updated.
+-- because CloudFormation is still creating it or in an @OBSOLETE@ state
+-- because the stack was already updated.
 --
 -- 'stackId', 'describeChangeSetResponse_stackId' - The ARN of the stack that is associated with the change set.
 --
 -- 'notificationARNs', 'describeChangeSetResponse_notificationARNs' - The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics
 -- that will be associated with the stack if you execute the change set.
 --
--- 'changes', 'describeChangeSetResponse_changes' - A list of @Change@ structures that describes the resources AWS
+-- 'changes', 'describeChangeSetResponse_changes' - A list of @Change@ structures that describes the resources
 -- CloudFormation changes if you execute the change set.
 --
 -- 'parentChangeSetId', 'describeChangeSetResponse_parentChangeSetId' - Specifies the change set ID of the parent change set in the current
@@ -329,7 +328,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 --
 -- 'changeSetId', 'describeChangeSetResponse_changeSetId' - The ARN of the change set.
 --
--- 'rollbackConfiguration', 'describeChangeSetResponse_rollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack
+-- 'rollbackConfiguration', 'describeChangeSetResponse_rollbackConfiguration' - The rollback triggers for CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
 --
@@ -338,8 +337,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- 'changeSetName', 'describeChangeSetResponse_changeSetName' - The name of the change set.
 --
 -- 'statusReason', 'describeChangeSetResponse_statusReason' - A description of the change set\'s status. For example, if your attempt
--- to create a change set failed, AWS CloudFormation shows the error
--- message.
+-- to create a change set failed, CloudFormation shows the error message.
 --
 -- 'parameters', 'describeChangeSetResponse_parameters' - A list of @Parameter@ structures that describes the input parameters and
 -- their values used to create the change set. For more information, see
@@ -361,9 +359,9 @@ newDescribeChangeSetResponse pHttpStatus_ pStatus_ =
   DescribeChangeSetResponse'
     { rootChangeSetId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       includeNestedStacks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       stackName = Prelude.Nothing,
       capabilities = Prelude.Nothing,
       executionStatus = Prelude.Nothing,
@@ -387,11 +385,6 @@ newDescribeChangeSetResponse pHttpStatus_ pStatus_ =
 describeChangeSetResponse_rootChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_rootChangeSetId = Lens.lens (\DescribeChangeSetResponse' {rootChangeSetId} -> rootChangeSetId) (\s@DescribeChangeSetResponse' {} a -> s {rootChangeSetId = a} :: DescribeChangeSetResponse)
 
--- | If the output exceeds 1 MB, a string that identifies the next page of
--- changes. If there is no additional page, this value is null.
-describeChangeSetResponse_nextToken :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
-describeChangeSetResponse_nextToken = Lens.lens (\DescribeChangeSetResponse' {nextToken} -> nextToken) (\s@DescribeChangeSetResponse' {} a -> s {nextToken = a} :: DescribeChangeSetResponse)
-
 -- | The start time when the change set was created, in UTC.
 describeChangeSetResponse_creationTime :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.UTCTime)
 describeChangeSetResponse_creationTime = Lens.lens (\DescribeChangeSetResponse' {creationTime} -> creationTime) (\s@DescribeChangeSetResponse' {} a -> s {creationTime = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Core._Time
@@ -399,6 +392,11 @@ describeChangeSetResponse_creationTime = Lens.lens (\DescribeChangeSetResponse' 
 -- | Verifies if @IncludeNestedStacks@ is set to @True@.
 describeChangeSetResponse_includeNestedStacks :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Bool)
 describeChangeSetResponse_includeNestedStacks = Lens.lens (\DescribeChangeSetResponse' {includeNestedStacks} -> includeNestedStacks) (\s@DescribeChangeSetResponse' {} a -> s {includeNestedStacks = a} :: DescribeChangeSetResponse)
+
+-- | If the output exceeds 1 MB, a string that identifies the next page of
+-- changes. If there is no additional page, this value is null.
+describeChangeSetResponse_nextToken :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
+describeChangeSetResponse_nextToken = Lens.lens (\DescribeChangeSetResponse' {nextToken} -> nextToken) (\s@DescribeChangeSetResponse' {} a -> s {nextToken = a} :: DescribeChangeSetResponse)
 
 -- | The name of the stack that is associated with the change set.
 describeChangeSetResponse_stackName :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
@@ -412,8 +410,8 @@ describeChangeSetResponse_capabilities = Lens.lens (\DescribeChangeSetResponse' 
 -- | If the change set execution status is @AVAILABLE@, you can execute the
 -- change set. If you can’t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
--- because AWS CloudFormation is still creating it or in an @OBSOLETE@
--- state because the stack was already updated.
+-- because CloudFormation is still creating it or in an @OBSOLETE@ state
+-- because the stack was already updated.
 describeChangeSetResponse_executionStatus :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe ExecutionStatus)
 describeChangeSetResponse_executionStatus = Lens.lens (\DescribeChangeSetResponse' {executionStatus} -> executionStatus) (\s@DescribeChangeSetResponse' {} a -> s {executionStatus = a} :: DescribeChangeSetResponse)
 
@@ -426,7 +424,7 @@ describeChangeSetResponse_stackId = Lens.lens (\DescribeChangeSetResponse' {stac
 describeChangeSetResponse_notificationARNs :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [Prelude.Text])
 describeChangeSetResponse_notificationARNs = Lens.lens (\DescribeChangeSetResponse' {notificationARNs} -> notificationARNs) (\s@DescribeChangeSetResponse' {} a -> s {notificationARNs = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of @Change@ structures that describes the resources AWS
+-- | A list of @Change@ structures that describes the resources
 -- CloudFormation changes if you execute the change set.
 describeChangeSetResponse_changes :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [Change])
 describeChangeSetResponse_changes = Lens.lens (\DescribeChangeSetResponse' {changes} -> changes) (\s@DescribeChangeSetResponse' {} a -> s {changes = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens._Coerce
@@ -445,7 +443,7 @@ describeChangeSetResponse_tags = Lens.lens (\DescribeChangeSetResponse' {tags} -
 describeChangeSetResponse_changeSetId :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_changeSetId = Lens.lens (\DescribeChangeSetResponse' {changeSetId} -> changeSetId) (\s@DescribeChangeSetResponse' {} a -> s {changeSetId = a} :: DescribeChangeSetResponse)
 
--- | The rollback triggers for AWS CloudFormation to monitor during stack
+-- | The rollback triggers for CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
 describeChangeSetResponse_rollbackConfiguration :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe RollbackConfiguration)
@@ -460,8 +458,7 @@ describeChangeSetResponse_changeSetName :: Lens.Lens' DescribeChangeSetResponse 
 describeChangeSetResponse_changeSetName = Lens.lens (\DescribeChangeSetResponse' {changeSetName} -> changeSetName) (\s@DescribeChangeSetResponse' {} a -> s {changeSetName = a} :: DescribeChangeSetResponse)
 
 -- | A description of the change set\'s status. For example, if your attempt
--- to create a change set failed, AWS CloudFormation shows the error
--- message.
+-- to create a change set failed, CloudFormation shows the error message.
 describeChangeSetResponse_statusReason :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_statusReason = Lens.lens (\DescribeChangeSetResponse' {statusReason} -> statusReason) (\s@DescribeChangeSetResponse' {} a -> s {statusReason = a} :: DescribeChangeSetResponse)
 

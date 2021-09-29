@@ -26,7 +26,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of Docker images that are related by platform and are managed by
--- AWS CodeBuild.
+-- CodeBuild.
 --
 -- /See:/ 'newEnvironmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'

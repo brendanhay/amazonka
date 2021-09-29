@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGitConfigForUpdate' smart constructor.
 data GitConfigForUpdate = GitConfigForUpdate'
-  { -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
-    -- contains the credentials used to access the git repository. The secret
-    -- must have a staging label of @AWSCURRENT@ and must be in the following
-    -- format:
+  { -- | The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
+    -- Manager secret that contains the credentials used to access the git
+    -- repository. The secret must have a staging label of @AWSCURRENT@ and
+    -- must be in the following format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
     secretArn :: Prelude.Maybe Prelude.Text
@@ -46,10 +46,10 @@ data GitConfigForUpdate = GitConfigForUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretArn', 'gitConfigForUpdate_secretArn' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the credentials used to access the git repository. The secret
--- must have a staging label of @AWSCURRENT@ and must be in the following
--- format:
+-- 'secretArn', 'gitConfigForUpdate_secretArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
+-- Manager secret that contains the credentials used to access the git
+-- repository. The secret must have a staging label of @AWSCURRENT@ and
+-- must be in the following format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
 newGitConfigForUpdate ::
@@ -57,10 +57,10 @@ newGitConfigForUpdate ::
 newGitConfigForUpdate =
   GitConfigForUpdate' {secretArn = Prelude.Nothing}
 
--- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the credentials used to access the git repository. The secret
--- must have a staging label of @AWSCURRENT@ and must be in the following
--- format:
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
+-- Manager secret that contains the credentials used to access the git
+-- repository. The secret must have a staging label of @AWSCURRENT@ and
+-- must be in the following format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
 gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Prelude.Maybe Prelude.Text)

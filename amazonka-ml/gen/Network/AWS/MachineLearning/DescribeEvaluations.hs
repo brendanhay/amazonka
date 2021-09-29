@@ -30,9 +30,9 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     newDescribeEvaluations,
 
     -- * Request Lenses
-    describeEvaluations_sortOrder,
     describeEvaluations_eq,
     describeEvaluations_nextToken,
+    describeEvaluations_sortOrder,
     describeEvaluations_filterVariable,
     describeEvaluations_gt,
     describeEvaluations_ne,
@@ -62,34 +62,41 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEvaluations' smart constructor.
 data DescribeEvaluations = DescribeEvaluations'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @Evaluation@.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The equal to operator. The @Evaluation@ results will have
+  { -- | The equal to operator. The @Evaluation@ results will have
     -- @FilterVariable@ values that exactly match the value specified with
     -- @EQ@.
     eq :: Prelude.Maybe Prelude.Text,
     -- | The ID of the page in the paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @Evaluation@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Use one of the following variable to filter a list of @Evaluation@
     -- objects:
     --
     -- -   @CreatedAt@ - Sets the search criteria to the @Evaluation@ creation
     --     date.
+    --
     -- -   @Status@ - Sets the search criteria to the @Evaluation@ status.
+    --
     -- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
     --     ____ @Name@.
+    --
     -- -   @IAMUser@ - Sets the search criteria to the user account that
     --     invoked an @Evaluation@.
+    --
     -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ that was
     --     evaluated.
+    --
     -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
     --     in @Evaluation@.
+    --
     -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
     --     @Evaluation@. The URL can identify either a file or an Amazon Simple
     --     Storage Solution (Amazon S3) bucket or directory.
@@ -140,34 +147,41 @@ data DescribeEvaluations = DescribeEvaluations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeEvaluations_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @Evaluation@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
 -- 'eq', 'describeEvaluations_eq' - The equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
 --
 -- 'nextToken', 'describeEvaluations_nextToken' - The ID of the page in the paginated results.
 --
+-- 'sortOrder', 'describeEvaluations_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @Evaluation@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+--
 -- 'filterVariable', 'describeEvaluations_filterVariable' - Use one of the following variable to filter a list of @Evaluation@
 -- objects:
 --
 -- -   @CreatedAt@ - Sets the search criteria to the @Evaluation@ creation
 --     date.
+--
 -- -   @Status@ - Sets the search criteria to the @Evaluation@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
 --     ____ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked an @Evaluation@.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ that was
 --     evaluated.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in @Evaluation@.
+--
 -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
 --     @Evaluation@. The URL can identify either a file or an Amazon Simple
 --     Storage Solution (Amazon S3) bucket or directory.
@@ -210,9 +224,9 @@ newDescribeEvaluations ::
   DescribeEvaluations
 newDescribeEvaluations =
   DescribeEvaluations'
-    { sortOrder = Prelude.Nothing,
-      eq = Prelude.Nothing,
+    { eq = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       filterVariable = Prelude.Nothing,
       gt = Prelude.Nothing,
       ne = Prelude.Nothing,
@@ -222,16 +236,6 @@ newDescribeEvaluations =
       lt = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A two-value parameter that determines the sequence of the resulting list
--- of @Evaluation@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
-describeEvaluations_sortOrder :: Lens.Lens' DescribeEvaluations (Prelude.Maybe SortOrder)
-describeEvaluations_sortOrder = Lens.lens (\DescribeEvaluations' {sortOrder} -> sortOrder) (\s@DescribeEvaluations' {} a -> s {sortOrder = a} :: DescribeEvaluations)
 
 -- | The equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -243,20 +247,37 @@ describeEvaluations_eq = Lens.lens (\DescribeEvaluations' {eq} -> eq) (\s@Descri
 describeEvaluations_nextToken :: Lens.Lens' DescribeEvaluations (Prelude.Maybe Prelude.Text)
 describeEvaluations_nextToken = Lens.lens (\DescribeEvaluations' {nextToken} -> nextToken) (\s@DescribeEvaluations' {} a -> s {nextToken = a} :: DescribeEvaluations)
 
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @Evaluation@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeEvaluations_sortOrder :: Lens.Lens' DescribeEvaluations (Prelude.Maybe SortOrder)
+describeEvaluations_sortOrder = Lens.lens (\DescribeEvaluations' {sortOrder} -> sortOrder) (\s@DescribeEvaluations' {} a -> s {sortOrder = a} :: DescribeEvaluations)
+
 -- | Use one of the following variable to filter a list of @Evaluation@
 -- objects:
 --
 -- -   @CreatedAt@ - Sets the search criteria to the @Evaluation@ creation
 --     date.
+--
 -- -   @Status@ - Sets the search criteria to the @Evaluation@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
 --     ____ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked an @Evaluation@.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ that was
 --     evaluated.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in @Evaluation@.
+--
 -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
 --     @Evaluation@. The URL can identify either a file or an Amazon Simple
 --     Storage Solution (Amazon S3) bucket or directory.
@@ -371,9 +392,9 @@ instance Core.ToJSON DescribeEvaluations where
   toJSON DescribeEvaluations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("EQ" Core..=) Prelude.<$> eq,
+          [ ("EQ" Core..=) Prelude.<$> eq,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("FilterVariable" Core..=)
               Prelude.<$> filterVariable,
             ("GT" Core..=) Prelude.<$> gt,

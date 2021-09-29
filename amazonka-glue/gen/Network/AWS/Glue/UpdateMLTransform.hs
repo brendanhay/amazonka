@@ -41,8 +41,8 @@ module Network.AWS.Glue.UpdateMLTransform
     updateMLTransform_glueVersion,
     updateMLTransform_workerType,
     updateMLTransform_description,
-    updateMLTransform_parameters,
     updateMLTransform_maxRetries,
+    updateMLTransform_parameters,
     updateMLTransform_transformId,
 
     -- * Destructuring the Response
@@ -69,12 +69,12 @@ data UpdateMLTransform = UpdateMLTransform'
     -- before it is terminated and enters @TIMEOUT@ status. The default is
     -- 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of AWS Glue data processing units (DPUs) that are allocated
-    -- to task runs for this transform. You can allocate from 2 to 100 DPUs;
-    -- the default is 10. A DPU is a relative measure of processing power that
+    -- | The number of Glue data processing units (DPUs) that are allocated to
+    -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+    -- default is 10. A DPU is a relative measure of processing power that
     -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
     -- information, see the
-    -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
     -- When the @WorkerType@ field is set to a value other than @Standard@, the
     -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -87,11 +87,11 @@ data UpdateMLTransform = UpdateMLTransform'
     -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
     -- permissions.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | This value determines which version of AWS Glue this machine learning
+    -- | This value determines which version of Glue this machine learning
     -- transform is compatible with. Glue 1.0 is recommended for most
     -- customers. If the value is not set, the Glue compatibility defaults to
     -- Glue 0.9. For more information, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
     -- in the developer guide.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The type of predefined worker that is allocated when this task runs.
@@ -108,12 +108,12 @@ data UpdateMLTransform = UpdateMLTransform'
     workerType :: Prelude.Maybe WorkerType,
     -- | A description of the transform. The default is an empty string.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The configuration parameters that are specific to the transform type
-    -- (algorithm) used. Conditionally dependent on the transform type.
-    parameters :: Prelude.Maybe TransformParameters,
     -- | The maximum number of times to retry a task for this transform after a
     -- task run fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
+    -- | The configuration parameters that are specific to the transform type
+    -- (algorithm) used. Conditionally dependent on the transform type.
+    parameters :: Prelude.Maybe TransformParameters,
     -- | A unique identifier that was generated when the transform was created.
     transformId :: Prelude.Text
   }
@@ -132,12 +132,12 @@ data UpdateMLTransform = UpdateMLTransform'
 -- before it is terminated and enters @TIMEOUT@ status. The default is
 -- 2,880 minutes (48 hours).
 --
--- 'maxCapacity', 'updateMLTransform_maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- 'maxCapacity', 'updateMLTransform_maxCapacity' - The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -150,11 +150,11 @@ data UpdateMLTransform = UpdateMLTransform'
 -- 'role'', 'updateMLTransform_role' - The name or Amazon Resource Name (ARN) of the IAM role with the required
 -- permissions.
 --
--- 'glueVersion', 'updateMLTransform_glueVersion' - This value determines which version of AWS Glue this machine learning
+-- 'glueVersion', 'updateMLTransform_glueVersion' - This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 --
 -- 'workerType', 'updateMLTransform_workerType' - The type of predefined worker that is allocated when this task runs.
@@ -171,11 +171,11 @@ data UpdateMLTransform = UpdateMLTransform'
 --
 -- 'description', 'updateMLTransform_description' - A description of the transform. The default is an empty string.
 --
--- 'parameters', 'updateMLTransform_parameters' - The configuration parameters that are specific to the transform type
--- (algorithm) used. Conditionally dependent on the transform type.
---
 -- 'maxRetries', 'updateMLTransform_maxRetries' - The maximum number of times to retry a task for this transform after a
 -- task run fails.
+--
+-- 'parameters', 'updateMLTransform_parameters' - The configuration parameters that are specific to the transform type
+-- (algorithm) used. Conditionally dependent on the transform type.
 --
 -- 'transformId', 'updateMLTransform_transformId' - A unique identifier that was generated when the transform was created.
 newUpdateMLTransform ::
@@ -192,8 +192,8 @@ newUpdateMLTransform pTransformId_ =
       glueVersion = Prelude.Nothing,
       workerType = Prelude.Nothing,
       description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       maxRetries = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       transformId = pTransformId_
     }
 
@@ -204,12 +204,12 @@ newUpdateMLTransform pTransformId_ =
 updateMLTransform_timeout :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Natural)
 updateMLTransform_timeout = Lens.lens (\UpdateMLTransform' {timeout} -> timeout) (\s@UpdateMLTransform' {} a -> s {timeout = a} :: UpdateMLTransform)
 
--- | The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- | The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
@@ -230,11 +230,11 @@ updateMLTransform_name = Lens.lens (\UpdateMLTransform' {name} -> name) (\s@Upda
 updateMLTransform_role :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
 updateMLTransform_role = Lens.lens (\UpdateMLTransform' {role'} -> role') (\s@UpdateMLTransform' {} a -> s {role' = a} :: UpdateMLTransform)
 
--- | This value determines which version of AWS Glue this machine learning
+-- | This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 updateMLTransform_glueVersion :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
 updateMLTransform_glueVersion = Lens.lens (\UpdateMLTransform' {glueVersion} -> glueVersion) (\s@UpdateMLTransform' {} a -> s {glueVersion = a} :: UpdateMLTransform)
@@ -257,15 +257,15 @@ updateMLTransform_workerType = Lens.lens (\UpdateMLTransform' {workerType} -> wo
 updateMLTransform_description :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
 updateMLTransform_description = Lens.lens (\UpdateMLTransform' {description} -> description) (\s@UpdateMLTransform' {} a -> s {description = a} :: UpdateMLTransform)
 
--- | The configuration parameters that are specific to the transform type
--- (algorithm) used. Conditionally dependent on the transform type.
-updateMLTransform_parameters :: Lens.Lens' UpdateMLTransform (Prelude.Maybe TransformParameters)
-updateMLTransform_parameters = Lens.lens (\UpdateMLTransform' {parameters} -> parameters) (\s@UpdateMLTransform' {} a -> s {parameters = a} :: UpdateMLTransform)
-
 -- | The maximum number of times to retry a task for this transform after a
 -- task run fails.
 updateMLTransform_maxRetries :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Int)
 updateMLTransform_maxRetries = Lens.lens (\UpdateMLTransform' {maxRetries} -> maxRetries) (\s@UpdateMLTransform' {} a -> s {maxRetries = a} :: UpdateMLTransform)
+
+-- | The configuration parameters that are specific to the transform type
+-- (algorithm) used. Conditionally dependent on the transform type.
+updateMLTransform_parameters :: Lens.Lens' UpdateMLTransform (Prelude.Maybe TransformParameters)
+updateMLTransform_parameters = Lens.lens (\UpdateMLTransform' {parameters} -> parameters) (\s@UpdateMLTransform' {} a -> s {parameters = a} :: UpdateMLTransform)
 
 -- | A unique identifier that was generated when the transform was created.
 updateMLTransform_transformId :: Lens.Lens' UpdateMLTransform Prelude.Text
@@ -314,8 +314,8 @@ instance Core.ToJSON UpdateMLTransform where
             ("GlueVersion" Core..=) Prelude.<$> glueVersion,
             ("WorkerType" Core..=) Prelude.<$> workerType,
             ("Description" Core..=) Prelude.<$> description,
-            ("Parameters" Core..=) Prelude.<$> parameters,
             ("MaxRetries" Core..=) Prelude.<$> maxRetries,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("TransformId" Core..= transformId)
           ]
       )

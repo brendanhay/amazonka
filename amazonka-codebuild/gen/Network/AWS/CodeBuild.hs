@@ -11,19 +11,18 @@
 --
 -- Derived from API version @2016-10-06@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS CodeBuild
+-- CodeBuild
 --
--- AWS CodeBuild is a fully managed build service in the cloud. AWS
--- CodeBuild compiles your source code, runs unit tests, and produces
--- artifacts that are ready to deploy. AWS CodeBuild eliminates the need to
--- provision, manage, and scale your own build servers. It provides
--- prepackaged build environments for the most popular programming
--- languages and build tools, such as Apache Maven, Gradle, and more. You
--- can also fully customize build environments in AWS CodeBuild to use your
--- own build tools. AWS CodeBuild scales automatically to meet peak build
--- requests. You pay only for the build time you consume. For more
--- information about AWS CodeBuild, see the
--- /<https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html AWS CodeBuild User Guide>./
+-- CodeBuild is a fully managed build service in the cloud. CodeBuild
+-- compiles your source code, runs unit tests, and produces artifacts that
+-- are ready to deploy. CodeBuild eliminates the need to provision, manage,
+-- and scale your own build servers. It provides prepackaged build
+-- environments for the most popular programming languages and build tools,
+-- such as Apache Maven, Gradle, and more. You can also fully customize
+-- build environments in CodeBuild to use your own build tools. CodeBuild
+-- scales automatically to meet peak build requests. You pay only for the
+-- build time you consume. For more information about CodeBuild, see the
+-- /<https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html CodeBuild User Guide>./
 module Network.AWS.CodeBuild
   ( -- * Service Configuration
     defaultService,
@@ -37,11 +36,11 @@ module Network.AWS.CodeBuild
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
     -- ** AccountLimitExceededException
     _AccountLimitExceededException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -51,6 +50,12 @@ module Network.AWS.CodeBuild
 
     -- * Operations
     -- $operations
+
+    -- ** ListBuilds (Paginated)
+    ListBuilds (ListBuilds'),
+    newListBuilds,
+    ListBuildsResponse (ListBuildsResponse'),
+    newListBuildsResponse,
 
     -- ** DeleteReport
     DeleteReport (DeleteReport'),
@@ -63,12 +68,6 @@ module Network.AWS.CodeBuild
     newBatchGetReports,
     BatchGetReportsResponse (BatchGetReportsResponse'),
     newBatchGetReportsResponse,
-
-    -- ** ListBuilds (Paginated)
-    ListBuilds (ListBuilds'),
-    newListBuilds,
-    ListBuildsResponse (ListBuildsResponse'),
-    newListBuildsResponse,
 
     -- ** GetResourcePolicy
     GetResourcePolicy (GetResourcePolicy'),
@@ -88,17 +87,17 @@ module Network.AWS.CodeBuild
     DescribeTestCasesResponse (DescribeTestCasesResponse'),
     newDescribeTestCasesResponse,
 
-    -- ** ListBuildsForProject (Paginated)
-    ListBuildsForProject (ListBuildsForProject'),
-    newListBuildsForProject,
-    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
-    newListBuildsForProjectResponse,
-
     -- ** CreateProject
     CreateProject (CreateProject'),
     newCreateProject,
     CreateProjectResponse (CreateProjectResponse'),
     newCreateProjectResponse,
+
+    -- ** ListBuildsForProject (Paginated)
+    ListBuildsForProject (ListBuildsForProject'),
+    newListBuildsForProject,
+    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
+    newListBuildsForProjectResponse,
 
     -- ** ListBuildBatches (Paginated)
     ListBuildBatches (ListBuildBatches'),
@@ -106,35 +105,17 @@ module Network.AWS.CodeBuild
     ListBuildBatchesResponse (ListBuildBatchesResponse'),
     newListBuildBatchesResponse,
 
-    -- ** DeleteBuildBatch
-    DeleteBuildBatch (DeleteBuildBatch'),
-    newDeleteBuildBatch,
-    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
-    newDeleteBuildBatchResponse,
-
     -- ** PutResourcePolicy
     PutResourcePolicy (PutResourcePolicy'),
     newPutResourcePolicy,
     PutResourcePolicyResponse (PutResourcePolicyResponse'),
     newPutResourcePolicyResponse,
 
-    -- ** DeleteReportGroup
-    DeleteReportGroup (DeleteReportGroup'),
-    newDeleteReportGroup,
-    DeleteReportGroupResponse (DeleteReportGroupResponse'),
-    newDeleteReportGroupResponse,
-
-    -- ** BatchDeleteBuilds
-    BatchDeleteBuilds (BatchDeleteBuilds'),
-    newBatchDeleteBuilds,
-    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
-    newBatchDeleteBuildsResponse,
-
-    -- ** BatchGetReportGroups
-    BatchGetReportGroups (BatchGetReportGroups'),
-    newBatchGetReportGroups,
-    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
-    newBatchGetReportGroupsResponse,
+    -- ** DeleteBuildBatch
+    DeleteBuildBatch (DeleteBuildBatch'),
+    newDeleteBuildBatch,
+    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
+    newDeleteBuildBatchResponse,
 
     -- ** UpdateReportGroup
     UpdateReportGroup (UpdateReportGroup'),
@@ -147,6 +128,24 @@ module Network.AWS.CodeBuild
     newListBuildBatchesForProject,
     ListBuildBatchesForProjectResponse (ListBuildBatchesForProjectResponse'),
     newListBuildBatchesForProjectResponse,
+
+    -- ** BatchGetReportGroups
+    BatchGetReportGroups (BatchGetReportGroups'),
+    newBatchGetReportGroups,
+    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
+    newBatchGetReportGroupsResponse,
+
+    -- ** BatchDeleteBuilds
+    BatchDeleteBuilds (BatchDeleteBuilds'),
+    newBatchDeleteBuilds,
+    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
+    newBatchDeleteBuildsResponse,
+
+    -- ** DeleteReportGroup
+    DeleteReportGroup (DeleteReportGroup'),
+    newDeleteReportGroup,
+    DeleteReportGroupResponse (DeleteReportGroupResponse'),
+    newDeleteReportGroupResponse,
 
     -- ** CreateReportGroup
     CreateReportGroup (CreateReportGroup'),
@@ -166,11 +165,17 @@ module Network.AWS.CodeBuild
     StartBuildBatchResponse (StartBuildBatchResponse'),
     newStartBuildBatchResponse,
 
-    -- ** UpdateWebhook
-    UpdateWebhook (UpdateWebhook'),
-    newUpdateWebhook,
-    UpdateWebhookResponse (UpdateWebhookResponse'),
-    newUpdateWebhookResponse,
+    -- ** DeleteWebhook
+    DeleteWebhook (DeleteWebhook'),
+    newDeleteWebhook,
+    DeleteWebhookResponse (DeleteWebhookResponse'),
+    newDeleteWebhookResponse,
+
+    -- ** UpdateProjectVisibility
+    UpdateProjectVisibility (UpdateProjectVisibility'),
+    newUpdateProjectVisibility,
+    UpdateProjectVisibilityResponse (UpdateProjectVisibilityResponse'),
+    newUpdateProjectVisibilityResponse,
 
     -- ** RetryBuildBatch
     RetryBuildBatch (RetryBuildBatch'),
@@ -178,29 +183,17 @@ module Network.AWS.CodeBuild
     RetryBuildBatchResponse (RetryBuildBatchResponse'),
     newRetryBuildBatchResponse,
 
-    -- ** DeleteWebhook
-    DeleteWebhook (DeleteWebhook'),
-    newDeleteWebhook,
-    DeleteWebhookResponse (DeleteWebhookResponse'),
-    newDeleteWebhookResponse,
-
     -- ** StopBuildBatch
     StopBuildBatch (StopBuildBatch'),
     newStopBuildBatch,
     StopBuildBatchResponse (StopBuildBatchResponse'),
     newStopBuildBatchResponse,
 
-    -- ** ListSourceCredentials
-    ListSourceCredentials (ListSourceCredentials'),
-    newListSourceCredentials,
-    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
-    newListSourceCredentialsResponse,
-
-    -- ** CreateWebhook
-    CreateWebhook (CreateWebhook'),
-    newCreateWebhook,
-    CreateWebhookResponse (CreateWebhookResponse'),
-    newCreateWebhookResponse,
+    -- ** UpdateWebhook
+    UpdateWebhook (UpdateWebhook'),
+    newUpdateWebhook,
+    UpdateWebhookResponse (UpdateWebhookResponse'),
+    newUpdateWebhookResponse,
 
     -- ** BatchGetBuilds
     BatchGetBuilds (BatchGetBuilds'),
@@ -214,17 +207,17 @@ module Network.AWS.CodeBuild
     ListReportsResponse (ListReportsResponse'),
     newListReportsResponse,
 
-    -- ** BatchGetProjects
-    BatchGetProjects (BatchGetProjects'),
-    newBatchGetProjects,
-    BatchGetProjectsResponse (BatchGetProjectsResponse'),
-    newBatchGetProjectsResponse,
+    -- ** CreateWebhook
+    CreateWebhook (CreateWebhook'),
+    newCreateWebhook,
+    CreateWebhookResponse (CreateWebhookResponse'),
+    newCreateWebhookResponse,
 
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
+    -- ** ListSourceCredentials
+    ListSourceCredentials (ListSourceCredentials'),
+    newListSourceCredentials,
+    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
+    newListSourceCredentialsResponse,
 
     -- ** UpdateProject
     UpdateProject (UpdateProject'),
@@ -232,11 +225,23 @@ module Network.AWS.CodeBuild
     UpdateProjectResponse (UpdateProjectResponse'),
     newUpdateProjectResponse,
 
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
     -- ** DeleteSourceCredentials
     DeleteSourceCredentials (DeleteSourceCredentials'),
     newDeleteSourceCredentials,
     DeleteSourceCredentialsResponse (DeleteSourceCredentialsResponse'),
     newDeleteSourceCredentialsResponse,
+
+    -- ** BatchGetProjects
+    BatchGetProjects (BatchGetProjects'),
+    newBatchGetProjects,
+    BatchGetProjectsResponse (BatchGetProjectsResponse'),
+    newBatchGetProjectsResponse,
 
     -- ** ListSharedReportGroups (Paginated)
     ListSharedReportGroups (ListSharedReportGroups'),
@@ -244,17 +249,17 @@ module Network.AWS.CodeBuild
     ListSharedReportGroupsResponse (ListSharedReportGroupsResponse'),
     newListSharedReportGroupsResponse,
 
-    -- ** StopBuild
-    StopBuild (StopBuild'),
-    newStopBuild,
-    StopBuildResponse (StopBuildResponse'),
-    newStopBuildResponse,
-
     -- ** RetryBuild
     RetryBuild (RetryBuild'),
     newRetryBuild,
     RetryBuildResponse (RetryBuildResponse'),
     newRetryBuildResponse,
+
+    -- ** StopBuild
+    StopBuild (StopBuild'),
+    newStopBuild,
+    StopBuildResponse (StopBuildResponse'),
+    newStopBuildResponse,
 
     -- ** BatchGetBuildBatches
     BatchGetBuildBatches (BatchGetBuildBatches'),
@@ -262,17 +267,17 @@ module Network.AWS.CodeBuild
     BatchGetBuildBatchesResponse (BatchGetBuildBatchesResponse'),
     newBatchGetBuildBatchesResponse,
 
-    -- ** GetReportGroupTrend
-    GetReportGroupTrend (GetReportGroupTrend'),
-    newGetReportGroupTrend,
-    GetReportGroupTrendResponse (GetReportGroupTrendResponse'),
-    newGetReportGroupTrendResponse,
-
     -- ** StartBuild
     StartBuild (StartBuild'),
     newStartBuild,
     StartBuildResponse (StartBuildResponse'),
     newStartBuildResponse,
+
+    -- ** GetReportGroupTrend
+    GetReportGroupTrend (GetReportGroupTrend'),
+    newGetReportGroupTrend,
+    GetReportGroupTrendResponse (GetReportGroupTrendResponse'),
+    newGetReportGroupTrendResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -292,17 +297,17 @@ module Network.AWS.CodeBuild
     ListReportGroupsResponse (ListReportGroupsResponse'),
     newListReportGroupsResponse,
 
-    -- ** ImportSourceCredentials
-    ImportSourceCredentials (ImportSourceCredentials'),
-    newImportSourceCredentials,
-    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
-    newImportSourceCredentialsResponse,
-
     -- ** InvalidateProjectCache
     InvalidateProjectCache (InvalidateProjectCache'),
     newInvalidateProjectCache,
     InvalidateProjectCacheResponse (InvalidateProjectCacheResponse'),
     newInvalidateProjectCacheResponse,
+
+    -- ** ImportSourceCredentials
+    ImportSourceCredentials (ImportSourceCredentials'),
+    newImportSourceCredentials,
+    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
+    newImportSourceCredentialsResponse,
 
     -- ** ListReportsForReportGroup (Paginated)
     ListReportsForReportGroup (ListReportsForReportGroup'),
@@ -329,6 +334,9 @@ module Network.AWS.CodeBuild
 
     -- ** AuthType
     AuthType (..),
+
+    -- ** BucketOwnerAccess
+    BucketOwnerAccess (..),
 
     -- ** BuildBatchPhaseType
     BuildBatchPhaseType (..),
@@ -371,6 +379,9 @@ module Network.AWS.CodeBuild
 
     -- ** ProjectSortByType
     ProjectSortByType (..),
+
+    -- ** ProjectVisibilityType
+    ProjectVisibilityType (..),
 
     -- ** ReportCodeCoverageSortByType
     ReportCodeCoverageSortByType (..),
@@ -681,6 +692,7 @@ import Network.AWS.CodeBuild.StopBuild
 import Network.AWS.CodeBuild.StopBuildBatch
 import Network.AWS.CodeBuild.Types
 import Network.AWS.CodeBuild.UpdateProject
+import Network.AWS.CodeBuild.UpdateProjectVisibility
 import Network.AWS.CodeBuild.UpdateReportGroup
 import Network.AWS.CodeBuild.UpdateWebhook
 import Network.AWS.CodeBuild.Waiters

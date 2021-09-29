@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Creates a GameLift FleetIQ game server group for managing game hosting
 -- on a collection of Amazon EC2 instances for game hosting. This operation
@@ -40,7 +40,7 @@
 -- -   An IAM role that extends limited access to your AWS account to allow
 --     GameLift FleetIQ to create and interact with the Auto Scaling group.
 --     For more information, see
---     <https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-iam-permissions-roles.html Create IAM roles for cross-service interaction>
+--     <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html Create IAM roles for cross-service interaction>
 --     in the /GameLift FleetIQ Developer Guide/.
 --
 -- To create a new game server group, specify a unique group name, IAM role
@@ -63,23 +63,12 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateGameServerGroup
---
--- -   ListGameServerGroups
---
--- -   DescribeGameServerGroup
---
--- -   UpdateGameServerGroup
---
--- -   DeleteGameServerGroup
---
--- -   ResumeGameServerGroup
---
--- -   SuspendGameServerGroup
---
--- -   DescribeGameServerInstances
+-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
+-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
+-- SuspendGameServerGroup | DescribeGameServerInstances |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Network.AWS.GameLift.CreateGameServerGroup
   ( -- * Creating a Request
     CreateGameServerGroup (..),
@@ -204,6 +193,11 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling
     -- group is created, update this value directly in the Auto Scaling group
     -- using the AWS console or APIs.
+    --
+    -- If you specify network interfaces in your launch template, you must
+    -- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
+    -- no network interface is specified in the launch template, GameLift
+    -- FleetIQ uses your account\'s default VPC.
     launchTemplate :: LaunchTemplateSpecification,
     -- | The EC2 instance types and sizes to use in the Auto Scaling group. The
     -- instance definitions must specify at least two different instance types
@@ -315,6 +309,11 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling
 -- group is created, update this value directly in the Auto Scaling group
 -- using the AWS console or APIs.
+--
+-- If you specify network interfaces in your launch template, you must
+-- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
+-- no network interface is specified in the launch template, GameLift
+-- FleetIQ uses your account\'s default VPC.
 --
 -- 'instanceDefinitions', 'createGameServerGroup_instanceDefinitions' - The EC2 instance types and sizes to use in the Auto Scaling group. The
 -- instance definitions must specify at least two different instance types
@@ -469,6 +468,11 @@ createGameServerGroup_maxSize = Lens.lens (\CreateGameServerGroup' {maxSize} -> 
 -- in the /Amazon EC2 Auto Scaling User Guide/. After the Auto Scaling
 -- group is created, update this value directly in the Auto Scaling group
 -- using the AWS console or APIs.
+--
+-- If you specify network interfaces in your launch template, you must
+-- explicitly set the property @AssociatePublicIpAddress@ to \"true\". If
+-- no network interface is specified in the launch template, GameLift
+-- FleetIQ uses your account\'s default VPC.
 createGameServerGroup_launchTemplate :: Lens.Lens' CreateGameServerGroup LaunchTemplateSpecification
 createGameServerGroup_launchTemplate = Lens.lens (\CreateGameServerGroup' {launchTemplate} -> launchTemplate) (\s@CreateGameServerGroup' {} a -> s {launchTemplate = a} :: CreateGameServerGroup)
 

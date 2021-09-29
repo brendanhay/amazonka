@@ -39,11 +39,11 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The format of the disk image from which the snapshot is created.
     format :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the KMS key that was used to create the encrypted
+    -- snapshot.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket for the disk image.
     userBucket :: Prelude.Maybe UserBucketDetails,
-    -- | The identifier for the AWS Key Management Service (AWS KMS) customer
-    -- master key (CMK) that was used to create the encrypted snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The snapshot ID of the disk being imported.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The description of the snapshot.
@@ -73,10 +73,10 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
 --
 -- 'format', 'snapshotTaskDetail_format' - The format of the disk image from which the snapshot is created.
 --
--- 'userBucket', 'snapshotTaskDetail_userBucket' - The Amazon S3 bucket for the disk image.
+-- 'kmsKeyId', 'snapshotTaskDetail_kmsKeyId' - The identifier for the KMS key that was used to create the encrypted
+-- snapshot.
 --
--- 'kmsKeyId', 'snapshotTaskDetail_kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) that was used to create the encrypted snapshot.
+-- 'userBucket', 'snapshotTaskDetail_userBucket' - The Amazon S3 bucket for the disk image.
 --
 -- 'snapshotId', 'snapshotTaskDetail_snapshotId' - The snapshot ID of the disk being imported.
 --
@@ -95,8 +95,8 @@ newSnapshotTaskDetail =
       status = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       format = Prelude.Nothing,
-      userBucket = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       description = Prelude.Nothing,
       url = Prelude.Nothing,
@@ -123,14 +123,14 @@ snapshotTaskDetail_encrypted = Lens.lens (\SnapshotTaskDetail' {encrypted} -> en
 snapshotTaskDetail_format :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
 snapshotTaskDetail_format = Lens.lens (\SnapshotTaskDetail' {format} -> format) (\s@SnapshotTaskDetail' {} a -> s {format = a} :: SnapshotTaskDetail)
 
+-- | The identifier for the KMS key that was used to create the encrypted
+-- snapshot.
+snapshotTaskDetail_kmsKeyId :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
+snapshotTaskDetail_kmsKeyId = Lens.lens (\SnapshotTaskDetail' {kmsKeyId} -> kmsKeyId) (\s@SnapshotTaskDetail' {} a -> s {kmsKeyId = a} :: SnapshotTaskDetail)
+
 -- | The Amazon S3 bucket for the disk image.
 snapshotTaskDetail_userBucket :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe UserBucketDetails)
 snapshotTaskDetail_userBucket = Lens.lens (\SnapshotTaskDetail' {userBucket} -> userBucket) (\s@SnapshotTaskDetail' {} a -> s {userBucket = a} :: SnapshotTaskDetail)
-
--- | The identifier for the AWS Key Management Service (AWS KMS) customer
--- master key (CMK) that was used to create the encrypted snapshot.
-snapshotTaskDetail_kmsKeyId :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
-snapshotTaskDetail_kmsKeyId = Lens.lens (\SnapshotTaskDetail' {kmsKeyId} -> kmsKeyId) (\s@SnapshotTaskDetail' {} a -> s {kmsKeyId = a} :: SnapshotTaskDetail)
 
 -- | The snapshot ID of the disk being imported.
 snapshotTaskDetail_snapshotId :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
@@ -156,8 +156,8 @@ instance Core.FromXML SnapshotTaskDetail where
       Prelude.<*> (x Core..@? "status")
       Prelude.<*> (x Core..@? "encrypted")
       Prelude.<*> (x Core..@? "format")
-      Prelude.<*> (x Core..@? "userBucket")
       Prelude.<*> (x Core..@? "kmsKeyId")
+      Prelude.<*> (x Core..@? "userBucket")
       Prelude.<*> (x Core..@? "snapshotId")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "url")

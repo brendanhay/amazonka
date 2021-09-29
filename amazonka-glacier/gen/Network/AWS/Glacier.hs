@@ -60,17 +60,17 @@ module Network.AWS.Glacier
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** MissingParameterValueException
     _MissingParameterValueException,
 
-    -- ** InsufficientCapacityException
-    _InsufficientCapacityException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InsufficientCapacityException
+    _InsufficientCapacityException,
 
     -- ** RequestTimeoutException
     _RequestTimeoutException,
@@ -99,17 +99,17 @@ module Network.AWS.Glacier
     DescribeVaultOutput (DescribeVaultOutput'),
     newDescribeVaultOutput,
 
-    -- ** SetVaultAccessPolicy
-    SetVaultAccessPolicy (SetVaultAccessPolicy'),
-    newSetVaultAccessPolicy,
-    SetVaultAccessPolicyResponse (SetVaultAccessPolicyResponse'),
-    newSetVaultAccessPolicyResponse,
-
     -- ** CompleteMultipartUpload
     CompleteMultipartUpload (CompleteMultipartUpload'),
     newCompleteMultipartUpload,
     ArchiveCreationOutput (ArchiveCreationOutput'),
     newArchiveCreationOutput,
+
+    -- ** SetVaultAccessPolicy
+    SetVaultAccessPolicy (SetVaultAccessPolicy'),
+    newSetVaultAccessPolicy,
+    SetVaultAccessPolicyResponse (SetVaultAccessPolicyResponse'),
+    newSetVaultAccessPolicyResponse,
 
     -- ** SetDataRetrievalPolicy
     SetDataRetrievalPolicy (SetDataRetrievalPolicy'),
@@ -135,23 +135,11 @@ module Network.AWS.Glacier
     SetVaultNotificationsResponse (SetVaultNotificationsResponse'),
     newSetVaultNotificationsResponse,
 
-    -- ** DeleteVault
-    DeleteVault (DeleteVault'),
-    newDeleteVault,
-    DeleteVaultResponse (DeleteVaultResponse'),
-    newDeleteVaultResponse,
-
     -- ** AbortVaultLock
     AbortVaultLock (AbortVaultLock'),
     newAbortVaultLock,
     AbortVaultLockResponse (AbortVaultLockResponse'),
     newAbortVaultLockResponse,
-
-    -- ** DeleteArchive
-    DeleteArchive (DeleteArchive'),
-    newDeleteArchive,
-    DeleteArchiveResponse (DeleteArchiveResponse'),
-    newDeleteArchiveResponse,
 
     -- ** RemoveTagsFromVault
     RemoveTagsFromVault (RemoveTagsFromVault'),
@@ -159,17 +147,23 @@ module Network.AWS.Glacier
     RemoveTagsFromVaultResponse (RemoveTagsFromVaultResponse'),
     newRemoveTagsFromVaultResponse,
 
+    -- ** DeleteArchive
+    DeleteArchive (DeleteArchive'),
+    newDeleteArchive,
+    DeleteArchiveResponse (DeleteArchiveResponse'),
+    newDeleteArchiveResponse,
+
+    -- ** DeleteVault
+    DeleteVault (DeleteVault'),
+    newDeleteVault,
+    DeleteVaultResponse (DeleteVaultResponse'),
+    newDeleteVaultResponse,
+
     -- ** ListVaults (Paginated)
     ListVaults (ListVaults'),
     newListVaults,
     ListVaultsResponse (ListVaultsResponse'),
     newListVaultsResponse,
-
-    -- ** InitiateVaultLock
-    InitiateVaultLock (InitiateVaultLock'),
-    newInitiateVaultLock,
-    InitiateVaultLockResponse (InitiateVaultLockResponse'),
-    newInitiateVaultLockResponse,
 
     -- ** DescribeJob
     DescribeJob (DescribeJob'),
@@ -183,11 +177,11 @@ module Network.AWS.Glacier
     ListTagsForVaultResponse (ListTagsForVaultResponse'),
     newListTagsForVaultResponse,
 
-    -- ** GetVaultLock
-    GetVaultLock (GetVaultLock'),
-    newGetVaultLock,
-    GetVaultLockResponse (GetVaultLockResponse'),
-    newGetVaultLockResponse,
+    -- ** InitiateVaultLock
+    InitiateVaultLock (InitiateVaultLock'),
+    newInitiateVaultLock,
+    InitiateVaultLockResponse (InitiateVaultLockResponse'),
+    newInitiateVaultLockResponse,
 
     -- ** AbortMultipartUpload
     AbortMultipartUpload (AbortMultipartUpload'),
@@ -201,17 +195,23 @@ module Network.AWS.Glacier
     DeleteVaultAccessPolicyResponse (DeleteVaultAccessPolicyResponse'),
     newDeleteVaultAccessPolicyResponse,
 
-    -- ** InitiateJob
-    InitiateJob (InitiateJob'),
-    newInitiateJob,
-    InitiateJobResponse (InitiateJobResponse'),
-    newInitiateJobResponse,
+    -- ** GetVaultLock
+    GetVaultLock (GetVaultLock'),
+    newGetVaultLock,
+    GetVaultLockResponse (GetVaultLockResponse'),
+    newGetVaultLockResponse,
 
     -- ** ListMultipartUploads (Paginated)
     ListMultipartUploads (ListMultipartUploads'),
     newListMultipartUploads,
     ListMultipartUploadsResponse (ListMultipartUploadsResponse'),
     newListMultipartUploadsResponse,
+
+    -- ** InitiateJob
+    InitiateJob (InitiateJob'),
+    newInitiateJob,
+    InitiateJobResponse (InitiateJobResponse'),
+    newInitiateJobResponse,
 
     -- ** AddTagsToVault
     AddTagsToVault (AddTagsToVault'),
@@ -225,17 +225,17 @@ module Network.AWS.Glacier
     InitiateMultipartUploadResponse (InitiateMultipartUploadResponse'),
     newInitiateMultipartUploadResponse,
 
+    -- ** GetJobOutput
+    GetJobOutput (GetJobOutput'),
+    newGetJobOutput,
+    GetJobOutputResponse (GetJobOutputResponse'),
+    newGetJobOutputResponse,
+
     -- ** CreateVault
     CreateVault (CreateVault'),
     newCreateVault,
     CreateVaultResponse (CreateVaultResponse'),
     newCreateVaultResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
 
     -- ** ListParts (Paginated)
     ListParts (ListParts'),
@@ -243,23 +243,23 @@ module Network.AWS.Glacier
     ListPartsResponse (ListPartsResponse'),
     newListPartsResponse,
 
-    -- ** GetJobOutput
-    GetJobOutput (GetJobOutput'),
-    newGetJobOutput,
-    GetJobOutputResponse (GetJobOutputResponse'),
-    newGetJobOutputResponse,
-
-    -- ** CompleteVaultLock
-    CompleteVaultLock (CompleteVaultLock'),
-    newCompleteVaultLock,
-    CompleteVaultLockResponse (CompleteVaultLockResponse'),
-    newCompleteVaultLockResponse,
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** GetVaultAccessPolicy
     GetVaultAccessPolicy (GetVaultAccessPolicy'),
     newGetVaultAccessPolicy,
     GetVaultAccessPolicyResponse (GetVaultAccessPolicyResponse'),
     newGetVaultAccessPolicyResponse,
+
+    -- ** CompleteVaultLock
+    CompleteVaultLock (CompleteVaultLock'),
+    newCompleteVaultLock,
+    CompleteVaultLockResponse (CompleteVaultLockResponse'),
+    newCompleteVaultLockResponse,
 
     -- ** GetDataRetrievalPolicy
     GetDataRetrievalPolicy (GetDataRetrievalPolicy'),
@@ -273,17 +273,17 @@ module Network.AWS.Glacier
     DeleteVaultNotificationsResponse (DeleteVaultNotificationsResponse'),
     newDeleteVaultNotificationsResponse,
 
-    -- ** UploadMultipartPart
-    UploadMultipartPart (UploadMultipartPart'),
-    newUploadMultipartPart,
-    UploadMultipartPartResponse (UploadMultipartPartResponse'),
-    newUploadMultipartPartResponse,
-
     -- ** GetVaultNotifications
     GetVaultNotifications (GetVaultNotifications'),
     newGetVaultNotifications,
     GetVaultNotificationsResponse (GetVaultNotificationsResponse'),
     newGetVaultNotificationsResponse,
+
+    -- ** UploadMultipartPart
+    UploadMultipartPart (UploadMultipartPart'),
+    newUploadMultipartPart,
+    UploadMultipartPartResponse (UploadMultipartPartResponse'),
+    newUploadMultipartPartResponse,
 
     -- * Types
 

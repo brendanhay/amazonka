@@ -47,14 +47,14 @@ data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
     -- | Indicates whether to delete the interface when the instance is
     -- terminated.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The index of the device for the network interface attachment.
     deviceIndex :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The number of secondary private IPv4 addresses.
     secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
     -- | The private IPv4 addresses.
@@ -89,13 +89,13 @@ data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
 -- 'deleteOnTermination', 'scheduledInstancesNetworkInterface_deleteOnTermination' - Indicates whether to delete the interface when the instance is
 -- terminated.
 --
--- 'networkInterfaceId', 'scheduledInstancesNetworkInterface_networkInterfaceId' - The ID of the network interface.
+-- 'description', 'scheduledInstancesNetworkInterface_description' - The description.
 --
 -- 'subnetId', 'scheduledInstancesNetworkInterface_subnetId' - The ID of the subnet.
 --
--- 'description', 'scheduledInstancesNetworkInterface_description' - The description.
---
 -- 'deviceIndex', 'scheduledInstancesNetworkInterface_deviceIndex' - The index of the device for the network interface attachment.
+--
+-- 'networkInterfaceId', 'scheduledInstancesNetworkInterface_networkInterfaceId' - The ID of the network interface.
 --
 -- 'secondaryPrivateIpAddressCount', 'scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount' - The number of secondary private IPv4 addresses.
 --
@@ -113,10 +113,10 @@ newScheduledInstancesNetworkInterface =
         Prelude.Nothing,
       ipv6AddressCount = Prelude.Nothing,
       deleteOnTermination = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
       description = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       deviceIndex = Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
       secondaryPrivateIpAddressCount =
         Prelude.Nothing,
       privateIpAddressConfigs =
@@ -151,21 +151,21 @@ scheduledInstancesNetworkInterface_ipv6AddressCount = Lens.lens (\ScheduledInsta
 scheduledInstancesNetworkInterface_deleteOnTermination :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Bool)
 scheduledInstancesNetworkInterface_deleteOnTermination = Lens.lens (\ScheduledInstancesNetworkInterface' {deleteOnTermination} -> deleteOnTermination) (\s@ScheduledInstancesNetworkInterface' {} a -> s {deleteOnTermination = a} :: ScheduledInstancesNetworkInterface)
 
--- | The ID of the network interface.
-scheduledInstancesNetworkInterface_networkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
-scheduledInstancesNetworkInterface_networkInterfaceId = Lens.lens (\ScheduledInstancesNetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@ScheduledInstancesNetworkInterface' {} a -> s {networkInterfaceId = a} :: ScheduledInstancesNetworkInterface)
+-- | The description.
+scheduledInstancesNetworkInterface_description :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
+scheduledInstancesNetworkInterface_description = Lens.lens (\ScheduledInstancesNetworkInterface' {description} -> description) (\s@ScheduledInstancesNetworkInterface' {} a -> s {description = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The ID of the subnet.
 scheduledInstancesNetworkInterface_subnetId :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
 scheduledInstancesNetworkInterface_subnetId = Lens.lens (\ScheduledInstancesNetworkInterface' {subnetId} -> subnetId) (\s@ScheduledInstancesNetworkInterface' {} a -> s {subnetId = a} :: ScheduledInstancesNetworkInterface)
 
--- | The description.
-scheduledInstancesNetworkInterface_description :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
-scheduledInstancesNetworkInterface_description = Lens.lens (\ScheduledInstancesNetworkInterface' {description} -> description) (\s@ScheduledInstancesNetworkInterface' {} a -> s {description = a} :: ScheduledInstancesNetworkInterface)
-
 -- | The index of the device for the network interface attachment.
 scheduledInstancesNetworkInterface_deviceIndex :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Int)
 scheduledInstancesNetworkInterface_deviceIndex = Lens.lens (\ScheduledInstancesNetworkInterface' {deviceIndex} -> deviceIndex) (\s@ScheduledInstancesNetworkInterface' {} a -> s {deviceIndex = a} :: ScheduledInstancesNetworkInterface)
+
+-- | The ID of the network interface.
+scheduledInstancesNetworkInterface_networkInterfaceId :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Text)
+scheduledInstancesNetworkInterface_networkInterfaceId = Lens.lens (\ScheduledInstancesNetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@ScheduledInstancesNetworkInterface' {} a -> s {networkInterfaceId = a} :: ScheduledInstancesNetworkInterface)
 
 -- | The number of secondary private IPv4 addresses.
 scheduledInstancesNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' ScheduledInstancesNetworkInterface (Prelude.Maybe Prelude.Int)
@@ -203,10 +203,10 @@ instance
           Core.=: associatePublicIpAddress,
         "Ipv6AddressCount" Core.=: ipv6AddressCount,
         "DeleteOnTermination" Core.=: deleteOnTermination,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "SubnetId" Core.=: subnetId,
         "Description" Core.=: description,
+        "SubnetId" Core.=: subnetId,
         "DeviceIndex" Core.=: deviceIndex,
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
         "SecondaryPrivateIpAddressCount"
           Core.=: secondaryPrivateIpAddressCount,
         Core.toQuery

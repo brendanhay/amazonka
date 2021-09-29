@@ -22,15 +22,6 @@ module Network.AWS.CloudWatchEvents.Lens
     listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts,
     listPartnerEventSourceAccountsResponse_httpStatus,
 
-    -- ** DeleteConnection
-    deleteConnection_name,
-    deleteConnectionResponse_creationTime,
-    deleteConnectionResponse_connectionState,
-    deleteConnectionResponse_connectionArn,
-    deleteConnectionResponse_lastModifiedTime,
-    deleteConnectionResponse_lastAuthorizedTime,
-    deleteConnectionResponse_httpStatus,
-
     -- ** UpdateConnection
     updateConnection_authorizationType,
     updateConnection_description,
@@ -51,9 +42,9 @@ module Network.AWS.CloudWatchEvents.Lens
     -- ** DescribeArchive
     describeArchive_archiveName,
     describeArchiveResponse_eventCount,
-    describeArchiveResponse_eventPattern,
-    describeArchiveResponse_eventSourceArn,
     describeArchiveResponse_creationTime,
+    describeArchiveResponse_eventSourceArn,
+    describeArchiveResponse_eventPattern,
     describeArchiveResponse_stateReason,
     describeArchiveResponse_archiveName,
     describeArchiveResponse_archiveArn,
@@ -63,13 +54,22 @@ module Network.AWS.CloudWatchEvents.Lens
     describeArchiveResponse_retentionDays,
     describeArchiveResponse_httpStatus,
 
+    -- ** DeleteConnection
+    deleteConnection_name,
+    deleteConnectionResponse_creationTime,
+    deleteConnectionResponse_connectionState,
+    deleteConnectionResponse_connectionArn,
+    deleteConnectionResponse_lastModifiedTime,
+    deleteConnectionResponse_lastAuthorizedTime,
+    deleteConnectionResponse_httpStatus,
+
     -- ** DescribeEventSource
     describeEventSource_name,
     describeEventSourceResponse_creationTime,
     describeEventSourceResponse_expirationTime,
     describeEventSourceResponse_arn,
-    describeEventSourceResponse_state,
     describeEventSourceResponse_name,
+    describeEventSourceResponse_state,
     describeEventSourceResponse_createdBy,
     describeEventSourceResponse_httpStatus,
 
@@ -79,8 +79,8 @@ module Network.AWS.CloudWatchEvents.Lens
     describeApiDestinationResponse_creationTime,
     describeApiDestinationResponse_apiDestinationArn,
     describeApiDestinationResponse_invocationEndpoint,
-    describeApiDestinationResponse_apiDestinationState,
     describeApiDestinationResponse_connectionArn,
+    describeApiDestinationResponse_apiDestinationState,
     describeApiDestinationResponse_name,
     describeApiDestinationResponse_lastModifiedTime,
     describeApiDestinationResponse_description,
@@ -89,6 +89,35 @@ module Network.AWS.CloudWatchEvents.Lens
 
     -- ** DeactivateEventSource
     deactivateEventSource_name,
+
+    -- ** ListArchives
+    listArchives_eventSourceArn,
+    listArchives_nextToken,
+    listArchives_namePrefix,
+    listArchives_state,
+    listArchives_limit,
+    listArchivesResponse_nextToken,
+    listArchivesResponse_archives,
+    listArchivesResponse_httpStatus,
+
+    -- ** DeleteArchive
+    deleteArchive_archiveName,
+    deleteArchiveResponse_httpStatus,
+
+    -- ** DescribeRule
+    describeRule_eventBusName,
+    describeRule_name,
+    describeRuleResponse_eventPattern,
+    describeRuleResponse_roleArn,
+    describeRuleResponse_arn,
+    describeRuleResponse_name,
+    describeRuleResponse_eventBusName,
+    describeRuleResponse_scheduleExpression,
+    describeRuleResponse_state,
+    describeRuleResponse_managedBy,
+    describeRuleResponse_description,
+    describeRuleResponse_createdBy,
+    describeRuleResponse_httpStatus,
 
     -- ** UpdateArchive
     updateArchive_eventPattern,
@@ -101,14 +130,19 @@ module Network.AWS.CloudWatchEvents.Lens
     updateArchiveResponse_state,
     updateArchiveResponse_httpStatus,
 
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
     -- ** DescribeConnection
     describeConnection_name,
     describeConnectionResponse_creationTime,
     describeConnectionResponse_connectionState,
-    describeConnectionResponse_secretArn,
     describeConnectionResponse_stateReason,
-    describeConnectionResponse_authorizationType,
     describeConnectionResponse_connectionArn,
+    describeConnectionResponse_secretArn,
+    describeConnectionResponse_authorizationType,
     describeConnectionResponse_name,
     describeConnectionResponse_lastModifiedTime,
     describeConnectionResponse_description,
@@ -116,45 +150,16 @@ module Network.AWS.CloudWatchEvents.Lens
     describeConnectionResponse_authParameters,
     describeConnectionResponse_httpStatus,
 
-    -- ** DeleteArchive
-    deleteArchive_archiveName,
-    deleteArchiveResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DescribeRule
-    describeRule_eventBusName,
-    describeRule_name,
-    describeRuleResponse_eventPattern,
-    describeRuleResponse_roleArn,
-    describeRuleResponse_arn,
-    describeRuleResponse_eventBusName,
-    describeRuleResponse_state,
-    describeRuleResponse_scheduleExpression,
-    describeRuleResponse_name,
-    describeRuleResponse_managedBy,
-    describeRuleResponse_description,
-    describeRuleResponse_createdBy,
-    describeRuleResponse_httpStatus,
-
-    -- ** ListArchives
-    listArchives_nextToken,
-    listArchives_eventSourceArn,
-    listArchives_state,
-    listArchives_namePrefix,
-    listArchives_limit,
-    listArchivesResponse_nextToken,
-    listArchivesResponse_archives,
-    listArchivesResponse_httpStatus,
-
     -- ** PutPartnerEvents
     putPartnerEvents_entries,
     putPartnerEventsResponse_failedEntryCount,
     putPartnerEventsResponse_entries,
     putPartnerEventsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** CreateApiDestination
     createApiDestination_description,
@@ -168,20 +173,6 @@ module Network.AWS.CloudWatchEvents.Lens
     createApiDestinationResponse_apiDestinationState,
     createApiDestinationResponse_lastModifiedTime,
     createApiDestinationResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListApiDestinations
-    listApiDestinations_nextToken,
-    listApiDestinations_connectionArn,
-    listApiDestinations_namePrefix,
-    listApiDestinations_limit,
-    listApiDestinationsResponse_nextToken,
-    listApiDestinationsResponse_apiDestinations,
-    listApiDestinationsResponse_httpStatus,
 
     -- ** DescribeEventBus
     describeEventBus_name,
@@ -199,6 +190,24 @@ module Network.AWS.CloudWatchEvents.Lens
     listTargetsByRuleResponse_targets,
     listTargetsByRuleResponse_httpStatus,
 
+    -- ** ListApiDestinations
+    listApiDestinations_nextToken,
+    listApiDestinations_connectionArn,
+    listApiDestinations_namePrefix,
+    listApiDestinations_limit,
+    listApiDestinationsResponse_nextToken,
+    listApiDestinationsResponse_apiDestinations,
+    listApiDestinationsResponse_httpStatus,
+
+    -- ** ListRuleNamesByTarget
+    listRuleNamesByTarget_nextToken,
+    listRuleNamesByTarget_eventBusName,
+    listRuleNamesByTarget_limit,
+    listRuleNamesByTarget_targetArn,
+    listRuleNamesByTargetResponse_nextToken,
+    listRuleNamesByTargetResponse_ruleNames,
+    listRuleNamesByTargetResponse_httpStatus,
+
     -- ** CreateConnection
     createConnection_description,
     createConnection_name,
@@ -210,14 +219,21 @@ module Network.AWS.CloudWatchEvents.Lens
     createConnectionResponse_lastModifiedTime,
     createConnectionResponse_httpStatus,
 
-    -- ** ListRuleNamesByTarget
-    listRuleNamesByTarget_nextToken,
-    listRuleNamesByTarget_eventBusName,
-    listRuleNamesByTarget_limit,
-    listRuleNamesByTarget_targetArn,
-    listRuleNamesByTargetResponse_nextToken,
-    listRuleNamesByTargetResponse_ruleNames,
-    listRuleNamesByTargetResponse_httpStatus,
+    -- ** EnableRule
+    enableRule_eventBusName,
+    enableRule_name,
+
+    -- ** PutRule
+    putRule_eventPattern,
+    putRule_roleArn,
+    putRule_eventBusName,
+    putRule_scheduleExpression,
+    putRule_state,
+    putRule_tags,
+    putRule_description,
+    putRule_name,
+    putRuleResponse_ruleArn,
+    putRuleResponse_httpStatus,
 
     -- ** ListRules
     listRules_nextToken,
@@ -228,22 +244,6 @@ module Network.AWS.CloudWatchEvents.Lens
     listRulesResponse_rules,
     listRulesResponse_httpStatus,
 
-    -- ** PutRule
-    putRule_eventPattern,
-    putRule_roleArn,
-    putRule_eventBusName,
-    putRule_state,
-    putRule_scheduleExpression,
-    putRule_tags,
-    putRule_description,
-    putRule_name,
-    putRuleResponse_ruleArn,
-    putRuleResponse_httpStatus,
-
-    -- ** EnableRule
-    enableRule_eventBusName,
-    enableRule_name,
-
     -- ** ListConnections
     listConnections_nextToken,
     listConnections_connectionState,
@@ -252,6 +252,13 @@ module Network.AWS.CloudWatchEvents.Lens
     listConnectionsResponse_nextToken,
     listConnectionsResponse_connections,
     listConnectionsResponse_httpStatus,
+
+    -- ** CreateEventBus
+    createEventBus_tags,
+    createEventBus_eventSourceName,
+    createEventBus_name,
+    createEventBusResponse_eventBusArn,
+    createEventBusResponse_httpStatus,
 
     -- ** DeauthorizeConnection
     deauthorizeConnection_name,
@@ -262,12 +269,13 @@ module Network.AWS.CloudWatchEvents.Lens
     deauthorizeConnectionResponse_lastAuthorizedTime,
     deauthorizeConnectionResponse_httpStatus,
 
-    -- ** CreateEventBus
-    createEventBus_tags,
-    createEventBus_eventSourceName,
-    createEventBus_name,
-    createEventBusResponse_eventBusArn,
-    createEventBusResponse_httpStatus,
+    -- ** ListEventBuses
+    listEventBuses_nextToken,
+    listEventBuses_namePrefix,
+    listEventBuses_limit,
+    listEventBusesResponse_nextToken,
+    listEventBusesResponse_eventBuses,
+    listEventBusesResponse_httpStatus,
 
     -- ** RemoveTargets
     removeTargets_force,
@@ -278,22 +286,42 @@ module Network.AWS.CloudWatchEvents.Lens
     removeTargetsResponse_failedEntries,
     removeTargetsResponse_httpStatus,
 
-    -- ** ListEventBuses
-    listEventBuses_nextToken,
-    listEventBuses_namePrefix,
-    listEventBuses_limit,
-    listEventBusesResponse_nextToken,
-    listEventBusesResponse_eventBuses,
-    listEventBusesResponse_httpStatus,
-
     -- ** DeleteEventBus
     deleteEventBus_name,
+
+    -- ** DeletePartnerEventSource
+    deletePartnerEventSource_name,
+    deletePartnerEventSource_account,
 
     -- ** PutEvents
     putEvents_entries,
     putEventsResponse_failedEntryCount,
     putEventsResponse_entries,
     putEventsResponse_httpStatus,
+
+    -- ** DescribeReplay
+    describeReplay_replayName,
+    describeReplayResponse_eventSourceArn,
+    describeReplayResponse_eventStartTime,
+    describeReplayResponse_replayArn,
+    describeReplayResponse_replayStartTime,
+    describeReplayResponse_stateReason,
+    describeReplayResponse_state,
+    describeReplayResponse_replayName,
+    describeReplayResponse_destination,
+    describeReplayResponse_replayEndTime,
+    describeReplayResponse_eventLastReplayedTime,
+    describeReplayResponse_eventEndTime,
+    describeReplayResponse_description,
+    describeReplayResponse_httpStatus,
+
+    -- ** ListPartnerEventSources
+    listPartnerEventSources_nextToken,
+    listPartnerEventSources_limit,
+    listPartnerEventSources_namePrefix,
+    listPartnerEventSourcesResponse_nextToken,
+    listPartnerEventSourcesResponse_partnerEventSources,
+    listPartnerEventSourcesResponse_httpStatus,
 
     -- ** CreateArchive
     createArchive_eventPattern,
@@ -307,33 +335,13 @@ module Network.AWS.CloudWatchEvents.Lens
     createArchiveResponse_state,
     createArchiveResponse_httpStatus,
 
-    -- ** ListPartnerEventSources
-    listPartnerEventSources_nextToken,
-    listPartnerEventSources_limit,
-    listPartnerEventSources_namePrefix,
-    listPartnerEventSourcesResponse_nextToken,
-    listPartnerEventSourcesResponse_partnerEventSources,
-    listPartnerEventSourcesResponse_httpStatus,
-
-    -- ** DescribeReplay
-    describeReplay_replayName,
-    describeReplayResponse_eventSourceArn,
-    describeReplayResponse_eventStartTime,
-    describeReplayResponse_replayStartTime,
-    describeReplayResponse_replayArn,
-    describeReplayResponse_stateReason,
-    describeReplayResponse_state,
-    describeReplayResponse_destination,
-    describeReplayResponse_replayName,
-    describeReplayResponse_eventLastReplayedTime,
-    describeReplayResponse_replayEndTime,
-    describeReplayResponse_eventEndTime,
-    describeReplayResponse_description,
-    describeReplayResponse_httpStatus,
-
-    -- ** DeletePartnerEventSource
-    deletePartnerEventSource_name,
-    deletePartnerEventSource_account,
+    -- ** PutTargets
+    putTargets_eventBusName,
+    putTargets_rule,
+    putTargets_targets,
+    putTargetsResponse_failedEntryCount,
+    putTargetsResponse_failedEntries,
+    putTargetsResponse_httpStatus,
 
     -- ** CreatePartnerEventSource
     createPartnerEventSource_name,
@@ -348,19 +356,14 @@ module Network.AWS.CloudWatchEvents.Lens
     startReplay_eventStartTime,
     startReplay_eventEndTime,
     startReplay_destination,
-    startReplayResponse_replayStartTime,
     startReplayResponse_replayArn,
+    startReplayResponse_replayStartTime,
     startReplayResponse_stateReason,
     startReplayResponse_state,
     startReplayResponse_httpStatus,
 
-    -- ** PutTargets
-    putTargets_eventBusName,
-    putTargets_rule,
-    putTargets_targets,
-    putTargetsResponse_failedEntryCount,
-    putTargetsResponse_failedEntries,
-    putTargetsResponse_httpStatus,
+    -- ** ActivateEventSource
+    activateEventSource_name,
 
     -- ** ListEventSources
     listEventSources_nextToken,
@@ -369,20 +372,6 @@ module Network.AWS.CloudWatchEvents.Lens
     listEventSourcesResponse_nextToken,
     listEventSourcesResponse_eventSources,
     listEventSourcesResponse_httpStatus,
-
-    -- ** ActivateEventSource
-    activateEventSource_name,
-
-    -- ** DeleteApiDestination
-    deleteApiDestination_name,
-    deleteApiDestinationResponse_httpStatus,
-
-    -- ** CancelReplay
-    cancelReplay_replayName,
-    cancelReplayResponse_replayArn,
-    cancelReplayResponse_stateReason,
-    cancelReplayResponse_state,
-    cancelReplayResponse_httpStatus,
 
     -- ** UpdateApiDestination
     updateApiDestination_httpMethod,
@@ -397,10 +386,21 @@ module Network.AWS.CloudWatchEvents.Lens
     updateApiDestinationResponse_lastModifiedTime,
     updateApiDestinationResponse_httpStatus,
 
+    -- ** CancelReplay
+    cancelReplay_replayName,
+    cancelReplayResponse_replayArn,
+    cancelReplayResponse_stateReason,
+    cancelReplayResponse_state,
+    cancelReplayResponse_httpStatus,
+
     -- ** RemovePermission
     removePermission_statementId,
     removePermission_eventBusName,
     removePermission_removeAllPermissions,
+
+    -- ** DeleteApiDestination
+    deleteApiDestination_name,
+    deleteApiDestinationResponse_httpStatus,
 
     -- ** TestEventPattern
     testEventPattern_eventPattern,
@@ -408,30 +408,20 @@ module Network.AWS.CloudWatchEvents.Lens
     testEventPatternResponse_result,
     testEventPatternResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** DisableRule
     disableRule_eventBusName,
     disableRule_name,
-
-    -- ** ListReplays
-    listReplays_nextToken,
-    listReplays_eventSourceArn,
-    listReplays_state,
-    listReplays_namePrefix,
-    listReplays_limit,
-    listReplaysResponse_nextToken,
-    listReplaysResponse_replays,
-    listReplaysResponse_httpStatus,
 
     -- ** DescribePartnerEventSource
     describePartnerEventSource_name,
     describePartnerEventSourceResponse_arn,
     describePartnerEventSourceResponse_name,
     describePartnerEventSourceResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** PutPermission
     putPermission_condition,
@@ -441,6 +431,16 @@ module Network.AWS.CloudWatchEvents.Lens
     putPermission_action,
     putPermission_policy,
 
+    -- ** ListReplays
+    listReplays_eventSourceArn,
+    listReplays_nextToken,
+    listReplays_namePrefix,
+    listReplays_state,
+    listReplays_limit,
+    listReplaysResponse_nextToken,
+    listReplaysResponse_replays,
+    listReplaysResponse_httpStatus,
+
     -- * Types
 
     -- ** ApiDestination
@@ -448,16 +448,16 @@ module Network.AWS.CloudWatchEvents.Lens
     apiDestination_creationTime,
     apiDestination_apiDestinationArn,
     apiDestination_invocationEndpoint,
-    apiDestination_apiDestinationState,
     apiDestination_connectionArn,
+    apiDestination_apiDestinationState,
     apiDestination_name,
     apiDestination_lastModifiedTime,
     apiDestination_invocationRateLimitPerSecond,
 
     -- ** Archive
     archive_eventCount,
-    archive_eventSourceArn,
     archive_creationTime,
+    archive_eventSourceArn,
     archive_stateReason,
     archive_archiveName,
     archive_state,
@@ -481,6 +481,11 @@ module Network.AWS.CloudWatchEvents.Lens
     -- ** BatchRetryStrategy
     batchRetryStrategy_attempts,
 
+    -- ** CapacityProviderStrategyItem
+    capacityProviderStrategyItem_weight,
+    capacityProviderStrategyItem_base,
+    capacityProviderStrategyItem_capacityProvider,
+
     -- ** Condition
     condition_type,
     condition_key,
@@ -490,8 +495,8 @@ module Network.AWS.CloudWatchEvents.Lens
     connection_creationTime,
     connection_connectionState,
     connection_stateReason,
-    connection_authorizationType,
     connection_connectionArn,
+    connection_authorizationType,
     connection_name,
     connection_lastModifiedTime,
     connection_lastAuthorizedTime,
@@ -501,8 +506,8 @@ module Network.AWS.CloudWatchEvents.Lens
 
     -- ** ConnectionAuthResponseParameters
     connectionAuthResponseParameters_basicAuthParameters,
-    connectionAuthResponseParameters_oAuthParameters,
     connectionAuthResponseParameters_apiKeyAuthParameters,
+    connectionAuthResponseParameters_oAuthParameters,
     connectionAuthResponseParameters_invocationHttpParameters,
 
     -- ** ConnectionBasicAuthResponseParameters
@@ -543,8 +548,8 @@ module Network.AWS.CloudWatchEvents.Lens
 
     -- ** CreateConnectionAuthRequestParameters
     createConnectionAuthRequestParameters_basicAuthParameters,
-    createConnectionAuthRequestParameters_oAuthParameters,
     createConnectionAuthRequestParameters_apiKeyAuthParameters,
+    createConnectionAuthRequestParameters_oAuthParameters,
     createConnectionAuthRequestParameters_invocationHttpParameters,
 
     -- ** CreateConnectionBasicAuthRequestParameters
@@ -566,10 +571,18 @@ module Network.AWS.CloudWatchEvents.Lens
 
     -- ** EcsParameters
     ecsParameters_networkConfiguration,
+    ecsParameters_capacityProviderStrategy,
+    ecsParameters_referenceId,
+    ecsParameters_enableECSManagedTags,
     ecsParameters_platformVersion,
     ecsParameters_launchType,
+    ecsParameters_placementStrategy,
     ecsParameters_group,
+    ecsParameters_placementConstraints,
+    ecsParameters_tags,
+    ecsParameters_enableExecuteCommand,
     ecsParameters_taskCount,
+    ecsParameters_propagateTags,
     ecsParameters_taskDefinitionArn,
 
     -- ** EventBus
@@ -581,8 +594,8 @@ module Network.AWS.CloudWatchEvents.Lens
     eventSource_creationTime,
     eventSource_expirationTime,
     eventSource_arn,
-    eventSource_state,
     eventSource_name,
+    eventSource_state,
     eventSource_createdBy,
 
     -- ** HttpParameters
@@ -609,6 +622,14 @@ module Network.AWS.CloudWatchEvents.Lens
     partnerEventSourceAccount_expirationTime,
     partnerEventSourceAccount_state,
     partnerEventSourceAccount_account,
+
+    -- ** PlacementConstraint
+    placementConstraint_type,
+    placementConstraint_expression,
+
+    -- ** PlacementStrategy
+    placementStrategy_type,
+    placementStrategy_field,
 
     -- ** PutEventsRequestEntry
     putEventsRequestEntry_detailType,
@@ -661,8 +682,8 @@ module Network.AWS.CloudWatchEvents.Lens
     replay_stateReason,
     replay_state,
     replay_replayName,
-    replay_eventLastReplayedTime,
     replay_replayEndTime,
+    replay_eventLastReplayedTime,
     replay_eventEndTime,
 
     -- ** ReplayDestination
@@ -677,10 +698,10 @@ module Network.AWS.CloudWatchEvents.Lens
     rule_eventPattern,
     rule_roleArn,
     rule_arn,
-    rule_eventBusName,
-    rule_state,
-    rule_scheduleExpression,
     rule_name,
+    rule_eventBusName,
+    rule_scheduleExpression,
+    rule_state,
     rule_managedBy,
     rule_description,
 
@@ -690,6 +711,13 @@ module Network.AWS.CloudWatchEvents.Lens
     -- ** RunCommandTarget
     runCommandTarget_key,
     runCommandTarget_values,
+
+    -- ** SageMakerPipelineParameter
+    sageMakerPipelineParameter_name,
+    sageMakerPipelineParameter_value,
+
+    -- ** SageMakerPipelineParameters
+    sageMakerPipelineParameters_pipelineParameterList,
 
     -- ** SqsParameters
     sqsParameters_messageGroupId,
@@ -703,13 +731,14 @@ module Network.AWS.CloudWatchEvents.Lens
     target_runCommandParameters,
     target_roleArn,
     target_redshiftDataParameters,
-    target_batchParameters,
     target_input,
+    target_batchParameters,
     target_inputPath,
-    target_deadLetterConfig,
     target_retryPolicy,
+    target_deadLetterConfig,
     target_httpParameters,
     target_sqsParameters,
+    target_sageMakerPipelineParameters,
     target_inputTransformer,
     target_kinesisParameters,
     target_id,
@@ -721,8 +750,8 @@ module Network.AWS.CloudWatchEvents.Lens
 
     -- ** UpdateConnectionAuthRequestParameters
     updateConnectionAuthRequestParameters_basicAuthParameters,
-    updateConnectionAuthRequestParameters_oAuthParameters,
     updateConnectionAuthRequestParameters_apiKeyAuthParameters,
+    updateConnectionAuthRequestParameters_oAuthParameters,
     updateConnectionAuthRequestParameters_invocationHttpParameters,
 
     -- ** UpdateConnectionBasicAuthRequestParameters
@@ -794,6 +823,7 @@ import Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
 import Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
 import Network.AWS.CloudWatchEvents.Types.BatchParameters
 import Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
+import Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem
 import Network.AWS.CloudWatchEvents.Types.Condition
 import Network.AWS.CloudWatchEvents.Types.Connection
 import Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
@@ -820,6 +850,8 @@ import Network.AWS.CloudWatchEvents.Types.KinesisParameters
 import Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
 import Network.AWS.CloudWatchEvents.Types.PartnerEventSource
 import Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+import Network.AWS.CloudWatchEvents.Types.PlacementConstraint
+import Network.AWS.CloudWatchEvents.Types.PlacementStrategy
 import Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
 import Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
 import Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
@@ -833,6 +865,8 @@ import Network.AWS.CloudWatchEvents.Types.RetryPolicy
 import Network.AWS.CloudWatchEvents.Types.Rule
 import Network.AWS.CloudWatchEvents.Types.RunCommandParameters
 import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameter
+import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
 import Network.AWS.CloudWatchEvents.Types.SqsParameters
 import Network.AWS.CloudWatchEvents.Types.Tag
 import Network.AWS.CloudWatchEvents.Types.Target

@@ -21,21 +21,21 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the items you need to import key material into a symmetric,
--- customer managed customer master key (CMK). For more information about
--- importing key material into AWS KMS, see
+-- customer managed KMS key. For more information about importing key
+-- material into KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- This operation returns a public key and an import token. Use the public
 -- key to encrypt the symmetric key material. Store the import token to
 -- send with a subsequent ImportKeyMaterial request.
 --
--- You must specify the key ID of the symmetric CMK into which you will
--- import key material. This CMK\'s @Origin@ must be @EXTERNAL@. You must
--- also specify the wrapping algorithm and type of wrapping key (public
--- key) that you will use to encrypt the key material. You cannot perform
--- this operation on an asymmetric CMK or on any CMK in a different AWS
--- account.
+-- You must specify the key ID of the symmetric KMS key into which you will
+-- import key material. This KMS key\'s @Origin@ must be @EXTERNAL@. You
+-- must also specify the wrapping algorithm and type of wrapping key
+-- (public key) that you will use to encrypt the key material. You cannot
+-- perform this operation on an asymmetric KMS key or on any KMS key in a
+-- different Amazon Web Services account.
 --
 -- To import key material, you must use the public key and import token
 -- from the same response. These items are valid for 24 hours. The
@@ -44,13 +44,13 @@
 -- request. If your key and token expire, send another
 -- @GetParametersForImport@ request.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GetParametersForImport>
@@ -93,10 +93,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
-  { -- | The identifier of the symmetric CMK into which you will import key
-    -- material. The @Origin@ of the CMK must be @EXTERNAL@.
+  { -- | The identifier of the symmetric KMS key into which you will import key
+    -- material. The @Origin@ of the KMS key must be @EXTERNAL@.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -105,12 +105,13 @@ data GetParametersForImport = GetParametersForImport'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
     -- | The algorithm you will use to encrypt the key material before importing
     -- it with ImportKeyMaterial. For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- in the /Key Management Service Developer Guide/.
     wrappingAlgorithm :: AlgorithmSpec,
     -- | The type of wrapping key (public key) to return in the response. Only
     -- 2048-bit RSA public keys are supported.
@@ -126,10 +127,10 @@ data GetParametersForImport = GetParametersForImport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'getParametersForImport_keyId' - The identifier of the symmetric CMK into which you will import key
--- material. The @Origin@ of the CMK must be @EXTERNAL@.
+-- 'keyId', 'getParametersForImport_keyId' - The identifier of the symmetric KMS key into which you will import key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -138,12 +139,13 @@ data GetParametersForImport = GetParametersForImport'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
 -- 'wrappingAlgorithm', 'getParametersForImport_wrappingAlgorithm' - The algorithm you will use to encrypt the key material before importing
 -- it with ImportKeyMaterial. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'wrappingKeySpec', 'getParametersForImport_wrappingKeySpec' - The type of wrapping key (public key) to return in the response. Only
 -- 2048-bit RSA public keys are supported.
@@ -165,10 +167,10 @@ newGetParametersForImport
         wrappingKeySpec = pWrappingKeySpec_
       }
 
--- | The identifier of the symmetric CMK into which you will import key
--- material. The @Origin@ of the CMK must be @EXTERNAL@.
+-- | The identifier of the symmetric KMS key into which you will import key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -177,14 +179,15 @@ newGetParametersForImport
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 getParametersForImport_keyId :: Lens.Lens' GetParametersForImport Prelude.Text
 getParametersForImport_keyId = Lens.lens (\GetParametersForImport' {keyId} -> keyId) (\s@GetParametersForImport' {} a -> s {keyId = a} :: GetParametersForImport)
 
 -- | The algorithm you will use to encrypt the key material before importing
 -- it with ImportKeyMaterial. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 getParametersForImport_wrappingAlgorithm :: Lens.Lens' GetParametersForImport AlgorithmSpec
 getParametersForImport_wrappingAlgorithm = Lens.lens (\GetParametersForImport' {wrappingAlgorithm} -> wrappingAlgorithm) (\s@GetParametersForImport' {} a -> s {wrappingAlgorithm = a} :: GetParametersForImport)
 
@@ -260,8 +263,8 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
     importToken :: Prelude.Maybe Core.Base64,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the CMK to use in a subsequent ImportKeyMaterial request. This is the
-    -- same CMK specified in the @GetParametersForImport@ request.
+    -- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
+    -- the same KMS key specified in the @GetParametersForImport@ request.
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -296,8 +299,8 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 --
 -- 'keyId', 'getParametersForImportResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK to use in a subsequent ImportKeyMaterial request. This is the
--- same CMK specified in the @GetParametersForImport@ request.
+-- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
+-- the same KMS key specified in the @GetParametersForImport@ request.
 --
 -- 'httpStatus', 'getParametersForImportResponse_httpStatus' - The response's http status code.
 newGetParametersForImportResponse ::
@@ -340,8 +343,8 @@ getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportR
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK to use in a subsequent ImportKeyMaterial request. This is the
--- same CMK specified in the @GetParametersForImport@ request.
+-- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
+-- the same KMS key specified in the @GetParametersForImport@ request.
 getParametersForImportResponse_keyId :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.Text)
 getParametersForImportResponse_keyId = Lens.lens (\GetParametersForImportResponse' {keyId} -> keyId) (\s@GetParametersForImportResponse' {} a -> s {keyId = a} :: GetParametersForImportResponse)
 

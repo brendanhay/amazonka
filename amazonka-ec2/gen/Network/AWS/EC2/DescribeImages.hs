@@ -24,13 +24,14 @@
 -- or all of the images available to you.
 --
 -- The images available to you include public images, private images that
--- you own, and private images owned by other AWS accounts for which you
--- have explicit launch permissions.
+-- you own, and private images owned by other Amazon Web Services accounts
+-- for which you have explicit launch permissions.
 --
 -- Recently deregistered images appear in the returned results for a short
 -- interval and then return empty results. After all instances that
 -- reference a deregistered AMI are terminated, specifying the ID of the
--- image results in an error indicating that the AMI ID cannot be found.
+-- image will eventually return an error indicating that the AMI ID cannot
+-- be found.
 module Network.AWS.EC2.DescribeImages
   ( -- * Creating a Request
     DescribeImages (..),
@@ -41,6 +42,7 @@ module Network.AWS.EC2.DescribeImages
     describeImages_dryRun,
     describeImages_owners,
     describeImages_filters,
+    describeImages_includeDeprecated,
     describeImages_executableUsers,
 
     -- * Destructuring the Response
@@ -72,7 +74,7 @@ data DescribeImages = DescribeImages'
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Scopes the results to images with the specified owners. You can specify
-    -- a combination of AWS account IDs, @self@, @amazon@, and
+    -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
     -- @aws-marketplace@. If you omit this parameter, the results include all
     -- images for which you have launch permissions, regardless of ownership.
     owners :: Prelude.Maybe [Prelude.Text],
@@ -89,16 +91,17 @@ data DescribeImages = DescribeImages'
     --     the block device mapping (for example, @\/dev\/sdh@ or @xvdh@).
     --
     -- -   @block-device-mapping.snapshot-id@ - The ID of the snapshot used for
-    --     the EBS volume.
+    --     the Amazon EBS volume.
     --
-    -- -   @block-device-mapping.volume-size@ - The volume size of the EBS
-    --     volume, in GiB.
+    -- -   @block-device-mapping.volume-size@ - The volume size of the Amazon
+    --     EBS volume, in GiB.
     --
-    -- -   @block-device-mapping.volume-type@ - The volume type of the EBS
-    --     volume (@gp2@ | @io1@ | @io2@ | @st1 @| @sc1@ | @standard@).
+    -- -   @block-device-mapping.volume-type@ - The volume type of the Amazon
+    --     EBS volume (@io1@ | @io2@ | @gp2@ | @gp3@ | @sc1 @| @st1@ |
+    --     @standard@).
     --
     -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
-    --     the EBS volume is encrypted.
+    --     the Amazon EBS volume is encrypted.
     --
     -- -   @description@ - The description of the image (provided during image
     --     creation).
@@ -122,20 +125,20 @@ data DescribeImages = DescribeImages'
     --
     -- -   @owner-alias@ - The owner alias (@amazon@ | @aws-marketplace@). The
     --     valid aliases are defined in an Amazon-maintained list. This is not
-    --     the AWS account alias that can be set using the IAM console. We
+    --     the Amazon Web Services account alias that can be set using the IAM
+    --     console. We recommend that you use the __Owner__ request parameter
+    --     instead of this filter.
+    --
+    -- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
     --     recommend that you use the __Owner__ request parameter instead of
     --     this filter.
-    --
-    -- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
-    --     use the __Owner__ request parameter instead of this filter.
     --
     -- -   @platform@ - The platform. To only list Windows-based AMIs, use
     --     @windows@.
     --
     -- -   @product-code@ - The product code.
     --
-    -- -   @product-code.type@ - The type of the product code (@devpay@ |
-    --     @marketplace@).
+    -- -   @product-code.type@ - The type of the product code (@marketplace@).
     --
     -- -   @ramdisk-id@ - The RAM disk ID.
     --
@@ -168,9 +171,17 @@ data DescribeImages = DescribeImages'
     -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
     --     @hvm@).
     filters :: Prelude.Maybe [Filter],
+    -- | If @true@, all deprecated AMIs are included in the response. If @false@,
+    -- no deprecated AMIs are included in the response. If no value is
+    -- specified, the default value is @false@.
+    --
+    -- If you are the AMI owner, all deprecated AMIs appear in the response
+    -- regardless of the value (@true@ or @false@) that you set for this
+    -- parameter.
+    includeDeprecated :: Prelude.Maybe Prelude.Bool,
     -- | Scopes the images by users with explicit launch permissions. Specify an
-    -- AWS account ID, @self@ (the sender of the request), or @all@ (public
-    -- AMIs).
+    -- Amazon Web Services account ID, @self@ (the sender of the request), or
+    -- @all@ (public AMIs).
     executableUsers :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -193,7 +204,7 @@ data DescribeImages = DescribeImages'
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'owners', 'describeImages_owners' - Scopes the results to images with the specified owners. You can specify
--- a combination of AWS account IDs, @self@, @amazon@, and
+-- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
 -- @aws-marketplace@. If you omit this parameter, the results include all
 -- images for which you have launch permissions, regardless of ownership.
 --
@@ -210,16 +221,17 @@ data DescribeImages = DescribeImages'
 --     the block device mapping (for example, @\/dev\/sdh@ or @xvdh@).
 --
 -- -   @block-device-mapping.snapshot-id@ - The ID of the snapshot used for
---     the EBS volume.
+--     the Amazon EBS volume.
 --
--- -   @block-device-mapping.volume-size@ - The volume size of the EBS
---     volume, in GiB.
+-- -   @block-device-mapping.volume-size@ - The volume size of the Amazon
+--     EBS volume, in GiB.
 --
--- -   @block-device-mapping.volume-type@ - The volume type of the EBS
---     volume (@gp2@ | @io1@ | @io2@ | @st1 @| @sc1@ | @standard@).
+-- -   @block-device-mapping.volume-type@ - The volume type of the Amazon
+--     EBS volume (@io1@ | @io2@ | @gp2@ | @gp3@ | @sc1 @| @st1@ |
+--     @standard@).
 --
 -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
---     the EBS volume is encrypted.
+--     the Amazon EBS volume is encrypted.
 --
 -- -   @description@ - The description of the image (provided during image
 --     creation).
@@ -243,20 +255,20 @@ data DescribeImages = DescribeImages'
 --
 -- -   @owner-alias@ - The owner alias (@amazon@ | @aws-marketplace@). The
 --     valid aliases are defined in an Amazon-maintained list. This is not
---     the AWS account alias that can be set using the IAM console. We
+--     the Amazon Web Services account alias that can be set using the IAM
+--     console. We recommend that you use the __Owner__ request parameter
+--     instead of this filter.
+--
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
 --     recommend that you use the __Owner__ request parameter instead of
 --     this filter.
---
--- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
---     use the __Owner__ request parameter instead of this filter.
 --
 -- -   @platform@ - The platform. To only list Windows-based AMIs, use
 --     @windows@.
 --
 -- -   @product-code@ - The product code.
 --
--- -   @product-code.type@ - The type of the product code (@devpay@ |
---     @marketplace@).
+-- -   @product-code.type@ - The type of the product code (@marketplace@).
 --
 -- -   @ramdisk-id@ - The RAM disk ID.
 --
@@ -289,9 +301,17 @@ data DescribeImages = DescribeImages'
 -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
 --     @hvm@).
 --
+-- 'includeDeprecated', 'describeImages_includeDeprecated' - If @true@, all deprecated AMIs are included in the response. If @false@,
+-- no deprecated AMIs are included in the response. If no value is
+-- specified, the default value is @false@.
+--
+-- If you are the AMI owner, all deprecated AMIs appear in the response
+-- regardless of the value (@true@ or @false@) that you set for this
+-- parameter.
+--
 -- 'executableUsers', 'describeImages_executableUsers' - Scopes the images by users with explicit launch permissions. Specify an
--- AWS account ID, @self@ (the sender of the request), or @all@ (public
--- AMIs).
+-- Amazon Web Services account ID, @self@ (the sender of the request), or
+-- @all@ (public AMIs).
 newDescribeImages ::
   DescribeImages
 newDescribeImages =
@@ -300,6 +320,7 @@ newDescribeImages =
       dryRun = Prelude.Nothing,
       owners = Prelude.Nothing,
       filters = Prelude.Nothing,
+      includeDeprecated = Prelude.Nothing,
       executableUsers = Prelude.Nothing
     }
 
@@ -317,7 +338,7 @@ describeImages_dryRun :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_dryRun = Lens.lens (\DescribeImages' {dryRun} -> dryRun) (\s@DescribeImages' {} a -> s {dryRun = a} :: DescribeImages)
 
 -- | Scopes the results to images with the specified owners. You can specify
--- a combination of AWS account IDs, @self@, @amazon@, and
+-- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
 -- @aws-marketplace@. If you omit this parameter, the results include all
 -- images for which you have launch permissions, regardless of ownership.
 describeImages_owners :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
@@ -336,16 +357,17 @@ describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@Desc
 --     the block device mapping (for example, @\/dev\/sdh@ or @xvdh@).
 --
 -- -   @block-device-mapping.snapshot-id@ - The ID of the snapshot used for
---     the EBS volume.
+--     the Amazon EBS volume.
 --
--- -   @block-device-mapping.volume-size@ - The volume size of the EBS
---     volume, in GiB.
+-- -   @block-device-mapping.volume-size@ - The volume size of the Amazon
+--     EBS volume, in GiB.
 --
--- -   @block-device-mapping.volume-type@ - The volume type of the EBS
---     volume (@gp2@ | @io1@ | @io2@ | @st1 @| @sc1@ | @standard@).
+-- -   @block-device-mapping.volume-type@ - The volume type of the Amazon
+--     EBS volume (@io1@ | @io2@ | @gp2@ | @gp3@ | @sc1 @| @st1@ |
+--     @standard@).
 --
 -- -   @block-device-mapping.encrypted@ - A Boolean that indicates whether
---     the EBS volume is encrypted.
+--     the Amazon EBS volume is encrypted.
 --
 -- -   @description@ - The description of the image (provided during image
 --     creation).
@@ -369,20 +391,20 @@ describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@Desc
 --
 -- -   @owner-alias@ - The owner alias (@amazon@ | @aws-marketplace@). The
 --     valid aliases are defined in an Amazon-maintained list. This is not
---     the AWS account alias that can be set using the IAM console. We
+--     the Amazon Web Services account alias that can be set using the IAM
+--     console. We recommend that you use the __Owner__ request parameter
+--     instead of this filter.
+--
+-- -   @owner-id@ - The Amazon Web Services account ID of the owner. We
 --     recommend that you use the __Owner__ request parameter instead of
 --     this filter.
---
--- -   @owner-id@ - The AWS account ID of the owner. We recommend that you
---     use the __Owner__ request parameter instead of this filter.
 --
 -- -   @platform@ - The platform. To only list Windows-based AMIs, use
 --     @windows@.
 --
 -- -   @product-code@ - The product code.
 --
--- -   @product-code.type@ - The type of the product code (@devpay@ |
---     @marketplace@).
+-- -   @product-code.type@ - The type of the product code (@marketplace@).
 --
 -- -   @ramdisk-id@ - The RAM disk ID.
 --
@@ -417,9 +439,19 @@ describeImages_owners = Lens.lens (\DescribeImages' {owners} -> owners) (\s@Desc
 describeImages_filters :: Lens.Lens' DescribeImages (Prelude.Maybe [Filter])
 describeImages_filters = Lens.lens (\DescribeImages' {filters} -> filters) (\s@DescribeImages' {} a -> s {filters = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
+-- | If @true@, all deprecated AMIs are included in the response. If @false@,
+-- no deprecated AMIs are included in the response. If no value is
+-- specified, the default value is @false@.
+--
+-- If you are the AMI owner, all deprecated AMIs appear in the response
+-- regardless of the value (@true@ or @false@) that you set for this
+-- parameter.
+describeImages_includeDeprecated :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
+describeImages_includeDeprecated = Lens.lens (\DescribeImages' {includeDeprecated} -> includeDeprecated) (\s@DescribeImages' {} a -> s {includeDeprecated = a} :: DescribeImages)
+
 -- | Scopes the images by users with explicit launch permissions. Specify an
--- AWS account ID, @self@ (the sender of the request), or @all@ (public
--- AMIs).
+-- Amazon Web Services account ID, @self@ (the sender of the request), or
+-- @all@ (public AMIs).
 describeImages_executableUsers :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
 describeImages_executableUsers = Lens.lens (\DescribeImages' {executableUsers} -> executableUsers) (\s@DescribeImages' {} a -> s {executableUsers = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
@@ -462,6 +494,7 @@ instance Core.ToQuery DescribeImages where
           (Core.toQueryList "Owner" Prelude.<$> owners),
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "IncludeDeprecated" Core.=: includeDeprecated,
         Core.toQuery
           ( Core.toQueryList "ExecutableBy"
               Prelude.<$> executableUsers

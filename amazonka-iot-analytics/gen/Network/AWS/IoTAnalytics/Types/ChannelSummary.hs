@@ -31,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 data ChannelSummary = ChannelSummary'
   { -- | The last time when a new message arrived in the channel.
     --
-    -- AWS IoT Analytics updates this value at most once per minute for one
+    -- IoT Analytics updates this value at most once per minute for one
     -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
     lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the channel.
-    channelName :: Prelude.Maybe Prelude.Text,
     -- | The status of the channel.
     status :: Prelude.Maybe ChannelStatus,
+    -- | The name of the channel.
+    channelName :: Prelude.Maybe Prelude.Text,
     -- | When the channel was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The last time the channel was updated.
@@ -60,15 +60,15 @@ data ChannelSummary = ChannelSummary'
 --
 -- 'lastMessageArrivalTime', 'channelSummary_lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
--- AWS IoT Analytics updates this value at most once per minute for one
+-- IoT Analytics updates this value at most once per minute for one
 -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
 --
--- 'channelName', 'channelSummary_channelName' - The name of the channel.
---
 -- 'status', 'channelSummary_status' - The status of the channel.
+--
+-- 'channelName', 'channelSummary_channelName' - The name of the channel.
 --
 -- 'creationTime', 'channelSummary_creationTime' - When the channel was created.
 --
@@ -81,8 +81,8 @@ newChannelSummary =
   ChannelSummary'
     { lastMessageArrivalTime =
         Prelude.Nothing,
-      channelName = Prelude.Nothing,
       status = Prelude.Nothing,
+      channelName = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
       channelStorage = Prelude.Nothing
@@ -90,7 +90,7 @@ newChannelSummary =
 
 -- | The last time when a new message arrived in the channel.
 --
--- AWS IoT Analytics updates this value at most once per minute for one
+-- IoT Analytics updates this value at most once per minute for one
 -- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
 --
 -- This feature only applies to messages that arrived in the data store
@@ -98,13 +98,13 @@ newChannelSummary =
 channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the channel.
-channelSummary_channelName :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channelName) (\s@ChannelSummary' {} a -> s {channelName = a} :: ChannelSummary)
-
 -- | The status of the channel.
 channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
 channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
+
+-- | The name of the channel.
+channelSummary_channelName :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channelName) (\s@ChannelSummary' {} a -> s {channelName = a} :: ChannelSummary)
 
 -- | When the channel was created.
 channelSummary_creationTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
@@ -125,8 +125,8 @@ instance Core.FromJSON ChannelSummary where
       ( \x ->
           ChannelSummary'
             Prelude.<$> (x Core..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Core..:? "channelName")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "channelName")
             Prelude.<*> (x Core..:? "creationTime")
             Prelude.<*> (x Core..:? "lastUpdateTime")
             Prelude.<*> (x Core..:? "channelStorage")

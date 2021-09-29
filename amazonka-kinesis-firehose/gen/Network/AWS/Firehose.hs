@@ -30,14 +30,14 @@ module Network.AWS.Firehose
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidKMSResourceException
+    _InvalidKMSResourceException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidKMSResourceException
-    _InvalidKMSResourceException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -69,29 +69,29 @@ module Network.AWS.Firehose
     ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
     newListDeliveryStreamsResponse,
 
-    -- ** PutRecordBatch
-    PutRecordBatch (PutRecordBatch'),
-    newPutRecordBatch,
-    PutRecordBatchResponse (PutRecordBatchResponse'),
-    newPutRecordBatchResponse,
-
     -- ** ListTagsForDeliveryStream
     ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
     newListTagsForDeliveryStream,
     ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
     newListTagsForDeliveryStreamResponse,
 
-    -- ** UpdateDestination
-    UpdateDestination (UpdateDestination'),
-    newUpdateDestination,
-    UpdateDestinationResponse (UpdateDestinationResponse'),
-    newUpdateDestinationResponse,
+    -- ** PutRecordBatch
+    PutRecordBatch (PutRecordBatch'),
+    newPutRecordBatch,
+    PutRecordBatchResponse (PutRecordBatchResponse'),
+    newPutRecordBatchResponse,
 
     -- ** DescribeDeliveryStream
     DescribeDeliveryStream (DescribeDeliveryStream'),
     newDescribeDeliveryStream,
     DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
     newDescribeDeliveryStreamResponse,
+
+    -- ** UpdateDestination
+    UpdateDestination (UpdateDestination'),
+    newUpdateDestination,
+    UpdateDestinationResponse (UpdateDestinationResponse'),
+    newUpdateDestinationResponse,
 
     -- ** CreateDeliveryStream
     CreateDeliveryStream (CreateDeliveryStream'),
@@ -105,17 +105,17 @@ module Network.AWS.Firehose
     PutRecordResponse (PutRecordResponse'),
     newPutRecordResponse,
 
-    -- ** DeleteDeliveryStream
-    DeleteDeliveryStream (DeleteDeliveryStream'),
-    newDeleteDeliveryStream,
-    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
-    newDeleteDeliveryStreamResponse,
-
     -- ** UntagDeliveryStream
     UntagDeliveryStream (UntagDeliveryStream'),
     newUntagDeliveryStream,
     UntagDeliveryStreamResponse (UntagDeliveryStreamResponse'),
     newUntagDeliveryStreamResponse,
+
+    -- ** DeleteDeliveryStream
+    DeleteDeliveryStream (DeleteDeliveryStream'),
+    newDeleteDeliveryStream,
+    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
+    newDeleteDeliveryStreamResponse,
 
     -- ** TagDeliveryStream
     TagDeliveryStream (TagDeliveryStream'),
@@ -223,6 +223,10 @@ module Network.AWS.Firehose
     -- ** DestinationDescription
     DestinationDescription (DestinationDescription'),
     newDestinationDescription,
+
+    -- ** DynamicPartitioningConfiguration
+    DynamicPartitioningConfiguration (DynamicPartitioningConfiguration'),
+    newDynamicPartitioningConfiguration,
 
     -- ** ElasticsearchBufferingHints
     ElasticsearchBufferingHints (ElasticsearchBufferingHints'),
@@ -371,6 +375,10 @@ module Network.AWS.Firehose
     -- ** RedshiftRetryOptions
     RedshiftRetryOptions (RedshiftRetryOptions'),
     newRedshiftRetryOptions,
+
+    -- ** RetryOptions
+    RetryOptions (RetryOptions'),
+    newRetryOptions,
 
     -- ** S3DestinationConfiguration
     S3DestinationConfiguration (S3DestinationConfiguration'),

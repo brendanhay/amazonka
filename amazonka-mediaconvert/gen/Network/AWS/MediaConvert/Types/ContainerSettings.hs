@@ -39,20 +39,24 @@ data ContainerSettings = ContainerSettings'
   { -- | Container for this output. Some containers require a container settings
     -- object. If not specified, the default object will be created.
     container :: Prelude.Maybe ContainerType,
-    -- | Settings for MP4 segments in DASH
-    mpdSettings :: Prelude.Maybe MpdSettings,
-    -- | Settings for MP4 container. You can create audio-only AAC outputs with
-    -- this container.
+    -- | These settings relate to your MP4 output container. You can create audio
+    -- only outputs with this container. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
     mp4Settings :: Prelude.Maybe Mp4Settings,
+    -- | These settings relate to the fragmented MP4 container for the segments
+    -- in your DASH outputs.
+    mpdSettings :: Prelude.Maybe MpdSettings,
     -- | Settings for F4v container
     f4vSettings :: Prelude.Maybe F4vSettings,
-    -- | MXF settings
+    -- | These settings relate to your MXF output container.
     mxfSettings :: Prelude.Maybe MxfSettings,
-    -- | Settings for MOV Container.
+    -- | These settings relate to your QuickTime MOV output container.
     movSettings :: Prelude.Maybe MovSettings,
-    -- | Settings for MP4 segments in CMAF
+    -- | These settings relate to the fragmented MP4 container for the segments
+    -- in your CMAF outputs.
     cmfcSettings :: Prelude.Maybe CmfcSettings,
-    -- | Settings for TS segments in HLS
+    -- | These settings relate to the MPEG-2 transport stream (MPEG2-TS)
+    -- container for the MPEG2-TS segments in your HLS outputs.
     m3u8Settings :: Prelude.Maybe M3u8Settings,
     -- | MPEG-2 TS container settings. These apply to outputs in a File output
     -- group when the output\'s container (ContainerType) is MPEG-2 Transport
@@ -80,20 +84,24 @@ data ContainerSettings = ContainerSettings'
 -- 'container', 'containerSettings_container' - Container for this output. Some containers require a container settings
 -- object. If not specified, the default object will be created.
 --
--- 'mpdSettings', 'containerSettings_mpdSettings' - Settings for MP4 segments in DASH
+-- 'mp4Settings', 'containerSettings_mp4Settings' - These settings relate to your MP4 output container. You can create audio
+-- only outputs with this container. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
 --
--- 'mp4Settings', 'containerSettings_mp4Settings' - Settings for MP4 container. You can create audio-only AAC outputs with
--- this container.
+-- 'mpdSettings', 'containerSettings_mpdSettings' - These settings relate to the fragmented MP4 container for the segments
+-- in your DASH outputs.
 --
 -- 'f4vSettings', 'containerSettings_f4vSettings' - Settings for F4v container
 --
--- 'mxfSettings', 'containerSettings_mxfSettings' - MXF settings
+-- 'mxfSettings', 'containerSettings_mxfSettings' - These settings relate to your MXF output container.
 --
--- 'movSettings', 'containerSettings_movSettings' - Settings for MOV Container.
+-- 'movSettings', 'containerSettings_movSettings' - These settings relate to your QuickTime MOV output container.
 --
--- 'cmfcSettings', 'containerSettings_cmfcSettings' - Settings for MP4 segments in CMAF
+-- 'cmfcSettings', 'containerSettings_cmfcSettings' - These settings relate to the fragmented MP4 container for the segments
+-- in your CMAF outputs.
 --
--- 'm3u8Settings', 'containerSettings_m3u8Settings' - Settings for TS segments in HLS
+-- 'm3u8Settings', 'containerSettings_m3u8Settings' - These settings relate to the MPEG-2 transport stream (MPEG2-TS)
+-- container for the MPEG2-TS segments in your HLS outputs.
 --
 -- 'm2tsSettings', 'containerSettings_m2tsSettings' - MPEG-2 TS container settings. These apply to outputs in a File output
 -- group when the output\'s container (ContainerType) is MPEG-2 Transport
@@ -111,8 +119,8 @@ newContainerSettings ::
 newContainerSettings =
   ContainerSettings'
     { container = Prelude.Nothing,
-      mpdSettings = Prelude.Nothing,
       mp4Settings = Prelude.Nothing,
+      mpdSettings = Prelude.Nothing,
       f4vSettings = Prelude.Nothing,
       mxfSettings = Prelude.Nothing,
       movSettings = Prelude.Nothing,
@@ -126,32 +134,36 @@ newContainerSettings =
 containerSettings_container :: Lens.Lens' ContainerSettings (Prelude.Maybe ContainerType)
 containerSettings_container = Lens.lens (\ContainerSettings' {container} -> container) (\s@ContainerSettings' {} a -> s {container = a} :: ContainerSettings)
 
--- | Settings for MP4 segments in DASH
-containerSettings_mpdSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MpdSettings)
-containerSettings_mpdSettings = Lens.lens (\ContainerSettings' {mpdSettings} -> mpdSettings) (\s@ContainerSettings' {} a -> s {mpdSettings = a} :: ContainerSettings)
-
--- | Settings for MP4 container. You can create audio-only AAC outputs with
--- this container.
+-- | These settings relate to your MP4 output container. You can create audio
+-- only outputs with this container. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
 containerSettings_mp4Settings :: Lens.Lens' ContainerSettings (Prelude.Maybe Mp4Settings)
 containerSettings_mp4Settings = Lens.lens (\ContainerSettings' {mp4Settings} -> mp4Settings) (\s@ContainerSettings' {} a -> s {mp4Settings = a} :: ContainerSettings)
+
+-- | These settings relate to the fragmented MP4 container for the segments
+-- in your DASH outputs.
+containerSettings_mpdSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MpdSettings)
+containerSettings_mpdSettings = Lens.lens (\ContainerSettings' {mpdSettings} -> mpdSettings) (\s@ContainerSettings' {} a -> s {mpdSettings = a} :: ContainerSettings)
 
 -- | Settings for F4v container
 containerSettings_f4vSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe F4vSettings)
 containerSettings_f4vSettings = Lens.lens (\ContainerSettings' {f4vSettings} -> f4vSettings) (\s@ContainerSettings' {} a -> s {f4vSettings = a} :: ContainerSettings)
 
--- | MXF settings
+-- | These settings relate to your MXF output container.
 containerSettings_mxfSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MxfSettings)
 containerSettings_mxfSettings = Lens.lens (\ContainerSettings' {mxfSettings} -> mxfSettings) (\s@ContainerSettings' {} a -> s {mxfSettings = a} :: ContainerSettings)
 
--- | Settings for MOV Container.
+-- | These settings relate to your QuickTime MOV output container.
 containerSettings_movSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MovSettings)
 containerSettings_movSettings = Lens.lens (\ContainerSettings' {movSettings} -> movSettings) (\s@ContainerSettings' {} a -> s {movSettings = a} :: ContainerSettings)
 
--- | Settings for MP4 segments in CMAF
+-- | These settings relate to the fragmented MP4 container for the segments
+-- in your CMAF outputs.
 containerSettings_cmfcSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe CmfcSettings)
 containerSettings_cmfcSettings = Lens.lens (\ContainerSettings' {cmfcSettings} -> cmfcSettings) (\s@ContainerSettings' {} a -> s {cmfcSettings = a} :: ContainerSettings)
 
--- | Settings for TS segments in HLS
+-- | These settings relate to the MPEG-2 transport stream (MPEG2-TS)
+-- container for the MPEG2-TS segments in your HLS outputs.
 containerSettings_m3u8Settings :: Lens.Lens' ContainerSettings (Prelude.Maybe M3u8Settings)
 containerSettings_m3u8Settings = Lens.lens (\ContainerSettings' {m3u8Settings} -> m3u8Settings) (\s@ContainerSettings' {} a -> s {m3u8Settings = a} :: ContainerSettings)
 
@@ -176,8 +188,8 @@ instance Core.FromJSON ContainerSettings where
       ( \x ->
           ContainerSettings'
             Prelude.<$> (x Core..:? "container")
-            Prelude.<*> (x Core..:? "mpdSettings")
             Prelude.<*> (x Core..:? "mp4Settings")
+            Prelude.<*> (x Core..:? "mpdSettings")
             Prelude.<*> (x Core..:? "f4vSettings")
             Prelude.<*> (x Core..:? "mxfSettings")
             Prelude.<*> (x Core..:? "movSettings")
@@ -195,8 +207,8 @@ instance Core.ToJSON ContainerSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("container" Core..=) Prelude.<$> container,
-            ("mpdSettings" Core..=) Prelude.<$> mpdSettings,
             ("mp4Settings" Core..=) Prelude.<$> mp4Settings,
+            ("mpdSettings" Core..=) Prelude.<$> mpdSettings,
             ("f4vSettings" Core..=) Prelude.<$> f4vSettings,
             ("mxfSettings" Core..=) Prelude.<$> mxfSettings,
             ("movSettings" Core..=) Prelude.<$> movSettings,

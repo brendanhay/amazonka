@@ -20,23 +20,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allocates an Elastic IP address to your AWS account. After you allocate
--- the Elastic IP address you can associate it with an instance or network
--- interface. After you release an Elastic IP address, it is released to
--- the IP address pool and can be allocated to a different AWS account.
+-- Allocates an Elastic IP address to your Amazon Web Services account.
+-- After you allocate the Elastic IP address you can associate it with an
+-- instance or network interface. After you release an Elastic IP address,
+-- it is released to the IP address pool and can be allocated to a
+-- different Amazon Web Services account.
 --
--- You can allocate an Elastic IP address from an address pool owned by AWS
--- or from an address pool created from a public IPv4 address range that
--- you have brought to AWS for use with your AWS resources using bring your
--- own IP addresses (BYOIP). For more information, see
+-- You can allocate an Elastic IP address from an address pool owned by
+-- Amazon Web Services or from an address pool created from a public IPv4
+-- address range that you have brought to Amazon Web Services for use with
+-- your Amazon Web Services resources using bring your own IP addresses
+-- (BYOIP). For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html Bring Your Own IP Addresses (BYOIP)>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- [EC2-VPC] If you release an Elastic IP address, you might be able to
 -- recover it. You cannot recover an Elastic IP address that you released
--- after it is allocated to another AWS account. You cannot recover an
--- Elastic IP address for EC2-Classic. To attempt to recover an Elastic IP
--- address that you released, specify it in this operation.
+-- after it is allocated to another Amazon Web Services account. You cannot
+-- recover an Elastic IP address for EC2-Classic. To attempt to recover an
+-- Elastic IP address that you released, specify it in this operation.
 --
 -- An Elastic IP address is for use either in the EC2-Classic platform or
 -- in a VPC. By default, you can allocate 5 Elastic IP addresses for
@@ -58,8 +60,8 @@ module Network.AWS.EC2.AllocateAddress
     -- * Request Lenses
     allocateAddress_tagSpecifications,
     allocateAddress_customerOwnedIpv4Pool,
-    allocateAddress_dryRun,
     allocateAddress_address,
+    allocateAddress_dryRun,
     allocateAddress_domain,
     allocateAddress_publicIpv4Pool,
     allocateAddress_networkBorderGroup,
@@ -96,14 +98,14 @@ data AllocateAddress = AllocateAddress'
     -- Amazon EC2 select an address from the address pool. Alternatively,
     -- specify a specific address from the address pool.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
+    -- address pool.
+    address :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
-    -- address pool.
-    address :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the Elastic IP address is for use with instances in a
     -- VPC or instances in EC2-Classic.
     --
@@ -145,13 +147,13 @@ data AllocateAddress = AllocateAddress'
 -- Amazon EC2 select an address from the address pool. Alternatively,
 -- specify a specific address from the address pool.
 --
+-- 'address', 'allocateAddress_address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
+-- address pool.
+--
 -- 'dryRun', 'allocateAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'address', 'allocateAddress_address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
--- address pool.
 --
 -- 'domain', 'allocateAddress_domain' - Indicates whether the Elastic IP address is for use with instances in a
 -- VPC or instances in EC2-Classic.
@@ -183,8 +185,8 @@ newAllocateAddress =
     { tagSpecifications =
         Prelude.Nothing,
       customerOwnedIpv4Pool = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       address = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       domain = Prelude.Nothing,
       publicIpv4Pool = Prelude.Nothing,
       networkBorderGroup = Prelude.Nothing
@@ -200,17 +202,17 @@ allocateAddress_tagSpecifications = Lens.lens (\AllocateAddress' {tagSpecificati
 allocateAddress_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
 allocateAddress_customerOwnedIpv4Pool = Lens.lens (\AllocateAddress' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@AllocateAddress' {} a -> s {customerOwnedIpv4Pool = a} :: AllocateAddress)
 
+-- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
+-- address pool.
+allocateAddress_address :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
+allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s@AllocateAddress' {} a -> s {address = a} :: AllocateAddress)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 allocateAddress_dryRun :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Bool)
 allocateAddress_dryRun = Lens.lens (\AllocateAddress' {dryRun} -> dryRun) (\s@AllocateAddress' {} a -> s {dryRun = a} :: AllocateAddress)
-
--- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
--- address pool.
-allocateAddress_address :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
-allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s@AllocateAddress' {} a -> s {address = a} :: AllocateAddress)
 
 -- | Indicates whether the Elastic IP address is for use with instances in a
 -- VPC or instances in EC2-Classic.
@@ -285,8 +287,8 @@ instance Core.ToQuery AllocateAddress where
           ),
         "CustomerOwnedIpv4Pool"
           Core.=: customerOwnedIpv4Pool,
-        "DryRun" Core.=: dryRun,
         "Address" Core.=: address,
+        "DryRun" Core.=: dryRun,
         "Domain" Core.=: domain,
         "PublicIpv4Pool" Core.=: publicIpv4Pool,
         "NetworkBorderGroup" Core.=: networkBorderGroup
@@ -309,8 +311,8 @@ data AllocateAddressResponse = AllocateAddressResponse'
     publicIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | The Elastic IP address.
     publicIp :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
-    -- Elastic IP address for use with instances in a VPC.
+    -- | [EC2-VPC] The ID that Amazon Web Services assigns to represent the
+    -- allocation of the Elastic IP address for use with instances in a VPC.
     allocationId :: Prelude.Maybe Prelude.Text,
     -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
     -- which AWS advertises IP addresses.
@@ -343,8 +345,8 @@ data AllocateAddressResponse = AllocateAddressResponse'
 --
 -- 'publicIp', 'allocateAddressResponse_publicIp' - The Elastic IP address.
 --
--- 'allocationId', 'allocateAddressResponse_allocationId' - [EC2-VPC] The ID that AWS assigns to represent the allocation of the
--- Elastic IP address for use with instances in a VPC.
+-- 'allocationId', 'allocateAddressResponse_allocationId' - [EC2-VPC] The ID that Amazon Web Services assigns to represent the
+-- allocation of the Elastic IP address for use with instances in a VPC.
 --
 -- 'networkBorderGroup', 'allocateAddressResponse_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from
 -- which AWS advertises IP addresses.
@@ -395,8 +397,8 @@ allocateAddressResponse_publicIpv4Pool = Lens.lens (\AllocateAddressResponse' {p
 allocateAddressResponse_publicIp :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
 allocateAddressResponse_publicIp = Lens.lens (\AllocateAddressResponse' {publicIp} -> publicIp) (\s@AllocateAddressResponse' {} a -> s {publicIp = a} :: AllocateAddressResponse)
 
--- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
--- Elastic IP address for use with instances in a VPC.
+-- | [EC2-VPC] The ID that Amazon Web Services assigns to represent the
+-- allocation of the Elastic IP address for use with instances in a VPC.
 allocateAddressResponse_allocationId :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
 allocateAddressResponse_allocationId = Lens.lens (\AllocateAddressResponse' {allocationId} -> allocationId) (\s@AllocateAddressResponse' {} a -> s {allocationId = a} :: AllocateAddressResponse)
 

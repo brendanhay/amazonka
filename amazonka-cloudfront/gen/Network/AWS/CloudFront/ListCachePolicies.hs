@@ -23,7 +23,8 @@
 -- Gets a list of cache policies.
 --
 -- You can optionally apply a filter to return only the managed policies
--- created by AWS, or only the custom policies created in your AWS account.
+-- created by Amazon Web Services, or only the custom policies created in
+-- your account.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -63,10 +64,10 @@ data ListCachePolicies = ListCachePolicies'
   { -- | A filter to return only the specified kinds of cache policies. Valid
     -- values are:
     --
-    -- -   @managed@ – Returns only the managed policies created by AWS.
+    -- -   @managed@ – Returns only the managed policies created by Amazon Web
+    --     Services.
     --
-    -- -   @custom@ – Returns only the custom policies created in your AWS
-    --     account.
+    -- -   @custom@ – Returns only the custom policies created in your account.
     type' :: Prelude.Maybe CachePolicyType,
     -- | The maximum number of cache policies that you want in the response.
     maxItems :: Prelude.Maybe Prelude.Text,
@@ -90,10 +91,10 @@ data ListCachePolicies = ListCachePolicies'
 -- 'type'', 'listCachePolicies_type' - A filter to return only the specified kinds of cache policies. Valid
 -- values are:
 --
--- -   @managed@ – Returns only the managed policies created by AWS.
+-- -   @managed@ – Returns only the managed policies created by Amazon Web
+--     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your AWS
---     account.
+-- -   @custom@ – Returns only the custom policies created in your account.
 --
 -- 'maxItems', 'listCachePolicies_maxItems' - The maximum number of cache policies that you want in the response.
 --
@@ -114,10 +115,10 @@ newListCachePolicies =
 -- | A filter to return only the specified kinds of cache policies. Valid
 -- values are:
 --
--- -   @managed@ – Returns only the managed policies created by AWS.
+-- -   @managed@ – Returns only the managed policies created by Amazon Web
+--     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your AWS
---     account.
+-- -   @custom@ – Returns only the custom policies created in your account.
 listCachePolicies_type :: Lens.Lens' ListCachePolicies (Prelude.Maybe CachePolicyType)
 listCachePolicies_type = Lens.lens (\ListCachePolicies' {type'} -> type') (\s@ListCachePolicies' {} a -> s {type' = a} :: ListCachePolicies)
 

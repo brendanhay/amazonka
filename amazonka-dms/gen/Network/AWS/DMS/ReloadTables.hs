@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Reloads the target database table with the source data.
+--
+-- You can only use this operation with a task in the @RUNNING@ state,
+-- otherwise the service will throw an @InvalidResourceStateFault@
+-- exception.
 module Network.AWS.DMS.ReloadTables
   ( -- * Creating a Request
     ReloadTables (..),

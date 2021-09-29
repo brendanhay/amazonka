@@ -84,7 +84,7 @@ data CreateBatchPrediction = CreateBatchPrediction'
     --
     -- Amazon ML needs permissions to store and retrieve the logs on your
     -- behalf. For information about how to set permissions, see the
-    -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+    -- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     outputUri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -115,7 +115,7 @@ data CreateBatchPrediction = CreateBatchPrediction'
 --
 -- Amazon ML needs permissions to store and retrieve the logs on your
 -- behalf. For information about how to set permissions, see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 newCreateBatchPrediction ::
   -- | 'batchPredictionId'
   Prelude.Text ->
@@ -167,7 +167,7 @@ createBatchPrediction_batchPredictionDataSourceId = Lens.lens (\CreateBatchPredi
 --
 -- Amazon ML needs permissions to store and retrieve the logs on your
 -- behalf. For information about how to set permissions, see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 createBatchPrediction_outputUri :: Lens.Lens' CreateBatchPrediction Prelude.Text
 createBatchPrediction_outputUri = Lens.lens (\CreateBatchPrediction' {outputUri} -> outputUri) (\s@CreateBatchPrediction' {} a -> s {outputUri = a} :: CreateBatchPrediction)
 

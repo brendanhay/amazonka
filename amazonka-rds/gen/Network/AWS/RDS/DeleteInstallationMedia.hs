@@ -39,8 +39,8 @@ module Network.AWS.RDS.DeleteInstallationMedia
     installationMedia_customAvailabilityZoneId,
     installationMedia_installationMediaId,
     installationMedia_engineVersion,
-    installationMedia_oSInstallationMediaPath,
     installationMedia_failureCause,
+    installationMedia_oSInstallationMediaPath,
     installationMedia_engine,
     installationMedia_engineInstallationMediaPath,
   )

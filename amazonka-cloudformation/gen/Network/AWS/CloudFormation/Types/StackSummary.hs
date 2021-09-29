@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { -- | Summarizes information on whether a stack\'s actual configuration
+  { -- | The time the stack was deleted.
+    deletionTime :: Prelude.Maybe Core.ISO8601,
+    -- | Summarizes information on whether a stack\'s actual configuration
     -- differs, or has /drifted/, from it\'s expected configuration, as defined
     -- in the stack template and any values specified as template parameters.
     -- For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
     driftInformation :: Prelude.Maybe StackDriftInformationSummary,
-    -- | The time the stack was deleted.
-    deletionTime :: Prelude.Maybe Core.ISO8601,
     -- | The template description of the template used to create the stack.
     templateDescription :: Prelude.Maybe Prelude.Text,
     -- | Success\/Failure message associated with the stack status.
@@ -49,7 +49,7 @@ data StackSummary = StackSummary'
     --
     -- For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
-    -- in the /AWS CloudFormation User Guide/.
+    -- in the /CloudFormation User Guide/.
     rootId :: Prelude.Maybe Prelude.Text,
     -- | For nested stacks--stacks created as resources for another stack--the
     -- stack ID of the direct parent of this stack. For the first level of
@@ -57,7 +57,7 @@ data StackSummary = StackSummary'
     --
     -- For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
-    -- in the /AWS CloudFormation User Guide/.
+    -- in the /CloudFormation User Guide/.
     parentId :: Prelude.Maybe Prelude.Text,
     -- | The time the stack was last updated. This field will only be returned if
     -- the stack has been updated at least once.
@@ -79,13 +79,13 @@ data StackSummary = StackSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.
+--
 -- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information on whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
---
--- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.
 --
 -- 'templateDescription', 'stackSummary_templateDescription' - The template description of the template used to create the stack.
 --
@@ -99,7 +99,7 @@ data StackSummary = StackSummary'
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- 'parentId', 'stackSummary_parentId' - For nested stacks--stacks created as resources for another stack--the
 -- stack ID of the direct parent of this stack. For the first level of
@@ -107,7 +107,7 @@ data StackSummary = StackSummary'
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- 'lastUpdatedTime', 'stackSummary_lastUpdatedTime' - The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
@@ -130,8 +130,8 @@ newStackSummary
   pCreationTime_
   pStackStatus_ =
     StackSummary'
-      { driftInformation = Prelude.Nothing,
-        deletionTime = Prelude.Nothing,
+      { deletionTime = Prelude.Nothing,
+        driftInformation = Prelude.Nothing,
         templateDescription = Prelude.Nothing,
         stackStatusReason = Prelude.Nothing,
         stackId = Prelude.Nothing,
@@ -143,6 +143,10 @@ newStackSummary
         stackStatus = pStackStatus_
       }
 
+-- | The time the stack was deleted.
+stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
+stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
+
 -- | Summarizes information on whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
@@ -150,10 +154,6 @@ newStackSummary
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 stackSummary_driftInformation :: Lens.Lens' StackSummary (Prelude.Maybe StackDriftInformationSummary)
 stackSummary_driftInformation = Lens.lens (\StackSummary' {driftInformation} -> driftInformation) (\s@StackSummary' {} a -> s {driftInformation = a} :: StackSummary)
-
--- | The time the stack was deleted.
-stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
-stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The template description of the template used to create the stack.
 stackSummary_templateDescription :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
@@ -173,7 +173,7 @@ stackSummary_stackId = Lens.lens (\StackSummary' {stackId} -> stackId) (\s@Stack
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 stackSummary_rootId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_rootId = Lens.lens (\StackSummary' {rootId} -> rootId) (\s@StackSummary' {} a -> s {rootId = a} :: StackSummary)
 
@@ -183,7 +183,7 @@ stackSummary_rootId = Lens.lens (\StackSummary' {rootId} -> rootId) (\s@StackSum
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 stackSummary_parentId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_parentId = Lens.lens (\StackSummary' {parentId} -> parentId) (\s@StackSummary' {} a -> s {parentId = a} :: StackSummary)
 
@@ -207,8 +207,8 @@ stackSummary_stackStatus = Lens.lens (\StackSummary' {stackStatus} -> stackStatu
 instance Core.FromXML StackSummary where
   parseXML x =
     StackSummary'
-      Prelude.<$> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "DeletionTime")
+      Prelude.<$> (x Core..@? "DeletionTime")
+      Prelude.<*> (x Core..@? "DriftInformation")
       Prelude.<*> (x Core..@? "TemplateDescription")
       Prelude.<*> (x Core..@? "StackStatusReason")
       Prelude.<*> (x Core..@? "StackId")

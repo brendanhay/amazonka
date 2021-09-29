@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBrokerEngineType' smart constructor.
 data BrokerEngineType = BrokerEngineType'
-  { -- | The type of broker engine.
+  { -- | The broker\'s engine type.
     engineType :: Prelude.Maybe EngineType,
     -- | The list of engine versions.
     engineVersions :: Prelude.Maybe [EngineVersion]
@@ -44,7 +44,7 @@ data BrokerEngineType = BrokerEngineType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineType', 'brokerEngineType_engineType' - The type of broker engine.
+-- 'engineType', 'brokerEngineType_engineType' - The broker\'s engine type.
 --
 -- 'engineVersions', 'brokerEngineType_engineVersions' - The list of engine versions.
 newBrokerEngineType ::
@@ -55,7 +55,7 @@ newBrokerEngineType =
       engineVersions = Prelude.Nothing
     }
 
--- | The type of broker engine.
+-- | The broker\'s engine type.
 brokerEngineType_engineType :: Lens.Lens' BrokerEngineType (Prelude.Maybe EngineType)
 brokerEngineType_engineType = Lens.lens (\BrokerEngineType' {engineType} -> engineType) (\s@BrokerEngineType' {} a -> s {engineType = a} :: BrokerEngineType)
 

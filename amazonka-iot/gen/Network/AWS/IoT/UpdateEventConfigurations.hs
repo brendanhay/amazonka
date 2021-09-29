@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the event configurations.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateEventConfigurations>
+-- action.
 module Network.AWS.IoT.UpdateEventConfigurations
   ( -- * Creating a Request
     UpdateEventConfigurations (..),

@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHoursOfOperationConfig' smart constructor.
 data HoursOfOperationConfig = HoursOfOperationConfig'
   { -- | The day that the hours of operation applies to.
-    day :: Prelude.Maybe HoursOfOperationDays,
+    day :: HoursOfOperationDays,
     -- | The start time that your contact center is open.
-    startTime :: Prelude.Maybe HoursOfOperationTimeSlice,
+    startTime :: HoursOfOperationTimeSlice,
     -- | The end time that your contact center is closes.
-    endTime :: Prelude.Maybe HoursOfOperationTimeSlice
+    endTime :: HoursOfOperationTimeSlice
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,24 +52,30 @@ data HoursOfOperationConfig = HoursOfOperationConfig'
 --
 -- 'endTime', 'hoursOfOperationConfig_endTime' - The end time that your contact center is closes.
 newHoursOfOperationConfig ::
+  -- | 'day'
+  HoursOfOperationDays ->
+  -- | 'startTime'
+  HoursOfOperationTimeSlice ->
+  -- | 'endTime'
+  HoursOfOperationTimeSlice ->
   HoursOfOperationConfig
-newHoursOfOperationConfig =
+newHoursOfOperationConfig pDay_ pStartTime_ pEndTime_ =
   HoursOfOperationConfig'
-    { day = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing
+    { day = pDay_,
+      startTime = pStartTime_,
+      endTime = pEndTime_
     }
 
 -- | The day that the hours of operation applies to.
-hoursOfOperationConfig_day :: Lens.Lens' HoursOfOperationConfig (Prelude.Maybe HoursOfOperationDays)
+hoursOfOperationConfig_day :: Lens.Lens' HoursOfOperationConfig HoursOfOperationDays
 hoursOfOperationConfig_day = Lens.lens (\HoursOfOperationConfig' {day} -> day) (\s@HoursOfOperationConfig' {} a -> s {day = a} :: HoursOfOperationConfig)
 
 -- | The start time that your contact center is open.
-hoursOfOperationConfig_startTime :: Lens.Lens' HoursOfOperationConfig (Prelude.Maybe HoursOfOperationTimeSlice)
+hoursOfOperationConfig_startTime :: Lens.Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 hoursOfOperationConfig_startTime = Lens.lens (\HoursOfOperationConfig' {startTime} -> startTime) (\s@HoursOfOperationConfig' {} a -> s {startTime = a} :: HoursOfOperationConfig)
 
 -- | The end time that your contact center is closes.
-hoursOfOperationConfig_endTime :: Lens.Lens' HoursOfOperationConfig (Prelude.Maybe HoursOfOperationTimeSlice)
+hoursOfOperationConfig_endTime :: Lens.Lens' HoursOfOperationConfig HoursOfOperationTimeSlice
 hoursOfOperationConfig_endTime = Lens.lens (\HoursOfOperationConfig' {endTime} -> endTime) (\s@HoursOfOperationConfig' {} a -> s {endTime = a} :: HoursOfOperationConfig)
 
 instance Core.FromJSON HoursOfOperationConfig where
@@ -78,11 +84,21 @@ instance Core.FromJSON HoursOfOperationConfig where
       "HoursOfOperationConfig"
       ( \x ->
           HoursOfOperationConfig'
-            Prelude.<$> (x Core..:? "Day")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..: "Day")
+            Prelude.<*> (x Core..: "StartTime")
+            Prelude.<*> (x Core..: "EndTime")
       )
 
 instance Prelude.Hashable HoursOfOperationConfig
 
 instance Prelude.NFData HoursOfOperationConfig
+
+instance Core.ToJSON HoursOfOperationConfig where
+  toJSON HoursOfOperationConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Day" Core..= day),
+            Prelude.Just ("StartTime" Core..= startTime),
+            Prelude.Just ("EndTime" Core..= endTime)
+          ]
+      )

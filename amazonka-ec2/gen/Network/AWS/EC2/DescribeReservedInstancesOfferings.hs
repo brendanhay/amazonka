@@ -41,14 +41,14 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     newDescribeReservedInstancesOfferings,
 
     -- * Request Lenses
-    describeReservedInstancesOfferings_minDuration,
     describeReservedInstancesOfferings_nextToken,
+    describeReservedInstancesOfferings_minDuration,
     describeReservedInstancesOfferings_instanceType,
-    describeReservedInstancesOfferings_dryRun,
     describeReservedInstancesOfferings_maxInstanceCount,
     describeReservedInstancesOfferings_maxResults,
-    describeReservedInstancesOfferings_includeMarketplace,
+    describeReservedInstancesOfferings_dryRun,
     describeReservedInstancesOfferings_instanceTenancy,
+    describeReservedInstancesOfferings_includeMarketplace,
     describeReservedInstancesOfferings_availabilityZone,
     describeReservedInstancesOfferings_offeringClass,
     describeReservedInstancesOfferings_filters,
@@ -79,23 +79,18 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeReservedInstancesOfferings' smart constructor.
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-  { -- | The minimum duration (in seconds) to filter when searching for
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The minimum duration (in seconds) to filter when searching for
     -- offerings.
     --
     -- Default: 2592000 (1 month)
     minDuration :: Prelude.Maybe Prelude.Integer,
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The instance type that the reservation will cover (for example,
     -- @m1.small@). For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     instanceType :: Prelude.Maybe InstanceType,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of instances to filter when searching for offerings.
     --
     -- Default: 20
@@ -107,8 +102,11 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --
     -- Default: 100
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Include Reserved Instance Marketplace offerings in the response.
-    includeMarketplace :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The tenancy of the instances covered by the reservation. A Reserved
     -- Instance with a tenancy of @dedicated@ is applied to instances that run
     -- in a VPC on single-tenant hardware (i.e., Dedicated Instances).
@@ -118,6 +116,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --
     -- Default: @default@
     instanceTenancy :: Prelude.Maybe Tenancy,
+    -- | Include Reserved Instance Marketplace offerings in the response.
+    includeMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone in which the Reserved Instance can be used.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The offering class of the Reserved Instance. Can be @standard@ or
@@ -139,8 +139,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --
     -- -   @marketplace@ - Set to @true@ to show only Reserved Instance
     --     Marketplace offerings. When this filter is not used, which is the
-    --     default behavior, all offerings from both AWS and the Reserved
-    --     Instance Marketplace are listed.
+    --     default behavior, all offerings from both Amazon Web Services and
+    --     the Reserved Instance Marketplace are listed.
     --
     -- -   @product-description@ - The Reserved Instance product platform
     --     description. Instances that include @(Amazon VPC)@ in the product
@@ -148,7 +148,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
     --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
     --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
-    --     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+    --     @Red Hat Enterprise Linux (Amazon VPC)@ |
+    --     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
     --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
     --     @Windows with SQL Server Standard (Amazon VPC)@ |
     --     @Windows with SQL Server Web@ |
@@ -190,22 +191,17 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeReservedInstancesOfferings_nextToken' - The token to retrieve the next page of results.
+--
 -- 'minDuration', 'describeReservedInstancesOfferings_minDuration' - The minimum duration (in seconds) to filter when searching for
 -- offerings.
 --
 -- Default: 2592000 (1 month)
 --
--- 'nextToken', 'describeReservedInstancesOfferings_nextToken' - The token to retrieve the next page of results.
---
 -- 'instanceType', 'describeReservedInstancesOfferings_instanceType' - The instance type that the reservation will cover (for example,
 -- @m1.small@). For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
---
--- 'dryRun', 'describeReservedInstancesOfferings_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'maxInstanceCount', 'describeReservedInstancesOfferings_maxInstanceCount' - The maximum number of instances to filter when searching for offerings.
 --
@@ -218,7 +214,10 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 -- Default: 100
 --
--- 'includeMarketplace', 'describeReservedInstancesOfferings_includeMarketplace' - Include Reserved Instance Marketplace offerings in the response.
+-- 'dryRun', 'describeReservedInstancesOfferings_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'instanceTenancy', 'describeReservedInstancesOfferings_instanceTenancy' - The tenancy of the instances covered by the reservation. A Reserved
 -- Instance with a tenancy of @dedicated@ is applied to instances that run
@@ -228,6 +227,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 -- the @default@ or @dedicated@ values only.
 --
 -- Default: @default@
+--
+-- 'includeMarketplace', 'describeReservedInstancesOfferings_includeMarketplace' - Include Reserved Instance Marketplace offerings in the response.
 --
 -- 'availabilityZone', 'describeReservedInstancesOfferings_availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
 --
@@ -250,8 +251,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 -- -   @marketplace@ - Set to @true@ to show only Reserved Instance
 --     Marketplace offerings. When this filter is not used, which is the
---     default behavior, all offerings from both AWS and the Reserved
---     Instance Marketplace are listed.
+--     default behavior, all offerings from both Amazon Web Services and
+--     the Reserved Instance Marketplace are listed.
 --
 -- -   @product-description@ - The Reserved Instance product platform
 --     description. Instances that include @(Amazon VPC)@ in the product
@@ -259,7 +260,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
 --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
 --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
 --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
 --     @Windows with SQL Server Standard (Amazon VPC)@ |
 --     @Windows with SQL Server Web@ |
@@ -293,15 +295,15 @@ newDescribeReservedInstancesOfferings ::
   DescribeReservedInstancesOfferings
 newDescribeReservedInstancesOfferings =
   DescribeReservedInstancesOfferings'
-    { minDuration =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      minDuration = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxInstanceCount = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      includeMarketplace = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instanceTenancy = Prelude.Nothing,
+      includeMarketplace = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       offeringClass = Prelude.Nothing,
       filters = Prelude.Nothing,
@@ -312,6 +314,10 @@ newDescribeReservedInstancesOfferings =
       maxDuration = Prelude.Nothing
     }
 
+-- | The token to retrieve the next page of results.
+describeReservedInstancesOfferings_nextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedInstancesOfferings_nextToken = Lens.lens (\DescribeReservedInstancesOfferings' {nextToken} -> nextToken) (\s@DescribeReservedInstancesOfferings' {} a -> s {nextToken = a} :: DescribeReservedInstancesOfferings)
+
 -- | The minimum duration (in seconds) to filter when searching for
 -- offerings.
 --
@@ -319,23 +325,12 @@ newDescribeReservedInstancesOfferings =
 describeReservedInstancesOfferings_minDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Integer)
 describeReservedInstancesOfferings_minDuration = Lens.lens (\DescribeReservedInstancesOfferings' {minDuration} -> minDuration) (\s@DescribeReservedInstancesOfferings' {} a -> s {minDuration = a} :: DescribeReservedInstancesOfferings)
 
--- | The token to retrieve the next page of results.
-describeReservedInstancesOfferings_nextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Text)
-describeReservedInstancesOfferings_nextToken = Lens.lens (\DescribeReservedInstancesOfferings' {nextToken} -> nextToken) (\s@DescribeReservedInstancesOfferings' {} a -> s {nextToken = a} :: DescribeReservedInstancesOfferings)
-
 -- | The instance type that the reservation will cover (for example,
 -- @m1.small@). For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 describeReservedInstancesOfferings_instanceType :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe InstanceType)
 describeReservedInstancesOfferings_instanceType = Lens.lens (\DescribeReservedInstancesOfferings' {instanceType} -> instanceType) (\s@DescribeReservedInstancesOfferings' {} a -> s {instanceType = a} :: DescribeReservedInstancesOfferings)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeReservedInstancesOfferings_dryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
-describeReservedInstancesOfferings_dryRun = Lens.lens (\DescribeReservedInstancesOfferings' {dryRun} -> dryRun) (\s@DescribeReservedInstancesOfferings' {} a -> s {dryRun = a} :: DescribeReservedInstancesOfferings)
 
 -- | The maximum number of instances to filter when searching for offerings.
 --
@@ -352,9 +347,12 @@ describeReservedInstancesOfferings_maxInstanceCount = Lens.lens (\DescribeReserv
 describeReservedInstancesOfferings_maxResults :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Int)
 describeReservedInstancesOfferings_maxResults = Lens.lens (\DescribeReservedInstancesOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstancesOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstancesOfferings)
 
--- | Include Reserved Instance Marketplace offerings in the response.
-describeReservedInstancesOfferings_includeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
-describeReservedInstancesOfferings_includeMarketplace = Lens.lens (\DescribeReservedInstancesOfferings' {includeMarketplace} -> includeMarketplace) (\s@DescribeReservedInstancesOfferings' {} a -> s {includeMarketplace = a} :: DescribeReservedInstancesOfferings)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeReservedInstancesOfferings_dryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
+describeReservedInstancesOfferings_dryRun = Lens.lens (\DescribeReservedInstancesOfferings' {dryRun} -> dryRun) (\s@DescribeReservedInstancesOfferings' {} a -> s {dryRun = a} :: DescribeReservedInstancesOfferings)
 
 -- | The tenancy of the instances covered by the reservation. A Reserved
 -- Instance with a tenancy of @dedicated@ is applied to instances that run
@@ -366,6 +364,10 @@ describeReservedInstancesOfferings_includeMarketplace = Lens.lens (\DescribeRese
 -- Default: @default@
 describeReservedInstancesOfferings_instanceTenancy :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Tenancy)
 describeReservedInstancesOfferings_instanceTenancy = Lens.lens (\DescribeReservedInstancesOfferings' {instanceTenancy} -> instanceTenancy) (\s@DescribeReservedInstancesOfferings' {} a -> s {instanceTenancy = a} :: DescribeReservedInstancesOfferings)
+
+-- | Include Reserved Instance Marketplace offerings in the response.
+describeReservedInstancesOfferings_includeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Bool)
+describeReservedInstancesOfferings_includeMarketplace = Lens.lens (\DescribeReservedInstancesOfferings' {includeMarketplace} -> includeMarketplace) (\s@DescribeReservedInstancesOfferings' {} a -> s {includeMarketplace = a} :: DescribeReservedInstancesOfferings)
 
 -- | The Availability Zone in which the Reserved Instance can be used.
 describeReservedInstancesOfferings_availabilityZone :: Lens.Lens' DescribeReservedInstancesOfferings (Prelude.Maybe Prelude.Text)
@@ -392,8 +394,8 @@ describeReservedInstancesOfferings_offeringClass = Lens.lens (\DescribeReservedI
 --
 -- -   @marketplace@ - Set to @true@ to show only Reserved Instance
 --     Marketplace offerings. When this filter is not used, which is the
---     default behavior, all offerings from both AWS and the Reserved
---     Instance Marketplace are listed.
+--     default behavior, all offerings from both Amazon Web Services and
+--     the Reserved Instance Marketplace are listed.
 --
 -- -   @product-description@ - The Reserved Instance product platform
 --     description. Instances that include @(Amazon VPC)@ in the product
@@ -401,7 +403,8 @@ describeReservedInstancesOfferings_offeringClass = Lens.lens (\DescribeReservedI
 --     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
 --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
 --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ |
+--     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
 --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
 --     @Windows with SQL Server Standard (Amazon VPC)@ |
 --     @Windows with SQL Server Web@ |
@@ -519,14 +522,14 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "MinDuration" Core.=: minDuration,
         "NextToken" Core.=: nextToken,
+        "MinDuration" Core.=: minDuration,
         "InstanceType" Core.=: instanceType,
-        "DryRun" Core.=: dryRun,
         "MaxInstanceCount" Core.=: maxInstanceCount,
         "MaxResults" Core.=: maxResults,
-        "IncludeMarketplace" Core.=: includeMarketplace,
+        "DryRun" Core.=: dryRun,
         "InstanceTenancy" Core.=: instanceTenancy,
+        "IncludeMarketplace" Core.=: includeMarketplace,
         "AvailabilityZone" Core.=: availabilityZone,
         "OfferingClass" Core.=: offeringClass,
         Core.toQuery

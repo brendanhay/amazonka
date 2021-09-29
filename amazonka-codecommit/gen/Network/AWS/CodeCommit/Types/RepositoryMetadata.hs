@@ -33,10 +33,10 @@ data RepositoryMetadata = RepositoryMetadata'
     defaultBranch :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS account associated with the repository.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The URL to use for cloning the repository over SSH.
-    cloneUrlSsh :: Prelude.Maybe Prelude.Text,
     -- | The URL to use for cloning the repository over HTTPS.
     cloneUrlHttp :: Prelude.Maybe Prelude.Text,
+    -- | The URL to use for cloning the repository over SSH.
+    cloneUrlSsh :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the repository.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the repository was created, in timestamp format.
@@ -64,9 +64,9 @@ data RepositoryMetadata = RepositoryMetadata'
 --
 -- 'accountId', 'repositoryMetadata_accountId' - The ID of the AWS account associated with the repository.
 --
--- 'cloneUrlSsh', 'repositoryMetadata_cloneUrlSsh' - The URL to use for cloning the repository over SSH.
---
 -- 'cloneUrlHttp', 'repositoryMetadata_cloneUrlHttp' - The URL to use for cloning the repository over HTTPS.
+--
+-- 'cloneUrlSsh', 'repositoryMetadata_cloneUrlSsh' - The URL to use for cloning the repository over SSH.
 --
 -- 'arn', 'repositoryMetadata_arn' - The Amazon Resource Name (ARN) of the repository.
 --
@@ -85,8 +85,8 @@ newRepositoryMetadata =
         Prelude.Nothing,
       defaultBranch = Prelude.Nothing,
       accountId = Prelude.Nothing,
-      cloneUrlSsh = Prelude.Nothing,
       cloneUrlHttp = Prelude.Nothing,
+      cloneUrlSsh = Prelude.Nothing,
       arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
@@ -106,13 +106,13 @@ repositoryMetadata_defaultBranch = Lens.lens (\RepositoryMetadata' {defaultBranc
 repositoryMetadata_accountId :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
 repositoryMetadata_accountId = Lens.lens (\RepositoryMetadata' {accountId} -> accountId) (\s@RepositoryMetadata' {} a -> s {accountId = a} :: RepositoryMetadata)
 
--- | The URL to use for cloning the repository over SSH.
-repositoryMetadata_cloneUrlSsh :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
-repositoryMetadata_cloneUrlSsh = Lens.lens (\RepositoryMetadata' {cloneUrlSsh} -> cloneUrlSsh) (\s@RepositoryMetadata' {} a -> s {cloneUrlSsh = a} :: RepositoryMetadata)
-
 -- | The URL to use for cloning the repository over HTTPS.
 repositoryMetadata_cloneUrlHttp :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
 repositoryMetadata_cloneUrlHttp = Lens.lens (\RepositoryMetadata' {cloneUrlHttp} -> cloneUrlHttp) (\s@RepositoryMetadata' {} a -> s {cloneUrlHttp = a} :: RepositoryMetadata)
+
+-- | The URL to use for cloning the repository over SSH.
+repositoryMetadata_cloneUrlSsh :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
+repositoryMetadata_cloneUrlSsh = Lens.lens (\RepositoryMetadata' {cloneUrlSsh} -> cloneUrlSsh) (\s@RepositoryMetadata' {} a -> s {cloneUrlSsh = a} :: RepositoryMetadata)
 
 -- | The Amazon Resource Name (ARN) of the repository.
 repositoryMetadata_arn :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
@@ -143,8 +143,8 @@ instance Core.FromJSON RepositoryMetadata where
             Prelude.<$> (x Core..:? "lastModifiedDate")
             Prelude.<*> (x Core..:? "defaultBranch")
             Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "cloneUrlSsh")
             Prelude.<*> (x Core..:? "cloneUrlHttp")
+            Prelude.<*> (x Core..:? "cloneUrlSsh")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "repositoryName")

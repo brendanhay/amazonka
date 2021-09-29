@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Firewall Manager association with the IAM role and the
--- Amazon Simple Notification Service (SNS) topic that is used to record
--- AWS Firewall Manager SNS logs.
+-- Deletes an Firewall Manager association with the IAM role and the Amazon
+-- Simple Notification Service (SNS) topic that is used to record Firewall
+-- Manager SNS logs.
 module Network.AWS.FMS.DeleteNotificationChannel
   ( -- * Creating a Request
     DeleteNotificationChannel (..),

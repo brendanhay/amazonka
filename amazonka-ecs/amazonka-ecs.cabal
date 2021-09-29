@@ -66,6 +66,7 @@ library
     Network.AWS.ECS.DescribeTasks
     Network.AWS.ECS.DescribeTaskSets
     Network.AWS.ECS.DiscoverPollEndpoint
+    Network.AWS.ECS.ExecuteCommand
     Network.AWS.ECS.Lens
     Network.AWS.ECS.ListAccountSettings
     Network.AWS.ECS.ListAttributes
@@ -104,6 +105,7 @@ library
     Network.AWS.ECS.Types.CapacityProviderStrategyItem
     Network.AWS.ECS.Types.CapacityProviderUpdateStatus
     Network.AWS.ECS.Types.Cluster
+    Network.AWS.ECS.Types.ClusterConfiguration
     Network.AWS.ECS.Types.ClusterField
     Network.AWS.ECS.Types.ClusterSetting
     Network.AWS.ECS.Types.ClusterSettingName
@@ -135,6 +137,10 @@ library
     Network.AWS.ECS.Types.EFSVolumeConfiguration
     Network.AWS.ECS.Types.EnvironmentFile
     Network.AWS.ECS.Types.EnvironmentFileType
+    Network.AWS.ECS.Types.EphemeralStorage
+    Network.AWS.ECS.Types.ExecuteCommandConfiguration
+    Network.AWS.ECS.Types.ExecuteCommandLogConfiguration
+    Network.AWS.ECS.Types.ExecuteCommandLogging
     Network.AWS.ECS.Types.Failure
     Network.AWS.ECS.Types.FirelensConfiguration
     Network.AWS.ECS.Types.FirelensConfigurationType
@@ -154,6 +160,9 @@ library
     Network.AWS.ECS.Types.LoadBalancer
     Network.AWS.ECS.Types.LogConfiguration
     Network.AWS.ECS.Types.LogDriver
+    Network.AWS.ECS.Types.ManagedAgent
+    Network.AWS.ECS.Types.ManagedAgentName
+    Network.AWS.ECS.Types.ManagedAgentStateChange
     Network.AWS.ECS.Types.ManagedScaling
     Network.AWS.ECS.Types.ManagedScalingStatus
     Network.AWS.ECS.Types.ManagedTerminationProtection
@@ -185,6 +194,7 @@ library
     Network.AWS.ECS.Types.ServiceEvent
     Network.AWS.ECS.Types.ServiceField
     Network.AWS.ECS.Types.ServiceRegistry
+    Network.AWS.ECS.Types.Session
     Network.AWS.ECS.Types.Setting
     Network.AWS.ECS.Types.SettingName
     Network.AWS.ECS.Types.SortOrder
@@ -213,6 +223,7 @@ library
     Network.AWS.ECS.Types.VolumeFrom
     Network.AWS.ECS.UntagResource
     Network.AWS.ECS.UpdateCapacityProvider
+    Network.AWS.ECS.UpdateCluster
     Network.AWS.ECS.UpdateClusterSettings
     Network.AWS.ECS.UpdateContainerAgent
     Network.AWS.ECS.UpdateContainerInstancesState

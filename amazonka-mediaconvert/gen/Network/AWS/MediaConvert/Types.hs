@@ -51,8 +51,14 @@ module Network.AWS.MediaConvert.Types
     -- * Ac3CodingMode
     Ac3CodingMode (..),
 
+    -- * Ac3DynamicRangeCompressionLine
+    Ac3DynamicRangeCompressionLine (..),
+
     -- * Ac3DynamicRangeCompressionProfile
     Ac3DynamicRangeCompressionProfile (..),
+
+    -- * Ac3DynamicRangeCompressionRf
+    Ac3DynamicRangeCompressionRf (..),
 
     -- * Ac3LfeFilter
     Ac3LfeFilter (..),
@@ -153,11 +159,20 @@ module Network.AWS.MediaConvert.Types
     -- * BillingTagsSource
     BillingTagsSource (..),
 
+    -- * BurnInSubtitleStylePassthrough
+    BurnInSubtitleStylePassthrough (..),
+
     -- * BurninSubtitleAlignment
     BurninSubtitleAlignment (..),
 
+    -- * BurninSubtitleApplyFontColor
+    BurninSubtitleApplyFontColor (..),
+
     -- * BurninSubtitleBackgroundColor
     BurninSubtitleBackgroundColor (..),
+
+    -- * BurninSubtitleFallbackFont
+    BurninSubtitleFallbackFont (..),
 
     -- * BurninSubtitleFontColor
     BurninSubtitleFontColor (..),
@@ -186,8 +201,14 @@ module Network.AWS.MediaConvert.Types
     -- * CmafEncryptionType
     CmafEncryptionType (..),
 
+    -- * CmafImageBasedTrickPlay
+    CmafImageBasedTrickPlay (..),
+
     -- * CmafInitializationVectorInManifest
     CmafInitializationVectorInManifest (..),
+
+    -- * CmafIntervalCadence
+    CmafIntervalCadence (..),
 
     -- * CmafKeyProviderType
     CmafKeyProviderType (..),
@@ -201,11 +222,20 @@ module Network.AWS.MediaConvert.Types
     -- * CmafMpdProfile
     CmafMpdProfile (..),
 
+    -- * CmafPtsOffsetHandlingForBFrames
+    CmafPtsOffsetHandlingForBFrames (..),
+
     -- * CmafSegmentControl
     CmafSegmentControl (..),
 
+    -- * CmafSegmentLengthControl
+    CmafSegmentLengthControl (..),
+
     -- * CmafStreamInfResolution
     CmafStreamInfResolution (..),
+
+    -- * CmafTargetDurationCompatibilityMode
+    CmafTargetDurationCompatibilityMode (..),
 
     -- * CmafWriteDASHManifest
     CmafWriteDASHManifest (..),
@@ -218,6 +248,12 @@ module Network.AWS.MediaConvert.Types
 
     -- * CmfcAudioDuration
     CmfcAudioDuration (..),
+
+    -- * CmfcAudioTrackType
+    CmfcAudioTrackType (..),
+
+    -- * CmfcDescriptiveVideoServiceFlag
+    CmfcDescriptiveVideoServiceFlag (..),
 
     -- * CmfcIFrameOnlyManifest
     CmfcIFrameOnlyManifest (..),
@@ -246,8 +282,20 @@ module Network.AWS.MediaConvert.Types
     -- * ContainerType
     ContainerType (..),
 
+    -- * CopyProtectionAction
+    CopyProtectionAction (..),
+
+    -- * DashIsoGroupAudioChannelConfigSchemeIdUri
+    DashIsoGroupAudioChannelConfigSchemeIdUri (..),
+
     -- * DashIsoHbbtvCompliance
     DashIsoHbbtvCompliance (..),
+
+    -- * DashIsoImageBasedTrickPlay
+    DashIsoImageBasedTrickPlay (..),
+
+    -- * DashIsoIntervalCadence
+    DashIsoIntervalCadence (..),
 
     -- * DashIsoMpdProfile
     DashIsoMpdProfile (..),
@@ -255,8 +303,14 @@ module Network.AWS.MediaConvert.Types
     -- * DashIsoPlaybackDeviceCompatibility
     DashIsoPlaybackDeviceCompatibility (..),
 
+    -- * DashIsoPtsOffsetHandlingForBFrames
+    DashIsoPtsOffsetHandlingForBFrames (..),
+
     -- * DashIsoSegmentControl
     DashIsoSegmentControl (..),
+
+    -- * DashIsoSegmentLengthControl
+    DashIsoSegmentLengthControl (..),
 
     -- * DashIsoWriteSegmentTimelineInRepresentation
     DashIsoWriteSegmentTimelineInRepresentation (..),
@@ -285,8 +339,14 @@ module Network.AWS.MediaConvert.Types
     -- * DropFrameTimecode
     DropFrameTimecode (..),
 
+    -- * DvbSubSubtitleFallbackFont
+    DvbSubSubtitleFallbackFont (..),
+
     -- * DvbSubtitleAlignment
     DvbSubtitleAlignment (..),
+
+    -- * DvbSubtitleApplyFontColor
+    DvbSubtitleApplyFontColor (..),
 
     -- * DvbSubtitleBackgroundColor
     DvbSubtitleBackgroundColor (..),
@@ -300,11 +360,17 @@ module Network.AWS.MediaConvert.Types
     -- * DvbSubtitleShadowColor
     DvbSubtitleShadowColor (..),
 
+    -- * DvbSubtitleStylePassthrough
+    DvbSubtitleStylePassthrough (..),
+
     -- * DvbSubtitleTeletextSpacing
     DvbSubtitleTeletextSpacing (..),
 
     -- * DvbSubtitlingType
     DvbSubtitlingType (..),
+
+    -- * DvbddsHandling
+    DvbddsHandling (..),
 
     -- * Eac3AtmosBitstreamMode
     Eac3AtmosBitstreamMode (..),
@@ -315,11 +381,17 @@ module Network.AWS.MediaConvert.Types
     -- * Eac3AtmosDialogueIntelligence
     Eac3AtmosDialogueIntelligence (..),
 
+    -- * Eac3AtmosDownmixControl
+    Eac3AtmosDownmixControl (..),
+
     -- * Eac3AtmosDynamicRangeCompressionLine
     Eac3AtmosDynamicRangeCompressionLine (..),
 
     -- * Eac3AtmosDynamicRangeCompressionRf
     Eac3AtmosDynamicRangeCompressionRf (..),
+
+    -- * Eac3AtmosDynamicRangeControl
+    Eac3AtmosDynamicRangeControl (..),
 
     -- * Eac3AtmosMeteringMode
     Eac3AtmosMeteringMode (..),
@@ -555,6 +627,9 @@ module Network.AWS.MediaConvert.Types
     -- * HlsCodecSpecification
     HlsCodecSpecification (..),
 
+    -- * HlsDescriptiveVideoServiceFlag
+    HlsDescriptiveVideoServiceFlag (..),
+
     -- * HlsDirectoryStructure
     HlsDirectoryStructure (..),
 
@@ -564,8 +639,14 @@ module Network.AWS.MediaConvert.Types
     -- * HlsIFrameOnlyManifest
     HlsIFrameOnlyManifest (..),
 
+    -- * HlsImageBasedTrickPlay
+    HlsImageBasedTrickPlay (..),
+
     -- * HlsInitializationVectorInManifest
     HlsInitializationVectorInManifest (..),
+
+    -- * HlsIntervalCadence
+    HlsIntervalCadence (..),
 
     -- * HlsKeyProviderType
     HlsKeyProviderType (..),
@@ -588,8 +669,14 @@ module Network.AWS.MediaConvert.Types
     -- * HlsSegmentControl
     HlsSegmentControl (..),
 
+    -- * HlsSegmentLengthControl
+    HlsSegmentLengthControl (..),
+
     -- * HlsStreamInfResolution
     HlsStreamInfResolution (..),
+
+    -- * HlsTargetDurationCompatibilityMode
+    HlsTargetDurationCompatibilityMode (..),
 
     -- * HlsTimedMetadataId3Frame
     HlsTimedMetadataId3Frame (..),
@@ -611,6 +698,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * InputRotate
     InputRotate (..),
+
+    -- * InputSampleRange
+    InputSampleRange (..),
 
     -- * InputScanType
     InputScanType (..),
@@ -638,6 +728,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * M2tsBufferModel
     M2tsBufferModel (..),
+
+    -- * M2tsDataPtsControl
+    M2tsDataPtsControl (..),
 
     -- * M2tsEbpAudioInterval
     M2tsEbpAudioInterval (..),
@@ -671,6 +764,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * M3u8AudioDuration
     M3u8AudioDuration (..),
+
+    -- * M3u8DataPtsControl
+    M3u8DataPtsControl (..),
 
     -- * M3u8NielsenId3
     M3u8NielsenId3 (..),
@@ -789,6 +885,9 @@ module Network.AWS.MediaConvert.Types
     -- * MsSmoothAudioDeduplication
     MsSmoothAudioDeduplication (..),
 
+    -- * MsSmoothFragmentLengthControl
+    MsSmoothFragmentLengthControl (..),
+
     -- * MsSmoothManifestEncoding
     MsSmoothManifestEncoding (..),
 
@@ -797,6 +896,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * MxfProfile
     MxfProfile (..),
+
+    -- * MxfXavcDurationMode
+    MxfXavcDurationMode (..),
 
     -- * NielsenActiveWatermarkProcessType
     NielsenActiveWatermarkProcessType (..),
@@ -827,6 +929,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * PricingPlan
     PricingPlan (..),
+
+    -- * ProresChromaSampling
+    ProresChromaSampling (..),
 
     -- * ProresCodecProfile
     ProresCodecProfile (..),
@@ -873,6 +978,9 @@ module Network.AWS.MediaConvert.Types
     -- * S3ServerSideEncryptionType
     S3ServerSideEncryptionType (..),
 
+    -- * SampleRangeConversion
+    SampleRangeConversion (..),
+
     -- * ScalingBehavior
     ScalingBehavior (..),
 
@@ -881,6 +989,9 @@ module Network.AWS.MediaConvert.Types
 
     -- * SimulateReservedQueue
     SimulateReservedQueue (..),
+
+    -- * SrtStylePassthrough
+    SrtStylePassthrough (..),
 
     -- * StatusUpdateInterval
     StatusUpdateInterval (..),
@@ -924,6 +1035,9 @@ module Network.AWS.MediaConvert.Types
     -- * Vc3Telecine
     Vc3Telecine (..),
 
+    -- * VchipAction
+    VchipAction (..),
+
     -- * VideoCodec
     VideoCodec (..),
 
@@ -966,6 +1080,69 @@ module Network.AWS.MediaConvert.Types
     -- * WavFormat
     WavFormat (..),
 
+    -- * WebvttStylePassthrough
+    WebvttStylePassthrough (..),
+
+    -- * Xavc4kIntraCbgProfileClass
+    Xavc4kIntraCbgProfileClass (..),
+
+    -- * Xavc4kIntraVbrProfileClass
+    Xavc4kIntraVbrProfileClass (..),
+
+    -- * Xavc4kProfileBitrateClass
+    Xavc4kProfileBitrateClass (..),
+
+    -- * Xavc4kProfileCodecProfile
+    Xavc4kProfileCodecProfile (..),
+
+    -- * Xavc4kProfileQualityTuningLevel
+    Xavc4kProfileQualityTuningLevel (..),
+
+    -- * XavcAdaptiveQuantization
+    XavcAdaptiveQuantization (..),
+
+    -- * XavcEntropyEncoding
+    XavcEntropyEncoding (..),
+
+    -- * XavcFlickerAdaptiveQuantization
+    XavcFlickerAdaptiveQuantization (..),
+
+    -- * XavcFramerateControl
+    XavcFramerateControl (..),
+
+    -- * XavcFramerateConversionAlgorithm
+    XavcFramerateConversionAlgorithm (..),
+
+    -- * XavcGopBReference
+    XavcGopBReference (..),
+
+    -- * XavcHdIntraCbgProfileClass
+    XavcHdIntraCbgProfileClass (..),
+
+    -- * XavcHdProfileBitrateClass
+    XavcHdProfileBitrateClass (..),
+
+    -- * XavcHdProfileQualityTuningLevel
+    XavcHdProfileQualityTuningLevel (..),
+
+    -- * XavcHdProfileTelecine
+    XavcHdProfileTelecine (..),
+
+    -- * XavcInterlaceMode
+    XavcInterlaceMode (..),
+
+    -- * XavcProfile
+    XavcProfile (..),
+
+    -- * XavcSlowPal
+    XavcSlowPal (..),
+
+    -- * XavcSpatialAdaptiveQuantization
+    XavcSpatialAdaptiveQuantization (..),
+
+    -- * XavcTemporalAdaptiveQuantization
+    XavcTemporalAdaptiveQuantization (..),
+
     -- * AacSettings
     AacSettings (..),
     newAacSettings,
@@ -984,11 +1161,13 @@ module Network.AWS.MediaConvert.Types
     newAc3Settings,
     ac3Settings_dialnorm,
     ac3Settings_codingMode,
-    ac3Settings_lfeFilter,
     ac3Settings_dynamicRangeCompressionProfile,
+    ac3Settings_lfeFilter,
     ac3Settings_sampleRate,
+    ac3Settings_dynamicRangeCompressionRf,
     ac3Settings_bitstreamMode,
     ac3Settings_bitrate,
+    ac3Settings_dynamicRangeCompressionLine,
     ac3Settings_metadataControl,
 
     -- * AccelerationSettings
@@ -1026,9 +1205,9 @@ module Network.AWS.MediaConvert.Types
     audioCodecSettings_opusSettings,
     audioCodecSettings_eac3Settings,
     audioCodecSettings_aacSettings,
-    audioCodecSettings_wavSettings,
     audioCodecSettings_aiffSettings,
     audioCodecSettings_eac3AtmosSettings,
+    audioCodecSettings_wavSettings,
 
     -- * AudioDescription
     AudioDescription (..),
@@ -1059,15 +1238,16 @@ module Network.AWS.MediaConvert.Types
     AudioSelector (..),
     newAudioSelector,
     audioSelector_languageCode,
+    audioSelector_tracks,
     audioSelector_programSelection,
     audioSelector_customLanguageCode,
-    audioSelector_tracks,
     audioSelector_defaultSelection,
     audioSelector_selectorType,
     audioSelector_remixSettings,
     audioSelector_pids,
     audioSelector_externalAudioFileInput,
     audioSelector_offset,
+    audioSelector_hlsRenditionGroupSettings,
 
     -- * AudioSelectorGroup
     AudioSelectorGroup (..),
@@ -1099,13 +1279,13 @@ module Network.AWS.MediaConvert.Types
     av1Settings_framerateNumerator,
     av1Settings_rateControlMode,
     av1Settings_slices,
-    av1Settings_gopSize,
     av1Settings_framerateDenominator,
+    av1Settings_gopSize,
     av1Settings_maxBitrate,
     av1Settings_adaptiveQuantization,
     av1Settings_framerateControl,
-    av1Settings_numberBFramesBetweenReferenceFrames,
     av1Settings_framerateConversionAlgorithm,
+    av1Settings_numberBFramesBetweenReferenceFrames,
     av1Settings_qvbrSettings,
 
     -- * AvailBlanking
@@ -1136,22 +1316,26 @@ module Network.AWS.MediaConvert.Types
     BurninDestinationSettings (..),
     newBurninDestinationSettings,
     burninDestinationSettings_alignment,
+    burninDestinationSettings_fallbackFont,
     burninDestinationSettings_shadowOpacity,
     burninDestinationSettings_teletextSpacing,
     burninDestinationSettings_shadowColor,
     burninDestinationSettings_outlineColor,
+    burninDestinationSettings_stylePassthrough,
     burninDestinationSettings_backgroundOpacity,
     burninDestinationSettings_fontScript,
     burninDestinationSettings_xPosition,
     burninDestinationSettings_fontColor,
     burninDestinationSettings_fontSize,
-    burninDestinationSettings_backgroundColor,
     burninDestinationSettings_shadowXOffset,
+    burninDestinationSettings_hexFontColor,
+    burninDestinationSettings_backgroundColor,
     burninDestinationSettings_yPosition,
-    burninDestinationSettings_fontResolution,
     burninDestinationSettings_outlineSize,
-    burninDestinationSettings_fontOpacity,
+    burninDestinationSettings_fontResolution,
     burninDestinationSettings_shadowYOffset,
+    burninDestinationSettings_applyFontColor,
+    burninDestinationSettings_fontOpacity,
 
     -- * CaptionDescription
     CaptionDescription (..),
@@ -1174,12 +1358,14 @@ module Network.AWS.MediaConvert.Types
     CaptionDestinationSettings (..),
     newCaptionDestinationSettings,
     captionDestinationSettings_embeddedDestinationSettings,
+    captionDestinationSettings_webvttDestinationSettings,
+    captionDestinationSettings_srtDestinationSettings,
     captionDestinationSettings_destinationType,
     captionDestinationSettings_dvbSubDestinationSettings,
     captionDestinationSettings_teletextDestinationSettings,
     captionDestinationSettings_ttmlDestinationSettings,
-    captionDestinationSettings_burninDestinationSettings,
     captionDestinationSettings_imscDestinationSettings,
+    captionDestinationSettings_burninDestinationSettings,
     captionDestinationSettings_sccDestinationSettings,
 
     -- * CaptionSelector
@@ -1198,10 +1384,11 @@ module Network.AWS.MediaConvert.Types
     -- * CaptionSourceSettings
     CaptionSourceSettings (..),
     newCaptionSourceSettings,
-    captionSourceSettings_ancillarySourceSettings,
     captionSourceSettings_trackSourceSettings,
+    captionSourceSettings_ancillarySourceSettings,
     captionSourceSettings_embeddedSourceSettings,
     captionSourceSettings_dvbSubSourceSettings,
+    captionSourceSettings_webvttHlsSourceSettings,
     captionSourceSettings_fileSourceSettings,
     captionSourceSettings_teletextSourceSettings,
     captionSourceSettings_sourceType,
@@ -1236,24 +1423,43 @@ module Network.AWS.MediaConvert.Types
     cmafGroupSettings_fragmentLength,
     cmafGroupSettings_manifestCompression,
     cmafGroupSettings_baseUrl,
-    cmafGroupSettings_streamInfResolution,
     cmafGroupSettings_codecSpecification,
+    cmafGroupSettings_streamInfResolution,
+    cmafGroupSettings_segmentLengthControl,
     cmafGroupSettings_additionalManifests,
+    cmafGroupSettings_imageBasedTrickPlay,
     cmafGroupSettings_mpdProfile,
+    cmafGroupSettings_ptsOffsetHandlingForBFrames,
     cmafGroupSettings_encryption,
     cmafGroupSettings_minBufferTime,
     cmafGroupSettings_destination,
     cmafGroupSettings_minFinalSegmentLength,
     cmafGroupSettings_destinationSettings,
     cmafGroupSettings_writeSegmentTimelineInRepresentation,
-    cmafGroupSettings_writeHlsManifest,
+    cmafGroupSettings_imageBasedTrickPlaySettings,
     cmafGroupSettings_clientCache,
+    cmafGroupSettings_writeHlsManifest,
+    cmafGroupSettings_targetDurationCompatibilityMode,
     cmafGroupSettings_manifestDurationFormat,
+
+    -- * CmafImageBasedTrickPlaySettings
+    CmafImageBasedTrickPlaySettings (..),
+    newCmafImageBasedTrickPlaySettings,
+    cmafImageBasedTrickPlaySettings_intervalCadence,
+    cmafImageBasedTrickPlaySettings_thumbnailInterval,
+    cmafImageBasedTrickPlaySettings_tileHeight,
+    cmafImageBasedTrickPlaySettings_thumbnailHeight,
+    cmafImageBasedTrickPlaySettings_thumbnailWidth,
+    cmafImageBasedTrickPlaySettings_tileWidth,
 
     -- * CmfcSettings
     CmfcSettings (..),
     newCmfcSettings,
+    cmfcSettings_audioRenditionSets,
     cmfcSettings_iFrameOnlyManifest,
+    cmfcSettings_descriptiveVideoServiceFlag,
+    cmfcSettings_audioGroupId,
+    cmfcSettings_audioTrackType,
     cmfcSettings_audioDuration,
     cmfcSettings_scte35Esam,
     cmfcSettings_scte35Source,
@@ -1264,6 +1470,7 @@ module Network.AWS.MediaConvert.Types
     colorCorrector_saturation,
     colorCorrector_colorSpaceConversion,
     colorCorrector_hdr10Metadata,
+    colorCorrector_sampleRangeConversion,
     colorCorrector_brightness,
     colorCorrector_hue,
     colorCorrector_contrast,
@@ -1272,8 +1479,8 @@ module Network.AWS.MediaConvert.Types
     ContainerSettings (..),
     newContainerSettings,
     containerSettings_container,
-    containerSettings_mpdSettings,
     containerSettings_mp4Settings,
+    containerSettings_mpdSettings,
     containerSettings_f4vSettings,
     containerSettings_mxfSettings,
     containerSettings_movSettings,
@@ -1300,15 +1507,30 @@ module Network.AWS.MediaConvert.Types
     dashIsoGroupSettings_segmentControl,
     dashIsoGroupSettings_fragmentLength,
     dashIsoGroupSettings_baseUrl,
+    dashIsoGroupSettings_segmentLengthControl,
     dashIsoGroupSettings_additionalManifests,
+    dashIsoGroupSettings_imageBasedTrickPlay,
     dashIsoGroupSettings_mpdProfile,
+    dashIsoGroupSettings_ptsOffsetHandlingForBFrames,
     dashIsoGroupSettings_encryption,
-    dashIsoGroupSettings_minBufferTime,
     dashIsoGroupSettings_hbbtvCompliance,
+    dashIsoGroupSettings_minBufferTime,
     dashIsoGroupSettings_destination,
     dashIsoGroupSettings_minFinalSegmentLength,
     dashIsoGroupSettings_destinationSettings,
+    dashIsoGroupSettings_audioChannelConfigSchemeIdUri,
     dashIsoGroupSettings_writeSegmentTimelineInRepresentation,
+    dashIsoGroupSettings_imageBasedTrickPlaySettings,
+
+    -- * DashIsoImageBasedTrickPlaySettings
+    DashIsoImageBasedTrickPlaySettings (..),
+    newDashIsoImageBasedTrickPlaySettings,
+    dashIsoImageBasedTrickPlaySettings_intervalCadence,
+    dashIsoImageBasedTrickPlaySettings_thumbnailInterval,
+    dashIsoImageBasedTrickPlaySettings_tileHeight,
+    dashIsoImageBasedTrickPlaySettings_thumbnailHeight,
+    dashIsoImageBasedTrickPlaySettings_thumbnailWidth,
+    dashIsoImageBasedTrickPlaySettings_tileWidth,
 
     -- * Deinterlacer
     Deinterlacer (..),
@@ -1353,24 +1575,33 @@ module Network.AWS.MediaConvert.Types
     -- * DvbSubDestinationSettings
     DvbSubDestinationSettings (..),
     newDvbSubDestinationSettings,
+    dvbSubDestinationSettings_height,
     dvbSubDestinationSettings_alignment,
+    dvbSubDestinationSettings_fallbackFont,
     dvbSubDestinationSettings_shadowOpacity,
     dvbSubDestinationSettings_teletextSpacing,
+    dvbSubDestinationSettings_ddsXCoordinate,
+    dvbSubDestinationSettings_width,
     dvbSubDestinationSettings_shadowColor,
+    dvbSubDestinationSettings_ddsYCoordinate,
     dvbSubDestinationSettings_outlineColor,
+    dvbSubDestinationSettings_stylePassthrough,
     dvbSubDestinationSettings_backgroundOpacity,
+    dvbSubDestinationSettings_ddsHandling,
     dvbSubDestinationSettings_fontScript,
     dvbSubDestinationSettings_xPosition,
     dvbSubDestinationSettings_subtitlingType,
     dvbSubDestinationSettings_fontColor,
     dvbSubDestinationSettings_fontSize,
-    dvbSubDestinationSettings_backgroundColor,
     dvbSubDestinationSettings_shadowXOffset,
+    dvbSubDestinationSettings_hexFontColor,
+    dvbSubDestinationSettings_backgroundColor,
     dvbSubDestinationSettings_yPosition,
-    dvbSubDestinationSettings_fontResolution,
     dvbSubDestinationSettings_outlineSize,
-    dvbSubDestinationSettings_fontOpacity,
+    dvbSubDestinationSettings_fontResolution,
     dvbSubDestinationSettings_shadowYOffset,
+    dvbSubDestinationSettings_applyFontColor,
+    dvbSubDestinationSettings_fontOpacity,
 
     -- * DvbSubSourceSettings
     DvbSubSourceSettings (..),
@@ -1385,19 +1616,21 @@ module Network.AWS.MediaConvert.Types
     -- * Eac3AtmosSettings
     Eac3AtmosSettings (..),
     newEac3AtmosSettings,
+    eac3AtmosSettings_speechThreshold,
     eac3AtmosSettings_loRoCenterMixLevel,
     eac3AtmosSettings_ltRtCenterMixLevel,
-    eac3AtmosSettings_speechThreshold,
     eac3AtmosSettings_codingMode,
+    eac3AtmosSettings_dynamicRangeControl,
     eac3AtmosSettings_dialogueIntelligence,
     eac3AtmosSettings_loRoSurroundMixLevel,
     eac3AtmosSettings_ltRtSurroundMixLevel,
-    eac3AtmosSettings_sampleRate,
     eac3AtmosSettings_stereoDownmix,
+    eac3AtmosSettings_sampleRate,
+    eac3AtmosSettings_downmixControl,
     eac3AtmosSettings_meteringMode,
-    eac3AtmosSettings_bitstreamMode,
-    eac3AtmosSettings_surroundExMode,
     eac3AtmosSettings_dynamicRangeCompressionRf,
+    eac3AtmosSettings_surroundExMode,
+    eac3AtmosSettings_bitstreamMode,
     eac3AtmosSettings_bitrate,
     eac3AtmosSettings_dynamicRangeCompressionLine,
 
@@ -1411,20 +1644,20 @@ module Network.AWS.MediaConvert.Types
     eac3Settings_lfeControl,
     eac3Settings_loRoSurroundMixLevel,
     eac3Settings_ltRtSurroundMixLevel,
-    eac3Settings_lfeFilter,
     eac3Settings_dcFilter,
-    eac3Settings_sampleRate,
+    eac3Settings_lfeFilter,
     eac3Settings_stereoDownmix,
-    eac3Settings_bitstreamMode,
-    eac3Settings_surroundExMode,
-    eac3Settings_phaseControl,
+    eac3Settings_sampleRate,
     eac3Settings_dynamicRangeCompressionRf,
-    eac3Settings_passthroughControl,
-    eac3Settings_bitrate,
+    eac3Settings_phaseControl,
+    eac3Settings_surroundExMode,
+    eac3Settings_bitstreamMode,
     eac3Settings_attenuationControl,
+    eac3Settings_bitrate,
     eac3Settings_surroundMode,
-    eac3Settings_metadataControl,
+    eac3Settings_passthroughControl,
     eac3Settings_dynamicRangeCompressionLine,
+    eac3Settings_metadataControl,
 
     -- * EmbeddedDestinationSettings
     EmbeddedDestinationSettings (..),
@@ -1461,6 +1694,12 @@ module Network.AWS.MediaConvert.Types
     EsamSignalProcessingNotification (..),
     newEsamSignalProcessingNotification,
     esamSignalProcessingNotification_sccXml,
+
+    -- * ExtendedDataServices
+    ExtendedDataServices (..),
+    newExtendedDataServices,
+    extendedDataServices_copyProtectionAction,
+    extendedDataServices_vchipAction,
 
     -- * F4vSettings
     F4vSettings (..),
@@ -1499,46 +1738,46 @@ module Network.AWS.MediaConvert.Types
     -- * H264Settings
     H264Settings (..),
     newH264Settings,
+    h264Settings_flickerAdaptiveQuantization,
     h264Settings_hrdBufferInitialFillPercentage,
     h264Settings_temporalAdaptiveQuantization,
-    h264Settings_flickerAdaptiveQuantization,
     h264Settings_qualityTuningLevel,
     h264Settings_interlaceMode,
     h264Settings_repeatPps,
+    h264Settings_spatialAdaptiveQuantization,
+    h264Settings_gopBReference,
     h264Settings_fieldEncoding,
     h264Settings_telecine,
-    h264Settings_gopBReference,
-    h264Settings_spatialAdaptiveQuantization,
     h264Settings_framerateNumerator,
     h264Settings_rateControlMode,
     h264Settings_numberReferenceFrames,
     h264Settings_slices,
     h264Settings_entropyEncoding,
     h264Settings_gopSizeUnits,
-    h264Settings_codecProfile,
-    h264Settings_gopSize,
-    h264Settings_framerateDenominator,
     h264Settings_softness,
+    h264Settings_framerateDenominator,
+    h264Settings_gopSize,
+    h264Settings_codecProfile,
     h264Settings_parNumerator,
     h264Settings_sceneChangeDetect,
-    h264Settings_minIInterval,
     h264Settings_unregisteredSeiTimecode,
-    h264Settings_scanTypeConversionMode,
     h264Settings_parControl,
+    h264Settings_scanTypeConversionMode,
+    h264Settings_minIInterval,
     h264Settings_gopClosedCadence,
     h264Settings_parDenominator,
     h264Settings_maxBitrate,
-    h264Settings_dynamicSubGop,
     h264Settings_syntax,
+    h264Settings_dynamicSubGop,
     h264Settings_hrdBufferSize,
     h264Settings_adaptiveQuantization,
     h264Settings_framerateControl,
-    h264Settings_numberBFramesBetweenReferenceFrames,
-    h264Settings_framerateConversionAlgorithm,
     h264Settings_codecLevel,
+    h264Settings_framerateConversionAlgorithm,
+    h264Settings_numberBFramesBetweenReferenceFrames,
     h264Settings_bitrate,
-    h264Settings_qvbrSettings,
     h264Settings_slowPal,
+    h264Settings_qvbrSettings,
 
     -- * H265QvbrSettings
     H265QvbrSettings (..),
@@ -1550,30 +1789,30 @@ module Network.AWS.MediaConvert.Types
     -- * H265Settings
     H265Settings (..),
     newH265Settings,
+    h265Settings_flickerAdaptiveQuantization,
     h265Settings_hrdBufferInitialFillPercentage,
     h265Settings_temporalAdaptiveQuantization,
-    h265Settings_flickerAdaptiveQuantization,
     h265Settings_qualityTuningLevel,
     h265Settings_interlaceMode,
-    h265Settings_telecine,
-    h265Settings_gopBReference,
     h265Settings_spatialAdaptiveQuantization,
+    h265Settings_gopBReference,
+    h265Settings_telecine,
     h265Settings_framerateNumerator,
     h265Settings_rateControlMode,
     h265Settings_numberReferenceFrames,
-    h265Settings_slices,
     h265Settings_writeMp4PackagingType,
+    h265Settings_slices,
     h265Settings_gopSizeUnits,
-    h265Settings_codecProfile,
-    h265Settings_gopSize,
     h265Settings_framerateDenominator,
+    h265Settings_gopSize,
+    h265Settings_codecProfile,
     h265Settings_parNumerator,
     h265Settings_tiles,
     h265Settings_sceneChangeDetect,
-    h265Settings_minIInterval,
     h265Settings_unregisteredSeiTimecode,
-    h265Settings_scanTypeConversionMode,
     h265Settings_parControl,
+    h265Settings_scanTypeConversionMode,
+    h265Settings_minIInterval,
     h265Settings_gopClosedCadence,
     h265Settings_parDenominator,
     h265Settings_maxBitrate,
@@ -1582,14 +1821,14 @@ module Network.AWS.MediaConvert.Types
     h265Settings_hrdBufferSize,
     h265Settings_adaptiveQuantization,
     h265Settings_framerateControl,
-    h265Settings_numberBFramesBetweenReferenceFrames,
-    h265Settings_framerateConversionAlgorithm,
     h265Settings_codecLevel,
+    h265Settings_framerateConversionAlgorithm,
+    h265Settings_numberBFramesBetweenReferenceFrames,
     h265Settings_bitrate,
     h265Settings_temporalIds,
-    h265Settings_qvbrSettings,
-    h265Settings_sampleAdaptiveOffsetFilterMode,
     h265Settings_slowPal,
+    h265Settings_sampleAdaptiveOffsetFilterMode,
+    h265Settings_qvbrSettings,
 
     -- * Hdr10Metadata
     Hdr10Metadata (..),
@@ -1606,6 +1845,12 @@ module Network.AWS.MediaConvert.Types
     hdr10Metadata_maxContentLightLevel,
     hdr10Metadata_maxFrameAverageLightLevel,
     hdr10Metadata_whitePointY,
+
+    -- * Hdr10Plus
+    Hdr10Plus (..),
+    newHdr10Plus,
+    hdr10Plus_masteringMonitorNits,
+    hdr10Plus_targetMonitorNits,
 
     -- * HlsAdditionalManifest
     HlsAdditionalManifest (..),
@@ -1635,19 +1880,21 @@ module Network.AWS.MediaConvert.Types
     -- * HlsGroupSettings
     HlsGroupSettings (..),
     newHlsGroupSettings,
-    hlsGroupSettings_outputSelection,
-    hlsGroupSettings_timedMetadataId3Period,
     hlsGroupSettings_segmentLength,
     hlsGroupSettings_timedMetadataId3Frame,
-    hlsGroupSettings_adMarkers,
+    hlsGroupSettings_outputSelection,
+    hlsGroupSettings_timedMetadataId3Period,
     hlsGroupSettings_segmentControl,
     hlsGroupSettings_directoryStructure,
+    hlsGroupSettings_adMarkers,
     hlsGroupSettings_manifestCompression,
     hlsGroupSettings_baseUrl,
-    hlsGroupSettings_streamInfResolution,
     hlsGroupSettings_codecSpecification,
-    hlsGroupSettings_additionalManifests,
+    hlsGroupSettings_streamInfResolution,
+    hlsGroupSettings_segmentLengthControl,
     hlsGroupSettings_programDateTime,
+    hlsGroupSettings_additionalManifests,
+    hlsGroupSettings_imageBasedTrickPlay,
     hlsGroupSettings_segmentsPerSubdirectory,
     hlsGroupSettings_encryption,
     hlsGroupSettings_destination,
@@ -1655,12 +1902,31 @@ module Network.AWS.MediaConvert.Types
     hlsGroupSettings_destinationSettings,
     hlsGroupSettings_captionLanguageMappings,
     hlsGroupSettings_timestampDeltaMilliseconds,
+    hlsGroupSettings_imageBasedTrickPlaySettings,
     hlsGroupSettings_programDateTimePeriod,
     hlsGroupSettings_clientCache,
     hlsGroupSettings_audioOnlyHeader,
     hlsGroupSettings_minSegmentLength,
-    hlsGroupSettings_manifestDurationFormat,
     hlsGroupSettings_captionLanguageSetting,
+    hlsGroupSettings_targetDurationCompatibilityMode,
+    hlsGroupSettings_manifestDurationFormat,
+
+    -- * HlsImageBasedTrickPlaySettings
+    HlsImageBasedTrickPlaySettings (..),
+    newHlsImageBasedTrickPlaySettings,
+    hlsImageBasedTrickPlaySettings_intervalCadence,
+    hlsImageBasedTrickPlaySettings_thumbnailInterval,
+    hlsImageBasedTrickPlaySettings_tileHeight,
+    hlsImageBasedTrickPlaySettings_thumbnailHeight,
+    hlsImageBasedTrickPlaySettings_thumbnailWidth,
+    hlsImageBasedTrickPlaySettings_tileWidth,
+
+    -- * HlsRenditionGroupSettings
+    HlsRenditionGroupSettings (..),
+    newHlsRenditionGroupSettings,
+    hlsRenditionGroupSettings_renditionLanguageCode,
+    hlsRenditionGroupSettings_renditionGroupId,
+    hlsRenditionGroupSettings_renditionName,
 
     -- * HlsSettings
     HlsSettings (..),
@@ -1669,6 +1935,7 @@ module Network.AWS.MediaConvert.Types
     hlsSettings_iFrameOnlyManifest,
     hlsSettings_segmentModifier,
     hlsSettings_audioOnlyContainer,
+    hlsSettings_descriptiveVideoServiceFlag,
     hlsSettings_audioGroupId,
     hlsSettings_audioTrackType,
 
@@ -1698,22 +1965,22 @@ module Network.AWS.MediaConvert.Types
     -- * Input
     Input (..),
     newInput,
+    input_supplementalImps,
     input_imageInserter,
     input_denoiseFilter,
-    input_supplementalImps,
     input_inputScanType,
     input_inputClippings,
     input_fileInput,
-    input_timecodeStart,
     input_decryptionSettings,
     input_audioSelectors,
-    input_filterStrength,
+    input_timecodeStart,
     input_psiControl,
+    input_filterStrength,
     input_programNumber,
     input_audioSelectorGroups,
     input_videoSelector,
-    input_filterEnable,
     input_position,
+    input_filterEnable,
     input_crop,
     input_deblockFilter,
     input_captionSelectors,
@@ -1740,15 +2007,15 @@ module Network.AWS.MediaConvert.Types
     inputTemplate_denoiseFilter,
     inputTemplate_inputScanType,
     inputTemplate_inputClippings,
-    inputTemplate_timecodeStart,
     inputTemplate_audioSelectors,
-    inputTemplate_filterStrength,
+    inputTemplate_timecodeStart,
     inputTemplate_psiControl,
+    inputTemplate_filterStrength,
     inputTemplate_programNumber,
     inputTemplate_audioSelectorGroups,
     inputTemplate_videoSelector,
-    inputTemplate_filterEnable,
     inputTemplate_position,
+    inputTemplate_filterEnable,
     inputTemplate_crop,
     inputTemplate_deblockFilter,
     inputTemplate_captionSelectors,
@@ -1759,31 +2026,31 @@ module Network.AWS.MediaConvert.Types
     newInsertableImage,
     insertableImage_height,
     insertableImage_imageX,
+    insertableImage_width,
     insertableImage_imageY,
     insertableImage_duration,
-    insertableImage_width,
     insertableImage_layer,
     insertableImage_startTime,
     insertableImage_opacity,
-    insertableImage_fadeIn,
     insertableImage_imageInserterInput,
+    insertableImage_fadeIn,
     insertableImage_fadeOut,
 
     -- * Job
     Job (..),
     newJob,
-    job_accelerationSettings,
     job_billingTagsSource,
+    job_accelerationSettings,
     job_status,
     job_accelerationStatus,
     job_retryCount,
+    job_createdAt,
     job_queueTransitions,
     job_arn,
     job_id,
     job_jobPercentComplete,
-    job_createdAt,
-    job_priority,
     job_statusUpdateInterval,
+    job_priority,
     job_jobTemplate,
     job_userMetadata,
     job_queue,
@@ -1807,8 +2074,10 @@ module Network.AWS.MediaConvert.Types
     -- * JobSettings
     JobSettings (..),
     newJobSettings,
-    jobSettings_adAvailOffset,
+    jobSettings_extendedDataServices,
     jobSettings_timedMetadataInsertion,
+    jobSettings_kantarWatermark,
+    jobSettings_adAvailOffset,
     jobSettings_esam,
     jobSettings_nielsenNonLinearWatermark,
     jobSettings_motionImageInserter,
@@ -1823,23 +2092,25 @@ module Network.AWS.MediaConvert.Types
     newJobTemplate,
     jobTemplate_accelerationSettings,
     jobTemplate_category,
-    jobTemplate_arn,
     jobTemplate_createdAt,
-    jobTemplate_priority,
+    jobTemplate_arn,
     jobTemplate_statusUpdateInterval,
+    jobTemplate_priority,
     jobTemplate_lastUpdated,
     jobTemplate_queue,
     jobTemplate_description,
-    jobTemplate_type,
     jobTemplate_hopDestinations,
+    jobTemplate_type,
     jobTemplate_settings,
     jobTemplate_name,
 
     -- * JobTemplateSettings
     JobTemplateSettings (..),
     newJobTemplateSettings,
-    jobTemplateSettings_adAvailOffset,
+    jobTemplateSettings_extendedDataServices,
     jobTemplateSettings_timedMetadataInsertion,
+    jobTemplateSettings_kantarWatermark,
+    jobTemplateSettings_adAvailOffset,
     jobTemplateSettings_esam,
     jobTemplateSettings_nielsenNonLinearWatermark,
     jobTemplateSettings_motionImageInserter,
@@ -1848,6 +2119,23 @@ module Network.AWS.MediaConvert.Types
     jobTemplateSettings_outputGroups,
     jobTemplateSettings_inputs,
     jobTemplateSettings_timecodeConfig,
+
+    -- * KantarWatermarkSettings
+    KantarWatermarkSettings (..),
+    newKantarWatermarkSettings,
+    kantarWatermarkSettings_channelName,
+    kantarWatermarkSettings_metadata4,
+    kantarWatermarkSettings_metadata3,
+    kantarWatermarkSettings_fileOffset,
+    kantarWatermarkSettings_metadata5,
+    kantarWatermarkSettings_logDestination,
+    kantarWatermarkSettings_kantarServerUrl,
+    kantarWatermarkSettings_kantarLicenseId,
+    kantarWatermarkSettings_credentialsSecretName,
+    kantarWatermarkSettings_metadata6,
+    kantarWatermarkSettings_metadata8,
+    kantarWatermarkSettings_metadata7,
+    kantarWatermarkSettings_contentReference,
 
     -- * M2tsScte35Esam
     M2tsScte35Esam (..),
@@ -1860,61 +2148,64 @@ module Network.AWS.MediaConvert.Types
     m2tsSettings_segmentationMarkers,
     m2tsSettings_pmtPid,
     m2tsSettings_videoPid,
-    m2tsSettings_audioBufferModel,
-    m2tsSettings_timedMetadataPid,
     m2tsSettings_segmentationStyle,
-    m2tsSettings_dvbNitSettings,
-    m2tsSettings_nullPacketBitrate,
+    m2tsSettings_timedMetadataPid,
+    m2tsSettings_audioBufferModel,
     m2tsSettings_pcrControl,
-    m2tsSettings_ebpAudioInterval,
     m2tsSettings_ebpPlacement,
     m2tsSettings_pmtInterval,
+    m2tsSettings_dvbNitSettings,
+    m2tsSettings_ebpAudioInterval,
+    m2tsSettings_nullPacketBitrate,
     m2tsSettings_audioPids,
     m2tsSettings_patInterval,
-    m2tsSettings_minEbpInterval,
     m2tsSettings_maxPcrInterval,
-    m2tsSettings_programNumber,
+    m2tsSettings_minEbpInterval,
     m2tsSettings_bufferModel,
+    m2tsSettings_programNumber,
     m2tsSettings_pcrPid,
     m2tsSettings_audioFramesPerPes,
     m2tsSettings_rateMode,
     m2tsSettings_dvbTdtSettings,
     m2tsSettings_dvbSdtSettings,
     m2tsSettings_segmentationTime,
-    m2tsSettings_audioDuration,
+    m2tsSettings_dataPTSControl,
     m2tsSettings_nielsenId3,
     m2tsSettings_dvbTeletextPid,
-    m2tsSettings_bitrate,
+    m2tsSettings_audioDuration,
     m2tsSettings_fragmentTime,
-    m2tsSettings_esRateInPes,
+    m2tsSettings_bitrate,
     m2tsSettings_privateMetadataPid,
+    m2tsSettings_esRateInPes,
     m2tsSettings_scte35Esam,
-    m2tsSettings_scte35Source,
-    m2tsSettings_forceTsVideoEbpOrder,
     m2tsSettings_transportStreamId,
     m2tsSettings_dvbSubPids,
     m2tsSettings_scte35Pid,
+    m2tsSettings_forceTsVideoEbpOrder,
+    m2tsSettings_scte35Source,
 
     -- * M3u8Settings
     M3u8Settings (..),
     newM3u8Settings,
-    m3u8Settings_pmtPid,
     m3u8Settings_timedMetadata,
+    m3u8Settings_pmtPid,
     m3u8Settings_videoPid,
     m3u8Settings_timedMetadataPid,
     m3u8Settings_pcrControl,
     m3u8Settings_pmtInterval,
     m3u8Settings_audioPids,
     m3u8Settings_patInterval,
+    m3u8Settings_maxPcrInterval,
     m3u8Settings_programNumber,
     m3u8Settings_pcrPid,
     m3u8Settings_audioFramesPerPes,
-    m3u8Settings_audioDuration,
+    m3u8Settings_dataPTSControl,
     m3u8Settings_nielsenId3,
+    m3u8Settings_audioDuration,
     m3u8Settings_privateMetadataPid,
-    m3u8Settings_scte35Source,
     m3u8Settings_transportStreamId,
     m3u8Settings_scte35Pid,
+    m3u8Settings_scte35Source,
 
     -- * MotionImageInserter
     MotionImageInserter (..),
@@ -1922,8 +2213,8 @@ module Network.AWS.MediaConvert.Types
     motionImageInserter_insertionMode,
     motionImageInserter_input,
     motionImageInserter_startTime,
-    motionImageInserter_playback,
     motionImageInserter_framerate,
+    motionImageInserter_playback,
     motionImageInserter_offset,
 
     -- * MotionImageInsertionFramerate
@@ -1942,8 +2233,8 @@ module Network.AWS.MediaConvert.Types
     MovSettings (..),
     newMovSettings,
     movSettings_paddingControl,
-    movSettings_cslgAtom,
     movSettings_mpeg2FourCCControl,
+    movSettings_cslgAtom,
     movSettings_clapAtom,
     movSettings_reference,
 
@@ -1970,8 +2261,8 @@ module Network.AWS.MediaConvert.Types
     mp4Settings_mp4MajorBrand,
     mp4Settings_audioDuration,
     mp4Settings_freeSpaceBox,
-    mp4Settings_moovPlacement,
     mp4Settings_cttsVersion,
+    mp4Settings_moovPlacement,
 
     -- * MpdSettings
     MpdSettings (..),
@@ -1989,32 +2280,32 @@ module Network.AWS.MediaConvert.Types
     mpeg2Settings_temporalAdaptiveQuantization,
     mpeg2Settings_qualityTuningLevel,
     mpeg2Settings_interlaceMode,
-    mpeg2Settings_intraDcPrecision,
-    mpeg2Settings_telecine,
     mpeg2Settings_spatialAdaptiveQuantization,
+    mpeg2Settings_telecine,
+    mpeg2Settings_intraDcPrecision,
     mpeg2Settings_framerateNumerator,
     mpeg2Settings_rateControlMode,
     mpeg2Settings_gopSizeUnits,
-    mpeg2Settings_codecProfile,
-    mpeg2Settings_gopSize,
-    mpeg2Settings_framerateDenominator,
     mpeg2Settings_softness,
+    mpeg2Settings_framerateDenominator,
+    mpeg2Settings_gopSize,
+    mpeg2Settings_codecProfile,
     mpeg2Settings_parNumerator,
     mpeg2Settings_sceneChangeDetect,
-    mpeg2Settings_minIInterval,
-    mpeg2Settings_scanTypeConversionMode,
     mpeg2Settings_parControl,
+    mpeg2Settings_scanTypeConversionMode,
+    mpeg2Settings_minIInterval,
     mpeg2Settings_gopClosedCadence,
     mpeg2Settings_parDenominator,
     mpeg2Settings_maxBitrate,
-    mpeg2Settings_dynamicSubGop,
     mpeg2Settings_syntax,
+    mpeg2Settings_dynamicSubGop,
     mpeg2Settings_hrdBufferSize,
     mpeg2Settings_adaptiveQuantization,
     mpeg2Settings_framerateControl,
-    mpeg2Settings_numberBFramesBetweenReferenceFrames,
-    mpeg2Settings_framerateConversionAlgorithm,
     mpeg2Settings_codecLevel,
+    mpeg2Settings_framerateConversionAlgorithm,
+    mpeg2Settings_numberBFramesBetweenReferenceFrames,
     mpeg2Settings_bitrate,
     mpeg2Settings_slowPal,
 
@@ -2038,6 +2329,7 @@ module Network.AWS.MediaConvert.Types
     msSmoothGroupSettings_encryption,
     msSmoothGroupSettings_destination,
     msSmoothGroupSettings_destinationSettings,
+    msSmoothGroupSettings_fragmentLengthControl,
     msSmoothGroupSettings_audioDeduplication,
 
     -- * MxfSettings
@@ -2045,6 +2337,13 @@ module Network.AWS.MediaConvert.Types
     newMxfSettings,
     mxfSettings_profile,
     mxfSettings_afdSignaling,
+    mxfSettings_xavcProfileSettings,
+
+    -- * MxfXavcProfileSettings
+    MxfXavcProfileSettings (..),
+    newMxfXavcProfileSettings,
+    mxfXavcProfileSettings_maxAncDataSize,
+    mxfXavcProfileSettings_durationMode,
 
     -- * NexGuardFileMarkerSettings
     NexGuardFileMarkerSettings (..),
@@ -2066,9 +2365,9 @@ module Network.AWS.MediaConvert.Types
     nielsenNonLinearWatermarkSettings_assetName,
     nielsenNonLinearWatermarkSettings_activeWatermarkProcess,
     nielsenNonLinearWatermarkSettings_sourceWatermarkStatus,
-    nielsenNonLinearWatermarkSettings_ticServerUrl,
     nielsenNonLinearWatermarkSettings_sourceId,
     nielsenNonLinearWatermarkSettings_cbetSourceId,
+    nielsenNonLinearWatermarkSettings_ticServerUrl,
     nielsenNonLinearWatermarkSettings_episodeId,
     nielsenNonLinearWatermarkSettings_metadataDestination,
     nielsenNonLinearWatermarkSettings_uniqueTicPerAudioTrack,
@@ -2098,9 +2397,9 @@ module Network.AWS.MediaConvert.Types
     -- * NoiseReducerTemporalFilterSettings
     NoiseReducerTemporalFilterSettings (..),
     newNoiseReducerTemporalFilterSettings,
-    noiseReducerTemporalFilterSettings_postTemporalSharpening,
     noiseReducerTemporalFilterSettings_speed,
     noiseReducerTemporalFilterSettings_aggressiveMode,
+    noiseReducerTemporalFilterSettings_postTemporalSharpening,
     noiseReducerTemporalFilterSettings_strength,
 
     -- * OpusSettings
@@ -2172,8 +2471,8 @@ module Network.AWS.MediaConvert.Types
     Preset (..),
     newPreset,
     preset_category,
-    preset_arn,
     preset_createdAt,
+    preset_arn,
     preset_lastUpdated,
     preset_description,
     preset_type,
@@ -2194,11 +2493,12 @@ module Network.AWS.MediaConvert.Types
     proresSettings_interlaceMode,
     proresSettings_telecine,
     proresSettings_framerateNumerator,
-    proresSettings_codecProfile,
     proresSettings_framerateDenominator,
+    proresSettings_codecProfile,
     proresSettings_parNumerator,
-    proresSettings_scanTypeConversionMode,
     proresSettings_parControl,
+    proresSettings_scanTypeConversionMode,
+    proresSettings_chromaSampling,
     proresSettings_parDenominator,
     proresSettings_framerateControl,
     proresSettings_framerateConversionAlgorithm,
@@ -2208,13 +2508,13 @@ module Network.AWS.MediaConvert.Types
     Queue (..),
     newQueue,
     queue_status,
-    queue_arn,
     queue_createdAt,
+    queue_arn,
     queue_lastUpdated,
-    queue_submittedJobsCount,
     queue_description,
-    queue_pricingPlan,
+    queue_submittedJobsCount,
     queue_reservationPlan,
+    queue_pricingPlan,
     queue_type,
     queue_progressingJobsCount,
     queue_name,
@@ -2279,6 +2579,7 @@ module Network.AWS.MediaConvert.Types
     S3EncryptionSettings (..),
     newS3EncryptionSettings,
     s3EncryptionSettings_encryptionType,
+    s3EncryptionSettings_kmsEncryptionContext,
     s3EncryptionSettings_kmsKeyArn,
 
     -- * SccDestinationSettings
@@ -2291,8 +2592,8 @@ module Network.AWS.MediaConvert.Types
     newSpekeKeyProvider,
     spekeKeyProvider_resourceId,
     spekeKeyProvider_certificateArn,
-    spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
+    spekeKeyProvider_systemIds,
 
     -- * SpekeKeyProviderCmaf
     SpekeKeyProviderCmaf (..),
@@ -2302,6 +2603,11 @@ module Network.AWS.MediaConvert.Types
     spekeKeyProviderCmaf_url,
     spekeKeyProviderCmaf_hlsSignaledSystemIds,
     spekeKeyProviderCmaf_dashSignaledSystemIds,
+
+    -- * SrtDestinationSettings
+    SrtDestinationSettings (..),
+    newSrtDestinationSettings,
+    srtDestinationSettings_stylePassthrough,
 
     -- * StaticKeyProvider
     StaticKeyProvider (..),
@@ -2368,22 +2674,23 @@ module Network.AWS.MediaConvert.Types
     vc3Settings_framerateDenominator,
     vc3Settings_scanTypeConversionMode,
     vc3Settings_framerateControl,
-    vc3Settings_framerateConversionAlgorithm,
     vc3Settings_vc3Class,
+    vc3Settings_framerateConversionAlgorithm,
     vc3Settings_slowPal,
 
     -- * VideoCodecSettings
     VideoCodecSettings (..),
     newVideoCodecSettings,
     videoCodecSettings_frameCaptureSettings,
+    videoCodecSettings_xavcSettings,
     videoCodecSettings_codec,
     videoCodecSettings_vc3Settings,
     videoCodecSettings_vp8Settings,
     videoCodecSettings_mpeg2Settings,
     videoCodecSettings_h264Settings,
     videoCodecSettings_vp9Settings,
-    videoCodecSettings_proresSettings,
     videoCodecSettings_h265Settings,
+    videoCodecSettings_proresSettings,
     videoCodecSettings_avcIntraSettings,
     videoCodecSettings_av1Settings,
 
@@ -2399,8 +2706,8 @@ module Network.AWS.MediaConvert.Types
     videoDescription_colorMetadata,
     videoDescription_fixedAfd,
     videoDescription_timecodeInsertion,
-    videoDescription_scalingBehavior,
     videoDescription_position,
+    videoDescription_scalingBehavior,
     videoDescription_crop,
     videoDescription_videoPreprocessors,
     videoDescription_sharpness,
@@ -2417,16 +2724,18 @@ module Network.AWS.MediaConvert.Types
     newVideoPreprocessor,
     videoPreprocessor_imageInserter,
     videoPreprocessor_timecodeBurnin,
-    videoPreprocessor_deinterlacer,
     videoPreprocessor_noiseReducer,
-    videoPreprocessor_partnerWatermarking,
+    videoPreprocessor_deinterlacer,
     videoPreprocessor_colorCorrector,
+    videoPreprocessor_partnerWatermarking,
     videoPreprocessor_dolbyVision,
+    videoPreprocessor_hdr10Plus,
 
     -- * VideoSelector
     VideoSelector (..),
     newVideoSelector,
     videoSelector_colorSpaceUsage,
+    videoSelector_sampleRange,
     videoSelector_hdr10Metadata,
     videoSelector_programNumber,
     videoSelector_rotate,
@@ -2447,8 +2756,8 @@ module Network.AWS.MediaConvert.Types
     vp8Settings_qualityTuningLevel,
     vp8Settings_framerateNumerator,
     vp8Settings_rateControlMode,
-    vp8Settings_gopSize,
     vp8Settings_framerateDenominator,
+    vp8Settings_gopSize,
     vp8Settings_parNumerator,
     vp8Settings_parControl,
     vp8Settings_parDenominator,
@@ -2464,8 +2773,8 @@ module Network.AWS.MediaConvert.Types
     vp9Settings_qualityTuningLevel,
     vp9Settings_framerateNumerator,
     vp9Settings_rateControlMode,
-    vp9Settings_gopSize,
     vp9Settings_framerateDenominator,
+    vp9Settings_gopSize,
     vp9Settings_parNumerator,
     vp9Settings_parControl,
     vp9Settings_parDenominator,
@@ -2482,6 +2791,78 @@ module Network.AWS.MediaConvert.Types
     wavSettings_channels,
     wavSettings_bitDepth,
     wavSettings_sampleRate,
+
+    -- * WebvttDestinationSettings
+    WebvttDestinationSettings (..),
+    newWebvttDestinationSettings,
+    webvttDestinationSettings_stylePassthrough,
+
+    -- * WebvttHlsSourceSettings
+    WebvttHlsSourceSettings (..),
+    newWebvttHlsSourceSettings,
+    webvttHlsSourceSettings_renditionLanguageCode,
+    webvttHlsSourceSettings_renditionGroupId,
+    webvttHlsSourceSettings_renditionName,
+
+    -- * Xavc4kIntraCbgProfileSettings
+    Xavc4kIntraCbgProfileSettings (..),
+    newXavc4kIntraCbgProfileSettings,
+    xavc4kIntraCbgProfileSettings_xavcClass,
+
+    -- * Xavc4kIntraVbrProfileSettings
+    Xavc4kIntraVbrProfileSettings (..),
+    newXavc4kIntraVbrProfileSettings,
+    xavc4kIntraVbrProfileSettings_xavcClass,
+
+    -- * Xavc4kProfileSettings
+    Xavc4kProfileSettings (..),
+    newXavc4kProfileSettings,
+    xavc4kProfileSettings_flickerAdaptiveQuantization,
+    xavc4kProfileSettings_qualityTuningLevel,
+    xavc4kProfileSettings_gopBReference,
+    xavc4kProfileSettings_bitrateClass,
+    xavc4kProfileSettings_slices,
+    xavc4kProfileSettings_codecProfile,
+    xavc4kProfileSettings_gopClosedCadence,
+    xavc4kProfileSettings_hrdBufferSize,
+
+    -- * XavcHdIntraCbgProfileSettings
+    XavcHdIntraCbgProfileSettings (..),
+    newXavcHdIntraCbgProfileSettings,
+    xavcHdIntraCbgProfileSettings_xavcClass,
+
+    -- * XavcHdProfileSettings
+    XavcHdProfileSettings (..),
+    newXavcHdProfileSettings,
+    xavcHdProfileSettings_flickerAdaptiveQuantization,
+    xavcHdProfileSettings_qualityTuningLevel,
+    xavcHdProfileSettings_interlaceMode,
+    xavcHdProfileSettings_gopBReference,
+    xavcHdProfileSettings_telecine,
+    xavcHdProfileSettings_bitrateClass,
+    xavcHdProfileSettings_slices,
+    xavcHdProfileSettings_gopClosedCadence,
+    xavcHdProfileSettings_hrdBufferSize,
+
+    -- * XavcSettings
+    XavcSettings (..),
+    newXavcSettings,
+    xavcSettings_temporalAdaptiveQuantization,
+    xavcSettings_spatialAdaptiveQuantization,
+    xavcSettings_framerateNumerator,
+    xavcSettings_entropyEncoding,
+    xavcSettings_softness,
+    xavcSettings_framerateDenominator,
+    xavcSettings_xavc4kProfileSettings,
+    xavcSettings_xavcHdProfileSettings,
+    xavcSettings_profile,
+    xavcSettings_xavc4kIntraCbgProfileSettings,
+    xavcSettings_xavc4kIntraVbrProfileSettings,
+    xavcSettings_adaptiveQuantization,
+    xavcSettings_framerateControl,
+    xavcSettings_xavcHdIntraCbgProfileSettings,
+    xavcSettings_framerateConversionAlgorithm,
+    xavcSettings_slowPal,
   )
 where
 
@@ -2497,7 +2878,9 @@ import Network.AWS.MediaConvert.Types.AacSpecification
 import Network.AWS.MediaConvert.Types.AacVbrQuality
 import Network.AWS.MediaConvert.Types.Ac3BitstreamMode
 import Network.AWS.MediaConvert.Types.Ac3CodingMode
+import Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionLine
 import Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+import Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionRf
 import Network.AWS.MediaConvert.Types.Ac3LfeFilter
 import Network.AWS.MediaConvert.Types.Ac3MetadataControl
 import Network.AWS.MediaConvert.Types.Ac3Settings
@@ -2548,9 +2931,12 @@ import Network.AWS.MediaConvert.Types.AvcIntraTelecine
 import Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
 import Network.AWS.MediaConvert.Types.AvcIntraUhdSettings
 import Network.AWS.MediaConvert.Types.BillingTagsSource
+import Network.AWS.MediaConvert.Types.BurnInSubtitleStylePassthrough
 import Network.AWS.MediaConvert.Types.BurninDestinationSettings
 import Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
+import Network.AWS.MediaConvert.Types.BurninSubtitleApplyFontColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
+import Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont
 import Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
@@ -2570,17 +2956,25 @@ import Network.AWS.MediaConvert.Types.CmafCodecSpecification
 import Network.AWS.MediaConvert.Types.CmafEncryptionSettings
 import Network.AWS.MediaConvert.Types.CmafEncryptionType
 import Network.AWS.MediaConvert.Types.CmafGroupSettings
+import Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay
+import Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings
 import Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+import Network.AWS.MediaConvert.Types.CmafIntervalCadence
 import Network.AWS.MediaConvert.Types.CmafKeyProviderType
 import Network.AWS.MediaConvert.Types.CmafManifestCompression
 import Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
 import Network.AWS.MediaConvert.Types.CmafMpdProfile
+import Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
 import Network.AWS.MediaConvert.Types.CmafSegmentControl
+import Network.AWS.MediaConvert.Types.CmafSegmentLengthControl
 import Network.AWS.MediaConvert.Types.CmafStreamInfResolution
+import Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
 import Network.AWS.MediaConvert.Types.CmafWriteDASHManifest
 import Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
 import Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
 import Network.AWS.MediaConvert.Types.CmfcAudioDuration
+import Network.AWS.MediaConvert.Types.CmfcAudioTrackType
+import Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
 import Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
 import Network.AWS.MediaConvert.Types.CmfcScte35Esam
 import Network.AWS.MediaConvert.Types.CmfcScte35Source
@@ -2593,13 +2987,20 @@ import Network.AWS.MediaConvert.Types.ColorSpaceUsage
 import Network.AWS.MediaConvert.Types.Commitment
 import Network.AWS.MediaConvert.Types.ContainerSettings
 import Network.AWS.MediaConvert.Types.ContainerType
+import Network.AWS.MediaConvert.Types.CopyProtectionAction
 import Network.AWS.MediaConvert.Types.DashAdditionalManifest
 import Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings
+import Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
 import Network.AWS.MediaConvert.Types.DashIsoGroupSettings
 import Network.AWS.MediaConvert.Types.DashIsoHbbtvCompliance
+import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlay
+import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
+import Network.AWS.MediaConvert.Types.DashIsoIntervalCadence
 import Network.AWS.MediaConvert.Types.DashIsoMpdProfile
 import Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+import Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
 import Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+import Network.AWS.MediaConvert.Types.DashIsoSegmentLengthControl
 import Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
 import Network.AWS.MediaConvert.Types.DecryptionMode
 import Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
@@ -2617,19 +3018,25 @@ import Network.AWS.MediaConvert.Types.DvbNitSettings
 import Network.AWS.MediaConvert.Types.DvbSdtSettings
 import Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
 import Network.AWS.MediaConvert.Types.DvbSubSourceSettings
+import Network.AWS.MediaConvert.Types.DvbSubSubtitleFallbackFont
 import Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
+import Network.AWS.MediaConvert.Types.DvbSubtitleApplyFontColor
 import Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
 import Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
 import Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
 import Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
+import Network.AWS.MediaConvert.Types.DvbSubtitleStylePassthrough
 import Network.AWS.MediaConvert.Types.DvbSubtitleTeletextSpacing
 import Network.AWS.MediaConvert.Types.DvbSubtitlingType
 import Network.AWS.MediaConvert.Types.DvbTdtSettings
+import Network.AWS.MediaConvert.Types.DvbddsHandling
 import Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode
 import Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
 import Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
+import Network.AWS.MediaConvert.Types.Eac3AtmosDownmixControl
 import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
 import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
+import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeControl
 import Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
 import Network.AWS.MediaConvert.Types.Eac3AtmosSettings
 import Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
@@ -2657,6 +3064,7 @@ import Network.AWS.MediaConvert.Types.Endpoint
 import Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
 import Network.AWS.MediaConvert.Types.EsamSettings
 import Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
+import Network.AWS.MediaConvert.Types.ExtendedDataServices
 import Network.AWS.MediaConvert.Types.F4vMoovPlacement
 import Network.AWS.MediaConvert.Types.F4vSettings
 import Network.AWS.MediaConvert.Types.FileGroupSettings
@@ -2718,6 +3126,7 @@ import Network.AWS.MediaConvert.Types.H265Tiles
 import Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode
 import Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
 import Network.AWS.MediaConvert.Types.Hdr10Metadata
+import Network.AWS.MediaConvert.Types.Hdr10Plus
 import Network.AWS.MediaConvert.Types.HlsAdMarkers
 import Network.AWS.MediaConvert.Types.HlsAdditionalManifest
 import Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
@@ -2727,21 +3136,28 @@ import Network.AWS.MediaConvert.Types.HlsCaptionLanguageMapping
 import Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
 import Network.AWS.MediaConvert.Types.HlsClientCache
 import Network.AWS.MediaConvert.Types.HlsCodecSpecification
+import Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
 import Network.AWS.MediaConvert.Types.HlsDirectoryStructure
 import Network.AWS.MediaConvert.Types.HlsEncryptionSettings
 import Network.AWS.MediaConvert.Types.HlsEncryptionType
 import Network.AWS.MediaConvert.Types.HlsGroupSettings
 import Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
+import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay
+import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlaySettings
 import Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
+import Network.AWS.MediaConvert.Types.HlsIntervalCadence
 import Network.AWS.MediaConvert.Types.HlsKeyProviderType
 import Network.AWS.MediaConvert.Types.HlsManifestCompression
 import Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
 import Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
 import Network.AWS.MediaConvert.Types.HlsOutputSelection
 import Network.AWS.MediaConvert.Types.HlsProgramDateTime
+import Network.AWS.MediaConvert.Types.HlsRenditionGroupSettings
 import Network.AWS.MediaConvert.Types.HlsSegmentControl
+import Network.AWS.MediaConvert.Types.HlsSegmentLengthControl
 import Network.AWS.MediaConvert.Types.HlsSettings
 import Network.AWS.MediaConvert.Types.HlsStreamInfResolution
+import Network.AWS.MediaConvert.Types.HlsTargetDurationCompatibilityMode
 import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
 import Network.AWS.MediaConvert.Types.HopDestination
 import Network.AWS.MediaConvert.Types.Id3Insertion
@@ -2756,6 +3172,7 @@ import Network.AWS.MediaConvert.Types.InputDenoiseFilter
 import Network.AWS.MediaConvert.Types.InputFilterEnable
 import Network.AWS.MediaConvert.Types.InputPsiControl
 import Network.AWS.MediaConvert.Types.InputRotate
+import Network.AWS.MediaConvert.Types.InputSampleRange
 import Network.AWS.MediaConvert.Types.InputScanType
 import Network.AWS.MediaConvert.Types.InputTemplate
 import Network.AWS.MediaConvert.Types.InputTimecodeSource
@@ -2768,10 +3185,12 @@ import Network.AWS.MediaConvert.Types.JobStatus
 import Network.AWS.MediaConvert.Types.JobTemplate
 import Network.AWS.MediaConvert.Types.JobTemplateListBy
 import Network.AWS.MediaConvert.Types.JobTemplateSettings
+import Network.AWS.MediaConvert.Types.KantarWatermarkSettings
 import Network.AWS.MediaConvert.Types.LanguageCode
 import Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
 import Network.AWS.MediaConvert.Types.M2tsAudioDuration
 import Network.AWS.MediaConvert.Types.M2tsBufferModel
+import Network.AWS.MediaConvert.Types.M2tsDataPtsControl
 import Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
 import Network.AWS.MediaConvert.Types.M2tsEbpPlacement
 import Network.AWS.MediaConvert.Types.M2tsEsRateInPes
@@ -2785,6 +3204,7 @@ import Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
 import Network.AWS.MediaConvert.Types.M2tsSegmentationStyle
 import Network.AWS.MediaConvert.Types.M2tsSettings
 import Network.AWS.MediaConvert.Types.M3u8AudioDuration
+import Network.AWS.MediaConvert.Types.M3u8DataPtsControl
 import Network.AWS.MediaConvert.Types.M3u8NielsenId3
 import Network.AWS.MediaConvert.Types.M3u8PcrControl
 import Network.AWS.MediaConvert.Types.M3u8Scte35Source
@@ -2836,11 +3256,14 @@ import Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
 import Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
 import Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
 import Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
+import Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl
 import Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
 import Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
 import Network.AWS.MediaConvert.Types.MxfAfdSignaling
 import Network.AWS.MediaConvert.Types.MxfProfile
 import Network.AWS.MediaConvert.Types.MxfSettings
+import Network.AWS.MediaConvert.Types.MxfXavcDurationMode
+import Network.AWS.MediaConvert.Types.MxfXavcProfileSettings
 import Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
 import Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
 import Network.AWS.MediaConvert.Types.NielsenConfiguration
@@ -2869,6 +3292,7 @@ import Network.AWS.MediaConvert.Types.Preset
 import Network.AWS.MediaConvert.Types.PresetListBy
 import Network.AWS.MediaConvert.Types.PresetSettings
 import Network.AWS.MediaConvert.Types.PricingPlan
+import Network.AWS.MediaConvert.Types.ProresChromaSampling
 import Network.AWS.MediaConvert.Types.ProresCodecProfile
 import Network.AWS.MediaConvert.Types.ProresFramerateControl
 import Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
@@ -2895,12 +3319,15 @@ import Network.AWS.MediaConvert.Types.S3DestinationSettings
 import Network.AWS.MediaConvert.Types.S3EncryptionSettings
 import Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
 import Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
+import Network.AWS.MediaConvert.Types.SampleRangeConversion
 import Network.AWS.MediaConvert.Types.ScalingBehavior
 import Network.AWS.MediaConvert.Types.SccDestinationFramerate
 import Network.AWS.MediaConvert.Types.SccDestinationSettings
 import Network.AWS.MediaConvert.Types.SimulateReservedQueue
 import Network.AWS.MediaConvert.Types.SpekeKeyProvider
 import Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
+import Network.AWS.MediaConvert.Types.SrtDestinationSettings
+import Network.AWS.MediaConvert.Types.SrtStylePassthrough
 import Network.AWS.MediaConvert.Types.StaticKeyProvider
 import Network.AWS.MediaConvert.Types.StatusUpdateInterval
 import Network.AWS.MediaConvert.Types.TeletextDestinationSettings
@@ -2925,6 +3352,7 @@ import Network.AWS.MediaConvert.Types.Vc3ScanTypeConversionMode
 import Network.AWS.MediaConvert.Types.Vc3Settings
 import Network.AWS.MediaConvert.Types.Vc3SlowPal
 import Network.AWS.MediaConvert.Types.Vc3Telecine
+import Network.AWS.MediaConvert.Types.VchipAction
 import Network.AWS.MediaConvert.Types.VideoCodec
 import Network.AWS.MediaConvert.Types.VideoCodecSettings
 import Network.AWS.MediaConvert.Types.VideoDescription
@@ -2948,6 +3376,35 @@ import Network.AWS.MediaConvert.Types.Vp9Settings
 import Network.AWS.MediaConvert.Types.WatermarkingStrength
 import Network.AWS.MediaConvert.Types.WavFormat
 import Network.AWS.MediaConvert.Types.WavSettings
+import Network.AWS.MediaConvert.Types.WebvttDestinationSettings
+import Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings
+import Network.AWS.MediaConvert.Types.WebvttStylePassthrough
+import Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileClass
+import Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
+import Network.AWS.MediaConvert.Types.Xavc4kIntraVbrProfileClass
+import Network.AWS.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
+import Network.AWS.MediaConvert.Types.Xavc4kProfileBitrateClass
+import Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
+import Network.AWS.MediaConvert.Types.Xavc4kProfileQualityTuningLevel
+import Network.AWS.MediaConvert.Types.Xavc4kProfileSettings
+import Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization
+import Network.AWS.MediaConvert.Types.XavcEntropyEncoding
+import Network.AWS.MediaConvert.Types.XavcFlickerAdaptiveQuantization
+import Network.AWS.MediaConvert.Types.XavcFramerateControl
+import Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm
+import Network.AWS.MediaConvert.Types.XavcGopBReference
+import Network.AWS.MediaConvert.Types.XavcHdIntraCbgProfileClass
+import Network.AWS.MediaConvert.Types.XavcHdIntraCbgProfileSettings
+import Network.AWS.MediaConvert.Types.XavcHdProfileBitrateClass
+import Network.AWS.MediaConvert.Types.XavcHdProfileQualityTuningLevel
+import Network.AWS.MediaConvert.Types.XavcHdProfileSettings
+import Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
+import Network.AWS.MediaConvert.Types.XavcInterlaceMode
+import Network.AWS.MediaConvert.Types.XavcProfile
+import Network.AWS.MediaConvert.Types.XavcSettings
+import Network.AWS.MediaConvert.Types.XavcSlowPal
+import Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
+import Network.AWS.MediaConvert.Types.XavcTemporalAdaptiveQuantization
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 

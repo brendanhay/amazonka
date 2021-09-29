@@ -34,9 +34,9 @@ module Network.AWS.SageMaker.DescribeAction
     newDescribeActionResponse,
 
     -- * Response Lenses
+    describeActionResponse_creationTime,
     describeActionResponse_status,
     describeActionResponse_metadataProperties,
-    describeActionResponse_creationTime,
     describeActionResponse_actionName,
     describeActionResponse_actionType,
     describeActionResponse_actionArn,
@@ -93,9 +93,9 @@ instance Core.AWSRequest DescribeAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeActionResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ActionName")
             Prelude.<*> (x Core..?> "ActionType")
             Prelude.<*> (x Core..?> "ActionArn")
@@ -140,11 +140,11 @@ instance Core.ToQuery DescribeAction where
 
 -- | /See:/ 'newDescribeActionResponse' smart constructor.
 data DescribeActionResponse = DescribeActionResponse'
-  { -- | The status of the action.
+  { -- | When the action was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the action.
     status :: Prelude.Maybe ActionStatus,
     metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | When the action was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the action.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The type of the action.
@@ -174,11 +174,11 @@ data DescribeActionResponse = DescribeActionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'describeActionResponse_creationTime' - When the action was created.
+--
 -- 'status', 'describeActionResponse_status' - The status of the action.
 --
 -- 'metadataProperties', 'describeActionResponse_metadataProperties' - Undocumented member.
---
--- 'creationTime', 'describeActionResponse_creationTime' - When the action was created.
 --
 -- 'actionName', 'describeActionResponse_actionName' - The name of the action.
 --
@@ -205,9 +205,10 @@ newDescribeActionResponse ::
   DescribeActionResponse
 newDescribeActionResponse pHttpStatus_ =
   DescribeActionResponse'
-    { status = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       actionName = Prelude.Nothing,
       actionType = Prelude.Nothing,
       actionArn = Prelude.Nothing,
@@ -220,6 +221,10 @@ newDescribeActionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
+-- | When the action was created.
+describeActionResponse_creationTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
+describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The status of the action.
 describeActionResponse_status :: Lens.Lens' DescribeActionResponse (Prelude.Maybe ActionStatus)
 describeActionResponse_status = Lens.lens (\DescribeActionResponse' {status} -> status) (\s@DescribeActionResponse' {} a -> s {status = a} :: DescribeActionResponse)
@@ -227,10 +232,6 @@ describeActionResponse_status = Lens.lens (\DescribeActionResponse' {status} -> 
 -- | Undocumented member.
 describeActionResponse_metadataProperties :: Lens.Lens' DescribeActionResponse (Prelude.Maybe MetadataProperties)
 describeActionResponse_metadataProperties = Lens.lens (\DescribeActionResponse' {metadataProperties} -> metadataProperties) (\s@DescribeActionResponse' {} a -> s {metadataProperties = a} :: DescribeActionResponse)
-
--- | When the action was created.
-describeActionResponse_creationTime :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeActionResponse_creationTime = Lens.lens (\DescribeActionResponse' {creationTime} -> creationTime) (\s@DescribeActionResponse' {} a -> s {creationTime = a} :: DescribeActionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the action.
 describeActionResponse_actionName :: Lens.Lens' DescribeActionResponse (Prelude.Maybe Prelude.Text)

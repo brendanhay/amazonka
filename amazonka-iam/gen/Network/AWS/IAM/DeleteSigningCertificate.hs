@@ -23,10 +23,11 @@
 -- Deletes a signing certificate associated with the specified IAM user.
 --
 -- If you do not specify a user name, IAM determines the user name
--- implicitly based on the AWS access key ID signing the request. This
--- operation works for access keys under the AWS account. Consequently, you
--- can use this operation to manage AWS account root user credentials even
--- if the AWS account has no associated IAM users.
+-- implicitly based on the Amazon Web Services access key ID signing the
+-- request. This operation works for access keys under the Amazon Web
+-- Services account. Consequently, you can use this operation to manage
+-- Amazon Web Services account root user credentials even if the Amazon Web
+-- Services account has no associated IAM users.
 module Network.AWS.IAM.DeleteSigningCertificate
   ( -- * Creating a Request
     DeleteSigningCertificate (..),

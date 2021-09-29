@@ -34,25 +34,15 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html Setting Up FlexMatch Matchmakers>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html Setting up FlexMatch matchmakers>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeMatchmakingConfigurations
@@ -88,15 +78,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-  { -- | A unique identifier for a matchmaking configuration(s) to retrieve. You
-    -- can use either the configuration name or ARN value. To request all
+  { -- | A unique identifier for the matchmaking configuration(s) to retrieve.
+    -- You can use either the configuration name or ARN value. To request all
     -- existing configurations, leave this parameter empty.
     names :: Prelude.Maybe [Prelude.Text],
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a matchmaking rule set. You can use either the
+    -- | A unique identifier for the matchmaking rule set. You can use either the
     -- rule set name or ARN value. Use this parameter to retrieve all
     -- matchmaking configurations that use this rule set.
     ruleSetName :: Prelude.Maybe Prelude.Text,
@@ -115,15 +105,15 @@ data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'describeMatchmakingConfigurations_names' - A unique identifier for a matchmaking configuration(s) to retrieve. You
--- can use either the configuration name or ARN value. To request all
+-- 'names', 'describeMatchmakingConfigurations_names' - A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
 -- existing configurations, leave this parameter empty.
 --
 -- 'nextToken', 'describeMatchmakingConfigurations_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'ruleSetName', 'describeMatchmakingConfigurations_ruleSetName' - A unique identifier for a matchmaking rule set. You can use either the
+-- 'ruleSetName', 'describeMatchmakingConfigurations_ruleSetName' - A unique identifier for the matchmaking rule set. You can use either the
 -- rule set name or ARN value. Use this parameter to retrieve all
 -- matchmaking configurations that use this rule set.
 --
@@ -141,8 +131,8 @@ newDescribeMatchmakingConfigurations =
       limit = Prelude.Nothing
     }
 
--- | A unique identifier for a matchmaking configuration(s) to retrieve. You
--- can use either the configuration name or ARN value. To request all
+-- | A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
 -- existing configurations, leave this parameter empty.
 describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe [Prelude.Text])
 describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Prelude.. Lens.mapping Lens._Coerce
@@ -153,7 +143,7 @@ describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigu
 describeMatchmakingConfigurations_nextToken :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurations_nextToken = Lens.lens (\DescribeMatchmakingConfigurations' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurations' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurations)
 
--- | A unique identifier for a matchmaking rule set. You can use either the
+-- | A unique identifier for the matchmaking rule set. You can use either the
 -- rule set name or ARN value. Use this parameter to retrieve all
 -- matchmaking configurations that use this rule set.
 describeMatchmakingConfigurations_ruleSetName :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)

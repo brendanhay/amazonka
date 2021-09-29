@@ -33,10 +33,10 @@ data Member = Member'
     enabledDate :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the member.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
-    state :: Prelude.Maybe EntityState,
     -- | The name of the member.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
+    state :: Prelude.Maybe EntityState,
     -- | The date indicating when the member was disabled from Amazon WorkMail
     -- use.
     disabledDate :: Prelude.Maybe Core.POSIX,
@@ -57,9 +57,9 @@ data Member = Member'
 --
 -- 'id', 'member_id' - The identifier of the member.
 --
--- 'state', 'member_state' - The state of the member, which can be ENABLED, DISABLED, or DELETED.
---
 -- 'name', 'member_name' - The name of the member.
+--
+-- 'state', 'member_state' - The state of the member, which can be ENABLED, DISABLED, or DELETED.
 --
 -- 'disabledDate', 'member_disabledDate' - The date indicating when the member was disabled from Amazon WorkMail
 -- use.
@@ -71,8 +71,8 @@ newMember =
   Member'
     { enabledDate = Prelude.Nothing,
       id = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      state = Prelude.Nothing,
       disabledDate = Prelude.Nothing,
       type' = Prelude.Nothing
     }
@@ -85,13 +85,13 @@ member_enabledDate = Lens.lens (\Member' {enabledDate} -> enabledDate) (\s@Membe
 member_id :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_id = Lens.lens (\Member' {id} -> id) (\s@Member' {} a -> s {id = a} :: Member)
 
--- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
-member_state :: Lens.Lens' Member (Prelude.Maybe EntityState)
-member_state = Lens.lens (\Member' {state} -> state) (\s@Member' {} a -> s {state = a} :: Member)
-
 -- | The name of the member.
 member_name :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_name = Lens.lens (\Member' {name} -> name) (\s@Member' {} a -> s {name = a} :: Member)
+
+-- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
+member_state :: Lens.Lens' Member (Prelude.Maybe EntityState)
+member_state = Lens.lens (\Member' {state} -> state) (\s@Member' {} a -> s {state = a} :: Member)
 
 -- | The date indicating when the member was disabled from Amazon WorkMail
 -- use.
@@ -110,8 +110,8 @@ instance Core.FromJSON Member where
           Member'
             Prelude.<$> (x Core..:? "EnabledDate")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "DisabledDate")
             Prelude.<*> (x Core..:? "Type")
       )

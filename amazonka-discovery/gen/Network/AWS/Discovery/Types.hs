@@ -20,10 +20,10 @@ module Network.AWS.Discovery.Types
     _ConflictErrorException,
     _OperationNotPermittedException,
     _ServerInternalErrorException,
-    _HomeRegionNotSetException,
     _InvalidParameterException,
-    _InvalidParameterValueException,
+    _HomeRegionNotSetException,
     _AuthorizationErrorException,
+    _InvalidParameterValueException,
     _ResourceInUseException,
     _ResourceNotFoundException,
 
@@ -71,8 +71,8 @@ module Network.AWS.Discovery.Types
     agentInfo_agentId,
     agentInfo_agentType,
     agentInfo_connectorId,
-    agentInfo_agentNetworkInfoList,
     agentInfo_lastHealthPingTime,
+    agentInfo_agentNetworkInfoList,
     agentInfo_registeredTime,
     agentInfo_version,
     agentInfo_health,
@@ -105,10 +105,10 @@ module Network.AWS.Discovery.Types
     newContinuousExportDescription,
     continuousExportDescription_status,
     continuousExportDescription_s3Bucket,
-    continuousExportDescription_dataSource,
-    continuousExportDescription_startTime,
-    continuousExportDescription_statusDetail,
     continuousExportDescription_stopTime,
+    continuousExportDescription_startTime,
+    continuousExportDescription_dataSource,
+    continuousExportDescription_statusDetail,
     continuousExportDescription_schemaStorageConfig,
     continuousExportDescription_exportId,
 
@@ -163,18 +163,18 @@ module Network.AWS.Discovery.Types
     -- * ImportTask
     ImportTask (..),
     newImportTask,
-    importTask_status,
     importTask_applicationImportSuccess,
+    importTask_status,
     importTask_importRequestTime,
     importTask_serverImportFailure,
     importTask_importTaskId,
     importTask_errorsAndFailedEntriesZip,
-    importTask_name,
     importTask_applicationImportFailure,
+    importTask_name,
     importTask_importCompletionTime,
     importTask_importUrl,
-    importTask_clientRequestToken,
     importTask_serverImportSuccess,
+    importTask_clientRequestToken,
     importTask_importDeletedTime,
 
     -- * ImportTaskFilter
@@ -335,13 +335,6 @@ _ServerInternalErrorException =
     defaultService
     "ServerInternalErrorException"
 
--- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HomeRegionNotSetException =
-  Core._MatchServiceError
-    defaultService
-    "HomeRegionNotSetException"
-
 -- | One or more parameters are not valid. Verify the parameters and try
 -- again.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -350,13 +343,12 @@ _InvalidParameterException =
     defaultService
     "InvalidParameterException"
 
--- | The value of one or more parameters are either invalid or out of range.
--- Verify the parameter values and try again.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
+    "HomeRegionNotSetException"
 
 -- | The AWS user account does not have permission to perform the action.
 -- Check the IAM policy associated with this account.
@@ -365,6 +357,14 @@ _AuthorizationErrorException =
   Core._MatchServiceError
     defaultService
     "AuthorizationErrorException"
+
+-- | The value of one or more parameters are either invalid or out of range.
+-- Verify the parameter values and try again.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"
 
 -- | This issue occurs when the same @clientRequestToken@ is used with the
 -- @StartImportTask@ action, but with different parameters. For example,

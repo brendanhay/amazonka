@@ -28,7 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newModifyRecommendationDetail' smart constructor.
 data ModifyRecommendationDetail = ModifyRecommendationDetail'
-  { -- | Identifies whether this instance type is the AWS default recommendation.
+  { -- | Determines whether this instance type is the Amazon Web Services default
+    -- recommendation.
     targetInstances :: Prelude.Maybe [TargetInstance]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +42,8 @@ data ModifyRecommendationDetail = ModifyRecommendationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetInstances', 'modifyRecommendationDetail_targetInstances' - Identifies whether this instance type is the AWS default recommendation.
+-- 'targetInstances', 'modifyRecommendationDetail_targetInstances' - Determines whether this instance type is the Amazon Web Services default
+-- recommendation.
 newModifyRecommendationDetail ::
   ModifyRecommendationDetail
 newModifyRecommendationDetail =
@@ -50,7 +52,8 @@ newModifyRecommendationDetail =
         Prelude.Nothing
     }
 
--- | Identifies whether this instance type is the AWS default recommendation.
+-- | Determines whether this instance type is the Amazon Web Services default
+-- recommendation.
 modifyRecommendationDetail_targetInstances :: Lens.Lens' ModifyRecommendationDetail (Prelude.Maybe [TargetInstance])
 modifyRecommendationDetail_targetInstances = Lens.lens (\ModifyRecommendationDetail' {targetInstances} -> targetInstances) (\s@ModifyRecommendationDetail' {} a -> s {targetInstances = a} :: ModifyRecommendationDetail) Prelude.. Lens.mapping Lens._Coerce
 

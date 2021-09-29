@@ -15,12 +15,14 @@
 --
 -- Amazon EC2 Auto Scaling is designed to automatically launch or terminate
 -- EC2 instances based on user-defined scaling policies, scheduled actions,
--- and health checks. Use this service with AWS Auto Scaling, Amazon
--- CloudWatch, and Elastic Load Balancing.
+-- and health checks.
 --
--- For more information, including information about granting IAM users
--- required permissions for Amazon EC2 Auto Scaling actions, see the
+-- For more information about Amazon EC2 Auto Scaling, see the
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html Amazon EC2 Auto Scaling User Guide>.
+-- For information about granting IAM users required permissions for calls
+-- to Amazon EC2 Auto Scaling, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html Granting IAM users required permissions for Amazon EC2 Auto Scaling resources>
+-- in the /Amazon EC2 Auto Scaling API Reference/.
 module Network.AWS.AutoScaling
   ( -- * Service Configuration
     defaultService,
@@ -28,26 +30,26 @@ module Network.AWS.AutoScaling
     -- * Errors
     -- $errors
 
-    -- ** AlreadyExistsFault
-    _AlreadyExistsFault,
+    -- ** InstanceRefreshInProgressFault
+    _InstanceRefreshInProgressFault,
 
     -- ** ResourceInUseFault
     _ResourceInUseFault,
 
+    -- ** AlreadyExistsFault
+    _AlreadyExistsFault,
+
     -- ** LimitExceededFault
     _LimitExceededFault,
-
-    -- ** InstanceRefreshInProgressFault
-    _InstanceRefreshInProgressFault,
 
     -- ** ScalingActivityInProgressFault
     _ScalingActivityInProgressFault,
 
-    -- ** ActiveInstanceRefreshNotFoundFault
-    _ActiveInstanceRefreshNotFoundFault,
-
     -- ** ResourceContentionFault
     _ResourceContentionFault,
+
+    -- ** ActiveInstanceRefreshNotFoundFault
+    _ActiveInstanceRefreshNotFoundFault,
 
     -- ** ServiceLinkedRoleFailure
     _ServiceLinkedRoleFailure,
@@ -60,6 +62,12 @@ module Network.AWS.AutoScaling
 
     -- * Operations
     -- $operations
+
+    -- ** ExecutePolicy
+    ExecutePolicy (ExecutePolicy'),
+    newExecutePolicy,
+    ExecutePolicyResponse (ExecutePolicyResponse'),
+    newExecutePolicyResponse,
 
     -- ** SuspendProcesses
     SuspendProcesses (SuspendProcesses'),
@@ -79,17 +87,23 @@ module Network.AWS.AutoScaling
     EnterStandbyResponse (EnterStandbyResponse'),
     newEnterStandbyResponse,
 
-    -- ** ExecutePolicy
-    ExecutePolicy (ExecutePolicy'),
-    newExecutePolicy,
-    ExecutePolicyResponse (ExecutePolicyResponse'),
-    newExecutePolicyResponse,
-
     -- ** DeleteLifecycleHook
     DeleteLifecycleHook (DeleteLifecycleHook'),
     newDeleteLifecycleHook,
     DeleteLifecycleHookResponse (DeleteLifecycleHookResponse'),
     newDeleteLifecycleHookResponse,
+
+    -- ** AttachLoadBalancerTargetGroups
+    AttachLoadBalancerTargetGroups (AttachLoadBalancerTargetGroups'),
+    newAttachLoadBalancerTargetGroups,
+    AttachLoadBalancerTargetGroupsResponse (AttachLoadBalancerTargetGroupsResponse'),
+    newAttachLoadBalancerTargetGroupsResponse,
+
+    -- ** StartInstanceRefresh
+    StartInstanceRefresh (StartInstanceRefresh'),
+    newStartInstanceRefresh,
+    StartInstanceRefreshResponse (StartInstanceRefreshResponse'),
+    newStartInstanceRefreshResponse,
 
     -- ** ResumeProcesses
     ResumeProcesses (ResumeProcesses'),
@@ -103,11 +117,17 @@ module Network.AWS.AutoScaling
     PutNotificationConfigurationResponse (PutNotificationConfigurationResponse'),
     newPutNotificationConfigurationResponse,
 
-    -- ** AttachLoadBalancerTargetGroups
-    AttachLoadBalancerTargetGroups (AttachLoadBalancerTargetGroups'),
-    newAttachLoadBalancerTargetGroups,
-    AttachLoadBalancerTargetGroupsResponse (AttachLoadBalancerTargetGroupsResponse'),
-    newAttachLoadBalancerTargetGroupsResponse,
+    -- ** DescribeTags (Paginated)
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** DeleteWarmPool
+    DeleteWarmPool (DeleteWarmPool'),
+    newDeleteWarmPool,
+    DeleteWarmPoolResponse (DeleteWarmPoolResponse'),
+    newDeleteWarmPoolResponse,
 
     -- ** PutScalingPolicy
     PutScalingPolicy (PutScalingPolicy'),
@@ -115,17 +135,11 @@ module Network.AWS.AutoScaling
     PutScalingPolicyResponse (PutScalingPolicyResponse'),
     newPutScalingPolicyResponse,
 
-    -- ** StartInstanceRefresh
-    StartInstanceRefresh (StartInstanceRefresh'),
-    newStartInstanceRefresh,
-    StartInstanceRefreshResponse (StartInstanceRefreshResponse'),
-    newStartInstanceRefreshResponse,
-
-    -- ** DescribeTags (Paginated)
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
+    -- ** CreateOrUpdateTags
+    CreateOrUpdateTags (CreateOrUpdateTags'),
+    newCreateOrUpdateTags,
+    CreateOrUpdateTagsResponse (CreateOrUpdateTagsResponse'),
+    newCreateOrUpdateTagsResponse,
 
     -- ** DeletePolicy
     DeletePolicy (DeletePolicy'),
@@ -139,23 +153,17 @@ module Network.AWS.AutoScaling
     CreateLaunchConfigurationResponse (CreateLaunchConfigurationResponse'),
     newCreateLaunchConfigurationResponse,
 
-    -- ** CreateOrUpdateTags
-    CreateOrUpdateTags (CreateOrUpdateTags'),
-    newCreateOrUpdateTags,
-    CreateOrUpdateTagsResponse (CreateOrUpdateTagsResponse'),
-    newCreateOrUpdateTagsResponse,
+    -- ** DescribeAutoScalingNotificationTypes
+    DescribeAutoScalingNotificationTypes (DescribeAutoScalingNotificationTypes'),
+    newDescribeAutoScalingNotificationTypes,
+    DescribeAutoScalingNotificationTypesResponse (DescribeAutoScalingNotificationTypesResponse'),
+    newDescribeAutoScalingNotificationTypesResponse,
 
     -- ** DescribeScheduledActions (Paginated)
     DescribeScheduledActions (DescribeScheduledActions'),
     newDescribeScheduledActions,
     DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
     newDescribeScheduledActionsResponse,
-
-    -- ** DescribeAutoScalingNotificationTypes
-    DescribeAutoScalingNotificationTypes (DescribeAutoScalingNotificationTypes'),
-    newDescribeAutoScalingNotificationTypes,
-    DescribeAutoScalingNotificationTypesResponse (DescribeAutoScalingNotificationTypesResponse'),
-    newDescribeAutoScalingNotificationTypesResponse,
 
     -- ** DescribeAdjustmentTypes
     DescribeAdjustmentTypes (DescribeAdjustmentTypes'),
@@ -187,23 +195,11 @@ module Network.AWS.AutoScaling
     DescribeLifecycleHooksResponse (DescribeLifecycleHooksResponse'),
     newDescribeLifecycleHooksResponse,
 
-    -- ** DetachLoadBalancerTargetGroups
-    DetachLoadBalancerTargetGroups (DetachLoadBalancerTargetGroups'),
-    newDetachLoadBalancerTargetGroups,
-    DetachLoadBalancerTargetGroupsResponse (DetachLoadBalancerTargetGroupsResponse'),
-    newDetachLoadBalancerTargetGroupsResponse,
-
     -- ** PutScheduledUpdateGroupAction
     PutScheduledUpdateGroupAction (PutScheduledUpdateGroupAction'),
     newPutScheduledUpdateGroupAction,
     PutScheduledUpdateGroupActionResponse (PutScheduledUpdateGroupActionResponse'),
     newPutScheduledUpdateGroupActionResponse,
-
-    -- ** SetInstanceProtection
-    SetInstanceProtection (SetInstanceProtection'),
-    newSetInstanceProtection,
-    SetInstanceProtectionResponse (SetInstanceProtectionResponse'),
-    newSetInstanceProtectionResponse,
 
     -- ** DeleteTags
     DeleteTags (DeleteTags'),
@@ -211,11 +207,35 @@ module Network.AWS.AutoScaling
     DeleteTagsResponse (DeleteTagsResponse'),
     newDeleteTagsResponse,
 
+    -- ** DetachLoadBalancerTargetGroups
+    DetachLoadBalancerTargetGroups (DetachLoadBalancerTargetGroups'),
+    newDetachLoadBalancerTargetGroups,
+    DetachLoadBalancerTargetGroupsResponse (DetachLoadBalancerTargetGroupsResponse'),
+    newDetachLoadBalancerTargetGroupsResponse,
+
+    -- ** DescribeWarmPool
+    DescribeWarmPool (DescribeWarmPool'),
+    newDescribeWarmPool,
+    DescribeWarmPoolResponse (DescribeWarmPoolResponse'),
+    newDescribeWarmPoolResponse,
+
+    -- ** SetInstanceProtection
+    SetInstanceProtection (SetInstanceProtection'),
+    newSetInstanceProtection,
+    SetInstanceProtectionResponse (SetInstanceProtectionResponse'),
+    newSetInstanceProtectionResponse,
+
     -- ** DetachInstances
     DetachInstances (DetachInstances'),
     newDetachInstances,
     DetachInstancesResponse (DetachInstancesResponse'),
     newDetachInstancesResponse,
+
+    -- ** TerminateInstanceInAutoScalingGroup
+    TerminateInstanceInAutoScalingGroup (TerminateInstanceInAutoScalingGroup'),
+    newTerminateInstanceInAutoScalingGroup,
+    TerminateInstanceInAutoScalingGroupResponse (TerminateInstanceInAutoScalingGroupResponse'),
+    newTerminateInstanceInAutoScalingGroupResponse,
 
     -- ** AttachLoadBalancers
     AttachLoadBalancers (AttachLoadBalancers'),
@@ -228,12 +248,6 @@ module Network.AWS.AutoScaling
     newDescribeAccountLimits,
     DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
     newDescribeAccountLimitsResponse,
-
-    -- ** TerminateInstanceInAutoScalingGroup
-    TerminateInstanceInAutoScalingGroup (TerminateInstanceInAutoScalingGroup'),
-    newTerminateInstanceInAutoScalingGroup,
-    TerminateInstanceInAutoScalingGroupResponse (TerminateInstanceInAutoScalingGroupResponse'),
-    newTerminateInstanceInAutoScalingGroupResponse,
 
     -- ** DescribeTerminationPolicyTypes
     DescribeTerminationPolicyTypes (DescribeTerminationPolicyTypes'),
@@ -253,6 +267,24 @@ module Network.AWS.AutoScaling
     ExitStandbyResponse (ExitStandbyResponse'),
     newExitStandbyResponse,
 
+    -- ** GetPredictiveScalingForecast
+    GetPredictiveScalingForecast (GetPredictiveScalingForecast'),
+    newGetPredictiveScalingForecast,
+    GetPredictiveScalingForecastResponse (GetPredictiveScalingForecastResponse'),
+    newGetPredictiveScalingForecastResponse,
+
+    -- ** PutWarmPool
+    PutWarmPool (PutWarmPool'),
+    newPutWarmPool,
+    PutWarmPoolResponse (PutWarmPoolResponse'),
+    newPutWarmPoolResponse,
+
+    -- ** DeleteNotificationConfiguration
+    DeleteNotificationConfiguration (DeleteNotificationConfiguration'),
+    newDeleteNotificationConfiguration,
+    DeleteNotificationConfigurationResponse (DeleteNotificationConfigurationResponse'),
+    newDeleteNotificationConfigurationResponse,
+
     -- ** PutLifecycleHook
     PutLifecycleHook (PutLifecycleHook'),
     newPutLifecycleHook,
@@ -265,17 +297,17 @@ module Network.AWS.AutoScaling
     BatchPutScheduledUpdateGroupActionResponse (BatchPutScheduledUpdateGroupActionResponse'),
     newBatchPutScheduledUpdateGroupActionResponse,
 
+    -- ** DescribeMetricCollectionTypes
+    DescribeMetricCollectionTypes (DescribeMetricCollectionTypes'),
+    newDescribeMetricCollectionTypes,
+    DescribeMetricCollectionTypesResponse (DescribeMetricCollectionTypesResponse'),
+    newDescribeMetricCollectionTypesResponse,
+
     -- ** DeleteLaunchConfiguration
     DeleteLaunchConfiguration (DeleteLaunchConfiguration'),
     newDeleteLaunchConfiguration,
     DeleteLaunchConfigurationResponse (DeleteLaunchConfigurationResponse'),
     newDeleteLaunchConfigurationResponse,
-
-    -- ** DeleteNotificationConfiguration
-    DeleteNotificationConfiguration (DeleteNotificationConfiguration'),
-    newDeleteNotificationConfiguration,
-    DeleteNotificationConfigurationResponse (DeleteNotificationConfigurationResponse'),
-    newDeleteNotificationConfigurationResponse,
 
     -- ** UpdateAutoScalingGroup
     UpdateAutoScalingGroup (UpdateAutoScalingGroup'),
@@ -283,23 +315,17 @@ module Network.AWS.AutoScaling
     UpdateAutoScalingGroupResponse (UpdateAutoScalingGroupResponse'),
     newUpdateAutoScalingGroupResponse,
 
-    -- ** DescribeLoadBalancers (Paginated)
-    DescribeLoadBalancers (DescribeLoadBalancers'),
-    newDescribeLoadBalancers,
-    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
-    newDescribeLoadBalancersResponse,
-
     -- ** DeleteAutoScalingGroup
     DeleteAutoScalingGroup (DeleteAutoScalingGroup'),
     newDeleteAutoScalingGroup,
     DeleteAutoScalingGroupResponse (DeleteAutoScalingGroupResponse'),
     newDeleteAutoScalingGroupResponse,
 
-    -- ** DescribeMetricCollectionTypes
-    DescribeMetricCollectionTypes (DescribeMetricCollectionTypes'),
-    newDescribeMetricCollectionTypes,
-    DescribeMetricCollectionTypesResponse (DescribeMetricCollectionTypesResponse'),
-    newDescribeMetricCollectionTypesResponse,
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
 
     -- ** CreateAutoScalingGroup
     CreateAutoScalingGroup (CreateAutoScalingGroup'),
@@ -307,17 +333,17 @@ module Network.AWS.AutoScaling
     CreateAutoScalingGroupResponse (CreateAutoScalingGroupResponse'),
     newCreateAutoScalingGroupResponse,
 
-    -- ** CompleteLifecycleAction
-    CompleteLifecycleAction (CompleteLifecycleAction'),
-    newCompleteLifecycleAction,
-    CompleteLifecycleActionResponse (CompleteLifecycleActionResponse'),
-    newCompleteLifecycleActionResponse,
-
     -- ** AttachInstances
     AttachInstances (AttachInstances'),
     newAttachInstances,
     AttachInstancesResponse (AttachInstancesResponse'),
     newAttachInstancesResponse,
+
+    -- ** CompleteLifecycleAction
+    CompleteLifecycleAction (CompleteLifecycleAction'),
+    newCompleteLifecycleAction,
+    CompleteLifecycleActionResponse (CompleteLifecycleActionResponse'),
+    newCompleteLifecycleActionResponse,
 
     -- ** SetDesiredCapacity
     SetDesiredCapacity (SetDesiredCapacity'),
@@ -325,23 +351,11 @@ module Network.AWS.AutoScaling
     SetDesiredCapacityResponse (SetDesiredCapacityResponse'),
     newSetDesiredCapacityResponse,
 
-    -- ** DescribePolicies (Paginated)
-    DescribePolicies (DescribePolicies'),
-    newDescribePolicies,
-    DescribePoliciesResponse (DescribePoliciesResponse'),
-    newDescribePoliciesResponse,
-
-    -- ** DescribeAutoScalingGroups (Paginated)
-    DescribeAutoScalingGroups (DescribeAutoScalingGroups'),
-    newDescribeAutoScalingGroups,
-    DescribeAutoScalingGroupsResponse (DescribeAutoScalingGroupsResponse'),
-    newDescribeAutoScalingGroupsResponse,
-
-    -- ** DescribeLaunchConfigurations (Paginated)
-    DescribeLaunchConfigurations (DescribeLaunchConfigurations'),
-    newDescribeLaunchConfigurations,
-    DescribeLaunchConfigurationsResponse (DescribeLaunchConfigurationsResponse'),
-    newDescribeLaunchConfigurationsResponse,
+    -- ** DescribeLifecycleHookTypes
+    DescribeLifecycleHookTypes (DescribeLifecycleHookTypes'),
+    newDescribeLifecycleHookTypes,
+    DescribeLifecycleHookTypesResponse (DescribeLifecycleHookTypesResponse'),
+    newDescribeLifecycleHookTypesResponse,
 
     -- ** DescribeNotificationConfigurations (Paginated)
     DescribeNotificationConfigurations (DescribeNotificationConfigurations'),
@@ -349,11 +363,23 @@ module Network.AWS.AutoScaling
     DescribeNotificationConfigurationsResponse (DescribeNotificationConfigurationsResponse'),
     newDescribeNotificationConfigurationsResponse,
 
-    -- ** DescribeLifecycleHookTypes
-    DescribeLifecycleHookTypes (DescribeLifecycleHookTypes'),
-    newDescribeLifecycleHookTypes,
-    DescribeLifecycleHookTypesResponse (DescribeLifecycleHookTypesResponse'),
-    newDescribeLifecycleHookTypesResponse,
+    -- ** DescribePolicies (Paginated)
+    DescribePolicies (DescribePolicies'),
+    newDescribePolicies,
+    DescribePoliciesResponse (DescribePoliciesResponse'),
+    newDescribePoliciesResponse,
+
+    -- ** DescribeLaunchConfigurations (Paginated)
+    DescribeLaunchConfigurations (DescribeLaunchConfigurations'),
+    newDescribeLaunchConfigurations,
+    DescribeLaunchConfigurationsResponse (DescribeLaunchConfigurationsResponse'),
+    newDescribeLaunchConfigurationsResponse,
+
+    -- ** DescribeAutoScalingGroups (Paginated)
+    DescribeAutoScalingGroups (DescribeAutoScalingGroups'),
+    newDescribeAutoScalingGroups,
+    DescribeAutoScalingGroupsResponse (DescribeAutoScalingGroupsResponse'),
+    newDescribeAutoScalingGroupsResponse,
 
     -- ** EnableMetricsCollection
     EnableMetricsCollection (EnableMetricsCollection'),
@@ -367,11 +393,11 @@ module Network.AWS.AutoScaling
     DescribeScalingProcessTypesResponse (DescribeScalingProcessTypesResponse'),
     newDescribeScalingProcessTypesResponse,
 
-    -- ** DescribeAutoScalingInstances (Paginated)
-    DescribeAutoScalingInstances (DescribeAutoScalingInstances'),
-    newDescribeAutoScalingInstances,
-    DescribeAutoScalingInstancesResponse (DescribeAutoScalingInstancesResponse'),
-    newDescribeAutoScalingInstancesResponse,
+    -- ** RecordLifecycleActionHeartbeat
+    RecordLifecycleActionHeartbeat (RecordLifecycleActionHeartbeat'),
+    newRecordLifecycleActionHeartbeat,
+    RecordLifecycleActionHeartbeatResponse (RecordLifecycleActionHeartbeatResponse'),
+    newRecordLifecycleActionHeartbeatResponse,
 
     -- ** DisableMetricsCollection
     DisableMetricsCollection (DisableMetricsCollection'),
@@ -379,11 +405,17 @@ module Network.AWS.AutoScaling
     DisableMetricsCollectionResponse (DisableMetricsCollectionResponse'),
     newDisableMetricsCollectionResponse,
 
-    -- ** RecordLifecycleActionHeartbeat
-    RecordLifecycleActionHeartbeat (RecordLifecycleActionHeartbeat'),
-    newRecordLifecycleActionHeartbeat,
-    RecordLifecycleActionHeartbeatResponse (RecordLifecycleActionHeartbeatResponse'),
-    newRecordLifecycleActionHeartbeatResponse,
+    -- ** DescribeAutoScalingInstances (Paginated)
+    DescribeAutoScalingInstances (DescribeAutoScalingInstances'),
+    newDescribeAutoScalingInstances,
+    DescribeAutoScalingInstancesResponse (DescribeAutoScalingInstancesResponse'),
+    newDescribeAutoScalingInstancesResponse,
+
+    -- ** CancelInstanceRefresh
+    CancelInstanceRefresh (CancelInstanceRefresh'),
+    newCancelInstanceRefresh,
+    CancelInstanceRefreshResponse (CancelInstanceRefreshResponse'),
+    newCancelInstanceRefreshResponse,
 
     -- ** BatchDeleteScheduledAction
     BatchDeleteScheduledAction (BatchDeleteScheduledAction'),
@@ -396,12 +428,6 @@ module Network.AWS.AutoScaling
     newDescribeLoadBalancerTargetGroups,
     DescribeLoadBalancerTargetGroupsResponse (DescribeLoadBalancerTargetGroupsResponse'),
     newDescribeLoadBalancerTargetGroupsResponse,
-
-    -- ** CancelInstanceRefresh
-    CancelInstanceRefresh (CancelInstanceRefresh'),
-    newCancelInstanceRefresh,
-    CancelInstanceRefreshResponse (CancelInstanceRefreshResponse'),
-    newCancelInstanceRefreshResponse,
 
     -- * Types
 
@@ -423,11 +449,32 @@ module Network.AWS.AutoScaling
     -- ** MetricType
     MetricType (..),
 
+    -- ** PredefinedLoadMetricType
+    PredefinedLoadMetricType (..),
+
+    -- ** PredefinedMetricPairType
+    PredefinedMetricPairType (..),
+
+    -- ** PredefinedScalingMetricType
+    PredefinedScalingMetricType (..),
+
+    -- ** PredictiveScalingMaxCapacityBreachBehavior
+    PredictiveScalingMaxCapacityBreachBehavior (..),
+
+    -- ** PredictiveScalingMode
+    PredictiveScalingMode (..),
+
     -- ** RefreshStrategy
     RefreshStrategy (..),
 
     -- ** ScalingActivityStatusCode
     ScalingActivityStatusCode (..),
+
+    -- ** WarmPoolState
+    WarmPoolState (..),
+
+    -- ** WarmPoolStatus
+    WarmPoolStatus (..),
 
     -- ** Activity
     Activity (Activity'),
@@ -453,9 +500,17 @@ module Network.AWS.AutoScaling
     BlockDeviceMapping (BlockDeviceMapping'),
     newBlockDeviceMapping,
 
+    -- ** CapacityForecast
+    CapacityForecast (CapacityForecast'),
+    newCapacityForecast,
+
     -- ** CustomizedMetricSpecification
     CustomizedMetricSpecification (CustomizedMetricSpecification'),
     newCustomizedMetricSpecification,
+
+    -- ** DesiredConfiguration
+    DesiredConfiguration (DesiredConfiguration'),
+    newDesiredConfiguration,
 
     -- ** Ebs
     Ebs (Ebs'),
@@ -488,6 +543,18 @@ module Network.AWS.AutoScaling
     -- ** InstanceRefresh
     InstanceRefresh (InstanceRefresh'),
     newInstanceRefresh,
+
+    -- ** InstanceRefreshLivePoolProgress
+    InstanceRefreshLivePoolProgress (InstanceRefreshLivePoolProgress'),
+    newInstanceRefreshLivePoolProgress,
+
+    -- ** InstanceRefreshProgressDetails
+    InstanceRefreshProgressDetails (InstanceRefreshProgressDetails'),
+    newInstanceRefreshProgressDetails,
+
+    -- ** InstanceRefreshWarmPoolProgress
+    InstanceRefreshWarmPoolProgress (InstanceRefreshWarmPoolProgress'),
+    newInstanceRefreshWarmPoolProgress,
 
     -- ** InstancesDistribution
     InstancesDistribution (InstancesDistribution'),
@@ -525,6 +592,10 @@ module Network.AWS.AutoScaling
     LoadBalancerTargetGroupState (LoadBalancerTargetGroupState'),
     newLoadBalancerTargetGroupState,
 
+    -- ** LoadForecast
+    LoadForecast (LoadForecast'),
+    newLoadForecast,
+
     -- ** MetricCollectionType
     MetricCollectionType (MetricCollectionType'),
     newMetricCollectionType,
@@ -548,6 +619,26 @@ module Network.AWS.AutoScaling
     -- ** PredefinedMetricSpecification
     PredefinedMetricSpecification (PredefinedMetricSpecification'),
     newPredefinedMetricSpecification,
+
+    -- ** PredictiveScalingConfiguration
+    PredictiveScalingConfiguration (PredictiveScalingConfiguration'),
+    newPredictiveScalingConfiguration,
+
+    -- ** PredictiveScalingMetricSpecification
+    PredictiveScalingMetricSpecification (PredictiveScalingMetricSpecification'),
+    newPredictiveScalingMetricSpecification,
+
+    -- ** PredictiveScalingPredefinedLoadMetric
+    PredictiveScalingPredefinedLoadMetric (PredictiveScalingPredefinedLoadMetric'),
+    newPredictiveScalingPredefinedLoadMetric,
+
+    -- ** PredictiveScalingPredefinedMetricPair
+    PredictiveScalingPredefinedMetricPair (PredictiveScalingPredefinedMetricPair'),
+    newPredictiveScalingPredefinedMetricPair,
+
+    -- ** PredictiveScalingPredefinedScalingMetric
+    PredictiveScalingPredefinedScalingMetric (PredictiveScalingPredefinedScalingMetric'),
+    newPredictiveScalingPredefinedScalingMetric,
 
     -- ** ProcessType
     ProcessType (ProcessType'),
@@ -592,6 +683,10 @@ module Network.AWS.AutoScaling
     -- ** TargetTrackingConfiguration
     TargetTrackingConfiguration (TargetTrackingConfiguration'),
     newTargetTrackingConfiguration,
+
+    -- ** WarmPoolConfiguration
+    WarmPoolConfiguration (WarmPoolConfiguration'),
+    newWarmPoolConfiguration,
   )
 where
 
@@ -612,6 +707,7 @@ import Network.AWS.AutoScaling.DeleteNotificationConfiguration
 import Network.AWS.AutoScaling.DeletePolicy
 import Network.AWS.AutoScaling.DeleteScheduledAction
 import Network.AWS.AutoScaling.DeleteTags
+import Network.AWS.AutoScaling.DeleteWarmPool
 import Network.AWS.AutoScaling.DescribeAccountLimits
 import Network.AWS.AutoScaling.DescribeAdjustmentTypes
 import Network.AWS.AutoScaling.DescribeAutoScalingGroups
@@ -631,6 +727,7 @@ import Network.AWS.AutoScaling.DescribeScalingProcessTypes
 import Network.AWS.AutoScaling.DescribeScheduledActions
 import Network.AWS.AutoScaling.DescribeTags
 import Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
+import Network.AWS.AutoScaling.DescribeWarmPool
 import Network.AWS.AutoScaling.DetachInstances
 import Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
 import Network.AWS.AutoScaling.DetachLoadBalancers
@@ -639,11 +736,13 @@ import Network.AWS.AutoScaling.EnableMetricsCollection
 import Network.AWS.AutoScaling.EnterStandby
 import Network.AWS.AutoScaling.ExecutePolicy
 import Network.AWS.AutoScaling.ExitStandby
+import Network.AWS.AutoScaling.GetPredictiveScalingForecast
 import Network.AWS.AutoScaling.Lens
 import Network.AWS.AutoScaling.PutLifecycleHook
 import Network.AWS.AutoScaling.PutNotificationConfiguration
 import Network.AWS.AutoScaling.PutScalingPolicy
 import Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
+import Network.AWS.AutoScaling.PutWarmPool
 import Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 import Network.AWS.AutoScaling.ResumeProcesses
 import Network.AWS.AutoScaling.SetDesiredCapacity

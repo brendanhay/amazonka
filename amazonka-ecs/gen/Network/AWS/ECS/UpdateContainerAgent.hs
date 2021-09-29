@@ -27,10 +27,18 @@
 -- was launched with the Amazon ECS-optimized AMI or another operating
 -- system.
 --
--- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon
--- Linux with the @ecs-init@ service installed and running. For help
--- updating the Amazon ECS container agent on other operating systems, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
+-- The @UpdateContainerAgent@ API isn\'t supported for container instances
+-- using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the
+-- container agent, you can update the @ecs-init@ package which will update
+-- the agent. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html Updating the Amazon ECS container agent>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- The @UpdateContainerAgent@ API requires an Amazon ECS-optimized AMI or
+-- Amazon Linux AMI with the @ecs-init@ service installed and running. For
+-- help updating the Amazon ECS container agent on other operating systems,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually updating the Amazon ECS container agent>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 module Network.AWS.ECS.UpdateContainerAgent
   ( -- * Creating a Request

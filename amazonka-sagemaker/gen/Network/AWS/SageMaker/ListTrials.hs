@@ -34,9 +34,9 @@ module Network.AWS.SageMaker.ListTrials
     newListTrials,
 
     -- * Request Lenses
-    listTrials_createdAfter,
-    listTrials_sortOrder,
     listTrials_nextToken,
+    listTrials_sortOrder,
+    listTrials_createdAfter,
     listTrials_createdBefore,
     listTrials_maxResults,
     listTrials_sortBy,
@@ -63,13 +63,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListTrials' smart constructor.
 data ListTrials = ListTrials'
-  { -- | A filter that returns only trials created after the specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous call to @ListTrials@ didn\'t return the full set of
+  { -- | If the previous call to @ListTrials@ didn\'t return the full set of
     -- trials, the call returns a token for getting the next set of trials.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only trials created after the specified time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only trials created before the specified time.
     createdBefore :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of trials to return in the response. The default
@@ -94,12 +94,12 @@ data ListTrials = ListTrials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listTrials_createdAfter' - A filter that returns only trials created after the specified time.
+-- 'nextToken', 'listTrials_nextToken' - If the previous call to @ListTrials@ didn\'t return the full set of
+-- trials, the call returns a token for getting the next set of trials.
 --
 -- 'sortOrder', 'listTrials_sortOrder' - The sort order. The default value is @Descending@.
 --
--- 'nextToken', 'listTrials_nextToken' - If the previous call to @ListTrials@ didn\'t return the full set of
--- trials, the call returns a token for getting the next set of trials.
+-- 'createdAfter', 'listTrials_createdAfter' - A filter that returns only trials created after the specified time.
 --
 -- 'createdBefore', 'listTrials_createdBefore' - A filter that returns only trials created before the specified time.
 --
@@ -117,9 +117,9 @@ newListTrials ::
   ListTrials
 newListTrials =
   ListTrials'
-    { createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
@@ -127,18 +127,18 @@ newListTrials =
       trialComponentName = Prelude.Nothing
     }
 
--- | A filter that returns only trials created after the specified time.
-listTrials_createdAfter :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
-listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Prelude.. Lens.mapping Core._Time
+-- | If the previous call to @ListTrials@ didn\'t return the full set of
+-- trials, the call returns a token for getting the next set of trials.
+listTrials_nextToken :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Text)
+listTrials_nextToken = Lens.lens (\ListTrials' {nextToken} -> nextToken) (\s@ListTrials' {} a -> s {nextToken = a} :: ListTrials)
 
 -- | The sort order. The default value is @Descending@.
 listTrials_sortOrder :: Lens.Lens' ListTrials (Prelude.Maybe SortOrder)
 listTrials_sortOrder = Lens.lens (\ListTrials' {sortOrder} -> sortOrder) (\s@ListTrials' {} a -> s {sortOrder = a} :: ListTrials)
 
--- | If the previous call to @ListTrials@ didn\'t return the full set of
--- trials, the call returns a token for getting the next set of trials.
-listTrials_nextToken :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.Text)
-listTrials_nextToken = Lens.lens (\ListTrials' {nextToken} -> nextToken) (\s@ListTrials' {} a -> s {nextToken = a} :: ListTrials)
+-- | A filter that returns only trials created after the specified time.
+listTrials_createdAfter :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
+listTrials_createdAfter = Lens.lens (\ListTrials' {createdAfter} -> createdAfter) (\s@ListTrials' {} a -> s {createdAfter = a} :: ListTrials) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only trials created before the specified time.
 listTrials_createdBefore :: Lens.Lens' ListTrials (Prelude.Maybe Prelude.UTCTime)
@@ -216,9 +216,9 @@ instance Core.ToJSON ListTrials where
   toJSON ListTrials' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,

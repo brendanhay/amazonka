@@ -24,13 +24,14 @@ import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Violations for an EC2 instance resource.
+-- | Violation detail for an EC2 instance resource.
 --
 -- /See:/ 'newAwsEc2InstanceViolation' smart constructor.
 data AwsEc2InstanceViolation = AwsEc2InstanceViolation'
   { -- | The resource ID of the EC2 instance.
     violationTarget :: Prelude.Maybe Prelude.Text,
-    -- | Violations for network interfaces associated with the EC2 instance.
+    -- | Violation detail for network interfaces associated with the EC2
+    -- instance.
     awsEc2NetworkInterfaceViolations :: Prelude.Maybe [AwsEc2NetworkInterfaceViolation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +46,8 @@ data AwsEc2InstanceViolation = AwsEc2InstanceViolation'
 --
 -- 'violationTarget', 'awsEc2InstanceViolation_violationTarget' - The resource ID of the EC2 instance.
 --
--- 'awsEc2NetworkInterfaceViolations', 'awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations' - Violations for network interfaces associated with the EC2 instance.
+-- 'awsEc2NetworkInterfaceViolations', 'awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations' - Violation detail for network interfaces associated with the EC2
+-- instance.
 newAwsEc2InstanceViolation ::
   AwsEc2InstanceViolation
 newAwsEc2InstanceViolation =
@@ -59,7 +61,8 @@ newAwsEc2InstanceViolation =
 awsEc2InstanceViolation_violationTarget :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe Prelude.Text)
 awsEc2InstanceViolation_violationTarget = Lens.lens (\AwsEc2InstanceViolation' {violationTarget} -> violationTarget) (\s@AwsEc2InstanceViolation' {} a -> s {violationTarget = a} :: AwsEc2InstanceViolation)
 
--- | Violations for network interfaces associated with the EC2 instance.
+-- | Violation detail for network interfaces associated with the EC2
+-- instance.
 awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe [AwsEc2NetworkInterfaceViolation])
 awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2InstanceViolation' {awsEc2NetworkInterfaceViolations} -> awsEc2NetworkInterfaceViolations) (\s@AwsEc2InstanceViolation' {} a -> s {awsEc2NetworkInterfaceViolations = a} :: AwsEc2InstanceViolation) Prelude.. Lens.mapping Lens._Coerce
 

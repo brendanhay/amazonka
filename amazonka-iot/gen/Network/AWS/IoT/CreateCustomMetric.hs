@@ -22,6 +22,10 @@
 --
 -- Use this API to define a Custom Metric published by your devices to
 -- Device Defender.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateCustomMetric>
+-- action.
 module Network.AWS.IoT.CreateCustomMetric
   ( -- * Creating a Request
     CreateCustomMetric (..),
@@ -69,8 +73,8 @@ data CreateCustomMetric = CreateCustomMetric'
     metricType :: CustomMetricType,
     -- | Each custom metric must have a unique client request token. If you try
     -- to create a new custom metric that already exists with a different
-    -- token, an exception occurs. If you omit this value, AWS SDKs will
-    -- automatically generate a unique client request.
+    -- token, an exception occurs. If you omit this value, Amazon Web Services
+    -- SDKs will automatically generate a unique client request.
     clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,8 +102,8 @@ data CreateCustomMetric = CreateCustomMetric'
 --
 -- 'clientRequestToken', 'createCustomMetric_clientRequestToken' - Each custom metric must have a unique client request token. If you try
 -- to create a new custom metric that already exists with a different
--- token, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- token, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 newCreateCustomMetric ::
   -- | 'metricName'
   Prelude.Text ->
@@ -143,8 +147,8 @@ createCustomMetric_metricType = Lens.lens (\CreateCustomMetric' {metricType} -> 
 
 -- | Each custom metric must have a unique client request token. If you try
 -- to create a new custom metric that already exists with a different
--- token, an exception occurs. If you omit this value, AWS SDKs will
--- automatically generate a unique client request.
+-- token, an exception occurs. If you omit this value, Amazon Web Services
+-- SDKs will automatically generate a unique client request.
 createCustomMetric_clientRequestToken :: Lens.Lens' CreateCustomMetric Prelude.Text
 createCustomMetric_clientRequestToken = Lens.lens (\CreateCustomMetric' {clientRequestToken} -> clientRequestToken) (\s@CreateCustomMetric' {} a -> s {clientRequestToken = a} :: CreateCustomMetric)
 

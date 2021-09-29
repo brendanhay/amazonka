@@ -49,10 +49,10 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newDescribeProtection' smart constructor.
 data DescribeProtection = DescribeProtection'
-  { -- | The ARN (Amazon Resource Name) of the AWS resource for the Protection
-    -- object that is described. When submitting the @DescribeProtection@
-    -- request you must provide either the @ResourceArn@ or the @ProtectionID@,
-    -- but not both.
+  { -- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for
+    -- the Protection object that is described. When submitting the
+    -- @DescribeProtection@ request you must provide either the @ResourceArn@
+    -- or the @ProtectionID@, but not both.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) for the Protection object that is described.
     -- When submitting the @DescribeProtection@ request you must provide either
@@ -69,10 +69,10 @@ data DescribeProtection = DescribeProtection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'describeProtection_resourceArn' - The ARN (Amazon Resource Name) of the AWS resource for the Protection
--- object that is described. When submitting the @DescribeProtection@
--- request you must provide either the @ResourceArn@ or the @ProtectionID@,
--- but not both.
+-- 'resourceArn', 'describeProtection_resourceArn' - The ARN (Amazon Resource Name) of the Amazon Web Services resource for
+-- the Protection object that is described. When submitting the
+-- @DescribeProtection@ request you must provide either the @ResourceArn@
+-- or the @ProtectionID@, but not both.
 --
 -- 'protectionId', 'describeProtection_protectionId' - The unique identifier (ID) for the Protection object that is described.
 -- When submitting the @DescribeProtection@ request you must provide either
@@ -85,10 +85,10 @@ newDescribeProtection =
       protectionId = Prelude.Nothing
     }
 
--- | The ARN (Amazon Resource Name) of the AWS resource for the Protection
--- object that is described. When submitting the @DescribeProtection@
--- request you must provide either the @ResourceArn@ or the @ProtectionID@,
--- but not both.
+-- | The ARN (Amazon Resource Name) of the Amazon Web Services resource for
+-- the Protection object that is described. When submitting the
+-- @DescribeProtection@ request you must provide either the @ResourceArn@
+-- or the @ProtectionID@, but not both.
 describeProtection_resourceArn :: Lens.Lens' DescribeProtection (Prelude.Maybe Prelude.Text)
 describeProtection_resourceArn = Lens.lens (\DescribeProtection' {resourceArn} -> resourceArn) (\s@DescribeProtection' {} a -> s {resourceArn = a} :: DescribeProtection)
 

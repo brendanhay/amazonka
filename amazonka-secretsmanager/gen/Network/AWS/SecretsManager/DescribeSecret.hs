@@ -39,7 +39,8 @@
 -- -   To retrieve the encrypted secret information in a version of the
 --     secret, use GetSecretValue.
 --
--- -   To list all of the secrets in the AWS account, use ListSecrets.
+-- -   To list all of the secrets in the Amazon Web Services account, use
+--     ListSecrets.
 module Network.AWS.SecretsManager.DescribeSecret
   ( -- * Creating a Request
     DescribeSecret (..),
@@ -60,14 +61,14 @@ module Network.AWS.SecretsManager.DescribeSecret
     describeSecretResponse_arn,
     describeSecretResponse_kmsKeyId,
     describeSecretResponse_name,
-    describeSecretResponse_lastChangedDate,
     describeSecretResponse_primaryRegion,
-    describeSecretResponse_rotationRules,
+    describeSecretResponse_lastChangedDate,
+    describeSecretResponse_deletedDate,
     describeSecretResponse_tags,
     describeSecretResponse_rotationEnabled,
-    describeSecretResponse_deletedDate,
-    describeSecretResponse_rotationLambdaARN,
+    describeSecretResponse_rotationRules,
     describeSecretResponse_description,
+    describeSecretResponse_rotationLambdaARN,
     describeSecretResponse_lastAccessedDate,
     describeSecretResponse_versionIdsToStages,
     describeSecretResponse_httpStatus,
@@ -189,14 +190,14 @@ instance Core.AWSRequest DescribeSecret where
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastChangedDate")
             Prelude.<*> (x Core..?> "PrimaryRegion")
-            Prelude.<*> (x Core..?> "RotationRules")
+            Prelude.<*> (x Core..?> "LastChangedDate")
+            Prelude.<*> (x Core..?> "DeletedDate")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "RotationEnabled")
-            Prelude.<*> (x Core..?> "DeletedDate")
-            Prelude.<*> (x Core..?> "RotationLambdaARN")
+            Prelude.<*> (x Core..?> "RotationRules")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "RotationLambdaARN")
             Prelude.<*> (x Core..?> "LastAccessedDate")
             Prelude.<*> ( x Core..?> "VersionIdsToStages"
                             Core..!@ Prelude.mempty
@@ -254,20 +255,27 @@ data DescribeSecretResponse = DescribeSecretResponse'
     replicationStatus :: Prelude.Maybe [ReplicationStatusType],
     -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN or alias of the AWS KMS customer master key (CMK) that\'s used
-    -- to encrypt the @SecretString@ or @SecretBinary@ fields in each version
-    -- of the secret. If you don\'t provide a key, then Secrets Manager
-    -- defaults to encrypting the secret fields with the default AWS KMS CMK
-    -- (the one named @awssecretsmanager@) for this account.
+    -- | The ARN or alias of the Amazon Web Services KMS customer master key
+    -- (CMK) that\'s used to encrypt the @SecretString@ or @SecretBinary@
+    -- fields in each version of the secret. If you don\'t provide a key, then
+    -- Secrets Manager defaults to encrypting the secret fields with the
+    -- default Amazon Web Services KMS CMK (the one named @awssecretsmanager@)
+    -- for this account.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The user-provided friendly name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The last date and time that this secret was modified in any way.
-    lastChangedDate :: Prelude.Maybe Core.POSIX,
     -- | Specifies the primary region for secret replication.
     primaryRegion :: Prelude.Maybe Prelude.Text,
-    -- | A structure with the rotation configuration for this secret.
-    rotationRules :: Prelude.Maybe RotationRulesType,
+    -- | The last date and time that this secret was modified in any way.
+    lastChangedDate :: Prelude.Maybe Core.POSIX,
+    -- | This value exists if the secret is scheduled for deletion. Some time
+    -- after the specified date and time, Secrets Manager deletes the secret
+    -- and all of its versions.
+    --
+    -- If a secret is scheduled for deletion, then its details, including the
+    -- encrypted secret information, is not accessible. To cancel a scheduled
+    -- deletion and restore access, use RestoreSecret.
+    deletedDate :: Prelude.Maybe Core.POSIX,
     -- | The list of user-defined tags that are associated with the secret. To
     -- add tags to a secret, use TagResource. To remove tags, use
     -- UntagResource.
@@ -278,20 +286,14 @@ data DescribeSecretResponse = DescribeSecretResponse'
     -- set to a value greater than 0. To disable rotation, use
     -- CancelRotateSecret.
     rotationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | This value exists if the secret is scheduled for deletion. Some time
-    -- after the specified date and time, Secrets Manager deletes the secret
-    -- and all of its versions.
-    --
-    -- If a secret is scheduled for deletion, then its details, including the
-    -- encrypted secret information, is not accessible. To cancel a scheduled
-    -- deletion and restore access, use RestoreSecret.
-    deletedDate :: Prelude.Maybe Core.POSIX,
+    -- | A structure with the rotation configuration for this secret.
+    rotationRules :: Prelude.Maybe RotationRulesType,
+    -- | The user-provided description of the secret.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a Lambda function that\'s invoked by Secrets Manager to
     -- rotate the secret either automatically per the schedule or manually by a
     -- call to @RotateSecret@.
     rotationLambdaARN :: Prelude.Maybe Prelude.Text,
-    -- | The user-provided description of the secret.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The last date that this secret was accessed. This value is truncated to
     -- midnight of the date and therefore shows only the date, not the time.
     lastAccessedDate :: Prelude.Maybe Core.POSIX,
@@ -332,19 +334,26 @@ data DescribeSecretResponse = DescribeSecretResponse'
 --
 -- 'arn', 'describeSecretResponse_arn' - The ARN of the secret.
 --
--- 'kmsKeyId', 'describeSecretResponse_kmsKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) that\'s used
--- to encrypt the @SecretString@ or @SecretBinary@ fields in each version
--- of the secret. If you don\'t provide a key, then Secrets Manager
--- defaults to encrypting the secret fields with the default AWS KMS CMK
--- (the one named @awssecretsmanager@) for this account.
+-- 'kmsKeyId', 'describeSecretResponse_kmsKeyId' - The ARN or alias of the Amazon Web Services KMS customer master key
+-- (CMK) that\'s used to encrypt the @SecretString@ or @SecretBinary@
+-- fields in each version of the secret. If you don\'t provide a key, then
+-- Secrets Manager defaults to encrypting the secret fields with the
+-- default Amazon Web Services KMS CMK (the one named @awssecretsmanager@)
+-- for this account.
 --
 -- 'name', 'describeSecretResponse_name' - The user-provided friendly name of the secret.
 --
--- 'lastChangedDate', 'describeSecretResponse_lastChangedDate' - The last date and time that this secret was modified in any way.
---
 -- 'primaryRegion', 'describeSecretResponse_primaryRegion' - Specifies the primary region for secret replication.
 --
--- 'rotationRules', 'describeSecretResponse_rotationRules' - A structure with the rotation configuration for this secret.
+-- 'lastChangedDate', 'describeSecretResponse_lastChangedDate' - The last date and time that this secret was modified in any way.
+--
+-- 'deletedDate', 'describeSecretResponse_deletedDate' - This value exists if the secret is scheduled for deletion. Some time
+-- after the specified date and time, Secrets Manager deletes the secret
+-- and all of its versions.
+--
+-- If a secret is scheduled for deletion, then its details, including the
+-- encrypted secret information, is not accessible. To cancel a scheduled
+-- deletion and restore access, use RestoreSecret.
 --
 -- 'tags', 'describeSecretResponse_tags' - The list of user-defined tags that are associated with the secret. To
 -- add tags to a secret, use TagResource. To remove tags, use
@@ -356,19 +365,13 @@ data DescribeSecretResponse = DescribeSecretResponse'
 -- set to a value greater than 0. To disable rotation, use
 -- CancelRotateSecret.
 --
--- 'deletedDate', 'describeSecretResponse_deletedDate' - This value exists if the secret is scheduled for deletion. Some time
--- after the specified date and time, Secrets Manager deletes the secret
--- and all of its versions.
+-- 'rotationRules', 'describeSecretResponse_rotationRules' - A structure with the rotation configuration for this secret.
 --
--- If a secret is scheduled for deletion, then its details, including the
--- encrypted secret information, is not accessible. To cancel a scheduled
--- deletion and restore access, use RestoreSecret.
+-- 'description', 'describeSecretResponse_description' - The user-provided description of the secret.
 --
 -- 'rotationLambdaARN', 'describeSecretResponse_rotationLambdaARN' - The ARN of a Lambda function that\'s invoked by Secrets Manager to
 -- rotate the secret either automatically per the schedule or manually by a
 -- call to @RotateSecret@.
---
--- 'description', 'describeSecretResponse_description' - The user-provided description of the secret.
 --
 -- 'lastAccessedDate', 'describeSecretResponse_lastAccessedDate' - The last date that this secret was accessed. This value is truncated to
 -- midnight of the date and therefore shows only the date, not the time.
@@ -396,14 +399,14 @@ newDescribeSecretResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastChangedDate = Prelude.Nothing,
       primaryRegion = Prelude.Nothing,
-      rotationRules = Prelude.Nothing,
+      lastChangedDate = Prelude.Nothing,
+      deletedDate = Prelude.Nothing,
       tags = Prelude.Nothing,
       rotationEnabled = Prelude.Nothing,
-      deletedDate = Prelude.Nothing,
-      rotationLambdaARN = Prelude.Nothing,
+      rotationRules = Prelude.Nothing,
       description = Prelude.Nothing,
+      rotationLambdaARN = Prelude.Nothing,
       lastAccessedDate = Prelude.Nothing,
       versionIdsToStages = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -435,11 +438,12 @@ describeSecretResponse_replicationStatus = Lens.lens (\DescribeSecretResponse' {
 describeSecretResponse_arn :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_arn = Lens.lens (\DescribeSecretResponse' {arn} -> arn) (\s@DescribeSecretResponse' {} a -> s {arn = a} :: DescribeSecretResponse)
 
--- | The ARN or alias of the AWS KMS customer master key (CMK) that\'s used
--- to encrypt the @SecretString@ or @SecretBinary@ fields in each version
--- of the secret. If you don\'t provide a key, then Secrets Manager
--- defaults to encrypting the secret fields with the default AWS KMS CMK
--- (the one named @awssecretsmanager@) for this account.
+-- | The ARN or alias of the Amazon Web Services KMS customer master key
+-- (CMK) that\'s used to encrypt the @SecretString@ or @SecretBinary@
+-- fields in each version of the secret. If you don\'t provide a key, then
+-- Secrets Manager defaults to encrypting the secret fields with the
+-- default Amazon Web Services KMS CMK (the one named @awssecretsmanager@)
+-- for this account.
 describeSecretResponse_kmsKeyId :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_kmsKeyId = Lens.lens (\DescribeSecretResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeSecretResponse' {} a -> s {kmsKeyId = a} :: DescribeSecretResponse)
 
@@ -447,17 +451,23 @@ describeSecretResponse_kmsKeyId = Lens.lens (\DescribeSecretResponse' {kmsKeyId}
 describeSecretResponse_name :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_name = Lens.lens (\DescribeSecretResponse' {name} -> name) (\s@DescribeSecretResponse' {} a -> s {name = a} :: DescribeSecretResponse)
 
--- | The last date and time that this secret was modified in any way.
-describeSecretResponse_lastChangedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
-
 -- | Specifies the primary region for secret replication.
 describeSecretResponse_primaryRegion :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_primaryRegion = Lens.lens (\DescribeSecretResponse' {primaryRegion} -> primaryRegion) (\s@DescribeSecretResponse' {} a -> s {primaryRegion = a} :: DescribeSecretResponse)
 
--- | A structure with the rotation configuration for this secret.
-describeSecretResponse_rotationRules :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe RotationRulesType)
-describeSecretResponse_rotationRules = Lens.lens (\DescribeSecretResponse' {rotationRules} -> rotationRules) (\s@DescribeSecretResponse' {} a -> s {rotationRules = a} :: DescribeSecretResponse)
+-- | The last date and time that this secret was modified in any way.
+describeSecretResponse_lastChangedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+
+-- | This value exists if the secret is scheduled for deletion. Some time
+-- after the specified date and time, Secrets Manager deletes the secret
+-- and all of its versions.
+--
+-- If a secret is scheduled for deletion, then its details, including the
+-- encrypted secret information, is not accessible. To cancel a scheduled
+-- deletion and restore access, use RestoreSecret.
+describeSecretResponse_deletedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The list of user-defined tags that are associated with the secret. To
 -- add tags to a secret, use TagResource. To remove tags, use
@@ -473,25 +483,19 @@ describeSecretResponse_tags = Lens.lens (\DescribeSecretResponse' {tags} -> tags
 describeSecretResponse_rotationEnabled :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Bool)
 describeSecretResponse_rotationEnabled = Lens.lens (\DescribeSecretResponse' {rotationEnabled} -> rotationEnabled) (\s@DescribeSecretResponse' {} a -> s {rotationEnabled = a} :: DescribeSecretResponse)
 
--- | This value exists if the secret is scheduled for deletion. Some time
--- after the specified date and time, Secrets Manager deletes the secret
--- and all of its versions.
---
--- If a secret is scheduled for deletion, then its details, including the
--- encrypted secret information, is not accessible. To cancel a scheduled
--- deletion and restore access, use RestoreSecret.
-describeSecretResponse_deletedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Core._Time
+-- | A structure with the rotation configuration for this secret.
+describeSecretResponse_rotationRules :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe RotationRulesType)
+describeSecretResponse_rotationRules = Lens.lens (\DescribeSecretResponse' {rotationRules} -> rotationRules) (\s@DescribeSecretResponse' {} a -> s {rotationRules = a} :: DescribeSecretResponse)
+
+-- | The user-provided description of the secret.
+describeSecretResponse_description :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_description = Lens.lens (\DescribeSecretResponse' {description} -> description) (\s@DescribeSecretResponse' {} a -> s {description = a} :: DescribeSecretResponse)
 
 -- | The ARN of a Lambda function that\'s invoked by Secrets Manager to
 -- rotate the secret either automatically per the schedule or manually by a
 -- call to @RotateSecret@.
 describeSecretResponse_rotationLambdaARN :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_rotationLambdaARN = Lens.lens (\DescribeSecretResponse' {rotationLambdaARN} -> rotationLambdaARN) (\s@DescribeSecretResponse' {} a -> s {rotationLambdaARN = a} :: DescribeSecretResponse)
-
--- | The user-provided description of the secret.
-describeSecretResponse_description :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
-describeSecretResponse_description = Lens.lens (\DescribeSecretResponse' {description} -> description) (\s@DescribeSecretResponse' {} a -> s {description = a} :: DescribeSecretResponse)
 
 -- | The last date that this secret was accessed. This value is truncated to
 -- midnight of the date and therefore shows only the date, not the time.

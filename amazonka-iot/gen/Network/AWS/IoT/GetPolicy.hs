@@ -22,6 +22,10 @@
 --
 -- Gets information about the specified policy with the policy document of
 -- the default version.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetPolicy>
+-- action.
 module Network.AWS.IoT.GetPolicy
   ( -- * Creating a Request
     GetPolicy (..),
@@ -36,8 +40,8 @@ module Network.AWS.IoT.GetPolicy
 
     -- * Response Lenses
     getPolicyResponse_lastModifiedDate,
-    getPolicyResponse_policyName,
     getPolicyResponse_policyDocument,
+    getPolicyResponse_policyName,
     getPolicyResponse_creationDate,
     getPolicyResponse_defaultVersionId,
     getPolicyResponse_generationId,
@@ -90,8 +94,8 @@ instance Core.AWSRequest GetPolicy where
       ( \s h x ->
           GetPolicyResponse'
             Prelude.<$> (x Core..?> "lastModifiedDate")
-            Prelude.<*> (x Core..?> "policyName")
             Prelude.<*> (x Core..?> "policyDocument")
+            Prelude.<*> (x Core..?> "policyName")
             Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (x Core..?> "defaultVersionId")
             Prelude.<*> (x Core..?> "generationId")
@@ -120,10 +124,10 @@ instance Core.ToQuery GetPolicy where
 data GetPolicyResponse = GetPolicyResponse'
   { -- | The date the policy was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The policy name.
-    policyName :: Prelude.Maybe Prelude.Text,
     -- | The JSON document that describes the policy.
     policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | The policy name.
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The date the policy was created.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The default policy version ID.
@@ -147,9 +151,9 @@ data GetPolicyResponse = GetPolicyResponse'
 --
 -- 'lastModifiedDate', 'getPolicyResponse_lastModifiedDate' - The date the policy was last modified.
 --
--- 'policyName', 'getPolicyResponse_policyName' - The policy name.
---
 -- 'policyDocument', 'getPolicyResponse_policyDocument' - The JSON document that describes the policy.
+--
+-- 'policyName', 'getPolicyResponse_policyName' - The policy name.
 --
 -- 'creationDate', 'getPolicyResponse_creationDate' - The date the policy was created.
 --
@@ -168,8 +172,8 @@ newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
     { lastModifiedDate =
         Prelude.Nothing,
-      policyName = Prelude.Nothing,
       policyDocument = Prelude.Nothing,
+      policyName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       defaultVersionId = Prelude.Nothing,
       generationId = Prelude.Nothing,
@@ -181,13 +185,13 @@ newGetPolicyResponse pHttpStatus_ =
 getPolicyResponse_lastModifiedDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
 getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Core._Time
 
--- | The policy name.
-getPolicyResponse_policyName :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
-getPolicyResponse_policyName = Lens.lens (\GetPolicyResponse' {policyName} -> policyName) (\s@GetPolicyResponse' {} a -> s {policyName = a} :: GetPolicyResponse)
-
 -- | The JSON document that describes the policy.
 getPolicyResponse_policyDocument :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
 getPolicyResponse_policyDocument = Lens.lens (\GetPolicyResponse' {policyDocument} -> policyDocument) (\s@GetPolicyResponse' {} a -> s {policyDocument = a} :: GetPolicyResponse)
+
+-- | The policy name.
+getPolicyResponse_policyName :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyName = Lens.lens (\GetPolicyResponse' {policyName} -> policyName) (\s@GetPolicyResponse' {} a -> s {policyName = a} :: GetPolicyResponse)
 
 -- | The date the policy was created.
 getPolicyResponse_creationDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)

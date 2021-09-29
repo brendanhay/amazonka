@@ -33,6 +33,7 @@ module Network.AWS.ECS.SubmitTaskStateChange
     submitTaskStateChange_status,
     submitTaskStateChange_pullStartedAt,
     submitTaskStateChange_task,
+    submitTaskStateChange_managedAgents,
     submitTaskStateChange_containers,
     submitTaskStateChange_reason,
     submitTaskStateChange_pullStoppedAt,
@@ -65,6 +66,8 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
     pullStartedAt :: Prelude.Maybe Core.POSIX,
     -- | The task ID or full ARN of the task in the state change request.
     task :: Prelude.Maybe Prelude.Text,
+    -- | The details for the managed agent associated with the task.
+    managedAgents :: Prelude.Maybe [ManagedAgentStateChange],
     -- | Any containers associated with the state change request.
     containers :: Prelude.Maybe [ContainerStateChange],
     -- | The reason for the state change request.
@@ -95,6 +98,8 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 --
 -- 'task', 'submitTaskStateChange_task' - The task ID or full ARN of the task in the state change request.
 --
+-- 'managedAgents', 'submitTaskStateChange_managedAgents' - The details for the managed agent associated with the task.
+--
 -- 'containers', 'submitTaskStateChange_containers' - Any containers associated with the state change request.
 --
 -- 'reason', 'submitTaskStateChange_reason' - The reason for the state change request.
@@ -114,6 +119,7 @@ newSubmitTaskStateChange =
     { status = Prelude.Nothing,
       pullStartedAt = Prelude.Nothing,
       task = Prelude.Nothing,
+      managedAgents = Prelude.Nothing,
       containers = Prelude.Nothing,
       reason = Prelude.Nothing,
       pullStoppedAt = Prelude.Nothing,
@@ -133,6 +139,10 @@ submitTaskStateChange_pullStartedAt = Lens.lens (\SubmitTaskStateChange' {pullSt
 -- | The task ID or full ARN of the task in the state change request.
 submitTaskStateChange_task :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.Text)
 submitTaskStateChange_task = Lens.lens (\SubmitTaskStateChange' {task} -> task) (\s@SubmitTaskStateChange' {} a -> s {task = a} :: SubmitTaskStateChange)
+
+-- | The details for the managed agent associated with the task.
+submitTaskStateChange_managedAgents :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe [ManagedAgentStateChange])
+submitTaskStateChange_managedAgents = Lens.lens (\SubmitTaskStateChange' {managedAgents} -> managedAgents) (\s@SubmitTaskStateChange' {} a -> s {managedAgents = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Any containers associated with the state change request.
 submitTaskStateChange_containers :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe [ContainerStateChange])
@@ -198,6 +208,7 @@ instance Core.ToJSON SubmitTaskStateChange where
           [ ("status" Core..=) Prelude.<$> status,
             ("pullStartedAt" Core..=) Prelude.<$> pullStartedAt,
             ("task" Core..=) Prelude.<$> task,
+            ("managedAgents" Core..=) Prelude.<$> managedAgents,
             ("containers" Core..=) Prelude.<$> containers,
             ("reason" Core..=) Prelude.<$> reason,
             ("pullStoppedAt" Core..=) Prelude.<$> pullStoppedAt,

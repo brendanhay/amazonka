@@ -30,8 +30,8 @@ module Network.AWS.MediaPackage.ListOriginEndpoints
 
     -- * Request Lenses
     listOriginEndpoints_nextToken,
-    listOriginEndpoints_channelId,
     listOriginEndpoints_maxResults,
+    listOriginEndpoints_channelId,
 
     -- * Destructuring the Response
     ListOriginEndpointsResponse (..),
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data ListOriginEndpoints = ListOriginEndpoints'
   { -- | A token used to resume pagination from the end of a previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The upper bound on the number of records to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, the request will return only OriginEndpoints associated
     -- with the given Channel ID.
-    channelId :: Prelude.Maybe Prelude.Text,
-    -- | The upper bound on the number of records to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    channelId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,31 +73,31 @@ data ListOriginEndpoints = ListOriginEndpoints'
 --
 -- 'nextToken', 'listOriginEndpoints_nextToken' - A token used to resume pagination from the end of a previous request.
 --
+-- 'maxResults', 'listOriginEndpoints_maxResults' - The upper bound on the number of records to return.
+--
 -- 'channelId', 'listOriginEndpoints_channelId' - When specified, the request will return only OriginEndpoints associated
 -- with the given Channel ID.
---
--- 'maxResults', 'listOriginEndpoints_maxResults' - The upper bound on the number of records to return.
 newListOriginEndpoints ::
   ListOriginEndpoints
 newListOriginEndpoints =
   ListOriginEndpoints'
     { nextToken = Prelude.Nothing,
-      channelId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      channelId = Prelude.Nothing
     }
 
 -- | A token used to resume pagination from the end of a previous request.
 listOriginEndpoints_nextToken :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Text)
 listOriginEndpoints_nextToken = Lens.lens (\ListOriginEndpoints' {nextToken} -> nextToken) (\s@ListOriginEndpoints' {} a -> s {nextToken = a} :: ListOriginEndpoints)
 
+-- | The upper bound on the number of records to return.
+listOriginEndpoints_maxResults :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Natural)
+listOriginEndpoints_maxResults = Lens.lens (\ListOriginEndpoints' {maxResults} -> maxResults) (\s@ListOriginEndpoints' {} a -> s {maxResults = a} :: ListOriginEndpoints)
+
 -- | When specified, the request will return only OriginEndpoints associated
 -- with the given Channel ID.
 listOriginEndpoints_channelId :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Text)
 listOriginEndpoints_channelId = Lens.lens (\ListOriginEndpoints' {channelId} -> channelId) (\s@ListOriginEndpoints' {} a -> s {channelId = a} :: ListOriginEndpoints)
-
--- | The upper bound on the number of records to return.
-listOriginEndpoints_maxResults :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Natural)
-listOriginEndpoints_maxResults = Lens.lens (\ListOriginEndpoints' {maxResults} -> maxResults) (\s@ListOriginEndpoints' {} a -> s {maxResults = a} :: ListOriginEndpoints)
 
 instance Core.AWSPager ListOriginEndpoints where
   page rq rs
@@ -159,8 +159,8 @@ instance Core.ToQuery ListOriginEndpoints where
   toQuery ListOriginEndpoints' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "channelId" Core.=: channelId,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "channelId" Core.=: channelId
       ]
 
 -- | /See:/ 'newListOriginEndpointsResponse' smart constructor.

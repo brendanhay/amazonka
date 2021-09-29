@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified Systems Manager document.
+-- Describes the specified Amazon Web Services Systems Manager document
+-- (SSM document).
 module Network.AWS.SSM.DescribeDocument
   ( -- * Creating a Request
     DescribeDocument (..),
@@ -52,12 +53,12 @@ import Network.AWS.SSM.Types
 data DescribeDocument = DescribeDocument'
   { -- | An optional field specifying the version of the artifact associated with
     -- the document. For example, \"Release 12, Update 6\". This value is
-    -- unique across all versions of a document, and cannot be changed.
+    -- unique across all versions of a document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | The document version for which you want information. Can be a specific
     -- version or the default version.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Systems Manager document.
+    -- | The name of the SSM document.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +73,12 @@ data DescribeDocument = DescribeDocument'
 --
 -- 'versionName', 'describeDocument_versionName' - An optional field specifying the version of the artifact associated with
 -- the document. For example, \"Release 12, Update 6\". This value is
--- unique across all versions of a document, and cannot be changed.
+-- unique across all versions of a document, and can\'t be changed.
 --
 -- 'documentVersion', 'describeDocument_documentVersion' - The document version for which you want information. Can be a specific
 -- version or the default version.
 --
--- 'name', 'describeDocument_name' - The name of the Systems Manager document.
+-- 'name', 'describeDocument_name' - The name of the SSM document.
 newDescribeDocument ::
   -- | 'name'
   Prelude.Text ->
@@ -91,7 +92,7 @@ newDescribeDocument pName_ =
 
 -- | An optional field specifying the version of the artifact associated with
 -- the document. For example, \"Release 12, Update 6\". This value is
--- unique across all versions of a document, and cannot be changed.
+-- unique across all versions of a document, and can\'t be changed.
 describeDocument_versionName :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
 describeDocument_versionName = Lens.lens (\DescribeDocument' {versionName} -> versionName) (\s@DescribeDocument' {} a -> s {versionName = a} :: DescribeDocument)
 
@@ -100,7 +101,7 @@ describeDocument_versionName = Lens.lens (\DescribeDocument' {versionName} -> ve
 describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
 describeDocument_documentVersion = Lens.lens (\DescribeDocument' {documentVersion} -> documentVersion) (\s@DescribeDocument' {} a -> s {documentVersion = a} :: DescribeDocument)
 
--- | The name of the Systems Manager document.
+-- | The name of the SSM document.
 describeDocument_name :: Lens.Lens' DescribeDocument Prelude.Text
 describeDocument_name = Lens.lens (\DescribeDocument' {name} -> name) (\s@DescribeDocument' {} a -> s {name = a} :: DescribeDocument)
 
@@ -153,7 +154,7 @@ instance Core.ToQuery DescribeDocument where
 
 -- | /See:/ 'newDescribeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-  { -- | Information about the Systems Manager document.
+  { -- | Information about the SSM document.
     document :: Prelude.Maybe DocumentDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,7 +169,7 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'document', 'describeDocumentResponse_document' - Information about the Systems Manager document.
+-- 'document', 'describeDocumentResponse_document' - Information about the SSM document.
 --
 -- 'httpStatus', 'describeDocumentResponse_httpStatus' - The response's http status code.
 newDescribeDocumentResponse ::
@@ -182,7 +183,7 @@ newDescribeDocumentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the Systems Manager document.
+-- | Information about the SSM document.
 describeDocumentResponse_document :: Lens.Lens' DescribeDocumentResponse (Prelude.Maybe DocumentDescription)
 describeDocumentResponse_document = Lens.lens (\DescribeDocumentResponse' {document} -> document) (\s@DescribeDocumentResponse' {} a -> s {document = a} :: DescribeDocumentResponse)
 

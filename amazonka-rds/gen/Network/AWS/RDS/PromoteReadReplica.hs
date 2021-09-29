@@ -38,8 +38,8 @@ module Network.AWS.RDS.PromoteReadReplica
     newPromoteReadReplica,
 
     -- * Request Lenses
-    promoteReadReplica_backupRetentionPeriod,
     promoteReadReplica_preferredBackupWindow,
+    promoteReadReplica_backupRetentionPeriod,
     promoteReadReplica_dbInstanceIdentifier,
 
     -- * Destructuring the Response
@@ -63,24 +63,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPromoteReadReplica' smart constructor.
 data PromoteReadReplica = PromoteReadReplica'
-  { -- | The number of days for which automated backups are retained. Setting
-    -- this parameter to a positive number enables backups. Setting this
-    -- parameter to 0 disables automated backups.
-    --
-    -- Default: 1
-    --
-    -- Constraints:
-    --
-    -- -   Must be a value from 0 to 35.
-    --
-    -- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
-    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The daily time range during which automated backups are created if
+  { -- | The daily time range during which automated backups are created if
     -- automated backups are enabled, using the @BackupRetentionPeriod@
     -- parameter.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region. To see the time blocks available, see
+    -- block of time for each Amazon Web Services Region. To see the time
+    -- blocks available, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
     -- in the /Amazon RDS User Guide./
     --
@@ -94,6 +83,18 @@ data PromoteReadReplica = PromoteReadReplica'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | The number of days for which automated backups are retained. Setting
+    -- this parameter to a positive number enables backups. Setting this
+    -- parameter to 0 disables automated backups.
+    --
+    -- Default: 1
+    --
+    -- Constraints:
+    --
+    -- -   Must be a value from 0 to 35.
+    --
+    -- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The DB instance identifier. This value is stored as a lowercase string.
     --
     -- Constraints:
@@ -113,24 +114,13 @@ data PromoteReadReplica = PromoteReadReplica'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupRetentionPeriod', 'promoteReadReplica_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
--- this parameter to a positive number enables backups. Setting this
--- parameter to 0 disables automated backups.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 0 to 35.
---
--- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
---
 -- 'preferredBackupWindow', 'promoteReadReplica_preferredBackupWindow' - The daily time range during which automated backups are created if
 -- automated backups are enabled, using the @BackupRetentionPeriod@
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
+-- block of time for each Amazon Web Services Region. To see the time
+-- blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
 -- in the /Amazon RDS User Guide./
 --
@@ -143,6 +133,18 @@ data PromoteReadReplica = PromoteReadReplica'
 -- -   Must not conflict with the preferred maintenance window.
 --
 -- -   Must be at least 30 minutes.
+--
+-- 'backupRetentionPeriod', 'promoteReadReplica_backupRetentionPeriod' - The number of days for which automated backups are retained. Setting
+-- this parameter to a positive number enables backups. Setting this
+-- parameter to 0 disables automated backups.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 0 to 35.
+--
+-- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
 --
 -- 'dbInstanceIdentifier', 'promoteReadReplica_dbInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string.
 --
@@ -157,32 +159,19 @@ newPromoteReadReplica ::
   PromoteReadReplica
 newPromoteReadReplica pDBInstanceIdentifier_ =
   PromoteReadReplica'
-    { backupRetentionPeriod =
+    { preferredBackupWindow =
         Prelude.Nothing,
-      preferredBackupWindow = Prelude.Nothing,
+      backupRetentionPeriod = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
-
--- | The number of days for which automated backups are retained. Setting
--- this parameter to a positive number enables backups. Setting this
--- parameter to 0 disables automated backups.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 0 to 35.
---
--- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
-promoteReadReplica_backupRetentionPeriod :: Lens.Lens' PromoteReadReplica (Prelude.Maybe Prelude.Int)
-promoteReadReplica_backupRetentionPeriod = Lens.lens (\PromoteReadReplica' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@PromoteReadReplica' {} a -> s {backupRetentionPeriod = a} :: PromoteReadReplica)
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the @BackupRetentionPeriod@
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region. To see the time blocks available, see
+-- block of time for each Amazon Web Services Region. To see the time
+-- blocks available, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
 -- in the /Amazon RDS User Guide./
 --
@@ -197,6 +186,20 @@ promoteReadReplica_backupRetentionPeriod = Lens.lens (\PromoteReadReplica' {back
 -- -   Must be at least 30 minutes.
 promoteReadReplica_preferredBackupWindow :: Lens.Lens' PromoteReadReplica (Prelude.Maybe Prelude.Text)
 promoteReadReplica_preferredBackupWindow = Lens.lens (\PromoteReadReplica' {preferredBackupWindow} -> preferredBackupWindow) (\s@PromoteReadReplica' {} a -> s {preferredBackupWindow = a} :: PromoteReadReplica)
+
+-- | The number of days for which automated backups are retained. Setting
+-- this parameter to a positive number enables backups. Setting this
+-- parameter to 0 disables automated backups.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 0 to 35.
+--
+-- -   Can\'t be set to 0 if the DB instance is a source to read replicas.
+promoteReadReplica_backupRetentionPeriod :: Lens.Lens' PromoteReadReplica (Prelude.Maybe Prelude.Int)
+promoteReadReplica_backupRetentionPeriod = Lens.lens (\PromoteReadReplica' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@PromoteReadReplica' {} a -> s {backupRetentionPeriod = a} :: PromoteReadReplica)
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 --
@@ -239,10 +242,10 @@ instance Core.ToQuery PromoteReadReplica where
           Core.=: ("PromoteReadReplica" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
         "PreferredBackupWindow"
           Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 

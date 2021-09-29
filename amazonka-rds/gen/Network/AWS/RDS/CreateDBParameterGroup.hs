@@ -94,12 +94,47 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     -- applied only to a DB instance running a database engine and engine
     -- version compatible with that DB parameter group family.
     --
-    -- To list all of the available parameter group families, use the following
-    -- command:
+    -- To list all of the available parameter group families for a DB engine,
+    -- use the following command:
     --
-    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\"@
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+    --
+    -- For example, to list all of the available parameter group families for
+    -- the MySQL DB engine, use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
     --
     -- The output contains duplicates.
+    --
+    -- The following are the valid DB engine values:
+    --
+    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+    --
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    --
+    -- -   @aurora-postgresql@
+    --
+    -- -   @mariadb@
+    --
+    -- -   @mysql@
+    --
+    -- -   @oracle-ee@
+    --
+    -- -   @oracle-ee-cdb@
+    --
+    -- -   @oracle-se2@
+    --
+    -- -   @oracle-se2-cdb@
+    --
+    -- -   @postgres@
+    --
+    -- -   @sqlserver-ee@
+    --
+    -- -   @sqlserver-se@
+    --
+    -- -   @sqlserver-ex@
+    --
+    -- -   @sqlserver-web@
     dbParameterGroupFamily :: Prelude.Text,
     -- | The description for the DB parameter group.
     description :: Prelude.Text
@@ -133,12 +168,47 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 -- applied only to a DB instance running a database engine and engine
 -- version compatible with that DB parameter group family.
 --
--- To list all of the available parameter group families, use the following
--- command:
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
 --
--- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\"@
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the MySQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
 --
 -- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-ee-cdb@
+--
+-- -   @oracle-se2@
+--
+-- -   @oracle-se2-cdb@
+--
+-- -   @postgres@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-web@
 --
 -- 'description', 'createDBParameterGroup_description' - The description for the DB parameter group.
 newCreateDBParameterGroup ::
@@ -183,12 +253,47 @@ createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup
 -- applied only to a DB instance running a database engine and engine
 -- version compatible with that DB parameter group family.
 --
--- To list all of the available parameter group families, use the following
--- command:
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
 --
--- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\"@
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the MySQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
 --
 -- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-ee-cdb@
+--
+-- -   @oracle-se2@
+--
+-- -   @oracle-se2-cdb@
+--
+-- -   @postgres@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-web@
 createDBParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Prelude.Text
 createDBParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBParameterGroup)
 

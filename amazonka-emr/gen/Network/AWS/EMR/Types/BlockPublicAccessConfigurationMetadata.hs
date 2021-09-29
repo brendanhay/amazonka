@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Properties that describe the AWS principal that created the
--- @BlockPublicAccessConfiguration@ using the
+-- | Properties that describe the Amazon Web Services principal that created
+-- the @BlockPublicAccessConfiguration@ using the
 -- @PutBlockPublicAccessConfiguration@ action as well as the date and time
 -- that the configuration was created. Each time a configuration for block
 -- public access is updated, Amazon EMR updates this metadata.

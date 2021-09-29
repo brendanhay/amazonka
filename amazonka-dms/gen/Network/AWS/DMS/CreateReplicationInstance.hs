@@ -22,12 +22,12 @@
 --
 -- Creates the replication instance using the specified parameters.
 --
--- AWS DMS requires that your account have certain roles with appropriate
+-- DMS requires that your account have certain roles with appropriate
 -- permissions before you can create a replication instance. For
 -- information on the required roles, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole Creating the IAM Roles to Use With the AWS CLI and AWS DMS API>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole Creating the IAM Roles to Use With the CLI and DMS API>.
 -- For information on the required permissions, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions IAM Permissions Needed to Use AWS DMS>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions IAM Permissions Needed to Use DMS>.
 module Network.AWS.DMS.CreateReplicationInstance
   ( -- * Creating a Request
     CreateReplicationInstance (..),
@@ -35,8 +35,8 @@ module Network.AWS.DMS.CreateReplicationInstance
 
     -- * Request Lenses
     createReplicationInstance_replicationSubnetGroupIdentifier,
-    createReplicationInstance_multiAZ,
     createReplicationInstance_publiclyAccessible,
+    createReplicationInstance_multiAZ,
     createReplicationInstance_vpcSecurityGroupIds,
     createReplicationInstance_kmsKeyId,
     createReplicationInstance_availabilityZone,
@@ -73,31 +73,32 @@ import qualified Network.AWS.Response as Response
 data CreateReplicationInstance = CreateReplicationInstance'
   { -- | A subnet group to associate with the replication instance.
     replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
-    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
-    -- set to @true@.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the accessibility options for the replication instance. A
     -- value of @true@ represents an instance with a public IP address. A value
     -- of @false@ represents an instance with a private IP address. The default
     -- value is @true@.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
+    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+    -- set to @true@.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the VPC security group to be used with the replication
     -- instance. The VPC security group must work with the VPC containing the
     -- replication instance.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | An AWS KMS key identifier that is used to encrypt the data on the
+    -- | An KMS key identifier that is used to encrypt the data on the
     -- replication instance.
     --
-    -- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+    -- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
     -- uses your default encryption key.
     --
-    -- AWS KMS creates the default encryption key for your AWS account. Your
-    -- AWS account has a different default encryption key for each AWS Region.
+    -- KMS creates the default encryption key for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default
+    -- encryption key for each Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone where the replication instance will be created.
     -- The default value is a random, system-chosen Availability Zone in the
-    -- endpoint\'s AWS Region, for example: @us-east-1d@
+    -- endpoint\'s Amazon Web Services Region, for example: @us-east-1d@
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The engine version number of the replication instance.
     --
@@ -110,7 +111,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- Format: @ddd:hh24:mi-ddd:hh24:mi@
     --
     -- Default: A 30-minute window selected at random from an 8-hour block of
-    -- time per AWS Region, occurring on a random day of the week.
+    -- time per Amazon Web Services Region, occurring on a random day of the
+    -- week.
     --
     -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
     --
@@ -126,8 +128,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- hyphens, and can only begin with a letter, such as @Example-App-ARN1@.
     -- For example, this value might result in the @EndpointArn@ value
     -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
-    -- specify a @ResourceIdentifier@ value, AWS DMS generates a default
-    -- identifier value for the end of @EndpointArn@.
+    -- specify a @ResourceIdentifier@ value, DMS generates a default identifier
+    -- value for the end of @EndpointArn@.
     resourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of custom DNS name servers supported for the replication instance
     -- to access your on-premise source or target database. This list overrides
@@ -164,7 +166,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
     --
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
     replicationInstanceClass :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -179,31 +181,32 @@ data CreateReplicationInstance = CreateReplicationInstance'
 --
 -- 'replicationSubnetGroupIdentifier', 'createReplicationInstance_replicationSubnetGroupIdentifier' - A subnet group to associate with the replication instance.
 --
--- 'multiAZ', 'createReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
---
 -- 'publiclyAccessible', 'createReplicationInstance_publiclyAccessible' - Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
 -- of @false@ represents an instance with a private IP address. The default
 -- value is @true@.
 --
+-- 'multiAZ', 'createReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+--
 -- 'vpcSecurityGroupIds', 'createReplicationInstance_vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication
 -- instance. The VPC security group must work with the VPC containing the
 -- replication instance.
 --
--- 'kmsKeyId', 'createReplicationInstance_kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the
+-- 'kmsKeyId', 'createReplicationInstance_kmsKeyId' - An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
 --
--- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+-- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
 -- uses your default encryption key.
 --
--- AWS KMS creates the default encryption key for your AWS account. Your
--- AWS account has a different default encryption key for each AWS Region.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Region.
 --
 -- 'availabilityZone', 'createReplicationInstance_availabilityZone' - The Availability Zone where the replication instance will be created.
 -- The default value is a random, system-chosen Availability Zone in the
--- endpoint\'s AWS Region, for example: @us-east-1d@
+-- endpoint\'s Amazon Web Services Region, for example: @us-east-1d@
 --
 -- 'engineVersion', 'createReplicationInstance_engineVersion' - The engine version number of the replication instance.
 --
@@ -216,7 +219,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
--- time per AWS Region, occurring on a random day of the week.
+-- time per Amazon Web Services Region, occurring on a random day of the
+-- week.
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -232,8 +236,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- hyphens, and can only begin with a letter, such as @Example-App-ARN1@.
 -- For example, this value might result in the @EndpointArn@ value
 -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
--- specify a @ResourceIdentifier@ value, AWS DMS generates a default
--- identifier value for the end of @EndpointArn@.
+-- specify a @ResourceIdentifier@ value, DMS generates a default identifier
+-- value for the end of @EndpointArn@.
 --
 -- 'dnsNameServers', 'createReplicationInstance_dnsNameServers' - A list of custom DNS name servers supported for the replication instance
 -- to access your on-premise source or target database. This list overrides
@@ -270,7 +274,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 newCreateReplicationInstance ::
   -- | 'replicationInstanceIdentifier'
   Prelude.Text ->
@@ -283,8 +287,8 @@ newCreateReplicationInstance
     CreateReplicationInstance'
       { replicationSubnetGroupIdentifier =
           Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
+        multiAZ = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
@@ -305,12 +309,6 @@ newCreateReplicationInstance
 createReplicationInstance_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateReplicationInstance' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@CreateReplicationInstance' {} a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationInstance)
 
--- | Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
-createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
-createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {multiAZ} -> multiAZ) (\s@CreateReplicationInstance' {} a -> s {multiAZ = a} :: CreateReplicationInstance)
-
 -- | Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
 -- of @false@ represents an instance with a private IP address. The default
@@ -318,26 +316,33 @@ createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {mult
 createReplicationInstance_publiclyAccessible :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_publiclyAccessible = Lens.lens (\CreateReplicationInstance' {publiclyAccessible} -> publiclyAccessible) (\s@CreateReplicationInstance' {} a -> s {publiclyAccessible = a} :: CreateReplicationInstance)
 
+-- | Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
+createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {multiAZ} -> multiAZ) (\s@CreateReplicationInstance' {} a -> s {multiAZ = a} :: CreateReplicationInstance)
+
 -- | Specifies the VPC security group to be used with the replication
 -- instance. The VPC security group must work with the VPC containing the
 -- replication instance.
 createReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Prelude.Text])
 createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
 
--- | An AWS KMS key identifier that is used to encrypt the data on the
+-- | An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
 --
--- If you don\'t specify a value for the @KmsKeyId@ parameter, then AWS DMS
+-- If you don\'t specify a value for the @KmsKeyId@ parameter, then DMS
 -- uses your default encryption key.
 --
--- AWS KMS creates the default encryption key for your AWS account. Your
--- AWS account has a different default encryption key for each AWS Region.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Region.
 createReplicationInstance_kmsKeyId :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_kmsKeyId = Lens.lens (\CreateReplicationInstance' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationInstance' {} a -> s {kmsKeyId = a} :: CreateReplicationInstance)
 
 -- | The Availability Zone where the replication instance will be created.
 -- The default value is a random, system-chosen Availability Zone in the
--- endpoint\'s AWS Region, for example: @us-east-1d@
+-- endpoint\'s Amazon Web Services Region, for example: @us-east-1d@
 createReplicationInstance_availabilityZone :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_availabilityZone = Lens.lens (\CreateReplicationInstance' {availabilityZone} -> availabilityZone) (\s@CreateReplicationInstance' {} a -> s {availabilityZone = a} :: CreateReplicationInstance)
 
@@ -354,7 +359,8 @@ createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance'
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
--- time per AWS Region, occurring on a random day of the week.
+-- time per Amazon Web Services Region, occurring on a random day of the
+-- week.
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -374,8 +380,8 @@ createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -
 -- hyphens, and can only begin with a letter, such as @Example-App-ARN1@.
 -- For example, this value might result in the @EndpointArn@ value
 -- @arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1@. If you don\'t
--- specify a @ResourceIdentifier@ value, AWS DMS generates a default
--- identifier value for the end of @EndpointArn@.
+-- specify a @ResourceIdentifier@ value, DMS generates a default identifier
+-- value for the end of @EndpointArn@.
 createReplicationInstance_resourceIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_resourceIdentifier = Lens.lens (\CreateReplicationInstance' {resourceIdentifier} -> resourceIdentifier) (\s@CreateReplicationInstance' {} a -> s {resourceIdentifier = a} :: CreateReplicationInstance)
 
@@ -422,7 +428,7 @@ createReplicationInstance_replicationInstanceIdentifier = Lens.lens (\CreateRepl
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 createReplicationInstance_replicationInstanceClass :: Lens.Lens' CreateReplicationInstance Prelude.Text
 createReplicationInstance_replicationInstanceClass = Lens.lens (\CreateReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@CreateReplicationInstance' {} a -> s {replicationInstanceClass = a} :: CreateReplicationInstance)
 
@@ -464,9 +470,9 @@ instance Core.ToJSON CreateReplicationInstance where
       ( Prelude.catMaybes
           [ ("ReplicationSubnetGroupIdentifier" Core..=)
               Prelude.<$> replicationSubnetGroupIdentifier,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             ("PubliclyAccessible" Core..=)
               Prelude.<$> publiclyAccessible,
+            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             ("VpcSecurityGroupIds" Core..=)
               Prelude.<$> vpcSecurityGroupIds,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,

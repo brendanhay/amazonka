@@ -34,11 +34,11 @@ data LoggingConfiguration = LoggingConfiguration'
     -- will be logged. Limited to size 1. Required, if your log level is not
     -- set to @OFF@.
     destinations :: Prelude.Maybe [LogDestination],
-    -- | Defines which category of execution history events are logged.
-    level :: Prelude.Maybe LogLevel,
     -- | Determines whether execution data is included in your log. When set to
     -- @false@, data is excluded.
-    includeExecutionData :: Prelude.Maybe Prelude.Bool
+    includeExecutionData :: Prelude.Maybe Prelude.Bool,
+    -- | Defines which category of execution history events are logged.
+    level :: Prelude.Maybe LogLevel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +54,18 @@ data LoggingConfiguration = LoggingConfiguration'
 -- will be logged. Limited to size 1. Required, if your log level is not
 -- set to @OFF@.
 --
--- 'level', 'loggingConfiguration_level' - Defines which category of execution history events are logged.
---
 -- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to
 -- @false@, data is excluded.
+--
+-- 'level', 'loggingConfiguration_level' - Defines which category of execution history events are logged.
 newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
     { destinations =
         Prelude.Nothing,
-      level = Prelude.Nothing,
-      includeExecutionData = Prelude.Nothing
+      includeExecutionData = Prelude.Nothing,
+      level = Prelude.Nothing
     }
 
 -- | An array of objects that describes where your execution history events
@@ -74,14 +74,14 @@ newLoggingConfiguration =
 loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [LogDestination])
 loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
--- | Defines which category of execution history events are logged.
-loggingConfiguration_level :: Lens.Lens' LoggingConfiguration (Prelude.Maybe LogLevel)
-loggingConfiguration_level = Lens.lens (\LoggingConfiguration' {level} -> level) (\s@LoggingConfiguration' {} a -> s {level = a} :: LoggingConfiguration)
-
 -- | Determines whether execution data is included in your log. When set to
 -- @false@, data is excluded.
 loggingConfiguration_includeExecutionData :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_includeExecutionData = Lens.lens (\LoggingConfiguration' {includeExecutionData} -> includeExecutionData) (\s@LoggingConfiguration' {} a -> s {includeExecutionData = a} :: LoggingConfiguration)
+
+-- | Defines which category of execution history events are logged.
+loggingConfiguration_level :: Lens.Lens' LoggingConfiguration (Prelude.Maybe LogLevel)
+loggingConfiguration_level = Lens.lens (\LoggingConfiguration' {level} -> level) (\s@LoggingConfiguration' {} a -> s {level = a} :: LoggingConfiguration)
 
 instance Core.FromJSON LoggingConfiguration where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON LoggingConfiguration where
       ( \x ->
           LoggingConfiguration'
             Prelude.<$> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "level")
             Prelude.<*> (x Core..:? "includeExecutionData")
+            Prelude.<*> (x Core..:? "level")
       )
 
 instance Prelude.Hashable LoggingConfiguration
@@ -103,8 +103,8 @@ instance Core.ToJSON LoggingConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("destinations" Core..=) Prelude.<$> destinations,
-            ("level" Core..=) Prelude.<$> level,
             ("includeExecutionData" Core..=)
-              Prelude.<$> includeExecutionData
+              Prelude.<$> includeExecutionData,
+            ("level" Core..=) Prelude.<$> level
           ]
       )

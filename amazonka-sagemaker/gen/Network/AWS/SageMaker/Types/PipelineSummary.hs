@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data PipelineSummary = PipelineSummary'
   { -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the pipeline.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The description of the pipeline.
+    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that the pipeline used to execute.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The last time that a pipeline execution began.
@@ -56,9 +56,9 @@ data PipelineSummary = PipelineSummary'
 --
 -- 'pipelineArn', 'pipelineSummary_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
 --
--- 'pipelineDescription', 'pipelineSummary_pipelineDescription' - The description of the pipeline.
---
 -- 'creationTime', 'pipelineSummary_creationTime' - The creation time of the pipeline.
+--
+-- 'pipelineDescription', 'pipelineSummary_pipelineDescription' - The description of the pipeline.
 --
 -- 'roleArn', 'pipelineSummary_roleArn' - The Amazon Resource Name (ARN) that the pipeline used to execute.
 --
@@ -74,8 +74,8 @@ newPipelineSummary ::
 newPipelineSummary =
   PipelineSummary'
     { pipelineArn = Prelude.Nothing,
-      pipelineDescription = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      pipelineDescription = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       lastExecutionTime = Prelude.Nothing,
       pipelineDisplayName = Prelude.Nothing,
@@ -87,13 +87,13 @@ newPipelineSummary =
 pipelineSummary_pipelineArn :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
 pipelineSummary_pipelineArn = Lens.lens (\PipelineSummary' {pipelineArn} -> pipelineArn) (\s@PipelineSummary' {} a -> s {pipelineArn = a} :: PipelineSummary)
 
--- | The description of the pipeline.
-pipelineSummary_pipelineDescription :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
-pipelineSummary_pipelineDescription = Lens.lens (\PipelineSummary' {pipelineDescription} -> pipelineDescription) (\s@PipelineSummary' {} a -> s {pipelineDescription = a} :: PipelineSummary)
-
 -- | The creation time of the pipeline.
 pipelineSummary_creationTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
 pipelineSummary_creationTime = Lens.lens (\PipelineSummary' {creationTime} -> creationTime) (\s@PipelineSummary' {} a -> s {creationTime = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The description of the pipeline.
+pipelineSummary_pipelineDescription :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
+pipelineSummary_pipelineDescription = Lens.lens (\PipelineSummary' {pipelineDescription} -> pipelineDescription) (\s@PipelineSummary' {} a -> s {pipelineDescription = a} :: PipelineSummary)
 
 -- | The Amazon Resource Name (ARN) that the pipeline used to execute.
 pipelineSummary_roleArn :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
@@ -122,8 +122,8 @@ instance Core.FromJSON PipelineSummary where
       ( \x ->
           PipelineSummary'
             Prelude.<$> (x Core..:? "PipelineArn")
-            Prelude.<*> (x Core..:? "PipelineDescription")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "PipelineDescription")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "LastExecutionTime")
             Prelude.<*> (x Core..:? "PipelineDisplayName")

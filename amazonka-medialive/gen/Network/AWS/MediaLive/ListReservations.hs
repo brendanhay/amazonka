@@ -35,8 +35,8 @@ module Network.AWS.MediaLive.ListReservations
     listReservations_maxResults,
     listReservations_codec,
     listReservations_maximumBitrate,
-    listReservations_specialFeature,
     listReservations_channelClass,
+    listReservations_specialFeature,
     listReservations_resourceType,
     listReservations_resolution,
 
@@ -72,10 +72,10 @@ data ListReservations = ListReservations'
     codec :: Prelude.Maybe Prelude.Text,
     -- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
     maximumBitrate :: Prelude.Maybe Prelude.Text,
-    -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
-    specialFeature :: Prelude.Maybe Prelude.Text,
     -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
     channelClass :: Prelude.Maybe Prelude.Text,
+    -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+    specialFeature :: Prelude.Maybe Prelude.Text,
     -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
     -- \'CHANNEL\'
     resourceType :: Prelude.Maybe Prelude.Text,
@@ -104,9 +104,9 @@ data ListReservations = ListReservations'
 --
 -- 'maximumBitrate', 'listReservations_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
 --
--- 'specialFeature', 'listReservations_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
---
 -- 'channelClass', 'listReservations_channelClass' - Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
+--
+-- 'specialFeature', 'listReservations_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
 --
 -- 'resourceType', 'listReservations_resourceType' - Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
 -- \'CHANNEL\'
@@ -123,8 +123,8 @@ newListReservations =
       maxResults = Prelude.Nothing,
       codec = Prelude.Nothing,
       maximumBitrate = Prelude.Nothing,
-      specialFeature = Prelude.Nothing,
       channelClass = Prelude.Nothing,
+      specialFeature = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       resolution = Prelude.Nothing
     }
@@ -153,13 +153,13 @@ listReservations_codec = Lens.lens (\ListReservations' {codec} -> codec) (\s@Lis
 listReservations_maximumBitrate :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
 listReservations_maximumBitrate = Lens.lens (\ListReservations' {maximumBitrate} -> maximumBitrate) (\s@ListReservations' {} a -> s {maximumBitrate = a} :: ListReservations)
 
--- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
-listReservations_specialFeature :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_specialFeature = Lens.lens (\ListReservations' {specialFeature} -> specialFeature) (\s@ListReservations' {} a -> s {specialFeature = a} :: ListReservations)
-
 -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
 listReservations_channelClass :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
 listReservations_channelClass = Lens.lens (\ListReservations' {channelClass} -> channelClass) (\s@ListReservations' {} a -> s {channelClass = a} :: ListReservations)
+
+-- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+listReservations_specialFeature :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_specialFeature = Lens.lens (\ListReservations' {specialFeature} -> specialFeature) (\s@ListReservations' {} a -> s {specialFeature = a} :: ListReservations)
 
 -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
 -- \'CHANNEL\'
@@ -233,8 +233,8 @@ instance Core.ToQuery ListReservations where
         "maxResults" Core.=: maxResults,
         "codec" Core.=: codec,
         "maximumBitrate" Core.=: maximumBitrate,
-        "specialFeature" Core.=: specialFeature,
         "channelClass" Core.=: channelClass,
+        "specialFeature" Core.=: specialFeature,
         "resourceType" Core.=: resourceType,
         "resolution" Core.=: resolution
       ]

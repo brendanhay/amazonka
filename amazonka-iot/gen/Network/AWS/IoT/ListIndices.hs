@@ -22,6 +22,10 @@
 --
 -- Lists the search indices.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListIndices>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListIndices
   ( -- * Creating a Request

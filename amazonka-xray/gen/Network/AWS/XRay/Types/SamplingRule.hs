@@ -38,7 +38,8 @@ data SamplingRule = SamplingRule'
     ruleARN :: Prelude.Maybe Prelude.Text,
     -- | Matches attributes derived from the request.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Matches the ARN of the AWS resource on which the service runs.
+    -- | Matches the ARN of the Amazon Web Services resource on which the service
+    -- runs.
     resourceARN :: Prelude.Text,
     -- | The priority of the sampling rule.
     priority :: Prelude.Natural,
@@ -81,7 +82,8 @@ data SamplingRule = SamplingRule'
 --
 -- 'attributes', 'samplingRule_attributes' - Matches attributes derived from the request.
 --
--- 'resourceARN', 'samplingRule_resourceARN' - Matches the ARN of the AWS resource on which the service runs.
+-- 'resourceARN', 'samplingRule_resourceARN' - Matches the ARN of the Amazon Web Services resource on which the service
+-- runs.
 --
 -- 'priority', 'samplingRule_priority' - The priority of the sampling rule.
 --
@@ -167,7 +169,8 @@ samplingRule_ruleARN = Lens.lens (\SamplingRule' {ruleARN} -> ruleARN) (\s@Sampl
 samplingRule_attributes :: Lens.Lens' SamplingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 samplingRule_attributes = Lens.lens (\SamplingRule' {attributes} -> attributes) (\s@SamplingRule' {} a -> s {attributes = a} :: SamplingRule) Prelude.. Lens.mapping Lens._Coerce
 
--- | Matches the ARN of the AWS resource on which the service runs.
+-- | Matches the ARN of the Amazon Web Services resource on which the service
+-- runs.
 samplingRule_resourceARN :: Lens.Lens' SamplingRule Prelude.Text
 samplingRule_resourceARN = Lens.lens (\SamplingRule' {resourceARN} -> resourceARN) (\s@SamplingRule' {} a -> s {resourceARN = a} :: SamplingRule)
 

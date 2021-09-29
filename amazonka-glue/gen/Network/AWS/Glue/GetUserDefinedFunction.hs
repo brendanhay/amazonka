@@ -51,7 +51,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetUserDefinedFunction' smart constructor.
 data GetUserDefinedFunction = GetUserDefinedFunction'
   { -- | The ID of the Data Catalog where the function to be retrieved is
-    -- located. If none is provided, the AWS account ID is used by default.
+    -- located. If none is provided, the Amazon Web Services account ID is used
+    -- by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the function is located.
     databaseName :: Prelude.Text,
@@ -69,7 +70,8 @@ data GetUserDefinedFunction = GetUserDefinedFunction'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getUserDefinedFunction_catalogId' - The ID of the Data Catalog where the function to be retrieved is
--- located. If none is provided, the AWS account ID is used by default.
+-- located. If none is provided, the Amazon Web Services account ID is used
+-- by default.
 --
 -- 'databaseName', 'getUserDefinedFunction_databaseName' - The name of the catalog database where the function is located.
 --
@@ -91,7 +93,8 @@ newGetUserDefinedFunction
       }
 
 -- | The ID of the Data Catalog where the function to be retrieved is
--- located. If none is provided, the AWS account ID is used by default.
+-- located. If none is provided, the Amazon Web Services account ID is used
+-- by default.
 getUserDefinedFunction_catalogId :: Lens.Lens' GetUserDefinedFunction (Prelude.Maybe Prelude.Text)
 getUserDefinedFunction_catalogId = Lens.lens (\GetUserDefinedFunction' {catalogId} -> catalogId) (\s@GetUserDefinedFunction' {} a -> s {catalogId = a} :: GetUserDefinedFunction)
 

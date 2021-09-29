@@ -46,7 +46,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileDefaultOutboundQueue' smart constructor.
 data UpdateRoutingProfileDefaultOutboundQueue = UpdateRoutingProfileDefaultOutboundQueue'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text,
@@ -63,7 +64,8 @@ data UpdateRoutingProfileDefaultOutboundQueue = UpdateRoutingProfileDefaultOutbo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateRoutingProfileDefaultOutboundQueue_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateRoutingProfileDefaultOutboundQueue_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'updateRoutingProfileDefaultOutboundQueue_routingProfileId' - The identifier of the routing profile.
 --
@@ -89,7 +91,8 @@ newUpdateRoutingProfileDefaultOutboundQueue
           pDefaultOutboundQueueId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateRoutingProfileDefaultOutboundQueue_instanceId :: Lens.Lens' UpdateRoutingProfileDefaultOutboundQueue Prelude.Text
 updateRoutingProfileDefaultOutboundQueue_instanceId = Lens.lens (\UpdateRoutingProfileDefaultOutboundQueue' {instanceId} -> instanceId) (\s@UpdateRoutingProfileDefaultOutboundQueue' {} a -> s {instanceId = a} :: UpdateRoutingProfileDefaultOutboundQueue)
 

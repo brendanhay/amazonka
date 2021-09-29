@@ -36,10 +36,10 @@ data Offering = Offering'
     id :: Prelude.Maybe Prelude.Text,
     -- | A string that describes the offering.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether there are recurring charges for the offering.
-    recurringCharges :: Prelude.Maybe [RecurringCharge],
     -- | The type of offering (for example, @RECURRING@) for a device.
-    type' :: Prelude.Maybe OfferingType
+    type' :: Prelude.Maybe OfferingType,
+    -- | Specifies whether there are recurring charges for the offering.
+    recurringCharges :: Prelude.Maybe [RecurringCharge]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,9 +57,9 @@ data Offering = Offering'
 --
 -- 'description', 'offering_description' - A string that describes the offering.
 --
--- 'recurringCharges', 'offering_recurringCharges' - Specifies whether there are recurring charges for the offering.
---
 -- 'type'', 'offering_type' - The type of offering (for example, @RECURRING@) for a device.
+--
+-- 'recurringCharges', 'offering_recurringCharges' - Specifies whether there are recurring charges for the offering.
 newOffering ::
   Offering
 newOffering =
@@ -67,8 +67,8 @@ newOffering =
     { platform = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
-      recurringCharges = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing
     }
 
 -- | The platform of the device (for example, @ANDROID@ or @IOS@).
@@ -83,13 +83,13 @@ offering_id = Lens.lens (\Offering' {id} -> id) (\s@Offering' {} a -> s {id = a}
 offering_description :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
 offering_description = Lens.lens (\Offering' {description} -> description) (\s@Offering' {} a -> s {description = a} :: Offering)
 
--- | Specifies whether there are recurring charges for the offering.
-offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
-offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The type of offering (for example, @RECURRING@) for a device.
 offering_type :: Lens.Lens' Offering (Prelude.Maybe OfferingType)
 offering_type = Lens.lens (\Offering' {type'} -> type') (\s@Offering' {} a -> s {type' = a} :: Offering)
+
+-- | Specifies whether there are recurring charges for the offering.
+offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
+offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Offering where
   parseJSON =
@@ -100,10 +100,10 @@ instance Core.FromJSON Offering where
             Prelude.<$> (x Core..:? "platform")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "type")
             Prelude.<*> ( x Core..:? "recurringCharges"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable Offering

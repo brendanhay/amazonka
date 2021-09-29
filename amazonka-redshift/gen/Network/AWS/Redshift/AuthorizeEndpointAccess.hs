@@ -1,0 +1,140 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Redshift.AuthorizeEndpointAccess
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Grants access to a cluster.
+module Network.AWS.Redshift.AuthorizeEndpointAccess
+  ( -- * Creating a Request
+    AuthorizeEndpointAccess (..),
+    newAuthorizeEndpointAccess,
+
+    -- * Request Lenses
+    authorizeEndpointAccess_clusterIdentifier,
+    authorizeEndpointAccess_vpcIds,
+    authorizeEndpointAccess_account,
+
+    -- * Destructuring the Response
+    EndpointAuthorization (..),
+    newEndpointAuthorization,
+
+    -- * Response Lenses
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_status,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_grantor,
+    endpointAuthorization_endpointCount,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Redshift.Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newAuthorizeEndpointAccess' smart constructor.
+data AuthorizeEndpointAccess = AuthorizeEndpointAccess'
+  { -- | The cluster identifier of the cluster to grant access to.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The virtual private cloud (VPC) identifiers to grant access to.
+    vpcIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services account ID to grant access to.
+    account :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AuthorizeEndpointAccess' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clusterIdentifier', 'authorizeEndpointAccess_clusterIdentifier' - The cluster identifier of the cluster to grant access to.
+--
+-- 'vpcIds', 'authorizeEndpointAccess_vpcIds' - The virtual private cloud (VPC) identifiers to grant access to.
+--
+-- 'account', 'authorizeEndpointAccess_account' - The Amazon Web Services account ID to grant access to.
+newAuthorizeEndpointAccess ::
+  -- | 'account'
+  Prelude.Text ->
+  AuthorizeEndpointAccess
+newAuthorizeEndpointAccess pAccount_ =
+  AuthorizeEndpointAccess'
+    { clusterIdentifier =
+        Prelude.Nothing,
+      vpcIds = Prelude.Nothing,
+      account = pAccount_
+    }
+
+-- | The cluster identifier of the cluster to grant access to.
+authorizeEndpointAccess_clusterIdentifier :: Lens.Lens' AuthorizeEndpointAccess (Prelude.Maybe Prelude.Text)
+authorizeEndpointAccess_clusterIdentifier = Lens.lens (\AuthorizeEndpointAccess' {clusterIdentifier} -> clusterIdentifier) (\s@AuthorizeEndpointAccess' {} a -> s {clusterIdentifier = a} :: AuthorizeEndpointAccess)
+
+-- | The virtual private cloud (VPC) identifiers to grant access to.
+authorizeEndpointAccess_vpcIds :: Lens.Lens' AuthorizeEndpointAccess (Prelude.Maybe [Prelude.Text])
+authorizeEndpointAccess_vpcIds = Lens.lens (\AuthorizeEndpointAccess' {vpcIds} -> vpcIds) (\s@AuthorizeEndpointAccess' {} a -> s {vpcIds = a} :: AuthorizeEndpointAccess) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Web Services account ID to grant access to.
+authorizeEndpointAccess_account :: Lens.Lens' AuthorizeEndpointAccess Prelude.Text
+authorizeEndpointAccess_account = Lens.lens (\AuthorizeEndpointAccess' {account} -> account) (\s@AuthorizeEndpointAccess' {} a -> s {account = a} :: AuthorizeEndpointAccess)
+
+instance Core.AWSRequest AuthorizeEndpointAccess where
+  type
+    AWSResponse AuthorizeEndpointAccess =
+      EndpointAuthorization
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "AuthorizeEndpointAccessResult"
+      (\s h x -> Core.parseXML x)
+
+instance Prelude.Hashable AuthorizeEndpointAccess
+
+instance Prelude.NFData AuthorizeEndpointAccess
+
+instance Core.ToHeaders AuthorizeEndpointAccess where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath AuthorizeEndpointAccess where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AuthorizeEndpointAccess where
+  toQuery AuthorizeEndpointAccess' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AuthorizeEndpointAccess" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "VpcIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcIdentifier"
+                Prelude.<$> vpcIds
+            ),
+        "Account" Core.=: account
+      ]

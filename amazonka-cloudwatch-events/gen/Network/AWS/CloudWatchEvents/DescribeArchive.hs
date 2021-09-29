@@ -35,9 +35,9 @@ module Network.AWS.CloudWatchEvents.DescribeArchive
 
     -- * Response Lenses
     describeArchiveResponse_eventCount,
-    describeArchiveResponse_eventPattern,
-    describeArchiveResponse_eventSourceArn,
     describeArchiveResponse_creationTime,
+    describeArchiveResponse_eventSourceArn,
+    describeArchiveResponse_eventPattern,
     describeArchiveResponse_stateReason,
     describeArchiveResponse_archiveName,
     describeArchiveResponse_archiveArn,
@@ -93,9 +93,9 @@ instance Core.AWSRequest DescribeArchive where
       ( \s h x ->
           DescribeArchiveResponse'
             Prelude.<$> (x Core..?> "EventCount")
-            Prelude.<*> (x Core..?> "EventPattern")
-            Prelude.<*> (x Core..?> "EventSourceArn")
             Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "EventSourceArn")
+            Prelude.<*> (x Core..?> "EventPattern")
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (x Core..?> "ArchiveName")
             Prelude.<*> (x Core..?> "ArchiveArn")
@@ -140,12 +140,12 @@ instance Core.ToQuery DescribeArchive where
 data DescribeArchiveResponse = DescribeArchiveResponse'
   { -- | The number of events in the archive.
     eventCount :: Prelude.Maybe Prelude.Integer,
-    -- | The event pattern used to filter events sent to the archive.
-    eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event source associated with the archive.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the archive was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the event source associated with the archive.
+    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The event pattern used to filter events sent to the archive.
+    eventPattern :: Prelude.Maybe Prelude.Text,
     -- | The reason that the archive is in the state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the archive.
@@ -175,11 +175,11 @@ data DescribeArchiveResponse = DescribeArchiveResponse'
 --
 -- 'eventCount', 'describeArchiveResponse_eventCount' - The number of events in the archive.
 --
--- 'eventPattern', 'describeArchiveResponse_eventPattern' - The event pattern used to filter events sent to the archive.
+-- 'creationTime', 'describeArchiveResponse_creationTime' - The time at which the archive was created.
 --
 -- 'eventSourceArn', 'describeArchiveResponse_eventSourceArn' - The ARN of the event source associated with the archive.
 --
--- 'creationTime', 'describeArchiveResponse_creationTime' - The time at which the archive was created.
+-- 'eventPattern', 'describeArchiveResponse_eventPattern' - The event pattern used to filter events sent to the archive.
 --
 -- 'stateReason', 'describeArchiveResponse_stateReason' - The reason that the archive is in the state.
 --
@@ -204,9 +204,9 @@ newDescribeArchiveResponse pHttpStatus_ =
   DescribeArchiveResponse'
     { eventCount =
         Prelude.Nothing,
-      eventPattern = Prelude.Nothing,
-      eventSourceArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      eventSourceArn = Prelude.Nothing,
+      eventPattern = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       archiveName = Prelude.Nothing,
       archiveArn = Prelude.Nothing,
@@ -221,17 +221,17 @@ newDescribeArchiveResponse pHttpStatus_ =
 describeArchiveResponse_eventCount :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Integer)
 describeArchiveResponse_eventCount = Lens.lens (\DescribeArchiveResponse' {eventCount} -> eventCount) (\s@DescribeArchiveResponse' {} a -> s {eventCount = a} :: DescribeArchiveResponse)
 
--- | The event pattern used to filter events sent to the archive.
-describeArchiveResponse_eventPattern :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
-describeArchiveResponse_eventPattern = Lens.lens (\DescribeArchiveResponse' {eventPattern} -> eventPattern) (\s@DescribeArchiveResponse' {} a -> s {eventPattern = a} :: DescribeArchiveResponse)
+-- | The time at which the archive was created.
+describeArchiveResponse_creationTime :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.UTCTime)
+describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the event source associated with the archive.
 describeArchiveResponse_eventSourceArn :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
 describeArchiveResponse_eventSourceArn = Lens.lens (\DescribeArchiveResponse' {eventSourceArn} -> eventSourceArn) (\s@DescribeArchiveResponse' {} a -> s {eventSourceArn = a} :: DescribeArchiveResponse)
 
--- | The time at which the archive was created.
-describeArchiveResponse_creationTime :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-describeArchiveResponse_creationTime = Lens.lens (\DescribeArchiveResponse' {creationTime} -> creationTime) (\s@DescribeArchiveResponse' {} a -> s {creationTime = a} :: DescribeArchiveResponse) Prelude.. Lens.mapping Core._Time
+-- | The event pattern used to filter events sent to the archive.
+describeArchiveResponse_eventPattern :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)
+describeArchiveResponse_eventPattern = Lens.lens (\DescribeArchiveResponse' {eventPattern} -> eventPattern) (\s@DescribeArchiveResponse' {} a -> s {eventPattern = a} :: DescribeArchiveResponse)
 
 -- | The reason that the archive is in the state.
 describeArchiveResponse_stateReason :: Lens.Lens' DescribeArchiveResponse (Prelude.Maybe Prelude.Text)

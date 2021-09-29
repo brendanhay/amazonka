@@ -21,12 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates a scheduled scaling action for an Auto Scaling group.
--- If you leave a parameter unspecified when updating a scheduled scaling
--- action, the corresponding value remains unchanged.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html Scheduled scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- You can view the scheduled actions for an Auto Scaling group using the
+-- DescribeScheduledActions API call. If you are no longer using a
+-- scheduled action, you can delete it by calling the DeleteScheduledAction
+-- API.
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
   ( -- * Creating a Request
     PutScheduledUpdateGroupAction (..),
@@ -39,6 +42,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     putScheduledUpdateGroupAction_endTime,
     putScheduledUpdateGroupAction_recurrence,
     putScheduledUpdateGroupAction_maxSize,
+    putScheduledUpdateGroupAction_timeZone,
     putScheduledUpdateGroupAction_time,
     putScheduledUpdateGroupAction_autoScalingGroupName,
     putScheduledUpdateGroupAction_scheduledActionName,
@@ -76,20 +80,29 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
     -- returns an error message.
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
-    -- Scaling does not perform the action after this time.
+    -- | The date and time for the recurring schedule to end, in UTC.
     endTime :: Prelude.Maybe Core.ISO8601,
-    -- | The recurring schedule for this action, in Unix cron syntax format. This
-    -- format consists of five fields separated by white spaces: [Minute]
-    -- [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be
-    -- in quotes (for example, @\"30 0 1 1,6,12 *\"@). For more information
-    -- about this format, see <http://crontab.org Crontab>.
+    -- | The recurring schedule for this action. This format consists of five
+    -- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
+    -- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,
+    -- @\"30 0 1 1,6,12 *\"@). For more information about this format, see
+    -- <http://crontab.org Crontab>.
     --
     -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
     -- form the boundaries of when the recurring action starts and stops.
+    --
+    -- Cron expressions use Universal Coordinated Time (UTC) by default.
     recurrence :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of the Auto Scaling group.
     maxSize :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the time zone for a cron expression. If a time zone is not
+    -- provided, UTC is used by default.
+    --
+    -- Valid values are the canonical names of the IANA time zones, derived
+    -- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+    -- @Pacific\/Tahiti@). For more information, see
+    -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+    timeZone :: Prelude.Maybe Prelude.Text,
     -- | This parameter is no longer used.
     time :: Prelude.Maybe Core.ISO8601,
     -- | The name of the Auto Scaling group.
@@ -125,19 +138,28 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
 -- returns an error message.
 --
--- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end. Amazon EC2 Auto
--- Scaling does not perform the action after this time.
+-- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end, in UTC.
 --
--- 'recurrence', 'putScheduledUpdateGroupAction_recurrence' - The recurring schedule for this action, in Unix cron syntax format. This
--- format consists of five fields separated by white spaces: [Minute]
--- [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be
--- in quotes (for example, @\"30 0 1 1,6,12 *\"@). For more information
--- about this format, see <http://crontab.org Crontab>.
+-- 'recurrence', 'putScheduledUpdateGroupAction_recurrence' - The recurring schedule for this action. This format consists of five
+-- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
+-- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,
+-- @\"30 0 1 1,6,12 *\"@). For more information about this format, see
+-- <http://crontab.org Crontab>.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
 --
+-- Cron expressions use Universal Coordinated Time (UTC) by default.
+--
 -- 'maxSize', 'putScheduledUpdateGroupAction_maxSize' - The maximum size of the Auto Scaling group.
+--
+-- 'timeZone', 'putScheduledUpdateGroupAction_timeZone' - Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
 --
 -- 'time', 'putScheduledUpdateGroupAction_time' - This parameter is no longer used.
 --
@@ -161,6 +183,7 @@ newPutScheduledUpdateGroupAction
         endTime = Prelude.Nothing,
         recurrence = Prelude.Nothing,
         maxSize = Prelude.Nothing,
+        timeZone = Prelude.Nothing,
         time = Prelude.Nothing,
         autoScalingGroupName =
           pAutoScalingGroupName_,
@@ -191,25 +214,36 @@ putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGr
 putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
--- | The date and time for the recurring schedule to end. Amazon EC2 Auto
--- Scaling does not perform the action after this time.
+-- | The date and time for the recurring schedule to end, in UTC.
 putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
--- | The recurring schedule for this action, in Unix cron syntax format. This
--- format consists of five fields separated by white spaces: [Minute]
--- [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be
--- in quotes (for example, @\"30 0 1 1,6,12 *\"@). For more information
--- about this format, see <http://crontab.org Crontab>.
+-- | The recurring schedule for this action. This format consists of five
+-- fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
+-- [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example,
+-- @\"30 0 1 1,6,12 *\"@). For more information about this format, see
+-- <http://crontab.org Crontab>.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
+--
+-- Cron expressions use Universal Coordinated Time (UTC) by default.
 putScheduledUpdateGroupAction_recurrence :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
 putScheduledUpdateGroupAction_recurrence = Lens.lens (\PutScheduledUpdateGroupAction' {recurrence} -> recurrence) (\s@PutScheduledUpdateGroupAction' {} a -> s {recurrence = a} :: PutScheduledUpdateGroupAction)
 
 -- | The maximum size of the Auto Scaling group.
 putScheduledUpdateGroupAction_maxSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 putScheduledUpdateGroupAction_maxSize = Lens.lens (\PutScheduledUpdateGroupAction' {maxSize} -> maxSize) (\s@PutScheduledUpdateGroupAction' {} a -> s {maxSize = a} :: PutScheduledUpdateGroupAction)
+
+-- | Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+putScheduledUpdateGroupAction_timeZone :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
+putScheduledUpdateGroupAction_timeZone = Lens.lens (\PutScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@PutScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: PutScheduledUpdateGroupAction)
 
 -- | This parameter is no longer used.
 putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
@@ -262,6 +296,7 @@ instance Core.ToQuery PutScheduledUpdateGroupAction where
         "EndTime" Core.=: endTime,
         "Recurrence" Core.=: recurrence,
         "MaxSize" Core.=: maxSize,
+        "TimeZone" Core.=: timeZone,
         "Time" Core.=: time,
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
         "ScheduledActionName" Core.=: scheduledActionName

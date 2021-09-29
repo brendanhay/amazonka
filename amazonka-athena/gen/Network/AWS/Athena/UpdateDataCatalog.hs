@@ -78,15 +78,12 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --         @function=lambda_arn @
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to update. The catalog name must be unique
-    -- for the AWS account and can use a maximum of 128 alphanumeric,
-    -- underscore, at sign, or hyphen characters.
+    -- for the Amazon Web Services account and can use a maximum of 128
+    -- alphanumeric, underscore, at sign, or hyphen characters.
     name :: Prelude.Text,
     -- | Specifies the type of data catalog to update. Specify @LAMBDA@ for a
-    -- federated catalog or @HIVE@ for an external hive metastore.
-    --
-    -- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
-    -- already exists in your account, of which you can have only one.
-    -- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+    -- federated catalog, @HIVE@ for an external hive metastore, or @GLUE@ for
+    -- an Glue Data Catalog.
     type' :: DataCatalogType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -127,15 +124,12 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --         @function=lambda_arn @
 --
 -- 'name', 'updateDataCatalog_name' - The name of the data catalog to update. The catalog name must be unique
--- for the AWS account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 128
+-- alphanumeric, underscore, at sign, or hyphen characters.
 --
 -- 'type'', 'updateDataCatalog_type' - Specifies the type of data catalog to update. Specify @LAMBDA@ for a
--- federated catalog or @HIVE@ for an external hive metastore.
---
--- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
--- already exists in your account, of which you can have only one.
--- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+-- federated catalog, @HIVE@ for an external hive metastore, or @GLUE@ for
+-- an Glue Data Catalog.
 newUpdateDataCatalog ::
   -- | 'name'
   Prelude.Text ->
@@ -182,17 +176,14 @@ updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe (Pre
 updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the data catalog to update. The catalog name must be unique
--- for the AWS account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 128
+-- alphanumeric, underscore, at sign, or hyphen characters.
 updateDataCatalog_name :: Lens.Lens' UpdateDataCatalog Prelude.Text
 updateDataCatalog_name = Lens.lens (\UpdateDataCatalog' {name} -> name) (\s@UpdateDataCatalog' {} a -> s {name = a} :: UpdateDataCatalog)
 
 -- | Specifies the type of data catalog to update. Specify @LAMBDA@ for a
--- federated catalog or @HIVE@ for an external hive metastore.
---
--- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
--- already exists in your account, of which you can have only one.
--- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+-- federated catalog, @HIVE@ for an external hive metastore, or @GLUE@ for
+-- an Glue Data Catalog.
 updateDataCatalog_type :: Lens.Lens' UpdateDataCatalog DataCatalogType
 updateDataCatalog_type = Lens.lens (\UpdateDataCatalog' {type'} -> type') (\s@UpdateDataCatalog' {} a -> s {type' = a} :: UpdateDataCatalog)
 

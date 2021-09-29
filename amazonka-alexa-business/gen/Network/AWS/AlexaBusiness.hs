@@ -35,14 +35,17 @@ module Network.AWS.AlexaBusiness
     -- ** InvalidServiceLinkedRoleStateException
     _InvalidServiceLinkedRoleStateException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
     -- ** InvalidUserStatusException
     _InvalidUserStatusException,
 
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
     -- ** ResourceAssociatedException
     _ResourceAssociatedException,
+
+    -- ** InvalidCertificateAuthorityException
+    _InvalidCertificateAuthorityException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
@@ -50,20 +53,17 @@ module Network.AWS.AlexaBusiness
     -- ** DeviceNotRegisteredException
     _DeviceNotRegisteredException,
 
-    -- ** InvalidCertificateAuthorityException
-    _InvalidCertificateAuthorityException,
-
     -- ** NameInUseException
     _NameInUseException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** InvalidDeviceException
     _InvalidDeviceException,
@@ -92,23 +92,11 @@ module Network.AWS.AlexaBusiness
     CreateProfileResponse (CreateProfileResponse'),
     newCreateProfileResponse,
 
-    -- ** CreateContact
-    CreateContact (CreateContact'),
-    newCreateContact,
-    CreateContactResponse (CreateContactResponse'),
-    newCreateContactResponse,
-
     -- ** DeleteBusinessReportSchedule
     DeleteBusinessReportSchedule (DeleteBusinessReportSchedule'),
     newDeleteBusinessReportSchedule,
     DeleteBusinessReportScheduleResponse (DeleteBusinessReportScheduleResponse'),
     newDeleteBusinessReportScheduleResponse,
-
-    -- ** UpdateNetworkProfile
-    UpdateNetworkProfile (UpdateNetworkProfile'),
-    newUpdateNetworkProfile,
-    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
-    newUpdateNetworkProfileResponse,
 
     -- ** ListBusinessReportSchedules (Paginated)
     ListBusinessReportSchedules (ListBusinessReportSchedules'),
@@ -116,17 +104,11 @@ module Network.AWS.AlexaBusiness
     ListBusinessReportSchedulesResponse (ListBusinessReportSchedulesResponse'),
     newListBusinessReportSchedulesResponse,
 
-    -- ** DeleteNetworkProfile
-    DeleteNetworkProfile (DeleteNetworkProfile'),
-    newDeleteNetworkProfile,
-    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
-    newDeleteNetworkProfileResponse,
-
-    -- ** UpdateBusinessReportSchedule
-    UpdateBusinessReportSchedule (UpdateBusinessReportSchedule'),
-    newUpdateBusinessReportSchedule,
-    UpdateBusinessReportScheduleResponse (UpdateBusinessReportScheduleResponse'),
-    newUpdateBusinessReportScheduleResponse,
+    -- ** UpdateNetworkProfile
+    UpdateNetworkProfile (UpdateNetworkProfile'),
+    newUpdateNetworkProfile,
+    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
+    newUpdateNetworkProfileResponse,
 
     -- ** DeleteDeviceUsageData
     DeleteDeviceUsageData (DeleteDeviceUsageData'),
@@ -134,11 +116,53 @@ module Network.AWS.AlexaBusiness
     DeleteDeviceUsageDataResponse (DeleteDeviceUsageDataResponse'),
     newDeleteDeviceUsageDataResponse,
 
+    -- ** DeleteNetworkProfile
+    DeleteNetworkProfile (DeleteNetworkProfile'),
+    newDeleteNetworkProfile,
+    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
+    newDeleteNetworkProfileResponse,
+
+    -- ** CreateContact
+    CreateContact (CreateContact'),
+    newCreateContact,
+    CreateContactResponse (CreateContactResponse'),
+    newCreateContactResponse,
+
+    -- ** UpdateBusinessReportSchedule
+    UpdateBusinessReportSchedule (UpdateBusinessReportSchedule'),
+    newUpdateBusinessReportSchedule,
+    UpdateBusinessReportScheduleResponse (UpdateBusinessReportScheduleResponse'),
+    newUpdateBusinessReportScheduleResponse,
+
+    -- ** AssociateContactWithAddressBook
+    AssociateContactWithAddressBook (AssociateContactWithAddressBook'),
+    newAssociateContactWithAddressBook,
+    AssociateContactWithAddressBookResponse (AssociateContactWithAddressBookResponse'),
+    newAssociateContactWithAddressBookResponse,
+
+    -- ** ListSkillsStoreCategories (Paginated)
+    ListSkillsStoreCategories (ListSkillsStoreCategories'),
+    newListSkillsStoreCategories,
+    ListSkillsStoreCategoriesResponse (ListSkillsStoreCategoriesResponse'),
+    newListSkillsStoreCategoriesResponse,
+
     -- ** GetConferenceProvider
     GetConferenceProvider (GetConferenceProvider'),
     newGetConferenceProvider,
     GetConferenceProviderResponse (GetConferenceProviderResponse'),
     newGetConferenceProviderResponse,
+
+    -- ** GetAddressBook
+    GetAddressBook (GetAddressBook'),
+    newGetAddressBook,
+    GetAddressBookResponse (GetAddressBookResponse'),
+    newGetAddressBookResponse,
+
+    -- ** CreateBusinessReportSchedule
+    CreateBusinessReportSchedule (CreateBusinessReportSchedule'),
+    newCreateBusinessReportSchedule,
+    CreateBusinessReportScheduleResponse (CreateBusinessReportScheduleResponse'),
+    newCreateBusinessReportScheduleResponse,
 
     -- ** GetGatewayGroup
     GetGatewayGroup (GetGatewayGroup'),
@@ -158,48 +182,6 @@ module Network.AWS.AlexaBusiness
     CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
     newCreateNetworkProfileResponse,
 
-    -- ** ListSkillsStoreCategories (Paginated)
-    ListSkillsStoreCategories (ListSkillsStoreCategories'),
-    newListSkillsStoreCategories,
-    ListSkillsStoreCategoriesResponse (ListSkillsStoreCategoriesResponse'),
-    newListSkillsStoreCategoriesResponse,
-
-    -- ** CreateBusinessReportSchedule
-    CreateBusinessReportSchedule (CreateBusinessReportSchedule'),
-    newCreateBusinessReportSchedule,
-    CreateBusinessReportScheduleResponse (CreateBusinessReportScheduleResponse'),
-    newCreateBusinessReportScheduleResponse,
-
-    -- ** GetAddressBook
-    GetAddressBook (GetAddressBook'),
-    newGetAddressBook,
-    GetAddressBookResponse (GetAddressBookResponse'),
-    newGetAddressBookResponse,
-
-    -- ** AssociateContactWithAddressBook
-    AssociateContactWithAddressBook (AssociateContactWithAddressBook'),
-    newAssociateContactWithAddressBook,
-    AssociateContactWithAddressBookResponse (AssociateContactWithAddressBookResponse'),
-    newAssociateContactWithAddressBookResponse,
-
-    -- ** GetDevice
-    GetDevice (GetDevice'),
-    newGetDevice,
-    GetDeviceResponse (GetDeviceResponse'),
-    newGetDeviceResponse,
-
-    -- ** DeleteRoomSkillParameter
-    DeleteRoomSkillParameter (DeleteRoomSkillParameter'),
-    newDeleteRoomSkillParameter,
-    DeleteRoomSkillParameterResponse (DeleteRoomSkillParameterResponse'),
-    newDeleteRoomSkillParameterResponse,
-
-    -- ** ListSkillsStoreSkillsByCategory (Paginated)
-    ListSkillsStoreSkillsByCategory (ListSkillsStoreSkillsByCategory'),
-    newListSkillsStoreSkillsByCategory,
-    ListSkillsStoreSkillsByCategoryResponse (ListSkillsStoreSkillsByCategoryResponse'),
-    newListSkillsStoreSkillsByCategoryResponse,
-
     -- ** SearchProfiles (Paginated)
     SearchProfiles (SearchProfiles'),
     newSearchProfiles,
@@ -218,29 +200,29 @@ module Network.AWS.AlexaBusiness
     UpdateAddressBookResponse (UpdateAddressBookResponse'),
     newUpdateAddressBookResponse,
 
-    -- ** SearchSkillGroups (Paginated)
-    SearchSkillGroups (SearchSkillGroups'),
-    newSearchSkillGroups,
-    SearchSkillGroupsResponse (SearchSkillGroupsResponse'),
-    newSearchSkillGroupsResponse,
+    -- ** DeleteRoomSkillParameter
+    DeleteRoomSkillParameter (DeleteRoomSkillParameter'),
+    newDeleteRoomSkillParameter,
+    DeleteRoomSkillParameterResponse (DeleteRoomSkillParameterResponse'),
+    newDeleteRoomSkillParameterResponse,
 
-    -- ** ResolveRoom
-    ResolveRoom (ResolveRoom'),
-    newResolveRoom,
-    ResolveRoomResponse (ResolveRoomResponse'),
-    newResolveRoomResponse,
+    -- ** GetDevice
+    GetDevice (GetDevice'),
+    newGetDevice,
+    GetDeviceResponse (GetDeviceResponse'),
+    newGetDeviceResponse,
+
+    -- ** ListSkillsStoreSkillsByCategory (Paginated)
+    ListSkillsStoreSkillsByCategory (ListSkillsStoreSkillsByCategory'),
+    newListSkillsStoreSkillsByCategory,
+    ListSkillsStoreSkillsByCategoryResponse (ListSkillsStoreSkillsByCategoryResponse'),
+    newListSkillsStoreSkillsByCategoryResponse,
 
     -- ** PutSkillAuthorization
     PutSkillAuthorization (PutSkillAuthorization'),
     newPutSkillAuthorization,
     PutSkillAuthorizationResponse (PutSkillAuthorizationResponse'),
     newPutSkillAuthorizationResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
 
     -- ** DisassociateContactFromAddressBook
     DisassociateContactFromAddressBook (DisassociateContactFromAddressBook'),
@@ -254,17 +236,29 @@ module Network.AWS.AlexaBusiness
     AssociateDeviceWithNetworkProfileResponse (AssociateDeviceWithNetworkProfileResponse'),
     newAssociateDeviceWithNetworkProfileResponse,
 
+    -- ** SearchSkillGroups (Paginated)
+    SearchSkillGroups (SearchSkillGroups'),
+    newSearchSkillGroups,
+    SearchSkillGroupsResponse (SearchSkillGroupsResponse'),
+    newSearchSkillGroupsResponse,
+
+    -- ** ResolveRoom
+    ResolveRoom (ResolveRoom'),
+    newResolveRoom,
+    ResolveRoomResponse (ResolveRoomResponse'),
+    newResolveRoomResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- ** SearchNetworkProfiles
     SearchNetworkProfiles (SearchNetworkProfiles'),
     newSearchNetworkProfiles,
     SearchNetworkProfilesResponse (SearchNetworkProfilesResponse'),
     newSearchNetworkProfilesResponse,
-
-    -- ** GetSkillGroup
-    GetSkillGroup (GetSkillGroup'),
-    newGetSkillGroup,
-    GetSkillGroupResponse (GetSkillGroupResponse'),
-    newGetSkillGroupResponse,
 
     -- ** PutInvitationConfiguration
     PutInvitationConfiguration (PutInvitationConfiguration'),
@@ -278,47 +272,11 @@ module Network.AWS.AlexaBusiness
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListDeviceEvents (Paginated)
-    ListDeviceEvents (ListDeviceEvents'),
-    newListDeviceEvents,
-    ListDeviceEventsResponse (ListDeviceEventsResponse'),
-    newListDeviceEventsResponse,
-
-    -- ** SendAnnouncement
-    SendAnnouncement (SendAnnouncement'),
-    newSendAnnouncement,
-    SendAnnouncementResponse (SendAnnouncementResponse'),
-    newSendAnnouncementResponse,
-
-    -- ** DisassociateSkillGroupFromRoom
-    DisassociateSkillGroupFromRoom (DisassociateSkillGroupFromRoom'),
-    newDisassociateSkillGroupFromRoom,
-    DisassociateSkillGroupFromRoomResponse (DisassociateSkillGroupFromRoomResponse'),
-    newDisassociateSkillGroupFromRoomResponse,
-
-    -- ** GetProfile
-    GetProfile (GetProfile'),
-    newGetProfile,
-    GetProfileResponse (GetProfileResponse'),
-    newGetProfileResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** SearchContacts
-    SearchContacts (SearchContacts'),
-    newSearchContacts,
-    SearchContactsResponse (SearchContactsResponse'),
-    newSearchContactsResponse,
-
-    -- ** RegisterAVSDevice
-    RegisterAVSDevice (RegisterAVSDevice'),
-    newRegisterAVSDevice,
-    RegisterAVSDeviceResponse (RegisterAVSDeviceResponse'),
-    newRegisterAVSDeviceResponse,
+    -- ** GetSkillGroup
+    GetSkillGroup (GetSkillGroup'),
+    newGetSkillGroup,
+    GetSkillGroupResponse (GetSkillGroupResponse'),
+    newGetSkillGroupResponse,
 
     -- ** SendInvitation
     SendInvitation (SendInvitation'),
@@ -326,17 +284,65 @@ module Network.AWS.AlexaBusiness
     SendInvitationResponse (SendInvitationResponse'),
     newSendInvitationResponse,
 
-    -- ** ForgetSmartHomeAppliances
-    ForgetSmartHomeAppliances (ForgetSmartHomeAppliances'),
-    newForgetSmartHomeAppliances,
-    ForgetSmartHomeAppliancesResponse (ForgetSmartHomeAppliancesResponse'),
-    newForgetSmartHomeAppliancesResponse,
+    -- ** ListDeviceEvents (Paginated)
+    ListDeviceEvents (ListDeviceEvents'),
+    newListDeviceEvents,
+    ListDeviceEventsResponse (ListDeviceEventsResponse'),
+    newListDeviceEventsResponse,
+
+    -- ** RegisterAVSDevice
+    RegisterAVSDevice (RegisterAVSDevice'),
+    newRegisterAVSDevice,
+    RegisterAVSDeviceResponse (RegisterAVSDeviceResponse'),
+    newRegisterAVSDeviceResponse,
+
+    -- ** GetProfile
+    GetProfile (GetProfile'),
+    newGetProfile,
+    GetProfileResponse (GetProfileResponse'),
+    newGetProfileResponse,
+
+    -- ** SearchContacts
+    SearchContacts (SearchContacts'),
+    newSearchContacts,
+    SearchContactsResponse (SearchContactsResponse'),
+    newSearchContactsResponse,
+
+    -- ** DisassociateSkillGroupFromRoom
+    DisassociateSkillGroupFromRoom (DisassociateSkillGroupFromRoom'),
+    newDisassociateSkillGroupFromRoom,
+    DisassociateSkillGroupFromRoomResponse (DisassociateSkillGroupFromRoomResponse'),
+    newDisassociateSkillGroupFromRoomResponse,
 
     -- ** AssociateSkillWithUsers
     AssociateSkillWithUsers (AssociateSkillWithUsers'),
     newAssociateSkillWithUsers,
     AssociateSkillWithUsersResponse (AssociateSkillWithUsersResponse'),
     newAssociateSkillWithUsersResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
+
+    -- ** ForgetSmartHomeAppliances
+    ForgetSmartHomeAppliances (ForgetSmartHomeAppliances'),
+    newForgetSmartHomeAppliances,
+    ForgetSmartHomeAppliancesResponse (ForgetSmartHomeAppliancesResponse'),
+    newForgetSmartHomeAppliancesResponse,
+
+    -- ** SendAnnouncement
+    SendAnnouncement (SendAnnouncement'),
+    newSendAnnouncement,
+    SendAnnouncementResponse (SendAnnouncementResponse'),
+    newSendAnnouncementResponse,
+
+    -- ** AssociateSkillGroupWithRoom
+    AssociateSkillGroupWithRoom (AssociateSkillGroupWithRoom'),
+    newAssociateSkillGroupWithRoom,
+    AssociateSkillGroupWithRoomResponse (AssociateSkillGroupWithRoomResponse'),
+    newAssociateSkillGroupWithRoomResponse,
 
     -- ** GetInvitationConfiguration
     GetInvitationConfiguration (GetInvitationConfiguration'),
@@ -350,23 +356,17 @@ module Network.AWS.AlexaBusiness
     DisassociateSkillFromUsersResponse (DisassociateSkillFromUsersResponse'),
     newDisassociateSkillFromUsersResponse,
 
-    -- ** DeleteSkillGroup
-    DeleteSkillGroup (DeleteSkillGroup'),
-    newDeleteSkillGroup,
-    DeleteSkillGroupResponse (DeleteSkillGroupResponse'),
-    newDeleteSkillGroupResponse,
-
     -- ** UpdateSkillGroup
     UpdateSkillGroup (UpdateSkillGroup'),
     newUpdateSkillGroup,
     UpdateSkillGroupResponse (UpdateSkillGroupResponse'),
     newUpdateSkillGroupResponse,
 
-    -- ** AssociateSkillGroupWithRoom
-    AssociateSkillGroupWithRoom (AssociateSkillGroupWithRoom'),
-    newAssociateSkillGroupWithRoom,
-    AssociateSkillGroupWithRoomResponse (AssociateSkillGroupWithRoomResponse'),
-    newAssociateSkillGroupWithRoomResponse,
+    -- ** DeleteSkillGroup
+    DeleteSkillGroup (DeleteSkillGroup'),
+    newDeleteSkillGroup,
+    DeleteSkillGroupResponse (DeleteSkillGroupResponse'),
+    newDeleteSkillGroupResponse,
 
     -- ** SearchUsers (Paginated)
     SearchUsers (SearchUsers'),
@@ -379,30 +379,6 @@ module Network.AWS.AlexaBusiness
     newPutConferencePreference,
     PutConferencePreferenceResponse (PutConferencePreferenceResponse'),
     newPutConferencePreferenceResponse,
-
-    -- ** UpdateGateway
-    UpdateGateway (UpdateGateway'),
-    newUpdateGateway,
-    UpdateGatewayResponse (UpdateGatewayResponse'),
-    newUpdateGatewayResponse,
-
-    -- ** DeleteDevice
-    DeleteDevice (DeleteDevice'),
-    newDeleteDevice,
-    DeleteDeviceResponse (DeleteDeviceResponse'),
-    newDeleteDeviceResponse,
-
-    -- ** RevokeInvitation
-    RevokeInvitation (RevokeInvitation'),
-    newRevokeInvitation,
-    RevokeInvitationResponse (RevokeInvitationResponse'),
-    newRevokeInvitationResponse,
-
-    -- ** GetRoomSkillParameter
-    GetRoomSkillParameter (GetRoomSkillParameter'),
-    newGetRoomSkillParameter,
-    GetRoomSkillParameterResponse (GetRoomSkillParameterResponse'),
-    newGetRoomSkillParameterResponse,
 
     -- ** UpdateContact
     UpdateContact (UpdateContact'),
@@ -422,17 +398,11 @@ module Network.AWS.AlexaBusiness
     DeleteContactResponse (DeleteContactResponse'),
     newDeleteContactResponse,
 
-    -- ** UpdateDevice
-    UpdateDevice (UpdateDevice'),
-    newUpdateDevice,
-    UpdateDeviceResponse (UpdateDeviceResponse'),
-    newUpdateDeviceResponse,
-
-    -- ** AssociateDeviceWithRoom
-    AssociateDeviceWithRoom (AssociateDeviceWithRoom'),
-    newAssociateDeviceWithRoom,
-    AssociateDeviceWithRoomResponse (AssociateDeviceWithRoomResponse'),
-    newAssociateDeviceWithRoomResponse,
+    -- ** RevokeInvitation
+    RevokeInvitation (RevokeInvitation'),
+    newRevokeInvitation,
+    RevokeInvitationResponse (RevokeInvitationResponse'),
+    newRevokeInvitationResponse,
 
     -- ** AssociateSkillWithSkillGroup
     AssociateSkillWithSkillGroup (AssociateSkillWithSkillGroup'),
@@ -440,29 +410,41 @@ module Network.AWS.AlexaBusiness
     AssociateSkillWithSkillGroupResponse (AssociateSkillWithSkillGroupResponse'),
     newAssociateSkillWithSkillGroupResponse,
 
+    -- ** UpdateDevice
+    UpdateDevice (UpdateDevice'),
+    newUpdateDevice,
+    UpdateDeviceResponse (UpdateDeviceResponse'),
+    newUpdateDeviceResponse,
+
+    -- ** GetRoomSkillParameter
+    GetRoomSkillParameter (GetRoomSkillParameter'),
+    newGetRoomSkillParameter,
+    GetRoomSkillParameterResponse (GetRoomSkillParameterResponse'),
+    newGetRoomSkillParameterResponse,
+
+    -- ** UpdateGateway
+    UpdateGateway (UpdateGateway'),
+    newUpdateGateway,
+    UpdateGatewayResponse (UpdateGatewayResponse'),
+    newUpdateGatewayResponse,
+
+    -- ** AssociateDeviceWithRoom
+    AssociateDeviceWithRoom (AssociateDeviceWithRoom'),
+    newAssociateDeviceWithRoom,
+    AssociateDeviceWithRoomResponse (AssociateDeviceWithRoomResponse'),
+    newAssociateDeviceWithRoomResponse,
+
     -- ** ListGateways
     ListGateways (ListGateways'),
     newListGateways,
     ListGatewaysResponse (ListGatewaysResponse'),
     newListGatewaysResponse,
 
-    -- ** DeleteRoom
-    DeleteRoom (DeleteRoom'),
-    newDeleteRoom,
-    DeleteRoomResponse (DeleteRoomResponse'),
-    newDeleteRoomResponse,
-
-    -- ** ListConferenceProviders (Paginated)
-    ListConferenceProviders (ListConferenceProviders'),
-    newListConferenceProviders,
-    ListConferenceProvidersResponse (ListConferenceProvidersResponse'),
-    newListConferenceProvidersResponse,
-
-    -- ** DeleteGatewayGroup
-    DeleteGatewayGroup (DeleteGatewayGroup'),
-    newDeleteGatewayGroup,
-    DeleteGatewayGroupResponse (DeleteGatewayGroupResponse'),
-    newDeleteGatewayGroupResponse,
+    -- ** DeleteDevice
+    DeleteDevice (DeleteDevice'),
+    newDeleteDevice,
+    DeleteDeviceResponse (DeleteDeviceResponse'),
+    newDeleteDeviceResponse,
 
     -- ** UpdateRoom
     UpdateRoom (UpdateRoom'),
@@ -470,41 +452,11 @@ module Network.AWS.AlexaBusiness
     UpdateRoomResponse (UpdateRoomResponse'),
     newUpdateRoomResponse,
 
-    -- ** DeleteConferenceProvider
-    DeleteConferenceProvider (DeleteConferenceProvider'),
-    newDeleteConferenceProvider,
-    DeleteConferenceProviderResponse (DeleteConferenceProviderResponse'),
-    newDeleteConferenceProviderResponse,
-
-    -- ** GetGateway
-    GetGateway (GetGateway'),
-    newGetGateway,
-    GetGatewayResponse (GetGatewayResponse'),
-    newGetGatewayResponse,
-
-    -- ** UpdateConferenceProvider
-    UpdateConferenceProvider (UpdateConferenceProvider'),
-    newUpdateConferenceProvider,
-    UpdateConferenceProviderResponse (UpdateConferenceProviderResponse'),
-    newUpdateConferenceProviderResponse,
-
-    -- ** UpdateGatewayGroup
-    UpdateGatewayGroup (UpdateGatewayGroup'),
-    newUpdateGatewayGroup,
-    UpdateGatewayGroupResponse (UpdateGatewayGroupResponse'),
-    newUpdateGatewayGroupResponse,
-
     -- ** ListGatewayGroups
     ListGatewayGroups (ListGatewayGroups'),
     newListGatewayGroups,
     ListGatewayGroupsResponse (ListGatewayGroupsResponse'),
     newListGatewayGroupsResponse,
-
-    -- ** ApproveSkill
-    ApproveSkill (ApproveSkill'),
-    newApproveSkill,
-    ApproveSkillResponse (ApproveSkillResponse'),
-    newApproveSkillResponse,
 
     -- ** GetContact
     GetContact (GetContact'),
@@ -518,47 +470,65 @@ module Network.AWS.AlexaBusiness
     RejectSkillResponse (RejectSkillResponse'),
     newRejectSkillResponse,
 
+    -- ** ListConferenceProviders (Paginated)
+    ListConferenceProviders (ListConferenceProviders'),
+    newListConferenceProviders,
+    ListConferenceProvidersResponse (ListConferenceProvidersResponse'),
+    newListConferenceProvidersResponse,
+
+    -- ** UpdateConferenceProvider
+    UpdateConferenceProvider (UpdateConferenceProvider'),
+    newUpdateConferenceProvider,
+    UpdateConferenceProviderResponse (UpdateConferenceProviderResponse'),
+    newUpdateConferenceProviderResponse,
+
+    -- ** DeleteRoom
+    DeleteRoom (DeleteRoom'),
+    newDeleteRoom,
+    DeleteRoomResponse (DeleteRoomResponse'),
+    newDeleteRoomResponse,
+
+    -- ** ApproveSkill
+    ApproveSkill (ApproveSkill'),
+    newApproveSkill,
+    ApproveSkillResponse (ApproveSkillResponse'),
+    newApproveSkillResponse,
+
+    -- ** DeleteGatewayGroup
+    DeleteGatewayGroup (DeleteGatewayGroup'),
+    newDeleteGatewayGroup,
+    DeleteGatewayGroupResponse (DeleteGatewayGroupResponse'),
+    newDeleteGatewayGroupResponse,
+
+    -- ** DeleteConferenceProvider
+    DeleteConferenceProvider (DeleteConferenceProvider'),
+    newDeleteConferenceProvider,
+    DeleteConferenceProviderResponse (DeleteConferenceProviderResponse'),
+    newDeleteConferenceProviderResponse,
+
+    -- ** GetGateway
+    GetGateway (GetGateway'),
+    newGetGateway,
+    GetGatewayResponse (GetGatewayResponse'),
+    newGetGatewayResponse,
+
     -- ** PutRoomSkillParameter
     PutRoomSkillParameter (PutRoomSkillParameter'),
     newPutRoomSkillParameter,
     PutRoomSkillParameterResponse (PutRoomSkillParameterResponse'),
     newPutRoomSkillParameterResponse,
 
-    -- ** DisassociateDeviceFromRoom
-    DisassociateDeviceFromRoom (DisassociateDeviceFromRoom'),
-    newDisassociateDeviceFromRoom,
-    DisassociateDeviceFromRoomResponse (DisassociateDeviceFromRoomResponse'),
-    newDisassociateDeviceFromRoomResponse,
+    -- ** UpdateGatewayGroup
+    UpdateGatewayGroup (UpdateGatewayGroup'),
+    newUpdateGatewayGroup,
+    UpdateGatewayGroupResponse (UpdateGatewayGroupResponse'),
+    newUpdateGatewayGroupResponse,
 
-    -- ** CreateAddressBook
-    CreateAddressBook (CreateAddressBook'),
-    newCreateAddressBook,
-    CreateAddressBookResponse (CreateAddressBookResponse'),
-    newCreateAddressBookResponse,
-
-    -- ** CreateRoom
-    CreateRoom (CreateRoom'),
-    newCreateRoom,
-    CreateRoomResponse (CreateRoomResponse'),
-    newCreateRoomResponse,
-
-    -- ** CreateConferenceProvider
-    CreateConferenceProvider (CreateConferenceProvider'),
-    newCreateConferenceProvider,
-    CreateConferenceProviderResponse (CreateConferenceProviderResponse'),
-    newCreateConferenceProviderResponse,
-
-    -- ** GetNetworkProfile
-    GetNetworkProfile (GetNetworkProfile'),
-    newGetNetworkProfile,
-    GetNetworkProfileResponse (GetNetworkProfileResponse'),
-    newGetNetworkProfileResponse,
-
-    -- ** GetConferencePreference
-    GetConferencePreference (GetConferencePreference'),
-    newGetConferencePreference,
-    GetConferencePreferenceResponse (GetConferencePreferenceResponse'),
-    newGetConferencePreferenceResponse,
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** DeleteSkillAuthorization
     DeleteSkillAuthorization (DeleteSkillAuthorization'),
@@ -572,11 +542,35 @@ module Network.AWS.AlexaBusiness
     CreateGatewayGroupResponse (CreateGatewayGroupResponse'),
     newCreateGatewayGroupResponse,
 
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** GetNetworkProfile
+    GetNetworkProfile (GetNetworkProfile'),
+    newGetNetworkProfile,
+    GetNetworkProfileResponse (GetNetworkProfileResponse'),
+    newGetNetworkProfileResponse,
+
+    -- ** DisassociateDeviceFromRoom
+    DisassociateDeviceFromRoom (DisassociateDeviceFromRoom'),
+    newDisassociateDeviceFromRoom,
+    DisassociateDeviceFromRoomResponse (DisassociateDeviceFromRoomResponse'),
+    newDisassociateDeviceFromRoomResponse,
+
+    -- ** GetConferencePreference
+    GetConferencePreference (GetConferencePreference'),
+    newGetConferencePreference,
+    GetConferencePreferenceResponse (GetConferencePreferenceResponse'),
+    newGetConferencePreferenceResponse,
+
+    -- ** CreateRoom
+    CreateRoom (CreateRoom'),
+    newCreateRoom,
+    CreateRoomResponse (CreateRoomResponse'),
+    newCreateRoomResponse,
+
+    -- ** CreateAddressBook
+    CreateAddressBook (CreateAddressBook'),
+    newCreateAddressBook,
+    CreateAddressBookResponse (CreateAddressBookResponse'),
+    newCreateAddressBookResponse,
 
     -- ** DisassociateSkillFromSkillGroup
     DisassociateSkillFromSkillGroup (DisassociateSkillFromSkillGroup'),
@@ -584,17 +578,23 @@ module Network.AWS.AlexaBusiness
     DisassociateSkillFromSkillGroupResponse (DisassociateSkillFromSkillGroupResponse'),
     newDisassociateSkillFromSkillGroupResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
+    -- ** CreateConferenceProvider
+    CreateConferenceProvider (CreateConferenceProvider'),
+    newCreateConferenceProvider,
+    CreateConferenceProviderResponse (CreateConferenceProviderResponse'),
+    newCreateConferenceProviderResponse,
 
     -- ** ListSkills (Paginated)
     ListSkills (ListSkills'),
     newListSkills,
     ListSkillsResponse (ListSkillsResponse'),
     newListSkillsResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** SearchDevices (Paginated)
     SearchDevices (SearchDevices'),
@@ -608,17 +608,11 @@ module Network.AWS.AlexaBusiness
     SearchRoomsResponse (SearchRoomsResponse'),
     newSearchRoomsResponse,
 
-    -- ** SearchAddressBooks
-    SearchAddressBooks (SearchAddressBooks'),
-    newSearchAddressBooks,
-    SearchAddressBooksResponse (SearchAddressBooksResponse'),
-    newSearchAddressBooksResponse,
-
-    -- ** ListSmartHomeAppliances (Paginated)
-    ListSmartHomeAppliances (ListSmartHomeAppliances'),
-    newListSmartHomeAppliances,
-    ListSmartHomeAppliancesResponse (ListSmartHomeAppliancesResponse'),
-    newListSmartHomeAppliancesResponse,
+    -- ** CreateSkillGroup
+    CreateSkillGroup (CreateSkillGroup'),
+    newCreateSkillGroup,
+    CreateSkillGroupResponse (CreateSkillGroupResponse'),
+    newCreateSkillGroupResponse,
 
     -- ** DeleteProfile
     DeleteProfile (DeleteProfile'),
@@ -626,11 +620,17 @@ module Network.AWS.AlexaBusiness
     DeleteProfileResponse (DeleteProfileResponse'),
     newDeleteProfileResponse,
 
-    -- ** CreateSkillGroup
-    CreateSkillGroup (CreateSkillGroup'),
-    newCreateSkillGroup,
-    CreateSkillGroupResponse (CreateSkillGroupResponse'),
-    newCreateSkillGroupResponse,
+    -- ** ListSmartHomeAppliances (Paginated)
+    ListSmartHomeAppliances (ListSmartHomeAppliances'),
+    newListSmartHomeAppliances,
+    ListSmartHomeAppliancesResponse (ListSmartHomeAppliancesResponse'),
+    newListSmartHomeAppliancesResponse,
+
+    -- ** SearchAddressBooks
+    SearchAddressBooks (SearchAddressBooks'),
+    newSearchAddressBooks,
+    SearchAddressBooksResponse (SearchAddressBooksResponse'),
+    newSearchAddressBooksResponse,
 
     -- ** UpdateProfile
     UpdateProfile (UpdateProfile'),

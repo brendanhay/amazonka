@@ -41,12 +41,12 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
     instanceType :: Prelude.Maybe InstanceType,
     -- | The duration of the Reserved Instance, in seconds.
     duration :: Prelude.Maybe Prelude.Integer,
-    -- | The tenancy of the instance.
-    instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The ID of the Reserved Instance offering. This is the offering ID used
     -- in GetReservedInstancesExchangeQuote to confirm that an exchange can be
     -- made.
     reservedInstancesOfferingId :: Prelude.Maybe Prelude.Text,
+    -- | The tenancy of the instance.
+    instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The currency of the Reserved Instance offering you are purchasing. It\'s
     -- specified using ISO 4217 standard currency codes. At this time, the only
     -- supported currency is @USD@.
@@ -57,8 +57,8 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
     -- | The Availability Zone in which the Reserved Instance can be used.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the offering is available through the Reserved
-    -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
-    -- Marketplace offering, this is @true@.
+    -- Instance Marketplace (resale) or Amazon Web Services. If it\'s a
+    -- Reserved Instance Marketplace offering, this is @true@.
     marketplace :: Prelude.Maybe Prelude.Bool,
     -- | If @convertible@ it can be exchanged for Reserved Instances of the same
     -- or higher monetary value, with different configurations. If @standard@,
@@ -91,11 +91,11 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
 --
 -- 'duration', 'reservedInstancesOffering_duration' - The duration of the Reserved Instance, in seconds.
 --
--- 'instanceTenancy', 'reservedInstancesOffering_instanceTenancy' - The tenancy of the instance.
---
 -- 'reservedInstancesOfferingId', 'reservedInstancesOffering_reservedInstancesOfferingId' - The ID of the Reserved Instance offering. This is the offering ID used
 -- in GetReservedInstancesExchangeQuote to confirm that an exchange can be
 -- made.
+--
+-- 'instanceTenancy', 'reservedInstancesOffering_instanceTenancy' - The tenancy of the instance.
 --
 -- 'currencyCode', 'reservedInstancesOffering_currencyCode' - The currency of the Reserved Instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
@@ -107,8 +107,8 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
 -- 'availabilityZone', 'reservedInstancesOffering_availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
 --
 -- 'marketplace', 'reservedInstancesOffering_marketplace' - Indicates whether the offering is available through the Reserved
--- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
--- Marketplace offering, this is @true@.
+-- Instance Marketplace (resale) or Amazon Web Services. If it\'s a
+-- Reserved Instance Marketplace offering, this is @true@.
 --
 -- 'offeringClass', 'reservedInstancesOffering_offeringClass' - If @convertible@ it can be exchanged for Reserved Instances of the same
 -- or higher monetary value, with different configurations. If @standard@,
@@ -132,8 +132,8 @@ newReservedInstancesOffering =
     { instanceType =
         Prelude.Nothing,
       duration = Prelude.Nothing,
-      instanceTenancy = Prelude.Nothing,
       reservedInstancesOfferingId = Prelude.Nothing,
+      instanceTenancy = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
       scope = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
@@ -155,15 +155,15 @@ reservedInstancesOffering_instanceType = Lens.lens (\ReservedInstancesOffering' 
 reservedInstancesOffering_duration :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Integer)
 reservedInstancesOffering_duration = Lens.lens (\ReservedInstancesOffering' {duration} -> duration) (\s@ReservedInstancesOffering' {} a -> s {duration = a} :: ReservedInstancesOffering)
 
--- | The tenancy of the instance.
-reservedInstancesOffering_instanceTenancy :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Tenancy)
-reservedInstancesOffering_instanceTenancy = Lens.lens (\ReservedInstancesOffering' {instanceTenancy} -> instanceTenancy) (\s@ReservedInstancesOffering' {} a -> s {instanceTenancy = a} :: ReservedInstancesOffering)
-
 -- | The ID of the Reserved Instance offering. This is the offering ID used
 -- in GetReservedInstancesExchangeQuote to confirm that an exchange can be
 -- made.
 reservedInstancesOffering_reservedInstancesOfferingId :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Text)
 reservedInstancesOffering_reservedInstancesOfferingId = Lens.lens (\ReservedInstancesOffering' {reservedInstancesOfferingId} -> reservedInstancesOfferingId) (\s@ReservedInstancesOffering' {} a -> s {reservedInstancesOfferingId = a} :: ReservedInstancesOffering)
+
+-- | The tenancy of the instance.
+reservedInstancesOffering_instanceTenancy :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Tenancy)
+reservedInstancesOffering_instanceTenancy = Lens.lens (\ReservedInstancesOffering' {instanceTenancy} -> instanceTenancy) (\s@ReservedInstancesOffering' {} a -> s {instanceTenancy = a} :: ReservedInstancesOffering)
 
 -- | The currency of the Reserved Instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
@@ -181,8 +181,8 @@ reservedInstancesOffering_availabilityZone :: Lens.Lens' ReservedInstancesOfferi
 reservedInstancesOffering_availabilityZone = Lens.lens (\ReservedInstancesOffering' {availabilityZone} -> availabilityZone) (\s@ReservedInstancesOffering' {} a -> s {availabilityZone = a} :: ReservedInstancesOffering)
 
 -- | Indicates whether the offering is available through the Reserved
--- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
--- Marketplace offering, this is @true@.
+-- Instance Marketplace (resale) or Amazon Web Services. If it\'s a
+-- Reserved Instance Marketplace offering, this is @true@.
 reservedInstancesOffering_marketplace :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Bool)
 reservedInstancesOffering_marketplace = Lens.lens (\ReservedInstancesOffering' {marketplace} -> marketplace) (\s@ReservedInstancesOffering' {} a -> s {marketplace = a} :: ReservedInstancesOffering)
 
@@ -221,8 +221,8 @@ instance Core.FromXML ReservedInstancesOffering where
     ReservedInstancesOffering'
       Prelude.<$> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "instanceTenancy")
       Prelude.<*> (x Core..@? "reservedInstancesOfferingId")
+      Prelude.<*> (x Core..@? "instanceTenancy")
       Prelude.<*> (x Core..@? "currencyCode")
       Prelude.<*> (x Core..@? "scope")
       Prelude.<*> (x Core..@? "availabilityZone")

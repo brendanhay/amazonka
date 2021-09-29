@@ -33,8 +33,8 @@ module Network.AWS.Polly.SynthesizeSpeech
 
     -- * Request Lenses
     synthesizeSpeech_languageCode,
-    synthesizeSpeech_speechMarkTypes,
     synthesizeSpeech_lexiconNames,
+    synthesizeSpeech_speechMarkTypes,
     synthesizeSpeech_textType,
     synthesizeSpeech_sampleRate,
     synthesizeSpeech_engine,
@@ -68,20 +68,20 @@ data SynthesizeSpeech = SynthesizeSpeech'
     -- for either Indian English (en-IN) or Hindi (hi-IN).
     --
     -- If a bilingual voice is used and no language code is specified, Amazon
-    -- Polly will use the default language of the bilingual voice. The default
+    -- Polly uses the default language of the bilingual voice. The default
     -- language for any voice is the one returned by the
     -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
     -- operation for the @LanguageCode@ parameter. For example, if no language
     -- code is specified, Aditi will use Indian English rather than Hindi.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The type of speech marks returned for the input text.
-    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | List of one or more pronunciation lexicon names you want the service to
     -- apply during synthesis. Lexicons are applied only if the language of the
     -- lexicon is the same as the language of the voice. For information about
     -- storing lexicons, see
     -- <https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html PutLexicon>.
     lexiconNames :: Prelude.Maybe [Prelude.Text],
+    -- | The type of speech marks returned for the input text.
+    speechMarkTypes :: Prelude.Maybe [SpeechMarkType],
     -- | Specifies whether the input text is plain text or SSML. The default
     -- value is plain text. For more information, see
     -- <https://docs.aws.amazon.com/polly/latest/dg/ssml.html Using SSML>.
@@ -150,19 +150,19 @@ data SynthesizeSpeech = SynthesizeSpeech'
 -- for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
 -- code is specified, Aditi will use Indian English rather than Hindi.
---
--- 'speechMarkTypes', 'synthesizeSpeech_speechMarkTypes' - The type of speech marks returned for the input text.
 --
 -- 'lexiconNames', 'synthesizeSpeech_lexiconNames' - List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
 -- lexicon is the same as the language of the voice. For information about
 -- storing lexicons, see
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html PutLexicon>.
+--
+-- 'speechMarkTypes', 'synthesizeSpeech_speechMarkTypes' - The type of speech marks returned for the input text.
 --
 -- 'textType', 'synthesizeSpeech_textType' - Specifies whether the input text is plain text or SSML. The default
 -- value is plain text. For more information, see
@@ -226,8 +226,8 @@ newSynthesizeSpeech ::
 newSynthesizeSpeech pOutputFormat_ pText_ pVoiceId_ =
   SynthesizeSpeech'
     { languageCode = Prelude.Nothing,
-      speechMarkTypes = Prelude.Nothing,
       lexiconNames = Prelude.Nothing,
+      speechMarkTypes = Prelude.Nothing,
       textType = Prelude.Nothing,
       sampleRate = Prelude.Nothing,
       engine = Prelude.Nothing,
@@ -241,17 +241,13 @@ newSynthesizeSpeech pOutputFormat_ pText_ pVoiceId_ =
 -- for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon
--- Polly will use the default language of the bilingual voice. The default
+-- Polly uses the default language of the bilingual voice. The default
 -- language for any voice is the one returned by the
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices>
 -- operation for the @LanguageCode@ parameter. For example, if no language
 -- code is specified, Aditi will use Indian English rather than Hindi.
 synthesizeSpeech_languageCode :: Lens.Lens' SynthesizeSpeech (Prelude.Maybe LanguageCode)
 synthesizeSpeech_languageCode = Lens.lens (\SynthesizeSpeech' {languageCode} -> languageCode) (\s@SynthesizeSpeech' {} a -> s {languageCode = a} :: SynthesizeSpeech)
-
--- | The type of speech marks returned for the input text.
-synthesizeSpeech_speechMarkTypes :: Lens.Lens' SynthesizeSpeech (Prelude.Maybe [SpeechMarkType])
-synthesizeSpeech_speechMarkTypes = Lens.lens (\SynthesizeSpeech' {speechMarkTypes} -> speechMarkTypes) (\s@SynthesizeSpeech' {} a -> s {speechMarkTypes = a} :: SynthesizeSpeech) Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of one or more pronunciation lexicon names you want the service to
 -- apply during synthesis. Lexicons are applied only if the language of the
@@ -260,6 +256,10 @@ synthesizeSpeech_speechMarkTypes = Lens.lens (\SynthesizeSpeech' {speechMarkType
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html PutLexicon>.
 synthesizeSpeech_lexiconNames :: Lens.Lens' SynthesizeSpeech (Prelude.Maybe [Prelude.Text])
 synthesizeSpeech_lexiconNames = Lens.lens (\SynthesizeSpeech' {lexiconNames} -> lexiconNames) (\s@SynthesizeSpeech' {} a -> s {lexiconNames = a} :: SynthesizeSpeech) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of speech marks returned for the input text.
+synthesizeSpeech_speechMarkTypes :: Lens.Lens' SynthesizeSpeech (Prelude.Maybe [SpeechMarkType])
+synthesizeSpeech_speechMarkTypes = Lens.lens (\SynthesizeSpeech' {speechMarkTypes} -> speechMarkTypes) (\s@SynthesizeSpeech' {} a -> s {speechMarkTypes = a} :: SynthesizeSpeech) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the input text is plain text or SSML. The default
 -- value is plain text. For more information, see
@@ -352,9 +352,9 @@ instance Core.ToJSON SynthesizeSpeech where
     Core.object
       ( Prelude.catMaybes
           [ ("LanguageCode" Core..=) Prelude.<$> languageCode,
+            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
             ("SpeechMarkTypes" Core..=)
               Prelude.<$> speechMarkTypes,
-            ("LexiconNames" Core..=) Prelude.<$> lexiconNames,
             ("TextType" Core..=) Prelude.<$> textType,
             ("SampleRate" Core..=) Prelude.<$> sampleRate,
             ("Engine" Core..=) Prelude.<$> engine,

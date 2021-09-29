@@ -48,12 +48,12 @@ data BehaviorCriteria = BehaviorCriteria'
     -- consecutive datapoints, an alarm occurs. If not specified, the default
     -- is 1.
     consecutiveDatapointsToAlarm :: Prelude.Maybe Prelude.Natural,
+    -- | The configuration of an ML Detect
+    mlDetectionConfig :: Prelude.Maybe MachineLearningDetectionConfig,
     -- | A statistical ranking (percentile)that indicates a threshold value by
     -- which a behavior is determined to be in compliance or in violation of
     -- the behavior.
     statisticalThreshold :: Prelude.Maybe StatisticalThreshold,
-    -- | The configuration of an ML Detect
-    mlDetectionConfig :: Prelude.Maybe MachineLearningDetectionConfig,
     -- | If an alarm has occurred and the offending device is no longer in
     -- violation of the behavior for the specified number of consecutive
     -- datapoints, the alarm is cleared. If not specified, the default is 1.
@@ -97,11 +97,11 @@ data BehaviorCriteria = BehaviorCriteria'
 -- consecutive datapoints, an alarm occurs. If not specified, the default
 -- is 1.
 --
+-- 'mlDetectionConfig', 'behaviorCriteria_mlDetectionConfig' - The configuration of an ML Detect
+--
 -- 'statisticalThreshold', 'behaviorCriteria_statisticalThreshold' - A statistical ranking (percentile)that indicates a threshold value by
 -- which a behavior is determined to be in compliance or in violation of
 -- the behavior.
---
--- 'mlDetectionConfig', 'behaviorCriteria_mlDetectionConfig' - The configuration of an ML Detect
 --
 -- 'consecutiveDatapointsToClear', 'behaviorCriteria_consecutiveDatapointsToClear' - If an alarm has occurred and the offending device is no longer in
 -- violation of the behavior for the specified number of consecutive
@@ -124,8 +124,8 @@ newBehaviorCriteria =
     { comparisonOperator =
         Prelude.Nothing,
       consecutiveDatapointsToAlarm = Prelude.Nothing,
-      statisticalThreshold = Prelude.Nothing,
       mlDetectionConfig = Prelude.Nothing,
+      statisticalThreshold = Prelude.Nothing,
       consecutiveDatapointsToClear = Prelude.Nothing,
       value = Prelude.Nothing,
       durationSeconds = Prelude.Nothing
@@ -152,15 +152,15 @@ behaviorCriteria_comparisonOperator = Lens.lens (\BehaviorCriteria' {comparisonO
 behaviorCriteria_consecutiveDatapointsToAlarm :: Lens.Lens' BehaviorCriteria (Prelude.Maybe Prelude.Natural)
 behaviorCriteria_consecutiveDatapointsToAlarm = Lens.lens (\BehaviorCriteria' {consecutiveDatapointsToAlarm} -> consecutiveDatapointsToAlarm) (\s@BehaviorCriteria' {} a -> s {consecutiveDatapointsToAlarm = a} :: BehaviorCriteria)
 
+-- | The configuration of an ML Detect
+behaviorCriteria_mlDetectionConfig :: Lens.Lens' BehaviorCriteria (Prelude.Maybe MachineLearningDetectionConfig)
+behaviorCriteria_mlDetectionConfig = Lens.lens (\BehaviorCriteria' {mlDetectionConfig} -> mlDetectionConfig) (\s@BehaviorCriteria' {} a -> s {mlDetectionConfig = a} :: BehaviorCriteria)
+
 -- | A statistical ranking (percentile)that indicates a threshold value by
 -- which a behavior is determined to be in compliance or in violation of
 -- the behavior.
 behaviorCriteria_statisticalThreshold :: Lens.Lens' BehaviorCriteria (Prelude.Maybe StatisticalThreshold)
 behaviorCriteria_statisticalThreshold = Lens.lens (\BehaviorCriteria' {statisticalThreshold} -> statisticalThreshold) (\s@BehaviorCriteria' {} a -> s {statisticalThreshold = a} :: BehaviorCriteria)
-
--- | The configuration of an ML Detect
-behaviorCriteria_mlDetectionConfig :: Lens.Lens' BehaviorCriteria (Prelude.Maybe MachineLearningDetectionConfig)
-behaviorCriteria_mlDetectionConfig = Lens.lens (\BehaviorCriteria' {mlDetectionConfig} -> mlDetectionConfig) (\s@BehaviorCriteria' {} a -> s {mlDetectionConfig = a} :: BehaviorCriteria)
 
 -- | If an alarm has occurred and the offending device is no longer in
 -- violation of the behavior for the specified number of consecutive
@@ -191,8 +191,8 @@ instance Core.FromJSON BehaviorCriteria where
           BehaviorCriteria'
             Prelude.<$> (x Core..:? "comparisonOperator")
             Prelude.<*> (x Core..:? "consecutiveDatapointsToAlarm")
-            Prelude.<*> (x Core..:? "statisticalThreshold")
             Prelude.<*> (x Core..:? "mlDetectionConfig")
+            Prelude.<*> (x Core..:? "statisticalThreshold")
             Prelude.<*> (x Core..:? "consecutiveDatapointsToClear")
             Prelude.<*> (x Core..:? "value")
             Prelude.<*> (x Core..:? "durationSeconds")
@@ -210,10 +210,10 @@ instance Core.ToJSON BehaviorCriteria where
               Prelude.<$> comparisonOperator,
             ("consecutiveDatapointsToAlarm" Core..=)
               Prelude.<$> consecutiveDatapointsToAlarm,
-            ("statisticalThreshold" Core..=)
-              Prelude.<$> statisticalThreshold,
             ("mlDetectionConfig" Core..=)
               Prelude.<$> mlDetectionConfig,
+            ("statisticalThreshold" Core..=)
+              Prelude.<$> statisticalThreshold,
             ("consecutiveDatapointsToClear" Core..=)
               Prelude.<$> consecutiveDatapointsToClear,
             ("value" Core..=) Prelude.<$> value,

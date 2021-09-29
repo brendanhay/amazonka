@@ -22,7 +22,7 @@
 --
 -- Creates or updates the lifecycle policy for the specified repository.
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html Lifecycle Policy Template>.
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html Lifecycle policy template>.
 module Network.AWS.ECR.PutLifecyclePolicy
   ( -- * Creating a Request
     PutLifecyclePolicy (..),
@@ -54,9 +54,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do  not specify a registry, the default registry is
-    -- assumed.
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do  not specify a registry, the default
+    -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to receive the policy.
     repositoryName :: Prelude.Text,
@@ -73,9 +73,9 @@ data PutLifecyclePolicy = PutLifecyclePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'putLifecyclePolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do  not specify a registry, the default registry is
--- assumed.
+-- 'registryId', 'putLifecyclePolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do  not specify a registry, the default
+-- registry is assumed.
 --
 -- 'repositoryName', 'putLifecyclePolicy_repositoryName' - The name of the repository to receive the policy.
 --
@@ -95,9 +95,9 @@ newPutLifecyclePolicy
         lifecyclePolicyText = pLifecyclePolicyText_
       }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do  not specify a registry, the default registry is
--- assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do  not specify a registry, the default
+-- registry is assumed.
 putLifecyclePolicy_registryId :: Lens.Lens' PutLifecyclePolicy (Prelude.Maybe Prelude.Text)
 putLifecyclePolicy_registryId = Lens.lens (\PutLifecyclePolicy' {registryId} -> registryId) (\s@PutLifecyclePolicy' {} a -> s {registryId = a} :: PutLifecyclePolicy)
 

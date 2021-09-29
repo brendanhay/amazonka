@@ -85,9 +85,9 @@ module Network.AWS.KinesisVideoArchivedMedia.Lens
 
     -- ** Fragment
     fragment_producerTimestamp,
+    fragment_serverTimestamp,
     fragment_fragmentNumber,
     fragment_fragmentSizeInBytes,
-    fragment_serverTimestamp,
     fragment_fragmentLengthInMilliseconds,
 
     -- ** FragmentSelector

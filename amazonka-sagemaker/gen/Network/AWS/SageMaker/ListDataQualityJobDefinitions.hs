@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListDataQualityJobDefinitions
     newListDataQualityJobDefinitions,
 
     -- * Request Lenses
-    listDataQualityJobDefinitions_sortOrder,
     listDataQualityJobDefinitions_nextToken,
+    listDataQualityJobDefinitions_sortOrder,
     listDataQualityJobDefinitions_endpointName,
     listDataQualityJobDefinitions_nameContains,
     listDataQualityJobDefinitions_maxResults,
@@ -58,12 +58,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListDataQualityJobDefinitions' smart constructor.
 data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListDataQualityJobDefinitions@ request
+  { -- | If the result of the previous @ListDataQualityJobDefinitions@ request
     -- was truncated, the response includes a @NextToken@. To retrieve the next
     -- set of transform jobs, use the token in the next request.>
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter that lists the data quality job definitions associated with the
     -- specified endpoint.
     endpointName :: Prelude.Maybe Prelude.Text,
@@ -93,11 +93,11 @@ data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listDataQualityJobDefinitions_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listDataQualityJobDefinitions_nextToken' - If the result of the previous @ListDataQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of transform jobs, use the token in the next request.>
+--
+-- 'sortOrder', 'listDataQualityJobDefinitions_sortOrder' - The sort order for results. The default is @Descending@.
 --
 -- 'endpointName', 'listDataQualityJobDefinitions_endpointName' - A filter that lists the data quality job definitions associated with the
 -- specified endpoint.
@@ -120,9 +120,9 @@ newListDataQualityJobDefinitions ::
   ListDataQualityJobDefinitions
 newListDataQualityJobDefinitions =
   ListDataQualityJobDefinitions'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -131,15 +131,15 @@ newListDataQualityJobDefinitions =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listDataQualityJobDefinitions_sortOrder :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe SortOrder)
-listDataQualityJobDefinitions_sortOrder = Lens.lens (\ListDataQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListDataQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListDataQualityJobDefinitions)
-
 -- | If the result of the previous @ListDataQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of transform jobs, use the token in the next request.>
 listDataQualityJobDefinitions_nextToken :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Text)
 listDataQualityJobDefinitions_nextToken = Lens.lens (\ListDataQualityJobDefinitions' {nextToken} -> nextToken) (\s@ListDataQualityJobDefinitions' {} a -> s {nextToken = a} :: ListDataQualityJobDefinitions)
+
+-- | The sort order for results. The default is @Descending@.
+listDataQualityJobDefinitions_sortOrder :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe SortOrder)
+listDataQualityJobDefinitions_sortOrder = Lens.lens (\ListDataQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListDataQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListDataQualityJobDefinitions)
 
 -- | A filter that lists the data quality job definitions associated with the
 -- specified endpoint.
@@ -236,8 +236,8 @@ instance Core.ToJSON ListDataQualityJobDefinitions where
   toJSON ListDataQualityJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

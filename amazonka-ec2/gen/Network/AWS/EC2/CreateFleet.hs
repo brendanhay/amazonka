@@ -36,16 +36,17 @@ module Network.AWS.EC2.CreateFleet
 
     -- * Request Lenses
     createFleet_tagSpecifications,
-    createFleet_dryRun,
     createFleet_onDemandOptions,
+    createFleet_dryRun,
     createFleet_validFrom,
     createFleet_replaceUnhealthyInstances,
+    createFleet_context,
     createFleet_validUntil,
     createFleet_excessCapacityTerminationPolicy,
-    createFleet_type,
     createFleet_spotOptions,
-    createFleet_clientToken,
+    createFleet_type,
     createFleet_terminateInstancesWithExpiration,
+    createFleet_clientToken,
     createFleet_launchTemplateConfigs,
     createFleet_targetCapacitySpecification,
 
@@ -70,20 +71,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { -- | The key-value pair for tagging the EC2 Fleet request on creation. The
-    -- value for @ResourceType@ must be @fleet@, otherwise the fleet request
-    -- fails. To tag instances at launch, specify the tags in the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
-    -- For information about tagging after launch, see
+  { -- | The key-value pair for tagging the EC2 Fleet request on creation. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources>.
+    --
+    -- If the fleet type is @instant@, specify a resource type of @fleet@ to
+    -- tag the fleet or @instance@ to tag the instances at launch.
+    --
+    -- If the fleet type is @maintain@ or @request@, specify a resource type of
+    -- @fleet@ to tag the fleet. You cannot specify a resource type of
+    -- @instance@. To tag instances at launch, specify the tags in a
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
+    onDemandOptions :: Prelude.Maybe OnDemandOptionsRequest,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
-    onDemandOptions :: Prelude.Maybe OnDemandOptionsRequest,
     -- | The start date and time of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
     -- the request immediately.
@@ -93,6 +99,8 @@ data CreateFleet = CreateFleet'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks EC2 Fleet health checks>
     -- in the /Amazon EC2 User Guide/.
     replaceUnhealthyInstances :: Prelude.Maybe Prelude.Bool,
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | The end date and time of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new EC2 Fleet
     -- requests are placed or able to fulfill the request. If no value is
@@ -102,7 +110,9 @@ data CreateFleet = CreateFleet'
     -- target capacity of the EC2 Fleet is decreased below the current size of
     -- the EC2 Fleet.
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
-    -- | The type of request. The default value is @maintain@.
+    -- | Describes the configuration of Spot Instances in an EC2 Fleet.
+    spotOptions :: Prelude.Maybe SpotOptionsRequest,
+    -- | The fleet type. The default value is @maintain@.
     --
     -- -   @maintain@ - The EC2 Fleet places an asynchronous request for your
     --     desired capacity, and continues to maintain your desired Spot
@@ -121,15 +131,13 @@ data CreateFleet = CreateFleet'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types>
     -- in the /Amazon EC2 User Guide/.
     type' :: Prelude.Maybe FleetType,
-    -- | Describes the configuration of Spot Instances in an EC2 Fleet.
-    spotOptions :: Prelude.Maybe SpotOptionsRequest,
+    -- | Indicates whether running instances should be terminated when the EC2
+    -- Fleet expires.
+    terminateInstancesWithExpiration :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether running instances should be terminated when the EC2
-    -- Fleet expires.
-    terminateInstancesWithExpiration :: Prelude.Maybe Prelude.Bool,
     -- | The configuration for the EC2 Fleet.
     launchTemplateConfigs :: [FleetLaunchTemplateConfigRequest],
     -- | The number of units to request.
@@ -145,19 +153,24 @@ data CreateFleet = CreateFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createFleet_tagSpecifications' - The key-value pair for tagging the EC2 Fleet request on creation. The
--- value for @ResourceType@ must be @fleet@, otherwise the fleet request
--- fails. To tag instances at launch, specify the tags in the
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
--- For information about tagging after launch, see
+-- 'tagSpecifications', 'createFleet_tagSpecifications' - The key-value pair for tagging the EC2 Fleet request on creation. For
+-- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources>.
+--
+-- If the fleet type is @instant@, specify a resource type of @fleet@ to
+-- tag the fleet or @instance@ to tag the instances at launch.
+--
+-- If the fleet type is @maintain@ or @request@, specify a resource type of
+-- @fleet@ to tag the fleet. You cannot specify a resource type of
+-- @instance@. To tag instances at launch, specify the tags in a
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
+--
+-- 'onDemandOptions', 'createFleet_onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
 --
 -- 'dryRun', 'createFleet_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'onDemandOptions', 'createFleet_onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
 --
 -- 'validFrom', 'createFleet_validFrom' - The start date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
@@ -168,6 +181,8 @@ data CreateFleet = CreateFleet'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks EC2 Fleet health checks>
 -- in the /Amazon EC2 User Guide/.
 --
+-- 'context', 'createFleet_context' - Reserved.
+--
 -- 'validUntil', 'createFleet_validUntil' - The end date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new EC2 Fleet
 -- requests are placed or able to fulfill the request. If no value is
@@ -177,7 +192,9 @@ data CreateFleet = CreateFleet'
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
 --
--- 'type'', 'createFleet_type' - The type of request. The default value is @maintain@.
+-- 'spotOptions', 'createFleet_spotOptions' - Describes the configuration of Spot Instances in an EC2 Fleet.
+--
+-- 'type'', 'createFleet_type' - The fleet type. The default value is @maintain@.
 --
 -- -   @maintain@ - The EC2 Fleet places an asynchronous request for your
 --     desired capacity, and continues to maintain your desired Spot
@@ -196,14 +213,12 @@ data CreateFleet = CreateFleet'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'spotOptions', 'createFleet_spotOptions' - Describes the configuration of Spot Instances in an EC2 Fleet.
+-- 'terminateInstancesWithExpiration', 'createFleet_terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2
+-- Fleet expires.
 --
 -- 'clientToken', 'createFleet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
---
--- 'terminateInstancesWithExpiration', 'createFleet_terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2
--- Fleet expires.
 --
 -- 'launchTemplateConfigs', 'createFleet_launchTemplateConfigs' - The configuration for the EC2 Fleet.
 --
@@ -215,29 +230,39 @@ newCreateFleet ::
 newCreateFleet pTargetCapacitySpecification_ =
   CreateFleet'
     { tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       onDemandOptions = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       validFrom = Prelude.Nothing,
       replaceUnhealthyInstances = Prelude.Nothing,
+      context = Prelude.Nothing,
       validUntil = Prelude.Nothing,
       excessCapacityTerminationPolicy = Prelude.Nothing,
-      type' = Prelude.Nothing,
       spotOptions = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      type' = Prelude.Nothing,
       terminateInstancesWithExpiration = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       launchTemplateConfigs = Prelude.mempty,
       targetCapacitySpecification =
         pTargetCapacitySpecification_
     }
 
--- | The key-value pair for tagging the EC2 Fleet request on creation. The
--- value for @ResourceType@ must be @fleet@, otherwise the fleet request
--- fails. To tag instances at launch, specify the tags in the
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
--- For information about tagging after launch, see
+-- | The key-value pair for tagging the EC2 Fleet request on creation. For
+-- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources>.
+--
+-- If the fleet type is @instant@, specify a resource type of @fleet@ to
+-- tag the fleet or @instance@ to tag the instances at launch.
+--
+-- If the fleet type is @maintain@ or @request@, specify a resource type of
+-- @fleet@ to tag the fleet. You cannot specify a resource type of
+-- @instance@. To tag instances at launch, specify the tags in a
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>.
 createFleet_tagSpecifications :: Lens.Lens' CreateFleet (Prelude.Maybe [TagSpecification])
 createFleet_tagSpecifications = Lens.lens (\CreateFleet' {tagSpecifications} -> tagSpecifications) (\s@CreateFleet' {} a -> s {tagSpecifications = a} :: CreateFleet) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
+createFleet_onDemandOptions :: Lens.Lens' CreateFleet (Prelude.Maybe OnDemandOptionsRequest)
+createFleet_onDemandOptions = Lens.lens (\CreateFleet' {onDemandOptions} -> onDemandOptions) (\s@CreateFleet' {} a -> s {onDemandOptions = a} :: CreateFleet)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -245,10 +270,6 @@ createFleet_tagSpecifications = Lens.lens (\CreateFleet' {tagSpecifications} -> 
 -- Otherwise, it is @UnauthorizedOperation@.
 createFleet_dryRun :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
 createFleet_dryRun = Lens.lens (\CreateFleet' {dryRun} -> dryRun) (\s@CreateFleet' {} a -> s {dryRun = a} :: CreateFleet)
-
--- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
-createFleet_onDemandOptions :: Lens.Lens' CreateFleet (Prelude.Maybe OnDemandOptionsRequest)
-createFleet_onDemandOptions = Lens.lens (\CreateFleet' {onDemandOptions} -> onDemandOptions) (\s@CreateFleet' {} a -> s {onDemandOptions = a} :: CreateFleet)
 
 -- | The start date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
@@ -263,6 +284,10 @@ createFleet_validFrom = Lens.lens (\CreateFleet' {validFrom} -> validFrom) (\s@C
 createFleet_replaceUnhealthyInstances :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
 createFleet_replaceUnhealthyInstances = Lens.lens (\CreateFleet' {replaceUnhealthyInstances} -> replaceUnhealthyInstances) (\s@CreateFleet' {} a -> s {replaceUnhealthyInstances = a} :: CreateFleet)
 
+-- | Reserved.
+createFleet_context :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_context = Lens.lens (\CreateFleet' {context} -> context) (\s@CreateFleet' {} a -> s {context = a} :: CreateFleet)
+
 -- | The end date and time of the request, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new EC2 Fleet
 -- requests are placed or able to fulfill the request. If no value is
@@ -276,7 +301,11 @@ createFleet_validUntil = Lens.lens (\CreateFleet' {validUntil} -> validUntil) (\
 createFleet_excessCapacityTerminationPolicy :: Lens.Lens' CreateFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
 createFleet_excessCapacityTerminationPolicy = Lens.lens (\CreateFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@CreateFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: CreateFleet)
 
--- | The type of request. The default value is @maintain@.
+-- | Describes the configuration of Spot Instances in an EC2 Fleet.
+createFleet_spotOptions :: Lens.Lens' CreateFleet (Prelude.Maybe SpotOptionsRequest)
+createFleet_spotOptions = Lens.lens (\CreateFleet' {spotOptions} -> spotOptions) (\s@CreateFleet' {} a -> s {spotOptions = a} :: CreateFleet)
+
+-- | The fleet type. The default value is @maintain@.
 --
 -- -   @maintain@ - The EC2 Fleet places an asynchronous request for your
 --     desired capacity, and continues to maintain your desired Spot
@@ -297,20 +326,16 @@ createFleet_excessCapacityTerminationPolicy = Lens.lens (\CreateFleet' {excessCa
 createFleet_type :: Lens.Lens' CreateFleet (Prelude.Maybe FleetType)
 createFleet_type = Lens.lens (\CreateFleet' {type'} -> type') (\s@CreateFleet' {} a -> s {type' = a} :: CreateFleet)
 
--- | Describes the configuration of Spot Instances in an EC2 Fleet.
-createFleet_spotOptions :: Lens.Lens' CreateFleet (Prelude.Maybe SpotOptionsRequest)
-createFleet_spotOptions = Lens.lens (\CreateFleet' {spotOptions} -> spotOptions) (\s@CreateFleet' {} a -> s {spotOptions = a} :: CreateFleet)
+-- | Indicates whether running instances should be terminated when the EC2
+-- Fleet expires.
+createFleet_terminateInstancesWithExpiration :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
+createFleet_terminateInstancesWithExpiration = Lens.lens (\CreateFleet' {terminateInstancesWithExpiration} -> terminateInstancesWithExpiration) (\s@CreateFleet' {} a -> s {terminateInstancesWithExpiration = a} :: CreateFleet)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 createFleet_clientToken :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_clientToken = Lens.lens (\CreateFleet' {clientToken} -> clientToken) (\s@CreateFleet' {} a -> s {clientToken = a} :: CreateFleet)
-
--- | Indicates whether running instances should be terminated when the EC2
--- Fleet expires.
-createFleet_terminateInstancesWithExpiration :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
-createFleet_terminateInstancesWithExpiration = Lens.lens (\CreateFleet' {terminateInstancesWithExpiration} -> terminateInstancesWithExpiration) (\s@CreateFleet' {} a -> s {terminateInstancesWithExpiration = a} :: CreateFleet)
 
 -- | The configuration for the EC2 Fleet.
 createFleet_launchTemplateConfigs :: Lens.Lens' CreateFleet [FleetLaunchTemplateConfigRequest]
@@ -359,19 +384,20 @@ instance Core.ToQuery CreateFleet where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "OnDemandOptions" Core.=: onDemandOptions,
+        "DryRun" Core.=: dryRun,
         "ValidFrom" Core.=: validFrom,
         "ReplaceUnhealthyInstances"
           Core.=: replaceUnhealthyInstances,
+        "Context" Core.=: context,
         "ValidUntil" Core.=: validUntil,
         "ExcessCapacityTerminationPolicy"
           Core.=: excessCapacityTerminationPolicy,
-        "Type" Core.=: type',
         "SpotOptions" Core.=: spotOptions,
-        "ClientToken" Core.=: clientToken,
+        "Type" Core.=: type',
         "TerminateInstancesWithExpiration"
           Core.=: terminateInstancesWithExpiration,
+        "ClientToken" Core.=: clientToken,
         Core.toQueryList
           "LaunchTemplateConfigs"
           launchTemplateConfigs,
@@ -383,11 +409,11 @@ instance Core.ToQuery CreateFleet where
 data CreateFleetResponse = CreateFleetResponse'
   { -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the instances that were launched by the fleet. Valid
-    -- only when __Type__ is set to @instant@.
+    -- | Information about the instances that were launched by the fleet.
+    -- Supported only for fleets of type @instant@.
     instances :: Prelude.Maybe [CreateFleetInstance],
     -- | Information about the instances that could not be launched by the fleet.
-    -- Valid only when __Type__ is set to @instant@.
+    -- Supported only for fleets of type @instant@.
     errors :: Prelude.Maybe [CreateFleetError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -404,11 +430,11 @@ data CreateFleetResponse = CreateFleetResponse'
 --
 -- 'fleetId', 'createFleetResponse_fleetId' - The ID of the EC2 Fleet.
 --
--- 'instances', 'createFleetResponse_instances' - Information about the instances that were launched by the fleet. Valid
--- only when __Type__ is set to @instant@.
+-- 'instances', 'createFleetResponse_instances' - Information about the instances that were launched by the fleet.
+-- Supported only for fleets of type @instant@.
 --
 -- 'errors', 'createFleetResponse_errors' - Information about the instances that could not be launched by the fleet.
--- Valid only when __Type__ is set to @instant@.
+-- Supported only for fleets of type @instant@.
 --
 -- 'httpStatus', 'createFleetResponse_httpStatus' - The response's http status code.
 newCreateFleetResponse ::
@@ -427,13 +453,13 @@ newCreateFleetResponse pHttpStatus_ =
 createFleetResponse_fleetId :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Prelude.Text)
 createFleetResponse_fleetId = Lens.lens (\CreateFleetResponse' {fleetId} -> fleetId) (\s@CreateFleetResponse' {} a -> s {fleetId = a} :: CreateFleetResponse)
 
--- | Information about the instances that were launched by the fleet. Valid
--- only when __Type__ is set to @instant@.
+-- | Information about the instances that were launched by the fleet.
+-- Supported only for fleets of type @instant@.
 createFleetResponse_instances :: Lens.Lens' CreateFleetResponse (Prelude.Maybe [CreateFleetInstance])
 createFleetResponse_instances = Lens.lens (\CreateFleetResponse' {instances} -> instances) (\s@CreateFleetResponse' {} a -> s {instances = a} :: CreateFleetResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the instances that could not be launched by the fleet.
--- Valid only when __Type__ is set to @instant@.
+-- Supported only for fleets of type @instant@.
 createFleetResponse_errors :: Lens.Lens' CreateFleetResponse (Prelude.Maybe [CreateFleetError])
 createFleetResponse_errors = Lens.lens (\CreateFleetResponse' {errors} -> errors) (\s@CreateFleetResponse' {} a -> s {errors = a} :: CreateFleetResponse) Prelude.. Lens.mapping Lens._Coerce
 

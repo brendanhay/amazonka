@@ -54,6 +54,7 @@ library
     Network.AWS.EFS.DeleteFileSystemPolicy
     Network.AWS.EFS.DeleteMountTarget
     Network.AWS.EFS.DescribeAccessPoints
+    Network.AWS.EFS.DescribeAccountPreferences
     Network.AWS.EFS.DescribeBackupPolicy
     Network.AWS.EFS.DescribeFileSystemPolicy
     Network.AWS.EFS.DescribeFileSystems
@@ -63,6 +64,7 @@ library
     Network.AWS.EFS.Lens
     Network.AWS.EFS.ListTagsForResource
     Network.AWS.EFS.ModifyMountTargetSecurityGroups
+    Network.AWS.EFS.PutAccountPreferences
     Network.AWS.EFS.PutBackupPolicy
     Network.AWS.EFS.PutFileSystemPolicy
     Network.AWS.EFS.PutLifecycleConfiguration
@@ -82,10 +84,14 @@ library
     Network.AWS.EFS.Types.MountTargetDescription
     Network.AWS.EFS.Types.PerformanceMode
     Network.AWS.EFS.Types.PosixUser
+    Network.AWS.EFS.Types.Resource
+    Network.AWS.EFS.Types.ResourceIdPreference
+    Network.AWS.EFS.Types.ResourceIdType
     Network.AWS.EFS.Types.RootDirectory
     Network.AWS.EFS.Types.Tag
     Network.AWS.EFS.Types.ThroughputMode
     Network.AWS.EFS.Types.TransitionToIARules
+    Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
     Network.AWS.EFS.UntagResource
     Network.AWS.EFS.UpdateFileSystem
     Network.AWS.EFS.Waiters

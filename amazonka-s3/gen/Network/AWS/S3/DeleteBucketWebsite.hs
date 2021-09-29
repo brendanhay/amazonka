@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation removes the website configuration for a bucket. Amazon S3
+-- This action removes the website configuration for a bucket. Amazon S3
 -- returns a @200 OK@ response upon successfully deleting a website
 -- configuration on the specified bucket. You will get a @200 OK@ response
 -- if the website configuration you are trying to delete does not exist on
 -- the bucket. Amazon S3 returns a @404@ response if the bucket specified
 -- in the request does not exist.
 --
--- This DELETE operation requires the @S3:DeleteBucketWebsite@ permission.
--- By default, only the bucket owner can delete the website configuration
+-- This DELETE action requires the @S3:DeleteBucketWebsite@ permission. By
+-- default, only the bucket owner can delete the website configuration
 -- attached to a bucket. However, bucket owners can grant other users
 -- permission to delete the website configuration by writing a bucket
 -- policy granting them the @S3:DeleteBucketWebsite@ permission.
@@ -65,7 +65,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newDeleteBucketWebsite' smart constructor.
 data DeleteBucketWebsite = DeleteBucketWebsite'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -82,7 +82,7 @@ data DeleteBucketWebsite = DeleteBucketWebsite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'deleteBucketWebsite_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'deleteBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -98,7 +98,7 @@ newDeleteBucketWebsite pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 deleteBucketWebsite_expectedBucketOwner :: Lens.Lens' DeleteBucketWebsite (Prelude.Maybe Prelude.Text)

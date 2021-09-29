@@ -38,8 +38,8 @@ module Network.AWS.Redshift.DisableLogging
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_lastFailureTime,
     loggingStatus_s3KeyPrefix,
+    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
   )
 where

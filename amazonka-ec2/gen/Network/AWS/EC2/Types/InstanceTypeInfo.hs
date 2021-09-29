@@ -21,6 +21,7 @@ module Network.AWS.EC2.Types.InstanceTypeInfo where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
+import Network.AWS.EC2.Types.BootModeType
 import Network.AWS.EC2.Types.EbsInfo
 import Network.AWS.EC2.Types.FpgaInfo
 import Network.AWS.EC2.Types.GpuInfo
@@ -43,29 +44,33 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTypeInfo' smart constructor.
 data InstanceTypeInfo = InstanceTypeInfo'
-  { -- | Describes the memory for the instance type.
-    memoryInfo :: Prelude.Maybe MemoryInfo,
-    -- | The hypervisor for the instance type.
+  { -- | The hypervisor for the instance type.
     hypervisor :: Prelude.Maybe InstanceTypeHypervisor,
+    -- | Describes the memory for the instance type.
+    memoryInfo :: Prelude.Maybe MemoryInfo,
     -- | Describes the GPU accelerator settings for the instance type.
     gpuInfo :: Prelude.Maybe GpuInfo,
     -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     instanceType :: Prelude.Maybe InstanceType,
+    -- | Describes the vCPU configurations for the instance type.
+    vCpuInfo :: Prelude.Maybe VCpuInfo,
     -- | Indicates whether the instance type is a burstable performance instance
     -- type.
     burstablePerformanceSupported :: Prelude.Maybe Prelude.Bool,
-    -- | Describes the vCPU configurations for the instance type.
-    vCpuInfo :: Prelude.Maybe VCpuInfo,
     -- | The supported root device types.
     supportedRootDeviceTypes :: Prelude.Maybe [RootDeviceType],
-    -- | Describes the placement group settings for the instance type.
-    placementGroupInfo :: Prelude.Maybe PlacementGroupInfo,
-    -- | Describes the network settings for the instance type.
-    networkInfo :: Prelude.Maybe NetworkInfo,
     -- | Describes the processor.
     processorInfo :: Prelude.Maybe ProcessorInfo,
+    -- | Describes the network settings for the instance type.
+    networkInfo :: Prelude.Maybe NetworkInfo,
+    -- | The supported boot modes. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+    -- in the /Amazon EC2 User Guide/.
+    supportedBootModes :: Prelude.Maybe [BootModeType],
+    -- | Describes the placement group settings for the instance type.
+    placementGroupInfo :: Prelude.Maybe PlacementGroupInfo,
     -- | Describes the Amazon EBS settings for the instance type.
     ebsInfo :: Prelude.Maybe EbsInfo,
     -- | Indicates whether auto recovery is supported.
@@ -103,9 +108,9 @@ data InstanceTypeInfo = InstanceTypeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memoryInfo', 'instanceTypeInfo_memoryInfo' - Describes the memory for the instance type.
---
 -- 'hypervisor', 'instanceTypeInfo_hypervisor' - The hypervisor for the instance type.
+--
+-- 'memoryInfo', 'instanceTypeInfo_memoryInfo' - Describes the memory for the instance type.
 --
 -- 'gpuInfo', 'instanceTypeInfo_gpuInfo' - Describes the GPU accelerator settings for the instance type.
 --
@@ -113,18 +118,22 @@ data InstanceTypeInfo = InstanceTypeInfo'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
+-- 'vCpuInfo', 'instanceTypeInfo_vCpuInfo' - Describes the vCPU configurations for the instance type.
+--
 -- 'burstablePerformanceSupported', 'instanceTypeInfo_burstablePerformanceSupported' - Indicates whether the instance type is a burstable performance instance
 -- type.
 --
--- 'vCpuInfo', 'instanceTypeInfo_vCpuInfo' - Describes the vCPU configurations for the instance type.
---
 -- 'supportedRootDeviceTypes', 'instanceTypeInfo_supportedRootDeviceTypes' - The supported root device types.
 --
--- 'placementGroupInfo', 'instanceTypeInfo_placementGroupInfo' - Describes the placement group settings for the instance type.
+-- 'processorInfo', 'instanceTypeInfo_processorInfo' - Describes the processor.
 --
 -- 'networkInfo', 'instanceTypeInfo_networkInfo' - Describes the network settings for the instance type.
 --
--- 'processorInfo', 'instanceTypeInfo_processorInfo' - Describes the processor.
+-- 'supportedBootModes', 'instanceTypeInfo_supportedBootModes' - The supported boot modes. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon EC2 User Guide/.
+--
+-- 'placementGroupInfo', 'instanceTypeInfo_placementGroupInfo' - Describes the placement group settings for the instance type.
 --
 -- 'ebsInfo', 'instanceTypeInfo_ebsInfo' - Describes the Amazon EBS settings for the instance type.
 --
@@ -155,16 +164,17 @@ newInstanceTypeInfo ::
   InstanceTypeInfo
 newInstanceTypeInfo =
   InstanceTypeInfo'
-    { memoryInfo = Prelude.Nothing,
-      hypervisor = Prelude.Nothing,
+    { hypervisor = Prelude.Nothing,
+      memoryInfo = Prelude.Nothing,
       gpuInfo = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      burstablePerformanceSupported = Prelude.Nothing,
       vCpuInfo = Prelude.Nothing,
+      burstablePerformanceSupported = Prelude.Nothing,
       supportedRootDeviceTypes = Prelude.Nothing,
-      placementGroupInfo = Prelude.Nothing,
-      networkInfo = Prelude.Nothing,
       processorInfo = Prelude.Nothing,
+      networkInfo = Prelude.Nothing,
+      supportedBootModes = Prelude.Nothing,
+      placementGroupInfo = Prelude.Nothing,
       ebsInfo = Prelude.Nothing,
       autoRecoverySupported = Prelude.Nothing,
       currentGeneration = Prelude.Nothing,
@@ -180,13 +190,13 @@ newInstanceTypeInfo =
       supportedVirtualizationTypes = Prelude.Nothing
     }
 
--- | Describes the memory for the instance type.
-instanceTypeInfo_memoryInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe MemoryInfo)
-instanceTypeInfo_memoryInfo = Lens.lens (\InstanceTypeInfo' {memoryInfo} -> memoryInfo) (\s@InstanceTypeInfo' {} a -> s {memoryInfo = a} :: InstanceTypeInfo)
-
 -- | The hypervisor for the instance type.
 instanceTypeInfo_hypervisor :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe InstanceTypeHypervisor)
 instanceTypeInfo_hypervisor = Lens.lens (\InstanceTypeInfo' {hypervisor} -> hypervisor) (\s@InstanceTypeInfo' {} a -> s {hypervisor = a} :: InstanceTypeInfo)
+
+-- | Describes the memory for the instance type.
+instanceTypeInfo_memoryInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe MemoryInfo)
+instanceTypeInfo_memoryInfo = Lens.lens (\InstanceTypeInfo' {memoryInfo} -> memoryInfo) (\s@InstanceTypeInfo' {} a -> s {memoryInfo = a} :: InstanceTypeInfo)
 
 -- | Describes the GPU accelerator settings for the instance type.
 instanceTypeInfo_gpuInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe GpuInfo)
@@ -198,30 +208,36 @@ instanceTypeInfo_gpuInfo = Lens.lens (\InstanceTypeInfo' {gpuInfo} -> gpuInfo) (
 instanceTypeInfo_instanceType :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe InstanceType)
 instanceTypeInfo_instanceType = Lens.lens (\InstanceTypeInfo' {instanceType} -> instanceType) (\s@InstanceTypeInfo' {} a -> s {instanceType = a} :: InstanceTypeInfo)
 
+-- | Describes the vCPU configurations for the instance type.
+instanceTypeInfo_vCpuInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe VCpuInfo)
+instanceTypeInfo_vCpuInfo = Lens.lens (\InstanceTypeInfo' {vCpuInfo} -> vCpuInfo) (\s@InstanceTypeInfo' {} a -> s {vCpuInfo = a} :: InstanceTypeInfo)
+
 -- | Indicates whether the instance type is a burstable performance instance
 -- type.
 instanceTypeInfo_burstablePerformanceSupported :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe Prelude.Bool)
 instanceTypeInfo_burstablePerformanceSupported = Lens.lens (\InstanceTypeInfo' {burstablePerformanceSupported} -> burstablePerformanceSupported) (\s@InstanceTypeInfo' {} a -> s {burstablePerformanceSupported = a} :: InstanceTypeInfo)
 
--- | Describes the vCPU configurations for the instance type.
-instanceTypeInfo_vCpuInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe VCpuInfo)
-instanceTypeInfo_vCpuInfo = Lens.lens (\InstanceTypeInfo' {vCpuInfo} -> vCpuInfo) (\s@InstanceTypeInfo' {} a -> s {vCpuInfo = a} :: InstanceTypeInfo)
-
 -- | The supported root device types.
 instanceTypeInfo_supportedRootDeviceTypes :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe [RootDeviceType])
 instanceTypeInfo_supportedRootDeviceTypes = Lens.lens (\InstanceTypeInfo' {supportedRootDeviceTypes} -> supportedRootDeviceTypes) (\s@InstanceTypeInfo' {} a -> s {supportedRootDeviceTypes = a} :: InstanceTypeInfo) Prelude.. Lens.mapping Lens._Coerce
 
--- | Describes the placement group settings for the instance type.
-instanceTypeInfo_placementGroupInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe PlacementGroupInfo)
-instanceTypeInfo_placementGroupInfo = Lens.lens (\InstanceTypeInfo' {placementGroupInfo} -> placementGroupInfo) (\s@InstanceTypeInfo' {} a -> s {placementGroupInfo = a} :: InstanceTypeInfo)
+-- | Describes the processor.
+instanceTypeInfo_processorInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe ProcessorInfo)
+instanceTypeInfo_processorInfo = Lens.lens (\InstanceTypeInfo' {processorInfo} -> processorInfo) (\s@InstanceTypeInfo' {} a -> s {processorInfo = a} :: InstanceTypeInfo)
 
 -- | Describes the network settings for the instance type.
 instanceTypeInfo_networkInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe NetworkInfo)
 instanceTypeInfo_networkInfo = Lens.lens (\InstanceTypeInfo' {networkInfo} -> networkInfo) (\s@InstanceTypeInfo' {} a -> s {networkInfo = a} :: InstanceTypeInfo)
 
--- | Describes the processor.
-instanceTypeInfo_processorInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe ProcessorInfo)
-instanceTypeInfo_processorInfo = Lens.lens (\InstanceTypeInfo' {processorInfo} -> processorInfo) (\s@InstanceTypeInfo' {} a -> s {processorInfo = a} :: InstanceTypeInfo)
+-- | The supported boot modes. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon EC2 User Guide/.
+instanceTypeInfo_supportedBootModes :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe [BootModeType])
+instanceTypeInfo_supportedBootModes = Lens.lens (\InstanceTypeInfo' {supportedBootModes} -> supportedBootModes) (\s@InstanceTypeInfo' {} a -> s {supportedBootModes = a} :: InstanceTypeInfo) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Describes the placement group settings for the instance type.
+instanceTypeInfo_placementGroupInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe PlacementGroupInfo)
+instanceTypeInfo_placementGroupInfo = Lens.lens (\InstanceTypeInfo' {placementGroupInfo} -> placementGroupInfo) (\s@InstanceTypeInfo' {} a -> s {placementGroupInfo = a} :: InstanceTypeInfo)
 
 -- | Describes the Amazon EBS settings for the instance type.
 instanceTypeInfo_ebsInfo :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe EbsInfo)
@@ -278,19 +294,23 @@ instanceTypeInfo_supportedVirtualizationTypes = Lens.lens (\InstanceTypeInfo' {s
 instance Core.FromXML InstanceTypeInfo where
   parseXML x =
     InstanceTypeInfo'
-      Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "hypervisor")
+      Prelude.<$> (x Core..@? "hypervisor")
+      Prelude.<*> (x Core..@? "memoryInfo")
       Prelude.<*> (x Core..@? "gpuInfo")
       Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "burstablePerformanceSupported")
       Prelude.<*> (x Core..@? "vCpuInfo")
+      Prelude.<*> (x Core..@? "burstablePerformanceSupported")
       Prelude.<*> ( x Core..@? "supportedRootDeviceTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "placementGroupInfo")
-      Prelude.<*> (x Core..@? "networkInfo")
       Prelude.<*> (x Core..@? "processorInfo")
+      Prelude.<*> (x Core..@? "networkInfo")
+      Prelude.<*> ( x Core..@? "supportedBootModes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "placementGroupInfo")
       Prelude.<*> (x Core..@? "ebsInfo")
       Prelude.<*> (x Core..@? "autoRecoverySupported")
       Prelude.<*> (x Core..@? "currentGeneration")

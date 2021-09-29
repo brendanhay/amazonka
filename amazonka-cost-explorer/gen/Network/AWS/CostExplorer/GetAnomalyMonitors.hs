@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAnomalyMonitors' smart constructor.
 data GetAnomalyMonitors = GetAnomalyMonitors'
-  { -- | The number of entries a paginated response contains.
+  { -- | The number of entries that a paginated response contains.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | A list of cost anomaly monitor ARNs.
     monitorArnList :: Prelude.Maybe [Prelude.Text]
@@ -72,11 +72,11 @@ data GetAnomalyMonitors = GetAnomalyMonitors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'getAnomalyMonitors_maxResults' - The number of entries a paginated response contains.
+-- 'maxResults', 'getAnomalyMonitors_maxResults' - The number of entries that a paginated response contains.
 --
--- 'nextPageToken', 'getAnomalyMonitors_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomalyMonitors_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'monitorArnList', 'getAnomalyMonitors_monitorArnList' - A list of cost anomaly monitor ARNs.
 newGetAnomalyMonitors ::
@@ -88,13 +88,13 @@ newGetAnomalyMonitors =
       monitorArnList = Prelude.Nothing
     }
 
--- | The number of entries a paginated response contains.
+-- | The number of entries that a paginated response contains.
 getAnomalyMonitors_maxResults :: Lens.Lens' GetAnomalyMonitors (Prelude.Maybe Prelude.Int)
 getAnomalyMonitors_maxResults = Lens.lens (\GetAnomalyMonitors' {maxResults} -> maxResults) (\s@GetAnomalyMonitors' {} a -> s {maxResults = a} :: GetAnomalyMonitors)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomalyMonitors_nextPageToken :: Lens.Lens' GetAnomalyMonitors (Prelude.Maybe Prelude.Text)
 getAnomalyMonitors_nextPageToken = Lens.lens (\GetAnomalyMonitors' {nextPageToken} -> nextPageToken) (\s@GetAnomalyMonitors' {} a -> s {nextPageToken = a} :: GetAnomalyMonitors)
 
@@ -156,9 +156,9 @@ instance Core.ToQuery GetAnomalyMonitors where
 
 -- | /See:/ 'newGetAnomalyMonitorsResponse' smart constructor.
 data GetAnomalyMonitorsResponse = GetAnomalyMonitorsResponse'
-  { -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -176,9 +176,9 @@ data GetAnomalyMonitorsResponse = GetAnomalyMonitorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getAnomalyMonitorsResponse_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomalyMonitorsResponse_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getAnomalyMonitorsResponse_httpStatus' - The response's http status code.
 --
@@ -196,9 +196,9 @@ newGetAnomalyMonitorsResponse pHttpStatus_ =
       anomalyMonitors = Prelude.mempty
     }
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomalyMonitorsResponse_nextPageToken :: Lens.Lens' GetAnomalyMonitorsResponse (Prelude.Maybe Prelude.Text)
 getAnomalyMonitorsResponse_nextPageToken = Lens.lens (\GetAnomalyMonitorsResponse' {nextPageToken} -> nextPageToken) (\s@GetAnomalyMonitorsResponse' {} a -> s {nextPageToken = a} :: GetAnomalyMonitorsResponse)
 

@@ -50,10 +50,10 @@ import qualified Network.AWS.Response as Response
 data UntagInstanceProfile = UntagInstanceProfile'
   { -- | The name of the IAM instance profile from which you want to remove tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     instanceProfileName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified instance profile.
@@ -71,10 +71,10 @@ data UntagInstanceProfile = UntagInstanceProfile'
 --
 -- 'instanceProfileName', 'untagInstanceProfile_instanceProfileName' - The name of the IAM instance profile from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagInstanceProfile_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
@@ -91,10 +91,10 @@ newUntagInstanceProfile pInstanceProfileName_ =
 
 -- | The name of the IAM instance profile from which you want to remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagInstanceProfile_instanceProfileName :: Lens.Lens' UntagInstanceProfile Prelude.Text
 untagInstanceProfile_instanceProfileName = Lens.lens (\UntagInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@UntagInstanceProfile' {} a -> s {instanceProfileName = a} :: UntagInstanceProfile)
 

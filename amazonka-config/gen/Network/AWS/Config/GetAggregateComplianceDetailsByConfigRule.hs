@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evaluation results for the specified AWS Config rule for a
--- specific resource in a rule. The results indicate which AWS resources
--- were evaluated by the rule, when each resource was last evaluated, and
--- whether each resource complies with the rule.
+-- Returns the evaluation results for the specified Config rule for a
+-- specific resource in a rule. The results indicate which Amazon Web
+-- Services resources were evaluated by the rule, when each resource was
+-- last evaluated, and whether each resource complies with the rule.
 --
 -- The results can return an empty result page. But if you have a
 -- @nextToken@, the results are displayed on the next page.
@@ -69,17 +69,16 @@ data GetAggregateComplianceDetailsByConfigRule = GetAggregateComplianceDetailsBy
     -- | The resource compliance status.
     --
     -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
-    -- AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config
-    -- does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
+    -- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does
+    -- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
     complianceType :: Prelude.Maybe ComplianceType,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 50. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text,
-    -- | The name of the AWS Config rule for which you want compliance
-    -- information.
+    -- | The name of the Config rule for which you want compliance information.
     configRuleName :: Prelude.Text,
     -- | The 12-digit account ID of the source account.
     accountId :: Prelude.Text,
@@ -102,17 +101,16 @@ data GetAggregateComplianceDetailsByConfigRule = GetAggregateComplianceDetailsBy
 -- 'complianceType', 'getAggregateComplianceDetailsByConfigRule_complianceType' - The resource compliance status.
 --
 -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
--- AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config
--- does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
+-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does
+-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
 --
 -- 'limit', 'getAggregateComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 50. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'getAggregateComplianceDetailsByConfigRule_configurationAggregatorName' - The name of the configuration aggregator.
 --
--- 'configRuleName', 'getAggregateComplianceDetailsByConfigRule_configRuleName' - The name of the AWS Config rule for which you want compliance
--- information.
+-- 'configRuleName', 'getAggregateComplianceDetailsByConfigRule_configRuleName' - The name of the Config rule for which you want compliance information.
 --
 -- 'accountId', 'getAggregateComplianceDetailsByConfigRule_accountId' - The 12-digit account ID of the source account.
 --
@@ -153,14 +151,14 @@ getAggregateComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetAggregateCo
 -- | The resource compliance status.
 --
 -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
--- AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config
--- does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
+-- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does
+-- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
 getAggregateComplianceDetailsByConfigRule_complianceType :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe ComplianceType)
 getAggregateComplianceDetailsByConfigRule_complianceType = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {complianceType} -> complianceType) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {complianceType = a} :: GetAggregateComplianceDetailsByConfigRule)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 50. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 getAggregateComplianceDetailsByConfigRule_limit :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Natural)
 getAggregateComplianceDetailsByConfigRule_limit = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {limit} -> limit) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {limit = a} :: GetAggregateComplianceDetailsByConfigRule)
 
@@ -168,8 +166,7 @@ getAggregateComplianceDetailsByConfigRule_limit = Lens.lens (\GetAggregateCompli
 getAggregateComplianceDetailsByConfigRule_configurationAggregatorName :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Prelude.Text
 getAggregateComplianceDetailsByConfigRule_configurationAggregatorName = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {configurationAggregatorName} -> configurationAggregatorName) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {configurationAggregatorName = a} :: GetAggregateComplianceDetailsByConfigRule)
 
--- | The name of the AWS Config rule for which you want compliance
--- information.
+-- | The name of the Config rule for which you want compliance information.
 getAggregateComplianceDetailsByConfigRule_configRuleName :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Prelude.Text
 getAggregateComplianceDetailsByConfigRule_configRuleName = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {configRuleName} -> configRuleName) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {configRuleName = a} :: GetAggregateComplianceDetailsByConfigRule)
 

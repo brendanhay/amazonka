@@ -33,7 +33,13 @@ import Network.AWS.Shield.Types.SummarizedCounter
 data AttackDetail = AttackDetail'
   { -- | The ARN (Amazon Resource Name) of the resource that was attacked.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The array of AttackProperty objects.
+    -- | The array of objects that provide details of the Shield event.
+    --
+    -- For infrastructure layer events (L3 and L4 events) after January 25,
+    -- 2021, you can view metrics for top contributors in Amazon CloudWatch
+    -- metrics. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+    -- in the /WAF Developer Guide/.
     attackProperties :: Prelude.Maybe [AttackProperty],
     -- | The time the attack started, in Unix time in seconds. For more
     -- information see
@@ -65,7 +71,13 @@ data AttackDetail = AttackDetail'
 --
 -- 'resourceArn', 'attackDetail_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
 --
--- 'attackProperties', 'attackDetail_attackProperties' - The array of AttackProperty objects.
+-- 'attackProperties', 'attackDetail_attackProperties' - The array of objects that provide details of the Shield event.
+--
+-- For infrastructure layer events (L3 and L4 events) after January 25,
+-- 2021, you can view metrics for top contributors in Amazon CloudWatch
+-- metrics. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+-- in the /WAF Developer Guide/.
 --
 -- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds. For more
 -- information see
@@ -101,7 +113,13 @@ newAttackDetail =
 attackDetail_resourceArn :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
 attackDetail_resourceArn = Lens.lens (\AttackDetail' {resourceArn} -> resourceArn) (\s@AttackDetail' {} a -> s {resourceArn = a} :: AttackDetail)
 
--- | The array of AttackProperty objects.
+-- | The array of objects that provide details of the Shield event.
+--
+-- For infrastructure layer events (L3 and L4 events) after January 25,
+-- 2021, you can view metrics for top contributors in Amazon CloudWatch
+-- metrics. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+-- in the /WAF Developer Guide/.
 attackDetail_attackProperties :: Lens.Lens' AttackDetail (Prelude.Maybe [AttackProperty])
 attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens._Coerce
 

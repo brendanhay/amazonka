@@ -30,17 +30,17 @@ import Test.Tasty
 --         [ requestCreateComputeEnvironment $
 --             newCreateComputeEnvironment
 --
---         , requestCancelJob $
---             newCancelJob
---
 --         , requestDescribeJobs $
 --             newDescribeJobs
 --
---         , requestDeleteComputeEnvironment $
---             newDeleteComputeEnvironment
---
 --         , requestUpdateComputeEnvironment $
 --             newUpdateComputeEnvironment
+--
+--         , requestCancelJob $
+--             newCancelJob
+--
+--         , requestDeleteComputeEnvironment $
+--             newDeleteComputeEnvironment
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -54,35 +54,35 @@ import Test.Tasty
 --         , requestDeregisterJobDefinition $
 --             newDeregisterJobDefinition
 --
---         , requestDeleteJobQueue $
---             newDeleteJobQueue
---
 --         , requestUpdateJobQueue $
 --             newUpdateJobQueue
+--
+--         , requestDeleteJobQueue $
+--             newDeleteJobQueue
 --
 --         , requestDescribeJobDefinitions $
 --             newDescribeJobDefinitions
 --
---         , requestListJobs $
---             newListJobs
+--         , requestTerminateJob $
+--             newTerminateJob
 --
 --         , requestDescribeComputeEnvironments $
 --             newDescribeComputeEnvironments
 --
---         , requestTerminateJob $
---             newTerminateJob
---
---         , requestRegisterJobDefinition $
---             newRegisterJobDefinition
+--         , requestListJobs $
+--             newListJobs
 --
 --         , requestSubmitJob $
 --             newSubmitJob
 --
---         , requestCreateJobQueue $
---             newCreateJobQueue
+--         , requestRegisterJobDefinition $
+--             newRegisterJobDefinition
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestCreateJobQueue $
+--             newCreateJobQueue
 --
 --           ]
 
@@ -90,17 +90,17 @@ import Test.Tasty
 --         [ responseCreateComputeEnvironment $
 --             newCreateComputeEnvironmentResponse
 --
---         , responseCancelJob $
---             newCancelJobResponse
---
 --         , responseDescribeJobs $
 --             newDescribeJobsResponse
 --
---         , responseDeleteComputeEnvironment $
---             newDeleteComputeEnvironmentResponse
---
 --         , responseUpdateComputeEnvironment $
 --             newUpdateComputeEnvironmentResponse
+--
+--         , responseCancelJob $
+--             newCancelJobResponse
+--
+--         , responseDeleteComputeEnvironment $
+--             newDeleteComputeEnvironmentResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -114,35 +114,35 @@ import Test.Tasty
 --         , responseDeregisterJobDefinition $
 --             newDeregisterJobDefinitionResponse
 --
---         , responseDeleteJobQueue $
---             newDeleteJobQueueResponse
---
 --         , responseUpdateJobQueue $
 --             newUpdateJobQueueResponse
+--
+--         , responseDeleteJobQueue $
+--             newDeleteJobQueueResponse
 --
 --         , responseDescribeJobDefinitions $
 --             newDescribeJobDefinitionsResponse
 --
---         , responseListJobs $
---             newListJobsResponse
+--         , responseTerminateJob $
+--             newTerminateJobResponse
 --
 --         , responseDescribeComputeEnvironments $
 --             newDescribeComputeEnvironmentsResponse
 --
---         , responseTerminateJob $
---             newTerminateJobResponse
---
---         , responseRegisterJobDefinition $
---             newRegisterJobDefinitionResponse
+--         , responseListJobs $
+--             newListJobsResponse
 --
 --         , responseSubmitJob $
 --             newSubmitJobResponse
 --
---         , responseCreateJobQueue $
---             newCreateJobQueueResponse
+--         , responseRegisterJobDefinition $
+--             newRegisterJobDefinitionResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseCreateJobQueue $
+--             newCreateJobQueueResponse
 --
 --           ]
 --     ]
@@ -155,29 +155,29 @@ requestCreateComputeEnvironment =
     "CreateComputeEnvironment"
     "fixture/CreateComputeEnvironment.yaml"
 
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
-
 requestDescribeJobs :: DescribeJobs -> TestTree
 requestDescribeJobs =
   req
     "DescribeJobs"
     "fixture/DescribeJobs.yaml"
 
-requestDeleteComputeEnvironment :: DeleteComputeEnvironment -> TestTree
-requestDeleteComputeEnvironment =
-  req
-    "DeleteComputeEnvironment"
-    "fixture/DeleteComputeEnvironment.yaml"
-
 requestUpdateComputeEnvironment :: UpdateComputeEnvironment -> TestTree
 requestUpdateComputeEnvironment =
   req
     "UpdateComputeEnvironment"
     "fixture/UpdateComputeEnvironment.yaml"
+
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
+requestDeleteComputeEnvironment :: DeleteComputeEnvironment -> TestTree
+requestDeleteComputeEnvironment =
+  req
+    "DeleteComputeEnvironment"
+    "fixture/DeleteComputeEnvironment.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -203,17 +203,17 @@ requestDeregisterJobDefinition =
     "DeregisterJobDefinition"
     "fixture/DeregisterJobDefinition.yaml"
 
-requestDeleteJobQueue :: DeleteJobQueue -> TestTree
-requestDeleteJobQueue =
-  req
-    "DeleteJobQueue"
-    "fixture/DeleteJobQueue.yaml"
-
 requestUpdateJobQueue :: UpdateJobQueue -> TestTree
 requestUpdateJobQueue =
   req
     "UpdateJobQueue"
     "fixture/UpdateJobQueue.yaml"
+
+requestDeleteJobQueue :: DeleteJobQueue -> TestTree
+requestDeleteJobQueue =
+  req
+    "DeleteJobQueue"
+    "fixture/DeleteJobQueue.yaml"
 
 requestDescribeJobDefinitions :: DescribeJobDefinitions -> TestTree
 requestDescribeJobDefinitions =
@@ -221,11 +221,11 @@ requestDescribeJobDefinitions =
     "DescribeJobDefinitions"
     "fixture/DescribeJobDefinitions.yaml"
 
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
+requestTerminateJob :: TerminateJob -> TestTree
+requestTerminateJob =
   req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
+    "TerminateJob"
+    "fixture/TerminateJob.yaml"
 
 requestDescribeComputeEnvironments :: DescribeComputeEnvironments -> TestTree
 requestDescribeComputeEnvironments =
@@ -233,17 +233,11 @@ requestDescribeComputeEnvironments =
     "DescribeComputeEnvironments"
     "fixture/DescribeComputeEnvironments.yaml"
 
-requestTerminateJob :: TerminateJob -> TestTree
-requestTerminateJob =
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
   req
-    "TerminateJob"
-    "fixture/TerminateJob.yaml"
-
-requestRegisterJobDefinition :: RegisterJobDefinition -> TestTree
-requestRegisterJobDefinition =
-  req
-    "RegisterJobDefinition"
-    "fixture/RegisterJobDefinition.yaml"
+    "ListJobs"
+    "fixture/ListJobs.yaml"
 
 requestSubmitJob :: SubmitJob -> TestTree
 requestSubmitJob =
@@ -251,17 +245,23 @@ requestSubmitJob =
     "SubmitJob"
     "fixture/SubmitJob.yaml"
 
-requestCreateJobQueue :: CreateJobQueue -> TestTree
-requestCreateJobQueue =
+requestRegisterJobDefinition :: RegisterJobDefinition -> TestTree
+requestRegisterJobDefinition =
   req
-    "CreateJobQueue"
-    "fixture/CreateJobQueue.yaml"
+    "RegisterJobDefinition"
+    "fixture/RegisterJobDefinition.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestCreateJobQueue :: CreateJobQueue -> TestTree
+requestCreateJobQueue =
+  req
+    "CreateJobQueue"
+    "fixture/CreateJobQueue.yaml"
 
 -- Responses
 
@@ -273,14 +273,6 @@ responseCreateComputeEnvironment =
     defaultService
     (Proxy :: Proxy CreateComputeEnvironment)
 
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelJob)
-
 responseDescribeJobs :: DescribeJobsResponse -> TestTree
 responseDescribeJobs =
   res
@@ -289,14 +281,6 @@ responseDescribeJobs =
     defaultService
     (Proxy :: Proxy DescribeJobs)
 
-responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
-responseDeleteComputeEnvironment =
-  res
-    "DeleteComputeEnvironmentResponse"
-    "fixture/DeleteComputeEnvironmentResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteComputeEnvironment)
-
 responseUpdateComputeEnvironment :: UpdateComputeEnvironmentResponse -> TestTree
 responseUpdateComputeEnvironment =
   res
@@ -304,6 +288,22 @@ responseUpdateComputeEnvironment =
     "fixture/UpdateComputeEnvironmentResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateComputeEnvironment)
+
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelJob)
+
+responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
+responseDeleteComputeEnvironment =
+  res
+    "DeleteComputeEnvironmentResponse"
+    "fixture/DeleteComputeEnvironmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteComputeEnvironment)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -337,14 +337,6 @@ responseDeregisterJobDefinition =
     defaultService
     (Proxy :: Proxy DeregisterJobDefinition)
 
-responseDeleteJobQueue :: DeleteJobQueueResponse -> TestTree
-responseDeleteJobQueue =
-  res
-    "DeleteJobQueueResponse"
-    "fixture/DeleteJobQueueResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteJobQueue)
-
 responseUpdateJobQueue :: UpdateJobQueueResponse -> TestTree
 responseUpdateJobQueue =
   res
@@ -352,6 +344,14 @@ responseUpdateJobQueue =
     "fixture/UpdateJobQueueResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateJobQueue)
+
+responseDeleteJobQueue :: DeleteJobQueueResponse -> TestTree
+responseDeleteJobQueue =
+  res
+    "DeleteJobQueueResponse"
+    "fixture/DeleteJobQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteJobQueue)
 
 responseDescribeJobDefinitions :: DescribeJobDefinitionsResponse -> TestTree
 responseDescribeJobDefinitions =
@@ -361,13 +361,13 @@ responseDescribeJobDefinitions =
     defaultService
     (Proxy :: Proxy DescribeJobDefinitions)
 
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
+responseTerminateJob :: TerminateJobResponse -> TestTree
+responseTerminateJob =
   res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
+    "TerminateJobResponse"
+    "fixture/TerminateJobResponse.proto"
     defaultService
-    (Proxy :: Proxy ListJobs)
+    (Proxy :: Proxy TerminateJob)
 
 responseDescribeComputeEnvironments :: DescribeComputeEnvironmentsResponse -> TestTree
 responseDescribeComputeEnvironments =
@@ -377,21 +377,13 @@ responseDescribeComputeEnvironments =
     defaultService
     (Proxy :: Proxy DescribeComputeEnvironments)
 
-responseTerminateJob :: TerminateJobResponse -> TestTree
-responseTerminateJob =
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
   res
-    "TerminateJobResponse"
-    "fixture/TerminateJobResponse.proto"
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy TerminateJob)
-
-responseRegisterJobDefinition :: RegisterJobDefinitionResponse -> TestTree
-responseRegisterJobDefinition =
-  res
-    "RegisterJobDefinitionResponse"
-    "fixture/RegisterJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterJobDefinition)
+    (Proxy :: Proxy ListJobs)
 
 responseSubmitJob :: SubmitJobResponse -> TestTree
 responseSubmitJob =
@@ -401,13 +393,13 @@ responseSubmitJob =
     defaultService
     (Proxy :: Proxy SubmitJob)
 
-responseCreateJobQueue :: CreateJobQueueResponse -> TestTree
-responseCreateJobQueue =
+responseRegisterJobDefinition :: RegisterJobDefinitionResponse -> TestTree
+responseRegisterJobDefinition =
   res
-    "CreateJobQueueResponse"
-    "fixture/CreateJobQueueResponse.proto"
+    "RegisterJobDefinitionResponse"
+    "fixture/RegisterJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateJobQueue)
+    (Proxy :: Proxy RegisterJobDefinition)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -416,3 +408,11 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy :: Proxy ListTagsForResource)
+
+responseCreateJobQueue :: CreateJobQueueResponse -> TestTree
+responseCreateJobQueue =
+  res
+    "CreateJobQueueResponse"
+    "fixture/CreateJobQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJobQueue)

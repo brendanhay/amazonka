@@ -14,10 +14,22 @@
 module Network.AWS.AppStream.Lens
   ( -- * Operations
 
+    -- ** ListAssociatedStacks
+    listAssociatedStacks_nextToken,
+    listAssociatedStacks_fleetName,
+    listAssociatedStacksResponse_names,
+    listAssociatedStacksResponse_nextToken,
+    listAssociatedStacksResponse_httpStatus,
+
     -- ** DeleteImageBuilder
     deleteImageBuilder_name,
     deleteImageBuilderResponse_imageBuilder,
     deleteImageBuilderResponse_httpStatus,
+
+    -- ** BatchAssociateUserStack
+    batchAssociateUserStack_userStackAssociations,
+    batchAssociateUserStackResponse_errors,
+    batchAssociateUserStackResponse_httpStatus,
 
     -- ** ListAssociatedFleets
     listAssociatedFleets_nextToken,
@@ -26,20 +38,12 @@ module Network.AWS.AppStream.Lens
     listAssociatedFleetsResponse_nextToken,
     listAssociatedFleetsResponse_httpStatus,
 
-    -- ** BatchAssociateUserStack
-    batchAssociateUserStack_userStackAssociations,
-    batchAssociateUserStackResponse_errors,
-    batchAssociateUserStackResponse_httpStatus,
-
-    -- ** ListAssociatedStacks
-    listAssociatedStacks_nextToken,
-    listAssociatedStacks_fleetName,
-    listAssociatedStacksResponse_names,
-    listAssociatedStacksResponse_nextToken,
-    listAssociatedStacksResponse_httpStatus,
-
     -- ** DeleteUsageReportSubscription
     deleteUsageReportSubscriptionResponse_httpStatus,
+
+    -- ** StopFleet
+    stopFleet_name,
+    stopFleetResponse_httpStatus,
 
     -- ** StopImageBuilder
     stopImageBuilder_name,
@@ -56,19 +60,22 @@ module Network.AWS.AppStream.Lens
     startImageBuilderResponse_imageBuilder,
     startImageBuilderResponse_httpStatus,
 
-    -- ** StopFleet
-    stopFleet_name,
-    stopFleetResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** EnableUser
-    enableUser_userName,
-    enableUser_authenticationType,
-    enableUserResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** DescribeFleets
+    describeFleets_names,
+    describeFleets_nextToken,
+    describeFleetsResponse_nextToken,
+    describeFleetsResponse_fleets,
+    describeFleetsResponse_httpStatus,
 
     -- ** DescribeSessions
     describeSessions_nextToken,
@@ -81,12 +88,10 @@ module Network.AWS.AppStream.Lens
     describeSessionsResponse_sessions,
     describeSessionsResponse_httpStatus,
 
-    -- ** DescribeFleets
-    describeFleets_names,
-    describeFleets_nextToken,
-    describeFleetsResponse_nextToken,
-    describeFleetsResponse_fleets,
-    describeFleetsResponse_httpStatus,
+    -- ** EnableUser
+    enableUser_userName,
+    enableUser_authenticationType,
+    enableUserResponse_httpStatus,
 
     -- ** DescribeStacks
     describeStacks_names,
@@ -95,40 +100,13 @@ module Network.AWS.AppStream.Lens
     describeStacksResponse_stacks,
     describeStacksResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** CreateUser
     createUser_messageAction,
-    createUser_firstName,
     createUser_lastName,
+    createUser_firstName,
     createUser_userName,
     createUser_authenticationType,
     createUserResponse_httpStatus,
-
-    -- ** UpdateDirectoryConfig
-    updateDirectoryConfig_serviceAccountCredentials,
-    updateDirectoryConfig_organizationalUnitDistinguishedNames,
-    updateDirectoryConfig_directoryName,
-    updateDirectoryConfigResponse_directoryConfig,
-    updateDirectoryConfigResponse_httpStatus,
-
-    -- ** CreateStack
-    createStack_accessEndpoints,
-    createStack_userSettings,
-    createStack_redirectURL,
-    createStack_applicationSettings,
-    createStack_tags,
-    createStack_storageConnectors,
-    createStack_description,
-    createStack_embedHostDomains,
-    createStack_displayName,
-    createStack_feedbackURL,
-    createStack_name,
-    createStackResponse_stack,
-    createStackResponse_httpStatus,
 
     -- ** DeleteDirectoryConfig
     deleteDirectoryConfig_directoryName,
@@ -142,27 +120,6 @@ module Network.AWS.AppStream.Lens
     copyImageResponse_destinationImageName,
     copyImageResponse_httpStatus,
 
-    -- ** CreateFleet
-    createFleet_maxUserDurationInSeconds,
-    createFleet_disconnectTimeoutInSeconds,
-    createFleet_vpcConfig,
-    createFleet_iamRoleArn,
-    createFleet_domainJoinInfo,
-    createFleet_fleetType,
-    createFleet_idleDisconnectTimeoutInSeconds,
-    createFleet_imageName,
-    createFleet_tags,
-    createFleet_streamView,
-    createFleet_description,
-    createFleet_displayName,
-    createFleet_enableDefaultInternetAccess,
-    createFleet_imageArn,
-    createFleet_name,
-    createFleet_instanceType,
-    createFleet_computeCapacity,
-    createFleetResponse_fleet,
-    createFleetResponse_httpStatus,
-
     -- ** CreateImageBuilder
     createImageBuilder_vpcConfig,
     createImageBuilder_iamRoleArn,
@@ -172,13 +129,56 @@ module Network.AWS.AppStream.Lens
     createImageBuilder_tags,
     createImageBuilder_appstreamAgentVersion,
     createImageBuilder_description,
-    createImageBuilder_displayName,
     createImageBuilder_enableDefaultInternetAccess,
+    createImageBuilder_displayName,
     createImageBuilder_imageArn,
     createImageBuilder_name,
     createImageBuilder_instanceType,
     createImageBuilderResponse_imageBuilder,
     createImageBuilderResponse_httpStatus,
+
+    -- ** CreateStack
+    createStack_userSettings,
+    createStack_accessEndpoints,
+    createStack_redirectURL,
+    createStack_applicationSettings,
+    createStack_tags,
+    createStack_storageConnectors,
+    createStack_description,
+    createStack_embedHostDomains,
+    createStack_displayName,
+    createStack_feedbackURL,
+    createStack_name,
+    createStackResponse_stack,
+    createStackResponse_httpStatus,
+
+    -- ** CreateFleet
+    createFleet_disconnectTimeoutInSeconds,
+    createFleet_maxUserDurationInSeconds,
+    createFleet_vpcConfig,
+    createFleet_iamRoleArn,
+    createFleet_domainJoinInfo,
+    createFleet_fleetType,
+    createFleet_idleDisconnectTimeoutInSeconds,
+    createFleet_imageName,
+    createFleet_tags,
+    createFleet_streamView,
+    createFleet_description,
+    createFleet_enableDefaultInternetAccess,
+    createFleet_displayName,
+    createFleet_imageArn,
+    createFleet_name,
+    createFleet_instanceType,
+    createFleet_computeCapacity,
+    createFleetResponse_fleet,
+    createFleetResponse_httpStatus,
+
+    -- ** UpdateDirectoryConfig
+    updateDirectoryConfig_serviceAccountCredentials,
+    updateDirectoryConfig_organizationalUnitDistinguishedNames,
+    updateDirectoryConfig_directoryName,
+    updateDirectoryConfigResponse_directoryConfig,
+    updateDirectoryConfigResponse_httpStatus,
 
     -- ** AssociateFleet
     associateFleet_fleetName,
@@ -192,9 +192,41 @@ module Network.AWS.AppStream.Lens
     createDirectoryConfigResponse_directoryConfig,
     createDirectoryConfigResponse_httpStatus,
 
+    -- ** DeleteStack
+    deleteStack_name,
+    deleteStackResponse_httpStatus,
+
+    -- ** DeleteFleet
+    deleteFleet_name,
+    deleteFleetResponse_httpStatus,
+
+    -- ** UpdateStack
+    updateStack_userSettings,
+    updateStack_accessEndpoints,
+    updateStack_redirectURL,
+    updateStack_applicationSettings,
+    updateStack_storageConnectors,
+    updateStack_description,
+    updateStack_deleteStorageConnectors,
+    updateStack_embedHostDomains,
+    updateStack_attributesToDelete,
+    updateStack_displayName,
+    updateStack_feedbackURL,
+    updateStack_name,
+    updateStackResponse_stack,
+    updateStackResponse_httpStatus,
+
+    -- ** DescribeUsers
+    describeUsers_nextToken,
+    describeUsers_maxResults,
+    describeUsers_authenticationType,
+    describeUsersResponse_nextToken,
+    describeUsersResponse_users,
+    describeUsersResponse_httpStatus,
+
     -- ** UpdateFleet
-    updateFleet_maxUserDurationInSeconds,
     updateFleet_disconnectTimeoutInSeconds,
+    updateFleet_maxUserDurationInSeconds,
     updateFleet_vpcConfig,
     updateFleet_iamRoleArn,
     updateFleet_domainJoinInfo,
@@ -206,44 +238,12 @@ module Network.AWS.AppStream.Lens
     updateFleet_name,
     updateFleet_streamView,
     updateFleet_description,
-    updateFleet_displayName,
     updateFleet_enableDefaultInternetAccess,
     updateFleet_attributesToDelete,
+    updateFleet_displayName,
     updateFleet_imageArn,
     updateFleetResponse_fleet,
     updateFleetResponse_httpStatus,
-
-    -- ** DeleteStack
-    deleteStack_name,
-    deleteStackResponse_httpStatus,
-
-    -- ** DeleteFleet
-    deleteFleet_name,
-    deleteFleetResponse_httpStatus,
-
-    -- ** DescribeUsers
-    describeUsers_nextToken,
-    describeUsers_maxResults,
-    describeUsers_authenticationType,
-    describeUsersResponse_nextToken,
-    describeUsersResponse_users,
-    describeUsersResponse_httpStatus,
-
-    -- ** UpdateStack
-    updateStack_accessEndpoints,
-    updateStack_userSettings,
-    updateStack_redirectURL,
-    updateStack_applicationSettings,
-    updateStack_storageConnectors,
-    updateStack_description,
-    updateStack_embedHostDomains,
-    updateStack_deleteStorageConnectors,
-    updateStack_displayName,
-    updateStack_attributesToDelete,
-    updateStack_feedbackURL,
-    updateStack_name,
-    updateStackResponse_stack,
-    updateStackResponse_httpStatus,
 
     -- ** CreateUsageReportSubscription
     createUsageReportSubscriptionResponse_s3BucketName,
@@ -255,20 +255,20 @@ module Network.AWS.AppStream.Lens
     disassociateFleet_stackName,
     disassociateFleetResponse_httpStatus,
 
-    -- ** DescribeImages
-    describeImages_names,
-    describeImages_nextToken,
-    describeImages_arns,
-    describeImages_maxResults,
-    describeImages_type,
-    describeImagesResponse_nextToken,
-    describeImagesResponse_images,
-    describeImagesResponse_httpStatus,
-
     -- ** BatchDisassociateUserStack
     batchDisassociateUserStack_userStackAssociations,
     batchDisassociateUserStackResponse_errors,
     batchDisassociateUserStackResponse_httpStatus,
+
+    -- ** DescribeImages
+    describeImages_names,
+    describeImages_nextToken,
+    describeImages_maxResults,
+    describeImages_arns,
+    describeImages_type,
+    describeImagesResponse_nextToken,
+    describeImagesResponse_images,
+    describeImagesResponse_httpStatus,
 
     -- ** DescribeUsageReportSubscriptions
     describeUsageReportSubscriptions_nextToken,
@@ -276,6 +276,23 @@ module Network.AWS.AppStream.Lens
     describeUsageReportSubscriptionsResponse_nextToken,
     describeUsageReportSubscriptionsResponse_usageReportSubscriptions,
     describeUsageReportSubscriptionsResponse_httpStatus,
+
+    -- ** UpdateImagePermissions
+    updateImagePermissions_name,
+    updateImagePermissions_sharedAccountId,
+    updateImagePermissions_imagePermissions,
+    updateImagePermissionsResponse_httpStatus,
+
+    -- ** CreateUpdatedImage
+    createUpdatedImage_newImageDisplayName,
+    createUpdatedImage_dryRun,
+    createUpdatedImage_newImageDescription,
+    createUpdatedImage_newImageTags,
+    createUpdatedImage_existingImageName,
+    createUpdatedImage_newImageName,
+    createUpdatedImageResponse_image,
+    createUpdatedImageResponse_canUpdateImage,
+    createUpdatedImageResponse_httpStatus,
 
     -- ** DeleteImage
     deleteImage_name,
@@ -286,12 +303,6 @@ module Network.AWS.AppStream.Lens
     deleteImagePermissions_name,
     deleteImagePermissions_sharedAccountId,
     deleteImagePermissionsResponse_httpStatus,
-
-    -- ** UpdateImagePermissions
-    updateImagePermissions_name,
-    updateImagePermissions_sharedAccountId,
-    updateImagePermissions_imagePermissions,
-    updateImagePermissionsResponse_httpStatus,
 
     -- ** CreateStreamingURL
     createStreamingURL_applicationId,
@@ -304,10 +315,13 @@ module Network.AWS.AppStream.Lens
     createStreamingURLResponse_expires,
     createStreamingURLResponse_httpStatus,
 
-    -- ** DeleteUser
-    deleteUser_userName,
-    deleteUser_authenticationType,
-    deleteUserResponse_httpStatus,
+    -- ** DescribeImageBuilders
+    describeImageBuilders_names,
+    describeImageBuilders_nextToken,
+    describeImageBuilders_maxResults,
+    describeImageBuildersResponse_nextToken,
+    describeImageBuildersResponse_imageBuilders,
+    describeImageBuildersResponse_httpStatus,
 
     -- ** DescribeUserStackAssociations
     describeUserStackAssociations_nextToken,
@@ -319,13 +333,26 @@ module Network.AWS.AppStream.Lens
     describeUserStackAssociationsResponse_userStackAssociations,
     describeUserStackAssociationsResponse_httpStatus,
 
-    -- ** DescribeImageBuilders
-    describeImageBuilders_names,
-    describeImageBuilders_nextToken,
-    describeImageBuilders_maxResults,
-    describeImageBuildersResponse_nextToken,
-    describeImageBuildersResponse_imageBuilders,
-    describeImageBuildersResponse_httpStatus,
+    -- ** DeleteUser
+    deleteUser_userName,
+    deleteUser_authenticationType,
+    deleteUserResponse_httpStatus,
+
+    -- ** DisableUser
+    disableUser_userName,
+    disableUser_authenticationType,
+    disableUserResponse_httpStatus,
+
+    -- ** CreateImageBuilderStreamingURL
+    createImageBuilderStreamingURL_validity,
+    createImageBuilderStreamingURL_name,
+    createImageBuilderStreamingURLResponse_streamingURL,
+    createImageBuilderStreamingURLResponse_expires,
+    createImageBuilderStreamingURLResponse_httpStatus,
+
+    -- ** ExpireSession
+    expireSession_sessionId,
+    expireSessionResponse_httpStatus,
 
     -- ** DescribeDirectoryConfigs
     describeDirectoryConfigs_nextToken,
@@ -334,22 +361,6 @@ module Network.AWS.AppStream.Lens
     describeDirectoryConfigsResponse_nextToken,
     describeDirectoryConfigsResponse_directoryConfigs,
     describeDirectoryConfigsResponse_httpStatus,
-
-    -- ** DisableUser
-    disableUser_userName,
-    disableUser_authenticationType,
-    disableUserResponse_httpStatus,
-
-    -- ** ExpireSession
-    expireSession_sessionId,
-    expireSessionResponse_httpStatus,
-
-    -- ** CreateImageBuilderStreamingURL
-    createImageBuilderStreamingURL_validity,
-    createImageBuilderStreamingURL_name,
-    createImageBuilderStreamingURLResponse_streamingURL,
-    createImageBuilderStreamingURLResponse_expires,
-    createImageBuilderStreamingURLResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -375,10 +386,10 @@ module Network.AWS.AppStream.Lens
     -- ** Application
     application_iconURL,
     application_launchPath,
-    application_enabled,
     application_metadata,
-    application_launchParameters,
+    application_enabled,
     application_name,
+    application_launchParameters,
     application_displayName,
 
     -- ** ApplicationSettings
@@ -410,8 +421,8 @@ module Network.AWS.AppStream.Lens
     domainJoinInfo_directoryName,
 
     -- ** Fleet
-    fleet_maxUserDurationInSeconds,
     fleet_disconnectTimeoutInSeconds,
+    fleet_maxUserDurationInSeconds,
     fleet_vpcConfig,
     fleet_iamRoleArn,
     fleet_domainJoinInfo,
@@ -421,9 +432,9 @@ module Network.AWS.AppStream.Lens
     fleet_createdTime,
     fleet_streamView,
     fleet_description,
-    fleet_displayName,
     fleet_enableDefaultInternetAccess,
     fleet_fleetErrors,
+    fleet_displayName,
     fleet_imageArn,
     fleet_arn,
     fleet_name,
@@ -438,38 +449,39 @@ module Network.AWS.AppStream.Lens
     -- ** Image
     image_imagePermissions,
     image_platform,
+    image_imageErrors,
     image_imageBuilderName,
     image_arn,
-    image_stateChangeReason,
     image_createdTime,
-    image_state,
+    image_stateChangeReason,
     image_baseImageArn,
+    image_state,
     image_applications,
-    image_visibility,
     image_appstreamAgentVersion,
     image_description,
+    image_visibility,
     image_imageBuilderSupported,
     image_displayName,
     image_publicBaseImageReleasedDate,
     image_name,
 
     -- ** ImageBuilder
-    imageBuilder_platform,
     imageBuilder_vpcConfig,
+    imageBuilder_platform,
     imageBuilder_iamRoleArn,
     imageBuilder_accessEndpoints,
     imageBuilder_domainJoinInfo,
     imageBuilder_instanceType,
     imageBuilder_arn,
-    imageBuilder_stateChangeReason,
     imageBuilder_createdTime,
+    imageBuilder_stateChangeReason,
     imageBuilder_networkAccessConfiguration,
     imageBuilder_state,
     imageBuilder_appstreamAgentVersion,
     imageBuilder_description,
-    imageBuilder_displayName,
     imageBuilder_enableDefaultInternetAccess,
     imageBuilder_imageBuilderErrors,
+    imageBuilder_displayName,
     imageBuilder_imageArn,
     imageBuilder_name,
 
@@ -519,8 +531,8 @@ module Network.AWS.AppStream.Lens
     sharedImagePermissions_imagePermissions,
 
     -- ** Stack
-    stack_accessEndpoints,
     stack_userSettings,
+    stack_accessEndpoints,
     stack_redirectURL,
     stack_arn,
     stack_createdTime,
@@ -528,8 +540,8 @@ module Network.AWS.AppStream.Lens
     stack_storageConnectors,
     stack_description,
     stack_embedHostDomains,
-    stack_displayName,
     stack_stackErrors,
+    stack_displayName,
     stack_feedbackURL,
     stack_name,
 
@@ -554,8 +566,8 @@ module Network.AWS.AppStream.Lens
     user_enabled,
     user_createdTime,
     user_userName,
-    user_firstName,
     user_lastName,
+    user_firstName,
     user_authenticationType,
 
     -- ** UserSetting
@@ -589,6 +601,7 @@ import Network.AWS.AppStream.CreateImageBuilder
 import Network.AWS.AppStream.CreateImageBuilderStreamingURL
 import Network.AWS.AppStream.CreateStack
 import Network.AWS.AppStream.CreateStreamingURL
+import Network.AWS.AppStream.CreateUpdatedImage
 import Network.AWS.AppStream.CreateUsageReportSubscription
 import Network.AWS.AppStream.CreateUser
 import Network.AWS.AppStream.DeleteDirectoryConfig

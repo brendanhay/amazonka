@@ -27,7 +27,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPublicKeySummary' smart constructor.
 data PublicKeySummary = PublicKeySummary'
-  { -- | A comment to describe the public key.
+  { -- | A comment to describe the public key. The comment cannot be longer than
+    -- 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the public key.
     id :: Prelude.Text,
@@ -48,7 +49,8 @@ data PublicKeySummary = PublicKeySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'publicKeySummary_comment' - A comment to describe the public key.
+-- 'comment', 'publicKeySummary_comment' - A comment to describe the public key. The comment cannot be longer than
+-- 128 characters.
 --
 -- 'id', 'publicKeySummary_id' - The identifier of the public key.
 --
@@ -80,7 +82,8 @@ newPublicKeySummary
         encodedKey = pEncodedKey_
       }
 
--- | A comment to describe the public key.
+-- | A comment to describe the public key. The comment cannot be longer than
+-- 128 characters.
 publicKeySummary_comment :: Lens.Lens' PublicKeySummary (Prelude.Maybe Prelude.Text)
 publicKeySummary_comment = Lens.lens (\PublicKeySummary' {comment} -> comment) (\s@PublicKeySummary' {} a -> s {comment = a} :: PublicKeySummary)
 

@@ -71,11 +71,8 @@ data EventInformation = EventInformation'
     -- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
     --     Fleet request was accepted and is in progress.
     --
-    -- -   @modify_successful@ - The EC2 Fleet or Spot Fleet request was
+    -- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
     --     modified.
-    --
-    -- -   @price_update@ - The price for a launch configuration was adjusted
-    --     because it was too high. This change is permanent.
     --
     -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
     --     and Amazon EC2 is preparing to launch the target number of Spot
@@ -156,11 +153,8 @@ data EventInformation = EventInformation'
 -- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
 --     Fleet request was accepted and is in progress.
 --
--- -   @modify_successful@ - The EC2 Fleet or Spot Fleet request was
+-- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
 --     modified.
---
--- -   @price_update@ - The price for a launch configuration was adjusted
---     because it was too high. This change is permanent.
 --
 -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
 --     and Amazon EC2 is preparing to launch the target number of Spot
@@ -242,11 +236,8 @@ eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescript
 -- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
 --     Fleet request was accepted and is in progress.
 --
--- -   @modify_successful@ - The EC2 Fleet or Spot Fleet request was
+-- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
 --     modified.
---
--- -   @price_update@ - The price for a launch configuration was adjusted
---     because it was too high. This change is permanent.
 --
 -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
 --     and Amazon EC2 is preparing to launch the target number of Spot

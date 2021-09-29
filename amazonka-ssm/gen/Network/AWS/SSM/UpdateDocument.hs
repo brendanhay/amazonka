@@ -31,6 +31,7 @@ module Network.AWS.SSM.UpdateDocument
     updateDocument_versionName,
     updateDocument_documentFormat,
     updateDocument_documentVersion,
+    updateDocument_displayName,
     updateDocument_attachments,
     updateDocument_content,
     updateDocument_name,
@@ -58,23 +59,28 @@ data UpdateDocument = UpdateDocument'
     targetType :: Prelude.Maybe Prelude.Text,
     -- | An optional field specifying the version of the artifact you are
     -- updating with the document. For example, \"Release 12, Update 6\". This
-    -- value is unique across all versions of a document, and cannot be
+    -- value is unique across all versions of a document, and can\'t be
     -- changed.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | Specify the document format for the new document version. Systems
     -- Manager supports JSON and YAML documents. JSON is the default format.
     documentFormat :: Prelude.Maybe DocumentFormat,
-    -- | (Required) The latest version of the document that you want to update.
-    -- The latest document version can be specified using the $LATEST variable
-    -- or by the version number. Updating a previous version of a document is
-    -- not supported.
+    -- | The version of the document that you want to update. Currently, Systems
+    -- Manager supports updating only the latest version of the document. You
+    -- can specify the version number of the latest version or use the
+    -- @$LATEST@ variable.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | A list of key and value pairs that describe attachments to a version of
-    -- a document.
+    -- | The friendly name of the SSM document that you want to update. This
+    -- value can differ for each version of the document. If you don\'t specify
+    -- a value for this parameter in your request, the existing value is
+    -- applied to the new document version.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that describe attachments to a version of a
+    -- document.
     attachments :: Prelude.Maybe [AttachmentsSource],
     -- | A valid JSON or YAML string.
     content :: Prelude.Text,
-    -- | The name of the document that you want to update.
+    -- | The name of the SSM document that you want to update.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,23 +97,28 @@ data UpdateDocument = UpdateDocument'
 --
 -- 'versionName', 'updateDocument_versionName' - An optional field specifying the version of the artifact you are
 -- updating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and cannot be
+-- value is unique across all versions of a document, and can\'t be
 -- changed.
 --
 -- 'documentFormat', 'updateDocument_documentFormat' - Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
 --
--- 'documentVersion', 'updateDocument_documentVersion' - (Required) The latest version of the document that you want to update.
--- The latest document version can be specified using the $LATEST variable
--- or by the version number. Updating a previous version of a document is
--- not supported.
+-- 'documentVersion', 'updateDocument_documentVersion' - The version of the document that you want to update. Currently, Systems
+-- Manager supports updating only the latest version of the document. You
+-- can specify the version number of the latest version or use the
+-- @$LATEST@ variable.
 --
--- 'attachments', 'updateDocument_attachments' - A list of key and value pairs that describe attachments to a version of
--- a document.
+-- 'displayName', 'updateDocument_displayName' - The friendly name of the SSM document that you want to update. This
+-- value can differ for each version of the document. If you don\'t specify
+-- a value for this parameter in your request, the existing value is
+-- applied to the new document version.
+--
+-- 'attachments', 'updateDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
+-- document.
 --
 -- 'content', 'updateDocument_content' - A valid JSON or YAML string.
 --
--- 'name', 'updateDocument_name' - The name of the document that you want to update.
+-- 'name', 'updateDocument_name' - The name of the SSM document that you want to update.
 newUpdateDocument ::
   -- | 'content'
   Prelude.Text ->
@@ -120,6 +131,7 @@ newUpdateDocument pContent_ pName_ =
       versionName = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       attachments = Prelude.Nothing,
       content = pContent_,
       name = pName_
@@ -131,7 +143,7 @@ updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetTy
 
 -- | An optional field specifying the version of the artifact you are
 -- updating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and cannot be
+-- value is unique across all versions of a document, and can\'t be
 -- changed.
 updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
@@ -141,15 +153,22 @@ updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versio
 updateDocument_documentFormat :: Lens.Lens' UpdateDocument (Prelude.Maybe DocumentFormat)
 updateDocument_documentFormat = Lens.lens (\UpdateDocument' {documentFormat} -> documentFormat) (\s@UpdateDocument' {} a -> s {documentFormat = a} :: UpdateDocument)
 
--- | (Required) The latest version of the document that you want to update.
--- The latest document version can be specified using the $LATEST variable
--- or by the version number. Updating a previous version of a document is
--- not supported.
+-- | The version of the document that you want to update. Currently, Systems
+-- Manager supports updating only the latest version of the document. You
+-- can specify the version number of the latest version or use the
+-- @$LATEST@ variable.
 updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -> documentVersion) (\s@UpdateDocument' {} a -> s {documentVersion = a} :: UpdateDocument)
 
--- | A list of key and value pairs that describe attachments to a version of
--- a document.
+-- | The friendly name of the SSM document that you want to update. This
+-- value can differ for each version of the document. If you don\'t specify
+-- a value for this parameter in your request, the existing value is
+-- applied to the new document version.
+updateDocument_displayName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_displayName = Lens.lens (\UpdateDocument' {displayName} -> displayName) (\s@UpdateDocument' {} a -> s {displayName = a} :: UpdateDocument)
+
+-- | A list of key-value pairs that describe attachments to a version of a
+-- document.
 updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
 updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Lens._Coerce
 
@@ -157,7 +176,7 @@ updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attach
 updateDocument_content :: Lens.Lens' UpdateDocument Prelude.Text
 updateDocument_content = Lens.lens (\UpdateDocument' {content} -> content) (\s@UpdateDocument' {} a -> s {content = a} :: UpdateDocument)
 
--- | The name of the document that you want to update.
+-- | The name of the SSM document that you want to update.
 updateDocument_name :: Lens.Lens' UpdateDocument Prelude.Text
 updateDocument_name = Lens.lens (\UpdateDocument' {name} -> name) (\s@UpdateDocument' {} a -> s {name = a} :: UpdateDocument)
 
@@ -201,6 +220,7 @@ instance Core.ToJSON UpdateDocument where
               Prelude.<$> documentFormat,
             ("DocumentVersion" Core..=)
               Prelude.<$> documentVersion,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("Attachments" Core..=) Prelude.<$> attachments,
             Prelude.Just ("Content" Core..= content),
             Prelude.Just ("Name" Core..= name)

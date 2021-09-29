@@ -21,7 +21,8 @@ module Network.AWS.Transcribe.Types.VocabularyFilterMethod
   ( VocabularyFilterMethod
       ( ..,
         VocabularyFilterMethod_Mask,
-        VocabularyFilterMethod_Remove
+        VocabularyFilterMethod_Remove,
+        VocabularyFilterMethod_Tag
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern VocabularyFilterMethod_Mask = VocabularyFilterMethod' "mask"
 pattern VocabularyFilterMethod_Remove :: VocabularyFilterMethod
 pattern VocabularyFilterMethod_Remove = VocabularyFilterMethod' "remove"
 
+pattern VocabularyFilterMethod_Tag :: VocabularyFilterMethod
+pattern VocabularyFilterMethod_Tag = VocabularyFilterMethod' "tag"
+
 {-# COMPLETE
   VocabularyFilterMethod_Mask,
   VocabularyFilterMethod_Remove,
+  VocabularyFilterMethod_Tag,
   VocabularyFilterMethod'
   #-}

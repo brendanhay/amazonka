@@ -35,40 +35,40 @@ import Network.AWS.SMS.Types.LaunchDetails
 data AppSummary = AppSummary'
   { -- | A message related to the status of the application
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The number of servers present in the application.
+    totalServers :: Prelude.Maybe Prelude.Int,
     -- | The unique ID of the application.
     appId :: Prelude.Maybe Prelude.Text,
     -- | Status of the application.
     status :: Prelude.Maybe AppStatus,
     -- | The creation time of the application.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The number of servers present in the application.
-    totalServers :: Prelude.Maybe Prelude.Int,
     -- | The launch status of the application.
     launchStatus :: Prelude.Maybe AppLaunchStatus,
     -- | A message related to the replication status of the application.
     replicationStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the service role in the customer\'s account used by AWS SMS.
     roleName :: Prelude.Maybe Prelude.Text,
+    -- | Status of the replication configuration.
+    replicationConfigurationStatus :: Prelude.Maybe AppReplicationConfigurationStatus,
     -- | The replication status of the application.
     replicationStatus :: Prelude.Maybe AppReplicationStatus,
     -- | The ID of the application.
     importedAppId :: Prelude.Maybe Prelude.Text,
-    -- | Status of the replication configuration.
-    replicationConfigurationStatus :: Prelude.Maybe AppReplicationConfigurationStatus,
     -- | The timestamp of the application\'s most recent successful replication.
     latestReplicationTime :: Prelude.Maybe Core.POSIX,
-    -- | Details about the latest launch of the application.
-    launchDetails :: Prelude.Maybe LaunchDetails,
     -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Details about the latest launch of the application.
+    launchDetails :: Prelude.Maybe LaunchDetails,
     -- | Status of the launch configuration.
     launchConfigurationStatus :: Prelude.Maybe AppLaunchConfigurationStatus,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The last modified time of the application.
-    lastModified :: Prelude.Maybe Core.POSIX,
     -- | The number of server groups present in the application.
     totalServerGroups :: Prelude.Maybe Prelude.Int,
+    -- | The last modified time of the application.
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | A message related to the launch status of the application.
     launchStatusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -84,13 +84,13 @@ data AppSummary = AppSummary'
 --
 -- 'statusMessage', 'appSummary_statusMessage' - A message related to the status of the application
 --
+-- 'totalServers', 'appSummary_totalServers' - The number of servers present in the application.
+--
 -- 'appId', 'appSummary_appId' - The unique ID of the application.
 --
 -- 'status', 'appSummary_status' - Status of the application.
 --
 -- 'creationTime', 'appSummary_creationTime' - The creation time of the application.
---
--- 'totalServers', 'appSummary_totalServers' - The number of servers present in the application.
 --
 -- 'launchStatus', 'appSummary_launchStatus' - The launch status of the application.
 --
@@ -98,25 +98,25 @@ data AppSummary = AppSummary'
 --
 -- 'roleName', 'appSummary_roleName' - The name of the service role in the customer\'s account used by AWS SMS.
 --
+-- 'replicationConfigurationStatus', 'appSummary_replicationConfigurationStatus' - Status of the replication configuration.
+--
 -- 'replicationStatus', 'appSummary_replicationStatus' - The replication status of the application.
 --
 -- 'importedAppId', 'appSummary_importedAppId' - The ID of the application.
 --
--- 'replicationConfigurationStatus', 'appSummary_replicationConfigurationStatus' - Status of the replication configuration.
---
 -- 'latestReplicationTime', 'appSummary_latestReplicationTime' - The timestamp of the application\'s most recent successful replication.
 --
--- 'launchDetails', 'appSummary_launchDetails' - Details about the latest launch of the application.
---
 -- 'name', 'appSummary_name' - The name of the application.
+--
+-- 'launchDetails', 'appSummary_launchDetails' - Details about the latest launch of the application.
 --
 -- 'launchConfigurationStatus', 'appSummary_launchConfigurationStatus' - Status of the launch configuration.
 --
 -- 'description', 'appSummary_description' - The description of the application.
 --
--- 'lastModified', 'appSummary_lastModified' - The last modified time of the application.
---
 -- 'totalServerGroups', 'appSummary_totalServerGroups' - The number of server groups present in the application.
+--
+-- 'lastModified', 'appSummary_lastModified' - The last modified time of the application.
 --
 -- 'launchStatusMessage', 'appSummary_launchStatusMessage' - A message related to the launch status of the application.
 newAppSummary ::
@@ -124,29 +124,33 @@ newAppSummary ::
 newAppSummary =
   AppSummary'
     { statusMessage = Prelude.Nothing,
+      totalServers = Prelude.Nothing,
       appId = Prelude.Nothing,
       status = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      totalServers = Prelude.Nothing,
       launchStatus = Prelude.Nothing,
       replicationStatusMessage = Prelude.Nothing,
       roleName = Prelude.Nothing,
+      replicationConfigurationStatus = Prelude.Nothing,
       replicationStatus = Prelude.Nothing,
       importedAppId = Prelude.Nothing,
-      replicationConfigurationStatus = Prelude.Nothing,
       latestReplicationTime = Prelude.Nothing,
-      launchDetails = Prelude.Nothing,
       name = Prelude.Nothing,
+      launchDetails = Prelude.Nothing,
       launchConfigurationStatus = Prelude.Nothing,
       description = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
       totalServerGroups = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       launchStatusMessage = Prelude.Nothing
     }
 
 -- | A message related to the status of the application
 appSummary_statusMessage :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_statusMessage = Lens.lens (\AppSummary' {statusMessage} -> statusMessage) (\s@AppSummary' {} a -> s {statusMessage = a} :: AppSummary)
+
+-- | The number of servers present in the application.
+appSummary_totalServers :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Int)
+appSummary_totalServers = Lens.lens (\AppSummary' {totalServers} -> totalServers) (\s@AppSummary' {} a -> s {totalServers = a} :: AppSummary)
 
 -- | The unique ID of the application.
 appSummary_appId :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
@@ -160,10 +164,6 @@ appSummary_status = Lens.lens (\AppSummary' {status} -> status) (\s@AppSummary' 
 appSummary_creationTime :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
 appSummary_creationTime = Lens.lens (\AppSummary' {creationTime} -> creationTime) (\s@AppSummary' {} a -> s {creationTime = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
 
--- | The number of servers present in the application.
-appSummary_totalServers :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Int)
-appSummary_totalServers = Lens.lens (\AppSummary' {totalServers} -> totalServers) (\s@AppSummary' {} a -> s {totalServers = a} :: AppSummary)
-
 -- | The launch status of the application.
 appSummary_launchStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppLaunchStatus)
 appSummary_launchStatus = Lens.lens (\AppSummary' {launchStatus} -> launchStatus) (\s@AppSummary' {} a -> s {launchStatus = a} :: AppSummary)
@@ -176,6 +176,10 @@ appSummary_replicationStatusMessage = Lens.lens (\AppSummary' {replicationStatus
 appSummary_roleName :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_roleName = Lens.lens (\AppSummary' {roleName} -> roleName) (\s@AppSummary' {} a -> s {roleName = a} :: AppSummary)
 
+-- | Status of the replication configuration.
+appSummary_replicationConfigurationStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppReplicationConfigurationStatus)
+appSummary_replicationConfigurationStatus = Lens.lens (\AppSummary' {replicationConfigurationStatus} -> replicationConfigurationStatus) (\s@AppSummary' {} a -> s {replicationConfigurationStatus = a} :: AppSummary)
+
 -- | The replication status of the application.
 appSummary_replicationStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppReplicationStatus)
 appSummary_replicationStatus = Lens.lens (\AppSummary' {replicationStatus} -> replicationStatus) (\s@AppSummary' {} a -> s {replicationStatus = a} :: AppSummary)
@@ -184,21 +188,17 @@ appSummary_replicationStatus = Lens.lens (\AppSummary' {replicationStatus} -> re
 appSummary_importedAppId :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_importedAppId = Lens.lens (\AppSummary' {importedAppId} -> importedAppId) (\s@AppSummary' {} a -> s {importedAppId = a} :: AppSummary)
 
--- | Status of the replication configuration.
-appSummary_replicationConfigurationStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppReplicationConfigurationStatus)
-appSummary_replicationConfigurationStatus = Lens.lens (\AppSummary' {replicationConfigurationStatus} -> replicationConfigurationStatus) (\s@AppSummary' {} a -> s {replicationConfigurationStatus = a} :: AppSummary)
-
 -- | The timestamp of the application\'s most recent successful replication.
 appSummary_latestReplicationTime :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
 appSummary_latestReplicationTime = Lens.lens (\AppSummary' {latestReplicationTime} -> latestReplicationTime) (\s@AppSummary' {} a -> s {latestReplicationTime = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
 
--- | Details about the latest launch of the application.
-appSummary_launchDetails :: Lens.Lens' AppSummary (Prelude.Maybe LaunchDetails)
-appSummary_launchDetails = Lens.lens (\AppSummary' {launchDetails} -> launchDetails) (\s@AppSummary' {} a -> s {launchDetails = a} :: AppSummary)
-
 -- | The name of the application.
 appSummary_name :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_name = Lens.lens (\AppSummary' {name} -> name) (\s@AppSummary' {} a -> s {name = a} :: AppSummary)
+
+-- | Details about the latest launch of the application.
+appSummary_launchDetails :: Lens.Lens' AppSummary (Prelude.Maybe LaunchDetails)
+appSummary_launchDetails = Lens.lens (\AppSummary' {launchDetails} -> launchDetails) (\s@AppSummary' {} a -> s {launchDetails = a} :: AppSummary)
 
 -- | Status of the launch configuration.
 appSummary_launchConfigurationStatus :: Lens.Lens' AppSummary (Prelude.Maybe AppLaunchConfigurationStatus)
@@ -208,13 +208,13 @@ appSummary_launchConfigurationStatus = Lens.lens (\AppSummary' {launchConfigurat
 appSummary_description :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_description = Lens.lens (\AppSummary' {description} -> description) (\s@AppSummary' {} a -> s {description = a} :: AppSummary)
 
--- | The last modified time of the application.
-appSummary_lastModified :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
-appSummary_lastModified = Lens.lens (\AppSummary' {lastModified} -> lastModified) (\s@AppSummary' {} a -> s {lastModified = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The number of server groups present in the application.
 appSummary_totalServerGroups :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Int)
 appSummary_totalServerGroups = Lens.lens (\AppSummary' {totalServerGroups} -> totalServerGroups) (\s@AppSummary' {} a -> s {totalServerGroups = a} :: AppSummary)
+
+-- | The last modified time of the application.
+appSummary_lastModified :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.UTCTime)
+appSummary_lastModified = Lens.lens (\AppSummary' {lastModified} -> lastModified) (\s@AppSummary' {} a -> s {lastModified = a} :: AppSummary) Prelude.. Lens.mapping Core._Time
 
 -- | A message related to the launch status of the application.
 appSummary_launchStatusMessage :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
@@ -227,23 +227,23 @@ instance Core.FromJSON AppSummary where
       ( \x ->
           AppSummary'
             Prelude.<$> (x Core..:? "statusMessage")
+            Prelude.<*> (x Core..:? "totalServers")
             Prelude.<*> (x Core..:? "appId")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "totalServers")
             Prelude.<*> (x Core..:? "launchStatus")
             Prelude.<*> (x Core..:? "replicationStatusMessage")
             Prelude.<*> (x Core..:? "roleName")
+            Prelude.<*> (x Core..:? "replicationConfigurationStatus")
             Prelude.<*> (x Core..:? "replicationStatus")
             Prelude.<*> (x Core..:? "importedAppId")
-            Prelude.<*> (x Core..:? "replicationConfigurationStatus")
             Prelude.<*> (x Core..:? "latestReplicationTime")
-            Prelude.<*> (x Core..:? "launchDetails")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "launchDetails")
             Prelude.<*> (x Core..:? "launchConfigurationStatus")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastModified")
             Prelude.<*> (x Core..:? "totalServerGroups")
+            Prelude.<*> (x Core..:? "lastModified")
             Prelude.<*> (x Core..:? "launchStatusMessage")
       )
 

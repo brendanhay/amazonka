@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Represents an amount of money in United States dollars\/
+-- | Represents an amount of money in United States dollars.
 --
 -- /See:/ 'newUSD' smart constructor.
 data USD = USD'

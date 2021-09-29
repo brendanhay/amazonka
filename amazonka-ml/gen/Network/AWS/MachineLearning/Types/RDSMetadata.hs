@@ -38,13 +38,13 @@ data RDSMetadata = RDSMetadata'
     -- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service
     -- to monitor the progress of the copy task from Amazon RDS to Amazon S3.
     -- For more information, see
-    -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+    -- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     -- for data pipelines.
     serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2
     -- instance to carry out the copy task from Amazon RDS to Amazon S3. For
     -- more information, see
-    -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+    -- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     -- for data pipelines.
     resourceRole :: Prelude.Maybe Prelude.Text,
     databaseUserName :: Prelude.Maybe Prelude.Text,
@@ -71,13 +71,13 @@ data RDSMetadata = RDSMetadata'
 -- 'serviceRole', 'rDSMetadata_serviceRole' - The role (DataPipelineDefaultRole) assumed by the Data Pipeline service
 -- to monitor the progress of the copy task from Amazon RDS to Amazon S3.
 -- For more information, see
--- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+-- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
 --
 -- 'resourceRole', 'rDSMetadata_resourceRole' - The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2
 -- instance to carry out the copy task from Amazon RDS to Amazon S3. For
 -- more information, see
--- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+-- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
 --
 -- 'databaseUserName', 'rDSMetadata_databaseUserName' - Undocumented member.
@@ -109,7 +109,7 @@ rDSMetadata_selectSqlQuery = Lens.lens (\RDSMetadata' {selectSqlQuery} -> select
 -- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service
 -- to monitor the progress of the copy task from Amazon RDS to Amazon S3.
 -- For more information, see
--- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+-- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
 rDSMetadata_serviceRole :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
 rDSMetadata_serviceRole = Lens.lens (\RDSMetadata' {serviceRole} -> serviceRole) (\s@RDSMetadata' {} a -> s {serviceRole = a} :: RDSMetadata)
@@ -117,7 +117,7 @@ rDSMetadata_serviceRole = Lens.lens (\RDSMetadata' {serviceRole} -> serviceRole)
 -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2
 -- instance to carry out the copy task from Amazon RDS to Amazon S3. For
 -- more information, see
--- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
+-- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
 rDSMetadata_resourceRole :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
 rDSMetadata_resourceRole = Lens.lens (\RDSMetadata' {resourceRole} -> resourceRole) (\s@RDSMetadata' {} a -> s {resourceRole = a} :: RDSMetadata)

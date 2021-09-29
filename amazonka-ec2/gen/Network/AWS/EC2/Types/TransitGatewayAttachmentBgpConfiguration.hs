@@ -33,10 +33,10 @@ data TransitGatewayAttachmentBgpConfiguration = TransitGatewayAttachmentBgpConfi
     peerAddress :: Prelude.Maybe Prelude.Text,
     -- | The peer Autonomous System Number (ASN).
     peerAsn :: Prelude.Maybe Prelude.Integer,
-    -- | The BGP status.
-    bgpStatus :: Prelude.Maybe BgpStatus,
     -- | The interior BGP peer IP address for the transit gateway.
     transitGatewayAddress :: Prelude.Maybe Prelude.Text,
+    -- | The BGP status.
+    bgpStatus :: Prelude.Maybe BgpStatus,
     -- | The transit gateway Autonomous System Number (ASN).
     transitGatewayAsn :: Prelude.Maybe Prelude.Integer
   }
@@ -54,9 +54,9 @@ data TransitGatewayAttachmentBgpConfiguration = TransitGatewayAttachmentBgpConfi
 --
 -- 'peerAsn', 'transitGatewayAttachmentBgpConfiguration_peerAsn' - The peer Autonomous System Number (ASN).
 --
--- 'bgpStatus', 'transitGatewayAttachmentBgpConfiguration_bgpStatus' - The BGP status.
---
 -- 'transitGatewayAddress', 'transitGatewayAttachmentBgpConfiguration_transitGatewayAddress' - The interior BGP peer IP address for the transit gateway.
+--
+-- 'bgpStatus', 'transitGatewayAttachmentBgpConfiguration_bgpStatus' - The BGP status.
 --
 -- 'transitGatewayAsn', 'transitGatewayAttachmentBgpConfiguration_transitGatewayAsn' - The transit gateway Autonomous System Number (ASN).
 newTransitGatewayAttachmentBgpConfiguration ::
@@ -66,9 +66,9 @@ newTransitGatewayAttachmentBgpConfiguration =
     { peerAddress =
         Prelude.Nothing,
       peerAsn = Prelude.Nothing,
-      bgpStatus = Prelude.Nothing,
       transitGatewayAddress =
         Prelude.Nothing,
+      bgpStatus = Prelude.Nothing,
       transitGatewayAsn =
         Prelude.Nothing
     }
@@ -81,13 +81,13 @@ transitGatewayAttachmentBgpConfiguration_peerAddress = Lens.lens (\TransitGatewa
 transitGatewayAttachmentBgpConfiguration_peerAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Integer)
 transitGatewayAttachmentBgpConfiguration_peerAsn = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {peerAsn} -> peerAsn) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {peerAsn = a} :: TransitGatewayAttachmentBgpConfiguration)
 
--- | The BGP status.
-transitGatewayAttachmentBgpConfiguration_bgpStatus :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe BgpStatus)
-transitGatewayAttachmentBgpConfiguration_bgpStatus = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {bgpStatus} -> bgpStatus) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {bgpStatus = a} :: TransitGatewayAttachmentBgpConfiguration)
-
 -- | The interior BGP peer IP address for the transit gateway.
 transitGatewayAttachmentBgpConfiguration_transitGatewayAddress :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Text)
 transitGatewayAttachmentBgpConfiguration_transitGatewayAddress = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {transitGatewayAddress} -> transitGatewayAddress) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {transitGatewayAddress = a} :: TransitGatewayAttachmentBgpConfiguration)
+
+-- | The BGP status.
+transitGatewayAttachmentBgpConfiguration_bgpStatus :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe BgpStatus)
+transitGatewayAttachmentBgpConfiguration_bgpStatus = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {bgpStatus} -> bgpStatus) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {bgpStatus = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 -- | The transit gateway Autonomous System Number (ASN).
 transitGatewayAttachmentBgpConfiguration_transitGatewayAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Integer)
@@ -101,8 +101,8 @@ instance
     TransitGatewayAttachmentBgpConfiguration'
       Prelude.<$> (x Core..@? "peerAddress")
         Prelude.<*> (x Core..@? "peerAsn")
-        Prelude.<*> (x Core..@? "bgpStatus")
         Prelude.<*> (x Core..@? "transitGatewayAddress")
+        Prelude.<*> (x Core..@? "bgpStatus")
         Prelude.<*> (x Core..@? "transitGatewayAsn")
 
 instance

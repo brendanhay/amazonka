@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
   ( BurninSubtitleTeletextSpacing
       ( ..,
+        BurninSubtitleTeletextSpacing_AUTO,
         BurninSubtitleTeletextSpacing_FIXED_GRID,
         BurninSubtitleTeletextSpacing_PROPORTIONAL
       ),
@@ -63,6 +64,9 @@ newtype BurninSubtitleTeletextSpacing = BurninSubtitleTeletextSpacing'
       Core.ToXML
     )
 
+pattern BurninSubtitleTeletextSpacing_AUTO :: BurninSubtitleTeletextSpacing
+pattern BurninSubtitleTeletextSpacing_AUTO = BurninSubtitleTeletextSpacing' "AUTO"
+
 pattern BurninSubtitleTeletextSpacing_FIXED_GRID :: BurninSubtitleTeletextSpacing
 pattern BurninSubtitleTeletextSpacing_FIXED_GRID = BurninSubtitleTeletextSpacing' "FIXED_GRID"
 
@@ -70,6 +74,7 @@ pattern BurninSubtitleTeletextSpacing_PROPORTIONAL :: BurninSubtitleTeletextSpac
 pattern BurninSubtitleTeletextSpacing_PROPORTIONAL = BurninSubtitleTeletextSpacing' "PROPORTIONAL"
 
 {-# COMPLETE
+  BurninSubtitleTeletextSpacing_AUTO,
   BurninSubtitleTeletextSpacing_FIXED_GRID,
   BurninSubtitleTeletextSpacing_PROPORTIONAL,
   BurninSubtitleTeletextSpacing'

@@ -38,7 +38,7 @@
 -- gaining access to the Snow device associated with that job.
 --
 -- The credentials of a given job, including its manifest file and unlock
--- code, expire 90 days after the job is created.
+-- code, expire 360 days after the job is created.
 module Network.AWS.Snowball.GetJobManifest
   ( -- * Creating a Request
     GetJobManifest (..),

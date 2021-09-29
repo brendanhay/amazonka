@@ -19,9 +19,9 @@ module Network.AWS.Firehose.Types
     -- * Errors
     _ServiceUnavailableException,
     _ConcurrentModificationException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _InvalidKMSResourceException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
     _InvalidArgumentException,
 
@@ -155,13 +155,19 @@ module Network.AWS.Firehose.Types
     -- * DestinationDescription
     DestinationDescription (..),
     newDestinationDescription,
-    destinationDescription_elasticsearchDestinationDescription,
     destinationDescription_httpEndpointDestinationDescription,
+    destinationDescription_elasticsearchDestinationDescription,
     destinationDescription_extendedS3DestinationDescription,
     destinationDescription_redshiftDestinationDescription,
     destinationDescription_splunkDestinationDescription,
     destinationDescription_s3DestinationDescription,
     destinationDescription_destinationId,
+
+    -- * DynamicPartitioningConfiguration
+    DynamicPartitioningConfiguration (..),
+    newDynamicPartitioningConfiguration,
+    dynamicPartitioningConfiguration_enabled,
+    dynamicPartitioningConfiguration_retryOptions,
 
     -- * ElasticsearchBufferingHints
     ElasticsearchBufferingHints (..),
@@ -236,9 +242,10 @@ module Network.AWS.Firehose.Types
     extendedS3DestinationConfiguration_encryptionConfiguration,
     extendedS3DestinationConfiguration_s3BackupConfiguration,
     extendedS3DestinationConfiguration_processingConfiguration,
-    extendedS3DestinationConfiguration_dataFormatConversionConfiguration,
     extendedS3DestinationConfiguration_cloudWatchLoggingOptions,
+    extendedS3DestinationConfiguration_dataFormatConversionConfiguration,
     extendedS3DestinationConfiguration_prefix,
+    extendedS3DestinationConfiguration_dynamicPartitioningConfiguration,
     extendedS3DestinationConfiguration_bufferingHints,
     extendedS3DestinationConfiguration_s3BackupMode,
     extendedS3DestinationConfiguration_compressionFormat,
@@ -250,9 +257,10 @@ module Network.AWS.Firehose.Types
     newExtendedS3DestinationDescription,
     extendedS3DestinationDescription_errorOutputPrefix,
     extendedS3DestinationDescription_processingConfiguration,
-    extendedS3DestinationDescription_dataFormatConversionConfiguration,
     extendedS3DestinationDescription_cloudWatchLoggingOptions,
+    extendedS3DestinationDescription_dataFormatConversionConfiguration,
     extendedS3DestinationDescription_prefix,
+    extendedS3DestinationDescription_dynamicPartitioningConfiguration,
     extendedS3DestinationDescription_s3BackupDescription,
     extendedS3DestinationDescription_s3BackupMode,
     extendedS3DestinationDescription_roleARN,
@@ -267,11 +275,12 @@ module Network.AWS.Firehose.Types
     extendedS3DestinationUpdate_errorOutputPrefix,
     extendedS3DestinationUpdate_encryptionConfiguration,
     extendedS3DestinationUpdate_roleARN,
-    extendedS3DestinationUpdate_bucketARN,
     extendedS3DestinationUpdate_processingConfiguration,
-    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
+    extendedS3DestinationUpdate_bucketARN,
     extendedS3DestinationUpdate_cloudWatchLoggingOptions,
+    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
     extendedS3DestinationUpdate_prefix,
+    extendedS3DestinationUpdate_dynamicPartitioningConfiguration,
     extendedS3DestinationUpdate_s3BackupUpdate,
     extendedS3DestinationUpdate_bufferingHints,
     extendedS3DestinationUpdate_s3BackupMode,
@@ -330,8 +339,8 @@ module Network.AWS.Firehose.Types
     HttpEndpointDestinationDescription (..),
     newHttpEndpointDestinationDescription,
     httpEndpointDestinationDescription_roleARN,
-    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_endpointConfiguration,
+    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_cloudWatchLoggingOptions,
     httpEndpointDestinationDescription_requestConfiguration,
     httpEndpointDestinationDescription_bufferingHints,
@@ -344,8 +353,8 @@ module Network.AWS.Firehose.Types
     newHttpEndpointDestinationUpdate,
     httpEndpointDestinationUpdate_roleARN,
     httpEndpointDestinationUpdate_s3Update,
-    httpEndpointDestinationUpdate_processingConfiguration,
     httpEndpointDestinationUpdate_endpointConfiguration,
+    httpEndpointDestinationUpdate_processingConfiguration,
     httpEndpointDestinationUpdate_cloudWatchLoggingOptions,
     httpEndpointDestinationUpdate_requestConfiguration,
     httpEndpointDestinationUpdate_bufferingHints,
@@ -355,8 +364,8 @@ module Network.AWS.Firehose.Types
     -- * HttpEndpointRequestConfiguration
     HttpEndpointRequestConfiguration (..),
     newHttpEndpointRequestConfiguration,
-    httpEndpointRequestConfiguration_contentEncoding,
     httpEndpointRequestConfiguration_commonAttributes,
+    httpEndpointRequestConfiguration_contentEncoding,
 
     -- * HttpEndpointRetryOptions
     HttpEndpointRetryOptions (..),
@@ -403,8 +412,8 @@ module Network.AWS.Firehose.Types
     orcSerDe_formatVersion,
     orcSerDe_bloomFilterColumns,
     orcSerDe_enablePadding,
-    orcSerDe_bloomFilterFalsePositiveProbability,
     orcSerDe_paddingTolerance,
+    orcSerDe_bloomFilterFalsePositiveProbability,
     orcSerDe_stripeSizeBytes,
 
     -- * OutputFormatConfiguration
@@ -490,8 +499,8 @@ module Network.AWS.Firehose.Types
     redshiftDestinationUpdate_processingConfiguration,
     redshiftDestinationUpdate_cloudWatchLoggingOptions,
     redshiftDestinationUpdate_copyCommand,
-    redshiftDestinationUpdate_s3BackupUpdate,
     redshiftDestinationUpdate_password,
+    redshiftDestinationUpdate_s3BackupUpdate,
     redshiftDestinationUpdate_username,
     redshiftDestinationUpdate_retryOptions,
     redshiftDestinationUpdate_s3BackupMode,
@@ -500,6 +509,11 @@ module Network.AWS.Firehose.Types
     RedshiftRetryOptions (..),
     newRedshiftRetryOptions,
     redshiftRetryOptions_durationInSeconds,
+
+    -- * RetryOptions
+    RetryOptions (..),
+    newRetryOptions,
+    retryOptions_durationInSeconds,
 
     -- * S3DestinationConfiguration
     S3DestinationConfiguration (..),
@@ -550,8 +564,8 @@ module Network.AWS.Firehose.Types
     -- * Serializer
     Serializer (..),
     newSerializer,
-    serializer_orcSerDe,
     serializer_parquetSerDe,
+    serializer_orcSerDe,
 
     -- * SourceDescription
     SourceDescription (..),
@@ -641,6 +655,7 @@ import Network.AWS.Firehose.Types.DeliveryStreamStatus
 import Network.AWS.Firehose.Types.DeliveryStreamType
 import Network.AWS.Firehose.Types.Deserializer
 import Network.AWS.Firehose.Types.DestinationDescription
+import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
 import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
 import Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
 import Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
@@ -691,6 +706,7 @@ import Network.AWS.Firehose.Types.RedshiftDestinationDescription
 import Network.AWS.Firehose.Types.RedshiftDestinationUpdate
 import Network.AWS.Firehose.Types.RedshiftRetryOptions
 import Network.AWS.Firehose.Types.RedshiftS3BackupMode
+import Network.AWS.Firehose.Types.RetryOptions
 import Network.AWS.Firehose.Types.S3BackupMode
 import Network.AWS.Firehose.Types.S3DestinationConfiguration
 import Network.AWS.Firehose.Types.S3DestinationDescription
@@ -799,20 +815,6 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | The resource is already in use and not available for this operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | You have already reached the limit for a requested resource.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | Kinesis Data Firehose throws this exception when an attempt to put
 -- records or to start or stop delivery stream encryption fails. This
 -- happens when the KMS service throws one of the following exception
@@ -823,6 +825,20 @@ _InvalidKMSResourceException =
   Core._MatchServiceError
     defaultService
     "InvalidKMSResourceException"
+
+-- | You have already reached the limit for a requested resource.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The resource is already in use and not available for this operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- | The specified resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -24,12 +24,14 @@ import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
+-- | Indicates whether the instance is enabled for Amazon Web Services Nitro
+-- Enclaves.
 --
 -- /See:/ 'newEnclaveOptions' smart constructor.
 data EnclaveOptions = EnclaveOptions'
-  { -- | If this parameter is set to @true@, the instance is enabled for AWS
-    -- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+  { -- | If this parameter is set to @true@, the instance is enabled for Amazon
+    -- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+    -- Services Nitro Enclaves.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,15 +44,17 @@ data EnclaveOptions = EnclaveOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'enclaveOptions_enabled' - If this parameter is set to @true@, the instance is enabled for AWS
--- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- 'enabled', 'enclaveOptions_enabled' - If this parameter is set to @true@, the instance is enabled for Amazon
+-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+-- Services Nitro Enclaves.
 newEnclaveOptions ::
   EnclaveOptions
 newEnclaveOptions =
   EnclaveOptions' {enabled = Prelude.Nothing}
 
--- | If this parameter is set to @true@, the instance is enabled for AWS
--- Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- | If this parameter is set to @true@, the instance is enabled for Amazon
+-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web
+-- Services Nitro Enclaves.
 enclaveOptions_enabled :: Lens.Lens' EnclaveOptions (Prelude.Maybe Prelude.Bool)
 enclaveOptions_enabled = Lens.lens (\EnclaveOptions' {enabled} -> enabled) (\s@EnclaveOptions' {} a -> s {enabled = a} :: EnclaveOptions)
 

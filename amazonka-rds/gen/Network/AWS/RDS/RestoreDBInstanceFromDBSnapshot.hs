@@ -50,29 +50,29 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- * Request Lenses
     restoreDBInstanceFromDBSnapshot_deletionProtection,
     restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication,
+    restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures,
     restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports,
     restoreDBInstanceFromDBSnapshot_storageType,
-    restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures,
     restoreDBInstanceFromDBSnapshot_optionGroupName,
     restoreDBInstanceFromDBSnapshot_domain,
     restoreDBInstanceFromDBSnapshot_dbSubnetGroupName,
-    restoreDBInstanceFromDBSnapshot_multiAZ,
     restoreDBInstanceFromDBSnapshot_publiclyAccessible,
+    restoreDBInstanceFromDBSnapshot_multiAZ,
     restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds,
     restoreDBInstanceFromDBSnapshot_dbParameterGroupName,
     restoreDBInstanceFromDBSnapshot_availabilityZone,
     restoreDBInstanceFromDBSnapshot_licenseModel,
-    restoreDBInstanceFromDBSnapshot_tdeCredentialPassword,
-    restoreDBInstanceFromDBSnapshot_tags,
     restoreDBInstanceFromDBSnapshot_processorFeatures,
-    restoreDBInstanceFromDBSnapshot_port,
-    restoreDBInstanceFromDBSnapshot_dbInstanceClass,
+    restoreDBInstanceFromDBSnapshot_tags,
     restoreDBInstanceFromDBSnapshot_dbName,
-    restoreDBInstanceFromDBSnapshot_domainIAMRoleName,
+    restoreDBInstanceFromDBSnapshot_dbInstanceClass,
+    restoreDBInstanceFromDBSnapshot_port,
+    restoreDBInstanceFromDBSnapshot_tdeCredentialPassword,
     restoreDBInstanceFromDBSnapshot_engine,
+    restoreDBInstanceFromDBSnapshot_domainIAMRoleName,
     restoreDBInstanceFromDBSnapshot_tdeCredentialArn,
-    restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp,
     restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot,
+    restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp,
     restoreDBInstanceFromDBSnapshot_iops,
     restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade,
     restoreDBInstanceFromDBSnapshot_dbInstanceIdentifier,
@@ -105,14 +105,17 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether to enable mapping of AWS Identity and
-    -- Access Management (IAM) accounts to database accounts. By default,
-    -- mapping is disabled.
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
     --
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
     -- in the /Amazon RDS User Guide./
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the DB instance class of the DB instance
+    -- uses its default processor features.
+    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
     -- | The list of logs that the restored DB instance is to export to
     -- CloudWatch Logs. The values in the list depend on the DB engine being
     -- used. For more information, see
@@ -128,9 +131,6 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
     storageType :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether the DB instance class of the DB instance
-    -- uses its default processor features.
-    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
     -- | The name of the option group to be used for the restored DB instance.
     --
     -- Permanent options, such as the TDE option for Oracle Advanced Security
@@ -154,11 +154,6 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
-    --
-    -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
-    -- DB instance is a Multi-AZ deployment.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
     -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -173,6 +168,11 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- For more information, see CreateDBInstance.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+    --
+    -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
+    -- DB instance is a Multi-AZ deployment.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | A list of EC2 VPC security groups to associate with this DB instance.
     --
     -- Default: The default EC2 VPC security group for the DB subnet group\'s
@@ -209,36 +209,33 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- Valid values: @license-included@ | @bring-your-own-license@ |
     -- @general-public-license@
     licenseModel :: Prelude.Maybe Prelude.Text,
-    -- | The password for the given ARN from the key store in order to access the
-    -- device.
-    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
     processorFeatures :: Prelude.Maybe [ProcessorFeature],
+    tags :: Prelude.Maybe [Tag],
+    -- | The database name for the restored DB instance.
+    --
+    -- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
+    -- engines.
+    dbName :: Prelude.Maybe Prelude.Text,
+    -- | The compute and memory capacity of the Amazon RDS DB instance, for
+    -- example, @db.m4.large@. Not all DB instance classes are available in all
+    -- Amazon Web Services Regions, or for all database engines. For the full
+    -- list of DB instance classes, and availability for your engine, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Default: The same DBInstanceClass as the original DB instance.
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The port number on which the database accepts connections.
     --
     -- Default: The same port as the original DB instance
     --
     -- Constraints: Value must be @1150-65535@
     port :: Prelude.Maybe Prelude.Int,
-    -- | The compute and memory capacity of the Amazon RDS DB instance, for
-    -- example, @db.m4.large@. Not all DB instance classes are available in all
-    -- AWS Regions, or for all database engines. For the full list of DB
-    -- instance classes, and availability for your engine, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
-    -- in the /Amazon RDS User Guide./
-    --
-    -- Default: The same DBInstanceClass as the original DB instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | The database name for the restored DB instance.
-    --
-    -- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
-    -- engines.
-    dbName :: Prelude.Maybe Prelude.Text,
-    -- | Specify the name of the IAM role to be used when making API calls to the
-    -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The password for the given ARN from the key store in order to access the
+    -- device.
+    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
     -- | The database engine to use for the new instance.
     --
     -- Default: The same as source
@@ -255,11 +252,11 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- -   @oracle-ee@
     --
+    -- -   @oracle-ee-cdb@
+    --
     -- -   @oracle-se2@
     --
-    -- -   @oracle-se1@
-    --
-    -- -   @oracle-se@
+    -- -   @oracle-se2-cdb@
     --
     -- -   @postgres@
     --
@@ -271,9 +268,16 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- -   @sqlserver-web@
     engine :: Prelude.Maybe Prelude.Text,
+    -- | Specify the name of the IAM role to be used when making API calls to the
+    -- Directory Service.
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | The ARN from the key store with which to associate the instance for TDE
     -- encryption.
     tdeCredentialArn :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to copy all tags from the restored DB
+    -- instance to snapshots of the DB instance. By default, tags are not
+    -- copied.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to enable a customer-owned IP address
     -- (CoIP) for an RDS on Outposts DB instance.
     --
@@ -283,17 +287,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- outside of its virtual private cloud (VPC) on your local network.
     --
     -- For more information about RDS on Outposts, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on AWS Outposts>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide/.
     --
     -- For more information about CoIPs, see
     -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
-    -- in the /AWS Outposts User Guide/.
+    -- in the /Amazon Web Services Outposts User Guide/.
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether to copy all tags from the restored DB
-    -- instance to snapshots of the DB instance. By default, tags are not
-    -- copied.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the amount of provisioned IOPS for the DB instance, expressed
     -- in I\/O operations per second. If this parameter isn\'t specified, the
     -- IOPS value is taken from the backup. If this parameter is set to 0, the
@@ -350,13 +350,16 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
 --
--- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
+--
+-- 'useDefaultProcessorFeatures', 'restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
+-- uses its default processor features.
 --
 -- 'enableCloudwatchLogsExports', 'restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
@@ -372,9 +375,6 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
---
--- 'useDefaultProcessorFeatures', 'restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
--- uses its default processor features.
 --
 -- 'optionGroupName', 'restoreDBInstanceFromDBSnapshot_optionGroupName' - The name of the option group to be used for the restored DB instance.
 --
@@ -399,11 +399,6 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- Example: @mySubnetgroup@
 --
--- 'multiAZ', 'restoreDBInstanceFromDBSnapshot_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
---
--- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
--- DB instance is a Multi-AZ deployment.
---
 -- 'publiclyAccessible', 'restoreDBInstanceFromDBSnapshot_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
 --
 -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -417,6 +412,11 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- instance with a DNS name that resolves to a private IP address.
 --
 -- For more information, see CreateDBInstance.
+--
+-- 'multiAZ', 'restoreDBInstanceFromDBSnapshot_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
+-- DB instance is a Multi-AZ deployment.
 --
 -- 'vpcSecurityGroupIds', 'restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance.
 --
@@ -454,13 +454,24 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- Valid values: @license-included@ | @bring-your-own-license@ |
 -- @general-public-license@
 --
--- 'tdeCredentialPassword', 'restoreDBInstanceFromDBSnapshot_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
--- device.
+-- 'processorFeatures', 'restoreDBInstanceFromDBSnapshot_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
 --
 -- 'tags', 'restoreDBInstanceFromDBSnapshot_tags' - Undocumented member.
 --
--- 'processorFeatures', 'restoreDBInstanceFromDBSnapshot_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
--- instance class of the DB instance.
+-- 'dbName', 'restoreDBInstanceFromDBSnapshot_dbName' - The database name for the restored DB instance.
+--
+-- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
+-- engines.
+--
+-- 'dbInstanceClass', 'restoreDBInstanceFromDBSnapshot_dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for
+-- example, @db.m4.large@. Not all DB instance classes are available in all
+-- Amazon Web Services Regions, or for all database engines. For the full
+-- list of DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: The same DBInstanceClass as the original DB instance.
 --
 -- 'port', 'restoreDBInstanceFromDBSnapshot_port' - The port number on which the database accepts connections.
 --
@@ -468,22 +479,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- Constraints: Value must be @1150-65535@
 --
--- 'dbInstanceClass', 'restoreDBInstanceFromDBSnapshot_dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for
--- example, @db.m4.large@. Not all DB instance classes are available in all
--- AWS Regions, or for all database engines. For the full list of DB
--- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide./
---
--- Default: The same DBInstanceClass as the original DB instance.
---
--- 'dbName', 'restoreDBInstanceFromDBSnapshot_dbName' - The database name for the restored DB instance.
---
--- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
--- engines.
---
--- 'domainIAMRoleName', 'restoreDBInstanceFromDBSnapshot_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
+-- 'tdeCredentialPassword', 'restoreDBInstanceFromDBSnapshot_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
+-- device.
 --
 -- 'engine', 'restoreDBInstanceFromDBSnapshot_engine' - The database engine to use for the new instance.
 --
@@ -501,11 +498,11 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -517,8 +514,15 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- -   @sqlserver-web@
 --
+-- 'domainIAMRoleName', 'restoreDBInstanceFromDBSnapshot_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+--
 -- 'tdeCredentialArn', 'restoreDBInstanceFromDBSnapshot_tdeCredentialArn' - The ARN from the key store with which to associate the instance for TDE
 -- encryption.
+--
+-- 'copyTagsToSnapshot', 'restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
+-- instance to snapshots of the DB instance. By default, tags are not
+-- copied.
 --
 -- 'enableCustomerOwnedIp', 'restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp' - A value that indicates whether to enable a customer-owned IP address
 -- (CoIP) for an RDS on Outposts DB instance.
@@ -529,16 +533,12 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- outside of its virtual private cloud (VPC) on your local network.
 --
 -- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on AWS Outposts>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
--- in the /AWS Outposts User Guide/.
---
--- 'copyTagsToSnapshot', 'restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
--- instance to snapshots of the DB instance. By default, tags are not
--- copied.
+-- in the /Amazon Web Services Outposts User Guide/.
 --
 -- 'iops', 'restoreDBInstanceFromDBSnapshot_iops' - Specifies the amount of provisioned IOPS for the DB instance, expressed
 -- in I\/O operations per second. If this parameter isn\'t specified, the
@@ -592,31 +592,31 @@ newRestoreDBInstanceFromDBSnapshot
           Prelude.Nothing,
         enableIAMDatabaseAuthentication =
           Prelude.Nothing,
+        useDefaultProcessorFeatures =
+          Prelude.Nothing,
         enableCloudwatchLogsExports =
           Prelude.Nothing,
         storageType = Prelude.Nothing,
-        useDefaultProcessorFeatures =
-          Prelude.Nothing,
         optionGroupName = Prelude.Nothing,
         domain = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
+        multiAZ = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         licenseModel = Prelude.Nothing,
-        tdeCredentialPassword = Prelude.Nothing,
-        tags = Prelude.Nothing,
         processorFeatures = Prelude.Nothing,
-        port = Prelude.Nothing,
-        dbInstanceClass = Prelude.Nothing,
+        tags = Prelude.Nothing,
         dbName = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
+        dbInstanceClass = Prelude.Nothing,
+        port = Prelude.Nothing,
+        tdeCredentialPassword = Prelude.Nothing,
         engine = Prelude.Nothing,
+        domainIAMRoleName = Prelude.Nothing,
         tdeCredentialArn = Prelude.Nothing,
-        enableCustomerOwnedIp = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
+        enableCustomerOwnedIp = Prelude.Nothing,
         iops = Prelude.Nothing,
         autoMinorVersionUpgrade = Prelude.Nothing,
         dbInstanceIdentifier =
@@ -633,15 +633,20 @@ newRestoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot_deletionProtection :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_deletionProtection = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {deletionProtection} -> deletionProtection) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {deletionProtection = a} :: RestoreDBInstanceFromDBSnapshot)
 
--- | A value that indicates whether to enable mapping of AWS Identity and
--- Access Management (IAM) accounts to database accounts. By default,
--- mapping is disabled.
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
 --
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
 restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | A value that indicates whether the DB instance class of the DB instance
+-- uses its default processor features.
+restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The list of logs that the restored DB instance is to export to
 -- CloudWatch Logs. The values in the list depend on the DB engine being
@@ -661,11 +666,6 @@ restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports = Lens.lens (\Restor
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
 restoreDBInstanceFromDBSnapshot_storageType :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_storageType = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {storageType} -> storageType) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {storageType = a} :: RestoreDBInstanceFromDBSnapshot)
-
--- | A value that indicates whether the DB instance class of the DB instance
--- uses its default processor features.
-restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The name of the option group to be used for the restored DB instance.
 --
@@ -696,13 +696,6 @@ restoreDBInstanceFromDBSnapshot_domain = Lens.lens (\RestoreDBInstanceFromDBSnap
 restoreDBInstanceFromDBSnapshot_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceFromDBSnapshot)
 
--- | A value that indicates whether the DB instance is a Multi-AZ deployment.
---
--- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
--- DB instance is a Multi-AZ deployment.
-restoreDBInstanceFromDBSnapshot_multiAZ :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromDBSnapshot_multiAZ = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {multiAZ} -> multiAZ) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {multiAZ = a} :: RestoreDBInstanceFromDBSnapshot)
-
 -- | A value that indicates whether the DB instance is publicly accessible.
 --
 -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -718,6 +711,13 @@ restoreDBInstanceFromDBSnapshot_multiAZ = Lens.lens (\RestoreDBInstanceFromDBSna
 -- For more information, see CreateDBInstance.
 restoreDBInstanceFromDBSnapshot_publiclyAccessible :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_publiclyAccessible = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {publiclyAccessible = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
+-- DB instance is a Multi-AZ deployment.
+restoreDBInstanceFromDBSnapshot_multiAZ :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromDBSnapshot_multiAZ = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {multiAZ} -> multiAZ) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {multiAZ = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 --
@@ -763,19 +763,32 @@ restoreDBInstanceFromDBSnapshot_availabilityZone = Lens.lens (\RestoreDBInstance
 restoreDBInstanceFromDBSnapshot_licenseModel :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_licenseModel = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {licenseModel} -> licenseModel) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {licenseModel = a} :: RestoreDBInstanceFromDBSnapshot)
 
--- | The password for the given ARN from the key store in order to access the
--- device.
-restoreDBInstanceFromDBSnapshot_tdeCredentialPassword :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromDBSnapshot_tdeCredentialPassword = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tdeCredentialPassword = a} :: RestoreDBInstanceFromDBSnapshot)
+-- | The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
+restoreDBInstanceFromDBSnapshot_processorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe [ProcessorFeature])
+restoreDBInstanceFromDBSnapshot_processorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {processorFeatures = a} :: RestoreDBInstanceFromDBSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 restoreDBInstanceFromDBSnapshot_tags :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe [Tag])
 restoreDBInstanceFromDBSnapshot_tags = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tags} -> tags) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tags = a} :: RestoreDBInstanceFromDBSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
--- | The number of CPU cores and the number of threads per core for the DB
--- instance class of the DB instance.
-restoreDBInstanceFromDBSnapshot_processorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe [ProcessorFeature])
-restoreDBInstanceFromDBSnapshot_processorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {processorFeatures = a} :: RestoreDBInstanceFromDBSnapshot) Prelude.. Lens.mapping Lens._Coerce
+-- | The database name for the restored DB instance.
+--
+-- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
+-- engines.
+restoreDBInstanceFromDBSnapshot_dbName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_dbName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbName} -> dbName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbName = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | The compute and memory capacity of the Amazon RDS DB instance, for
+-- example, @db.m4.large@. Not all DB instance classes are available in all
+-- Amazon Web Services Regions, or for all database engines. For the full
+-- list of DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: The same DBInstanceClass as the original DB instance.
+restoreDBInstanceFromDBSnapshot_dbInstanceClass :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_dbInstanceClass = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The port number on which the database accepts connections.
 --
@@ -785,28 +798,10 @@ restoreDBInstanceFromDBSnapshot_processorFeatures = Lens.lens (\RestoreDBInstanc
 restoreDBInstanceFromDBSnapshot_port :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Int)
 restoreDBInstanceFromDBSnapshot_port = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {port} -> port) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {port = a} :: RestoreDBInstanceFromDBSnapshot)
 
--- | The compute and memory capacity of the Amazon RDS DB instance, for
--- example, @db.m4.large@. Not all DB instance classes are available in all
--- AWS Regions, or for all database engines. For the full list of DB
--- instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide./
---
--- Default: The same DBInstanceClass as the original DB instance.
-restoreDBInstanceFromDBSnapshot_dbInstanceClass :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromDBSnapshot_dbInstanceClass = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceFromDBSnapshot)
-
--- | The database name for the restored DB instance.
---
--- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
--- engines.
-restoreDBInstanceFromDBSnapshot_dbName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromDBSnapshot_dbName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbName} -> dbName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbName = a} :: RestoreDBInstanceFromDBSnapshot)
-
--- | Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
-restoreDBInstanceFromDBSnapshot_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {domainIAMRoleName = a} :: RestoreDBInstanceFromDBSnapshot)
+-- | The password for the given ARN from the key store in order to access the
+-- device.
+restoreDBInstanceFromDBSnapshot_tdeCredentialPassword :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_tdeCredentialPassword = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tdeCredentialPassword = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The database engine to use for the new instance.
 --
@@ -824,11 +819,11 @@ restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanc
 --
 -- -   @oracle-ee@
 --
+-- -   @oracle-ee-cdb@
+--
 -- -   @oracle-se2@
 --
--- -   @oracle-se1@
---
--- -   @oracle-se@
+-- -   @oracle-se2-cdb@
 --
 -- -   @postgres@
 --
@@ -842,10 +837,21 @@ restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanc
 restoreDBInstanceFromDBSnapshot_engine :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_engine = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {engine} -> engine) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {engine = a} :: RestoreDBInstanceFromDBSnapshot)
 
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+restoreDBInstanceFromDBSnapshot_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {domainIAMRoleName = a} :: RestoreDBInstanceFromDBSnapshot)
+
 -- | The ARN from the key store with which to associate the instance for TDE
 -- encryption.
 restoreDBInstanceFromDBSnapshot_tdeCredentialArn :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_tdeCredentialArn = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tdeCredentialArn} -> tdeCredentialArn) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tdeCredentialArn = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | A value that indicates whether to copy all tags from the restored DB
+-- instance to snapshots of the DB instance. By default, tags are not
+-- copied.
+restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | A value that indicates whether to enable a customer-owned IP address
 -- (CoIP) for an RDS on Outposts DB instance.
@@ -856,20 +862,14 @@ restoreDBInstanceFromDBSnapshot_tdeCredentialArn = Lens.lens (\RestoreDBInstance
 -- outside of its virtual private cloud (VPC) on your local network.
 --
 -- For more information about RDS on Outposts, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on AWS Outposts>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
 --
 -- For more information about CoIPs, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
--- in the /AWS Outposts User Guide/.
+-- in the /Amazon Web Services Outposts User Guide/.
 restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {enableCustomerOwnedIp = a} :: RestoreDBInstanceFromDBSnapshot)
-
--- | A value that indicates whether to copy all tags from the restored DB
--- instance to snapshots of the DB instance. By default, tags are not
--- copied.
-restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
-restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | Specifies the amount of provisioned IOPS for the DB instance, expressed
 -- in I\/O operations per second. If this parameter isn\'t specified, the
@@ -964,19 +964,19 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
         "DeletionProtection" Core.=: deletionProtection,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
+        "UseDefaultProcessorFeatures"
+          Core.=: useDefaultProcessorFeatures,
         "EnableCloudwatchLogsExports"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
         "StorageType" Core.=: storageType,
-        "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
         "OptionGroupName" Core.=: optionGroupName,
         "Domain" Core.=: domain,
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "MultiAZ" Core.=: multiAZ,
         "PubliclyAccessible" Core.=: publiclyAccessible,
+        "MultiAZ" Core.=: multiAZ,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
@@ -985,25 +985,25 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
         "DBParameterGroupName" Core.=: dbParameterGroupName,
         "AvailabilityZone" Core.=: availabilityZone,
         "LicenseModel" Core.=: licenseModel,
-        "TdeCredentialPassword"
-          Core.=: tdeCredentialPassword,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
         "ProcessorFeatures"
           Core.=: Core.toQuery
             ( Core.toQueryList "ProcessorFeature"
                 Prelude.<$> processorFeatures
             ),
-        "Port" Core.=: port,
-        "DBInstanceClass" Core.=: dbInstanceClass,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "DBName" Core.=: dbName,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "DBInstanceClass" Core.=: dbInstanceClass,
+        "Port" Core.=: port,
+        "TdeCredentialPassword"
+          Core.=: tdeCredentialPassword,
         "Engine" Core.=: engine,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
         "TdeCredentialArn" Core.=: tdeCredentialArn,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "EnableCustomerOwnedIp"
           Core.=: enableCustomerOwnedIp,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "Iops" Core.=: iops,
         "AutoMinorVersionUpgrade"
           Core.=: autoMinorVersionUpgrade,

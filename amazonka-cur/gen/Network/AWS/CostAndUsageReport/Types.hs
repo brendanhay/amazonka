@@ -46,8 +46,9 @@ module Network.AWS.CostAndUsageReport.Types
     -- * ReportDefinition
     ReportDefinition (..),
     newReportDefinition,
-    reportDefinition_additionalArtifacts,
     reportDefinition_reportVersioning,
+    reportDefinition_additionalArtifacts,
+    reportDefinition_billingViewArn,
     reportDefinition_refreshClosedReports,
     reportDefinition_reportName,
     reportDefinition_timeUnit,

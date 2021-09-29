@@ -20,16 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the Cluster$VisibleToAllUsers value, which determines whether the
--- cluster is visible to all IAM users of the AWS account associated with
--- the cluster. Only the IAM user who created the cluster or the AWS
--- account root user can call this action. The default value, @true@,
--- indicates that all IAM users in the AWS account can perform cluster
--- actions if they have the proper IAM policy permissions. If set to
--- @false@, only the IAM user that created the cluster can perform actions.
--- This action works on running clusters. You can override the default
--- @true@ setting when you create a cluster by using the
--- @VisibleToAllUsers@ parameter with @RunJobFlow@.
+-- Sets the Cluster$VisibleToAllUsers value for an EMR cluster. When
+-- @true@, IAM principals in the Amazon Web Services account can perform
+-- EMR cluster actions that their IAM policies allow. When @false@, only
+-- the IAM principal that created the cluster and the Amazon Web Services
+-- account root user can perform EMR actions on the cluster, regardless of
+-- IAM permissions policies attached to other IAM principals.
+--
+-- This action works on running clusters. When you create a cluster, use
+-- the RunJobFlowInput$VisibleToAllUsers parameter.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
+-- in the /Amazon EMRManagement Guide/.
 module Network.AWS.EMR.SetVisibleToAllUsers
   ( -- * Creating a Request
     SetVisibleToAllUsers (..),
@@ -58,10 +61,11 @@ import qualified Network.AWS.Response as Response
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
   { -- | The unique identifier of the job flow (cluster).
     jobFlowIds :: [Prelude.Text],
-    -- | A value of @true@ indicates that all IAM users in the AWS account can
-    -- perform cluster actions if they have the proper IAM policy permissions.
-    -- This is the default. A value of @false@ indicates that only the IAM user
-    -- who created the cluster can perform actions.
+    -- | A value of @true@ indicates that an IAM principal in the Amazon Web
+    -- Services account can perform EMR actions on the cluster that the IAM
+    -- policies attached to the principal allow. A value of @false@ indicates
+    -- that only the IAM principal that created the cluster and the Amazon Web
+    -- Services root user can perform EMR actions on the cluster.
     visibleToAllUsers :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,10 +80,11 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers'
 --
 -- 'jobFlowIds', 'setVisibleToAllUsers_jobFlowIds' - The unique identifier of the job flow (cluster).
 --
--- 'visibleToAllUsers', 'setVisibleToAllUsers_visibleToAllUsers' - A value of @true@ indicates that all IAM users in the AWS account can
--- perform cluster actions if they have the proper IAM policy permissions.
--- This is the default. A value of @false@ indicates that only the IAM user
--- who created the cluster can perform actions.
+-- 'visibleToAllUsers', 'setVisibleToAllUsers_visibleToAllUsers' - A value of @true@ indicates that an IAM principal in the Amazon Web
+-- Services account can perform EMR actions on the cluster that the IAM
+-- policies attached to the principal allow. A value of @false@ indicates
+-- that only the IAM principal that created the cluster and the Amazon Web
+-- Services root user can perform EMR actions on the cluster.
 newSetVisibleToAllUsers ::
   -- | 'visibleToAllUsers'
   Prelude.Bool ->
@@ -94,10 +99,11 @@ newSetVisibleToAllUsers pVisibleToAllUsers_ =
 setVisibleToAllUsers_jobFlowIds :: Lens.Lens' SetVisibleToAllUsers [Prelude.Text]
 setVisibleToAllUsers_jobFlowIds = Lens.lens (\SetVisibleToAllUsers' {jobFlowIds} -> jobFlowIds) (\s@SetVisibleToAllUsers' {} a -> s {jobFlowIds = a} :: SetVisibleToAllUsers) Prelude.. Lens._Coerce
 
--- | A value of @true@ indicates that all IAM users in the AWS account can
--- perform cluster actions if they have the proper IAM policy permissions.
--- This is the default. A value of @false@ indicates that only the IAM user
--- who created the cluster can perform actions.
+-- | A value of @true@ indicates that an IAM principal in the Amazon Web
+-- Services account can perform EMR actions on the cluster that the IAM
+-- policies attached to the principal allow. A value of @false@ indicates
+-- that only the IAM principal that created the cluster and the Amazon Web
+-- Services root user can perform EMR actions on the cluster.
 setVisibleToAllUsers_visibleToAllUsers :: Lens.Lens' SetVisibleToAllUsers Prelude.Bool
 setVisibleToAllUsers_visibleToAllUsers = Lens.lens (\SetVisibleToAllUsers' {visibleToAllUsers} -> visibleToAllUsers) (\s@SetVisibleToAllUsers' {} a -> s {visibleToAllUsers = a} :: SetVisibleToAllUsers)
 

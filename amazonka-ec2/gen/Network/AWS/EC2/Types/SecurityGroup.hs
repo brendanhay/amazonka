@@ -26,7 +26,7 @@ import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a security group
+-- | Describes a security group.
 --
 -- /See:/ 'newSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
@@ -38,7 +38,7 @@ data SecurityGroup = SecurityGroup'
     ipPermissions :: Prelude.Maybe [IpPermission],
     -- | [VPC only] The ID of the VPC for the security group.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID of the owner of the security group.
+    -- | The Amazon Web Services account ID of the owner of the security group.
     ownerId :: Prelude.Text,
     -- | The ID of the security group.
     groupId :: Prelude.Text,
@@ -65,7 +65,7 @@ data SecurityGroup = SecurityGroup'
 --
 -- 'vpcId', 'securityGroup_vpcId' - [VPC only] The ID of the VPC for the security group.
 --
--- 'ownerId', 'securityGroup_ownerId' - The AWS account ID of the owner of the security group.
+-- 'ownerId', 'securityGroup_ownerId' - The Amazon Web Services account ID of the owner of the security group.
 --
 -- 'groupId', 'securityGroup_groupId' - The ID of the security group.
 --
@@ -115,7 +115,7 @@ securityGroup_ipPermissions = Lens.lens (\SecurityGroup' {ipPermissions} -> ipPe
 securityGroup_vpcId :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
 securityGroup_vpcId = Lens.lens (\SecurityGroup' {vpcId} -> vpcId) (\s@SecurityGroup' {} a -> s {vpcId = a} :: SecurityGroup)
 
--- | The AWS account ID of the owner of the security group.
+-- | The Amazon Web Services account ID of the owner of the security group.
 securityGroup_ownerId :: Lens.Lens' SecurityGroup Prelude.Text
 securityGroup_ownerId = Lens.lens (\SecurityGroup' {ownerId} -> ownerId) (\s@SecurityGroup' {} a -> s {ownerId = a} :: SecurityGroup)
 

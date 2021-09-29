@@ -35,7 +35,7 @@ data SanitizationWarning = SanitizationWarning'
     attributeName :: Prelude.Maybe Prelude.Text,
     -- | Required. The reason for which the XML elements or attributes were
     -- sanitized.
-    reason :: Prelude.Maybe SanitizationWarningReason
+    reason :: SanitizationWarningReason
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,12 +54,14 @@ data SanitizationWarning = SanitizationWarning'
 -- 'reason', 'sanitizationWarning_reason' - Required. The reason for which the XML elements or attributes were
 -- sanitized.
 newSanitizationWarning ::
+  -- | 'reason'
+  SanitizationWarningReason ->
   SanitizationWarning
-newSanitizationWarning =
+newSanitizationWarning pReason_ =
   SanitizationWarning'
     { elementName = Prelude.Nothing,
       attributeName = Prelude.Nothing,
-      reason = Prelude.Nothing
+      reason = pReason_
     }
 
 -- | The name of the XML element that has been sanitized.
@@ -72,7 +74,7 @@ sanitizationWarning_attributeName = Lens.lens (\SanitizationWarning' {attributeN
 
 -- | Required. The reason for which the XML elements or attributes were
 -- sanitized.
-sanitizationWarning_reason :: Lens.Lens' SanitizationWarning (Prelude.Maybe SanitizationWarningReason)
+sanitizationWarning_reason :: Lens.Lens' SanitizationWarning SanitizationWarningReason
 sanitizationWarning_reason = Lens.lens (\SanitizationWarning' {reason} -> reason) (\s@SanitizationWarning' {} a -> s {reason = a} :: SanitizationWarning)
 
 instance Core.FromJSON SanitizationWarning where
@@ -83,7 +85,7 @@ instance Core.FromJSON SanitizationWarning where
           SanitizationWarning'
             Prelude.<$> (x Core..:? "elementName")
             Prelude.<*> (x Core..:? "attributeName")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> (x Core..: "reason")
       )
 
 instance Prelude.Hashable SanitizationWarning

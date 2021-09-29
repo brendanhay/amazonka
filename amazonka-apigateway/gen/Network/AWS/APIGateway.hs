@@ -37,11 +37,11 @@ module Network.AWS.APIGateway
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
@@ -52,17 +52,23 @@ module Network.AWS.APIGateway
     -- * Operations
     -- $operations
 
-    -- ** GenerateClientCertificate
-    GenerateClientCertificate (GenerateClientCertificate'),
-    newGenerateClientCertificate,
-    ClientCertificate (ClientCertificate'),
-    newClientCertificate,
-
     -- ** UpdateIntegration
     UpdateIntegration (UpdateIntegration'),
     newUpdateIntegration,
     Integration (Integration'),
     newIntegration,
+
+    -- ** UpdateUsagePlan
+    UpdateUsagePlan (UpdateUsagePlan'),
+    newUpdateUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
+
+    -- ** GetAuthorizer
+    GetAuthorizer (GetAuthorizer'),
+    newGetAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
 
     -- ** DeleteUsagePlan
     DeleteUsagePlan (DeleteUsagePlan'),
@@ -76,59 +82,17 @@ module Network.AWS.APIGateway
     DeleteIntegrationResponse' (DeleteIntegrationResponse''),
     newDeleteIntegrationResponse',
 
+    -- ** GenerateClientCertificate
+    GenerateClientCertificate (GenerateClientCertificate'),
+    newGenerateClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
     -- ** GetUsagePlanKey
     GetUsagePlanKey (GetUsagePlanKey'),
     newGetUsagePlanKey,
     UsagePlanKey (UsagePlanKey'),
     newUsagePlanKey,
-
-    -- ** GetAuthorizer
-    GetAuthorizer (GetAuthorizer'),
-    newGetAuthorizer,
-    Authorizer (Authorizer'),
-    newAuthorizer,
-
-    -- ** UpdateUsagePlan
-    UpdateUsagePlan (UpdateUsagePlan'),
-    newUpdateUsagePlan,
-    UsagePlan (UsagePlan'),
-    newUsagePlan,
-
-    -- ** GetDeployments (Paginated)
-    GetDeployments (GetDeployments'),
-    newGetDeployments,
-    GetDeploymentsResponse (GetDeploymentsResponse'),
-    newGetDeploymentsResponse,
-
-    -- ** DeleteIntegrationResponse
-    DeleteIntegrationResponse (DeleteIntegrationResponse'),
-    newDeleteIntegrationResponse,
-    DeleteIntegrationResponseResponse (DeleteIntegrationResponseResponse'),
-    newDeleteIntegrationResponseResponse,
-
-    -- ** FlushStageCache
-    FlushStageCache (FlushStageCache'),
-    newFlushStageCache,
-    FlushStageCacheResponse (FlushStageCacheResponse'),
-    newFlushStageCacheResponse,
-
-    -- ** DeleteVpcLink
-    DeleteVpcLink (DeleteVpcLink'),
-    newDeleteVpcLink,
-    DeleteVpcLinkResponse (DeleteVpcLinkResponse'),
-    newDeleteVpcLinkResponse,
-
-    -- ** DeleteDocumentationPart
-    DeleteDocumentationPart (DeleteDocumentationPart'),
-    newDeleteDocumentationPart,
-    DeleteDocumentationPartResponse (DeleteDocumentationPartResponse'),
-    newDeleteDocumentationPartResponse,
-
-    -- ** UpdateVpcLink
-    UpdateVpcLink (UpdateVpcLink'),
-    newUpdateVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
 
     -- ** CreateRestApi
     CreateRestApi (CreateRestApi'),
@@ -136,17 +100,11 @@ module Network.AWS.APIGateway
     RestApi (RestApi'),
     newRestApi,
 
-    -- ** UpdateUsage
-    UpdateUsage (UpdateUsage'),
-    newUpdateUsage,
-    Usage (Usage'),
-    newUsage,
-
-    -- ** UpdateIntegrationResponse
-    UpdateIntegrationResponse (UpdateIntegrationResponse'),
-    newUpdateIntegrationResponse,
-    IntegrationResponse (IntegrationResponse'),
-    newIntegrationResponse,
+    -- ** DeleteIntegrationResponse
+    DeleteIntegrationResponse (DeleteIntegrationResponse'),
+    newDeleteIntegrationResponse,
+    DeleteIntegrationResponseResponse (DeleteIntegrationResponseResponse'),
+    newDeleteIntegrationResponseResponse,
 
     -- ** UpdateDocumentationPart
     UpdateDocumentationPart (UpdateDocumentationPart'),
@@ -154,17 +112,47 @@ module Network.AWS.APIGateway
     DocumentationPart (DocumentationPart'),
     newDocumentationPart,
 
-    -- ** GetSdkTypes (Paginated)
-    GetSdkTypes (GetSdkTypes'),
-    newGetSdkTypes,
-    GetSdkTypesResponse (GetSdkTypesResponse'),
-    newGetSdkTypesResponse,
+    -- ** UpdateIntegrationResponse
+    UpdateIntegrationResponse (UpdateIntegrationResponse'),
+    newUpdateIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
 
-    -- ** GetBasePathMappings (Paginated)
-    GetBasePathMappings (GetBasePathMappings'),
-    newGetBasePathMappings,
-    GetBasePathMappingsResponse (GetBasePathMappingsResponse'),
-    newGetBasePathMappingsResponse,
+    -- ** GetDeployments (Paginated)
+    GetDeployments (GetDeployments'),
+    newGetDeployments,
+    GetDeploymentsResponse (GetDeploymentsResponse'),
+    newGetDeploymentsResponse,
+
+    -- ** DeleteDocumentationPart
+    DeleteDocumentationPart (DeleteDocumentationPart'),
+    newDeleteDocumentationPart,
+    DeleteDocumentationPartResponse (DeleteDocumentationPartResponse'),
+    newDeleteDocumentationPartResponse,
+
+    -- ** UpdateUsage
+    UpdateUsage (UpdateUsage'),
+    newUpdateUsage,
+    Usage (Usage'),
+    newUsage,
+
+    -- ** UpdateVpcLink
+    UpdateVpcLink (UpdateVpcLink'),
+    newUpdateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
+
+    -- ** DeleteVpcLink
+    DeleteVpcLink (DeleteVpcLink'),
+    newDeleteVpcLink,
+    DeleteVpcLinkResponse (DeleteVpcLinkResponse'),
+    newDeleteVpcLinkResponse,
+
+    -- ** FlushStageCache
+    FlushStageCache (FlushStageCache'),
+    newFlushStageCache,
+    FlushStageCacheResponse (FlushStageCacheResponse'),
+    newFlushStageCacheResponse,
 
     -- ** GetModel
     GetModel (GetModel'),
@@ -178,17 +166,23 @@ module Network.AWS.APIGateway
     GetClientCertificatesResponse (GetClientCertificatesResponse'),
     newGetClientCertificatesResponse,
 
+    -- ** PutRestApi
+    PutRestApi (PutRestApi'),
+    newPutRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
     -- ** TestInvokeMethod
     TestInvokeMethod (TestInvokeMethod'),
     newTestInvokeMethod,
     TestInvokeMethodResponse (TestInvokeMethodResponse'),
     newTestInvokeMethodResponse,
 
-    -- ** PutRestApi
-    PutRestApi (PutRestApi'),
-    newPutRestApi,
-    RestApi (RestApi'),
-    newRestApi,
+    -- ** GetBasePathMappings (Paginated)
+    GetBasePathMappings (GetBasePathMappings'),
+    newGetBasePathMappings,
+    GetBasePathMappingsResponse (GetBasePathMappingsResponse'),
+    newGetBasePathMappingsResponse,
 
     -- ** GetApiKey
     GetApiKey (GetApiKey'),
@@ -196,11 +190,29 @@ module Network.AWS.APIGateway
     ApiKey (ApiKey'),
     newApiKey,
 
+    -- ** GetSdkTypes (Paginated)
+    GetSdkTypes (GetSdkTypes'),
+    newGetSdkTypes,
+    GetSdkTypesResponse (GetSdkTypesResponse'),
+    newGetSdkTypesResponse,
+
+    -- ** UpdateRequestValidator
+    UpdateRequestValidator (UpdateRequestValidator'),
+    newUpdateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
     -- ** GetGatewayResponses (Paginated)
     GetGatewayResponses (GetGatewayResponses'),
     newGetGatewayResponses,
     GetGatewayResponsesResponse (GetGatewayResponsesResponse'),
     newGetGatewayResponsesResponse,
+
+    -- ** UpdateModel
+    UpdateModel (UpdateModel'),
+    newUpdateModel,
+    Model (Model'),
+    newModel,
 
     -- ** DeleteModel
     DeleteModel (DeleteModel'),
@@ -208,11 +220,35 @@ module Network.AWS.APIGateway
     DeleteModelResponse (DeleteModelResponse'),
     newDeleteModelResponse,
 
+    -- ** DeleteDomainName
+    DeleteDomainName (DeleteDomainName'),
+    newDeleteDomainName,
+    DeleteDomainNameResponse (DeleteDomainNameResponse'),
+    newDeleteDomainNameResponse,
+
     -- ** DeleteMethod
     DeleteMethod (DeleteMethod'),
     newDeleteMethod,
     DeleteMethodResponse' (DeleteMethodResponse''),
     newDeleteMethodResponse',
+
+    -- ** CreateResource
+    CreateResource (CreateResource'),
+    newCreateResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** UpdateDomainName
+    UpdateDomainName (UpdateDomainName'),
+    newUpdateDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** DeleteRequestValidator
+    DeleteRequestValidator (DeleteRequestValidator'),
+    newDeleteRequestValidator,
+    DeleteRequestValidatorResponse (DeleteRequestValidatorResponse'),
+    newDeleteRequestValidatorResponse,
 
     -- ** GetDocumentationVersion
     GetDocumentationVersion (GetDocumentationVersion'),
@@ -226,83 +262,11 @@ module Network.AWS.APIGateway
     Method (Method'),
     newMethod,
 
-    -- ** UpdateModel
-    UpdateModel (UpdateModel'),
-    newUpdateModel,
-    Model (Model'),
-    newModel,
-
-    -- ** UpdateDomainName
-    UpdateDomainName (UpdateDomainName'),
-    newUpdateDomainName,
-    DomainName (DomainName'),
-    newDomainName,
-
-    -- ** CreateResource
-    CreateResource (CreateResource'),
-    newCreateResource,
-    Resource (Resource'),
-    newResource,
-
-    -- ** DeleteDomainName
-    DeleteDomainName (DeleteDomainName'),
-    newDeleteDomainName,
-    DeleteDomainNameResponse (DeleteDomainNameResponse'),
-    newDeleteDomainNameResponse,
-
-    -- ** UpdateRequestValidator
-    UpdateRequestValidator (UpdateRequestValidator'),
-    newUpdateRequestValidator,
-    RequestValidator (RequestValidator'),
-    newRequestValidator,
-
-    -- ** DeleteRequestValidator
-    DeleteRequestValidator (DeleteRequestValidator'),
-    newDeleteRequestValidator,
-    DeleteRequestValidatorResponse (DeleteRequestValidatorResponse'),
-    newDeleteRequestValidatorResponse,
-
-    -- ** GetUsagePlans (Paginated)
-    GetUsagePlans (GetUsagePlans'),
-    newGetUsagePlans,
-    GetUsagePlansResponse (GetUsagePlansResponse'),
-    newGetUsagePlansResponse,
-
-    -- ** CreateRequestValidator
-    CreateRequestValidator (CreateRequestValidator'),
-    newCreateRequestValidator,
-    RequestValidator (RequestValidator'),
-    newRequestValidator,
-
     -- ** CreateDomainName
     CreateDomainName (CreateDomainName'),
     newCreateDomainName,
     DomainName (DomainName'),
     newDomainName,
-
-    -- ** GetVpcLink
-    GetVpcLink (GetVpcLink'),
-    newGetVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
-
-    -- ** UpdateResource
-    UpdateResource (UpdateResource'),
-    newUpdateResource,
-    Resource (Resource'),
-    newResource,
-
-    -- ** GetDocumentationPart
-    GetDocumentationPart (GetDocumentationPart'),
-    newGetDocumentationPart,
-    DocumentationPart (DocumentationPart'),
-    newDocumentationPart,
-
-    -- ** GetUsage (Paginated)
-    GetUsage (GetUsage'),
-    newGetUsage,
-    Usage (Usage'),
-    newUsage,
 
     -- ** ImportDocumentationParts
     ImportDocumentationParts (ImportDocumentationParts'),
@@ -310,11 +274,11 @@ module Network.AWS.APIGateway
     ImportDocumentationPartsResponse (ImportDocumentationPartsResponse'),
     newImportDocumentationPartsResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    Resource (Resource'),
+    newResource,
 
     -- ** DeleteResource
     DeleteResource (DeleteResource'),
@@ -322,35 +286,59 @@ module Network.AWS.APIGateway
     DeleteResourceResponse (DeleteResourceResponse'),
     newDeleteResourceResponse,
 
+    -- ** GetDocumentationPart
+    GetDocumentationPart (GetDocumentationPart'),
+    newGetDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
+
+    -- ** GetUsagePlans (Paginated)
+    GetUsagePlans (GetUsagePlans'),
+    newGetUsagePlans,
+    GetUsagePlansResponse (GetUsagePlansResponse'),
+    newGetUsagePlansResponse,
+
+    -- ** GetUsage (Paginated)
+    GetUsage (GetUsage'),
+    newGetUsage,
+    Usage (Usage'),
+    newUsage,
+
+    -- ** GetVpcLink
+    GetVpcLink (GetVpcLink'),
+    newGetVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
+
     -- ** GetIntegrationResponse
     GetIntegrationResponse (GetIntegrationResponse'),
     newGetIntegrationResponse,
     IntegrationResponse (IntegrationResponse'),
     newIntegrationResponse,
 
-    -- ** DeleteDeployment
-    DeleteDeployment (DeleteDeployment'),
-    newDeleteDeployment,
-    DeleteDeploymentResponse (DeleteDeploymentResponse'),
-    newDeleteDeploymentResponse,
+    -- ** CreateRequestValidator
+    CreateRequestValidator (CreateRequestValidator'),
+    newCreateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
 
-    -- ** CreateStage
-    CreateStage (CreateStage'),
-    newCreateStage,
-    Stage (Stage'),
-    newStage,
-
-    -- ** GetIntegration
-    GetIntegration (GetIntegration'),
-    newGetIntegration,
-    Integration (Integration'),
-    newIntegration,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** GetIntegration
+    GetIntegration (GetIntegration'),
+    newGetIntegration,
+    Integration (Integration'),
+    newIntegration,
 
     -- ** UpdateDeployment
     UpdateDeployment (UpdateDeployment'),
@@ -364,27 +352,15 @@ module Network.AWS.APIGateway
     UsagePlan (UsagePlan'),
     newUsagePlan,
 
-    -- ** GetRestApis (Paginated)
-    GetRestApis (GetRestApis'),
-    newGetRestApis,
-    GetRestApisResponse (GetRestApisResponse'),
-    newGetRestApisResponse,
+    -- ** DeleteDeployment
+    DeleteDeployment (DeleteDeployment'),
+    newDeleteDeployment,
+    DeleteDeploymentResponse (DeleteDeploymentResponse'),
+    newDeleteDeploymentResponse,
 
-    -- ** CreateAuthorizer
-    CreateAuthorizer (CreateAuthorizer'),
-    newCreateAuthorizer,
-    Authorizer (Authorizer'),
-    newAuthorizer,
-
-    -- ** DeleteStage
-    DeleteStage (DeleteStage'),
-    newDeleteStage,
-    DeleteStageResponse (DeleteStageResponse'),
-    newDeleteStageResponse,
-
-    -- ** UpdateStage
-    UpdateStage (UpdateStage'),
-    newUpdateStage,
+    -- ** CreateStage
+    CreateStage (CreateStage'),
+    newCreateStage,
     Stage (Stage'),
     newStage,
 
@@ -394,11 +370,29 @@ module Network.AWS.APIGateway
     UsagePlanKey (UsagePlanKey'),
     newUsagePlanKey,
 
-    -- ** GetGatewayResponse
-    GetGatewayResponse (GetGatewayResponse'),
-    newGetGatewayResponse,
-    GatewayResponse (GatewayResponse'),
-    newGatewayResponse,
+    -- ** PutMethodResponse
+    PutMethodResponse (PutMethodResponse'),
+    newPutMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** DeleteStage
+    DeleteStage (DeleteStage'),
+    newDeleteStage,
+    DeleteStageResponse (DeleteStageResponse'),
+    newDeleteStageResponse,
+
+    -- ** CreateAuthorizer
+    CreateAuthorizer (CreateAuthorizer'),
+    newCreateAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
+
+    -- ** UpdateStage
+    UpdateStage (UpdateStage'),
+    newUpdateStage,
+    Stage (Stage'),
+    newStage,
 
     -- ** ImportRestApi
     ImportRestApi (ImportRestApi'),
@@ -406,17 +400,17 @@ module Network.AWS.APIGateway
     RestApi (RestApi'),
     newRestApi,
 
-    -- ** PutMethodResponse
-    PutMethodResponse (PutMethodResponse'),
-    newPutMethodResponse,
-    MethodResponse (MethodResponse'),
-    newMethodResponse,
+    -- ** GetRestApis (Paginated)
+    GetRestApis (GetRestApis'),
+    newGetRestApis,
+    GetRestApisResponse (GetRestApisResponse'),
+    newGetRestApisResponse,
 
-    -- ** GetBasePathMapping
-    GetBasePathMapping (GetBasePathMapping'),
-    newGetBasePathMapping,
-    BasePathMapping (BasePathMapping'),
-    newBasePathMapping,
+    -- ** GetGatewayResponse
+    GetGatewayResponse (GetGatewayResponse'),
+    newGetGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
 
     -- ** GetRequestValidators (Paginated)
     GetRequestValidators (GetRequestValidators'),
@@ -424,11 +418,11 @@ module Network.AWS.APIGateway
     GetRequestValidatorsResponse (GetRequestValidatorsResponse'),
     newGetRequestValidatorsResponse,
 
-    -- ** GetDomainNames (Paginated)
-    GetDomainNames (GetDomainNames'),
-    newGetDomainNames,
-    GetDomainNamesResponse (GetDomainNamesResponse'),
-    newGetDomainNamesResponse,
+    -- ** GetExport
+    GetExport (GetExport'),
+    newGetExport,
+    GetExportResponse (GetExportResponse'),
+    newGetExportResponse,
 
     -- ** GetSdkType
     GetSdkType (GetSdkType'),
@@ -442,11 +436,17 @@ module Network.AWS.APIGateway
     GatewayResponse (GatewayResponse'),
     newGatewayResponse,
 
-    -- ** GetExport
-    GetExport (GetExport'),
-    newGetExport,
-    GetExportResponse (GetExportResponse'),
-    newGetExportResponse,
+    -- ** GetBasePathMapping
+    GetBasePathMapping (GetBasePathMapping'),
+    newGetBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** GetDomainNames (Paginated)
+    GetDomainNames (GetDomainNames'),
+    newGetDomainNames,
+    GetDomainNamesResponse (GetDomainNamesResponse'),
+    newGetDomainNamesResponse,
 
     -- ** GetClientCertificate
     GetClientCertificate (GetClientCertificate'),
@@ -454,11 +454,17 @@ module Network.AWS.APIGateway
     ClientCertificate (ClientCertificate'),
     newClientCertificate,
 
-    -- ** TestInvokeAuthorizer
-    TestInvokeAuthorizer (TestInvokeAuthorizer'),
-    newTestInvokeAuthorizer,
-    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
-    newTestInvokeAuthorizerResponse,
+    -- ** PutIntegration
+    PutIntegration (PutIntegration'),
+    newPutIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** GetResources (Paginated)
+    GetResources (GetResources'),
+    newGetResources,
+    GetResourcesResponse (GetResourcesResponse'),
+    newGetResourcesResponse,
 
     -- ** GetTags
     GetTags (GetTags'),
@@ -478,17 +484,17 @@ module Network.AWS.APIGateway
     Account (Account'),
     newAccount,
 
-    -- ** PutIntegration
-    PutIntegration (PutIntegration'),
-    newPutIntegration,
-    Integration (Integration'),
-    newIntegration,
+    -- ** TestInvokeAuthorizer
+    TestInvokeAuthorizer (TestInvokeAuthorizer'),
+    newTestInvokeAuthorizer,
+    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
+    newTestInvokeAuthorizerResponse,
 
-    -- ** GetResources (Paginated)
-    GetResources (GetResources'),
-    newGetResources,
-    GetResourcesResponse (GetResourcesResponse'),
-    newGetResourcesResponse,
+    -- ** PutIntegrationResponse
+    PutIntegrationResponse (PutIntegrationResponse'),
+    newPutIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
 
     -- ** GetResource
     GetResource (GetResource'),
@@ -508,29 +514,17 @@ module Network.AWS.APIGateway
     GetAuthorizersResponse (GetAuthorizersResponse'),
     newGetAuthorizersResponse,
 
-    -- ** PutIntegrationResponse
-    PutIntegrationResponse (PutIntegrationResponse'),
-    newPutIntegrationResponse,
-    IntegrationResponse (IntegrationResponse'),
-    newIntegrationResponse,
-
     -- ** GetUsagePlanKeys (Paginated)
     GetUsagePlanKeys (GetUsagePlanKeys'),
     newGetUsagePlanKeys,
     GetUsagePlanKeysResponse (GetUsagePlanKeysResponse'),
     newGetUsagePlanKeysResponse,
 
-    -- ** CreateDocumentationPart
-    CreateDocumentationPart (CreateDocumentationPart'),
-    newCreateDocumentationPart,
-    DocumentationPart (DocumentationPart'),
-    newDocumentationPart,
-
-    -- ** GetStages
-    GetStages (GetStages'),
-    newGetStages,
-    GetStagesResponse (GetStagesResponse'),
-    newGetStagesResponse,
+    -- ** CreateVpcLink
+    CreateVpcLink (CreateVpcLink'),
+    newCreateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
 
     -- ** GetDomainName
     GetDomainName (GetDomainName'),
@@ -544,29 +538,17 @@ module Network.AWS.APIGateway
     GetModelTemplateResponse (GetModelTemplateResponse'),
     newGetModelTemplateResponse,
 
+    -- ** UpdateDocumentationVersion
+    UpdateDocumentationVersion (UpdateDocumentationVersion'),
+    newUpdateDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
     -- ** DeleteRestApi
     DeleteRestApi (DeleteRestApi'),
     newDeleteRestApi,
     DeleteRestApiResponse (DeleteRestApiResponse'),
     newDeleteRestApiResponse,
-
-    -- ** GetMethod
-    GetMethod (GetMethod'),
-    newGetMethod,
-    Method (Method'),
-    newMethod,
-
-    -- ** UpdateRestApi
-    UpdateRestApi (UpdateRestApi'),
-    newUpdateRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** CreateVpcLink
-    CreateVpcLink (CreateVpcLink'),
-    newCreateVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
 
     -- ** GetRequestValidator
     GetRequestValidator (GetRequestValidator'),
@@ -574,17 +556,11 @@ module Network.AWS.APIGateway
     RequestValidator (RequestValidator'),
     newRequestValidator,
 
-    -- ** UpdateDocumentationVersion
-    UpdateDocumentationVersion (UpdateDocumentationVersion'),
-    newUpdateDocumentationVersion,
-    DocumentationVersion (DocumentationVersion'),
-    newDocumentationVersion,
-
-    -- ** ImportApiKeys
-    ImportApiKeys (ImportApiKeys'),
-    newImportApiKeys,
-    ImportApiKeysResponse (ImportApiKeysResponse'),
-    newImportApiKeysResponse,
+    -- ** CreateDocumentationPart
+    CreateDocumentationPart (CreateDocumentationPart'),
+    newCreateDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
 
     -- ** DeleteDocumentationVersion
     DeleteDocumentationVersion (DeleteDocumentationVersion'),
@@ -592,17 +568,29 @@ module Network.AWS.APIGateway
     DeleteDocumentationVersionResponse (DeleteDocumentationVersionResponse'),
     newDeleteDocumentationVersionResponse,
 
-    -- ** PutMethod
-    PutMethod (PutMethod'),
-    newPutMethod,
+    -- ** ImportApiKeys
+    ImportApiKeys (ImportApiKeys'),
+    newImportApiKeys,
+    ImportApiKeysResponse (ImportApiKeysResponse'),
+    newImportApiKeysResponse,
+
+    -- ** UpdateRestApi
+    UpdateRestApi (UpdateRestApi'),
+    newUpdateRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** GetStages
+    GetStages (GetStages'),
+    newGetStages,
+    GetStagesResponse (GetStagesResponse'),
+    newGetStagesResponse,
+
+    -- ** GetMethod
+    GetMethod (GetMethod'),
+    newGetMethod,
     Method (Method'),
     newMethod,
-
-    -- ** DeleteApiKey
-    DeleteApiKey (DeleteApiKey'),
-    newDeleteApiKey,
-    DeleteApiKeyResponse (DeleteApiKeyResponse'),
-    newDeleteApiKeyResponse,
 
     -- ** FlushStageAuthorizersCache
     FlushStageAuthorizersCache (FlushStageAuthorizersCache'),
@@ -610,11 +598,11 @@ module Network.AWS.APIGateway
     FlushStageAuthorizersCacheResponse (FlushStageAuthorizersCacheResponse'),
     newFlushStageAuthorizersCacheResponse,
 
-    -- ** UpdateApiKey
-    UpdateApiKey (UpdateApiKey'),
-    newUpdateApiKey,
-    ApiKey (ApiKey'),
-    newApiKey,
+    -- ** DeleteApiKey
+    DeleteApiKey (DeleteApiKey'),
+    newDeleteApiKey,
+    DeleteApiKeyResponse (DeleteApiKeyResponse'),
+    newDeleteApiKeyResponse,
 
     -- ** GetRestApi
     GetRestApi (GetRestApi'),
@@ -622,11 +610,17 @@ module Network.AWS.APIGateway
     RestApi (RestApi'),
     newRestApi,
 
-    -- ** CreateModel
-    CreateModel (CreateModel'),
-    newCreateModel,
-    Model (Model'),
-    newModel,
+    -- ** UpdateApiKey
+    UpdateApiKey (UpdateApiKey'),
+    newUpdateApiKey,
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** PutMethod
+    PutMethod (PutMethod'),
+    newPutMethod,
+    Method (Method'),
+    newMethod,
 
     -- ** CreateApiKey
     CreateApiKey (CreateApiKey'),
@@ -634,11 +628,11 @@ module Network.AWS.APIGateway
     ApiKey (ApiKey'),
     newApiKey,
 
-    -- ** DeleteUsagePlanKey
-    DeleteUsagePlanKey (DeleteUsagePlanKey'),
-    newDeleteUsagePlanKey,
-    DeleteUsagePlanKeyResponse (DeleteUsagePlanKeyResponse'),
-    newDeleteUsagePlanKeyResponse,
+    -- ** CreateModel
+    CreateModel (CreateModel'),
+    newCreateModel,
+    Model (Model'),
+    newModel,
 
     -- ** UpdateAccount
     UpdateAccount (UpdateAccount'),
@@ -646,11 +640,11 @@ module Network.AWS.APIGateway
     Account (Account'),
     newAccount,
 
-    -- ** GetVpcLinks (Paginated)
-    GetVpcLinks (GetVpcLinks'),
-    newGetVpcLinks,
-    GetVpcLinksResponse (GetVpcLinksResponse'),
-    newGetVpcLinksResponse,
+    -- ** GetDocumentationParts (Paginated)
+    GetDocumentationParts (GetDocumentationParts'),
+    newGetDocumentationParts,
+    GetDocumentationPartsResponse (GetDocumentationPartsResponse'),
+    newGetDocumentationPartsResponse,
 
     -- ** UpdateAuthorizer
     UpdateAuthorizer (UpdateAuthorizer'),
@@ -658,17 +652,17 @@ module Network.AWS.APIGateway
     Authorizer (Authorizer'),
     newAuthorizer,
 
-    -- ** CreateBasePathMapping
-    CreateBasePathMapping (CreateBasePathMapping'),
-    newCreateBasePathMapping,
-    BasePathMapping (BasePathMapping'),
-    newBasePathMapping,
+    -- ** GetVpcLinks (Paginated)
+    GetVpcLinks (GetVpcLinks'),
+    newGetVpcLinks,
+    GetVpcLinksResponse (GetVpcLinksResponse'),
+    newGetVpcLinksResponse,
 
-    -- ** GetDocumentationParts (Paginated)
-    GetDocumentationParts (GetDocumentationParts'),
-    newGetDocumentationParts,
-    GetDocumentationPartsResponse (GetDocumentationPartsResponse'),
-    newGetDocumentationPartsResponse,
+    -- ** DeleteUsagePlanKey
+    DeleteUsagePlanKey (DeleteUsagePlanKey'),
+    newDeleteUsagePlanKey,
+    DeleteUsagePlanKeyResponse (DeleteUsagePlanKeyResponse'),
+    newDeleteUsagePlanKeyResponse,
 
     -- ** DeleteAuthorizer
     DeleteAuthorizer (DeleteAuthorizer'),
@@ -676,29 +670,11 @@ module Network.AWS.APIGateway
     DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
     newDeleteAuthorizerResponse,
 
-    -- ** DeleteClientCertificate
-    DeleteClientCertificate (DeleteClientCertificate'),
-    newDeleteClientCertificate,
-    DeleteClientCertificateResponse (DeleteClientCertificateResponse'),
-    newDeleteClientCertificateResponse,
-
-    -- ** DeleteMethodResponse
-    DeleteMethodResponse (DeleteMethodResponse'),
-    newDeleteMethodResponse,
-    DeleteMethodResponseResponse (DeleteMethodResponseResponse'),
-    newDeleteMethodResponseResponse,
-
-    -- ** DeleteBasePathMapping
-    DeleteBasePathMapping (DeleteBasePathMapping'),
-    newDeleteBasePathMapping,
-    DeleteBasePathMappingResponse (DeleteBasePathMappingResponse'),
-    newDeleteBasePathMappingResponse,
-
-    -- ** GetDocumentationVersions (Paginated)
-    GetDocumentationVersions (GetDocumentationVersions'),
-    newGetDocumentationVersions,
-    GetDocumentationVersionsResponse (GetDocumentationVersionsResponse'),
-    newGetDocumentationVersionsResponse,
+    -- ** CreateBasePathMapping
+    CreateBasePathMapping (CreateBasePathMapping'),
+    newCreateBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
 
     -- ** UpdateBasePathMapping
     UpdateBasePathMapping (UpdateBasePathMapping'),
@@ -706,17 +682,23 @@ module Network.AWS.APIGateway
     BasePathMapping (BasePathMapping'),
     newBasePathMapping,
 
+    -- ** GetDocumentationVersions (Paginated)
+    GetDocumentationVersions (GetDocumentationVersions'),
+    newGetDocumentationVersions,
+    GetDocumentationVersionsResponse (GetDocumentationVersionsResponse'),
+    newGetDocumentationVersionsResponse,
+
+    -- ** DeleteMethodResponse
+    DeleteMethodResponse (DeleteMethodResponse'),
+    newDeleteMethodResponse,
+    DeleteMethodResponseResponse (DeleteMethodResponseResponse'),
+    newDeleteMethodResponseResponse,
+
     -- ** UpdateClientCertificate
     UpdateClientCertificate (UpdateClientCertificate'),
     newUpdateClientCertificate,
     ClientCertificate (ClientCertificate'),
     newClientCertificate,
-
-    -- ** UpdateMethodResponse
-    UpdateMethodResponse (UpdateMethodResponse'),
-    newUpdateMethodResponse,
-    MethodResponse (MethodResponse'),
-    newMethodResponse,
 
     -- ** CreateDeployment
     CreateDeployment (CreateDeployment'),
@@ -724,11 +706,35 @@ module Network.AWS.APIGateway
     Deployment (Deployment'),
     newDeployment,
 
-    -- ** GetApiKeys (Paginated)
-    GetApiKeys (GetApiKeys'),
-    newGetApiKeys,
-    GetApiKeysResponse (GetApiKeysResponse'),
-    newGetApiKeysResponse,
+    -- ** UpdateMethodResponse
+    UpdateMethodResponse (UpdateMethodResponse'),
+    newUpdateMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** DeleteBasePathMapping
+    DeleteBasePathMapping (DeleteBasePathMapping'),
+    newDeleteBasePathMapping,
+    DeleteBasePathMappingResponse (DeleteBasePathMappingResponse'),
+    newDeleteBasePathMappingResponse,
+
+    -- ** DeleteClientCertificate
+    DeleteClientCertificate (DeleteClientCertificate'),
+    newDeleteClientCertificate,
+    DeleteClientCertificateResponse (DeleteClientCertificateResponse'),
+    newDeleteClientCertificateResponse,
+
+    -- ** DeleteGatewayResponse
+    DeleteGatewayResponse (DeleteGatewayResponse'),
+    newDeleteGatewayResponse,
+    DeleteGatewayResponseResponse (DeleteGatewayResponseResponse'),
+    newDeleteGatewayResponseResponse,
+
+    -- ** GetModels (Paginated)
+    GetModels (GetModels'),
+    newGetModels,
+    GetModelsResponse (GetModelsResponse'),
+    newGetModelsResponse,
 
     -- ** CreateUsagePlan
     CreateUsagePlan (CreateUsagePlan'),
@@ -754,23 +760,17 @@ module Network.AWS.APIGateway
     MethodResponse (MethodResponse'),
     newMethodResponse,
 
-    -- ** GetModels (Paginated)
-    GetModels (GetModels'),
-    newGetModels,
-    GetModelsResponse (GetModelsResponse'),
-    newGetModelsResponse,
+    -- ** GetApiKeys (Paginated)
+    GetApiKeys (GetApiKeys'),
+    newGetApiKeys,
+    GetApiKeysResponse (GetApiKeysResponse'),
+    newGetApiKeysResponse,
 
     -- ** GetStage
     GetStage (GetStage'),
     newGetStage,
     Stage (Stage'),
     newStage,
-
-    -- ** DeleteGatewayResponse
-    DeleteGatewayResponse (DeleteGatewayResponse'),
-    newDeleteGatewayResponse,
-    DeleteGatewayResponseResponse (DeleteGatewayResponseResponse'),
-    newDeleteGatewayResponseResponse,
 
     -- * Types
 

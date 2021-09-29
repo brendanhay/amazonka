@@ -42,10 +42,10 @@ data NetworkConnectionAction = NetworkConnectionAction'
     blocked :: Prelude.Maybe Prelude.Bool,
     -- | The remote IP information of the connection.
     remoteIpDetails :: Prelude.Maybe RemoteIpDetails,
-    -- | The local IP information of the connection.
-    localIpDetails :: Prelude.Maybe LocalIpDetails,
     -- | The network connection protocol.
-    protocol :: Prelude.Maybe Prelude.Text
+    protocol :: Prelude.Maybe Prelude.Text,
+    -- | The local IP information of the connection.
+    localIpDetails :: Prelude.Maybe LocalIpDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,9 +67,9 @@ data NetworkConnectionAction = NetworkConnectionAction'
 --
 -- 'remoteIpDetails', 'networkConnectionAction_remoteIpDetails' - The remote IP information of the connection.
 --
--- 'localIpDetails', 'networkConnectionAction_localIpDetails' - The local IP information of the connection.
---
 -- 'protocol', 'networkConnectionAction_protocol' - The network connection protocol.
+--
+-- 'localIpDetails', 'networkConnectionAction_localIpDetails' - The local IP information of the connection.
 newNetworkConnectionAction ::
   NetworkConnectionAction
 newNetworkConnectionAction =
@@ -80,8 +80,8 @@ newNetworkConnectionAction =
       connectionDirection = Prelude.Nothing,
       blocked = Prelude.Nothing,
       remoteIpDetails = Prelude.Nothing,
-      localIpDetails = Prelude.Nothing,
-      protocol = Prelude.Nothing
+      protocol = Prelude.Nothing,
+      localIpDetails = Prelude.Nothing
     }
 
 -- | The remote port information of the connection.
@@ -104,13 +104,13 @@ networkConnectionAction_blocked = Lens.lens (\NetworkConnectionAction' {blocked}
 networkConnectionAction_remoteIpDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe RemoteIpDetails)
 networkConnectionAction_remoteIpDetails = Lens.lens (\NetworkConnectionAction' {remoteIpDetails} -> remoteIpDetails) (\s@NetworkConnectionAction' {} a -> s {remoteIpDetails = a} :: NetworkConnectionAction)
 
--- | The local IP information of the connection.
-networkConnectionAction_localIpDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe LocalIpDetails)
-networkConnectionAction_localIpDetails = Lens.lens (\NetworkConnectionAction' {localIpDetails} -> localIpDetails) (\s@NetworkConnectionAction' {} a -> s {localIpDetails = a} :: NetworkConnectionAction)
-
 -- | The network connection protocol.
 networkConnectionAction_protocol :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe Prelude.Text)
 networkConnectionAction_protocol = Lens.lens (\NetworkConnectionAction' {protocol} -> protocol) (\s@NetworkConnectionAction' {} a -> s {protocol = a} :: NetworkConnectionAction)
+
+-- | The local IP information of the connection.
+networkConnectionAction_localIpDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe LocalIpDetails)
+networkConnectionAction_localIpDetails = Lens.lens (\NetworkConnectionAction' {localIpDetails} -> localIpDetails) (\s@NetworkConnectionAction' {} a -> s {localIpDetails = a} :: NetworkConnectionAction)
 
 instance Core.FromJSON NetworkConnectionAction where
   parseJSON =
@@ -123,8 +123,8 @@ instance Core.FromJSON NetworkConnectionAction where
             Prelude.<*> (x Core..:? "connectionDirection")
             Prelude.<*> (x Core..:? "blocked")
             Prelude.<*> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "localIpDetails")
             Prelude.<*> (x Core..:? "protocol")
+            Prelude.<*> (x Core..:? "localIpDetails")
       )
 
 instance Prelude.Hashable NetworkConnectionAction

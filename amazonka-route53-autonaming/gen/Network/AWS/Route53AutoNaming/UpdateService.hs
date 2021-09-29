@@ -36,10 +36,10 @@
 --     are deleted from the service.
 --
 -- -   If you omit an existing @HealthCheckCustomConfig@ configuration from
---     an @UpdateService@ request, the configuration is not deleted from
+--     an @UpdateService@ request, the configuration isn\'t deleted from
 --     the service.
 --
--- When you update settings for a service, AWS Cloud Map also updates the
+-- When you update settings for a service, Cloud Map also updates the
 -- corresponding settings in all the records and health checks that were
 -- created by using the specified service.
 module Network.AWS.Route53AutoNaming.UpdateService

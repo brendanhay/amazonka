@@ -51,6 +51,7 @@ library
     Network.AWS.Snowball.CreateAddress
     Network.AWS.Snowball.CreateCluster
     Network.AWS.Snowball.CreateJob
+    Network.AWS.Snowball.CreateLongTermPricing
     Network.AWS.Snowball.CreateReturnShippingLabel
     Network.AWS.Snowball.DescribeAddress
     Network.AWS.Snowball.DescribeAddresses
@@ -66,6 +67,7 @@ library
     Network.AWS.Snowball.ListClusters
     Network.AWS.Snowball.ListCompatibleImages
     Network.AWS.Snowball.ListJobs
+    Network.AWS.Snowball.ListLongTermPricing
     Network.AWS.Snowball.Types
     Network.AWS.Snowball.Types.Address
     Network.AWS.Snowball.Types.ClusterListEntry
@@ -74,6 +76,7 @@ library
     Network.AWS.Snowball.Types.CompatibleImage
     Network.AWS.Snowball.Types.DataTransfer
     Network.AWS.Snowball.Types.DeviceConfiguration
+    Network.AWS.Snowball.Types.DeviceServiceName
     Network.AWS.Snowball.Types.Ec2AmiResource
     Network.AWS.Snowball.Types.EventTriggerDefinition
     Network.AWS.Snowball.Types.INDTaxDocuments
@@ -85,7 +88,12 @@ library
     Network.AWS.Snowball.Types.JobType
     Network.AWS.Snowball.Types.KeyRange
     Network.AWS.Snowball.Types.LambdaResource
+    Network.AWS.Snowball.Types.LongTermPricingListEntry
+    Network.AWS.Snowball.Types.LongTermPricingType
+    Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
     Network.AWS.Snowball.Types.Notification
+    Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
+    Network.AWS.Snowball.Types.RemoteManagement
     Network.AWS.Snowball.Types.S3Resource
     Network.AWS.Snowball.Types.Shipment
     Network.AWS.Snowball.Types.ShipmentState
@@ -95,11 +103,15 @@ library
     Network.AWS.Snowball.Types.SnowballCapacity
     Network.AWS.Snowball.Types.SnowballType
     Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+    Network.AWS.Snowball.Types.StorageUnit
+    Network.AWS.Snowball.Types.TargetOnDeviceService
     Network.AWS.Snowball.Types.TaxDocuments
+    Network.AWS.Snowball.Types.TransferOption
     Network.AWS.Snowball.Types.WirelessConnection
     Network.AWS.Snowball.UpdateCluster
     Network.AWS.Snowball.UpdateJob
     Network.AWS.Snowball.UpdateJobShipmentState
+    Network.AWS.Snowball.UpdateLongTermPricing
     Network.AWS.Snowball.Waiters
 
   reexported-modules: Network.AWS

@@ -68,7 +68,8 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the snapshot that you are requesting. This
-    -- identifier must be unique for all snapshots within the AWS account.
+    -- identifier must be unique for all snapshots within the Amazon Web
+    -- Services account.
     --
     -- Constraints:
     --
@@ -105,7 +106,8 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 -- 'tags', 'createClusterSnapshot_tags' - A list of tag instances.
 --
 -- 'snapshotIdentifier', 'createClusterSnapshot_snapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This
--- identifier must be unique for all snapshots within the AWS account.
+-- identifier must be unique for all snapshots within the Amazon Web
+-- Services account.
 --
 -- Constraints:
 --
@@ -151,7 +153,8 @@ createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe [T
 createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the snapshot that you are requesting. This
--- identifier must be unique for all snapshots within the AWS account.
+-- identifier must be unique for all snapshots within the Amazon Web
+-- Services account.
 --
 -- Constraints:
 --

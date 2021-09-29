@@ -29,6 +29,7 @@ module Network.AWS.Transcribe.CreateLanguageModel
     newCreateLanguageModel,
 
     -- * Request Lenses
+    createLanguageModel_tags,
     createLanguageModel_languageCode,
     createLanguageModel_baseModelName,
     createLanguageModel_modelName,
@@ -57,17 +58,20 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'newCreateLanguageModel' smart constructor.
 data CreateLanguageModel = CreateLanguageModel'
-  { -- | The language of the input text you\'re using to train your custom
+  { -- | Adds one or more tags, each in the form of a key:value pair, to a new
+    -- language model at the time you create this new model.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The language of the input text you\'re using to train your custom
     -- language model.
     languageCode :: CLMLanguageCode,
     -- | The Amazon Transcribe standard language model, or base model used to
     -- create your custom language model.
     --
     -- If you want to use your custom language model to transcribe audio with a
-    -- sample rate of 16 kHz or greater, choose @Wideband@.
+    -- sample rate of 16,000 Hz or greater, choose @Wideband@.
     --
     -- If you want to use your custom language model to transcribe audio with a
-    -- sample rate that is less than 16 kHz, choose @Narrowband@.
+    -- sample rate that is less than 16,000 Hz, choose @Narrowband@.
     baseModelName :: BaseModelName,
     -- | The name you choose for your custom language model when you create it.
     modelName :: Prelude.Text,
@@ -85,6 +89,9 @@ data CreateLanguageModel = CreateLanguageModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createLanguageModel_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
+-- language model at the time you create this new model.
+--
 -- 'languageCode', 'createLanguageModel_languageCode' - The language of the input text you\'re using to train your custom
 -- language model.
 --
@@ -92,10 +99,10 @@ data CreateLanguageModel = CreateLanguageModel'
 -- create your custom language model.
 --
 -- If you want to use your custom language model to transcribe audio with a
--- sample rate of 16 kHz or greater, choose @Wideband@.
+-- sample rate of 16,000 Hz or greater, choose @Wideband@.
 --
 -- If you want to use your custom language model to transcribe audio with a
--- sample rate that is less than 16 kHz, choose @Narrowband@.
+-- sample rate that is less than 16,000 Hz, choose @Narrowband@.
 --
 -- 'modelName', 'createLanguageModel_modelName' - The name you choose for your custom language model when you create it.
 --
@@ -117,11 +124,17 @@ newCreateLanguageModel
   pModelName_
   pInputDataConfig_ =
     CreateLanguageModel'
-      { languageCode = pLanguageCode_,
+      { tags = Prelude.Nothing,
+        languageCode = pLanguageCode_,
         baseModelName = pBaseModelName_,
         modelName = pModelName_,
         inputDataConfig = pInputDataConfig_
       }
+
+-- | Adds one or more tags, each in the form of a key:value pair, to a new
+-- language model at the time you create this new model.
+createLanguageModel_tags :: Lens.Lens' CreateLanguageModel (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLanguageModel_tags = Lens.lens (\CreateLanguageModel' {tags} -> tags) (\s@CreateLanguageModel' {} a -> s {tags = a} :: CreateLanguageModel) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The language of the input text you\'re using to train your custom
 -- language model.
@@ -132,10 +145,10 @@ createLanguageModel_languageCode = Lens.lens (\CreateLanguageModel' {languageCod
 -- create your custom language model.
 --
 -- If you want to use your custom language model to transcribe audio with a
--- sample rate of 16 kHz or greater, choose @Wideband@.
+-- sample rate of 16,000 Hz or greater, choose @Wideband@.
 --
 -- If you want to use your custom language model to transcribe audio with a
--- sample rate that is less than 16 kHz, choose @Narrowband@.
+-- sample rate that is less than 16,000 Hz, choose @Narrowband@.
 createLanguageModel_baseModelName :: Lens.Lens' CreateLanguageModel BaseModelName
 createLanguageModel_baseModelName = Lens.lens (\CreateLanguageModel' {baseModelName} -> baseModelName) (\s@CreateLanguageModel' {} a -> s {baseModelName = a} :: CreateLanguageModel)
 
@@ -188,7 +201,8 @@ instance Core.ToJSON CreateLanguageModel where
   toJSON CreateLanguageModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("LanguageCode" Core..= languageCode),
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("LanguageCode" Core..= languageCode),
             Prelude.Just ("BaseModelName" Core..= baseModelName),
             Prelude.Just ("ModelName" Core..= modelName),
             Prelude.Just

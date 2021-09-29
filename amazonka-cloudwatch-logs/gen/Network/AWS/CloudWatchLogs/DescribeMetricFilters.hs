@@ -31,8 +31,8 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     newDescribeMetricFilters,
 
     -- * Request Lenses
-    describeMetricFilters_filterNamePrefix,
     describeMetricFilters_metricNamespace,
+    describeMetricFilters_filterNamePrefix,
     describeMetricFilters_nextToken,
     describeMetricFilters_metricName,
     describeMetricFilters_logGroupName,
@@ -58,13 +58,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
-  { -- | The prefix to match. CloudWatch Logs uses the value you set here only if
-    -- you also include the @logGroupName@ parameter in your request.
-    filterNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | Filters results to include only those in the specified namespace. If you
+  { -- | Filters results to include only those in the specified namespace. If you
     -- include this parameter in your request, you must also include the
     -- @metricName@ parameter.
     metricNamespace :: Prelude.Maybe Prelude.Text,
+    -- | The prefix to match. CloudWatch Logs uses the value you set here only if
+    -- you also include the @logGroupName@ parameter in your request.
+    filterNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -88,12 +88,12 @@ data DescribeMetricFilters = DescribeMetricFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterNamePrefix', 'describeMetricFilters_filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if
--- you also include the @logGroupName@ parameter in your request.
---
 -- 'metricNamespace', 'describeMetricFilters_metricNamespace' - Filters results to include only those in the specified namespace. If you
 -- include this parameter in your request, you must also include the
 -- @metricName@ parameter.
+--
+-- 'filterNamePrefix', 'describeMetricFilters_filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if
+-- you also include the @logGroupName@ parameter in your request.
 --
 -- 'nextToken', 'describeMetricFilters_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -110,25 +110,25 @@ newDescribeMetricFilters ::
   DescribeMetricFilters
 newDescribeMetricFilters =
   DescribeMetricFilters'
-    { filterNamePrefix =
+    { metricNamespace =
         Prelude.Nothing,
-      metricNamespace = Prelude.Nothing,
+      filterNamePrefix = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       metricName = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
       limit = Prelude.Nothing
     }
 
--- | The prefix to match. CloudWatch Logs uses the value you set here only if
--- you also include the @logGroupName@ parameter in your request.
-describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
-describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeMetricFilters' {} a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
-
 -- | Filters results to include only those in the specified namespace. If you
 -- include this parameter in your request, you must also include the
 -- @metricName@ parameter.
 describeMetricFilters_metricNamespace :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
 describeMetricFilters_metricNamespace = Lens.lens (\DescribeMetricFilters' {metricNamespace} -> metricNamespace) (\s@DescribeMetricFilters' {} a -> s {metricNamespace = a} :: DescribeMetricFilters)
+
+-- | The prefix to match. CloudWatch Logs uses the value you set here only if
+-- you also include the @logGroupName@ parameter in your request.
+describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeMetricFilters' {} a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -209,10 +209,10 @@ instance Core.ToJSON DescribeMetricFilters where
   toJSON DescribeMetricFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filterNamePrefix" Core..=)
-              Prelude.<$> filterNamePrefix,
-            ("metricNamespace" Core..=)
+          [ ("metricNamespace" Core..=)
               Prelude.<$> metricNamespace,
+            ("filterNamePrefix" Core..=)
+              Prelude.<$> filterNamePrefix,
             ("nextToken" Core..=) Prelude.<$> nextToken,
             ("metricName" Core..=) Prelude.<$> metricName,
             ("logGroupName" Core..=) Prelude.<$> logGroupName,

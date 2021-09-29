@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of a provisioned service catalog product. For information about
 -- service catalog, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 --
 -- /See:/ 'newServiceCatalogProvisionedProductDetails' smart constructor.
 data ServiceCatalogProvisionedProductDetails = ServiceCatalogProvisionedProductDetails'

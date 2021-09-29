@@ -32,9 +32,17 @@ data SchemaConfiguration = SchemaConfiguration'
   { -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
     -- role must be in the same account you use for Kinesis Data Firehose.
     -- Cross-account roles aren\'t allowed.
+    --
+    -- If the @SchemaConfiguration@ request parameter is used as part of
+    -- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
+    -- required and its value must be specified.
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | Specifies the AWS Glue table that contains the column information that
     -- constitutes your data schema.
+    --
+    -- If the @SchemaConfiguration@ request parameter is used as part of
+    -- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
+    -- is required and its value must be specified.
     tableName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
     -- account ID is used by default.
@@ -48,6 +56,10 @@ data SchemaConfiguration = SchemaConfiguration'
     region :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the AWS Glue database that contains the schema for
     -- the output data.
+    --
+    -- If the @SchemaConfiguration@ request parameter is used as part of
+    -- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
+    -- property is required and its value must be specified.
     databaseName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +76,16 @@ data SchemaConfiguration = SchemaConfiguration'
 -- role must be in the same account you use for Kinesis Data Firehose.
 -- Cross-account roles aren\'t allowed.
 --
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
+-- required and its value must be specified.
+--
 -- 'tableName', 'schemaConfiguration_tableName' - Specifies the AWS Glue table that contains the column information that
 -- constitutes your data schema.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
+-- is required and its value must be specified.
 --
 -- 'catalogId', 'schemaConfiguration_catalogId' - The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
 -- account ID is used by default.
@@ -79,6 +99,10 @@ data SchemaConfiguration = SchemaConfiguration'
 --
 -- 'databaseName', 'schemaConfiguration_databaseName' - Specifies the name of the AWS Glue database that contains the schema for
 -- the output data.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
+-- property is required and its value must be specified.
 newSchemaConfiguration ::
   SchemaConfiguration
 newSchemaConfiguration =
@@ -94,11 +118,19 @@ newSchemaConfiguration =
 -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
 -- role must be in the same account you use for Kinesis Data Firehose.
 -- Cross-account roles aren\'t allowed.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
+-- required and its value must be specified.
 schemaConfiguration_roleARN :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_roleARN = Lens.lens (\SchemaConfiguration' {roleARN} -> roleARN) (\s@SchemaConfiguration' {} a -> s {roleARN = a} :: SchemaConfiguration)
 
 -- | Specifies the AWS Glue table that contains the column information that
 -- constitutes your data schema.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
+-- is required and its value must be specified.
 schemaConfiguration_tableName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_tableName = Lens.lens (\SchemaConfiguration' {tableName} -> tableName) (\s@SchemaConfiguration' {} a -> s {tableName = a} :: SchemaConfiguration)
 
@@ -120,6 +152,10 @@ schemaConfiguration_region = Lens.lens (\SchemaConfiguration' {region} -> region
 
 -- | Specifies the name of the AWS Glue database that contains the schema for
 -- the output data.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
+-- property is required and its value must be specified.
 schemaConfiguration_databaseName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_databaseName = Lens.lens (\SchemaConfiguration' {databaseName} -> databaseName) (\s@SchemaConfiguration' {} a -> s {databaseName = a} :: SchemaConfiguration)
 

@@ -33,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 data ConnectionAuthResponseParameters = ConnectionAuthResponseParameters'
   { -- | The authorization parameters for Basic authorization.
     basicAuthParameters :: Prelude.Maybe ConnectionBasicAuthResponseParameters,
-    -- | The OAuth parameters to use for authorization.
-    oAuthParameters :: Prelude.Maybe ConnectionOAuthResponseParameters,
     -- | The API Key parameters to use for authorization.
     apiKeyAuthParameters :: Prelude.Maybe ConnectionApiKeyAuthResponseParameters,
+    -- | The OAuth parameters to use for authorization.
+    oAuthParameters :: Prelude.Maybe ConnectionOAuthResponseParameters,
     -- | Additional parameters for the connection that are passed through with
     -- every invocation to the HTTP endpoint.
     invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters
@@ -53,9 +53,9 @@ data ConnectionAuthResponseParameters = ConnectionAuthResponseParameters'
 --
 -- 'basicAuthParameters', 'connectionAuthResponseParameters_basicAuthParameters' - The authorization parameters for Basic authorization.
 --
--- 'oAuthParameters', 'connectionAuthResponseParameters_oAuthParameters' - The OAuth parameters to use for authorization.
---
 -- 'apiKeyAuthParameters', 'connectionAuthResponseParameters_apiKeyAuthParameters' - The API Key parameters to use for authorization.
+--
+-- 'oAuthParameters', 'connectionAuthResponseParameters_oAuthParameters' - The OAuth parameters to use for authorization.
 --
 -- 'invocationHttpParameters', 'connectionAuthResponseParameters_invocationHttpParameters' - Additional parameters for the connection that are passed through with
 -- every invocation to the HTTP endpoint.
@@ -65,8 +65,8 @@ newConnectionAuthResponseParameters =
   ConnectionAuthResponseParameters'
     { basicAuthParameters =
         Prelude.Nothing,
-      oAuthParameters = Prelude.Nothing,
       apiKeyAuthParameters = Prelude.Nothing,
+      oAuthParameters = Prelude.Nothing,
       invocationHttpParameters =
         Prelude.Nothing
     }
@@ -75,13 +75,13 @@ newConnectionAuthResponseParameters =
 connectionAuthResponseParameters_basicAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionBasicAuthResponseParameters)
 connectionAuthResponseParameters_basicAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {basicAuthParameters} -> basicAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {basicAuthParameters = a} :: ConnectionAuthResponseParameters)
 
--- | The OAuth parameters to use for authorization.
-connectionAuthResponseParameters_oAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionOAuthResponseParameters)
-connectionAuthResponseParameters_oAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {oAuthParameters} -> oAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {oAuthParameters = a} :: ConnectionAuthResponseParameters)
-
 -- | The API Key parameters to use for authorization.
 connectionAuthResponseParameters_apiKeyAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionApiKeyAuthResponseParameters)
 connectionAuthResponseParameters_apiKeyAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {apiKeyAuthParameters = a} :: ConnectionAuthResponseParameters)
+
+-- | The OAuth parameters to use for authorization.
+connectionAuthResponseParameters_oAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionOAuthResponseParameters)
+connectionAuthResponseParameters_oAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {oAuthParameters} -> oAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {oAuthParameters = a} :: ConnectionAuthResponseParameters)
 
 -- | Additional parameters for the connection that are passed through with
 -- every invocation to the HTTP endpoint.
@@ -98,8 +98,8 @@ instance
       ( \x ->
           ConnectionAuthResponseParameters'
             Prelude.<$> (x Core..:? "BasicAuthParameters")
-            Prelude.<*> (x Core..:? "OAuthParameters")
             Prelude.<*> (x Core..:? "ApiKeyAuthParameters")
+            Prelude.<*> (x Core..:? "OAuthParameters")
             Prelude.<*> (x Core..:? "InvocationHttpParameters")
       )
 

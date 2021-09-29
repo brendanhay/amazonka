@@ -57,10 +57,10 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
     s3Origin :: S3Origin,
     -- | Any comments you want to include about the streaming distribution.
     comment :: Prelude.Text,
-    -- | A complex type that specifies any AWS accounts that you want to permit
-    -- to create signed URLs for private content. If you want the distribution
-    -- to use signed URLs, include this element; if you want the distribution
-    -- to use public URLs, remove this element. For more information, see
+    -- | A complex type that specifies any accounts that you want to permit to
+    -- create signed URLs for private content. If you want the distribution to
+    -- use signed URLs, include this element; if you want the distribution to
+    -- use public URLs, remove this element. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
     -- in the /Amazon CloudFront Developer Guide/.
     trustedSigners :: TrustedSigners,
@@ -103,10 +103,10 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 --
 -- 'comment', 'streamingDistributionConfig_comment' - Any comments you want to include about the streaming distribution.
 --
--- 'trustedSigners', 'streamingDistributionConfig_trustedSigners' - A complex type that specifies any AWS accounts that you want to permit
--- to create signed URLs for private content. If you want the distribution
--- to use signed URLs, include this element; if you want the distribution
--- to use public URLs, remove this element. For more information, see
+-- 'trustedSigners', 'streamingDistributionConfig_trustedSigners' - A complex type that specifies any accounts that you want to permit to
+-- create signed URLs for private content. If you want the distribution to
+-- use signed URLs, include this element; if you want the distribution to
+-- use public URLs, remove this element. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
 -- in the /Amazon CloudFront Developer Guide/.
 --
@@ -179,10 +179,10 @@ streamingDistributionConfig_s3Origin = Lens.lens (\StreamingDistributionConfig' 
 streamingDistributionConfig_comment :: Lens.Lens' StreamingDistributionConfig Prelude.Text
 streamingDistributionConfig_comment = Lens.lens (\StreamingDistributionConfig' {comment} -> comment) (\s@StreamingDistributionConfig' {} a -> s {comment = a} :: StreamingDistributionConfig)
 
--- | A complex type that specifies any AWS accounts that you want to permit
--- to create signed URLs for private content. If you want the distribution
--- to use signed URLs, include this element; if you want the distribution
--- to use public URLs, remove this element. For more information, see
+-- | A complex type that specifies any accounts that you want to permit to
+-- create signed URLs for private content. If you want the distribution to
+-- use signed URLs, include this element; if you want the distribution to
+-- use public URLs, remove this element. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront>
 -- in the /Amazon CloudFront Developer Guide/.
 streamingDistributionConfig_trustedSigners :: Lens.Lens' StreamingDistributionConfig TrustedSigners

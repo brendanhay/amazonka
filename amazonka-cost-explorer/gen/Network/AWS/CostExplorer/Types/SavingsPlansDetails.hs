@@ -23,16 +23,18 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Attribute details on a specific Savings Plan.
+-- | The attribute details on a specific Savings Plan.
 --
 -- /See:/ 'newSavingsPlansDetails' smart constructor.
 data SavingsPlansDetails = SavingsPlansDetails'
   { -- | A group of instance types that Savings Plans applies to.
     instanceFamily :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID used to distinguish Savings Plans from one another.
+    -- | The unique ID that\'s used to distinguish Savings Plans from one
+    -- another.
     offeringId :: Prelude.Maybe Prelude.Text,
-    -- | A collection of AWS resources in a geographic area. Each AWS Region is
-    -- isolated and independent of the other Regions.
+    -- | A collection of Amazon Web Services resources in a geographic area. Each
+    -- Amazon Web Services Region is isolated and independent of the other
+    -- Regions.
     region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,10 +49,12 @@ data SavingsPlansDetails = SavingsPlansDetails'
 --
 -- 'instanceFamily', 'savingsPlansDetails_instanceFamily' - A group of instance types that Savings Plans applies to.
 --
--- 'offeringId', 'savingsPlansDetails_offeringId' - The unique ID used to distinguish Savings Plans from one another.
+-- 'offeringId', 'savingsPlansDetails_offeringId' - The unique ID that\'s used to distinguish Savings Plans from one
+-- another.
 --
--- 'region', 'savingsPlansDetails_region' - A collection of AWS resources in a geographic area. Each AWS Region is
--- isolated and independent of the other Regions.
+-- 'region', 'savingsPlansDetails_region' - A collection of Amazon Web Services resources in a geographic area. Each
+-- Amazon Web Services Region is isolated and independent of the other
+-- Regions.
 newSavingsPlansDetails ::
   SavingsPlansDetails
 newSavingsPlansDetails =
@@ -65,12 +69,14 @@ newSavingsPlansDetails =
 savingsPlansDetails_instanceFamily :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_instanceFamily = Lens.lens (\SavingsPlansDetails' {instanceFamily} -> instanceFamily) (\s@SavingsPlansDetails' {} a -> s {instanceFamily = a} :: SavingsPlansDetails)
 
--- | The unique ID used to distinguish Savings Plans from one another.
+-- | The unique ID that\'s used to distinguish Savings Plans from one
+-- another.
 savingsPlansDetails_offeringId :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_offeringId = Lens.lens (\SavingsPlansDetails' {offeringId} -> offeringId) (\s@SavingsPlansDetails' {} a -> s {offeringId = a} :: SavingsPlansDetails)
 
--- | A collection of AWS resources in a geographic area. Each AWS Region is
--- isolated and independent of the other Regions.
+-- | A collection of Amazon Web Services resources in a geographic area. Each
+-- Amazon Web Services Region is isolated and independent of the other
+-- Regions.
 savingsPlansDetails_region :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_region = Lens.lens (\SavingsPlansDetails' {region} -> region) (\s@SavingsPlansDetails' {} a -> s {region = a} :: SavingsPlansDetails)
 

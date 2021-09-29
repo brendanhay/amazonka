@@ -22,8 +22,8 @@
 --
 -- Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is
 -- HTTP\/S or email, or if the endpoint and the topic are not in the same
--- AWS account, the endpoint owner must run the @ConfirmSubscription@
--- action to confirm the subscription.
+-- account, the endpoint owner must run the @ConfirmSubscription@ action to
+-- confirm the subscription.
 --
 -- You call the @ConfirmSubscription@ action with the token from the
 -- subscription response. Confirmation tokens are valid for three days.
@@ -65,7 +65,7 @@ data Subscribe = Subscribe'
   { -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
-    -- request parameters that the @SetTopicAttributes@ action uses:
+    -- request parameters that the @Subscribe@ action uses:
     --
     -- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
     --     failed deliveries to HTTP\/S endpoints.
@@ -99,7 +99,7 @@ data Subscribe = Subscribe'
     --     Specifying a valid ARN for this attribute is required for Kinesis
     --     Data Firehose delivery stream subscriptions. For more information,
     --     see
-    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Sets whether the response from the @Subscribe@ request includes the
@@ -136,7 +136,7 @@ data Subscribe = Subscribe'
     -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
     --     mobile app and device.
     --
-    -- -   For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda
+    -- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
     --     function.
     --
     -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
@@ -161,8 +161,7 @@ data Subscribe = Subscribe'
     -- -   @application@ – delivery of JSON-encoded message to an EndpointArn
     --     for a mobile app and device
     --
-    -- -   @lambda@ – delivery of JSON-encoded message to an AWS Lambda
-    --     function
+    -- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
     --
     -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
     --     Data Firehose delivery stream.
@@ -181,7 +180,7 @@ data Subscribe = Subscribe'
 -- 'attributes', 'subscribe_attributes' - A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special
--- request parameters that the @SetTopicAttributes@ action uses:
+-- request parameters that the @Subscribe@ action uses:
 --
 -- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
 --     failed deliveries to HTTP\/S endpoints.
@@ -215,7 +214,7 @@ data Subscribe = Subscribe'
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 --
 -- 'returnSubscriptionArn', 'subscribe_returnSubscriptionArn' - Sets whether the response from the @Subscribe@ request includes the
@@ -252,7 +251,7 @@ data Subscribe = Subscribe'
 -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
 --
--- -   For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda
+-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
 --     function.
 --
 -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
@@ -277,8 +276,7 @@ data Subscribe = Subscribe'
 -- -   @application@ – delivery of JSON-encoded message to an EndpointArn
 --     for a mobile app and device
 --
--- -   @lambda@ – delivery of JSON-encoded message to an AWS Lambda
---     function
+-- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
 --
 -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
 --     Data Firehose delivery stream.
@@ -300,7 +298,7 @@ newSubscribe pTopicArn_ pProtocol_ =
 -- | A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special
--- request parameters that the @SetTopicAttributes@ action uses:
+-- request parameters that the @Subscribe@ action uses:
 --
 -- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
 --     failed deliveries to HTTP\/S endpoints.
@@ -334,7 +332,7 @@ newSubscribe pTopicArn_ pProtocol_ =
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 subscribe_attributes :: Lens.Lens' Subscribe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Prelude.. Lens.mapping Lens._Coerce
@@ -375,7 +373,7 @@ subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn}
 -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
 --
--- -   For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda
+-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
 --     function.
 --
 -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
@@ -404,8 +402,7 @@ subscribe_topicArn = Lens.lens (\Subscribe' {topicArn} -> topicArn) (\s@Subscrib
 -- -   @application@ – delivery of JSON-encoded message to an EndpointArn
 --     for a mobile app and device
 --
--- -   @lambda@ – delivery of JSON-encoded message to an AWS Lambda
---     function
+-- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
 --
 -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
 --     Data Firehose delivery stream.

@@ -22,6 +22,10 @@
 --
 -- Creates a topic rule destination. The destination must be confirmed
 -- prior to use.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateTopicRuleDestination>
+-- action.
 module Network.AWS.IoT.CreateTopicRuleDestination
   ( -- * Creating a Request
     CreateTopicRuleDestination (..),

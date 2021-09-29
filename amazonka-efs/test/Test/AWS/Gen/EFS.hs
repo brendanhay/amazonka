@@ -27,29 +27,32 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutBackupPolicy $
+--         [ requestPutLifecycleConfiguration $
+--             newPutLifecycleConfiguration
+--
+--         , requestPutBackupPolicy $
 --             newPutBackupPolicy
 --
---         , requestPutLifecycleConfiguration $
---             newPutLifecycleConfiguration
+--         , requestDescribeAccountPreferences $
+--             newDescribeAccountPreferences
 --
 --         , requestDeleteAccessPoint $
 --             newDeleteAccessPoint
 --
---         , requestModifyMountTargetSecurityGroups $
---             newModifyMountTargetSecurityGroups
---
 --         , requestDescribeFileSystemPolicy $
 --             newDescribeFileSystemPolicy
+--
+--         , requestModifyMountTargetSecurityGroups $
+--             newModifyMountTargetSecurityGroups
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestTagResource $
---             newTagResource
---
 --         , requestCreateMountTarget $
 --             newCreateMountTarget
+--
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestDeleteMountTarget $
 --             newDeleteMountTarget
@@ -72,23 +75,26 @@ import Test.Tasty
 --         , requestDescribeAccessPoints $
 --             newDescribeAccessPoints
 --
+--         , requestDescribeBackupPolicy $
+--             newDescribeBackupPolicy
+--
 --         , requestDescribeLifecycleConfiguration $
 --             newDescribeLifecycleConfiguration
 --
 --         , requestDescribeMountTargetSecurityGroups $
 --             newDescribeMountTargetSecurityGroups
 --
---         , requestDescribeBackupPolicy $
---             newDescribeBackupPolicy
+--         , requestPutAccountPreferences $
+--             newPutAccountPreferences
 --
 --         , requestUpdateFileSystem $
 --             newUpdateFileSystem
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestDeleteFileSystem $
 --             newDeleteFileSystem
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutFileSystemPolicy $
 --             newPutFileSystemPolicy
@@ -96,29 +102,32 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responsePutBackupPolicy $
+--         [ responsePutLifecycleConfiguration $
+--             newLifecycleConfigurationDescription
+--
+--         , responsePutBackupPolicy $
 --             newBackupPolicyDescription
 --
---         , responsePutLifecycleConfiguration $
---             newLifecycleConfigurationDescription
+--         , responseDescribeAccountPreferences $
+--             newDescribeAccountPreferencesResponse
 --
 --         , responseDeleteAccessPoint $
 --             newDeleteAccessPointResponse
 --
---         , responseModifyMountTargetSecurityGroups $
---             newModifyMountTargetSecurityGroupsResponse
---
 --         , responseDescribeFileSystemPolicy $
 --             newFileSystemPolicyDescription
+--
+--         , responseModifyMountTargetSecurityGroups $
+--             newModifyMountTargetSecurityGroupsResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
 --         , responseCreateMountTarget $
 --             newMountTargetDescription
+--
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseDeleteMountTarget $
 --             newDeleteMountTargetResponse
@@ -141,23 +150,26 @@ import Test.Tasty
 --         , responseDescribeAccessPoints $
 --             newDescribeAccessPointsResponse
 --
+--         , responseDescribeBackupPolicy $
+--             newBackupPolicyDescription
+--
 --         , responseDescribeLifecycleConfiguration $
 --             newLifecycleConfigurationDescription
 --
 --         , responseDescribeMountTargetSecurityGroups $
 --             newDescribeMountTargetSecurityGroupsResponse
 --
---         , responseDescribeBackupPolicy $
---             newBackupPolicyDescription
+--         , responsePutAccountPreferences $
+--             newPutAccountPreferencesResponse
 --
 --         , responseUpdateFileSystem $
 --             newFileSystemDescription
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseDeleteFileSystem $
 --             newDeleteFileSystemResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutFileSystemPolicy $
 --             newFileSystemPolicyDescription
@@ -167,17 +179,23 @@ import Test.Tasty
 
 -- Requests
 
+requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
+requestPutLifecycleConfiguration =
+  req
+    "PutLifecycleConfiguration"
+    "fixture/PutLifecycleConfiguration.yaml"
+
 requestPutBackupPolicy :: PutBackupPolicy -> TestTree
 requestPutBackupPolicy =
   req
     "PutBackupPolicy"
     "fixture/PutBackupPolicy.yaml"
 
-requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
-requestPutLifecycleConfiguration =
+requestDescribeAccountPreferences :: DescribeAccountPreferences -> TestTree
+requestDescribeAccountPreferences =
   req
-    "PutLifecycleConfiguration"
-    "fixture/PutLifecycleConfiguration.yaml"
+    "DescribeAccountPreferences"
+    "fixture/DescribeAccountPreferences.yaml"
 
 requestDeleteAccessPoint :: DeleteAccessPoint -> TestTree
 requestDeleteAccessPoint =
@@ -185,17 +203,17 @@ requestDeleteAccessPoint =
     "DeleteAccessPoint"
     "fixture/DeleteAccessPoint.yaml"
 
-requestModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
-requestModifyMountTargetSecurityGroups =
-  req
-    "ModifyMountTargetSecurityGroups"
-    "fixture/ModifyMountTargetSecurityGroups.yaml"
-
 requestDescribeFileSystemPolicy :: DescribeFileSystemPolicy -> TestTree
 requestDescribeFileSystemPolicy =
   req
     "DescribeFileSystemPolicy"
     "fixture/DescribeFileSystemPolicy.yaml"
+
+requestModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
+requestModifyMountTargetSecurityGroups =
+  req
+    "ModifyMountTargetSecurityGroups"
+    "fixture/ModifyMountTargetSecurityGroups.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -203,17 +221,17 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
 requestCreateMountTarget :: CreateMountTarget -> TestTree
 requestCreateMountTarget =
   req
     "CreateMountTarget"
     "fixture/CreateMountTarget.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestDeleteMountTarget :: DeleteMountTarget -> TestTree
 requestDeleteMountTarget =
@@ -257,6 +275,12 @@ requestDescribeAccessPoints =
     "DescribeAccessPoints"
     "fixture/DescribeAccessPoints.yaml"
 
+requestDescribeBackupPolicy :: DescribeBackupPolicy -> TestTree
+requestDescribeBackupPolicy =
+  req
+    "DescribeBackupPolicy"
+    "fixture/DescribeBackupPolicy.yaml"
+
 requestDescribeLifecycleConfiguration :: DescribeLifecycleConfiguration -> TestTree
 requestDescribeLifecycleConfiguration =
   req
@@ -269,11 +293,11 @@ requestDescribeMountTargetSecurityGroups =
     "DescribeMountTargetSecurityGroups"
     "fixture/DescribeMountTargetSecurityGroups.yaml"
 
-requestDescribeBackupPolicy :: DescribeBackupPolicy -> TestTree
-requestDescribeBackupPolicy =
+requestPutAccountPreferences :: PutAccountPreferences -> TestTree
+requestPutAccountPreferences =
   req
-    "DescribeBackupPolicy"
-    "fixture/DescribeBackupPolicy.yaml"
+    "PutAccountPreferences"
+    "fixture/PutAccountPreferences.yaml"
 
 requestUpdateFileSystem :: UpdateFileSystem -> TestTree
 requestUpdateFileSystem =
@@ -281,17 +305,17 @@ requestUpdateFileSystem =
     "UpdateFileSystem"
     "fixture/UpdateFileSystem.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestDeleteFileSystem :: DeleteFileSystem -> TestTree
 requestDeleteFileSystem =
   req
     "DeleteFileSystem"
     "fixture/DeleteFileSystem.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPutFileSystemPolicy :: PutFileSystemPolicy -> TestTree
 requestPutFileSystemPolicy =
@@ -301,6 +325,14 @@ requestPutFileSystemPolicy =
 
 -- Responses
 
+responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
+responsePutLifecycleConfiguration =
+  res
+    "PutLifecycleConfigurationResponse"
+    "fixture/PutLifecycleConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutLifecycleConfiguration)
+
 responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
 responsePutBackupPolicy =
   res
@@ -309,13 +341,13 @@ responsePutBackupPolicy =
     defaultService
     (Proxy :: Proxy PutBackupPolicy)
 
-responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
-responsePutLifecycleConfiguration =
+responseDescribeAccountPreferences :: DescribeAccountPreferencesResponse -> TestTree
+responseDescribeAccountPreferences =
   res
-    "PutLifecycleConfigurationResponse"
-    "fixture/PutLifecycleConfigurationResponse.proto"
+    "DescribeAccountPreferencesResponse"
+    "fixture/DescribeAccountPreferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy PutLifecycleConfiguration)
+    (Proxy :: Proxy DescribeAccountPreferences)
 
 responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
 responseDeleteAccessPoint =
@@ -325,14 +357,6 @@ responseDeleteAccessPoint =
     defaultService
     (Proxy :: Proxy DeleteAccessPoint)
 
-responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
-responseModifyMountTargetSecurityGroups =
-  res
-    "ModifyMountTargetSecurityGroupsResponse"
-    "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ModifyMountTargetSecurityGroups)
-
 responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
 responseDescribeFileSystemPolicy =
   res
@@ -340,6 +364,14 @@ responseDescribeFileSystemPolicy =
     "fixture/DescribeFileSystemPolicyResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeFileSystemPolicy)
+
+responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
+responseModifyMountTargetSecurityGroups =
+  res
+    "ModifyMountTargetSecurityGroupsResponse"
+    "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -349,14 +381,6 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
 responseCreateMountTarget :: MountTargetDescription -> TestTree
 responseCreateMountTarget =
   res
@@ -364,6 +388,14 @@ responseCreateMountTarget =
     "fixture/CreateMountTargetResponse.proto"
     defaultService
     (Proxy :: Proxy CreateMountTarget)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
 
 responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
 responseDeleteMountTarget =
@@ -421,6 +453,14 @@ responseDescribeAccessPoints =
     defaultService
     (Proxy :: Proxy DescribeAccessPoints)
 
+responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
+responseDescribeBackupPolicy =
+  res
+    "DescribeBackupPolicyResponse"
+    "fixture/DescribeBackupPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeBackupPolicy)
+
 responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
 responseDescribeLifecycleConfiguration =
   res
@@ -437,13 +477,13 @@ responseDescribeMountTargetSecurityGroups =
     defaultService
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
-responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
-responseDescribeBackupPolicy =
+responsePutAccountPreferences :: PutAccountPreferencesResponse -> TestTree
+responsePutAccountPreferences =
   res
-    "DescribeBackupPolicyResponse"
-    "fixture/DescribeBackupPolicyResponse.proto"
+    "PutAccountPreferencesResponse"
+    "fixture/PutAccountPreferencesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeBackupPolicy)
+    (Proxy :: Proxy PutAccountPreferences)
 
 responseUpdateFileSystem :: FileSystemDescription -> TestTree
 responseUpdateFileSystem =
@@ -453,14 +493,6 @@ responseUpdateFileSystem =
     defaultService
     (Proxy :: Proxy UpdateFileSystem)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
-
 responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
 responseDeleteFileSystem =
   res
@@ -468,6 +500,14 @@ responseDeleteFileSystem =
     "fixture/DeleteFileSystemResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteFileSystem)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
 
 responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
 responsePutFileSystemPolicy =

@@ -25,7 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The container path, mount options, and size of the tmpfs mount.
 --
--- This object isn\'t applicable to jobs running on Fargate resources.
+-- This object isn\'t applicable to jobs that are running on Fargate
+-- resources.
 --
 -- /See:/ 'newTmpfs' smart constructor.
 data Tmpfs = Tmpfs'

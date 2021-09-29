@@ -54,17 +54,17 @@ import qualified Network.AWS.Response as Response
 data ListPolicies = ListPolicies'
   { -- | If you specify a value for @MaxResults@ and you have more
     -- @PolicySummary@ objects than the number that you specify for
-    -- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+    -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
     -- response that allows you to list another group of @PolicySummary@
     -- objects. For the second and subsequent @ListPolicies@ requests, specify
     -- the value of @NextToken@ from the previous response to get information
     -- about another batch of @PolicySummary@ objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @PolicySummary@ objects that you want AWS
-    -- Firewall Manager to return for this request. If you have more
-    -- @PolicySummary@ objects than the number that you specify for
-    -- @MaxResults@, the response includes a @NextToken@ value that you can use
-    -- to get another batch of @PolicySummary@ objects.
+    -- | Specifies the number of @PolicySummary@ objects that you want Firewall
+    -- Manager to return for this request. If you have more @PolicySummary@
+    -- objects than the number that you specify for @MaxResults@, the response
+    -- includes a @NextToken@ value that you can use to get another batch of
+    -- @PolicySummary@ objects.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,17 +79,17 @@ data ListPolicies = ListPolicies'
 --
 -- 'nextToken', 'listPolicies_nextToken' - If you specify a value for @MaxResults@ and you have more
 -- @PolicySummary@ objects than the number that you specify for
--- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+-- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
 -- response that allows you to list another group of @PolicySummary@
 -- objects. For the second and subsequent @ListPolicies@ requests, specify
 -- the value of @NextToken@ from the previous response to get information
 -- about another batch of @PolicySummary@ objects.
 --
--- 'maxResults', 'listPolicies_maxResults' - Specifies the number of @PolicySummary@ objects that you want AWS
--- Firewall Manager to return for this request. If you have more
--- @PolicySummary@ objects than the number that you specify for
--- @MaxResults@, the response includes a @NextToken@ value that you can use
--- to get another batch of @PolicySummary@ objects.
+-- 'maxResults', 'listPolicies_maxResults' - Specifies the number of @PolicySummary@ objects that you want Firewall
+-- Manager to return for this request. If you have more @PolicySummary@
+-- objects than the number that you specify for @MaxResults@, the response
+-- includes a @NextToken@ value that you can use to get another batch of
+-- @PolicySummary@ objects.
 newListPolicies ::
   ListPolicies
 newListPolicies =
@@ -100,7 +100,7 @@ newListPolicies =
 
 -- | If you specify a value for @MaxResults@ and you have more
 -- @PolicySummary@ objects than the number that you specify for
--- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+-- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
 -- response that allows you to list another group of @PolicySummary@
 -- objects. For the second and subsequent @ListPolicies@ requests, specify
 -- the value of @NextToken@ from the previous response to get information
@@ -108,11 +108,11 @@ newListPolicies =
 listPolicies_nextToken :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s@ListPolicies' {} a -> s {nextToken = a} :: ListPolicies)
 
--- | Specifies the number of @PolicySummary@ objects that you want AWS
--- Firewall Manager to return for this request. If you have more
--- @PolicySummary@ objects than the number that you specify for
--- @MaxResults@, the response includes a @NextToken@ value that you can use
--- to get another batch of @PolicySummary@ objects.
+-- | Specifies the number of @PolicySummary@ objects that you want Firewall
+-- Manager to return for this request. If you have more @PolicySummary@
+-- objects than the number that you specify for @MaxResults@, the response
+-- includes a @NextToken@ value that you can use to get another batch of
+-- @PolicySummary@ objects.
 listPolicies_maxResults :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_maxResults = Lens.lens (\ListPolicies' {maxResults} -> maxResults) (\s@ListPolicies' {} a -> s {maxResults = a} :: ListPolicies)
 

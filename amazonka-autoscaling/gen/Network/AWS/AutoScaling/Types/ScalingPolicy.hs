@@ -20,6 +20,7 @@
 module Network.AWS.AutoScaling.Types.ScalingPolicy where
 
 import Network.AWS.AutoScaling.Types.Alarm
+import Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
 import Network.AWS.AutoScaling.Types.StepAdjustment
 import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
 import qualified Network.AWS.Core as Core
@@ -32,11 +33,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ScalingPolicy = ScalingPolicy'
   { -- | The name of the scaling policy.
     policyName :: Prelude.Maybe Prelude.Text,
+    -- | A target tracking scaling policy.
+    targetTrackingConfiguration :: Prelude.Maybe TargetTrackingConfiguration,
     -- | A set of adjustments that enable you to scale based on the size of the
     -- alarm breach.
     stepAdjustments :: Prelude.Maybe [StepAdjustment],
-    -- | A target tracking scaling policy.
-    targetTrackingConfiguration :: Prelude.Maybe TargetTrackingConfiguration,
     -- | The aggregation type for the CloudWatch metrics. The valid values are
     -- @Minimum@, @Maximum@, and @Average@.
     metricAggregationType :: Prelude.Maybe Prelude.Text,
@@ -48,16 +49,18 @@ data ScalingPolicy = ScalingPolicy'
     --
     -- -   @SimpleScaling@ (default)
     --
+    -- -   @PredictiveScaling@
+    --
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html Target tracking scaling policies>
     -- and
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html Step and simple scaling policies>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     policyType :: Prelude.Maybe Prelude.Text,
-    -- | The duration of the policy\'s cooldown period, in seconds.
-    cooldown :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether the policy is enabled (@true@) or disabled (@false@).
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The duration of the policy\'s cooldown period, in seconds.
+    cooldown :: Prelude.Maybe Prelude.Int,
     -- | The amount by which to scale, based on the specified adjustment type. A
     -- positive value adds to the current capacity while a negative number
     -- removes from the current capacity.
@@ -79,6 +82,8 @@ data ScalingPolicy = ScalingPolicy'
     alarms :: Prelude.Maybe [Alarm],
     -- | The Amazon Resource Name (ARN) of the policy.
     policyARN :: Prelude.Maybe Prelude.Text,
+    -- | A predictive scaling policy.
+    predictiveScalingConfiguration :: Prelude.Maybe PredictiveScalingConfiguration,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -94,10 +99,10 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- 'policyName', 'scalingPolicy_policyName' - The name of the scaling policy.
 --
+-- 'targetTrackingConfiguration', 'scalingPolicy_targetTrackingConfiguration' - A target tracking scaling policy.
+--
 -- 'stepAdjustments', 'scalingPolicy_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the
 -- alarm breach.
---
--- 'targetTrackingConfiguration', 'scalingPolicy_targetTrackingConfiguration' - A target tracking scaling policy.
 --
 -- 'metricAggregationType', 'scalingPolicy_metricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are
 -- @Minimum@, @Maximum@, and @Average@.
@@ -110,15 +115,17 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- -   @SimpleScaling@ (default)
 --
+-- -   @PredictiveScaling@
+--
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html Target tracking scaling policies>
 -- and
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html Step and simple scaling policies>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'cooldown', 'scalingPolicy_cooldown' - The duration of the policy\'s cooldown period, in seconds.
---
 -- 'enabled', 'scalingPolicy_enabled' - Indicates whether the policy is enabled (@true@) or disabled (@false@).
+--
+-- 'cooldown', 'scalingPolicy_cooldown' - The duration of the policy\'s cooldown period, in seconds.
 --
 -- 'scalingAdjustment', 'scalingPolicy_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
@@ -141,18 +148,20 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- 'policyARN', 'scalingPolicy_policyARN' - The Amazon Resource Name (ARN) of the policy.
 --
+-- 'predictiveScalingConfiguration', 'scalingPolicy_predictiveScalingConfiguration' - A predictive scaling policy.
+--
 -- 'autoScalingGroupName', 'scalingPolicy_autoScalingGroupName' - The name of the Auto Scaling group.
 newScalingPolicy ::
   ScalingPolicy
 newScalingPolicy =
   ScalingPolicy'
     { policyName = Prelude.Nothing,
-      stepAdjustments = Prelude.Nothing,
       targetTrackingConfiguration = Prelude.Nothing,
+      stepAdjustments = Prelude.Nothing,
       metricAggregationType = Prelude.Nothing,
       policyType = Prelude.Nothing,
-      cooldown = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      cooldown = Prelude.Nothing,
       scalingAdjustment = Prelude.Nothing,
       adjustmentType = Prelude.Nothing,
       minAdjustmentStep = Prelude.Nothing,
@@ -160,6 +169,7 @@ newScalingPolicy =
       minAdjustmentMagnitude = Prelude.Nothing,
       alarms = Prelude.Nothing,
       policyARN = Prelude.Nothing,
+      predictiveScalingConfiguration = Prelude.Nothing,
       autoScalingGroupName = Prelude.Nothing
     }
 
@@ -167,14 +177,14 @@ newScalingPolicy =
 scalingPolicy_policyName :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_policyName = Lens.lens (\ScalingPolicy' {policyName} -> policyName) (\s@ScalingPolicy' {} a -> s {policyName = a} :: ScalingPolicy)
 
+-- | A target tracking scaling policy.
+scalingPolicy_targetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingConfiguration)
+scalingPolicy_targetTrackingConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
+
 -- | A set of adjustments that enable you to scale based on the size of the
 -- alarm breach.
 scalingPolicy_stepAdjustments :: Lens.Lens' ScalingPolicy (Prelude.Maybe [StepAdjustment])
 scalingPolicy_stepAdjustments = Lens.lens (\ScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@ScalingPolicy' {} a -> s {stepAdjustments = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens._Coerce
-
--- | A target tracking scaling policy.
-scalingPolicy_targetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingConfiguration)
-scalingPolicy_targetTrackingConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
 
 -- | The aggregation type for the CloudWatch metrics. The valid values are
 -- @Minimum@, @Maximum@, and @Average@.
@@ -189,6 +199,8 @@ scalingPolicy_metricAggregationType = Lens.lens (\ScalingPolicy' {metricAggregat
 --
 -- -   @SimpleScaling@ (default)
 --
+-- -   @PredictiveScaling@
+--
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html Target tracking scaling policies>
 -- and
@@ -197,13 +209,13 @@ scalingPolicy_metricAggregationType = Lens.lens (\ScalingPolicy' {metricAggregat
 scalingPolicy_policyType :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
 
--- | The duration of the policy\'s cooldown period, in seconds.
-scalingPolicy_cooldown :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Int)
-scalingPolicy_cooldown = Lens.lens (\ScalingPolicy' {cooldown} -> cooldown) (\s@ScalingPolicy' {} a -> s {cooldown = a} :: ScalingPolicy)
-
 -- | Indicates whether the policy is enabled (@true@) or disabled (@false@).
 scalingPolicy_enabled :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Bool)
 scalingPolicy_enabled = Lens.lens (\ScalingPolicy' {enabled} -> enabled) (\s@ScalingPolicy' {} a -> s {enabled = a} :: ScalingPolicy)
+
+-- | The duration of the policy\'s cooldown period, in seconds.
+scalingPolicy_cooldown :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Int)
+scalingPolicy_cooldown = Lens.lens (\ScalingPolicy' {cooldown} -> cooldown) (\s@ScalingPolicy' {} a -> s {cooldown = a} :: ScalingPolicy)
 
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
@@ -240,6 +252,10 @@ scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@Scalin
 scalingPolicy_policyARN :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_policyARN = Lens.lens (\ScalingPolicy' {policyARN} -> policyARN) (\s@ScalingPolicy' {} a -> s {policyARN = a} :: ScalingPolicy)
 
+-- | A predictive scaling policy.
+scalingPolicy_predictiveScalingConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe PredictiveScalingConfiguration)
+scalingPolicy_predictiveScalingConfiguration = Lens.lens (\ScalingPolicy' {predictiveScalingConfiguration} -> predictiveScalingConfiguration) (\s@ScalingPolicy' {} a -> s {predictiveScalingConfiguration = a} :: ScalingPolicy)
+
 -- | The name of the Auto Scaling group.
 scalingPolicy_autoScalingGroupName :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_autoScalingGroupName = Lens.lens (\ScalingPolicy' {autoScalingGroupName} -> autoScalingGroupName) (\s@ScalingPolicy' {} a -> s {autoScalingGroupName = a} :: ScalingPolicy)
@@ -248,14 +264,14 @@ instance Core.FromXML ScalingPolicy where
   parseXML x =
     ScalingPolicy'
       Prelude.<$> (x Core..@? "PolicyName")
+      Prelude.<*> (x Core..@? "TargetTrackingConfiguration")
       Prelude.<*> ( x Core..@? "StepAdjustments" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "TargetTrackingConfiguration")
       Prelude.<*> (x Core..@? "MetricAggregationType")
       Prelude.<*> (x Core..@? "PolicyType")
-      Prelude.<*> (x Core..@? "Cooldown")
       Prelude.<*> (x Core..@? "Enabled")
+      Prelude.<*> (x Core..@? "Cooldown")
       Prelude.<*> (x Core..@? "ScalingAdjustment")
       Prelude.<*> (x Core..@? "AdjustmentType")
       Prelude.<*> (x Core..@? "MinAdjustmentStep")
@@ -265,6 +281,7 @@ instance Core.FromXML ScalingPolicy where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "PolicyARN")
+      Prelude.<*> (x Core..@? "PredictiveScalingConfiguration")
       Prelude.<*> (x Core..@? "AutoScalingGroupName")
 
 instance Prelude.Hashable ScalingPolicy

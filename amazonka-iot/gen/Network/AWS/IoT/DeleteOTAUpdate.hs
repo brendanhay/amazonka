@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an OTA update.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteOTAUpdate>
+-- action.
 module Network.AWS.IoT.DeleteOTAUpdate
   ( -- * Creating a Request
     DeleteOTAUpdate (..),
@@ -49,7 +53,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOTAUpdate' smart constructor.
 data DeleteOTAUpdate = DeleteOTAUpdate'
-  { -- | When true, deletes the AWS job created by the OTAUpdate process even if
+  { -- | When true, deletes the IoT job created by the OTAUpdate process even if
     -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
     -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
     -- false.
@@ -71,7 +75,7 @@ data DeleteOTAUpdate = DeleteOTAUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forceDeleteAWSJob', 'deleteOTAUpdate_forceDeleteAWSJob' - When true, deletes the AWS job created by the OTAUpdate process even if
+-- 'forceDeleteAWSJob', 'deleteOTAUpdate_forceDeleteAWSJob' - When true, deletes the IoT job created by the OTAUpdate process even if
 -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
 -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
 -- false.
@@ -93,7 +97,7 @@ newDeleteOTAUpdate pOtaUpdateId_ =
       otaUpdateId = pOtaUpdateId_
     }
 
--- | When true, deletes the AWS job created by the OTAUpdate process even if
+-- | When true, deletes the IoT job created by the OTAUpdate process even if
 -- it is \"IN_PROGRESS\". Otherwise, if the job is not in a terminal state
 -- (\"COMPLETED\" or \"CANCELED\") an exception will occur. The default is
 -- false.

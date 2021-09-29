@@ -30,22 +30,23 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMongoDbSettings' smart constructor.
 data MongoDbSettings = MongoDbSettings'
-  { -- | The full ARN, partial ARN, or friendly name of the
-    -- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
-    -- details.
-    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
+  { -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
     -- set to @\"no\"@.
     --
     -- The default is @\"admin\"@.
     authSource :: Prelude.Maybe Prelude.Text,
+    -- | The full ARN, partial ARN, or friendly name of the
+    -- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+    -- details.
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | The name of the server on the MongoDB source endpoint.
     serverName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS KMS key identifier that is used to encrypt the content on the
+    -- | The KMS key identifier that is used to encrypt the content on the
     -- replication instance. If you don\'t specify a value for the @KmsKeyId@
-    -- parameter, then AWS DMS uses your default encryption key. AWS KMS
-    -- creates the default encryption key for your AWS account. Your AWS
-    -- account has a different default encryption key for each AWS Region.
+    -- parameter, then DMS uses your default encryption key. KMS creates the
+    -- default encryption key for your Amazon Web Services account. Your Amazon
+    -- Web Services account has a different default encryption key for each
+    -- Amazon Web Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The password for the user account you use to access the MongoDB source
     -- endpoint.
@@ -54,21 +55,6 @@ data MongoDbSettings = MongoDbSettings'
     port :: Prelude.Maybe Prelude.Int,
     -- | The user name you use to access the MongoDB source endpoint.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the
-    -- MongoDB endpoint.
-    --
-    -- You can specify one of two sets of values for these permissions. You can
-    -- specify the values for this setting and @SecretsManagerSecretId@. Or you
-    -- can specify clear-text values for @UserName@, @Password@, @ServerName@,
-    -- and @Port@. You can\'t specify both. For more information on creating
-    -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
-    -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The authentication mechanism you use to access the MongoDB source
     -- endpoint.
     --
@@ -77,16 +63,31 @@ data MongoDbSettings = MongoDbSettings'
     -- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
     -- @\"no\"@.
     authMechanism :: Prelude.Maybe AuthMechanismValue,
-    -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
-    -- to @\"none\"@.
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the MongoDB endpoint.
     --
-    -- Default value is @\"false\"@.
-    extractDocId :: Prelude.Maybe Prelude.Text,
+    -- You can specify one of two sets of values for these permissions. You can
+    -- specify the values for this setting and @SecretsManagerSecretId@. Or you
+    -- can specify clear-text values for @UserName@, @Password@, @ServerName@,
+    -- and @Port@. You can\'t specify both. For more information on creating
+    -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
+    -- @SecretsManagerSecretId@ required to access it, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
+    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The authentication type you use to access the MongoDB source endpoint.
     --
     -- When when set to @\"no\"@, user name and password parameters are not
     -- used and can be empty.
     authType :: Prelude.Maybe AuthTypeValue,
+    -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
+    -- to @\"none\"@.
+    --
+    -- Default value is @\"false\"@.
+    extractDocId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the number of documents to preview to determine the document
     -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
     --
@@ -110,22 +111,23 @@ data MongoDbSettings = MongoDbSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretsManagerSecretId', 'mongoDbSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
--- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
--- details.
---
 -- 'authSource', 'mongoDbSettings_authSource' - The MongoDB database name. This setting isn\'t used when @AuthType@ is
 -- set to @\"no\"@.
 --
 -- The default is @\"admin\"@.
 --
+-- 'secretsManagerSecretId', 'mongoDbSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
+-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+-- details.
+--
 -- 'serverName', 'mongoDbSettings_serverName' - The name of the server on the MongoDB source endpoint.
 --
--- 'kmsKeyId', 'mongoDbSettings_kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the
+-- 'kmsKeyId', 'mongoDbSettings_kmsKeyId' - The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
--- parameter, then AWS DMS uses your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS Region.
+-- parameter, then DMS uses your default encryption key. KMS creates the
+-- default encryption key for your Amazon Web Services account. Your Amazon
+-- Web Services account has a different default encryption key for each
+-- Amazon Web Services Region.
 --
 -- 'password', 'mongoDbSettings_password' - The password for the user account you use to access the MongoDB source
 -- endpoint.
@@ -133,21 +135,6 @@ data MongoDbSettings = MongoDbSettings'
 -- 'port', 'mongoDbSettings_port' - The port value for the MongoDB source endpoint.
 --
 -- 'username', 'mongoDbSettings_username' - The user name you use to access the MongoDB source endpoint.
---
--- 'secretsManagerAccessRoleArn', 'mongoDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the
--- MongoDB endpoint.
---
--- You can specify one of two sets of values for these permissions. You can
--- specify the values for this setting and @SecretsManagerSecretId@. Or you
--- can specify clear-text values for @UserName@, @Password@, @ServerName@,
--- and @Port@. You can\'t specify both. For more information on creating
--- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
--- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
 --
 -- 'authMechanism', 'mongoDbSettings_authMechanism' - The authentication mechanism you use to access the MongoDB source
 -- endpoint.
@@ -157,15 +144,30 @@ data MongoDbSettings = MongoDbSettings'
 -- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
 -- @\"no\"@.
 --
--- 'extractDocId', 'mongoDbSettings_extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set
--- to @\"none\"@.
+-- 'secretsManagerAccessRoleArn', 'mongoDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the MongoDB endpoint.
 --
--- Default value is @\"false\"@.
+-- You can specify one of two sets of values for these permissions. You can
+-- specify the values for this setting and @SecretsManagerSecretId@. Or you
+-- can specify clear-text values for @UserName@, @Password@, @ServerName@,
+-- and @Port@. You can\'t specify both. For more information on creating
+-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
+-- @SecretsManagerSecretId@ required to access it, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
 -- 'authType', 'mongoDbSettings_authType' - The authentication type you use to access the MongoDB source endpoint.
 --
 -- When when set to @\"no\"@, user name and password parameters are not
 -- used and can be empty.
+--
+-- 'extractDocId', 'mongoDbSettings_extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set
+-- to @\"none\"@.
+--
+-- Default value is @\"false\"@.
 --
 -- 'docsToInvestigate', 'mongoDbSettings_docsToInvestigate' - Indicates the number of documents to preview to determine the document
 -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
@@ -182,28 +184,21 @@ newMongoDbSettings ::
   MongoDbSettings
 newMongoDbSettings =
   MongoDbSettings'
-    { secretsManagerSecretId =
-        Prelude.Nothing,
-      authSource = Prelude.Nothing,
+    { authSource = Prelude.Nothing,
+      secretsManagerSecretId = Prelude.Nothing,
       serverName = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       password = Prelude.Nothing,
       port = Prelude.Nothing,
       username = Prelude.Nothing,
-      secretsManagerAccessRoleArn = Prelude.Nothing,
       authMechanism = Prelude.Nothing,
-      extractDocId = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
       authType = Prelude.Nothing,
+      extractDocId = Prelude.Nothing,
       docsToInvestigate = Prelude.Nothing,
       nestingLevel = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
-
--- | The full ARN, partial ARN, or friendly name of the
--- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
--- details.
-mongoDbSettings_secretsManagerSecretId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_secretsManagerSecretId = Lens.lens (\MongoDbSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MongoDbSettings' {} a -> s {secretsManagerSecretId = a} :: MongoDbSettings)
 
 -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
 -- set to @\"no\"@.
@@ -212,15 +207,22 @@ mongoDbSettings_secretsManagerSecretId = Lens.lens (\MongoDbSettings' {secretsMa
 mongoDbSettings_authSource :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_authSource = Lens.lens (\MongoDbSettings' {authSource} -> authSource) (\s@MongoDbSettings' {} a -> s {authSource = a} :: MongoDbSettings)
 
+-- | The full ARN, partial ARN, or friendly name of the
+-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+-- details.
+mongoDbSettings_secretsManagerSecretId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_secretsManagerSecretId = Lens.lens (\MongoDbSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MongoDbSettings' {} a -> s {secretsManagerSecretId = a} :: MongoDbSettings)
+
 -- | The name of the server on the MongoDB source endpoint.
 mongoDbSettings_serverName :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_serverName = Lens.lens (\MongoDbSettings' {serverName} -> serverName) (\s@MongoDbSettings' {} a -> s {serverName = a} :: MongoDbSettings)
 
--- | The AWS KMS key identifier that is used to encrypt the content on the
+-- | The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
--- parameter, then AWS DMS uses your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS Region.
+-- parameter, then DMS uses your default encryption key. KMS creates the
+-- default encryption key for your Amazon Web Services account. Your Amazon
+-- Web Services account has a different default encryption key for each
+-- Amazon Web Services Region.
 mongoDbSettings_kmsKeyId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_kmsKeyId = Lens.lens (\MongoDbSettings' {kmsKeyId} -> kmsKeyId) (\s@MongoDbSettings' {} a -> s {kmsKeyId = a} :: MongoDbSettings)
 
@@ -237,23 +239,6 @@ mongoDbSettings_port = Lens.lens (\MongoDbSettings' {port} -> port) (\s@MongoDbS
 mongoDbSettings_username :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_username = Lens.lens (\MongoDbSettings' {username} -> username) (\s@MongoDbSettings' {} a -> s {username = a} :: MongoDbSettings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the
--- MongoDB endpoint.
---
--- You can specify one of two sets of values for these permissions. You can
--- specify the values for this setting and @SecretsManagerSecretId@. Or you
--- can specify clear-text values for @UserName@, @Password@, @ServerName@,
--- and @Port@. You can\'t specify both. For more information on creating
--- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
--- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
-mongoDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_secretsManagerAccessRoleArn = Lens.lens (\MongoDbSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MongoDbSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MongoDbSettings)
-
 -- | The authentication mechanism you use to access the MongoDB source
 -- endpoint.
 --
@@ -264,12 +249,22 @@ mongoDbSettings_secretsManagerAccessRoleArn = Lens.lens (\MongoDbSettings' {secr
 mongoDbSettings_authMechanism :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthMechanismValue)
 mongoDbSettings_authMechanism = Lens.lens (\MongoDbSettings' {authMechanism} -> authMechanism) (\s@MongoDbSettings' {} a -> s {authMechanism = a} :: MongoDbSettings)
 
--- | Specifies the document ID. Use this setting when @NestingLevel@ is set
--- to @\"none\"@.
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the MongoDB endpoint.
 --
--- Default value is @\"false\"@.
-mongoDbSettings_extractDocId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_extractDocId = Lens.lens (\MongoDbSettings' {extractDocId} -> extractDocId) (\s@MongoDbSettings' {} a -> s {extractDocId = a} :: MongoDbSettings)
+-- You can specify one of two sets of values for these permissions. You can
+-- specify the values for this setting and @SecretsManagerSecretId@. Or you
+-- can specify clear-text values for @UserName@, @Password@, @ServerName@,
+-- and @Port@. You can\'t specify both. For more information on creating
+-- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
+-- @SecretsManagerSecretId@ required to access it, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
+mongoDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_secretsManagerAccessRoleArn = Lens.lens (\MongoDbSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MongoDbSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MongoDbSettings)
 
 -- | The authentication type you use to access the MongoDB source endpoint.
 --
@@ -277,6 +272,13 @@ mongoDbSettings_extractDocId = Lens.lens (\MongoDbSettings' {extractDocId} -> ex
 -- used and can be empty.
 mongoDbSettings_authType :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthTypeValue)
 mongoDbSettings_authType = Lens.lens (\MongoDbSettings' {authType} -> authType) (\s@MongoDbSettings' {} a -> s {authType = a} :: MongoDbSettings)
+
+-- | Specifies the document ID. Use this setting when @NestingLevel@ is set
+-- to @\"none\"@.
+--
+-- Default value is @\"false\"@.
+mongoDbSettings_extractDocId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_extractDocId = Lens.lens (\MongoDbSettings' {extractDocId} -> extractDocId) (\s@MongoDbSettings' {} a -> s {extractDocId = a} :: MongoDbSettings)
 
 -- | Indicates the number of documents to preview to determine the document
 -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
@@ -302,17 +304,17 @@ instance Core.FromJSON MongoDbSettings where
       "MongoDbSettings"
       ( \x ->
           MongoDbSettings'
-            Prelude.<$> (x Core..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Core..:? "AuthSource")
+            Prelude.<$> (x Core..:? "AuthSource")
+            Prelude.<*> (x Core..:? "SecretsManagerSecretId")
             Prelude.<*> (x Core..:? "ServerName")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "Password")
             Prelude.<*> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "AuthMechanism")
-            Prelude.<*> (x Core..:? "ExtractDocId")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "AuthType")
+            Prelude.<*> (x Core..:? "ExtractDocId")
             Prelude.<*> (x Core..:? "DocsToInvestigate")
             Prelude.<*> (x Core..:? "NestingLevel")
             Prelude.<*> (x Core..:? "DatabaseName")
@@ -326,19 +328,19 @@ instance Core.ToJSON MongoDbSettings where
   toJSON MongoDbSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecretsManagerSecretId" Core..=)
+          [ ("AuthSource" Core..=) Prelude.<$> authSource,
+            ("SecretsManagerSecretId" Core..=)
               Prelude.<$> secretsManagerSecretId,
-            ("AuthSource" Core..=) Prelude.<$> authSource,
             ("ServerName" Core..=) Prelude.<$> serverName,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("Password" Core..=) Prelude.<$> password,
             ("Port" Core..=) Prelude.<$> port,
             ("Username" Core..=) Prelude.<$> username,
+            ("AuthMechanism" Core..=) Prelude.<$> authMechanism,
             ("SecretsManagerAccessRoleArn" Core..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("AuthMechanism" Core..=) Prelude.<$> authMechanism,
-            ("ExtractDocId" Core..=) Prelude.<$> extractDocId,
             ("AuthType" Core..=) Prelude.<$> authType,
+            ("ExtractDocId" Core..=) Prelude.<$> extractDocId,
             ("DocsToInvestigate" Core..=)
               Prelude.<$> docsToInvestigate,
             ("NestingLevel" Core..=) Prelude.<$> nestingLevel,

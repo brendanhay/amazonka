@@ -20,6 +20,7 @@
 module Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration where
 
 import Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
+import Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -28,15 +29,28 @@ import qualified Network.AWS.Prelude as Prelude
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
 -- and
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
--- actions. Your private certificate authority (CA) can create and maintain
--- a certificate revocation list (CRL). A CRL contains information about
--- certificates revoked by your CA. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>.
+-- actions. Your private certificate authority (CA) can configure Online
+-- Certificate Status Protocol (OCSP) support and\/or maintain a
+-- certificate revocation list (CRL). OCSP returns validation information
+-- about certificates as requested by clients, and a CRL contains an
+-- updated list of certificates revoked by your CA. For more information,
+-- see
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html RevokeCertificate>
+-- and
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html Setting up a certificate revocation method>
+-- in the /AWS Certificate Manager Private Certificate Authority (PCA) User
+-- Guide/.
 --
 -- /See:/ 'newRevocationConfiguration' smart constructor.
 data RevocationConfiguration = RevocationConfiguration'
-  { -- | Configuration of the certificate revocation list (CRL), if any,
-    -- maintained by your private CA.
+  { -- | Configuration of Online Certificate Status Protocol (OCSP) support, if
+    -- any, maintained by your private CA. When you revoke a certificate, OCSP
+    -- responses may take up to 60 minutes to reflect the new status.
+    ocspConfiguration :: Prelude.Maybe OcspConfiguration,
+    -- | Configuration of the certificate revocation list (CRL), if any,
+    -- maintained by your private CA. A CRL is typically updated approximately
+    -- 30 minutes after a certificate is revoked. If for any reason a CRL
+    -- update fails, ACM Private CA makes further attempts every 15 minutes.
     crlConfiguration :: Prelude.Maybe CrlConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,18 +63,33 @@ data RevocationConfiguration = RevocationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if
+-- any, maintained by your private CA. When you revoke a certificate, OCSP
+-- responses may take up to 60 minutes to reflect the new status.
+--
 -- 'crlConfiguration', 'revocationConfiguration_crlConfiguration' - Configuration of the certificate revocation list (CRL), if any,
--- maintained by your private CA.
+-- maintained by your private CA. A CRL is typically updated approximately
+-- 30 minutes after a certificate is revoked. If for any reason a CRL
+-- update fails, ACM Private CA makes further attempts every 15 minutes.
 newRevocationConfiguration ::
   RevocationConfiguration
 newRevocationConfiguration =
   RevocationConfiguration'
-    { crlConfiguration =
-        Prelude.Nothing
+    { ocspConfiguration =
+        Prelude.Nothing,
+      crlConfiguration = Prelude.Nothing
     }
 
+-- | Configuration of Online Certificate Status Protocol (OCSP) support, if
+-- any, maintained by your private CA. When you revoke a certificate, OCSP
+-- responses may take up to 60 minutes to reflect the new status.
+revocationConfiguration_ocspConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe OcspConfiguration)
+revocationConfiguration_ocspConfiguration = Lens.lens (\RevocationConfiguration' {ocspConfiguration} -> ocspConfiguration) (\s@RevocationConfiguration' {} a -> s {ocspConfiguration = a} :: RevocationConfiguration)
+
 -- | Configuration of the certificate revocation list (CRL), if any,
--- maintained by your private CA.
+-- maintained by your private CA. A CRL is typically updated approximately
+-- 30 minutes after a certificate is revoked. If for any reason a CRL
+-- update fails, ACM Private CA makes further attempts every 15 minutes.
 revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe CrlConfiguration)
 revocationConfiguration_crlConfiguration = Lens.lens (\RevocationConfiguration' {crlConfiguration} -> crlConfiguration) (\s@RevocationConfiguration' {} a -> s {crlConfiguration = a} :: RevocationConfiguration)
 
@@ -70,7 +99,8 @@ instance Core.FromJSON RevocationConfiguration where
       "RevocationConfiguration"
       ( \x ->
           RevocationConfiguration'
-            Prelude.<$> (x Core..:? "CrlConfiguration")
+            Prelude.<$> (x Core..:? "OcspConfiguration")
+            Prelude.<*> (x Core..:? "CrlConfiguration")
       )
 
 instance Prelude.Hashable RevocationConfiguration
@@ -81,7 +111,9 @@ instance Core.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CrlConfiguration" Core..=)
+          [ ("OcspConfiguration" Core..=)
+              Prelude.<$> ocspConfiguration,
+            ("CrlConfiguration" Core..=)
               Prelude.<$> crlConfiguration
           ]
       )

@@ -21,15 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a model package that you can use to create Amazon SageMaker
--- models or list on AWS Marketplace, or a versioned model that is part of
--- a model group. Buyers can subscribe to model packages listed on AWS
--- Marketplace to create models in Amazon SageMaker.
+-- models or list on Amazon Web Services Marketplace, or a versioned model
+-- that is part of a model group. Buyers can subscribe to model packages
+-- listed on Amazon Web Services Marketplace to create models in Amazon
+-- SageMaker.
 --
 -- To create a model package by specifying a Docker container that contains
 -- your inference code and the Amazon S3 location of your model artifacts,
 -- provide values for @InferenceSpecification@. To create a model from an
--- algorithm resource that you created or subscribed to in AWS Marketplace,
--- provide a value for @SourceAlgorithmSpecification@.
+-- algorithm resource that you created or subscribed to in Amazon Web
+-- Services Marketplace, provide a value for
+-- @SourceAlgorithmSpecification@.
 --
 -- There are two types of model packages:
 --
@@ -47,8 +49,8 @@ module Network.AWS.SageMaker.CreateModelPackage
     createModelPackage_metadataProperties,
     createModelPackage_validationSpecification,
     createModelPackage_modelMetrics,
-    createModelPackage_certifyForMarketplace,
     createModelPackage_modelPackageName,
+    createModelPackage_certifyForMarketplace,
     createModelPackage_modelApprovalStatus,
     createModelPackage_tags,
     createModelPackage_inferenceSpecification,
@@ -83,17 +85,18 @@ data CreateModelPackage = CreateModelPackage'
     validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
     -- | A structure that contains model metrics reports.
     modelMetrics :: Prelude.Maybe ModelMetrics,
-    -- | Whether to certify the model package for listing on AWS Marketplace.
-    --
-    -- This parameter is optional for unversioned models, and does not apply to
-    -- versioned models.
-    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The name of the model package. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
     --
     -- This parameter is required for unversioned models. It is not applicable
     -- to versioned models.
     modelPackageName :: Prelude.Maybe Prelude.Text,
+    -- | Whether to certify the model package for listing on Amazon Web Services
+    -- Marketplace.
+    --
+    -- This parameter is optional for unversioned models, and does not apply to
+    -- versioned models.
+    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | Whether the model is approved for deployment.
     --
     -- This parameter is optional for versioned models, and does not apply to
@@ -104,8 +107,8 @@ data CreateModelPackage = CreateModelPackage'
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | A list of key value pairs associated with the model. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference Guide/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | Specifies details about inference jobs that can be run with models based
     -- on this model package, including the following:
@@ -148,16 +151,17 @@ data CreateModelPackage = CreateModelPackage'
 --
 -- 'modelMetrics', 'createModelPackage_modelMetrics' - A structure that contains model metrics reports.
 --
--- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on AWS Marketplace.
---
--- This parameter is optional for unversioned models, and does not apply to
--- versioned models.
---
 -- 'modelPackageName', 'createModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 --
 -- This parameter is required for unversioned models. It is not applicable
 -- to versioned models.
+--
+-- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on Amazon Web Services
+-- Marketplace.
+--
+-- This parameter is optional for unversioned models, and does not apply to
+-- versioned models.
 --
 -- 'modelApprovalStatus', 'createModelPackage_modelApprovalStatus' - Whether the model is approved for deployment.
 --
@@ -169,8 +173,8 @@ data CreateModelPackage = CreateModelPackage'
 --
 -- 'tags', 'createModelPackage_tags' - A list of key value pairs associated with the model. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'inferenceSpecification', 'createModelPackage_inferenceSpecification' - Specifies details about inference jobs that can be run with models based
 -- on this model package, including the following:
@@ -201,8 +205,8 @@ newCreateModelPackage =
       metadataProperties = Prelude.Nothing,
       validationSpecification = Prelude.Nothing,
       modelMetrics = Prelude.Nothing,
-      certifyForMarketplace = Prelude.Nothing,
       modelPackageName = Prelude.Nothing,
+      certifyForMarketplace = Prelude.Nothing,
       modelApprovalStatus = Prelude.Nothing,
       tags = Prelude.Nothing,
       inferenceSpecification = Prelude.Nothing,
@@ -228,13 +232,6 @@ createModelPackage_validationSpecification = Lens.lens (\CreateModelPackage' {va
 createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelMetrics)
 createModelPackage_modelMetrics = Lens.lens (\CreateModelPackage' {modelMetrics} -> modelMetrics) (\s@CreateModelPackage' {} a -> s {modelMetrics = a} :: CreateModelPackage)
 
--- | Whether to certify the model package for listing on AWS Marketplace.
---
--- This parameter is optional for unversioned models, and does not apply to
--- versioned models.
-createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Bool)
-createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateModelPackage' {} a -> s {certifyForMarketplace = a} :: CreateModelPackage)
-
 -- | The name of the model package. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 --
@@ -242,6 +239,14 @@ createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {cert
 -- to versioned models.
 createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPackageName} -> modelPackageName) (\s@CreateModelPackage' {} a -> s {modelPackageName = a} :: CreateModelPackage)
+
+-- | Whether to certify the model package for listing on Amazon Web Services
+-- Marketplace.
+--
+-- This parameter is optional for unversioned models, and does not apply to
+-- versioned models.
+createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Bool)
+createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateModelPackage' {} a -> s {certifyForMarketplace = a} :: CreateModelPackage)
 
 -- | Whether the model is approved for deployment.
 --
@@ -255,8 +260,8 @@ createModelPackage_modelApprovalStatus = Lens.lens (\CreateModelPackage' {modelA
 
 -- | A list of key value pairs associated with the model. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 createModelPackage_tags :: Lens.Lens' CreateModelPackage (Prelude.Maybe [Tag])
 createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens._Coerce
 
@@ -332,10 +337,10 @@ instance Core.ToJSON CreateModelPackage where
             ("ValidationSpecification" Core..=)
               Prelude.<$> validationSpecification,
             ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
-            ("CertifyForMarketplace" Core..=)
-              Prelude.<$> certifyForMarketplace,
             ("ModelPackageName" Core..=)
               Prelude.<$> modelPackageName,
+            ("CertifyForMarketplace" Core..=)
+              Prelude.<$> certifyForMarketplace,
             ("ModelApprovalStatus" Core..=)
               Prelude.<$> modelApprovalStatus,
             ("Tags" Core..=) Prelude.<$> tags,

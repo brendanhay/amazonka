@@ -40,15 +40,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterEndpoint' smart constructor.
 data DBClusterEndpoint = DBClusterEndpoint'
-  { -- | The identifier associated with the endpoint. This parameter is stored as
-    -- a lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the endpoint. One of: @creating@, @available@,
+  { -- | The current status of the endpoint. One of: @creating@, @available@,
     -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
     -- endpoint that can\'t be used for a certain kind of cluster, such as a
     -- @writer@ endpoint for a read-only secondary cluster in a global
     -- database.
     status :: Prelude.Maybe Prelude.Text,
+    -- | The identifier associated with the endpoint. This parameter is stored as
+    -- a lowercase string.
+    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
     -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
@@ -82,14 +82,14 @@ data DBClusterEndpoint = DBClusterEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusterEndpointIdentifier', 'dbClusterEndpoint_dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as
--- a lowercase string.
---
 -- 'status', 'dbClusterEndpoint_status' - The current status of the endpoint. One of: @creating@, @available@,
 -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
 -- endpoint that can\'t be used for a certain kind of cluster, such as a
 -- @writer@ endpoint for a read-only secondary cluster in a global
 -- database.
+--
+-- 'dbClusterEndpointIdentifier', 'dbClusterEndpoint_dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as
+-- a lowercase string.
 --
 -- 'excludedMembers', 'dbClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
@@ -116,9 +116,8 @@ newDBClusterEndpoint ::
   DBClusterEndpoint
 newDBClusterEndpoint =
   DBClusterEndpoint'
-    { dbClusterEndpointIdentifier =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      dbClusterEndpointIdentifier = Prelude.Nothing,
       excludedMembers = Prelude.Nothing,
       endpointType = Prelude.Nothing,
       customEndpointType = Prelude.Nothing,
@@ -130,11 +129,6 @@ newDBClusterEndpoint =
       staticMembers = Prelude.Nothing
     }
 
--- | The identifier associated with the endpoint. This parameter is stored as
--- a lowercase string.
-dbClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' DBClusterEndpoint (Prelude.Maybe Prelude.Text)
-dbClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\DBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@DBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: DBClusterEndpoint)
-
 -- | The current status of the endpoint. One of: @creating@, @available@,
 -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
 -- endpoint that can\'t be used for a certain kind of cluster, such as a
@@ -142,6 +136,11 @@ dbClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\DBClusterEndpoint' {
 -- database.
 dbClusterEndpoint_status :: Lens.Lens' DBClusterEndpoint (Prelude.Maybe Prelude.Text)
 dbClusterEndpoint_status = Lens.lens (\DBClusterEndpoint' {status} -> status) (\s@DBClusterEndpoint' {} a -> s {status = a} :: DBClusterEndpoint)
+
+-- | The identifier associated with the endpoint. This parameter is stored as
+-- a lowercase string.
+dbClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' DBClusterEndpoint (Prelude.Maybe Prelude.Text)
+dbClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\DBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@DBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: DBClusterEndpoint)
 
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
@@ -184,8 +183,8 @@ dbClusterEndpoint_staticMembers = Lens.lens (\DBClusterEndpoint' {staticMembers}
 instance Core.FromXML DBClusterEndpoint where
   parseXML x =
     DBClusterEndpoint'
-      Prelude.<$> (x Core..@? "DBClusterEndpointIdentifier")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "DBClusterEndpointIdentifier")
       Prelude.<*> ( x Core..@? "ExcludedMembers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )

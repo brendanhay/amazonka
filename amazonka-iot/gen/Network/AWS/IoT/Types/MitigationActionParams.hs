@@ -35,8 +35,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMitigationActionParams' smart constructor.
 data MitigationActionParams = MitigationActionParams'
-  { -- | Parameters to define a mitigation action that enables AWS IoT logging at
-    -- a specified level of detail.
+  { -- | Parameters to define a mitigation action that enables Amazon Web
+    -- Services IoT Core logging at a specified level of detail.
     enableIoTLoggingParams :: Prelude.Maybe EnableIoTLoggingParams,
     -- | Parameters to define a mitigation action that adds a blank policy to
     -- restrict permissions.
@@ -48,13 +48,13 @@ data MitigationActionParams = MitigationActionParams'
     -- Amazon Simple Notification Service (Amazon SNS. You can implement your
     -- own custom actions in response to the Amazon SNS messages.
     publishFindingToSnsParams :: Prelude.Maybe PublishFindingToSnsParams,
+    -- | Parameters to define a mitigation action that changes the state of the
+    -- CA certificate to inactive.
+    updateCACertificateParams :: Prelude.Maybe UpdateCACertificateParams,
     -- | Parameters to define a mitigation action that moves devices associated
     -- with a certificate to one or more specified thing groups, typically for
     -- quarantine.
-    addThingsToThingGroupParams :: Prelude.Maybe AddThingsToThingGroupParams,
-    -- | Parameters to define a mitigation action that changes the state of the
-    -- CA certificate to inactive.
-    updateCACertificateParams :: Prelude.Maybe UpdateCACertificateParams
+    addThingsToThingGroupParams :: Prelude.Maybe AddThingsToThingGroupParams
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,8 +66,8 @@ data MitigationActionParams = MitigationActionParams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableIoTLoggingParams', 'mitigationActionParams_enableIoTLoggingParams' - Parameters to define a mitigation action that enables AWS IoT logging at
--- a specified level of detail.
+-- 'enableIoTLoggingParams', 'mitigationActionParams_enableIoTLoggingParams' - Parameters to define a mitigation action that enables Amazon Web
+-- Services IoT Core logging at a specified level of detail.
 --
 -- 'replaceDefaultPolicyVersionParams', 'mitigationActionParams_replaceDefaultPolicyVersionParams' - Parameters to define a mitigation action that adds a blank policy to
 -- restrict permissions.
@@ -79,12 +79,12 @@ data MitigationActionParams = MitigationActionParams'
 -- Amazon Simple Notification Service (Amazon SNS. You can implement your
 -- own custom actions in response to the Amazon SNS messages.
 --
+-- 'updateCACertificateParams', 'mitigationActionParams_updateCACertificateParams' - Parameters to define a mitigation action that changes the state of the
+-- CA certificate to inactive.
+--
 -- 'addThingsToThingGroupParams', 'mitigationActionParams_addThingsToThingGroupParams' - Parameters to define a mitigation action that moves devices associated
 -- with a certificate to one or more specified thing groups, typically for
 -- quarantine.
---
--- 'updateCACertificateParams', 'mitigationActionParams_updateCACertificateParams' - Parameters to define a mitigation action that changes the state of the
--- CA certificate to inactive.
 newMitigationActionParams ::
   MitigationActionParams
 newMitigationActionParams =
@@ -94,12 +94,12 @@ newMitigationActionParams =
       replaceDefaultPolicyVersionParams = Prelude.Nothing,
       updateDeviceCertificateParams = Prelude.Nothing,
       publishFindingToSnsParams = Prelude.Nothing,
-      addThingsToThingGroupParams = Prelude.Nothing,
-      updateCACertificateParams = Prelude.Nothing
+      updateCACertificateParams = Prelude.Nothing,
+      addThingsToThingGroupParams = Prelude.Nothing
     }
 
--- | Parameters to define a mitigation action that enables AWS IoT logging at
--- a specified level of detail.
+-- | Parameters to define a mitigation action that enables Amazon Web
+-- Services IoT Core logging at a specified level of detail.
 mitigationActionParams_enableIoTLoggingParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe EnableIoTLoggingParams)
 mitigationActionParams_enableIoTLoggingParams = Lens.lens (\MitigationActionParams' {enableIoTLoggingParams} -> enableIoTLoggingParams) (\s@MitigationActionParams' {} a -> s {enableIoTLoggingParams = a} :: MitigationActionParams)
 
@@ -119,16 +119,16 @@ mitigationActionParams_updateDeviceCertificateParams = Lens.lens (\MitigationAct
 mitigationActionParams_publishFindingToSnsParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe PublishFindingToSnsParams)
 mitigationActionParams_publishFindingToSnsParams = Lens.lens (\MitigationActionParams' {publishFindingToSnsParams} -> publishFindingToSnsParams) (\s@MitigationActionParams' {} a -> s {publishFindingToSnsParams = a} :: MitigationActionParams)
 
+-- | Parameters to define a mitigation action that changes the state of the
+-- CA certificate to inactive.
+mitigationActionParams_updateCACertificateParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe UpdateCACertificateParams)
+mitigationActionParams_updateCACertificateParams = Lens.lens (\MitigationActionParams' {updateCACertificateParams} -> updateCACertificateParams) (\s@MitigationActionParams' {} a -> s {updateCACertificateParams = a} :: MitigationActionParams)
+
 -- | Parameters to define a mitigation action that moves devices associated
 -- with a certificate to one or more specified thing groups, typically for
 -- quarantine.
 mitigationActionParams_addThingsToThingGroupParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe AddThingsToThingGroupParams)
 mitigationActionParams_addThingsToThingGroupParams = Lens.lens (\MitigationActionParams' {addThingsToThingGroupParams} -> addThingsToThingGroupParams) (\s@MitigationActionParams' {} a -> s {addThingsToThingGroupParams = a} :: MitigationActionParams)
-
--- | Parameters to define a mitigation action that changes the state of the
--- CA certificate to inactive.
-mitigationActionParams_updateCACertificateParams :: Lens.Lens' MitigationActionParams (Prelude.Maybe UpdateCACertificateParams)
-mitigationActionParams_updateCACertificateParams = Lens.lens (\MitigationActionParams' {updateCACertificateParams} -> updateCACertificateParams) (\s@MitigationActionParams' {} a -> s {updateCACertificateParams = a} :: MitigationActionParams)
 
 instance Core.FromJSON MitigationActionParams where
   parseJSON =
@@ -140,8 +140,8 @@ instance Core.FromJSON MitigationActionParams where
             Prelude.<*> (x Core..:? "replaceDefaultPolicyVersionParams")
             Prelude.<*> (x Core..:? "updateDeviceCertificateParams")
             Prelude.<*> (x Core..:? "publishFindingToSnsParams")
-            Prelude.<*> (x Core..:? "addThingsToThingGroupParams")
             Prelude.<*> (x Core..:? "updateCACertificateParams")
+            Prelude.<*> (x Core..:? "addThingsToThingGroupParams")
       )
 
 instance Prelude.Hashable MitigationActionParams
@@ -160,9 +160,9 @@ instance Core.ToJSON MitigationActionParams where
               Prelude.<$> updateDeviceCertificateParams,
             ("publishFindingToSnsParams" Core..=)
               Prelude.<$> publishFindingToSnsParams,
-            ("addThingsToThingGroupParams" Core..=)
-              Prelude.<$> addThingsToThingGroupParams,
             ("updateCACertificateParams" Core..=)
-              Prelude.<$> updateCACertificateParams
+              Prelude.<$> updateCACertificateParams,
+            ("addThingsToThingGroupParams" Core..=)
+              Prelude.<$> addThingsToThingGroupParams
           ]
       )

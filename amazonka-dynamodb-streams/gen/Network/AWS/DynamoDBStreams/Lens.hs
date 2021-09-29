@@ -14,13 +14,6 @@
 module Network.AWS.DynamoDBStreams.Lens
   ( -- * Operations
 
-    -- ** GetRecords
-    getRecords_limit,
-    getRecords_shardIterator,
-    getRecordsResponse_records,
-    getRecordsResponse_nextShardIterator,
-    getRecordsResponse_httpStatus,
-
     -- ** GetShardIterator
     getShardIterator_sequenceNumber,
     getShardIterator_streamArn,
@@ -28,6 +21,13 @@ module Network.AWS.DynamoDBStreams.Lens
     getShardIterator_shardIteratorType,
     getShardIteratorResponse_shardIterator,
     getShardIteratorResponse_httpStatus,
+
+    -- ** GetRecords
+    getRecords_limit,
+    getRecords_shardIterator,
+    getRecordsResponse_records,
+    getRecordsResponse_nextShardIterator,
+    getRecordsResponse_httpStatus,
 
     -- ** DescribeStream
     describeStream_exclusiveStartShardId,
@@ -48,10 +48,10 @@ module Network.AWS.DynamoDBStreams.Lens
 
     -- ** AttributeValue
     attributeValue_bs,
-    attributeValue_bool,
     attributeValue_n,
-    attributeValue_s,
+    attributeValue_bool,
     attributeValue_null,
+    attributeValue_s,
     attributeValue_m,
     attributeValue_b,
     attributeValue_l,
@@ -68,8 +68,8 @@ module Network.AWS.DynamoDBStreams.Lens
 
     -- ** Record
     record_userIdentity,
-    record_eventID,
     record_eventSource,
+    record_eventID,
     record_eventName,
     record_eventVersion,
     record_dynamodb,
@@ -106,8 +106,8 @@ module Network.AWS.DynamoDBStreams.Lens
     streamRecord_keys,
     streamRecord_sizeBytes,
     streamRecord_newImage,
-    streamRecord_oldImage,
     streamRecord_approximateCreationDateTime,
+    streamRecord_oldImage,
   )
 where
 

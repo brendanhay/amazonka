@@ -40,8 +40,8 @@ module Network.AWS.ECR.DescribeImageScanFindings
     newDescribeImageScanFindingsResponse,
 
     -- * Response Lenses
-    describeImageScanFindingsResponse_nextToken,
     describeImageScanFindingsResponse_imageScanStatus,
+    describeImageScanFindingsResponse_nextToken,
     describeImageScanFindingsResponse_imageScanFindings,
     describeImageScanFindingsResponse_registryId,
     describeImageScanFindingsResponse_repositoryName,
@@ -75,9 +75,9 @@ data DescribeImageScanFindings = DescribeImageScanFindings'
     -- then @DescribeImageScanFindings@ returns up to 100 results and a
     -- @nextToken@ value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID associated with the registry that contains the
-    -- repository in which to describe the image scan findings for. If you do
-    -- not specify a registry, the default registry is assumed.
+    -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository in which to describe the image scan findings
+    -- for. If you do not specify a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The repository for the image for which to describe the scan findings.
     repositoryName :: Prelude.Text,
@@ -109,9 +109,9 @@ data DescribeImageScanFindings = DescribeImageScanFindings'
 -- then @DescribeImageScanFindings@ returns up to 100 results and a
 -- @nextToken@ value, if applicable.
 --
--- 'registryId', 'describeImageScanFindings_registryId' - The AWS account ID associated with the registry that contains the
--- repository in which to describe the image scan findings for. If you do
--- not specify a registry, the default registry is assumed.
+-- 'registryId', 'describeImageScanFindings_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to describe the image scan findings
+-- for. If you do not specify a registry, the default registry is assumed.
 --
 -- 'repositoryName', 'describeImageScanFindings_repositoryName' - The repository for the image for which to describe the scan findings.
 --
@@ -154,9 +154,9 @@ describeImageScanFindings_nextToken = Lens.lens (\DescribeImageScanFindings' {ne
 describeImageScanFindings_maxResults :: Lens.Lens' DescribeImageScanFindings (Prelude.Maybe Prelude.Natural)
 describeImageScanFindings_maxResults = Lens.lens (\DescribeImageScanFindings' {maxResults} -> maxResults) (\s@DescribeImageScanFindings' {} a -> s {maxResults = a} :: DescribeImageScanFindings)
 
--- | The AWS account ID associated with the registry that contains the
--- repository in which to describe the image scan findings for. If you do
--- not specify a registry, the default registry is assumed.
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository in which to describe the image scan findings
+-- for. If you do not specify a registry, the default registry is assumed.
 describeImageScanFindings_registryId :: Lens.Lens' DescribeImageScanFindings (Prelude.Maybe Prelude.Text)
 describeImageScanFindings_registryId = Lens.lens (\DescribeImageScanFindings' {registryId} -> registryId) (\s@DescribeImageScanFindings' {} a -> s {registryId = a} :: DescribeImageScanFindings)
 
@@ -201,8 +201,8 @@ instance Core.AWSRequest DescribeImageScanFindings where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageScanFindingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "imageScanStatus")
+            Prelude.<$> (x Core..?> "imageScanStatus")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "imageScanFindings")
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (x Core..?> "repositoryName")
@@ -250,13 +250,13 @@ instance Core.ToQuery DescribeImageScanFindings where
 
 -- | /See:/ 'newDescribeImageScanFindingsResponse' smart constructor.
 data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
-  { -- | The @nextToken@ value to include in a future @DescribeImageScanFindings@
+  { -- | The current state of the scan.
+    imageScanStatus :: Prelude.Maybe ImageScanStatus,
+    -- | The @nextToken@ value to include in a future @DescribeImageScanFindings@
     -- request. When the results of a @DescribeImageScanFindings@ request
     -- exceed @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the scan.
-    imageScanStatus :: Prelude.Maybe ImageScanStatus,
     -- | The information contained in the image scan findings.
     imageScanFindings :: Prelude.Maybe ImageScanFindings,
     -- | The registry ID associated with the request.
@@ -277,12 +277,12 @@ data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageScanStatus', 'describeImageScanFindingsResponse_imageScanStatus' - The current state of the scan.
+--
 -- 'nextToken', 'describeImageScanFindingsResponse_nextToken' - The @nextToken@ value to include in a future @DescribeImageScanFindings@
 -- request. When the results of a @DescribeImageScanFindings@ request
 -- exceed @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is null when there are no more results to return.
---
--- 'imageScanStatus', 'describeImageScanFindingsResponse_imageScanStatus' - The current state of the scan.
 --
 -- 'imageScanFindings', 'describeImageScanFindingsResponse_imageScanFindings' - The information contained in the image scan findings.
 --
@@ -299,9 +299,9 @@ newDescribeImageScanFindingsResponse ::
   DescribeImageScanFindingsResponse
 newDescribeImageScanFindingsResponse pHttpStatus_ =
   DescribeImageScanFindingsResponse'
-    { nextToken =
+    { imageScanStatus =
         Prelude.Nothing,
-      imageScanStatus = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       imageScanFindings = Prelude.Nothing,
       registryId = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
@@ -309,16 +309,16 @@ newDescribeImageScanFindingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
+-- | The current state of the scan.
+describeImageScanFindingsResponse_imageScanStatus :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageScanStatus)
+describeImageScanFindingsResponse_imageScanStatus = Lens.lens (\DescribeImageScanFindingsResponse' {imageScanStatus} -> imageScanStatus) (\s@DescribeImageScanFindingsResponse' {} a -> s {imageScanStatus = a} :: DescribeImageScanFindingsResponse)
+
 -- | The @nextToken@ value to include in a future @DescribeImageScanFindings@
 -- request. When the results of a @DescribeImageScanFindings@ request
 -- exceed @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is null when there are no more results to return.
 describeImageScanFindingsResponse_nextToken :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe Prelude.Text)
 describeImageScanFindingsResponse_nextToken = Lens.lens (\DescribeImageScanFindingsResponse' {nextToken} -> nextToken) (\s@DescribeImageScanFindingsResponse' {} a -> s {nextToken = a} :: DescribeImageScanFindingsResponse)
-
--- | The current state of the scan.
-describeImageScanFindingsResponse_imageScanStatus :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageScanStatus)
-describeImageScanFindingsResponse_imageScanStatus = Lens.lens (\DescribeImageScanFindingsResponse' {imageScanStatus} -> imageScanStatus) (\s@DescribeImageScanFindingsResponse' {} a -> s {imageScanStatus = a} :: DescribeImageScanFindingsResponse)
 
 -- | The information contained in the image scan findings.
 describeImageScanFindingsResponse_imageScanFindings :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageScanFindings)

@@ -145,14 +145,14 @@ instance Core.ToQuery CreateTestGridUrl where
 data CreateTestGridUrlResponse = CreateTestGridUrlResponse'
   { -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
     -- seconds, to be passed to a @RemoteWebDriver@.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
     -- active.
     expires :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateTestGridUrlResponse' with all optional fields omitted.
@@ -183,7 +183,7 @@ newCreateTestGridUrlResponse pHttpStatus_ =
 -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
 -- seconds, to be passed to a @RemoteWebDriver@.
 createTestGridUrlResponse_url :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.Text)
-createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> url) (\s@CreateTestGridUrlResponse' {} a -> s {url = a} :: CreateTestGridUrlResponse)
+createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> url) (\s@CreateTestGridUrlResponse' {} a -> s {url = a} :: CreateTestGridUrlResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
 -- active.

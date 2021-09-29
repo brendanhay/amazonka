@@ -20,22 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Network File System (NFS) file share on an existing file
--- gateway. In Storage Gateway, a file share is a file system mount point
+-- Creates a Network File System (NFS) file share on an existing S3 File
+-- Gateway. In Storage Gateway, a file share is a file system mount point
 -- backed by Amazon S3 cloud storage. Storage Gateway exposes file shares
--- using an NFS interface. This operation is only supported for file
--- gateways.
+-- using an NFS interface. This operation is only supported for S3 File
+-- Gateways.
 --
--- File gateway requires AWS Security Token Service (AWS STS) to be
--- activated to enable you to create a file share. Make sure AWS STS is
--- activated in the AWS Region you are creating your file gateway in. If
--- AWS STS is not activated in the AWS Region, activate it. For information
--- about how to activate AWS STS, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating AWS STS in an AWS Region>
--- in the /AWS Identity and Access Management User Guide/.
+-- S3 File gateway requires Security Token Service (STS) to be activated to
+-- enable you to create a file share. Make sure STS is activated in the
+-- Region you are creating your S3 File Gateway in. If STS is not activated
+-- in the Region, activate it. For information about how to activate STS,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Region>
+-- in the /Identity and Access Management User Guide/.
 --
--- File gateway does not support creating hard or symbolic links on a file
--- share.
+-- S3 File Gateways do not support creating hard or symbolic links on a
+-- file share.
 module Network.AWS.StorageGateway.CreateNFSFileShare
   ( -- * Creating a Request
     CreateNFSFileShare (..),
@@ -44,16 +44,18 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     -- * Request Lenses
     createNFSFileShare_defaultStorageClass,
     createNFSFileShare_fileShareName,
-    createNFSFileShare_guessMIMETypeEnabled,
     createNFSFileShare_readOnly,
+    createNFSFileShare_bucketRegion,
+    createNFSFileShare_guessMIMETypeEnabled,
     createNFSFileShare_kmsEncrypted,
+    createNFSFileShare_vPCEndpointDNSName,
     createNFSFileShare_squash,
     createNFSFileShare_notificationPolicy,
     createNFSFileShare_kmsKey,
     createNFSFileShare_tags,
-    createNFSFileShare_cacheAttributes,
     createNFSFileShare_clientList,
     createNFSFileShare_objectACL,
+    createNFSFileShare_cacheAttributes,
     createNFSFileShare_nFSFileShareDefaults,
     createNFSFileShare_requesterPays,
     createNFSFileShare_clientToken,
@@ -83,7 +85,7 @@ import Network.AWS.StorageGateway.Types
 -- /See:/ 'newCreateNFSFileShare' smart constructor.
 data CreateNFSFileShare = CreateNFSFileShare'
   { -- | The default storage class for objects put into an Amazon S3 bucket by
-    -- the file gateway. The default value is @S3_INTELLIGENT_TIERING@.
+    -- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
     -- Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
@@ -94,22 +96,36 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- @FileShareName@ must be set if an S3 prefix name is set in
     -- @LocationARN@.
     fileShareName :: Prelude.Maybe Prelude.Text,
+    -- | A value that sets the write status of a file share. Set this value to
+    -- @true@ to set the write status to read-only, otherwise set to @false@.
+    --
+    -- Valid Values: @true@ | @false@
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Region of the S3 bucket where the NFS file share stores
+    -- files.
+    --
+    -- This parameter is required for NFS file shares that connect to Amazon S3
+    -- through a VPC endpoint, a VPC access point, or an access point alias
+    -- that points to a VPC access point.
+    bucketRegion :: Prelude.Maybe Prelude.Text,
     -- | A value that enables guessing of the MIME type for uploaded objects
     -- based on file extensions. Set this value to @true@ to enable MIME type
     -- guessing, otherwise set to @false@. The default value is @true@.
     --
     -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A value that sets the write status of a file share. Set this value to
-    -- @true@ to set the write status to read-only, otherwise set to @false@.
-    --
-    -- Valid Values: @true@ | @false@
-    readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
-    -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the DNS name for the VPC endpoint that the NFS file share uses
+    -- to connect to Amazon S3.
+    --
+    -- This parameter is required for NFS file shares that connect to Amazon S3
+    -- through a VPC endpoint, a VPC access point, or an access point alias
+    -- that points to a VPC access point.
+    vPCEndpointDNSName :: Prelude.Maybe Prelude.Text,
     -- | A value that maps a user to anonymous user.
     --
     -- Valid values are the following:
@@ -120,7 +136,24 @@ data CreateNFSFileShare = CreateNFSFileShare'
     --
     -- -   @AllSquash@: Everyone is mapped to anonymous user.
     squash :: Prelude.Maybe Prelude.Text,
-    -- | The notification policy of the file share.
+    -- | The notification policy of the file share. @SettlingTimeInSeconds@
+    -- controls the number of seconds to wait after the last point in time a
+    -- client wrote to a file before generating an @ObjectUploaded@
+    -- notification. Because clients can make many small writes to files, it\'s
+    -- best to set this parameter for as long as possible to avoid generating
+    -- multiple notifications for the same file in a small time period.
+    --
+    -- @SettlingTimeInSeconds@ has no effect on the timing of the object
+    -- uploading to Amazon S3, only the timing of the notification.
+    --
+    -- The following example sets @NotificationPolicy@ on with
+    -- @SettlingTimeInSeconds@ set to 60.
+    --
+    -- @{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}@
+    --
+    -- The following example sets @NotificationPolicy@ off.
+    --
+    -- @{}@
     notificationPolicy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -135,15 +168,15 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
     tags :: Prelude.Maybe [Tag],
-    -- | Refresh cache information.
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
-    -- | The list of clients that are allowed to access the file gateway. The
+    -- | The list of clients that are allowed to access the S3 File Gateway. The
     -- list must contain either valid IP addresses or valid CIDR blocks.
     clientList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A value that sets the access control list (ACL) permission for objects
-    -- in the S3 bucket that a file gateway puts objects into. The default
+    -- in the S3 bucket that a S3 File Gateway puts objects into. The default
     -- value is @private@.
     objectACL :: Prelude.Maybe ObjectACL,
+    -- | Specifies refresh cache information for the file share.
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | File share default values. Optional.
     nFSFileShareDefaults :: Prelude.Maybe NFSFileShareDefaults,
     -- | A value that sets who pays the cost of the request and the cost
@@ -157,17 +190,28 @@ data CreateNFSFileShare = CreateNFSFileShare'
     --
     -- Valid Values: @true@ | @false@
     requesterPays :: Prelude.Maybe Prelude.Bool,
-    -- | A unique string value that you supply that is used by file gateway to
+    -- | A unique string value that you supply that is used by S3 File Gateway to
     -- ensure idempotent file share creation.
     clientToken :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the file gateway on which you want to
-    -- create a file share.
+    -- | The Amazon Resource Name (ARN) of the S3 File Gateway on which you want
+    -- to create a file share.
     gatewayARN :: Prelude.Text,
-    -- | The ARN of the AWS Identity and Access Management (IAM) role that a file
-    -- gateway assumes when it accesses the underlying storage.
+    -- | The ARN of the Identity and Access Management (IAM) role that an S3 File
+    -- Gateway assumes when it accesses the underlying storage.
     role' :: Prelude.Text,
     -- | The ARN of the backend storage used for storing file data. A prefix name
     -- can be added to the S3 bucket name. It must end with a \"\/\".
+    --
+    -- You can specify a bucket attached to an access point using a complete
+    -- ARN that includes the bucket region as shown:
+    --
+    -- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+    --
+    -- If you specify a bucket attached to an access point, the bucket policy
+    -- must be configured to delegate access control to the access point. For
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
+    -- in the /Amazon S3 User Guide/.
     locationARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -181,7 +225,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- for backwards compatibility:
 --
 -- 'defaultStorageClass', 'createNFSFileShare_defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by
--- the file gateway. The default value is @S3_INTELLIGENT_TIERING@.
+-- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
 -- Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
@@ -192,21 +236,35 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- @FileShareName@ must be set if an S3 prefix name is set in
 -- @LocationARN@.
 --
+-- 'readOnly', 'createNFSFileShare_readOnly' - A value that sets the write status of a file share. Set this value to
+-- @true@ to set the write status to read-only, otherwise set to @false@.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'bucketRegion', 'createNFSFileShare_bucketRegion' - Specifies the Region of the S3 bucket where the NFS file share stores
+-- files.
+--
+-- This parameter is required for NFS file shares that connect to Amazon S3
+-- through a VPC endpoint, a VPC access point, or an access point alias
+-- that points to a VPC access point.
+--
 -- 'guessMIMETypeEnabled', 'createNFSFileShare_guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
 -- guessing, otherwise set to @false@. The default value is @true@.
 --
 -- Valid Values: @true@ | @false@
 --
--- 'readOnly', 'createNFSFileShare_readOnly' - A value that sets the write status of a file share. Set this value to
--- @true@ to set the write status to read-only, otherwise set to @false@.
+-- 'kmsEncrypted', 'createNFSFileShare_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 --
--- 'kmsEncrypted', 'createNFSFileShare_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- 'vPCEndpointDNSName', 'createNFSFileShare_vPCEndpointDNSName' - Specifies the DNS name for the VPC endpoint that the NFS file share uses
+-- to connect to Amazon S3.
 --
--- Valid Values: @true@ | @false@
+-- This parameter is required for NFS file shares that connect to Amazon S3
+-- through a VPC endpoint, a VPC access point, or an access point alias
+-- that points to a VPC access point.
 --
 -- 'squash', 'createNFSFileShare_squash' - A value that maps a user to anonymous user.
 --
@@ -218,7 +276,24 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- -   @AllSquash@: Everyone is mapped to anonymous user.
 --
--- 'notificationPolicy', 'createNFSFileShare_notificationPolicy' - The notification policy of the file share.
+-- 'notificationPolicy', 'createNFSFileShare_notificationPolicy' - The notification policy of the file share. @SettlingTimeInSeconds@
+-- controls the number of seconds to wait after the last point in time a
+-- client wrote to a file before generating an @ObjectUploaded@
+-- notification. Because clients can make many small writes to files, it\'s
+-- best to set this parameter for as long as possible to avoid generating
+-- multiple notifications for the same file in a small time period.
+--
+-- @SettlingTimeInSeconds@ has no effect on the timing of the object
+-- uploading to Amazon S3, only the timing of the notification.
+--
+-- The following example sets @NotificationPolicy@ on with
+-- @SettlingTimeInSeconds@ set to 60.
+--
+-- @{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}@
+--
+-- The following example sets @NotificationPolicy@ off.
+--
+-- @{}@
 --
 -- 'kmsKey', 'createNFSFileShare_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -233,14 +308,14 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 --
--- 'cacheAttributes', 'createNFSFileShare_cacheAttributes' - Refresh cache information.
---
--- 'clientList', 'createNFSFileShare_clientList' - The list of clients that are allowed to access the file gateway. The
+-- 'clientList', 'createNFSFileShare_clientList' - The list of clients that are allowed to access the S3 File Gateway. The
 -- list must contain either valid IP addresses or valid CIDR blocks.
 --
 -- 'objectACL', 'createNFSFileShare_objectACL' - A value that sets the access control list (ACL) permission for objects
--- in the S3 bucket that a file gateway puts objects into. The default
+-- in the S3 bucket that a S3 File Gateway puts objects into. The default
 -- value is @private@.
+--
+-- 'cacheAttributes', 'createNFSFileShare_cacheAttributes' - Specifies refresh cache information for the file share.
 --
 -- 'nFSFileShareDefaults', 'createNFSFileShare_nFSFileShareDefaults' - File share default values. Optional.
 --
@@ -255,17 +330,28 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- Valid Values: @true@ | @false@
 --
--- 'clientToken', 'createNFSFileShare_clientToken' - A unique string value that you supply that is used by file gateway to
+-- 'clientToken', 'createNFSFileShare_clientToken' - A unique string value that you supply that is used by S3 File Gateway to
 -- ensure idempotent file share creation.
 --
--- 'gatewayARN', 'createNFSFileShare_gatewayARN' - The Amazon Resource Name (ARN) of the file gateway on which you want to
--- create a file share.
+-- 'gatewayARN', 'createNFSFileShare_gatewayARN' - The Amazon Resource Name (ARN) of the S3 File Gateway on which you want
+-- to create a file share.
 --
--- 'role'', 'createNFSFileShare_role' - The ARN of the AWS Identity and Access Management (IAM) role that a file
--- gateway assumes when it accesses the underlying storage.
+-- 'role'', 'createNFSFileShare_role' - The ARN of the Identity and Access Management (IAM) role that an S3 File
+-- Gateway assumes when it accesses the underlying storage.
 --
 -- 'locationARN', 'createNFSFileShare_locationARN' - The ARN of the backend storage used for storing file data. A prefix name
 -- can be added to the S3 bucket name. It must end with a \"\/\".
+--
+-- You can specify a bucket attached to an access point using a complete
+-- ARN that includes the bucket region as shown:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+--
+-- If you specify a bucket attached to an access point, the bucket policy
+-- must be configured to delegate access control to the access point. For
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
+-- in the /Amazon S3 User Guide/.
 newCreateNFSFileShare ::
   -- | 'clientToken'
   Prelude.Text ->
@@ -285,16 +371,18 @@ newCreateNFSFileShare
       { defaultStorageClass =
           Prelude.Nothing,
         fileShareName = Prelude.Nothing,
-        guessMIMETypeEnabled = Prelude.Nothing,
         readOnly = Prelude.Nothing,
+        bucketRegion = Prelude.Nothing,
+        guessMIMETypeEnabled = Prelude.Nothing,
         kmsEncrypted = Prelude.Nothing,
+        vPCEndpointDNSName = Prelude.Nothing,
         squash = Prelude.Nothing,
         notificationPolicy = Prelude.Nothing,
         kmsKey = Prelude.Nothing,
         tags = Prelude.Nothing,
-        cacheAttributes = Prelude.Nothing,
         clientList = Prelude.Nothing,
         objectACL = Prelude.Nothing,
+        cacheAttributes = Prelude.Nothing,
         nFSFileShareDefaults = Prelude.Nothing,
         requesterPays = Prelude.Nothing,
         clientToken = pClientToken_,
@@ -304,7 +392,7 @@ newCreateNFSFileShare
       }
 
 -- | The default storage class for objects put into an Amazon S3 bucket by
--- the file gateway. The default value is @S3_INTELLIGENT_TIERING@.
+-- the S3 File Gateway. The default value is @S3_INTELLIGENT_TIERING@.
 -- Optional.
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
@@ -319,6 +407,22 @@ createNFSFileShare_defaultStorageClass = Lens.lens (\CreateNFSFileShare' {defaul
 createNFSFileShare_fileShareName :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
 createNFSFileShare_fileShareName = Lens.lens (\CreateNFSFileShare' {fileShareName} -> fileShareName) (\s@CreateNFSFileShare' {} a -> s {fileShareName = a} :: CreateNFSFileShare)
 
+-- | A value that sets the write status of a file share. Set this value to
+-- @true@ to set the write status to read-only, otherwise set to @false@.
+--
+-- Valid Values: @true@ | @false@
+createNFSFileShare_readOnly :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
+createNFSFileShare_readOnly = Lens.lens (\CreateNFSFileShare' {readOnly} -> readOnly) (\s@CreateNFSFileShare' {} a -> s {readOnly = a} :: CreateNFSFileShare)
+
+-- | Specifies the Region of the S3 bucket where the NFS file share stores
+-- files.
+--
+-- This parameter is required for NFS file shares that connect to Amazon S3
+-- through a VPC endpoint, a VPC access point, or an access point alias
+-- that points to a VPC access point.
+createNFSFileShare_bucketRegion :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_bucketRegion = Lens.lens (\CreateNFSFileShare' {bucketRegion} -> bucketRegion) (\s@CreateNFSFileShare' {} a -> s {bucketRegion = a} :: CreateNFSFileShare)
+
 -- | A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
 -- guessing, otherwise set to @false@. The default value is @true@.
@@ -327,19 +431,21 @@ createNFSFileShare_fileShareName = Lens.lens (\CreateNFSFileShare' {fileShareNam
 createNFSFileShare_guessMIMETypeEnabled :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
 createNFSFileShare_guessMIMETypeEnabled = Lens.lens (\CreateNFSFileShare' {guessMIMETypeEnabled} -> guessMIMETypeEnabled) (\s@CreateNFSFileShare' {} a -> s {guessMIMETypeEnabled = a} :: CreateNFSFileShare)
 
--- | A value that sets the write status of a file share. Set this value to
--- @true@ to set the write status to read-only, otherwise set to @false@.
---
--- Valid Values: @true@ | @false@
-createNFSFileShare_readOnly :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
-createNFSFileShare_readOnly = Lens.lens (\CreateNFSFileShare' {readOnly} -> readOnly) (\s@CreateNFSFileShare' {} a -> s {readOnly = a} :: CreateNFSFileShare)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 createNFSFileShare_kmsEncrypted :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
 createNFSFileShare_kmsEncrypted = Lens.lens (\CreateNFSFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@CreateNFSFileShare' {} a -> s {kmsEncrypted = a} :: CreateNFSFileShare)
+
+-- | Specifies the DNS name for the VPC endpoint that the NFS file share uses
+-- to connect to Amazon S3.
+--
+-- This parameter is required for NFS file shares that connect to Amazon S3
+-- through a VPC endpoint, a VPC access point, or an access point alias
+-- that points to a VPC access point.
+createNFSFileShare_vPCEndpointDNSName :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_vPCEndpointDNSName = Lens.lens (\CreateNFSFileShare' {vPCEndpointDNSName} -> vPCEndpointDNSName) (\s@CreateNFSFileShare' {} a -> s {vPCEndpointDNSName = a} :: CreateNFSFileShare)
 
 -- | A value that maps a user to anonymous user.
 --
@@ -353,7 +459,24 @@ createNFSFileShare_kmsEncrypted = Lens.lens (\CreateNFSFileShare' {kmsEncrypted}
 createNFSFileShare_squash :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
 createNFSFileShare_squash = Lens.lens (\CreateNFSFileShare' {squash} -> squash) (\s@CreateNFSFileShare' {} a -> s {squash = a} :: CreateNFSFileShare)
 
--- | The notification policy of the file share.
+-- | The notification policy of the file share. @SettlingTimeInSeconds@
+-- controls the number of seconds to wait after the last point in time a
+-- client wrote to a file before generating an @ObjectUploaded@
+-- notification. Because clients can make many small writes to files, it\'s
+-- best to set this parameter for as long as possible to avoid generating
+-- multiple notifications for the same file in a small time period.
+--
+-- @SettlingTimeInSeconds@ has no effect on the timing of the object
+-- uploading to Amazon S3, only the timing of the notification.
+--
+-- The following example sets @NotificationPolicy@ on with
+-- @SettlingTimeInSeconds@ set to 60.
+--
+-- @{\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}}@
+--
+-- The following example sets @NotificationPolicy@ off.
+--
+-- @{}@
 createNFSFileShare_notificationPolicy :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
 createNFSFileShare_notificationPolicy = Lens.lens (\CreateNFSFileShare' {notificationPolicy} -> notificationPolicy) (\s@CreateNFSFileShare' {} a -> s {notificationPolicy = a} :: CreateNFSFileShare)
 
@@ -374,20 +497,20 @@ createNFSFileShare_kmsKey = Lens.lens (\CreateNFSFileShare' {kmsKey} -> kmsKey) 
 createNFSFileShare_tags :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe [Tag])
 createNFSFileShare_tags = Lens.lens (\CreateNFSFileShare' {tags} -> tags) (\s@CreateNFSFileShare' {} a -> s {tags = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens._Coerce
 
--- | Refresh cache information.
-createNFSFileShare_cacheAttributes :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe CacheAttributes)
-createNFSFileShare_cacheAttributes = Lens.lens (\CreateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@CreateNFSFileShare' {} a -> s {cacheAttributes = a} :: CreateNFSFileShare)
-
--- | The list of clients that are allowed to access the file gateway. The
+-- | The list of clients that are allowed to access the S3 File Gateway. The
 -- list must contain either valid IP addresses or valid CIDR blocks.
 createNFSFileShare_clientList :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createNFSFileShare_clientList = Lens.lens (\CreateNFSFileShare' {clientList} -> clientList) (\s@CreateNFSFileShare' {} a -> s {clientList = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that sets the access control list (ACL) permission for objects
--- in the S3 bucket that a file gateway puts objects into. The default
+-- in the S3 bucket that a S3 File Gateway puts objects into. The default
 -- value is @private@.
 createNFSFileShare_objectACL :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe ObjectACL)
 createNFSFileShare_objectACL = Lens.lens (\CreateNFSFileShare' {objectACL} -> objectACL) (\s@CreateNFSFileShare' {} a -> s {objectACL = a} :: CreateNFSFileShare)
+
+-- | Specifies refresh cache information for the file share.
+createNFSFileShare_cacheAttributes :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe CacheAttributes)
+createNFSFileShare_cacheAttributes = Lens.lens (\CreateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@CreateNFSFileShare' {} a -> s {cacheAttributes = a} :: CreateNFSFileShare)
 
 -- | File share default values. Optional.
 createNFSFileShare_nFSFileShareDefaults :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe NFSFileShareDefaults)
@@ -406,23 +529,34 @@ createNFSFileShare_nFSFileShareDefaults = Lens.lens (\CreateNFSFileShare' {nFSFi
 createNFSFileShare_requesterPays :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
 createNFSFileShare_requesterPays = Lens.lens (\CreateNFSFileShare' {requesterPays} -> requesterPays) (\s@CreateNFSFileShare' {} a -> s {requesterPays = a} :: CreateNFSFileShare)
 
--- | A unique string value that you supply that is used by file gateway to
+-- | A unique string value that you supply that is used by S3 File Gateway to
 -- ensure idempotent file share creation.
 createNFSFileShare_clientToken :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_clientToken = Lens.lens (\CreateNFSFileShare' {clientToken} -> clientToken) (\s@CreateNFSFileShare' {} a -> s {clientToken = a} :: CreateNFSFileShare)
 
--- | The Amazon Resource Name (ARN) of the file gateway on which you want to
--- create a file share.
+-- | The Amazon Resource Name (ARN) of the S3 File Gateway on which you want
+-- to create a file share.
 createNFSFileShare_gatewayARN :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_gatewayARN = Lens.lens (\CreateNFSFileShare' {gatewayARN} -> gatewayARN) (\s@CreateNFSFileShare' {} a -> s {gatewayARN = a} :: CreateNFSFileShare)
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that a file
--- gateway assumes when it accesses the underlying storage.
+-- | The ARN of the Identity and Access Management (IAM) role that an S3 File
+-- Gateway assumes when it accesses the underlying storage.
 createNFSFileShare_role :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_role = Lens.lens (\CreateNFSFileShare' {role'} -> role') (\s@CreateNFSFileShare' {} a -> s {role' = a} :: CreateNFSFileShare)
 
 -- | The ARN of the backend storage used for storing file data. A prefix name
 -- can be added to the S3 bucket name. It must end with a \"\/\".
+--
+-- You can specify a bucket attached to an access point using a complete
+-- ARN that includes the bucket region as shown:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+--
+-- If you specify a bucket attached to an access point, the bucket policy
+-- must be configured to delegate access control to the access point. For
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
+-- in the /Amazon S3 User Guide/.
 createNFSFileShare_locationARN :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_locationARN = Lens.lens (\CreateNFSFileShare' {locationARN} -> locationARN) (\s@CreateNFSFileShare' {} a -> s {locationARN = a} :: CreateNFSFileShare)
 
@@ -465,19 +599,22 @@ instance Core.ToJSON CreateNFSFileShare where
           [ ("DefaultStorageClass" Core..=)
               Prelude.<$> defaultStorageClass,
             ("FileShareName" Core..=) Prelude.<$> fileShareName,
+            ("ReadOnly" Core..=) Prelude.<$> readOnly,
+            ("BucketRegion" Core..=) Prelude.<$> bucketRegion,
             ("GuessMIMETypeEnabled" Core..=)
               Prelude.<$> guessMIMETypeEnabled,
-            ("ReadOnly" Core..=) Prelude.<$> readOnly,
             ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
+            ("VPCEndpointDNSName" Core..=)
+              Prelude.<$> vPCEndpointDNSName,
             ("Squash" Core..=) Prelude.<$> squash,
             ("NotificationPolicy" Core..=)
               Prelude.<$> notificationPolicy,
             ("KMSKey" Core..=) Prelude.<$> kmsKey,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("CacheAttributes" Core..=)
-              Prelude.<$> cacheAttributes,
             ("ClientList" Core..=) Prelude.<$> clientList,
             ("ObjectACL" Core..=) Prelude.<$> objectACL,
+            ("CacheAttributes" Core..=)
+              Prelude.<$> cacheAttributes,
             ("NFSFileShareDefaults" Core..=)
               Prelude.<$> nFSFileShareDefaults,
             ("RequesterPays" Core..=) Prelude.<$> requesterPays,

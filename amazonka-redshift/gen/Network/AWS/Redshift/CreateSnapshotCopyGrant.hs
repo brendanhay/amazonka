@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a snapshot copy grant that permits Amazon Redshift to use a
--- customer master key (CMK) from AWS Key Management Service (AWS KMS) to
--- encrypt copied snapshots in a destination region.
+-- customer master key (CMK) from Key Management Service (KMS) to encrypt
+-- copied snapshots in a destination region.
 --
 -- For more information about managing snapshot copy grants, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
@@ -65,7 +65,7 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the snapshot copy grant. This name must be unique in the
-    -- region for the AWS account.
+    -- region for the Amazon Web Services account.
     --
     -- Constraints:
     --
@@ -77,7 +77,8 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
     --
-    -- -   Must be unique for all clusters within an AWS account.
+    -- -   Must be unique for all clusters within an Amazon Web Services
+    --     account.
     snapshotCopyGrantName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,7 +98,7 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 -- 'tags', 'createSnapshotCopyGrant_tags' - A list of tag instances.
 --
 -- 'snapshotCopyGrantName', 'createSnapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the
--- region for the AWS account.
+-- region for the Amazon Web Services account.
 --
 -- Constraints:
 --
@@ -109,7 +110,8 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 newCreateSnapshotCopyGrant ::
   -- | 'snapshotCopyGrantName'
   Prelude.Text ->
@@ -133,7 +135,7 @@ createSnapshotCopyGrant_tags :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Mayb
 createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> tags) (\s@CreateSnapshotCopyGrant' {} a -> s {tags = a} :: CreateSnapshotCopyGrant) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the snapshot copy grant. This name must be unique in the
--- region for the AWS account.
+-- region for the Amazon Web Services account.
 --
 -- Constraints:
 --
@@ -145,7 +147,8 @@ createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> ta
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- -   Must be unique for all clusters within an AWS account.
+-- -   Must be unique for all clusters within an Amazon Web Services
+--     account.
 createSnapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' CreateSnapshotCopyGrant Prelude.Text
 createSnapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\CreateSnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@CreateSnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: CreateSnapshotCopyGrant)
 

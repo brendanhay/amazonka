@@ -19,10 +19,13 @@ module Network.AWS.QLDB.Types
     -- * Errors
     _ResourceAlreadyExistsException,
     _InvalidParameterException,
-    _ResourceInUseException,
     _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
     _ResourcePreconditionNotMetException,
+
+    -- * EncryptionStatus
+    EncryptionStatus (..),
 
     -- * ErrorCause
     ErrorCause (..),
@@ -46,8 +49,8 @@ module Network.AWS.QLDB.Types
     JournalKinesisStreamDescription (..),
     newJournalKinesisStreamDescription,
     journalKinesisStreamDescription_creationTime,
-    journalKinesisStreamDescription_inclusiveStartTime,
     journalKinesisStreamDescription_errorCause,
+    journalKinesisStreamDescription_inclusiveStartTime,
     journalKinesisStreamDescription_arn,
     journalKinesisStreamDescription_exclusiveEndTime,
     journalKinesisStreamDescription_ledgerName,
@@ -75,11 +78,18 @@ module Network.AWS.QLDB.Types
     kinesisConfiguration_aggregationEnabled,
     kinesisConfiguration_streamArn,
 
+    -- * LedgerEncryptionDescription
+    LedgerEncryptionDescription (..),
+    newLedgerEncryptionDescription,
+    ledgerEncryptionDescription_inaccessibleKmsKeyDateTime,
+    ledgerEncryptionDescription_kmsKeyArn,
+    ledgerEncryptionDescription_encryptionStatus,
+
     -- * LedgerSummary
     LedgerSummary (..),
     newLedgerSummary,
-    ledgerSummary_state,
     ledgerSummary_name,
+    ledgerSummary_state,
     ledgerSummary_creationDateTime,
 
     -- * S3EncryptionConfiguration
@@ -105,11 +115,13 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.QLDB.Types.EncryptionStatus
 import Network.AWS.QLDB.Types.ErrorCause
 import Network.AWS.QLDB.Types.ExportStatus
 import Network.AWS.QLDB.Types.JournalKinesisStreamDescription
 import Network.AWS.QLDB.Types.JournalS3ExportDescription
 import Network.AWS.QLDB.Types.KinesisConfiguration
+import Network.AWS.QLDB.Types.LedgerEncryptionDescription
 import Network.AWS.QLDB.Types.LedgerState
 import Network.AWS.QLDB.Types.LedgerSummary
 import Network.AWS.QLDB.Types.PermissionsMode
@@ -206,14 +218,6 @@ _InvalidParameterException =
     "InvalidParameterException"
     Prelude.. Core.hasStatus 400
 
--- | The specified resource can\'t be modified at this time.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 409
-
 -- | You have reached the limit on the maximum number of resources allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -221,6 +225,14 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
+
+-- | The specified resource can\'t be modified at this time.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+    Prelude.. Core.hasStatus 409
 
 -- | The specified resource doesn\'t exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

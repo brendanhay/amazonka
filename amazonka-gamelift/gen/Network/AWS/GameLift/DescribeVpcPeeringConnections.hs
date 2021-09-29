@@ -30,17 +30,12 @@
 -- and pending connections. Active connections identify the IpV4 CIDR block
 -- that the VPC uses to connect.
 --
--- -   CreateVpcPeeringAuthorization
+-- __Related actions__
 --
--- -   DescribeVpcPeeringAuthorizations
---
--- -   DeleteVpcPeeringAuthorization
---
--- -   CreateVpcPeeringConnection
---
--- -   DescribeVpcPeeringConnections
---
--- -   DeleteVpcPeeringConnection
+-- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
+-- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
+-- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeVpcPeeringConnections
   ( -- * Creating a Request
     DescribeVpcPeeringConnections (..),
@@ -70,8 +65,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeVpcPeeringConnections' smart constructor.
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
-  { -- | A unique identifier for a fleet. You can use either the fleet ID or ARN
-    -- value.
+  { -- | A unique identifier for the fleet. You can use either the fleet ID or
+    -- ARN value.
     fleetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,8 +79,8 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'describeVpcPeeringConnections_fleetId' - A unique identifier for a fleet. You can use either the fleet ID or ARN
--- value.
+-- 'fleetId', 'describeVpcPeeringConnections_fleetId' - A unique identifier for the fleet. You can use either the fleet ID or
+-- ARN value.
 newDescribeVpcPeeringConnections ::
   DescribeVpcPeeringConnections
 newDescribeVpcPeeringConnections =
@@ -94,8 +89,8 @@ newDescribeVpcPeeringConnections =
         Prelude.Nothing
     }
 
--- | A unique identifier for a fleet. You can use either the fleet ID or ARN
--- value.
+-- | A unique identifier for the fleet. You can use either the fleet ID or
+-- ARN value.
 describeVpcPeeringConnections_fleetId :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Text)
 describeVpcPeeringConnections_fleetId = Lens.lens (\DescribeVpcPeeringConnections' {fleetId} -> fleetId) (\s@DescribeVpcPeeringConnections' {} a -> s {fleetId = a} :: DescribeVpcPeeringConnections)
 

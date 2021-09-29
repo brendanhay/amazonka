@@ -25,6 +25,7 @@ module Network.AWS.Snowball.Types.SnowballType
         SnowballType_EDGE_CG,
         SnowballType_EDGE_S,
         SnowballType_SNC1_HDD,
+        SnowballType_SNC1_SSD,
         SnowballType_STANDARD
       ),
   )
@@ -76,6 +77,9 @@ pattern SnowballType_EDGE_S = SnowballType' "EDGE_S"
 pattern SnowballType_SNC1_HDD :: SnowballType
 pattern SnowballType_SNC1_HDD = SnowballType' "SNC1_HDD"
 
+pattern SnowballType_SNC1_SSD :: SnowballType
+pattern SnowballType_SNC1_SSD = SnowballType' "SNC1_SSD"
+
 pattern SnowballType_STANDARD :: SnowballType
 pattern SnowballType_STANDARD = SnowballType' "STANDARD"
 
@@ -85,6 +89,7 @@ pattern SnowballType_STANDARD = SnowballType' "STANDARD"
   SnowballType_EDGE_CG,
   SnowballType_EDGE_S,
   SnowballType_SNC1_HDD,
+  SnowballType_SNC1_SSD,
   SnowballType_STANDARD,
   SnowballType'
   #-}

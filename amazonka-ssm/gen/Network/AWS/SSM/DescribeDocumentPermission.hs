@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the permissions for a Systems Manager document. If you created
--- the document, you are the owner. If a document is shared, it can either
--- be shared privately (by specifying a user\'s AWS account ID) or publicly
+-- Describes the permissions for a Amazon Web Services Systems Manager
+-- document (SSM document). If you created the document, you are the owner.
+-- If a document is shared, it can either be shared privately (by
+-- specifying a user\'s Amazon Web Services account ID) or publicly
 -- (/All/).
 module Network.AWS.SSM.DescribeDocumentPermission
   ( -- * Creating a Request
@@ -182,13 +183,13 @@ instance Core.ToQuery DescribeDocumentPermission where
 -- | /See:/ 'newDescribeDocumentPermissionResponse' smart constructor.
 data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
   { -- | The account IDs that have permission to use this document. The ID can be
-    -- either an AWS account or /All/.
+    -- either an Amazon Web Services account or /All/.
     accountIds :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of AWS accounts where the current document is shared and the
-    -- version shared with each account.
+    -- | A list of Amazon Web Services accounts where the current document is
+    -- shared and the version shared with each account.
     accountSharingInfoList :: Prelude.Maybe [AccountSharingInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -204,13 +205,13 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
 -- for backwards compatibility:
 --
 -- 'accountIds', 'describeDocumentPermissionResponse_accountIds' - The account IDs that have permission to use this document. The ID can be
--- either an AWS account or /All/.
+-- either an Amazon Web Services account or /All/.
 --
 -- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
 --
--- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of AWS accounts where the current document is shared and the
--- version shared with each account.
+-- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is
+-- shared and the version shared with each account.
 --
 -- 'httpStatus', 'describeDocumentPermissionResponse_httpStatus' - The response's http status code.
 newDescribeDocumentPermissionResponse ::
@@ -228,7 +229,7 @@ newDescribeDocumentPermissionResponse pHttpStatus_ =
     }
 
 -- | The account IDs that have permission to use this document. The ID can be
--- either an AWS account or /All/.
+-- either an Amazon Web Services account or /All/.
 describeDocumentPermissionResponse_accountIds :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [Prelude.Text])
 describeDocumentPermissionResponse_accountIds = Lens.lens (\DescribeDocumentPermissionResponse' {accountIds} -> accountIds) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountIds = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens._Coerce
 
@@ -237,8 +238,8 @@ describeDocumentPermissionResponse_accountIds = Lens.lens (\DescribeDocumentPerm
 describeDocumentPermissionResponse_nextToken :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe Prelude.Text)
 describeDocumentPermissionResponse_nextToken = Lens.lens (\DescribeDocumentPermissionResponse' {nextToken} -> nextToken) (\s@DescribeDocumentPermissionResponse' {} a -> s {nextToken = a} :: DescribeDocumentPermissionResponse)
 
--- | A list of AWS accounts where the current document is shared and the
--- version shared with each account.
+-- | A list of Amazon Web Services accounts where the current document is
+-- shared and the version shared with each account.
 describeDocumentPermissionResponse_accountSharingInfoList :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [AccountSharingInfo])
 describeDocumentPermissionResponse_accountSharingInfoList = Lens.lens (\DescribeDocumentPermissionResponse' {accountSharingInfoList} -> accountSharingInfoList) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountSharingInfoList = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens._Coerce
 

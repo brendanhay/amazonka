@@ -65,8 +65,8 @@ module Network.AWS.SWF.RegisterActivityType
     registerActivityType_description,
     registerActivityType_defaultTaskScheduleToStartTimeout,
     registerActivityType_defaultTaskStartToCloseTimeout,
-    registerActivityType_defaultTaskHeartbeatTimeout,
     registerActivityType_defaultTaskScheduleToCloseTimeout,
+    registerActivityType_defaultTaskHeartbeatTimeout,
     registerActivityType_domain,
     registerActivityType_name,
     registerActivityType_version,
@@ -117,6 +117,13 @@ data RegisterActivityType = RegisterActivityType'
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | If set, specifies the default maximum duration for a task of this
+    -- activity type. This default can be overridden when scheduling an
+    -- activity task using the @ScheduleActivityTask@ Decision.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    defaultTaskScheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the default maximum time before which a worker
     -- processing a task of this type must report progress by calling
     -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
@@ -130,13 +137,6 @@ data RegisterActivityType = RegisterActivityType'
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     defaultTaskHeartbeatTimeout :: Prelude.Maybe Prelude.Text,
-    -- | If set, specifies the default maximum duration for a task of this
-    -- activity type. This default can be overridden when scheduling an
-    -- activity task using the @ScheduleActivityTask@ Decision.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain in which this activity is to be registered.
     domain :: Prelude.Text,
     -- | The name of the activity type within the domain.
@@ -198,6 +198,13 @@ data RegisterActivityType = RegisterActivityType'
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 --
+-- 'defaultTaskScheduleToCloseTimeout', 'registerActivityType_defaultTaskScheduleToCloseTimeout' - If set, specifies the default maximum duration for a task of this
+-- activity type. This default can be overridden when scheduling an
+-- activity task using the @ScheduleActivityTask@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
 -- 'defaultTaskHeartbeatTimeout', 'registerActivityType_defaultTaskHeartbeatTimeout' - If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
 -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
@@ -207,13 +214,6 @@ data RegisterActivityType = RegisterActivityType'
 -- returns a result, the activity worker receives an @UnknownResource@
 -- fault. In this case, Amazon SWF no longer considers the activity task to
 -- be valid; the activity worker should clean up the activity task.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- 'defaultTaskScheduleToCloseTimeout', 'registerActivityType_defaultTaskScheduleToCloseTimeout' - If set, specifies the default maximum duration for a task of this
--- activity type. This default can be overridden when scheduling an
--- activity task using the @ScheduleActivityTask@ Decision.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
@@ -252,8 +252,8 @@ newRegisterActivityType pDomain_ pName_ pVersion_ =
       description = Prelude.Nothing,
       defaultTaskScheduleToStartTimeout = Prelude.Nothing,
       defaultTaskStartToCloseTimeout = Prelude.Nothing,
-      defaultTaskHeartbeatTimeout = Prelude.Nothing,
       defaultTaskScheduleToCloseTimeout = Prelude.Nothing,
+      defaultTaskHeartbeatTimeout = Prelude.Nothing,
       domain = pDomain_,
       name = pName_,
       version = pVersion_
@@ -300,6 +300,15 @@ registerActivityType_defaultTaskScheduleToStartTimeout = Lens.lens (\RegisterAct
 registerActivityType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterActivityType' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterActivityType)
 
+-- | If set, specifies the default maximum duration for a task of this
+-- activity type. This default can be overridden when scheduling an
+-- activity task using the @ScheduleActivityTask@ Decision.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+registerActivityType_defaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
+registerActivityType_defaultTaskScheduleToCloseTimeout = Lens.lens (\RegisterActivityType' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: RegisterActivityType)
+
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
 -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
@@ -314,15 +323,6 @@ registerActivityType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterActivi
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 registerActivityType_defaultTaskHeartbeatTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
 registerActivityType_defaultTaskHeartbeatTimeout = Lens.lens (\RegisterActivityType' {defaultTaskHeartbeatTimeout} -> defaultTaskHeartbeatTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskHeartbeatTimeout = a} :: RegisterActivityType)
-
--- | If set, specifies the default maximum duration for a task of this
--- activity type. This default can be overridden when scheduling an
--- activity task using the @ScheduleActivityTask@ Decision.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-registerActivityType_defaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Prelude.Maybe Prelude.Text)
-registerActivityType_defaultTaskScheduleToCloseTimeout = Lens.lens (\RegisterActivityType' {defaultTaskScheduleToCloseTimeout} -> defaultTaskScheduleToCloseTimeout) (\s@RegisterActivityType' {} a -> s {defaultTaskScheduleToCloseTimeout = a} :: RegisterActivityType)
 
 -- | The name of the domain in which this activity is to be registered.
 registerActivityType_domain :: Lens.Lens' RegisterActivityType Prelude.Text
@@ -389,10 +389,10 @@ instance Core.ToJSON RegisterActivityType where
               Prelude.<$> defaultTaskScheduleToStartTimeout,
             ("defaultTaskStartToCloseTimeout" Core..=)
               Prelude.<$> defaultTaskStartToCloseTimeout,
-            ("defaultTaskHeartbeatTimeout" Core..=)
-              Prelude.<$> defaultTaskHeartbeatTimeout,
             ("defaultTaskScheduleToCloseTimeout" Core..=)
               Prelude.<$> defaultTaskScheduleToCloseTimeout,
+            ("defaultTaskHeartbeatTimeout" Core..=)
+              Prelude.<$> defaultTaskHeartbeatTimeout,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("version" Core..= version)

@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpUrlDestinationConfiguration' smart constructor.
 data HttpUrlDestinationConfiguration = HttpUrlDestinationConfiguration'
-  { -- | The URL AWS IoT uses to confirm ownership of or access to the topic rule
+  { -- | The URL IoT uses to confirm ownership of or access to the topic rule
     -- destination URL.
     confirmationUrl :: Prelude.Text
   }
@@ -42,7 +42,7 @@ data HttpUrlDestinationConfiguration = HttpUrlDestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confirmationUrl', 'httpUrlDestinationConfiguration_confirmationUrl' - The URL AWS IoT uses to confirm ownership of or access to the topic rule
+-- 'confirmationUrl', 'httpUrlDestinationConfiguration_confirmationUrl' - The URL IoT uses to confirm ownership of or access to the topic rule
 -- destination URL.
 newHttpUrlDestinationConfiguration ::
   -- | 'confirmationUrl'
@@ -54,7 +54,7 @@ newHttpUrlDestinationConfiguration pConfirmationUrl_ =
         pConfirmationUrl_
     }
 
--- | The URL AWS IoT uses to confirm ownership of or access to the topic rule
+-- | The URL IoT uses to confirm ownership of or access to the topic rule
 -- destination URL.
 httpUrlDestinationConfiguration_confirmationUrl :: Lens.Lens' HttpUrlDestinationConfiguration Prelude.Text
 httpUrlDestinationConfiguration_confirmationUrl = Lens.lens (\HttpUrlDestinationConfiguration' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationConfiguration' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationConfiguration)

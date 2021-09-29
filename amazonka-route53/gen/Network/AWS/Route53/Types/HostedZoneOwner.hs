@@ -31,18 +31,19 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'newHostedZoneOwner' smart constructor.
 data HostedZoneOwner = HostedZoneOwner'
-  { -- | If the hosted zone was created by an AWS account, or was created by an
-    -- AWS service that creates hosted zones using the current account,
-    -- @OwningAccount@ contains the account ID of that account. For example,
-    -- when you use AWS Cloud Map to create a hosted zone, Cloud Map creates
-    -- the hosted zone using the current AWS account.
+  { -- | If the hosted zone was created by an Amazon Web Services account, or was
+    -- created by an Amazon Web Services service that creates hosted zones
+    -- using the current account, @OwningAccount@ contains the account ID of
+    -- that account. For example, when you use Cloud Map to create a hosted
+    -- zone, Cloud Map creates the hosted zone using the current Amazon Web
+    -- Services account.
     owningAccount :: Prelude.Maybe Prelude.Text,
-    -- | If an AWS service uses its own account to create a hosted zone and
-    -- associate the specified VPC with that hosted zone, @OwningService@
-    -- contains an abbreviation that identifies the service. For example, if
-    -- Amazon Elastic File System (Amazon EFS) created a hosted zone and
-    -- associated a VPC with the hosted zone, the value of @OwningService@ is
-    -- @efs.amazonaws.com@.
+    -- | If an Amazon Web Services service uses its own account to create a
+    -- hosted zone and associate the specified VPC with that hosted zone,
+    -- @OwningService@ contains an abbreviation that identifies the service.
+    -- For example, if Amazon Elastic File System (Amazon EFS) created a hosted
+    -- zone and associated a VPC with the hosted zone, the value of
+    -- @OwningService@ is @efs.amazonaws.com@.
     owningService :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,18 +56,19 @@ data HostedZoneOwner = HostedZoneOwner'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'owningAccount', 'hostedZoneOwner_owningAccount' - If the hosted zone was created by an AWS account, or was created by an
--- AWS service that creates hosted zones using the current account,
--- @OwningAccount@ contains the account ID of that account. For example,
--- when you use AWS Cloud Map to create a hosted zone, Cloud Map creates
--- the hosted zone using the current AWS account.
+-- 'owningAccount', 'hostedZoneOwner_owningAccount' - If the hosted zone was created by an Amazon Web Services account, or was
+-- created by an Amazon Web Services service that creates hosted zones
+-- using the current account, @OwningAccount@ contains the account ID of
+-- that account. For example, when you use Cloud Map to create a hosted
+-- zone, Cloud Map creates the hosted zone using the current Amazon Web
+-- Services account.
 --
--- 'owningService', 'hostedZoneOwner_owningService' - If an AWS service uses its own account to create a hosted zone and
--- associate the specified VPC with that hosted zone, @OwningService@
--- contains an abbreviation that identifies the service. For example, if
--- Amazon Elastic File System (Amazon EFS) created a hosted zone and
--- associated a VPC with the hosted zone, the value of @OwningService@ is
--- @efs.amazonaws.com@.
+-- 'owningService', 'hostedZoneOwner_owningService' - If an Amazon Web Services service uses its own account to create a
+-- hosted zone and associate the specified VPC with that hosted zone,
+-- @OwningService@ contains an abbreviation that identifies the service.
+-- For example, if Amazon Elastic File System (Amazon EFS) created a hosted
+-- zone and associated a VPC with the hosted zone, the value of
+-- @OwningService@ is @efs.amazonaws.com@.
 newHostedZoneOwner ::
   HostedZoneOwner
 newHostedZoneOwner =
@@ -75,20 +77,21 @@ newHostedZoneOwner =
       owningService = Prelude.Nothing
     }
 
--- | If the hosted zone was created by an AWS account, or was created by an
--- AWS service that creates hosted zones using the current account,
--- @OwningAccount@ contains the account ID of that account. For example,
--- when you use AWS Cloud Map to create a hosted zone, Cloud Map creates
--- the hosted zone using the current AWS account.
+-- | If the hosted zone was created by an Amazon Web Services account, or was
+-- created by an Amazon Web Services service that creates hosted zones
+-- using the current account, @OwningAccount@ contains the account ID of
+-- that account. For example, when you use Cloud Map to create a hosted
+-- zone, Cloud Map creates the hosted zone using the current Amazon Web
+-- Services account.
 hostedZoneOwner_owningAccount :: Lens.Lens' HostedZoneOwner (Prelude.Maybe Prelude.Text)
 hostedZoneOwner_owningAccount = Lens.lens (\HostedZoneOwner' {owningAccount} -> owningAccount) (\s@HostedZoneOwner' {} a -> s {owningAccount = a} :: HostedZoneOwner)
 
--- | If an AWS service uses its own account to create a hosted zone and
--- associate the specified VPC with that hosted zone, @OwningService@
--- contains an abbreviation that identifies the service. For example, if
--- Amazon Elastic File System (Amazon EFS) created a hosted zone and
--- associated a VPC with the hosted zone, the value of @OwningService@ is
--- @efs.amazonaws.com@.
+-- | If an Amazon Web Services service uses its own account to create a
+-- hosted zone and associate the specified VPC with that hosted zone,
+-- @OwningService@ contains an abbreviation that identifies the service.
+-- For example, if Amazon Elastic File System (Amazon EFS) created a hosted
+-- zone and associated a VPC with the hosted zone, the value of
+-- @OwningService@ is @efs.amazonaws.com@.
 hostedZoneOwner_owningService :: Lens.Lens' HostedZoneOwner (Prelude.Maybe Prelude.Text)
 hostedZoneOwner_owningService = Lens.lens (\HostedZoneOwner' {owningService} -> owningService) (\s@HostedZoneOwner' {} a -> s {owningService = a} :: HostedZoneOwner)
 

@@ -32,8 +32,8 @@ import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIdentity'
   { -- | The status of the task execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The details explaining the status of the task execution. Only available
-    -- for certain status values.
+    -- | The details explaining the status of the task execution. Not available
+    -- for all status values.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the task execution started.
     startTime :: Prelude.Maybe Core.POSIX,
@@ -41,7 +41,7 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the maintenance window execution that ran the task.
     windowExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the task that ran.
+    -- | The Amazon Resource Name (ARN) of the task that ran.
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The type of task that ran.
     taskType :: Prelude.Maybe MaintenanceWindowTaskType,
@@ -61,8 +61,8 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
 --
 -- 'status', 'maintenanceWindowExecutionTaskIdentity_status' - The status of the task execution.
 --
--- 'statusDetails', 'maintenanceWindowExecutionTaskIdentity_statusDetails' - The details explaining the status of the task execution. Only available
--- for certain status values.
+-- 'statusDetails', 'maintenanceWindowExecutionTaskIdentity_statusDetails' - The details explaining the status of the task execution. Not available
+-- for all status values.
 --
 -- 'startTime', 'maintenanceWindowExecutionTaskIdentity_startTime' - The time the task execution started.
 --
@@ -70,7 +70,7 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
 --
 -- 'windowExecutionId', 'maintenanceWindowExecutionTaskIdentity_windowExecutionId' - The ID of the maintenance window execution that ran the task.
 --
--- 'taskArn', 'maintenanceWindowExecutionTaskIdentity_taskArn' - The ARN of the task that ran.
+-- 'taskArn', 'maintenanceWindowExecutionTaskIdentity_taskArn' - The Amazon Resource Name (ARN) of the task that ran.
 --
 -- 'taskType', 'maintenanceWindowExecutionTaskIdentity_taskType' - The type of task that ran.
 --
@@ -95,8 +95,8 @@ newMaintenanceWindowExecutionTaskIdentity =
 maintenanceWindowExecutionTaskIdentity_status :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe MaintenanceWindowExecutionStatus)
 maintenanceWindowExecutionTaskIdentity_status = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {status} -> status) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {status = a} :: MaintenanceWindowExecutionTaskIdentity)
 
--- | The details explaining the status of the task execution. Only available
--- for certain status values.
+-- | The details explaining the status of the task execution. Not available
+-- for all status values.
 maintenanceWindowExecutionTaskIdentity_statusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskIdentity_statusDetails = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {statusDetails = a} :: MaintenanceWindowExecutionTaskIdentity)
 
@@ -112,7 +112,7 @@ maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowEx
 maintenanceWindowExecutionTaskIdentity_windowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskIdentity_windowExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
 
--- | The ARN of the task that ran.
+-- | The Amazon Resource Name (ARN) of the task that ran.
 maintenanceWindowExecutionTaskIdentity_taskArn :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskIdentity_taskArn = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskArn} -> taskArn) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskArn = a} :: MaintenanceWindowExecutionTaskIdentity)
 

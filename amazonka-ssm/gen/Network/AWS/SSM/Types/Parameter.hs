@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ParameterType
 
--- | An Systems Manager parameter in Parameter Store.
+-- | An Amazon Web Services Systems Manager parameter in Parameter Store.
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
@@ -37,17 +37,18 @@ data Parameter = Parameter'
     version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the parameter.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Applies to parameters that reference information in other AWS services.
-    -- SourceResult is the raw result or response from the source.
+    -- | Applies to parameters that reference information in other Amazon Web
+    -- Services services. @SourceResult@ is the raw result or response from the
+    -- source.
     sourceResult :: Prelude.Maybe Prelude.Text,
     -- | The parameter value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The type of parameter. Valid values include the following: @String@,
-    -- @StringList@, and @SecureString@.
-    type' :: Prelude.Maybe ParameterType,
+    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
     -- default is @text@.
     dataType :: Prelude.Maybe Prelude.Text,
+    -- | The type of parameter. Valid values include the following: @String@,
+    -- @StringList@, and @SecureString@.
+    type' :: Prelude.Maybe ParameterType,
     -- | Either the version number or the label used to retrieve the parameter
     -- value. Specify selectors by using one of the following formats:
     --
@@ -56,7 +57,7 @@ data Parameter = Parameter'
     -- parameter_name:label
     selector :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Parameter' with all optional fields omitted.
@@ -75,16 +76,17 @@ data Parameter = Parameter'
 --
 -- 'name', 'parameter_name' - The name of the parameter.
 --
--- 'sourceResult', 'parameter_sourceResult' - Applies to parameters that reference information in other AWS services.
--- SourceResult is the raw result or response from the source.
+-- 'sourceResult', 'parameter_sourceResult' - Applies to parameters that reference information in other Amazon Web
+-- Services services. @SourceResult@ is the raw result or response from the
+-- source.
 --
 -- 'value', 'parameter_value' - The parameter value.
 --
--- 'type'', 'parameter_type' - The type of parameter. Valid values include the following: @String@,
--- @StringList@, and @SecureString@.
---
 -- 'dataType', 'parameter_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
+--
+-- 'type'', 'parameter_type' - The type of parameter. Valid values include the following: @String@,
+-- @StringList@, and @SecureString@.
 --
 -- 'selector', 'parameter_selector' - Either the version number or the label used to retrieve the parameter
 -- value. Specify selectors by using one of the following formats:
@@ -102,8 +104,8 @@ newParameter =
       name = Prelude.Nothing,
       sourceResult = Prelude.Nothing,
       value = Prelude.Nothing,
-      type' = Prelude.Nothing,
       dataType = Prelude.Nothing,
+      type' = Prelude.Nothing,
       selector = Prelude.Nothing
     }
 
@@ -124,24 +126,25 @@ parameter_version = Lens.lens (\Parameter' {version} -> version) (\s@Parameter' 
 parameter_name :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s {name = a} :: Parameter)
 
--- | Applies to parameters that reference information in other AWS services.
--- SourceResult is the raw result or response from the source.
+-- | Applies to parameters that reference information in other Amazon Web
+-- Services services. @SourceResult@ is the raw result or response from the
+-- source.
 parameter_sourceResult :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_sourceResult = Lens.lens (\Parameter' {sourceResult} -> sourceResult) (\s@Parameter' {} a -> s {sourceResult = a} :: Parameter)
 
 -- | The parameter value.
 parameter_value :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
-
--- | The type of parameter. Valid values include the following: @String@,
--- @StringList@, and @SecureString@.
-parameter_type :: Lens.Lens' Parameter (Prelude.Maybe ParameterType)
-parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a -> s {type' = a} :: Parameter)
+parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
 parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
+
+-- | The type of parameter. Valid values include the following: @String@,
+-- @StringList@, and @SecureString@.
+parameter_type :: Lens.Lens' Parameter (Prelude.Maybe ParameterType)
+parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a -> s {type' = a} :: Parameter)
 
 -- | Either the version number or the label used to retrieve the parameter
 -- value. Specify selectors by using one of the following formats:
@@ -164,8 +167,8 @@ instance Core.FromJSON Parameter where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "SourceResult")
             Prelude.<*> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DataType")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Selector")
       )
 

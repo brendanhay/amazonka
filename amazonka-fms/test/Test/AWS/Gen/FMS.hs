@@ -36,20 +36,20 @@ import Test.Tasty
 --         , requestDeletePolicy $
 --             newDeletePolicy
 --
---         , requestListAppsLists $
---             newListAppsLists
---
 --         , requestGetProtectionStatus $
 --             newGetProtectionStatus
+--
+--         , requestListAppsLists $
+--             newListAppsLists
 --
 --         , requestPutAppsList $
 --             newPutAppsList
 --
---         , requestListProtocolsLists $
---             newListProtocolsLists
---
 --         , requestGetAppsList $
 --             newGetAppsList
+--
+--         , requestListProtocolsLists $
+--             newListProtocolsLists
 --
 --         , requestPutProtocolsList $
 --             newPutProtocolsList
@@ -78,11 +78,11 @@ import Test.Tasty
 --         , requestPutPolicy $
 --             newPutPolicy
 --
---         , requestDeleteAppsList $
---             newDeleteAppsList
---
 --         , requestGetProtocolsList $
 --             newGetProtocolsList
+--
+--         , requestDeleteAppsList $
+--             newDeleteAppsList
 --
 --         , requestGetPolicy $
 --             newGetPolicy
@@ -99,11 +99,11 @@ import Test.Tasty
 --         , requestGetViolationDetails $
 --             newGetViolationDetails
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestGetComplianceDetail $
 --             newGetComplianceDetail
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --           ]
 
@@ -117,20 +117,20 @@ import Test.Tasty
 --         , responseDeletePolicy $
 --             newDeletePolicyResponse
 --
---         , responseListAppsLists $
---             newListAppsListsResponse
---
 --         , responseGetProtectionStatus $
 --             newGetProtectionStatusResponse
+--
+--         , responseListAppsLists $
+--             newListAppsListsResponse
 --
 --         , responsePutAppsList $
 --             newPutAppsListResponse
 --
---         , responseListProtocolsLists $
---             newListProtocolsListsResponse
---
 --         , responseGetAppsList $
 --             newGetAppsListResponse
+--
+--         , responseListProtocolsLists $
+--             newListProtocolsListsResponse
 --
 --         , responsePutProtocolsList $
 --             newPutProtocolsListResponse
@@ -159,11 +159,11 @@ import Test.Tasty
 --         , responsePutPolicy $
 --             newPutPolicyResponse
 --
---         , responseDeleteAppsList $
---             newDeleteAppsListResponse
---
 --         , responseGetProtocolsList $
 --             newGetProtocolsListResponse
+--
+--         , responseDeleteAppsList $
+--             newDeleteAppsListResponse
 --
 --         , responseGetPolicy $
 --             newGetPolicyResponse
@@ -180,11 +180,11 @@ import Test.Tasty
 --         , responseGetViolationDetails $
 --             newGetViolationDetailsResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseGetComplianceDetail $
 --             newGetComplianceDetailResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --           ]
 --     ]
@@ -209,17 +209,17 @@ requestDeletePolicy =
     "DeletePolicy"
     "fixture/DeletePolicy.yaml"
 
-requestListAppsLists :: ListAppsLists -> TestTree
-requestListAppsLists =
-  req
-    "ListAppsLists"
-    "fixture/ListAppsLists.yaml"
-
 requestGetProtectionStatus :: GetProtectionStatus -> TestTree
 requestGetProtectionStatus =
   req
     "GetProtectionStatus"
     "fixture/GetProtectionStatus.yaml"
+
+requestListAppsLists :: ListAppsLists -> TestTree
+requestListAppsLists =
+  req
+    "ListAppsLists"
+    "fixture/ListAppsLists.yaml"
 
 requestPutAppsList :: PutAppsList -> TestTree
 requestPutAppsList =
@@ -227,17 +227,17 @@ requestPutAppsList =
     "PutAppsList"
     "fixture/PutAppsList.yaml"
 
-requestListProtocolsLists :: ListProtocolsLists -> TestTree
-requestListProtocolsLists =
-  req
-    "ListProtocolsLists"
-    "fixture/ListProtocolsLists.yaml"
-
 requestGetAppsList :: GetAppsList -> TestTree
 requestGetAppsList =
   req
     "GetAppsList"
     "fixture/GetAppsList.yaml"
+
+requestListProtocolsLists :: ListProtocolsLists -> TestTree
+requestListProtocolsLists =
+  req
+    "ListProtocolsLists"
+    "fixture/ListProtocolsLists.yaml"
 
 requestPutProtocolsList :: PutProtocolsList -> TestTree
 requestPutProtocolsList =
@@ -293,17 +293,17 @@ requestPutPolicy =
     "PutPolicy"
     "fixture/PutPolicy.yaml"
 
-requestDeleteAppsList :: DeleteAppsList -> TestTree
-requestDeleteAppsList =
-  req
-    "DeleteAppsList"
-    "fixture/DeleteAppsList.yaml"
-
 requestGetProtocolsList :: GetProtocolsList -> TestTree
 requestGetProtocolsList =
   req
     "GetProtocolsList"
     "fixture/GetProtocolsList.yaml"
+
+requestDeleteAppsList :: DeleteAppsList -> TestTree
+requestDeleteAppsList =
+  req
+    "DeleteAppsList"
+    "fixture/DeleteAppsList.yaml"
 
 requestGetPolicy :: GetPolicy -> TestTree
 requestGetPolicy =
@@ -335,17 +335,17 @@ requestGetViolationDetails =
     "GetViolationDetails"
     "fixture/GetViolationDetails.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestGetComplianceDetail :: GetComplianceDetail -> TestTree
 requestGetComplianceDetail =
   req
     "GetComplianceDetail"
     "fixture/GetComplianceDetail.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 -- Responses
 
@@ -373,14 +373,6 @@ responseDeletePolicy =
     defaultService
     (Proxy :: Proxy DeletePolicy)
 
-responseListAppsLists :: ListAppsListsResponse -> TestTree
-responseListAppsLists =
-  res
-    "ListAppsListsResponse"
-    "fixture/ListAppsListsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAppsLists)
-
 responseGetProtectionStatus :: GetProtectionStatusResponse -> TestTree
 responseGetProtectionStatus =
   res
@@ -388,6 +380,14 @@ responseGetProtectionStatus =
     "fixture/GetProtectionStatusResponse.proto"
     defaultService
     (Proxy :: Proxy GetProtectionStatus)
+
+responseListAppsLists :: ListAppsListsResponse -> TestTree
+responseListAppsLists =
+  res
+    "ListAppsListsResponse"
+    "fixture/ListAppsListsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAppsLists)
 
 responsePutAppsList :: PutAppsListResponse -> TestTree
 responsePutAppsList =
@@ -397,14 +397,6 @@ responsePutAppsList =
     defaultService
     (Proxy :: Proxy PutAppsList)
 
-responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
-responseListProtocolsLists =
-  res
-    "ListProtocolsListsResponse"
-    "fixture/ListProtocolsListsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListProtocolsLists)
-
 responseGetAppsList :: GetAppsListResponse -> TestTree
 responseGetAppsList =
   res
@@ -412,6 +404,14 @@ responseGetAppsList =
     "fixture/GetAppsListResponse.proto"
     defaultService
     (Proxy :: Proxy GetAppsList)
+
+responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
+responseListProtocolsLists =
+  res
+    "ListProtocolsListsResponse"
+    "fixture/ListProtocolsListsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListProtocolsLists)
 
 responsePutProtocolsList :: PutProtocolsListResponse -> TestTree
 responsePutProtocolsList =
@@ -485,14 +485,6 @@ responsePutPolicy =
     defaultService
     (Proxy :: Proxy PutPolicy)
 
-responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
-responseDeleteAppsList =
-  res
-    "DeleteAppsListResponse"
-    "fixture/DeleteAppsListResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAppsList)
-
 responseGetProtocolsList :: GetProtocolsListResponse -> TestTree
 responseGetProtocolsList =
   res
@@ -500,6 +492,14 @@ responseGetProtocolsList =
     "fixture/GetProtocolsListResponse.proto"
     defaultService
     (Proxy :: Proxy GetProtocolsList)
+
+responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
+responseDeleteAppsList =
+  res
+    "DeleteAppsListResponse"
+    "fixture/DeleteAppsListResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAppsList)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy =
@@ -541,14 +541,6 @@ responseGetViolationDetails =
     defaultService
     (Proxy :: Proxy GetViolationDetails)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
-
 responseGetComplianceDetail :: GetComplianceDetailResponse -> TestTree
 responseGetComplianceDetail =
   res
@@ -556,3 +548,11 @@ responseGetComplianceDetail =
     "fixture/GetComplianceDetailResponse.proto"
     defaultService
     (Proxy :: Proxy GetComplianceDetail)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)

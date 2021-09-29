@@ -27,19 +27,20 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
--- You specify these parameters as part of a mixed instances policy.
+-- You specify these properties as part of a mixed instances policy.
 --
--- When you update the launch template or overrides, existing Amazon EC2
--- instances continue to run. When scale out occurs, Amazon EC2 Auto
--- Scaling launches instances to match the new settings. When scale in
--- occurs, Amazon EC2 Auto Scaling terminates instances according to the
--- group\'s termination policies.
+-- When you update the launch template or overrides in the
+-- UpdateAutoScalingGroup API call, existing Amazon EC2 instances continue
+-- to run. When scale out occurs, Amazon EC2 Auto Scaling launches
+-- instances to match the new settings. When scale in occurs, Amazon EC2
+-- Auto Scaling terminates instances according to the group\'s termination
+-- policies.
 --
 -- /See:/ 'newLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
   { -- | The launch template to use.
     launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | Any parameters that you specify override the same parameters in the
+    -- | Any properties that you specify override the same properties in the
     -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
     -- instance type specified in the launch template when it launches an
     -- instance.
@@ -57,7 +58,7 @@ data LaunchTemplate = LaunchTemplate'
 --
 -- 'launchTemplateSpecification', 'launchTemplate_launchTemplateSpecification' - The launch template to use.
 --
--- 'overrides', 'launchTemplate_overrides' - Any parameters that you specify override the same parameters in the
+-- 'overrides', 'launchTemplate_overrides' - Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
 -- instance type specified in the launch template when it launches an
 -- instance.
@@ -74,7 +75,7 @@ newLaunchTemplate =
 launchTemplate_launchTemplateSpecification :: Lens.Lens' LaunchTemplate (Prelude.Maybe LaunchTemplateSpecification)
 launchTemplate_launchTemplateSpecification = Lens.lens (\LaunchTemplate' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplate' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplate)
 
--- | Any parameters that you specify override the same parameters in the
+-- | Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
 -- instance type specified in the launch template when it launches an
 -- instance.

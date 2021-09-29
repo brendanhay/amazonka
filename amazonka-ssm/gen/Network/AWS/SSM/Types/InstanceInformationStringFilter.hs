@@ -32,7 +32,7 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
     -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
     -- Key\"
     --
-    -- @Tag key@ is not a valid filter. You must specify either @tag-key@ or
+    -- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
     -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
     -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
     -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
@@ -55,7 +55,7 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
 -- Key\"
 --
--- @Tag key@ is not a valid filter. You must specify either @tag-key@ or
+-- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
 -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
 -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
 -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
@@ -78,7 +78,7 @@ newInstanceInformationStringFilter pKey_ pValues_ =
 -- \"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag
 -- Key\"
 --
--- @Tag key@ is not a valid filter. You must specify either @tag-key@ or
+-- @Tag key@ isn\'t a valid filter. You must specify either @tag-key@ or
 -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
 -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
 -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.

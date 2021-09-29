@@ -126,10 +126,13 @@ data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
     samplingTargetDocuments :: Prelude.Maybe [SamplingTargetDocument],
     -- | The last time a user changed the sampling rule configuration. If the
     -- sampling rule configuration changed since the service last retrieved it,
-    -- the service should call GetSamplingRules to get the latest version.
+    -- the service should call
+    -- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
+    -- to get the latest version.
     lastRuleModification :: Prelude.Maybe Core.POSIX,
-    -- | Information about SamplingStatisticsDocument that X-Ray could not
-    -- process.
+    -- | Information about
+    -- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html SamplingStatisticsDocument>
+    -- that X-Ray could not process.
     unprocessedStatistics :: Prelude.Maybe [UnprocessedStatistics],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -148,10 +151,13 @@ data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
 --
 -- 'lastRuleModification', 'getSamplingTargetsResponse_lastRuleModification' - The last time a user changed the sampling rule configuration. If the
 -- sampling rule configuration changed since the service last retrieved it,
--- the service should call GetSamplingRules to get the latest version.
+-- the service should call
+-- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
+-- to get the latest version.
 --
--- 'unprocessedStatistics', 'getSamplingTargetsResponse_unprocessedStatistics' - Information about SamplingStatisticsDocument that X-Ray could not
--- process.
+-- 'unprocessedStatistics', 'getSamplingTargetsResponse_unprocessedStatistics' - Information about
+-- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html SamplingStatisticsDocument>
+-- that X-Ray could not process.
 --
 -- 'httpStatus', 'getSamplingTargetsResponse_httpStatus' - The response's http status code.
 newGetSamplingTargetsResponse ::
@@ -173,12 +179,15 @@ getSamplingTargetsResponse_samplingTargetDocuments = Lens.lens (\GetSamplingTarg
 
 -- | The last time a user changed the sampling rule configuration. If the
 -- sampling rule configuration changed since the service last retrieved it,
--- the service should call GetSamplingRules to get the latest version.
+-- the service should call
+-- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
+-- to get the latest version.
 getSamplingTargetsResponse_lastRuleModification :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe Prelude.UTCTime)
 getSamplingTargetsResponse_lastRuleModification = Lens.lens (\GetSamplingTargetsResponse' {lastRuleModification} -> lastRuleModification) (\s@GetSamplingTargetsResponse' {} a -> s {lastRuleModification = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Core._Time
 
--- | Information about SamplingStatisticsDocument that X-Ray could not
--- process.
+-- | Information about
+-- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html SamplingStatisticsDocument>
+-- that X-Ray could not process.
 getSamplingTargetsResponse_unprocessedStatistics :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe [UnprocessedStatistics])
 getSamplingTargetsResponse_unprocessedStatistics = Lens.lens (\GetSamplingTargetsResponse' {unprocessedStatistics} -> unprocessedStatistics) (\s@GetSamplingTargetsResponse' {} a -> s {unprocessedStatistics = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
 

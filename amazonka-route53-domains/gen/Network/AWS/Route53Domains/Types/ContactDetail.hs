@@ -60,24 +60,24 @@ data ContactDetail = ContactDetail'
     -- -   For .es domains, if you specify @PERSON@, you must specify
     --     @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@.
     contactType :: Prelude.Maybe ContactType,
-    -- | The city of the contact\'s address.
-    city :: Prelude.Maybe Prelude.Text,
-    -- | The state or province of the contact\'s city.
-    state :: Prelude.Maybe Prelude.Text,
     -- | Fax number of the contact.
     --
     -- Constraints: Phone number must be specified in the format \"+[country
     -- dialing code].[number including any area code]\". For example, a US
     -- phone number might appear as @\"+1.1234567890\"@.
     fax :: Prelude.Maybe Prelude.Text,
+    -- | The city of the contact\'s address.
+    city :: Prelude.Maybe Prelude.Text,
+    -- | The state or province of the contact\'s city.
+    state :: Prelude.Maybe Prelude.Text,
     -- | Email address of the contact.
     email :: Prelude.Maybe Prelude.Text,
-    -- | Code for the country of the contact\'s address.
-    countryCode :: Prelude.Maybe CountryCode,
-    -- | First name of contact.
-    firstName :: Prelude.Maybe Prelude.Text,
     -- | Last name of contact.
     lastName :: Prelude.Maybe Prelude.Text,
+    -- | First name of contact.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | Code for the country of the contact\'s address.
+    countryCode :: Prelude.Maybe CountryCode,
     -- | Second line of contact\'s address, if any.
     addressLine2 :: Prelude.Maybe Prelude.Text
   }
@@ -121,23 +121,23 @@ data ContactDetail = ContactDetail'
 -- -   For .es domains, if you specify @PERSON@, you must specify
 --     @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@.
 --
--- 'city', 'contactDetail_city' - The city of the contact\'s address.
---
--- 'state', 'contactDetail_state' - The state or province of the contact\'s city.
---
 -- 'fax', 'contactDetail_fax' - Fax number of the contact.
 --
 -- Constraints: Phone number must be specified in the format \"+[country
 -- dialing code].[number including any area code]\". For example, a US
 -- phone number might appear as @\"+1.1234567890\"@.
 --
+-- 'city', 'contactDetail_city' - The city of the contact\'s address.
+--
+-- 'state', 'contactDetail_state' - The state or province of the contact\'s city.
+--
 -- 'email', 'contactDetail_email' - Email address of the contact.
 --
--- 'countryCode', 'contactDetail_countryCode' - Code for the country of the contact\'s address.
+-- 'lastName', 'contactDetail_lastName' - Last name of contact.
 --
 -- 'firstName', 'contactDetail_firstName' - First name of contact.
 --
--- 'lastName', 'contactDetail_lastName' - Last name of contact.
+-- 'countryCode', 'contactDetail_countryCode' - Code for the country of the contact\'s address.
 --
 -- 'addressLine2', 'contactDetail_addressLine2' - Second line of contact\'s address, if any.
 newContactDetail ::
@@ -150,13 +150,13 @@ newContactDetail =
       extraParams = Prelude.Nothing,
       zipCode = Prelude.Nothing,
       contactType = Prelude.Nothing,
+      fax = Prelude.Nothing,
       city = Prelude.Nothing,
       state = Prelude.Nothing,
-      fax = Prelude.Nothing,
       email = Prelude.Nothing,
-      countryCode = Prelude.Nothing,
-      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      countryCode = Prelude.Nothing,
       addressLine2 = Prelude.Nothing
     }
 
@@ -202,14 +202,6 @@ contactDetail_zipCode = Lens.lens (\ContactDetail' {zipCode} -> zipCode) (\s@Con
 contactDetail_contactType :: Lens.Lens' ContactDetail (Prelude.Maybe ContactType)
 contactDetail_contactType = Lens.lens (\ContactDetail' {contactType} -> contactType) (\s@ContactDetail' {} a -> s {contactType = a} :: ContactDetail)
 
--- | The city of the contact\'s address.
-contactDetail_city :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
-contactDetail_city = Lens.lens (\ContactDetail' {city} -> city) (\s@ContactDetail' {} a -> s {city = a} :: ContactDetail)
-
--- | The state or province of the contact\'s city.
-contactDetail_state :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
-contactDetail_state = Lens.lens (\ContactDetail' {state} -> state) (\s@ContactDetail' {} a -> s {state = a} :: ContactDetail)
-
 -- | Fax number of the contact.
 --
 -- Constraints: Phone number must be specified in the format \"+[country
@@ -218,21 +210,29 @@ contactDetail_state = Lens.lens (\ContactDetail' {state} -> state) (\s@ContactDe
 contactDetail_fax :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
 contactDetail_fax = Lens.lens (\ContactDetail' {fax} -> fax) (\s@ContactDetail' {} a -> s {fax = a} :: ContactDetail)
 
+-- | The city of the contact\'s address.
+contactDetail_city :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
+contactDetail_city = Lens.lens (\ContactDetail' {city} -> city) (\s@ContactDetail' {} a -> s {city = a} :: ContactDetail)
+
+-- | The state or province of the contact\'s city.
+contactDetail_state :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
+contactDetail_state = Lens.lens (\ContactDetail' {state} -> state) (\s@ContactDetail' {} a -> s {state = a} :: ContactDetail)
+
 -- | Email address of the contact.
 contactDetail_email :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
 contactDetail_email = Lens.lens (\ContactDetail' {email} -> email) (\s@ContactDetail' {} a -> s {email = a} :: ContactDetail)
 
--- | Code for the country of the contact\'s address.
-contactDetail_countryCode :: Lens.Lens' ContactDetail (Prelude.Maybe CountryCode)
-contactDetail_countryCode = Lens.lens (\ContactDetail' {countryCode} -> countryCode) (\s@ContactDetail' {} a -> s {countryCode = a} :: ContactDetail)
+-- | Last name of contact.
+contactDetail_lastName :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
+contactDetail_lastName = Lens.lens (\ContactDetail' {lastName} -> lastName) (\s@ContactDetail' {} a -> s {lastName = a} :: ContactDetail)
 
 -- | First name of contact.
 contactDetail_firstName :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
 contactDetail_firstName = Lens.lens (\ContactDetail' {firstName} -> firstName) (\s@ContactDetail' {} a -> s {firstName = a} :: ContactDetail)
 
--- | Last name of contact.
-contactDetail_lastName :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
-contactDetail_lastName = Lens.lens (\ContactDetail' {lastName} -> lastName) (\s@ContactDetail' {} a -> s {lastName = a} :: ContactDetail)
+-- | Code for the country of the contact\'s address.
+contactDetail_countryCode :: Lens.Lens' ContactDetail (Prelude.Maybe CountryCode)
+contactDetail_countryCode = Lens.lens (\ContactDetail' {countryCode} -> countryCode) (\s@ContactDetail' {} a -> s {countryCode = a} :: ContactDetail)
 
 -- | Second line of contact\'s address, if any.
 contactDetail_addressLine2 :: Lens.Lens' ContactDetail (Prelude.Maybe Prelude.Text)
@@ -250,13 +250,13 @@ instance Core.FromJSON ContactDetail where
             Prelude.<*> (x Core..:? "ExtraParams" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ZipCode")
             Prelude.<*> (x Core..:? "ContactType")
+            Prelude.<*> (x Core..:? "Fax")
             Prelude.<*> (x Core..:? "City")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Fax")
             Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "CountryCode")
-            Prelude.<*> (x Core..:? "FirstName")
             Prelude.<*> (x Core..:? "LastName")
+            Prelude.<*> (x Core..:? "FirstName")
+            Prelude.<*> (x Core..:? "CountryCode")
             Prelude.<*> (x Core..:? "AddressLine2")
       )
 
@@ -275,13 +275,13 @@ instance Core.ToJSON ContactDetail where
             ("ExtraParams" Core..=) Prelude.<$> extraParams,
             ("ZipCode" Core..=) Prelude.<$> zipCode,
             ("ContactType" Core..=) Prelude.<$> contactType,
+            ("Fax" Core..=) Prelude.<$> fax,
             ("City" Core..=) Prelude.<$> city,
             ("State" Core..=) Prelude.<$> state,
-            ("Fax" Core..=) Prelude.<$> fax,
             ("Email" Core..=) Prelude.<$> email,
-            ("CountryCode" Core..=) Prelude.<$> countryCode,
-            ("FirstName" Core..=) Prelude.<$> firstName,
             ("LastName" Core..=) Prelude.<$> lastName,
+            ("FirstName" Core..=) Prelude.<$> firstName,
+            ("CountryCode" Core..=) Prelude.<$> countryCode,
             ("AddressLine2" Core..=) Prelude.<$> addressLine2
           ]
       )

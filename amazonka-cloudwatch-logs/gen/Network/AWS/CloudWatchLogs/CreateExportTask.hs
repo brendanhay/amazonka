@@ -89,12 +89,12 @@ data CreateExportTask = CreateExportTask'
     -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
     -- earlier than this time are not exported.
     from :: Prelude.Natural,
-    -- | The end time of the range for the request, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
-    -- later than this time are not exported.
+    -- | The end time of the range for the request, expreswatchlogsdocused as the
+    -- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
+    -- timestamp later than this time are not exported.
     to :: Prelude.Natural,
     -- | The name of S3 bucket for the exported log data. The bucket must be in
-    -- the same AWS region.
+    -- the same Amazon Web Services region.
     destination :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -121,12 +121,12 @@ data CreateExportTask = CreateExportTask'
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- earlier than this time are not exported.
 --
--- 'to', 'createExportTask_to' - The end time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
--- later than this time are not exported.
+-- 'to', 'createExportTask_to' - The end time of the range for the request, expreswatchlogsdocused as the
+-- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
+-- timestamp later than this time are not exported.
 --
 -- 'destination', 'createExportTask_destination' - The name of S3 bucket for the exported log data. The bucket must be in
--- the same AWS region.
+-- the same Amazon Web Services region.
 newCreateExportTask ::
   -- | 'logGroupName'
   Prelude.Text ->
@@ -177,14 +177,14 @@ createExportTask_logGroupName = Lens.lens (\CreateExportTask' {logGroupName} -> 
 createExportTask_from :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_from = Lens.lens (\CreateExportTask' {from} -> from) (\s@CreateExportTask' {} a -> s {from = a} :: CreateExportTask)
 
--- | The end time of the range for the request, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
--- later than this time are not exported.
+-- | The end time of the range for the request, expreswatchlogsdocused as the
+-- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
+-- timestamp later than this time are not exported.
 createExportTask_to :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_to = Lens.lens (\CreateExportTask' {to} -> to) (\s@CreateExportTask' {} a -> s {to = a} :: CreateExportTask)
 
 -- | The name of S3 bucket for the exported log data. The bucket must be in
--- the same AWS region.
+-- the same Amazon Web Services region.
 createExportTask_destination :: Lens.Lens' CreateExportTask Prelude.Text
 createExportTask_destination = Lens.lens (\CreateExportTask' {destination} -> destination) (\s@CreateExportTask' {} a -> s {destination = a} :: CreateExportTask)
 

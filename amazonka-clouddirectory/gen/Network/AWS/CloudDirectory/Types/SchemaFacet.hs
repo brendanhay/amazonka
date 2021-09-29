@@ -30,9 +30,10 @@ data SchemaFacet = SchemaFacet'
   { -- | The ARN of the schema that contains the facet with no minor component.
     -- See arns and
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
-    -- for a description of when to provide minor versions.
+    -- for a description of when to provide minor versions. If this value is
+    -- set, FacetName must also be set.
     schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the facet.
+    -- | The name of the facet. If this value is set, SchemaArn must also be set.
     facetName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +49,10 @@ data SchemaFacet = SchemaFacet'
 -- 'schemaArn', 'schemaFacet_schemaArn' - The ARN of the schema that contains the facet with no minor component.
 -- See arns and
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
--- for a description of when to provide minor versions.
+-- for a description of when to provide minor versions. If this value is
+-- set, FacetName must also be set.
 --
--- 'facetName', 'schemaFacet_facetName' - The name of the facet.
+-- 'facetName', 'schemaFacet_facetName' - The name of the facet. If this value is set, SchemaArn must also be set.
 newSchemaFacet ::
   SchemaFacet
 newSchemaFacet =
@@ -62,11 +64,12 @@ newSchemaFacet =
 -- | The ARN of the schema that contains the facet with no minor component.
 -- See arns and
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
--- for a description of when to provide minor versions.
+-- for a description of when to provide minor versions. If this value is
+-- set, FacetName must also be set.
 schemaFacet_schemaArn :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
 schemaFacet_schemaArn = Lens.lens (\SchemaFacet' {schemaArn} -> schemaArn) (\s@SchemaFacet' {} a -> s {schemaArn = a} :: SchemaFacet)
 
--- | The name of the facet.
+-- | The name of the facet. If this value is set, SchemaArn must also be set.
 schemaFacet_facetName :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
 schemaFacet_facetName = Lens.lens (\SchemaFacet' {facetName} -> facetName) (\s@SchemaFacet' {} a -> s {facetName = a} :: SchemaFacet)
 

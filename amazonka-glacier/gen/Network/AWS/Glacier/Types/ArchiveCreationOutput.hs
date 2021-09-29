@@ -35,10 +35,10 @@ data ArchiveCreationOutput = ArchiveCreationOutput'
   { -- | The ID of the archive. This value is also included as part of the
     -- location.
     archiveId :: Prelude.Maybe Prelude.Text,
-    -- | The relative URI path of the newly added archive resource.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The checksum of the archive computed by Amazon S3 Glacier.
-    checksum :: Prelude.Maybe Prelude.Text
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | The relative URI path of the newly added archive resource.
+    location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,16 +53,16 @@ data ArchiveCreationOutput = ArchiveCreationOutput'
 -- 'archiveId', 'archiveCreationOutput_archiveId' - The ID of the archive. This value is also included as part of the
 -- location.
 --
--- 'location', 'archiveCreationOutput_location' - The relative URI path of the newly added archive resource.
---
 -- 'checksum', 'archiveCreationOutput_checksum' - The checksum of the archive computed by Amazon S3 Glacier.
+--
+-- 'location', 'archiveCreationOutput_location' - The relative URI path of the newly added archive resource.
 newArchiveCreationOutput ::
   ArchiveCreationOutput
 newArchiveCreationOutput =
   ArchiveCreationOutput'
     { archiveId = Prelude.Nothing,
-      location = Prelude.Nothing,
-      checksum = Prelude.Nothing
+      checksum = Prelude.Nothing,
+      location = Prelude.Nothing
     }
 
 -- | The ID of the archive. This value is also included as part of the
@@ -70,13 +70,13 @@ newArchiveCreationOutput =
 archiveCreationOutput_archiveId :: Lens.Lens' ArchiveCreationOutput (Prelude.Maybe Prelude.Text)
 archiveCreationOutput_archiveId = Lens.lens (\ArchiveCreationOutput' {archiveId} -> archiveId) (\s@ArchiveCreationOutput' {} a -> s {archiveId = a} :: ArchiveCreationOutput)
 
--- | The relative URI path of the newly added archive resource.
-archiveCreationOutput_location :: Lens.Lens' ArchiveCreationOutput (Prelude.Maybe Prelude.Text)
-archiveCreationOutput_location = Lens.lens (\ArchiveCreationOutput' {location} -> location) (\s@ArchiveCreationOutput' {} a -> s {location = a} :: ArchiveCreationOutput)
-
 -- | The checksum of the archive computed by Amazon S3 Glacier.
 archiveCreationOutput_checksum :: Lens.Lens' ArchiveCreationOutput (Prelude.Maybe Prelude.Text)
 archiveCreationOutput_checksum = Lens.lens (\ArchiveCreationOutput' {checksum} -> checksum) (\s@ArchiveCreationOutput' {} a -> s {checksum = a} :: ArchiveCreationOutput)
+
+-- | The relative URI path of the newly added archive resource.
+archiveCreationOutput_location :: Lens.Lens' ArchiveCreationOutput (Prelude.Maybe Prelude.Text)
+archiveCreationOutput_location = Lens.lens (\ArchiveCreationOutput' {location} -> location) (\s@ArchiveCreationOutput' {} a -> s {location = a} :: ArchiveCreationOutput)
 
 instance Core.FromJSON ArchiveCreationOutput where
   parseJSON =
@@ -85,8 +85,8 @@ instance Core.FromJSON ArchiveCreationOutput where
       ( \x ->
           ArchiveCreationOutput'
             Prelude.<$> (x Core..:? "x-amz-archive-id")
-            Prelude.<*> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "x-amz-sha256-tree-hash")
+            Prelude.<*> (x Core..:? "Location")
       )
 
 instance Prelude.Hashable ArchiveCreationOutput

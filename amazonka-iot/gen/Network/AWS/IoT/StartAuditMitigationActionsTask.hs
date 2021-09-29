@@ -22,6 +22,10 @@
 --
 -- Starts a task that applies a set of mitigation actions to the specified
 -- target.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StartAuditMitigationActionsTask>
+-- action.
 module Network.AWS.IoT.StartAuditMitigationActionsTask
   ( -- * Creating a Request
     StartAuditMitigationActionsTask (..),
@@ -60,7 +64,7 @@ data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
     -- from an audit, or to a specific set of findings.
     target :: AuditMitigationActionsTaskTarget,
     -- | For an audit check, specifies which mitigation actions to apply. Those
-    -- actions must be defined in your AWS account.
+    -- actions must be defined in your Amazon Web Services accounts.
     auditCheckToActionsMapping :: Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text),
     -- | Each audit mitigation task must have a unique client request token. If
     -- you try to start a new task with the same token as a task that already
@@ -86,7 +90,7 @@ data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
 -- from an audit, or to a specific set of findings.
 --
 -- 'auditCheckToActionsMapping', 'startAuditMitigationActionsTask_auditCheckToActionsMapping' - For an audit check, specifies which mitigation actions to apply. Those
--- actions must be defined in your AWS account.
+-- actions must be defined in your Amazon Web Services accounts.
 --
 -- 'clientRequestToken', 'startAuditMitigationActionsTask_clientRequestToken' - Each audit mitigation task must have a unique client request token. If
 -- you try to start a new task with the same token as a task that already
@@ -124,7 +128,7 @@ startAuditMitigationActionsTask_target :: Lens.Lens' StartAuditMitigationActions
 startAuditMitigationActionsTask_target = Lens.lens (\StartAuditMitigationActionsTask' {target} -> target) (\s@StartAuditMitigationActionsTask' {} a -> s {target = a} :: StartAuditMitigationActionsTask)
 
 -- | For an audit check, specifies which mitigation actions to apply. Those
--- actions must be defined in your AWS account.
+-- actions must be defined in your Amazon Web Services accounts.
 startAuditMitigationActionsTask_auditCheckToActionsMapping :: Lens.Lens' StartAuditMitigationActionsTask (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text))
 startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAuditMitigationActionsTask' {auditCheckToActionsMapping} -> auditCheckToActionsMapping) (\s@StartAuditMitigationActionsTask' {} a -> s {auditCheckToActionsMapping = a} :: StartAuditMitigationActionsTask) Prelude.. Lens._Coerce
 

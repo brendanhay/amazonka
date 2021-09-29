@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.KeyRange
+import Network.AWS.Snowball.Types.TargetOnDeviceService
 
 -- | Each @S3Resource@ object represents an Amazon S3 bucket that your
 -- transferred data will be exported from or imported into. For export
@@ -33,7 +34,11 @@ import Network.AWS.Snowball.Types.KeyRange
 --
 -- /See:/ 'newS3Resource' smart constructor.
 data S3Resource = S3Resource'
-  { -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
+  { -- | Specifies the service or services on the Snow Family device that your
+    -- transferred data will be exported from or imported into. AWS Snow Family
+    -- supports Amazon S3 and NFS (Network File System).
+    targetOnDeviceServices :: Prelude.Maybe [TargetOnDeviceService],
+    -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
     bucketArn :: Prelude.Maybe Prelude.Text,
     -- | For export jobs, you can provide an optional @KeyRange@ within a
     -- specific Amazon S3 bucket. The length of the range is defined at job
@@ -51,6 +56,10 @@ data S3Resource = S3Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetOnDeviceServices', 's3Resource_targetOnDeviceServices' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+--
 -- 'bucketArn', 's3Resource_bucketArn' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 --
 -- 'keyRange', 's3Resource_keyRange' - For export jobs, you can provide an optional @KeyRange@ within a
@@ -61,9 +70,17 @@ newS3Resource ::
   S3Resource
 newS3Resource =
   S3Resource'
-    { bucketArn = Prelude.Nothing,
+    { targetOnDeviceServices =
+        Prelude.Nothing,
+      bucketArn = Prelude.Nothing,
       keyRange = Prelude.Nothing
     }
+
+-- | Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+s3Resource_targetOnDeviceServices :: Lens.Lens' S3Resource (Prelude.Maybe [TargetOnDeviceService])
+s3Resource_targetOnDeviceServices = Lens.lens (\S3Resource' {targetOnDeviceServices} -> targetOnDeviceServices) (\s@S3Resource' {} a -> s {targetOnDeviceServices = a} :: S3Resource) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 s3Resource_bucketArn :: Lens.Lens' S3Resource (Prelude.Maybe Prelude.Text)
@@ -82,7 +99,10 @@ instance Core.FromJSON S3Resource where
       "S3Resource"
       ( \x ->
           S3Resource'
-            Prelude.<$> (x Core..:? "BucketArn")
+            Prelude.<$> ( x Core..:? "TargetOnDeviceServices"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "BucketArn")
             Prelude.<*> (x Core..:? "KeyRange")
       )
 
@@ -94,7 +114,9 @@ instance Core.ToJSON S3Resource where
   toJSON S3Resource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BucketArn" Core..=) Prelude.<$> bucketArn,
+          [ ("TargetOnDeviceServices" Core..=)
+              Prelude.<$> targetOnDeviceServices,
+            ("BucketArn" Core..=) Prelude.<$> bucketArn,
             ("KeyRange" Core..=) Prelude.<$> keyRange
           ]
       )

@@ -44,8 +44,8 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The source account ID or an organization.
     sourceId :: Prelude.Maybe Prelude.Text,
-    -- | The error code that AWS Config returned when the source account
-    -- aggregation last failed.
+    -- | The error code that Config returned when the source account aggregation
+    -- last failed.
     lastErrorCode :: Prelude.Maybe Prelude.Text,
     -- | The region authorized to collect aggregated data.
     awsRegion :: Prelude.Maybe Prelude.Text,
@@ -77,8 +77,8 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
 --
 -- 'sourceId', 'aggregatedSourceStatus_sourceId' - The source account ID or an organization.
 --
--- 'lastErrorCode', 'aggregatedSourceStatus_lastErrorCode' - The error code that AWS Config returned when the source account
--- aggregation last failed.
+-- 'lastErrorCode', 'aggregatedSourceStatus_lastErrorCode' - The error code that Config returned when the source account aggregation
+-- last failed.
 --
 -- 'awsRegion', 'aggregatedSourceStatus_awsRegion' - The region authorized to collect aggregated data.
 --
@@ -120,8 +120,8 @@ aggregatedSourceStatus_lastUpdateTime = Lens.lens (\AggregatedSourceStatus' {las
 aggregatedSourceStatus_sourceId :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_sourceId = Lens.lens (\AggregatedSourceStatus' {sourceId} -> sourceId) (\s@AggregatedSourceStatus' {} a -> s {sourceId = a} :: AggregatedSourceStatus)
 
--- | The error code that AWS Config returned when the source account
--- aggregation last failed.
+-- | The error code that Config returned when the source account aggregation
+-- last failed.
 aggregatedSourceStatus_lastErrorCode :: Lens.Lens' AggregatedSourceStatus (Prelude.Maybe Prelude.Text)
 aggregatedSourceStatus_lastErrorCode = Lens.lens (\AggregatedSourceStatus' {lastErrorCode} -> lastErrorCode) (\s@AggregatedSourceStatus' {} a -> s {lastErrorCode = a} :: AggregatedSourceStatus)
 

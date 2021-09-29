@@ -32,8 +32,8 @@ module Network.AWS.ServiceCatalog.UpdateProduct
     updateProduct_addTags,
     updateProduct_name,
     updateProduct_supportUrl,
-    updateProduct_supportDescription,
     updateProduct_owner,
+    updateProduct_supportDescription,
     updateProduct_description,
     updateProduct_supportEmail,
     updateProduct_acceptLanguage,
@@ -69,10 +69,10 @@ data UpdateProduct = UpdateProduct'
     name :: Prelude.Maybe Prelude.Text,
     -- | The updated support URL for the product.
     supportUrl :: Prelude.Maybe Prelude.Text,
-    -- | The updated support description for the product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
     -- | The updated owner of the product.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The updated support description for the product.
+    supportDescription :: Prelude.Maybe Prelude.Text,
     -- | The updated description of the product.
     description :: Prelude.Maybe Prelude.Text,
     -- | The updated support email for the product.
@@ -108,9 +108,9 @@ data UpdateProduct = UpdateProduct'
 --
 -- 'supportUrl', 'updateProduct_supportUrl' - The updated support URL for the product.
 --
--- 'supportDescription', 'updateProduct_supportDescription' - The updated support description for the product.
---
 -- 'owner', 'updateProduct_owner' - The updated owner of the product.
+--
+-- 'supportDescription', 'updateProduct_supportDescription' - The updated support description for the product.
 --
 -- 'description', 'updateProduct_description' - The updated description of the product.
 --
@@ -136,8 +136,8 @@ newUpdateProduct pId_ =
       addTags = Prelude.Nothing,
       name = Prelude.Nothing,
       supportUrl = Prelude.Nothing,
-      supportDescription = Prelude.Nothing,
       owner = Prelude.Nothing,
+      supportDescription = Prelude.Nothing,
       description = Prelude.Nothing,
       supportEmail = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
@@ -164,13 +164,13 @@ updateProduct_name = Lens.lens (\UpdateProduct' {name} -> name) (\s@UpdateProduc
 updateProduct_supportUrl :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
 updateProduct_supportUrl = Lens.lens (\UpdateProduct' {supportUrl} -> supportUrl) (\s@UpdateProduct' {} a -> s {supportUrl = a} :: UpdateProduct)
 
--- | The updated support description for the product.
-updateProduct_supportDescription :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
-updateProduct_supportDescription = Lens.lens (\UpdateProduct' {supportDescription} -> supportDescription) (\s@UpdateProduct' {} a -> s {supportDescription = a} :: UpdateProduct)
-
 -- | The updated owner of the product.
 updateProduct_owner :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
 updateProduct_owner = Lens.lens (\UpdateProduct' {owner} -> owner) (\s@UpdateProduct' {} a -> s {owner = a} :: UpdateProduct)
+
+-- | The updated support description for the product.
+updateProduct_supportDescription :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
+updateProduct_supportDescription = Lens.lens (\UpdateProduct' {supportDescription} -> supportDescription) (\s@UpdateProduct' {} a -> s {supportDescription = a} :: UpdateProduct)
 
 -- | The updated description of the product.
 updateProduct_description :: Lens.Lens' UpdateProduct (Prelude.Maybe Prelude.Text)
@@ -236,9 +236,9 @@ instance Core.ToJSON UpdateProduct where
             ("AddTags" Core..=) Prelude.<$> addTags,
             ("Name" Core..=) Prelude.<$> name,
             ("SupportUrl" Core..=) Prelude.<$> supportUrl,
+            ("Owner" Core..=) Prelude.<$> owner,
             ("SupportDescription" Core..=)
               Prelude.<$> supportDescription,
-            ("Owner" Core..=) Prelude.<$> owner,
             ("Description" Core..=) Prelude.<$> description,
             ("SupportEmail" Core..=) Prelude.<$> supportEmail,
             ("AcceptLanguage" Core..=)

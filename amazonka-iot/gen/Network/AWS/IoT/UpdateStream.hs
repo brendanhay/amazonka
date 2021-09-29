@@ -22,6 +22,10 @@
 --
 -- Updates an existing stream. The stream version will be incremented by
 -- one.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateStream>
+-- action.
 module Network.AWS.IoT.UpdateStream
   ( -- * Creating a Request
     UpdateStream (..),
@@ -39,8 +43,8 @@ module Network.AWS.IoT.UpdateStream
 
     -- * Response Lenses
     updateStreamResponse_streamVersion,
-    updateStreamResponse_streamId,
     updateStreamResponse_streamArn,
+    updateStreamResponse_streamId,
     updateStreamResponse_description,
     updateStreamResponse_httpStatus,
   )
@@ -120,8 +124,8 @@ instance Core.AWSRequest UpdateStream where
       ( \s h x ->
           UpdateStreamResponse'
             Prelude.<$> (x Core..?> "streamVersion")
-            Prelude.<*> (x Core..?> "streamId")
             Prelude.<*> (x Core..?> "streamArn")
+            Prelude.<*> (x Core..?> "streamId")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -154,10 +158,10 @@ instance Core.ToQuery UpdateStream where
 data UpdateStreamResponse = UpdateStreamResponse'
   { -- | The stream version.
     streamVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The stream ARN.
     streamArn :: Prelude.Maybe Prelude.Text,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | A description of the stream.
     description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -175,9 +179,9 @@ data UpdateStreamResponse = UpdateStreamResponse'
 --
 -- 'streamVersion', 'updateStreamResponse_streamVersion' - The stream version.
 --
--- 'streamId', 'updateStreamResponse_streamId' - The stream ID.
---
 -- 'streamArn', 'updateStreamResponse_streamArn' - The stream ARN.
+--
+-- 'streamId', 'updateStreamResponse_streamId' - The stream ID.
 --
 -- 'description', 'updateStreamResponse_description' - A description of the stream.
 --
@@ -190,8 +194,8 @@ newUpdateStreamResponse pHttpStatus_ =
   UpdateStreamResponse'
     { streamVersion =
         Prelude.Nothing,
-      streamId = Prelude.Nothing,
       streamArn = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -200,13 +204,13 @@ newUpdateStreamResponse pHttpStatus_ =
 updateStreamResponse_streamVersion :: Lens.Lens' UpdateStreamResponse (Prelude.Maybe Prelude.Natural)
 updateStreamResponse_streamVersion = Lens.lens (\UpdateStreamResponse' {streamVersion} -> streamVersion) (\s@UpdateStreamResponse' {} a -> s {streamVersion = a} :: UpdateStreamResponse)
 
--- | The stream ID.
-updateStreamResponse_streamId :: Lens.Lens' UpdateStreamResponse (Prelude.Maybe Prelude.Text)
-updateStreamResponse_streamId = Lens.lens (\UpdateStreamResponse' {streamId} -> streamId) (\s@UpdateStreamResponse' {} a -> s {streamId = a} :: UpdateStreamResponse)
-
 -- | The stream ARN.
 updateStreamResponse_streamArn :: Lens.Lens' UpdateStreamResponse (Prelude.Maybe Prelude.Text)
 updateStreamResponse_streamArn = Lens.lens (\UpdateStreamResponse' {streamArn} -> streamArn) (\s@UpdateStreamResponse' {} a -> s {streamArn = a} :: UpdateStreamResponse)
+
+-- | The stream ID.
+updateStreamResponse_streamId :: Lens.Lens' UpdateStreamResponse (Prelude.Maybe Prelude.Text)
+updateStreamResponse_streamId = Lens.lens (\UpdateStreamResponse' {streamId} -> streamId) (\s@UpdateStreamResponse' {} a -> s {streamId = a} :: UpdateStreamResponse)
 
 -- | A description of the stream.
 updateStreamResponse_description :: Lens.Lens' UpdateStreamResponse (Prelude.Maybe Prelude.Text)

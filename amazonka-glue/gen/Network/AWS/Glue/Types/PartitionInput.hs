@@ -33,8 +33,8 @@ data PartitionInput = PartitionInput'
     --
     -- The values for the keys for the new partition must be passed as an array
     -- of String objects that must be ordered in the same order as the
-    -- partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue
-    -- will add the values to the wrong keys.
+    -- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
+    -- add the values to the wrong keys.
     values :: Prelude.Maybe [Prelude.Text],
     -- | Provides information about the physical location where the partition is
     -- stored.
@@ -62,8 +62,8 @@ data PartitionInput = PartitionInput'
 --
 -- The values for the keys for the new partition must be passed as an array
 -- of String objects that must be ordered in the same order as the
--- partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue
--- will add the values to the wrong keys.
+-- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
+-- add the values to the wrong keys.
 --
 -- 'storageDescriptor', 'partitionInput_storageDescriptor' - Provides information about the physical location where the partition is
 -- stored.
@@ -90,8 +90,8 @@ newPartitionInput =
 --
 -- The values for the keys for the new partition must be passed as an array
 -- of String objects that must be ordered in the same order as the
--- partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue
--- will add the values to the wrong keys.
+-- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
+-- add the values to the wrong keys.
 partitionInput_values :: Lens.Lens' PartitionInput (Prelude.Maybe [Prelude.Text])
 partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@PartitionInput' {} a -> s {values = a} :: PartitionInput) Prelude.. Lens.mapping Lens._Coerce
 

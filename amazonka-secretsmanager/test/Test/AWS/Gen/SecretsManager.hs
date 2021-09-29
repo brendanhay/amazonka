@@ -51,14 +51,14 @@ import Test.Tasty
 --         , requestRestoreSecret $
 --             newRestoreSecret
 --
---         , requestGetSecretValue $
---             newGetSecretValue
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
 --
 --         , requestDescribeSecret $
 --             newDescribeSecret
 --
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
+--         , requestGetSecretValue $
+--             newGetSecretValue
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -66,20 +66,20 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestCreateSecret $
+--             newCreateSecret
+--
 --         , requestGetRandomPassword $
 --             newGetRandomPassword
 --
---         , requestCreateSecret $
---             newCreateSecret
+--         , requestReplicateSecretToRegions $
+--             newReplicateSecretToRegions
 --
 --         , requestStopReplicationToReplica $
 --             newStopReplicationToReplica
 --
 --         , requestListSecrets $
 --             newListSecrets
---
---         , requestReplicateSecretToRegions $
---             newReplicateSecretToRegions
 --
 --         , requestPutSecretValue $
 --             newPutSecretValue
@@ -120,14 +120,14 @@ import Test.Tasty
 --         , responseRestoreSecret $
 --             newRestoreSecretResponse
 --
---         , responseGetSecretValue $
---             newGetSecretValueResponse
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseDescribeSecret $
 --             newDescribeSecretResponse
 --
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
+--         , responseGetSecretValue $
+--             newGetSecretValueResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -135,20 +135,20 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseCreateSecret $
+--             newCreateSecretResponse
+--
 --         , responseGetRandomPassword $
 --             newGetRandomPasswordResponse
 --
---         , responseCreateSecret $
---             newCreateSecretResponse
+--         , responseReplicateSecretToRegions $
+--             newReplicateSecretToRegionsResponse
 --
 --         , responseStopReplicationToReplica $
 --             newStopReplicationToReplicaResponse
 --
 --         , responseListSecrets $
 --             newListSecretsResponse
---
---         , responseReplicateSecretToRegions $
---             newReplicateSecretToRegionsResponse
 --
 --         , responsePutSecretValue $
 --             newPutSecretValueResponse
@@ -215,11 +215,11 @@ requestRestoreSecret =
     "RestoreSecret"
     "fixture/RestoreSecret.yaml"
 
-requestGetSecretValue :: GetSecretValue -> TestTree
-requestGetSecretValue =
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
   req
-    "GetSecretValue"
-    "fixture/GetSecretValue.yaml"
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
 requestDescribeSecret :: DescribeSecret -> TestTree
 requestDescribeSecret =
@@ -227,11 +227,11 @@ requestDescribeSecret =
     "DescribeSecret"
     "fixture/DescribeSecret.yaml"
 
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
+requestGetSecretValue :: GetSecretValue -> TestTree
+requestGetSecretValue =
   req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
+    "GetSecretValue"
+    "fixture/GetSecretValue.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -245,17 +245,23 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestCreateSecret :: CreateSecret -> TestTree
+requestCreateSecret =
+  req
+    "CreateSecret"
+    "fixture/CreateSecret.yaml"
+
 requestGetRandomPassword :: GetRandomPassword -> TestTree
 requestGetRandomPassword =
   req
     "GetRandomPassword"
     "fixture/GetRandomPassword.yaml"
 
-requestCreateSecret :: CreateSecret -> TestTree
-requestCreateSecret =
+requestReplicateSecretToRegions :: ReplicateSecretToRegions -> TestTree
+requestReplicateSecretToRegions =
   req
-    "CreateSecret"
-    "fixture/CreateSecret.yaml"
+    "ReplicateSecretToRegions"
+    "fixture/ReplicateSecretToRegions.yaml"
 
 requestStopReplicationToReplica :: StopReplicationToReplica -> TestTree
 requestStopReplicationToReplica =
@@ -268,12 +274,6 @@ requestListSecrets =
   req
     "ListSecrets"
     "fixture/ListSecrets.yaml"
-
-requestReplicateSecretToRegions :: ReplicateSecretToRegions -> TestTree
-requestReplicateSecretToRegions =
-  req
-    "ReplicateSecretToRegions"
-    "fixture/ReplicateSecretToRegions.yaml"
 
 requestPutSecretValue :: PutSecretValue -> TestTree
 requestPutSecretValue =
@@ -365,13 +365,13 @@ responseRestoreSecret =
     defaultService
     (Proxy :: Proxy RestoreSecret)
 
-responseGetSecretValue :: GetSecretValueResponse -> TestTree
-responseGetSecretValue =
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
   res
-    "GetSecretValueResponse"
-    "fixture/GetSecretValueResponse.proto"
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSecretValue)
+    (Proxy :: Proxy PutResourcePolicy)
 
 responseDescribeSecret :: DescribeSecretResponse -> TestTree
 responseDescribeSecret =
@@ -381,13 +381,13 @@ responseDescribeSecret =
     defaultService
     (Proxy :: Proxy DescribeSecret)
 
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
+responseGetSecretValue :: GetSecretValueResponse -> TestTree
+responseGetSecretValue =
   res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
+    "GetSecretValueResponse"
+    "fixture/GetSecretValueResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy :: Proxy GetSecretValue)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -405,6 +405,14 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
+responseCreateSecret :: CreateSecretResponse -> TestTree
+responseCreateSecret =
+  res
+    "CreateSecretResponse"
+    "fixture/CreateSecretResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSecret)
+
 responseGetRandomPassword :: GetRandomPasswordResponse -> TestTree
 responseGetRandomPassword =
   res
@@ -413,13 +421,13 @@ responseGetRandomPassword =
     defaultService
     (Proxy :: Proxy GetRandomPassword)
 
-responseCreateSecret :: CreateSecretResponse -> TestTree
-responseCreateSecret =
+responseReplicateSecretToRegions :: ReplicateSecretToRegionsResponse -> TestTree
+responseReplicateSecretToRegions =
   res
-    "CreateSecretResponse"
-    "fixture/CreateSecretResponse.proto"
+    "ReplicateSecretToRegionsResponse"
+    "fixture/ReplicateSecretToRegionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateSecret)
+    (Proxy :: Proxy ReplicateSecretToRegions)
 
 responseStopReplicationToReplica :: StopReplicationToReplicaResponse -> TestTree
 responseStopReplicationToReplica =
@@ -436,14 +444,6 @@ responseListSecrets =
     "fixture/ListSecretsResponse.proto"
     defaultService
     (Proxy :: Proxy ListSecrets)
-
-responseReplicateSecretToRegions :: ReplicateSecretToRegionsResponse -> TestTree
-responseReplicateSecretToRegions =
-  res
-    "ReplicateSecretToRegionsResponse"
-    "fixture/ReplicateSecretToRegionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ReplicateSecretToRegions)
 
 responsePutSecretValue :: PutSecretValueResponse -> TestTree
 responsePutSecretValue =

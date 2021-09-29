@@ -39,10 +39,10 @@ data LaunchTemplateVersion = LaunchTemplateVersion'
     launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The description for the version.
     versionDescription :: Prelude.Maybe Prelude.Text,
-    -- | The version number.
-    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The time the version was created.
     createTime :: Prelude.Maybe Core.ISO8601,
+    -- | The version number.
+    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The principal that created the version.
     createdBy :: Prelude.Maybe Prelude.Text
   }
@@ -66,9 +66,9 @@ data LaunchTemplateVersion = LaunchTemplateVersion'
 --
 -- 'versionDescription', 'launchTemplateVersion_versionDescription' - The description for the version.
 --
--- 'versionNumber', 'launchTemplateVersion_versionNumber' - The version number.
---
 -- 'createTime', 'launchTemplateVersion_createTime' - The time the version was created.
+--
+-- 'versionNumber', 'launchTemplateVersion_versionNumber' - The version number.
 --
 -- 'createdBy', 'launchTemplateVersion_createdBy' - The principal that created the version.
 newLaunchTemplateVersion ::
@@ -81,8 +81,8 @@ newLaunchTemplateVersion =
       launchTemplateData = Prelude.Nothing,
       launchTemplateName = Prelude.Nothing,
       versionDescription = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       createdBy = Prelude.Nothing
     }
 
@@ -106,13 +106,13 @@ launchTemplateVersion_launchTemplateName = Lens.lens (\LaunchTemplateVersion' {l
 launchTemplateVersion_versionDescription :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 launchTemplateVersion_versionDescription = Lens.lens (\LaunchTemplateVersion' {versionDescription} -> versionDescription) (\s@LaunchTemplateVersion' {} a -> s {versionDescription = a} :: LaunchTemplateVersion)
 
--- | The version number.
-launchTemplateVersion_versionNumber :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Integer)
-launchTemplateVersion_versionNumber = Lens.lens (\LaunchTemplateVersion' {versionNumber} -> versionNumber) (\s@LaunchTemplateVersion' {} a -> s {versionNumber = a} :: LaunchTemplateVersion)
-
 -- | The time the version was created.
 launchTemplateVersion_createTime :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.UTCTime)
 launchTemplateVersion_createTime = Lens.lens (\LaunchTemplateVersion' {createTime} -> createTime) (\s@LaunchTemplateVersion' {} a -> s {createTime = a} :: LaunchTemplateVersion) Prelude.. Lens.mapping Core._Time
+
+-- | The version number.
+launchTemplateVersion_versionNumber :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Integer)
+launchTemplateVersion_versionNumber = Lens.lens (\LaunchTemplateVersion' {versionNumber} -> versionNumber) (\s@LaunchTemplateVersion' {} a -> s {versionNumber = a} :: LaunchTemplateVersion)
 
 -- | The principal that created the version.
 launchTemplateVersion_createdBy :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Text)
@@ -126,8 +126,8 @@ instance Core.FromXML LaunchTemplateVersion where
       Prelude.<*> (x Core..@? "launchTemplateData")
       Prelude.<*> (x Core..@? "launchTemplateName")
       Prelude.<*> (x Core..@? "versionDescription")
-      Prelude.<*> (x Core..@? "versionNumber")
       Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Core..@? "versionNumber")
       Prelude.<*> (x Core..@? "createdBy")
 
 instance Prelude.Hashable LaunchTemplateVersion

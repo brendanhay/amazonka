@@ -74,17 +74,17 @@ module Network.AWS.SDB
     -- ** TooManyRequestedAttributes
     _TooManyRequestedAttributes,
 
-    -- ** MissingParameter
-    _MissingParameter,
-
     -- ** InvalidNextToken
     _InvalidNextToken,
 
-    -- ** RequestTimeout
-    _RequestTimeout,
+    -- ** MissingParameter
+    _MissingParameter,
 
     -- ** NumberItemAttributesExceeded
     _NumberItemAttributesExceeded,
+
+    -- ** RequestTimeout
+    _RequestTimeout,
 
     -- * Waiters
     -- $waiters
@@ -122,17 +122,17 @@ module Network.AWS.SDB
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
 
-    -- ** GetAttributes
-    GetAttributes (GetAttributes'),
-    newGetAttributes,
-    GetAttributesResponse (GetAttributesResponse'),
-    newGetAttributesResponse,
-
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
     newDeleteDomain,
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
+
+    -- ** GetAttributes
+    GetAttributes (GetAttributes'),
+    newGetAttributes,
+    GetAttributesResponse (GetAttributesResponse'),
+    newGetAttributesResponse,
 
     -- ** PutAttributes
     PutAttributes (PutAttributes'),

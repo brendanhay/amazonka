@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Initializes proactive engagement and sets the list of contacts for the
--- DDoS Response Team (DRT) to use. You must provide at least one phone
+-- Shield Response Team (SRT) to use. You must provide at least one phone
 -- number in the emergency contact list.
 --
 -- After you have initialized proactive engagement using this call, to
@@ -29,8 +29,8 @@
 -- @DisableProactiveEngagement@ and @EnableProactiveEngagement@.
 --
 -- This call defines the list of email addresses and phone numbers that the
--- DDoS Response Team (DRT) can use to contact you for escalations to the
--- DRT and to initiate proactive customer support.
+-- SRT can use to contact you for escalations to the SRT and to initiate
+-- proactive customer support.
 --
 -- The contacts that you provide in the request replace any contacts that
 -- were already defined. If you already have contacts defined and want to
@@ -62,9 +62,9 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'newAssociateProactiveEngagementDetails' smart constructor.
 data AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'
-  { -- | A list of email addresses and phone numbers that the DDoS Response Team
-    -- (DRT) can use to contact you for escalations to the DRT and to initiate
-    -- proactive customer support.
+  { -- | A list of email addresses and phone numbers that the Shield Response
+    -- Team (SRT) can use to contact you for escalations to the SRT and to
+    -- initiate proactive customer support.
     --
     -- To enable proactive engagement, the contact list must include at least
     -- one phone number.
@@ -85,9 +85,9 @@ data AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emergencyContactList', 'associateProactiveEngagementDetails_emergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team
--- (DRT) can use to contact you for escalations to the DRT and to initiate
--- proactive customer support.
+-- 'emergencyContactList', 'associateProactiveEngagementDetails_emergencyContactList' - A list of email addresses and phone numbers that the Shield Response
+-- Team (SRT) can use to contact you for escalations to the SRT and to
+-- initiate proactive customer support.
 --
 -- To enable proactive engagement, the contact list must include at least
 -- one phone number.
@@ -104,9 +104,9 @@ newAssociateProactiveEngagementDetails =
         Prelude.mempty
     }
 
--- | A list of email addresses and phone numbers that the DDoS Response Team
--- (DRT) can use to contact you for escalations to the DRT and to initiate
--- proactive customer support.
+-- | A list of email addresses and phone numbers that the Shield Response
+-- Team (SRT) can use to contact you for escalations to the SRT and to
+-- initiate proactive customer support.
 --
 -- To enable proactive engagement, the contact list must include at least
 -- one phone number.

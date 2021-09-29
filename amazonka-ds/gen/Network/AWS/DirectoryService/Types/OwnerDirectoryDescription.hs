@@ -37,8 +37,8 @@ data OwnerDirectoryDescription = OwnerDirectoryDescription'
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Information about the VPC settings for the directory.
     vpcSettings :: Prelude.Maybe DirectoryVpcSettingsDescription,
-    -- | Identifier of the AWS Managed Microsoft AD directory in the directory
-    -- owner account.
+    -- | Identifier of the Managed Microsoft AD directory in the directory owner
+    -- account.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | IP address of the directory’s domain controllers.
     dnsIpAddrs :: Prelude.Maybe [Prelude.Text],
@@ -62,8 +62,8 @@ data OwnerDirectoryDescription = OwnerDirectoryDescription'
 --
 -- 'vpcSettings', 'ownerDirectoryDescription_vpcSettings' - Information about the VPC settings for the directory.
 --
--- 'directoryId', 'ownerDirectoryDescription_directoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory
--- owner account.
+-- 'directoryId', 'ownerDirectoryDescription_directoryId' - Identifier of the Managed Microsoft AD directory in the directory owner
+-- account.
 --
 -- 'dnsIpAddrs', 'ownerDirectoryDescription_dnsIpAddrs' - IP address of the directory’s domain controllers.
 --
@@ -94,8 +94,8 @@ ownerDirectoryDescription_accountId = Lens.lens (\OwnerDirectoryDescription' {ac
 ownerDirectoryDescription_vpcSettings :: Lens.Lens' OwnerDirectoryDescription (Prelude.Maybe DirectoryVpcSettingsDescription)
 ownerDirectoryDescription_vpcSettings = Lens.lens (\OwnerDirectoryDescription' {vpcSettings} -> vpcSettings) (\s@OwnerDirectoryDescription' {} a -> s {vpcSettings = a} :: OwnerDirectoryDescription)
 
--- | Identifier of the AWS Managed Microsoft AD directory in the directory
--- owner account.
+-- | Identifier of the Managed Microsoft AD directory in the directory owner
+-- account.
 ownerDirectoryDescription_directoryId :: Lens.Lens' OwnerDirectoryDescription (Prelude.Maybe Prelude.Text)
 ownerDirectoryDescription_directoryId = Lens.lens (\OwnerDirectoryDescription' {directoryId} -> directoryId) (\s@OwnerDirectoryDescription' {} a -> s {directoryId = a} :: OwnerDirectoryDescription)
 

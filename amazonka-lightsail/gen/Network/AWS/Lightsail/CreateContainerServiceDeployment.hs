@@ -33,7 +33,7 @@
 -- images from a public registry like Docker Hub, or from your local
 -- machine. For more information, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images Creating container images for your Amazon Lightsail container services>
--- in the /Lightsail Dev Guide/.
+-- in the /Amazon Lightsail Developer Guide/.
 module Network.AWS.Lightsail.CreateContainerServiceDeployment
   ( -- * Creating a Request
     CreateContainerServiceDeployment (..),

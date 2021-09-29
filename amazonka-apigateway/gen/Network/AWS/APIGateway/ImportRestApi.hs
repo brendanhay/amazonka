@@ -28,8 +28,8 @@ module Network.AWS.APIGateway.ImportRestApi
     newImportRestApi,
 
     -- * Request Lenses
-    importRestApi_parameters,
     importRestApi_failOnWarnings,
+    importRestApi_parameters,
     importRestApi_body,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Network.AWS.APIGateway.ImportRestApi
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
   )
@@ -65,7 +65,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newImportRestApi' smart constructor.
 data ImportRestApi = ImportRestApi'
-  { -- | A key-value map of context-specific query string parameters specifying
+  { -- | A query parameter to indicate whether to rollback the API creation
+    -- (@true@) or not (@false@) when a warning is encountered. The default
+    -- value is @false@.
+    failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    -- | A key-value map of context-specific query string parameters specifying
     -- the behavior of different API importing operations. The following shows
     -- operation-specific parameters and their supported values.
     --
@@ -90,10 +94,6 @@ data ImportRestApi = ImportRestApi'
     --
     -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A query parameter to indicate whether to rollback the API creation
-    -- (@true@) or not (@false@) when a warning is encountered. The default
-    -- value is @false@.
-    failOnWarnings :: Prelude.Maybe Prelude.Bool,
     -- | [Required] The POST request body containing external API definitions.
     -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
     -- maximum size of the API definition file is 6MB.
@@ -108,6 +108,10 @@ data ImportRestApi = ImportRestApi'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'failOnWarnings', 'importRestApi_failOnWarnings' - A query parameter to indicate whether to rollback the API creation
+-- (@true@) or not (@false@) when a warning is encountered. The default
+-- value is @false@.
 --
 -- 'parameters', 'importRestApi_parameters' - A key-value map of context-specific query string parameters specifying
 -- the behavior of different API importing operations. The following shows
@@ -134,10 +138,6 @@ data ImportRestApi = ImportRestApi'
 --
 -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
 --
--- 'failOnWarnings', 'importRestApi_failOnWarnings' - A query parameter to indicate whether to rollback the API creation
--- (@true@) or not (@false@) when a warning is encountered. The default
--- value is @false@.
---
 -- 'body', 'importRestApi_body' - [Required] The POST request body containing external API definitions.
 -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
 -- maximum size of the API definition file is 6MB.
@@ -147,10 +147,16 @@ newImportRestApi ::
   ImportRestApi
 newImportRestApi pBody_ =
   ImportRestApi'
-    { parameters = Prelude.Nothing,
-      failOnWarnings = Prelude.Nothing,
+    { failOnWarnings = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       body = pBody_
     }
+
+-- | A query parameter to indicate whether to rollback the API creation
+-- (@true@) or not (@false@) when a warning is encountered. The default
+-- value is @false@.
+importRestApi_failOnWarnings :: Lens.Lens' ImportRestApi (Prelude.Maybe Prelude.Bool)
+importRestApi_failOnWarnings = Lens.lens (\ImportRestApi' {failOnWarnings} -> failOnWarnings) (\s@ImportRestApi' {} a -> s {failOnWarnings = a} :: ImportRestApi)
 
 -- | A key-value map of context-specific query string parameters specifying
 -- the behavior of different API importing operations. The following shows
@@ -178,12 +184,6 @@ newImportRestApi pBody_ =
 -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
 importRestApi_parameters :: Lens.Lens' ImportRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Prelude.. Lens.mapping Lens._Coerce
-
--- | A query parameter to indicate whether to rollback the API creation
--- (@true@) or not (@false@) when a warning is encountered. The default
--- value is @false@.
-importRestApi_failOnWarnings :: Lens.Lens' ImportRestApi (Prelude.Maybe Prelude.Bool)
-importRestApi_failOnWarnings = Lens.lens (\ImportRestApi' {failOnWarnings} -> failOnWarnings) (\s@ImportRestApi' {} a -> s {failOnWarnings = a} :: ImportRestApi)
 
 -- | [Required] The POST request body containing external API definitions.
 -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
@@ -220,11 +220,11 @@ instance Core.ToPath ImportRestApi where
 instance Core.ToQuery ImportRestApi where
   toQuery ImportRestApi' {..} =
     Prelude.mconcat
-      [ "parameters"
+      [ "failonwarnings" Core.=: failOnWarnings,
+        "parameters"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
                 Prelude.<$> parameters
             ),
-        "failonwarnings" Core.=: failOnWarnings,
         "mode=import"
       ]

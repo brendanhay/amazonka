@@ -22,7 +22,11 @@
 --
 -- Tests a custom authorization behavior by invoking a specified custom
 -- authorizer. Use this to test and debug the custom authorization behavior
--- of devices that connect to the AWS IoT device gateway.
+-- of devices that connect to the IoT device gateway.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions TestInvokeAuthorizer>
+-- action.
 module Network.AWS.IoT.TestInvokeAuthorizer
   ( -- * Creating a Request
     TestInvokeAuthorizer (..),

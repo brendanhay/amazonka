@@ -40,13 +40,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { -- | The ARN of the signing profile version.
+  { -- | The function\'s networking configuration.
+    vpcConfig :: Prelude.Maybe VpcConfigResponse,
+    -- | The ARN of the signing profile version.
     signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the last update that was performed on the function. This
     -- is first set to @Successful@ after function creation completes.
     lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
-    -- | The function\'s networking configuration.
-    vpcConfig :: Prelude.Maybe VpcConfigResponse,
     -- | The amount of memory available to the function at runtime.
     memorySize :: Prelude.Maybe Prelude.Natural,
     -- | For Lambda\@Edge functions, the ARN of the master function.
@@ -66,21 +66,22 @@ data FunctionConfiguration = FunctionConfiguration'
     handler :: Prelude.Maybe Prelude.Text,
     -- | The function\'s dead letter queue.
     deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
+    -- | The function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+    environment :: Prelude.Maybe EnvironmentResponse,
     -- | The name of the function.
     functionName :: Prelude.Maybe Prelude.Text,
-    -- | The function\'s environment variables.
-    environment :: Prelude.Maybe EnvironmentResponse,
     -- | The version of the Lambda function.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The function\'s Amazon Resource Name (ARN).
-    functionArn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the function. When the state is @Inactive@, you can
-    -- reactivate the function by invoking it.
-    state :: Prelude.Maybe State,
     -- | The KMS key that\'s used to encrypt the function\'s environment
     -- variables. This key is only returned if you\'ve configured a customer
     -- managed CMK.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the function. When the state is @Inactive@, you can
+    -- reactivate the function by invoking it.
+    state :: Prelude.Maybe State,
+    -- | The function\'s Amazon Resource Name (ARN).
+    functionArn :: Prelude.Maybe Prelude.Text,
     -- | The runtime environment for the Lambda function.
     runtime :: Prelude.Maybe Runtime,
     -- | The function\'s execution role.
@@ -90,24 +91,25 @@ data FunctionConfiguration = FunctionConfiguration'
     -- | The reason code for the function\'s current state. When the code is
     -- @Creating@, you can\'t invoke or modify the function.
     stateReasonCode :: Prelude.Maybe StateReasonCode,
-    -- | The function\'s image configuration values.
-    imageConfigResponse :: Prelude.Maybe ImageConfigResponse,
-    -- | The function\'s AWS X-Ray tracing configuration.
-    tracingConfig :: Prelude.Maybe TracingConfigResponse,
     -- | The function\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The function\'s image configuration values.
+    imageConfigResponse :: Prelude.Maybe ImageConfigResponse,
+    -- | The function\'s X-Ray tracing configuration.
+    tracingConfig :: Prelude.Maybe TracingConfigResponse,
+    -- | The reason for the last update that was performed on the function.
+    lastUpdateStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the function was last updated, in
     -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
     -- (YYYY-MM-DDThh:mm:ss.sTZD).
     lastModified :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the last update that was performed on the function.
-    lastUpdateStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | The size of the function\'s deployment package, in bytes.
+    codeSize :: Prelude.Maybe Prelude.Integer,
     -- | The function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers>.
     layers :: Prelude.Maybe [Layer],
-    -- | The size of the function\'s deployment package, in bytes.
-    codeSize :: Prelude.Maybe Prelude.Integer,
-    -- | Connection settings for an Amazon EFS file system.
+    -- | Connection settings for an
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html Amazon EFS file system>.
     fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
     -- | The type of deployment package. Set to @Image@ for container image and
     -- set @Zip@ for .zip file archive.
@@ -123,12 +125,12 @@ data FunctionConfiguration = FunctionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'functionConfiguration_vpcConfig' - The function\'s networking configuration.
+--
 -- 'signingProfileVersionArn', 'functionConfiguration_signingProfileVersionArn' - The ARN of the signing profile version.
 --
 -- 'lastUpdateStatus', 'functionConfiguration_lastUpdateStatus' - The status of the last update that was performed on the function. This
 -- is first set to @Successful@ after function creation completes.
---
--- 'vpcConfig', 'functionConfiguration_vpcConfig' - The function\'s networking configuration.
 --
 -- 'memorySize', 'functionConfiguration_memorySize' - The amount of memory available to the function at runtime.
 --
@@ -149,20 +151,21 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'deadLetterConfig', 'functionConfiguration_deadLetterConfig' - The function\'s dead letter queue.
 --
+-- 'environment', 'functionConfiguration_environment' - The function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+--
 -- 'functionName', 'functionConfiguration_functionName' - The name of the function.
 --
--- 'environment', 'functionConfiguration_environment' - The function\'s environment variables.
---
 -- 'version', 'functionConfiguration_version' - The version of the Lambda function.
---
--- 'functionArn', 'functionConfiguration_functionArn' - The function\'s Amazon Resource Name (ARN).
---
--- 'state', 'functionConfiguration_state' - The current state of the function. When the state is @Inactive@, you can
--- reactivate the function by invoking it.
 --
 -- 'kmsKeyArn', 'functionConfiguration_kmsKeyArn' - The KMS key that\'s used to encrypt the function\'s environment
 -- variables. This key is only returned if you\'ve configured a customer
 -- managed CMK.
+--
+-- 'state', 'functionConfiguration_state' - The current state of the function. When the state is @Inactive@, you can
+-- reactivate the function by invoking it.
+--
+-- 'functionArn', 'functionConfiguration_functionArn' - The function\'s Amazon Resource Name (ARN).
 --
 -- 'runtime', 'functionConfiguration_runtime' - The runtime environment for the Lambda function.
 --
@@ -173,24 +176,25 @@ data FunctionConfiguration = FunctionConfiguration'
 -- 'stateReasonCode', 'functionConfiguration_stateReasonCode' - The reason code for the function\'s current state. When the code is
 -- @Creating@, you can\'t invoke or modify the function.
 --
+-- 'description', 'functionConfiguration_description' - The function\'s description.
+--
 -- 'imageConfigResponse', 'functionConfiguration_imageConfigResponse' - The function\'s image configuration values.
 --
--- 'tracingConfig', 'functionConfiguration_tracingConfig' - The function\'s AWS X-Ray tracing configuration.
+-- 'tracingConfig', 'functionConfiguration_tracingConfig' - The function\'s X-Ray tracing configuration.
 --
--- 'description', 'functionConfiguration_description' - The function\'s description.
+-- 'lastUpdateStatusReason', 'functionConfiguration_lastUpdateStatusReason' - The reason for the last update that was performed on the function.
 --
 -- 'lastModified', 'functionConfiguration_lastModified' - The date and time that the function was last updated, in
 -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
 -- (YYYY-MM-DDThh:mm:ss.sTZD).
 --
--- 'lastUpdateStatusReason', 'functionConfiguration_lastUpdateStatusReason' - The reason for the last update that was performed on the function.
+-- 'codeSize', 'functionConfiguration_codeSize' - The size of the function\'s deployment package, in bytes.
 --
 -- 'layers', 'functionConfiguration_layers' - The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers>.
 --
--- 'codeSize', 'functionConfiguration_codeSize' - The size of the function\'s deployment package, in bytes.
---
--- 'fileSystemConfigs', 'functionConfiguration_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+-- 'fileSystemConfigs', 'functionConfiguration_fileSystemConfigs' - Connection settings for an
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html Amazon EFS file system>.
 --
 -- 'packageType', 'functionConfiguration_packageType' - The type of deployment package. Set to @Image@ for container image and
 -- set @Zip@ for .zip file archive.
@@ -198,10 +202,9 @@ newFunctionConfiguration ::
   FunctionConfiguration
 newFunctionConfiguration =
   FunctionConfiguration'
-    { signingProfileVersionArn =
-        Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      signingProfileVersionArn = Prelude.Nothing,
       lastUpdateStatus = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
       memorySize = Prelude.Nothing,
       masterArn = Prelude.Nothing,
       revisionId = Prelude.Nothing,
@@ -211,26 +214,30 @@ newFunctionConfiguration =
       timeout = Prelude.Nothing,
       handler = Prelude.Nothing,
       deadLetterConfig = Prelude.Nothing,
-      functionName = Prelude.Nothing,
       environment = Prelude.Nothing,
+      functionName = Prelude.Nothing,
       version = Prelude.Nothing,
-      functionArn = Prelude.Nothing,
-      state = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      functionArn = Prelude.Nothing,
       runtime = Prelude.Nothing,
       role' = Prelude.Nothing,
       signingJobArn = Prelude.Nothing,
       stateReasonCode = Prelude.Nothing,
+      description = Prelude.Nothing,
       imageConfigResponse = Prelude.Nothing,
       tracingConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
       lastUpdateStatusReason = Prelude.Nothing,
-      layers = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       codeSize = Prelude.Nothing,
+      layers = Prelude.Nothing,
       fileSystemConfigs = Prelude.Nothing,
       packageType = Prelude.Nothing
     }
+
+-- | The function\'s networking configuration.
+functionConfiguration_vpcConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe VpcConfigResponse)
+functionConfiguration_vpcConfig = Lens.lens (\FunctionConfiguration' {vpcConfig} -> vpcConfig) (\s@FunctionConfiguration' {} a -> s {vpcConfig = a} :: FunctionConfiguration)
 
 -- | The ARN of the signing profile version.
 functionConfiguration_signingProfileVersionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -240,10 +247,6 @@ functionConfiguration_signingProfileVersionArn = Lens.lens (\FunctionConfigurati
 -- is first set to @Successful@ after function creation completes.
 functionConfiguration_lastUpdateStatus :: Lens.Lens' FunctionConfiguration (Prelude.Maybe LastUpdateStatus)
 functionConfiguration_lastUpdateStatus = Lens.lens (\FunctionConfiguration' {lastUpdateStatus} -> lastUpdateStatus) (\s@FunctionConfiguration' {} a -> s {lastUpdateStatus = a} :: FunctionConfiguration)
-
--- | The function\'s networking configuration.
-functionConfiguration_vpcConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe VpcConfigResponse)
-functionConfiguration_vpcConfig = Lens.lens (\FunctionConfiguration' {vpcConfig} -> vpcConfig) (\s@FunctionConfiguration' {} a -> s {vpcConfig = a} :: FunctionConfiguration)
 
 -- | The amount of memory available to the function at runtime.
 functionConfiguration_memorySize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Natural)
@@ -282,32 +285,33 @@ functionConfiguration_handler = Lens.lens (\FunctionConfiguration' {handler} -> 
 functionConfiguration_deadLetterConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe DeadLetterConfig)
 functionConfiguration_deadLetterConfig = Lens.lens (\FunctionConfiguration' {deadLetterConfig} -> deadLetterConfig) (\s@FunctionConfiguration' {} a -> s {deadLetterConfig = a} :: FunctionConfiguration)
 
+-- | The function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html environment variables>.
+functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EnvironmentResponse)
+functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
+
 -- | The name of the function.
 functionConfiguration_functionName :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionName = Lens.lens (\FunctionConfiguration' {functionName} -> functionName) (\s@FunctionConfiguration' {} a -> s {functionName = a} :: FunctionConfiguration)
 
--- | The function\'s environment variables.
-functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EnvironmentResponse)
-functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
-
 -- | The version of the Lambda function.
 functionConfiguration_version :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_version = Lens.lens (\FunctionConfiguration' {version} -> version) (\s@FunctionConfiguration' {} a -> s {version = a} :: FunctionConfiguration)
-
--- | The function\'s Amazon Resource Name (ARN).
-functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
-
--- | The current state of the function. When the state is @Inactive@, you can
--- reactivate the function by invoking it.
-functionConfiguration_state :: Lens.Lens' FunctionConfiguration (Prelude.Maybe State)
-functionConfiguration_state = Lens.lens (\FunctionConfiguration' {state} -> state) (\s@FunctionConfiguration' {} a -> s {state = a} :: FunctionConfiguration)
 
 -- | The KMS key that\'s used to encrypt the function\'s environment
 -- variables. This key is only returned if you\'ve configured a customer
 -- managed CMK.
 functionConfiguration_kmsKeyArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_kmsKeyArn = Lens.lens (\FunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@FunctionConfiguration' {} a -> s {kmsKeyArn = a} :: FunctionConfiguration)
+
+-- | The current state of the function. When the state is @Inactive@, you can
+-- reactivate the function by invoking it.
+functionConfiguration_state :: Lens.Lens' FunctionConfiguration (Prelude.Maybe State)
+functionConfiguration_state = Lens.lens (\FunctionConfiguration' {state} -> state) (\s@FunctionConfiguration' {} a -> s {state = a} :: FunctionConfiguration)
+
+-- | The function\'s Amazon Resource Name (ARN).
+functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
 
 -- | The runtime environment for the Lambda function.
 functionConfiguration_runtime :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Runtime)
@@ -326,17 +330,21 @@ functionConfiguration_signingJobArn = Lens.lens (\FunctionConfiguration' {signin
 functionConfiguration_stateReasonCode :: Lens.Lens' FunctionConfiguration (Prelude.Maybe StateReasonCode)
 functionConfiguration_stateReasonCode = Lens.lens (\FunctionConfiguration' {stateReasonCode} -> stateReasonCode) (\s@FunctionConfiguration' {} a -> s {stateReasonCode = a} :: FunctionConfiguration)
 
+-- | The function\'s description.
+functionConfiguration_description :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_description = Lens.lens (\FunctionConfiguration' {description} -> description) (\s@FunctionConfiguration' {} a -> s {description = a} :: FunctionConfiguration)
+
 -- | The function\'s image configuration values.
 functionConfiguration_imageConfigResponse :: Lens.Lens' FunctionConfiguration (Prelude.Maybe ImageConfigResponse)
 functionConfiguration_imageConfigResponse = Lens.lens (\FunctionConfiguration' {imageConfigResponse} -> imageConfigResponse) (\s@FunctionConfiguration' {} a -> s {imageConfigResponse = a} :: FunctionConfiguration)
 
--- | The function\'s AWS X-Ray tracing configuration.
+-- | The function\'s X-Ray tracing configuration.
 functionConfiguration_tracingConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe TracingConfigResponse)
 functionConfiguration_tracingConfig = Lens.lens (\FunctionConfiguration' {tracingConfig} -> tracingConfig) (\s@FunctionConfiguration' {} a -> s {tracingConfig = a} :: FunctionConfiguration)
 
--- | The function\'s description.
-functionConfiguration_description :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_description = Lens.lens (\FunctionConfiguration' {description} -> description) (\s@FunctionConfiguration' {} a -> s {description = a} :: FunctionConfiguration)
+-- | The reason for the last update that was performed on the function.
+functionConfiguration_lastUpdateStatusReason :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_lastUpdateStatusReason = Lens.lens (\FunctionConfiguration' {lastUpdateStatusReason} -> lastUpdateStatusReason) (\s@FunctionConfiguration' {} a -> s {lastUpdateStatusReason = a} :: FunctionConfiguration)
 
 -- | The date and time that the function was last updated, in
 -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
@@ -344,20 +352,17 @@ functionConfiguration_description = Lens.lens (\FunctionConfiguration' {descript
 functionConfiguration_lastModified :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_lastModified = Lens.lens (\FunctionConfiguration' {lastModified} -> lastModified) (\s@FunctionConfiguration' {} a -> s {lastModified = a} :: FunctionConfiguration)
 
--- | The reason for the last update that was performed on the function.
-functionConfiguration_lastUpdateStatusReason :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_lastUpdateStatusReason = Lens.lens (\FunctionConfiguration' {lastUpdateStatusReason} -> lastUpdateStatusReason) (\s@FunctionConfiguration' {} a -> s {lastUpdateStatusReason = a} :: FunctionConfiguration)
+-- | The size of the function\'s deployment package, in bytes.
+functionConfiguration_codeSize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Integer)
+functionConfiguration_codeSize = Lens.lens (\FunctionConfiguration' {codeSize} -> codeSize) (\s@FunctionConfiguration' {} a -> s {codeSize = a} :: FunctionConfiguration)
 
 -- | The function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers>.
 functionConfiguration_layers :: Lens.Lens' FunctionConfiguration (Prelude.Maybe [Layer])
 functionConfiguration_layers = Lens.lens (\FunctionConfiguration' {layers} -> layers) (\s@FunctionConfiguration' {} a -> s {layers = a} :: FunctionConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
--- | The size of the function\'s deployment package, in bytes.
-functionConfiguration_codeSize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Integer)
-functionConfiguration_codeSize = Lens.lens (\FunctionConfiguration' {codeSize} -> codeSize) (\s@FunctionConfiguration' {} a -> s {codeSize = a} :: FunctionConfiguration)
-
--- | Connection settings for an Amazon EFS file system.
+-- | Connection settings for an
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html Amazon EFS file system>.
 functionConfiguration_fileSystemConfigs :: Lens.Lens' FunctionConfiguration (Prelude.Maybe [FileSystemConfig])
 functionConfiguration_fileSystemConfigs = Lens.lens (\FunctionConfiguration' {fileSystemConfigs} -> fileSystemConfigs) (\s@FunctionConfiguration' {} a -> s {fileSystemConfigs = a} :: FunctionConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
@@ -372,9 +377,9 @@ instance Core.FromJSON FunctionConfiguration where
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "SigningProfileVersionArn")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
             Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "MemorySize")
             Prelude.<*> (x Core..:? "MasterArn")
             Prelude.<*> (x Core..:? "RevisionId")
@@ -384,23 +389,23 @@ instance Core.FromJSON FunctionConfiguration where
             Prelude.<*> (x Core..:? "Timeout")
             Prelude.<*> (x Core..:? "Handler")
             Prelude.<*> (x Core..:? "DeadLetterConfig")
-            Prelude.<*> (x Core..:? "FunctionName")
             Prelude.<*> (x Core..:? "Environment")
+            Prelude.<*> (x Core..:? "FunctionName")
             Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "FunctionArn")
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "KMSKeyArn")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "FunctionArn")
             Prelude.<*> (x Core..:? "Runtime")
             Prelude.<*> (x Core..:? "Role")
             Prelude.<*> (x Core..:? "SigningJobArn")
             Prelude.<*> (x Core..:? "StateReasonCode")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ImageConfigResponse")
             Prelude.<*> (x Core..:? "TracingConfig")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModified")
             Prelude.<*> (x Core..:? "LastUpdateStatusReason")
-            Prelude.<*> (x Core..:? "Layers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModified")
             Prelude.<*> (x Core..:? "CodeSize")
+            Prelude.<*> (x Core..:? "Layers" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "FileSystemConfigs"
                             Core..!= Prelude.mempty
                         )

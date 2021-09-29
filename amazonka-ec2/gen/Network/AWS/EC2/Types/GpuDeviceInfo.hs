@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGpuDeviceInfo' smart constructor.
 data GpuDeviceInfo = GpuDeviceInfo'
-  { -- | Describes the memory available to the GPU accelerator.
-    memoryInfo :: Prelude.Maybe GpuDeviceMemoryInfo,
-    -- | The manufacturer of the GPU accelerator.
+  { -- | The manufacturer of the GPU accelerator.
     manufacturer :: Prelude.Maybe Prelude.Text,
+    -- | Describes the memory available to the GPU accelerator.
+    memoryInfo :: Prelude.Maybe GpuDeviceMemoryInfo,
     -- | The name of the GPU accelerator.
     name :: Prelude.Maybe Prelude.Text,
     -- | The number of GPUs for the instance type.
@@ -48,9 +48,9 @@ data GpuDeviceInfo = GpuDeviceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memoryInfo', 'gpuDeviceInfo_memoryInfo' - Describes the memory available to the GPU accelerator.
---
 -- 'manufacturer', 'gpuDeviceInfo_manufacturer' - The manufacturer of the GPU accelerator.
+--
+-- 'memoryInfo', 'gpuDeviceInfo_memoryInfo' - Describes the memory available to the GPU accelerator.
 --
 -- 'name', 'gpuDeviceInfo_name' - The name of the GPU accelerator.
 --
@@ -59,19 +59,19 @@ newGpuDeviceInfo ::
   GpuDeviceInfo
 newGpuDeviceInfo =
   GpuDeviceInfo'
-    { memoryInfo = Prelude.Nothing,
-      manufacturer = Prelude.Nothing,
+    { manufacturer = Prelude.Nothing,
+      memoryInfo = Prelude.Nothing,
       name = Prelude.Nothing,
       count = Prelude.Nothing
     }
 
--- | Describes the memory available to the GPU accelerator.
-gpuDeviceInfo_memoryInfo :: Lens.Lens' GpuDeviceInfo (Prelude.Maybe GpuDeviceMemoryInfo)
-gpuDeviceInfo_memoryInfo = Lens.lens (\GpuDeviceInfo' {memoryInfo} -> memoryInfo) (\s@GpuDeviceInfo' {} a -> s {memoryInfo = a} :: GpuDeviceInfo)
-
 -- | The manufacturer of the GPU accelerator.
 gpuDeviceInfo_manufacturer :: Lens.Lens' GpuDeviceInfo (Prelude.Maybe Prelude.Text)
 gpuDeviceInfo_manufacturer = Lens.lens (\GpuDeviceInfo' {manufacturer} -> manufacturer) (\s@GpuDeviceInfo' {} a -> s {manufacturer = a} :: GpuDeviceInfo)
+
+-- | Describes the memory available to the GPU accelerator.
+gpuDeviceInfo_memoryInfo :: Lens.Lens' GpuDeviceInfo (Prelude.Maybe GpuDeviceMemoryInfo)
+gpuDeviceInfo_memoryInfo = Lens.lens (\GpuDeviceInfo' {memoryInfo} -> memoryInfo) (\s@GpuDeviceInfo' {} a -> s {memoryInfo = a} :: GpuDeviceInfo)
 
 -- | The name of the GPU accelerator.
 gpuDeviceInfo_name :: Lens.Lens' GpuDeviceInfo (Prelude.Maybe Prelude.Text)
@@ -84,8 +84,8 @@ gpuDeviceInfo_count = Lens.lens (\GpuDeviceInfo' {count} -> count) (\s@GpuDevice
 instance Core.FromXML GpuDeviceInfo where
   parseXML x =
     GpuDeviceInfo'
-      Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "manufacturer")
+      Prelude.<$> (x Core..@? "manufacturer")
+      Prelude.<*> (x Core..@? "memoryInfo")
       Prelude.<*> (x Core..@? "name")
       Prelude.<*> (x Core..@? "count")
 

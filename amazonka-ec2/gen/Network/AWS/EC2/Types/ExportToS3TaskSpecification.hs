@@ -36,8 +36,8 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
     -- | The format for the exported image.
     diskImageFormat :: Prelude.Maybe DiskImageFormat,
     -- | The Amazon S3 bucket for the destination image. The destination bucket
-    -- must exist and grant WRITE and READ_ACP permissions to the AWS account
-    -- @vm-import-export\@amazon.com@.
+    -- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
+    -- Services account @vm-import-export\@amazon.com@.
     s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The image is written to a single object in the Amazon S3 bucket at the
     -- S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
@@ -59,8 +59,8 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
 -- 'diskImageFormat', 'exportToS3TaskSpecification_diskImageFormat' - The format for the exported image.
 --
 -- 's3Bucket', 'exportToS3TaskSpecification_s3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket
--- must exist and grant WRITE and READ_ACP permissions to the AWS account
--- @vm-import-export\@amazon.com@.
+-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
+-- Services account @vm-import-export\@amazon.com@.
 --
 -- 's3Prefix', 'exportToS3TaskSpecification_s3Prefix' - The image is written to a single object in the Amazon S3 bucket at the
 -- S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
@@ -85,8 +85,8 @@ exportToS3TaskSpecification_diskImageFormat :: Lens.Lens' ExportToS3TaskSpecific
 exportToS3TaskSpecification_diskImageFormat = Lens.lens (\ExportToS3TaskSpecification' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3TaskSpecification' {} a -> s {diskImageFormat = a} :: ExportToS3TaskSpecification)
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket
--- must exist and grant WRITE and READ_ACP permissions to the AWS account
--- @vm-import-export\@amazon.com@.
+-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
+-- Services account @vm-import-export\@amazon.com@.
 exportToS3TaskSpecification_s3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe Prelude.Text)
 exportToS3TaskSpecification_s3Bucket = Lens.lens (\ExportToS3TaskSpecification' {s3Bucket} -> s3Bucket) (\s@ExportToS3TaskSpecification' {} a -> s {s3Bucket = a} :: ExportToS3TaskSpecification)
 

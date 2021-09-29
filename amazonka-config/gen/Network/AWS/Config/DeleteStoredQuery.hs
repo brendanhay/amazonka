@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the stored query for a single AWS account and a single AWS
--- Region.
+-- Deletes the stored query for a single Amazon Web Services account and a
+-- single Amazon Web Services Region.
 module Network.AWS.Config.DeleteStoredQuery
   ( -- * Creating a Request
     DeleteStoredQuery (..),

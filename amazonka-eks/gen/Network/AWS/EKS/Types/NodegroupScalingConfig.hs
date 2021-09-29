@@ -24,14 +24,13 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the scaling configuration details for the Auto
--- Scaling group that is associated with your node group. If you specify a
--- value for any property, then you must specify values for all of the
--- properties.
+-- Scaling group that is associated with your node group. When creating a
+-- node group, you must specify all or none of the properties. When
+-- updating a node group, you can specify any or none of the properties.
 --
 -- /See:/ 'newNodegroupScalingConfig' smart constructor.
 data NodegroupScalingConfig = NodegroupScalingConfig'
   { -- | The minimum number of nodes that the managed node group can scale in to.
-    -- This number must be greater than zero.
     minSize :: Prelude.Maybe Prelude.Natural,
     -- | The current number of nodes that the managed node group should maintain.
     desiredSize :: Prelude.Maybe Prelude.Natural,
@@ -52,7 +51,6 @@ data NodegroupScalingConfig = NodegroupScalingConfig'
 -- for backwards compatibility:
 --
 -- 'minSize', 'nodegroupScalingConfig_minSize' - The minimum number of nodes that the managed node group can scale in to.
--- This number must be greater than zero.
 --
 -- 'desiredSize', 'nodegroupScalingConfig_desiredSize' - The current number of nodes that the managed node group should maintain.
 --
@@ -70,7 +68,6 @@ newNodegroupScalingConfig =
     }
 
 -- | The minimum number of nodes that the managed node group can scale in to.
--- This number must be greater than zero.
 nodegroupScalingConfig_minSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
 nodegroupScalingConfig_minSize = Lens.lens (\NodegroupScalingConfig' {minSize} -> minSize) (\s@NodegroupScalingConfig' {} a -> s {minSize = a} :: NodegroupScalingConfig)
 

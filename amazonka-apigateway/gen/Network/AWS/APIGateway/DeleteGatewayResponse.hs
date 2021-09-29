@@ -53,28 +53,7 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
     restApiId :: Prelude.Text,
     -- | [Required]
     --
-    -- The response type of the associated GatewayResponse. Valid values are
-    --
-    -- -   ACCESS_DENIED
-    -- -   API_CONFIGURATION_ERROR
-    -- -   AUTHORIZER_FAILURE
-    -- -   AUTHORIZER_CONFIGURATION_ERROR
-    -- -   BAD_REQUEST_PARAMETERS
-    -- -   BAD_REQUEST_BODY
-    -- -   DEFAULT_4XX
-    -- -   DEFAULT_5XX
-    -- -   EXPIRED_TOKEN
-    -- -   INVALID_SIGNATURE
-    -- -   INTEGRATION_FAILURE
-    -- -   INTEGRATION_TIMEOUT
-    -- -   INVALID_API_KEY
-    -- -   MISSING_AUTHENTICATION_TOKEN
-    -- -   QUOTA_EXCEEDED
-    -- -   REQUEST_TOO_LARGE
-    -- -   RESOURCE_NOT_FOUND
-    -- -   THROTTLED
-    -- -   UNAUTHORIZED
-    -- -   UNSUPPORTED_MEDIA_TYPE
+    -- The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,28 +70,7 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 --
 -- 'responseType', 'deleteGatewayResponse_responseType' - [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 newDeleteGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -131,28 +89,7 @@ deleteGatewayResponse_restApiId = Lens.lens (\DeleteGatewayResponse' {restApiId}
 
 -- | [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 deleteGatewayResponse_responseType :: Lens.Lens' DeleteGatewayResponse GatewayResponseType
 deleteGatewayResponse_responseType = Lens.lens (\DeleteGatewayResponse' {responseType} -> responseType) (\s@DeleteGatewayResponse' {} a -> s {responseType = a} :: DeleteGatewayResponse)
 

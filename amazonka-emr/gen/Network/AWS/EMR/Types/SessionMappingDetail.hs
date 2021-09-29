@@ -35,7 +35,7 @@ data SessionMappingDetail = SessionMappingDetail'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /AWS SSO Identity Store API Reference/.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | The time the session mapping was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
@@ -66,7 +66,7 @@ data SessionMappingDetail = SessionMappingDetail'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/.
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
 --
 -- 'lastModifiedTime', 'sessionMappingDetail_lastModifiedTime' - The time the session mapping was last modified.
 --
@@ -101,7 +101,7 @@ sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationT
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/.
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
 sessionMappingDetail_identityName :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
 sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityName} -> identityName) (\s@SessionMappingDetail' {} a -> s {identityName = a} :: SessionMappingDetail)
 

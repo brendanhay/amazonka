@@ -52,7 +52,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeQueue' smart constructor.
 data DescribeQueue = DescribeQueue'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text
@@ -67,7 +68,8 @@ data DescribeQueue = DescribeQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeQueue_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'describeQueue_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'describeQueue_queueId' - The identifier for the queue.
 newDescribeQueue ::
@@ -82,7 +84,8 @@ newDescribeQueue pInstanceId_ pQueueId_ =
       queueId = pQueueId_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 describeQueue_instanceId :: Lens.Lens' DescribeQueue Prelude.Text
 describeQueue_instanceId = Lens.lens (\DescribeQueue' {instanceId} -> instanceId) (\s@DescribeQueue' {} a -> s {instanceId = a} :: DescribeQueue)
 

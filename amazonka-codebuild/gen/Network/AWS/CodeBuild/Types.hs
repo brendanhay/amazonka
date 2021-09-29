@@ -19,8 +19,8 @@ module Network.AWS.CodeBuild.Types
     -- * Errors
     _OAuthProviderException,
     _ResourceAlreadyExistsException,
-    _InvalidInputException,
     _AccountLimitExceededException,
+    _InvalidInputException,
     _ResourceNotFoundException,
 
     -- * ArtifactNamespace
@@ -34,6 +34,9 @@ module Network.AWS.CodeBuild.Types
 
     -- * AuthType
     AuthType (..),
+
+    -- * BucketOwnerAccess
+    BucketOwnerAccess (..),
 
     -- * BuildBatchPhaseType
     BuildBatchPhaseType (..),
@@ -76,6 +79,9 @@ module Network.AWS.CodeBuild.Types
 
     -- * ProjectSortByType
     ProjectSortByType (..),
+
+    -- * ProjectVisibilityType
+    ProjectVisibilityType (..),
 
     -- * ReportCodeCoverageSortByType
     ReportCodeCoverageSortByType (..),
@@ -138,28 +144,28 @@ module Network.AWS.CodeBuild.Types
     Build (..),
     newBuild,
     build_vpcConfig,
-    build_buildBatchArn,
-    build_resolvedSourceVersion,
-    build_secondaryArtifacts,
     build_sourceVersion,
+    build_buildBatchArn,
+    build_secondaryArtifacts,
+    build_resolvedSourceVersion,
     build_phases,
     build_cache,
     build_serviceRole,
     build_secondarySourceVersions,
     build_networkInterface,
     build_encryptionKey,
-    build_artifacts,
-    build_buildNumber,
-    build_startTime,
     build_id,
     build_environment,
     build_source,
+    build_startTime,
     build_arn,
+    build_buildNumber,
+    build_artifacts,
     build_projectName,
-    build_endTime,
     build_buildStatus,
-    build_logs,
+    build_endTime,
     build_buildComplete,
+    build_logs,
     build_debugSession,
     build_queuedTimeoutInMinutes,
     build_secondarySources,
@@ -167,38 +173,39 @@ module Network.AWS.CodeBuild.Types
     build_currentPhase,
     build_initiator,
     build_reportArns,
-    build_fileSystemLocations,
     build_exportedEnvironmentVariables,
+    build_fileSystemLocations,
 
     -- * BuildArtifacts
     BuildArtifacts (..),
     newBuildArtifacts,
+    buildArtifacts_bucketOwnerAccess,
     buildArtifacts_sha256sum,
-    buildArtifacts_overrideArtifactName,
     buildArtifacts_artifactIdentifier,
-    buildArtifacts_md5sum,
+    buildArtifacts_overrideArtifactName,
     buildArtifacts_encryptionDisabled,
+    buildArtifacts_md5sum,
     buildArtifacts_location,
 
     -- * BuildBatch
     BuildBatch (..),
     newBuildBatch,
     buildBatch_vpcConfig,
-    buildBatch_resolvedSourceVersion,
-    buildBatch_secondaryArtifacts,
     buildBatch_sourceVersion,
+    buildBatch_secondaryArtifacts,
+    buildBatch_resolvedSourceVersion,
     buildBatch_phases,
     buildBatch_cache,
     buildBatch_serviceRole,
     buildBatch_buildBatchNumber,
     buildBatch_secondarySourceVersions,
     buildBatch_encryptionKey,
-    buildBatch_artifacts,
-    buildBatch_startTime,
     buildBatch_id,
     buildBatch_environment,
     buildBatch_source,
+    buildBatch_startTime,
     buildBatch_arn,
+    buildBatch_artifacts,
     buildBatch_projectName,
     buildBatch_endTime,
     buildBatch_buildGroups,
@@ -206,9 +213,9 @@ module Network.AWS.CodeBuild.Types
     buildBatch_queuedTimeoutInMinutes,
     buildBatch_secondarySources,
     buildBatch_complete,
-    buildBatch_logConfig,
     buildBatch_currentPhase,
     buildBatch_buildBatchStatus,
+    buildBatch_logConfig,
     buildBatch_initiator,
     buildBatch_buildBatchConfig,
     buildBatch_fileSystemLocations,
@@ -233,8 +240,8 @@ module Network.AWS.CodeBuild.Types
     BuildGroup (..),
     newBuildGroup,
     buildGroup_dependsOn,
-    buildGroup_currentBuildSummary,
     buildGroup_identifier,
+    buildGroup_currentBuildSummary,
     buildGroup_ignoreFailure,
     buildGroup_priorBuildSummaryList,
 
@@ -377,42 +384,46 @@ module Network.AWS.CodeBuild.Types
     Project (..),
     newProject,
     project_vpcConfig,
-    project_secondaryArtifacts,
     project_sourceVersion,
+    project_secondaryArtifacts,
     project_cache,
     project_serviceRole,
     project_secondarySourceVersions,
+    project_projectVisibility,
     project_webhook,
-    project_encryptionKey,
     project_concurrentBuildLimit,
-    project_artifacts,
+    project_encryptionKey,
     project_environment,
     project_source,
     project_arn,
     project_logsConfig,
+    project_artifacts,
+    project_resourceAccessRole,
     project_name,
     project_queuedTimeoutInMinutes,
     project_secondarySources,
-    project_tags,
     project_timeoutInMinutes,
+    project_tags,
     project_description,
     project_lastModified,
-    project_created,
     project_buildBatchConfig,
+    project_created,
     project_badge,
     project_fileSystemLocations,
+    project_publicProjectAlias,
 
     -- * ProjectArtifacts
     ProjectArtifacts (..),
     newProjectArtifacts,
+    projectArtifacts_bucketOwnerAccess,
     projectArtifacts_namespaceType,
-    projectArtifacts_overrideArtifactName,
     projectArtifacts_artifactIdentifier,
+    projectArtifacts_overrideArtifactName,
+    projectArtifacts_encryptionDisabled,
     projectArtifacts_name,
     projectArtifacts_packaging,
-    projectArtifacts_encryptionDisabled,
-    projectArtifacts_location,
     projectArtifacts_path,
+    projectArtifacts_location,
     projectArtifacts_type,
 
     -- * ProjectBadge
@@ -463,12 +474,12 @@ module Network.AWS.CodeBuild.Types
     projectSource_gitCloneDepth,
     projectSource_buildStatusConfig,
     projectSource_auth,
-    projectSource_reportBuildStatus,
     projectSource_insecureSsl,
+    projectSource_reportBuildStatus,
     projectSource_sourceIdentifier,
     projectSource_buildspec,
-    projectSource_location,
     projectSource_gitSubmodulesConfig,
+    projectSource_location,
     projectSource_type,
 
     -- * ProjectSourceVersion
@@ -487,16 +498,16 @@ module Network.AWS.CodeBuild.Types
     Report (..),
     newReport,
     report_codeCoverageSummary,
-    report_reportGroupArn,
     report_status,
+    report_reportGroupArn,
     report_exportConfig,
     report_arn,
     report_testSummary,
-    report_name,
-    report_expired,
     report_executionId,
-    report_created,
+    report_expired,
+    report_name,
     report_type,
+    report_created,
     report_truncated,
 
     -- * ReportExportConfig
@@ -519,8 +530,8 @@ module Network.AWS.CodeBuild.Types
     reportGroup_name,
     reportGroup_tags,
     reportGroup_lastModified,
-    reportGroup_created,
     reportGroup_type,
+    reportGroup_created,
 
     -- * ReportGroupTrendStats
     ReportGroupTrendStats (..),
@@ -545,6 +556,7 @@ module Network.AWS.CodeBuild.Types
     -- * S3LogsConfig
     S3LogsConfig (..),
     newS3LogsConfig,
+    s3LogsConfig_bucketOwnerAccess,
     s3LogsConfig_encryptionDisabled,
     s3LogsConfig_location,
     s3LogsConfig_status,
@@ -554,8 +566,8 @@ module Network.AWS.CodeBuild.Types
     newS3ReportExportConfig,
     s3ReportExportConfig_bucketOwner,
     s3ReportExportConfig_encryptionKey,
-    s3ReportExportConfig_packaging,
     s3ReportExportConfig_encryptionDisabled,
+    s3ReportExportConfig_packaging,
     s3ReportExportConfig_bucket,
     s3ReportExportConfig_path,
 
@@ -586,8 +598,8 @@ module Network.AWS.CodeBuild.Types
     testCase_message,
     testCase_reportArn,
     testCase_prefix,
-    testCase_name,
     testCase_expired,
+    testCase_name,
     testCase_durationInNanoSeconds,
 
     -- * TestCaseFilter
@@ -607,8 +619,8 @@ module Network.AWS.CodeBuild.Types
     VpcConfig (..),
     newVpcConfig,
     vpcConfig_securityGroupIds,
-    vpcConfig_vpcId,
     vpcConfig_subnets,
+    vpcConfig_vpcId,
 
     -- * Webhook
     Webhook (..),
@@ -635,6 +647,7 @@ import Network.AWS.CodeBuild.Types.ArtifactPackaging
 import Network.AWS.CodeBuild.Types.ArtifactsType
 import Network.AWS.CodeBuild.Types.AuthType
 import Network.AWS.CodeBuild.Types.BatchRestrictions
+import Network.AWS.CodeBuild.Types.BucketOwnerAccess
 import Network.AWS.CodeBuild.Types.Build
 import Network.AWS.CodeBuild.Types.BuildArtifacts
 import Network.AWS.CodeBuild.Types.BuildBatch
@@ -682,6 +695,7 @@ import Network.AWS.CodeBuild.Types.ProjectFileSystemLocation
 import Network.AWS.CodeBuild.Types.ProjectSortByType
 import Network.AWS.CodeBuild.Types.ProjectSource
 import Network.AWS.CodeBuild.Types.ProjectSourceVersion
+import Network.AWS.CodeBuild.Types.ProjectVisibilityType
 import Network.AWS.CodeBuild.Types.RegistryCredential
 import Network.AWS.CodeBuild.Types.Report
 import Network.AWS.CodeBuild.Types.ReportCodeCoverageSortByType
@@ -800,13 +814,21 @@ _OAuthProviderException =
     defaultService
     "OAuthProviderException"
 
--- | The specified AWS resource cannot be created, because an AWS resource
--- with the same settings already exists.
+-- | The specified Amazon Web Services resource cannot be created, because an
+-- Amazon Web Services resource with the same settings already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
+
+-- | An Amazon Web Services service limit was exceeded for the calling Amazon
+-- Web Services account.
+_AccountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "AccountLimitExceededException"
 
 -- | The input value that was provided is not valid.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -815,14 +837,7 @@ _InvalidInputException =
     defaultService
     "InvalidInputException"
 
--- | An AWS service limit was exceeded for the calling AWS account.
-_AccountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "AccountLimitExceededException"
-
--- | The specified AWS resource cannot be found.
+-- | The specified Amazon Web Services resource cannot be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError

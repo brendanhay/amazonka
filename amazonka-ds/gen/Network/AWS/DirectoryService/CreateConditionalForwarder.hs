@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a conditional forwarder associated with your AWS directory.
--- Conditional forwarders are required in order to set up a trust
--- relationship with another domain. The conditional forwarder points to
--- the trusted domain.
+-- Creates a conditional forwarder associated with your Amazon Web Services
+-- directory. Conditional forwarders are required in order to set up a
+-- trust relationship with another domain. The conditional forwarder points
+-- to the trusted domain.
 module Network.AWS.DirectoryService.CreateConditionalForwarder
   ( -- * Creating a Request
     CreateConditionalForwarder (..),
@@ -50,14 +50,14 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Initiates the creation of a conditional forwarder for your AWS Directory
+-- | Initiates the creation of a conditional forwarder for your Directory
 -- Service for Microsoft Active Directory. Conditional forwarders are
 -- required in order to set up a trust relationship with another domain.
 --
 -- /See:/ 'newCreateConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
-  { -- | The directory ID of the AWS directory for which you are creating the
-    -- conditional forwarder.
+  { -- | The directory ID of the Amazon Web Services directory for which you are
+    -- creating the conditional forwarder.
     directoryId :: Prelude.Text,
     -- | The fully qualified domain name (FQDN) of the remote domain with which
     -- you will set up a trust relationship.
@@ -76,8 +76,8 @@ data CreateConditionalForwarder = CreateConditionalForwarder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'createConditionalForwarder_directoryId' - The directory ID of the AWS directory for which you are creating the
--- conditional forwarder.
+-- 'directoryId', 'createConditionalForwarder_directoryId' - The directory ID of the Amazon Web Services directory for which you are
+-- creating the conditional forwarder.
 --
 -- 'remoteDomainName', 'createConditionalForwarder_remoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which
 -- you will set up a trust relationship.
@@ -100,8 +100,8 @@ newCreateConditionalForwarder
         dnsIpAddrs = Prelude.mempty
       }
 
--- | The directory ID of the AWS directory for which you are creating the
--- conditional forwarder.
+-- | The directory ID of the Amazon Web Services directory for which you are
+-- creating the conditional forwarder.
 createConditionalForwarder_directoryId :: Lens.Lens' CreateConditionalForwarder Prelude.Text
 createConditionalForwarder_directoryId = Lens.lens (\CreateConditionalForwarder' {directoryId} -> directoryId) (\s@CreateConditionalForwarder' {} a -> s {directoryId = a} :: CreateConditionalForwarder)
 

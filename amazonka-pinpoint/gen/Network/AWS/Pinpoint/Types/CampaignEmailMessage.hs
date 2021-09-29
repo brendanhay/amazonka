@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCampaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-  { -- | The subject line, or title, of the email.
-    title :: Prelude.Maybe Prelude.Text,
-    -- | The body of the email for recipients whose email clients don\'t render
+  { -- | The body of the email for recipients whose email clients don\'t render
     -- HTML content.
     body :: Prelude.Maybe Prelude.Text,
+    -- | The subject line, or title, of the email.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The body of the email, in HTML format, for recipients whose email
     -- clients render HTML content.
     htmlBody :: Prelude.Maybe Prelude.Text,
@@ -50,10 +50,10 @@ data CampaignEmailMessage = CampaignEmailMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'title', 'campaignEmailMessage_title' - The subject line, or title, of the email.
---
 -- 'body', 'campaignEmailMessage_body' - The body of the email for recipients whose email clients don\'t render
 -- HTML content.
+--
+-- 'title', 'campaignEmailMessage_title' - The subject line, or title, of the email.
 --
 -- 'htmlBody', 'campaignEmailMessage_htmlBody' - The body of the email, in HTML format, for recipients whose email
 -- clients render HTML content.
@@ -64,20 +64,20 @@ newCampaignEmailMessage ::
   CampaignEmailMessage
 newCampaignEmailMessage =
   CampaignEmailMessage'
-    { title = Prelude.Nothing,
-      body = Prelude.Nothing,
+    { body = Prelude.Nothing,
+      title = Prelude.Nothing,
       htmlBody = Prelude.Nothing,
       fromAddress = Prelude.Nothing
     }
-
--- | The subject line, or title, of the email.
-campaignEmailMessage_title :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
-campaignEmailMessage_title = Lens.lens (\CampaignEmailMessage' {title} -> title) (\s@CampaignEmailMessage' {} a -> s {title = a} :: CampaignEmailMessage)
 
 -- | The body of the email for recipients whose email clients don\'t render
 -- HTML content.
 campaignEmailMessage_body :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_body = Lens.lens (\CampaignEmailMessage' {body} -> body) (\s@CampaignEmailMessage' {} a -> s {body = a} :: CampaignEmailMessage)
+
+-- | The subject line, or title, of the email.
+campaignEmailMessage_title :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
+campaignEmailMessage_title = Lens.lens (\CampaignEmailMessage' {title} -> title) (\s@CampaignEmailMessage' {} a -> s {title = a} :: CampaignEmailMessage)
 
 -- | The body of the email, in HTML format, for recipients whose email
 -- clients render HTML content.
@@ -95,8 +95,8 @@ instance Core.FromJSON CampaignEmailMessage where
       "CampaignEmailMessage"
       ( \x ->
           CampaignEmailMessage'
-            Prelude.<$> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Body")
+            Prelude.<$> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "HtmlBody")
             Prelude.<*> (x Core..:? "FromAddress")
       )
@@ -109,8 +109,8 @@ instance Core.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Title" Core..=) Prelude.<$> title,
-            ("Body" Core..=) Prelude.<$> body,
+          [ ("Body" Core..=) Prelude.<$> body,
+            ("Title" Core..=) Prelude.<$> title,
             ("HtmlBody" Core..=) Prelude.<$> htmlBody,
             ("FromAddress" Core..=) Prelude.<$> fromAddress
           ]

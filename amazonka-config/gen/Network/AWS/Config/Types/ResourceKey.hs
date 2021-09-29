@@ -24,7 +24,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details that identify a resource within AWS Config, including the
+-- | The details that identify a resource within Config, including the
 -- resource type and resource ID.
 --
 -- /See:/ 'newResourceKey' smart constructor.

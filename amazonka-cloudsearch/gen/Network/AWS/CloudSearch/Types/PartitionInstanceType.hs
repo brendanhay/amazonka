@@ -31,6 +31,10 @@ module Network.AWS.CloudSearch.Types.PartitionInstanceType
         PartitionInstanceType_Search_m3_medium,
         PartitionInstanceType_Search_m3_xlarge,
         PartitionInstanceType_Search_medium,
+        PartitionInstanceType_Search_previousgeneration_2xlarge,
+        PartitionInstanceType_Search_previousgeneration_large,
+        PartitionInstanceType_Search_previousgeneration_small,
+        PartitionInstanceType_Search_previousgeneration_xlarge,
         PartitionInstanceType_Search_small,
         PartitionInstanceType_Search_xlarge
       ),
@@ -103,6 +107,18 @@ pattern PartitionInstanceType_Search_m3_xlarge = PartitionInstanceType' "search.
 pattern PartitionInstanceType_Search_medium :: PartitionInstanceType
 pattern PartitionInstanceType_Search_medium = PartitionInstanceType' "search.medium"
 
+pattern PartitionInstanceType_Search_previousgeneration_2xlarge :: PartitionInstanceType
+pattern PartitionInstanceType_Search_previousgeneration_2xlarge = PartitionInstanceType' "search.previousgeneration.2xlarge"
+
+pattern PartitionInstanceType_Search_previousgeneration_large :: PartitionInstanceType
+pattern PartitionInstanceType_Search_previousgeneration_large = PartitionInstanceType' "search.previousgeneration.large"
+
+pattern PartitionInstanceType_Search_previousgeneration_small :: PartitionInstanceType
+pattern PartitionInstanceType_Search_previousgeneration_small = PartitionInstanceType' "search.previousgeneration.small"
+
+pattern PartitionInstanceType_Search_previousgeneration_xlarge :: PartitionInstanceType
+pattern PartitionInstanceType_Search_previousgeneration_xlarge = PartitionInstanceType' "search.previousgeneration.xlarge"
+
 pattern PartitionInstanceType_Search_small :: PartitionInstanceType
 pattern PartitionInstanceType_Search_small = PartitionInstanceType' "search.small"
 
@@ -121,6 +137,10 @@ pattern PartitionInstanceType_Search_xlarge = PartitionInstanceType' "search.xla
   PartitionInstanceType_Search_m3_medium,
   PartitionInstanceType_Search_m3_xlarge,
   PartitionInstanceType_Search_medium,
+  PartitionInstanceType_Search_previousgeneration_2xlarge,
+  PartitionInstanceType_Search_previousgeneration_large,
+  PartitionInstanceType_Search_previousgeneration_small,
+  PartitionInstanceType_Search_previousgeneration_xlarge,
   PartitionInstanceType_Search_small,
   PartitionInstanceType_Search_xlarge,
   PartitionInstanceType'

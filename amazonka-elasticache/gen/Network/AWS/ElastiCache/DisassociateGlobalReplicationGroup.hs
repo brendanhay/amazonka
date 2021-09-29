@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Remove a secondary cluster from the Global Datastore using the Global
--- Datastore name. The secondary cluster will no longer receive updates
+-- Remove a secondary cluster from the Global datastore using the Global
+-- datastore name. The secondary cluster will no longer receive updates
 -- from the primary cluster, but will remain as a standalone cluster in
--- that AWS region.
+-- that Amazon region.
 module Network.AWS.ElastiCache.DisassociateGlobalReplicationGroup
   ( -- * Creating a Request
     DisassociateGlobalReplicationGroup (..),
@@ -53,13 +53,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateGlobalReplicationGroup' smart constructor.
 data DisassociateGlobalReplicationGroup = DisassociateGlobalReplicationGroup'
-  { -- | The name of the Global Datastore
+  { -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | The name of the secondary cluster you wish to remove from the Global
-    -- Datastore
+    -- datastore
     replicationGroupId :: Prelude.Text,
-    -- | The AWS region of secondary cluster you wish to remove from the Global
-    -- Datastore
+    -- | The Amazon region of secondary cluster you wish to remove from the
+    -- Global datastore
     replicationGroupRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,13 +72,13 @@ data DisassociateGlobalReplicationGroup = DisassociateGlobalReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalReplicationGroupId', 'disassociateGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'disassociateGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'replicationGroupId', 'disassociateGlobalReplicationGroup_replicationGroupId' - The name of the secondary cluster you wish to remove from the Global
--- Datastore
+-- datastore
 --
--- 'replicationGroupRegion', 'disassociateGlobalReplicationGroup_replicationGroupRegion' - The AWS region of secondary cluster you wish to remove from the Global
--- Datastore
+-- 'replicationGroupRegion', 'disassociateGlobalReplicationGroup_replicationGroupRegion' - The Amazon region of secondary cluster you wish to remove from the
+-- Global datastore
 newDisassociateGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
   Prelude.Text ->
@@ -100,17 +100,17 @@ newDisassociateGlobalReplicationGroup
           pReplicationGroupRegion_
       }
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 disassociateGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DisassociateGlobalReplicationGroup Prelude.Text
 disassociateGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\DisassociateGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@DisassociateGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: DisassociateGlobalReplicationGroup)
 
 -- | The name of the secondary cluster you wish to remove from the Global
--- Datastore
+-- datastore
 disassociateGlobalReplicationGroup_replicationGroupId :: Lens.Lens' DisassociateGlobalReplicationGroup Prelude.Text
 disassociateGlobalReplicationGroup_replicationGroupId = Lens.lens (\DisassociateGlobalReplicationGroup' {replicationGroupId} -> replicationGroupId) (\s@DisassociateGlobalReplicationGroup' {} a -> s {replicationGroupId = a} :: DisassociateGlobalReplicationGroup)
 
--- | The AWS region of secondary cluster you wish to remove from the Global
--- Datastore
+-- | The Amazon region of secondary cluster you wish to remove from the
+-- Global datastore
 disassociateGlobalReplicationGroup_replicationGroupRegion :: Lens.Lens' DisassociateGlobalReplicationGroup Prelude.Text
 disassociateGlobalReplicationGroup_replicationGroupRegion = Lens.lens (\DisassociateGlobalReplicationGroup' {replicationGroupRegion} -> replicationGroupRegion) (\s@DisassociateGlobalReplicationGroup' {} a -> s {replicationGroupRegion = a} :: DisassociateGlobalReplicationGroup)
 

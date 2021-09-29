@@ -52,18 +52,18 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     -- trusted Certificate Authority (CA). This will cause https outputs to
     -- self-signed certificates to fail.
     certificateMode :: Prelude.Maybe SmoothGroupCertificateMode,
-    -- | Number of retry attempts.
-    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | The ID to include in each message in the sparse track. Ignored if
     -- sparseTrackType is NONE.
     acquisitionPointId :: Prelude.Maybe Prelude.Text,
+    -- | Number of retry attempts.
+    numRetries :: Prelude.Maybe Prelude.Natural,
+    -- | useInputSegmentation has been deprecated. The configured segment size is
+    -- always used.
+    segmentationMode :: Prelude.Maybe SmoothGroupSegmentationMode,
     -- | If set to passthrough for an audio-only MS Smooth output, the fragment
     -- absolute time will be set to the current timecode. This option does not
     -- write timecodes to the audio elementary stream.
     audioOnlyTimecodeControl :: Prelude.Maybe SmoothGroupAudioOnlyTimecodeControl,
-    -- | useInputSegmentation has been deprecated. The configured segment size is
-    -- always used.
-    segmentationMode :: Prelude.Maybe SmoothGroupSegmentationMode,
     -- | Specifies whether or not to send an event ID to the IIS server. If no
     -- event ID is sent and the same Live Event is used without changing the
     -- publishing point, clients might see cached video from the previous run.
@@ -73,11 +73,6 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     eventIdMode :: Prelude.Maybe SmoothGroupEventIdMode,
     -- | Number of milliseconds to delay the output from the second pipeline.
     sendDelayMs :: Prelude.Maybe Prelude.Natural,
-    -- | Number of seconds to wait before retrying connection to the IIS server
-    -- if the connection is lost. Content will be cached during this time and
-    -- the cache will be be delivered to the IIS server once the connection is
-    -- re-established.
-    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | Identifies the type of data to place in the sparse track: - SCTE35:
     -- Insert SCTE-35 messages from the source content. With each message,
     -- insert an IDR frame to start a new segment. -
@@ -86,6 +81,11 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
     -- segment. - NONE: Don\'t generate a sparse track for any outputs in this
     -- output group.
     sparseTrackType :: Prelude.Maybe SmoothGroupSparseTrackType,
+    -- | Number of seconds to wait before retrying connection to the IIS server
+    -- if the connection is lost. Content will be cached during this time and
+    -- the cache will be be delivered to the IIS server once the connection is
+    -- re-established.
+    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | Parameter that control output group behavior on input loss.
     inputLossAction :: Prelude.Maybe InputLossActionForMsSmoothOut,
     -- | Timestamp offset for the event. Only used if timestampOffsetMode is set
@@ -131,17 +131,17 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 -- trusted Certificate Authority (CA). This will cause https outputs to
 -- self-signed certificates to fail.
 --
--- 'numRetries', 'msSmoothGroupSettings_numRetries' - Number of retry attempts.
---
 -- 'acquisitionPointId', 'msSmoothGroupSettings_acquisitionPointId' - The ID to include in each message in the sparse track. Ignored if
 -- sparseTrackType is NONE.
+--
+-- 'numRetries', 'msSmoothGroupSettings_numRetries' - Number of retry attempts.
+--
+-- 'segmentationMode', 'msSmoothGroupSettings_segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is
+-- always used.
 --
 -- 'audioOnlyTimecodeControl', 'msSmoothGroupSettings_audioOnlyTimecodeControl' - If set to passthrough for an audio-only MS Smooth output, the fragment
 -- absolute time will be set to the current timecode. This option does not
 -- write timecodes to the audio elementary stream.
---
--- 'segmentationMode', 'msSmoothGroupSettings_segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is
--- always used.
 --
 -- 'eventIdMode', 'msSmoothGroupSettings_eventIdMode' - Specifies whether or not to send an event ID to the IIS server. If no
 -- event ID is sent and the same Live Event is used without changing the
@@ -152,11 +152,6 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 --
 -- 'sendDelayMs', 'msSmoothGroupSettings_sendDelayMs' - Number of milliseconds to delay the output from the second pipeline.
 --
--- 'connectionRetryInterval', 'msSmoothGroupSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the IIS server
--- if the connection is lost. Content will be cached during this time and
--- the cache will be be delivered to the IIS server once the connection is
--- re-established.
---
 -- 'sparseTrackType', 'msSmoothGroupSettings_sparseTrackType' - Identifies the type of data to place in the sparse track: - SCTE35:
 -- Insert SCTE-35 messages from the source content. With each message,
 -- insert an IDR frame to start a new segment. -
@@ -164,6 +159,11 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 -- content. With each message, insert an IDR frame but don\'t start a new
 -- segment. - NONE: Don\'t generate a sparse track for any outputs in this
 -- output group.
+--
+-- 'connectionRetryInterval', 'msSmoothGroupSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the IIS server
+-- if the connection is lost. Content will be cached during this time and
+-- the cache will be be delivered to the IIS server once the connection is
+-- re-established.
 --
 -- 'inputLossAction', 'msSmoothGroupSettings_inputLossAction' - Parameter that control output group behavior on input loss.
 --
@@ -195,14 +195,14 @@ newMsSmoothGroupSettings pDestination_ =
       fragmentLength = Prelude.Nothing,
       eventId = Prelude.Nothing,
       certificateMode = Prelude.Nothing,
-      numRetries = Prelude.Nothing,
       acquisitionPointId = Prelude.Nothing,
-      audioOnlyTimecodeControl = Prelude.Nothing,
+      numRetries = Prelude.Nothing,
       segmentationMode = Prelude.Nothing,
+      audioOnlyTimecodeControl = Prelude.Nothing,
       eventIdMode = Prelude.Nothing,
       sendDelayMs = Prelude.Nothing,
-      connectionRetryInterval = Prelude.Nothing,
       sparseTrackType = Prelude.Nothing,
+      connectionRetryInterval = Prelude.Nothing,
       inputLossAction = Prelude.Nothing,
       timestampOffset = Prelude.Nothing,
       eventStopBehavior = Prelude.Nothing,
@@ -236,25 +236,25 @@ msSmoothGroupSettings_eventId = Lens.lens (\MsSmoothGroupSettings' {eventId} -> 
 msSmoothGroupSettings_certificateMode :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe SmoothGroupCertificateMode)
 msSmoothGroupSettings_certificateMode = Lens.lens (\MsSmoothGroupSettings' {certificateMode} -> certificateMode) (\s@MsSmoothGroupSettings' {} a -> s {certificateMode = a} :: MsSmoothGroupSettings)
 
--- | Number of retry attempts.
-msSmoothGroupSettings_numRetries :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
-msSmoothGroupSettings_numRetries = Lens.lens (\MsSmoothGroupSettings' {numRetries} -> numRetries) (\s@MsSmoothGroupSettings' {} a -> s {numRetries = a} :: MsSmoothGroupSettings)
-
 -- | The ID to include in each message in the sparse track. Ignored if
 -- sparseTrackType is NONE.
 msSmoothGroupSettings_acquisitionPointId :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Text)
 msSmoothGroupSettings_acquisitionPointId = Lens.lens (\MsSmoothGroupSettings' {acquisitionPointId} -> acquisitionPointId) (\s@MsSmoothGroupSettings' {} a -> s {acquisitionPointId = a} :: MsSmoothGroupSettings)
+
+-- | Number of retry attempts.
+msSmoothGroupSettings_numRetries :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
+msSmoothGroupSettings_numRetries = Lens.lens (\MsSmoothGroupSettings' {numRetries} -> numRetries) (\s@MsSmoothGroupSettings' {} a -> s {numRetries = a} :: MsSmoothGroupSettings)
+
+-- | useInputSegmentation has been deprecated. The configured segment size is
+-- always used.
+msSmoothGroupSettings_segmentationMode :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe SmoothGroupSegmentationMode)
+msSmoothGroupSettings_segmentationMode = Lens.lens (\MsSmoothGroupSettings' {segmentationMode} -> segmentationMode) (\s@MsSmoothGroupSettings' {} a -> s {segmentationMode = a} :: MsSmoothGroupSettings)
 
 -- | If set to passthrough for an audio-only MS Smooth output, the fragment
 -- absolute time will be set to the current timecode. This option does not
 -- write timecodes to the audio elementary stream.
 msSmoothGroupSettings_audioOnlyTimecodeControl :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe SmoothGroupAudioOnlyTimecodeControl)
 msSmoothGroupSettings_audioOnlyTimecodeControl = Lens.lens (\MsSmoothGroupSettings' {audioOnlyTimecodeControl} -> audioOnlyTimecodeControl) (\s@MsSmoothGroupSettings' {} a -> s {audioOnlyTimecodeControl = a} :: MsSmoothGroupSettings)
-
--- | useInputSegmentation has been deprecated. The configured segment size is
--- always used.
-msSmoothGroupSettings_segmentationMode :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe SmoothGroupSegmentationMode)
-msSmoothGroupSettings_segmentationMode = Lens.lens (\MsSmoothGroupSettings' {segmentationMode} -> segmentationMode) (\s@MsSmoothGroupSettings' {} a -> s {segmentationMode = a} :: MsSmoothGroupSettings)
 
 -- | Specifies whether or not to send an event ID to the IIS server. If no
 -- event ID is sent and the same Live Event is used without changing the
@@ -269,13 +269,6 @@ msSmoothGroupSettings_eventIdMode = Lens.lens (\MsSmoothGroupSettings' {eventIdM
 msSmoothGroupSettings_sendDelayMs :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
 msSmoothGroupSettings_sendDelayMs = Lens.lens (\MsSmoothGroupSettings' {sendDelayMs} -> sendDelayMs) (\s@MsSmoothGroupSettings' {} a -> s {sendDelayMs = a} :: MsSmoothGroupSettings)
 
--- | Number of seconds to wait before retrying connection to the IIS server
--- if the connection is lost. Content will be cached during this time and
--- the cache will be be delivered to the IIS server once the connection is
--- re-established.
-msSmoothGroupSettings_connectionRetryInterval :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
-msSmoothGroupSettings_connectionRetryInterval = Lens.lens (\MsSmoothGroupSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@MsSmoothGroupSettings' {} a -> s {connectionRetryInterval = a} :: MsSmoothGroupSettings)
-
 -- | Identifies the type of data to place in the sparse track: - SCTE35:
 -- Insert SCTE-35 messages from the source content. With each message,
 -- insert an IDR frame to start a new segment. -
@@ -285,6 +278,13 @@ msSmoothGroupSettings_connectionRetryInterval = Lens.lens (\MsSmoothGroupSetting
 -- output group.
 msSmoothGroupSettings_sparseTrackType :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe SmoothGroupSparseTrackType)
 msSmoothGroupSettings_sparseTrackType = Lens.lens (\MsSmoothGroupSettings' {sparseTrackType} -> sparseTrackType) (\s@MsSmoothGroupSettings' {} a -> s {sparseTrackType = a} :: MsSmoothGroupSettings)
+
+-- | Number of seconds to wait before retrying connection to the IIS server
+-- if the connection is lost. Content will be cached during this time and
+-- the cache will be be delivered to the IIS server once the connection is
+-- re-established.
+msSmoothGroupSettings_connectionRetryInterval :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe Prelude.Natural)
+msSmoothGroupSettings_connectionRetryInterval = Lens.lens (\MsSmoothGroupSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@MsSmoothGroupSettings' {} a -> s {connectionRetryInterval = a} :: MsSmoothGroupSettings)
 
 -- | Parameter that control output group behavior on input loss.
 msSmoothGroupSettings_inputLossAction :: Lens.Lens' MsSmoothGroupSettings (Prelude.Maybe InputLossActionForMsSmoothOut)
@@ -328,14 +328,14 @@ instance Core.FromJSON MsSmoothGroupSettings where
             Prelude.<*> (x Core..:? "fragmentLength")
             Prelude.<*> (x Core..:? "eventId")
             Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "numRetries")
             Prelude.<*> (x Core..:? "acquisitionPointId")
-            Prelude.<*> (x Core..:? "audioOnlyTimecodeControl")
+            Prelude.<*> (x Core..:? "numRetries")
             Prelude.<*> (x Core..:? "segmentationMode")
+            Prelude.<*> (x Core..:? "audioOnlyTimecodeControl")
             Prelude.<*> (x Core..:? "eventIdMode")
             Prelude.<*> (x Core..:? "sendDelayMs")
-            Prelude.<*> (x Core..:? "connectionRetryInterval")
             Prelude.<*> (x Core..:? "sparseTrackType")
+            Prelude.<*> (x Core..:? "connectionRetryInterval")
             Prelude.<*> (x Core..:? "inputLossAction")
             Prelude.<*> (x Core..:? "timestampOffset")
             Prelude.<*> (x Core..:? "eventStopBehavior")
@@ -361,19 +361,19 @@ instance Core.ToJSON MsSmoothGroupSettings where
             ("eventId" Core..=) Prelude.<$> eventId,
             ("certificateMode" Core..=)
               Prelude.<$> certificateMode,
-            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("acquisitionPointId" Core..=)
               Prelude.<$> acquisitionPointId,
-            ("audioOnlyTimecodeControl" Core..=)
-              Prelude.<$> audioOnlyTimecodeControl,
+            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("segmentationMode" Core..=)
               Prelude.<$> segmentationMode,
+            ("audioOnlyTimecodeControl" Core..=)
+              Prelude.<$> audioOnlyTimecodeControl,
             ("eventIdMode" Core..=) Prelude.<$> eventIdMode,
             ("sendDelayMs" Core..=) Prelude.<$> sendDelayMs,
-            ("connectionRetryInterval" Core..=)
-              Prelude.<$> connectionRetryInterval,
             ("sparseTrackType" Core..=)
               Prelude.<$> sparseTrackType,
+            ("connectionRetryInterval" Core..=)
+              Prelude.<$> connectionRetryInterval,
             ("inputLossAction" Core..=)
               Prelude.<$> inputLossAction,
             ("timestampOffset" Core..=)

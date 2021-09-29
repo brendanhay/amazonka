@@ -34,6 +34,9 @@ module Network.AWS.CloudSearch
     -- ** InvalidTypeException
     _InvalidTypeException,
 
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
     -- ** InternalException
     _InternalException,
 
@@ -70,6 +73,12 @@ module Network.AWS.CloudSearch
     ListDomainNamesResponse (ListDomainNamesResponse'),
     newListDomainNamesResponse,
 
+    -- ** DescribeDomainEndpointOptions
+    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
+    newDescribeDomainEndpointOptions,
+    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
+    newDescribeDomainEndpointOptionsResponse,
+
     -- ** DefineSuggester
     DefineSuggester (DefineSuggester'),
     newDefineSuggester,
@@ -81,12 +90,6 @@ module Network.AWS.CloudSearch
     newDescribeDomains,
     DescribeDomainsResponse (DescribeDomainsResponse'),
     newDescribeDomainsResponse,
-
-    -- ** DescribeDomainEndpointOptions
-    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
-    newDescribeDomainEndpointOptions,
-    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
-    newDescribeDomainEndpointOptionsResponse,
 
     -- ** DeleteExpression
     DeleteExpression (DeleteExpression'),
@@ -100,12 +103,6 @@ module Network.AWS.CloudSearch
     DeleteIndexFieldResponse (DeleteIndexFieldResponse'),
     newDeleteIndexFieldResponse,
 
-    -- ** DeleteSuggester
-    DeleteSuggester (DeleteSuggester'),
-    newDeleteSuggester,
-    DeleteSuggesterResponse (DeleteSuggesterResponse'),
-    newDeleteSuggesterResponse,
-
     -- ** UpdateDomainEndpointOptions
     UpdateDomainEndpointOptions (UpdateDomainEndpointOptions'),
     newUpdateDomainEndpointOptions,
@@ -118,11 +115,11 @@ module Network.AWS.CloudSearch
     DescribeIndexFieldsResponse (DescribeIndexFieldsResponse'),
     newDescribeIndexFieldsResponse,
 
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
+    -- ** DeleteSuggester
+    DeleteSuggester (DeleteSuggester'),
+    newDeleteSuggester,
+    DeleteSuggesterResponse (DeleteSuggesterResponse'),
+    newDeleteSuggesterResponse,
 
     -- ** DescribeExpressions
     DescribeExpressions (DescribeExpressions'),
@@ -136,17 +133,17 @@ module Network.AWS.CloudSearch
     DescribeAvailabilityOptionsResponse (DescribeAvailabilityOptionsResponse'),
     newDescribeAvailabilityOptionsResponse,
 
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
+
     -- ** DefineIndexField
     DefineIndexField (DefineIndexField'),
     newDefineIndexField,
     DefineIndexFieldResponse (DefineIndexFieldResponse'),
     newDefineIndexFieldResponse,
-
-    -- ** DescribeAnalysisSchemes
-    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
-    newDescribeAnalysisSchemes,
-    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
-    newDescribeAnalysisSchemesResponse,
 
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
@@ -154,17 +151,17 @@ module Network.AWS.CloudSearch
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
 
+    -- ** DescribeAnalysisSchemes
+    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
+    newDescribeAnalysisSchemes,
+    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
+    newDescribeAnalysisSchemesResponse,
+
     -- ** DeleteAnalysisScheme
     DeleteAnalysisScheme (DeleteAnalysisScheme'),
     newDeleteAnalysisScheme,
     DeleteAnalysisSchemeResponse (DeleteAnalysisSchemeResponse'),
     newDeleteAnalysisSchemeResponse,
-
-    -- ** UpdateScalingParameters
-    UpdateScalingParameters (UpdateScalingParameters'),
-    newUpdateScalingParameters,
-    UpdateScalingParametersResponse (UpdateScalingParametersResponse'),
-    newUpdateScalingParametersResponse,
 
     -- ** BuildSuggesters
     BuildSuggesters (BuildSuggesters'),
@@ -178,6 +175,12 @@ module Network.AWS.CloudSearch
     UpdateServiceAccessPoliciesResponse (UpdateServiceAccessPoliciesResponse'),
     newUpdateServiceAccessPoliciesResponse,
 
+    -- ** UpdateScalingParameters
+    UpdateScalingParameters (UpdateScalingParameters'),
+    newUpdateScalingParameters,
+    UpdateScalingParametersResponse (UpdateScalingParametersResponse'),
+    newUpdateScalingParametersResponse,
+
     -- ** UpdateAvailabilityOptions
     UpdateAvailabilityOptions (UpdateAvailabilityOptions'),
     newUpdateAvailabilityOptions,
@@ -190,6 +193,12 @@ module Network.AWS.CloudSearch
     DescribeSuggestersResponse (DescribeSuggestersResponse'),
     newDescribeSuggestersResponse,
 
+    -- ** IndexDocuments
+    IndexDocuments (IndexDocuments'),
+    newIndexDocuments,
+    IndexDocumentsResponse (IndexDocumentsResponse'),
+    newIndexDocumentsResponse,
+
     -- ** DescribeServiceAccessPolicies
     DescribeServiceAccessPolicies (DescribeServiceAccessPolicies'),
     newDescribeServiceAccessPolicies,
@@ -201,12 +210,6 @@ module Network.AWS.CloudSearch
     newDefineAnalysisScheme,
     DefineAnalysisSchemeResponse (DefineAnalysisSchemeResponse'),
     newDefineAnalysisSchemeResponse,
-
-    -- ** IndexDocuments
-    IndexDocuments (IndexDocuments'),
-    newIndexDocuments,
-    IndexDocumentsResponse (IndexDocumentsResponse'),
-    newIndexDocumentsResponse,
 
     -- ** DescribeScalingParameters
     DescribeScalingParameters (DescribeScalingParameters'),

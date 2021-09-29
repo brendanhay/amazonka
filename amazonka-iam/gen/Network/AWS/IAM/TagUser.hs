@@ -42,7 +42,7 @@
 --     in the /IAM User Guide/.
 --
 -- -   __Cost allocation__ - Use tags to help track which individuals and
---     teams are using which AWS resources.
+--     teams are using which Amazon Web Services resources.
 --
 -- -   If any one of the tags is invalid or if you exceed the allowed
 --     maximum number of tags, then the entire request fails and the
@@ -50,9 +50,10 @@
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 --     in the /IAM User Guide/.
 --
--- -   AWS always interprets the tag @Value@ as a single string. If you
---     need to store an array, you can store comma-separated values in the
---     string. However, you must interpret the value in your code.
+-- -   Amazon Web Services always interprets the tag @Value@ as a single
+--     string. If you need to store an array, you can store comma-separated
+--     values in the string. However, you must interpret the value in your
+--     code.
 --
 -- For more information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM identities>
@@ -83,10 +84,10 @@ import qualified Network.AWS.Response as Response
 data TagUser = TagUser'
   { -- | The name of the IAM user to which you want to add tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Text,
     -- | The list of tags that you want to attach to the IAM user. Each tag
     -- consists of a key name and an associated value.
@@ -104,10 +105,10 @@ data TagUser = TagUser'
 --
 -- 'userName', 'tagUser_userName' - The name of the IAM user to which you want to add tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tags', 'tagUser_tags' - The list of tags that you want to attach to the IAM user. Each tag
 -- consists of a key name and an associated value.
@@ -123,10 +124,10 @@ newTagUser pUserName_ =
 
 -- | The name of the IAM user to which you want to add tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 tagUser_userName :: Lens.Lens' TagUser Prelude.Text
 tagUser_userName = Lens.lens (\TagUser' {userName} -> userName) (\s@TagUser' {} a -> s {userName = a} :: TagUser)
 

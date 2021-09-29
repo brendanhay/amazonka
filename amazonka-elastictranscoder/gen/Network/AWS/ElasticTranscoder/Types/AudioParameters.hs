@@ -69,14 +69,6 @@ data AudioParameters = AudioParameters'
     -- For more information about how Elastic Transcoder organizes channels and
     -- tracks, see @Audio:AudioPackingMode@.
     channels :: Prelude.Maybe Prelude.Text,
-    -- | The sample rate of the audio stream in the output file, in Hertz. Valid
-    -- values include:
-    --
-    -- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
-    --
-    -- If you specify @auto@, Elastic Transcoder automatically detects the
-    -- sample rate.
-    sampleRate :: Prelude.Maybe Prelude.Text,
     -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
     -- to specify the number of channels in your output, and
     -- @Audio:AudioPackingMode@ to specify the number of tracks and their
@@ -189,6 +181,14 @@ data AudioParameters = AudioParameters'
     --     eight tracks with one channel each, plus MOS tracks until there are
     --     eight tracks in all
     audioPackingMode :: Prelude.Maybe Prelude.Text,
+    -- | The sample rate of the audio stream in the output file, in Hertz. Valid
+    -- values include:
+    --
+    -- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
+    --
+    -- If you specify @auto@, Elastic Transcoder automatically detects the
+    -- sample rate.
+    sampleRate :: Prelude.Maybe Prelude.Text,
     -- | The bit rate of the audio stream in the output file, in
     -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
     bitRate :: Prelude.Maybe Prelude.Text
@@ -243,14 +243,6 @@ data AudioParameters = AudioParameters'
 --
 -- For more information about how Elastic Transcoder organizes channels and
 -- tracks, see @Audio:AudioPackingMode@.
---
--- 'sampleRate', 'audioParameters_sampleRate' - The sample rate of the audio stream in the output file, in Hertz. Valid
--- values include:
---
--- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
---
--- If you specify @auto@, Elastic Transcoder automatically detects the
--- sample rate.
 --
 -- 'audioPackingMode', 'audioParameters_audioPackingMode' - The method of organizing audio channels and tracks. Use @Audio:Channels@
 -- to specify the number of channels in your output, and
@@ -364,6 +356,14 @@ data AudioParameters = AudioParameters'
 --     eight tracks with one channel each, plus MOS tracks until there are
 --     eight tracks in all
 --
+-- 'sampleRate', 'audioParameters_sampleRate' - The sample rate of the audio stream in the output file, in Hertz. Valid
+-- values include:
+--
+-- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
+--
+-- If you specify @auto@, Elastic Transcoder automatically detects the
+-- sample rate.
+--
 -- 'bitRate', 'audioParameters_bitRate' - The bit rate of the audio stream in the output file, in
 -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
 newAudioParameters ::
@@ -373,8 +373,8 @@ newAudioParameters =
     { codecOptions = Prelude.Nothing,
       codec = Prelude.Nothing,
       channels = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
       audioPackingMode = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
       bitRate = Prelude.Nothing
     }
 
@@ -424,16 +424,6 @@ audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@Audio
 -- tracks, see @Audio:AudioPackingMode@.
 audioParameters_channels :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
 audioParameters_channels = Lens.lens (\AudioParameters' {channels} -> channels) (\s@AudioParameters' {} a -> s {channels = a} :: AudioParameters)
-
--- | The sample rate of the audio stream in the output file, in Hertz. Valid
--- values include:
---
--- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
---
--- If you specify @auto@, Elastic Transcoder automatically detects the
--- sample rate.
-audioParameters_sampleRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
-audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sampleRate) (\s@AudioParameters' {} a -> s {sampleRate = a} :: AudioParameters)
 
 -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
 -- to specify the number of channels in your output, and
@@ -549,6 +539,16 @@ audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sample
 audioParameters_audioPackingMode :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
 audioParameters_audioPackingMode = Lens.lens (\AudioParameters' {audioPackingMode} -> audioPackingMode) (\s@AudioParameters' {} a -> s {audioPackingMode = a} :: AudioParameters)
 
+-- | The sample rate of the audio stream in the output file, in Hertz. Valid
+-- values include:
+--
+-- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
+--
+-- If you specify @auto@, Elastic Transcoder automatically detects the
+-- sample rate.
+audioParameters_sampleRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sampleRate) (\s@AudioParameters' {} a -> s {sampleRate = a} :: AudioParameters)
+
 -- | The bit rate of the audio stream in the output file, in
 -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
 audioParameters_bitRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
@@ -563,8 +563,8 @@ instance Core.FromJSON AudioParameters where
             Prelude.<$> (x Core..:? "CodecOptions")
             Prelude.<*> (x Core..:? "Codec")
             Prelude.<*> (x Core..:? "Channels")
-            Prelude.<*> (x Core..:? "SampleRate")
             Prelude.<*> (x Core..:? "AudioPackingMode")
+            Prelude.<*> (x Core..:? "SampleRate")
             Prelude.<*> (x Core..:? "BitRate")
       )
 
@@ -579,9 +579,9 @@ instance Core.ToJSON AudioParameters where
           [ ("CodecOptions" Core..=) Prelude.<$> codecOptions,
             ("Codec" Core..=) Prelude.<$> codec,
             ("Channels" Core..=) Prelude.<$> channels,
-            ("SampleRate" Core..=) Prelude.<$> sampleRate,
             ("AudioPackingMode" Core..=)
               Prelude.<$> audioPackingMode,
+            ("SampleRate" Core..=) Prelude.<$> sampleRate,
             ("BitRate" Core..=) Prelude.<$> bitRate
           ]
       )

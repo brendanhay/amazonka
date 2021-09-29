@@ -20,11 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the IAM roles that are associated with the specified AWS
--- Certificate Manager (ACM) certificate. It also returns the name of the
--- Amazon S3 bucket and the Amazon S3 object key where the certificate,
--- certificate chain, and encrypted private key bundle are stored, and the
--- ARN of the AWS Key Management Service (KMS) customer master key (CMK)
+-- Returns the IAM roles that are associated with the specified ACM (ACM)
+-- certificate. It also returns the name of the Amazon S3 bucket and the
+-- Amazon S3 object key where the certificate, certificate chain, and
+-- encrypted private key bundle are stored, and the ARN of the KMS key
 -- that\'s used to encrypt the private key.
 module Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles
   ( -- * Creating a Request

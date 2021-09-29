@@ -53,7 +53,8 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- calculated as part of the desired capacity for the next scale-out
     -- activity.
     --
-    -- Application Auto Scaling provides a default value of 300 for the
+    -- Application Auto Scaling provides a default value of 600 for Amazon
+    -- ElastiCache replication groups and a default value of 300 for the
     -- following scalable targets:
     --
     -- -   ECS services
@@ -99,7 +100,8 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- immediately. In this case, the scale-in cooldown period stops and
     -- doesn\'t complete.
     --
-    -- Application Auto Scaling provides a default value of 300 for the
+    -- Application Auto Scaling provides a default value of 600 for Amazon
+    -- ElastiCache replication groups and a default value of 300 for the
     -- following scalable targets:
     --
     -- -   ECS services
@@ -172,7 +174,8 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- calculated as part of the desired capacity for the next scale-out
 -- activity.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services
@@ -218,7 +221,8 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- immediately. In this case, the scale-in cooldown period stops and
 -- doesn\'t complete.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services
@@ -302,7 +306,8 @@ targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.le
 -- calculated as part of the desired capacity for the next scale-out
 -- activity.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services
@@ -352,7 +357,8 @@ targetTrackingScalingPolicyConfiguration_customizedMetricSpecification = Lens.le
 -- immediately. In this case, the scale-in cooldown period stops and
 -- doesn\'t complete.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services

@@ -30,7 +30,7 @@ data ResourceToImport = ResourceToImport'
   { -- | The type of resource to import into your stack, such as
     -- @AWS::S3::Bucket@. For a list of supported resource types, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html Resources that support import operations>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     resourceType :: Prelude.Text,
     -- | The logical ID of the target resource as specified in the template.
     logicalResourceId :: Prelude.Text,
@@ -53,7 +53,7 @@ data ResourceToImport = ResourceToImport'
 -- 'resourceType', 'resourceToImport_resourceType' - The type of resource to import into your stack, such as
 -- @AWS::S3::Bucket@. For a list of supported resource types, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html Resources that support import operations>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- 'logicalResourceId', 'resourceToImport_logicalResourceId' - The logical ID of the target resource as specified in the template.
 --
@@ -79,7 +79,7 @@ newResourceToImport
 -- | The type of resource to import into your stack, such as
 -- @AWS::S3::Bucket@. For a list of supported resource types, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html Resources that support import operations>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 resourceToImport_resourceType :: Lens.Lens' ResourceToImport Prelude.Text
 resourceToImport_resourceType = Lens.lens (\ResourceToImport' {resourceType} -> resourceType) (\s@ResourceToImport' {} a -> s {resourceType = a} :: ResourceToImport)
 

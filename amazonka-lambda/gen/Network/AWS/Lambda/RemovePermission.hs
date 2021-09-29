@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes function-use permission from an AWS service or another account.
--- You can get the ID of the statement from the output of GetPolicy.
+-- Revokes function-use permission from an Amazon Web Services service or
+-- another account. You can get the ID of the statement from the output of
+-- GetPolicy.
 module Network.AWS.Lambda.RemovePermission
   ( -- * Creating a Request
     RemovePermission (..),

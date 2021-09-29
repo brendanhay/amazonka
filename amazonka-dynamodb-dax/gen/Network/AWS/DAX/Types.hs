@@ -18,15 +18,16 @@ module Network.AWS.DAX.Types
 
     -- * Errors
     _SubnetInUse,
+    _ServiceQuotaExceededException,
     _InvalidVPCNetworkStateFault,
     _SubnetQuotaExceededFault,
     _ParameterGroupQuotaExceededFault,
     _InsufficientClusterCapacityFault,
     _ServiceLinkedRoleNotFoundFault,
     _InvalidParameterCombinationException,
+    _ClusterNotFoundFault,
     _SubnetGroupQuotaExceededFault,
     _TagNotFoundFault,
-    _ClusterNotFoundFault,
     _SubnetGroupAlreadyExistsFault,
     _NodeQuotaForCustomerExceededFault,
     _SubnetGroupNotFoundFault,
@@ -34,18 +35,21 @@ module Network.AWS.DAX.Types
     _ParameterGroupNotFoundFault,
     _InvalidParameterValueException,
     _NodeNotFoundFault,
-    _InvalidARNFault,
-    _ClusterAlreadyExistsFault,
-    _InvalidClusterStateFault,
     _NodeQuotaForClusterExceededFault,
-    _InvalidSubnet,
-    _ClusterQuotaForCustomerExceededFault,
+    _ClusterAlreadyExistsFault,
+    _InvalidARNFault,
+    _InvalidClusterStateFault,
+    _TagQuotaPerResourceExceeded,
     _SubnetGroupInUseFault,
     _InvalidParameterGroupStateFault,
-    _TagQuotaPerResourceExceeded,
+    _ClusterQuotaForCustomerExceededFault,
+    _InvalidSubnet,
 
     -- * ChangeType
     ChangeType (..),
+
+    -- * ClusterEndpointEncryptionType
+    ClusterEndpointEncryptionType (..),
 
     -- * IsModifiable
     IsModifiable (..),
@@ -63,11 +67,12 @@ module Network.AWS.DAX.Types
     Cluster (..),
     newCluster,
     cluster_clusterArn,
-    cluster_subnetGroup,
-    cluster_iamRoleArn,
     cluster_status,
+    cluster_iamRoleArn,
+    cluster_subnetGroup,
     cluster_totalNodes,
     cluster_parameterGroup,
+    cluster_clusterEndpointEncryptionType,
     cluster_nodes,
     cluster_notificationConfiguration,
     cluster_securityGroups,
@@ -75,8 +80,8 @@ module Network.AWS.DAX.Types
     cluster_preferredMaintenanceWindow,
     cluster_description,
     cluster_sSEDescription,
-    cluster_clusterDiscoveryEndpoint,
     cluster_nodeIdsToRemove,
+    cluster_clusterDiscoveryEndpoint,
     cluster_nodeType,
     cluster_clusterName,
 
@@ -85,6 +90,7 @@ module Network.AWS.DAX.Types
     newEndpoint,
     endpoint_address,
     endpoint_port,
+    endpoint_url,
 
     -- * Event
     Event (..),
@@ -126,9 +132,9 @@ module Network.AWS.DAX.Types
     parameter_parameterType,
     parameter_parameterName,
     parameter_description,
+    parameter_nodeTypeSpecificValues,
     parameter_dataType,
     parameter_isModifiable,
-    parameter_nodeTypeSpecificValues,
 
     -- * ParameterGroup
     ParameterGroup (..),
@@ -176,8 +182,8 @@ module Network.AWS.DAX.Types
     newSubnetGroup,
     subnetGroup_description,
     subnetGroup_subnetGroupName,
-    subnetGroup_subnets,
     subnetGroup_vpcId,
+    subnetGroup_subnets,
 
     -- * Tag
     Tag (..),
@@ -190,6 +196,7 @@ where
 import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types.ChangeType
 import Network.AWS.DAX.Types.Cluster
+import Network.AWS.DAX.Types.ClusterEndpointEncryptionType
 import Network.AWS.DAX.Types.Endpoint
 import Network.AWS.DAX.Types.Event
 import Network.AWS.DAX.Types.IsModifiable
@@ -290,6 +297,15 @@ _SubnetInUse =
     defaultService
     "SubnetInUse"
 
+-- | You have reached the maximum number of x509 certificates that can be
+-- created for encrypted clusters in a 30 day period. Contact AWS customer
+-- support to discuss options for continuing to create encrypted clusters.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
 -- | The VPC network is in an invalid state.
 _InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidVPCNetworkStateFault =
@@ -334,6 +350,13 @@ _InvalidParameterCombinationException =
     defaultService
     "InvalidParameterCombinationException"
 
+-- | The requested cluster ID does not refer to an existing DAX cluster.
+_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterNotFoundFault"
+
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a subnet group.
 _SubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -348,13 +371,6 @@ _TagNotFoundFault =
   Core._MatchServiceError
     defaultService
     "TagNotFoundFault"
-
--- | The requested cluster ID does not refer to an existing DAX cluster.
-_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterNotFoundFault"
 
 -- | The specified subnet group already exists.
 _SubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -407,27 +423,6 @@ _NodeNotFoundFault =
     defaultService
     "NodeNotFoundFault"
 
--- | The Amazon Resource Name (ARN) supplied in the request is not valid.
-_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidARNFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidARNFault"
-
--- | You already have a DAX cluster with the given identifier.
-_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterAlreadyExistsFault"
-
--- | The requested DAX cluster is not in the /available/ state.
-_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidClusterStateFault"
-
 -- | You have attempted to exceed the maximum number of nodes for a DAX
 -- cluster.
 _NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -436,20 +431,33 @@ _NodeQuotaForClusterExceededFault =
     defaultService
     "NodeQuotaForClusterExceededFault"
 
--- | An invalid subnet identifier was specified.
-_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnet =
+-- | You already have a DAX cluster with the given identifier.
+_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "InvalidSubnet"
+    "ClusterAlreadyExistsFault"
 
--- | You have attempted to exceed the maximum number of DAX clusters for your
--- AWS account.
-_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterQuotaForCustomerExceededFault =
+-- | The Amazon Resource Name (ARN) supplied in the request is not valid.
+_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidARNFault =
   Core._MatchServiceError
     defaultService
-    "ClusterQuotaForCustomerExceededFault"
+    "InvalidARNFault"
+
+-- | The requested DAX cluster is not in the /available/ state.
+_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClusterStateFault"
+
+-- | You have exceeded the maximum number of tags for this DAX cluster.
+_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagQuotaPerResourceExceeded =
+  Core._MatchServiceError
+    defaultService
+    "TagQuotaPerResourceExceeded"
 
 -- | The specified subnet group is currently in use.
 _SubnetGroupInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -465,9 +473,17 @@ _InvalidParameterGroupStateFault =
     defaultService
     "InvalidParameterGroupStateFault"
 
--- | You have exceeded the maximum number of tags for this DAX cluster.
-_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagQuotaPerResourceExceeded =
+-- | You have attempted to exceed the maximum number of DAX clusters for your
+-- AWS account.
+_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
-    "TagQuotaPerResourceExceeded"
+    "ClusterQuotaForCustomerExceededFault"
+
+-- | An invalid subnet identifier was specified.
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnet =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubnet"

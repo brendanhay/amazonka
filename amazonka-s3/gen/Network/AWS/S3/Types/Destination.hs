@@ -45,9 +45,10 @@ data Destination = Destination'
     replicationTime :: Prelude.Maybe ReplicationTime,
     -- | Specify this only in a cross-account scenario (where source and
     -- destination bucket owners are not the same), and you want to change
-    -- replica ownership to the AWS account that owns the destination bucket.
-    -- If this is not specified in the replication configuration, the replicas
-    -- are owned by same AWS account that owns the source object.
+    -- replica ownership to the Amazon Web Services account that owns the
+    -- destination bucket. If this is not specified in the replication
+    -- configuration, the replicas are owned by same Amazon Web Services
+    -- account that owns the source object.
     accessControlTranslation :: Prelude.Maybe AccessControlTranslation,
     -- | The storage class to use when replicating objects, such as S3 Standard
     -- or reduced redundancy. By default, Amazon S3 uses the storage class of
@@ -55,18 +56,18 @@ data Destination = Destination'
     --
     -- For valid values, see the @StorageClass@ element of the
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication>
-    -- action in the /Amazon Simple Storage Service API Reference/.
+    -- action in the /Amazon S3 API Reference/.
     storageClass :: Prelude.Maybe StorageClass,
     -- | A container specifying replication metrics-related settings enabling
     -- replication metrics and events.
     metrics :: Prelude.Maybe Metrics,
     -- | Destination bucket owner account ID. In a cross-account scenario, if you
-    -- direct Amazon S3 to change replica ownership to the AWS account that
-    -- owns the destination bucket by specifying the @AccessControlTranslation@
-    -- property, this is the account ID of the destination bucket owner. For
-    -- more information, see
+    -- direct Amazon S3 to change replica ownership to the Amazon Web Services
+    -- account that owns the destination bucket by specifying the
+    -- @AccessControlTranslation@ property, this is the account ID of the
+    -- destination bucket owner. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     account :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to
     -- store the results.
@@ -92,9 +93,10 @@ data Destination = Destination'
 --
 -- 'accessControlTranslation', 'destination_accessControlTranslation' - Specify this only in a cross-account scenario (where source and
 -- destination bucket owners are not the same), and you want to change
--- replica ownership to the AWS account that owns the destination bucket.
--- If this is not specified in the replication configuration, the replicas
--- are owned by same AWS account that owns the source object.
+-- replica ownership to the Amazon Web Services account that owns the
+-- destination bucket. If this is not specified in the replication
+-- configuration, the replicas are owned by same Amazon Web Services
+-- account that owns the source object.
 --
 -- 'storageClass', 'destination_storageClass' - The storage class to use when replicating objects, such as S3 Standard
 -- or reduced redundancy. By default, Amazon S3 uses the storage class of
@@ -102,18 +104,18 @@ data Destination = Destination'
 --
 -- For valid values, see the @StorageClass@ element of the
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication>
--- action in the /Amazon Simple Storage Service API Reference/.
+-- action in the /Amazon S3 API Reference/.
 --
 -- 'metrics', 'destination_metrics' - A container specifying replication metrics-related settings enabling
 -- replication metrics and events.
 --
 -- 'account', 'destination_account' - Destination bucket owner account ID. In a cross-account scenario, if you
--- direct Amazon S3 to change replica ownership to the AWS account that
--- owns the destination bucket by specifying the @AccessControlTranslation@
--- property, this is the account ID of the destination bucket owner. For
--- more information, see
+-- direct Amazon S3 to change replica ownership to the Amazon Web Services
+-- account that owns the destination bucket by specifying the
+-- @AccessControlTranslation@ property, this is the account ID of the
+-- destination bucket owner. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'bucket', 'destination_bucket' - The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to
 -- store the results.
@@ -147,9 +149,10 @@ destination_replicationTime = Lens.lens (\Destination' {replicationTime} -> repl
 
 -- | Specify this only in a cross-account scenario (where source and
 -- destination bucket owners are not the same), and you want to change
--- replica ownership to the AWS account that owns the destination bucket.
--- If this is not specified in the replication configuration, the replicas
--- are owned by same AWS account that owns the source object.
+-- replica ownership to the Amazon Web Services account that owns the
+-- destination bucket. If this is not specified in the replication
+-- configuration, the replicas are owned by same Amazon Web Services
+-- account that owns the source object.
 destination_accessControlTranslation :: Lens.Lens' Destination (Prelude.Maybe AccessControlTranslation)
 destination_accessControlTranslation = Lens.lens (\Destination' {accessControlTranslation} -> accessControlTranslation) (\s@Destination' {} a -> s {accessControlTranslation = a} :: Destination)
 
@@ -159,7 +162,7 @@ destination_accessControlTranslation = Lens.lens (\Destination' {accessControlTr
 --
 -- For valid values, see the @StorageClass@ element of the
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication>
--- action in the /Amazon Simple Storage Service API Reference/.
+-- action in the /Amazon S3 API Reference/.
 destination_storageClass :: Lens.Lens' Destination (Prelude.Maybe StorageClass)
 destination_storageClass = Lens.lens (\Destination' {storageClass} -> storageClass) (\s@Destination' {} a -> s {storageClass = a} :: Destination)
 
@@ -169,12 +172,12 @@ destination_metrics :: Lens.Lens' Destination (Prelude.Maybe Metrics)
 destination_metrics = Lens.lens (\Destination' {metrics} -> metrics) (\s@Destination' {} a -> s {metrics = a} :: Destination)
 
 -- | Destination bucket owner account ID. In a cross-account scenario, if you
--- direct Amazon S3 to change replica ownership to the AWS account that
--- owns the destination bucket by specifying the @AccessControlTranslation@
--- property, this is the account ID of the destination bucket owner. For
--- more information, see
+-- direct Amazon S3 to change replica ownership to the Amazon Web Services
+-- account that owns the destination bucket by specifying the
+-- @AccessControlTranslation@ property, this is the account ID of the
+-- destination bucket owner. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 destination_account :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_account = Lens.lens (\Destination' {account} -> account) (\s@Destination' {} a -> s {account = a} :: Destination)
 

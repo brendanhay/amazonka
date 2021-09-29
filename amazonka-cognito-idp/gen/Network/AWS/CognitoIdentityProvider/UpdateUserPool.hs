@@ -23,9 +23,28 @@
 -- Updates the specified user pool with the specified attributes. You can
 -- get a list of the current user pool settings using
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html DescribeUserPool>.
---
 -- If you don\'t provide a value for an attribute, it will be set to the
 -- default value.
+--
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
 module Network.AWS.CognitoIdentityProvider.UpdateUserPool
   ( -- * Creating a Request
     UpdateUserPool (..),
@@ -36,16 +55,16 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     updateUserPool_emailVerificationSubject,
     updateUserPool_autoVerifiedAttributes,
     updateUserPool_policies,
-    updateUserPool_adminCreateUserConfig,
     updateUserPool_deviceConfiguration,
+    updateUserPool_adminCreateUserConfig,
     updateUserPool_smsConfiguration,
     updateUserPool_lambdaConfig,
     updateUserPool_smsVerificationMessage,
     updateUserPool_accountRecoverySetting,
     updateUserPool_emailConfiguration,
-    updateUserPool_emailVerificationMessage,
-    updateUserPool_userPoolAddOns,
     updateUserPool_smsAuthenticationMessage,
+    updateUserPool_userPoolAddOns,
+    updateUserPool_emailVerificationMessage,
     updateUserPool_mfaConfiguration,
     updateUserPool_verificationMessageTemplate,
     updateUserPool_userPoolId,
@@ -81,14 +100,14 @@ data UpdateUserPool = UpdateUserPool'
     autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
     -- | A container with the policies you wish to update in a user pool.
     policies :: Prelude.Maybe UserPoolPolicyType,
-    -- | The configuration for @AdminCreateUser@ requests.
-    adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
     -- | Device configuration.
     deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
+    -- | The configuration for @AdminCreateUser@ requests.
+    adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
     -- | SMS configuration.
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
-    -- | The AWS Lambda configuration information from the request to update the
-    -- user pool.
+    -- | The Lambda configuration information from the request to update the user
+    -- pool.
     lambdaConfig :: Prelude.Maybe LambdaConfigType,
     -- | A container with information about the SMS verification message.
     smsVerificationMessage :: Prelude.Maybe Prelude.Text,
@@ -102,20 +121,23 @@ data UpdateUserPool = UpdateUserPool'
     accountRecoverySetting :: Prelude.Maybe AccountRecoverySettingType,
     -- | Email configuration.
     emailConfiguration :: Prelude.Maybe EmailConfigurationType,
-    -- | The contents of the email verification message.
-    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
+    -- | The contents of the SMS authentication message.
+    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
     -- | Used to enable advanced security risk detection. Set the key
     -- @AdvancedSecurityMode@ to the value \"AUDIT\".
     userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
-    -- | The contents of the SMS authentication message.
-    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
+    -- | The contents of the email verification message.
+    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | Can be one of the following values:
     --
     -- -   @OFF@ - MFA tokens are not required and cannot be specified during
     --     user registration.
     --
     -- -   @ON@ - MFA tokens are required for all user registrations. You can
-    --     only specify required when you are initially creating a user pool.
+    --     only specify ON when you are initially creating a user pool. You can
+    --     use the
+    --     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html SetUserPoolMfaConfig>
+    --     API operation to turn MFA \"ON\" for existing user pools.
     --
     -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
     --     token.
@@ -146,14 +168,14 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- 'policies', 'updateUserPool_policies' - A container with the policies you wish to update in a user pool.
 --
--- 'adminCreateUserConfig', 'updateUserPool_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
---
 -- 'deviceConfiguration', 'updateUserPool_deviceConfiguration' - Device configuration.
+--
+-- 'adminCreateUserConfig', 'updateUserPool_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
 -- 'smsConfiguration', 'updateUserPool_smsConfiguration' - SMS configuration.
 --
--- 'lambdaConfig', 'updateUserPool_lambdaConfig' - The AWS Lambda configuration information from the request to update the
--- user pool.
+-- 'lambdaConfig', 'updateUserPool_lambdaConfig' - The Lambda configuration information from the request to update the user
+-- pool.
 --
 -- 'smsVerificationMessage', 'updateUserPool_smsVerificationMessage' - A container with information about the SMS verification message.
 --
@@ -167,12 +189,12 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- 'emailConfiguration', 'updateUserPool_emailConfiguration' - Email configuration.
 --
--- 'emailVerificationMessage', 'updateUserPool_emailVerificationMessage' - The contents of the email verification message.
+-- 'smsAuthenticationMessage', 'updateUserPool_smsAuthenticationMessage' - The contents of the SMS authentication message.
 --
 -- 'userPoolAddOns', 'updateUserPool_userPoolAddOns' - Used to enable advanced security risk detection. Set the key
 -- @AdvancedSecurityMode@ to the value \"AUDIT\".
 --
--- 'smsAuthenticationMessage', 'updateUserPool_smsAuthenticationMessage' - The contents of the SMS authentication message.
+-- 'emailVerificationMessage', 'updateUserPool_emailVerificationMessage' - The contents of the email verification message.
 --
 -- 'mfaConfiguration', 'updateUserPool_mfaConfiguration' - Can be one of the following values:
 --
@@ -180,7 +202,10 @@ data UpdateUserPool = UpdateUserPool'
 --     user registration.
 --
 -- -   @ON@ - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
+--     only specify ON when you are initially creating a user pool. You can
+--     use the
+--     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html SetUserPoolMfaConfig>
+--     API operation to turn MFA \"ON\" for existing user pools.
 --
 -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
 --     token.
@@ -198,16 +223,16 @@ newUpdateUserPool pUserPoolId_ =
       emailVerificationSubject = Prelude.Nothing,
       autoVerifiedAttributes = Prelude.Nothing,
       policies = Prelude.Nothing,
-      adminCreateUserConfig = Prelude.Nothing,
       deviceConfiguration = Prelude.Nothing,
+      adminCreateUserConfig = Prelude.Nothing,
       smsConfiguration = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
       smsVerificationMessage = Prelude.Nothing,
       accountRecoverySetting = Prelude.Nothing,
       emailConfiguration = Prelude.Nothing,
-      emailVerificationMessage = Prelude.Nothing,
-      userPoolAddOns = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
+      userPoolAddOns = Prelude.Nothing,
+      emailVerificationMessage = Prelude.Nothing,
       mfaConfiguration = Prelude.Nothing,
       verificationMessageTemplate = Prelude.Nothing,
       userPoolId = pUserPoolId_
@@ -232,20 +257,20 @@ updateUserPool_autoVerifiedAttributes = Lens.lens (\UpdateUserPool' {autoVerifie
 updateUserPool_policies :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolPolicyType)
 updateUserPool_policies = Lens.lens (\UpdateUserPool' {policies} -> policies) (\s@UpdateUserPool' {} a -> s {policies = a} :: UpdateUserPool)
 
--- | The configuration for @AdminCreateUser@ requests.
-updateUserPool_adminCreateUserConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe AdminCreateUserConfigType)
-updateUserPool_adminCreateUserConfig = Lens.lens (\UpdateUserPool' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@UpdateUserPool' {} a -> s {adminCreateUserConfig = a} :: UpdateUserPool)
-
 -- | Device configuration.
 updateUserPool_deviceConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe DeviceConfigurationType)
 updateUserPool_deviceConfiguration = Lens.lens (\UpdateUserPool' {deviceConfiguration} -> deviceConfiguration) (\s@UpdateUserPool' {} a -> s {deviceConfiguration = a} :: UpdateUserPool)
+
+-- | The configuration for @AdminCreateUser@ requests.
+updateUserPool_adminCreateUserConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe AdminCreateUserConfigType)
+updateUserPool_adminCreateUserConfig = Lens.lens (\UpdateUserPool' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@UpdateUserPool' {} a -> s {adminCreateUserConfig = a} :: UpdateUserPool)
 
 -- | SMS configuration.
 updateUserPool_smsConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe SmsConfigurationType)
 updateUserPool_smsConfiguration = Lens.lens (\UpdateUserPool' {smsConfiguration} -> smsConfiguration) (\s@UpdateUserPool' {} a -> s {smsConfiguration = a} :: UpdateUserPool)
 
--- | The AWS Lambda configuration information from the request to update the
--- user pool.
+-- | The Lambda configuration information from the request to update the user
+-- pool.
 updateUserPool_lambdaConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe LambdaConfigType)
 updateUserPool_lambdaConfig = Lens.lens (\UpdateUserPool' {lambdaConfig} -> lambdaConfig) (\s@UpdateUserPool' {} a -> s {lambdaConfig = a} :: UpdateUserPool)
 
@@ -267,18 +292,18 @@ updateUserPool_accountRecoverySetting = Lens.lens (\UpdateUserPool' {accountReco
 updateUserPool_emailConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe EmailConfigurationType)
 updateUserPool_emailConfiguration = Lens.lens (\UpdateUserPool' {emailConfiguration} -> emailConfiguration) (\s@UpdateUserPool' {} a -> s {emailConfiguration = a} :: UpdateUserPool)
 
--- | The contents of the email verification message.
-updateUserPool_emailVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
-updateUserPool_emailVerificationMessage = Lens.lens (\UpdateUserPool' {emailVerificationMessage} -> emailVerificationMessage) (\s@UpdateUserPool' {} a -> s {emailVerificationMessage = a} :: UpdateUserPool)
+-- | The contents of the SMS authentication message.
+updateUserPool_smsAuthenticationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
+updateUserPool_smsAuthenticationMessage = Lens.lens (\UpdateUserPool' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UpdateUserPool' {} a -> s {smsAuthenticationMessage = a} :: UpdateUserPool)
 
 -- | Used to enable advanced security risk detection. Set the key
 -- @AdvancedSecurityMode@ to the value \"AUDIT\".
 updateUserPool_userPoolAddOns :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolAddOnsType)
 updateUserPool_userPoolAddOns = Lens.lens (\UpdateUserPool' {userPoolAddOns} -> userPoolAddOns) (\s@UpdateUserPool' {} a -> s {userPoolAddOns = a} :: UpdateUserPool)
 
--- | The contents of the SMS authentication message.
-updateUserPool_smsAuthenticationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
-updateUserPool_smsAuthenticationMessage = Lens.lens (\UpdateUserPool' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UpdateUserPool' {} a -> s {smsAuthenticationMessage = a} :: UpdateUserPool)
+-- | The contents of the email verification message.
+updateUserPool_emailVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
+updateUserPool_emailVerificationMessage = Lens.lens (\UpdateUserPool' {emailVerificationMessage} -> emailVerificationMessage) (\s@UpdateUserPool' {} a -> s {emailVerificationMessage = a} :: UpdateUserPool)
 
 -- | Can be one of the following values:
 --
@@ -286,7 +311,10 @@ updateUserPool_smsAuthenticationMessage = Lens.lens (\UpdateUserPool' {smsAuthen
 --     user registration.
 --
 -- -   @ON@ - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
+--     only specify ON when you are initially creating a user pool. You can
+--     use the
+--     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html SetUserPoolMfaConfig>
+--     API operation to turn MFA \"ON\" for existing user pools.
 --
 -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
 --     token.
@@ -342,10 +370,10 @@ instance Core.ToJSON UpdateUserPool where
             ("AutoVerifiedAttributes" Core..=)
               Prelude.<$> autoVerifiedAttributes,
             ("Policies" Core..=) Prelude.<$> policies,
-            ("AdminCreateUserConfig" Core..=)
-              Prelude.<$> adminCreateUserConfig,
             ("DeviceConfiguration" Core..=)
               Prelude.<$> deviceConfiguration,
+            ("AdminCreateUserConfig" Core..=)
+              Prelude.<$> adminCreateUserConfig,
             ("SmsConfiguration" Core..=)
               Prelude.<$> smsConfiguration,
             ("LambdaConfig" Core..=) Prelude.<$> lambdaConfig,
@@ -355,12 +383,12 @@ instance Core.ToJSON UpdateUserPool where
               Prelude.<$> accountRecoverySetting,
             ("EmailConfiguration" Core..=)
               Prelude.<$> emailConfiguration,
-            ("EmailVerificationMessage" Core..=)
-              Prelude.<$> emailVerificationMessage,
-            ("UserPoolAddOns" Core..=)
-              Prelude.<$> userPoolAddOns,
             ("SmsAuthenticationMessage" Core..=)
               Prelude.<$> smsAuthenticationMessage,
+            ("UserPoolAddOns" Core..=)
+              Prelude.<$> userPoolAddOns,
+            ("EmailVerificationMessage" Core..=)
+              Prelude.<$> emailVerificationMessage,
             ("MfaConfiguration" Core..=)
               Prelude.<$> mfaConfiguration,
             ("VerificationMessageTemplate" Core..=)

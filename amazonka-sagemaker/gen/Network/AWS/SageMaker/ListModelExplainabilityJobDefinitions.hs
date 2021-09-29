@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListModelExplainabilityJobDefinitions
     newListModelExplainabilityJobDefinitions,
 
     -- * Request Lenses
-    listModelExplainabilityJobDefinitions_sortOrder,
     listModelExplainabilityJobDefinitions_nextToken,
+    listModelExplainabilityJobDefinitions_sortOrder,
     listModelExplainabilityJobDefinitions_endpointName,
     listModelExplainabilityJobDefinitions_nameContains,
     listModelExplainabilityJobDefinitions_maxResults,
@@ -58,12 +58,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelExplainabilityJobDefinitions' smart constructor.
 data ListModelExplainabilityJobDefinitions = ListModelExplainabilityJobDefinitions'
-  { -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The token returned if the response is truncated. To retrieve the next
+  { -- | The token returned if the response is truncated. To retrieve the next
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Name of the endpoint to monitor for model explainability.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | Filter for model explainability jobs whose name contains a specified
@@ -92,11 +92,11 @@ data ListModelExplainabilityJobDefinitions = ListModelExplainabilityJobDefinitio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelExplainabilityJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
---
 -- 'nextToken', 'listModelExplainabilityJobDefinitions_nextToken' - The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
+--
+-- 'sortOrder', 'listModelExplainabilityJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
 --
 -- 'endpointName', 'listModelExplainabilityJobDefinitions_endpointName' - Name of the endpoint to monitor for model explainability.
 --
@@ -118,9 +118,9 @@ newListModelExplainabilityJobDefinitions ::
   ListModelExplainabilityJobDefinitions
 newListModelExplainabilityJobDefinitions =
   ListModelExplainabilityJobDefinitions'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -129,15 +129,15 @@ newListModelExplainabilityJobDefinitions =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
-listModelExplainabilityJobDefinitions_sortOrder :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe SortOrder)
-listModelExplainabilityJobDefinitions_sortOrder = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelExplainabilityJobDefinitions)
-
 -- | The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
 listModelExplainabilityJobDefinitions_nextToken :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelExplainabilityJobDefinitions_nextToken = Lens.lens (\ListModelExplainabilityJobDefinitions' {nextToken} -> nextToken) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {nextToken = a} :: ListModelExplainabilityJobDefinitions)
+
+-- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+listModelExplainabilityJobDefinitions_sortOrder :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe SortOrder)
+listModelExplainabilityJobDefinitions_sortOrder = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelExplainabilityJobDefinitions)
 
 -- | Name of the endpoint to monitor for model explainability.
 listModelExplainabilityJobDefinitions_endpointName :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
@@ -245,8 +245,8 @@ instance
   toJSON ListModelExplainabilityJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

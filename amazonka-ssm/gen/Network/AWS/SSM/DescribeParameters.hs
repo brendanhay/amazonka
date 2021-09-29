@@ -30,6 +30,11 @@
 -- the matching values up to that point and a @NextToken@. You can specify
 -- the @NextToken@ in a subsequent call to get the next set of results.
 --
+-- If you change the KMS key alias for the KMS key used to encrypt a
+-- parameter, then you must also update the key alias the parameter uses to
+-- reference KMS. Otherwise, @DescribeParameters@ retrieves whatever the
+-- original key alias was referencing.
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeParameters
   ( -- * Creating a Request

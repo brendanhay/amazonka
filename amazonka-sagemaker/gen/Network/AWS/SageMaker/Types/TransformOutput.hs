@@ -36,9 +36,10 @@ data TransformOutput = TransformOutput'
     -- the results in binary format, specify @None@. To add a newline character
     -- at the end of every transformed record, specify @Line@.
     assembleWith :: Prelude.Maybe AssemblyType,
-    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt the model artifacts at rest using Amazon S3 server-side
-    -- encryption. The @KmsKeyId@ can be any of the following formats:
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+    -- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+    -- following formats:
     --
     -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
     --
@@ -58,8 +59,8 @@ data TransformOutput = TransformOutput'
     --
     -- The KMS key policy must grant permission to the IAM role that you
     -- specify in your CreateModel request. For more information, see
-    -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 path where you want Amazon SageMaker to store the results
     -- of the transform job. For example,
@@ -99,9 +100,10 @@ data TransformOutput = TransformOutput'
 -- the results in binary format, specify @None@. To add a newline character
 -- at the end of every transformed record, specify @Line@.
 --
--- 'kmsKeyId', 'transformOutput_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the model artifacts at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- 'kmsKeyId', 'transformOutput_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
@@ -121,8 +123,8 @@ data TransformOutput = TransformOutput'
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your CreateModel request. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 's3OutputPath', 'transformOutput_s3OutputPath' - The Amazon S3 path where you want Amazon SageMaker to store the results
 -- of the transform job. For example,
@@ -166,9 +168,10 @@ transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@Tr
 transformOutput_assembleWith :: Lens.Lens' TransformOutput (Prelude.Maybe AssemblyType)
 transformOutput_assembleWith = Lens.lens (\TransformOutput' {assembleWith} -> assembleWith) (\s@TransformOutput' {} a -> s {assembleWith = a} :: TransformOutput)
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the model artifacts at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
@@ -188,8 +191,8 @@ transformOutput_assembleWith = Lens.lens (\TransformOutput' {assembleWith} -> as
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your CreateModel request. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 transformOutput_kmsKeyId :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
 transformOutput_kmsKeyId = Lens.lens (\TransformOutput' {kmsKeyId} -> kmsKeyId) (\s@TransformOutput' {} a -> s {kmsKeyId = a} :: TransformOutput)
 

@@ -28,17 +28,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateBuild
---
--- -   ListBuilds
---
--- -   DescribeBuild
---
--- -   UpdateBuild
---
--- -   DeleteBuild
+-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeBuild
   ( -- * Creating a Request
     DescribeBuild (..),
@@ -68,8 +61,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeBuild' smart constructor.
 data DescribeBuild = DescribeBuild'
-  { -- | A unique identifier for a build to retrieve properties for. You can use
-    -- either the build ID or ARN value.
+  { -- | A unique identifier for the build to retrieve properties for. You can
+    -- use either the build ID or ARN value.
     buildId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,8 +75,8 @@ data DescribeBuild = DescribeBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildId', 'describeBuild_buildId' - A unique identifier for a build to retrieve properties for. You can use
--- either the build ID or ARN value.
+-- 'buildId', 'describeBuild_buildId' - A unique identifier for the build to retrieve properties for. You can
+-- use either the build ID or ARN value.
 newDescribeBuild ::
   -- | 'buildId'
   Prelude.Text ->
@@ -91,8 +84,8 @@ newDescribeBuild ::
 newDescribeBuild pBuildId_ =
   DescribeBuild' {buildId = pBuildId_}
 
--- | A unique identifier for a build to retrieve properties for. You can use
--- either the build ID or ARN value.
+-- | A unique identifier for the build to retrieve properties for. You can
+-- use either the build ID or ARN value.
 describeBuild_buildId :: Lens.Lens' DescribeBuild Prelude.Text
 describeBuild_buildId = Lens.lens (\DescribeBuild' {buildId} -> buildId) (\s@DescribeBuild' {} a -> s {buildId = a} :: DescribeBuild)
 

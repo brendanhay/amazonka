@@ -28,16 +28,16 @@ import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
 --
 -- /See:/ 'newStorediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-  { -- | If the stored volume was created from a snapshot, this field contains
+  { -- | The date the volume was created. Volumes created prior to March 28, 2017
+    -- don’t have this timestamp.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | If the stored volume was created from a snapshot, this field contains
     -- the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not
     -- included.
     sourceSnapshotId :: Prelude.Maybe Prelude.Text,
     -- | One of the VolumeStatus values that indicates the state of the storage
     -- volume.
     volumeStatus :: Prelude.Maybe Prelude.Text,
-    -- | The date the volume was created. Volumes created prior to March 28, 2017
-    -- don’t have this timestamp.
-    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the iSCSI target used by an initiator to connect to a volume
     -- and used as a suffix for the target ARN. For example, specifying
     -- @TargetName@ as /myvolume/ results in the target ARN of
@@ -78,16 +78,16 @@ data StorediSCSIVolume = StorediSCSIVolume'
     -- | One of the VolumeType enumeration values describing the type of the
     -- volume.
     volumeType :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether a storage volume is attached to, detached
-    -- from, or is in the process of detaching from a gateway. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
-    volumeAttachmentStatus :: Prelude.Maybe Prelude.Text,
     -- | Represents the percentage complete if the volume is restoring or
     -- bootstrapping that represents the percent of data transferred. This
     -- field does not appear in the response if the stored volume is not
     -- restoring or bootstrapping.
-    volumeProgress :: Prelude.Maybe Prelude.Double
+    volumeProgress :: Prelude.Maybe Prelude.Double,
+    -- | A value that indicates whether a storage volume is attached to, detached
+    -- from, or is in the process of detaching from a gateway. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
+    volumeAttachmentStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,15 +99,15 @@ data StorediSCSIVolume = StorediSCSIVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdDate', 'storediSCSIVolume_createdDate' - The date the volume was created. Volumes created prior to March 28, 2017
+-- don’t have this timestamp.
+--
 -- 'sourceSnapshotId', 'storediSCSIVolume_sourceSnapshotId' - If the stored volume was created from a snapshot, this field contains
 -- the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not
 -- included.
 --
 -- 'volumeStatus', 'storediSCSIVolume_volumeStatus' - One of the VolumeStatus values that indicates the state of the storage
 -- volume.
---
--- 'createdDate', 'storediSCSIVolume_createdDate' - The date the volume was created. Volumes created prior to March 28, 2017
--- don’t have this timestamp.
 --
 -- 'targetName', 'storediSCSIVolume_targetName' - The name of the iSCSI target used by an initiator to connect to a volume
 -- and used as a suffix for the target ARN. For example, specifying
@@ -150,23 +150,22 @@ data StorediSCSIVolume = StorediSCSIVolume'
 -- 'volumeType', 'storediSCSIVolume_volumeType' - One of the VolumeType enumeration values describing the type of the
 -- volume.
 --
--- 'volumeAttachmentStatus', 'storediSCSIVolume_volumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached
--- from, or is in the process of detaching from a gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
---
 -- 'volumeProgress', 'storediSCSIVolume_volumeProgress' - Represents the percentage complete if the volume is restoring or
 -- bootstrapping that represents the percent of data transferred. This
 -- field does not appear in the response if the stored volume is not
 -- restoring or bootstrapping.
+--
+-- 'volumeAttachmentStatus', 'storediSCSIVolume_volumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached
+-- from, or is in the process of detaching from a gateway. For more
+-- information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
 newStorediSCSIVolume ::
   StorediSCSIVolume
 newStorediSCSIVolume =
   StorediSCSIVolume'
-    { sourceSnapshotId =
-        Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
+      sourceSnapshotId = Prelude.Nothing,
       volumeStatus = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       targetName = Prelude.Nothing,
       volumeARN = Prelude.Nothing,
       volumeId = Prelude.Nothing,
@@ -177,9 +176,14 @@ newStorediSCSIVolume =
       volumeSizeInBytes = Prelude.Nothing,
       volumeDiskId = Prelude.Nothing,
       volumeType = Prelude.Nothing,
-      volumeAttachmentStatus = Prelude.Nothing,
-      volumeProgress = Prelude.Nothing
+      volumeProgress = Prelude.Nothing,
+      volumeAttachmentStatus = Prelude.Nothing
     }
+
+-- | The date the volume was created. Volumes created prior to March 28, 2017
+-- don’t have this timestamp.
+storediSCSIVolume_createdDate :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.UTCTime)
+storediSCSIVolume_createdDate = Lens.lens (\StorediSCSIVolume' {createdDate} -> createdDate) (\s@StorediSCSIVolume' {} a -> s {createdDate = a} :: StorediSCSIVolume) Prelude.. Lens.mapping Core._Time
 
 -- | If the stored volume was created from a snapshot, this field contains
 -- the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not
@@ -191,11 +195,6 @@ storediSCSIVolume_sourceSnapshotId = Lens.lens (\StorediSCSIVolume' {sourceSnaps
 -- volume.
 storediSCSIVolume_volumeStatus :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.Text)
 storediSCSIVolume_volumeStatus = Lens.lens (\StorediSCSIVolume' {volumeStatus} -> volumeStatus) (\s@StorediSCSIVolume' {} a -> s {volumeStatus = a} :: StorediSCSIVolume)
-
--- | The date the volume was created. Volumes created prior to March 28, 2017
--- don’t have this timestamp.
-storediSCSIVolume_createdDate :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.UTCTime)
-storediSCSIVolume_createdDate = Lens.lens (\StorediSCSIVolume' {createdDate} -> createdDate) (\s@StorediSCSIVolume' {} a -> s {createdDate = a} :: StorediSCSIVolume) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the iSCSI target used by an initiator to connect to a volume
 -- and used as a suffix for the target ARN. For example, specifying
@@ -258,13 +257,6 @@ storediSCSIVolume_volumeDiskId = Lens.lens (\StorediSCSIVolume' {volumeDiskId} -
 storediSCSIVolume_volumeType :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.Text)
 storediSCSIVolume_volumeType = Lens.lens (\StorediSCSIVolume' {volumeType} -> volumeType) (\s@StorediSCSIVolume' {} a -> s {volumeType = a} :: StorediSCSIVolume)
 
--- | A value that indicates whether a storage volume is attached to, detached
--- from, or is in the process of detaching from a gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
-storediSCSIVolume_volumeAttachmentStatus :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.Text)
-storediSCSIVolume_volumeAttachmentStatus = Lens.lens (\StorediSCSIVolume' {volumeAttachmentStatus} -> volumeAttachmentStatus) (\s@StorediSCSIVolume' {} a -> s {volumeAttachmentStatus = a} :: StorediSCSIVolume)
-
 -- | Represents the percentage complete if the volume is restoring or
 -- bootstrapping that represents the percent of data transferred. This
 -- field does not appear in the response if the stored volume is not
@@ -272,15 +264,22 @@ storediSCSIVolume_volumeAttachmentStatus = Lens.lens (\StorediSCSIVolume' {volum
 storediSCSIVolume_volumeProgress :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.Double)
 storediSCSIVolume_volumeProgress = Lens.lens (\StorediSCSIVolume' {volumeProgress} -> volumeProgress) (\s@StorediSCSIVolume' {} a -> s {volumeProgress = a} :: StorediSCSIVolume)
 
+-- | A value that indicates whether a storage volume is attached to, detached
+-- from, or is in the process of detaching from a gateway. For more
+-- information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway>.
+storediSCSIVolume_volumeAttachmentStatus :: Lens.Lens' StorediSCSIVolume (Prelude.Maybe Prelude.Text)
+storediSCSIVolume_volumeAttachmentStatus = Lens.lens (\StorediSCSIVolume' {volumeAttachmentStatus} -> volumeAttachmentStatus) (\s@StorediSCSIVolume' {} a -> s {volumeAttachmentStatus = a} :: StorediSCSIVolume)
+
 instance Core.FromJSON StorediSCSIVolume where
   parseJSON =
     Core.withObject
       "StorediSCSIVolume"
       ( \x ->
           StorediSCSIVolume'
-            Prelude.<$> (x Core..:? "SourceSnapshotId")
+            Prelude.<$> (x Core..:? "CreatedDate")
+            Prelude.<*> (x Core..:? "SourceSnapshotId")
             Prelude.<*> (x Core..:? "VolumeStatus")
-            Prelude.<*> (x Core..:? "CreatedDate")
             Prelude.<*> (x Core..:? "TargetName")
             Prelude.<*> (x Core..:? "VolumeARN")
             Prelude.<*> (x Core..:? "VolumeId")
@@ -291,8 +290,8 @@ instance Core.FromJSON StorediSCSIVolume where
             Prelude.<*> (x Core..:? "VolumeSizeInBytes")
             Prelude.<*> (x Core..:? "VolumeDiskId")
             Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
             Prelude.<*> (x Core..:? "VolumeProgress")
+            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
       )
 
 instance Prelude.Hashable StorediSCSIVolume

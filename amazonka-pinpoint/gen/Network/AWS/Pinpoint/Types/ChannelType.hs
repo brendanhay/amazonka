@@ -29,6 +29,7 @@ module Network.AWS.Pinpoint.Types.ChannelType
         ChannelType_CUSTOM,
         ChannelType_EMAIL,
         ChannelType_GCM,
+        ChannelType_IN_APP,
         ChannelType_PUSH,
         ChannelType_SMS,
         ChannelType_VOICE
@@ -94,6 +95,9 @@ pattern ChannelType_EMAIL = ChannelType' "EMAIL"
 pattern ChannelType_GCM :: ChannelType
 pattern ChannelType_GCM = ChannelType' "GCM"
 
+pattern ChannelType_IN_APP :: ChannelType
+pattern ChannelType_IN_APP = ChannelType' "IN_APP"
+
 pattern ChannelType_PUSH :: ChannelType
 pattern ChannelType_PUSH = ChannelType' "PUSH"
 
@@ -113,6 +117,7 @@ pattern ChannelType_VOICE = ChannelType' "VOICE"
   ChannelType_CUSTOM,
   ChannelType_EMAIL,
   ChannelType_GCM,
+  ChannelType_IN_APP,
   ChannelType_PUSH,
   ChannelType_SMS,
   ChannelType_VOICE,

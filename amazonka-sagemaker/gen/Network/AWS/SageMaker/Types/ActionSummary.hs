@@ -32,10 +32,10 @@ import Network.AWS.SageMaker.Types.ActionStatus
 --
 -- /See:/ 'newActionSummary' smart constructor.
 data ActionSummary = ActionSummary'
-  { -- | The status of the action.
-    status :: Prelude.Maybe ActionStatus,
-    -- | When the action was created.
+  { -- | When the action was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the action.
+    status :: Prelude.Maybe ActionStatus,
     -- | The name of the action.
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The type of the action.
@@ -57,9 +57,9 @@ data ActionSummary = ActionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'actionSummary_status' - The status of the action.
---
 -- 'creationTime', 'actionSummary_creationTime' - When the action was created.
+--
+-- 'status', 'actionSummary_status' - The status of the action.
 --
 -- 'actionName', 'actionSummary_actionName' - The name of the action.
 --
@@ -74,8 +74,8 @@ newActionSummary ::
   ActionSummary
 newActionSummary =
   ActionSummary'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       actionName = Prelude.Nothing,
       actionType = Prelude.Nothing,
       actionArn = Prelude.Nothing,
@@ -83,13 +83,13 @@ newActionSummary =
       lastModifiedTime = Prelude.Nothing
     }
 
--- | The status of the action.
-actionSummary_status :: Lens.Lens' ActionSummary (Prelude.Maybe ActionStatus)
-actionSummary_status = Lens.lens (\ActionSummary' {status} -> status) (\s@ActionSummary' {} a -> s {status = a} :: ActionSummary)
-
 -- | When the action was created.
 actionSummary_creationTime :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.UTCTime)
 actionSummary_creationTime = Lens.lens (\ActionSummary' {creationTime} -> creationTime) (\s@ActionSummary' {} a -> s {creationTime = a} :: ActionSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The status of the action.
+actionSummary_status :: Lens.Lens' ActionSummary (Prelude.Maybe ActionStatus)
+actionSummary_status = Lens.lens (\ActionSummary' {status} -> status) (\s@ActionSummary' {} a -> s {status = a} :: ActionSummary)
 
 -- | The name of the action.
 actionSummary_actionName :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
@@ -117,8 +117,8 @@ instance Core.FromJSON ActionSummary where
       "ActionSummary"
       ( \x ->
           ActionSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ActionName")
             Prelude.<*> (x Core..:? "ActionType")
             Prelude.<*> (x Core..:? "ActionArn")

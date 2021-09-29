@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
   { -- | The unique identifier for the recommendation set.
     recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | Additional metadata that may be applicable to the recommendation.
+    -- | Additional metadata that might be applicable to the recommendation.
     additionalMetadata :: Prelude.Maybe Prelude.Text,
     -- | The timestamp showing when the recommendations were generated.
     generationTimestamp :: Prelude.Maybe Prelude.Text
@@ -46,7 +46,7 @@ data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommenda
 --
 -- 'recommendationId', 'savingsPlansPurchaseRecommendationMetadata_recommendationId' - The unique identifier for the recommendation set.
 --
--- 'additionalMetadata', 'savingsPlansPurchaseRecommendationMetadata_additionalMetadata' - Additional metadata that may be applicable to the recommendation.
+-- 'additionalMetadata', 'savingsPlansPurchaseRecommendationMetadata_additionalMetadata' - Additional metadata that might be applicable to the recommendation.
 --
 -- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp showing when the recommendations were generated.
 newSavingsPlansPurchaseRecommendationMetadata ::
@@ -65,7 +65,7 @@ newSavingsPlansPurchaseRecommendationMetadata =
 savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
--- | Additional metadata that may be applicable to the recommendation.
+-- | Additional metadata that might be applicable to the recommendation.
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {additionalMetadata} -> additionalMetadata) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {additionalMetadata = a} :: SavingsPlansPurchaseRecommendationMetadata)
 

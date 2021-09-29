@@ -22,16 +22,16 @@
 --
 -- Updates a stack using the input information that was provided when the
 -- specified change set was created. After the call successfully completes,
--- AWS CloudFormation starts updating the stack. Use the DescribeStacks
--- action to view the status of the update.
+-- CloudFormation starts updating the stack. Use the DescribeStacks action
+-- to view the status of the update.
 --
--- When you execute a change set, AWS CloudFormation deletes all other
--- change sets associated with the stack because they aren\'t valid for the
+-- When you execute a change set, CloudFormation deletes all other change
+-- sets associated with the stack because they aren\'t valid for the
 -- updated stack.
 --
--- If a stack policy is associated with the stack, AWS CloudFormation
--- enforces the policy during the update. You can\'t specify a temporary
--- stack policy that overrides the current policy.
+-- If a stack policy is associated with the stack, CloudFormation enforces
+-- the policy during the update. You can\'t specify a temporary stack
+-- policy that overrides the current policy.
 --
 -- To create a change set for the entire stack hierachy,
 -- @IncludeNestedStacks@ must have been set to @True@.
@@ -43,6 +43,7 @@ module Network.AWS.CloudFormation.ExecuteChangeSet
     -- * Request Lenses
     executeChangeSet_stackName,
     executeChangeSet_clientRequestToken,
+    executeChangeSet_disableRollback,
     executeChangeSet_changeSetName,
 
     -- * Destructuring the Response
@@ -69,11 +70,16 @@ data ExecuteChangeSet = ExecuteChangeSet'
     -- (ARN) that is associated with the change set you want to execute.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
-    -- token if you plan to retry requests so that AWS CloudFormation knows
-    -- that you\'re not attempting to execute a change set to update a stack
-    -- with the same name. You might retry @ExecuteChangeSet@ requests to
-    -- ensure that AWS CloudFormation successfully received them.
+    -- token if you plan to retry requests so that CloudFormation knows that
+    -- you\'re not attempting to execute a change set to update a stack with
+    -- the same name. You might retry @ExecuteChangeSet@ requests to ensure
+    -- that CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | Preserves the state of previously provisioned resources when an
+    -- operation fails.
+    --
+    -- Default: @True@
+    disableRollback :: Prelude.Maybe Prelude.Bool,
     -- | The name or ARN of the change set that you want use to update the
     -- specified stack.
     changeSetName :: Prelude.Text
@@ -92,10 +98,15 @@ data ExecuteChangeSet = ExecuteChangeSet'
 -- (ARN) that is associated with the change set you want to execute.
 --
 -- 'clientRequestToken', 'executeChangeSet_clientRequestToken' - A unique identifier for this @ExecuteChangeSet@ request. Specify this
--- token if you plan to retry requests so that AWS CloudFormation knows
--- that you\'re not attempting to execute a change set to update a stack
--- with the same name. You might retry @ExecuteChangeSet@ requests to
--- ensure that AWS CloudFormation successfully received them.
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to execute a change set to update a stack with
+-- the same name. You might retry @ExecuteChangeSet@ requests to ensure
+-- that CloudFormation successfully received them.
+--
+-- 'disableRollback', 'executeChangeSet_disableRollback' - Preserves the state of previously provisioned resources when an
+-- operation fails.
+--
+-- Default: @True@
 --
 -- 'changeSetName', 'executeChangeSet_changeSetName' - The name or ARN of the change set that you want use to update the
 -- specified stack.
@@ -107,6 +118,7 @@ newExecuteChangeSet pChangeSetName_ =
   ExecuteChangeSet'
     { stackName = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      disableRollback = Prelude.Nothing,
       changeSetName = pChangeSetName_
     }
 
@@ -116,12 +128,19 @@ executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude
 executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackName) (\s@ExecuteChangeSet' {} a -> s {stackName = a} :: ExecuteChangeSet)
 
 -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
--- token if you plan to retry requests so that AWS CloudFormation knows
--- that you\'re not attempting to execute a change set to update a stack
--- with the same name. You might retry @ExecuteChangeSet@ requests to
--- ensure that AWS CloudFormation successfully received them.
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to execute a change set to update a stack with
+-- the same name. You might retry @ExecuteChangeSet@ requests to ensure
+-- that CloudFormation successfully received them.
 executeChangeSet_clientRequestToken :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
 executeChangeSet_clientRequestToken = Lens.lens (\ExecuteChangeSet' {clientRequestToken} -> clientRequestToken) (\s@ExecuteChangeSet' {} a -> s {clientRequestToken = a} :: ExecuteChangeSet)
+
+-- | Preserves the state of previously provisioned resources when an
+-- operation fails.
+--
+-- Default: @True@
+executeChangeSet_disableRollback :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Bool)
+executeChangeSet_disableRollback = Lens.lens (\ExecuteChangeSet' {disableRollback} -> disableRollback) (\s@ExecuteChangeSet' {} a -> s {disableRollback = a} :: ExecuteChangeSet)
 
 -- | The name or ARN of the change set that you want use to update the
 -- specified stack.
@@ -160,6 +179,7 @@ instance Core.ToQuery ExecuteChangeSet where
           Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName,
         "ClientRequestToken" Core.=: clientRequestToken,
+        "DisableRollback" Core.=: disableRollback,
         "ChangeSetName" Core.=: changeSetName
       ]
 

@@ -28,29 +28,29 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEmailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-  { -- | The date and time, in ISO 8601 format, when the email channel was last
-    -- modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the application that the email channel applies
+  { -- | The unique identifier for the application that the email channel applies
     -- to.
     applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in ISO 8601 format, when the email channel was last
+    -- modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon
     -- Pinpoint uses to submit email-related event data for the channel.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon
     -- Simple Email Service (Amazon SES), that\'s used when you send email
     -- through the channel.
     identity :: Prelude.Maybe Prelude.Text,
-    -- | (Deprecated) An identifier for the email channel. This property is
-    -- retained only for backward compatibility.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the email channel is enabled for the application.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The date and time, in ISO 8601 format, when the email channel was
     -- enabled.
     creationDate :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the email channel is enabled for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | (Deprecated) An identifier for the email channel. This property is
+    -- retained only for backward compatibility.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The current version of the email channel.
     version :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of emails that can be sent through the channel each
@@ -81,28 +81,28 @@ data EmailChannelResponse = EmailChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'emailChannelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last
--- modified.
---
 -- 'applicationId', 'emailChannelResponse_applicationId' - The unique identifier for the application that the email channel applies
 -- to.
 --
--- 'roleArn', 'emailChannelResponse_roleArn' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon
--- Pinpoint uses to submit email-related event data for the channel.
+-- 'lastModifiedDate', 'emailChannelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last
+-- modified.
 --
 -- 'hasCredential', 'emailChannelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.
+--
+-- 'roleArn', 'emailChannelResponse_roleArn' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon
+-- Pinpoint uses to submit email-related event data for the channel.
 --
 -- 'identity', 'emailChannelResponse_identity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon
 -- Simple Email Service (Amazon SES), that\'s used when you send email
 -- through the channel.
 --
--- 'id', 'emailChannelResponse_id' - (Deprecated) An identifier for the email channel. This property is
--- retained only for backward compatibility.
+-- 'enabled', 'emailChannelResponse_enabled' - Specifies whether the email channel is enabled for the application.
 --
 -- 'creationDate', 'emailChannelResponse_creationDate' - The date and time, in ISO 8601 format, when the email channel was
 -- enabled.
 --
--- 'enabled', 'emailChannelResponse_enabled' - Specifies whether the email channel is enabled for the application.
+-- 'id', 'emailChannelResponse_id' - (Deprecated) An identifier for the email channel. This property is
+-- retained only for backward compatibility.
 --
 -- 'version', 'emailChannelResponse_version' - The current version of the email channel.
 --
@@ -128,15 +128,15 @@ newEmailChannelResponse ::
   EmailChannelResponse
 newEmailChannelResponse pPlatform_ =
   EmailChannelResponse'
-    { lastModifiedDate =
+    { applicationId =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       hasCredential = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       identity = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       version = Prelude.Nothing,
       messagesPerSecond = Prelude.Nothing,
       isArchived = Prelude.Nothing,
@@ -146,24 +146,24 @@ newEmailChannelResponse pPlatform_ =
       platform = pPlatform_
     }
 
--- | The date and time, in ISO 8601 format, when the email channel was last
--- modified.
-emailChannelResponse_lastModifiedDate :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
-emailChannelResponse_lastModifiedDate = Lens.lens (\EmailChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@EmailChannelResponse' {} a -> s {lastModifiedDate = a} :: EmailChannelResponse)
-
 -- | The unique identifier for the application that the email channel applies
 -- to.
 emailChannelResponse_applicationId :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
 emailChannelResponse_applicationId = Lens.lens (\EmailChannelResponse' {applicationId} -> applicationId) (\s@EmailChannelResponse' {} a -> s {applicationId = a} :: EmailChannelResponse)
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon
--- Pinpoint uses to submit email-related event data for the channel.
-emailChannelResponse_roleArn :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
-emailChannelResponse_roleArn = Lens.lens (\EmailChannelResponse' {roleArn} -> roleArn) (\s@EmailChannelResponse' {} a -> s {roleArn = a} :: EmailChannelResponse)
+-- | The date and time, in ISO 8601 format, when the email channel was last
+-- modified.
+emailChannelResponse_lastModifiedDate :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
+emailChannelResponse_lastModifiedDate = Lens.lens (\EmailChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@EmailChannelResponse' {} a -> s {lastModifiedDate = a} :: EmailChannelResponse)
 
 -- | (Not used) This property is retained only for backward compatibility.
 emailChannelResponse_hasCredential :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Bool)
 emailChannelResponse_hasCredential = Lens.lens (\EmailChannelResponse' {hasCredential} -> hasCredential) (\s@EmailChannelResponse' {} a -> s {hasCredential = a} :: EmailChannelResponse)
+
+-- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon
+-- Pinpoint uses to submit email-related event data for the channel.
+emailChannelResponse_roleArn :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
+emailChannelResponse_roleArn = Lens.lens (\EmailChannelResponse' {roleArn} -> roleArn) (\s@EmailChannelResponse' {} a -> s {roleArn = a} :: EmailChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon
 -- Simple Email Service (Amazon SES), that\'s used when you send email
@@ -171,19 +171,19 @@ emailChannelResponse_hasCredential = Lens.lens (\EmailChannelResponse' {hasCrede
 emailChannelResponse_identity :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
 emailChannelResponse_identity = Lens.lens (\EmailChannelResponse' {identity} -> identity) (\s@EmailChannelResponse' {} a -> s {identity = a} :: EmailChannelResponse)
 
--- | (Deprecated) An identifier for the email channel. This property is
--- retained only for backward compatibility.
-emailChannelResponse_id :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
-emailChannelResponse_id = Lens.lens (\EmailChannelResponse' {id} -> id) (\s@EmailChannelResponse' {} a -> s {id = a} :: EmailChannelResponse)
+-- | Specifies whether the email channel is enabled for the application.
+emailChannelResponse_enabled :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Bool)
+emailChannelResponse_enabled = Lens.lens (\EmailChannelResponse' {enabled} -> enabled) (\s@EmailChannelResponse' {} a -> s {enabled = a} :: EmailChannelResponse)
 
 -- | The date and time, in ISO 8601 format, when the email channel was
 -- enabled.
 emailChannelResponse_creationDate :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
 emailChannelResponse_creationDate = Lens.lens (\EmailChannelResponse' {creationDate} -> creationDate) (\s@EmailChannelResponse' {} a -> s {creationDate = a} :: EmailChannelResponse)
 
--- | Specifies whether the email channel is enabled for the application.
-emailChannelResponse_enabled :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Bool)
-emailChannelResponse_enabled = Lens.lens (\EmailChannelResponse' {enabled} -> enabled) (\s@EmailChannelResponse' {} a -> s {enabled = a} :: EmailChannelResponse)
+-- | (Deprecated) An identifier for the email channel. This property is
+-- retained only for backward compatibility.
+emailChannelResponse_id :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Text)
+emailChannelResponse_id = Lens.lens (\EmailChannelResponse' {id} -> id) (\s@EmailChannelResponse' {} a -> s {id = a} :: EmailChannelResponse)
 
 -- | The current version of the email channel.
 emailChannelResponse_version :: Lens.Lens' EmailChannelResponse (Prelude.Maybe Prelude.Int)
@@ -224,14 +224,14 @@ instance Core.FromJSON EmailChannelResponse where
       "EmailChannelResponse"
       ( \x ->
           EmailChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "RoleArn")
+            Prelude.<$> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "HasCredential")
+            Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "Identity")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "MessagesPerSecond")
             Prelude.<*> (x Core..:? "IsArchived")

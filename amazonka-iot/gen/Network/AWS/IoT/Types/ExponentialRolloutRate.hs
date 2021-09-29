@@ -34,8 +34,8 @@ data ExponentialRolloutRate = ExponentialRolloutRate'
     baseRatePerMinute :: Prelude.Natural,
     -- | The exponential factor to increase the rate of rollout for a job.
     --
-    -- AWS IoT supports up to one digit after the decimal (for example, 1.5,
-    -- but not 1.55).
+    -- Amazon Web Services IoT Core supports up to one digit after the decimal
+    -- (for example, 1.5, but not 1.55).
     incrementFactor :: Prelude.Double,
     -- | The criteria to initiate the increase in rate of rollout for a job.
     rateIncreaseCriteria :: RateIncreaseCriteria
@@ -56,8 +56,8 @@ data ExponentialRolloutRate = ExponentialRolloutRate'
 --
 -- 'incrementFactor', 'exponentialRolloutRate_incrementFactor' - The exponential factor to increase the rate of rollout for a job.
 --
--- AWS IoT supports up to one digit after the decimal (for example, 1.5,
--- but not 1.55).
+-- Amazon Web Services IoT Core supports up to one digit after the decimal
+-- (for example, 1.5, but not 1.55).
 --
 -- 'rateIncreaseCriteria', 'exponentialRolloutRate_rateIncreaseCriteria' - The criteria to initiate the increase in rate of rollout for a job.
 newExponentialRolloutRate ::
@@ -87,8 +87,8 @@ exponentialRolloutRate_baseRatePerMinute = Lens.lens (\ExponentialRolloutRate' {
 
 -- | The exponential factor to increase the rate of rollout for a job.
 --
--- AWS IoT supports up to one digit after the decimal (for example, 1.5,
--- but not 1.55).
+-- Amazon Web Services IoT Core supports up to one digit after the decimal
+-- (for example, 1.5, but not 1.55).
 exponentialRolloutRate_incrementFactor :: Lens.Lens' ExponentialRolloutRate Prelude.Double
 exponentialRolloutRate_incrementFactor = Lens.lens (\ExponentialRolloutRate' {incrementFactor} -> incrementFactor) (\s@ExponentialRolloutRate' {} a -> s {incrementFactor = a} :: ExponentialRolloutRate)
 

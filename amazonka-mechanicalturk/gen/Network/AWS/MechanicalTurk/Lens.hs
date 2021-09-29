@@ -20,6 +20,14 @@ module Network.AWS.MechanicalTurk.Lens
     getQualificationScoreResponse_qualification,
     getQualificationScoreResponse_httpStatus,
 
+    -- ** ListHITs
+    listHITs_nextToken,
+    listHITs_maxResults,
+    listHITsResponse_nextToken,
+    listHITsResponse_hITs,
+    listHITsResponse_numResults,
+    listHITsResponse_httpStatus,
+
     -- ** ListReviewableHITs
     listReviewableHITs_status,
     listReviewableHITs_nextToken,
@@ -29,14 +37,6 @@ module Network.AWS.MechanicalTurk.Lens
     listReviewableHITsResponse_hITs,
     listReviewableHITsResponse_numResults,
     listReviewableHITsResponse_httpStatus,
-
-    -- ** ListHITs
-    listHITs_nextToken,
-    listHITs_maxResults,
-    listHITsResponse_nextToken,
-    listHITsResponse_hITs,
-    listHITsResponse_numResults,
-    listHITsResponse_httpStatus,
 
     -- ** ListAssignmentsForHIT
     listAssignmentsForHIT_nextToken,
@@ -83,13 +83,6 @@ module Network.AWS.MechanicalTurk.Lens
     createHITResponse_hit,
     createHITResponse_httpStatus,
 
-    -- ** NotifyWorkers
-    notifyWorkers_subject,
-    notifyWorkers_messageText,
-    notifyWorkers_workerIds,
-    notifyWorkersResponse_notifyWorkersFailureStatuses,
-    notifyWorkersResponse_httpStatus,
-
     -- ** ListWorkerBlocks
     listWorkerBlocks_nextToken,
     listWorkerBlocks_maxResults,
@@ -97,6 +90,13 @@ module Network.AWS.MechanicalTurk.Lens
     listWorkerBlocksResponse_workerBlocks,
     listWorkerBlocksResponse_numResults,
     listWorkerBlocksResponse_httpStatus,
+
+    -- ** NotifyWorkers
+    notifyWorkers_subject,
+    notifyWorkers_messageText,
+    notifyWorkers_workerIds,
+    notifyWorkersResponse_notifyWorkersFailureStatuses,
+    notifyWorkersResponse_httpStatus,
 
     -- ** ListHITsForQualificationType
     listHITsForQualificationType_nextToken,
@@ -118,6 +118,11 @@ module Network.AWS.MechanicalTurk.Lens
     createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments,
     createAdditionalAssignmentsForHITResponse_httpStatus,
 
+    -- ** UpdateHITTypeOfHIT
+    updateHITTypeOfHIT_hITId,
+    updateHITTypeOfHIT_hITTypeId,
+    updateHITTypeOfHITResponse_httpStatus,
+
     -- ** ListQualificationTypes
     listQualificationTypes_nextToken,
     listQualificationTypes_maxResults,
@@ -128,11 +133,6 @@ module Network.AWS.MechanicalTurk.Lens
     listQualificationTypesResponse_qualificationTypes,
     listQualificationTypesResponse_numResults,
     listQualificationTypesResponse_httpStatus,
-
-    -- ** UpdateHITTypeOfHIT
-    updateHITTypeOfHIT_hITId,
-    updateHITTypeOfHIT_hITTypeId,
-    updateHITTypeOfHITResponse_httpStatus,
 
     -- ** GetAssignment
     getAssignment_assignmentId,
@@ -155,26 +155,6 @@ module Network.AWS.MechanicalTurk.Lens
     getQualificationTypeResponse_qualificationType,
     getQualificationTypeResponse_httpStatus,
 
-    -- ** RejectAssignment
-    rejectAssignment_assignmentId,
-    rejectAssignment_requesterFeedback,
-    rejectAssignmentResponse_httpStatus,
-
-    -- ** UpdateExpirationForHIT
-    updateExpirationForHIT_hITId,
-    updateExpirationForHIT_expireAt,
-    updateExpirationForHITResponse_httpStatus,
-
-    -- ** ApproveAssignment
-    approveAssignment_requesterFeedback,
-    approveAssignment_overrideRejection,
-    approveAssignment_assignmentId,
-    approveAssignmentResponse_httpStatus,
-
-    -- ** DeleteHIT
-    deleteHIT_hITId,
-    deleteHITResponse_httpStatus,
-
     -- ** ListReviewPolicyResultsForHIT
     listReviewPolicyResultsForHIT_nextToken,
     listReviewPolicyResultsForHIT_maxResults,
@@ -190,22 +170,25 @@ module Network.AWS.MechanicalTurk.Lens
     listReviewPolicyResultsForHITResponse_assignmentReviewPolicy,
     listReviewPolicyResultsForHITResponse_httpStatus,
 
-    -- ** CreateHITType
-    createHITType_autoApprovalDelayInSeconds,
-    createHITType_qualificationRequirements,
-    createHITType_keywords,
-    createHITType_assignmentDurationInSeconds,
-    createHITType_reward,
-    createHITType_title,
-    createHITType_description,
-    createHITTypeResponse_hITTypeId,
-    createHITTypeResponse_httpStatus,
+    -- ** DeleteHIT
+    deleteHIT_hITId,
+    deleteHITResponse_httpStatus,
 
-    -- ** UpdateNotificationSettings
-    updateNotificationSettings_active,
-    updateNotificationSettings_notification,
-    updateNotificationSettings_hITTypeId,
-    updateNotificationSettingsResponse_httpStatus,
+    -- ** UpdateExpirationForHIT
+    updateExpirationForHIT_hITId,
+    updateExpirationForHIT_expireAt,
+    updateExpirationForHITResponse_httpStatus,
+
+    -- ** ApproveAssignment
+    approveAssignment_requesterFeedback,
+    approveAssignment_overrideRejection,
+    approveAssignment_assignmentId,
+    approveAssignmentResponse_httpStatus,
+
+    -- ** RejectAssignment
+    rejectAssignment_assignmentId,
+    rejectAssignment_requesterFeedback,
+    rejectAssignmentResponse_httpStatus,
 
     -- ** SendBonus
     sendBonus_uniqueRequestToken,
@@ -216,8 +199,8 @@ module Network.AWS.MechanicalTurk.Lens
     sendBonusResponse_httpStatus,
 
     -- ** ListQualificationRequests
-    listQualificationRequests_qualificationTypeId,
     listQualificationRequests_nextToken,
+    listQualificationRequests_qualificationTypeId,
     listQualificationRequests_maxResults,
     listQualificationRequestsResponse_nextToken,
     listQualificationRequestsResponse_numResults,
@@ -230,6 +213,28 @@ module Network.AWS.MechanicalTurk.Lens
     associateQualificationWithWorker_qualificationTypeId,
     associateQualificationWithWorker_workerId,
     associateQualificationWithWorkerResponse_httpStatus,
+
+    -- ** UpdateNotificationSettings
+    updateNotificationSettings_active,
+    updateNotificationSettings_notification,
+    updateNotificationSettings_hITTypeId,
+    updateNotificationSettingsResponse_httpStatus,
+
+    -- ** CreateHITType
+    createHITType_autoApprovalDelayInSeconds,
+    createHITType_qualificationRequirements,
+    createHITType_keywords,
+    createHITType_assignmentDurationInSeconds,
+    createHITType_reward,
+    createHITType_title,
+    createHITType_description,
+    createHITTypeResponse_hITTypeId,
+    createHITTypeResponse_httpStatus,
+
+    -- ** DeleteWorkerBlock
+    deleteWorkerBlock_reason,
+    deleteWorkerBlock_workerId,
+    deleteWorkerBlockResponse_httpStatus,
 
     -- ** CreateHITWithHITType
     createHITWithHITType_uniqueRequestToken,
@@ -245,11 +250,6 @@ module Network.AWS.MechanicalTurk.Lens
     createHITWithHITTypeResponse_hit,
     createHITWithHITTypeResponse_httpStatus,
 
-    -- ** DeleteWorkerBlock
-    deleteWorkerBlock_reason,
-    deleteWorkerBlock_workerId,
-    deleteWorkerBlockResponse_httpStatus,
-
     -- ** ListBonusPayments
     listBonusPayments_nextToken,
     listBonusPayments_assignmentId,
@@ -259,6 +259,11 @@ module Network.AWS.MechanicalTurk.Lens
     listBonusPaymentsResponse_numResults,
     listBonusPaymentsResponse_bonusPayments,
     listBonusPaymentsResponse_httpStatus,
+
+    -- ** GetHIT
+    getHIT_hITId,
+    getHITResponse_hit,
+    getHITResponse_httpStatus,
 
     -- ** DisassociateQualificationFromWorker
     disassociateQualificationFromWorker_reason,
@@ -271,46 +276,41 @@ module Network.AWS.MechanicalTurk.Lens
     sendTestEventNotification_testEventType,
     sendTestEventNotificationResponse_httpStatus,
 
-    -- ** GetHIT
-    getHIT_hITId,
-    getHITResponse_hit,
-    getHITResponse_httpStatus,
-
-    -- ** UpdateQualificationType
-    updateQualificationType_retryDelayInSeconds,
-    updateQualificationType_autoGranted,
-    updateQualificationType_qualificationTypeStatus,
-    updateQualificationType_testDurationInSeconds,
-    updateQualificationType_description,
-    updateQualificationType_test,
-    updateQualificationType_answerKey,
-    updateQualificationType_autoGrantedValue,
-    updateQualificationType_qualificationTypeId,
-    updateQualificationTypeResponse_qualificationType,
-    updateQualificationTypeResponse_httpStatus,
-
-    -- ** AcceptQualificationRequest
-    acceptQualificationRequest_integerValue,
-    acceptQualificationRequest_qualificationRequestId,
-    acceptQualificationRequestResponse_httpStatus,
-
-    -- ** DeleteQualificationType
-    deleteQualificationType_qualificationTypeId,
-    deleteQualificationTypeResponse_httpStatus,
-
     -- ** GetFileUploadURL
     getFileUploadURL_assignmentId,
     getFileUploadURL_questionIdentifier,
     getFileUploadURLResponse_fileUploadURL,
     getFileUploadURLResponse_httpStatus,
 
+    -- ** AcceptQualificationRequest
+    acceptQualificationRequest_integerValue,
+    acceptQualificationRequest_qualificationRequestId,
+    acceptQualificationRequestResponse_httpStatus,
+
+    -- ** UpdateQualificationType
+    updateQualificationType_retryDelayInSeconds,
+    updateQualificationType_autoGranted,
+    updateQualificationType_qualificationTypeStatus,
+    updateQualificationType_testDurationInSeconds,
+    updateQualificationType_test,
+    updateQualificationType_description,
+    updateQualificationType_autoGrantedValue,
+    updateQualificationType_answerKey,
+    updateQualificationType_qualificationTypeId,
+    updateQualificationTypeResponse_qualificationType,
+    updateQualificationTypeResponse_httpStatus,
+
+    -- ** DeleteQualificationType
+    deleteQualificationType_qualificationTypeId,
+    deleteQualificationTypeResponse_httpStatus,
+
     -- ** CreateQualificationType
     createQualificationType_retryDelayInSeconds,
     createQualificationType_autoGranted,
     createQualificationType_testDurationInSeconds,
     createQualificationType_test,
-    createQualificationType_answerKey,
     createQualificationType_autoGrantedValue,
+    createQualificationType_answerKey,
     createQualificationType_keywords,
     createQualificationType_name,
     createQualificationType_description,
@@ -331,8 +331,8 @@ module Network.AWS.MechanicalTurk.Lens
     assignment_submitTime,
     assignment_workerId,
     assignment_acceptTime,
-    assignment_approvalTime,
     assignment_deadline,
+    assignment_approvalTime,
 
     -- ** BonusPayment
     bonusPayment_bonusAmount,
@@ -349,19 +349,19 @@ module Network.AWS.MechanicalTurk.Lens
     hit_question,
     hit_expiration,
     hit_hITReviewStatus,
-    hit_title,
     hit_hITId,
+    hit_title,
     hit_hITLayoutId,
-    hit_numberOfAssignmentsCompleted,
     hit_reward,
+    hit_numberOfAssignmentsCompleted,
     hit_maxAssignments,
-    hit_hITStatus,
     hit_requesterAnnotation,
+    hit_hITStatus,
     hit_description,
     hit_numberOfAssignmentsAvailable,
     hit_hITTypeId,
-    hit_qualificationRequirements,
     hit_numberOfAssignmentsPending,
+    hit_qualificationRequirements,
     hit_keywords,
 
     -- ** HITLayoutParameter
@@ -379,8 +379,8 @@ module Network.AWS.MechanicalTurk.Lens
     notificationSpecification_eventTypes,
 
     -- ** NotifyWorkersFailureStatus
-    notifyWorkersFailureStatus_workerId,
     notifyWorkersFailureStatus_notifyWorkersFailureCode,
+    notifyWorkersFailureStatus_workerId,
     notifyWorkersFailureStatus_notifyWorkersFailureMessage,
 
     -- ** ParameterMapEntry
@@ -393,11 +393,11 @@ module Network.AWS.MechanicalTurk.Lens
     policyParameter_mapEntries,
 
     -- ** Qualification
-    qualification_qualificationTypeId,
     qualification_status,
+    qualification_qualificationTypeId,
     qualification_grantTime,
-    qualification_workerId,
     qualification_localeValue,
+    qualification_workerId,
     qualification_integerValue,
 
     -- ** QualificationRequest
@@ -417,26 +417,26 @@ module Network.AWS.MechanicalTurk.Lens
     qualificationRequirement_comparator,
 
     -- ** QualificationType
-    qualificationType_qualificationTypeId,
     qualificationType_creationTime,
+    qualificationType_qualificationTypeId,
     qualificationType_isRequestable,
     qualificationType_retryDelayInSeconds,
     qualificationType_autoGranted,
     qualificationType_qualificationTypeStatus,
     qualificationType_name,
     qualificationType_testDurationInSeconds,
-    qualificationType_description,
     qualificationType_test,
-    qualificationType_answerKey,
+    qualificationType_description,
     qualificationType_autoGrantedValue,
+    qualificationType_answerKey,
     qualificationType_keywords,
 
     -- ** ReviewActionDetail
     reviewActionDetail_status,
     reviewActionDetail_targetId,
+    reviewActionDetail_result,
     reviewActionDetail_actionName,
     reviewActionDetail_targetType,
-    reviewActionDetail_result,
     reviewActionDetail_actionId,
     reviewActionDetail_completeTime,
     reviewActionDetail_errorCode,

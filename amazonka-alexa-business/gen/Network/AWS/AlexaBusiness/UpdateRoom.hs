@@ -28,9 +28,9 @@ module Network.AWS.AlexaBusiness.UpdateRoom
 
     -- * Request Lenses
     updateRoom_roomArn,
-    updateRoom_providerCalendarId,
     updateRoom_profileArn,
     updateRoom_description,
+    updateRoom_providerCalendarId,
     updateRoom_roomName,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data UpdateRoom = UpdateRoom'
   { -- | The ARN of the room to update.
     roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The updated provider calendar ARN for the room.
-    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The updated profile ARN for the room.
     profileArn :: Prelude.Maybe Prelude.Text,
     -- | The updated description for the room.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The updated provider calendar ARN for the room.
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The updated name for the room.
     roomName :: Prelude.Maybe Prelude.Text
   }
@@ -74,11 +74,11 @@ data UpdateRoom = UpdateRoom'
 --
 -- 'roomArn', 'updateRoom_roomArn' - The ARN of the room to update.
 --
--- 'providerCalendarId', 'updateRoom_providerCalendarId' - The updated provider calendar ARN for the room.
---
 -- 'profileArn', 'updateRoom_profileArn' - The updated profile ARN for the room.
 --
 -- 'description', 'updateRoom_description' - The updated description for the room.
+--
+-- 'providerCalendarId', 'updateRoom_providerCalendarId' - The updated provider calendar ARN for the room.
 --
 -- 'roomName', 'updateRoom_roomName' - The updated name for the room.
 newUpdateRoom ::
@@ -86,19 +86,15 @@ newUpdateRoom ::
 newUpdateRoom =
   UpdateRoom'
     { roomArn = Prelude.Nothing,
-      providerCalendarId = Prelude.Nothing,
       profileArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
       roomName = Prelude.Nothing
     }
 
 -- | The ARN of the room to update.
 updateRoom_roomArn :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
 updateRoom_roomArn = Lens.lens (\UpdateRoom' {roomArn} -> roomArn) (\s@UpdateRoom' {} a -> s {roomArn = a} :: UpdateRoom)
-
--- | The updated provider calendar ARN for the room.
-updateRoom_providerCalendarId :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
-updateRoom_providerCalendarId = Lens.lens (\UpdateRoom' {providerCalendarId} -> providerCalendarId) (\s@UpdateRoom' {} a -> s {providerCalendarId = a} :: UpdateRoom)
 
 -- | The updated profile ARN for the room.
 updateRoom_profileArn :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
@@ -107,6 +103,10 @@ updateRoom_profileArn = Lens.lens (\UpdateRoom' {profileArn} -> profileArn) (\s@
 -- | The updated description for the room.
 updateRoom_description :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
 updateRoom_description = Lens.lens (\UpdateRoom' {description} -> description) (\s@UpdateRoom' {} a -> s {description = a} :: UpdateRoom)
+
+-- | The updated provider calendar ARN for the room.
+updateRoom_providerCalendarId :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
+updateRoom_providerCalendarId = Lens.lens (\UpdateRoom' {providerCalendarId} -> providerCalendarId) (\s@UpdateRoom' {} a -> s {providerCalendarId = a} :: UpdateRoom)
 
 -- | The updated name for the room.
 updateRoom_roomName :: Lens.Lens' UpdateRoom (Prelude.Maybe Prelude.Text)
@@ -146,10 +146,10 @@ instance Core.ToJSON UpdateRoom where
     Core.object
       ( Prelude.catMaybes
           [ ("RoomArn" Core..=) Prelude.<$> roomArn,
-            ("ProviderCalendarId" Core..=)
-              Prelude.<$> providerCalendarId,
             ("ProfileArn" Core..=) Prelude.<$> profileArn,
             ("Description" Core..=) Prelude.<$> description,
+            ("ProviderCalendarId" Core..=)
+              Prelude.<$> providerCalendarId,
             ("RoomName" Core..=) Prelude.<$> roomName
           ]
       )

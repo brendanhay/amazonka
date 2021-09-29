@@ -20,8 +20,8 @@ module Network.AWS.CloudWatch.Types
     _DashboardNotFoundError,
     _LimitExceededFault,
     _InvalidParameterCombinationException,
-    _MissingRequiredParameterException,
     _DashboardInvalidInputError,
+    _MissingRequiredParameterException,
     _InternalServiceFault,
     _ConcurrentModificationException,
     _InvalidParameterValueException,
@@ -42,6 +42,9 @@ module Network.AWS.CloudWatch.Types
 
     -- * HistoryItemType
     HistoryItemType (..),
+
+    -- * MetricStreamOutputFormat
+    MetricStreamOutputFormat (..),
 
     -- * RecentlyActive
     RecentlyActive (..),
@@ -77,8 +80,8 @@ module Network.AWS.CloudWatch.Types
     anomalyDetector_metricName,
     anomalyDetector_configuration,
     anomalyDetector_stateValue,
-    anomalyDetector_dimensions,
     anomalyDetector_namespace,
+    anomalyDetector_dimensions,
     anomalyDetector_stat,
 
     -- * AnomalyDetectorConfiguration
@@ -90,15 +93,15 @@ module Network.AWS.CloudWatch.Types
     -- * CompositeAlarm
     CompositeAlarm (..),
     newCompositeAlarm,
-    compositeAlarm_alarmArn,
     compositeAlarm_alarmActions,
+    compositeAlarm_alarmArn,
     compositeAlarm_stateReason,
     compositeAlarm_stateReasonData,
     compositeAlarm_insufficientDataActions,
     compositeAlarm_alarmRule,
-    compositeAlarm_stateUpdatedTimestamp,
-    compositeAlarm_stateValue,
     compositeAlarm_alarmName,
+    compositeAlarm_stateValue,
+    compositeAlarm_stateUpdatedTimestamp,
     compositeAlarm_oKActions,
     compositeAlarm_actionsEnabled,
     compositeAlarm_alarmConfigurationUpdatedTimestamp,
@@ -108,8 +111,8 @@ module Network.AWS.CloudWatch.Types
     DashboardEntry (..),
     newDashboardEntry,
     dashboardEntry_dashboardArn,
-    dashboardEntry_lastModified,
     dashboardEntry_dashboardName,
+    dashboardEntry_lastModified,
     dashboardEntry_size,
 
     -- * DashboardValidationMessage
@@ -190,8 +193,8 @@ module Network.AWS.CloudWatch.Types
     Metric (..),
     newMetric,
     metric_metricName,
-    metric_dimensions,
     metric_namespace,
+    metric_dimensions,
 
     -- * MetricAlarm
     MetricAlarm (..),
@@ -201,32 +204,33 @@ module Network.AWS.CloudWatch.Types
     metricAlarm_evaluateLowSampleCountPercentile,
     metricAlarm_comparisonOperator,
     metricAlarm_extendedStatistic,
-    metricAlarm_alarmArn,
+    metricAlarm_thresholdMetricId,
     metricAlarm_alarmActions,
     metricAlarm_unit,
-    metricAlarm_thresholdMetricId,
+    metricAlarm_alarmArn,
+    metricAlarm_metricName,
     metricAlarm_stateReason,
     metricAlarm_stateReasonData,
-    metricAlarm_metricName,
     metricAlarm_insufficientDataActions,
     metricAlarm_treatMissingData,
     metricAlarm_metrics,
-    metricAlarm_stateUpdatedTimestamp,
-    metricAlarm_stateValue,
     metricAlarm_alarmName,
+    metricAlarm_stateValue,
+    metricAlarm_stateUpdatedTimestamp,
     metricAlarm_oKActions,
     metricAlarm_statistic,
-    metricAlarm_dimensions,
     metricAlarm_namespace,
+    metricAlarm_dimensions,
     metricAlarm_evaluationPeriods,
     metricAlarm_actionsEnabled,
     metricAlarm_alarmConfigurationUpdatedTimestamp,
-    metricAlarm_alarmDescription,
     metricAlarm_period,
+    metricAlarm_alarmDescription,
 
     -- * MetricDataQuery
     MetricDataQuery (..),
     newMetricDataQuery,
+    metricDataQuery_accountId,
     metricDataQuery_metricStat,
     metricDataQuery_returnData,
     metricDataQuery_label,
@@ -251,8 +255,8 @@ module Network.AWS.CloudWatch.Types
     metricDatum_unit,
     metricDatum_values,
     metricDatum_counts,
-    metricDatum_timestamp,
     metricDatum_statisticValues,
+    metricDatum_timestamp,
     metricDatum_value,
     metricDatum_dimensions,
     metricDatum_metricName,
@@ -264,6 +268,22 @@ module Network.AWS.CloudWatch.Types
     metricStat_metric,
     metricStat_period,
     metricStat_stat,
+
+    -- * MetricStreamEntry
+    MetricStreamEntry (..),
+    newMetricStreamEntry,
+    metricStreamEntry_firehoseArn,
+    metricStreamEntry_arn,
+    metricStreamEntry_creationDate,
+    metricStreamEntry_name,
+    metricStreamEntry_lastUpdateDate,
+    metricStreamEntry_state,
+    metricStreamEntry_outputFormat,
+
+    -- * MetricStreamFilter
+    MetricStreamFilter (..),
+    newMetricStreamFilter,
+    metricStreamFilter_namespace,
 
     -- * PartialFailure
     PartialFailure (..),
@@ -320,6 +340,9 @@ import Network.AWS.CloudWatch.Types.MetricDataQuery
 import Network.AWS.CloudWatch.Types.MetricDataResult
 import Network.AWS.CloudWatch.Types.MetricDatum
 import Network.AWS.CloudWatch.Types.MetricStat
+import Network.AWS.CloudWatch.Types.MetricStreamEntry
+import Network.AWS.CloudWatch.Types.MetricStreamFilter
+import Network.AWS.CloudWatch.Types.MetricStreamOutputFormat
 import Network.AWS.CloudWatch.Types.PartialFailure
 import Network.AWS.CloudWatch.Types.Range
 import Network.AWS.CloudWatch.Types.RecentlyActive
@@ -429,20 +452,20 @@ _InvalidParameterCombinationException =
     "InvalidParameterCombination"
     Prelude.. Core.hasStatus 400
 
--- | An input parameter that is required is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingRequiredParameterException =
-  Core._MatchServiceError
-    defaultService
-    "MissingParameter"
-    Prelude.. Core.hasStatus 400
-
 -- | Some part of the dashboard data is invalid.
 _DashboardInvalidInputError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DashboardInvalidInputError =
   Core._MatchServiceError
     defaultService
     "InvalidParameterInput"
+    Prelude.. Core.hasStatus 400
+
+-- | An input parameter that is required is missing.
+_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException =
+  Core._MatchServiceError
+    defaultService
+    "MissingParameter"
     Prelude.. Core.hasStatus 400
 
 -- | Request processing has failed due to some unknown error, exception, or

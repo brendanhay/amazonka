@@ -50,33 +50,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | Whether to include additional information about your clusters in the
-    -- response. If this field is omitted, the attachments, statistics, and
-    -- tags are not included.
+  { -- | Whether to include additional information about the clusters in the
+    -- response. If this field is omitted, this information isn\'t included.
     --
     -- If @ATTACHMENTS@ is specified, the attachments for the container
     -- instances or tasks within the cluster are included.
     --
     -- If @SETTINGS@ is specified, the settings for the cluster are included.
     --
-    -- If @STATISTICS@ is specified, the following additional information,
-    -- separated by launch type, is included:
+    -- If @CONFIGURATIONS@ is specified, the configuration for the cluster is
+    -- included.
     --
-    -- -   runningEC2TasksCount
-    --
-    -- -   runningFargateTasksCount
-    --
-    -- -   pendingEC2TasksCount
-    --
-    -- -   pendingFargateTasksCount
-    --
-    -- -   activeEC2ServiceCount
-    --
-    -- -   activeFargateServiceCount
-    --
-    -- -   drainingEC2ServiceCount
-    --
-    -- -   drainingFargateServiceCount
+    -- If @STATISTICS@ is specified, the task and service count is included,
+    -- separated by launch type.
     --
     -- If @TAGS@ is specified, the metadata tags associated with the cluster
     -- are included.
@@ -96,33 +82,19 @@ data DescribeClusters = DescribeClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'include', 'describeClusters_include' - Whether to include additional information about your clusters in the
--- response. If this field is omitted, the attachments, statistics, and
--- tags are not included.
+-- 'include', 'describeClusters_include' - Whether to include additional information about the clusters in the
+-- response. If this field is omitted, this information isn\'t included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
 -- instances or tasks within the cluster are included.
 --
 -- If @SETTINGS@ is specified, the settings for the cluster are included.
 --
--- If @STATISTICS@ is specified, the following additional information,
--- separated by launch type, is included:
+-- If @CONFIGURATIONS@ is specified, the configuration for the cluster is
+-- included.
 --
--- -   runningEC2TasksCount
---
--- -   runningFargateTasksCount
---
--- -   pendingEC2TasksCount
---
--- -   pendingFargateTasksCount
---
--- -   activeEC2ServiceCount
---
--- -   activeFargateServiceCount
---
--- -   drainingEC2ServiceCount
---
--- -   drainingFargateServiceCount
+-- If @STATISTICS@ is specified, the task and service count is included,
+-- separated by launch type.
 --
 -- If @TAGS@ is specified, the metadata tags associated with the cluster
 -- are included.
@@ -138,33 +110,19 @@ newDescribeClusters =
       clusters = Prelude.Nothing
     }
 
--- | Whether to include additional information about your clusters in the
--- response. If this field is omitted, the attachments, statistics, and
--- tags are not included.
+-- | Whether to include additional information about the clusters in the
+-- response. If this field is omitted, this information isn\'t included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
 -- instances or tasks within the cluster are included.
 --
 -- If @SETTINGS@ is specified, the settings for the cluster are included.
 --
--- If @STATISTICS@ is specified, the following additional information,
--- separated by launch type, is included:
+-- If @CONFIGURATIONS@ is specified, the configuration for the cluster is
+-- included.
 --
--- -   runningEC2TasksCount
---
--- -   runningFargateTasksCount
---
--- -   pendingEC2TasksCount
---
--- -   pendingFargateTasksCount
---
--- -   activeEC2ServiceCount
---
--- -   activeFargateServiceCount
---
--- -   drainingEC2ServiceCount
---
--- -   drainingFargateServiceCount
+-- If @STATISTICS@ is specified, the task and service count is included,
+-- separated by launch type.
 --
 -- If @TAGS@ is specified, the metadata tags associated with the cluster
 -- are included.

@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
   ( DvbSubtitleBackgroundColor
       ( ..,
+        DvbSubtitleBackgroundColor_AUTO,
         DvbSubtitleBackgroundColor_BLACK,
         DvbSubtitleBackgroundColor_NONE,
         DvbSubtitleBackgroundColor_WHITE
@@ -60,6 +61,9 @@ newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor'
       Core.ToXML
     )
 
+pattern DvbSubtitleBackgroundColor_AUTO :: DvbSubtitleBackgroundColor
+pattern DvbSubtitleBackgroundColor_AUTO = DvbSubtitleBackgroundColor' "AUTO"
+
 pattern DvbSubtitleBackgroundColor_BLACK :: DvbSubtitleBackgroundColor
 pattern DvbSubtitleBackgroundColor_BLACK = DvbSubtitleBackgroundColor' "BLACK"
 
@@ -70,6 +74,7 @@ pattern DvbSubtitleBackgroundColor_WHITE :: DvbSubtitleBackgroundColor
 pattern DvbSubtitleBackgroundColor_WHITE = DvbSubtitleBackgroundColor' "WHITE"
 
 {-# COMPLETE
+  DvbSubtitleBackgroundColor_AUTO,
   DvbSubtitleBackgroundColor_BLACK,
   DvbSubtitleBackgroundColor_NONE,
   DvbSubtitleBackgroundColor_WHITE,

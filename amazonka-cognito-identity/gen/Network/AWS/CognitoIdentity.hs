@@ -102,11 +102,11 @@ module Network.AWS.CognitoIdentity
     DeleteIdentitiesResponse (DeleteIdentitiesResponse'),
     newDeleteIdentitiesResponse,
 
-    -- ** MergeDeveloperIdentities
-    MergeDeveloperIdentities (MergeDeveloperIdentities'),
-    newMergeDeveloperIdentities,
-    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
-    newMergeDeveloperIdentitiesResponse,
+    -- ** GetPrincipalTagAttributeMap
+    GetPrincipalTagAttributeMap (GetPrincipalTagAttributeMap'),
+    newGetPrincipalTagAttributeMap,
+    GetPrincipalTagAttributeMapResponse (GetPrincipalTagAttributeMapResponse'),
+    newGetPrincipalTagAttributeMapResponse,
 
     -- ** CreateIdentityPool
     CreateIdentityPool (CreateIdentityPool'),
@@ -114,17 +114,23 @@ module Network.AWS.CognitoIdentity
     IdentityPool (IdentityPool'),
     newIdentityPool,
 
-    -- ** GetPrincipalTagAttributeMap
-    GetPrincipalTagAttributeMap (GetPrincipalTagAttributeMap'),
-    newGetPrincipalTagAttributeMap,
-    GetPrincipalTagAttributeMapResponse (GetPrincipalTagAttributeMapResponse'),
-    newGetPrincipalTagAttributeMapResponse,
+    -- ** MergeDeveloperIdentities
+    MergeDeveloperIdentities (MergeDeveloperIdentities'),
+    newMergeDeveloperIdentities,
+    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
+    newMergeDeveloperIdentitiesResponse,
 
     -- ** UpdateIdentityPool
     UpdateIdentityPool (UpdateIdentityPool'),
     newUpdateIdentityPool,
     IdentityPool (IdentityPool'),
     newIdentityPool,
+
+    -- ** GetIdentityPoolRoles
+    GetIdentityPoolRoles (GetIdentityPoolRoles'),
+    newGetIdentityPoolRoles,
+    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
+    newGetIdentityPoolRolesResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -137,12 +143,6 @@ module Network.AWS.CognitoIdentity
     newDeleteIdentityPool,
     DeleteIdentityPoolResponse (DeleteIdentityPoolResponse'),
     newDeleteIdentityPoolResponse,
-
-    -- ** GetIdentityPoolRoles
-    GetIdentityPoolRoles (GetIdentityPoolRoles'),
-    newGetIdentityPoolRoles,
-    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
-    newGetIdentityPoolRolesResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -174,6 +174,12 @@ module Network.AWS.CognitoIdentity
     ListIdentityPoolsResponse (ListIdentityPoolsResponse'),
     newListIdentityPoolsResponse,
 
+    -- ** GetId
+    GetId (GetId'),
+    newGetId,
+    GetIdResponse (GetIdResponse'),
+    newGetIdResponse,
+
     -- ** DescribeIdentity
     DescribeIdentity (DescribeIdentity'),
     newDescribeIdentity,
@@ -192,29 +198,23 @@ module Network.AWS.CognitoIdentity
     UnlinkDeveloperIdentityResponse (UnlinkDeveloperIdentityResponse'),
     newUnlinkDeveloperIdentityResponse,
 
-    -- ** GetId
-    GetId (GetId'),
-    newGetId,
-    GetIdResponse (GetIdResponse'),
-    newGetIdResponse,
-
     -- ** ListIdentities
     ListIdentities (ListIdentities'),
     newListIdentities,
     ListIdentitiesResponse (ListIdentitiesResponse'),
     newListIdentitiesResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** SetPrincipalTagAttributeMap
     SetPrincipalTagAttributeMap (SetPrincipalTagAttributeMap'),
     newSetPrincipalTagAttributeMap,
     SetPrincipalTagAttributeMapResponse (SetPrincipalTagAttributeMapResponse'),
     newSetPrincipalTagAttributeMapResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 

@@ -165,7 +165,8 @@ instance Core.ToQuery PutAccountSettingDefault where
 
 -- | /See:/ 'newPutAccountSettingDefaultResponse' smart constructor.
 data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
-  { setting :: Prelude.Maybe Setting,
+  { -- | The current setting for a resource.
+    setting :: Prelude.Maybe Setting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,7 +180,7 @@ data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'setting', 'putAccountSettingDefaultResponse_setting' - Undocumented member.
+-- 'setting', 'putAccountSettingDefaultResponse_setting' - The current setting for a resource.
 --
 -- 'httpStatus', 'putAccountSettingDefaultResponse_httpStatus' - The response's http status code.
 newPutAccountSettingDefaultResponse ::
@@ -193,7 +194,7 @@ newPutAccountSettingDefaultResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The current setting for a resource.
 putAccountSettingDefaultResponse_setting :: Lens.Lens' PutAccountSettingDefaultResponse (Prelude.Maybe Setting)
 putAccountSettingDefaultResponse_setting = Lens.lens (\PutAccountSettingDefaultResponse' {setting} -> setting) (\s@PutAccountSettingDefaultResponse' {} a -> s {setting = a} :: PutAccountSettingDefaultResponse)
 

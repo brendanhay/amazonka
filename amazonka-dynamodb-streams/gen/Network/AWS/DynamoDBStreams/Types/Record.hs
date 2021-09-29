@@ -41,12 +41,12 @@ data Record = Record'
     --
     --     \"dynamodb.amazonaws.com\"
     userIdentity :: Prelude.Maybe Identity,
-    -- | A globally unique identifier for the event that was recorded in this
-    -- stream record.
-    eventID :: Prelude.Maybe Prelude.Text,
     -- | The AWS service from which the stream record originated. For DynamoDB
     -- Streams, this is @aws:dynamodb@.
     eventSource :: Prelude.Maybe Prelude.Text,
+    -- | A globally unique identifier for the event that was recorded in this
+    -- stream record.
+    eventID :: Prelude.Maybe Prelude.Text,
     -- | The type of data modification that was performed on the DynamoDB table:
     --
     -- -   @INSERT@ - a new item was added to the table.
@@ -91,11 +91,11 @@ data Record = Record'
 --
 --     \"dynamodb.amazonaws.com\"
 --
--- 'eventID', 'record_eventID' - A globally unique identifier for the event that was recorded in this
--- stream record.
---
 -- 'eventSource', 'record_eventSource' - The AWS service from which the stream record originated. For DynamoDB
 -- Streams, this is @aws:dynamodb@.
+--
+-- 'eventID', 'record_eventID' - A globally unique identifier for the event that was recorded in this
+-- stream record.
 --
 -- 'eventName', 'record_eventName' - The type of data modification that was performed on the DynamoDB table:
 --
@@ -123,8 +123,8 @@ newRecord ::
 newRecord =
   Record'
     { userIdentity = Prelude.Nothing,
-      eventID = Prelude.Nothing,
       eventSource = Prelude.Nothing,
+      eventID = Prelude.Nothing,
       eventName = Prelude.Nothing,
       eventVersion = Prelude.Nothing,
       dynamodb = Prelude.Nothing,
@@ -144,15 +144,15 @@ newRecord =
 record_userIdentity :: Lens.Lens' Record (Prelude.Maybe Identity)
 record_userIdentity = Lens.lens (\Record' {userIdentity} -> userIdentity) (\s@Record' {} a -> s {userIdentity = a} :: Record)
 
--- | A globally unique identifier for the event that was recorded in this
--- stream record.
-record_eventID :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_eventID = Lens.lens (\Record' {eventID} -> eventID) (\s@Record' {} a -> s {eventID = a} :: Record)
-
 -- | The AWS service from which the stream record originated. For DynamoDB
 -- Streams, this is @aws:dynamodb@.
 record_eventSource :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_eventSource = Lens.lens (\Record' {eventSource} -> eventSource) (\s@Record' {} a -> s {eventSource = a} :: Record)
+
+-- | A globally unique identifier for the event that was recorded in this
+-- stream record.
+record_eventID :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_eventID = Lens.lens (\Record' {eventID} -> eventID) (\s@Record' {} a -> s {eventID = a} :: Record)
 
 -- | The type of data modification that was performed on the DynamoDB table:
 --
@@ -191,8 +191,8 @@ instance Core.FromJSON Record where
       ( \x ->
           Record'
             Prelude.<$> (x Core..:? "userIdentity")
-            Prelude.<*> (x Core..:? "eventID")
             Prelude.<*> (x Core..:? "eventSource")
+            Prelude.<*> (x Core..:? "eventID")
             Prelude.<*> (x Core..:? "eventName")
             Prelude.<*> (x Core..:? "eventVersion")
             Prelude.<*> (x Core..:? "dynamodb")

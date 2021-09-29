@@ -35,6 +35,15 @@ data Redirect = Redirect'
     -- | The HTTP redirect code to use on the response. Not required if one of
     -- the siblings is present.
     httpRedirectCode :: Prelude.Maybe Prelude.Text,
+    -- | The specific object key to use in the redirect request. For example,
+    -- redirect request to @error.html@. Not required if one of the siblings is
+    -- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
+    --
+    -- Replacement must be made for object keys containing special characters
+    -- (such as carriage returns) when using XML requests. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
+    replaceKeyWith :: Prelude.Maybe Prelude.Text,
     -- | The object key prefix to use in the redirect request. For example, to
     -- redirect requests for all pages with prefix @docs\/@ (objects in the
     -- @docs\/@ folder) to @documents\/@, you can set a condition block with
@@ -48,15 +57,6 @@ data Redirect = Redirect'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     replaceKeyPrefixWith :: Prelude.Maybe Prelude.Text,
-    -- | The specific object key to use in the redirect request. For example,
-    -- redirect request to @error.html@. Not required if one of the siblings is
-    -- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
-    --
-    -- Replacement must be made for object keys containing special characters
-    -- (such as carriage returns) when using XML requests. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    replaceKeyWith :: Prelude.Maybe Prelude.Text,
     -- | Protocol to use when redirecting requests. The default is the protocol
     -- that is used in the original request.
     protocol :: Prelude.Maybe Protocol
@@ -76,6 +76,15 @@ data Redirect = Redirect'
 -- 'httpRedirectCode', 'redirect_httpRedirectCode' - The HTTP redirect code to use on the response. Not required if one of
 -- the siblings is present.
 --
+-- 'replaceKeyWith', 'redirect_replaceKeyWith' - The specific object key to use in the redirect request. For example,
+-- redirect request to @error.html@. Not required if one of the siblings is
+-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
+--
+-- Replacement must be made for object keys containing special characters
+-- (such as carriage returns) when using XML requests. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
+--
 -- 'replaceKeyPrefixWith', 'redirect_replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix @docs\/@ (objects in the
 -- @docs\/@ folder) to @documents\/@, you can set a condition block with
@@ -83,15 +92,6 @@ data Redirect = Redirect'
 -- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the
 -- siblings is present. Can be present only if @ReplaceKeyWith@ is not
 -- provided.
---
--- Replacement must be made for object keys containing special characters
--- (such as carriage returns) when using XML requests. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
---
--- 'replaceKeyWith', 'redirect_replaceKeyWith' - The specific object key to use in the redirect request. For example,
--- redirect request to @error.html@. Not required if one of the siblings is
--- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
 --
 -- Replacement must be made for object keys containing special characters
 -- (such as carriage returns) when using XML requests. For more
@@ -106,8 +106,8 @@ newRedirect =
   Redirect'
     { hostName = Prelude.Nothing,
       httpRedirectCode = Prelude.Nothing,
-      replaceKeyPrefixWith = Prelude.Nothing,
       replaceKeyWith = Prelude.Nothing,
+      replaceKeyPrefixWith = Prelude.Nothing,
       protocol = Prelude.Nothing
     }
 
@@ -119,6 +119,17 @@ redirect_hostName = Lens.lens (\Redirect' {hostName} -> hostName) (\s@Redirect' 
 -- the siblings is present.
 redirect_httpRedirectCode :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
 redirect_httpRedirectCode = Lens.lens (\Redirect' {httpRedirectCode} -> httpRedirectCode) (\s@Redirect' {} a -> s {httpRedirectCode = a} :: Redirect)
+
+-- | The specific object key to use in the redirect request. For example,
+-- redirect request to @error.html@. Not required if one of the siblings is
+-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
+--
+-- Replacement must be made for object keys containing special characters
+-- (such as carriage returns) when using XML requests. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
+redirect_replaceKeyWith :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
+redirect_replaceKeyWith = Lens.lens (\Redirect' {replaceKeyWith} -> replaceKeyWith) (\s@Redirect' {} a -> s {replaceKeyWith = a} :: Redirect)
 
 -- | The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix @docs\/@ (objects in the
@@ -135,17 +146,6 @@ redirect_httpRedirectCode = Lens.lens (\Redirect' {httpRedirectCode} -> httpRedi
 redirect_replaceKeyPrefixWith :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
 redirect_replaceKeyPrefixWith = Lens.lens (\Redirect' {replaceKeyPrefixWith} -> replaceKeyPrefixWith) (\s@Redirect' {} a -> s {replaceKeyPrefixWith = a} :: Redirect)
 
--- | The specific object key to use in the redirect request. For example,
--- redirect request to @error.html@. Not required if one of the siblings is
--- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
---
--- Replacement must be made for object keys containing special characters
--- (such as carriage returns) when using XML requests. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-redirect_replaceKeyWith :: Lens.Lens' Redirect (Prelude.Maybe Prelude.Text)
-redirect_replaceKeyWith = Lens.lens (\Redirect' {replaceKeyWith} -> replaceKeyWith) (\s@Redirect' {} a -> s {replaceKeyWith = a} :: Redirect)
-
 -- | Protocol to use when redirecting requests. The default is the protocol
 -- that is used in the original request.
 redirect_protocol :: Lens.Lens' Redirect (Prelude.Maybe Protocol)
@@ -156,8 +156,8 @@ instance Core.FromXML Redirect where
     Redirect'
       Prelude.<$> (x Core..@? "HostName")
       Prelude.<*> (x Core..@? "HttpRedirectCode")
-      Prelude.<*> (x Core..@? "ReplaceKeyPrefixWith")
       Prelude.<*> (x Core..@? "ReplaceKeyWith")
+      Prelude.<*> (x Core..@? "ReplaceKeyPrefixWith")
       Prelude.<*> (x Core..@? "Protocol")
 
 instance Prelude.Hashable Redirect
@@ -169,7 +169,7 @@ instance Core.ToXML Redirect where
     Prelude.mconcat
       [ "HostName" Core.@= hostName,
         "HttpRedirectCode" Core.@= httpRedirectCode,
-        "ReplaceKeyPrefixWith" Core.@= replaceKeyPrefixWith,
         "ReplaceKeyWith" Core.@= replaceKeyWith,
+        "ReplaceKeyPrefixWith" Core.@= replaceKeyPrefixWith,
         "Protocol" Core.@= protocol
       ]

@@ -32,10 +32,10 @@ import Network.AWS.SageMaker.Types.UserContext
 data Pipeline = Pipeline'
   { -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the pipeline.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The description of the pipeline.
+    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role that created the pipeline.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
@@ -65,9 +65,9 @@ data Pipeline = Pipeline'
 --
 -- 'pipelineArn', 'pipeline_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
 --
--- 'pipelineDescription', 'pipeline_pipelineDescription' - The description of the pipeline.
---
 -- 'creationTime', 'pipeline_creationTime' - The creation time of the pipeline.
+--
+-- 'pipelineDescription', 'pipeline_pipelineDescription' - The description of the pipeline.
 --
 -- 'roleArn', 'pipeline_roleArn' - The Amazon Resource Name (ARN) of the role that created the pipeline.
 --
@@ -91,8 +91,8 @@ newPipeline ::
 newPipeline =
   Pipeline'
     { pipelineArn = Prelude.Nothing,
-      pipelineDescription = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      pipelineDescription = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       lastRunTime = Prelude.Nothing,
       pipelineDisplayName = Prelude.Nothing,
@@ -108,13 +108,13 @@ newPipeline =
 pipeline_pipelineArn :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
 pipeline_pipelineArn = Lens.lens (\Pipeline' {pipelineArn} -> pipelineArn) (\s@Pipeline' {} a -> s {pipelineArn = a} :: Pipeline)
 
--- | The description of the pipeline.
-pipeline_pipelineDescription :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
-pipeline_pipelineDescription = Lens.lens (\Pipeline' {pipelineDescription} -> pipelineDescription) (\s@Pipeline' {} a -> s {pipelineDescription = a} :: Pipeline)
-
 -- | The creation time of the pipeline.
 pipeline_creationTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
 pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\s@Pipeline' {} a -> s {creationTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+
+-- | The description of the pipeline.
+pipeline_pipelineDescription :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_pipelineDescription = Lens.lens (\Pipeline' {pipelineDescription} -> pipelineDescription) (\s@Pipeline' {} a -> s {pipelineDescription = a} :: Pipeline)
 
 -- | The Amazon Resource Name (ARN) of the role that created the pipeline.
 pipeline_roleArn :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
@@ -159,8 +159,8 @@ instance Core.FromJSON Pipeline where
       ( \x ->
           Pipeline'
             Prelude.<$> (x Core..:? "PipelineArn")
-            Prelude.<*> (x Core..:? "PipelineDescription")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "PipelineDescription")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "LastRunTime")
             Prelude.<*> (x Core..:? "PipelineDisplayName")

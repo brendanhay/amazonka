@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import Network.AWS.CostExplorer.Types.CostCategoryRule
 import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -31,20 +32,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCostCategory' smart constructor.
 data CostCategory = CostCategory'
-  { -- | The list of processing statuses for Cost Management products for a
+  { -- | The split charge rules that are used to allocate your charges between
+    -- your Cost Category values.
+    splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
+    -- | The list of processing statuses for Cost Management products for a
     -- specific cost category.
     processingStatus :: Prelude.Maybe [CostCategoryProcessingStatus],
-    -- | The Cost Category\'s effective end date.
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The effective end data of your Cost Category.
     effectiveEnd :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for your Cost Category.
     costCategoryArn :: Prelude.Text,
-    -- | The Cost Category\'s effective start date.
+    -- | The effective state data of your Cost Category.
     effectiveStart :: Prelude.Text,
     name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
-    -- | Rules are processed in order. If there are multiple rules that match the
-    -- line item, then the first rule to match is used to determine that Cost
-    -- Category value.
+    -- | The rules are processed in order. If there are multiple rules that match
+    -- the line item, then the first rule to match is used to determine that
+    -- Cost Category value.
     rules :: Prelude.NonEmpty CostCategoryRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,22 +62,27 @@ data CostCategory = CostCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'splitChargeRules', 'costCategory_splitChargeRules' - The split charge rules that are used to allocate your charges between
+-- your Cost Category values.
+--
 -- 'processingStatus', 'costCategory_processingStatus' - The list of processing statuses for Cost Management products for a
 -- specific cost category.
 --
--- 'effectiveEnd', 'costCategory_effectiveEnd' - The Cost Category\'s effective end date.
+-- 'defaultValue', 'costCategory_defaultValue' - Undocumented member.
+--
+-- 'effectiveEnd', 'costCategory_effectiveEnd' - The effective end data of your Cost Category.
 --
 -- 'costCategoryArn', 'costCategory_costCategoryArn' - The unique identifier for your Cost Category.
 --
--- 'effectiveStart', 'costCategory_effectiveStart' - The Cost Category\'s effective start date.
+-- 'effectiveStart', 'costCategory_effectiveStart' - The effective state data of your Cost Category.
 --
 -- 'name', 'costCategory_name' - Undocumented member.
 --
 -- 'ruleVersion', 'costCategory_ruleVersion' - Undocumented member.
 --
--- 'rules', 'costCategory_rules' - Rules are processed in order. If there are multiple rules that match the
--- line item, then the first rule to match is used to determine that Cost
--- Category value.
+-- 'rules', 'costCategory_rules' - The rules are processed in order. If there are multiple rules that match
+-- the line item, then the first rule to match is used to determine that
+-- Cost Category value.
 newCostCategory ::
   -- | 'costCategoryArn'
   Prelude.Text ->
@@ -92,7 +102,9 @@ newCostCategory
   pRuleVersion_
   pRules_ =
     CostCategory'
-      { processingStatus = Prelude.Nothing,
+      { splitChargeRules = Prelude.Nothing,
+        processingStatus = Prelude.Nothing,
+        defaultValue = Prelude.Nothing,
         effectiveEnd = Prelude.Nothing,
         costCategoryArn = pCostCategoryArn_,
         effectiveStart = pEffectiveStart_,
@@ -101,12 +113,21 @@ newCostCategory
         rules = Lens._Coerce Lens.# pRules_
       }
 
+-- | The split charge rules that are used to allocate your charges between
+-- your Cost Category values.
+costCategory_splitChargeRules :: Lens.Lens' CostCategory (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
+costCategory_splitChargeRules = Lens.lens (\CostCategory' {splitChargeRules} -> splitChargeRules) (\s@CostCategory' {} a -> s {splitChargeRules = a} :: CostCategory) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The list of processing statuses for Cost Management products for a
 -- specific cost category.
 costCategory_processingStatus :: Lens.Lens' CostCategory (Prelude.Maybe [CostCategoryProcessingStatus])
 costCategory_processingStatus = Lens.lens (\CostCategory' {processingStatus} -> processingStatus) (\s@CostCategory' {} a -> s {processingStatus = a} :: CostCategory) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Cost Category\'s effective end date.
+-- | Undocumented member.
+costCategory_defaultValue :: Lens.Lens' CostCategory (Prelude.Maybe Prelude.Text)
+costCategory_defaultValue = Lens.lens (\CostCategory' {defaultValue} -> defaultValue) (\s@CostCategory' {} a -> s {defaultValue = a} :: CostCategory)
+
+-- | The effective end data of your Cost Category.
 costCategory_effectiveEnd :: Lens.Lens' CostCategory (Prelude.Maybe Prelude.Text)
 costCategory_effectiveEnd = Lens.lens (\CostCategory' {effectiveEnd} -> effectiveEnd) (\s@CostCategory' {} a -> s {effectiveEnd = a} :: CostCategory)
 
@@ -114,7 +135,7 @@ costCategory_effectiveEnd = Lens.lens (\CostCategory' {effectiveEnd} -> effectiv
 costCategory_costCategoryArn :: Lens.Lens' CostCategory Prelude.Text
 costCategory_costCategoryArn = Lens.lens (\CostCategory' {costCategoryArn} -> costCategoryArn) (\s@CostCategory' {} a -> s {costCategoryArn = a} :: CostCategory)
 
--- | The Cost Category\'s effective start date.
+-- | The effective state data of your Cost Category.
 costCategory_effectiveStart :: Lens.Lens' CostCategory Prelude.Text
 costCategory_effectiveStart = Lens.lens (\CostCategory' {effectiveStart} -> effectiveStart) (\s@CostCategory' {} a -> s {effectiveStart = a} :: CostCategory)
 
@@ -126,9 +147,9 @@ costCategory_name = Lens.lens (\CostCategory' {name} -> name) (\s@CostCategory' 
 costCategory_ruleVersion :: Lens.Lens' CostCategory CostCategoryRuleVersion
 costCategory_ruleVersion = Lens.lens (\CostCategory' {ruleVersion} -> ruleVersion) (\s@CostCategory' {} a -> s {ruleVersion = a} :: CostCategory)
 
--- | Rules are processed in order. If there are multiple rules that match the
--- line item, then the first rule to match is used to determine that Cost
--- Category value.
+-- | The rules are processed in order. If there are multiple rules that match
+-- the line item, then the first rule to match is used to determine that
+-- Cost Category value.
 costCategory_rules :: Lens.Lens' CostCategory (Prelude.NonEmpty CostCategoryRule)
 costCategory_rules = Lens.lens (\CostCategory' {rules} -> rules) (\s@CostCategory' {} a -> s {rules = a} :: CostCategory) Prelude.. Lens._Coerce
 
@@ -138,9 +159,11 @@ instance Core.FromJSON CostCategory where
       "CostCategory"
       ( \x ->
           CostCategory'
-            Prelude.<$> ( x Core..:? "ProcessingStatus"
+            Prelude.<$> (x Core..:? "SplitChargeRules")
+            Prelude.<*> ( x Core..:? "ProcessingStatus"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DefaultValue")
             Prelude.<*> (x Core..:? "EffectiveEnd")
             Prelude.<*> (x Core..: "CostCategoryArn")
             Prelude.<*> (x Core..: "EffectiveStart")

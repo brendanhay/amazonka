@@ -25,25 +25,21 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of timestamps for which to return fragments.
 --
--- The values in the ClipTimestampRange are @inclusive@. Fragments that
--- begin before the start time but continue past it, or fragments that
--- begin before the end time but continue past it, are included in the
--- session.
---
 -- /See:/ 'newClipTimestampRange' smart constructor.
 data ClipTimestampRange = ClipTimestampRange'
   { -- | The starting timestamp in the range of timestamps for which to return
     -- fragments.
     --
-    -- This value is inclusive. Fragments that start before the
-    -- @StartTimestamp@ and continue past it are included in the session. If
+    -- Only fragments that start exactly at or after @StartTimestamp@ are
+    -- included in the session. Fragments that start before @StartTimestamp@
+    -- and continue past it aren\'t included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
     startTimestamp :: Core.POSIX,
     -- | The end of the timestamp range for the requested media.
     --
-    -- This value must be within 3 hours of the specified @StartTimestamp@, and
-    -- it must be later than the @StartTimestamp@ value. If
+    -- This value must be within 24 hours of the specified @StartTimestamp@,
+    -- and it must be later than the @StartTimestamp@ value. If
     -- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value
     -- must be in the past.
     --
@@ -65,15 +61,16 @@ data ClipTimestampRange = ClipTimestampRange'
 -- 'startTimestamp', 'clipTimestampRange_startTimestamp' - The starting timestamp in the range of timestamps for which to return
 -- fragments.
 --
--- This value is inclusive. Fragments that start before the
--- @StartTimestamp@ and continue past it are included in the session. If
+-- Only fragments that start exactly at or after @StartTimestamp@ are
+-- included in the session. Fragments that start before @StartTimestamp@
+-- and continue past it aren\'t included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 --
 -- 'endTimestamp', 'clipTimestampRange_endTimestamp' - The end of the timestamp range for the requested media.
 --
--- This value must be within 3 hours of the specified @StartTimestamp@, and
--- it must be later than the @StartTimestamp@ value. If
+-- This value must be within 24 hours of the specified @StartTimestamp@,
+-- and it must be later than the @StartTimestamp@ value. If
 -- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value
 -- must be in the past.
 --
@@ -96,8 +93,9 @@ newClipTimestampRange pStartTimestamp_ pEndTimestamp_ =
 -- | The starting timestamp in the range of timestamps for which to return
 -- fragments.
 --
--- This value is inclusive. Fragments that start before the
--- @StartTimestamp@ and continue past it are included in the session. If
+-- Only fragments that start exactly at or after @StartTimestamp@ are
+-- included in the session. Fragments that start before @StartTimestamp@
+-- and continue past it aren\'t included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 clipTimestampRange_startTimestamp :: Lens.Lens' ClipTimestampRange Prelude.UTCTime
@@ -105,8 +103,8 @@ clipTimestampRange_startTimestamp = Lens.lens (\ClipTimestampRange' {startTimest
 
 -- | The end of the timestamp range for the requested media.
 --
--- This value must be within 3 hours of the specified @StartTimestamp@, and
--- it must be later than the @StartTimestamp@ value. If
+-- This value must be within 24 hours of the specified @StartTimestamp@,
+-- and it must be later than the @StartTimestamp@ value. If
 -- @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this value
 -- must be in the past.
 --

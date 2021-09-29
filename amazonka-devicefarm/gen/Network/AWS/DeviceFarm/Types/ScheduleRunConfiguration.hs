@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScheduleRunConfiguration' smart constructor.
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-  { -- | Information about the locale that is used for the run.
-    locale :: Prelude.Maybe Prelude.Text,
-    -- | A list of upload ARNs for app packages to be installed with your app.
+  { -- | A list of upload ARNs for app packages to be installed with your app.
     auxiliaryApps :: Prelude.Maybe [Prelude.Text],
+    -- | Information about the locale that is used for the run.
+    locale :: Prelude.Maybe Prelude.Text,
     -- | Information about the radio states for the run.
     radios :: Prelude.Maybe Radios,
     -- | Specifies the billing method for a test run: @metered@ or @unmetered@.
@@ -52,12 +52,12 @@ data ScheduleRunConfiguration = ScheduleRunConfiguration'
     vpceConfigurationArns :: Prelude.Maybe [Prelude.Text],
     -- | Reserved for internal use.
     networkProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the location that is used for the run.
-    location :: Prelude.Maybe Location,
     -- | The ARN of the extra data for the run. The extra data is a .zip file
     -- that AWS Device Farm extracts to external data for Android or the app\'s
     -- sandbox for iOS.
-    extraDataPackageArn :: Prelude.Maybe Prelude.Text
+    extraDataPackageArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the location that is used for the run.
+    location :: Prelude.Maybe Location
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,9 +69,9 @@ data ScheduleRunConfiguration = ScheduleRunConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locale', 'scheduleRunConfiguration_locale' - Information about the locale that is used for the run.
---
 -- 'auxiliaryApps', 'scheduleRunConfiguration_auxiliaryApps' - A list of upload ARNs for app packages to be installed with your app.
+--
+-- 'locale', 'scheduleRunConfiguration_locale' - Information about the locale that is used for the run.
 --
 -- 'radios', 'scheduleRunConfiguration_radios' - Information about the radio states for the run.
 --
@@ -89,33 +89,34 @@ data ScheduleRunConfiguration = ScheduleRunConfiguration'
 --
 -- 'networkProfileArn', 'scheduleRunConfiguration_networkProfileArn' - Reserved for internal use.
 --
--- 'location', 'scheduleRunConfiguration_location' - Information about the location that is used for the run.
---
 -- 'extraDataPackageArn', 'scheduleRunConfiguration_extraDataPackageArn' - The ARN of the extra data for the run. The extra data is a .zip file
 -- that AWS Device Farm extracts to external data for Android or the app\'s
 -- sandbox for iOS.
+--
+-- 'location', 'scheduleRunConfiguration_location' - Information about the location that is used for the run.
 newScheduleRunConfiguration ::
   ScheduleRunConfiguration
 newScheduleRunConfiguration =
   ScheduleRunConfiguration'
-    { locale = Prelude.Nothing,
-      auxiliaryApps = Prelude.Nothing,
+    { auxiliaryApps =
+        Prelude.Nothing,
+      locale = Prelude.Nothing,
       radios = Prelude.Nothing,
       billingMethod = Prelude.Nothing,
       customerArtifactPaths = Prelude.Nothing,
       vpceConfigurationArns = Prelude.Nothing,
       networkProfileArn = Prelude.Nothing,
-      location = Prelude.Nothing,
-      extraDataPackageArn = Prelude.Nothing
+      extraDataPackageArn = Prelude.Nothing,
+      location = Prelude.Nothing
     }
-
--- | Information about the locale that is used for the run.
-scheduleRunConfiguration_locale :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Prelude.Text)
-scheduleRunConfiguration_locale = Lens.lens (\ScheduleRunConfiguration' {locale} -> locale) (\s@ScheduleRunConfiguration' {} a -> s {locale = a} :: ScheduleRunConfiguration)
 
 -- | A list of upload ARNs for app packages to be installed with your app.
 scheduleRunConfiguration_auxiliaryApps :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe [Prelude.Text])
 scheduleRunConfiguration_auxiliaryApps = Lens.lens (\ScheduleRunConfiguration' {auxiliaryApps} -> auxiliaryApps) (\s@ScheduleRunConfiguration' {} a -> s {auxiliaryApps = a} :: ScheduleRunConfiguration) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Information about the locale that is used for the run.
+scheduleRunConfiguration_locale :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Prelude.Text)
+scheduleRunConfiguration_locale = Lens.lens (\ScheduleRunConfiguration' {locale} -> locale) (\s@ScheduleRunConfiguration' {} a -> s {locale = a} :: ScheduleRunConfiguration)
 
 -- | Information about the radio states for the run.
 scheduleRunConfiguration_radios :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Radios)
@@ -143,15 +144,15 @@ scheduleRunConfiguration_vpceConfigurationArns = Lens.lens (\ScheduleRunConfigur
 scheduleRunConfiguration_networkProfileArn :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Prelude.Text)
 scheduleRunConfiguration_networkProfileArn = Lens.lens (\ScheduleRunConfiguration' {networkProfileArn} -> networkProfileArn) (\s@ScheduleRunConfiguration' {} a -> s {networkProfileArn = a} :: ScheduleRunConfiguration)
 
--- | Information about the location that is used for the run.
-scheduleRunConfiguration_location :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Location)
-scheduleRunConfiguration_location = Lens.lens (\ScheduleRunConfiguration' {location} -> location) (\s@ScheduleRunConfiguration' {} a -> s {location = a} :: ScheduleRunConfiguration)
-
 -- | The ARN of the extra data for the run. The extra data is a .zip file
 -- that AWS Device Farm extracts to external data for Android or the app\'s
 -- sandbox for iOS.
 scheduleRunConfiguration_extraDataPackageArn :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Prelude.Text)
 scheduleRunConfiguration_extraDataPackageArn = Lens.lens (\ScheduleRunConfiguration' {extraDataPackageArn} -> extraDataPackageArn) (\s@ScheduleRunConfiguration' {} a -> s {extraDataPackageArn = a} :: ScheduleRunConfiguration)
+
+-- | Information about the location that is used for the run.
+scheduleRunConfiguration_location :: Lens.Lens' ScheduleRunConfiguration (Prelude.Maybe Location)
+scheduleRunConfiguration_location = Lens.lens (\ScheduleRunConfiguration' {location} -> location) (\s@ScheduleRunConfiguration' {} a -> s {location = a} :: ScheduleRunConfiguration)
 
 instance Prelude.Hashable ScheduleRunConfiguration
 
@@ -161,8 +162,8 @@ instance Core.ToJSON ScheduleRunConfiguration where
   toJSON ScheduleRunConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("locale" Core..=) Prelude.<$> locale,
-            ("auxiliaryApps" Core..=) Prelude.<$> auxiliaryApps,
+          [ ("auxiliaryApps" Core..=) Prelude.<$> auxiliaryApps,
+            ("locale" Core..=) Prelude.<$> locale,
             ("radios" Core..=) Prelude.<$> radios,
             ("billingMethod" Core..=) Prelude.<$> billingMethod,
             ("customerArtifactPaths" Core..=)
@@ -171,8 +172,8 @@ instance Core.ToJSON ScheduleRunConfiguration where
               Prelude.<$> vpceConfigurationArns,
             ("networkProfileArn" Core..=)
               Prelude.<$> networkProfileArn,
-            ("location" Core..=) Prelude.<$> location,
             ("extraDataPackageArn" Core..=)
-              Prelude.<$> extraDataPackageArn
+              Prelude.<$> extraDataPackageArn,
+            ("location" Core..=) Prelude.<$> location
           ]
       )

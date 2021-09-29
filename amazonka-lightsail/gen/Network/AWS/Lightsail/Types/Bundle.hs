@@ -36,10 +36,10 @@ data Bundle = Bundle'
     -- to create an instance that uses a blueprint with a minimum power value
     -- of 500.
     power :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon EC2 instance type (e.g., @t2.micro@).
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The amount of RAM in GB (e.g., @2.0@).
     ramSizeInGb :: Prelude.Maybe Prelude.Double,
+    -- | The Amazon EC2 instance type (e.g., @t2.micro@).
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The bundle ID (e.g., @micro_1_0@).
     bundleId :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether the bundle is active.
@@ -77,9 +77,9 @@ data Bundle = Bundle'
 -- to create an instance that uses a blueprint with a minimum power value
 -- of 500.
 --
--- 'instanceType', 'bundle_instanceType' - The Amazon EC2 instance type (e.g., @t2.micro@).
---
 -- 'ramSizeInGb', 'bundle_ramSizeInGb' - The amount of RAM in GB (e.g., @2.0@).
+--
+-- 'instanceType', 'bundle_instanceType' - The Amazon EC2 instance type (e.g., @t2.micro@).
 --
 -- 'bundleId', 'bundle_bundleId' - The bundle ID (e.g., @micro_1_0@).
 --
@@ -104,8 +104,8 @@ newBundle ::
 newBundle =
   Bundle'
     { power = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       ramSizeInGb = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       bundleId = Prelude.Nothing,
       isActive = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -125,13 +125,13 @@ newBundle =
 bundle_power :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Int)
 bundle_power = Lens.lens (\Bundle' {power} -> power) (\s@Bundle' {} a -> s {power = a} :: Bundle)
 
--- | The Amazon EC2 instance type (e.g., @t2.micro@).
-bundle_instanceType :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Text)
-bundle_instanceType = Lens.lens (\Bundle' {instanceType} -> instanceType) (\s@Bundle' {} a -> s {instanceType = a} :: Bundle)
-
 -- | The amount of RAM in GB (e.g., @2.0@).
 bundle_ramSizeInGb :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Double)
 bundle_ramSizeInGb = Lens.lens (\Bundle' {ramSizeInGb} -> ramSizeInGb) (\s@Bundle' {} a -> s {ramSizeInGb = a} :: Bundle)
+
+-- | The Amazon EC2 instance type (e.g., @t2.micro@).
+bundle_instanceType :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Text)
+bundle_instanceType = Lens.lens (\Bundle' {instanceType} -> instanceType) (\s@Bundle' {} a -> s {instanceType = a} :: Bundle)
 
 -- | The bundle ID (e.g., @micro_1_0@).
 bundle_bundleId :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Text)
@@ -175,8 +175,8 @@ instance Core.FromJSON Bundle where
       ( \x ->
           Bundle'
             Prelude.<$> (x Core..:? "power")
-            Prelude.<*> (x Core..:? "instanceType")
             Prelude.<*> (x Core..:? "ramSizeInGb")
+            Prelude.<*> (x Core..:? "instanceType")
             Prelude.<*> (x Core..:? "bundleId")
             Prelude.<*> (x Core..:? "isActive")
             Prelude.<*> (x Core..:? "name")

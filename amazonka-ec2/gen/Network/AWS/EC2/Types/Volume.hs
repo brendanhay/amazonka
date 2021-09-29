@@ -40,9 +40,8 @@ data Volume = Volume'
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The throughput that the volume supports, in MiB\/s.
     throughput :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS
-    -- KMS) customer master key (CMK) that was used to protect the volume
-    -- encryption key for the volume.
+    -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
+    -- key that was used to protect the volume encryption key for the volume.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the volume.
     tags :: Prelude.Maybe [Tag],
@@ -89,9 +88,8 @@ data Volume = Volume'
 --
 -- 'throughput', 'volume_throughput' - The throughput that the volume supports, in MiB\/s.
 --
--- 'kmsKeyId', 'volume_kmsKeyId' - The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS
--- KMS) customer master key (CMK) that was used to protect the volume
--- encryption key for the volume.
+-- 'kmsKeyId', 'volume_kmsKeyId' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
+-- key that was used to protect the volume encryption key for the volume.
 --
 -- 'tags', 'volume_tags' - Any tags assigned to the volume.
 --
@@ -180,9 +178,8 @@ volume_outpostArn = Lens.lens (\Volume' {outpostArn} -> outpostArn) (\s@Volume' 
 volume_throughput :: Lens.Lens' Volume (Prelude.Maybe Prelude.Int)
 volume_throughput = Lens.lens (\Volume' {throughput} -> throughput) (\s@Volume' {} a -> s {throughput = a} :: Volume)
 
--- | The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS
--- KMS) customer master key (CMK) that was used to protect the volume
--- encryption key for the volume.
+-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
+-- key that was used to protect the volume encryption key for the volume.
 volume_kmsKeyId :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_kmsKeyId = Lens.lens (\Volume' {kmsKeyId} -> kmsKeyId) (\s@Volume' {} a -> s {kmsKeyId = a} :: Volume)
 

@@ -20,11 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
--- Provides summary information about the AppIntegration associations for
--- the specified Amazon Connect instance.
+-- Provides summary information about the AWS resource associations for the
+-- specified Amazon Connect instance.
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListIntegrationAssociations
@@ -35,6 +32,7 @@ module Network.AWS.Connect.ListIntegrationAssociations
     -- * Request Lenses
     listIntegrationAssociations_nextToken,
     listIntegrationAssociations_maxResults,
+    listIntegrationAssociations_integrationType,
     listIntegrationAssociations_instanceId,
 
     -- * Destructuring the Response
@@ -63,7 +61,9 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    integrationType :: Prelude.Maybe IntegrationType,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,10 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
 --
 -- 'maxResults', 'listIntegrationAssociations_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance.
+-- 'integrationType', 'listIntegrationAssociations_integrationType' -
+--
+-- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListIntegrationAssociations ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -92,6 +95,7 @@ newListIntegrationAssociations pInstanceId_ =
     { nextToken =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      integrationType = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -105,7 +109,12 @@ listIntegrationAssociations_nextToken = Lens.lens (\ListIntegrationAssociations'
 listIntegrationAssociations_maxResults :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Natural)
 listIntegrationAssociations_maxResults = Lens.lens (\ListIntegrationAssociations' {maxResults} -> maxResults) (\s@ListIntegrationAssociations' {} a -> s {maxResults = a} :: ListIntegrationAssociations)
 
--- | The identifier of the Amazon Connect instance.
+-- |
+listIntegrationAssociations_integrationType :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe IntegrationType)
+listIntegrationAssociations_integrationType = Lens.lens (\ListIntegrationAssociations' {integrationType} -> integrationType) (\s@ListIntegrationAssociations' {} a -> s {integrationType = a} :: ListIntegrationAssociations)
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listIntegrationAssociations_instanceId :: Lens.Lens' ListIntegrationAssociations Prelude.Text
 listIntegrationAssociations_instanceId = Lens.lens (\ListIntegrationAssociations' {instanceId} -> instanceId) (\s@ListIntegrationAssociations' {} a -> s {instanceId = a} :: ListIntegrationAssociations)
 
@@ -174,7 +183,8 @@ instance Core.ToQuery ListIntegrationAssociations where
   toQuery ListIntegrationAssociations' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "integrationType" Core.=: integrationType
       ]
 
 -- | /See:/ 'newListIntegrationAssociationsResponse' smart constructor.
@@ -182,7 +192,7 @@ data ListIntegrationAssociationsResponse = ListIntegrationAssociationsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AppIntegration associations.
+    -- | The associations.
     integrationAssociationSummaryList :: Prelude.Maybe [IntegrationAssociationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -200,7 +210,7 @@ data ListIntegrationAssociationsResponse = ListIntegrationAssociationsResponse'
 -- 'nextToken', 'listIntegrationAssociationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
--- 'integrationAssociationSummaryList', 'listIntegrationAssociationsResponse_integrationAssociationSummaryList' - The AppIntegration associations.
+-- 'integrationAssociationSummaryList', 'listIntegrationAssociationsResponse_integrationAssociationSummaryList' - The associations.
 --
 -- 'httpStatus', 'listIntegrationAssociationsResponse_httpStatus' - The response's http status code.
 newListIntegrationAssociationsResponse ::
@@ -221,7 +231,7 @@ newListIntegrationAssociationsResponse pHttpStatus_ =
 listIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListIntegrationAssociationsResponse (Prelude.Maybe Prelude.Text)
 listIntegrationAssociationsResponse_nextToken = Lens.lens (\ListIntegrationAssociationsResponse' {nextToken} -> nextToken) (\s@ListIntegrationAssociationsResponse' {} a -> s {nextToken = a} :: ListIntegrationAssociationsResponse)
 
--- | The AppIntegration associations.
+-- | The associations.
 listIntegrationAssociationsResponse_integrationAssociationSummaryList :: Lens.Lens' ListIntegrationAssociationsResponse (Prelude.Maybe [IntegrationAssociationSummary])
 listIntegrationAssociationsResponse_integrationAssociationSummaryList = Lens.lens (\ListIntegrationAssociationsResponse' {integrationAssociationSummaryList} -> integrationAssociationSummaryList) (\s@ListIntegrationAssociationsResponse' {} a -> s {integrationAssociationSummaryList = a} :: ListIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
 

@@ -33,14 +33,17 @@ data NamespaceFilter = NamespaceFilter'
   { -- | The operator that you want to use to determine whether @ListNamespaces@
     -- returns a namespace. Valid values for @condition@ include:
     --
-    -- -   @EQ@: When you specify @EQ@ for the condition, you can choose to
-    --     list only public namespaces or private namespaces, but not both.
-    --     @EQ@ is the default condition and can be omitted.
+    -- [EQ]
+    --     When you specify @EQ@ for the condition, you can choose to list only
+    --     public namespaces or private namespaces, but not both. @EQ@ is the
+    --     default condition and can be omitted.
     --
-    -- -   @IN@: When you specify @IN@ for the condition, you can choose to
-    --     list public namespaces, private namespaces, or both.
+    -- [IN]
+    --     When you specify @IN@ for the condition, you can choose to list
+    --     public namespaces, private namespaces, or both.
     --
-    -- -   @BETWEEN@: Not applicable
+    -- [BETWEEN]
+    --     Not applicable
     condition :: Prelude.Maybe FilterCondition,
     -- | Specify @TYPE@.
     name :: NamespaceFilterName,
@@ -64,14 +67,17 @@ data NamespaceFilter = NamespaceFilter'
 -- 'condition', 'namespaceFilter_condition' - The operator that you want to use to determine whether @ListNamespaces@
 -- returns a namespace. Valid values for @condition@ include:
 --
--- -   @EQ@: When you specify @EQ@ for the condition, you can choose to
---     list only public namespaces or private namespaces, but not both.
---     @EQ@ is the default condition and can be omitted.
+-- [EQ]
+--     When you specify @EQ@ for the condition, you can choose to list only
+--     public namespaces or private namespaces, but not both. @EQ@ is the
+--     default condition and can be omitted.
 --
--- -   @IN@: When you specify @IN@ for the condition, you can choose to
---     list public namespaces, private namespaces, or both.
+-- [IN]
+--     When you specify @IN@ for the condition, you can choose to list
+--     public namespaces, private namespaces, or both.
 --
--- -   @BETWEEN@: Not applicable
+-- [BETWEEN]
+--     Not applicable
 --
 -- 'name', 'namespaceFilter_name' - Specify @TYPE@.
 --
@@ -94,14 +100,17 @@ newNamespaceFilter pName_ =
 -- | The operator that you want to use to determine whether @ListNamespaces@
 -- returns a namespace. Valid values for @condition@ include:
 --
--- -   @EQ@: When you specify @EQ@ for the condition, you can choose to
---     list only public namespaces or private namespaces, but not both.
---     @EQ@ is the default condition and can be omitted.
+-- [EQ]
+--     When you specify @EQ@ for the condition, you can choose to list only
+--     public namespaces or private namespaces, but not both. @EQ@ is the
+--     default condition and can be omitted.
 --
--- -   @IN@: When you specify @IN@ for the condition, you can choose to
---     list public namespaces, private namespaces, or both.
+-- [IN]
+--     When you specify @IN@ for the condition, you can choose to list
+--     public namespaces, private namespaces, or both.
 --
--- -   @BETWEEN@: Not applicable
+-- [BETWEEN]
+--     Not applicable
 namespaceFilter_condition :: Lens.Lens' NamespaceFilter (Prelude.Maybe FilterCondition)
 namespaceFilter_condition = Lens.lens (\NamespaceFilter' {condition} -> condition) (\s@NamespaceFilter' {} a -> s {condition = a} :: NamespaceFilter)
 

@@ -38,8 +38,8 @@ module Network.AWS.CloudWatchEvents.DescribeEventSource
     describeEventSourceResponse_creationTime,
     describeEventSourceResponse_expirationTime,
     describeEventSourceResponse_arn,
-    describeEventSourceResponse_state,
     describeEventSourceResponse_name,
+    describeEventSourceResponse_state,
     describeEventSourceResponse_createdBy,
     describeEventSourceResponse_httpStatus,
   )
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeEventSource where
             Prelude.<$> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ExpirationTime")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -138,6 +138,8 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
     expirationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the partner event source.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the partner event source.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The state of the event source. If it is ACTIVE, you have already created
     -- a matching event bus for this event source, and that event bus is
     -- active. If it is PENDING, either you haven\'t yet created a matching
@@ -145,8 +147,6 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
     -- created a matching event bus, but the event source has since been
     -- deleted.
     state :: Prelude.Maybe EventSourceState,
-    -- | The name of the partner event source.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the SaaS partner that created the event source.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -169,14 +169,14 @@ data DescribeEventSourceResponse = DescribeEventSourceResponse'
 --
 -- 'arn', 'describeEventSourceResponse_arn' - The ARN of the partner event source.
 --
+-- 'name', 'describeEventSourceResponse_name' - The name of the partner event source.
+--
 -- 'state', 'describeEventSourceResponse_state' - The state of the event source. If it is ACTIVE, you have already created
 -- a matching event bus for this event source, and that event bus is
 -- active. If it is PENDING, either you haven\'t yet created a matching
 -- event bus, or that event bus is deactivated. If it is DELETED, you have
 -- created a matching event bus, but the event source has since been
 -- deleted.
---
--- 'name', 'describeEventSourceResponse_name' - The name of the partner event source.
 --
 -- 'createdBy', 'describeEventSourceResponse_createdBy' - The name of the SaaS partner that created the event source.
 --
@@ -191,8 +191,8 @@ newDescribeEventSourceResponse pHttpStatus_ =
         Prelude.Nothing,
       expirationTime = Prelude.Nothing,
       arn = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
+      state = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -210,6 +210,10 @@ describeEventSourceResponse_expirationTime = Lens.lens (\DescribeEventSourceResp
 describeEventSourceResponse_arn :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
 describeEventSourceResponse_arn = Lens.lens (\DescribeEventSourceResponse' {arn} -> arn) (\s@DescribeEventSourceResponse' {} a -> s {arn = a} :: DescribeEventSourceResponse)
 
+-- | The name of the partner event source.
+describeEventSourceResponse_name :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
+describeEventSourceResponse_name = Lens.lens (\DescribeEventSourceResponse' {name} -> name) (\s@DescribeEventSourceResponse' {} a -> s {name = a} :: DescribeEventSourceResponse)
+
 -- | The state of the event source. If it is ACTIVE, you have already created
 -- a matching event bus for this event source, and that event bus is
 -- active. If it is PENDING, either you haven\'t yet created a matching
@@ -218,10 +222,6 @@ describeEventSourceResponse_arn = Lens.lens (\DescribeEventSourceResponse' {arn}
 -- deleted.
 describeEventSourceResponse_state :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe EventSourceState)
 describeEventSourceResponse_state = Lens.lens (\DescribeEventSourceResponse' {state} -> state) (\s@DescribeEventSourceResponse' {} a -> s {state = a} :: DescribeEventSourceResponse)
-
--- | The name of the partner event source.
-describeEventSourceResponse_name :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)
-describeEventSourceResponse_name = Lens.lens (\DescribeEventSourceResponse' {name} -> name) (\s@DescribeEventSourceResponse' {} a -> s {name = a} :: DescribeEventSourceResponse)
 
 -- | The name of the SaaS partner that created the event source.
 describeEventSourceResponse_createdBy :: Lens.Lens' DescribeEventSourceResponse (Prelude.Maybe Prelude.Text)

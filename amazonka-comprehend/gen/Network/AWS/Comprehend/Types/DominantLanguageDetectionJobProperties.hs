@@ -49,6 +49,17 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the dominant language detection job completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the dominant language detection job.
+    -- It is a unique, fully qualified identifier for the job. It includes the
+    -- AWS account, Region, and the job ID. The format of the ARN is as
+    -- follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -98,6 +109,17 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
 --
 -- 'endTime', 'dominantLanguageDetectionJobProperties_endTime' - The time that the dominant language detection job completed.
 --
+-- 'jobArn', 'dominantLanguageDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the dominant language detection job.
+-- It is a unique, fully qualified identifier for the job. It includes the
+-- AWS account, Region, and the job ID. The format of the ARN is as
+-- follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'volumeKmsKeyId', 'dominantLanguageDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -128,6 +150,7 @@ newDominantLanguageDetectionJobProperties =
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
@@ -164,6 +187,19 @@ dominantLanguageDetectionJobProperties_outputDataConfig = Lens.lens (\DominantLa
 -- | The time that the dominant language detection job completed.
 dominantLanguageDetectionJobProperties_endTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 dominantLanguageDetectionJobProperties_endTime = Lens.lens (\DominantLanguageDetectionJobProperties' {endTime} -> endTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {endTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the dominant language detection job.
+-- It is a unique, fully qualified identifier for the job. It includes the
+-- AWS account, Region, and the job ID. The format of the ARN is as
+-- follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+dominantLanguageDetectionJobProperties_jobArn :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
+dominantLanguageDetectionJobProperties_jobArn = Lens.lens (\DominantLanguageDetectionJobProperties' {jobArn} -> jobArn) (\s@DominantLanguageDetectionJobProperties' {} a -> s {jobArn = a} :: DominantLanguageDetectionJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -210,6 +246,7 @@ instance
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "JobName")

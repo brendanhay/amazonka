@@ -32,8 +32,8 @@ module Network.AWS.OpsWorks.CreateUserProfile
     newCreateUserProfile,
 
     -- * Request Lenses
-    createUserProfile_allowSelfManagement,
     createUserProfile_sshUsername,
+    createUserProfile_allowSelfManagement,
     createUserProfile_sshPublicKey,
     createUserProfile_iamUserArn,
 
@@ -56,16 +56,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { -- | Whether users can specify their own SSH public key through the My
-    -- Settings page. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
-    -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
+  { -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
     -- [0-9], \'-\', and \'_\'. If the specified name includes other
     -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
     -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
     -- name, AWS OpsWorks Stacks generates one from the IAM user name.
     sshUsername :: Prelude.Maybe Prelude.Text,
+    -- | Whether users can specify their own SSH public key through the My
+    -- Settings page. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
+    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s public SSH key.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The user\'s IAM ARN; this can also be a federated user\'s ARN.
@@ -81,15 +81,15 @@ data CreateUserProfile = CreateUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowSelfManagement', 'createUserProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
---
 -- 'sshUsername', 'createUserProfile_sshUsername' - The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
 -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
 -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
+--
+-- 'allowSelfManagement', 'createUserProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
+-- Settings page. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
 --
 -- 'sshPublicKey', 'createUserProfile_sshPublicKey' - The user\'s public SSH key.
 --
@@ -100,18 +100,11 @@ newCreateUserProfile ::
   CreateUserProfile
 newCreateUserProfile pIamUserArn_ =
   CreateUserProfile'
-    { allowSelfManagement =
-        Prelude.Nothing,
-      sshUsername = Prelude.Nothing,
+    { sshUsername = Prelude.Nothing,
+      allowSelfManagement = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
       iamUserArn = pIamUserArn_
     }
-
--- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-createUserProfile_allowSelfManagement :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Bool)
-createUserProfile_allowSelfManagement = Lens.lens (\CreateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@CreateUserProfile' {} a -> s {allowSelfManagement = a} :: CreateUserProfile)
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
@@ -120,6 +113,12 @@ createUserProfile_allowSelfManagement = Lens.lens (\CreateUserProfile' {allowSel
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
 createUserProfile_sshUsername :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
 createUserProfile_sshUsername = Lens.lens (\CreateUserProfile' {sshUsername} -> sshUsername) (\s@CreateUserProfile' {} a -> s {sshUsername = a} :: CreateUserProfile)
+
+-- | Whether users can specify their own SSH public key through the My
+-- Settings page. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
+createUserProfile_allowSelfManagement :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Bool)
+createUserProfile_allowSelfManagement = Lens.lens (\CreateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@CreateUserProfile' {} a -> s {allowSelfManagement = a} :: CreateUserProfile)
 
 -- | The user\'s public SSH key.
 createUserProfile_sshPublicKey :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
@@ -165,9 +164,9 @@ instance Core.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AllowSelfManagement" Core..=)
+          [ ("SshUsername" Core..=) Prelude.<$> sshUsername,
+            ("AllowSelfManagement" Core..=)
               Prelude.<$> allowSelfManagement,
-            ("SshUsername" Core..=) Prelude.<$> sshUsername,
             ("SshPublicKey" Core..=) Prelude.<$> sshPublicKey,
             Prelude.Just ("IamUserArn" Core..= iamUserArn)
           ]

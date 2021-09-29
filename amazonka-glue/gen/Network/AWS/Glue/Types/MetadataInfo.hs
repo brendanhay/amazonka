@@ -20,6 +20,7 @@
 module Network.AWS.Glue.Types.MetadataInfo where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.Glue.Types.OtherMetadataValueListItem
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -27,7 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
-  { -- | The time at which the entry was created.
+  { -- | Other metadata belonging to the same metadata key.
+    otherMetadataValueList :: Prelude.Maybe [OtherMetadataValueListItem],
+    -- | The time at which the entry was created.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The metadata key’s corresponding value.
     metadataValue :: Prelude.Maybe Prelude.Text
@@ -42,6 +45,8 @@ data MetadataInfo = MetadataInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.
+--
 -- 'createdTime', 'metadataInfo_createdTime' - The time at which the entry was created.
 --
 -- 'metadataValue', 'metadataInfo_metadataValue' - The metadata key’s corresponding value.
@@ -49,9 +54,15 @@ newMetadataInfo ::
   MetadataInfo
 newMetadataInfo =
   MetadataInfo'
-    { createdTime = Prelude.Nothing,
+    { otherMetadataValueList =
+        Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       metadataValue = Prelude.Nothing
     }
+
+-- | Other metadata belonging to the same metadata key.
+metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
+metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time at which the entry was created.
 metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
@@ -67,7 +78,10 @@ instance Core.FromJSON MetadataInfo where
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<$> ( x Core..:? "OtherMetadataValueList"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "MetadataValue")
       )
 

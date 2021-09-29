@@ -30,8 +30,8 @@ data S3OutputLocation = S3OutputLocation'
   { -- | The name of the S3 bucket.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
     -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Systems Manager automatically determines the Region
-    -- of the S3 bucket.
+    -- ignores it. Instead, Amazon Web Services Systems Manager automatically
+    -- determines the Region of the S3 bucket.
     outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | The S3 bucket subfolder.
     outputS3KeyPrefix :: Prelude.Maybe Prelude.Text
@@ -49,8 +49,8 @@ data S3OutputLocation = S3OutputLocation'
 -- 'outputS3BucketName', 's3OutputLocation_outputS3BucketName' - The name of the S3 bucket.
 --
 -- 'outputS3Region', 's3OutputLocation_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Region
--- of the S3 bucket.
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the Region of the S3 bucket.
 --
 -- 'outputS3KeyPrefix', 's3OutputLocation_outputS3KeyPrefix' - The S3 bucket subfolder.
 newS3OutputLocation ::
@@ -68,8 +68,8 @@ s3OutputLocation_outputS3BucketName :: Lens.Lens' S3OutputLocation (Prelude.Mayb
 s3OutputLocation_outputS3BucketName = Lens.lens (\S3OutputLocation' {outputS3BucketName} -> outputS3BucketName) (\s@S3OutputLocation' {} a -> s {outputS3BucketName = a} :: S3OutputLocation)
 
 -- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Region
--- of the S3 bucket.
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the Region of the S3 bucket.
 s3OutputLocation_outputS3Region :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
 s3OutputLocation_outputS3Region = Lens.lens (\S3OutputLocation' {outputS3Region} -> outputS3Region) (\s@S3OutputLocation' {} a -> s {outputS3Region = a} :: S3OutputLocation)
 

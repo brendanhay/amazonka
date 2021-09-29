@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAssetPropertyVariant' smart constructor.
 data AssetPropertyVariant = AssetPropertyVariant'
-  { -- | Optional. A string that contains the double value of the value entry.
-    -- Accepts substitution templates.
-    doubleValue :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The string value of the value entry. Accepts substitution
+  { -- | Optional. The string value of the value entry. Accepts substitution
     -- templates.
     stringValue :: Prelude.Maybe Prelude.Text,
+    -- | Optional. A string that contains the double value of the value entry.
+    -- Accepts substitution templates.
+    doubleValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. A string that contains the boolean value (@true@ or @false@)
     -- of the value entry. Accepts substitution templates.
     booleanValue :: Prelude.Maybe Prelude.Text,
@@ -50,11 +50,11 @@ data AssetPropertyVariant = AssetPropertyVariant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'doubleValue', 'assetPropertyVariant_doubleValue' - Optional. A string that contains the double value of the value entry.
--- Accepts substitution templates.
---
 -- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution
 -- templates.
+--
+-- 'doubleValue', 'assetPropertyVariant_doubleValue' - Optional. A string that contains the double value of the value entry.
+-- Accepts substitution templates.
 --
 -- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)
 -- of the value entry. Accepts substitution templates.
@@ -65,22 +65,22 @@ newAssetPropertyVariant ::
   AssetPropertyVariant
 newAssetPropertyVariant =
   AssetPropertyVariant'
-    { doubleValue =
+    { stringValue =
         Prelude.Nothing,
-      stringValue = Prelude.Nothing,
+      doubleValue = Prelude.Nothing,
       booleanValue = Prelude.Nothing,
       integerValue = Prelude.Nothing
     }
-
--- | Optional. A string that contains the double value of the value entry.
--- Accepts substitution templates.
-assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
-assetPropertyVariant_doubleValue = Lens.lens (\AssetPropertyVariant' {doubleValue} -> doubleValue) (\s@AssetPropertyVariant' {} a -> s {doubleValue = a} :: AssetPropertyVariant)
 
 -- | Optional. The string value of the value entry. Accepts substitution
 -- templates.
 assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_stringValue = Lens.lens (\AssetPropertyVariant' {stringValue} -> stringValue) (\s@AssetPropertyVariant' {} a -> s {stringValue = a} :: AssetPropertyVariant)
+
+-- | Optional. A string that contains the double value of the value entry.
+-- Accepts substitution templates.
+assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
+assetPropertyVariant_doubleValue = Lens.lens (\AssetPropertyVariant' {doubleValue} -> doubleValue) (\s@AssetPropertyVariant' {} a -> s {doubleValue = a} :: AssetPropertyVariant)
 
 -- | Optional. A string that contains the boolean value (@true@ or @false@)
 -- of the value entry. Accepts substitution templates.
@@ -98,8 +98,8 @@ instance Core.FromJSON AssetPropertyVariant where
       "AssetPropertyVariant"
       ( \x ->
           AssetPropertyVariant'
-            Prelude.<$> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<$> (x Core..:? "stringValue")
+            Prelude.<*> (x Core..:? "doubleValue")
             Prelude.<*> (x Core..:? "booleanValue")
             Prelude.<*> (x Core..:? "integerValue")
       )
@@ -112,8 +112,8 @@ instance Core.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
+          [ ("stringValue" Core..=) Prelude.<$> stringValue,
+            ("doubleValue" Core..=) Prelude.<$> doubleValue,
             ("booleanValue" Core..=) Prelude.<$> booleanValue,
             ("integerValue" Core..=) Prelude.<$> integerValue
           ]

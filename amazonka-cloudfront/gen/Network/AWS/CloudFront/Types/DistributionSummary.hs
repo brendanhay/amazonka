@@ -38,15 +38,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDistributionSummary' smart constructor.
 data DistributionSummary = DistributionSummary'
-  { -- | AWS services in China customers must file for an Internet Content
-    -- Provider (ICP) recordal if they want to serve content publicly on an
-    -- alternate domain name, also known as a CNAME, that they\'ve added to
-    -- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
-    -- associated with distributions.
+  { -- | Amazon Web Services services in China customers must file for an
+    -- Internet Content Provider (ICP) recordal if they want to serve content
+    -- publicly on an alternate domain name, also known as a CNAME, that
+    -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+    -- status for CNAMEs associated with distributions.
     --
     -- For more information about ICP recordals, see
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
-    -- in /Getting Started with AWS services in China/.
+    -- in /Getting Started with Amazon Web Services services in China/.
     aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
     -- | A complex type that contains information about origin groups for this
     -- distribution.
@@ -55,7 +55,7 @@ data DistributionSummary = DistributionSummary'
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your AWS account ID.
+    -- @123456789012@ is your account ID.
     arn :: Prelude.Text,
     -- | The current status of the distribution. When the status is @Deployed@,
     -- the distribution\'s information is propagated to all CloudFront edge
@@ -116,15 +116,15 @@ data DistributionSummary = DistributionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliasICPRecordals', 'distributionSummary_aliasICPRecordals' - AWS services in China customers must file for an Internet Content
--- Provider (ICP) recordal if they want to serve content publicly on an
--- alternate domain name, also known as a CNAME, that they\'ve added to
--- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
--- associated with distributions.
+-- 'aliasICPRecordals', 'distributionSummary_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
 --
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with AWS services in China/.
+-- in /Getting Started with Amazon Web Services services in China/.
 --
 -- 'originGroups', 'distributionSummary_originGroups' - A complex type that contains information about origin groups for this
 -- distribution.
@@ -133,7 +133,7 @@ data DistributionSummary = DistributionSummary'
 --
 -- 'arn', 'distributionSummary_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your AWS account ID.
+-- @123456789012@ is your account ID.
 --
 -- 'status', 'distributionSummary_status' - The current status of the distribution. When the status is @Deployed@,
 -- the distribution\'s information is propagated to all CloudFront edge
@@ -264,15 +264,15 @@ newDistributionSummary
         isIPV6Enabled = pIsIPV6Enabled_
       }
 
--- | AWS services in China customers must file for an Internet Content
--- Provider (ICP) recordal if they want to serve content publicly on an
--- alternate domain name, also known as a CNAME, that they\'ve added to
--- CloudFront. AliasICPRecordal provides the ICP recordal status for CNAMEs
--- associated with distributions.
+-- | Amazon Web Services services in China customers must file for an
+-- Internet Content Provider (ICP) recordal if they want to serve content
+-- publicly on an alternate domain name, also known as a CNAME, that
+-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
+-- status for CNAMEs associated with distributions.
 --
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
--- in /Getting Started with AWS services in China/.
+-- in /Getting Started with Amazon Web Services services in China/.
 distributionSummary_aliasICPRecordals :: Lens.Lens' DistributionSummary (Prelude.Maybe [AliasICPRecordal])
 distributionSummary_aliasICPRecordals = Lens.lens (\DistributionSummary' {aliasICPRecordals} -> aliasICPRecordals) (\s@DistributionSummary' {} a -> s {aliasICPRecordals = a} :: DistributionSummary) Prelude.. Lens.mapping Lens._Coerce
 
@@ -287,7 +287,7 @@ distributionSummary_id = Lens.lens (\DistributionSummary' {id} -> id) (\s@Distri
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your AWS account ID.
+-- @123456789012@ is your account ID.
 distributionSummary_arn :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_arn = Lens.lens (\DistributionSummary' {arn} -> arn) (\s@DistributionSummary' {} a -> s {arn = a} :: DistributionSummary)
 

@@ -17,22 +17,22 @@ module Network.AWS.WorkMail.Types
     defaultService,
 
     -- * Errors
-    _EntityNotFoundException,
     _OrganizationNotFoundException,
+    _EntityNotFoundException,
     _ReservedNameException,
-    _MailDomainStateException,
-    _TooManyTagsException,
     _NameAvailabilityException,
+    _TooManyTagsException,
+    _MailDomainStateException,
     _InvalidConfigurationException,
-    _OrganizationStateException,
     _EntityStateException,
+    _OrganizationStateException,
     _DirectoryInUseException,
     _UnsupportedOperationException,
     _InvalidParameterException,
     _DirectoryUnavailableException,
-    _LimitExceededException,
     _InvalidPasswordException,
     _EmailAddressInUseException,
+    _LimitExceededException,
     _ResourceNotFoundException,
     _DirectoryServiceAuthenticationFailedException,
     _MailDomainNotFoundException,
@@ -53,6 +53,9 @@ module Network.AWS.WorkMail.Types
     -- * MemberType
     MemberType (..),
 
+    -- * MobileDeviceAccessRuleEffect
+    MobileDeviceAccessRuleEffect (..),
+
     -- * PermissionType
     PermissionType (..),
 
@@ -71,11 +74,11 @@ module Network.AWS.WorkMail.Types
     accessControlRule_effect,
     accessControlRule_dateCreated,
     accessControlRule_notIpRanges,
+    accessControlRule_actions,
     accessControlRule_ipRanges,
     accessControlRule_dateModified,
-    accessControlRule_actions,
-    accessControlRule_userIds,
     accessControlRule_name,
+    accessControlRule_userIds,
     accessControlRule_description,
     accessControlRule_notActions,
     accessControlRule_notUserIds,
@@ -111,18 +114,18 @@ module Network.AWS.WorkMail.Types
     newGroup,
     group_enabledDate,
     group_id,
-    group_state,
     group_name,
-    group_email,
+    group_state,
     group_disabledDate,
+    group_email,
 
     -- * MailboxExportJob
     MailboxExportJob (..),
     newMailboxExportJob,
     mailboxExportJob_estimatedProgress,
     mailboxExportJob_entityId,
-    mailboxExportJob_startTime,
     mailboxExportJob_s3Path,
+    mailboxExportJob_startTime,
     mailboxExportJob_endTime,
     mailboxExportJob_state,
     mailboxExportJob_s3BucketName,
@@ -134,16 +137,40 @@ module Network.AWS.WorkMail.Types
     newMember,
     member_enabledDate,
     member_id,
-    member_state,
     member_name,
+    member_state,
     member_disabledDate,
     member_type,
+
+    -- * MobileDeviceAccessMatchedRule
+    MobileDeviceAccessMatchedRule (..),
+    newMobileDeviceAccessMatchedRule,
+    mobileDeviceAccessMatchedRule_name,
+    mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId,
+
+    -- * MobileDeviceAccessRule
+    MobileDeviceAccessRule (..),
+    newMobileDeviceAccessRule,
+    mobileDeviceAccessRule_effect,
+    mobileDeviceAccessRule_dateCreated,
+    mobileDeviceAccessRule_notDeviceModels,
+    mobileDeviceAccessRule_notDeviceOperatingSystems,
+    mobileDeviceAccessRule_deviceUserAgents,
+    mobileDeviceAccessRule_dateModified,
+    mobileDeviceAccessRule_name,
+    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessRule_deviceModels,
+    mobileDeviceAccessRule_notDeviceTypes,
+    mobileDeviceAccessRule_description,
+    mobileDeviceAccessRule_notDeviceUserAgents,
+    mobileDeviceAccessRule_deviceTypes,
+    mobileDeviceAccessRule_deviceOperatingSystems,
 
     -- * OrganizationSummary
     OrganizationSummary (..),
     newOrganizationSummary,
-    organizationSummary_organizationId,
     organizationSummary_alias,
+    organizationSummary_organizationId,
     organizationSummary_defaultMailDomain,
     organizationSummary_state,
     organizationSummary_errorMessage,
@@ -160,10 +187,10 @@ module Network.AWS.WorkMail.Types
     newResource,
     resource_enabledDate,
     resource_id,
-    resource_state,
     resource_name,
-    resource_email,
+    resource_state,
     resource_disabledDate,
+    resource_email,
     resource_type,
 
     -- * Tag
@@ -178,10 +205,10 @@ module Network.AWS.WorkMail.Types
     user_enabledDate,
     user_id,
     user_userRole,
-    user_state,
     user_name,
-    user_email,
+    user_state,
     user_disabledDate,
+    user_email,
     user_displayName,
   )
 where
@@ -203,6 +230,9 @@ import Network.AWS.WorkMail.Types.MailboxExportJob
 import Network.AWS.WorkMail.Types.MailboxExportJobState
 import Network.AWS.WorkMail.Types.Member
 import Network.AWS.WorkMail.Types.MemberType
+import Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
+import Network.AWS.WorkMail.Types.MobileDeviceAccessRule
+import Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
 import Network.AWS.WorkMail.Types.OrganizationSummary
 import Network.AWS.WorkMail.Types.Permission
 import Network.AWS.WorkMail.Types.PermissionType
@@ -283,14 +313,6 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The identifier supplied for the user, group, or resource does not exist
--- in your organization.
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "EntityNotFoundException"
-
 -- | An operation received a valid organization identifier that either
 -- doesn\'t belong or exist in the system.
 _OrganizationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -299,6 +321,14 @@ _OrganizationNotFoundException =
     defaultService
     "OrganizationNotFoundException"
 
+-- | The identifier supplied for the user, group, or resource does not exist
+-- in your organization.
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EntityNotFoundException"
+
 -- | This user, group, or resource name is not allowed in Amazon WorkMail.
 _ReservedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReservedNameException =
@@ -306,13 +336,12 @@ _ReservedNameException =
     defaultService
     "ReservedNameException"
 
--- | After a domain has been added to the organization, it must be verified.
--- The domain is not yet verified.
-_MailDomainStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MailDomainStateException =
+-- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
+_NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NameAvailabilityException =
   Core._MatchServiceError
     defaultService
-    "MailDomainStateException"
+    "NameAvailabilityException"
 
 -- | The resource can have up to 50 user-applied tags.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -321,12 +350,13 @@ _TooManyTagsException =
     defaultService
     "TooManyTagsException"
 
--- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
-_NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NameAvailabilityException =
+-- | After a domain has been added to the organization, it must be verified.
+-- The domain is not yet verified.
+_MailDomainStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MailDomainStateException =
   Core._MatchServiceError
     defaultService
-    "NameAvailabilityException"
+    "MailDomainStateException"
 
 -- | The configuration for a resource isn\'t valid. A resource must either be
 -- able to auto-respond to requests or have at least one delegate
@@ -337,14 +367,6 @@ _InvalidConfigurationException =
     defaultService
     "InvalidConfigurationException"
 
--- | The organization must have a valid state to perform certain operations
--- on the organization or its members.
-_OrganizationStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationStateException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationStateException"
-
 -- | You are performing an operation on a user, group, or resource that
 -- isn\'t in the expected state, such as trying to delete an active user.
 _EntityStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -352,6 +374,14 @@ _EntityStateException =
   Core._MatchServiceError
     defaultService
     "EntityStateException"
+
+-- | The organization must have a valid state to perform certain operations
+-- on the organization or its members.
+_OrganizationStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationStateException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationStateException"
 
 -- | The directory is already in use by another WorkMail organization in the
 -- same account and Region.
@@ -384,13 +414,6 @@ _DirectoryUnavailableException =
     defaultService
     "DirectoryUnavailableException"
 
--- | The request exceeds the limit of the resource.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | The supplied password doesn\'t match the minimum security constraints,
 -- such as length or use of special characters.
 _InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -406,6 +429,13 @@ _EmailAddressInUseException =
   Core._MatchServiceError
     defaultService
     "EmailAddressInUseException"
+
+-- | The request exceeds the limit of the resource.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | The resource cannot be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

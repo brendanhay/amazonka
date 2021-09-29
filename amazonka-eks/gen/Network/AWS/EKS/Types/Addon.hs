@@ -29,27 +29,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAddon' smart constructor.
 data Addon = Addon'
-  { -- | The date and time that the add-on was last modified.
-    modifiedAt :: Prelude.Maybe Core.POSIX,
-    -- | The status of the add-on.
+  { -- | The status of the add-on.
     status :: Prelude.Maybe AddonStatus,
-    -- | The Amazon Resource Name (ARN) of the add-on.
-    addonArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the add-on was last modified.
+    modifiedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the IAM role that is bound to the
     -- Kubernetes service account used by the add-on.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the add-on was created.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the add-on.
+    addonArn :: Prelude.Maybe Prelude.Text,
     -- | The version of the add-on.
     addonVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the add-on.
     addonName :: Prelude.Maybe Prelude.Text,
     -- | An object that represents the health of the add-on.
     health :: Prelude.Maybe AddonHealth,
-    -- | The metadata that you apply to the cluster to assist with categorization
+    -- | The metadata that you apply to the add-on to assist with categorization
     -- and organization. Each tag consists of a key and an optional value, both
-    -- of which you define. Cluster tags do not propagate to any other
-    -- resources associated with the cluster.
+    -- of which you define. Add-on tags do not propagate to any other resources
+    -- associated with the cluster.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster.
     clusterName :: Prelude.Maybe Prelude.Text
@@ -64,16 +64,16 @@ data Addon = Addon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modifiedAt', 'addon_modifiedAt' - The date and time that the add-on was last modified.
---
 -- 'status', 'addon_status' - The status of the add-on.
 --
--- 'addonArn', 'addon_addonArn' - The Amazon Resource Name (ARN) of the add-on.
+-- 'modifiedAt', 'addon_modifiedAt' - The date and time that the add-on was last modified.
 --
 -- 'serviceAccountRoleArn', 'addon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of the IAM role that is bound to the
 -- Kubernetes service account used by the add-on.
 --
 -- 'createdAt', 'addon_createdAt' - The date and time that the add-on was created.
+--
+-- 'addonArn', 'addon_addonArn' - The Amazon Resource Name (ARN) of the add-on.
 --
 -- 'addonVersion', 'addon_addonVersion' - The version of the add-on.
 --
@@ -81,21 +81,21 @@ data Addon = Addon'
 --
 -- 'health', 'addon_health' - An object that represents the health of the add-on.
 --
--- 'tags', 'addon_tags' - The metadata that you apply to the cluster to assist with categorization
+-- 'tags', 'addon_tags' - The metadata that you apply to the add-on to assist with categorization
 -- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Cluster tags do not propagate to any other
--- resources associated with the cluster.
+-- of which you define. Add-on tags do not propagate to any other resources
+-- associated with the cluster.
 --
 -- 'clusterName', 'addon_clusterName' - The name of the cluster.
 newAddon ::
   Addon
 newAddon =
   Addon'
-    { modifiedAt = Prelude.Nothing,
-      status = Prelude.Nothing,
-      addonArn = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      modifiedAt = Prelude.Nothing,
       serviceAccountRoleArn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      addonArn = Prelude.Nothing,
       addonVersion = Prelude.Nothing,
       addonName = Prelude.Nothing,
       health = Prelude.Nothing,
@@ -103,17 +103,13 @@ newAddon =
       clusterName = Prelude.Nothing
     }
 
--- | The date and time that the add-on was last modified.
-addon_modifiedAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
-addon_modifiedAt = Lens.lens (\Addon' {modifiedAt} -> modifiedAt) (\s@Addon' {} a -> s {modifiedAt = a} :: Addon) Prelude.. Lens.mapping Core._Time
-
 -- | The status of the add-on.
 addon_status :: Lens.Lens' Addon (Prelude.Maybe AddonStatus)
 addon_status = Lens.lens (\Addon' {status} -> status) (\s@Addon' {} a -> s {status = a} :: Addon)
 
--- | The Amazon Resource Name (ARN) of the add-on.
-addon_addonArn :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
-addon_addonArn = Lens.lens (\Addon' {addonArn} -> addonArn) (\s@Addon' {} a -> s {addonArn = a} :: Addon)
+-- | The date and time that the add-on was last modified.
+addon_modifiedAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
+addon_modifiedAt = Lens.lens (\Addon' {modifiedAt} -> modifiedAt) (\s@Addon' {} a -> s {modifiedAt = a} :: Addon) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is bound to the
 -- Kubernetes service account used by the add-on.
@@ -123,6 +119,10 @@ addon_serviceAccountRoleArn = Lens.lens (\Addon' {serviceAccountRoleArn} -> serv
 -- | The date and time that the add-on was created.
 addon_createdAt :: Lens.Lens' Addon (Prelude.Maybe Prelude.UTCTime)
 addon_createdAt = Lens.lens (\Addon' {createdAt} -> createdAt) (\s@Addon' {} a -> s {createdAt = a} :: Addon) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the add-on.
+addon_addonArn :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
+addon_addonArn = Lens.lens (\Addon' {addonArn} -> addonArn) (\s@Addon' {} a -> s {addonArn = a} :: Addon)
 
 -- | The version of the add-on.
 addon_addonVersion :: Lens.Lens' Addon (Prelude.Maybe Prelude.Text)
@@ -136,10 +136,10 @@ addon_addonName = Lens.lens (\Addon' {addonName} -> addonName) (\s@Addon' {} a -
 addon_health :: Lens.Lens' Addon (Prelude.Maybe AddonHealth)
 addon_health = Lens.lens (\Addon' {health} -> health) (\s@Addon' {} a -> s {health = a} :: Addon)
 
--- | The metadata that you apply to the cluster to assist with categorization
+-- | The metadata that you apply to the add-on to assist with categorization
 -- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Cluster tags do not propagate to any other
--- resources associated with the cluster.
+-- of which you define. Add-on tags do not propagate to any other resources
+-- associated with the cluster.
 addon_tags :: Lens.Lens' Addon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 addon_tags = Lens.lens (\Addon' {tags} -> tags) (\s@Addon' {} a -> s {tags = a} :: Addon) Prelude.. Lens.mapping Lens._Coerce
 
@@ -153,11 +153,11 @@ instance Core.FromJSON Addon where
       "Addon"
       ( \x ->
           Addon'
-            Prelude.<$> (x Core..:? "modifiedAt")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "addonArn")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "modifiedAt")
             Prelude.<*> (x Core..:? "serviceAccountRoleArn")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "addonArn")
             Prelude.<*> (x Core..:? "addonVersion")
             Prelude.<*> (x Core..:? "addonName")
             Prelude.<*> (x Core..:? "health")

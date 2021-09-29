@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- resource.
 --
 -- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

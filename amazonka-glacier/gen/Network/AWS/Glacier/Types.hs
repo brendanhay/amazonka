@@ -20,10 +20,10 @@ module Network.AWS.Glacier.Types
     _ServiceUnavailableException,
     _PolicyEnforcedException,
     _InvalidParameterValueException,
-    _LimitExceededException,
     _MissingParameterValueException,
-    _InsufficientCapacityException,
+    _LimitExceededException,
     _ResourceNotFoundException,
+    _InsufficientCapacityException,
     _RequestTimeoutException,
 
     -- * ActionCode
@@ -60,8 +60,8 @@ module Network.AWS.Glacier.Types
     ArchiveCreationOutput (..),
     newArchiveCreationOutput,
     archiveCreationOutput_archiveId,
-    archiveCreationOutput_location,
     archiveCreationOutput_checksum,
+    archiveCreationOutput_location,
 
     -- * CSVInput
     CSVInput (..),
@@ -117,23 +117,23 @@ module Network.AWS.Glacier.Types
     glacierJobDescription_statusMessage,
     glacierJobDescription_jobDescription,
     glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_creationDate,
     glacierJobDescription_jobOutputPath,
+    glacierJobDescription_creationDate,
     glacierJobDescription_selectParameters,
+    glacierJobDescription_sNSTopic,
     glacierJobDescription_vaultARN,
     glacierJobDescription_archiveId,
-    glacierJobDescription_sNSTopic,
-    glacierJobDescription_inventorySizeInBytes,
     glacierJobDescription_statusCode,
+    glacierJobDescription_inventorySizeInBytes,
     glacierJobDescription_archiveSizeInBytes,
     glacierJobDescription_action,
     glacierJobDescription_inventoryRetrievalParameters,
     glacierJobDescription_completionDate,
-    glacierJobDescription_archiveSHA256TreeHash,
     glacierJobDescription_completed,
+    glacierJobDescription_archiveSHA256TreeHash,
+    glacierJobDescription_tier,
     glacierJobDescription_jobId,
     glacierJobDescription_outputLocation,
-    glacierJobDescription_tier,
 
     -- * Grant
     Grant (..),
@@ -175,16 +175,16 @@ module Network.AWS.Glacier.Types
     -- * JobParameters
     JobParameters (..),
     newJobParameters,
-    jobParameters_retrievalByteRange,
     jobParameters_format,
+    jobParameters_retrievalByteRange,
     jobParameters_selectParameters,
-    jobParameters_archiveId,
     jobParameters_sNSTopic,
+    jobParameters_archiveId,
     jobParameters_description,
     jobParameters_inventoryRetrievalParameters,
     jobParameters_type,
-    jobParameters_outputLocation,
     jobParameters_tier,
+    jobParameters_outputLocation,
 
     -- * OutputLocation
     OutputLocation (..),
@@ -397,15 +397,6 @@ _InvalidParameterValueException =
     "InvalidParameterValueException"
     Prelude.. Core.hasStatus 400
 
--- | Returned if the request results in a vault or account limit being
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 400
-
 -- | Returned if a required header or parameter is missing from the request.
 _MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingParameterValueException =
@@ -414,14 +405,13 @@ _MissingParameterValueException =
     "MissingParameterValueException"
     Prelude.. Core.hasStatus 400
 
--- | Returned if there is insufficient capacity to process this expedited
--- request. This error only applies to expedited retrievals and not to
--- standard or bulk retrievals.
-_InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientCapacityException =
+-- | Returned if the request results in a vault or account limit being
+-- exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InsufficientCapacityException"
+    "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | Returned if the specified resource (such as a vault, upload ID, or job
@@ -432,6 +422,16 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Returned if there is insufficient capacity to process this expedited
+-- request. This error only applies to expedited retrievals and not to
+-- standard or bulk retrievals.
+_InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientCapacityException =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientCapacityException"
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if, when uploading an archive, Amazon S3 Glacier times out
 -- while receiving the upload.

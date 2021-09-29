@@ -14,35 +14,38 @@
 module Network.AWS.EFS.Lens
   ( -- * Operations
 
-    -- ** PutBackupPolicy
-    putBackupPolicy_fileSystemId,
-    putBackupPolicy_backupPolicy,
-    backupPolicyDescription_backupPolicy,
-
     -- ** PutLifecycleConfiguration
     putLifecycleConfiguration_fileSystemId,
     putLifecycleConfiguration_lifecyclePolicies,
     lifecycleConfigurationDescription_lifecyclePolicies,
 
+    -- ** PutBackupPolicy
+    putBackupPolicy_fileSystemId,
+    putBackupPolicy_backupPolicy,
+    backupPolicyDescription_backupPolicy,
+
+    -- ** DescribeAccountPreferences
+    describeAccountPreferences_nextToken,
+    describeAccountPreferences_maxResults,
+    describeAccountPreferencesResponse_resourceIdPreference,
+    describeAccountPreferencesResponse_nextToken,
+    describeAccountPreferencesResponse_httpStatus,
+
     -- ** DeleteAccessPoint
     deleteAccessPoint_accessPointId,
-
-    -- ** ModifyMountTargetSecurityGroups
-    modifyMountTargetSecurityGroups_securityGroups,
-    modifyMountTargetSecurityGroups_mountTargetId,
 
     -- ** DescribeFileSystemPolicy
     describeFileSystemPolicy_fileSystemId,
     fileSystemPolicyDescription_fileSystemId,
     fileSystemPolicyDescription_policy,
 
+    -- ** ModifyMountTargetSecurityGroups
+    modifyMountTargetSecurityGroups_securityGroups,
+    modifyMountTargetSecurityGroups_mountTargetId,
+
     -- ** UntagResource
     untagResource_resourceId,
     untagResource_tagKeys,
-
-    -- ** TagResource
-    tagResource_resourceId,
-    tagResource_tags,
 
     -- ** CreateMountTarget
     createMountTarget_securityGroups,
@@ -59,6 +62,10 @@ module Network.AWS.EFS.Lens
     mountTargetDescription_fileSystemId,
     mountTargetDescription_subnetId,
     mountTargetDescription_lifeCycleState,
+
+    -- ** TagResource
+    tagResource_resourceId,
+    tagResource_tags,
 
     -- ** DeleteMountTarget
     deleteMountTarget_mountTargetId,
@@ -91,14 +98,18 @@ module Network.AWS.EFS.Lens
     createFileSystem_throughputMode,
     createFileSystem_encrypted,
     createFileSystem_provisionedThroughputInMibps,
+    createFileSystem_availabilityZoneName,
     createFileSystem_kmsKeyId,
     createFileSystem_tags,
+    createFileSystem_backup,
     createFileSystem_performanceMode,
     createFileSystem_creationToken,
     fileSystemDescription_throughputMode,
     fileSystemDescription_encrypted,
     fileSystemDescription_fileSystemArn,
     fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -118,10 +129,10 @@ module Network.AWS.EFS.Lens
     createAccessPoint_clientToken,
     createAccessPoint_fileSystemId,
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_accessPointId,
-    accessPointDescription_rootDirectory,
+    accessPointDescription_accessPointArn,
     accessPointDescription_name,
+    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
     accessPointDescription_tags,
     accessPointDescription_lifeCycleState,
@@ -137,6 +148,10 @@ module Network.AWS.EFS.Lens
     describeAccessPointsResponse_accessPoints,
     describeAccessPointsResponse_httpStatus,
 
+    -- ** DescribeBackupPolicy
+    describeBackupPolicy_fileSystemId,
+    backupPolicyDescription_backupPolicy,
+
     -- ** DescribeLifecycleConfiguration
     describeLifecycleConfiguration_fileSystemId,
     lifecycleConfigurationDescription_lifecyclePolicies,
@@ -146,9 +161,10 @@ module Network.AWS.EFS.Lens
     describeMountTargetSecurityGroupsResponse_httpStatus,
     describeMountTargetSecurityGroupsResponse_securityGroups,
 
-    -- ** DescribeBackupPolicy
-    describeBackupPolicy_fileSystemId,
-    backupPolicyDescription_backupPolicy,
+    -- ** PutAccountPreferences
+    putAccountPreferences_resourceIdType,
+    putAccountPreferencesResponse_resourceIdPreference,
+    putAccountPreferencesResponse_httpStatus,
 
     -- ** UpdateFileSystem
     updateFileSystem_throughputMode,
@@ -158,6 +174,8 @@ module Network.AWS.EFS.Lens
     fileSystemDescription_encrypted,
     fileSystemDescription_fileSystemArn,
     fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -170,6 +188,9 @@ module Network.AWS.EFS.Lens
     fileSystemDescription_performanceMode,
     fileSystemDescription_tags,
 
+    -- ** DeleteFileSystem
+    deleteFileSystem_fileSystemId,
+
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_maxResults,
@@ -177,9 +198,6 @@ module Network.AWS.EFS.Lens
     listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteFileSystem
-    deleteFileSystem_fileSystemId,
 
     -- ** PutFileSystemPolicy
     putFileSystemPolicy_bypassPolicyLockoutSafetyCheck,
@@ -192,10 +210,10 @@ module Network.AWS.EFS.Lens
 
     -- ** AccessPointDescription
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_accessPointId,
-    accessPointDescription_rootDirectory,
+    accessPointDescription_accessPointArn,
     accessPointDescription_name,
+    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
     accessPointDescription_tags,
     accessPointDescription_lifeCycleState,
@@ -218,6 +236,8 @@ module Network.AWS.EFS.Lens
     fileSystemDescription_encrypted,
     fileSystemDescription_fileSystemArn,
     fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -245,6 +265,7 @@ module Network.AWS.EFS.Lens
 
     -- ** LifecyclePolicy
     lifecyclePolicy_transitionToIA,
+    lifecyclePolicy_transitionToPrimaryStorageClass,
 
     -- ** MountTargetDescription
     mountTargetDescription_ownerId,
@@ -262,6 +283,10 @@ module Network.AWS.EFS.Lens
     posixUser_secondaryGids,
     posixUser_uid,
     posixUser_gid,
+
+    -- ** ResourceIdPreference
+    resourceIdPreference_resourceIdType,
+    resourceIdPreference_resources,
 
     -- ** RootDirectory
     rootDirectory_creationInfo,
@@ -281,6 +306,7 @@ import Network.AWS.EFS.DeleteFileSystem
 import Network.AWS.EFS.DeleteFileSystemPolicy
 import Network.AWS.EFS.DeleteMountTarget
 import Network.AWS.EFS.DescribeAccessPoints
+import Network.AWS.EFS.DescribeAccountPreferences
 import Network.AWS.EFS.DescribeBackupPolicy
 import Network.AWS.EFS.DescribeFileSystemPolicy
 import Network.AWS.EFS.DescribeFileSystems
@@ -289,6 +315,7 @@ import Network.AWS.EFS.DescribeMountTargetSecurityGroups
 import Network.AWS.EFS.DescribeMountTargets
 import Network.AWS.EFS.ListTagsForResource
 import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.PutAccountPreferences
 import Network.AWS.EFS.PutBackupPolicy
 import Network.AWS.EFS.PutFileSystemPolicy
 import Network.AWS.EFS.PutLifecycleConfiguration
@@ -304,6 +331,7 @@ import Network.AWS.EFS.Types.LifecycleConfigurationDescription
 import Network.AWS.EFS.Types.LifecyclePolicy
 import Network.AWS.EFS.Types.MountTargetDescription
 import Network.AWS.EFS.Types.PosixUser
+import Network.AWS.EFS.Types.ResourceIdPreference
 import Network.AWS.EFS.Types.RootDirectory
 import Network.AWS.EFS.Types.Tag
 import Network.AWS.EFS.UntagResource

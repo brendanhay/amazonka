@@ -28,10 +28,10 @@ import Network.AWS.SageMaker.Types.UserProfileStatus
 --
 -- /See:/ 'newUserProfileDetails' smart constructor.
 data UserProfileDetails = UserProfileDetails'
-  { -- | The status.
-    status :: Prelude.Maybe UserProfileStatus,
-    -- | The creation time.
+  { -- | The creation time.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status.
+    status :: Prelude.Maybe UserProfileStatus,
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
@@ -49,9 +49,9 @@ data UserProfileDetails = UserProfileDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'userProfileDetails_status' - The status.
---
 -- 'creationTime', 'userProfileDetails_creationTime' - The creation time.
+--
+-- 'status', 'userProfileDetails_status' - The status.
 --
 -- 'userProfileName', 'userProfileDetails_userProfileName' - The user profile name.
 --
@@ -62,20 +62,20 @@ newUserProfileDetails ::
   UserProfileDetails
 newUserProfileDetails =
   UserProfileDetails'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       userProfileName = Prelude.Nothing,
       domainId = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing
     }
 
--- | The status.
-userProfileDetails_status :: Lens.Lens' UserProfileDetails (Prelude.Maybe UserProfileStatus)
-userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) (\s@UserProfileDetails' {} a -> s {status = a} :: UserProfileDetails)
-
 -- | The creation time.
 userProfileDetails_creationTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
 userProfileDetails_creationTime = Lens.lens (\UserProfileDetails' {creationTime} -> creationTime) (\s@UserProfileDetails' {} a -> s {creationTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Core._Time
+
+-- | The status.
+userProfileDetails_status :: Lens.Lens' UserProfileDetails (Prelude.Maybe UserProfileStatus)
+userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) (\s@UserProfileDetails' {} a -> s {status = a} :: UserProfileDetails)
 
 -- | The user profile name.
 userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
@@ -95,8 +95,8 @@ instance Core.FromJSON UserProfileDetails where
       "UserProfileDetails"
       ( \x ->
           UserProfileDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "UserProfileName")
             Prelude.<*> (x Core..:? "DomainId")
             Prelude.<*> (x Core..:? "LastModifiedTime")

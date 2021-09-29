@@ -48,8 +48,8 @@ module Network.AWS.CloudWatchEvents.StartReplay
     newStartReplayResponse,
 
     -- * Response Lenses
-    startReplayResponse_replayStartTime,
     startReplayResponse_replayArn,
+    startReplayResponse_replayStartTime,
     startReplayResponse_stateReason,
     startReplayResponse_state,
     startReplayResponse_httpStatus,
@@ -166,8 +166,8 @@ instance Core.AWSRequest StartReplay where
     Response.receiveJSON
       ( \s h x ->
           StartReplayResponse'
-            Prelude.<$> (x Core..?> "ReplayStartTime")
-            Prelude.<*> (x Core..?> "ReplayArn")
+            Prelude.<$> (x Core..?> "ReplayArn")
+            Prelude.<*> (x Core..?> "ReplayStartTime")
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (x Core..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -213,10 +213,10 @@ instance Core.ToQuery StartReplay where
 
 -- | /See:/ 'newStartReplayResponse' smart constructor.
 data StartReplayResponse = StartReplayResponse'
-  { -- | The time at which the replay started.
-    replayStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN of the replay.
+  { -- | The ARN of the replay.
     replayArn :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the replay started.
+    replayStartTime :: Prelude.Maybe Core.POSIX,
     -- | The reason that the replay is in the state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The state of the replay.
@@ -234,9 +234,9 @@ data StartReplayResponse = StartReplayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replayStartTime', 'startReplayResponse_replayStartTime' - The time at which the replay started.
---
 -- 'replayArn', 'startReplayResponse_replayArn' - The ARN of the replay.
+--
+-- 'replayStartTime', 'startReplayResponse_replayStartTime' - The time at which the replay started.
 --
 -- 'stateReason', 'startReplayResponse_stateReason' - The reason that the replay is in the state.
 --
@@ -249,21 +249,20 @@ newStartReplayResponse ::
   StartReplayResponse
 newStartReplayResponse pHttpStatus_ =
   StartReplayResponse'
-    { replayStartTime =
-        Prelude.Nothing,
-      replayArn = Prelude.Nothing,
+    { replayArn = Prelude.Nothing,
+      replayStartTime = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time at which the replay started.
-startReplayResponse_replayStartTime :: Lens.Lens' StartReplayResponse (Prelude.Maybe Prelude.UTCTime)
-startReplayResponse_replayStartTime = Lens.lens (\StartReplayResponse' {replayStartTime} -> replayStartTime) (\s@StartReplayResponse' {} a -> s {replayStartTime = a} :: StartReplayResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The ARN of the replay.
 startReplayResponse_replayArn :: Lens.Lens' StartReplayResponse (Prelude.Maybe Prelude.Text)
 startReplayResponse_replayArn = Lens.lens (\StartReplayResponse' {replayArn} -> replayArn) (\s@StartReplayResponse' {} a -> s {replayArn = a} :: StartReplayResponse)
+
+-- | The time at which the replay started.
+startReplayResponse_replayStartTime :: Lens.Lens' StartReplayResponse (Prelude.Maybe Prelude.UTCTime)
+startReplayResponse_replayStartTime = Lens.lens (\StartReplayResponse' {replayStartTime} -> replayStartTime) (\s@StartReplayResponse' {} a -> s {replayStartTime = a} :: StartReplayResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The reason that the replay is in the state.
 startReplayResponse_stateReason :: Lens.Lens' StartReplayResponse (Prelude.Maybe Prelude.Text)

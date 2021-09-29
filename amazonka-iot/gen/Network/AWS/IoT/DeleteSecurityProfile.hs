@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a Device Defender security profile.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteSecurityProfile>
+-- action.
 module Network.AWS.IoT.DeleteSecurityProfile
   ( -- * Creating a Request
     DeleteSecurityProfile (..),

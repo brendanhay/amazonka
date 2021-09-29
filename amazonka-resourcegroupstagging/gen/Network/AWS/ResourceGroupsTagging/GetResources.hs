@@ -55,9 +55,9 @@ module Network.AWS.ResourceGroupsTagging.GetResources
     getResources_paginationToken,
     getResources_resourceTypeFilters,
     getResources_excludeCompliantResources,
-    getResources_resourceARNList,
-    getResources_resourcesPerPage,
     getResources_tagsPerPage,
+    getResources_resourcesPerPage,
+    getResources_resourceARNList,
 
     -- * Destructuring the Response
     GetResourcesResponse (..),
@@ -150,26 +150,6 @@ data GetResources = GetResources'
     -- You can use this parameter only if the @IncludeComplianceDetails@
     -- parameter is also set to @true@.
     excludeCompliantResources :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies a list of ARNs of resources for which you want to retrieve tag
-    -- data. You can\'t specify both this parameter and any of the pagination
-    -- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
-    -- same request. If you specify both, you get an @Invalid Parameter@
-    -- exception.
-    --
-    -- If a resource specified by this parameter doesn\'t exist, it doesn\'t
-    -- generate an error; it simply isn\'t included in the response.
-    --
-    -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
-    -- information, see
-    -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
-    -- in the /AWS General Reference/.
-    resourceARNList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies the maximum number of results to be returned in each page. A
-    -- query can return fewer than this maximum, even if there are more results
-    -- still to return. You should always check the @PaginationToken@ response
-    -- value to see if there are more results. You can specify a minimum of 1
-    -- and a maximum value of 100.
-    resourcesPerPage :: Prelude.Maybe Prelude.Int,
     -- | AWS recommends using @ResourcesPerPage@ instead of this parameter.
     --
     -- A limit that restricts the number of tags (key and value pairs) returned
@@ -189,7 +169,27 @@ data GetResources = GetResources'
     --
     -- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of
     -- 500 items.
-    tagsPerPage :: Prelude.Maybe Prelude.Int
+    tagsPerPage :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the maximum number of results to be returned in each page. A
+    -- query can return fewer than this maximum, even if there are more results
+    -- still to return. You should always check the @PaginationToken@ response
+    -- value to see if there are more results. You can specify a minimum of 1
+    -- and a maximum value of 100.
+    resourcesPerPage :: Prelude.Maybe Prelude.Int,
+    -- | Specifies a list of ARNs of resources for which you want to retrieve tag
+    -- data. You can\'t specify both this parameter and any of the pagination
+    -- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
+    -- same request. If you specify both, you get an @Invalid Parameter@
+    -- exception.
+    --
+    -- If a resource specified by this parameter doesn\'t exist, it doesn\'t
+    -- generate an error; it simply isn\'t included in the response.
+    --
+    -- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+    -- information, see
+    -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+    -- in the /AWS General Reference/.
+    resourceARNList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -272,26 +272,6 @@ data GetResources = GetResources'
 -- You can use this parameter only if the @IncludeComplianceDetails@
 -- parameter is also set to @true@.
 --
--- 'resourceARNList', 'getResources_resourceARNList' - Specifies a list of ARNs of resources for which you want to retrieve tag
--- data. You can\'t specify both this parameter and any of the pagination
--- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
--- same request. If you specify both, you get an @Invalid Parameter@
--- exception.
---
--- If a resource specified by this parameter doesn\'t exist, it doesn\'t
--- generate an error; it simply isn\'t included in the response.
---
--- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
--- information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
---
--- 'resourcesPerPage', 'getResources_resourcesPerPage' - Specifies the maximum number of results to be returned in each page. A
--- query can return fewer than this maximum, even if there are more results
--- still to return. You should always check the @PaginationToken@ response
--- value to see if there are more results. You can specify a minimum of 1
--- and a maximum value of 100.
---
 -- 'tagsPerPage', 'getResources_tagsPerPage' - AWS recommends using @ResourcesPerPage@ instead of this parameter.
 --
 -- A limit that restricts the number of tags (key and value pairs) returned
@@ -311,6 +291,26 @@ data GetResources = GetResources'
 --
 -- You can set @TagsPerPage@ to a minimum of 100 items up to a maximum of
 -- 500 items.
+--
+-- 'resourcesPerPage', 'getResources_resourcesPerPage' - Specifies the maximum number of results to be returned in each page. A
+-- query can return fewer than this maximum, even if there are more results
+-- still to return. You should always check the @PaginationToken@ response
+-- value to see if there are more results. You can specify a minimum of 1
+-- and a maximum value of 100.
+--
+-- 'resourceARNList', 'getResources_resourceARNList' - Specifies a list of ARNs of resources for which you want to retrieve tag
+-- data. You can\'t specify both this parameter and any of the pagination
+-- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
+-- same request. If you specify both, you get an @Invalid Parameter@
+-- exception.
+--
+-- If a resource specified by this parameter doesn\'t exist, it doesn\'t
+-- generate an error; it simply isn\'t included in the response.
+--
+-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+-- information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
 newGetResources ::
   GetResources
 newGetResources =
@@ -320,9 +320,9 @@ newGetResources =
       paginationToken = Prelude.Nothing,
       resourceTypeFilters = Prelude.Nothing,
       excludeCompliantResources = Prelude.Nothing,
-      resourceARNList = Prelude.Nothing,
+      tagsPerPage = Prelude.Nothing,
       resourcesPerPage = Prelude.Nothing,
-      tagsPerPage = Prelude.Nothing
+      resourceARNList = Prelude.Nothing
     }
 
 -- | Specifies a list of TagFilters (keys and values) to restrict the output
@@ -406,30 +406,6 @@ getResources_resourceTypeFilters = Lens.lens (\GetResources' {resourceTypeFilter
 getResources_excludeCompliantResources :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Bool)
 getResources_excludeCompliantResources = Lens.lens (\GetResources' {excludeCompliantResources} -> excludeCompliantResources) (\s@GetResources' {} a -> s {excludeCompliantResources = a} :: GetResources)
 
--- | Specifies a list of ARNs of resources for which you want to retrieve tag
--- data. You can\'t specify both this parameter and any of the pagination
--- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
--- same request. If you specify both, you get an @Invalid Parameter@
--- exception.
---
--- If a resource specified by this parameter doesn\'t exist, it doesn\'t
--- generate an error; it simply isn\'t included in the response.
---
--- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
--- information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
-getResources_resourceARNList :: Lens.Lens' GetResources (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getResources_resourceARNList = Lens.lens (\GetResources' {resourceARNList} -> resourceARNList) (\s@GetResources' {} a -> s {resourceARNList = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the maximum number of results to be returned in each page. A
--- query can return fewer than this maximum, even if there are more results
--- still to return. You should always check the @PaginationToken@ response
--- value to see if there are more results. You can specify a minimum of 1
--- and a maximum value of 100.
-getResources_resourcesPerPage :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
-getResources_resourcesPerPage = Lens.lens (\GetResources' {resourcesPerPage} -> resourcesPerPage) (\s@GetResources' {} a -> s {resourcesPerPage = a} :: GetResources)
-
 -- | AWS recommends using @ResourcesPerPage@ instead of this parameter.
 --
 -- A limit that restricts the number of tags (key and value pairs) returned
@@ -451,6 +427,30 @@ getResources_resourcesPerPage = Lens.lens (\GetResources' {resourcesPerPage} -> 
 -- 500 items.
 getResources_tagsPerPage :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
 getResources_tagsPerPage = Lens.lens (\GetResources' {tagsPerPage} -> tagsPerPage) (\s@GetResources' {} a -> s {tagsPerPage = a} :: GetResources)
+
+-- | Specifies the maximum number of results to be returned in each page. A
+-- query can return fewer than this maximum, even if there are more results
+-- still to return. You should always check the @PaginationToken@ response
+-- value to see if there are more results. You can specify a minimum of 1
+-- and a maximum value of 100.
+getResources_resourcesPerPage :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
+getResources_resourcesPerPage = Lens.lens (\GetResources' {resourcesPerPage} -> resourcesPerPage) (\s@GetResources' {} a -> s {resourcesPerPage = a} :: GetResources)
+
+-- | Specifies a list of ARNs of resources for which you want to retrieve tag
+-- data. You can\'t specify both this parameter and any of the pagination
+-- parameters (@ResourcesPerPage@, @TagsPerPage@, @PaginationToken@) in the
+-- same request. If you specify both, you get an @Invalid Parameter@
+-- exception.
+--
+-- If a resource specified by this parameter doesn\'t exist, it doesn\'t
+-- generate an error; it simply isn\'t included in the response.
+--
+-- An ARN (Amazon Resource Name) uniquely identifies a resource. For more
+-- information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
+-- in the /AWS General Reference/.
+getResources_resourceARNList :: Lens.Lens' GetResources (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getResources_resourceARNList = Lens.lens (\GetResources' {resourceARNList} -> resourceARNList) (\s@GetResources' {} a -> s {resourceARNList = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager GetResources where
   page rq rs
@@ -520,11 +520,11 @@ instance Core.ToJSON GetResources where
               Prelude.<$> resourceTypeFilters,
             ("ExcludeCompliantResources" Core..=)
               Prelude.<$> excludeCompliantResources,
-            ("ResourceARNList" Core..=)
-              Prelude.<$> resourceARNList,
+            ("TagsPerPage" Core..=) Prelude.<$> tagsPerPage,
             ("ResourcesPerPage" Core..=)
               Prelude.<$> resourcesPerPage,
-            ("TagsPerPage" Core..=) Prelude.<$> tagsPerPage
+            ("ResourceARNList" Core..=)
+              Prelude.<$> resourceARNList
           ]
       )
 

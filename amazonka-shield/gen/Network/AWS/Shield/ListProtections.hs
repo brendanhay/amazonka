@@ -186,11 +186,11 @@ instance Core.ToQuery ListProtections where
 -- | /See:/ 'newListProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
   { -- | If you specify a value for @MaxResults@ and you have more Protections
-    -- than the value of MaxResults, AWS Shield Advanced returns a NextToken
-    -- value in the response that allows you to list another group of
-    -- Protections. For the second and subsequent ListProtections requests,
-    -- specify the value of NextToken from the previous response to get
-    -- information about another batch of Protections.
+    -- than the value of MaxResults, Shield Advanced returns a NextToken value
+    -- in the response that allows you to list another group of Protections.
+    -- For the second and subsequent ListProtections requests, specify the
+    -- value of NextToken from the previous response to get information about
+    -- another batch of Protections.
     --
     -- Shield Advanced might return the list of Protection objects in batches
     -- smaller than the number specified by MaxResults. If there are more
@@ -213,11 +213,11 @@ data ListProtectionsResponse = ListProtectionsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listProtectionsResponse_nextToken' - If you specify a value for @MaxResults@ and you have more Protections
--- than the value of MaxResults, AWS Shield Advanced returns a NextToken
--- value in the response that allows you to list another group of
--- Protections. For the second and subsequent ListProtections requests,
--- specify the value of NextToken from the previous response to get
--- information about another batch of Protections.
+-- than the value of MaxResults, Shield Advanced returns a NextToken value
+-- in the response that allows you to list another group of Protections.
+-- For the second and subsequent ListProtections requests, specify the
+-- value of NextToken from the previous response to get information about
+-- another batch of Protections.
 --
 -- Shield Advanced might return the list of Protection objects in batches
 -- smaller than the number specified by MaxResults. If there are more
@@ -240,11 +240,11 @@ newListProtectionsResponse pHttpStatus_ =
     }
 
 -- | If you specify a value for @MaxResults@ and you have more Protections
--- than the value of MaxResults, AWS Shield Advanced returns a NextToken
--- value in the response that allows you to list another group of
--- Protections. For the second and subsequent ListProtections requests,
--- specify the value of NextToken from the previous response to get
--- information about another batch of Protections.
+-- than the value of MaxResults, Shield Advanced returns a NextToken value
+-- in the response that allows you to list another group of Protections.
+-- For the second and subsequent ListProtections requests, specify the
+-- value of NextToken from the previous response to get information about
+-- another batch of Protections.
 --
 -- Shield Advanced might return the list of Protection objects in batches
 -- smaller than the number specified by MaxResults. If there are more

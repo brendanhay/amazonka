@@ -27,77 +27,95 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestEnableAlarmActions $
---             newEnableAlarmActions
---
---         , requestGetMetricStatistics $
+--         [ requestGetMetricStatistics $
 --             newGetMetricStatistics
 --
---         , requestPutInsightRule $
---             newPutInsightRule
---
---         , requestDeleteAlarms $
---             newDeleteAlarms
+--         , requestEnableAlarmActions $
+--             newEnableAlarmActions
 --
 --         , requestGetMetricWidgetImage $
 --             newGetMetricWidgetImage
 --
---         , requestDescribeInsightRules $
---             newDescribeInsightRules
+--         , requestPutInsightRule $
+--             newPutInsightRule
+--
+--         , requestDeleteMetricStream $
+--             newDeleteMetricStream
+--
+--         , requestDeleteAlarms $
+--             newDeleteAlarms
 --
 --         , requestPutMetricAlarm $
 --             newPutMetricAlarm
 --
+--         , requestDescribeInsightRules $
+--             newDescribeInsightRules
+--
+--         , requestStartMetricStreams $
+--             newStartMetricStreams
+--
+--         , requestStopMetricStreams $
+--             newStopMetricStreams
+--
 --         , requestUntagResource $
 --             newUntagResource
---
---         , requestGetInsightRuleReport $
---             newGetInsightRuleReport
 --
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestGetInsightRuleReport $
+--             newGetInsightRuleReport
+--
 --         , requestDescribeAnomalyDetectors $
 --             newDescribeAnomalyDetectors
---
---         , requestListMetrics $
---             newListMetrics
 --
 --         , requestPutMetricData $
 --             newPutMetricData
 --
+--         , requestListMetrics $
+--             newListMetrics
+--
 --         , requestPutDashboard $
 --             newPutDashboard
---
---         , requestDescribeAlarmsForMetric $
---             newDescribeAlarmsForMetric
---
---         , requestPutAnomalyDetector $
---             newPutAnomalyDetector
 --
 --         , requestDeleteInsightRules $
 --             newDeleteInsightRules
 --
---         , requestDisableAlarmActions $
---             newDisableAlarmActions
---
 --         , requestGetDashboard $
 --             newGetDashboard
 --
---         , requestPutCompositeAlarm $
---             newPutCompositeAlarm
+--         , requestDescribeAlarmsForMetric $
+--             newDescribeAlarmsForMetric
+--
+--         , requestDisableAlarmActions $
+--             newDisableAlarmActions
+--
+--         , requestPutAnomalyDetector $
+--             newPutAnomalyDetector
 --
 --         , requestDisableInsightRules $
 --             newDisableInsightRules
 --
+--         , requestPutCompositeAlarm $
+--             newPutCompositeAlarm
+--
 --         , requestDescribeAlarmHistory $
 --             newDescribeAlarmHistory
 --
---         , requestDeleteDashboards $
---             newDeleteDashboards
+--         , requestPutMetricStream $
+--             newPutMetricStream
+--
+--         , requestListMetricStreams $
+--             newListMetricStreams
+--
+--         , requestGetMetricStream $
+--             newGetMetricStream
 --
 --         , requestSetAlarmState $
 --             newSetAlarmState
+--
+--         , requestDeleteDashboards $
+--             newDeleteDashboards
 --
 --         , requestListDashboards $
 --             newListDashboards
@@ -105,14 +123,14 @@ import Test.Tasty
 --         , requestDescribeAlarms $
 --             newDescribeAlarms
 --
+--         , requestEnableInsightRules $
+--             newEnableInsightRules
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestDeleteAnomalyDetector $
 --             newDeleteAnomalyDetector
---
---         , requestEnableInsightRules $
---             newEnableInsightRules
 --
 --         , requestGetMetricData $
 --             newGetMetricData
@@ -120,77 +138,95 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseEnableAlarmActions $
---             newEnableAlarmActionsResponse
---
---         , responseGetMetricStatistics $
+--         [ responseGetMetricStatistics $
 --             newGetMetricStatisticsResponse
 --
---         , responsePutInsightRule $
---             newPutInsightRuleResponse
---
---         , responseDeleteAlarms $
---             newDeleteAlarmsResponse
+--         , responseEnableAlarmActions $
+--             newEnableAlarmActionsResponse
 --
 --         , responseGetMetricWidgetImage $
 --             newGetMetricWidgetImageResponse
 --
---         , responseDescribeInsightRules $
---             newDescribeInsightRulesResponse
+--         , responsePutInsightRule $
+--             newPutInsightRuleResponse
+--
+--         , responseDeleteMetricStream $
+--             newDeleteMetricStreamResponse
+--
+--         , responseDeleteAlarms $
+--             newDeleteAlarmsResponse
 --
 --         , responsePutMetricAlarm $
 --             newPutMetricAlarmResponse
 --
+--         , responseDescribeInsightRules $
+--             newDescribeInsightRulesResponse
+--
+--         , responseStartMetricStreams $
+--             newStartMetricStreamsResponse
+--
+--         , responseStopMetricStreams $
+--             newStopMetricStreamsResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
---
---         , responseGetInsightRuleReport $
---             newGetInsightRuleReportResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseGetInsightRuleReport $
+--             newGetInsightRuleReportResponse
+--
 --         , responseDescribeAnomalyDetectors $
 --             newDescribeAnomalyDetectorsResponse
---
---         , responseListMetrics $
---             newListMetricsResponse
 --
 --         , responsePutMetricData $
 --             newPutMetricDataResponse
 --
+--         , responseListMetrics $
+--             newListMetricsResponse
+--
 --         , responsePutDashboard $
 --             newPutDashboardResponse
---
---         , responseDescribeAlarmsForMetric $
---             newDescribeAlarmsForMetricResponse
---
---         , responsePutAnomalyDetector $
---             newPutAnomalyDetectorResponse
 --
 --         , responseDeleteInsightRules $
 --             newDeleteInsightRulesResponse
 --
---         , responseDisableAlarmActions $
---             newDisableAlarmActionsResponse
---
 --         , responseGetDashboard $
 --             newGetDashboardResponse
 --
---         , responsePutCompositeAlarm $
---             newPutCompositeAlarmResponse
+--         , responseDescribeAlarmsForMetric $
+--             newDescribeAlarmsForMetricResponse
+--
+--         , responseDisableAlarmActions $
+--             newDisableAlarmActionsResponse
+--
+--         , responsePutAnomalyDetector $
+--             newPutAnomalyDetectorResponse
 --
 --         , responseDisableInsightRules $
 --             newDisableInsightRulesResponse
 --
+--         , responsePutCompositeAlarm $
+--             newPutCompositeAlarmResponse
+--
 --         , responseDescribeAlarmHistory $
 --             newDescribeAlarmHistoryResponse
 --
---         , responseDeleteDashboards $
---             newDeleteDashboardsResponse
+--         , responsePutMetricStream $
+--             newPutMetricStreamResponse
+--
+--         , responseListMetricStreams $
+--             newListMetricStreamsResponse
+--
+--         , responseGetMetricStream $
+--             newGetMetricStreamResponse
 --
 --         , responseSetAlarmState $
 --             newSetAlarmStateResponse
+--
+--         , responseDeleteDashboards $
+--             newDeleteDashboardsResponse
 --
 --         , responseListDashboards $
 --             newListDashboardsResponse
@@ -198,14 +234,14 @@ import Test.Tasty
 --         , responseDescribeAlarms $
 --             newDescribeAlarmsResponse
 --
+--         , responseEnableInsightRules $
+--             newEnableInsightRulesResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responseDeleteAnomalyDetector $
 --             newDeleteAnomalyDetectorResponse
---
---         , responseEnableInsightRules $
---             newEnableInsightRulesResponse
 --
 --         , responseGetMetricData $
 --             newGetMetricDataResponse
@@ -215,29 +251,17 @@ import Test.Tasty
 
 -- Requests
 
-requestEnableAlarmActions :: EnableAlarmActions -> TestTree
-requestEnableAlarmActions =
-  req
-    "EnableAlarmActions"
-    "fixture/EnableAlarmActions.yaml"
-
 requestGetMetricStatistics :: GetMetricStatistics -> TestTree
 requestGetMetricStatistics =
   req
     "GetMetricStatistics"
     "fixture/GetMetricStatistics.yaml"
 
-requestPutInsightRule :: PutInsightRule -> TestTree
-requestPutInsightRule =
+requestEnableAlarmActions :: EnableAlarmActions -> TestTree
+requestEnableAlarmActions =
   req
-    "PutInsightRule"
-    "fixture/PutInsightRule.yaml"
-
-requestDeleteAlarms :: DeleteAlarms -> TestTree
-requestDeleteAlarms =
-  req
-    "DeleteAlarms"
-    "fixture/DeleteAlarms.yaml"
+    "EnableAlarmActions"
+    "fixture/EnableAlarmActions.yaml"
 
 requestGetMetricWidgetImage :: GetMetricWidgetImage -> TestTree
 requestGetMetricWidgetImage =
@@ -245,11 +269,23 @@ requestGetMetricWidgetImage =
     "GetMetricWidgetImage"
     "fixture/GetMetricWidgetImage.yaml"
 
-requestDescribeInsightRules :: DescribeInsightRules -> TestTree
-requestDescribeInsightRules =
+requestPutInsightRule :: PutInsightRule -> TestTree
+requestPutInsightRule =
   req
-    "DescribeInsightRules"
-    "fixture/DescribeInsightRules.yaml"
+    "PutInsightRule"
+    "fixture/PutInsightRule.yaml"
+
+requestDeleteMetricStream :: DeleteMetricStream -> TestTree
+requestDeleteMetricStream =
+  req
+    "DeleteMetricStream"
+    "fixture/DeleteMetricStream.yaml"
+
+requestDeleteAlarms :: DeleteAlarms -> TestTree
+requestDeleteAlarms =
+  req
+    "DeleteAlarms"
+    "fixture/DeleteAlarms.yaml"
 
 requestPutMetricAlarm :: PutMetricAlarm -> TestTree
 requestPutMetricAlarm =
@@ -257,17 +293,29 @@ requestPutMetricAlarm =
     "PutMetricAlarm"
     "fixture/PutMetricAlarm.yaml"
 
+requestDescribeInsightRules :: DescribeInsightRules -> TestTree
+requestDescribeInsightRules =
+  req
+    "DescribeInsightRules"
+    "fixture/DescribeInsightRules.yaml"
+
+requestStartMetricStreams :: StartMetricStreams -> TestTree
+requestStartMetricStreams =
+  req
+    "StartMetricStreams"
+    "fixture/StartMetricStreams.yaml"
+
+requestStopMetricStreams :: StopMetricStreams -> TestTree
+requestStopMetricStreams =
+  req
+    "StopMetricStreams"
+    "fixture/StopMetricStreams.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
-
-requestGetInsightRuleReport :: GetInsightRuleReport -> TestTree
-requestGetInsightRuleReport =
-  req
-    "GetInsightRuleReport"
-    "fixture/GetInsightRuleReport.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -275,17 +323,17 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestGetInsightRuleReport :: GetInsightRuleReport -> TestTree
+requestGetInsightRuleReport =
+  req
+    "GetInsightRuleReport"
+    "fixture/GetInsightRuleReport.yaml"
+
 requestDescribeAnomalyDetectors :: DescribeAnomalyDetectors -> TestTree
 requestDescribeAnomalyDetectors =
   req
     "DescribeAnomalyDetectors"
     "fixture/DescribeAnomalyDetectors.yaml"
-
-requestListMetrics :: ListMetrics -> TestTree
-requestListMetrics =
-  req
-    "ListMetrics"
-    "fixture/ListMetrics.yaml"
 
 requestPutMetricData :: PutMetricData -> TestTree
 requestPutMetricData =
@@ -293,23 +341,17 @@ requestPutMetricData =
     "PutMetricData"
     "fixture/PutMetricData.yaml"
 
+requestListMetrics :: ListMetrics -> TestTree
+requestListMetrics =
+  req
+    "ListMetrics"
+    "fixture/ListMetrics.yaml"
+
 requestPutDashboard :: PutDashboard -> TestTree
 requestPutDashboard =
   req
     "PutDashboard"
     "fixture/PutDashboard.yaml"
-
-requestDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
-requestDescribeAlarmsForMetric =
-  req
-    "DescribeAlarmsForMetric"
-    "fixture/DescribeAlarmsForMetric.yaml"
-
-requestPutAnomalyDetector :: PutAnomalyDetector -> TestTree
-requestPutAnomalyDetector =
-  req
-    "PutAnomalyDetector"
-    "fixture/PutAnomalyDetector.yaml"
 
 requestDeleteInsightRules :: DeleteInsightRules -> TestTree
 requestDeleteInsightRules =
@@ -317,23 +359,29 @@ requestDeleteInsightRules =
     "DeleteInsightRules"
     "fixture/DeleteInsightRules.yaml"
 
-requestDisableAlarmActions :: DisableAlarmActions -> TestTree
-requestDisableAlarmActions =
-  req
-    "DisableAlarmActions"
-    "fixture/DisableAlarmActions.yaml"
-
 requestGetDashboard :: GetDashboard -> TestTree
 requestGetDashboard =
   req
     "GetDashboard"
     "fixture/GetDashboard.yaml"
 
-requestPutCompositeAlarm :: PutCompositeAlarm -> TestTree
-requestPutCompositeAlarm =
+requestDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
+requestDescribeAlarmsForMetric =
   req
-    "PutCompositeAlarm"
-    "fixture/PutCompositeAlarm.yaml"
+    "DescribeAlarmsForMetric"
+    "fixture/DescribeAlarmsForMetric.yaml"
+
+requestDisableAlarmActions :: DisableAlarmActions -> TestTree
+requestDisableAlarmActions =
+  req
+    "DisableAlarmActions"
+    "fixture/DisableAlarmActions.yaml"
+
+requestPutAnomalyDetector :: PutAnomalyDetector -> TestTree
+requestPutAnomalyDetector =
+  req
+    "PutAnomalyDetector"
+    "fixture/PutAnomalyDetector.yaml"
 
 requestDisableInsightRules :: DisableInsightRules -> TestTree
 requestDisableInsightRules =
@@ -341,23 +389,47 @@ requestDisableInsightRules =
     "DisableInsightRules"
     "fixture/DisableInsightRules.yaml"
 
+requestPutCompositeAlarm :: PutCompositeAlarm -> TestTree
+requestPutCompositeAlarm =
+  req
+    "PutCompositeAlarm"
+    "fixture/PutCompositeAlarm.yaml"
+
 requestDescribeAlarmHistory :: DescribeAlarmHistory -> TestTree
 requestDescribeAlarmHistory =
   req
     "DescribeAlarmHistory"
     "fixture/DescribeAlarmHistory.yaml"
 
-requestDeleteDashboards :: DeleteDashboards -> TestTree
-requestDeleteDashboards =
+requestPutMetricStream :: PutMetricStream -> TestTree
+requestPutMetricStream =
   req
-    "DeleteDashboards"
-    "fixture/DeleteDashboards.yaml"
+    "PutMetricStream"
+    "fixture/PutMetricStream.yaml"
+
+requestListMetricStreams :: ListMetricStreams -> TestTree
+requestListMetricStreams =
+  req
+    "ListMetricStreams"
+    "fixture/ListMetricStreams.yaml"
+
+requestGetMetricStream :: GetMetricStream -> TestTree
+requestGetMetricStream =
+  req
+    "GetMetricStream"
+    "fixture/GetMetricStream.yaml"
 
 requestSetAlarmState :: SetAlarmState -> TestTree
 requestSetAlarmState =
   req
     "SetAlarmState"
     "fixture/SetAlarmState.yaml"
+
+requestDeleteDashboards :: DeleteDashboards -> TestTree
+requestDeleteDashboards =
+  req
+    "DeleteDashboards"
+    "fixture/DeleteDashboards.yaml"
 
 requestListDashboards :: ListDashboards -> TestTree
 requestListDashboards =
@@ -371,6 +443,12 @@ requestDescribeAlarms =
     "DescribeAlarms"
     "fixture/DescribeAlarms.yaml"
 
+requestEnableInsightRules :: EnableInsightRules -> TestTree
+requestEnableInsightRules =
+  req
+    "EnableInsightRules"
+    "fixture/EnableInsightRules.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -383,12 +461,6 @@ requestDeleteAnomalyDetector =
     "DeleteAnomalyDetector"
     "fixture/DeleteAnomalyDetector.yaml"
 
-requestEnableInsightRules :: EnableInsightRules -> TestTree
-requestEnableInsightRules =
-  req
-    "EnableInsightRules"
-    "fixture/EnableInsightRules.yaml"
-
 requestGetMetricData :: GetMetricData -> TestTree
 requestGetMetricData =
   req
@@ -396,14 +468,6 @@ requestGetMetricData =
     "fixture/GetMetricData.yaml"
 
 -- Responses
-
-responseEnableAlarmActions :: EnableAlarmActionsResponse -> TestTree
-responseEnableAlarmActions =
-  res
-    "EnableAlarmActionsResponse"
-    "fixture/EnableAlarmActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy EnableAlarmActions)
 
 responseGetMetricStatistics :: GetMetricStatisticsResponse -> TestTree
 responseGetMetricStatistics =
@@ -413,21 +477,13 @@ responseGetMetricStatistics =
     defaultService
     (Proxy :: Proxy GetMetricStatistics)
 
-responsePutInsightRule :: PutInsightRuleResponse -> TestTree
-responsePutInsightRule =
+responseEnableAlarmActions :: EnableAlarmActionsResponse -> TestTree
+responseEnableAlarmActions =
   res
-    "PutInsightRuleResponse"
-    "fixture/PutInsightRuleResponse.proto"
+    "EnableAlarmActionsResponse"
+    "fixture/EnableAlarmActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutInsightRule)
-
-responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
-responseDeleteAlarms =
-  res
-    "DeleteAlarmsResponse"
-    "fixture/DeleteAlarmsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAlarms)
+    (Proxy :: Proxy EnableAlarmActions)
 
 responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
 responseGetMetricWidgetImage =
@@ -437,13 +493,29 @@ responseGetMetricWidgetImage =
     defaultService
     (Proxy :: Proxy GetMetricWidgetImage)
 
-responseDescribeInsightRules :: DescribeInsightRulesResponse -> TestTree
-responseDescribeInsightRules =
+responsePutInsightRule :: PutInsightRuleResponse -> TestTree
+responsePutInsightRule =
   res
-    "DescribeInsightRulesResponse"
-    "fixture/DescribeInsightRulesResponse.proto"
+    "PutInsightRuleResponse"
+    "fixture/PutInsightRuleResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInsightRules)
+    (Proxy :: Proxy PutInsightRule)
+
+responseDeleteMetricStream :: DeleteMetricStreamResponse -> TestTree
+responseDeleteMetricStream =
+  res
+    "DeleteMetricStreamResponse"
+    "fixture/DeleteMetricStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMetricStream)
+
+responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
+responseDeleteAlarms =
+  res
+    "DeleteAlarmsResponse"
+    "fixture/DeleteAlarmsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAlarms)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
 responsePutMetricAlarm =
@@ -453,6 +525,30 @@ responsePutMetricAlarm =
     defaultService
     (Proxy :: Proxy PutMetricAlarm)
 
+responseDescribeInsightRules :: DescribeInsightRulesResponse -> TestTree
+responseDescribeInsightRules =
+  res
+    "DescribeInsightRulesResponse"
+    "fixture/DescribeInsightRulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeInsightRules)
+
+responseStartMetricStreams :: StartMetricStreamsResponse -> TestTree
+responseStartMetricStreams =
+  res
+    "StartMetricStreamsResponse"
+    "fixture/StartMetricStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMetricStreams)
+
+responseStopMetricStreams :: StopMetricStreamsResponse -> TestTree
+responseStopMetricStreams =
+  res
+    "StopMetricStreamsResponse"
+    "fixture/StopMetricStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopMetricStreams)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -460,14 +556,6 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy UntagResource)
-
-responseGetInsightRuleReport :: GetInsightRuleReportResponse -> TestTree
-responseGetInsightRuleReport =
-  res
-    "GetInsightRuleReportResponse"
-    "fixture/GetInsightRuleReportResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInsightRuleReport)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -477,6 +565,14 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
+responseGetInsightRuleReport :: GetInsightRuleReportResponse -> TestTree
+responseGetInsightRuleReport =
+  res
+    "GetInsightRuleReportResponse"
+    "fixture/GetInsightRuleReportResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInsightRuleReport)
+
 responseDescribeAnomalyDetectors :: DescribeAnomalyDetectorsResponse -> TestTree
 responseDescribeAnomalyDetectors =
   res
@@ -484,14 +580,6 @@ responseDescribeAnomalyDetectors =
     "fixture/DescribeAnomalyDetectorsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeAnomalyDetectors)
-
-responseListMetrics :: ListMetricsResponse -> TestTree
-responseListMetrics =
-  res
-    "ListMetricsResponse"
-    "fixture/ListMetricsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListMetrics)
 
 responsePutMetricData :: PutMetricDataResponse -> TestTree
 responsePutMetricData =
@@ -501,6 +589,14 @@ responsePutMetricData =
     defaultService
     (Proxy :: Proxy PutMetricData)
 
+responseListMetrics :: ListMetricsResponse -> TestTree
+responseListMetrics =
+  res
+    "ListMetricsResponse"
+    "fixture/ListMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMetrics)
+
 responsePutDashboard :: PutDashboardResponse -> TestTree
 responsePutDashboard =
   res
@@ -508,22 +604,6 @@ responsePutDashboard =
     "fixture/PutDashboardResponse.proto"
     defaultService
     (Proxy :: Proxy PutDashboard)
-
-responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
-responseDescribeAlarmsForMetric =
-  res
-    "DescribeAlarmsForMetricResponse"
-    "fixture/DescribeAlarmsForMetricResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAlarmsForMetric)
-
-responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
-responsePutAnomalyDetector =
-  res
-    "PutAnomalyDetectorResponse"
-    "fixture/PutAnomalyDetectorResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutAnomalyDetector)
 
 responseDeleteInsightRules :: DeleteInsightRulesResponse -> TestTree
 responseDeleteInsightRules =
@@ -533,14 +613,6 @@ responseDeleteInsightRules =
     defaultService
     (Proxy :: Proxy DeleteInsightRules)
 
-responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
-responseDisableAlarmActions =
-  res
-    "DisableAlarmActionsResponse"
-    "fixture/DisableAlarmActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisableAlarmActions)
-
 responseGetDashboard :: GetDashboardResponse -> TestTree
 responseGetDashboard =
   res
@@ -549,13 +621,29 @@ responseGetDashboard =
     defaultService
     (Proxy :: Proxy GetDashboard)
 
-responsePutCompositeAlarm :: PutCompositeAlarmResponse -> TestTree
-responsePutCompositeAlarm =
+responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
+responseDescribeAlarmsForMetric =
   res
-    "PutCompositeAlarmResponse"
-    "fixture/PutCompositeAlarmResponse.proto"
+    "DescribeAlarmsForMetricResponse"
+    "fixture/DescribeAlarmsForMetricResponse.proto"
     defaultService
-    (Proxy :: Proxy PutCompositeAlarm)
+    (Proxy :: Proxy DescribeAlarmsForMetric)
+
+responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
+responseDisableAlarmActions =
+  res
+    "DisableAlarmActionsResponse"
+    "fixture/DisableAlarmActionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableAlarmActions)
+
+responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
+responsePutAnomalyDetector =
+  res
+    "PutAnomalyDetectorResponse"
+    "fixture/PutAnomalyDetectorResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutAnomalyDetector)
 
 responseDisableInsightRules :: DisableInsightRulesResponse -> TestTree
 responseDisableInsightRules =
@@ -565,6 +653,14 @@ responseDisableInsightRules =
     defaultService
     (Proxy :: Proxy DisableInsightRules)
 
+responsePutCompositeAlarm :: PutCompositeAlarmResponse -> TestTree
+responsePutCompositeAlarm =
+  res
+    "PutCompositeAlarmResponse"
+    "fixture/PutCompositeAlarmResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutCompositeAlarm)
+
 responseDescribeAlarmHistory :: DescribeAlarmHistoryResponse -> TestTree
 responseDescribeAlarmHistory =
   res
@@ -573,13 +669,29 @@ responseDescribeAlarmHistory =
     defaultService
     (Proxy :: Proxy DescribeAlarmHistory)
 
-responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
-responseDeleteDashboards =
+responsePutMetricStream :: PutMetricStreamResponse -> TestTree
+responsePutMetricStream =
   res
-    "DeleteDashboardsResponse"
-    "fixture/DeleteDashboardsResponse.proto"
+    "PutMetricStreamResponse"
+    "fixture/PutMetricStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDashboards)
+    (Proxy :: Proxy PutMetricStream)
+
+responseListMetricStreams :: ListMetricStreamsResponse -> TestTree
+responseListMetricStreams =
+  res
+    "ListMetricStreamsResponse"
+    "fixture/ListMetricStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMetricStreams)
+
+responseGetMetricStream :: GetMetricStreamResponse -> TestTree
+responseGetMetricStream =
+  res
+    "GetMetricStreamResponse"
+    "fixture/GetMetricStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMetricStream)
 
 responseSetAlarmState :: SetAlarmStateResponse -> TestTree
 responseSetAlarmState =
@@ -588,6 +700,14 @@ responseSetAlarmState =
     "fixture/SetAlarmStateResponse.proto"
     defaultService
     (Proxy :: Proxy SetAlarmState)
+
+responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
+responseDeleteDashboards =
+  res
+    "DeleteDashboardsResponse"
+    "fixture/DeleteDashboardsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDashboards)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
 responseListDashboards =
@@ -605,6 +725,14 @@ responseDescribeAlarms =
     defaultService
     (Proxy :: Proxy DescribeAlarms)
 
+responseEnableInsightRules :: EnableInsightRulesResponse -> TestTree
+responseEnableInsightRules =
+  res
+    "EnableInsightRulesResponse"
+    "fixture/EnableInsightRulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableInsightRules)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -620,14 +748,6 @@ responseDeleteAnomalyDetector =
     "fixture/DeleteAnomalyDetectorResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteAnomalyDetector)
-
-responseEnableInsightRules :: EnableInsightRulesResponse -> TestTree
-responseEnableInsightRules =
-  res
-    "EnableInsightRulesResponse"
-    "fixture/EnableInsightRulesResponse.proto"
-    defaultService
-    (Proxy :: Proxy EnableInsightRules)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
 responseGetMetricData =

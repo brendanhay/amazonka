@@ -29,14 +29,14 @@ module Network.AWS.MediaConvert.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_accelerationSettings,
     createJob_billingTagsSource,
-    createJob_priority,
+    createJob_accelerationSettings,
     createJob_statusUpdateInterval,
+    createJob_priority,
     createJob_jobTemplate,
     createJob_userMetadata,
-    createJob_tags,
     createJob_queue,
+    createJob_tags,
     createJob_simulateReservedQueue,
     createJob_clientRequestToken,
     createJob_hopDestinations,
@@ -62,30 +62,30 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | Optional. Accelerated transcoding can significantly speed up jobs with
-    -- long, visually complex content. Outputs that use this feature incur
-    -- pro-tier pricing. For information about feature limitations, see the AWS
-    -- Elemental MediaConvert User Guide.
-    accelerationSettings :: Prelude.Maybe AccelerationSettings,
-    -- | Optional. Choose a tag type that AWS Billing and Cost Management will
+  { -- | Optional. Choose a tag type that AWS Billing and Cost Management will
     -- use to sort your AWS Elemental MediaConvert costs on any billing report
     -- that you set up. Any transcoding outputs that don\'t have an associated
     -- tag will appear in your billing report unsorted. If you don\'t choose a
     -- valid value for this field, your job outputs will appear on the billing
     -- report unsorted.
     billingTagsSource :: Prelude.Maybe BillingTagsSource,
-    -- | Optional. Specify the relative priority for this job. In any given
-    -- queue, the service begins processing the job with the highest value
-    -- first. When more than one job has the same priority, the service begins
-    -- processing the job that you submitted first. If you don\'t specify a
-    -- priority, the service uses the default value 0.
-    priority :: Prelude.Maybe Prelude.Int,
+    -- | Optional. Accelerated transcoding can significantly speed up jobs with
+    -- long, visually complex content. Outputs that use this feature incur
+    -- pro-tier pricing. For information about feature limitations, see the AWS
+    -- Elemental MediaConvert User Guide.
+    accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | Optional. Specify how often MediaConvert sends STATUS_UPDATE events to
     -- Amazon CloudWatch Events. Set the interval, in seconds, between status
     -- updates. MediaConvert sends an update at this interval from the time the
     -- service begins processing your job to the time it completes the
     -- transcode or encounters an error.
     statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    -- | Optional. Specify the relative priority for this job. In any given
+    -- queue, the service begins processing the job with the highest value
+    -- first. When more than one job has the same priority, the service begins
+    -- processing the job that you submitted first. If you don\'t specify a
+    -- priority, the service uses the default value 0.
+    priority :: Prelude.Maybe Prelude.Int,
     -- | Optional. When you create a job, you can either specify a job template
     -- or specify the transcoding settings individually.
     jobTemplate :: Prelude.Maybe Prelude.Text,
@@ -94,16 +94,16 @@ data CreateJob = CreateJob'
     -- existing integrations or workflows that rely on job metadata tags.
     -- Otherwise, we recommend that you use standard AWS tags.
     userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Optional. The tags that you want to add to the resource. You can tag
-    -- resources with a key-value pair or with only a key. Use standard AWS
-    -- tags on your job for automatic integration with AWS services and for
-    -- custom integrations and workflows.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Optional. When you create a job, you can specify a queue to send it to.
     -- If you don\'t specify, the job will go to the default queue. For more
     -- about queues, see the User Guide topic at
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html.
     queue :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The tags that you want to add to the resource. You can tag
+    -- resources with a key-value pair or with only a key. Use standard AWS
+    -- tags on your job for automatic integration with AWS services and for
+    -- custom integrations and workflows.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Optional. Enable this setting when you run a test job to estimate how
     -- many reserved transcoding slots (RTS) you need. When this is enabled,
     -- MediaConvert runs your job from an on-demand queue with similar
@@ -135,11 +135,6 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accelerationSettings', 'createJob_accelerationSettings' - Optional. Accelerated transcoding can significantly speed up jobs with
--- long, visually complex content. Outputs that use this feature incur
--- pro-tier pricing. For information about feature limitations, see the AWS
--- Elemental MediaConvert User Guide.
---
 -- 'billingTagsSource', 'createJob_billingTagsSource' - Optional. Choose a tag type that AWS Billing and Cost Management will
 -- use to sort your AWS Elemental MediaConvert costs on any billing report
 -- that you set up. Any transcoding outputs that don\'t have an associated
@@ -147,17 +142,22 @@ data CreateJob = CreateJob'
 -- valid value for this field, your job outputs will appear on the billing
 -- report unsorted.
 --
--- 'priority', 'createJob_priority' - Optional. Specify the relative priority for this job. In any given
--- queue, the service begins processing the job with the highest value
--- first. When more than one job has the same priority, the service begins
--- processing the job that you submitted first. If you don\'t specify a
--- priority, the service uses the default value 0.
+-- 'accelerationSettings', 'createJob_accelerationSettings' - Optional. Accelerated transcoding can significantly speed up jobs with
+-- long, visually complex content. Outputs that use this feature incur
+-- pro-tier pricing. For information about feature limitations, see the AWS
+-- Elemental MediaConvert User Guide.
 --
 -- 'statusUpdateInterval', 'createJob_statusUpdateInterval' - Optional. Specify how often MediaConvert sends STATUS_UPDATE events to
 -- Amazon CloudWatch Events. Set the interval, in seconds, between status
 -- updates. MediaConvert sends an update at this interval from the time the
 -- service begins processing your job to the time it completes the
 -- transcode or encounters an error.
+--
+-- 'priority', 'createJob_priority' - Optional. Specify the relative priority for this job. In any given
+-- queue, the service begins processing the job with the highest value
+-- first. When more than one job has the same priority, the service begins
+-- processing the job that you submitted first. If you don\'t specify a
+-- priority, the service uses the default value 0.
 --
 -- 'jobTemplate', 'createJob_jobTemplate' - Optional. When you create a job, you can either specify a job template
 -- or specify the transcoding settings individually.
@@ -167,15 +167,15 @@ data CreateJob = CreateJob'
 -- existing integrations or workflows that rely on job metadata tags.
 -- Otherwise, we recommend that you use standard AWS tags.
 --
--- 'tags', 'createJob_tags' - Optional. The tags that you want to add to the resource. You can tag
--- resources with a key-value pair or with only a key. Use standard AWS
--- tags on your job for automatic integration with AWS services and for
--- custom integrations and workflows.
---
 -- 'queue', 'createJob_queue' - Optional. When you create a job, you can specify a queue to send it to.
 -- If you don\'t specify, the job will go to the default queue. For more
 -- about queues, see the User Guide topic at
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html.
+--
+-- 'tags', 'createJob_tags' - Optional. The tags that you want to add to the resource. You can tag
+-- resources with a key-value pair or with only a key. Use standard AWS
+-- tags on your job for automatic integration with AWS services and for
+-- custom integrations and workflows.
 --
 -- 'simulateReservedQueue', 'createJob_simulateReservedQueue' - Optional. Enable this setting when you run a test job to estimate how
 -- many reserved transcoding slots (RTS) you need. When this is enabled,
@@ -204,27 +204,20 @@ newCreateJob ::
   CreateJob
 newCreateJob pRole_ pSettings_ =
   CreateJob'
-    { accelerationSettings = Prelude.Nothing,
-      billingTagsSource = Prelude.Nothing,
-      priority = Prelude.Nothing,
+    { billingTagsSource = Prelude.Nothing,
+      accelerationSettings = Prelude.Nothing,
       statusUpdateInterval = Prelude.Nothing,
+      priority = Prelude.Nothing,
       jobTemplate = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
-      tags = Prelude.Nothing,
       queue = Prelude.Nothing,
+      tags = Prelude.Nothing,
       simulateReservedQueue = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       hopDestinations = Prelude.Nothing,
       role' = pRole_,
       settings = pSettings_
     }
-
--- | Optional. Accelerated transcoding can significantly speed up jobs with
--- long, visually complex content. Outputs that use this feature incur
--- pro-tier pricing. For information about feature limitations, see the AWS
--- Elemental MediaConvert User Guide.
-createJob_accelerationSettings :: Lens.Lens' CreateJob (Prelude.Maybe AccelerationSettings)
-createJob_accelerationSettings = Lens.lens (\CreateJob' {accelerationSettings} -> accelerationSettings) (\s@CreateJob' {} a -> s {accelerationSettings = a} :: CreateJob)
 
 -- | Optional. Choose a tag type that AWS Billing and Cost Management will
 -- use to sort your AWS Elemental MediaConvert costs on any billing report
@@ -235,13 +228,12 @@ createJob_accelerationSettings = Lens.lens (\CreateJob' {accelerationSettings} -
 createJob_billingTagsSource :: Lens.Lens' CreateJob (Prelude.Maybe BillingTagsSource)
 createJob_billingTagsSource = Lens.lens (\CreateJob' {billingTagsSource} -> billingTagsSource) (\s@CreateJob' {} a -> s {billingTagsSource = a} :: CreateJob)
 
--- | Optional. Specify the relative priority for this job. In any given
--- queue, the service begins processing the job with the highest value
--- first. When more than one job has the same priority, the service begins
--- processing the job that you submitted first. If you don\'t specify a
--- priority, the service uses the default value 0.
-createJob_priority :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
-createJob_priority = Lens.lens (\CreateJob' {priority} -> priority) (\s@CreateJob' {} a -> s {priority = a} :: CreateJob)
+-- | Optional. Accelerated transcoding can significantly speed up jobs with
+-- long, visually complex content. Outputs that use this feature incur
+-- pro-tier pricing. For information about feature limitations, see the AWS
+-- Elemental MediaConvert User Guide.
+createJob_accelerationSettings :: Lens.Lens' CreateJob (Prelude.Maybe AccelerationSettings)
+createJob_accelerationSettings = Lens.lens (\CreateJob' {accelerationSettings} -> accelerationSettings) (\s@CreateJob' {} a -> s {accelerationSettings = a} :: CreateJob)
 
 -- | Optional. Specify how often MediaConvert sends STATUS_UPDATE events to
 -- Amazon CloudWatch Events. Set the interval, in seconds, between status
@@ -250,6 +242,14 @@ createJob_priority = Lens.lens (\CreateJob' {priority} -> priority) (\s@CreateJo
 -- transcode or encounters an error.
 createJob_statusUpdateInterval :: Lens.Lens' CreateJob (Prelude.Maybe StatusUpdateInterval)
 createJob_statusUpdateInterval = Lens.lens (\CreateJob' {statusUpdateInterval} -> statusUpdateInterval) (\s@CreateJob' {} a -> s {statusUpdateInterval = a} :: CreateJob)
+
+-- | Optional. Specify the relative priority for this job. In any given
+-- queue, the service begins processing the job with the highest value
+-- first. When more than one job has the same priority, the service begins
+-- processing the job that you submitted first. If you don\'t specify a
+-- priority, the service uses the default value 0.
+createJob_priority :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
+createJob_priority = Lens.lens (\CreateJob' {priority} -> priority) (\s@CreateJob' {} a -> s {priority = a} :: CreateJob)
 
 -- | Optional. When you create a job, you can either specify a job template
 -- or specify the transcoding settings individually.
@@ -263,19 +263,19 @@ createJob_jobTemplate = Lens.lens (\CreateJob' {jobTemplate} -> jobTemplate) (\s
 createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
--- | Optional. The tags that you want to add to the resource. You can tag
--- resources with a key-value pair or with only a key. Use standard AWS
--- tags on your job for automatic integration with AWS services and for
--- custom integrations and workflows.
-createJob_tags :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJob_tags = Lens.lens (\CreateJob' {tags} -> tags) (\s@CreateJob' {} a -> s {tags = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Optional. When you create a job, you can specify a queue to send it to.
 -- If you don\'t specify, the job will go to the default queue. For more
 -- about queues, see the User Guide topic at
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html.
 createJob_queue :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_queue = Lens.lens (\CreateJob' {queue} -> queue) (\s@CreateJob' {} a -> s {queue = a} :: CreateJob)
+
+-- | Optional. The tags that you want to add to the resource. You can tag
+-- resources with a key-value pair or with only a key. Use standard AWS
+-- tags on your job for automatic integration with AWS services and for
+-- custom integrations and workflows.
+createJob_tags :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJob_tags = Lens.lens (\CreateJob' {tags} -> tags) (\s@CreateJob' {} a -> s {tags = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Optional. Enable this setting when you run a test job to estimate how
 -- many reserved transcoding slots (RTS) you need. When this is enabled,
@@ -337,17 +337,17 @@ instance Core.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("accelerationSettings" Core..=)
-              Prelude.<$> accelerationSettings,
-            ("billingTagsSource" Core..=)
+          [ ("billingTagsSource" Core..=)
               Prelude.<$> billingTagsSource,
-            ("priority" Core..=) Prelude.<$> priority,
+            ("accelerationSettings" Core..=)
+              Prelude.<$> accelerationSettings,
             ("statusUpdateInterval" Core..=)
               Prelude.<$> statusUpdateInterval,
+            ("priority" Core..=) Prelude.<$> priority,
             ("jobTemplate" Core..=) Prelude.<$> jobTemplate,
             ("userMetadata" Core..=) Prelude.<$> userMetadata,
-            ("tags" Core..=) Prelude.<$> tags,
             ("queue" Core..=) Prelude.<$> queue,
+            ("tags" Core..=) Prelude.<$> tags,
             ("simulateReservedQueue" Core..=)
               Prelude.<$> simulateReservedQueue,
             ("clientRequestToken" Core..=)

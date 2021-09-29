@@ -29,7 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIntegrationAssociationSummary' smart constructor.
 data IntegrationAssociationSummary = IntegrationAssociationSummary'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The user-provided, friendly name for the external application.
     sourceApplicationName :: Prelude.Maybe Prelude.Text,
@@ -56,7 +57,8 @@ data IntegrationAssociationSummary = IntegrationAssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'integrationAssociationSummary_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'integrationAssociationSummary_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'sourceApplicationName', 'integrationAssociationSummary_sourceApplicationName' - The user-provided, friendly name for the external application.
 --
@@ -86,7 +88,8 @@ newIntegrationAssociationSummary =
       integrationAssociationId = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 integrationAssociationSummary_instanceId :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 integrationAssociationSummary_instanceId = Lens.lens (\IntegrationAssociationSummary' {instanceId} -> instanceId) (\s@IntegrationAssociationSummary' {} a -> s {instanceId = a} :: IntegrationAssociationSummary)
 

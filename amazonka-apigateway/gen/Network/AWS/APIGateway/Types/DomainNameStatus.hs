@@ -22,6 +22,8 @@ module Network.AWS.APIGateway.Types.DomainNameStatus
       ( ..,
         DomainNameStatus_AVAILABLE,
         DomainNameStatus_PENDING,
+        DomainNameStatus_PENDING_CERTIFICATE_REIMPORT,
+        DomainNameStatus_PENDING_OWNERSHIP_VERIFICATION,
         DomainNameStatus_UPDATING
       ),
   )
@@ -64,12 +66,20 @@ pattern DomainNameStatus_AVAILABLE = DomainNameStatus' "AVAILABLE"
 pattern DomainNameStatus_PENDING :: DomainNameStatus
 pattern DomainNameStatus_PENDING = DomainNameStatus' "PENDING"
 
+pattern DomainNameStatus_PENDING_CERTIFICATE_REIMPORT :: DomainNameStatus
+pattern DomainNameStatus_PENDING_CERTIFICATE_REIMPORT = DomainNameStatus' "PENDING_CERTIFICATE_REIMPORT"
+
+pattern DomainNameStatus_PENDING_OWNERSHIP_VERIFICATION :: DomainNameStatus
+pattern DomainNameStatus_PENDING_OWNERSHIP_VERIFICATION = DomainNameStatus' "PENDING_OWNERSHIP_VERIFICATION"
+
 pattern DomainNameStatus_UPDATING :: DomainNameStatus
 pattern DomainNameStatus_UPDATING = DomainNameStatus' "UPDATING"
 
 {-# COMPLETE
   DomainNameStatus_AVAILABLE,
   DomainNameStatus_PENDING,
+  DomainNameStatus_PENDING_CERTIFICATE_REIMPORT,
+  DomainNameStatus_PENDING_OWNERSHIP_VERIFICATION,
   DomainNameStatus_UPDATING,
   DomainNameStatus'
   #-}

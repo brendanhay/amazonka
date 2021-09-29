@@ -36,10 +36,10 @@ import qualified Network.AWS.Prelude as Prelude
 data LoadBalancerDescription = LoadBalancerDescription'
   { -- | The ID of the Amazon Route 53 hosted zone for the load balancer.
     canonicalHostedZoneNameID :: Prelude.Maybe Prelude.Text,
-    -- | Information about your EC2 instances.
-    backendServerDescriptions :: Prelude.Maybe [BackendServerDescription],
     -- | The Availability Zones for the load balancer.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | Information about your EC2 instances.
+    backendServerDescriptions :: Prelude.Maybe [BackendServerDescription],
     -- | The policies defined for the load balancer.
     policies :: Prelude.Maybe Policies,
     -- | The type of load balancer. Valid only for load balancers in a VPC.
@@ -93,9 +93,9 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- 'canonicalHostedZoneNameID', 'loadBalancerDescription_canonicalHostedZoneNameID' - The ID of the Amazon Route 53 hosted zone for the load balancer.
 --
--- 'backendServerDescriptions', 'loadBalancerDescription_backendServerDescriptions' - Information about your EC2 instances.
---
 -- 'availabilityZones', 'loadBalancerDescription_availabilityZones' - The Availability Zones for the load balancer.
+--
+-- 'backendServerDescriptions', 'loadBalancerDescription_backendServerDescriptions' - Information about your EC2 instances.
 --
 -- 'policies', 'loadBalancerDescription_policies' - The policies defined for the load balancer.
 --
@@ -142,8 +142,8 @@ newLoadBalancerDescription =
   LoadBalancerDescription'
     { canonicalHostedZoneNameID =
         Prelude.Nothing,
-      backendServerDescriptions = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
+      backendServerDescriptions = Prelude.Nothing,
       policies = Prelude.Nothing,
       scheme = Prelude.Nothing,
       createdTime = Prelude.Nothing,
@@ -163,13 +163,13 @@ newLoadBalancerDescription =
 loadBalancerDescription_canonicalHostedZoneNameID :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_canonicalHostedZoneNameID = Lens.lens (\LoadBalancerDescription' {canonicalHostedZoneNameID} -> canonicalHostedZoneNameID) (\s@LoadBalancerDescription' {} a -> s {canonicalHostedZoneNameID = a} :: LoadBalancerDescription)
 
--- | Information about your EC2 instances.
-loadBalancerDescription_backendServerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [BackendServerDescription])
-loadBalancerDescription_backendServerDescriptions = Lens.lens (\LoadBalancerDescription' {backendServerDescriptions} -> backendServerDescriptions) (\s@LoadBalancerDescription' {} a -> s {backendServerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The Availability Zones for the load balancer.
 loadBalancerDescription_availabilityZones :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
 loadBalancerDescription_availabilityZones = Lens.lens (\LoadBalancerDescription' {availabilityZones} -> availabilityZones) (\s@LoadBalancerDescription' {} a -> s {availabilityZones = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Information about your EC2 instances.
+loadBalancerDescription_backendServerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [BackendServerDescription])
+loadBalancerDescription_backendServerDescriptions = Lens.lens (\LoadBalancerDescription' {backendServerDescriptions} -> backendServerDescriptions) (\s@LoadBalancerDescription' {} a -> s {backendServerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The policies defined for the load balancer.
 loadBalancerDescription_policies :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Policies)
@@ -241,11 +241,11 @@ instance Core.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
       Prelude.<$> (x Core..@? "CanonicalHostedZoneNameID")
-      Prelude.<*> ( x Core..@? "BackendServerDescriptions"
+      Prelude.<*> ( x Core..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<*> ( x Core..@? "BackendServerDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )

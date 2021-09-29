@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a private virtual interface to be owned by the specified AWS
+-- Provisions a private virtual interface to be owned by the specified
 -- account.
 --
 -- Virtual interfaces created using this action must be confirmed by the
@@ -48,23 +48,24 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     virtualInterface_asn,
     virtualInterface_awsDeviceV2,
     virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
     virtualInterface_customerRouterConfig,
     virtualInterface_jumboFrameCapable,
     virtualInterface_routeFilterPrefixes,
-    virtualInterface_virtualInterfaceType,
     virtualInterface_mtu,
-    virtualInterface_tags,
-    virtualInterface_virtualInterfaceId,
+    virtualInterface_virtualInterfaceType,
     virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
     virtualInterface_directConnectGatewayId,
-    virtualInterface_virtualInterfaceState,
     virtualInterface_virtualInterfaceName,
-    virtualInterface_addressFamily,
+    virtualInterface_virtualInterfaceState,
     virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
     virtualInterface_ownerAccount,
     virtualInterface_region,
-    virtualInterface_location,
     virtualInterface_vlan,
+    virtualInterface_location,
     virtualInterface_customerAddress,
   )
 where
@@ -81,7 +82,7 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
   { -- | The ID of the connection on which the private virtual interface is
     -- provisioned.
     connectionId :: Prelude.Text,
-    -- | The ID of the AWS account that owns the virtual private interface.
+    -- | The ID of the account that owns the virtual private interface.
     ownerAccount :: Prelude.Text,
     -- | Information about the private virtual interface.
     newPrivateVirtualInterfaceAllocation' :: NewPrivateVirtualInterfaceAllocation
@@ -99,7 +100,7 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
 -- 'connectionId', 'allocatePrivateVirtualInterface_connectionId' - The ID of the connection on which the private virtual interface is
 -- provisioned.
 --
--- 'ownerAccount', 'allocatePrivateVirtualInterface_ownerAccount' - The ID of the AWS account that owns the virtual private interface.
+-- 'ownerAccount', 'allocatePrivateVirtualInterface_ownerAccount' - The ID of the account that owns the virtual private interface.
 --
 -- 'newPrivateVirtualInterfaceAllocation'', 'allocatePrivateVirtualInterface_newPrivateVirtualInterfaceAllocation' - Information about the private virtual interface.
 newAllocatePrivateVirtualInterface ::
@@ -127,7 +128,7 @@ newAllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface_connectionId :: Lens.Lens' AllocatePrivateVirtualInterface Prelude.Text
 allocatePrivateVirtualInterface_connectionId = Lens.lens (\AllocatePrivateVirtualInterface' {connectionId} -> connectionId) (\s@AllocatePrivateVirtualInterface' {} a -> s {connectionId = a} :: AllocatePrivateVirtualInterface)
 
--- | The ID of the AWS account that owns the virtual private interface.
+-- | The ID of the account that owns the virtual private interface.
 allocatePrivateVirtualInterface_ownerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Prelude.Text
 allocatePrivateVirtualInterface_ownerAccount = Lens.lens (\AllocatePrivateVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocatePrivateVirtualInterface' {} a -> s {ownerAccount = a} :: AllocatePrivateVirtualInterface)
 

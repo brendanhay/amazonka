@@ -30,9 +30,9 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
 
     -- * Request Lenses
     describeImportSnapshotTasks_nextToken,
-    describeImportSnapshotTasks_dryRun,
     describeImportSnapshotTasks_importTaskIds,
     describeImportSnapshotTasks_maxResults,
+    describeImportSnapshotTasks_dryRun,
     describeImportSnapshotTasks_filters,
 
     -- * Destructuring the Response
@@ -57,17 +57,17 @@ import qualified Network.AWS.Response as Response
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
   { -- | A token that indicates the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A list of import snapshot task IDs.
     importTaskIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     filters :: Prelude.Maybe [Filter]
   }
@@ -83,16 +83,16 @@ data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
 --
 -- 'nextToken', 'describeImportSnapshotTasks_nextToken' - A token that indicates the next page of results.
 --
--- 'dryRun', 'describeImportSnapshotTasks_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'importTaskIds', 'describeImportSnapshotTasks_importTaskIds' - A list of import snapshot task IDs.
 --
 -- 'maxResults', 'describeImportSnapshotTasks_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'dryRun', 'describeImportSnapshotTasks_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeImportSnapshotTasks_filters' - The filters.
 newDescribeImportSnapshotTasks ::
@@ -101,22 +101,15 @@ newDescribeImportSnapshotTasks =
   DescribeImportSnapshotTasks'
     { nextToken =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       importTaskIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
 -- | A token that indicates the next page of results.
 describeImportSnapshotTasks_nextToken :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Text)
 describeImportSnapshotTasks_nextToken = Lens.lens (\DescribeImportSnapshotTasks' {nextToken} -> nextToken) (\s@DescribeImportSnapshotTasks' {} a -> s {nextToken = a} :: DescribeImportSnapshotTasks)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeImportSnapshotTasks_dryRun :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Bool)
-describeImportSnapshotTasks_dryRun = Lens.lens (\DescribeImportSnapshotTasks' {dryRun} -> dryRun) (\s@DescribeImportSnapshotTasks' {} a -> s {dryRun = a} :: DescribeImportSnapshotTasks)
 
 -- | A list of import snapshot task IDs.
 describeImportSnapshotTasks_importTaskIds :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Prelude.Text])
@@ -127,6 +120,13 @@ describeImportSnapshotTasks_importTaskIds = Lens.lens (\DescribeImportSnapshotTa
 -- value.
 describeImportSnapshotTasks_maxResults :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Int)
 describeImportSnapshotTasks_maxResults = Lens.lens (\DescribeImportSnapshotTasks' {maxResults} -> maxResults) (\s@DescribeImportSnapshotTasks' {} a -> s {maxResults = a} :: DescribeImportSnapshotTasks)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeImportSnapshotTasks_dryRun :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Bool)
+describeImportSnapshotTasks_dryRun = Lens.lens (\DescribeImportSnapshotTasks' {dryRun} -> dryRun) (\s@DescribeImportSnapshotTasks' {} a -> s {dryRun = a} :: DescribeImportSnapshotTasks)
 
 -- | The filters.
 describeImportSnapshotTasks_filters :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Filter])
@@ -191,12 +191,12 @@ instance Core.ToQuery DescribeImportSnapshotTasks where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ImportTaskId"
               Prelude.<$> importTaskIds
           ),
         "MaxResults" Core.=: maxResults,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filters" Prelude.<$> filters)
       ]

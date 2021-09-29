@@ -142,8 +142,7 @@ instance Core.ToQuery GetMaintenanceWindowExecution where
 data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionResponse'
   { -- | The status of the maintenance window execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The details explaining the Status. Only available for certain status
-    -- values.
+    -- | The details explaining the status. Not available for all status values.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task executions from the maintenance window execution.
     taskIds :: Prelude.Maybe [Prelude.Text],
@@ -168,8 +167,7 @@ data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionRespon
 --
 -- 'status', 'getMaintenanceWindowExecutionResponse_status' - The status of the maintenance window execution.
 --
--- 'statusDetails', 'getMaintenanceWindowExecutionResponse_statusDetails' - The details explaining the Status. Only available for certain status
--- values.
+-- 'statusDetails', 'getMaintenanceWindowExecutionResponse_statusDetails' - The details explaining the status. Not available for all status values.
 --
 -- 'taskIds', 'getMaintenanceWindowExecutionResponse_taskIds' - The ID of the task executions from the maintenance window execution.
 --
@@ -200,8 +198,7 @@ newGetMaintenanceWindowExecutionResponse pHttpStatus_ =
 getMaintenanceWindowExecutionResponse_status :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe MaintenanceWindowExecutionStatus)
 getMaintenanceWindowExecutionResponse_status = Lens.lens (\GetMaintenanceWindowExecutionResponse' {status} -> status) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {status = a} :: GetMaintenanceWindowExecutionResponse)
 
--- | The details explaining the Status. Only available for certain status
--- values.
+-- | The details explaining the status. Not available for all status values.
 getMaintenanceWindowExecutionResponse_statusDetails :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionResponse_statusDetails = Lens.lens (\GetMaintenanceWindowExecutionResponse' {statusDetails} -> statusDetails) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionResponse)
 

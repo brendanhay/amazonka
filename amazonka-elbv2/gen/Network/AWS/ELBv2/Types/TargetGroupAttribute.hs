@@ -63,9 +63,9 @@ data TargetGroupAttribute = TargetGroupAttribute'
     --     minutes). The default is 0 seconds (disabled).
     --
     -- -   @stickiness.app_cookie.cookie_name@ - Indicates the name of the
-    --     application-based cookie. Names that start with the following names
-    --     are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@. They\'re
-    --     reserved for use by the load balancer.
+    --     application-based cookie. Names that start with the following
+    --     prefixes are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@;
+    --     they\'re reserved for use by the load balancer.
     --
     -- -   @stickiness.app_cookie.duration_seconds@ - The time period, in
     --     seconds, during which requests from a client should be routed to the
@@ -158,9 +158,9 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --     minutes). The default is 0 seconds (disabled).
 --
 -- -   @stickiness.app_cookie.cookie_name@ - Indicates the name of the
---     application-based cookie. Names that start with the following names
---     are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@. They\'re
---     reserved for use by the load balancer.
+--     application-based cookie. Names that start with the following
+--     prefixes are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@;
+--     they\'re reserved for use by the load balancer.
 --
 -- -   @stickiness.app_cookie.duration_seconds@ - The time period, in
 --     seconds, during which requests from a client should be routed to the
@@ -249,9 +249,9 @@ newTargetGroupAttribute =
 --     minutes). The default is 0 seconds (disabled).
 --
 -- -   @stickiness.app_cookie.cookie_name@ - Indicates the name of the
---     application-based cookie. Names that start with the following names
---     are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@. They\'re
---     reserved for use by the load balancer.
+--     application-based cookie. Names that start with the following
+--     prefixes are not allowed: @AWSALB@, @AWSALBAPP@, and @AWSALBTG@;
+--     they\'re reserved for use by the load balancer.
 --
 -- -   @stickiness.app_cookie.duration_seconds@ - The time period, in
 --     seconds, during which requests from a client should be routed to the

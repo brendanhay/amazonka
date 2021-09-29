@@ -24,6 +24,10 @@
 -- Creating rules is an administrator-level action. Any user who has
 -- permission to create rules will be able to access data processed by the
 -- rule.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ReplaceTopicRule>
+-- action.
 module Network.AWS.IoT.ReplaceTopicRule
   ( -- * Creating a Request
     ReplaceTopicRule (..),

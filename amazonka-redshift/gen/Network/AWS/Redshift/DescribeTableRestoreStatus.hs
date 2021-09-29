@@ -36,9 +36,9 @@ module Network.AWS.Redshift.DescribeTableRestoreStatus
 
     -- * Request Lenses
     describeTableRestoreStatus_clusterIdentifier,
-    describeTableRestoreStatus_marker,
-    describeTableRestoreStatus_tableRestoreRequestId,
     describeTableRestoreStatus_maxRecords,
+    describeTableRestoreStatus_tableRestoreRequestId,
+    describeTableRestoreStatus_marker,
 
     -- * Destructuring the Response
     DescribeTableRestoreStatusResponse (..),
@@ -64,21 +64,21 @@ import qualified Network.AWS.Response as Response
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
   { -- | The Amazon Redshift cluster that the table is being restored to.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The identifier of the table restore request to return status for. If you
     -- don\'t specify a @TableRestoreRequestId@ value, then
     -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
     -- restore requests.
     tableRestoreRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified @MaxRecords@ value, a pagination token
-    -- called a marker is included in the response so that the remaining
-    -- results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    -- | An optional pagination token provided by a previous
+    -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by the @MaxRecords@ parameter.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,41 +92,41 @@ data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
 --
 -- 'clusterIdentifier', 'describeTableRestoreStatus_clusterIdentifier' - The Amazon Redshift cluster that the table is being restored to.
 --
--- 'marker', 'describeTableRestoreStatus_marker' - An optional pagination token provided by a previous
--- @DescribeTableRestoreStatus@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
+-- 'maxRecords', 'describeTableRestoreStatus_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
 --
 -- 'tableRestoreRequestId', 'describeTableRestoreStatus_tableRestoreRequestId' - The identifier of the table restore request to return status for. If you
 -- don\'t specify a @TableRestoreRequestId@ value, then
 -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
 -- restore requests.
 --
--- 'maxRecords', 'describeTableRestoreStatus_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- 'marker', 'describeTableRestoreStatus_marker' - An optional pagination token provided by a previous
+-- @DescribeTableRestoreStatus@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
 newDescribeTableRestoreStatus ::
   DescribeTableRestoreStatus
 newDescribeTableRestoreStatus =
   DescribeTableRestoreStatus'
     { clusterIdentifier =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       tableRestoreRequestId = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      marker = Prelude.Nothing
     }
 
 -- | The Amazon Redshift cluster that the table is being restored to.
 describeTableRestoreStatus_clusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
 describeTableRestoreStatus_clusterIdentifier = Lens.lens (\DescribeTableRestoreStatus' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeTableRestoreStatus' {} a -> s {clusterIdentifier = a} :: DescribeTableRestoreStatus)
 
--- | An optional pagination token provided by a previous
--- @DescribeTableRestoreStatus@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
-describeTableRestoreStatus_marker :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
-describeTableRestoreStatus_marker = Lens.lens (\DescribeTableRestoreStatus' {marker} -> marker) (\s@DescribeTableRestoreStatus' {} a -> s {marker = a} :: DescribeTableRestoreStatus)
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Int)
+describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' {maxRecords} -> maxRecords) (\s@DescribeTableRestoreStatus' {} a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
 
 -- | The identifier of the table restore request to return status for. If you
 -- don\'t specify a @TableRestoreRequestId@ value, then
@@ -135,12 +135,12 @@ describeTableRestoreStatus_marker = Lens.lens (\DescribeTableRestoreStatus' {mar
 describeTableRestoreStatus_tableRestoreRequestId :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
 describeTableRestoreStatus_tableRestoreRequestId = Lens.lens (\DescribeTableRestoreStatus' {tableRestoreRequestId} -> tableRestoreRequestId) (\s@DescribeTableRestoreStatus' {} a -> s {tableRestoreRequestId = a} :: DescribeTableRestoreStatus)
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
-describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Int)
-describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' {maxRecords} -> maxRecords) (\s@DescribeTableRestoreStatus' {} a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
+-- | An optional pagination token provided by a previous
+-- @DescribeTableRestoreStatus@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
+describeTableRestoreStatus_marker :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatus_marker = Lens.lens (\DescribeTableRestoreStatus' {marker} -> marker) (\s@DescribeTableRestoreStatus' {} a -> s {marker = a} :: DescribeTableRestoreStatus)
 
 instance Core.AWSPager DescribeTableRestoreStatus where
   page rq rs
@@ -200,10 +200,10 @@ instance Core.ToQuery DescribeTableRestoreStatus where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
         "TableRestoreRequestId"
           Core.=: tableRestoreRequestId,
-        "MaxRecords" Core.=: maxRecords
+        "Marker" Core.=: marker
       ]
 
 -- |

@@ -32,17 +32,18 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     -- | The status of the Trusted Advisor check for which a refresh has been
     -- requested:
     --
-    -- -   @none:@ The check is not refreshed or the non-success status exceeds
-    --     the timeout
+    -- -   @none@ - The check is not refreshed or the non-success status
+    --     exceeds the timeout
     --
-    -- -   @enqueued:@ The check refresh requests has entered the refresh queue
+    -- -   @enqueued@ - The check refresh requests has entered the refresh
+    --     queue
     --
-    -- -   @processing:@ The check refresh request is picked up by the rule
+    -- -   @processing@ - The check refresh request is picked up by the rule
     --     processing engine
     --
-    -- -   @success:@ The check is successfully refreshed
+    -- -   @success@ - The check is successfully refreshed
     --
-    -- -   @abandoned:@ The check refresh has failed
+    -- -   @abandoned@ - The check refresh has failed
     status :: Prelude.Text,
     -- | The amount of time, in milliseconds, until the Trusted Advisor check is
     -- eligible for refresh.
@@ -63,17 +64,18 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
 -- 'status', 'trustedAdvisorCheckRefreshStatus_status' - The status of the Trusted Advisor check for which a refresh has been
 -- requested:
 --
--- -   @none:@ The check is not refreshed or the non-success status exceeds
---     the timeout
+-- -   @none@ - The check is not refreshed or the non-success status
+--     exceeds the timeout
 --
--- -   @enqueued:@ The check refresh requests has entered the refresh queue
+-- -   @enqueued@ - The check refresh requests has entered the refresh
+--     queue
 --
--- -   @processing:@ The check refresh request is picked up by the rule
+-- -   @processing@ - The check refresh request is picked up by the rule
 --     processing engine
 --
--- -   @success:@ The check is successfully refreshed
+-- -   @success@ - The check is successfully refreshed
 --
--- -   @abandoned:@ The check refresh has failed
+-- -   @abandoned@ - The check refresh has failed
 --
 -- 'millisUntilNextRefreshable', 'trustedAdvisorCheckRefreshStatus_millisUntilNextRefreshable' - The amount of time, in milliseconds, until the Trusted Advisor check is
 -- eligible for refresh.
@@ -104,17 +106,18 @@ trustedAdvisorCheckRefreshStatus_checkId = Lens.lens (\TrustedAdvisorCheckRefres
 -- | The status of the Trusted Advisor check for which a refresh has been
 -- requested:
 --
--- -   @none:@ The check is not refreshed or the non-success status exceeds
---     the timeout
+-- -   @none@ - The check is not refreshed or the non-success status
+--     exceeds the timeout
 --
--- -   @enqueued:@ The check refresh requests has entered the refresh queue
+-- -   @enqueued@ - The check refresh requests has entered the refresh
+--     queue
 --
--- -   @processing:@ The check refresh request is picked up by the rule
+-- -   @processing@ - The check refresh request is picked up by the rule
 --     processing engine
 --
--- -   @success:@ The check is successfully refreshed
+-- -   @success@ - The check is successfully refreshed
 --
--- -   @abandoned:@ The check refresh has failed
+-- -   @abandoned@ - The check refresh has failed
 trustedAdvisorCheckRefreshStatus_status :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Prelude.Text
 trustedAdvisorCheckRefreshStatus_status = Lens.lens (\TrustedAdvisorCheckRefreshStatus' {status} -> status) (\s@TrustedAdvisorCheckRefreshStatus' {} a -> s {status = a} :: TrustedAdvisorCheckRefreshStatus)
 

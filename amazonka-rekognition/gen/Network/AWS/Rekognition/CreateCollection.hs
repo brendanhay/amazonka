@@ -34,13 +34,16 @@
 -- Collection names are case-sensitive.
 --
 -- This operation requires permissions to perform the
--- @rekognition:CreateCollection@ action.
+-- @rekognition:CreateCollection@ action. If you want to tag your
+-- collection, you also require permission to perform the
+-- @rekognition:TagResource@ operation.
 module Network.AWS.Rekognition.CreateCollection
   ( -- * Creating a Request
     CreateCollection (..),
     newCreateCollection,
 
     -- * Request Lenses
+    createCollection_tags,
     createCollection_collectionId,
 
     -- * Destructuring the Response
@@ -64,7 +67,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCollection' smart constructor.
 data CreateCollection = CreateCollection'
-  { -- | ID for the collection that you are creating.
+  { -- | A set of tags (key-value pairs) that you want to attach to the
+    -- collection.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | ID for the collection that you are creating.
     collectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,13 +83,24 @@ data CreateCollection = CreateCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCollection_tags' - A set of tags (key-value pairs) that you want to attach to the
+-- collection.
+--
 -- 'collectionId', 'createCollection_collectionId' - ID for the collection that you are creating.
 newCreateCollection ::
   -- | 'collectionId'
   Prelude.Text ->
   CreateCollection
 newCreateCollection pCollectionId_ =
-  CreateCollection' {collectionId = pCollectionId_}
+  CreateCollection'
+    { tags = Prelude.Nothing,
+      collectionId = pCollectionId_
+    }
+
+-- | A set of tags (key-value pairs) that you want to attach to the
+-- collection.
+createCollection_tags :: Lens.Lens' CreateCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCollection_tags = Lens.lens (\CreateCollection' {tags} -> tags) (\s@CreateCollection' {} a -> s {tags = a} :: CreateCollection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | ID for the collection that you are creating.
 createCollection_collectionId :: Lens.Lens' CreateCollection Prelude.Text
@@ -127,7 +144,9 @@ instance Core.ToJSON CreateCollection where
   toJSON CreateCollection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("CollectionId" Core..= collectionId)]
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("CollectionId" Core..= collectionId)
+          ]
       )
 
 instance Core.ToPath CreateCollection where

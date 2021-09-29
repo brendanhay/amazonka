@@ -38,8 +38,8 @@ module Network.AWS.APIGateway.CreateModel
     newModel,
 
     -- * Response Lenses
-    model_contentType,
     model_schema,
+    model_contentType,
     model_id,
     model_name,
     model_description,

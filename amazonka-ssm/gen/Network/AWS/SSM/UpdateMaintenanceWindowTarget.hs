@@ -37,7 +37,7 @@
 --     types are ID target, Tag target, and resource group. For more
 --     information, see Target.
 --
--- If a parameter is null, then the corresponding field is not modified.
+-- If a parameter is null, then the corresponding field isn\'t modified.
 module Network.AWS.SSM.UpdateMaintenanceWindowTarget
   ( -- * Creating a Request
     UpdateMaintenanceWindowTarget (..),
@@ -80,14 +80,15 @@ data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
     targets :: Prelude.Maybe [Target],
     -- | A name for the update.
     name :: Prelude.Maybe Prelude.Text,
-    -- | If True, then all fields that are required by the
-    -- RegisterTargetWithMaintenanceWindow action are also required for this
-    -- API request. Optional fields that are not specified are set to null.
+    -- | If @True@, then all fields that are required by the
+    -- RegisterTargetWithMaintenanceWindow operation are also required for this
+    -- API request. Optional fields that aren\'t specified are set to null.
     replace :: Prelude.Maybe Prelude.Bool,
     -- | An optional description for the update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | User-provided value that will be included in any CloudWatch events
-    -- raised while running tasks for these targets in this maintenance window.
+    -- | User-provided value that will be included in any Amazon CloudWatch
+    -- Events events raised while running tasks for these targets in this
+    -- maintenance window.
     ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maintenance window ID with which to modify the target.
     windowId :: Prelude.Text,
@@ -108,14 +109,15 @@ data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
 --
 -- 'name', 'updateMaintenanceWindowTarget_name' - A name for the update.
 --
--- 'replace', 'updateMaintenanceWindowTarget_replace' - If True, then all fields that are required by the
--- RegisterTargetWithMaintenanceWindow action are also required for this
--- API request. Optional fields that are not specified are set to null.
+-- 'replace', 'updateMaintenanceWindowTarget_replace' - If @True@, then all fields that are required by the
+-- RegisterTargetWithMaintenanceWindow operation are also required for this
+-- API request. Optional fields that aren\'t specified are set to null.
 --
 -- 'description', 'updateMaintenanceWindowTarget_description' - An optional description for the update.
 --
--- 'ownerInformation', 'updateMaintenanceWindowTarget_ownerInformation' - User-provided value that will be included in any CloudWatch events
--- raised while running tasks for these targets in this maintenance window.
+-- 'ownerInformation', 'updateMaintenanceWindowTarget_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
 --
 -- 'windowId', 'updateMaintenanceWindowTarget_windowId' - The maintenance window ID with which to modify the target.
 --
@@ -148,9 +150,9 @@ updateMaintenanceWindowTarget_targets = Lens.lens (\UpdateMaintenanceWindowTarge
 updateMaintenanceWindowTarget_name :: Lens.Lens' UpdateMaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTarget_name = Lens.lens (\UpdateMaintenanceWindowTarget' {name} -> name) (\s@UpdateMaintenanceWindowTarget' {} a -> s {name = a} :: UpdateMaintenanceWindowTarget)
 
--- | If True, then all fields that are required by the
--- RegisterTargetWithMaintenanceWindow action are also required for this
--- API request. Optional fields that are not specified are set to null.
+-- | If @True@, then all fields that are required by the
+-- RegisterTargetWithMaintenanceWindow operation are also required for this
+-- API request. Optional fields that aren\'t specified are set to null.
 updateMaintenanceWindowTarget_replace :: Lens.Lens' UpdateMaintenanceWindowTarget (Prelude.Maybe Prelude.Bool)
 updateMaintenanceWindowTarget_replace = Lens.lens (\UpdateMaintenanceWindowTarget' {replace} -> replace) (\s@UpdateMaintenanceWindowTarget' {} a -> s {replace = a} :: UpdateMaintenanceWindowTarget)
 
@@ -158,8 +160,9 @@ updateMaintenanceWindowTarget_replace = Lens.lens (\UpdateMaintenanceWindowTarge
 updateMaintenanceWindowTarget_description :: Lens.Lens' UpdateMaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTarget_description = Lens.lens (\UpdateMaintenanceWindowTarget' {description} -> description) (\s@UpdateMaintenanceWindowTarget' {} a -> s {description = a} :: UpdateMaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 
--- | User-provided value that will be included in any CloudWatch events
--- raised while running tasks for these targets in this maintenance window.
+-- | User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
 updateMaintenanceWindowTarget_ownerInformation :: Lens.Lens' UpdateMaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTarget_ownerInformation = Lens.lens (\UpdateMaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@UpdateMaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: UpdateMaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 

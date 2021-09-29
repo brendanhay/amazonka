@@ -27,19 +27,13 @@
 -- Trial components include pre-processing jobs, training jobs, and batch
 -- transform jobs.
 --
--- When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK,
--- all experiments, trials, and trial components are automatically tracked,
--- logged, and indexed. When you use the AWS SDK for Python (Boto), you
--- must use the logging APIs provided by the SDK.
+-- When you use SageMaker Studio or the SageMaker Python SDK, all
+-- experiments, trials, and trial components are automatically tracked,
+-- logged, and indexed. When you use the Amazon Web Services SDK for Python
+-- (Boto), you must use the logging APIs provided by the SDK.
 --
 -- You can add tags to a trial component and then use the Search API to
 -- search for the tags.
---
--- @CreateTrialComponent@ can only be invoked from within an Amazon
--- SageMaker managed environment. This includes Amazon SageMaker training
--- jobs, processing jobs, transform jobs, and Amazon SageMaker notebooks. A
--- call to @CreateTrialComponent@ from outside one of these environments
--- results in an error.
 module Network.AWS.SageMaker.CreateTrialComponent
   ( -- * Creating a Request
     CreateTrialComponent (..),
@@ -53,8 +47,8 @@ module Network.AWS.SageMaker.CreateTrialComponent
     createTrialComponent_tags,
     createTrialComponent_inputArtifacts,
     createTrialComponent_displayName,
-    createTrialComponent_parameters,
     createTrialComponent_outputArtifacts,
+    createTrialComponent_parameters,
     createTrialComponent_trialComponentName,
 
     -- * Destructuring the Response
@@ -99,13 +93,13 @@ data CreateTrialComponent = CreateTrialComponent'
     -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The hyperparameters for the component.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The output artifacts for the component. Examples of output artifacts are
     -- metrics, snapshots, logs, and images.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
-    -- | The name of the component. The name must be unique in your AWS account
-    -- and is not case-sensitive.
+    -- | The hyperparameters for the component.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
+    -- | The name of the component. The name must be unique in your Amazon Web
+    -- Services account and is not case-sensitive.
     trialComponentName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -142,13 +136,13 @@ data CreateTrialComponent = CreateTrialComponent'
 -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
 -- displayed.
 --
--- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
---
 -- 'outputArtifacts', 'createTrialComponent_outputArtifacts' - The output artifacts for the component. Examples of output artifacts are
 -- metrics, snapshots, logs, and images.
 --
--- 'trialComponentName', 'createTrialComponent_trialComponentName' - The name of the component. The name must be unique in your AWS account
--- and is not case-sensitive.
+-- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
+--
+-- 'trialComponentName', 'createTrialComponent_trialComponentName' - The name of the component. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 newCreateTrialComponent ::
   -- | 'trialComponentName'
   Prelude.Text ->
@@ -162,8 +156,8 @@ newCreateTrialComponent pTrialComponentName_ =
       tags = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       outputArtifacts = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       trialComponentName = pTrialComponentName_
     }
 
@@ -205,17 +199,17 @@ createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputAr
 createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.Text)
 createTrialComponent_displayName = Lens.lens (\CreateTrialComponent' {displayName} -> displayName) (\s@CreateTrialComponent' {} a -> s {displayName = a} :: CreateTrialComponent)
 
--- | The hyperparameters for the component.
-createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
-createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The output artifacts for the component. Examples of output artifacts are
 -- metrics, snapshots, logs, and images.
 createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the component. The name must be unique in your AWS account
--- and is not case-sensitive.
+-- | The hyperparameters for the component.
+createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the component. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 createTrialComponent_trialComponentName :: Lens.Lens' CreateTrialComponent Prelude.Text
 createTrialComponent_trialComponentName = Lens.lens (\CreateTrialComponent' {trialComponentName} -> trialComponentName) (\s@CreateTrialComponent' {} a -> s {trialComponentName = a} :: CreateTrialComponent)
 
@@ -264,9 +258,9 @@ instance Core.ToJSON CreateTrialComponent where
             ("InputArtifacts" Core..=)
               Prelude.<$> inputArtifacts,
             ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Parameters" Core..=) Prelude.<$> parameters,
             ("OutputArtifacts" Core..=)
               Prelude.<$> outputArtifacts,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("TrialComponentName" Core..= trialComponentName)
           ]

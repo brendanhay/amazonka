@@ -90,7 +90,9 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
     -- @EndDate@ if @EndDateType@ is @unlimited@.
     endDate :: Prelude.Maybe Core.ISO8601,
-    -- | The number of instances for which to reserve capacity.
+    -- | The number of instances for which to reserve capacity. The number of
+    -- instances can\'t be increased or decreased by more than @1000@ in a
+    -- single request.
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
@@ -137,7 +139,9 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
 -- @EndDate@ if @EndDateType@ is @unlimited@.
 --
--- 'instanceCount', 'modifyCapacityReservation_instanceCount' - The number of instances for which to reserve capacity.
+-- 'instanceCount', 'modifyCapacityReservation_instanceCount' - The number of instances for which to reserve capacity. The number of
+-- instances can\'t be increased or decreased by more than @1000@ in a
+-- single request.
 --
 -- 'capacityReservationId', 'modifyCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
 newModifyCapacityReservation ::
@@ -195,7 +199,9 @@ modifyCapacityReservation_accept = Lens.lens (\ModifyCapacityReservation' {accep
 modifyCapacityReservation_endDate :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.UTCTime)
 modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Prelude.. Lens.mapping Core._Time
 
--- | The number of instances for which to reserve capacity.
+-- | The number of instances for which to reserve capacity. The number of
+-- instances can\'t be increased or decreased by more than @1000@ in a
+-- single request.
 modifyCapacityReservation_instanceCount :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Int)
 modifyCapacityReservation_instanceCount = Lens.lens (\ModifyCapacityReservation' {instanceCount} -> instanceCount) (\s@ModifyCapacityReservation' {} a -> s {instanceCount = a} :: ModifyCapacityReservation)
 

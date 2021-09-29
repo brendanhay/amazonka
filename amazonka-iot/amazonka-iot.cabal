@@ -69,7 +69,9 @@ library
     Network.AWS.IoT.CreateDimension
     Network.AWS.IoT.CreateDomainConfiguration
     Network.AWS.IoT.CreateDynamicThingGroup
+    Network.AWS.IoT.CreateFleetMetric
     Network.AWS.IoT.CreateJob
+    Network.AWS.IoT.CreateJobTemplate
     Network.AWS.IoT.CreateKeysAndCertificate
     Network.AWS.IoT.CreateMitigationAction
     Network.AWS.IoT.CreateOTAUpdate
@@ -97,8 +99,10 @@ library
     Network.AWS.IoT.DeleteDimension
     Network.AWS.IoT.DeleteDomainConfiguration
     Network.AWS.IoT.DeleteDynamicThingGroup
+    Network.AWS.IoT.DeleteFleetMetric
     Network.AWS.IoT.DeleteJob
     Network.AWS.IoT.DeleteJobExecution
+    Network.AWS.IoT.DeleteJobTemplate
     Network.AWS.IoT.DeleteMitigationAction
     Network.AWS.IoT.DeleteOTAUpdate
     Network.AWS.IoT.DeletePolicy
@@ -133,9 +137,11 @@ library
     Network.AWS.IoT.DescribeDomainConfiguration
     Network.AWS.IoT.DescribeEndpoint
     Network.AWS.IoT.DescribeEventConfigurations
+    Network.AWS.IoT.DescribeFleetMetric
     Network.AWS.IoT.DescribeIndex
     Network.AWS.IoT.DescribeJob
     Network.AWS.IoT.DescribeJobExecution
+    Network.AWS.IoT.DescribeJobTemplate
     Network.AWS.IoT.DescribeMitigationAction
     Network.AWS.IoT.DescribeProvisioningTemplate
     Network.AWS.IoT.DescribeProvisioningTemplateVersion
@@ -153,6 +159,7 @@ library
     Network.AWS.IoT.DisableTopicRule
     Network.AWS.IoT.EnableTopicRule
     Network.AWS.IoT.GetBehaviorModelTrainingSummaries
+    Network.AWS.IoT.GetBucketsAggregation
     Network.AWS.IoT.GetCardinality
     Network.AWS.IoT.GetEffectivePolicies
     Network.AWS.IoT.GetIndexingConfiguration
@@ -185,10 +192,12 @@ library
     Network.AWS.IoT.ListDetectMitigationActionsTasks
     Network.AWS.IoT.ListDimensions
     Network.AWS.IoT.ListDomainConfigurations
+    Network.AWS.IoT.ListFleetMetrics
     Network.AWS.IoT.ListIndices
     Network.AWS.IoT.ListJobExecutionsForJob
     Network.AWS.IoT.ListJobExecutionsForThing
     Network.AWS.IoT.ListJobs
+    Network.AWS.IoT.ListJobTemplates
     Network.AWS.IoT.ListMitigationActions
     Network.AWS.IoT.ListOTAUpdates
     Network.AWS.IoT.ListOutgoingCertificates
@@ -218,6 +227,7 @@ library
     Network.AWS.IoT.ListTopicRules
     Network.AWS.IoT.ListV2LoggingLevels
     Network.AWS.IoT.ListViolationEvents
+    Network.AWS.IoT.PutVerificationStateOnViolation
     Network.AWS.IoT.RegisterCACertificate
     Network.AWS.IoT.RegisterCertificate
     Network.AWS.IoT.RegisterCertificateWithoutCA
@@ -249,6 +259,8 @@ library
     Network.AWS.IoT.Types.ActionType
     Network.AWS.IoT.Types.ActiveViolation
     Network.AWS.IoT.Types.AddThingsToThingGroupParams
+    Network.AWS.IoT.Types.AggregationType
+    Network.AWS.IoT.Types.AggregationTypeName
     Network.AWS.IoT.Types.AlertTarget
     Network.AWS.IoT.Types.AlertTargetType
     Network.AWS.IoT.Types.Allowed
@@ -296,6 +308,8 @@ library
     Network.AWS.IoT.Types.BehaviorModelTrainingSummary
     Network.AWS.IoT.Types.BillingGroupMetadata
     Network.AWS.IoT.Types.BillingGroupProperties
+    Network.AWS.IoT.Types.Bucket
+    Network.AWS.IoT.Types.BucketsAggregationType
     Network.AWS.IoT.Types.CACertificate
     Network.AWS.IoT.Types.CACertificateDescription
     Network.AWS.IoT.Types.CACertificateStatus
@@ -347,6 +361,8 @@ library
     Network.AWS.IoT.Types.FieldType
     Network.AWS.IoT.Types.FileLocation
     Network.AWS.IoT.Types.FirehoseAction
+    Network.AWS.IoT.Types.FleetMetricNameAndArn
+    Network.AWS.IoT.Types.FleetMetricUnit
     Network.AWS.IoT.Types.GroupNameAndArn
     Network.AWS.IoT.Types.HttpAction
     Network.AWS.IoT.Types.HttpActionHeader
@@ -372,6 +388,7 @@ library
     Network.AWS.IoT.Types.JobProcessDetails
     Network.AWS.IoT.Types.JobStatus
     Network.AWS.IoT.Types.JobSummary
+    Network.AWS.IoT.Types.JobTemplateSummary
     Network.AWS.IoT.Types.KafkaAction
     Network.AWS.IoT.Types.KeyPair
     Network.AWS.IoT.Types.KinesisAction
@@ -393,6 +410,7 @@ library
     Network.AWS.IoT.Types.ModelStatus
     Network.AWS.IoT.Types.MqttContext
     Network.AWS.IoT.Types.NonCompliantResource
+    Network.AWS.IoT.Types.OpenSearchAction
     Network.AWS.IoT.Types.OTAUpdateFile
     Network.AWS.IoT.Types.OTAUpdateInfo
     Network.AWS.IoT.Types.OTAUpdateStatus
@@ -448,6 +466,7 @@ library
     Network.AWS.IoT.Types.TaskStatistics
     Network.AWS.IoT.Types.TaskStatisticsForAuditCheck
     Network.AWS.IoT.Types.TaskStatus
+    Network.AWS.IoT.Types.TermsAggregation
     Network.AWS.IoT.Types.ThingAttribute
     Network.AWS.IoT.Types.ThingConnectivity
     Network.AWS.IoT.Types.ThingConnectivityIndexingMode
@@ -478,6 +497,7 @@ library
     Network.AWS.IoT.Types.UpdateCACertificateParams
     Network.AWS.IoT.Types.UpdateDeviceCertificateParams
     Network.AWS.IoT.Types.ValidationError
+    Network.AWS.IoT.Types.VerificationState
     Network.AWS.IoT.Types.ViolationEvent
     Network.AWS.IoT.Types.ViolationEventAdditionalInfo
     Network.AWS.IoT.Types.ViolationEventOccurrenceRange
@@ -497,6 +517,7 @@ library
     Network.AWS.IoT.UpdateDomainConfiguration
     Network.AWS.IoT.UpdateDynamicThingGroup
     Network.AWS.IoT.UpdateEventConfigurations
+    Network.AWS.IoT.UpdateFleetMetric
     Network.AWS.IoT.UpdateIndexingConfiguration
     Network.AWS.IoT.UpdateJob
     Network.AWS.IoT.UpdateMitigationAction

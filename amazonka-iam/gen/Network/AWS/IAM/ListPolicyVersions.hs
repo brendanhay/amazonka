@@ -80,7 +80,7 @@ data ListPolicyVersions = ListPolicyVersions'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -113,7 +113,7 @@ data ListPolicyVersions = ListPolicyVersions'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newListPolicyVersions ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -149,7 +149,7 @@ listPolicyVersions_marker = Lens.lens (\ListPolicyVersions' {marker} -> marker) 
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 listPolicyVersions_policyArn :: Lens.Lens' ListPolicyVersions Prelude.Text
 listPolicyVersions_policyArn = Lens.lens (\ListPolicyVersions' {policyArn} -> policyArn) (\s@ListPolicyVersions' {} a -> s {policyArn = a} :: ListPolicyVersions)
 

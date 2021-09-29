@@ -25,7 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
 --
--- This object isn\'t applicable to jobs running on Fargate resources.
+-- This object isn\'t applicable to jobs that are running on Fargate
+-- resources.
 --
 -- /See:/ 'newUlimit' smart constructor.
 data Ulimit = Ulimit'

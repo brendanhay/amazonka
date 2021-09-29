@@ -30,9 +30,9 @@ module Network.AWS.MachineLearning.DescribeMLModels
     newDescribeMLModels,
 
     -- * Request Lenses
-    describeMLModels_sortOrder,
     describeMLModels_eq,
     describeMLModels_nextToken,
+    describeMLModels_sortOrder,
     describeMLModels_filterVariable,
     describeMLModels_gt,
     describeMLModels_ne,
@@ -62,35 +62,44 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeMLModels' smart constructor.
 data DescribeMLModels = DescribeMLModels'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @MLModel@.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
+  { -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
     -- values that exactly match the value specified with @EQ@.
     eq :: Prelude.Maybe Prelude.Text,
     -- | The ID of the page in the paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @MLModel@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Use one of the following variables to filter a list of @MLModel@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
+    --
     -- -   @Status@ - Sets the search criteria to @MLModel@ status.
+    --
     -- -   @Name@ - Sets the search criteria to the contents of @MLModel@ ____
     --     @Name@.
+    --
     -- -   @IAMUser@ - Sets the search criteria to the user account that
     --     invoked the @MLModel@ creation.
+    --
     -- -   @TrainingDataSourceId@ - Sets the search criteria to the
     --     @DataSource@ used to train one or more @MLModel@.
+    --
     -- -   @RealtimeEndpointStatus@ - Sets the search criteria to the @MLModel@
     --     real-time endpoint status.
+    --
     -- -   @MLModelType@ - Sets the search criteria to @MLModel@ type: binary,
     --     regression, or multi-class.
+    --
     -- -   @Algorithm@ - Sets the search criteria to the algorithm that the
     --     @MLModel@ uses.
+    --
     -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
     --     used in training a @MLModel@. The URL can identify either a file or
     --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
@@ -141,35 +150,44 @@ data DescribeMLModels = DescribeMLModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeMLModels_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
 -- 'eq', 'describeMLModels_eq' - The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
 --
 -- 'nextToken', 'describeMLModels_nextToken' - The ID of the page in the paginated results.
 --
+-- 'sortOrder', 'describeMLModels_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+--
 -- 'filterVariable', 'describeMLModels_filterVariable' - Use one of the following variables to filter a list of @MLModel@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
+--
 -- -   @Status@ - Sets the search criteria to @MLModel@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @MLModel@ ____
 --     @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @MLModel@ creation.
+--
 -- -   @TrainingDataSourceId@ - Sets the search criteria to the
 --     @DataSource@ used to train one or more @MLModel@.
+--
 -- -   @RealtimeEndpointStatus@ - Sets the search criteria to the @MLModel@
 --     real-time endpoint status.
+--
 -- -   @MLModelType@ - Sets the search criteria to @MLModel@ type: binary,
 --     regression, or multi-class.
+--
 -- -   @Algorithm@ - Sets the search criteria to the algorithm that the
 --     @MLModel@ uses.
+--
 -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
 --     used in training a @MLModel@. The URL can identify either a file or
 --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
@@ -212,9 +230,9 @@ newDescribeMLModels ::
   DescribeMLModels
 newDescribeMLModels =
   DescribeMLModels'
-    { sortOrder = Prelude.Nothing,
-      eq = Prelude.Nothing,
+    { eq = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       filterVariable = Prelude.Nothing,
       gt = Prelude.Nothing,
       ne = Prelude.Nothing,
@@ -225,16 +243,6 @@ newDescribeMLModels =
       limit = Prelude.Nothing
     }
 
--- | A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
-describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Prelude.Maybe SortOrder)
-describeMLModels_sortOrder = Lens.lens (\DescribeMLModels' {sortOrder} -> sortOrder) (\s@DescribeMLModels' {} a -> s {sortOrder = a} :: DescribeMLModels)
-
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
 describeMLModels_eq :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
@@ -244,22 +252,41 @@ describeMLModels_eq = Lens.lens (\DescribeMLModels' {eq} -> eq) (\s@DescribeMLMo
 describeMLModels_nextToken :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
 describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextToken) (\s@DescribeMLModels' {} a -> s {nextToken = a} :: DescribeMLModels)
 
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Prelude.Maybe SortOrder)
+describeMLModels_sortOrder = Lens.lens (\DescribeMLModels' {sortOrder} -> sortOrder) (\s@DescribeMLModels' {} a -> s {sortOrder = a} :: DescribeMLModels)
+
 -- | Use one of the following variables to filter a list of @MLModel@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
+--
 -- -   @Status@ - Sets the search criteria to @MLModel@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @MLModel@ ____
 --     @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @MLModel@ creation.
+--
 -- -   @TrainingDataSourceId@ - Sets the search criteria to the
 --     @DataSource@ used to train one or more @MLModel@.
+--
 -- -   @RealtimeEndpointStatus@ - Sets the search criteria to the @MLModel@
 --     real-time endpoint status.
+--
 -- -   @MLModelType@ - Sets the search criteria to @MLModel@ type: binary,
 --     regression, or multi-class.
+--
 -- -   @Algorithm@ - Sets the search criteria to the algorithm that the
 --     @MLModel@ uses.
+--
 -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
 --     used in training a @MLModel@. The URL can identify either a file or
 --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
@@ -374,9 +401,9 @@ instance Core.ToJSON DescribeMLModels where
   toJSON DescribeMLModels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("EQ" Core..=) Prelude.<$> eq,
+          [ ("EQ" Core..=) Prelude.<$> eq,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("FilterVariable" Core..=)
               Prelude.<$> filterVariable,
             ("GT" Core..=) Prelude.<$> gt,

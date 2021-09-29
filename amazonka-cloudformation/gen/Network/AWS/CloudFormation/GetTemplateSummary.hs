@@ -40,6 +40,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     -- * Request Lenses
     getTemplateSummary_stackName,
     getTemplateSummary_templateURL,
+    getTemplateSummary_callAs,
     getTemplateSummary_stackSetName,
     getTemplateSummary_templateBody,
 
@@ -85,11 +86,28 @@ data GetTemplateSummary = GetTemplateSummary'
     -- bucket or a Systems Manager document. For more information about
     -- templates, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
     templateURL :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] Specifies whether you are acting as an
+    -- account administrator in the organization\'s management account or as a
+    -- delegated administrator in a member account.
+    --
+    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+    -- self-managed permissions.
+    --
+    -- -   If you are signed in to the management account, specify @SELF@.
+    --
+    -- -   If you are signed in to a delegated administrator account, specify
+    --     @DELEGATED_ADMIN@.
+    --
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+    --     in the /CloudFormation User Guide/.
+    callAs :: Prelude.Maybe CallAs,
     -- | The name or unique ID of the stack set from which the stack was created.
     --
     -- Conditional: You must specify only one of the following parameters:
@@ -99,7 +117,7 @@ data GetTemplateSummary = GetTemplateSummary'
     -- and a maximum length of 51,200 bytes. For more information about
     -- templates, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
@@ -128,10 +146,27 @@ data GetTemplateSummary = GetTemplateSummary'
 -- bucket or a Systems Manager document. For more information about
 -- templates, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
+--
+-- 'callAs', 'getTemplateSummary_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /CloudFormation User Guide/.
 --
 -- 'stackSetName', 'getTemplateSummary_stackSetName' - The name or unique ID of the stack set from which the stack was created.
 --
@@ -142,7 +177,7 @@ data GetTemplateSummary = GetTemplateSummary'
 -- and a maximum length of 51,200 bytes. For more information about
 -- templates, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
@@ -152,6 +187,7 @@ newGetTemplateSummary =
   GetTemplateSummary'
     { stackName = Prelude.Nothing,
       templateURL = Prelude.Nothing,
+      callAs = Prelude.Nothing,
       stackSetName = Prelude.Nothing,
       templateBody = Prelude.Nothing
     }
@@ -171,12 +207,31 @@ getTemplateSummary_stackName = Lens.lens (\GetTemplateSummary' {stackName} -> st
 -- bucket or a Systems Manager document. For more information about
 -- templates, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
 getTemplateSummary_templateURL :: Lens.Lens' GetTemplateSummary (Prelude.Maybe Prelude.Text)
 getTemplateSummary_templateURL = Lens.lens (\GetTemplateSummary' {templateURL} -> templateURL) (\s@GetTemplateSummary' {} a -> s {templateURL = a} :: GetTemplateSummary)
+
+-- | [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /CloudFormation User Guide/.
+getTemplateSummary_callAs :: Lens.Lens' GetTemplateSummary (Prelude.Maybe CallAs)
+getTemplateSummary_callAs = Lens.lens (\GetTemplateSummary' {callAs} -> callAs) (\s@GetTemplateSummary' {} a -> s {callAs = a} :: GetTemplateSummary)
 
 -- | The name or unique ID of the stack set from which the stack was created.
 --
@@ -189,7 +244,7 @@ getTemplateSummary_stackSetName = Lens.lens (\GetTemplateSummary' {stackSetName}
 -- and a maximum length of 51,200 bytes. For more information about
 -- templates, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
@@ -249,6 +304,7 @@ instance Core.ToQuery GetTemplateSummary where
           Core.=: ("2010-05-15" :: Prelude.ByteString),
         "StackName" Core.=: stackName,
         "TemplateURL" Core.=: templateURL,
+        "CallAs" Core.=: callAs,
         "StackSetName" Core.=: stackSetName,
         "TemplateBody" Core.=: templateBody
       ]
@@ -262,13 +318,13 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     -- @Custom::MyCustomInstance@.
     resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The capabilities found within the template. If your template contains
-    -- IAM resources, you must specify the CAPABILITY_IAM or
-    -- CAPABILITY_NAMED_IAM value for this parameter when you use the
+    -- IAM resources, you must specify the @CAPABILITY_IAM@ or
+    -- @CAPABILITY_NAMED_IAM@ value for this parameter when you use the
     -- CreateStack or UpdateStack actions with your template; otherwise, those
-    -- actions return an InsufficientCapabilities error.
+    -- actions return an @InsufficientCapabilities@ error.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
     capabilities :: Prelude.Maybe [Capability],
     -- | A list of resource identifier summaries that describe the target
     -- resources of an import operation and the properties you can provide
@@ -280,8 +336,8 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     declaredTransforms :: Prelude.Maybe [Prelude.Text],
     -- | The value that is defined for the @Metadata@ property of the template.
     metadata :: Prelude.Maybe Prelude.Text,
-    -- | The AWS template format version, which identifies the capabilities of
-    -- the template.
+    -- | The Amazon Web Services template format version, which identifies the
+    -- capabilities of the template.
     version :: Prelude.Maybe Prelude.Text,
     -- | The value that is defined in the @Description@ property of the template.
     description :: Prelude.Maybe Prelude.Text,
@@ -309,13 +365,13 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 -- @Custom::MyCustomInstance@.
 --
 -- 'capabilities', 'getTemplateSummaryResponse_capabilities' - The capabilities found within the template. If your template contains
--- IAM resources, you must specify the CAPABILITY_IAM or
--- CAPABILITY_NAMED_IAM value for this parameter when you use the
+-- IAM resources, you must specify the @CAPABILITY_IAM@ or
+-- @CAPABILITY_NAMED_IAM@ value for this parameter when you use the
 -- CreateStack or UpdateStack actions with your template; otherwise, those
--- actions return an InsufficientCapabilities error.
+-- actions return an @InsufficientCapabilities@ error.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 --
 -- 'resourceIdentifierSummaries', 'getTemplateSummaryResponse_resourceIdentifierSummaries' - A list of resource identifier summaries that describe the target
 -- resources of an import operation and the properties you can provide
@@ -327,8 +383,8 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 --
 -- 'metadata', 'getTemplateSummaryResponse_metadata' - The value that is defined for the @Metadata@ property of the template.
 --
--- 'version', 'getTemplateSummaryResponse_version' - The AWS template format version, which identifies the capabilities of
--- the template.
+-- 'version', 'getTemplateSummaryResponse_version' - The Amazon Web Services template format version, which identifies the
+-- capabilities of the template.
 --
 -- 'description', 'getTemplateSummaryResponse_description' - The value that is defined in the @Description@ property of the template.
 --
@@ -365,13 +421,13 @@ getTemplateSummaryResponse_resourceTypes :: Lens.Lens' GetTemplateSummaryRespons
 getTemplateSummaryResponse_resourceTypes = Lens.lens (\GetTemplateSummaryResponse' {resourceTypes} -> resourceTypes) (\s@GetTemplateSummaryResponse' {} a -> s {resourceTypes = a} :: GetTemplateSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The capabilities found within the template. If your template contains
--- IAM resources, you must specify the CAPABILITY_IAM or
--- CAPABILITY_NAMED_IAM value for this parameter when you use the
+-- IAM resources, you must specify the @CAPABILITY_IAM@ or
+-- @CAPABILITY_NAMED_IAM@ value for this parameter when you use the
 -- CreateStack or UpdateStack actions with your template; otherwise, those
--- actions return an InsufficientCapabilities error.
+-- actions return an @InsufficientCapabilities@ error.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 getTemplateSummaryResponse_capabilities :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe [Capability])
 getTemplateSummaryResponse_capabilities = Lens.lens (\GetTemplateSummaryResponse' {capabilities} -> capabilities) (\s@GetTemplateSummaryResponse' {} a -> s {capabilities = a} :: GetTemplateSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
 
@@ -391,8 +447,8 @@ getTemplateSummaryResponse_declaredTransforms = Lens.lens (\GetTemplateSummaryRe
 getTemplateSummaryResponse_metadata :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe Prelude.Text)
 getTemplateSummaryResponse_metadata = Lens.lens (\GetTemplateSummaryResponse' {metadata} -> metadata) (\s@GetTemplateSummaryResponse' {} a -> s {metadata = a} :: GetTemplateSummaryResponse)
 
--- | The AWS template format version, which identifies the capabilities of
--- the template.
+-- | The Amazon Web Services template format version, which identifies the
+-- capabilities of the template.
 getTemplateSummaryResponse_version :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe Prelude.Text)
 getTemplateSummaryResponse_version = Lens.lens (\GetTemplateSummaryResponse' {version} -> version) (\s@GetTemplateSummaryResponse' {} a -> s {version = a} :: GetTemplateSummaryResponse)
 

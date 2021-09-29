@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layers>
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layers>
 -- and shows information about the latest version of each. Specify a
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime identifier>
 -- to list only layers that indicate that they\'re compatible with that
@@ -35,8 +35,8 @@ module Network.AWS.Lambda.ListLayers
 
     -- * Request Lenses
     listLayers_maxItems,
-    listLayers_compatibleRuntime,
     listLayers_marker,
+    listLayers_compatibleRuntime,
 
     -- * Destructuring the Response
     ListLayersResponse (..),
@@ -60,10 +60,10 @@ import qualified Network.AWS.Response as Response
 data ListLayers = ListLayers'
   { -- | The maximum number of layers to return.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A runtime identifier. For example, @go1.x@.
+    compatibleRuntime :: Prelude.Maybe Runtime
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,29 +77,29 @@ data ListLayers = ListLayers'
 --
 -- 'maxItems', 'listLayers_maxItems' - The maximum number of layers to return.
 --
--- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
---
 -- 'marker', 'listLayers_marker' - A pagination token returned by a previous call.
+--
+-- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 newListLayers ::
   ListLayers
 newListLayers =
   ListLayers'
     { maxItems = Prelude.Nothing,
-      compatibleRuntime = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      compatibleRuntime = Prelude.Nothing
     }
 
 -- | The maximum number of layers to return.
 listLayers_maxItems :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Natural)
 listLayers_maxItems = Lens.lens (\ListLayers' {maxItems} -> maxItems) (\s@ListLayers' {} a -> s {maxItems = a} :: ListLayers)
 
--- | A runtime identifier. For example, @go1.x@.
-listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
-listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
-
 -- | A pagination token returned by a previous call.
 listLayers_marker :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Text)
 listLayers_marker = Lens.lens (\ListLayers' {marker} -> marker) (\s@ListLayers' {} a -> s {marker = a} :: ListLayers)
+
+-- | A runtime identifier. For example, @go1.x@.
+listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
+listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
 
 instance Core.AWSPager ListLayers where
   page rq rs
@@ -146,8 +146,8 @@ instance Core.ToQuery ListLayers where
   toQuery ListLayers' {..} =
     Prelude.mconcat
       [ "MaxItems" Core.=: maxItems,
-        "CompatibleRuntime" Core.=: compatibleRuntime,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "CompatibleRuntime" Core.=: compatibleRuntime
       ]
 
 -- | /See:/ 'newListLayersResponse' smart constructor.

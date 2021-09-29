@@ -29,8 +29,8 @@ module Network.AWS.CodeBuild.ListBuildBatches
     newListBuildBatches,
 
     -- * Request Lenses
-    listBuildBatches_sortOrder,
     listBuildBatches_nextToken,
+    listBuildBatches_sortOrder,
     listBuildBatches_maxResults,
     listBuildBatches_filter,
 
@@ -54,7 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBuildBatches' smart constructor.
 data ListBuildBatches = ListBuildBatches'
-  { -- | Specifies the sort order of the returned items. Valid values include:
+  { -- | The @nextToken@ value returned from a previous call to
+    -- @ListBuildBatches@. This specifies the next item to return. To return
+    -- the beginning of the list, exclude this parameter.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the sort order of the returned items. Valid values include:
     --
     -- -   @ASCENDING@: List the batch build identifiers in ascending order by
     --     identifier.
@@ -62,10 +66,6 @@ data ListBuildBatches = ListBuildBatches'
     -- -   @DESCENDING@: List the batch build identifiers in descending order
     --     by identifier.
     sortOrder :: Prelude.Maybe SortOrderType,
-    -- | The @nextToken@ value returned from a previous call to
-    -- @ListBuildBatches@. This specifies the next item to return. To return
-    -- the beginning of the list, exclude this parameter.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A @BuildBatchFilter@ object that specifies the filters for the search.
@@ -81,6 +81,10 @@ data ListBuildBatches = ListBuildBatches'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listBuildBatches_nextToken' - The @nextToken@ value returned from a previous call to
+-- @ListBuildBatches@. This specifies the next item to return. To return
+-- the beginning of the list, exclude this parameter.
+--
 -- 'sortOrder', 'listBuildBatches_sortOrder' - Specifies the sort order of the returned items. Valid values include:
 --
 -- -   @ASCENDING@: List the batch build identifiers in ascending order by
@@ -89,10 +93,6 @@ data ListBuildBatches = ListBuildBatches'
 -- -   @DESCENDING@: List the batch build identifiers in descending order
 --     by identifier.
 --
--- 'nextToken', 'listBuildBatches_nextToken' - The @nextToken@ value returned from a previous call to
--- @ListBuildBatches@. This specifies the next item to return. To return
--- the beginning of the list, exclude this parameter.
---
 -- 'maxResults', 'listBuildBatches_maxResults' - The maximum number of results to return.
 --
 -- 'filter'', 'listBuildBatches_filter' - A @BuildBatchFilter@ object that specifies the filters for the search.
@@ -100,11 +100,17 @@ newListBuildBatches ::
   ListBuildBatches
 newListBuildBatches =
   ListBuildBatches'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
+
+-- | The @nextToken@ value returned from a previous call to
+-- @ListBuildBatches@. This specifies the next item to return. To return
+-- the beginning of the list, exclude this parameter.
+listBuildBatches_nextToken :: Lens.Lens' ListBuildBatches (Prelude.Maybe Prelude.Text)
+listBuildBatches_nextToken = Lens.lens (\ListBuildBatches' {nextToken} -> nextToken) (\s@ListBuildBatches' {} a -> s {nextToken = a} :: ListBuildBatches)
 
 -- | Specifies the sort order of the returned items. Valid values include:
 --
@@ -115,12 +121,6 @@ newListBuildBatches =
 --     by identifier.
 listBuildBatches_sortOrder :: Lens.Lens' ListBuildBatches (Prelude.Maybe SortOrderType)
 listBuildBatches_sortOrder = Lens.lens (\ListBuildBatches' {sortOrder} -> sortOrder) (\s@ListBuildBatches' {} a -> s {sortOrder = a} :: ListBuildBatches)
-
--- | The @nextToken@ value returned from a previous call to
--- @ListBuildBatches@. This specifies the next item to return. To return
--- the beginning of the list, exclude this parameter.
-listBuildBatches_nextToken :: Lens.Lens' ListBuildBatches (Prelude.Maybe Prelude.Text)
-listBuildBatches_nextToken = Lens.lens (\ListBuildBatches' {nextToken} -> nextToken) (\s@ListBuildBatches' {} a -> s {nextToken = a} :: ListBuildBatches)
 
 -- | The maximum number of results to return.
 listBuildBatches_maxResults :: Lens.Lens' ListBuildBatches (Prelude.Maybe Prelude.Natural)
@@ -188,8 +188,8 @@ instance Core.ToJSON ListBuildBatches where
   toJSON ListBuildBatches' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter'
           ]

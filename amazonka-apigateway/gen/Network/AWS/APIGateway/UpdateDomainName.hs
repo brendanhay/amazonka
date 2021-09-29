@@ -39,8 +39,8 @@ module Network.AWS.APIGateway.UpdateDomainName
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -49,6 +49,7 @@ module Network.AWS.APIGateway.UpdateDomainName
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
   )

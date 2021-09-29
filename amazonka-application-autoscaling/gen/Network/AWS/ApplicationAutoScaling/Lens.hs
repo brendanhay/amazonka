@@ -47,6 +47,13 @@ module Network.AWS.ApplicationAutoScaling.Lens
     describeScheduledActionsResponse_scheduledActions,
     describeScheduledActionsResponse_httpStatus,
 
+    -- ** DeleteScheduledAction
+    deleteScheduledAction_serviceNamespace,
+    deleteScheduledAction_scheduledActionName,
+    deleteScheduledAction_resourceId,
+    deleteScheduledAction_scalableDimension,
+    deleteScheduledActionResponse_httpStatus,
+
     -- ** DescribeScalingPolicies
     describeScalingPolicies_resourceId,
     describeScalingPolicies_nextToken,
@@ -63,13 +70,6 @@ module Network.AWS.ApplicationAutoScaling.Lens
     deregisterScalableTarget_resourceId,
     deregisterScalableTarget_scalableDimension,
     deregisterScalableTargetResponse_httpStatus,
-
-    -- ** DeleteScheduledAction
-    deleteScheduledAction_serviceNamespace,
-    deleteScheduledAction_scheduledActionName,
-    deleteScheduledAction_resourceId,
-    deleteScheduledAction_scalableDimension,
-    deleteScheduledActionResponse_httpStatus,
 
     -- ** DescribeScalingActivities
     describeScalingActivities_resourceId,
@@ -147,8 +147,8 @@ module Network.AWS.ApplicationAutoScaling.Lens
 
     -- ** ScalingActivity
     scalingActivity_statusMessage,
-    scalingActivity_details,
     scalingActivity_endTime,
+    scalingActivity_details,
     scalingActivity_activityId,
     scalingActivity_serviceNamespace,
     scalingActivity_resourceId,

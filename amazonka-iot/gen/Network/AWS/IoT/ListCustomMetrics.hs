@@ -22,6 +22,10 @@
 --
 -- Lists your Device Defender detect custom metrics.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListCustomMetrics>
+-- action.
+--
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListCustomMetrics
   ( -- * Creating a Request

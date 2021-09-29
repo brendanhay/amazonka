@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a job document.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetJobDocument>
+-- action.
 module Network.AWS.IoT.GetJobDocument
   ( -- * Creating a Request
     GetJobDocument (..),

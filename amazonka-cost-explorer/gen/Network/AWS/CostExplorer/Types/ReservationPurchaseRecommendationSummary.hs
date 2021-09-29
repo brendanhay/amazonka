@@ -24,18 +24,18 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary about this recommendation, such as the currency code, the
--- amount that AWS estimates that you could save, and the total amount of
--- reservation to purchase.
+-- amount that Amazon Web Services estimates that you could save, and the
+-- total amount of reservation to purchase.
 --
 -- /See:/ 'newReservationPurchaseRecommendationSummary' smart constructor.
 data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendationSummary'
-  { -- | The total amount that AWS estimates that this recommendation could save
-    -- you in a month.
+  { -- | The total amount that Amazon Web Services estimates that this
+    -- recommendation could save you in a month.
     totalEstimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
     -- | The currency code used for this recommendation.
     currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The total amount that AWS estimates that this recommendation could save
-    -- you in a month, as a percentage of your costs.
+    -- | The total amount that Amazon Web Services estimates that this
+    -- recommendation could save you in a month, as a percentage of your costs.
     totalEstimatedMonthlySavingsPercentage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +48,13 @@ data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalEstimatedMonthlySavingsAmount', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount' - The total amount that AWS estimates that this recommendation could save
--- you in a month.
+-- 'totalEstimatedMonthlySavingsAmount', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount' - The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month.
 --
 -- 'currencyCode', 'reservationPurchaseRecommendationSummary_currencyCode' - The currency code used for this recommendation.
 --
--- 'totalEstimatedMonthlySavingsPercentage', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage' - The total amount that AWS estimates that this recommendation could save
--- you in a month, as a percentage of your costs.
+-- 'totalEstimatedMonthlySavingsPercentage', 'reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage' - The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month, as a percentage of your costs.
 newReservationPurchaseRecommendationSummary ::
   ReservationPurchaseRecommendationSummary
 newReservationPurchaseRecommendationSummary =
@@ -66,8 +66,8 @@ newReservationPurchaseRecommendationSummary =
         Prelude.Nothing
     }
 
--- | The total amount that AWS estimates that this recommendation could save
--- you in a month.
+-- | The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month.
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsAmount} -> totalEstimatedMonthlySavingsAmount) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsAmount = a} :: ReservationPurchaseRecommendationSummary)
 
@@ -75,8 +75,8 @@ reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount = Le
 reservationPurchaseRecommendationSummary_currencyCode :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_currencyCode = Lens.lens (\ReservationPurchaseRecommendationSummary' {currencyCode} -> currencyCode) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {currencyCode = a} :: ReservationPurchaseRecommendationSummary)
 
--- | The total amount that AWS estimates that this recommendation could save
--- you in a month, as a percentage of your costs.
+-- | The total amount that Amazon Web Services estimates that this
+-- recommendation could save you in a month, as a percentage of your costs.
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage :: Lens.Lens' ReservationPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage = Lens.lens (\ReservationPurchaseRecommendationSummary' {totalEstimatedMonthlySavingsPercentage} -> totalEstimatedMonthlySavingsPercentage) (\s@ReservationPurchaseRecommendationSummary' {} a -> s {totalEstimatedMonthlySavingsPercentage = a} :: ReservationPurchaseRecommendationSummary)
 

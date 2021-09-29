@@ -80,18 +80,19 @@ data MatchmakingTicket = MatchmakingTicket'
     -- @COMPLETED@, the @Player@ objects include the team the players were
     -- assigned to in the resulting match.
     players :: Prelude.Maybe [Player],
-    -- | Time stamp indicating when this matchmaking request was received. Format
-    -- is a number expressed in Unix time as milliseconds (for example
-    -- \"1469498468.057\").
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- associated with the GameLift matchmaking configuration resource that is
     -- used with this ticket.
     configurationArn :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this matchmaking request was received. Format
+    -- is a number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Time stamp indicating when this matchmaking request stopped being
     -- processed due to success, failure, or cancellation. Format is a number
-    -- expressed in Unix time as milliseconds (for example \"1469498468.057\").
+    -- expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
     endTime :: Prelude.Maybe Core.POSIX,
     -- | Name of the MatchmakingConfiguration that is used with this ticket.
     -- Matchmaking configurations determine how players are grouped into a
@@ -164,18 +165,19 @@ data MatchmakingTicket = MatchmakingTicket'
 -- @COMPLETED@, the @Player@ objects include the team the players were
 -- assigned to in the resulting match.
 --
--- 'startTime', 'matchmakingTicket_startTime' - Time stamp indicating when this matchmaking request was received. Format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
---
 -- 'configurationArn', 'matchmakingTicket_configurationArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- associated with the GameLift matchmaking configuration resource that is
 -- used with this ticket.
 --
+-- 'startTime', 'matchmakingTicket_startTime' - Time stamp indicating when this matchmaking request was received. Format
+-- is a number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+--
 -- 'endTime', 'matchmakingTicket_endTime' - Time stamp indicating when this matchmaking request stopped being
 -- processed due to success, failure, or cancellation. Format is a number
--- expressed in Unix time as milliseconds (for example \"1469498468.057\").
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 --
 -- 'configurationName', 'matchmakingTicket_configurationName' - Name of the MatchmakingConfiguration that is used with this ticket.
 -- Matchmaking configurations determine how players are grouped into a
@@ -198,8 +200,8 @@ newMatchmakingTicket =
       estimatedWaitTime = Prelude.Nothing,
       ticketId = Prelude.Nothing,
       players = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       configurationArn = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       configurationName = Prelude.Nothing,
       gameSessionConnectionInfo = Prelude.Nothing,
@@ -263,22 +265,23 @@ matchmakingTicket_ticketId = Lens.lens (\MatchmakingTicket' {ticketId} -> ticket
 matchmakingTicket_players :: Lens.Lens' MatchmakingTicket (Prelude.Maybe [Player])
 matchmakingTicket_players = Lens.lens (\MatchmakingTicket' {players} -> players) (\s@MatchmakingTicket' {} a -> s {players = a} :: MatchmakingTicket) Prelude.. Lens.mapping Lens._Coerce
 
--- | Time stamp indicating when this matchmaking request was received. Format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
-matchmakingTicket_startTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
-matchmakingTicket_startTime = Lens.lens (\MatchmakingTicket' {startTime} -> startTime) (\s@MatchmakingTicket' {} a -> s {startTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- associated with the GameLift matchmaking configuration resource that is
 -- used with this ticket.
 matchmakingTicket_configurationArn :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
 matchmakingTicket_configurationArn = Lens.lens (\MatchmakingTicket' {configurationArn} -> configurationArn) (\s@MatchmakingTicket' {} a -> s {configurationArn = a} :: MatchmakingTicket)
 
+-- | Time stamp indicating when this matchmaking request was received. Format
+-- is a number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+matchmakingTicket_startTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
+matchmakingTicket_startTime = Lens.lens (\MatchmakingTicket' {startTime} -> startTime) (\s@MatchmakingTicket' {} a -> s {startTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
+
 -- | Time stamp indicating when this matchmaking request stopped being
 -- processed due to success, failure, or cancellation. Format is a number
--- expressed in Unix time as milliseconds (for example \"1469498468.057\").
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 matchmakingTicket_endTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
 matchmakingTicket_endTime = Lens.lens (\MatchmakingTicket' {endTime} -> endTime) (\s@MatchmakingTicket' {} a -> s {endTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
 
@@ -312,8 +315,8 @@ instance Core.FromJSON MatchmakingTicket where
             Prelude.<*> (x Core..:? "EstimatedWaitTime")
             Prelude.<*> (x Core..:? "TicketId")
             Prelude.<*> (x Core..:? "Players" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "ConfigurationArn")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "ConfigurationName")
             Prelude.<*> (x Core..:? "GameSessionConnectionInfo")

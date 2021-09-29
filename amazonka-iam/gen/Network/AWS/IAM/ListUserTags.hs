@@ -25,6 +25,8 @@
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListUserTags
   ( -- * Creating a Request
     ListUserTags (..),
@@ -56,16 +58,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListUserTags' smart constructor.
 data ListUserTags = ListUserTags'
-  { -- | (Optional) Use this only when paginating results to indicate the maximum
-    -- number of items that you want in the response. If additional items exist
-    -- beyond the maximum that you specify, the @IsTruncated@ response element
-    -- is @true@.
+  { -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
-    -- If you do not include this parameter, it defaults to 100. Note that IAM
-    -- might return fewer results, even when more results are available. In
-    -- that case, the @IsTruncated@ response element returns @true@, and
-    -- @Marker@ contains a value to include in the subsequent call that tells
-    -- the service where to continue from.
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
@@ -74,10 +75,10 @@ data ListUserTags = ListUserTags'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM user whose tags you want to see.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,16 +91,15 @@ data ListUserTags = ListUserTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listUserTags_maxItems' - (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- 'maxItems', 'listUserTags_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 --
 -- 'marker', 'listUserTags_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -108,10 +108,10 @@ data ListUserTags = ListUserTags'
 --
 -- 'userName', 'listUserTags_userName' - The name of the IAM user whose tags you want to see.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 newListUserTags ::
   -- | 'userName'
   Prelude.Text ->
@@ -123,16 +123,15 @@ newListUserTags pUserName_ =
       userName = pUserName_
     }
 
--- | (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 listUserTags_maxItems :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Natural)
 listUserTags_maxItems = Lens.lens (\ListUserTags' {maxItems} -> maxItems) (\s@ListUserTags' {} a -> s {maxItems = a} :: ListUserTags)
 
@@ -145,12 +144,32 @@ listUserTags_marker = Lens.lens (\ListUserTags' {marker} -> marker) (\s@ListUser
 
 -- | The name of the IAM user whose tags you want to see.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 listUserTags_userName :: Lens.Lens' ListUserTags Prelude.Text
 listUserTags_userName = Lens.lens (\ListUserTags' {userName} -> userName) (\s@ListUserTags' {} a -> s {userName = a} :: ListUserTags)
+
+instance Core.AWSPager ListUserTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUserTagsResponse_isTruncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listUserTagsResponse_marker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUserTags_marker
+          Lens..~ rs
+          Lens.^? listUserTagsResponse_marker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserTags where
   type AWSResponse ListUserTags = ListUserTagsResponse
@@ -193,11 +212,12 @@ instance Core.ToQuery ListUserTags where
 -- | /See:/ 'newListUserTagsResponse' smart constructor.
 data ListUserTagsResponse = ListUserTagsResponse'
   { -- | A flag that indicates whether there are more items to return. If your
-    -- results were truncated, you can use the @Marker@ request parameter to
-    -- make a subsequent pagination request that retrieves more items. Note
-    -- that IAM might return fewer than the @MaxItems@ number of results even
-    -- when more results are available. Check @IsTruncated@ after every call to
-    -- ensure that you receive all of your results.
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -221,11 +241,12 @@ data ListUserTagsResponse = ListUserTagsResponse'
 -- for backwards compatibility:
 --
 -- 'isTruncated', 'listUserTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 --
 -- 'marker', 'listUserTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -250,11 +271,12 @@ newListUserTagsResponse pHttpStatus_ =
     }
 
 -- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 listUserTagsResponse_isTruncated :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Bool)
 listUserTagsResponse_isTruncated = Lens.lens (\ListUserTagsResponse' {isTruncated} -> isTruncated) (\s@ListUserTagsResponse' {} a -> s {isTruncated = a} :: ListUserTagsResponse)
 

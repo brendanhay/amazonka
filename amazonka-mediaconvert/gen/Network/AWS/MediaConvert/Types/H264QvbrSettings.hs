@@ -23,10 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for quality-defined variable bitrate encoding with the H.264
--- codec. Required when you set Rate control mode to QVBR. Not valid when
--- you set Rate control mode to a value other than QVBR, or when you don\'t
--- define Rate control mode.
+-- | Settings for quality-defined variable bitrate encoding with the H.265
+-- codec. Use these settings only when you set QVBR for Rate control mode
+-- (RateControlMode).
 --
 -- /See:/ 'newH264QvbrSettings' smart constructor.
 data H264QvbrSettings = H264QvbrSettings'
@@ -38,11 +37,15 @@ data H264QvbrSettings = H264QvbrSettings'
     -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
     -- actual QVBR quality level is 7.33.
     qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double,
-    -- | Required when you use QVBR rate control mode. That is, when you specify
-    -- qvbrSettings within h264Settings. Specify the general target quality
-    -- level for this output, from 1 to 10. Use higher numbers for greater
-    -- quality. Level 10 results in nearly lossless compression. The quality
-    -- level for most broadcast-quality transcodes is between 6 and 9.
+    -- | Use this setting only when you set Rate control mode (RateControlMode)
+    -- to QVBR. Specify the target quality level for this output. MediaConvert
+    -- determines the right number of bits to use for each part of the video to
+    -- maintain the video quality that you specify. When you keep the default
+    -- value, AUTO, MediaConvert picks a quality level for you, based on
+    -- characteristics of your input video. If you prefer to specify a quality
+    -- level, specify a number from 1 through 10. Use higher numbers for
+    -- greater quality. Level 10 results in nearly lossless compression. The
+    -- quality level for most broadcast-quality transcodes is between 6 and 9.
     -- Optionally, to specify a value between whole numbers, also provide a
     -- value for the setting qvbrQualityLevelFineTune. For example, if you want
     -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
@@ -74,11 +77,15 @@ data H264QvbrSettings = H264QvbrSettings'
 -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
 -- actual QVBR quality level is 7.33.
 --
--- 'qvbrQualityLevel', 'h264QvbrSettings_qvbrQualityLevel' - Required when you use QVBR rate control mode. That is, when you specify
--- qvbrSettings within h264Settings. Specify the general target quality
--- level for this output, from 1 to 10. Use higher numbers for greater
--- quality. Level 10 results in nearly lossless compression. The quality
--- level for most broadcast-quality transcodes is between 6 and 9.
+-- 'qvbrQualityLevel', 'h264QvbrSettings_qvbrQualityLevel' - Use this setting only when you set Rate control mode (RateControlMode)
+-- to QVBR. Specify the target quality level for this output. MediaConvert
+-- determines the right number of bits to use for each part of the video to
+-- maintain the video quality that you specify. When you keep the default
+-- value, AUTO, MediaConvert picks a quality level for you, based on
+-- characteristics of your input video. If you prefer to specify a quality
+-- level, specify a number from 1 through 10. Use higher numbers for
+-- greater quality. Level 10 results in nearly lossless compression. The
+-- quality level for most broadcast-quality transcodes is between 6 and 9.
 -- Optionally, to specify a value between whole numbers, also provide a
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
@@ -110,11 +117,15 @@ newH264QvbrSettings =
 h264QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' H264QvbrSettings (Prelude.Maybe Prelude.Double)
 h264QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H264QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@H264QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: H264QvbrSettings)
 
--- | Required when you use QVBR rate control mode. That is, when you specify
--- qvbrSettings within h264Settings. Specify the general target quality
--- level for this output, from 1 to 10. Use higher numbers for greater
--- quality. Level 10 results in nearly lossless compression. The quality
--- level for most broadcast-quality transcodes is between 6 and 9.
+-- | Use this setting only when you set Rate control mode (RateControlMode)
+-- to QVBR. Specify the target quality level for this output. MediaConvert
+-- determines the right number of bits to use for each part of the video to
+-- maintain the video quality that you specify. When you keep the default
+-- value, AUTO, MediaConvert picks a quality level for you, based on
+-- characteristics of your input video. If you prefer to specify a quality
+-- level, specify a number from 1 through 10. Use higher numbers for
+-- greater quality. Level 10 results in nearly lossless compression. The
+-- quality level for most broadcast-quality transcodes is between 6 and 9.
 -- Optionally, to specify a value between whole numbers, also provide a
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set

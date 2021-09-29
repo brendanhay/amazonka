@@ -42,9 +42,9 @@ module Network.AWS.Rekognition.DescribeStreamProcessor
     describeStreamProcessorResponse_status,
     describeStreamProcessorResponse_roleArn,
     describeStreamProcessorResponse_input,
+    describeStreamProcessorResponse_name,
     describeStreamProcessorResponse_streamProcessorArn,
     describeStreamProcessorResponse_output,
-    describeStreamProcessorResponse_name,
     describeStreamProcessorResponse_lastUpdateTimestamp,
     describeStreamProcessorResponse_settings,
     describeStreamProcessorResponse_httpStatus,
@@ -99,9 +99,9 @@ instance Core.AWSRequest DescribeStreamProcessor where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "Input")
+            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "StreamProcessorArn")
             Prelude.<*> (x Core..?> "Output")
-            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LastUpdateTimestamp")
             Prelude.<*> (x Core..?> "Settings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,13 +151,13 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Kinesis video stream that provides the source streaming video.
     input :: Prelude.Maybe StreamProcessorInput,
+    -- | Name of the stream processor.
+    name :: Prelude.Maybe Prelude.Text,
     -- | ARN of the stream processor.
     streamProcessorArn :: Prelude.Maybe Prelude.Text,
     -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
     -- results.
     output :: Prelude.Maybe StreamProcessorOutput,
-    -- | Name of the stream processor.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix format, the stream processor was last updated. For
     -- example, when the stream processor moves from a running state to a
     -- failed state, or when the user starts or stops the stream processor.
@@ -189,12 +189,12 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 --
 -- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
 --
+-- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
+--
 -- 'streamProcessorArn', 'describeStreamProcessorResponse_streamProcessorArn' - ARN of the stream processor.
 --
 -- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
 -- results.
---
--- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
 --
 -- 'lastUpdateTimestamp', 'describeStreamProcessorResponse_lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For
 -- example, when the stream processor moves from a running state to a
@@ -217,9 +217,9 @@ newDescribeStreamProcessorResponse pHttpStatus_ =
       status = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       input = Prelude.Nothing,
+      name = Prelude.Nothing,
       streamProcessorArn = Prelude.Nothing,
       output = Prelude.Nothing,
-      name = Prelude.Nothing,
       lastUpdateTimestamp = Prelude.Nothing,
       settings = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -245,6 +245,10 @@ describeStreamProcessorResponse_roleArn = Lens.lens (\DescribeStreamProcessorRes
 describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
 describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
 
+-- | Name of the stream processor.
+describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorResponse' {name} -> name) (\s@DescribeStreamProcessorResponse' {} a -> s {name = a} :: DescribeStreamProcessorResponse)
+
 -- | ARN of the stream processor.
 describeStreamProcessorResponse_streamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@DescribeStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: DescribeStreamProcessorResponse)
@@ -253,10 +257,6 @@ describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamP
 -- results.
 describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
 describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
-
--- | Name of the stream processor.
-describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorResponse' {name} -> name) (\s@DescribeStreamProcessorResponse' {} a -> s {name = a} :: DescribeStreamProcessorResponse)
 
 -- | The time, in Unix format, the stream processor was last updated. For
 -- example, when the stream processor moves from a running state to a

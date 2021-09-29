@@ -89,7 +89,7 @@ data CreatePlatformApplication = CreatePlatformApplication'
     -- Cloud Messaging).
     platform :: Prelude.Text,
     -- | For a list of attributes, see
-    -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
+    -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>.
     attributes :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,7 +111,7 @@ data CreatePlatformApplication = CreatePlatformApplication'
 -- Cloud Messaging).
 --
 -- 'attributes', 'createPlatformApplication_attributes' - For a list of attributes, see
--- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
+-- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>.
 newCreatePlatformApplication ::
   -- | 'name'
   Prelude.Text ->
@@ -138,7 +138,7 @@ createPlatformApplication_platform :: Lens.Lens' CreatePlatformApplication Prelu
 createPlatformApplication_platform = Lens.lens (\CreatePlatformApplication' {platform} -> platform) (\s@CreatePlatformApplication' {} a -> s {platform = a} :: CreatePlatformApplication)
 
 -- | For a list of attributes, see
--- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
+-- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>.
 createPlatformApplication_attributes :: Lens.Lens' CreatePlatformApplication (Prelude.HashMap Prelude.Text Prelude.Text)
 createPlatformApplication_attributes = Lens.lens (\CreatePlatformApplication' {attributes} -> attributes) (\s@CreatePlatformApplication' {} a -> s {attributes = a} :: CreatePlatformApplication) Prelude.. Lens._Coerce
 

@@ -31,6 +31,10 @@ data S3Target = S3Target'
     -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
     -- VPC).
     connectionName :: Prelude.Maybe Prelude.Text,
+    -- | Sets the number of files in each leaf folder to be crawled when crawling
+    -- sample files in a dataset. If not set, all the files are crawled. A
+    -- valid value is an integer between 1 and 249.
+    sampleSize :: Prelude.Maybe Prelude.Int,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
@@ -52,6 +56,10 @@ data S3Target = S3Target'
 -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
 -- VPC).
 --
+-- 'sampleSize', 's3Target_sampleSize' - Sets the number of files in each leaf folder to be crawled when crawling
+-- sample files in a dataset. If not set, all the files are crawled. A
+-- valid value is an integer between 1 and 249.
+--
 -- 'exclusions', 's3Target_exclusions' - A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
@@ -62,6 +70,7 @@ newS3Target ::
 newS3Target =
   S3Target'
     { connectionName = Prelude.Nothing,
+      sampleSize = Prelude.Nothing,
       exclusions = Prelude.Nothing,
       path = Prelude.Nothing
     }
@@ -71,6 +80,12 @@ newS3Target =
 -- VPC).
 s3Target_connectionName :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
 s3Target_connectionName = Lens.lens (\S3Target' {connectionName} -> connectionName) (\s@S3Target' {} a -> s {connectionName = a} :: S3Target)
+
+-- | Sets the number of files in each leaf folder to be crawled when crawling
+-- sample files in a dataset. If not set, all the files are crawled. A
+-- valid value is an integer between 1 and 249.
+s3Target_sampleSize :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Int)
+s3Target_sampleSize = Lens.lens (\S3Target' {sampleSize} -> sampleSize) (\s@S3Target' {} a -> s {sampleSize = a} :: S3Target)
 
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
@@ -89,6 +104,7 @@ instance Core.FromJSON S3Target where
       ( \x ->
           S3Target'
             Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Core..:? "SampleSize")
             Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Path")
       )
@@ -103,6 +119,7 @@ instance Core.ToJSON S3Target where
       ( Prelude.catMaybes
           [ ("ConnectionName" Core..=)
               Prelude.<$> connectionName,
+            ("SampleSize" Core..=) Prelude.<$> sampleSize,
             ("Exclusions" Core..=) Prelude.<$> exclusions,
             ("Path" Core..=) Prelude.<$> path
           ]

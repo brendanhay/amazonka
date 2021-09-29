@@ -62,7 +62,7 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
     -- cancel it.
     --
     -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
-    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
     exclusiveEndTime :: Prelude.Maybe Core.POSIX,
     -- | The key-value pairs to add as tags to the stream that you want to
     -- create. Tag keys are case sensitive. Tag values are case sensitive and
@@ -76,7 +76,7 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
     roleArn :: Prelude.Text,
     -- | The inclusive start date and time from which to start streaming journal
     -- data. This parameter must be in @ISO 8601@ date and time format and in
-    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+    -- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
     --
     -- The @InclusiveStartTime@ cannot be in the future and must be before
     -- @ExclusiveEndTime@.
@@ -114,7 +114,7 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
 -- cancel it.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 --
 -- 'tags', 'streamJournalToKinesis_tags' - The key-value pairs to add as tags to the stream that you want to
 -- create. Tag keys are case sensitive. Tag values are case sensitive and
@@ -128,7 +128,7 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
 --
 -- 'inclusiveStartTime', 'streamJournalToKinesis_inclusiveStartTime' - The inclusive start date and time from which to start streaming journal
 -- data. This parameter must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 --
 -- The @InclusiveStartTime@ cannot be in the future and must be before
 -- @ExclusiveEndTime@.
@@ -184,7 +184,7 @@ newStreamJournalToKinesis
 -- cancel it.
 --
 -- The @ExclusiveEndTime@ must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 streamJournalToKinesis_exclusiveEndTime :: Lens.Lens' StreamJournalToKinesis (Prelude.Maybe Prelude.UTCTime)
 streamJournalToKinesis_exclusiveEndTime = Lens.lens (\StreamJournalToKinesis' {exclusiveEndTime} -> exclusiveEndTime) (\s@StreamJournalToKinesis' {} a -> s {exclusiveEndTime = a} :: StreamJournalToKinesis) Prelude.. Lens.mapping Core._Time
 
@@ -206,7 +206,7 @@ streamJournalToKinesis_roleArn = Lens.lens (\StreamJournalToKinesis' {roleArn} -
 
 -- | The inclusive start date and time from which to start streaming journal
 -- data. This parameter must be in @ISO 8601@ date and time format and in
--- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@
+-- Universal Coordinated Time (UTC). For example: @2019-06-13T21:36:34Z@.
 --
 -- The @InclusiveStartTime@ cannot be in the future and must be before
 -- @ExclusiveEndTime@.
@@ -293,7 +293,8 @@ instance Core.ToQuery StreamJournalToKinesis where
 
 -- | /See:/ 'newStreamJournalToKinesisResponse' smart constructor.
 data StreamJournalToKinesisResponse = StreamJournalToKinesisResponse'
-  { -- | The unique ID that QLDB assigns to each QLDB journal stream.
+  { -- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
+    -- QLDB journal stream.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -308,7 +309,8 @@ data StreamJournalToKinesisResponse = StreamJournalToKinesisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamId', 'streamJournalToKinesisResponse_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
+-- 'streamId', 'streamJournalToKinesisResponse_streamId' - The UUID (represented in Base62-encoded text) that QLDB assigns to each
+-- QLDB journal stream.
 --
 -- 'httpStatus', 'streamJournalToKinesisResponse_httpStatus' - The response's http status code.
 newStreamJournalToKinesisResponse ::
@@ -322,7 +324,8 @@ newStreamJournalToKinesisResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique ID that QLDB assigns to each QLDB journal stream.
+-- | The UUID (represented in Base62-encoded text) that QLDB assigns to each
+-- QLDB journal stream.
 streamJournalToKinesisResponse_streamId :: Lens.Lens' StreamJournalToKinesisResponse (Prelude.Maybe Prelude.Text)
 streamJournalToKinesisResponse_streamId = Lens.lens (\StreamJournalToKinesisResponse' {streamId} -> streamId) (\s@StreamJournalToKinesisResponse' {} a -> s {streamId = a} :: StreamJournalToKinesisResponse)
 

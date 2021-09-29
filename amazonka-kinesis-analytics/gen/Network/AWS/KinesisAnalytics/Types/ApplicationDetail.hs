@@ -49,19 +49,19 @@ data ApplicationDetail = ApplicationDetail'
     -- streams with Amazon Kinesis Analytics applications, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
     cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
-    -- | Time stamp when the application version was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Describes the application output configuration. For more information,
     -- see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
     outputDescriptions :: Prelude.Maybe [OutputDescription],
+    -- | Time stamp when the application version was created.
+    createTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Describes the application input configuration. For more information, see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+    inputDescriptions :: Prelude.Maybe [InputDescription],
     -- | Describes reference data sources configured for the application. For
     -- more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
     referenceDataSourceDescriptions :: Prelude.Maybe [ReferenceDataSourceDescription],
-    -- | Describes the application input configuration. For more information, see
-    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-    inputDescriptions :: Prelude.Maybe [InputDescription],
     -- | Time stamp when the application was last updated.
     lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Name of the application.
@@ -93,17 +93,17 @@ data ApplicationDetail = ApplicationDetail'
 -- streams with Amazon Kinesis Analytics applications, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
 --
--- 'createTimestamp', 'applicationDetail_createTimestamp' - Time stamp when the application version was created.
---
 -- 'outputDescriptions', 'applicationDetail_outputDescriptions' - Describes the application output configuration. For more information,
 -- see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
 --
--- 'referenceDataSourceDescriptions', 'applicationDetail_referenceDataSourceDescriptions' - Describes reference data sources configured for the application. For
--- more information, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+-- 'createTimestamp', 'applicationDetail_createTimestamp' - Time stamp when the application version was created.
 --
 -- 'inputDescriptions', 'applicationDetail_inputDescriptions' - Describes the application input configuration. For more information, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+--
+-- 'referenceDataSourceDescriptions', 'applicationDetail_referenceDataSourceDescriptions' - Describes reference data sources configured for the application. For
+-- more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
 --
 -- 'lastUpdateTimestamp', 'applicationDetail_lastUpdateTimestamp' - Time stamp when the application was last updated.
@@ -136,10 +136,10 @@ newApplicationDetail
         applicationDescription = Prelude.Nothing,
         cloudWatchLoggingOptionDescriptions =
           Prelude.Nothing,
-        createTimestamp = Prelude.Nothing,
         outputDescriptions = Prelude.Nothing,
-        referenceDataSourceDescriptions = Prelude.Nothing,
+        createTimestamp = Prelude.Nothing,
         inputDescriptions = Prelude.Nothing,
+        referenceDataSourceDescriptions = Prelude.Nothing,
         lastUpdateTimestamp = Prelude.Nothing,
         applicationName = pApplicationName_,
         applicationARN = pApplicationARN_,
@@ -163,26 +163,26 @@ applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {appli
 applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [CloudWatchLoggingOptionDescription])
 applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | Time stamp when the application version was created.
-applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
-
 -- | Describes the application output configuration. For more information,
 -- see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
 applicationDetail_outputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [OutputDescription])
 applicationDetail_outputDescriptions = Lens.lens (\ApplicationDetail' {outputDescriptions} -> outputDescriptions) (\s@ApplicationDetail' {} a -> s {outputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | Describes reference data sources configured for the application. For
--- more information, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-applicationDetail_referenceDataSourceDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [ReferenceDataSourceDescription])
-applicationDetail_referenceDataSourceDescriptions = Lens.lens (\ApplicationDetail' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@ApplicationDetail' {} a -> s {referenceDataSourceDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
+-- | Time stamp when the application version was created.
+applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the application input configuration. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
 applicationDetail_inputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [InputDescription])
 applicationDetail_inputDescriptions = Lens.lens (\ApplicationDetail' {inputDescriptions} -> inputDescriptions) (\s@ApplicationDetail' {} a -> s {inputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Describes reference data sources configured for the application. For
+-- more information, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+applicationDetail_referenceDataSourceDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [ReferenceDataSourceDescription])
+applicationDetail_referenceDataSourceDescriptions = Lens.lens (\ApplicationDetail' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@ApplicationDetail' {} a -> s {referenceDataSourceDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Time stamp when the application was last updated.
 applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
@@ -215,14 +215,14 @@ instance Core.FromJSON ApplicationDetail where
             Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreateTimestamp")
             Prelude.<*> ( x Core..:? "OutputDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ReferenceDataSourceDescriptions"
+            Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<*> ( x Core..:? "InputDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "InputDescriptions"
+            Prelude.<*> ( x Core..:? "ReferenceDataSourceDescriptions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "LastUpdateTimestamp")

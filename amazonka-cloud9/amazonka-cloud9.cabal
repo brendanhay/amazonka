@@ -65,6 +65,8 @@ library
     Network.AWS.Cloud9.Types.EnvironmentMember
     Network.AWS.Cloud9.Types.EnvironmentStatus
     Network.AWS.Cloud9.Types.EnvironmentType
+    Network.AWS.Cloud9.Types.ManagedCredentialsAction
+    Network.AWS.Cloud9.Types.ManagedCredentialsStatus
     Network.AWS.Cloud9.Types.MemberPermissions
     Network.AWS.Cloud9.Types.Permissions
     Network.AWS.Cloud9.Types.Tag

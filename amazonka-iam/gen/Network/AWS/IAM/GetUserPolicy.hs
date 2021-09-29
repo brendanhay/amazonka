@@ -186,9 +186,9 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
     -- | The policy document.
     --
     -- IAM stores policies in JSON format. However, resources that were created
-    -- using AWS CloudFormation templates can be formatted in YAML. AWS
-    -- CloudFormation always converts a YAML policy to JSON format before
-    -- submitting it to IAM.
+    -- using CloudFormation templates can be formatted in YAML. CloudFormation
+    -- always converts a YAML policy to JSON format before submitting it to
+    -- IAM.
     policyDocument :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -210,9 +210,9 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
 -- 'policyDocument', 'getUserPolicyResponse_policyDocument' - The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 newGetUserPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -250,9 +250,9 @@ getUserPolicyResponse_policyName = Lens.lens (\GetUserPolicyResponse' {policyNam
 -- | The policy document.
 --
 -- IAM stores policies in JSON format. However, resources that were created
--- using AWS CloudFormation templates can be formatted in YAML. AWS
--- CloudFormation always converts a YAML policy to JSON format before
--- submitting it to IAM.
+-- using CloudFormation templates can be formatted in YAML. CloudFormation
+-- always converts a YAML policy to JSON format before submitting it to
+-- IAM.
 getUserPolicyResponse_policyDocument :: Lens.Lens' GetUserPolicyResponse Prelude.Text
 getUserPolicyResponse_policyDocument = Lens.lens (\GetUserPolicyResponse' {policyDocument} -> policyDocument) (\s@GetUserPolicyResponse' {} a -> s {policyDocument = a} :: GetUserPolicyResponse)
 

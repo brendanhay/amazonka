@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventContextDataType' smart constructor.
 data EventContextDataType = EventContextDataType'
-  { -- | The user\'s IP address.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+  { -- | The user\'s device name.
+    deviceName :: Prelude.Maybe Prelude.Text,
     -- | The user\'s city.
     city :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s device name.
-    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s IP address.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The user\'s time zone.
     timezone :: Prelude.Maybe Prelude.Text,
     -- | The user\'s country.
@@ -49,11 +49,11 @@ data EventContextDataType = EventContextDataType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipAddress', 'eventContextDataType_ipAddress' - The user\'s IP address.
+-- 'deviceName', 'eventContextDataType_deviceName' - The user\'s device name.
 --
 -- 'city', 'eventContextDataType_city' - The user\'s city.
 --
--- 'deviceName', 'eventContextDataType_deviceName' - The user\'s device name.
+-- 'ipAddress', 'eventContextDataType_ipAddress' - The user\'s IP address.
 --
 -- 'timezone', 'eventContextDataType_timezone' - The user\'s time zone.
 --
@@ -62,24 +62,24 @@ newEventContextDataType ::
   EventContextDataType
 newEventContextDataType =
   EventContextDataType'
-    { ipAddress = Prelude.Nothing,
+    { deviceName = Prelude.Nothing,
       city = Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       timezone = Prelude.Nothing,
       country = Prelude.Nothing
     }
 
--- | The user\'s IP address.
-eventContextDataType_ipAddress :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
-eventContextDataType_ipAddress = Lens.lens (\EventContextDataType' {ipAddress} -> ipAddress) (\s@EventContextDataType' {} a -> s {ipAddress = a} :: EventContextDataType)
+-- | The user\'s device name.
+eventContextDataType_deviceName :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
+eventContextDataType_deviceName = Lens.lens (\EventContextDataType' {deviceName} -> deviceName) (\s@EventContextDataType' {} a -> s {deviceName = a} :: EventContextDataType)
 
 -- | The user\'s city.
 eventContextDataType_city :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
 eventContextDataType_city = Lens.lens (\EventContextDataType' {city} -> city) (\s@EventContextDataType' {} a -> s {city = a} :: EventContextDataType)
 
--- | The user\'s device name.
-eventContextDataType_deviceName :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
-eventContextDataType_deviceName = Lens.lens (\EventContextDataType' {deviceName} -> deviceName) (\s@EventContextDataType' {} a -> s {deviceName = a} :: EventContextDataType)
+-- | The user\'s IP address.
+eventContextDataType_ipAddress :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
+eventContextDataType_ipAddress = Lens.lens (\EventContextDataType' {ipAddress} -> ipAddress) (\s@EventContextDataType' {} a -> s {ipAddress = a} :: EventContextDataType)
 
 -- | The user\'s time zone.
 eventContextDataType_timezone :: Lens.Lens' EventContextDataType (Prelude.Maybe Prelude.Text)
@@ -95,9 +95,9 @@ instance Core.FromJSON EventContextDataType where
       "EventContextDataType"
       ( \x ->
           EventContextDataType'
-            Prelude.<$> (x Core..:? "IpAddress")
+            Prelude.<$> (x Core..:? "DeviceName")
             Prelude.<*> (x Core..:? "City")
-            Prelude.<*> (x Core..:? "DeviceName")
+            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "Country")
       )

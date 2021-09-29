@@ -14,6 +14,25 @@
 module Network.AWS.WorkMail.Lens
   ( -- * Operations
 
+    -- ** DescribeResource
+    describeResource_organizationId,
+    describeResource_resourceId,
+    describeResourceResponse_resourceId,
+    describeResourceResponse_enabledDate,
+    describeResourceResponse_name,
+    describeResourceResponse_state,
+    describeResourceResponse_disabledDate,
+    describeResourceResponse_email,
+    describeResourceResponse_bookingOptions,
+    describeResourceResponse_type,
+    describeResourceResponse_httpStatus,
+
+    -- ** DeleteAlias
+    deleteAlias_organizationId,
+    deleteAlias_entityId,
+    deleteAlias_alias,
+    deleteAliasResponse_httpStatus,
+
     -- ** CreateOrganization
     createOrganization_enableInteroperability,
     createOrganization_domains,
@@ -23,12 +42,6 @@ module Network.AWS.WorkMail.Lens
     createOrganization_alias,
     createOrganizationResponse_organizationId,
     createOrganizationResponse_httpStatus,
-
-    -- ** DeleteAlias
-    deleteAlias_organizationId,
-    deleteAlias_entityId,
-    deleteAlias_alias,
-    deleteAliasResponse_httpStatus,
 
     -- ** StartMailboxExportJob
     startMailboxExportJob_description,
@@ -42,18 +55,10 @@ module Network.AWS.WorkMail.Lens
     startMailboxExportJobResponse_jobId,
     startMailboxExportJobResponse_httpStatus,
 
-    -- ** DescribeResource
-    describeResource_organizationId,
-    describeResource_resourceId,
-    describeResourceResponse_resourceId,
-    describeResourceResponse_enabledDate,
-    describeResourceResponse_state,
-    describeResourceResponse_name,
-    describeResourceResponse_email,
-    describeResourceResponse_disabledDate,
-    describeResourceResponse_bookingOptions,
-    describeResourceResponse_type,
-    describeResourceResponse_httpStatus,
+    -- ** DeleteAccessControlRule
+    deleteAccessControlRule_organizationId,
+    deleteAccessControlRule_name,
+    deleteAccessControlRuleResponse_httpStatus,
 
     -- ** ListResourceDelegates
     listResourceDelegates_nextToken,
@@ -63,11 +68,6 @@ module Network.AWS.WorkMail.Lens
     listResourceDelegatesResponse_nextToken,
     listResourceDelegatesResponse_delegates,
     listResourceDelegatesResponse_httpStatus,
-
-    -- ** DeleteAccessControlRule
-    deleteAccessControlRule_organizationId,
-    deleteAccessControlRule_name,
-    deleteAccessControlRuleResponse_httpStatus,
 
     -- ** DisassociateDelegateFromResource
     disassociateDelegateFromResource_organizationId,
@@ -91,6 +91,13 @@ module Network.AWS.WorkMail.Lens
     listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
 
+    -- ** CreateResource
+    createResource_organizationId,
+    createResource_name,
+    createResource_type,
+    createResourceResponse_resourceId,
+    createResourceResponse_httpStatus,
+
     -- ** ListMailboxExportJobs
     listMailboxExportJobs_nextToken,
     listMailboxExportJobs_maxResults,
@@ -101,8 +108,8 @@ module Network.AWS.WorkMail.Lens
 
     -- ** DescribeOrganization
     describeOrganization_organizationId,
-    describeOrganizationResponse_organizationId,
     describeOrganizationResponse_alias,
+    describeOrganizationResponse_organizationId,
     describeOrganizationResponse_arn,
     describeOrganizationResponse_defaultMailDomain,
     describeOrganizationResponse_state,
@@ -112,13 +119,6 @@ module Network.AWS.WorkMail.Lens
     describeOrganizationResponse_errorMessage,
     describeOrganizationResponse_httpStatus,
 
-    -- ** CreateResource
-    createResource_organizationId,
-    createResource_name,
-    createResource_type,
-    createResourceResponse_resourceId,
-    createResourceResponse_httpStatus,
-
     -- ** UpdateResource
     updateResource_name,
     updateResource_bookingOptions,
@@ -126,21 +126,26 @@ module Network.AWS.WorkMail.Lens
     updateResource_resourceId,
     updateResourceResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
     -- ** DeleteResource
     deleteResource_organizationId,
     deleteResource_resourceId,
     deleteResourceResponse_httpStatus,
+
+    -- ** ListMobileDeviceAccessRules
+    listMobileDeviceAccessRules_organizationId,
+    listMobileDeviceAccessRulesResponse_rules,
+    listMobileDeviceAccessRulesResponse_httpStatus,
 
     -- ** CreateGroup
     createGroup_organizationId,
     createGroup_name,
     createGroupResponse_groupId,
     createGroupResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceARN,
@@ -153,14 +158,6 @@ module Network.AWS.WorkMail.Lens
     associateMemberToGroup_memberId,
     associateMemberToGroupResponse_httpStatus,
 
-    -- ** CreateUser
-    createUser_organizationId,
-    createUser_name,
-    createUser_displayName,
-    createUser_password,
-    createUserResponse_userId,
-    createUserResponse_httpStatus,
-
     -- ** PutRetentionPolicy
     putRetentionPolicy_id,
     putRetentionPolicy_description,
@@ -169,6 +166,14 @@ module Network.AWS.WorkMail.Lens
     putRetentionPolicy_folderConfigurations,
     putRetentionPolicyResponse_httpStatus,
 
+    -- ** CreateUser
+    createUser_organizationId,
+    createUser_name,
+    createUser_displayName,
+    createUser_password,
+    createUserResponse_userId,
+    createUserResponse_httpStatus,
+
     -- ** PutMailboxPermissions
     putMailboxPermissions_organizationId,
     putMailboxPermissions_entityId,
@@ -176,11 +181,15 @@ module Network.AWS.WorkMail.Lens
     putMailboxPermissions_permissionValues,
     putMailboxPermissionsResponse_httpStatus,
 
-    -- ** AssociateDelegateToResource
-    associateDelegateToResource_organizationId,
-    associateDelegateToResource_resourceId,
-    associateDelegateToResource_entityId,
-    associateDelegateToResourceResponse_httpStatus,
+    -- ** GetMobileDeviceAccessEffect
+    getMobileDeviceAccessEffect_deviceModel,
+    getMobileDeviceAccessEffect_deviceUserAgent,
+    getMobileDeviceAccessEffect_deviceOperatingSystem,
+    getMobileDeviceAccessEffect_deviceType,
+    getMobileDeviceAccessEffect_organizationId,
+    getMobileDeviceAccessEffectResponse_matchedRules,
+    getMobileDeviceAccessEffectResponse_effect,
+    getMobileDeviceAccessEffectResponse_httpStatus,
 
     -- ** RegisterToWorkMail
     registerToWorkMail_organizationId,
@@ -202,16 +211,22 @@ module Network.AWS.WorkMail.Lens
     describeMailboxExportJobResponse_estimatedProgress,
     describeMailboxExportJobResponse_roleArn,
     describeMailboxExportJobResponse_entityId,
-    describeMailboxExportJobResponse_startTime,
     describeMailboxExportJobResponse_s3Path,
+    describeMailboxExportJobResponse_startTime,
     describeMailboxExportJobResponse_endTime,
-    describeMailboxExportJobResponse_state,
     describeMailboxExportJobResponse_kmsKeyArn,
+    describeMailboxExportJobResponse_state,
     describeMailboxExportJobResponse_s3BucketName,
-    describeMailboxExportJobResponse_errorInfo,
     describeMailboxExportJobResponse_description,
+    describeMailboxExportJobResponse_errorInfo,
     describeMailboxExportJobResponse_s3Prefix,
     describeMailboxExportJobResponse_httpStatus,
+
+    -- ** AssociateDelegateToResource
+    associateDelegateToResource_organizationId,
+    associateDelegateToResource_resourceId,
+    associateDelegateToResource_entityId,
+    associateDelegateToResourceResponse_httpStatus,
 
     -- ** ListOrganizations
     listOrganizations_nextToken,
@@ -233,8 +248,8 @@ module Network.AWS.WorkMail.Lens
 
     -- ** PutAccessControlRule
     putAccessControlRule_notIpRanges,
-    putAccessControlRule_ipRanges,
     putAccessControlRule_actions,
+    putAccessControlRule_ipRanges,
     putAccessControlRule_userIds,
     putAccessControlRule_notActions,
     putAccessControlRule_notUserIds,
@@ -249,11 +264,11 @@ module Network.AWS.WorkMail.Lens
     describeUser_userId,
     describeUserResponse_enabledDate,
     describeUserResponse_userRole,
-    describeUserResponse_state,
     describeUserResponse_name,
+    describeUserResponse_state,
+    describeUserResponse_disabledDate,
     describeUserResponse_email,
     describeUserResponse_userId,
-    describeUserResponse_disabledDate,
     describeUserResponse_displayName,
     describeUserResponse_httpStatus,
 
@@ -263,10 +278,27 @@ module Network.AWS.WorkMail.Lens
     cancelMailboxExportJob_organizationId,
     cancelMailboxExportJobResponse_httpStatus,
 
-    -- ** DeregisterFromWorkMail
-    deregisterFromWorkMail_organizationId,
-    deregisterFromWorkMail_entityId,
-    deregisterFromWorkMailResponse_httpStatus,
+    -- ** CreateMobileDeviceAccessRule
+    createMobileDeviceAccessRule_notDeviceModels,
+    createMobileDeviceAccessRule_notDeviceOperatingSystems,
+    createMobileDeviceAccessRule_deviceUserAgents,
+    createMobileDeviceAccessRule_deviceModels,
+    createMobileDeviceAccessRule_notDeviceTypes,
+    createMobileDeviceAccessRule_description,
+    createMobileDeviceAccessRule_notDeviceUserAgents,
+    createMobileDeviceAccessRule_deviceTypes,
+    createMobileDeviceAccessRule_deviceOperatingSystems,
+    createMobileDeviceAccessRule_clientToken,
+    createMobileDeviceAccessRule_organizationId,
+    createMobileDeviceAccessRule_name,
+    createMobileDeviceAccessRule_effect,
+    createMobileDeviceAccessRuleResponse_mobileDeviceAccessRuleId,
+    createMobileDeviceAccessRuleResponse_httpStatus,
+
+    -- ** DeleteGroup
+    deleteGroup_organizationId,
+    deleteGroup_groupId,
+    deleteGroupResponse_httpStatus,
 
     -- ** ListGroupMembers
     listGroupMembers_nextToken,
@@ -277,11 +309,6 @@ module Network.AWS.WorkMail.Lens
     listGroupMembersResponse_members,
     listGroupMembersResponse_httpStatus,
 
-    -- ** DeleteGroup
-    deleteGroup_organizationId,
-    deleteGroup_groupId,
-    deleteGroupResponse_httpStatus,
-
     -- ** ListMailboxPermissions
     listMailboxPermissions_nextToken,
     listMailboxPermissions_maxResults,
@@ -291,17 +318,43 @@ module Network.AWS.WorkMail.Lens
     listMailboxPermissionsResponse_permissions,
     listMailboxPermissionsResponse_httpStatus,
 
-    -- ** DisassociateMemberFromGroup
-    disassociateMemberFromGroup_organizationId,
-    disassociateMemberFromGroup_groupId,
-    disassociateMemberFromGroup_memberId,
-    disassociateMemberFromGroupResponse_httpStatus,
+    -- ** DeregisterFromWorkMail
+    deregisterFromWorkMail_organizationId,
+    deregisterFromWorkMail_entityId,
+    deregisterFromWorkMailResponse_httpStatus,
 
     -- ** UpdateMailboxQuota
     updateMailboxQuota_organizationId,
     updateMailboxQuota_userId,
     updateMailboxQuota_mailboxQuota,
     updateMailboxQuotaResponse_httpStatus,
+
+    -- ** UpdateMobileDeviceAccessRule
+    updateMobileDeviceAccessRule_notDeviceModels,
+    updateMobileDeviceAccessRule_notDeviceOperatingSystems,
+    updateMobileDeviceAccessRule_deviceUserAgents,
+    updateMobileDeviceAccessRule_deviceModels,
+    updateMobileDeviceAccessRule_notDeviceTypes,
+    updateMobileDeviceAccessRule_description,
+    updateMobileDeviceAccessRule_notDeviceUserAgents,
+    updateMobileDeviceAccessRule_deviceTypes,
+    updateMobileDeviceAccessRule_deviceOperatingSystems,
+    updateMobileDeviceAccessRule_organizationId,
+    updateMobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    updateMobileDeviceAccessRule_name,
+    updateMobileDeviceAccessRule_effect,
+    updateMobileDeviceAccessRuleResponse_httpStatus,
+
+    -- ** DeleteMobileDeviceAccessRule
+    deleteMobileDeviceAccessRule_organizationId,
+    deleteMobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    deleteMobileDeviceAccessRuleResponse_httpStatus,
+
+    -- ** DisassociateMemberFromGroup
+    disassociateMemberFromGroup_organizationId,
+    disassociateMemberFromGroup_groupId,
+    disassociateMemberFromGroup_memberId,
+    disassociateMemberFromGroupResponse_httpStatus,
 
     -- ** ListResources
     listResources_nextToken,
@@ -311,10 +364,12 @@ module Network.AWS.WorkMail.Lens
     listResourcesResponse_resources,
     listResourcesResponse_httpStatus,
 
-    -- ** DeleteUser
-    deleteUser_organizationId,
-    deleteUser_userId,
-    deleteUserResponse_httpStatus,
+    -- ** GetMailboxDetails
+    getMailboxDetails_organizationId,
+    getMailboxDetails_userId,
+    getMailboxDetailsResponse_mailboxQuota,
+    getMailboxDetailsResponse_mailboxSize,
+    getMailboxDetailsResponse_httpStatus,
 
     -- ** ListUsers
     listUsers_nextToken,
@@ -324,12 +379,15 @@ module Network.AWS.WorkMail.Lens
     listUsersResponse_users,
     listUsersResponse_httpStatus,
 
-    -- ** GetMailboxDetails
-    getMailboxDetails_organizationId,
-    getMailboxDetails_userId,
-    getMailboxDetailsResponse_mailboxQuota,
-    getMailboxDetailsResponse_mailboxSize,
-    getMailboxDetailsResponse_httpStatus,
+    -- ** DeleteUser
+    deleteUser_organizationId,
+    deleteUser_userId,
+    deleteUserResponse_httpStatus,
+
+    -- ** DeleteRetentionPolicy
+    deleteRetentionPolicy_organizationId,
+    deleteRetentionPolicy_id,
+    deleteRetentionPolicyResponse_httpStatus,
 
     -- ** DeleteMailboxPermissions
     deleteMailboxPermissions_organizationId,
@@ -337,41 +395,11 @@ module Network.AWS.WorkMail.Lens
     deleteMailboxPermissions_granteeId,
     deleteMailboxPermissionsResponse_httpStatus,
 
-    -- ** DeleteRetentionPolicy
-    deleteRetentionPolicy_organizationId,
-    deleteRetentionPolicy_id,
-    deleteRetentionPolicyResponse_httpStatus,
-
-    -- ** DescribeGroup
-    describeGroup_organizationId,
-    describeGroup_groupId,
-    describeGroupResponse_enabledDate,
-    describeGroupResponse_groupId,
-    describeGroupResponse_state,
-    describeGroupResponse_name,
-    describeGroupResponse_email,
-    describeGroupResponse_disabledDate,
-    describeGroupResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** CreateAlias
-    createAlias_organizationId,
-    createAlias_entityId,
-    createAlias_alias,
-    createAliasResponse_httpStatus,
-
-    -- ** GetAccessControlEffect
-    getAccessControlEffect_organizationId,
-    getAccessControlEffect_ipAddress,
-    getAccessControlEffect_action,
-    getAccessControlEffect_userId,
-    getAccessControlEffectResponse_matchedRules,
-    getAccessControlEffectResponse_effect,
-    getAccessControlEffectResponse_httpStatus,
+    -- ** ResetPassword
+    resetPassword_organizationId,
+    resetPassword_userId,
+    resetPassword_password,
+    resetPasswordResponse_httpStatus,
 
     -- ** ListAliases
     listAliases_nextToken,
@@ -382,11 +410,36 @@ module Network.AWS.WorkMail.Lens
     listAliasesResponse_aliases,
     listAliasesResponse_httpStatus,
 
-    -- ** ResetPassword
-    resetPassword_organizationId,
-    resetPassword_userId,
-    resetPassword_password,
-    resetPasswordResponse_httpStatus,
+    -- ** DescribeGroup
+    describeGroup_organizationId,
+    describeGroup_groupId,
+    describeGroupResponse_enabledDate,
+    describeGroupResponse_groupId,
+    describeGroupResponse_name,
+    describeGroupResponse_state,
+    describeGroupResponse_disabledDate,
+    describeGroupResponse_email,
+    describeGroupResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** GetAccessControlEffect
+    getAccessControlEffect_organizationId,
+    getAccessControlEffect_ipAddress,
+    getAccessControlEffect_action,
+    getAccessControlEffect_userId,
+    getAccessControlEffectResponse_matchedRules,
+    getAccessControlEffectResponse_effect,
+    getAccessControlEffectResponse_httpStatus,
+
+    -- ** CreateAlias
+    createAlias_organizationId,
+    createAlias_entityId,
+    createAlias_alias,
+    createAliasResponse_httpStatus,
 
     -- * Types
 
@@ -394,11 +447,11 @@ module Network.AWS.WorkMail.Lens
     accessControlRule_effect,
     accessControlRule_dateCreated,
     accessControlRule_notIpRanges,
+    accessControlRule_actions,
     accessControlRule_ipRanges,
     accessControlRule_dateModified,
-    accessControlRule_actions,
-    accessControlRule_userIds,
     accessControlRule_name,
+    accessControlRule_userIds,
     accessControlRule_description,
     accessControlRule_notActions,
     accessControlRule_notUserIds,
@@ -424,16 +477,16 @@ module Network.AWS.WorkMail.Lens
     -- ** Group
     group_enabledDate,
     group_id,
-    group_state,
     group_name,
-    group_email,
+    group_state,
     group_disabledDate,
+    group_email,
 
     -- ** MailboxExportJob
     mailboxExportJob_estimatedProgress,
     mailboxExportJob_entityId,
-    mailboxExportJob_startTime,
     mailboxExportJob_s3Path,
+    mailboxExportJob_startTime,
     mailboxExportJob_endTime,
     mailboxExportJob_state,
     mailboxExportJob_s3BucketName,
@@ -443,14 +496,34 @@ module Network.AWS.WorkMail.Lens
     -- ** Member
     member_enabledDate,
     member_id,
-    member_state,
     member_name,
+    member_state,
     member_disabledDate,
     member_type,
 
+    -- ** MobileDeviceAccessMatchedRule
+    mobileDeviceAccessMatchedRule_name,
+    mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId,
+
+    -- ** MobileDeviceAccessRule
+    mobileDeviceAccessRule_effect,
+    mobileDeviceAccessRule_dateCreated,
+    mobileDeviceAccessRule_notDeviceModels,
+    mobileDeviceAccessRule_notDeviceOperatingSystems,
+    mobileDeviceAccessRule_deviceUserAgents,
+    mobileDeviceAccessRule_dateModified,
+    mobileDeviceAccessRule_name,
+    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessRule_deviceModels,
+    mobileDeviceAccessRule_notDeviceTypes,
+    mobileDeviceAccessRule_description,
+    mobileDeviceAccessRule_notDeviceUserAgents,
+    mobileDeviceAccessRule_deviceTypes,
+    mobileDeviceAccessRule_deviceOperatingSystems,
+
     -- ** OrganizationSummary
-    organizationSummary_organizationId,
     organizationSummary_alias,
+    organizationSummary_organizationId,
     organizationSummary_defaultMailDomain,
     organizationSummary_state,
     organizationSummary_errorMessage,
@@ -463,10 +536,10 @@ module Network.AWS.WorkMail.Lens
     -- ** Resource
     resource_enabledDate,
     resource_id,
-    resource_state,
     resource_name,
-    resource_email,
+    resource_state,
     resource_disabledDate,
+    resource_email,
     resource_type,
 
     -- ** Tag
@@ -477,10 +550,10 @@ module Network.AWS.WorkMail.Lens
     user_enabledDate,
     user_id,
     user_userRole,
-    user_state,
     user_name,
-    user_email,
+    user_state,
     user_disabledDate,
+    user_email,
     user_displayName,
   )
 where
@@ -490,6 +563,7 @@ import Network.AWS.WorkMail.AssociateMemberToGroup
 import Network.AWS.WorkMail.CancelMailboxExportJob
 import Network.AWS.WorkMail.CreateAlias
 import Network.AWS.WorkMail.CreateGroup
+import Network.AWS.WorkMail.CreateMobileDeviceAccessRule
 import Network.AWS.WorkMail.CreateOrganization
 import Network.AWS.WorkMail.CreateResource
 import Network.AWS.WorkMail.CreateUser
@@ -497,6 +571,7 @@ import Network.AWS.WorkMail.DeleteAccessControlRule
 import Network.AWS.WorkMail.DeleteAlias
 import Network.AWS.WorkMail.DeleteGroup
 import Network.AWS.WorkMail.DeleteMailboxPermissions
+import Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
 import Network.AWS.WorkMail.DeleteOrganization
 import Network.AWS.WorkMail.DeleteResource
 import Network.AWS.WorkMail.DeleteRetentionPolicy
@@ -512,12 +587,14 @@ import Network.AWS.WorkMail.DisassociateMemberFromGroup
 import Network.AWS.WorkMail.GetAccessControlEffect
 import Network.AWS.WorkMail.GetDefaultRetentionPolicy
 import Network.AWS.WorkMail.GetMailboxDetails
+import Network.AWS.WorkMail.GetMobileDeviceAccessEffect
 import Network.AWS.WorkMail.ListAccessControlRules
 import Network.AWS.WorkMail.ListAliases
 import Network.AWS.WorkMail.ListGroupMembers
 import Network.AWS.WorkMail.ListGroups
 import Network.AWS.WorkMail.ListMailboxExportJobs
 import Network.AWS.WorkMail.ListMailboxPermissions
+import Network.AWS.WorkMail.ListMobileDeviceAccessRules
 import Network.AWS.WorkMail.ListOrganizations
 import Network.AWS.WorkMail.ListResourceDelegates
 import Network.AWS.WorkMail.ListResources
@@ -538,6 +615,8 @@ import Network.AWS.WorkMail.Types.FolderConfiguration
 import Network.AWS.WorkMail.Types.Group
 import Network.AWS.WorkMail.Types.MailboxExportJob
 import Network.AWS.WorkMail.Types.Member
+import Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
+import Network.AWS.WorkMail.Types.MobileDeviceAccessRule
 import Network.AWS.WorkMail.Types.OrganizationSummary
 import Network.AWS.WorkMail.Types.Permission
 import Network.AWS.WorkMail.Types.Resource
@@ -545,5 +624,6 @@ import Network.AWS.WorkMail.Types.Tag
 import Network.AWS.WorkMail.Types.User
 import Network.AWS.WorkMail.UntagResource
 import Network.AWS.WorkMail.UpdateMailboxQuota
+import Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
 import Network.AWS.WorkMail.UpdatePrimaryEmailAddress
 import Network.AWS.WorkMail.UpdateResource

@@ -20,6 +20,7 @@
 module Network.AWS.EMR.Types.StudioSummary where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.EMR.Types.AuthMode
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -31,6 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 data StudioSummary = StudioSummary'
   { -- | The time when the Amazon EMR Studio was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
+    -- Services SSO.
+    authMode :: Prelude.Maybe AuthMode,
     -- | The name of the Amazon EMR Studio.
     name :: Prelude.Maybe Prelude.Text,
     -- | The detailed description of the Amazon EMR Studio.
@@ -55,6 +59,9 @@ data StudioSummary = StudioSummary'
 --
 -- 'creationTime', 'studioSummary_creationTime' - The time when the Amazon EMR Studio was created.
 --
+-- 'authMode', 'studioSummary_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web
+-- Services SSO.
+--
 -- 'name', 'studioSummary_name' - The name of the Amazon EMR Studio.
 --
 -- 'description', 'studioSummary_description' - The detailed description of the Amazon EMR Studio.
@@ -70,6 +77,7 @@ newStudioSummary ::
 newStudioSummary =
   StudioSummary'
     { creationTime = Prelude.Nothing,
+      authMode = Prelude.Nothing,
       name = Prelude.Nothing,
       description = Prelude.Nothing,
       url = Prelude.Nothing,
@@ -80,6 +88,11 @@ newStudioSummary =
 -- | The time when the Amazon EMR Studio was created.
 studioSummary_creationTime :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.UTCTime)
 studioSummary_creationTime = Lens.lens (\StudioSummary' {creationTime} -> creationTime) (\s@StudioSummary' {} a -> s {creationTime = a} :: StudioSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Specifies whether the Studio authenticates users using IAM or Amazon Web
+-- Services SSO.
+studioSummary_authMode :: Lens.Lens' StudioSummary (Prelude.Maybe AuthMode)
+studioSummary_authMode = Lens.lens (\StudioSummary' {authMode} -> authMode) (\s@StudioSummary' {} a -> s {authMode = a} :: StudioSummary)
 
 -- | The name of the Amazon EMR Studio.
 studioSummary_name :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
@@ -109,6 +122,7 @@ instance Core.FromJSON StudioSummary where
       ( \x ->
           StudioSummary'
             Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "AuthMode")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "Url")
